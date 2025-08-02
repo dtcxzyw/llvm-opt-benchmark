@@ -4469,7 +4469,7 @@ _get_current_module.exit.i:                       ; preds = %10, %7, %4
 _get_current_module_state.exit.thread:            ; preds = %1, %_get_current_module.exit.i
   %12 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !27
   tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.61) #7
-  br label %37
+  br label %.critedge
 
 13:                                               ; preds = %_get_current_module.exit.i
   %14 = tail call ptr @PyModule_GetState(ptr noundef nonnull %5) #7
@@ -4489,7 +4489,7 @@ _get_current_module_state.exit.thread:            ; preds = %1, %_get_current_mo
 
 _get_current_module_state.exit:                   ; preds = %13, %16, %19
   %20 = icmp eq ptr %14, null
-  br i1 %20, label %37, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %_get_current_module_state.exit
   %22 = icmp eq i32 %0, 1
@@ -4497,7 +4497,7 @@ _get_current_module_state.exit:                   ; preds = %13, %16, %19
   %.013.in = getelementptr inbounds nuw i8, ptr %14, i64 %.013.in.idx
   %.013 = load ptr, ptr %.013.in, align 8, !tbaa !112
   %23 = icmp eq ptr %.013, null
-  br i1 %23, label %24, label %37
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %21
   %25 = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.59) #7
@@ -4508,30 +4508,30 @@ _get_current_module_state.exit:                   ; preds = %13, %16, %19
   tail call void @PyErr_Clear() #7
   %28 = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.60) #7
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %37, label %30
+  br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %27, %24
   %.0 = phi ptr [ %28, %27 ], [ %25, %24 ]
   %31 = load i32, ptr %.0, align 8, !tbaa !68
   %.not.i = icmp sgt i32 %31, -1
-  br i1 %.not.i, label %32, label %36
+  br i1 %.not.i, label %32, label %Py_DECREF.exit
 
 32:                                               ; preds = %30
   %33 = add nsw i32 %31, -1
   store i32 %33, ptr %.0, align 8, !tbaa !68
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %36
+  br i1 %34, label %35, label %Py_DECREF.exit
 
 35:                                               ; preds = %32
   tail call void @_Py_Dealloc(ptr noundef nonnull %.0) #7
-  br label %36
+  br label %Py_DECREF.exit
 
-36:                                               ; preds = %35, %32, %30
+Py_DECREF.exit:                                   ; preds = %30, %32, %35
   %.3 = load ptr, ptr %.013.in, align 8, !tbaa !112
-  br label %37
+  br label %.critedge
 
-37:                                               ; preds = %36, %27, %_get_current_module_state.exit.thread, %21, %_get_current_module_state.exit
-  %.015 = phi ptr [ null, %_get_current_module_state.exit ], [ %.013, %21 ], [ null, %_get_current_module_state.exit.thread ], [ %.3, %36 ], [ null, %27 ]
+.critedge:                                        ; preds = %_get_current_module_state.exit.thread, %Py_DECREF.exit, %21, %27, %_get_current_module_state.exit
+  %.015 = phi ptr [ null, %_get_current_module_state.exit ], [ %.3, %Py_DECREF.exit ], [ %.013, %21 ], [ null, %27 ], [ null, %_get_current_module_state.exit.thread ]
   ret ptr %.015
 }
 

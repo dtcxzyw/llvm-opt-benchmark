@@ -435,7 +435,7 @@ rose_ctx_check_signature.exit.thread:             ; preds = %rose_ctx_check_sign
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden double @asn1_get_real(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp slt i32 %1, 1
-  br i1 %3, label %69, label %4
+  br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1
@@ -443,7 +443,7 @@ define hidden double @asn1_get_real(ptr noundef %0, i32 noundef %1) local_unname
   %7 = add nsw i32 %1, -1
   %8 = zext i8 %5 to i32
   %.not = icmp sgt i8 %5, -1
-  br i1 %.not, label %52, label %9
+  br i1 %.not, label %60, label %9
 
 9:                                                ; preds = %4
   %10 = and i32 %8, 64
@@ -454,7 +454,7 @@ define hidden double @asn1_get_real(ptr noundef %0, i32 noundef %1) local_unname
     i32 0, label %15
     i32 1, label %13
     i32 2, label %14
-    i32 3, label %69
+    i32 3, label %.critedge
   ]
 
 13:                                               ; preds = %9
@@ -494,111 +494,111 @@ default.unreachable:                              ; preds = %9
   br i1 %.not66, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %25, %.split.us
-  %.04872.us = phi i32 [ %31, %.split.us ], [ 0, %25 ]
-  %.05071.us = phi ptr [ %32, %.split.us ], [ %6, %25 ]
-  %.05670.us = phi i32 [ %33, %.split.us ], [ 0, %25 ]
-  %27 = shl i32 %.04872.us, 8
-  %28 = load i8, ptr %.05071.us, align 1
+  %.04869.us = phi i32 [ %31, %.split.us ], [ 0, %25 ]
+  %.05068.us = phi ptr [ %32, %.split.us ], [ %6, %25 ]
+  %.05667.us = phi i32 [ %33, %.split.us ], [ 0, %25 ]
+  %27 = shl i32 %.04869.us, 8
+  %28 = load i8, ptr %.05068.us, align 1
   %29 = xor i8 %28, -1
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
-  %32 = getelementptr i8, ptr %.05071.us, i64 1
-  %33 = add nuw nsw i32 %.05670.us, 1
-  %exitcond86.not = icmp eq i32 %33, %20
-  br i1 %exitcond86.not, label %.split74.us, label %.split.us, !llvm.loop !12
+  %32 = getelementptr i8, ptr %.05068.us, i64 1
+  %33 = add nuw nsw i32 %.05667.us, 1
+  %exitcond83.not = icmp eq i32 %33, %20
+  br i1 %exitcond83.not, label %.split71.us, label %.split.us, !llvm.loop !12
 
 .split:                                           ; preds = %25, %.split
-  %.04872 = phi i32 [ %37, %.split ], [ 0, %25 ]
-  %.05071 = phi ptr [ %38, %.split ], [ %6, %25 ]
-  %.05670 = phi i32 [ %39, %.split ], [ 0, %25 ]
-  %34 = shl i32 %.04872, 8
-  %35 = load i8, ptr %.05071, align 1
+  %.04869 = phi i32 [ %37, %.split ], [ 0, %25 ]
+  %.05068 = phi ptr [ %38, %.split ], [ %6, %25 ]
+  %.05667 = phi i32 [ %39, %.split ], [ 0, %25 ]
+  %34 = shl i32 %.04869, 8
+  %35 = load i8, ptr %.05068, align 1
   %36 = zext i8 %35 to i32
   %37 = or disjoint i32 %34, %36
-  %38 = getelementptr i8, ptr %.05071, i64 1
-  %39 = add nuw nsw i32 %.05670, 1
+  %38 = getelementptr i8, ptr %.05068, i64 1
+  %39 = add nuw nsw i32 %.05667, 1
   %exitcond.not = icmp eq i32 %39, %20
-  br i1 %exitcond.not, label %.split74.us, label %.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.split71.us, label %.split, !llvm.loop !14
 
-.split74.us:                                      ; preds = %.split, %.split.us
-  %.us-phi75 = phi i32 [ %31, %.split.us ], [ %37, %.split ]
+.split71.us:                                      ; preds = %.split, %.split.us
+  %.us-phi72 = phi i32 [ %31, %.split.us ], [ %37, %.split ]
   %.lobit = ashr i8 %26, 7
   %40 = sext i8 %.lobit to i32
-  %spec.select = xor i32 %.us-phi75, %40
+  %spec.select = xor i32 %.us-phi72, %40
   %41 = trunc i32 %7 to i8
   %42 = sub i8 %41, %19
   %43 = zext i8 %42 to i32
   %44 = icmp ult i8 %42, 9
   br i1 %44, label %.preheader, label %45
 
-.preheader:                                       ; preds = %.split74.us
-  %.not79 = icmp eq i8 %19, %41
-  br i1 %.not79, label %._crit_edge, label %.lr.ph.preheader
+.preheader:                                       ; preds = %.split71.us
+  %.not76 = icmp eq i8 %19, %41
+  br i1 %.not76, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.pn88.in = and i8 %5, 3
-  %.pn88 = zext nneg i8 %.pn88.in to i64
-  %.pn = getelementptr i8, ptr %0, i64 %.pn88
+  %.pn85.in = and i8 %5, 3
+  %.pn85 = zext nneg i8 %.pn85.in to i64
+  %.pn = getelementptr i8, ptr %0, i64 %.pn85
   %.us-phi = getelementptr i8, ptr %.pn, i64 2
   br label %.lr.ph
 
-45:                                               ; preds = %.split74.us
+45:                                               ; preds = %.split71.us
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 252, ptr noundef nonnull @.str.9) #13
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04778 = phi i64 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.15177 = phi ptr [ %50, %.lr.ph ], [ %.us-phi, %.lr.ph.preheader ]
-  %.15776 = phi i32 [ %51, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %46 = shl i64 %.04778, 8
-  %47 = load i8, ptr %.15177, align 1
+  %.04775 = phi i64 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.15174 = phi ptr [ %50, %.lr.ph ], [ %.us-phi, %.lr.ph.preheader ]
+  %.15773 = phi i32 [ %51, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %46 = shl i64 %.04775, 8
+  %47 = load i8, ptr %.15174, align 1
   %48 = zext i8 %47 to i64
   %49 = or disjoint i64 %46, %48
-  %50 = getelementptr i8, ptr %.15177, i64 1
-  %51 = add nuw nsw i32 %.15776, 1
-  %exitcond87.not = icmp eq i32 %51, %43
-  br i1 %exitcond87.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
-
-52:                                               ; preds = %4
-  %.not63 = icmp samesign ult i8 %5, 64
-  br i1 %.not63, label %56, label %53
-
-53:                                               ; preds = %52
-  %54 = and i32 %8, 63
-  %55 = icmp samesign ult i32 %54, 3
-  br i1 %55, label %switch.lookup, label %69
-
-56:                                               ; preds = %52
-  %57 = zext nneg i32 %7 to i64
-  %58 = tail call noalias ptr @g_strndup(ptr noundef %6, i64 noundef %57)
-  %59 = tail call double @g_ascii_strtod(ptr noundef %58, ptr noundef null)
-  tail call void @g_free(ptr noundef %58)
-  br label %69
+  %50 = getelementptr i8, ptr %.15174, i64 1
+  %51 = add nuw nsw i32 %.15773, 1
+  %exitcond84.not = icmp eq i32 %51, %43
+  br i1 %exitcond84.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %60 = uitofp i64 %49 to double
+  %52 = uitofp i64 %49 to double
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.047.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %60, %._crit_edge.loopexit ]
-  %61 = fneg double %.047.lcssa
-  %62 = select i1 %.not64, double %.047.lcssa, double %61
-  %63 = zext nneg i8 %17 to i32
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %63)
-  %64 = fmul double %62, %ldexp
-  %65 = sitofp i32 %spec.select to double
-  %66 = tail call double @pow(double noundef %.052, double noundef %65) #11
-  %67 = fmul double %64, %66
-  br label %69
+  %.047.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %52, %._crit_edge.loopexit ]
+  %53 = fneg double %.047.lcssa
+  %54 = select i1 %.not64, double %.047.lcssa, double %53
+  %55 = zext nneg i8 %17 to i32
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %55)
+  %56 = fmul double %54, %ldexp
+  %57 = sitofp i32 %spec.select to double
+  %58 = tail call double @pow(double noundef %.052, double noundef %57) #11
+  %59 = fmul double %56, %58
+  br label %.critedge
 
-switch.lookup:                                    ; preds = %53
-  %68 = zext nneg i32 %54 to i64
+60:                                               ; preds = %4
+  %.not63 = icmp samesign ult i8 %5, 64
+  br i1 %.not63, label %64, label %61
+
+61:                                               ; preds = %60
+  %62 = and i32 %8, 63
+  %63 = icmp samesign ult i32 %62, 3
+  br i1 %63, label %switch.lookup, label %.critedge
+
+64:                                               ; preds = %60
+  %65 = zext nneg i32 %7 to i64
+  %66 = tail call noalias ptr @g_strndup(ptr noundef %6, i64 noundef %65)
+  %67 = tail call double @g_ascii_strtod(ptr noundef %66, ptr noundef null)
+  tail call void @g_free(ptr noundef %66)
+  br label %.critedge
+
+switch.lookup:                                    ; preds = %61
+  %68 = zext nneg i32 %62 to i64
   %switch.gep = getelementptr inbounds nuw [3 x double], ptr @switch.table.asn1_get_real, i64 0, i64 %68
   %switch.load = load double, ptr %switch.gep, align 8
-  br label %69
+  br label %.critedge
 
-69:                                               ; preds = %switch.lookup, %53, %9, %56, %2, %._crit_edge
-  %.0 = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %53 ], [ %59, %56 ], [ %67, %._crit_edge ], [ 0.000000e+00, %9 ], [ %switch.load, %switch.lookup ]
+.critedge:                                        ; preds = %switch.lookup, %61, %9, %64, %._crit_edge, %2
+  %.0 = phi double [ 0.000000e+00, %2 ], [ %59, %._crit_edge ], [ 0.000000e+00, %61 ], [ %67, %64 ], [ 0.000000e+00, %9 ], [ %switch.load, %switch.lookup ]
   ret double %.0
 }
 

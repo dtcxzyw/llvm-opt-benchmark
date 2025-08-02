@@ -373,14 +373,14 @@ define void @_ZN3net19TcpCubicSenderBytes17MaybeIncreaseCwndEmmm(ptr noundef non
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %5, ptr noundef nonnull @.str, i32 noundef 156, i32 noundef 2)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.1, i64 noundef 40)
-          to label %.critedge11 unwind label %18
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %18
 
-.critedge11:                                      ; preds = %12
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %12
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %5) #10
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5) #10
   br label %.critedge
 
-.critedge:                                        ; preds = %7, %4, %.critedge11
+.critedge:                                        ; preds = %7, %4, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %15 = call noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase13IsCwndLimitedEm(ptr noundef nonnull align 8 dereferenceable(141) %0, i64 noundef %3)
   br i1 %15, label %20, label %16
 

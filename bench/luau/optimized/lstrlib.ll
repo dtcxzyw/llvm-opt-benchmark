@@ -138,20 +138,20 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL8str_byteP9lua_State(p
 
 25:                                               ; preds = %21
   call void @_Z15luaL_checkstackP9lua_StateiPKc(ptr noundef %0, i32 noundef %23, ptr noundef nonnull @.str.19)
-  %invariant.gep = getelementptr i8, ptr %3, i64 -1
   %26 = zext nneg i32 %18 to i64
   %27 = add nuw i32 %spec.select, 1
   %28 = sub i32 %27, %18
   %wide.trip.count = zext i32 %28 to i64
-  %invariant.gep33 = getelementptr i8, ptr %invariant.gep, i64 %26
+  %invariant.gep = getelementptr i8, ptr %3, i64 %26
   br label %29
 
 29:                                               ; preds = %25, %29
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %29 ]
-  %gep34 = getelementptr i8, ptr %invariant.gep33, i64 %indvars.iv
-  %30 = load i8, ptr %gep34, align 1, !tbaa !8
-  %31 = zext i8 %30 to i32
-  call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %31)
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %30 = getelementptr i8, ptr %gep, i64 -1
+  %31 = load i8, ptr %30, align 1, !tbaa !8
+  %32 = zext i8 %31 to i32
+  call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %32)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !9
@@ -2807,7 +2807,7 @@ define internal fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef non
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = getelementptr i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = getelementptr i8, ptr %0, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %.outer.outer
@@ -2914,7 +2914,7 @@ define internal fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef non
 73:                                               ; preds = %70
   %74 = add nsw i64 %indvars.iv.i, -1
   %.idx.i = shl nuw nsw i64 %74, 4
-  %75 = getelementptr i8, ptr %25, i64 %.idx.i
+  %75 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i
   %76 = load i64, ptr %75, align 8, !tbaa !36
   %77 = icmp eq i64 %76, -1
   br i1 %77, label %_ZL16capture_to_closeP10MatchState.exit, label %70, !llvm.loop !95
@@ -3207,7 +3207,7 @@ _ZL17matchbracketclassiPKcS0_.exit131:            ; preds = %189, %198, %200, %2
 211:                                              ; preds = %209
   %212 = zext nneg i32 %207 to i64
   %.idx.i.i = shl nuw nsw i64 %212, 4
-  %213 = getelementptr i8, ptr %25, i64 %.idx.i.i
+  %213 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i
   %214 = load i64, ptr %213, align 8, !tbaa !36
   %215 = icmp eq i64 %214, -1
   br i1 %215, label %216, label %_ZL13check_captureP10MatchStatei.exit.i

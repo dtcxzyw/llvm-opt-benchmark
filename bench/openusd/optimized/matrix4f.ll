@@ -246,7 +246,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIS1_
   br label %14
 
 14:                                               ; preds = %2, %.critedge2
-  %.01618 = phi i64 [ 0, %2 ], [ %30, %.critedge2 ]
+  %.01618 = phi i64 [ 0, %2 ], [ %31, %.critedge2 ]
   %exitcond20.not = icmp eq i64 %.01618, %13
   br i1 %exitcond20.not, label %.critedge, label %.preheader
 
@@ -259,27 +259,150 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIS1_
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
-  br label %23
+  %23 = getelementptr inbounds nuw [4 x [4 x float]], ptr %3, i64 0, i64 %.01618
+  br label %24
 
-23:                                               ; preds = %.preheader, %24
-  %.017 = phi i64 [ 0, %.preheader ], [ %29, %24 ]
+24:                                               ; preds = %.preheader, %25
+  %.017 = phi i64 [ 0, %.preheader ], [ %30, %25 ]
   %exitcond.not = icmp eq i64 %.017, %22
-  br i1 %exitcond.not, label %.critedge2, label %24
+  br i1 %exitcond.not, label %.critedge2, label %25
 
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw double, ptr %18, i64 %.017
-  %26 = load double, ptr %25, align 8
-  %27 = fptrunc double %26 to float
-  %28 = getelementptr inbounds nuw [4 x [4 x float]], ptr %3, i64 0, i64 %.01618, i64 %.017
+25:                                               ; preds = %24
+  %26 = getelementptr inbounds nuw double, ptr %18, i64 %.017
+  %27 = load double, ptr %26, align 8
+  %28 = fptrunc double %27 to float
+  %29 = getelementptr inbounds nuw [4 x float], ptr %23, i64 0, i64 %.017
+  store float %28, ptr %29, align 4
+  %30 = add nuw nsw i64 %.017, 1
+  %exitcond19.not = icmp eq i64 %30, 4
+  br i1 %exitcond19.not, label %.critedge2, label %24, !llvm.loop !4
+
+.critedge2:                                       ; preds = %24, %25
+  %31 = add nuw nsw i64 %.01618, 1
+  %exitcond21.not = icmp eq i64 %31, 4
+  br i1 %exitcond21.not, label %.critedge, label %14, !llvm.loop !6
+
+.critedge:                                        ; preds = %.critedge2, %14
+  %32 = load float, ptr %3, align 16
+  store float %32, ptr %0, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %34 = load float, ptr %33, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %34, ptr %35, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %37 = load float, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %37, ptr %38, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %40 = load float, ptr %39, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %40, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %43 = load float, ptr %42, align 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %43, ptr %44, align 4
+  %45 = load float, ptr %4, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %45, ptr %46, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %48 = load float, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %48, ptr %49, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %51 = load float, ptr %50, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %51, ptr %52, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %54 = load float, ptr %53, align 16
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %54, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %57 = load float, ptr %56, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store float %57, ptr %58, align 4
+  %59 = load float, ptr %5, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store float %59, ptr %60, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  %62 = load float, ptr %61, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store float %62, ptr %63, align 4
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %65 = load float, ptr %64, align 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store float %65, ptr %66, align 4
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %68 = load float, ptr %67, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store float %68, ptr %69, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %71 = load float, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store float %71, ptr %72, align 4
+  %73 = load float, ptr %6, align 4
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store float %73, ptr %74, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIS1_IfSaIfEESaIS3_EE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 align 2 {
+  %3 = alloca [4 x [4 x float]], align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false)
+  store float 1.000000e+00, ptr %3, align 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store float 1.000000e+00, ptr %4, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store float 1.000000e+00, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 60
+  store float 1.000000e+00, ptr %6, align 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %1, align 8
+  %10 = ptrtoint ptr %8 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 24
+  br label %14
+
+14:                                               ; preds = %2, %.critedge2
+  %.01618 = phi i64 [ 0, %2 ], [ %30, %.critedge2 ]
+  %exitcond20.not = icmp eq i64 %.01618, %13
+  br i1 %exitcond20.not, label %.critedge, label %.preheader
+
+.preheader:                                       ; preds = %14
+  %15 = getelementptr inbounds nuw %"class.std::vector.11", ptr %9, i64 %.01618
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %15, align 8
+  %19 = ptrtoint ptr %17 to i64
+  %20 = ptrtoint ptr %18 to i64
+  %21 = sub i64 %19, %20
+  %22 = ashr exact i64 %21, 2
+  %23 = getelementptr inbounds nuw [4 x [4 x float]], ptr %3, i64 0, i64 %.01618
+  br label %24
+
+24:                                               ; preds = %.preheader, %25
+  %.017 = phi i64 [ 0, %.preheader ], [ %29, %25 ]
+  %exitcond.not = icmp eq i64 %.017, %22
+  br i1 %exitcond.not, label %.critedge2, label %25
+
+25:                                               ; preds = %24
+  %26 = getelementptr inbounds nuw float, ptr %18, i64 %.017
+  %27 = load float, ptr %26, align 4
+  %28 = getelementptr inbounds nuw [4 x float], ptr %23, i64 0, i64 %.017
   store float %27, ptr %28, align 4
   %29 = add nuw nsw i64 %.017, 1
   %exitcond19.not = icmp eq i64 %29, 4
-  br i1 %exitcond19.not, label %.critedge2, label %23, !llvm.loop !4
+  br i1 %exitcond19.not, label %.critedge2, label %24, !llvm.loop !7
 
-.critedge2:                                       ; preds = %23, %24
+.critedge2:                                       ; preds = %24, %25
   %30 = add nuw nsw i64 %.01618, 1
   %exitcond21.not = icmp eq i64 %30, 4
-  br i1 %exitcond21.not, label %.critedge, label %14, !llvm.loop !6
+  br i1 %exitcond21.not, label %.critedge, label %14, !llvm.loop !8
 
 .critedge:                                        ; preds = %.critedge2, %14
   %31 = load float, ptr %3, align 16
@@ -341,127 +464,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIS1_
   %72 = load float, ptr %6, align 4
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float %72, ptr %73, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIS1_IfSaIfEESaIS3_EE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 align 2 {
-  %3 = alloca [4 x [4 x float]], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false)
-  store float 1.000000e+00, ptr %3, align 16
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store float 1.000000e+00, ptr %4, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store float 1.000000e+00, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  store float 1.000000e+00, ptr %6, align 4
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %1, align 8
-  %10 = ptrtoint ptr %8 to i64
-  %11 = ptrtoint ptr %9 to i64
-  %12 = sub i64 %10, %11
-  %13 = sdiv exact i64 %12, 24
-  br label %14
-
-14:                                               ; preds = %2, %.critedge2
-  %.01618 = phi i64 [ 0, %2 ], [ %29, %.critedge2 ]
-  %exitcond20.not = icmp eq i64 %.01618, %13
-  br i1 %exitcond20.not, label %.critedge, label %.preheader
-
-.preheader:                                       ; preds = %14
-  %15 = getelementptr inbounds nuw %"class.std::vector.11", ptr %9, i64 %.01618
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %15, align 8
-  %19 = ptrtoint ptr %17 to i64
-  %20 = ptrtoint ptr %18 to i64
-  %21 = sub i64 %19, %20
-  %22 = ashr exact i64 %21, 2
-  br label %23
-
-23:                                               ; preds = %.preheader, %24
-  %.017 = phi i64 [ 0, %.preheader ], [ %28, %24 ]
-  %exitcond.not = icmp eq i64 %.017, %22
-  br i1 %exitcond.not, label %.critedge2, label %24
-
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw float, ptr %18, i64 %.017
-  %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds nuw [4 x [4 x float]], ptr %3, i64 0, i64 %.01618, i64 %.017
-  store float %26, ptr %27, align 4
-  %28 = add nuw nsw i64 %.017, 1
-  %exitcond19.not = icmp eq i64 %28, 4
-  br i1 %exitcond19.not, label %.critedge2, label %23, !llvm.loop !7
-
-.critedge2:                                       ; preds = %23, %24
-  %29 = add nuw nsw i64 %.01618, 1
-  %exitcond21.not = icmp eq i64 %29, 4
-  br i1 %exitcond21.not, label %.critedge, label %14, !llvm.loop !8
-
-.critedge:                                        ; preds = %.critedge2, %14
-  %30 = load float, ptr %3, align 16
-  store float %30, ptr %0, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %32 = load float, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %32, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %35 = load float, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %35, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %38, ptr %39, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %41 = load float, ptr %40, align 16
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %41, ptr %42, align 4
-  %43 = load float, ptr %4, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %43, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %46 = load float, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %46, ptr %47, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %49, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %52 = load float, ptr %51, align 16
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %52, ptr %53, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %55 = load float, ptr %54, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %55, ptr %56, align 4
-  %57 = load float, ptr %5, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %57, ptr %58, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %60, ptr %61, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %63 = load float, ptr %62, align 16
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %63, ptr %64, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %66 = load float, ptr %65, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %66, ptr %67, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %69 = load float, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %69, ptr %70, align 4
-  %71 = load float, ptr %6, align 4
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float %71, ptr %72, align 4
   ret void
 }
 
@@ -3651,7 +3653,6 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f6Fa
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %26, align 4
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %8, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %.preheader
@@ -3675,116 +3676,116 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f6Fa
   br i1 %exitcond.not, label %37, label %32, !llvm.loop !35
 
 37:                                               ; preds = %32
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %29
-  store double 0.000000e+00, ptr %gep, align 8
-  %38 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv44
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store double 0.000000e+00, ptr %38, align 8
-  %39 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv44
-  %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv44
-  store float %40, ptr %41, align 4
+  %39 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv44
+  store double 0.000000e+00, ptr %39, align 8
+  %40 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv44
+  %41 = load float, ptr %40, align 4
+  %42 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv44
+  store float %41, ptr %42, align 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 3
-  br i1 %exitcond47.not, label %42, label %.preheader, !llvm.loop !36
+  br i1 %exitcond47.not, label %43, label %.preheader, !llvm.loop !36
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  store double 1.000000e+00, ptr %43, align 8
-  %44 = call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d16_GetDeterminant3Emmmmmm(ptr noundef nonnull align 8 dereferenceable(128) %8, i64 noundef 0, i64 noundef 1, i64 noundef 2, i64 noundef 0, i64 noundef 1, i64 noundef 2)
-  %45 = fcmp olt double %44, 0.000000e+00
-  %46 = select i1 %45, double -1.000000e+00, double 1.000000e+00
-  %47 = fpext float %6 to double
+43:                                               ; preds = %37
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 120
+  store double 1.000000e+00, ptr %44, align 8
+  %45 = call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d16_GetDeterminant3Emmmmmm(ptr noundef nonnull align 8 dereferenceable(128) %8, i64 noundef 0, i64 noundef 1, i64 noundef 2, i64 noundef 0, i64 noundef 1, i64 noundef 2)
+  %46 = fcmp olt double %45, 0.000000e+00
+  %47 = select i1 %46, double -1.000000e+00, double 1.000000e+00
+  %48 = fpext float %6 to double
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12GetTransposeEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %10, ptr noundef nonnull align 8 dereferenceable(128) %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false)
-  %48 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(128) %10)
+  %49 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(128) %10)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8_Jacobi3EPNS_7GfVec3dES2_(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull %11, ptr noundef nonnull %12)
-  %49 = load double, ptr %12, align 16
-  %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %53 = load double, ptr %52, align 16
-  %54 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %55 = load double, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %57 = load double, ptr %56, align 16
-  %58 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %59 = load double, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %61 = load double, ptr %60, align 16
-  %62 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %65 = load double, ptr %64, align 16
-  store double %49, ptr %13, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store double %51, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store double %53, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store double 0.000000e+00, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store double %55, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store double %57, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store double %59, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store double 0.000000e+00, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  store double %61, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store double %63, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store double %65, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  %77 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, i8 0, i64 32, i1 false)
-  store double 1.000000e+00, ptr %77, align 8
-  %78 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %14, double noundef 1.000000e+00)
-  br label %79
+  %50 = load double, ptr %12, align 16
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %52 = load double, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %54 = load double, ptr %53, align 16
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %56 = load double, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %58 = load double, ptr %57, align 16
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %60 = load double, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %62 = load double, ptr %61, align 16
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %64 = load double, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %66 = load double, ptr %65, align 16
+  store double %50, ptr %13, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store double %52, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store double %54, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store double 0.000000e+00, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store double %56, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store double %58, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  store double %60, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  store double 0.000000e+00, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  store double %62, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  store double %64, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %13, i64 80
+  store double %66, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  %78 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 0, i64 32, i1 false)
+  store double 1.000000e+00, ptr %78, align 8
+  %79 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %14, double noundef 1.000000e+00)
+  br label %80
 
-79:                                               ; preds = %42, %85
-  %indvars.iv48 = phi i64 [ 0, %42 ], [ %indvars.iv.next49, %85 ]
-  %80 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %indvars.iv48
-  %81 = load double, ptr %80, align 8
-  %82 = fcmp olt double %81, %47
-  br i1 %82, label %85, label %83
+80:                                               ; preds = %43, %86
+  %indvars.iv48 = phi i64 [ 0, %43 ], [ %indvars.iv.next49, %86 ]
+  %81 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %indvars.iv48
+  %82 = load double, ptr %81, align 8
+  %83 = fcmp olt double %82, %48
+  br i1 %83, label %86, label %84
 
-83:                                               ; preds = %79
-  %84 = call double @sqrt(double noundef %81) #23
-  br label %85
+84:                                               ; preds = %80
+  %85 = call double @sqrt(double noundef %82) #23
+  br label %86
 
-85:                                               ; preds = %79, %83
-  %.pn = phi double [ %84, %83 ], [ %47, %79 ]
-  %.sink.in = fmul double %46, %.pn
+86:                                               ; preds = %80, %84
+  %.pn = phi double [ %85, %84 ], [ %48, %80 ]
+  %.sink.in = fmul double %47, %.pn
   %.sink = fptrunc double %.sink.in to float
-  %86 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv48
-  store float %.sink, ptr %86, align 4
-  %87 = fpext float %.sink to double
-  %88 = fdiv double 1.000000e+00, %87
+  %87 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %indvars.iv48
+  store float %.sink, ptr %87, align 4
+  %88 = fpext float %.sink to double
+  %89 = fdiv double 1.000000e+00, %88
   %.idx = shl nuw nsw i64 %indvars.iv48, 5
-  %89 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
-  %90 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv48
-  store double %88, ptr %90, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
+  %91 = getelementptr inbounds nuw double, ptr %90, i64 %indvars.iv48
+  store double %89, ptr %91, align 8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 3
-  br i1 %exitcond51.not, label %91, label %79, !llvm.loop !37
+  br i1 %exitcond51.not, label %92, label %80, !llvm.loop !37
 
-91:                                               ; preds = %85
-  %92 = fmul double %44, %46
-  %93 = fcmp uge double %92, %47
+92:                                               ; preds = %86
+  %93 = fmul double %45, %47
+  %94 = fcmp uge double %93, %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %18, ptr noundef nonnull align 8 dereferenceable(128) %13, i64 128, i1 false)
-  %94 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %18, ptr noundef nonnull align 8 dereferenceable(128) %14)
+  %95 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %18, ptr noundef nonnull align 8 dereferenceable(128) %14)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12GetTransposeEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %19, ptr noundef nonnull align 8 dereferenceable(128) %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %17, ptr noundef nonnull align 8 dereferenceable(128) %18, i64 128, i1 false)
-  %95 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %17, ptr noundef nonnull align 8 dereferenceable(128) %19)
+  %96 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %17, ptr noundef nonnull align 8 dereferenceable(128) %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(128) %17, i64 128, i1 false)
-  %96 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(128) %8)
+  %97 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(128) %8)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC1ERKNS_10GfMatrix4dE(ptr noundef nonnull align 4 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(128) %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %15, i64 64, i1 false)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC1ERKNS_10GfMatrix4dE(ptr noundef nonnull align 4 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(128) %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(64) %20, i64 64, i1 false)
-  ret i1 %93
+  ret i1 %94
 }
 
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12GetTransposeEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #1

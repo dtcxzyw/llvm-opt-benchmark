@@ -8465,7 +8465,6 @@ _ZN3gmx15NoseHooverGroup17calculateIntegralEv.exit.i: ; preds = %._crit_edge.i.i
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %65 = load ptr, ptr %64, align 8, !tbaa !45
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %65, i64 4
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8664,16 +8663,16 @@ _ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73: ; preds = %72, %_ZN3gmx15Nose
   %195 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %195, label %150, label %._crit_edge, !llvm.loop !474
 
-._crit_edge82:                                    ; preds = %237, %._crit_edge
-  %196 = phi ptr [ %134, %._crit_edge ], [ %145, %237 ]
-  %197 = phi i32 [ %143, %._crit_edge ], [ %238, %237 ]
+._crit_edge82:                                    ; preds = %238, %._crit_edge
+  %196 = phi ptr [ %134, %._crit_edge ], [ %145, %238 ]
+  %197 = phi i32 [ %143, %._crit_edge ], [ %239, %238 ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next97, 5
   br i1 %exitcond.not, label %115, label %117, !llvm.loop !475
 
-198:                                              ; preds = %.lr.ph81, %237
-  %199 = phi i32 [ %143, %.lr.ph81 ], [ %238, %237 ]
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next94, %237 ]
+198:                                              ; preds = %.lr.ph81, %238
+  %199 = phi i32 [ %143, %.lr.ph81 ], [ %239, %238 ]
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next94, %238 ]
   %200 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv93
   %201 = load float, ptr %200, align 4, !tbaa !47
   %202 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv93
@@ -8711,34 +8710,34 @@ _ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73: ; preds = %72, %_ZN3gmx15Nose
   %228 = add nsw i32 %199, -1
   %229 = sext i32 %228 to i64
   %230 = icmp slt i64 %indvars.iv93, %229
-  br i1 %230, label %231, label %237
+  br i1 %230, label %231, label %238
 
 231:                                              ; preds = %214
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv93
-  %232 = load float, ptr %gep, align 4, !tbaa !47
-  %233 = fpext float %232 to double
-  %234 = fmul double %148, %233
-  %235 = tail call double @exp(double noundef %234) #30, !tbaa !89
-  %236 = fptrunc double %235 to float
+  %232 = getelementptr inbounds nuw i8, ptr %200, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !47
+  %234 = fpext float %233 to double
+  %235 = fmul double %148, %234
+  %236 = tail call double @exp(double noundef %235) #30, !tbaa !89
+  %237 = fptrunc double %236 to float
   %.pre100 = load i32, ptr %63, align 4, !tbaa !44
-  br label %237
+  br label %238
 
-237:                                              ; preds = %214, %231
-  %238 = phi i32 [ %.pre100, %231 ], [ %199, %214 ]
-  %239 = phi float [ %236, %231 ], [ 1.000000e+00, %214 ]
-  %240 = fpext float %239 to double
-  %241 = load float, ptr %200, align 4, !tbaa !47
-  %242 = fmul float %239, %241
-  %243 = fpext float %242 to double
-  %244 = fpext float %227 to double
-  %245 = tail call double @llvm.fmuladd.f64(double %149, double %244, double %243)
-  %246 = fmul double %245, %240
-  %247 = fptrunc double %246 to float
-  store float %247, ptr %200, align 4, !tbaa !47
+238:                                              ; preds = %214, %231
+  %239 = phi i32 [ %.pre100, %231 ], [ %199, %214 ]
+  %240 = phi float [ %237, %231 ], [ 1.000000e+00, %214 ]
+  %241 = fpext float %240 to double
+  %242 = load float, ptr %200, align 4, !tbaa !47
+  %243 = fmul float %240, %242
+  %244 = fpext float %243 to double
+  %245 = fpext float %227 to double
+  %246 = tail call double @llvm.fmuladd.f64(double %149, double %245, double %244)
+  %247 = fmul double %246, %241
+  %248 = fptrunc double %247 to float
+  store float %248, ptr %200, align 4, !tbaa !47
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %248 = sext i32 %238 to i64
-  %249 = icmp slt i64 %indvars.iv.next94, %248
-  br i1 %249, label %198, label %._crit_edge82, !llvm.loop !476
+  %249 = sext i32 %239 to i64
+  %250 = icmp slt i64 %indvars.iv.next94, %249
+  br i1 %250, label %198, label %._crit_edge82, !llvm.loop !476
 
 _ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit:  ; preds = %_ZN3gmx15NoseHooverGroup17calculateIntegralEv.exit.i, %6, %_ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73
   %.0 = phi float [ %140, %_ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73 ], [ 1.000000e+00, %6 ], [ 1.000000e+00, %_ZN3gmx15NoseHooverGroup17calculateIntegralEv.exit.i ]

@@ -9710,7 +9710,7 @@ define dso_local ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1
 
 21:                                               ; preds = %17
   %22 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.167, ptr noundef nonnull @__func__.slurmdb_format_tres_str, ptr noundef nonnull %.147) #19
-  br label %.thread
+  br label %.critedge89
 
 23:                                               ; preds = %17
   %24 = call ptr @list_find_first(ptr noundef nonnull %1, ptr noundef nonnull @slurmdb_find_tres_in_list, ptr noundef nonnull %6) #19
@@ -9720,11 +9720,7 @@ define dso_local ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1
 25:                                               ; preds = %23
   %26 = load i32, ptr %6, align 4
   %27 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.168, ptr noundef nonnull @__func__.slurmdb_format_tres_str, i32 noundef %26) #19
-  br label %.thread
-
-.thread:                                          ; preds = %21, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
-  br label %82
+  br label %.critedge89
 
 28:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
@@ -9750,7 +9746,7 @@ define dso_local ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1
 
 33:                                               ; preds = %30
   %34 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.169, ptr noundef nonnull @__func__.slurmdb_format_tres_str, ptr noundef nonnull %.147) #19
-  br label %.thread91
+  br label %.critedge
 
 35:                                               ; preds = %30
   %36 = call ptr @xstrndup(ptr noundef nonnull %.147, i64 noundef %indvars.iv) #19
@@ -9763,18 +9759,14 @@ define dso_local ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1
   %39 = load ptr, ptr %7, align 8
   %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.170, ptr noundef nonnull @__func__.slurmdb_format_tres_str, ptr noundef %39) #19
   call void @slurm_xfree(ptr noundef nonnull %7) #19
-  br label %.thread91
-
-.thread91:                                        ; preds = %38, %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  br label %82
+  br label %.critedge
 
 41:                                               ; preds = %35
   call void @slurm_xfree(ptr noundef nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   br label %42
 
-42:                                               ; preds = %41, %28
+42:                                               ; preds = %28, %41
   %.253 = phi ptr [ %24, %28 ], [ %37, %41 ]
   %43 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.147, i32 noundef 61) #20
   %.not78 = icmp eq ptr %43, null
@@ -9870,8 +9862,16 @@ slurmdb_get_tres_base_unit.exit:                  ; preds = %57, %59
   %81 = load ptr, ptr %4, align 8
   br label %82
 
-82:                                               ; preds = %.thread91, %.thread, %3, %10, %80, %44
-  %.0 = phi ptr [ %81, %80 ], [ null, %44 ], [ null, %10 ], [ null, %3 ], [ null, %.thread ], [ null, %.thread91 ]
+.critedge:                                        ; preds = %33, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  br label %82
+
+.critedge89:                                      ; preds = %25, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
+  br label %82
+
+82:                                               ; preds = %3, %10, %.critedge89, %.critedge, %80, %44
+  %.0 = phi ptr [ %81, %80 ], [ null, %44 ], [ null, %.critedge ], [ null, %.critedge89 ], [ null, %10 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
   ret ptr %.0

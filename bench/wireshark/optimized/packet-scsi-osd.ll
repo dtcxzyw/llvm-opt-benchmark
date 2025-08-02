@@ -2526,169 +2526,188 @@ define internal void @dissect_osd_remove_partition(ptr noundef %0, ptr noundef %
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i8 %18, ptr %19, align 4
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %20, label %87
+  br i1 %or.cond, label %20, label %91
 
 20:                                               ; preds = %10
-  br i1 %17, label %21, label %24
+  br i1 %17, label %21, label %.critedge
 
 21:                                               ; preds = %20
   %22 = load i32, ptr @hf_scsi_osd2_isolation, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
-  br label %24
-
-24:                                               ; preds = %21, %20
   tail call fastcc void @dissect_osd_option(ptr noundef %0, i32 noundef %3, ptr noundef %2)
-  %25 = add i32 %3, 1
+  %24 = add i32 %3, 1
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %dissect_osd_getsetattrib.exit, label %26
+  br i1 %.not.i, label %dissect_osd_getsetattrib.exit, label %25
 
-26:                                               ; preds = %24
-  %27 = load ptr, ptr %11, align 8
-  %.not11.i = icmp eq ptr %27, null
-  br i1 %.not11.i, label %dissect_osd_getsetattrib.exit, label %28
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %11, align 8
+  %.not11.i = icmp eq ptr %26, null
+  br i1 %.not11.i, label %dissect_osd_getsetattrib.exit, label %27
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  %30 = load ptr, ptr %29, align 8
-  %.not12.i = icmp eq ptr %30, null
-  br i1 %.not12.i, label %dissect_osd_getsetattrib.exit, label %31
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  %29 = load ptr, ptr %28, align 8
+  %.not12.i = icmp eq ptr %29, null
+  br i1 %.not12.i, label %dissect_osd_getsetattrib.exit, label %30
 
-31:                                               ; preds = %28
-  %32 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %25)
-  %33 = lshr i8 %32, 4
-  %34 = and i8 %33, 3
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 2
-  store i8 %34, ptr %35, align 2
+30:                                               ; preds = %27
+  %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %24)
+  %32 = lshr i8 %31, 4
+  %33 = and i8 %32, 3
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 2
+  store i8 %33, ptr %34, align 2
   br label %dissect_osd_getsetattrib.exit
 
-dissect_osd_getsetattrib.exit:                    ; preds = %24, %26, %28, %31
-  %36 = load i32, ptr @hf_scsi_osd_getsetattrib, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
-  br i1 %17, label %38, label %.critedge
+dissect_osd_getsetattrib.exit:                    ; preds = %21, %25, %27, %30
+  %35 = load i32, ptr @hf_scsi_osd_getsetattrib, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef 0)
+  br label %dissect_osd_getsetattrib.exit87
 
-38:                                               ; preds = %dissect_osd_getsetattrib.exit
-  %39 = load i32, ptr @hf_scsi_osd2_remove_scope, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
-  %41 = add i32 %3, 2
-  %42 = load i32, ptr @hf_scsi_osd_timestamps_control, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 1, i32 noundef 0)
-  %44 = add i32 %3, 6
-  %45 = load i32, ptr @hf_scsi_osd_partition_id, align 4
-  %46 = tail call fastcc ptr @dissect_osd_partition_id(ptr noundef %1, ptr noundef %0, i32 noundef %44, ptr noundef %2, i32 noundef %45, ptr noundef %9, i1 noundef zeroext false, i1 noundef zeroext true)
-  %47 = add i32 %3, 38
-  %48 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %47)
-  %49 = load i32, ptr @hf_scsi_osd2_cdb_continuation_length, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0)
-  br i1 %.not.i, label %58, label %51
+.critedge:                                        ; preds = %20
+  tail call fastcc void @dissect_osd_option(ptr noundef %0, i32 noundef %3, ptr noundef %2)
+  %37 = add i32 %3, 1
+  %.not.i84 = icmp eq ptr %7, null
+  br i1 %.not.i84, label %dissect_osd_getsetattrib.exit87, label %38
 
-51:                                               ; preds = %38
-  %52 = load ptr, ptr %11, align 8
-  %.not17.i = icmp eq ptr %52, null
-  br i1 %.not17.i, label %58, label %53
+38:                                               ; preds = %.critedge
+  %39 = load ptr, ptr %11, align 8
+  %.not11.i85 = icmp eq ptr %39, null
+  br i1 %.not11.i85, label %dissect_osd_getsetattrib.exit87, label %40
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 64
-  %55 = load ptr, ptr %54, align 8
-  %.not18.i = icmp eq ptr %55, null
-  br i1 %.not18.i, label %58, label %56
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 64
+  %42 = load ptr, ptr %41, align 8
+  %.not12.i86 = icmp eq ptr %42, null
+  br i1 %.not12.i86, label %dissect_osd_getsetattrib.exit87, label %43
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 28
-  store i32 %48, ptr %57, align 4
-  br label %58
+43:                                               ; preds = %40
+  %44 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %37)
+  %45 = lshr i8 %44, 4
+  %46 = and i8 %45, 3
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 2
+  store i8 %46, ptr %47, align 2
+  br label %dissect_osd_getsetattrib.exit87
 
-58:                                               ; preds = %56, %53, %51, %38
-  %59 = add i32 %48, -1
-  %or.cond.i = icmp ult i32 %59, 39
-  br i1 %or.cond.i, label %60, label %dissect_osd2_cdb_continuation_length.exit
+dissect_osd_getsetattrib.exit87:                  ; preds = %43, %40, %38, %.critedge, %dissect_osd_getsetattrib.exit
+  %hf_scsi_osd_getsetattrib.sink = phi ptr [ @hf_scsi_osd2_remove_scope, %dissect_osd_getsetattrib.exit ], [ @hf_scsi_osd_getsetattrib, %.critedge ], [ @hf_scsi_osd_getsetattrib, %38 ], [ @hf_scsi_osd_getsetattrib, %40 ], [ @hf_scsi_osd_getsetattrib, %43 ]
+  %.sink91 = phi i32 [ %24, %dissect_osd_getsetattrib.exit ], [ %37, %.critedge ], [ %37, %38 ], [ %37, %40 ], [ %37, %43 ]
+  %48 = load i32, ptr %hf_scsi_osd_getsetattrib.sink, align 4
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef %.sink91, i32 noundef 1, i32 noundef 0)
+  %50 = add i32 %3, 2
+  %51 = load i32, ptr @hf_scsi_osd_timestamps_control, align 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 1, i32 noundef 0)
+  %53 = add i32 %3, 6
+  %54 = load i32, ptr @hf_scsi_osd_partition_id, align 4
+  %55 = tail call fastcc ptr @dissect_osd_partition_id(ptr noundef %1, ptr noundef %0, i32 noundef %53, ptr noundef %2, i32 noundef %54, ptr noundef %9, i1 noundef zeroext false, i1 noundef zeroext true)
+  br i1 %17, label %56, label %dissect_osd2_cdb_continuation_length.exit
 
-60:                                               ; preds = %58
-  %61 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_osd2_cdb_continuation_length_invalid)
+56:                                               ; preds = %dissect_osd_getsetattrib.exit87
+  %57 = add i32 %3, 38
+  %58 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %57)
+  %59 = load i32, ptr @hf_scsi_osd2_cdb_continuation_length, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %59, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef 0)
+  %.not.i88 = icmp eq ptr %7, null
+  br i1 %.not.i88, label %68, label %61
+
+61:                                               ; preds = %56
+  %62 = load ptr, ptr %11, align 8
+  %.not17.i = icmp eq ptr %62, null
+  br i1 %.not17.i, label %68, label %63
+
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 64
+  %65 = load ptr, ptr %64, align 8
+  %.not18.i = icmp eq ptr %65, null
+  br i1 %.not18.i, label %68, label %66
+
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 28
+  store i32 %58, ptr %67, align 4
+  br label %68
+
+68:                                               ; preds = %66, %63, %61, %56
+  %69 = add i32 %58, -1
+  %or.cond.i = icmp ult i32 %69, 39
+  br i1 %or.cond.i, label %70, label %dissect_osd2_cdb_continuation_length.exit
+
+70:                                               ; preds = %68
+  %71 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %60, ptr noundef nonnull @ei_osd2_cdb_continuation_length_invalid)
   br label %dissect_osd2_cdb_continuation_length.exit
 
-.critedge:                                        ; preds = %dissect_osd_getsetattrib.exit
-  %62 = add i32 %3, 2
-  %63 = load i32, ptr @hf_scsi_osd_timestamps_control, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 1, i32 noundef 0)
-  %65 = add i32 %3, 6
-  %66 = load i32, ptr @hf_scsi_osd_partition_id, align 4
-  %67 = tail call fastcc ptr @dissect_osd_partition_id(ptr noundef %1, ptr noundef %0, i32 noundef %65, ptr noundef %2, i32 noundef %66, ptr noundef %9, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %dissect_osd2_cdb_continuation_length.exit
+dissect_osd2_cdb_continuation_length.exit:        ; preds = %70, %68, %dissect_osd_getsetattrib.exit87
+  %72 = phi i32 [ 40, %dissect_osd_getsetattrib.exit87 ], [ 52, %68 ], [ 52, %70 ]
+  %73 = phi i32 [ 80, %dissect_osd_getsetattrib.exit87 ], [ 104, %68 ], [ 104, %70 ]
+  %74 = add i32 %3, 42
+  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %74, ptr noundef %2, ptr noundef %7)
+  %75 = add i32 %3, 70
+  tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %75, ptr noundef %2)
+  %76 = add i32 %73, %75
+  %77 = load i32, ptr @ett_osd_security_parameters, align 4
+  %78 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %76, i32 noundef 40, i32 noundef %77, ptr noundef null, ptr noundef nonnull @.str.294)
+  %79 = load i32, ptr @hf_scsi_osd_ricv, align 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %0, i32 noundef %76, i32 noundef 20, i32 noundef 0)
+  %81 = add i32 %76, 20
+  %82 = load i32, ptr @hf_scsi_osd_request_nonce, align 4
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 12, i32 noundef 0)
+  %84 = add i32 %76, 32
+  %85 = load i32, ptr @hf_scsi_osd_diicvo, align 4
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 4, i32 noundef 0)
+  %87 = add i32 %76, 36
+  %88 = load i32, ptr @hf_scsi_osd_doicvo, align 4
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef 0)
+  %90 = add i32 %76, %72
+  br label %91
 
-dissect_osd2_cdb_continuation_length.exit:        ; preds = %60, %58, %.critedge
-  %68 = phi i32 [ 40, %.critedge ], [ 52, %58 ], [ 52, %60 ]
-  %69 = phi i32 [ 80, %.critedge ], [ 104, %58 ], [ 104, %60 ]
-  %70 = add i32 %3, 42
-  tail call fastcc void @dissect_osd_attribute_parameters(ptr noundef %1, ptr noundef %0, i32 noundef %70, ptr noundef %2, ptr noundef %7)
-  %71 = add i32 %3, 70
-  tail call fastcc void @dissect_osd_capability(ptr noundef %0, i32 noundef %71, ptr noundef %2)
-  %72 = add i32 %69, %71
-  %73 = load i32, ptr @ett_osd_security_parameters, align 4
-  %74 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %72, i32 noundef 40, i32 noundef %73, ptr noundef null, ptr noundef nonnull @.str.294)
-  %75 = load i32, ptr @hf_scsi_osd_ricv, align 4
-  %76 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %0, i32 noundef %72, i32 noundef 20, i32 noundef 0)
-  %77 = add i32 %72, 20
-  %78 = load i32, ptr @hf_scsi_osd_request_nonce, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %78, ptr noundef %0, i32 noundef %77, i32 noundef 12, i32 noundef 0)
-  %80 = add i32 %72, 32
-  %81 = load i32, ptr @hf_scsi_osd_diicvo, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %81, ptr noundef %0, i32 noundef %80, i32 noundef 4, i32 noundef 0)
-  %83 = add i32 %72, 36
-  %84 = load i32, ptr @hf_scsi_osd_doicvo, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %84, ptr noundef %0, i32 noundef %83, i32 noundef 4, i32 noundef 0)
-  %86 = add i32 %72, %68
-  br label %87
-
-87:                                               ; preds = %dissect_osd2_cdb_continuation_length.exit, %10
-  %.0 = phi i32 [ %86, %dissect_osd2_cdb_continuation_length.exit ], [ %3, %10 ]
+91:                                               ; preds = %dissect_osd2_cdb_continuation_length.exit, %10
+  %.0 = phi i32 [ %90, %dissect_osd2_cdb_continuation_length.exit ], [ %3, %10 ]
   %.not = xor i1 %4, true
   %or.cond3 = or i1 %5, %.not
-  br i1 %or.cond3, label %89, label %88
+  br i1 %or.cond3, label %93, label %92
 
-88:                                               ; preds = %87
+92:                                               ; preds = %91
   tail call fastcc void @dissect_osd2_cdb_continuation(ptr noundef %1, ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %7)
   tail call fastcc void @dissect_osd_attribute_data_out(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %9)
-  br label %89
+  br label %93
 
-89:                                               ; preds = %88, %87
-  %.not.i83 = icmp eq ptr %7, null
-  %90 = or i1 %5, %.not.i83
-  %or.cond84 = or i1 %4, %90
-  br i1 %or.cond84, label %dissect_osd_attribute_data_in.exit, label %91
+93:                                               ; preds = %92, %91
+  %.not.i89 = icmp eq ptr %7, null
+  %94 = or i1 %5, %.not.i89
+  %or.cond90 = or i1 %4, %94
+  br i1 %or.cond90, label %dissect_osd_attribute_data_in.exit, label %95
 
-91:                                               ; preds = %89
-  %92 = load ptr, ptr %11, align 8
-  %.not14.i = icmp eq ptr %92, null
-  br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %93
+95:                                               ; preds = %93
+  %96 = load ptr, ptr %11, align 8
+  %.not14.i = icmp eq ptr %96, null
+  br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %97
 
-93:                                               ; preds = %91
-  %94 = getelementptr inbounds nuw i8, ptr %92, i64 64
-  %95 = load ptr, ptr %94, align 8
-  %.not15.i = icmp eq ptr %95, null
-  br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %96
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 64
+  %99 = load ptr, ptr %98, align 8
+  %.not15.i = icmp eq ptr %99, null
+  br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %100
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 2
-  %98 = load i8, ptr %97, align 2
-  %cond.i = icmp eq i8 %98, 3
-  br i1 %cond.i, label %99, label %dissect_osd_attribute_data_in.exit
+100:                                              ; preds = %97
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 2
+  %102 = load i8, ptr %101, align 2
+  %cond.i = icmp eq i8 %102, 3
+  br i1 %cond.i, label %103, label %dissect_osd_attribute_data_in.exit
 
-99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  %101 = load i32, ptr %100, align 4
-  %.not16.i = icmp eq i32 %101, 0
-  br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %102
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 12
+  %105 = load i32, ptr %104, align 4
+  %.not16.i = icmp eq i32 %105, 0
+  br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %106
 
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %106 = load i8, ptr %105, align 4, !range !9, !noundef !10
-  %107 = trunc nuw i8 %106 to i1
-  tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %104, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %107)
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %108 = load i32, ptr %107, align 4
+  %109 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  %110 = load i8, ptr %109, align 4, !range !9, !noundef !10
+  %111 = trunc nuw i8 %110 to i1
+  tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %108, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %111)
   br label %dissect_osd_attribute_data_in.exit
 
-dissect_osd_attribute_data_in.exit:               ; preds = %102, %99, %96, %93, %91, %89
+dissect_osd_attribute_data_in.exit:               ; preds = %106, %103, %100, %97, %95, %93
   ret void
 }
 
@@ -4478,8 +4497,8 @@ dissect_osd_offset.exit129.thread:                ; preds = %99
   br label %.sink.split154
 
 dissect_osd_offset.exit129:                       ; preds = %97, %99
-  %.031.i128 = phi i32 [ %.neg.i125, %99 ], [ %93, %97 ]
-  %104 = add nsw i32 %.031.i128, 8
+  %.031.i127 = phi i32 [ %.neg.i125, %99 ], [ %93, %97 ]
+  %104 = add nsw i32 %.031.i127, 8
   %105 = shl i32 %98, %104
   %106 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %90, ptr noundef %1, i32 noundef %87, i32 noundef 4, i32 noundef %105)
   store i32 %105, ptr %89, align 4
@@ -4542,8 +4561,8 @@ dissect_osd_offset.exit138.thread:                ; preds = %127
   br label %.sink.split155
 
 dissect_osd_offset.exit138:                       ; preds = %125, %127
-  %.031.i137 = phi i32 [ %.neg.i134, %127 ], [ %121, %125 ]
-  %132 = add nsw i32 %.031.i137, 8
+  %.031.i136 = phi i32 [ %.neg.i134, %127 ], [ %121, %125 ]
+  %132 = add nsw i32 %.031.i136, 8
   %133 = shl i32 %126, %132
   %134 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %118, ptr noundef %1, i32 noundef %115, i32 noundef 4, i32 noundef %133)
   store i32 %133, ptr %117, align 4

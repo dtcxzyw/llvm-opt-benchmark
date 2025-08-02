@@ -2367,7 +2367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %44 = load i32, ptr %5, align 4
   %45 = icmp ne i32 %44, 0
   %or.cond = select i1 %43, i1 true, i1 %45
-  br i1 %or.cond, label %.thread, label %46
+  br i1 %or.cond, label %.critedge, label %46
 
 46:                                               ; preds = %35
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1296
@@ -2375,7 +2375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %49 = call i32 @clSetKernelArg(ptr noundef %48, i32 noundef 0, i64 noundef 8, ptr noundef nonnull %8)
   store i32 %49, ptr %5, align 4, !tbaa !39
   %.not52 = icmp eq i32 %49, 0
-  br i1 %.not52, label %50, label %.thread
+  br i1 %.not52, label %50, label %.critedge
 
 50:                                               ; preds = %46
   %51 = load ptr, ptr %47, align 8, !tbaa !99
@@ -2383,7 +2383,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %53 = call i32 @clSetKernelArg(ptr noundef %51, i32 noundef 1, i64 noundef 4, ptr noundef nonnull %52)
   store i32 %53, ptr %5, align 4, !tbaa !39
   %.not53 = icmp eq i32 %53, 0
-  br i1 %.not53, label %54, label %.thread
+  br i1 %.not53, label %54, label %.critedge
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %47, align 8, !tbaa !99
@@ -2391,7 +2391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %57 = call i32 @clSetKernelArg(ptr noundef %55, i32 noundef 2, i64 noundef 4, ptr noundef nonnull %56)
   store i32 %57, ptr %5, align 4, !tbaa !39
   %.not54 = icmp eq i32 %57, 0
-  br i1 %.not54, label %58, label %.thread
+  br i1 %.not54, label %58, label %.critedge
 
 58:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #23
@@ -2405,7 +2405,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.not55 = icmp eq i32 %63, 0
   %64 = load ptr, ptr %47, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #23
-  br i1 %.not55, label %126, label %.thread
+  br i1 %.not55, label %126, label %.critedge
 
 65:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
@@ -2443,12 +2443,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %87 = load i32, ptr %5, align 4
   %88 = icmp ne i32 %87, 0
   %or.cond4 = select i1 %86, i1 true, i1 %88
-  br i1 %or.cond4, label %.thread64, label %89
-
-.thread64:                                        ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
-  br label %.thread
+  br i1 %or.cond4, label %.critedge62, label %89
 
 89:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #23
@@ -2470,13 +2465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %100 = load i32, ptr %5, align 4
   %101 = icmp ne i32 %100, 0
   %or.cond6 = select i1 %99, i1 true, i1 %101
-  br i1 %or.cond6, label %.thread67, label %102
-
-.thread67:                                        ; preds = %89
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #23
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
-  br label %.thread
+  br i1 %or.cond6, label %.critedge.critedge, label %102
 
 102:                                              ; preds = %89
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #23
@@ -2499,7 +2488,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %112 = call i32 @clEnqueueCopyImage(ptr noundef %110, ptr noundef %111, ptr noundef nonnull %98, ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %15)
   store i32 %112, ptr %5, align 4, !tbaa !39
   %.not48 = icmp eq i32 %112, 0
-  br i1 %.not48, label %113, label %.thread71
+  br i1 %.not48, label %113, label %.critedge.critedge66
 
 113:                                              ; preds = %102
   %114 = call i32 @clWaitForEvents(i32 noundef 1, ptr noundef nonnull %15)
@@ -2508,7 +2497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %116 = call i32 @clReleaseEvent(ptr noundef %115)
   %117 = load i32, ptr %5, align 4, !tbaa !39
   %.not49 = icmp eq i32 %117, 0
-  br i1 %.not49, label %118, label %.thread71
+  br i1 %.not49, label %118, label %.critedge.critedge66
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 1304
@@ -2516,16 +2505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %121 = call i32 @clSetKernelArg(ptr noundef %120, i32 noundef 0, i64 noundef 8, ptr noundef nonnull %31)
   store i32 %121, ptr %5, align 4, !tbaa !39
   %.not50 = icmp eq i32 %121, 0
-  br i1 %.not50, label %122, label %.thread71
-
-.thread71:                                        ; preds = %102, %113, %118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #23
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #23
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
-  br label %.thread
+  br i1 %.not50, label %122, label %.critedge.critedge66
 
 122:                                              ; preds = %118
   %123 = load ptr, ptr %119, align 8, !tbaa !100
@@ -2539,7 +2519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #23
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
-  br i1 %.not51, label %126, label %.thread
+  br i1 %.not51, label %126, label %.critedge
 
 126:                                              ; preds = %28, %58, %122
   %.041 = phi ptr [ %64, %58 ], [ %125, %122 ], [ null, %28 ]
@@ -2581,10 +2561,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.6 = phi i32 [ 0, %143 ], [ -1, %126 ], [ -1, %138 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #23
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %54, %50, %46, %35, %.thread71, %.thread67, %.thread64, %58, %122, %145
-  %.2 = phi i32 [ %.6, %145 ], [ -1, %58 ], [ -1, %122 ], [ -1, %.thread64 ], [ -1, %.thread67 ], [ -1, %.thread71 ], [ -1, %35 ], [ -1, %46 ], [ -1, %50 ], [ -1, %54 ]
+.critedge62:                                      ; preds = %65
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #23
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
+  br label %.critedge
+
+.critedge.critedge:                               ; preds = %89
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #23
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #23
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
+  br label %.critedge
+
+.critedge.critedge66:                             ; preds = %118, %113, %102
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #23
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #23
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #23
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #23
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #23
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.critedge66, %.critedge.critedge, %35, %46, %50, %54, %.critedge62, %58, %122, %145
+  %.2 = phi i32 [ %.6, %145 ], [ -1, %58 ], [ -1, %122 ], [ -1, %.critedge62 ], [ -1, %54 ], [ -1, %50 ], [ -1, %46 ], [ -1, %35 ], [ -1, %.critedge.critedge ], [ -1, %.critedge.critedge66 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
   ret i32 %.2

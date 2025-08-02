@@ -414,8 +414,8 @@ ssl_needs_record_splitting.exit:                  ; preds = %19
   %25 = load ptr, ptr %24, align 8, !tbaa !55
   %26 = load ptr, ptr %25, align 8, !tbaa !57
   %27 = tail call i32 @SSL_CIPHER_is_block_cipher(ptr noundef %26) #4
-  %.not62 = icmp eq i32 %27, 0
-  br i1 %.not62, label %ssl_needs_record_splitting.exit.thread, label %28
+  %.not58 = icmp eq i32 %27, 0
+  br i1 %.not58, label %ssl_needs_record_splitting.exit.thread, label %28
 
 28:                                               ; preds = %ssl_needs_record_splitting.exit
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -427,7 +427,7 @@ ssl_needs_record_splitting.exit:                  ; preds = %19
 
 32:                                               ; preds = %28
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 189, ptr noundef nonnull @.str, i32 noundef 330) #4
-  br label %.thread
+  br label %.critedge
 
 33:                                               ; preds = %28
   %.not50 = icmp ule ptr %1, %29
@@ -440,7 +440,7 @@ ssl_needs_record_splitting.exit:                  ; preds = %19
   %.0 = select i1 %or.cond56, i64 %38, i64 %3
   %39 = call fastcc i32 @do_seal_record(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %8, i64 noundef %.0, i8 noundef zeroext 23, ptr noundef %5, i64 noundef 1)
   %.not51.not = icmp eq i32 %39, 0
-  br i1 %.not51.not, label %.thread, label %40
+  br i1 %.not51.not, label %.critedge, label %40
 
 40:                                               ; preds = %33
   %41 = add i64 %6, -1
@@ -457,15 +457,15 @@ ssl_needs_record_splitting.exit.thread:           ; preds = %11, %16, %19, %40, 
   %.036 = phi i64 [ %41, %40 ], [ %6, %ssl_needs_record_splitting.exit ], [ %6, %7 ], [ %6, %19 ], [ %6, %16 ], [ %6, %11 ]
   %46 = tail call fastcc i32 @do_seal_record(ptr noundef %0, ptr noundef %.043, ptr noundef %2, i64 noundef %.041, i8 noundef zeroext %4, ptr noundef %.037, i64 noundef %.036)
   %.not52 = icmp eq i32 %46, 0
-  br i1 %.not52, label %.thread, label %47
+  br i1 %.not52, label %.critedge, label %47
 
 47:                                               ; preds = %ssl_needs_record_splitting.exit.thread
   %48 = load i64, ptr %2, align 8, !tbaa !61
   %49 = add i64 %48, %45
   store i64 %49, ptr %2, align 8, !tbaa !61
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %33, %ssl_needs_record_splitting.exit.thread, %47, %32
+.critedge:                                        ; preds = %33, %ssl_needs_record_splitting.exit.thread, %47, %32
   %.039 = phi i32 [ 0, %32 ], [ 1, %47 ], [ 0, %ssl_needs_record_splitting.exit.thread ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
   ret i32 %.039

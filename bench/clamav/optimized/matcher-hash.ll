@@ -491,8 +491,8 @@ define range(i32 0, 2) i32 @cli_hm_have_wild(ptr noundef readonly captures(addre
 3:                                                ; preds = %2
   %4 = zext i32 %1 to i64
   %.idx = mul nuw nsw i64 %4, 24
-  %5 = getelementptr i8, ptr %0, i64 176
-  %6 = getelementptr i8, ptr %5, i64 %.idx
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %7 = load i32, ptr %6, align 8, !tbaa !33
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
@@ -511,16 +511,16 @@ define range(i32 0, 2) i32 @cli_hm_have_any(ptr noundef readonly captures(addres
 3:                                                ; preds = %2
   %4 = zext i32 %1 to i64
   %.idx = mul nuw nsw i64 %4, 24
-  %5 = getelementptr i8, ptr %0, i64 176
-  %6 = getelementptr i8, ptr %5, i64 %.idx
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %7 = load i32, ptr %6, align 8, !tbaa !33
   %.not4 = icmp eq i32 %7, 0
   br i1 %.not4, label %8, label %14
 
 8:                                                ; preds = %3
   %.idx5 = shl nuw nsw i64 %4, 5
-  %9 = getelementptr i8, ptr %0, i64 72
-  %10 = getelementptr i8, ptr %9, i64 %.idx5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx5
   %11 = load i64, ptr %10, align 8, !tbaa !7
   %12 = icmp ne i64 %11, 0
   %13 = zext i1 %12 to i32

@@ -1325,7 +1325,7 @@ walrcv_clear_result.exit:                         ; preds = %221, %223
   %270 = getelementptr inbounds nuw i8, ptr %226, i64 52
   %271 = load i32, ptr %270, align 4
   %.not74.not.i = icmp eq i32 %271, 0
-  br i1 %.not74.not.i, label %.thread92.i, label %272
+  br i1 %.not74.not.i, label %.thread90.i, label %272
 
 272:                                              ; preds = %269
   %273 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %251, i8 1, ptr nonnull elementtype(i8) %251) #15, !srcloc !7
@@ -1345,19 +1345,19 @@ walrcv_clear_result.exit:                         ; preds = %221, %223
   call void @ReplicationSlotSave() #15
   %.pr.pre.i = load i32, ptr %266, align 8
   %278 = icmp eq i32 %.pr.pre.i, 0
-  br i1 %278, label %.thread92.i, label %.thread.i
+  br i1 %278, label %.thread90.i, label %.thread.i
 
-.thread92.i:                                      ; preds = %276, %269
+.thread90.i:                                      ; preds = %276, %269
   %279 = getelementptr inbounds nuw i8, ptr %251, i64 92
   %280 = load i32, ptr %279, align 4
   %281 = icmp eq i32 %280, 2
   br i1 %281, label %282, label %284
 
-282:                                              ; preds = %.thread92.i
+282:                                              ; preds = %.thread90.i
   %283 = call fastcc zeroext i1 @update_and_persist_local_synced_slot(ptr noundef nonnull readonly %226, i32 noundef %229)
   br label %.thread85.i
 
-284:                                              ; preds = %.thread92.i
+284:                                              ; preds = %.thread90.i
   %285 = load i64, ptr %231, align 8
   %286 = getelementptr inbounds nuw i8, ptr %251, i64 120
   %287 = load i64, ptr %286, align 8
@@ -1395,11 +1395,7 @@ walrcv_clear_result.exit:                         ; preds = %221, %223
   %306 = getelementptr inbounds nuw i8, ptr %226, i64 52
   %307 = load i32, ptr %306, align 4
   %.not69.i = icmp eq i32 %307, 0
-  br i1 %.not69.i, label %308, label %.thread89.i
-
-.thread89.i:                                      ; preds = %305
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
-  br label %synchronize_one_slot.exit
+  br i1 %.not69.i, label %308, label %.critedge.i
 
 308:                                              ; preds = %305
   %309 = load ptr, ptr %226, align 8
@@ -1520,8 +1516,12 @@ reserve_wal_for_local_slot.exit.i:                ; preds = %349
   call void @ReplicationSlotRelease() #15
   br label %synchronize_one_slot.exit
 
-synchronize_one_slot.exit:                        ; preds = %234, %238, %.thread.i, %.thread89.i, %.thread85.i
-  %.0.i = phi i1 [ %.3.i, %.thread85.i ], [ %268, %.thread.i ], [ false, %.thread89.i ], [ false, %238 ], [ false, %234 ]
+.critedge.i:                                      ; preds = %305
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
+  br label %synchronize_one_slot.exit
+
+synchronize_one_slot.exit:                        ; preds = %234, %238, %.thread.i, %.thread85.i, %.critedge.i
+  %.0.i = phi i1 [ %.3.i, %.thread85.i ], [ %268, %.thread.i ], [ false, %.critedge.i ], [ false, %238 ], [ false, %234 ]
   %367 = or i1 %.163107136, %.0.i
   call void @UnlockSharedObject(i32 noundef 1262, i32 noundef %229, i16 noundef zeroext 0, i32 noundef 1) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv135, 1

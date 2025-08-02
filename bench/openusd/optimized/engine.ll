@@ -2230,12 +2230,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorIPNS_8HdDriverESaIS4_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS9_i.exit.loopexit.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKPNS_8HdDriverEEEEvDpOT_.exit.i.i.i.i.i.i.i.i
   %23 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -7046029254386353067
+  %24 = tail call i64 @llvm.bswap.i64(i64 %23)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperISt6vectorIPNS_8HdDriverESaIS4_EEvE4HashERKS6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperISt6vectorIPNS_8HdDriverESaIS4_EEvE4HashERKS6_.exit: ; preds = %1, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorIPNS_8HdDriverESaIS4_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS9_i.exit.loopexit.i.i.i.i
-  %.sroa.0.0.i.i.i.i = phi i64 [ 0, %1 ], [ %23, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorIPNS_8HdDriverESaIS4_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS9_i.exit.loopexit.i.i.i.i ]
-  %24 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.0.0.i.i.i.i)
-  ret i64 %24
+  %.sroa.0.0.i.i.i.i = phi i64 [ 0, %1 ], [ %24, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorIPNS_8HdDriverESaIS4_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS9_i.exit.loopexit.i.i.i.i ]
+  ret i64 %.sroa.0.0.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable

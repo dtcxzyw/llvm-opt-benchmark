@@ -3862,12 +3862,11 @@ define noundef align 8 dereferenceable_or_null(32) ptr @_ZN9uv_client15registry_
   %14 = load ptr, ptr %0, align 8, !alias.scope !932, !noalias !933, !nonnull !4, !noundef !4
   %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %11, i64 0
   %.sroa.0.15.vec.insert.i.i.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %invariant.gep.i.i = getelementptr i8, ptr %14, i64 -48
   br label %15
 
-15:                                               ; preds = %33, %7
-  %.sroa.9.0.i.i.i = phi i64 [ 0, %7 ], [ %34, %33 ]
-  %.pn.i.i = phi i64 [ %9, %7 ], [ %35, %33 ]
+15:                                               ; preds = %35, %7
+  %.sroa.9.0.i.i.i = phi i64 [ 0, %7 ], [ %36, %35 ]
+  %.pn.i.i = phi i64 [ %9, %7 ], [ %37, %35 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i, %13
   %16 = getelementptr inbounds i8, ptr %14, i64 %.sroa.01.0.i.i.i
   %.sroa.0.0.copyload.i23.i.i = load <16 x i8>, ptr %16, align 1, !noalias !936
@@ -3876,50 +3875,47 @@ define noundef align 8 dereferenceable_or_null(32) ptr @_ZN9uv_client15registry_
   %19 = icmp eq i16 %18, 0
   br i1 %19, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %15, %29
-  %.sroa.06.0.i26.i.i = phi i16 [ %31, %29 ], [ %18, %15 ]
+.lr.ph.i.i:                                       ; preds = %15, %31
+  %.sroa.06.0.i26.i.i = phi i16 [ %33, %31 ], [ %18, %15 ]
   %20 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i26.i.i, i1 true)
   %21 = zext nneg i16 %20 to i64
   %22 = add i64 %.sroa.01.0.i.i.i, %21
   %23 = and i64 %22, %13
   %24 = sub nsw i64 0, %23
-  %gep.i.i = getelementptr { { i64, [1 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %invariant.gep.i.i, i64 %24
-  %25 = call noundef zeroext i1 @"_ZN83_$LT$uv_distribution_types..index_url..IndexUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e7977df7ec37d92E.llvm.5695127635217446960"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %gep.i.i), !noalias !939
-  br i1 %25, label %_ZN9hashbrown3raw13RawTableInner10find_inner17hcbc3d0b25d51c732E.exit.i.i, label %29, !prof !575
+  %25 = getelementptr inbounds { { i64, [1 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %14, i64 %24
+  %26 = getelementptr inbounds i8, ptr %25, i64 -48
+  %27 = call noundef zeroext i1 @"_ZN83_$LT$uv_distribution_types..index_url..IndexUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6e7977df7ec37d92E.llvm.5695127635217446960"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %26), !noalias !939
+  br i1 %27, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he662c42c5217d88bE.exit.i", label %31, !prof !575
 
-._crit_edge.i.i:                                  ; preds = %29, %15
-  %26 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
-  %27 = bitcast <16 x i1> %26 to i16
-  %28 = icmp eq i16 %27, 0
-  br i1 %28, label %33, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he662c42c5217d88bE.exit.i", !prof !382
+._crit_edge.i.i:                                  ; preds = %31, %15
+  %28 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
+  %29 = bitcast <16 x i1> %28 to i16
+  %30 = icmp eq i16 %29, 0
+  br i1 %30, label %35, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he662c42c5217d88bE.exit.i", !prof !382
 
-29:                                               ; preds = %.lr.ph.i.i
-  %30 = add i16 %.sroa.06.0.i26.i.i, -1
-  %31 = and i16 %30, %.sroa.06.0.i26.i.i
-  %32 = icmp eq i16 %31, 0
-  br i1 %32, label %._crit_edge.i.i, label %.lr.ph.i.i
+31:                                               ; preds = %.lr.ph.i.i
+  %32 = add i16 %.sroa.06.0.i26.i.i, -1
+  %33 = and i16 %32, %.sroa.06.0.i26.i.i
+  %34 = icmp eq i16 %33, 0
+  br i1 %34, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-33:                                               ; preds = %._crit_edge.i.i
-  %34 = add i64 %.sroa.9.0.i.i.i, 16
-  %35 = add i64 %.sroa.01.0.i.i.i, %34
+35:                                               ; preds = %._crit_edge.i.i
+  %36 = add i64 %.sroa.9.0.i.i.i, 16
+  %37 = add i64 %.sroa.01.0.i.i.i, %36
   br label %15
 
-_ZN9hashbrown3raw13RawTableInner10find_inner17hcbc3d0b25d51c732E.exit.i.i: ; preds = %.lr.ph.i.i
-  %36 = getelementptr inbounds { { i64, [1 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %14, i64 %24
-  br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he662c42c5217d88bE.exit.i"
-
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he662c42c5217d88bE.exit.i": ; preds = %._crit_edge.i.i, %_ZN9hashbrown3raw13RawTableInner10find_inner17hcbc3d0b25d51c732E.exit.i.i
-  %37 = phi ptr [ %36, %_ZN9hashbrown3raw13RawTableInner10find_inner17hcbc3d0b25d51c732E.exit.i.i ], [ null, %._crit_edge.i.i ]
-  %38 = icmp eq ptr %37, null
-  %39 = getelementptr inbounds i8, ptr %37, i64 -48
-  %.sroa.0.1.i = select i1 %38, ptr null, ptr %39
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he662c42c5217d88bE.exit.i": ; preds = %._crit_edge.i.i, %.lr.ph.i.i
+  %38 = phi ptr [ %25, %.lr.ph.i.i ], [ null, %._crit_edge.i.i ]
+  %39 = icmp eq ptr %38, null
+  %40 = getelementptr inbounds i8, ptr %38, i64 -48
+  %.sroa.0.1.i = select i1 %39, ptr null, ptr %40
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5fc95a851cbde783E.exit"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5fc95a851cbde783E.exit": ; preds = %2, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he662c42c5217d88bE.exit.i"
   %.sroa.0.0.i = phi ptr [ %.sroa.0.1.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he662c42c5217d88bE.exit.i" ], [ null, %2 ]
-  %40 = icmp eq ptr %.sroa.0.0.i, null
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 16
-  %.sroa.0.0 = select i1 %40, ptr null, ptr %41
+  %41 = icmp eq ptr %.sroa.0.0.i, null
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 16
+  %.sroa.0.0 = select i1 %41, ptr null, ptr %42
   ret ptr %.sroa.0.0
 }
 

@@ -1787,30 +1787,30 @@ find_file.exit.i.i:                               ; preds = %604
 614:                                              ; preds = %find_file.exit.i.i, %find_file.exit.thread.i.i
   %indvars.iv.next.i.i119 = add nuw nsw i64 %indvars.iv.i.i112, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i119, 3
-  br i1 %exitcond.i.i, label %615, label %604, !llvm.loop !58
+  br i1 %exitcond.i.i, label %.critedge.i.i, label %604, !llvm.loop !58
 
-615:                                              ; preds = %614
+.critedge.i.i:                                    ; preds = %614
   call void (ptr, ...) @error(ptr noundef nonnull @.str.124) #20
   unreachable
 
 find_gcc_libpath.exit.i:                          ; preds = %find_file.exit.i.i
-  %616 = call ptr @dirname(ptr noundef nonnull %613) #18
+  %615 = call ptr @dirname(ptr noundef nonnull %613) #18
   %.b2021.i = load i1, ptr @opt_shared, align 1
-  br i1 %.b2021.i, label %619, label %617
+  br i1 %.b2021.i, label %618, label %616
 
-617:                                              ; preds = %find_gcc_libpath.exit.i
-  %618 = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.93, ptr noundef nonnull %.0.i.i111) #18
-  call void @strarray_push(ptr noundef nonnull %6, ptr noundef %618) #18
-  br label %619
+616:                                              ; preds = %find_gcc_libpath.exit.i
+  %617 = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.93, ptr noundef nonnull %.0.i.i111) #18
+  call void @strarray_push(ptr noundef nonnull %6, ptr noundef %617) #18
+  br label %618
 
-619:                                              ; preds = %617, %find_gcc_libpath.exit.i
-  %.str.94.sink.i = phi ptr [ @.str.94, %617 ], [ @.str.92, %find_gcc_libpath.exit.i ]
-  %620 = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.91, ptr noundef nonnull %.0.i.i111) #18
+618:                                              ; preds = %616, %find_gcc_libpath.exit.i
+  %.str.94.sink.i = phi ptr [ @.str.94, %616 ], [ @.str.92, %find_gcc_libpath.exit.i ]
+  %619 = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.91, ptr noundef nonnull %.0.i.i111) #18
+  call void @strarray_push(ptr noundef nonnull %6, ptr noundef %619) #18
+  %620 = call ptr (ptr, ...) @format(ptr noundef nonnull %.str.94.sink.i, ptr noundef %615) #18
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef %620) #18
-  %621 = call ptr (ptr, ...) @format(ptr noundef nonnull %.str.94.sink.i, ptr noundef %616) #18
+  %621 = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.95, ptr noundef %615) #18
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef %621) #18
-  %622 = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.95, ptr noundef %616) #18
-  call void @strarray_push(ptr noundef nonnull %6, ptr noundef %622) #18
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef nonnull @.str.96) #18
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef nonnull @.str.97) #18
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef nonnull @.str.98) #18
@@ -1820,46 +1820,46 @@ find_gcc_libpath.exit.i:                          ; preds = %find_file.exit.i.i
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef nonnull @.str.101) #18
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef nonnull @.str.102) #18
   %.b1822.i = load i1, ptr @opt_static, align 1
-  br i1 %.b1822.i, label %624, label %623
+  br i1 %.b1822.i, label %623, label %622
 
-623:                                              ; preds = %619
+622:                                              ; preds = %618
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef nonnull @.str.103) #18
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef nonnull @.str.104) #18
-  br label %624
+  br label %623
 
-624:                                              ; preds = %623, %619
-  %625 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ld_extra_args, i64 12), align 4, !tbaa !15
-  %626 = icmp sgt i32 %625, 0
-  br i1 %626, label %.lr.ph.i116, label %.preheader.i114
+623:                                              ; preds = %622, %618
+  %624 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ld_extra_args, i64 12), align 4, !tbaa !15
+  %625 = icmp sgt i32 %624, 0
+  br i1 %625, label %.lr.ph.i116, label %.preheader.i114
 
-.preheader.i114:                                  ; preds = %.lr.ph.i116, %624
-  %627 = load i32, ptr %493, align 4, !tbaa !15
-  %628 = icmp sgt i32 %627, 0
-  br i1 %628, label %.lr.ph28.i, label %run_linker.exit
+.preheader.i114:                                  ; preds = %.lr.ph.i116, %623
+  %626 = load i32, ptr %493, align 4, !tbaa !15
+  %627 = icmp sgt i32 %626, 0
+  br i1 %627, label %.lr.ph28.i, label %run_linker.exit
 
-.lr.ph.i116:                                      ; preds = %624, %.lr.ph.i116
-  %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i118, %.lr.ph.i116 ], [ 0, %624 ]
-  %629 = load ptr, ptr @ld_extra_args, align 8, !tbaa !23
-  %630 = getelementptr inbounds nuw ptr, ptr %629, i64 %indvars.iv.i117
-  %631 = load ptr, ptr %630, align 8, !tbaa !7
-  call void @strarray_push(ptr noundef nonnull %6, ptr noundef %631) #18
+.lr.ph.i116:                                      ; preds = %623, %.lr.ph.i116
+  %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i118, %.lr.ph.i116 ], [ 0, %623 ]
+  %628 = load ptr, ptr @ld_extra_args, align 8, !tbaa !23
+  %629 = getelementptr inbounds nuw ptr, ptr %628, i64 %indvars.iv.i117
+  %630 = load ptr, ptr %629, align 8, !tbaa !7
+  call void @strarray_push(ptr noundef nonnull %6, ptr noundef %630) #18
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i117, 1
-  %632 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ld_extra_args, i64 12), align 4, !tbaa !15
-  %633 = sext i32 %632 to i64
-  %634 = icmp slt i64 %indvars.iv.next.i118, %633
-  br i1 %634, label %.lr.ph.i116, label %.preheader.i114, !llvm.loop !59
+  %631 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ld_extra_args, i64 12), align 4, !tbaa !15
+  %632 = sext i32 %631 to i64
+  %633 = icmp slt i64 %indvars.iv.next.i118, %632
+  br i1 %633, label %.lr.ph.i116, label %.preheader.i114, !llvm.loop !59
 
 .lr.ph28.i:                                       ; preds = %.preheader.i114, %.lr.ph28.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph28.i ], [ 0, %.preheader.i114 ]
-  %635 = load ptr, ptr %14, align 8, !tbaa !23
-  %636 = getelementptr inbounds nuw ptr, ptr %635, i64 %indvars.iv30.i
-  %637 = load ptr, ptr %636, align 8, !tbaa !7
-  call void @strarray_push(ptr noundef nonnull %6, ptr noundef %637) #18
+  %634 = load ptr, ptr %14, align 8, !tbaa !23
+  %635 = getelementptr inbounds nuw ptr, ptr %634, i64 %indvars.iv30.i
+  %636 = load ptr, ptr %635, align 8, !tbaa !7
+  call void @strarray_push(ptr noundef nonnull %6, ptr noundef %636) #18
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
-  %638 = load i32, ptr %493, align 4, !tbaa !15
-  %639 = sext i32 %638 to i64
-  %640 = icmp slt i64 %indvars.iv.next31.i, %639
-  br i1 %640, label %.lr.ph28.i, label %run_linker.exit, !llvm.loop !60
+  %637 = load i32, ptr %493, align 4, !tbaa !15
+  %638 = sext i32 %637 to i64
+  %639 = icmp slt i64 %indvars.iv.next31.i, %638
+  br i1 %639, label %.lr.ph28.i, label %run_linker.exit, !llvm.loop !60
 
 run_linker.exit:                                  ; preds = %.lr.ph28.i, %.preheader.i114
   %.b23.i = load i1, ptr @opt_static, align 1
@@ -1874,13 +1874,13 @@ run_linker.exit:                                  ; preds = %.lr.ph28.i, %.prehe
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef nonnull %.str.109..str.112.i) #18
   %.b1924.i = load i1, ptr @opt_shared, align 1
   %.str.114.sink.i = select i1 %.b1924.i, ptr @.str.113, ptr @.str.114
-  %641 = call ptr (ptr, ...) @format(ptr noundef nonnull %.str.114.sink.i, ptr noundef %616) #18
+  %640 = call ptr (ptr, ...) @format(ptr noundef nonnull %.str.114.sink.i, ptr noundef %615) #18
+  call void @strarray_push(ptr noundef nonnull %6, ptr noundef %640) #18
+  %641 = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.115, ptr noundef nonnull %.0.i.i111) #18
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef %641) #18
-  %642 = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.115, ptr noundef nonnull %.0.i.i111) #18
-  call void @strarray_push(ptr noundef nonnull %6, ptr noundef %642) #18
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef null) #18
-  %643 = load ptr, ptr %6, align 8, !tbaa !23
-  call fastcc void @run_subprocess(ptr noundef %643)
+  %642 = load ptr, ptr %6, align 8, !tbaa !23
+  call fastcc void @run_subprocess(ptr noundef %642)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
   br label %._crit_edge.thread
 

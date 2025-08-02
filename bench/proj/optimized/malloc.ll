@@ -62,7 +62,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 declare void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @proj_destroy(ptr noundef %0) local_unnamed_addr #4 {
+define noalias noundef ptr @proj_destroy(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -140,7 +140,7 @@ define hidden void @_ZN8PJconstsC2Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef %1) #4 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef %1) #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %5, label %3
 

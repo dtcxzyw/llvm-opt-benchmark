@@ -825,34 +825,34 @@ define i64 @Gia_LutComputeTruth6(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %15 = getelementptr i8, ptr %0, i64 616
   %.val15 = load ptr, ptr %15, align 8, !tbaa !43
   %.val.pre = load i32, ptr %14, align 8, !tbaa !42
-  %invariant.gep = getelementptr i8, ptr %.val17.val, i64 4
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = phi i64 [ %9, %.lr.ph ], [ %26, %16 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %17
-  %18 = getelementptr inbounds nuw i32, ptr %gep, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 4, !tbaa !31
-  %20 = getelementptr inbounds nuw [6 x i64], ptr @s_Truth6, i64 0, i64 %indvars.iv
-  %21 = load i64, ptr %20, align 8, !tbaa !28
-  %22 = sext i32 %19 to i64
-  %23 = getelementptr inbounds i64, ptr %.val16, i64 %22
-  store i64 %21, ptr %23, align 8, !tbaa !28
-  %24 = getelementptr inbounds i32, ptr %.val15, i64 %22
-  store i32 %.val.pre, ptr %24, align 4, !tbaa !31
+  %17 = phi i64 [ %9, %.lr.ph ], [ %28, %16 ]
+  %18 = getelementptr inbounds i32, ptr %.val17.val, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %21 = load i32, ptr %20, align 4, !tbaa !31
+  %22 = getelementptr inbounds nuw [6 x i64], ptr @s_Truth6, i64 0, i64 %indvars.iv
+  %23 = load i64, ptr %22, align 8, !tbaa !28
+  %24 = sext i32 %21 to i64
+  %25 = getelementptr inbounds i64, ptr %.val16, i64 %24
+  store i64 %23, ptr %25, align 8, !tbaa !28
+  %26 = getelementptr inbounds i32, ptr %.val15, i64 %24
+  store i32 %.val.pre, ptr %26, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load i32, ptr %7, align 4, !tbaa !31
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %.val17.val, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !31
-  %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %16, label %.critedge, !llvm.loop !48
+  %27 = load i32, ptr %7, align 4, !tbaa !31
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i32, ptr %.val17.val, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !31
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next, %31
+  br i1 %32, label %16, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %16, %3
-  %31 = tail call i64 @Gia_LutComputeTruth6_rec(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2)
-  ret i64 %31
+  %33 = tail call i64 @Gia_LutComputeTruth6_rec(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2)
+  ret i64 %33
 }
 
 declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #3
@@ -951,38 +951,38 @@ define i64 @Gia_ObjComputeTruthTable6Lut(ptr noundef %0, i32 noundef %1, ptr nou
   %15 = getelementptr i8, ptr %2, i64 8
   %.val19 = load ptr, ptr %15, align 8, !tbaa !44
   %.val17.pre = load i32, ptr %13, align 8, !tbaa !42
-  %invariant.gep = getelementptr i8, ptr %.val20.val, i64 4
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = phi i64 [ %9, %.lr.ph ], [ %26, %16 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %17
-  %18 = getelementptr inbounds nuw i32, ptr %gep, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 4, !tbaa !31
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %.val18, i64 %20
-  store i32 %.val17.pre, ptr %21, align 4, !tbaa !31
-  %22 = getelementptr inbounds nuw [6 x i64], ptr @s_Truth6, i64 0, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8, !tbaa !28
-  %24 = getelementptr inbounds i64, ptr %.val19, i64 %20
-  store i64 %23, ptr %24, align 8, !tbaa !28
+  %17 = phi i64 [ %9, %.lr.ph ], [ %28, %16 ]
+  %18 = getelementptr inbounds i32, ptr %.val20.val, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %21 = load i32, ptr %20, align 4, !tbaa !31
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i32, ptr %.val18, i64 %22
+  store i32 %.val17.pre, ptr %23, align 4, !tbaa !31
+  %24 = getelementptr inbounds nuw [6 x i64], ptr @s_Truth6, i64 0, i64 %indvars.iv
+  %25 = load i64, ptr %24, align 8, !tbaa !28
+  %26 = getelementptr inbounds i64, ptr %.val19, i64 %22
+  store i64 %25, ptr %26, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load i32, ptr %7, align 4, !tbaa !31
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %.val20.val, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !31
-  %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %16, label %.critedge, !llvm.loop !49
+  %27 = load i32, ptr %7, align 4, !tbaa !31
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i32, ptr %.val20.val, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !31
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next, %31
+  br i1 %32, label %16, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %16, %3
   tail call void @Gia_ObjComputeTruthTable6Lut_rec(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2)
-  %31 = getelementptr i8, ptr %2, i64 8
-  %.val = load ptr, ptr %31, align 8, !tbaa !44
-  %32 = getelementptr inbounds i64, ptr %.val, i64 %6
-  %33 = load i64, ptr %32, align 8, !tbaa !28
-  ret i64 %33
+  %33 = getelementptr i8, ptr %2, i64 8
+  %.val = load ptr, ptr %33, align 8, !tbaa !44
+  %34 = getelementptr inbounds i64, ptr %.val, i64 %6
+  %35 = load i64, ptr %34, align 8, !tbaa !28
+  ret i64 %35
 }
 
 ; Function Attrs: nounwind uwtable

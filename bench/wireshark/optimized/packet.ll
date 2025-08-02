@@ -4950,7 +4950,7 @@ define noundef zeroext i1 @dissector_try_heuristic(ptr noundef captures(none) %0
   %72 = load ptr, ptr %22, align 8
   %73 = tail call i32 @wmem_list_count(ptr noundef %72)
   %74 = icmp ugt i32 %73, %24
-  br i1 %74, label %.lr.ph.split, label %.thread85
+  br i1 %74, label %.critedge, label %.thread85
 
 .lr.ph.split.us:                                  ; preds = %.thread103, %remove_last_layer.exit.us
   %75 = load i8, ptr %33, align 8
@@ -5005,7 +5005,7 @@ remove_last_layer.exit.us:                        ; preds = %94, %91
   %105 = icmp ugt i32 %104, %24
   br i1 %105, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !26
 
-.lr.ph.split:                                     ; preds = %.thread104, %remove_last_layer.exit
+.critedge:                                        ; preds = %.thread104, %remove_last_layer.exit
   %106 = load ptr, ptr %22, align 8
   %107 = tail call ptr @wmem_list_tail(ptr noundef %106)
   %108 = tail call ptr @wmem_list_frame_data(ptr noundef %107)
@@ -5016,7 +5016,7 @@ remove_last_layer.exit.us:                        ; preds = %94, %91
   %.not20.i = icmp eq ptr %111, null
   br i1 %.not20.i, label %remove_last_layer.exit, label %112
 
-112:                                              ; preds = %.lr.ph.split
+112:                                              ; preds = %.critedge
   %113 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %111)
   %114 = ptrtoint ptr %113 to i64
   %115 = load ptr, ptr %34, align 8
@@ -5029,11 +5029,11 @@ remove_last_layer.exit.us:                        ; preds = %94, %91
   store i8 %120, ptr %35, align 1
   br label %remove_last_layer.exit
 
-remove_last_layer.exit:                           ; preds = %.lr.ph.split, %112
+remove_last_layer.exit:                           ; preds = %.critedge, %112
   %121 = load ptr, ptr %22, align 8
   %122 = tail call i32 @wmem_list_count(ptr noundef %121)
   %123 = icmp ugt i32 %122, %24
-  br i1 %123, label %.lr.ph.split, label %.loopexit, !llvm.loop !27
+  br i1 %123, label %.critedge, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %remove_last_layer.exit.us, %remove_last_layer.exit, %.thread103
   br i1 %55, label %.thread85, label %.loopexit.thread105

@@ -415,13 +415,13 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   %60 = tail call i64 @gtk_tree_sortable_get_type() #17
   %61 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %60) #16
   call void @gtk_tree_sortable_set_sort_column_id(ptr noundef %61, i32 noundef -2, i32 noundef 0) #16
-  br i1 %13, label %147, label %62
+  br i1 %13, label %149, label %62
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 1192
   %64 = load i32, ptr %63, align 8, !tbaa !36
   %.not147 = icmp eq i32 %64, 0
-  br i1 %.not147, label %147, label %65
+  br i1 %.not147, label %149, label %65
 
 65:                                               ; preds = %62
   %66 = tail call i64 @gtk_tree_store_get_type() #17
@@ -435,28 +435,28 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   %.not152182 = icmp eq ptr %69, null
   br i1 %.not152182, label %._crit_edge188, label %.lr.ph187
 
-._crit_edge188:                                   ; preds = %143, %65
-  %.0130.lcssa = phi ptr [ null, %65 ], [ %.1131, %143 ]
+._crit_edge188:                                   ; preds = %145, %65
+  %.0130.lcssa = phi ptr [ null, %65 ], [ %.1131, %145 ]
   call void @g_strfreev(ptr noundef %.0130.lcssa) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #16
   %70 = load i8, ptr %12, align 8, !tbaa !40
   %.not153 = icmp eq i8 %70, 0
-  br i1 %.not153, label %208, label %146
+  br i1 %.not153, label %210, label %148
 
-.lr.ph187:                                        ; preds = %65, %143
-  %.0129185 = phi ptr [ %145, %143 ], [ %69, %65 ]
-  %.0130184 = phi ptr [ %.1131, %143 ], [ null, %65 ]
-  %.0133183 = phi i32 [ %.1134, %143 ], [ 0, %65 ]
+.lr.ph187:                                        ; preds = %65, %145
+  %.0129185 = phi ptr [ %147, %145 ], [ %69, %65 ]
+  %.0130184 = phi ptr [ %.1131, %145 ], [ null, %65 ]
+  %.0133183 = phi i32 [ %.1134, %145 ], [ 0, %65 ]
   %71 = load ptr, ptr %.0129185, align 8, !tbaa !41
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !43
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %143, label %75
+  br i1 %74, label %145, label %75
 
 75:                                               ; preds = %.lr.ph187
   %76 = call ptr @g_strsplit(ptr noundef nonnull %73, ptr noundef nonnull @.str.64, i32 noundef -1) #16
   %.not154 = icmp eq ptr %76, null
-  br i1 %.not154, label %143, label %77
+  br i1 %.not154, label %145, label %77
 
 77:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #16
@@ -537,285 +537,285 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   br i1 %.not159176, label %._crit_edge181, label %.lr.ph180
 
 .lr.ph180:                                        ; preds = %._crit_edge
-  %invariant.gep = getelementptr i8, ptr %76, i64 -8
   %96 = sext i32 %78 to i64
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %96
-  br label %100
+  %97 = getelementptr ptr, ptr %76, i64 %96
+  %98 = getelementptr i8, ptr %97, i64 -8
+  br label %102
 
 .lr.ph175:                                        ; preds = %.lr.ph175.preheader, %.lr.ph175
   %indvars.iv194 = phi i64 [ 0, %.lr.ph175.preheader ], [ %indvars.iv.next195, %.lr.ph175 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv194
-  %98 = load ptr, ptr %97, align 8, !tbaa !31
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %10, ptr noundef nonnull @.str.65, ptr noundef %98) #16
+  %99 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv194
+  %100 = load ptr, ptr %99, align 8, !tbaa !31
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %10, ptr noundef nonnull @.str.65, ptr noundef %100) #16
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count
   br i1 %exitcond198.not, label %._crit_edge, label %.lr.ph175
 
-._crit_edge181:                                   ; preds = %137, %._crit_edge
-  %99 = load ptr, ptr %10, align 8, !tbaa !31
-  call void @g_free(ptr noundef %99) #16
-  br i1 %.not155, label %142, label %141
+._crit_edge181:                                   ; preds = %139, %._crit_edge
+  %101 = load ptr, ptr %10, align 8, !tbaa !31
+  call void @g_free(ptr noundef %101) #16
+  br i1 %.not155, label %144, label %143
 
-100:                                              ; preds = %.lr.ph180, %137
-  %101 = phi ptr [ %95, %.lr.ph180 ], [ %140, %137 ]
-  %.0121178 = phi ptr [ %94, %.lr.ph180 ], [ %139, %137 ]
-  %.2177 = phi i32 [ %.0124208, %.lr.ph180 ], [ %138, %137 ]
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %10, ptr noundef nonnull @.str.65, ptr noundef nonnull %101) #16
-  %102 = load ptr, ptr %10, align 8, !tbaa !31
-  %103 = call noalias ptr @g_strdup(ptr noundef %102) #16
-  %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %103) #18
-  %105 = getelementptr i8, ptr %103, i64 %104
-  %106 = getelementptr i8, ptr %105, i64 -1
-  store i8 0, ptr %106, align 1, !tbaa !40
-  %107 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %66) #16
+102:                                              ; preds = %.lr.ph180, %139
+  %103 = phi ptr [ %95, %.lr.ph180 ], [ %142, %139 ]
+  %.0121178 = phi ptr [ %94, %.lr.ph180 ], [ %141, %139 ]
+  %.2177 = phi i32 [ %.0124208, %.lr.ph180 ], [ %140, %139 ]
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %10, ptr noundef nonnull @.str.65, ptr noundef nonnull %103) #16
+  %104 = load ptr, ptr %10, align 8, !tbaa !31
+  %105 = call noalias ptr @g_strdup(ptr noundef %104) #16
+  %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #18
+  %107 = getelementptr i8, ptr %105, i64 %106
+  %108 = getelementptr i8, ptr %107, i64 -1
+  store i8 0, ptr %108, align 1, !tbaa !40
+  %109 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %66) #16
   %.not160 = icmp eq i32 %.2177, 0
   %. = select i1 %.not160, ptr null, ptr %9
-  call void @gtk_tree_store_insert(ptr noundef %107, ptr noundef nonnull %7, ptr noundef %., i32 noundef -1) #16
-  %108 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %66) #16
-  %109 = load ptr, ptr %.0121178, align 8, !tbaa !31
-  %110 = icmp eq ptr %.0121178, %gep
+  call void @gtk_tree_store_insert(ptr noundef %109, ptr noundef nonnull %7, ptr noundef %., i32 noundef -1) #16
+  %110 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %66) #16
+  %111 = load ptr, ptr %.0121178, align 8, !tbaa !31
+  %112 = icmp eq ptr %.0121178, %98
   %.pre = load ptr, ptr %.0129185, align 8, !tbaa !41
-  br i1 %110, label %111, label %115
+  br i1 %112, label %113, label %117
 
-111:                                              ; preds = %100
-  %112 = load i32, ptr %.pre, align 8, !tbaa !48
-  %113 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %114 = load i32, ptr %113, align 8, !tbaa !49
-  br label %115
+113:                                              ; preds = %102
+  %114 = load i32, ptr %.pre, align 8, !tbaa !48
+  %115 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  %116 = load i32, ptr %115, align 8, !tbaa !49
+  br label %117
 
-115:                                              ; preds = %100, %111
-  %116 = phi i32 [ %112, %111 ], [ 0, %100 ]
-  %117 = phi i32 [ %114, %111 ], [ 0, %100 ]
-  %118 = getelementptr inbounds nuw i8, ptr %.pre, i64 36
-  %119 = load i32, ptr %118, align 4, !tbaa !50
-  %120 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
-  %121 = load i32, ptr %120, align 8, !tbaa !51
-  %122 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  %123 = load ptr, ptr %122, align 8, !tbaa !52
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %108, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %109, i32 noundef 1, i32 noundef %116, i32 noundef 2, ptr noundef nonnull %103, i32 noundef 4, i32 noundef %117, i32 noundef 5, i32 noundef %119, i32 noundef 6, i32 noundef %121, i32 noundef 3, ptr noundef %123, i32 noundef 7, i32 noundef 1, i32 noundef -1) #16
-  %124 = load ptr, ptr %.0129185, align 8, !tbaa !41
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 36
-  %126 = load i32, ptr %125, align 4, !tbaa !50
-  %.not161 = icmp eq i32 %126, 0
-  br i1 %.not161, label %137, label %127
+117:                                              ; preds = %102, %113
+  %118 = phi i32 [ %114, %113 ], [ 0, %102 ]
+  %119 = phi i32 [ %116, %113 ], [ 0, %102 ]
+  %120 = getelementptr inbounds nuw i8, ptr %.pre, i64 36
+  %121 = load i32, ptr %120, align 4, !tbaa !50
+  %122 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
+  %123 = load i32, ptr %122, align 8, !tbaa !51
+  %124 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
+  %125 = load ptr, ptr %124, align 8, !tbaa !52
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %110, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %111, i32 noundef 1, i32 noundef %118, i32 noundef 2, ptr noundef nonnull %105, i32 noundef 4, i32 noundef %119, i32 noundef 5, i32 noundef %121, i32 noundef 6, i32 noundef %123, i32 noundef 3, ptr noundef %125, i32 noundef 7, i32 noundef 1, i32 noundef -1) #16
+  %126 = load ptr, ptr %.0129185, align 8, !tbaa !41
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 36
+  %128 = load i32, ptr %127, align 4, !tbaa !50
+  %.not161 = icmp eq i32 %128, 0
+  br i1 %.not161, label %139, label %129
 
-127:                                              ; preds = %115
-  %128 = tail call i64 @gtk_tree_model_get_type() #17
-  %129 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %128) #16
+129:                                              ; preds = %117
+  %130 = tail call i64 @gtk_tree_model_get_type() #17
+  %131 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %130) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !45
-  %130 = call i32 @gtk_tree_model_iter_parent(ptr noundef %129, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
-  %.not4.i = icmp eq i32 %130, 0
+  %132 = call i32 @gtk_tree_model_iter_parent(ptr noundef %131, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
+  %.not4.i = icmp eq i32 %132, 0
   br i1 %.not4.i, label %_propagate_sel_to_parents.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %127, %135
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %129, ptr noundef nonnull %4, i32 noundef 5, ptr noundef nonnull %3, i32 noundef -1) #16
-  %131 = load i32, ptr %3, align 4, !tbaa !46
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %133, label %135
+.lr.ph.i:                                         ; preds = %129, %137
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %131, ptr noundef nonnull %4, i32 noundef 5, ptr noundef nonnull %3, i32 noundef -1) #16
+  %133 = load i32, ptr %3, align 4, !tbaa !46
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %137
 
-133:                                              ; preds = %.lr.ph.i
-  %134 = call ptr @g_type_check_instance_cast(ptr noundef %129, i64 noundef %66) #16
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %134, ptr noundef nonnull %4, i32 noundef 5, i32 noundef 1, i32 noundef -1) #16
-  br label %135
+135:                                              ; preds = %.lr.ph.i
+  %136 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %66) #16
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %136, ptr noundef nonnull %4, i32 noundef 5, i32 noundef 1, i32 noundef -1) #16
+  br label %137
 
-135:                                              ; preds = %133, %.lr.ph.i
+137:                                              ; preds = %135, %.lr.ph.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !45
-  %136 = call i32 @gtk_tree_model_iter_parent(ptr noundef %129, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
-  %.not.i = icmp eq i32 %136, 0
+  %138 = call i32 @gtk_tree_model_iter_parent(ptr noundef %131, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
+  %.not.i = icmp eq i32 %138, 0
   br i1 %.not.i, label %_propagate_sel_to_parents.exit, label %.lr.ph.i
 
-_propagate_sel_to_parents.exit:                   ; preds = %135, %127
+_propagate_sel_to_parents.exit:                   ; preds = %137, %129
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
-  br label %137
+  br label %139
 
-137:                                              ; preds = %_propagate_sel_to_parents.exit, %115
-  %138 = add nuw nsw i32 %.2177, 1
+139:                                              ; preds = %_propagate_sel_to_parents.exit, %117
+  %140 = add nuw nsw i32 %.2177, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !45
-  call void @g_free(ptr noundef nonnull %103) #16
-  %139 = getelementptr inbounds nuw i8, ptr %.0121178, i64 8
-  %140 = load ptr, ptr %139, align 8, !tbaa !31
-  %.not159 = icmp eq ptr %140, null
-  br i1 %.not159, label %._crit_edge181, label %100
+  call void @g_free(ptr noundef nonnull %105) #16
+  %141 = getelementptr inbounds nuw i8, ptr %.0121178, i64 8
+  %142 = load ptr, ptr %141, align 8, !tbaa !31
+  %.not159 = icmp eq ptr %142, null
+  br i1 %.not159, label %._crit_edge181, label %102
 
-141:                                              ; preds = %._crit_edge181
+143:                                              ; preds = %._crit_edge181
   call void @g_strfreev(ptr noundef nonnull %.0130184) #16
-  br label %142
+  br label %144
 
-142:                                              ; preds = %141, %._crit_edge181
+144:                                              ; preds = %143, %._crit_edge181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #16
-  br label %143
+  br label %145
 
-143:                                              ; preds = %75, %142, %.lr.ph187
-  %.1134 = phi i32 [ %.0133183, %.lr.ph187 ], [ %78, %142 ], [ %.0133183, %75 ]
-  %.1131 = phi ptr [ %.0130184, %.lr.ph187 ], [ %76, %142 ], [ %.0130184, %75 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.0129185, i64 8
-  %145 = load ptr, ptr %144, align 8, !tbaa !53
-  %.not152 = icmp eq ptr %145, null
+145:                                              ; preds = %75, %144, %.lr.ph187
+  %.1134 = phi i32 [ %.0133183, %.lr.ph187 ], [ %78, %144 ], [ %.0133183, %75 ]
+  %.1131 = phi ptr [ %.0130184, %.lr.ph187 ], [ %76, %144 ], [ %.0130184, %75 ]
+  %146 = getelementptr inbounds nuw i8, ptr %.0129185, i64 8
+  %147 = load ptr, ptr %146, align 8, !tbaa !53
+  %.not152 = icmp eq ptr %147, null
   br i1 %.not152, label %._crit_edge188, label %.lr.ph187
 
-146:                                              ; preds = %._crit_edge188
+148:                                              ; preds = %._crit_edge188
   call void @gtk_tree_model_foreach(ptr noundef %.0126, ptr noundef nonnull @_set_matching_tag_visibility, ptr noundef %0) #16
   call void @gtk_tree_model_foreach(ptr noundef %.0126, ptr noundef nonnull @_tree_reveal_func, ptr noundef null) #16
-  br label %208
+  br label %210
 
-147:                                              ; preds = %62, %57
-  %148 = tail call i64 @gtk_list_store_get_type() #17
-  %149 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %148) #16
-  call void @gtk_list_store_clear(ptr noundef %149) #16
-  %150 = icmp ne i32 %.0, 0
-  %151 = load ptr, ptr %6, align 8
-  %152 = icmp ne ptr %151, null
-  %or.cond = select i1 %150, i1 %152, i1 false
+149:                                              ; preds = %62, %57
+  %150 = tail call i64 @gtk_list_store_get_type() #17
+  %151 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %150) #16
+  call void @gtk_list_store_clear(ptr noundef %151) #16
+  %152 = icmp ne i32 %.0, 0
+  %153 = load ptr, ptr %6, align 8
+  %154 = icmp ne ptr %153, null
+  %or.cond = select i1 %152, i1 %154, i1 false
   br i1 %or.cond, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %147
+.preheader:                                       ; preds = %149
   br i1 %.0128, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %165
-  %.0119190.us = phi ptr [ %179, %165 ], [ %151, %.preheader ]
-  %153 = load ptr, ptr %.0119190.us, align 8, !tbaa !41
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %155 = load ptr, ptr %154, align 8, !tbaa !43
-  %156 = call ptr @g_strrstr(ptr noundef %155, ptr noundef nonnull @.str.64) #16
-  %157 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %148) #16
-  call void @gtk_list_store_append(ptr noundef %157, ptr noundef nonnull %7) #16
-  %158 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %148) #16
-  %.not150.us = icmp eq ptr %156, null
-  br i1 %.not150.us, label %161, label %159
+.preheader.split.us:                              ; preds = %.preheader, %167
+  %.0119190.us = phi ptr [ %181, %167 ], [ %153, %.preheader ]
+  %155 = load ptr, ptr %.0119190.us, align 8, !tbaa !41
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  %157 = load ptr, ptr %156, align 8, !tbaa !43
+  %158 = call ptr @g_strrstr(ptr noundef %157, ptr noundef nonnull @.str.64) #16
+  %159 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %150) #16
+  call void @gtk_list_store_append(ptr noundef %159, ptr noundef nonnull %7) #16
+  %160 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %150) #16
+  %.not150.us = icmp eq ptr %158, null
+  br i1 %.not150.us, label %163, label %161
 
-159:                                              ; preds = %.preheader.split.us
-  %160 = getelementptr inbounds nuw i8, ptr %156, i64 1
+161:                                              ; preds = %.preheader.split.us
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 1
   %.pre201 = load ptr, ptr %.0119190.us, align 8, !tbaa !41
   %.phi.trans.insert202 = getelementptr inbounds nuw i8, ptr %.pre201, i64 8
   %.pre203 = load ptr, ptr %.phi.trans.insert202, align 8, !tbaa !43
-  br label %165
+  br label %167
 
-161:                                              ; preds = %.preheader.split.us
-  %162 = load ptr, ptr %.0119190.us, align 8, !tbaa !41
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %164 = load ptr, ptr %163, align 8, !tbaa !43
-  br label %165
+163:                                              ; preds = %.preheader.split.us
+  %164 = load ptr, ptr %.0119190.us, align 8, !tbaa !41
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %166 = load ptr, ptr %165, align 8, !tbaa !43
+  br label %167
 
-165:                                              ; preds = %161, %159
-  %166 = phi ptr [ %164, %161 ], [ %.pre203, %159 ]
-  %167 = phi ptr [ %162, %161 ], [ %.pre201, %159 ]
-  %168 = phi ptr [ %164, %161 ], [ %160, %159 ]
-  %169 = load i32, ptr %167, align 8, !tbaa !48
-  %170 = getelementptr inbounds nuw i8, ptr %167, i64 32
-  %171 = load i32, ptr %170, align 8, !tbaa !49
-  %172 = getelementptr inbounds nuw i8, ptr %167, i64 36
-  %173 = load i32, ptr %172, align 4, !tbaa !50
-  %174 = getelementptr inbounds nuw i8, ptr %167, i64 40
-  %175 = load i32, ptr %174, align 8, !tbaa !51
-  %176 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  %177 = load ptr, ptr %176, align 8, !tbaa !52
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %158, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %168, i32 noundef 1, i32 noundef %169, i32 noundef 2, ptr noundef %166, i32 noundef 4, i32 noundef %171, i32 noundef 5, i32 noundef %173, i32 noundef 6, i32 noundef %175, i32 noundef 3, ptr noundef %177, i32 noundef 7, i32 noundef 1, i32 noundef -1) #16
-  %178 = getelementptr inbounds nuw i8, ptr %.0119190.us, i64 8
-  %179 = load ptr, ptr %178, align 8, !tbaa !53
-  %.not148.us = icmp eq ptr %179, null
+167:                                              ; preds = %163, %161
+  %168 = phi ptr [ %166, %163 ], [ %.pre203, %161 ]
+  %169 = phi ptr [ %164, %163 ], [ %.pre201, %161 ]
+  %170 = phi ptr [ %166, %163 ], [ %162, %161 ]
+  %171 = load i32, ptr %169, align 8, !tbaa !48
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 32
+  %173 = load i32, ptr %172, align 8, !tbaa !49
+  %174 = getelementptr inbounds nuw i8, ptr %169, i64 36
+  %175 = load i32, ptr %174, align 4, !tbaa !50
+  %176 = getelementptr inbounds nuw i8, ptr %169, i64 40
+  %177 = load i32, ptr %176, align 8, !tbaa !51
+  %178 = getelementptr inbounds nuw i8, ptr %169, i64 24
+  %179 = load ptr, ptr %178, align 8, !tbaa !52
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %160, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %170, i32 noundef 1, i32 noundef %171, i32 noundef 2, ptr noundef %168, i32 noundef 4, i32 noundef %173, i32 noundef 5, i32 noundef %175, i32 noundef 6, i32 noundef %177, i32 noundef 3, ptr noundef %179, i32 noundef 7, i32 noundef 1, i32 noundef -1) #16
+  %180 = getelementptr inbounds nuw i8, ptr %.0119190.us, i64 8
+  %181 = load ptr, ptr %180, align 8, !tbaa !53
+  %.not148.us = icmp eq ptr %181, null
   br i1 %.not148.us, label %.loopexit, label %.preheader.split.us, !llvm.loop !54
 
-.preheader.split:                                 ; preds = %.preheader, %192
-  %.0119190 = phi ptr [ %204, %192 ], [ %151, %.preheader ]
-  %180 = load ptr, ptr %.0119190, align 8, !tbaa !41
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %182 = load ptr, ptr %181, align 8, !tbaa !43
-  %183 = call ptr @g_strrstr(ptr noundef %182, ptr noundef nonnull @.str.64) #16
-  %184 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %148) #16
-  call void @gtk_list_store_append(ptr noundef %184, ptr noundef nonnull %7) #16
-  %185 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %148) #16
-  %.not150 = icmp eq ptr %183, null
-  br i1 %.not150, label %186, label %190
+.preheader.split:                                 ; preds = %.preheader, %194
+  %.0119190 = phi ptr [ %206, %194 ], [ %153, %.preheader ]
+  %182 = load ptr, ptr %.0119190, align 8, !tbaa !41
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %184 = load ptr, ptr %183, align 8, !tbaa !43
+  %185 = call ptr @g_strrstr(ptr noundef %184, ptr noundef nonnull @.str.64) #16
+  %186 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %150) #16
+  call void @gtk_list_store_append(ptr noundef %186, ptr noundef nonnull %7) #16
+  %187 = call ptr @g_type_check_instance_cast(ptr noundef %.0126, i64 noundef %150) #16
+  %.not150 = icmp eq ptr %185, null
+  br i1 %.not150, label %188, label %192
 
-186:                                              ; preds = %.preheader.split
-  %187 = load ptr, ptr %.0119190, align 8, !tbaa !41
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  %189 = load ptr, ptr %188, align 8, !tbaa !43
-  br label %192
+188:                                              ; preds = %.preheader.split
+  %189 = load ptr, ptr %.0119190, align 8, !tbaa !41
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %191 = load ptr, ptr %190, align 8, !tbaa !43
+  br label %194
 
-190:                                              ; preds = %.preheader.split
-  %191 = getelementptr inbounds nuw i8, ptr %183, i64 1
+192:                                              ; preds = %.preheader.split
+  %193 = getelementptr inbounds nuw i8, ptr %185, i64 1
   %.pre199 = load ptr, ptr %.0119190, align 8, !tbaa !41
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre199, i64 8
   %.pre200 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !43
-  br label %192
+  br label %194
 
-192:                                              ; preds = %190, %186
-  %193 = phi ptr [ %189, %186 ], [ %.pre200, %190 ]
-  %194 = phi ptr [ %187, %186 ], [ %.pre199, %190 ]
-  %195 = phi ptr [ %189, %186 ], [ %191, %190 ]
-  %196 = load i32, ptr %194, align 8, !tbaa !48
-  %197 = getelementptr inbounds nuw i8, ptr %194, i64 32
-  %198 = load i32, ptr %197, align 8, !tbaa !49
-  %199 = getelementptr inbounds nuw i8, ptr %194, i64 40
-  %200 = load i32, ptr %199, align 8, !tbaa !51
-  %201 = getelementptr inbounds nuw i8, ptr %194, i64 24
-  %202 = load ptr, ptr %201, align 8, !tbaa !52
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %185, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %195, i32 noundef 1, i32 noundef %196, i32 noundef 2, ptr noundef %193, i32 noundef 4, i32 noundef %198, i32 noundef 5, i32 noundef 0, i32 noundef 6, i32 noundef %200, i32 noundef 3, ptr noundef %202, i32 noundef 7, i32 noundef 1, i32 noundef -1) #16
-  %203 = getelementptr inbounds nuw i8, ptr %.0119190, i64 8
-  %204 = load ptr, ptr %203, align 8, !tbaa !53
-  %.not148 = icmp eq ptr %204, null
+194:                                              ; preds = %192, %188
+  %195 = phi ptr [ %191, %188 ], [ %.pre200, %192 ]
+  %196 = phi ptr [ %189, %188 ], [ %.pre199, %192 ]
+  %197 = phi ptr [ %191, %188 ], [ %193, %192 ]
+  %198 = load i32, ptr %196, align 8, !tbaa !48
+  %199 = getelementptr inbounds nuw i8, ptr %196, i64 32
+  %200 = load i32, ptr %199, align 8, !tbaa !49
+  %201 = getelementptr inbounds nuw i8, ptr %196, i64 40
+  %202 = load i32, ptr %201, align 8, !tbaa !51
+  %203 = getelementptr inbounds nuw i8, ptr %196, i64 24
+  %204 = load ptr, ptr %203, align 8, !tbaa !52
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %187, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %197, i32 noundef 1, i32 noundef %198, i32 noundef 2, ptr noundef %195, i32 noundef 4, i32 noundef %200, i32 noundef 5, i32 noundef 0, i32 noundef 6, i32 noundef %202, i32 noundef 3, ptr noundef %204, i32 noundef 7, i32 noundef 1, i32 noundef -1) #16
+  %205 = getelementptr inbounds nuw i8, ptr %.0119190, i64 8
+  %206 = load ptr, ptr %205, align 8, !tbaa !53
+  %.not148 = icmp eq ptr %206, null
   br i1 %.not148, label %.loopexit, label %.preheader.split
 
-.loopexit:                                        ; preds = %192, %165, %147
-  br i1 %13, label %208, label %205
+.loopexit:                                        ; preds = %194, %167, %149
+  br i1 %13, label %210, label %207
 
-205:                                              ; preds = %.loopexit
-  %206 = load i8, ptr %12, align 8, !tbaa !40
-  %.not149 = icmp eq i8 %206, 0
-  br i1 %.not149, label %208, label %207
+207:                                              ; preds = %.loopexit
+  %208 = load i8, ptr %12, align 8, !tbaa !40
+  %.not149 = icmp eq i8 %208, 0
+  br i1 %.not149, label %210, label %209
 
-207:                                              ; preds = %205
+209:                                              ; preds = %207
   call void @gtk_tree_model_foreach(ptr noundef %.0126, ptr noundef nonnull @_set_matching_tag_visibility, ptr noundef %0) #16
-  br label %208
+  br label %210
 
-208:                                              ; preds = %.loopexit, %205, %207, %146, %._crit_edge188
-  %209 = call ptr @g_type_check_instance_cast(ptr noundef %.0120, i64 noundef %.pre-phi) #16
-  call void @gtk_tree_view_set_model(ptr noundef %209, ptr noundef %.0127) #16
+210:                                              ; preds = %.loopexit, %207, %209, %148, %._crit_edge188
+  %211 = call ptr @g_type_check_instance_cast(ptr noundef %.0120, i64 noundef %.pre-phi) #16
+  call void @gtk_tree_view_set_model(ptr noundef %211, ptr noundef %.0127) #16
   call void @g_object_unref(ptr noundef %.0127) #16
   %.val162 = load ptr, ptr %11, align 8, !tbaa !6
-  br i1 %13, label %216, label %210
+  br i1 %13, label %218, label %212
 
-210:                                              ; preds = %208
-  %211 = getelementptr inbounds nuw i8, ptr %.val162, i64 1192
-  %212 = load i32, ptr %211, align 8, !tbaa !36
-  %.not.i163 = icmp eq i32 %212, 0
-  br i1 %.not.i163, label %213, label %_sort_dictionary_list.exit
+212:                                              ; preds = %210
+  %213 = getelementptr inbounds nuw i8, ptr %.val162, i64 1192
+  %214 = load i32, ptr %213, align 8, !tbaa !36
+  %.not.i163 = icmp eq i32 %214, 0
+  br i1 %.not.i163, label %215, label %_sort_dictionary_list.exit
 
-213:                                              ; preds = %210
-  %214 = getelementptr inbounds nuw i8, ptr %.val162, i64 1200
-  %215 = load i32, ptr %214, align 8, !tbaa !56
-  %.not11.i = icmp eq i32 %215, 0
+215:                                              ; preds = %212
+  %216 = getelementptr inbounds nuw i8, ptr %.val162, i64 1200
+  %217 = load i32, ptr %216, align 8, !tbaa !56
+  %.not11.i = icmp eq i32 %217, 0
   br i1 %.not11.i, label %_sort_dictionary_list.exit.sink.split, label %_sort_dictionary_list.exit
 
-216:                                              ; preds = %208
-  %217 = getelementptr inbounds nuw i8, ptr %.val162, i64 1200
-  %218 = load i32, ptr %217, align 8, !tbaa !56
-  %.not8.i = icmp eq i32 %218, 0
+218:                                              ; preds = %210
+  %219 = getelementptr inbounds nuw i8, ptr %.val162, i64 1200
+  %220 = load i32, ptr %219, align 8, !tbaa !56
+  %.not8.i = icmp eq i32 %220, 0
   br i1 %.not8.i, label %_sort_dictionary_list.exit.sink.split, label %_sort_dictionary_list.exit
 
-_sort_dictionary_list.exit.sink.split:            ; preds = %216, %213
-  %.sink213.ph = phi i64 [ 1144, %213 ], [ 1136, %216 ]
-  %219 = getelementptr inbounds nuw i8, ptr %.val162, i64 1204
-  %220 = load i32, ptr %219, align 4, !tbaa !57
-  %.not9.i = icmp ne i32 %220, 0
-  %221 = zext i1 %.not9.i to i32
+_sort_dictionary_list.exit.sink.split:            ; preds = %218, %215
+  %.sink213.ph = phi i64 [ 1144, %215 ], [ 1136, %218 ]
+  %221 = getelementptr inbounds nuw i8, ptr %.val162, i64 1204
+  %222 = load i32, ptr %221, align 4, !tbaa !57
+  %.not9.i = icmp ne i32 %222, 0
+  %223 = zext i1 %.not9.i to i32
   br label %_sort_dictionary_list.exit
 
-_sort_dictionary_list.exit:                       ; preds = %_sort_dictionary_list.exit.sink.split, %216, %213, %210
-  %.sink213 = phi i64 [ 1144, %213 ], [ 1152, %210 ], [ 1136, %216 ], [ %.sink213.ph, %_sort_dictionary_list.exit.sink.split ]
-  %.sink211 = phi i32 [ 2, %213 ], [ 0, %210 ], [ 2, %216 ], [ %221, %_sort_dictionary_list.exit.sink.split ]
-  %222 = getelementptr inbounds nuw i8, ptr %.val162, i64 %.sink213
-  %223 = load ptr, ptr %222, align 8, !tbaa !47
-  %224 = call ptr @g_type_check_instance_cast(ptr noundef %223, i64 noundef %60) #16
-  call void @gtk_tree_sortable_set_sort_column_id(ptr noundef %224, i32 noundef %.sink211, i32 noundef 0) #16
+_sort_dictionary_list.exit:                       ; preds = %_sort_dictionary_list.exit.sink.split, %218, %215, %212
+  %.sink213 = phi i64 [ 1144, %215 ], [ 1152, %212 ], [ 1136, %218 ], [ %.sink213.ph, %_sort_dictionary_list.exit.sink.split ]
+  %.sink211 = phi i32 [ 2, %215 ], [ 0, %212 ], [ 2, %218 ], [ %223, %_sort_dictionary_list.exit.sink.split ]
+  %224 = getelementptr inbounds nuw i8, ptr %.val162, i64 %.sink213
+  %225 = load ptr, ptr %224, align 8, !tbaa !47
+  %226 = call ptr @g_type_check_instance_cast(ptr noundef %225, i64 noundef %60) #16
+  call void @gtk_tree_sortable_set_sort_column_id(ptr noundef %226, i32 noundef %.sink211, i32 noundef 0) #16
   call void @dt_tag_free_result(ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16

@@ -270,7 +270,6 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
   %10 = alloca [67 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   store ptr %2, ptr %5, align 8, !tbaa !11
-  %invariant.gep = getelementptr i8, ptr %10, i64 -2
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 64
@@ -284,8 +283,8 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
   %.promoted = phi ptr [ %2, %4 ], [ %.promoted.be, %.backedge ]
   %.0384 = phi i64 [ 0, %4 ], [ %.0384.be, %.backedge ]
   %19 = load i8, ptr %.promoted, align 1, !tbaa !8
-  switch i8 %19, label %695 [
-    i8 0, label %702
+  switch i8 %19, label %697 [
+    i8 0, label %704
     i8 37, label %.preheader558.outer
   ]
 
@@ -482,7 +481,7 @@ thread-pre-split720:                              ; preds = %thread-pre-split720
   %75 = phi i8 [ %.pr722, %thread-pre-split720 ], [ %71, %69 ]
   %76 = phi ptr [ %.ph721, %thread-pre-split720 ], [ %70, %69 ]
   %.0401 = phi i8 [ %.0401.ph, %thread-pre-split720 ], [ 108, %69 ]
-  switch i8 %75, label %694 [
+  switch i8 %75, label %696 [
     i8 37, label %77
     i8 100, label %84
     i8 105, label %84
@@ -510,9 +509,9 @@ thread-pre-split720:                              ; preds = %thread-pre-split720
   store ptr %83, ptr %5, align 8, !tbaa !11
   br label %.backedge
 
-.backedge:                                        ; preds = %81, %.loopexit, %.loopexit535, %.loopexit539, %.loopexit543, %.loopexit547, %.loopexit551, %.loopexit555, %699
-  %.promoted.be = phi ptr [ %701, %699 ], [ %83, %81 ], [ %219, %.loopexit ], [ %329, %.loopexit535 ], [ %435, %.loopexit539 ], [ %549, %.loopexit543 ], [ %588, %.loopexit547 ], [ %639, %.loopexit551 ], [ %693, %.loopexit555 ]
-  %.0384.be = phi i64 [ %700, %699 ], [ %82, %81 ], [ %.5, %.loopexit ], [ %.10, %.loopexit535 ], [ %.15, %.loopexit539 ], [ %.20, %.loopexit543 ], [ %.25, %.loopexit547 ], [ %.30, %.loopexit551 ], [ %.35, %.loopexit555 ]
+.backedge:                                        ; preds = %81, %.loopexit, %.loopexit535, %.loopexit539, %.loopexit543, %.loopexit547, %.loopexit551, %.loopexit555, %701
+  %.promoted.be = phi ptr [ %703, %701 ], [ %83, %81 ], [ %219, %.loopexit ], [ %329, %.loopexit535 ], [ %435, %.loopexit539 ], [ %549, %.loopexit543 ], [ %588, %.loopexit547 ], [ %639, %.loopexit551 ], [ %695, %.loopexit555 ]
+  %.0384.be = phi i64 [ %702, %701 ], [ %82, %81 ], [ %.5, %.loopexit ], [ %.10, %.loopexit535 ], [ %.15, %.loopexit539 ], [ %.20, %.loopexit543 ], [ %.25, %.loopexit547 ], [ %.30, %.loopexit551 ], [ %.35, %.loopexit555 ]
   br label %18
 
 84:                                               ; preds = %74, %74
@@ -1768,124 +1767,125 @@ x2s.exit:                                         ; preds = %u2s.exit.i485, %516
   br i1 %.not.i.i490, label %x2s.exit493, label %654, !llvm.loop !26
 
 x2s.exit493:                                      ; preds = %654
-  %661 = sub i64 65, %indvars.iv.i.i487
-  %662 = and i64 %661, 4294967295
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %658
-  %663 = add nuw nsw i64 %662, 2
-  store i16 30768, ptr %gep, align 1
-  %664 = icmp eq i32 %.0400, -1
-  br i1 %664, label %.thread527, label %666
+  %661 = getelementptr inbounds nuw i8, ptr %10, i64 %658
+  %662 = sub i64 65, %indvars.iv.i.i487
+  %663 = and i64 %662, 4294967295
+  %664 = getelementptr inbounds i8, ptr %661, i64 -2
+  %665 = add nuw nsw i64 %663, 2
+  store i16 30768, ptr %664, align 1
+  %666 = icmp eq i32 %.0400, -1
+  br i1 %666, label %.thread527, label %668
 
 .thread527:                                       ; preds = %x2s.exit493
-  %665 = trunc nuw i8 %.2390 to i1
+  %667 = trunc nuw i8 %.2390 to i1
   br label %.loopexit557
 
-666:                                              ; preds = %x2s.exit493
-  %667 = sext i32 %.0400 to i64
-  %668 = call i64 @llvm.usub.sat.i64(i64 %667, i64 %663)
-  %669 = trunc nuw i8 %.2390 to i1
-  %.not29 = xor i1 %669, true
-  %670 = icmp ult i64 %663, %667
-  %or.cond667 = select i1 %.not29, i1 %670, i1 false
+668:                                              ; preds = %x2s.exit493
+  %669 = sext i32 %.0400 to i64
+  %670 = call i64 @llvm.usub.sat.i64(i64 %669, i64 %665)
+  %671 = trunc nuw i8 %.2390 to i1
+  %.not29 = xor i1 %671, true
+  %672 = icmp ult i64 %665, %669
+  %or.cond667 = select i1 %.not29, i1 %672, i1 false
   br i1 %or.cond667, label %.lr.ph, label %.loopexit557
 
-.lr.ph:                                           ; preds = %666, %673
-  %.32605 = phi i64 [ %.33, %673 ], [ %.0384, %666 ]
-  %.0385604 = phi i64 [ %674, %673 ], [ 0, %666 ]
-  %671 = icmp ult i64 %.32605, %1
-  br i1 %671, label %.sink.split788, label %673
+.lr.ph:                                           ; preds = %668, %675
+  %.32605 = phi i64 [ %.33, %675 ], [ %.0384, %668 ]
+  %.0385604 = phi i64 [ %676, %675 ], [ 0, %668 ]
+  %673 = icmp ult i64 %.32605, %1
+  br i1 %673, label %.sink.split788, label %675
 
 .sink.split788:                                   ; preds = %.lr.ph
-  %672 = getelementptr inbounds nuw i8, ptr %0, i64 %.32605
-  store i8 %.1407, ptr %672, align 1, !tbaa !8
-  br label %673
+  %674 = getelementptr inbounds nuw i8, ptr %0, i64 %.32605
+  store i8 %.1407, ptr %674, align 1, !tbaa !8
+  br label %675
 
-673:                                              ; preds = %.lr.ph, %.sink.split788
+675:                                              ; preds = %.lr.ph, %.sink.split788
   %.33 = add i64 %.32605, 1
-  %674 = add nuw i64 %.0385604, 1
-  %675 = icmp ult i64 %674, %668
-  br i1 %675, label %.lr.ph, label %.loopexit557, !llvm.loop !33
+  %676 = add nuw i64 %.0385604, 1
+  %677 = icmp ult i64 %676, %670
+  br i1 %677, label %.lr.ph, label %.loopexit557, !llvm.loop !33
 
-.loopexit557:                                     ; preds = %673, %.thread527, %666
-  %676 = phi i1 [ %670, %666 ], [ false, %.thread527 ], [ true, %673 ]
-  %677 = phi i1 [ %669, %666 ], [ %665, %.thread527 ], [ %669, %673 ]
-  %678 = phi i64 [ %668, %666 ], [ 0, %.thread527 ], [ %668, %673 ]
-  %.34 = phi i64 [ %.0384, %666 ], [ %.0384, %.thread527 ], [ %.33, %673 ]
-  %679 = icmp ult i64 %.34, %1
-  br i1 %679, label %680, label %684
+.loopexit557:                                     ; preds = %675, %.thread527, %668
+  %678 = phi i1 [ %672, %668 ], [ false, %.thread527 ], [ true, %675 ]
+  %679 = phi i1 [ %671, %668 ], [ %667, %.thread527 ], [ %671, %675 ]
+  %680 = phi i64 [ %670, %668 ], [ 0, %.thread527 ], [ %670, %675 ]
+  %.34 = phi i64 [ %.0384, %668 ], [ %.0384, %.thread527 ], [ %.33, %675 ]
+  %681 = icmp ult i64 %.34, %1
+  br i1 %681, label %682, label %686
 
-680:                                              ; preds = %.loopexit557
-  %681 = sub nuw i64 %1, %.34
-  %682 = call i64 @llvm.umin.i64(i64 %663, i64 %681)
-  %683 = getelementptr inbounds nuw i8, ptr %0, i64 %.34
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %683, ptr nonnull align 1 %gep, i64 %682, i1 false)
-  br label %684
+682:                                              ; preds = %.loopexit557
+  %683 = sub nuw i64 %1, %.34
+  %684 = call i64 @llvm.umin.i64(i64 %665, i64 %683)
+  %685 = getelementptr inbounds nuw i8, ptr %0, i64 %.34
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %685, ptr nonnull align 1 %664, i64 %684, i1 false)
+  br label %686
 
-684:                                              ; preds = %680, %.loopexit557
-  %685 = add i64 %.34, %663
-  %or.cond33 = select i1 %677, i1 %676, i1 false
-  %686 = icmp ne i64 %678, 0
-  %or.cond668 = select i1 %or.cond33, i1 %686, i1 false
+686:                                              ; preds = %682, %.loopexit557
+  %687 = add i64 %.34, %665
+  %or.cond33 = select i1 %679, i1 %678, i1 false
+  %688 = icmp ne i64 %680, 0
+  %or.cond668 = select i1 %or.cond33, i1 %688, i1 false
   br i1 %or.cond668, label %.lr.ph608, label %.loopexit555
 
-.lr.ph608:                                        ; preds = %684, %690
-  %.0607 = phi i64 [ %692, %690 ], [ 0, %684 ]
-  %.36606 = phi i64 [ %691, %690 ], [ %685, %684 ]
-  %687 = icmp ult i64 %.36606, %1
-  br i1 %687, label %688, label %690
+.lr.ph608:                                        ; preds = %686, %692
+  %.0607 = phi i64 [ %694, %692 ], [ 0, %686 ]
+  %.36606 = phi i64 [ %693, %692 ], [ %687, %686 ]
+  %689 = icmp ult i64 %.36606, %1
+  br i1 %689, label %690, label %692
 
-688:                                              ; preds = %.lr.ph608
-  %689 = getelementptr inbounds nuw i8, ptr %0, i64 %.36606
-  store i8 32, ptr %689, align 1, !tbaa !8
-  br label %690
+690:                                              ; preds = %.lr.ph608
+  %691 = getelementptr inbounds nuw i8, ptr %0, i64 %.36606
+  store i8 32, ptr %691, align 1, !tbaa !8
+  br label %692
 
-690:                                              ; preds = %688, %.lr.ph608
-  %691 = add i64 %.36606, 1
-  %692 = add nuw i64 %.0607, 1
-  %exitcond.not = icmp eq i64 %692, %678
+692:                                              ; preds = %690, %.lr.ph608
+  %693 = add i64 %.36606, 1
+  %694 = add nuw i64 %.0607, 1
+  %exitcond.not = icmp eq i64 %694, %680
   br i1 %exitcond.not, label %.loopexit555, label %.lr.ph608, !llvm.loop !34
 
-.loopexit555:                                     ; preds = %690, %684
-  %.35 = phi i64 [ %685, %684 ], [ %691, %690 ]
-  %693 = getelementptr inbounds nuw i8, ptr %76, i64 1
-  store ptr %693, ptr %5, align 8, !tbaa !11
+.loopexit555:                                     ; preds = %692, %686
+  %.35 = phi i64 [ %687, %686 ], [ %693, %692 ]
+  %695 = getelementptr inbounds nuw i8, ptr %76, i64 1
+  store ptr %695, ptr %5, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 67, ptr nonnull %10) #14
   br label %.backedge
 
-694:                                              ; preds = %74
+696:                                              ; preds = %74
   unreachable
 
-695:                                              ; preds = %18
-  %696 = icmp ult i64 %.0384, %1
-  br i1 %696, label %697, label %699
+697:                                              ; preds = %18
+  %698 = icmp ult i64 %.0384, %1
+  br i1 %698, label %699, label %701
 
-697:                                              ; preds = %695
-  %698 = getelementptr inbounds nuw i8, ptr %0, i64 %.0384
-  store i8 %19, ptr %698, align 1, !tbaa !8
-  br label %699
+699:                                              ; preds = %697
+  %700 = getelementptr inbounds nuw i8, ptr %0, i64 %.0384
+  store i8 %19, ptr %700, align 1, !tbaa !8
+  br label %701
 
-699:                                              ; preds = %697, %695
-  %700 = add i64 %.0384, 1
-  %701 = getelementptr inbounds nuw i8, ptr %.promoted, i64 1
-  store ptr %701, ptr %5, align 8, !tbaa !11
+701:                                              ; preds = %699, %697
+  %702 = add i64 %.0384, 1
+  %703 = getelementptr inbounds nuw i8, ptr %.promoted, i64 1
+  store ptr %703, ptr %5, align 8, !tbaa !11
   br label %.backedge
 
-702:                                              ; preds = %18
-  %703 = icmp ult i64 %.0384, %1
-  br i1 %703, label %704, label %706
+704:                                              ; preds = %18
+  %705 = icmp ult i64 %.0384, %1
+  br i1 %705, label %706, label %708
 
-704:                                              ; preds = %702
-  %705 = getelementptr inbounds nuw i8, ptr %0, i64 %.0384
-  store i8 0, ptr %705, align 1, !tbaa !8
-  br label %709
+706:                                              ; preds = %704
+  %707 = getelementptr inbounds nuw i8, ptr %0, i64 %.0384
+  store i8 0, ptr %707, align 1, !tbaa !8
+  br label %711
 
-706:                                              ; preds = %702
-  %707 = getelementptr i8, ptr %0, i64 %1
-  %708 = getelementptr i8, ptr %707, i64 -1
-  store i8 0, ptr %708, align 1, !tbaa !8
-  br label %709
+708:                                              ; preds = %704
+  %709 = getelementptr i8, ptr %0, i64 %1
+  %710 = getelementptr i8, ptr %709, i64 -1
+  store i8 0, ptr %710, align 1, !tbaa !8
+  br label %711
 
-709:                                              ; preds = %706, %704
+711:                                              ; preds = %708, %706
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   ret i64 %.0384
 }

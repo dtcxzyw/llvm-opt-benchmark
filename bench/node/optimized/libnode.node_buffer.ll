@@ -15438,7 +15438,6 @@ entry:
   %arrayidx.i = getelementptr inbounds i16, ptr %3, i64 %cond.i
   %5 = load i16, ptr %arrayidx.i, align 2
   %sub7 = sub i64 %0, %1
-  %invariant.gep = getelementptr i8, ptr %add.ptr, i64 4
   %cmp.not100 = icmp ugt i64 %start_index, %sub7
   br i1 %cmp.not100, label %return, label %while.cond9.preheader.lr.ph
 
@@ -15453,7 +15452,7 @@ while.cond9.preheader.lr.ph:                      ; preds = %entry
   %idxprom.i57 = zext nneg i16 %9 to i64
   %arrayidx.i58 = getelementptr inbounds nuw i32, ptr %this, i64 %idxprom.i57
   %10 = getelementptr i16, ptr %6, i64 %0
-  %invariant.gep138 = getelementptr i16, ptr %6, i64 %sub
+  %invariant.gep = getelementptr i16, ptr %6, i64 %sub
   %11 = getelementptr i16, ptr %6, i64 %0
   br label %while.cond9.preheader
 
@@ -15463,8 +15462,8 @@ while.cond9.preheader:                            ; preds = %while.cond9.prehead
 
 while.cond9.us:                                   ; preds = %while.cond9.preheader, %while.body13.us
   %index.1.us = phi i64 [ %add20.us, %while.body13.us ], [ %index.0101, %while.cond9.preheader ]
-  %gep139 = getelementptr i16, ptr %invariant.gep138, i64 %index.1.us
-  %12 = load i16, ptr %gep139, align 2
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %index.1.us
+  %12 = load i16, ptr %gep, align 2
   %cmp12.not.us = icmp eq i16 %5, %12
   br i1 %cmp12.not.us, label %while.cond24.preheader.loopexit, label %while.body13.us
 
@@ -15529,7 +15528,7 @@ while.body32.lr.ph.split:                         ; preds = %while.body32.lr.ph
   br i1 %tobool.i32, label %while.body32.us82.preheader, label %while.body32
 
 while.body32.us82.preheader:                      ; preds = %while.body32.lr.ph.split
-  %invariant.gep140 = getelementptr i16, ptr %6, i64 %.us-phi
+  %invariant.gep138 = getelementptr i16, ptr %6, i64 %.us-phi
   br label %while.body32.us82
 
 while.body32.us82:                                ; preds = %while.body32.us82.preheader, %if.end35.split.us85
@@ -15542,8 +15541,8 @@ if.end35.split.us85:                              ; preds = %while.body32.us82
   %sub2.i54.us87 = sub i64 %1, %j.077.us83
   %arrayidx.i56.us88 = getelementptr inbounds i16, ptr %3, i64 %sub2.i54.us87
   %21 = load i16, ptr %arrayidx.i56.us88, align 2
-  %gep141 = getelementptr i16, ptr %invariant.gep140, i64 %dec.us86
-  %22 = load i16, ptr %gep141, align 2
+  %gep139 = getelementptr i16, ptr %invariant.gep138, i64 %dec.us86
+  %22 = load i16, ptr %gep139, align 2
   %cmp31.us93 = icmp eq i16 %21, %22
   br i1 %cmp31.us93, label %while.body32.us82, label %while.end36, !llvm.loop !32
 
@@ -15588,15 +15587,16 @@ if.then38:                                        ; preds = %while.end36
   br label %if.end56
 
 if.else:                                          ; preds = %while.end36
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %j.0.lcssa
-  %29 = load i32, ptr %gep, align 4
-  %30 = and i16 %.lcssa67, 255
-  %idxprom.i59 = zext nneg i16 %30 to i64
+  %29 = getelementptr i32, ptr %add.ptr, i64 %j.0.lcssa
+  %arrayidx = getelementptr i8, ptr %29, i64 4
+  %30 = load i32, ptr %arrayidx, align 4
+  %31 = and i16 %.lcssa67, 255
+  %idxprom.i59 = zext nneg i16 %31 to i64
   %arrayidx.i60 = getelementptr inbounds nuw i32, ptr %this, i64 %idxprom.i59
-  %31 = load i32, ptr %arrayidx.i60, align 4
-  %32 = trunc i64 %j.0.lcssa to i32
-  %conv50 = sub i32 %32, %31
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %29, i32 %conv50)
+  %32 = load i32, ptr %arrayidx.i60, align 4
+  %33 = trunc i64 %j.0.lcssa to i32
+  %conv50 = sub i32 %33, %32
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %30, i32 %conv50)
   %conv54 = sext i32 %spec.select to i64
   br label %if.end56
 
@@ -16622,7 +16622,6 @@ entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %cond.i
   %5 = load i8, ptr %arrayidx.i, align 1
   %sub7 = sub i64 %0, %1
-  %invariant.gep = getelementptr i8, ptr %add.ptr, i64 4
   %cmp.not100 = icmp ugt i64 %start_index, %sub7
   br i1 %cmp.not100, label %return, label %while.cond9.preheader.lr.ph
 
@@ -16636,7 +16635,7 @@ while.cond9.preheader.lr.ph:                      ; preds = %entry
   %idxprom.i57 = zext i8 %5 to i64
   %arrayidx.i58 = getelementptr inbounds nuw i32, ptr %this, i64 %idxprom.i57
   %9 = getelementptr i8, ptr %6, i64 %0
-  %invariant.gep138 = getelementptr i8, ptr %6, i64 %sub
+  %invariant.gep = getelementptr i8, ptr %6, i64 %sub
   %10 = getelementptr i8, ptr %6, i64 %0
   br label %while.cond9.preheader
 
@@ -16646,8 +16645,8 @@ while.cond9.preheader:                            ; preds = %while.cond9.prehead
 
 while.cond9.us:                                   ; preds = %while.cond9.preheader, %while.body13.us
   %index.1.us = phi i64 [ %add20.us, %while.body13.us ], [ %index.0101, %while.cond9.preheader ]
-  %gep139 = getelementptr i8, ptr %invariant.gep138, i64 %index.1.us
-  %11 = load i8, ptr %gep139, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %index.1.us
+  %11 = load i8, ptr %gep, align 1
   %cmp12.not.us = icmp eq i8 %5, %11
   br i1 %cmp12.not.us, label %while.cond24.preheader.loopexit, label %while.body13.us
 
@@ -16711,7 +16710,7 @@ while.body32.lr.ph.split:                         ; preds = %while.body32.lr.ph
   br i1 %tobool.i32, label %while.body32.us82.preheader, label %while.body32
 
 while.body32.us82.preheader:                      ; preds = %while.body32.lr.ph.split
-  %invariant.gep140 = getelementptr i8, ptr %6, i64 %.us-phi
+  %invariant.gep138 = getelementptr i8, ptr %6, i64 %.us-phi
   br label %while.body32.us82
 
 while.body32.us82:                                ; preds = %while.body32.us82.preheader, %if.end35.split.us85
@@ -16724,8 +16723,8 @@ if.end35.split.us85:                              ; preds = %while.body32.us82
   %sub2.i54.us87 = sub i64 %1, %j.077.us83
   %arrayidx.i56.us88 = getelementptr inbounds i8, ptr %3, i64 %sub2.i54.us87
   %19 = load i8, ptr %arrayidx.i56.us88, align 1
-  %gep141 = getelementptr i8, ptr %invariant.gep140, i64 %dec.us86
-  %20 = load i8, ptr %gep141, align 1
+  %gep139 = getelementptr i8, ptr %invariant.gep138, i64 %dec.us86
+  %20 = load i8, ptr %gep139, align 1
   %cmp31.us93 = icmp eq i8 %19, %20
   br i1 %cmp31.us93, label %while.body32.us82, label %while.end36, !llvm.loop !63
 
@@ -16769,14 +16768,15 @@ if.then38:                                        ; preds = %while.end36
   br label %if.end56
 
 if.else:                                          ; preds = %while.end36
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %j.0.lcssa
-  %26 = load i32, ptr %gep, align 4
+  %26 = getelementptr i32, ptr %add.ptr, i64 %j.0.lcssa
+  %arrayidx = getelementptr i8, ptr %26, i64 4
+  %27 = load i32, ptr %arrayidx, align 4
   %idxprom.i59 = zext i8 %.lcssa67 to i64
   %arrayidx.i60 = getelementptr inbounds nuw i32, ptr %this, i64 %idxprom.i59
-  %27 = load i32, ptr %arrayidx.i60, align 4
-  %28 = trunc i64 %j.0.lcssa to i32
-  %conv50 = sub i32 %28, %27
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %26, i32 %conv50)
+  %28 = load i32, ptr %arrayidx.i60, align 4
+  %29 = trunc i64 %j.0.lcssa to i32
+  %conv50 = sub i32 %29, %28
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %27, i32 %conv50)
   %conv54 = sext i32 %spec.select to i64
   br label %if.end56
 

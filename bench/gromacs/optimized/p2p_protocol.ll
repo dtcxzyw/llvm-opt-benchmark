@@ -25,7 +25,6 @@ define noundef range(i32 0, 2) i32 @_Z23tMPI_Free_env_list_initP18free_envelope_
 
 8:                                                ; preds = %2
   store ptr %5, ptr %0, align 8, !tbaa !9
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 184
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %.lr.ph, label %.loopexit
 
@@ -38,14 +37,15 @@ define noundef range(i32 0, 2) i32 @_Z23tMPI_Free_env_list_initP18free_envelope_
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = icmp samesign ult i64 %indvars.iv, %11
-  %gep = getelementptr inbounds nuw %struct.envelope, ptr %invariant.gep, i64 %indvars.iv
-  %spec.select = select i1 %13, ptr %gep, ptr null
-  %14 = getelementptr inbounds nuw %struct.envelope, ptr %5, i64 %indvars.iv, i32 11
-  store ptr %spec.select, ptr %14, align 8, !tbaa !10
-  %15 = getelementptr inbounds nuw %struct.envelope, ptr %5, i64 %indvars.iv, i32 15
+  %14 = getelementptr inbounds nuw %struct.envelope, ptr %5, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
+  %.sink = select i1 %13, ptr %15, ptr null
+  %16 = getelementptr inbounds nuw %struct.envelope, ptr %5, i64 %indvars.iv, i32 11
+  store ptr %.sink, ptr %16, align 8, !tbaa !10
+  %17 = getelementptr inbounds nuw %struct.envelope, ptr %5, i64 %indvars.iv, i32 15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !20
 
 .loopexit:                                        ; preds = %12, %8, %2
@@ -77,10 +77,9 @@ define noundef range(i32 0, 2) i32 @_Z23tMPI_Send_env_list_initP18send_envelope_
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %6, ptr %7, align 8, !tbaa !25
   %8 = icmp eq ptr %6, null
-  br i1 %8, label %24, label %.preheader
+  br i1 %8, label %27, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 184
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -93,35 +92,37 @@ define noundef range(i32 0, 2) i32 @_Z23tMPI_Send_env_list_initP18send_envelope_
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = icmp samesign ult i64 %indvars.iv, %11
-  %gep = getelementptr inbounds nuw %struct.envelope, ptr %invariant.gep, i64 %indvars.iv
-  %14 = select i1 %13, ptr %gep, ptr null
-  %15 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv, i32 11
-  store ptr %14, ptr %15, align 8, !tbaa !10
-  %16 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv, i32 10
-  store ptr null, ptr %16, align 8, !tbaa !26
-  %17 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv, i32 16
-  store ptr %0, ptr %17, align 8, !tbaa !27
-  %18 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv, i32 15
-  store ptr null, ptr %18, align 8, !tbaa !28
+  %14 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
+  %16 = select i1 %13, ptr %15, ptr null
+  %17 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv, i32 11
+  store ptr %16, ptr %17, align 8, !tbaa !10
+  %18 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv, i32 10
+  store ptr null, ptr %18, align 8, !tbaa !26
+  %19 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv, i32 16
+  store ptr %0, ptr %19, align 8, !tbaa !27
+  %20 = getelementptr inbounds nuw %struct.envelope, ptr %6, i64 %indvars.iv, i32 15
+  store ptr null, ptr %20, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %12, %.preheader
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %19, align 8, !tbaa !30
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr null, ptr %20, align 8, !tbaa !31
-  store ptr %invariant.gep, ptr %0, align 8, !tbaa !32
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %6, ptr %21, align 8, !tbaa !33
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store ptr %6, ptr %22, align 8, !tbaa !10
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store ptr %6, ptr %23, align 8, !tbaa !26
-  br label %24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %21, align 8, !tbaa !30
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr null, ptr %22, align 8, !tbaa !31
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 184
+  store ptr %23, ptr %0, align 8, !tbaa !32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %6, ptr %24, align 8, !tbaa !33
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  store ptr %6, ptr %25, align 8, !tbaa !10
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  store ptr %6, ptr %26, align 8, !tbaa !26
+  br label %27
 
-24:                                               ; preds = %2, %._crit_edge
+27:                                               ; preds = %2, %._crit_edge
   %.031 = phi i32 [ 0, %._crit_edge ], [ 1, %2 ]
   ret i32 %.031
 }
@@ -167,8 +168,6 @@ define noundef range(i32 0, 2) i32 @_Z18tMPI_Req_list_initP8req_listi(ptr nounde
 
 8:                                                ; preds = %2
   store ptr %5, ptr %0, align 8, !tbaa !39
-  %invariant.gep = getelementptr i8, ptr %5, i64 -72
-  %invariant.gep26 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %.lr.ph, label %.loopexit
 
@@ -179,33 +178,35 @@ define noundef range(i32 0, 2) i32 @_Z18tMPI_Req_list_initP8req_listi(ptr nounde
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %13
 
-13:                                               ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
+13:                                               ; preds = %.lr.ph, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %14 = icmp eq i64 %indvars.iv, 0
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %13
   store ptr null, ptr %10, align 8, !tbaa !40
-  br label %18
+  br label %20
 
 16:                                               ; preds = %13
-  %gep = getelementptr %struct.tmpi_req_, ptr %invariant.gep, i64 %indvars.iv
-  %17 = getelementptr inbounds nuw %struct.tmpi_req_, ptr %5, i64 %indvars.iv, i32 9
-  store ptr %gep, ptr %17, align 8, !tbaa !40
-  br label %18
+  %17 = getelementptr %struct.tmpi_req_, ptr %5, i64 %indvars.iv
+  %18 = getelementptr i8, ptr %17, i64 -72
+  %19 = getelementptr inbounds nuw %struct.tmpi_req_, ptr %5, i64 %indvars.iv, i32 9
+  store ptr %18, ptr %19, align 8, !tbaa !40
+  br label %20
 
-18:                                               ; preds = %16, %15
+20:                                               ; preds = %16, %15
   %.not = icmp samesign ult i64 %indvars.iv, %12
-  %gep27 = getelementptr inbounds nuw %struct.tmpi_req_, ptr %invariant.gep26, i64 %indvars.iv
-  %spec.select = select i1 %.not, ptr %gep27, ptr null
-  %19 = getelementptr inbounds nuw %struct.tmpi_req_, ptr %5, i64 %indvars.iv, i32 8
-  store ptr %spec.select, ptr %19, align 8, !tbaa !42
+  %21 = getelementptr inbounds nuw %struct.tmpi_req_, ptr %5, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %.sink = select i1 %.not, ptr %22, ptr null
+  %23 = getelementptr inbounds nuw %struct.tmpi_req_, ptr %5, i64 %indvars.iv, i32 8
+  store ptr %.sink, ptr %23, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !43
 
-.loopexit:                                        ; preds = %18, %8, %2
-  %.023 = phi i32 [ 1, %2 ], [ 0, %8 ], [ 0, %18 ]
+.loopexit:                                        ; preds = %20, %8, %2
+  %.023 = phi i32 [ 1, %2 ], [ 0, %8 ], [ 0, %20 ]
   ret i32 %.023
 }
 

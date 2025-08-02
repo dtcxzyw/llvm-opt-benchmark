@@ -1360,7 +1360,6 @@ invoke.cont370:                                   ; preds = %.noexc336, %_ZN8Qua
   %sub.ptr.rhs.cast.i341 = ptrtoint ptr %vGrid.sroa.0.0454 to i64
   %sub.ptr.sub.i342 = sub i64 %sub.ptr.lhs.cast.i340, %sub.ptr.rhs.cast.i341
   %sub.ptr.div.i343 = ashr exact i64 %sub.ptr.sub.i342, 3
-  %invariant.gep = getelementptr i8, ptr %vGrid.sroa.0.0454, i64 -8
   %cmp377532 = icmp ugt i64 %sub.ptr.div.i343, 1
   br i1 %cmp377532, label %for.body379, label %for.cond.cleanup378
 
@@ -1463,31 +1462,31 @@ ehcleanup445.thread:                              ; preds = %cond.false.i334
 
 for.body379:                                      ; preds = %invoke.cont370, %for.inc398
   %i374.0533 = phi i64 [ %inc399, %for.inc398 ], [ 1, %invoke.cont370 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %i374.0533
-  %128 = load double, ptr %gep, align 8, !tbaa !6
-  %cmp382 = fcmp ugt double %128, %113
+  %128 = getelementptr double, ptr %vGrid.sroa.0.0454, i64 %i374.0533
+  %add.ptr.i352 = getelementptr i8, ptr %128, i64 -8
+  %129 = load double, ptr %add.ptr.i352, align 8, !tbaa !6
+  %cmp382 = fcmp ugt double %129, %113
   br i1 %cmp382, label %for.inc398, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body379
-  %add.ptr.i353 = getelementptr inbounds nuw double, ptr %vGrid.sroa.0.0454, i64 %i374.0533
-  %129 = load double, ptr %add.ptr.i353, align 8, !tbaa !6
-  %cmp384 = fcmp ult double %129, %113
+  %130 = load double, ptr %128, align 8, !tbaa !6
+  %cmp384 = fcmp ult double %130, %113
   br i1 %cmp384, label %for.inc398, label %if.then385
 
 if.then385:                                       ; preds = %land.lhs.true
-  %sub388 = fsub double %128, %113
-  %130 = call double @llvm.fabs.f64(double %sub388)
-  %sub390 = fsub double %129, %113
-  %131 = call double @llvm.fabs.f64(double %sub390)
-  %cmp391 = fcmp olt double %130, %131
+  %sub388 = fsub double %129, %113
+  %131 = call double @llvm.fabs.f64(double %sub388)
+  %sub390 = fsub double %130, %113
+  %132 = call double @llvm.fabs.f64(double %sub390)
+  %cmp391 = fcmp olt double %131, %132
   br i1 %cmp391, label %if.then392, label %if.else
 
 if.then392:                                       ; preds = %if.then385
-  store double %113, ptr %gep, align 8, !tbaa !6
+  store double %113, ptr %add.ptr.i352, align 8, !tbaa !6
   br label %for.inc398
 
 if.else:                                          ; preds = %if.then385
-  store double %113, ptr %add.ptr.i353, align 8, !tbaa !6
+  store double %113, ptr %128, align 8, !tbaa !6
   br label %for.inc398
 
 for.inc398:                                       ; preds = %for.body379, %land.lhs.true, %if.else, %if.then392
@@ -1499,10 +1498,10 @@ for.body422:                                      ; preds = %for.body422.lr.ph, 
   %i417.0536 = phi i64 [ 0, %for.body422.lr.ph ], [ %add423, %for.body422 ]
   %add423 = add nuw i64 %i417.0536, 1
   %add.ptr.i358 = getelementptr inbounds nuw double, ptr %vGrid.sroa.0.0454, i64 %add423
-  %132 = load double, ptr %add.ptr.i358, align 8, !tbaa !6
+  %133 = load double, ptr %add.ptr.i358, align 8, !tbaa !6
   %add.ptr.i359 = getelementptr inbounds nuw double, ptr %vGrid.sroa.0.0454, i64 %i417.0536
-  %133 = load double, ptr %add.ptr.i359, align 8, !tbaa !6
-  %sub426 = fsub double %132, %133
+  %134 = load double, ptr %add.ptr.i359, align 8, !tbaa !6
+  %sub426 = fsub double %133, %134
   %add.ptr.i360 = getelementptr inbounds nuw double, ptr %115, i64 %i417.0536
   store double %sub426, ptr %add.ptr.i360, align 8, !tbaa !6
   %add.ptr.i361 = getelementptr inbounds nuw double, ptr %116, i64 %add423
@@ -1511,11 +1510,11 @@ for.body422:                                      ; preds = %for.body422.lr.ph, 
   br i1 %exitcond542.not, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %for.body422, !llvm.loop !94
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %for.body422, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit._ZNSt6vectorIdSaIdEED2Ev.exit_crit_edge
-  %134 = phi ptr [ %.pre547, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit._ZNSt6vectorIdSaIdEED2Ev.exit_crit_edge ], [ %116, %for.body422 ]
-  store double 0x47EFFFFFE0000000, ptr %134, align 8, !tbaa !6
+  %135 = phi ptr [ %.pre547, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit._ZNSt6vectorIdSaIdEED2Ev.exit_crit_edge ], [ %116, %for.body422 ]
+  store double 0x47EFFFFFE0000000, ptr %135, align 8, !tbaa !6
   %_M_finish.i.i362 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %135 = load ptr, ptr %_M_finish.i.i362, align 8, !tbaa !49
-  %add.ptr.i.i363 = getelementptr inbounds i8, ptr %135, i64 -8
+  %136 = load ptr, ptr %_M_finish.i.i362, align 8, !tbaa !49
+  %add.ptr.i.i363 = getelementptr inbounds i8, ptr %136, i64 -8
   store double 0x47EFFFFFE0000000, ptr %add.ptr.i.i363, align 8, !tbaa !6
   %sub.ptr.rhs.cast.i.i368 = ptrtoint ptr %pGrid.sroa.0.0 to i64
   %sub.ptr.sub.i.i369 = sub i64 %pGrid.sroa.17.0, %sub.ptr.rhs.cast.i.i368
@@ -1565,10 +1564,10 @@ ehcleanup449:                                     ; preds = %if.then.i.i.i385, %
   resume { ptr, i32 } %lpad.val453.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup310
-  %136 = landingpad { ptr, i32 }
+  %137 = landingpad { ptr, i32 }
           catch ptr null
-  %137 = extractvalue { ptr, i32 } %136, 0
-  call void @__clang_call_terminate(ptr %137) #23
+  %138 = extractvalue { ptr, i32 } %137, 0
+  call void @__clang_call_terminate(ptr %138) #23
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont173

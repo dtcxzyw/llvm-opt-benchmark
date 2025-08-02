@@ -543,13 +543,13 @@ define hidden i64 @luaO_str2num(ptr noundef %0, ptr noundef writeonly captures(n
 
 isneg.exit.i:                                     ; preds = %.sink.split.i.i, %14
   %16 = phi i8 [ %7, %14 ], [ %.pre.i, %.sink.split.i.i ]
-  %.341.i = phi ptr [ %storemerge.i, %14 ], [ %13, %.sink.split.i.i ]
+  %.3.i = phi ptr [ %storemerge.i, %14 ], [ %13, %.sink.split.i.i ]
   %.0.i.i = phi i32 [ 0, %14 ], [ %.0.ph.i.i, %.sink.split.i.i ]
   %17 = icmp eq i8 %16, 48
   br i1 %17, label %18, label %48
 
 18:                                               ; preds = %isneg.exit.i
-  %19 = getelementptr inbounds nuw i8, ptr %.341.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !4
   switch i8 %20, label %48 [
     i8 120, label %21
@@ -557,21 +557,21 @@ isneg.exit.i:                                     ; preds = %.sink.split.i.i, %1
   ]
 
 21:                                               ; preds = %18, %18
-  %22 = getelementptr inbounds nuw i8, ptr %.341.i, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.3.i, i64 2
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = zext i8 %23 to i64
   %25 = add nuw nsw i64 %24, 1
   %26 = getelementptr inbounds nuw [257 x i8], ptr @luai_ctype_, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !4
   %28 = and i8 %27, 16
-  %.not2553.i = icmp eq i8 %28, 0
-  br i1 %.not2553.i, label %.loopexit.i, label %.lr.ph.i
+  %.not2546.i = icmp eq i8 %28, 0
+  br i1 %.not2546.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
   %29 = phi i8 [ %42, %.lr.ph.i ], [ %23, %21 ]
-  %.01455.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %21 ]
-  %storemerge2454.i = phi ptr [ %41, %.lr.ph.i ], [ %22, %21 ]
-  %30 = shl i64 %.01455.i, 4
+  %.01448.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %21 ]
+  %storemerge2447.i = phi ptr [ %41, %.lr.ph.i ], [ %22, %21 ]
+  %30 = shl i64 %.01448.i, 4
   %31 = sext i8 %29 to i64
   %32 = add nsw i64 %31, 1
   %33 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %32
@@ -584,7 +584,7 @@ isneg.exit.i:                                     ; preds = %.sink.split.i.i, %1
   %.0.i32.i = select i1 %.not.i.i, i8 %38, i8 %36
   %39 = zext i8 %.0.i32.i to i64
   %40 = add i64 %30, %39
-  %41 = getelementptr inbounds nuw i8, ptr %storemerge2454.i, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %storemerge2447.i, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !4
   %43 = zext i8 %42 to i64
   %44 = add nuw nsw i64 %43, 1
@@ -600,33 +600,33 @@ isneg.exit.i:                                     ; preds = %.sink.split.i.i, %1
   %51 = getelementptr inbounds nuw [257 x i8], ptr @luai_ctype_, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !4
   %53 = and i8 %52, 2
-  %.not2258.i = icmp eq i8 %53, 0
-  br i1 %.not2258.i, label %.loopexit.i, label %.lr.ph61.i
+  %.not2251.i = icmp eq i8 %53, 0
+  br i1 %.not2251.i, label %.loopexit.i, label %.lr.ph54.i
 
-.lr.ph61.i:                                       ; preds = %48
+.lr.ph54.i:                                       ; preds = %48
   %54 = add nuw nsw i32 %.0.i.i, 7
   br label %55
 
-55:                                               ; preds = %62, %.lr.ph61.i
-  %56 = phi i8 [ %16, %.lr.ph61.i ], [ %67, %62 ]
-  %.21660.i = phi i64 [ 0, %.lr.ph61.i ], [ %65, %62 ]
-  %.159.i = phi ptr [ %.341.i, %.lr.ph61.i ], [ %66, %62 ]
+55:                                               ; preds = %62, %.lr.ph54.i
+  %56 = phi i8 [ %16, %.lr.ph54.i ], [ %67, %62 ]
+  %.21653.i = phi i64 [ 0, %.lr.ph54.i ], [ %65, %62 ]
+  %.152.i = phi ptr [ %.3.i, %.lr.ph54.i ], [ %66, %62 ]
   %57 = sext i8 %56 to i32
   %58 = add nsw i32 %57, -48
-  %59 = icmp ugt i64 %.21660.i, 922337203685477579
+  %59 = icmp ugt i64 %.21653.i, 922337203685477579
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %55
-  %.not23.i = icmp ne i64 %.21660.i, 922337203685477580
+  %.not23.i = icmp ne i64 %.21653.i, 922337203685477580
   %61 = icmp sgt i32 %58, %54
   %or.cond.i = select i1 %.not23.i, i1 true, i1 %61
   br i1 %or.cond.i, label %.loopexit, label %62
 
 62:                                               ; preds = %60, %55
-  %63 = mul nuw nsw i64 %.21660.i, 10
+  %63 = mul nuw nsw i64 %.21653.i, 10
   %64 = zext i32 %58 to i64
   %65 = add nuw i64 %63, %64
-  %66 = getelementptr inbounds nuw i8, ptr %.159.i, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.152.i, i64 1
   %67 = load i8, ptr %66, align 1, !tbaa !4
   %68 = zext i8 %67 to i64
   %69 = add nuw nsw i64 %68, 1
@@ -637,7 +637,7 @@ isneg.exit.i:                                     ; preds = %.sink.split.i.i, %1
   br i1 %.not22.i, label %.loopexit.i, label %55
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %62, %48, %21
-  %.0.i = phi ptr [ %.341.i, %48 ], [ %22, %21 ], [ %66, %62 ], [ %41, %.lr.ph.i ]
+  %.0.i = phi ptr [ %.3.i, %48 ], [ %22, %21 ], [ %66, %62 ], [ %41, %.lr.ph.i ]
   %.not27.i = phi i1 [ false, %48 ], [ false, %21 ], [ true, %62 ], [ true, %.lr.ph.i ]
   %.115.i = phi i64 [ 0, %48 ], [ 0, %21 ], [ %65, %62 ], [ %40, %.lr.ph.i ]
   br label %73
@@ -709,12 +709,12 @@ l_str2d.exit.thread26:                            ; preds = %102
   call void @llvm.lifetime.start.p0(i64 201, ptr nonnull %5) #18
   %105 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #19
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %.thread36.i, label %107
+  br i1 %106, label %.critedge.i, label %107
 
 107:                                              ; preds = %104
   %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %109 = icmp ugt i64 %108, 200
-  br i1 %109, label %.thread36.i, label %110
+  br i1 %109, label %.critedge.i, label %110
 
 110:                                              ; preds = %107
   %111 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #18
@@ -748,7 +748,7 @@ l_str2d.exit.thread26:                            ; preds = %102
   %131 = icmp eq i8 %123, 0
   br i1 %131, label %l_str2d.exit, label %select.unfold
 
-.thread36.i:                                      ; preds = %107, %104
+.critedge.i:                                      ; preds = %107, %104
   call void @llvm.lifetime.end.p0(i64 201, ptr nonnull %5) #18
   br label %l_str2d.exit.thread
 
@@ -779,8 +779,8 @@ l_str2d.exit:                                     ; preds = %130
   %140 = add i64 %reass.sub, 1
   br label %l_str2d.exit.thread
 
-l_str2d.exit.thread:                              ; preds = %select.unfold, %.thread36.i, %87, %136
-  %.0 = phi i64 [ %140, %136 ], [ 0, %87 ], [ 0, %.thread36.i ], [ 0, %select.unfold ]
+l_str2d.exit.thread:                              ; preds = %select.unfold, %.critedge.i, %87, %136
+  %.0 = phi i64 [ %140, %136 ], [ 0, %87 ], [ 0, %.critedge.i ], [ 0, %select.unfold ]
   ret i64 %.0
 }
 

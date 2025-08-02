@@ -1184,7 +1184,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_shmct
 21:                                               ; preds = %20
   %22 = tail call i32 @security_shm_shmctl(ptr noundef null, i32 noundef 3) #12
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %46
+  br i1 %23, label %24, label %48
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 784
@@ -1219,51 +1219,51 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_shmct
   tail call void @up_read(ptr noundef %32) #12
   %44 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
   %45 = trunc i64 %30 to i32
-  br label %48
+  %46 = tail call i64 @llvm.umin.i64(i64 %28, i64 2147483647)
+  %47 = trunc nuw nsw i64 %46 to i32
+  br label %50
 
-46:                                               ; preds = %21
-  %47 = icmp slt i32 %22, 0
-  br i1 %47, label %75, label %48
+48:                                               ; preds = %21
+  %49 = icmp slt i32 %22, 0
+  br i1 %49, label %75, label %50
 
-48:                                               ; preds = %.thread, %46
-  %49 = phi i32 [ %44, %.thread ], [ %22, %46 ]
-  %50 = phi i32 [ %45, %.thread ], [ 0, %46 ]
-  %51 = phi i32 [ %26, %.thread ], [ 0, %46 ]
-  %52 = phi i32 [ 1, %.thread ], [ 0, %46 ]
-  %53 = phi i64 [ %28, %.thread ], [ 0, %46 ]
-  %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 2147483647)
-  %55 = icmp eq i32 %3, 256
-  %56 = trunc nuw nsw i64 %54 to i32
-  br i1 %55, label %57, label %64
+50:                                               ; preds = %.thread, %48
+  %51 = phi i32 [ %44, %.thread ], [ %22, %48 ]
+  %52 = phi i32 [ %45, %.thread ], [ 0, %48 ]
+  %53 = phi i32 [ %26, %.thread ], [ 0, %48 ]
+  %54 = phi i32 [ 1, %.thread ], [ 0, %48 ]
+  %55 = phi i32 [ %47, %.thread ], [ 0, %48 ]
+  %56 = icmp eq i32 %3, 256
+  br i1 %56, label %57, label %64
 
-57:                                               ; preds = %48
+57:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #12
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %58, i8 0, i64 16, i1 false)
-  store i32 %56, ptr %8, align 4
+  store i32 %55, ptr %8, align 4
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %52, ptr %59, align 4
+  store i32 %54, ptr %59, align 4
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %51, ptr %60, align 4
+  store i32 %53, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %51, ptr %61, align 4
+  store i32 %53, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %50, ptr %62, align 4
+  store i32 %52, ptr %62, align 4
   %63 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %8, i64 noundef 36) #12
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #12
   br label %70
 
-64:                                               ; preds = %48
+64:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #12
-  store i32 %56, ptr %9, align 4
+  store i32 %55, ptr %9, align 4
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %52, ptr %65, align 4
+  store i32 %54, ptr %65, align 4
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %51, ptr %66, align 4
+  store i32 %53, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %51, ptr %67, align 4
+  store i32 %53, ptr %67, align 4
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %50, ptr %68, align 4
+  store i32 %52, ptr %68, align 4
   %69 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %9, i64 noundef 20) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #12
   br label %70
@@ -1272,11 +1272,11 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_shmct
   %71 = phi i64 [ %63, %57 ], [ %69, %64 ]
   %72 = and i64 %71, 4294967295
   %73 = icmp eq i64 %72, 0
-  %74 = select i1 %73, i32 %49, i32 -14
+  %74 = select i1 %73, i32 %51, i32 -14
   br label %75
 
-75:                                               ; preds = %70, %46
-  %76 = phi i32 [ %74, %70 ], [ %22, %46 ]
+75:                                               ; preds = %70, %48
+  %76 = phi i32 [ %74, %70 ], [ %22, %48 ]
   %77 = sext i32 %76 to i64
   br label %194
 

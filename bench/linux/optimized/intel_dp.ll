@@ -5436,7 +5436,7 @@ define dso_local void @intel_dp_set_infoframes(ptr noundef %0, i1 noundef zeroex
   tail call void %42(ptr noundef nonnull %23, i32 %22, i32 noundef %40, i1 noundef zeroext true) #14
   %43 = load ptr, ptr %24, align 8
   %44 = tail call i32 %43(ptr noundef nonnull %23, i32 %22, i1 noundef zeroext false) #14
-  br i1 %1, label %45, label %131
+  br i1 %1, label %45, label %130
 
 45:                                               ; preds = %34
   %46 = load i8, ptr %36, align 1, !range !10, !noundef !11
@@ -5512,7 +5512,7 @@ define dso_local void @intel_dp_set_infoframes(ptr noundef %0, i1 noundef zeroex
   %79 = call i32 @intel_hdmi_infoframe_enable(i32 noundef 10) #14
   %80 = and i32 %79, %78
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %130, label %82
+  br i1 %81, label %129, label %82
 
 82:                                               ; preds = %74
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 4528
@@ -5535,11 +5535,11 @@ define dso_local void @intel_dp_set_infoframes(ptr noundef %0, i1 noundef zeroex
 91:                                               ; preds = %88, %86
   %92 = phi ptr [ %90, %88 ], [ null, %86 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %92, i32 noundef 2, ptr noundef nonnull @.str.98) #14
-  br label %102
+  br label %.critedge
 
 93:                                               ; preds = %82
   %94 = icmp eq i64 %84, 30
-  br i1 %94, label %114, label %95
+  br i1 %94, label %102, label %95
 
 95:                                               ; preds = %93
   %96 = icmp eq ptr %76, null
@@ -5553,65 +5553,65 @@ define dso_local void @intel_dp_set_infoframes(ptr noundef %0, i1 noundef zeroex
 100:                                              ; preds = %97, %95
   %101 = phi ptr [ %99, %97 ], [ null, %95 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %101, i32 noundef 2, ptr noundef nonnull @.str.99) #14
-  br label %102
+  br label %.critedge
 
-102:                                              ; preds = %91, %100
+102:                                              ; preds = %93
+  store i8 0, ptr %6, align 1
+  %103 = load i32, ptr %83, align 4
+  %104 = trunc i32 %103 to i8
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store i8 %104, ptr %105, align 1
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  store i8 29, ptr %106, align 1
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  store i8 76, ptr %107, align 1
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 4532
+  %109 = load i8, ptr %108, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i8 %109, ptr %110, align 1
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 4533
+  %112 = load i8, ptr %111, align 1
+  %113 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  store i8 %112, ptr %113, align 1
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %115 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %114, ptr noundef nonnull align 4 dereferenceable(26) %115, i64 26, i1 false)
+  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %5) #14
+  %116 = getelementptr inbounds nuw i8, ptr %75, i64 4016
+  %117 = load ptr, ptr %116, align 8
+  call void %117(ptr noundef %0, ptr noundef %2, i32 noundef 10, ptr noundef nonnull %6, i64 noundef 32) #14
+  br label %129
+
+.critedge:                                        ; preds = %100, %91
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %5) #14
   call void asm sideeffect "1075: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1075b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1075) #14, !srcloc !88
-  %103 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = call ptr @dev_driver_string(ptr noundef %104) #14
-  %106 = load ptr, ptr %103, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 80
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %110, label %112
+  %118 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %119 = load ptr, ptr %118, align 8
+  %120 = call ptr @dev_driver_string(ptr noundef %119) #14
+  %121 = load ptr, ptr %118, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 80
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %125, label %127
 
-110:                                              ; preds = %102
-  %111 = load ptr, ptr %106, align 8
-  br label %112
+125:                                              ; preds = %.critedge
+  %126 = load ptr, ptr %121, align 8
+  br label %127
 
-112:                                              ; preds = %110, %102
-  %113 = phi ptr [ %111, %110 ], [ %108, %102 ]
-  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.12, ptr noundef %105, ptr noundef %113, ptr noundef nonnull @.str.45) #14
+127:                                              ; preds = %125, %.critedge
+  %128 = phi ptr [ %126, %125 ], [ %123, %.critedge ]
+  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.12, ptr noundef %120, ptr noundef %128, ptr noundef nonnull @.str.45) #14
   call void asm sideeffect "1076: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1076b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1076) #14, !srcloc !89
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 4288, i32 2313, i64 12) #14, !srcloc !90
   call void asm sideeffect "1077: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1077b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1077) #14, !srcloc !91
   call void asm sideeffect "1078: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1078b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1078) #14, !srcloc !92
-  br label %130
+  br label %129
 
-114:                                              ; preds = %93
-  store i8 0, ptr %6, align 1
-  %115 = load i32, ptr %83, align 4
-  %116 = trunc i32 %115 to i8
-  %117 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %116, ptr %117, align 1
-  %118 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 29, ptr %118, align 1
-  %119 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 76, ptr %119, align 1
-  %120 = getelementptr inbounds nuw i8, ptr %2, i64 4532
-  %121 = load i8, ptr %120, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 %121, ptr %122, align 1
-  %123 = getelementptr inbounds nuw i8, ptr %2, i64 4533
-  %124 = load i8, ptr %123, align 1
-  %125 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  store i8 %124, ptr %125, align 1
-  %126 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  %127 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %126, ptr noundef nonnull align 4 dereferenceable(26) %127, i64 26, i1 false)
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %5) #14
-  %128 = getelementptr inbounds nuw i8, ptr %75, i64 4016
-  %129 = load ptr, ptr %128, align 8
-  call void %129(ptr noundef %0, ptr noundef %2, i32 noundef 10, ptr noundef nonnull %6, i64 noundef 32) #14
-  br label %130
-
-130:                                              ; preds = %114, %112, %74
+129:                                              ; preds = %102, %127, %74
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #14
-  br label %131
+  br label %130
 
-131:                                              ; preds = %130, %34
+130:                                              ; preds = %129, %34
   ret void
 }
 

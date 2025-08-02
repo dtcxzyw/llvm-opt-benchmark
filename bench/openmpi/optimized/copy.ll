@@ -545,7 +545,7 @@ define zeroext i1 @pmix_value_cmp(ptr noundef readonly captures(none) %0, ptr no
 define i32 @pmix20_bfrop_value_xfer(ptr noundef captures(none) initializes((0, 2)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i16, ptr %1, align 8, !tbaa !27
   store i16 %3, ptr %0, align 8, !tbaa !27
-  switch i16 %3, label %691 [
+  switch i16 %3, label %692 [
     i16 0, label %.loopexit
     i16 1, label %4
     i16 2, label %8
@@ -577,7 +577,7 @@ define i32 @pmix20_bfrop_value_xfer(ptr noundef captures(none) initializes((0, 2
     i16 37, label %123
     i16 38, label %127
     i16 39, label %160
-    i16 31, label %687
+    i16 31, label %688
     i16 44, label %.loopexit646
   ]
 
@@ -888,7 +888,7 @@ define i32 @pmix20_bfrop_value_xfer(ptr noundef captures(none) initializes((0, 2
   br label %.loopexit
 
 175:                                              ; preds = %170
-  switch i16 %165, label %686 [
+  switch i16 %165, label %687 [
     i16 12, label %176
     i16 7, label %176
     i16 2, label %176
@@ -1795,14 +1795,10 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %458
   %647 = getelementptr inbounds nuw i8, ptr %644, i64 8
   %648 = load i64, ptr %647, align 8, !tbaa !39
   %.not698 = icmp eq i64 %648, 0
-  br i1 %.not698, label %.loopexit, label %.lr.ph660.preheader
+  br i1 %.not698, label %.loopexit, label %.lr.ph660
 
-.lr.ph660.preheader:                              ; preds = %643
-  %invariant.gep = getelementptr i8, ptr %641, i64 8
-  br label %.lr.ph660
-
-.lr.ph660:                                        ; preds = %.lr.ph660.preheader, %680
-  %.11657 = phi i64 [ %681, %680 ], [ 0, %.lr.ph660.preheader ]
+.lr.ph660:                                        ; preds = %643, %681
+  %.11657 = phi i64 [ %682, %681 ], [ 0, %643 ]
   %649 = getelementptr inbounds nuw %struct.pmix_query, ptr %646, i64 %.11657
   %650 = load ptr, ptr %649, align 8, !tbaa !86
   %.not = icmp eq ptr %650, null
@@ -1862,41 +1858,41 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %458
   %.lcssa655 = phi i64 [ 0, %.preheader ], [ %676, %.lr.ph ]
   %678 = getelementptr inbounds nuw i8, ptr %662, i64 16
   store i64 %.lcssa655, ptr %678, align 8, !tbaa !89
-  br label %680
+  br label %681
 
 679:                                              ; preds = %657, %654
-  %gep = getelementptr %struct.pmix_query, ptr %invariant.gep, i64 %.11657
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep, i8 0, i64 16, i1 false)
-  br label %680
+  %680 = getelementptr inbounds nuw %struct.pmix_query, ptr %641, i64 %.11657, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %680, i8 0, i64 16, i1 false)
+  br label %681
 
-680:                                              ; preds = %._crit_edge, %679
-  %681 = add nuw i64 %.11657, 1
-  %682 = load ptr, ptr %163, align 8, !tbaa !29
-  %683 = getelementptr inbounds nuw i8, ptr %682, i64 8
-  %684 = load i64, ptr %683, align 8, !tbaa !39
-  %685 = icmp ult i64 %681, %684
-  br i1 %685, label %.lr.ph660, label %.loopexit, !llvm.loop !91
+681:                                              ; preds = %._crit_edge, %679
+  %682 = add nuw i64 %.11657, 1
+  %683 = load ptr, ptr %163, align 8, !tbaa !29
+  %684 = getelementptr inbounds nuw i8, ptr %683, i64 8
+  %685 = load i64, ptr %684, align 8, !tbaa !39
+  %686 = icmp ult i64 %682, %685
+  br i1 %686, label %.lr.ph660, label %.loopexit, !llvm.loop !91
 
-686:                                              ; preds = %175
+687:                                              ; preds = %175
   br label %.loopexit646
 
-687:                                              ; preds = %2
-  %688 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %689 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %690 = load i64, ptr %689, align 8
-  store i64 %690, ptr %688, align 8
+688:                                              ; preds = %2
+  %689 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %690 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %691 = load i64, ptr %690, align 8
+  store i64 %691, ptr %689, align 8
   br label %.loopexit
 
-691:                                              ; preds = %2
-  %692 = zext i16 %3 to i32
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, i32 noundef %692) #15
+692:                                              ; preds = %2
+  %693 = zext i16 %3 to i32
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, i32 noundef %693) #15
   br label %.loopexit646
 
-.loopexit:                                        ; preds = %680, %619, %.lr.ph666, %549, %522, %493, %pmix_obj_run_constructors.exit, %432, %403, %.loopexit639, %292, %234, %643, %601, %426, %391, %328, %286, %180, %187, %194, %201, %207, %214, %221, %241, %248, %255, %262, %269, %276, %313, %556, %572, %578, %584, %591, %105, %110, %15, %18, %687, %174, %144, %123, %119, %115, %111, %94, %91, %83, %79, %76, %72, %68, %64, %60, %56, %52, %48, %44, %40, %36, %32, %28, %24, %20, %8, %4, %2
+.loopexit:                                        ; preds = %681, %619, %.lr.ph666, %549, %522, %493, %pmix_obj_run_constructors.exit, %432, %403, %.loopexit639, %292, %234, %643, %601, %426, %391, %328, %286, %180, %187, %194, %201, %207, %214, %221, %241, %248, %255, %262, %269, %276, %313, %556, %572, %578, %584, %591, %105, %110, %15, %18, %688, %174, %144, %123, %119, %115, %111, %94, %91, %83, %79, %76, %72, %68, %64, %60, %56, %52, %48, %44, %40, %36, %32, %28, %24, %20, %8, %4, %2
   br label %.loopexit646
 
-.loopexit646:                                     ; preds = %540, %519, %2, %635, %175, %593, %586, %580, %574, %568, %558, %552, %528, %496, %475, %449, %418, %320, %305, %278, %271, %264, %257, %250, %243, %236, %223, %216, %209, %203, %196, %189, %182, %176, %87, %.loopexit, %691, %686, %666, %515, %445, %414, %371, %301
-  %.0 = phi i32 [ -1, %691 ], [ 0, %.loopexit ], [ -16, %686 ], [ %300, %301 ], [ -32, %371 ], [ %413, %414 ], [ %444, %445 ], [ -32, %515 ], [ -32, %666 ], [ -32, %87 ], [ -32, %176 ], [ -32, %182 ], [ -32, %189 ], [ -32, %196 ], [ -32, %203 ], [ -32, %209 ], [ -32, %216 ], [ -32, %223 ], [ -32, %236 ], [ -32, %243 ], [ -32, %250 ], [ -32, %257 ], [ -32, %264 ], [ -32, %271 ], [ -32, %278 ], [ -32, %305 ], [ -32, %320 ], [ -32, %418 ], [ -32, %449 ], [ -32, %475 ], [ -32, %496 ], [ -32, %528 ], [ -32, %552 ], [ -32, %558 ], [ -32, %568 ], [ -32, %574 ], [ -32, %580 ], [ -32, %586 ], [ -32, %593 ], [ -47, %175 ], [ -32, %635 ], [ -47, %2 ], [ %521, %519 ], [ -32, %540 ]
+.loopexit646:                                     ; preds = %540, %519, %2, %635, %175, %593, %586, %580, %574, %568, %558, %552, %528, %496, %475, %449, %418, %320, %305, %278, %271, %264, %257, %250, %243, %236, %223, %216, %209, %203, %196, %189, %182, %176, %87, %.loopexit, %692, %687, %666, %515, %445, %414, %371, %301
+  %.0 = phi i32 [ -1, %692 ], [ 0, %.loopexit ], [ -16, %687 ], [ %300, %301 ], [ -32, %371 ], [ %413, %414 ], [ %444, %445 ], [ -32, %515 ], [ -32, %666 ], [ -32, %87 ], [ -32, %176 ], [ -32, %182 ], [ -32, %189 ], [ -32, %196 ], [ -32, %203 ], [ -32, %209 ], [ -32, %216 ], [ -32, %223 ], [ -32, %236 ], [ -32, %243 ], [ -32, %250 ], [ -32, %257 ], [ -32, %264 ], [ -32, %271 ], [ -32, %278 ], [ -32, %305 ], [ -32, %320 ], [ -32, %418 ], [ -32, %449 ], [ -32, %475 ], [ -32, %496 ], [ -32, %528 ], [ -32, %552 ], [ -32, %558 ], [ -32, %568 ], [ -32, %574 ], [ -32, %580 ], [ -32, %586 ], [ -32, %593 ], [ -47, %175 ], [ -32, %635 ], [ -47, %2 ], [ %521, %519 ], [ -32, %540 ]
   ret i32 %.0
 }
 
@@ -2445,7 +2441,7 @@ pmix_strncpy.exit:                                ; preds = %5, %8
 define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #18
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %466, label %6
+  br i1 %5, label %467, label %6
 
 6:                                                ; preds = %3
   %7 = load i16, ptr %1, align 8, !tbaa !37
@@ -2465,10 +2461,10 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 16:                                               ; preds = %12, %6
   store ptr %4, ptr %0, align 8, !tbaa !115
-  br label %466
+  br label %467
 
 17:                                               ; preds = %12
-  switch i16 %7, label %465 [
+  switch i16 %7, label %466 [
     i16 12, label %18
     i16 7, label %18
     i16 2, label %18
@@ -2520,7 +2516,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 22:                                               ; preds = %18
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 23:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %14, i64 %9, i1 false)
@@ -2536,7 +2532,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 29:                                               ; preds = %24
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 30:                                               ; preds = %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %14, i64 %25, i1 false)
@@ -2552,7 +2548,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 36:                                               ; preds = %31
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 37:                                               ; preds = %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %14, i64 %32, i1 false)
@@ -2568,7 +2564,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 43:                                               ; preds = %38
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 44:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 1 %14, i64 %39, i1 false)
@@ -2583,7 +2579,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 49:                                               ; preds = %45
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 50:                                               ; preds = %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %14, i64 %9, i1 false)
@@ -2599,7 +2595,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 56:                                               ; preds = %51
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 57:                                               ; preds = %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %14, i64 %52, i1 false)
@@ -2615,7 +2611,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 63:                                               ; preds = %58
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 64:                                               ; preds = %58
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 1 %14, i64 %59, i1 false)
@@ -2631,7 +2627,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 70:                                               ; preds = %65
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 .lr.ph672:                                        ; preds = %65, %76
   %.0532671 = phi i64 [ %77, %76 ], [ 0, %65 ]
@@ -2661,7 +2657,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 83:                                               ; preds = %78
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 84:                                               ; preds = %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull align 1 %14, i64 %79, i1 false)
@@ -2677,7 +2673,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 90:                                               ; preds = %85
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 91:                                               ; preds = %85
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %14, i64 %86, i1 false)
@@ -2693,7 +2689,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 97:                                               ; preds = %92
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 98:                                               ; preds = %92
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr nonnull align 1 %14, i64 %93, i1 false)
@@ -2709,7 +2705,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 104:                                              ; preds = %99
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 105:                                              ; preds = %99
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull align 1 %14, i64 %100, i1 false)
@@ -2725,7 +2721,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 111:                                              ; preds = %106
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 112:                                              ; preds = %106
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr nonnull align 1 %14, i64 %107, i1 false)
@@ -2741,7 +2737,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 118:                                              ; preds = %113
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 119:                                              ; preds = %113
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr nonnull align 1 %14, i64 %114, i1 false)
@@ -2756,7 +2752,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 124:                                              ; preds = %120
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 125:                                              ; preds = %120
   %126 = load ptr, ptr %13, align 8, !tbaa !40
@@ -2782,7 +2778,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
   %136 = load i64, ptr %8, align 8, !tbaa !39
   tail call void @PMIx_Value_free(ptr noundef nonnull %121, i64 noundef %136) #15
   tail call void @free(ptr noundef %4) #15
-  br label %466
+  br label %467
 
 137:                                              ; preds = %17
   %138 = tail call ptr @PMIx_Proc_create(i64 noundef %9) #15
@@ -2793,7 +2789,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 141:                                              ; preds = %137
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 142:                                              ; preds = %137
   %143 = load ptr, ptr %13, align 8, !tbaa !40
@@ -2812,7 +2808,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 151:                                              ; preds = %146
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 152:                                              ; preds = %146
   %153 = mul i64 %9, 260
@@ -2828,7 +2824,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 158:                                              ; preds = %154
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 159:                                              ; preds = %154
   %160 = load ptr, ptr %13, align 8, !tbaa !40
@@ -2913,7 +2909,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
   %200 = load i64, ptr %10, align 8, !tbaa !39
   tail call void @PMIx_App_free(ptr noundef nonnull %155, i64 noundef %200) #15
   tail call void @free(ptr noundef %4) #15
-  br label %466
+  br label %467
 
 201:                                              ; preds = %195
   %202 = load i64, ptr %190, align 8, !tbaa !52
@@ -2949,7 +2945,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 219:                                              ; preds = %215
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 220:                                              ; preds = %215
   %221 = load ptr, ptr %13, align 8, !tbaa !40
@@ -2976,7 +2972,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 233:                                              ; preds = %229
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 234:                                              ; preds = %229
   %235 = load ptr, ptr %13, align 8, !tbaa !40
@@ -3015,7 +3011,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr noundef writeonly captures(none) %0, pt
 
 255:                                              ; preds = %250
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 .lr.ph655:                                        ; preds = %250, %pmix_obj_run_constructors.exit
   %.5654 = phi i64 [ %271, %pmix_obj_run_constructors.exit ], [ 0, %250 ]
@@ -3068,7 +3064,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 
 279:                                              ; preds = %274
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 .lr.ph653:                                        ; preds = %274, %291
   %.6651 = phi i64 [ %292, %291 ], [ 0, %274 ]
@@ -3111,7 +3107,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 
 297:                                              ; preds = %293
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 .lr.ph650:                                        ; preds = %293, %318
   %298 = phi i64 [ %319, %318 ], [ %9, %293 ]
@@ -3145,7 +3141,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
   tail call void @PMIx_Value_free(ptr noundef null, i64 noundef 1) #15
   store ptr null, ptr %310, align 8, !tbaa !75
   tail call void @free(ptr noundef %4) #15
-  br label %466
+  br label %467
 
 313:                                              ; preds = %308
   %314 = load ptr, ptr %306, align 8, !tbaa !75
@@ -3162,7 +3158,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
   tail call void @PMIx_Value_free(ptr noundef %317, i64 noundef 1) #15
   store ptr null, ptr %310, align 8, !tbaa !75
   tail call void @free(ptr noundef %4) #15
-  br label %466
+  br label %467
 
 318:                                              ; preds = %._crit_edge706, %305
   %319 = phi i64 [ %.pre707, %._crit_edge706 ], [ %298, %305 ]
@@ -3179,7 +3175,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 
 326:                                              ; preds = %322
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 .lr.ph645:                                        ; preds = %322, %350
   %.8644 = phi i64 [ %351, %350 ], [ 0, %322 ]
@@ -3227,7 +3223,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 ._crit_edge648:                                   ; preds = %342
   tail call void @free(ptr noundef nonnull %323) #15
   tail call void @free(ptr noundef %4) #15
-  br label %466
+  br label %467
 
 346:                                              ; preds = %334
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %335, ptr nonnull align 1 %330, i64 %333, i1 false)
@@ -3254,7 +3250,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 
 356:                                              ; preds = %352
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 357:                                              ; preds = %352
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %353, ptr nonnull align 1 %14, i64 %9, i1 false)
@@ -3286,7 +3282,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 
 369:                                              ; preds = %365
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 370:                                              ; preds = %365
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %366, ptr nonnull align 1 %14, i64 %9, i1 false)
@@ -3301,7 +3297,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 
 375:                                              ; preds = %371
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 376:                                              ; preds = %371
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %372, ptr nonnull align 1 %14, i64 %9, i1 false)
@@ -3316,7 +3312,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 
 381:                                              ; preds = %377
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 382:                                              ; preds = %377
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %378, ptr nonnull align 1 %14, i64 %9, i1 false)
@@ -3332,7 +3328,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 
 388:                                              ; preds = %383
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 389:                                              ; preds = %383
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %385, ptr nonnull align 1 %14, i64 %384, i1 false)
@@ -3347,7 +3343,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 
 394:                                              ; preds = %390
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 395:                                              ; preds = %390
   %396 = load ptr, ptr %13, align 8, !tbaa !40
@@ -3405,7 +3401,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 
 424:                                              ; preds = %17
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 425:                                              ; preds = %17
   %426 = tail call ptr @PMIx_Query_create(i64 noundef %9) #15
@@ -3416,20 +3412,16 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 
 429:                                              ; preds = %425
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
 430:                                              ; preds = %425
   %431 = load ptr, ptr %13, align 8, !tbaa !40
   %432 = load i64, ptr %8, align 8, !tbaa !39
   %.not673 = icmp eq i64 %432, 0
-  br i1 %.not673, label %.loopexit, label %.lr.ph637.preheader
+  br i1 %.not673, label %.loopexit, label %.lr.ph637
 
-.lr.ph637.preheader:                              ; preds = %430
-  %invariant.gep = getelementptr i8, ptr %426, i64 8
-  br label %.lr.ph637
-
-.lr.ph637:                                        ; preds = %.lr.ph637.preheader, %461
-  %.11634 = phi i64 [ %462, %461 ], [ 0, %.lr.ph637.preheader ]
+.lr.ph637:                                        ; preds = %430, %462
+  %.11634 = phi i64 [ %463, %462 ], [ 0, %430 ]
   %433 = getelementptr inbounds nuw %struct.pmix_query, ptr %431, i64 %.11634
   %434 = load ptr, ptr %433, align 8, !tbaa !86
   %.not = icmp eq ptr %434, null
@@ -3470,7 +3462,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
   tail call void @PMIx_Info_free(ptr noundef null, i64 noundef %449) #15
   store ptr null, ptr %447, align 8, !tbaa !88
   tail call void @free(ptr noundef %4) #15
-  br label %466
+  br label %467
 
 .lr.ph:                                           ; preds = %.preheader625, %.lr.ph
   %.1534633 = phi i64 [ %456, %.lr.ph ], [ 0, %.preheader625 ]
@@ -3488,29 +3480,29 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
   %.lcssa630 = phi i64 [ 0, %.preheader625 ], [ %457, %.lr.ph ]
   %459 = getelementptr inbounds nuw i8, ptr %446, i64 16
   store i64 %.lcssa630, ptr %459, align 8, !tbaa !89
-  br label %461
+  br label %462
 
 460:                                              ; preds = %441, %438
-  %gep = getelementptr %struct.pmix_query, ptr %invariant.gep, i64 %.11634
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep, i8 0, i64 16, i1 false)
-  br label %461
+  %461 = getelementptr inbounds nuw %struct.pmix_query, ptr %426, i64 %.11634, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %461, i8 0, i64 16, i1 false)
+  br label %462
 
-461:                                              ; preds = %._crit_edge, %460
-  %462 = add nuw i64 %.11634, 1
-  %463 = load i64, ptr %8, align 8, !tbaa !39
-  %464 = icmp ult i64 %462, %463
-  br i1 %464, label %.lr.ph637, label %.loopexit, !llvm.loop !131
+462:                                              ; preds = %._crit_edge, %460
+  %463 = add nuw i64 %.11634, 1
+  %464 = load i64, ptr %8, align 8, !tbaa !39
+  %465 = icmp ult i64 %463, %464
+  br i1 %465, label %.lr.ph637, label %.loopexit, !llvm.loop !131
 
-465:                                              ; preds = %17
+466:                                              ; preds = %17
   tail call void @free(ptr noundef nonnull %4) #15
-  br label %466
+  br label %467
 
-.loopexit:                                        ; preds = %461, %410, %.lr.ph643, %350, %318, %291, %pmix_obj_run_constructors.exit, %.lr.ph658, %.lr.ph661, %.loopexit610, %128, %76, %430, %395, %234, %220, %159, %125, %389, %382, %376, %370, %357, %152, %142, %119, %112, %105, %98, %91, %84, %64, %57, %50, %44, %37, %30, %23
+.loopexit:                                        ; preds = %462, %410, %.lr.ph643, %350, %318, %291, %pmix_obj_run_constructors.exit, %.lr.ph658, %.lr.ph661, %.loopexit610, %128, %76, %430, %395, %234, %220, %159, %125, %389, %382, %376, %370, %357, %152, %142, %119, %112, %105, %98, %91, %84, %64, %57, %50, %44, %37, %30, %23
   store ptr %4, ptr %0, align 8, !tbaa !115
-  br label %466
+  br label %467
 
-466:                                              ; preds = %3, %.loopexit, %465, %450, %429, %424, %394, %388, %381, %375, %369, %356, %._crit_edge648, %326, %316, %312, %297, %279, %255, %233, %219, %199, %158, %151, %141, %135, %124, %118, %111, %104, %97, %90, %83, %70, %63, %56, %49, %43, %36, %29, %22, %16
-  %.0531 = phi i32 [ 0, %16 ], [ -16, %465 ], [ -32, %22 ], [ 0, %.loopexit ], [ -32, %29 ], [ -32, %36 ], [ -32, %43 ], [ -32, %49 ], [ -32, %56 ], [ -32, %63 ], [ -32, %70 ], [ -32, %83 ], [ -32, %90 ], [ -32, %97 ], [ -32, %104 ], [ -32, %111 ], [ -32, %118 ], [ -32, %124 ], [ %134, %135 ], [ -32, %141 ], [ -32, %151 ], [ -32, %158 ], [ -32, %199 ], [ -32, %219 ], [ -32, %233 ], [ -32, %255 ], [ -32, %279 ], [ -32, %297 ], [ -32, %312 ], [ %315, %316 ], [ -32, %326 ], [ -32, %._crit_edge648 ], [ -32, %356 ], [ -32, %369 ], [ -32, %375 ], [ -32, %381 ], [ -32, %388 ], [ -32, %394 ], [ -47, %424 ], [ -32, %429 ], [ -32, %450 ], [ -32, %3 ]
+467:                                              ; preds = %3, %.loopexit, %466, %450, %429, %424, %394, %388, %381, %375, %369, %356, %._crit_edge648, %326, %316, %312, %297, %279, %255, %233, %219, %199, %158, %151, %141, %135, %124, %118, %111, %104, %97, %90, %83, %70, %63, %56, %49, %43, %36, %29, %22, %16
+  %.0531 = phi i32 [ 0, %16 ], [ -16, %466 ], [ -32, %22 ], [ 0, %.loopexit ], [ -32, %29 ], [ -32, %36 ], [ -32, %43 ], [ -32, %49 ], [ -32, %56 ], [ -32, %63 ], [ -32, %70 ], [ -32, %83 ], [ -32, %90 ], [ -32, %97 ], [ -32, %104 ], [ -32, %111 ], [ -32, %118 ], [ -32, %124 ], [ %134, %135 ], [ -32, %141 ], [ -32, %151 ], [ -32, %158 ], [ -32, %199 ], [ -32, %219 ], [ -32, %233 ], [ -32, %255 ], [ -32, %279 ], [ -32, %297 ], [ -32, %312 ], [ %315, %316 ], [ -32, %326 ], [ -32, %._crit_edge648 ], [ -32, %356 ], [ -32, %369 ], [ -32, %375 ], [ -32, %381 ], [ -32, %388 ], [ -32, %394 ], [ -47, %424 ], [ -32, %429 ], [ -32, %450 ], [ -32, %3 ]
   ret i32 %.0531
 }
 

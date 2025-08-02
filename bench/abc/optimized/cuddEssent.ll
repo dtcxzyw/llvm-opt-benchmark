@@ -2421,7 +2421,7 @@ tlcInfoAlloc.exit:                                ; preds = %2
   %21 = add nuw nsw i64 %20, 8
   %calloc.i = tail call noalias noundef ptr @calloc(i64 1, i64 %21)
   %22 = icmp eq ptr %calloc.i, null
-  br i1 %22, label %125, label %23
+  br i1 %22, label %129, label %23
 
 23:                                               ; preds = %17
   store ptr %15, ptr %3, align 8, !tbaa !34
@@ -2436,148 +2436,149 @@ tlcInfoAlloc.exit:                                ; preds = %2
 
 .lr.ph:                                           ; preds = %23
   %29 = icmp eq ptr %.8.val, null
-  %invariant.gep32 = getelementptr inbounds nuw i8, ptr %15, i64 4
   br i1 %29, label %bitVectorRead.exit.us, label %bitVectorRead.exit
 
 bitVectorRead.exit.us:                            ; preds = %.lr.ph, %bitVectorRead.exit.us
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %bitVectorRead.exit.us ], [ 0, %.lr.ph ]
-  %30 = phi i32 [ %48, %bitVectorRead.exit.us ], [ %27, %.lr.ph ]
-  %31 = phi i32 [ %45, %bitVectorRead.exit.us ], [ %25, %.lr.ph ]
+  %30 = phi i32 [ %50, %bitVectorRead.exit.us ], [ %27, %.lr.ph ]
+  %31 = phi i32 [ %47, %bitVectorRead.exit.us ], [ %25, %.lr.ph ]
   %32 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv27
   store i32 %31, ptr %32, align 4, !tbaa !36
-  %gep33 = getelementptr inbounds nuw i32, ptr %invariant.gep32, i64 %indvars.iv27
-  store i32 %30, ptr %gep33, align 4, !tbaa !36
-  %33 = lshr i64 %indvars.iv27, 6
-  %34 = and i64 %indvars.iv27, 62
-  %35 = and i64 %indvars.iv27, 62
-  %36 = shl nuw nsw i64 1, %35
-  %37 = and i64 %33, 67108863
-  %38 = getelementptr inbounds nuw i64, ptr %calloc.i, i64 %37
-  %39 = load i64, ptr %38, align 8, !tbaa !44
-  %40 = shl nuw i64 2, %34
-  %41 = or disjoint i64 %36, %40
-  %42 = xor i64 %41, -1
-  %43 = and i64 %39, %42
-  store i64 %43, ptr %38, align 8, !tbaa !44
+  %33 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv27
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  store i32 %30, ptr %34, align 4, !tbaa !36
+  %35 = lshr i64 %indvars.iv27, 6
+  %36 = and i64 %indvars.iv27, 62
+  %37 = and i64 %indvars.iv27, 62
+  %38 = shl nuw nsw i64 1, %37
+  %39 = and i64 %35, 67108863
+  %40 = getelementptr inbounds nuw i64, ptr %calloc.i, i64 %39
+  %41 = load i64, ptr %40, align 8, !tbaa !44
+  %42 = shl nuw i64 2, %36
+  %43 = or disjoint i64 %38, %42
+  %44 = xor i64 %43, -1
+  %45 = and i64 %41, %44
+  store i64 %45, ptr %40, align 8, !tbaa !44
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 2
-  %44 = getelementptr inbounds nuw i32, ptr %.0.val, i64 %indvars.iv.next28
-  %45 = load i32, ptr %44, align 4, !tbaa !36
-  %46 = or disjoint i64 %indvars.iv.next28, 1
-  %47 = getelementptr inbounds nuw i32, ptr %.0.val, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !36
-  %49 = or i32 %48, %45
-  %.not3.us = icmp eq i32 %49, 0
+  %46 = getelementptr inbounds nuw i32, ptr %.0.val, i64 %indvars.iv.next28
+  %47 = load i32, ptr %46, align 4, !tbaa !36
+  %48 = or disjoint i64 %indvars.iv.next28, 1
+  %49 = getelementptr inbounds nuw i32, ptr %.0.val, i64 %48
+  %50 = load i32, ptr %49, align 4, !tbaa !36
+  %51 = or i32 %50, %47
+  %.not3.us = icmp eq i32 %51, 0
   br i1 %.not3.us, label %._crit_edge.loopexit, label %bitVectorRead.exit.us, !llvm.loop !71
 
 bitVectorRead.exit:                               ; preds = %.lr.ph, %bitVectorRead.exit
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %bitVectorRead.exit ], [ 0, %.lr.ph ]
-  %50 = phi i32 [ %80, %bitVectorRead.exit ], [ %27, %.lr.ph ]
-  %51 = phi i32 [ %77, %bitVectorRead.exit ], [ %25, %.lr.ph ]
-  %52 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv24
-  store i32 %51, ptr %52, align 4, !tbaa !36
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep32, i64 %indvars.iv24
-  store i32 %50, ptr %gep, align 4, !tbaa !36
-  %53 = lshr i64 %indvars.iv24, 6
-  %54 = and i64 %indvars.iv24, 62
-  %55 = and i64 %53, 67108863
-  %56 = getelementptr inbounds nuw i64, ptr %.8.val, i64 %55
-  %57 = load i64, ptr %56, align 8, !tbaa !44
-  %58 = lshr i64 %57, %54
-  %59 = and i64 %58, 1
-  %60 = shl nuw nsw i64 1, %54
-  %61 = xor i64 %60, -1
-  %62 = getelementptr inbounds nuw i64, ptr %calloc.i, i64 %55
-  %63 = load i64, ptr %62, align 8, !tbaa !44
-  %64 = and i64 %63, %61
-  %65 = shl nuw nsw i64 %59, %54
-  %66 = or i64 %64, %65
-  %67 = and i64 %indvars.iv24, 62
-  %68 = or disjoint i64 %67, 1
-  %69 = lshr i64 %57, %68
-  %70 = and i64 %69, 1
-  %71 = shl nuw i64 2, %67
-  %72 = xor i64 %71, -1
-  %73 = and i64 %66, %72
-  %74 = shl nuw i64 %70, %68
-  %75 = or i64 %73, %74
-  store i64 %75, ptr %62, align 8, !tbaa !44
+  %52 = phi i32 [ %84, %bitVectorRead.exit ], [ %27, %.lr.ph ]
+  %53 = phi i32 [ %81, %bitVectorRead.exit ], [ %25, %.lr.ph ]
+  %54 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv24
+  store i32 %53, ptr %54, align 4, !tbaa !36
+  %55 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv24
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  store i32 %52, ptr %56, align 4, !tbaa !36
+  %57 = lshr i64 %indvars.iv24, 6
+  %58 = and i64 %indvars.iv24, 62
+  %59 = and i64 %57, 67108863
+  %60 = getelementptr inbounds nuw i64, ptr %.8.val, i64 %59
+  %61 = load i64, ptr %60, align 8, !tbaa !44
+  %62 = lshr i64 %61, %58
+  %63 = and i64 %62, 1
+  %64 = shl nuw nsw i64 1, %58
+  %65 = xor i64 %64, -1
+  %66 = getelementptr inbounds nuw i64, ptr %calloc.i, i64 %59
+  %67 = load i64, ptr %66, align 8, !tbaa !44
+  %68 = and i64 %67, %65
+  %69 = shl nuw nsw i64 %63, %58
+  %70 = or i64 %68, %69
+  %71 = and i64 %indvars.iv24, 62
+  %72 = or disjoint i64 %71, 1
+  %73 = lshr i64 %61, %72
+  %74 = and i64 %73, 1
+  %75 = shl nuw i64 2, %71
+  %76 = xor i64 %75, -1
+  %77 = and i64 %70, %76
+  %78 = shl nuw i64 %74, %72
+  %79 = or i64 %77, %78
+  store i64 %79, ptr %66, align 8, !tbaa !44
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 2
-  %76 = getelementptr inbounds nuw i32, ptr %.0.val, i64 %indvars.iv.next25
-  %77 = load i32, ptr %76, align 4, !tbaa !36
-  %78 = or disjoint i64 %indvars.iv.next25, 1
-  %79 = getelementptr inbounds nuw i32, ptr %.0.val, i64 %78
-  %80 = load i32, ptr %79, align 4, !tbaa !36
-  %81 = or i32 %80, %77
-  %.not3 = icmp eq i32 %81, 0
+  %80 = getelementptr inbounds nuw i32, ptr %.0.val, i64 %indvars.iv.next25
+  %81 = load i32, ptr %80, align 4, !tbaa !36
+  %82 = or disjoint i64 %indvars.iv.next25, 1
+  %83 = getelementptr inbounds nuw i32, ptr %.0.val, i64 %82
+  %84 = load i32, ptr %83, align 4, !tbaa !36
+  %85 = or i32 %84, %81
+  %.not3 = icmp eq i32 %85, 0
   br i1 %.not3, label %._crit_edge.loopexit14, label %bitVectorRead.exit, !llvm.loop !72
 
 ._crit_edge.loopexit:                             ; preds = %bitVectorRead.exit.us
-  %82 = trunc nuw nsw i64 %indvars.iv.next28 to i32
+  %86 = trunc nuw nsw i64 %indvars.iv.next28 to i32
   br label %._crit_edge
 
 ._crit_edge.loopexit14:                           ; preds = %bitVectorRead.exit
-  %83 = trunc nuw nsw i64 %indvars.iv.next25 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv.next25 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit14, %._crit_edge.loopexit, %23
-  %.1.lcssa = phi i32 [ 0, %23 ], [ %82, %._crit_edge.loopexit ], [ %83, %._crit_edge.loopexit14 ]
+  %.1.lcssa = phi i32 [ 0, %23 ], [ %86, %._crit_edge.loopexit ], [ %87, %._crit_edge.loopexit14 ]
   %.lcssa5 = phi i64 [ 0, %23 ], [ %indvars.iv.next28, %._crit_edge.loopexit ], [ %indvars.iv.next25, %._crit_edge.loopexit14 ]
-  %.lcssa = phi i64 [ 1, %23 ], [ %46, %._crit_edge.loopexit ], [ %78, %._crit_edge.loopexit14 ]
-  %84 = getelementptr inbounds nuw i32, ptr %15, i64 %.lcssa5
-  store i32 %0, ptr %84, align 4, !tbaa !36
-  %85 = lshr i32 %.1.lcssa, 6
-  %86 = and i32 %.1.lcssa, 62
-  %87 = zext nneg i32 %86 to i64
-  %88 = shl nuw nsw i64 1, %87
-  %89 = xor i64 %88, -1
-  %90 = zext nneg i32 %85 to i64
-  %91 = getelementptr inbounds nuw i64, ptr %calloc.i, i64 %90
-  %92 = load i64, ptr %91, align 8, !tbaa !44
-  %93 = and i64 %92, %89
-  %94 = zext nneg i16 %1 to i64
-  %95 = shl nuw nsw i64 %94, %87
-  %96 = or i64 %93, %95
-  %97 = getelementptr inbounds nuw i32, ptr %15, i64 %.lcssa
-  store i32 2147483647, ptr %97, align 4, !tbaa !36
-  %98 = and i64 %.lcssa, 63
-  %99 = shl nuw i64 1, %98
-  %100 = or i64 %96, %99
-  store i64 %100, ptr %91, align 8, !tbaa !44
-  %101 = add nuw nsw i32 %.1.lcssa, 2
-  %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %15, i64 %102
-  store i32 0, ptr %103, align 4, !tbaa !36
-  %104 = add nuw nsw i32 %.1.lcssa, 3
-  %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %15, i64 %105
-  store i32 0, ptr %106, align 4, !tbaa !36
-  %107 = lshr i32 %101, 6
-  %108 = and i32 %101, 62
+  %.lcssa = phi i64 [ 1, %23 ], [ %48, %._crit_edge.loopexit ], [ %82, %._crit_edge.loopexit14 ]
+  %88 = getelementptr inbounds nuw i32, ptr %15, i64 %.lcssa5
+  store i32 %0, ptr %88, align 4, !tbaa !36
+  %89 = lshr i32 %.1.lcssa, 6
+  %90 = and i32 %.1.lcssa, 62
+  %91 = zext nneg i32 %90 to i64
+  %92 = shl nuw nsw i64 1, %91
+  %93 = xor i64 %92, -1
+  %94 = zext nneg i32 %89 to i64
+  %95 = getelementptr inbounds nuw i64, ptr %calloc.i, i64 %94
+  %96 = load i64, ptr %95, align 8, !tbaa !44
+  %97 = and i64 %96, %93
+  %98 = zext nneg i16 %1 to i64
+  %99 = shl nuw nsw i64 %98, %91
+  %100 = or i64 %97, %99
+  %101 = getelementptr inbounds nuw i32, ptr %15, i64 %.lcssa
+  store i32 2147483647, ptr %101, align 4, !tbaa !36
+  %102 = and i64 %.lcssa, 63
+  %103 = shl nuw i64 1, %102
+  %104 = or i64 %100, %103
+  store i64 %104, ptr %95, align 8, !tbaa !44
+  %105 = add nuw nsw i32 %.1.lcssa, 2
+  %106 = zext nneg i32 %105 to i64
+  %107 = getelementptr inbounds nuw i32, ptr %15, i64 %106
+  store i32 0, ptr %107, align 4, !tbaa !36
+  %108 = add nuw nsw i32 %.1.lcssa, 3
   %109 = zext nneg i32 %108 to i64
-  %110 = shl nuw nsw i64 1, %109
-  %111 = xor i64 %110, -1
-  %112 = zext nneg i32 %107 to i64
-  %113 = getelementptr inbounds nuw i64, ptr %calloc.i, i64 %112
-  %114 = load i64, ptr %113, align 8, !tbaa !44
-  %115 = and i64 %114, %111
-  store i64 %115, ptr %113, align 8, !tbaa !44
-  %116 = lshr i32 %104, 6
-  %117 = and i32 %104, 63
-  %118 = zext nneg i32 %117 to i64
-  %119 = shl nuw i64 1, %118
-  %120 = xor i64 %119, -1
-  %121 = zext nneg i32 %116 to i64
-  %122 = getelementptr inbounds nuw i64, ptr %calloc.i, i64 %121
-  %123 = load i64, ptr %122, align 8, !tbaa !44
-  %124 = and i64 %123, %120
-  store i64 %124, ptr %122, align 8, !tbaa !44
+  %110 = getelementptr inbounds nuw i32, ptr %15, i64 %109
+  store i32 0, ptr %110, align 4, !tbaa !36
+  %111 = lshr i32 %105, 6
+  %112 = and i32 %105, 62
+  %113 = zext nneg i32 %112 to i64
+  %114 = shl nuw nsw i64 1, %113
+  %115 = xor i64 %114, -1
+  %116 = zext nneg i32 %111 to i64
+  %117 = getelementptr inbounds nuw i64, ptr %calloc.i, i64 %116
+  %118 = load i64, ptr %117, align 8, !tbaa !44
+  %119 = and i64 %118, %115
+  store i64 %119, ptr %117, align 8, !tbaa !44
+  %120 = lshr i32 %108, 6
+  %121 = and i32 %108, 63
+  %122 = zext nneg i32 %121 to i64
+  %123 = shl nuw i64 1, %122
+  %124 = xor i64 %123, -1
+  %125 = zext nneg i32 %120 to i64
+  %126 = getelementptr inbounds nuw i64, ptr %calloc.i, i64 %125
+  %127 = load i64, ptr %126, align 8, !tbaa !44
+  %128 = and i64 %127, %124
+  store i64 %128, ptr %126, align 8, !tbaa !44
   br label %.thread.thread
 
-125:                                              ; preds = %17
+129:                                              ; preds = %17
   tail call void @free(ptr noundef nonnull %15) #12
   br label %Cudd_tlcInfoFree.exit
 
-Cudd_tlcInfoFree.exit:                            ; preds = %125, %11
+Cudd_tlcInfoFree.exit:                            ; preds = %129, %11
   tail call void @free(ptr noundef nonnull %3) #12
   br label %.thread.thread
 

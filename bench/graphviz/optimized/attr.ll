@@ -821,19 +821,19 @@ switch.lookup4:                                   ; preds = %agdictof.exit29
 
 29:                                               ; preds = %switch.lookup4
   %30 = tail call i32 @dtsize(ptr noundef nonnull %.0.i35) #12
+  %31 = tail call i32 @llvm.smax.i32(i32 %30, i32 4)
+  %32 = zext nneg i32 %31 to i64
   br label %topdictsize.exit
 
-topdictsize.exit:                                 ; preds = %agdictof.exit29, %switch.lookup4, %29
-  %31 = phi i32 [ %30, %29 ], [ 0, %switch.lookup4 ], [ 0, %agdictof.exit29 ]
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %31, i32 4)
-  %32 = zext nneg i32 %spec.store.select to i64
-  %33 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %32, i64 noundef 8) #14
+topdictsize.exit:                                 ; preds = %29, %switch.lookup4, %agdictof.exit29
+  %spec.store.select = phi i64 [ %32, %29 ], [ 4, %switch.lookup4 ], [ 4, %agdictof.exit29 ]
+  %33 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %spec.store.select, i64 noundef 8) #14
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %gv_calloc.exit
 
 35:                                               ; preds = %topdictsize.exit
   %36 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %37 = shl nuw nsw i64 %32, 3
+  %37 = shl nuw nsw i64 %spec.store.select, 3
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.6, i64 noundef %37) #15
   tail call fastcc void @graphviz_exit() #16
   unreachable

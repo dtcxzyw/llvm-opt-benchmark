@@ -1072,7 +1072,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 18:                                               ; preds = %13
   %19 = load ptr, ptr %14, align 8, !tbaa !3
   %20 = call ptr @PyErr_SetFromErrno(ptr noundef %19) #5
-  br label %.loopexit
+  br label %.critedge98
 
 21:                                               ; preds = %13
   %22 = call ptr @PyList_GetItem(ptr noundef nonnull %3, i64 noundef 0) #5
@@ -1083,7 +1083,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 25:                                               ; preds = %21
   %26 = call ptr @PyErr_Occurred() #5
   %.not80 = icmp eq ptr %26, null
-  br i1 %.not80, label %.critedge, label %.loopexit
+  br i1 %.not80, label %.critedge, label %.critedge98
 
 .critedge:                                        ; preds = %25, %21
   %27 = trunc i64 %23 to i32
@@ -1096,7 +1096,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 31:                                               ; preds = %.critedge
   %32 = call ptr @PyErr_Occurred() #5
   %.not81 = icmp eq ptr %32, null
-  br i1 %.not81, label %.critedge92, label %.loopexit
+  br i1 %.not81, label %.critedge92, label %.critedge98
 
 .critedge92:                                      ; preds = %31, %.critedge
   %33 = trunc i64 %29 to i32
@@ -1110,7 +1110,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 38:                                               ; preds = %.critedge92
   %39 = call ptr @PyErr_Occurred() #5
   %.not82 = icmp eq ptr %39, null
-  br i1 %.not82, label %.critedge94, label %.loopexit
+  br i1 %.not82, label %.critedge94, label %.critedge98
 
 .critedge94:                                      ; preds = %38, %.critedge92
   %40 = trunc i64 %36 to i32
@@ -1124,7 +1124,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 45:                                               ; preds = %.critedge94
   %46 = call ptr @PyErr_Occurred() #5
   %.not83 = icmp eq ptr %46, null
-  br i1 %.not83, label %.critedge96, label %.loopexit
+  br i1 %.not83, label %.critedge96, label %.critedge98
 
 .critedge96:                                      ; preds = %45, %.critedge94
   %47 = trunc i64 %43 to i32
@@ -1138,9 +1138,9 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 52:                                               ; preds = %.critedge96
   %53 = call ptr @PyErr_Occurred() #5
   %.not84 = icmp eq ptr %53, null
-  br i1 %.not84, label %54, label %.loopexit
+  br i1 %.not84, label %54, label %.critedge98
 
-54:                                               ; preds = %.critedge96, %52
+54:                                               ; preds = %52, %.critedge96
   %55 = trunc i64 %50 to i32
   %56 = call ptr @PyList_GetItem(ptr noundef nonnull %3, i64 noundef 5) #5
   %57 = call i64 @PyLong_AsLong(ptr noundef %56) #5
@@ -1150,14 +1150,14 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 59:                                               ; preds = %54
   %60 = call ptr @PyErr_Occurred() #5
   %.not85 = icmp eq ptr %60, null
-  br i1 %.not85, label %61, label %.loopexit
+  br i1 %.not85, label %61, label %.critedge98
 
-61:                                               ; preds = %54, %59
+61:                                               ; preds = %59, %54
   %62 = trunc i64 %57 to i32
   %63 = call ptr @PyList_GetItem(ptr noundef nonnull %3, i64 noundef 6) #5
   %64 = getelementptr i8, ptr %63, i64 8
-  %.val99 = load ptr, ptr %64, align 8, !tbaa !23
-  %65 = call i64 @PyType_GetFlags(ptr noundef %.val99) #5
+  %.val103 = load ptr, ptr %64, align 8, !tbaa !23
+  %65 = call i64 @PyType_GetFlags(ptr noundef %.val103) #5
   %66 = and i64 %65, 33554432
   %.not86 = icmp eq i64 %66, 0
   br i1 %.not86, label %70, label %67
@@ -1174,14 +1174,14 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 70:                                               ; preds = %67, %61
   %71 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !9
   %72 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %71, ptr noundef nonnull @.str.12, i32 noundef 32) #5
-  br label %.loopexit
+  br label %.critedge98
 
 73:                                               ; preds = %.preheader, %95
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %95 ]
   %74 = call ptr @PyList_GetItem(ptr noundef nonnull %63, i64 noundef %indvars.iv) #5
   %75 = getelementptr i8, ptr %74, i64 8
-  %.val100 = load ptr, ptr %75, align 8, !tbaa !23
-  %76 = call i64 @PyType_GetFlags(ptr noundef %.val100) #5
+  %.val104 = load ptr, ptr %75, align 8, !tbaa !23
+  %76 = call i64 @PyType_GetFlags(ptr noundef %.val104) #5
   %77 = and i64 %76, 134217728
   %.not88 = icmp eq i64 %77, 0
   br i1 %.not88, label %84, label %78
@@ -1197,8 +1197,8 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
   br label %95
 
 84:                                               ; preds = %78, %73
-  %.val101 = load ptr, ptr %75, align 8, !tbaa !23
-  %85 = call i64 @PyType_GetFlags(ptr noundef %.val101) #5
+  %.val105 = load ptr, ptr %75, align 8, !tbaa !23
+  %85 = call i64 @PyType_GetFlags(ptr noundef %.val105) #5
   %86 = and i64 %85, 16777216
   %.not89 = icmp eq i64 %86, 0
   br i1 %.not89, label %93, label %87
@@ -1206,24 +1206,24 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 87:                                               ; preds = %84
   %88 = call i64 @PyLong_AsLong(ptr noundef nonnull %74) #5
   %89 = icmp eq i64 %88, -1
-  br i1 %89, label %90, label %.critedge98
+  br i1 %89, label %90, label %.critedge102
 
 90:                                               ; preds = %87
   %91 = call ptr @PyErr_Occurred() #5
   %.not90 = icmp eq ptr %91, null
-  br i1 %.not90, label %.critedge98, label %.loopexit
+  br i1 %.not90, label %.critedge102, label %.critedge98
 
-.critedge98:                                      ; preds = %90, %87
+.critedge102:                                     ; preds = %90, %87
   %92 = trunc i64 %88 to i8
   br label %95
 
 93:                                               ; preds = %84
   %94 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !9
   call void @PyErr_SetString(ptr noundef %94, ptr noundef nonnull @.str.13) #5
-  br label %.loopexit
+  br label %.critedge98
 
-95:                                               ; preds = %.critedge98, %81
-  %.sink = phi i8 [ %92, %.critedge98 ], [ %83, %81 ]
+95:                                               ; preds = %.critedge102, %81
+  %.sink = phi i8 [ %92, %.critedge102 ], [ %83, %81 ]
   %96 = getelementptr [32 x i8], ptr %69, i64 0, i64 %indvars.iv
   store i8 %.sink, ptr %96, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1238,7 +1238,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 100:                                              ; preds = %97
   %101 = load ptr, ptr %14, align 8, !tbaa !3
   %102 = call ptr @PyErr_SetFromErrno(ptr noundef %101) #5
-  br label %.loopexit
+  br label %.critedge98
 
 103:                                              ; preds = %97
   %104 = call i32 @cfsetospeed(ptr noundef nonnull %5, i32 noundef %62) #5
@@ -1248,7 +1248,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 106:                                              ; preds = %103
   %107 = load ptr, ptr %14, align 8, !tbaa !3
   %108 = call ptr @PyErr_SetFromErrno(ptr noundef %107) #5
-  br label %.loopexit
+  br label %.critedge98
 
 109:                                              ; preds = %103
   %110 = call ptr @PyEval_SaveThread() #5
@@ -1260,19 +1260,19 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 113:                                              ; preds = %109
   %114 = load ptr, ptr %14, align 8, !tbaa !3
   %115 = call ptr @PyErr_SetFromErrno(ptr noundef %114) #5
-  br label %.loopexit
+  br label %.critedge98
 
 116:                                              ; preds = %109
   %117 = call ptr @Py_GetConstantBorrowed(i32 noundef 0) #5
-  br label %.loopexit
+  br label %.critedge98
 
-.loopexit:                                        ; preds = %90, %59, %52, %25, %31, %38, %45, %93, %100, %106, %113, %116, %70, %18
+.critedge98:                                      ; preds = %90, %25, %31, %38, %45, %93, %100, %106, %113, %116, %70, %52, %59, %18
   %.1 = phi ptr [ %20, %18 ], [ null, %25 ], [ null, %31 ], [ null, %38 ], [ null, %45 ], [ null, %70 ], [ null, %93 ], [ %102, %100 ], [ %108, %106 ], [ %115, %113 ], [ %117, %116 ], [ null, %52 ], [ null, %59 ], [ null, %90 ]
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %5) #5
   br label %118
 
-118:                                              ; preds = %.loopexit, %11
-  %.0 = phi ptr [ null, %11 ], [ %.1, %.loopexit ]
+118:                                              ; preds = %.critedge98, %11
+  %.0 = phi ptr [ null, %11 ], [ %.1, %.critedge98 ]
   ret ptr %.0
 }
 

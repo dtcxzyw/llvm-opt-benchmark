@@ -697,13 +697,13 @@ _ZN24CgroupV2MemoryController21memory_usage_in_bytesEv.exit: ; preds = %11, %12
 
 24:                                               ; preds = %22, %21
   %25 = load i64, ptr %4, align 8
+  %26 = call i64 @llvm.smax.i64(i64 %25, i64 0)
   br label %_ZL25memory_swap_current_valueP18CgroupV2Controller.exit
 
 _ZL25memory_swap_current_valueP18CgroupV2Controller.exit: ; preds = %19, %20, %24
-  %.0.i8 = phi i64 [ %25, %24 ], [ -2, %19 ], [ -2, %20 ]
+  %.0.i8 = phi i64 [ %26, %24 ], [ 0, %19 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %26 = call i64 @llvm.smax.i64(i64 %.0.i8, i64 0)
-  %27 = add nuw nsw i64 %26, %14
+  %27 = add nuw nsw i64 %.0.i8, %14
   br label %28
 
 28:                                               ; preds = %_ZN24CgroupV2MemoryController21memory_usage_in_bytesEv.exit.thread, %_ZN24CgroupV2MemoryController21memory_usage_in_bytesEv.exit, %_ZL25memory_swap_current_valueP18CgroupV2Controller.exit

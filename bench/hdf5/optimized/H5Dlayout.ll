@@ -895,7 +895,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   %7 = trunc nuw i8 %6 to i1
   %8 = xor i1 %7, true
   %9 = select i1 %5, i1 true, i1 %8
-  br i1 %9, label %10, label %.thread80, !prof !9
+  br i1 %9, label %10, label %.critedge, !prof !9
 
 10:                                               ; preds = %3
   %11 = tail call i32 @H5O_msg_exists(ptr noundef %0, i32 noundef 11) #4
@@ -906,7 +906,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   %14 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !49
   %15 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !49
   %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__layout_oh_read, i32 noundef 587, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.21) #4
-  br label %.thread80
+  br label %.critedge
 
 17:                                               ; preds = %10
   %.not.not = icmp eq i32 %11, 0
@@ -924,16 +924,16 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   %25 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !49
   %26 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !49
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__layout_oh_read, i32 noundef 591, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.22) #4
-  br label %.thread80
+  br label %.critedge
 
 28:                                               ; preds = %18
   %29 = load ptr, ptr %19, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 144
   %31 = tail call i32 @H5P_set(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef nonnull %30) #4
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %.thread69, label %36
+  br i1 %32, label %.thread61, label %36
 
-.thread69:                                        ; preds = %28
+.thread61:                                        ; preds = %28
   %33 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !49
   %34 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !49
   %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__layout_oh_read, i32 noundef 595, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.24) #4
@@ -971,7 +971,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
 
 ._crit_edge:                                      ; preds = %53
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 256
-  %.pre82 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !47
+  %.pre74 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !47
   br label %74
 
 54:                                               ; preds = %53
@@ -1006,7 +1006,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   br label %74
 
 74:                                               ; preds = %._crit_edge, %71
-  %75 = phi ptr [ @H5D_LOPS_EFL, %71 ], [ %.pre82, %._crit_edge ]
+  %75 = phi ptr [ @H5D_LOPS_EFL, %71 ], [ %.pre74, %._crit_edge ]
   %76 = phi ptr [ %72, %71 ], [ %.pre, %._crit_edge ]
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !59
@@ -1017,10 +1017,10 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   %80 = load ptr, ptr %0, align 8, !tbaa !73
   %81 = tail call i32 %78(ptr noundef %80, ptr noundef nonnull %0, i64 noundef %1) #4
   %82 = icmp slt i32 %81, 0
-  br i1 %82, label %83, label %._crit_edge83
+  br i1 %82, label %83, label %._crit_edge75
 
-._crit_edge83:                                    ; preds = %79
-  %.pre84 = load ptr, ptr %37, align 8, !tbaa !10
+._crit_edge75:                                    ; preds = %79
+  %.pre76 = load ptr, ptr %37, align 8, !tbaa !10
   br label %87
 
 83:                                               ; preds = %79
@@ -1029,8 +1029,8 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   %86 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__layout_oh_read, i32 noundef 631, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.10) #4
   br label %117
 
-87:                                               ; preds = %._crit_edge83, %74
-  %88 = phi ptr [ %.pre84, %._crit_edge83 ], [ %76, %74 ]
+87:                                               ; preds = %._crit_edge75, %74
+  %88 = phi ptr [ %.pre76, %._crit_edge75 ], [ %76, %74 ]
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 248
   %90 = load i32, ptr %89, align 8, !tbaa !20
   %91 = icmp eq i32 %90, 2
@@ -1041,11 +1041,11 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   %94 = load i32, ptr %93, align 8, !tbaa !48
   %95 = add i32 %94, -1
   store i32 %95, ptr %93, align 8, !tbaa !48
-  %.pre85 = load ptr, ptr %37, align 8, !tbaa !10
+  %.pre77 = load ptr, ptr %37, align 8, !tbaa !10
   br label %96
 
 96:                                               ; preds = %92, %87
-  %97 = phi ptr [ %.pre85, %92 ], [ %88, %87 ]
+  %97 = phi ptr [ %.pre77, %92 ], [ %88, %87 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 248
   %99 = tail call i32 @H5P_set(ptr noundef %2, ptr noundef nonnull @.str.28, ptr noundef nonnull %98) #4
   %100 = icmp slt i32 %99, 0
@@ -1062,12 +1062,12 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 248
   %108 = load i32, ptr %107, align 8, !tbaa !20
   %109 = icmp eq i32 %108, 2
-  br i1 %109, label %110, label %.thread80
+  br i1 %109, label %110, label %.critedge
 
 110:                                              ; preds = %105
   %111 = tail call i32 @H5D__chunk_set_sizes(ptr noundef nonnull %0) #4
   %112 = icmp slt i32 %111, 0
-  br i1 %112, label %113, label %.thread80
+  br i1 %112, label %113, label %.critedge
 
 113:                                              ; preds = %110
   %114 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !49
@@ -1076,12 +1076,12 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   br label %117
 
 117:                                              ; preds = %42, %49, %58, %67, %83, %101, %113
-  %.046.ph = phi i1 [ %.not54, %113 ], [ %.not54, %101 ], [ %.not54, %83 ], [ true, %67 ], [ false, %58 ], [ false, %49 ], [ false, %42 ]
+  %.046 = phi i1 [ false, %42 ], [ false, %49 ], [ false, %58 ], [ true, %67 ], [ %.not54, %83 ], [ %.not54, %101 ], [ %.not54, %113 ]
   br i1 %.not.not, label %128, label %118
 
-118:                                              ; preds = %.thread69, %117
-  %.046.ph74 = phi i1 [ false, %.thread69 ], [ %.046.ph, %117 ]
-  %.048.ph73 = phi i1 [ false, %.thread69 ], [ %41, %117 ]
+118:                                              ; preds = %.thread61, %117
+  %.04666 = phi i1 [ false, %.thread61 ], [ %.046, %117 ]
+  %.04865 = phi i1 [ false, %.thread61 ], [ %41, %117 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %120 = load ptr, ptr %119, align 8, !tbaa !10
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 144
@@ -1093,15 +1093,15 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   %125 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !49
   %126 = load i64, ptr @H5E_CANTRESET_g, align 8, !tbaa !49
   %127 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__layout_oh_read, i32 noundef 650, i64 noundef %125, i64 noundef %126, ptr noundef nonnull @.str.31) #4
-  br i1 %.048.ph73, label %129, label %139
+  br i1 %.04865, label %129, label %139
 
 128:                                              ; preds = %118, %117
-  %.046.ph68 = phi i1 [ %.046.ph74, %118 ], [ %.046.ph, %117 ]
-  %.048.ph67 = phi i1 [ %.048.ph73, %118 ], [ %41, %117 ]
-  br i1 %.048.ph67, label %129, label %139
+  %.04660 = phi i1 [ %.04666, %118 ], [ %.046, %117 ]
+  %.04859 = phi i1 [ %.04865, %118 ], [ %41, %117 ]
+  br i1 %.04859, label %129, label %139
 
 129:                                              ; preds = %124, %128
-  %.046.ph6879 = phi i1 [ %.046.ph74, %124 ], [ %.046.ph68, %128 ]
+  %.0466071 = phi i1 [ %.04666, %124 ], [ %.04660, %128 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %131 = load ptr, ptr %130, align 8, !tbaa !10
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 248
@@ -1113,11 +1113,11 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   %136 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !49
   %137 = load i64, ptr @H5E_CANTRESET_g, align 8, !tbaa !49
   %138 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__layout_oh_read, i32 noundef 653, i64 noundef %136, i64 noundef %137, ptr noundef nonnull @.str.32) #4
-  br i1 %.046.ph6879, label %140, label %.thread80
+  br i1 %.0466071, label %140, label %.critedge
 
 139:                                              ; preds = %124, %129, %128
-  %.046.ph6878 = phi i1 [ %.046.ph6879, %129 ], [ %.046.ph68, %128 ], [ %.046.ph74, %124 ]
-  br i1 %.046.ph6878, label %140, label %.thread80
+  %.0466070 = phi i1 [ %.0466071, %129 ], [ %.04660, %128 ], [ %.04666, %124 ]
+  br i1 %.0466070, label %140, label %.critedge
 
 140:                                              ; preds = %135, %139
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1125,16 +1125,16 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 216
   %144 = tail call i32 @H5O_msg_reset(i32 noundef 7, ptr noundef nonnull %143) #4
   %145 = icmp slt i32 %144, 0
-  br i1 %145, label %146, label %.thread80
+  br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %140
   %147 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !49
   %148 = load i64, ptr @H5E_CANTRESET_g, align 8, !tbaa !49
   %149 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__layout_oh_read, i32 noundef 656, i64 noundef %147, i64 noundef %148, ptr noundef nonnull @.str.33) #4
-  br label %.thread80
+  br label %.critedge
 
-.thread80:                                        ; preds = %135, %13, %24, %110, %105, %140, %146, %139, %3
-  %.0 = phi i32 [ -1, %146 ], [ -1, %140 ], [ -1, %139 ], [ 0, %3 ], [ 0, %105 ], [ 0, %110 ], [ -1, %24 ], [ -1, %13 ], [ -1, %135 ]
+.critedge:                                        ; preds = %135, %24, %13, %110, %105, %140, %146, %139, %3
+  %.0 = phi i32 [ -1, %146 ], [ -1, %140 ], [ -1, %139 ], [ 0, %3 ], [ 0, %105 ], [ 0, %110 ], [ -1, %13 ], [ -1, %24 ], [ -1, %135 ]
   ret i32 %.0
 }
 

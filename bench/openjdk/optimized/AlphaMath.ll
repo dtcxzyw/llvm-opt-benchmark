@@ -10,63 +10,66 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @initAlphaTables() local_unnamed_addr #0 {
   br label %1
 
-1:                                                ; preds = %0, %11
-  %indvars.iv44 = phi i64 [ 1, %0 ], [ %indvars.iv.next45, %11 ]
+1:                                                ; preds = %0, %12
+  %indvars.iv44 = phi i64 [ 1, %0 ], [ %indvars.iv.next45, %12 ]
   %2 = mul nuw nsw i64 %indvars.iv44, 65793
-  %3 = trunc i64 %2 to i32
-  %4 = add i32 %3, 8388608
-  %5 = trunc nuw nsw i64 %2 to i32
-  br label %6
+  %3 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %indvars.iv44
+  %4 = trunc i64 %2 to i32
+  %5 = add i32 %4, 8388608
+  %6 = trunc nuw nsw i64 %2 to i32
+  br label %7
 
-6:                                                ; preds = %1, %6
-  %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %6 ]
-  %.03137 = phi i32 [ %4, %1 ], [ %10, %6 ]
-  %7 = lshr i32 %.03137, 24
-  %8 = trunc nuw i32 %7 to i8
-  %9 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %indvars.iv44, i64 %indvars.iv
-  store i8 %8, ptr %9, align 1
-  %10 = add i32 %.03137, %5
+7:                                                ; preds = %1, %7
+  %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %7 ]
+  %.03137 = phi i32 [ %5, %1 ], [ %11, %7 ]
+  %8 = lshr i32 %.03137, 24
+  %9 = trunc nuw i32 %8 to i8
+  %10 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %indvars.iv
+  store i8 %9, ptr %10, align 1
+  %11 = add i32 %.03137, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %11, label %6, !llvm.loop !6
+  br i1 %exitcond.not, label %12, label %7, !llvm.loop !6
 
-11:                                               ; preds = %6
+12:                                               ; preds = %7
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 256
   br i1 %exitcond47.not, label %.preheader35, label %1, !llvm.loop !8
 
-.preheader35:                                     ; preds = %11, %._crit_edge
-  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge ], [ 1, %11 ]
-  %indvar = phi i64 [ %indvar.next, %._crit_edge ], [ 0, %11 ]
-  %12 = mul nuw nsw i64 %indvar, 257
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @div8table, i64 257), i64 %12
-  %13 = sub nsw i64 255, %indvar
-  %14 = trunc nuw nsw i64 %indvars.iv52 to i32
-  %15 = lshr i32 %14, 1
-  %16 = or disjoint i32 %15, -16777216
-  %17 = udiv i32 %16, %14
-  br label %18
+.preheader35:                                     ; preds = %12, %._crit_edge
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge ], [ 1, %12 ]
+  %indvar = phi i64 [ %indvar.next, %._crit_edge ], [ 0, %12 ]
+  %13 = mul nuw nsw i64 %indvar, 257
+  %14 = getelementptr i8, ptr @div8table, i64 %13
+  %scevgep = getelementptr i8, ptr %14, i64 257
+  %15 = sub nsw i64 255, %indvar
+  %16 = trunc nuw nsw i64 %indvars.iv52 to i32
+  %17 = lshr i32 %16, 1
+  %18 = or disjoint i32 %17, -16777216
+  %19 = udiv i32 %18, %16
+  %20 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %indvars.iv52
+  br label %21
 
-18:                                               ; preds = %.preheader35, %18
-  %indvars.iv48 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next49, %18 ]
-  %.040 = phi i32 [ 8388608, %.preheader35 ], [ %22, %18 ]
-  %19 = lshr i32 %.040, 24
-  %20 = trunc nuw i32 %19 to i8
-  %21 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %indvars.iv52, i64 %indvars.iv48
-  store i8 %20, ptr %21, align 1
-  %22 = add i32 %.040, %17
+21:                                               ; preds = %.preheader35, %21
+  %indvars.iv48 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next49, %21 ]
+  %.040 = phi i32 [ 8388608, %.preheader35 ], [ %25, %21 ]
+  %22 = lshr i32 %.040, 24
+  %23 = trunc nuw i32 %22 to i8
+  %24 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %indvars.iv48
+  store i8 %23, ptr %24, align 1
+  %25 = add i32 %.040, %19
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, %indvars.iv52
-  br i1 %exitcond51.not, label %._crit_edge, label %18, !llvm.loop !9
+  br i1 %exitcond51.not, label %._crit_edge, label %21, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %18
-  tail call void @llvm.memset.p0.i64(ptr align 1 %gep, i8 -1, i64 %13, i1 false)
+._crit_edge:                                      ; preds = %21
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 -1, i64 %15, i1 false)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond58.not = icmp eq i64 %indvar.next, 255
-  br i1 %exitcond58.not, label %23, label %.preheader35, !llvm.loop !10
+  br i1 %exitcond58.not, label %26, label %.preheader35, !llvm.loop !10
 
-23:                                               ; preds = %._crit_edge
+26:                                               ; preds = %._crit_edge
   ret void
 }
 

@@ -3189,7 +3189,7 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr noundef captures(n
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   %13 = select i1 %9, i1 true, i1 %12
-  br i1 %13, label %14, label %100, !prof !9
+  br i1 %13, label %14, label %104, !prof !9
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -3198,7 +3198,6 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr noundef captures(n
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !92
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %invariant.gep = getelementptr i8, ptr %5, i64 -8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %.fr = freeze i32 %18
   %.06172 = add i32 %.fr, -1
@@ -3212,10 +3211,10 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr noundef captures(n
   %25 = zext nneg i32 %.06172 to i64
   br label %.split.us
 
-.split.us:                                        ; preds = %.split.us.preheader, %50
-  %.066.in.us = phi ptr [ %.066.us, %50 ], [ %19, %.split.us.preheader ]
-  %.062.us = phi i64 [ %.2.us, %50 ], [ 0, %.split.us.preheader ]
-  %.0.us = phi i64 [ %51, %50 ], [ %., %.split.us.preheader ]
+.split.us:                                        ; preds = %.split.us.preheader, %52
+  %.066.in.us = phi ptr [ %.066.us, %52 ], [ %19, %.split.us.preheader ]
+  %.062.us = phi i64 [ %.2.us, %52 ], [ 0, %.split.us.preheader ]
+  %.0.us = phi i64 [ %53, %52 ], [ %., %.split.us.preheader ]
   %.066.us = load ptr, ptr %.066.in.us, align 8, !tbaa !10
   %.not.us = icmp eq ptr %.066.us, null
   br i1 %.not.us, label %.split77.us, label %.lr.ph.us
@@ -3223,7 +3222,7 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr noundef captures(n
 .lr.ph.us:                                        ; preds = %.split.us
   %26 = load i64, ptr %20, align 8, !tbaa !95
   %27 = getelementptr inbounds nuw i8, ptr %.066.us, i64 8
-  br label %57
+  br label %59
 
 28:                                               ; preds = %._crit_edge.us
   %29 = load i32, ptr %24, align 8, !tbaa !77
@@ -3232,153 +3231,155 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr noundef captures(n
   br i1 %.not71.us, label %._crit_edge84, label %31
 
 31:                                               ; preds = %28
-  %gep.us = getelementptr i64, ptr %invariant.gep, i64 %.062.us
-  %32 = load i64, ptr %gep.us, align 8, !tbaa !21
-  %33 = icmp ult i64 %64, %32
-  br i1 %33, label %.split77.us, label %._crit_edge84
+  %32 = getelementptr i64, ptr %5, i64 %.062.us
+  %33 = getelementptr i8, ptr %32, i64 -8
+  %34 = load i64, ptr %33, align 8, !tbaa !21
+  %35 = icmp ult i64 %66, %34
+  br i1 %35, label %.split77.us, label %._crit_edge84
 
 ._crit_edge84:                                    ; preds = %28, %31
-  %34 = add i64 %.062.us, -1
-  %35 = getelementptr inbounds nuw i64, ptr %5, i64 %34
-  %36 = load i64, ptr %35, align 8, !tbaa !21
-  %37 = getelementptr inbounds nuw i64, ptr %6, i64 %34
+  %36 = add i64 %.062.us, -1
+  %37 = getelementptr inbounds nuw i64, ptr %5, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !21
-  %39 = add i64 %38, %36
-  %40 = icmp eq i64 %64, %39
-  br i1 %40, label %46, label %41
+  %39 = getelementptr inbounds nuw i64, ptr %6, i64 %36
+  %40 = load i64, ptr %39, align 8, !tbaa !21
+  %41 = add i64 %40, %38
+  %42 = icmp eq i64 %66, %41
+  br i1 %42, label %48, label %43
 
-41:                                               ; preds = %._crit_edge84
-  %42 = getelementptr inbounds nuw i64, ptr %5, i64 %.062.us
-  store i64 %64, ptr %42, align 8, !tbaa !21
-  %43 = load i64, ptr %20, align 8, !tbaa !95
-  %44 = getelementptr inbounds nuw i64, ptr %6, i64 %.062.us
-  store i64 %43, ptr %44, align 8, !tbaa !21
-  %45 = add i64 %.062.us, 1
-  br label %50
+43:                                               ; preds = %._crit_edge84
+  %44 = getelementptr inbounds nuw i64, ptr %5, i64 %.062.us
+  store i64 %66, ptr %44, align 8, !tbaa !21
+  %45 = load i64, ptr %20, align 8, !tbaa !95
+  %46 = getelementptr inbounds nuw i64, ptr %6, i64 %.062.us
+  store i64 %45, ptr %46, align 8, !tbaa !21
+  %47 = add i64 %.062.us, 1
+  br label %52
 
-46:                                               ; preds = %._crit_edge84
-  %47 = add i64 %38, %26
-  store i64 %47, ptr %37, align 8, !tbaa !21
-  br label %50
+48:                                               ; preds = %._crit_edge84
+  %49 = add i64 %40, %26
+  store i64 %49, ptr %39, align 8, !tbaa !21
+  br label %52
 
-48:                                               ; preds = %._crit_edge.us
-  store i64 %64, ptr %5, align 8, !tbaa !21
-  %49 = load i64, ptr %20, align 8, !tbaa !95
-  store i64 %49, ptr %6, align 8, !tbaa !21
-  br label %50
+50:                                               ; preds = %._crit_edge.us
+  store i64 %66, ptr %5, align 8, !tbaa !21
+  %51 = load i64, ptr %20, align 8, !tbaa !95
+  store i64 %51, ptr %6, align 8, !tbaa !21
+  br label %52
 
-50:                                               ; preds = %48, %46, %41
-  %.2.us = phi i64 [ %.062.us, %46 ], [ %45, %41 ], [ 1, %48 ]
-  %51 = add i64 %.0.us, -1
-  %52 = load ptr, ptr %.066.us, align 8, !tbaa !25
-  store ptr %52, ptr %19, align 8, !tbaa !10
-  %53 = load i64, ptr %15, align 8, !tbaa !93
-  %54 = add i64 %53, -1
-  store i64 %54, ptr %15, align 8, !tbaa !93
-  %55 = icmp eq i64 %.2.us, %1
-  %56 = icmp eq i64 %51, 0
-  %or.cond.us = select i1 %55, i1 true, i1 %56
+52:                                               ; preds = %50, %48, %43
+  %.2.us = phi i64 [ %.062.us, %48 ], [ %47, %43 ], [ 1, %50 ]
+  %53 = add i64 %.0.us, -1
+  %54 = load ptr, ptr %.066.us, align 8, !tbaa !25
+  store ptr %54, ptr %19, align 8, !tbaa !10
+  %55 = load i64, ptr %15, align 8, !tbaa !93
+  %56 = add i64 %55, -1
+  store i64 %56, ptr %15, align 8, !tbaa !93
+  %57 = icmp eq i64 %.2.us, %1
+  %58 = icmp eq i64 %53, 0
+  %or.cond.us = select i1 %57, i1 true, i1 %58
   br i1 %or.cond.us, label %.split77.us, label %.split.us, !llvm.loop !96
 
-57:                                               ; preds = %.lr.ph.us, %57
-  %indvars.iv = phi i64 [ %25, %.lr.ph.us ], [ %indvars.iv.next, %57 ]
-  %.06474.us = phi i64 [ 0, %.lr.ph.us ], [ %64, %57 ]
-  %.06573.us = phi i64 [ %26, %.lr.ph.us ], [ %67, %57 ]
-  %58 = getelementptr inbounds nuw [0 x i64], ptr %27, i64 0, i64 %indvars.iv
-  %59 = load i64, ptr %58, align 8, !tbaa !21
-  %60 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %indvars.iv
+59:                                               ; preds = %.lr.ph.us, %59
+  %indvars.iv = phi i64 [ %25, %.lr.ph.us ], [ %indvars.iv.next, %59 ]
+  %.06474.us = phi i64 [ 0, %.lr.ph.us ], [ %66, %59 ]
+  %.06573.us = phi i64 [ %26, %.lr.ph.us ], [ %69, %59 ]
+  %60 = getelementptr inbounds nuw [0 x i64], ptr %27, i64 0, i64 %indvars.iv
   %61 = load i64, ptr %60, align 8, !tbaa !21
-  %62 = add nsw i64 %61, %59
-  %63 = mul i64 %62, %.06573.us
-  %64 = add i64 %63, %.06474.us
-  %65 = getelementptr inbounds nuw [32 x i64], ptr %23, i64 0, i64 %indvars.iv
-  %66 = load i64, ptr %65, align 8, !tbaa !21
-  %67 = mul i64 %66, %.06573.us
+  %62 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %indvars.iv
+  %63 = load i64, ptr %62, align 8, !tbaa !21
+  %64 = add nsw i64 %63, %61
+  %65 = mul i64 %64, %.06573.us
+  %66 = add i64 %65, %.06474.us
+  %67 = getelementptr inbounds nuw [32 x i64], ptr %23, i64 0, i64 %indvars.iv
+  %68 = load i64, ptr %67, align 8, !tbaa !21
+  %69 = mul i64 %68, %.06573.us
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %68 = icmp sgt i64 %indvars.iv, 0
-  br i1 %68, label %57, label %._crit_edge.us, !llvm.loop !97
+  %70 = icmp sgt i64 %indvars.iv, 0
+  br i1 %70, label %59, label %._crit_edge.us, !llvm.loop !97
 
-._crit_edge.us:                                   ; preds = %57
+._crit_edge.us:                                   ; preds = %59
   %.not70.us = icmp eq i64 %.062.us, 0
-  br i1 %.not70.us, label %48, label %28
+  br i1 %.not70.us, label %50, label %28
 
-.split:                                           ; preds = %14, %92
-  %.066.in = phi ptr [ %.066, %92 ], [ %19, %14 ]
-  %.062 = phi i64 [ %.2, %92 ], [ 0, %14 ]
-  %.0 = phi i64 [ %93, %92 ], [ %., %14 ]
+.split:                                           ; preds = %14, %96
+  %.066.in = phi ptr [ %.066, %96 ], [ %19, %14 ]
+  %.062 = phi i64 [ %.2, %96 ], [ 0, %14 ]
+  %.0 = phi i64 [ %97, %96 ], [ %., %14 ]
   %.066 = load ptr, ptr %.066.in, align 8, !tbaa !10
   %.not = icmp eq ptr %.066, null
-  br i1 %.not, label %.split77.us, label %69
+  br i1 %.not, label %.split77.us, label %71
 
-69:                                               ; preds = %.split
-  %70 = load i64, ptr %20, align 8, !tbaa !95
+71:                                               ; preds = %.split
+  %72 = load i64, ptr %20, align 8, !tbaa !95
   %.not70 = icmp eq i64 %.062, 0
-  br i1 %.not70, label %90, label %71
+  br i1 %.not70, label %94, label %73
 
-71:                                               ; preds = %69
-  %72 = load i32, ptr %24, align 8, !tbaa !77
-  %73 = and i32 %72, 1
-  %.not71 = icmp eq i32 %73, 0
-  br i1 %.not71, label %._crit_edge, label %74
+73:                                               ; preds = %71
+  %74 = load i32, ptr %24, align 8, !tbaa !77
+  %75 = and i32 %74, 1
+  %.not71 = icmp eq i32 %75, 0
+  br i1 %.not71, label %._crit_edge, label %76
 
-74:                                               ; preds = %71
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %.062
-  %75 = load i64, ptr %gep, align 8, !tbaa !21
-  %.not79 = icmp eq i64 %75, 0
+76:                                               ; preds = %73
+  %77 = getelementptr i64, ptr %5, i64 %.062
+  %78 = getelementptr i8, ptr %77, i64 -8
+  %79 = load i64, ptr %78, align 8, !tbaa !21
+  %.not79 = icmp eq i64 %79, 0
   br i1 %.not79, label %._crit_edge, label %.split77.us
 
-._crit_edge:                                      ; preds = %71, %74
-  %76 = add i64 %.062, -1
-  %77 = getelementptr inbounds nuw i64, ptr %5, i64 %76
-  %78 = load i64, ptr %77, align 8, !tbaa !21
-  %79 = getelementptr inbounds nuw i64, ptr %6, i64 %76
-  %80 = load i64, ptr %79, align 8, !tbaa !21
-  %81 = sub i64 0, %78
-  %82 = icmp eq i64 %80, %81
-  br i1 %82, label %83, label %85
+._crit_edge:                                      ; preds = %73, %76
+  %80 = add i64 %.062, -1
+  %81 = getelementptr inbounds nuw i64, ptr %5, i64 %80
+  %82 = load i64, ptr %81, align 8, !tbaa !21
+  %83 = getelementptr inbounds nuw i64, ptr %6, i64 %80
+  %84 = load i64, ptr %83, align 8, !tbaa !21
+  %85 = sub i64 0, %82
+  %86 = icmp eq i64 %84, %85
+  br i1 %86, label %87, label %89
 
-83:                                               ; preds = %._crit_edge
-  %84 = add i64 %80, %70
-  store i64 %84, ptr %79, align 8, !tbaa !21
-  br label %92
+87:                                               ; preds = %._crit_edge
+  %88 = add i64 %84, %72
+  store i64 %88, ptr %83, align 8, !tbaa !21
+  br label %96
 
-85:                                               ; preds = %._crit_edge
-  %86 = getelementptr inbounds nuw i64, ptr %5, i64 %.062
-  store i64 0, ptr %86, align 8, !tbaa !21
-  %87 = load i64, ptr %20, align 8, !tbaa !95
-  %88 = getelementptr inbounds nuw i64, ptr %6, i64 %.062
-  store i64 %87, ptr %88, align 8, !tbaa !21
-  %89 = add i64 %.062, 1
-  br label %92
-
-90:                                               ; preds = %69
-  store i64 0, ptr %5, align 8, !tbaa !21
+89:                                               ; preds = %._crit_edge
+  %90 = getelementptr inbounds nuw i64, ptr %5, i64 %.062
+  store i64 0, ptr %90, align 8, !tbaa !21
   %91 = load i64, ptr %20, align 8, !tbaa !95
-  store i64 %91, ptr %6, align 8, !tbaa !21
-  br label %92
+  %92 = getelementptr inbounds nuw i64, ptr %6, i64 %.062
+  store i64 %91, ptr %92, align 8, !tbaa !21
+  %93 = add i64 %.062, 1
+  br label %96
 
-92:                                               ; preds = %83, %85, %90
-  %.2 = phi i64 [ %.062, %83 ], [ %89, %85 ], [ 1, %90 ]
-  %93 = add i64 %.0, -1
-  %94 = load ptr, ptr %.066, align 8, !tbaa !25
-  store ptr %94, ptr %19, align 8, !tbaa !10
-  %95 = load i64, ptr %15, align 8, !tbaa !93
-  %96 = add i64 %95, -1
-  store i64 %96, ptr %15, align 8, !tbaa !93
-  %97 = icmp eq i64 %.2, %1
-  %98 = icmp eq i64 %93, 0
-  %or.cond = select i1 %97, i1 true, i1 %98
+94:                                               ; preds = %71
+  store i64 0, ptr %5, align 8, !tbaa !21
+  %95 = load i64, ptr %20, align 8, !tbaa !95
+  store i64 %95, ptr %6, align 8, !tbaa !21
+  br label %96
+
+96:                                               ; preds = %87, %89, %94
+  %.2 = phi i64 [ %.062, %87 ], [ %93, %89 ], [ 1, %94 ]
+  %97 = add i64 %.0, -1
+  %98 = load ptr, ptr %.066, align 8, !tbaa !25
+  store ptr %98, ptr %19, align 8, !tbaa !10
+  %99 = load i64, ptr %15, align 8, !tbaa !93
+  %100 = add i64 %99, -1
+  store i64 %100, ptr %15, align 8, !tbaa !93
+  %101 = icmp eq i64 %.2, %1
+  %102 = icmp eq i64 %97, 0
+  %or.cond = select i1 %101, i1 true, i1 %102
   br i1 %or.cond, label %.split77.us, label %.split, !llvm.loop !98
 
-.split77.us:                                      ; preds = %.split, %74, %92, %.split.us, %31, %50
-  %.us-phi = phi i64 [ %.062.us, %31 ], [ %.2.us, %50 ], [ %.062.us, %.split.us ], [ %.062, %74 ], [ %.2, %92 ], [ %.062, %.split ]
-  %.us-phi78 = phi i64 [ %.0.us, %31 ], [ %51, %50 ], [ %.0.us, %.split.us ], [ %.0, %74 ], [ %93, %92 ], [ %.0, %.split ]
+.split77.us:                                      ; preds = %.split, %76, %96, %.split.us, %31, %52
+  %.us-phi = phi i64 [ %.062.us, %31 ], [ %.2.us, %52 ], [ %.062.us, %.split.us ], [ %.062, %76 ], [ %.2, %96 ], [ %.062, %.split ]
+  %.us-phi78 = phi i64 [ %.0.us, %31 ], [ %53, %52 ], [ %.0.us, %.split.us ], [ %.0, %76 ], [ %97, %96 ], [ %.0, %.split ]
   store i64 %.us-phi, ptr %3, align 8, !tbaa !21
-  %99 = sub i64 %., %.us-phi78
-  store i64 %99, ptr %4, align 8, !tbaa !21
-  br label %100
+  %103 = sub i64 %., %.us-phi78
+  store i64 %103, ptr %4, align 8, !tbaa !21
+  br label %104
 
-100:                                              ; preds = %.split77.us, %7
+104:                                              ; preds = %.split77.us, %7
   ret i32 0
 }
 

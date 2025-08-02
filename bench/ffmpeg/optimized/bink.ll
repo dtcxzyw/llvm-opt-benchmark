@@ -251,21 +251,21 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %70 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %72 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  %73 = getelementptr i8, ptr %16, i64 152
-  %74 = getelementptr i8, ptr %16, i64 208
-  %75 = getelementptr i8, ptr %16, i64 320
-  %76 = getelementptr i8, ptr %16, i64 376
+  %73 = getelementptr inbounds nuw i8, ptr %16, i64 152
+  %74 = getelementptr inbounds nuw i8, ptr %16, i64 208
+  %75 = getelementptr inbounds nuw i8, ptr %16, i64 320
+  %76 = getelementptr inbounds nuw i8, ptr %16, i64 376
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %78 = getelementptr i8, ptr %16, i64 264
+  %78 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %79 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %80 = getelementptr i8, ptr %16, i64 488
-  %81 = getelementptr i8, ptr %16, i64 600
+  %80 = getelementptr inbounds nuw i8, ptr %16, i64 488
+  %81 = getelementptr inbounds nuw i8, ptr %16, i64 600
   %82 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %83 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %84 = getelementptr i8, ptr %16, i64 656
+  %84 = getelementptr inbounds nuw i8, ptr %16, i64 656
   %85 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  %86 = getelementptr i8, ptr %16, i64 432
-  %87 = getelementptr i8, ptr %16, i64 544
+  %86 = getelementptr inbounds nuw i8, ptr %16, i64 432
+  %87 = getelementptr inbounds nuw i8, ptr %16, i64 544
   %88 = getelementptr inbounds nuw i8, ptr %16, i64 48
   br label %89
 
@@ -1331,8 +1331,8 @@ define internal void @binkb_calc_quant() #5 {
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %.preheader, label %2, !llvm.loop !95
 
-.preheader:                                       ; preds = %2, %37
-  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %37 ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %39
+  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %39 ], [ 0, %2 ]
   %8 = getelementptr inbounds nuw [16 x i8], ptr @binkb_num, i64 0, i64 %indvars.iv31
   %9 = load i8, ptr %8, align 1, !tbaa !36
   %10 = zext i8 %9 to i64
@@ -1340,43 +1340,45 @@ define internal void @binkb_calc_quant() #5 {
   %12 = load i8, ptr %11, align 1, !tbaa !36
   %13 = zext i8 %12 to i64
   %14 = shl nuw nsw i64 %13, 18
-  br label %15
+  %15 = getelementptr inbounds nuw [16 x [64 x i32]], ptr @binkb_intra_quant, i64 0, i64 %indvars.iv31
+  %16 = getelementptr inbounds nuw [16 x [64 x i32]], ptr @binkb_inter_quant, i64 0, i64 %indvars.iv31
+  br label %17
 
-15:                                               ; preds = %.preheader, %15
-  %indvars.iv27 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next28, %15 ]
-  %16 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 0, i64 %indvars.iv27
-  %17 = load i8, ptr %16, align 1, !tbaa !36
-  %18 = getelementptr inbounds nuw [64 x i8], ptr @binkb_intra_seed, i64 0, i64 %indvars.iv27
+17:                                               ; preds = %.preheader, %17
+  %indvars.iv27 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next28, %17 ]
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 0, i64 %indvars.iv27
   %19 = load i8, ptr %18, align 1, !tbaa !36
-  %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw [64 x i32], ptr @binkb_calc_quant.s, i64 0, i64 %indvars.iv27
-  %22 = load i32, ptr %21, align 4, !tbaa !58
-  %23 = sext i32 %22 to i64
-  %24 = mul nsw i64 %10, %23
-  %25 = mul nsw i64 %24, %20
-  %26 = sdiv i64 %25, %14
-  %27 = trunc i64 %26 to i32
-  %28 = zext i8 %17 to i64
-  %29 = getelementptr inbounds nuw [16 x [64 x i32]], ptr @binkb_intra_quant, i64 0, i64 %indvars.iv31, i64 %28
-  store i32 %27, ptr %29, align 4, !tbaa !58
-  %30 = getelementptr inbounds nuw [64 x i8], ptr @binkb_inter_seed, i64 0, i64 %indvars.iv27
-  %31 = load i8, ptr %30, align 1, !tbaa !36
-  %32 = zext i8 %31 to i64
-  %33 = mul nsw i64 %24, %32
-  %34 = sdiv i64 %33, %14
-  %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds nuw [16 x [64 x i32]], ptr @binkb_inter_quant, i64 0, i64 %indvars.iv31, i64 %28
-  store i32 %35, ptr %36, align 4, !tbaa !58
+  %20 = getelementptr inbounds nuw [64 x i8], ptr @binkb_intra_seed, i64 0, i64 %indvars.iv27
+  %21 = load i8, ptr %20, align 1, !tbaa !36
+  %22 = zext i8 %21 to i64
+  %23 = getelementptr inbounds nuw [64 x i32], ptr @binkb_calc_quant.s, i64 0, i64 %indvars.iv27
+  %24 = load i32, ptr %23, align 4, !tbaa !58
+  %25 = sext i32 %24 to i64
+  %26 = mul nsw i64 %10, %25
+  %27 = mul nsw i64 %26, %22
+  %28 = sdiv i64 %27, %14
+  %29 = trunc i64 %28 to i32
+  %30 = zext i8 %19 to i64
+  %31 = getelementptr inbounds nuw [64 x i32], ptr %15, i64 0, i64 %30
+  store i32 %29, ptr %31, align 4, !tbaa !58
+  %32 = getelementptr inbounds nuw [64 x i8], ptr @binkb_inter_seed, i64 0, i64 %indvars.iv27
+  %33 = load i8, ptr %32, align 1, !tbaa !36
+  %34 = zext i8 %33 to i64
+  %35 = mul nsw i64 %26, %34
+  %36 = sdiv i64 %35, %14
+  %37 = trunc i64 %36 to i32
+  %38 = getelementptr inbounds nuw [64 x i32], ptr %16, i64 0, i64 %30
+  store i32 %37, ptr %38, align 4, !tbaa !58
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 64
-  br i1 %exitcond30.not, label %37, label %15, !llvm.loop !96
+  br i1 %exitcond30.not, label %39, label %17, !llvm.loop !96
 
-37:                                               ; preds = %15
+39:                                               ; preds = %17
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, 16
-  br i1 %exitcond34.not, label %38, label %.preheader, !llvm.loop !97
+  br i1 %exitcond34.not, label %40, label %.preheader, !llvm.loop !97
 
-38:                                               ; preds = %37
+40:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #11
   ret void
 }

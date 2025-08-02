@@ -813,43 +813,41 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp sgt i32 %1, 2
-  br i1 %9, label %.lr.ph93, label %._crit_edge94
+  br i1 %9, label %.lr.ph89, label %._crit_edge90
 
-.lr.ph93:                                         ; preds = %8
+.lr.ph89:                                         ; preds = %8
   %10 = sext i32 %3 to i64
   %11 = sext i32 %5 to i64
   %12 = sext i32 %7 to i64
   %13 = icmp sgt i32 %0, 2
   %14 = xor i32 %7, -1
-  br i1 %13, label %.lr.ph.us.preheader, label %._crit_edge94
+  br i1 %13, label %.lr.ph.us.preheader, label %._crit_edge90
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph93
+.lr.ph.us.preheader:                              ; preds = %.lr.ph89
   %15 = add nsw i32 %0, -1
   %wide.trip.count = zext i32 %15 to i64
   %16 = add nsw i32 %1, -2
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %.091.us = phi i32 [ %66, %._crit_edge.us ], [ 1, %.lr.ph.us.preheader ]
-  %.07090.us = phi ptr [ %17, %._crit_edge.us ], [ %2, %.lr.ph.us.preheader ]
-  %.07189.us = phi ptr [ %19, %._crit_edge.us ], [ %6, %.lr.ph.us.preheader ]
-  %.07288.us = phi ptr [ %18, %._crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
-  %17 = getelementptr inbounds i8, ptr %.07090.us, i64 %10
-  %18 = getelementptr inbounds i8, ptr %.07288.us, i64 %11
-  %19 = getelementptr inbounds i16, ptr %.07189.us, i64 %12
-  %invariant.gep.us = getelementptr i8, ptr %19, i64 2
-  %invariant.gep83.us = getelementptr i8, ptr %19, i64 -2
+  %.087.us = phi i32 [ %69, %._crit_edge.us ], [ 1, %.lr.ph.us.preheader ]
+  %.07086.us = phi ptr [ %17, %._crit_edge.us ], [ %2, %.lr.ph.us.preheader ]
+  %.07185.us = phi ptr [ %19, %._crit_edge.us ], [ %6, %.lr.ph.us.preheader ]
+  %.07284.us = phi ptr [ %18, %._crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
+  %17 = getelementptr inbounds i8, ptr %.07086.us, i64 %10
+  %18 = getelementptr inbounds i8, ptr %.07284.us, i64 %11
+  %19 = getelementptr inbounds i16, ptr %.07185.us, i64 %12
   %invariant.gep = getelementptr i16, ptr %19, i64 %12
-  %invariant.gep98 = getelementptr i16, ptr %invariant.gep.us, i64 %12
-  %invariant.gep100 = getelementptr i16, ptr %invariant.gep83.us, i64 %12
+  %invariant.gep94 = getelementptr i16, ptr %19, i64 %12
+  %invariant.gep96 = getelementptr i16, ptr %19, i64 %12
   br label %20
 
-20:                                               ; preds = %.lr.ph.us, %65
-  %indvars.iv = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next, %65 ]
+20:                                               ; preds = %.lr.ph.us, %68
+  %indvars.iv = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next, %68 ]
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !4
-  switch i8 %22, label %65 [
-    i8 0, label %54
+  switch i8 %22, label %68 [
+    i8 0, label %55
     i8 1, label %42
     i8 2, label %32
     i8 3, label %23
@@ -858,16 +856,16 @@ define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noun
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !7
-  %26 = getelementptr inbounds nuw i16, ptr %.07189.us, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i16, ptr %.07185.us, i64 %indvars.iv
   %27 = load i16, ptr %26, align 2, !tbaa !7
   %28 = icmp ugt i16 %25, %27
-  br i1 %28, label %29, label %65
+  br i1 %28, label %29, label %68
 
 29:                                               ; preds = %23
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
   %30 = load i16, ptr %gep, align 2, !tbaa !7
   %31 = icmp ugt i16 %25, %30
-  br i1 %31, label %.sink.split, label %65
+  br i1 %31, label %.sink.split, label %68
 
 32:                                               ; preds = %20
   %33 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
@@ -875,13 +873,13 @@ define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noun
   %35 = getelementptr i8, ptr %33, i64 -2
   %36 = load i16, ptr %35, align 2, !tbaa !7
   %37 = icmp ugt i16 %34, %36
-  br i1 %37, label %38, label %65
+  br i1 %37, label %38, label %68
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %40 = load i16, ptr %39, align 2, !tbaa !7
   %41 = icmp ugt i16 %34, %40
-  br i1 %41, label %.sink.split, label %65
+  br i1 %41, label %.sink.split, label %68
 
 42:                                               ; preds = %20
   %43 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
@@ -892,49 +890,51 @@ define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noun
   %48 = getelementptr inbounds i16, ptr %19, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !7
   %50 = icmp ugt i16 %44, %49
-  br i1 %50, label %51, label %65
+  br i1 %50, label %51, label %68
 
 51:                                               ; preds = %42
-  %gep99 = getelementptr i16, ptr %invariant.gep98, i64 %indvars.iv
-  %52 = load i16, ptr %gep99, align 2, !tbaa !7
-  %53 = icmp ugt i16 %44, %52
-  br i1 %53, label %.sink.split, label %65
+  %gep95 = getelementptr i16, ptr %invariant.gep94, i64 %indvars.iv
+  %52 = getelementptr i8, ptr %gep95, i64 2
+  %53 = load i16, ptr %52, align 2, !tbaa !7
+  %54 = icmp ugt i16 %44, %53
+  br i1 %54, label %.sink.split, label %68
 
-54:                                               ; preds = %20
-  %55 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
-  %56 = load i16, ptr %55, align 2, !tbaa !7
-  %gep101 = getelementptr i16, ptr %invariant.gep100, i64 %indvars.iv
-  %57 = load i16, ptr %gep101, align 2, !tbaa !7
-  %58 = icmp ugt i16 %56, %57
-  br i1 %58, label %59, label %65
+55:                                               ; preds = %20
+  %56 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
+  %57 = load i16, ptr %56, align 2, !tbaa !7
+  %gep97 = getelementptr i16, ptr %invariant.gep96, i64 %indvars.iv
+  %58 = getelementptr i8, ptr %gep97, i64 -2
+  %59 = load i16, ptr %58, align 2, !tbaa !7
+  %60 = icmp ugt i16 %57, %59
+  br i1 %60, label %61, label %68
 
-59:                                               ; preds = %54
-  %60 = sub nsw i64 %indvars.iv, %12
-  %gep86.us = getelementptr i16, ptr %invariant.gep.us, i64 %60
-  %61 = load i16, ptr %gep86.us, align 2, !tbaa !7
-  %62 = icmp ugt i16 %56, %61
-  br i1 %62, label %.sink.split, label %65
+61:                                               ; preds = %55
+  %62 = getelementptr i16, ptr %.07185.us, i64 %indvars.iv
+  %63 = getelementptr i8, ptr %62, i64 2
+  %64 = load i16, ptr %63, align 2, !tbaa !7
+  %65 = icmp ugt i16 %57, %64
+  br i1 %65, label %.sink.split, label %68
 
-.sink.split:                                      ; preds = %59, %51, %38, %29
-  %.sink = phi i16 [ %25, %29 ], [ %34, %38 ], [ %44, %51 ], [ %56, %59 ]
+.sink.split:                                      ; preds = %61, %51, %38, %29
+  %.sink = phi i16 [ %25, %29 ], [ %34, %38 ], [ %44, %51 ], [ %57, %61 ]
   %.not.i.us = icmp ult i16 %.sink, 256
-  %63 = trunc i16 %.sink to i8
-  %.0.i.us = select i1 %.not.i.us, i8 %63, i8 -1
-  %64 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
-  store i8 %.0.i.us, ptr %64, align 1, !tbaa !4
-  br label %65
+  %66 = trunc i16 %.sink to i8
+  %.0.i.us = select i1 %.not.i.us, i8 %66, i8 -1
+  %67 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
+  store i8 %.0.i.us, ptr %67, align 1, !tbaa !4
+  br label %68
 
-65:                                               ; preds = %.sink.split, %59, %54, %51, %42, %38, %32, %29, %23, %20
+68:                                               ; preds = %.sink.split, %61, %55, %51, %42, %38, %32, %29, %23, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !27
 
-._crit_edge.us:                                   ; preds = %65
-  %66 = add nuw nsw i32 %.091.us, 1
-  %exitcond97.not = icmp eq i32 %.091.us, %16
-  br i1 %exitcond97.not, label %._crit_edge94, label %.lr.ph.us, !llvm.loop !28
+._crit_edge.us:                                   ; preds = %68
+  %69 = add nuw nsw i32 %.087.us, 1
+  %exitcond93.not = icmp eq i32 %.087.us, %16
+  br i1 %exitcond93.not, label %._crit_edge90, label %.lr.ph.us, !llvm.loop !28
 
-._crit_edge94:                                    ; preds = %._crit_edge.us, %.lr.ph93, %8
+._crit_edge90:                                    ; preds = %._crit_edge.us, %.lr.ph89, %8
   ret void
 }
 

@@ -4642,70 +4642,71 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_113X86AsmBackend12writeNopD
   %6 = load i64, ptr %5, align 8, !tbaa !51
   %7 = and i64 %6, 128
   %.not24 = icmp eq i64 %7, 0
-  %8 = load ptr, ptr %0, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef nonnull align 8 dereferenceable(304) %3) #26
-  %12 = zext i32 %11 to i64
-  %invariant.gep = select i1 %.not24, ptr getelementptr (i8, ptr @_ZZNK12_GLOBAL__N_113X86AsmBackend12writeNopDataERN4llvm11raw_ostreamEmPKNS1_15MCSubtargetInfoEE9Nops32Bit, i64 -11), ptr getelementptr (i8, ptr @_ZZNK12_GLOBAL__N_113X86AsmBackend12writeNopDataERN4llvm11raw_ostreamEmPKNS1_15MCSubtargetInfoEE9Nops16Bit, i64 -11)
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %15
+  %8 = select i1 %.not24, ptr @_ZZNK12_GLOBAL__N_113X86AsmBackend12writeNopDataERN4llvm11raw_ostreamEmPKNS1_15MCSubtargetInfoEE9Nops32Bit, ptr @_ZZNK12_GLOBAL__N_113X86AsmBackend12writeNopDataERN4llvm11raw_ostreamEmPKNS1_15MCSubtargetInfoEE9Nops16Bit
+  %9 = load ptr, ptr %0, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 184
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef nonnull align 8 dereferenceable(304) %3) #26
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  br label %16
 
-15:                                               ; preds = %33, %4
-  %.023 = phi i64 [ %2, %4 ], [ %35, %33 ]
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.023, i64 %12)
-  %16 = trunc nuw i64 %.sroa.speculated to i32
-  %17 = and i32 %16, 255
-  %18 = tail call i32 @llvm.usub.sat.i32(i32 %17, i32 10)
-  %.not26 = icmp samesign ult i32 %17, 11
+16:                                               ; preds = %36, %4
+  %.023 = phi i64 [ %2, %4 ], [ %38, %36 ]
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.023, i64 %13)
+  %17 = trunc nuw i64 %.sroa.speculated to i32
+  %18 = and i32 %17, 255
+  %19 = tail call i32 @llvm.usub.sat.i32(i32 %18, i32 10)
+  %.not26 = icmp samesign ult i32 %18, 11
   br i1 %.not26, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %15
-  %19 = trunc nuw i32 %18 to i8
+.lr.ph.preheader:                                 ; preds = %16
+  %20 = trunc nuw i32 %19 to i8
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %15
-  %20 = sub i32 %16, %18
-  %21 = and i32 %20, 255
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %33, label %30
+._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %16
+  %21 = sub i32 %17, %19
+  %22 = and i32 %21, 255
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %36, label %31
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm11raw_ostreamlsEc.exit
-  %.025 = phi i8 [ %28, %_ZN4llvm11raw_ostreamlsEc.exit ], [ 0, %.lr.ph.preheader ]
-  %22 = load ptr, ptr %13, align 8, !tbaa !273
-  %23 = load ptr, ptr %14, align 8, !tbaa !269
-  %.not.i = icmp ult ptr %22, %23
-  br i1 %.not.i, label %26, label %24
+  %.025 = phi i8 [ %29, %_ZN4llvm11raw_ostreamlsEc.exit ], [ 0, %.lr.ph.preheader ]
+  %23 = load ptr, ptr %14, align 8, !tbaa !273
+  %24 = load ptr, ptr %15, align 8, !tbaa !269
+  %.not.i = icmp ult ptr %23, %24
+  br i1 %.not.i, label %27, label %25
 
-24:                                               ; preds = %.lr.ph
-  %25 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 102) #26
+25:                                               ; preds = %.lr.ph
+  %26 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 102) #26
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store ptr %27, ptr %13, align 8, !tbaa !273
-  store i8 102, ptr %22, align 1, !tbaa !111
+27:                                               ; preds = %.lr.ph
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  store ptr %28, ptr %14, align 8, !tbaa !273
+  store i8 102, ptr %23, align 1, !tbaa !111
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %24, %26
-  %28 = add nuw i8 %.025, 1
-  %29 = icmp ult i8 %28, %19
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !332
+_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %25, %27
+  %29 = add nuw i8 %.025, 1
+  %30 = icmp ult i8 %29, %20
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !332
 
-30:                                               ; preds = %._crit_edge
-  %31 = zext nneg i32 %21 to i64
-  %gep = getelementptr [11 x i8], ptr %invariant.gep, i64 %31
-  %32 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %gep, i64 noundef %31) #26
-  br label %33
+31:                                               ; preds = %._crit_edge
+  %32 = zext nneg i32 %22 to i64
+  %33 = getelementptr [11 x i8], ptr %8, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 -11
+  %35 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %34, i64 noundef %32) #26
+  br label %36
 
-33:                                               ; preds = %30, %._crit_edge
-  %34 = and i64 %.sroa.speculated, 255
-  %35 = sub i64 %.023, %34
-  %.not18 = icmp eq i64 %.023, %34
-  br i1 %.not18, label %36, label %15, !llvm.loop !333
+36:                                               ; preds = %31, %._crit_edge
+  %37 = and i64 %.sroa.speculated, 255
+  %38 = sub i64 %.023, %37
+  %.not18 = icmp eq i64 %.023, %37
+  br i1 %.not18, label %39, label %16, !llvm.loop !333
 
-36:                                               ; preds = %33
+39:                                               ; preds = %36
   ret i1 true
 }
 
@@ -8023,75 +8024,75 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStr
   %12 = icmp uge ptr %1, %.pre3
   %13 = icmp ult ptr %1, %11
   %spec.select.i.i.i.i = and i1 %12, %13
-  br i1 %spec.select.i.i.i.i, label %15, label %14, !prof !283
+  br i1 %spec.select.i.i.i.i, label %14, label %.critedge.i.i, !prof !283
 
 14:                                               ; preds = %10
+  %15 = ptrtoint ptr %1 to i64
+  %16 = ptrtoint ptr %.pre3 to i64
+  %17 = sub i64 %15, %16
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
+  %18 = load ptr, ptr %0, align 8, !tbaa !25
+  %19 = getelementptr inbounds i8, ptr %18, i64 %17
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+
+.critedge.i.i:                                    ; preds = %10
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
   %.pre = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
 
-15:                                               ; preds = %10
-  %16 = ptrtoint ptr %1 to i64
-  %17 = ptrtoint ptr %.pre3 to i64
-  %18 = sub i64 %16, %17
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
-  %19 = load ptr, ptr %0, align 8, !tbaa !25
-  %20 = getelementptr inbounds i8, ptr %19, i64 %18
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %14, %15
-  %21 = phi ptr [ %.pre3, %2 ], [ %19, %15 ], [ %.pre, %14 ]
-  %.016.i.i = phi ptr [ %1, %2 ], [ %20, %15 ], [ %1, %14 ]
-  %22 = load i32, ptr %4, align 8, !tbaa !26
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %21, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i, i64 12, i1 false)
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store ptr %27, ptr %25, align 8, !tbaa !119
-  %28 = load ptr, ptr %26, align 8, !tbaa !120
-  %29 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
-  %30 = load i64, ptr %29, align 8, !tbaa !121
+_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %14, %.critedge.i.i
+  %20 = phi ptr [ %.pre3, %2 ], [ %18, %14 ], [ %.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %.critedge.i.i ]
+  %21 = load i32, ptr %4, align 8, !tbaa !26
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %20, i64 %22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i, i64 12, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store ptr %26, ptr %24, align 8, !tbaa !119
+  %27 = load ptr, ptr %25, align 8, !tbaa !120
+  %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
+  %29 = load i64, ptr %28, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
-  store i64 %30, ptr %3, align 8, !tbaa !51
-  %31 = icmp ugt i64 %30, 15
-  br i1 %31, label %32, label %._crit_edge.i.i.i
+  store i64 %29, ptr %3, align 8, !tbaa !51
+  %30 = icmp ugt i64 %29, 15
+  br i1 %30, label %31, label %._crit_edge.i.i.i
 
-32:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-  %33 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #26
-  store ptr %33, ptr %25, align 8, !tbaa !120
-  %34 = load i64, ptr %3, align 8, !tbaa !51
-  store i64 %34, ptr %27, align 8, !tbaa !111
+31:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+  %32 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #26
+  store ptr %32, ptr %24, align 8, !tbaa !120
+  %33 = load i64, ptr %3, align 8, !tbaa !51
+  store i64 %33, ptr %26, align 8, !tbaa !111
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %32, %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-  %35 = phi ptr [ %33, %32 ], [ %27, %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit ]
-  switch i64 %30, label %38 [
-    i64 1, label %36
+._crit_edge.i.i.i:                                ; preds = %31, %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+  %34 = phi ptr [ %32, %31 ], [ %26, %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit ]
+  switch i64 %29, label %37 [
+    i64 1, label %35
     i64 0, label %_ZN4llvm13MCELFStreamer13AttributeItemC2ERKS1_.exit
   ]
 
-36:                                               ; preds = %._crit_edge.i.i.i
-  %37 = load i8, ptr %28, align 1, !tbaa !111
-  store i8 %37, ptr %35, align 1, !tbaa !111
+35:                                               ; preds = %._crit_edge.i.i.i
+  %36 = load i8, ptr %27, align 1, !tbaa !111
+  store i8 %36, ptr %34, align 1, !tbaa !111
   br label %_ZN4llvm13MCELFStreamer13AttributeItemC2ERKS1_.exit
 
-38:                                               ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %28, i64 %30, i1 false)
+37:                                               ; preds = %._crit_edge.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %27, i64 %29, i1 false)
   br label %_ZN4llvm13MCELFStreamer13AttributeItemC2ERKS1_.exit
 
-_ZN4llvm13MCELFStreamer13AttributeItemC2ERKS1_.exit: ; preds = %._crit_edge.i.i.i, %36, %38
-  %39 = load i64, ptr %3, align 8, !tbaa !51
-  %40 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 %39, ptr %40, align 8, !tbaa !121
-  %41 = load ptr, ptr %25, align 8, !tbaa !120
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %39
-  store i8 0, ptr %42, align 1, !tbaa !111
+_ZN4llvm13MCELFStreamer13AttributeItemC2ERKS1_.exit: ; preds = %._crit_edge.i.i.i, %35, %37
+  %38 = load i64, ptr %3, align 8, !tbaa !51
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store i64 %38, ptr %39, align 8, !tbaa !121
+  %40 = load ptr, ptr %24, align 8, !tbaa !120
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %38
+  store i8 0, ptr %41, align 1, !tbaa !111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
-  %43 = load i32, ptr %4, align 8, !tbaa !26
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %4, align 8, !tbaa !26
+  %42 = load i32, ptr %4, align 8, !tbaa !26
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %4, align 8, !tbaa !26
   ret void
 }
 

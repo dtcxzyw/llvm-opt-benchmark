@@ -4711,14 +4711,14 @@ define noundef ptr @cJSON_CreateIntArray(ptr noundef readonly captures(address_i
   %3 = icmp slt i32 %1, 0
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
-  br i1 %or.cond, label %._crit_edge.thread48, label %5
+  br i1 %or.cond, label %._crit_edge.split.us, label %5
 
 5:                                                ; preds = %2
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
   %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
   %.fr42 = freeze ptr %6
   %.not.i.i = icmp eq ptr %.fr42, null
-  br i1 %.not.i.i, label %._crit_edge.thread48, label %cJSON_CreateArray.exit
+  br i1 %.not.i.i, label %._crit_edge.split.us, label %cJSON_CreateArray.exit
 
 cJSON_CreateArray.exit:                           ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.fr42, i8 0, i64 64, i1 false)
@@ -4756,7 +4756,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 .split.us:                                        ; preds = %.lr.ph.split
   tail call void @cJSON_Delete(ptr noundef nonnull %.fr42)
-  br label %._crit_edge.thread48
+  br label %._crit_edge.split.us
 
 18:                                               ; preds = %13
   store ptr %12, ptr %9, align 8, !tbaa !25
@@ -4778,14 +4778,14 @@ cJSON_CreateArray.exit:                           ; preds = %5
   %23 = getelementptr inbounds nuw i8, ptr %.fr42, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !25
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %._crit_edge.thread48, label %25
+  br i1 %.not, label %._crit_edge.split.us, label %25
 
 25:                                               ; preds = %._crit_edge.thread
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %.0.lcssa47, ptr %26, align 8, !tbaa !40
-  br label %._crit_edge.thread48
+  br label %._crit_edge.split.us
 
-._crit_edge.thread48:                             ; preds = %5, %._crit_edge.thread, %25, %2, %.split.us
+._crit_edge.split.us:                             ; preds = %5, %._crit_edge.thread, %25, %2, %.split.us
   %.024 = phi ptr [ null, %.split.us ], [ null, %2 ], [ %.fr42, %25 ], [ %.fr42, %._crit_edge.thread ], [ null, %5 ]
   ret ptr %.024
 }
@@ -4795,14 +4795,14 @@ define noundef ptr @cJSON_CreateFloatArray(ptr noundef readonly captures(address
   %3 = icmp slt i32 %1, 0
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
-  br i1 %or.cond, label %._crit_edge.thread46, label %5
+  br i1 %or.cond, label %._crit_edge.split.us, label %5
 
 5:                                                ; preds = %2
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
   %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
   %.fr40 = freeze ptr %6
   %.not.i.i = icmp eq ptr %.fr40, null
-  br i1 %.not.i.i, label %._crit_edge.thread46, label %cJSON_CreateArray.exit
+  br i1 %.not.i.i, label %._crit_edge.split.us, label %cJSON_CreateArray.exit
 
 cJSON_CreateArray.exit:                           ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.fr40, i8 0, i64 64, i1 false)
@@ -4846,7 +4846,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 .split.us:                                        ; preds = %.lr.ph.split
   tail call void @cJSON_Delete(ptr noundef nonnull %.fr40)
-  br label %._crit_edge.thread46
+  br label %._crit_edge.split.us
 
 22:                                               ; preds = %20, %18, %13
   %.sink.i = phi i32 [ %21, %20 ], [ 2147483647, %13 ], [ -2147483648, %18 ]
@@ -4875,14 +4875,14 @@ cJSON_CreateArray.exit:                           ; preds = %5
   %29 = getelementptr inbounds nuw i8, ptr %.fr40, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %._crit_edge.thread46, label %31
+  br i1 %.not, label %._crit_edge.split.us, label %31
 
 31:                                               ; preds = %._crit_edge.thread
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %.0.lcssa45, ptr %32, align 8, !tbaa !40
-  br label %._crit_edge.thread46
+  br label %._crit_edge.split.us
 
-._crit_edge.thread46:                             ; preds = %5, %._crit_edge.thread, %31, %2, %.split.us
+._crit_edge.split.us:                             ; preds = %5, %._crit_edge.thread, %31, %2, %.split.us
   %.024 = phi ptr [ null, %.split.us ], [ null, %2 ], [ %.fr40, %31 ], [ %.fr40, %._crit_edge.thread ], [ null, %5 ]
   ret ptr %.024
 }
@@ -4892,14 +4892,14 @@ define noundef ptr @cJSON_CreateDoubleArray(ptr noundef readonly captures(addres
   %3 = icmp slt i32 %1, 0
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
-  br i1 %or.cond, label %._crit_edge.thread46, label %5
+  br i1 %or.cond, label %._crit_edge.split.us, label %5
 
 5:                                                ; preds = %2
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
   %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
   %.fr40 = freeze ptr %6
   %.not.i.i = icmp eq ptr %.fr40, null
-  br i1 %.not.i.i, label %._crit_edge.thread46, label %cJSON_CreateArray.exit
+  br i1 %.not.i.i, label %._crit_edge.split.us, label %cJSON_CreateArray.exit
 
 cJSON_CreateArray.exit:                           ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.fr40, i8 0, i64 64, i1 false)
@@ -4942,7 +4942,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 .split.us:                                        ; preds = %.lr.ph.split
   tail call void @cJSON_Delete(ptr noundef nonnull %.fr40)
-  br label %._crit_edge.thread46
+  br label %._crit_edge.split.us
 
 21:                                               ; preds = %19, %17, %13
   %.sink.i = phi i32 [ %20, %19 ], [ 2147483647, %13 ], [ -2147483648, %17 ]
@@ -4971,14 +4971,14 @@ cJSON_CreateArray.exit:                           ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %.fr40, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !25
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %._crit_edge.thread46, label %30
+  br i1 %.not, label %._crit_edge.split.us, label %30
 
 30:                                               ; preds = %._crit_edge.thread
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %.0.lcssa45, ptr %31, align 8, !tbaa !40
-  br label %._crit_edge.thread46
+  br label %._crit_edge.split.us
 
-._crit_edge.thread46:                             ; preds = %5, %._crit_edge.thread, %30, %2, %.split.us
+._crit_edge.split.us:                             ; preds = %5, %._crit_edge.thread, %30, %2, %.split.us
   %.024 = phi ptr [ null, %.split.us ], [ null, %2 ], [ %.fr40, %30 ], [ %.fr40, %._crit_edge.thread ], [ null, %5 ]
   ret ptr %.024
 }
@@ -4988,14 +4988,14 @@ define noundef ptr @cJSON_CreateStringArray(ptr noundef readonly captures(addres
   %3 = icmp slt i32 %1, 0
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
-  br i1 %or.cond, label %._crit_edge.thread55, label %5
+  br i1 %or.cond, label %._crit_edge.split.us, label %5
 
 5:                                                ; preds = %2
   %global_hooks.val.i = load ptr, ptr @global_hooks, align 8, !tbaa !18
   %6 = tail call ptr %global_hooks.val.i(i64 noundef 64) #32
   %.fr47 = freeze ptr %6
   %.not.i.i = icmp eq ptr %.fr47, null
-  br i1 %.not.i.i, label %._crit_edge.thread55, label %cJSON_CreateArray.exit
+  br i1 %.not.i.i, label %._crit_edge.split.us, label %cJSON_CreateArray.exit
 
 cJSON_CreateArray.exit:                           ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.fr47, i8 0, i64 64, i1 false)
@@ -5042,7 +5042,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.split.us
   tail call void @cJSON_Delete(ptr noundef nonnull %.fr47)
-  br label %._crit_edge.thread55
+  br label %._crit_edge.split.us
 
 23:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %11, i64 %18, i1 false)
@@ -5071,14 +5071,14 @@ cJSON_CreateArray.exit:                           ; preds = %5
   %30 = getelementptr inbounds nuw i8, ptr %.fr47, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !25
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %._crit_edge.thread55, label %32
+  br i1 %.not, label %._crit_edge.split.us, label %32
 
 32:                                               ; preds = %._crit_edge.thread
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %.0.lcssa54, ptr %33, align 8, !tbaa !40
-  br label %._crit_edge.thread55
+  br label %._crit_edge.split.us
 
-._crit_edge.thread55:                             ; preds = %5, %._crit_edge.thread, %32, %2, %.loopexit
+._crit_edge.split.us:                             ; preds = %5, %._crit_edge.thread, %32, %2, %.loopexit
   %.024 = phi ptr [ null, %.loopexit ], [ null, %2 ], [ %.fr47, %32 ], [ %.fr47, %._crit_edge.thread ], [ null, %5 ]
   ret ptr %.024
 }

@@ -2695,7 +2695,7 @@ _ZN6vectorI7svectorIjjELb1EjE3endEv.exit:         ; preds = %._crit_edge.thread
   br i1 %.not2040, label %._crit_edge44, label %.lr.ph43
 
 ._crit_edge44:                                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit, %._crit_edge.thread, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit
-  %.036.lcssa = phi i32 [ 0, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit ], [ 0, %._crit_edge.thread ], [ %.sroa.speculated, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
+  %.036.lcssa = phi i32 [ 0, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit ], [ 0, %._crit_edge.thread ], [ %.0.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %26 = add i32 %.036.lcssa, 1
   %27 = load ptr, ptr %25, align 8, !tbaa !19
@@ -2756,11 +2756,11 @@ _ZN6vectorIdLb0EjE7reserveEj.exit:                ; preds = %_ZNK6vectorIdLb0EjE
 .lr.ph48:                                         ; preds = %_ZN6vectorIdLb0EjE7reserveEj.exit
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %wide.trip.count = zext i32 %26 to i64
-  br label %52
+  br label %53
 
 .lr.ph43:                                         ; preds = %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit, %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %.01942 = phi ptr [ %51, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %18, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit ]
-  %.03641 = phi i32 [ %.sroa.speculated, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ 0, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit ]
+  %.01942 = phi ptr [ %52, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %18, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit ]
+  %.03641 = phi i32 [ %.0.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ 0, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit ]
   %46 = load ptr, ptr %.01942, align 8, !tbaa !16
   %47 = icmp eq ptr %46, null
   br i1 %47, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, label %48
@@ -2768,30 +2768,30 @@ _ZN6vectorIdLb0EjE7reserveEj.exit:                ; preds = %_ZNK6vectorIdLb0EjE
 48:                                               ; preds = %.lr.ph43
   %49 = getelementptr inbounds i8, ptr %46, i64 -4
   %50 = load i32, ptr %49, align 4, !tbaa !12
+  %51 = tail call i32 @llvm.umax.i32(i32 %.03641, i32 %50)
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %.lr.ph43, %48
-  %.0.i = phi i32 [ %50, %48 ], [ 0, %.lr.ph43 ]
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.03641, i32 %.0.i)
-  %51 = getelementptr inbounds nuw i8, ptr %.01942, i64 8
-  %.not20 = icmp eq ptr %51, %24
+  %.0.i = phi i32 [ %51, %48 ], [ %.03641, %.lr.ph43 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.01942, i64 8
+  %.not20 = icmp eq ptr %52, %24
   br i1 %.not20, label %._crit_edge44, label %.lr.ph43
 
-._crit_edge49:                                    ; preds = %52, %_ZNK6vectorIdLb0EjE4sizeEv.exit.i, %_ZN6vectorIdLb0EjE7reserveEj.exit
+._crit_edge49:                                    ; preds = %53, %_ZNK6vectorIdLb0EjE4sizeEv.exit.i, %_ZN6vectorIdLb0EjE7reserveEj.exit
   ret void
 
-52:                                               ; preds = %.lr.ph48, %52
-  %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %52 ]
-  %53 = load double, ptr %45, align 8, !tbaa !240
-  %54 = trunc i64 %indvars.iv to i32
-  %55 = sub i32 0, %54
-  %56 = sitofp i32 %55 to double
-  %57 = tail call double @pow(double noundef %53, double noundef %56) #24, !tbaa !12
-  %58 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv
-  store double %57, ptr %58, align 8, !tbaa !85
+53:                                               ; preds = %.lr.ph48, %53
+  %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %53 ]
+  %54 = load double, ptr %45, align 8, !tbaa !240
+  %55 = trunc i64 %indvars.iv to i32
+  %56 = sub i32 0, %55
+  %57 = sitofp i32 %56 to double
+  %58 = tail call double @pow(double noundef %54, double noundef %57) #24, !tbaa !12
+  %59 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv
+  store double %58, ptr %59, align 8, !tbaa !85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge49, label %52, !llvm.loop !241
+  br i1 %exitcond.not, label %._crit_edge49, label %53, !llvm.loop !241
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)

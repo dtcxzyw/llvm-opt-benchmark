@@ -4995,7 +4995,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %16, %12, %5
   call void @_ZdaPv(ptr noundef nonnull %30) #17
   call void @_ZdaPv(ptr noundef nonnull %39) #17
   call void @_ZdaPv(ptr noundef nonnull %49) #17
-  br label %153
+  br label %155
 
 thread-pre-split:                                 ; preds = %75
   %.pr = load i32, ptr %50, align 8, !tbaa !73
@@ -5018,7 +5018,7 @@ thread-pre-split:                                 ; preds = %75
   call void @_ZdaPv(ptr noundef nonnull %30) #17
   call void @_ZdaPv(ptr noundef nonnull %39) #17
   call void @_ZdaPv(ptr noundef nonnull %49) #17
-  br label %153
+  br label %155
 
 87:                                               ; preds = %78, %81
   call void @_ZdaPv(ptr noundef nonnull %30) #17
@@ -5035,7 +5035,6 @@ thread-pre-split:                                 ; preds = %75
   br i1 %95, label %97, label %.preheader
 
 .preheader:                                       ; preds = %87
-  %invariant.gep = getelementptr i8, ptr %4, i64 -4
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %smax = call i32 @llvm.smax.i32(i32 %1, i32 0)
   %wide.trip.count89 = zext nneg i32 %smax to i64
@@ -5043,7 +5042,7 @@ thread-pre-split:                                 ; preds = %75
 
 97:                                               ; preds = %87
   call void @_ZdaPv(ptr noundef nonnull %49) #17
-  br label %153
+  br label %155
 
 98:                                               ; preds = %.preheader, %99
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %99 ]
@@ -5059,87 +5058,88 @@ thread-pre-split:                                 ; preds = %75
   %104 = load i32, ptr %103, align 4, !tbaa !68
   %105 = sub nsw i32 %102, %104
   %106 = sext i32 %104 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %106
-  %107 = trunc nuw i64 %indvars.iv.next87 to i32
-  call void %100(i32 noundef %107, i32 noundef %105, ptr noundef %gep, ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %6)
-  %108 = load i32, ptr %93, align 4, !tbaa !92
-  %109 = icmp slt i32 %108, 0
-  br i1 %109, label %110, label %98, !llvm.loop !94
+  %107 = getelementptr i32, ptr %4, i64 %106
+  %108 = getelementptr i8, ptr %107, i64 -4
+  %109 = trunc nuw i64 %indvars.iv.next87 to i32
+  call void %100(i32 noundef %109, i32 noundef %105, ptr noundef %108, ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %6)
+  %110 = load i32, ptr %93, align 4, !tbaa !92
+  %111 = icmp slt i32 %110, 0
+  br i1 %111, label %112, label %98, !llvm.loop !94
 
-110:                                              ; preds = %99
+112:                                              ; preds = %99
   call void @_ZdaPv(ptr noundef nonnull %49) #17
-  br label %153
+  br label %155
 
 .critedge:                                        ; preds = %98
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %112 = load ptr, ptr %111, align 8, !tbaa !54
-  call void %112(ptr noundef nonnull %49, ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %6)
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %114 = load ptr, ptr %113, align 8, !tbaa !54
+  call void %114(ptr noundef nonnull %49, ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef nonnull %6)
   call void @_ZdaPv(ptr noundef nonnull %49) #17
-  %113 = load ptr, ptr %10, align 8, !tbaa !34
-  %.not73 = icmp eq ptr %113, null
-  br i1 %.not73, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %114
+  %115 = load ptr, ptr %10, align 8, !tbaa !34
+  %.not73 = icmp eq ptr %115, null
+  br i1 %.not73, label %_ZN5Ipopt9TimedTask3EndEv.exit, label %116
 
-114:                                              ; preds = %.critedge
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 1120
-  %116 = load i8, ptr %115, align 8, !tbaa !75, !range !77, !noundef !78
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN5Ipopt9TimedTask3EndEv.exit
+116:                                              ; preds = %.critedge
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 1120
+  %118 = load i8, ptr %117, align 8, !tbaa !75, !range !77, !noundef !78
+  %119 = trunc nuw i8 %118 to i1
+  br i1 %119, label %120, label %_ZN5Ipopt9TimedTask3EndEv.exit
 
-118:                                              ; preds = %114
-  %119 = getelementptr inbounds nuw i8, ptr %113, i64 1072
-  %120 = getelementptr inbounds nuw i8, ptr %113, i64 1122
-  store i8 1, ptr %120, align 2, !tbaa !79
-  %121 = getelementptr inbounds nuw i8, ptr %113, i64 1121
-  store i8 0, ptr %121, align 1, !tbaa !80
-  %122 = call noundef double @_ZN5Ipopt7CpuTimeEv()
-  %123 = load double, ptr %119, align 8, !tbaa !81
-  %124 = fsub double %122, %123
-  %125 = getelementptr inbounds nuw i8, ptr %113, i64 1080
-  %126 = load double, ptr %125, align 8, !tbaa !95
-  %127 = fadd double %126, %124
-  store double %127, ptr %125, align 8, !tbaa !95
-  %128 = call noundef double @_ZN5Ipopt7SysTimeEv()
-  %129 = getelementptr inbounds nuw i8, ptr %113, i64 1088
-  %130 = load double, ptr %129, align 8, !tbaa !82
-  %131 = fsub double %128, %130
-  %132 = getelementptr inbounds nuw i8, ptr %113, i64 1096
-  %133 = load double, ptr %132, align 8, !tbaa !96
-  %134 = fadd double %133, %131
-  store double %134, ptr %132, align 8, !tbaa !96
-  %135 = call noundef double @_ZN5Ipopt13WallclockTimeEv()
-  %136 = getelementptr inbounds nuw i8, ptr %113, i64 1104
-  %137 = load double, ptr %136, align 8, !tbaa !83
-  %138 = fsub double %135, %137
-  %139 = getelementptr inbounds nuw i8, ptr %113, i64 1112
-  %140 = load double, ptr %139, align 8, !tbaa !97
-  %141 = fadd double %140, %138
-  store double %141, ptr %139, align 8, !tbaa !97
+120:                                              ; preds = %116
+  %121 = getelementptr inbounds nuw i8, ptr %115, i64 1072
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 1122
+  store i8 1, ptr %122, align 2, !tbaa !79
+  %123 = getelementptr inbounds nuw i8, ptr %115, i64 1121
+  store i8 0, ptr %123, align 1, !tbaa !80
+  %124 = call noundef double @_ZN5Ipopt7CpuTimeEv()
+  %125 = load double, ptr %121, align 8, !tbaa !81
+  %126 = fsub double %124, %125
+  %127 = getelementptr inbounds nuw i8, ptr %115, i64 1080
+  %128 = load double, ptr %127, align 8, !tbaa !95
+  %129 = fadd double %128, %126
+  store double %129, ptr %127, align 8, !tbaa !95
+  %130 = call noundef double @_ZN5Ipopt7SysTimeEv()
+  %131 = getelementptr inbounds nuw i8, ptr %115, i64 1088
+  %132 = load double, ptr %131, align 8, !tbaa !82
+  %133 = fsub double %130, %132
+  %134 = getelementptr inbounds nuw i8, ptr %115, i64 1096
+  %135 = load double, ptr %134, align 8, !tbaa !96
+  %136 = fadd double %135, %133
+  store double %136, ptr %134, align 8, !tbaa !96
+  %137 = call noundef double @_ZN5Ipopt13WallclockTimeEv()
+  %138 = getelementptr inbounds nuw i8, ptr %115, i64 1104
+  %139 = load double, ptr %138, align 8, !tbaa !83
+  %140 = fsub double %137, %139
+  %141 = getelementptr inbounds nuw i8, ptr %115, i64 1112
+  %142 = load double, ptr %141, align 8, !tbaa !97
+  %143 = fadd double %142, %140
+  store double %143, ptr %141, align 8, !tbaa !97
   br label %_ZN5Ipopt9TimedTask3EndEv.exit
 
-_ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %118, %114, %.critedge
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %143 = load ptr, ptr %142, align 8, !tbaa !6
-  %.not70 = icmp eq ptr %143, null
-  br i1 %.not70, label %145, label %144
+_ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %120, %116, %.critedge
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %145 = load ptr, ptr %144, align 8, !tbaa !6
+  %.not70 = icmp eq ptr %145, null
+  br i1 %.not70, label %147, label %146
 
-144:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit
-  call void @_ZdaPv(ptr noundef nonnull %143) #17
-  br label %145
+146:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit
+  call void @_ZdaPv(ptr noundef nonnull %145) #17
+  br label %147
 
-145:                                              ; preds = %144, %_ZN5Ipopt9TimedTask3EndEv.exit
-  %146 = zext nneg i32 %2 to i64
-  %147 = icmp slt i32 %2, 0
-  %148 = shl nuw nsw i64 %146, 3
-  %149 = select i1 %147, i64 -1, i64 %148
-  %150 = call noalias noundef nonnull ptr @_Znam(i64 noundef %149) #20
-  store ptr %150, ptr %142, align 8, !tbaa !6
-  %151 = load i32, ptr %93, align 4, !tbaa !92
-  %152 = lshr i32 %151, 29
-  %. = and i32 %152, 4
-  br label %153
+147:                                              ; preds = %146, %_ZN5Ipopt9TimedTask3EndEv.exit
+  %148 = zext nneg i32 %2 to i64
+  %149 = icmp slt i32 %2, 0
+  %150 = shl nuw nsw i64 %148, 3
+  %151 = select i1 %149, i64 -1, i64 %150
+  %152 = call noalias noundef nonnull ptr @_Znam(i64 noundef %151) #20
+  store ptr %152, ptr %144, align 8, !tbaa !6
+  %153 = load i32, ptr %93, align 4, !tbaa !92
+  %154 = lshr i32 %153, 29
+  %. = and i32 %154, 4
+  br label %155
 
-153:                                              ; preds = %110, %145, %97, %86, %77
-  %.061 = phi i32 [ 4, %86 ], [ 4, %97 ], [ 4, %110 ], [ 4, %77 ], [ %., %145 ]
+155:                                              ; preds = %112, %147, %97, %86, %77
+  %.061 = phi i32 [ 4, %86 ], [ 4, %97 ], [ 4, %112 ], [ 4, %77 ], [ %., %147 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %6) #18

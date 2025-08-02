@@ -757,7 +757,7 @@ define dso_local noundef ptr @hashmap_iter_next(ptr noundef captures(none) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @memintern(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local nonnull ptr @memintern(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.pool_entry, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @memintern.map, i64 28), align 4, !tbaa !13

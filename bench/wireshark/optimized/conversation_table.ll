@@ -730,7 +730,7 @@ define ptr @get_endpoint_port(ptr noundef %0, ptr noundef readonly captures(none
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_conversation_filter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define noalias ptr @get_conversation_filter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @usb_address_type, align 4
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %7
@@ -1678,7 +1678,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @g_free(ptr noundef) #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_endpoint_filter(ptr noundef %0) local_unnamed_addr #1 {
+define noalias ptr @get_endpoint_filter(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load i32, ptr @usb_address_type, align 4
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %6
@@ -1778,7 +1778,7 @@ endpoint_get_filter_name.exit23:                  ; preds = %38, %35, %32, %.thr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @get_hostlist_filter(ptr noundef %0) local_unnamed_addr #1 {
+define noalias ptr @get_hostlist_filter(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @get_endpoint_filter(ptr noundef %0)
   ret ptr %2
 }

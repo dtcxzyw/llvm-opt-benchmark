@@ -3440,127 +3440,127 @@ define void @Gia_ManCompareValues2(i32 %0, ptr noundef initializes((816, 820)) %
   br i1 %31, label %.lr.ph80.thread, label %._crit_edge
 
 .lr.ph80.thread:                                  ; preds = %.critedge.thread
-  %32 = getelementptr i8, ptr %3, i64 8
-  %.val61103 = load ptr, ptr %32, align 8, !tbaa !5
-  %33 = shl i32 %9, 6
-  %smax = tail call i32 @llvm.smax.i32(i32 %33, i32 1)
-  %wide.trip.count95 = zext nneg i32 %smax to i64
+  %32 = shl i32 %9, 6
+  %33 = getelementptr i8, ptr %3, i64 8
+  %.val61103 = load ptr, ptr %33, align 8, !tbaa !5
+  %34 = tail call i32 @llvm.smax.i32(i32 %32, i32 1)
+  %35 = zext nneg i32 %34 to i64
   br label %Gia_ManGetExampleValue.exit
 
 .lr.ph80:                                         ; preds = %.critedge
-  %34 = shl i32 %9, 6
-  %35 = getelementptr i8, ptr %3, i64 8
-  %.val61 = load ptr, ptr %35, align 8, !tbaa !5
+  %36 = shl i32 %9, 6
+  %37 = getelementptr i8, ptr %3, i64 8
+  %.val61 = load ptr, ptr %37, align 8, !tbaa !5
   %wide.trip.count.i = zext nneg i32 %.val to i64
-  %36 = shl nsw i32 -1, %.val
-  %smax100 = tail call i32 @llvm.smax.i32(i32 %34, i32 1)
+  %38 = shl nsw i32 -1, %.val
+  %smax100 = tail call i32 @llvm.smax.i32(i32 %36, i32 1)
   %wide.trip.count101 = zext nneg i32 %smax100 to i64
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph80, %._crit_edge.i.us
   %indvars.iv97 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next98, %._crit_edge.i.us ]
-  %.079.us = phi float [ 0.000000e+00, %.lr.ph80 ], [ %57, %._crit_edge.i.us ]
-  %.05278.us = phi float [ 0.000000e+00, %.lr.ph80 ], [ %62, %._crit_edge.i.us ]
-  %.05576.us = phi i32 [ 0, %.lr.ph80 ], [ %64, %._crit_edge.i.us ]
-  %37 = getelementptr inbounds nuw i8, ptr %.val61, i64 %indvars.iv97
-  %38 = load i8, ptr %37, align 1, !tbaa !12
-  %39 = lshr i64 %indvars.iv97, 6
-  %40 = and i64 %39, 67108863
-  %41 = and i64 %indvars.iv97, 63
-  br label %42
+  %.079.us = phi float [ 0.000000e+00, %.lr.ph80 ], [ %59, %._crit_edge.i.us ]
+  %.05278.us = phi float [ 0.000000e+00, %.lr.ph80 ], [ %64, %._crit_edge.i.us ]
+  %.05576.us = phi i32 [ 0, %.lr.ph80 ], [ %66, %._crit_edge.i.us ]
+  %39 = getelementptr inbounds nuw i8, ptr %.val61, i64 %indvars.iv97
+  %40 = load i8, ptr %39, align 1, !tbaa !12
+  %41 = lshr i64 %indvars.iv97, 6
+  %42 = and i64 %41, 67108863
+  %43 = and i64 %indvars.iv97, 63
+  br label %44
 
-42:                                               ; preds = %42, %.lr.ph.i.us
-  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %42 ]
-  %.016.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %.1.i.us, %42 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.us
-  %44 = load ptr, ptr %43, align 8, !tbaa !94
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %40
-  %46 = load i64, ptr %45, align 8, !tbaa !16
-  %47 = lshr i64 %46, %41
-  %.fr.i.us = freeze i64 %47
-  %48 = and i64 %.fr.i.us, 1
-  %.not14.i.us = icmp eq i64 %48, 0
-  %49 = trunc nuw nsw i64 %indvars.iv.i.us to i32
-  %50 = shl nuw i32 1, %49
-  %51 = select i1 %.not14.i.us, i32 0, i32 %50
-  %.1.i.us = or i32 %51, %.016.i.us
+44:                                               ; preds = %44, %.lr.ph.i.us
+  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %44 ]
+  %.016.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %.1.i.us, %44 ]
+  %45 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.us
+  %46 = load ptr, ptr %45, align 8, !tbaa !94
+  %47 = getelementptr inbounds nuw i64, ptr %46, i64 %42
+  %48 = load i64, ptr %47, align 8, !tbaa !16
+  %49 = lshr i64 %48, %43
+  %.fr.i.us = freeze i64 %49
+  %50 = and i64 %.fr.i.us, 1
+  %.not14.i.us = icmp eq i64 %50, 0
+  %51 = trunc nuw nsw i64 %indvars.iv.i.us to i32
+  %52 = shl nuw i32 1, %51
+  %53 = select i1 %.not14.i.us, i32 0, i32 %52
+  %.1.i.us = or i32 %53, %.016.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %42, !llvm.loop !95
+  br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %44, !llvm.loop !95
 
-._crit_edge.i.us:                                 ; preds = %42
-  %52 = sext i8 %38 to i32
-  %spec.select.i.us = select i1 %.not14.i.us, i32 0, i32 %36
-  %53 = or i32 %.1.i.us, %spec.select.i.us
-  %54 = sub nsw i32 %52, %53
-  %55 = sitofp i32 %54 to float
-  %56 = fmul float %55, 3.906250e-03
-  %57 = tail call float @llvm.fmuladd.f32(float %56, float %56, float %.079.us)
-  %58 = icmp sgt i8 %38, 0
-  %59 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %53, i1 true)
-  %60 = uitofp nneg i32 %59 to float
-  %61 = select i1 %58, float %60, float 0.000000e+00
-  %62 = tail call float @llvm.fmuladd.f32(float %61, float %61, float %.05278.us)
-  %63 = zext i1 %58 to i32
-  %64 = add nuw nsw i32 %.05576.us, %63
+._crit_edge.i.us:                                 ; preds = %44
+  %54 = sext i8 %40 to i32
+  %spec.select.i.us = select i1 %.not14.i.us, i32 0, i32 %38
+  %55 = or i32 %.1.i.us, %spec.select.i.us
+  %56 = sub nsw i32 %54, %55
+  %57 = sitofp i32 %56 to float
+  %58 = fmul float %57, 3.906250e-03
+  %59 = tail call float @llvm.fmuladd.f32(float %58, float %58, float %.079.us)
+  %60 = icmp sgt i8 %40, 0
+  %61 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %55, i1 true)
+  %62 = uitofp nneg i32 %61 to float
+  %63 = select i1 %60, float %62, float 0.000000e+00
+  %64 = tail call float @llvm.fmuladd.f32(float %63, float %63, float %.05278.us)
+  %65 = zext i1 %60 to i32
+  %66 = add nuw nsw i32 %.05576.us, %65
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count101
   br i1 %exitcond102.not, label %._crit_edge.thread, label %.lr.ph.i.us, !llvm.loop !97
 
 Gia_ManGetExampleValue.exit:                      ; preds = %.lr.ph80.thread, %Gia_ManGetExampleValue.exit
   %indvars.iv92 = phi i64 [ 0, %.lr.ph80.thread ], [ %indvars.iv.next93, %Gia_ManGetExampleValue.exit ]
-  %.079 = phi float [ 0.000000e+00, %.lr.ph80.thread ], [ %69, %Gia_ManGetExampleValue.exit ]
-  %.05576 = phi i32 [ 0, %.lr.ph80.thread ], [ %72, %Gia_ManGetExampleValue.exit ]
-  %65 = getelementptr inbounds nuw i8, ptr %.val61103, i64 %indvars.iv92
-  %66 = load i8, ptr %65, align 1, !tbaa !12
-  %67 = sitofp i8 %66 to float
-  %68 = fmul float %67, 3.906250e-03
-  %69 = tail call float @llvm.fmuladd.f32(float %68, float %68, float %.079)
-  %70 = icmp sgt i8 %66, 0
-  %71 = zext i1 %70 to i32
-  %72 = add nuw nsw i32 %.05576, %71
+  %.079 = phi float [ 0.000000e+00, %.lr.ph80.thread ], [ %71, %Gia_ManGetExampleValue.exit ]
+  %.05576 = phi i32 [ 0, %.lr.ph80.thread ], [ %74, %Gia_ManGetExampleValue.exit ]
+  %67 = getelementptr inbounds nuw i8, ptr %.val61103, i64 %indvars.iv92
+  %68 = load i8, ptr %67, align 1, !tbaa !12
+  %69 = sitofp i8 %68 to float
+  %70 = fmul float %69, 3.906250e-03
+  %71 = tail call float @llvm.fmuladd.f32(float %70, float %70, float %.079)
+  %72 = icmp sgt i8 %68, 0
+  %73 = zext i1 %72 to i32
+  %74 = add nuw nsw i32 %.05576, %73
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
+  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %35
   br i1 %exitcond96.not, label %._crit_edge, label %Gia_ManGetExampleValue.exit, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %Gia_ManGetExampleValue.exit, %.critedge.thread, %.critedge
-  %.055.lcssa = phi i32 [ 0, %.critedge ], [ 0, %.critedge.thread ], [ %72, %Gia_ManGetExampleValue.exit ]
-  %.0.lcssa = phi float [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %.critedge.thread ], [ %69, %Gia_ManGetExampleValue.exit ]
+  %.055.lcssa = phi i32 [ 0, %.critedge ], [ 0, %.critedge.thread ], [ %74, %Gia_ManGetExampleValue.exit ]
+  %.0.lcssa = phi float [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %.critedge.thread ], [ %71, %Gia_ManGetExampleValue.exit ]
   %.not59 = icmp eq ptr %13, null
-  br i1 %.not59, label %73, label %._crit_edge.thread
+  br i1 %.not59, label %75, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.i.us, %._crit_edge
-  %.0.lcssa114 = phi float [ %.0.lcssa, %._crit_edge ], [ %57, %._crit_edge.i.us ]
-  %.052.lcssa112 = phi float [ 0.000000e+00, %._crit_edge ], [ %62, %._crit_edge.i.us ]
-  %.055.lcssa110 = phi i32 [ %.055.lcssa, %._crit_edge ], [ %64, %._crit_edge.i.us ]
+  %.0.lcssa114 = phi float [ %.0.lcssa, %._crit_edge ], [ %59, %._crit_edge.i.us ]
+  %.052.lcssa112 = phi float [ 0.000000e+00, %._crit_edge ], [ %64, %._crit_edge.i.us ]
+  %.055.lcssa110 = phi i32 [ %.055.lcssa, %._crit_edge ], [ %66, %._crit_edge.i.us ]
   tail call void @free(ptr noundef nonnull %13) #21
-  br label %73
+  br label %75
 
-73:                                               ; preds = %._crit_edge, %._crit_edge.thread
+75:                                               ; preds = %._crit_edge, %._crit_edge.thread
   %.0.lcssa115 = phi float [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa114, %._crit_edge.thread ]
   %.052.lcssa113 = phi float [ 0.000000e+00, %._crit_edge ], [ %.052.lcssa112, %._crit_edge.thread ]
   %.055.lcssa111 = phi i32 [ %.055.lcssa, %._crit_edge ], [ %.055.lcssa110, %._crit_edge.thread ]
-  %74 = getelementptr i8, ptr %3, i64 4
-  %.val70 = load i32, ptr %74, align 4, !tbaa !51
-  %75 = uitofp nneg i32 %.055.lcssa111 to double
-  %76 = fmul double %75, 1.000000e+02
-  %77 = sitofp i32 %.val70 to double
-  %78 = fdiv double %76, %77
-  %79 = fpext float %.0.lcssa115 to double
-  %80 = fpext float %.052.lcssa113 to double
-  %81 = fmul double %79, 1.000000e+02
-  %82 = fdiv double %81, %80
-  %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i32 noundef %.val70, i32 noundef %.055.lcssa111, double noundef %78, double noundef %79, double noundef %80, double noundef %82)
-  %84 = icmp eq ptr %4, null
-  br i1 %84, label %87, label %85
+  %76 = getelementptr i8, ptr %3, i64 4
+  %.val70 = load i32, ptr %76, align 4, !tbaa !51
+  %77 = uitofp nneg i32 %.055.lcssa111 to double
+  %78 = fmul double %77, 1.000000e+02
+  %79 = sitofp i32 %.val70 to double
+  %80 = fdiv double %78, %79
+  %81 = fpext float %.0.lcssa115 to double
+  %82 = fpext float %.052.lcssa113 to double
+  %83 = fmul double %81, 1.000000e+02
+  %84 = fdiv double %83, %82
+  %85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i32 noundef %.val70, i32 noundef %.055.lcssa111, double noundef %80, double noundef %81, double noundef %82, double noundef %84)
+  %86 = icmp eq ptr %4, null
+  br i1 %86, label %89, label %87
 
-85:                                               ; preds = %73
-  %.val72 = load i32, ptr %74, align 4, !tbaa !51
+87:                                               ; preds = %75
+  %.val72 = load i32, ptr %76, align 4, !tbaa !51
   tail call void @Gia_ManSimLogStats2(ptr noundef %1, ptr noundef nonnull %4, i32 noundef %.val72, i32 noundef %.055.lcssa111, float noundef %.0.lcssa115, float noundef %.052.lcssa113)
-  %86 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %4)
-  br label %87
+  %88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %4)
+  br label %89
 
-87:                                               ; preds = %73, %85
+89:                                               ; preds = %75, %87
   ret void
 }
 
@@ -7759,18 +7759,17 @@ Vec_IntPush.exit86:                               ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph101:                                        ; preds = %.preheader
   %.val71 = load ptr, ptr %18, align 8, !tbaa !44
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.val71, i64 4
   %wide.trip.count119 = zext nneg i32 %102 to i64
   br label %104
 
 104:                                              ; preds = %.lr.ph101, %104
   %indvars.iv116 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next117, %104 ]
-  %105 = shl nuw nsw i64 %indvars.iv116, 1
-  %106 = getelementptr inbounds nuw i32, ptr %.val71, i64 %105
-  %107 = load i32, ptr %106, align 4, !tbaa !19
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %105
-  %108 = load i32, ptr %gep, align 4, !tbaa !19
-  %109 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %21, i32 noundef %107, i32 noundef %108) #21
+  %.idx = shl nuw nsw i64 %indvars.iv116, 3
+  %105 = getelementptr inbounds nuw i8, ptr %.val71, i64 %.idx
+  %106 = load i32, ptr %105, align 4, !tbaa !19
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  %108 = load i32, ptr %107, align 4, !tbaa !19
+  %109 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %21, i32 noundef %106, i32 noundef %108) #21
   %110 = getelementptr inbounds nuw i32, ptr %.val71, i64 %indvars.iv116
   store i32 %109, ptr %110, align 4, !tbaa !19
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1

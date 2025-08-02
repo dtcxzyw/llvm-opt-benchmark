@@ -39003,7 +39003,6 @@ $_ZSt8_DestroyIPSt6vectorIjSaIjEEEvT_S4_ = comdat any
 @_ZN8QuantLib12_GLOBAL__N_115dim4586Kuo3InitE = internal constant [17 x i32] [i32 1, i32 3, i32 7, i32 3, i32 25, i32 9, i32 25, i32 117, i32 315, i32 497, i32 1235, i32 1969, i32 7981, i32 9743, i32 20951, i32 30635, i32 0], align 16
 @.str.7 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.8 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
-@switch.table._ZN8QuantLib8SobolRsgC2EmmNS0_17DirectionIntegersEb = private unnamed_addr constant [8 x i64] [i64 52, i64 52, i64 0, i64 0, i64 0, i64 52, i64 52, i64 52], align 8
 
 @_ZN8QuantLib8SobolRsgC1EmmNS0_17DirectionIntegersEb = unnamed_addr alias void (ptr, i64, i64, i32, i1), ptr @_ZN8QuantLib8SobolRsgC2EmmNS0_17DirectionIntegersEb
 
@@ -39632,38 +39631,40 @@ invoke.cont118:                                   ; preds = %if.end.i.i.i.i.i.i.
   %degree.sroa.15.0607611 = phi ptr [ %add.ptr.i.i.i325, %call5.i.i.i.i2.i.i.noexc357 ], [ %add.ptr.i.i.i325, %if.end.i.i.i.i.i.i.i350 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i321 ]
   %ppmt.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i358, %call5.i.i.i.i2.i.i.noexc357 ], [ %call5.i.i.i.i2.i.i358, %if.end.i.i.i.i.i.i.i350 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i321 ]
   %ppmt.sroa.17.0 = phi ptr [ %add.ptr.i.i.i345, %call5.i.i.i.i2.i.i.noexc357 ], [ %add.ptr.i.i.i345, %if.end.i.i.i.i.i.i.i350 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i321 ]
-  %switch.tableidx = add i32 %directionIntegers, -2
-  %58 = icmp ult i32 %switch.tableidx, 8
-  br i1 %58, label %switch.lookup, label %if.end130
+  switch i32 %directionIntegers, label %if.end130.thread [
+    i32 9, label %if.end130
+    i32 8, label %if.end130
+    i32 7, label %if.end130
+    i32 3, label %if.end130
+    i32 2, label %if.end130
+  ]
+
+if.end130.thread:                                 ; preds = %invoke.cont118
+  store i64 0, ptr %ppmt.sroa.0.0, align 8, !tbaa !45
+  store i32 0, ptr %degree.sroa.0.0604613, align 4, !tbaa !34
+  br label %for.cond156.preheader
 
 lpad111:                                          ; preds = %if.then.i.i.i.i.i323, %if.then.i.i336
-  %59 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup667
 
 ehcleanup664.thread:                              ; preds = %if.then.i.i355, %if.then.i.i.i.i.i343
-  %60 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i471
 
-switch.lookup:                                    ; preds = %invoke.cont118
-  %61 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN8QuantLib8SobolRsgC2EmmNS0_17DirectionIntegersEb, i64 0, i64 %61
-  %switch.load = load i64, ptr %switch.gep, align 8
-  br label %if.end130
-
-if.end130:                                        ; preds = %switch.lookup, %invoke.cont118
-  %cond = phi i64 [ 0, %invoke.cont118 ], [ %switch.load, %switch.lookup ]
+if.end130:                                        ; preds = %invoke.cont118, %invoke.cont118, %invoke.cont118, %invoke.cont118, %invoke.cont118
+  %60 = call i64 @llvm.umin.i64(i64 %55, i64 52)
   store i64 0, ptr %ppmt.sroa.0.0, align 8, !tbaa !45
   store i32 0, ptr %degree.sroa.0.0604613, align 4, !tbaa !34
-  %.sroa.speculated541 = call i64 @llvm.umin.i64(i64 %cond, i64 %55)
-  %cmp140670 = icmp samesign ugt i64 %.sroa.speculated541, 1
+  %cmp140670 = icmp ugt i64 %55, 1
   br i1 %cmp140670, label %for.body, label %for.cond156.preheader
 
-for.cond156.preheader:                            ; preds = %if.end152, %if.end130
-  %k.0.lcssa = phi i64 [ 1, %if.end130 ], [ %.sroa.speculated541, %if.end152 ]
-  %index.0.lcssa = phi i64 [ 0, %if.end130 ], [ %inc155, %if.end152 ]
-  %currentDegree.0.lcssa = phi i32 [ 1, %if.end130 ], [ %currentDegree.1, %if.end152 ]
+for.cond156.preheader:                            ; preds = %if.end152, %if.end130.thread, %if.end130
+  %k.0.lcssa = phi i64 [ 1, %if.end130 ], [ 1, %if.end130.thread ], [ %60, %if.end152 ]
+  %index.0.lcssa = phi i64 [ 0, %if.end130 ], [ 0, %if.end130.thread ], [ %inc155, %if.end152 ]
+  %currentDegree.0.lcssa = phi i32 [ 1, %if.end130 ], [ 1, %if.end130.thread ], [ %currentDegree.1, %if.end152 ]
   %cmp158676 = icmp ult i64 %k.0.lcssa, %55
   br i1 %cmp158676, label %for.body159, label %for.cond180.preheader
 
@@ -39674,21 +39675,21 @@ for.body:                                         ; preds = %if.end130, %if.end1
   %sub = add i32 %currentDegree.0673, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr inbounds nuw [8 x ptr], ptr @_ZN8QuantLib12_GLOBAL__N_123AltPrimitivePolynomialsE, i64 0, i64 %idxprom
-  %62 = load ptr, ptr %arrayidx, align 8, !tbaa !46
-  %arrayidx142 = getelementptr inbounds nuw i64, ptr %62, i64 %index.0672
-  %63 = load i64, ptr %arrayidx142, align 8, !tbaa !45
+  %61 = load ptr, ptr %arrayidx, align 8, !tbaa !46
+  %arrayidx142 = getelementptr inbounds nuw i64, ptr %61, i64 %index.0672
+  %62 = load i64, ptr %arrayidx142, align 8, !tbaa !45
   %add.ptr.i = getelementptr inbounds nuw i64, ptr %ppmt.sroa.0.0, i64 %k.0671
-  store i64 %63, ptr %add.ptr.i, align 8, !tbaa !45
-  %cmp145 = icmp eq i64 %63, -1
+  store i64 %62, ptr %add.ptr.i, align 8, !tbaa !45
+  %cmp145 = icmp eq i64 %62, -1
   br i1 %cmp145, label %if.then146, label %if.end152
 
 if.then146:                                       ; preds = %for.body
   %inc = add i32 %currentDegree.0673, 1
   %idxprom148 = zext i32 %currentDegree.0673 to i64
   %arrayidx149 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN8QuantLib12_GLOBAL__N_123AltPrimitivePolynomialsE, i64 0, i64 %idxprom148
-  %64 = load ptr, ptr %arrayidx149, align 8, !tbaa !46
-  %65 = load i64, ptr %64, align 8, !tbaa !45
-  store i64 %65, ptr %add.ptr.i, align 8, !tbaa !45
+  %63 = load ptr, ptr %arrayidx149, align 8, !tbaa !46
+  %64 = load i64, ptr %63, align 8, !tbaa !45
+  store i64 %64, ptr %add.ptr.i, align 8, !tbaa !45
   br label %if.end152
 
 if.end152:                                        ; preds = %if.then146, %for.body
@@ -39698,12 +39699,12 @@ if.end152:                                        ; preds = %if.then146, %for.bo
   store i32 %currentDegree.1, ptr %add.ptr.i361, align 4, !tbaa !34
   %inc154 = add nuw nsw i64 %k.0671, 1
   %inc155 = add i64 %index.1, 1
-  %exitcond.not = icmp eq i64 %inc154, %.sroa.speculated541
+  %exitcond.not = icmp eq i64 %inc154, %60
   br i1 %exitcond.not, label %for.cond156.preheader, label %for.body, !llvm.loop !47
 
 for.cond180.preheader:                            ; preds = %if.end174, %for.cond156.preheader
-  %66 = load ptr, ptr %directionIntegers_, align 8, !tbaa !36
-  %67 = load ptr, ptr %66, align 8, !tbaa !32
+  %65 = load ptr, ptr %directionIntegers_, align 8, !tbaa !36
+  %66 = load ptr, ptr %65, align 8, !tbaa !32
   br label %for.body182
 
 for.body159:                                      ; preds = %for.cond156.preheader, %if.end174
@@ -39713,21 +39714,21 @@ for.body159:                                      ; preds = %for.cond156.prehead
   %sub160 = add i32 %currentDegree.2679, -1
   %idxprom161 = zext i32 %sub160 to i64
   %arrayidx162 = getelementptr inbounds nuw [18 x ptr], ptr @PrimitivePolynomials, i64 0, i64 %idxprom161
-  %68 = load ptr, ptr %arrayidx162, align 8, !tbaa !46
-  %arrayidx163 = getelementptr inbounds nuw i64, ptr %68, i64 %index.2678
-  %69 = load i64, ptr %arrayidx163, align 8, !tbaa !45
+  %67 = load ptr, ptr %arrayidx162, align 8, !tbaa !46
+  %arrayidx163 = getelementptr inbounds nuw i64, ptr %67, i64 %index.2678
+  %68 = load i64, ptr %arrayidx163, align 8, !tbaa !45
   %add.ptr.i362 = getelementptr inbounds nuw i64, ptr %ppmt.sroa.0.0, i64 %k.1677
-  store i64 %69, ptr %add.ptr.i362, align 8, !tbaa !45
-  %cmp166 = icmp eq i64 %69, -1
+  store i64 %68, ptr %add.ptr.i362, align 8, !tbaa !45
+  %cmp166 = icmp eq i64 %68, -1
   br i1 %cmp166, label %if.then167, label %if.end174
 
 if.then167:                                       ; preds = %for.body159
   %inc168 = add i32 %currentDegree.2679, 1
   %idxprom170 = zext i32 %currentDegree.2679 to i64
   %arrayidx171 = getelementptr inbounds nuw [18 x ptr], ptr @PrimitivePolynomials, i64 0, i64 %idxprom170
-  %70 = load ptr, ptr %arrayidx171, align 8, !tbaa !46
-  %71 = load i64, ptr %70, align 8, !tbaa !45
-  store i64 %71, ptr %add.ptr.i362, align 8, !tbaa !45
+  %69 = load ptr, ptr %arrayidx171, align 8, !tbaa !46
+  %70 = load i64, ptr %69, align 8, !tbaa !45
+  store i64 %70, ptr %add.ptr.i362, align 8, !tbaa !45
   br label %if.end174
 
 if.end174:                                        ; preds = %if.then167, %for.body159
@@ -39742,9 +39743,9 @@ if.end174:                                        ; preds = %if.then167, %for.bo
 
 for.body182:                                      ; preds = %for.cond180.preheader, %for.body182
   %indvars.iv = phi i64 [ 0, %for.cond180.preheader ], [ %indvars.iv.next, %for.body182 ]
-  %72 = trunc nuw nsw i64 %indvars.iv to i32
-  %shl = lshr exact i32 -2147483648, %72
-  %add.ptr.i367 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv
+  %71 = trunc nuw nsw i64 %indvars.iv to i32
+  %shl = lshr exact i32 -2147483648, %71
+  %add.ptr.i367 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv
   store i32 %shl, ptr %add.ptr.i367, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond759.not = icmp eq i64 %indvars.iv.next, 32
@@ -39770,7 +39771,7 @@ for.cond498.preheader:                            ; preds = %for.end192
   br i1 %cmp502684, label %while.cond504.preheader.lr.ph, label %for.end639
 
 while.cond504.preheader.lr.ph:                    ; preds = %for.cond498.preheader
-  %73 = load ptr, ptr %directionIntegers_, align 8
+  %72 = load ptr, ptr %directionIntegers_, align 8
   br label %while.cond504.preheader
 
 for.cond463.preheader:                            ; preds = %for.end192
@@ -39779,7 +39780,7 @@ for.cond463.preheader:                            ; preds = %for.end192
   br i1 %cmp467689, label %while.cond469.preheader.lr.ph, label %for.end639
 
 while.cond469.preheader.lr.ph:                    ; preds = %for.cond463.preheader
-  %74 = load ptr, ptr %directionIntegers_, align 8
+  %73 = load ptr, ptr %directionIntegers_, align 8
   br label %while.cond469.preheader
 
 for.cond428.preheader:                            ; preds = %for.end192
@@ -39788,7 +39789,7 @@ for.cond428.preheader:                            ; preds = %for.end192
   br i1 %cmp432694, label %while.cond434.preheader.lr.ph, label %for.end639
 
 while.cond434.preheader.lr.ph:                    ; preds = %for.cond428.preheader
-  %75 = load ptr, ptr %directionIntegers_, align 8
+  %74 = load ptr, ptr %directionIntegers_, align 8
   br label %while.cond434.preheader
 
 for.cond393.preheader:                            ; preds = %for.end192
@@ -39797,7 +39798,7 @@ for.cond393.preheader:                            ; preds = %for.end192
   br i1 %cmp397699, label %while.cond399.preheader.lr.ph, label %for.end639
 
 while.cond399.preheader.lr.ph:                    ; preds = %for.cond393.preheader
-  %76 = load ptr, ptr %directionIntegers_, align 8
+  %75 = load ptr, ptr %directionIntegers_, align 8
   br label %while.cond399.preheader
 
 for.cond358.preheader:                            ; preds = %for.end192
@@ -39806,7 +39807,7 @@ for.cond358.preheader:                            ; preds = %for.end192
   br i1 %cmp362704, label %while.cond364.preheader.lr.ph, label %for.end639
 
 while.cond364.preheader.lr.ph:                    ; preds = %for.cond358.preheader
-  %77 = load ptr, ptr %directionIntegers_, align 8
+  %76 = load ptr, ptr %directionIntegers_, align 8
   br label %while.cond364.preheader
 
 for.cond323.preheader:                            ; preds = %for.end192
@@ -39815,7 +39816,7 @@ for.cond323.preheader:                            ; preds = %for.end192
   br i1 %cmp327709, label %while.cond329.preheader.lr.ph, label %for.end639
 
 while.cond329.preheader.lr.ph:                    ; preds = %for.cond323.preheader
-  %78 = load ptr, ptr %directionIntegers_, align 8
+  %77 = load ptr, ptr %directionIntegers_, align 8
   br label %while.cond329.preheader
 
 for.cond288.preheader:                            ; preds = %for.end192
@@ -39824,7 +39825,7 @@ for.cond288.preheader:                            ; preds = %for.end192
   br i1 %cmp292714, label %while.cond294.preheader.lr.ph, label %for.end639
 
 while.cond294.preheader.lr.ph:                    ; preds = %for.cond288.preheader
-  %79 = load ptr, ptr %directionIntegers_, align 8
+  %78 = load ptr, ptr %directionIntegers_, align 8
   br label %while.cond294.preheader
 
 for.cond253.preheader:                            ; preds = %for.end192
@@ -39833,7 +39834,7 @@ for.cond253.preheader:                            ; preds = %for.end192
   br i1 %cmp257719, label %while.cond259.preheader.lr.ph, label %for.end639
 
 while.cond259.preheader.lr.ph:                    ; preds = %for.cond253.preheader
-  %80 = load ptr, ptr %directionIntegers_, align 8
+  %79 = load ptr, ptr %directionIntegers_, align 8
   br label %while.cond259.preheader
 
 for.cond220.preheader:                            ; preds = %for.end192
@@ -39842,7 +39843,7 @@ for.cond220.preheader:                            ; preds = %for.end192
   br i1 %cmp225724, label %while.cond.preheader.lr.ph, label %for.end639
 
 while.cond.preheader.lr.ph:                       ; preds = %for.cond220.preheader
-  %81 = load ptr, ptr %directionIntegers_, align 8
+  %80 = load ptr, ptr %directionIntegers_, align 8
   br label %while.cond.preheader
 
 for.cond194.preheader:                            ; preds = %for.end192
@@ -39850,20 +39851,19 @@ for.cond194.preheader:                            ; preds = %for.end192
   br i1 %cmp195729, label %for.cond197.preheader.lr.ph, label %for.end639
 
 for.cond197.preheader.lr.ph:                      ; preds = %for.cond194.preheader
-  %82 = load ptr, ptr %directionIntegers_, align 8
+  %81 = load ptr, ptr %directionIntegers_, align 8
   br label %for.cond197.preheader
 
 for.cond197.preheader:                            ; preds = %for.cond197.preheader.lr.ph, %for.cond.cleanup
   %k.2730 = phi i64 [ 1, %for.cond197.preheader.lr.ph ], [ %inc217, %for.cond.cleanup ]
   %add.ptr.i368 = getelementptr inbounds nuw i32, ptr %degree.sroa.0.0604613, i64 %k.2730
-  %83 = load i32, ptr %add.ptr.i368, align 4, !tbaa !34
-  %cmp200.not727 = icmp eq i32 %83, 0
+  %82 = load i32, ptr %add.ptr.i368, align 4, !tbaa !34
+  %cmp200.not727 = icmp eq i32 %82, 0
   br i1 %cmp200.not727, label %for.cond.cleanup, label %for.body201.lr.ph
 
 for.body201.lr.ph:                                ; preds = %for.cond197.preheader
-  %add.ptr.i369 = getelementptr inbounds nuw %"class.std::vector.0", ptr %82, i64 %k.2730
-  %84 = load ptr, ptr %add.ptr.i369, align 8, !tbaa !32
-  %invariant.gep = getelementptr i8, ptr %84, i64 -4
+  %add.ptr.i369 = getelementptr inbounds nuw %"class.std::vector.0", ptr %81, i64 %k.2730
+  %83 = load ptr, ptr %add.ptr.i369, align 8, !tbaa !32
   br label %for.body201
 
 for.cond.cleanup:                                 ; preds = %for.body201, %for.cond197.preheader
@@ -39873,11 +39873,12 @@ for.cond.cleanup:                                 ; preds = %for.body201, %for.c
 
 for.body201:                                      ; preds = %for.body201.lr.ph, %for.body201
   %l.0728 = phi i64 [ 1, %for.body201.lr.ph ], [ %inc214, %for.body201 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %l.0728
+  %84 = getelementptr i32, ptr %83, i64 %l.0728
+  %add.ptr.i370 = getelementptr i8, ptr %84, i64 -4
   %85 = trunc nuw i64 %l.0728 to i32
   %sh_prom211 = sub i32 32, %85
   %shl212 = shl nuw i32 1, %sh_prom211
-  store i32 %shl212, ptr %gep, align 4, !tbaa !34
+  store i32 %shl212, ptr %add.ptr.i370, align 4, !tbaa !34
   %inc214 = add nuw nsw i64 %l.0728, 1
   %86 = load i32, ptr %add.ptr.i368, align 4, !tbaa !34
   %conv199 = zext i32 %86 to i64
@@ -39894,7 +39895,7 @@ while.cond.preheader:                             ; preds = %while.cond.preheade
   br i1 %cmp232.not721, label %for.inc249, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %add.ptr.i375 = getelementptr inbounds nuw %"class.std::vector.0", ptr %81, i64 %k.3725
+  %add.ptr.i375 = getelementptr inbounds nuw %"class.std::vector.0", ptr %80, i64 %k.3725
   %89 = load ptr, ptr %add.ptr.i375, align 8, !tbaa !32
   br label %while.body
 
@@ -39927,7 +39928,7 @@ while.cond259.preheader:                          ; preds = %while.cond259.prehe
   br i1 %cmp265.not716, label %for.inc284, label %while.body266.lr.ph
 
 while.body266.lr.ph:                              ; preds = %while.cond259.preheader
-  %add.ptr.i381 = getelementptr inbounds nuw %"class.std::vector.0", ptr %80, i64 %k.4720
+  %add.ptr.i381 = getelementptr inbounds nuw %"class.std::vector.0", ptr %79, i64 %k.4720
   %96 = load ptr, ptr %add.ptr.i381, align 8, !tbaa !32
   br label %while.body266
 
@@ -39960,7 +39961,7 @@ while.cond294.preheader:                          ; preds = %while.cond294.prehe
   br i1 %cmp300.not711, label %for.inc319, label %while.body301.lr.ph
 
 while.body301.lr.ph:                              ; preds = %while.cond294.preheader
-  %add.ptr.i387 = getelementptr inbounds nuw %"class.std::vector.0", ptr %79, i64 %k.5715
+  %add.ptr.i387 = getelementptr inbounds nuw %"class.std::vector.0", ptr %78, i64 %k.5715
   %103 = load ptr, ptr %add.ptr.i387, align 8, !tbaa !32
   br label %while.body301
 
@@ -39993,7 +39994,7 @@ while.cond329.preheader:                          ; preds = %while.cond329.prehe
   br i1 %cmp335.not706, label %for.inc354, label %while.body336.lr.ph
 
 while.body336.lr.ph:                              ; preds = %while.cond329.preheader
-  %add.ptr.i393 = getelementptr inbounds nuw %"class.std::vector.0", ptr %78, i64 %k.6710
+  %add.ptr.i393 = getelementptr inbounds nuw %"class.std::vector.0", ptr %77, i64 %k.6710
   %110 = load ptr, ptr %add.ptr.i393, align 8, !tbaa !32
   br label %while.body336
 
@@ -40026,7 +40027,7 @@ while.cond364.preheader:                          ; preds = %while.cond364.prehe
   br i1 %cmp370.not701, label %for.inc389, label %while.body371.lr.ph
 
 while.body371.lr.ph:                              ; preds = %while.cond364.preheader
-  %add.ptr.i399 = getelementptr inbounds nuw %"class.std::vector.0", ptr %77, i64 %k.7705
+  %add.ptr.i399 = getelementptr inbounds nuw %"class.std::vector.0", ptr %76, i64 %k.7705
   %117 = load ptr, ptr %add.ptr.i399, align 8, !tbaa !32
   br label %while.body371
 
@@ -40059,7 +40060,7 @@ while.cond399.preheader:                          ; preds = %while.cond399.prehe
   br i1 %cmp405.not696, label %for.inc424, label %while.body406.lr.ph
 
 while.body406.lr.ph:                              ; preds = %while.cond399.preheader
-  %add.ptr.i405 = getelementptr inbounds nuw %"class.std::vector.0", ptr %76, i64 %k.8700
+  %add.ptr.i405 = getelementptr inbounds nuw %"class.std::vector.0", ptr %75, i64 %k.8700
   %124 = load ptr, ptr %add.ptr.i405, align 8, !tbaa !32
   br label %while.body406
 
@@ -40092,7 +40093,7 @@ while.cond434.preheader:                          ; preds = %while.cond434.prehe
   br i1 %cmp440.not691, label %for.inc459, label %while.body441.lr.ph
 
 while.body441.lr.ph:                              ; preds = %while.cond434.preheader
-  %add.ptr.i411 = getelementptr inbounds nuw %"class.std::vector.0", ptr %75, i64 %k.9695
+  %add.ptr.i411 = getelementptr inbounds nuw %"class.std::vector.0", ptr %74, i64 %k.9695
   %131 = load ptr, ptr %add.ptr.i411, align 8, !tbaa !32
   br label %while.body441
 
@@ -40125,7 +40126,7 @@ while.cond469.preheader:                          ; preds = %while.cond469.prehe
   br i1 %cmp475.not686, label %for.inc494, label %while.body476.lr.ph
 
 while.body476.lr.ph:                              ; preds = %while.cond469.preheader
-  %add.ptr.i417 = getelementptr inbounds nuw %"class.std::vector.0", ptr %74, i64 %k.10690
+  %add.ptr.i417 = getelementptr inbounds nuw %"class.std::vector.0", ptr %73, i64 %k.10690
   %138 = load ptr, ptr %add.ptr.i417, align 8, !tbaa !32
   br label %while.body476
 
@@ -40158,7 +40159,7 @@ while.cond504.preheader:                          ; preds = %while.cond504.prehe
   br i1 %cmp510.not681, label %for.inc529, label %while.body511.lr.ph
 
 while.body511.lr.ph:                              ; preds = %while.cond504.preheader
-  %add.ptr.i423 = getelementptr inbounds nuw %"class.std::vector.0", ptr %73, i64 %k.11685
+  %add.ptr.i423 = getelementptr inbounds nuw %"class.std::vector.0", ptr %72, i64 %k.11685
   %145 = load ptr, ptr %add.ptr.i423, align 8, !tbaa !32
   br label %while.body511
 
@@ -40440,7 +40441,7 @@ ehcleanup664:                                     ; preds = %lpad535, %lpad550
   br label %if.then.i.i.i471
 
 if.then.i.i.i471:                                 ; preds = %ehcleanup664, %ehcleanup664.thread
-  %.pn211.pn630 = phi { ptr, i32 } [ %60, %ehcleanup664.thread ], [ %.pn211, %ehcleanup664 ]
+  %.pn211.pn630 = phi { ptr, i32 } [ %59, %ehcleanup664.thread ], [ %.pn211, %ehcleanup664 ]
   %degree.sroa.0.0602627 = phi ptr [ %call5.i.i.i.i2.i.i339, %ehcleanup664.thread ], [ %degree.sroa.0.0604613, %ehcleanup664 ]
   %degree.sroa.15.0605626 = phi ptr [ %add.ptr.i.i.i325, %ehcleanup664.thread ], [ %degree.sroa.15.0607611, %ehcleanup664 ]
   %sub.ptr.lhs.cast.i.i473 = ptrtoint ptr %degree.sroa.15.0605626 to i64
@@ -40450,7 +40451,7 @@ if.then.i.i.i471:                                 ; preds = %ehcleanup664, %ehcl
   br label %ehcleanup667
 
 ehcleanup667:                                     ; preds = %lpad111, %if.then.i.i.i471, %ehcleanup105, %ehcleanup55
-  %.pn211.pn.pn.pn = phi { ptr, i32 } [ %.pn204.pn.pn.pn.pn, %ehcleanup105 ], [ %.pn198.pn.pn.pn.pn, %ehcleanup55 ], [ %59, %lpad111 ], [ %.pn211.pn630, %if.then.i.i.i471 ]
+  %.pn211.pn.pn.pn = phi { ptr, i32 } [ %.pn204.pn.pn.pn.pn, %ehcleanup105 ], [ %.pn198.pn.pn.pn.pn, %ehcleanup55 ], [ %58, %lpad111 ], [ %.pn211.pn630, %if.then.i.i.i471 ]
   call void @_ZNSt6vectorIS_IjSaIjEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %directionIntegers_) #22
   br label %ehcleanup668
 

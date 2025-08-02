@@ -1054,8 +1054,8 @@ define internal fastcc ptr @hamt_node_assoc(ptr noundef %0, i32 noundef %1, i32 
   br label %hamt_node_array_assoc.exit
 
 10:                                               ; preds = %6
-  %.not45 = icmp eq ptr %.val, @_PyHamt_ArrayNode_Type
-  br i1 %.not45, label %11, label %141
+  %.not43 = icmp eq ptr %.val, @_PyHamt_ArrayNode_Type
+  br i1 %.not43, label %11, label %141
 
 11:                                               ; preds = %10
   %12 = lshr i32 %2, %1
@@ -1146,8 +1146,8 @@ hamt_node_array_new.exit:                         ; preds = %28
   br label %hamt_node_array_assoc.exit
 
 65:                                               ; preds = %hamt_node_array_new.exit, %_Py_XNewRef.exit
-  %.049.i54 = phi i64 [ 0, %hamt_node_array_new.exit ], [ %74, %_Py_XNewRef.exit ]
-  %66 = getelementptr [32 x ptr], ptr %14, i64 0, i64 %.049.i54
+  %.049.i52 = phi i64 [ 0, %hamt_node_array_new.exit ], [ %74, %_Py_XNewRef.exit ]
+  %66 = getelementptr [32 x ptr], ptr %14, i64 0, i64 %.049.i52
   %67 = load ptr, ptr %66, align 8, !tbaa !18
   %.not.i.i26 = icmp eq ptr %67, null
   br i1 %.not.i.i26, label %_Py_XNewRef.exit, label %68
@@ -1163,9 +1163,9 @@ hamt_node_array_new.exit:                         ; preds = %28
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %65, %68, %71
-  %73 = getelementptr [32 x ptr], ptr %34, i64 0, i64 %.049.i54
+  %73 = getelementptr [32 x ptr], ptr %34, i64 0, i64 %.049.i52
   store ptr %67, ptr %73, align 8, !tbaa !18
-  %74 = add nuw nsw i64 %.049.i54, 1
+  %74 = add nuw nsw i64 %.049.i52, 1
   %exitcond.not = icmp eq i64 %74, 32
   br i1 %exitcond.not, label %75, label %65, !llvm.loop !103
 
@@ -1384,8 +1384,8 @@ hamt_node_collision_new.exit:                     ; preds = %.preheader.i33, %.l
   %190 = or i64 %188, %189
   store i64 %190, ptr %168, align 8, !tbaa !34
   store i64 %177, ptr %174, align 8, !tbaa !32
-  %.val68.i48 = load i64, ptr %146, align 8, !tbaa !109
-  %191 = icmp sgt i64 %.val68.i48, 0
+  %.val68.i46 = load i64, ptr %146, align 8, !tbaa !109
+  %191 = icmp sgt i64 %.val68.i46, 0
   br i1 %191, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %hamt_node_collision_new.exit
@@ -1394,9 +1394,9 @@ hamt_node_collision_new.exit:                     ; preds = %.preheader.i33, %.l
   br label %194
 
 194:                                              ; preds = %.lr.ph, %_Py_NewRef.exit32
-  %.val68.i58 = phi i64 [ %.val68.i48, %.lr.ph ], [ %.val68.i, %_Py_NewRef.exit32 ]
-  %.058.i49 = phi i64 [ 0, %.lr.ph ], [ %202, %_Py_NewRef.exit32 ]
-  %195 = getelementptr [1 x ptr], ptr %192, i64 0, i64 %.058.i49
+  %.val68.i56 = phi i64 [ %.val68.i46, %.lr.ph ], [ %.val68.i, %_Py_NewRef.exit32 ]
+  %.058.i47 = phi i64 [ 0, %.lr.ph ], [ %202, %_Py_NewRef.exit32 ]
+  %195 = getelementptr [1 x ptr], ptr %192, i64 0, i64 %.058.i47
   %196 = load ptr, ptr %195, align 8, !tbaa !110
   %197 = load i32, ptr %196, align 8, !tbaa !15
   %198 = icmp slt i32 %197, 0
@@ -1409,10 +1409,10 @@ hamt_node_collision_new.exit:                     ; preds = %.preheader.i33, %.l
   br label %_Py_NewRef.exit32
 
 _Py_NewRef.exit32:                                ; preds = %194, %199
-  %.val68.i = phi i64 [ %.val68.i58, %194 ], [ %.val68.i.pre, %199 ]
-  %201 = getelementptr [1 x ptr], ptr %193, i64 0, i64 %.058.i49
+  %.val68.i = phi i64 [ %.val68.i56, %194 ], [ %.val68.i.pre, %199 ]
+  %201 = getelementptr [1 x ptr], ptr %193, i64 0, i64 %.058.i47
   store ptr %196, ptr %201, align 8, !tbaa !110
-  %202 = add nuw nsw i64 %.058.i49, 1
+  %202 = add nuw nsw i64 %.058.i47, 1
   %203 = icmp slt i64 %202, %.val68.i
   br i1 %203, label %194, label %._crit_edge, !llvm.loop !112
 
@@ -1473,15 +1473,15 @@ hamt_node_collision_find_index.exit:              ; preds = %154
 
 .preheader.i:                                     ; preds = %225
   %229 = icmp sgt i64 %.val69.i, 0
-  br i1 %229, label %.lr.ph.i64, label %.preheader
+  br i1 %229, label %.lr.ph.i62, label %.preheader
 
-.lr.ph.i64:                                       ; preds = %.preheader.i
+.lr.ph.i62:                                       ; preds = %.preheader.i
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 32
   %231 = shl nuw i64 %.val69.i, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %230, i8 0, i64 %231, i1 false), !tbaa !110
   br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph.i64, %.preheader.i
+.preheader:                                       ; preds = %.lr.ph.i62, %.preheader.i
   %232 = getelementptr inbounds nuw i8, ptr %227, i64 16
   store i64 %.val69.i, ptr %232, align 8, !tbaa !109
   %233 = getelementptr inbounds nuw i8, ptr %227, i64 24
@@ -1513,18 +1513,18 @@ hamt_node_collision_find_index.exit:              ; preds = %154
   %256 = or i64 %254, %255
   store i64 %256, ptr %234, align 8, !tbaa !34
   store i64 %243, ptr %240, align 8, !tbaa !32
-  %.val70.i50 = load i64, ptr %146, align 8, !tbaa !109
-  %257 = icmp sgt i64 %.val70.i50, 0
-  br i1 %257, label %.lr.ph52, label %._crit_edge53
+  %.val70.i48 = load i64, ptr %146, align 8, !tbaa !109
+  %257 = icmp sgt i64 %.val70.i48, 0
+  br i1 %257, label %.lr.ph50, label %._crit_edge51
 
-.lr.ph52:                                         ; preds = %.preheader
+.lr.ph50:                                         ; preds = %.preheader
   %258 = getelementptr inbounds nuw i8, ptr %227, i64 32
   br label %259
 
-259:                                              ; preds = %.lr.ph52, %_Py_NewRef.exit28
-  %.val70.i60 = phi i64 [ %.val70.i50, %.lr.ph52 ], [ %.val70.i, %_Py_NewRef.exit28 ]
-  %.159.i51 = phi i64 [ 0, %.lr.ph52 ], [ %267, %_Py_NewRef.exit28 ]
-  %260 = getelementptr [1 x ptr], ptr %148, i64 0, i64 %.159.i51
+259:                                              ; preds = %.lr.ph50, %_Py_NewRef.exit28
+  %.val70.i58 = phi i64 [ %.val70.i48, %.lr.ph50 ], [ %.val70.i, %_Py_NewRef.exit28 ]
+  %.159.i49 = phi i64 [ 0, %.lr.ph50 ], [ %267, %_Py_NewRef.exit28 ]
+  %260 = getelementptr [1 x ptr], ptr %148, i64 0, i64 %.159.i49
   %261 = load ptr, ptr %260, align 8, !tbaa !110
   %262 = load i32, ptr %261, align 8, !tbaa !15
   %263 = icmp slt i32 %262, 0
@@ -1537,14 +1537,14 @@ hamt_node_collision_find_index.exit:              ; preds = %154
   br label %_Py_NewRef.exit28
 
 _Py_NewRef.exit28:                                ; preds = %259, %264
-  %.val70.i = phi i64 [ %.val70.i60, %259 ], [ %.val70.i.pre, %264 ]
-  %266 = getelementptr [1 x ptr], ptr %258, i64 0, i64 %.159.i51
+  %.val70.i = phi i64 [ %.val70.i58, %259 ], [ %.val70.i.pre, %264 ]
+  %266 = getelementptr [1 x ptr], ptr %258, i64 0, i64 %.159.i49
   store ptr %261, ptr %266, align 8, !tbaa !110
-  %267 = add nuw nsw i64 %.159.i51, 1
+  %267 = add nuw nsw i64 %.159.i49, 1
   %268 = icmp slt i64 %267, %.val70.i
-  br i1 %268, label %259, label %._crit_edge53, !llvm.loop !113
+  br i1 %268, label %259, label %._crit_edge51, !llvm.loop !113
 
-._crit_edge53:                                    ; preds = %_Py_NewRef.exit28, %.preheader
+._crit_edge51:                                    ; preds = %_Py_NewRef.exit28, %.preheader
   %269 = getelementptr inbounds nuw i8, ptr %227, i64 32
   %270 = getelementptr [1 x ptr], ptr %269, i64 0, i64 %216
   %271 = load ptr, ptr %270, align 8, !tbaa !110
@@ -1552,12 +1552,12 @@ _Py_NewRef.exit28:                                ; preds = %259, %264
   %273 = icmp slt i32 %272, 0
   br i1 %273, label %_Py_NewRef.exit27, label %274
 
-274:                                              ; preds = %._crit_edge53
+274:                                              ; preds = %._crit_edge51
   %275 = add nuw i32 %272, 1
   store i32 %275, ptr %4, align 8, !tbaa !15
   br label %_Py_NewRef.exit27
 
-_Py_NewRef.exit27:                                ; preds = %._crit_edge53, %274
+_Py_NewRef.exit27:                                ; preds = %._crit_edge51, %274
   store ptr %4, ptr %270, align 8, !tbaa !110
   %276 = load i32, ptr %271, align 8, !tbaa !15
   %.not.i65.i = icmp sgt i32 %276, -1
@@ -1644,8 +1644,8 @@ _Py_NewRef.exit:                                  ; preds = %284, %317
   tail call void @_Py_Dealloc(ptr noundef nonnull %282) #12
   br label %hamt_node_array_assoc.exit
 
-hamt_node_array_assoc.exit:                       ; preds = %149, %225, %281, %.loopexit, %59, %61, %64, %Py_DECREF.exit67.i, %_Py_NewRef.exit27, %277, %280, %223, %220, %_Py_NewRef.exit30, %325, %322, %_Py_NewRef.exit, %77, %75, %87, %84, %82, %133, %130, %128, %140, %137, %hamt_node_array_clone.exit, %8
-  %.0 = phi ptr [ %9, %8 ], [ null, %77 ], [ %31, %75 ], [ %0, %87 ], [ %0, %84 ], [ %0, %82 ], [ null, %133 ], [ null, %130 ], [ null, %128 ], [ %91, %140 ], [ %91, %137 ], [ %91, %hamt_node_array_clone.exit ], [ %161, %_Py_NewRef.exit30 ], [ %0, %220 ], [ %0, %223 ], [ %227, %280 ], [ %227, %277 ], [ %227, %_Py_NewRef.exit27 ], [ %320, %325 ], [ %320, %322 ], [ %320, %_Py_NewRef.exit ], [ null, %Py_DECREF.exit67.i ], [ null, %64 ], [ null, %61 ], [ null, %59 ], [ null, %.loopexit ], [ null, %281 ], [ null, %225 ], [ null, %149 ]
+hamt_node_array_assoc.exit:                       ; preds = %149, %225, %281, %.loopexit, %_Py_NewRef.exit27, %277, %280, %223, %220, %_Py_NewRef.exit30, %325, %322, %_Py_NewRef.exit, %77, %75, %Py_DECREF.exit67.i, %64, %61, %59, %87, %84, %82, %133, %130, %128, %140, %137, %hamt_node_array_clone.exit, %8
+  %.0 = phi ptr [ %9, %8 ], [ null, %77 ], [ %31, %75 ], [ null, %Py_DECREF.exit67.i ], [ null, %64 ], [ null, %61 ], [ null, %59 ], [ %0, %87 ], [ %0, %84 ], [ %0, %82 ], [ null, %133 ], [ null, %130 ], [ null, %128 ], [ %91, %140 ], [ %91, %137 ], [ %91, %hamt_node_array_clone.exit ], [ %161, %_Py_NewRef.exit30 ], [ %0, %220 ], [ %0, %223 ], [ %227, %280 ], [ %227, %277 ], [ %227, %_Py_NewRef.exit27 ], [ %320, %325 ], [ %320, %322 ], [ %320, %_Py_NewRef.exit ], [ null, %.loopexit ], [ null, %281 ], [ null, %225 ], [ null, %149 ]
   ret ptr %.0
 }
 

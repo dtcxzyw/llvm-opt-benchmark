@@ -422,14 +422,14 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 93:                                               ; preds = %88
   %94 = add nuw nsw i64 %89, 1
   %95 = icmp eq i64 %94, 11
-  br i1 %95, label %.thread36, label %88, !llvm.loop !10
+  br i1 %95, label %.critedge, label %88, !llvm.loop !10
 
 96:                                               ; preds = %88
   %97 = and i64 %89, 4294967295
   %98 = icmp eq i64 %97, 11
-  br i1 %98, label %.thread36, label %99
+  br i1 %98, label %.critedge, label %99
 
-.thread36:                                        ; preds = %93, %96
+.critedge:                                        ; preds = %93, %96
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.4) #14
   br label %269
 
@@ -446,14 +446,14 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 104:                                              ; preds = %.preheader
   %105 = add nuw nsw i64 %100, 1
   %106 = icmp eq i64 %105, 5
-  br i1 %106, label %.thread37, label %.preheader, !llvm.loop !11
+  br i1 %106, label %.thread36, label %.preheader, !llvm.loop !11
 
 107:                                              ; preds = %.preheader
   %108 = trunc i64 %100 to i32
   %109 = icmp eq i32 %108, 5
-  br i1 %109, label %.thread37, label %111
+  br i1 %109, label %.thread36, label %111
 
-.thread37:                                        ; preds = %104, %107
+.thread36:                                        ; preds = %104, %107
   %110 = zext i16 %.ph33 to i32
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, i32 noundef %110) #14
   br label %269
@@ -464,7 +464,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   %114 = load ptr, ptr %113, align 8
   %115 = load i16, ptr %114, align 2
   %116 = icmp sgt i16 %115, -1
-  br i1 %116, label %117, label %.loopexit40
+  br i1 %116, label %117, label %.loopexit39
 
 117:                                              ; preds = %111
   %118 = getelementptr inbounds nuw i8, ptr %18, i64 184
@@ -480,15 +480,15 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   %125 = getelementptr i16, ptr %114, i64 %124
   %126 = load i16, ptr %125, align 2
   %127 = icmp sgt i16 %126, -1
-  br i1 %127, label %119, label %.loopexit40, !llvm.loop !13
+  br i1 %127, label %119, label %.loopexit39, !llvm.loop !13
 
-.loopexit40:                                      ; preds = %119, %111
+.loopexit39:                                      ; preds = %119, %111
   %128 = tail call i32 @input_ff_create_memless(ptr noundef %18, ptr noundef null, ptr noundef nonnull @lg4ff_play) #15
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %269
 
-130:                                              ; preds = %.loopexit40
-  br i1 %.ph34, label %131, label %.thread38
+130:                                              ; preds = %.loopexit39
+  br i1 %.ph34, label %131, label %.thread37
 
 131:                                              ; preds = %130
   %132 = icmp eq i32 %112, -1
@@ -503,7 +503,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   %135 = sext i32 %112 to i64
   %136 = getelementptr [5 x %struct.lg4ff_multimode_wheel], ptr @lg4ff_multimode_wheels, i64 0, i64 %135
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %.thread38, label %138
+  br i1 %137, label %.thread37, label %138
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 4
@@ -512,9 +512,9 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %144 = load ptr, ptr %143, align 8
-  br label %.thread38
+  br label %.thread37
 
-.thread38:                                        ; preds = %130, %138, %134
+.thread37:                                        ; preds = %130, %138, %134
   %145 = phi ptr [ %142, %138 ], [ null, %134 ], [ null, %130 ]
   %146 = phi ptr [ %144, %138 ], [ null, %134 ], [ null, %130 ]
   %147 = phi i32 [ %140, %138 ], [ 0, %134 ], [ 0, %130 ]
@@ -561,7 +561,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   %169 = icmp eq i64 %168, 0
   br i1 %169, label %179, label %170
 
-170:                                              ; preds = %.thread38
+170:                                              ; preds = %.thread37
   %171 = icmp eq i16 %11, 8448
   %172 = getelementptr inbounds nuw i8, ptr %18, i64 248
   %173 = load ptr, ptr %172, align 8
@@ -574,7 +574,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   tail call void %178(ptr noundef %18, i16 noundef zeroext 0) #15
   br label %179
 
-179:                                              ; preds = %170, %.thread38
+179:                                              ; preds = %170, %.thread37
   %180 = tail call i32 @device_create_file(ptr noundef nonnull %5, ptr noundef nonnull @dev_attr_combine_pedals) #15
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %183, label %182
@@ -755,8 +755,8 @@ lg4ff_set_leds.exit:                              ; preds = %206, %211, %212
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %5, ptr noundef nonnull @.str.14) #14
   br label %271
 
-269:                                              ; preds = %.loopexit40, %.thread37, %.thread36
-  %270 = phi i32 [ -1, %.thread36 ], [ -1, %.thread37 ], [ %128, %.loopexit40 ]
+269:                                              ; preds = %.loopexit39, %.thread36, %.critedge
+  %270 = phi i32 [ -1, %.critedge ], [ -1, %.thread36 ], [ %128, %.loopexit39 ]
   store ptr null, ptr %32, align 8
   tail call void @kfree(ptr noundef nonnull %28) #15
   br label %271

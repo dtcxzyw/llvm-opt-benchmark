@@ -229,13 +229,13 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %56 = fmul reassoc nsz arcp contract afn float %51, 1.140130e+07
   %57 = fsub reassoc nsz arcp contract afn float 0x41CFC00000000000, %56
   %58 = fptosi float %57 to i32
+  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %60 = bitcast i32 %59 to float
+  %61 = fmul reassoc nsz arcp contract afn float %60, 1.000000e+02
   br label %_color_filter.exit
 
 _color_filter.exit:                               ; preds = %.lr.ph, %53, %55
-  %59 = phi i32 [ %58, %55 ], [ 1053951936, %53 ], [ 1065353216, %.lr.ph ]
-  %60 = tail call i32 @llvm.smax.i32(i32 %59, i32 0)
-  %61 = bitcast i32 %60 to float
-  %62 = fmul reassoc nsz arcp contract afn float %61, 1.000000e+02
+  %62 = phi float [ %61, %55 ], [ 0x404482C1C0000000, %53 ], [ 1.000000e+02, %.lr.ph ]
   %63 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   store float %62, ptr %63, align 4, !tbaa !50
   %64 = getelementptr inbounds nuw float, ptr %3, i64 %42
@@ -773,12 +773,12 @@ define internal range(i32 0, 2) i32 @_monochrome_draw(ptr noundef %0, ptr nounde
   %101 = fmul reassoc nsz arcp contract afn float %96, 1.140130e+07
   %102 = fsub reassoc nsz arcp contract afn float 0x41CFC00000000000, %101
   %103 = fptosi float %102 to i32
+  %104 = call i32 @llvm.smax.i32(i32 %103, i32 0)
+  %105 = bitcast i32 %104 to float
   br label %_color_filter.exit
 
 _color_filter.exit:                               ; preds = %81, %98, %100
-  %104 = phi i32 [ %103, %100 ], [ 1053951936, %98 ], [ 1065353216, %81 ]
-  %105 = call i32 @llvm.smax.i32(i32 %104, i32 0)
-  %106 = bitcast i32 %105 to float
+  %106 = phi float [ %105, %100 ], [ 0x3FDA40F800000000, %98 ], [ 1.000000e+00, %81 ]
   %107 = fmul reassoc nsz arcp contract afn float %106, %106
   %108 = fpext reassoc nsz arcp contract afn float %107 to double
   %109 = fmul reassoc nsz arcp contract afn double %108, 0x404AB1EBE1650A46

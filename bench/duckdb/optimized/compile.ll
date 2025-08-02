@@ -2038,7 +2038,7 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler18AddSuffixRecursiveEii(ptr n
 7:                                                ; preds = %3
   %8 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %180, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = zext nneg i32 %8 to i64
@@ -2046,7 +2046,7 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler18AddSuffixRecursiveEii(ptr n
   %13 = load ptr, ptr %12, align 8, !tbaa !55
   %14 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %13, i64 %11
   tail call void @_ZN10duckdb_re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %14, i32 noundef %1, i32 noundef %2)
-  br label %180
+  br label %.critedge
 
 15:                                               ; preds = %3
   %.sroa.022.4.extract.shift = lshr i64 %.fca.0.extract, 32
@@ -2062,10 +2062,10 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler18AddSuffixRecursiveEii(ptr n
 17:                                               ; preds = %15
   %18 = and i32 %.sroa.022.4.extract.trunc, 1
   %.not = icmp eq i32 %18, 0
-  %sext77 = shl i64 %.fca.0.extract, 32
+  %sext75 = shl i64 %.fca.0.extract, 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8, !tbaa !55
-  %21 = ashr exact i64 %sext77, 29
+  %21 = ashr exact i64 %sext75, 29
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   br i1 %.not, label %26, label %23
 
@@ -2166,7 +2166,7 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler18AddSuffixRecursiveEii(ptr n
 _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit: ; preds = %75, %58, %70
   %82 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %83 = icmp sgt i32 %82, -1
-  br i1 %83, label %84, label %180
+  br i1 %83, label %84, label %.critedge
 
 84:                                               ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit
   %85 = zext nneg i32 %82 to i64
@@ -2191,9 +2191,9 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit: ; preds = %75, %58, %70
 101:                                              ; preds = %84
   %102 = and i32 %.sroa.022.4.extract.trunc, 1
   %.not60 = icmp eq i32 %102, 0
-  %sext79 = shl i64 %.fca.0.extract, 32
+  %sext77 = shl i64 %.fca.0.extract, 32
   %103 = load ptr, ptr %32, align 8, !tbaa !55
-  %104 = ashr exact i64 %sext79, 29
+  %104 = ashr exact i64 %sext77, 29
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
   br i1 %.not60, label %108, label %106
 
@@ -2210,9 +2210,9 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit: ; preds = %75, %58, %70
   store i32 %112, ptr %105, align 4, !tbaa !73
   br label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread
 
-_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %57, %84, %106, %108, %..loopexit_crit_edge21.i.i.i.i.i, %62
-  %.054 = phi i32 [ %1, %62 ], [ %1, %..loopexit_crit_edge21.i.i.i.i.i ], [ %82, %84 ], [ %1, %108 ], [ %1, %106 ], [ %1, %57 ], [ %1, %.lr.ph.i.i.i.i.i ]
-  %.151 = phi i32 [ %.050, %62 ], [ %.050, %..loopexit_crit_edge21.i.i.i.i.i ], [ %82, %84 ], [ %82, %108 ], [ %82, %106 ], [ %.050, %57 ], [ %.050, %.lr.ph.i.i.i.i.i ]
+_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %57, %..loopexit_crit_edge21.i.i.i.i.i, %62, %84, %106, %108
+  %.054 = phi i32 [ %1, %106 ], [ %1, %108 ], [ %82, %84 ], [ %1, %62 ], [ %1, %..loopexit_crit_edge21.i.i.i.i.i ], [ %1, %57 ], [ %1, %.lr.ph.i.i.i.i.i ]
+  %.151 = phi i32 [ %82, %106 ], [ %82, %108 ], [ %82, %84 ], [ %.050, %62 ], [ %.050, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.050, %57 ], [ %.050, %.lr.ph.i.i.i.i.i ]
   %113 = sext i32 %2 to i64
   %114 = load ptr, ptr %32, align 8, !tbaa !55
   %115 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %114, i64 %113
@@ -2300,18 +2300,18 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %.lr.p
   %164 = load i32, ptr %163, align 8, !tbaa !52
   %165 = add nsw i32 %164, -1
   store i32 %165, ptr %163, align 8, !tbaa !52
-  %.pre88 = load ptr, ptr %32, align 8, !tbaa !55
+  %.pre86 = load ptr, ptr %32, align 8, !tbaa !55
   br label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72
 
 _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72: ; preds = %156, %139, %151, %.loopexit
-  %166 = phi ptr [ %114, %151 ], [ %.pre88, %.loopexit ], [ %114, %139 ], [ %114, %156 ]
+  %166 = phi ptr [ %114, %151 ], [ %.pre86, %.loopexit ], [ %114, %139 ], [ %114, %156 ]
   %167 = sext i32 %.151 to i64
   %168 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %166, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !73
   %170 = lshr i32 %169, 4
   %171 = tail call noundef i32 @_ZN10duckdb_re28Compiler18AddSuffixRecursiveEii(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef %170, i32 noundef %117)
   %172 = icmp eq i32 %171, 0
-  br i1 %172, label %180, label %173
+  br i1 %172, label %.critedge, label %173
 
 173:                                              ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72
   %174 = load ptr, ptr %32, align 8, !tbaa !55
@@ -2321,9 +2321,9 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72: ; preds = %156, %139,
   %178 = and i32 %177, 15
   %179 = or disjoint i32 %178, %176
   store i32 %179, ptr %175, align 4, !tbaa !73
-  br label %180
+  br label %.critedge
 
-180:                                              ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, %173, %10, %7
+.critedge:                                        ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, %173, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit, %10, %7
   %.1 = phi i32 [ %8, %10 ], [ 0, %7 ], [ %.054, %173 ], [ 0, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72 ], [ 0, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit ]
   ret i32 %.1
 }

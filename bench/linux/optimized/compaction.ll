@@ -2367,11 +2367,7 @@ define dso_local i64 @isolate_freepages_range(ptr noundef captures(none) %0, i64
 42:                                               ; preds = %40, %36
   %43 = phi ptr [ %39, %36 ], [ %41, %40 ]
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread, label %45
-
-.thread:                                          ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  br label %.loopexit17
+  br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %42
   %46 = call fastcc i64 @isolate_freepages_block(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %31, ptr noundef nonnull %6, i32 noundef 0, i1 noundef zeroext true), !range !48
@@ -2379,7 +2375,11 @@ define dso_local i64 @isolate_freepages_range(ptr noundef captures(none) %0, i64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   br i1 %.not, label %.loopexit17, label %18
 
-.loopexit17:                                      ; preds = %45, %.thread
+.critedge:                                        ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  br label %.loopexit17
+
+.loopexit17:                                      ; preds = %45, %.critedge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   store ptr %5, ptr %5, align 8
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8

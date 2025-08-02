@@ -3650,15 +3650,15 @@ parse_rockridge_NM1.exit:                         ; preds = %173, %175, %177, %1
   br label %255
 
 255:                                              ; preds = %284, %.lr.ph.i142
-  %.050.i = phi ptr [ %254, %.lr.ph.i142 ], [ %287, %284 ]
-  %.03649.i = phi i32 [ %253, %.lr.ph.i142 ], [ %288, %284 ]
-  %.03948.i = phi ptr [ @.str.40, %.lr.ph.i142 ], [ %.2.i, %284 ]
-  %256 = getelementptr inbounds nuw i8, ptr %.050.i, i64 1
-  %257 = load i8, ptr %.050.i, align 1, !tbaa !45
-  %258 = getelementptr inbounds nuw i8, ptr %.050.i, i64 2
+  %.046.i = phi ptr [ %254, %.lr.ph.i142 ], [ %287, %284 ]
+  %.03645.i = phi i32 [ %253, %.lr.ph.i142 ], [ %288, %284 ]
+  %.03944.i = phi ptr [ @.str.40, %.lr.ph.i142 ], [ %.2.i, %284 ]
+  %256 = getelementptr inbounds nuw i8, ptr %.046.i, i64 1
+  %257 = load i8, ptr %.046.i, align 1, !tbaa !45
+  %258 = getelementptr inbounds nuw i8, ptr %.046.i, i64 2
   %259 = load i8, ptr %256, align 1, !tbaa !45
-  %260 = add nsw i32 %.03649.i, -2
-  %261 = call ptr @archive_strcat(ptr noundef nonnull %48, ptr noundef nonnull %.03948.i) #20
+  %260 = add nsw i32 %.03645.i, -2
+  %261 = call ptr @archive_strcat(ptr noundef nonnull %48, ptr noundef nonnull %.03944.i) #20
   switch i8 %257, label %parse_rockridge_SL1.exit [
     i8 0, label %262
     i8 1, label %268

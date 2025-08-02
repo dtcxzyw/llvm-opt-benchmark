@@ -4581,7 +4581,6 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i18.i.i:  ; preds = %"_ZN9__gnu_cxx5__op
 define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_T2_"(ptr noundef captures(none) %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr noundef %3) unnamed_addr #10 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
-  %invariant.gep = getelementptr i8, ptr %0, i64 8
   %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -4590,153 +4589,154 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx
   %8 = shl i64 %.032, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %8
+  %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !38
-  %.val29 = load ptr, ptr %gep, align 8, !tbaa !38
-  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %12 = load i16, ptr %11, align 8, !tbaa !28
-  %13 = icmp ne i16 %12, 6
+  %.val29 = load ptr, ptr %12, align 8, !tbaa !38
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %14 = load i16, ptr %13, align 8, !tbaa !28
+  %15 = icmp ne i16 %14, 6
   %.not6.i.i.i = icmp eq ptr %.val, null
-  %.not.not.i.i.i = or i1 %.not6.i.i.i, %13
-  br i1 %.not.not.i.i.i, label %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i, label %14
+  %.not.not.i.i.i = or i1 %.not6.i.i.i, %15
+  br i1 %.not.not.i.i.i, label %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i, label %16
 
-14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 40
-  %16 = load i64, ptr %15, align 8, !tbaa !57
-  %17 = trunc i64 %16 to i32
+16:                                               ; preds = %.lr.ph
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 40
+  %18 = load i64, ptr %17, align 8, !tbaa !57
+  %19 = trunc i64 %18 to i32
   br label %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i
 
-_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i:        ; preds = %14, %.lr.ph
-  %spec.select.i.i.i = phi i32 [ %17, %14 ], [ 1, %.lr.ph ]
-  %18 = getelementptr inbounds nuw i8, ptr %.val29, i64 24
-  %19 = load i16, ptr %18, align 8, !tbaa !28
-  %20 = icmp ne i16 %19, 6
+_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i:        ; preds = %16, %.lr.ph
+  %spec.select.i.i.i = phi i32 [ %19, %16 ], [ 1, %.lr.ph ]
+  %20 = getelementptr inbounds nuw i8, ptr %.val29, i64 24
+  %21 = load i16, ptr %20, align 8, !tbaa !28
+  %22 = icmp ne i16 %21, 6
   %.not6.i2.i.i = icmp eq ptr %.val29, null
-  %.not.not.i3.i.i = or i1 %.not6.i2.i.i, %20
-  br i1 %.not.not.i3.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19findArrayDimensionsERNS2_15ScalarEvolutionERNS2_15SmallVectorImplIPKNS2_4SCEVEEESA_S8_E3$_0EclIPS8_SE_EEbT_T0_.exit", label %21
+  %.not.not.i3.i.i = or i1 %.not6.i2.i.i, %22
+  br i1 %.not.not.i3.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19findArrayDimensionsERNS2_15ScalarEvolutionERNS2_15SmallVectorImplIPKNS2_4SCEVEEESA_S8_E3$_0EclIPS8_SE_EEbT_T0_.exit", label %23
 
-21:                                               ; preds = %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.val29, i64 40
-  %23 = load i64, ptr %22, align 8, !tbaa !57
-  %24 = trunc i64 %23 to i32
+23:                                               ; preds = %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %.val29, i64 40
+  %25 = load i64, ptr %24, align 8, !tbaa !57
+  %26 = trunc i64 %25 to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19findArrayDimensionsERNS2_15ScalarEvolutionERNS2_15SmallVectorImplIPKNS2_4SCEVEEESA_S8_E3$_0EclIPS8_SE_EEbT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19findArrayDimensionsERNS2_15ScalarEvolutionERNS2_15SmallVectorImplIPKNS2_4SCEVEEESA_S8_E3$_0EclIPS8_SE_EEbT_T0_.exit": ; preds = %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i, %21
-  %spec.select.i4.i.i = phi i32 [ %24, %21 ], [ 1, %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i ]
-  %25 = icmp sgt i32 %spec.select.i.i.i, %spec.select.i4.i.i
-  %26 = or disjoint i64 %8, 1
-  %spec.select = select i1 %25, i64 %26, i64 %9
-  %27 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
-  %28 = load ptr, ptr %27, align 8, !tbaa !38
-  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %.032
-  store ptr %28, ptr %29, align 8, !tbaa !38
-  %30 = icmp slt i64 %spec.select, %6
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !245
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19findArrayDimensionsERNS2_15ScalarEvolutionERNS2_15SmallVectorImplIPKNS2_4SCEVEEESA_S8_E3$_0EclIPS8_SE_EEbT_T0_.exit": ; preds = %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i, %23
+  %spec.select.i4.i.i = phi i32 [ %26, %23 ], [ 1, %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i ]
+  %27 = icmp sgt i32 %spec.select.i.i.i, %spec.select.i4.i.i
+  %28 = or disjoint i64 %8, 1
+  %spec.select = select i1 %27, i64 %28, i64 %9
+  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
+  %30 = load ptr, ptr %29, align 8, !tbaa !38
+  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %.032
+  store ptr %30, ptr %31, align 8, !tbaa !38
+  %32 = icmp slt i64 %spec.select, %6
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !245
 
 ._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19findArrayDimensionsERNS2_15ScalarEvolutionERNS2_15SmallVectorImplIPKNS2_4SCEVEEESA_S8_E3$_0EclIPS8_SE_EEbT_T0_.exit", %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19findArrayDimensionsERNS2_15ScalarEvolutionERNS2_15SmallVectorImplIPKNS2_4SCEVEEESA_S8_E3$_0EclIPS8_SE_EEbT_T0_.exit" ]
-  %31 = and i64 %2, 1
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %43
+  %33 = and i64 %2, 1
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %45
 
-33:                                               ; preds = %._crit_edge
-  %34 = add nsw i64 %2, -2
-  %35 = ashr exact i64 %34, 1
-  %36 = icmp eq i64 %.0.lcssa, %35
-  br i1 %36, label %37, label %43
+35:                                               ; preds = %._crit_edge
+  %36 = add nsw i64 %2, -2
+  %37 = ashr exact i64 %36, 1
+  %38 = icmp eq i64 %.0.lcssa, %37
+  br i1 %38, label %39, label %45
 
-37:                                               ; preds = %33
-  %38 = shl nsw i64 %.0.lcssa, 1
-  %39 = or disjoint i64 %38, 1
-  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !38
-  %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
-  store ptr %41, ptr %42, align 8, !tbaa !38
-  br label %43
+39:                                               ; preds = %35
+  %40 = shl nsw i64 %.0.lcssa, 1
+  %41 = or disjoint i64 %40, 1
+  %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %41
+  %43 = load ptr, ptr %42, align 8, !tbaa !38
+  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
+  store ptr %43, ptr %44, align 8, !tbaa !38
+  br label %45
 
-43:                                               ; preds = %37, %33, %._crit_edge
-  %.128 = phi i64 [ %39, %37 ], [ %.0.lcssa, %33 ], [ %.0.lcssa, %._crit_edge ]
+45:                                               ; preds = %39, %35, %._crit_edge
+  %.128 = phi i64 [ %41, %39 ], [ %.0.lcssa, %35 ], [ %.0.lcssa, %._crit_edge ]
   %.0.in1.i = add nsw i64 %.128, -1
   %.02.i = sdiv i64 %.0.in1.i, 2
-  %44 = icmp samesign ugt i64 %.128, %1
-  br i1 %44, label %.lr.ph.i, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
+  %46 = icmp samesign ugt i64 %.128, %1
+  br i1 %46, label %.lr.ph.i, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %46 = load i16, ptr %45, align 8, !tbaa !28
-  %47 = icmp ne i16 %46, 6
+.lr.ph.i:                                         ; preds = %45
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %48 = load i16, ptr %47, align 8, !tbaa !28
+  %49 = icmp ne i16 %48, 6
   %.not6.i2.i.i.i = icmp eq ptr %3, null
-  %.not.not.i3.i.i.i = or i1 %.not6.i2.i.i.i, %47
+  %.not.not.i3.i.i.i = or i1 %.not6.i2.i.i.i, %49
   br i1 %.not.not.i3.i.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %56
-  %.04.us.i = phi i64 [ %.0.us.i, %56 ], [ %.02.i, %.lr.ph.i ]
-  %.0133.us.i = phi i64 [ %.04.us.i, %56 ], [ %.128, %.lr.ph.i ]
-  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.us.i
-  %.val.us.i = load ptr, ptr %48, align 8, !tbaa !38
-  %49 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 24
-  %50 = load i16, ptr %49, align 8, !tbaa !28
-  %51 = icmp ne i16 %50, 6
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %58
+  %.04.us.i = phi i64 [ %.0.us.i, %58 ], [ %.02.i, %.lr.ph.i ]
+  %.0133.us.i = phi i64 [ %.04.us.i, %58 ], [ %.128, %.lr.ph.i ]
+  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.us.i
+  %.val.us.i = load ptr, ptr %50, align 8, !tbaa !38
+  %51 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 24
+  %52 = load i16, ptr %51, align 8, !tbaa !28
+  %53 = icmp ne i16 %52, 6
   %.not6.i.i.i.us.i = icmp eq ptr %.val.us.i, null
-  %.not.not.i.i.i.us.i = or i1 %.not6.i.i.i.us.i, %51
+  %.not.not.i.i.i.us.i = or i1 %.not6.i.i.i.us.i, %53
   br i1 %.not.not.i.i.i.us.i, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit", label %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i
 
 _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i:   ; preds = %.lr.ph.split.us.i
-  %52 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 40
-  %53 = load i64, ptr %52, align 8, !tbaa !57
-  %54 = trunc i64 %53 to i32
-  %55 = icmp sgt i32 %54, 1
-  br i1 %55, label %56, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
+  %54 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 40
+  %55 = load i64, ptr %54, align 8, !tbaa !57
+  %56 = trunc i64 %55 to i32
+  %57 = icmp sgt i32 %56, 1
+  br i1 %57, label %58, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
-56:                                               ; preds = %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i
-  %57 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.us.i
-  store ptr %.val.us.i, ptr %57, align 8, !tbaa !38
+58:                                               ; preds = %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i
+  %59 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.us.i
+  store ptr %.val.us.i, ptr %59, align 8, !tbaa !38
   %.0.in.us.i = add nsw i64 %.04.us.i, -1
   %.0.us.i = sdiv i64 %.0.in.us.i, 2
-  %58 = icmp sgt i64 %.04.us.i, %1
-  br i1 %58, label %.lr.ph.split.us.i, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !246
+  %60 = icmp sgt i64 %.04.us.i, %1
+  br i1 %60, label %.lr.ph.split.us.i, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !246
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %60 = load i64, ptr %59, align 8, !tbaa !57
-  %61 = trunc i64 %60 to i32
-  br label %62
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %62 = load i64, ptr %61, align 8, !tbaa !57
+  %63 = trunc i64 %62 to i32
+  br label %64
 
-62:                                               ; preds = %72, %.lr.ph.split.i
-  %.04.i = phi i64 [ %.02.i, %.lr.ph.split.i ], [ %.0.i, %72 ]
-  %.0133.i = phi i64 [ %.128, %.lr.ph.split.i ], [ %.04.i, %72 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
-  %.val.i = load ptr, ptr %63, align 8, !tbaa !38
-  %64 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  %65 = load i16, ptr %64, align 8, !tbaa !28
-  %66 = icmp ne i16 %65, 6
+64:                                               ; preds = %74, %.lr.ph.split.i
+  %.04.i = phi i64 [ %.02.i, %.lr.ph.split.i ], [ %.0.i, %74 ]
+  %.0133.i = phi i64 [ %.128, %.lr.ph.split.i ], [ %.04.i, %74 ]
+  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
+  %.val.i = load ptr, ptr %65, align 8, !tbaa !38
+  %66 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  %67 = load i16, ptr %66, align 8, !tbaa !28
+  %68 = icmp ne i16 %67, 6
   %.not6.i.i.i.i = icmp eq ptr %.val.i, null
-  %.not.not.i.i.i.i = or i1 %.not6.i.i.i.i, %66
-  br i1 %.not.not.i.i.i.i, label %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i, label %67
+  %.not.not.i.i.i.i = or i1 %.not6.i.i.i.i, %68
+  br i1 %.not.not.i.i.i.i, label %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i, label %69
 
-67:                                               ; preds = %62
-  %68 = getelementptr inbounds nuw i8, ptr %.val.i, i64 40
-  %69 = load i64, ptr %68, align 8, !tbaa !57
-  %70 = trunc i64 %69 to i32
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds nuw i8, ptr %.val.i, i64 40
+  %71 = load i64, ptr %70, align 8, !tbaa !57
+  %72 = trunc i64 %71 to i32
   br label %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i
 
-_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i:      ; preds = %67, %62
-  %spec.select.i.i.i.i = phi i32 [ %70, %67 ], [ 1, %62 ]
-  %71 = icmp sgt i32 %spec.select.i.i.i.i, %61
-  br i1 %71, label %72, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
+_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i:      ; preds = %69, %64
+  %spec.select.i.i.i.i = phi i32 [ %72, %69 ], [ 1, %64 ]
+  %73 = icmp sgt i32 %spec.select.i.i.i.i, %63
+  br i1 %73, label %74, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
-72:                                               ; preds = %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i
-  %73 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i
-  store ptr %.val.i, ptr %73, align 8, !tbaa !38
+74:                                               ; preds = %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i
+  %75 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i
+  store ptr %.val.i, ptr %75, align 8, !tbaa !38
   %.0.in.i = add nsw i64 %.04.i, -1
   %.0.i = sdiv i64 %.0.in.i, 2
-  %74 = icmp sgt i64 %.04.i, %1
-  br i1 %74, label %62, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !247
+  %76 = icmp sgt i64 %.04.i, %1
+  br i1 %76, label %64, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !247
 
-"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i, %72, %.lr.ph.split.us.i, %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i, %56, %43
-  %.013.lcssa.i = phi i64 [ %.128, %43 ], [ %.0133.us.i, %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i ], [ %.04.us.i, %56 ], [ %.0133.us.i, %.lr.ph.split.us.i ], [ %.0133.i, %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i ], [ %.04.i, %72 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %75, align 8, !tbaa !38
+"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i, %74, %.lr.ph.split.us.i, %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i, %58, %45
+  %.013.lcssa.i = phi i64 [ %.128, %45 ], [ %.0133.us.i, %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i ], [ %.04.us.i, %58 ], [ %.0133.us.i, %.lr.ph.split.us.i ], [ %.0133.i, %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i ], [ %.04.i, %74 ]
+  %77 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %77, align 8, !tbaa !38
   ret void
 }
 

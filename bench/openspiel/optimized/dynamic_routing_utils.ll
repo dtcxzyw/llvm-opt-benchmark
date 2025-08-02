@@ -1595,8 +1595,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 
 302:                                              ; preds = %296
   %.idx.i = mul nuw nsw i64 %290, 56
-  %303 = getelementptr i8, ptr %.sroa.02.013.lcssa.sink.i.ph.i.i.i.i, i64 48
-  %304 = getelementptr i8, ptr %303, i64 %.idx.i
+  %303 = getelementptr inbounds nuw i8, ptr %.sroa.02.013.lcssa.sink.i.ph.i.i.i.i, i64 48
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 %.idx.i
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %307 = load ptr, ptr %306, align 8

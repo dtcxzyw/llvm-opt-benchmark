@@ -303,9 +303,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %15
 
 _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.12, i64 noundef 52)
-          to label %.critedge9 unwind label %21
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9 unwind label %21
 
-.critedge9:                                       ; preds = %_ZNSolsEm.exit
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9: ; preds = %_ZNSolsEm.exit
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #13
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #13
   br label %.critedge
@@ -317,7 +317,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #13
   resume { ptr, i32 } %22
 
-.critedge:                                        ; preds = %.critedge9, %7, %9, %2
+.critedge:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9, %7, %9, %2
   %23 = load ptr, ptr %1, align 8, !tbaa !31
   store ptr null, ptr %1, align 8, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24

@@ -419,7 +419,7 @@ define internal range(i32 4, 65540) i32 @get_ancp_msg_len(ptr readnone captures(
 define internal i32 @dissect_ancp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
   %.not = icmp eq i16 %5, -30708
-  br i1 %.not, label %6, label %146
+  br i1 %.not, label %6, label %149
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -473,13 +473,13 @@ define internal i32 @dissect_ancp_message(ptr noundef %0, ptr noundef %1, ptr no
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %44, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   %46 = load i32, ptr @hf_ancp_len2, align 4
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %46, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  switch i8 %29, label %143 [
+  switch i8 %29, label %146 [
     i8 85, label %dissect_ancp_adj_msg.exit
     i8 81, label %95
     i8 32, label %95
     i8 80, label %95
-    i8 93, label %135
-    i8 91, label %135
+    i8 93, label %138
+    i8 91, label %138
   ]
 
 .thread:                                          ; preds = %6
@@ -570,72 +570,73 @@ define internal i32 @dissect_ancp_message(ptr noundef %0, ptr noundef %1, ptr no
   %110 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %109, ptr noundef %0, i32 noundef 36, i32 noundef 1, i32 noundef 0)
   %111 = load i32, ptr @hf_ancp_mtype, align 4
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %111, ptr noundef %0, i32 noundef 37, i32 noundef 1, i32 noundef 0)
-  br i1 %96, label %113, label %116
+  br i1 %96, label %.critedge.i, label %120
 
-113:                                              ; preds = %108
-  %114 = load i32, ptr @hf_ancp_reserved, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %114, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef 0)
-  br label %124
+.critedge.i:                                      ; preds = %108
+  %113 = load i32, ptr @hf_ancp_reserved, align 4
+  %114 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %113, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef 0)
+  %115 = load i32, ptr @hf_ancp_num_ext_tlvs, align 4
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %115, ptr noundef %0, i32 noundef 40, i32 noundef 2, i32 noundef 0)
+  %117 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 40)
+  %118 = load i32, ptr @hf_ancp_blk_len, align 4
+  %119 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %118, ptr noundef %0, i32 noundef 42, i32 noundef 2, i32 noundef 0)
+  br label %dissect_ancp_adj_msg.exit
 
-116:                                              ; preds = %108
-  %117 = load i32, ptr @hf_ancp_tech_type, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %117, ptr noundef %0, i32 noundef 38, i32 noundef 1, i32 noundef 0)
-  %119 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 38)
-  %120 = load i32, ptr @hf_ancp_reserved, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %120, ptr noundef %0, i32 noundef 39, i32 noundef 1, i32 noundef 0)
-  %122 = and i8 %119, -5
-  %123 = icmp eq i8 %122, 1
-  br label %124
+120:                                              ; preds = %108
+  %121 = load i32, ptr @hf_ancp_tech_type, align 4
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %121, ptr noundef %0, i32 noundef 38, i32 noundef 1, i32 noundef 0)
+  %123 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 38)
+  %124 = load i32, ptr @hf_ancp_reserved, align 4
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %124, ptr noundef %0, i32 noundef 39, i32 noundef 1, i32 noundef 0)
+  %126 = and i8 %123, -5
+  %127 = icmp eq i8 %126, 1
+  %128 = load i32, ptr @hf_ancp_num_ext_tlvs, align 4
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %128, ptr noundef %0, i32 noundef 40, i32 noundef 2, i32 noundef 0)
+  %130 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 40)
+  %131 = load i32, ptr @hf_ancp_blk_len, align 4
+  %132 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %131, ptr noundef %0, i32 noundef 42, i32 noundef 2, i32 noundef 0)
+  br i1 %127, label %133, label %dissect_ancp_adj_msg.exit
 
-124:                                              ; preds = %116, %113
-  %.063.i = phi i1 [ false, %113 ], [ %123, %116 ]
-  %125 = load i32, ptr @hf_ancp_num_ext_tlvs, align 4
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %125, ptr noundef %0, i32 noundef 40, i32 noundef 2, i32 noundef 0)
-  %127 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 40)
-  %128 = load i32, ptr @hf_ancp_blk_len, align 4
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %128, ptr noundef %0, i32 noundef 42, i32 noundef 2, i32 noundef 0)
-  br i1 %.063.i, label %130, label %dissect_ancp_adj_msg.exit
-
-130:                                              ; preds = %124
-  %131 = load i32, ptr @ett_ancp_len, align 4
-  %132 = tail call ptr @proto_item_add_subtree(ptr noundef %129, i32 noundef %131)
-  %.not65.i = icmp eq i16 %127, 0
+133:                                              ; preds = %120
+  %134 = load i32, ptr @ett_ancp_len, align 4
+  %135 = tail call ptr @proto_item_add_subtree(ptr noundef %132, i32 noundef %134)
+  %.not65.i = icmp eq i16 %130, 0
   br i1 %.not65.i, label %dissect_ancp_adj_msg.exit, label %.lr.ph.i87
 
-.lr.ph.i87:                                       ; preds = %130, %.lr.ph.i87
-  %.267.i = phi i32 [ %133, %.lr.ph.i87 ], [ 44, %130 ]
-  %.06466.i = phi i16 [ %134, %.lr.ph.i87 ], [ %127, %130 ]
-  %133 = tail call fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %132, i32 noundef %.267.i)
-  %134 = add i16 %.06466.i, -1
-  %.not.i88 = icmp eq i16 %134, 0
+.lr.ph.i87:                                       ; preds = %133, %.lr.ph.i87
+  %.267.i = phi i32 [ %136, %.lr.ph.i87 ], [ 44, %133 ]
+  %.06466.i = phi i16 [ %137, %.lr.ph.i87 ], [ %130, %133 ]
+  %136 = tail call fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %135, i32 noundef %.267.i)
+  %137 = add i16 %.06466.i, -1
+  %.not.i88 = icmp eq i16 %137, 0
   br i1 %.not.i88, label %dissect_ancp_adj_msg.exit, label %.lr.ph.i87, !llvm.loop !8
 
-135:                                              ; preds = %33, %33
-  %136 = load i32, ptr @ett_ancp_len, align 4
-  %137 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %136)
-  %138 = zext i16 %20 to i32
-  %139 = add nuw nsw i32 %138, 4
-  %140 = icmp ugt i16 %20, 12
-  br i1 %140, label %.lr.ph, label %dissect_ancp_adj_msg.exit
+138:                                              ; preds = %33, %33
+  %139 = load i32, ptr @ett_ancp_len, align 4
+  %140 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %139)
+  %141 = zext i16 %20 to i32
+  %142 = add nuw nsw i32 %141, 4
+  %143 = icmp ugt i16 %20, 12
+  br i1 %143, label %.lr.ph, label %dissect_ancp_adj_msg.exit
 
-.lr.ph:                                           ; preds = %135, %.lr.ph
-  %.194 = phi i32 [ %141, %.lr.ph ], [ 16, %135 ]
-  %141 = tail call fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %137, i32 noundef %.194)
-  %142 = icmp slt i32 %141, %139
-  br i1 %142, label %.lr.ph, label %dissect_ancp_adj_msg.exit, !llvm.loop !9
+.lr.ph:                                           ; preds = %138, %.lr.ph
+  %.194 = phi i32 [ %144, %.lr.ph ], [ 16, %138 ]
+  %144 = tail call fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %140, i32 noundef %.194)
+  %145 = icmp slt i32 %144, %142
+  br i1 %145, label %.lr.ph, label %dissect_ancp_adj_msg.exit, !llvm.loop !9
 
-143:                                              ; preds = %33
+146:                                              ; preds = %33
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.185, i32 noundef %30)
   br label %dissect_ancp_adj_msg.exit
 
-dissect_ancp_adj_msg.exit:                        ; preds = %.lr.ph, %.lr.ph.i87, %.lr.ph.i, %135, %33, %130, %124, %.thread, %143
-  %144 = load i32, ptr @ancp_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %144, ptr noundef %1, ptr noundef %12)
-  %145 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  br label %146
+dissect_ancp_adj_msg.exit:                        ; preds = %.lr.ph, %.lr.ph.i87, %.lr.ph.i, %138, %33, %133, %120, %.critedge.i, %.thread, %146
+  %147 = load i32, ptr @ancp_tap, align 4
+  tail call void @tap_queue_packet(i32 noundef %147, ptr noundef %1, ptr noundef %12)
+  %148 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  br label %149
 
-146:                                              ; preds = %4, %dissect_ancp_adj_msg.exit
-  %.0 = phi i32 [ %145, %dissect_ancp_adj_msg.exit ], [ 0, %4 ]
+149:                                              ; preds = %4, %dissect_ancp_adj_msg.exit
+  %.0 = phi i32 [ %148, %dissect_ancp_adj_msg.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

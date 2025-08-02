@@ -1379,25 +1379,25 @@ define dso_local i32 @h5repack_init(ptr noundef initializes((0, 1032)) %0, i32 n
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i32 0, ptr %10, align 8
-  %invariant.gep = getelementptr i8, ptr %0, i64 24
   br label %12
 
 12:                                               ; preds = %3, %12
   %indvar = phi i64 [ 0, %3 ], [ %indvar.next, %12 ]
   %13 = mul nuw nsw i64 %indvar, 96
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %13
-  %14 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %11, i64 0, i64 %indvar
-  store i32 -1, ptr %14, align 8, !tbaa !34
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
-  store i64 0, ptr %15, align 8, !tbaa !67
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %gep, i8 0, i64 80, i1 false), !tbaa !21
+  %14 = getelementptr nuw i8, ptr %0, i64 %13
+  %scevgep = getelementptr nuw i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %11, i64 0, i64 %indvar
+  store i32 -1, ptr %15, align 8, !tbaa !34
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
+  store i64 0, ptr %16, align 8, !tbaa !67
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %scevgep, i8 0, i64 80, i1 false), !tbaa !21
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, 6
-  br i1 %exitcond.not, label %16, label %12, !llvm.loop !68
+  br i1 %exitcond.not, label %17, label %12, !llvm.loop !68
 
-16:                                               ; preds = %12
-  %17 = tail call i32 @options_table_init(ptr noundef nonnull %0) #10
-  ret i32 %17
+17:                                               ; preds = %12
+  %18 = tail call i32 @options_table_init(ptr noundef nonnull %0) #10
+  ret i32 %18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

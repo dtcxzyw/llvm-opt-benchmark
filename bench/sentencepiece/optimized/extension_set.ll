@@ -1140,8 +1140,8 @@ define void @_ZN6google8protobuf8internal12ExtensionSetD2Ev(ptr noundef nonnull 
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !61
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  invoke fastcc void @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNS2_D1EvE3$_0EET0_T_SC_SB_"(ptr %12, ptr nonnull %13)
-          to label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_D1EvE3$_0EET_S5_.exit" unwind label %.loopexit.split-lp
+  tail call fastcc void @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNS2_D1EvE3$_0EET0_T_SC_SB_"(ptr %12, ptr nonnull %13)
+  br label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_D1EvE3$_0EET_S5_.exit"
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -1152,18 +1152,15 @@ define void @_ZN6google8protobuf8internal12ExtensionSetD2Ev(ptr noundef nonnull 
   %.not6.i.i = icmp eq i16 %16, 0
   br i1 %.not6.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_D1EvE3$_0EET_S5_.exit", label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %14, %.noexc1
-  %.07.i.i = phi ptr [ %20, %.noexc1 ], [ %9, %14 ]
+.lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.i
+  %.07.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %9, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
-  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %19)
-          to label %.noexc1 unwind label %.loopexit
-
-.noexc1:                                          ; preds = %.lr.ph.i.i
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %19)
   %20 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 32
   %.not.i.i = icmp eq ptr %20, %18
   br i1 %.not.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_D1EvE3$_0EET_S5_.exit", label %.lr.ph.i.i, !llvm.loop !66
 
-"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_D1EvE3$_0EET_S5_.exit": ; preds = %.noexc1, %14, %10
+"_ZN6google8protobuf8internal12ExtensionSet7ForEachIZNS2_D1EvE3$_0EET_S5_.exit": ; preds = %.lr.ph.i.i, %14, %10
   %21 = load i16, ptr %5, align 8, !tbaa !59
   %22 = icmp ugt i16 %21, 256
   %23 = load ptr, ptr %8, align 8, !tbaa !34
@@ -1186,22 +1183,6 @@ define void @_ZN6google8protobuf8internal12ExtensionSetD2Ev(ptr noundef nonnull 
 
 30:                                               ; preds = %27, %26, %24, %1
   ret void
-
-.loopexit:                                        ; preds = %.lr.ph.i.i
-  %lpad.loopexit = landingpad { ptr, i32 }
-          catch ptr null
-  br label %31
-
-.loopexit.split-lp:                               ; preds = %10
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          catch ptr null
-  br label %31
-
-31:                                               ; preds = %.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %32 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %32) #28
-  unreachable
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
@@ -22630,8 +22611,8 @@ _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit181: ; preds = %607,
   ret i64 %.20
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %3 = load i8, ptr %2, align 1, !tbaa !98, !range !99, !noundef !100
   %4 = trunc nuw i8 %3 to i1
@@ -23775,8 +23756,8 @@ declare void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr noundef nonnul
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #20
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNS2_D1EvE3$_0EET0_T_SC_SB_"(ptr readonly %0, ptr readnone captures(address) %1) unnamed_addr #8 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @"_ZN6google8protobuf8internal12ExtensionSet7ForEachISt17_Rb_tree_iteratorISt4pairIKiNS2_9ExtensionEEEZNS2_D1EvE3$_0EET0_T_SC_SB_"(ptr readonly %0, ptr readnone captures(address) %1) unnamed_addr #10 align 2 {
   %.not5 = icmp eq ptr %0, %1
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 

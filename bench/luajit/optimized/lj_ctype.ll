@@ -794,15 +794,15 @@ ctype_prepstr.exit:                               ; preds = %._crit_edge.i, %23,
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 48
   br label %41
 
-41:                                               ; preds = %ctype_prepqual.exit.i, %ctype_prepstr.exit
-  %.092.i = phi i32 [ 0, %ctype_prepstr.exit ], [ %.294.i, %ctype_prepqual.exit.i ]
-  %.090.i = phi i32 [ 0, %ctype_prepstr.exit ], [ %.2.i, %ctype_prepqual.exit.i ]
-  %.0.i11 = phi ptr [ %31, %ctype_prepstr.exit ], [ %518, %ctype_prepqual.exit.i ]
+41:                                               ; preds = %ctype_appc.exit252.i, %ctype_prepstr.exit
+  %.092.i = phi i32 [ 0, %ctype_prepstr.exit ], [ %.294.i, %ctype_appc.exit252.i ]
+  %.090.i = phi i32 [ 0, %ctype_prepstr.exit ], [ %.2.i, %ctype_appc.exit252.i ]
+  %.0.i11 = phi ptr [ %31, %ctype_prepstr.exit ], [ %518, %ctype_appc.exit252.i ]
   %42 = load i32, ptr %.0.i11, align 8, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !29
   %45 = lshr i32 %42, 28
-  switch i32 %45, label %ctype_prepqual.exit.i [
+  switch i32 %45, label %ctype_appc.exit252.i [
     i32 0, label %46
     i32 4, label %261
     i32 1, label %306
@@ -1597,7 +1597,7 @@ ctype_prepstr.exit.i199.i:                        ; preds = %._crit_edge.i.i198.
   %327 = icmp eq i32 %326, 65536
   %328 = select i1 %327, i32 %44, i32 0
   %spec.select.i = or i32 %328, %.090.i
-  br label %ctype_prepqual.exit.i
+  br label %ctype_appc.exit252.i
 
 329:                                              ; preds = %41
   %330 = and i32 %42, 8388608
@@ -1623,11 +1623,11 @@ ctype_prepstr.exit.i199.i:                        ; preds = %._crit_edge.i.i198.
   %337 = or i32 %42, %.090.i
   %338 = and i32 %337, 16777216
   %.not.i217.i = icmp eq i32 %338, 0
-  %.pre339.pre.pre.i = load ptr, ptr %5, align 8, !tbaa !55
+  %.pre335.pre.pre.i = load ptr, ptr %5, align 8, !tbaa !55
   br i1 %.not.i217.i, label %ctype_prepstr.exit.i224.i, label %339
 
 339:                                              ; preds = %336
-  %340 = icmp ugt ptr %38, %.pre339.pre.pre.i
+  %340 = icmp ugt ptr %38, %.pre335.pre.pre.i
   br i1 %340, label %341, label %342
 
 341:                                              ; preds = %339
@@ -1640,12 +1640,12 @@ ctype_prepstr.exit.i199.i:                        ; preds = %._crit_edge.i.i198.
   br i1 %.not.i.i218.i, label %346, label %344
 
 344:                                              ; preds = %342
-  %345 = getelementptr inbounds i8, ptr %.pre339.pre.pre.i, i64 -1
+  %345 = getelementptr inbounds i8, ptr %.pre335.pre.pre.i, i64 -1
   store i8 32, ptr %345, align 1, !tbaa !45
   br label %346
 
 346:                                              ; preds = %344, %342
-  %.0.i.i219.i = phi ptr [ %345, %344 ], [ %.pre339.pre.pre.i, %342 ]
+  %.0.i.i219.i = phi ptr [ %345, %344 ], [ %.pre335.pre.pre.i, %342 ]
   store i32 1, ptr %17, align 8, !tbaa !69
   %347 = getelementptr inbounds i8, ptr %.0.i.i219.i, i64 -8
   br label %.lr.ph.i.i220.i
@@ -1665,13 +1665,13 @@ ctype_prepstr.exit.i199.i:                        ; preds = %._crit_edge.i.i198.
   br label %ctype_prepstr.exit.i224.i
 
 ctype_prepstr.exit.i224.i:                        ; preds = %._crit_edge.i.i223.i, %341, %336
-  %.pre339.pre.i = phi ptr [ %347, %._crit_edge.i.i223.i ], [ %.pre339.pre.pre.i, %341 ], [ %.pre339.pre.pre.i, %336 ]
+  %.pre335.pre.i = phi ptr [ %347, %._crit_edge.i.i223.i ], [ %.pre335.pre.pre.i, %341 ], [ %.pre335.pre.pre.i, %336 ]
   %352 = and i32 %337, 33554432
   %.not3.i225.i = icmp eq i32 %352, 0
   br i1 %.not3.i225.i, label %ctype_prepqual.exit232.i, label %353
 
 353:                                              ; preds = %ctype_prepstr.exit.i224.i
-  %354 = icmp ugt ptr %39, %.pre339.pre.i
+  %354 = icmp ugt ptr %39, %.pre335.pre.i
   br i1 %354, label %355, label %356
 
 355:                                              ; preds = %353
@@ -1684,12 +1684,12 @@ ctype_prepstr.exit.i224.i:                        ; preds = %._crit_edge.i.i223.
   br i1 %.not.i4.i226.i, label %360, label %358
 
 358:                                              ; preds = %356
-  %359 = getelementptr inbounds i8, ptr %.pre339.pre.i, i64 -1
+  %359 = getelementptr inbounds i8, ptr %.pre335.pre.i, i64 -1
   store i8 32, ptr %359, align 1, !tbaa !45
   br label %360
 
 360:                                              ; preds = %358, %356
-  %.0.i5.i227.i = phi ptr [ %359, %358 ], [ %.pre339.pre.i, %356 ]
+  %.0.i5.i227.i = phi ptr [ %359, %358 ], [ %.pre335.pre.i, %356 ]
   store i32 1, ptr %17, align 8, !tbaa !69
   %361 = getelementptr inbounds i8, ptr %.0.i5.i227.i, i64 -5
   br label %.lr.ph.i6.i228.i
@@ -1709,12 +1709,12 @@ ctype_prepstr.exit.i224.i:                        ; preds = %._crit_edge.i.i223.
   br label %ctype_prepqual.exit232.i
 
 ctype_prepqual.exit232.i:                         ; preds = %._crit_edge.i9.i231.i, %355, %ctype_prepstr.exit.i224.i
-  %.pre339.i = phi ptr [ %.pre339.pre.i, %ctype_prepstr.exit.i224.i ], [ %.pre339.pre.i, %355 ], [ %361, %._crit_edge.i9.i231.i ]
+  %.pre335.i = phi ptr [ %.pre335.pre.i, %ctype_prepstr.exit.i224.i ], [ %.pre335.pre.i, %355 ], [ %361, %._crit_edge.i9.i231.i ]
   %366 = icmp eq i32 %44, 4
   br i1 %366, label %367, label %ctype_prepstr.exit239.i
 
 367:                                              ; preds = %ctype_prepqual.exit232.i
-  %368 = icmp ugt ptr %40, %.pre339.i
+  %368 = icmp ugt ptr %40, %.pre335.i
   br i1 %368, label %369, label %370
 
 369:                                              ; preds = %367
@@ -1727,12 +1727,12 @@ ctype_prepqual.exit232.i:                         ; preds = %._crit_edge.i9.i231
   br i1 %.not.i233.i, label %374, label %372
 
 372:                                              ; preds = %370
-  %373 = getelementptr inbounds i8, ptr %.pre339.i, i64 -1
+  %373 = getelementptr inbounds i8, ptr %.pre335.i, i64 -1
   store i8 32, ptr %373, align 1, !tbaa !45
   br label %374
 
 374:                                              ; preds = %372, %370
-  %.0.i234.i = phi ptr [ %373, %372 ], [ %.pre339.i, %370 ]
+  %.0.i234.i = phi ptr [ %373, %372 ], [ %.pre335.i, %370 ]
   store i32 1, ptr %17, align 8, !tbaa !69
   %375 = getelementptr inbounds i8, ptr %.0.i234.i, i64 -7
   br label %.lr.ph.i235.i
@@ -1752,7 +1752,7 @@ ctype_prepqual.exit232.i:                         ; preds = %._crit_edge.i9.i231
   br label %ctype_prepstr.exit239.i
 
 ctype_prepstr.exit239.i:                          ; preds = %._crit_edge.i238.i, %369, %ctype_prepqual.exit232.i
-  %380 = phi ptr [ %375, %._crit_edge.i238.i ], [ %.pre339.i, %369 ], [ %.pre339.i, %ctype_prepqual.exit232.i ]
+  %380 = phi ptr [ %375, %._crit_edge.i238.i ], [ %.pre335.i, %369 ], [ %.pre335.i, %ctype_prepqual.exit232.i ]
   %.not.i240.i = icmp ult ptr %32, %380
   br i1 %.not.i240.i, label %382, label %381
 
@@ -1768,7 +1768,7 @@ ctype_prepstr.exit239.i:                          ; preds = %._crit_edge.i238.i,
 
 ctype_prepc.exit216.i:                            ; preds = %382, %381, %334, %333
   store i32 1, ptr %17, align 8, !tbaa !69
-  br label %ctype_prepqual.exit.i
+  br label %ctype_appc.exit252.i
 
 384:                                              ; preds = %41
   %385 = and i32 %42, -67108864
@@ -1886,11 +1886,11 @@ ctype_appnum.exit.i:                              ; preds = %.preheader.preheade
 421:                                              ; preds = %ctype_appc.exit246.i
   %422 = and i32 %42, 1048576
   %.not102.i = icmp eq i32 %422, 0
-  %.pre338.i = load ptr, ptr %10, align 8, !tbaa !51
+  %.pre334.i = load ptr, ptr %10, align 8, !tbaa !51
   br i1 %.not102.i, label %ctype_appc.exit250.i, label %423
 
 423:                                              ; preds = %421
-  %.not.i249.i = icmp ult ptr %.pre338.i, %33
+  %.not.i249.i = icmp ult ptr %.pre334.i, %33
   br i1 %.not.i249.i, label %425, label %424
 
 424:                                              ; preds = %423
@@ -1898,26 +1898,26 @@ ctype_appnum.exit.i:                              ; preds = %.preheader.preheade
   br label %ctype_appc.exit250.i
 
 425:                                              ; preds = %423
-  %426 = getelementptr inbounds nuw i8, ptr %.pre338.i, i64 1
+  %426 = getelementptr inbounds nuw i8, ptr %.pre334.i, i64 1
   store ptr %426, ptr %10, align 8, !tbaa !51
-  store i8 63, ptr %.pre338.i, align 1, !tbaa !45
-  %.pre337.i = load ptr, ptr %10, align 8, !tbaa !51
+  store i8 63, ptr %.pre334.i, align 1, !tbaa !45
+  %.pre333.i = load ptr, ptr %10, align 8, !tbaa !51
   br label %ctype_appc.exit250.i
 
 ctype_appc.exit250.i:                             ; preds = %425, %424, %421, %ctype_appnum.exit.i
-  %427 = phi ptr [ %.pre337.i, %425 ], [ %.pre338.i, %424 ], [ %.pre338.i, %421 ], [ %420, %ctype_appnum.exit.i ]
+  %427 = phi ptr [ %.pre333.i, %425 ], [ %.pre334.i, %424 ], [ %.pre334.i, %421 ], [ %420, %ctype_appnum.exit.i ]
   %.not.i251.i = icmp ult ptr %427, %33
   br i1 %.not.i251.i, label %429, label %428
 
 428:                                              ; preds = %ctype_appc.exit250.i
   store i32 0, ptr %16, align 4, !tbaa !68
-  br label %ctype_prepqual.exit.i
+  br label %ctype_appc.exit252.i
 
 429:                                              ; preds = %ctype_appc.exit250.i
   %430 = getelementptr inbounds nuw i8, ptr %427, i64 1
   store ptr %430, ptr %10, align 8, !tbaa !51
   store i8 93, ptr %427, align 1, !tbaa !45
-  br label %ctype_prepqual.exit.i
+  br label %ctype_appc.exit252.i
 
 431:                                              ; preds = %384
   %432 = and i32 %42, 67108864
@@ -1926,11 +1926,11 @@ ctype_appc.exit250.i:                             ; preds = %425, %424, %421, %c
 
 433:                                              ; preds = %431
   %434 = icmp eq i32 %44, 8
-  %.pre336.i = load ptr, ptr %5, align 8, !tbaa !55
+  %.pre332.i = load ptr, ptr %5, align 8, !tbaa !55
   br i1 %434, label %435, label %ctype_prepstr.exit259.i
 
 435:                                              ; preds = %433
-  %436 = icmp ugt ptr %39, %.pre336.i
+  %436 = icmp ugt ptr %39, %.pre332.i
   br i1 %436, label %437, label %438
 
 437:                                              ; preds = %435
@@ -1943,12 +1943,12 @@ ctype_appc.exit250.i:                             ; preds = %425, %424, %421, %c
   br i1 %.not.i253.i, label %442, label %440
 
 440:                                              ; preds = %438
-  %441 = getelementptr inbounds i8, ptr %.pre336.i, i64 -1
+  %441 = getelementptr inbounds i8, ptr %.pre332.i, i64 -1
   store i8 32, ptr %441, align 1, !tbaa !45
   br label %442
 
 442:                                              ; preds = %440, %438
-  %.0.i254.i = phi ptr [ %441, %440 ], [ %.pre336.i, %438 ]
+  %.0.i254.i = phi ptr [ %441, %440 ], [ %.pre332.i, %438 ]
   store i32 1, ptr %17, align 8, !tbaa !69
   %443 = getelementptr inbounds i8, ptr %.0.i254.i, i64 -5
   br label %.lr.ph.i255.i
@@ -1968,7 +1968,7 @@ ctype_appc.exit250.i:                             ; preds = %425, %424, %421, %c
   br label %ctype_prepstr.exit259.i
 
 ctype_prepstr.exit259.i:                          ; preds = %._crit_edge.i258.i, %437, %433
-  %448 = phi ptr [ %443, %._crit_edge.i258.i ], [ %.pre336.i, %437 ], [ %.pre336.i, %433 ]
+  %448 = phi ptr [ %443, %._crit_edge.i258.i ], [ %.pre332.i, %437 ], [ %.pre332.i, %433 ]
   %449 = icmp ugt ptr %40, %448
   br i1 %449, label %ctype_repr.exit.thread.sink.split, label %450
 
@@ -2074,7 +2074,7 @@ ctype_prepnum.exit278.i:                          ; preds = %482, %476
 
 485:                                              ; preds = %ctype_prepnum.exit278.i
   store i32 0, ptr %16, align 4, !tbaa !68
-  br label %ctype_prepqual.exit.i
+  br label %ctype_appc.exit252.i
 
 486:                                              ; preds = %ctype_prepnum.exit278.i
   %487 = load i32, ptr %17, align 8, !tbaa !69
@@ -2104,7 +2104,7 @@ ctype_prepnum.exit278.i:                          ; preds = %482, %476
 
 ._crit_edge.i284.i:                               ; preds = %.lr.ph.i281.i
   store ptr %491, ptr %5, align 8, !tbaa !55
-  br label %ctype_prepqual.exit.i
+  br label %ctype_appc.exit252.i
 
 496:                                              ; preds = %41
   store i32 1, ptr %17, align 8, !tbaa !69
@@ -2164,15 +2164,15 @@ ctype_appc.exit291.i:                             ; preds = %508, %507
 
 511:                                              ; preds = %ctype_appc.exit291.i
   store i32 0, ptr %16, align 4, !tbaa !68
-  br label %ctype_prepqual.exit.i
+  br label %ctype_appc.exit252.i
 
 512:                                              ; preds = %ctype_appc.exit291.i
   %513 = getelementptr inbounds nuw i8, ptr %510, i64 1
   store ptr %513, ptr %10, align 8, !tbaa !51
   store i8 41, ptr %510, align 1, !tbaa !45
-  br label %ctype_prepqual.exit.i
+  br label %ctype_appc.exit252.i
 
-ctype_prepqual.exit.i:                            ; preds = %512, %511, %._crit_edge.i284.i, %485, %429, %428, %ctype_prepc.exit216.i, %325, %41
+ctype_appc.exit252.i:                             ; preds = %512, %511, %._crit_edge.i284.i, %485, %429, %428, %ctype_prepc.exit216.i, %325, %41
   %.294.i = phi i32 [ %.092.i, %41 ], [ 1, %ctype_prepc.exit216.i ], [ %.092.i, %325 ], [ 0, %428 ], [ 0, %429 ], [ %.092.i, %485 ], [ %.092.i, %._crit_edge.i284.i ], [ 0, %511 ], [ 0, %512 ]
   %.2.i = phi i32 [ %.090.i, %41 ], [ 0, %ctype_prepc.exit216.i ], [ %spec.select.i, %325 ], [ %.090.i, %428 ], [ %.090.i, %429 ], [ %.090.i, %485 ], [ %.090.i, %._crit_edge.i284.i ], [ %.090.i, %511 ], [ %.090.i, %512 ]
   %514 = load ptr, ptr %14, align 8, !tbaa !66

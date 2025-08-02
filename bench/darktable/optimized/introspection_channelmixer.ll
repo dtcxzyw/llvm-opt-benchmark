@@ -1102,7 +1102,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %or.cond = select i1 %41, i1 true, i1 %42
   %43 = fcmp reassoc nsz arcp contract afn une float %40, 0.000000e+00
   %or.cond78 = select i1 %or.cond, i1 true, i1 %43
-  br i1 %or.cond78, label %.thread, label %73
+  br i1 %or.cond78, label %.thread, label %74
 
 44:                                               ; preds = %.preheader80, %44
   %indvars.iv96 = phi i64 [ 3, %.preheader80 ], [ %indvars.iv.next97, %44 ]
@@ -1130,10 +1130,6 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
   br label %56
 
-.preheader79:                                     ; preds = %56
-  %invariant.gep = getelementptr i8, ptr %7, i64 36
-  br label %.preheader
-
 56:                                               ; preds = %.thread, %56
   %indvars.iv102 = phi i64 [ 0, %.thread ], [ %indvars.iv.next103, %56 ]
   %57 = getelementptr inbounds nuw [9 x float], ptr %10, i64 0, i64 %indvars.iv102
@@ -1153,53 +1149,54 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   store float %69, ptr %70, align 4, !tbaa !6
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 3
-  br i1 %exitcond105.not, label %.preheader79, label %56
+  br i1 %exitcond105.not, label %.preheader, label %56
 
-.preheader:                                       ; preds = %.preheader79, %.preheader
-  %indvar = phi i64 [ 0, %.preheader79 ], [ %indvar.next, %.preheader ]
+.preheader:                                       ; preds = %56, %.preheader
+  %indvar = phi i64 [ %indvar.next, %.preheader ], [ 0, %56 ]
   %71 = mul nuw nsw i64 %indvar, 12
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %71
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep, ptr noundef nonnull align 16 dereferenceable(12) %5, i64 12, i1 false), !tbaa !6
+  %72 = getelementptr i8, ptr %7, i64 %71
+  %scevgep = getelementptr i8, ptr %72, i64 36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 16 dereferenceable(12) %5, i64 12, i1 false), !tbaa !6
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond109.not = icmp eq i64 %indvar.next, 3
-  br i1 %exitcond109.not, label %72, label %.preheader
+  br i1 %exitcond109.not, label %73, label %.preheader
 
-72:                                               ; preds = %.preheader
+73:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
-  br label %73
+  br label %74
 
-73:                                               ; preds = %34, %72
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %75 = load i32, ptr %74, align 4, !tbaa !66
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %79
+74:                                               ; preds = %34, %73
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %76 = load i32, ptr %75, align 4, !tbaa !66
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %80
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store i32 2, ptr %78, align 4, !tbaa !29
-  br label %85
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store i32 2, ptr %79, align 4, !tbaa !29
+  br label %86
 
-79:                                               ; preds = %73
+80:                                               ; preds = %74
   %.not = icmp eq i32 %33, 0
-  %80 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  br i1 %.not, label %82, label %81
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  br i1 %.not, label %83, label %82
 
-81:                                               ; preds = %79
-  store i32 3, ptr %80, align 4, !tbaa !29
-  br label %85
+82:                                               ; preds = %80
+  store i32 3, ptr %81, align 4, !tbaa !29
+  br label %86
 
-82:                                               ; preds = %79
-  br i1 %or.cond78, label %83, label %84
+83:                                               ; preds = %80
+  br i1 %or.cond78, label %84, label %85
 
-83:                                               ; preds = %82
-  store i32 1, ptr %80, align 4, !tbaa !29
-  br label %85
+84:                                               ; preds = %83
+  store i32 1, ptr %81, align 4, !tbaa !29
+  br label %86
 
-84:                                               ; preds = %82
-  store i32 0, ptr %80, align 4, !tbaa !29
-  br label %85
+85:                                               ; preds = %83
+  store i32 0, ptr %81, align 4, !tbaa !29
+  br label %86
 
-85:                                               ; preds = %81, %84, %83, %77
+86:                                               ; preds = %82, %85, %84, %78
   ret void
 }
 

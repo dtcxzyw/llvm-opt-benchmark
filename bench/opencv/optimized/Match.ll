@@ -81,27 +81,31 @@ define hidden void @_ZN5logos5MatchC2EPNS_9PointPairES2_(ptr noundef nonnull ali
   %41 = fptrunc double %40 to float
   %42 = fpext float %41 to double
   %43 = fcmp ogt double %42, 0x401921FB54442D18
-  br i1 %43, label %.lr.ph.i.i, label %_ZN5logos5Match17setRelOrientationEv.exit, !llvm.loop !31
+  br i1 %43, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !31
 
-_ZN5logos5Match17setRelOrientationEv.exit:        ; preds = %.lr.ph.i.i, %3
-  %.0.lcssa.i.i = phi float [ %36, %3 ], [ %41, %.lr.ph.i.i ]
-  %44 = tail call noundef float @llvm.fabs.f32(float %.0.lcssa.i.i)
-  %45 = fpext float %44 to double
-  %46 = fsub double 0x401921FB54442D18, %45
-  %47 = fptrunc double %46 to float
-  %48 = tail call noundef float @llvm.fabs.f32(float %47)
-  %49 = fcmp olt float %48, %44
-  %.sroa.speculated.i.i = select i1 %49, float %48, float %44
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.sroa.speculated.i.i, ptr %50, align 8, !tbaa !33
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %52 = load float, ptr %51, align 8, !tbaa !34
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %54 = load float, ptr %53, align 8, !tbaa !34
-  %55 = fsub float %52, %54
-  %56 = tail call noundef float @llvm.fabs.f32(float %55)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %56, ptr %57, align 4, !tbaa !35
+._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
+  %44 = tail call float @llvm.fabs.f32(float %41)
+  %.pre.i = fpext float %44 to double
+  br label %_ZN5logos5Match17setRelOrientationEv.exit
+
+_ZN5logos5Match17setRelOrientationEv.exit:        ; preds = %3, %._crit_edge.loopexit.i.i
+  %.pre-phi.i = phi double [ %37, %3 ], [ %.pre.i, %._crit_edge.loopexit.i.i ]
+  %.0.lcssa.i.i = phi float [ %36, %3 ], [ %44, %._crit_edge.loopexit.i.i ]
+  %45 = fsub double 0x401921FB54442D18, %.pre-phi.i
+  %46 = fptrunc double %45 to float
+  %47 = tail call noundef float @llvm.fabs.f32(float %46)
+  %48 = fcmp olt float %47, %.0.lcssa.i.i
+  %.sroa.speculated.i.i = select i1 %48, float %47, float %.0.lcssa.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.sroa.speculated.i.i, ptr %49, align 8, !tbaa !33
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %51 = load float, ptr %50, align 8, !tbaa !34
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %53 = load float, ptr %52, align 8, !tbaa !34
+  %54 = fsub float %51, %53
+  %55 = tail call noundef float @llvm.fabs.f32(float %54)
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %55, ptr %56, align 4, !tbaa !35
   tail call void @_ZN5logos5Match24interOrientationAndScaleEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   ret void
 }
@@ -165,19 +169,23 @@ define hidden void @_ZN5logos5Match17setRelOrientationEv(ptr noundef nonnull ali
   %15 = fptrunc double %14 to float
   %16 = fpext float %15 to double
   %17 = fcmp ogt double %16, 0x401921FB54442D18
-  br i1 %17, label %.lr.ph.i, label %_ZN5logos5Match12angleAbsDiffEff.exit, !llvm.loop !31
+  br i1 %17, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !31
 
-_ZN5logos5Match12angleAbsDiffEff.exit:            ; preds = %.lr.ph.i, %1
-  %.0.lcssa.i = phi float [ %10, %1 ], [ %15, %.lr.ph.i ]
-  %18 = tail call noundef float @llvm.fabs.f32(float %.0.lcssa.i)
-  %19 = fpext float %18 to double
-  %20 = fsub double 0x401921FB54442D18, %19
-  %21 = fptrunc double %20 to float
-  %22 = tail call noundef float @llvm.fabs.f32(float %21)
-  %23 = fcmp olt float %22, %18
-  %.sroa.speculated.i = select i1 %23, float %22, float %18
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %.sroa.speculated.i, ptr %24, align 8, !tbaa !33
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %18 = tail call float @llvm.fabs.f32(float %15)
+  %.pre = fpext float %18 to double
+  br label %_ZN5logos5Match12angleAbsDiffEff.exit
+
+_ZN5logos5Match12angleAbsDiffEff.exit:            ; preds = %1, %._crit_edge.loopexit.i
+  %.pre-phi = phi double [ %11, %1 ], [ %.pre, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi float [ %10, %1 ], [ %18, %._crit_edge.loopexit.i ]
+  %19 = fsub double 0x401921FB54442D18, %.pre-phi
+  %20 = fptrunc double %19 to float
+  %21 = tail call noundef float @llvm.fabs.f32(float %20)
+  %22 = fcmp olt float %21, %.0.lcssa.i
+  %.sroa.speculated.i = select i1 %22, float %21, float %.0.lcssa.i
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %.sroa.speculated.i, ptr %23, align 8, !tbaa !33
   ret void
 }
 
@@ -254,25 +262,29 @@ define hidden void @_ZN5logos5Match24interOrientationAndScaleEv(ptr noundef nonn
   %44 = fptrunc double %43 to float
   %45 = fpext float %44 to double
   %46 = fcmp ogt double %45, 0x401921FB54442D18
-  br i1 %46, label %.lr.ph.i, label %_ZN5logos5Match12angleAbsDiffEff.exit, !llvm.loop !31
+  br i1 %46, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !31
 
-_ZN5logos5Match12angleAbsDiffEff.exit:            ; preds = %.lr.ph.i, %1
-  %.0.lcssa.i = phi float [ %39, %1 ], [ %44, %.lr.ph.i ]
-  %47 = tail call noundef float @llvm.fabs.f32(float %.0.lcssa.i)
-  %48 = fpext float %47 to double
-  %49 = fsub double 0x401921FB54442D18, %48
-  %50 = fptrunc double %49 to float
-  %51 = tail call noundef float @llvm.fabs.f32(float %50)
-  %52 = fcmp olt float %51, %47
-  %.sroa.speculated.i = select i1 %52, float %51, float %47
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %.sroa.speculated.i, ptr %53, align 8, !tbaa !39
-  %54 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %55 = load float, ptr %54, align 8, !tbaa !34
-  %56 = fsub float %55, %33
-  %57 = tail call noundef float @llvm.fabs.f32(float %56)
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %57, ptr %58, align 4, !tbaa !40
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %47 = tail call float @llvm.fabs.f32(float %44)
+  %.pre = fpext float %47 to double
+  br label %_ZN5logos5Match12angleAbsDiffEff.exit
+
+_ZN5logos5Match12angleAbsDiffEff.exit:            ; preds = %1, %._crit_edge.loopexit.i
+  %.pre-phi = phi double [ %40, %1 ], [ %.pre, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi float [ %39, %1 ], [ %47, %._crit_edge.loopexit.i ]
+  %48 = fsub double 0x401921FB54442D18, %.pre-phi
+  %49 = fptrunc double %48 to float
+  %50 = tail call noundef float @llvm.fabs.f32(float %49)
+  %51 = fcmp olt float %50, %.0.lcssa.i
+  %.sroa.speculated.i = select i1 %51, float %50, float %.0.lcssa.i
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %.sroa.speculated.i, ptr %52, align 8, !tbaa !39
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %54 = load float, ptr %53, align 8, !tbaa !34
+  %55 = fsub float %54, %33
+  %56 = tail call noundef float @llvm.fabs.f32(float %55)
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %56, ptr %57, align 4, !tbaa !40
   ret void
 }
 
@@ -290,17 +302,20 @@ define hidden noundef float @_ZN5logos5Match12angleAbsDiffEff(ptr noundef nonnul
   %10 = fptrunc double %9 to float
   %11 = fpext float %10 to double
   %12 = fcmp ogt double %11, 0x401921FB54442D18
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %12, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0.lcssa = phi float [ %5, %3 ], [ %10, %.lr.ph ]
-  %13 = tail call noundef float @llvm.fabs.f32(float %.0.lcssa)
-  %14 = fpext float %13 to double
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %13 = tail call float @llvm.fabs.f32(float %10)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
+  %.0.lcssa = phi float [ %5, %3 ], [ %13, %._crit_edge.loopexit ]
+  %14 = fpext float %.0.lcssa to double
   %15 = fsub double 0x401921FB54442D18, %14
   %16 = fptrunc double %15 to float
   %17 = tail call noundef float @llvm.fabs.f32(float %16)
-  %18 = fcmp olt float %17, %13
-  %.sroa.speculated = select i1 %18, float %17, float %13
+  %18 = fcmp olt float %17, %.0.lcssa
+  %.sroa.speculated = select i1 %18, float %17, float %.0.lcssa
   ret float %.sroa.speculated
 }
 

@@ -4135,7 +4135,7 @@ _ZN4llvm8dyn_castINS_6DITypeEKNS_7DIScopeEEEDcPT0_.exit: ; preds = %3, %3, %3, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9DwarfUnit20getOrCreateNameSpaceEPKNS_11DINamespaceE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm9DwarfUnit20getOrCreateNameSpaceEPKNS_11DINamespaceE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2
@@ -4286,7 +4286,7 @@ _ZNK4llvm11DINamespace8getScopeEv.exit33:         ; preds = %64, %67
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9DwarfUnit24getOrCreateSubprogramDIEEPKNS_12DISubprogramEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm9DwarfUnit24getOrCreateSubprogramDIEEPKNS_12DISubprogramEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   br i1 %2, label %4, label %6
 
 4:                                                ; preds = %3
@@ -4380,7 +4380,7 @@ _ZNK4llvm12DISubprogram14getDeclarationEv.exit:   ; preds = %31, %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9DwarfUnit17getOrCreateModuleEPKNS_8DIModuleE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm9DwarfUnit17getOrCreateModuleEPKNS_8DIModuleE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DIEValue", align 8
   %4 = alloca %"class.llvm::DIEValue", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 -16
@@ -4899,7 +4899,7 @@ _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9DwarfUnit13createTypeDIEEPKNS_15DICompositeTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm9DwarfUnit13createTypeDIEEPKNS_15DICompositeTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2

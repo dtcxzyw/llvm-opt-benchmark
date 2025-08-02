@@ -886,8 +886,8 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit3:       ; preds = %18, %24
   resume { ptr, i32 } %19
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt13TripletHelper17GetNumberEntries_ERKNS_25ExpandedMultiVectorMatrixE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @_ZN5Ipopt13TripletHelper17GetNumberEntries_ERKNS_25ExpandedMultiVectorMatrixE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -1082,7 +1082,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -1542,7 +1542,7 @@ _ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_10GenTMatrixEiiPiS4_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_10GenTMatrixEiiPiS4_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #5 align 2 {
+define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_10GenTMatrixEiiPiS4_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #6 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -1577,7 +1577,7 @@ define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_10GenTMatrixEiiPiS4_(i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_10SymTMatrixEiiPiS4_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #5 align 2 {
+define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_10SymTMatrixEiiPiS4_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #6 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1726,7 +1726,7 @@ _ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit8:    ; preds = %22, %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_10DiagMatrixEiiPiS4_(i32 noundef %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #6 align 2 {
+define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_10DiagMatrixEiiPiS4_(i32 noundef %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #7 align 2 {
   %7 = icmp sgt i32 %0, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1755,7 +1755,7 @@ define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_10DiagMatrixEiiPiS4_(i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_14IdentityMatrixEiiPiS4_(i32 noundef %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #6 align 2 {
+define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_14IdentityMatrixEiiPiS4_(i32 noundef %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #7 align 2 {
   %7 = icmp sgt i32 %0, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1784,7 +1784,7 @@ define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_14IdentityMatrixEiiPiS4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_15ExpansionMatrixEiiPiS4_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #5 align 2 {
+define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_15ExpansionMatrixEiiPiS4_(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #6 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !157
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2405,8 +2405,8 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit8:       ; preds = %22, %28
   resume { ptr, i32 } %23
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_25ExpandedMultiVectorMatrixEiiPiS4_(i32 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5Ipopt13TripletHelper11FillRowCol_EiRKNS_25ExpandedMultiVectorMatrixEiiPiS4_(i32 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = add nsw i32 %2, 1
   %8 = add nsw i32 %3, 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2819,7 +2819,7 @@ _ZN5Ipopt13TripletHelper11FillValues_EiRKNS_10GenTMatrixEPd.exit: ; preds = %.lr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Ipopt13TripletHelper11FillValues_EiRKNS_10GenTMatrixEPd(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 align 2 {
+define void @_ZN5Ipopt13TripletHelper11FillValues_EiRKNS_10GenTMatrixEPd(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(89) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !207
   %6 = icmp sgt i32 %0, 0
@@ -2925,7 +2925,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit51:      ; preds = %30, %35
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !225, !noalias !228
   %.not.i.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i.i, label %116, label %43
+  br i1 %.not.i.i.i.i.i, label %118, label %43
 
 43:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit51
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -3008,7 +3008,6 @@ _ZNK5Ipopt12ScaledMatrix10RowScalingEv.exit55:    ; preds = %_ZN5Ipopt8SmartPtrI
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit57
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit57:      ; preds = %81, %86
-  %invariant.gep = getelementptr i8, ptr %68, i64 -8
   %90 = icmp sgt i32 %0, 0
   br i1 %90, label %.lr.ph, label %._crit_edge
 
@@ -3047,158 +3046,159 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit57:      ; preds = %81, %86
   %109 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %110 = load i32, ptr %109, align 4, !tbaa !144
   %111 = sext i32 %110 to i64
-  %gep = getelementptr double, ptr %invariant.gep, i64 %111
-  %112 = load double, ptr %gep, align 8, !tbaa !169
-  %113 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %112 = getelementptr double, ptr %68, i64 %111
+  %113 = getelementptr i8, ptr %112, i64 -8
   %114 = load double, ptr %113, align 8, !tbaa !169
-  %115 = fmul double %112, %114
-  store double %115, ptr %113, align 8, !tbaa !169
+  %115 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %116 = load double, ptr %115, align 8, !tbaa !169
+  %117 = fmul double %114, %116
+  store double %117, ptr %115, align 8, !tbaa !169
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %19
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !241
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit57
   tail call void @_ZdaPv(ptr noundef nonnull %68) #19
-  %.pre116 = load ptr, ptr %39, align 8, !tbaa !219, !noalias !242
-  br label %116
+  %.pre114 = load ptr, ptr %39, align 8, !tbaa !219, !noalias !242
+  br label %118
 
-116:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit51, %._crit_edge
-  %117 = phi ptr [ %40, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit51 ], [ %.pre116, %._crit_edge ]
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 40
-  %119 = load ptr, ptr %118, align 8, !tbaa !225, !noalias !245
-  %.not.i.i.i.i.i66 = icmp eq ptr %119, null
-  br i1 %.not.i.i.i.i.i66, label %181, label %120
+118:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit51, %._crit_edge
+  %119 = phi ptr [ %40, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit51 ], [ %.pre114, %._crit_edge ]
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
+  %121 = load ptr, ptr %120, align 8, !tbaa !225, !noalias !245
+  %.not.i.i.i.i.i66 = icmp eq ptr %121, null
+  br i1 %.not.i.i.i.i.i66, label %185, label %122
 
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %122 = load i32, ptr %121, align 8, !tbaa !42, !noalias !245
-  %123 = add nsw i32 %122, 1
-  store i32 %123, ptr %121, align 8, !tbaa !42, !noalias !242
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %125, label %130
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %124 = load i32, ptr %123, align 8, !tbaa !42, !noalias !245
+  %125 = add nsw i32 %124, 1
+  store i32 %125, ptr %123, align 8, !tbaa !42, !noalias !242
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %132
 
-125:                                              ; preds = %120
-  %126 = load ptr, ptr %119, align 8, !tbaa !43, !noalias !242
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %128 = load ptr, ptr %127, align 8, !noalias !242
-  tail call void %128(ptr noundef nonnull align 8 dereferenceable(205) %119) #17, !noalias !242
-  %.pre117 = load i32, ptr %121, align 8, !tbaa !42
-  %129 = add nsw i32 %.pre117, -1
-  br label %130
+127:                                              ; preds = %122
+  %128 = load ptr, ptr %121, align 8, !tbaa !43, !noalias !242
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %130 = load ptr, ptr %129, align 8, !noalias !242
+  tail call void %130(ptr noundef nonnull align 8 dereferenceable(205) %121) #17, !noalias !242
+  %.pre115 = load i32, ptr %123, align 8, !tbaa !42
+  %131 = add nsw i32 %.pre115, -1
+  br label %132
 
-130:                                              ; preds = %125, %120
-  %131 = phi i32 [ %129, %125 ], [ %122, %120 ]
-  store i32 %131, ptr %121, align 8, !tbaa !42
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %133, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit69
+132:                                              ; preds = %127, %122
+  %133 = phi i32 [ %131, %127 ], [ %124, %122 ]
+  store i32 %133, ptr %123, align 8, !tbaa !42
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit69
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %119, align 8, !tbaa !43
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %136 = load ptr, ptr %135, align 8
-  tail call void %136(ptr noundef nonnull align 8 dereferenceable(205) %119) #17
+135:                                              ; preds = %132
+  %136 = load ptr, ptr %121, align 8, !tbaa !43
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %138 = load ptr, ptr %137, align 8
+  tail call void %138(ptr noundef nonnull align 8 dereferenceable(205) %121) #17
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit69
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit69:      ; preds = %130, %133
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %138 = load ptr, ptr %137, align 8, !tbaa !53
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %140 = load i32, ptr %139, align 8, !tbaa !54
-  %141 = sext i32 %140 to i64
-  %142 = icmp slt i32 %140, 0
-  %143 = shl nsw i64 %141, 3
-  %144 = select i1 %142, i64 -1, i64 %143
-  %145 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %144) #20
-  %146 = load ptr, ptr %39, align 8, !tbaa !219, !noalias !250
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 40
-  %148 = load ptr, ptr %147, align 8, !tbaa !225, !noalias !253
-  %.not.i.i.i.i.i70 = icmp eq ptr %148, null
-  br i1 %.not.i.i.i.i.i70, label %_ZNK5Ipopt12ScaledMatrix13ColumnScalingEv.exit72, label %149
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit69:      ; preds = %132, %135
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %140 = load ptr, ptr %139, align 8, !tbaa !53
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  %142 = load i32, ptr %141, align 8, !tbaa !54
+  %143 = sext i32 %142 to i64
+  %144 = icmp slt i32 %142, 0
+  %145 = shl nsw i64 %143, 3
+  %146 = select i1 %144, i64 -1, i64 %145
+  %147 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %146) #20
+  %148 = load ptr, ptr %39, align 8, !tbaa !219, !noalias !250
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 40
+  %150 = load ptr, ptr %149, align 8, !tbaa !225, !noalias !253
+  %.not.i.i.i.i.i70 = icmp eq ptr %150, null
+  br i1 %.not.i.i.i.i.i70, label %_ZNK5Ipopt12ScaledMatrix13ColumnScalingEv.exit72, label %151
 
-149:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit69
-  %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %151 = load i32, ptr %150, align 8, !tbaa !42, !noalias !253
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %150, align 8, !tbaa !42, !noalias !250
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %154, label %_ZNK5Ipopt12ScaledMatrix13ColumnScalingEv.exit72
+151:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit69
+  %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %153 = load i32, ptr %152, align 8, !tbaa !42, !noalias !253
+  %154 = add nsw i32 %153, 1
+  store i32 %154, ptr %152, align 8, !tbaa !42, !noalias !250
+  %155 = icmp eq i32 %154, 0
+  br i1 %155, label %156, label %_ZNK5Ipopt12ScaledMatrix13ColumnScalingEv.exit72
 
-154:                                              ; preds = %149
-  %155 = load ptr, ptr %148, align 8, !tbaa !43, !noalias !250
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %157 = load ptr, ptr %156, align 8, !noalias !250
-  tail call void %157(ptr noundef nonnull align 8 dereferenceable(205) %148) #17, !noalias !250
+156:                                              ; preds = %151
+  %157 = load ptr, ptr %150, align 8, !tbaa !43, !noalias !250
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %159 = load ptr, ptr %158, align 8, !noalias !250
+  tail call void %159(ptr noundef nonnull align 8 dereferenceable(205) %150) #17, !noalias !250
   br label %_ZNK5Ipopt12ScaledMatrix13ColumnScalingEv.exit72
 
-_ZNK5Ipopt12ScaledMatrix13ColumnScalingEv.exit72: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit69, %149, %154
-  invoke void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32 noundef %140, ptr noundef nonnull align 8 dereferenceable(205) %148, ptr noundef nonnull %145)
-          to label %158 unwind label %168
+_ZNK5Ipopt12ScaledMatrix13ColumnScalingEv.exit72: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit69, %151, %156
+  invoke void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32 noundef %142, ptr noundef nonnull align 8 dereferenceable(205) %150, ptr noundef nonnull %147)
+          to label %160 unwind label %170
 
-158:                                              ; preds = %_ZNK5Ipopt12ScaledMatrix13ColumnScalingEv.exit72
-  %159 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %160 = load i32, ptr %159, align 8, !tbaa !42
-  %161 = add nsw i32 %160, -1
-  store i32 %161, ptr %159, align 8, !tbaa !42
-  %162 = icmp eq i32 %161, 0
-  br i1 %162, label %163, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit74
+160:                                              ; preds = %_ZNK5Ipopt12ScaledMatrix13ColumnScalingEv.exit72
+  %161 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %162 = load i32, ptr %161, align 8, !tbaa !42
+  %163 = add nsw i32 %162, -1
+  store i32 %163, ptr %161, align 8, !tbaa !42
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %165, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit74
 
-163:                                              ; preds = %158
-  %164 = load ptr, ptr %148, align 8, !tbaa !43
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %166 = load ptr, ptr %165, align 8
-  tail call void %166(ptr noundef nonnull align 8 dereferenceable(205) %148) #17
+165:                                              ; preds = %160
+  %166 = load ptr, ptr %150, align 8, !tbaa !43
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
+  %168 = load ptr, ptr %167, align 8
+  tail call void %168(ptr noundef nonnull align 8 dereferenceable(205) %150) #17
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit74
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit74:      ; preds = %158, %163
-  %invariant.gep105 = getelementptr i8, ptr %145, i64 -8
-  %167 = icmp sgt i32 %0, 0
-  br i1 %167, label %.lr.ph108, label %._crit_edge109
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit74:      ; preds = %160, %165
+  %169 = icmp sgt i32 %0, 0
+  br i1 %169, label %.lr.ph106, label %._crit_edge107
 
-168:                                              ; preds = %_ZNK5Ipopt12ScaledMatrix13ColumnScalingEv.exit72
-  %169 = landingpad { ptr, i32 }
+170:                                              ; preds = %_ZNK5Ipopt12ScaledMatrix13ColumnScalingEv.exit72
+  %171 = landingpad { ptr, i32 }
           cleanup
-  %170 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %171 = load i32, ptr %170, align 8, !tbaa !42
-  %172 = add nsw i32 %171, -1
-  store i32 %172, ptr %170, align 8, !tbaa !42
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59.sink.split, label %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59
+  %172 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %173 = load i32, ptr %172, align 8, !tbaa !42
+  %174 = add nsw i32 %173, -1
+  store i32 %174, ptr %172, align 8, !tbaa !42
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59.sink.split, label %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59
 
-.lr.ph108:                                        ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit74, %.lr.ph108
-  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.lr.ph108 ], [ 0, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit74 ]
-  %174 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv111
-  %175 = load i32, ptr %174, align 4, !tbaa !144
-  %176 = sext i32 %175 to i64
-  %gep106 = getelementptr double, ptr %invariant.gep105, i64 %176
-  %177 = load double, ptr %gep106, align 8, !tbaa !169
-  %178 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv111
-  %179 = load double, ptr %178, align 8, !tbaa !169
-  %180 = fmul double %177, %179
-  store double %180, ptr %178, align 8, !tbaa !169
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %19
-  br i1 %exitcond115.not, label %._crit_edge109, label %.lr.ph108, !llvm.loop !258
+.lr.ph106:                                        ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit74, %.lr.ph106
+  %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph106 ], [ 0, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit74 ]
+  %176 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv109
+  %177 = load i32, ptr %176, align 4, !tbaa !144
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr double, ptr %147, i64 %178
+  %180 = getelementptr i8, ptr %179, i64 -8
+  %181 = load double, ptr %180, align 8, !tbaa !169
+  %182 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv109
+  %183 = load double, ptr %182, align 8, !tbaa !169
+  %184 = fmul double %181, %183
+  store double %184, ptr %182, align 8, !tbaa !169
+  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
+  %exitcond113.not = icmp eq i64 %indvars.iv.next110, %19
+  br i1 %exitcond113.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !258
 
-._crit_edge109:                                   ; preds = %.lr.ph108, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit74
-  tail call void @_ZdaPv(ptr noundef nonnull %145) #19
-  br label %181
+._crit_edge107:                                   ; preds = %.lr.ph106, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit74
+  tail call void @_ZdaPv(ptr noundef nonnull %147) #19
+  br label %185
 
-181:                                              ; preds = %116, %._crit_edge109
+185:                                              ; preds = %118, %._crit_edge107
   tail call void @_ZdaPv(ptr noundef nonnull %23) #19
   tail call void @_ZdaPv(ptr noundef nonnull %24) #19
   ret void
 
-_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59.sink.split: ; preds = %168, %103, %97, %91
-  %.sink121 = phi ptr [ %5, %91 ], [ %25, %97 ], [ %71, %103 ], [ %148, %168 ]
-  %.pn.pn.ph = phi { ptr, i32 } [ %92, %91 ], [ %98, %97 ], [ %104, %103 ], [ %169, %168 ]
-  %182 = load ptr, ptr %.sink121, align 8, !tbaa !43
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  %184 = load ptr, ptr %183, align 8
-  tail call void %184(ptr noundef nonnull align 8 dereferenceable(69) %.sink121) #17
+_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59.sink.split: ; preds = %170, %103, %97, %91
+  %.sink119 = phi ptr [ %5, %91 ], [ %25, %97 ], [ %71, %103 ], [ %150, %170 ]
+  %.pn.pn.ph = phi { ptr, i32 } [ %92, %91 ], [ %98, %97 ], [ %104, %103 ], [ %171, %170 ]
+  %186 = load ptr, ptr %.sink119, align 8, !tbaa !43
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %188 = load ptr, ptr %187, align 8
+  tail call void %188(ptr noundef nonnull align 8 dereferenceable(69) %.sink119) #17
   br label %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59
 
-_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59:      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59.sink.split, %168, %103, %97, %91
-  %.pn.pn = phi { ptr, i32 } [ %92, %91 ], [ %98, %97 ], [ %104, %103 ], [ %169, %168 ], [ %.pn.pn.ph, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59.sink.split ]
+_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59:      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59.sink.split, %170, %103, %97, %91
+  %.pn.pn = phi { ptr, i32 } [ %92, %91 ], [ %98, %97 ], [ %104, %103 ], [ %171, %170 ], [ %.pn.pn.ph, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit59.sink.split ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3278,7 +3278,7 @@ _ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit40:   ; preds = %30, %35
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !225, !noalias !271
   %.not.i.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i.i, label %121, label %43
+  br i1 %.not.i.i.i.i.i, label %125, label %43
 
 43:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit40
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -3361,7 +3361,6 @@ _ZNK5Ipopt15SymScaledMatrix13RowColScalingEv.exit44: ; preds = %_ZN5Ipopt8SmartP
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit46
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit46:      ; preds = %81, %86
-  %invariant.gep = getelementptr i8, ptr %68, i64 -8
   %90 = icmp sgt i32 %0, 0
   br i1 %90, label %.lr.ph, label %._crit_edge
 
@@ -3400,38 +3399,40 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit46:      ; preds = %81, %86
   %109 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %110 = load i32, ptr %109, align 4, !tbaa !144
   %111 = sext i32 %110 to i64
-  %gep = getelementptr double, ptr %invariant.gep, i64 %111
-  %112 = load double, ptr %gep, align 8, !tbaa !169
-  %113 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %112 = getelementptr double, ptr %68, i64 %111
+  %113 = getelementptr i8, ptr %112, i64 -8
   %114 = load double, ptr %113, align 8, !tbaa !169
-  %115 = fmul double %112, %114
-  %116 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
-  %117 = load i32, ptr %116, align 4, !tbaa !144
-  %118 = sext i32 %117 to i64
-  %gep70 = getelementptr double, ptr %invariant.gep, i64 %118
-  %119 = load double, ptr %gep70, align 8, !tbaa !169
-  %120 = fmul double %115, %119
-  store double %120, ptr %113, align 8, !tbaa !169
+  %115 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %116 = load double, ptr %115, align 8, !tbaa !169
+  %117 = fmul double %114, %116
+  %118 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %119 = load i32, ptr %118, align 4, !tbaa !144
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr double, ptr %68, i64 %120
+  %122 = getelementptr i8, ptr %121, i64 -8
+  %123 = load double, ptr %122, align 8, !tbaa !169
+  %124 = fmul double %117, %123
+  store double %124, ptr %115, align 8, !tbaa !169
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %19
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !284
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit46
   tail call void @_ZdaPv(ptr noundef nonnull %68) #19
-  br label %121
+  br label %125
 
-121:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit40, %._crit_edge
+125:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit40, %._crit_edge
   tail call void @_ZdaPv(ptr noundef nonnull %23) #19
   tail call void @_ZdaPv(ptr noundef nonnull %24) #19
   ret void
 
 _ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit48.sink.split: ; preds = %103, %97, %91
-  %.sink76 = phi ptr [ %5, %91 ], [ %25, %97 ], [ %71, %103 ]
+  %.sink74 = phi ptr [ %5, %91 ], [ %25, %97 ], [ %71, %103 ]
   %.pn.pn.ph = phi { ptr, i32 } [ %92, %91 ], [ %98, %97 ], [ %104, %103 ]
-  %122 = load ptr, ptr %.sink76, align 8, !tbaa !43
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %124 = load ptr, ptr %123, align 8
-  tail call void %124(ptr noundef nonnull align 8 dereferenceable(80) %.sink76) #17
+  %126 = load ptr, ptr %.sink74, align 8, !tbaa !43
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load ptr, ptr %127, align 8
+  tail call void %128(ptr noundef nonnull align 8 dereferenceable(80) %.sink74) #17
   br label %_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit48
 
 _ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit48:   ; preds = %_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit48.sink.split, %103, %97, %91
@@ -3497,7 +3498,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit5:       ; preds = %19, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5Ipopt13TripletHelper11FillValues_EiRKNS_14IdentityMatrixEPd(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 align 2 {
+define void @_ZN5Ipopt13TripletHelper11FillValues_EiRKNS_14IdentityMatrixEPd(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load double, ptr %4, align 8, !tbaa !209
   %6 = icmp sgt i32 %0, 0
@@ -3520,7 +3521,7 @@ define void @_ZN5Ipopt13TripletHelper11FillValues_EiRKNS_14IdentityMatrixEPd(i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN5Ipopt13TripletHelper11FillValues_EiRKNS_15ExpansionMatrixEPd(i32 noundef %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 align 2 {
+define void @_ZN5Ipopt13TripletHelper11FillValues_EiRKNS_15ExpansionMatrixEPd(i32 noundef %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 align 2 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -4689,7 +4690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Ipopt14IpoptExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Ipopt14IpoptExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5Ipopt14IpoptExceptionE, i64 16), ptr %0, align 8, !tbaa !43
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !55
@@ -5273,7 +5274,7 @@ _ZN5Ipopt14IpoptExceptionD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Ipopt14IpoptExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Ipopt14IpoptExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5Ipopt14IpoptExceptionE, i64 16), ptr %0, align 8, !tbaa !43
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !55
@@ -5434,11 +5435,11 @@ attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold noreturn }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold noreturn }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -23,25 +23,25 @@ define internal range(i32 -2147483648, 1) i32 @chomp_filter(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !15
-  %invariant.gep = getelementptr i8, ptr %8, i64 -1
   br label %9
 
-9:                                                ; preds = %.lr.ph, %13
-  %10 = phi i32 [ %.promoted, %.lr.ph ], [ %14, %13 ]
+9:                                                ; preds = %.lr.ph, %15
+  %10 = phi i32 [ %.promoted, %.lr.ph ], [ %16, %15 ]
   %11 = zext nneg i32 %10 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %11
-  %12 = load i8, ptr %gep, align 1, !tbaa !16
-  %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %13, label %.critedge
+  %12 = getelementptr i8, ptr %8, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -1
+  %14 = load i8, ptr %13, align 1, !tbaa !16
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %15, label %.critedge
 
-13:                                               ; preds = %9
-  %14 = add nsw i32 %10, -1
-  store i32 %14, ptr %5, align 8, !tbaa !4
-  %15 = icmp sgt i32 %10, 1
-  br i1 %15, label %9, label %.critedge, !llvm.loop !17
+15:                                               ; preds = %9
+  %16 = add nsw i32 %10, -1
+  store i32 %16, ptr %5, align 8, !tbaa !4
+  %17 = icmp sgt i32 %10, 1
+  br i1 %17, label %9, label %.critedge, !llvm.loop !17
 
-.critedge:                                        ; preds = %13, %9, %.preheader, %2
-  %.0 = phi i32 [ %3, %2 ], [ 0, %.preheader ], [ 0, %9 ], [ 0, %13 ]
+.critedge:                                        ; preds = %15, %9, %.preheader, %2
+  %.0 = phi i32 [ %3, %2 ], [ 0, %.preheader ], [ 0, %9 ], [ 0, %15 ]
   ret i32 %.0
 }
 

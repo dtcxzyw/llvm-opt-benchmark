@@ -3082,14 +3082,14 @@ _ZN7xgboost6common17MemStackAllocatorImLm128EEC2Em.exit.i: ; preds = %93, %.thre
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %store_forwarded = phi i64 [ %load_initial, %.lr.ph.i.i.i.preheader ], [ %106, %.lr.ph.i.i.i ]
+  %store_forwarded = phi i64 [ %load_initial, %.lr.ph.i.i.i.preheader ], [ %107, %.lr.ph.i.i.i ]
   %.05.i.i.i = phi i64 [ 1, %.lr.ph.i.i.i.preheader ], [ %108, %.lr.ph.i.i.i ]
-  %103 = mul i64 %.05.i.i.i, %99
-  %104 = getelementptr inbounds nuw i64, ptr %87, i64 %103
-  %105 = load i64, ptr %104, align 8, !tbaa !9
-  %106 = add i64 %105, %store_forwarded
-  %107 = getelementptr inbounds nuw i64, ptr %98, i64 %.05.i.i.i
-  store i64 %106, ptr %107, align 8, !tbaa !9
+  %103 = getelementptr i64, ptr %98, i64 %.05.i.i.i
+  %104 = mul i64 %.05.i.i.i, %99
+  %105 = getelementptr inbounds nuw i64, ptr %87, i64 %104
+  %106 = load i64, ptr %105, align 8, !tbaa !9
+  %107 = add i64 %106, %store_forwarded
+  store i64 %107, ptr %103, align 8, !tbaa !9
   %108 = add nuw i64 %.05.i.i.i, 1
   %exitcond65.not.i = icmp eq i64 %108, %.sroa.speculated39.i
   br i1 %exitcond65.not.i, label %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE0_JEEEvSH_DpT0_.exit.i.preheader", label %.lr.ph.i.i.i, !llvm.loop !188

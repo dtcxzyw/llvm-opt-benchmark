@@ -2611,7 +2611,7 @@ _ZSt4fillIPfdEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   %54 = load i16, ptr %.sroa.037.057, align 2
   %55 = zext i16 %54 to i64
   %.idx54 = mul nuw nsw i64 %55, 6
-  %56 = getelementptr i8, ptr %52, i64 %.idx54
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx54
   %57 = load i8, ptr %56, align 2
   %58 = zext i8 %57 to i32
   %59 = mul nuw nsw i32 %37, %58
@@ -3744,7 +3744,7 @@ define void @_ZN10open_spiel9cursor_go13CursorGoState13DoApplyActionEl(ptr nound
   %69 = zext i8 %68 to i64
   %.idx21 = shl nuw nsw i64 %69, 3
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8124
-  %71 = getelementptr i8, ptr %70, i64 %.idx21
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx21
   %72 = load i32, ptr %71, align 4
   %73 = add nsw i32 %72, -1
   store i32 %73, ptr %71, align 4
@@ -3756,7 +3756,7 @@ define void @_ZN10open_spiel9cursor_go13CursorGoState13DoApplyActionEl(ptr nound
   %77 = zext i8 %76 to i64
   %.idx = shl nuw nsw i64 %77, 3
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8124
-  %79 = getelementptr i8, ptr %78, i64 %.idx
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx
   %80 = load i32, ptr %79, align 4
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %79, align 4

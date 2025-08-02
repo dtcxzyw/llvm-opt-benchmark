@@ -214,7 +214,6 @@ define dso_local ptr @gistextractpage(ptr noundef %0, ptr noundef writeonly capt
   %10 = zext nneg i16 %.0.i to i64
   %11 = shl nuw nsw i64 %10, 3
   %12 = tail call ptr @palloc(i64 noundef %11) #11
-  %invariant.gep = getelementptr i8, ptr %12, i64 -8
   %.not14 = icmp eq i16 %.0.i, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -233,8 +232,9 @@ define dso_local ptr @gistextractpage(ptr noundef %0, ptr noundef writeonly capt
   %18 = and i32 %.val13, 32767
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
-  store ptr %20, ptr %gep, align 8
+  %21 = getelementptr ptr, ptr %12, i64 %indvars.iv
+  %22 = getelementptr i8, ptr %21, i64 -8
+  store ptr %20, ptr %22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %._crit_edge, label %15, !llvm.loop !8
@@ -2129,7 +2129,7 @@ define dso_local ptr @gistFetchTuple(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph:                                           ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = getelementptr i8, ptr %0, i64 12336
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12336
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2137,7 +2137,7 @@ define dso_local ptr @gistFetchTuple(ptr noundef %0, ptr noundef %1, ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12328
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 13864
   %23 = ptrtoint ptr %4 to i64
-  %24 = getelementptr i8, ptr %0, i64 3120
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 3120
   br label %31
 
 .preheader:                                       ; preds = %63, %3
@@ -2161,7 +2161,7 @@ define dso_local ptr @gistFetchTuple(ptr noundef %0, ptr noundef %1, ptr noundef
   %34 = trunc nuw nsw i64 %indvars.iv.next to i32
   %35 = call fastcc i64 @index_getattr(ptr noundef %2, i32 noundef %34, ptr noundef %32, ptr noundef nonnull %33)
   %.idx = mul nuw nsw i64 %indvars.iv, 48
-  %36 = getelementptr i8, ptr %16, i64 %.idx
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %37 = load i32, ptr %36, align 8
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %51, label %38
@@ -2195,7 +2195,7 @@ define dso_local ptr @gistFetchTuple(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %63
 
 51:                                               ; preds = %31
-  %52 = getelementptr i8, ptr %24, i64 %.idx
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %61

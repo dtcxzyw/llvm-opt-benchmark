@@ -3862,10 +3862,8 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
   %11 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 4) #27
   %12 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 4) #27
   %13 = getelementptr i8, ptr %1, i64 4
-  %invariant.gep = getelementptr i8, ptr %12, i64 4
-  %invariant.gep119 = getelementptr i8, ptr %11, i64 4
-  %.val80121 = load i32, ptr %13, align 4, !tbaa !15
-  %14 = icmp sgt i32 %.val80121, 0
+  %.val80119 = load i32, ptr %13, align 4, !tbaa !15
+  %14 = icmp sgt i32 %.val80119, 0
   br i1 %14, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %8
@@ -3886,9 +3884,9 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %27
 
-27:                                               ; preds = %.lr.ph, %70
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %.1123 = phi i32 [ 0, %.lr.ph ], [ %.2, %70 ]
+27:                                               ; preds = %.lr.ph, %74
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
+  %.1121 = phi i32 [ 0, %.lr.ph ], [ %.2, %74 ]
   %28 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !10
   %30 = load i32, ptr %16, align 4, !tbaa !123
@@ -3911,203 +3909,205 @@ define range(i32 0, 2) i32 @Vta_ManAbsPrintFrame(ptr noundef captures(none) %0, 
 
 ._crit_edge:                                      ; preds = %27
   %.pre = sext i32 %33 to i64
-  br label %54
+  br label %56
 
 45:                                               ; preds = %27
   %46 = or i32 %41, %43
   store i32 %46, ptr %40, align 4, !tbaa !10
   %47 = sext i32 %33 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %47
-  %48 = load i32, ptr %gep, align 4, !tbaa !10
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %gep, align 4, !tbaa !10
-  %50 = load i32, ptr %12, align 4, !tbaa !10
+  %48 = getelementptr i32, ptr %12, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 4
+  %50 = load i32, ptr %49, align 4, !tbaa !10
   %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %12, align 4, !tbaa !10
-  %52 = load i32, ptr %22, align 4, !tbaa !130
+  store i32 %51, ptr %49, align 4, !tbaa !10
+  %52 = load i32, ptr %12, align 4, !tbaa !10
   %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %22, align 4, !tbaa !130
-  br label %54
+  store i32 %53, ptr %12, align 4, !tbaa !10
+  %54 = load i32, ptr %22, align 4, !tbaa !130
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %22, align 4, !tbaa !130
+  br label %56
 
-54:                                               ; preds = %._crit_edge, %45
+56:                                               ; preds = %._crit_edge, %45
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %47, %45 ]
-  %gep120 = getelementptr i32, ptr %invariant.gep119, i64 %.pre-phi
-  %55 = load i32, ptr %gep120, align 4, !tbaa !10
-  %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %gep120, align 4, !tbaa !10
-  %57 = load i32, ptr %11, align 4, !tbaa !10
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %11, align 4, !tbaa !10
-  %59 = ashr i32 %31, 5
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %.val86, i64 %60
-  %62 = load i32, ptr %61, align 4, !tbaa !10
-  %63 = and i32 %31, 31
-  %64 = shl nuw i32 1, %63
-  %65 = and i32 %62, %64
-  %.not79 = icmp eq i32 %65, 0
-  br i1 %.not79, label %66, label %70
+  %57 = getelementptr i32, ptr %11, i64 %.pre-phi
+  %58 = getelementptr i8, ptr %57, i64 4
+  %59 = load i32, ptr %58, align 4, !tbaa !10
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %58, align 4, !tbaa !10
+  %61 = load i32, ptr %11, align 4, !tbaa !10
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %11, align 4, !tbaa !10
+  %63 = ashr i32 %31, 5
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i32, ptr %.val86, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !10
+  %67 = and i32 %31, 31
+  %68 = shl nuw i32 1, %67
+  %69 = and i32 %66, %68
+  %.not79 = icmp eq i32 %69, 0
+  br i1 %.not79, label %70, label %74
 
-66:                                               ; preds = %54
-  %67 = or i32 %62, %64
-  store i32 %67, ptr %61, align 4, !tbaa !10
-  %68 = load i32, ptr %26, align 8, !tbaa !129
-  %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %26, align 8, !tbaa !129
-  br label %70
+70:                                               ; preds = %56
+  %71 = or i32 %66, %68
+  store i32 %71, ptr %65, align 4, !tbaa !10
+  %72 = load i32, ptr %26, align 8, !tbaa !129
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %26, align 8, !tbaa !129
+  br label %74
 
-70:                                               ; preds = %54, %66
-  %.2 = phi i32 [ %.1123, %54 ], [ 1, %66 ]
+74:                                               ; preds = %56, %70
+  %.2 = phi i32 [ %.1121, %56 ], [ 1, %70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val80 = load i32, ptr %13, align 4, !tbaa !15
-  %71 = sext i32 %.val80 to i64
-  %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %27, label %.critedge, !llvm.loop !162
+  %75 = sext i32 %.val80 to i64
+  %76 = icmp slt i64 %indvars.iv.next, %75
+  br i1 %76, label %27, label %.critedge, !llvm.loop !162
 
-.critedge:                                        ; preds = %70, %8
-  %.1.lcssa = phi i32 [ 0, %8 ], [ %.2, %70 ]
+.critedge:                                        ; preds = %74, %8
+  %.1.lcssa = phi i32 [ 0, %8 ], [ %.2, %74 ]
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %74, label %.thread109
+  br i1 %.not, label %78, label %.thread109
 
 .thread109:                                       ; preds = %.critedge
-  %73 = tail call i32 (...) @Abc_FrameIsBatchMode() #28
-  br label %81
+  %77 = tail call i32 (...) @Abc_FrameIsBatchMode() #28
+  br label %85
 
 .critedge.thread:                                 ; preds = %7
   %.not91 = icmp eq i32 %6, 0
-  br i1 %.not91, label %.thread105, label %78
+  br i1 %.not91, label %.thread105, label %82
 
-74:                                               ; preds = %.critedge
+78:                                               ; preds = %.critedge
   %.not74 = icmp eq ptr %11, null
-  br i1 %.not74, label %76, label %75
+  br i1 %.not74, label %80, label %79
 
-75:                                               ; preds = %74
+79:                                               ; preds = %78
   tail call void @free(ptr noundef nonnull %11) #28
-  br label %76
+  br label %80
 
-76:                                               ; preds = %74, %75
+80:                                               ; preds = %78, %79
   %.not75 = icmp eq ptr %12, null
-  br i1 %.not75, label %.thread105, label %77
+  br i1 %.not75, label %.thread105, label %81
 
-77:                                               ; preds = %76
+81:                                               ; preds = %80
   tail call void @free(ptr noundef nonnull %12) #28
   br label %.thread105
 
-78:                                               ; preds = %.critedge.thread
-  %79 = tail call i32 (...) @Abc_FrameIsBatchMode() #28
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %.thread105
+82:                                               ; preds = %.critedge.thread
+  %83 = tail call i32 (...) @Abc_FrameIsBatchMode() #28
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %.thread105
 
-81:                                               ; preds = %.thread109, %78
-  %.07092116 = phi ptr [ %12, %.thread109 ], [ null, %78 ]
-  %.06994115 = phi ptr [ %11, %.thread109 ], [ null, %78 ]
-  %.097114 = phi i32 [ %.1.lcssa, %.thread109 ], [ 0, %78 ]
-  %82 = add nsw i32 %2, -1
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %82)
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %84 = load i32, ptr %83, align 8, !tbaa !129
-  %85 = mul nsw i32 %84, 100
-  %86 = load ptr, ptr %0, align 8, !tbaa !31
-  %87 = getelementptr i8, ptr %86, i64 16
-  %.val81 = load i32, ptr %87, align 8, !tbaa !41
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %89 = load i32, ptr %88, align 8, !tbaa !122
-  %90 = getelementptr inbounds nuw i8, ptr %86, i64 64
-  %91 = load ptr, ptr %90, align 8, !tbaa !55
-  %92 = getelementptr i8, ptr %91, i64 4
-  %.val3.i = load i32, ptr %92, align 4, !tbaa !15
-  %93 = getelementptr inbounds nuw i8, ptr %86, i64 72
-  %94 = load ptr, ptr %93, align 8, !tbaa !92
-  %95 = getelementptr i8, ptr %94, i64 4
-  %.val.i = load i32, ptr %95, align 4, !tbaa !15
-  %96 = add i32 %.val.i, %.val3.i
-  %97 = xor i32 %96, -1
-  %98 = add i32 %.val81, 1
-  %99 = add i32 %98, %89
-  %100 = add i32 %99, %97
-  %101 = sdiv i32 %85, %100
-  %102 = tail call noundef i32 @llvm.smin.i32(i32 %101, i32 100)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, i32 noundef %102)
-  %103 = load i32, ptr %83, align 8, !tbaa !129
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %103)
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %105 = load i32, ptr %104, align 4, !tbaa !130
-  %106 = mul nsw i32 %105, 100
-  %107 = load i32, ptr %83, align 8, !tbaa !129
-  %108 = mul nsw i32 %107, %2
-  %109 = sdiv i32 %106, %108
-  %110 = tail call noundef i32 @llvm.smin.i32(i32 %109, i32 100)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, i32 noundef %110)
+85:                                               ; preds = %.thread109, %82
+  %.07092116 = phi ptr [ %12, %.thread109 ], [ null, %82 ]
+  %.06994115 = phi ptr [ %11, %.thread109 ], [ null, %82 ]
+  %.097114 = phi i32 [ %.1.lcssa, %.thread109 ], [ 0, %82 ]
+  %86 = add nsw i32 %2, -1
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %86)
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %88 = load i32, ptr %87, align 8, !tbaa !129
+  %89 = mul nsw i32 %88, 100
+  %90 = load ptr, ptr %0, align 8, !tbaa !31
+  %91 = getelementptr i8, ptr %90, i64 16
+  %.val81 = load i32, ptr %91, align 8, !tbaa !41
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  %93 = load i32, ptr %92, align 8, !tbaa !122
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 64
+  %95 = load ptr, ptr %94, align 8, !tbaa !55
+  %96 = getelementptr i8, ptr %95, i64 4
+  %.val3.i = load i32, ptr %96, align 4, !tbaa !15
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 72
+  %98 = load ptr, ptr %97, align 8, !tbaa !92
+  %99 = getelementptr i8, ptr %98, i64 4
+  %.val.i = load i32, ptr %99, align 4, !tbaa !15
+  %100 = add i32 %.val.i, %.val3.i
+  %101 = xor i32 %100, -1
+  %102 = add i32 %.val81, 1
+  %103 = add i32 %102, %93
+  %104 = add i32 %103, %101
+  %105 = sdiv i32 %89, %104
+  %106 = tail call noundef i32 @llvm.smin.i32(i32 %105, i32 100)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, i32 noundef %106)
+  %107 = load i32, ptr %87, align 8, !tbaa !129
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %107)
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %109 = load i32, ptr %108, align 4, !tbaa !130
+  %110 = mul nsw i32 %109, 100
+  %111 = load i32, ptr %87, align 8, !tbaa !129
+  %112 = mul nsw i32 %111, %2
+  %113 = sdiv i32 %110, %112
+  %114 = tail call noundef i32 @llvm.smin.i32(i32 %113, i32 100)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, i32 noundef %114)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, i32 noundef %3)
-  %111 = icmp eq i32 %4, 0
-  br i1 %111, label %112, label %113
+  %115 = icmp eq i32 %4, 0
+  br i1 %115, label %116, label %117
 
-112:                                              ; preds = %81
+116:                                              ; preds = %85
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, i32 noundef 45)
-  br label %114
+  br label %118
 
-113:                                              ; preds = %81
+117:                                              ; preds = %85
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, i32 noundef %4)
-  br label %114
+  br label %118
 
-114:                                              ; preds = %113, %112
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %116 = load ptr, ptr %115, align 8, !tbaa !67
-  %.val83 = load i32, ptr %116, align 8, !tbaa !152
+118:                                              ; preds = %117, %116
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %120 = load ptr, ptr %119, align 8, !tbaa !67
+  %.val83 = load i32, ptr %120, align 8, !tbaa !152
   tail call fastcc void @Abc_PrintInt(i32 noundef %.val83)
-  %117 = load ptr, ptr %115, align 8, !tbaa !67
-  %118 = getelementptr i8, ptr %117, i64 524
-  %.val84 = load i32, ptr %118, align 4, !tbaa !153
+  %121 = load ptr, ptr %119, align 8, !tbaa !67
+  %122 = getelementptr i8, ptr %121, i64 524
+  %.val84 = load i32, ptr %122, align 4, !tbaa !153
   tail call fastcc void @Abc_PrintInt(i32 noundef %.val84)
-  %119 = load ptr, ptr %115, align 8, !tbaa !67
-  %120 = getelementptr i8, ptr %119, i64 528
-  %.val85 = load i32, ptr %120, align 8, !tbaa !155
+  %123 = load ptr, ptr %119, align 8, !tbaa !67
+  %124 = getelementptr i8, ptr %123, i64 528
+  %.val85 = load i32, ptr %124, align 8, !tbaa !155
   tail call fastcc void @Abc_PrintInt(i32 noundef %.val85)
-  br i1 %.not118, label %121, label %132
+  br i1 %.not118, label %125, label %136
 
-121:                                              ; preds = %114
+125:                                              ; preds = %118
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10)
-  %122 = sitofp i64 %5 to double
-  %123 = fdiv double %122, 1.000000e+06
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %123)
-  %124 = load ptr, ptr %115, align 8, !tbaa !67
-  %125 = tail call double @sat_solver2_memory_proof(ptr noundef %124) #28
-  %126 = load ptr, ptr %115, align 8, !tbaa !67
-  %127 = tail call double @sat_solver2_memory(ptr noundef %126, i32 noundef 0) #28
-  %128 = fadd double %125, %127
-  %129 = fmul double %128, 0x3E10000000000000
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, double noundef %129)
+  %126 = sitofp i64 %5 to double
+  %127 = fdiv double %126, 1.000000e+06
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %127)
+  %128 = load ptr, ptr %119, align 8, !tbaa !67
+  %129 = tail call double @sat_solver2_memory_proof(ptr noundef %128) #28
+  %130 = load ptr, ptr %119, align 8, !tbaa !67
+  %131 = tail call double @sat_solver2_memory(ptr noundef %130, i32 noundef 0) #28
+  %132 = fadd double %129, %131
+  %133 = fmul double %132, 0x3E10000000000000
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, double noundef %133)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.13)
-  %130 = load ptr, ptr @stdout, align 8, !tbaa !98
-  %131 = tail call i32 @fflush(ptr noundef %130)
+  %134 = load ptr, ptr @stdout, align 8, !tbaa !98
+  %135 = tail call i32 @fflush(ptr noundef %134)
   br label %.thread105
 
-132:                                              ; preds = %114
-  %133 = load i32, ptr %.06994115, align 4, !tbaa !10
-  tail call fastcc void @Abc_PrintInt(i32 noundef %133)
-  %134 = sitofp i64 %5 to double
-  %135 = fdiv double %134, 1.000000e+06
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %135)
-  %136 = load ptr, ptr %115, align 8, !tbaa !67
-  %137 = tail call double @sat_solver2_memory_proof(ptr noundef %136) #28
-  %138 = load ptr, ptr %115, align 8, !tbaa !67
-  %139 = tail call double @sat_solver2_memory(ptr noundef %138, i32 noundef 0) #28
-  %140 = fadd double %137, %139
-  %141 = fmul double %140, 0x3E10000000000000
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, double noundef %141)
+136:                                              ; preds = %118
+  %137 = load i32, ptr %.06994115, align 4, !tbaa !10
+  tail call fastcc void @Abc_PrintInt(i32 noundef %137)
+  %138 = sitofp i64 %5 to double
+  %139 = fdiv double %138, 1.000000e+06
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %139)
+  %140 = load ptr, ptr %119, align 8, !tbaa !67
+  %141 = tail call double @sat_solver2_memory_proof(ptr noundef %140) #28
+  %142 = load ptr, ptr %119, align 8, !tbaa !67
+  %143 = tail call double @sat_solver2_memory(ptr noundef %142, i32 noundef 0) #28
+  %144 = fadd double %141, %143
+  %145 = fmul double %144, 0x3E10000000000000
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, double noundef %145)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14)
-  %142 = load ptr, ptr @stdout, align 8, !tbaa !98
-  %143 = tail call i32 @fflush(ptr noundef %142)
+  %146 = load ptr, ptr @stdout, align 8, !tbaa !98
+  %147 = tail call i32 @fflush(ptr noundef %146)
   tail call void @free(ptr noundef %.06994115) #28
   %.not77 = icmp eq ptr %.07092116, null
-  br i1 %.not77, label %.thread105, label %144
+  br i1 %.not77, label %.thread105, label %148
 
-144:                                              ; preds = %132
+148:                                              ; preds = %136
   tail call void @free(ptr noundef nonnull %.07092116) #28
   br label %.thread105
 
-.thread105:                                       ; preds = %.critedge.thread, %121, %132, %144, %78, %77, %76
-  %.096 = phi i32 [ %.097114, %121 ], [ %.097114, %132 ], [ %.097114, %144 ], [ 0, %78 ], [ %.1.lcssa, %77 ], [ %.1.lcssa, %76 ], [ 0, %.critedge.thread ]
+.thread105:                                       ; preds = %.critedge.thread, %125, %136, %148, %82, %81, %80
+  %.096 = phi i32 [ %.097114, %125 ], [ %.097114, %136 ], [ %.097114, %148 ], [ 0, %82 ], [ %.1.lcssa, %81 ], [ %.1.lcssa, %80 ], [ 0, %.critedge.thread ]
   ret i32 %.096
 }
 

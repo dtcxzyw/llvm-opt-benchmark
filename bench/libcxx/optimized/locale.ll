@@ -55017,8 +55017,8 @@ define hidden void @_ZNSt3__16locale5__imp7acquireEv(ptr noundef nonnull align 8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZNSt3__16locale5__imp7releaseEv(ptr noundef nonnull align 8 dereferenceable(312) %0) local_unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZNSt3__16locale5__imp7releaseEv(ptr noundef nonnull align 8 dereferenceable(312) %0) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %0, @_ZNSt3__16locale5__imp19classic_locale_imp_E
   br i1 %.not, label %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit, label %2
 

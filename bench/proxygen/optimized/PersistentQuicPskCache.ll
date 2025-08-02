@@ -5830,20 +5830,20 @@ if.then.i.i:                                      ; preds = %entry
   store i8 1, ptr %4, align 8, !alias.scope !56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i.i), !noalias !43
   %cmp.not4.i.i.i.i = icmp eq ptr %retval.sroa.0.0.copyload.i.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i
-  br i1 %cmp.not4.i.i.i.i, label %_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIlEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IlEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit, label %for.body.i.i.i.i
+  br i1 %cmp.not4.i.i.i.i, label %_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIlEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IlEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit.critedge, label %for.body.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.05.i.i.i.i, i64 1
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIlEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IlEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit, label %for.body.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIlEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IlEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit.critedge, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i, %for.cond.i.i.i.i
   %__begin2.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.cond.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i.i.i.i, %if.then.i.i ]
   %5 = load i8, ptr %__begin2.05.i.i.i.i, align 1
   %conv.i.i.i.i = sext i8 %5 to i32
   %call2.i.i.i.i = call i32 @isspace(i32 noundef %conv.i.i.i.i) #33
-  %tobool.not.i.i.i.i.not = icmp eq i32 %call2.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i.i.not, label %if.end.i.i2, label %for.cond.i.i.i.i
+  %tobool.not.i.i.i.i = icmp eq i32 %call2.i.i.i.i, 0
+  br i1 %tobool.not.i.i.i.i, label %_ZNR5folly8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEE11thenOrThrowINS_6detail18CheckTrailingSpaceEZNS_2toIlEENSt9enable_ifIXntsr3std7is_sameIS4_T_EE5valueESC_E4typeES4_EUlS5_E_EEDTclclsr3stdE7declvalISC_EEclL_ZSt7declvalIRS4_EDTcl9__declvalISC_ELi0EEEvEEEEOSC_OT0_.exit, label %for.cond.i.i.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %ref.tmp.sroa.2.0.extract.shift.i.i = lshr i64 %2, 8
@@ -5854,13 +5854,13 @@ if.end.i.i:                                       ; preds = %entry
   call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %ref.tmp.sroa.2.0.extract.trunc.i.i) #9
   unreachable
 
-if.end.i.i2:                                      ; preds = %for.body.i.i.i.i
+_ZNR5folly8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEE11thenOrThrowINS_6detail18CheckTrailingSpaceEZNS_2toIlEENSt9enable_ifIXntsr3std7is_sameIS4_T_EE5valueESC_E4typeES4_EUlS5_E_EEDTclclsr3stdE7declvalISC_EEclL_ZSt7declvalIRS4_EDTcl9__declvalISC_ELi0EEEvEEEEOSC_OT0_.exit: ; preds = %for.body.i.i.i.i
   store ptr %tmp, ptr %ref.tmp4, align 8
   call void @_ZZN5folly2toIlEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_ENKUlNS_14ConversionCodeEE0_clES9_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4, i8 noundef zeroext 10)
   call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext 10) #9
   unreachable
 
-_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIlEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IlEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit: ; preds = %for.cond.i.i.i.i, %if.then.i.i
+_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIlEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IlEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit.critedge: ; preds = %for.cond.i.i.i.i, %if.then.i.i
   %6 = extractvalue { i64, i64 } %call.i.i.i, 1
   ret i64 %6
 }
@@ -12493,9 +12493,9 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end
   %cmp.i2 = fcmp ugt float %timeoutVariationFrac, 0.000000e+00
-  br i1 %cmp.i2, label %if.end.i, label %if.end15
+  br i1 %cmp.i2, label %if.end15, label %if.then20
 
-if.end.i:                                         ; preds = %if.then7
+if.end15:                                         ; preds = %if.then7
   %call3.i = tail call noundef i64 @_ZN5folly18getCurrentThreadIDEv()
   %call7.i = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #28
   %xor.i.i.i.i = xor i64 %call7.i, %call3.i
@@ -12526,16 +12526,14 @@ if.end.i:                                         ; preds = %if.then7
   %add.i = fadd float %mul.i, 1.000000e+00
   %mul19.i = fmul float %add.i, %conv18.i
   %conv20.i = fptoui float %mul19.i to i64
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.end.i, %if.then7
-  %retval.sroa.0.0.i = phi i64 [ %conv20.i, %if.end.i ], [ %idleTimeout.coerce, %if.then7 ]
-  %cmp.i.i4.not = icmp slt i64 %retval.sroa.0.0.i, 1
+  %1 = tail call i64 @llvm.smax.i64(i64 %conv20.i, i64 0)
+  %cmp.i.i4.not = icmp slt i64 %conv20.i, 1
   br i1 %cmp.i.i4.not, label %if.end34, label %if.then20
 
-if.then20:                                        ; preds = %if.end15
+if.then20:                                        ; preds = %if.then7, %if.end15
+  %idleTimeout.sroa.0.022 = phi i64 [ %1, %if.end15 ], [ %idleTimeout.coerce, %if.then7 ]
   %call22 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %add.i.i5 = add nsw i64 %call22, %retval.sroa.0.0.i
+  %add.i.i5 = add nsw i64 %call22, %idleTimeout.sroa.0.022
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %deadline, align 8
   %cmp.i.i7 = icmp slt i64 %add.i.i5, %retval.sroa.0.0.copyload.i1.i
   br i1 %cmp.i.i7, label %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit, label %return

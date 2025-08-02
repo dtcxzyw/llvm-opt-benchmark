@@ -11051,7 +11051,7 @@ define internal fastcc i32 @decGetInt(ptr noundef readonly captures(none) %0) un
   %12 = and i8 %7, 112
   %13 = icmp eq i8 %12, 0
   %or.cond90 = select i1 %or.cond88, i1 %13, i1 false
-  br i1 %or.cond90, label %.thread99, label %14
+  br i1 %or.cond90, label %.critedge, label %14
 
 14:                                               ; preds = %1
   %15 = icmp sgt i32 %4, -1
@@ -11063,33 +11063,33 @@ define internal fastcc i32 @decGetInt(ptr noundef readonly captures(none) %0) un
   br i1 %18, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %16, %20
-  %.062139 = phi i32 [ %21, %20 ], [ %17, %16 ]
-  %.166138 = phi ptr [ %22, %20 ], [ %8, %16 ]
-  %19 = load i16, ptr %.166138, align 2, !tbaa !11
+  %.062128 = phi i32 [ %21, %20 ], [ %17, %16 ]
+  %.166127 = phi ptr [ %22, %20 ], [ %8, %16 ]
+  %19 = load i16, ptr %.166127, align 2, !tbaa !11
   %.not84 = icmp eq i16 %19, 0
-  br i1 %.not84, label %20, label %.thread99
+  br i1 %.not84, label %20, label %.critedge
 
 20:                                               ; preds = %.lr.ph
-  %21 = add nsw i32 %.062139, -3
-  %22 = getelementptr inbounds nuw i8, ptr %.166138, i64 2
+  %21 = add nsw i32 %.062128, -3
+  %22 = getelementptr inbounds nuw i8, ptr %.166127, i64 2
   %23 = icmp samesign ugt i32 %21, 2
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %20
   %24 = icmp eq i32 %21, 0
-  br i1 %24, label %._crit_edge..thread104_crit_edge, label %._crit_edge.thread
+  br i1 %24, label %._crit_edge..thread_crit_edge, label %._crit_edge.thread
 
-._crit_edge..thread104_crit_edge:                 ; preds = %._crit_edge
+._crit_edge..thread_crit_edge:                    ; preds = %._crit_edge
   %.pre = load i16, ptr %22, align 2, !tbaa !11
-  br label %.thread104
+  br label %.thread
 
 ._crit_edge.thread:                               ; preds = %16, %._crit_edge
-  %.062.lcssa157 = phi i32 [ %21, %._crit_edge ], [ %17, %16 ]
-  %.166.lcssa156 = phi ptr [ %22, %._crit_edge ], [ %8, %16 ]
-  %25 = load i16, ptr %.166.lcssa156, align 2, !tbaa !11
+  %.062.lcssa146 = phi i32 [ %21, %._crit_edge ], [ %17, %16 ]
+  %.166.lcssa145 = phi ptr [ %22, %._crit_edge ], [ %8, %16 ]
+  %25 = load i16, ptr %.166.lcssa145, align 2, !tbaa !11
   %26 = zext i16 %25 to i32
-  %27 = lshr i32 %26, %.062.lcssa157
-  %28 = zext nneg i32 %.062.lcssa157 to i64
+  %27 = lshr i32 %26, %.062.lcssa146
+  %28 = zext nneg i32 %.062.lcssa146 to i64
   %29 = getelementptr inbounds nuw [5 x i32], ptr @multies, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !16
   %31 = mul i32 %27, %30
@@ -11098,60 +11098,60 @@ define internal fastcc i32 @decGetInt(ptr noundef readonly captures(none) %0) un
   %34 = load i32, ptr %33, align 4, !tbaa !16
   %35 = mul i32 %32, %34
   %.not = icmp eq i32 %35, %26
-  %36 = xor i32 %.062.lcssa157, 3
-  %37 = getelementptr inbounds nuw i8, ptr %.166.lcssa156, i64 2
-  br i1 %.not, label %.thread109, label %.thread99
+  %36 = xor i32 %.062.lcssa146, 3
+  %37 = getelementptr inbounds nuw i8, ptr %.166.lcssa145, i64 2
+  br i1 %.not, label %.thread98, label %.critedge
 
 38:                                               ; preds = %14
   %39 = icmp eq i32 %4, 0
-  br i1 %39, label %.thread104, label %.thread109
+  br i1 %39, label %.thread, label %.thread98
 
-.thread104:                                       ; preds = %._crit_edge..thread104_crit_edge, %38
-  %40 = phi i16 [ %9, %38 ], [ %.pre, %._crit_edge..thread104_crit_edge ]
-  %.065108 = phi ptr [ %8, %38 ], [ %22, %._crit_edge..thread104_crit_edge ]
+.thread:                                          ; preds = %._crit_edge..thread_crit_edge, %38
+  %40 = phi i16 [ %9, %38 ], [ %.pre, %._crit_edge..thread_crit_edge ]
+  %.06597 = phi ptr [ %8, %38 ], [ %22, %._crit_edge..thread_crit_edge ]
   %41 = zext i16 %40 to i32
-  %42 = getelementptr inbounds nuw i8, ptr %.065108, i64 2
-  br label %.thread109
+  %42 = getelementptr inbounds nuw i8, ptr %.06597, i64 2
+  br label %.thread98
 
-.thread109:                                       ; preds = %._crit_edge.thread, %.thread104, %38
-  %.479 = phi i32 [ 3, %.thread104 ], [ %4, %38 ], [ %36, %._crit_edge.thread ]
-  %.570 = phi ptr [ %42, %.thread104 ], [ %8, %38 ], [ %37, %._crit_edge.thread ]
-  %.361 = phi i32 [ %41, %.thread104 ], [ 0, %38 ], [ %32, %._crit_edge.thread ]
+.thread98:                                        ; preds = %._crit_edge.thread, %.thread, %38
+  %.479 = phi i32 [ 3, %.thread ], [ %4, %38 ], [ %36, %._crit_edge.thread ]
+  %.570 = phi ptr [ %42, %.thread ], [ %8, %38 ], [ %37, %._crit_edge.thread ]
+  %.361 = phi i32 [ %41, %.thread ], [ 0, %38 ], [ %32, %._crit_edge.thread ]
   %43 = icmp slt i32 %5, 11
-  br i1 %43, label %.preheader, label %.thread119
+  br i1 %43, label %.preheader, label %.thread108
 
-.preheader:                                       ; preds = %.thread109
+.preheader:                                       ; preds = %.thread98
   %44 = icmp slt i32 %.479, %5
-  br i1 %44, label %.lr.ph144.preheader, label %._crit_edge145
+  br i1 %44, label %.lr.ph133.preheader, label %._crit_edge134
 
-.lr.ph144.preheader:                              ; preds = %.preheader
+.lr.ph133.preheader:                              ; preds = %.preheader
   %45 = zext nneg i32 %.479 to i64
-  br label %.lr.ph144
+  br label %.lr.ph133
 
-.lr.ph144:                                        ; preds = %.lr.ph144.preheader, %.lr.ph144
-  %indvars.iv = phi i64 [ %45, %.lr.ph144.preheader ], [ %indvars.iv.next, %.lr.ph144 ]
-  %.5143 = phi i32 [ %.361, %.lr.ph144.preheader ], [ %51, %.lr.ph144 ]
-  %.671142 = phi ptr [ %.570, %.lr.ph144.preheader ], [ %52, %.lr.ph144 ]
-  %46 = load i16, ptr %.671142, align 2, !tbaa !11
+.lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
+  %indvars.iv = phi i64 [ %45, %.lr.ph133.preheader ], [ %indvars.iv.next, %.lr.ph133 ]
+  %.5132 = phi i32 [ %.361, %.lr.ph133.preheader ], [ %51, %.lr.ph133 ]
+  %.671131 = phi ptr [ %.570, %.lr.ph133.preheader ], [ %52, %.lr.ph133 ]
+  %46 = load i16, ptr %.671131, align 2, !tbaa !11
   %47 = zext i16 %46 to i32
   %48 = getelementptr inbounds nuw [10 x i32], ptr @DECPOWERS, i64 0, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !16
   %50 = mul i32 %49, %47
-  %51 = add i32 %50, %.5143
+  %51 = add i32 %50, %.5132
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %52 = getelementptr inbounds nuw i8, ptr %.671142, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.671131, i64 2
   %53 = trunc nuw i64 %indvars.iv.next to i32
   %54 = icmp sgt i32 %5, %53
-  br i1 %54, label %.lr.ph144, label %._crit_edge145, !llvm.loop !72
+  br i1 %54, label %.lr.ph133, label %._crit_edge134, !llvm.loop !72
 
-._crit_edge145:                                   ; preds = %.lr.ph144, %.preheader
-  %.580.lcssa = phi i32 [ %.479, %.preheader ], [ %53, %.lr.ph144 ]
-  %.671.lcssa = phi ptr [ %.570, %.preheader ], [ %52, %.lr.ph144 ]
-  %.5.lcssa = phi i32 [ %.361, %.preheader ], [ %51, %.lr.ph144 ]
+._crit_edge134:                                   ; preds = %.lr.ph133, %.preheader
+  %.580.lcssa = phi i32 [ %.479, %.preheader ], [ %53, %.lr.ph133 ]
+  %.671.lcssa = phi ptr [ %.570, %.preheader ], [ %52, %.lr.ph133 ]
+  %.5.lcssa = phi i32 [ %.361, %.preheader ], [ %51, %.lr.ph133 ]
   %55 = icmp eq i32 %5, 10
-  br i1 %55, label %56, label %.thread126
+  br i1 %55, label %56, label %.thread115
 
-56:                                               ; preds = %._crit_edge145
+56:                                               ; preds = %._crit_edge134
   %57 = add nsw i32 %.580.lcssa, -3
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds [10 x i32], ptr @DECPOWERS, i64 0, i64 %58
@@ -11161,34 +11161,34 @@ define internal fastcc i32 @decGetInt(ptr noundef readonly captures(none) %0) un
   %63 = load i16, ptr %62, align 2, !tbaa !11
   %64 = zext i16 %63 to i32
   %.not85 = icmp eq i32 %61, %64
-  br i1 %.not85, label %65, label %.thread119
+  br i1 %.not85, label %65, label %.thread108
 
 65:                                               ; preds = %56
   %66 = icmp slt i8 %7, 0
   %67 = icmp sgt i32 %.5.lcssa, 1999999997
   %or.cond = select i1 %66, i1 %67, i1 false
-  br i1 %or.cond, label %.thread119, label %68
+  br i1 %or.cond, label %.thread108, label %68
 
 68:                                               ; preds = %65
   %69 = icmp sgt i8 %7, -1
   %70 = icmp sgt i32 %.5.lcssa, 999999999
   %or.cond4 = select i1 %69, i1 %70, i1 false
-  %cond.fr113 = freeze i1 %or.cond4
-  br i1 %cond.fr113, label %.thread119, label %.thread126
+  %cond.fr102 = freeze i1 %or.cond4
+  br i1 %cond.fr102, label %.thread108, label %.thread115
 
-.thread119:                                       ; preds = %68, %56, %65, %.thread109
+.thread108:                                       ; preds = %68, %56, %65, %.thread98
   %71 = and i32 %.361, 1
   %. = or disjoint i32 %71, -2147483646
-  br label %.thread99
+  br label %.critedge
 
-.thread126:                                       ; preds = %._crit_edge145, %68
+.thread115:                                       ; preds = %._crit_edge134, %68
   %72 = sub nsw i32 0, %.5.lcssa
-  %.not86135 = icmp slt i8 %7, 0
-  %spec.select93 = select i1 %.not86135, i32 %72, i32 %.5.lcssa
-  br label %.thread99
+  %.not86124 = icmp slt i8 %7, 0
+  %spec.select93 = select i1 %.not86124, i32 %72, i32 %.5.lcssa
+  br label %.critedge
 
-.thread99:                                        ; preds = %.lr.ph, %.thread119, %1, %._crit_edge.thread, %.thread126
-  %.0 = phi i32 [ %spec.select93, %.thread126 ], [ -2147483648, %._crit_edge.thread ], [ 0, %1 ], [ %., %.thread119 ], [ -2147483648, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %._crit_edge.thread, %.thread108, %1, %.thread115
+  %.0 = phi i32 [ %spec.select93, %.thread115 ], [ 0, %1 ], [ %., %.thread108 ], [ -2147483648, %._crit_edge.thread ], [ -2147483648, %.lr.ph ]
   ret i32 %.0
 }
 

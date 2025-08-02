@@ -289,7 +289,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %.086190 = phi i32 [ 0, %2 ], [ %.187, %57 ]
   %.088189 = phi i32 [ 0, %2 ], [ %.189, %57 ]
   %.090188 = phi i32 [ 0, %2 ], [ %.191, %57 ]
-  %9 = getelementptr inbounds nuw [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %indvars.iv, i64 0
+  %9 = getelementptr inbounds nuw [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8, !tbaa !12
   %11 = and i32 %10, %0
   %.not182 = icmp eq i32 %11, 0
@@ -305,7 +305,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   br label %57
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds nuw [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %indvars.iv, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %20 = and i32 %19, %0
   %.not183 = icmp eq i32 %20, 0
@@ -396,7 +396,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 
 61:                                               ; preds = %58
   %62 = load i32, ptr %5, align 16, !tbaa !12
-  br label %397
+  br label %398
 
 63:                                               ; preds = %58
   %64 = icmp eq i32 %.189, 0
@@ -422,7 +422,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %71 = shl i32 %70, 1
   %72 = ashr exact i32 %71, 1
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %73, i64 0
+  %74 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %73
   %75 = load i32, ptr %74, align 8, !tbaa !12
   %76 = and i32 %75, %0
   %77 = shl nuw i32 1, %72
@@ -452,7 +452,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %94 = shl nuw i32 1, %89
   %95 = lshr i32 %93, %94
   %.0.i.i140.us = or i32 %95, %93
-  %96 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %90, i64 0
+  %96 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %90
   %97 = load i32, ptr %96, align 8, !tbaa !12
   %98 = and i32 %97, %.0.i147.us
   %99 = shl i32 %98, %94
@@ -764,7 +764,7 @@ Vec_IntPush.exit120:                              ; preds = %.Vec_IntGrow.exit10
 Ivy_TruthRecognizeMuxMaj.exit:                    ; preds = %Vec_IntPush.exit133, %.loopexit187, %.loopexit187.thread, %Vec_IntPush.exit120
   %.057.i = phi i32 [ %257, %Vec_IntPush.exit120 ], [ %154, %Vec_IntPush.exit133 ], [ -1, %.loopexit187 ], [ -1, %.loopexit187.thread ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #11
-  br label %397
+  br label %398
 
 258:                                              ; preds = %63
   %259 = icmp sgt i32 %.189, 0
@@ -812,71 +812,72 @@ Ivy_TruthRecognizeMuxMaj.exit:                    ; preds = %Vec_IntPush.exit133
   %275 = load i32, ptr %274, align 4, !tbaa !12
   %276 = ashr i32 %275, 1
   %277 = sext i32 %276 to i64
-  %278 = and i32 %275, 1
-  %279 = xor i32 %278, 1
-  %280 = zext nneg i32 %279 to i64
-  %281 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %277, i64 %280
-  %282 = load i32, ptr %281, align 4, !tbaa !12
-  %283 = and i32 %282, %.078195
-  %284 = shl nuw i32 1, %276
-  %.not.i108 = icmp eq i32 %278, 0
-  %285 = shl i32 %283, %284
-  %286 = lshr i32 %283, %284
-  %.pn.i109 = select i1 %.not.i108, i32 %286, i32 %285
-  %.0.i110 = or i32 %.pn.i109, %283
-  %287 = trunc nuw nsw i64 %indvars.iv220 to i32
-  switch i32 %287, label %Ivy_DecSetVar.exit [
-    i32 0, label %288
-    i32 1, label %293
-    i32 2, label %298
-    i32 3, label %303
-    i32 4, label %308
-    i32 5, label %313
+  %278 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %277
+  %279 = and i32 %275, 1
+  %280 = xor i32 %279, 1
+  %281 = zext nneg i32 %280 to i64
+  %282 = getelementptr inbounds nuw [2 x i32], ptr %278, i64 0, i64 %281
+  %283 = load i32, ptr %282, align 4, !tbaa !12
+  %284 = and i32 %283, %.078195
+  %285 = shl nuw i32 1, %276
+  %.not.i108 = icmp eq i32 %279, 0
+  %286 = shl i32 %284, %285
+  %287 = lshr i32 %284, %285
+  %.pn.i109 = select i1 %.not.i108, i32 %287, i32 %286
+  %.0.i110 = or i32 %.pn.i109, %284
+  %288 = trunc nuw nsw i64 %indvars.iv220 to i32
+  switch i32 %288, label %Ivy_DecSetVar.exit [
+    i32 0, label %289
+    i32 1, label %294
+    i32 2, label %299
+    i32 3, label %304
+    i32 4, label %309
+    i32 5, label %314
   ]
 
-288:                                              ; preds = %.lr.ph
-  %289 = shl i32 %275, 8
-  %290 = and i32 %289, 3840
-  %291 = and i32 %.sroa.0.1193, -3841
-  %292 = or disjoint i32 %290, %291
+289:                                              ; preds = %.lr.ph
+  %290 = shl i32 %275, 8
+  %291 = and i32 %290, 3840
+  %292 = and i32 %.sroa.0.1193, -3841
+  %293 = or disjoint i32 %291, %292
   br label %Ivy_DecSetVar.exit
 
-293:                                              ; preds = %.lr.ph
-  %294 = shl i32 %275, 12
-  %295 = and i32 %294, 61440
-  %296 = and i32 %.sroa.0.1193, -61441
-  %297 = or disjoint i32 %295, %296
+294:                                              ; preds = %.lr.ph
+  %295 = shl i32 %275, 12
+  %296 = and i32 %295, 61440
+  %297 = and i32 %.sroa.0.1193, -61441
+  %298 = or disjoint i32 %296, %297
   br label %Ivy_DecSetVar.exit
 
-298:                                              ; preds = %.lr.ph
-  %299 = shl i32 %275, 16
-  %300 = and i32 %299, 983040
-  %301 = and i32 %.sroa.0.1193, -983041
-  %302 = or disjoint i32 %300, %301
+299:                                              ; preds = %.lr.ph
+  %300 = shl i32 %275, 16
+  %301 = and i32 %300, 983040
+  %302 = and i32 %.sroa.0.1193, -983041
+  %303 = or disjoint i32 %301, %302
   br label %Ivy_DecSetVar.exit
 
-303:                                              ; preds = %.lr.ph
-  %304 = shl i32 %275, 20
-  %305 = and i32 %304, 15728640
-  %306 = and i32 %.sroa.0.1193, -15728641
-  %307 = or disjoint i32 %305, %306
+304:                                              ; preds = %.lr.ph
+  %305 = shl i32 %275, 20
+  %306 = and i32 %305, 15728640
+  %307 = and i32 %.sroa.0.1193, -15728641
+  %308 = or disjoint i32 %306, %307
   br label %Ivy_DecSetVar.exit
 
-308:                                              ; preds = %.lr.ph
-  %309 = shl i32 %275, 24
-  %310 = and i32 %309, 251658240
-  %311 = and i32 %.sroa.0.1193, -251658241
-  %312 = or disjoint i32 %310, %311
+309:                                              ; preds = %.lr.ph
+  %310 = shl i32 %275, 24
+  %311 = and i32 %310, 251658240
+  %312 = and i32 %.sroa.0.1193, -251658241
+  %313 = or disjoint i32 %311, %312
   br label %Ivy_DecSetVar.exit
 
-313:                                              ; preds = %.lr.ph
-  %314 = shl i32 %275, 28
-  %315 = and i32 %.sroa.0.1193, 268435455
-  %316 = or disjoint i32 %314, %315
+314:                                              ; preds = %.lr.ph
+  %315 = shl i32 %275, 28
+  %316 = and i32 %.sroa.0.1193, 268435455
+  %317 = or disjoint i32 %315, %316
   br label %Ivy_DecSetVar.exit
 
-Ivy_DecSetVar.exit:                               ; preds = %288, %293, %298, %303, %308, %313, %.lr.ph
-  %.sroa.0.3 = phi i32 [ %.sroa.0.1193, %.lr.ph ], [ %316, %313 ], [ %312, %308 ], [ %307, %303 ], [ %302, %298 ], [ %297, %293 ], [ %292, %288 ]
+Ivy_DecSetVar.exit:                               ; preds = %289, %294, %299, %304, %309, %314, %.lr.ph
+  %.sroa.0.3 = phi i32 [ %.sroa.0.1193, %.lr.ph ], [ %317, %314 ], [ %313, %309 ], [ %308, %304 ], [ %303, %299 ], [ %298, %294 ], [ %293, %289 ]
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count
   br i1 %exitcond223.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
@@ -884,164 +885,164 @@ Ivy_DecSetVar.exit:                               ; preds = %288, %293, %298, %3
 ._crit_edge:                                      ; preds = %Ivy_DecSetVar.exit, %267
   %.sroa.0.1.lcssa = phi i32 [ %273, %267 ], [ %.sroa.0.3, %Ivy_DecSetVar.exit ]
   %.078.lcssa = phi i32 [ %.077, %267 ], [ %.0.i110, %Ivy_DecSetVar.exit ]
-  %317 = and i32 %.sroa.0.1.lcssa, 15
-  %318 = icmp eq i32 %317, 4
-  %319 = lshr i32 %.sroa.0.1.lcssa, 5
-  %.lobit = and i32 %319, 1
-  %320 = xor i32 %.080, %.lobit
-  %321 = xor i32 %320, 1
-  %.181 = select i1 %318, i32 %321, i32 %.080
-  br i1 %268, label %322, label %358
+  %318 = and i32 %.sroa.0.1.lcssa, 15
+  %319 = icmp eq i32 %318, 4
+  %320 = lshr i32 %.sroa.0.1.lcssa, 5
+  %.lobit = and i32 %320, 1
+  %321 = xor i32 %.080, %.lobit
+  %322 = xor i32 %321, 1
+  %.181 = select i1 %319, i32 %322, i32 %.080
+  br i1 %268, label %323, label %359
 
-322:                                              ; preds = %._crit_edge
-  %323 = tail call fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %.078.lcssa, ptr noundef %1)
-  %324 = icmp eq i32 %323, -1
-  br i1 %324, label %397, label %325
+323:                                              ; preds = %._crit_edge
+  %324 = tail call fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %.078.lcssa, ptr noundef %1)
+  %325 = icmp eq i32 %324, -1
+  br i1 %325, label %398, label %326
 
-325:                                              ; preds = %322
-  %326 = and i32 %323, 1
-  %.not = icmp ne i32 %326, 0
-  %or.cond100.not = and i1 %318, %.not
-  %327 = and i32 %323, -2
-  %.082 = select i1 %318, i32 %327, i32 %323
-  %328 = zext i1 %or.cond100.not to i32
-  %.2 = xor i32 %.181, %328
+326:                                              ; preds = %323
+  %327 = and i32 %324, 1
+  %.not = icmp ne i32 %327, 0
+  %or.cond100.not = and i1 %319, %.not
+  %328 = and i32 %324, -2
+  %.082 = select i1 %319, i32 %328, i32 %324
+  %329 = zext i1 %or.cond100.not to i32
+  %.2 = xor i32 %.181, %329
   switch i32 %.083, label %Ivy_DecSetVar.exit113 [
-    i32 0, label %329
-    i32 1, label %334
-    i32 2, label %339
-    i32 3, label %344
-    i32 4, label %349
-    i32 5, label %354
+    i32 0, label %330
+    i32 1, label %335
+    i32 2, label %340
+    i32 3, label %345
+    i32 4, label %350
+    i32 5, label %355
   ]
 
-329:                                              ; preds = %325
-  %330 = shl i32 %.082, 8
-  %331 = and i32 %330, 3840
-  %332 = and i32 %.sroa.0.1.lcssa, -3841
-  %333 = or disjoint i32 %331, %332
+330:                                              ; preds = %326
+  %331 = shl i32 %.082, 8
+  %332 = and i32 %331, 3840
+  %333 = and i32 %.sroa.0.1.lcssa, -3841
+  %334 = or disjoint i32 %332, %333
   br label %Ivy_DecSetVar.exit113
 
-334:                                              ; preds = %325
-  %335 = shl i32 %.082, 12
-  %336 = and i32 %335, 61440
-  %337 = and i32 %.sroa.0.1.lcssa, -61441
-  %338 = or disjoint i32 %336, %337
+335:                                              ; preds = %326
+  %336 = shl i32 %.082, 12
+  %337 = and i32 %336, 61440
+  %338 = and i32 %.sroa.0.1.lcssa, -61441
+  %339 = or disjoint i32 %337, %338
   br label %Ivy_DecSetVar.exit113
 
-339:                                              ; preds = %325
-  %340 = shl i32 %.082, 16
-  %341 = and i32 %340, 983040
-  %342 = and i32 %.sroa.0.1.lcssa, -983041
-  %343 = or disjoint i32 %341, %342
+340:                                              ; preds = %326
+  %341 = shl i32 %.082, 16
+  %342 = and i32 %341, 983040
+  %343 = and i32 %.sroa.0.1.lcssa, -983041
+  %344 = or disjoint i32 %342, %343
   br label %Ivy_DecSetVar.exit113
 
-344:                                              ; preds = %325
-  %345 = shl i32 %.082, 20
-  %346 = and i32 %345, 15728640
-  %347 = and i32 %.sroa.0.1.lcssa, -15728641
-  %348 = or disjoint i32 %346, %347
+345:                                              ; preds = %326
+  %346 = shl i32 %.082, 20
+  %347 = and i32 %346, 15728640
+  %348 = and i32 %.sroa.0.1.lcssa, -15728641
+  %349 = or disjoint i32 %347, %348
   br label %Ivy_DecSetVar.exit113
 
-349:                                              ; preds = %325
-  %350 = shl i32 %.082, 24
-  %351 = and i32 %350, 251658240
-  %352 = and i32 %.sroa.0.1.lcssa, -251658241
-  %353 = or disjoint i32 %351, %352
+350:                                              ; preds = %326
+  %351 = shl i32 %.082, 24
+  %352 = and i32 %351, 251658240
+  %353 = and i32 %.sroa.0.1.lcssa, -251658241
+  %354 = or disjoint i32 %352, %353
   br label %Ivy_DecSetVar.exit113
 
-354:                                              ; preds = %325
-  %355 = shl i32 %.082, 28
-  %356 = and i32 %.sroa.0.1.lcssa, 268435455
-  %357 = or disjoint i32 %355, %356
+355:                                              ; preds = %326
+  %356 = shl i32 %.082, 28
+  %357 = and i32 %.sroa.0.1.lcssa, 268435455
+  %358 = or disjoint i32 %356, %357
   br label %Ivy_DecSetVar.exit113
 
-358:                                              ; preds = %._crit_edge
-  br i1 %318, label %359, label %Ivy_DecSetVar.exit113
+359:                                              ; preds = %._crit_edge
+  br i1 %319, label %360, label %Ivy_DecSetVar.exit113
 
-359:                                              ; preds = %358
-  %360 = icmp eq i32 %.078.lcssa, 0
-  %361 = zext i1 %360 to i32
-  %362 = xor i32 %321, %361
+360:                                              ; preds = %359
+  %361 = icmp eq i32 %.078.lcssa, 0
+  %362 = zext i1 %361 to i32
+  %363 = xor i32 %322, %362
   br label %Ivy_DecSetVar.exit113
 
-Ivy_DecSetVar.exit113:                            ; preds = %325, %354, %349, %344, %339, %334, %329, %358, %359
-  %.sroa.0.2 = phi i32 [ %.sroa.0.1.lcssa, %359 ], [ %.sroa.0.1.lcssa, %358 ], [ %.sroa.0.1.lcssa, %325 ], [ %357, %354 ], [ %353, %349 ], [ %348, %344 ], [ %343, %339 ], [ %338, %334 ], [ %333, %329 ]
-  %.3 = phi i32 [ %362, %359 ], [ %.080, %358 ], [ %.2, %325 ], [ %.2, %354 ], [ %.2, %349 ], [ %.2, %344 ], [ %.2, %339 ], [ %.2, %334 ], [ %.2, %329 ]
-  %363 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %364 = load i32, ptr %363, align 4, !tbaa !3
-  %365 = load i32, ptr %1, align 8, !tbaa !10
-  %366 = icmp eq i32 %364, %365
-  br i1 %366, label %367, label %.Vec_IntGrow.exit10_crit_edge.i
+Ivy_DecSetVar.exit113:                            ; preds = %326, %355, %350, %345, %340, %335, %330, %359, %360
+  %.sroa.0.2 = phi i32 [ %.sroa.0.1.lcssa, %360 ], [ %.sroa.0.1.lcssa, %359 ], [ %.sroa.0.1.lcssa, %326 ], [ %358, %355 ], [ %354, %350 ], [ %349, %345 ], [ %344, %340 ], [ %339, %335 ], [ %334, %330 ]
+  %.3 = phi i32 [ %363, %360 ], [ %.080, %359 ], [ %.2, %326 ], [ %.2, %355 ], [ %.2, %350 ], [ %.2, %345 ], [ %.2, %340 ], [ %.2, %335 ], [ %.2, %330 ]
+  %364 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %365 = load i32, ptr %364, align 4, !tbaa !3
+  %366 = load i32, ptr %1, align 8, !tbaa !10
+  %367 = icmp eq i32 %365, %366
+  br i1 %367, label %368, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Ivy_DecSetVar.exit113
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !11
   br label %Vec_IntPush.exit
 
-367:                                              ; preds = %Ivy_DecSetVar.exit113
-  %368 = icmp slt i32 %364, 16
-  br i1 %368, label %369, label %377
+368:                                              ; preds = %Ivy_DecSetVar.exit113
+  %369 = icmp slt i32 %365, 16
+  br i1 %369, label %370, label %378
 
-369:                                              ; preds = %367
-  %370 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %371 = load ptr, ptr %370, align 8, !tbaa !11
-  %.not9.i.i = icmp eq ptr %371, null
-  br i1 %.not9.i.i, label %374, label %372
+370:                                              ; preds = %368
+  %371 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %372 = load ptr, ptr %371, align 8, !tbaa !11
+  %.not9.i.i = icmp eq ptr %372, null
+  br i1 %.not9.i.i, label %375, label %373
 
-372:                                              ; preds = %369
-  %373 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %371, i64 noundef 64) #9
+373:                                              ; preds = %370
+  %374 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %372, i64 noundef 64) #9
   br label %Vec_IntGrow.exit.i
 
-374:                                              ; preds = %369
-  %375 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #10
+375:                                              ; preds = %370
+  %376 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #10
   br label %Vec_IntGrow.exit.i
 
-Vec_IntGrow.exit.i:                               ; preds = %374, %372
-  %376 = phi ptr [ %373, %372 ], [ %375, %374 ]
-  store ptr %376, ptr %370, align 8, !tbaa !11
+Vec_IntGrow.exit.i:                               ; preds = %375, %373
+  %377 = phi ptr [ %374, %373 ], [ %376, %375 ]
+  store ptr %377, ptr %371, align 8, !tbaa !11
   store i32 16, ptr %1, align 8, !tbaa !10
   br label %Vec_IntPush.exit
 
-377:                                              ; preds = %367
-  %378 = shl nuw nsw i32 %364, 1
-  %379 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %380 = load ptr, ptr %379, align 8, !tbaa !11
-  %.not9.i9.i = icmp eq ptr %380, null
-  %381 = zext nneg i32 %378 to i64
-  %382 = shl nuw nsw i64 %381, 2
-  br i1 %.not9.i9.i, label %385, label %383
+378:                                              ; preds = %368
+  %379 = shl nuw nsw i32 %365, 1
+  %380 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %381 = load ptr, ptr %380, align 8, !tbaa !11
+  %.not9.i9.i = icmp eq ptr %381, null
+  %382 = zext nneg i32 %379 to i64
+  %383 = shl nuw nsw i64 %382, 2
+  br i1 %.not9.i9.i, label %386, label %384
 
-383:                                              ; preds = %377
-  %384 = tail call ptr @realloc(ptr noundef nonnull %380, i64 noundef %382) #9
-  br label %387
+384:                                              ; preds = %378
+  %385 = tail call ptr @realloc(ptr noundef nonnull %381, i64 noundef %383) #9
+  br label %388
 
-385:                                              ; preds = %377
-  %386 = tail call noalias ptr @malloc(i64 noundef %382) #10
-  br label %387
+386:                                              ; preds = %378
+  %387 = tail call noalias ptr @malloc(i64 noundef %383) #10
+  br label %388
 
-387:                                              ; preds = %385, %383
-  %388 = phi ptr [ %384, %383 ], [ %386, %385 ]
-  store ptr %388, ptr %379, align 8, !tbaa !11
-  store i32 %378, ptr %1, align 8, !tbaa !10
+388:                                              ; preds = %386, %384
+  %389 = phi ptr [ %385, %384 ], [ %387, %386 ]
+  store ptr %389, ptr %380, align 8, !tbaa !11
+  store i32 %379, ptr %1, align 8, !tbaa !10
   br label %Vec_IntPush.exit
 
-Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %387
-  %389 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %388, %387 ], [ %376, %Vec_IntGrow.exit.i ]
-  %390 = load i32, ptr %363, align 4, !tbaa !3
-  %391 = add nsw i32 %390, 1
-  store i32 %391, ptr %363, align 4, !tbaa !3
-  %392 = sext i32 %390 to i64
-  %393 = getelementptr inbounds i32, ptr %389, i64 %392
-  store i32 %.sroa.0.2, ptr %393, align 4, !tbaa !12
-  %.val = load i32, ptr %363, align 4, !tbaa !3
-  %394 = shl i32 %.val, 1
-  %395 = add i32 %394, -2
-  %396 = or i32 %395, %.3
-  br label %397
+Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %388
+  %390 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %389, %388 ], [ %377, %Vec_IntGrow.exit.i ]
+  %391 = load i32, ptr %364, align 4, !tbaa !3
+  %392 = add nsw i32 %391, 1
+  store i32 %392, ptr %364, align 4, !tbaa !3
+  %393 = sext i32 %391 to i64
+  %394 = getelementptr inbounds i32, ptr %390, i64 %393
+  store i32 %.sroa.0.2, ptr %394, align 4, !tbaa !12
+  %.val = load i32, ptr %364, align 4, !tbaa !3
+  %395 = shl i32 %.val, 1
+  %396 = add i32 %395, -2
+  %397 = or i32 %396, %.3
+  br label %398
 
-397:                                              ; preds = %322, %Vec_IntPush.exit, %Ivy_TruthRecognizeMuxMaj.exit, %61
-  %.0 = phi i32 [ %62, %61 ], [ %.057.i, %Ivy_TruthRecognizeMuxMaj.exit ], [ %396, %Vec_IntPush.exit ], [ -1, %322 ]
+398:                                              ; preds = %323, %Vec_IntPush.exit, %Ivy_TruthRecognizeMuxMaj.exit, %61
+  %.0 = phi i32 [ %62, %61 ], [ %.057.i, %Ivy_TruthRecognizeMuxMaj.exit ], [ %397, %Vec_IntPush.exit ], [ -1, %323 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #11
@@ -1070,9 +1071,9 @@ define i32 @Ivy_TruthDsdCompute_rec(i32 noundef %0, ptr noundef %1) local_unname
   %.val = load ptr, ptr %3, align 8, !tbaa !11
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %46, %2
-  %accumulator.tr = phi i32 [ 0, %2 ], [ %50, %46 ]
-  %.tr = phi i32 [ %0, %2 ], [ %48, %46 ]
+tailrecurse:                                      ; preds = %47, %2
+  %accumulator.tr = phi i32 [ 0, %2 ], [ %51, %47 ]
+  %.tr = phi i32 [ %0, %2 ], [ %49, %47 ]
   %4 = sext i32 %.tr to i64
   %5 = getelementptr inbounds i32, ptr %.val, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !12
@@ -1080,11 +1081,11 @@ tailrecurse:                                      ; preds = %46, %2
   switch i32 %7, label %.loopexit [
     i32 1, label %34
     i32 0, label %40
-    i32 2, label %46
+    i32 2, label %47
     i32 3, label %.preheader
     i32 4, label %.preheader84
-    i32 5, label %78
-    i32 6, label %78
+    i32 5, label %79
+    i32 6, label %79
   ]
 
 .preheader84:                                     ; preds = %tailrecurse
@@ -1105,7 +1106,7 @@ tailrecurse:                                      ; preds = %46, %2
   %18 = and i32 %17, 15
   %19 = lshr i32 %6, 8
   %20 = and i32 %19, 15
-  br label %65
+  br label %66
 
 .preheader:                                       ; preds = %tailrecurse
   %21 = lshr i32 %6, 5
@@ -1125,7 +1126,7 @@ tailrecurse:                                      ; preds = %46, %2
   %31 = and i32 %30, 15
   %32 = lshr i32 %6, 8
   %33 = and i32 %32, 15
-  br label %51
+  br label %52
 
 34:                                               ; preds = %tailrecurse
   %35 = lshr i32 %6, 4
@@ -1137,155 +1138,156 @@ tailrecurse:                                      ; preds = %46, %2
   br label %.loopexit
 
 40:                                               ; preds = %tailrecurse
-  %41 = lshr exact i32 %6, 4
-  %.lobit = and i32 %41, 1
-  %42 = xor i32 %.lobit, 1
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %4, i64 %43
-  %45 = load i32, ptr %44, align 4, !tbaa !12
+  %41 = getelementptr inbounds [6 x [2 x i32]], ptr @s_Masks, i64 0, i64 %4
+  %42 = lshr exact i32 %6, 4
+  %.lobit = and i32 %42, 1
+  %43 = xor i32 %.lobit, 1
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw [2 x i32], ptr %41, i64 0, i64 %44
+  %46 = load i32, ptr %45, align 4, !tbaa !12
   br label %.loopexit
 
-46:                                               ; preds = %tailrecurse
-  %47 = lshr i32 %6, 9
-  %48 = and i32 %47, 7
-  %49 = shl i32 %6, 27
-  %sext61 = ashr i32 %49, 31
-  %50 = xor i32 %sext61, %accumulator.tr
+47:                                               ; preds = %tailrecurse
+  %48 = lshr i32 %6, 9
+  %49 = and i32 %48, 7
+  %50 = shl i32 %6, 27
+  %sext61 = ashr i32 %50, 31
+  %51 = xor i32 %sext61, %accumulator.tr
   br label %tailrecurse
 
-51:                                               ; preds = %.lr.ph112, %Ivy_DecGetVar.exit
-  %.051111 = phi i32 [ -1, %.lr.ph112 ], [ %61, %Ivy_DecGetVar.exit ]
-  %.053110 = phi i32 [ 0, %.lr.ph112 ], [ %62, %Ivy_DecGetVar.exit ]
+52:                                               ; preds = %.lr.ph112, %Ivy_DecGetVar.exit
+  %.051111 = phi i32 [ -1, %.lr.ph112 ], [ %62, %Ivy_DecGetVar.exit ]
+  %.053110 = phi i32 [ 0, %.lr.ph112 ], [ %63, %Ivy_DecGetVar.exit ]
   switch i32 %.053110, label %Ivy_DecGetVar.exit [
-    i32 0, label %52
-    i32 1, label %53
-    i32 2, label %54
-    i32 3, label %55
-    i32 4, label %56
-    i32 5, label %57
+    i32 0, label %53
+    i32 1, label %54
+    i32 2, label %55
+    i32 3, label %56
+    i32 4, label %57
+    i32 5, label %58
   ]
 
-52:                                               ; preds = %51
+53:                                               ; preds = %52
   br label %Ivy_DecGetVar.exit
 
-53:                                               ; preds = %51
+54:                                               ; preds = %52
   br label %Ivy_DecGetVar.exit
 
-54:                                               ; preds = %51
+55:                                               ; preds = %52
   br label %Ivy_DecGetVar.exit
 
-55:                                               ; preds = %51
+56:                                               ; preds = %52
   br label %Ivy_DecGetVar.exit
 
-56:                                               ; preds = %51
+57:                                               ; preds = %52
   br label %Ivy_DecGetVar.exit
 
-57:                                               ; preds = %51
+58:                                               ; preds = %52
   br label %Ivy_DecGetVar.exit
 
-Ivy_DecGetVar.exit:                               ; preds = %51, %52, %53, %54, %55, %56, %57
-  %.0.i = phi i32 [ %33, %52 ], [ %31, %53 ], [ %29, %54 ], [ %27, %55 ], [ %25, %56 ], [ %23, %57 ], [ -1, %51 ]
-  %58 = ashr i32 %.0.i, 1
-  %59 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %58, ptr noundef %1)
-  %60 = and i32 %.0.i, 1
-  %sext = sub nsw i32 0, %60
-  %.pn = xor i32 %59, %sext
-  %61 = and i32 %.pn, %.051111
-  %62 = add nuw nsw i32 %.053110, 1
-  %exitcond141.not = icmp eq i32 %62, %22
-  br i1 %exitcond141.not, label %._crit_edge113, label %51, !llvm.loop !24
+Ivy_DecGetVar.exit:                               ; preds = %52, %53, %54, %55, %56, %57, %58
+  %.0.i = phi i32 [ %33, %53 ], [ %31, %54 ], [ %29, %55 ], [ %27, %56 ], [ %25, %57 ], [ %23, %58 ], [ -1, %52 ]
+  %59 = ashr i32 %.0.i, 1
+  %60 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %59, ptr noundef %1)
+  %61 = and i32 %.0.i, 1
+  %sext = sub nsw i32 0, %61
+  %.pn = xor i32 %60, %sext
+  %62 = and i32 %.pn, %.051111
+  %63 = add nuw nsw i32 %.053110, 1
+  %exitcond141.not = icmp eq i32 %63, %22
+  br i1 %exitcond141.not, label %._crit_edge113, label %52, !llvm.loop !24
 
 ._crit_edge113:                                   ; preds = %Ivy_DecGetVar.exit, %.preheader
-  %.051.lcssa = phi i32 [ -1, %.preheader ], [ %61, %Ivy_DecGetVar.exit ]
-  %63 = shl i32 %6, 27
-  %sext59 = ashr i32 %63, 31
-  %64 = xor i32 %.051.lcssa, %sext59
+  %.051.lcssa = phi i32 [ -1, %.preheader ], [ %62, %Ivy_DecGetVar.exit ]
+  %64 = shl i32 %6, 27
+  %sext59 = ashr i32 %64, 31
+  %65 = xor i32 %.051.lcssa, %sext59
   br label %.loopexit
 
-65:                                               ; preds = %.lr.ph, %Ivy_DecGetVar.exit71
-  %.152109 = phi i32 [ 0, %.lr.ph ], [ %74, %Ivy_DecGetVar.exit71 ]
-  %.154108 = phi i32 [ 0, %.lr.ph ], [ %75, %Ivy_DecGetVar.exit71 ]
+66:                                               ; preds = %.lr.ph, %Ivy_DecGetVar.exit71
+  %.152109 = phi i32 [ 0, %.lr.ph ], [ %75, %Ivy_DecGetVar.exit71 ]
+  %.154108 = phi i32 [ 0, %.lr.ph ], [ %76, %Ivy_DecGetVar.exit71 ]
   switch i32 %.154108, label %Ivy_DecGetVar.exit71 [
-    i32 0, label %66
-    i32 1, label %67
-    i32 2, label %68
-    i32 3, label %69
-    i32 4, label %70
-    i32 5, label %71
+    i32 0, label %67
+    i32 1, label %68
+    i32 2, label %69
+    i32 3, label %70
+    i32 4, label %71
+    i32 5, label %72
   ]
 
-66:                                               ; preds = %65
+67:                                               ; preds = %66
   br label %Ivy_DecGetVar.exit71
 
-67:                                               ; preds = %65
+68:                                               ; preds = %66
   br label %Ivy_DecGetVar.exit71
 
-68:                                               ; preds = %65
+69:                                               ; preds = %66
   br label %Ivy_DecGetVar.exit71
 
-69:                                               ; preds = %65
+70:                                               ; preds = %66
   br label %Ivy_DecGetVar.exit71
 
-70:                                               ; preds = %65
+71:                                               ; preds = %66
   br label %Ivy_DecGetVar.exit71
 
-71:                                               ; preds = %65
+72:                                               ; preds = %66
   br label %Ivy_DecGetVar.exit71
 
-Ivy_DecGetVar.exit71:                             ; preds = %65, %66, %67, %68, %69, %70, %71
-  %.0.i70 = phi i32 [ %20, %66 ], [ %18, %67 ], [ %16, %68 ], [ %14, %69 ], [ %12, %70 ], [ %10, %71 ], [ -1, %65 ]
-  %72 = ashr i32 %.0.i70, 1
-  %73 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %72, ptr noundef %1)
-  %74 = xor i32 %73, %.152109
-  %75 = add nuw nsw i32 %.154108, 1
-  %exitcond.not = icmp eq i32 %75, %9
-  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !25
+Ivy_DecGetVar.exit71:                             ; preds = %66, %67, %68, %69, %70, %71, %72
+  %.0.i70 = phi i32 [ %20, %67 ], [ %18, %68 ], [ %16, %69 ], [ %14, %70 ], [ %12, %71 ], [ %10, %72 ], [ -1, %66 ]
+  %73 = ashr i32 %.0.i70, 1
+  %74 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %73, ptr noundef %1)
+  %75 = xor i32 %74, %.152109
+  %76 = add nuw nsw i32 %.154108, 1
+  %exitcond.not = icmp eq i32 %76, %9
+  br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %Ivy_DecGetVar.exit71, %.preheader84
-  %.152.lcssa = phi i32 [ 0, %.preheader84 ], [ %74, %Ivy_DecGetVar.exit71 ]
-  %76 = shl i32 %6, 27
-  %sext58 = ashr i32 %76, 31
-  %77 = xor i32 %.152.lcssa, %sext58
+  %.152.lcssa = phi i32 [ 0, %.preheader84 ], [ %75, %Ivy_DecGetVar.exit71 ]
+  %77 = shl i32 %6, 27
+  %sext58 = ashr i32 %77, 31
+  %78 = xor i32 %.152.lcssa, %sext58
   br label %.loopexit
 
-78:                                               ; preds = %tailrecurse, %tailrecurse
-  %79 = lshr i32 %6, 9
-  %80 = and i32 %79, 7
-  %81 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %80, ptr noundef nonnull %1)
-  %82 = lshr i32 %6, 13
-  %83 = and i32 %82, 7
-  %84 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %83, ptr noundef nonnull %1)
-  %85 = lshr i32 %6, 17
-  %86 = and i32 %85, 7
-  %87 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %86, ptr noundef nonnull %1)
-  %88 = shl i32 %6, 23
-  %89 = ashr i32 %88, 31
-  %90 = xor i32 %81, %89
-  %91 = shl i32 %6, 19
-  %92 = ashr i32 %91, 31
-  %93 = xor i32 %84, %92
-  %94 = shl i32 %6, 15
-  %95 = ashr i32 %94, 31
-  %96 = xor i32 %87, %95
-  %97 = icmp eq i32 %7, 5
-  br i1 %97, label %98, label %103
+79:                                               ; preds = %tailrecurse, %tailrecurse
+  %80 = lshr i32 %6, 9
+  %81 = and i32 %80, 7
+  %82 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %81, ptr noundef nonnull %1)
+  %83 = lshr i32 %6, 13
+  %84 = and i32 %83, 7
+  %85 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %84, ptr noundef nonnull %1)
+  %86 = lshr i32 %6, 17
+  %87 = and i32 %86, 7
+  %88 = tail call i32 @Ivy_TruthDsdCompute_rec(i32 noundef %87, ptr noundef nonnull %1)
+  %89 = shl i32 %6, 23
+  %90 = ashr i32 %89, 31
+  %91 = xor i32 %82, %90
+  %92 = shl i32 %6, 19
+  %93 = ashr i32 %92, 31
+  %94 = xor i32 %85, %93
+  %95 = shl i32 %6, 15
+  %96 = ashr i32 %95, 31
+  %97 = xor i32 %88, %96
+  %98 = icmp eq i32 %7, 5
+  br i1 %98, label %99, label %104
 
-98:                                               ; preds = %78
-  %99 = and i32 %93, %90
-  %100 = xor i32 %90, -1
-  %101 = and i32 %96, %100
-  %102 = or i32 %101, %99
+99:                                               ; preds = %79
+  %100 = and i32 %94, %91
+  %101 = xor i32 %91, -1
+  %102 = and i32 %97, %101
+  %103 = or i32 %102, %100
   br label %.loopexit
 
-103:                                              ; preds = %78
-  %104 = or i32 %96, %93
-  %105 = and i32 %104, %90
-  %106 = and i32 %96, %93
-  %107 = or i32 %105, %106
+104:                                              ; preds = %79
+  %105 = or i32 %97, %94
+  %106 = and i32 %105, %91
+  %107 = and i32 %97, %94
+  %108 = or i32 %106, %107
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %98, %103, %._crit_edge, %._crit_edge113, %40, %34
-  %.0 = phi i32 [ %39, %34 ], [ %45, %40 ], [ %64, %._crit_edge113 ], [ %77, %._crit_edge ], [ %102, %98 ], [ %107, %103 ], [ 0, %tailrecurse ]
+.loopexit:                                        ; preds = %tailrecurse, %99, %104, %._crit_edge, %._crit_edge113, %40, %34
+  %.0 = phi i32 [ %39, %34 ], [ %46, %40 ], [ %65, %._crit_edge113 ], [ %78, %._crit_edge ], [ %103, %99 ], [ %108, %104 ], [ 0, %tailrecurse ]
   %accumulator.ret.tr = xor i32 %.0, %accumulator.tr
   ret i32 %accumulator.ret.tr
 }

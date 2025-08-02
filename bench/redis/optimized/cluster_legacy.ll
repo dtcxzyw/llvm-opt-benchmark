@@ -8959,20 +8959,20 @@ clusterGetMessageTypeString.exit:                 ; preds = %23, %switch.lookup
 
 27:                                               ; preds = %20, %clusterGetMessageTypeString.exit
   %28 = icmp ult i32 %7, 16
-  br i1 %28, label %.critedge481, label %29
+  br i1 %28, label %.critedge483, label %29
 
 29:                                               ; preds = %27
   %30 = zext i32 %7 to i64
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i64, ptr %31, align 8, !tbaa !159
   %33 = icmp ult i64 %32, %30
-  br i1 %33, label %.critedge481, label %34
+  br i1 %33, label %.critedge483, label %34
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load i16, ptr %35, align 8, !tbaa !230
   %.not = icmp eq i16 %36, 256
-  br i1 %.not, label %37, label %.critedge481
+  br i1 %.not, label %37, label %.critedge483
 
 37:                                               ; preds = %34
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8016), align 8, !tbaa !231
@@ -8982,19 +8982,19 @@ clusterGetMessageTypeString.exit:                 ; preds = %23, %switch.lookup
 40:                                               ; preds = %37
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
   %42 = icmp sgt i32 %41, 3
-  br i1 %42, label %.critedge481, label %43
+  br i1 %42, label %.critedge483, label %43
 
 43:                                               ; preds = %40
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.87) #33
-  br label %.critedge481
+  br label %.critedge483
 
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 2250
   %46 = load i16, ptr %45, align 2, !tbaa !232
-  %rev.i485 = tail call noundef i16 @llvm.bswap.i16(i16 %46)
+  %rev.i487 = tail call noundef i16 @llvm.bswap.i16(i16 %46)
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 2214
   %48 = load i16, ptr %47, align 2, !tbaa !224
-  %rev.i486 = tail call noundef i16 @llvm.bswap.i16(i16 %48)
+  %rev.i488 = tail call noundef i16 @llvm.bswap.i16(i16 %48)
   %49 = icmp eq i16 %9, 0
   %50 = icmp eq i16 %9, 256
   %51 = icmp eq i16 %9, 512
@@ -9004,30 +9004,30 @@ clusterGetMessageTypeString.exit:                 ; preds = %23, %switch.lookup
 52:                                               ; preds = %44
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 14
   %54 = load i16, ptr %53, align 2, !tbaa !193
-  %rev.i487 = tail call noundef i16 @llvm.bswap.i16(i16 %54)
-  %55 = zext i16 %rev.i487 to i32
+  %rev.i489 = tail call noundef i16 @llvm.bswap.i16(i16 %54)
+  %55 = zext i16 %rev.i489 to i32
   %56 = mul nuw nsw i32 %55, 104
   %57 = add nuw nsw i32 %56, 2256
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 2253
   %59 = load i8, ptr %58, align 1, !tbaa !50
   %60 = and i8 %59, 4
   %.not425 = icmp eq i8 %60, 0
-  %.not426534 = icmp eq i16 %48, 0
-  %or.cond560 = select i1 %.not425, i1 true, i1 %.not426534
-  br i1 %or.cond560, label %.thread500, label %.lr.ph.preheader
+  %.not426530 = icmp eq i16 %48, 0
+  %or.cond556 = select i1 %.not425, i1 true, i1 %.not426530
+  br i1 %or.cond556, label %.thread501, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %52
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 2256
-  %62 = zext i16 %rev.i487 to i64
+  %62 = zext i16 %rev.i489 to i64
   %63 = getelementptr inbounds nuw [1 x %struct.clusterMsgDataGossip], ptr %61, i64 0, i64 %62
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
-  %.in = phi i16 [ %64, %79 ], [ %rev.i486, %.lr.ph.preheader ]
-  %.1390536 = phi i32 [ %80, %79 ], [ %57, %.lr.ph.preheader ]
-  %.0395535 = phi ptr [ %82, %79 ], [ %63, %.lr.ph.preheader ]
+  %.in = phi i16 [ %64, %79 ], [ %rev.i488, %.lr.ph.preheader ]
+  %.1390532 = phi i32 [ %80, %79 ], [ %57, %.lr.ph.preheader ]
+  %.0395531 = phi ptr [ %82, %79 ], [ %63, %.lr.ph.preheader ]
   %64 = add i16 %.in, -1
-  %.0395.val = load i32, ptr %.0395535, align 8, !tbaa !38
+  %.0395.val = load i32, ptr %.0395531, align 8, !tbaa !38
   %65 = tail call noundef i32 @llvm.bswap.i32(i32 %.0395.val)
   %66 = and i32 %65, 65535
   %67 = and i32 %65, 7
@@ -9037,42 +9037,42 @@ clusterGetMessageTypeString.exit:                 ; preds = %23, %switch.lookup
 68:                                               ; preds = %.lr.ph
   %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
   %70 = icmp sgt i32 %69, 3
-  br i1 %70, label %.critedge481, label %switch.lookup566
+  br i1 %70, label %.critedge483, label %switch.lookup562
 
-switch.lookup566:                                 ; preds = %68
+switch.lookup562:                                 ; preds = %68
   %71 = zext nneg i16 %rev.i to i64
-  %switch.gep567 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.genClusterInfoString.17, i64 0, i64 %71
-  %switch.load568 = load ptr, ptr %switch.gep567, align 8
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.88, ptr noundef nonnull %switch.load568, i32 noundef %66) #33
-  br label %.critedge481
+  %switch.gep563 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.genClusterInfoString.17, i64 0, i64 %71
+  %switch.load564 = load ptr, ptr %switch.gep563, align 8
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.88, ptr noundef nonnull %switch.load564, i32 noundef %66) #33
+  br label %.critedge483
 
 72:                                               ; preds = %.lr.ph
-  %73 = sub i32 %7, %.1390536
+  %73 = sub i32 %7, %.1390532
   %74 = icmp ult i32 %73, %66
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %72
   %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
   %77 = icmp sgt i32 %76, 3
-  br i1 %77, label %.critedge481, label %switch.lookup569
+  br i1 %77, label %.critedge483, label %switch.lookup565
 
-switch.lookup569:                                 ; preds = %75
+switch.lookup565:                                 ; preds = %75
   %78 = zext nneg i16 %rev.i to i64
-  %switch.gep570 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.genClusterInfoString.17, i64 0, i64 %78
-  %switch.load571 = load ptr, ptr %switch.gep570, align 8
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.89, ptr noundef nonnull %switch.load571, i64 noundef %30) #33
-  br label %.critedge481
+  %switch.gep566 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.genClusterInfoString.17, i64 0, i64 %78
+  %switch.load567 = load ptr, ptr %switch.gep566, align 8
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.89, ptr noundef nonnull %switch.load567, i64 noundef %30) #33
+  br label %.critedge483
 
 79:                                               ; preds = %72
-  %80 = add i32 %66, %.1390536
+  %80 = add i32 %66, %.1390532
   %81 = zext i32 %65 to i64
-  %82 = getelementptr inbounds nuw i8, ptr %.0395535, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %.0395531, i64 %81
   %.not426 = icmp eq i16 %64, 0
-  br i1 %.not426, label %.thread500, label %.lr.ph, !llvm.loop !233
+  br i1 %.not426, label %.thread501, label %.lr.ph, !llvm.loop !233
 
 83:                                               ; preds = %44
-  switch i16 %rev.i, label %.thread503 [
-    i16 3, label %.thread500
+  switch i16 %rev.i, label %.thread502 [
+    i16 3, label %.thread501
     i16 10, label %84
     i16 4, label %84
     i16 8, label %.fold.split
@@ -9091,55 +9091,55 @@ switch.lookup569:                                 ; preds = %75
   %90 = tail call noundef i32 @llvm.bswap.i32(i32 %89)
   %91 = add i32 %87, 2264
   %92 = add i32 %91, %90
-  br label %.thread500
+  br label %.thread501
 
 93:                                               ; preds = %83
-  br label %.thread500
+  br label %.thread501
 
 94:                                               ; preds = %83
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 2264
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = tail call noundef i32 @llvm.bswap.i32(i32 %96)
   %98 = add i32 %97, 2269
-  br label %.thread500
+  br label %.thread501
 
 .fold.split:                                      ; preds = %83, %83, %83
-  br label %.thread500
+  br label %.thread501
 
-.thread500:                                       ; preds = %79, %52, %83, %.fold.split, %94, %93, %84
-  %.5394 = phi i32 [ %92, %84 ], [ 4352, %93 ], [ %98, %94 ], [ 2296, %83 ], [ 2256, %.fold.split ], [ %57, %52 ], [ %80, %79 ]
+.thread501:                                       ; preds = %79, %83, %.fold.split, %52, %94, %93, %84
+  %.5394 = phi i32 [ %92, %84 ], [ 4352, %93 ], [ %98, %94 ], [ %57, %52 ], [ 2296, %83 ], [ 2256, %.fold.split ], [ %80, %79 ]
   %.not428 = icmp eq i32 %7, %.5394
-  br i1 %.not428, label %.thread503, label %99
+  br i1 %.not428, label %.thread502, label %99
 
-99:                                               ; preds = %.thread500
+99:                                               ; preds = %.thread501
   %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
   %101 = icmp sgt i32 %100, 3
-  br i1 %101, label %.critedge481, label %102
+  br i1 %101, label %.critedge483, label %102
 
 102:                                              ; preds = %99
   %103 = tail call ptr @clusterGetMessageTypeString(i32 noundef %11)
   %104 = zext i32 %.5394 to i64
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.90, ptr noundef nonnull %103, i64 noundef %30, i64 noundef %104) #33
-  br label %.critedge481
+  br label %.critedge483
 
-.thread503:                                       ; preds = %83, %.thread500
+.thread502:                                       ; preds = %83, %.thread501
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %106 = load ptr, ptr %105, align 8, !tbaa !162
   %.not.i = icmp eq ptr %106, null
   br i1 %.not.i, label %111, label %107
 
-107:                                              ; preds = %.thread503
+107:                                              ; preds = %.thread502
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 88
   %109 = load i32, ptr %108, align 8, !tbaa !82
   %110 = and i32 %109, 32
   %.not11.i = icmp eq i32 %110, 0
   br i1 %.not11.i, label %getNodeFromLinkAndMsg.exit, label %111
 
-111:                                              ; preds = %107, %.thread503
+111:                                              ; preds = %107, %.thread502
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %113 = tail call i32 @verifyClusterNodeId(ptr noundef nonnull %112, i32 noundef 40) #33
   %.not.i.i = icmp eq i32 %113, 0
-  br i1 %.not.i.i, label %114, label %.critedge470
+  br i1 %.not.i.i, label %114, label %.critedge472
 
 114:                                              ; preds = %111
   %115 = tail call ptr @sdsnewlen(ptr noundef nonnull %112, i64 noundef 40) #33
@@ -9149,12 +9149,12 @@ switch.lookup569:                                 ; preds = %75
   %119 = tail call ptr @dictFind(ptr noundef %118, ptr noundef %115) #33
   tail call void @sdsfree(ptr noundef %115) #33
   %120 = icmp eq ptr %119, null
-  br i1 %120, label %.critedge470, label %clusterLookupNode.exit.i
+  br i1 %120, label %.critedge472, label %clusterLookupNode.exit.i
 
 clusterLookupNode.exit.i:                         ; preds = %114
   %121 = tail call ptr @dictGetVal(ptr noundef nonnull %119) #33
   %.not12.i = icmp eq ptr %121, null
-  br i1 %.not12.i, label %.critedge470, label %122
+  br i1 %.not12.i, label %.critedge472, label %122
 
 122:                                              ; preds = %clusterLookupNode.exit.i
   %123 = load ptr, ptr %105, align 8, !tbaa !162
@@ -9166,29 +9166,29 @@ clusterLookupNode.exit.i:                         ; preds = %114
   br label %getNodeFromLinkAndMsg.exit
 
 getNodeFromLinkAndMsg.exit:                       ; preds = %124, %122, %107
-  %.0.i492 = phi ptr [ %121, %122 ], [ %121, %124 ], [ %106, %107 ]
+  %.0.i494 = phi ptr [ %121, %122 ], [ %121, %124 ], [ %106, %107 ]
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 2253
   %126 = load i8, ptr %125, align 1, !tbaa !50
   %127 = and i8 %126, 4
   %.not429 = icmp eq i8 %127, 0
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.i492, i64 88
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.i494, i64 88
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !82
-  br i1 %.not429, label %.critedge, label %128
+  br i1 %.not429, label %.critedge471, label %128
 
 128:                                              ; preds = %getNodeFromLinkAndMsg.exit
   %129 = or i32 %.pre, 1024
   store i32 %129, ptr %.phi.trans.insert, align 8, !tbaa !82
-  br label %.critedge
+  br label %.critedge471
 
-.critedge:                                        ; preds = %getNodeFromLinkAndMsg.exit, %128
+.critedge471:                                     ; preds = %getNodeFromLinkAndMsg.exit, %128
   %130 = phi i32 [ %129, %128 ], [ %.pre, %getNodeFromLinkAndMsg.exit ]
-  %131 = getelementptr inbounds nuw i8, ptr %.0.i492, i64 2216
+  %131 = getelementptr inbounds nuw i8, ptr %.0.i494, i64 2216
   store i64 %10, ptr %131, align 8, !tbaa !234
   %132 = and i32 %130, 32
   %.not430 = icmp eq i32 %132, 0
-  br i1 %.not430, label %133, label %.critedge470
+  br i1 %.not430, label %133, label %.critedge472
 
-133:                                              ; preds = %.critedge
+133:                                              ; preds = %.critedge471
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %135 = load i64, ptr %134, align 8, !tbaa !235
   %136 = tail call i64 @intrev64(i64 noundef %135) #33
@@ -9206,7 +9206,7 @@ getNodeFromLinkAndMsg.exit:                       ; preds = %124, %122, %107
   br label %145
 
 145:                                              ; preds = %144, %133
-  %146 = getelementptr inbounds nuw i8, ptr %.0.i492, i64 96
+  %146 = getelementptr inbounds nuw i8, ptr %.0.i494, i64 96
   %147 = load i64, ptr %146, align 8, !tbaa !89
   %148 = icmp ugt i64 %139, %147
   br i1 %148, label %149, label %153
@@ -9223,15 +9223,15 @@ getNodeFromLinkAndMsg.exit:                       ; preds = %124, %122, %107
   %154 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %155 = load i64, ptr %154, align 8, !tbaa !237
   %156 = tail call i64 @intrev64(i64 noundef %155) #33
-  %157 = getelementptr inbounds nuw i8, ptr %.0.i492, i64 2256
+  %157 = getelementptr inbounds nuw i8, ptr %.0.i494, i64 2256
   store i64 %156, ptr %157, align 8, !tbaa !238
-  %158 = getelementptr inbounds nuw i8, ptr %.0.i492, i64 2240
+  %158 = getelementptr inbounds nuw i8, ptr %.0.i494, i64 2240
   store i64 %10, ptr %158, align 8, !tbaa !239
   %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 393344
   %161 = load i64, ptr %160, align 8, !tbaa !240
   %.not431 = icmp eq i64 %161, 0
-  br i1 %.not431, label %.critedge470, label %162
+  br i1 %.not431, label %.critedge472, label %162
 
 162:                                              ; preds = %153
   %163 = load ptr, ptr @myself, align 8, !tbaa !46
@@ -9239,25 +9239,25 @@ getNodeFromLinkAndMsg.exit:                       ; preds = %124, %122, %107
   %165 = load i32, ptr %164, align 8, !tbaa !82
   %166 = and i32 %165, 2
   %.not432 = icmp eq i32 %166, 0
-  br i1 %.not432, label %.critedge470, label %167
+  br i1 %.not432, label %.critedge472, label %167
 
 167:                                              ; preds = %162
   %168 = getelementptr inbounds nuw i8, ptr %163, i64 2184
   %169 = load ptr, ptr %168, align 8, !tbaa !59
-  %170 = icmp eq ptr %169, %.0.i492
-  br i1 %170, label %171, label %.critedge470
+  %170 = icmp eq ptr %169, %.0.i494
+  br i1 %170, label %171, label %.critedge472
 
 171:                                              ; preds = %167
   %172 = load i8, ptr %125, align 1, !tbaa !50
   %173 = and i8 %172, 1
   %.not433 = icmp eq i8 %173, 0
-  br i1 %.not433, label %.critedge470, label %174
+  br i1 %.not433, label %.critedge472, label %174
 
 174:                                              ; preds = %171
   %175 = getelementptr inbounds nuw i8, ptr %159, i64 393360
   %176 = load i64, ptr %175, align 8, !tbaa !123
   %177 = icmp eq i64 %176, -1
-  br i1 %177, label %178, label %.critedge470
+  br i1 %177, label %178, label %.critedge472
 
 178:                                              ; preds = %174
   store i64 %156, ptr %175, align 8, !tbaa !123
@@ -9267,23 +9267,23 @@ getNodeFromLinkAndMsg.exit:                       ; preds = %124, %122, %107
   store i32 %181, ptr %179, align 8, !tbaa !57
   %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
   %183 = icmp sgt i32 %182, 2
-  br i1 %183, label %.critedge470, label %184
+  br i1 %183, label %.critedge472, label %184
 
 184:                                              ; preds = %178
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.91, i64 noundef %156) #33
-  br label %.critedge470
+  br label %.critedge472
 
-.critedge470:                                     ; preds = %114, %111, %clusterLookupNode.exit.i, %153, %162, %167, %171, %174, %178, %184, %.critedge
-  %.not465509 = phi i1 [ false, %.critedge ], [ false, %178 ], [ false, %184 ], [ false, %174 ], [ false, %171 ], [ false, %167 ], [ false, %162 ], [ false, %153 ], [ true, %clusterLookupNode.exit.i ], [ true, %111 ], [ true, %114 ]
-  %.0.i492508 = phi ptr [ %.0.i492, %.critedge ], [ %.0.i492, %178 ], [ %.0.i492, %184 ], [ %.0.i492, %174 ], [ %.0.i492, %171 ], [ %.0.i492, %167 ], [ %.0.i492, %162 ], [ %.0.i492, %153 ], [ null, %clusterLookupNode.exit.i ], [ null, %111 ], [ null, %114 ]
-  %.0388 = phi i64 [ 0, %.critedge ], [ %139, %178 ], [ %139, %184 ], [ %139, %174 ], [ %139, %171 ], [ %139, %167 ], [ %139, %162 ], [ %139, %153 ], [ 0, %clusterLookupNode.exit.i ], [ 0, %111 ], [ 0, %114 ]
-  %.0387 = phi i64 [ 0, %.critedge ], [ %136, %178 ], [ %136, %184 ], [ %136, %174 ], [ %136, %171 ], [ %136, %167 ], [ %136, %162 ], [ %136, %153 ], [ 0, %clusterLookupNode.exit.i ], [ 0, %111 ], [ 0, %114 ]
+.critedge472:                                     ; preds = %114, %111, %clusterLookupNode.exit.i, %153, %162, %167, %171, %174, %178, %184, %.critedge471
+  %.not465508 = phi i1 [ false, %.critedge471 ], [ false, %178 ], [ false, %184 ], [ false, %174 ], [ false, %171 ], [ false, %167 ], [ false, %162 ], [ false, %153 ], [ true, %clusterLookupNode.exit.i ], [ true, %111 ], [ true, %114 ]
+  %.0.i494507 = phi ptr [ %.0.i494, %.critedge471 ], [ %.0.i494, %178 ], [ %.0.i494, %184 ], [ %.0.i494, %174 ], [ %.0.i494, %171 ], [ %.0.i494, %167 ], [ %.0.i494, %162 ], [ %.0.i494, %153 ], [ null, %clusterLookupNode.exit.i ], [ null, %111 ], [ null, %114 ]
+  %.0388 = phi i64 [ 0, %.critedge471 ], [ %139, %178 ], [ %139, %184 ], [ %139, %174 ], [ %139, %171 ], [ %139, %167 ], [ %139, %162 ], [ %139, %153 ], [ 0, %clusterLookupNode.exit.i ], [ 0, %111 ], [ 0, %114 ]
+  %.0387 = phi i64 [ 0, %.critedge471 ], [ %136, %178 ], [ %136, %184 ], [ %136, %174 ], [ %136, %171 ], [ %136, %167 ], [ %136, %162 ], [ %136, %153 ], [ 0, %clusterLookupNode.exit.i ], [ 0, %111 ], [ 0, %114 ]
   switch i16 %rev.i, label %239 [
     i16 2, label %185
     i16 0, label %185
   ]
 
-185:                                              ; preds = %.critedge470, %.critedge470
+185:                                              ; preds = %.critedge472, %.critedge472
   br i1 %51, label %193, label %186
 
 186:                                              ; preds = %185
@@ -9294,7 +9294,7 @@ getNodeFromLinkAndMsg.exit:                       ; preds = %124, %122, %107
   %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7952), align 8
   %192 = icmp eq ptr %191, null
   %or.cond22 = select i1 %190, i1 %192, i1 false
-  br i1 %or.cond22, label %194, label %.thread514
+  br i1 %or.cond22, label %194, label %.thread513
 
 193:                                              ; preds = %185
   %.old = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7952), align 8, !tbaa !110
@@ -9305,8 +9305,8 @@ getNodeFromLinkAndMsg.exit:                       ; preds = %124, %122, %107
   call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %2) #33
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %196 = load ptr, ptr %195, align 8, !tbaa !161
-  %.not.i.i493 = icmp eq ptr %196, null
-  br i1 %.not.i.i493, label %connAddrSockName.exit.thread, label %197
+  %.not.i.i495 = icmp eq ptr %196, null
+  br i1 %.not.i.i495, label %connAddrSockName.exit.thread, label %197
 
 197:                                              ; preds = %194
   %198 = load ptr, ptr %196, align 8, !tbaa !139
@@ -9350,8 +9350,8 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   br label %215
 
 215:                                              ; preds = %connAddrSockName.exit.thread, %193
-  %or.cond26 = select i1 %.not465509, i1 %51, i1 false
-  br i1 %or.cond26, label %216, label %.thread514
+  %or.cond26 = select i1 %.not465508, i1 %51, i1 false
+  br i1 %or.cond26, label %216, label %.thread513
 
 216:                                              ; preds = %215
   %217 = call ptr @createClusterNode(ptr noundef null, i32 noundef 32)
@@ -9370,9 +9370,9 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %224 = getelementptr inbounds nuw i8, ptr %217, i64 2332
   %225 = getelementptr inbounds nuw i8, ptr %217, i64 2328
   %226 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8160), align 8, !tbaa !5
-  %.not.i494 = icmp eq i32 %226, 0
-  %..i = select i1 %.not.i494, i64 2246, i64 10
-  %.17.i = select i1 %.not.i494, i64 10, i64 2246
+  %.not.i496 = icmp eq i32 %226, 0
+  %..i = select i1 %.not.i496, i64 2246, i64 10
+  %.17.i = select i1 %.not.i496, i64 10, i64 2246
   %227 = getelementptr inbounds nuw i8, ptr %4, i64 %..i
   %228 = load i16, ptr %227, align 2, !tbaa !51
   %rev.i9.i = call noundef i16 @llvm.bswap.i16(i16 %228)
@@ -9385,8 +9385,8 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   store i32 %storemerge.i, ptr %225, align 4, !tbaa !38
   %231 = getelementptr inbounds nuw i8, ptr %4, i64 2248
   %232 = load i16, ptr %231, align 8, !tbaa !207
-  %rev.i495 = call noundef i16 @llvm.bswap.i16(i16 %232)
-  %233 = zext i16 %rev.i495 to i32
+  %rev.i497 = call noundef i16 @llvm.bswap.i16(i16 %232)
+  %233 = zext i16 %rev.i497 to i32
   %234 = getelementptr inbounds nuw i8, ptr %217, i64 2336
   store i32 %233, ptr %234, align 8, !tbaa !80
   call void @clusterAddNode(ptr noundef nonnull %217)
@@ -9396,16 +9396,16 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %238 = or i32 %237, 4
   store i32 %238, ptr %236, align 8, !tbaa !57
   call void @clusterProcessGossipSection(ptr noundef nonnull %4, ptr noundef nonnull %0)
-  br label %.thread514
+  br label %.thread513
 
-.thread514:                                       ; preds = %223, %215, %186
+.thread513:                                       ; preds = %223, %215, %186
   call void @clusterSendPing(ptr noundef nonnull %0, i32 noundef 1)
   br label %240
 
-239:                                              ; preds = %.critedge470
+239:                                              ; preds = %.critedge472
   br i1 %or.cond8, label %240, label %483
 
-240:                                              ; preds = %.thread514, %239
+240:                                              ; preds = %.thread513, %239
   %241 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
   %242 = icmp sgt i32 %241, 0
   br i1 %242, label %247, label %243
@@ -9434,7 +9434,7 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   br i1 %.not446, label %290, label %255
 
 255:                                              ; preds = %250
-  br i1 %.not465509, label %272, label %256
+  br i1 %.not465508, label %272, label %256
 
 256:                                              ; preds = %255
   %257 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
@@ -9442,14 +9442,14 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   br i1 %258, label %263, label %259
 
 259:                                              ; preds = %256
-  %260 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 8
-  %261 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 2320
+  %260 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 2320
   %262 = load ptr, ptr %261, align 8, !tbaa !49
   call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef nonnull @.str.96, ptr noundef nonnull %260, ptr noundef %262) #33
   br label %263
 
 263:                                              ; preds = %256, %259
-  %264 = call i32 @nodeUpdateAddressIfNeeded(ptr noundef %.0.i492508, ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %264 = call i32 @nodeUpdateAddressIfNeeded(ptr noundef %.0.i494507, ptr noundef nonnull %0, ptr noundef nonnull %4)
   %.not448 = icmp eq i32 %264, 0
   br i1 %.not448, label %270, label %265
 
@@ -9464,27 +9464,27 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
 270:                                              ; preds = %265, %263
   %271 = load ptr, ptr %105, align 8, !tbaa !162
   call void @clusterDelNode(ptr noundef %271)
-  br label %.critedge481
+  br label %.critedge483
 
 272:                                              ; preds = %255
   %273 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @clusterRenameNode(ptr noundef nonnull %251, ptr noundef nonnull %273)
   %274 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
   %275 = icmp sgt i32 %274, 0
-  br i1 %275, label %.thread515, label %276
+  br i1 %275, label %.thread514, label %276
 
 276:                                              ; preds = %272
   %277 = load ptr, ptr %105, align 8, !tbaa !162
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef nonnull @.str.97, ptr noundef nonnull %278) #33
-  br label %.thread515
+  br label %.thread514
 
-.thread515:                                       ; preds = %276, %272
+.thread514:                                       ; preds = %276, %272
   %279 = load ptr, ptr %105, align 8, !tbaa !162
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 88
   %281 = load i32, ptr %280, align 8, !tbaa !82
   %282 = and i32 %281, -33
-  %283 = and i16 %rev.i485, 3
+  %283 = and i16 %rev.i487, 3
   %284 = zext nneg i16 %283 to i32
   %285 = or i32 %282, %284
   store i32 %285, ptr %280, align 8, !tbaa !82
@@ -9493,8 +9493,8 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %288 = load i32, ptr %287, align 8, !tbaa !57
   %289 = or i32 %288, 4
   store i32 %289, ptr %287, align 8, !tbaa !57
-  %.pre548 = load i32, ptr %248, align 8, !tbaa !163
-  br label %.critedge474
+  %.pre544 = load i32, ptr %248, align 8, !tbaa !163
+  br label %.critedge476
 
 290:                                              ; preds = %250
   %291 = getelementptr inbounds nuw i8, ptr %251, i64 8
@@ -9513,14 +9513,14 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %298 = sub nsw i64 %10, %297
   %299 = trunc i64 %298 to i32
   call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef nonnull @.str.98, ptr noundef nonnull %291, i32 noundef %299, i32 noundef %253) #33
-  %.pre545 = load ptr, ptr %105, align 8, !tbaa !162
-  %.phi.trans.insert546 = getelementptr inbounds nuw i8, ptr %.pre545, i64 88
-  %.pre547 = load i32, ptr %.phi.trans.insert546, align 8, !tbaa !82
+  %.pre541 = load ptr, ptr %105, align 8, !tbaa !162
+  %.phi.trans.insert542 = getelementptr inbounds nuw i8, ptr %.pre541, i64 88
+  %.pre543 = load i32, ptr %.phi.trans.insert542, align 8, !tbaa !82
   br label %300
 
 300:                                              ; preds = %293, %296
-  %301 = phi i32 [ %253, %293 ], [ %.pre547, %296 ]
-  %302 = phi ptr [ %251, %293 ], [ %.pre545, %296 ]
+  %301 = phi i32 [ %253, %293 ], [ %.pre543, %296 ]
+  %302 = phi ptr [ %251, %293 ], [ %.pre541, %296 ]
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 88
   %304 = or i32 %301, 64
   store i32 %304, ptr %303, align 8, !tbaa !82
@@ -9539,30 +9539,30 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %312 = load i32, ptr %311, align 8, !tbaa !57
   %313 = or i32 %312, 4
   store i32 %313, ptr %311, align 8, !tbaa !57
-  br label %.critedge481
+  br label %.critedge483
 
 314:                                              ; preds = %290, %247
-  br i1 %.not465509, label %.critedge474, label %315
+  br i1 %.not465508, label %.critedge476, label %315
 
 315:                                              ; preds = %314
-  %316 = and i16 %rev.i485, 512
+  %316 = and i16 %rev.i487, 512
   %317 = zext nneg i16 %316 to i32
-  %318 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 88
+  %318 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 88
   %319 = load i32, ptr %318, align 8, !tbaa !82
   %320 = and i32 %319, -513
   %321 = or disjoint i32 %320, %317
   store i32 %321, ptr %318, align 8, !tbaa !82
-  br i1 %49, label %322, label %.critedge474
+  br i1 %49, label %322, label %.critedge476
 
 322:                                              ; preds = %315
   %323 = and i32 %319, 32
   %.not449 = icmp eq i32 %323, 0
-  br i1 %.not449, label %324, label %.thread517
+  br i1 %.not449, label %324, label %.thread516
 
 324:                                              ; preds = %322
-  %325 = call i32 @nodeUpdateAddressIfNeeded(ptr noundef nonnull %.0.i492508, ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %325 = call i32 @nodeUpdateAddressIfNeeded(ptr noundef nonnull %.0.i494507, ptr noundef nonnull %0, ptr noundef nonnull %4)
   %.not450 = icmp eq i32 %325, 0
-  br i1 %.not450, label %.thread517, label %326
+  br i1 %.not450, label %.thread516, label %326
 
 326:                                              ; preds = %324
   %327 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
@@ -9570,15 +9570,15 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %329 = load i32, ptr %328, align 8, !tbaa !57
   %330 = or i32 %329, 6
   store i32 %330, ptr %328, align 8, !tbaa !57
-  br label %.thread517
+  br label %.thread516
 
-.critedge474:                                     ; preds = %.thread515, %314, %315
-  %331 = phi i32 [ %.pre548, %.thread515 ], [ %249, %314 ], [ %249, %315 ]
+.critedge476:                                     ; preds = %.thread514, %314, %315
+  %331 = phi i32 [ %.pre544, %.thread514 ], [ %249, %314 ], [ %249, %315 ]
   %332 = icmp eq i32 %331, 0
   %or.cond46 = select i1 %332, i1 %50, i1 false
   br i1 %or.cond46, label %333, label %349
 
-333:                                              ; preds = %.critedge474
+333:                                              ; preds = %.critedge476
   %334 = load ptr, ptr %105, align 8, !tbaa !162
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 2208
   store i64 %10, ptr %335, align 8, !tbaa !88
@@ -9609,22 +9609,22 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   call void @clearNodeFailureIfNeeded(ptr noundef nonnull %334)
   br label %349
 
-349:                                              ; preds = %340, %348, %346, %.critedge474
-  br i1 %.not465509, label %.critedge481, label %.thread517
+349:                                              ; preds = %340, %348, %346, %.critedge476
+  br i1 %.not465508, label %.critedge483, label %.thread516
 
-.thread517:                                       ; preds = %326, %324, %322, %349
+.thread516:                                       ; preds = %326, %324, %322, %349
   %350 = getelementptr inbounds nuw i8, ptr %4, i64 2128
   %bcmp453 = call i32 @bcmp(ptr noundef nonnull dereferenceable(40) %350, ptr noundef nonnull dereferenceable(40) @.str.99, i64 40)
   %.not454 = icmp eq i32 %bcmp453, 0
   br i1 %.not454, label %351, label %352
 
-351:                                              ; preds = %.thread517
-  call void @clusterSetNodeAsMaster(ptr noundef %.0.i492508)
+351:                                              ; preds = %.thread516
+  call void @clusterSetNodeAsMaster(ptr noundef %.0.i494507)
   br label %420
 
-352:                                              ; preds = %.thread517
+352:                                              ; preds = %.thread516
   %353 = call ptr @clusterLookupNode(ptr noundef nonnull %350, i32 noundef 40)
-  %354 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 88
+  %354 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 88
   %355 = load i32, ptr %354, align 8, !tbaa !82
   %356 = and i32 %355, 1
   %.not455 = icmp eq i32 %356, 0
@@ -9636,13 +9636,13 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
 
 358:                                              ; preds = %357
   %359 = getelementptr inbounds nuw i8, ptr %353, i64 48
-  %360 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 48
+  %360 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 48
   %bcmp457 = call i32 @bcmp(ptr noundef nonnull dereferenceable(40) %359, ptr noundef nonnull dereferenceable(40) %360, i64 40)
   %.not458 = icmp eq i32 %bcmp457, 0
   br i1 %.not458, label %361, label %384
 
 361:                                              ; preds = %358
-  %362 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 96
+  %362 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 96
   %363 = load i64, ptr %362, align 8, !tbaa !89
   %364 = icmp ugt i64 %363, %.0388
   br i1 %364, label %365, label %372
@@ -9653,14 +9653,14 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   br i1 %367, label %.thread, label %368
 
 368:                                              ; preds = %365
-  %369 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 8
-  %370 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 2320
+  %369 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 2320
   %371 = load ptr, ptr %370, align 8, !tbaa !49
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.100, ptr noundef nonnull %369, ptr noundef %371, ptr noundef nonnull %360, i64 noundef %.0388, i64 noundef %363) #33
   br label %.thread
 
 372:                                              ; preds = %361
-  %373 = call i32 @clusterMoveNodeSlots(ptr noundef nonnull %.0.i492508, ptr noundef nonnull %353)
+  %373 = call i32 @clusterMoveNodeSlots(ptr noundef nonnull %.0.i494507, ptr noundef nonnull %353)
   call void @clusterSetNodeAsMaster(ptr noundef nonnull %353)
   %374 = getelementptr inbounds nuw i8, ptr %353, i64 96
   store i64 %.0388, ptr %374, align 8, !tbaa !89
@@ -9669,8 +9669,8 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   br i1 %376, label %.thread, label %377
 
 377:                                              ; preds = %372
-  %378 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 8
-  %379 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 2320
+  %378 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 8
+  %379 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 2320
   %380 = load ptr, ptr %379, align 8, !tbaa !49
   %381 = getelementptr inbounds nuw i8, ptr %353, i64 8
   %382 = getelementptr inbounds nuw i8, ptr %353, i64 2320
@@ -9679,25 +9679,25 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   br label %.thread
 
 384:                                              ; preds = %358, %357
-  %385 = call i32 @clusterDelNodeSlots(ptr noundef nonnull %.0.i492508)
+  %385 = call i32 @clusterDelNodeSlots(ptr noundef nonnull %.0.i494507)
   %386 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
   %387 = icmp sgt i32 %386, 2
   br i1 %387, label %.thread, label %388
 
 388:                                              ; preds = %384
-  %389 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 8
-  %390 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 2320
+  %389 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 2320
   %391 = load ptr, ptr %390, align 8, !tbaa !49
-  %392 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 48
+  %392 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 48
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.102, ptr noundef nonnull %389, ptr noundef %391, ptr noundef nonnull %392, i32 noundef %385) #33
-  %.pre549 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
-  %393 = icmp sgt i32 %.pre549, 2
+  %.pre545 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
+  %393 = icmp sgt i32 %.pre545, 2
   %or.cond59 = select i1 %.not456, i1 true, i1 %393
   br i1 %or.cond59, label %.thread, label %394
 
 394:                                              ; preds = %388
-  %395 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 8
-  %396 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 2320
+  %395 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 8
+  %396 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 2320
   %397 = load ptr, ptr %396, align 8, !tbaa !49
   %398 = getelementptr inbounds nuw i8, ptr %353, i64 48
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.103, ptr noundef nonnull %395, ptr noundef %397, ptr noundef nonnull %398) #33
@@ -9720,7 +9720,7 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   br i1 %.not459, label %420, label %407
 
 407:                                              ; preds = %406
-  %408 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 2184
+  %408 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 2184
   %409 = load ptr, ptr %408, align 8, !tbaa !59
   %.not460 = icmp eq ptr %409, %353
   br i1 %.not460, label %420, label %410
@@ -9730,14 +9730,14 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   br i1 %.not461, label %413, label %411
 
 411:                                              ; preds = %410
-  %412 = call i32 @clusterNodeRemoveSlave(ptr noundef nonnull %409, ptr noundef nonnull %.0.i492508)
+  %412 = call i32 @clusterNodeRemoveSlave(ptr noundef nonnull %409, ptr noundef nonnull %.0.i494507)
   br label %413
 
 413:                                              ; preds = %411, %410
-  %414 = call i32 @clusterNodeAddSlave(ptr noundef nonnull %353, ptr noundef nonnull %.0.i492508)
+  %414 = call i32 @clusterNodeAddSlave(ptr noundef nonnull %353, ptr noundef nonnull %.0.i494507)
   store ptr %353, ptr %408, align 8, !tbaa !59
   %415 = getelementptr inbounds nuw i8, ptr %353, i64 48
-  call fastcc void @updateShardId(ptr noundef nonnull %.0.i492508, ptr noundef nonnull %415)
+  call fastcc void @updateShardId(ptr noundef nonnull %.0.i494507, ptr noundef nonnull %415)
   %416 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 393384
   %418 = load i32, ptr %417, align 8, !tbaa !57
@@ -9746,20 +9746,20 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   br label %420
 
 420:                                              ; preds = %351, %413, %407, %406
-  %421 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 88
+  %421 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 88
   %422 = load i32, ptr %421, align 8, !tbaa !82
   %423 = and i32 %422, 1
   %.not462 = icmp eq i32 %423, 0
-  br i1 %.not462, label %424, label %.thread518
+  br i1 %.not462, label %424, label %.critedge478
 
 424:                                              ; preds = %420
-  %425 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 2184
+  %425 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 2184
   %426 = load ptr, ptr %425, align 8, !tbaa !59
   %.not463 = icmp eq ptr %426, null
-  br i1 %.not463, label %.critedge478, label %.thread518
+  br i1 %.not463, label %.critedge480, label %.critedge478
 
-.thread518:                                       ; preds = %420, %424
-  %427 = phi ptr [ %426, %424 ], [ %.0.i492508, %420 ]
+.critedge478:                                     ; preds = %420, %424
+  %427 = phi ptr [ %426, %424 ], [ %.0.i494507, %420 ]
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 104
   %429 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %bcmp464 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2048) %428, ptr noundef nonnull dereferenceable(2048) %429, i64 2048)
@@ -9768,12 +9768,12 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %or.cond49 = select i1 %431, i1 %430, i1 false
   br i1 %or.cond49, label %432, label %433
 
-432:                                              ; preds = %.thread518
-  call void @clusterUpdateSlotsConfigWith(ptr noundef nonnull %.0.i492508, i64 noundef %.0388, ptr noundef nonnull %429)
+432:                                              ; preds = %.critedge478
+  call void @clusterUpdateSlotsConfigWith(ptr noundef nonnull %.0.i494507, i64 noundef %.0388, ptr noundef nonnull %429)
   br label %.preheader
 
-433:                                              ; preds = %.thread518
-  br i1 %430, label %.preheader, label %.critedge478
+433:                                              ; preds = %.critedge478
+  br i1 %430, label %.preheader, label %.critedge480
 
 .preheader:                                       ; preds = %433, %432
   %434 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8
@@ -9798,7 +9798,7 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
 446:                                              ; preds = %437
   %447 = getelementptr inbounds nuw [16384 x ptr], ptr %435, i64 0, i64 %indvars.iv
   %448 = load ptr, ptr %447, align 8, !tbaa !46
-  %449 = icmp eq ptr %448, %.0.i492508
+  %449 = icmp eq ptr %448, %.0.i494507
   %450 = icmp eq ptr %448, null
   %or.cond = or i1 %449, %450
   br i1 %or.cond, label %470, label %451
@@ -9823,75 +9823,75 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   br i1 %462, label %466, label %463
 
 463:                                              ; preds = %460
-  %464 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 8
   %465 = getelementptr inbounds nuw i8, ptr %448, i64 8
   call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef nonnull @.str.104, ptr noundef nonnull %464, ptr noundef nonnull %465) #33
-  %.pre550 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
-  %.phi.trans.insert551 = getelementptr inbounds nuw i8, ptr %.pre550, i64 262192
-  %.phi.trans.insert552 = getelementptr inbounds nuw [16384 x ptr], ptr %.phi.trans.insert551, i64 0, i64 %indvars.iv
-  %.pre553 = load ptr, ptr %.phi.trans.insert552, align 8, !tbaa !46
+  %.pre546 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
+  %.phi.trans.insert547 = getelementptr inbounds nuw i8, ptr %.pre546, i64 262192
+  %.phi.trans.insert548 = getelementptr inbounds nuw [16384 x ptr], ptr %.phi.trans.insert547, i64 0, i64 %indvars.iv
+  %.pre549 = load ptr, ptr %.phi.trans.insert548, align 8, !tbaa !46
   br label %466
 
 466:                                              ; preds = %460, %463
-  %467 = phi ptr [ %448, %460 ], [ %.pre553, %463 ]
-  %468 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 2344
+  %467 = phi ptr [ %448, %460 ], [ %.pre549, %463 ]
+  %468 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 2344
   %469 = load ptr, ptr %468, align 8, !tbaa !164
   call void @clusterSendUpdate(ptr noundef %469, ptr noundef %467)
-  br label %.critedge478
+  br label %.critedge480
 
 470:                                              ; preds = %437, %456, %446, %451
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
-  br i1 %exitcond.not, label %.critedge478, label %437, !llvm.loop !241
+  br i1 %exitcond.not, label %.critedge480, label %437, !llvm.loop !241
 
-.critedge478:                                     ; preds = %470, %424, %433, %466
+.critedge480:                                     ; preds = %470, %424, %433, %466
   %471 = load ptr, ptr @myself, align 8, !tbaa !46
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 88
   %473 = load i32, ptr %472, align 8, !tbaa !82
   %474 = and i32 %473, 1
   %.not468 = icmp eq i32 %474, 0
-  br i1 %.not468, label %.critedge480, label %475
+  br i1 %.not468, label %.critedge482, label %475
 
-475:                                              ; preds = %.critedge478
+475:                                              ; preds = %.critedge480
   %476 = load i32, ptr %421, align 8, !tbaa !82
   %477 = and i32 %476, 1
   %.not469 = icmp eq i32 %477, 0
-  br i1 %.not469, label %.critedge480, label %478
+  br i1 %.not469, label %.critedge482, label %478
 
 478:                                              ; preds = %475
   %479 = getelementptr inbounds nuw i8, ptr %471, i64 96
   %480 = load i64, ptr %479, align 8, !tbaa !89
   %481 = icmp eq i64 %.0388, %480
-  br i1 %481, label %482, label %.critedge480
+  br i1 %481, label %482, label %.critedge482
 
 482:                                              ; preds = %478
-  call void @clusterHandleConfigEpochCollision(ptr noundef nonnull %.0.i492508)
-  br label %.critedge480
+  call void @clusterHandleConfigEpochCollision(ptr noundef nonnull %.0.i494507)
+  br label %.critedge482
 
-.critedge480:                                     ; preds = %.critedge478, %475, %478, %482
+.critedge482:                                     ; preds = %.critedge480, %475, %478, %482
   call void @clusterProcessGossipSection(ptr noundef nonnull %4, ptr noundef %0)
   call void @clusterProcessPingExtensions(ptr noundef nonnull %4, ptr noundef %0)
-  br label %.critedge481
+  br label %.critedge483
 
 483:                                              ; preds = %239
   %484 = icmp eq i16 %9, 768
   br i1 %484, label %485, label %517
 
 485:                                              ; preds = %483
-  br i1 %.not465509, label %511, label %486
+  br i1 %.not465508, label %511, label %486
 
 486:                                              ; preds = %485
   %487 = getelementptr inbounds nuw i8, ptr %4, i64 2256
   %488 = tail call ptr @clusterLookupNode(ptr noundef nonnull %487, i32 noundef 40)
   %.not442 = icmp eq ptr %488, null
-  br i1 %.not442, label %.critedge481, label %489
+  br i1 %.not442, label %.critedge483, label %489
 
 489:                                              ; preds = %486
   %490 = getelementptr inbounds nuw i8, ptr %488, i64 88
   %491 = load i32, ptr %490, align 8, !tbaa !82
   %492 = and i32 %491, 24
   %.not443 = icmp eq i32 %492, 0
-  br i1 %.not443, label %493, label %.critedge481
+  br i1 %.not443, label %493, label %.critedge483
 
 493:                                              ; preds = %489
   %494 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
@@ -9900,16 +9900,16 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
 
 496:                                              ; preds = %493
   %497 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %498 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 2320
+  %498 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 2320
   %499 = load ptr, ptr %498, align 8, !tbaa !49
   %500 = getelementptr inbounds nuw i8, ptr %488, i64 2320
   %501 = load ptr, ptr %500, align 8, !tbaa !49
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.105, ptr noundef nonnull %497, ptr noundef %499, ptr noundef nonnull %487, ptr noundef %501) #33
-  %.pre544 = load i32, ptr %490, align 8, !tbaa !82
+  %.pre540 = load i32, ptr %490, align 8, !tbaa !82
   br label %502
 
 502:                                              ; preds = %493, %496
-  %503 = phi i32 [ %491, %493 ], [ %.pre544, %496 ]
+  %503 = phi i32 [ %491, %493 ], [ %.pre540, %496 ]
   %504 = getelementptr inbounds nuw i8, ptr %488, i64 2224
   store i64 %10, ptr %504, align 8, !tbaa !83
   %505 = and i32 %503, -13
@@ -9920,18 +9920,18 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %509 = load i32, ptr %508, align 8, !tbaa !57
   %510 = or i32 %509, 6
   store i32 %510, ptr %508, align 8, !tbaa !57
-  br label %.critedge481
+  br label %.critedge483
 
 511:                                              ; preds = %485
   %512 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
   %513 = icmp sgt i32 %512, 2
-  br i1 %513, label %.critedge481, label %514
+  br i1 %513, label %.critedge483, label %514
 
 514:                                              ; preds = %511
   %515 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %516 = getelementptr inbounds nuw i8, ptr %4, i64 2256
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.106, ptr noundef nonnull %515, ptr noundef nonnull %516) #33
-  br label %.critedge481
+  br label %.critedge483
 
 517:                                              ; preds = %483
   %518 = icmp eq i16 %9, 1024
@@ -9947,7 +9947,7 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   ]
 
 520:                                              ; preds = %517, %517
-  br i1 %.not465509, label %.critedge481, label %521
+  br i1 %.not465508, label %.critedge483, label %521
 
 521:                                              ; preds = %520
   br i1 %518, label %522, label %525
@@ -9955,15 +9955,15 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
 522:                                              ; preds = %521
   %523 = tail call i32 @serverPubsubSubscriptionCount() #33
   %524 = icmp sgt i32 %523, 0
-  br i1 %524, label %529, label %.critedge481
+  br i1 %524, label %529, label %.critedge483
 
 525:                                              ; preds = %521
-  br i1 %519, label %526, label %.critedge481
+  br i1 %519, label %526, label %.critedge483
 
 526:                                              ; preds = %525
   %527 = tail call i32 @serverPubsubShardSubscriptionCount() #33
   %528 = icmp sgt i32 %527, 0
-  br i1 %528, label %529, label %.critedge481
+  br i1 %528, label %529, label %.critedge483
 
 529:                                              ; preds = %526, %522
   %530 = getelementptr inbounds nuw i8, ptr %4, i64 2256
@@ -9982,37 +9982,37 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %543 = tail call i32 @pubsubPublishMessage(ptr noundef %538, ptr noundef %541, i32 noundef %542) #33
   tail call void @decrRefCount(ptr noundef %538) #33
   tail call void @decrRefCount(ptr noundef %541) #33
-  br label %.critedge481
+  br label %.critedge483
 
 544:                                              ; preds = %517
-  br i1 %.not465509, label %.critedge481, label %545
+  br i1 %.not465508, label %.critedge483, label %545
 
 545:                                              ; preds = %544
-  tail call void @clusterSendFailoverAuthIfNeeded(ptr noundef %.0.i492508, ptr noundef nonnull %4)
-  br label %.critedge481
+  tail call void @clusterSendFailoverAuthIfNeeded(ptr noundef %.0.i494507, ptr noundef nonnull %4)
+  br label %.critedge483
 
 546:                                              ; preds = %517
-  br i1 %.not465509, label %.critedge481, label %547
+  br i1 %.not465508, label %.critedge483, label %547
 
 547:                                              ; preds = %546
-  %548 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 88
+  %548 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 88
   %549 = load i32, ptr %548, align 8, !tbaa !82
   %550 = and i32 %549, 1
   %.not440 = icmp eq i32 %550, 0
-  br i1 %.not440, label %.critedge481, label %551
+  br i1 %.not440, label %.critedge483, label %551
 
 551:                                              ; preds = %547
-  %552 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 2164
+  %552 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 2164
   %553 = load i32, ptr %552, align 4, !tbaa !149
   %554 = icmp sgt i32 %553, 0
-  br i1 %554, label %555, label %.critedge481
+  br i1 %554, label %555, label %.critedge483
 
 555:                                              ; preds = %551
   %556 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 393328
   %558 = load i64, ptr %557, align 8, !tbaa !119
   %.not441 = icmp ult i64 %.0387, %558
-  br i1 %.not441, label %.critedge481, label %559
+  br i1 %.not441, label %.critedge483, label %559
 
 559:                                              ; preds = %555
   %560 = getelementptr inbounds nuw i8, ptr %556, i64 393312
@@ -10023,17 +10023,17 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %564 = load i32, ptr %563, align 8, !tbaa !57
   %565 = or i32 %564, 1
   store i32 %565, ptr %563, align 8, !tbaa !57
-  br label %.critedge481
+  br label %.critedge483
 
 566:                                              ; preds = %517
-  br i1 %.not465509, label %.critedge481, label %567
+  br i1 %.not465508, label %.critedge483, label %567
 
 567:                                              ; preds = %566
-  %568 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 2184
+  %568 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 2184
   %569 = load ptr, ptr %568, align 8, !tbaa !59
   %570 = load ptr, ptr @myself, align 8, !tbaa !46
   %.not439 = icmp eq ptr %569, %570
-  br i1 %.not439, label %571, label %.critedge481
+  br i1 %.not439, label %571, label %.critedge483
 
 571:                                              ; preds = %567
   tail call void @resetManualFailover()
@@ -10042,7 +10042,7 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %574 = getelementptr inbounds nuw i8, ptr %573, i64 393344
   store i64 %572, ptr %574, align 8, !tbaa !240
   %575 = getelementptr inbounds nuw i8, ptr %573, i64 393352
-  store ptr %.0.i492508, ptr %575, align 8, !tbaa !124
+  store ptr %.0.i494507, ptr %575, align 8, !tbaa !124
   %576 = add nsw i64 %10, 10000
   tail call void @pauseActions(i32 noundef 2, i64 noundef %576, i32 noundef 29) #33
   %577 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
@@ -10050,46 +10050,46 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   br i1 %578, label %583, label %579
 
 579:                                              ; preds = %571
-  %580 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 8
-  %581 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 2320
+  %580 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 8
+  %581 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 2320
   %582 = load ptr, ptr %581, align 8, !tbaa !49
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.107, ptr noundef nonnull %580, ptr noundef %582) #33
   br label %583
 
 583:                                              ; preds = %571, %579
   tail call void @clusterSendPing(ptr noundef nonnull %0, i32 noundef 0)
-  br label %.critedge481
+  br label %.critedge483
 
 584:                                              ; preds = %517
   %585 = getelementptr inbounds nuw i8, ptr %4, i64 2256
   %586 = load i64, ptr %585, align 8, !tbaa !50
   %587 = tail call i64 @intrev64(i64 noundef %586) #33
-  br i1 %.not465509, label %.critedge481, label %588
+  br i1 %.not465508, label %.critedge483, label %588
 
 588:                                              ; preds = %584
   %589 = getelementptr inbounds nuw i8, ptr %4, i64 2264
   %590 = tail call ptr @clusterLookupNode(ptr noundef nonnull %589, i32 noundef 40)
   %.not436 = icmp eq ptr %590, null
-  br i1 %.not436, label %.critedge481, label %591
+  br i1 %.not436, label %.critedge483, label %591
 
 591:                                              ; preds = %588
   %592 = getelementptr inbounds nuw i8, ptr %590, i64 96
   %593 = load i64, ptr %592, align 8, !tbaa !89
   %.not437 = icmp ult i64 %593, %587
-  br i1 %.not437, label %594, label %.critedge481
+  br i1 %.not437, label %594, label %.critedge483
 
 594:                                              ; preds = %591
   %595 = getelementptr inbounds nuw i8, ptr %590, i64 88
   %596 = load i32, ptr %595, align 8, !tbaa !82
   %597 = and i32 %596, 2
   %.not438 = icmp eq i32 %597, 0
-  br i1 %.not438, label %.critedge481.critedge, label %598
+  br i1 %.not438, label %.critedge483.critedge, label %598
 
 598:                                              ; preds = %594
   tail call void @clusterSetNodeAsMaster(ptr noundef nonnull %590)
-  br label %.critedge481.critedge
+  br label %.critedge483.critedge
 
-.critedge481.critedge:                            ; preds = %598, %594
+.critedge483.critedge:                            ; preds = %598, %594
   store i64 %587, ptr %592, align 8, !tbaa !89
   %599 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
   %600 = getelementptr inbounds nuw i8, ptr %599, i64 393384
@@ -10098,10 +10098,10 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   store i32 %602, ptr %600, align 8, !tbaa !57
   %603 = getelementptr inbounds nuw i8, ptr %4, i64 2304
   tail call void @clusterUpdateSlotsConfigWith(ptr noundef nonnull %590, i64 noundef %587, ptr noundef nonnull %603)
-  br label %.critedge481
+  br label %.critedge483
 
 604:                                              ; preds = %517
-  br i1 %.not465509, label %.critedge481, label %605
+  br i1 %.not465508, label %.critedge483, label %605
 
 605:                                              ; preds = %604
   %606 = getelementptr inbounds nuw i8, ptr %4, i64 2256
@@ -10112,21 +10112,21 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %611 = getelementptr inbounds nuw i8, ptr %4, i64 2268
   %612 = load i8, ptr %611, align 4, !tbaa !50
   %613 = getelementptr inbounds nuw i8, ptr %4, i64 2269
-  %614 = getelementptr inbounds nuw i8, ptr %.0.i492508, i64 8
+  %614 = getelementptr inbounds nuw i8, ptr %.0.i494507, i64 8
   tail call void @moduleCallClusterReceivers(ptr noundef nonnull %614, i64 noundef %607, i8 noundef zeroext %612, ptr noundef nonnull %613, i32 noundef %610) #33
-  br label %.critedge481
+  br label %.critedge483
 
 615:                                              ; preds = %517
   %616 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
   %617 = icmp sgt i32 %616, 3
-  br i1 %617, label %.critedge481, label %618
+  br i1 %617, label %.critedge483, label %618
 
 618:                                              ; preds = %615
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.108, i32 noundef %11) #33
-  br label %.critedge481
+  br label %.critedge483
 
-.critedge481:                                     ; preds = %522, %349, %switch.lookup569, %75, %switch.lookup566, %68, %270, %300, %99, %102, %520, %544, %546, %567, %566, %591, %588, %584, %604, %.critedge481.critedge, %525, %526, %529, %502, %489, %486, %511, %514, %.critedge480, %545, %583, %605, %615, %618, %547, %551, %555, %559, %43, %40, %34, %29, %27
-  %.0 = phi i32 [ 1, %27 ], [ 1, %29 ], [ 1, %34 ], [ 1, %40 ], [ 1, %43 ], [ 0, %270 ], [ 0, %300 ], [ 1, %99 ], [ 1, %102 ], [ 1, %520 ], [ 1, %544 ], [ 1, %546 ], [ 1, %567 ], [ 1, %566 ], [ 1, %591 ], [ 1, %588 ], [ 1, %584 ], [ 1, %604 ], [ 1, %.critedge481.critedge ], [ 1, %525 ], [ 1, %526 ], [ 1, %529 ], [ 1, %502 ], [ 1, %489 ], [ 1, %486 ], [ 1, %511 ], [ 1, %514 ], [ 1, %.critedge480 ], [ 1, %545 ], [ 1, %583 ], [ 1, %605 ], [ 1, %615 ], [ 1, %618 ], [ 1, %547 ], [ 1, %551 ], [ 1, %555 ], [ 1, %559 ], [ 1, %68 ], [ 1, %switch.lookup566 ], [ 1, %75 ], [ 1, %switch.lookup569 ], [ 1, %349 ], [ 1, %522 ]
+.critedge483:                                     ; preds = %522, %switch.lookup565, %75, %switch.lookup562, %68, %349, %270, %300, %99, %102, %520, %544, %546, %567, %566, %591, %588, %584, %604, %.critedge483.critedge, %525, %526, %529, %502, %489, %486, %511, %514, %.critedge482, %545, %583, %605, %615, %618, %547, %551, %555, %559, %43, %40, %34, %29, %27
+  %.0 = phi i32 [ 1, %27 ], [ 1, %29 ], [ 1, %34 ], [ 1, %40 ], [ 1, %43 ], [ 0, %270 ], [ 0, %300 ], [ 1, %99 ], [ 1, %102 ], [ 1, %520 ], [ 1, %544 ], [ 1, %546 ], [ 1, %567 ], [ 1, %566 ], [ 1, %591 ], [ 1, %588 ], [ 1, %584 ], [ 1, %604 ], [ 1, %.critedge483.critedge ], [ 1, %525 ], [ 1, %526 ], [ 1, %529 ], [ 1, %502 ], [ 1, %489 ], [ 1, %486 ], [ 1, %511 ], [ 1, %514 ], [ 1, %.critedge482 ], [ 1, %545 ], [ 1, %583 ], [ 1, %605 ], [ 1, %615 ], [ 1, %618 ], [ 1, %547 ], [ 1, %551 ], [ 1, %555 ], [ 1, %559 ], [ 1, %349 ], [ 1, %68 ], [ 1, %switch.lookup562 ], [ 1, %75 ], [ 1, %switch.lookup565 ], [ 1, %522 ]
   ret i32 %.0
 }
 
@@ -11077,7 +11077,7 @@ define dso_local void @clusterWriteHandler(ptr noundef %0) #3 {
 
 40:                                               ; preds = %28, %38
   tail call void @freeClusterLink(ptr noundef nonnull %.val)
-  br label %.thread
+  br label %.critedge41
 
 41:                                               ; preds = %10
   %42 = add i64 %15, %26
@@ -11088,7 +11088,7 @@ define dso_local void @clusterWriteHandler(ptr noundef %0) #3 {
   %45 = load i64, ptr %4, align 8, !tbaa !155
   %46 = add i64 %45, %26
   store i64 %46, ptr %4, align 8, !tbaa !155
-  br label %.thread
+  br label %.critedge41
 
 47:                                               ; preds = %41
   %48 = icmp eq i64 %42, %19
@@ -11121,7 +11121,7 @@ define dso_local void @clusterWriteHandler(ptr noundef %0) #3 {
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %.pre57 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !169
   %60 = icmp eq i64 %.pre57, 0
-  br i1 %60, label %.critedge.thread, label %.thread
+  br i1 %60, label %.critedge.thread, label %.critedge41
 
 .critedge.thread:                                 ; preds = %6, %.critedge
   %61 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -11130,9 +11130,9 @@ define dso_local void @clusterWriteHandler(ptr noundef %0) #3 {
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 152
   %65 = load ptr, ptr %64, align 8, !tbaa !248
   %66 = tail call i32 %65(ptr noundef nonnull %62, ptr noundef null, i32 noundef 0) #33
-  br label %.thread
+  br label %.critedge41
 
-.thread:                                          ; preds = %44, %40, %.critedge, %.critedge.thread
+.critedge41:                                      ; preds = %40, %44, %.critedge, %.critedge.thread
   ret void
 }
 
@@ -12287,7 +12287,7 @@ clusterMsgSendBlockDecrRefCount.exit:             ; preds = %59, %61
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @clusterSendModuleMessageToTarget(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %6
+  br i1 %.not, label %.critedge, label %6
 
 6:                                                ; preds = %5
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #34
@@ -12317,15 +12317,15 @@ clusterLookupNode.exit:                           ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 2344
   %22 = load ptr, ptr %21, align 8, !tbaa !164
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %clusterLookupNode.exit.thread, label %.thread
+  br i1 %23, label %clusterLookupNode.exit.thread, label %.critedge
 
-.thread:                                          ; preds = %20, %5
+.critedge:                                        ; preds = %20, %5
   %24 = phi ptr [ null, %5 ], [ %22, %20 ]
   tail call void @clusterSendModule(ptr noundef %24, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i32 noundef %4)
   br label %clusterLookupNode.exit.thread
 
-clusterLookupNode.exit.thread:                    ; preds = %10, %6, %clusterLookupNode.exit, %20, %.thread
-  %.011 = phi i32 [ 0, %.thread ], [ -1, %20 ], [ -1, %clusterLookupNode.exit ], [ -1, %6 ], [ -1, %10 ]
+clusterLookupNode.exit.thread:                    ; preds = %10, %6, %clusterLookupNode.exit, %20, %.critedge
+  %.011 = phi i32 [ 0, %.critedge ], [ -1, %20 ], [ -1, %clusterLookupNode.exit ], [ -1, %6 ], [ -1, %10 ]
   ret i32 %.011
 }
 

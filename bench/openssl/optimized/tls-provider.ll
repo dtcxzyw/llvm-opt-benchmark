@@ -550,68 +550,68 @@ define internal i32 @tls_prov_get_capabilities(ptr readnone captures(none) %0, p
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 136
   br label %20
 
-20:                                               ; preds = %13, %31
-  %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %31 ]
-  %.13746 = phi i32 [ %16, %13 ], [ %38, %31 ]
+20:                                               ; preds = %13, %30
+  %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %30 ]
+  %.13743 = phi i32 [ %16, %13 ], [ %37, %30 ]
   call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(440) %5, ptr noundef nonnull align 16 dereferenceable(440) @xor_group_params, i64 440, i1 false)
   %21 = getelementptr inbounds nuw [50 x ptr], ptr @dummy_group_names, i64 0, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %31
+  br i1 %23, label %24, label %30
 
 24:                                               ; preds = %20
   %25 = call noalias ptr @CRYPTO_zalloc(i64 noundef 8, ptr noundef nonnull @.str.2, i32 noundef 407) #16
   store ptr %25, ptr %21, align 8, !tbaa !25
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %30, label %27
+  br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %24
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %25, i64 noundef 8, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.75, i32 noundef %28) #16
   %.pre = load ptr, ptr %21, align 8, !tbaa !25
-  br label %31
+  br label %30
 
-30:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %5) #16
-  br label %47
-
-31:                                               ; preds = %20, %27
-  %32 = phi ptr [ %22, %20 ], [ %.pre, %27 ]
-  store ptr %32, ptr %17, align 16, !tbaa !28
-  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #17
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %18, align 8, !tbaa !31
-  %35 = trunc i64 %indvars.iv to i32
-  %36 = add i32 %35, 65229
-  store i32 %36, ptr %6, align 4, !tbaa !11
+30:                                               ; preds = %27, %20
+  %31 = phi ptr [ %.pre, %27 ], [ %22, %20 ]
+  store ptr %31, ptr %17, align 16, !tbaa !28
+  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #17
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %18, align 8, !tbaa !31
+  %34 = trunc i64 %indvars.iv to i32
+  %35 = add i32 %34, 65229
+  store i32 %35, ptr %6, align 4, !tbaa !11
   store ptr %6, ptr %19, align 8, !tbaa !28
-  %37 = call i32 %2(ptr noundef nonnull %5, ptr noundef %3) #16
-  %38 = and i32 %37, %.13746
+  %36 = call i32 %2(ptr noundef nonnull %5, ptr noundef %3) #16
+  %37 = and i32 %36, %.13743
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %5) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 50
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !32
 
-.loopexit:                                        ; preds = %31, %4
-  %.036 = phi i32 [ 0, %4 ], [ %38, %31 ]
-  %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.79) #17
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %47
+.loopexit:                                        ; preds = %30, %4
+  %.036 = phi i32 [ 0, %4 ], [ %37, %30 ]
+  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.79) #17
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %46
 
-41:                                               ; preds = %.loopexit
-  %42 = call i32 %2(ptr noundef nonnull @xor_sig_nohash_params, ptr noundef %3) #16
-  %43 = call i32 %2(ptr noundef nonnull @xor_sig_hash_params, ptr noundef %3) #16
-  %44 = and i32 %43, %42
-  %45 = call i32 %2(ptr noundef nonnull @xor_sig_12_params, ptr noundef %3) #16
-  %46 = and i32 %44, %45
-  br label %47
+40:                                               ; preds = %.loopexit
+  %41 = call i32 %2(ptr noundef nonnull @xor_sig_nohash_params, ptr noundef %3) #16
+  %42 = call i32 %2(ptr noundef nonnull @xor_sig_hash_params, ptr noundef %3) #16
+  %43 = and i32 %42, %41
+  %44 = call i32 %2(ptr noundef nonnull @xor_sig_12_params, ptr noundef %3) #16
+  %45 = and i32 %43, %44
+  br label %46
 
-47:                                               ; preds = %30, %.loopexit, %41
-  %.2 = phi i32 [ 0, %30 ], [ %46, %41 ], [ %.036, %.loopexit ]
+.critedge:                                        ; preds = %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %5) #16
+  br label %46
+
+46:                                               ; preds = %.loopexit, %40, %.critedge
+  %.2 = phi i32 [ 0, %.critedge ], [ %45, %40 ], [ %.036, %.loopexit ]
   ret i32 %.2
 }
 
@@ -5531,112 +5531,112 @@ declare i32 @ASN1_STRING_length(ptr noundef) local_unnamed_addr #2
 define internal fastcc ptr @xor_key_op(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread3, label %6
+  br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   call void @X509_ALGOR_get0(ptr noundef null, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %0) #16
   %7 = load i32, ptr %5, align 4, !tbaa !11
   %.not35 = icmp eq i32 %7, -1
-  br i1 %.not35, label %8, label %11
+  br i1 %.not35, label %8, label %.critedge
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %0, align 8, !tbaa !100
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
+  br i1 %10, label %.critedge, label %11
 
-11:                                               ; preds = %6, %8
+.critedge:                                        ; preds = %8, %6
   call void @ERR_new() #16
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1217, ptr noundef nonnull @__func__.xor_key_op) #16
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 128, i32 noundef 7, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   br label %xor_freekey.exit
 
-12:                                               ; preds = %8
-  %13 = call i32 @OBJ_obj2nid(ptr noundef nonnull %9) #16
+11:                                               ; preds = %8
+  %12 = call i32 @OBJ_obj2nid(ptr noundef nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
-  %14 = icmp eq ptr %1, null
-  %15 = icmp eq i32 %13, 0
-  %or.cond3 = select i1 %14, i1 true, i1 %15
-  br i1 %or.cond3, label %.thread3, label %16
+  %13 = icmp eq ptr %1, null
+  %14 = icmp eq i32 %12, 0
+  %or.cond3 = select i1 %13, i1 true, i1 %14
+  br i1 %or.cond3, label %.thread, label %15
 
-.thread3:                                         ; preds = %4, %12
+.thread:                                          ; preds = %4, %11
   call void @ERR_new() #16
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1224, ptr noundef nonnull @__func__.xor_key_op) #16
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 128, i32 noundef 7, ptr noundef null) #16
   br label %xor_freekey.exit
 
-16:                                               ; preds = %12
-  %17 = call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.2, i32 noundef 691) #16
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %20
+15:                                               ; preds = %11
+  %16 = call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.2, i32 noundef 691) #16
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   call void @ERR_new() #16
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1230, ptr noundef nonnull @__func__.xor_key_op) #16
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 128, i32 noundef 786688, ptr noundef null) #16
   br label %xor_freekey.exit
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store atomic i32 1, ptr %21 seq_cst, align 4, !tbaa !33
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  store atomic i32 1, ptr %20 seq_cst, align 4, !tbaa !33
   %.not36 = icmp eq i32 %2, 32
-  br i1 %.not36, label %23, label %22
+  br i1 %.not36, label %22, label %21
 
-22:                                               ; preds = %20
+21:                                               ; preds = %19
   call void @ERR_new() #16
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1235, ptr noundef nonnull @__func__.xor_key_op) #16
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 128, i32 noundef 7, ptr noundef null) #16
-  br label %35
+  br label %34
 
-23:                                               ; preds = %20
-  %24 = icmp eq i32 %3, 0
-  br i1 %24, label %25, label %28
+22:                                               ; preds = %19
+  %23 = icmp eq i32 %3, 0
+  br i1 %23, label %24, label %27
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 68
-  store i32 1, ptr %27, align 4, !tbaa !43
-  br label %30
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 68
+  store i32 1, ptr %26, align 4, !tbaa !43
+  br label %29
 
-28:                                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  store i32 1, ptr %29, align 8, !tbaa !41
-  br label %30
+27:                                               ; preds = %22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  store i32 1, ptr %28, align 8, !tbaa !41
+  br label %29
 
-30:                                               ; preds = %28, %25
-  %31 = call ptr @OBJ_nid2sn(i32 noundef %13) #16
-  %32 = call noalias ptr @CRYPTO_strdup(ptr noundef %31, ptr noundef nonnull @.str.2, i32 noundef 1247) #16
-  %33 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store ptr %32, ptr %33, align 8, !tbaa !46
-  %34 = icmp eq ptr %32, null
-  br i1 %34, label %35, label %xor_freekey.exit
+29:                                               ; preds = %27, %24
+  %30 = call ptr @OBJ_nid2sn(i32 noundef %12) #16
+  %31 = call noalias ptr @CRYPTO_strdup(ptr noundef %30, ptr noundef nonnull @.str.2, i32 noundef 1247) #16
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store ptr %31, ptr %32, align 8, !tbaa !46
+  %33 = icmp eq ptr %31, null
+  br i1 %33, label %34, label %xor_freekey.exit
 
-35:                                               ; preds = %22, %30
-  %36 = atomicrmw sub ptr %21, i32 1 release, align 4
-  %37 = icmp eq i32 %36, 1
-  br i1 %37, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
+34:                                               ; preds = %21, %29
+  %35 = atomicrmw sub ptr %20, i32 1 release, align 4
+  %36 = icmp eq i32 %35, 1
+  br i1 %36, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
 
-CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %35
+CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %34
   fence acquire
-  br label %39
+  br label %38
 
-CRYPTO_DOWN_REF.exit.i:                           ; preds = %35
-  %38 = icmp sgt i32 %36, 1
-  br i1 %38, label %xor_freekey.exit, label %39
+CRYPTO_DOWN_REF.exit.i:                           ; preds = %34
+  %37 = icmp sgt i32 %35, 1
+  br i1 %37, label %xor_freekey.exit, label %38
 
-39:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %40 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  %41 = load ptr, ptr %40, align 8, !tbaa !46
-  call void @CRYPTO_free(ptr noundef %41, ptr noundef nonnull @.str.2, i32 noundef 720) #16
-  store ptr null, ptr %40, align 8, !tbaa !46
-  call void @CRYPTO_free(ptr noundef nonnull %17, ptr noundef nonnull @.str.2, i32 noundef 724) #16
+38:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  %40 = load ptr, ptr %39, align 8, !tbaa !46
+  call void @CRYPTO_free(ptr noundef %40, ptr noundef nonnull @.str.2, i32 noundef 720) #16
+  store ptr null, ptr %39, align 8, !tbaa !46
+  call void @CRYPTO_free(ptr noundef nonnull %16, ptr noundef nonnull @.str.2, i32 noundef 724) #16
   br label %xor_freekey.exit
 
-xor_freekey.exit:                                 ; preds = %39, %CRYPTO_DOWN_REF.exit.i, %11, %30, %19, %.thread3
-  %.129 = phi ptr [ null, %.thread3 ], [ null, %19 ], [ null, %11 ], [ %17, %30 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %39 ]
+xor_freekey.exit:                                 ; preds = %38, %CRYPTO_DOWN_REF.exit.i, %29, %.critedge, %18, %.thread
+  %.129 = phi ptr [ null, %.thread ], [ null, %18 ], [ null, %.critedge ], [ %16, %29 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %38 ]
   ret ptr %.129
 }
 

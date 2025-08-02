@@ -863,53 +863,53 @@ define void @_ZN3gmx12AtomsRemover11markResidueERK7t_atomsib(ptr noundef nonnull
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds %struct.t_atom, ptr %6, i64 %7, i32 7
   %9 = load i32, ptr %8, align 4, !tbaa !50
-  %invariant.gep = getelementptr i8, ptr %6, i64 -12
   %10 = icmp sgt i32 %2, 0
   br i1 %10, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %4, %14
-  %.017 = phi i32 [ %15, %14 ], [ %2, %4 ]
+.lr.ph:                                           ; preds = %4, %16
+  %.017 = phi i32 [ %17, %16 ], [ %2, %4 ]
   %11 = zext nneg i32 %.017 to i64
-  %gep = getelementptr %struct.t_atom, ptr %invariant.gep, i64 %11
-  %12 = load i32, ptr %gep, align 4, !tbaa !50
-  %13 = icmp eq i32 %9, %12
-  br i1 %13, label %14, label %.critedge
+  %12 = getelementptr %struct.t_atom, ptr %6, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -12
+  %14 = load i32, ptr %13, align 4, !tbaa !50
+  %15 = icmp eq i32 %9, %14
+  br i1 %15, label %16, label %.critedge
 
-14:                                               ; preds = %.lr.ph
-  %15 = add nsw i32 %.017, -1
-  %16 = icmp sgt i32 %.017, 1
-  br i1 %16, label %.lr.ph, label %.critedge, !llvm.loop !65
+16:                                               ; preds = %.lr.ph
+  %17 = add nsw i32 %.017, -1
+  %18 = icmp sgt i32 %.017, 1
+  br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !65
 
-.critedge:                                        ; preds = %.lr.ph, %14, %4
-  %.0.lcssa = phi i32 [ %2, %4 ], [ 0, %14 ], [ %.017, %.lr.ph ]
-  %17 = load i32, ptr %1, align 8, !tbaa !13
-  %18 = icmp slt i32 %.0.lcssa, %17
-  br i1 %18, label %.lr.ph21, label %.critedge2
+.critedge:                                        ; preds = %.lr.ph, %16, %4
+  %.0.lcssa = phi i32 [ %2, %4 ], [ 0, %16 ], [ %.017, %.lr.ph ]
+  %19 = load i32, ptr %1, align 8, !tbaa !13
+  %20 = icmp slt i32 %.0.lcssa, %19
+  br i1 %20, label %.lr.ph21, label %.critedge2
 
 .lr.ph21:                                         ; preds = %.critedge
-  %19 = zext i1 %3 to i8
-  %20 = sext i32 %.0.lcssa to i64
-  br label %21
+  %21 = zext i1 %3 to i8
+  %22 = sext i32 %.0.lcssa to i64
+  br label %23
 
-21:                                               ; preds = %.lr.ph21, %26
-  %indvars.iv = phi i64 [ %20, %.lr.ph21 ], [ %indvars.iv.next, %26 ]
-  %22 = load ptr, ptr %5, align 8, !tbaa !38
-  %23 = getelementptr inbounds %struct.t_atom, ptr %22, i64 %indvars.iv, i32 7
-  %24 = load i32, ptr %23, align 4, !tbaa !50
-  %25 = icmp eq i32 %9, %24
-  br i1 %25, label %26, label %.critedge2
+23:                                               ; preds = %.lr.ph21, %28
+  %indvars.iv = phi i64 [ %22, %.lr.ph21 ], [ %indvars.iv.next, %28 ]
+  %24 = load ptr, ptr %5, align 8, !tbaa !38
+  %25 = getelementptr inbounds %struct.t_atom, ptr %24, i64 %indvars.iv, i32 7
+  %26 = load i32, ptr %25, align 4, !tbaa !50
+  %27 = icmp eq i32 %9, %26
+  br i1 %27, label %28, label %.critedge2
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %0, align 8, !tbaa !61
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv
-  store i8 %19, ptr %28, align 1, !tbaa !47
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %0, align 8, !tbaa !61
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv
+  store i8 %21, ptr %30, align 1, !tbaa !47
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %29 = load i32, ptr %1, align 8, !tbaa !13
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %21, label %.critedge2, !llvm.loop !66
+  %31 = load i32, ptr %1, align 8, !tbaa !13
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next, %32
+  br i1 %33, label %23, label %.critedge2, !llvm.loop !66
 
-.critedge2:                                       ; preds = %21, %26, %.critedge
+.critedge2:                                       ; preds = %23, %28, %.critedge
   ret void
 }
 

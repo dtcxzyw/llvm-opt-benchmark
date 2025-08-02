@@ -1633,8 +1633,6 @@ define i32 @DeriveKeys(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %29 = load ptr, ptr %28, align 8, !tbaa !77
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, ptr noundef nonnull align 1 dereferenceable(48) %30, i64 48, i1 false)
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 49
-  %invariant.gep51 = getelementptr inbounds nuw i8, ptr %4, i64 81
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
@@ -1646,7 +1644,7 @@ define i32 @DeriveKeys(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 
 32:                                               ; preds = %.lr.ph, %SetPrefix.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %SetPrefix.exit ]
-  %.254 = phi i32 [ 0, %.lr.ph ], [ %.4, %SetPrefix.exit ]
+  %.252 = phi i32 [ 0, %.lr.ph ], [ %.4, %SetPrefix.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %33, label %StoreKeys.exit [
@@ -1702,107 +1700,108 @@ define i32 @DeriveKeys(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %45 = load ptr, ptr %28, align 8, !tbaa !77
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %44, ptr noundef nonnull align 1 dereferenceable(48) %46, i64 48, i1 false)
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %gep, ptr noundef nonnull align 4 dereferenceable(32) %47, i64 32, i1 false)
-  %gep52 = getelementptr inbounds nuw i8, ptr %invariant.gep51, i64 %indvars.iv
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %gep52, ptr noundef nonnull align 4 dereferenceable(32) %48, i64 32, i1 false)
-  %49 = icmp eq i32 %.254, 0
-  br i1 %49, label %50, label %.thread39
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 49
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %48, ptr noundef nonnull align 4 dereferenceable(32) %49, i64 32, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 81
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %50, ptr noundef nonnull align 4 dereferenceable(32) %51, i64 32, i1 false)
+  %52 = icmp eq i32 %.252, 0
+  br i1 %52, label %53, label %.thread39
 
-50:                                               ; preds = %43
-  %51 = trunc i64 %indvars.iv to i32
-  %52 = add i32 %51, 113
-  %53 = call i32 @wc_ShaUpdate(ptr noundef nonnull %7, ptr noundef nonnull %4, i32 noundef %52) #7
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %.thread39
+53:                                               ; preds = %43
+  %54 = trunc i64 %indvars.iv to i32
+  %55 = add i32 %54, 113
+  %56 = call i32 @wc_ShaUpdate(ptr noundef nonnull %7, ptr noundef nonnull %4, i32 noundef %55) #7
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %.thread39
 
-.thread39:                                        ; preds = %50, %43
-  %.6.ph = phi i32 [ %53, %50 ], [ %.254, %43 ]
+.thread39:                                        ; preds = %53, %43
+  %.6.ph = phi i32 [ %56, %53 ], [ %.252, %43 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %31, ptr noundef nonnull align 16 dereferenceable(20) %2, i64 20, i1 false)
   br label %SetPrefix.exit
 
-55:                                               ; preds = %50
-  %56 = call i32 @wc_ShaFinal(ptr noundef nonnull %7, ptr noundef nonnull %2) #7
+58:                                               ; preds = %53
+  %59 = call i32 @wc_ShaFinal(ptr noundef nonnull %7, ptr noundef nonnull %2) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %31, ptr noundef nonnull align 16 dereferenceable(20) %2, i64 20, i1 false)
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %SetPrefix.exit
-
-58:                                               ; preds = %55
-  %59 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 68) #7
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %SetPrefix.exit
 
 61:                                               ; preds = %58
-  %62 = shl nuw nsw i64 %indvars.iv, 4
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 %62
-  %64 = call i32 @wc_Md5Final(ptr noundef nonnull %6, ptr noundef nonnull %63) #7
+  %62 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 68) #7
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %SetPrefix.exit
+
+64:                                               ; preds = %61
+  %65 = shl nuw nsw i64 %indvars.iv, 4
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 %65
+  %67 = call i32 @wc_Md5Final(ptr noundef nonnull %6, ptr noundef nonnull %66) #7
   br label %SetPrefix.exit
 
-SetPrefix.exit:                                   ; preds = %.thread39, %55, %58, %61
-  %.4 = phi i32 [ %64, %61 ], [ %59, %58 ], [ %.6.ph, %.thread39 ], [ %56, %55 ]
+SetPrefix.exit:                                   ; preds = %.thread39, %58, %61, %64
+  %.4 = phi i32 [ %67, %64 ], [ %62, %61 ], [ %.6.ph, %.thread39 ], [ %59, %58 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %SetPrefix.exit
-  %65 = icmp eq i32 %.4, 0
-  br i1 %65, label %._crit_edge.thread, label %StoreKeys.exit
+  %68 = icmp eq i32 %.4, 0
+  br i1 %68, label %._crit_edge.thread, label %StoreKeys.exit
 
 ._crit_edge.thread:                               ; preds = %27, %._crit_edge
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 723
-  %67 = load i8, ptr %66, align 1, !tbaa !47
-  %.not.i = icmp eq i8 %67, 2
-  br i1 %.not.i, label %._crit_edge.i, label %68
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 723
+  %70 = load i8, ptr %69, align 1, !tbaa !47
+  %.not.i = icmp eq i8 %70, 2
+  br i1 %.not.i, label %._crit_edge.i, label %71
 
-68:                                               ; preds = %._crit_edge.thread
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 732
-  %70 = load i8, ptr %9, align 1, !tbaa !74
-  %71 = zext i8 %70 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %69, ptr nonnull readonly align 16 %5, i64 %71, i1 false)
-  %72 = zext i8 %70 to i32
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 796
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 %71
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %73, ptr nonnull readonly align 1 %74, i64 %71, i1 false)
-  %75 = shl nuw nsw i32 %72, 1
+71:                                               ; preds = %._crit_edge.thread
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 732
+  %73 = load i8, ptr %9, align 1, !tbaa !74
+  %74 = zext i8 %73 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %72, ptr nonnull readonly align 16 %5, i64 %74, i1 false)
+  %75 = zext i8 %73 to i32
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 796
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 %74
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %76, ptr nonnull readonly align 1 %77, i64 %74, i1 false)
+  %78 = shl nuw nsw i32 %75, 1
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.thread, %68
-  %.0.i33 = phi i32 [ %75, %68 ], [ 0, %._crit_edge.thread ]
-  %76 = load i16, ptr %8, align 2, !tbaa !75
-  %77 = zext i16 %76 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 860
-  %79 = zext nneg i32 %.0.i33 to i64
-  %80 = getelementptr inbounds nuw i8, ptr %5, i64 %79
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %78, ptr nonnull readonly align 2 %80, i64 %77, i1 false)
-  %81 = zext i16 %76 to i32
-  %82 = add nuw nsw i32 %.0.i33, %81
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 892
-  %84 = zext nneg i32 %82 to i64
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 %84
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %83, ptr nonnull readonly align 1 %85, i64 %77, i1 false)
-  %86 = add nuw nsw i32 %82, %81
-  %87 = load i16, ptr %15, align 2, !tbaa !76
-  %88 = zext i16 %87 to i64
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 924
-  %90 = zext nneg i32 %86 to i64
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 %90
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %89, ptr nonnull readonly align 1 %91, i64 %88, i1 false)
-  %92 = zext i16 %87 to i32
-  %93 = add nuw nsw i32 %86, %92
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  %95 = zext nneg i32 %93 to i64
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 %95
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %94, ptr nonnull readonly align 1 %96, i64 %88, i1 false)
-  br i1 %.not.i, label %97, label %StoreKeys.exit
+._crit_edge.i:                                    ; preds = %._crit_edge.thread, %71
+  %.0.i33 = phi i32 [ %78, %71 ], [ 0, %._crit_edge.thread ]
+  %79 = load i16, ptr %8, align 2, !tbaa !75
+  %80 = zext i16 %79 to i64
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 860
+  %82 = zext nneg i32 %.0.i33 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 %82
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %81, ptr nonnull readonly align 2 %83, i64 %80, i1 false)
+  %84 = zext i16 %79 to i32
+  %85 = add nuw nsw i32 %.0.i33, %84
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 892
+  %87 = zext nneg i32 %85 to i64
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 %87
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %86, ptr nonnull readonly align 1 %88, i64 %80, i1 false)
+  %89 = add nuw nsw i32 %85, %84
+  %90 = load i16, ptr %15, align 2, !tbaa !76
+  %91 = zext i16 %90 to i64
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 924
+  %93 = zext nneg i32 %89 to i64
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 %93
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %92, ptr nonnull readonly align 1 %94, i64 %91, i1 false)
+  %95 = zext i16 %90 to i32
+  %96 = add nuw nsw i32 %89, %95
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  %98 = zext nneg i32 %96 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 %98
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %97, ptr nonnull readonly align 1 %99, i64 %91, i1 false)
+  br i1 %.not.i, label %100, label %StoreKeys.exit
 
-97:                                               ; preds = %._crit_edge.i
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 956
-  store i64 0, ptr %98, align 4
+100:                                              ; preds = %._crit_edge.i
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 956
+  store i64 0, ptr %101, align 4
   br label %StoreKeys.exit
 
-StoreKeys.exit:                                   ; preds = %32, %1, %97, %._crit_edge.i, %._crit_edge, %24
-  %.1 = phi i32 [ %25, %24 ], [ %.4, %._crit_edge ], [ 0, %._crit_edge.i ], [ 0, %97 ], [ %22, %1 ], [ -302, %32 ]
+StoreKeys.exit:                                   ; preds = %32, %1, %100, %._crit_edge.i, %._crit_edge, %24
+  %.1 = phi i32 [ %25, %24 ], [ %.4, %._crit_edge ], [ 0, %._crit_edge.i ], [ 0, %100 ], [ %22, %1 ], [ -302, %32 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #7

@@ -1064,11 +1064,12 @@ declare i32 @av_channel_layout_copy(ptr noundef, ptr noundef) local_unnamed_addr
 define internal range(i32 0, 256) i32 @channel_reorder_vorbis(i32 noundef %0, i32 noundef %1) unnamed_addr #4 {
   %3 = add nsw i32 %0, -1
   %4 = sext i32 %3 to i64
-  %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [8 x [8 x i8]], ptr @ff_vorbis_channel_layout_offsets, i64 0, i64 %4, i64 %5
-  %7 = load i8, ptr %6, align 1, !tbaa !4
-  %8 = zext i8 %7 to i32
-  ret i32 %8
+  %5 = getelementptr inbounds [8 x [8 x i8]], ptr @ff_vorbis_channel_layout_offsets, i64 0, i64 %4
+  %6 = sext i32 %1 to i64
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 0, i64 %6
+  %8 = load i8, ptr %7, align 1, !tbaa !4
+  %9 = zext i8 %8 to i32
+  ret i32 %9
 }
 
 declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #5

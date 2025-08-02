@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_mi_process_init, ptr null }]
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_mi_heap_main_get() local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @_mi_heap_main_get() local_unnamed_addr #0 {
   %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2856), align 8, !tbaa !3
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %3, label %mi_heap_main_init.exit

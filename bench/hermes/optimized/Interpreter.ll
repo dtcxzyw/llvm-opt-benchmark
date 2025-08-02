@@ -275,7 +275,7 @@ entry:
   br i1 %or.cond, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %invariant.gep = getelementptr i8, ptr %retval.sroa.0.0.copyload.i, i64 -64
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 -56
   %1 = ptrtoint ptr %runtime to i64
   %level_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %effectiveEnd_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1664
@@ -287,8 +287,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %argIndex.012 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit ]
   %conv.i = sext i32 %argIndex.012 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i
-  %gep = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep, i64 %idx.neg.i.i.i
-  %agg.tmp12.sroa.0.0.copyload = load i64, ptr %gep, align 8
+  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %arrayidx.i.i.i, i64 %idx.neg.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -8
+  %agg.tmp12.sroa.0.0.copyload = load i64, ptr %incdec.ptr.i.i.i, align 8
   %shr.i.i = ashr i64 %agg.tmp12.sroa.0.0.copyload, 47
   switch i64 %shr.i.i, label %sw.default.i [
     i64 -14, label %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit

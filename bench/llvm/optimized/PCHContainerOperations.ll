@@ -224,9 +224,9 @@ define linkonce_odr hidden void @_ZN5clang22PCHContainerOperations14registerRead
 
 .lr.ph:                                           ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %36
+  br label %35
 
-._crit_edge:                                      ; preds = %36, %2
+._crit_edge:                                      ; preds = %35, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i32, ptr %13, align 8, !tbaa !37
@@ -243,50 +243,50 @@ define linkonce_odr hidden void @_ZN5clang22PCHContainerOperations14registerRead
   %21 = icmp uge ptr %1, %.pre3.i
   %22 = icmp ult ptr %1, %20
   %spec.select.i.i.i.i.i = and i1 %21, %22
-  br i1 %spec.select.i.i.i.i.i, label %24, label %23, !prof !54
+  br i1 %spec.select.i.i.i.i.i, label %23, label %.critedge.i.i.i, !prof !54
 
 23:                                               ; preds = %19
+  %24 = ptrtoint ptr %1 to i64
+  %25 = ptrtoint ptr %.pre3.i to i64
+  %26 = sub i64 %24, %25
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %16)
+  %27 = load ptr, ptr %12, align 8, !tbaa !35
+  %28 = getelementptr inbounds i8, ptr %27, i64 %26
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit
+
+.critedge.i.i.i:                                  ; preds = %19
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %16)
   %.pre.i = load ptr, ptr %12, align 8, !tbaa !35
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit
 
-24:                                               ; preds = %19
-  %25 = ptrtoint ptr %1 to i64
-  %26 = ptrtoint ptr %.pre3.i to i64
-  %27 = sub i64 %25, %26
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %16)
-  %28 = load ptr, ptr %12, align 8, !tbaa !35
-  %29 = getelementptr inbounds i8, ptr %28, i64 %27
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit: ; preds = %._crit_edge, %23, %24
-  %30 = phi ptr [ %.pre3.i, %._crit_edge ], [ %28, %24 ], [ %.pre.i, %23 ]
-  %.016.i.i.i = phi ptr [ %1, %._crit_edge ], [ %29, %24 ], [ %1, %23 ]
-  %31 = load i32, ptr %13, align 8, !tbaa !37
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.35", ptr %30, i64 %32
-  %34 = load i64, ptr %.016.i.i.i, align 8, !tbaa !52
-  store i64 %34, ptr %33, align 8, !tbaa !52
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit: ; preds = %._crit_edge, %23, %.critedge.i.i.i
+  %29 = phi ptr [ %.pre3.i, %._crit_edge ], [ %27, %23 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %1, %._crit_edge ], [ %28, %23 ], [ %1, %.critedge.i.i.i ]
+  %30 = load i32, ptr %13, align 8, !tbaa !37
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw %"class.std::unique_ptr.35", ptr %29, i64 %31
+  %33 = load i64, ptr %.016.i.i.i, align 8, !tbaa !52
+  store i64 %33, ptr %32, align 8, !tbaa !52
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !52
-  %35 = add i32 %31, 1
-  store i32 %35, ptr %13, align 8, !tbaa !37
+  %34 = add i32 %30, 1
+  store i32 %34, ptr %13, align 8, !tbaa !37
   ret void
 
-36:                                               ; preds = %.lr.ph, %36
-  %.010 = phi ptr [ %8, %.lr.ph ], [ %42, %36 ]
+35:                                               ; preds = %.lr.ph, %35
+  %.010 = phi ptr [ %8, %.lr.ph ], [ %41, %35 ]
   %.sroa.01.0.copyload = load ptr, ptr %.010, align 8, !tbaa !28
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !30
-  %37 = load ptr, ptr %1, align 8, !tbaa !52
-  %38 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.01.0.copyload, i64 %.sroa.4.0.copyload) #16
-  %39 = tail call { ptr, i8 } @_ZN4llvm9StringMapIPN5clang18PCHContainerReaderENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %.sroa.01.0.copyload, i64 %.sroa.4.0.copyload, i32 noundef %38)
-  %.fca.0.extract.i = extractvalue { ptr, i8 } %39, 0
-  %40 = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !42
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %37, ptr %41, align 8, !tbaa !52
-  %42 = getelementptr inbounds nuw i8, ptr %.010, i64 16
-  %.not = icmp eq ptr %42, %10
-  br i1 %.not, label %._crit_edge, label %36
+  %36 = load ptr, ptr %1, align 8, !tbaa !52
+  %37 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.01.0.copyload, i64 %.sroa.4.0.copyload) #16
+  %38 = tail call { ptr, i8 } @_ZN4llvm9StringMapIPN5clang18PCHContainerReaderENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %.sroa.01.0.copyload, i64 %.sroa.4.0.copyload, i32 noundef %37)
+  %.fca.0.extract.i = extractvalue { ptr, i8 } %38, 0
+  %39 = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !42
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store ptr %36, ptr %40, align 8, !tbaa !52
+  %41 = getelementptr inbounds nuw i8, ptr %.010, i64 16
+  %.not = icmp eq ptr %41, %10
+  br i1 %.not, label %._crit_edge, label %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

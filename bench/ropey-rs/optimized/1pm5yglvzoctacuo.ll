@@ -1551,7 +1551,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21:
   br i1 %.not.i.i22, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit35.thread, label %.lr.ph.i.i23.preheader
 
 .lr.ph.i.i23.preheader:                           ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21
-  %161 = getelementptr i8, ptr %.pre209, i64 224
+  %161 = getelementptr inbounds nuw i8, ptr %.pre209, i64 224
   br label %.lr.ph.i.i23
 
 .lr.ph.i.i23:                                     ; preds = %.lr.ph.i.i23.preheader, %.lr.ph.i.i23
@@ -1559,7 +1559,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i21:
   %162 = phi i64 [ %166, %.lr.ph.i.i23 ], [ 0, %.lr.ph.i.i23.preheader ]
   %163 = add nuw nsw i64 %.sroa.01.08.i.i24, 1
   %.idx = shl nuw nsw i64 %.sroa.01.08.i.i24, 5
-  %164 = getelementptr i8, ptr %161, i64 %.idx
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 %.idx
   %165 = load i64, ptr %164, align 8, !alias.scope !261, !noalias !259, !noundef !7
   %166 = add i64 %165, %162
   %exitcond.not.i.i26 = icmp eq i64 %163, %159

@@ -713,7 +713,7 @@ define hidden noundef align 8 ptr @_ZN12pingora_http13RequestHeader13insert_head
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h021448da45994883E.exit.i.i": ; preds = %.noexc.i
   %48 = extractvalue { ptr, ptr } %47, 0
   %49 = extractvalue { ptr, ptr } %47, 1
-  %50 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %48, ptr %49)
+  %50 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %48, ptr %49)
           to label %102 unwind label %38
 
 51:                                               ; preds = %.noexc.i
@@ -1050,7 +1050,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hfda1bd094
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h021448da45994883E.exit.i.i": ; preds = %.noexc.i
   %50 = extractvalue { ptr, ptr } %49, 0
   %51 = extractvalue { ptr, ptr } %49, 1
-  %52 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef align 8 captures(none) dereferenceable(24) %13, ptr noundef align 1 %50, ptr %51)
+  %52 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef align 8 captures(none) dereferenceable(24) %13, ptr noundef align 1 %50, ptr %51)
           to label %248 unwind label %40
 
 53:                                               ; preds = %.noexc.i
@@ -2076,7 +2076,7 @@ define hidden noundef align 8 ptr @_ZN12pingora_http14ResponseHeader13insert_hea
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h021448da45994883E.exit.i.i": ; preds = %.noexc.i
   %46 = extractvalue { ptr, ptr } %45, 0
   %47 = extractvalue { ptr, ptr } %45, 1
-  %48 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 %46, ptr %47)
+  %48 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 %46, ptr %47)
           to label %100 unwind label %36
 
 49:                                               ; preds = %.noexc.i
@@ -2361,7 +2361,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader5build17h8b31a0c11a95f97fE(
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @_ZN12pingora_http19insert_header_value17hbe50506d6b4fd258E(ptr noalias noundef align 8 dereferenceable_or_null(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(96) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef align 8 ptr @_ZN12pingora_http19insert_header_value17hbe50506d6b4fd258E(ptr noalias noundef align 8 dereferenceable_or_null(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(96) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [24 x i8], align 8
   %7 = alloca [40 x i8], align 8
@@ -2435,7 +2435,7 @@ define internal fastcc noundef align 8 ptr @_ZN12pingora_http19insert_header_val
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h021448da45994883E.exit.i": ; preds = %.noexc
   %35 = extractvalue { ptr, ptr } %34, 0
   %36 = extractvalue { ptr, ptr } %34, 1
-  %37 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 %35, ptr %36)
+  %37 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 %35, ptr %36)
           to label %90 unwind label %25
 
 38:                                               ; preds = %.noexc
@@ -2660,7 +2660,7 @@ define internal fastcc noundef align 8 ptr @_ZN12pingora_http19insert_header_val
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [72 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.invoke, label %6
@@ -6581,7 +6581,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   %144 = icmp eq i64 %135, 0
   br i1 %144, label %.loopexit60, label %.lr.ph.preheader
 
-.loopexit:                                        ; preds = %593, %145, %.loopexit60
+.loopexit:                                        ; preds = %.lr.ph98.preheader, %145, %.loopexit60
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %57)
   br i1 %136, label %155, label %150, !prof !466
 
@@ -6592,10 +6592,6 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx100
   %149 = icmp eq i64 %138, 0
   br i1 %149, label %.loopexit, label %.lr.ph98.preheader
-
-.lr.ph98.preheader:                               ; preds = %145
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %64, i64 8208
-  br label %593
 
 150:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
@@ -7671,29 +7667,30 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   invoke void @"_ZN4core3ptr105drop_in_place$LT$brotli..enc..find_stride..EntropyTally$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h977b062ce6b60000E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %56) #19
           to label %.thread33.thread51 unwind label %589
 
-593:                                              ; preds = %593, %.lr.ph98.preheader
-  %.sroa.73.097 = phi i64 [ %594, %593 ], [ 0, %.lr.ph98.preheader ]
-  %.sroa.01.096 = phi ptr [ %595, %593 ], [ %147, %.lr.ph98.preheader ]
-  %594 = add nuw nsw i64 %.sroa.73.097, 1
-  %595 = getelementptr inbounds nuw i8, ptr %.sroa.01.096, i64 4
-  %596 = load i32, ptr %.sroa.01.096, align 4, !noundef !3
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.sroa.73.097
-  %597 = trunc i32 %596 to i8
-  store i8 %597, ptr %gep, align 1
-  %598 = icmp eq ptr %595, %148
-  br i1 %598, label %.loopexit, label %593
+.lr.ph98.preheader:                               ; preds = %145, %.lr.ph98.preheader
+  %.sroa.73.097 = phi i64 [ %593, %.lr.ph98.preheader ], [ 0, %145 ]
+  %.sroa.01.096 = phi ptr [ %594, %.lr.ph98.preheader ], [ %147, %145 ]
+  %593 = add nuw nsw i64 %.sroa.73.097, 1
+  %594 = getelementptr inbounds nuw i8, ptr %.sroa.01.096, i64 4
+  %595 = load i32, ptr %.sroa.01.096, align 4, !noundef !3
+  %596 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.73.097
+  %597 = getelementptr inbounds nuw i8, ptr %596, i64 8208
+  %598 = trunc i32 %595 to i8
+  store i8 %598, ptr %597, align 1
+  %599 = icmp eq ptr %594, %148
+  br i1 %599, label %.loopexit, label %.lr.ph98.preheader
 
 .lr.ph.preheader:                                 ; preds = %140, %.lr.ph.preheader
-  %.sroa.0.095 = phi ptr [ %600, %.lr.ph.preheader ], [ %142, %140 ]
-  %.sroa.7.094 = phi i64 [ %599, %.lr.ph.preheader ], [ 0, %140 ]
-  %599 = add nuw nsw i64 %.sroa.7.094, 1
-  %600 = getelementptr inbounds nuw i8, ptr %.sroa.0.095, i64 4
-  %601 = load i32, ptr %.sroa.0.095, align 4, !noundef !3
-  %602 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.7.094
-  %603 = trunc i32 %601 to i8
-  store i8 %603, ptr %602, align 1
-  %604 = icmp eq ptr %600, %143
-  br i1 %604, label %.loopexit60, label %.lr.ph.preheader
+  %.sroa.0.095 = phi ptr [ %601, %.lr.ph.preheader ], [ %142, %140 ]
+  %.sroa.7.094 = phi i64 [ %600, %.lr.ph.preheader ], [ 0, %140 ]
+  %600 = add nuw nsw i64 %.sroa.7.094, 1
+  %601 = getelementptr inbounds nuw i8, ptr %.sroa.0.095, i64 4
+  %602 = load i32, ptr %.sroa.0.095, align 4, !noundef !3
+  %603 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.7.094
+  %604 = trunc i32 %602 to i8
+  store i8 %604, ptr %603, align 1
+  %605 = icmp eq ptr %601, %143
+  br i1 %605, label %.loopexit60, label %.lr.ph.preheader
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7956,7 +7953,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   %144 = icmp eq i64 %135, 0
   br i1 %144, label %.loopexit60, label %.lr.ph.preheader
 
-.loopexit:                                        ; preds = %593, %145, %.loopexit60
+.loopexit:                                        ; preds = %.lr.ph98.preheader, %145, %.loopexit60
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %57)
   br i1 %136, label %155, label %150, !prof !466
 
@@ -7967,10 +7964,6 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx100
   %149 = icmp eq i64 %138, 0
   br i1 %149, label %.loopexit, label %.lr.ph98.preheader
-
-.lr.ph98.preheader:                               ; preds = %145
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %64, i64 8208
-  br label %593
 
 150:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
@@ -9046,29 +9039,30 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   invoke void @"_ZN4core3ptr105drop_in_place$LT$brotli..enc..find_stride..EntropyTally$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h977b062ce6b60000E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %56) #19
           to label %.thread33.thread51 unwind label %589
 
-593:                                              ; preds = %593, %.lr.ph98.preheader
-  %.sroa.73.097 = phi i64 [ %594, %593 ], [ 0, %.lr.ph98.preheader ]
-  %.sroa.01.096 = phi ptr [ %595, %593 ], [ %147, %.lr.ph98.preheader ]
-  %594 = add nuw nsw i64 %.sroa.73.097, 1
-  %595 = getelementptr inbounds nuw i8, ptr %.sroa.01.096, i64 4
-  %596 = load i32, ptr %.sroa.01.096, align 4, !noundef !3
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.sroa.73.097
-  %597 = trunc i32 %596 to i8
-  store i8 %597, ptr %gep, align 1
-  %598 = icmp eq ptr %595, %148
-  br i1 %598, label %.loopexit, label %593
+.lr.ph98.preheader:                               ; preds = %145, %.lr.ph98.preheader
+  %.sroa.73.097 = phi i64 [ %593, %.lr.ph98.preheader ], [ 0, %145 ]
+  %.sroa.01.096 = phi ptr [ %594, %.lr.ph98.preheader ], [ %147, %145 ]
+  %593 = add nuw nsw i64 %.sroa.73.097, 1
+  %594 = getelementptr inbounds nuw i8, ptr %.sroa.01.096, i64 4
+  %595 = load i32, ptr %.sroa.01.096, align 4, !noundef !3
+  %596 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.73.097
+  %597 = getelementptr inbounds nuw i8, ptr %596, i64 8208
+  %598 = trunc i32 %595 to i8
+  store i8 %598, ptr %597, align 1
+  %599 = icmp eq ptr %594, %148
+  br i1 %599, label %.loopexit, label %.lr.ph98.preheader
 
 .lr.ph.preheader:                                 ; preds = %140, %.lr.ph.preheader
-  %.sroa.0.095 = phi ptr [ %600, %.lr.ph.preheader ], [ %142, %140 ]
-  %.sroa.7.094 = phi i64 [ %599, %.lr.ph.preheader ], [ 0, %140 ]
-  %599 = add nuw nsw i64 %.sroa.7.094, 1
-  %600 = getelementptr inbounds nuw i8, ptr %.sroa.0.095, i64 4
-  %601 = load i32, ptr %.sroa.0.095, align 4, !noundef !3
-  %602 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.7.094
-  %603 = trunc i32 %601 to i8
-  store i8 %603, ptr %602, align 1
-  %604 = icmp eq ptr %600, %143
-  br i1 %604, label %.loopexit60, label %.lr.ph.preheader
+  %.sroa.0.095 = phi ptr [ %601, %.lr.ph.preheader ], [ %142, %140 ]
+  %.sroa.7.094 = phi i64 [ %600, %.lr.ph.preheader ], [ 0, %140 ]
+  %600 = add nuw nsw i64 %.sroa.7.094, 1
+  %601 = getelementptr inbounds nuw i8, ptr %.sroa.0.095, i64 4
+  %602 = load i32, ptr %.sroa.0.095, align 4, !noundef !3
+  %603 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.7.094
+  %604 = trunc i32 %602 to i8
+  store i8 %604, ptr %603, align 1
+  %605 = icmp eq ptr %601, %143
+  br i1 %605, label %.loopexit60, label %.lr.ph.preheader
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -18344,7 +18338,7 @@ define void @_ZN12pingora_core9protocols4http18conditional_filter24parse_bytes_a
 _ZN13pingora_error5Error7because17h31312a4683eb82b5E.exit: ; preds = %20
   %33 = extractvalue { ptr, ptr } %21, 0
   %34 = extractvalue { ptr, ptr } %21, 1
-  %35 = call fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noundef align 1 %33, ptr %34)
+  %35 = call fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noundef align 1 %33, ptr %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !945
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %35, ptr %36, align 8

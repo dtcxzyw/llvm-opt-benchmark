@@ -66,7 +66,7 @@ define hidden void @freeNativeStringArray(ptr noundef captures(address_is_null) 
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1368
   %6 = load ptr, ptr %5, align 8

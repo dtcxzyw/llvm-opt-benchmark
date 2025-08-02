@@ -49,20 +49,16 @@ define dso_local ptr @parallel_vacuum_init(ptr noundef %0, ptr noundef %1, i32 n
   %12 = load i32, ptr @max_parallel_maintenance_workers, align 4
   %13 = icmp ne i32 %12, 0
   %or.cond.not.i = select i1 %11, i1 %13, i1 false
-  br i1 %or.cond.not.i, label %.preheader.i, label %parallel_vacuum_compute_workers.exit.thread
-
-.preheader.i:                                     ; preds = %7
   %14 = icmp sgt i32 %2, 0
-  br i1 %14, label %.lr.ph.preheader.i, label %._crit_edge.i
+  %or.cond48.i = and i1 %14, %or.cond.not.i
+  br i1 %or.cond48.i, label %.lr.ph.preheader.i, label %parallel_vacuum_compute_workers.exit.thread
 
-.lr.ph.preheader.i:                               ; preds = %.preheader.i
+.lr.ph.preheader.i:                               ; preds = %7
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %35, %.preheader.i
-  %.033.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.134.i, %35 ]
-  %.032.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %35 ]
-  %15 = tail call i32 @llvm.smax.i32(i32 %.032.lcssa.i, i32 %.033.lcssa.i)
+._crit_edge.i:                                    ; preds = %35
+  %15 = tail call i32 @llvm.smax.i32(i32 %.1.i, i32 %.134.i)
   %16 = add i32 %15, -1
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %parallel_vacuum_compute_workers.exit.thread, label %parallel_vacuum_compute_workers.exit
@@ -213,7 +209,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
 
 105:                                              ; preds = %101
   %.not177 = icmp eq i64 %50, 0
-  br i1 %.not177, label %.loopexit171, label %.lr.ph.preheader
+  br i1 %.not177, label %.lr.ph175, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %105
   %106 = add i64 %50, %98
@@ -224,24 +220,21 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %110 = and i64 %109, -8
   %111 = add i64 %110, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %97, i8 0, i64 %111, i1 false)
-  br label %.loopexit171
+  br label %.lr.ph175
 
 112:                                              ; preds = %101, %94
   tail call void @llvm.memset.p0.i64(ptr align 1 %97, i8 0, i64 %50, i1 false)
-  br label %.loopexit171
+  br label %.lr.ph175
 
-.loopexit171:                                     ; preds = %.lr.ph.preheader, %105, %112
-  br i1 %14, label %.lr.ph175, label %._crit_edge
-
-.lr.ph175:                                        ; preds = %.loopexit171
+.lr.ph175:                                        ; preds = %112, %105, %.lr.ph.preheader
   %113 = getelementptr inbounds nuw i8, ptr %43, i64 80
   %114 = getelementptr inbounds nuw i8, ptr %43, i64 84
   %115 = getelementptr inbounds nuw i8, ptr %43, i64 88
-  %wide.trip.count = zext nneg i32 %2 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
   br label %127
 
-._crit_edge:                                      ; preds = %156, %.loopexit171
-  %.0158.lcssa = phi i32 [ 0, %.loopexit171 ], [ %.1, %156 ]
+._crit_edge:                                      ; preds = %156
   %116 = load ptr, ptr %95, align 8
   tail call void @shm_toc_insert(ptr noundef %116, i64 noundef 5, ptr noundef %97) #10
   %117 = getelementptr inbounds nuw i8, ptr %43, i64 40
@@ -257,7 +250,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %123 = tail call i64 @pgstat_get_my_query_id() #10
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 %123, ptr %124, align 8
-  %125 = icmp sgt i32 %.0158.lcssa, 0
+  %125 = icmp sgt i32 %.1, 0
   %126 = load i32, ptr @maintenance_work_mem, align 4
   br i1 %125, label %157, label %160
 
@@ -320,7 +313,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   br i1 %exitcond.not, label %._crit_edge, label %127, !llvm.loop !8
 
 157:                                              ; preds = %._crit_edge
-  %158 = tail call i32 @llvm.smin.i32(i32 %40, i32 %.0158.lcssa)
+  %158 = tail call i32 @llvm.smin.i32(i32 %40, i32 %.1)
   %159 = sdiv i32 %126, %158
   br label %160
 

@@ -4097,7 +4097,7 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc14MatrixMetadataC2ERKNS0_
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 0, i64 %15, i1 false)
   %17 = icmp ugt i32 %5, 1
-  br i1 %17, label %.preheader.lr.ph, label %38
+  br i1 %17, label %.preheader.lr.ph, label %40
 
 .preheader.lr.ph:                                 ; preds = %2
   %18 = icmp ugt i32 %11, 1
@@ -4107,7 +4107,6 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc14MatrixMetadataC2ERKNS0_
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %wide.trip.count39 = zext i32 %5 to i64
-  %invariant.gep = getelementptr i8, ptr %8, i64 -1
   %wide.trip.count = zext i32 %11 to i64
   br label %.preheader.us
 
@@ -4118,36 +4117,37 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc14MatrixMetadataC2ERKNS0_
   %23 = mul i32 %11, %22
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw float, ptr %20, i64 %24
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv36
-  br label %26
+  %26 = getelementptr i8, ptr %8, i64 %indvars.iv36
+  %27 = getelementptr i8, ptr %26, i64 -1
+  br label %28
 
-26:                                               ; preds = %.preheader.us, %37
-  %indvars.iv = phi i64 [ 1, %.preheader.us ], [ %indvars.iv.next, %37 ]
-  %.02930.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %37 ]
-  %27 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
-  %28 = load float, ptr %27, align 4, !tbaa !70
-  %29 = fcmp oeq float %28, 0x7FF0000000000000
-  br i1 %29, label %30, label %37
+28:                                               ; preds = %.preheader.us, %39
+  %indvars.iv = phi i64 [ 1, %.preheader.us ], [ %indvars.iv.next, %39 ]
+  %.02930.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %39 ]
+  %29 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %30 = load float, ptr %29, align 4, !tbaa !70
+  %31 = fcmp oeq float %30, 0x7FF0000000000000
+  br i1 %31, label %32, label %39
 
-30:                                               ; preds = %26
-  %31 = add i32 %.02930.us, 1
-  %32 = add nsw i64 %indvars.iv, -1
-  %33 = getelementptr inbounds nuw i32, ptr %16, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !43
-  %35 = add i32 %34, 1
-  store i32 %35, ptr %33, align 4, !tbaa !43
-  store i8 1, ptr %gep, align 1, !tbaa !174
-  %36 = getelementptr inbounds nuw i8, ptr %14, i64 %32
-  store i8 1, ptr %36, align 1, !tbaa !174
-  br label %37
+32:                                               ; preds = %28
+  %33 = add i32 %.02930.us, 1
+  %34 = add nsw i64 %indvars.iv, -1
+  %35 = getelementptr inbounds nuw i32, ptr %16, i64 %34
+  %36 = load i32, ptr %35, align 4, !tbaa !43
+  %37 = add i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !43
+  store i8 1, ptr %27, align 1, !tbaa !174
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 %34
+  store i8 1, ptr %38, align 1, !tbaa !174
+  br label %39
 
-37:                                               ; preds = %30, %26
-  %.1.us = phi i32 [ %31, %30 ], [ %.02930.us, %26 ]
+39:                                               ; preds = %32, %28
+  %.1.us = phi i32 [ %33, %32 ], [ %.02930.us, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !425
+  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !425
 
-._crit_edge.us:                                   ; preds = %37
+._crit_edge.us:                                   ; preds = %39
   %.sroa.speculated25.us = tail call i32 @llvm.umax.i32(i32 %21, i32 %.1.us)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
@@ -4156,37 +4156,37 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc14MatrixMetadataC2ERKNS0_
 ._crit_edge33:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
   %.us-phi = phi i32 [ 0, %.preheader.lr.ph ], [ %.sroa.speculated25.us, %._crit_edge.us ]
   store i32 %.us-phi, ptr %0, align 8, !tbaa !416
-  br label %38
+  br label %40
 
-38:                                               ; preds = %._crit_edge33, %2
-  %39 = zext i32 %11 to i64
-  %.idx = shl nuw nsw i64 %39, 2
-  %40 = add nsw i64 %.idx, -4
-  %41 = getelementptr inbounds i8, ptr %16, i64 %40
-  %or.cond.i.i = icmp ult i64 %40, 8
+40:                                               ; preds = %._crit_edge33, %2
+  %41 = zext i32 %11 to i64
+  %.idx = shl nuw nsw i64 %41, 2
+  %42 = add nsw i64 %.idx, -4
+  %43 = getelementptr inbounds i8, ptr %16, i64 %42
+  %or.cond.i.i = icmp ult i64 %42, 8
   br i1 %or.cond.i.i, label %_ZSt11max_elementIPjET_S1_S1_.exit, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %16, i64 4
+.lr.ph.preheader.i.i:                             ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.pre.i.i = load i32, ptr %16, align 4, !tbaa !43
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %43 = phi i32 [ %47, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
-  %44 = phi ptr [ %48, %.lr.ph.i.i ], [ %42, %.lr.ph.preheader.i.i ]
+  %45 = phi i32 [ %49, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
+  %46 = phi ptr [ %50, %.lr.ph.i.i ], [ %44, %.lr.ph.preheader.i.i ]
   %.018.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %16, %.lr.ph.preheader.i.i ]
-  %45 = load i32, ptr %44, align 4, !tbaa !43
-  %46 = icmp ult i32 %43, %45
-  %47 = tail call i32 @llvm.umax.i32(i32 %43, i32 %45)
-  %spec.select.i.i = select i1 %46, ptr %44, ptr %.018.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %.not.i.i = icmp eq ptr %48, %41
+  %47 = load i32, ptr %46, align 4, !tbaa !43
+  %48 = icmp ult i32 %45, %47
+  %49 = tail call i32 @llvm.umax.i32(i32 %45, i32 %47)
+  %spec.select.i.i = select i1 %48, ptr %46, ptr %.018.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %.not.i.i = icmp eq ptr %50, %43
   br i1 %.not.i.i, label %_ZSt11max_elementIPjET_S1_S1_.exit, label %.lr.ph.i.i, !llvm.loop !427
 
-_ZSt11max_elementIPjET_S1_S1_.exit:               ; preds = %.lr.ph.i.i, %38
-  %.011.i.i = phi ptr [ %16, %38 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %49 = load i32, ptr %.011.i.i, align 4, !tbaa !43
-  store i32 %49, ptr %3, align 4, !tbaa !424
+_ZSt11max_elementIPjET_S1_S1_.exit:               ; preds = %.lr.ph.i.i, %40
+  %.011.i.i = phi ptr [ %16, %40 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %51 = load i32, ptr %.011.i.i, align 4, !tbaa !43
+  store i32 %51, ptr %3, align 4, !tbaa !424
   tail call void @_ZdaPv(ptr noundef nonnull %16) #21
   ret void
 }

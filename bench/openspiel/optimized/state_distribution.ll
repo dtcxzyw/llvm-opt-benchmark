@@ -985,8 +985,8 @@ _ZNK10open_spiel5State22InformationStateStringB5cxx11Ev.exit106: ; preds = %.noe
 200:                                              ; preds = %194
   %201 = zext nneg i32 %192 to i64
   %.idx.i = mul nuw nsw i64 %201, 40
-  %202 = getelementptr i8, ptr %189, i64 48
-  %203 = getelementptr i8, ptr %202, i64 %.idx.i
+  %202 = getelementptr inbounds nuw i8, ptr %189, i64 48
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 %.idx.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   store i64 %172, ptr %203, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #24
@@ -1074,8 +1074,8 @@ _ZNK10open_spiel5State22InformationStateStringB5cxx11Ev.exit106: ; preds = %.noe
 229:                                              ; preds = %223
   %230 = zext nneg i32 %221 to i64
   %.idx.i110 = mul nuw nsw i64 %230, 40
-  %231 = getelementptr i8, ptr %217, i64 48
-  %232 = getelementptr i8, ptr %231, i64 %.idx.i110
+  %231 = getelementptr inbounds nuw i8, ptr %217, i64 48
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 %.idx.i110
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   store i64 -1, ptr %232, align 8
   %233 = load ptr, ptr %32, align 8
@@ -2408,8 +2408,8 @@ _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_vie
 708:                                              ; preds = %702
   %709 = and i64 %.lcssa.sink.i.ph.i.i.i, 2147483647
   %.idx = mul nuw nsw i64 %709, 40
-  %710 = getelementptr i8, ptr %.sroa.02.013.lcssa.sink.i.ph.i.i.i, i64 48
-  %711 = getelementptr i8, ptr %710, i64 %.idx
+  %710 = getelementptr inbounds nuw i8, ptr %.sroa.02.013.lcssa.sink.i.ph.i.i.i, i64 48
+  %711 = getelementptr inbounds nuw i8, ptr %710, i64 %.idx
   %712 = load i64, ptr %711, align 8
   %.not76 = icmp eq i64 %712, 0
   br i1 %.not76, label %.critedge, label %713

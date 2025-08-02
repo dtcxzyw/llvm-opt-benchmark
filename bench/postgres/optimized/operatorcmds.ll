@@ -63,50 +63,50 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
 
 10:                                               ; preds = %8, %2
   %.not120 = icmp eq ptr %1, null
-  br i1 %.not120, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not120, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %11, align 4
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph233, label %._crit_edge
+  br i1 %14, label %.lr.ph231, label %.critedge
 
-._crit_edge:                                      ; preds = %102, %.lr.ph
-  %.0159.lcssa = phi i1 [ false, %.lr.ph ], [ %.1, %102 ]
-  %.092158.lcssa = phi i1 [ false, %.lr.ph ], [ %.193, %102 ]
-  %.094157.lcssa = phi ptr [ null, %.lr.ph ], [ %.195, %102 ]
-  %.096156.lcssa = phi ptr [ null, %.lr.ph ], [ %.197, %102 ]
-  %.098155.lcssa = phi ptr [ null, %.lr.ph ], [ %.199, %102 ]
-  %.0106153.lcssa = phi ptr [ null, %.lr.ph ], [ %.1107, %102 ]
-  %.0108152.lcssa = phi ptr [ null, %.lr.ph ], [ %.1109, %102 ]
-  %.0110151.lcssa = phi ptr [ null, %.lr.ph ], [ %.1111, %102 ]
-  %.0112150.lcssa = phi ptr [ null, %.lr.ph ], [ %.1113, %102 ]
-  %15 = icmp eq ptr %.094157.lcssa, null
-  br i1 %15, label %._crit_edge.thread, label %109
+.lr.ph231:                                        ; preds = %.lr.ph, %102
+  %.0112148230 = phi ptr [ %.1113, %102 ], [ null, %.lr.ph ]
+  %.0110149229 = phi ptr [ %.1111, %102 ], [ null, %.lr.ph ]
+  %.0108150228 = phi ptr [ %.1109, %102 ], [ null, %.lr.ph ]
+  %.0106151227 = phi ptr [ %.1107, %102 ], [ null, %.lr.ph ]
+  %.098153226 = phi ptr [ %.199, %102 ], [ null, %.lr.ph ]
+  %.096154225 = phi ptr [ %.197, %102 ], [ null, %.lr.ph ]
+  %.094155224 = phi ptr [ %.195, %102 ], [ null, %.lr.ph ]
+  %.092156223 = phi i1 [ %.193, %102 ], [ false, %.lr.ph ]
+  %.0157222 = phi i1 [ %.1, %102 ], [ false, %.lr.ph ]
+  %indvars.iv221 = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.lr.ph ]
+  %15 = load ptr, ptr %12, align 8
+  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv221
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(8) @.str) #8
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %23, label %32
 
-.lr.ph233:                                        ; preds = %.lr.ph, %102
-  %.0112150232 = phi ptr [ %.1113, %102 ], [ null, %.lr.ph ]
-  %.0110151231 = phi ptr [ %.1111, %102 ], [ null, %.lr.ph ]
-  %.0108152230 = phi ptr [ %.1109, %102 ], [ null, %.lr.ph ]
-  %.0106153229 = phi ptr [ %.1107, %102 ], [ null, %.lr.ph ]
-  %.098155228 = phi ptr [ %.199, %102 ], [ null, %.lr.ph ]
-  %.096156227 = phi ptr [ %.197, %102 ], [ null, %.lr.ph ]
-  %.094157226 = phi ptr [ %.195, %102 ], [ null, %.lr.ph ]
-  %.092158225 = phi i1 [ %.193, %102 ], [ false, %.lr.ph ]
-  %.0159224 = phi i1 [ %.1, %102 ], [ false, %.lr.ph ]
-  %indvars.iv223 = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.lr.ph ]
-  %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv223
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(8) @.str) #8
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %32
+.critedge:                                        ; preds = %102, %.lr.ph
+  %.0157.lcssa = phi i1 [ false, %.lr.ph ], [ %.1, %102 ]
+  %.092156.lcssa = phi i1 [ false, %.lr.ph ], [ %.193, %102 ]
+  %.094155.lcssa = phi ptr [ null, %.lr.ph ], [ %.195, %102 ]
+  %.096154.lcssa = phi ptr [ null, %.lr.ph ], [ %.197, %102 ]
+  %.098153.lcssa = phi ptr [ null, %.lr.ph ], [ %.199, %102 ]
+  %.0106151.lcssa = phi ptr [ null, %.lr.ph ], [ %.1107, %102 ]
+  %.0108150.lcssa = phi ptr [ null, %.lr.ph ], [ %.1109, %102 ]
+  %.0110149.lcssa = phi ptr [ null, %.lr.ph ], [ %.1111, %102 ]
+  %.0112148.lcssa = phi ptr [ null, %.lr.ph ], [ %.1113, %102 ]
+  %22 = icmp eq ptr %.094155.lcssa, null
+  br i1 %22, label %.critedge.thread, label %109
 
-23:                                               ; preds = %.lr.ph233
-  %24 = call ptr @defGetTypeName(ptr noundef nonnull %18) #7
+23:                                               ; preds = %.lr.ph231
+  %24 = call ptr @defGetTypeName(ptr noundef nonnull %17) #7
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %26 = load i8, ptr %25, align 4, !range !4, !noundef !5
   %27 = trunc nuw i8 %26 to i1
@@ -120,13 +120,13 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 113, ptr noundef nonnull @__func__.DefineOperator) #7
   unreachable
 
-32:                                               ; preds = %.lr.ph233
-  %33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.3) #8
+32:                                               ; preds = %.lr.ph231
+  %33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.3) #8
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %32
-  %36 = call ptr @defGetTypeName(ptr noundef nonnull %18) #7
+  %36 = call ptr @defGetTypeName(ptr noundef nonnull %17) #7
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %38 = load i8, ptr %37, align 4, !range !4, !noundef !5
   %39 = trunc nuw i8 %38 to i1
@@ -141,94 +141,94 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   unreachable
 
 44:                                               ; preds = %32
-  %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.4) #8
+  %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.4) #8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %44
-  %48 = call ptr @defGetQualifiedName(ptr noundef nonnull %18) #7
+  %48 = call ptr @defGetQualifiedName(ptr noundef nonnull %17) #7
   br label %102
 
 49:                                               ; preds = %44
-  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(10) @.str.5) #8
+  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(10) @.str.5) #8
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %49
-  %53 = call ptr @defGetQualifiedName(ptr noundef nonnull %18) #7
+  %53 = call ptr @defGetQualifiedName(ptr noundef nonnull %17) #7
   br label %102
 
 54:                                               ; preds = %49
-  %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(11) @.str.6) #8
+  %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(11) @.str.6) #8
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %54
-  %58 = call ptr @defGetQualifiedName(ptr noundef nonnull %18) #7
+  %58 = call ptr @defGetQualifiedName(ptr noundef nonnull %17) #7
   br label %102
 
 59:                                               ; preds = %54
-  %60 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(8) @.str.7) #8
+  %60 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(8) @.str.7) #8
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %59
-  %63 = call ptr @defGetQualifiedName(ptr noundef nonnull %18) #7
+  %63 = call ptr @defGetQualifiedName(ptr noundef nonnull %17) #7
   br label %102
 
 64:                                               ; preds = %59
-  %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.8) #8
+  %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.8) #8
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %64
-  %68 = call ptr @defGetQualifiedName(ptr noundef nonnull %18) #7
+  %68 = call ptr @defGetQualifiedName(ptr noundef nonnull %17) #7
   br label %102
 
 69:                                               ; preds = %64
-  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(5) @.str.9) #8
+  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(5) @.str.9) #8
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %69
-  %73 = call ptr @defGetQualifiedName(ptr noundef nonnull %18) #7
+  %73 = call ptr @defGetQualifiedName(ptr noundef nonnull %17) #7
   br label %102
 
 74:                                               ; preds = %69
-  %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(7) @.str.10) #8
+  %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(7) @.str.10) #8
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %74
-  %78 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %18) #7
+  %78 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %17) #7
   br label %102
 
 79:                                               ; preds = %74
-  %80 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(7) @.str.11) #8
+  %80 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(7) @.str.11) #8
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %79
-  %83 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %18) #7
+  %83 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %17) #7
   br label %102
 
 84:                                               ; preds = %79
-  %85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(6) @.str.12) #8
+  %85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.12) #8
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %102, label %87
 
 87:                                               ; preds = %84
-  %88 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(6) @.str.13) #8
+  %88 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.13) #8
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %102, label %90
 
 90:                                               ; preds = %87
-  %91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(6) @.str.14) #8
+  %91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.14) #8
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %102, label %93
 
 93:                                               ; preds = %90
-  %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(6) @.str.15) #8
+  %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.15) #8
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %102, label %96
 
@@ -238,28 +238,28 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
 
 98:                                               ; preds = %96
   %99 = call i32 @errcode(i32 noundef 16801924) #7
-  %100 = load ptr, ptr %19, align 8
+  %100 = load ptr, ptr %18, align 8
   %101 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %100) #7
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 155, ptr noundef nonnull @__func__.DefineOperator) #7
   br label %102
 
 102:                                              ; preds = %93, %90, %87, %84, %35, %52, %62, %72, %82, %98, %96, %77, %67, %57, %47, %23
-  %.1113 = phi ptr [ %.0112150232, %23 ], [ %.0112150232, %35 ], [ %.0112150232, %47 ], [ %.0112150232, %52 ], [ %58, %57 ], [ %.0112150232, %62 ], [ %.0112150232, %67 ], [ %.0112150232, %72 ], [ %.0112150232, %77 ], [ %.0112150232, %82 ], [ %.0112150232, %98 ], [ %.0112150232, %96 ], [ %.0112150232, %84 ], [ %.0112150232, %87 ], [ %.0112150232, %90 ], [ %.0112150232, %93 ]
-  %.1111 = phi ptr [ %.0110151231, %23 ], [ %.0110151231, %35 ], [ %.0110151231, %47 ], [ %.0110151231, %52 ], [ %.0110151231, %57 ], [ %63, %62 ], [ %.0110151231, %67 ], [ %.0110151231, %72 ], [ %.0110151231, %77 ], [ %.0110151231, %82 ], [ %.0110151231, %98 ], [ %.0110151231, %96 ], [ %.0110151231, %84 ], [ %.0110151231, %87 ], [ %.0110151231, %90 ], [ %.0110151231, %93 ]
-  %.1109 = phi ptr [ %.0108152230, %23 ], [ %.0108152230, %35 ], [ %.0108152230, %47 ], [ %.0108152230, %52 ], [ %.0108152230, %57 ], [ %.0108152230, %62 ], [ %68, %67 ], [ %.0108152230, %72 ], [ %.0108152230, %77 ], [ %.0108152230, %82 ], [ %.0108152230, %98 ], [ %.0108152230, %96 ], [ %.0108152230, %84 ], [ %.0108152230, %87 ], [ %.0108152230, %90 ], [ %.0108152230, %93 ]
-  %.1107 = phi ptr [ %.0106153229, %23 ], [ %.0106153229, %35 ], [ %.0106153229, %47 ], [ %.0106153229, %52 ], [ %.0106153229, %57 ], [ %.0106153229, %62 ], [ %.0106153229, %67 ], [ %73, %72 ], [ %.0106153229, %77 ], [ %.0106153229, %82 ], [ %.0106153229, %98 ], [ %.0106153229, %96 ], [ %.0106153229, %84 ], [ %.0106153229, %87 ], [ %.0106153229, %90 ], [ %.0106153229, %93 ]
-  %.199 = phi ptr [ %.098155228, %23 ], [ %36, %35 ], [ %.098155228, %47 ], [ %.098155228, %52 ], [ %.098155228, %57 ], [ %.098155228, %62 ], [ %.098155228, %67 ], [ %.098155228, %72 ], [ %.098155228, %77 ], [ %.098155228, %82 ], [ %.098155228, %98 ], [ %.098155228, %96 ], [ %.098155228, %84 ], [ %.098155228, %87 ], [ %.098155228, %90 ], [ %.098155228, %93 ]
-  %.197 = phi ptr [ %24, %23 ], [ %.096156227, %35 ], [ %.096156227, %47 ], [ %.096156227, %52 ], [ %.096156227, %57 ], [ %.096156227, %62 ], [ %.096156227, %67 ], [ %.096156227, %72 ], [ %.096156227, %77 ], [ %.096156227, %82 ], [ %.096156227, %98 ], [ %.096156227, %96 ], [ %.096156227, %84 ], [ %.096156227, %87 ], [ %.096156227, %90 ], [ %.096156227, %93 ]
-  %.195 = phi ptr [ %.094157226, %23 ], [ %.094157226, %35 ], [ %48, %47 ], [ %53, %52 ], [ %.094157226, %57 ], [ %.094157226, %62 ], [ %.094157226, %67 ], [ %.094157226, %72 ], [ %.094157226, %77 ], [ %.094157226, %82 ], [ %.094157226, %98 ], [ %.094157226, %96 ], [ %.094157226, %84 ], [ %.094157226, %87 ], [ %.094157226, %90 ], [ %.094157226, %93 ]
-  %.193 = phi i1 [ %.092158225, %23 ], [ %.092158225, %35 ], [ %.092158225, %47 ], [ %.092158225, %52 ], [ %.092158225, %57 ], [ %.092158225, %62 ], [ %.092158225, %67 ], [ %.092158225, %72 ], [ %78, %77 ], [ %.092158225, %82 ], [ %.092158225, %98 ], [ %.092158225, %96 ], [ %.092158225, %84 ], [ %.092158225, %87 ], [ %.092158225, %90 ], [ %.092158225, %93 ]
-  %.1 = phi i1 [ %.0159224, %23 ], [ %.0159224, %35 ], [ %.0159224, %47 ], [ %.0159224, %52 ], [ %.0159224, %57 ], [ %.0159224, %62 ], [ %.0159224, %67 ], [ %.0159224, %72 ], [ %.0159224, %77 ], [ %83, %82 ], [ %.0159224, %98 ], [ %.0159224, %96 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %93 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv223, 1
+  %.1113 = phi ptr [ %.0112148230, %23 ], [ %.0112148230, %35 ], [ %.0112148230, %47 ], [ %.0112148230, %52 ], [ %58, %57 ], [ %.0112148230, %62 ], [ %.0112148230, %67 ], [ %.0112148230, %72 ], [ %.0112148230, %77 ], [ %.0112148230, %82 ], [ %.0112148230, %98 ], [ %.0112148230, %96 ], [ %.0112148230, %84 ], [ %.0112148230, %87 ], [ %.0112148230, %90 ], [ %.0112148230, %93 ]
+  %.1111 = phi ptr [ %.0110149229, %23 ], [ %.0110149229, %35 ], [ %.0110149229, %47 ], [ %.0110149229, %52 ], [ %.0110149229, %57 ], [ %63, %62 ], [ %.0110149229, %67 ], [ %.0110149229, %72 ], [ %.0110149229, %77 ], [ %.0110149229, %82 ], [ %.0110149229, %98 ], [ %.0110149229, %96 ], [ %.0110149229, %84 ], [ %.0110149229, %87 ], [ %.0110149229, %90 ], [ %.0110149229, %93 ]
+  %.1109 = phi ptr [ %.0108150228, %23 ], [ %.0108150228, %35 ], [ %.0108150228, %47 ], [ %.0108150228, %52 ], [ %.0108150228, %57 ], [ %.0108150228, %62 ], [ %68, %67 ], [ %.0108150228, %72 ], [ %.0108150228, %77 ], [ %.0108150228, %82 ], [ %.0108150228, %98 ], [ %.0108150228, %96 ], [ %.0108150228, %84 ], [ %.0108150228, %87 ], [ %.0108150228, %90 ], [ %.0108150228, %93 ]
+  %.1107 = phi ptr [ %.0106151227, %23 ], [ %.0106151227, %35 ], [ %.0106151227, %47 ], [ %.0106151227, %52 ], [ %.0106151227, %57 ], [ %.0106151227, %62 ], [ %.0106151227, %67 ], [ %73, %72 ], [ %.0106151227, %77 ], [ %.0106151227, %82 ], [ %.0106151227, %98 ], [ %.0106151227, %96 ], [ %.0106151227, %84 ], [ %.0106151227, %87 ], [ %.0106151227, %90 ], [ %.0106151227, %93 ]
+  %.199 = phi ptr [ %.098153226, %23 ], [ %36, %35 ], [ %.098153226, %47 ], [ %.098153226, %52 ], [ %.098153226, %57 ], [ %.098153226, %62 ], [ %.098153226, %67 ], [ %.098153226, %72 ], [ %.098153226, %77 ], [ %.098153226, %82 ], [ %.098153226, %98 ], [ %.098153226, %96 ], [ %.098153226, %84 ], [ %.098153226, %87 ], [ %.098153226, %90 ], [ %.098153226, %93 ]
+  %.197 = phi ptr [ %24, %23 ], [ %.096154225, %35 ], [ %.096154225, %47 ], [ %.096154225, %52 ], [ %.096154225, %57 ], [ %.096154225, %62 ], [ %.096154225, %67 ], [ %.096154225, %72 ], [ %.096154225, %77 ], [ %.096154225, %82 ], [ %.096154225, %98 ], [ %.096154225, %96 ], [ %.096154225, %84 ], [ %.096154225, %87 ], [ %.096154225, %90 ], [ %.096154225, %93 ]
+  %.195 = phi ptr [ %.094155224, %23 ], [ %.094155224, %35 ], [ %48, %47 ], [ %53, %52 ], [ %.094155224, %57 ], [ %.094155224, %62 ], [ %.094155224, %67 ], [ %.094155224, %72 ], [ %.094155224, %77 ], [ %.094155224, %82 ], [ %.094155224, %98 ], [ %.094155224, %96 ], [ %.094155224, %84 ], [ %.094155224, %87 ], [ %.094155224, %90 ], [ %.094155224, %93 ]
+  %.193 = phi i1 [ %.092156223, %23 ], [ %.092156223, %35 ], [ %.092156223, %47 ], [ %.092156223, %52 ], [ %.092156223, %57 ], [ %.092156223, %62 ], [ %.092156223, %67 ], [ %.092156223, %72 ], [ %78, %77 ], [ %.092156223, %82 ], [ %.092156223, %98 ], [ %.092156223, %96 ], [ %.092156223, %84 ], [ %.092156223, %87 ], [ %.092156223, %90 ], [ %.092156223, %93 ]
+  %.1 = phi i1 [ %.0157222, %23 ], [ %.0157222, %35 ], [ %.0157222, %47 ], [ %.0157222, %52 ], [ %.0157222, %57 ], [ %.0157222, %62 ], [ %.0157222, %67 ], [ %.0157222, %72 ], [ %.0157222, %77 ], [ %83, %82 ], [ %.0157222, %98 ], [ %.0157222, %96 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %93 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv221, 1
   %103 = load i32, ptr %11, align 4
   %104 = sext i32 %103 to i64
   %105 = icmp slt i64 %indvars.iv.next, %104
-  br i1 %105, label %.lr.ph233, label %._crit_edge
+  br i1 %105, label %.lr.ph231, label %.critedge
 
-._crit_edge.thread:                               ; preds = %10, %._crit_edge
+.critedge.thread:                                 ; preds = %10, %.critedge
   %106 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %106)
   %107 = call i32 @errcode(i32 noundef 50724996) #7
@@ -267,21 +267,21 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 165, ptr noundef nonnull @__func__.DefineOperator) #7
   unreachable
 
-109:                                              ; preds = %._crit_edge
-  %.not122 = icmp eq ptr %.096156.lcssa, null
+109:                                              ; preds = %.critedge
+  %.not122 = icmp eq ptr %.096154.lcssa, null
   br i1 %.not122, label %112, label %110
 
 110:                                              ; preds = %109
-  %111 = call i32 @typenameTypeId(ptr noundef null, ptr noundef nonnull %.096156.lcssa) #7
+  %111 = call i32 @typenameTypeId(ptr noundef null, ptr noundef nonnull %.096154.lcssa) #7
   br label %112
 
 112:                                              ; preds = %110, %109
   %.0100 = phi i32 [ %111, %110 ], [ 0, %109 ]
-  %.not123 = icmp eq ptr %.098155.lcssa, null
+  %.not123 = icmp eq ptr %.098153.lcssa, null
   br i1 %.not123, label %115, label %113
 
 113:                                              ; preds = %112
-  %114 = call i32 @typenameTypeId(ptr noundef null, ptr noundef nonnull %.098155.lcssa) #7
+  %114 = call i32 @typenameTypeId(ptr noundef null, ptr noundef nonnull %.098153.lcssa) #7
   br label %115
 
 115:                                              ; preds = %113, %112
@@ -349,14 +349,14 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   %.0105.sink = phi i32 [ %.0100, %139 ], [ %.0105, %138 ]
   %.0102 = phi i32 [ 2, %139 ], [ 1, %138 ]
   store i32 %.0105.sink, ptr %4, align 4
-  %142 = call i32 @LookupFuncName(ptr noundef nonnull %.094157.lcssa, i32 noundef %.0102, ptr noundef nonnull %4, i1 noundef zeroext false) #7
+  %142 = call i32 @LookupFuncName(ptr noundef nonnull %.094155.lcssa, i32 noundef %.0102, ptr noundef nonnull %4, i1 noundef zeroext false) #7
   %143 = call i32 @GetUserId() #7
   %144 = call i32 @object_aclcheck(i32 noundef 1255, i32 noundef %142, i32 noundef %143, i64 noundef 128) #7
   %.not126 = icmp eq i32 %144, 0
   br i1 %.not126, label %147, label %145
 
 145:                                              ; preds = %141
-  %146 = call ptr @NameListToString(ptr noundef nonnull %.094157.lcssa) #7
+  %146 = call ptr @NameListToString(ptr noundef nonnull %.094155.lcssa) #7
   call void @aclcheck_error(i32 noundef %144, i32 noundef 19, ptr noundef %146) #7
   br label %147
 
@@ -372,26 +372,26 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   br label %152
 
 152:                                              ; preds = %151, %147
-  %.not128 = icmp eq ptr %.0108152.lcssa, null
+  %.not128 = icmp eq ptr %.0108150.lcssa, null
   br i1 %.not128, label %155, label %153
 
 153:                                              ; preds = %152
-  %154 = call fastcc i32 @ValidateRestrictionEstimator(ptr noundef %.0108152.lcssa)
+  %154 = call fastcc i32 @ValidateRestrictionEstimator(ptr noundef %.0108150.lcssa)
   br label %155
 
 155:                                              ; preds = %152, %153
   %.0104 = phi i32 [ %154, %153 ], [ 0, %152 ]
-  %.not129 = icmp eq ptr %.0106153.lcssa, null
+  %.not129 = icmp eq ptr %.0106151.lcssa, null
   br i1 %.not129, label %158, label %156
 
 156:                                              ; preds = %155
-  %157 = call fastcc i32 @ValidateJoinEstimator(ptr noundef %.0106153.lcssa)
+  %157 = call fastcc i32 @ValidateJoinEstimator(ptr noundef %.0106151.lcssa)
   br label %158
 
 158:                                              ; preds = %155, %156
   %.0103 = phi i32 [ %157, %156 ], [ 0, %155 ]
   %159 = load ptr, ptr %3, align 8
-  %160 = call { i64, i32 } @OperatorCreate(ptr noundef %159, i32 noundef %5, i32 noundef %.0100, i32 noundef %.0105, i32 noundef %142, ptr noundef %.0112150.lcssa, ptr noundef %.0110151.lcssa, i32 noundef %.0104, i32 noundef %.0103, i1 noundef zeroext %.0159.lcssa, i1 noundef zeroext %.092158.lcssa) #7
+  %160 = call { i64, i32 } @OperatorCreate(ptr noundef %159, i32 noundef %5, i32 noundef %.0100, i32 noundef %.0105, i32 noundef %142, ptr noundef %.0112148.lcssa, ptr noundef %.0110149.lcssa, i32 noundef %.0104, i32 noundef %.0103, i1 noundef zeroext %.0157.lcssa, i1 noundef zeroext %.092156.lcssa) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret { i64, i32 } %160
@@ -670,16 +670,36 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not142 = icmp eq ptr %21, null
-  br i1 %.not142, label %._crit_edge, label %.lr.ph
+  br i1 %.not142, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load i32, ptr %22, align 4
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph241, label %._crit_edge
+  br i1 %25, label %.lr.ph238, label %.critedge
 
-._crit_edge:                                      ; preds = %89, %.lr.ph, %14
+.lr.ph238:                                        ; preds = %.lr.ph, %89
+  %.0134168237 = phi ptr [ %.1135, %89 ], [ null, %.lr.ph ]
+  %.0131169236 = phi ptr [ %.1132, %89 ], [ null, %.lr.ph ]
+  %.0128170235 = phi i8 [ %.1129, %89 ], [ 0, %.lr.ph ]
+  %.0126171234 = phi i1 [ %.1127, %89 ], [ false, %.lr.ph ]
+  %.0124172233 = phi i8 [ %.1125, %89 ], [ 0, %.lr.ph ]
+  %.0122173232 = phi i1 [ %.1123, %89 ], [ false, %.lr.ph ]
+  %.0119175231 = phi i1 [ %.1120, %89 ], [ false, %.lr.ph ]
+  %.0117176230 = phi ptr [ %.1118, %89 ], [ null, %.lr.ph ]
+  %.0113177229 = phi i1 [ %.1114, %89 ], [ false, %.lr.ph ]
+  %.0112178228 = phi ptr [ %.1, %89 ], [ null, %.lr.ph ]
+  %indvars.iv227 = phi i64 [ %indvars.iv.next, %89 ], [ 0, %.lr.ph ]
+  %26 = load ptr, ptr %23, align 8
+  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv227
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %36, label %34
+
+.critedge:                                        ; preds = %89, %.lr.ph, %14
   %.0134.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1135, %89 ]
   %.0131.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1132, %89 ]
   %.0128.lcssa = phi i8 [ 0, %14 ], [ 0, %.lr.ph ], [ %.1129, %89 ]
@@ -690,37 +710,17 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   %.0117.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1118, %89 ]
   %.0113.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1114, %89 ]
   %.0112.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1, %89 ]
-  %26 = tail call i32 @GetUserId() #7
-  %27 = tail call zeroext i1 @object_ownercheck(i32 noundef 2617, i32 noundef %7, i32 noundef %26) #7
-  br i1 %27, label %95, label %93
+  %32 = tail call i32 @GetUserId() #7
+  %33 = tail call zeroext i1 @object_ownercheck(i32 noundef 2617, i32 noundef %7, i32 noundef %32) #7
+  br i1 %33, label %95, label %93
 
-.lr.ph241:                                        ; preds = %.lr.ph, %89
-  %.0134170240 = phi ptr [ %.1135, %89 ], [ null, %.lr.ph ]
-  %.0131171239 = phi ptr [ %.1132, %89 ], [ null, %.lr.ph ]
-  %.0128172238 = phi i8 [ %.1129, %89 ], [ 0, %.lr.ph ]
-  %.0126173237 = phi i1 [ %.1127, %89 ], [ false, %.lr.ph ]
-  %.0124174236 = phi i8 [ %.1125, %89 ], [ 0, %.lr.ph ]
-  %.0122175235 = phi i1 [ %.1123, %89 ], [ false, %.lr.ph ]
-  %.0119177234 = phi i1 [ %.1120, %89 ], [ false, %.lr.ph ]
-  %.0117178233 = phi ptr [ %.1118, %89 ], [ null, %.lr.ph ]
-  %.0113179232 = phi i1 [ %.1114, %89 ], [ false, %.lr.ph ]
-  %.0112180231 = phi ptr [ %.1, %89 ], [ null, %.lr.ph ]
-  %indvars.iv230 = phi i64 [ %indvars.iv.next, %89 ], [ 0, %.lr.ph ]
-  %28 = load ptr, ptr %23, align 8
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv230
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %36, label %34
-
-34:                                               ; preds = %.lr.ph241
-  %35 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %30) #7
+34:                                               ; preds = %.lr.ph238
+  %35 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %28) #7
   br label %36
 
-36:                                               ; preds = %.lr.ph241, %34
-  %.0116 = phi ptr [ %35, %34 ], [ null, %.lr.ph241 ]
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
+36:                                               ; preds = %.lr.ph238, %34
+  %.0116 = phi ptr [ %35, %34 ], [ null, %.lr.ph238 ]
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(9) @.str.8) #8
   %40 = icmp eq i32 %39, 0
@@ -737,7 +737,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %44
-  %48 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %30) #7
+  %48 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %28) #7
   br label %89
 
 49:                                               ; preds = %44
@@ -746,7 +746,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %49
-  %53 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %30) #7
+  %53 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %28) #7
   br label %89
 
 54:                                               ; preds = %49
@@ -755,7 +755,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %54
-  %58 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %30) #7
+  %58 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %28) #7
   %59 = zext i1 %58 to i8
   br label %89
 
@@ -765,12 +765,12 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %60
-  %64 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %30) #7
+  %64 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %28) #7
   %65 = zext i1 %64 to i8
   br label %89
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(8) @.str) #8
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %79, label %70
@@ -809,28 +809,28 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   unreachable
 
 89:                                               ; preds = %41, %36, %52, %63, %57, %47
-  %.1135 = phi ptr [ %48, %47 ], [ %.0134170240, %52 ], [ %.0134170240, %57 ], [ %.0134170240, %63 ], [ %.0134170240, %36 ], [ %.0134170240, %41 ]
-  %.1132 = phi ptr [ %.0131171239, %47 ], [ %53, %52 ], [ %.0131171239, %57 ], [ %.0131171239, %63 ], [ %.0131171239, %36 ], [ %.0131171239, %41 ]
-  %.1129 = phi i8 [ %.0128172238, %47 ], [ %.0128172238, %52 ], [ %59, %57 ], [ %.0128172238, %63 ], [ %.0128172238, %36 ], [ %.0128172238, %41 ]
-  %.1127 = phi i1 [ %.0126173237, %47 ], [ %.0126173237, %52 ], [ true, %57 ], [ %.0126173237, %63 ], [ %.0126173237, %36 ], [ %.0126173237, %41 ]
-  %.1125 = phi i8 [ %.0124174236, %47 ], [ %.0124174236, %52 ], [ %.0124174236, %57 ], [ %65, %63 ], [ %.0124174236, %36 ], [ %.0124174236, %41 ]
-  %.1123 = phi i1 [ %.0122175235, %47 ], [ %.0122175235, %52 ], [ %.0122175235, %57 ], [ true, %63 ], [ %.0122175235, %36 ], [ %.0122175235, %41 ]
-  %.1120 = phi i1 [ %.0119177234, %47 ], [ %.0119177234, %52 ], [ %.0119177234, %57 ], [ %.0119177234, %63 ], [ %.0119177234, %36 ], [ true, %41 ]
-  %.1118 = phi ptr [ %.0117178233, %47 ], [ %.0117178233, %52 ], [ %.0117178233, %57 ], [ %.0117178233, %63 ], [ %.0117178233, %36 ], [ %.0116, %41 ]
-  %.1114 = phi i1 [ %.0113179232, %47 ], [ %.0113179232, %52 ], [ %.0113179232, %57 ], [ %.0113179232, %63 ], [ true, %36 ], [ %.0113179232, %41 ]
-  %.1 = phi ptr [ %.0112180231, %47 ], [ %.0112180231, %52 ], [ %.0112180231, %57 ], [ %.0112180231, %63 ], [ %.0116, %36 ], [ %.0112180231, %41 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv230, 1
+  %.1135 = phi ptr [ %48, %47 ], [ %.0134168237, %52 ], [ %.0134168237, %57 ], [ %.0134168237, %63 ], [ %.0134168237, %36 ], [ %.0134168237, %41 ]
+  %.1132 = phi ptr [ %.0131169236, %47 ], [ %53, %52 ], [ %.0131169236, %57 ], [ %.0131169236, %63 ], [ %.0131169236, %36 ], [ %.0131169236, %41 ]
+  %.1129 = phi i8 [ %.0128170235, %47 ], [ %.0128170235, %52 ], [ %59, %57 ], [ %.0128170235, %63 ], [ %.0128170235, %36 ], [ %.0128170235, %41 ]
+  %.1127 = phi i1 [ %.0126171234, %47 ], [ %.0126171234, %52 ], [ true, %57 ], [ %.0126171234, %63 ], [ %.0126171234, %36 ], [ %.0126171234, %41 ]
+  %.1125 = phi i8 [ %.0124172233, %47 ], [ %.0124172233, %52 ], [ %.0124172233, %57 ], [ %65, %63 ], [ %.0124172233, %36 ], [ %.0124172233, %41 ]
+  %.1123 = phi i1 [ %.0122173232, %47 ], [ %.0122173232, %52 ], [ %.0122173232, %57 ], [ true, %63 ], [ %.0122173232, %36 ], [ %.0122173232, %41 ]
+  %.1120 = phi i1 [ %.0119175231, %47 ], [ %.0119175231, %52 ], [ %.0119175231, %57 ], [ %.0119175231, %63 ], [ %.0119175231, %36 ], [ true, %41 ]
+  %.1118 = phi ptr [ %.0117176230, %47 ], [ %.0117176230, %52 ], [ %.0117176230, %57 ], [ %.0117176230, %63 ], [ %.0117176230, %36 ], [ %.0116, %41 ]
+  %.1114 = phi i1 [ %.0113177229, %47 ], [ %.0113177229, %52 ], [ %.0113177229, %57 ], [ %.0113177229, %63 ], [ true, %36 ], [ %.0113177229, %41 ]
+  %.1 = phi ptr [ %.0112178228, %47 ], [ %.0112178228, %52 ], [ %.0112178228, %57 ], [ %.0112178228, %63 ], [ %.0116, %36 ], [ %.0112178228, %41 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv227, 1
   %90 = load i32, ptr %22, align 4
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %.lr.ph241, label %._crit_edge
+  br i1 %92, label %.lr.ph238, label %.critedge
 
-93:                                               ; preds = %._crit_edge
+93:                                               ; preds = %.critedge
   %94 = getelementptr inbounds nuw i8, ptr %19, i64 4
   tail call void @aclcheck_error(i32 noundef 2, i32 noundef 25, ptr noundef nonnull %94) #7
   br label %95
 
-95:                                               ; preds = %93, %._crit_edge
+95:                                               ; preds = %93, %.critedge
   %.not144 = icmp eq ptr %.0112.lcssa, null
   br i1 %.not144, label %98, label %96
 
@@ -945,9 +945,9 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   unreachable
 
 149:                                              ; preds = %140, %139
-  br i1 %.0122.lcssa, label %150, label %._crit_edge206
+  br i1 %.0122.lcssa, label %150, label %._crit_edge
 
-._crit_edge206:                                   ; preds = %149
+._crit_edge:                                      ; preds = %149
   %.pre = trunc nuw i8 %.0124.lcssa to i1
   br label %159
 
@@ -968,8 +968,8 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 635, ptr noundef nonnull @__func__.AlterOperator) #7
   unreachable
 
-159:                                              ; preds = %._crit_edge206, %150
-  %.pre-phi = phi i1 [ %.pre, %._crit_edge206 ], [ %154, %150 ]
+159:                                              ; preds = %._crit_edge, %150
+  %.pre-phi = phi i1 [ %.pre, %._crit_edge ], [ %154, %150 ]
   %160 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %161 = load i32, ptr %160, align 4
   %162 = getelementptr inbounds nuw i8, ptr %19, i64 84

@@ -14428,13 +14428,13 @@ if.end:                                           ; preds = %if.else, %for.cond1
 for.body33:                                       ; preds = %if.end, %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj8EE14DoFreeSubarrayEPS1_.exit36
   %pPtrArray.073 = phi ptr [ %pPtrArray.0, %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj8EE14DoFreeSubarrayEPS1_.exit36 ], [ %pPtrArray.071, %if.end ]
   %16 = load ptr, ptr %pPtrArray.073, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %16, i64 16
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body33, %_ZN10TestObjectD2Ev.exit33
   %p34.0.idx70 = phi i64 [ 0, %for.body33 ], [ %p34.0.add, %_ZN10TestObjectD2Ev.exit33 ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %p34.0.idx70
-  %17 = load i32, ptr %gep, align 8
+  %p34.0.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %p34.0.idx70
+  %mMagicValue.i27 = getelementptr inbounds nuw i8, ptr %p34.0.ptr, i64 16
+  %17 = load i32, ptr %mMagicValue.i27, align 8
   %cmp.not.i28 = icmp eq i32 %17, 32623592
   br i1 %cmp.not.i28, label %_ZN10TestObjectD2Ev.exit33, label %if.then.i29
 
@@ -14445,7 +14445,7 @@ if.then.i29:                                      ; preds = %for.body38
   br label %_ZN10TestObjectD2Ev.exit33
 
 _ZN10TestObjectD2Ev.exit33:                       ; preds = %for.body38, %if.then.i29
-  store i32 0, ptr %gep, align 8
+  store i32 0, ptr %mMagicValue.i27, align 8
   %19 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %dec.i31 = add nsw i64 %19, -1
   store i64 %dec.i31, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -78279,8 +78279,8 @@ if.end:                                           ; preds = %if.else, %for.cond1
 for.body33:                                       ; preds = %if.end, %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj1EE14DoFreeSubarrayEPS1_.exit36
   %pPtrArray.073 = phi ptr [ %pPtrArray.0, %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj1EE14DoFreeSubarrayEPS1_.exit36 ], [ %pPtrArray.071, %if.end ]
   %16 = load ptr, ptr %pPtrArray.073, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %17 = load i32, ptr %invariant.gep, align 8
+  %mMagicValue.i27 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %17 = load i32, ptr %mMagicValue.i27, align 8
   %cmp.not.i28 = icmp eq i32 %17, 32623592
   br i1 %cmp.not.i28, label %_ZN10TestObjectD2Ev.exit33, label %if.then.i29
 
@@ -78291,7 +78291,7 @@ if.then.i29:                                      ; preds = %for.body33
   br label %_ZN10TestObjectD2Ev.exit33
 
 _ZN10TestObjectD2Ev.exit33:                       ; preds = %for.body33, %if.then.i29
-  store i32 0, ptr %invariant.gep, align 8
+  store i32 0, ptr %mMagicValue.i27, align 8
   %19 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %dec.i31 = add nsw i64 %19, -1
   store i64 %dec.i31, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -81792,13 +81792,13 @@ if.end:                                           ; preds = %if.else, %for.cond1
 for.body33:                                       ; preds = %if.end, %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj32768EE14DoFreeSubarrayEPS1_.exit36
   %pPtrArray.073 = phi ptr [ %pPtrArray.0, %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj32768EE14DoFreeSubarrayEPS1_.exit36 ], [ %pPtrArray.071, %if.end ]
   %16 = load ptr, ptr %pPtrArray.073, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %16, i64 16
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body33, %_ZN10TestObjectD2Ev.exit33
   %p34.0.idx70 = phi i64 [ 0, %for.body33 ], [ %p34.0.add, %_ZN10TestObjectD2Ev.exit33 ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %p34.0.idx70
-  %17 = load i32, ptr %gep, align 8
+  %p34.0.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %p34.0.idx70
+  %mMagicValue.i27 = getelementptr inbounds nuw i8, ptr %p34.0.ptr, i64 16
+  %17 = load i32, ptr %mMagicValue.i27, align 8
   %cmp.not.i28 = icmp eq i32 %17, 32623592
   br i1 %cmp.not.i28, label %_ZN10TestObjectD2Ev.exit33, label %if.then.i29
 
@@ -81809,7 +81809,7 @@ if.then.i29:                                      ; preds = %for.body38
   br label %_ZN10TestObjectD2Ev.exit33
 
 _ZN10TestObjectD2Ev.exit33:                       ; preds = %for.body38, %if.then.i29
-  store i32 0, ptr %gep, align 8
+  store i32 0, ptr %mMagicValue.i27, align 8
   %19 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %dec.i31 = add nsw i64 %19, -1
   store i64 %dec.i31, ptr @_ZN10TestObject8sTOCountE, align 8

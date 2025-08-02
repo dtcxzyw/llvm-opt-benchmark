@@ -1439,9 +1439,9 @@ define i32 @avcodec_decode_subtitle2(ptr noundef %0, ptr noundef %1, ptr noundef
   %44 = sext i32 %40 to i64
   store i64 %44, ptr %7, align 8, !tbaa !43
   %45 = icmp ugt i32 %40, 536870846
-  br i1 %45, label %recode_subtitle.exit.thread101, label %46
+  br i1 %45, label %recode_subtitle.exit.thread100, label %46
 
-recode_subtitle.exit.thread101:                   ; preds = %42
+recode_subtitle.exit.thread100:                   ; preds = %42
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.51) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
@@ -1497,7 +1497,7 @@ recode_subtitle.exit.thread101:                   ; preds = %42
   %74 = load i64, ptr %7, align 8
   %75 = icmp ne i64 %74, 0
   %or.cond.i = select i1 %73, i1 true, i1 %75
-  br i1 %or.cond.i, label %76, label %recode_subtitle.exit.thread104
+  br i1 %or.cond.i, label %76, label %recode_subtitle.exit.thread103
 
 76:                                               ; preds = %69, %66, %58
   %77 = tail call ptr @__errno_location() #12
@@ -1510,7 +1510,7 @@ recode_subtitle.exit.thread101:                   ; preds = %42
   %spec.select = select i1 %79, i32 -1, i32 %82
   br label %recode_subtitle.exit
 
-recode_subtitle.exit.thread104:                   ; preds = %69
+recode_subtitle.exit.thread103:                   ; preds = %69
   %83 = trunc i64 %70 to i32
   %84 = sub i32 %71, %83
   store i32 %84, ptr %61, align 8, !tbaa !72
@@ -1532,8 +1532,8 @@ recode_subtitle.exit:                             ; preds = %76, %51, %55
   %90 = icmp slt i32 %.043.i, 0
   br i1 %90, label %.thread, label %91
 
-.sink.split:                                      ; preds = %31, %38, %recode_subtitle.exit.thread104
-  %.197100.ph = phi ptr [ %35, %recode_subtitle.exit.thread104 ], [ %3, %38 ], [ %3, %31 ]
+.sink.split:                                      ; preds = %31, %38, %recode_subtitle.exit.thread103
+  %.19699.ph = phi ptr [ %35, %recode_subtitle.exit.thread103 ], [ %3, %38 ], [ %3, %31 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
@@ -1541,7 +1541,7 @@ recode_subtitle.exit:                             ; preds = %76, %51, %55
   br label %91
 
 91:                                               ; preds = %.sink.split, %recode_subtitle.exit
-  %.197100 = phi ptr [ undef, %recode_subtitle.exit ], [ %.197100.ph, %.sink.split ]
+  %.19699 = phi ptr [ undef, %recode_subtitle.exit ], [ %.19699.ph, %.sink.split ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %93 = load i32, ptr %92, align 4, !tbaa !88
   %.not78 = icmp eq i32 %93, 0
@@ -1563,9 +1563,9 @@ recode_subtitle.exit:                             ; preds = %76, %51, %55
   %101 = load ptr, ptr %16, align 8, !tbaa !36
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 136
   %103 = load ptr, ptr %102, align 8, !tbaa !44
-  %104 = call i32 %103(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.197100) #10
+  %104 = call i32 %103(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.19699) #10
   %105 = load ptr, ptr %34, align 8, !tbaa !49
-  %106 = icmp eq ptr %.197100, %105
+  %106 = icmp eq ptr %.19699, %105
   br i1 %106, label %107, label %108
 
 107:                                              ; preds = %100
@@ -1618,19 +1618,19 @@ recode_subtitle.exit:                             ; preds = %76, %51, %55
   %130 = load i32, ptr %129, align 8, !tbaa !122
   %131 = and i32 %130, 65536
   %.not84 = icmp eq i32 %131, 0
-  br i1 %.not84, label %132, label %.sink.split128
+  br i1 %.not84, label %132, label %.sink.split127
 
 132:                                              ; preds = %126
   %133 = and i32 %130, 131072
   %.not85 = icmp eq i32 %133, 0
-  br i1 %.not85, label %134, label %.sink.split128
+  br i1 %.not85, label %134, label %.sink.split127
 
-.sink.split128:                                   ; preds = %132, %126
+.sink.split127:                                   ; preds = %132, %126
   %.sink = phi i16 [ 0, %126 ], [ 1, %132 ]
   store i16 %.sink, ptr %1, align 8, !tbaa !124
   br label %134
 
-134:                                              ; preds = %.sink.split128, %132
+134:                                              ; preds = %.sink.split127, %132
   br i1 %.not80, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %134
@@ -1748,8 +1748,8 @@ utf8_check.exit:                                  ; preds = %.preheader, %138
   store i64 %181, ptr %179, align 8, !tbaa !110
   br label %.thread
 
-.thread:                                          ; preds = %recode_subtitle.exit.thread101, %recode_subtitle.exit, %.loopexit, %110, %178, %.critedge, %28, %15, %21, %14
-  %.060 = phi i32 [ -22, %21 ], [ -22, %14 ], [ -22, %15 ], [ 0, %28 ], [ %104, %178 ], [ %104, %.critedge ], [ -34, %recode_subtitle.exit.thread101 ], [ %.043.i, %recode_subtitle.exit ], [ -1094995529, %.loopexit ], [ %104, %110 ]
+.thread:                                          ; preds = %recode_subtitle.exit.thread100, %recode_subtitle.exit, %.loopexit, %110, %178, %.critedge, %28, %15, %21, %14
+  %.060 = phi i32 [ -22, %21 ], [ -22, %14 ], [ -22, %15 ], [ 0, %28 ], [ %104, %178 ], [ %104, %.critedge ], [ -34, %recode_subtitle.exit.thread100 ], [ %.043.i, %recode_subtitle.exit ], [ -1094995529, %.loopexit ], [ %104, %110 ]
   ret i32 %.060
 }
 

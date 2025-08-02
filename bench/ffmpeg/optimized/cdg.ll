@@ -13,7 +13,7 @@ define internal range(i32 -2147483648, 101) i32 @read_probe(ptr noundef readonly
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %.not22 = icmp sgt i32 %3, 23
-  br i1 %.not22, label %.lr.ph, label %._crit_edge.thread
+  br i1 %.not22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %4 = udiv i32 %3, 24
@@ -29,7 +29,7 @@ define internal range(i32 -2147483648, 101) i32 @read_probe(ptr noundef readonly
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !12
   %11 = and i8 %10, 63
-  switch i8 %11, label %.loopexit [
+  switch i8 %11, label %._crit_edge [
     i8 9, label %12
     i8 0, label %12
   ]
@@ -40,16 +40,15 @@ define internal range(i32 -2147483648, 101) i32 @read_probe(ptr noundef readonly
   %15 = add nuw nsw i32 %.01923, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %7, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %7, !llvm.loop !13
 
-._crit_edge.thread:                               ; preds = %12, %1
-  %.120.ph = phi i32 [ 0, %1 ], [ %15, %12 ]
-  %16 = tail call i32 @llvm.smin.i32(i32 %.120.ph, i32 100)
-  br label %.loopexit
+._crit_edge.loopexit:                             ; preds = %12
+  %16 = tail call i32 @llvm.smin.i32(i32 %15, i32 100)
+  br label %._crit_edge
 
-.loopexit:                                        ; preds = %7, %._crit_edge.thread
-  %17 = phi i32 [ %16, %._crit_edge.thread ], [ 0, %7 ]
-  ret i32 %17
+._crit_edge:                                      ; preds = %7, %._crit_edge.loopexit, %1
+  %.not.lcssa = phi i32 [ 0, %1 ], [ %16, %._crit_edge.loopexit ], [ 0, %7 ]
+  ret i32 %.not.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

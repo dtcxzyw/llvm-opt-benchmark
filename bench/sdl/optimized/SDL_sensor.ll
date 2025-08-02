@@ -264,7 +264,7 @@ SDL_UnlockSensors.exit:                           ; preds = %10, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SDL_GetSensors_REAL(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden noalias ptr @SDL_GetSensors_REAL(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = tail call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull @SDL_sensor_lock_pending, i32 noundef 1) #9
   %3 = load ptr, ptr @SDL_sensor_lock, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %3) #9

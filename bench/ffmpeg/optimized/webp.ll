@@ -3167,7 +3167,7 @@ read_huffman_code_normal.exit:                    ; preds = %420, %336, %474, %5
   br label %533
 
 533:                                              ; preds = %.lr.ph398, %.thread342
-  %534 = phi ptr [ %522, %.lr.ph398 ], [ %1088, %.thread342 ]
+  %534 = phi ptr [ %522, %.lr.ph398 ], [ %1085, %.thread342 ]
   %.0213396 = phi i32 [ 0, %.lr.ph398 ], [ %.1214, %.thread342 ]
   %.0222395 = phi i32 [ 0, %.lr.ph398 ], [ %.1223, %.thread342 ]
   %.val = load i32, ptr %36, align 8, !tbaa !105
@@ -3628,7 +3628,7 @@ huff_reader_get_symbol.exit328:                   ; preds = %793, %795, %get_vlc
 
 869:                                              ; preds = %huff_reader_get_symbol.exit
   %870 = icmp samesign ult i32 %.0.i304, 280
-  br i1 %870, label %871, label %1059
+  br i1 %870, label %871, label %1056
 
 871:                                              ; preds = %869
   %872 = icmp samesign ult i32 %.0.i304, 260
@@ -3820,6 +3820,7 @@ huff_reader_get_symbol.exit336:                   ; preds = %905, %908, %get_vlc
   %1007 = sub nsw i32 %.0213396, %.1248
   %1008 = sub nsw i32 %.1248, %.0213396
   %.2249 = select i1 %.not278, i32 %1008, i32 0
+  %.0243 = select i1 %.not278, i32 0, i32 %1007
   %.not279377 = icmp slt i32 %.2249, %.0232
   br i1 %.not279377, label %._crit_edge382, label %.lr.ph381
 
@@ -3836,137 +3837,135 @@ huff_reader_get_symbol.exit336:                   ; preds = %905, %908, %get_vlc
   %.0239.lcssa = phi i32 [ %.0222395, %1006 ], [ %1009, %.lr.ph381 ]
   %1011 = icmp sgt i32 %.3250.lcssa, 0
   %1012 = sub nsw i32 %.0232, %.3250.lcssa
+  %.1244 = select i1 %1011, i32 %1012, i32 %.0243
   %1013 = sext i1 %1011 to i32
   %.1240 = add nsw i32 %.0239.lcssa, %1013
-  %1014 = call i32 @llvm.smax.i32(i32 %1007, i32 0)
-  %1015 = select i1 %.not278, i32 0, i32 %1014
-  %1016 = select i1 %1011, i32 %1012, i32 %1015
-  %1017 = call i32 @llvm.smax.i32(i32 %.1240, i32 0)
-  %1018 = icmp ne i32 %1017, %.0222395
-  %.not280 = icmp slt i32 %1016, %.0213396
-  %or.cond288 = select i1 %1018, i1 true, i1 %.not280
+  %1014 = call i32 @llvm.smax.i32(i32 %.1240, i32 0)
+  %1015 = icmp ne i32 %1014, %.0222395
+  %.not280 = icmp slt i32 %.1244, %.0213396
+  %or.cond288 = select i1 %1015, i1 true, i1 %.not280
   br i1 %or.cond288, label %.lr.ph389, label %decode_entropy_image.exit.thread
 
-.lr.ph389:                                        ; preds = %._crit_edge382, %1057
-  %1019 = phi ptr [ %1052, %1057 ], [ %534, %._crit_edge382 ]
-  %.1210388 = phi i32 [ %1058, %1057 ], [ 0, %._crit_edge382 ]
-  %.5218387 = phi i32 [ %spec.select290, %1057 ], [ %.0213396, %._crit_edge382 ]
-  %.5227386 = phi i32 [ %spec.select289, %1057 ], [ %.0222395, %._crit_edge382 ]
-  %.2241385 = phi i32 [ %.3242, %1057 ], [ %1017, %._crit_edge382 ]
-  %.2245384 = phi i32 [ %.3246, %1057 ], [ %1016, %._crit_edge382 ]
-  %1020 = load ptr, ptr %1019, align 8, !tbaa !81
-  %1021 = getelementptr inbounds nuw i8, ptr %1019, i64 64
-  %1022 = load i32, ptr %1021, align 8, !tbaa !52
-  %1023 = mul nsw i32 %1022, %.2241385
+.lr.ph389:                                        ; preds = %._crit_edge382, %1054
+  %1016 = phi ptr [ %1049, %1054 ], [ %534, %._crit_edge382 ]
+  %.1210388 = phi i32 [ %1055, %1054 ], [ 0, %._crit_edge382 ]
+  %.5218387 = phi i32 [ %spec.select290, %1054 ], [ %.0213396, %._crit_edge382 ]
+  %.5227386 = phi i32 [ %spec.select289, %1054 ], [ %.0222395, %._crit_edge382 ]
+  %.2241385 = phi i32 [ %.3242, %1054 ], [ %1014, %._crit_edge382 ]
+  %.2245384 = phi i32 [ %.3246, %1054 ], [ %.1244, %._crit_edge382 ]
+  %1017 = load ptr, ptr %1016, align 8, !tbaa !81
+  %1018 = getelementptr inbounds nuw i8, ptr %1016, i64 64
+  %1019 = load i32, ptr %1018, align 8, !tbaa !52
+  %1020 = mul nsw i32 %1019, %.2241385
+  %1021 = sext i32 %1020 to i64
+  %1022 = getelementptr inbounds i8, ptr %1017, i64 %1021
+  %1023 = shl nsw i32 %.2245384, 2
   %1024 = sext i32 %1023 to i64
-  %1025 = getelementptr inbounds i8, ptr %1020, i64 %1024
-  %1026 = shl nsw i32 %.2245384, 2
+  %1025 = getelementptr inbounds i8, ptr %1022, i64 %1024
+  %1026 = mul nsw i32 %1019, %.5227386
   %1027 = sext i32 %1026 to i64
-  %1028 = getelementptr inbounds i8, ptr %1025, i64 %1027
-  %1029 = mul nsw i32 %1022, %.5227386
+  %1028 = getelementptr inbounds i8, ptr %1017, i64 %1027
+  %1029 = shl nsw i32 %.5218387, 2
   %1030 = sext i32 %1029 to i64
-  %1031 = getelementptr inbounds i8, ptr %1020, i64 %1030
-  %1032 = shl nsw i32 %.5218387, 2
-  %1033 = sext i32 %1032 to i64
-  %1034 = getelementptr inbounds i8, ptr %1031, i64 %1033
-  %1035 = load i32, ptr %1028, align 4, !tbaa !59
-  store i32 %1035, ptr %1034, align 4, !tbaa !59
-  %1036 = load i32, ptr %531, align 8, !tbaa !140
-  %.not281 = icmp eq i32 %1036, 0
-  br i1 %.not281, label %1045, label %1037
+  %1031 = getelementptr inbounds i8, ptr %1028, i64 %1030
+  %1032 = load i32, ptr %1025, align 4, !tbaa !59
+  store i32 %1032, ptr %1031, align 4, !tbaa !59
+  %1033 = load i32, ptr %531, align 8, !tbaa !140
+  %.not281 = icmp eq i32 %1033, 0
+  br i1 %.not281, label %1042, label %1034
 
-1037:                                             ; preds = %.lr.ph389
-  %1038 = call i32 @llvm.bswap.i32(i32 %1035)
-  %1039 = mul i32 %1038, 506832829
-  %1040 = sub nsw i32 32, %1036
-  %1041 = lshr i32 %1039, %1040
-  %1042 = load ptr, ptr %532, align 8, !tbaa !132
-  %1043 = zext i32 %1041 to i64
-  %1044 = getelementptr inbounds nuw i32, ptr %1042, i64 %1043
-  store i32 %1038, ptr %1044, align 4, !tbaa !52
-  br label %1045
+1034:                                             ; preds = %.lr.ph389
+  %1035 = call i32 @llvm.bswap.i32(i32 %1032)
+  %1036 = mul i32 %1035, 506832829
+  %1037 = sub nsw i32 32, %1033
+  %1038 = lshr i32 %1036, %1037
+  %1039 = load ptr, ptr %532, align 8, !tbaa !132
+  %1040 = zext i32 %1038 to i64
+  %1041 = getelementptr inbounds nuw i32, ptr %1039, i64 %1040
+  store i32 %1035, ptr %1041, align 4, !tbaa !52
+  br label %1042
 
-1045:                                             ; preds = %1037, %.lr.ph389
-  %1046 = add nsw i32 %.5218387, 1
-  %1047 = add nsw i32 %.2245384, 1
-  %1048 = icmp eq i32 %1046, %.0232
-  %1049 = zext i1 %1048 to i32
-  %spec.select289 = add nsw i32 %.5227386, %1049
-  %spec.select290 = select i1 %1048, i32 0, i32 %1046
-  %1050 = icmp eq i32 %1047, %.0232
-  %1051 = zext i1 %1050 to i32
-  %.3242 = add nuw nsw i32 %.2241385, %1051
-  %1052 = load ptr, ptr %13, align 8, !tbaa !111
-  %1053 = getelementptr inbounds nuw i8, ptr %1052, i64 108
-  %1054 = load i32, ptr %1053, align 4, !tbaa !93
-  %1055 = icmp eq i32 %spec.select289, %1054
-  %1056 = icmp eq i32 %.3242, %1054
-  %or.cond291 = select i1 %1055, i1 true, i1 %1056
-  br i1 %or.cond291, label %.thread342, label %1057
+1042:                                             ; preds = %1034, %.lr.ph389
+  %1043 = add nsw i32 %.5218387, 1
+  %1044 = add nsw i32 %.2245384, 1
+  %1045 = icmp eq i32 %1043, %.0232
+  %1046 = zext i1 %1045 to i32
+  %spec.select289 = add nsw i32 %.5227386, %1046
+  %spec.select290 = select i1 %1045, i32 0, i32 %1043
+  %1047 = icmp eq i32 %1044, %.0232
+  %1048 = zext i1 %1047 to i32
+  %.3242 = add nuw nsw i32 %.2241385, %1048
+  %1049 = load ptr, ptr %13, align 8, !tbaa !111
+  %1050 = getelementptr inbounds nuw i8, ptr %1049, i64 108
+  %1051 = load i32, ptr %1050, align 4, !tbaa !93
+  %1052 = icmp eq i32 %spec.select289, %1051
+  %1053 = icmp eq i32 %.3242, %1051
+  %or.cond291 = select i1 %1052, i1 true, i1 %1053
+  br i1 %or.cond291, label %.thread342, label %1054
 
-1057:                                             ; preds = %1045
-  %.3246 = select i1 %1050, i32 0, i32 %1047
-  %1058 = add nuw nsw i32 %.1210388, 1
-  %exitcond430.not = icmp eq i32 %1058, %.0251
+1054:                                             ; preds = %1042
+  %.3246 = select i1 %1047, i32 0, i32 %1044
+  %1055 = add nuw nsw i32 %.1210388, 1
+  %exitcond430.not = icmp eq i32 %1055, %.0251
   br i1 %exitcond430.not, label %.thread342, label %.lr.ph389, !llvm.loop !157
 
-1059:                                             ; preds = %869
-  %1060 = load ptr, ptr %534, align 8, !tbaa !81
-  %1061 = getelementptr inbounds nuw i8, ptr %534, i64 64
-  %1062 = load i32, ptr %1061, align 8, !tbaa !52
-  %1063 = mul nsw i32 %1062, %.0222395
+1056:                                             ; preds = %869
+  %1057 = load ptr, ptr %534, align 8, !tbaa !81
+  %1058 = getelementptr inbounds nuw i8, ptr %534, i64 64
+  %1059 = load i32, ptr %1058, align 8, !tbaa !52
+  %1060 = mul nsw i32 %1059, %.0222395
+  %1061 = sext i32 %1060 to i64
+  %1062 = getelementptr inbounds i8, ptr %1057, i64 %1061
+  %1063 = shl nsw i32 %.0213396, 2
   %1064 = sext i32 %1063 to i64
-  %1065 = getelementptr inbounds i8, ptr %1060, i64 %1064
-  %1066 = shl nsw i32 %.0213396, 2
-  %1067 = sext i32 %1066 to i64
-  %1068 = getelementptr inbounds i8, ptr %1065, i64 %1067
-  %1069 = add nsw i32 %.0.i304, -280
-  %1070 = load i32, ptr %531, align 8, !tbaa !140
-  %.not276 = icmp eq i32 %1070, 0
-  br i1 %.not276, label %1071, label %1074
+  %1065 = getelementptr inbounds i8, ptr %1062, i64 %1064
+  %1066 = add nsw i32 %.0.i304, -280
+  %1067 = load i32, ptr %531, align 8, !tbaa !140
+  %.not276 = icmp eq i32 %1067, 0
+  br i1 %.not276, label %1068, label %1071
 
-1071:                                             ; preds = %1059
-  %1072 = getelementptr inbounds nuw i8, ptr %0, i64 6608
-  %1073 = load ptr, ptr %1072, align 8, !tbaa !49
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1073, i32 noundef 16, ptr noundef nonnull @.str.28) #11
+1068:                                             ; preds = %1056
+  %1069 = getelementptr inbounds nuw i8, ptr %0, i64 6608
+  %1070 = load ptr, ptr %1069, align 8, !tbaa !49
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1070, i32 noundef 16, ptr noundef nonnull @.str.28) #11
   br label %decode_entropy_image.exit.thread
 
-1074:                                             ; preds = %1059
-  %1075 = shl nuw i32 1, %1070
-  %.not277 = icmp slt i32 %1069, %1075
-  br i1 %.not277, label %1079, label %1076
+1071:                                             ; preds = %1056
+  %1072 = shl nuw i32 1, %1067
+  %.not277 = icmp slt i32 %1066, %1072
+  br i1 %.not277, label %1076, label %1073
 
-1076:                                             ; preds = %1074
-  %1077 = getelementptr inbounds nuw i8, ptr %0, i64 6608
-  %1078 = load ptr, ptr %1077, align 8, !tbaa !49
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1078, i32 noundef 16, ptr noundef nonnull @.str.29) #11
+1073:                                             ; preds = %1071
+  %1074 = getelementptr inbounds nuw i8, ptr %0, i64 6608
+  %1075 = load ptr, ptr %1074, align 8, !tbaa !49
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1075, i32 noundef 16, ptr noundef nonnull @.str.29) #11
   br label %decode_entropy_image.exit.thread
 
-1079:                                             ; preds = %1074
-  %1080 = load ptr, ptr %532, align 8, !tbaa !132
-  %1081 = zext nneg i32 %1069 to i64
-  %1082 = getelementptr inbounds nuw i32, ptr %1080, i64 %1081
-  %1083 = load i32, ptr %1082, align 4, !tbaa !52
-  %1084 = call i32 @llvm.bswap.i32(i32 %1083)
-  store i32 %1084, ptr %1068, align 1, !tbaa !59
-  %1085 = add nsw i32 %.0213396, 1
-  %1086 = icmp eq i32 %1085, %.0232
-  %1087 = zext i1 %1086 to i32
-  %spec.select292 = add nsw i32 %.0222395, %1087
-  %spec.select293 = select i1 %1086, i32 0, i32 %1085
+1076:                                             ; preds = %1071
+  %1077 = load ptr, ptr %532, align 8, !tbaa !132
+  %1078 = zext nneg i32 %1066 to i64
+  %1079 = getelementptr inbounds nuw i32, ptr %1077, i64 %1078
+  %1080 = load i32, ptr %1079, align 4, !tbaa !52
+  %1081 = call i32 @llvm.bswap.i32(i32 %1080)
+  store i32 %1081, ptr %1065, align 1, !tbaa !59
+  %1082 = add nsw i32 %.0213396, 1
+  %1083 = icmp eq i32 %1082, %.0232
+  %1084 = zext i1 %1083 to i32
+  %spec.select292 = add nsw i32 %.0222395, %1084
+  %spec.select293 = select i1 %1083, i32 0, i32 %1082
   br label %.thread342
 
-.thread342:                                       ; preds = %1045, %1057, %865, %1079
-  %.1223 = phi i32 [ %spec.select285, %865 ], [ %spec.select292, %1079 ], [ %spec.select289, %1057 ], [ %spec.select289, %1045 ]
-  %.1214 = phi i32 [ %spec.select286, %865 ], [ %spec.select293, %1079 ], [ %spec.select290, %1057 ], [ %spec.select290, %1045 ]
-  %1088 = load ptr, ptr %13, align 8, !tbaa !111
-  %1089 = getelementptr inbounds nuw i8, ptr %1088, i64 108
-  %1090 = load i32, ptr %1089, align 4, !tbaa !93
-  %1091 = icmp slt i32 %.1223, %1090
-  br i1 %1091, label %533, label %decode_entropy_image.exit.thread, !llvm.loop !158
+.thread342:                                       ; preds = %1042, %1054, %865, %1076
+  %.1223 = phi i32 [ %spec.select285, %865 ], [ %spec.select292, %1076 ], [ %spec.select289, %1054 ], [ %spec.select289, %1042 ]
+  %.1214 = phi i32 [ %spec.select286, %865 ], [ %spec.select293, %1076 ], [ %spec.select290, %1054 ], [ %spec.select290, %1042 ]
+  %1085 = load ptr, ptr %13, align 8, !tbaa !111
+  %1086 = getelementptr inbounds nuw i8, ptr %1085, i64 108
+  %1087 = load i32, ptr %1086, align 4, !tbaa !93
+  %1088 = icmp slt i32 %.1223, %1087
+  br i1 %1088, label %533, label %decode_entropy_image.exit.thread, !llvm.loop !158
 
-decode_entropy_image.exit.thread:                 ; preds = %read_huffman_code_normal.exit, %.thread342, %533, %._crit_edge382, %._crit_edge, %1071, %1076, %969, %read_huffman_code_normal.exit.thread, %89, %146, %66, %32, %15, %63
-  %.0 = phi i32 [ -1094995529, %63 ], [ -12, %15 ], [ %.0212, %32 ], [ -12, %66 ], [ -12, %146 ], [ %113, %89 ], [ %.168.i.ph, %read_huffman_code_normal.exit.thread ], [ -1094995529, %969 ], [ -1094995529, %1076 ], [ -1094995529, %1071 ], [ 0, %._crit_edge ], [ 0, %.thread342 ], [ -1094995529, %533 ], [ -1094995529, %._crit_edge382 ], [ %.081.i, %read_huffman_code_normal.exit ]
+decode_entropy_image.exit.thread:                 ; preds = %read_huffman_code_normal.exit, %.thread342, %533, %._crit_edge382, %._crit_edge, %1068, %1073, %969, %read_huffman_code_normal.exit.thread, %89, %146, %66, %32, %15, %63
+  %.0 = phi i32 [ -1094995529, %63 ], [ -12, %15 ], [ %.0212, %32 ], [ -12, %66 ], [ -12, %146 ], [ %113, %89 ], [ %.168.i.ph, %read_huffman_code_normal.exit.thread ], [ -1094995529, %969 ], [ -1094995529, %1073 ], [ -1094995529, %1068 ], [ 0, %._crit_edge ], [ 0, %.thread342 ], [ -1094995529, %533 ], [ -1094995529, %._crit_edge382 ], [ %.081.i, %read_huffman_code_normal.exit ]
   ret i32 %.0
 }
 

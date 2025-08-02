@@ -278,7 +278,7 @@ define internal void @_button_pressed(ptr noundef readnone captures(address) %0,
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !59
   %.not25 = icmp eq ptr %7, null
-  br i1 %.not25, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not25, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = tail call i64 @gtk_button_get_type() #11
@@ -301,7 +301,7 @@ define internal void @_button_pressed(ptr noundef readnone captures(address) %0,
   br i1 %18, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
-  br i1 %15, label %._crit_edge.thread, label %19
+  br i1 %15, label %.critedge, label %19
 
 19:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #10
@@ -319,9 +319,9 @@ define internal void @_button_pressed(ptr noundef readnone captures(address) %0,
 
 25:                                               ; preds = %24, %19
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #10
-  br label %._crit_edge.thread
+  br label %.critedge
 
-._crit_edge.thread:                               ; preds = %2, %._crit_edge, %25
+.critedge:                                        ; preds = %2, %._crit_edge, %25
   ret void
 }
 

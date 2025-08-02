@@ -2580,14 +2580,14 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit.i.i5: ; pre
   br i1 %106, label %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4read17h35e1155465916cd9E.exit", label %120
 
 107:                                              ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h777dae8af1b357b9E.exit.i"
-  %108 = getelementptr i8, ptr %.sroa.013.0.i, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i, i64 40
   br label %109
 
 109:                                              ; preds = %119, %107
   %.sroa.0.04.i.i = phi i64 [ 0, %107 ], [ %110, %119 ]
   %110 = add nuw nsw i64 %.sroa.0.04.i.i, 1
   %.idx.i.i = mul nuw nsw i64 %.sroa.0.04.i.i, 40
-  %111 = getelementptr i8, ptr %108, i64 %.idx.i.i
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx.i.i
   %112 = load atomic i64, ptr %111 acquire, align 8, !noalias !314
   %113 = and i64 %112, 2
   %114 = icmp eq i64 %113, 0
@@ -2608,14 +2608,14 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h40e690820469504dE.exit.i.i5: ; pre
   br i1 %121, label %.lr.ph.i4.i, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h966279bd7deec455E.exit.sink.split.i"
 
 .lr.ph.i4.i:                                      ; preds = %120
-  %122 = getelementptr i8, ptr %.sroa.013.0.i, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i, i64 40
   br label %123
 
 123:                                              ; preds = %133, %.lr.ph.i4.i
   %.sroa.0.04.i5.i = phi i64 [ %101, %.lr.ph.i4.i ], [ %124, %133 ]
   %124 = add nuw nsw i64 %.sroa.0.04.i5.i, 1
   %.idx.i6.i = mul nuw nsw i64 %.sroa.0.04.i5.i, 40
-  %125 = getelementptr i8, ptr %122, i64 %.idx.i6.i
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx.i6.i
   %126 = load atomic i64, ptr %125 acquire, align 8, !noalias !314
   %127 = and i64 %126, 2
   %128 = icmp eq i64 %127, 0

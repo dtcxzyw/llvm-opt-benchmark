@@ -2302,27 +2302,27 @@ define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr noundef ca
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw %struct._zend_op, ptr %7, i64 %10
   %12 = icmp ult ptr %1, %11
-  br i1 %12, label %.lr.ph, label %zval_ptr_dtor_nogc.exit
+  br i1 %12, label %.lr.ph, label %.critedge91
 
-.lr.ph:                                           ; preds = %5, %101
-  %.068102 = phi ptr [ %102, %101 ], [ %1, %5 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.068102, i64 29
+.lr.ph:                                           ; preds = %5, %100
+  %.068101 = phi ptr [ %101, %100 ], [ %1, %5 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.068101, i64 29
   %14 = load i8, ptr %13, align 1, !tbaa !82
   %15 = icmp eq i8 %14, %2
-  br i1 %15, label %16, label %91
+  br i1 %15, label %16, label %90
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw i8, ptr %.068102, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.068101, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !20
   %19 = icmp eq i32 %18, %3
-  br i1 %19, label %20, label %91
+  br i1 %19, label %20, label %90
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %.068102, i64 29
-  %22 = getelementptr inbounds nuw i8, ptr %.068102, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %.068102, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %.068101, i64 29
+  %22 = getelementptr inbounds nuw i8, ptr %.068101, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.068101, i64 28
   %24 = load i8, ptr %23, align 4, !tbaa !83
-  switch i8 %24, label %89 [
+  switch i8 %24, label %88 [
     i8 98, label %25
     i8 48, label %25
     i8 -60, label %25
@@ -2335,27 +2335,27 @@ define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr noundef ca
   ]
 
 25:                                               ; preds = %20, %20, %20, %20, %20, %20, %20, %20
-  %26 = icmp ult ptr %.068102, %11
-  br i1 %26, label %.lr.ph104, label %._crit_edge
+  %26 = icmp ult ptr %.068101, %11
+  br i1 %26, label %.lr.ph103, label %._crit_edge
 
-.lr.ph104:                                        ; preds = %25
+.lr.ph103:                                        ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 9
   br label %28
 
-28:                                               ; preds = %.backedge, %.lr.ph104
-  %29 = phi i8 [ %2, %.lr.ph104 ], [ %.pre, %.backedge ]
-  %.169103 = phi ptr [ %.068102, %.lr.ph104 ], [ %.169103.be, %.backedge ]
+28:                                               ; preds = %.backedge, %.lr.ph103
+  %29 = phi i8 [ %2, %.lr.ph103 ], [ %.pre, %.backedge ]
+  %.169102 = phi ptr [ %.068101, %.lr.ph103 ], [ %.169102.be, %.backedge ]
   %30 = icmp eq i8 %29, %2
-  br i1 %30, label %31, label %.thread91
+  br i1 %30, label %31, label %.thread93
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %.169103, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.169102, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !20
   %34 = icmp eq i32 %33, %3
-  br i1 %34, label %35, label %.thread91
+  br i1 %34, label %35, label %.thread93
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %.169103, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %.169102, i64 28
   %37 = load i8, ptr %36, align 4, !tbaa !83
   switch i8 %37, label %.fold.split [
     i8 98, label %42
@@ -2370,7 +2370,7 @@ define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr noundef ca
   ]
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %.169103, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %.169102, i64 20
   %40 = load i32, ptr %39, align 4, !tbaa !86
   %41 = icmp eq i32 %40, 1
   br label %42
@@ -2379,7 +2379,7 @@ define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr noundef ca
   br label %42
 
 42:                                               ; preds = %35, %35, %35, %35, %35, %35, %35, %35, %.fold.split, %38
-  %.not106 = phi i1 [ true, %35 ], [ %41, %38 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ false, %.fold.split ]
+  %.not105 = phi i1 [ true, %35 ], [ %41, %38 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ true, %35 ], [ false, %.fold.split ]
   %43 = load i8, ptr %27, align 1, !tbaa !20
   %.not89 = icmp eq i8 %43, 0
   br i1 %.not89, label %48, label %44
@@ -2392,35 +2392,35 @@ define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr noundef ca
   br label %48
 
 48:                                               ; preds = %44, %42
-  %49 = tail call zeroext i1 @zend_optimizer_update_op1_const(ptr noundef %0, ptr noundef nonnull %.169103, ptr noundef nonnull %4)
+  %49 = tail call zeroext i1 @zend_optimizer_update_op1_const(ptr noundef %0, ptr noundef nonnull %.169102, ptr noundef nonnull %4)
   br i1 %49, label %50, label %.thread
 
 .thread:                                          ; preds = %48
   tail call void @zval_ptr_dtor(ptr noundef nonnull %4) #20
-  br label %zval_ptr_dtor_nogc.exit
+  br label %.critedge91
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %.169103, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.169102, i64 32
   %52 = icmp ult ptr %51, %11
-  %or.cond = select i1 %.not106, i1 %52, i1 false
+  %or.cond = select i1 %.not105, i1 %52, i1 false
   br i1 %or.cond, label %.backedge, label %._crit_edge
 
-.thread91:                                        ; preds = %31, %28
-  %.old = getelementptr inbounds nuw i8, ptr %.169103, i64 32
-  %.old107 = icmp ult ptr %.old, %11
-  br i1 %.old107, label %.backedge, label %._crit_edge
+.thread93:                                        ; preds = %31, %28
+  %.old = getelementptr inbounds nuw i8, ptr %.169102, i64 32
+  %.old106 = icmp ult ptr %.old, %11
+  br i1 %.old106, label %.backedge, label %._crit_edge
 
-.backedge:                                        ; preds = %.thread91, %50
-  %.169103.be = phi ptr [ %.old, %.thread91 ], [ %51, %50 ]
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.169103, i64 61
+.backedge:                                        ; preds = %.thread93, %50
+  %.169102.be = phi ptr [ %.old, %.thread93 ], [ %51, %50 ]
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.169102, i64 61
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !82
   br label %28
 
-._crit_edge:                                      ; preds = %.thread91, %50, %25
+._crit_edge:                                      ; preds = %.thread93, %50, %25
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %54 = load i8, ptr %53, align 1, !tbaa !20
   %.not.i = icmp eq i8 %54, 0
-  br i1 %.not.i, label %zval_ptr_dtor_nogc.exit, label %55
+  br i1 %.not.i, label %.critedge91, label %55
 
 55:                                               ; preds = %._crit_edge
   %56 = load ptr, ptr %4, align 8, !tbaa !20
@@ -2430,12 +2430,12 @@ define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr noundef ca
   %59 = add i32 %57, -1
   store i32 %59, ptr %56, align 4, !tbaa !21
   %.not3.i = icmp eq i32 %59, 0
-  br i1 %.not3.i, label %60, label %zval_ptr_dtor_nogc.exit
+  br i1 %.not3.i, label %60, label %.critedge91
 
 60:                                               ; preds = %55
   %61 = load ptr, ptr %4, align 8, !tbaa !20
   tail call void @rc_dtor_func(ptr noundef %61) #20
-  br label %zval_ptr_dtor_nogc.exit
+  br label %.critedge91
 
 62:                                               ; preds = %20
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2448,74 +2448,74 @@ define hidden noundef zeroext i1 @zend_optimizer_replace_by_const(ptr noundef ca
   %70 = shl nuw i32 1, %69
   %71 = and i32 %70, %66
   %.not = icmp eq i32 %71, 0
-  br i1 %.not, label %zval_ptr_dtor_nogc.exit, label %72
+  br i1 %.not, label %.critedge91, label %72
 
 72:                                               ; preds = %62
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %74 = load i32, ptr %73, align 4, !tbaa !104
   %75 = and i32 %74, 4096
   %.not77 = icmp eq i32 %75, 0
-  br i1 %.not77, label %76, label %zval_ptr_dtor_nogc.exit
+  br i1 %.not77, label %76, label %.critedge91
 
 76:                                               ; preds = %72
   store i8 0, ptr %23, align 4, !tbaa !83
   store i8 0, ptr %21, align 1, !tbaa !82
   store i32 -1, ptr %22, align 8, !tbaa !20
-  %77 = getelementptr inbounds nuw i8, ptr %.068102, i64 30
+  %77 = getelementptr inbounds nuw i8, ptr %.068101, i64 30
   store i8 0, ptr %77, align 2, !tbaa !84
-  %78 = getelementptr inbounds nuw i8, ptr %.068102, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %.068101, i64 12
   store i32 -1, ptr %78, align 4, !tbaa !20
-  %79 = getelementptr inbounds nuw i8, ptr %.068102, i64 31
+  %79 = getelementptr inbounds nuw i8, ptr %.068101, i64 31
   store i8 0, ptr %79, align 1, !tbaa !85
-  %80 = getelementptr inbounds nuw i8, ptr %.068102, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.068101, i64 16
   store i32 -1, ptr %80, align 8, !tbaa !20
   br label %81
 
 81:                                               ; preds = %81, %76
-  %.371 = phi ptr [ %.068102, %76 ], [ %82, %81 ]
+  %.371 = phi ptr [ %.068101, %76 ], [ %82, %81 ]
   %82 = getelementptr inbounds nuw i8, ptr %.371, i64 32
   %83 = getelementptr inbounds nuw i8, ptr %.371, i64 60
   %84 = load i8, ptr %83, align 4, !tbaa !83
   switch i8 %84, label %81 [
-    i8 62, label %85
-    i8 111, label %85
+    i8 62, label %.critedge
+    i8 111, label %.critedge
   ]
 
-85:                                               ; preds = %81, %81
-  %86 = getelementptr inbounds nuw i8, ptr %.371, i64 40
-  %87 = load i32, ptr %86, align 8, !tbaa !20
-  %88 = icmp eq i32 %87, %3
-  tail call void @llvm.assume(i1 %88)
-  br label %89
+.critedge:                                        ; preds = %81, %81
+  %85 = getelementptr inbounds nuw i8, ptr %.371, i64 40
+  %86 = load i32, ptr %85, align 8, !tbaa !20
+  %87 = icmp eq i32 %86, %3
+  tail call void @llvm.assume(i1 %87)
+  br label %88
 
-89:                                               ; preds = %85, %20
-  %.472 = phi ptr [ %.068102, %20 ], [ %82, %85 ]
-  %90 = tail call zeroext i1 @zend_optimizer_update_op1_const(ptr noundef %0, ptr noundef nonnull %.472, ptr noundef %4)
-  br label %zval_ptr_dtor_nogc.exit
+88:                                               ; preds = %.critedge, %20
+  %.472 = phi ptr [ %.068101, %20 ], [ %82, %.critedge ]
+  %89 = tail call zeroext i1 @zend_optimizer_update_op1_const(ptr noundef %0, ptr noundef nonnull %.472, ptr noundef %4)
+  br label %.critedge91
 
-91:                                               ; preds = %16, %.lr.ph
-  %92 = getelementptr inbounds nuw i8, ptr %.068102, i64 30
-  %93 = load i8, ptr %92, align 2, !tbaa !84
-  %94 = icmp eq i8 %93, %2
-  br i1 %94, label %95, label %101
+90:                                               ; preds = %16, %.lr.ph
+  %91 = getelementptr inbounds nuw i8, ptr %.068101, i64 30
+  %92 = load i8, ptr %91, align 2, !tbaa !84
+  %93 = icmp eq i8 %92, %2
+  br i1 %93, label %94, label %100
 
-95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw i8, ptr %.068102, i64 12
-  %97 = load i32, ptr %96, align 4, !tbaa !20
-  %98 = icmp eq i32 %97, %3
-  br i1 %98, label %99, label %101
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %.068101, i64 12
+  %96 = load i32, ptr %95, align 4, !tbaa !20
+  %97 = icmp eq i32 %96, %3
+  br i1 %97, label %98, label %100
 
-99:                                               ; preds = %95
-  %100 = tail call zeroext i1 @zend_optimizer_update_op2_const(ptr noundef %0, ptr noundef nonnull %.068102, ptr noundef %4)
-  br label %zval_ptr_dtor_nogc.exit
+98:                                               ; preds = %94
+  %99 = tail call zeroext i1 @zend_optimizer_update_op2_const(ptr noundef %0, ptr noundef nonnull %.068101, ptr noundef %4)
+  br label %.critedge91
 
-101:                                              ; preds = %95, %91
-  %102 = getelementptr inbounds nuw i8, ptr %.068102, i64 32
-  %103 = icmp ult ptr %102, %11
-  br i1 %103, label %.lr.ph, label %zval_ptr_dtor_nogc.exit
+100:                                              ; preds = %94, %90
+  %101 = getelementptr inbounds nuw i8, ptr %.068101, i64 32
+  %102 = icmp ult ptr %101, %11
+  br i1 %102, label %.lr.ph, label %.critedge91
 
-zval_ptr_dtor_nogc.exit:                          ; preds = %101, %5, %62, %72, %60, %55, %._crit_edge, %.thread, %99, %89
-  %.4 = phi i1 [ %90, %89 ], [ %100, %99 ], [ false, %.thread ], [ true, %._crit_edge ], [ true, %55 ], [ true, %60 ], [ false, %72 ], [ false, %62 ], [ true, %5 ], [ true, %101 ]
+.critedge91:                                      ; preds = %100, %5, %60, %55, %._crit_edge, %.thread, %72, %62, %98, %88
+  %.4 = phi i1 [ %89, %88 ], [ %99, %98 ], [ false, %62 ], [ false, %72 ], [ false, %.thread ], [ true, %._crit_edge ], [ true, %55 ], [ true, %60 ], [ true, %5 ], [ true, %100 ]
   ret i1 %.4
 }
 

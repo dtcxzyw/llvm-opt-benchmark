@@ -348,7 +348,7 @@ define internal i64 @pac_time_until_deferred_work(ptr noundef %0, ptr noundef %1
 pac_ns_until_purge.exit.thread:                   ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 58752
   store atomic i8 1, ptr %21 monotonic, align 1
-  br label %50
+  br label %pac_ns_until_purge.exit20
 
 pac_ns_until_purge.exit:                          ; preds = %11, %17
   %22 = tail call i64 @je_decay_ns_until_purge(ptr noundef nonnull %3, i64 noundef %8, i64 noundef 1024) #9
@@ -356,7 +356,7 @@ pac_ns_until_purge.exit:                          ; preds = %11, %17
   store atomic i8 0, ptr %23 monotonic, align 1
   %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #9
   %25 = icmp eq i64 %22, 0
-  br i1 %25, label %50, label %26
+  br i1 %25, label %pac_ns_until_purge.exit20, label %26
 
 26:                                               ; preds = %pac_ns_until_purge.exit
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 60432
@@ -398,15 +398,11 @@ malloc_mutex_trylock.exit.i17:                    ; preds = %26
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 60536
   store atomic i8 0, ptr %48 monotonic, align 1
   %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #9
+  %50 = tail call i64 @llvm.umin.i64(i64 %47, i64 %22)
   br label %pac_ns_until_purge.exit20
 
-pac_ns_until_purge.exit20:                        ; preds = %malloc_mutex_trylock.exit.i17, %46
-  %.0.i18 = phi i64 [ %47, %46 ], [ 0, %malloc_mutex_trylock.exit.i17 ]
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.0.i18, i64 %22)
-  br label %50
-
-50:                                               ; preds = %pac_ns_until_purge.exit.thread, %pac_ns_until_purge.exit, %pac_ns_until_purge.exit20
-  %.0 = phi i64 [ %spec.select, %pac_ns_until_purge.exit20 ], [ 0, %pac_ns_until_purge.exit ], [ 0, %pac_ns_until_purge.exit.thread ]
+pac_ns_until_purge.exit20:                        ; preds = %46, %malloc_mutex_trylock.exit.i17, %pac_ns_until_purge.exit.thread, %pac_ns_until_purge.exit
+  %.0 = phi i64 [ 0, %pac_ns_until_purge.exit ], [ 0, %pac_ns_until_purge.exit.thread ], [ %50, %46 ], [ 0, %malloc_mutex_trylock.exit.i17 ]
   ret i64 %.0
 }
 

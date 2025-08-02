@@ -83,7 +83,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @thread_run(ptr noundef readonly captures(none) %0) #0 {
+define internal noalias noundef ptr @thread_run(ptr noundef readonly captures(none) %0) #0 {
   tail call void %0() #4
   tail call void @OPENSSL_thread_stop() #4
   ret ptr null

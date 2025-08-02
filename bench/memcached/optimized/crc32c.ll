@@ -450,8 +450,8 @@ define internal void @crc32c_init_sw_little() #4 {
   %44 = load i32, ptr %43, align 4, !tbaa !14
   %45 = lshr i32 %.03950, 8
   %46 = xor i32 %44, %45
-  %47 = getelementptr inbounds nuw [8 x [256 x i32]], ptr @crc32c_table_little, i64 0, i64 %indvars.iv54, i64 %indvars.iv58
-  store i32 %46, ptr %47, align 4, !tbaa !14
+  %gep = getelementptr inbounds nuw [8 x [256 x i32]], ptr %37, i64 0, i64 %indvars.iv54
+  store i32 %46, ptr %gep, align 4, !tbaa !14
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 8
   br i1 %exitcond57.not, label %39, label %40, !llvm.loop !32
@@ -666,8 +666,8 @@ define internal void @crc32c_init_sw_big() #4 {
   %49 = xor i32 %47, %48
   %50 = zext i32 %49 to i64
   %51 = tail call i64 @llvm.bswap.i64(i64 %50)
-  %52 = getelementptr inbounds nuw [8 x [256 x i64]], ptr @crc32c_table_big, i64 0, i64 %indvars.iv56, i64 %indvars.iv60
-  store i64 %51, ptr %52, align 8, !tbaa !26
+  %gep = getelementptr inbounds nuw [8 x [256 x i64]], ptr %41, i64 0, i64 %indvars.iv56
+  store i64 %51, ptr %gep, align 8, !tbaa !26
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 8
   br i1 %exitcond59.not, label %42, label %43, !llvm.loop !38

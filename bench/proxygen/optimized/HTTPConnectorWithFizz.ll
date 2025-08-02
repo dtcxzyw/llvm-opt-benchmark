@@ -17586,13 +17586,13 @@ entry:
 for.body:                                         ; preds = %entry, %_ZSt8_DestroyIPN4fizz8AppWriteES1_EvT_S3_RSaIT0_E.exit
   %__node.036 = phi ptr [ %__node.0, %_ZSt8_DestroyIPN4fizz8AppWriteES1_EvT_S3_RSaIT0_E.exit ], [ %__node.034, %entry ]
   %2 = load ptr, ptr %__node.036, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body, %_ZSt8_DestroyIN4fizz8AppWriteEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.add, %_ZSt8_DestroyIN4fizz8AppWriteEEvPT_.exit.i.i.i ], [ 0, %for.body ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %__first.addr.04.i.i.i.idx
-  %3 = load ptr, ptr %gep, align 8
+  %__first.addr.04.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %__first.addr.04.i.i.i.idx
+  %data.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.ptr, i64 8
+  %3 = load ptr, ptr %data.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN4fizz8AppWriteEEvPT_.exit.i.i.i, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i.i.i
 
@@ -17602,7 +17602,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %for.b
   br label %_ZSt8_DestroyIN4fizz8AppWriteEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN4fizz8AppWriteEEvPT_.exit.i.i.i:   ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i.i.i, %for.body.i.i.i
-  store ptr null, ptr %gep, align 8
+  store ptr null, ptr %data.i.i.i.i.i, align 8
   %__first.addr.04.i.i.i.add = add nuw nsw i64 %__first.addr.04.i.i.i.idx, 32
   %cmp.not.i.i.i = icmp eq i64 %__first.addr.04.i.i.i.add, 512
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN4fizz8AppWriteES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !103

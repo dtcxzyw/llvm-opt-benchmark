@@ -911,12 +911,12 @@ define internal fastcc i64 @dgram_pair_write_inner(ptr noundef captures(none) %0
   %.pre68 = load i64, ptr %6, align 8, !tbaa !35
   br label %11
 
-11:                                               ; preds = %.lr.ph, %78
-  %12 = phi i64 [ %.pre68, %.lr.ph ], [ %79, %78 ]
-  %13 = phi i64 [ %.pre, %.lr.ph ], [ %69, %78 ]
-  %.02056 = phi ptr [ %1, %.lr.ph ], [ %80, %78 ]
-  %.02254 = phi i64 [ 0, %.lr.ph ], [ %82, %78 ]
-  %.02453 = phi i64 [ %2, %.lr.ph ], [ %81, %78 ]
+11:                                               ; preds = %.lr.ph, %79
+  %12 = phi i64 [ %.pre68, %.lr.ph ], [ %80, %79 ]
+  %13 = phi i64 [ %.pre, %.lr.ph ], [ %70, %79 ]
+  %.02056 = phi ptr [ %1, %.lr.ph ], [ %81, %79 ]
+  %.02254 = phi i64 [ 0, %.lr.ph ], [ %83, %79 ]
+  %.02453 = phi i64 [ %2, %.lr.ph ], [ %82, %79 ]
   %14 = sub i64 %13, %12
   %15 = load i64, ptr %7, align 8, !tbaa !51
   %16 = sub i64 %13, %15
@@ -924,7 +924,7 @@ define internal fastcc i64 @dgram_pair_write_inner(ptr noundef captures(none) %0
   %17 = load ptr, ptr %4, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %12
   %19 = icmp eq i64 %spec.select.i, 0
-  br i1 %19, label %20, label %68
+  br i1 %19, label %20, label %69
 
 20:                                               ; preds = %11
   %21 = load i8, ptr %8, align 8
@@ -939,7 +939,7 @@ define internal fastcc i64 @dgram_pair_write_inner(ptr noundef captures(none) %0
   br i1 %26, label %.lr.ph.i, label %compute_rbuf_growth.exit
 
 .lr.ph.i:                                         ; preds = %23, %safe_muldiv_size_t.exit.i
-  %.08.i = phi i64 [ %spec.store.select.i, %safe_muldiv_size_t.exit.i ], [ %24, %23 ]
+  %.08.i = phi i64 [ %.0.i.i, %safe_muldiv_size_t.exit.i ], [ %24, %23 ]
   %27 = icmp ugt i64 %.08.i, 9223372036854775806
   br i1 %27, label %.thread43, label %28
 
@@ -961,118 +961,118 @@ safe_mul_size_t.exit33.i.i:                       ; preds = %28
   %36 = udiv i8 %.lhs.trunc.i.i, 5
   %.zext.i.i = zext nneg i8 %36 to i64
   %37 = add nuw i64 %34, %.zext.i.i
+  %38 = tail call i64 @llvm.umin.i64(i64 %37, i64 9223372036854775807)
   br label %safe_muldiv_size_t.exit.i
 
 safe_muldiv_size_t.exit.i:                        ; preds = %safe_mul_size_t.exit33.i.i, %30
-  %.0.i.i = phi i64 [ %32, %30 ], [ %37, %safe_mul_size_t.exit33.i.i ]
-  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i, i64 9223372036854775807)
-  %38 = icmp ult i64 %spec.store.select.i, %25
-  br i1 %38, label %.lr.ph.i, label %compute_rbuf_growth.exit.thread36, !llvm.loop !52
+  %.0.i.i = phi i64 [ %32, %30 ], [ %38, %safe_mul_size_t.exit33.i.i ]
+  %39 = icmp ult i64 %.0.i.i, %25
+  br i1 %39, label %.lr.ph.i, label %compute_rbuf_growth.exit.thread36, !llvm.loop !52
 
 compute_rbuf_growth.exit:                         ; preds = %23
-  %39 = icmp eq i64 %24, 0
-  br i1 %39, label %.thread43, label %compute_rbuf_growth.exit.thread36
+  %40 = icmp eq i64 %24, 0
+  br i1 %40, label %.thread43, label %compute_rbuf_growth.exit.thread36
 
 compute_rbuf_growth.exit.thread36:                ; preds = %safe_muldiv_size_t.exit.i, %compute_rbuf_growth.exit
-  %.07.i38 = phi i64 [ %24, %compute_rbuf_growth.exit ], [ %spec.store.select.i, %safe_muldiv_size_t.exit.i ]
-  %40 = icmp eq ptr %17, null
-  br i1 %40, label %41, label %45
+  %.07.i38 = phi i64 [ %24, %compute_rbuf_growth.exit ], [ %.0.i.i, %safe_muldiv_size_t.exit.i ]
+  %41 = icmp eq ptr %17, null
+  br i1 %41, label %42, label %46
 
-41:                                               ; preds = %compute_rbuf_growth.exit.thread36
-  %42 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %.07.i38, ptr noundef nonnull @.str.2, i32 noundef 37) #7
-  store ptr %42, ptr %4, align 8, !tbaa !28
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %.thread43, label %44
+42:                                               ; preds = %compute_rbuf_growth.exit.thread36
+  %43 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %.07.i38, ptr noundef nonnull @.str.2, i32 noundef 37) #7
+  store ptr %43, ptr %4, align 8, !tbaa !28
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %.thread43, label %45
 
-44:                                               ; preds = %41
+45:                                               ; preds = %42
   store i64 %.07.i38, ptr %5, align 8, !tbaa !29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  br label %67
-
-45:                                               ; preds = %compute_rbuf_growth.exit.thread36
-  %46 = icmp eq i64 %.07.i38, %13
-  br i1 %46, label %67, label %47
-
-47:                                               ; preds = %45
-  %.not.i = icmp ne i64 %15, 0
-  %48 = icmp ult i64 %.07.i38, %13
-  %or.cond.i = and i1 %.not.i, %48
-  br i1 %or.cond.i, label %.thread43, label %49
-
-49:                                               ; preds = %47
-  %50 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %17, i64 noundef %.07.i38, ptr noundef nonnull @.str.2, i32 noundef 134) #7
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread43, label %52
-
-52:                                               ; preds = %49
-  %53 = load i64, ptr %7, align 8, !tbaa !51
-  %.not35.i = icmp eq i64 %53, 0
-  br i1 %.not35.i, label %65, label %54
-
-54:                                               ; preds = %52
-  %55 = load i64, ptr %6, align 8, !tbaa !35
-  %56 = load i64, ptr %10, align 8, !tbaa !35
-  %.not36.i = icmp ugt i64 %55, %56
-  br i1 %.not36.i, label %66, label %57
-
-57:                                               ; preds = %54
-  %58 = load i64, ptr %5, align 8, !tbaa !29
-  %59 = sub i64 %.07.i38, %58
-  %60 = getelementptr inbounds nuw i8, ptr %50, i64 %56
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %59
-  %62 = sub i64 %58, %56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %60, i64 %62, i1 false)
-  %63 = load i64, ptr %10, align 8, !tbaa !35
-  %64 = add i64 %63, %59
-  store i64 %64, ptr %10, align 8, !tbaa !35
-  br label %66
-
-65:                                               ; preds = %52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %66
-
-66:                                               ; preds = %65, %57, %54
-  store ptr %50, ptr %4, align 8, !tbaa !28
-  store i64 %.07.i38, ptr %5, align 8, !tbaa !29
-  br label %67
-
-67:                                               ; preds = %44, %45, %66
-  store i64 %.07.i38, ptr %9, align 8, !tbaa !26
   br label %68
 
-68:                                               ; preds = %67, %11
+46:                                               ; preds = %compute_rbuf_growth.exit.thread36
+  %47 = icmp eq i64 %.07.i38, %13
+  br i1 %47, label %68, label %48
+
+48:                                               ; preds = %46
+  %.not.i = icmp ne i64 %15, 0
+  %49 = icmp ult i64 %.07.i38, %13
+  %or.cond.i = and i1 %.not.i, %49
+  br i1 %or.cond.i, label %.thread43, label %50
+
+50:                                               ; preds = %48
+  %51 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %17, i64 noundef %.07.i38, ptr noundef nonnull @.str.2, i32 noundef 134) #7
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.thread43, label %53
+
+53:                                               ; preds = %50
+  %54 = load i64, ptr %7, align 8, !tbaa !51
+  %.not35.i = icmp eq i64 %54, 0
+  br i1 %.not35.i, label %66, label %55
+
+55:                                               ; preds = %53
+  %56 = load i64, ptr %6, align 8, !tbaa !35
+  %57 = load i64, ptr %10, align 8, !tbaa !35
+  %.not36.i = icmp ugt i64 %56, %57
+  br i1 %.not36.i, label %67, label %58
+
+58:                                               ; preds = %55
+  %59 = load i64, ptr %5, align 8, !tbaa !29
+  %60 = sub i64 %.07.i38, %59
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 %57
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %60
+  %63 = sub i64 %59, %57
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %62, ptr nonnull align 1 %61, i64 %63, i1 false)
+  %64 = load i64, ptr %10, align 8, !tbaa !35
+  %65 = add i64 %64, %60
+  store i64 %65, ptr %10, align 8, !tbaa !35
+  br label %67
+
+66:                                               ; preds = %53
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  br label %67
+
+67:                                               ; preds = %66, %58, %55
+  store ptr %51, ptr %4, align 8, !tbaa !28
+  store i64 %.07.i38, ptr %5, align 8, !tbaa !29
+  br label %68
+
+68:                                               ; preds = %45, %46, %67
+  store i64 %.07.i38, ptr %9, align 8, !tbaa !26
+  br label %69
+
+69:                                               ; preds = %68, %11
   %spec.select = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %.02453)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %.02056, i64 %spec.select, i1 false)
-  %69 = load i64, ptr %5, align 8, !tbaa !29
-  %70 = load i64, ptr %6, align 8, !tbaa !35
-  %71 = sub i64 %69, %70
-  %.not.i29 = icmp ugt i64 %spec.select, %71
-  br i1 %.not.i29, label %78, label %72, !prof !34
+  %70 = load i64, ptr %5, align 8, !tbaa !29
+  %71 = load i64, ptr %6, align 8, !tbaa !35
+  %72 = sub i64 %70, %71
+  %.not.i29 = icmp ugt i64 %spec.select, %72
+  br i1 %.not.i29, label %79, label %73, !prof !34
 
-72:                                               ; preds = %68
-  %73 = load i64, ptr %7, align 8, !tbaa !51
-  %74 = add i64 %73, %spec.select
-  %.not25.i = icmp ugt i64 %74, %69
-  br i1 %.not25.i, label %78, label %75, !prof !34
+73:                                               ; preds = %69
+  %74 = load i64, ptr %7, align 8, !tbaa !51
+  %75 = add i64 %74, %spec.select
+  %.not25.i = icmp ugt i64 %75, %70
+  br i1 %.not25.i, label %79, label %76, !prof !34
 
-75:                                               ; preds = %72
-  %76 = add i64 %70, %spec.select
-  %77 = icmp eq i64 %76, %69
-  %spec.store.select23.i = select i1 %77, i64 0, i64 %76
+76:                                               ; preds = %73
+  %77 = add i64 %71, %spec.select
+  %78 = icmp eq i64 %77, %70
+  %spec.store.select23.i = select i1 %78, i64 0, i64 %77
   store i64 %spec.store.select23.i, ptr %6, align 8, !tbaa !35
-  store i64 %74, ptr %7, align 8, !tbaa !51
-  br label %78
+  store i64 %75, ptr %7, align 8, !tbaa !51
+  br label %79
 
-78:                                               ; preds = %75, %72, %68
-  %79 = phi i64 [ %spec.store.select23.i, %75 ], [ %70, %72 ], [ %70, %68 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.02056, i64 %spec.select
-  %81 = sub i64 %.02453, %spec.select
-  %82 = add i64 %spec.select, %.02254
-  %.not = icmp eq i64 %81, 0
+79:                                               ; preds = %76, %73, %69
+  %80 = phi i64 [ %spec.store.select23.i, %76 ], [ %71, %73 ], [ %71, %69 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.02056, i64 %spec.select
+  %82 = sub i64 %.02453, %spec.select
+  %83 = add i64 %spec.select, %.02254
+  %.not = icmp eq i64 %82, 0
   br i1 %.not, label %.thread43, label %11
 
-.thread43:                                        ; preds = %78, %41, %49, %47, %compute_rbuf_growth.exit, %20, %.lr.ph.i, %3
-  %.02251 = phi i64 [ 0, %3 ], [ %.02254, %.lr.ph.i ], [ %82, %78 ], [ %.02254, %41 ], [ %.02254, %49 ], [ %.02254, %47 ], [ %.02254, %compute_rbuf_growth.exit ], [ %.02254, %20 ]
+.thread43:                                        ; preds = %79, %42, %50, %48, %compute_rbuf_growth.exit, %20, %.lr.ph.i, %3
+  %.02251 = phi i64 [ 0, %3 ], [ %.02254, %.lr.ph.i ], [ %83, %79 ], [ %.02254, %42 ], [ %.02254, %50 ], [ %.02254, %48 ], [ %.02254, %compute_rbuf_growth.exit ], [ %.02254, %20 ]
   ret i64 %.02251
 }
 

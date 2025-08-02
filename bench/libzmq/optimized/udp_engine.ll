@@ -2371,7 +2371,7 @@ _ZN3zmq12udp_engine_t23set_udp_multicast_ifaceEibPKNS_13udp_address_tE.exit: ; p
   %.037 = phi ptr [ %11, %113 ], [ %110, %106 ]
   %.5 = phi i32 [ %116, %113 ], [ %109, %106 ]
   %.not46 = icmp eq i32 %.5, 0
-  br i1 %.not46, label %119, label %130
+  br i1 %.not46, label %119, label %.critedge
 
 119:                                              ; preds = %118
   %120 = load i32, ptr %35, align 4, !tbaa !64
@@ -2384,28 +2384,23 @@ _ZN3zmq12udp_engine_t23set_udp_multicast_ifaceEibPKNS_13udp_address_tE.exit: ; p
 124:                                              ; preds = %119
   %125 = load i32, ptr %35, align 4, !tbaa !64
   call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %125, i32 noundef %123)
-  br label %130
+  br label %.critedge
 
 126:                                              ; preds = %119
-  br i1 %112, label %127, label %.thread
+  br i1 %112, label %127, label %130
 
 127:                                              ; preds = %126
   %128 = load i32, ptr %35, align 4, !tbaa !64
   %129 = call noundef i32 @_ZN3zmq12udp_engine_t14add_membershipEiPKNS_13udp_address_tE(ptr nonnull align 8 poison, i32 noundef %128, ptr noundef nonnull %42)
-  br label %.thread
+  br label %130
 
-.thread:                                          ; preds = %127, %126
-  %.6.ph = phi i32 [ 0, %126 ], [ %129, %127 ]
+130:                                              ; preds = %126, %127
+  %.6 = phi i32 [ %129, %127 ], [ 0, %126 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11) #23
   br label %131
 
-130:                                              ; preds = %118, %124
-  call void @_ZN3zmq12udp_engine_t5errorENS_8i_engine14error_reason_tE(ptr noundef nonnull align 8 dereferenceable(17880) %0, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11) #23
-  br label %_ZN3zmq12udp_engine_t14restart_outputEv.exit
-
-131:                                              ; preds = %.thread, %102
-  %.4 = phi i32 [ %.1, %102 ], [ %.6.ph, %.thread ]
+131:                                              ; preds = %130, %102
+  %.4 = phi i32 [ %.6, %130 ], [ %.1, %102 ]
   %.not48 = icmp eq i32 %.4, 0
   br i1 %.not48, label %133, label %132
 
@@ -2465,7 +2460,12 @@ _ZN3zmq12udp_engine_t23set_udp_multicast_ifaceEibPKNS_13udp_address_tE.exit: ; p
   call void @_ZN3zmq12udp_engine_t9out_eventEv(ptr noundef nonnull align 8 dereferenceable(17880) %0)
   br label %_ZN3zmq12udp_engine_t14restart_outputEv.exit
 
-_ZN3zmq12udp_engine_t14restart_outputEv.exit:     ; preds = %159, %._crit_edge.i, %130, %132, %138, %50
+.critedge:                                        ; preds = %118, %124
+  call void @_ZN3zmq12udp_engine_t5errorENS_8i_engine14error_reason_tE(ptr noundef nonnull align 8 dereferenceable(17880) %0, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11) #23
+  br label %_ZN3zmq12udp_engine_t14restart_outputEv.exit
+
+_ZN3zmq12udp_engine_t14restart_outputEv.exit:     ; preds = %159, %._crit_edge.i, %132, %138, %.critedge, %50
   ret void
 }
 

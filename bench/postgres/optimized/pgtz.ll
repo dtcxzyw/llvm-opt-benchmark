@@ -60,7 +60,7 @@ pg_TZDIR.exit:                                    ; preds = %2, %4
 
 17:                                               ; preds = %pg_TZDIR.exit
   %18 = icmp eq ptr %1, null
-  br i1 %18, label %19, label %27
+  br i1 %18, label %19, label %.preheader
 
 19:                                               ; preds = %17
   %20 = ashr exact i64 %12, 32
@@ -74,86 +74,85 @@ pg_TZDIR.exit:                                    ; preds = %2, %4
 
 26:                                               ; preds = %19
   store i8 0, ptr %21, align 1
+  br label %.preheader
+
+.preheader:                                       ; preds = %26, %17
   br label %27
 
-27:                                               ; preds = %26, %17
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 1
-  br label %28
+27:                                               ; preds = %.preheader, %56
+  %.034 = phi i32 [ %65, %56 ], [ %11, %.preheader ]
+  %.030 = phi ptr [ %66, %56 ], [ %0, %.preheader ]
+  %28 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.030, i32 noundef 47) #11
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %33, label %29
 
-28:                                               ; preds = %55, %27
-  %.034 = phi i32 [ %11, %27 ], [ %65, %55 ]
-  %.030 = phi ptr [ %0, %27 ], [ %66, %55 ]
-  %29 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.030, i32 noundef 47) #11
-  %.not = icmp eq ptr %29, null
-  br i1 %.not, label %34, label %30
+29:                                               ; preds = %27
+  %30 = ptrtoint ptr %28 to i64
+  %31 = ptrtoint ptr %.030 to i64
+  %32 = sub i64 %30, %31
+  br label %35
 
-30:                                               ; preds = %28
-  %31 = ptrtoint ptr %29 to i64
-  %32 = ptrtoint ptr %.030 to i64
-  %33 = sub i64 %31, %32
-  br label %36
+33:                                               ; preds = %27
+  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.030) #11
+  br label %35
 
-34:                                               ; preds = %28
-  %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.030) #11
-  br label %36
-
-36:                                               ; preds = %34, %30
-  %.0.in = phi i64 [ %33, %30 ], [ %35, %34 ]
-  %37 = sext i32 %.034 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %37
-  %38 = sub i32 1023, %.034
-  %39 = call ptr @AllocateDir(ptr noundef nonnull %3) #10
-  %40 = call ptr @ReadDirExtended(ptr noundef %39, ptr noundef nonnull %3, i32 noundef 15) #10
-  %.not17.not.i = icmp eq ptr %40, null
+35:                                               ; preds = %33, %29
+  %.0.in = phi i64 [ %32, %29 ], [ %34, %33 ]
+  %36 = sext i32 %.034 to i64
+  %37 = getelementptr inbounds i8, ptr %3, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  %39 = sub i32 1023, %.034
+  %40 = call ptr @AllocateDir(ptr noundef nonnull %3) #10
+  %41 = call ptr @ReadDirExtended(ptr noundef %40, ptr noundef nonnull %3, i32 noundef 15) #10
+  %.not17.not.i = icmp eq ptr %41, null
   br i1 %.not17.not.i, label %.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %36
+.lr.ph.i:                                         ; preds = %35
   %sext53 = shl i64 %.0.in, 32
-  %41 = ashr exact i64 %sext53, 32
-  br label %42
+  %42 = ashr exact i64 %sext53, 32
+  br label %43
 
-42:                                               ; preds = %.backedge.i, %.lr.ph.i
-  %43 = phi ptr [ %40, %.lr.ph.i ], [ %53, %.backedge.i ]
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 19
-  %45 = load i8, ptr %44, align 1
-  %46 = icmp eq i8 %45, 46
-  br i1 %46, label %.backedge.i, label %47
+43:                                               ; preds = %.backedge.i, %.lr.ph.i
+  %44 = phi ptr [ %41, %.lr.ph.i ], [ %54, %.backedge.i ]
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 19
+  %46 = load i8, ptr %45, align 1
+  %47 = icmp eq i8 %46, 46
+  br i1 %47, label %.backedge.i, label %48
 
-47:                                               ; preds = %42
-  %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #11
-  %49 = icmp eq i64 %48, %41
-  br i1 %49, label %50, label %.backedge.i
+48:                                               ; preds = %43
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #11
+  %50 = icmp eq i64 %49, %42
+  br i1 %50, label %51, label %.backedge.i
 
-50:                                               ; preds = %47
-  %51 = call i32 @pg_strncasecmp(ptr noundef nonnull %44, ptr noundef nonnull %.030, i64 noundef %41) #10
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %55, label %.backedge.i
+51:                                               ; preds = %48
+  %52 = call i32 @pg_strncasecmp(ptr noundef nonnull %45, ptr noundef nonnull %.030, i64 noundef %42) #10
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %56, label %.backedge.i
 
-.backedge.i:                                      ; preds = %50, %47, %42
-  %53 = call ptr @ReadDirExtended(ptr noundef %39, ptr noundef nonnull %3, i32 noundef 15) #10
-  %.not.not.i = icmp eq ptr %53, null
-  br i1 %.not.not.i, label %.thread, label %42, !llvm.loop !4
+.backedge.i:                                      ; preds = %51, %48, %43
+  %54 = call ptr @ReadDirExtended(ptr noundef %40, ptr noundef nonnull %3, i32 noundef 15) #10
+  %.not.not.i = icmp eq ptr %54, null
+  br i1 %.not.not.i, label %.thread, label %43, !llvm.loop !4
 
-.thread:                                          ; preds = %36, %.backedge.i
-  %54 = call i32 @FreeDir(ptr noundef %39) #10
+.thread:                                          ; preds = %35, %.backedge.i
+  %55 = call i32 @FreeDir(ptr noundef %40) #10
   br label %.critedge
 
-55:                                               ; preds = %50
-  %56 = sext i32 %38 to i64
-  %57 = call i64 @strlcpy(ptr noundef nonnull %gep, ptr noundef nonnull dereferenceable(1) %44, i64 noundef %56) #10
-  %58 = call i32 @FreeDir(ptr noundef %39) #10
-  %59 = add i32 %.034, 1
-  %60 = getelementptr inbounds [1024 x i8], ptr %3, i64 0, i64 %37
-  store i8 47, ptr %60, align 1
-  %61 = sext i32 %59 to i64
+56:                                               ; preds = %51
+  %57 = sext i32 %39 to i64
+  %58 = call i64 @strlcpy(ptr noundef nonnull %38, ptr noundef nonnull dereferenceable(1) %45, i64 noundef %57) #10
+  %59 = call i32 @FreeDir(ptr noundef %40) #10
+  %60 = add i32 %.034, 1
+  store i8 47, ptr %37, align 1
+  %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i8, ptr %3, i64 %61
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #11
   %64 = trunc i64 %63 to i32
-  %65 = add i32 %59, %64
-  %66 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  br i1 %.not, label %67, label %28
+  %65 = add i32 %60, %64
+  %66 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  br i1 %.not, label %67, label %27
 
-67:                                               ; preds = %55
+67:                                               ; preds = %56
   br i1 %18, label %73, label %68
 
 68:                                               ; preds = %67

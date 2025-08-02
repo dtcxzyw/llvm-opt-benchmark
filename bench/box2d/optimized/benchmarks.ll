@@ -53,8 +53,6 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %5) #8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %invariant.gep = getelementptr i8, ptr %6, i64 -8
-  %invariant.gep48 = getelementptr i8, ptr %6, i64 -800
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -63,53 +61,54 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %.split.us
-  %.053 = phi i64 [ 0, %1 ], [ %.us-phi.in, %.split.us ]
-  %.04552 = phi i32 [ 0, %1 ], [ %30, %.split.us ]
-  %14 = uitofp nneg i32 %.04552 to float
-  %15 = icmp samesign ugt i32 %.04552, 46
-  %16 = icmp samesign ult i32 %.04552, 54
-  %.not47 = icmp eq i32 %.04552, 0
-  %sext = shl i64 %.053, 32
+  %.051 = phi i64 [ 0, %1 ], [ %.us-phi.in, %.split.us ]
+  %.04550 = phi i32 [ 0, %1 ], [ %32, %.split.us ]
+  %14 = uitofp nneg i32 %.04550 to float
+  %15 = icmp samesign ugt i32 %.04550, 46
+  %16 = icmp samesign ult i32 %.04550, 54
+  %.not47 = icmp eq i32 %.04550, 0
+  %sext = shl i64 %.051, 32
   %17 = ashr exact i64 %sext, 32
   br i1 %.not47, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %26
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %26 ], [ %17, %.preheader ]
-  %.04650.us = phi i32 [ %28, %26 ], [ 0, %.preheader ]
-  %18 = uitofp nneg i32 %.04650.us to float
-  %19 = icmp eq i32 %.04650.us, 0
+.preheader.split.us:                              ; preds = %.preheader, %28
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %28 ], [ %17, %.preheader ]
+  %.04648.us = phi i32 [ %30, %28 ], [ 0, %.preheader ]
+  %18 = uitofp nneg i32 %.04648.us to float
+  %19 = icmp eq i32 %.04648.us, 0
   %or.cond.us = and i1 %16, %19
-  %or.cond54 = select i1 %15, i1 %or.cond.us, i1 false
-  %storemerge.us = select i1 %or.cond54, i32 0, i32 2
+  %or.cond52 = select i1 %15, i1 %or.cond.us, i1 false
+  %storemerge.us = select i1 %or.cond52, i32 0, i32 2
   store i32 %storemerge.us, ptr %5, align 8, !tbaa !15
   %20 = fneg float %18
   store float %14, ptr %10, align 4, !tbaa !20
   store float %20, ptr %.sroa.215.0..sroa_idx, align 8, !tbaa !20
   %21 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %5) #8
   %22 = call i64 @b2CreateCircleShape(i64 %21, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
-  br i1 %19, label %26, label %23
+  br i1 %19, label %28, label %23
 
 23:                                               ; preds = %.preheader.split.us
-  %gep.us = getelementptr %struct.b2BodyId, ptr %invariant.gep, i64 %indvars.iv59
-  %24 = load i64, ptr %gep.us, align 4
-  store i64 %24, ptr %4, align 8
+  %24 = getelementptr %struct.b2BodyId, ptr %6, i64 %indvars.iv57
+  %25 = getelementptr i8, ptr %24, i64 -8
+  %26 = load i64, ptr %25, align 4
+  store i64 %26, ptr %4, align 8
   store i64 %21, ptr %11, align 8
   store float 0.000000e+00, ptr %12, align 8, !tbaa !20
   store float -5.000000e-01, ptr %.sroa.29.0..sroa_idx, align 4, !tbaa !20
   store float 0.000000e+00, ptr %13, align 8, !tbaa !20
   store float 5.000000e-01, ptr %.sroa.27.0..sroa_idx, align 4, !tbaa !20
-  %25 = call i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef nonnull %4) #8
-  br label %26
+  %27 = call i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef nonnull %4) #8
+  br label %28
 
-26:                                               ; preds = %23, %.preheader.split.us
-  %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
-  %27 = getelementptr inbounds %struct.b2BodyId, ptr %6, i64 %indvars.iv59
-  store i64 %21, ptr %27, align 4
-  %28 = add nuw nsw i32 %.04650.us, 1
-  %exitcond62.not = icmp eq i32 %28, 100
-  br i1 %exitcond62.not, label %.split.us, label %.preheader.split.us, !llvm.loop !21
+28:                                               ; preds = %23, %.preheader.split.us
+  %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
+  %29 = getelementptr inbounds %struct.b2BodyId, ptr %6, i64 %indvars.iv57
+  store i64 %21, ptr %29, align 4
+  %30 = add nuw nsw i32 %.04648.us, 1
+  %exitcond60.not = icmp eq i32 %30, 100
+  br i1 %exitcond60.not, label %.split.us, label %.preheader.split.us, !llvm.loop !21
 
-29:                                               ; preds = %.split.us
+31:                                               ; preds = %.split.us
   call void @free(ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #8
@@ -117,55 +116,56 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #8
   ret void
 
-.split.us:                                        ; preds = %39, %26
-  %.us-phi.in = phi i64 [ %indvars.iv.next60, %26 ], [ %indvars.iv.next, %39 ]
-  %30 = add nuw nsw i32 %.04552, 1
-  %exitcond63.not = icmp eq i32 %30, 100
-  br i1 %exitcond63.not, label %29, label %.preheader, !llvm.loop !24
+.split.us:                                        ; preds = %43, %28
+  %.us-phi.in = phi i64 [ %indvars.iv.next58, %28 ], [ %indvars.iv.next, %43 ]
+  %32 = add nuw nsw i32 %.04550, 1
+  %exitcond61.not = icmp eq i32 %32, 100
+  br i1 %exitcond61.not, label %31, label %.preheader, !llvm.loop !24
 
-.preheader.split:                                 ; preds = %.preheader, %39
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ %17, %.preheader ]
-  %.04650 = phi i32 [ %43, %39 ], [ 0, %.preheader ]
-  %31 = uitofp nneg i32 %.04650 to float
-  %32 = icmp eq i32 %.04650, 0
-  %or.cond = and i1 %16, %32
-  %or.cond55 = select i1 %15, i1 %or.cond, i1 false
-  %storemerge = select i1 %or.cond55, i32 0, i32 2
+.preheader.split:                                 ; preds = %.preheader, %43
+  %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ %17, %.preheader ]
+  %.04648 = phi i32 [ %48, %43 ], [ 0, %.preheader ]
+  %33 = uitofp nneg i32 %.04648 to float
+  %34 = icmp eq i32 %.04648, 0
+  %or.cond = and i1 %16, %34
+  %or.cond53 = select i1 %15, i1 %or.cond, i1 false
+  %storemerge = select i1 %or.cond53, i32 0, i32 2
   store i32 %storemerge, ptr %5, align 8, !tbaa !15
-  %33 = fneg float %31
+  %35 = fneg float %33
   store float %14, ptr %10, align 4, !tbaa !20
-  store float %33, ptr %.sroa.215.0..sroa_idx, align 8, !tbaa !20
-  %34 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %5) #8
-  %35 = call i64 @b2CreateCircleShape(i64 %34, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
-  br i1 %32, label %39, label %36
+  store float %35, ptr %.sroa.215.0..sroa_idx, align 8, !tbaa !20
+  %36 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %5) #8
+  %37 = call i64 @b2CreateCircleShape(i64 %36, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
+  br i1 %34, label %43, label %38
 
-36:                                               ; preds = %.preheader.split
-  %gep = getelementptr %struct.b2BodyId, ptr %invariant.gep, i64 %indvars.iv
-  %37 = load i64, ptr %gep, align 4
-  store i64 %37, ptr %4, align 8
-  store i64 %34, ptr %11, align 8
+38:                                               ; preds = %.preheader.split
+  %39 = getelementptr %struct.b2BodyId, ptr %6, i64 %indvars.iv
+  %40 = getelementptr i8, ptr %39, i64 -8
+  %41 = load i64, ptr %40, align 4
+  store i64 %41, ptr %4, align 8
+  store i64 %36, ptr %11, align 8
   store float 0.000000e+00, ptr %12, align 8, !tbaa !20
   store float -5.000000e-01, ptr %.sroa.29.0..sroa_idx, align 4, !tbaa !20
   store float 0.000000e+00, ptr %13, align 8, !tbaa !20
   store float 5.000000e-01, ptr %.sroa.27.0..sroa_idx, align 4, !tbaa !20
-  %38 = call i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef nonnull %4) #8
-  br label %39
+  %42 = call i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef nonnull %4) #8
+  br label %43
 
-39:                                               ; preds = %36, %.preheader.split
-  %gep49 = getelementptr %struct.b2BodyId, ptr %invariant.gep48, i64 %indvars.iv
-  %40 = load i64, ptr %gep49, align 4
-  store i64 %40, ptr %4, align 8
-  store i64 %34, ptr %11, align 8
+43:                                               ; preds = %38, %.preheader.split
+  %44 = getelementptr %struct.b2BodyId, ptr %6, i64 %indvars.iv
+  %45 = getelementptr i8, ptr %44, i64 -800
+  %46 = load i64, ptr %45, align 4
+  store i64 %46, ptr %4, align 8
+  store i64 %36, ptr %11, align 8
   store float 5.000000e-01, ptr %12, align 8, !tbaa !20
   store float 0.000000e+00, ptr %.sroa.29.0..sroa_idx, align 4, !tbaa !20
   store float -5.000000e-01, ptr %13, align 8, !tbaa !20
   store float 0.000000e+00, ptr %.sroa.27.0..sroa_idx, align 4, !tbaa !20
-  %41 = call i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef nonnull %4) #8
+  %47 = call i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef nonnull %4) #8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %42 = getelementptr inbounds %struct.b2BodyId, ptr %6, i64 %indvars.iv
-  store i64 %34, ptr %42, align 4
-  %43 = add nuw nsw i32 %.04650, 1
-  %exitcond.not = icmp eq i32 %43, 100
+  store i64 %36, ptr %44, align 4
+  %48 = add nuw nsw i32 %.04648, 1
+  %exitcond.not = icmp eq i32 %48, 100
   br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !25
 }
 

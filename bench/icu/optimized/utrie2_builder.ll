@@ -2033,7 +2033,7 @@ _ZL11compactTrieP6UTrie2P10UErrorCode.exit.thread: ; preds = %111, %_ZL11compact
 define void @utrie2_setRange32_77(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef signext %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = load i32, ptr %5, align 4, !tbaa !3
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %_ZL9fillBlockPjiijja.exit151
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %6
   %10 = icmp ugt i32 %1, 1114111
@@ -2041,19 +2041,19 @@ define void @utrie2_setRange32_77(ptr noundef readonly captures(none) %0, i32 no
   %or.cond = or i1 %10, %11
   %12 = icmp sgt i32 %1, %2
   %or.cond126 = or i1 %12, %or.cond
-  br i1 %or.cond126, label %_ZL9fillBlockPjiijja.exit151.sink.split, label %13
+  br i1 %or.cond126, label %.critedge.sink.split, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %_ZL9fillBlockPjiijja.exit151.sink.split, label %17
+  br i1 %16, label %.critedge.sink.split, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 144172
   %19 = load i8, ptr %18, align 4, !tbaa !25
   %.not118 = icmp eq i8 %19, 0
-  br i1 %.not118, label %20, label %_ZL9fillBlockPjiijja.exit151.sink.split
+  br i1 %.not118, label %20, label %.critedge.sink.split
 
 20:                                               ; preds = %17
   %21 = icmp ne i8 %4, 0
@@ -2063,7 +2063,7 @@ define void @utrie2_setRange32_77(ptr noundef readonly captures(none) %0, i32 no
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 144136
   %24 = load i32, ptr %23, align 8, !tbaa !21
   %25 = icmp eq i32 %3, %24
-  br i1 %25, label %_ZL9fillBlockPjiijja.exit151, label %26
+  br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %22, %20
   %27 = add nuw nsw i32 %2, 1
@@ -2074,7 +2074,7 @@ define void @utrie2_setRange32_77(ptr noundef readonly captures(none) %0, i32 no
 29:                                               ; preds = %26
   %30 = tail call fastcc noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %15, i32 noundef %1, i8 noundef signext 1)
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %_ZL9fillBlockPjiijja.exit151.sink.split, label %32
+  br i1 %31, label %.critedge.sink.split, label %32
 
 32:                                               ; preds = %29
   %33 = add nuw nsw i32 %1, 31
@@ -2126,37 +2126,37 @@ define void @utrie2_setRange32_77(ptr noundef readonly captures(none) %0, i32 no
   %54 = getelementptr inbounds nuw i32, ptr %38, i64 %53
   %55 = zext nneg i32 %28 to i64
   %56 = getelementptr inbounds nuw i32, ptr %38, i64 %55
-  %.not.i127 = icmp eq i8 %4, 0
+  %.not.i129 = icmp eq i8 %4, 0
   %57 = icmp samesign ult i32 %28, %50
-  br i1 %.not.i127, label %.preheader.i131, label %.preheader15.i128
+  br i1 %.not.i129, label %.preheader.i133, label %.preheader15.i130
 
-.preheader15.i128:                                ; preds = %49
-  br i1 %57, label %.lr.ph.i129, label %_ZL9fillBlockPjiijja.exit151
+.preheader15.i130:                                ; preds = %49
+  br i1 %57, label %.lr.ph.i131, label %.critedge
 
-.preheader.i131:                                  ; preds = %49
-  br i1 %57, label %.lr.ph19.i132, label %_ZL9fillBlockPjiijja.exit151
+.preheader.i133:                                  ; preds = %49
+  br i1 %57, label %.lr.ph19.i134, label %.critedge
 
-.lr.ph.i129:                                      ; preds = %.preheader15.i128, %.lr.ph.i129
-  %.017.i130 = phi ptr [ %58, %.lr.ph.i129 ], [ %56, %.preheader15.i128 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.017.i130, i64 4
-  store i32 %3, ptr %.017.i130, align 4, !tbaa !26
+.lr.ph.i131:                                      ; preds = %.preheader15.i130, %.lr.ph.i131
+  %.017.i132 = phi ptr [ %58, %.lr.ph.i131 ], [ %56, %.preheader15.i130 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.017.i132, i64 4
+  store i32 %3, ptr %.017.i132, align 4, !tbaa !26
   %59 = icmp ult ptr %58, %54
-  br i1 %59, label %.lr.ph.i129, label %_ZL9fillBlockPjiijja.exit151, !llvm.loop !103
+  br i1 %59, label %.lr.ph.i131, label %.critedge, !llvm.loop !103
 
-.lr.ph19.i132:                                    ; preds = %.preheader.i131, %63
-  %.118.i133 = phi ptr [ %64, %63 ], [ %56, %.preheader.i131 ]
-  %60 = load i32, ptr %.118.i133, align 4, !tbaa !26
+.lr.ph19.i134:                                    ; preds = %.preheader.i133, %63
+  %.118.i135 = phi ptr [ %64, %63 ], [ %56, %.preheader.i133 ]
+  %60 = load i32, ptr %.118.i135, align 4, !tbaa !26
   %61 = icmp eq i32 %60, %52
   br i1 %61, label %62, label %63
 
-62:                                               ; preds = %.lr.ph19.i132
-  store i32 %3, ptr %.118.i133, align 4, !tbaa !26
+62:                                               ; preds = %.lr.ph19.i134
+  store i32 %3, ptr %.118.i135, align 4, !tbaa !26
   br label %63
 
-63:                                               ; preds = %62, %.lr.ph19.i132
-  %64 = getelementptr inbounds nuw i8, ptr %.118.i133, i64 4
+63:                                               ; preds = %62, %.lr.ph19.i134
+  %64 = getelementptr inbounds nuw i8, ptr %.118.i135, i64 4
   %65 = icmp ult ptr %64, %54
-  br i1 %65, label %.lr.ph19.i132, label %_ZL9fillBlockPjiijja.exit151, !llvm.loop !104
+  br i1 %65, label %.lr.ph19.i134, label %.critedge, !llvm.loop !104
 
 _ZL9fillBlockPjiijja.exit:                        ; preds = %.lr.ph.i, %47, %26
   %.099 = phi i32 [ %1, %26 ], [ %34, %47 ], [ %34, %.lr.ph.i ]
@@ -2184,13 +2184,13 @@ _ZL9fillBlockPjiijja.exit:                        ; preds = %.lr.ph.i, %47, %26
   %79 = getelementptr inbounds nuw i8, ptr %15, i64 144144
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 144176
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 144128
-  %.not.i136 = icmp eq i8 %4, 0
+  %.not.i138 = icmp eq i8 %4, 0
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 144156
   br label %83
 
-83:                                               ; preds = %.lr.ph, %.critedge
-  %.2175 = phi i32 [ %.099, %.lr.ph ], [ %.3, %.critedge ]
-  %.1103174 = phi i32 [ %.0102, %.lr.ph ], [ %.2104, %.critedge ]
+83:                                               ; preds = %.lr.ph, %.critedge128
+  %.2175 = phi i32 [ %.099, %.lr.ph ], [ %.3, %.critedge128 ]
+  %.1103174 = phi i32 [ %.0102, %.lr.ph ], [ %.2104, %.critedge128 ]
   %84 = load i32, ptr %68, align 8, !tbaa !21
   %85 = icmp eq i32 %3, %84
   br i1 %85, label %86, label %104
@@ -2222,7 +2222,7 @@ _ZL13isInNullBlockP9UNewTrie2ia.exit:             ; preds = %89, %92
   %102 = load i32, ptr %101, align 4, !tbaa !26
   %103 = load i32, ptr %77, align 4, !tbaa !31
   %.not = icmp eq i32 %102, %103
-  br i1 %.not, label %.critedge, label %104, !llvm.loop !105
+  br i1 %.not, label %.critedge128, label %104, !llvm.loop !105
 
 104:                                              ; preds = %_ZL13isInNullBlockP9UNewTrie2ia.exit, %83
   %105 = and i32 %.2175, -1024
@@ -2241,7 +2241,7 @@ _ZL13isInNullBlockP9UNewTrie2ia.exit:             ; preds = %89, %92
 114:                                              ; preds = %107
   %115 = load i32, ptr %79, align 8, !tbaa !37
   %116 = icmp sgt i32 %115, 35424
-  br i1 %116, label %_ZL9fillBlockPjiijja.exit151.sink.split, label %_ZL16allocIndex2BlockP9UNewTrie2.exit.i
+  br i1 %116, label %.critedge.sink.split, label %_ZL16allocIndex2BlockP9UNewTrie2.exit.i
 
 _ZL16allocIndex2BlockP9UNewTrie2.exit.i:          ; preds = %114
   %117 = add nsw i32 %115, 64
@@ -2252,7 +2252,7 @@ _ZL16allocIndex2BlockP9UNewTrie2.exit.i:          ; preds = %114
   %121 = getelementptr inbounds i32, ptr %76, i64 %120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %119, ptr noundef nonnull align 4 dereferenceable(256) %121, i64 256, i1 false)
   %122 = icmp slt i32 %115, 0
-  br i1 %122, label %_ZL9fillBlockPjiijja.exit151.sink.split, label %123
+  br i1 %122, label %.critedge.sink.split, label %123
 
 123:                                              ; preds = %_ZL16allocIndex2BlockP9UNewTrie2.exit.i
   store i32 %115, ptr %110, align 4, !tbaa !26
@@ -2260,7 +2260,7 @@ _ZL16allocIndex2BlockP9UNewTrie2.exit.i:          ; preds = %114
 
 _ZL14getIndex2BlockP9UNewTrie2ia.exit:            ; preds = %107
   %124 = icmp slt i32 %111, 0
-  br i1 %124, label %_ZL9fillBlockPjiijja.exit151.sink.split, label %_ZL14getIndex2BlockP9UNewTrie2ia.exit.thread156
+  br i1 %124, label %.critedge.sink.split, label %_ZL14getIndex2BlockP9UNewTrie2ia.exit.thread156
 
 _ZL14getIndex2BlockP9UNewTrie2ia.exit.thread156:  ; preds = %123, %104, %_ZL14getIndex2BlockP9UNewTrie2ia.exit
   %.014.i158 = phi i32 [ %111, %_ZL14getIndex2BlockP9UNewTrie2ia.exit ], [ %115, %123 ], [ 2048, %104 ]
@@ -2271,8 +2271,8 @@ _ZL14getIndex2BlockP9UNewTrie2ia.exit.thread156:  ; preds = %123, %104, %_ZL14ge
   %129 = getelementptr inbounds nuw [35488 x i32], ptr %76, i64 0, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !26
   %131 = load i32, ptr %77, align 4, !tbaa !31
-  %.not.i135 = icmp eq i32 %130, %131
-  br i1 %.not.i135, label %_ZL15isWritableBlockP9UNewTrie2i.exit.thread, label %_ZL15isWritableBlockP9UNewTrie2i.exit
+  %.not.i137 = icmp eq i32 %130, %131
+  br i1 %.not.i137, label %_ZL15isWritableBlockP9UNewTrie2i.exit.thread, label %_ZL15isWritableBlockP9UNewTrie2i.exit
 
 _ZL15isWritableBlockP9UNewTrie2i.exit:            ; preds = %_ZL14getIndex2BlockP9UNewTrie2ia.exit.thread156
   %132 = ashr i32 %130, 5
@@ -2292,31 +2292,31 @@ _ZL15isWritableBlockP9UNewTrie2i.exit:            ; preds = %_ZL14getIndex2Block
   %140 = sext i32 %130 to i64
   %141 = getelementptr inbounds i32, ptr %139, i64 %140
   %142 = load i32, ptr %68, align 8, !tbaa !21
-  br i1 %.not.i136, label %.lr.ph19.i141, label %.lr.ph.i138
+  br i1 %.not.i138, label %.lr.ph19.i143, label %.lr.ph.i140
 
-.lr.ph.i138:                                      ; preds = %138, %.lr.ph.i138
-  %.017.i139.idx = phi i64 [ %.017.i139.add, %.lr.ph.i138 ], [ 0, %138 ]
-  %.017.i139.ptr = getelementptr inbounds nuw i8, ptr %141, i64 %.017.i139.idx
-  %.017.i139.add = add nuw nsw i64 %.017.i139.idx, 4
-  store i32 %3, ptr %.017.i139.ptr, align 4, !tbaa !26
-  %143 = icmp samesign ult i64 %.017.i139.idx, 124
-  br i1 %143, label %.lr.ph.i138, label %.critedge, !llvm.loop !103
+.lr.ph.i140:                                      ; preds = %138, %.lr.ph.i140
+  %.017.i141.idx = phi i64 [ %.017.i141.add, %.lr.ph.i140 ], [ 0, %138 ]
+  %.017.i141.ptr = getelementptr inbounds nuw i8, ptr %141, i64 %.017.i141.idx
+  %.017.i141.add = add nuw nsw i64 %.017.i141.idx, 4
+  store i32 %3, ptr %.017.i141.ptr, align 4, !tbaa !26
+  %143 = icmp samesign ult i64 %.017.i141.idx, 124
+  br i1 %143, label %.lr.ph.i140, label %.critedge128, !llvm.loop !103
 
-.lr.ph19.i141:                                    ; preds = %138, %147
-  %.118.i142.idx = phi i64 [ %.118.i142.add, %147 ], [ 0, %138 ]
-  %.118.i142.ptr = getelementptr inbounds nuw i8, ptr %141, i64 %.118.i142.idx
-  %144 = load i32, ptr %.118.i142.ptr, align 4, !tbaa !26
+.lr.ph19.i143:                                    ; preds = %138, %147
+  %.118.i144.idx = phi i64 [ %.118.i144.add, %147 ], [ 0, %138 ]
+  %.118.i144.ptr = getelementptr inbounds nuw i8, ptr %141, i64 %.118.i144.idx
+  %144 = load i32, ptr %.118.i144.ptr, align 4, !tbaa !26
   %145 = icmp eq i32 %144, %142
   br i1 %145, label %146, label %147
 
-146:                                              ; preds = %.lr.ph19.i141
-  store i32 %3, ptr %.118.i142.ptr, align 4, !tbaa !26
+146:                                              ; preds = %.lr.ph19.i143
+  store i32 %3, ptr %.118.i144.ptr, align 4, !tbaa !26
   br label %147
 
-147:                                              ; preds = %146, %.lr.ph19.i141
-  %.118.i142.add = add nuw nsw i64 %.118.i142.idx, 4
-  %148 = icmp samesign ult i64 %.118.i142.idx, 124
-  br i1 %148, label %.lr.ph19.i141, label %.critedge, !llvm.loop !104
+147:                                              ; preds = %146, %.lr.ph19.i143
+  %.118.i144.add = add nuw nsw i64 %.118.i144.idx, 4
+  %148 = icmp samesign ult i64 %.118.i144.idx, 124
+  br i1 %148, label %.lr.ph19.i143, label %.critedge128, !llvm.loop !104
 
 _ZL15isWritableBlockP9UNewTrie2i.exit.thread:     ; preds = %_ZL14getIndex2BlockP9UNewTrie2ia.exit.thread156, %_ZL15isWritableBlockP9UNewTrie2i.exit
   %149 = load ptr, ptr %81, align 8, !tbaa !18
@@ -2324,9 +2324,9 @@ _ZL15isWritableBlockP9UNewTrie2i.exit.thread:     ; preds = %_ZL14getIndex2Block
   %151 = getelementptr inbounds i32, ptr %149, i64 %150
   %152 = load i32, ptr %151, align 4, !tbaa !26
   %.not124 = icmp ne i32 %152, %3
-  %brmerge = or i1 %21, %.not.i135
+  %brmerge = or i1 %21, %.not.i137
   %or.cond163 = and i1 %brmerge, %.not124
-  br i1 %or.cond163, label %153, label %.critedge
+  br i1 %or.cond163, label %153, label %.critedge128
 
 153:                                              ; preds = %_ZL15isWritableBlockP9UNewTrie2i.exit.thread, %136
   %154 = icmp sgt i32 %.1103174, -1
@@ -2358,12 +2358,12 @@ _ZL15isWritableBlockP9UNewTrie2i.exit.thread:     ; preds = %_ZL14getIndex2Block
 
 _ZL14setIndex2EntryP9UNewTrie2ii.exit:            ; preds = %155, %168
   store i32 %.1103174, ptr %129, align 4, !tbaa !26
-  br label %.critedge
+  br label %.critedge128
 
 171:                                              ; preds = %153
   %172 = tail call fastcc noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %15, i32 noundef %.2175, i8 noundef signext 1)
   %173 = icmp slt i32 %172, 0
-  br i1 %173, label %_ZL9fillBlockPjiijja.exit151.sink.split, label %174
+  br i1 %173, label %.critedge.sink.split, label %174
 
 174:                                              ; preds = %171
   %175 = load ptr, ptr %81, align 8, !tbaa !18
@@ -2377,23 +2377,23 @@ _ZL14setIndex2EntryP9UNewTrie2ii.exit:            ; preds = %155, %168
   %.0.add.i = add nuw nsw i64 %.0.idx4.i, 4
   store i32 %3, ptr %.0.ptr.i, align 4, !tbaa !26
   %179 = icmp samesign ult i64 %.0.idx4.i, 124
-  br i1 %179, label %178, label %.critedge, !llvm.loop !106
+  br i1 %179, label %178, label %.critedge128, !llvm.loop !106
 
-.critedge:                                        ; preds = %.lr.ph.i138, %147, %178, %_ZL14setIndex2EntryP9UNewTrie2ii.exit, %_ZL15isWritableBlockP9UNewTrie2i.exit.thread, %_ZL13isInNullBlockP9UNewTrie2ia.exit
-  %.2104 = phi i32 [ %.1103174, %_ZL13isInNullBlockP9UNewTrie2ia.exit ], [ %.1103174, %_ZL14setIndex2EntryP9UNewTrie2ii.exit ], [ %.1103174, %_ZL15isWritableBlockP9UNewTrie2i.exit.thread ], [ %172, %178 ], [ %.1103174, %147 ], [ %.1103174, %.lr.ph.i138 ]
+.critedge128:                                     ; preds = %.lr.ph.i140, %147, %178, %_ZL14setIndex2EntryP9UNewTrie2ii.exit, %_ZL15isWritableBlockP9UNewTrie2i.exit.thread, %_ZL13isInNullBlockP9UNewTrie2ia.exit
+  %.2104 = phi i32 [ %.1103174, %_ZL13isInNullBlockP9UNewTrie2ia.exit ], [ %.1103174, %_ZL14setIndex2EntryP9UNewTrie2ii.exit ], [ %.1103174, %_ZL15isWritableBlockP9UNewTrie2i.exit.thread ], [ %172, %178 ], [ %.1103174, %147 ], [ %.1103174, %.lr.ph.i140 ]
   %.3 = add nuw nsw i32 %.2175, 32
   %180 = icmp slt i32 %.3, %67
   br i1 %180, label %83, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.critedge, %74
-  %.2.lcssa = phi i32 [ %.099, %74 ], [ %.3, %.critedge ]
+._crit_edge:                                      ; preds = %.critedge128, %74
+  %.2.lcssa = phi i32 [ %.099, %74 ], [ %.3, %.critedge128 ]
   %.not121 = icmp eq i32 %66, 0
-  br i1 %.not121, label %_ZL9fillBlockPjiijja.exit151, label %181
+  br i1 %.not121, label %.critedge, label %181
 
 181:                                              ; preds = %._crit_edge
   %182 = tail call fastcc noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %15, i32 noundef %.2.lcssa, i8 noundef signext 1)
   %183 = icmp slt i32 %182, 0
-  br i1 %183, label %_ZL9fillBlockPjiijja.exit151.sink.split, label %184
+  br i1 %183, label %.critedge.sink.split, label %184
 
 184:                                              ; preds = %181
   %185 = getelementptr inbounds nuw i8, ptr %15, i64 144128
@@ -2403,37 +2403,37 @@ _ZL14setIndex2EntryP9UNewTrie2ii.exit:            ; preds = %155, %168
   %189 = load i32, ptr %68, align 8, !tbaa !21
   %190 = zext nneg i32 %66 to i64
   %191 = getelementptr inbounds nuw i32, ptr %188, i64 %190
-  %.not.i144 = icmp eq i8 %4, 0
-  br i1 %.not.i144, label %.lr.ph19.i149, label %.lr.ph.i146
+  %.not.i146 = icmp eq i8 %4, 0
+  br i1 %.not.i146, label %.lr.ph19.i151, label %.lr.ph.i148
 
-.lr.ph.i146:                                      ; preds = %184, %.lr.ph.i146
-  %.017.i147 = phi ptr [ %192, %.lr.ph.i146 ], [ %188, %184 ]
-  %192 = getelementptr inbounds nuw i8, ptr %.017.i147, i64 4
-  store i32 %3, ptr %.017.i147, align 4, !tbaa !26
+.lr.ph.i148:                                      ; preds = %184, %.lr.ph.i148
+  %.017.i149 = phi ptr [ %192, %.lr.ph.i148 ], [ %188, %184 ]
+  %192 = getelementptr inbounds nuw i8, ptr %.017.i149, i64 4
+  store i32 %3, ptr %.017.i149, align 4, !tbaa !26
   %193 = icmp ult ptr %192, %191
-  br i1 %193, label %.lr.ph.i146, label %_ZL9fillBlockPjiijja.exit151, !llvm.loop !103
+  br i1 %193, label %.lr.ph.i148, label %.critedge, !llvm.loop !103
 
-.lr.ph19.i149:                                    ; preds = %184, %197
-  %.118.i150 = phi ptr [ %198, %197 ], [ %188, %184 ]
-  %194 = load i32, ptr %.118.i150, align 4, !tbaa !26
+.lr.ph19.i151:                                    ; preds = %184, %197
+  %.118.i152 = phi ptr [ %198, %197 ], [ %188, %184 ]
+  %194 = load i32, ptr %.118.i152, align 4, !tbaa !26
   %195 = icmp eq i32 %194, %189
   br i1 %195, label %196, label %197
 
-196:                                              ; preds = %.lr.ph19.i149
-  store i32 %3, ptr %.118.i150, align 4, !tbaa !26
+196:                                              ; preds = %.lr.ph19.i151
+  store i32 %3, ptr %.118.i152, align 4, !tbaa !26
   br label %197
 
-197:                                              ; preds = %196, %.lr.ph19.i149
-  %198 = getelementptr inbounds nuw i8, ptr %.118.i150, i64 4
+197:                                              ; preds = %196, %.lr.ph19.i151
+  %198 = getelementptr inbounds nuw i8, ptr %.118.i152, i64 4
   %199 = icmp ult ptr %198, %191
-  br i1 %199, label %.lr.ph19.i149, label %_ZL9fillBlockPjiijja.exit151, !llvm.loop !104
+  br i1 %199, label %.lr.ph19.i151, label %.critedge, !llvm.loop !104
 
-_ZL9fillBlockPjiijja.exit151.sink.split:          ; preds = %171, %_ZL14getIndex2BlockP9UNewTrie2ia.exit, %_ZL16allocIndex2BlockP9UNewTrie2.exit.i, %114, %181, %29, %13, %17, %9
+.critedge.sink.split:                             ; preds = %171, %_ZL14getIndex2BlockP9UNewTrie2ia.exit, %_ZL16allocIndex2BlockP9UNewTrie2.exit.i, %114, %181, %29, %13, %17, %9
   %.sink = phi i32 [ 1, %9 ], [ 30, %17 ], [ 30, %13 ], [ 7, %29 ], [ 7, %181 ], [ 5, %114 ], [ 5, %_ZL16allocIndex2BlockP9UNewTrie2.exit.i ], [ 5, %_ZL14getIndex2BlockP9UNewTrie2ia.exit ], [ 7, %171 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !3
-  br label %_ZL9fillBlockPjiijja.exit151
+  br label %.critedge
 
-_ZL9fillBlockPjiijja.exit151:                     ; preds = %.lr.ph.i129, %63, %.lr.ph.i146, %197, %_ZL9fillBlockPjiijja.exit151.sink.split, %.preheader.i131, %.preheader15.i128, %._crit_edge, %22, %6
+.critedge:                                        ; preds = %.lr.ph.i131, %63, %.lr.ph.i148, %197, %.critedge.sink.split, %.preheader.i133, %.preheader15.i130, %._crit_edge, %22, %6
   ret void
 }
 

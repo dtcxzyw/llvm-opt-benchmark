@@ -72594,8 +72594,8 @@ _ZNSt8functionIFbmmEEC2EOS1_.exit:                ; preds = %196, %206
   br label %227
 
 227:                                              ; preds = %244, %.lr.ph.i68
-  %.01527.i = phi i64 [ 0, %.lr.ph.i68 ], [ %240, %244 ]
-  %228 = sub nuw i64 %.0.i, %.01527.i
+  %.01525.i = phi i64 [ 0, %.lr.ph.i68 ], [ %240, %244 ]
+  %228 = sub nuw i64 %.0.i, %.01525.i
   %.sroa.speculated.i69 = call i64 @llvm.umin.i64(i64 %228, i64 4096)
   %229 = load ptr, ptr %198, align 8, !tbaa !346
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 32
@@ -72614,7 +72614,7 @@ _ZNSt8functionIFbmmEEC2EOS1_.exit:                ; preds = %196, %206
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %9, ptr %5, align 8, !tbaa !3
   store i64 %232, ptr %6, align 8, !tbaa !15
-  store i64 %.01527.i, ptr %7, align 8, !tbaa !15
+  store i64 %.01525.i, ptr %7, align 8, !tbaa !15
   store i64 %.0.i, ptr %8, align 8, !tbaa !15
   %235 = load ptr, ptr %208, align 8, !tbaa !345
   %.not.i.i.i70 = icmp eq ptr %235, null
@@ -72640,7 +72640,7 @@ _ZNKSt8functionIFbPKcmmmEEclES1_mmm.exit.i71:     ; preds = %234
   br i1 %238, label %239, label %245
 
 239:                                              ; preds = %.noexc76
-  %240 = add i64 %232, %.01527.i
+  %240 = add i64 %232, %.01525.i
   %241 = load ptr, ptr %226, align 8, !tbaa !345
   %.not.i.i19.not.i = icmp eq ptr %241, null
   br i1 %.not.i.i19.not.i, label %244, label %_ZNKSt8functionIFbmmEEclEmm.exit.i
@@ -72664,7 +72664,7 @@ _ZNKSt8functionIFbmmEEclEmm.exit.i:               ; preds = %239
   br i1 %.not.i73, label %227, label %245, !llvm.loop !1391
 
 245:                                              ; preds = %244, %.noexc77, %.noexc76, %.noexc74
-  %.lcssa.i72 = phi i1 [ false, %.noexc77 ], [ false, %.noexc76 ], [ false, %.noexc74 ], [ true, %244 ]
+  %.lcssa.i72 = phi i1 [ false, %.noexc74 ], [ false, %.noexc76 ], [ false, %.noexc77 ], [ true, %244 ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %9) #32
   %246 = load ptr, ptr %208, align 8, !tbaa !345
   %.not.i78 = icmp eq ptr %246, null
@@ -73067,8 +73067,8 @@ define linkonce_odr noundef zeroext i1 @_ZN14duckdb_httplib6detail20read_content
   br label %60
 
 60:                                               ; preds = %77, %.lr.ph.i
-  %.01527.i = phi i64 [ 0, %.lr.ph.i ], [ %73, %77 ]
-  %61 = sub nuw i64 %37, %.01527.i
+  %.01525.i = phi i64 [ 0, %.lr.ph.i ], [ %73, %77 ]
+  %61 = sub nuw i64 %37, %.01525.i
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %61, i64 4096)
   %62 = load ptr, ptr %0, align 8, !tbaa !346
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
@@ -73087,7 +73087,7 @@ define linkonce_odr noundef zeroext i1 @_ZN14duckdb_httplib6detail20read_content
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %10, ptr %6, align 8, !tbaa !3
   store i64 %65, ptr %7, align 8, !tbaa !15
-  store i64 %.01527.i, ptr %8, align 8, !tbaa !15
+  store i64 %.01525.i, ptr %8, align 8, !tbaa !15
   store i64 %37, ptr %9, align 8, !tbaa !15
   %68 = load ptr, ptr %24, align 8, !tbaa !345
   %.not.i.i.i = icmp eq ptr %68, null
@@ -73113,7 +73113,7 @@ _ZNKSt8functionIFbPKcmmmEEclES1_mmm.exit.i:       ; preds = %67
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %.noexc31
-  %73 = add i64 %65, %.01527.i
+  %73 = add i64 %65, %.01525.i
   %74 = load ptr, ptr %28, align 8, !tbaa !345
   %.not.i.i19.not.i = icmp eq ptr %74, null
   br i1 %.not.i.i19.not.i, label %77, label %_ZNKSt8functionIFbmmEEclEmm.exit.i
@@ -73137,7 +73137,7 @@ _ZNKSt8functionIFbmmEEclEmm.exit.i:               ; preds = %72
   br i1 %.not.i, label %60, label %78, !llvm.loop !1391
 
 78:                                               ; preds = %77, %.noexc32, %.noexc31, %.noexc
-  %.lcssa.i = phi i1 [ false, %.noexc32 ], [ false, %.noexc31 ], [ false, %.noexc ], [ true, %77 ]
+  %.lcssa.i = phi i1 [ false, %.noexc ], [ false, %.noexc31 ], [ false, %.noexc32 ], [ true, %77 ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %10) #32
   %79 = load ptr, ptr %24, align 8, !tbaa !345
   %.not.i33 = icmp eq ptr %79, null

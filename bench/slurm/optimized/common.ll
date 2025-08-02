@@ -3111,7 +3111,7 @@ define dso_local noundef i32 @delete_popups() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @popup_thr(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noalias noundef ptr @popup_thr(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #16
   store i32 1, ptr %2, align 4

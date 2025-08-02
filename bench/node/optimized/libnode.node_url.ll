@@ -3919,8 +3919,9 @@ for.body.preheader:                               ; preds = %if.then.i.i.i.i232,
 for.body:                                         ; preds = %for.body.preheader, %_ZN4node25ExternalReferenceRegistry8RegisterEPKN2v813CFunctionInfoE.exit
   %45 = phi ptr [ %52, %_ZN4node25ExternalReferenceRegistry8RegisterEPKN2v813CFunctionInfoE.exit ], [ %.ph, %for.body.preheader ]
   %__begin2.0.idx288 = phi i64 [ %__begin2.0.add, %_ZN4node25ExternalReferenceRegistry8RegisterEPKN2v813CFunctionInfoE.exit ], [ 0, %for.body.preheader ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node3url11BindingData23fast_can_parse_methods_E, i64 8), i64 %__begin2.0.idx288
-  %46 = load ptr, ptr %gep, align 8
+  %__begin2.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN4node3url11BindingData23fast_can_parse_methods_E, i64 %__begin2.0.idx288
+  %type_info_.i = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr, i64 8
+  %46 = load ptr, ptr %type_info_.i, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %cmp.not.i.i.i.i261 = icmp eq ptr %45, %48
@@ -4163,7 +4164,6 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %for.cond.preheader, label %if.then5
 
 for.cond.preheader:                               ; preds = %if.end
-  %invariant.gep = getelementptr i8, ptr %3, i64 1
   %cmp1028 = icmp ugt i64 %2, 2
   br i1 %cmp1028, label %for.body.preheader, label %for.end
 
@@ -4186,7 +4186,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add31 = phi i64 [ %add.reass, %for.inc ], [ 2, %for.body.preheader ]
   %first_percent.030 = phi i64 [ %first_percent.1, %for.inc ], [ -1, %for.body.preheader ]
   %i.029 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %i.029
+  %add.ptr.i = getelementptr i8, ptr %3, i64 %i.029
   %7 = load i8, ptr %add.ptr.i, align 1
   %cmp13.not = icmp eq i8 %7, 37
   br i1 %cmp13.not, label %if.end15, label %for.inc
@@ -4194,8 +4194,8 @@ for.body:                                         ; preds = %for.body.preheader,
 if.end15:                                         ; preds = %for.body
   %cmp16 = icmp eq i64 %first_percent.030, -1
   %spec.select = select i1 %cmp16, i64 %i.029, i64 %first_percent.030
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.029
-  %8 = load i8, ptr %gep, align 1
+  %add.ptr.i16 = getelementptr i8, ptr %add.ptr.i, i64 1
+  %8 = load i8, ptr %add.ptr.i16, align 1
   %cmp22 = icmp eq i8 %8, 50
   br i1 %cmp22, label %land.lhs.true, label %for.inc
 

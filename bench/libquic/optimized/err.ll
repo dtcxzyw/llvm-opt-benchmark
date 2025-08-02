@@ -1059,10 +1059,10 @@ define hidden void @ERR_add_error_data(i32 noundef %0, ...) local_unnamed_addr #
   br label %7
 
 7:                                                ; preds = %37, %.lr.ph.i
-  %.052.i = phi i64 [ 80, %.lr.ph.i ], [ %.1.i, %37 ]
-  %.03051.i = phi i32 [ 0, %.lr.ph.i ], [ %38, %37 ]
-  %.03150.i = phi i64 [ 0, %.lr.ph.i ], [ %.132.i, %37 ]
-  %.03349.i = phi ptr [ %3, %.lr.ph.i ], [ %.134.i, %37 ]
+  %.049.i = phi i64 [ 80, %.lr.ph.i ], [ %.1.i, %37 ]
+  %.03048.i = phi i32 [ 0, %.lr.ph.i ], [ %38, %37 ]
+  %.03147.i = phi i64 [ 0, %.lr.ph.i ], [ %.132.i, %37 ]
+  %.03346.i = phi ptr [ %3, %.lr.ph.i ], [ %.134.i, %37 ]
   %8 = load i32, ptr %2, align 16
   %9 = icmp ult i32 %8, 41
   br i1 %9, label %10, label %15
@@ -1089,41 +1089,41 @@ define hidden void @ERR_add_error_data(i32 noundef %0, ...) local_unnamed_addr #
 
 22:                                               ; preds = %18
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #19
-  %24 = add i64 %23, %.03150.i
-  %25 = icmp ugt i64 %24, %.052.i
+  %24 = add i64 %23, %.03147.i
+  %25 = icmp ugt i64 %24, %.049.i
   br i1 %25, label %26, label %35
 
 26:                                               ; preds = %22
-  %27 = icmp ugt i64 %.052.i, -22
+  %27 = icmp ugt i64 %.049.i, -22
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %26
-  call void @free(ptr noundef %.03349.i) #17
+  call void @free(ptr noundef %.03346.i) #17
   br label %err_add_error_vdata.exit
 
 29:                                               ; preds = %26
   %30 = add i64 %24, 20
   %31 = add i64 %24, 21
-  %32 = call ptr @realloc(ptr noundef %.03349.i, i64 noundef %31) #21
+  %32 = call ptr @realloc(ptr noundef %.03346.i, i64 noundef %31) #21
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %29
-  call void @free(ptr noundef %.03349.i) #17
+  call void @free(ptr noundef %.03346.i) #17
   br label %err_add_error_vdata.exit
 
 35:                                               ; preds = %29, %22
-  %.235.i = phi ptr [ %.03349.i, %22 ], [ %32, %29 ]
-  %.2.i = phi i64 [ %.052.i, %22 ], [ %30, %29 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.235.i, i64 %.03150.i
+  %.235.i = phi ptr [ %.03346.i, %22 ], [ %32, %29 ]
+  %.2.i = phi i64 [ %.049.i, %22 ], [ %30, %29 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.235.i, i64 %.03147.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr nonnull align 1 %20, i64 %23, i1 false)
   br label %37
 
 37:                                               ; preds = %35, %18
-  %.134.i = phi ptr [ %.03349.i, %18 ], [ %.235.i, %35 ]
-  %.132.i = phi i64 [ %.03150.i, %18 ], [ %24, %35 ]
-  %.1.i = phi i64 [ %.052.i, %18 ], [ %.2.i, %35 ]
-  %38 = add nuw i32 %.03051.i, 1
+  %.134.i = phi ptr [ %.03346.i, %18 ], [ %.235.i, %35 ]
+  %.132.i = phi i64 [ %.03147.i, %18 ], [ %24, %35 ]
+  %.1.i = phi i64 [ %.049.i, %18 ], [ %.2.i, %35 ]
+  %38 = add nuw i32 %.03048.i, 1
   %exitcond.not.i = icmp eq i32 %38, %0
   br i1 %exitcond.not.i, label %._crit_edge.i, label %7, !llvm.loop !30
 

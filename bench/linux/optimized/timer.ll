@@ -3933,7 +3933,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @schedule_timeout(i64 no
 
 4:                                                ; preds = %1
   tail call void @schedule() #16
-  br label %47
+  br label %48
 
 5:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 40, i1 false), !annotation !24
@@ -3947,7 +3947,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @schedule_timeout(i64 no
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store volatile i32 0, ptr %11, align 8
-  br label %47
+  br label %48
 
 12:                                               ; preds = %5
   %13 = load volatile i64, ptr @jiffies, align 64
@@ -4008,11 +4008,11 @@ define dso_local range(i64 0, -9223372036854775808) i64 @schedule_timeout(i64 no
   %44 = call fastcc noundef i32 @__timer_delete_sync(ptr noundef nonnull %2, i1 noundef zeroext false), !range !52
   %45 = load volatile i64, ptr @jiffies, align 64
   %46 = sub i64 %14, %45
-  br label %47
+  %47 = call i64 @llvm.smax.i64(i64 %46, i64 0)
+  br label %48
 
-47:                                               ; preds = %38, %7, %4
-  %48 = phi i64 [ 9223372036854775807, %4 ], [ %0, %7 ], [ %46, %38 ]
-  %49 = call i64 @llvm.smax.i64(i64 %48, i64 0)
+48:                                               ; preds = %38, %7, %4
+  %49 = phi i64 [ 9223372036854775807, %4 ], [ 0, %7 ], [ %47, %38 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #16
   ret i64 %49
 }
@@ -5709,7 +5709,7 @@ define internal fastcc void @call_timer_fn(ptr noundef nonnull %0, ptr noundef n
   %48 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !72
   %49 = and i32 %48, 2147483647
   %50 = icmp eq i32 %5, %49
-  br i1 %50, label %.thread, label %51
+  br i1 %50, label %.critedge, label %51
 
 51:                                               ; preds = %47
   %52 = load i1, ptr @call_timer_fn.__already_done, align 1
@@ -5736,7 +5736,7 @@ define internal fastcc void @call_timer_fn(ptr noundef nonnull %0, ptr noundef n
   %62 = icmp ult i8 %61, 2
   tail call void @llvm.assume(i1 %62)
   %63 = icmp eq i8 %61, 0
-  br i1 %63, label %.lr.ph, label %.thread, !prof !141
+  br i1 %63, label %.lr.ph, label %.critedge, !prof !141
 
 .lr.ph:                                           ; preds = %56, %.lr.ph
   %64 = phi { i8, i32 } [ %68, %.lr.ph ], [ %60, %56 ]
@@ -5748,9 +5748,9 @@ define internal fastcc void @call_timer_fn(ptr noundef nonnull %0, ptr noundef n
   %70 = icmp ult i8 %69, 2
   tail call void @llvm.assume(i1 %70)
   %71 = icmp eq i8 %69, 0
-  br i1 %71, label %.lr.ph, label %.thread, !prof !142, !llvm.loop !143
+  br i1 %71, label %.lr.ph, label %.critedge, !prof !142, !llvm.loop !143
 
-.thread:                                          ; preds = %.lr.ph, %56, %47
+.critedge:                                        ; preds = %.lr.ph, %56, %47
   ret void
 }
 

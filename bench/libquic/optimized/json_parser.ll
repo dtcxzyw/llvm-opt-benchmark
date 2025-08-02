@@ -1458,7 +1458,7 @@ define void @_ZN4base8internal10JSONParser17ConsumeDictionaryEv(ptr dead_on_unwi
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %19, ptr %20, align 8, !tbaa !43
   store ptr null, ptr %0, align 8, !tbaa !37
-  br label %166
+  br label %182
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -1503,47 +1503,45 @@ define void @_ZN4base8internal10JSONParser17ConsumeDictionaryEv(ptr dead_on_unwi
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store ptr %46, ptr %6, align 8, !tbaa !30
   %47 = tail call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1)
-  %.promoted = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  br label %.backedge
+  br label %49
 
-.backedge:                                        ; preds = %.backedge.backedge, %41
-  %54 = phi ptr [ %.promoted, %41 ], [ %143, %.backedge.backedge ]
-  %.0 = phi i32 [ %47, %41 ], [ %.2.ph, %.backedge.backedge ]
-  switch i32 %.0, label %55 [
-    i32 1, label %157
+49:                                               ; preds = %41, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit47
+  %.0 = phi i32 [ %.2, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit47 ], [ %47, %41 ]
+  switch i32 %.0, label %50 [
+    i32 1, label %173
     i32 4, label %65
   ]
 
-55:                                               ; preds = %.backedge
-  store i32 8, ptr %49, align 8, !tbaa !40
-  %56 = load i32, ptr %50, align 8, !tbaa !33
-  store i32 %56, ptr %51, align 4, !tbaa !41
-  %57 = load i32, ptr %42, align 8, !tbaa !32
-  %58 = load i32, ptr %52, align 4, !tbaa !42
-  %59 = add i32 %57, 1
-  %60 = sub i32 %59, %58
-  store i32 %60, ptr %53, align 8, !tbaa !43
+50:                                               ; preds = %49
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i32 8, ptr %51, align 8, !tbaa !40
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %53 = load i32, ptr %52, align 8, !tbaa !33
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  store i32 %53, ptr %54, align 4, !tbaa !41
+  %55 = load i32, ptr %42, align 8, !tbaa !32
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %57 = load i32, ptr %56, align 4, !tbaa !42
+  %58 = add i32 %55, 1
+  %59 = sub i32 %58, %57
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i32 %59, ptr %60, align 8, !tbaa !43
   store ptr null, ptr %0, align 8, !tbaa !37
   br label %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i
 
 61:                                               ; preds = %38
   %62 = landingpad { ptr, i32 }
           cleanup
-  br label %161
+  br label %177
 
 63:                                               ; preds = %40
   %64 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %39) #24
-  br label %161
+  br label %177
 
-65:                                               ; preds = %.backedge
+65:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #21
   invoke void @_ZN4base8internal10JSONParser13StringBuilderC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %66 unwind label %69
@@ -1553,19 +1551,17 @@ define void @_ZN4base8internal10JSONParser17ConsumeDictionaryEv(ptr dead_on_unwi
           to label %68 unwind label %71
 
 68:                                               ; preds = %66
-  br i1 %67, label %73, label %.thread61
+  br i1 %67, label %73, label %.critedge
 
 69:                                               ; preds = %65
   %70 = landingpad { ptr, i32 }
           cleanup
-  store ptr %54, ptr %0, align 8
-  br label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit52
+  br label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit57
 
 71:                                               ; preds = %66
   %72 = landingpad { ptr, i32 }
           cleanup
-  store ptr %54, ptr %0, align 8
-  br label %153
+  br label %165
 
 73:                                               ; preds = %68
   %74 = load i32, ptr %42, align 8, !tbaa !32
@@ -1576,262 +1572,273 @@ define void @_ZN4base8internal10JSONParser17ConsumeDictionaryEv(ptr dead_on_unwi
   store ptr %77, ptr %6, align 8, !tbaa !30
   %78 = call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1)
   %.not28 = icmp eq i32 %78, 10
-  br i1 %.not28, label %85, label %79
+  br i1 %.not28, label %90, label %79
 
 79:                                               ; preds = %73
-  store i32 2, ptr %49, align 8, !tbaa !40
-  %80 = load i32, ptr %50, align 8, !tbaa !33
-  store i32 %80, ptr %51, align 4, !tbaa !41
-  %81 = load i32, ptr %42, align 8, !tbaa !32
-  %82 = load i32, ptr %52, align 4, !tbaa !42
-  %83 = add i32 %81, 1
-  %84 = sub i32 %83, %82
-  store i32 %84, ptr %53, align 8, !tbaa !43
-  br label %.thread61
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i32 2, ptr %80, align 8, !tbaa !40
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %82 = load i32, ptr %81, align 8, !tbaa !33
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  store i32 %82, ptr %83, align 4, !tbaa !41
+  %84 = load i32, ptr %42, align 8, !tbaa !32
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %86 = load i32, ptr %85, align 4, !tbaa !42
+  %87 = add i32 %84, 1
+  %88 = sub i32 %87, %86
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i32 %88, ptr %89, align 8, !tbaa !43
+  br label %.critedge
 
-85:                                               ; preds = %73
-  %86 = load i32, ptr %42, align 8, !tbaa !32
-  %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %42, align 8, !tbaa !32
-  %88 = load ptr, ptr %6, align 8, !tbaa !30
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
-  store ptr %89, ptr %6, align 8, !tbaa !30
+90:                                               ; preds = %73
+  %91 = load i32, ptr %42, align 8, !tbaa !32
+  %92 = add nsw i32 %91, 1
+  store i32 %92, ptr %42, align 8, !tbaa !32
+  %93 = load ptr, ptr %6, align 8, !tbaa !30
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
+  store ptr %94, ptr %6, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  %90 = call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1), !noalias !68
-  invoke void @_ZN4base8internal10JSONParser10ParseTokenENS1_5TokenE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(60) %1, i32 noundef %90)
-          to label %_ZN4base8internal10JSONParser14ParseNextTokenEv.exit unwind label %92
+  %95 = call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1), !noalias !68
+  invoke void @_ZN4base8internal10JSONParser10ParseTokenENS1_5TokenE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(60) %1, i32 noundef %95)
+          to label %_ZN4base8internal10JSONParser14ParseNextTokenEv.exit unwind label %97
 
-_ZN4base8internal10JSONParser14ParseNextTokenEv.exit: ; preds = %85
-  %91 = load ptr, ptr %4, align 8
-  %.not71 = icmp eq ptr %91, null
-  br i1 %.not71, label %.thread64, label %94
+_ZN4base8internal10JSONParser14ParseNextTokenEv.exit: ; preds = %90
+  %96 = load ptr, ptr %4, align 8
+  %.not67 = icmp eq ptr %96, null
+  br i1 %.not67, label %.critedge38.thread, label %99
 
-.thread64:                                        ; preds = %_ZN4base8internal10JSONParser14ParseNextTokenEv.exit
+.critedge38.thread:                               ; preds = %_ZN4base8internal10JSONParser14ParseNextTokenEv.exit
   store ptr null, ptr %0, align 8, !tbaa !37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  call void @_ZN4base8internal10JSONParser13StringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
-  br label %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i
+  br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit53
 
-92:                                               ; preds = %85
-  %93 = landingpad { ptr, i32 }
+97:                                               ; preds = %90
+  %98 = landingpad { ptr, i32 }
           cleanup
-  store ptr %54, ptr %0, align 8
-  br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit48
+  br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit50
 
-94:                                               ; preds = %_ZN4base8internal10JSONParser14ParseNextTokenEv.exit
-  %95 = ptrtoint ptr %91 to i64
-  %96 = load ptr, ptr %48, align 8, !tbaa !62
-  %.not.i = icmp eq ptr %96, null
-  br i1 %.not.i, label %97, label %_ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev.exit
+99:                                               ; preds = %_ZN4base8internal10JSONParser14ParseNextTokenEv.exit
+  %100 = ptrtoint ptr %96 to i64
+  %101 = load ptr, ptr %48, align 8, !tbaa !62
+  %.not.i = icmp eq ptr %101, null
+  br i1 %.not.i, label %102, label %_ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev.exit
 
-97:                                               ; preds = %94
+102:                                              ; preds = %99
   invoke void @_ZN4base8internal10JSONParser13StringBuilder7ConvertEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %.noexc unwind label %129
+          to label %.noexc unwind label %138
 
-.noexc:                                           ; preds = %97
+.noexc:                                           ; preds = %102
   %.pre.i = load ptr, ptr %48, align 8, !tbaa !62
   %.pre = load i64, ptr %4, align 8, !tbaa !50
   br label %_ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev.exit
 
-_ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev.exit: ; preds = %.noexc, %94
-  %98 = phi i64 [ %.pre, %.noexc ], [ %95, %94 ]
-  %99 = phi ptr [ %.pre.i, %.noexc ], [ %96, %94 ]
-  %100 = load ptr, ptr %99, align 8, !tbaa !24
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %102 = load i64, ptr %101, align 8, !tbaa !19
-  store i64 %98, ptr %5, align 8, !tbaa !50
+_ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev.exit: ; preds = %.noexc, %99
+  %103 = phi i64 [ %.pre, %.noexc ], [ %100, %99 ]
+  %104 = phi ptr [ %.pre.i, %.noexc ], [ %101, %99 ]
+  %105 = load ptr, ptr %104, align 8, !tbaa !24
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %107 = load i64, ptr %106, align 8, !tbaa !19
+  store i64 %103, ptr %5, align 8, !tbaa !50
   store ptr null, ptr %4, align 8, !tbaa !50
-  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr %100, i64 %102, ptr noundef nonnull %5)
-          to label %103 unwind label %131
+  invoke void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr %105, i64 %107, ptr noundef nonnull %5)
+          to label %108 unwind label %140
 
-103:                                              ; preds = %_ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev.exit
-  %104 = load ptr, ptr %5, align 8, !tbaa !50
-  %.not.i39 = icmp eq ptr %104, null
-  br i1 %.not.i39, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i
+108:                                              ; preds = %_ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev.exit
+  %109 = load ptr, ptr %5, align 8, !tbaa !50
+  %.not.i41 = icmp eq ptr %109, null
+  br i1 %.not.i41, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i: ; preds = %103
-  %105 = load ptr, ptr %104, align 8, !tbaa !51
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = load ptr, ptr %106, align 8
-  call void %107(ptr noundef nonnull align 8 dereferenceable(12) %104) #21
+_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i: ; preds = %108
+  %110 = load ptr, ptr %109, align 8, !tbaa !51
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8
+  call void %112(ptr noundef nonnull align 8 dereferenceable(12) %109) #21
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %103, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %108, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i
   store ptr null, ptr %5, align 8, !tbaa !50
-  %108 = load i32, ptr %42, align 8, !tbaa !32
-  %109 = add nsw i32 %108, 1
-  store i32 %109, ptr %42, align 8, !tbaa !32
-  %110 = load ptr, ptr %6, align 8, !tbaa !30
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1
-  store ptr %111, ptr %6, align 8, !tbaa !30
-  %112 = call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1)
-  switch i32 %112, label %137 [
-    i32 9, label %113
-    i32 1, label %142
+  %113 = load i32, ptr %42, align 8, !tbaa !32
+  %114 = add nsw i32 %113, 1
+  store i32 %114, ptr %42, align 8, !tbaa !32
+  %115 = load ptr, ptr %6, align 8, !tbaa !30
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 1
+  store ptr %116, ptr %6, align 8, !tbaa !30
+  %117 = call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1)
+  switch i32 %117, label %146 [
+    i32 9, label %118
+    i32 1, label %155
   ]
 
-113:                                              ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
-  %114 = load i32, ptr %42, align 8, !tbaa !32
-  %115 = add nsw i32 %114, 1
-  store i32 %115, ptr %42, align 8, !tbaa !32
-  %116 = load ptr, ptr %6, align 8, !tbaa !30
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 1
-  store ptr %117, ptr %6, align 8, !tbaa !30
-  %118 = call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1)
-  %119 = icmp eq i32 %118, 1
-  br i1 %119, label %120, label %142
+118:                                              ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
+  %119 = load i32, ptr %42, align 8, !tbaa !32
+  %120 = add nsw i32 %119, 1
+  store i32 %120, ptr %42, align 8, !tbaa !32
+  %121 = load ptr, ptr %6, align 8, !tbaa !30
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 1
+  store ptr %122, ptr %6, align 8, !tbaa !30
+  %123 = call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1)
+  %124 = icmp eq i32 %123, 1
+  br i1 %124, label %125, label %155
 
-120:                                              ; preds = %113
-  %121 = load i32, ptr %1, align 8, !tbaa !3
-  %122 = and i32 %121, 1
-  %.not36 = icmp eq i32 %122, 0
-  br i1 %.not36, label %123, label %142
+125:                                              ; preds = %118
+  %126 = load i32, ptr %1, align 8, !tbaa !3
+  %127 = and i32 %126, 1
+  %.not36 = icmp eq i32 %127, 0
+  br i1 %.not36, label %128, label %155
 
-123:                                              ; preds = %120
-  store i32 4, ptr %49, align 8, !tbaa !40
-  %124 = load i32, ptr %50, align 8, !tbaa !33
-  store i32 %124, ptr %51, align 4, !tbaa !41
-  %125 = load i32, ptr %42, align 8, !tbaa !32
-  %126 = load i32, ptr %52, align 4, !tbaa !42
-  %127 = add i32 %125, 1
-  %128 = sub i32 %127, %126
-  br label %.sink.split
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i32 4, ptr %129, align 8, !tbaa !40
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %131 = load i32, ptr %130, align 8, !tbaa !33
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  store i32 %131, ptr %132, align 4, !tbaa !41
+  %133 = load i32, ptr %42, align 8, !tbaa !32
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %135 = load i32, ptr %134, align 4, !tbaa !42
+  %136 = add i32 %133, 1
+  %137 = sub i32 %136, %135
+  br label %.critedge38
 
-129:                                              ; preds = %97
-  %130 = landingpad { ptr, i32 }
+138:                                              ; preds = %102
+  %139 = landingpad { ptr, i32 }
           cleanup
-  store ptr %54, ptr %0, align 8
-  br label %148
+  br label %160
 
-131:                                              ; preds = %_ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev.exit
-  %132 = landingpad { ptr, i32 }
+140:                                              ; preds = %_ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev.exit
+  %141 = landingpad { ptr, i32 }
           cleanup
-  store ptr %54, ptr %0, align 8
-  %133 = load ptr, ptr %5, align 8, !tbaa !50
-  %.not.i40 = icmp eq ptr %133, null
-  br i1 %.not.i40, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit42, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i41
+  %142 = load ptr, ptr %5, align 8, !tbaa !50
+  %.not.i42 = icmp eq ptr %142, null
+  br i1 %.not.i42, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit44, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i43
 
-_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i41: ; preds = %131
-  %134 = load ptr, ptr %133, align 8, !tbaa !51
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %136 = load ptr, ptr %135, align 8
-  call void %136(ptr noundef nonnull align 8 dereferenceable(12) %133) #21
-  br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit42
+_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i43: ; preds = %140
+  %143 = load ptr, ptr %142, align 8, !tbaa !51
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load ptr, ptr %144, align 8
+  call void %145(ptr noundef nonnull align 8 dereferenceable(12) %142) #21
+  br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit44
 
-_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit42: ; preds = %131, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i41
+_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit44: ; preds = %140, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i43
   store ptr null, ptr %5, align 8, !tbaa !50
-  br label %148
+  br label %160
 
-137:                                              ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
-  store i32 2, ptr %49, align 8, !tbaa !40
-  %138 = load i32, ptr %50, align 8, !tbaa !33
-  store i32 %138, ptr %51, align 4, !tbaa !41
-  %139 = load i32, ptr %42, align 8, !tbaa !32
-  %140 = load i32, ptr %52, align 4, !tbaa !42
-  %141 = sub i32 %139, %140
-  br label %.sink.split
+146:                                              ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i32 2, ptr %147, align 8, !tbaa !40
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %149 = load i32, ptr %148, align 8, !tbaa !33
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  store i32 %149, ptr %150, align 4, !tbaa !41
+  %151 = load i32, ptr %42, align 8, !tbaa !32
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %153 = load i32, ptr %152, align 4, !tbaa !42
+  %154 = sub i32 %151, %153
+  br label %.critedge38
 
-.sink.split:                                      ; preds = %123, %137
-  %.sink = phi i32 [ %141, %137 ], [ %128, %123 ]
-  %.2.ph.ph = phi i32 [ %112, %137 ], [ 1, %123 ]
-  store i32 %.sink, ptr %53, align 8, !tbaa !43
-  br label %142
+155:                                              ; preds = %125, %118, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
+  %.2 = phi i32 [ 1, %125 ], [ %123, %118 ], [ %117, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ]
+  %156 = load ptr, ptr %4, align 8, !tbaa !50
+  %.not.i45 = icmp eq ptr %156, null
+  br i1 %.not.i45, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit47, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i46
 
-142:                                              ; preds = %.sink.split, %120, %113, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
-  %143 = phi ptr [ %54, %120 ], [ %54, %113 ], [ %54, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ null, %.sink.split ]
-  %.ph = phi i1 [ true, %120 ], [ true, %113 ], [ true, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ false, %.sink.split ]
-  %.2.ph = phi i32 [ 1, %120 ], [ %118, %113 ], [ %112, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ %.2.ph.ph, %.sink.split ]
-  %.pr = load ptr, ptr %4, align 8, !tbaa !50
-  %.not.i43 = icmp eq ptr %.pr, null
-  br i1 %.not.i43, label %147, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i44
+_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i46: ; preds = %155
+  %157 = load ptr, ptr %156, align 8, !tbaa !51
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %159 = load ptr, ptr %158, align 8
+  call void %159(ptr noundef nonnull align 8 dereferenceable(12) %156) #21
+  br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit47
 
-_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i44: ; preds = %142
-  %144 = load ptr, ptr %.pr, align 8, !tbaa !51
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %146 = load ptr, ptr %145, align 8
-  call void %146(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #21
+_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit47: ; preds = %155, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
   call void @_ZN4base8internal10JSONParser13StringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
-  br i1 %.ph, label %.backedge.backedge, label %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i.loopexit
+  br label %49, !llvm.loop !71
 
-.thread61:                                        ; preds = %68, %79
+160:                                              ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit44, %138
+  %.pn = phi { ptr, i32 } [ %139, %138 ], [ %141, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit44 ]
+  %161 = load ptr, ptr %4, align 8, !tbaa !50
+  %.not.i48 = icmp eq ptr %161, null
+  br i1 %.not.i48, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit50, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i49
+
+_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i49: ; preds = %160
+  %162 = load ptr, ptr %161, align 8, !tbaa !51
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = load ptr, ptr %163, align 8
+  call void %164(ptr noundef nonnull align 8 dereferenceable(12) %161) #21
+  br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit50
+
+_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit50: ; preds = %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i49, %160, %97
+  %.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %.pn, %160 ], [ %.pn, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i49 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
+  br label %165
+
+165:                                              ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit50, %71
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit50 ], [ %72, %71 ]
+  call void @_ZN4base8internal10JSONParser13StringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
+  br label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit57
+
+_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit57: ; preds = %165, %69
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %165 ], [ %70, %69 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
+  %166 = load ptr, ptr %39, align 8, !tbaa !51
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
+  %168 = load ptr, ptr %167, align 8
+  call void %168(ptr noundef nonnull align 8 dereferenceable(64) %39) #21
+  br label %177
+
+.critedge:                                        ; preds = %68, %79
   store ptr null, ptr %0, align 8, !tbaa !37
   call void @_ZN4base8internal10JSONParser13StringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
   br label %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i
 
-147:                                              ; preds = %142
+.critedge38:                                      ; preds = %146, %128
+  %.sink = phi i32 [ %154, %146 ], [ %137, %128 ]
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i32 %.sink, ptr %169, align 8, !tbaa !43
+  store ptr null, ptr %0, align 8, !tbaa !37
+  %.pr = load ptr, ptr %4, align 8, !tbaa !50
+  %.not.i51 = icmp eq ptr %.pr, null
+  br i1 %.not.i51, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit53, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i52
+
+_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i52: ; preds = %.critedge38
+  %170 = load ptr, ptr %.pr, align 8, !tbaa !51
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %172 = load ptr, ptr %171, align 8
+  call void %172(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #21
+  br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit53
+
+_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit53: ; preds = %.critedge38.thread, %.critedge38, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
   call void @_ZN4base8internal10JSONParser13StringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
-  br i1 %.ph, label %.backedge.backedge, label %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i.loopexit
+  br label %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i
 
-.backedge.backedge:                               ; preds = %147, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i44
-  br label %.backedge, !llvm.loop !71
-
-148:                                              ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit42, %129
-  %.pn = phi { ptr, i32 } [ %130, %129 ], [ %132, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit42 ]
-  %149 = load ptr, ptr %4, align 8, !tbaa !50
-  %.not.i46 = icmp eq ptr %149, null
-  br i1 %.not.i46, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit48, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i47
-
-_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i47: ; preds = %148
-  %150 = load ptr, ptr %149, align 8, !tbaa !51
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  %152 = load ptr, ptr %151, align 8
-  call void %152(ptr noundef nonnull align 8 dereferenceable(12) %149) #21
-  br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit48
-
-_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit48: ; preds = %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i47, %148, %92
-  %.pn.pn = phi { ptr, i32 } [ %93, %92 ], [ %.pn, %148 ], [ %.pn, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  br label %153
-
-153:                                              ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit48, %71
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit48 ], [ %72, %71 ]
-  call void @_ZN4base8internal10JSONParser13StringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
-  br label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit52
-
-_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit52: ; preds = %153, %69
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %153 ], [ %70, %69 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
-  %154 = load ptr, ptr %39, align 8, !tbaa !51
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %156 = load ptr, ptr %155, align 8
-  call void %156(ptr noundef nonnull align 8 dereferenceable(64) %39) #21
-  br label %161
-
-157:                                              ; preds = %.backedge
+173:                                              ; preds = %49
   store ptr %39, ptr %0, align 8, !tbaa !37
   br label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit
 
-_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i.loopexit: ; preds = %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i44, %147
-  store ptr %143, ptr %0, align 8
-  br label %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i: ; preds = %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i.loopexit, %55, %.thread61, %.thread64
-  %158 = load ptr, ptr %39, align 8, !tbaa !51
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  %160 = load ptr, ptr %159, align 8
-  call void %160(ptr noundef nonnull align 8 dereferenceable(64) %39) #21
+_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i: ; preds = %50, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit53, %.critedge
+  %174 = load ptr, ptr %39, align 8, !tbaa !51
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %176 = load ptr, ptr %175, align 8
+  call void %176(ptr noundef nonnull align 8 dereferenceable(64) %39) #21
   br label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit
 
-161:                                              ; preds = %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit52, %63, %61
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit52 ], [ %64, %63 ], [ %62, %61 ]
-  %162 = load i32, ptr %22, align 4, !tbaa !67
-  %163 = add nsw i32 %162, -1
-  store i32 %163, ptr %22, align 4, !tbaa !67
+177:                                              ; preds = %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit57, %63, %61
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit57 ], [ %64, %63 ], [ %62, %61 ]
+  %178 = load i32, ptr %22, align 4, !tbaa !67
+  %179 = add nsw i32 %178, -1
+  store i32 %179, ptr %22, align 4, !tbaa !67
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 
-_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i, %157, %26
-  %164 = load i32, ptr %22, align 4, !tbaa !67
-  %165 = add nsw i32 %164, -1
-  store i32 %165, ptr %22, align 4, !tbaa !67
-  br label %166
+_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i, %173, %26
+  %180 = load i32, ptr %22, align 4, !tbaa !67
+  %181 = add nsw i32 %180, -1
+  store i32 %181, ptr %22, align 4, !tbaa !67
+  br label %182
 
-166:                                              ; preds = %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit, %9
+182:                                              ; preds = %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit, %9
   ret void
 }
 
@@ -1861,7 +1868,7 @@ define void @_ZN4base8internal10JSONParser11ConsumeListEv(ptr dead_on_unwind noa
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %18, ptr %19, align 8, !tbaa !43
   store ptr null, ptr %0, align 8, !tbaa !37
-  br label %115
+  br label %116
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -1891,11 +1898,11 @@ define void @_ZN4base8internal10JSONParser11ConsumeListEv(ptr dead_on_unwind noa
 
 37:                                               ; preds = %20
   %38 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-          to label %39 unwind label %56
+          to label %39 unwind label %49
 
 39:                                               ; preds = %37
   invoke void @_ZN4base9ListValueC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %38)
-          to label %40 unwind label %58
+          to label %40 unwind label %51
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1906,205 +1913,197 @@ define void @_ZN4base8internal10JSONParser11ConsumeListEv(ptr dead_on_unwind noa
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store ptr %45, ptr %5, align 8, !tbaa !30
   %46 = tail call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1)
-  %.not1964 = icmp eq i32 %46, 3
-  br i1 %.not1964, label %._crit_edge, label %.lr.ph
+  %.not1955 = icmp eq i32 %46, 3
+  br i1 %.not1955, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %40
-  %.promoted = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  br label %52
-
-52:                                               ; preds = %.lr.ph, %.backedge
-  %.065 = phi i32 [ %46, %.lr.ph ], [ %.1.ph, %.backedge ]
-  %53 = phi ptr [ %.promoted, %.lr.ph ], [ %97, %.backedge ]
+.lr.ph:                                           ; preds = %40, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit33
+  %.056 = phi i32 [ %.1, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit33 ], [ %46, %40 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
-  invoke void @_ZN4base8internal10JSONParser10ParseTokenENS1_5TokenE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(60) %1, i32 noundef %.065)
-          to label %54 unwind label %60
+  invoke void @_ZN4base8internal10JSONParser10ParseTokenENS1_5TokenE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(60) %1, i32 noundef %.056)
+          to label %47 unwind label %53
 
-54:                                               ; preds = %52
-  %55 = load ptr, ptr %3, align 8
-  %.not56 = icmp eq ptr %55, null
-  br i1 %.not56, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit33.thread, label %62
+47:                                               ; preds = %.lr.ph
+  %48 = load ptr, ptr %3, align 8
+  %.not51 = icmp eq ptr %48, null
+  br i1 %.not51, label %.critedge.thread, label %55
 
-_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit33.thread: ; preds = %54
+.critedge.thread:                                 ; preds = %47
   store ptr null, ptr %0, align 8, !tbaa !37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
   br label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i
 
-56:                                               ; preds = %37
-  %57 = landingpad { ptr, i32 }
+49:                                               ; preds = %37
+  %50 = landingpad { ptr, i32 }
           cleanup
-  br label %110
+  br label %111
 
-58:                                               ; preds = %39
-  %59 = landingpad { ptr, i32 }
+51:                                               ; preds = %39
+  %52 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %38) #24
-  br label %110
+  br label %111
 
-60:                                               ; preds = %52
-  %61 = landingpad { ptr, i32 }
+53:                                               ; preds = %.lr.ph
+  %54 = landingpad { ptr, i32 }
           cleanup
-  store ptr %53, ptr %0, align 8
-  br label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit40
+  br label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit43
 
-62:                                               ; preds = %54
-  %63 = ptrtoint ptr %55 to i64
-  store i64 %63, ptr %4, align 8, !tbaa !50
+55:                                               ; preds = %47
+  %56 = ptrtoint ptr %48 to i64
+  store i64 %56, ptr %4, align 8, !tbaa !50
   store ptr null, ptr %3, align 8, !tbaa !50
   invoke void @_ZN4base9ListValue6AppendESt10unique_ptrINS_5ValueESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull %4)
-          to label %64 unwind label %84
+          to label %57 unwind label %77
 
-64:                                               ; preds = %62
-  %65 = load ptr, ptr %4, align 8, !tbaa !50
-  %.not.i = icmp eq ptr %65, null
+57:                                               ; preds = %55
+  %58 = load ptr, ptr %4, align 8, !tbaa !50
+  %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i: ; preds = %64
-  %66 = load ptr, ptr %65, align 8, !tbaa !51
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load ptr, ptr %67, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(12) %65) #21
+_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i: ; preds = %57
+  %59 = load ptr, ptr %58, align 8, !tbaa !51
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load ptr, ptr %60, align 8
+  call void %61(ptr noundef nonnull align 8 dereferenceable(12) %58) #21
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %64, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %57, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i
   store ptr null, ptr %4, align 8, !tbaa !50
-  %69 = load i32, ptr %41, align 8, !tbaa !32
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %41, align 8, !tbaa !32
-  %71 = load ptr, ptr %5, align 8, !tbaa !30
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
-  store ptr %72, ptr %5, align 8, !tbaa !30
-  %73 = call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1)
-  switch i32 %73, label %.sink.split [
-    i32 9, label %74
-    i32 3, label %96
+  %62 = load i32, ptr %41, align 8, !tbaa !32
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %41, align 8, !tbaa !32
+  %64 = load ptr, ptr %5, align 8, !tbaa !30
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
+  store ptr %65, ptr %5, align 8, !tbaa !30
+  %66 = call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1)
+  switch i32 %66, label %.critedge [
+    i32 9, label %67
+    i32 3, label %84
   ]
 
-74:                                               ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
-  %75 = load i32, ptr %41, align 8, !tbaa !32
-  %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %41, align 8, !tbaa !32
-  %77 = load ptr, ptr %5, align 8, !tbaa !30
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
-  store ptr %78, ptr %5, align 8, !tbaa !30
-  %79 = call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1)
-  %80 = icmp eq i32 %79, 3
-  br i1 %80, label %81, label %96
+67:                                               ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
+  %68 = load i32, ptr %41, align 8, !tbaa !32
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %41, align 8, !tbaa !32
+  %70 = load ptr, ptr %5, align 8, !tbaa !30
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
+  store ptr %71, ptr %5, align 8, !tbaa !30
+  %72 = call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %1)
+  %73 = icmp eq i32 %72, 3
+  br i1 %73, label %74, label %84
 
-81:                                               ; preds = %74
-  %82 = load i32, ptr %1, align 8, !tbaa !3
-  %83 = and i32 %82, 1
-  %.not25 = icmp eq i32 %83, 0
-  br i1 %.not25, label %.sink.split, label %96
+74:                                               ; preds = %67
+  %75 = load i32, ptr %1, align 8, !tbaa !3
+  %76 = and i32 %75, 1
+  %.not25 = icmp eq i32 %76, 0
+  br i1 %.not25, label %.critedge, label %84
 
-84:                                               ; preds = %62
-  %85 = landingpad { ptr, i32 }
+77:                                               ; preds = %55
+  %78 = landingpad { ptr, i32 }
           cleanup
-  store ptr %53, ptr %0, align 8
-  %86 = load ptr, ptr %4, align 8, !tbaa !50
-  %.not.i28 = icmp eq ptr %86, null
+  %79 = load ptr, ptr %4, align 8, !tbaa !50
+  %.not.i28 = icmp eq ptr %79, null
   br i1 %.not.i28, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit30, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i29
 
-_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i29: ; preds = %84
-  %87 = load ptr, ptr %86, align 8, !tbaa !51
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(12) %86) #21
+_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i29: ; preds = %77
+  %80 = load ptr, ptr %79, align 8, !tbaa !51
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %82 = load ptr, ptr %81, align 8
+  call void %82(ptr noundef nonnull align 8 dereferenceable(12) %79) #21
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit30
 
-_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit30: ; preds = %84, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i29
+_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit30: ; preds = %77, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i29
   store ptr null, ptr %4, align 8, !tbaa !50
-  %90 = load ptr, ptr %3, align 8, !tbaa !50
-  %.not.i34 = icmp eq ptr %90, null
-  br i1 %.not.i34, label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit40, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i35
+  %83 = load ptr, ptr %3, align 8, !tbaa !50
+  %.not.i34 = icmp eq ptr %83, null
+  br i1 %.not.i34, label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit43, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i35
 
-.sink.split:                                      ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit, %81
-  %.sink = phi i32 [ 4, %81 ], [ 2, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ]
-  %.1.ph.ph = phi i32 [ 3, %81 ], [ %73, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ]
-  store i32 %.sink, ptr %47, align 8, !tbaa !40
-  %91 = load i32, ptr %48, align 8, !tbaa !33
-  store i32 %91, ptr %49, align 4, !tbaa !41
-  %92 = load i32, ptr %41, align 8, !tbaa !32
-  %93 = load i32, ptr %50, align 4, !tbaa !42
-  %94 = add i32 %92, 1
-  %95 = sub i32 %94, %93
-  store i32 %95, ptr %51, align 8, !tbaa !43
-  br label %96
-
-96:                                               ; preds = %.sink.split, %81, %74, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
-  %97 = phi ptr [ %53, %81 ], [ %53, %74 ], [ %53, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ null, %.sink.split ]
-  %cond.ph = phi i1 [ true, %81 ], [ true, %74 ], [ true, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ false, %.sink.split ]
-  %.1.ph = phi i32 [ 3, %81 ], [ %79, %74 ], [ %73, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ %.1.ph.ph, %.sink.split ]
-  %.pr = load ptr, ptr %3, align 8, !tbaa !50
-  %.not.i31 = icmp eq ptr %.pr, null
+84:                                               ; preds = %74, %67, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
+  %.1 = phi i32 [ 3, %74 ], [ %72, %67 ], [ %66, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ]
+  %85 = load ptr, ptr %3, align 8, !tbaa !50
+  %.not.i31 = icmp eq ptr %85, null
   br i1 %.not.i31, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit33, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i32
 
-_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i32: ; preds = %96
-  %98 = load ptr, ptr %.pr, align 8, !tbaa !51
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8
-  call void %100(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  br i1 %cond.ph, label %.backedge, label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i.loopexit
+_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i32: ; preds = %84
+  %86 = load ptr, ptr %85, align 8, !tbaa !51
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  call void %88(ptr noundef nonnull align 8 dereferenceable(12) %85) #21
+  br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit33
 
-_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit33: ; preds = %96
+_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit33: ; preds = %84, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  br i1 %cond.ph, label %.backedge, label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i.loopexit
-
-.backedge:                                        ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit33, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i32
-  %.not19 = icmp eq i32 %.1.ph, 3
-  br i1 %.not19, label %._crit_edge, label %52, !llvm.loop !72
+  %.not19 = icmp eq i32 %.1, 3
+  br i1 %.not19, label %.thread, label %.lr.ph, !llvm.loop !72
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i35: ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit30
-  %101 = load ptr, ptr %90, align 8, !tbaa !51
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %103 = load ptr, ptr %102, align 8
-  call void %103(ptr noundef nonnull align 8 dereferenceable(12) %90) #21
-  br label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit40
+  %89 = load ptr, ptr %83, align 8, !tbaa !51
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load ptr, ptr %90, align 8
+  call void %91(ptr noundef nonnull align 8 dereferenceable(12) %83) #21
+  br label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit43
 
-_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit40: ; preds = %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i35, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit30, %60
-  %.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %85, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit30 ], [ %85, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i35 ]
+_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit43: ; preds = %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i35, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit30, %53
+  %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %78, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit30 ], [ %78, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i35 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  %104 = load ptr, ptr %38, align 8, !tbaa !51
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %106 = load ptr, ptr %105, align 8
-  call void %106(ptr noundef nonnull align 8 dereferenceable(40) %38) #21
-  br label %110
+  %92 = load ptr, ptr %38, align 8, !tbaa !51
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = load ptr, ptr %93, align 8
+  call void %94(ptr noundef nonnull align 8 dereferenceable(40) %38) #21
+  br label %111
 
-._crit_edge:                                      ; preds = %.backedge, %40
+.thread:                                          ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit33, %40
   store ptr %38, ptr %0, align 8, !tbaa !37
   br label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit
 
-_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i.loopexit: ; preds = %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i32, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit33
-  store ptr %97, ptr %0, align 8
+.critedge:                                        ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit, %74
+  %.sink = phi i32 [ 4, %74 ], [ 2, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ]
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i32 %.sink, ptr %95, align 8, !tbaa !40
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %97 = load i32, ptr %96, align 8, !tbaa !33
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  store i32 %97, ptr %98, align 4, !tbaa !41
+  %99 = load i32, ptr %41, align 8, !tbaa !32
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %101 = load i32, ptr %100, align 4, !tbaa !42
+  %102 = add i32 %99, 1
+  %103 = sub i32 %102, %101
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i32 %103, ptr %104, align 8, !tbaa !43
+  store ptr null, ptr %0, align 8, !tbaa !37
+  %.pr = load ptr, ptr %3, align 8, !tbaa !50
+  %.not.i37 = icmp eq ptr %.pr, null
+  br i1 %.not.i37, label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i38
+
+_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i38: ; preds = %.critedge
+  %105 = load ptr, ptr %.pr, align 8, !tbaa !51
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %107 = load ptr, ptr %106, align 8
+  call void %107(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #21
   br label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i: ; preds = %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i.loopexit, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit33.thread
-  %107 = load ptr, ptr %38, align 8, !tbaa !51
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = load ptr, ptr %108, align 8
-  call void %109(ptr noundef nonnull align 8 dereferenceable(40) %38) #21
+_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i: ; preds = %.critedge.thread, %.critedge, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i38
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  %108 = load ptr, ptr %38, align 8, !tbaa !51
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %110 = load ptr, ptr %109, align 8
+  call void %110(ptr noundef nonnull align 8 dereferenceable(40) %38) #21
   br label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit
 
-110:                                              ; preds = %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit40, %58, %56
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit40 ], [ %59, %58 ], [ %57, %56 ]
-  %111 = load i32, ptr %21, align 4, !tbaa !67
-  %112 = add nsw i32 %111, -1
-  store i32 %112, ptr %21, align 4, !tbaa !67
+111:                                              ; preds = %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit43, %51, %49
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit43 ], [ %52, %51 ], [ %50, %49 ]
+  %112 = load i32, ptr %21, align 4, !tbaa !67
+  %113 = add nsw i32 %112, -1
+  store i32 %113, ptr %21, align 4, !tbaa !67
   resume { ptr, i32 } %.pn.pn.pn.pn
 
-_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i, %._crit_edge, %25
-  %113 = load i32, ptr %21, align 4, !tbaa !67
-  %114 = add nsw i32 %113, -1
-  store i32 %114, ptr %21, align 4, !tbaa !67
-  br label %115
+_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i, %.thread, %25
+  %114 = load i32, ptr %21, align 4, !tbaa !67
+  %115 = add nsw i32 %114, -1
+  store i32 %115, ptr %21, align 4, !tbaa !67
+  br label %116
 
-115:                                              ; preds = %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit, %8
+116:                                              ; preds = %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit, %8
   ret void
 }
 

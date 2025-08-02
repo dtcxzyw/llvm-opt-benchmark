@@ -3319,8 +3319,8 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   call void @llvm.experimental.noalias.scope.decl(metadata !1036)
   call void @llvm.experimental.noalias.scope.decl(metadata !1039)
   %.idx = mul nuw nsw i64 %168, 48
-  %178 = getelementptr i8, ptr %163, i64 1624
-  %179 = getelementptr i8, ptr %178, i64 %.idx
+  %178 = getelementptr inbounds nuw i8, ptr %163, i64 1624
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx
   %180 = load i64, ptr %179, align 8, !alias.scope !1039, !noalias !1036, !noundef !16
   %181 = add i64 %180, %.val38
   store i64 %181, ptr %12, align 8, !alias.scope !1041, !noalias !1039

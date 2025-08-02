@@ -1211,7 +1211,7 @@ define internal fastcc noundef ptr @make_path_rowexpr(ptr noundef readonly captu
   store i32 -1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph46
+  br i1 %.not, label %.critedge, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1223,10 +1223,7 @@ define internal fastcc noundef ptr @make_path_rowexpr(ptr noundef readonly captu
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load i32, ptr %7, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph57, label %._crit_edge
-
-._crit_edge:                                      ; preds = %.critedge40, %.lr.ph46, %2
-  ret ptr %3
+  br i1 %16, label %.lr.ph57, label %.critedge
 
 .lr.ph57:                                         ; preds = %.lr.ph46, %.critedge40
   %indvars.iv5156 = phi i64 [ %indvars.iv.next52, %.critedge40 ], [ 0, %.lr.ph46 ]
@@ -1251,33 +1248,36 @@ list_length.exit.lr.ph:                           ; preds = %.lr.ph57
   %wide.trip.count = zext nneg i32 %24 to i64
   br label %27
 
-27:                                               ; preds = %.lr.ph, %.critedge
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
+.critedge:                                        ; preds = %.critedge40, %.lr.ph46, %2
+  ret ptr %3
+
+27:                                               ; preds = %.lr.ph, %.critedge36
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge36 ]
   %28 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %31) #6
   %.not34 = icmp eq i32 %32, 0
-  br i1 %.not34, label %.split, label %.critedge
+  br i1 %.not34, label %.split, label %.critedge36
 
 .split:                                           ; preds = %27
   %33 = trunc i64 %indvars.iv to i16
   %34 = add i16 %33, 1
   %35 = load ptr, ptr %10, align 8
   %36 = getelementptr i8, ptr %35, i64 16
-  %.val36 = load ptr, ptr %36, align 8
-  %37 = getelementptr inbounds nuw %union.ListCell, ptr %.val36, i64 %indvars.iv
+  %.val38 = load ptr, ptr %36, align 8
+  %37 = getelementptr inbounds nuw %union.ListCell, ptr %.val38, i64 %indvars.iv
   %38 = load i32, ptr %37, align 8
   %39 = load ptr, ptr %11, align 8
   %40 = getelementptr i8, ptr %39, i64 16
-  %.val37 = load ptr, ptr %40, align 8
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %.val37, i64 %indvars.iv
+  %.val39 = load ptr, ptr %40, align 8
+  %41 = getelementptr inbounds nuw %union.ListCell, ptr %.val39, i64 %indvars.iv
   %42 = load i32, ptr %41, align 8
   %43 = load ptr, ptr %12, align 8
   %44 = getelementptr i8, ptr %43, i64 16
-  %.val35 = load ptr, ptr %44, align 8
-  %45 = getelementptr inbounds nuw %union.ListCell, ptr %.val35, i64 %indvars.iv
+  %.val37 = load ptr, ptr %44, align 8
+  %45 = getelementptr inbounds nuw %union.ListCell, ptr %.val37, i64 %indvars.iv
   %46 = load i32, ptr %45, align 8
   %47 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %34, i32 noundef %38, i32 noundef %42, i32 noundef %46, i32 noundef 0) #5
   %48 = load ptr, ptr %13, align 8
@@ -1289,17 +1289,17 @@ list_length.exit.lr.ph:                           ; preds = %.lr.ph57
   store ptr %52, ptr %14, align 8
   br label %.critedge40
 
-.critedge:                                        ; preds = %27
+.critedge36:                                      ; preds = %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge40, label %27
 
-.critedge40:                                      ; preds = %.critedge, %.lr.ph57, %list_length.exit.lr.ph, %.split
+.critedge40:                                      ; preds = %.critedge36, %.lr.ph57, %list_length.exit.lr.ph, %.split
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv5156, 1
   %53 = load i32, ptr %7, align 4
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next52, %54
-  br i1 %55, label %.lr.ph57, label %._crit_edge
+  br i1 %55, label %.lr.ph57, label %.critedge
 }
 
 declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #1

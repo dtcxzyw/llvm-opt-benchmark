@@ -192,8 +192,8 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   %19 = zext nneg i32 %3 to i64
   br label %20
 
-20:                                               ; preds = %170, %18
-  %21 = phi i64 [ 0, %18 ], [ %171, %170 ]
+20:                                               ; preds = %.critedge, %18
+  %21 = phi i64 [ 0, %18 ], [ %171, %.critedge ]
   %22 = getelementptr %struct.property_entry, ptr %14, i64 %21
   %23 = getelementptr %struct.property_entry, ptr %0, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -206,40 +206,40 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 
 30:                                               ; preds = %20
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  br i1 %29, label %.thread68, label %36
+  br i1 %29, label %.thread69, label %36
 
-.thread68:                                        ; preds = %30
+.thread69:                                        ; preds = %30
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %34 = load i32, ptr %33, align 4
   br label %41
 
 35:                                               ; preds = %20
-  br i1 %29, label %.loopexit24, label %.thread12
+  br i1 %29, label %.loopexit23, label %.thread14
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %38 = load i32, ptr %37, align 4
-  %.not91 = icmp eq i32 %38, 5
-  br i1 %.not91, label %.loopexit24, label %41
+  %.not92 = icmp eq i32 %38, 5
+  br i1 %.not92, label %.loopexit23, label %41
 
-.thread12:                                        ; preds = %35
+.thread14:                                        ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %40 = load i32, ptr %39, align 4
-  %.not19 = icmp eq i32 %40, 5
-  br i1 %.not19, label %.loopexit24, label %.thread13
+  %.not18 = icmp eq i32 %40, 5
+  br i1 %.not18, label %.loopexit23, label %.thread15
 
-41:                                               ; preds = %.thread68, %36
-  %42 = phi i32 [ %34, %.thread68 ], [ %38, %36 ]
-  %43 = phi ptr [ %33, %.thread68 ], [ %37, %36 ]
-  %.ph70 = phi ptr [ %32, %.thread68 ], [ %31, %36 ]
+41:                                               ; preds = %.thread69, %36
+  %42 = phi i32 [ %34, %.thread69 ], [ %38, %36 ]
+  %43 = phi ptr [ %33, %.thread69 ], [ %37, %36 ]
+  %.ph71 = phi ptr [ %32, %.thread69 ], [ %31, %36 ]
   %44 = icmp ult i64 %25, 9
-  br i1 %44, label %.thread13, label %50
+  br i1 %44, label %.thread15, label %50
 
-.thread13:                                        ; preds = %.thread12, %41
-  %45 = phi i32 [ %42, %41 ], [ %40, %.thread12 ]
-  %46 = phi ptr [ %.ph70, %41 ], [ null, %.thread12 ]
-  %47 = phi ptr [ %43, %41 ], [ %39, %.thread12 ]
+.thread15:                                        ; preds = %.thread14, %41
+  %45 = phi i32 [ %42, %41 ], [ %40, %.thread14 ]
+  %46 = phi ptr [ %.ph71, %41 ], [ null, %.thread14 ]
+  %47 = phi ptr [ %43, %41 ], [ %39, %.thread14 ]
   %48 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 1, ptr %49, align 8
@@ -248,30 +248,30 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 50:                                               ; preds = %41
   %51 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %25, i32 noundef 3264) #13
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.loopexit24, label %53
+  br i1 %52, label %.loopexit23, label %53
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %51, ptr %54, align 8
   %.pre = load i32, ptr %43, align 4
-  %.pre65 = load i64, ptr %24, align 8
+  %.pre66 = load i64, ptr %24, align 8
   br label %55
 
-55:                                               ; preds = %53, %.thread13
-  %56 = phi i64 [ %25, %.thread13 ], [ %.pre65, %53 ]
-  %57 = phi i32 [ %45, %.thread13 ], [ %.pre, %53 ]
-  %58 = phi ptr [ %46, %.thread13 ], [ %.ph70, %53 ]
-  %59 = phi ptr [ %47, %.thread13 ], [ %43, %53 ]
-  %60 = phi ptr [ %48, %.thread13 ], [ %51, %53 ]
+55:                                               ; preds = %53, %.thread15
+  %56 = phi i64 [ %25, %.thread15 ], [ %.pre66, %53 ]
+  %57 = phi i32 [ %45, %.thread15 ], [ %.pre, %53 ]
+  %58 = phi ptr [ %46, %.thread15 ], [ %.ph71, %53 ]
+  %59 = phi ptr [ %47, %.thread15 ], [ %43, %53 ]
+  %60 = phi ptr [ %48, %.thread15 ], [ %51, %53 ]
   %61 = icmp eq i32 %57, 4
   br i1 %61, label %62, label %97
 
 62:                                               ; preds = %55
   %63 = lshr i64 %56, 3
   %64 = icmp ult i64 %56, 8
-  br i1 %64, label %.loopexit23, label %.preheader22
+  br i1 %64, label %.loopexit22, label %.preheader21
 
-.preheader22:                                     ; preds = %62, %88
+.preheader21:                                     ; preds = %62, %88
   %65 = phi i32 [ %91, %88 ], [ -1, %62 ]
   %66 = phi i64 [ %90, %88 ], [ 0, %62 ]
   %67 = phi i32 [ %89, %88 ], [ 0, %62 ]
@@ -283,7 +283,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   %72 = icmp eq ptr %70, null
   br i1 %72, label %73, label %88
 
-73:                                               ; preds = %.preheader22
+73:                                               ; preds = %.preheader21
   %74 = load ptr, ptr %68, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %88, label %76
@@ -291,7 +291,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 76:                                               ; preds = %73
   %77 = add i32 %67, -1
   %78 = icmp sgt i32 %77, -1
-  br i1 %78, label %79, label %.critedge
+  br i1 %78, label %79, label %.critedge12
 
 79:                                               ; preds = %76
   %80 = zext i32 %65 to i64
@@ -305,36 +305,36 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   %85 = add nsw i64 %82, -1
   %86 = trunc i64 %82 to i32
   %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %81, label %.critedge, !llvm.loop !12
+  br i1 %87, label %81, label %.critedge12, !llvm.loop !12
 
-88:                                               ; preds = %73, %.preheader22
+88:                                               ; preds = %73, %.preheader21
   %89 = add i32 %67, 1
   %90 = sext i32 %89 to i64
   %.not = icmp ugt i64 %63, %90
   %91 = add i32 %65, 1
-  br i1 %.not, label %.preheader22, label %.loopexit23.loopexit, !llvm.loop !13
+  br i1 %.not, label %.preheader21, label %.loopexit22.loopexit, !llvm.loop !13
 
-.critedge:                                        ; preds = %81, %76
+.critedge12:                                      ; preds = %81, %76
   %92 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %93 = load i8, ptr %92, align 8, !range !10, !noundef !11
   %94 = icmp eq i8 %93, 0
-  br i1 %94, label %95, label %.loopexit24
+  br i1 %94, label %95, label %.loopexit23
 
-95:                                               ; preds = %.critedge
+95:                                               ; preds = %.critedge12
   %96 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %.pre67 = load ptr, ptr %96, align 8
+  %.pre68 = load ptr, ptr %96, align 8
   br label %130
 
 97:                                               ; preds = %55
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr align 1 %58, i64 %56, i1 false)
-  br label %.loopexit23
+  br label %.loopexit22
 
-.loopexit23.loopexit:                             ; preds = %88
-  %.pre66 = load i64, ptr %24, align 8
-  br label %.loopexit23
+.loopexit22.loopexit:                             ; preds = %88
+  %.pre67 = load i64, ptr %24, align 8
+  br label %.loopexit22
 
-.loopexit23:                                      ; preds = %.loopexit23.loopexit, %62, %97
-  %98 = phi i64 [ %.pre66, %.loopexit23.loopexit ], [ %56, %62 ], [ %56, %97 ]
+.loopexit22:                                      ; preds = %.loopexit22.loopexit, %62, %97
+  %98 = phi i64 [ %.pre67, %.loopexit22.loopexit ], [ %56, %62 ], [ %56, %97 ]
   %99 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %98, ptr %99, align 8
   %100 = load i32, ptr %59, align 4
@@ -344,13 +344,13 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   %103 = tail call noalias ptr @kstrdup(ptr noundef %102, i32 noundef 3264) #12
   store ptr %103, ptr %22, align 8
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %105, label %170
+  br i1 %104, label %105, label %.critedge
 
-105:                                              ; preds = %.loopexit23
+105:                                              ; preds = %.loopexit22
   %106 = icmp ne i32 %100, 4
   %107 = icmp eq i64 %98, 0
   %or.cond = select i1 %106, i1 true, i1 %107
-  br i1 %or.cond, label %.thread14, label %108
+  br i1 %or.cond, label %.thread16, label %108
 
 108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -367,116 +367,116 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   %116 = phi ptr [ %114, %113 ], [ %112, %108 ]
   %117 = lshr i64 %98, 3
   %118 = icmp ult i64 %98, 8
-  br i1 %118, label %.thread14, label %.preheader21
+  br i1 %118, label %.thread16, label %.preheader20
 
-.preheader21:                                     ; preds = %115, %.preheader21
-  %119 = phi i64 [ %122, %.preheader21 ], [ 0, %115 ]
+.preheader20:                                     ; preds = %115, %.preheader20
+  %119 = phi i64 [ %122, %.preheader20 ], [ 0, %115 ]
   %120 = getelementptr ptr, ptr %116, i64 %119
   %121 = load ptr, ptr %120, align 8
   tail call void @kfree(ptr noundef %121) #12
   %122 = add nuw nsw i64 %119, 1
   %123 = icmp eq i64 %122, %117
-  br i1 %123, label %.thread14, label %.preheader21, !llvm.loop !14
+  br i1 %123, label %.thread16, label %.preheader20, !llvm.loop !14
 
-.thread14:                                        ; preds = %.preheader21, %115, %105
+.thread16:                                        ; preds = %.preheader20, %115, %105
   %124 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %125 = load i8, ptr %124, align 8, !range !10, !noundef !11
   %126 = icmp eq i8 %125, 0
   br i1 %126, label %127, label %130
 
-127:                                              ; preds = %.thread14
+127:                                              ; preds = %.thread16
   %128 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %129 = load ptr, ptr %128, align 8
   tail call void @kfree(ptr noundef %129) #12
   br label %130
 
-130:                                              ; preds = %127, %.thread14, %95
-  %131 = phi ptr [ %.pre67, %95 ], [ null, %127 ], [ null, %.thread14 ]
+130:                                              ; preds = %127, %.thread16, %95
+  %131 = phi ptr [ %.pre68, %95 ], [ null, %127 ], [ null, %.thread16 ]
   tail call void @kfree(ptr noundef %131) #12
-  br label %.loopexit24
+  br label %.loopexit23
 
-.loopexit24:                                      ; preds = %50, %35, %36, %.thread12, %.critedge, %130
-  %.ph16 = phi i64 [ -12, %130 ], [ -12, %.critedge ], [ -12, %50 ], [ -61, %35 ], [ -22, %36 ], [ -22, %.thread12 ]
-  %132 = trunc i64 %21 to i32
-  %133 = add i32 %132, -1
-  %134 = icmp sgt i32 %133, -1
-  br i1 %134, label %.preheader20.preheader, label %.loopexit
+.loopexit23:                                      ; preds = %.thread14, %35, %36, %50, %.critedge12, %130
+  %132 = phi i64 [ -12, %.critedge12 ], [ -12, %130 ], [ -22, %.thread14 ], [ -22, %36 ], [ -61, %35 ], [ -12, %50 ]
+  %133 = trunc i64 %21 to i32
+  %134 = add i32 %133, -1
+  %135 = icmp sgt i32 %134, -1
+  br i1 %135, label %.preheader19.preheader, label %.loopexit
 
-.preheader20.preheader:                           ; preds = %.loopexit24
-  %135 = zext nneg i32 %133 to i64
-  br label %.preheader20
+.preheader19.preheader:                           ; preds = %.loopexit23
+  %136 = zext nneg i32 %134 to i64
+  br label %.preheader19
 
-.preheader20:                                     ; preds = %.preheader20.preheader, %166
-  %indvars.iv = phi i64 [ %135, %.preheader20.preheader ], [ %indvars.iv.next, %166 ]
-  %136 = getelementptr %struct.property_entry, ptr %14, i64 %indvars.iv
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 20
-  %138 = load i32, ptr %137, align 4
-  %139 = icmp eq i32 %138, 4
-  br i1 %139, label %140, label %.thread18
+.preheader19:                                     ; preds = %.preheader19.preheader, %167
+  %indvars.iv = phi i64 [ %136, %.preheader19.preheader ], [ %indvars.iv.next, %167 ]
+  %137 = getelementptr %struct.property_entry, ptr %14, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 20
+  %139 = load i32, ptr %138, align 4
+  %140 = icmp eq i32 %139, 4
+  br i1 %140, label %141, label %.thread17
 
-140:                                              ; preds = %.preheader20
-  %141 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %142 = load i64, ptr %141, align 8
-  %143 = icmp eq i64 %142, 0
-  br i1 %143, label %.thread18, label %144
+141:                                              ; preds = %.preheader19
+  %142 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %143 = load i64, ptr %142, align 8
+  %144 = icmp eq i64 %143, 0
+  br i1 %144, label %.thread17, label %145
 
-144:                                              ; preds = %140
-  %145 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %146 = load i8, ptr %145, align 8, !range !10, !noundef !11
-  %147 = icmp eq i8 %146, 0
-  %148 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  br i1 %147, label %149, label %151
+145:                                              ; preds = %141
+  %146 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %147 = load i8, ptr %146, align 8, !range !10, !noundef !11
+  %148 = icmp eq i8 %147, 0
+  %149 = getelementptr inbounds nuw i8, ptr %137, i64 24
+  br i1 %148, label %150, label %152
 
-149:                                              ; preds = %144
-  %150 = load ptr, ptr %148, align 8
-  br label %151
+150:                                              ; preds = %145
+  %151 = load ptr, ptr %149, align 8
+  br label %152
 
-151:                                              ; preds = %149, %144
-  %152 = phi ptr [ %150, %149 ], [ %148, %144 ]
-  %153 = lshr i64 %142, 3
-  %154 = icmp ult i64 %142, 8
-  br i1 %154, label %.thread18, label %.preheader
+152:                                              ; preds = %150, %145
+  %153 = phi ptr [ %151, %150 ], [ %149, %145 ]
+  %154 = lshr i64 %143, 3
+  %155 = icmp ult i64 %143, 8
+  br i1 %155, label %.thread17, label %.preheader
 
-.preheader:                                       ; preds = %151, %.preheader
-  %155 = phi i64 [ %158, %.preheader ], [ 0, %151 ]
-  %156 = getelementptr ptr, ptr %152, i64 %155
-  %157 = load ptr, ptr %156, align 8
-  tail call void @kfree(ptr noundef %157) #12
-  %158 = add nuw nsw i64 %155, 1
-  %159 = icmp eq i64 %158, %153
-  br i1 %159, label %.thread18, label %.preheader, !llvm.loop !14
+.preheader:                                       ; preds = %152, %.preheader
+  %156 = phi i64 [ %159, %.preheader ], [ 0, %152 ]
+  %157 = getelementptr ptr, ptr %153, i64 %156
+  %158 = load ptr, ptr %157, align 8
+  tail call void @kfree(ptr noundef %158) #12
+  %159 = add nuw nsw i64 %156, 1
+  %160 = icmp eq i64 %159, %154
+  br i1 %160, label %.thread17, label %.preheader, !llvm.loop !14
 
-.thread18:                                        ; preds = %.preheader, %140, %151, %.preheader20
-  %160 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %161 = load i8, ptr %160, align 8, !range !10, !noundef !11
-  %162 = icmp eq i8 %161, 0
-  br i1 %162, label %163, label %166
+.thread17:                                        ; preds = %.preheader, %141, %152, %.preheader19
+  %161 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %162 = load i8, ptr %161, align 8, !range !10, !noundef !11
+  %163 = icmp eq i8 %162, 0
+  br i1 %163, label %164, label %167
 
-163:                                              ; preds = %.thread18
-  %164 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %165 = load ptr, ptr %164, align 8
-  tail call void @kfree(ptr noundef %165) #12
-  br label %166
+164:                                              ; preds = %.thread17
+  %165 = getelementptr inbounds nuw i8, ptr %137, i64 24
+  %166 = load ptr, ptr %165, align 8
+  tail call void @kfree(ptr noundef %166) #12
+  br label %167
 
-166:                                              ; preds = %163, %.thread18
-  %167 = load ptr, ptr %136, align 8
-  tail call void @kfree(ptr noundef %167) #12
+167:                                              ; preds = %164, %.thread17
+  %168 = load ptr, ptr %137, align 8
+  tail call void @kfree(ptr noundef %168) #12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %168 = icmp sgt i64 %indvars.iv, 0
-  br i1 %168, label %.preheader20, label %.loopexit, !llvm.loop !15
+  %169 = icmp sgt i64 %indvars.iv, 0
+  br i1 %169, label %.preheader19, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %166, %.loopexit24
+.loopexit:                                        ; preds = %167, %.loopexit23
   tail call void @kfree(ptr noundef nonnull %14) #12
-  %169 = inttoptr i64 %.ph16 to ptr
+  %170 = inttoptr i64 %132 to ptr
   br label %.thread
 
-170:                                              ; preds = %.loopexit23
+.critedge:                                        ; preds = %.loopexit22
   %171 = add nuw nsw i64 %21, 1
   %172 = icmp eq i64 %171, %19
   br i1 %172, label %.thread, label %20, !llvm.loop !16
 
-.thread:                                          ; preds = %170, %9, %.loopexit, %16, %11, %1
-  %173 = phi ptr [ %169, %.loopexit ], [ null, %1 ], [ inttoptr (i64 -12 to ptr), %11 ], [ %14, %16 ], [ inttoptr (i64 -12 to ptr), %9 ], [ %14, %170 ]
+.thread:                                          ; preds = %.critedge, %9, %.loopexit, %16, %11, %1
+  %173 = phi ptr [ %170, %.loopexit ], [ null, %1 ], [ inttoptr (i64 -12 to ptr), %11 ], [ %14, %16 ], [ inttoptr (i64 -12 to ptr), %9 ], [ %14, %.critedge ]
   ret ptr %173
 }
 

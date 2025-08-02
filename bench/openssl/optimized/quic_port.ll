@@ -1369,179 +1369,179 @@ define internal void @port_default_packet_handler(ptr noundef %0, ptr noundef %1
   br i1 %.not.not, label %16, label %PACKET_buf_init.exit.thread
 
 16:                                               ; preds = %3
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 296
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   store ptr null, ptr %4, align 8, !tbaa !199
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !200
-  %19 = icmp ult i64 %18, 21
-  br i1 %19, label %port_try_handle_stateless_reset.exit.thread, label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = load i64, ptr %18, align 8, !tbaa !200
+  %20 = icmp ult i64 %19, 21
+  br i1 %20, label %port_try_handle_stateless_reset.exit.thread, label %21
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %22 = load i8, ptr %21, align 1, !tbaa !198
+21:                                               ; preds = %16
+  %22 = load i8, ptr %17, align 1, !tbaa !198
   %23 = and i8 %22, 64
   %.not.not.i = icmp eq i8 %23, 0
   br i1 %.not.not.i, label %port_try_handle_stateless_reset.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %20
+.preheader.i:                                     ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %invariant.gep.i = getelementptr i8, ptr %0, i64 280
   %25 = load ptr, ptr %24, align 8, !tbaa !47
-  %gep10.i = getelementptr i8, ptr %invariant.gep.i, i64 %18
-  %26 = call i32 @ossl_quic_srtm_lookup(ptr noundef %25, ptr noundef nonnull %gep10.i, i64 noundef 0, ptr noundef nonnull %4, ptr noundef null) #11
-  %.not11.i = icmp eq i32 %26, 0
-  br i1 %.not11.i, label %port_try_handle_stateless_reset.exit.thread, label %.lr.ph.i
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 %19
+  %27 = getelementptr inbounds i8, ptr %26, i64 -16
+  %28 = call i32 @ossl_quic_srtm_lookup(ptr noundef %25, ptr noundef nonnull %27, i64 noundef 0, ptr noundef nonnull %4, ptr noundef null) #11
+  %.not10.i = icmp eq i32 %28, 0
+  br i1 %.not10.i, label %port_try_handle_stateless_reset.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.0912.i = phi i64 [ %28, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %27 = load ptr, ptr %4, align 8, !tbaa !199
-  call void @ossl_quic_channel_on_stateless_reset(ptr noundef %27) #11
-  %28 = add i64 %.0912.i, 1
-  %29 = load ptr, ptr %24, align 8, !tbaa !47
-  %30 = load i64, ptr %17, align 8, !tbaa !200
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %30
-  %31 = call i32 @ossl_quic_srtm_lookup(ptr noundef %29, ptr noundef nonnull %gep.i, i64 noundef %28, ptr noundef nonnull %4, ptr noundef null) #11
-  %.not.i = icmp eq i32 %31, 0
+  %.0911.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %29 = load ptr, ptr %4, align 8, !tbaa !199
+  call void @ossl_quic_channel_on_stateless_reset(ptr noundef %29) #11
+  %30 = add i64 %.0911.i, 1
+  %31 = load ptr, ptr %24, align 8, !tbaa !47
+  %32 = load i64, ptr %18, align 8, !tbaa !200
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 %32
+  %34 = getelementptr inbounds i8, ptr %33, i64 -16
+  %35 = call i32 @ossl_quic_srtm_lookup(ptr noundef %31, ptr noundef nonnull %34, i64 noundef %30, ptr noundef nonnull %4, ptr noundef null) #11
+  %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %port_try_handle_stateless_reset.exit, label %.lr.ph.i
 
-port_try_handle_stateless_reset.exit.thread:      ; preds = %20, %16, %.preheader.i
+port_try_handle_stateless_reset.exit.thread:      ; preds = %21, %16, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  br label %32
+  br label %36
 
 port_try_handle_stateless_reset.exit:             ; preds = %.lr.ph.i
-  %.not = icmp eq i64 %28, 0
+  %.not = icmp eq i64 %30, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  br i1 %.not, label %32, label %PACKET_buf_init.exit.thread
+  br i1 %.not, label %36, label %PACKET_buf_init.exit.thread
 
-32:                                               ; preds = %port_try_handle_stateless_reset.exit.thread, %port_try_handle_stateless_reset.exit
+36:                                               ; preds = %port_try_handle_stateless_reset.exit.thread, %port_try_handle_stateless_reset.exit
   %.not33 = icmp eq ptr %2, null
-  br i1 %.not33, label %39, label %33
+  br i1 %.not33, label %43, label %37
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %35 = load ptr, ptr %34, align 8, !tbaa !48
-  %36 = call i32 @ossl_quic_lcidm_lookup(ptr noundef %35, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %7) #11
-  %.not34 = icmp eq i32 %36, 0
-  br i1 %.not34, label %39, label %37
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %39 = load ptr, ptr %38, align 8, !tbaa !48
+  %40 = call i32 @ossl_quic_lcidm_lookup(ptr noundef %39, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %7) #11
+  %.not34 = icmp eq i32 %40, 0
+  br i1 %.not34, label %43, label %41
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %7, align 8, !tbaa !61
-  call void @ossl_quic_channel_inject(ptr noundef %38, ptr noundef nonnull %0) #11
-  br label %93
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %7, align 8, !tbaa !61
+  call void @ossl_quic_channel_inject(ptr noundef %42, ptr noundef nonnull %0) #11
+  br label %96
 
-39:                                               ; preds = %33, %32
-  %40 = load i16, ptr %13, align 2
-  %41 = and i16 %40, 16
-  %.not35 = icmp eq i16 %41, 0
-  br i1 %.not35, label %PACKET_buf_init.exit.thread, label %42
+43:                                               ; preds = %37, %36
+  %44 = load i16, ptr %13, align 2
+  %45 = and i16 %44, 16
+  %.not35 = icmp eq i16 %45, 0
+  br i1 %.not35, label %PACKET_buf_init.exit.thread, label %46
 
-42:                                               ; preds = %39
-  %43 = load i64, ptr %17, align 8, !tbaa !200
-  %or.cond47 = icmp slt i64 %43, 1200
-  br i1 %or.cond47, label %PACKET_buf_init.exit.thread, label %44
+46:                                               ; preds = %43
+  %47 = load i64, ptr %18, align 8, !tbaa !200
+  %or.cond47 = icmp slt i64 %47, 1200
+  br i1 %or.cond47, label %PACKET_buf_init.exit.thread, label %48
 
-44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store ptr %45, ptr %5, align 8, !tbaa !204
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %43, ptr %46, align 8, !tbaa !206
-  %47 = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %5, i64 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %12) #11
-  %.not37 = icmp eq i32 %47, 0
-  br i1 %.not37, label %48, label %52
+48:                                               ; preds = %46
+  store ptr %17, ptr %5, align 8, !tbaa !204
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %47, ptr %49, align 8, !tbaa !206
+  %50 = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %5, i64 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %12) #11
+  %.not37 = icmp eq i32 %50, 0
+  br i1 %.not37, label %51, label %55
 
-48:                                               ; preds = %44
-  %49 = load i64, ptr %12, align 8, !tbaa !195
-  %50 = and i64 %49, 2
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %PACKET_buf_init.exit.thread, label %52
+51:                                               ; preds = %48
+  %52 = load i64, ptr %12, align 8, !tbaa !195
+  %53 = and i64 %52, 2
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %PACKET_buf_init.exit.thread, label %55
 
-52:                                               ; preds = %48, %44
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %54 = load i32, ptr %53, align 4, !tbaa !207
-  %cond = icmp eq i32 %54, 1
-  br i1 %cond, label %60, label %55
-
-55:                                               ; preds = %52
-  %56 = load i64, ptr %17, align 8, !tbaa !200
-  %57 = icmp ult i64 %56, 1200
-  br i1 %57, label %PACKET_buf_init.exit.thread, label %58
+55:                                               ; preds = %51, %48
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %57 = load i32, ptr %56, align 4, !tbaa !207
+  %cond = icmp eq i32 %57, 1
+  br i1 %cond, label %63, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call fastcc void @port_send_version_negotiation(ptr noundef nonnull %1, ptr noundef nonnull %59, ptr noundef %6)
+  %59 = load i64, ptr %18, align 8, !tbaa !200
+  %60 = icmp ult i64 %59, 1200
+  br i1 %60, label %PACKET_buf_init.exit.thread, label %61
+
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call fastcc void @port_send_version_negotiation(ptr noundef nonnull %1, ptr noundef nonnull %62, ptr noundef %6)
   br label %PACKET_buf_init.exit.thread
 
-60:                                               ; preds = %52
-  %61 = load i32, ptr %6, align 8
-  %62 = and i32 %61, 255
-  %.not38 = icmp eq i32 %62, 1
-  br i1 %.not38, label %63, label %PACKET_buf_init.exit.thread
+63:                                               ; preds = %55
+  %64 = load i32, ptr %6, align 8
+  %65 = and i32 %64, 255
+  %.not38 = icmp eq i32 %65, 1
+  br i1 %.not38, label %66, label %PACKET_buf_init.exit.thread
 
-63:                                               ; preds = %60
+66:                                               ; preds = %63
   store i8 0, ptr %9, align 1, !tbaa !209
-  %64 = load i16, ptr %13, align 2
-  %65 = and i16 %64, 4
-  %66 = icmp ne i16 %65, 0
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %68, null
-  %or.cond = select i1 %66, i1 %69, i1 false
-  br i1 %or.cond, label %70, label %72
+  %67 = load i16, ptr %13, align 2
+  %68 = and i16 %67, 4
+  %69 = icmp ne i16 %68, 0
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, null
+  %or.cond = select i1 %69, i1 %72, i1 false
+  br i1 %or.cond, label %73, label %75
 
-70:                                               ; preds = %63
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call fastcc void @port_send_retry(ptr noundef nonnull %1, ptr noundef nonnull %71, ptr noundef %6)
-  br label %PACKET_buf_init.exit.thread
-
-72:                                               ; preds = %63
-  br i1 %69, label %81, label %73
-
-73:                                               ; preds = %72
+73:                                               ; preds = %66
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %75 = call fastcc i32 @port_validate_token(ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %74, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %81
-
-77:                                               ; preds = %73
-  %78 = load i16, ptr %13, align 2
-  %79 = and i16 %78, 4
-  %.not40 = icmp eq i16 %79, 0
-  br i1 %.not40, label %81, label %80
-
-80:                                               ; preds = %77
   call fastcc void @port_send_retry(ptr noundef nonnull %1, ptr noundef nonnull %74, ptr noundef %6)
   br label %PACKET_buf_init.exit.thread
 
-81:                                               ; preds = %77, %73, %72
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call fastcc void @port_bind_channel(ptr noundef nonnull %1, ptr noundef nonnull %82, ptr noundef %10, ptr noundef %83, ptr noundef %9, ptr noundef %8)
-  %84 = load i8, ptr %11, align 1, !tbaa !198
-  %85 = icmp eq i8 %84, 1
-  %86 = load ptr, ptr %8, align 8, !tbaa !61
-  br i1 %85, label %87, label %thread-pre-split
+75:                                               ; preds = %66
+  br i1 %72, label %84, label %76
 
-87:                                               ; preds = %81
-  call fastcc void @generate_new_token(ptr noundef %86, ptr noundef nonnull %82)
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %78 = call fastcc i32 @port_validate_token(ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %77, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %84
+
+80:                                               ; preds = %76
+  %81 = load i16, ptr %13, align 2
+  %82 = and i16 %81, 4
+  %.not40 = icmp eq i16 %82, 0
+  br i1 %.not40, label %84, label %83
+
+83:                                               ; preds = %80
+  call fastcc void @port_send_retry(ptr noundef nonnull %1, ptr noundef nonnull %77, ptr noundef %6)
+  br label %PACKET_buf_init.exit.thread
+
+84:                                               ; preds = %80, %76, %75
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call fastcc void @port_bind_channel(ptr noundef nonnull %1, ptr noundef nonnull %85, ptr noundef %10, ptr noundef %86, ptr noundef %9, ptr noundef %8)
+  %87 = load i8, ptr %11, align 1, !tbaa !198
+  %88 = icmp eq i8 %87, 1
+  %89 = load ptr, ptr %8, align 8, !tbaa !61
+  br i1 %88, label %90, label %thread-pre-split
+
+90:                                               ; preds = %84
+  call fastcc void @generate_new_token(ptr noundef %89, ptr noundef nonnull %85)
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %81, %87
-  %.not41 = icmp eq ptr %86, null
-  br i1 %.not41, label %PACKET_buf_init.exit.thread, label %88
+thread-pre-split:                                 ; preds = %84, %90
+  %.not41 = icmp eq ptr %89, null
+  br i1 %.not41, label %PACKET_buf_init.exit.thread, label %91
 
-88:                                               ; preds = %thread-pre-split
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 1064
-  %90 = load ptr, ptr %89, align 8, !tbaa !210
-  call void @ossl_qrx_inject_urxe(ptr noundef %90, ptr noundef nonnull %0) #11
-  br label %93
+91:                                               ; preds = %thread-pre-split
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 1064
+  %93 = load ptr, ptr %92, align 8, !tbaa !210
+  call void @ossl_qrx_inject_urxe(ptr noundef %93, ptr noundef nonnull %0) #11
+  br label %96
 
-PACKET_buf_init.exit.thread:                      ; preds = %thread-pre-split, %60, %55, %48, %42, %39, %port_try_handle_stateless_reset.exit, %3, %80, %70, %58
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %92 = load ptr, ptr %91, align 8, !tbaa !34
-  call void @ossl_quic_demux_release_urxe(ptr noundef %92, ptr noundef %0) #11
-  br label %93
+PACKET_buf_init.exit.thread:                      ; preds = %thread-pre-split, %63, %58, %51, %46, %43, %port_try_handle_stateless_reset.exit, %3, %83, %73, %61
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %95 = load ptr, ptr %94, align 8, !tbaa !34
+  call void @ossl_quic_demux_release_urxe(ptr noundef %95, ptr noundef %0) #11
+  br label %96
 
-93:                                               ; preds = %PACKET_buf_init.exit.thread, %88, %37
+96:                                               ; preds = %PACKET_buf_init.exit.thread, %91, %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %10) #11

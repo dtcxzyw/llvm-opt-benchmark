@@ -9950,7 +9950,6 @@ define noundef zeroext i1 @_ZN7rocksdb15ForwardIterator22TEST_CheckDeletedItersE
 .lr.ph52:                                         ; preds = %.preheader
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %23 = load ptr, ptr %22, align 8, !tbaa !178
-  %invariant.gep = getelementptr i8, ptr %23, i64 -8
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %30
 
@@ -9972,69 +9971,70 @@ define noundef zeroext i1 @_ZN7rocksdb15ForwardIterator22TEST_CheckDeletedItersE
   %exitcond.not = icmp eq i64 %29, %16
   br i1 %exitcond.not, label %.preheader, label %24, !llvm.loop !631
 
-._crit_edge:                                      ; preds = %45, %.preheader
-  %.235.lcssa = phi i32 [ %.033.lcssa, %.preheader ], [ %.336, %45 ]
-  %.231.lcssa = phi i32 [ %.029.lcssa, %.preheader ], [ %.332, %45 ]
-  %.2.lcssa = phi i1 [ %.028.lcssa, %.preheader ], [ %.3, %45 ]
+._crit_edge:                                      ; preds = %47, %.preheader
+  %.235.lcssa = phi i32 [ %.033.lcssa, %.preheader ], [ %.336, %47 ]
+  %.231.lcssa = phi i32 [ %.029.lcssa, %.preheader ], [ %.332, %47 ]
+  %.2.lcssa = phi i1 [ %.028.lcssa, %.preheader ], [ %.3, %47 ]
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %47, label %46
+  br i1 %.not, label %49, label %48
 
-30:                                               ; preds = %.lr.ph52, %45
-  %indvars.iv = phi i64 [ 1, %.lr.ph52 ], [ %indvars.iv.next, %45 ]
-  %.250 = phi i1 [ %.028.lcssa, %.lr.ph52 ], [ %.3, %45 ]
-  %.23149 = phi i32 [ %.029.lcssa, %.lr.ph52 ], [ %.332, %45 ]
-  %.23548 = phi i32 [ %.033.lcssa, %.lr.ph52 ], [ %.336, %45 ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
-  %31 = load ptr, ptr %gep, align 8, !tbaa !374
-  %32 = icmp eq ptr %31, null
-  %33 = getelementptr inbounds nuw %"class.std::vector.570", ptr %9, i64 %indvars.iv
-  %34 = load ptr, ptr %33, align 8, !tbaa !365
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
+30:                                               ; preds = %.lr.ph52, %47
+  %indvars.iv = phi i64 [ 1, %.lr.ph52 ], [ %indvars.iv.next, %47 ]
+  %.250 = phi i1 [ %.028.lcssa, %.lr.ph52 ], [ %.3, %47 ]
+  %.23149 = phi i32 [ %.029.lcssa, %.lr.ph52 ], [ %.332, %47 ]
+  %.23548 = phi i32 [ %.033.lcssa, %.lr.ph52 ], [ %.336, %47 ]
+  %31 = getelementptr ptr, ptr %23, i64 %indvars.iv
+  %32 = getelementptr i8, ptr %31, i64 -8
+  %33 = load ptr, ptr %32, align 8, !tbaa !374
+  %34 = icmp eq ptr %33, null
+  %35 = getelementptr inbounds nuw %"class.std::vector.570", ptr %9, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !365
-  br i1 %32, label %39, label %._crit_edge59
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !365
+  br i1 %34, label %41, label %._crit_edge59
 
 ._crit_edge59:                                    ; preds = %30
-  %37 = icmp ne ptr %34, %36
-  %38 = zext i1 %37 to i32
-  br label %43
-
-39:                                               ; preds = %30
-  %40 = icmp eq ptr %34, %36
-  br i1 %40, label %43, label %41
-
-41:                                               ; preds = %39
-  %42 = add nsw i32 %.23149, 1
+  %39 = icmp ne ptr %36, %38
+  %40 = zext i1 %39 to i32
   br label %45
 
-43:                                               ; preds = %._crit_edge59, %39
-  %44 = phi i32 [ %38, %._crit_edge59 ], [ 0, %39 ]
-  %spec.select = add nsw i32 %.23548, %44
-  br label %45
+41:                                               ; preds = %30
+  %42 = icmp eq ptr %36, %38
+  br i1 %42, label %45, label %43
 
-45:                                               ; preds = %43, %41
-  %.336 = phi i32 [ %.23548, %41 ], [ %spec.select, %43 ]
-  %.332 = phi i32 [ %42, %41 ], [ %.23149, %43 ]
-  %.3 = phi i1 [ true, %41 ], [ %.250, %43 ]
+43:                                               ; preds = %41
+  %44 = add nsw i32 %.23149, 1
+  br label %47
+
+45:                                               ; preds = %._crit_edge59, %41
+  %46 = phi i32 [ %40, %._crit_edge59 ], [ 0, %41 ]
+  %spec.select = add nsw i32 %.23548, %46
+  br label %47
+
+47:                                               ; preds = %45, %43
+  %.336 = phi i32 [ %.23548, %43 ], [ %spec.select, %45 ]
+  %.332 = phi i32 [ %44, %43 ], [ %.23149, %45 ]
+  %.3 = phi i1 [ true, %43 ], [ %.250, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond58.not, label %._crit_edge, label %30, !llvm.loop !632
 
-46:                                               ; preds = %._crit_edge
+48:                                               ; preds = %._crit_edge
   store i32 %.231.lcssa, ptr %1, align 4, !tbaa !633
-  br label %47
-
-47:                                               ; preds = %46, %._crit_edge
-  %.not40 = icmp eq ptr %2, null
-  br i1 %.not40, label %49, label %48
-
-48:                                               ; preds = %47
-  store i32 %.235.lcssa, ptr %2, align 4, !tbaa !633
   br label %49
 
-49:                                               ; preds = %48, %47
-  %50 = icmp slt i32 %.235.lcssa, 2
-  %51 = select i1 %.2.lcssa, i1 true, i1 %50
-  ret i1 %51
+49:                                               ; preds = %48, %._crit_edge
+  %.not40 = icmp eq ptr %2, null
+  br i1 %.not40, label %51, label %50
+
+50:                                               ; preds = %49
+  store i32 %.235.lcssa, ptr %2, align 4, !tbaa !633
+  br label %51
+
+51:                                               ; preds = %50, %49
+  %52 = icmp slt i32 %.235.lcssa, 2
+  %53 = select i1 %.2.lcssa, i1 true, i1 %52
+  ret i1 %53
 }
 
 ; Function Attrs: mustprogress uwtable

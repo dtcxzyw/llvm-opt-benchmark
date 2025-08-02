@@ -478,7 +478,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_mpeg(ptr noundef %0,
 
 17:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13) #7
-  br label %39
+  br label %41
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 2
@@ -496,24 +496,26 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_mpeg(ptr noundef %0,
   store i32 6, ptr %26, align 8, !tbaa !51
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 4608, ptr %27, align 8, !tbaa !48
-  br label %39
+  br label %41
 
 28:                                               ; preds = %18
   %29 = and i32 %10, 1
   %30 = zext nneg i32 %29 to i64
-  %31 = zext nneg i32 %14 to i64
-  %32 = getelementptr inbounds nuw [2 x [3 x i32]], ptr @mpeg_data_type, i64 0, i64 %30, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !56
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %33, ptr %34, align 8, !tbaa !51
-  %35 = getelementptr inbounds nuw [2 x [3 x i16]], ptr @spdif_mpeg_pkt_offset, i64 0, i64 %30, i64 %31
-  %36 = load i16, ptr %35, align 2, !tbaa !57
-  %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %37, ptr %38, align 8, !tbaa !48
-  br label %39
+  %31 = getelementptr inbounds nuw [2 x [3 x i32]], ptr @mpeg_data_type, i64 0, i64 %30
+  %32 = zext nneg i32 %14 to i64
+  %33 = getelementptr inbounds nuw [3 x i32], ptr %31, i64 0, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !56
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %34, ptr %35, align 8, !tbaa !51
+  %36 = getelementptr inbounds nuw [2 x [3 x i16]], ptr @spdif_mpeg_pkt_offset, i64 0, i64 %30
+  %37 = getelementptr inbounds nuw [3 x i16], ptr %36, i64 0, i64 %32
+  %38 = load i16, ptr %37, align 2, !tbaa !57
+  %39 = zext i16 %38 to i32
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 %39, ptr %40, align 8, !tbaa !48
+  br label %41
 
-39:                                               ; preds = %25, %28, %17
+41:                                               ; preds = %25, %28, %17
   %.0 = phi i32 [ -1094995529, %17 ], [ 0, %28 ], [ 0, %25 ]
   ret i32 %.0
 }

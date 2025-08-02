@@ -896,15 +896,15 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr noundef nonnul
   %26 = add nuw nsw i32 %.029, 1
   %27 = load i32, ptr %2, align 8
   %28 = tail call i32 @slurm_job_node_ready(i32 noundef %27) #9
-  %.not50 = icmp eq i32 %28, -2
+  %.not46 = icmp eq i32 %28, -2
   %.pr.pre = load i32, ptr @destroy_job, align 4
-  br i1 %.not50, label %43, label %29
+  br i1 %.not46, label %42, label %29
 
 29:                                               ; preds = %25
   %30 = icmp ne i32 %.pr.pre, 0
   %.b35 = load i1, ptr @revoke_job, align 1
   %or.cond = select i1 %30, i1 true, i1 %.b35
-  br i1 %or.cond, label %.thread44, label %31
+  br i1 %or.cond, label %.thread, label %31
 
 31:                                               ; preds = %29
   switch i32 %28, label %32 [
@@ -918,46 +918,46 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr noundef nonnul
 32:                                               ; preds = %31
   %33 = and i32 %28, 2
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %44, label %35
+  br i1 %34, label %43, label %35
 
 35:                                               ; preds = %32
   %36 = and i32 %28, 5
   %or.cond40.not = icmp eq i32 %36, 5
-  br i1 %or.cond40.not, label %37, label %.backedge.backedge
+  br i1 %or.cond40.not, label %.critedge, label %.backedge.backedge
 
-37:                                               ; preds = %35
-  %38 = tail call i32 @get_log_level() #9
-  %39 = icmp sgt i32 %38, 3
-  br i1 %39, label %40, label %50
+.critedge:                                        ; preds = %35
+  %37 = tail call i32 @get_log_level() #9
+  %38 = icmp sgt i32 %37, 3
+  br i1 %38, label %39, label %49
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %42 = load ptr, ptr %41, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef %42) #9
-  br label %50
+39:                                               ; preds = %.critedge
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %41 = load ptr, ptr %40, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef %41) #9
+  br label %49
 
-43:                                               ; preds = %25
+42:                                               ; preds = %25
   %.not39 = icmp eq i32 %.pr.pre, 0
-  br i1 %.not39, label %.thread48, label %50
+  br i1 %.not39, label %.thread44, label %49
 
-.thread44:                                        ; preds = %29
-  %.not3946 = icmp eq i32 %.pr.pre, 0
-  br i1 %.not3946, label %.thread48, label %50
+.thread:                                          ; preds = %29
+  %.not3942 = icmp eq i32 %.pr.pre, 0
+  br i1 %.not3942, label %.thread44, label %49
 
-44:                                               ; preds = %32
-  %45 = load i32, ptr %2, align 8
-  %46 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, i32 noundef %45) #9
+43:                                               ; preds = %32
+  %44 = load i32, ptr %2, align 8
+  %45 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, i32 noundef %44) #9
   store i32 1, ptr @destroy_job, align 4
-  br label %50
+  br label %49
 
-.thread48:                                        ; preds = %43, %.thread44
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef %48) #9
-  br label %50
+.thread44:                                        ; preds = %42, %.thread
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef %47) #9
+  br label %49
 
-50:                                               ; preds = %.thread44, %43, %.thread48, %44, %40, %37
-  %.131 = phi i32 [ 1, %40 ], [ 1, %37 ], [ 0, %44 ], [ 0, %.thread48 ], [ 0, %43 ], [ 0, %.thread44 ]
+49:                                               ; preds = %.thread, %42, %.thread44, %43, %39, %.critedge
+  %.131 = phi i32 [ 1, %39 ], [ 1, %.critedge ], [ 0, %43 ], [ 0, %.thread44 ], [ 0, %42 ], [ 0, %.thread ]
   store i32 0, ptr @pending_job_id, align 4
   ret i32 %.131
 }

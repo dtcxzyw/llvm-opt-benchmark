@@ -919,8 +919,8 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIlEEN
 _ZN4absl7debian218container_internal19btree_map_containerINS1_5btreeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEEEixIlEERSD_RSG_.exit: ; preds = %103
   %109 = zext nneg i32 %101 to i64
   %.idx.i = mul nuw nsw i64 %109, 24
-  %110 = getelementptr i8, ptr %97, i64 24
-  %111 = getelementptr i8, ptr %110, i64 %.idx.i
+  %110 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %112 = load double, ptr %2, align 8
   store double %112, ptr %111, align 8
@@ -7078,8 +7078,8 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIlSt4pairIdSt10
   %88 = load i8, ptr %15, align 1
   %89 = zext i8 %88 to i64
   %.idx.i29 = mul nuw nsw i64 %89, 24
-  %90 = getelementptr i8, ptr %0, i64 32
-  %91 = getelementptr i8, ptr %90, i64 %.idx.i29
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i29
   tail call void @_ZNSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %91) #22
   %92 = load ptr, ptr %0, align 8
   %93 = load i8, ptr %38, align 1

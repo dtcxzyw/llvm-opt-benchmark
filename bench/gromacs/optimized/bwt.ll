@@ -513,21 +513,20 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   %77 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv240
   %78 = load i32, ptr %77, align 4, !tbaa !3
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %._crit_edge213.split.loop.exit276, label %80
+  br i1 %79, label %._crit_edge213.split.loop.exit275, label %80
 
 80:                                               ; preds = %.lr.ph212
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count243
   br i1 %exitcond244.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !22
 
-._crit_edge213.split.loop.exit276:                ; preds = %.lr.ph212
+._crit_edge213.split.loop.exit275:                ; preds = %.lr.ph212
   %81 = trunc nuw nsw i64 %indvars.iv240 to i32
   br label %._crit_edge213
 
-._crit_edge213:                                   ; preds = %80, %._crit_edge213.split.loop.exit276
-  %.2.lcssa = phi i32 [ %81, %._crit_edge213.split.loop.exit276 ], [ %1, %80 ]
+._crit_edge213:                                   ; preds = %80, %._crit_edge213.split.loop.exit275
+  %.2.lcssa = phi i32 [ %81, %._crit_edge213.split.loop.exit275 ], [ %1, %80 ]
   store i32 %.2.lcssa, ptr %3, align 4, !tbaa !3
-  %invariant.gep = getelementptr i8, ptr %0, i64 -4
   %wide.trip.count248 = zext nneg i32 %1 to i64
   br label %.lr.ph219
 
@@ -538,10 +537,11 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   %84 = icmp slt i32 %83, 1
   %spec.select143 = select i1 %84, i32 %1, i32 %83
   %85 = sext i32 %spec.select143 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %85
-  %86 = load i32, ptr %gep, align 4, !tbaa !3
-  %87 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv245
-  store i32 %86, ptr %87, align 4, !tbaa !3
+  %86 = getelementptr i32, ptr %0, i64 %85
+  %87 = getelementptr i8, ptr %86, i64 -4
+  %88 = load i32, ptr %87, align 4, !tbaa !3
+  %89 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv245
+  store i32 %88, ptr %89, align 4, !tbaa !3
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond249.not = icmp eq i64 %indvars.iv.next246, %wide.trip.count248
   br i1 %exitcond249.not, label %._crit_edge220, label %.lr.ph219, !llvm.loop !23

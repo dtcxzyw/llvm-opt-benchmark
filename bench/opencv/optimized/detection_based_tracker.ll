@@ -683,7 +683,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit10:          ; preds = %38, %41, %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN2cv31workcycleObjectDetectorFunctionEPv(ptr noundef nonnull %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN2cv31workcycleObjectDetectorFunctionEPv(ptr noundef nonnull %0) #0 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN2cv21DetectionBasedTracker21SeparateDetectionWork23workcycleObjectDetectorEv(ptr noundef nonnull align 8 dereferenceable(320) %0)
           to label %17 unwind label %2
 

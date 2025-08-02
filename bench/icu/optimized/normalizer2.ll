@@ -441,8 +441,8 @@ define void @_ZN6icu_7713Norm2AllModesD2Ev(ptr noundef nonnull align 8 dereferen
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7713Norm2AllModes14createInstanceEPNS_15Normalizer2ImplER10UErrorCode(ptr noundef %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef ptr @_ZN6icu_7713Norm2AllModes14createInstanceEPNS_15Normalizer2ImplER10UErrorCode(ptr noundef %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 4, !tbaa !3
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %11, label %5
@@ -1829,17 +1829,17 @@ define noundef signext i8 @unorm2_isInert_77(ptr noundef %0, i32 noundef %1) loc
 define noundef zeroext i8 @u_getCombiningClass_77(i32 noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i32, ptr @_ZN6icu_77L11nfcInitOnceE acquire, align 4
   %.not11.i.i.i = icmp eq i32 %2, 2
-  br i1 %.not11.i.i.i, label %28, label %3
+  br i1 %.not11.i.i.i, label %27, label %3
 
 3:                                                ; preds = %1
   %4 = tail call noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_77L11nfcInitOnceE)
   %.not12.i.i.i = icmp eq i8 %4, 0
-  br i1 %.not12.i.i.i, label %28, label %5
+  br i1 %.not12.i.i.i, label %27, label %5
 
 5:                                                ; preds = %3
   %6 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 80) #15
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit, label %8
+  br i1 %7, label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread.critedge, label %8
 
 8:                                                ; preds = %5
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7715Normalizer2ImplE, i64 16), ptr %6, align 8, !tbaa !10
@@ -1850,75 +1850,66 @@ define noundef zeroext i8 @u_getCombiningClass_77(i32 noundef %0) local_unnamed_
   tail call void @_ZN6icu_7715Normalizer2Impl4initEPKiPK7UCPTriePKtPKh(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull @_ZL22norm2_nfc_data_indexes, ptr noundef nonnull @_ZL19norm2_nfc_data_trie, ptr noundef nonnull @_ZL24norm2_nfc_data_extraData, ptr noundef nonnull @_ZL23norm2_nfc_data_smallFCD)
   %11 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 88) #15
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %24, label %13
+  br i1 %12, label %23, label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit
 
-13:                                               ; preds = %8
+_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit: ; preds = %8
   store ptr %6, ptr %11, align 8, !tbaa !26
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %6, ptr %15, align 8, !tbaa !31
-  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN6icu_7718ComposeNormalizer2E, i64 16), ptr %14, align 8, !tbaa !10
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i8 0, ptr %16, align 8, !tbaa !32
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr %6, ptr %18, align 8, !tbaa !31
-  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN6icu_7720DecomposeNormalizer2E, i64 16), ptr %17, align 8, !tbaa !10
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store ptr %6, ptr %20, align 8, !tbaa !31
-  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN6icu_7714FCDNormalizer2E, i64 16), ptr %19, align 8, !tbaa !10
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %22 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr %6, ptr %22, align 8, !tbaa !31
-  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN6icu_7718ComposeNormalizer2E, i64 16), ptr %21, align 8, !tbaa !10
-  %23 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store i8 1, ptr %23, align 8, !tbaa !32
-  br label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit
-
-24:                                               ; preds = %8
-  %25 = load ptr, ptr %6, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(80) %6) #15
-  br label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit
-
-28:                                               ; preds = %3, %1
-  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L11nfcInitOnceE, i64 4), align 4, !tbaa !16
-  %30 = icmp slt i32 %29, 1
-  br i1 %30, label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10, label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread
-
-_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10: ; preds = %28
-  %31 = load ptr, ptr @_ZN6icu_77L12nfcSingletonE, align 8, !tbaa !41
-  %.not.i12 = icmp eq ptr %31, null
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %33 = select i1 %.not.i12, ptr null, ptr %32
-  br label %37
-
-_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit: ; preds = %24, %13, %5
-  %.not = phi i1 [ true, %24 ], [ false, %13 ], [ true, %5 ]
-  %.2 = phi i32 [ 7, %24 ], [ 0, %13 ], [ 7, %5 ]
-  %.0.i = phi ptr [ null, %24 ], [ %11, %13 ], [ null, %5 ]
-  store ptr %.0.i, ptr @_ZN6icu_77L12nfcSingletonE, align 8, !tbaa !41
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %6, ptr %14, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN6icu_7718ComposeNormalizer2E, i64 16), ptr %13, align 8, !tbaa !10
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i8 0, ptr %15, align 8, !tbaa !32
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store ptr %6, ptr %17, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN6icu_7720DecomposeNormalizer2E, i64 16), ptr %16, align 8, !tbaa !10
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  store ptr %6, ptr %19, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN6icu_7714FCDNormalizer2E, i64 16), ptr %18, align 8, !tbaa !10
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr %6, ptr %21, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN6icu_7718ComposeNormalizer2E, i64 16), ptr %20, align 8, !tbaa !10
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  store i8 1, ptr %22, align 8, !tbaa !32
+  store ptr %11, ptr @_ZN6icu_77L12nfcSingletonE, align 8, !tbaa !41
   tail call void @ucln_common_registerCleanup_77(i32 noundef 15, ptr noundef nonnull @_ZN6icu_77L24uprv_normalizer2_cleanupEv)
-  store i32 %.2, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L11nfcInitOnceE, i64 4), align 4, !tbaa !16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L11nfcInitOnceE, i64 4), align 4, !tbaa !16
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_77L11nfcInitOnceE)
-  %34 = load ptr, ptr @_ZN6icu_77L12nfcSingletonE, align 8, !tbaa !41
-  %.not.i = icmp eq ptr %34, null
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %36 = select i1 %.not.i, ptr null, ptr %35
-  br i1 %.not, label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread, label %37
+  br label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10
 
-37:                                               ; preds = %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit
-  %38 = phi ptr [ %33, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10 ], [ %36, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit ]
-  %39 = load ptr, ptr %38, align 8, !tbaa !10
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 80
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call noundef zeroext i8 %41(ptr noundef nonnull align 8 dereferenceable(8) %38, i32 noundef %0)
+23:                                               ; preds = %8
+  %24 = load ptr, ptr %6, align 8, !tbaa !10
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(80) %6) #15
+  br label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread.critedge
+
+27:                                               ; preds = %3, %1
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L11nfcInitOnceE, i64 4), align 4, !tbaa !16
+  %29 = icmp slt i32 %28, 1
+  br i1 %29, label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10, label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread
+
+_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10: ; preds = %27, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit
+  %30 = load ptr, ptr @_ZN6icu_77L12nfcSingletonE, align 8, !tbaa !41
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %32 = load ptr, ptr %31, align 8, !tbaa !10
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef zeroext i8 %34(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef %0)
   br label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread
 
-_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread: ; preds = %28, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit, %37
-  %.0 = phi i8 [ %42, %37 ], [ 0, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit ], [ 0, %28 ]
+_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread.critedge: ; preds = %5, %23
+  store ptr null, ptr @_ZN6icu_77L12nfcSingletonE, align 8, !tbaa !41
+  tail call void @ucln_common_registerCleanup_77(i32 noundef 15, ptr noundef nonnull @_ZN6icu_77L24uprv_normalizer2_cleanupEv)
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L11nfcInitOnceE, i64 4), align 4, !tbaa !16
+  tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_77L11nfcInitOnceE)
+  br label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread
+
+_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread: ; preds = %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread.critedge, %27, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10
+  %.0 = phi i8 [ %35, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10 ], [ 0, %27 ], [ 0, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread.critedge ]
   ret i8 %.0
 }
 
@@ -3740,8 +3731,8 @@ declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 declare void @ucln_common_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_77L24uprv_normalizer2_cleanupEv() #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZN6icu_77L24uprv_normalizer2_cleanupEv() #1 {
   %1 = load ptr, ptr @_ZN6icu_77L13noopSingletonE, align 8, !tbaa !13
   %2 = icmp eq ptr %1, null
   br i1 %2, label %7, label %3

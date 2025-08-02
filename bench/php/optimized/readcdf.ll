@@ -99,7 +99,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @rcsid], section "llvm.metadata"
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @file_trycdf(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cdf_info_t, align 8
   %4 = alloca %struct.cdf_header_t, align 8
   %5 = alloca %struct.cdf_sat_t, align 8
@@ -114,16 +114,16 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %16 = load i64, ptr %15, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
   store ptr @.str, ptr %10, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
   store ptr null, ptr %8, align 8, !tbaa !17
   store i32 %12, ptr %3, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -137,12 +137,12 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
   br i1 %.not, label %22, label %117
 
 22:                                               ; preds = %2
-  %23 = call i32 @cdf_read_header(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
+  %23 = call i32 @cdf_read_header(ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %117, label %25
 
 25:                                               ; preds = %22
-  %26 = call i32 @cdf_read_sat(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
+  %26 = call i32 @cdf_read_sat(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %27 = icmp eq i32 %26, -1
   br i1 %27, label %.thread46, label %28
 
@@ -151,18 +151,18 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
   br label %98
 
 28:                                               ; preds = %25
-  %29 = call i32 @cdf_read_ssat(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %29 = call i32 @cdf_read_ssat(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %.thread49, label %32
 
 .thread49:                                        ; preds = %28
   store ptr @.str.2, ptr %10, align 8, !tbaa !15
   %31 = load ptr, ptr %5, align 8, !tbaa !30
-  call void @_efree(ptr noundef %31) #8
+  call void @_efree(ptr noundef %31) #7
   br label %98
 
 32:                                               ; preds = %28
-  %33 = call i32 @cdf_read_dir(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %9) #8
+  %33 = call i32 @cdf_read_dir(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %9) #7
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %35, label %36
 
@@ -171,7 +171,7 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
   br label %95
 
 36:                                               ; preds = %32
-  %37 = call i32 @cdf_read_short_stream(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %11) #8
+  %37 = call i32 @cdf_read_short_stream(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %11) #7
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %39, label %40
 
@@ -180,7 +180,7 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
   br label %93
 
 40:                                               ; preds = %36
-  %41 = call i32 @cdf_read_user_stream(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull @.str.5, ptr noundef nonnull %8) #8
+  %41 = call i32 @cdf_read_user_stream(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull @.str.5, ptr noundef nonnull %8) #7
   %.not33 = icmp eq i32 %41, -1
   br i1 %.not33, label %66, label %42
 
@@ -206,7 +206,7 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %52
-  %57 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #8
+  %57 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #7
   %58 = icmp eq i32 %57, -1
   br i1 %58, label %117, label %.thread44
 
@@ -216,21 +216,21 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
   br i1 %.not36, label %.thread44, label %61
 
 61:                                               ; preds = %59
-  %62 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #8
+  %62 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #7
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %117, label %.thread44
 
 64:                                               ; preds = %49, %42
-  %65 = call i32 @cdf_zero_stream(ptr noundef nonnull %8) #8
+  %65 = call i32 @cdf_zero_stream(ptr noundef nonnull %8) #7
   br label %66
 
 66:                                               ; preds = %64, %40
-  %67 = call i32 @cdf_read_summary_info(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8) #8
+  %67 = call i32 @cdf_read_summary_info(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8) #7
   %68 = icmp eq i32 %67, -1
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %66
-  %70 = tail call ptr @__errno_location() #9
+  %70 = tail call ptr @__errno_location() #8
   %71 = load i32, ptr %70, align 4, !tbaa !35
   %.not34 = icmp eq i32 %71, 3
   br i1 %.not34, label %.thread, label %72
@@ -242,17 +242,17 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
 73:                                               ; preds = %66
   %74 = load ptr, ptr %11, align 8, !tbaa !36
   %75 = call fastcc i32 @cdf_check_summary_info(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %9, ptr noundef %8, ptr noundef %74, ptr noundef %10)
-  %76 = call i32 @cdf_zero_stream(ptr noundef nonnull %8) #8
+  %76 = call i32 @cdf_zero_stream(ptr noundef nonnull %8) #7
   %77 = icmp slt i32 %75, 1
   br i1 %77, label %.thread, label %.thread44
 
 .thread:                                          ; preds = %69, %72, %73
-  %78 = call i32 @cdf_read_doc_summary_info(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8) #8
+  %78 = call i32 @cdf_read_doc_summary_info(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8) #7
   %79 = icmp eq i32 %78, -1
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %.thread
-  %81 = tail call ptr @__errno_location() #9
+  %81 = tail call ptr @__errno_location() #8
   %82 = load i32, ptr %81, align 4, !tbaa !35
   %.not35 = icmp eq i32 %82, 3
   br i1 %.not35, label %.thread42, label %83
@@ -277,23 +277,23 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
   br label %.thread44
 
 .thread44:                                        ; preds = %73, %56, %61, %59, %84, %90, %.thread42
-  %.4 = phi i32 [ -1, %90 ], [ %88, %.thread42 ], [ %86, %84 ], [ 1, %59 ], [ 1, %61 ], [ 1, %56 ], [ %75, %73 ]
-  %91 = call i32 @cdf_zero_stream(ptr noundef nonnull %8) #8
-  %92 = call i32 @cdf_zero_stream(ptr noundef nonnull %7) #8
+  %.4 = phi i32 [ -1, %90 ], [ %88, %.thread42 ], [ 1, %84 ], [ 1, %59 ], [ 1, %61 ], [ 1, %56 ], [ 1, %73 ]
+  %91 = call i32 @cdf_zero_stream(ptr noundef nonnull %8) #7
+  %92 = call i32 @cdf_zero_stream(ptr noundef nonnull %7) #7
   br label %93
 
 93:                                               ; preds = %.thread44, %39
   %.3 = phi i32 [ -1, %39 ], [ %.4, %.thread44 ]
   %94 = load ptr, ptr %9, align 8, !tbaa !37
-  call void @_efree(ptr noundef %94) #8
+  call void @_efree(ptr noundef %94) #7
   br label %95
 
 95:                                               ; preds = %35, %93
   %.2 = phi i32 [ -1, %35 ], [ %.3, %93 ]
   %96 = load ptr, ptr %6, align 8, !tbaa !30
-  call void @_efree(ptr noundef %96) #8
+  call void @_efree(ptr noundef %96) #7
   %97 = load ptr, ptr %5, align 8, !tbaa !30
-  call void @_efree(ptr noundef %97) #8
+  call void @_efree(ptr noundef %97) #7
   %.not37 = icmp eq i32 %.2, -1
   br i1 %.not37, label %98, label %117
 
@@ -304,7 +304,7 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
   br i1 %101, label %102, label %111
 
 102:                                              ; preds = %98
-  %103 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #8
+  %103 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #7
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %117, label %105
 
@@ -315,7 +315,7 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
   br i1 %.not39, label %116, label %108
 
 108:                                              ; preds = %105
-  %109 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %106) #8
+  %109 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %106) #7
   %110 = icmp eq i32 %109, -1
   br i1 %110, label %117, label %116
 
@@ -325,7 +325,7 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
   br i1 %.not38, label %116, label %113
 
 113:                                              ; preds = %111
-  %114 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #8
+  %114 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #7
   %115 = icmp eq i32 %114, -1
   br i1 %115, label %117, label %116
 
@@ -334,15 +334,15 @@ define hidden range(i32 -1, -2147483648) i32 @file_trycdf(ptr noundef %0, ptr no
 
 117:                                              ; preds = %113, %108, %102, %95, %61, %56, %22, %2, %116
   %.024 = phi i32 [ 1, %116 ], [ 0, %2 ], [ 0, %22 ], [ -1, %56 ], [ -1, %61 ], [ %.2, %95 ], [ -1, %102 ], [ -1, %108 ], [ -1, %113 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
   ret i32 %.024
 }
 
@@ -371,7 +371,7 @@ declare i32 @cdf_read_summary_info(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef nonnull writeonly captures(none) %9) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @cdf_check_summary_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef nonnull writeonly captures(none) %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca [256 x i8], align 16
   %13 = alloca %struct.timespec, align 8
@@ -382,11 +382,11 @@ define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr n
   %18 = alloca ptr, align 8
   %19 = alloca i64, align 8
   %20 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #8
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %17) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #8
-  %21 = call i32 @cdf_unpack_summary_info(ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #7
+  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #7
+  %21 = call i32 @cdf_unpack_summary_info(ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #7
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %cdf_file_summary_info.exit.thread, label %23
 
@@ -398,7 +398,7 @@ define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr n
   br i1 %27, label %28, label %cdf_clsid_to_mime.exit.thread.i
 
 28:                                               ; preds = %23
-  %29 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #8
+  %29 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #7
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %cdf_file_summary_info.exit.thread, label %31
 
@@ -406,7 +406,7 @@ define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr n
   %32 = load i16, ptr %17, align 4, !tbaa !40
   %33 = icmp eq i16 %32, -2
   %34 = select i1 %33, ptr @.str.19, ptr @.str.20
-  %35 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %34) #8
+  %35 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %34) #7
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %cdf_file_summary_info.exit.thread, label %37
 
@@ -424,7 +424,7 @@ define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr n
   %43 = zext i16 %42 to i32
   %44 = and i32 %43, 255
   %45 = lshr i32 %43, 8
-  %46 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i32 noundef %44, i32 noundef %45) #8
+  %46 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i32 noundef %44, i32 noundef %45) #7
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %cdf_file_summary_info.exit.thread, label %65
 
@@ -434,7 +434,7 @@ define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr n
   %51 = zext i16 %50 to i32
   %52 = lshr i32 %51, 8
   %53 = and i32 %51, 255
-  %54 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, i32 noundef %52, i32 noundef %53) #8
+  %54 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, i32 noundef %52, i32 noundef %53) #7
   %55 = icmp eq i32 %54, -1
   br i1 %55, label %cdf_file_summary_info.exit.thread, label %65
 
@@ -445,7 +445,7 @@ define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr n
   %60 = zext i16 %59 to i32
   %61 = and i32 %60, 255
   %62 = lshr i32 %60, 8
-  %63 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %57, i32 noundef %61, i32 noundef %62) #8
+  %63 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %57, i32 noundef %61, i32 noundef %62) #7
   %64 = icmp eq i32 %63, -1
   br i1 %64, label %cdf_file_summary_info.exit.thread, label %65
 
@@ -466,15 +466,15 @@ define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr n
   br i1 %73, label %cdf_clsid_to_mime.exit.i, label %cdf_clsid_to_mime.exit.thread.i
 
 cdf_clsid_to_mime.exit.i:                         ; preds = %70
-  %74 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.24) #8
+  %74 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.24) #7
   %75 = icmp eq i32 %74, -1
   br i1 %75, label %cdf_file_summary_info.exit.thread, label %cdf_clsid_to_mime.exit.thread.i
 
 cdf_clsid_to_mime.exit.thread.i:                  ; preds = %cdf_clsid_to_mime.exit.i, %70, %66, %65, %23
   %76 = load ptr, ptr %18, align 8, !tbaa !36
   %77 = load i64, ptr %19, align 8, !tbaa !45
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %78 = load i32, ptr %24, align 4, !tbaa !23
   %79 = and i32 %78, 1040
@@ -508,10 +508,10 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   %.195129.i.i = phi ptr [ %.498.i.i, %213 ], [ %.094.i.i, %cdf_clsid_to_mime.exit.i.i ]
   %91 = getelementptr inbounds nuw %struct.cdf_property_info_t, ptr %76, i64 %.085130.i.i
   %92 = load i32, ptr %91, align 8, !tbaa !46
-  %93 = call i32 @cdf_print_property_name(ptr noundef nonnull %14, i64 noundef 64, i32 noundef %92) #8
+  %93 = call i32 @cdf_print_property_name(ptr noundef nonnull %14, i64 noundef 64, i32 noundef %92) #7
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %95 = load i32, ptr %94, align 4, !tbaa !48
-  switch i32 %95, label %cdf_file_summary_info.exit [
+  switch i32 %95, label %cdf_file_summary_info.exit.thread51 [
     i32 1, label %213
     i32 2, label %96
     i32 3, label %106
@@ -534,9 +534,9 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %102 = load i16, ptr %101, align 8, !tbaa !39
   %103 = sext i16 %102 to i32
-  %104 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %14, i32 noundef %103) #8
+  %104 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %14, i32 noundef %103) #7
   %105 = icmp eq i32 %104, -1
-  br i1 %105, label %cdf_file_summary_info.exit, label %213
+  br i1 %105, label %cdf_file_summary_info.exit.thread51, label %213
 
 106:                                              ; preds = %.lr.ph131.i.i
   %107 = load i32, ptr %24, align 4, !tbaa !23
@@ -547,9 +547,9 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
 110:                                              ; preds = %106
   %111 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %112 = load i32, ptr %111, align 8, !tbaa !39
-  %113 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %14, i32 noundef %112) #8
+  %113 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %14, i32 noundef %112) #7
   %114 = icmp eq i32 %113, -1
-  br i1 %114, label %cdf_file_summary_info.exit, label %213
+  br i1 %114, label %cdf_file_summary_info.exit.thread51, label %213
 
 115:                                              ; preds = %.lr.ph131.i.i
   %116 = load i32, ptr %24, align 4, !tbaa !23
@@ -560,9 +560,9 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
 119:                                              ; preds = %115
   %120 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %121 = load i32, ptr %120, align 8, !tbaa !39
-  %122 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %14, i32 noundef %121) #8
+  %122 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %14, i32 noundef %121) #7
   %123 = icmp eq i32 %122, -1
-  br i1 %123, label %cdf_file_summary_info.exit, label %213
+  br i1 %123, label %cdf_file_summary_info.exit.thread51, label %213
 
 124:                                              ; preds = %.lr.ph131.i.i
   %125 = load i32, ptr %24, align 4, !tbaa !23
@@ -574,9 +574,9 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   %129 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %130 = load float, ptr %129, align 8, !tbaa !39
   %131 = fpext float %130 to double
-  %132 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %14, double noundef %131) #8
+  %132 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %14, double noundef %131) #7
   %133 = icmp eq i32 %132, -1
-  br i1 %133, label %cdf_file_summary_info.exit, label %213
+  br i1 %133, label %cdf_file_summary_info.exit.thread51, label %213
 
 134:                                              ; preds = %.lr.ph131.i.i
   %135 = load i32, ptr %24, align 4, !tbaa !23
@@ -587,9 +587,9 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %140 = load double, ptr %139, align 8, !tbaa !39
-  %141 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %14, double noundef %140) #8
+  %141 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %14, double noundef %140) #7
   %142 = icmp eq i32 %141, -1
-  br i1 %142, label %cdf_file_summary_info.exit, label %213
+  br i1 %142, label %cdf_file_summary_info.exit.thread51, label %213
 
 143:                                              ; preds = %.lr.ph131.i.i, %.lr.ph131.i.i
   %144 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -598,7 +598,7 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   br i1 %146, label %.lr.ph.preheader.i.i, label %213
 
 .lr.ph.preheader.i.i:                             ; preds = %143
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %15) #7
   %147 = icmp eq i32 %95, 31
   %spec.select.i.i = select i1 %147, i64 2, i64 1
   %148 = getelementptr inbounds nuw i8, ptr %91, i64 16
@@ -621,7 +621,7 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   br i1 %155, label %.critedge.i.i, label %156
 
 156:                                              ; preds = %153
-  %157 = tail call ptr @__ctype_b_loc() #9
+  %157 = tail call ptr @__ctype_b_loc() #8
   %158 = load ptr, ptr %157, align 8, !tbaa !49
   %159 = zext i8 %154 to i64
   %160 = getelementptr inbounds nuw i16, ptr %158, i64 %159
@@ -675,14 +675,14 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
 
 .thread.i.i:                                      ; preds = %182, %179, %177, %175
   %.296.ph.i.i = phi ptr [ %.195129.i.i, %177 ], [ null, %179 ], [ %183, %182 ], [ %.195129.i.i, %175 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15) #7
   br label %213
 
 184:                                              ; preds = %175
-  %185 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %14, ptr noundef nonnull %15) #8
+  %185 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %14, ptr noundef nonnull %15) #7
   %.not119.i.i = icmp eq i32 %185, -1
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15) #8
-  br i1 %.not119.i.i, label %cdf_file_summary_info.exit, label %213
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15) #7
+  br i1 %.not119.i.i, label %cdf_file_summary_info.exit.thread51, label %213
 
 186:                                              ; preds = %.lr.ph131.i.i
   %187 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -691,30 +691,30 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   br i1 %.not105.i.i, label %213, label %189
 
 189:                                              ; preds = %186
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #7
   %190 = icmp slt i64 %188, 1000000000000000
   br i1 %190, label %191, label %199
 
 191:                                              ; preds = %189
-  %192 = call i32 @cdf_print_elapsed_time(ptr noundef nonnull %16, i64 noundef 64, i64 noundef %188) #8
+  %192 = call i32 @cdf_print_elapsed_time(ptr noundef nonnull %16, i64 noundef 64, i64 noundef %188) #7
   %193 = load i32, ptr %24, align 4, !tbaa !23
   %194 = and i32 %193, 1040
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %196, label %.critedge115.i.i
 
 196:                                              ; preds = %191
-  %197 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %14, ptr noundef nonnull %16) #8
+  %197 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %14, ptr noundef nonnull %16) #7
   %198 = icmp eq i32 %197, -1
   br i1 %198, label %212, label %.critedge115.i.i
 
 199:                                              ; preds = %189
-  %200 = call i32 @cdf_timestamp_to_timespec(ptr noundef nonnull %13, i64 noundef %188) #8
-  %201 = call ptr @cdf_ctime(ptr noundef nonnull %13, ptr noundef nonnull %16) #8
+  %200 = call i32 @cdf_timestamp_to_timespec(ptr noundef nonnull %13, i64 noundef %188) #7
+  %201 = call ptr @cdf_ctime(ptr noundef nonnull %13, ptr noundef nonnull %16) #7
   %.not106.i.i = icmp eq ptr %201, null
   br i1 %.not106.i.i, label %205, label %202
 
 202:                                              ; preds = %199
-  %203 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %201, i32 noundef 10) #10
+  %203 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %201, i32 noundef 10) #9
   %.not107.i.i = icmp eq ptr %203, null
   br i1 %.not107.i.i, label %205, label %204
 
@@ -729,17 +729,17 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   br i1 %208, label %209, label %.critedge115.i.i
 
 209:                                              ; preds = %205
-  %210 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %14, ptr noundef %201) #8
+  %210 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %14, ptr noundef %201) #7
   %211 = icmp eq i32 %210, -1
   br i1 %211, label %212, label %.critedge115.i.i
 
 .critedge115.i.i:                                 ; preds = %209, %205, %196, %191
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #7
   br label %213
 
 212:                                              ; preds = %209, %196
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #8
-  br label %cdf_file_summary_info.exit
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #7
+  br label %cdf_file_summary_info.exit.thread51
 
 213:                                              ; preds = %.critedge115.i.i, %186, %184, %.thread.i.i, %143, %138, %134, %128, %124, %119, %115, %110, %106, %100, %96, %.lr.ph131.i.i, %.lr.ph131.i.i
   %.498.i.i = phi ptr [ %.195129.i.i, %100 ], [ %.195129.i.i, %96 ], [ %.195129.i.i, %110 ], [ %.195129.i.i, %106 ], [ %.195129.i.i, %119 ], [ %.195129.i.i, %115 ], [ %.195129.i.i, %128 ], [ %.195129.i.i, %124 ], [ %.195129.i.i, %138 ], [ %.195129.i.i, %134 ], [ %.195129.i.i, %184 ], [ %.195129.i.i, %143 ], [ %.195129.i.i, %186 ], [ %.195129.i.i, %.lr.ph131.i.i ], [ %.195129.i.i, %.lr.ph131.i.i ], [ %.195129.i.i, %.critedge115.i.i ], [ %.296.ph.i.i, %.thread.i.i ]
@@ -756,207 +756,203 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   %.195.lcssa.i.i = phi ptr [ %.094.i.i, %cdf_clsid_to_mime.exit.i.i ], [ %.498.i.i, %._crit_edge.loopexit.i.i ]
   %216 = and i32 %215, 16
   %.not.i22.i = icmp eq i32 %216, 0
-  br i1 %.not.i22.i, label %222, label %217
+  br i1 %.not.i22.i, label %.thread, label %217
 
 217:                                              ; preds = %._crit_edge.i.i
   %218 = icmp eq ptr %.195.lcssa.i.i, null
-  br i1 %218, label %cdf_file_summary_info.exit, label %219
+  br i1 %218, label %224, label %219
 
 219:                                              ; preds = %217
-  %220 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %.195.lcssa.i.i) #8
+  %220 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %.195.lcssa.i.i) #7
   %221 = icmp eq i32 %220, -1
-  br i1 %221, label %cdf_file_summary_info.exit, label %222
+  br i1 %221, label %cdf_file_summary_info.exit.thread51, label %.thread
 
-222:                                              ; preds = %219, %._crit_edge.i.i
-  br label %cdf_file_summary_info.exit
+.thread:                                          ; preds = %._crit_edge.i.i, %219
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
+  %222 = load ptr, ptr %18, align 8, !tbaa !36
+  call void @_efree(ptr noundef %222) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %17) #7
+  br label %cdf_file_catalog_info.exit
 
-cdf_file_summary_info.exit.thread:                ; preds = %10, %cdf_clsid_to_mime.exit.i, %56, %48, %40, %31, %28
-  %.0.i.ph = phi i32 [ -1, %28 ], [ -2, %31 ], [ -2, %40 ], [ -2, %48 ], [ -2, %56 ], [ -2, %cdf_clsid_to_mime.exit.i ], [ -1, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %17) #8
-  br label %228
+cdf_file_summary_info.exit.thread51:              ; preds = %184, %138, %128, %119, %110, %100, %.lr.ph131.i.i, %212, %219
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
+  %223 = load ptr, ptr %18, align 8, !tbaa !36
+  call void @_efree(ptr noundef %223) #7
+  br label %cdf_file_summary_info.exit.thread
 
-cdf_file_summary_info.exit:                       ; preds = %.lr.ph131.i.i, %100, %110, %119, %128, %138, %184, %212, %217, %219, %222
-  %223 = phi i1 [ false, %212 ], [ true, %222 ], [ false, %217 ], [ false, %219 ], [ false, %184 ], [ false, %138 ], [ false, %128 ], [ false, %119 ], [ false, %110 ], [ false, %100 ], [ false, %.lr.ph131.i.i ]
-  %224 = phi i1 [ false, %212 ], [ false, %222 ], [ true, %217 ], [ false, %219 ], [ false, %184 ], [ false, %138 ], [ false, %128 ], [ false, %119 ], [ false, %110 ], [ false, %100 ], [ false, %.lr.ph131.i.i ]
-  %.1.i.i = phi i32 [ -1, %212 ], [ 1, %222 ], [ 0, %217 ], [ -1, %219 ], [ -1, %184 ], [ -1, %138 ], [ -1, %128 ], [ -1, %119 ], [ -1, %110 ], [ -1, %100 ], [ -1, %.lr.ph131.i.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #8
-  %225 = load ptr, ptr %18, align 8, !tbaa !36
-  call void @_efree(ptr noundef %225) #8
-  %226 = call i32 @llvm.umin.i32(i32 %.1.i.i, i32 -2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %17) #8
-  %227 = icmp slt i32 %226, 0
-  br i1 %227, label %228, label %229
-
-228:                                              ; preds = %cdf_file_summary_info.exit.thread, %cdf_file_summary_info.exit
-  %.0.i49 = phi i32 [ %.0.i.ph, %cdf_file_summary_info.exit.thread ], [ %226, %cdf_file_summary_info.exit ]
+cdf_file_summary_info.exit.thread:                ; preds = %28, %31, %40, %48, %56, %cdf_clsid_to_mime.exit.i, %10, %cdf_file_summary_info.exit.thread51
+  %.0.i49 = phi i32 [ -2, %cdf_file_summary_info.exit.thread51 ], [ -1, %28 ], [ -2, %31 ], [ -2, %40 ], [ -2, %48 ], [ -2, %56 ], [ -2, %cdf_clsid_to_mime.exit.i ], [ -1, %10 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %17) #7
   store ptr @.str.14, ptr %9, align 8, !tbaa !15
   br label %cdf_file_catalog_info.exit
 
-229:                                              ; preds = %cdf_file_summary_info.exit
-  br i1 %223, label %cdf_file_catalog_info.exit, label %.preheader
+224:                                              ; preds = %217
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
+  %225 = load ptr, ptr %18, align 8, !tbaa !36
+  call void @_efree(ptr noundef %225) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %17) #7
+  %226 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br label %227
 
-.preheader:                                       ; preds = %229
-  %230 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br label %231
+227:                                              ; preds = %224, %239
+  %.03863 = phi i64 [ 0, %224 ], [ %245, %239 ]
+  %228 = load i64, ptr %226, align 8, !tbaa !52
+  %.not64 = icmp ult i64 %.03863, %228
+  br i1 %.not64, label %229, label %.critedge
 
-231:                                              ; preds = %.preheader, %243
-  %.03858 = phi i64 [ 0, %.preheader ], [ %249, %243 ]
-  %232 = load i64, ptr %230, align 8, !tbaa !52
-  %.not59 = icmp ult i64 %.03858, %232
-  br i1 %.not59, label %233, label %.critedge
+229:                                              ; preds = %227
+  %230 = load ptr, ptr %6, align 8, !tbaa !37
+  %231 = getelementptr inbounds nuw %struct.cdf_directory_t, ptr %230, i64 %.03863
+  br label %232
 
-233:                                              ; preds = %231
-  %234 = load ptr, ptr %6, align 8, !tbaa !37
-  %235 = getelementptr inbounds nuw %struct.cdf_directory_t, ptr %234, i64 %.03858
-  br label %236
+232:                                              ; preds = %229, %232
+  %.061 = phi i64 [ 0, %229 ], [ %238, %232 ]
+  %233 = getelementptr inbounds nuw [32 x i16], ptr %231, i64 0, i64 %.061
+  %234 = load i16, ptr %233, align 2, !tbaa !51
+  %235 = call zeroext i16 @cdf_tole2(i16 noundef zeroext %234) #7
+  %236 = trunc i16 %235 to i8
+  %237 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %.061
+  store i8 %236, ptr %237, align 1, !tbaa !39
+  %238 = add nuw nsw i64 %.061, 1
+  %exitcond.not = icmp eq i64 %238, 32
+  br i1 %exitcond.not, label %239, label %232
 
-236:                                              ; preds = %233, %236
-  %.056 = phi i64 [ 0, %233 ], [ %242, %236 ]
-  %237 = getelementptr inbounds nuw [32 x i16], ptr %235, i64 0, i64 %.056
-  %238 = load i16, ptr %237, align 2, !tbaa !51
-  %239 = call zeroext i16 @cdf_tole2(i16 noundef zeroext %238) #8
-  %240 = trunc i16 %239 to i8
-  %241 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %.056
-  store i8 %240, ptr %241, align 1, !tbaa !39
-  %242 = add nuw nsw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %242, 32
-  br i1 %exitcond.not, label %243, label %236
+239:                                              ; preds = %232
+  %240 = load i32, ptr %24, align 4, !tbaa !23
+  %241 = and i32 %240, 1040
+  %242 = icmp eq i32 %241, 0
+  %243 = select i1 %242, ptr @name2desc, ptr @name2mime
+  %244 = call fastcc ptr @cdf_app_to_mime(ptr noundef %20, ptr noundef nonnull %243)
+  %245 = add nuw i64 %.03863, 1
+  %246 = icmp eq ptr %244, null
+  br i1 %246, label %227, label %.critedge.thread
 
-243:                                              ; preds = %236
-  %244 = load i32, ptr %24, align 4, !tbaa !23
-  %245 = and i32 %244, 1040
-  %246 = icmp eq i32 %245, 0
-  %247 = select i1 %246, ptr @name2desc, ptr @name2mime
-  %248 = call fastcc ptr @cdf_app_to_mime(ptr noundef %20, ptr noundef nonnull %247)
-  %249 = add nuw i64 %.03858, 1
-  %250 = icmp eq ptr %248, null
-  br i1 %250, label %231, label %.critedge.thread
+.critedge:                                        ; preds = %227
+  %247 = load i32, ptr %24, align 4, !tbaa !23
+  %248 = and i32 %247, 1040
+  %249 = icmp eq i32 %248, 0
+  br i1 %249, label %263, label %256
 
-.critedge:                                        ; preds = %231
-  %251 = load i32, ptr %24, align 4, !tbaa !23
-  %252 = and i32 %251, 1040
-  %253 = icmp eq i32 %252, 0
-  br i1 %253, label %266, label %260
+.critedge.thread:                                 ; preds = %239
+  %250 = load i32, ptr %24, align 4, !tbaa !23
+  %251 = and i32 %250, 1040
+  %252 = icmp eq i32 %251, 0
+  br i1 %252, label %253, label %256
 
-.critedge.thread:                                 ; preds = %243
-  %254 = load i32, ptr %24, align 4, !tbaa !23
-  %255 = and i32 %254, 1040
-  %256 = icmp eq i32 %255, 0
-  br i1 %256, label %257, label %260
+253:                                              ; preds = %.critedge.thread
+  %254 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %244) #7
+  %255 = icmp eq i32 %254, -1
+  br i1 %255, label %cdf_file_catalog_info.exit, label %262
 
-257:                                              ; preds = %.critedge.thread
-  %258 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %248) #8
-  %259 = icmp eq i32 %258, -1
-  br i1 %259, label %cdf_file_catalog_info.exit, label %.thread50
+256:                                              ; preds = %.critedge.thread, %.critedge
+  %spec.store.select = phi ptr [ %244, %.critedge.thread ], [ @.str.16, %.critedge ]
+  %257 = phi i32 [ %250, %.critedge.thread ], [ %247, %.critedge ]
+  %258 = and i32 %257, 16
+  %.not = icmp eq i32 %258, 0
+  br i1 %.not, label %263, label %259
 
-260:                                              ; preds = %.critedge.thread, %.critedge
-  %spec.store.select = phi ptr [ %248, %.critedge.thread ], [ @.str.16, %.critedge ]
-  %261 = phi i32 [ %254, %.critedge.thread ], [ %251, %.critedge ]
-  %262 = and i32 %261, 16
-  %.not = icmp eq i32 %262, 0
-  br i1 %.not, label %266, label %263
+259:                                              ; preds = %256
+  %260 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %spec.store.select) #7
+  %261 = icmp eq i32 %260, -1
+  br i1 %261, label %cdf_file_catalog_info.exit, label %262
 
-263:                                              ; preds = %260
-  %264 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %spec.store.select) #8
+262:                                              ; preds = %259, %253
+  br label %cdf_file_catalog_info.exit
+
+263:                                              ; preds = %256, %.critedge
+  %264 = call i32 @cdf_read_user_stream(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.54, ptr noundef nonnull %7) #7
   %265 = icmp eq i32 %264, -1
-  br i1 %265, label %cdf_file_catalog_info.exit, label %.thread50
+  br i1 %265, label %cdf_file_catalog_info.exit, label %266
 
-.thread50:                                        ; preds = %257, %263
-  br label %cdf_file_catalog_info.exit
+266:                                              ; preds = %263
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %12) #7
+  %267 = load i32, ptr %24, align 4, !tbaa !23
+  %268 = and i32 %267, 1040
+  %269 = icmp eq i32 %268, 0
+  br i1 %269, label %270, label %300
 
-266:                                              ; preds = %.critedge, %260
-  br i1 %224, label %267, label %cdf_file_catalog_info.exit
+270:                                              ; preds = %266
+  %271 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.55) #7
+  %272 = icmp eq i32 %271, -1
+  br i1 %272, label %cdf_file_catalog.exit.i, label %273
 
-267:                                              ; preds = %266
-  %268 = call i32 @cdf_read_user_stream(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.54, ptr noundef nonnull %7) #8
-  %269 = icmp eq i32 %268, -1
-  br i1 %269, label %cdf_file_catalog_info.exit, label %270
+273:                                              ; preds = %270
+  %274 = call i32 @cdf_unpack_catalog(ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %11) #7
+  %275 = icmp eq i32 %274, -1
+  br i1 %275, label %cdf_file_catalog.exit.i, label %276
 
-270:                                              ; preds = %267
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %12) #8
-  %271 = load i32, ptr %24, align 4, !tbaa !23
-  %272 = and i32 %271, 1040
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %274, label %304
+276:                                              ; preds = %273
+  %277 = load ptr, ptr %11, align 8, !tbaa !36
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
+  %279 = load i64, ptr %277, align 8, !tbaa !53
+  %280 = icmp ugt i64 %279, 1
+  br i1 %280, label %.lr.ph.i.i47, label %._crit_edge.i.i46
 
-274:                                              ; preds = %270
-  %275 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.55) #8
-  %276 = icmp eq i32 %275, -1
-  br i1 %276, label %cdf_file_catalog.exit.i, label %277
+281:                                              ; preds = %.lr.ph.i.i47
+  %282 = add nuw i64 %.01416.i.i, 1
+  %283 = load ptr, ptr %11, align 8, !tbaa !36
+  %284 = load i64, ptr %283, align 8, !tbaa !53
+  %285 = icmp ult i64 %282, %284
+  br i1 %285, label %.lr.ph.i.i47, label %._crit_edge.i.i46
 
-277:                                              ; preds = %274
-  %278 = call i32 @cdf_unpack_catalog(ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %11) #8
-  %279 = icmp eq i32 %278, -1
-  br i1 %279, label %cdf_file_catalog.exit.i, label %280
+.lr.ph.i.i47:                                     ; preds = %276, %281
+  %.01416.i.i = phi i64 [ %282, %281 ], [ 1, %276 ]
+  %286 = getelementptr inbounds nuw %struct.cdf_catalog_entry_t, ptr %278, i64 %.01416.i.i
+  %287 = load i16, ptr %286, align 8, !tbaa !55
+  %288 = zext i16 %287 to i64
+  %289 = getelementptr inbounds nuw i8, ptr %286, i64 16
+  %290 = call ptr @cdf_u16tos8(ptr noundef nonnull %12, i64 noundef %288, ptr noundef nonnull %289) #7
+  %291 = load ptr, ptr %11, align 8, !tbaa !36
+  %292 = load i64, ptr %291, align 8, !tbaa !53
+  %293 = add i64 %292, -1
+  %294 = icmp eq i64 %.01416.i.i, %293
+  %295 = select i1 %294, ptr @.str.57, ptr @.str.58
+  %296 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.56, ptr noundef %290, ptr noundef nonnull %295) #7
+  %297 = icmp eq i32 %296, -1
+  br i1 %297, label %298, label %281
 
-280:                                              ; preds = %277
-  %281 = load ptr, ptr %11, align 8, !tbaa !36
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  %283 = load i64, ptr %281, align 8, !tbaa !53
-  %284 = icmp ugt i64 %283, 1
-  br i1 %284, label %.lr.ph.i.i47, label %._crit_edge.i.i46
-
-285:                                              ; preds = %.lr.ph.i.i47
-  %286 = add nuw i64 %.01416.i.i, 1
-  %287 = load ptr, ptr %11, align 8, !tbaa !36
-  %288 = load i64, ptr %287, align 8, !tbaa !53
-  %289 = icmp ult i64 %286, %288
-  br i1 %289, label %.lr.ph.i.i47, label %._crit_edge.i.i46
-
-.lr.ph.i.i47:                                     ; preds = %280, %285
-  %.01416.i.i = phi i64 [ %286, %285 ], [ 1, %280 ]
-  %290 = getelementptr inbounds nuw %struct.cdf_catalog_entry_t, ptr %282, i64 %.01416.i.i
-  %291 = load i16, ptr %290, align 8, !tbaa !55
-  %292 = zext i16 %291 to i64
-  %293 = getelementptr inbounds nuw i8, ptr %290, i64 16
-  %294 = call ptr @cdf_u16tos8(ptr noundef nonnull %12, i64 noundef %292, ptr noundef nonnull %293) #8
-  %295 = load ptr, ptr %11, align 8, !tbaa !36
-  %296 = load i64, ptr %295, align 8, !tbaa !53
-  %297 = add i64 %296, -1
-  %298 = icmp eq i64 %.01416.i.i, %297
-  %299 = select i1 %298, ptr @.str.57, ptr @.str.58
-  %300 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.56, ptr noundef %294, ptr noundef nonnull %299) #8
-  %301 = icmp eq i32 %300, -1
-  br i1 %301, label %302, label %285
-
-302:                                              ; preds = %.lr.ph.i.i47
-  %303 = load ptr, ptr %11, align 8, !tbaa !36
-  call void @_efree(ptr noundef %303) #8
+298:                                              ; preds = %.lr.ph.i.i47
+  %299 = load ptr, ptr %11, align 8, !tbaa !36
+  call void @_efree(ptr noundef %299) #7
   br label %cdf_file_catalog.exit.i
 
-._crit_edge.i.i46:                                ; preds = %285, %280
-  %.lcssa.i.i = phi ptr [ %281, %280 ], [ %287, %285 ]
-  call void @_efree(ptr noundef nonnull %.lcssa.i.i) #8
-  br label %309
+._crit_edge.i.i46:                                ; preds = %281, %276
+  %.lcssa.i.i = phi ptr [ %277, %276 ], [ %283, %281 ]
+  call void @_efree(ptr noundef nonnull %.lcssa.i.i) #7
+  br label %305
 
-304:                                              ; preds = %270
-  %305 = and i32 %271, 16
-  %.not.i.i = icmp eq i32 %305, 0
-  br i1 %.not.i.i, label %309, label %306
+300:                                              ; preds = %266
+  %301 = and i32 %267, 16
+  %.not.i.i = icmp eq i32 %301, 0
+  br i1 %.not.i.i, label %305, label %302
 
-306:                                              ; preds = %304
-  %307 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.59) #8
-  %308 = icmp eq i32 %307, -1
-  br i1 %308, label %cdf_file_catalog.exit.i, label %309
+302:                                              ; preds = %300
+  %303 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.59) #7
+  %304 = icmp eq i32 %303, -1
+  br i1 %304, label %cdf_file_catalog.exit.i, label %305
 
-309:                                              ; preds = %306, %304, %._crit_edge.i.i46
+305:                                              ; preds = %302, %300, %._crit_edge.i.i46
   br label %cdf_file_catalog.exit.i
 
-cdf_file_catalog.exit.i:                          ; preds = %309, %306, %302, %277, %274
-  %.0.i.i = phi i32 [ -1, %302 ], [ 1, %309 ], [ -1, %274 ], [ -1, %277 ], [ -1, %306 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+cdf_file_catalog.exit.i:                          ; preds = %305, %302, %298, %273, %270
+  %.0.i.i = phi i32 [ -1, %298 ], [ 1, %305 ], [ -1, %270 ], [ -1, %273 ], [ -1, %302 ]
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
   br label %cdf_file_catalog_info.exit
 
-cdf_file_catalog_info.exit:                       ; preds = %cdf_file_catalog.exit.i, %267, %.thread50, %266, %263, %257, %229, %228
-  %.039 = phi i32 [ %.0.i49, %228 ], [ 1, %229 ], [ -1, %257 ], [ -1, %263 ], [ %226, %266 ], [ 1, %.thread50 ], [ -1, %267 ], [ %.0.i.i, %cdf_file_catalog.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #8
+cdf_file_catalog_info.exit:                       ; preds = %cdf_file_catalog.exit.i, %263, %262, %.thread, %259, %253, %cdf_file_summary_info.exit.thread
+  %.039 = phi i32 [ %.0.i49, %cdf_file_summary_info.exit.thread ], [ -1, %253 ], [ -1, %259 ], [ 1, %262 ], [ 1, %.thread ], [ -1, %263 ], [ %.0.i.i, %cdf_file_catalog.exit.i ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #7
   ret i32 %.039
 }
 
@@ -990,7 +986,7 @@ define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, p
   %.02128 = phi i64 [ 0, %.lr.ph ], [ %9, %8 ]
   %14 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %.02128
   %15 = load i32, ptr %14, align 4, !tbaa !35
-  %16 = tail call i32 @cdf_find_stream(ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef %15) #8
+  %16 = tail call i32 @cdf_find_stream(ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef %15) #7
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %8
 
@@ -1003,7 +999,7 @@ define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, p
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %4, align 8, !tbaa !57
-  %25 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.60, ptr noundef %24) #8
+  %25 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.60, ptr noundef %24) #7
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %.thread25, label %34
 
@@ -1015,7 +1011,7 @@ define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, p
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !59
-  %32 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef %31) #8
+  %32 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef %31) #7
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %.thread25, label %34
 
@@ -1041,8 +1037,8 @@ declare zeroext i16 @cdf_tole2(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
-  %4 = tail call ptr @zend_str_tolower_dup(ptr noundef nonnull %0, i64 noundef %3) #8
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
+  %4 = tail call ptr @zend_str_tolower_dup(ptr noundef nonnull %0, i64 noundef %3) #7
   %5 = load ptr, ptr %1, align 8, !tbaa !60
   %.not26 = icmp eq ptr %5, null
   br i1 %.not26, label %.loopexit, label %.lr.ph
@@ -1057,11 +1053,11 @@ define internal fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %0, ptr noundef 
 .lr.ph:                                           ; preds = %2, %6
   %10 = phi ptr [ %9, %6 ], [ %5, %2 ]
   %.01727 = phi i64 [ %7, %6 ], [ 0, %2 ]
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
-  %12 = tail call ptr @zend_str_tolower_dup(ptr noundef nonnull %10, i64 noundef %11) #8
-  %13 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %12) #10
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #9
+  %12 = tail call ptr @zend_str_tolower_dup(ptr noundef nonnull %10, i64 noundef %11) #7
+  %13 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %12) #9
   %.not20 = icmp eq ptr %13, null
-  tail call void @_efree(ptr noundef nonnull %12) #8
+  tail call void @_efree(ptr noundef nonnull %12) #7
   br i1 %.not20, label %6, label %14
 
 14:                                               ; preds = %.lr.ph
@@ -1071,7 +1067,7 @@ define internal fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %0, ptr noundef 
 
 .loopexit:                                        ; preds = %6, %2, %14
   %.1 = phi ptr [ %16, %14 ], [ null, %2 ], [ null, %6 ]
-  tail call void @_efree(ptr noundef %4) #8
+  tail call void @_efree(ptr noundef %4) #7
   ret ptr %.1
 }
 
@@ -1111,9 +1107,6 @@ declare i32 @cdf_find_stream(ptr noundef, ptr noundef, i32 noundef) local_unname
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1121,10 +1114,9 @@ attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "n
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(none) }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

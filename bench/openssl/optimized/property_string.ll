@@ -146,7 +146,7 @@ define internal fastcc i32 @ossl_property_string(ptr noundef %0, i32 noundef ran
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
   %6 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %0, i32 noundef 3) #8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %4
   %.not = icmp eq i32 %1, 0
@@ -163,7 +163,7 @@ define internal fastcc i32 @ossl_property_string(ptr noundef %0, i32 noundef ran
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @__func__.ossl_property_string) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786703, ptr noundef null) #8
-  br label %.thread
+  br label %.critedge
 
 13:                                               ; preds = %8
   %14 = call ptr @OPENSSL_LH_retrieve(ptr noundef %9, ptr noundef nonnull %5) #8
@@ -184,21 +184,21 @@ define internal fastcc i32 @ossl_property_string(ptr noundef %0, i32 noundef ran
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 164, ptr noundef nonnull @__func__.ossl_property_string) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786704, ptr noundef null) #8
-  br label %.thread
+  br label %.critedge
 
 23:                                               ; preds = %19
   %.v = select i1 %.not, i64 28, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 %.v
   %25 = call ptr @OPENSSL_LH_retrieve(ptr noundef %9, ptr noundef nonnull %5) #8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %.thread56
+  br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %23
   %28 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #9
   %29 = add i64 %28, 16
   %30 = call noalias ptr @CRYPTO_malloc(i64 noundef %29, ptr noundef nonnull @.str, i32 noundef 128) #8
   %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %.thread60, label %31
+  br i1 %.not.i, label %.thread56, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 12
@@ -215,12 +215,12 @@ define internal fastcc i32 @ossl_property_string(ptr noundef %0, i32 noundef ran
 
 38:                                               ; preds = %31
   call void @CRYPTO_free(ptr noundef nonnull %30, ptr noundef nonnull @.str, i32 noundef 135) #8
-  br label %.thread60
+  br label %.thread56
 
-.thread60:                                        ; preds = %27, %38
+.thread56:                                        ; preds = %27, %38
   %39 = load ptr, ptr %6, align 8, !tbaa !3
   %40 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %39) #8
-  br label %.thread
+  br label %.critedge
 
 new_property_string.exit:                         ; preds = %31
   %.in48.v = select i1 %.not, i64 40, i64 32
@@ -234,13 +234,13 @@ new_property_string.exit:                         ; preds = %31
   call void @CRYPTO_free(ptr noundef nonnull %30, ptr noundef nonnull @.str, i32 noundef 62) #8
   %45 = load ptr, ptr %6, align 8, !tbaa !3
   %46 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %45) #8
-  br label %.thread
+  br label %.critedge
 
 47:                                               ; preds = %new_property_string.exit
   %48 = call ptr @OPENSSL_LH_insert(ptr noundef %9, ptr noundef nonnull %30) #8
   %49 = call i32 @OPENSSL_LH_error(ptr noundef %9) #8
   %.not49 = icmp eq i32 %49, 0
-  br i1 %.not49, label %.thread56, label %50
+  br i1 %.not49, label %.thread, label %50
 
 50:                                               ; preds = %47
   %51 = call ptr @OPENSSL_sk_pop(ptr noundef %41) #8
@@ -250,25 +250,25 @@ new_property_string.exit:                         ; preds = %31
   store i32 %53, ptr %24, align 4, !tbaa !19
   %54 = load ptr, ptr %6, align 8, !tbaa !3
   %55 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %54) #8
-  br label %.thread
+  br label %.critedge
 
-.thread56:                                        ; preds = %23, %47
+.thread:                                          ; preds = %23, %47
   %.040.ph = phi ptr [ %30, %47 ], [ %25, %23 ]
   %56 = load ptr, ptr %6, align 8, !tbaa !3
   %57 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %56) #8
   br label %59
 
 58:                                               ; preds = %13
-  br i1 %15, label %.thread, label %59
+  br i1 %15, label %.critedge, label %59
 
-59:                                               ; preds = %.thread56, %58
-  %.04059 = phi ptr [ %.040.ph, %.thread56 ], [ %14, %58 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.04059, i64 8
+59:                                               ; preds = %.thread, %58
+  %.04055 = phi ptr [ %.040.ph, %.thread ], [ %14, %58 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.04055, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !20
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %50, %44, %.thread60, %59, %58, %4, %22, %12
-  %.0 = phi i32 [ 0, %22 ], [ 0, %12 ], [ 0, %4 ], [ %61, %59 ], [ 0, %58 ], [ 0, %.thread60 ], [ 0, %44 ], [ 0, %50 ]
+.critedge:                                        ; preds = %.thread56, %44, %50, %59, %58, %4, %22, %12
+  %.0 = phi i32 [ 0, %22 ], [ 0, %12 ], [ 0, %4 ], [ %61, %59 ], [ 0, %58 ], [ 0, %50 ], [ 0, %44 ], [ 0, %.thread56 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   ret i32 %.0
 }

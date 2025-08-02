@@ -44,7 +44,6 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3616
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 3617
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 23500
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3619
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -55,7 +54,7 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #4 {
   %13 = load ptr, ptr %5, align 8, !tbaa !18
   %14 = load i32, ptr %6, align 4, !tbaa !19
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %28, label %15
+  br i1 %.not, label %29, label %15
 
 15:                                               ; preds = %11
   %16 = load i8, ptr %12, align 4
@@ -68,199 +67,201 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #4 {
   %22 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %19, i32 noundef %21) #6
   %.not.i = icmp ne i32 %22, 0
   %spec.select.idx.i = zext i1 %.not.i to i64
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select.idx.i
   %23 = and i8 %17, 1
   %24 = zext nneg i8 %23 to i32
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %spec.select.idx.i
-  %25 = load i8, ptr %gep, align 1, !tbaa !31
-  %26 = zext i8 %25 to i32
-  %27 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %24, i32 noundef %26) #6
-  br label %28
+  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 1
+  %26 = load i8, ptr %25, align 1, !tbaa !31
+  %27 = zext i8 %26 to i32
+  %28 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %24, i32 noundef %27) #6
+  br label %29
 
-28:                                               ; preds = %15, %11
-  %29 = load i32, ptr %8, align 4, !tbaa !32
-  %.not37 = icmp eq i32 %29, 0
-  br i1 %.not37, label %38, label %30
+29:                                               ; preds = %15, %11
+  %30 = load i32, ptr %8, align 4, !tbaa !32
+  %.not37 = icmp eq i32 %30, 0
+  br i1 %.not37, label %39, label %31
 
-30:                                               ; preds = %28
-  %31 = load i8, ptr %12, align 4
-  %32 = lshr i8 %31, 4
-  %33 = and i8 %32, 1
-  %34 = zext nneg i8 %33 to i32
-  %35 = load i8, ptr %9, align 1, !tbaa !33
-  %36 = zext i8 %35 to i32
-  %37 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %34, i32 noundef %36) #6
-  br label %38
+31:                                               ; preds = %29
+  %32 = load i8, ptr %12, align 4
+  %33 = lshr i8 %32, 4
+  %34 = and i8 %33, 1
+  %35 = zext nneg i8 %34 to i32
+  %36 = load i8, ptr %9, align 1, !tbaa !33
+  %37 = zext i8 %36 to i32
+  %38 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %35, i32 noundef %37) #6
+  br label %39
 
-38:                                               ; preds = %30, %28
-  %39 = load i8, ptr %12, align 4
-  %40 = and i8 %39, 3
-  %41 = icmp ne i8 %40, 0
-  %42 = zext i1 %41 to i32
-  %43 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %42, i32 noundef 145) #6
-  %.not38 = icmp eq i32 %43, 0
-  br i1 %.not38, label %53, label %44
+39:                                               ; preds = %31, %29
+  %40 = load i8, ptr %12, align 4
+  %41 = and i8 %40, 3
+  %42 = icmp ne i8 %41, 0
+  %43 = zext i1 %42 to i32
+  %44 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %43, i32 noundef 145) #6
+  %.not38 = icmp eq i32 %44, 0
+  br i1 %.not38, label %54, label %45
 
-44:                                               ; preds = %38
-  %45 = load i8, ptr %13, align 1, !tbaa !31
-  %46 = zext i8 %45 to i32
-  %47 = and i32 %46, 253
-  %48 = icmp eq i32 %47, 1
-  %49 = zext i1 %48 to i32
-  %50 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %49, i32 noundef 156) #6
-  %.not.i40 = icmp eq i32 %50, 0
+45:                                               ; preds = %39
+  %46 = load i8, ptr %13, align 1, !tbaa !31
+  %47 = zext i8 %46 to i32
+  %48 = and i32 %47, 253
+  %49 = icmp eq i32 %48, 1
+  %50 = zext i1 %49 to i32
+  %51 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %50, i32 noundef 156) #6
+  %.not.i40 = icmp eq i32 %51, 0
   %.sink7.v.i = select i1 %.not.i40, i32 2, i32 1
-  %.sink7.i = icmp eq i32 %.sink7.v.i, %46
+  %.sink7.i = icmp eq i32 %.sink7.v.i, %47
   %.sink6.i = select i1 %.not.i40, i32 163, i32 128
-  %51 = zext i1 %.sink7.i to i32
-  %52 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %51, i32 noundef %.sink6.i) #6
+  %52 = zext i1 %.sink7.i to i32
+  %53 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %52, i32 noundef %.sink6.i) #6
   br label %.loopexit
 
-53:                                               ; preds = %38
-  %54 = load i32, ptr %10, align 8, !tbaa !34
-  %55 = sext i32 %54 to i64
-  %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds i8, ptr %13, i64 %56
-  br label %58
+54:                                               ; preds = %39
+  %55 = load i32, ptr %10, align 8, !tbaa !34
+  %56 = sext i32 %55 to i64
+  %57 = sub nsw i64 0, %56
+  %58 = getelementptr inbounds i8, ptr %13, i64 %57
+  br label %59
 
-58:                                               ; preds = %53, %124
-  %.047 = phi ptr [ %13, %53 ], [ %125, %124 ]
-  %.03446 = phi i32 [ 0, %53 ], [ %126, %124 ]
-  %.03645 = phi ptr [ %57, %53 ], [ %.047, %124 ]
-  %59 = getelementptr inbounds i8, ptr %.047, i64 -1
-  %60 = load i8, ptr %59, align 1, !tbaa !31
-  %61 = zext i8 %60 to i32
-  br label %62
+59:                                               ; preds = %54, %126
+  %.047 = phi ptr [ %13, %54 ], [ %127, %126 ]
+  %.03446 = phi i32 [ 0, %54 ], [ %128, %126 ]
+  %.03645 = phi ptr [ %58, %54 ], [ %.047, %126 ]
+  %60 = getelementptr inbounds i8, ptr %.047, i64 -1
+  %61 = load i8, ptr %60, align 1, !tbaa !31
+  %62 = zext i8 %61 to i32
+  br label %63
 
-62:                                               ; preds = %58, %PutI4Mode.exit
-  %indvars.iv = phi i64 [ 0, %58 ], [ %indvars.iv.next, %PutI4Mode.exit ]
-  %.03344 = phi i32 [ %61, %58 ], [ %70, %PutI4Mode.exit ]
-  %63 = getelementptr inbounds nuw i8, ptr %.03645, i64 %indvars.iv
-  %64 = load i8, ptr %63, align 1, !tbaa !31
-  %65 = zext i8 %64 to i64
-  %66 = zext nneg i32 %.03344 to i64
-  %67 = getelementptr inbounds nuw [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %65, i64 %66
-  %68 = getelementptr inbounds nuw i8, ptr %.047, i64 %indvars.iv
-  %69 = load i8, ptr %68, align 1, !tbaa !31
-  %70 = zext i8 %69 to i32
-  %71 = icmp ne i8 %69, 0
-  %72 = zext i1 %71 to i32
-  %73 = load i8, ptr %67, align 1, !tbaa !31
-  %74 = zext i8 %73 to i32
-  %75 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %72, i32 noundef %74) #6
-  %.not.i41 = icmp eq i32 %75, 0
-  br i1 %.not.i41, label %PutI4Mode.exit, label %76
+63:                                               ; preds = %59, %PutI4Mode.exit
+  %indvars.iv = phi i64 [ 0, %59 ], [ %indvars.iv.next, %PutI4Mode.exit ]
+  %.03344 = phi i32 [ %62, %59 ], [ %72, %PutI4Mode.exit ]
+  %64 = getelementptr inbounds nuw i8, ptr %.03645, i64 %indvars.iv
+  %65 = load i8, ptr %64, align 1, !tbaa !31
+  %66 = zext i8 %65 to i64
+  %67 = getelementptr inbounds nuw [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %66
+  %68 = zext nneg i32 %.03344 to i64
+  %69 = getelementptr inbounds nuw [10 x [9 x i8]], ptr %67, i64 0, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %.047, i64 %indvars.iv
+  %71 = load i8, ptr %70, align 1, !tbaa !31
+  %72 = zext i8 %71 to i32
+  %73 = icmp ne i8 %71, 0
+  %74 = zext i1 %73 to i32
+  %75 = load i8, ptr %69, align 1, !tbaa !31
+  %76 = zext i8 %75 to i32
+  %77 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %74, i32 noundef %76) #6
+  %.not.i41 = icmp eq i32 %77, 0
+  br i1 %.not.i41, label %PutI4Mode.exit, label %78
 
-76:                                               ; preds = %62
-  %77 = icmp ne i8 %69, 1
-  %78 = zext i1 %77 to i32
-  %79 = getelementptr inbounds nuw i8, ptr %67, i64 1
-  %80 = load i8, ptr %79, align 1, !tbaa !31
-  %81 = zext i8 %80 to i32
-  %82 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %78, i32 noundef %81) #6
-  %.not27.i = icmp eq i32 %82, 0
-  br i1 %.not27.i, label %PutI4Mode.exit, label %83
+78:                                               ; preds = %63
+  %79 = icmp ne i8 %71, 1
+  %80 = zext i1 %79 to i32
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 1
+  %82 = load i8, ptr %81, align 1, !tbaa !31
+  %83 = zext i8 %82 to i32
+  %84 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %80, i32 noundef %83) #6
+  %.not27.i = icmp eq i32 %84, 0
+  br i1 %.not27.i, label %PutI4Mode.exit, label %85
 
-83:                                               ; preds = %76
-  %84 = icmp ne i8 %69, 2
-  %85 = zext i1 %84 to i32
-  %86 = getelementptr inbounds nuw i8, ptr %67, i64 2
-  %87 = load i8, ptr %86, align 1, !tbaa !31
-  %88 = zext i8 %87 to i32
-  %89 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %85, i32 noundef %88) #6
-  %.not28.i = icmp eq i32 %89, 0
-  br i1 %.not28.i, label %PutI4Mode.exit, label %90
+85:                                               ; preds = %78
+  %86 = icmp ne i8 %71, 2
+  %87 = zext i1 %86 to i32
+  %88 = getelementptr inbounds nuw i8, ptr %69, i64 2
+  %89 = load i8, ptr %88, align 1, !tbaa !31
+  %90 = zext i8 %89 to i32
+  %91 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %87, i32 noundef %90) #6
+  %.not28.i = icmp eq i32 %91, 0
+  br i1 %.not28.i, label %PutI4Mode.exit, label %92
 
-90:                                               ; preds = %83
-  %91 = icmp ugt i8 %69, 5
-  %92 = zext i1 %91 to i32
-  %93 = getelementptr inbounds nuw i8, ptr %67, i64 3
-  %94 = load i8, ptr %93, align 1, !tbaa !31
-  %95 = zext i8 %94 to i32
-  %96 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %92, i32 noundef %95) #6
-  %.not29.i = icmp eq i32 %96, 0
-  br i1 %.not29.i, label %97, label %104
+92:                                               ; preds = %85
+  %93 = icmp ugt i8 %71, 5
+  %94 = zext i1 %93 to i32
+  %95 = getelementptr inbounds nuw i8, ptr %69, i64 3
+  %96 = load i8, ptr %95, align 1, !tbaa !31
+  %97 = zext i8 %96 to i32
+  %98 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %94, i32 noundef %97) #6
+  %.not29.i = icmp eq i32 %98, 0
+  br i1 %.not29.i, label %99, label %106
 
-97:                                               ; preds = %90
-  %98 = icmp ne i8 %69, 3
-  %99 = zext i1 %98 to i32
-  %100 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %101 = load i8, ptr %100, align 1, !tbaa !31
-  %102 = zext i8 %101 to i32
-  %103 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %99, i32 noundef %102) #6
-  %.not30.i = icmp eq i32 %103, 0
+99:                                               ; preds = %92
+  %100 = icmp ne i8 %71, 3
+  %101 = zext i1 %100 to i32
+  %102 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %103 = load i8, ptr %102, align 1, !tbaa !31
+  %104 = zext i8 %103 to i32
+  %105 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %101, i32 noundef %104) #6
+  %.not30.i = icmp eq i32 %105, 0
   br i1 %.not30.i, label %PutI4Mode.exit, label %.sink.split.i
 
-104:                                              ; preds = %90
-  %105 = icmp ne i8 %69, 6
-  %106 = zext i1 %105 to i32
-  %107 = getelementptr inbounds nuw i8, ptr %67, i64 6
-  %108 = load i8, ptr %107, align 1, !tbaa !31
-  %109 = zext i8 %108 to i32
-  %110 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %106, i32 noundef %109) #6
-  %.not31.i = icmp eq i32 %110, 0
-  br i1 %.not31.i, label %PutI4Mode.exit, label %111
+106:                                              ; preds = %92
+  %107 = icmp ne i8 %71, 6
+  %108 = zext i1 %107 to i32
+  %109 = getelementptr inbounds nuw i8, ptr %69, i64 6
+  %110 = load i8, ptr %109, align 1, !tbaa !31
+  %111 = zext i8 %110 to i32
+  %112 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %108, i32 noundef %111) #6
+  %.not31.i = icmp eq i32 %112, 0
+  br i1 %.not31.i, label %PutI4Mode.exit, label %113
 
-111:                                              ; preds = %104
-  %112 = icmp ne i8 %69, 7
-  %113 = zext i1 %112 to i32
-  %114 = getelementptr inbounds nuw i8, ptr %67, i64 7
-  %115 = load i8, ptr %114, align 1, !tbaa !31
-  %116 = zext i8 %115 to i32
-  %117 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %113, i32 noundef %116) #6
-  %.not32.i = icmp eq i32 %117, 0
+113:                                              ; preds = %106
+  %114 = icmp ne i8 %71, 7
+  %115 = zext i1 %114 to i32
+  %116 = getelementptr inbounds nuw i8, ptr %69, i64 7
+  %117 = load i8, ptr %116, align 1, !tbaa !31
+  %118 = zext i8 %117 to i32
+  %119 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %115, i32 noundef %118) #6
+  %.not32.i = icmp eq i32 %119, 0
   br i1 %.not32.i, label %PutI4Mode.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %111, %97
-  %.sink.i = phi i32 [ 4, %97 ], [ 8, %111 ]
-  %.sink36.i = phi i64 [ 5, %97 ], [ 8, %111 ]
-  %118 = icmp ne i32 %.sink.i, %70
-  %119 = zext i1 %118 to i32
-  %120 = getelementptr inbounds nuw i8, ptr %67, i64 %.sink36.i
-  %121 = load i8, ptr %120, align 1, !tbaa !31
-  %122 = zext i8 %121 to i32
-  %123 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %119, i32 noundef %122) #6
+.sink.split.i:                                    ; preds = %113, %99
+  %.sink.i = phi i32 [ 4, %99 ], [ 8, %113 ]
+  %.sink36.i = phi i64 [ 5, %99 ], [ 8, %113 ]
+  %120 = icmp ne i32 %.sink.i, %72
+  %121 = zext i1 %120 to i32
+  %122 = getelementptr inbounds nuw i8, ptr %69, i64 %.sink36.i
+  %123 = load i8, ptr %122, align 1, !tbaa !31
+  %124 = zext i8 %123 to i32
+  %125 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %121, i32 noundef %124) #6
   br label %PutI4Mode.exit
 
-PutI4Mode.exit:                                   ; preds = %62, %76, %83, %97, %104, %111, %.sink.split.i
+PutI4Mode.exit:                                   ; preds = %63, %78, %85, %99, %106, %113, %.sink.split.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %124, label %62, !llvm.loop !35
+  br i1 %exitcond.not, label %126, label %63, !llvm.loop !35
 
-124:                                              ; preds = %PutI4Mode.exit
-  %125 = getelementptr inbounds i8, ptr %.047, i64 %55
-  %126 = add nuw nsw i32 %.03446, 1
-  %exitcond49.not = icmp eq i32 %126, 4
-  br i1 %exitcond49.not, label %.loopexit, label %58, !llvm.loop !37
+126:                                              ; preds = %PutI4Mode.exit
+  %127 = getelementptr inbounds i8, ptr %.047, i64 %56
+  %128 = add nuw nsw i32 %.03446, 1
+  %exitcond49.not = icmp eq i32 %128, 4
+  br i1 %exitcond49.not, label %.loopexit, label %59, !llvm.loop !37
 
-.loopexit:                                        ; preds = %124, %44
-  %127 = load i8, ptr %12, align 4
-  %128 = lshr i8 %127, 2
-  %129 = and i8 %128, 3
-  %130 = icmp ne i8 %129, 0
-  %131 = zext i1 %130 to i32
-  %132 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %131, i32 noundef 142) #6
-  %.not.i42 = icmp eq i32 %132, 0
-  br i1 %.not.i42, label %PutUVMode.exit, label %133
+.loopexit:                                        ; preds = %126, %45
+  %129 = load i8, ptr %12, align 4
+  %130 = lshr i8 %129, 2
+  %131 = and i8 %130, 3
+  %132 = icmp ne i8 %131, 0
+  %133 = zext i1 %132 to i32
+  %134 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %133, i32 noundef 142) #6
+  %.not.i42 = icmp eq i32 %134, 0
+  br i1 %.not.i42, label %PutUVMode.exit, label %135
 
-133:                                              ; preds = %.loopexit
-  %134 = icmp ne i8 %129, 2
-  %135 = zext i1 %134 to i32
-  %136 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %135, i32 noundef 114) #6
-  %.not5.i = icmp eq i32 %136, 0
-  br i1 %.not5.i, label %PutUVMode.exit, label %137
+135:                                              ; preds = %.loopexit
+  %136 = icmp ne i8 %131, 2
+  %137 = zext i1 %136 to i32
+  %138 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %137, i32 noundef 114) #6
+  %.not5.i = icmp eq i32 %138, 0
+  br i1 %.not5.i, label %PutUVMode.exit, label %139
 
-137:                                              ; preds = %133
-  %138 = icmp ne i8 %129, 3
-  %139 = zext i1 %138 to i32
-  %140 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %139, i32 noundef 183) #6
+139:                                              ; preds = %135
+  %140 = icmp ne i8 %131, 3
+  %141 = zext i1 %140 to i32
+  %142 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %141, i32 noundef 183) #6
   br label %PutUVMode.exit
 
-PutUVMode.exit:                                   ; preds = %.loopexit, %133, %137
-  %141 = call i32 @VP8IteratorNext(ptr noundef nonnull %2) #6
-  %.not39 = icmp eq i32 %141, 0
-  br i1 %.not39, label %142, label %11, !llvm.loop !38
+PutUVMode.exit:                                   ; preds = %.loopexit, %135, %139
+  %143 = call i32 @VP8IteratorNext(ptr noundef nonnull %2) #6
+  %.not39 = icmp eq i32 %143, 0
+  br i1 %.not39, label %144, label %11, !llvm.loop !38
 
-142:                                              ; preds = %PutUVMode.exit
+144:                                              ; preds = %PutUVMode.exit
   call void @llvm.lifetime.end.p0(i64 3848, ptr nonnull %2) #6
   ret void
 }
@@ -276,73 +277,82 @@ define hidden void @VP8WriteProbas(ptr noundef %0, ptr noundef readonly captures
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %.preheader34
 
-.preheader34:                                     ; preds = %2, %20
-  %indvars.iv48 = phi i64 [ 0, %2 ], [ %indvars.iv.next49, %20 ]
+.preheader34:                                     ; preds = %2, %29
+  %indvars.iv48 = phi i64 [ 0, %2 ], [ %indvars.iv.next49, %29 ]
+  %4 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr %3, i64 0, i64 %indvars.iv48
+  %5 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsProba0, i64 0, i64 %indvars.iv48
+  %6 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsUpdateProba, i64 0, i64 %indvars.iv48
   br label %.preheader33
 
-.preheader33:                                     ; preds = %.preheader34, %19
-  %indvars.iv44 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next45, %19 ]
+.preheader33:                                     ; preds = %.preheader34, %28
+  %indvars.iv44 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next45, %28 ]
+  %7 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %4, i64 0, i64 %indvars.iv44
+  %8 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %5, i64 0, i64 %indvars.iv44
+  %9 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %6, i64 0, i64 %indvars.iv44
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader33, %18
-  %indvars.iv40 = phi i64 [ 0, %.preheader33 ], [ %indvars.iv.next41, %18 ]
-  br label %4
+.preheader:                                       ; preds = %.preheader33, %27
+  %indvars.iv40 = phi i64 [ 0, %.preheader33 ], [ %indvars.iv.next41, %27 ]
+  %10 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %7, i64 0, i64 %indvars.iv40
+  %11 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %8, i64 0, i64 %indvars.iv40
+  %12 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %9, i64 0, i64 %indvars.iv40
+  br label %13
 
-4:                                                ; preds = %.preheader, %17
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %17 ]
-  %5 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr %3, i64 0, i64 %indvars.iv48, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
-  %6 = load i8, ptr %5, align 1, !tbaa !31
-  %7 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsProba0, i64 0, i64 %indvars.iv48, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
-  %8 = load i8, ptr %7, align 1, !tbaa !31
-  %9 = icmp ne i8 %6, %8
-  %10 = zext i1 %9 to i32
-  %11 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsUpdateProba, i64 0, i64 %indvars.iv48, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
-  %12 = load i8, ptr %11, align 1, !tbaa !31
-  %13 = zext i8 %12 to i32
-  %14 = tail call i32 @VP8PutBit(ptr noundef %0, i32 noundef %10, i32 noundef %13) #6
-  %.not32 = icmp eq i32 %14, 0
-  br i1 %.not32, label %17, label %15
+13:                                               ; preds = %.preheader, %26
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %26 ]
+  %14 = getelementptr inbounds nuw [11 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %15 = load i8, ptr %14, align 1, !tbaa !31
+  %16 = getelementptr inbounds nuw [11 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %17 = load i8, ptr %16, align 1, !tbaa !31
+  %18 = icmp ne i8 %15, %17
+  %19 = zext i1 %18 to i32
+  %20 = getelementptr inbounds nuw [11 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %21 = load i8, ptr %20, align 1, !tbaa !31
+  %22 = zext i8 %21 to i32
+  %23 = tail call i32 @VP8PutBit(ptr noundef %0, i32 noundef %19, i32 noundef %22) #6
+  %.not32 = icmp eq i32 %23, 0
+  br i1 %.not32, label %26, label %24
 
-15:                                               ; preds = %4
-  %16 = zext i8 %6 to i32
-  tail call void @VP8PutBits(ptr noundef %0, i32 noundef %16, i32 noundef 8) #6
-  br label %17
+24:                                               ; preds = %13
+  %25 = zext i8 %15 to i32
+  tail call void @VP8PutBits(ptr noundef %0, i32 noundef %25, i32 noundef 8) #6
+  br label %26
 
-17:                                               ; preds = %15, %4
+26:                                               ; preds = %24, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %18, label %4, !llvm.loop !39
+  br i1 %exitcond.not, label %27, label %13, !llvm.loop !39
 
-18:                                               ; preds = %17
+27:                                               ; preds = %26
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
-  br i1 %exitcond43.not, label %19, label %.preheader, !llvm.loop !40
+  br i1 %exitcond43.not, label %28, label %.preheader, !llvm.loop !40
 
-19:                                               ; preds = %18
+28:                                               ; preds = %27
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 8
-  br i1 %exitcond47.not, label %20, label %.preheader33, !llvm.loop !41
+  br i1 %exitcond47.not, label %29, label %.preheader33, !llvm.loop !41
 
-20:                                               ; preds = %19
+29:                                               ; preds = %28
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 4
-  br i1 %exitcond51.not, label %21, label %.preheader34, !llvm.loop !42
+  br i1 %exitcond51.not, label %30, label %.preheader34, !llvm.loop !42
 
-21:                                               ; preds = %20
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 19884
-  %23 = load i32, ptr %22, align 4, !tbaa !3
-  %24 = tail call i32 @VP8PutBitUniform(ptr noundef %0, i32 noundef %23) #6
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %29, label %25
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 19884
+  %32 = load i32, ptr %31, align 4, !tbaa !3
+  %33 = tail call i32 @VP8PutBitUniform(ptr noundef %0, i32 noundef %32) #6
+  %.not = icmp eq i32 %33, 0
+  br i1 %.not, label %38, label %34
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !43
-  %28 = zext i8 %27 to i32
-  tail call void @VP8PutBits(ptr noundef %0, i32 noundef %28, i32 noundef 8) #6
-  br label %29
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %36 = load i8, ptr %35, align 1, !tbaa !43
+  %37 = zext i8 %36 to i32
+  tail call void @VP8PutBits(ptr noundef %0, i32 noundef %37, i32 noundef 8) #6
+  br label %38
 
-29:                                               ; preds = %25, %21
+38:                                               ; preds = %34, %30
   ret void
 }
 

@@ -1105,41 +1105,41 @@ define hidden void @radius_tlv(ptr noundef readonly captures(none) %0, ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %11
 
-11:                                               ; preds = %.lr.ph, %55
-  %.05477 = phi i32 [ %4, %.lr.ph ], [ %59, %55 ]
-  %.05576 = phi i32 [ %5, %.lr.ph ], [ %29, %55 ]
-  %.05775 = phi i32 [ 0, %.lr.ph ], [ %60, %55 ]
+11:                                               ; preds = %.lr.ph, %proto_item_set_generated.exit
+  %.05473 = phi i32 [ %4, %.lr.ph ], [ %58, %proto_item_set_generated.exit ]
+  %.05572 = phi i32 [ %5, %.lr.ph ], [ %29, %proto_item_set_generated.exit ]
+  %.05771 = phi i32 [ 0, %.lr.ph ], [ %59, %proto_item_set_generated.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
-  %12 = icmp eq i32 %.05576, 1
+  %12 = icmp eq i32 %.05572, 1
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef %3, i32 noundef %.05477, i32 noundef 0, ptr noundef nonnull @.str.21)
-  br label %.thread
+  %14 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef %3, i32 noundef %.05473, i32 noundef 0, ptr noundef nonnull @.str.21)
+  br label %.critedge
 
 15:                                               ; preds = %11
-  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.05477)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.05473)
   %17 = zext i8 %16 to i32
-  %18 = add i32 %.05477, 1
+  %18 = add i32 %.05473, 1
   %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %18)
   %20 = zext i8 %19 to i32
   %21 = icmp ult i8 %19, 2
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %15
-  %23 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef %3, i32 noundef %.05477, i32 noundef 0, ptr noundef nonnull @.str.22, i32 noundef %20)
-  br label %.thread
+  %23 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef %3, i32 noundef %.05473, i32 noundef 0, ptr noundef nonnull @.str.22, i32 noundef %20)
+  br label %.critedge
 
 24:                                               ; preds = %15
-  %25 = icmp samesign ult i32 %.05576, %20
+  %25 = icmp samesign ult i32 %.05572, %20
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
-  %27 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef %3, i32 noundef %.05477, i32 noundef 0, ptr noundef nonnull @.str.23)
-  br label %.thread
+  %27 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_radius_invalid_length, ptr noundef %3, i32 noundef %.05473, i32 noundef 0, ptr noundef nonnull @.str.23)
+  br label %.critedge
 
 28:                                               ; preds = %24
-  %29 = sub nuw nsw i32 %.05576, %20
+  %29 = sub nuw nsw i32 %.05572, %20
   %30 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %35, label %31
@@ -1157,55 +1157,55 @@ define hidden void @radius_tlv(ptr noundef readonly captures(none) %0, ptr nound
   %36 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 48
   %37 = load i32, ptr %36, align 8
   %38 = load ptr, ptr %spec.store.select, align 8
-  %39 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %3, i32 noundef %.05477, i32 noundef %20, i32 noundef %37, ptr noundef nonnull %8, ptr noundef nonnull @.str.24, ptr noundef %38, i32 noundef %17, i32 noundef %20)
+  %39 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %3, i32 noundef %.05473, i32 noundef %20, i32 noundef %37, ptr noundef nonnull %8, ptr noundef nonnull @.str.24, ptr noundef %38, i32 noundef %17, i32 noundef %20)
   %40 = add nsw i32 %20, -2
-  %41 = add i32 %.05477, 2
+  %41 = add i32 %.05473, 2
   %42 = load i8, ptr @show_length, align 1, !range !6, !noundef !7
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %44, label %55
+  br i1 %43, label %44, label %proto_item_set_generated.exit
 
 44:                                               ; preds = %35
   %45 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 68
   %46 = load i32, ptr %45, align 4
   %47 = call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %46, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef %40)
   %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %55, label %48
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %50 = load ptr, ptr %49, align 8
   %.not5.i = icmp eq ptr %50, null
-  br i1 %.not5.i, label %55, label %51
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 28
   %53 = load i32, ptr %52, align 4
   %54 = or i32 %53, 2
   store i32 %54, ptr %52, align 4
-  br label %55
+  br label %proto_item_set_generated.exit
 
-.thread:                                          ; preds = %13, %22, %26
+proto_item_set_generated.exit:                    ; preds = %51, %48, %44, %35
+  %55 = load ptr, ptr %8, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %55, ptr noundef nonnull @.str.106)
+  %56 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 24
+  %57 = load ptr, ptr %56, align 8
+  call void %57(ptr noundef nonnull %spec.store.select, ptr noundef %39, ptr noundef %2, ptr noundef %3, i32 noundef %41, i32 noundef range(i32 0, 254) %40, ptr noundef %55)
+  %58 = add i32 %.05473, %20
+  %59 = add i32 %.05771, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  br label %62
+  %60 = icmp sgt i32 %29, 0
+  br i1 %60, label %11, label %._crit_edge, !llvm.loop !8
 
-55:                                               ; preds = %35, %44, %48, %51
-  %56 = load ptr, ptr %8, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %56, ptr noundef nonnull @.str.106)
-  %57 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 24
-  %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull %spec.store.select, ptr noundef %39, ptr noundef %2, ptr noundef %3, i32 noundef %41, i32 noundef range(i32 0, 254) %40, ptr noundef %56)
-  %59 = add i32 %.05477, %20
-  %60 = add i32 %.05775, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  %61 = icmp sgt i32 %29, 0
-  br i1 %61, label %11, label %._crit_edge, !llvm.loop !8
-
-._crit_edge:                                      ; preds = %55, %7
-  %.057.lcssa = phi i32 [ 0, %7 ], [ %60, %55 ]
+._crit_edge:                                      ; preds = %proto_item_set_generated.exit, %7
+  %.057.lcssa = phi i32 [ 0, %7 ], [ %59, %proto_item_set_generated.exit ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.25, i32 noundef %.057.lcssa)
-  br label %62
+  br label %61
 
-62:                                               ; preds = %.thread, %._crit_edge
+.critedge:                                        ; preds = %26, %22, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  br label %61
+
+61:                                               ; preds = %.critedge, %._crit_edge
   ret void
 }
 

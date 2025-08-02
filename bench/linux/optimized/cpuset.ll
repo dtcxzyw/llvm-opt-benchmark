@@ -562,15 +562,14 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #2 alig
 
 229:                                              ; preds = %217
   store i64 0, ptr %219, align 8
-  br i1 %207, label %.split.us, label %.split.preheader
+  br i1 %207, label %.split.us.critedge, label %230
 
-.split.preheader:                                 ; preds = %229
-  %230 = getelementptr %struct.sched_domain_attr, ptr %205, i64 %218
-  store i32 -1, ptr %230, align 4
+230:                                              ; preds = %229
   %231 = getelementptr %struct.sched_domain_attr, ptr %205, i64 %218
+  store i32 -1, ptr %231, align 4
   br label %.split
 
-.split.us:                                        ; preds = %229, %247
+.split.us.critedge:                               ; preds = %229, %247
   %232 = phi i64 [ %248, %247 ], [ %210, %229 ]
   %233 = getelementptr ptr, ptr %74, i64 %232
   %234 = load ptr, ptr %233, align 8
@@ -579,7 +578,7 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #2 alig
   %237 = icmp eq i32 %215, %236
   br i1 %237, label %238, label %247
 
-238:                                              ; preds = %.split.us
+238:                                              ; preds = %.split.us.critedge
   %239 = getelementptr inbounds nuw i8, ptr %234, i64 224
   %240 = load i64, ptr %219, align 8
   %241 = load i64, ptr %239, align 8
@@ -593,13 +592,13 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #2 alig
   store i32 -1, ptr %235, align 4
   br label %247
 
-247:                                              ; preds = %238, %.split.us
+247:                                              ; preds = %238, %.split.us.critedge
   %248 = add nuw nsw i64 %232, 1
   %249 = icmp eq i64 %248, %208
-  br i1 %249, label %.split49.us, label %.split.us, !llvm.loop !15
+  br i1 %249, label %.split49.us, label %.split.us.critedge, !llvm.loop !15
 
-.split:                                           ; preds = %.split.preheader, %265
-  %250 = phi i64 [ %266, %265 ], [ %210, %.split.preheader ]
+.split:                                           ; preds = %230, %265
+  %250 = phi i64 [ %266, %265 ], [ %210, %230 ]
   %251 = getelementptr ptr, ptr %74, i64 %250
   %252 = load ptr, ptr %251, align 8
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 292
@@ -2093,115 +2092,107 @@ define dso_local range(i32 0, 65) i32 @cpuset_mem_spread_node() #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2260
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, -1
-  br i1 %6, label %7, label %42
+  br i1 %6, label %7, label %40
 
 7:                                                ; preds = %0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 2248
   %9 = load i64, ptr %8, align 8
   %10 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %9) #23, !srcloc !51
   %11 = trunc i64 %10 to i32
-  switch i32 %11, label %20 [
-    i32 0, label %40
+  switch i32 %11, label %18 [
+    i32 0, label %38
     i32 1, label %12
   ]
 
 12:                                               ; preds = %7
   %13 = icmp eq i64 %9, 0
-  br i1 %13, label %17, label %14
+  br i1 %13, label %38, label %14
 
 14:                                               ; preds = %12
   %15 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %9) #24, !srcloc !39
   %16 = trunc i64 %15 to i32
-  br label %17
+  %17 = tail call i32 @llvm.umin.i32(i32 %16, i32 64)
+  br label %38
 
-17:                                               ; preds = %14, %12
-  %18 = phi i32 [ %16, %14 ], [ 64, %12 ]
-  %19 = tail call i32 @llvm.umin.i32(i32 %18, i32 64)
-  br label %40
+18:                                               ; preds = %7
+  %19 = tail call i32 @__get_random_u32_below(i32 noundef %11) #19
+  %20 = icmp ugt i32 %19, 63
+  br i1 %20, label %38, label %21
 
-20:                                               ; preds = %7
-  %21 = tail call i32 @__get_random_u32_below(i32 noundef %11) #19
-  %22 = icmp ugt i32 %21, 63
-  br i1 %22, label %40, label %23
+21:                                               ; preds = %18
+  %22 = load i64, ptr %8, align 8
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %38, label %24
 
-23:                                               ; preds = %20
-  %24 = load i64, ptr %8, align 8
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %40, label %26
-
-26:                                               ; preds = %23
+24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  store i64 %24, ptr %1, align 8
-  br label %27
+  store i64 %22, ptr %1, align 8
+  br label %25
 
-27:                                               ; preds = %34, %26
-  %28 = phi i64 [ %37, %34 ], [ %24, %26 ]
-  %29 = phi i32 [ %35, %34 ], [ %21, %26 ]
-  %30 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %28) #24, !srcloc !39
-  %31 = icmp eq i32 %29, 0
-  br i1 %31, label %32, label %34
+25:                                               ; preds = %32, %24
+  %26 = phi i64 [ %35, %32 ], [ %22, %24 ]
+  %27 = phi i32 [ %33, %32 ], [ %19, %24 ]
+  %28 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %26) #24, !srcloc !39
+  %29 = icmp eq i32 %27, 0
+  br i1 %29, label %30, label %32
 
-32:                                               ; preds = %27
-  %33 = trunc i64 %30 to i32
+30:                                               ; preds = %25
+  %31 = trunc i64 %28 to i32
   br label %.loopexit
 
-34:                                               ; preds = %27
-  %35 = add nsw i32 %29, -1
-  %36 = and i64 %30, 4294967295
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1, i64 %36) #19, !srcloc !52
-  %37 = load i64, ptr %1, align 8
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %.loopexit, label %27, !llvm.loop !53
+32:                                               ; preds = %25
+  %33 = add nsw i32 %27, -1
+  %34 = and i64 %28, 4294967295
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1, i64 %34) #19, !srcloc !52
+  %35 = load i64, ptr %1, align 8
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %.loopexit, label %25, !llvm.loop !53
 
-.loopexit:                                        ; preds = %34, %32
-  %39 = phi i32 [ %33, %32 ], [ 64, %34 ]
+.loopexit:                                        ; preds = %32, %30
+  %37 = phi i32 [ %31, %30 ], [ 64, %32 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  br label %38
+
+38:                                               ; preds = %12, %14, %.loopexit, %21, %18, %7
+  %39 = phi i32 [ -1, %7 ], [ 64, %18 ], [ %37, %.loopexit ], [ 64, %21 ], [ %17, %14 ], [ 64, %12 ]
+  store i32 %39, ptr %4, align 4
   br label %40
 
-40:                                               ; preds = %.loopexit, %23, %20, %17, %7
-  %41 = phi i32 [ %19, %17 ], [ -1, %7 ], [ 64, %20 ], [ %39, %.loopexit ], [ 64, %23 ]
-  store i32 %41, ptr %4, align 4
-  br label %42
+40:                                               ; preds = %38, %0
+  %41 = phi i32 [ %39, %38 ], [ %5, %0 ]
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 2248
+  %43 = add i32 %41, 1
+  %44 = icmp ugt i32 %43, 63
+  %.pr.pre = load i64, ptr %42, align 8
+  br i1 %44, label %.thread, label %45, !prof !9
 
-42:                                               ; preds = %40, %0
-  %43 = phi i32 [ %41, %40 ], [ %5, %0 ]
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 2248
-  %45 = add i32 %43, 1
-  %46 = icmp ugt i32 %45, 63
-  %.pr.pre = load i64, ptr %44, align 8
-  br i1 %46, label %.thread, label %47, !prof !9
+45:                                               ; preds = %40
+  %46 = zext nneg i32 %43 to i64
+  %47 = shl nsw i64 -1, %46
+  %48 = and i64 %.pr.pre, %47
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %.thread, label %50
 
-47:                                               ; preds = %42
-  %48 = zext nneg i32 %45 to i64
-  %49 = shl nsw i64 -1, %48
-  %50 = and i64 %.pr.pre, %49
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %.thread, label %52
+50:                                               ; preds = %45
+  %51 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %48) #24, !srcloc !39
+  %52 = trunc i64 %51 to i32
+  %53 = icmp ugt i32 %52, 63
+  br i1 %53, label %.thread, label %59
 
-52:                                               ; preds = %47
-  %53 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %50) #24, !srcloc !39
-  %54 = trunc i64 %53 to i32
-  %55 = icmp ugt i32 %54, 63
-  br i1 %55, label %.thread, label %63
+.thread:                                          ; preds = %40, %50, %45
+  %54 = icmp eq i64 %.pr.pre, 0
+  br i1 %54, label %59, label %55
 
-.thread:                                          ; preds = %42, %52, %47
-  %56 = icmp eq i64 %.pr.pre, 0
-  br i1 %56, label %60, label %57
+55:                                               ; preds = %.thread
+  %56 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr.pre) #24, !srcloc !39
+  %57 = trunc i64 %56 to i32
+  %58 = call i32 @llvm.umin.i32(i32 %57, i32 64)
+  br label %59
 
-57:                                               ; preds = %.thread
-  %58 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr.pre) #24, !srcloc !39
-  %59 = trunc i64 %58 to i32
-  br label %60
-
-60:                                               ; preds = %57, %.thread
-  %61 = phi i32 [ %59, %57 ], [ 64, %.thread ]
-  %62 = call i32 @llvm.umin.i32(i32 %61, i32 64)
-  br label %63
-
-63:                                               ; preds = %60, %52
-  %64 = phi i32 [ %62, %60 ], [ %54, %52 ]
-  store i32 %64, ptr %4, align 4
-  ret i32 %64
+59:                                               ; preds = %.thread, %55, %50
+  %60 = phi i32 [ %52, %50 ], [ %58, %55 ], [ 64, %.thread ]
+  store i32 %60, ptr %4, align 4
+  ret i32 %60
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2212,115 +2203,107 @@ define dso_local range(i32 0, 65) i32 @cpuset_slab_spread_node() local_unnamed_a
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2264
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
-  br i1 %6, label %7, label %42
+  br i1 %6, label %7, label %40
 
 7:                                                ; preds = %0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 2248
   %9 = load i64, ptr %8, align 8
   %10 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %9) #23, !srcloc !51
   %11 = trunc i64 %10 to i32
-  switch i32 %11, label %20 [
-    i32 0, label %40
+  switch i32 %11, label %18 [
+    i32 0, label %38
     i32 1, label %12
   ]
 
 12:                                               ; preds = %7
   %13 = icmp eq i64 %9, 0
-  br i1 %13, label %17, label %14
+  br i1 %13, label %38, label %14
 
 14:                                               ; preds = %12
   %15 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %9) #24, !srcloc !39
   %16 = trunc i64 %15 to i32
-  br label %17
+  %17 = tail call i32 @llvm.umin.i32(i32 %16, i32 64)
+  br label %38
 
-17:                                               ; preds = %14, %12
-  %18 = phi i32 [ %16, %14 ], [ 64, %12 ]
-  %19 = tail call i32 @llvm.umin.i32(i32 %18, i32 64)
-  br label %40
+18:                                               ; preds = %7
+  %19 = tail call i32 @__get_random_u32_below(i32 noundef %11) #19
+  %20 = icmp ugt i32 %19, 63
+  br i1 %20, label %38, label %21
 
-20:                                               ; preds = %7
-  %21 = tail call i32 @__get_random_u32_below(i32 noundef %11) #19
-  %22 = icmp ugt i32 %21, 63
-  br i1 %22, label %40, label %23
+21:                                               ; preds = %18
+  %22 = load i64, ptr %8, align 8
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %38, label %24
 
-23:                                               ; preds = %20
-  %24 = load i64, ptr %8, align 8
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %40, label %26
-
-26:                                               ; preds = %23
+24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  store i64 %24, ptr %1, align 8
-  br label %27
+  store i64 %22, ptr %1, align 8
+  br label %25
 
-27:                                               ; preds = %34, %26
-  %28 = phi i64 [ %37, %34 ], [ %24, %26 ]
-  %29 = phi i32 [ %35, %34 ], [ %21, %26 ]
-  %30 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %28) #24, !srcloc !39
-  %31 = icmp eq i32 %29, 0
-  br i1 %31, label %32, label %34
+25:                                               ; preds = %32, %24
+  %26 = phi i64 [ %35, %32 ], [ %22, %24 ]
+  %27 = phi i32 [ %33, %32 ], [ %19, %24 ]
+  %28 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %26) #24, !srcloc !39
+  %29 = icmp eq i32 %27, 0
+  br i1 %29, label %30, label %32
 
-32:                                               ; preds = %27
-  %33 = trunc i64 %30 to i32
+30:                                               ; preds = %25
+  %31 = trunc i64 %28 to i32
   br label %.loopexit
 
-34:                                               ; preds = %27
-  %35 = add nsw i32 %29, -1
-  %36 = and i64 %30, 4294967295
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1, i64 %36) #19, !srcloc !52
-  %37 = load i64, ptr %1, align 8
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %.loopexit, label %27, !llvm.loop !53
+32:                                               ; preds = %25
+  %33 = add nsw i32 %27, -1
+  %34 = and i64 %28, 4294967295
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1, i64 %34) #19, !srcloc !52
+  %35 = load i64, ptr %1, align 8
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %.loopexit, label %25, !llvm.loop !53
 
-.loopexit:                                        ; preds = %34, %32
-  %39 = phi i32 [ %33, %32 ], [ 64, %34 ]
+.loopexit:                                        ; preds = %32, %30
+  %37 = phi i32 [ %31, %30 ], [ 64, %32 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  br label %38
+
+38:                                               ; preds = %12, %14, %.loopexit, %21, %18, %7
+  %39 = phi i32 [ -1, %7 ], [ 64, %18 ], [ %37, %.loopexit ], [ 64, %21 ], [ %17, %14 ], [ 64, %12 ]
+  store i32 %39, ptr %4, align 8
   br label %40
 
-40:                                               ; preds = %.loopexit, %23, %20, %17, %7
-  %41 = phi i32 [ %19, %17 ], [ -1, %7 ], [ 64, %20 ], [ %39, %.loopexit ], [ 64, %23 ]
-  store i32 %41, ptr %4, align 8
-  br label %42
+40:                                               ; preds = %38, %0
+  %41 = phi i32 [ %39, %38 ], [ %5, %0 ]
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 2248
+  %43 = add i32 %41, 1
+  %44 = icmp ugt i32 %43, 63
+  %.pr.pre = load i64, ptr %42, align 8
+  br i1 %44, label %.thread, label %45, !prof !9
 
-42:                                               ; preds = %40, %0
-  %43 = phi i32 [ %41, %40 ], [ %5, %0 ]
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 2248
-  %45 = add i32 %43, 1
-  %46 = icmp ugt i32 %45, 63
-  %.pr.pre = load i64, ptr %44, align 8
-  br i1 %46, label %.thread, label %47, !prof !9
+45:                                               ; preds = %40
+  %46 = zext nneg i32 %43 to i64
+  %47 = shl nsw i64 -1, %46
+  %48 = and i64 %.pr.pre, %47
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %.thread, label %50
 
-47:                                               ; preds = %42
-  %48 = zext nneg i32 %45 to i64
-  %49 = shl nsw i64 -1, %48
-  %50 = and i64 %.pr.pre, %49
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %.thread, label %52
+50:                                               ; preds = %45
+  %51 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %48) #24, !srcloc !39
+  %52 = trunc i64 %51 to i32
+  %53 = icmp ugt i32 %52, 63
+  br i1 %53, label %.thread, label %59
 
-52:                                               ; preds = %47
-  %53 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %50) #24, !srcloc !39
-  %54 = trunc i64 %53 to i32
-  %55 = icmp ugt i32 %54, 63
-  br i1 %55, label %.thread, label %63
+.thread:                                          ; preds = %40, %50, %45
+  %54 = icmp eq i64 %.pr.pre, 0
+  br i1 %54, label %59, label %55
 
-.thread:                                          ; preds = %42, %52, %47
-  %56 = icmp eq i64 %.pr.pre, 0
-  br i1 %56, label %60, label %57
+55:                                               ; preds = %.thread
+  %56 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr.pre) #24, !srcloc !39
+  %57 = trunc i64 %56 to i32
+  %58 = call i32 @llvm.umin.i32(i32 %57, i32 64)
+  br label %59
 
-57:                                               ; preds = %.thread
-  %58 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr.pre) #24, !srcloc !39
-  %59 = trunc i64 %58 to i32
-  br label %60
-
-60:                                               ; preds = %57, %.thread
-  %61 = phi i32 [ %59, %57 ], [ 64, %.thread ]
-  %62 = call i32 @llvm.umin.i32(i32 %61, i32 64)
-  br label %63
-
-63:                                               ; preds = %60, %52
-  %64 = phi i32 [ %62, %60 ], [ %54, %52 ]
-  store i32 %64, ptr %4, align 4
-  ret i32 %64
+59:                                               ; preds = %.thread, %55, %50
+  %60 = phi i32 [ %52, %50 ], [ %58, %55 ], [ 64, %.thread ]
+  store i32 %60, ptr %4, align 4
+  ret i32 %60
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -2374,40 +2357,40 @@ define dso_local void @__cpuset_memory_pressure_bump() local_unnamed_addr #2 ali
   %11 = sub i64 %8, %10
   %12 = trunc i64 %11 to i32
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %._crit_edge, label %15
+  br i1 %13, label %._crit_edge, label %16
 
 ._crit_edge:                                      ; preds = %0
   %.pre = load i32, ptr %6, align 8
   %14 = add i32 %.pre, 1000
-  br label %31
+  %15 = tail call i32 @llvm.smin.i32(i32 %14, i32 1000000)
+  br label %32
 
-15:                                               ; preds = %0
-  %16 = tail call i32 @llvm.umin.i32(i32 %12, i32 99)
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 268
-  %18 = load i32, ptr %17, align 4
-  br label %19
+16:                                               ; preds = %0
+  %17 = tail call i32 @llvm.umin.i32(i32 %12, i32 99)
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 268
+  %19 = load i32, ptr %18, align 4
+  br label %20
 
-19:                                               ; preds = %19, %15
-  %20 = phi i32 [ %16, %15 ], [ %22, %19 ]
-  %21 = phi i32 [ %18, %15 ], [ %24, %19 ]
-  %22 = add i32 %20, -1
-  %23 = mul i32 %21, 933
-  %24 = sdiv i32 %23, 1000
-  %25 = icmp eq i32 %22, 0
-  br i1 %25, label %26, label %19, !llvm.loop !54
+20:                                               ; preds = %20, %16
+  %21 = phi i32 [ %17, %16 ], [ %23, %20 ]
+  %22 = phi i32 [ %19, %16 ], [ %25, %20 ]
+  %23 = add i32 %21, -1
+  %24 = mul i32 %22, 933
+  %25 = sdiv i32 %24, 1000
+  %26 = icmp eq i32 %23, 0
+  br i1 %26, label %27, label %20, !llvm.loop !54
 
-26:                                               ; preds = %19
+27:                                               ; preds = %20
   store i64 %8, ptr %9, align 8
-  %27 = load i32, ptr %6, align 8
-  %28 = mul i32 %27, 67
-  %29 = sdiv i32 %28, 1000
-  %30 = add nsw i32 %29, %24
-  store i32 %30, ptr %17, align 4
-  br label %31
+  %28 = load i32, ptr %6, align 8
+  %29 = mul i32 %28, 67
+  %30 = sdiv i32 %29, 1000
+  %31 = add nsw i32 %30, %25
+  store i32 %31, ptr %18, align 4
+  br label %32
 
-31:                                               ; preds = %._crit_edge, %26
-  %32 = phi i32 [ %14, %._crit_edge ], [ 1000, %26 ]
-  %33 = tail call i32 @llvm.smin.i32(i32 %32, i32 1000000)
+32:                                               ; preds = %._crit_edge, %27
+  %33 = phi i32 [ %15, %._crit_edge ], [ 1000, %27 ]
   store i32 %33, ptr %6, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull %7) #19
   tail call void @__rcu_read_unlock() #19
@@ -7816,10 +7799,10 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1164
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 65536
-  %.not22 = icmp eq i32 %8, 0
+  %.not23 = icmp eq i32 %8, 0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !24
-  br i1 %.not22, label %10, label %9
+  br i1 %.not23, label %10, label %9
 
 9:                                                ; preds = %.thread, %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -7839,11 +7822,11 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
   %18 = icmp ne i64 %17, 0
   %19 = select i1 %16, i1 true, i1 %18
   %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @top_cpuset, i64 232), align 8
-  %.not23 = icmp eq i64 %20, %14
+  %.not24 = icmp eq i64 %20, %14
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @top_cpuset, i64 300), align 4
   %22 = icmp ne i32 %21, 0
   %23 = select i1 %19, i1 true, i1 %22
-  br i1 %23, label %24, label %.thread35
+  br i1 %23, label %24, label %.thread36
 
 24:                                               ; preds = %10
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @callback_lock) #19
@@ -7878,55 +7861,55 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
   %36 = phi i64 [ %31, %34 ], [ %.pre.pre, %33 ], [ %.pre.pre, %26 ]
   store i64 %36, ptr getelementptr inbounds nuw (i8, ptr @top_cpuset, i64 224), align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @callback_lock) #19
-  br i1 %.not23, label %39, label %37
+  br i1 %.not24, label %39, label %37
 
-.thread35:                                        ; preds = %10
-  br i1 %.not23, label %.thread36, label %37
+.thread36:                                        ; preds = %10
+  br i1 %.not24, label %.thread37, label %37
 
-.thread36:                                        ; preds = %.thread35
+.thread37:                                        ; preds = %.thread36
   tail call void @mutex_unlock(ptr noundef nonnull @cpuset_mutex) #19
-  br label %.critedge25
+  br label %.critedge26
 
-37:                                               ; preds = %.thread35, %35
+37:                                               ; preds = %.thread36, %35
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @callback_lock) #19
-  %.pre33 = load i64, ptr @cpuset_hotplug_workfn.new_mems.0, align 8
-  br i1 %11, label %.thread14, label %38
+  %.pre34 = load i64, ptr @cpuset_hotplug_workfn.new_mems.0, align 8
+  br i1 %11, label %.thread16, label %38
 
 38:                                               ; preds = %37
-  store i64 %.pre33, ptr getelementptr inbounds nuw (i8, ptr @top_cpuset, i64 216), align 8
-  br label %.thread14
+  store i64 %.pre34, ptr getelementptr inbounds nuw (i8, ptr @top_cpuset, i64 216), align 8
+  br label %.thread16
 
-.thread14:                                        ; preds = %37, %38
-  store i64 %.pre33, ptr getelementptr inbounds nuw (i8, ptr @top_cpuset, i64 232), align 8
+.thread16:                                        ; preds = %37, %38
+  store i64 %.pre34, ptr getelementptr inbounds nuw (i8, ptr @top_cpuset, i64 232), align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @callback_lock) #19
   tail call fastcc void @update_tasks_nodemask(ptr noundef nonnull @top_cpuset)
   br label %39
 
-39:                                               ; preds = %35, %.thread14
+39:                                               ; preds = %35, %.thread16
   tail call void @mutex_unlock(ptr noundef nonnull @cpuset_mutex) #19
   tail call void @__rcu_read_lock() #19
   %40 = tail call ptr @css_next_descendant_pre(ptr noundef null, ptr noundef nonnull @top_cpuset) #19
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.loopexit28, label %42
+  br i1 %41, label %.loopexit29, label %42
 
 42:                                               ; preds = %39
   %43 = icmp eq ptr %12, null
   br label %44
 
-44:                                               ; preds = %.thread15, %42
-  %45 = phi ptr [ %40, %42 ], [ %357, %.thread15 ]
+44:                                               ; preds = %.thread17, %42
+  %45 = phi ptr [ %40, %42 ], [ %357, %.thread17 ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 200
   %47 = load volatile i64, ptr %46, align 8
   %48 = and i64 %47, 1
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %.thread15, label %50
+  br i1 %49, label %.thread17, label %50
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 84
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 1
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %.thread37
+  br i1 %54, label %55, label %.thread38
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -7935,11 +7918,11 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
   %59 = icmp eq i64 %58, 0
   %60 = icmp ne ptr %45, @top_cpuset
   %61 = and i1 %60, %59
-  br i1 %61, label %62, label %.thread15
+  br i1 %61, label %62, label %.thread17
 
-.thread37:                                        ; preds = %50
-  %.not41 = icmp eq ptr %45, @top_cpuset
-  br i1 %.not41, label %.thread15, label %.thread38
+.thread38:                                        ; preds = %50
+  %.not42 = icmp eq ptr %45, @top_cpuset
+  br i1 %.not42, label %.thread17, label %.thread39
 
 62:                                               ; preds = %55
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -7952,19 +7935,19 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
 67:                                               ; preds = %62
   %68 = inttoptr i64 %64 to ptr
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %68, ptr elementtype(i64) %68) #19, !srcloc !97
-  br label %.thread38.sink.split
+  br label %.thread39.sink.split
 
 69:                                               ; preds = %62
   %70 = and i64 %64, 2
   %71 = icmp eq i64 %70, 0
-  br i1 %71, label %72, label %.thread15.sink.split
+  br i1 %71, label %72, label %.thread17.sink.split
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = load volatile i64, ptr %74, align 8
   %76 = icmp eq i64 %75, 0
-  br i1 %76, label %.thread15.sink.split, label %.lr.ph, !prof !56
+  br i1 %76, label %.thread17.sink.split, label %.lr.ph, !prof !56
 
 .lr.ph:                                           ; preds = %72, %83
   %77 = phi i64 [ %84, %83 ], [ %75, %72 ]
@@ -7974,23 +7957,23 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
   %81 = icmp ult i8 %80, 2
   call void @llvm.assume(i1 %81)
   %82 = icmp eq i8 %80, 0
-  br i1 %82, label %83, label %.thread38.sink.split, !prof !9
+  br i1 %82, label %83, label %.thread39.sink.split, !prof !9
 
 83:                                               ; preds = %.lr.ph
   %84 = extractvalue { i8, i64 } %79, 1
   %85 = icmp eq i64 %84, 0
-  br i1 %85, label %.thread15.sink.split, label %.lr.ph, !prof !58, !llvm.loop !59
+  br i1 %85, label %.thread17.sink.split, label %.lr.ph, !prof !58, !llvm.loop !59
 
-.thread38.sink.split:                             ; preds = %.lr.ph, %67
+.thread39.sink.split:                             ; preds = %.lr.ph, %67
   call void @__rcu_read_unlock() #19
-  br label %.thread38
+  br label %.thread39
 
-.thread38:                                        ; preds = %.thread38.sink.split, %.thread37
+.thread39:                                        ; preds = %.thread39.sink.split, %.thread38
   call void @__rcu_read_unlock() #19
   %86 = getelementptr inbounds nuw i8, ptr %45, i64 288
   br label %87
 
-87:                                               ; preds = %101, %.thread38
+87:                                               ; preds = %101, %.thread39
   %88 = call i32 @__SCT__might_resched() #19
   %89 = load i32, ptr %86, align 8
   %90 = icmp eq i32 %89, 0
@@ -8042,13 +8025,13 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
   %113 = load i64, ptr %111, align 8
   %114 = and i64 %113, %112
   store i64 %114, ptr @cpuset_hotplug_update_tasks.new_mems, align 8
-  br i1 %43, label %.thread21, label %115
+  br i1 %43, label %.critedge, label %115
 
 115:                                              ; preds = %102
   %116 = getelementptr inbounds nuw i8, ptr %45, i64 304
   %117 = load i32, ptr %116, align 8
   %118 = icmp eq i32 %117, 0
-  br i1 %118, label %.thread21, label %119
+  br i1 %118, label %.critedge, label %119
 
 119:                                              ; preds = %115
   %120 = getelementptr inbounds nuw i8, ptr %45, i64 400
@@ -8058,44 +8041,44 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
 
 123:                                              ; preds = %119
   %124 = icmp slt i32 %117, 1
-  br i1 %124, label %.thread18, label %125
+  br i1 %124, label %.thread20, label %125
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds nuw i8, ptr %104, i64 304
   %127 = load i32, ptr %126, align 8
   %128 = icmp slt i32 %127, 1
-  br i1 %128, label %.thread18, label %129
+  br i1 %128, label %.thread20, label %129
 
 129:                                              ; preds = %119, %125
   call fastcc void @compute_partition_effective_cpumask(ptr noundef nonnull %45, ptr noundef nonnull @cpuset_hotplug_update_tasks.new_cpus)
   %130 = load i64, ptr @cpuset_hotplug_update_tasks.new_cpus, align 8
   %131 = icmp eq i64 %130, 0
   %132 = select i1 %122, i1 %131, i1 false
-  br i1 %132, label %133, label %.thread18
+  br i1 %132, label %133, label %.thread20
 
 133:                                              ; preds = %129
   %134 = call fastcc zeroext i1 @partition_is_populated(ptr noundef nonnull %45, ptr noundef null)
-  br i1 %134, label %135, label %.thread18
+  br i1 %134, label %135, label %.thread20
 
 135:                                              ; preds = %133
   %136 = call i32 @cpus_read_trylock() #19
   %.not = icmp eq i32 %136, 0
-  br i1 %.not, label %.preheader27, label %.critedge
+  br i1 %.not, label %.preheader28, label %.critedge13
 
-.preheader27:                                     ; preds = %135, %.preheader27
-  %137 = phi i32 [ %140, %.preheader27 ], [ 0, %135 ]
+.preheader28:                                     ; preds = %135, %.preheader28
+  %137 = phi i32 [ %140, %.preheader28 ], [ 0, %135 ]
   call void @msleep(i32 noundef 10) #19
   %138 = call i32 @cpus_read_trylock() #19
   %139 = icmp ne i32 %138, 0
   %140 = add nuw nsw i32 %137, 1
   %141 = icmp eq i32 %140, 5
   %142 = select i1 %139, i1 true, i1 %141
-  br i1 %142, label %143, label %.preheader27, !llvm.loop !131
+  br i1 %142, label %143, label %.preheader28, !llvm.loop !131
 
-143:                                              ; preds = %.preheader27
-  br i1 %139, label %.critedge, label %.thread18
+143:                                              ; preds = %.preheader28
+  br i1 %139, label %.critedge13, label %.thread20
 
-.critedge:                                        ; preds = %135, %143
+.critedge13:                                      ; preds = %135, %143
   call fastcc void @remote_partition_disable(ptr noundef nonnull %45, ptr noundef nonnull %12)
   %144 = load i64, ptr %105, align 8
   %145 = load i64, ptr %106, align 8
@@ -8103,14 +8086,14 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
   store i64 %146, ptr @cpuset_hotplug_update_tasks.new_cpus, align 8
   store i1 true, ptr @force_rebuild, align 1
   call void @cpus_read_unlock() #19
-  br label %.thread18
+  br label %.thread20
 
-.thread18:                                        ; preds = %123, %125, %.critedge, %143, %133, %129
+.thread20:                                        ; preds = %123, %125, %.critedge13, %143, %133, %129
   %147 = load i32, ptr %116, align 8
   %148 = icmp slt i32 %147, 1
   br i1 %148, label %214, label %149
 
-149:                                              ; preds = %.thread18
+149:                                              ; preds = %.thread20
   %150 = load volatile ptr, ptr %120, align 8
   %151 = icmp eq ptr %150, %120
   br i1 %151, label %152, label %214
@@ -8119,7 +8102,7 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
   %153 = getelementptr inbounds nuw i8, ptr %104, i64 304
   %154 = load i32, ptr %153, align 8
   %155 = icmp slt i32 %154, 1
-  br i1 %155, label %.thread20, label %156
+  br i1 %155, label %.thread22, label %156
 
 156:                                              ; preds = %152
   %157 = load i64, ptr %106, align 8
@@ -8134,7 +8117,7 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 228
   %165 = load i32, ptr %164, align 4
   %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %.thread20
+  br i1 %166, label %167, label %.thread22
 
 167:                                              ; preds = %162
   call void @__rcu_read_lock() #19
@@ -8191,7 +8174,7 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
 
 204:                                              ; preds = %193
   call void @__rcu_read_unlock() #19
-  br label %.thread20
+  br label %.thread22
 
 .thread.i:                                        ; preds = %193, %189, %185, %.preheader.i
   %205 = call ptr @css_next_child(ptr noundef nonnull %170, ptr noundef %104) #19
@@ -8200,11 +8183,11 @@ define internal void @cpuset_hotplug_workfn(ptr readnone captures(none) %0) #2 a
 
 partition_is_populated.exit:                      ; preds = %.thread.i, %167
   call void @__rcu_read_unlock() #19
-  %.pre34 = load i64, ptr @cpuset_hotplug_update_tasks.new_cpus, align 8
+  %.pre35 = load i64, ptr @cpuset_hotplug_update_tasks.new_cpus, align 8
   br label %207
 
 207:                                              ; preds = %partition_is_populated.exit, %156
-  %208 = phi i64 [ %.pre34, %partition_is_populated.exit ], [ %158, %156 ]
+  %208 = phi i64 [ %.pre35, %partition_is_populated.exit ], [ %158, %156 ]
   %209 = load i64, ptr @__cpu_active_mask, align 8
   %210 = and i64 %209, %208
   %211 = icmp eq i64 %210, 0
@@ -8212,55 +8195,55 @@ partition_is_populated.exit:                      ; preds = %.thread.i, %167
 
 212:                                              ; preds = %207
   %213 = call fastcc zeroext i1 @partition_is_populated(ptr noundef nonnull %45, ptr noundef null)
-  br i1 %213, label %.thread20, label %214
+  br i1 %213, label %.thread22, label %214
 
-214:                                              ; preds = %212, %207, %149, %.thread18
+214:                                              ; preds = %212, %207, %149, %.thread20
   %215 = getelementptr inbounds nuw i8, ptr %104, i64 304
   %216 = load i32, ptr %215, align 8
   %217 = icmp slt i32 %216, 1
-  br i1 %217, label %.thread21, label %218
+  br i1 %217, label %.critedge, label %218
 
 218:                                              ; preds = %214
   %219 = load i32, ptr %116, align 8
   %220 = icmp slt i32 %219, 0
-  br i1 %220, label %.thread20, label %.thread21
+  br i1 %220, label %.thread22, label %.critedge
 
-.thread20:                                        ; preds = %162, %204, %152, %212, %218
+.thread22:                                        ; preds = %162, %204, %152, %212, %218
   %221 = phi i32 [ 3, %218 ], [ 4, %212 ], [ 4, %152 ], [ 4, %204 ], [ 4, %162 ]
   %222 = phi i1 [ false, %218 ], [ true, %212 ], [ true, %152 ], [ true, %204 ], [ true, %162 ]
   %223 = call i32 @cpus_read_trylock() #19
   %.not11 = icmp eq i32 %223, 0
-  br i1 %.not11, label %.preheader26, label %.critedge13
+  br i1 %.not11, label %.preheader27, label %.critedge15
 
-.preheader26:                                     ; preds = %.thread20, %.preheader26
-  %224 = phi i32 [ %227, %.preheader26 ], [ 0, %.thread20 ]
+.preheader27:                                     ; preds = %.thread22, %.preheader27
+  %224 = phi i32 [ %227, %.preheader27 ], [ 0, %.thread22 ]
   call void @msleep(i32 noundef 10) #19
   %225 = call i32 @cpus_read_trylock() #19
   %226 = icmp ne i32 %225, 0
   %227 = add nuw nsw i32 %224, 1
   %228 = icmp eq i32 %227, 5
   %229 = select i1 %226, i1 true, i1 %228
-  br i1 %229, label %230, label %.preheader26, !llvm.loop !131
+  br i1 %229, label %230, label %.preheader27, !llvm.loop !131
 
-230:                                              ; preds = %.preheader26
-  br i1 %226, label %.critedge13, label %.thread21
+230:                                              ; preds = %.preheader27
+  br i1 %226, label %.critedge15, label %.critedge
 
-.critedge13:                                      ; preds = %.thread20, %230
+.critedge15:                                      ; preds = %.thread22, %230
   %231 = call fastcc i32 @update_parent_effective_cpumask(ptr noundef nonnull %45, i32 noundef %221, ptr noundef null, ptr noundef nonnull %12), !range !63
   call void @cpus_read_unlock() #19
   br i1 %222, label %235, label %232
 
-232:                                              ; preds = %.critedge13
+232:                                              ; preds = %.critedge15
   %233 = load i32, ptr %116, align 8
   %234 = icmp slt i32 %233, 1
-  br i1 %234, label %.thread21, label %235
+  br i1 %234, label %.critedge, label %235
 
-235:                                              ; preds = %232, %.critedge13
+235:                                              ; preds = %232, %.critedge15
   call fastcc void @compute_partition_effective_cpumask(ptr noundef nonnull %45, ptr noundef nonnull @cpuset_hotplug_update_tasks.new_cpus)
   store i1 true, ptr @force_rebuild, align 1
-  br label %.thread21
+  br label %.critedge
 
-.thread21:                                        ; preds = %214, %235, %232, %230, %218, %115, %102
+.critedge:                                        ; preds = %214, %235, %232, %230, %218, %115, %102
   %236 = getelementptr inbounds nuw i8, ptr %45, i64 224
   %237 = load i64, ptr @cpuset_hotplug_update_tasks.new_cpus, align 8
   %238 = load i64, ptr %236, align 8
@@ -8272,7 +8255,7 @@ partition_is_populated.exit:                      ; preds = %.thread.i, %167
   %244 = select i1 %239, i1 true, i1 %243
   br i1 %244, label %245, label %336
 
-245:                                              ; preds = %.thread21
+245:                                              ; preds = %.critedge
   br i1 %243, label %246, label %263
 
 246:                                              ; preds = %245
@@ -8448,13 +8431,13 @@ partition_is_populated.exit:                      ; preds = %.thread.i, %167
   call void @mutex_lock(ptr noundef nonnull @cpuset_mutex) #19
   br label %336
 
-336:                                              ; preds = %335, %309, %293, %292, %.thread21
+336:                                              ; preds = %335, %309, %293, %292, %.critedge
   call void @mutex_unlock(ptr noundef nonnull @cpuset_mutex) #19
   call void @__rcu_read_lock() #19
   %337 = load i32, ptr %51, align 4
   %338 = and i32 %337, 1
   %339 = icmp eq i32 %338, 0
-  br i1 %339, label %340, label %.thread15
+  br i1 %339, label %340, label %.thread17
 
 340:                                              ; preds = %336
   %341 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -8467,7 +8450,7 @@ partition_is_populated.exit:                      ; preds = %.thread.i, %167
 345:                                              ; preds = %340
   %346 = inttoptr i64 %342 to ptr
   call void asm sideeffect "decq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %346, ptr elementtype(i64) %346) #19, !srcloc !26
-  br label %.thread15.sink.split
+  br label %.thread17.sink.split
 
 347:                                              ; preds = %340
   %348 = getelementptr inbounds nuw i8, ptr %45, i64 24
@@ -8476,33 +8459,33 @@ partition_is_populated.exit:                      ; preds = %.thread.i, %167
   %351 = icmp ult i8 %350, 2
   call void @llvm.assume(i1 %351)
   %352 = icmp eq i8 %350, 0
-  br i1 %352, label %.thread15.sink.split, label %353, !prof !19
+  br i1 %352, label %.thread17.sink.split, label %353, !prof !19
 
 353:                                              ; preds = %347
   %354 = load ptr, ptr %348, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8
   call void %356(ptr noundef nonnull %341) #19
-  br label %.thread15.sink.split
+  br label %.thread17.sink.split
 
-.thread15.sink.split:                             ; preds = %83, %69, %345, %347, %353, %72
+.thread17.sink.split:                             ; preds = %83, %69, %345, %347, %353, %72
   call void @__rcu_read_unlock() #19
-  br label %.thread15
+  br label %.thread17
 
-.thread15:                                        ; preds = %.thread15.sink.split, %.thread37, %44, %336, %55
+.thread17:                                        ; preds = %.thread17.sink.split, %.thread38, %44, %336, %55
   %357 = call ptr @css_next_descendant_pre(ptr noundef nonnull %45, ptr noundef nonnull @top_cpuset) #19
   %358 = icmp eq ptr %357, null
-  br i1 %358, label %.loopexit28, label %44, !llvm.loop !133
+  br i1 %358, label %.loopexit29, label %44, !llvm.loop !133
 
-.loopexit28:                                      ; preds = %.thread15, %39
+.loopexit29:                                      ; preds = %.thread17, %39
   call void @__rcu_read_unlock() #19
-  br i1 %23, label %360, label %.critedge25
+  br i1 %23, label %360, label %.critedge26
 
-.critedge25:                                      ; preds = %.thread36, %.loopexit28
+.critedge26:                                      ; preds = %.thread37, %.loopexit29
   %359 = load i1, ptr @force_rebuild, align 1
   br i1 %359, label %360, label %361
 
-360:                                              ; preds = %.critedge25, %.loopexit28
+360:                                              ; preds = %.critedge26, %.loopexit29
   store i1 false, ptr @force_rebuild, align 1
   call void @cpus_read_lock() #19
   call void @mutex_lock(ptr noundef nonnull @cpuset_mutex) #19
@@ -8511,7 +8494,7 @@ partition_is_populated.exit:                      ; preds = %.thread.i, %167
   call void @cpus_read_unlock() #19
   br label %361
 
-361:                                              ; preds = %360, %.critedge25
+361:                                              ; preds = %360, %.critedge26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19
   ret void
 }

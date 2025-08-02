@@ -1974,10 +1974,10 @@ _ZN4llvm8DebugLocD2Ev.exit63.i:                   ; preds = %686, %_ZN4llvm8Debu
   %689 = getelementptr inbounds nuw i8, ptr %.sroa.0160.0253, i64 56
   %690 = load ptr, ptr %689, align 8, !tbaa !218
   %.not106114.i = icmp eq ptr %688, %690
-  br i1 %.not106114.i, label %._crit_edge.thread.i, label %.lr.ph.i68
+  br i1 %.not106114.i, label %.critedge.i, label %.lr.ph.i68
 
 ._crit_edge.i77:                                  ; preds = %784
-  br i1 %.147.i, label %786, label %._crit_edge.thread.i
+  br i1 %.147.i, label %786, label %.critedge.i
 
 .lr.ph.i68:                                       ; preds = %687, %784
   %.046116.i = phi i1 [ %.147.i, %784 ], [ false, %687 ]
@@ -2208,7 +2208,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit79.i:               ; preds = %789, %786
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 4 dereferenceable(8) %791) #18
   br label %.loopexit.i84
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i77, %687
+.critedge.i:                                      ; preds = %._crit_edge.i77, %687
   %793 = load ptr, ptr %23, align 8, !tbaa !25
   %794 = load i32, ptr %597, align 8, !tbaa !26
   %795 = zext i32 %794 to i64
@@ -2217,8 +2217,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit79.i:               ; preds = %789, %786
   %.not118.i = icmp eq i32 %794, 0
   br i1 %.not118.i, label %._crit_edge122.i, label %.lr.ph121.i
 
-._crit_edge122.i:                                 ; preds = %.lr.ph121.i, %._crit_edge.thread.i
-  %.2.lcssa.i = phi i1 [ %.0.i.i, %._crit_edge.thread.i ], [ true, %.lr.ph121.i ]
+._crit_edge122.i:                                 ; preds = %.lr.ph121.i, %.critedge.i
+  %.2.lcssa.i = phi i1 [ %.0.i.i, %.critedge.i ], [ true, %.lr.ph121.i ]
   %797 = load ptr, ptr %24, align 8, !tbaa !25
   %798 = load i32, ptr %600, align 8, !tbaa !26
   %799 = zext i32 %798 to i64
@@ -2227,8 +2227,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit79.i:               ; preds = %789, %786
   %.not51124.i = icmp eq i32 %798, 0
   br i1 %.not51124.i, label %.loopexit.i84, label %.lr.ph127.i
 
-.lr.ph121.i:                                      ; preds = %._crit_edge.thread.i, %.lr.ph121.i
-  %.049119.i = phi ptr [ %801, %.lr.ph121.i ], [ %793, %._crit_edge.thread.i ]
+.lr.ph121.i:                                      ; preds = %.critedge.i, %.lr.ph121.i
+  %.049119.i = phi ptr [ %801, %.lr.ph121.i ], [ %793, %.critedge.i ]
   %.sroa.08.0.copyload.i = load ptr, ptr %.049119.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.049119.i, i64 8
   %.sroa.4.0.copyload.i78 = load i32, ptr %.sroa.4.0..sroa_idx.i, align 8

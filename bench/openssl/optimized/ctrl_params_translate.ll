@@ -1167,8 +1167,8 @@ define range(i32 0, 2) i32 @evp_pkey_ctx_get_params_to_ctrl(ptr noundef %0, ptr 
 define i32 @evp_pkey_get_params_to_ctrl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.translation_ctx_st, align 8
   %4 = alloca %struct.translation_st, align 8
-  %.not40.i = icmp eq ptr %1, null
-  br i1 %.not40.i, label %evp_pkey_setget_params_to_ctrl.exit, label %.lr.ph.i
+  %.not41.i = icmp eq ptr %1, null
+  br i1 %.not41.i, label %evp_pkey_setget_params_to_ctrl.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1180,9 +1180,9 @@ define i32 @evp_pkey_get_params_to_ctrl(ptr noundef %0, ptr noundef %1) local_un
   %.not28.i3 = icmp eq ptr %10, null
   br i1 %.not28.i3, label %evp_pkey_setget_params_to_ctrl.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %22
-  %11 = phi ptr [ %24, %22 ], [ %10, %.lr.ph.i ]
-  %.02241.i4 = phi ptr [ %23, %22 ], [ %1, %.lr.ph.i ]
+.lr.ph:                                           ; preds = %.lr.ph.i, %cleanup_translation_ctx.exit.i
+  %11 = phi ptr [ %23, %cleanup_translation_ctx.exit.i ], [ %10, %.lr.ph.i ]
+  %.02242.i4 = phi ptr [ %22, %cleanup_translation_ctx.exit.i ], [ %1, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #8
@@ -1191,7 +1191,7 @@ define i32 @evp_pkey_get_params_to_ctrl(ptr noundef %0, ptr noundef %1) local_un
   store ptr %11, ptr %5, align 8, !tbaa !42
   %12 = call fastcc ptr @lookup_translation(ptr noundef nonnull %4, ptr noundef nonnull @evp_pkey_translations, i64 noundef 41)
   %.not29.i = icmp eq ptr %12, null
-  br i1 %.not29.i, label %.thread33.i, label %13
+  br i1 %.not29.i, label %.critedge35.i, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 56
@@ -1200,36 +1200,36 @@ define i32 @evp_pkey_get_params_to_ctrl(ptr noundef %0, ptr noundef %1) local_un
   %16 = load i32, ptr %12, align 8, !tbaa !28
   store i32 %16, ptr %6, align 8, !tbaa !29
   store ptr %0, ptr %7, align 8, !tbaa !35
-  store ptr %.02241.i4, ptr %8, align 8, !tbaa !37
+  store ptr %.02242.i4, ptr %8, align 8, !tbaa !37
   %17 = icmp ne i32 %16, 1
   %brmerge.i = select i1 %17, i1 true, i1 %.not30.i
-  br i1 %brmerge.i, label %.thread33.i, label %18, !prof !61
+  br i1 %brmerge.i, label %.critedge35.i, label %18, !prof !61
 
 18:                                               ; preds = %13
   %19 = call i32 %15(i32 noundef 0, ptr noundef nonnull %12, ptr noundef nonnull %3) #8
   %20 = load ptr, ptr %9, align 8, !tbaa !38
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %22, label %21
+  br i1 %.not.i.i, label %cleanup_translation_ctx.exit.i, label %21
 
 21:                                               ; preds = %18
   call void @CRYPTO_free(ptr noundef nonnull %20, ptr noundef nonnull @.str, i32 noundef 713) #8
-  br label %22
+  br label %cleanup_translation_ctx.exit.i
 
-.thread33.i:                                      ; preds = %13, %.lr.ph
+cleanup_translation_ctx.exit.i:                   ; preds = %21, %18
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #8
+  %22 = getelementptr inbounds nuw i8, ptr %.02242.i4, i64 40
+  %23 = load ptr, ptr %22, align 8, !tbaa !60
+  %.not28.i = icmp eq ptr %23, null
+  br i1 %.not28.i, label %evp_pkey_setget_params_to_ctrl.exit, label %.lr.ph
+
+.critedge35.i:                                    ; preds = %13, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #8
   br label %evp_pkey_setget_params_to_ctrl.exit
 
-22:                                               ; preds = %21, %18
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #8
-  %23 = getelementptr inbounds nuw i8, ptr %.02241.i4, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !60
-  %.not28.i = icmp eq ptr %24, null
-  br i1 %.not28.i, label %evp_pkey_setget_params_to_ctrl.exit, label %.lr.ph
-
-evp_pkey_setget_params_to_ctrl.exit:              ; preds = %22, %.lr.ph.i, %2, %.thread33.i
-  %.2.i = phi i32 [ -2, %.thread33.i ], [ 1, %2 ], [ 1, %.lr.ph.i ], [ %19, %22 ]
+evp_pkey_setget_params_to_ctrl.exit:              ; preds = %cleanup_translation_ctx.exit.i, %.lr.ph.i, %2, %.critedge35.i
+  %.2.i = phi i32 [ -2, %.critedge35.i ], [ 1, %2 ], [ 1, %.lr.ph.i ], [ %19, %cleanup_translation_ctx.exit.i ]
   ret i32 %.2.i
 }
 

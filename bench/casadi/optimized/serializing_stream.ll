@@ -11916,7 +11916,6 @@ _ZN6casadi17SerializingStream8decorateEc.exit.i:  ; preds = %20, %_ZN6casadi17Se
 _ZN6casadi17SerializingStream4packEm.exit:        ; preds = %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #25
-  %invariant.gep = getelementptr i8, ptr %1, i64 32
   %.not22 = icmp eq i64 %16, 0
   br i1 %.not22, label %._crit_edge20, label %.lr.ph19
 
@@ -11925,7 +11924,7 @@ _ZN6casadi17SerializingStream4packEm.exit:        ; preds = %27
   br label %38
 
 38:                                               ; preds = %._crit_edge, %.lr.ph19
-  %.01518 = phi i64 [ 0, %.lr.ph19 ], [ %46, %._crit_edge ]
+  %.01518 = phi i64 [ 0, %.lr.ph19 ], [ %48, %._crit_edge ]
   %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %4, i64 noundef 1024)
   %40 = load i64, ptr %37, align 8, !tbaa !69
   %.not23 = icmp eq i64 %40, 0
@@ -11935,29 +11934,30 @@ _ZN6casadi17SerializingStream4packEm.exit:        ; preds = %27
   %41 = load ptr, ptr %1, align 8, !tbaa !17
   %42 = getelementptr i8, ptr %41, i64 -24
   %43 = load i64, ptr %42, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %43
-  %44 = load i32, ptr %gep, align 8, !tbaa !19
-  %45 = and i32 %44, 2
-  %.not = icmp ne i32 %45, 0
-  %46 = add nuw i64 %.01518, 1
-  %exitcond24.not = icmp eq i64 %46, %16
+  %44 = getelementptr inbounds i8, ptr %1, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %46 = load i32, ptr %45, align 8, !tbaa !19
+  %47 = and i32 %46, 2
+  %.not = icmp ne i32 %47, 0
+  %48 = add nuw i64 %.01518, 1
+  %exitcond24.not = icmp eq i64 %48, %16
   %or.cond = select i1 %.not, i1 true, i1 %exitcond24.not
   br i1 %or.cond, label %._crit_edge20, label %38, !llvm.loop !183
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
-  %.017 = phi i64 [ %56, %.lr.ph ], [ 0, %38 ]
-  %47 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %.017
-  %48 = load i8, ptr %47, align 1, !tbaa !38
-  %49 = load ptr, ptr %26, align 8, !tbaa !110
-  %50 = and i8 %48, 15
-  %51 = add nuw nsw i8 %50, 97
-  %52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %49, i8 noundef signext %51)
-  %53 = load ptr, ptr %26, align 8, !tbaa !110
-  %54 = lshr i8 %48, 4
-  %narrow.i = add nuw nsw i8 %54, 97
-  %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %53, i8 noundef signext %narrow.i)
-  %56 = add nuw i64 %.017, 1
-  %exitcond.not = icmp eq i64 %56, %40
+  %.017 = phi i64 [ %58, %.lr.ph ], [ 0, %38 ]
+  %49 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %.017
+  %50 = load i8, ptr %49, align 1, !tbaa !38
+  %51 = load ptr, ptr %26, align 8, !tbaa !110
+  %52 = and i8 %50, 15
+  %53 = add nuw nsw i8 %52, 97
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %51, i8 noundef signext %53)
+  %55 = load ptr, ptr %26, align 8, !tbaa !110
+  %56 = lshr i8 %50, 4
+  %narrow.i = add nuw nsw i8 %56, 97
+  %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %55, i8 noundef signext %narrow.i)
+  %58 = add nuw i64 %.017, 1
+  %exitcond.not = icmp eq i64 %58, %40
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !184
 
 ._crit_edge20:                                    ; preds = %._crit_edge, %_ZN6casadi17SerializingStream4packEm.exit

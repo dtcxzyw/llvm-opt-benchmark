@@ -4072,7 +4072,7 @@ define hidden noundef ptr @_glfwGetScancodeNameWayland(i32 noundef %0) local_unn
   br label %36
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds [349 x [5 x i8]], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 135378), i64 0, i64 %29, i64 %31
+  %35 = getelementptr inbounds nuw [5 x i8], ptr %30, i64 0, i64 %31
   store i8 0, ptr %35, align 1, !tbaa !314
   br label %36
 
@@ -5261,7 +5261,7 @@ define internal void @pointerHandleMotion(ptr readnone captures(none) %0, ptr re
 define internal void @pointerHandleButton(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137360), align 8, !tbaa !238
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %91, label %8
+  br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 856
@@ -5277,16 +5277,16 @@ define internal void @pointerHandleButton(ptr readnone captures(none) %0, ptr re
   %15 = zext i1 %14 to i32
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137192), align 8, !tbaa !283
   tail call void @_glfwInputMouseClick(ptr noundef nonnull %7, i32 noundef %13, i32 noundef %15, i32 noundef %16) #20
-  br label %91
+  br label %.critedge
 
 17:                                               ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 1120
   %19 = load i32, ptr %18, align 8, !tbaa !162
   %.not39 = icmp eq i32 %19, 0
-  br i1 %.not39, label %91, label %20
+  br i1 %.not39, label %.critedge, label %20
 
 20:                                               ; preds = %17
-  switch i32 %4, label %91 [
+  switch i32 %4, label %.critedge [
     i32 272, label %21
     i32 273, label %76
   ]
@@ -5313,7 +5313,7 @@ define internal void @pointerHandleButton(ptr readnone captures(none) %0, ptr re
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
   %37 = tail call i32 %36(ptr noundef %33) #20
   %38 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %35(ptr noundef %33, i32 noundef 5, ptr noundef null, i32 noundef %37, i32 noundef 0, ptr noundef %34, i32 noundef %2) #20
-  br label %91
+  br label %.critedge
 
 39:                                               ; preds = %21
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 1160
@@ -5345,7 +5345,7 @@ define internal void @pointerHandleButton(ptr readnone captures(none) %0, ptr re
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 1208
   %57 = load ptr, ptr %56, align 8, !tbaa !172
   %58 = icmp eq ptr %23, %57
-  br i1 %58, label %59, label %91
+  br i1 %58, label %59, label %.critedge
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 1000
@@ -5362,21 +5362,21 @@ define internal void @pointerHandleButton(ptr readnone captures(none) %0, ptr re
   br label %68
 
 68:                                               ; preds = %27, %43, %51, %59, %63
-  %.0.ph = phi i32 [ %.43, %63 ], [ 6, %59 ], [ %.42, %51 ], [ %., %43 ], [ 1, %27 ]
+  %.0 = phi i32 [ 1, %27 ], [ %., %43 ], [ %.42, %51 ], [ 6, %59 ], [ %.43, %63 ]
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 960
   %70 = load ptr, ptr %69, align 8, !tbaa !235
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !252
   %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
   %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
   %74 = tail call i32 %73(ptr noundef %70) #20
-  %75 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %72(ptr noundef %70, i32 noundef 6, ptr noundef null, i32 noundef %74, i32 noundef 0, ptr noundef %71, i32 noundef %2, i32 noundef range(i32 1, 11) %.0.ph) #20
-  br label %91
+  %75 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %72(ptr noundef %70, i32 noundef 6, ptr noundef null, i32 noundef %74, i32 noundef 0, ptr noundef %71, i32 noundef %2, i32 noundef range(i32 1, 11) %.0) #20
+  br label %.critedge
 
 76:                                               ; preds = %20
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 960
   %78 = load ptr, ptr %77, align 8, !tbaa !235
   %.not40 = icmp eq ptr %78, null
-  br i1 %.not40, label %91, label %79
+  br i1 %.not40, label %.critedge, label %79
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !252
@@ -5390,9 +5390,9 @@ define internal void @pointerHandleButton(ptr readnone captures(none) %0, ptr re
   %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
   %89 = tail call i32 %88(ptr noundef nonnull %78) #20
   %90 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %87(ptr noundef nonnull %78, i32 noundef 4, ptr noundef null, i32 noundef %89, i32 noundef 0, ptr noundef %80, i32 noundef %2, i32 noundef %83, i32 noundef %86) #20
-  br label %91
+  br label %.critedge
 
-91:                                               ; preds = %31, %55, %17, %79, %76, %68, %20, %6, %12
+.critedge:                                        ; preds = %17, %79, %76, %31, %55, %68, %20, %6, %12
   ret void
 }
 

@@ -808,11 +808,10 @@ for.body.lr.ph:                                   ; preds = %_ZN8QuantLib5ArrayC
   %.fr = freeze i64 %12
   %cmp78 = icmp eq i64 %.fr, 2147483647
   %13 = load ptr, ptr %state, align 8
-  %mul116.neg91 = mul i64 %add2, -2
-  %add115 = or disjoint i64 %mul116.neg91, 1
+  %mul116.neg83 = mul i64 %add2, -2
+  %add115 = or disjoint i64 %mul116.neg83, 1
   %invariant.gep = getelementptr double, ptr %13, i64 %9
-  %invariant.gep83 = getelementptr i8, ptr %13, i64 8
-  %invariant.gep89 = getelementptr i8, ptr %invariant.gep, i64 8
+  %invariant.gep89 = getelementptr double, ptr %13, i64 %9
   br i1 %cmp78, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end150.us
@@ -831,61 +830,62 @@ if.else48.us:                                     ; preds = %if.else.us
 
 if.else60.us:                                     ; preds = %if.else48.us
   %cmp66.us = icmp ult i64 %rem.us, %sub65
+  %14 = getelementptr inbounds nuw double, ptr %13, i64 %i.082.us
   br i1 %cmp66.us, label %if.then67.us, label %invoke.cont76.us
 
 invoke.cont76.us:                                 ; preds = %if.else60.us
-  %arrayidx.i58.us = getelementptr inbounds nuw double, ptr %13, i64 %i.082.us
-  %14 = load double, ptr %arrayidx.i58.us, align 8, !tbaa !48
-  %15 = load double, ptr %13, align 8, !tbaa !48
-  %16 = load double, ptr %invariant.gep, align 8, !tbaa !48
-  %cmp.i60.us = fcmp olt double %15, %16
-  %.sroa.speculated76.us = select i1 %cmp.i60.us, double %16, double %15
+  %15 = load double, ptr %14, align 8, !tbaa !48
+  %16 = load double, ptr %13, align 8, !tbaa !48
+  %17 = load double, ptr %invariant.gep, align 8, !tbaa !48
+  %cmp.i60.us = fcmp olt double %16, %17
+  %.sroa.speculated76.us = select i1 %cmp.i60.us, double %17, double %16
   %sub97.us = fsub double %.sroa.speculated76.us, %4
-  %cmp.i62.us = fcmp olt double %14, %sub97.us
-  %.sroa.speculated77.us = select i1 %cmp.i62.us, double %sub97.us, double %14
+  %cmp.i62.us = fcmp olt double %15, %sub97.us
+  %.sroa.speculated77.us = select i1 %cmp.i62.us, double %sub97.us, double %15
   br label %if.end150.us
 
 if.then67.us:                                     ; preds = %if.else60.us
-  %gep84.us = getelementptr double, ptr %invariant.gep83, i64 %i.082.us
-  %17 = load double, ptr %gep84.us, align 8, !tbaa !48
+  %arrayidx.i56.us = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %18 = load double, ptr %arrayidx.i56.us, align 8, !tbaa !48
   br label %if.end150.us
 
 if.then52.us:                                     ; preds = %if.else48.us
   %sub54.us = sub i64 %i.082.us, %9
   %arrayidx.i54.us = getelementptr inbounds nuw double, ptr %cond.i, i64 %sub54.us
-  %18 = load double, ptr %arrayidx.i54.us, align 8, !tbaa !48
+  %19 = load double, ptr %arrayidx.i54.us, align 8, !tbaa !48
   br label %if.end150.us
 
 if.then21.us:                                     ; preds = %if.else.us
-  %add24.us = add i64 %i.082.us, %9
-  %gep86.us = getelementptr double, ptr %invariant.gep83, i64 %add24.us
-  %19 = load double, ptr %gep86.us, align 8, !tbaa !48
+  %gep90 = getelementptr double, ptr %invariant.gep89, i64 %i.082.us
+  %arrayidx.i46.us = getelementptr i8, ptr %gep90, i64 8
+  %20 = load double, ptr %arrayidx.i46.us, align 8, !tbaa !48
   %arrayidx.i47.us = getelementptr inbounds nuw double, ptr %13, i64 %i.082.us
-  %20 = load double, ptr %arrayidx.i47.us, align 8, !tbaa !48
-  %arrayidx.i48.us = getelementptr inbounds nuw double, ptr %13, i64 %add24.us
-  %21 = load double, ptr %arrayidx.i48.us, align 8, !tbaa !48
-  %cmp.i49.us = fcmp olt double %20, %21
-  %22 = select i1 %cmp.i49.us, double %21, double %20
-  %cmp.i51.us = fcmp olt double %19, %22
-  %.sroa.speculated78.us = select i1 %cmp.i51.us, double %22, double %19
+  %21 = load double, ptr %arrayidx.i47.us, align 8, !tbaa !48
+  %22 = load double, ptr %gep90, align 8, !tbaa !48
+  %cmp.i49.us = fcmp olt double %21, %22
+  %23 = select i1 %cmp.i49.us, double %22, double %21
+  %cmp.i51.us = fcmp olt double %20, %23
+  %.sroa.speculated78.us = select i1 %cmp.i51.us, double %23, double %20
   br label %if.end150.us
 
 if.then.us:                                       ; preds = %for.body.us
-  %gep88.us = getelementptr double, ptr %invariant.gep83, i64 %i.082.us
-  %23 = load double, ptr %gep88.us, align 8, !tbaa !48
-  %gep90.us = getelementptr double, ptr %invariant.gep89, i64 %i.082.us
-  %24 = load double, ptr %gep90.us, align 8, !tbaa !48
-  %cmp.i.us = fcmp olt double %23, %24
-  %.sroa.speculated80.us = select i1 %cmp.i.us, double %24, double %23
+  %24 = getelementptr inbounds nuw double, ptr %13, i64 %i.082.us
+  %arrayidx.i.us = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %25 = load double, ptr %arrayidx.i.us, align 8, !tbaa !48
+  %26 = getelementptr double, ptr %invariant.gep, i64 %i.082.us
+  %arrayidx.i44.us = getelementptr i8, ptr %26, i64 8
+  %27 = load double, ptr %arrayidx.i44.us, align 8, !tbaa !48
+  %cmp.i.us = fcmp olt double %25, %27
+  %.sroa.speculated80.us = select i1 %cmp.i.us, double %27, double %25
   br label %if.end150.us
 
 if.end150.us:                                     ; preds = %if.then.us, %if.then21.us, %if.then52.us, %if.then67.us, %invoke.cont76.us
-  %.sroa.speculated80.us.sink = phi double [ %.sroa.speculated80.us, %if.then.us ], [ %.sroa.speculated78.us, %if.then21.us ], [ %18, %if.then52.us ], [ %17, %if.then67.us ], [ %.sroa.speculated77.us, %invoke.cont76.us ]
+  %.sroa.speculated80.us.sink = phi double [ %.sroa.speculated80.us, %if.then.us ], [ %.sroa.speculated78.us, %if.then21.us ], [ %19, %if.then52.us ], [ %18, %if.then67.us ], [ %.sroa.speculated77.us, %invoke.cont76.us ]
   %arrayidx.i45.us = getelementptr inbounds nuw double, ptr %cond.i, i64 %i.082.us
   store double %.sroa.speculated80.us.sink, ptr %arrayidx.i45.us, align 8, !tbaa !48
   %inc.us = add nuw i64 %i.082.us, 1
-  %exitcond93.not = icmp eq i64 %inc.us, %11
-  br i1 %exitcond93.not, label %nrvo.skipdtor, label %for.body.us, !llvm.loop !49
+  %exitcond85.not = icmp eq i64 %inc.us, %11
+  br i1 %exitcond85.not, label %nrvo.skipdtor, label %for.body.us, !llvm.loop !49
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end150
   %i.082 = phi i64 [ %inc, %if.end150 ], [ 0, %for.body.lr.ph ]
@@ -894,12 +894,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %gep88 = getelementptr double, ptr %invariant.gep83, i64 %i.082
-  %25 = load double, ptr %gep88, align 8, !tbaa !48
-  %gep90 = getelementptr double, ptr %invariant.gep89, i64 %i.082
-  %26 = load double, ptr %gep90, align 8, !tbaa !48
-  %cmp.i = fcmp olt double %25, %26
-  %.sroa.speculated80 = select i1 %cmp.i, double %26, double %25
+  %28 = getelementptr inbounds nuw double, ptr %13, i64 %i.082
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %29 = load double, ptr %arrayidx.i, align 8, !tbaa !48
+  %30 = getelementptr double, ptr %invariant.gep, i64 %i.082
+  %arrayidx.i44 = getelementptr i8, ptr %30, i64 8
+  %31 = load double, ptr %arrayidx.i44, align 8, !tbaa !48
+  %cmp.i = fcmp olt double %29, %31
+  %.sroa.speculated80 = select i1 %cmp.i, double %31, double %29
   br label %if.end150
 
 if.else:                                          ; preds = %for.body
@@ -907,17 +909,16 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp20, label %if.then21, label %if.else48
 
 if.then21:                                        ; preds = %if.else
-  %add24 = add i64 %i.082, %9
-  %gep86 = getelementptr double, ptr %invariant.gep83, i64 %add24
-  %27 = load double, ptr %gep86, align 8, !tbaa !48
+  %gep88 = getelementptr double, ptr %invariant.gep89, i64 %i.082
+  %arrayidx.i46 = getelementptr i8, ptr %gep88, i64 8
+  %32 = load double, ptr %arrayidx.i46, align 8, !tbaa !48
   %arrayidx.i47 = getelementptr inbounds nuw double, ptr %13, i64 %i.082
-  %28 = load double, ptr %arrayidx.i47, align 8, !tbaa !48
-  %arrayidx.i48 = getelementptr inbounds nuw double, ptr %13, i64 %add24
-  %29 = load double, ptr %arrayidx.i48, align 8, !tbaa !48
-  %cmp.i49 = fcmp olt double %28, %29
-  %30 = select i1 %cmp.i49, double %29, double %28
-  %cmp.i51 = fcmp olt double %27, %30
-  %.sroa.speculated78 = select i1 %cmp.i51, double %30, double %27
+  %33 = load double, ptr %arrayidx.i47, align 8, !tbaa !48
+  %34 = load double, ptr %gep88, align 8, !tbaa !48
+  %cmp.i49 = fcmp olt double %33, %34
+  %35 = select i1 %cmp.i49, double %34, double %33
+  %cmp.i51 = fcmp olt double %32, %35
+  %.sroa.speculated78 = select i1 %cmp.i51, double %35, double %32
   br label %if.end150
 
 if.else48:                                        ; preds = %if.else
@@ -927,7 +928,7 @@ if.else48:                                        ; preds = %if.else
 if.then52:                                        ; preds = %if.else48
   %sub54 = sub i64 %i.082, %9
   %arrayidx.i54 = getelementptr inbounds nuw double, ptr %cond.i, i64 %sub54
-  %31 = load double, ptr %arrayidx.i54, align 8, !tbaa !48
+  %36 = load double, ptr %arrayidx.i54, align 8, !tbaa !48
   br label %if.end150
 
 if.else60:                                        ; preds = %if.else48
@@ -935,31 +936,32 @@ if.else60:                                        ; preds = %if.else48
   br i1 %cmp66, label %if.then67, label %invoke.cont76
 
 if.then67:                                        ; preds = %if.else60
-  %gep84 = getelementptr double, ptr %invariant.gep83, i64 %i.082
-  %32 = load double, ptr %gep84, align 8, !tbaa !48
+  %37 = getelementptr inbounds nuw double, ptr %13, i64 %i.082
+  %arrayidx.i56 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %38 = load double, ptr %arrayidx.i56, align 8, !tbaa !48
   br label %if.end150
 
 invoke.cont76:                                    ; preds = %if.else60
   %cmp107.not = icmp ult i64 %i.082, %add2
   %arrayidx.i73 = getelementptr inbounds nuw double, ptr %13, i64 %i.082
-  %33 = load double, ptr %arrayidx.i73, align 8, !tbaa !48
+  %39 = load double, ptr %arrayidx.i73, align 8, !tbaa !48
   br i1 %cmp107.not, label %if.end150, label %if.then108
 
 if.then108:                                       ; preds = %invoke.cont76
   %sub117 = add i64 %add115, %i.082
   %arrayidx.i66 = getelementptr inbounds nuw double, ptr %13, i64 %sub117
-  %34 = load double, ptr %arrayidx.i66, align 8, !tbaa !48
+  %40 = load double, ptr %arrayidx.i66, align 8, !tbaa !48
   %gep = getelementptr double, ptr %invariant.gep, i64 %sub117
-  %35 = load double, ptr %gep, align 8, !tbaa !48
-  %cmp.i68 = fcmp olt double %34, %35
-  %.sroa.speculated = select i1 %cmp.i68, double %35, double %34
+  %41 = load double, ptr %gep, align 8, !tbaa !48
+  %cmp.i68 = fcmp olt double %40, %41
+  %.sroa.speculated = select i1 %cmp.i68, double %41, double %40
   %sub132 = fsub double %.sroa.speculated, %4
-  %cmp.i70 = fcmp olt double %33, %sub132
-  %.sroa.speculated75 = select i1 %cmp.i70, double %sub132, double %33
+  %cmp.i70 = fcmp olt double %39, %sub132
+  %.sroa.speculated75 = select i1 %cmp.i70, double %sub132, double %39
   br label %if.end150
 
 if.end150:                                        ; preds = %invoke.cont76, %if.then21, %if.then67, %if.then108, %if.then52, %if.then
-  %.sroa.speculated78.sink = phi double [ %.sroa.speculated78, %if.then21 ], [ %32, %if.then67 ], [ %.sroa.speculated75, %if.then108 ], [ %31, %if.then52 ], [ %.sroa.speculated80, %if.then ], [ %33, %invoke.cont76 ]
+  %.sroa.speculated78.sink = phi double [ %.sroa.speculated78, %if.then21 ], [ %38, %if.then67 ], [ %.sroa.speculated75, %if.then108 ], [ %36, %if.then52 ], [ %.sroa.speculated80, %if.then ], [ %39, %invoke.cont76 ]
   %arrayidx.i53 = getelementptr inbounds nuw double, ptr %cond.i, i64 %i.082
   store double %.sroa.speculated78.sink, ptr %arrayidx.i53, align 8, !tbaa !48
   %inc = add nuw i64 %i.082, 1

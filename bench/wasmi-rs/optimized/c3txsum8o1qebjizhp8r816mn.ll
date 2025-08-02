@@ -3499,15 +3499,15 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..s
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN103_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I32x4$GT$$GT$10high_unary17h34b838294b9cb47cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3 = load i32, ptr %invariant.gep.i.i, align 4, !alias.scope !432, !noalias !437, !noundef !3
-  %4 = sext i32 %3 to i64
-  %gep.i.c.i = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %5 = load i32, ptr %gep.i.c.i, align 4, !alias.scope !432, !noalias !437, !noundef !3
-  %6 = sext i32 %5 to i64
-  store i64 %4, ptr %0, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = load i32, ptr %3, align 4, !alias.scope !432, !noalias !437, !noundef !3
+  %5 = sext i32 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %7 = load i32, ptr %6, align 4, !alias.scope !432, !noalias !437, !noundef !3
+  %8 = sext i32 %7 to i64
+  store i64 %5, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %6, ptr %.sroa.42.0..sroa_idx, align 8
+  store i64 %8, ptr %.sroa.42.0..sroa_idx, align 8
   ret void
 }
 
@@ -3568,15 +3568,15 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..s
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN103_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U32x4$GT$$GT$10high_unary17h3658a0daa13e9814E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3 = load i32, ptr %invariant.gep.i.i, align 4, !alias.scope !458, !noalias !463, !noundef !3
-  %4 = zext i32 %3 to i64
-  %gep.i.c.i = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %5 = load i32, ptr %gep.i.c.i, align 4, !alias.scope !458, !noalias !463, !noundef !3
-  %6 = zext i32 %5 to i64
-  store i64 %4, ptr %0, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = load i32, ptr %3, align 4, !alias.scope !458, !noalias !463, !noundef !3
+  %5 = zext i32 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %7 = load i32, ptr %6, align 4, !alias.scope !458, !noalias !463, !noundef !3
+  %8 = zext i32 %7 to i64
+  store i64 %5, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %6, ptr %.sroa.42.0..sroa_idx, align 8
+  store i64 %8, ptr %.sroa.42.0..sroa_idx, align 8
   ret void
 }
 
@@ -3709,18 +3709,18 @@ _ZN4core5array11try_from_fn17h98856a7b57cecd6bE.exit: ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I16x8$GT$$GT$10high_unary17hd60f7e1431b83c86E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 4
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %4
 
 4:                                                ; preds = %4, %2
-  %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %gep.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i, i64 %.sroa.6.05.i.i
-  %5 = load i16, ptr %gep.i.i, align 2, !alias.scope !500, !noalias !505, !noundef !3
-  %6 = sext i16 %5 to i32
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.05.i.i
-  store i32 %6, ptr %7, align 4
-  %8 = add nuw nsw i64 %.sroa.6.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %8, 4
+  %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %10, %4 ]
+  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.05.i.i
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i16, ptr %6, align 2, !alias.scope !500, !noalias !505, !noundef !3
+  %8 = sext i16 %7 to i32
+  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.05.i.i
+  store i32 %8, ptr %9, align 4
+  %10 = add nuw nsw i64 %.sroa.6.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %10, 4
   br i1 %exitcond.not.i.i, label %_ZN4core5array11try_from_fn17hbab8c55c3e4bb329E.exit, label %4
 
 _ZN4core5array11try_from_fn17hbab8c55c3e4bb329E.exit: ; preds = %4
@@ -3829,18 +3829,18 @@ _ZN4core5array11try_from_fn17h8e94262a6fe61cd5E.exit: ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden void @"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U16x8$GT$$GT$10high_unary17hd8afcd906d5664f2E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 4
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %4
 
 4:                                                ; preds = %4, %2
-  %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %gep.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i, i64 %.sroa.6.05.i.i
-  %5 = load i16, ptr %gep.i.i, align 2, !alias.scope !537, !noalias !542, !noundef !3
-  %6 = zext i16 %5 to i32
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.05.i.i
-  store i32 %6, ptr %7, align 4
-  %8 = add nuw nsw i64 %.sroa.6.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %8, 4
+  %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %10, %4 ]
+  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.05.i.i
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i16, ptr %6, align 2, !alias.scope !537, !noalias !542, !noundef !3
+  %8 = zext i16 %7 to i32
+  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.05.i.i
+  store i32 %8, ptr %9, align 4
+  %10 = add nuw nsw i64 %.sroa.6.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %10, 4
   br i1 %exitcond.not.i.i, label %_ZN4core5array11try_from_fn17h3b12fbb3c373f76eE.exit, label %4
 
 _ZN4core5array11try_from_fn17h3b12fbb3c373f76eE.exit: ; preds = %4
@@ -3986,18 +3986,18 @@ _ZN4core5array11try_from_fn17h77b485a980b87f6fE.exit: ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I8x16$GT$$GT$10high_unary17hb86bafa4bdbc8bb5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 2
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %4
 
 4:                                                ; preds = %4, %2
-  %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %.sroa.6.05.i.i
-  %5 = load i8, ptr %gep.i.i, align 1, !alias.scope !579, !noalias !584, !noundef !3
-  %6 = sext i8 %5 to i16
-  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.05.i.i
-  store i16 %6, ptr %7, align 2
-  %8 = add nuw nsw i64 %.sroa.6.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %8, 8
+  %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %10, %4 ]
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.6.05.i.i
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i8, ptr %6, align 1, !alias.scope !579, !noalias !584, !noundef !3
+  %8 = sext i8 %7 to i16
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.05.i.i
+  store i16 %8, ptr %9, align 2
+  %10 = add nuw nsw i64 %.sroa.6.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %10, 8
   br i1 %exitcond.not.i.i, label %_ZN4core5array11try_from_fn17h84aeadd4320d0409E.exit, label %4
 
 _ZN4core5array11try_from_fn17h84aeadd4320d0409E.exit: ; preds = %4
@@ -4106,18 +4106,18 @@ _ZN4core5array11try_from_fn17h88d232072679be35E.exit: ; preds = %4
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden void @"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..U8x16$GT$$GT$10high_unary17h6f09d7933424680eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 2
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %4
 
 4:                                                ; preds = %4, %2
-  %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %.sroa.6.05.i.i
-  %5 = load i8, ptr %gep.i.i, align 1, !alias.scope !616, !noalias !621, !noundef !3
-  %6 = zext i8 %5 to i16
-  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.05.i.i
-  store i16 %6, ptr %7, align 2
-  %8 = add nuw nsw i64 %.sroa.6.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %8, 8
+  %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %10, %4 ]
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.6.05.i.i
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i8, ptr %6, align 1, !alias.scope !616, !noalias !621, !noundef !3
+  %8 = zext i8 %7 to i16
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.05.i.i
+  store i16 %8, ptr %9, align 2
+  %10 = add nuw nsw i64 %.sroa.6.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %10, 8
   br i1 %exitcond.not.i.i, label %_ZN4core5array11try_from_fn17hbde5d8a0e02e6f03E.exit, label %4
 
 _ZN4core5array11try_from_fn17hbde5d8a0e02e6f03E.exit: ; preds = %4
@@ -4311,20 +4311,21 @@ _ZN4core5array11try_from_fn17hacb462b08de7c9acE.exit: ; preds = %"_ZN4core3ops9t
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I32x4$GT$$GT$13from_low_high17h5c1587c511c78b8dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 2
-  %invariant.gep.i.i = getelementptr i8, ptr %2, i64 -16
   br label %"_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hccf353ce3d836414E.exit.i.i.i"
 
 "_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hccf353ce3d836414E.exit.i.i.i": ; preds = %"_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hccf353ce3d836414E.exit.i.i.i", %3
-  %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %8, %"_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hccf353ce3d836414E.exit.i.i.i" ]
+  %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %11, %"_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hccf353ce3d836414E.exit.i.i.i" ]
   %5 = icmp samesign ult i64 %.sroa.6.02.i.i, 4
-  %.8.val.invariant.gep.i.i = select i1 %5, ptr %1, ptr %invariant.gep.i.i
-  %.sink.in.i.i.i.i = getelementptr i32, ptr %.8.val.invariant.gep.i.i, i64 %.sroa.6.02.i.i
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %.sroa.6.02.i.i
+  %7 = getelementptr i32, ptr %2, i64 %.sroa.6.02.i.i
+  %8 = getelementptr i8, ptr %7, i64 -16
+  %.sink.in.i.i.i.i = select i1 %5, ptr %6, ptr %8
   %.sink.i.i.i.i = load i32, ptr %.sink.in.i.i.i.i, align 4, !noalias !682, !noundef !3
-  %6 = tail call noundef i16 @_ZN10wasmi_core4simd17narrow_i32_to_i1617ha2a8f108bd579bdfE(i32 noundef %.sink.i.i.i.i), !noalias !682
-  %7 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
-  store i16 %6, ptr %7, align 2
-  %8 = add nuw nsw i64 %.sroa.6.02.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %8, 8
+  %9 = tail call noundef i16 @_ZN10wasmi_core4simd17narrow_i32_to_i1617ha2a8f108bd579bdfE(i32 noundef %.sink.i.i.i.i), !noalias !682
+  %10 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
+  store i16 %9, ptr %10, align 2
+  %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %11, 8
   br i1 %exitcond.not.i.i, label %_ZN4core5array11try_from_fn17h441047f2d42fa73bE.exit, label %"_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hccf353ce3d836414E.exit.i.i.i"
 
 _ZN4core5array11try_from_fn17h441047f2d42fa73bE.exit: ; preds = %"_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hccf353ce3d836414E.exit.i.i.i"
@@ -4335,20 +4336,21 @@ _ZN4core5array11try_from_fn17h441047f2d42fa73bE.exit: ; preds = %"_ZN101_$LT$was
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U32x4$GT$$GT$13from_low_high17h8f63833866aa6d98E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 2
-  %invariant.gep.i.i = getelementptr i8, ptr %2, i64 -16
   br label %"_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h39b82757d53ddf5dE.exit.i.i.i"
 
 "_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h39b82757d53ddf5dE.exit.i.i.i": ; preds = %"_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h39b82757d53ddf5dE.exit.i.i.i", %3
-  %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %8, %"_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h39b82757d53ddf5dE.exit.i.i.i" ]
+  %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %11, %"_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h39b82757d53ddf5dE.exit.i.i.i" ]
   %5 = icmp samesign ult i64 %.sroa.6.02.i.i, 4
-  %.8.val.invariant.gep.i.i = select i1 %5, ptr %1, ptr %invariant.gep.i.i
-  %.sink.in.i.i.i.i = getelementptr i32, ptr %.8.val.invariant.gep.i.i, i64 %.sroa.6.02.i.i
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %.sroa.6.02.i.i
+  %7 = getelementptr i32, ptr %2, i64 %.sroa.6.02.i.i
+  %8 = getelementptr i8, ptr %7, i64 -16
+  %.sink.in.i.i.i.i = select i1 %5, ptr %6, ptr %8
   %.sink.i.i.i.i = load i32, ptr %.sink.in.i.i.i.i, align 4, !noalias !687, !noundef !3
-  %6 = tail call noundef i16 @_ZN10wasmi_core4simd17narrow_u32_to_u1617hf926f3e87aa78a32E(i32 noundef %.sink.i.i.i.i), !noalias !687
-  %7 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
-  store i16 %6, ptr %7, align 2
-  %8 = add nuw nsw i64 %.sroa.6.02.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %8, 8
+  %9 = tail call noundef i16 @_ZN10wasmi_core4simd17narrow_u32_to_u1617hf926f3e87aa78a32E(i32 noundef %.sink.i.i.i.i), !noalias !687
+  %10 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
+  store i16 %9, ptr %10, align 2
+  %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %11, 8
   br i1 %exitcond.not.i.i, label %_ZN4core5array11try_from_fn17h468eb401a71c8c42E.exit, label %"_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h39b82757d53ddf5dE.exit.i.i.i"
 
 _ZN4core5array11try_from_fn17h468eb401a71c8c42E.exit: ; preds = %"_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h39b82757d53ddf5dE.exit.i.i.i"
@@ -4359,20 +4361,21 @@ _ZN4core5array11try_from_fn17h468eb401a71c8c42E.exit: ; preds = %"_ZN101_$LT$was
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I16x8$GT$$GT$13from_low_high17haefd6504590e9e26E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
-  %invariant.gep.i.i = getelementptr i8, ptr %2, i64 -16
   br label %"_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hf2428f6191a7917dE.exit.i.i.i"
 
 "_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hf2428f6191a7917dE.exit.i.i.i": ; preds = %"_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hf2428f6191a7917dE.exit.i.i.i", %3
-  %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %8, %"_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hf2428f6191a7917dE.exit.i.i.i" ]
+  %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %11, %"_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hf2428f6191a7917dE.exit.i.i.i" ]
   %5 = icmp samesign ult i64 %.sroa.6.02.i.i, 8
-  %.8.val.invariant.gep.i.i = select i1 %5, ptr %1, ptr %invariant.gep.i.i
-  %.sink.in.i.i.i.i = getelementptr i16, ptr %.8.val.invariant.gep.i.i, i64 %.sroa.6.02.i.i
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.02.i.i
+  %7 = getelementptr i16, ptr %2, i64 %.sroa.6.02.i.i
+  %8 = getelementptr i8, ptr %7, i64 -16
+  %.sink.in.i.i.i.i = select i1 %5, ptr %6, ptr %8
   %.sink.i.i.i.i = load i16, ptr %.sink.in.i.i.i.i, align 2, !noalias !692, !noundef !3
-  %6 = tail call noundef i8 @_ZN10wasmi_core4simd16narrow_i16_to_i817habf0952e05f66f34E(i16 noundef %.sink.i.i.i.i), !noalias !692
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.6.02.i.i
-  store i8 %6, ptr %7, align 1
-  %8 = add nuw nsw i64 %.sroa.6.02.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %8, 16
+  %9 = tail call noundef i8 @_ZN10wasmi_core4simd16narrow_i16_to_i817habf0952e05f66f34E(i16 noundef %.sink.i.i.i.i), !noalias !692
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.6.02.i.i
+  store i8 %9, ptr %10, align 1
+  %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %11, 16
   br i1 %exitcond.not.i.i, label %_ZN4core5array11try_from_fn17hd0a261fd3403a084E.exit, label %"_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hf2428f6191a7917dE.exit.i.i.i"
 
 _ZN4core5array11try_from_fn17hd0a261fd3403a084E.exit: ; preds = %"_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hf2428f6191a7917dE.exit.i.i.i"
@@ -4383,20 +4386,21 @@ _ZN4core5array11try_from_fn17hd0a261fd3403a084E.exit: ; preds = %"_ZN101_$LT$was
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U16x8$GT$$GT$13from_low_high17hada44ad1fa021e5bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 1
-  %invariant.gep.i.i = getelementptr i8, ptr %2, i64 -16
   br label %"_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h52775e955ef45fb9E.exit.i.i.i"
 
 "_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h52775e955ef45fb9E.exit.i.i.i": ; preds = %"_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h52775e955ef45fb9E.exit.i.i.i", %3
-  %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %8, %"_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h52775e955ef45fb9E.exit.i.i.i" ]
+  %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %11, %"_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h52775e955ef45fb9E.exit.i.i.i" ]
   %5 = icmp samesign ult i64 %.sroa.6.02.i.i, 8
-  %.8.val.invariant.gep.i.i = select i1 %5, ptr %1, ptr %invariant.gep.i.i
-  %.sink.in.i.i.i.i = getelementptr i16, ptr %.8.val.invariant.gep.i.i, i64 %.sroa.6.02.i.i
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.02.i.i
+  %7 = getelementptr i16, ptr %2, i64 %.sroa.6.02.i.i
+  %8 = getelementptr i8, ptr %7, i64 -16
+  %.sink.in.i.i.i.i = select i1 %5, ptr %6, ptr %8
   %.sink.i.i.i.i = load i16, ptr %.sink.in.i.i.i.i, align 2, !noalias !697, !noundef !3
-  %6 = tail call noundef i8 @_ZN10wasmi_core4simd16narrow_u16_to_u817hafdf4f0df3015b56E(i16 noundef %.sink.i.i.i.i), !noalias !697
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.6.02.i.i
-  store i8 %6, ptr %7, align 1
-  %8 = add nuw nsw i64 %.sroa.6.02.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %8, 16
+  %9 = tail call noundef i8 @_ZN10wasmi_core4simd16narrow_u16_to_u817hafdf4f0df3015b56E(i16 noundef %.sink.i.i.i.i), !noalias !697
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.6.02.i.i
+  store i8 %9, ptr %10, align 1
+  %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %11, 16
   br i1 %exitcond.not.i.i, label %_ZN4core5array11try_from_fn17h9a4d9eb028a75c0fE.exit, label %"_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h52775e955ef45fb9E.exit.i.i.i"
 
 _ZN4core5array11try_from_fn17h9a4d9eb028a75c0fE.exit: ; preds = %"_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h52775e955ef45fb9E.exit.i.i.i"

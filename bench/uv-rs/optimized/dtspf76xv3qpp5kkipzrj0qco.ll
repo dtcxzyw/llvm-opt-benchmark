@@ -5476,151 +5476,151 @@ default.unreachable119:                           ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %.sroa.49.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 13:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %.sroa.412.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 14:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 2, ptr %.sroa.415.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 15:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 3, ptr %.sroa.418.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 16:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 4, ptr %.sroa.421.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 17:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 5, ptr %.sroa.424.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 18:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 6, ptr %.sroa.427.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 19:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 7, ptr %.sroa.430.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 20:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 8, ptr %.sroa.433.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 21:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 9, ptr %.sroa.436.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 22:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 10, ptr %.sroa.439.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 23:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 11, ptr %.sroa.442.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 24:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 12, ptr %.sroa.445.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 25:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 13, ptr %.sroa.448.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 26:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 14, ptr %.sroa.451.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 27:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 15, ptr %.sroa.454.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 28:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 16, ptr %.sroa.457.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 29:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 17, ptr %.sroa.460.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 30:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 18, ptr %.sroa.463.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 31:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 19, ptr %.sroa.466.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 32:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 20, ptr %.sroa.469.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 33:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 21, ptr %.sroa.472.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 34:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 22, ptr %.sroa.475.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 35:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 23, ptr %.sroa.478.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 36:                                               ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 24, ptr %.sroa.481.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 37:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
@@ -5642,7 +5642,7 @@ default.unreachable119:                           ; preds = %3
   store i64 -9223372036854775796, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %76
+  br label %73
 
 41:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -5659,7 +5659,7 @@ default.unreachable119:                           ; preds = %3
   store i64 -9223372036854775797, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %76
+  br label %73
 
 44:                                               ; preds = %41
   %45 = landingpad { ptr, i32 }
@@ -5682,74 +5682,76 @@ default.unreachable119:                           ; preds = %3
 52:                                               ; preds = %48
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf40a3331c4649117E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-          to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit" unwind label %77
+          to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit" unwind label %74
 
 53:                                               ; preds = %41
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %55 = load i8, ptr %54, align 1, !noundef !3
   %56 = icmp eq i8 %55, 0
-  br i1 %56, label %62, label %57
+  br i1 %56, label %61, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118.critedge"
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %59 = load i8, ptr %58, align 8, !noundef !3
-  %60 = load i64, ptr %5, align 8, !noundef !3
-  %61 = inttoptr i64 %60 to ptr
-  br label %66
-
-62:                                               ; preds = %53
-  %63 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
-  %64 = atomicrmw add ptr %63, i64 1 monotonic, align 8
-  %65 = icmp slt i64 %64, 0
-  br i1 %65, label %75, label %72
-
-66:                                               ; preds = %72, %57
-  %67 = phi ptr [ %73, %72 ], [ %61, %57 ]
-  %.not.i.i117 = phi i1 [ %74, %72 ], [ false, %57 ]
-  %.sroa.593.0 = phi i8 [ undef, %72 ], [ %59, %57 ]
+"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118.critedge": ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %58 = load i8, ptr %57, align 8, !noundef !3
+  %59 = load i64, ptr %5, align 8, !noundef !3
+  %60 = inttoptr i64 %59 to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %67, ptr %.sroa.4106.0..sroa_idx, align 8
-  %.sroa.5107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %.sroa.593.0, ptr %.sroa.5107.0..sroa_idx, align 8
-  %.sroa.6108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 %55, ptr %.sroa.6108.0..sroa_idx, align 1
+  %.sroa.4106.0..sroa_idx.c = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %60, ptr %.sroa.4106.0..sroa_idx.c, align 8
+  %.sroa.5107.0..sroa_idx.c = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 %58, ptr %.sroa.5107.0..sroa_idx.c, align 8
+  %.sroa.6108.0..sroa_idx.c = getelementptr inbounds nuw i8, ptr %0, i64 57
+  store i8 %55, ptr %.sroa.6108.0..sroa_idx.c, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1264)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1267)
-  br i1 %.not.i.i117, label %68, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118"
+  br label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118"
 
-68:                                               ; preds = %66
-  %69 = atomicrmw sub ptr %67, i64 1 release, align 8, !noalias !1270
-  %70 = icmp eq i64 %69, 1
-  br i1 %70, label %71, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118"
+61:                                               ; preds = %53
+  %62 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
+  %63 = atomicrmw add ptr %62, i64 1 monotonic, align 8
+  %64 = icmp slt i64 %63, 0
+  br i1 %64, label %72, label %69
 
-71:                                               ; preds = %68
+65:                                               ; preds = %69
+  %66 = atomicrmw sub ptr %70, i64 1 release, align 8, !noalias !1270
+  %67 = icmp eq i64 %66, 1
+  br i1 %67, label %68, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118"
+
+68:                                               ; preds = %65
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf40a3331c4649117E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   br label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118"
 
-"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118": ; preds = %66, %68, %71
+"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118": ; preds = %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118.critedge", %69, %65, %68
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %76
+  br label %73
 
-72:                                               ; preds = %62
-  %73 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %.pre = load i8, ptr %54, align 1, !alias.scope !1275
-  %74 = icmp eq i8 %.pre, 0
-  br label %66
+  %71 = icmp eq i8 %.pre, 0
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %70, ptr %.sroa.4106.0..sroa_idx, align 8
+  %.sroa.6108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 57
+  store i8 %55, ptr %.sroa.6108.0..sroa_idx, align 1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1264)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1267)
+  br i1 %71, label %65, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118"
 
-75:                                               ; preds = %62
+72:                                               ; preds = %61
   tail call void @llvm.trap()
   unreachable
 
-76:                                               ; preds = %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118", %43, %39, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
+73:                                               ; preds = %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h834674a99b0c9b20E.exit118", %43, %39, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
   ret void
 
-77:                                               ; preds = %52
-  %78 = landingpad { ptr, i32 }
+74:                                               ; preds = %52
+  %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #21
   unreachable

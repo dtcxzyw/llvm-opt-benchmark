@@ -11896,16 +11896,16 @@ lean_array_uget.exit.i:                           ; preds = %8
 lean_dec.exit.i:                                  ; preds = %27, %26, %24, %lean_array_uget.exit.i
   %28 = phi i8 [ %19, %lean_array_uget.exit.i ], [ %21, %24 ], [ %21, %26 ], [ %21, %27 ]
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %6, label %l_Array_anyMUnsafe_any___at_Lake_LeanLibConfig_isLocalModule___spec__2.exit
+  br i1 %29, label %6, label %.critedge
 
 lean_nat_lt.exit51:                               ; preds = %6, %lean_nat_lt.exit
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = getelementptr i8, ptr %31, i64 8
   %.val = load i64, ptr %32, align 8, !tbaa !8
-  %.mask71 = and i64 %.val, 9223372036854775807
-  %.not70 = icmp eq i64 %.mask71, 0
-  br i1 %.not70, label %l_Array_anyMUnsafe_any___at_Lake_LeanLibConfig_isLocalModule___spec__2.exit, label %.lr.ph.i57
+  %.mask69 = and i64 %.val, 9223372036854775807
+  %.not68 = icmp eq i64 %.mask69, 0
+  br i1 %.not68, label %.critedge, label %.lr.ph.i57
 
 .lr.ph.i57:                                       ; preds = %lean_nat_lt.exit51
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -11913,8 +11913,8 @@ lean_nat_lt.exit51:                               ; preds = %6, %lean_nat_lt.exi
 
 34:                                               ; preds = %lean_dec.exit.i61
   %35 = add nuw nsw i64 %.01528.i58, 1
-  %.not.i63 = icmp eq i64 %35, %.mask71
-  br i1 %.not.i63, label %l_Array_anyMUnsafe_any___at_Lake_LeanLibConfig_isLocalModule___spec__2.exit, label %36
+  %.not.i63 = icmp eq i64 %35, %.mask69
+  br i1 %.not.i63, label %.critedge, label %36
 
 36:                                               ; preds = %34, %.lr.ph.i57
   %.01528.i58 = phi i64 [ 0, %.lr.ph.i57 ], [ %35, %34 ]
@@ -11969,9 +11969,9 @@ lean_array_uget.exit.i60:                         ; preds = %36
 lean_dec.exit.i61:                                ; preds = %55, %54, %52, %lean_array_uget.exit.i60
   %56 = phi i8 [ %47, %lean_array_uget.exit.i60 ], [ %49, %52 ], [ %49, %54 ], [ %49, %55 ]
   %57 = icmp eq i8 %56, 0
-  br i1 %57, label %34, label %l_Array_anyMUnsafe_any___at_Lake_LeanLibConfig_isLocalModule___spec__2.exit
+  br i1 %57, label %34, label %.critedge
 
-l_Array_anyMUnsafe_any___at_Lake_LeanLibConfig_isLocalModule___spec__2.exit: ; preds = %lean_dec.exit.i, %lean_dec.exit.i61, %34, %lean_nat_lt.exit51
+.critedge:                                        ; preds = %lean_dec.exit.i, %lean_dec.exit.i61, %34, %lean_nat_lt.exit51
   %.0 = phi i8 [ 0, %lean_nat_lt.exit51 ], [ 0, %34 ], [ 1, %lean_dec.exit.i61 ], [ 1, %lean_dec.exit.i ]
   ret i8 %.0
 }

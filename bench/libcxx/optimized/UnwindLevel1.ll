@@ -567,12 +567,12 @@ define internal fastcc void @unwind_phase2_forced(ptr noundef nonnull %0, ptr no
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %15
-  br i1 %17, label %19, label %.critedge.thread
+  br i1 %17, label %19, label %.critedge53
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr @stderr, align 8, !tbaa !4
   %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.32, ptr noundef %2) #7
-  br label %.critedge.thread.sink.split
+  br label %.critedge53.sink.split
 
 22:                                               ; preds = %15
   br i1 %17, label %23, label %43
@@ -634,12 +634,12 @@ define internal fastcc void @unwind_phase2_forced(ptr noundef nonnull %0, ptr no
 
 53:                                               ; preds = %52
   %54 = call zeroext i1 @logUnwinding()
-  br i1 %54, label %55, label %.critedge.thread
+  br i1 %54, label %55, label %.critedge53
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr @stderr, align 8, !tbaa !4
   %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.35, ptr noundef nonnull %2) #7
-  br label %.critedge.thread.sink.split
+  br label %.critedge53.sink.split
 
 58:                                               ; preds = %52
   %59 = load i64, ptr %14, align 8, !tbaa !16
@@ -692,45 +692,45 @@ define internal fastcc void @unwind_phase2_forced(ptr noundef nonnull %0, ptr no
   br label %.critedge
 
 86:                                               ; preds = %68
-  br i1 %71, label %87, label %.critedge.thread
+  br i1 %71, label %87, label %.critedge53
 
 87:                                               ; preds = %86
   %88 = load ptr, ptr @stderr, align 8, !tbaa !4
   %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.39, ptr noundef nonnull %2, i32 noundef %70) #7
-  br label %.critedge.thread.sink.split
-
-.critedge.thread.sink.split:                      ; preds = %87, %55, %19
-  %90 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %91 = call i32 @fflush(ptr noundef %90)
-  br label %.critedge.thread
-
-.critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %18, %53, %86
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #8
-  br label %103
+  br label %.critedge53.sink.split
 
 .critedge:                                        ; preds = %72, %73, %84, %58
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #8
-  %92 = call i32 @__unw_step_stage2(ptr noundef nonnull %1)
-  %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %15, label %._crit_edge
+  %90 = call i32 @__unw_step_stage2(ptr noundef nonnull %1)
+  %91 = icmp sgt i32 %90, 0
+  br i1 %91, label %15, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge, %5
-  %94 = call zeroext i1 @logUnwinding()
-  br i1 %94, label %95, label %100
+  %92 = call zeroext i1 @logUnwinding()
+  br i1 %92, label %93, label %98
 
-95:                                               ; preds = %._crit_edge
+93:                                               ; preds = %._crit_edge
+  %94 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.40, ptr noundef %2) #7
   %96 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.40, ptr noundef %2) #7
-  %98 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %99 = call i32 @fflush(ptr noundef %98)
-  br label %100
+  %97 = call i32 @fflush(ptr noundef %96)
+  br label %98
 
-100:                                              ; preds = %95, %._crit_edge
-  %101 = load i64, ptr %2, align 16, !tbaa !17
-  %102 = call i32 %3(i32 noundef 1, i32 noundef 26, i64 noundef %101, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef %4)
+98:                                               ; preds = %93, %._crit_edge
+  %99 = load i64, ptr %2, align 16, !tbaa !17
+  %100 = call i32 %3(i32 noundef 1, i32 noundef 26, i64 noundef %99, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef %4)
   br label %103
 
-103:                                              ; preds = %.critedge.thread, %100
+.critedge53.sink.split:                           ; preds = %19, %55, %87
+  %101 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %102 = call i32 @fflush(ptr noundef %101)
+  br label %.critedge53
+
+.critedge53:                                      ; preds = %.critedge53.sink.split, %86, %53, %18
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #8
+  br label %103
+
+103:                                              ; preds = %.critedge53, %98
   ret void
 }
 

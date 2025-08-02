@@ -1566,7 +1566,6 @@ define internal fastcc void @_ZL27print_single_signal_handlerP12outputStreamPK9s
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.170) #20
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %6)
-  %invariant.gep.i.i = getelementptr i8, ptr %6, i64 -1
   br label %14
 
 14:                                               ; preds = %25, %12
@@ -1589,70 +1588,71 @@ define internal fastcc void @_ZL27print_single_signal_handlerP12outputStreamPK9s
 
 25:                                               ; preds = %22, %18
   %.sink.i.i = phi i8 [ %24, %22 ], [ 63, %18 ]
-  %gep12.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
-  store i8 %.sink.i.i, ptr %gep12.i.i, align 1
+  %26 = getelementptr i8, ptr %6, i64 %indvars.iv.i.i
+  %27 = getelementptr i8, ptr %26, i64 -1
+  store i8 %.sink.i.i, ptr %27, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 33
   br i1 %exitcond.not.i.i, label %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit, label %14, !llvm.loop !15
 
 _ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit: ; preds = %25
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 0, ptr %26, align 16
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i8 0, ptr %28, align 16
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.172, ptr noundef nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %6)
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.171) #20
-  %27 = getelementptr i8, ptr %1, i64 136
-  %.val15 = load i32, ptr %27, align 8
-  %28 = and i32 %.val15, -67108865
+  %29 = getelementptr i8, ptr %1, i64 136
+  %.val15 = load i32, ptr %29, align 8
+  %30 = and i32 %.val15, -67108865
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
-  %29 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(5) @.str.173, i64 noundef 256) #20
-  br label %30
+  %31 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(5) @.str.173, i64 noundef 256) #20
+  br label %32
 
-30:                                               ; preds = %41, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit
-  %indvars.iv.i.i16 = phi i64 [ 0, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %indvars.iv.next.i.i17, %41 ]
-  %31 = phi i32 [ 1, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %43, %41 ]
-  %32 = phi ptr [ @__const._ZL17describe_sa_flagsiPcm.flaginfo, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %42, %41 ]
-  %.03143.i.i = phi ptr [ %5, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %.1.i.i, %41 ]
-  %.03242.i.i = phi i64 [ 256, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %.133.i.i, %41 ]
-  %.03540.i.i = phi i1 [ true, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %.2.i.i, %41 ]
-  %33 = and i32 %28, %31
-  %.not39.i.i = icmp eq i32 %33, 0
-  br i1 %.not39.i.i, label %41, label %34
+32:                                               ; preds = %43, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit
+  %indvars.iv.i.i16 = phi i64 [ 0, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %indvars.iv.next.i.i17, %43 ]
+  %33 = phi i32 [ 1, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %45, %43 ]
+  %34 = phi ptr [ @__const._ZL17describe_sa_flagsiPcm.flaginfo, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %44, %43 ]
+  %.03143.i.i = phi ptr [ %5, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %.1.i.i, %43 ]
+  %.03242.i.i = phi i64 [ 256, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %.133.i.i, %43 ]
+  %.03540.i.i = phi i1 [ true, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %.2.i.i, %43 ]
+  %35 = and i32 %30, %33
+  %.not39.i.i = icmp eq i32 %35, 0
+  br i1 %.not39.i.i, label %43, label %36
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %36 = load ptr, ptr %35, align 8
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %38 = load ptr, ptr %37, align 8
   %.str.172..str.182.i.i = select i1 %.03540.i.i, ptr @.str.172, ptr @.str.182
-  %37 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %.03143.i.i, i64 noundef %.03242.i.i, ptr noundef nonnull %.str.172..str.182.i.i, ptr noundef %36) #20
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03143.i.i) #23
-  %39 = getelementptr inbounds i8, ptr %.03143.i.i, i64 %38
-  %40 = sub i64 %.03242.i.i, %38
-  br label %41
+  %39 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %.03143.i.i, i64 noundef %.03242.i.i, ptr noundef nonnull %.str.172..str.182.i.i, ptr noundef %38) #20
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03143.i.i) #23
+  %41 = getelementptr inbounds i8, ptr %.03143.i.i, i64 %40
+  %42 = sub i64 %.03242.i.i, %40
+  br label %43
 
-41:                                               ; preds = %34, %30
-  %.2.i.i = phi i1 [ false, %34 ], [ %.03540.i.i, %30 ]
-  %.133.i.i = phi i64 [ %40, %34 ], [ %.03242.i.i, %30 ]
-  %.1.i.i = phi ptr [ %39, %34 ], [ %.03143.i.i, %30 ]
+43:                                               ; preds = %36, %32
+  %.2.i.i = phi i1 [ false, %36 ], [ %.03540.i.i, %32 ]
+  %.133.i.i = phi i64 [ %42, %36 ], [ %.03242.i.i, %32 ]
+  %.1.i.i = phi ptr [ %41, %36 ], [ %.03143.i.i, %32 ]
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i16, 1
-  %42 = getelementptr inbounds nuw [8 x %struct.anon.24], ptr @__const._ZL17describe_sa_flagsiPcm.flaginfo, i64 0, i64 %indvars.iv.next.i.i17
-  %43 = load i32, ptr %42, align 16
-  %44 = icmp ne i32 %43, -1476395016
-  %45 = icmp ugt i64 %.133.i.i, 1
-  %46 = select i1 %44, i1 %45, i1 false
-  br i1 %46, label %30, label %47, !llvm.loop !16
+  %44 = getelementptr inbounds nuw [8 x %struct.anon.24], ptr @__const._ZL17describe_sa_flagsiPcm.flaginfo, i64 0, i64 %indvars.iv.next.i.i17
+  %45 = load i32, ptr %44, align 16
+  %46 = icmp ne i32 %45, -1476395016
+  %47 = icmp ugt i64 %.133.i.i, 1
+  %48 = select i1 %46, i1 %47, i1 false
+  br i1 %48, label %32, label %49, !llvm.loop !16
 
-47:                                               ; preds = %41
-  %48 = and i32 %.val15, -1543503880
-  %.not.i.i = icmp eq i32 %48, 0
-  br i1 %.not.i.i, label %_ZL14print_sa_flagsP12outputStreami.exit, label %49
+49:                                               ; preds = %43
+  %50 = and i32 %.val15, -1543503880
+  %.not.i.i = icmp eq i32 %50, 0
+  br i1 %.not.i.i, label %_ZL14print_sa_flagsP12outputStreami.exit, label %51
 
-49:                                               ; preds = %47
-  %50 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %.1.i.i, i64 noundef %.133.i.i, ptr noundef nonnull @.str.183, i32 noundef %48) #20
+51:                                               ; preds = %49
+  %52 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %.1.i.i, i64 noundef %.133.i.i, ptr noundef nonnull @.str.183, i32 noundef %50) #20
   br label %_ZL14print_sa_flagsP12outputStreami.exit
 
-_ZL14print_sa_flagsP12outputStreami.exit:         ; preds = %47, %49
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 255
-  store i8 0, ptr %51, align 1
+_ZL14print_sa_flagsP12outputStreami.exit:         ; preds = %49, %51
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 255
+  store i8 0, ptr %53, align 1
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.172, ptr noundef nonnull %5) #20
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   ret void

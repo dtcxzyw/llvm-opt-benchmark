@@ -201,7 +201,7 @@ define noundef ptr @_ZN6icu_778EraRules14createInstanceEPKcaR10UErrorCode(ptr no
   %9 = alloca %"class.icu_77::internal::LocalOpenPointer", align 8
   %10 = load i32, ptr %2, align 4, !tbaa !13
   %11 = icmp slt i32 %10, 1
-  br i1 %11, label %12, label %181
+  br i1 %11, label %12, label %183
 
 12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
@@ -221,453 +221,465 @@ define noundef ptr @_ZN6icu_778EraRules14createInstanceEPKcaR10UErrorCode(ptr no
 19:                                               ; preds = %17
   %20 = load i32, ptr %2, align 4, !tbaa !13
   %21 = icmp slt i32 %20, 1
-  br i1 %21, label %24, label %175
+  br i1 %21, label %24, label %177
 
 22:                                               ; preds = %17, %15, %12
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %180
+  br label %182
 
 24:                                               ; preds = %19
   %25 = invoke i32 @ures_getSize_77(ptr noundef %13)
-          to label %26 unwind label %31
+          to label %26 unwind label %32
 
 26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   %27 = sext i32 %25 to i64
   %28 = shl nsw i64 %27, 2
   %29 = invoke noalias ptr @uprv_malloc_77(i64 noundef %28) #16
-          to label %30 unwind label %33
+          to label %30 unwind label %34
 
 30:                                               ; preds = %26
   store ptr %29, ptr %5, align 8, !tbaa !3
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.loopexit160.sink.split, label %37
+  br i1 %.not, label %31, label %38
 
-31:                                               ; preds = %24
-  %32 = landingpad { ptr, i32 }
+31:                                               ; preds = %30
+  store i32 7, ptr %2, align 4, !tbaa !13
+  br label %167
+
+32:                                               ; preds = %24
+  %33 = landingpad { ptr, i32 }
           cleanup
-  br label %180
+  br label %182
 
-33:                                               ; preds = %26
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %26
+  %35 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN6icu_7711LocalMemoryIiED2Ev.exit147
+  br label %_ZN6icu_7711LocalMemoryIiED2Ev.exit155
 
-35:                                               ; preds = %38
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %39
+  %37 = landingpad { ptr, i32 }
           cleanup
-  br label %170
+  br label %172
 
-37:                                               ; preds = %30
+38:                                               ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %29, i8 0, i64 %28, i1 false)
-  br label %38
+  br label %39
 
-38:                                               ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit146, %37
-  %.099 = phi i32 [ 2147483647, %37 ], [ %.1100, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit146 ]
-  %39 = invoke signext i8 @ures_hasNext_77(ptr noundef %13)
-          to label %40 unwind label %35
+39:                                               ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit152, %38
+  %.099 = phi i32 [ 2147483647, %38 ], [ %.3102, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit152 ]
+  %40 = invoke signext i8 @ures_hasNext_77(ptr noundef %13)
+          to label %41 unwind label %36
 
-40:                                               ; preds = %38
-  %.not118 = icmp eq i8 %39, 0
-  br i1 %.not118, label %153, label %41
+41:                                               ; preds = %39
+  %.not118 = icmp eq i8 %40, 0
+  br i1 %.not118, label %148, label %42
 
-41:                                               ; preds = %40
+42:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  %42 = invoke ptr @ures_getNextResource_77(ptr noundef %13, ptr noundef null, ptr noundef nonnull %2)
-          to label %43 unwind label %46
+  %43 = invoke ptr @ures_getNextResource_77(ptr noundef %13, ptr noundef null, ptr noundef nonnull %2)
+          to label %44 unwind label %47
 
-43:                                               ; preds = %41
-  store ptr %42, ptr %6, align 8, !tbaa !22
-  %44 = load i32, ptr %2, align 4, !tbaa !13
-  %45 = icmp slt i32 %44, 1
-  br i1 %45, label %48, label %145
+44:                                               ; preds = %42
+  store ptr %43, ptr %6, align 8, !tbaa !22
+  %45 = load i32, ptr %2, align 4, !tbaa !13
+  %46 = icmp slt i32 %45, 1
+  br i1 %46, label %49, label %.critedge146
 
-46:                                               ; preds = %41
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %42
+  %48 = landingpad { ptr, i32 }
           cleanup
-  br label %152
+  br label %147
 
-48:                                               ; preds = %43
-  %49 = invoke ptr @ures_getKey_77(ptr noundef %42)
-          to label %50 unwind label %59
+49:                                               ; preds = %44
+  %50 = invoke ptr @ures_getKey_77(ptr noundef %43)
+          to label %51 unwind label %59
 
-50:                                               ; preds = %48
+51:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
-  %51 = call i64 @strtol(ptr noundef %49, ptr noundef nonnull %7, i32 noundef 10) #15
-  %52 = trunc i64 %51 to i32
-  %53 = load ptr, ptr %7, align 8, !tbaa !25
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %49 to i64
-  %56 = sub i64 %54, %55
-  %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #17
-  %.not121 = icmp eq i64 %56, %57
-  br i1 %.not121, label %61, label %58
+  %52 = call i64 @strtol(ptr noundef %50, ptr noundef nonnull %7, i32 noundef 10) #15
+  %53 = trunc i64 %52 to i32
+  %54 = load ptr, ptr %7, align 8, !tbaa !25
+  %55 = ptrtoint ptr %54 to i64
+  %56 = ptrtoint ptr %50 to i64
+  %57 = sub i64 %55, %56
+  %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #17
+  %.not121 = icmp eq i64 %57, %58
+  br i1 %.not121, label %61, label %.critedge148
 
-58:                                               ; preds = %50
-  store i32 3, ptr %2, align 4, !tbaa !13
-  br label %144
-
-59:                                               ; preds = %48
+59:                                               ; preds = %49
   %60 = landingpad { ptr, i32 }
           cleanup
-  br label %151
+  br label %146
 
-61:                                               ; preds = %50
-  %62 = icmp sgt i32 %52, -1
-  %.not122 = icmp sgt i32 %25, %52
+61:                                               ; preds = %51
+  %62 = icmp sgt i32 %53, -1
+  %.not122 = icmp sgt i32 %25, %53
   %or.cond143 = select i1 %62, i1 %.not122, i1 false
-  br i1 %or.cond143, label %64, label %63
+  br i1 %or.cond143, label %63, label %.critedge148
 
 63:                                               ; preds = %61
-  store i32 3, ptr %2, align 4, !tbaa !13
-  br label %144
+  %64 = and i64 %52, 2147483647
+  %65 = getelementptr inbounds nuw i32, ptr %29, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !17
+  %.not160 = icmp eq i32 %66, 0
+  br i1 %.not160, label %67, label %.critedge148
 
-64:                                               ; preds = %61
-  %65 = and i64 %51, 2147483647
-  %66 = getelementptr inbounds nuw i32, ptr %29, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !17
-  %.not153 = icmp eq i32 %67, 0
-  br i1 %.not153, label %69, label %68
-
-68:                                               ; preds = %64
-  store i32 3, ptr %2, align 4, !tbaa !13
-  br label %144
-
-69:                                               ; preds = %64
+67:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
-  %70 = getelementptr inbounds nuw i32, ptr %29, i64 %65
-  br label %71
+  br label %68
 
-71:                                               ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, %69
-  %.0108 = phi i8 [ 1, %69 ], [ %.1109, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit ]
-  %72 = invoke signext i8 @ures_hasNext_77(ptr noundef %42)
-          to label %73 unwind label %79
+68:                                               ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, %67
+  %.0108 = phi i8 [ 1, %67 ], [ %.1109, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit ]
+  %69 = load ptr, ptr %6, align 8, !tbaa !22
+  %70 = invoke signext i8 @ures_hasNext_77(ptr noundef %69)
+          to label %71 unwind label %78
 
-73:                                               ; preds = %71
-  %.not124 = icmp eq i8 %72, 0
-  br i1 %.not124, label %133, label %74
+71:                                               ; preds = %68
+  %.not124 = icmp eq i8 %70, 0
+  br i1 %.not124, label %132, label %72
 
-74:                                               ; preds = %73
+72:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  %75 = invoke ptr @ures_getNextResource_77(ptr noundef %42, ptr noundef null, ptr noundef nonnull %2)
-          to label %76 unwind label %81
+  %73 = load ptr, ptr %6, align 8, !tbaa !22
+  %74 = invoke ptr @ures_getNextResource_77(ptr noundef %73, ptr noundef null, ptr noundef nonnull %2)
+          to label %75 unwind label %80
 
-76:                                               ; preds = %74
-  store ptr %75, ptr %9, align 8, !tbaa !22
-  %77 = load i32, ptr %2, align 4, !tbaa !13
-  %78 = icmp slt i32 %77, 1
-  br i1 %78, label %83, label %.critedge
+75:                                               ; preds = %72
+  store ptr %74, ptr %9, align 8, !tbaa !22
+  %76 = load i32, ptr %2, align 4, !tbaa !13
+  %77 = icmp slt i32 %76, 1
+  br i1 %77, label %82, label %.critedge
 
-79:                                               ; preds = %71
-  %80 = landingpad { ptr, i32 }
+78:                                               ; preds = %68
+  %79 = landingpad { ptr, i32 }
           cleanup
-  br label %150
-
-81:                                               ; preds = %74
-  %82 = landingpad { ptr, i32 }
-          cleanup
-  br label %132
-
-83:                                               ; preds = %76
-  %84 = invoke ptr @ures_getKey_77(ptr noundef %75)
-          to label %85 unwind label %93
-
-85:                                               ; preds = %83
-  %86 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(6) @.str.3) #17
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %116
-
-88:                                               ; preds = %85
-  %89 = invoke ptr @ures_getIntVector_77(ptr noundef %75, ptr noundef nonnull %8, ptr noundef nonnull %2)
-          to label %90 unwind label %95
-
-90:                                               ; preds = %88
-  %91 = load i32, ptr %2, align 4, !tbaa !13
-  %92 = icmp slt i32 %91, 1
-  br i1 %92, label %97, label %.critedge
-
-93:                                               ; preds = %83
-  %94 = landingpad { ptr, i32 }
-          cleanup
-  br label %131
-
-95:                                               ; preds = %88
-  %96 = landingpad { ptr, i32 }
-          cleanup
-  br label %131
-
-97:                                               ; preds = %90
-  %98 = load i32, ptr %8, align 4, !tbaa !17
-  %.not141 = icmp eq i32 %98, 3
-  br i1 %.not141, label %99, label %110
-
-99:                                               ; preds = %97
-  %100 = load i32, ptr %89, align 4, !tbaa !17
-  %101 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  %102 = load i32, ptr %101, align 4, !tbaa !17
-  %103 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %104 = load i32, ptr %103, align 4, !tbaa !17
-  %105 = add i32 %100, -32768
-  %or.cond.i = icmp ult i32 %105, -65536
-  %106 = add i32 %102, -13
-  %107 = icmp ult i32 %106, -12
-  %or.cond5.i.not158 = or i1 %or.cond.i, %107
-  %108 = add i32 %104, -32
-  %109 = icmp ult i32 %108, -31
-  %narrow.i.not = or i1 %109, %or.cond5.i.not158
-  br i1 %narrow.i.not, label %110, label %111
-
-110:                                              ; preds = %99, %97
-  store i32 3, ptr %2, align 4, !tbaa !13
-  br label %.critedge
-
-111:                                              ; preds = %99
-  %112 = shl nsw i32 %100, 16
-  %113 = shl nuw nsw i32 %102, 8
-  %114 = or disjoint i32 %113, %112
-  %115 = or disjoint i32 %114, %104
-  store i32 %115, ptr %70, align 4, !tbaa !17
-  br label %.critedge
-
-116:                                              ; preds = %85
-  %117 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(6) @.str.4) #17
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %119, label %.critedge
-
-119:                                              ; preds = %116
-  %120 = invoke ptr @ures_getString_77(ptr noundef %75, ptr noundef nonnull %8, ptr noundef nonnull %2)
-          to label %121 unwind label %125
-
-121:                                              ; preds = %119
-  %122 = invoke i32 @u_strncmp_77(ptr noundef %120, ptr noundef nonnull @_ZN6icu_77L9VAL_FALSEE, i32 noundef 5)
-          to label %123 unwind label %125
-
-123:                                              ; preds = %121
-  %124 = icmp eq i32 %122, 0
-  %spec.select = select i1 %124, i8 0, i8 %.0108
-  br label %.critedge
-
-125:                                              ; preds = %121, %119
-  %126 = landingpad { ptr, i32 }
-          cleanup
-  br label %131
-
-.critedge:                                        ; preds = %116, %111, %123, %90, %110, %76
-  %.1109 = phi i8 [ %.0108, %76 ], [ %.0108, %116 ], [ %.0108, %110 ], [ %.0108, %90 ], [ %spec.select, %123 ], [ %.0108, %111 ]
-  %.295 = phi i1 [ false, %76 ], [ true, %116 ], [ false, %110 ], [ false, %90 ], [ true, %123 ], [ true, %111 ]
-  %.not.i = icmp eq ptr %75, null
-  br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %127
-
-127:                                              ; preds = %.critedge
-  invoke void @ures_close_77(ptr noundef nonnull %75)
-          to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit unwind label %128
-
-128:                                              ; preds = %127
-  %129 = landingpad { ptr, i32 }
-          catch ptr null
-  %130 = extractvalue { ptr, i32 } %129, 0
-  call void @__clang_call_terminate(ptr %130) #14
-  unreachable
-
-_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %.critedge, %127
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  br i1 %.295, label %71, label %.loopexit, !llvm.loop !27
-
-131:                                              ; preds = %125, %95, %93
-  %.pn130 = phi { ptr, i32 } [ %96, %95 ], [ %126, %125 ], [ %94, %93 ]
-  call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
-  br label %132
-
-132:                                              ; preds = %131, %81
-  %.pn130.pn = phi { ptr, i32 } [ %.pn130, %131 ], [ %82, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  br label %150
-
-133:                                              ; preds = %73
-  %134 = getelementptr inbounds nuw i32, ptr %29, i64 %65
-  %135 = load i32, ptr %134, align 4, !tbaa !17
-  %.not159 = icmp eq i32 %135, 0
-  br i1 %.not159, label %136, label %139
-
-136:                                              ; preds = %133
-  %.not126 = icmp eq i32 %52, 0
-  br i1 %.not126, label %138, label %137
-
-137:                                              ; preds = %136
-  store i32 3, ptr %2, align 4, !tbaa !13
-  br label %.loopexit
-
-138:                                              ; preds = %136
-  store i32 -2147483391, ptr %134, align 4, !tbaa !17
-  br label %139
-
-139:                                              ; preds = %133, %138
-  %.not127 = icmp eq i8 %.0108, 0
-  br i1 %.not127, label %142, label %140
-
-140:                                              ; preds = %139
-  %.not128 = icmp sgt i32 %.099, %52
-  br i1 %.not128, label %.loopexit, label %141
-
-141:                                              ; preds = %140
-  store i32 3, ptr %2, align 4, !tbaa !13
-  br label %.loopexit
-
-142:                                              ; preds = %139
-  %spec.select144 = call i32 @llvm.smin.i32(i32 %.099, i32 %52)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, %142, %140, %141, %137
-  %.3102 = phi i32 [ %.099, %141 ], [ %.099, %137 ], [ %.099, %140 ], [ %spec.select144, %142 ], [ %.099, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit ]
-  %143 = phi i1 [ false, %141 ], [ false, %137 ], [ true, %140 ], [ true, %142 ], [ false, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  br label %144
-
-144:                                              ; preds = %.loopexit, %68, %63, %58
-  %.2101 = phi i32 [ %.099, %58 ], [ %.099, %63 ], [ %.099, %68 ], [ %.3102, %.loopexit ]
-  %.194 = phi i1 [ false, %58 ], [ false, %63 ], [ false, %68 ], [ %143, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   br label %145
 
-145:                                              ; preds = %43, %144
-  %.1100 = phi i32 [ %.099, %43 ], [ %.2101, %144 ]
-  %.093 = phi i1 [ false, %43 ], [ %.194, %144 ]
-  %.not.i145 = icmp eq ptr %42, null
-  br i1 %.not.i145, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit146, label %146
+80:                                               ; preds = %72
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  br label %131
 
-146:                                              ; preds = %145
-  invoke void @ures_close_77(ptr noundef nonnull %42)
-          to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit146 unwind label %147
+82:                                               ; preds = %75
+  %83 = invoke ptr @ures_getKey_77(ptr noundef %74)
+          to label %84 unwind label %92
 
-147:                                              ; preds = %146
-  %148 = landingpad { ptr, i32 }
+84:                                               ; preds = %82
+  %85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(6) @.str.3) #17
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %115
+
+87:                                               ; preds = %84
+  %88 = invoke ptr @ures_getIntVector_77(ptr noundef %74, ptr noundef nonnull %8, ptr noundef nonnull %2)
+          to label %89 unwind label %94
+
+89:                                               ; preds = %87
+  %90 = load i32, ptr %2, align 4, !tbaa !13
+  %91 = icmp slt i32 %90, 1
+  br i1 %91, label %96, label %.critedge
+
+92:                                               ; preds = %82
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  br label %130
+
+94:                                               ; preds = %87
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  br label %130
+
+96:                                               ; preds = %89
+  %97 = load i32, ptr %8, align 4, !tbaa !17
+  %.not141 = icmp eq i32 %97, 3
+  br i1 %.not141, label %98, label %109
+
+98:                                               ; preds = %96
+  %99 = load i32, ptr %88, align 4, !tbaa !17
+  %100 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %101 = load i32, ptr %100, align 4, !tbaa !17
+  %102 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %103 = load i32, ptr %102, align 4, !tbaa !17
+  %104 = add i32 %99, -32768
+  %or.cond.i = icmp ult i32 %104, -65536
+  %105 = add i32 %101, -13
+  %106 = icmp ult i32 %105, -12
+  %or.cond5.i.not165 = or i1 %or.cond.i, %106
+  %107 = add i32 %103, -32
+  %108 = icmp ult i32 %107, -31
+  %narrow.i.not = or i1 %108, %or.cond5.i.not165
+  br i1 %narrow.i.not, label %109, label %110
+
+109:                                              ; preds = %98, %96
+  store i32 3, ptr %2, align 4, !tbaa !13
+  br label %.critedge
+
+110:                                              ; preds = %98
+  %111 = shl nsw i32 %99, 16
+  %112 = shl nuw nsw i32 %101, 8
+  %113 = or disjoint i32 %112, %111
+  %114 = or disjoint i32 %113, %103
+  store i32 %114, ptr %65, align 4, !tbaa !17
+  br label %.critedge
+
+115:                                              ; preds = %84
+  %116 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(6) @.str.4) #17
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %118, label %.critedge
+
+118:                                              ; preds = %115
+  %119 = invoke ptr @ures_getString_77(ptr noundef %74, ptr noundef nonnull %8, ptr noundef nonnull %2)
+          to label %120 unwind label %124
+
+120:                                              ; preds = %118
+  %121 = invoke i32 @u_strncmp_77(ptr noundef %119, ptr noundef nonnull @_ZN6icu_77L9VAL_FALSEE, i32 noundef 5)
+          to label %122 unwind label %124
+
+122:                                              ; preds = %120
+  %123 = icmp eq i32 %121, 0
+  %spec.select = select i1 %123, i8 0, i8 %.0108
+  br label %.critedge
+
+124:                                              ; preds = %120, %118
+  %125 = landingpad { ptr, i32 }
+          cleanup
+  br label %130
+
+.critedge:                                        ; preds = %115, %110, %122, %89, %109, %75
+  %.1109 = phi i8 [ %.0108, %75 ], [ %.0108, %115 ], [ %.0108, %109 ], [ %.0108, %89 ], [ %spec.select, %122 ], [ %.0108, %110 ]
+  %.295 = phi i1 [ false, %75 ], [ true, %115 ], [ false, %109 ], [ false, %89 ], [ true, %122 ], [ true, %110 ]
+  %.not.i = icmp eq ptr %74, null
+  br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %126
+
+126:                                              ; preds = %.critedge
+  invoke void @ures_close_77(ptr noundef nonnull %74)
+          to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit unwind label %127
+
+127:                                              ; preds = %126
+  %128 = landingpad { ptr, i32 }
           catch ptr null
-  %149 = extractvalue { ptr, i32 } %148, 0
-  call void @__clang_call_terminate(ptr %149) #14
+  %129 = extractvalue { ptr, i32 } %128, 0
+  call void @__clang_call_terminate(ptr %129) #14
   unreachable
 
-_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit146: ; preds = %145, %146
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  br i1 %.093, label %38, label %.loopexit160, !llvm.loop !28
+_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %.critedge, %126
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  br i1 %.295, label %68, label %.critedge150, !llvm.loop !27
 
-150:                                              ; preds = %132, %79
-  %.pn130.pn.pn = phi { ptr, i32 } [ %.pn130.pn, %132 ], [ %80, %79 ]
+130:                                              ; preds = %124, %94, %92
+  %.pn130 = phi { ptr, i32 } [ %95, %94 ], [ %125, %124 ], [ %93, %92 ]
+  call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+  br label %131
+
+131:                                              ; preds = %130, %80
+  %.pn130.pn = phi { ptr, i32 } [ %.pn130, %130 ], [ %81, %80 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  br label %145
+
+132:                                              ; preds = %71
+  %133 = load i32, ptr %65, align 4, !tbaa !17
+  %.not166 = icmp eq i32 %133, 0
+  br i1 %.not166, label %134, label %136
+
+134:                                              ; preds = %132
+  %.not126 = icmp eq i32 %53, 0
+  br i1 %.not126, label %135, label %.critedge150.sink.split
+
+135:                                              ; preds = %134
+  store i32 -2147483391, ptr %65, align 4, !tbaa !17
+  br label %136
+
+136:                                              ; preds = %132, %135
+  %.not127 = icmp eq i8 %.0108, 0
+  br i1 %.not127, label %138, label %137
+
+137:                                              ; preds = %136
+  %.not128 = icmp sgt i32 %.099, %53
+  br i1 %.not128, label %139, label %.critedge150.sink.split
+
+138:                                              ; preds = %136
+  %spec.select144 = call i32 @llvm.smin.i32(i32 %.099, i32 %53)
+  br label %139
+
+139:                                              ; preds = %138, %137
+  %.3102 = phi i32 [ %.099, %137 ], [ %spec.select144, %138 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  br label %151
+  %140 = load ptr, ptr %6, align 8, !tbaa !22
+  %.not.i151 = icmp eq ptr %140, null
+  br i1 %.not.i151, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit152, label %141
 
-151:                                              ; preds = %150, %59
-  %.pn130.pn.pn.pn = phi { ptr, i32 } [ %.pn130.pn.pn, %150 ], [ %60, %59 ]
-  call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
-  br label %152
+141:                                              ; preds = %139
+  invoke void @ures_close_77(ptr noundef nonnull %140)
+          to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit152 unwind label %142
 
-152:                                              ; preds = %151, %46
-  %.pn130.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn130.pn.pn.pn, %151 ], [ %47, %46 ]
+142:                                              ; preds = %141
+  %143 = landingpad { ptr, i32 }
+          catch ptr null
+  %144 = extractvalue { ptr, i32 } %143, 0
+  call void @__clang_call_terminate(ptr %144) #14
+  unreachable
+
+_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit152: ; preds = %139, %141
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  br label %170
+  br label %39, !llvm.loop !28
 
-153:                                              ; preds = %40
-  %154 = icmp eq i32 %.099, 2147483647
-  %155 = icmp ne i8 %1, 0
-  %or.cond = or i1 %155, %154
-  %156 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #15
-  %157 = icmp eq ptr %156, null
-  br i1 %or.cond, label %162, label %158
+145:                                              ; preds = %131, %78
+  %.pn130.pn.pn = phi { ptr, i32 } [ %.pn130.pn, %131 ], [ %79, %78 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  br label %146
 
-158:                                              ; preds = %153
-  br i1 %157, label %.loopexit160.sink.split, label %159
+146:                                              ; preds = %145, %59
+  %.pn130.pn.pn.pn = phi { ptr, i32 } [ %.pn130.pn.pn, %145 ], [ %60, %59 ]
+  call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  br label %147
+
+147:                                              ; preds = %146, %47
+  %.pn130.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn130.pn.pn.pn, %146 ], [ %48, %47 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  br label %172
+
+148:                                              ; preds = %41
+  %149 = icmp eq i32 %.099, 2147483647
+  %150 = icmp ne i8 %1, 0
+  %or.cond = or i1 %150, %149
+  %151 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #15
+  %152 = icmp eq ptr %151, null
+  br i1 %or.cond, label %157, label %153
+
+153:                                              ; preds = %148
+  br i1 %152, label %161, label %154
+
+154:                                              ; preds = %153
+  invoke void @_ZN6icu_778EraRulesC1ERNS_11LocalMemoryIiEEi(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %.099)
+          to label %167 unwind label %155
+
+155:                                              ; preds = %154
+  %156 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %151) #15
+  br label %172
+
+157:                                              ; preds = %148
+  br i1 %152, label %161, label %158
+
+158:                                              ; preds = %157
+  invoke void @_ZN6icu_778EraRulesC1ERNS_11LocalMemoryIiEEi(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %25)
+          to label %167 unwind label %159
 
 159:                                              ; preds = %158
-  invoke void @_ZN6icu_778EraRulesC1ERNS_11LocalMemoryIiEEi(ptr noundef nonnull align 8 dereferenceable(16) %156, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %.099)
-          to label %.loopexit160 unwind label %160
-
-160:                                              ; preds = %159
-  %161 = landingpad { ptr, i32 }
+  %160 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %156) #15
-  br label %170
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %151) #15
+  br label %172
 
-162:                                              ; preds = %153
-  br i1 %157, label %.loopexit160.sink.split, label %163
+161:                                              ; preds = %153, %157
+  store i32 7, ptr %2, align 4, !tbaa !13
+  br label %167
 
-163:                                              ; preds = %162
-  invoke void @_ZN6icu_778EraRulesC1ERNS_11LocalMemoryIiEEi(ptr noundef nonnull align 8 dereferenceable(16) %156, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %25)
-          to label %.loopexit160 unwind label %164
+.critedge146:                                     ; preds = %44
+  call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  br label %167
+
+.critedge148:                                     ; preds = %63, %61, %51
+  store i32 3, ptr %2, align 4, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  br label %167
+
+.critedge150.sink.split:                          ; preds = %137, %134
+  store i32 3, ptr %2, align 4, !tbaa !13
+  br label %.critedge150
+
+.critedge150:                                     ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, %.critedge150.sink.split
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  %162 = load ptr, ptr %6, align 8, !tbaa !22
+  %.not.i153 = icmp eq ptr %162, null
+  br i1 %.not.i153, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit154, label %163
+
+163:                                              ; preds = %.critedge150
+  invoke void @ures_close_77(ptr noundef nonnull %162)
+          to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit154 unwind label %164
 
 164:                                              ; preds = %163
   %165 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %156) #15
-  br label %170
-
-.loopexit160.sink.split:                          ; preds = %162, %158, %30
-  store i32 7, ptr %2, align 4, !tbaa !13
-  br label %.loopexit160
-
-.loopexit160:                                     ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit146, %.loopexit160.sink.split, %159, %163
-  %.2 = phi ptr [ %156, %159 ], [ %156, %163 ], [ null, %.loopexit160.sink.split ], [ null, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit146 ]
-  %166 = load ptr, ptr %5, align 8, !tbaa !3
-  invoke void @uprv_free_77(ptr noundef %166)
-          to label %_ZN6icu_7711LocalMemoryIiED2Ev.exit unwind label %167
-
-167:                                              ; preds = %.loopexit160
-  %168 = landingpad { ptr, i32 }
           catch ptr null
-  %169 = extractvalue { ptr, i32 } %168, 0
-  call void @__clang_call_terminate(ptr %169) #14
+  %166 = extractvalue { ptr, i32 } %165, 0
+  call void @__clang_call_terminate(ptr %166) #14
   unreachable
 
-_ZN6icu_7711LocalMemoryIiED2Ev.exit:              ; preds = %.loopexit160
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  br label %175
+_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit154: ; preds = %.critedge150, %163
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  br label %167
 
-170:                                              ; preds = %160, %164, %152, %35
-  %.pn130.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn130.pn.pn.pn.pn, %152 ], [ %36, %35 ], [ %165, %164 ], [ %161, %160 ]
-  %171 = load ptr, ptr %5, align 8, !tbaa !3
-  invoke void @uprv_free_77(ptr noundef %171)
-          to label %_ZN6icu_7711LocalMemoryIiED2Ev.exit147 unwind label %172
+167:                                              ; preds = %154, %158, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit154, %.critedge148, %161, %.critedge146, %31
+  %.2 = phi ptr [ null, %31 ], [ null, %.critedge146 ], [ null, %161 ], [ null, %.critedge148 ], [ null, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit154 ], [ %151, %154 ], [ %151, %158 ]
+  %168 = load ptr, ptr %5, align 8, !tbaa !3
+  invoke void @uprv_free_77(ptr noundef %168)
+          to label %_ZN6icu_7711LocalMemoryIiED2Ev.exit unwind label %169
 
-172:                                              ; preds = %170
-  %173 = landingpad { ptr, i32 }
+169:                                              ; preds = %167
+  %170 = landingpad { ptr, i32 }
           catch ptr null
-  %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #14
+  %171 = extractvalue { ptr, i32 } %170, 0
+  call void @__clang_call_terminate(ptr %171) #14
   unreachable
 
-_ZN6icu_7711LocalMemoryIiED2Ev.exit147:           ; preds = %170, %33
-  %.pn130.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn130.pn.pn.pn.pn.pn, %170 ]
+_ZN6icu_7711LocalMemoryIiED2Ev.exit:              ; preds = %167
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  br label %180
+  br label %177
 
-175:                                              ; preds = %19, %_ZN6icu_7711LocalMemoryIiED2Ev.exit
+172:                                              ; preds = %155, %159, %147, %36
+  %.pn130.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn130.pn.pn.pn.pn, %147 ], [ %37, %36 ], [ %160, %159 ], [ %156, %155 ]
+  %173 = load ptr, ptr %5, align 8, !tbaa !3
+  invoke void @uprv_free_77(ptr noundef %173)
+          to label %_ZN6icu_7711LocalMemoryIiED2Ev.exit155 unwind label %174
+
+174:                                              ; preds = %172
+  %175 = landingpad { ptr, i32 }
+          catch ptr null
+  %176 = extractvalue { ptr, i32 } %175, 0
+  call void @__clang_call_terminate(ptr %176) #14
+  unreachable
+
+_ZN6icu_7711LocalMemoryIiED2Ev.exit155:           ; preds = %172, %34
+  %.pn130.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %.pn130.pn.pn.pn.pn.pn, %172 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  br label %182
+
+177:                                              ; preds = %19, %_ZN6icu_7711LocalMemoryIiED2Ev.exit
   %.1 = phi ptr [ %.2, %_ZN6icu_7711LocalMemoryIiED2Ev.exit ], [ null, %19 ]
-  %.not.i148 = icmp eq ptr %13, null
-  br i1 %.not.i148, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit149, label %176
+  %.not.i156 = icmp eq ptr %13, null
+  br i1 %.not.i156, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit157, label %178
 
-176:                                              ; preds = %175
+178:                                              ; preds = %177
   invoke void @ures_close_77(ptr noundef nonnull %13)
-          to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit149 unwind label %177
+          to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit157 unwind label %179
 
-177:                                              ; preds = %176
-  %178 = landingpad { ptr, i32 }
+179:                                              ; preds = %178
+  %180 = landingpad { ptr, i32 }
           catch ptr null
-  %179 = extractvalue { ptr, i32 } %178, 0
-  call void @__clang_call_terminate(ptr %179) #14
+  %181 = extractvalue { ptr, i32 } %180, 0
+  call void @__clang_call_terminate(ptr %181) #14
   unreachable
 
-_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit149: ; preds = %175, %176
+_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit157: ; preds = %177, %178
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  br label %181
+  br label %183
 
-180:                                              ; preds = %31, %_ZN6icu_7711LocalMemoryIiED2Ev.exit147, %22
-  %.pn130.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %.pn130.pn.pn.pn.pn.pn.pn, %_ZN6icu_7711LocalMemoryIiED2Ev.exit147 ], [ %32, %31 ]
+182:                                              ; preds = %32, %_ZN6icu_7711LocalMemoryIiED2Ev.exit155, %22
+  %.pn130.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %.pn130.pn.pn.pn.pn.pn.pn, %_ZN6icu_7711LocalMemoryIiED2Ev.exit155 ], [ %33, %32 ]
   call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   resume { ptr, i32 } %.pn130.pn.pn.pn.pn.pn.pn.pn.pn
 
-181:                                              ; preds = %3, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit149
-  %.0 = phi ptr [ %.1, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit149 ], [ null, %3 ]
+183:                                              ; preds = %3, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit157
+  %.0 = phi ptr [ %.1, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit157 ], [ null, %3 ]
   ret ptr %.0
 }
 

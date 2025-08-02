@@ -1547,37 +1547,37 @@ declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pchomp(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %.not6 = icmp eq i64 %2, 0
   br i1 %.not6, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %5
-  %.07 = phi i64 [ %6, %5 ], [ %2, %1 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.07
-  %3 = load i8, ptr %gep, align 1
-  %4 = icmp eq i8 %3, 10
-  br i1 %4, label %5, label %.critedge
+.lr.ph:                                           ; preds = %1, %7
+  %.07 = phi i64 [ %8, %7 ], [ %2, %1 ]
+  %3 = getelementptr i8, ptr %0, i64 %.07
+  %4 = getelementptr i8, ptr %3, i64 -1
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 10
+  br i1 %6, label %7, label %.critedge
 
-5:                                                ; preds = %.lr.ph
-  %6 = add i64 %.07, -1
-  %.not = icmp eq i64 %6, 0
+7:                                                ; preds = %.lr.ph
+  %8 = add i64 %.07, -1
+  %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !19
 
-.critedge:                                        ; preds = %.lr.ph, %5, %1
-  %.0.lcssa = phi i64 [ 0, %1 ], [ 0, %5 ], [ %.07, %.lr.ph ]
-  %7 = tail call i64 @strnlen(ptr noundef nonnull readonly %0, i64 noundef %.0.lcssa) #18
-  %8 = add i64 %7, 1
-  %9 = load ptr, ptr @CurrentMemoryContext, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i8 0, ptr %10, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr %13(ptr noundef %9, i64 noundef %8, i32 noundef 0) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull readonly align 1 %0, i64 %7, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %7
-  store i8 0, ptr %15, align 1
-  ret ptr %14
+.critedge:                                        ; preds = %.lr.ph, %7, %1
+  %.0.lcssa = phi i64 [ 0, %1 ], [ 0, %7 ], [ %.07, %.lr.ph ]
+  %9 = tail call i64 @strnlen(ptr noundef nonnull readonly %0, i64 noundef %.0.lcssa) #18
+  %10 = add i64 %9, 1
+  %11 = load ptr, ptr @CurrentMemoryContext, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i8 0, ptr %12, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call ptr %15(ptr noundef %11, i64 noundef %10, i32 noundef 0) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull readonly align 1 %0, i64 %9, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %9
+  store i8 0, ptr %17, align 1
+  ret ptr %16
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable

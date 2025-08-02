@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.33 = private unnamed_addr constant [10 x i8] c"CNAME: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @Curl_doh(ptr noundef initializes((440, 448)) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @Curl_doh(ptr noundef initializes((440, 448)) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   store i32 0, ptr %3, align 4, !tbaa !77
@@ -2084,9 +2084,9 @@ define internal fastcc range(i32 0, 7) i32 @doh_rdata(ptr noundef nonnull %0, i6
   %41 = getelementptr inbounds [4 x %struct.dynbuf], ptr %5, i64 0, i64 %40
   br label %42
 
-42:                                               ; preds = %72, %38
-  %.036.i = phi i32 [ 128, %38 ], [ %73, %72 ]
-  %.033.i = phi i32 [ %4, %38 ], [ %.235.i, %72 ]
+42:                                               ; preds = %73, %38
+  %.036.i = phi i32 [ 128, %38 ], [ %74, %73 ]
+  %.033.i = phi i32 [ %4, %38 ], [ %.235.i, %73 ]
   %43 = zext i32 %.033.i to i64
   %.not.i = icmp ugt i64 %1, %43
   br i1 %.not.i, label %44, label %doh_store_a.exit
@@ -2099,67 +2099,67 @@ define internal fastcc range(i32 0, 7) i32 @doh_rdata(ptr noundef nonnull %0, i6
   %trunc.i = and i8 %.fr.i, -64
   switch i8 %trunc.i, label %doh_store_a.exit [
     i8 -64, label %48
-    i8 0, label %57
+    i8 0, label %58
   ]
 
 48:                                               ; preds = %44
   %49 = add i32 %.033.i, 1
   %50 = zext i32 %49 to i64
   %.not51.i = icmp ugt i64 %1, %50
-  br i1 %.not51.i, label %.thread.i, label %doh_store_a.exit
+  br i1 %.not51.i, label %51, label %doh_store_a.exit
 
-.thread.i:                                        ; preds = %48
-  %51 = shl nuw nsw i32 %47, 8
-  %52 = and i32 %51, 16128
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 %50
-  %54 = load i8, ptr %53, align 1, !tbaa !99
-  %55 = zext i8 %54 to i32
-  %56 = or disjoint i32 %52, %55
-  br label %72
+51:                                               ; preds = %48
+  %52 = shl nuw nsw i32 %47, 8
+  %53 = and i32 %52, 16128
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %50
+  %55 = load i8, ptr %54, align 1, !tbaa !99
+  %56 = zext i8 %55 to i32
+  %57 = or disjoint i32 %53, %56
+  br label %73
 
-57:                                               ; preds = %44
-  %58 = add i32 %.033.i, 1
+58:                                               ; preds = %44
+  %59 = add i32 %.033.i, 1
   %.not47.i = icmp eq i8 %.fr.i, 0
-  br i1 %.not47.i, label %doh_store_a.exit, label %59
+  br i1 %.not47.i, label %doh_store_a.exit, label %60
 
-59:                                               ; preds = %57
-  %60 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %41) #8
-  %.not48.i = icmp eq i64 %60, 0
-  br i1 %.not48.i, label %63, label %61
+60:                                               ; preds = %58
+  %61 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %41) #8
+  %.not48.i = icmp eq i64 %61, 0
+  br i1 %.not48.i, label %64, label %62
 
-61:                                               ; preds = %59
-  %62 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %41, ptr noundef nonnull @.str.9, i64 noundef 1) #8
-  %.not49.i = icmp eq i32 %62, 0
-  br i1 %.not49.i, label %63, label %doh_store_a.exit
+62:                                               ; preds = %60
+  %63 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %41, ptr noundef nonnull @.str.9, i64 noundef 1) #8
+  %.not49.i = icmp eq i32 %63, 0
+  br i1 %.not49.i, label %64, label %doh_store_a.exit
 
-63:                                               ; preds = %61, %59
-  %64 = add i32 %58, %47
-  %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %1, %65
-  br i1 %66, label %doh_store_a.exit, label %67
+64:                                               ; preds = %62, %60
+  %65 = add i32 %59, %47
+  %66 = zext i32 %65 to i64
+  %67 = icmp ult i64 %1, %66
+  br i1 %67, label %doh_store_a.exit, label %68
 
-67:                                               ; preds = %63
-  %68 = zext i32 %58 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %68
-  %70 = zext i8 %.fr.i to i64
-  %71 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %41, ptr noundef nonnull %69, i64 noundef %70) #8
-  %.not50.i = icmp eq i32 %71, 0
-  br i1 %.not50.i, label %72, label %doh_store_a.exit
+68:                                               ; preds = %64
+  %69 = zext i32 %59 to i64
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %69
+  %71 = zext i8 %.fr.i to i64
+  %72 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %41, ptr noundef nonnull %70, i64 noundef %71) #8
+  %.not50.i = icmp eq i32 %72, 0
+  br i1 %.not50.i, label %73, label %doh_store_a.exit
 
-72:                                               ; preds = %67, %.thread.i
-  %.235.i = phi i32 [ %64, %67 ], [ %56, %.thread.i ]
+73:                                               ; preds = %68, %51
+  %.235.i = phi i32 [ %57, %51 ], [ %65, %68 ]
   %.not52.not.i = icmp eq i8 %.fr.i, 0
-  %73 = add nsw i32 %.036.i, -1
-  %.not53.i = icmp eq i32 %73, 0
+  %74 = add nsw i32 %.036.i, -1
+  %.not53.i = icmp eq i32 %74, 0
   %or.cond.i = select i1 %.not52.not.i, i1 true, i1 %.not53.i
   br i1 %or.cond.i, label %.critedge.i, label %42, !llvm.loop !150
 
-.critedge.i:                                      ; preds = %72
+.critedge.i:                                      ; preds = %73
   %spec.select = select i1 %.not52.not.i, i32 0, i32 3
   br label %doh_store_a.exit
 
-doh_store_a.exit:                                 ; preds = %42, %44, %61, %63, %67, %48, %57, %.critedge.i, %6, %8, %12, %22, %26, %34, %21, %7
-  %.0 = phi i32 [ 6, %7 ], [ 6, %21 ], [ 0, %34 ], [ 0, %26 ], [ 0, %22 ], [ 0, %12 ], [ 0, %8 ], [ 0, %6 ], [ %spec.select, %.critedge.i ], [ 2, %48 ], [ 5, %67 ], [ 1, %63 ], [ 5, %61 ], [ 1, %44 ], [ 2, %42 ], [ 0, %57 ]
+doh_store_a.exit:                                 ; preds = %42, %44, %62, %64, %68, %48, %58, %.critedge.i, %6, %8, %12, %22, %26, %34, %21, %7
+  %.0 = phi i32 [ 6, %7 ], [ 6, %21 ], [ 0, %34 ], [ 0, %26 ], [ 0, %22 ], [ 0, %12 ], [ 0, %8 ], [ 0, %6 ], [ %spec.select, %.critedge.i ], [ 2, %48 ], [ 5, %68 ], [ 1, %64 ], [ 5, %62 ], [ 1, %44 ], [ 2, %42 ], [ 0, %58 ]
   ret i32 %.0
 }
 

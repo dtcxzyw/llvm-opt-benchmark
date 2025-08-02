@@ -8554,7 +8554,7 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
 
 8:                                                ; preds = %2
   %9 = trunc i64 %6 to i32
-  br label %81
+  br label %82
 
 10:                                               ; preds = %2
   %11 = icmp eq i64 %6, 0
@@ -8562,7 +8562,7 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
 
 12:                                               ; preds = %10
   %13 = trunc i64 %4 to i32
-  br label %81
+  br label %82
 
 14:                                               ; preds = %10
   %15 = icmp ugt i64 %4, 99
@@ -8570,7 +8570,7 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
 
 16:                                               ; preds = %14
   %17 = trunc i64 %4 to i32
-  br label %81
+  br label %82
 
 18:                                               ; preds = %14
   %19 = icmp ugt i64 %6, 99
@@ -8578,12 +8578,11 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
 
 20:                                               ; preds = %18
   %21 = trunc i64 %6 to i32
-  br label %81
+  br label %82
 
 .preheader80:                                     ; preds = %.preheader81
   %22 = load ptr, ptr %0, align 8, !tbaa !19
   %23 = load ptr, ptr %1, align 8, !tbaa !19
-  %invariant.gep = getelementptr i8, ptr %23, i64 -1
   br label %30
 
 .preheader81:                                     ; preds = %18, %.preheader81
@@ -8602,110 +8601,110 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
 27:                                               ; preds = %.loopexit
   %28 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 0, i64 %4
   %29 = load i32, ptr %28, align 4, !tbaa !57
-  br label %81
+  br label %82
 
 30:                                               ; preds = %.preheader80, %.loopexit
   %.05485 = phi i64 [ 0, %.preheader80 ], [ %31, %.loopexit ]
   %31 = add nuw i64 %.05485, 1
   %32 = trunc nuw nsw i64 %31 to i32
   store i32 %32, ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, align 4, !tbaa !57
-  %33 = getelementptr inbounds nuw i8, ptr %23, i64 %.05485
+  %33 = getelementptr i8, ptr %23, i64 %.05485
   %.not = icmp eq i64 %.05485, 0
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.05485
+  %34 = getelementptr i8, ptr %33, i64 -1
   %.pre92 = load i32, ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, align 4, !tbaa !57
   br i1 %.not, label %.split.us.preheader, label %.split.preheader
 
 .split.preheader:                                 ; preds = %30
-  %34 = load i8, ptr %33, align 1, !tbaa !13
+  %35 = load i8, ptr %33, align 1, !tbaa !13
   br label %.split
 
 .split.us.preheader:                              ; preds = %30
-  %35 = load i8, ptr %33, align 1, !tbaa !13
+  %36 = load i8, ptr %33, align 1, !tbaa !13
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
-  %36 = phi i32 [ %45, %.split.us ], [ %.pre92, %.split.us.preheader ]
-  %37 = phi i32 [ %.sroa.speculated66.us, %.split.us ], [ 1, %.split.us.preheader ]
-  %.05383.us = phi i64 [ %43, %.split.us ], [ 0, %.split.us.preheader ]
-  %38 = getelementptr inbounds nuw i8, ptr %22, i64 %.05383.us
-  %39 = load i8, ptr %38, align 1, !tbaa !13
-  %40 = icmp ne i8 %39, %35
-  %41 = zext i1 %40 to i32
-  %42 = add i32 %37, 1
-  %43 = add nuw nsw i64 %.05383.us, 1
-  %44 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 0, i64 %43
-  %45 = load i32, ptr %44, align 4, !tbaa !57
-  %46 = add i32 %45, 1
-  %47 = add i32 %36, %41
-  %.sroa.speculated74.us = tail call i32 @llvm.umin.i32(i32 %46, i32 %42)
-  %.sroa.speculated66.us = tail call i32 @llvm.umin.i32(i32 %47, i32 %.sroa.speculated74.us)
-  %48 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 0, i64 %43
-  store i32 %.sroa.speculated66.us, ptr %48, align 4, !tbaa !57
-  %exitcond89.not = icmp eq i64 %43, %4
+  %37 = phi i32 [ %46, %.split.us ], [ %.pre92, %.split.us.preheader ]
+  %38 = phi i32 [ %.sroa.speculated66.us, %.split.us ], [ 1, %.split.us.preheader ]
+  %.05383.us = phi i64 [ %44, %.split.us ], [ 0, %.split.us.preheader ]
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 %.05383.us
+  %40 = load i8, ptr %39, align 1, !tbaa !13
+  %41 = icmp ne i8 %40, %36
+  %42 = zext i1 %41 to i32
+  %43 = add i32 %38, 1
+  %44 = add nuw nsw i64 %.05383.us, 1
+  %45 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 0, i64 %44
+  %46 = load i32, ptr %45, align 4, !tbaa !57
+  %47 = add i32 %46, 1
+  %48 = add i32 %37, %42
+  %.sroa.speculated74.us = tail call i32 @llvm.umin.i32(i32 %47, i32 %43)
+  %.sroa.speculated66.us = tail call i32 @llvm.umin.i32(i32 %48, i32 %.sroa.speculated74.us)
+  %49 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 0, i64 %44
+  store i32 %.sroa.speculated66.us, ptr %49, align 4, !tbaa !57
+  %exitcond89.not = icmp eq i64 %44, %4
   br i1 %exitcond89.not, label %.preheader.preheader, label %.split.us, !llvm.loop !97
 
-.split:                                           ; preds = %.split.preheader, %73
-  %49 = phi i32 [ %58, %73 ], [ %.pre92, %.split.preheader ]
-  %50 = phi i32 [ %.079, %73 ], [ %32, %.split.preheader ]
-  %.05383 = phi i64 [ %56, %73 ], [ 0, %.split.preheader ]
-  %51 = getelementptr inbounds nuw i8, ptr %22, i64 %.05383
-  %52 = load i8, ptr %51, align 1, !tbaa !13
-  %53 = icmp ne i8 %52, %34
-  %54 = zext i1 %53 to i32
-  %55 = add i32 %50, 1
-  %56 = add nuw nsw i64 %.05383, 1
-  %57 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 0, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !57
-  %59 = add i32 %58, 1
-  %60 = add i32 %49, %54
-  %.sroa.speculated74 = tail call i32 @llvm.umin.i32(i32 %59, i32 %55)
-  %.sroa.speculated66 = tail call i32 @llvm.umin.i32(i32 %60, i32 %.sroa.speculated74)
+.split:                                           ; preds = %.split.preheader, %74
+  %50 = phi i32 [ %59, %74 ], [ %.pre92, %.split.preheader ]
+  %51 = phi i32 [ %.079, %74 ], [ %32, %.split.preheader ]
+  %.05383 = phi i64 [ %57, %74 ], [ 0, %.split.preheader ]
+  %52 = getelementptr inbounds nuw i8, ptr %22, i64 %.05383
+  %53 = load i8, ptr %52, align 1, !tbaa !13
+  %54 = icmp ne i8 %53, %35
+  %55 = zext i1 %54 to i32
+  %56 = add i32 %51, 1
+  %57 = add nuw nsw i64 %.05383, 1
+  %58 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 0, i64 %57
+  %59 = load i32, ptr %58, align 4, !tbaa !57
+  %60 = add i32 %59, 1
+  %61 = add i32 %50, %55
+  %.sroa.speculated74 = tail call i32 @llvm.umin.i32(i32 %60, i32 %56)
+  %.sroa.speculated66 = tail call i32 @llvm.umin.i32(i32 %61, i32 %.sroa.speculated74)
   %.not86 = icmp eq i64 %.05383, 0
-  br i1 %.not86, label %73, label %61
+  br i1 %.not86, label %74, label %62
 
-61:                                               ; preds = %.split
-  %62 = load i8, ptr %gep, align 1, !tbaa !13
-  %63 = icmp eq i8 %52, %62
-  br i1 %63, label %64, label %73
+62:                                               ; preds = %.split
+  %63 = load i8, ptr %34, align 1, !tbaa !13
+  %64 = icmp eq i8 %53, %63
+  br i1 %64, label %65, label %74
 
-64:                                               ; preds = %61
-  %65 = add nsw i64 %.05383, -1
-  %66 = getelementptr inbounds nuw i8, ptr %22, i64 %65
-  %67 = load i8, ptr %66, align 1, !tbaa !13
-  %68 = icmp eq i8 %67, %34
-  br i1 %68, label %69, label %73
+65:                                               ; preds = %62
+  %66 = add nsw i64 %.05383, -1
+  %67 = getelementptr inbounds nuw i8, ptr %22, i64 %66
+  %68 = load i8, ptr %67, align 1, !tbaa !13
+  %69 = icmp eq i8 %68, %35
+  br i1 %69, label %70, label %74
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_two_ago, i64 0, i64 %65
-  %71 = load i32, ptr %70, align 4, !tbaa !57
-  %72 = add i32 %71, 1
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %72, i32 %.sroa.speculated66)
-  br label %73
+70:                                               ; preds = %65
+  %71 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_two_ago, i64 0, i64 %66
+  %72 = load i32, ptr %71, align 4, !tbaa !57
+  %73 = add i32 %72, 1
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %73, i32 %.sroa.speculated66)
+  br label %74
 
-73:                                               ; preds = %69, %64, %61, %.split
-  %.079 = phi i32 [ %.sroa.speculated, %69 ], [ %.sroa.speculated66, %64 ], [ %.sroa.speculated66, %61 ], [ %.sroa.speculated66, %.split ]
-  %74 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 0, i64 %56
-  store i32 %.079, ptr %74, align 4, !tbaa !57
-  %exitcond88.not = icmp eq i64 %56, %4
+74:                                               ; preds = %70, %65, %62, %.split
+  %.079 = phi i32 [ %.sroa.speculated, %70 ], [ %.sroa.speculated66, %65 ], [ %.sroa.speculated66, %62 ], [ %.sroa.speculated66, %.split ]
+  %75 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 0, i64 %57
+  store i32 %.079, ptr %75, align 4, !tbaa !57
+  %exitcond88.not = icmp eq i64 %57, %4
   br i1 %exitcond88.not, label %.preheader.preheader, label %.split, !llvm.loop !98
 
-.preheader.preheader:                             ; preds = %73, %.split.us
+.preheader.preheader:                             ; preds = %74, %.split.us
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.05284 = phi i64 [ %80, %.preheader ], [ 0, %.preheader.preheader ]
-  %75 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 0, i64 %.05284
-  %76 = load i32, ptr %75, align 4, !tbaa !57
-  %77 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_two_ago, i64 0, i64 %.05284
-  store i32 %76, ptr %77, align 4, !tbaa !57
-  %78 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 0, i64 %.05284
-  %79 = load i32, ptr %78, align 4, !tbaa !57
-  store i32 %79, ptr %75, align 4, !tbaa !57
-  %80 = add nuw i64 %.05284, 1
+  %.05284 = phi i64 [ %81, %.preheader ], [ 0, %.preheader.preheader ]
+  %76 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 0, i64 %.05284
+  %77 = load i32, ptr %76, align 4, !tbaa !57
+  %78 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_two_ago, i64 0, i64 %.05284
+  store i32 %77, ptr %78, align 4, !tbaa !57
+  %79 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 0, i64 %.05284
+  %80 = load i32, ptr %79, align 4, !tbaa !57
+  store i32 %80, ptr %76, align 4, !tbaa !57
+  %81 = add nuw i64 %.05284, 1
   %exitcond90.not = icmp eq i64 %.05284, %4
   br i1 %exitcond90.not, label %.loopexit, label %.preheader, !llvm.loop !99
 
-81:                                               ; preds = %27, %20, %16, %12, %8
+82:                                               ; preds = %27, %20, %16, %12, %8
   %.0 = phi i32 [ %9, %8 ], [ %13, %12 ], [ %17, %16 ], [ %21, %20 ], [ %29, %27 ]
   ret i32 %.0
 }

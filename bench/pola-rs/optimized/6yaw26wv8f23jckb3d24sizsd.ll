@@ -42415,8 +42415,8 @@ _ZN12polars_arrow5array5Array10null_count17heea51cf8e6000819E.exit49.thread.i: ;
   %171 = load i32, ptr %170, align 4, !alias.scope !2598, !noalias !2603, !noundef !4
   %172 = zext i32 %171 to i64
   %.idx.i.i.i.i.us.i = mul nuw nsw i64 %168, 24
-  %173 = getelementptr i8, ptr %162, i64 24
-  %174 = getelementptr i8, ptr %173, i64 %.idx.i.i.i.i.us.i
+  %173 = getelementptr inbounds nuw i8, ptr %162, i64 24
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 %.idx.i.i.i.i.us.i
   %175 = load ptr, ptr %174, align 8, !alias.scope !2604, !noalias !2607, !noundef !4
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 %172
   %.not22.us.i = icmp eq ptr %175, null
@@ -42546,8 +42546,8 @@ _ZN12polars_arrow5array5Array10null_count17heea51cf8e6000819E.exit49.thread.i: ;
   %232 = load i32, ptr %231, align 4, !alias.scope !2598, !noalias !2603, !noundef !4
   %233 = zext i32 %232 to i64
   %.idx.i.i.i.i.i = mul nuw nsw i64 %229, 24
-  %234 = getelementptr i8, ptr %222, i64 24
-  %235 = getelementptr i8, ptr %234, i64 %.idx.i.i.i.i.i
+  %234 = getelementptr inbounds nuw i8, ptr %222, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 %.idx.i.i.i.i.i
   %236 = load ptr, ptr %235, align 8, !alias.scope !2604, !noalias !2607, !noundef !4
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 %233
   %.not22.i = icmp eq ptr %236, null
@@ -42772,8 +42772,8 @@ _ZN12polars_arrow5array5Array10null_count17heea51cf8e6000819E.exit49.thread.i: ;
   %323 = load i32, ptr %322, align 4, !alias.scope !2629, !noalias !2634, !noundef !4
   %324 = zext i32 %323 to i64
   %.idx.i.i.i.i.i.i.i = mul nuw nsw i64 %320, 24
-  %325 = getelementptr i8, ptr %313, i64 24
-  %326 = getelementptr i8, ptr %325, i64 %.idx.i.i.i.i.i.i.i
+  %325 = getelementptr inbounds nuw i8, ptr %313, i64 24
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 %.idx.i.i.i.i.i.i.i
   %327 = load ptr, ptr %326, align 8, !alias.scope !2635, !noalias !2638, !noundef !4
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 %324
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17h5aa18966bfeb0b4eE.exit.i.i.i.i.i"
@@ -42876,8 +42876,8 @@ _ZN12polars_arrow5array5Array10null_count17heea51cf8e6000819E.exit49.thread.i: ;
   %369 = icmp ugt i64 %362, %368
   tail call void @llvm.assume(i1 %369)
   %.idx.i.i.i.i.i.i = mul nuw nsw i64 %368, 24
-  %370 = getelementptr i8, ptr %360, i64 24
-  %371 = getelementptr i8, ptr %370, i64 %.idx.i.i.i.i.i.i
+  %370 = getelementptr inbounds nuw i8, ptr %360, i64 24
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 %.idx.i.i.i.i.i.i
   %372 = load ptr, ptr %371, align 8, !alias.scope !2652, !noalias !2655, !noundef !4
   %.not1.i.i.i = icmp eq ptr %372, null
   br i1 %.not1.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h726b23ee988e799cE.exit.thread.i", label %375
@@ -43469,8 +43469,8 @@ _ZN12polars_arrow5array5Array10null_count17heea51cf8e6000819E.exit49.thread.i124
   %572 = load i32, ptr %571, align 4, !alias.scope !2686, !noalias !2691, !noundef !4
   %573 = zext i32 %572 to i64
   %.idx.i.i.i.i.us.i140 = mul nuw nsw i64 %569, 24
-  %574 = getelementptr i8, ptr %563, i64 24
-  %575 = getelementptr i8, ptr %574, i64 %.idx.i.i.i.i.us.i140
+  %574 = getelementptr inbounds nuw i8, ptr %563, i64 24
+  %575 = getelementptr inbounds nuw i8, ptr %574, i64 %.idx.i.i.i.i.us.i140
   %576 = load ptr, ptr %575, align 8, !alias.scope !2692, !noalias !2695, !noundef !4
   %577 = getelementptr inbounds nuw i8, ptr %576, i64 %573
   %.not22.us.i141 = icmp eq ptr %576, null
@@ -43587,8 +43587,8 @@ _ZN12polars_arrow5array5Array10null_count17heea51cf8e6000819E.exit49.thread.i124
   %620 = load i32, ptr %619, align 4, !alias.scope !2686, !noalias !2691, !noundef !4
   %621 = zext i32 %620 to i64
   %.idx.i.i.i.i.i128 = mul nuw nsw i64 %617, 24
-  %622 = getelementptr i8, ptr %610, i64 24
-  %623 = getelementptr i8, ptr %622, i64 %.idx.i.i.i.i.i128
+  %622 = getelementptr inbounds nuw i8, ptr %610, i64 24
+  %623 = getelementptr inbounds nuw i8, ptr %622, i64 %.idx.i.i.i.i.i128
   %624 = load ptr, ptr %623, align 8, !alias.scope !2692, !noalias !2695, !noundef !4
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 %621
   %.not22.i129 = icmp eq ptr %624, null
@@ -43792,8 +43792,8 @@ _ZN12polars_arrow5array5Array10null_count17heea51cf8e6000819E.exit49.thread.i124
   %693 = load i32, ptr %692, align 4, !alias.scope !2717, !noalias !2722, !noundef !4
   %694 = zext i32 %693 to i64
   %.idx.i.i.i.i.i.i.i76 = mul nuw nsw i64 %690, 24
-  %695 = getelementptr i8, ptr %683, i64 24
-  %696 = getelementptr i8, ptr %695, i64 %.idx.i.i.i.i.i.i.i76
+  %695 = getelementptr inbounds nuw i8, ptr %683, i64 24
+  %696 = getelementptr inbounds nuw i8, ptr %695, i64 %.idx.i.i.i.i.i.i.i76
   %697 = load ptr, ptr %696, align 8, !alias.scope !2723, !noalias !2726, !noundef !4
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 %694
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17h5aa18966bfeb0b4eE.exit.i.i.i.i.i77"
@@ -43896,8 +43896,8 @@ _ZN12polars_arrow5array5Array10null_count17heea51cf8e6000819E.exit49.thread.i124
   %739 = icmp ugt i64 %732, %738
   tail call void @llvm.assume(i1 %739)
   %.idx.i.i.i.i.i.i114 = mul nuw nsw i64 %738, 24
-  %740 = getelementptr i8, ptr %730, i64 24
-  %741 = getelementptr i8, ptr %740, i64 %.idx.i.i.i.i.i.i114
+  %740 = getelementptr inbounds nuw i8, ptr %730, i64 24
+  %741 = getelementptr inbounds nuw i8, ptr %740, i64 %.idx.i.i.i.i.i.i114
   %742 = load ptr, ptr %741, align 8, !alias.scope !2740, !noalias !2743, !noundef !4
   %.not1.i.i.i115 = icmp eq ptr %742, null
   br i1 %.not1.i.i.i115, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h726b23ee988e799cE.exit.thread.i104", label %745

@@ -358,7 +358,7 @@ define internal range(i32 -2147483648, 1) i32 @laf_read_packet(ptr noundef reado
   %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !61
   %.idx164187 = mul nuw nsw i64 %61, 40
-  %64 = getelementptr i8, ptr %18, i64 %.idx164187
+  %64 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx164187
   %65 = load i32, ptr %64, align 4, !tbaa !65
   %.not165188 = icmp eq i32 %65, 0
   br i1 %.not165188, label %.lr.ph190, label %._crit_edge191
@@ -372,7 +372,7 @@ define internal range(i32 -2147483648, 1) i32 @laf_read_packet(ptr noundef reado
 68:                                               ; preds = %72
   %69 = zext i32 %74 to i64
   %.idx164 = mul nuw nsw i64 %69, 40
-  %70 = getelementptr i8, ptr %18, i64 %.idx164
+  %70 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx164
   %71 = load i32, ptr %70, align 4, !tbaa !65
   %.not165 = icmp eq i32 %71, 0
   br i1 %.not165, label %72, label %._crit_edge194, !llvm.loop !67

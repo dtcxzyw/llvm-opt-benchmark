@@ -4263,9 +4263,9 @@ define noundef zeroext i1 @"_ZN78_$LT$regex_automata..nfa..thompson..nfa..Inner$
   %.sroa.0148.0159 = phi ptr [ %29, %.lr.ph ], [ %58, %"_ZN14regex_automata4util10primitives24WithStateIDIter$LT$I$GT$3new17hcf8fef1a038b4fb2E.exit" ]
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0148.0159, i64 24
   %exitcond.not = icmp eq i64 %.sroa.8.0160, %31
-  br i1 %exitcond.not, label %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i", label %62
+  br i1 %exitcond.not, label %.critedge.i, label %62
 
-"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i": ; preds = %57
+.critedge.i:                                      ; preds = %57
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.5a48a2ebb7f06f3dffebe9420965407a.130.llvm.11684209855903828990, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5a48a2ebb7f06f3dffebe9420965407a.135.llvm.11684209855903828990) #28, !noalias !458
   unreachable
 

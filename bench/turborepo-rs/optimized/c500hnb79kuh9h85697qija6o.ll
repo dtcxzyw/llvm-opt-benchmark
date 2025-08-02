@@ -1738,33 +1738,33 @@ define internal fastcc { i16, i16 } @_RNvNtCs8mTrBI1stz4_15turborepo_vt1007perfo
   %.not.i.i = icmp eq i64 %9, 0
   %anon.dd4a4cc85c4b54152f949afa2eb23aea.30..i.i = select i1 %.not.i.i, ptr @anon.dd4a4cc85c4b54152f949afa2eb23aea.30, ptr %6
   %10 = load i16, ptr %anon.dd4a4cc85c4b54152f949afa2eb23aea.30..i.i, align 2, !noundef !14
+  %11 = call i16 @llvm.umax.i16(i16 %10, i16 1)
   br label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbm0EB10_.exit
 
 _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbm0EB10_.exit: ; preds = %2, %8
-  %.sroa.02.0.i = phi i16 [ %10, %8 ], [ 0, %2 ]
-  %11 = call { ptr, i64 } @_RNvXs1_NtCscmPyG4XWoQZ_3vte6paramsNtB5_10ParamsIterNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4next(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
-  %12 = extractvalue { ptr, i64 } %11, 0
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit.thread, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit
+  %.sroa.02.0.i = phi i16 [ %11, %8 ], [ 1, %2 ]
+  %12 = call { ptr, i64 } @_RNvXs1_NtCscmPyG4XWoQZ_3vte6paramsNtB5_10ParamsIterNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4next(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  %13 = extractvalue { ptr, i64 } %12, 0
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit.thread, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit
 
 _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit: ; preds = %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbm0EB10_.exit
-  %14 = extractvalue { ptr, i64 } %11, 1
-  %.not.i.i5 = icmp eq i64 %14, 0
-  %anon.dd4a4cc85c4b54152f949afa2eb23aea.30..i.i6 = select i1 %.not.i.i5, ptr @anon.dd4a4cc85c4b54152f949afa2eb23aea.30, ptr %12
-  %15 = load i16, ptr %anon.dd4a4cc85c4b54152f949afa2eb23aea.30..i.i6, align 2, !noundef !14
-  %16 = icmp eq i16 %15, 0
-  br i1 %16, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit.thread, label %17
+  %15 = extractvalue { ptr, i64 } %12, 1
+  %.not.i.i5 = icmp eq i64 %15, 0
+  %anon.dd4a4cc85c4b54152f949afa2eb23aea.30..i.i6 = select i1 %.not.i.i5, ptr @anon.dd4a4cc85c4b54152f949afa2eb23aea.30, ptr %13
+  %16 = load i16, ptr %anon.dd4a4cc85c4b54152f949afa2eb23aea.30..i.i6, align 2, !noundef !14
+  %17 = icmp eq i16 %16, 0
+  br i1 %17, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit.thread, label %18
 
 _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit.thread: ; preds = %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbm0EB10_.exit, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit
-  br label %17
+  br label %18
 
-17:                                               ; preds = %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit.thread
-  %18 = phi i16 [ %1, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit.thread ], [ %15, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit ]
-  %spec.store.select = call i16 @llvm.umax.i16(i16 %.sroa.02.0.i, i16 1)
+18:                                               ; preds = %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit.thread
+  %19 = phi i16 [ %1, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit.thread ], [ %16, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRStE6map_ortNCNvNtCs8mTrBI1stz4_15turborepo_vt1007perform27canonicalize_params_decstbms_0EB10_.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %19 = insertvalue { i16, i16 } poison, i16 %spec.store.select, 0
-  %20 = insertvalue { i16, i16 } %19, i16 %18, 1
-  ret { i16, i16 } %20
+  %20 = insertvalue { i16, i16 } poison, i16 %.sroa.02.0.i, 0
+  %21 = insertvalue { i16, i16 } %20, i16 %19, 1
+  ret { i16, i16 } %21
 }
 
 ; Function Attrs: nonlazybind uwtable

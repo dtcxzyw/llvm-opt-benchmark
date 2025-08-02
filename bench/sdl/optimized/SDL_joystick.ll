@@ -988,7 +988,7 @@ SDL_UnlockJoysticks_REAL.exit:                    ; preds = %20, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @SDL_GetJoysticks_REAL(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden noalias ptr @SDL_GetJoysticks_REAL(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = tail call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull @SDL_joystick_lock_pending, i32 noundef 1) #13
   %3 = load ptr, ptr @SDL_joystick_lock, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %3) #13
@@ -2737,26 +2737,27 @@ SDL_PrivateJoystickAddSensor.exit39:              ; preds = %41, %33, %30, %SDL_
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader40, %66
-  %indvars.iv47 = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next48, %66 ]
-  br label %62
+.preheader:                                       ; preds = %.preheader40, %67
+  %indvars.iv47 = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next48, %67 ]
+  %62 = getelementptr inbounds nuw [3 x [3 x float]], ptr %61, i64 0, i64 %indvars.iv47
+  br label %63
 
-62:                                               ; preds = %.preheader, %62
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw [3 x [3 x float]], ptr %61, i64 0, i64 %indvars.iv47, i64 %indvars.iv
-  %64 = load float, ptr %63, align 4
-  %65 = fneg float %64
-  store float %65, ptr %63, align 4
+63:                                               ; preds = %.preheader, %63
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %63 ]
+  %64 = getelementptr inbounds nuw [3 x float], ptr %62, i64 0, i64 %indvars.iv
+  %65 = load float, ptr %64, align 4
+  %66 = fneg float %65
+  store float %66, ptr %64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %66, label %62, !llvm.loop !24
+  br i1 %exitcond.not, label %67, label %63, !llvm.loop !24
 
-66:                                               ; preds = %62
+67:                                               ; preds = %63
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 3
   br i1 %exitcond50.not, label %.loopexit, label %.preheader, !llvm.loop !25
 
-.loopexit:                                        ; preds = %66, %59, %2
+.loopexit:                                        ; preds = %67, %59, %2
   ret void
 }
 

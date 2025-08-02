@@ -7737,7 +7737,7 @@ define ptr @evhttp_request_get_host(ptr noundef captures(none) %0) local_unnamed
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %evhttp_find_header.exit.thread
+  br i1 %.not, label %4, label %.critedge45
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -7749,19 +7749,19 @@ define ptr @evhttp_request_get_host(ptr noundef captures(none) %0) local_unnamed
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not40 = icmp eq ptr %9, null
-  br i1 %.not40, label %.thread, label %evhttp_find_header.exit.thread
+  br i1 %.not40, label %.thread, label %.critedge45
 
 .thread:                                          ; preds = %4, %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not41 = icmp eq ptr %11, null
-  br i1 %.not41, label %evhttp_find_header.exit.thread, label %.preheader
+  br i1 %.not41, label %.critedge45, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %12
   %.0.in.i = phi ptr [ %.0.i, %12 ], [ %11, %.thread ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %evhttp_find_header.exit.thread, label %12
+  br i1 %.not.i, label %.critedge45, label %12
 
 12:                                               ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
@@ -7774,7 +7774,7 @@ evhttp_find_header.exit:                          ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not42 = icmp eq ptr %18, null
-  br i1 %.not42, label %evhttp_find_header.exit.thread, label %19
+  br i1 %.not42, label %.critedge45, label %19
 
 19:                                               ; preds = %evhttp_find_header.exit
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #17
@@ -7785,7 +7785,7 @@ evhttp_find_header.exit:                          ; preds = %12
   %.pn = phi ptr [ %21, %19 ], [ %.030, %24 ]
   %.030 = getelementptr inbounds i8, ptr %.pn, i64 -1
   %23 = icmp ugt ptr %.030, %18
-  br i1 %23, label %24, label %evhttp_find_header.exit.thread
+  br i1 %23, label %24, label %.critedge45
 
 24:                                               ; preds = %22
   %25 = load i8, ptr %.030, align 1
@@ -7796,7 +7796,7 @@ evhttp_find_header.exit:                          ; preds = %12
 .critedge:                                        ; preds = %24
   %27 = load i8, ptr %.030, align 1
   %28 = icmp eq i8 %27, 58
-  br i1 %28, label %29, label %evhttp_find_header.exit.thread
+  br i1 %28, label %29, label %.critedge45
 
 29:                                               ; preds = %.critedge
   %30 = ptrtoint ptr %.030 to i64
@@ -7806,7 +7806,11 @@ evhttp_find_header.exit:                          ; preds = %12
   %34 = tail call ptr @event_mm_malloc_(i64 noundef %33) #18
   store ptr %34, ptr %2, align 8
   %.not44 = icmp eq ptr %34, null
-  br i1 %.not44, label %.critedge45, label %35
+  br i1 %.not44, label %.critedge46, label %35
+
+.critedge46:                                      ; preds = %29
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.evhttp_request_get_host) #18
+  br label %.critedge45
 
 35:                                               ; preds = %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %18, i64 %32, i1 false)
@@ -7814,14 +7818,10 @@ evhttp_find_header.exit:                          ; preds = %12
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %32
   store i8 0, ptr %37, align 1
   %38 = load ptr, ptr %2, align 8
-  br label %evhttp_find_header.exit.thread
+  br label %.critedge45
 
-.critedge45:                                      ; preds = %29
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.evhttp_request_get_host) #18
-  br label %evhttp_find_header.exit.thread
-
-evhttp_find_header.exit.thread:                   ; preds = %.preheader, %22, %.critedge45, %.critedge, %35, %evhttp_find_header.exit, %7, %.thread, %1
-  %.0 = phi ptr [ %3, %1 ], [ %9, %7 ], [ null, %.thread ], [ null, %.critedge45 ], [ null, %evhttp_find_header.exit ], [ %18, %.critedge ], [ %38, %35 ], [ %18, %22 ], [ null, %.preheader ]
+.critedge45:                                      ; preds = %.preheader, %22, %7, %.thread, %evhttp_find_header.exit, %35, %.critedge, %.critedge46, %1
+  %.0 = phi ptr [ %3, %1 ], [ null, %.critedge46 ], [ %9, %7 ], [ null, %.thread ], [ %38, %35 ], [ %18, %.critedge ], [ null, %evhttp_find_header.exit ], [ %18, %22 ], [ null, %.preheader ]
   ret ptr %.0
 }
 
@@ -8980,7 +8980,7 @@ userinfo_ok.exit.thread:                          ; preds = %23, %19, %16, %14, 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evhttp_uri_set_host(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %regname_ok.exit.thread49, label %3
+  br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
@@ -8992,11 +8992,11 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_host(ptr noundef captures(none) %0, 
 8:                                                ; preds = %3
   %9 = tail call fastcc i32 @bracket_addr_ok(ptr noundef %1, ptr noundef %7)
   %.not38 = icmp eq i32 %9, 0
-  br i1 %.not38, label %regname_ok.exit.thread, label %regname_ok.exit.thread46
+  br i1 %.not38, label %regname_ok.exit.thread, label %regname_ok.exit
 
 10:                                               ; preds = %3
-  %.not53 = icmp eq i64 %4, 0
-  br i1 %.not53, label %regname_ok.exit.thread49, label %.lr.ph.i
+  %.not47 = icmp eq i64 %4, 0
+  br i1 %.not47, label %.critedge, label %.lr.ph.i
 
 .lr.ph.ithread-pre-split:                         ; preds = %28
   %.pr = load i8, ptr %29, align 1
@@ -9041,18 +9041,18 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_host(ptr noundef captures(none) %0, 
   %.sink.i = phi i64 [ 1, %15 ], [ 1, %.lr.ph.i ], [ 3, %24 ]
   %29 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 %.sink.i
   %30 = icmp ult ptr %29, %7
-  br i1 %30, label %.lr.ph.ithread-pre-split, label %regname_ok.exit.thread46, !llvm.loop !41
+  br i1 %30, label %.lr.ph.ithread-pre-split, label %regname_ok.exit, !llvm.loop !41
 
-regname_ok.exit.thread46:                         ; preds = %28, %8
-  %.pr51 = load i8, ptr %1, align 1
-  %31 = icmp eq i8 %.pr51, 91
-  br i1 %31, label %32, label %regname_ok.exit.thread49
+regname_ok.exit:                                  ; preds = %28, %8
+  %.pr45 = load i8, ptr %1, align 1
+  %31 = icmp eq i8 %.pr45, 91
+  br i1 %31, label %32, label %.critedge
 
-32:                                               ; preds = %regname_ok.exit.thread46
+32:                                               ; preds = %regname_ok.exit
   %33 = load i32, ptr %0, align 8
   %34 = and i32 %33, 4
   %.not39 = icmp eq i32 %34, 0
-  br i1 %.not39, label %regname_ok.exit.thread49, label %35
+  br i1 %.not39, label %.critedge, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9081,17 +9081,17 @@ regname_ok.exit.thread46:                         ; preds = %28, %8
   %48 = or i32 %47, 2
   br label %61
 
-regname_ok.exit.thread49:                         ; preds = %10, %2, %regname_ok.exit.thread46, %32
+.critedge:                                        ; preds = %10, %2, %regname_ok.exit, %32
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8
   %.not40 = icmp eq ptr %50, null
   br i1 %.not40, label %52, label %51
 
-51:                                               ; preds = %regname_ok.exit.thread49
+51:                                               ; preds = %.critedge
   tail call void @event_mm_free_(ptr noundef nonnull %50) #18
   br label %52
 
-52:                                               ; preds = %51, %regname_ok.exit.thread49
+52:                                               ; preds = %51, %.critedge
   br i1 %.not, label %57, label %53
 
 53:                                               ; preds = %52

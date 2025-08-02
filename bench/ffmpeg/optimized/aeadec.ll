@@ -36,7 +36,7 @@ define internal range(i32 0, 101) i32 @aea_read_probe(ptr noundef readonly captu
   %17 = or disjoint i32 %16, 2048
   %18 = add nuw nsw i32 %17, %16
   %.not27 = icmp samesign ugt i32 %18, %3
-  br i1 %.not27, label %.critedge, label %.lr.ph.preheader
+  br i1 %.not27, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %14
   %19 = zext nneg i8 %12 to i64
@@ -63,16 +63,15 @@ define internal range(i32 0, 101) i32 @aea_read_probe(ptr noundef readonly captu
   %30 = trunc nuw i64 %indvars.iv.next to i32
   %.not = icmp slt i32 %3, %30
   %31 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !13
 
-.critedge:                                        ; preds = %28, %14
-  %.022.lcssa = phi i32 [ 0, %14 ], [ %29, %28 ]
-  %32 = tail call i32 @llvm.umin.i32(i32 %.022.lcssa, i32 75)
+.critedge.loopexit:                               ; preds = %28
+  %32 = tail call i32 @llvm.umin.i32(i32 %29, i32 75)
   %33 = add nuw nsw i32 %32, 25
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %5, %.critedge, %10, %1
-  %.023 = phi i32 [ 0, %1 ], [ %33, %.critedge ], [ 0, %10 ], [ 0, %5 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %14, %.critedge.loopexit, %5, %10, %1
+  %.023 = phi i32 [ 0, %1 ], [ 0, %10 ], [ 0, %5 ], [ 25, %14 ], [ %33, %.critedge.loopexit ], [ 0, %.lr.ph ]
   ret i32 %.023
 }
 

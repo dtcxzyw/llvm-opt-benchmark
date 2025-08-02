@@ -7445,13 +7445,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
   %34 = load i8, ptr %33, align 1, !tbaa !112, !range !55, !noundef !56
   store i8 1, ptr %33, align 1, !tbaa !102
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.02575 = load ptr, ptr %35, align 8, !tbaa !274
-  %.not.i76 = icmp eq ptr %.02575, null
-  br i1 %.not.i76, label %_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit.thread, label %.lr.ph
+  %.02571 = load ptr, ptr %35, align 8, !tbaa !274
+  %.not.i72 = icmp eq ptr %.02571, null
+  br i1 %.not.i72, label %_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32, %39
-  %.02577 = phi ptr [ %.025, %39 ], [ %.02575, %32 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.02577, i64 64
+  %.02573 = phi ptr [ %.025, %39 ], [ %.02571, %32 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.02573, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %36, align 8, !tbaa !142
   switch i16 %.sroa.0.0.copyload.i.i.i, label %_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit.thread [
     i16 103, label %39
@@ -7465,7 +7465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
   br label %66
 
 39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds nuw i8, ptr %.02577, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %.02573, i64 32
   %.025 = load ptr, ptr %40, align 8, !tbaa !274
   %.not.i = icmp eq ptr %.025, null
   br i1 %.not.i, label %_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit.thread, label %.lr.ph
@@ -7475,15 +7475,15 @@ _ZN7AstNode11privateCastI9AstSelBitPS_EEPT_S2_.exit: ; preds = %.lr.ph
           to label %42 unwind label %55
 
 42:                                               ; preds = %_ZN7AstNode11privateCastI9AstSelBitPS_EEPT_S2_.exit
-  %43 = getelementptr inbounds nuw i8, ptr %.02577, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %.02573, i64 88
   %44 = load ptr, ptr %43, align 8, !tbaa !116
-  %45 = getelementptr inbounds nuw i8, ptr %.02577, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.02573, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !168
   %47 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %46, ptr noundef null)
           to label %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit unwind label %57
 
 _ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit: ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %.02577, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.02573, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !167
   %50 = invoke noundef ptr @_ZN7AstNode20unlinkFrBackWithNextEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %49, ptr noundef null)
           to label %_ZN11AstNodeExpr20unlinkFrBackWithNextEP10VNRelinker.exit unwind label %57
@@ -7506,11 +7506,11 @@ _ZN11AstNodeExpr20unlinkFrBackWithNextEP10VNRelinker.exit: ; preds = %_ZN11AstNo
           to label %_ZN14AstSelLoopVarsC2EP8FileLineP11AstNodeExprP7AstNode.exit unwind label %57
 
 _ZN14AstSelLoopVarsC2EP8FileLineP11AstNodeExprP7AstNode.exit: ; preds = %.noexc45, %51
-  invoke void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %.02577, ptr noundef nonnull %41)
+  invoke void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %.02573, ptr noundef nonnull %41)
           to label %52 unwind label %55
 
 52:                                               ; preds = %_ZN14AstSelLoopVarsC2EP8FileLineP11AstNodeExprP7AstNode.exit
-  invoke void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %.02577)
+  invoke void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %.02573)
           to label %.loopexit unwind label %55
 
 53:                                               ; preds = %64, %62, %_ZN14AstNodeForeach12unlinkFrBackEP10VNRelinker.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit50, %60, %_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit.thread
@@ -7551,13 +7551,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit50: ; preds = %62
 
 _ZN14AstNodeForeach12unlinkFrBackEP10VNRelinker.exit: ; preds = %64
   invoke void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %65)
-          to label %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit unwind label %53
+          to label %.critedge unwind label %53
 
 .loopexit:                                        ; preds = %.lr.ph, %52
   invoke void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit unwind label %37
+          to label %.critedge unwind label %37
 
-_ZN9VNVisitor15iterateChildrenEP7AstNode.exit:    ; preds = %.loopexit, %_ZN14AstNodeForeach12unlinkFrBackEP10VNRelinker.exit
+.critedge:                                        ; preds = %.loopexit, %_ZN14AstNodeForeach12unlinkFrBackEP10VNRelinker.exit
   store i8 %34, ptr %33, align 1, !tbaa !112
   ret void
 

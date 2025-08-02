@@ -316,8 +316,8 @@ define hidden noundef zeroext i1 @_ZN15ProcSmapsParser10parse_nextER13ProcSmapsI
   %.not9 = icmp eq ptr %40, null
   br i1 %.not9, label %.critedge, label %.lr.ph, !llvm.loop !6
 
-.critedge:                                        ; preds = %.lr.ph, %34, %16, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %16 ], [ %33, %34 ], [ %33, %.lr.ph ]
+.critedge:                                        ; preds = %34, %.lr.ph, %16, %9
+  %.0 = phi i1 [ false, %9 ], [ false, %16 ], [ %33, %.lr.ph ], [ %33, %34 ]
   ret i1 %.0
 }
 

@@ -217,7 +217,7 @@ $_ZTIN5Catch10BinaryExprIRKPiS3_EE = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_Tests_Alloc.cpp, ptr null }]
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z12AllocAndInitm11rcAllocHint(i64 noundef %0, i32 %1) #0 {
+define dso_local noalias noundef ptr @_Z12AllocAndInitm11rcAllocHint(i64 noundef %0, i32 %1) #0 {
   %3 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %4 = icmp eq ptr %3, null
   %5 = icmp ult i64 %0, 1025

@@ -396,17 +396,20 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit.i:     ; preds = %1
   %spec.select.i.i = add i32 %.014.i.i, %27
   %28 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 4
   %.not.i.i = icmp eq ptr %28, %17
-  br i1 %.not.i.i, label %_ZNK3sat6solver3psmERKNS_6clauseE.exit.i, label %19
+  br i1 %.not.i.i, label %_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit.i, label %19
 
-_ZNK3sat6solver3psmERKNS_6clauseE.exit.i:         ; preds = %19, %11
-  %.0.lcssa.i.i = phi i32 [ 0, %11 ], [ %spec.select.i.i, %19 ]
-  %29 = tail call i32 @llvm.umin.i32(i32 %.0.lcssa.i.i, i32 255)
-  %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %31 = load i32, ptr %30, align 4
-  %32 = shl nuw nsw i32 %29, 22
-  %33 = and i32 %31, -1069547521
-  %34 = or disjoint i32 %33, %32
-  store i32 %34, ptr %30, align 4
+_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit.i: ; preds = %19
+  %29 = tail call i32 @llvm.umin.i32(i32 %spec.select.i.i, i32 255)
+  %30 = shl nuw nsw i32 %29, 22
+  br label %_ZNK3sat6solver3psmERKNS_6clauseE.exit.i
+
+_ZNK3sat6solver3psmERKNS_6clauseE.exit.i:         ; preds = %_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit.i, %11
+  %.0.lcssa.i.i = phi i32 [ 0, %11 ], [ %30, %_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, -1069547521
+  %34 = or disjoint i32 %33, %.0.lcssa.i.i
+  store i32 %34, ptr %31, align 4
   %35 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %.not.i = icmp eq ptr %35, %9
   br i1 %.not.i, label %_ZN3sat6solver8save_psmEv.exit, label %11
@@ -517,17 +520,20 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit.i:     ; preds = %1
   %spec.select.i.i = add i32 %.014.i.i, %27
   %28 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 4
   %.not.i.i = icmp eq ptr %28, %17
-  br i1 %.not.i.i, label %_ZNK3sat6solver3psmERKNS_6clauseE.exit.i, label %19
+  br i1 %.not.i.i, label %_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit.i, label %19
 
-_ZNK3sat6solver3psmERKNS_6clauseE.exit.i:         ; preds = %19, %11
-  %.0.lcssa.i.i = phi i32 [ 0, %11 ], [ %spec.select.i.i, %19 ]
-  %29 = tail call i32 @llvm.umin.i32(i32 %.0.lcssa.i.i, i32 255)
-  %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %31 = load i32, ptr %30, align 4
-  %32 = shl nuw nsw i32 %29, 22
-  %33 = and i32 %31, -1069547521
-  %34 = or disjoint i32 %33, %32
-  store i32 %34, ptr %30, align 4
+_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit.i: ; preds = %19
+  %29 = tail call i32 @llvm.umin.i32(i32 %spec.select.i.i, i32 255)
+  %30 = shl nuw nsw i32 %29, 22
+  br label %_ZNK3sat6solver3psmERKNS_6clauseE.exit.i
+
+_ZNK3sat6solver3psmERKNS_6clauseE.exit.i:         ; preds = %_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit.i, %11
+  %.0.lcssa.i.i = phi i32 [ 0, %11 ], [ %30, %_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, -1069547521
+  %34 = or disjoint i32 %33, %.0.lcssa.i.i
+  store i32 %34, ptr %31, align 4
   %35 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %.not.i = icmp eq ptr %35, %9
   br i1 %.not.i, label %_ZN3sat6solver8save_psmEv.exit, label %11
@@ -638,17 +644,20 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit.i:     ; preds = %1
   %spec.select.i.i = add i32 %.014.i.i, %27
   %28 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 4
   %.not.i.i = icmp eq ptr %28, %17
-  br i1 %.not.i.i, label %_ZNK3sat6solver3psmERKNS_6clauseE.exit.i, label %19
+  br i1 %.not.i.i, label %_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit.i, label %19
 
-_ZNK3sat6solver3psmERKNS_6clauseE.exit.i:         ; preds = %19, %11
-  %.0.lcssa.i.i = phi i32 [ 0, %11 ], [ %spec.select.i.i, %19 ]
-  %29 = tail call i32 @llvm.umin.i32(i32 %.0.lcssa.i.i, i32 255)
-  %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %31 = load i32, ptr %30, align 4
-  %32 = shl nuw nsw i32 %29, 22
-  %33 = and i32 %31, -1069547521
-  %34 = or disjoint i32 %33, %32
-  store i32 %34, ptr %30, align 4
+_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit.i: ; preds = %19
+  %29 = tail call i32 @llvm.umin.i32(i32 %spec.select.i.i, i32 255)
+  %30 = shl nuw nsw i32 %29, 22
+  br label %_ZNK3sat6solver3psmERKNS_6clauseE.exit.i
+
+_ZNK3sat6solver3psmERKNS_6clauseE.exit.i:         ; preds = %_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit.i, %11
+  %.0.lcssa.i.i = phi i32 [ 0, %11 ], [ %30, %_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, -1069547521
+  %34 = or disjoint i32 %33, %.0.lcssa.i.i
+  store i32 %34, ptr %31, align 4
   %35 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %.not.i = icmp eq ptr %35, %9
   br i1 %.not.i, label %_ZN3sat6solver8save_psmEv.exit, label %11
@@ -1335,17 +1344,20 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %1
   %spec.select.i = add i32 %.014.i, %27
   %28 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 4
   %.not.i = icmp eq ptr %28, %17
-  br i1 %.not.i, label %_ZNK3sat6solver3psmERKNS_6clauseE.exit, label %19
+  br i1 %.not.i, label %_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit, label %19
 
-_ZNK3sat6solver3psmERKNS_6clauseE.exit:           ; preds = %19, %11
-  %.0.lcssa.i = phi i32 [ 0, %11 ], [ %spec.select.i, %19 ]
-  %29 = tail call i32 @llvm.umin.i32(i32 %.0.lcssa.i, i32 255)
-  %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %31 = load i32, ptr %30, align 4
-  %32 = shl nuw nsw i32 %29, 22
-  %33 = and i32 %31, -1069547521
-  %34 = or disjoint i32 %33, %32
-  store i32 %34, ptr %30, align 4
+_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit:  ; preds = %19
+  %29 = tail call i32 @llvm.umin.i32(i32 %spec.select.i, i32 255)
+  %30 = shl nuw nsw i32 %29, 22
+  br label %_ZNK3sat6solver3psmERKNS_6clauseE.exit
+
+_ZNK3sat6solver3psmERKNS_6clauseE.exit:           ; preds = %_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit, %11
+  %.0.lcssa.i = phi i32 [ 0, %11 ], [ %30, %_ZNK3sat6solver3psmERKNS_6clauseE.exit.loopexit ]
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, -1069547521
+  %34 = or disjoint i32 %33, %.0.lcssa.i
+  store i32 %34, ptr %31, align 4
   %35 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.not = icmp eq ptr %35, %9
   br i1 %.not, label %._crit_edge, label %11

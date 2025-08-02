@@ -7007,7 +7007,7 @@ Py_DECREF.exit.i.i.i:                             ; preds = %31, %28, %25, %.lr.
 
 set_clear.exit:                                   ; preds = %._crit_edge.i.i.i, %34
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #11
-  br label %Py_DECREF.exit
+  br label %.critedge
 
 35:                                               ; preds = %2
   %36 = getelementptr i8, ptr %1, i64 8
@@ -7137,12 +7137,12 @@ set_symmetric_difference_update_dict.exit:        ; preds = %Py_DECREF.exit.i, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  br label %Py_DECREF.exit.thread
+  br label %Py_DECREF.exit
 
 84:                                               ; preds = %35
-  %.not39 = icmp eq ptr %.val35, @PySet_Type
-  %.not40 = icmp eq ptr %.val35, @PyFrozenSet_Type
-  %or.cond = or i1 %.not39, %.not40
+  %.not38 = icmp eq ptr %.val35, @PySet_Type
+  %.not39 = icmp eq ptr %.val35, @PyFrozenSet_Type
+  %or.cond = or i1 %.not38, %.not39
   br i1 %or.cond, label %89, label %85
 
 85:                                               ; preds = %84
@@ -7158,39 +7158,39 @@ set_symmetric_difference_update_dict.exit:        ; preds = %Py_DECREF.exit.i, %
 
 89:                                               ; preds = %87, %85, %84
   %90 = tail call fastcc i32 @set_symmetric_difference_update_set(ptr noundef %0, ptr noundef nonnull %1)
-  br label %Py_DECREF.exit.thread
+  br label %Py_DECREF.exit
 
 91:                                               ; preds = %87
   %92 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %92, align 8, !tbaa !29
   %93 = tail call fastcc ptr @make_new_set_basetype(ptr noundef %.val, ptr noundef nonnull %1)
   %.not30 = icmp eq ptr %93, null
-  br i1 %.not30, label %Py_DECREF.exit, label %94
+  br i1 %.not30, label %.critedge, label %94
 
 94:                                               ; preds = %91
   %95 = tail call fastcc i32 @set_symmetric_difference_update_set(ptr noundef nonnull %0, ptr noundef nonnull %93)
   %96 = load i32, ptr %93, align 8, !tbaa !15
   %.not.i = icmp sgt i32 %96, -1
-  br i1 %.not.i, label %97, label %Py_DECREF.exit.thread
+  br i1 %.not.i, label %97, label %Py_DECREF.exit
 
 97:                                               ; preds = %94
   %98 = add nsw i32 %96, -1
   store i32 %98, ptr %93, align 8, !tbaa !15
   %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %Py_DECREF.exit.thread
+  br i1 %99, label %100, label %Py_DECREF.exit
 
 100:                                              ; preds = %97
   tail call void @_Py_Dealloc(ptr noundef nonnull %93) #11
-  br label %Py_DECREF.exit.thread
-
-Py_DECREF.exit.thread:                            ; preds = %94, %97, %100, %89, %set_symmetric_difference_update_dict.exit
-  %.021 = phi i32 [ %.2.i, %set_symmetric_difference_update_dict.exit ], [ %90, %89 ], [ %95, %100 ], [ %95, %97 ], [ %95, %94 ]
-  %101 = icmp slt i32 %.021, 0
-  %._Py_NoneStruct = select i1 %101, ptr null, ptr @_Py_NoneStruct
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %91, %Py_DECREF.exit.thread, %set_clear.exit
-  %.020 = phi ptr [ @_Py_NoneStruct, %set_clear.exit ], [ %._Py_NoneStruct, %Py_DECREF.exit.thread ], [ null, %91 ]
+Py_DECREF.exit:                                   ; preds = %100, %97, %94, %89, %set_symmetric_difference_update_dict.exit
+  %.021 = phi i32 [ %.2.i, %set_symmetric_difference_update_dict.exit ], [ %90, %89 ], [ %95, %94 ], [ %95, %97 ], [ %95, %100 ]
+  %101 = icmp slt i32 %.021, 0
+  %._Py_NoneStruct = select i1 %101, ptr null, ptr @_Py_NoneStruct
+  br label %.critedge
+
+.critedge:                                        ; preds = %Py_DECREF.exit, %91, %set_clear.exit
+  %.020 = phi ptr [ @_Py_NoneStruct, %set_clear.exit ], [ %._Py_NoneStruct, %Py_DECREF.exit ], [ null, %91 ]
   ret ptr %.020
 }
 

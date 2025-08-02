@@ -110,12 +110,12 @@ define internal noundef i32 @pirq_enable_irq(ptr noundef %0) #0 align 16 {
   %3 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef 61, ptr noundef nonnull %2) #13
   %4 = load i8, ptr %2, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %113, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %1
   %7 = call fastcc i32 @pcibios_lookup_irq(ptr noundef %0, i32 noundef 1), !range !5
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %113
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @mp_irq_entries, align 4
@@ -134,13 +134,13 @@ define internal noundef i32 @pirq_enable_irq(ptr noundef %0) #0 align 16 {
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 916
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.thread, label %113
+  br i1 %21, label %.thread, label %.critedge
 
 .thread5:                                         ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 916
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread, label %113
+  br i1 %24, label %.thread, label %.critedge
 
 25:                                               ; preds = %12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1689
@@ -153,7 +153,7 @@ define internal noundef i32 @pirq_enable_irq(ptr noundef %0) #0 align 16 {
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 916
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %113
+  br i1 %33, label %34, label %.critedge
 
 34:                                               ; preds = %30, %25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -177,14 +177,14 @@ define internal noundef i32 @pirq_enable_irq(ptr noundef %0) #0 align 16 {
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %.thread10, label %.preheader
+  br i1 %53, label %.loopexit, label %.preheader
 
 54:                                               ; preds = %.preheader
   %55 = load ptr, ptr %65, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.thread10, label %.preheader, !llvm.loop !8
+  br i1 %58, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %49, %54
   %59 = phi ptr [ %55, %54 ], [ %50, %49 ]
@@ -241,32 +241,32 @@ define internal noundef i32 @pirq_enable_irq(ptr noundef %0) #0 align 16 {
   %97 = zext i8 %96 to i32
   %98 = add nuw nsw i32 %97, 64
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %95, ptr noundef nonnull @.str.41, i32 noundef %98, i32 noundef %.ph) #14
-  br label %113
+  br label %.critedge
 
 .thread:                                          ; preds = %.thread5, %18
   %99 = load i32, ptr @pci_probe, align 4
   %100 = and i32 %99, 8192
   %101 = icmp eq i32 %100, 0
   %102 = select i1 %101, ptr @.str.43, ptr @.str.39
-  br label %.thread10
+  br label %.loopexit
 
-.thread10:                                        ; preds = %54, %49, %.thread
+.loopexit:                                        ; preds = %54, %49, %.thread
   %103 = phi ptr [ %102, %.thread ], [ @.str.42, %49 ], [ @.str.42, %54 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, -251
   %107 = icmp eq i32 %106, 65792
-  br i1 %107, label %113, label %108
+  br i1 %107, label %.critedge, label %108
 
-108:                                              ; preds = %.thread10
+108:                                              ; preds = %.loopexit
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %110 = load i8, ptr %2, align 1
   %111 = zext i8 %110 to i32
   %112 = add nuw nsw i32 %111, 64
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %109, ptr noundef nonnull @.str.44, i32 noundef %112, ptr noundef nonnull %103) #14
-  br label %113
+  br label %.critedge
 
-113:                                              ; preds = %30, %91, %.thread5, %108, %.thread10, %18, %6, %1
+.critedge:                                        ; preds = %.thread5, %91, %30, %108, %.loopexit, %18, %6, %1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #13
   ret i32 0
 }

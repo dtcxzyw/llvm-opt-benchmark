@@ -1317,7 +1317,12 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
 
 105:                                              ; preds = %102
   %106 = call zeroext i1 @capable(i32 noundef 24) #19
-  br i1 %106, label %107, label %115
+  br i1 %106, label %107, label %.critedge
+
+.critedge:                                        ; preds = %105
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @kbd_event_lock, i64 noundef %97) #19
+  call void @kfree(ptr noundef nonnull %94) #19
+  br label %141
 
 107:                                              ; preds = %105, %102
   store ptr %94, ptr %99, align 8
@@ -1330,25 +1335,20 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
   store i16 -3584, ptr %110, align 2
   %111 = add nuw nsw i64 %109, 1
   %112 = icmp eq i64 %111, 256
-  br i1 %112, label %.thread, label %108, !llvm.loop !23
+  br i1 %112, label %113, label %108, !llvm.loop !23
 
-.thread:                                          ; preds = %108
-  %113 = load i32, ptr @keymap_count, align 4
-  %114 = add i32 %113, 1
-  store i32 %114, ptr @keymap_count, align 4
+113:                                              ; preds = %108
+  %114 = load i32, ptr @keymap_count, align 4
+  %115 = add i32 %114, 1
+  store i32 %115, ptr @keymap_count, align 4
   br label %117
-
-115:                                              ; preds = %105
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @kbd_event_lock, i64 noundef %97) #19
-  call void @kfree(ptr noundef nonnull %94) #19
-  br label %141
 
 116:                                              ; preds = %96
   call void @kfree(ptr noundef nonnull %94) #19
   br label %117
 
-117:                                              ; preds = %.thread, %116
-  %118 = phi ptr [ %100, %116 ], [ %94, %.thread ]
+117:                                              ; preds = %113, %116
+  %118 = phi ptr [ %94, %113 ], [ %100, %116 ]
   %119 = zext i8 %52 to i64
   %120 = getelementptr i16, ptr %118, i64 %119
   %121 = load i16, ptr %120, align 2
@@ -1391,8 +1391,8 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @kbd_event_lock, i64 noundef %97) #19
   br label %141
 
-141:                                              ; preds = %115, %140, %130, %92, %87, %78, %74, %46, %44, %35, %10, %4
-  %142 = phi i32 [ %43, %35 ], [ -14, %4 ], [ -1, %46 ], [ -1, %44 ], [ 0, %10 ], [ 0, %74 ], [ 0, %140 ], [ -1, %130 ], [ -1, %115 ], [ %86, %78 ], [ %91, %87 ], [ -12, %92 ]
+141:                                              ; preds = %.critedge, %140, %130, %92, %87, %78, %74, %46, %44, %35, %10, %4
+  %142 = phi i32 [ %43, %35 ], [ -14, %4 ], [ -1, %46 ], [ -1, %44 ], [ 0, %10 ], [ 0, %74 ], [ 0, %140 ], [ -1, %130 ], [ %86, %78 ], [ %91, %87 ], [ -12, %92 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #19
   ret i32 %142
 }
@@ -1410,7 +1410,7 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
   tail call void @llvm.write_register.i64(metadata !0, i64 %7)
   %9 = and i64 %8, 4294967295
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %54
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %3
   %12 = extractvalue { ptr, i8, i64 } %5, 1
@@ -1418,7 +1418,7 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
   %14 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 256, i64 %13) #19, !srcloc !25
   %15 = and i64 %14, %13
   %16 = trunc nuw i64 %15 to i8
-  switch i32 %0, label %.thread [
+  switch i32 %0, label %52 [
     i32 19272, label %17
     i32 19273, label %38
   ]
@@ -1427,7 +1427,7 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %19 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3264, i64 noundef 512) #21
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %54, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %17
   %22 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @func_buf_lock) #19
@@ -1438,7 +1438,7 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
   %27 = tail call i64 @strscpy(ptr noundef nonnull %19, ptr noundef nonnull %26, i64 noundef 512) #19
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @func_buf_lock, i64 noundef %22) #19
   %28 = icmp slt i64 %27, 0
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %52, label %29
 
 29:                                               ; preds = %21
   %30 = add nuw i64 %27, 1
@@ -1447,22 +1447,22 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
 
 32:                                               ; preds = %29
   tail call void @__copy_overflow(i32 noundef 512, i64 noundef %30) #19
-  br label %.thread
+  br label %52
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %35 = tail call i64 @_copy_to_user(ptr noundef nonnull %34, ptr noundef nonnull %19, i64 noundef %30) #19
   %36 = icmp eq i64 %35, 0
   %37 = select i1 %36, i32 0, i32 -14
-  br label %.thread
+  br label %52
 
 38:                                               ; preds = %11
   %39 = icmp eq i32 %2, 0
-  br i1 %39, label %54, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %38
   %41 = tail call zeroext i1 @capable(i32 noundef 26) #19
-  br i1 %41, label %42, label %54
+  br i1 %41, label %42, label %.critedge
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -1473,22 +1473,22 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
 46:                                               ; preds = %42
   %47 = ptrtoint ptr %44 to i64
   %48 = trunc i64 %47 to i32
-  br label %54
+  br label %.critedge
 
 49:                                               ; preds = %42
   %50 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @func_buf_lock) #19
   %51 = tail call fastcc ptr @vt_kdskbsent(ptr noundef %44, i8 noundef zeroext %16)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @func_buf_lock, i64 noundef %50) #19
-  br label %.thread
+  br label %52
 
-.thread:                                          ; preds = %21, %32, %33, %49, %11
-  %52 = phi i32 [ 0, %11 ], [ 0, %49 ], [ -14, %32 ], [ %37, %33 ], [ -28, %21 ]
-  %53 = phi ptr [ null, %11 ], [ %51, %49 ], [ %19, %32 ], [ %19, %33 ], [ %19, %21 ]
-  tail call void @kfree(ptr noundef %53) #19
-  br label %54
+52:                                               ; preds = %21, %32, %33, %49, %11
+  %53 = phi i32 [ 0, %11 ], [ 0, %49 ], [ -28, %21 ], [ %37, %33 ], [ -14, %32 ]
+  %54 = phi ptr [ null, %11 ], [ %51, %49 ], [ %19, %21 ], [ %19, %33 ], [ %19, %32 ]
+  tail call void @kfree(ptr noundef %54) #19
+  br label %.critedge
 
-54:                                               ; preds = %17, %.thread, %46, %40, %38, %3
-  %55 = phi i32 [ %52, %.thread ], [ %48, %46 ], [ -14, %3 ], [ -1, %40 ], [ -1, %38 ], [ -12, %17 ]
+.critedge:                                        ; preds = %17, %52, %46, %40, %38, %3
+  %55 = phi i32 [ %53, %52 ], [ %48, %46 ], [ -14, %3 ], [ -1, %40 ], [ -1, %38 ], [ -12, %17 ]
   ret i32 %55
 }
 

@@ -5746,8 +5746,8 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %2
 
 _ZNK4llvm3EVTeqES0_.exit.thread.i.i:              ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
   %.idx.i = mul nuw nsw i64 %10, 496
-  %13 = getelementptr i8, ptr %4, i64 5732
-  %14 = getelementptr i8, ptr %13, i64 %.idx.i
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 5732
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
   %15 = load i8, ptr %14, align 1, !tbaa !715
   %16 = and i8 %15, -5
   %spec.select.i.i = icmp eq i8 %16, 0
@@ -5796,8 +5796,8 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i: ; preds = %2
 _ZNK4llvm3EVTeqES0_.exit.thread.i.i:              ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i, %2
   %.pre-phi.i = phi i64 [ %10, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i ], [ 1, %2 ]
   %.idx.i = mul nuw nsw i64 %.pre-phi.i, 496
-  %13 = getelementptr i8, ptr %4, i64 5582
-  %14 = getelementptr i8, ptr %13, i64 %.idx.i
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 5582
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
   %15 = load i8, ptr %14, align 1, !tbaa !715
   %16 = icmp ult i8 %15, 5
   br i1 %16, label %switch.lookup, label %_ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE11getFPOpCostEPNS_4TypeE.exit
@@ -6450,19 +6450,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo5Mo
   %11 = load ptr, ptr %6, align 8, !tbaa !408
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 395330
   %13 = zext i16 %9 to i64
-  %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw [234 x [5 x i16]], ptr %12, i64 0, i64 %13, i64 %14
-  %16 = load i16, ptr %15, align 2, !tbaa !732
-  %17 = trunc i16 %16 to i8
-  %18 = icmp ult i8 %17, 16
-  %.mask.i.i = and i8 %17, -16
-  %19 = icmp eq i8 %.mask.i.i, 64
-  %spec.select.i.i = or i1 %18, %19
+  %14 = getelementptr inbounds nuw [234 x [5 x i16]], ptr %12, i64 0, i64 %13
+  %15 = zext i32 %1 to i64
+  %16 = getelementptr inbounds nuw [5 x i16], ptr %14, i64 0, i64 %15
+  %17 = load i16, ptr %16, align 2, !tbaa !732
+  %18 = trunc i16 %17 to i8
+  %19 = icmp ult i8 %18, 16
+  %.mask.i.i = and i8 %18, -16
+  %20 = icmp eq i8 %.mask.i.i, 64
+  %spec.select.i.i = or i1 %19, %20
   br label %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE18isIndexedLoadLegalENS_19TargetTransformInfo14MemIndexedModeEPNS_4TypeERKNS_10DataLayoutE.exit
 
 _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE18isIndexedLoadLegalENS_19TargetTransformInfo14MemIndexedModeEPNS_4TypeERKNS_10DataLayoutE.exit: ; preds = %3, %10
-  %20 = phi i1 [ false, %3 ], [ %spec.select.i.i, %10 ]
-  ret i1 %20
+  %21 = phi i1 [ false, %3 ], [ %spec.select.i.i, %10 ]
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6480,16 +6481,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo5Mo
   %11 = load ptr, ptr %6, align 8, !tbaa !408
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 395330
   %13 = zext i16 %9 to i64
-  %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw [234 x [5 x i16]], ptr %12, i64 0, i64 %13, i64 %14
-  %16 = load i16, ptr %15, align 2, !tbaa !732
-  %17 = and i16 %16, 11
-  %spec.select.i.i = icmp eq i16 %17, 0
+  %14 = getelementptr inbounds nuw [234 x [5 x i16]], ptr %12, i64 0, i64 %13
+  %15 = zext i32 %1 to i64
+  %16 = getelementptr inbounds nuw [5 x i16], ptr %14, i64 0, i64 %15
+  %17 = load i16, ptr %16, align 2, !tbaa !732
+  %18 = and i16 %17, 11
+  %spec.select.i.i = icmp eq i16 %18, 0
   br label %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE19isIndexedStoreLegalENS_19TargetTransformInfo14MemIndexedModeEPNS_4TypeERKNS_10DataLayoutE.exit
 
 _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE19isIndexedStoreLegalENS_19TargetTransformInfo14MemIndexedModeEPNS_4TypeERKNS_10DataLayoutE.exit: ; preds = %3, %10
-  %18 = phi i1 [ false, %3 ], [ %spec.select.i.i, %10 ]
-  ret i1 %18
+  %19 = phi i1 [ false, %3 ], [ %spec.select.i.i, %10 ]
+  ret i1 %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

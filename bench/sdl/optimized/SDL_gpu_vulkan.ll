@@ -455,7 +455,7 @@ define internal noundef ptr @VULKAN_CreateDevice(i1 noundef zeroext %0, i1 nound
   %7 = zext i1 %1 to i8
   %8 = tail call zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.77, i1 noundef zeroext true) #13
   %9 = tail call zeroext i1 @SDL_Vulkan_LoadLibrary_REAL(ptr noundef null) #13
-  br i1 %9, label %10, label %314
+  br i1 %9, label %10, label %313
 
 10:                                               ; preds = %3
   %11 = tail call noalias dereferenceable_or_null(3456) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 3456) #15
@@ -464,7 +464,7 @@ define internal noundef ptr @VULKAN_CreateDevice(i1 noundef zeroext %0, i1 nound
 
 12:                                               ; preds = %10
   tail call void @SDL_Vulkan_UnloadLibrary_REAL() #13
-  br label %314
+  br label %313
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 1628
@@ -511,508 +511,508 @@ define internal noundef ptr @VULKAN_CreateDevice(i1 noundef zeroext %0, i1 nound
 
 37:                                               ; preds = %36, %33
   %38 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.78) #13
-  br label %314
+  br label %313
 
 39:                                               ; preds = %13
   %40 = tail call i32 @SDL_CreateProperties_REAL() #13
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 1632
   store i32 %40, ptr %41, align 8
-  br i1 %8, label %45, label %42
+  br i1 %8, label %42, label %.critedge
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %11, i64 52
-  %44 = tail call zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef %40, ptr noundef nonnull @.str.80, ptr noundef nonnull %43) #13
-  br label %49
-
-45:                                               ; preds = %39
   tail call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 9, ptr noundef nonnull @.str.79) #13
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 52
+  %44 = load i32, ptr %41, align 8
+  %45 = tail call zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef %44, ptr noundef nonnull @.str.80, ptr noundef nonnull %43) #13
+  tail call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 9, ptr noundef nonnull @.str.81, ptr noundef nonnull %43) #13
+  br label %48
+
+.critedge:                                        ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 52
-  %47 = load i32, ptr %41, align 8
-  %48 = tail call zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef %47, ptr noundef nonnull @.str.80, ptr noundef nonnull %46) #13
-  tail call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 9, ptr noundef nonnull @.str.81, ptr noundef nonnull %46) #13
-  br label %49
+  %47 = tail call zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef %40, ptr noundef nonnull @.str.80, ptr noundef nonnull %46) #13
+  br label %48
 
-49:                                               ; preds = %42, %45
+48:                                               ; preds = %.critedge, %42
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #13
-  %50 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, 4318
-  %55 = lshr i32 %51, 22
-  br i1 %54, label %56, label %63
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  %50 = load i32, ptr %49, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp eq i32 %52, 4318
+  %54 = lshr i32 %50, 22
+  br i1 %53, label %55, label %62
 
-56:                                               ; preds = %49
-  %57 = lshr i32 %51, 14
-  %58 = and i32 %57, 255
-  %59 = lshr i32 %51, 6
-  %60 = and i32 %59, 255
-  %61 = and i32 %51, 63
-  %62 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.82, i32 noundef %55, i32 noundef %58, i32 noundef %60, i32 noundef %61) #13
-  br label %68
+55:                                               ; preds = %48
+  %56 = lshr i32 %50, 14
+  %57 = and i32 %56, 255
+  %58 = lshr i32 %50, 6
+  %59 = and i32 %58, 255
+  %60 = and i32 %50, 63
+  %61 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.82, i32 noundef %54, i32 noundef %57, i32 noundef %59, i32 noundef %60) #13
+  br label %67
 
-63:                                               ; preds = %49
-  %64 = lshr i32 %51, 12
-  %65 = and i32 %64, 1023
-  %66 = and i32 %51, 4095
-  %67 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.83, i32 noundef %55, i32 noundef %65, i32 noundef %66) #13
-  br label %68
+62:                                               ; preds = %48
+  %63 = lshr i32 %50, 12
+  %64 = and i32 %63, 1023
+  %65 = and i32 %50, 4095
+  %66 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.83, i32 noundef %54, i32 noundef %64, i32 noundef %65) #13
+  br label %67
 
-68:                                               ; preds = %63, %56
-  %69 = load i32, ptr %41, align 8
-  %70 = call zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef %69, ptr noundef nonnull @.str.84, ptr noundef nonnull %4) #13
-  %71 = getelementptr inbounds nuw i8, ptr %11, i64 1642
-  %72 = load i8, ptr %71, align 2
-  %.not250 = icmp eq i8 %72, 0
-  br i1 %.not250, label %94, label %73
+67:                                               ; preds = %62, %55
+  %68 = load i32, ptr %41, align 8
+  %69 = call zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef %68, ptr noundef nonnull @.str.84, ptr noundef nonnull %4) #13
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 1642
+  %71 = load i8, ptr %70, align 2
+  %.not250 = icmp eq i8 %71, 0
+  br i1 %.not250, label %93, label %72
 
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %11, i64 876
-  %75 = getelementptr inbounds nuw i8, ptr %11, i64 1132
-  %76 = load i32, ptr %41, align 8
-  %77 = call zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef %76, ptr noundef nonnull @.str.85, ptr noundef nonnull %74) #13
-  %78 = load i32, ptr %41, align 8
-  %79 = call zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef %78, ptr noundef nonnull @.str.86, ptr noundef nonnull %75) #13
-  br i1 %8, label %80, label %.critedge
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 876
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 1132
+  %75 = load i32, ptr %41, align 8
+  %76 = call zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef %75, ptr noundef nonnull @.str.85, ptr noundef nonnull %73) #13
+  %77 = load i32, ptr %41, align 8
+  %78 = call zeroext i1 @SDL_SetStringProperty_REAL(i32 noundef %77, ptr noundef nonnull @.str.86, ptr noundef nonnull %74) #13
+  br i1 %8, label %79, label %.critedge253
 
-80:                                               ; preds = %73
-  call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 9, ptr noundef nonnull @.str.87, ptr noundef nonnull %74, ptr noundef nonnull %75) #13
+79:                                               ; preds = %72
+  call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 9, ptr noundef nonnull @.str.87, ptr noundef nonnull %73, ptr noundef nonnull %74) #13
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #13
-  %81 = getelementptr inbounds nuw i8, ptr %11, i64 1388
-  %82 = load i8, ptr %81, align 4
-  %83 = zext i8 %82 to i32
-  %84 = getelementptr inbounds nuw i8, ptr %11, i64 1389
-  %85 = load i8, ptr %84, align 1
-  %86 = zext i8 %85 to i32
-  %87 = getelementptr inbounds nuw i8, ptr %11, i64 1390
-  %88 = load i8, ptr %87, align 2
-  %89 = zext i8 %88 to i32
-  %90 = getelementptr inbounds nuw i8, ptr %11, i64 1391
-  %91 = load i8, ptr %90, align 1
-  %92 = zext i8 %91 to i32
-  %93 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.88, i32 noundef %83, i32 noundef %86, i32 noundef %89, i32 noundef %92) #13
+  %80 = getelementptr inbounds nuw i8, ptr %11, i64 1388
+  %81 = load i8, ptr %80, align 4
+  %82 = zext i8 %81 to i32
+  %83 = getelementptr inbounds nuw i8, ptr %11, i64 1389
+  %84 = load i8, ptr %83, align 1
+  %85 = zext i8 %84 to i32
+  %86 = getelementptr inbounds nuw i8, ptr %11, i64 1390
+  %87 = load i8, ptr %86, align 2
+  %88 = zext i8 %87 to i32
+  %89 = getelementptr inbounds nuw i8, ptr %11, i64 1391
+  %90 = load i8, ptr %89, align 1
+  %91 = zext i8 %90 to i32
+  %92 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.88, i32 noundef %82, i32 noundef %85, i32 noundef %88, i32 noundef %91) #13
   call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 9, ptr noundef nonnull @.str.89, ptr noundef nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #13
-  br label %.critedge
+  br label %.critedge253
 
-94:                                               ; preds = %68
-  br i1 %8, label %95, label %.critedge
+93:                                               ; preds = %67
+  br i1 %8, label %94, label %.critedge253
 
-95:                                               ; preds = %94
+94:                                               ; preds = %93
   call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 9, ptr noundef nonnull @.str.90, ptr noundef nonnull %4) #13
-  br label %.critedge
+  br label %.critedge253
 
-.critedge:                                        ; preds = %80, %73, %94, %95
-  %96 = call fastcc zeroext i8 @VULKAN_INTERNAL_CreateLogicalDevice(ptr noundef %11)
-  %.not251 = icmp eq i8 %96, 0
-  br i1 %.not251, label %97, label %103
+.critedge253:                                     ; preds = %79, %72, %93, %94
+  %95 = call fastcc zeroext i8 @VULKAN_INTERNAL_CreateLogicalDevice(ptr noundef %11)
+  %.not251 = icmp eq i8 %95, 0
+  br i1 %.not251, label %96, label %102
 
-97:                                               ; preds = %.critedge
+96:                                               ; preds = %.critedge253
   call void @SDL_free_REAL(ptr noundef nonnull %11) #13
   call void @SDL_Vulkan_UnloadLibrary_REAL() #13
-  %98 = load i8, ptr %14, align 4, !range !3, !noundef !4
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %101
+  %97 = load i8, ptr %14, align 4, !range !3, !noundef !4
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %100
 
-100:                                              ; preds = %97
+99:                                               ; preds = %96
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 9, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.91) #13
-  br label %101
+  br label %100
 
-101:                                              ; preds = %100, %97
-  %102 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.91) #13
-  br label %313
+100:                                              ; preds = %99, %96
+  %101 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.91) #13
+  br label %312
 
-103:                                              ; preds = %.critedge
-  %104 = call noalias ptr @SDL_malloc_REAL(i64 noundef 688) #13
-  store ptr @VULKAN_DestroyDevice, ptr %104, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  store ptr @VULKAN_GetDeviceProperties, ptr %105, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  store ptr @VULKAN_CreateComputePipeline, ptr %106, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  store ptr @VULKAN_CreateGraphicsPipeline, ptr %107, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  store ptr @VULKAN_CreateSampler, ptr %108, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %104, i64 40
-  store ptr @VULKAN_CreateShader, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %104, i64 48
-  store ptr @VULKAN_CreateTexture, ptr %110, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %104, i64 56
-  store ptr @VULKAN_CreateBuffer, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %104, i64 64
-  store ptr @VULKAN_CreateTransferBuffer, ptr %112, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %104, i64 72
-  store ptr @VULKAN_SetBufferName, ptr %113, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %104, i64 80
-  store ptr @VULKAN_SetTextureName, ptr %114, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %104, i64 88
-  store ptr @VULKAN_InsertDebugLabel, ptr %115, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %104, i64 96
-  store ptr @VULKAN_PushDebugGroup, ptr %116, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %104, i64 104
-  store ptr @VULKAN_PopDebugGroup, ptr %117, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %104, i64 112
-  store ptr @VULKAN_ReleaseTexture, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %104, i64 120
-  store ptr @VULKAN_ReleaseSampler, ptr %119, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %104, i64 128
-  store ptr @VULKAN_ReleaseBuffer, ptr %120, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %104, i64 136
-  store ptr @VULKAN_ReleaseTransferBuffer, ptr %121, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %104, i64 144
-  store ptr @VULKAN_ReleaseShader, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %104, i64 152
-  store ptr @VULKAN_ReleaseComputePipeline, ptr %123, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %104, i64 160
-  store ptr @VULKAN_ReleaseGraphicsPipeline, ptr %124, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %104, i64 168
-  store ptr @VULKAN_BeginRenderPass, ptr %125, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %104, i64 176
-  store ptr @VULKAN_BindGraphicsPipeline, ptr %126, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %104, i64 184
-  store ptr @VULKAN_SetViewport, ptr %127, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %104, i64 192
-  store ptr @VULKAN_SetScissor, ptr %128, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %104, i64 200
-  store ptr @VULKAN_SetBlendConstants, ptr %129, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %104, i64 208
-  store ptr @VULKAN_SetStencilReference, ptr %130, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %104, i64 216
-  store ptr @VULKAN_BindVertexBuffers, ptr %131, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %104, i64 224
-  store ptr @VULKAN_BindIndexBuffer, ptr %132, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %104, i64 232
-  store ptr @VULKAN_BindVertexSamplers, ptr %133, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %104, i64 240
-  store ptr @VULKAN_BindVertexStorageTextures, ptr %134, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %104, i64 248
-  store ptr @VULKAN_BindVertexStorageBuffers, ptr %135, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %104, i64 256
-  store ptr @VULKAN_BindFragmentSamplers, ptr %136, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %104, i64 264
-  store ptr @VULKAN_BindFragmentStorageTextures, ptr %137, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %104, i64 272
-  store ptr @VULKAN_BindFragmentStorageBuffers, ptr %138, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %104, i64 280
-  store ptr @VULKAN_PushVertexUniformData, ptr %139, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %104, i64 288
-  store ptr @VULKAN_PushFragmentUniformData, ptr %140, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %104, i64 296
-  store ptr @VULKAN_DrawIndexedPrimitives, ptr %141, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %104, i64 304
-  store ptr @VULKAN_DrawPrimitives, ptr %142, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %104, i64 312
-  store ptr @VULKAN_DrawPrimitivesIndirect, ptr %143, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %104, i64 320
-  store ptr @VULKAN_DrawIndexedPrimitivesIndirect, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %104, i64 328
-  store ptr @VULKAN_EndRenderPass, ptr %145, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %104, i64 336
-  store ptr @VULKAN_BeginComputePass, ptr %146, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %104, i64 344
-  store ptr @VULKAN_BindComputePipeline, ptr %147, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %104, i64 352
-  store ptr @VULKAN_BindComputeSamplers, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %104, i64 360
-  store ptr @VULKAN_BindComputeStorageTextures, ptr %149, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %104, i64 368
-  store ptr @VULKAN_BindComputeStorageBuffers, ptr %150, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %104, i64 376
-  store ptr @VULKAN_PushComputeUniformData, ptr %151, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %104, i64 384
-  store ptr @VULKAN_DispatchCompute, ptr %152, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %104, i64 392
-  store ptr @VULKAN_DispatchComputeIndirect, ptr %153, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %104, i64 400
-  store ptr @VULKAN_EndComputePass, ptr %154, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %104, i64 408
-  store ptr @VULKAN_MapTransferBuffer, ptr %155, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %104, i64 416
-  store ptr @VULKAN_UnmapTransferBuffer, ptr %156, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %104, i64 424
-  store ptr @VULKAN_BeginCopyPass, ptr %157, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %104, i64 432
-  store ptr @VULKAN_UploadToTexture, ptr %158, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %104, i64 440
-  store ptr @VULKAN_UploadToBuffer, ptr %159, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %104, i64 472
-  store ptr @VULKAN_DownloadFromTexture, ptr %160, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %104, i64 480
-  store ptr @VULKAN_DownloadFromBuffer, ptr %161, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %104, i64 448
-  store ptr @VULKAN_CopyTextureToTexture, ptr %162, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %104, i64 456
-  store ptr @VULKAN_CopyBufferToBuffer, ptr %163, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %104, i64 464
-  store ptr @VULKAN_GenerateMipmaps, ptr %164, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %104, i64 488
-  store ptr @VULKAN_EndCopyPass, ptr %165, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %104, i64 496
-  store ptr @VULKAN_Blit, ptr %166, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %104, i64 504
-  store ptr @VULKAN_SupportsSwapchainComposition, ptr %167, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %104, i64 512
-  store ptr @VULKAN_SupportsPresentMode, ptr %168, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %104, i64 520
-  store ptr @VULKAN_ClaimWindow, ptr %169, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %104, i64 528
-  store ptr @VULKAN_ReleaseWindow, ptr %170, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %104, i64 536
-  store ptr @VULKAN_SetSwapchainParameters, ptr %171, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %104, i64 544
-  store ptr @VULKAN_SetAllowedFramesInFlight, ptr %172, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %104, i64 552
-  store ptr @VULKAN_GetSwapchainTextureFormat, ptr %173, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %104, i64 560
-  store ptr @VULKAN_AcquireCommandBuffer, ptr %174, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %104, i64 568
-  store ptr @VULKAN_AcquireSwapchainTexture, ptr %175, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %104, i64 576
-  store ptr @VULKAN_WaitForSwapchain, ptr %176, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %104, i64 584
-  store ptr @VULKAN_WaitAndAcquireSwapchainTexture, ptr %177, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %104, i64 592
-  store ptr @VULKAN_Submit, ptr %178, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %104, i64 600
-  store ptr @VULKAN_SubmitAndAcquireFence, ptr %179, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %104, i64 608
-  store ptr @VULKAN_Cancel, ptr %180, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %104, i64 616
-  store ptr @VULKAN_Wait, ptr %181, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %104, i64 624
-  store ptr @VULKAN_WaitForFences, ptr %182, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %104, i64 632
-  store ptr @VULKAN_QueryFence, ptr %183, align 8
-  %184 = getelementptr inbounds nuw i8, ptr %104, i64 640
-  store ptr @VULKAN_ReleaseFence, ptr %184, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %104, i64 648
-  store ptr @VULKAN_SupportsTextureFormat, ptr %185, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %104, i64 656
-  store ptr @VULKAN_SupportsSampleCount, ptr %186, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %104, i64 664
-  store ptr %11, ptr %187, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %104, i64 680
-  store i32 2, ptr %188, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %11, i64 2204
-  store i32 1, ptr %189, align 4
-  %190 = getelementptr inbounds nuw i8, ptr %11, i64 2200
-  store i32 0, ptr %190, align 8
-  %191 = call noalias ptr @SDL_malloc_REAL(i64 noundef 8) #13
-  %192 = getelementptr inbounds nuw i8, ptr %11, i64 2192
-  store ptr %191, ptr %192, align 8
-  %193 = call ptr @SDL_CreateMutex_REAL() #13
-  %194 = getelementptr inbounds nuw i8, ptr %11, i64 2464
-  store ptr %193, ptr %194, align 8
-  %195 = call ptr @SDL_CreateMutex_REAL() #13
-  %196 = getelementptr inbounds nuw i8, ptr %11, i64 2472
-  store ptr %195, ptr %196, align 8
-  %197 = call ptr @SDL_CreateMutex_REAL() #13
-  %198 = getelementptr inbounds nuw i8, ptr %11, i64 2480
-  store ptr %197, ptr %198, align 8
-  %199 = call ptr @SDL_CreateMutex_REAL() #13
-  %200 = getelementptr inbounds nuw i8, ptr %11, i64 2488
-  store ptr %199, ptr %200, align 8
-  %201 = call ptr @SDL_CreateMutex_REAL() #13
-  %202 = getelementptr inbounds nuw i8, ptr %11, i64 2496
-  store ptr %201, ptr %202, align 8
-  %203 = call ptr @SDL_CreateMutex_REAL() #13
-  %204 = getelementptr inbounds nuw i8, ptr %11, i64 2504
-  store ptr %203, ptr %204, align 8
-  %205 = call ptr @SDL_CreateMutex_REAL() #13
-  %206 = getelementptr inbounds nuw i8, ptr %11, i64 2512
-  store ptr %205, ptr %206, align 8
-  %207 = call ptr @SDL_CreateMutex_REAL() #13
-  %208 = getelementptr inbounds nuw i8, ptr %11, i64 2520
-  store ptr %207, ptr %208, align 8
-  %209 = call ptr @SDL_CreateMutex_REAL() #13
-  %210 = getelementptr inbounds nuw i8, ptr %11, i64 2528
-  store ptr %209, ptr %210, align 8
-  %211 = call ptr @SDL_CreateMutex_REAL() #13
-  %212 = getelementptr inbounds nuw i8, ptr %11, i64 2536
-  store ptr %211, ptr %212, align 8
-  %213 = call ptr @SDL_CreateMutex_REAL() #13
-  %214 = getelementptr inbounds nuw i8, ptr %11, i64 2544
-  store ptr %213, ptr %214, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %11, i64 2236
-  store i32 16, ptr %215, align 4
-  %216 = getelementptr inbounds nuw i8, ptr %11, i64 2232
-  store i32 0, ptr %216, align 8
-  %217 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
-  %218 = getelementptr inbounds nuw i8, ptr %11, i64 2224
-  store ptr %217, ptr %218, align 8
-  %219 = call noalias ptr @SDL_malloc_REAL(i64 noundef 1280) #13
-  %220 = getelementptr inbounds nuw i8, ptr %11, i64 1656
-  store ptr %219, ptr %220, align 8
-  br label %221
+102:                                              ; preds = %.critedge253
+  %103 = call noalias ptr @SDL_malloc_REAL(i64 noundef 688) #13
+  store ptr @VULKAN_DestroyDevice, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  store ptr @VULKAN_GetDeviceProperties, ptr %104, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  store ptr @VULKAN_CreateComputePipeline, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  store ptr @VULKAN_CreateGraphicsPipeline, ptr %106, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 32
+  store ptr @VULKAN_CreateSampler, ptr %107, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 40
+  store ptr @VULKAN_CreateShader, ptr %108, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %103, i64 48
+  store ptr @VULKAN_CreateTexture, ptr %109, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %103, i64 56
+  store ptr @VULKAN_CreateBuffer, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 64
+  store ptr @VULKAN_CreateTransferBuffer, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %103, i64 72
+  store ptr @VULKAN_SetBufferName, ptr %112, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %103, i64 80
+  store ptr @VULKAN_SetTextureName, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %103, i64 88
+  store ptr @VULKAN_InsertDebugLabel, ptr %114, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %103, i64 96
+  store ptr @VULKAN_PushDebugGroup, ptr %115, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %103, i64 104
+  store ptr @VULKAN_PopDebugGroup, ptr %116, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %103, i64 112
+  store ptr @VULKAN_ReleaseTexture, ptr %117, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %103, i64 120
+  store ptr @VULKAN_ReleaseSampler, ptr %118, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %103, i64 128
+  store ptr @VULKAN_ReleaseBuffer, ptr %119, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %103, i64 136
+  store ptr @VULKAN_ReleaseTransferBuffer, ptr %120, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %103, i64 144
+  store ptr @VULKAN_ReleaseShader, ptr %121, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %103, i64 152
+  store ptr @VULKAN_ReleaseComputePipeline, ptr %122, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %103, i64 160
+  store ptr @VULKAN_ReleaseGraphicsPipeline, ptr %123, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %103, i64 168
+  store ptr @VULKAN_BeginRenderPass, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %103, i64 176
+  store ptr @VULKAN_BindGraphicsPipeline, ptr %125, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %103, i64 184
+  store ptr @VULKAN_SetViewport, ptr %126, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %103, i64 192
+  store ptr @VULKAN_SetScissor, ptr %127, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %103, i64 200
+  store ptr @VULKAN_SetBlendConstants, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %103, i64 208
+  store ptr @VULKAN_SetStencilReference, ptr %129, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %103, i64 216
+  store ptr @VULKAN_BindVertexBuffers, ptr %130, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %103, i64 224
+  store ptr @VULKAN_BindIndexBuffer, ptr %131, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %103, i64 232
+  store ptr @VULKAN_BindVertexSamplers, ptr %132, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %103, i64 240
+  store ptr @VULKAN_BindVertexStorageTextures, ptr %133, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %103, i64 248
+  store ptr @VULKAN_BindVertexStorageBuffers, ptr %134, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %103, i64 256
+  store ptr @VULKAN_BindFragmentSamplers, ptr %135, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %103, i64 264
+  store ptr @VULKAN_BindFragmentStorageTextures, ptr %136, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %103, i64 272
+  store ptr @VULKAN_BindFragmentStorageBuffers, ptr %137, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %103, i64 280
+  store ptr @VULKAN_PushVertexUniformData, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %103, i64 288
+  store ptr @VULKAN_PushFragmentUniformData, ptr %139, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %103, i64 296
+  store ptr @VULKAN_DrawIndexedPrimitives, ptr %140, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %103, i64 304
+  store ptr @VULKAN_DrawPrimitives, ptr %141, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %103, i64 312
+  store ptr @VULKAN_DrawPrimitivesIndirect, ptr %142, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %103, i64 320
+  store ptr @VULKAN_DrawIndexedPrimitivesIndirect, ptr %143, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %103, i64 328
+  store ptr @VULKAN_EndRenderPass, ptr %144, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %103, i64 336
+  store ptr @VULKAN_BeginComputePass, ptr %145, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %103, i64 344
+  store ptr @VULKAN_BindComputePipeline, ptr %146, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %103, i64 352
+  store ptr @VULKAN_BindComputeSamplers, ptr %147, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %103, i64 360
+  store ptr @VULKAN_BindComputeStorageTextures, ptr %148, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %103, i64 368
+  store ptr @VULKAN_BindComputeStorageBuffers, ptr %149, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %103, i64 376
+  store ptr @VULKAN_PushComputeUniformData, ptr %150, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %103, i64 384
+  store ptr @VULKAN_DispatchCompute, ptr %151, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %103, i64 392
+  store ptr @VULKAN_DispatchComputeIndirect, ptr %152, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %103, i64 400
+  store ptr @VULKAN_EndComputePass, ptr %153, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %103, i64 408
+  store ptr @VULKAN_MapTransferBuffer, ptr %154, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %103, i64 416
+  store ptr @VULKAN_UnmapTransferBuffer, ptr %155, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %103, i64 424
+  store ptr @VULKAN_BeginCopyPass, ptr %156, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %103, i64 432
+  store ptr @VULKAN_UploadToTexture, ptr %157, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %103, i64 440
+  store ptr @VULKAN_UploadToBuffer, ptr %158, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %103, i64 472
+  store ptr @VULKAN_DownloadFromTexture, ptr %159, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %103, i64 480
+  store ptr @VULKAN_DownloadFromBuffer, ptr %160, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %103, i64 448
+  store ptr @VULKAN_CopyTextureToTexture, ptr %161, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %103, i64 456
+  store ptr @VULKAN_CopyBufferToBuffer, ptr %162, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %103, i64 464
+  store ptr @VULKAN_GenerateMipmaps, ptr %163, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %103, i64 488
+  store ptr @VULKAN_EndCopyPass, ptr %164, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %103, i64 496
+  store ptr @VULKAN_Blit, ptr %165, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %103, i64 504
+  store ptr @VULKAN_SupportsSwapchainComposition, ptr %166, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %103, i64 512
+  store ptr @VULKAN_SupportsPresentMode, ptr %167, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %103, i64 520
+  store ptr @VULKAN_ClaimWindow, ptr %168, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %103, i64 528
+  store ptr @VULKAN_ReleaseWindow, ptr %169, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %103, i64 536
+  store ptr @VULKAN_SetSwapchainParameters, ptr %170, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %103, i64 544
+  store ptr @VULKAN_SetAllowedFramesInFlight, ptr %171, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %103, i64 552
+  store ptr @VULKAN_GetSwapchainTextureFormat, ptr %172, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %103, i64 560
+  store ptr @VULKAN_AcquireCommandBuffer, ptr %173, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %103, i64 568
+  store ptr @VULKAN_AcquireSwapchainTexture, ptr %174, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %103, i64 576
+  store ptr @VULKAN_WaitForSwapchain, ptr %175, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %103, i64 584
+  store ptr @VULKAN_WaitAndAcquireSwapchainTexture, ptr %176, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %103, i64 592
+  store ptr @VULKAN_Submit, ptr %177, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %103, i64 600
+  store ptr @VULKAN_SubmitAndAcquireFence, ptr %178, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %103, i64 608
+  store ptr @VULKAN_Cancel, ptr %179, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %103, i64 616
+  store ptr @VULKAN_Wait, ptr %180, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %103, i64 624
+  store ptr @VULKAN_WaitForFences, ptr %181, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %103, i64 632
+  store ptr @VULKAN_QueryFence, ptr %182, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %103, i64 640
+  store ptr @VULKAN_ReleaseFence, ptr %183, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %103, i64 648
+  store ptr @VULKAN_SupportsTextureFormat, ptr %184, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %103, i64 656
+  store ptr @VULKAN_SupportsSampleCount, ptr %185, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %103, i64 664
+  store ptr %11, ptr %186, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %103, i64 680
+  store i32 2, ptr %187, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %11, i64 2204
+  store i32 1, ptr %188, align 4
+  %189 = getelementptr inbounds nuw i8, ptr %11, i64 2200
+  store i32 0, ptr %189, align 8
+  %190 = call noalias ptr @SDL_malloc_REAL(i64 noundef 8) #13
+  %191 = getelementptr inbounds nuw i8, ptr %11, i64 2192
+  store ptr %190, ptr %191, align 8
+  %192 = call ptr @SDL_CreateMutex_REAL() #13
+  %193 = getelementptr inbounds nuw i8, ptr %11, i64 2464
+  store ptr %192, ptr %193, align 8
+  %194 = call ptr @SDL_CreateMutex_REAL() #13
+  %195 = getelementptr inbounds nuw i8, ptr %11, i64 2472
+  store ptr %194, ptr %195, align 8
+  %196 = call ptr @SDL_CreateMutex_REAL() #13
+  %197 = getelementptr inbounds nuw i8, ptr %11, i64 2480
+  store ptr %196, ptr %197, align 8
+  %198 = call ptr @SDL_CreateMutex_REAL() #13
+  %199 = getelementptr inbounds nuw i8, ptr %11, i64 2488
+  store ptr %198, ptr %199, align 8
+  %200 = call ptr @SDL_CreateMutex_REAL() #13
+  %201 = getelementptr inbounds nuw i8, ptr %11, i64 2496
+  store ptr %200, ptr %201, align 8
+  %202 = call ptr @SDL_CreateMutex_REAL() #13
+  %203 = getelementptr inbounds nuw i8, ptr %11, i64 2504
+  store ptr %202, ptr %203, align 8
+  %204 = call ptr @SDL_CreateMutex_REAL() #13
+  %205 = getelementptr inbounds nuw i8, ptr %11, i64 2512
+  store ptr %204, ptr %205, align 8
+  %206 = call ptr @SDL_CreateMutex_REAL() #13
+  %207 = getelementptr inbounds nuw i8, ptr %11, i64 2520
+  store ptr %206, ptr %207, align 8
+  %208 = call ptr @SDL_CreateMutex_REAL() #13
+  %209 = getelementptr inbounds nuw i8, ptr %11, i64 2528
+  store ptr %208, ptr %209, align 8
+  %210 = call ptr @SDL_CreateMutex_REAL() #13
+  %211 = getelementptr inbounds nuw i8, ptr %11, i64 2536
+  store ptr %210, ptr %211, align 8
+  %212 = call ptr @SDL_CreateMutex_REAL() #13
+  %213 = getelementptr inbounds nuw i8, ptr %11, i64 2544
+  store ptr %212, ptr %213, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %11, i64 2236
+  store i32 16, ptr %214, align 4
+  %215 = getelementptr inbounds nuw i8, ptr %11, i64 2232
+  store i32 0, ptr %215, align 8
+  %216 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
+  %217 = getelementptr inbounds nuw i8, ptr %11, i64 2224
+  store ptr %216, ptr %217, align 8
+  %218 = call noalias ptr @SDL_malloc_REAL(i64 noundef 1280) #13
+  %219 = getelementptr inbounds nuw i8, ptr %11, i64 1656
+  store ptr %218, ptr %219, align 8
+  br label %220
 
-221:                                              ; preds = %103, %221
-  %indvars.iv = phi i64 [ 0, %103 ], [ %indvars.iv.next, %221 ]
-  %222 = load ptr, ptr %220, align 8
-  %223 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %222, i64 0, i64 %indvars.iv
-  %224 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %224, ptr %223, align 8
-  %225 = load ptr, ptr %220, align 8
-  %226 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %225, i64 0, i64 %indvars.iv, i32 1
-  store ptr null, ptr %226, align 8
-  %227 = load ptr, ptr %220, align 8
-  %228 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %227, i64 0, i64 %indvars.iv, i32 2
-  store i32 0, ptr %228, align 8
-  %229 = call noalias ptr @SDL_malloc_REAL(i64 noundef 32) #13
-  %230 = load ptr, ptr %220, align 8
-  %231 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %230, i64 0, i64 %indvars.iv, i32 3
-  store ptr %229, ptr %231, align 8
-  %232 = load ptr, ptr %220, align 8
-  %233 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %232, i64 0, i64 %indvars.iv, i32 4
-  store i32 0, ptr %233, align 8
-  %234 = load ptr, ptr %220, align 8
-  %235 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %234, i64 0, i64 %indvars.iv, i32 5
-  store i32 4, ptr %235, align 4
+220:                                              ; preds = %102, %220
+  %indvars.iv = phi i64 [ 0, %102 ], [ %indvars.iv.next, %220 ]
+  %221 = load ptr, ptr %219, align 8
+  %222 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %221, i64 0, i64 %indvars.iv
+  %223 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %223, ptr %222, align 8
+  %224 = load ptr, ptr %219, align 8
+  %225 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %224, i64 0, i64 %indvars.iv, i32 1
+  store ptr null, ptr %225, align 8
+  %226 = load ptr, ptr %219, align 8
+  %227 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %226, i64 0, i64 %indvars.iv, i32 2
+  store i32 0, ptr %227, align 8
+  %228 = call noalias ptr @SDL_malloc_REAL(i64 noundef 32) #13
+  %229 = load ptr, ptr %219, align 8
+  %230 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %229, i64 0, i64 %indvars.iv, i32 3
+  store ptr %228, ptr %230, align 8
+  %231 = load ptr, ptr %219, align 8
+  %232 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %231, i64 0, i64 %indvars.iv, i32 4
+  store i32 0, ptr %232, align 8
+  %233 = load ptr, ptr %219, align 8
+  %234 = getelementptr inbounds nuw [32 x %struct.VulkanMemorySubAllocator], ptr %233, i64 0, i64 %indvars.iv, i32 5
+  store i32 4, ptr %234, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %236, label %221, !llvm.loop !5
+  br i1 %exitcond.not, label %235, label %220, !llvm.loop !5
 
-236:                                              ; preds = %221
-  %237 = getelementptr inbounds nuw i8, ptr %11, i64 2320
-  store i32 32, ptr %237, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %11, i64 2324
-  store i32 32, ptr %238, align 4
-  %239 = call noalias ptr @SDL_malloc_REAL(i64 noundef 256) #13
-  %240 = getelementptr inbounds nuw i8, ptr %11, i64 2312
-  store ptr %239, ptr %240, align 8
-  %241 = load i32, ptr %237, align 8
-  %.not254 = icmp eq i32 %241, 0
-  br i1 %.not254, label %._crit_edge, label %.lr.ph
+235:                                              ; preds = %220
+  %236 = getelementptr inbounds nuw i8, ptr %11, i64 2320
+  store i32 32, ptr %236, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %11, i64 2324
+  store i32 32, ptr %237, align 4
+  %238 = call noalias ptr @SDL_malloc_REAL(i64 noundef 256) #13
+  %239 = getelementptr inbounds nuw i8, ptr %11, i64 2312
+  store ptr %238, ptr %239, align 8
+  %240 = load i32, ptr %236, align 8
+  %.not256 = icmp eq i32 %240, 0
+  br i1 %.not256, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %236, %.lr.ph
-  %indvars.iv256 = phi i64 [ %indvars.iv.next257, %.lr.ph ], [ 0, %236 ]
-  %242 = call noalias dereferenceable_or_null(16) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 16) #15
-  %243 = call fastcc ptr @VULKAN_INTERNAL_CreateBuffer(ptr noundef nonnull %11, i64 noundef 32768, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false, ptr noundef null)
-  store ptr %243, ptr %242, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %242, i64 8
-  store i32 0, ptr %244, align 8
-  %245 = getelementptr inbounds nuw i8, ptr %242, i64 12
-  store i32 0, ptr %245, align 4
-  %246 = getelementptr inbounds nuw i8, ptr %243, i64 56
-  store ptr %242, ptr %246, align 8
-  %247 = load ptr, ptr %240, align 8
-  %248 = getelementptr inbounds nuw ptr, ptr %247, i64 %indvars.iv256
-  store ptr %242, ptr %248, align 8
-  %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
-  %249 = load i32, ptr %237, align 8
-  %250 = zext i32 %249 to i64
-  %251 = icmp samesign ult i64 %indvars.iv.next257, %250
-  br i1 %251, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+.lr.ph:                                           ; preds = %235, %.lr.ph
+  %indvars.iv258 = phi i64 [ %indvars.iv.next259, %.lr.ph ], [ 0, %235 ]
+  %241 = call noalias dereferenceable_or_null(16) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 16) #15
+  %242 = call fastcc ptr @VULKAN_INTERNAL_CreateBuffer(ptr noundef nonnull %11, i64 noundef 32768, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false, ptr noundef null)
+  store ptr %242, ptr %241, align 8
+  %243 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  store i32 0, ptr %243, align 8
+  %244 = getelementptr inbounds nuw i8, ptr %241, i64 12
+  store i32 0, ptr %244, align 4
+  %245 = getelementptr inbounds nuw i8, ptr %242, i64 56
+  store ptr %241, ptr %245, align 8
+  %246 = load ptr, ptr %239, align 8
+  %247 = getelementptr inbounds nuw ptr, ptr %246, i64 %indvars.iv258
+  store ptr %241, ptr %247, align 8
+  %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
+  %248 = load i32, ptr %236, align 8
+  %249 = zext i32 %248 to i64
+  %250 = icmp samesign ult i64 %indvars.iv.next259, %249
+  br i1 %250, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.lr.ph, %236
-  %252 = getelementptr inbounds nuw i8, ptr %11, i64 2340
-  store i32 8, ptr %252, align 4
-  %253 = getelementptr inbounds nuw i8, ptr %11, i64 2336
-  store i32 0, ptr %253, align 8
-  %254 = call noalias dereferenceable_or_null(64) ptr @SDL_calloc_REAL(i64 noundef 8, i64 noundef 8) #15
-  %255 = getelementptr inbounds nuw i8, ptr %11, i64 2328
-  store ptr %254, ptr %255, align 8
-  %256 = getelementptr inbounds nuw i8, ptr %11, i64 2344
-  %257 = call i32 @SDL_SetAtomicInt_REAL(ptr noundef nonnull %256, i32 noundef 0) #13
-  %258 = getelementptr inbounds nuw i8, ptr %11, i64 648
-  %259 = load i64, ptr %258, align 8
-  %260 = trunc i64 %259 to i32
-  %261 = getelementptr inbounds nuw i8, ptr %11, i64 2348
-  store i32 %260, ptr %261, align 4
-  %262 = call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @VULKAN_INTERNAL_CommandPoolHashFunction, ptr noundef nonnull @VULKAN_INTERNAL_CommandPoolHashKeyMatch, ptr noundef nonnull @VULKAN_INTERNAL_CommandPoolHashDestroy, ptr noundef nonnull %11) #13
-  %263 = getelementptr inbounds nuw i8, ptr %11, i64 2264
-  store ptr %262, ptr %263, align 8
-  %264 = call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @VULKAN_INTERNAL_RenderPassHashFunction, ptr noundef nonnull @VULKAN_INTERNAL_RenderPassHashKeyMatch, ptr noundef nonnull @VULKAN_INTERNAL_RenderPassHashDestroy, ptr noundef nonnull %11) #13
-  %265 = getelementptr inbounds nuw i8, ptr %11, i64 2272
-  store ptr %264, ptr %265, align 8
-  %266 = call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @VULKAN_INTERNAL_FramebufferHashFunction, ptr noundef nonnull @VULKAN_INTERNAL_FramebufferHashKeyMatch, ptr noundef nonnull @VULKAN_INTERNAL_FramebufferHashDestroy, ptr noundef nonnull %11) #13
-  %267 = getelementptr inbounds nuw i8, ptr %11, i64 2280
-  store ptr %266, ptr %267, align 8
-  %268 = call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @VULKAN_INTERNAL_GraphicsPipelineResourceLayoutHashFunction, ptr noundef nonnull @VULKAN_INTERNAL_GraphicsPipelineResourceLayoutHashKeyMatch, ptr noundef nonnull @VULKAN_INTERNAL_GraphicsPipelineResourceLayoutHashDestroy, ptr noundef nonnull %11) #13
-  %269 = getelementptr inbounds nuw i8, ptr %11, i64 2288
-  store ptr %268, ptr %269, align 8
-  %270 = call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @VULKAN_INTERNAL_ComputePipelineResourceLayoutHashFunction, ptr noundef nonnull @VULKAN_INTERNAL_ComputePipelineResourceLayoutHashKeyMatch, ptr noundef nonnull @VULKAN_INTERNAL_ComputePipelineResourceLayoutHashDestroy, ptr noundef nonnull %11) #13
-  %271 = getelementptr inbounds nuw i8, ptr %11, i64 2296
-  store ptr %270, ptr %271, align 8
-  %272 = call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @VULKAN_INTERNAL_DescriptorSetLayoutHashFunction, ptr noundef nonnull @VULKAN_INTERNAL_DescriptorSetLayoutHashKeyMatch, ptr noundef nonnull @VULKAN_INTERNAL_DescriptorSetLayoutHashDestroy, ptr noundef nonnull %11) #13
-  %273 = getelementptr inbounds nuw i8, ptr %11, i64 2304
-  store ptr %272, ptr %273, align 8
-  %274 = call ptr @SDL_CreateMutex_REAL() #13
-  %275 = getelementptr inbounds nuw i8, ptr %11, i64 2240
-  store ptr %274, ptr %275, align 8
-  %276 = getelementptr inbounds nuw i8, ptr %11, i64 2260
-  store i32 4, ptr %276, align 4
-  %277 = getelementptr inbounds nuw i8, ptr %11, i64 2256
-  store i32 0, ptr %277, align 8
-  %278 = call noalias ptr @SDL_malloc_REAL(i64 noundef 32) #13
-  %279 = getelementptr inbounds nuw i8, ptr %11, i64 2248
-  store ptr %278, ptr %279, align 8
-  %280 = getelementptr inbounds nuw i8, ptr %11, i64 2364
-  store i32 16, ptr %280, align 4
-  %281 = getelementptr inbounds nuw i8, ptr %11, i64 2360
-  store i32 0, ptr %281, align 8
-  %282 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
-  %283 = getelementptr inbounds nuw i8, ptr %11, i64 2352
-  store ptr %282, ptr %283, align 8
-  %284 = getelementptr inbounds nuw i8, ptr %11, i64 2380
-  store i32 16, ptr %284, align 4
-  %285 = getelementptr inbounds nuw i8, ptr %11, i64 2376
-  store i32 0, ptr %285, align 8
-  %286 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
-  %287 = getelementptr inbounds nuw i8, ptr %11, i64 2368
-  store ptr %286, ptr %287, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %11, i64 2396
-  store i32 16, ptr %288, align 4
-  %289 = getelementptr inbounds nuw i8, ptr %11, i64 2392
-  store i32 0, ptr %289, align 8
-  %290 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
-  %291 = getelementptr inbounds nuw i8, ptr %11, i64 2384
-  store ptr %290, ptr %291, align 8
-  %292 = getelementptr inbounds nuw i8, ptr %11, i64 2412
-  store i32 16, ptr %292, align 4
-  %293 = getelementptr inbounds nuw i8, ptr %11, i64 2408
-  store i32 0, ptr %293, align 8
-  %294 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
-  %295 = getelementptr inbounds nuw i8, ptr %11, i64 2400
-  store ptr %294, ptr %295, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %11, i64 2428
-  store i32 16, ptr %296, align 4
-  %297 = getelementptr inbounds nuw i8, ptr %11, i64 2424
-  store i32 0, ptr %297, align 8
-  %298 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
-  %299 = getelementptr inbounds nuw i8, ptr %11, i64 2416
-  store ptr %298, ptr %299, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %11, i64 2444
-  store i32 16, ptr %300, align 4
-  %301 = getelementptr inbounds nuw i8, ptr %11, i64 2440
-  store i32 0, ptr %301, align 8
-  %302 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
-  %303 = getelementptr inbounds nuw i8, ptr %11, i64 2432
-  store ptr %302, ptr %303, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %11, i64 2460
-  store i32 16, ptr %304, align 4
-  %305 = getelementptr inbounds nuw i8, ptr %11, i64 2456
-  store i32 0, ptr %305, align 8
-  %306 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
-  %307 = getelementptr inbounds nuw i8, ptr %11, i64 2448
-  store ptr %306, ptr %307, align 8
-  %308 = getelementptr inbounds nuw i8, ptr %11, i64 2552
-  store i8 0, ptr %308, align 8
-  %309 = getelementptr inbounds nuw i8, ptr %11, i64 2568
-  store i32 0, ptr %309, align 8
-  %310 = getelementptr inbounds nuw i8, ptr %11, i64 2572
-  store i32 4, ptr %310, align 4
-  %311 = call noalias ptr @SDL_malloc_REAL(i64 noundef 32) #13
-  %312 = getelementptr inbounds nuw i8, ptr %11, i64 2560
-  store ptr %311, ptr %312, align 8
+._crit_edge:                                      ; preds = %.lr.ph, %235
+  %251 = getelementptr inbounds nuw i8, ptr %11, i64 2340
+  store i32 8, ptr %251, align 4
+  %252 = getelementptr inbounds nuw i8, ptr %11, i64 2336
+  store i32 0, ptr %252, align 8
+  %253 = call noalias dereferenceable_or_null(64) ptr @SDL_calloc_REAL(i64 noundef 8, i64 noundef 8) #15
+  %254 = getelementptr inbounds nuw i8, ptr %11, i64 2328
+  store ptr %253, ptr %254, align 8
+  %255 = getelementptr inbounds nuw i8, ptr %11, i64 2344
+  %256 = call i32 @SDL_SetAtomicInt_REAL(ptr noundef nonnull %255, i32 noundef 0) #13
+  %257 = getelementptr inbounds nuw i8, ptr %11, i64 648
+  %258 = load i64, ptr %257, align 8
+  %259 = trunc i64 %258 to i32
+  %260 = getelementptr inbounds nuw i8, ptr %11, i64 2348
+  store i32 %259, ptr %260, align 4
+  %261 = call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @VULKAN_INTERNAL_CommandPoolHashFunction, ptr noundef nonnull @VULKAN_INTERNAL_CommandPoolHashKeyMatch, ptr noundef nonnull @VULKAN_INTERNAL_CommandPoolHashDestroy, ptr noundef nonnull %11) #13
+  %262 = getelementptr inbounds nuw i8, ptr %11, i64 2264
+  store ptr %261, ptr %262, align 8
+  %263 = call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @VULKAN_INTERNAL_RenderPassHashFunction, ptr noundef nonnull @VULKAN_INTERNAL_RenderPassHashKeyMatch, ptr noundef nonnull @VULKAN_INTERNAL_RenderPassHashDestroy, ptr noundef nonnull %11) #13
+  %264 = getelementptr inbounds nuw i8, ptr %11, i64 2272
+  store ptr %263, ptr %264, align 8
+  %265 = call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @VULKAN_INTERNAL_FramebufferHashFunction, ptr noundef nonnull @VULKAN_INTERNAL_FramebufferHashKeyMatch, ptr noundef nonnull @VULKAN_INTERNAL_FramebufferHashDestroy, ptr noundef nonnull %11) #13
+  %266 = getelementptr inbounds nuw i8, ptr %11, i64 2280
+  store ptr %265, ptr %266, align 8
+  %267 = call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @VULKAN_INTERNAL_GraphicsPipelineResourceLayoutHashFunction, ptr noundef nonnull @VULKAN_INTERNAL_GraphicsPipelineResourceLayoutHashKeyMatch, ptr noundef nonnull @VULKAN_INTERNAL_GraphicsPipelineResourceLayoutHashDestroy, ptr noundef nonnull %11) #13
+  %268 = getelementptr inbounds nuw i8, ptr %11, i64 2288
+  store ptr %267, ptr %268, align 8
+  %269 = call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @VULKAN_INTERNAL_ComputePipelineResourceLayoutHashFunction, ptr noundef nonnull @VULKAN_INTERNAL_ComputePipelineResourceLayoutHashKeyMatch, ptr noundef nonnull @VULKAN_INTERNAL_ComputePipelineResourceLayoutHashDestroy, ptr noundef nonnull %11) #13
+  %270 = getelementptr inbounds nuw i8, ptr %11, i64 2296
+  store ptr %269, ptr %270, align 8
+  %271 = call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @VULKAN_INTERNAL_DescriptorSetLayoutHashFunction, ptr noundef nonnull @VULKAN_INTERNAL_DescriptorSetLayoutHashKeyMatch, ptr noundef nonnull @VULKAN_INTERNAL_DescriptorSetLayoutHashDestroy, ptr noundef nonnull %11) #13
+  %272 = getelementptr inbounds nuw i8, ptr %11, i64 2304
+  store ptr %271, ptr %272, align 8
+  %273 = call ptr @SDL_CreateMutex_REAL() #13
+  %274 = getelementptr inbounds nuw i8, ptr %11, i64 2240
+  store ptr %273, ptr %274, align 8
+  %275 = getelementptr inbounds nuw i8, ptr %11, i64 2260
+  store i32 4, ptr %275, align 4
+  %276 = getelementptr inbounds nuw i8, ptr %11, i64 2256
+  store i32 0, ptr %276, align 8
+  %277 = call noalias ptr @SDL_malloc_REAL(i64 noundef 32) #13
+  %278 = getelementptr inbounds nuw i8, ptr %11, i64 2248
+  store ptr %277, ptr %278, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %11, i64 2364
+  store i32 16, ptr %279, align 4
+  %280 = getelementptr inbounds nuw i8, ptr %11, i64 2360
+  store i32 0, ptr %280, align 8
+  %281 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
+  %282 = getelementptr inbounds nuw i8, ptr %11, i64 2352
+  store ptr %281, ptr %282, align 8
+  %283 = getelementptr inbounds nuw i8, ptr %11, i64 2380
+  store i32 16, ptr %283, align 4
+  %284 = getelementptr inbounds nuw i8, ptr %11, i64 2376
+  store i32 0, ptr %284, align 8
+  %285 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
+  %286 = getelementptr inbounds nuw i8, ptr %11, i64 2368
+  store ptr %285, ptr %286, align 8
+  %287 = getelementptr inbounds nuw i8, ptr %11, i64 2396
+  store i32 16, ptr %287, align 4
+  %288 = getelementptr inbounds nuw i8, ptr %11, i64 2392
+  store i32 0, ptr %288, align 8
+  %289 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
+  %290 = getelementptr inbounds nuw i8, ptr %11, i64 2384
+  store ptr %289, ptr %290, align 8
+  %291 = getelementptr inbounds nuw i8, ptr %11, i64 2412
+  store i32 16, ptr %291, align 4
+  %292 = getelementptr inbounds nuw i8, ptr %11, i64 2408
+  store i32 0, ptr %292, align 8
+  %293 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
+  %294 = getelementptr inbounds nuw i8, ptr %11, i64 2400
+  store ptr %293, ptr %294, align 8
+  %295 = getelementptr inbounds nuw i8, ptr %11, i64 2428
+  store i32 16, ptr %295, align 4
+  %296 = getelementptr inbounds nuw i8, ptr %11, i64 2424
+  store i32 0, ptr %296, align 8
+  %297 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
+  %298 = getelementptr inbounds nuw i8, ptr %11, i64 2416
+  store ptr %297, ptr %298, align 8
+  %299 = getelementptr inbounds nuw i8, ptr %11, i64 2444
+  store i32 16, ptr %299, align 4
+  %300 = getelementptr inbounds nuw i8, ptr %11, i64 2440
+  store i32 0, ptr %300, align 8
+  %301 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
+  %302 = getelementptr inbounds nuw i8, ptr %11, i64 2432
+  store ptr %301, ptr %302, align 8
+  %303 = getelementptr inbounds nuw i8, ptr %11, i64 2460
+  store i32 16, ptr %303, align 4
+  %304 = getelementptr inbounds nuw i8, ptr %11, i64 2456
+  store i32 0, ptr %304, align 8
+  %305 = call noalias ptr @SDL_malloc_REAL(i64 noundef 128) #13
+  %306 = getelementptr inbounds nuw i8, ptr %11, i64 2448
+  store ptr %305, ptr %306, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %11, i64 2552
+  store i8 0, ptr %307, align 8
+  %308 = getelementptr inbounds nuw i8, ptr %11, i64 2568
+  store i32 0, ptr %308, align 8
+  %309 = getelementptr inbounds nuw i8, ptr %11, i64 2572
+  store i32 4, ptr %309, align 4
+  %310 = call noalias ptr @SDL_malloc_REAL(i64 noundef 32) #13
+  %311 = getelementptr inbounds nuw i8, ptr %11, i64 2560
+  store ptr %310, ptr %311, align 8
+  br label %312
+
+312:                                              ; preds = %._crit_edge, %100
+  %.1 = phi ptr [ %103, %._crit_edge ], [ null, %100 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #13
   br label %313
 
-313:                                              ; preds = %._crit_edge, %101
-  %.1 = phi ptr [ %104, %._crit_edge ], [ null, %101 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #13
-  br label %314
-
-314:                                              ; preds = %3, %313, %37, %12
-  %.0 = phi ptr [ %.1, %313 ], [ null, %37 ], [ null, %12 ], [ null, %3 ]
+313:                                              ; preds = %3, %312, %37, %12
+  %.0 = phi ptr [ %.1, %312 ], [ null, %37 ], [ null, %12 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -19782,7 +19782,7 @@ VkErrorMessages.exit232:                          ; preds = %95, %96, %97, %98, 
   call void %118(ptr noundef %119, ptr noundef %115, ptr noundef nonnull %5) #13
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %121 = load i32, ptr %120, align 8
-  %122 = call fastcc ptr @VULKAN_INTERNAL_FindBestMemoryTypes(ptr noundef nonnull readonly %0, i32 noundef %121, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %4)
+  %122 = call fastcc noalias ptr @VULKAN_INTERNAL_FindBestMemoryTypes(ptr noundef nonnull readonly %0, i32 noundef %121, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %4)
   %123 = load i32, ptr %4, align 4
   %.not29.i = icmp eq i32 %123, 0
   br i1 %.not29.i, label %VULKAN_INTERNAL_BindMemoryForImage.exit.thread245, label %.lr.ph.preheader.i
@@ -22890,7 +22890,7 @@ VkErrorMessages.exit63:                           ; preds = %60, %61, %62, %63, 
   call void %90(ptr noundef %91, ptr noundef %80, ptr noundef nonnull %8) #13
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %93 = load i32, ptr %92, align 8
-  %94 = call fastcc ptr @VULKAN_INTERNAL_FindBestMemoryTypes(ptr noundef nonnull readonly %0, i32 noundef %93, i32 noundef range(i32 0, 7) %.045.i, i32 noundef range(i32 1, 9) %.044.i, i32 noundef range(i32 0, 2) %.0.i64, ptr noundef nonnull %7)
+  %94 = call fastcc noalias ptr @VULKAN_INTERNAL_FindBestMemoryTypes(ptr noundef nonnull readonly %0, i32 noundef %93, i32 noundef range(i32 0, 7) %.045.i, i32 noundef range(i32 1, 9) %.044.i, i32 noundef range(i32 0, 2) %.0.i64, ptr noundef nonnull %7)
   %95 = load i32, ptr %7, align 4
   %.not61.i = icmp eq i32 %95, 0
   br i1 %.not61.i, label %._crit_edge.i, label %.lr.ph.preheader.i

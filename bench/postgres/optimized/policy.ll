@@ -941,7 +941,7 @@ define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly captu
 4:                                                ; preds = %2
   store i32 1, ptr %1, align 4
   %5 = tail call ptr @palloc(i64 noundef 8) #8
-  br label %.loopexit.sink.split
+  br label %.critedge.sink.split
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 4
@@ -951,8 +951,8 @@ define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly captu
   %9 = shl nsw i64 %8, 3
   %10 = tail call ptr @palloc(i64 noundef %9) #8
   %11 = load i32, ptr %7, align 4
-  %.not.not39 = icmp sgt i32 %11, 0
-  br i1 %.not.not39, label %.lr.ph, label %.loopexit
+  %.not.not36 = icmp sgt i32 %11, 0
+  br i1 %.not.not36, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -971,7 +971,7 @@ define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly captu
 19:                                               ; preds = %13
   %20 = load i32, ptr %1, align 4
   %.not32 = icmp eq i32 %20, 1
-  br i1 %.not32, label %.loopexit.sink.split, label %21
+  br i1 %.not32, label %.critedge.sink.split, label %21
 
 21:                                               ; preds = %19
   %22 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
@@ -986,7 +986,7 @@ define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly captu
 
 27:                                               ; preds = %23, %21
   store i32 1, ptr %1, align 4
-  br label %.loopexit.sink.split
+  br label %.critedge.sink.split
 
 28:                                               ; preds = %13
   %29 = tail call i32 @get_rolespec_oid(ptr noundef nonnull %16, i1 noundef zeroext false) #8
@@ -997,15 +997,15 @@ define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly captu
   %32 = load i32, ptr %7, align 4
   %33 = sext i32 %32 to i64
   %.not.not = icmp slt i64 %indvars.iv.next, %33
-  br i1 %.not.not, label %13, label %.loopexit, !llvm.loop !11
+  br i1 %.not.not, label %13, label %.critedge, !llvm.loop !11
 
-.loopexit.sink.split:                             ; preds = %27, %19, %4
+.critedge.sink.split:                             ; preds = %27, %19, %4
   %.sink = phi ptr [ %5, %4 ], [ %10, %19 ], [ %10, %27 ]
   store i64 0, ptr %.sink, align 8
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %28, %.loopexit.sink.split, %6
-  %.0 = phi ptr [ %10, %6 ], [ %.sink, %.loopexit.sink.split ], [ %10, %28 ]
+.critedge:                                        ; preds = %28, %.critedge.sink.split, %6
+  %.0 = phi ptr [ %10, %6 ], [ %.sink, %.critedge.sink.split ], [ %10, %28 ]
   ret ptr %.0
 }
 

@@ -340,7 +340,7 @@ define hidden void @_ZN15ZStackWatermark18save_old_watermarkEv(ptr noundef nonnu
   %10 = getelementptr inbounds [3 x %struct.ZColorWatermark], ptr %6, i64 0, i64 %9
   %11 = load i64, ptr %10, align 8
   %.not = icmp eq i64 %11, %5
-  br i1 %.not, label %30, label %12
+  br i1 %.not, label %32, label %12
 
 12:                                               ; preds = %1
   %13 = load volatile i32, ptr %2, align 8
@@ -356,7 +356,6 @@ define hidden void @_ZN15ZStackWatermark18save_old_watermarkEv(ptr noundef nonnu
 17:                                               ; preds = %12, %15
   %18 = phi i32 [ %.pre, %15 ], [ %8, %12 ]
   %19 = phi i64 [ %16, %15 ], [ 0, %12 ]
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 184
   %.not1220 = icmp slt i32 %18, 0
   br i1 %.not1220, label %.._crit_edge_crit_edge, label %.lr.ph
 
@@ -370,36 +369,37 @@ define hidden void @_ZN15ZStackWatermark18save_old_watermarkEv(ptr noundef nonnu
   %wide.trip.count = zext i32 %21 to i64
   br label %22
 
-22:                                               ; preds = %.lr.ph, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
+22:                                               ; preds = %.lr.ph, %27
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  %23 = load i64, ptr %gep, align 8
-  %.fr.i = freeze i64 %23
-  %24 = add i64 %.fr.i, -1
-  %.0.i.not = icmp ult i64 %20, %24
-  br i1 %.0.i.not, label %25, label %.loopexit.loopexit
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load i64, ptr %24, align 8
+  %.fr.i = freeze i64 %25
+  %26 = add i64 %.fr.i, -1
+  %.0.i.not = icmp ult i64 %20, %26
+  br i1 %.0.i.not, label %27, label %.loopexit.loopexit
 
-25:                                               ; preds = %22
+27:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !8
 
 .loopexit.loopexit:                               ; preds = %22
-  %26 = trunc nuw nsw i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %25, %.._crit_edge_crit_edge, %.loopexit.loopexit
-  %27 = phi i32 [ %26, %.loopexit.loopexit ], [ %.pre24, %.._crit_edge_crit_edge ], [ %21, %25 ]
-  store i32 %27, ptr %7, align 8
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [3 x %struct.ZColorWatermark], ptr %6, i64 0, i64 %28
-  store i64 %5, ptr %29, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
+.loopexit:                                        ; preds = %27, %.._crit_edge_crit_edge, %.loopexit.loopexit
+  %29 = phi i32 [ %28, %.loopexit.loopexit ], [ %.pre24, %.._crit_edge_crit_edge ], [ %21, %27 ]
+  store i32 %29, ptr %7, align 8
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds [3 x %struct.ZColorWatermark], ptr %6, i64 0, i64 %30
+  store i64 %5, ptr %31, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %19, ptr %.sroa.2.0..sroa_idx, align 8
-  br label %30
+  br label %32
 
-30:                                               ; preds = %1, %.loopexit
+32:                                               ; preds = %1, %.loopexit
   ret void
 }
 
@@ -591,7 +591,6 @@ define hidden void @_ZN15ZStackWatermark21start_processing_implEPv(ptr noundef n
 20:                                               ; preds = %18, %15
   %21 = phi i32 [ %.pre.i, %18 ], [ %11, %15 ]
   %22 = phi i64 [ %19, %18 ], [ 0, %15 ]
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   %.not1220.i = icmp slt i32 %21, 0
   br i1 %.not1220.i, label %.._crit_edge_crit_edge.i, label %.lr.ph.i
 
@@ -605,32 +604,33 @@ define hidden void @_ZN15ZStackWatermark21start_processing_implEPv(ptr noundef n
   %wide.trip.count.i = zext i32 %24 to i64
   br label %25
 
-25:                                               ; preds = %28, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
+25:                                               ; preds = %30, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
-  %26 = load i64, ptr %gep.i, align 8
-  %.fr.i.i = freeze i64 %26
-  %27 = add i64 %.fr.i.i, -1
-  %.0.i.not.i = icmp ult i64 %23, %27
-  br i1 %.0.i.not.i, label %28, label %.loopexit.loopexit.i
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load i64, ptr %27, align 8
+  %.fr.i.i = freeze i64 %28
+  %29 = add i64 %.fr.i.i, -1
+  %.0.i.not.i = icmp ult i64 %23, %29
+  br i1 %.0.i.not.i, label %30, label %.loopexit.loopexit.i
 
-28:                                               ; preds = %25
+30:                                               ; preds = %25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %25, !llvm.loop !8
 
 .loopexit.loopexit.i:                             ; preds = %25
-  %29 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %28, %.loopexit.loopexit.i, %.._crit_edge_crit_edge.i
-  %30 = phi i32 [ %29, %.loopexit.loopexit.i ], [ %.pre24.i, %.._crit_edge_crit_edge.i ], [ %24, %28 ]
-  store i32 %30, ptr %10, align 8
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [3 x %struct.ZColorWatermark], ptr %9, i64 0, i64 %31
-  store i64 %8, ptr %32, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
+.loopexit.i:                                      ; preds = %30, %.loopexit.loopexit.i, %.._crit_edge_crit_edge.i
+  %32 = phi i32 [ %31, %.loopexit.loopexit.i ], [ %.pre24.i, %.._crit_edge_crit_edge.i ], [ %24, %30 ]
+  store i32 %32, ptr %10, align 8
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds [3 x %struct.ZColorWatermark], ptr %9, i64 0, i64 %33
+  store i64 %8, ptr %34, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %22, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.pre = load i32, ptr %10, align 8
   %.phi.trans.insert = sext i32 %.pre to i64
@@ -639,89 +639,89 @@ define hidden void @_ZN15ZStackWatermark21start_processing_implEPv(ptr noundef n
   br label %_ZN15ZStackWatermark18save_old_watermarkEv.exit
 
 _ZN15ZStackWatermark18save_old_watermarkEv.exit:  ; preds = %2, %.loopexit.i
-  %33 = phi i64 [ %8, %2 ], [ %.pre7, %.loopexit.i ]
+  %35 = phi i64 [ %8, %2 ], [ %.pre7, %.loopexit.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32ZStackWatermarkProcessOopClosure, i64 16), ptr %3, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %35 = icmp eq ptr %1, null
-  %_ZN14ZUncoloredRoot7processEP15zaddress_unsafem..i.i.i = select i1 %35, ptr @_ZN14ZUncoloredRoot7processEP15zaddress_unsafem, ptr %1
-  store ptr %_ZN14ZUncoloredRoot7processEP15zaddress_unsafem..i.i.i, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %33, ptr %36, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %37 = icmp eq ptr %1, null
+  %_ZN14ZUncoloredRoot7processEP15zaddress_unsafem..i.i.i = select i1 %37, ptr @_ZN14ZUncoloredRoot7processEP15zaddress_unsafem, ptr %1
+  store ptr %_ZN14ZUncoloredRoot7processEP15zaddress_unsafem..i.i.i, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 %35, ptr %38, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22ZOnStackNMethodClosure, i64 16), ptr %4, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %38 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %37, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %40 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 184
+  store ptr %42, ptr %39, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(1800) %42, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
-  %46 = load ptr, ptr %41, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 376
-  %48 = load ptr, ptr %47, align 8
-  %.not.i3 = icmp eq ptr %48, null
-  br i1 %.not.i3, label %_ZN15ZStackWatermark12process_headEPv.exit, label %49
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
+  %47 = load ptr, ptr %46, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(1800) %44, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
+  %48 = load ptr, ptr %43, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 376
+  %50 = load ptr, ptr %49, align 8
+  %.not.i3 = icmp eq ptr %50, null
+  br i1 %.not.i3, label %_ZN15ZStackWatermark12process_headEPv.exit, label %51
 
-49:                                               ; preds = %_ZN15ZStackWatermark18save_old_watermarkEv.exit
-  call void @_ZN14ZUncoloredRoot17process_invisibleEP15zaddress_unsafem(ptr noundef nonnull %48, i64 noundef %33)
-  %.pre8 = load ptr, ptr %41, align 8
+51:                                               ; preds = %_ZN15ZStackWatermark18save_old_watermarkEv.exit
+  call void @_ZN14ZUncoloredRoot17process_invisibleEP15zaddress_unsafem(ptr noundef nonnull %50, i64 noundef %35)
+  %.pre8 = load ptr, ptr %43, align 8
   br label %_ZN15ZStackWatermark12process_headEPv.exit
 
-_ZN15ZStackWatermark12process_headEPv.exit:       ; preds = %_ZN15ZStackWatermark18save_old_watermarkEv.exit, %49
-  %50 = phi ptr [ %46, %_ZN15ZStackWatermark18save_old_watermarkEv.exit ], [ %.pre8, %49 ]
+_ZN15ZStackWatermark12process_headEPv.exit:       ; preds = %_ZN15ZStackWatermark18save_old_watermarkEv.exit, %51
+  %52 = phi ptr [ %48, %_ZN15ZStackWatermark18save_old_watermarkEv.exit ], [ %.pre8, %51 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %51 = load i64, ptr @ZPointerLoadBadMask, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  store i64 %51, ptr %52, align 8
-  %53 = load ptr, ptr %41, align 8
-  %54 = load i64, ptr @ZPointerLoadGoodMask, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store i64 %54, ptr %55, align 8
-  %56 = load ptr, ptr %41, align 8
-  %57 = load i64, ptr @ZPointerMarkBadMask, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 56
-  store i64 %57, ptr %58, align 8
-  %59 = load ptr, ptr %41, align 8
-  %60 = load i64, ptr @ZPointerStoreBadMask, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 72
-  store i64 %60, ptr %61, align 8
-  %62 = load ptr, ptr %41, align 8
-  %63 = load i64, ptr @ZPointerStoreGoodMask, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 64
-  store i64 %63, ptr %64, align 8
-  %65 = load ptr, ptr %41, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 88
-  store i64 %63, ptr %66, align 8
-  %67 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 3216
-  %69 = load i32, ptr %68, align 16
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %76, label %71
+  %53 = load i64, ptr @ZPointerLoadBadMask, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 48
+  store i64 %53, ptr %54, align 8
+  %55 = load ptr, ptr %43, align 8
+  %56 = load i64, ptr @ZPointerLoadGoodMask, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  store i64 %56, ptr %57, align 8
+  %58 = load ptr, ptr %43, align 8
+  %59 = load i64, ptr @ZPointerMarkBadMask, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 56
+  store i64 %59, ptr %60, align 8
+  %61 = load ptr, ptr %43, align 8
+  %62 = load i64, ptr @ZPointerStoreBadMask, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 72
+  store i64 %62, ptr %63, align 8
+  %64 = load ptr, ptr %43, align 8
+  %65 = load i64, ptr @ZPointerStoreGoodMask, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 64
+  store i64 %65, ptr %66, align 8
+  %67 = load ptr, ptr %43, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 88
+  store i64 %65, ptr %68, align 8
+  %69 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 3216
+  %71 = load i32, ptr %70, align 16
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %78, label %73
 
-71:                                               ; preds = %_ZN15ZStackWatermark12process_headEPv.exit
-  %72 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 3216
-  %74 = load i32, ptr %73, align 16
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %79
+73:                                               ; preds = %_ZN15ZStackWatermark12process_headEPv.exit
+  %74 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 3216
+  %76 = load i32, ptr %75, align 16
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %81
 
-76:                                               ; preds = %71, %_ZN15ZStackWatermark12process_headEPv.exit
-  %77 = load ptr, ptr %41, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  call void @_ZN23ZThreadLocalAllocBuffer6retireEP10JavaThreadP21ThreadLocalAllocStats(ptr noundef %77, ptr noundef nonnull %78) #12
-  br label %79
+78:                                               ; preds = %73, %_ZN15ZStackWatermark12process_headEPv.exit
+  %79 = load ptr, ptr %43, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  call void @_ZN23ZThreadLocalAllocBuffer6retireEP10JavaThreadP21ThreadLocalAllocStats(ptr noundef %79, ptr noundef nonnull %80) #12
+  br label %81
 
-79:                                               ; preds = %76, %71
-  %80 = load ptr, ptr %41, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 96
-  %82 = load ptr, ptr %81, align 8
-  call void @_ZN19ZStoreBarrierBuffer12on_new_phaseEv(ptr noundef nonnull align 8 dereferenceable(832) %82) #12
+81:                                               ; preds = %78, %73
+  %82 = load ptr, ptr %43, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 96
+  %84 = load ptr, ptr %83, align 8
+  call void @_ZN19ZStoreBarrierBuffer12on_new_phaseEv(ptr noundef nonnull align 8 dereferenceable(832) %84) #12
   call void @_ZN14StackWatermark21start_processing_implEPv(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1) #12
   ret void
 }

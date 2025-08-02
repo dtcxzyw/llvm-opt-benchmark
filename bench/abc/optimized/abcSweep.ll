@@ -2850,8 +2850,8 @@ Abc_NodeRemoveNonCurrentObjects.exit:             ; preds = %22, %Vec_PtrFree.ex
 
 .thread:                                          ; preds = %Abc_NodeRemoveNonCurrentObjects.exit
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.020.lcssa.i)
-  %.not1835 = icmp eq i32 %1, 0
-  br i1 %.not1835, label %34, label %31
+  %.not1846 = icmp eq i32 %1, 0
+  br i1 %.not1846, label %34, label %31
 
 29:                                               ; preds = %27
   %30 = tail call i32 @Abc_NtkLatchSweep(ptr noundef nonnull %0)
@@ -2864,7 +2864,7 @@ Abc_NodeRemoveNonCurrentObjects.exit:             ; preds = %22, %Vec_PtrFree.ex
 
 34:                                               ; preds = %29, %.thread, %31, %27
   %.not19 = icmp eq i32 %2, 0
-  br i1 %.not19, label %63, label %35
+  br i1 %.not19, label %Abc_NodeRemoveNonCurrentObjects.exit45, label %35
 
 35:                                               ; preds = %34
   %36 = tail call ptr @Abc_NtkDfsSeqReverse(ptr noundef nonnull %0) #11
@@ -2880,68 +2880,97 @@ Abc_NodeRemoveNonCurrentObjects.exit:             ; preds = %22, %Vec_PtrFree.ex
 Vec_PtrFree.exit23:                               ; preds = %35, %39
   tail call void @free(ptr noundef nonnull %36) #11
   %40 = tail call i32 @Abc_NtkReplaceAutonomousLogic(ptr noundef nonnull %0)
-  br i1 %.not, label %43, label %41
+  br i1 %.not, label %.critedge, label %41
 
 41:                                               ; preds = %Vec_PtrFree.exit23
   %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %40)
-  br label %43
+  %43 = load ptr, ptr %9, align 8, !tbaa !25
+  %44 = getelementptr i8, ptr %43, i64 4
+  %.val25.i24 = load i32, ptr %44, align 4, !tbaa !26
+  %45 = icmp sgt i32 %.val25.i24, 0
+  br i1 %45, label %.lr.ph.i26, label %Abc_NodeRemoveNonCurrentObjects.exit34
 
-43:                                               ; preds = %41, %Vec_PtrFree.exit23
-  %44 = load ptr, ptr %9, align 8, !tbaa !25
-  %45 = getelementptr i8, ptr %44, i64 4
-  %.val25.i24 = load i32, ptr %45, align 4, !tbaa !26
-  %46 = icmp sgt i32 %.val25.i24, 0
-  br i1 %46, label %.lr.ph.i26, label %Abc_NodeRemoveNonCurrentObjects.exit34
+.lr.ph.i26:                                       ; preds = %41, %55
+  %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i32, %55 ], [ 0, %41 ]
+  %46 = phi ptr [ %56, %55 ], [ %43, %41 ]
+  %.02026.i28 = phi i32 [ %.121.i31, %55 ], [ 0, %41 ]
+  %47 = getelementptr i8, ptr %46, i64 8
+  %.val24.val.i29 = load ptr, ptr %47, align 8, !tbaa !28
+  %48 = getelementptr inbounds nuw ptr, ptr %.val24.val.i29, i64 %indvars.iv.i27
+  %49 = load ptr, ptr %48, align 8, !tbaa !29
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %55, label %51
 
-.lr.ph.i26:                                       ; preds = %43, %56
-  %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i32, %56 ], [ 0, %43 ]
-  %47 = phi ptr [ %57, %56 ], [ %44, %43 ]
-  %.02026.i28 = phi i32 [ %.121.i31, %56 ], [ 0, %43 ]
-  %48 = getelementptr i8, ptr %47, i64 8
-  %.val24.val.i29 = load ptr, ptr %48, align 8, !tbaa !28
-  %49 = getelementptr inbounds nuw ptr, ptr %.val24.val.i29, i64 %indvars.iv.i27
-  %50 = load ptr, ptr %49, align 8, !tbaa !29
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %56, label %52
+51:                                               ; preds = %.lr.ph.i26
+  %52 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef nonnull %49)
+  %.not.i30 = icmp eq i32 %52, 0
+  br i1 %.not.i30, label %53, label %55
 
-52:                                               ; preds = %.lr.ph.i26
-  %53 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef nonnull %50)
-  %.not.i30 = icmp eq i32 %53, 0
-  br i1 %.not.i30, label %54, label %56
+53:                                               ; preds = %51
+  tail call void @Abc_NtkDeleteObj(ptr noundef nonnull %49) #11
+  %54 = add nsw i32 %.02026.i28, 1
+  br label %55
 
-54:                                               ; preds = %52
-  tail call void @Abc_NtkDeleteObj(ptr noundef nonnull %50) #11
-  %55 = add nsw i32 %.02026.i28, 1
-  br label %56
-
-56:                                               ; preds = %54, %52, %.lr.ph.i26
-  %.121.i31 = phi i32 [ %.02026.i28, %.lr.ph.i26 ], [ %.02026.i28, %52 ], [ %55, %54 ]
+55:                                               ; preds = %53, %51, %.lr.ph.i26
+  %.121.i31 = phi i32 [ %.02026.i28, %.lr.ph.i26 ], [ %.02026.i28, %51 ], [ %54, %53 ]
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i27, 1
-  %57 = load ptr, ptr %9, align 8, !tbaa !25
-  %58 = getelementptr i8, ptr %57, i64 4
-  %.val.i33 = load i32, ptr %58, align 4, !tbaa !26
-  %59 = sext i32 %.val.i33 to i64
-  %60 = icmp slt i64 %indvars.iv.next.i32, %59
-  br i1 %60, label %.lr.ph.i26, label %Abc_NodeRemoveNonCurrentObjects.exit34, !llvm.loop !90
+  %56 = load ptr, ptr %9, align 8, !tbaa !25
+  %57 = getelementptr i8, ptr %56, i64 4
+  %.val.i33 = load i32, ptr %57, align 4, !tbaa !26
+  %58 = sext i32 %.val.i33 to i64
+  %59 = icmp slt i64 %indvars.iv.next.i32, %58
+  br i1 %59, label %.lr.ph.i26, label %Abc_NodeRemoveNonCurrentObjects.exit34, !llvm.loop !90
 
-Abc_NodeRemoveNonCurrentObjects.exit34:           ; preds = %56, %43
-  %.020.lcssa.i25 = phi i32 [ 0, %43 ], [ %.121.i31, %56 ]
-  br i1 %.not, label %63, label %61
+Abc_NodeRemoveNonCurrentObjects.exit34:           ; preds = %55, %41
+  %.020.lcssa.i25 = phi i32 [ 0, %41 ], [ %.121.i31, %55 ]
+  %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.020.lcssa.i25)
+  br label %Abc_NodeRemoveNonCurrentObjects.exit45
 
-61:                                               ; preds = %Abc_NodeRemoveNonCurrentObjects.exit34
-  %62 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.020.lcssa.i25)
-  br label %63
+.critedge:                                        ; preds = %Vec_PtrFree.exit23
+  %61 = load ptr, ptr %9, align 8, !tbaa !25
+  %62 = getelementptr i8, ptr %61, i64 4
+  %.val25.i35 = load i32, ptr %62, align 4, !tbaa !26
+  %63 = icmp sgt i32 %.val25.i35, 0
+  br i1 %63, label %.lr.ph.i37, label %Abc_NodeRemoveNonCurrentObjects.exit45
 
-63:                                               ; preds = %Abc_NodeRemoveNonCurrentObjects.exit34, %61, %34
-  %64 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %0) #11
-  %.not20 = icmp eq i32 %64, 0
-  br i1 %.not20, label %65, label %66
+.lr.ph.i37:                                       ; preds = %.critedge, %72
+  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i43, %72 ], [ 0, %.critedge ]
+  %64 = phi ptr [ %73, %72 ], [ %61, %.critedge ]
+  %65 = getelementptr i8, ptr %64, i64 8
+  %.val24.val.i40 = load ptr, ptr %65, align 8, !tbaa !28
+  %66 = getelementptr inbounds nuw ptr, ptr %.val24.val.i40, i64 %indvars.iv.i38
+  %67 = load ptr, ptr %66, align 8, !tbaa !29
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %72, label %69
 
-65:                                               ; preds = %63
+69:                                               ; preds = %.lr.ph.i37
+  %70 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef nonnull %67)
+  %.not.i41 = icmp eq i32 %70, 0
+  br i1 %.not.i41, label %71, label %72
+
+71:                                               ; preds = %69
+  tail call void @Abc_NtkDeleteObj(ptr noundef nonnull %67) #11
+  br label %72
+
+72:                                               ; preds = %71, %69, %.lr.ph.i37
+  %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i38, 1
+  %73 = load ptr, ptr %9, align 8, !tbaa !25
+  %74 = getelementptr i8, ptr %73, i64 4
+  %.val.i44 = load i32, ptr %74, align 4, !tbaa !26
+  %75 = sext i32 %.val.i44 to i64
+  %76 = icmp slt i64 %indvars.iv.next.i43, %75
+  br i1 %76, label %.lr.ph.i37, label %Abc_NodeRemoveNonCurrentObjects.exit45, !llvm.loop !90
+
+Abc_NodeRemoveNonCurrentObjects.exit45:           ; preds = %72, %.critedge, %Abc_NodeRemoveNonCurrentObjects.exit34, %34
+  %77 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %0) #11
+  %.not20 = icmp eq i32 %77, 0
+  br i1 %.not20, label %78, label %79
+
+78:                                               ; preds = %Abc_NodeRemoveNonCurrentObjects.exit45
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %66
+  br label %79
 
-66:                                               ; preds = %65, %63
+79:                                               ; preds = %78, %Abc_NodeRemoveNonCurrentObjects.exit45
   ret i32 1
 }
 

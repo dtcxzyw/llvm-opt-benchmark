@@ -59,11 +59,12 @@ define dso_local void @ttm_lru_bulk_move_tail(ptr noundef readonly captures(none
 
 2:                                                ; preds = %34, %1
   %3 = phi i64 [ 0, %1 ], [ %35, %34 ]
+  %.split = getelementptr [8 x [4 x %struct.ttm_lru_bulk_move_pos]], ptr %0, i64 0, i64 %3
   br label %4
 
 4:                                                ; preds = %31, %2
   %5 = phi i64 [ 0, %2 ], [ %32, %31 ]
-  %6 = getelementptr [8 x [4 x %struct.ttm_lru_bulk_move_pos]], ptr %0, i64 0, i64 %3, i64 %5
+  %6 = getelementptr [4 x %struct.ttm_lru_bulk_move_pos], ptr %.split, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %31, label %9
@@ -140,7 +141,8 @@ define dso_local void @ttm_resource_add_bulk_move(ptr noundef %0, ptr noundef re
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 416
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr [8 x [4 x %struct.ttm_lru_bulk_move_pos]], ptr %4, i64 0, i64 %13, i64 %18
+  %.split = getelementptr [8 x [4 x %struct.ttm_lru_bulk_move_pos]], ptr %4, i64 0, i64 %13
+  %19 = getelementptr [4 x %struct.ttm_lru_bulk_move_pos], ptr %.split, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
@@ -215,7 +217,8 @@ define dso_local void @ttm_resource_del_bulk_move(ptr noundef %0, ptr noundef re
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 416
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr [8 x [4 x %struct.ttm_lru_bulk_move_pos]], ptr %4, i64 0, i64 %13, i64 %18
+  %.split = getelementptr [8 x [4 x %struct.ttm_lru_bulk_move_pos]], ptr %4, i64 0, i64 %13
+  %19 = getelementptr [4 x %struct.ttm_lru_bulk_move_pos], ptr %.split, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
@@ -324,7 +327,8 @@ define dso_local void @ttm_resource_move_to_lru_tail(ptr noundef %0) local_unnam
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 416
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
-  %29 = getelementptr [8 x [4 x %struct.ttm_lru_bulk_move_pos]], ptr %20, i64 0, i64 %25, i64 %28
+  %.split = getelementptr [8 x [4 x %struct.ttm_lru_bulk_move_pos]], ptr %20, i64 0, i64 %25
+  %29 = getelementptr [4 x %struct.ttm_lru_bulk_move_pos], ptr %.split, i64 0, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %0
@@ -527,7 +531,8 @@ define dso_local i32 @ttm_resource_alloc(ptr noundef %0, ptr noundef %1, ptr nou
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 416
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr [8 x [4 x %struct.ttm_lru_bulk_move_pos]], ptr %22, i64 0, i64 %31, i64 %36
+  %.split = getelementptr [8 x [4 x %struct.ttm_lru_bulk_move_pos]], ptr %22, i64 0, i64 %31
+  %37 = getelementptr [4 x %struct.ttm_lru_bulk_move_pos], ptr %.split, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %42
@@ -618,7 +623,8 @@ define dso_local void @ttm_resource_free(ptr noundef readonly captures(none) %0,
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 416
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  %26 = getelementptr [8 x [4 x %struct.ttm_lru_bulk_move_pos]], ptr %11, i64 0, i64 %20, i64 %25
+  %.split = getelementptr [8 x [4 x %struct.ttm_lru_bulk_move_pos]], ptr %11, i64 0, i64 %20
+  %26 = getelementptr [4 x %struct.ttm_lru_bulk_move_pos], ptr %.split, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %33, label %29

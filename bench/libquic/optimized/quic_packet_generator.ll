@@ -997,14 +997,14 @@ define noundef zeroext i1 @_ZN3net19QuicPacketGenerator19AddNextPendingFrameEv(p
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %4, ptr noundef nonnull @.str, i32 noundef 252, i32 noundef 2)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.7, i64 noundef 57)
-          to label %.critedge10 unwind label %51
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %51
 
-.critedge10:                                      ; preds = %43
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %43
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %4) #16
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4) #16
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %35, %.critedge10
+.critedge:                                        ; preds = %37, %35, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %48 = load ptr, ptr %47, align 8, !tbaa !108

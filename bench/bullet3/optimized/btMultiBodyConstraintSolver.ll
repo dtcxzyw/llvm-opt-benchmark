@@ -7795,7 +7795,7 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver29solveGroupCach
 19:                                               ; preds = %._crit_edge49
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %101
 
 21:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
@@ -7834,7 +7834,7 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver29solveGroupCach
 42:                                               ; preds = %35, %25, %21
   %43 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %101
 
 44:                                               ; preds = %35, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7858,7 +7858,6 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver29solveGroupCach
   %50 = load i32, ptr %49, align 4, !tbaa !48
   %51 = and i32 %50, 16
   %.not = icmp eq i32 %51, 0
-  %invariant.gep = getelementptr i8, ptr %48, i64 340
   %wide.trip.count63 = zext nneg i32 %8 to i64
   br i1 %.not, label %.lr.ph48.split.us, label %.lr.ph48.split
 
@@ -7906,19 +7905,19 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver29solveGroupCach
 76:                                               ; preds = %68
   %77 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %101
 
 ._crit_edge49:                                    ; preds = %.lr.ph48.split, %.lr.ph48.split.us, %.preheader
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #18
   %78 = invoke noundef float @_ZN35btSequentialImpulseConstraintSolver29solveGroupCacheFriendlyFinishEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(128) %3)
-          to label %98 unwind label %19
+          to label %100 unwind label %19
 
 79:                                               ; preds = %._crit_edge
   %80 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #18
-  br label %99
+  br label %101
 
 .lr.ph48.split:                                   ; preds = %.lr.ph48, %.lr.ph48.split
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.lr.ph48.split ], [ 0, %.lr.ph48 ]
@@ -7940,20 +7939,21 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver29solveGroupCach
   %94 = load float, ptr %93, align 4, !tbaa !52
   %95 = getelementptr inbounds nuw i8, ptr %83, i64 140
   store float %94, ptr %95, align 4, !tbaa !196
-  %gep = getelementptr %struct.btMultiBodySolverConstraint, ptr %invariant.gep, i64 %92
-  %96 = load float, ptr %gep, align 4, !tbaa !52
-  %97 = getelementptr inbounds nuw i8, ptr %83, i64 144
-  store float %96, ptr %97, align 8, !tbaa !197
+  %96 = getelementptr %struct.btMultiBodySolverConstraint, ptr %48, i64 %92
+  %97 = getelementptr i8, ptr %96, i64 340
+  %98 = load float, ptr %97, align 4, !tbaa !52
+  %99 = getelementptr inbounds nuw i8, ptr %83, i64 144
+  store float %98, ptr %99, align 8, !tbaa !197
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count63
   br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !200
 
-98:                                               ; preds = %._crit_edge49
+100:                                              ; preds = %._crit_edge49
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
   ret float %78
 
-99:                                               ; preds = %79, %76, %42, %19
+101:                                              ; preds = %79, %76, %42, %19
   %.pn = phi { ptr, i32 } [ %43, %42 ], [ %77, %76 ], [ %20, %19 ], [ %80, %79 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18

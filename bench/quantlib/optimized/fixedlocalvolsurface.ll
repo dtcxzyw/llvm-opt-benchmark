@@ -1917,7 +1917,6 @@ for.cond83.preheader:                             ; preds = %for.cond, %do.end
   %sub.ptr.rhs.cast.i85 = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i86 = sub i64 %sub.ptr.lhs.cast.i84, %sub.ptr.rhs.cast.i85
   %sub.ptr.div.i87 = ashr exact i64 %sub.ptr.sub.i86, 3
-  %invariant.gep = getelementptr i8, ptr %29, i64 -8
   %cmp86239 = icmp ugt i64 %sub.ptr.div.i87, 1
   br i1 %cmp86239, label %do.body89, label %for.cond.cleanup87
 
@@ -2133,10 +2132,10 @@ for.cond.cleanup87:                               ; preds = %for.cond83, %for.co
 
 do.body89:                                        ; preds = %for.cond83.preheader, %for.cond83
   %j.0240 = phi i64 [ %inc, %for.cond83 ], [ 1, %for.cond83.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %29, i64 %j.0240
+  %add.ptr.i = getelementptr double, ptr %29, i64 %j.0240
   %61 = load double, ptr %add.ptr.i, align 8, !tbaa !87
-  %gep = getelementptr double, ptr %invariant.gep, i64 %j.0240
-  %62 = load double, ptr %gep, align 8, !tbaa !87
+  %add.ptr.i89 = getelementptr i8, ptr %add.ptr.i, i64 -8
+  %62 = load double, ptr %add.ptr.i89, align 8, !tbaa !87
   %cmp94 = fcmp ogt double %61, %62
   br i1 %cmp94, label %for.cond83, label %if.then95
 

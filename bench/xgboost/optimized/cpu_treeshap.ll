@@ -687,304 +687,305 @@ _ZSt4copyIPN7xgboost11PathElementES2_ET0_T_S4_S3_.exit: ; preds = %12
   %33 = add nuw i32 %4, 1
   %34 = uitofp i32 %33 to float
   %35 = zext nneg i32 %.029.i to i64
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %21, i64 28
   br label %36
 
 36:                                               ; preds = %36, %.lr.ph.i
   %indvars.iv32.i = phi i64 [ %20, %.lr.ph.i ], [ %indvars.iv.next33.i, %36 ]
   %indvars.iv.i = phi i64 [ %35, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
   %.idx119 = shl nuw nsw i64 %indvars.iv.i, 4
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx119
-  %37 = load float, ptr %gep, align 4, !tbaa !11
-  %38 = fmul float %7, %37
-  %39 = trunc nuw i64 %indvars.iv32.i to i32
-  %40 = uitofp nneg i32 %39 to float
-  %41 = fmul float %38, %40
-  %42 = fdiv float %41, %34
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx119
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  %39 = load float, ptr %38, align 4, !tbaa !11
+  %40 = fmul float %7, %39
+  %41 = trunc nuw i64 %indvars.iv32.i to i32
+  %42 = uitofp nneg i32 %41 to float
+  %43 = fmul float %40, %42
+  %44 = fdiv float %43, %34
   %.idx120 = shl nuw nsw i64 %indvars.iv32.i, 4
-  %gep126 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx120
-  %43 = load float, ptr %gep126, align 4, !tbaa !11
-  %44 = fadd float %43, %42
-  store float %44, ptr %gep126, align 4, !tbaa !11
-  %45 = fmul float %6, %37
-  %46 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %47 = sub i32 %4, %46
-  %48 = uitofp i32 %47 to float
-  %49 = fmul float %45, %48
-  %50 = fdiv float %49, %34
-  store float %50, ptr %gep, align 4, !tbaa !11
+  %45 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx120
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
+  %47 = load float, ptr %46, align 4, !tbaa !11
+  %48 = fadd float %47, %44
+  store float %48, ptr %46, align 4, !tbaa !11
+  %49 = fmul float %6, %39
+  %50 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %51 = sub i32 %4, %50
+  %52 = uitofp i32 %51 to float
+  %53 = fmul float %49, %52
+  %54 = fdiv float %53, %34
+  store float %54, ptr %38, align 4, !tbaa !11
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i = icmp eq i64 %indvars.iv.i, 0
   %indvars.iv.next33.i = add nsw i64 %indvars.iv32.i, -1
   br i1 %.not.i, label %_ZN7xgboost10ExtendPathEPNS_11PathElementEjffi.exit, label %36, !llvm.loop !12
 
 _ZN7xgboost10ExtendPathEPNS_11PathElementEjffi.exit: ; preds = %36, %25, %_ZSt4copyIPN7xgboost11PathElementES2_ET0_T_S4_S3_.exit
-  %51 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %52 = load i32, ptr %51, align 4, !tbaa !41
-  %53 = and i32 %52, 2147483647
-  %54 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %55 = load i32, ptr %54, align 4, !tbaa !43
-  %56 = icmp eq i32 %55, -1
-  br i1 %56, label %.preheader, label %76
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %56 = load i32, ptr %55, align 4, !tbaa !41
+  %57 = and i32 %56, 2147483647
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %59 = load i32, ptr %58, align 4, !tbaa !43
+  %60 = icmp eq i32 %59, -1
+  br i1 %60, label %.preheader, label %80
 
 .preheader:                                       ; preds = %_ZN7xgboost10ExtendPathEPNS_11PathElementEjffi.exit
-  %.not111132 = icmp eq i32 %4, 0
-  br i1 %.not111132, label %.loopexit, label %.lr.ph
+  %.not111126 = icmp eq i32 %4, 0
+  br i1 %.not111126, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %58 = load float, ptr %57, align 4
-  br label %59
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %62 = load float, ptr %61, align 4
+  br label %63
 
-59:                                               ; preds = %.lr.ph, %59
-  %.0106133 = phi i32 [ 1, %.lr.ph ], [ %75, %59 ]
-  %60 = tail call noundef float @_ZN7xgboost14UnwoundPathSumEPKNS_11PathElementEjj(ptr noundef nonnull %22, i32 noundef %4, i32 noundef %.0106133)
-  %61 = zext i32 %.0106133 to i64
-  %62 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %61
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load float, ptr %63, align 4, !tbaa !10
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %66 = load float, ptr %65, align 4, !tbaa !9
-  %67 = fsub float %64, %66
-  %68 = fmul float %60, %67
-  %69 = fmul float %58, %68
-  %70 = load i32, ptr %62, align 4, !tbaa !3
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds float, ptr %2, i64 %71
-  %73 = load float, ptr %72, align 4, !tbaa !21
-  %74 = tail call float @llvm.fmuladd.f32(float %69, float %11, float %73)
-  store float %74, ptr %72, align 4, !tbaa !21
-  %75 = add i32 %.0106133, 1
-  %.not111 = icmp ugt i32 %75, %4
-  br i1 %.not111, label %.loopexit, label %59, !llvm.loop !44
+63:                                               ; preds = %.lr.ph, %63
+  %.0106127 = phi i32 [ 1, %.lr.ph ], [ %79, %63 ]
+  %64 = tail call noundef float @_ZN7xgboost14UnwoundPathSumEPKNS_11PathElementEjj(ptr noundef nonnull %22, i32 noundef %4, i32 noundef %.0106127)
+  %65 = zext i32 %.0106127 to i64
+  %66 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load float, ptr %67, align 4, !tbaa !10
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  %70 = load float, ptr %69, align 4, !tbaa !9
+  %71 = fsub float %68, %70
+  %72 = fmul float %64, %71
+  %73 = fmul float %62, %72
+  %74 = load i32, ptr %66, align 4, !tbaa !3
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds float, ptr %2, i64 %75
+  %77 = load float, ptr %76, align 4, !tbaa !21
+  %78 = tail call float @llvm.fmuladd.f32(float %73, float %11, float %77)
+  store float %78, ptr %76, align 4, !tbaa !21
+  %79 = add i32 %.0106127, 1
+  %.not111 = icmp ugt i32 %79, %4
+  br i1 %.not111, label %.loopexit, label %63, !llvm.loop !44
 
-76:                                               ; preds = %_ZN7xgboost10ExtendPathEPNS_11PathElementEjffi.exit
+80:                                               ; preds = %_ZN7xgboost10ExtendPathEPNS_11PathElementEjffi.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14) #13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %79 = load ptr, ptr %78, align 8, !tbaa !48, !noalias !45
-  %80 = load ptr, ptr %77, align 8, !tbaa !50, !noalias !45
-  %81 = ptrtoint ptr %79 to i64
-  %82 = ptrtoint ptr %80 to i64
-  %83 = sub i64 %81, %82
-  store i64 %83, ptr %14, align 8, !tbaa !36, !alias.scope !45
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %83 = load ptr, ptr %82, align 8, !tbaa !48, !noalias !45
+  %84 = load ptr, ptr %81, align 8, !tbaa !50, !noalias !45
+  %85 = ptrtoint ptr %83 to i64
+  %86 = ptrtoint ptr %84 to i64
+  %87 = sub i64 %85, %86
+  store i64 %87, ptr %14, align 8, !tbaa !36, !alias.scope !45
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %80, ptr %.sroa.43.0..sroa_idx.i, align 8, !tbaa !51, !alias.scope !45
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %86 = load ptr, ptr %85, align 8, !tbaa !52, !noalias !45
-  %87 = load ptr, ptr %84, align 8, !tbaa !55, !noalias !45
-  %88 = ptrtoint ptr %86 to i64
-  %89 = ptrtoint ptr %87 to i64
-  %90 = sub i64 %88, %89
-  %91 = ashr exact i64 %90, 2
-  %92 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 %91, ptr %92, align 8, !tbaa !36, !alias.scope !45
+  store ptr %84, ptr %.sroa.43.0..sroa_idx.i, align 8, !tbaa !51, !alias.scope !45
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %90 = load ptr, ptr %89, align 8, !tbaa !52, !noalias !45
+  %91 = load ptr, ptr %88, align 8, !tbaa !55, !noalias !45
+  %92 = ptrtoint ptr %90 to i64
+  %93 = ptrtoint ptr %91 to i64
+  %94 = sub i64 %92, %93
+  %95 = ashr exact i64 %94, 2
+  %96 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i64 %95, ptr %96, align 8, !tbaa !36, !alias.scope !45
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %87, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !56, !alias.scope !45
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %95 = load ptr, ptr %94, align 8, !tbaa !57, !noalias !45
-  %96 = load ptr, ptr %93, align 8, !tbaa !60, !noalias !45
-  %97 = ptrtoint ptr %95 to i64
-  %98 = ptrtoint ptr %96 to i64
-  %99 = sub i64 %97, %98
-  %100 = ashr exact i64 %99, 4
-  %101 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i64 %100, ptr %101, align 8, !tbaa !36, !alias.scope !45
+  store ptr %91, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !56, !alias.scope !45
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %99 = load ptr, ptr %98, align 8, !tbaa !57, !noalias !45
+  %100 = load ptr, ptr %97, align 8, !tbaa !60, !noalias !45
+  %101 = ptrtoint ptr %99 to i64
+  %102 = ptrtoint ptr %100 to i64
+  %103 = sub i64 %101, %102
+  %104 = ashr exact i64 %103, 4
+  %105 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store i64 %104, ptr %105, align 8, !tbaa !36, !alias.scope !45
   %.sroa.4.0..sroa_idx1.i = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr %96, ptr %.sroa.4.0..sroa_idx1.i, align 8, !tbaa !61, !alias.scope !45
-  %102 = zext nneg i32 %53 to i64
-  %103 = load ptr, ptr %1, align 8, !tbaa !62
-  %104 = getelementptr inbounds nuw float, ptr %103, i64 %102
-  %105 = load float, ptr %104, align 4, !tbaa !21
-  %106 = fcmp uno float %105, 0.000000e+00
-  br i1 %106, label %107, label %112
+  store ptr %100, ptr %.sroa.4.0..sroa_idx1.i, align 8, !tbaa !61, !alias.scope !45
+  %106 = zext nneg i32 %57 to i64
+  %107 = load ptr, ptr %1, align 8, !tbaa !62
+  %108 = getelementptr inbounds nuw float, ptr %107, i64 %106
+  %109 = load float, ptr %108, align 4, !tbaa !21
+  %110 = fcmp uno float %109, 0.000000e+00
+  br i1 %110, label %111, label %116
 
-107:                                              ; preds = %76
-  %108 = icmp slt i32 %52, 0
-  %109 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %110 = load i32, ptr %109, align 4
-  %111 = select i1 %108, i32 %55, i32 %110
+111:                                              ; preds = %80
+  %112 = icmp slt i32 %56, 0
+  %113 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %114 = load i32, ptr %113, align 4
+  %115 = select i1 %112, i32 %59, i32 %114
   br label %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit
 
-112:                                              ; preds = %76
-  %113 = call noundef zeroext i1 @_ZN7xgboost9predictor11GetDecisionILb1EEEbRKNS_7RegTree4NodeEifRKNS2_22CategoricalSplitMatrixE(ptr noundef nonnull align 4 dereferenceable(20) %13, i32 noundef %3, float noundef %105, ptr noundef nonnull align 8 dereferenceable(48) %14)
-  %114 = xor i1 %113, true
-  %115 = zext i1 %114 to i32
-  %116 = add nuw nsw i32 %55, %115
-  %.pre = load i32, ptr %54, align 4, !tbaa !43
+116:                                              ; preds = %80
+  %117 = call noundef zeroext i1 @_ZN7xgboost9predictor11GetDecisionILb1EEEbRKNS_7RegTree4NodeEifRKNS2_22CategoricalSplitMatrixE(ptr noundef nonnull align 4 dereferenceable(20) %13, i32 noundef %3, float noundef %109, ptr noundef nonnull align 8 dereferenceable(48) %14)
+  %118 = xor i1 %117, true
+  %119 = zext i1 %118 to i32
+  %120 = add nuw nsw i32 %59, %119
+  %.pre = load i32, ptr %58, align 4, !tbaa !43
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.pre135 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre129 = load i32, ptr %.phi.trans.insert, align 4
   br label %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit
 
-_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit: ; preds = %107, %112
-  %117 = phi i32 [ %110, %107 ], [ %.pre135, %112 ]
-  %118 = phi i32 [ %55, %107 ], [ %.pre, %112 ]
-  %.0.i = phi i32 [ %111, %107 ], [ %116, %112 ]
-  %119 = icmp eq i32 %.0.i, %118
-  %120 = select i1 %119, i32 %117, i32 %118
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %122 = load ptr, ptr %121, align 8, !tbaa !65
-  %123 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %122, i64 %16, i32 1
-  %124 = load float, ptr %123, align 4, !tbaa !68
-  %125 = sext i32 %.0.i to i64
-  %126 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %122, i64 %125, i32 1
-  %127 = load float, ptr %126, align 4, !tbaa !68
-  %128 = fdiv float %127, %124
-  %129 = sext i32 %120 to i64
-  %130 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %122, i64 %129, i32 1
+_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit: ; preds = %111, %116
+  %121 = phi i32 [ %114, %111 ], [ %.pre129, %116 ]
+  %122 = phi i32 [ %59, %111 ], [ %.pre, %116 ]
+  %.0.i = phi i32 [ %115, %111 ], [ %120, %116 ]
+  %123 = icmp eq i32 %.0.i, %122
+  %124 = select i1 %123, i32 %121, i32 %122
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %126 = load ptr, ptr %125, align 8, !tbaa !65
+  %127 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %126, i64 %16, i32 1
+  %128 = load float, ptr %127, align 4, !tbaa !68
+  %129 = sext i32 %.0.i to i64
+  %130 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %126, i64 %129, i32 1
   %131 = load float, ptr %130, align 4, !tbaa !68
-  %132 = fdiv float %131, %124
-  br label %133
+  %132 = fdiv float %131, %128
+  %133 = sext i32 %124 to i64
+  %134 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %126, i64 %133, i32 1
+  %135 = load float, ptr %134, align 4, !tbaa !68
+  %136 = fdiv float %135, %128
+  br label %137
 
-133:                                              ; preds = %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit, %138
-  %.0102127 = phi i32 [ 0, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit ], [ %139, %138 ]
-  %134 = zext i32 %.0102127 to i64
-  %135 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %134
-  %136 = load i32, ptr %135, align 4, !tbaa !3
-  %137 = icmp eq i32 %136, %53
-  br i1 %137, label %140, label %138
+137:                                              ; preds = %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit, %142
+  %.0102125 = phi i32 [ 0, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit ], [ %143, %142 ]
+  %138 = zext i32 %.0102125 to i64
+  %139 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %138
+  %140 = load i32, ptr %139, align 4, !tbaa !3
+  %141 = icmp eq i32 %140, %57
+  br i1 %141, label %144, label %142
 
-138:                                              ; preds = %133
-  %139 = add i32 %.0102127, 1
-  %.not109 = icmp ugt i32 %139, %4
-  br i1 %.not109, label %140, label %133, !llvm.loop !70
+142:                                              ; preds = %137
+  %143 = add i32 %.0102125, 1
+  %.not109 = icmp ugt i32 %143, %4
+  br i1 %.not109, label %144, label %137, !llvm.loop !70
 
-140:                                              ; preds = %133, %138
-  %.0102.lcssa = phi i32 [ %.0102127, %133 ], [ %139, %138 ]
-  %141 = add i32 %4, 1
-  %.not110 = icmp eq i32 %.0102.lcssa, %141
-  br i1 %.not110, label %_ZN7xgboost10UnwindPathEPNS_11PathElementEjj.exit, label %142
+144:                                              ; preds = %137, %142
+  %.0102.lcssa = phi i32 [ %.0102125, %137 ], [ %143, %142 ]
+  %145 = add i32 %4, 1
+  %.not110 = icmp eq i32 %.0102.lcssa, %145
+  br i1 %.not110, label %_ZN7xgboost10UnwindPathEPNS_11PathElementEjj.exit, label %146
 
-142:                                              ; preds = %140
-  %143 = zext i32 %.0102.lcssa to i64
-  %144 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %143
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
-  %146 = load float, ptr %145, align 4, !tbaa !9
-  %147 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %148 = load float, ptr %147, align 4, !tbaa !10
+146:                                              ; preds = %144
+  %147 = zext i32 %.0102.lcssa to i64
+  %148 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %147
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  %150 = load float, ptr %149, align 4, !tbaa !9
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %152 = load float, ptr %151, align 4, !tbaa !10
   %.04951.i = add i32 %4, -1
-  %149 = icmp sgt i32 %.04951.i, -1
-  br i1 %149, label %.lr.ph.i114, label %.preheader.i
+  %153 = icmp sgt i32 %.04951.i, -1
+  br i1 %153, label %.lr.ph.i114, label %.preheader.i
 
-.lr.ph.i114:                                      ; preds = %142
-  %150 = fcmp une float %148, 0.000000e+00
-  %151 = uitofp i32 %141 to float
-  br i1 %150, label %.lr.ph.split.us.preheader.i, label %.lr.ph.split.preheader.i
+.lr.ph.i114:                                      ; preds = %146
+  %154 = fcmp une float %152, 0.000000e+00
+  %155 = uitofp i32 %145 to float
+  br i1 %154, label %.lr.ph.split.us.preheader.i, label %.lr.ph.split.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i114
-  %152 = zext nneg i32 %.04951.i to i64
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %21, i64 28
+  %156 = zext nneg i32 %.04951.i to i64
   br label %.lr.ph.split.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.i114
-  %153 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx118
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 12
-  %155 = load float, ptr %154, align 4, !tbaa !11
-  %156 = zext nneg i32 %.04951.i to i64
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %21, i64 28
+  %157 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx118
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 12
+  %159 = load float, ptr %158, align 4, !tbaa !11
+  %160 = zext nneg i32 %.04951.i to i64
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.preheader.i
-  %indvars.iv59.i = phi i64 [ %156, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next60.i, %.lr.ph.split.us.i ]
-  %.04853.us.i = phi float [ %155, %.lr.ph.split.us.preheader.i ], [ %168, %.lr.ph.split.us.i ]
-  %.049.in52.us.i = phi i32 [ %4, %.lr.ph.split.us.preheader.i ], [ %163, %.lr.ph.split.us.i ]
+  %indvars.iv59.i = phi i64 [ %160, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next60.i, %.lr.ph.split.us.i ]
+  %.04853.us.i = phi float [ %159, %.lr.ph.split.us.preheader.i ], [ %174, %.lr.ph.split.us.i ]
+  %.049.in52.us.i = phi i32 [ %4, %.lr.ph.split.us.preheader.i ], [ %169, %.lr.ph.split.us.i ]
   %.idx123 = shl nuw nsw i64 %indvars.iv59.i, 4
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx123
-  %157 = load float, ptr %gep131, align 4, !tbaa !11
-  %158 = fmul float %.04853.us.i, %151
-  %159 = uitofp nneg i32 %.049.in52.us.i to float
-  %160 = fmul float %148, %159
-  %161 = fdiv float %158, %160
-  store float %161, ptr %gep131, align 4, !tbaa !11
-  %162 = fmul float %146, %161
-  %163 = trunc nuw nsw i64 %indvars.iv59.i to i32
-  %164 = sub i32 %4, %163
-  %165 = uitofp i32 %164 to float
-  %166 = fmul float %162, %165
-  %167 = fdiv float %166, %151
-  %168 = fsub float %157, %167
+  %161 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx123
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 12
+  %163 = load float, ptr %162, align 4, !tbaa !11
+  %164 = fmul float %.04853.us.i, %155
+  %165 = uitofp nneg i32 %.049.in52.us.i to float
+  %166 = fmul float %152, %165
+  %167 = fdiv float %164, %166
+  store float %167, ptr %162, align 4, !tbaa !11
+  %168 = fmul float %150, %167
+  %169 = trunc nuw nsw i64 %indvars.iv59.i to i32
+  %170 = sub i32 %4, %169
+  %171 = uitofp i32 %170 to float
+  %172 = fmul float %168, %171
+  %173 = fdiv float %172, %155
+  %174 = fsub float %163, %173
   %indvars.iv.next60.i = add nsw i64 %indvars.iv59.i, -1
   %.not66.i = icmp eq i64 %indvars.iv59.i, 0
   br i1 %.not66.i, label %.preheader.i, label %.lr.ph.split.us.i, !llvm.loop !14
 
-.preheader.i:                                     ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %142
-  %169 = icmp ult i32 %.0102.lcssa, %4
-  br i1 %169, label %.lr.ph56.i, label %_ZN7xgboost10UnwindPathEPNS_11PathElementEjj.exit
+.preheader.i:                                     ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %146
+  %175 = icmp ult i32 %.0102.lcssa, %4
+  br i1 %175, label %.lr.ph56.i, label %_ZN7xgboost10UnwindPathEPNS_11PathElementEjj.exit
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.split.preheader.i
-  %indvars.iv.i115 = phi i64 [ %152, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i116, %.lr.ph.split.i ]
+  %indvars.iv.i115 = phi i64 [ %156, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i116, %.lr.ph.split.i ]
   %.idx121 = shl nuw nsw i64 %indvars.iv.i115, 4
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx121
-  %170 = load float, ptr %gep129, align 4, !tbaa !11
-  %171 = fmul float %170, %151
-  %172 = trunc nuw nsw i64 %indvars.iv.i115 to i32
-  %173 = sub i32 %4, %172
-  %174 = uitofp i32 %173 to float
-  %175 = fmul float %146, %174
-  %176 = fdiv float %171, %175
-  store float %176, ptr %gep129, align 4, !tbaa !11
+  %176 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx121
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 12
+  %178 = load float, ptr %177, align 4, !tbaa !11
+  %179 = fmul float %178, %155
+  %180 = trunc nuw nsw i64 %indvars.iv.i115 to i32
+  %181 = sub i32 %4, %180
+  %182 = uitofp i32 %181 to float
+  %183 = fmul float %150, %182
+  %184 = fdiv float %179, %183
+  store float %184, ptr %177, align 4, !tbaa !11
   %indvars.iv.next.i116 = add nsw i64 %indvars.iv.i115, -1
   %.not.i117 = icmp eq i64 %indvars.iv.i115, 0
   br i1 %.not.i117, label %.preheader.i, label %.lr.ph.split.i, !llvm.loop !16
 
 .lr.ph56.i:                                       ; preds = %.preheader.i, %.lr.ph56.i
-  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.lr.ph56.i ], [ %143, %.preheader.i ]
+  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.lr.ph56.i ], [ %147, %.preheader.i ]
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
-  %177 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %indvars.iv.next63.i
-  %178 = load i32, ptr %177, align 4, !tbaa !3
-  %179 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %indvars.iv62.i
-  store i32 %178, ptr %179, align 4, !tbaa !3
-  %180 = getelementptr inbounds nuw i8, ptr %177, i64 4
-  %181 = load float, ptr %180, align 4, !tbaa !9
-  %182 = getelementptr inbounds nuw i8, ptr %179, i64 4
-  store float %181, ptr %182, align 4, !tbaa !9
-  %183 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %184 = load float, ptr %183, align 4, !tbaa !10
-  %185 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  store float %184, ptr %185, align 4, !tbaa !10
+  %185 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %indvars.iv.next63.i
+  %186 = load i32, ptr %185, align 4, !tbaa !3
+  %187 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %indvars.iv62.i
+  store i32 %186, ptr %187, align 4, !tbaa !3
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 4
+  %189 = load float, ptr %188, align 4, !tbaa !9
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 4
+  store float %189, ptr %190, align 4, !tbaa !9
+  %191 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %192 = load float, ptr %191, align 4, !tbaa !10
+  %193 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  store float %192, ptr %193, align 4, !tbaa !10
   %exitcond.not.i = icmp eq i64 %indvars.iv.next63.i, %20
   br i1 %exitcond.not.i, label %_ZN7xgboost10UnwindPathEPNS_11PathElementEjj.exit, label %.lr.ph56.i, !llvm.loop !17
 
-_ZN7xgboost10UnwindPathEPNS_11PathElementEjj.exit: ; preds = %.lr.ph56.i, %.preheader.i, %140
-  %.0105 = phi i32 [ %4, %140 ], [ %.04951.i, %.preheader.i ], [ %.04951.i, %.lr.ph56.i ]
-  %.0104 = phi float [ 1.000000e+00, %140 ], [ %146, %.preheader.i ], [ %146, %.lr.ph56.i ]
-  %.0103 = phi float [ 1.000000e+00, %140 ], [ %148, %.preheader.i ], [ %148, %.lr.ph56.i ]
-  %186 = icmp sgt i32 %9, 0
-  %187 = icmp eq i32 %53, %10
-  %or.cond112 = and i1 %186, %187
-  br i1 %or.cond112, label %188, label %190
+_ZN7xgboost10UnwindPathEPNS_11PathElementEjj.exit: ; preds = %.lr.ph56.i, %.preheader.i, %144
+  %.0105 = phi i32 [ %4, %144 ], [ %.04951.i, %.preheader.i ], [ %.04951.i, %.lr.ph56.i ]
+  %.0104 = phi float [ 1.000000e+00, %144 ], [ %150, %.preheader.i ], [ %150, %.lr.ph56.i ]
+  %.0103 = phi float [ 1.000000e+00, %144 ], [ %152, %.preheader.i ], [ %152, %.lr.ph56.i ]
+  %194 = icmp sgt i32 %9, 0
+  %195 = icmp eq i32 %57, %10
+  %or.cond112 = and i1 %194, %195
+  br i1 %or.cond112, label %196, label %198
 
-188:                                              ; preds = %_ZN7xgboost10UnwindPathEPNS_11PathElementEjj.exit
-  %189 = add i32 %.0105, -1
-  br label %196
+196:                                              ; preds = %_ZN7xgboost10UnwindPathEPNS_11PathElementEjj.exit
+  %197 = add i32 %.0105, -1
+  br label %204
 
-190:                                              ; preds = %_ZN7xgboost10UnwindPathEPNS_11PathElementEjj.exit
-  %191 = icmp slt i32 %9, 0
-  %or.cond113 = and i1 %191, %187
-  br i1 %or.cond113, label %192, label %196
+198:                                              ; preds = %_ZN7xgboost10UnwindPathEPNS_11PathElementEjj.exit
+  %199 = icmp slt i32 %9, 0
+  %or.cond113 = and i1 %199, %195
+  br i1 %or.cond113, label %200, label %204
 
-192:                                              ; preds = %190
-  %193 = fmul float %11, %128
-  %194 = fmul float %11, %132
-  %195 = add i32 %.0105, -1
-  br label %196
+200:                                              ; preds = %198
+  %201 = fmul float %11, %132
+  %202 = fmul float %11, %136
+  %203 = add i32 %.0105, -1
+  br label %204
 
-196:                                              ; preds = %190, %192, %188
-  %.1 = phi i32 [ %189, %188 ], [ %195, %192 ], [ %.0105, %190 ]
-  %.0101 = phi float [ %11, %188 ], [ %193, %192 ], [ %11, %190 ]
-  %.0 = phi float [ 0.000000e+00, %188 ], [ %194, %192 ], [ %11, %190 ]
-  %197 = add i32 %.1, 1
-  %198 = fmul float %128, %.0104
-  call void @_ZN7xgboost8TreeShapERKNS_7RegTreeERKNS0_4FVecEPfijPNS_11PathElementEffiijf(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %2, i32 noundef %.0.i, i32 noundef %197, ptr noundef nonnull %22, float noundef %198, float noundef %.0103, i32 noundef %53, i32 noundef %9, i32 noundef %10, float noundef %.0101)
-  %199 = fmul float %132, %.0104
-  call void @_ZN7xgboost8TreeShapERKNS_7RegTreeERKNS0_4FVecEPfijPNS_11PathElementEffiijf(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %2, i32 noundef %120, i32 noundef %197, ptr noundef nonnull %22, float noundef %199, float noundef 0.000000e+00, i32 noundef %53, i32 noundef %9, i32 noundef %10, float noundef %.0)
+204:                                              ; preds = %198, %200, %196
+  %.1 = phi i32 [ %197, %196 ], [ %203, %200 ], [ %.0105, %198 ]
+  %.0101 = phi float [ %11, %196 ], [ %201, %200 ], [ %11, %198 ]
+  %.0 = phi float [ 0.000000e+00, %196 ], [ %202, %200 ], [ %11, %198 ]
+  %205 = add i32 %.1, 1
+  %206 = fmul float %132, %.0104
+  call void @_ZN7xgboost8TreeShapERKNS_7RegTreeERKNS0_4FVecEPfijPNS_11PathElementEffiijf(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %2, i32 noundef %.0.i, i32 noundef %205, ptr noundef nonnull %22, float noundef %206, float noundef %.0103, i32 noundef %57, i32 noundef %9, i32 noundef %10, float noundef %.0101)
+  %207 = fmul float %136, %.0104
+  call void @_ZN7xgboost8TreeShapERKNS_7RegTreeERKNS0_4FVecEPfijPNS_11PathElementEffiijf(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %2, i32 noundef %124, i32 noundef %205, ptr noundef nonnull %22, float noundef %207, float noundef 0.000000e+00, i32 noundef %57, i32 noundef %9, i32 noundef %10, float noundef %.0)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %.preheader, %196, %12
+.loopexit:                                        ; preds = %63, %.preheader, %204, %12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #13
   ret void
 }

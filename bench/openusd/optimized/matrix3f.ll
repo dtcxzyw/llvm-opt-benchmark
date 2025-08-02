@@ -174,7 +174,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKSt6vectorIS1_
   br label %13
 
 13:                                               ; preds = %2, %.critedge2
-  %.01618 = phi i64 [ 0, %2 ], [ %29, %.critedge2 ]
+  %.01618 = phi i64 [ 0, %2 ], [ %30, %.critedge2 ]
   %exitcond20.not = icmp eq i64 %.01618, %12
   br i1 %exitcond20.not, label %.critedge, label %.preheader
 
@@ -187,27 +187,121 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKSt6vectorIS1_
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 3
-  br label %22
+  %22 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %.01618
+  br label %23
 
-22:                                               ; preds = %.preheader, %23
-  %.017 = phi i64 [ 0, %.preheader ], [ %28, %23 ]
+23:                                               ; preds = %.preheader, %24
+  %.017 = phi i64 [ 0, %.preheader ], [ %29, %24 ]
   %exitcond.not = icmp eq i64 %.017, %21
-  br i1 %exitcond.not, label %.critedge2, label %23
+  br i1 %exitcond.not, label %.critedge2, label %24
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw double, ptr %17, i64 %.017
-  %25 = load double, ptr %24, align 8
-  %26 = fptrunc double %25 to float
-  %27 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %.01618, i64 %.017
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw double, ptr %17, i64 %.017
+  %26 = load double, ptr %25, align 8
+  %27 = fptrunc double %26 to float
+  %28 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %.017
+  store float %27, ptr %28, align 4
+  %29 = add nuw nsw i64 %.017, 1
+  %exitcond19.not = icmp eq i64 %29, 3
+  br i1 %exitcond19.not, label %.critedge2, label %23, !llvm.loop !4
+
+.critedge2:                                       ; preds = %23, %24
+  %30 = add nuw nsw i64 %.01618, 1
+  %exitcond21.not = icmp eq i64 %30, 3
+  br i1 %exitcond21.not, label %.critedge, label %13, !llvm.loop !6
+
+.critedge:                                        ; preds = %.critedge2, %13
+  %31 = load float, ptr %3, align 16
+  store float %31, ptr %0, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %33 = load float, ptr %32, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %33, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %36 = load float, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %36, ptr %37, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %39 = load float, ptr %38, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %39, ptr %40, align 4
+  %41 = load float, ptr %4, align 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %41, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %44 = load float, ptr %43, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %44, ptr %45, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %47 = load float, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %47, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %50 = load float, ptr %49, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %50, ptr %51, align 4
+  %52 = load float, ptr %5, align 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %52, ptr %53, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKSt6vectorIS1_IfSaIfEESaIS3_EE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(36) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 align 2 {
+  %3 = alloca [3 x [3 x float]], align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %3, i8 0, i64 32, i1 false)
+  store float 1.000000e+00, ptr %3, align 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store float 1.000000e+00, ptr %4, align 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store float 1.000000e+00, ptr %5, align 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %1, align 8
+  %9 = ptrtoint ptr %7 to i64
+  %10 = ptrtoint ptr %8 to i64
+  %11 = sub i64 %9, %10
+  %12 = sdiv exact i64 %11, 24
+  br label %13
+
+13:                                               ; preds = %2, %.critedge2
+  %.01618 = phi i64 [ 0, %2 ], [ %29, %.critedge2 ]
+  %exitcond20.not = icmp eq i64 %.01618, %12
+  br i1 %exitcond20.not, label %.critedge, label %.preheader
+
+.preheader:                                       ; preds = %13
+  %14 = getelementptr inbounds nuw %"class.std::vector.11", ptr %8, i64 %.01618
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %14, align 8
+  %18 = ptrtoint ptr %16 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = sub i64 %18, %19
+  %21 = ashr exact i64 %20, 2
+  %22 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %.01618
+  br label %23
+
+23:                                               ; preds = %.preheader, %24
+  %.017 = phi i64 [ 0, %.preheader ], [ %28, %24 ]
+  %exitcond.not = icmp eq i64 %.017, %21
+  br i1 %exitcond.not, label %.critedge2, label %24
+
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw float, ptr %17, i64 %.017
+  %26 = load float, ptr %25, align 4
+  %27 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %.017
   store float %26, ptr %27, align 4
   %28 = add nuw nsw i64 %.017, 1
   %exitcond19.not = icmp eq i64 %28, 3
-  br i1 %exitcond19.not, label %.critedge2, label %22, !llvm.loop !4
+  br i1 %exitcond19.not, label %.critedge2, label %23, !llvm.loop !7
 
-.critedge2:                                       ; preds = %22, %23
+.critedge2:                                       ; preds = %23, %24
   %29 = add nuw nsw i64 %.01618, 1
   %exitcond21.not = icmp eq i64 %29, 3
-  br i1 %exitcond21.not, label %.critedge, label %13, !llvm.loop !6
+  br i1 %exitcond21.not, label %.critedge, label %13, !llvm.loop !8
 
 .critedge:                                        ; preds = %.critedge2, %13
   %30 = load float, ptr %3, align 16
@@ -242,98 +336,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKSt6vectorIS1_
   %51 = load float, ptr %5, align 16
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %51, ptr %52, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fC2ERKSt6vectorIS1_IfSaIfEESaIS3_EE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(36) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 align 2 {
-  %3 = alloca [3 x [3 x float]], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %3, i8 0, i64 32, i1 false)
-  store float 1.000000e+00, ptr %3, align 16
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store float 1.000000e+00, ptr %4, align 16
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store float 1.000000e+00, ptr %5, align 16
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %1, align 8
-  %9 = ptrtoint ptr %7 to i64
-  %10 = ptrtoint ptr %8 to i64
-  %11 = sub i64 %9, %10
-  %12 = sdiv exact i64 %11, 24
-  br label %13
-
-13:                                               ; preds = %2, %.critedge2
-  %.01618 = phi i64 [ 0, %2 ], [ %28, %.critedge2 ]
-  %exitcond20.not = icmp eq i64 %.01618, %12
-  br i1 %exitcond20.not, label %.critedge, label %.preheader
-
-.preheader:                                       ; preds = %13
-  %14 = getelementptr inbounds nuw %"class.std::vector.11", ptr %8, i64 %.01618
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %14, align 8
-  %18 = ptrtoint ptr %16 to i64
-  %19 = ptrtoint ptr %17 to i64
-  %20 = sub i64 %18, %19
-  %21 = ashr exact i64 %20, 2
-  br label %22
-
-22:                                               ; preds = %.preheader, %23
-  %.017 = phi i64 [ 0, %.preheader ], [ %27, %23 ]
-  %exitcond.not = icmp eq i64 %.017, %21
-  br i1 %exitcond.not, label %.critedge2, label %23
-
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw float, ptr %17, i64 %.017
-  %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds nuw [3 x [3 x float]], ptr %3, i64 0, i64 %.01618, i64 %.017
-  store float %25, ptr %26, align 4
-  %27 = add nuw nsw i64 %.017, 1
-  %exitcond19.not = icmp eq i64 %27, 3
-  br i1 %exitcond19.not, label %.critedge2, label %22, !llvm.loop !7
-
-.critedge2:                                       ; preds = %22, %23
-  %28 = add nuw nsw i64 %.01618, 1
-  %exitcond21.not = icmp eq i64 %28, 3
-  br i1 %exitcond21.not, label %.critedge, label %13, !llvm.loop !8
-
-.critedge:                                        ; preds = %.critedge2, %13
-  %29 = load float, ptr %3, align 16
-  store float %29, ptr %0, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %31 = load float, ptr %30, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %31, ptr %32, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %34 = load float, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %34, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %37 = load float, ptr %36, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %37, ptr %38, align 4
-  %39 = load float, ptr %4, align 16
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %39, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %42 = load float, ptr %41, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %42, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %45 = load float, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %45, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %48 = load float, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %48, ptr %49, align 4
-  %50 = load float, ptr %5, align 16
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %50, ptr %51, align 4
   ret void
 }
 

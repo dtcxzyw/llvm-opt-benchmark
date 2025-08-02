@@ -3003,35 +3003,35 @@ define dso_local noundef i32 @cluster_utilization(i32 noundef %0, ptr noundef re
   %35 = tail call i32 @parse_option_end(ptr noundef %34) #9
   %.not88.i.i = icmp eq i32 %35, 0
   %36 = load ptr, ptr %33, align 8
-  br i1 %.not88.i.i, label %.thread.i.i, label %39
+  br i1 %.not88.i.i, label %.thread.i.i, label %41
 
 .thread.i.i:                                      ; preds = %32
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #10
   %38 = trunc i64 %37 to i32
-  br label %46
+  %39 = tail call i32 @llvm.smax.i32(i32 %38, i32 1)
+  %40 = zext nneg i32 %39 to i64
+  br label %48
 
-39:                                               ; preds = %32
-  %40 = sext i32 %35 to i64
-  %41 = getelementptr inbounds i8, ptr %36, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = icmp eq i8 %42, 61
-  br i1 %43, label %44, label %.critedge.i.i
+41:                                               ; preds = %32
+  %42 = sext i32 %35 to i64
+  %43 = getelementptr inbounds i8, ptr %36, i64 %42
+  %44 = load i8, ptr %43, align 1
+  %45 = icmp eq i8 %44, 61
+  br i1 %45, label %46, label %.critedge.i.i
 
-44:                                               ; preds = %39
-  %45 = add nsw i32 %35, 1
-  %.not89.i.i = icmp eq i32 %45, 0
-  br i1 %.not89.i.i, label %46, label %.critedge.i.i
+46:                                               ; preds = %41
+  %47 = add nsw i32 %35, 1
+  %.not89.i.i = icmp eq i32 %47, 0
+  br i1 %.not89.i.i, label %48, label %.critedge.i.i
 
-46:                                               ; preds = %44, %.thread.i.i
-  %.0102.i.i = phi i32 [ %38, %.thread.i.i ], [ -2, %44 ]
-  %47 = tail call i32 @llvm.smax.i32(i32 %.0102.i.i, i32 1)
-  %48 = zext nneg i32 %47 to i64
-  %49 = tail call i32 @xstrncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.25, i64 noundef %48) #9
+48:                                               ; preds = %46, %.thread.i.i
+  %.0102.i.i = phi i64 [ %40, %.thread.i.i ], [ 1, %46 ]
+  %49 = tail call i32 @xstrncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.25, i64 noundef %.0102.i.i) #9
   %.not90.i.i = icmp eq i32 %49, 0
   br i1 %.not90.i.i, label %89, label %54
 
-.critedge.i.i:                                    ; preds = %44, %39
-  %.07499.i.i = phi i32 [ %45, %44 ], [ %35, %39 ]
+.critedge.i.i:                                    ; preds = %46, %41
+  %.07499.i.i = phi i32 [ %47, %46 ], [ %35, %41 ]
   %50 = tail call i32 @llvm.smax.i32(i32 %35, i32 2)
   %51 = add nsw i32 %50, -1
   %52 = zext nneg i32 %51 to i64
@@ -3039,8 +3039,8 @@ define dso_local noundef i32 @cluster_utilization(i32 noundef %0, ptr noundef re
   %.not91.i.i = icmp eq i32 %53, 0
   br i1 %.not91.i.i, label %54, label %60
 
-54:                                               ; preds = %.critedge.i.i, %46
-  %.074100.i.i = phi i32 [ %.07499.i.i, %.critedge.i.i ], [ 0, %46 ]
+54:                                               ; preds = %.critedge.i.i, %48
+  %.074100.i.i = phi i32 [ %.07499.i.i, %.critedge.i.i ], [ 0, %48 ]
   %55 = load ptr, ptr %19, align 8
   %56 = load ptr, ptr %33, align 8
   %57 = sext i32 %.074100.i.i to i64
@@ -3100,8 +3100,8 @@ define dso_local noundef i32 @cluster_utilization(i32 noundef %0, ptr noundef re
   %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.35, ptr noundef %87) #11
   br label %89
 
-89:                                               ; preds = %85, %80, %72, %71, %64, %54, %46
-  %.1.i.i = phi i32 [ %.073110.i.i, %85 ], [ %.073110.i.i, %80 ], [ %.073110.i.i, %72 ], [ %.073110.i.i, %71 ], [ %.073110.i.i, %64 ], [ %.073110.i.i, %54 ], [ 1, %46 ]
+89:                                               ; preds = %85, %80, %72, %71, %64, %54, %48
+  %.1.i.i = phi i32 [ %.073110.i.i, %85 ], [ %.073110.i.i, %80 ], [ %.073110.i.i, %72 ], [ %.073110.i.i, %71 ], [ %.073110.i.i, %64 ], [ %.073110.i.i, %54 ], [ 1, %48 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %90 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %90, label %._crit_edge.i.i, label %32, !llvm.loop !32

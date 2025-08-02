@@ -11,13 +11,13 @@ define dso_local noundef range(i32 0, 35) i32 @acpi_ut_convert_octal_string(ptr 
   %3 = alloca i64, align 8
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %.thread9, label %.preheader
+  br i1 %5, label %.thread8, label %.preheader
 
 6:                                                ; preds = %35
   %7 = getelementptr i8, ptr %11, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %.thread9, label %.preheader, !llvm.loop !5
+  br i1 %9, label %.thread8, label %.preheader, !llvm.loop !5
 
 .preheader:                                       ; preds = %2, %6
   %10 = phi i8 [ %8, %6 ], [ %4, %2 ]
@@ -26,7 +26,7 @@ define dso_local noundef range(i32 0, 35) i32 @acpi_ut_convert_octal_string(ptr 
   %13 = zext i8 %10 to i32
   %14 = and i8 %10, -8
   %15 = icmp eq i8 %14, 48
-  br i1 %15, label %16, label %.thread9
+  br i1 %15, label %16, label %.thread8
 
 16:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
@@ -42,11 +42,7 @@ define dso_local noundef range(i32 0, 35) i32 @acpi_ut_convert_octal_string(ptr 
   %19 = call i32 @acpi_ut_short_divide(i64 noundef -1, i32 noundef 8, ptr noundef nonnull %3, ptr noundef null) #5
   %20 = load i64, ptr %3, align 8
   %21 = icmp ult i64 %20, %12
-  br i1 %21, label %.thread8, label %22
-
-.thread8:                                         ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  br label %.thread9
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %18
   %23 = shl i64 %12, 3
@@ -55,7 +51,7 @@ define dso_local noundef range(i32 0, 35) i32 @acpi_ut_convert_octal_string(ptr 
   %26 = icmp ult i64 %23, 4294967296
   %.not7 = select i1 %25, i1 true, i1 %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  br i1 %.not7, label %27, label %.thread9
+  br i1 %.not7, label %27, label %.thread8
 
 27:                                               ; preds = %.thread, %22
   %28 = phi i64 [ 0, %.thread ], [ %23, %22 ]
@@ -65,7 +61,11 @@ define dso_local noundef range(i32 0, 35) i32 @acpi_ut_convert_octal_string(ptr 
   %32 = xor i64 %28, -1
   %33 = icmp ugt i64 %31, %32
   %34 = select i1 %30, i1 %33, i1 false
-  br i1 %34, label %.thread9, label %35
+  br i1 %34, label %.thread8, label %35
+
+.critedge:                                        ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  br label %.thread8
 
 35:                                               ; preds = %27
   %36 = add i64 %28, %31
@@ -73,11 +73,11 @@ define dso_local noundef range(i32 0, 35) i32 @acpi_ut_convert_octal_string(ptr 
   %38 = icmp ne i8 %37, 32
   %39 = icmp ult i64 %36, 4294967296
   %.not5 = select i1 %38, i1 true, i1 %39
-  br i1 %.not5, label %6, label %.thread9
+  br i1 %.not5, label %6, label %.thread8
 
-.thread9:                                         ; preds = %22, %27, %35, %.preheader, %6, %.thread8, %2
-  %40 = phi i64 [ 0, %2 ], [ %12, %.thread8 ], [ %12, %22 ], [ %12, %27 ], [ %12, %35 ], [ %12, %.preheader ], [ %36, %6 ]
-  %41 = phi i32 [ 0, %2 ], [ 34, %.thread8 ], [ 34, %22 ], [ 34, %27 ], [ 34, %35 ], [ 0, %.preheader ], [ 0, %6 ]
+.thread8:                                         ; preds = %22, %27, %35, %.preheader, %6, %.critedge, %2
+  %40 = phi i64 [ 0, %2 ], [ %12, %.critedge ], [ %12, %22 ], [ %12, %27 ], [ %12, %35 ], [ %12, %.preheader ], [ %36, %6 ]
+  %41 = phi i32 [ 0, %2 ], [ 34, %.critedge ], [ 34, %22 ], [ 34, %27 ], [ 34, %35 ], [ 0, %.preheader ], [ 0, %6 ]
   store i64 %40, ptr %1, align 8
   ret i32 %41
 }
@@ -93,13 +93,13 @@ define dso_local noundef range(i32 0, 34) i32 @acpi_ut_convert_decimal_string(pt
   %3 = alloca i64, align 8
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %.thread9, label %.preheader
+  br i1 %5, label %.thread8, label %.preheader
 
 6:                                                ; preds = %35
   %7 = getelementptr i8, ptr %11, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %.thread9, label %.preheader, !llvm.loop !9
+  br i1 %9, label %.thread8, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %2, %6
   %10 = phi i8 [ %8, %6 ], [ %4, %2 ]
@@ -108,7 +108,7 @@ define dso_local noundef range(i32 0, 34) i32 @acpi_ut_convert_decimal_string(pt
   %13 = zext i8 %10 to i32
   %14 = add nsw i32 %13, -58
   %15 = icmp ult i32 %14, -10
-  br i1 %15, label %.thread9, label %16
+  br i1 %15, label %.thread8, label %16
 
 16:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
@@ -124,11 +124,7 @@ define dso_local noundef range(i32 0, 34) i32 @acpi_ut_convert_decimal_string(pt
   %19 = call i32 @acpi_ut_short_divide(i64 noundef -1, i32 noundef 10, ptr noundef nonnull %3, ptr noundef null) #5
   %20 = load i64, ptr %3, align 8
   %21 = icmp ult i64 %20, %12
-  br i1 %21, label %.thread8, label %22
-
-.thread8:                                         ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  br label %.thread9
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %18
   %23 = mul i64 %12, 10
@@ -137,7 +133,7 @@ define dso_local noundef range(i32 0, 34) i32 @acpi_ut_convert_decimal_string(pt
   %26 = icmp ult i64 %23, 4294967296
   %.not7 = select i1 %25, i1 true, i1 %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  br i1 %.not7, label %27, label %.thread9
+  br i1 %.not7, label %27, label %.thread8
 
 27:                                               ; preds = %.thread, %22
   %28 = phi i64 [ 0, %.thread ], [ %23, %22 ]
@@ -147,7 +143,11 @@ define dso_local noundef range(i32 0, 34) i32 @acpi_ut_convert_decimal_string(pt
   %32 = xor i64 %28, -1
   %33 = icmp ugt i64 %31, %32
   %34 = select i1 %30, i1 %33, i1 false
-  br i1 %34, label %.thread9, label %35
+  br i1 %34, label %.thread8, label %35
+
+.critedge:                                        ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  br label %.thread8
 
 35:                                               ; preds = %27
   %36 = add i64 %28, %31
@@ -155,11 +155,11 @@ define dso_local noundef range(i32 0, 34) i32 @acpi_ut_convert_decimal_string(pt
   %38 = icmp ne i8 %37, 32
   %39 = icmp ult i64 %36, 4294967296
   %.not5 = select i1 %38, i1 true, i1 %39
-  br i1 %.not5, label %6, label %.thread9
+  br i1 %.not5, label %6, label %.thread8
 
-.thread9:                                         ; preds = %22, %27, %35, %.preheader, %6, %.thread8, %2
-  %40 = phi i64 [ 0, %2 ], [ %12, %.thread8 ], [ %12, %22 ], [ %12, %27 ], [ %12, %35 ], [ %12, %.preheader ], [ %36, %6 ]
-  %41 = phi i32 [ 0, %2 ], [ 33, %.thread8 ], [ 33, %22 ], [ 33, %27 ], [ 33, %35 ], [ 0, %.preheader ], [ 0, %6 ]
+.thread8:                                         ; preds = %22, %27, %35, %.preheader, %6, %.critedge, %2
+  %40 = phi i64 [ 0, %2 ], [ %12, %.critedge ], [ %12, %22 ], [ %12, %27 ], [ %12, %35 ], [ %12, %.preheader ], [ %36, %6 ]
+  %41 = phi i32 [ 0, %2 ], [ 33, %.critedge ], [ 33, %22 ], [ 33, %27 ], [ 33, %35 ], [ 0, %.preheader ], [ 0, %6 ]
   store i64 %40, ptr %1, align 8
   ret i32 %41
 }
@@ -169,13 +169,13 @@ define dso_local noundef range(i32 0, 33) i32 @acpi_ut_convert_hex_string(ptr no
   %3 = alloca i64, align 8
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %.thread9, label %.preheader
+  br i1 %5, label %.thread8, label %.preheader
 
 6:                                                ; preds = %38
   %7 = getelementptr i8, ptr %11, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %.thread9, label %.preheader, !llvm.loop !10
+  br i1 %9, label %.thread8, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %2, %6
   %10 = phi i8 [ %8, %6 ], [ %4, %2 ]
@@ -186,7 +186,7 @@ define dso_local noundef range(i32 0, 33) i32 @acpi_ut_convert_hex_string(ptr no
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 68
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %.thread9, label %18
+  br i1 %17, label %.thread8, label %18
 
 18:                                               ; preds = %.preheader
   %19 = zext i8 %10 to i32
@@ -203,11 +203,7 @@ define dso_local noundef range(i32 0, 33) i32 @acpi_ut_convert_hex_string(ptr no
   %22 = call i32 @acpi_ut_short_divide(i64 noundef -1, i32 noundef 16, ptr noundef nonnull %3, ptr noundef null) #5
   %23 = load i64, ptr %3, align 8
   %24 = icmp ult i64 %23, %12
-  br i1 %24, label %.thread8, label %25
-
-.thread8:                                         ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  br label %.thread9
+  br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %21
   %26 = shl i64 %12, 4
@@ -216,7 +212,7 @@ define dso_local noundef range(i32 0, 33) i32 @acpi_ut_convert_hex_string(ptr no
   %29 = icmp ult i64 %26, 4294967296
   %.not7 = select i1 %28, i1 true, i1 %29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  br i1 %.not7, label %30, label %.thread9
+  br i1 %.not7, label %30, label %.thread8
 
 30:                                               ; preds = %.thread, %25
   %31 = phi i64 [ 0, %.thread ], [ %26, %25 ]
@@ -226,7 +222,11 @@ define dso_local noundef range(i32 0, 33) i32 @acpi_ut_convert_hex_string(ptr no
   %35 = xor i64 %31, -1
   %36 = icmp ugt i64 %34, %35
   %37 = select i1 %33, i1 %36, i1 false
-  br i1 %37, label %.thread9, label %38
+  br i1 %37, label %.thread8, label %38
+
+.critedge:                                        ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  br label %.thread8
 
 38:                                               ; preds = %30
   %39 = add i64 %31, %34
@@ -234,11 +234,11 @@ define dso_local noundef range(i32 0, 33) i32 @acpi_ut_convert_hex_string(ptr no
   %41 = icmp ne i8 %40, 32
   %42 = icmp ult i64 %39, 4294967296
   %.not5 = select i1 %41, i1 true, i1 %42
-  br i1 %.not5, label %6, label %.thread9
+  br i1 %.not5, label %6, label %.thread8
 
-.thread9:                                         ; preds = %25, %30, %38, %.preheader, %6, %.thread8, %2
-  %43 = phi i64 [ 0, %2 ], [ %12, %.thread8 ], [ %12, %25 ], [ %12, %30 ], [ %12, %38 ], [ %12, %.preheader ], [ %39, %6 ]
-  %44 = phi i32 [ 0, %2 ], [ 32, %.thread8 ], [ 32, %25 ], [ 32, %30 ], [ 32, %38 ], [ 0, %.preheader ], [ 0, %6 ]
+.thread8:                                         ; preds = %25, %30, %38, %.preheader, %6, %.critedge, %2
+  %43 = phi i64 [ 0, %2 ], [ %12, %.critedge ], [ %12, %25 ], [ %12, %30 ], [ %12, %38 ], [ %12, %.preheader ], [ %39, %6 ]
+  %44 = phi i32 [ 0, %2 ], [ 32, %.critedge ], [ 32, %25 ], [ 32, %30 ], [ 32, %38 ], [ 0, %.preheader ], [ 0, %6 ]
   store i64 %43, ptr %1, align 8
   ret i32 %44
 }

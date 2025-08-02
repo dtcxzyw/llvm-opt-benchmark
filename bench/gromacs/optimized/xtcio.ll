@@ -77,58 +77,59 @@ define noundef range(i32 0, 2) i32 @_Z9write_xtcP8t_fileioilfPA3_KfS3_f(ptr noun
   %21 = load i32, ptr %12, align 4, !tbaa !4
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %29, %20
-  %indvars.iv29.i = phi i64 [ 0, %20 ], [ %indvars.iv.next30.i, %29 ]
-  br label %22
+.preheader.i:                                     ; preds = %30, %20
+  %indvars.iv29.i = phi i64 [ 0, %20 ], [ %indvars.iv.next30.i, %30 ]
+  %22 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv29.i
+  br label %23
 
-22:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
+23:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
-  %23 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
-  %24 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %17, ptr noundef %23)
-  %.not25.not.i = icmp eq i32 %24, 0
-  br i1 %.not25.not.i, label %25, label %_ZL9xtc_checkPKcbS0_i.exit.i
+  %24 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %indvars.iv.i
+  %25 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %17, ptr noundef %24)
+  %.not25.not.i = icmp eq i32 %25, 0
+  br i1 %.not25.not.i, label %26, label %_ZL9xtc_checkPKcbS0_i.exit.i
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr @debug, align 8, !tbaa !12
-  %.not.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread, label %27
+26:                                               ; preds = %23
+  %27 = load ptr, ptr @debug, align 8, !tbaa !12
+  %.not.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread, label %28
 
-27:                                               ; preds = %25
-  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %26, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 152) #11
+28:                                               ; preds = %26
+  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 152) #11
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread
 
-_ZL9xtc_checkPKcbS0_i.exit.i:                     ; preds = %22
+_ZL9xtc_checkPKcbS0_i.exit.i:                     ; preds = %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not, label %29, label %22, !llvm.loop !15
+  br i1 %exitcond.not, label %30, label %23, !llvm.loop !15
 
-29:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i
+30:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next30.i, 3
-  br i1 %exitcond16.not, label %30, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond16.not, label %31, label %.preheader.i, !llvm.loop !17
 
-30:                                               ; preds = %29
-  %31 = call noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %17, ptr noundef %5, ptr noundef nonnull %8, ptr noundef nonnull %11, i32 noundef %21)
-  %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %32, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
+31:                                               ; preds = %30
+  %32 = call noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %17, ptr noundef %5, ptr noundef nonnull %8, ptr noundef nonnull %11, i32 noundef %21)
+  %.not.i = icmp eq i32 %32, 0
+  br i1 %.not.i, label %33, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr @debug, align 8, !tbaa !12
-  %.not.i22.i = icmp eq ptr %33, null
-  br i1 %.not.i22.i, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread, label %34
+33:                                               ; preds = %31
+  %34 = load ptr, ptr @debug, align 8, !tbaa !12
+  %.not.i22.i = icmp eq ptr %34, null
+  br i1 %.not.i22.i, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread, label %35
 
-34:                                               ; preds = %32
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %33, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 191) #11
+35:                                               ; preds = %33
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %34, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 191) #11
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread
 
-_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit:            ; preds = %30
-  %36 = call noundef i32 @_Z13gmx_fio_flushP8t_fileio(ptr noundef nonnull %0)
-  %.not13 = icmp eq i32 %36, 0
+_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit:            ; preds = %31
+  %37 = call noundef i32 @_Z13gmx_fio_flushP8t_fileio(ptr noundef nonnull %0)
+  %.not13 = icmp eq i32 %37, 0
   %spec.select = zext i1 %.not13 to i32
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread
 
-_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread:     ; preds = %27, %25, %32, %34, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit, %16, %7
-  %.09 = phi i32 [ 1, %7 ], [ 0, %16 ], [ %spec.select, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit ], [ 0, %34 ], [ 0, %32 ], [ 0, %25 ], [ 0, %27 ]
+_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread:     ; preds = %28, %26, %33, %35, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit, %16, %7
+  %.09 = phi i32 [ 1, %7 ], [ 0, %16 ], [ %spec.select, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit ], [ 0, %35 ], [ 0, %33 ], [ 0, %26 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #11
   ret i32 %.09
@@ -237,7 +238,7 @@ define noundef range(i32 0, 2) i32 @_Z14read_first_xtcP8t_fileioPiPlPfPA3_fPS5_S
   %11 = tail call noundef ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef %0)
   %12 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %11, ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7)
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %38, label %13
+  br i1 %.not, label %39, label %13
 
 13:                                               ; preds = %8
   %14 = load i32, ptr %10, align 4, !tbaa !4
@@ -270,57 +271,58 @@ _ZL15check_xtc_magici.exit:                       ; preds = %13, %13
   %22 = load i32, ptr %10, align 4, !tbaa !4
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %30, %_ZL15check_xtc_magici.exit
-  %indvars.iv29.i = phi i64 [ 0, %_ZL15check_xtc_magici.exit ], [ %indvars.iv.next30.i, %30 ]
-  br label %23
+.preheader.i:                                     ; preds = %31, %_ZL15check_xtc_magici.exit
+  %indvars.iv29.i = phi i64 [ 0, %_ZL15check_xtc_magici.exit ], [ %indvars.iv.next30.i, %31 ]
+  %23 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv29.i
+  br label %24
 
-23:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
+24:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
-  %24 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
-  %25 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %11, ptr noundef %24)
-  %.not25.not.i = icmp eq i32 %25, 0
-  br i1 %.not25.not.i, label %26, label %_ZL9xtc_checkPKcbS0_i.exit.i
+  %25 = getelementptr inbounds nuw [3 x float], ptr %23, i64 0, i64 %indvars.iv.i
+  %26 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %11, ptr noundef %25)
+  %.not25.not.i = icmp eq i32 %26, 0
+  br i1 %.not25.not.i, label %27, label %_ZL9xtc_checkPKcbS0_i.exit.i
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr @debug, align 8, !tbaa !12
-  %.not.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit, label %28
+27:                                               ; preds = %24
+  %28 = load ptr, ptr @debug, align 8, !tbaa !12
+  %.not.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit, label %29
 
-28:                                               ; preds = %26
-  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 152) #11
+29:                                               ; preds = %27
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %28, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 152) #11
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
 
-_ZL9xtc_checkPKcbS0_i.exit.i:                     ; preds = %23
+_ZL9xtc_checkPKcbS0_i.exit.i:                     ; preds = %24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not, label %30, label %23, !llvm.loop !15
+  br i1 %exitcond.not, label %31, label %24, !llvm.loop !15
 
-30:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i
+31:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next30.i, 3
-  br i1 %exitcond16.not, label %31, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond16.not, label %32, label %.preheader.i, !llvm.loop !17
 
-31:                                               ; preds = %30
-  %32 = call noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %11, ptr noundef %21, ptr noundef nonnull %1, ptr noundef %6, i32 noundef %22)
-  %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %33, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
+32:                                               ; preds = %31
+  %33 = call noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %11, ptr noundef %21, ptr noundef nonnull %1, ptr noundef %6, i32 noundef %22)
+  %.not.i = icmp eq i32 %33, 0
+  br i1 %.not.i, label %34, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr @debug, align 8, !tbaa !12
-  %.not.i22.i = icmp eq ptr %34, null
-  br i1 %.not.i22.i, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit, label %35
+34:                                               ; preds = %32
+  %35 = load ptr, ptr @debug, align 8, !tbaa !12
+  %.not.i22.i = icmp eq ptr %35, null
+  br i1 %.not.i22.i, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit, label %36
 
-35:                                               ; preds = %33
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %34, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 191) #11
+36:                                               ; preds = %34
+  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %35, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 191) #11
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
 
-_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit:            ; preds = %26, %28, %31, %33, %35
-  %.021.i = phi i32 [ 0, %35 ], [ 0, %33 ], [ 1, %31 ], [ 0, %26 ], [ 0, %28 ]
-  %37 = trunc nuw nsw i32 %.021.i to i8
-  store i8 %37, ptr %7, align 1, !tbaa !18
-  br label %38
+_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit:            ; preds = %27, %29, %32, %34, %36
+  %.021.i = phi i32 [ 0, %36 ], [ 0, %34 ], [ 1, %32 ], [ 0, %27 ], [ 0, %29 ]
+  %38 = trunc nuw nsw i32 %.021.i to i8
+  store i8 %38, ptr %7, align 1, !tbaa !18
+  br label %39
 
-38:                                               ; preds = %8, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
+39:                                               ; preds = %8, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
   %.0 = phi i32 [ %.021.i, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
   ret i32 %.0
@@ -495,7 +497,7 @@ define noundef range(i32 0, 2) i32 @_Z13read_next_xtcP8t_fileioiPlPfPA3_fS4_S2_P
   %14 = tail call noundef ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef %0)
   %15 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %14, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7)
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %44, label %16
+  br i1 %.not, label %45, label %16
 
 16:                                               ; preds = %8
   %17 = load i32, ptr %11, align 4, !tbaa !4
@@ -548,57 +550,58 @@ _ZL15check_xtc_magici.exit:                       ; preds = %16, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
   br label %common.resume
 
-.preheader.i:                                     ; preds = %_ZL15check_xtc_magici.exit, %36
-  %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %36 ], [ 0, %_ZL15check_xtc_magici.exit ]
-  br label %29
+.preheader.i:                                     ; preds = %_ZL15check_xtc_magici.exit, %37
+  %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %37 ], [ 0, %_ZL15check_xtc_magici.exit ]
+  %29 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv29.i
+  br label %30
 
-29:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
+30:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
-  %30 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
-  %31 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %14, ptr noundef %30)
-  %.not25.not.i = icmp eq i32 %31, 0
-  br i1 %.not25.not.i, label %32, label %_ZL9xtc_checkPKcbS0_i.exit.i
+  %31 = getelementptr inbounds nuw [3 x float], ptr %29, i64 0, i64 %indvars.iv.i
+  %32 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %14, ptr noundef %31)
+  %.not25.not.i = icmp eq i32 %32, 0
+  br i1 %.not25.not.i, label %33, label %_ZL9xtc_checkPKcbS0_i.exit.i
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr @debug, align 8, !tbaa !12
-  %.not.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit, label %34
+33:                                               ; preds = %30
+  %34 = load ptr, ptr @debug, align 8, !tbaa !12
+  %.not.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit, label %35
 
-34:                                               ; preds = %32
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %33, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 152) #11
+35:                                               ; preds = %33
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %34, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 152) #11
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
 
-_ZL9xtc_checkPKcbS0_i.exit.i:                     ; preds = %29
+_ZL9xtc_checkPKcbS0_i.exit.i:                     ; preds = %30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not, label %36, label %29, !llvm.loop !15
+  br i1 %exitcond.not, label %37, label %30, !llvm.loop !15
 
-36:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i
+37:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next30.i, 3
-  br i1 %exitcond14.not, label %37, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond14.not, label %38, label %.preheader.i, !llvm.loop !17
 
-37:                                               ; preds = %36
-  %38 = call noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %14, ptr noundef %5, ptr noundef nonnull %10, ptr noundef %6, i32 noundef %17)
-  %.not.i = icmp eq i32 %38, 0
-  br i1 %.not.i, label %39, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
+38:                                               ; preds = %37
+  %39 = call noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %14, ptr noundef %5, ptr noundef nonnull %10, ptr noundef %6, i32 noundef %17)
+  %.not.i = icmp eq i32 %39, 0
+  br i1 %.not.i, label %40, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
 
-39:                                               ; preds = %37
-  %40 = load ptr, ptr @debug, align 8, !tbaa !12
-  %.not.i22.i = icmp eq ptr %40, null
-  br i1 %.not.i22.i, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit, label %41
+40:                                               ; preds = %38
+  %41 = load ptr, ptr @debug, align 8, !tbaa !12
+  %.not.i22.i = icmp eq ptr %41, null
+  br i1 %.not.i22.i, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit, label %42
 
-41:                                               ; preds = %39
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %40, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 191) #11
+42:                                               ; preds = %40
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %41, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 191) #11
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
 
-_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit:            ; preds = %32, %34, %37, %39, %41
-  %.021.i = phi i32 [ 0, %41 ], [ 0, %39 ], [ 1, %37 ], [ 0, %32 ], [ 0, %34 ]
-  %43 = trunc nuw nsw i32 %.021.i to i8
-  store i8 %43, ptr %7, align 1, !tbaa !18
-  br label %44
+_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit:            ; preds = %33, %35, %38, %40, %42
+  %.021.i = phi i32 [ 0, %42 ], [ 0, %40 ], [ 1, %38 ], [ 0, %33 ], [ 0, %35 ]
+  %44 = trunc nuw nsw i32 %.021.i to i8
+  store i8 %44, ptr %7, align 1, !tbaa !18
+  br label %45
 
-44:                                               ; preds = %8, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
+45:                                               ; preds = %8, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
   %.0 = phi i32 [ %.021.i, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11

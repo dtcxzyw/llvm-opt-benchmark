@@ -681,98 +681,100 @@ define noundef zeroext i1 @_ZN3g2o18EdgeProjectXYZ2UVU4readERSi(ptr noundef nonn
 
 _ZN3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE12readParamIdsERSi.exit: ; preds = %.lr.ph.i, %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 32
   br label %21
 
-21:                                               ; preds = %27, %_ZN3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE12readParamIdsERSi.exit
-  %indvars.iv.i = phi i64 [ 0, %_ZN3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE12readParamIdsERSi.exit ], [ %indvars.iv.next.i, %27 ]
+21:                                               ; preds = %29, %_ZN3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE12readParamIdsERSi.exit
+  %indvars.iv.i = phi i64 [ 0, %_ZN3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE12readParamIdsERSi.exit ], [ %indvars.iv.next.i, %29 ]
   %22 = load ptr, ptr %1, align 8, !tbaa !35
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %24
-  %25 = load i32, ptr %gep.i, align 8, !tbaa !137
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %25 = getelementptr inbounds i8, ptr %1, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %27 = load i32, ptr %26, align 8, !tbaa !137
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv.i
-  %29 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %28)
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv.i
+  %31 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %30)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %..critedge_crit_edge.i, label %21, !llvm.loop !146
 
-..critedge_crit_edge.i:                           ; preds = %27
+..critedge_crit_edge.i:                           ; preds = %29
   br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !146
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %21, %..critedge_crit_edge.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  br label %31
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  br label %33
 
-31:                                               ; preds = %.critedge2.i, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
-  %indvars.iv.i4 = phi i64 [ 0, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit ], [ %indvars.iv.next.i7, %.critedge2.i ]
-  %32 = load ptr, ptr %1, align 8, !tbaa !35
-  %33 = getelementptr i8, ptr %32, i64 -24
-  %34 = load i64, ptr %33, align 8
-  %gep30.i = getelementptr i8, ptr %invariant.gep.i, i64 %34
-  %35 = load i32, ptr %gep30.i, align 8, !tbaa !137
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.lr.ph.i5, label %_ZN3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE21readInformationMatrixERSi.exit
+33:                                               ; preds = %.critedge2.i, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %indvars.iv.i4 = phi i64 [ 0, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit ], [ %indvars.iv.next.i6, %.critedge2.i ]
+  %34 = load ptr, ptr %1, align 8, !tbaa !35
+  %35 = getelementptr i8, ptr %34, i64 -24
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %39 = load i32, ptr %38, align 8, !tbaa !137
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %.lr.ph.i5, label %_ZN3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE21readInformationMatrixERSi.exit
 
-.lr.ph.i5:                                        ; preds = %31
-  %37 = getelementptr double, ptr %30, i64 %indvars.iv.i4
+.lr.ph.i5:                                        ; preds = %33
+  %41 = getelementptr double, ptr %32, i64 %indvars.iv.i4
   %.idx.i.i.i24.i = mul nuw nsw i64 %indvars.iv.i4, 24
-  %invariant.gep27.i = getelementptr i8, ptr %30, i64 %.idx.i.i.i24.i
-  br label %38
+  %invariant.gep.i = getelementptr i8, ptr %32, i64 %.idx.i.i.i24.i
+  br label %42
 
-38:                                               ; preds = %49, %.lr.ph.i5
-  %indvars.iv32.i = phi i64 [ %indvars.iv.i4, %.lr.ph.i5 ], [ %indvars.iv.next33.i, %49 ]
-  %39 = load ptr, ptr %1, align 8, !tbaa !35
-  %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = load i64, ptr %40, align 8
-  %gep.i6 = getelementptr i8, ptr %invariant.gep.i, i64 %41
-  %42 = load i32, ptr %gep.i6, align 8, !tbaa !137
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %.critedge2.i
+42:                                               ; preds = %55, %.lr.ph.i5
+  %indvars.iv28.i = phi i64 [ %indvars.iv.i4, %.lr.ph.i5 ], [ %indvars.iv.next29.i, %55 ]
+  %43 = load ptr, ptr %1, align 8, !tbaa !35
+  %44 = getelementptr i8, ptr %43, i64 -24
+  %45 = load i64, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %1, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %48 = load i32, ptr %47, align 8, !tbaa !137
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %49, %38
-  %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i4, 1
-  %exitcond36.not.i = icmp eq i64 %indvars.iv.next.i7, 3
-  br i1 %exitcond36.not.i, label %.critedge2..critedge_crit_edge.i, label %31, !llvm.loop !147
+.critedge2.i:                                     ; preds = %55, %42
+  %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i4, 1
+  %exitcond32.not.i = icmp eq i64 %indvars.iv.next.i6, 3
+  br i1 %exitcond32.not.i, label %.critedge2..critedge_crit_edge.i, label %33, !llvm.loop !147
 
 .critedge2..critedge_crit_edge.i:                 ; preds = %.critedge2.i
-  %.pre.i8 = load ptr, ptr %1, align 8, !tbaa !35
-  %.phi.trans.insert.i9 = getelementptr i8, ptr %.pre.i8, i64 -24
-  %.pre37.i = load i64, ptr %.phi.trans.insert.i9, align 8
+  %.pre.i7 = load ptr, ptr %1, align 8, !tbaa !35
+  %.phi.trans.insert.i8 = getelementptr i8, ptr %.pre.i7, i64 -24
+  %.pre33.i = load i64, ptr %.phi.trans.insert.i8, align 8
+  %.phi.trans.insert34.i = getelementptr inbounds i8, ptr %1, i64 %.pre33.i
+  %.phi.trans.insert35.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert34.i, i64 32
+  %.pre36.i = load i32, ptr %.phi.trans.insert35.i, align 8, !tbaa !137
   br label %_ZN3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE21readInformationMatrixERSi.exit, !llvm.loop !147
 
-44:                                               ; preds = %38
-  %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv32.i, 24
-  %45 = getelementptr i8, ptr %37, i64 %.idx.i.i.i.i
-  %46 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %45)
-  %.not.i10 = icmp eq i64 %indvars.iv.i4, %indvars.iv32.i
-  br i1 %.not.i10, label %49, label %47
+50:                                               ; preds = %42
+  %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv28.i, 24
+  %51 = getelementptr i8, ptr %41, i64 %.idx.i.i.i.i
+  %52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %51)
+  %.not.i9 = icmp eq i64 %indvars.iv.i4, %indvars.iv28.i
+  br i1 %.not.i9, label %55, label %53
 
-47:                                               ; preds = %44
-  %48 = load double, ptr %45, align 8, !tbaa !121
-  %gep28.i = getelementptr double, ptr %invariant.gep27.i, i64 %indvars.iv32.i
-  store double %48, ptr %gep28.i, align 8, !tbaa !121
-  br label %49
+53:                                               ; preds = %50
+  %54 = load double, ptr %51, align 8, !tbaa !121
+  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv28.i
+  store double %54, ptr %gep.i, align 8, !tbaa !121
+  br label %55
 
-49:                                               ; preds = %47, %44
-  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %exitcond.not.i11 = icmp eq i64 %indvars.iv.next33.i, 3
-  br i1 %exitcond.not.i11, label %.critedge2.i, label %38, !llvm.loop !148
+55:                                               ; preds = %53, %50
+  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
+  %exitcond.not.i10 = icmp eq i64 %indvars.iv.next29.i, 3
+  br i1 %exitcond.not.i10, label %.critedge2.i, label %42, !llvm.loop !148
 
-_ZN3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE21readInformationMatrixERSi.exit: ; preds = %31, %.critedge2..critedge_crit_edge.i
-  %50 = phi i64 [ %.pre37.i, %.critedge2..critedge_crit_edge.i ], [ %34, %31 ]
-  %51 = getelementptr inbounds i8, ptr %1, i64 %50
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %53 = load i32, ptr %52, align 8, !tbaa !137
-  %54 = icmp eq i32 %53, 0
-  %55 = and i32 %53, 2
-  %56 = icmp ne i32 %55, 0
-  %57 = or i1 %54, %56
-  ret i1 %57
+_ZN3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE21readInformationMatrixERSi.exit: ; preds = %33, %.critedge2..critedge_crit_edge.i
+  %56 = phi i32 [ %.pre36.i, %.critedge2..critedge_crit_edge.i ], [ %39, %33 ]
+  %57 = icmp eq i32 %56, 0
+  %58 = and i32 %56, 2
+  %59 = icmp ne i32 %58, 0
+  %60 = or i1 %57, %59
+  ret i1 %60
 }
 
 ; Function Attrs: mustprogress uwtable

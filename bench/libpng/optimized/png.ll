@@ -1863,7 +1863,7 @@ define range(i32 0, 2) i32 @png_muldiv(ptr noundef writeonly captures(none) %0, 
 define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
   %3 = load i32, ptr %1, align 4, !tbaa !125
   %or.cond96 = icmp ugt i32 %3, 110000
-  br i1 %or.cond96, label %png_muldiv.exit.thread342, label %4
+  br i1 %or.cond96, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1872,13 +1872,13 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
   %8 = sub nuw nsw i32 110000, %3
   %9 = icmp sgt i32 %6, %8
   %or.cond98 = select i1 %7, i1 true, i1 %9
-  br i1 %or.cond98, label %png_muldiv.exit.thread342, label %10
+  br i1 %or.cond98, label %.critedge, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 4, !tbaa !127
   %or.cond99 = icmp ugt i32 %12, 110000
-  br i1 %or.cond99, label %png_muldiv.exit.thread342, label %13
+  br i1 %or.cond99, label %.critedge, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1887,13 +1887,13 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
   %17 = sub nuw nsw i32 110000, %12
   %18 = icmp sgt i32 %15, %17
   %or.cond101 = select i1 %16, i1 true, i1 %18
-  br i1 %or.cond101, label %png_muldiv.exit.thread342, label %19
+  br i1 %or.cond101, label %.critedge, label %19
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 4, !tbaa !129
   %or.cond102 = icmp ugt i32 %21, 110000
-  br i1 %or.cond102, label %png_muldiv.exit.thread342, label %22
+  br i1 %or.cond102, label %.critedge, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -1902,13 +1902,13 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
   %26 = sub nuw nsw i32 110000, %21
   %27 = icmp sgt i32 %24, %26
   %or.cond104 = select i1 %25, i1 true, i1 %27
-  br i1 %or.cond104, label %png_muldiv.exit.thread342, label %28
+  br i1 %or.cond104, label %.critedge, label %28
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load i32, ptr %29, align 4, !tbaa !131
   %or.cond105 = icmp ugt i32 %30, 110000
-  br i1 %or.cond105, label %png_muldiv.exit.thread342, label %31
+  br i1 %or.cond105, label %.critedge, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -1917,7 +1917,7 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
   %35 = sub nuw nsw i32 110000, %30
   %36 = icmp sgt i32 %33, %35
   %or.cond107 = select i1 %34, i1 true, i1 %36
-  br i1 %or.cond107, label %png_muldiv.exit.thread342, label %37
+  br i1 %or.cond107, label %.critedge, label %37
 
 37:                                               ; preds = %31
   %38 = sub nsw i32 %12, %21
@@ -1937,7 +1937,7 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
   %49 = fcmp ole double %48, 0x41DFFFFFFFC00000
   %50 = fcmp oge double %48, 0xC1E0000000000000
   %or.cond3.i = and i1 %49, %50
-  br i1 %or.cond3.i, label %51, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i, label %51, label %.critedge
 
 51:                                               ; preds = %42
   %52 = fptosi double %48 to i32
@@ -1950,7 +1950,7 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
   %56 = icmp eq i32 %15, %24
   %57 = icmp eq i32 %3, %21
   %or.cond.i109 = or i1 %57, %56
-  br i1 %or.cond.i109, label %.thread275, label %58
+  br i1 %or.cond.i109, label %.thread273, label %58
 
 58:                                               ; preds = %53
   %59 = sitofp i32 %54 to double
@@ -1962,7 +1962,7 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
   %65 = fcmp ole double %64, 0x41DFFFFFFFC00000
   %66 = fcmp oge double %64, 0xC1E0000000000000
   %or.cond3.i110 = and i1 %65, %66
-  br i1 %or.cond3.i110, label %67, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i110, label %67, label %.critedge
 
 67:                                               ; preds = %58
   %68 = fptosi double %64 to i32
@@ -1972,33 +1972,33 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
 70:                                               ; preds = %67
   %71 = add nsw i32 %68, -2147483647
   %.not15.i = icmp sgt i32 %71, %.0257.ph
-  br i1 %.not15.i, label %png_muldiv.exit.thread342, label %72
+  br i1 %.not15.i, label %.critedge, label %72
 
 72:                                               ; preds = %70
   %73 = sub nsw i32 %.0257.ph, %68
-  br label %.thread275
+  br label %.thread273
 
 74:                                               ; preds = %67
   %75 = icmp slt i32 %68, 0
-  br i1 %75, label %76, label %.thread275
+  br i1 %75, label %76, label %.thread273
 
 76:                                               ; preds = %74
   %77 = add nsw i32 %68, 2147483647
   %.not.i = icmp slt i32 %77, %.0257.ph
-  br i1 %.not.i, label %png_muldiv.exit.thread342, label %78
+  br i1 %.not.i, label %.critedge, label %78
 
 78:                                               ; preds = %76
   %79 = sub nsw i32 %.0257.ph, %68
-  br label %.thread275
+  br label %.thread273
 
-.thread275:                                       ; preds = %53, %72, %78, %74
+.thread273:                                       ; preds = %53, %72, %78, %74
   %.0.i.ph = phi i32 [ %.0257.ph, %74 ], [ %79, %78 ], [ %73, %72 ], [ %.0257.ph, %53 ]
   %80 = sub nsw i32 %33, %24
   %81 = icmp eq i32 %33, %24
   %or.cond.i115 = or i1 %40, %81
   br i1 %or.cond.i115, label %93, label %82
 
-82:                                               ; preds = %.thread275
+82:                                               ; preds = %.thread273
   %83 = sitofp i32 %38 to double
   %84 = sitofp i32 %80 to double
   %85 = fmul double %83, %84
@@ -2008,14 +2008,14 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
   %89 = fcmp ole double %88, 0x41DFFFFFFFC00000
   %90 = fcmp oge double %88, 0xC1E0000000000000
   %or.cond3.i116 = and i1 %89, %90
-  br i1 %or.cond3.i116, label %91, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i116, label %91, label %.critedge
 
 91:                                               ; preds = %82
   %92 = fptosi double %88 to i32
   br label %93
 
-93:                                               ; preds = %91, %.thread275
-  %.1258.ph = phi i32 [ 0, %.thread275 ], [ %92, %91 ]
+93:                                               ; preds = %91, %.thread273
+  %.1258.ph = phi i32 [ 0, %.thread273 ], [ %92, %91 ]
   %94 = sub nsw i32 %30, %21
   %95 = icmp eq i32 %30, %21
   %or.cond.i121 = or i1 %56, %95
@@ -2031,7 +2031,7 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
   %103 = fcmp ole double %102, 0x41DFFFFFFFC00000
   %104 = fcmp oge double %102, 0xC1E0000000000000
   %or.cond3.i122 = and i1 %103, %104
-  br i1 %or.cond3.i122, label %105, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i122, label %105, label %.critedge
 
 105:                                              ; preds = %96
   %106 = fptosi double %102 to i32
@@ -2063,10 +2063,10 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
 png_fp_sub.exit130:                               ; preds = %93, %110, %112, %116
   %.0.i127 = phi i32 [ %111, %110 ], [ %117, %116 ], [ %.1258.ph, %112 ], [ %.1258.ph, %93 ]
   %.not.i131 = icmp eq i32 %.0.i127, 0
-  br i1 %.not.i131, label %png_muldiv.exit.thread342, label %png_fp_sub.exit130.thread
+  br i1 %.not.i131, label %.critedge, label %png_fp_sub.exit130.thread
 
 png_fp_sub.exit130.thread:                        ; preds = %108, %114, %png_fp_sub.exit130
-  %.0.i127312 = phi i32 [ %.0.i127, %png_fp_sub.exit130 ], [ 50000, %114 ], [ 50000, %108 ]
+  %.0.i127310 = phi i32 [ %.0.i127, %png_fp_sub.exit130 ], [ 50000, %114 ], [ 50000, %108 ]
   %or.cond.not = phi i1 [ true, %png_fp_sub.exit130 ], [ false, %114 ], [ false, %108 ]
   %118 = icmp eq i32 %.0.i.ph, 0
   br i1 %118, label %png_muldiv.exit137, label %119
@@ -2075,24 +2075,24 @@ png_fp_sub.exit130.thread:                        ; preds = %108, %114, %png_fp_
   %120 = uitofp nneg i32 %33 to double
   %121 = sitofp i32 %.0.i.ph to double
   %122 = fmul double %120, %121
-  %123 = sitofp i32 %.0.i127312 to double
+  %123 = sitofp i32 %.0.i127310 to double
   %124 = fdiv double %122, %123
   %125 = fadd double %124, 5.000000e-01
   %126 = tail call double @llvm.floor.f64(double %125)
   %127 = fcmp ole double %126, 0x41DFFFFFFFC00000
   %128 = fcmp oge double %126, 0xC1E0000000000000
   %or.cond3.i133 = and i1 %127, %128
-  br i1 %or.cond3.i133, label %129, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i133, label %129, label %.critedge
 
 129:                                              ; preds = %119
   %130 = fptosi double %126 to i32
   br label %png_muldiv.exit137
 
 png_muldiv.exit137:                               ; preds = %png_fp_sub.exit130.thread, %129
-  %.1263 = phi i32 [ %130, %129 ], [ 0, %png_fp_sub.exit130.thread ]
-  %.not94 = icmp sgt i32 %.1263, %33
-  %or.cond370 = select i1 %or.cond.not, i1 %.not94, i1 false
-  br i1 %or.cond370, label %131, label %png_muldiv.exit.thread342
+  %.0261 = phi i32 [ %130, %129 ], [ 0, %png_fp_sub.exit130.thread ]
+  %.not94 = icmp sgt i32 %.0261, %33
+  %or.cond356 = select i1 %or.cond.not, i1 %.not94, i1 false
+  br i1 %or.cond356, label %131, label %.critedge
 
 131:                                              ; preds = %png_muldiv.exit137
   %or.cond.i138 = or i1 %41, %95
@@ -2108,7 +2108,7 @@ png_muldiv.exit137:                               ; preds = %png_fp_sub.exit130.
   %139 = fcmp ole double %138, 0x41DFFFFFFFC00000
   %140 = fcmp oge double %138, 0xC1E0000000000000
   %or.cond3.i139 = and i1 %139, %140
-  br i1 %or.cond3.i139, label %141, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i139, label %141, label %.critedge
 
 141:                                              ; preds = %132
   %142 = fptosi double %138 to i32
@@ -2129,7 +2129,7 @@ png_muldiv.exit137:                               ; preds = %png_fp_sub.exit130.
   %151 = fcmp ole double %150, 0x41DFFFFFFFC00000
   %152 = fcmp oge double %150, 0xC1E0000000000000
   %or.cond3.i145 = and i1 %151, %152
-  br i1 %or.cond3.i145, label %153, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i145, label %153, label %.critedge
 
 153:                                              ; preds = %144
   %154 = fptosi double %150 to i32
@@ -2161,10 +2161,10 @@ png_muldiv.exit137:                               ; preds = %png_fp_sub.exit130.
 png_fp_sub.exit153:                               ; preds = %143, %158, %160, %164
   %.0.i150 = phi i32 [ %159, %158 ], [ %165, %164 ], [ %.2259.ph, %160 ], [ %.2259.ph, %143 ]
   %.not.i154 = icmp eq i32 %.0.i150, 0
-  br i1 %.not.i154, label %png_muldiv.exit.thread342, label %png_fp_sub.exit153.thread
+  br i1 %.not.i154, label %.critedge, label %png_fp_sub.exit153.thread
 
 png_fp_sub.exit153.thread:                        ; preds = %156, %162, %png_fp_sub.exit153
-  %.0.i150336 = phi i32 [ %.0.i150, %png_fp_sub.exit153 ], [ 50000, %162 ], [ 50000, %156 ]
+  %.0.i150334 = phi i32 [ %.0.i150, %png_fp_sub.exit153 ], [ 50000, %162 ], [ 50000, %156 ]
   %or.cond3.not = phi i1 [ true, %png_fp_sub.exit153 ], [ false, %162 ], [ false, %156 ]
   br i1 %118, label %png_muldiv.exit160, label %166
 
@@ -2172,24 +2172,24 @@ png_fp_sub.exit153.thread:                        ; preds = %156, %162, %png_fp_
   %167 = uitofp nneg i32 %33 to double
   %168 = sitofp i32 %.0.i.ph to double
   %169 = fmul double %167, %168
-  %170 = sitofp i32 %.0.i150336 to double
+  %170 = sitofp i32 %.0.i150334 to double
   %171 = fdiv double %169, %170
   %172 = fadd double %171, 5.000000e-01
   %173 = tail call double @llvm.floor.f64(double %172)
   %174 = fcmp ole double %173, 0x41DFFFFFFFC00000
   %175 = fcmp oge double %173, 0xC1E0000000000000
   %or.cond3.i156 = and i1 %174, %175
-  br i1 %or.cond3.i156, label %176, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i156, label %176, label %.critedge
 
 176:                                              ; preds = %166
   %177 = fptosi double %173 to i32
   br label %png_muldiv.exit160
 
 png_muldiv.exit160:                               ; preds = %png_fp_sub.exit153.thread, %176
-  %.1261 = phi i32 [ %177, %176 ], [ 0, %png_fp_sub.exit153.thread ]
-  %.not95 = icmp sgt i32 %.1261, %33
-  %or.cond371 = select i1 %or.cond3.not, i1 %.not95, i1 false
-  br i1 %or.cond371, label %178, label %png_muldiv.exit.thread342
+  %.0260 = phi i32 [ %177, %176 ], [ 0, %png_fp_sub.exit153.thread ]
+  %.not95 = icmp sgt i32 %.0260, %33
+  %or.cond357 = select i1 %or.cond3.not, i1 %.not95, i1 false
+  br i1 %or.cond357, label %178, label %.critedge
 
 178:                                              ; preds = %png_muldiv.exit160
   %179 = uitofp nneg i32 %33 to double
@@ -2201,7 +2201,7 @@ png_muldiv.exit160:                               ; preds = %png_fp_sub.exit153.
   %or.cond.i161 = and i1 %183, %184
   %185 = fptosi double %182 to i32
   %.0.i162 = select i1 %or.cond.i161, i32 %185, i32 0
-  %186 = uitofp nneg i32 %.1263 to double
+  %186 = uitofp nneg i32 %.0261 to double
   %187 = fdiv double 1.000000e+10, %186
   %188 = fadd double %187, 5.000000e-01
   %189 = tail call double @llvm.floor.f64(double %188)
@@ -2217,7 +2217,7 @@ png_muldiv.exit160:                               ; preds = %png_fp_sub.exit153.
   %195 = add nsw i32 %.0.i164, -2147483647
   %.not15.i167 = icmp sgt i32 %195, %.0.i162
   %196 = sub nsw i32 %.0.i162, %.0.i164
-  %spec.select372 = select i1 %.not15.i167, i32 50000, i32 %196
+  %spec.select358 = select i1 %.not15.i167, i32 50000, i32 %196
   br label %png_fp_sub.exit168
 
 197:                                              ; preds = %178
@@ -2228,13 +2228,13 @@ png_muldiv.exit160:                               ; preds = %png_fp_sub.exit153.
   %200 = add nsw i32 %.0.i164, 2147483647
   %.not.i166 = icmp slt i32 %200, %.0.i162
   %201 = sub nsw i32 %.0.i162, %.0.i164
-  %spec.select374 = select i1 %.not.i166, i32 50000, i32 %201
+  %spec.select360 = select i1 %.not.i166, i32 50000, i32 %201
   br label %png_fp_sub.exit168
 
 png_fp_sub.exit168:                               ; preds = %199, %194, %197
   %.3.shrunk = phi i1 [ false, %197 ], [ %.not15.i167, %194 ], [ %.not.i166, %199 ]
-  %.0.i165 = phi i32 [ %.0.i162, %197 ], [ %spec.select372, %194 ], [ %spec.select374, %199 ]
-  %202 = uitofp nneg i32 %.1261 to double
+  %.0.i165 = phi i32 [ %.0.i162, %197 ], [ %spec.select358, %194 ], [ %spec.select360, %199 ]
+  %202 = uitofp nneg i32 %.0260 to double
   %203 = fdiv double 1.000000e+10, %202
   %204 = fadd double %203, 5.000000e-01
   %205 = tail call double @llvm.floor.f64(double %204)
@@ -2249,32 +2249,32 @@ png_fp_sub.exit168:                               ; preds = %199, %194, %197
 210:                                              ; preds = %png_fp_sub.exit168
   %211 = add nsw i32 %.0.i170, -2147483647
   %.not15.i173 = icmp sgt i32 %211, %.0.i165
-  br i1 %.not15.i173, label %png_muldiv.exit.thread342, label %212
+  br i1 %.not15.i173, label %.critedge, label %212
 
 212:                                              ; preds = %210
   %213 = sub nsw i32 %.0.i165, %.0.i170
-  br label %png_muldiv.exit
+  br label %png_fp_sub.exit174
 
 214:                                              ; preds = %png_fp_sub.exit168
   %215 = icmp slt i32 %.0.i170, 0
-  br i1 %215, label %216, label %png_muldiv.exit
+  br i1 %215, label %216, label %png_fp_sub.exit174
 
 216:                                              ; preds = %214
   %217 = add nsw i32 %.0.i170, 2147483647
   %.not.i172 = icmp slt i32 %217, %.0.i165
-  br i1 %.not.i172, label %png_muldiv.exit.thread342, label %218
+  br i1 %.not.i172, label %.critedge, label %218
 
 218:                                              ; preds = %216
   %219 = sub nsw i32 %.0.i165, %.0.i170
-  br label %png_muldiv.exit
+  br label %png_fp_sub.exit174
 
-png_muldiv.exit:                                  ; preds = %218, %214, %212
+png_fp_sub.exit174:                               ; preds = %212, %214, %218
   %.0.i171 = phi i32 [ %213, %212 ], [ %219, %218 ], [ %.0.i165, %214 ]
   %220 = icmp slt i32 %.0.i171, 1
   %or.cond5.not = select i1 %.3.shrunk, i1 true, i1 %220
-  br i1 %or.cond5.not, label %png_muldiv.exit.thread342, label %221
+  br i1 %or.cond5.not, label %.critedge, label %221
 
-221:                                              ; preds = %png_muldiv.exit
+221:                                              ; preds = %png_fp_sub.exit174
   %222 = icmp eq i32 %3, 0
   br i1 %222, label %233, label %223
 
@@ -2287,7 +2287,7 @@ png_muldiv.exit:                                  ; preds = %218, %214, %212
   %229 = fcmp ole double %228, 0x41DFFFFFFFC00000
   %230 = fcmp oge double %228, 0xC1E0000000000000
   %or.cond3.i177 = and i1 %229, %230
-  br i1 %or.cond3.i177, label %231, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i177, label %231, label %.critedge
 
 231:                                              ; preds = %223
   %232 = fptosi double %228 to i32
@@ -2310,7 +2310,7 @@ png_muldiv.exit:                                  ; preds = %218, %214, %212
   %243 = fcmp ole double %242, 0x41DFFFFFFFC00000
   %244 = fcmp oge double %242, 0xC1E0000000000000
   %or.cond3.i184 = and i1 %243, %244
-  br i1 %or.cond3.i184, label %245, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i184, label %245, label %.critedge
 
 245:                                              ; preds = %237
   %246 = fptosi double %242 to i32
@@ -2336,7 +2336,7 @@ png_muldiv.exit:                                  ; preds = %218, %214, %212
   %260 = fcmp ole double %259, 0x41DFFFFFFFC00000
   %261 = fcmp oge double %259, 0xC1E0000000000000
   %or.cond3.i191 = and i1 %260, %261
-  br i1 %or.cond3.i191, label %262, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i191, label %262, label %.critedge
 
 262:                                              ; preds = %253
   %263 = fptosi double %259 to i32
@@ -2359,7 +2359,7 @@ png_muldiv.exit:                                  ; preds = %218, %214, %212
   %274 = fcmp ole double %273, 0x41DFFFFFFFC00000
   %275 = fcmp oge double %273, 0xC1E0000000000000
   %or.cond3.i198 = and i1 %274, %275
-  br i1 %or.cond3.i198, label %276, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i198, label %276, label %.critedge
 
 276:                                              ; preds = %268
   %277 = fptosi double %273 to i32
@@ -2382,7 +2382,7 @@ png_muldiv.exit:                                  ; preds = %218, %214, %212
   %288 = fcmp ole double %287, 0x41DFFFFFFFC00000
   %289 = fcmp oge double %287, 0xC1E0000000000000
   %or.cond3.i205 = and i1 %288, %289
-  br i1 %or.cond3.i205, label %290, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i205, label %290, label %.critedge
 
 290:                                              ; preds = %282
   %291 = fptosi double %287 to i32
@@ -2408,7 +2408,7 @@ png_muldiv.exit:                                  ; preds = %218, %214, %212
   %305 = fcmp ole double %304, 0x41DFFFFFFFC00000
   %306 = fcmp oge double %304, 0xC1E0000000000000
   %or.cond3.i212 = and i1 %305, %306
-  br i1 %or.cond3.i212, label %307, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i212, label %307, label %.critedge
 
 307:                                              ; preds = %298
   %308 = fptosi double %304 to i32
@@ -2432,7 +2432,7 @@ png_muldiv.exit:                                  ; preds = %218, %214, %212
   %320 = fcmp ole double %319, 0x41DFFFFFFFC00000
   %321 = fcmp oge double %319, 0xC1E0000000000000
   %or.cond3.i218 = and i1 %320, %321
-  br i1 %or.cond3.i218, label %322, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i218, label %322, label %.critedge
 
 322:                                              ; preds = %313
   %323 = fptosi double %319 to i32
@@ -2456,7 +2456,7 @@ png_muldiv.exit:                                  ; preds = %218, %214, %212
   %335 = fcmp ole double %334, 0x41DFFFFFFFC00000
   %336 = fcmp oge double %334, 0xC1E0000000000000
   %or.cond3.i224 = and i1 %335, %336
-  br i1 %or.cond3.i224, label %337, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i224, label %337, label %.critedge
 
 337:                                              ; preds = %328
   %338 = fptosi double %334 to i32
@@ -2483,7 +2483,7 @@ png_muldiv.exit:                                  ; preds = %218, %214, %212
   %353 = fcmp ole double %352, 0x41DFFFFFFFC00000
   %354 = fcmp oge double %352, 0xC1E0000000000000
   %or.cond3.i230 = and i1 %353, %354
-  br i1 %or.cond3.i230, label %355, label %png_muldiv.exit.thread342
+  br i1 %or.cond3.i230, label %355, label %.critedge
 
 355:                                              ; preds = %345
   %356 = fptosi double %352 to i32
@@ -2492,10 +2492,10 @@ png_muldiv.exit:                                  ; preds = %218, %214, %212
 png_muldiv.exit234:                               ; preds = %339, %355
   %.sink.i233 = phi i32 [ %356, %355 ], [ 0, %339 ]
   store i32 %.sink.i233, ptr %340, align 4, !tbaa !43
-  br label %png_muldiv.exit.thread342
+  br label %.critedge
 
-png_muldiv.exit.thread342:                        ; preds = %328, %313, %298, %282, %268, %253, %237, %223, %210, %216, %166, %png_fp_sub.exit153, %119, %png_fp_sub.exit130, %144, %132, %96, %82, %76, %70, %58, %42, %png_muldiv.exit160, %png_muldiv.exit137, %png_muldiv.exit234, %345, %31, %28, %22, %19, %13, %10, %4, %2, %png_muldiv.exit
-  %.082 = phi i32 [ 1, %png_muldiv.exit ], [ 1, %2 ], [ 1, %4 ], [ 1, %10 ], [ 1, %13 ], [ 1, %19 ], [ 1, %22 ], [ 1, %28 ], [ 1, %31 ], [ 0, %png_muldiv.exit234 ], [ 1, %345 ], [ 1, %png_muldiv.exit137 ], [ 1, %png_muldiv.exit160 ], [ 1, %42 ], [ 1, %58 ], [ 1, %70 ], [ 1, %76 ], [ 1, %82 ], [ 1, %96 ], [ 1, %132 ], [ 1, %144 ], [ 1, %png_fp_sub.exit130 ], [ 1, %119 ], [ 1, %png_fp_sub.exit153 ], [ 1, %166 ], [ 1, %216 ], [ 1, %210 ], [ 1, %223 ], [ 1, %237 ], [ 1, %253 ], [ 1, %268 ], [ 1, %282 ], [ 1, %298 ], [ 1, %313 ], [ 1, %328 ]
+.critedge:                                        ; preds = %328, %313, %298, %282, %268, %253, %237, %223, %210, %216, %166, %png_fp_sub.exit153, %119, %png_fp_sub.exit130, %png_muldiv.exit137, %png_muldiv.exit160, %42, %58, %70, %76, %82, %96, %132, %144, %png_muldiv.exit234, %345, %31, %28, %22, %19, %13, %10, %4, %2, %png_fp_sub.exit174
+  %.082 = phi i32 [ 1, %png_fp_sub.exit174 ], [ 1, %2 ], [ 1, %4 ], [ 1, %10 ], [ 1, %13 ], [ 1, %19 ], [ 1, %22 ], [ 1, %28 ], [ 1, %31 ], [ 0, %png_muldiv.exit234 ], [ 1, %345 ], [ 1, %144 ], [ 1, %132 ], [ 1, %96 ], [ 1, %82 ], [ 1, %76 ], [ 1, %70 ], [ 1, %58 ], [ 1, %42 ], [ 1, %png_muldiv.exit160 ], [ 1, %png_muldiv.exit137 ], [ 1, %png_fp_sub.exit130 ], [ 1, %119 ], [ 1, %png_fp_sub.exit153 ], [ 1, %166 ], [ 1, %216 ], [ 1, %210 ], [ 1, %223 ], [ 1, %237 ], [ 1, %253 ], [ 1, %268 ], [ 1, %282 ], [ 1, %298 ], [ 1, %313 ], [ 1, %328 ]
   ret i32 %.082
 }
 

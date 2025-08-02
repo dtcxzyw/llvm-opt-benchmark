@@ -2164,133 +2164,132 @@ Sfm_TimEdgeArrival.exit.i:                        ; preds = %._crit_edge.i.i, %4
   %59 = phi i32 [ %56, %._crit_edge.i.i ], [ %46, %43 ]
   %60 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.092.i) #13
   %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %Sfm_TimGateArrival.exit, label %.lr.ph.i, !llvm.loop !57
+  br i1 %.not.i, label %Sfm_TimGateArrival.exit.loopexit, label %.lr.ph.i, !llvm.loop !57
 
-Sfm_TimGateArrival.exit:                          ; preds = %Sfm_TimEdgeArrival.exit.i, %._crit_edge
-  %61 = phi i32 [ 0, %._crit_edge ], [ %.pre1.i.i52, %Sfm_TimEdgeArrival.exit.i ]
-  %62 = phi i32 [ 0, %._crit_edge ], [ %59, %Sfm_TimEdgeArrival.exit.i ]
+Sfm_TimGateArrival.exit.loopexit:                 ; preds = %Sfm_TimEdgeArrival.exit.i
+  %61 = tail call i32 @llvm.smax.i32(i32 %59, i32 %.pre1.i.i52)
+  br label %Sfm_TimGateArrival.exit
+
+Sfm_TimGateArrival.exit:                          ; preds = %Sfm_TimGateArrival.exit.loopexit, %._crit_edge
+  %62 = phi i32 [ %61, %Sfm_TimGateArrival.exit.loopexit ], [ 0, %._crit_edge ]
   %63 = icmp eq ptr %5, null
-  br i1 %63, label %64, label %66
+  br i1 %63, label %123, label %64
 
 64:                                               ; preds = %Sfm_TimGateArrival.exit
-  %65 = tail call noundef i32 @llvm.smax.i32(i32 %62, i32 %61)
-  br label %125
+  %65 = tail call i32 @Mio_GateReadPinNum(ptr noundef nonnull %5) #13
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %.lr.ph55, label %._crit_edge56
 
-66:                                               ; preds = %Sfm_TimGateArrival.exit
-  %67 = tail call i32 @Mio_GateReadPinNum(ptr noundef nonnull %5) #13
-  %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.lr.ph55, label %._crit_edge56
+.lr.ph55:                                         ; preds = %64
+  %67 = getelementptr i8, ptr %1, i64 8
+  %68 = getelementptr i8, ptr %2, i64 8
+  %69 = getelementptr i8, ptr %0, i64 40
+  %wide.trip.count61 = zext nneg i32 %65 to i64
+  br label %70
 
-.lr.ph55:                                         ; preds = %66
-  %69 = getelementptr i8, ptr %1, i64 8
-  %70 = getelementptr i8, ptr %2, i64 8
-  %71 = getelementptr i8, ptr %0, i64 40
-  %wide.trip.count61 = zext nneg i32 %67 to i64
-  br label %72
+70:                                               ; preds = %.lr.ph55, %84
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next59, %84 ]
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv58
+  %72 = load i8, ptr %71, align 1, !tbaa !20
+  %73 = icmp eq i8 %72, 16
+  br i1 %73, label %84, label %74
 
-72:                                               ; preds = %.lr.ph55, %86
-  %indvars.iv58 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next59, %86 ]
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv58
-  %74 = load i8, ptr %73, align 1, !tbaa !20
-  %75 = icmp eq i8 %74, 16
-  br i1 %75, label %86, label %76
+74:                                               ; preds = %70
+  %.val31 = load ptr, ptr %67, align 8, !tbaa !3
+  %75 = sext i8 %72 to i64
+  %76 = getelementptr inbounds i32, ptr %.val31, i64 %75
+  %77 = load i32, ptr %76, align 4, !tbaa !16
+  %.val = load ptr, ptr %68, align 8, !tbaa !3
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %.val, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !16
+  %.val35 = load ptr, ptr %69, align 8, !tbaa !3
+  %81 = shl nsw i32 %80, 1
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i32, ptr %.val35, i64 %82
+  br label %84
 
-76:                                               ; preds = %72
-  %.val31 = load ptr, ptr %69, align 8, !tbaa !3
-  %77 = sext i8 %74 to i64
-  %78 = getelementptr inbounds i32, ptr %.val31, i64 %77
-  %79 = load i32, ptr %78, align 4, !tbaa !16
-  %.val = load ptr, ptr %70, align 8, !tbaa !3
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i32, ptr %.val, i64 %80
-  %82 = load i32, ptr %81, align 4, !tbaa !16
-  %.val35 = load ptr, ptr %71, align 8, !tbaa !3
-  %83 = shl nsw i32 %82, 1
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i32, ptr %.val35, i64 %84
-  br label %86
-
-86:                                               ; preds = %72, %76
-  %.sink = phi ptr [ %85, %76 ], [ %8, %72 ]
-  %87 = getelementptr inbounds nuw [6 x ptr], ptr %10, i64 0, i64 %indvars.iv58
-  store ptr %.sink, ptr %87, align 8, !tbaa !17
+84:                                               ; preds = %70, %74
+  %.sink = phi ptr [ %83, %74 ], [ %8, %70 ]
+  %85 = getelementptr inbounds nuw [6 x ptr], ptr %10, i64 0, i64 %indvars.iv58
+  store ptr %.sink, ptr %85, align 8, !tbaa !17
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge56, label %72, !llvm.loop !84
+  br i1 %exitcond62.not, label %._crit_edge56, label %70, !llvm.loop !84
 
-._crit_edge56:                                    ; preds = %86, %66
-  %88 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %89, align 4, !tbaa !16
-  store i32 0, ptr %88, align 8, !tbaa !16
-  %90 = call ptr @Mio_GateReadPins(ptr noundef nonnull %5) #13
-  %.not1.i36 = icmp eq ptr %90, null
+._crit_edge56:                                    ; preds = %84, %64
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 0, ptr %87, align 4, !tbaa !16
+  store i32 0, ptr %86, align 8, !tbaa !16
+  %88 = call ptr @Mio_GateReadPins(ptr noundef nonnull %5) #13
+  %.not1.i36 = icmp eq ptr %88, null
   br i1 %.not1.i36, label %Sfm_TimGateArrival.exit48, label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %._crit_edge56, %Sfm_TimEdgeArrival.exit.i44
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i40, %Sfm_TimEdgeArrival.exit.i44 ], [ 0, %._crit_edge56 ]
-  %.092.i39 = phi ptr [ %121, %Sfm_TimEdgeArrival.exit.i44 ], [ %90, %._crit_edge56 ]
+  %.092.i39 = phi ptr [ %119, %Sfm_TimEdgeArrival.exit.i44 ], [ %88, %._crit_edge56 ]
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i38, 1
-  %91 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i38
-  %92 = load ptr, ptr %91, align 8, !tbaa !17
-  %93 = call i32 @Mio_PinReadPhase(ptr noundef nonnull %.092.i39) #13
-  %94 = call double @Mio_PinReadDelayBlockRise(ptr noundef nonnull %.092.i39) #13
-  %95 = fptrunc double %94 to float
-  %96 = fmul float %95, 1.000000e+03
-  %97 = fptosi float %96 to i32
-  %98 = call double @Mio_PinReadDelayBlockFall(ptr noundef nonnull %.092.i39) #13
-  %99 = fptrunc double %98 to float
-  %100 = fmul float %99, 1.000000e+03
-  %101 = fptosi float %100 to i32
-  %cond.i.i41 = icmp eq i32 %93, 1
-  %.pre.i.i42 = load i32, ptr %88, align 8, !tbaa !16
-  br i1 %cond.i.i41, label %._crit_edge.i.i46, label %102
+  %89 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i38
+  %90 = load ptr, ptr %89, align 8, !tbaa !17
+  %91 = call i32 @Mio_PinReadPhase(ptr noundef nonnull %.092.i39) #13
+  %92 = call double @Mio_PinReadDelayBlockRise(ptr noundef nonnull %.092.i39) #13
+  %93 = fptrunc double %92 to float
+  %94 = fmul float %93, 1.000000e+03
+  %95 = fptosi float %94 to i32
+  %96 = call double @Mio_PinReadDelayBlockFall(ptr noundef nonnull %.092.i39) #13
+  %97 = fptrunc double %96 to float
+  %98 = fmul float %97, 1.000000e+03
+  %99 = fptosi float %98 to i32
+  %cond.i.i41 = icmp eq i32 %91, 1
+  %.pre.i.i42 = load i32, ptr %86, align 8, !tbaa !16
+  br i1 %cond.i.i41, label %._crit_edge.i.i46, label %100
 
 ._crit_edge.i.i46:                                ; preds = %.lr.ph.i37
-  %.pre1.i.i47 = load i32, ptr %89, align 4, !tbaa !16
-  br label %111
+  %.pre1.i.i47 = load i32, ptr %87, align 4, !tbaa !16
+  br label %109
 
-102:                                              ; preds = %.lr.ph.i37
-  %103 = load i32, ptr %92, align 4, !tbaa !16
-  %104 = add nsw i32 %103, %97
-  %105 = call noundef i32 @llvm.smax.i32(i32 %.pre.i.i42, i32 %104)
-  store i32 %105, ptr %88, align 8, !tbaa !16
-  %106 = load i32, ptr %89, align 4, !tbaa !16
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %108 = load i32, ptr %107, align 4, !tbaa !16
-  %109 = add nsw i32 %108, %101
-  %110 = call noundef i32 @llvm.smax.i32(i32 %106, i32 %109)
-  store i32 %110, ptr %89, align 4, !tbaa !16
-  %.not20.i.i43 = icmp eq i32 %93, 2
-  br i1 %.not20.i.i43, label %Sfm_TimEdgeArrival.exit.i44, label %111
+100:                                              ; preds = %.lr.ph.i37
+  %101 = load i32, ptr %90, align 4, !tbaa !16
+  %102 = add nsw i32 %101, %95
+  %103 = call noundef i32 @llvm.smax.i32(i32 %.pre.i.i42, i32 %102)
+  store i32 %103, ptr %86, align 8, !tbaa !16
+  %104 = load i32, ptr %87, align 4, !tbaa !16
+  %105 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %106 = load i32, ptr %105, align 4, !tbaa !16
+  %107 = add nsw i32 %106, %99
+  %108 = call noundef i32 @llvm.smax.i32(i32 %104, i32 %107)
+  store i32 %108, ptr %87, align 4, !tbaa !16
+  %.not20.i.i43 = icmp eq i32 %91, 2
+  br i1 %.not20.i.i43, label %Sfm_TimEdgeArrival.exit.i44, label %109
 
-111:                                              ; preds = %102, %._crit_edge.i.i46
-  %112 = phi i32 [ %.pre1.i.i47, %._crit_edge.i.i46 ], [ %110, %102 ]
-  %113 = phi i32 [ %.pre.i.i42, %._crit_edge.i.i46 ], [ %105, %102 ]
-  %114 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %115 = load i32, ptr %114, align 4, !tbaa !16
-  %116 = add nsw i32 %115, %97
-  %117 = call noundef i32 @llvm.smax.i32(i32 %113, i32 %116)
-  store i32 %117, ptr %88, align 8, !tbaa !16
-  %118 = load i32, ptr %92, align 4, !tbaa !16
-  %119 = add nsw i32 %118, %101
-  %120 = call noundef i32 @llvm.smax.i32(i32 %112, i32 %119)
-  store i32 %120, ptr %89, align 4, !tbaa !16
+109:                                              ; preds = %100, %._crit_edge.i.i46
+  %110 = phi i32 [ %.pre1.i.i47, %._crit_edge.i.i46 ], [ %108, %100 ]
+  %111 = phi i32 [ %.pre.i.i42, %._crit_edge.i.i46 ], [ %103, %100 ]
+  %112 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %113 = load i32, ptr %112, align 4, !tbaa !16
+  %114 = add nsw i32 %113, %95
+  %115 = call noundef i32 @llvm.smax.i32(i32 %111, i32 %114)
+  store i32 %115, ptr %86, align 8, !tbaa !16
+  %116 = load i32, ptr %90, align 4, !tbaa !16
+  %117 = add nsw i32 %116, %99
+  %118 = call noundef i32 @llvm.smax.i32(i32 %110, i32 %117)
+  store i32 %118, ptr %87, align 4, !tbaa !16
   br label %Sfm_TimEdgeArrival.exit.i44
 
-Sfm_TimEdgeArrival.exit.i44:                      ; preds = %111, %102
-  %121 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.092.i39) #13
-  %.not.i45 = icmp eq ptr %121, null
+Sfm_TimEdgeArrival.exit.i44:                      ; preds = %109, %100
+  %119 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.092.i39) #13
+  %.not.i45 = icmp eq ptr %119, null
   br i1 %.not.i45, label %Sfm_TimGateArrival.exit48, label %.lr.ph.i37, !llvm.loop !57
 
 Sfm_TimGateArrival.exit48:                        ; preds = %Sfm_TimEdgeArrival.exit.i44, %._crit_edge56
-  %122 = load i32, ptr %88, align 8, !tbaa !16
-  %123 = load i32, ptr %89, align 4, !tbaa !16
-  %124 = call noundef i32 @llvm.smax.i32(i32 %122, i32 %123)
-  br label %125
+  %120 = load i32, ptr %86, align 8, !tbaa !16
+  %121 = load i32, ptr %87, align 4, !tbaa !16
+  %122 = call noundef i32 @llvm.smax.i32(i32 %120, i32 %121)
+  br label %123
 
-125:                                              ; preds = %Sfm_TimGateArrival.exit48, %64
-  %.0 = phi i32 [ %65, %64 ], [ %124, %Sfm_TimGateArrival.exit48 ]
+123:                                              ; preds = %Sfm_TimGateArrival.exit, %Sfm_TimGateArrival.exit48
+  %.0 = phi i32 [ %122, %Sfm_TimGateArrival.exit48 ], [ %62, %Sfm_TimGateArrival.exit ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13

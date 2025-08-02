@@ -693,14 +693,14 @@ define hidden void @_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySn
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv15
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %12
 
 12:                                               ; preds = %7, %12
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr %1, i64 0, i64 %indvars.iv
   %.idx = mul nuw nsw i64 %indvars.iv, 24
-  %14 = getelementptr i8, ptr %11, i64 %.idx
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i64, ptr %16, align 8
@@ -739,14 +739,14 @@ define hidden void @_ZN17MemoryFileTracker8Instance16summary_snapshotEP21Virtual
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv15.i
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %12
 
 12:                                               ; preds = %12, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %12 ]
   %13 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr %0, i64 0, i64 %indvars.iv.i
   %.idx.i = mul nuw nsw i64 %indvars.iv.i, 24
-  %14 = getelementptr i8, ptr %11, i64 %.idx.i
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i64, ptr %16, align 8

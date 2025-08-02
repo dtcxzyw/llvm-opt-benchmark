@@ -267,9 +267,9 @@ define void @_ZN3net20QuicUnackedPacketMap13AddSentPacketEPNS_16SerializedPacket
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %7, ptr noundef nonnull @.str, i32 noundef 41, i32 noundef 2)
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef %11)
-          to label %.critedge39 unwind label %19
+          to label %_ZNSolsEm.exit unwind label %19
 
-.critedge39:                                      ; preds = %16
+_ZNSolsEm.exit:                                   ; preds = %16
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %7) #17
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %7) #17
   br label %.critedge
@@ -281,7 +281,7 @@ define void @_ZN3net20QuicUnackedPacketMap13AddSentPacketEPNS_16SerializedPacket
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %7) #17
   br label %146
 
-.critedge:                                        ; preds = %.critedge39, %6
+.critedge:                                        ; preds = %_ZNSolsEm.exit, %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -292,11 +292,11 @@ define void @_ZN3net20QuicUnackedPacketMap13AddSentPacketEPNS_16SerializedPacket
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre = load ptr, ptr %23, align 8, !tbaa !16
-  %.pre55 = load ptr, ptr %27, align 8, !tbaa !34
+  %.pre54 = load ptr, ptr %27, align 8, !tbaa !34
   br label %30
 
 30:                                               ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit, %.critedge
-  %31 = phi ptr [ %66, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit ], [ %.pre55, %.critedge ]
+  %31 = phi ptr [ %66, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit ], [ %.pre54, %.critedge ]
   %32 = phi ptr [ %65, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit ], [ %.pre, %.critedge ]
   %33 = load i64, ptr %21, align 8, !tbaa !3
   %34 = load ptr, ptr %25, align 8, !tbaa !23
@@ -421,14 +421,14 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit: ; preds = %_ZNSt5deque
   %99 = load ptr, ptr %23, align 8, !tbaa !62
   %100 = load ptr, ptr %29, align 8, !tbaa !63
   %101 = getelementptr inbounds i8, ptr %100, i64 -80
-  %.not.i41 = icmp eq ptr %99, %101
-  br i1 %.not.i41, label %105, label %102
+  %.not.i40 = icmp eq ptr %99, %101
+  br i1 %.not.i40, label %105, label %102
 
 102:                                              ; preds = %98
   invoke void @_ZN3net16TransmissionInfoC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %99, ptr noundef nonnull align 8 dereferenceable(80) %9)
-          to label %.noexc42 unwind label %89
+          to label %.noexc41 unwind label %89
 
-.noexc42:                                         ; preds = %102
+.noexc41:                                         ; preds = %102
   %103 = load ptr, ptr %23, align 8, !tbaa !62
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 80
   store ptr %104, ptr %23, align 8, !tbaa !62
@@ -438,7 +438,7 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit: ; preds = %_ZNSt5deque
   invoke void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE16_M_push_back_auxIJRKS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr noundef nonnull align 8 dereferenceable(80) %9)
           to label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backERKS1_.exit unwind label %89
 
-_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc42, %105
+_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc41, %105
   br i1 %.not35, label %106, label %145
 
 106:                                              ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backERKS1_.exit
@@ -456,16 +456,16 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backERKS1_.exit: ; preds = %.n
   %113 = load ptr, ptr %23, align 8, !tbaa !16, !noalias !79
   %114 = load ptr, ptr %27, align 8, !tbaa !34, !noalias !79
   %115 = icmp eq ptr %113, %114
-  br i1 %115, label %116, label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44
+  br i1 %115, label %116, label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit43
 
 116:                                              ; preds = %111
   %117 = load ptr, ptr %25, align 8, !tbaa !23, !noalias !79
   %118 = getelementptr inbounds i8, ptr %117, i64 -8
   %119 = load ptr, ptr %118, align 8, !tbaa !25
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 480
-  br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44
+  br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit43
 
-_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44: ; preds = %111, %116
+_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit43: ; preds = %111, %116
   %121 = phi ptr [ %120, %116 ], [ %113, %111 ]
   %122 = getelementptr inbounds i8, ptr %121, i64 -80
   %123 = load ptr, ptr %112, align 8, !tbaa !82
@@ -484,17 +484,17 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44: ; preds = %111, %116
   store ptr %123, ptr %122, align 8, !tbaa !82
   store ptr %125, ptr %129, align 8, !tbaa !83
   store ptr %127, ptr %131, align 8, !tbaa !84
-  br i1 %115, label %133, label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit45
+  br i1 %115, label %133, label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44
 
-133:                                              ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44
+133:                                              ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit43
   %134 = load ptr, ptr %25, align 8, !tbaa !23, !noalias !85
   %135 = getelementptr inbounds i8, ptr %134, i64 -8
   %136 = load ptr, ptr %135, align 8, !tbaa !25
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 480
-  br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit45
+  br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44
 
-_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit45: ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44, %133
-  %138 = phi ptr [ %137, %133 ], [ %113, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44 ]
+_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44: ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit43, %133
+  %138 = phi ptr [ %137, %133 ], [ %113, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit43 ]
   %139 = getelementptr inbounds i8, ptr %138, i64 -24
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %140) #17
@@ -506,7 +506,7 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit45: ; preds = %_ZNSt5deq
   store i64 %142, ptr %143, align 8, !tbaa !88
   br label %145
 
-145:                                              ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit45, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backERKS1_.exit
+145:                                              ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit44, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9push_backERKS1_.exit
   call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #17
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #17
   ret void
@@ -1532,7 +1532,7 @@ define void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16Transmissio
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %5 = load i8, ptr %4, align 1, !tbaa !77, !range !94, !noundef !95
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %22
+  br i1 %6, label %7, label %23
 
 7:                                                ; preds = %2
   %8 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -1545,27 +1545,27 @@ define void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16Transmissio
   %13 = load i16, ptr %12, align 2, !tbaa !133
   %14 = zext i16 %13 to i64
   %15 = icmp ult i64 %11, %14
-  br i1 %15, label %.critedge9, label %.critedge
+  br i1 %15, label %16, label %.critedge
 
-.critedge9:                                       ; preds = %9
+16:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %3) #17
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %3, ptr noundef nonnull @.str, i32 noundef 239, i32 noundef 2)
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #17
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %9, %7, %.critedge9
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %17 = load i16, ptr %16, align 2, !tbaa !133
-  %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %20 = load i64, ptr %19, align 8, !tbaa !76
-  %21 = sub i64 %20, %18
-  store i64 %21, ptr %19, align 8, !tbaa !76
+.critedge:                                        ; preds = %9, %7, %16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %18 = load i16, ptr %17, align 2, !tbaa !133
+  %19 = zext i16 %18 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %21 = load i64, ptr %20, align 8, !tbaa !76
+  %22 = sub i64 %21, %19
+  store i64 %22, ptr %20, align 8, !tbaa !76
   store i8 0, ptr %4, align 1, !tbaa !77
-  br label %22
+  br label %23
 
-22:                                               ; preds = %.critedge, %2
+23:                                               ; preds = %.critedge, %2
   ret void
 }
 
@@ -1634,23 +1634,23 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %21, %29
   %44 = load i16, ptr %43, align 2, !tbaa !133
   %45 = zext i16 %44 to i64
   %46 = icmp ult i64 %42, %45
-  br i1 %46, label %.critedge9.i, label %.critedge.i
+  br i1 %46, label %47, label %.critedge.i
 
-.critedge9.i:                                     ; preds = %40
+47:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %3) #17
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %3, ptr noundef nonnull @.str, i32 noundef 239, i32 noundef 2)
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #17
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #17
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge9.i, %40, %38
-  %47 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 26
-  %48 = load i16, ptr %47, align 2, !tbaa !133
-  %49 = zext i16 %48 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %51 = load i64, ptr %50, align 8, !tbaa !76
-  %52 = sub i64 %51, %49
-  store i64 %52, ptr %50, align 8, !tbaa !76
+.critedge.i:                                      ; preds = %47, %40, %38
+  %48 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 26
+  %49 = load i16, ptr %48, align 2, !tbaa !133
+  %50 = zext i16 %49 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %52 = load i64, ptr %51, align 8, !tbaa !76
+  %53 = sub i64 %52, %50
+  store i64 %53, ptr %51, align 8, !tbaa !76
   store i8 0, ptr %35, align 1, !tbaa !77
   br label %_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEPNS_16TransmissionInfoE.exit
 
@@ -2019,8 +2019,8 @@ define i64 @_ZNK3net20QuicUnackedPacketMap21GetLastPacketSentTimeEv(ptr noundef 
   %5 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !159
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !162
-  %.not50 = icmp eq ptr %5, %7
-  br i1 %.not50, label %._crit_edge, label %.lr.ph.preheader
+  %.not49 = icmp eq ptr %5, %7
+  br i1 %.not49, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2030,14 +2030,14 @@ define i64 @_ZNK3net20QuicUnackedPacketMap21GetLastPacketSentTimeEv(ptr noundef 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
-  %.sroa.18.053 = phi ptr [ %.sroa.18.1, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ %9, %.lr.ph.preheader ]
-  %.sroa.10.052 = phi ptr [ %.sroa.10.1, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ %11, %.lr.ph.preheader ]
-  %.sroa.028.051 = phi ptr [ %43, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ %5, %.lr.ph.preheader ]
-  %12 = icmp eq ptr %.sroa.028.051, %.sroa.10.052
+  %.sroa.18.052 = phi ptr [ %.sroa.18.1, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ %9, %.lr.ph.preheader ]
+  %.sroa.10.051 = phi ptr [ %.sroa.10.1, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ %11, %.lr.ph.preheader ]
+  %.sroa.027.050 = phi ptr [ %43, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ %5, %.lr.ph.preheader ]
+  %12 = icmp eq ptr %.sroa.027.050, %.sroa.10.051
   br i1 %12, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit: ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.sroa.18.053, i64 -8
+  %13 = getelementptr inbounds i8, ptr %.sroa.18.052, i64 -8
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 441
   %16 = load i8, ptr %15, align 1, !tbaa !77, !range !94, !noundef !95
@@ -2045,54 +2045,54 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
   br i1 %17, label %21, label %40
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread: ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.sroa.028.051, i64 -39
+  %18 = getelementptr inbounds i8, ptr %.sroa.027.050, i64 -39
   %19 = load i8, ptr %18, align 1, !tbaa !77, !range !94, !noundef !95
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %.thread39, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
+  br i1 %20, label %.thread38, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
 
 21:                                               ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit
   %22 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %22, label %24, label %.critedge.thread
 
-.thread39:                                        ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread
+.thread38:                                        ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread
   %23 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  br i1 %23, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit24
+  br i1 %23, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit22, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %13, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 480
-  br label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23
+  br label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit22
 
-_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23: ; preds = %.thread39, %24
-  %27 = phi ptr [ %26, %24 ], [ %.sroa.028.051, %.thread39 ]
+_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit22: ; preds = %.thread38, %24
+  %27 = phi ptr [ %26, %24 ], [ %.sroa.027.050, %.thread38 ]
   %28 = getelementptr inbounds i8, ptr %27, i64 -48
   %.sroa.09.0.copyload = load i64, ptr %28, align 8, !tbaa !165
   %29 = icmp eq i64 %.sroa.09.0.copyload, 0
   br i1 %29, label %30, label %.critedge
 
-30:                                               ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23
+30:                                               ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit22
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %2) #17
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %2, ptr noundef nonnull @.str, i32 noundef 299, i32 noundef 2)
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.5, i64 noundef 51)
-          to label %.critedge22 unwind label %38
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %38
 
-.critedge22:                                      ; preds = %30
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %30
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %2) #17
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %2) #17
-  br i1 %12, label %.critedge.thread, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit24
+  br i1 %12, label %.critedge.thread, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23
 
-.critedge:                                        ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23
-  br i1 %12, label %.critedge.thread, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit24
+.critedge:                                        ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit22
+  br i1 %12, label %.critedge.thread, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23
 
-.critedge.thread:                                 ; preds = %21, %.critedge22, %.critedge
-  %33 = getelementptr inbounds i8, ptr %.sroa.18.053, i64 -8
+.critedge.thread:                                 ; preds = %21, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %.critedge
+  %33 = getelementptr inbounds i8, ptr %.sroa.18.052, i64 -8
   %34 = load ptr, ptr %33, align 8, !tbaa !25
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 480
-  br label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit24
+  br label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23
 
-_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit24: ; preds = %.critedge22, %.thread39, %.critedge, %.critedge.thread
-  %36 = phi ptr [ %35, %.critedge.thread ], [ %.sroa.028.051, %.critedge ], [ %.sroa.028.051, %.thread39 ], [ %.sroa.028.051, %.critedge22 ]
+_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %.thread38, %.critedge, %.critedge.thread
+  %36 = phi ptr [ %35, %.critedge.thread ], [ %.sroa.027.050, %.critedge ], [ %.sroa.027.050, %.thread38 ], [ %.sroa.027.050, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %37 = getelementptr inbounds i8, ptr %36, i64 -48
   %.sroa.011.0.copyload = load i64, ptr %37, align 8, !tbaa !165
   br label %.critedge20
@@ -2109,9 +2109,9 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
   br label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
 
 _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit: ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread, %40
-  %.sroa.10.1 = phi ptr [ %14, %40 ], [ %.sroa.10.052, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
-  %.sroa.18.1 = phi ptr [ %13, %40 ], [ %.sroa.18.053, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
-  %42 = phi ptr [ %41, %40 ], [ %.sroa.028.051, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
+  %.sroa.10.1 = phi ptr [ %14, %40 ], [ %.sroa.10.051, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
+  %.sroa.18.1 = phi ptr [ %13, %40 ], [ %.sroa.18.052, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
+  %42 = phi ptr [ %41, %40 ], [ %.sroa.027.050, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ]
   %43 = getelementptr inbounds i8, ptr %42, i64 -80
   %.not = icmp eq ptr %43, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !166
@@ -2139,8 +2139,8 @@ _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEp
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #17
   br label %50
 
-.critedge20:                                      ; preds = %.critedge19, %._crit_edge, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit24
-  %.sroa.011.0 = phi i64 [ %.sroa.011.0.copyload, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit24 ], [ 0, %._crit_edge ], [ 0, %.critedge19 ]
+.critedge20:                                      ; preds = %.critedge19, %._crit_edge, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23
+  %.sroa.011.0 = phi i64 [ %.sroa.011.0.copyload, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit23 ], [ 0, %._crit_edge ], [ 0, %.critedge19 ]
   ret i64 %.sroa.011.0
 
 50:                                               ; preds = %48, %38

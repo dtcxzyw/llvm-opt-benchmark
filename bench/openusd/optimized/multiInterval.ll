@@ -841,12 +841,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKNS_10GfIntervalEEE
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSA_i.exit.loopexit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKNS_10GfIntervalEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOS7_.exit.i.i.i.i.i
   %49 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i, -7046029254386353067
+  %50 = tail call i64 @llvm.bswap.i64(i64 %49)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__6TfHashclIRKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl11Tf_HashImplclL_ZSt7declvalIRNS_12Tf_HashStateEEDTcl9__declvalIT_ELi0EEEvEEclsr3stdE7forwardISD_Efp_ELi0EEcvm_EEOSD_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__6TfHashclIRKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl11Tf_HashImplclL_ZSt7declvalIRNS_12Tf_HashStateEEDTcl9__declvalIT_ELi0EEEvEEclsr3stdE7forwardISD_Efp_ELi0EEcvm_EEOSD_.exit: ; preds = %1, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSA_i.exit.loopexit.i
-  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %49, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSA_i.exit.loopexit.i ]
-  %50 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.0.0.i)
-  ret i64 %50
+  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3setINS_10GfIntervalESt4lessIS3_ESaIS3_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSA_i.exit.loopexit.i ]
+  ret i64 %.sroa.0.0.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable

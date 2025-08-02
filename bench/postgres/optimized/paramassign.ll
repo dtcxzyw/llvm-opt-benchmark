@@ -944,24 +944,21 @@ generate_new_exec_param.exit:                     ; preds = %._crit_edge, %48
 ; Function Attrs: nounwind uwtable
 define dso_local void @process_subquery_nestloop_params(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph91
+  br i1 %.not, label %.critedge, label %.lr.ph87
 
-.lr.ph91:                                         ; preds = %2
+.lr.ph87:                                         ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %7 = load i32, ptr %3, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph114, label %._crit_edge
+  br i1 %8, label %.lr.ph110, label %.critedge
 
-._crit_edge:                                      ; preds = %.loopexit, %.lr.ph91, %2
-  ret void
-
-.lr.ph114:                                        ; preds = %.lr.ph91, %.loopexit
-  %indvars.iv100113 = phi i64 [ %indvars.iv.next101, %.loopexit ], [ 0, %.lr.ph91 ]
+.lr.ph110:                                        ; preds = %.lr.ph87, %.loopexit
+  %indvars.iv96109 = phi i64 [ %indvars.iv.next97, %.loopexit ], [ 0, %.lr.ph87 ]
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv100113
+  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv96109
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -971,7 +968,10 @@ define dso_local void @process_subquery_nestloop_params(ptr noundef %0, ptr noun
     i32 318, label %39
   ]
 
-15:                                               ; preds = %.lr.ph114
+.critedge:                                        ; preds = %.loopexit, %.lr.ph87, %2
+  ret void
+
+15:                                               ; preds = %.lr.ph110
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr %5, align 8
@@ -988,37 +988,37 @@ define dso_local void @process_subquery_nestloop_params(ptr noundef %0, ptr noun
 23:                                               ; preds = %15
   %24 = load ptr, ptr %6, align 8
   %.not62 = icmp eq ptr %24, null
-  br i1 %.not62, label %.loopexit.sink.split, label %.lr.ph86
+  br i1 %.not62, label %.loopexit.sink.split, label %.lr.ph82
 
-.lr.ph86:                                         ; preds = %23
+.lr.ph82:                                         ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph89, label %.loopexit.sink.split
+  br i1 %27, label %.lr.ph85, label %.loopexit.sink.split
 
-.lr.ph89:                                         ; preds = %.lr.ph86
+.lr.ph85:                                         ; preds = %.lr.ph82
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %28, align 8
-  %wide.trip.count98 = zext nneg i32 %26 to i64
+  %wide.trip.count94 = zext nneg i32 %26 to i64
   br label %33
 
 32:                                               ; preds = %33
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %.loopexit.sink.split, label %33
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
+  br i1 %exitcond95.not, label %.loopexit.sink.split, label %33
 
-33:                                               ; preds = %.lr.ph89, %32
-  %indvars.iv95 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next96, %32 ]
-  %34 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv95
+33:                                               ; preds = %.lr.ph85, %32
+  %indvars.iv91 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next92, %32 ]
+  %34 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv91
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, %31
   br i1 %38, label %.loopexit, label %32
 
-39:                                               ; preds = %.lr.ph114
+39:                                               ; preds = %.lr.ph110
   %40 = tail call ptr @find_placeholder_info(ptr noundef %0, ptr noundef nonnull %13) #4
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
@@ -1042,9 +1042,9 @@ define dso_local void @process_subquery_nestloop_params(ptr noundef %0, ptr noun
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph84, label %.loopexit.sink.split
+  br i1 %52, label %.lr.ph80, label %.loopexit.sink.split
 
-.lr.ph84:                                         ; preds = %.lr.ph
+.lr.ph80:                                         ; preds = %.lr.ph
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %55 = load ptr, ptr %54, align 8
@@ -1057,8 +1057,8 @@ define dso_local void @process_subquery_nestloop_params(ptr noundef %0, ptr noun
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.sink.split, label %58
 
-58:                                               ; preds = %.lr.ph84, %57
-  %indvars.iv = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next, %57 ]
+58:                                               ; preds = %.lr.ph80, %57
+  %indvars.iv = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next, %57 ]
   %59 = getelementptr inbounds nuw %union.ListCell, ptr %55, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -1066,14 +1066,14 @@ define dso_local void @process_subquery_nestloop_params(ptr noundef %0, ptr noun
   %63 = icmp eq i32 %62, %56
   br i1 %63, label %.loopexit, label %57
 
-64:                                               ; preds = %.lr.ph114
+64:                                               ; preds = %.lr.ph110
   %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %65)
   %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #4
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 597, ptr noundef nonnull @__func__.process_subquery_nestloop_params) #4
   unreachable
 
-.loopexit.sink.split:                             ; preds = %57, %32, %48, %.lr.ph, %23, %.lr.ph86
+.loopexit.sink.split:                             ; preds = %57, %32, %48, %.lr.ph, %23, %.lr.ph82
   %67 = tail call noundef ptr @palloc0(i64 noundef 16) #4
   store i32 356, ptr %67, align 4
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1089,11 +1089,11 @@ define dso_local void @process_subquery_nestloop_params(ptr noundef %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %33, %.loopexit.sink.split
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100113, 1
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96109, 1
   %75 = load i32, ptr %3, align 4
   %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next101, %76
-  br i1 %77, label %.lr.ph114, label %._crit_edge
+  %77 = icmp slt i64 %indvars.iv.next97, %76
+  br i1 %77, label %.lr.ph110, label %.critedge
 }
 
 declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1106,26 +1106,22 @@ declare ptr @find_placeholder_info(ptr noundef, ptr noundef) local_unnamed_addr 
 define dso_local ptr @identify_current_nestloop_params(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %4 = load ptr, ptr %3, align 8
-  %.not36 = icmp eq ptr %4, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq ptr %4, null
+  br i1 %.not34, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %40
-  %.039 = phi ptr [ %.1, %40 ], [ null, %2 ]
-  %.sroa.8.038 = phi i32 [ %41, %40 ], [ 0, %2 ]
-  %.sroa.0.037 = phi ptr [ %.sroa.0.1, %40 ], [ %4, %2 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 4
+  %.037 = phi ptr [ %.1, %40 ], [ null, %2 ]
+  %.sroa.8.036 = phi i32 [ %41, %40 ], [ 0, %2 ]
+  %.sroa.0.035 = phi ptr [ %.sroa.0.1, %40 ], [ %4, %2 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.035, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = icmp slt i32 %.sroa.8.038, %6
-  br i1 %7, label %8, label %._crit_edge
-
-._crit_edge:                                      ; preds = %40, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ %.039, %.lr.ph ], [ %.1, %40 ]
-  ret ptr %.0.lcssa
+  %7 = icmp slt i32 %.sroa.8.036, %6
+  br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.035, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = sext i32 %.sroa.8.038 to i64
+  %11 = sext i32 %.sroa.8.036 to i64
   %12 = getelementptr inbounds %union.ListCell, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1134,20 +1130,24 @@ define dso_local ptr @identify_current_nestloop_params(ptr noundef %0, ptr nound
   %17 = icmp eq i32 %16, 6
   br i1 %17, label %18, label %22
 
+.critedge:                                        ; preds = %.lr.ph, %40, %2
+  %.0.lcssa = phi ptr [ null, %2 ], [ %.1, %40 ], [ %.037, %.lr.ph ]
+  ret ptr %.0.lcssa
+
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = tail call zeroext i1 @bms_is_member(i32 noundef %20, ptr noundef %1) #4
   %.pre = load ptr, ptr %14, align 8
-  br i1 %21, label %.sink.split, label %._crit_edge42
+  br i1 %21, label %.sink.split, label %._crit_edge
 
-._crit_edge42:                                    ; preds = %18
-  %.pre43 = load i32, ptr %.pre, align 4
+._crit_edge:                                      ; preds = %18
+  %.pre40 = load i32, ptr %.pre, align 4
   br label %22
 
-22:                                               ; preds = %._crit_edge42, %8
-  %23 = phi i32 [ %.pre43, %._crit_edge42 ], [ %16, %8 ]
-  %24 = phi ptr [ %.pre, %._crit_edge42 ], [ %15, %8 ]
+22:                                               ; preds = %._crit_edge, %8
+  %23 = phi i32 [ %.pre40, %._crit_edge ], [ %16, %8 ]
+  %24 = phi ptr [ %.pre, %._crit_edge ], [ %15, %8 ]
   %25 = icmp eq i32 %23, 318
   br i1 %25, label %26, label %40
 
@@ -1163,25 +1163,25 @@ define dso_local ptr @identify_current_nestloop_params(ptr noundef %0, ptr nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %31
-  %.sink46 = phi ptr [ %32, %31 ], [ %.pre, %18 ]
+  %.sink43 = phi ptr [ %32, %31 ], [ %.pre, %18 ]
   %33 = load ptr, ptr %3, align 8
-  %34 = add i32 %.sroa.8.038, -1
-  %35 = tail call ptr @list_delete_nth_cell(ptr noundef %33, i32 noundef %.sroa.8.038) #4
+  %34 = add i32 %.sroa.8.036, -1
+  %35 = tail call ptr @list_delete_nth_cell(ptr noundef %33, i32 noundef %.sroa.8.036) #4
   store ptr %35, ptr %3, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %.sink46, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.sink43, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr @bms_intersect(ptr noundef %37, ptr noundef %1) #4
   store ptr %38, ptr %36, align 8
-  %39 = tail call ptr @lappend(ptr noundef %.039, ptr noundef nonnull %13) #4
+  %39 = tail call ptr @lappend(ptr noundef %.037, ptr noundef nonnull %13) #4
   br label %40
 
 40:                                               ; preds = %.sink.split, %22, %26
-  %.sroa.0.1 = phi ptr [ %.sroa.0.037, %26 ], [ %.sroa.0.037, %22 ], [ %35, %.sink.split ]
-  %.sroa.8.1 = phi i32 [ %.sroa.8.038, %26 ], [ %.sroa.8.038, %22 ], [ %34, %.sink.split ]
-  %.1 = phi ptr [ %.039, %26 ], [ %.039, %22 ], [ %39, %.sink.split ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.035, %26 ], [ %.sroa.0.035, %22 ], [ %35, %.sink.split ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.036, %26 ], [ %.sroa.8.036, %22 ], [ %34, %.sink.split ]
+  %.1 = phi ptr [ %.037, %26 ], [ %.037, %22 ], [ %39, %.sink.split ]
   %41 = add i32 %.sroa.8.1, 1
   %.not = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !11
 }
 
 declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -2860,15 +2860,15 @@ _ZNK4llvm3EVT9isIntegerEv.exit.thread:            ; preds = %63
 
 _ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit: ; preds = %_ZNK4llvm3EVT9isIntegerEv.exit.thread
   %.idx = mul nuw nsw i64 %69, 496
-  %72 = getelementptr i8, ptr %67, i64 5654
-  %73 = getelementptr i8, ptr %72, i64 %.idx
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 5654
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx
   %74 = load i8, ptr %73, align 1, !tbaa !254
   %75 = icmp eq i8 %74, 0
   br i1 %75, label %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit, label %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit.thread
 
 _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit: ; preds = %_ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit
-  %76 = getelementptr i8, ptr %67, i64 5655
-  %77 = getelementptr i8, ptr %76, i64 %.idx
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 5655
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx
   %78 = load i8, ptr %77, align 1, !tbaa !254
   %79 = and i8 %78, -5
   %spec.select.i = icmp eq i8 %79, 0

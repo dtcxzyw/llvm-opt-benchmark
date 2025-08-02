@@ -89,7 +89,7 @@ define dso_local void @down_read(ptr noundef %0) #1 section ".sched.text" align 
   %3 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 256, ptr elementtype(i64) %0) #9, !srcloc !8
   %4 = add i64 %3, 256
   %5 = icmp slt i64 %4, 0
-  br i1 %5, label %6, label %.thread, !prof !9
+  br i1 %5, label %6, label %.critedge, !prof !9
 
 6:                                                ; preds = %1
   tail call void asm sideeffect "341: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 341b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 341) #9, !srcloc !10
@@ -99,7 +99,7 @@ define dso_local void @down_read(ptr noundef %0) #1 section ".sched.text" align 
   %8 = load volatile i64, ptr %7, align 8
   %9 = and i64 %8, 3
   %10 = icmp eq i64 %9, 1
-  br i1 %10, label %.lr.ph, label %.thread
+  br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %6, %17
   %11 = phi i64 [ %18, %17 ], [ %8, %6 ]
@@ -109,20 +109,20 @@ define dso_local void @down_read(ptr noundef %0) #1 section ".sched.text" align 
   %15 = icmp ult i8 %14, 2
   tail call void @llvm.assume(i1 %15)
   %16 = icmp eq i8 %14, 0
-  br i1 %16, label %17, label %.thread, !prof !9
+  br i1 %16, label %17, label %.critedge, !prof !9
 
 17:                                               ; preds = %.lr.ph
   %18 = extractvalue { i8, i64 } %13, 1
   %19 = and i64 %18, 3
   %20 = icmp eq i64 %19, 1
-  br i1 %20, label %.lr.ph, label %.thread, !llvm.loop !14
+  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !14
 
-.thread:                                          ; preds = %17, %.lr.ph, %6, %1
+.critedge:                                        ; preds = %17, %.lr.ph, %6, %1
   %21 = and i64 %4, -9223372036854775801
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %30
 
-23:                                               ; preds = %.thread
+23:                                               ; preds = %.critedge
   %24 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load volatile i64, ptr %25, align 8
@@ -132,7 +132,7 @@ define dso_local void @down_read(ptr noundef %0) #1 section ".sched.text" align 
   store volatile i64 %29, ptr %25, align 8
   br label %32
 
-30:                                               ; preds = %.thread
+30:                                               ; preds = %.critedge
   %31 = tail call fastcc ptr @rwsem_down_read_slowpath(ptr noundef %0, i64 noundef %4, i32 noundef 2)
   br label %32
 
@@ -162,7 +162,7 @@ define dso_local noundef range(i32 -4, 1) i32 @down_read_interruptible(ptr nound
   %3 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 256, ptr elementtype(i64) %0) #9, !srcloc !8
   %4 = add i64 %3, 256
   %5 = icmp slt i64 %4, 0
-  br i1 %5, label %6, label %.thread, !prof !9
+  br i1 %5, label %6, label %.critedge, !prof !9
 
 6:                                                ; preds = %1
   tail call void asm sideeffect "341: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 341b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 341) #9, !srcloc !10
@@ -172,7 +172,7 @@ define dso_local noundef range(i32 -4, 1) i32 @down_read_interruptible(ptr nound
   %8 = load volatile i64, ptr %7, align 8
   %9 = and i64 %8, 3
   %10 = icmp eq i64 %9, 1
-  br i1 %10, label %.lr.ph, label %.thread
+  br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %6, %17
   %11 = phi i64 [ %18, %17 ], [ %8, %6 ]
@@ -182,20 +182,20 @@ define dso_local noundef range(i32 -4, 1) i32 @down_read_interruptible(ptr nound
   %15 = icmp ult i8 %14, 2
   tail call void @llvm.assume(i1 %15)
   %16 = icmp eq i8 %14, 0
-  br i1 %16, label %17, label %.thread, !prof !9
+  br i1 %16, label %17, label %.critedge, !prof !9
 
 17:                                               ; preds = %.lr.ph
   %18 = extractvalue { i8, i64 } %13, 1
   %19 = and i64 %18, 3
   %20 = icmp eq i64 %19, 1
-  br i1 %20, label %.lr.ph, label %.thread, !llvm.loop !14
+  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !14
 
-.thread:                                          ; preds = %17, %.lr.ph, %6, %1
+.critedge:                                        ; preds = %17, %.lr.ph, %6, %1
   %21 = and i64 %4, -9223372036854775801
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %30
 
-23:                                               ; preds = %.thread
+23:                                               ; preds = %.critedge
   %24 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load volatile i64, ptr %25, align 8
@@ -205,7 +205,7 @@ define dso_local noundef range(i32 -4, 1) i32 @down_read_interruptible(ptr nound
   store volatile i64 %29, ptr %25, align 8
   br label %34
 
-30:                                               ; preds = %.thread
+30:                                               ; preds = %.critedge
   %31 = tail call fastcc ptr @rwsem_down_read_slowpath(ptr noundef %0, i64 noundef %4, i32 noundef 1)
   %32 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
   %33 = select i1 %32, i32 -4, i32 0
@@ -238,7 +238,7 @@ define dso_local noundef range(i32 -4, 1) i32 @down_read_killable(ptr noundef %0
   %3 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 256, ptr elementtype(i64) %0) #9, !srcloc !8
   %4 = add i64 %3, 256
   %5 = icmp slt i64 %4, 0
-  br i1 %5, label %6, label %.thread, !prof !9
+  br i1 %5, label %6, label %.critedge, !prof !9
 
 6:                                                ; preds = %1
   tail call void asm sideeffect "341: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 341b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 341) #9, !srcloc !10
@@ -248,7 +248,7 @@ define dso_local noundef range(i32 -4, 1) i32 @down_read_killable(ptr noundef %0
   %8 = load volatile i64, ptr %7, align 8
   %9 = and i64 %8, 3
   %10 = icmp eq i64 %9, 1
-  br i1 %10, label %.lr.ph, label %.thread
+  br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %6, %17
   %11 = phi i64 [ %18, %17 ], [ %8, %6 ]
@@ -258,20 +258,20 @@ define dso_local noundef range(i32 -4, 1) i32 @down_read_killable(ptr noundef %0
   %15 = icmp ult i8 %14, 2
   tail call void @llvm.assume(i1 %15)
   %16 = icmp eq i8 %14, 0
-  br i1 %16, label %17, label %.thread, !prof !9
+  br i1 %16, label %17, label %.critedge, !prof !9
 
 17:                                               ; preds = %.lr.ph
   %18 = extractvalue { i8, i64 } %13, 1
   %19 = and i64 %18, 3
   %20 = icmp eq i64 %19, 1
-  br i1 %20, label %.lr.ph, label %.thread, !llvm.loop !14
+  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !14
 
-.thread:                                          ; preds = %17, %.lr.ph, %6, %1
+.critedge:                                        ; preds = %17, %.lr.ph, %6, %1
   %21 = and i64 %4, -9223372036854775801
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %30
 
-23:                                               ; preds = %.thread
+23:                                               ; preds = %.critedge
   %24 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load volatile i64, ptr %25, align 8
@@ -281,7 +281,7 @@ define dso_local noundef range(i32 -4, 1) i32 @down_read_killable(ptr noundef %0
   store volatile i64 %29, ptr %25, align 8
   br label %34
 
-30:                                               ; preds = %.thread
+30:                                               ; preds = %.critedge
   %31 = tail call fastcc ptr @rwsem_down_read_slowpath(ptr noundef %0, i64 noundef %4, i32 noundef 258)
   %32 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
   %33 = select i1 %32, i32 -4, i32 0
@@ -323,7 +323,7 @@ define dso_local noundef range(i32 0, 2) i32 @down_read_trylock(ptr noundef %0) 
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
-  br i1 %10, label %11, label %15, !prof !9
+  br i1 %10, label %11, label %.critedge, !prof !9
 
 11:                                               ; preds = %.lr.ph
   %12 = extractvalue { i8, i64 } %7, 1
@@ -331,33 +331,33 @@ define dso_local noundef range(i32 0, 2) i32 @down_read_trylock(ptr noundef %0) 
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
-15:                                               ; preds = %.lr.ph
-  %16 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !17
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load volatile i64, ptr %17, align 8
-  %19 = and i64 %18, 2
-  %20 = or i64 %16, %19
-  %21 = or i64 %20, 1
-  store volatile i64 %21, ptr %17, align 8
+.critedge:                                        ; preds = %.lr.ph
+  %15 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !17
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load volatile i64, ptr %16, align 8
+  %18 = and i64 %17, 2
+  %19 = or i64 %15, %18
+  %20 = or i64 %19, 1
+  store volatile i64 %20, ptr %16, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %1, %15
-  %22 = phi i32 [ 1, %15 ], [ 0, %1 ], [ 0, %11 ]
+.loopexit:                                        ; preds = %11, %1, %.critedge
+  %21 = phi i32 [ 1, %.critedge ], [ 0, %1 ], [ 0, %11 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !24
-  %23 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #9, !srcloc !19
-  %24 = icmp ult i8 %23, 2
-  tail call void @llvm.assume(i1 %24)
-  %25 = icmp eq i8 %23, 0
-  br i1 %25, label %29, label %26, !prof !20
+  %22 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #9, !srcloc !19
+  %23 = icmp ult i8 %22, 2
+  tail call void @llvm.assume(i1 %23)
+  %24 = icmp eq i8 %22, 0
+  br i1 %24, label %28, label %25, !prof !20
 
-26:                                               ; preds = %.loopexit
-  %27 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %28 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %27) #9, !srcloc !25
-  tail call void @llvm.write_register.i64(metadata !0, i64 %28)
-  br label %29
+25:                                               ; preds = %.loopexit
+  %26 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %27 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %26) #9, !srcloc !25
+  tail call void @llvm.write_register.i64(metadata !0, i64 %27)
+  br label %28
 
-29:                                               ; preds = %26, %.loopexit
-  ret i32 %22
+28:                                               ; preds = %25, %.loopexit
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

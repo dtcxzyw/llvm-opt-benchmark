@@ -35242,7 +35242,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deseri
 
 56:                                               ; preds = %55, %53
   %.sroa.9.1.ph.ph.i = phi i8 [ %54, %53 ], [ %44, %55 ]
-  switch i8 %.sroa.9.1.ph.ph.i, label %.thread87 [
+  switch i8 %.sroa.9.1.ph.ph.i, label %.thread86 [
     i8 32, label %.critedge
     i8 10, label %.critedge
     i8 9, label %.critedge
@@ -35273,7 +35273,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deseri
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !8292
   br label %211
 
-.thread87:                                        ; preds = %56
+.thread86:                                        ; preds = %56
   %63 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17hc9cd0dcdc993c449E"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a1c908188362716657f0a41b2015bf97.226)
   br label %209
 
@@ -35306,10 +35306,10 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deseri
   store i8 0, ptr %26, align 8, !alias.scope !8298
   store i8 %66, ptr %65, align 8
   %77 = tail call fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h0b7c2029e6e97667E"(ptr noalias noundef align 8 dereferenceable(112) %0)
-  br label %.thread80
+  br label %.thread79
 
-.thread80:                                        ; preds = %76, %207
-  %.127 = phi ptr [ %.22896, %207 ], [ %77, %76 ]
+.thread79:                                        ; preds = %76, %207
+  %.127 = phi ptr [ %.22895, %207 ], [ %77, %76 ]
   %78 = icmp eq ptr %.127, null
   br i1 %78, label %211, label %209
 
@@ -35539,9 +35539,9 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i.i25.i: ; preds
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h14e454dd21d968ecE"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(80) %25, ptr noalias noundef nonnull align 1 %12, i64 noundef 1), !noalias !8414
   %147 = load i64, ptr %11, align 8, !range !447, !noalias !8407, !noundef !4
   %trunc11.i.i.i = trunc nuw i64 %147 to i1
-  br i1 %trunc11.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i54
+  br i1 %trunc11.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i53
 
-._crit_edge.i.i.i54:                              ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h550a0b02ef46be58E.exit.i.i.i", %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b9421d6f5db5c2dE.exit.i.i.i32.i.i.i"
+._crit_edge.i.i.i53:                              ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h550a0b02ef46be58E.exit.i.i.i", %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b9421d6f5db5c2dE.exit.i.i.i32.i.i.i"
   %148 = load i64, ptr %84, align 8, !noalias !8407, !noundef !4
   %149 = icmp eq i64 %148, 0
   br i1 %149, label %183, label %._crit_edge.i.i.i35.i.i.i
@@ -35599,10 +35599,10 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i.i.i: ; preds =
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !8407
   call void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h14e454dd21d968ecE"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(80) %25, ptr noalias noundef nonnull align 1 %12, i64 noundef 1), !noalias !8414
   %167 = load i64, ptr %11, align 8, !range !447, !noalias !8407, !noundef !4
-  %trunc.i.i.i55 = trunc nuw i64 %167 to i1
-  br i1 %trunc.i.i.i55, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i54
+  %trunc.i.i.i54 = trunc nuw i64 %167 to i1
+  br i1 %trunc.i.i.i54, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i53
 
-._crit_edge.i.i.i35.i.i.i:                        ; preds = %._crit_edge.i.i.i54
+._crit_edge.i.i.i35.i.i.i:                        ; preds = %._crit_edge.i.i.i53
   %168 = load i8, ptr %12, align 1, !noalias !8407, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !8407
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !8407
@@ -35654,7 +35654,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i.i.i: ; preds =
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !8430
   br label %"_ZN223_$LT$tree_sitter_cli..generate..grammar_files.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tree_sitter_cli..generate..grammar_files..LanguageConfiguration$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h6f14621c421306e1E.exit"
 
-183:                                              ; preds = %._crit_edge.i.i.i54
+183:                                              ; preds = %._crit_edge.i.i.i53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !8407
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !8407
   %.val14.i.i.i = load i64, ptr %31, align 8, !alias.scope !8307, !noalias !8372, !noundef !4
@@ -35721,7 +35721,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i.i.i: ; preds =
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store ptr %196, ptr %23, align 8
   %199 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hc311685db2982caeE"(ptr noalias noundef align 8 dereferenceable(112) %0)
-          to label %.thread90 unwind label %200
+          to label %.thread89 unwind label %200
 
 200:                                              ; preds = %"_ZN223_$LT$tree_sitter_cli..generate..grammar_files.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tree_sitter_cli..generate..grammar_files..LanguageConfiguration$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h6f14621c421306e1E.exit"
   %201 = landingpad { ptr, i32 }
@@ -35733,34 +35733,34 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit.i.i.i: ; preds =
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h518fdeb1c81bc310E.llvm.15559585470061597875"(ptr noalias noundef nonnull align 8 dereferenceable(8) %23)
           to label %"_ZN4core3ptr139drop_in_place$LT$core..result..Result$LT$tree_sitter_cli..generate..grammar_files..LanguageConfiguration$C$serde_json..error..Error$GT$$GT$17he39746ceff7f4152E.exit" unwind label %79
 
-.thread90:                                        ; preds = %"_ZN223_$LT$tree_sitter_cli..generate..grammar_files.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tree_sitter_cli..generate..grammar_files..LanguageConfiguration$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h6f14621c421306e1E.exit"
+.thread89:                                        ; preds = %"_ZN223_$LT$tree_sitter_cli..generate..grammar_files.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tree_sitter_cli..generate..grammar_files..LanguageConfiguration$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h6f14621c421306e1E.exit"
   store ptr %196, ptr %24, align 8
   %204 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %199, ptr %204, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   %205 = icmp ne ptr %196, null
-  %.22896 = select i1 %205, ptr %196, ptr %199
+  %.22895 = select i1 %205, ptr %196, ptr %199
   %206 = icmp ne ptr %199, null
   %or.cond5 = and i1 %205, %206
   br i1 %or.cond5, label %208, label %207
 
-207:                                              ; preds = %208, %.thread90
+207:                                              ; preds = %208, %.thread89
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
-  br label %.thread80
+  br label %.thread79
 
-208:                                              ; preds = %.thread90
+208:                                              ; preds = %.thread89
   call void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h518fdeb1c81bc310E.llvm.15559585470061597875"(ptr noalias noundef nonnull align 8 dereferenceable(8) %204)
   br label %207
 
-209:                                              ; preds = %.thread87, %.thread80
-  %.12789 = phi ptr [ %63, %.thread87 ], [ %.127, %.thread80 ]
+209:                                              ; preds = %.thread86, %.thread79
+  %.12788 = phi ptr [ %63, %.thread86 ], [ %.127, %.thread79 ]
   %.val48 = load i64, ptr %31, align 8
   %.val49 = load i64, ptr %29, align 8
-  %210 = call fastcc noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17h5d24c4fd0808d9c0E(ptr noalias noundef nonnull align 8 %.12789, i64 %.val48, i64 %.val49)
+  %210 = call fastcc noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17h5d24c4fd0808d9c0E(ptr noalias noundef nonnull align 8 %.12788, i64 %.val48, i64 %.val49)
   br label %211
 
-211:                                              ; preds = %57, %61, %209, %.thread80, %74, %81
-  %.2 = phi ptr [ %75, %74 ], [ %82, %81 ], [ null, %.thread80 ], [ %210, %209 ], [ %62, %61 ], [ %60, %57 ]
+211:                                              ; preds = %57, %61, %209, %.thread79, %74, %81
+  %.2 = phi ptr [ %75, %74 ], [ %82, %81 ], [ null, %.thread79 ], [ %210, %209 ], [ %62, %61 ], [ %60, %57 ]
   ret ptr %.2
 
 "_ZN4core3ptr139drop_in_place$LT$core..result..Result$LT$tree_sitter_cli..generate..grammar_files..LanguageConfiguration$C$serde_json..error..Error$GT$$GT$17he39746ceff7f4152E.exit": ; preds = %200, %203

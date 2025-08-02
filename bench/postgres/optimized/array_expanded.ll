@@ -170,54 +170,54 @@ define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef c
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 %97, ptr %98, align 8
   %.not76 = icmp eq ptr %.074, null
-  br i1 %.not76, label %.thread87, label %102
+  br i1 %.not76, label %.critedge, label %99
 
-.thread87:                                        ; preds = %.thread
-  %99 = getelementptr inbounds nuw i8, ptr %6, i64 76
-  %100 = getelementptr inbounds nuw i8, ptr %6, i64 78
-  %101 = getelementptr inbounds nuw i8, ptr %6, i64 79
-  call void @get_typlenbyvalalign(i32 noundef %97, ptr noundef nonnull %99, ptr noundef nonnull %100, ptr noundef nonnull %101) #8
+99:                                               ; preds = %.thread
+  %100 = load i32, ptr %.074, align 8
+  %101 = icmp eq i32 %100, %97
+  br i1 %101, label %102, label %112
+
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %.074, i64 4
+  %104 = load i16, ptr %103, align 4
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 76
+  store i16 %104, ptr %105, align 4
+  %106 = getelementptr inbounds nuw i8, ptr %.074, i64 6
+  %107 = load i8, ptr %106, align 2, !range !4, !noundef !5
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 78
+  store i8 %107, ptr %108, align 2
+  %109 = getelementptr inbounds nuw i8, ptr %.074, i64 7
+  %110 = load i8, ptr %109, align 1
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 79
+  store i8 %110, ptr %111, align 1
   br label %126
 
-102:                                              ; preds = %.thread
-  %103 = load i32, ptr %.074, align 8
-  %104 = icmp eq i32 %103, %97
-  br i1 %104, label %105, label %115
-
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %.074, i64 4
-  %107 = load i16, ptr %106, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %6, i64 76
-  store i16 %107, ptr %108, align 4
-  %109 = getelementptr inbounds nuw i8, ptr %.074, i64 6
-  %110 = load i8, ptr %109, align 2, !range !4, !noundef !5
-  %111 = getelementptr inbounds nuw i8, ptr %6, i64 78
-  store i8 %110, ptr %111, align 2
-  %112 = getelementptr inbounds nuw i8, ptr %.074, i64 7
-  %113 = load i8, ptr %112, align 1
-  %114 = getelementptr inbounds nuw i8, ptr %6, i64 79
-  store i8 %113, ptr %114, align 1
+112:                                              ; preds = %99
+  %113 = getelementptr inbounds nuw i8, ptr %6, i64 76
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 78
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 79
+  call void @get_typlenbyvalalign(i32 noundef %97, ptr noundef nonnull %113, ptr noundef nonnull %114, ptr noundef nonnull %115) #8
+  %116 = load i32, ptr %98, align 8
+  store i32 %116, ptr %.074, align 8
+  %117 = load i16, ptr %113, align 4
+  %118 = getelementptr inbounds nuw i8, ptr %.074, i64 4
+  store i16 %117, ptr %118, align 4
+  %119 = load i8, ptr %114, align 2, !range !4, !noundef !5
+  %120 = getelementptr inbounds nuw i8, ptr %.074, i64 6
+  store i8 %119, ptr %120, align 2
+  %121 = load i8, ptr %115, align 1
+  %122 = getelementptr inbounds nuw i8, ptr %.074, i64 7
+  store i8 %121, ptr %122, align 1
   br label %126
 
-115:                                              ; preds = %102
-  %116 = getelementptr inbounds nuw i8, ptr %6, i64 76
-  %117 = getelementptr inbounds nuw i8, ptr %6, i64 78
-  %118 = getelementptr inbounds nuw i8, ptr %6, i64 79
-  call void @get_typlenbyvalalign(i32 noundef %97, ptr noundef nonnull %116, ptr noundef nonnull %117, ptr noundef nonnull %118) #8
-  %119 = load i32, ptr %98, align 8
-  store i32 %119, ptr %.074, align 8
-  %120 = load i16, ptr %116, align 4
-  %121 = getelementptr inbounds nuw i8, ptr %.074, i64 4
-  store i16 %120, ptr %121, align 4
-  %122 = load i8, ptr %117, align 2, !range !4, !noundef !5
-  %123 = getelementptr inbounds nuw i8, ptr %.074, i64 6
-  store i8 %122, ptr %123, align 2
-  %124 = load i8, ptr %118, align 1
-  %125 = getelementptr inbounds nuw i8, ptr %.074, i64 7
-  store i8 %124, ptr %125, align 1
+.critedge:                                        ; preds = %.thread
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 76
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 78
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 79
+  call void @get_typlenbyvalalign(i32 noundef %97, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef nonnull %125) #8
   br label %126
 
-126:                                              ; preds = %.thread87, %115, %105
+126:                                              ; preds = %.critedge, %112, %102
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %127, i8 0, i64 32, i1 false)

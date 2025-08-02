@@ -46,22 +46,22 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %21 = sext i32 %switch.select to i64
   br label %.preheader629.us
 
-.preheader629.us:                                 ; preds = %.preheader629.us.preheader, %._crit_edge657.us
-  %.0129667.us = phi i32 [ %22, %._crit_edge657.us ], [ 0, %.preheader629.us.preheader ]
-  %.0130666.us = phi i32 [ %.us-phi665.us, %._crit_edge657.us ], [ 0, %.preheader629.us.preheader ]
-  %22 = add nuw nsw i32 %.0129667.us, 1
-  br i1 %18, label %.preheader.us.us, label %._crit_edge657.us
+.preheader629.us:                                 ; preds = %.preheader629.us.preheader, %._crit_edge641.us
+  %.0129651.us = phi i32 [ %22, %._crit_edge641.us ], [ 0, %.preheader629.us.preheader ]
+  %.0130650.us = phi i32 [ %.us-phi649.us, %._crit_edge641.us ], [ 0, %.preheader629.us.preheader ]
+  %22 = add nuw nsw i32 %.0129651.us, 1
+  br i1 %18, label %.preheader.us.us, label %._crit_edge641.us
 
-._crit_edge657.us:                                ; preds = %._crit_edge.us.us, %.preheader629.us
-  %.us-phi665.us = phi i32 [ %.0130666.us, %.preheader629.us ], [ %.us-phi.us.us, %._crit_edge.us.us ]
-  %exitcond685.not = icmp eq i32 %22, %8
-  br i1 %exitcond685.not, label %._crit_edge, label %.preheader629.us, !llvm.loop !8
+._crit_edge641.us:                                ; preds = %._crit_edge.us.us, %.preheader629.us
+  %.us-phi649.us = phi i32 [ %.0130650.us, %.preheader629.us ], [ %.us-phi.us.us, %._crit_edge.us.us ]
+  %exitcond669.not = icmp eq i32 %22, %8
+  br i1 %exitcond669.not, label %._crit_edge, label %.preheader629.us, !llvm.loop !8
 
 .preheader.us.us:                                 ; preds = %.preheader629.us, %._crit_edge.us.us
-  %.0128654.us.us = phi i32 [ %23, %._crit_edge.us.us ], [ 0, %.preheader629.us ]
-  %.1653.us.us = phi i32 [ %.us-phi.us.us, %._crit_edge.us.us ], [ %.0130666.us, %.preheader629.us ]
-  %23 = add nuw nsw i32 %.0128654.us.us, 1
-  %24 = xor i32 %.0128654.us.us, %.0129667.us
+  %.0128638.us.us = phi i32 [ %23, %._crit_edge.us.us ], [ 0, %.preheader629.us ]
+  %.1637.us.us = phi i32 [ %.us-phi.us.us, %._crit_edge.us.us ], [ %.0130650.us, %.preheader629.us ]
+  %23 = add nuw nsw i32 %.0128638.us.us, 1
+  %24 = xor i32 %.0128638.us.us, %.0129651.us
   %25 = load ptr, ptr %2, align 8
   %26 = load i64, ptr %19, align 8
   %27 = icmp eq i64 %26, 1
@@ -79,65 +79,60 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %37 = select i1 %36, i64 0, i64 %34
   %38 = zext i1 %36 to i64
   %39 = mul nsw i64 %37, %29
-  %invariant.gep.us.us = getelementptr i8, ptr %25, i64 4
-  %invariant.gep632.us.us = getelementptr i8, ptr %25, i64 8
-  %invariant.gep634.us.us = getelementptr i8, ptr %25, i64 12
-  %invariant.gep636.us.us = getelementptr i8, ptr %25, i64 16
-  %invariant.gep646.us.us = getelementptr i8, ptr %25, i64 20
-  switch i32 %1, label %.lr.ph.split.us663.us.preheader [
+  switch i32 %1, label %.lr.ph.split.us647.us.preheader [
     i32 1, label %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us.preheader
-    i32 0, label %.lr.ph.split.us648.us.us.preheader
+    i32 0, label %.lr.ph.split.us632.us.us.preheader
   ]
 
-.lr.ph.split.us648.us.us.preheader:               ; preds = %.preheader.us.us
-  %40 = sext i32 %.1653.us.us to i64
-  br label %.lr.ph.split.us648.us.us
+.lr.ph.split.us632.us.us.preheader:               ; preds = %.preheader.us.us
+  %40 = sext i32 %.1637.us.us to i64
+  br label %.lr.ph.split.us632.us.us
 
 _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us.preheader: ; preds = %.preheader.us.us
-  %41 = sext i32 %.1653.us.us to i64
+  %41 = sext i32 %.1637.us.us to i64
   br label %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us
 
-.lr.ph.split.us663.us.preheader:                  ; preds = %.preheader.us.us
-  %42 = add i32 %10, %.1653.us.us
+.lr.ph.split.us647.us.preheader:                  ; preds = %.preheader.us.us
+  %42 = add i32 %10, %.1637.us.us
   br label %._crit_edge.us.us
 
-._crit_edge.us.us.loopexit673:                    ; preds = %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us
-  %43 = trunc nsw i64 %indvars.iv.next681 to i32
+._crit_edge.us.us.loopexit657:                    ; preds = %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us
+  %43 = trunc nsw i64 %indvars.iv.next665 to i32
   br label %._crit_edge.us.us
 
-._crit_edge.us.us.loopexit674:                    ; preds = %183
+._crit_edge.us.us.loopexit658:                    ; preds = %191
   %44 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge.us.us
 
-._crit_edge.us.us:                                ; preds = %._crit_edge.us.us.loopexit674, %._crit_edge.us.us.loopexit673, %.lr.ph.split.us663.us.preheader
-  %.us-phi.us.us = phi i32 [ %42, %.lr.ph.split.us663.us.preheader ], [ %43, %._crit_edge.us.us.loopexit673 ], [ %44, %._crit_edge.us.us.loopexit674 ]
-  %exitcond684.not = icmp eq i32 %23, %9
-  br i1 %exitcond684.not, label %._crit_edge657.us, label %.preheader.us.us, !llvm.loop !11
+._crit_edge.us.us:                                ; preds = %._crit_edge.us.us.loopexit658, %._crit_edge.us.us.loopexit657, %.lr.ph.split.us647.us.preheader
+  %.us-phi.us.us = phi i32 [ %42, %.lr.ph.split.us647.us.preheader ], [ %43, %._crit_edge.us.us.loopexit657 ], [ %44, %._crit_edge.us.us.loopexit658 ]
+  %exitcond668.not = icmp eq i32 %23, %9
+  br i1 %exitcond668.not, label %._crit_edge641.us, label %.preheader.us.us, !llvm.loop !11
 
 _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us: ; preds = %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us.preheader, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us
-  %indvars.iv680 = phi i64 [ %41, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us.preheader ], [ %indvars.iv.next681, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us ]
+  %indvars.iv664 = phi i64 [ %41, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us.preheader ], [ %indvars.iv.next665, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us ]
   %.0127631.us.us.us = phi i32 [ 0, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us.preheader ], [ %54, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us ]
   %45 = mul nuw nsw i32 %.0127631.us.us.us, %5
-  %46 = add nuw nsw i32 %45, %.0128654.us.us
+  %46 = add nuw nsw i32 %45, %.0128638.us.us
   %47 = mul nuw nsw i32 %46, %3
-  %48 = add nuw nsw i32 %47, %.0129667.us
+  %48 = add nuw nsw i32 %47, %.0129651.us
   %49 = add nuw nsw i32 %45, %23
   %50 = mul nuw nsw i32 %49, %3
-  %51 = add nuw nsw i32 %50, %.0129667.us
+  %51 = add nuw nsw i32 %50, %.0129651.us
   %52 = add nuw nsw i32 %47, %22
   %53 = add nuw nsw i32 %50, %22
   %54 = add nuw nsw i32 %.0127631.us.us.us, 1
   %55 = mul nuw nsw i32 %54, %5
-  %56 = add nuw nsw i32 %55, %.0128654.us.us
+  %56 = add nuw nsw i32 %55, %.0128638.us.us
   %57 = mul nuw nsw i32 %56, %3
-  %58 = add nuw nsw i32 %57, %.0129667.us
+  %58 = add nuw nsw i32 %57, %.0129651.us
   %59 = add nuw nsw i32 %55, %23
   %60 = mul nuw nsw i32 %59, %3
-  %61 = add nuw nsw i32 %60, %.0129667.us
+  %61 = add nuw nsw i32 %60, %.0129651.us
   %62 = add nuw nsw i32 %57, %22
   %63 = add nuw nsw i32 %60, %22
-  %64 = mul nsw i64 %indvars.iv680, %21
-  %65 = getelementptr inbounds i32, ptr %25, i64 %64
+  %64 = mul nsw i64 %indvars.iv664, %21
+  %65 = getelementptr i32, ptr %25, i64 %64
   store i32 %48, ptr %65, align 4, !tbaa !4, !noalias !12
   %66 = getelementptr i32, ptr %65, i64 %30
   %67 = getelementptr i32, ptr %66, i64 %.sroa.6321.0.us.us
@@ -149,206 +144,206 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1E
   %71 = getelementptr i32, ptr %70, i64 %.sroa.6321.1.us.us
   %72 = getelementptr i32, ptr %71, i64 %38
   store i32 %62, ptr %72, align 4, !tbaa !4
-  %gep639.us.us.us = getelementptr i32, ptr %invariant.gep.us.us, i64 %64
-  store i32 %48, ptr %gep639.us.us.us, align 4, !tbaa !4, !noalias !15
-  %73 = getelementptr i32, ptr %gep639.us.us.us, i64 %30
-  %74 = getelementptr i32, ptr %73, i64 %.sroa.6321.0.us.us
-  store i32 %63, ptr %74, align 4, !tbaa !4
-  %75 = getelementptr i32, ptr %gep639.us.us.us, i64 %35
-  %76 = getelementptr i32, ptr %75, i64 %.sroa.6321.1.us.us
-  store i32 %58, ptr %76, align 4, !tbaa !4
-  %77 = getelementptr i32, ptr %gep639.us.us.us, i64 %39
-  %78 = getelementptr i32, ptr %77, i64 %.sroa.6321.1.us.us
-  %79 = getelementptr i32, ptr %78, i64 %38
-  store i32 %62, ptr %79, align 4, !tbaa !4
-  %gep641.us.us.us = getelementptr i32, ptr %invariant.gep632.us.us, i64 %64
-  store i32 %48, ptr %gep641.us.us.us, align 4, !tbaa !4, !noalias !18
-  %80 = getelementptr i32, ptr %gep641.us.us.us, i64 %30
-  %81 = getelementptr i32, ptr %80, i64 %.sroa.6321.0.us.us
-  store i32 %52, ptr %81, align 4, !tbaa !4
-  %82 = getelementptr i32, ptr %gep641.us.us.us, i64 %35
-  %83 = getelementptr i32, ptr %82, i64 %.sroa.6321.1.us.us
-  store i32 %53, ptr %83, align 4, !tbaa !4
-  %84 = getelementptr i32, ptr %gep641.us.us.us, i64 %39
+  %73 = getelementptr i8, ptr %65, i64 4
+  store i32 %48, ptr %73, align 4, !tbaa !4, !noalias !15
+  %74 = getelementptr i32, ptr %73, i64 %30
+  %75 = getelementptr i32, ptr %74, i64 %.sroa.6321.0.us.us
+  store i32 %63, ptr %75, align 4, !tbaa !4
+  %76 = getelementptr i32, ptr %73, i64 %35
+  %77 = getelementptr i32, ptr %76, i64 %.sroa.6321.1.us.us
+  store i32 %58, ptr %77, align 4, !tbaa !4
+  %78 = getelementptr i32, ptr %73, i64 %39
+  %79 = getelementptr i32, ptr %78, i64 %.sroa.6321.1.us.us
+  %80 = getelementptr i32, ptr %79, i64 %38
+  store i32 %62, ptr %80, align 4, !tbaa !4
+  %81 = getelementptr i8, ptr %65, i64 8
+  store i32 %48, ptr %81, align 4, !tbaa !4, !noalias !18
+  %82 = getelementptr i32, ptr %81, i64 %30
+  %83 = getelementptr i32, ptr %82, i64 %.sroa.6321.0.us.us
+  store i32 %52, ptr %83, align 4, !tbaa !4
+  %84 = getelementptr i32, ptr %81, i64 %35
   %85 = getelementptr i32, ptr %84, i64 %.sroa.6321.1.us.us
-  %86 = getelementptr i32, ptr %85, i64 %38
-  store i32 %63, ptr %86, align 4, !tbaa !4
-  %gep643.us.us.us = getelementptr i32, ptr %invariant.gep634.us.us, i64 %64
-  store i32 %48, ptr %gep643.us.us.us, align 4, !tbaa !4, !noalias !21
-  %87 = getelementptr i32, ptr %gep643.us.us.us, i64 %30
-  %88 = getelementptr i32, ptr %87, i64 %.sroa.6321.0.us.us
-  store i32 %53, ptr %88, align 4, !tbaa !4
-  %89 = getelementptr i32, ptr %gep643.us.us.us, i64 %35
-  %90 = getelementptr i32, ptr %89, i64 %.sroa.6321.1.us.us
-  store i32 %51, ptr %90, align 4, !tbaa !4
-  %91 = getelementptr i32, ptr %gep643.us.us.us, i64 %39
-  %92 = getelementptr i32, ptr %91, i64 %.sroa.6321.1.us.us
-  %93 = getelementptr i32, ptr %92, i64 %38
-  store i32 %63, ptr %93, align 4, !tbaa !4
-  %gep645.us.us.us = getelementptr i32, ptr %invariant.gep636.us.us, i64 %64
-  store i32 %48, ptr %gep645.us.us.us, align 4, !tbaa !4, !noalias !24
-  %94 = getelementptr i32, ptr %gep645.us.us.us, i64 %30
-  %95 = getelementptr i32, ptr %94, i64 %.sroa.6321.0.us.us
-  store i32 %61, ptr %95, align 4, !tbaa !4
-  %96 = getelementptr i32, ptr %gep645.us.us.us, i64 %35
-  %97 = getelementptr i32, ptr %96, i64 %.sroa.6321.1.us.us
-  store i32 %58, ptr %97, align 4, !tbaa !4
-  %98 = getelementptr i32, ptr %gep645.us.us.us, i64 %39
-  %99 = getelementptr i32, ptr %98, i64 %.sroa.6321.1.us.us
-  %100 = getelementptr i32, ptr %99, i64 %38
-  store i32 %63, ptr %100, align 4, !tbaa !4
-  %gep647.us.us.us = getelementptr i32, ptr %invariant.gep646.us.us, i64 %64
-  store i32 %48, ptr %gep647.us.us.us, align 4, !tbaa !4, !noalias !27
-  %101 = getelementptr i32, ptr %gep647.us.us.us, i64 %30
-  %102 = getelementptr i32, ptr %101, i64 %.sroa.6321.0.us.us
-  store i32 %51, ptr %102, align 4, !tbaa !4
-  %103 = getelementptr i32, ptr %gep647.us.us.us, i64 %35
-  %104 = getelementptr i32, ptr %103, i64 %.sroa.6321.1.us.us
-  store i32 %61, ptr %104, align 4, !tbaa !4
-  %105 = getelementptr i32, ptr %gep647.us.us.us, i64 %39
-  %106 = getelementptr i32, ptr %105, i64 %.sroa.6321.1.us.us
-  %107 = getelementptr i32, ptr %106, i64 %38
-  store i32 %63, ptr %107, align 4, !tbaa !4
-  %indvars.iv.next681 = add nsw i64 %indvars.iv680, 1
-  %exitcond683.not = icmp eq i32 %54, %10
-  br i1 %exitcond683.not, label %._crit_edge.us.us.loopexit673, label %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us, !llvm.loop !30
+  store i32 %53, ptr %85, align 4, !tbaa !4
+  %86 = getelementptr i32, ptr %81, i64 %39
+  %87 = getelementptr i32, ptr %86, i64 %.sroa.6321.1.us.us
+  %88 = getelementptr i32, ptr %87, i64 %38
+  store i32 %63, ptr %88, align 4, !tbaa !4
+  %89 = getelementptr i8, ptr %65, i64 12
+  store i32 %48, ptr %89, align 4, !tbaa !4, !noalias !21
+  %90 = getelementptr i32, ptr %89, i64 %30
+  %91 = getelementptr i32, ptr %90, i64 %.sroa.6321.0.us.us
+  store i32 %53, ptr %91, align 4, !tbaa !4
+  %92 = getelementptr i32, ptr %89, i64 %35
+  %93 = getelementptr i32, ptr %92, i64 %.sroa.6321.1.us.us
+  store i32 %51, ptr %93, align 4, !tbaa !4
+  %94 = getelementptr i32, ptr %89, i64 %39
+  %95 = getelementptr i32, ptr %94, i64 %.sroa.6321.1.us.us
+  %96 = getelementptr i32, ptr %95, i64 %38
+  store i32 %63, ptr %96, align 4, !tbaa !4
+  %97 = getelementptr i8, ptr %65, i64 16
+  store i32 %48, ptr %97, align 4, !tbaa !4, !noalias !24
+  %98 = getelementptr i32, ptr %97, i64 %30
+  %99 = getelementptr i32, ptr %98, i64 %.sroa.6321.0.us.us
+  store i32 %61, ptr %99, align 4, !tbaa !4
+  %100 = getelementptr i32, ptr %97, i64 %35
+  %101 = getelementptr i32, ptr %100, i64 %.sroa.6321.1.us.us
+  store i32 %58, ptr %101, align 4, !tbaa !4
+  %102 = getelementptr i32, ptr %97, i64 %39
+  %103 = getelementptr i32, ptr %102, i64 %.sroa.6321.1.us.us
+  %104 = getelementptr i32, ptr %103, i64 %38
+  store i32 %63, ptr %104, align 4, !tbaa !4
+  %105 = getelementptr i8, ptr %65, i64 20
+  store i32 %48, ptr %105, align 4, !tbaa !4, !noalias !27
+  %106 = getelementptr i32, ptr %105, i64 %30
+  %107 = getelementptr i32, ptr %106, i64 %.sroa.6321.0.us.us
+  store i32 %51, ptr %107, align 4, !tbaa !4
+  %108 = getelementptr i32, ptr %105, i64 %35
+  %109 = getelementptr i32, ptr %108, i64 %.sroa.6321.1.us.us
+  store i32 %61, ptr %109, align 4, !tbaa !4
+  %110 = getelementptr i32, ptr %105, i64 %39
+  %111 = getelementptr i32, ptr %110, i64 %.sroa.6321.1.us.us
+  %112 = getelementptr i32, ptr %111, i64 %38
+  store i32 %63, ptr %112, align 4, !tbaa !4
+  %indvars.iv.next665 = add nsw i64 %indvars.iv664, 1
+  %exitcond667.not = icmp eq i32 %54, %10
+  br i1 %exitcond667.not, label %._crit_edge.us.us.loopexit657, label %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit.us.us.us, !llvm.loop !30
 
-.lr.ph.split.us648.us.us:                         ; preds = %.lr.ph.split.us648.us.us.preheader, %183
-  %indvars.iv = phi i64 [ %40, %.lr.ph.split.us648.us.us.preheader ], [ %indvars.iv.next, %183 ]
-  %.0127631.us649.us.us = phi i32 [ 0, %.lr.ph.split.us648.us.us.preheader ], [ %117, %183 ]
-  %108 = mul nuw nsw i32 %.0127631.us649.us.us, %5
-  %109 = add nuw nsw i32 %108, %.0128654.us.us
-  %110 = mul nuw nsw i32 %109, %3
-  %111 = add nuw nsw i32 %110, %.0129667.us
-  %112 = add nuw nsw i32 %108, %23
-  %113 = mul nuw nsw i32 %112, %3
-  %114 = add nuw nsw i32 %113, %.0129667.us
-  %115 = add nuw nsw i32 %110, %22
-  %116 = add nuw nsw i32 %113, %22
-  %117 = add nuw nsw i32 %.0127631.us649.us.us, 1
-  %118 = mul nuw nsw i32 %117, %5
-  %119 = add nuw nsw i32 %118, %.0128654.us.us
-  %120 = mul nuw nsw i32 %119, %3
-  %121 = add nuw nsw i32 %120, %.0129667.us
-  %122 = add nuw nsw i32 %118, %23
-  %123 = mul nuw nsw i32 %122, %3
-  %124 = add nuw nsw i32 %123, %.0129667.us
-  %125 = add nuw nsw i32 %120, %22
-  %126 = add nuw nsw i32 %123, %22
-  %127 = xor i32 %24, %.0127631.us649.us.us
-  %128 = and i32 %127, 1
-  %.not.us.us.us = icmp eq i32 %128, 0
-  br i1 %.not.us.us.us, label %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit205.us.us.us, label %129
+.lr.ph.split.us632.us.us:                         ; preds = %.lr.ph.split.us632.us.us.preheader, %191
+  %indvars.iv = phi i64 [ %40, %.lr.ph.split.us632.us.us.preheader ], [ %indvars.iv.next, %191 ]
+  %.0127631.us633.us.us = phi i32 [ 0, %.lr.ph.split.us632.us.us.preheader ], [ %122, %191 ]
+  %113 = mul nuw nsw i32 %.0127631.us633.us.us, %5
+  %114 = add nuw nsw i32 %113, %.0128638.us.us
+  %115 = mul nuw nsw i32 %114, %3
+  %116 = add nuw nsw i32 %115, %.0129651.us
+  %117 = add nuw nsw i32 %113, %23
+  %118 = mul nuw nsw i32 %117, %3
+  %119 = add nuw nsw i32 %118, %.0129651.us
+  %120 = add nuw nsw i32 %115, %22
+  %121 = add nuw nsw i32 %118, %22
+  %122 = add nuw nsw i32 %.0127631.us633.us.us, 1
+  %123 = mul nuw nsw i32 %122, %5
+  %124 = add nuw nsw i32 %123, %.0128638.us.us
+  %125 = mul nuw nsw i32 %124, %3
+  %126 = add nuw nsw i32 %125, %.0129651.us
+  %127 = add nuw nsw i32 %123, %23
+  %128 = mul nuw nsw i32 %127, %3
+  %129 = add nuw nsw i32 %128, %.0129651.us
+  %130 = add nuw nsw i32 %125, %22
+  %131 = add nuw nsw i32 %128, %22
+  %132 = xor i32 %24, %.0127631.us633.us.us
+  %133 = and i32 %132, 1
+  %.not.us.us.us = icmp eq i32 %133, 0
+  br i1 %.not.us.us.us, label %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit205.us.us.us, label %134
 
-129:                                              ; preds = %.lr.ph.split.us648.us.us
+134:                                              ; preds = %.lr.ph.split.us632.us.us
   br label %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit205.us.us.us
 
-_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit205.us.us.us: ; preds = %129, %.lr.ph.split.us648.us.us
-  %.0480.us.us.us = phi i32 [ %126, %.lr.ph.split.us648.us.us ], [ %124, %129 ]
-  %.0479.us.us.us = phi i32 [ %125, %.lr.ph.split.us648.us.us ], [ %121, %129 ]
-  %.0478.us.us.us = phi i32 [ %124, %.lr.ph.split.us648.us.us ], [ %126, %129 ]
-  %.0477.us.us.us = phi i32 [ %121, %.lr.ph.split.us648.us.us ], [ %125, %129 ]
-  %.0476.us.us.us = phi i32 [ %116, %.lr.ph.split.us648.us.us ], [ %114, %129 ]
-  %.0475.us.us.us = phi i32 [ %115, %.lr.ph.split.us648.us.us ], [ %111, %129 ]
-  %.0474.us.us.us = phi i32 [ %114, %.lr.ph.split.us648.us.us ], [ %116, %129 ]
-  %.0.us.us.us = phi i32 [ %111, %.lr.ph.split.us648.us.us ], [ %115, %129 ]
-  %130 = mul nsw i64 %indvars.iv, 5
-  %131 = getelementptr inbounds i32, ptr %25, i64 %130
-  store i32 %.0477.us.us.us, ptr %131, align 4, !tbaa !4, !noalias !31
-  %132 = getelementptr i32, ptr %131, i64 %30
-  %133 = getelementptr i32, ptr %132, i64 %.sroa.6321.0.us.us
-  store i32 %.0475.us.us.us, ptr %133, align 4, !tbaa !4
-  %134 = getelementptr i32, ptr %131, i64 %35
-  %135 = getelementptr i32, ptr %134, i64 %.sroa.6321.1.us.us
-  store i32 %.0474.us.us.us, ptr %135, align 4, !tbaa !4
-  %136 = getelementptr i32, ptr %131, i64 %39
-  %137 = getelementptr i32, ptr %136, i64 %.sroa.6321.1.us.us
-  %138 = getelementptr i32, ptr %137, i64 %38
-  store i32 %.0.us.us.us, ptr %138, align 4, !tbaa !4
-  %gep.us.us.us = getelementptr i32, ptr %invariant.gep.us.us, i64 %130
-  store i32 %.0475.us.us.us, ptr %gep.us.us.us, align 4, !tbaa !4, !noalias !34
-  %139 = getelementptr i32, ptr %gep.us.us.us, i64 %30
-  %140 = getelementptr i32, ptr %139, i64 %.sroa.6321.0.us.us
-  store i32 %.0474.us.us.us, ptr %140, align 4, !tbaa !4
-  %141 = getelementptr i32, ptr %gep.us.us.us, i64 %35
-  %142 = getelementptr i32, ptr %141, i64 %.sroa.6321.1.us.us
-  store i32 %.0480.us.us.us, ptr %142, align 4, !tbaa !4
-  %143 = getelementptr i32, ptr %gep.us.us.us, i64 %39
-  %144 = getelementptr i32, ptr %143, i64 %.sroa.6321.1.us.us
-  %145 = getelementptr i32, ptr %144, i64 %38
-  store i32 %.0477.us.us.us, ptr %145, align 4, !tbaa !4
-  %gep633.us.us.us = getelementptr i32, ptr %invariant.gep632.us.us, i64 %130
-  store i32 %.0475.us.us.us, ptr %gep633.us.us.us, align 4, !tbaa !4, !noalias !37
-  %146 = getelementptr i32, ptr %gep633.us.us.us, i64 %30
-  %147 = getelementptr i32, ptr %146, i64 %.sroa.6321.0.us.us
-  store i32 %.0476.us.us.us, ptr %147, align 4, !tbaa !4
-  %148 = getelementptr i32, ptr %gep633.us.us.us, i64 %35
+_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit205.us.us.us: ; preds = %134, %.lr.ph.split.us632.us.us
+  %.0480.us.us.us = phi i32 [ %131, %.lr.ph.split.us632.us.us ], [ %129, %134 ]
+  %.0479.us.us.us = phi i32 [ %130, %.lr.ph.split.us632.us.us ], [ %126, %134 ]
+  %.0478.us.us.us = phi i32 [ %129, %.lr.ph.split.us632.us.us ], [ %131, %134 ]
+  %.0477.us.us.us = phi i32 [ %126, %.lr.ph.split.us632.us.us ], [ %130, %134 ]
+  %.0476.us.us.us = phi i32 [ %121, %.lr.ph.split.us632.us.us ], [ %119, %134 ]
+  %.0475.us.us.us = phi i32 [ %120, %.lr.ph.split.us632.us.us ], [ %116, %134 ]
+  %.0474.us.us.us = phi i32 [ %119, %.lr.ph.split.us632.us.us ], [ %121, %134 ]
+  %.0.us.us.us = phi i32 [ %116, %.lr.ph.split.us632.us.us ], [ %120, %134 ]
+  %.idx = mul i64 %indvars.iv, 20
+  %135 = getelementptr i8, ptr %25, i64 %.idx
+  store i32 %.0477.us.us.us, ptr %135, align 4, !tbaa !4, !noalias !31
+  %136 = getelementptr i32, ptr %135, i64 %30
+  %137 = getelementptr i32, ptr %136, i64 %.sroa.6321.0.us.us
+  store i32 %.0475.us.us.us, ptr %137, align 4, !tbaa !4
+  %138 = getelementptr i32, ptr %135, i64 %35
+  %139 = getelementptr i32, ptr %138, i64 %.sroa.6321.1.us.us
+  store i32 %.0474.us.us.us, ptr %139, align 4, !tbaa !4
+  %140 = getelementptr i32, ptr %135, i64 %39
+  %141 = getelementptr i32, ptr %140, i64 %.sroa.6321.1.us.us
+  %142 = getelementptr i32, ptr %141, i64 %38
+  store i32 %.0.us.us.us, ptr %142, align 4, !tbaa !4
+  %143 = getelementptr i8, ptr %135, i64 4
+  store i32 %.0475.us.us.us, ptr %143, align 4, !tbaa !4, !noalias !34
+  %144 = getelementptr i32, ptr %143, i64 %30
+  %145 = getelementptr i32, ptr %144, i64 %.sroa.6321.0.us.us
+  store i32 %.0474.us.us.us, ptr %145, align 4, !tbaa !4
+  %146 = getelementptr i32, ptr %143, i64 %35
+  %147 = getelementptr i32, ptr %146, i64 %.sroa.6321.1.us.us
+  store i32 %.0480.us.us.us, ptr %147, align 4, !tbaa !4
+  %148 = getelementptr i32, ptr %143, i64 %39
   %149 = getelementptr i32, ptr %148, i64 %.sroa.6321.1.us.us
-  store i32 %.0480.us.us.us, ptr %149, align 4, !tbaa !4
-  %150 = getelementptr i32, ptr %gep633.us.us.us, i64 %39
-  %151 = getelementptr i32, ptr %150, i64 %.sroa.6321.1.us.us
-  %152 = getelementptr i32, ptr %151, i64 %38
-  store i32 %.0474.us.us.us, ptr %152, align 4, !tbaa !4
-  %gep635.us.us.us = getelementptr i32, ptr %invariant.gep634.us.us, i64 %130
-  store i32 %.0475.us.us.us, ptr %gep635.us.us.us, align 4, !tbaa !4, !noalias !40
-  %153 = getelementptr i32, ptr %gep635.us.us.us, i64 %30
-  %154 = getelementptr i32, ptr %153, i64 %.sroa.6321.0.us.us
-  store i32 %.0480.us.us.us, ptr %154, align 4, !tbaa !4
-  %155 = getelementptr i32, ptr %gep635.us.us.us, i64 %35
-  %156 = getelementptr i32, ptr %155, i64 %.sroa.6321.1.us.us
-  store i32 %.0479.us.us.us, ptr %156, align 4, !tbaa !4
-  %157 = getelementptr i32, ptr %gep635.us.us.us, i64 %39
-  %158 = getelementptr i32, ptr %157, i64 %.sroa.6321.1.us.us
-  %159 = getelementptr i32, ptr %158, i64 %38
-  store i32 %.0477.us.us.us, ptr %159, align 4, !tbaa !4
-  %gep637.us.us.us = getelementptr i32, ptr %invariant.gep636.us.us, i64 %130
-  store i32 %.0474.us.us.us, ptr %gep637.us.us.us, align 4, !tbaa !4, !noalias !43
-  %160 = getelementptr i32, ptr %gep637.us.us.us, i64 %30
+  %150 = getelementptr i32, ptr %149, i64 %38
+  store i32 %.0477.us.us.us, ptr %150, align 4, !tbaa !4
+  %151 = getelementptr i8, ptr %135, i64 8
+  store i32 %.0475.us.us.us, ptr %151, align 4, !tbaa !4, !noalias !37
+  %152 = getelementptr i32, ptr %151, i64 %30
+  %153 = getelementptr i32, ptr %152, i64 %.sroa.6321.0.us.us
+  store i32 %.0476.us.us.us, ptr %153, align 4, !tbaa !4
+  %154 = getelementptr i32, ptr %151, i64 %35
+  %155 = getelementptr i32, ptr %154, i64 %.sroa.6321.1.us.us
+  store i32 %.0480.us.us.us, ptr %155, align 4, !tbaa !4
+  %156 = getelementptr i32, ptr %151, i64 %39
+  %157 = getelementptr i32, ptr %156, i64 %.sroa.6321.1.us.us
+  %158 = getelementptr i32, ptr %157, i64 %38
+  store i32 %.0474.us.us.us, ptr %158, align 4, !tbaa !4
+  %159 = getelementptr i8, ptr %135, i64 12
+  store i32 %.0475.us.us.us, ptr %159, align 4, !tbaa !4, !noalias !40
+  %160 = getelementptr i32, ptr %159, i64 %30
   %161 = getelementptr i32, ptr %160, i64 %.sroa.6321.0.us.us
-  store i32 %.0478.us.us.us, ptr %161, align 4, !tbaa !4
-  %162 = getelementptr i32, ptr %gep637.us.us.us, i64 %35
+  store i32 %.0480.us.us.us, ptr %161, align 4, !tbaa !4
+  %162 = getelementptr i32, ptr %159, i64 %35
   %163 = getelementptr i32, ptr %162, i64 %.sroa.6321.1.us.us
-  store i32 %.0480.us.us.us, ptr %163, align 4, !tbaa !4
-  %164 = getelementptr i32, ptr %gep637.us.us.us, i64 %39
+  store i32 %.0479.us.us.us, ptr %163, align 4, !tbaa !4
+  %164 = getelementptr i32, ptr %159, i64 %39
   %165 = getelementptr i32, ptr %164, i64 %.sroa.6321.1.us.us
   %166 = getelementptr i32, ptr %165, i64 %38
   store i32 %.0477.us.us.us, ptr %166, align 4, !tbaa !4
-  br i1 %.not.us.us.us, label %167, label %183
+  %167 = getelementptr i8, ptr %135, i64 16
+  store i32 %.0474.us.us.us, ptr %167, align 4, !tbaa !4, !noalias !43
+  %168 = getelementptr i32, ptr %167, i64 %30
+  %169 = getelementptr i32, ptr %168, i64 %.sroa.6321.0.us.us
+  store i32 %.0478.us.us.us, ptr %169, align 4, !tbaa !4
+  %170 = getelementptr i32, ptr %167, i64 %35
+  %171 = getelementptr i32, ptr %170, i64 %.sroa.6321.1.us.us
+  store i32 %.0480.us.us.us, ptr %171, align 4, !tbaa !4
+  %172 = getelementptr i32, ptr %167, i64 %39
+  %173 = getelementptr i32, ptr %172, i64 %.sroa.6321.1.us.us
+  %174 = getelementptr i32, ptr %173, i64 %38
+  store i32 %.0477.us.us.us, ptr %174, align 4, !tbaa !4
+  br i1 %.not.us.us.us, label %175, label %191
 
-167:                                              ; preds = %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit205.us.us.us
-  %168 = getelementptr i32, ptr %131, i64 %29
-  %169 = load i32, ptr %131, align 4, !tbaa !4
-  %170 = load i32, ptr %168, align 4, !tbaa !4
-  store i32 %170, ptr %131, align 4, !tbaa !4
-  store i32 %169, ptr %168, align 4, !tbaa !4
-  %171 = getelementptr i32, ptr %gep.us.us.us, i64 %29
-  %172 = load i32, ptr %gep.us.us.us, align 4, !tbaa !4
-  %173 = load i32, ptr %171, align 4, !tbaa !4
-  store i32 %173, ptr %gep.us.us.us, align 4, !tbaa !4
-  store i32 %172, ptr %171, align 4, !tbaa !4
-  %174 = getelementptr i32, ptr %gep633.us.us.us, i64 %29
-  %175 = load i32, ptr %gep633.us.us.us, align 4, !tbaa !4
-  %176 = load i32, ptr %174, align 4, !tbaa !4
-  store i32 %176, ptr %gep633.us.us.us, align 4, !tbaa !4
-  store i32 %175, ptr %174, align 4, !tbaa !4
-  %177 = getelementptr i32, ptr %gep635.us.us.us, i64 %29
-  %178 = load i32, ptr %gep635.us.us.us, align 4, !tbaa !4
-  %179 = load i32, ptr %177, align 4, !tbaa !4
-  store i32 %179, ptr %gep635.us.us.us, align 4, !tbaa !4
-  store i32 %178, ptr %177, align 4, !tbaa !4
-  %180 = getelementptr i32, ptr %gep637.us.us.us, i64 %29
-  %181 = load i32, ptr %gep637.us.us.us, align 4, !tbaa !4
-  %182 = load i32, ptr %180, align 4, !tbaa !4
-  store i32 %182, ptr %gep637.us.us.us, align 4, !tbaa !4
-  store i32 %181, ptr %180, align 4, !tbaa !4
-  br label %183
+175:                                              ; preds = %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit205.us.us.us
+  %176 = getelementptr i32, ptr %135, i64 %29
+  %177 = load i32, ptr %135, align 4, !tbaa !4
+  %178 = load i32, ptr %176, align 4, !tbaa !4
+  store i32 %178, ptr %135, align 4, !tbaa !4
+  store i32 %177, ptr %176, align 4, !tbaa !4
+  %179 = getelementptr i32, ptr %143, i64 %29
+  %180 = load i32, ptr %143, align 4, !tbaa !4
+  %181 = load i32, ptr %179, align 4, !tbaa !4
+  store i32 %181, ptr %143, align 4, !tbaa !4
+  store i32 %180, ptr %179, align 4, !tbaa !4
+  %182 = getelementptr i32, ptr %151, i64 %29
+  %183 = load i32, ptr %151, align 4, !tbaa !4
+  %184 = load i32, ptr %182, align 4, !tbaa !4
+  store i32 %184, ptr %151, align 4, !tbaa !4
+  store i32 %183, ptr %182, align 4, !tbaa !4
+  %185 = getelementptr i32, ptr %159, i64 %29
+  %186 = load i32, ptr %159, align 4, !tbaa !4
+  %187 = load i32, ptr %185, align 4, !tbaa !4
+  store i32 %187, ptr %159, align 4, !tbaa !4
+  store i32 %186, ptr %185, align 4, !tbaa !4
+  %188 = getelementptr i32, ptr %167, i64 %29
+  %189 = load i32, ptr %167, align 4, !tbaa !4
+  %190 = load i32, ptr %188, align 4, !tbaa !4
+  store i32 %190, ptr %167, align 4, !tbaa !4
+  store i32 %189, ptr %188, align 4, !tbaa !4
+  br label %191
 
-183:                                              ; preds = %167, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit205.us.us.us
+191:                                              ; preds = %175, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit205.us.us.us
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i32 %117, %10
-  br i1 %exitcond.not, label %._crit_edge.us.us.loopexit674, label %.lr.ph.split.us648.us.us, !llvm.loop !46
+  %exitcond.not = icmp eq i32 %122, %10
+  br i1 %exitcond.not, label %._crit_edge.us.us.loopexit658, label %.lr.ph.split.us632.us.us, !llvm.loop !46
 
-._crit_edge:                                      ; preds = %._crit_edge657.us, %.preheader629.lr.ph, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
+._crit_edge:                                      ; preds = %._crit_edge641.us, %.preheader629.lr.ph, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
   ret void
 }
 

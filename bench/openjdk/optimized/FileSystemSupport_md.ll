@@ -121,86 +121,86 @@ define internal fastcc noundef ptr @normalizePath(ptr noundef readonly captures(
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %.critedge.thread
 
-.lr.ph:                                           ; preds = %.preheader, %9
-  %.03140 = phi i32 [ %10, %9 ], [ %1, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %11
+  %.03140 = phi i32 [ %12, %11 ], [ %1, %.preheader ]
   %6 = zext nneg i32 %.03140 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %6
-  %7 = load i8, ptr %gep, align 1
-  %8 = icmp eq i8 %7, 47
-  br i1 %8, label %9, label %.critedge.thread
+  %7 = getelementptr i8, ptr %0, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 -1
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 47
+  br i1 %10, label %11, label %.critedge.thread
 
-9:                                                ; preds = %.lr.ph
-  %10 = add nsw i32 %.03140, -1
-  %11 = icmp sgt i32 %.03140, 1
-  br i1 %11, label %.lr.ph, label %12, !llvm.loop !8
+11:                                               ; preds = %.lr.ph
+  %12 = add nsw i32 %.03140, -1
+  %13 = icmp sgt i32 %.03140, 1
+  br i1 %13, label %.lr.ph, label %14, !llvm.loop !8
 
-12:                                               ; preds = %9
-  %13 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #10
+14:                                               ; preds = %11
+  %15 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #10
   br label %.loopexit
 
 .critedge.thread:                                 ; preds = %.lr.ph, %.preheader
   %.03139 = phi i32 [ %1, %.preheader ], [ %.03140, %.lr.ph ]
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
-  %15 = add i64 %14, 1
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %21
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
+  %17 = add i64 %16, 1
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %23
 
-18:                                               ; preds = %.critedge.thread
-  %19 = load ptr, ptr @stderr, align 8
-  %20 = tail call i64 @fwrite(ptr nonnull @.str, i64 41, i64 1, ptr %19) #9
+20:                                               ; preds = %.critedge.thread
+  %21 = load ptr, ptr @stderr, align 8
+  %22 = tail call i64 @fwrite(ptr nonnull @.str, i64 41, i64 1, ptr %21) #9
   br label %.loopexit
 
-21:                                               ; preds = %.critedge.thread
-  %22 = icmp sgt i32 %2, 0
-  br i1 %22, label %23, label %25
+23:                                               ; preds = %.critedge.thread
+  %24 = icmp sgt i32 %2, 0
+  br i1 %24, label %25, label %27
 
-23:                                               ; preds = %21
-  %24 = zext nneg i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %0, i64 %24, i1 false)
-  br label %25
+25:                                               ; preds = %23
+  %26 = zext nneg i32 %2 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %0, i64 %26, i1 false)
+  br label %27
 
-25:                                               ; preds = %23, %21
-  %.033 = phi i32 [ %2, %23 ], [ 0, %21 ]
-  %26 = icmp slt i32 %2, %.03139
-  br i1 %26, label %.lr.ph44.preheader, label %.loopexit
+27:                                               ; preds = %25, %23
+  %.033 = phi i32 [ %2, %25 ], [ 0, %23 ]
+  %28 = icmp slt i32 %2, %.03139
+  br i1 %28, label %.lr.ph44.preheader, label %.loopexit
 
-.lr.ph44.preheader:                               ; preds = %25
-  %27 = sext i32 %2 to i64
+.lr.ph44.preheader:                               ; preds = %27
+  %29 = sext i32 %2 to i64
   %wide.trip.count = sext i32 %.03139 to i64
   br label %.lr.ph44
 
-.lr.ph44:                                         ; preds = %.lr.ph44.preheader, %36
-  %indvars.iv = phi i64 [ %27, %.lr.ph44.preheader ], [ %indvars.iv.next, %36 ]
-  %.03043 = phi i8 [ 0, %.lr.ph44.preheader ], [ %.1, %36 ]
-  %.13441 = phi i32 [ %.033, %.lr.ph44.preheader ], [ %.2, %36 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  %29 = load i8, ptr %28, align 1
-  %30 = icmp eq i8 %.03043, 47
-  %31 = icmp eq i8 %29, 47
-  %or.cond = select i1 %30, i1 %31, i1 false
-  br i1 %or.cond, label %36, label %32
+.lr.ph44:                                         ; preds = %.lr.ph44.preheader, %38
+  %indvars.iv = phi i64 [ %29, %.lr.ph44.preheader ], [ %indvars.iv.next, %38 ]
+  %.03043 = phi i8 [ 0, %.lr.ph44.preheader ], [ %.1, %38 ]
+  %.13441 = phi i32 [ %.033, %.lr.ph44.preheader ], [ %.2, %38 ]
+  %30 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %31 = load i8, ptr %30, align 1
+  %32 = icmp eq i8 %.03043, 47
+  %33 = icmp eq i8 %31, 47
+  %or.cond = select i1 %32, i1 %33, i1 false
+  br i1 %or.cond, label %38, label %34
 
-32:                                               ; preds = %.lr.ph44
-  %33 = add nsw i32 %.13441, 1
-  %34 = sext i32 %.13441 to i64
-  %35 = getelementptr inbounds i8, ptr %16, i64 %34
-  store i8 %29, ptr %35, align 1
-  br label %36
+34:                                               ; preds = %.lr.ph44
+  %35 = add nsw i32 %.13441, 1
+  %36 = sext i32 %.13441 to i64
+  %37 = getelementptr inbounds i8, ptr %18, i64 %36
+  store i8 %31, ptr %37, align 1
+  br label %38
 
-36:                                               ; preds = %.lr.ph44, %32
-  %.2 = phi i32 [ %.13441, %.lr.ph44 ], [ %33, %32 ]
-  %.1 = phi i8 [ 47, %.lr.ph44 ], [ %29, %32 ]
+38:                                               ; preds = %.lr.ph44, %34
+  %.2 = phi i32 [ %.13441, %.lr.ph44 ], [ %35, %34 ]
+  %.1 = phi i8 [ 47, %.lr.ph44 ], [ %31, %34 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph44, !llvm.loop !9
 
-.loopexit:                                        ; preds = %36, %25, %3, %18, %12
-  %.0 = phi ptr [ %13, %12 ], [ null, %18 ], [ %0, %3 ], [ %16, %25 ], [ %16, %36 ]
+.loopexit:                                        ; preds = %38, %27, %3, %20, %14
+  %.0 = phi ptr [ %15, %14 ], [ null, %20 ], [ %0, %3 ], [ %18, %27 ], [ %18, %38 ]
   ret ptr %.0
 }
 

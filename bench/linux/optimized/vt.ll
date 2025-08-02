@@ -762,18 +762,18 @@ define internal fastcc void @do_update_region(ptr noundef %0, i64 noundef %1, i3
 
 .outer:                                           ; preds = %95, %25
   %.ph = phi i64 [ %96, %95 ], [ %26, %25 ]
-  %.ph36 = phi i32 [ %88, %95 ], [ %2, %25 ]
-  %.ph37 = phi i32 [ 0, %95 ], [ %27, %25 ]
-  %.ph38 = phi i32 [ %90, %95 ], [ %28, %25 ]
-  %.ph39.in = phi i64 [ %.ph, %95 ], [ %1, %25 ]
-  %.ph39 = inttoptr i64 %.ph39.in to ptr
+  %.ph33 = phi i32 [ %88, %95 ], [ %2, %25 ]
+  %.ph34 = phi i32 [ 0, %95 ], [ %27, %25 ]
+  %.ph35 = phi i32 [ %90, %95 ], [ %28, %25 ]
+  %.ph36.in = phi i64 [ %.ph, %95 ], [ %1, %25 ]
+  %.ph36 = inttoptr i64 %.ph36.in to ptr
   br label %30
 
 30:                                               ; preds = %.outer, %87
-  %31 = phi i32 [ %88, %87 ], [ %.ph36, %.outer ]
-  %32 = phi i32 [ 0, %87 ], [ %.ph37, %.outer ]
-  %33 = phi i32 [ %90, %87 ], [ %.ph38, %.outer ]
-  %34 = phi ptr [ %89, %87 ], [ %.ph39, %.outer ]
+  %31 = phi i32 [ %88, %87 ], [ %.ph33, %.outer ]
+  %32 = phi i32 [ 0, %87 ], [ %.ph34, %.outer ]
+  %33 = phi i32 [ %90, %87 ], [ %.ph35, %.outer ]
+  %34 = phi ptr [ %89, %87 ], [ %.ph36, %.outer ]
   %35 = load i32, ptr %29, align 4
   %36 = icmp ult i32 %32, %35
   %37 = icmp ne i32 %31, 0
@@ -781,7 +781,7 @@ define internal fastcc void @do_update_region(ptr noundef %0, i64 noundef %1, i3
   br i1 %38, label %39, label %.thread
 
 .thread:                                          ; preds = %30
-  br i1 %37, label %87, label %97
+  br i1 %37, label %87, label %.critedge
 
 39:                                               ; preds = %30
   %40 = load i16, ptr %34, align 2
@@ -789,7 +789,7 @@ define internal fastcc void @do_update_region(ptr noundef %0, i64 noundef %1, i3
   br label %42
 
 42:                                               ; preds = %64, %39
-  %.pre2324 = phi i32 [ %.pre2325, %64 ], [ %35, %39 ]
+  %.pre2021 = phi i32 [ %.pre2022, %64 ], [ %35, %39 ]
   %43 = phi i32 [ %65, %64 ], [ %35, %39 ]
   %44 = phi ptr [ %68, %64 ], [ %34, %39 ]
   %45 = phi i32 [ %67, %64 ], [ %32, %39 ]
@@ -817,14 +817,14 @@ define internal fastcc void @do_update_region(ptr noundef %0, i64 noundef %1, i3
   %63 = trunc i64 %62 to i32
   call void %58(ptr noundef %0, ptr noundef %44, i32 noundef %63, i32 noundef %33, i32 noundef %45) #25
   %.pre = load i16, ptr %47, align 2
-  %.pre23.pre = load i32, ptr %29, align 4
-  %.pre27 = and i16 %.pre, -256
+  %.pre20.pre = load i32, ptr %29, align 4
+  %.pre24 = and i16 %.pre, -256
   br label %64
 
 64:                                               ; preds = %53, %55, %42
-  %.pre2325 = phi i32 [ %.pre2324, %42 ], [ %.pre23.pre, %55 ], [ %.pre2324, %53 ]
-  %65 = phi i32 [ %43, %42 ], [ %.pre23.pre, %55 ], [ %.pre2324, %53 ]
-  %66 = phi i16 [ %46, %42 ], [ %.pre27, %55 ], [ %51, %53 ]
+  %.pre2022 = phi i32 [ %.pre2021, %42 ], [ %.pre20.pre, %55 ], [ %.pre2021, %53 ]
+  %65 = phi i32 [ %43, %42 ], [ %.pre20.pre, %55 ], [ %.pre2021, %53 ]
+  %66 = phi i16 [ %46, %42 ], [ %.pre24, %55 ], [ %51, %53 ]
   %67 = phi i32 [ %45, %42 ], [ %48, %55 ], [ %48, %53 ]
   %68 = phi ptr [ %44, %42 ], [ %47, %55 ], [ %47, %53 ]
   %69 = getelementptr i8, ptr %47, i64 2
@@ -849,10 +849,10 @@ define internal fastcc void @do_update_region(ptr noundef %0, i64 noundef %1, i3
   %84 = lshr exact i64 %83, 1
   %85 = trunc i64 %84 to i32
   call void %80(ptr noundef %0, ptr noundef %68, i32 noundef %85, i32 noundef %33, i32 noundef %67) #25
-  br i1 %73, label %87, label %97
+  br i1 %73, label %87, label %.critedge
 
 86:                                               ; preds = %75
-  br i1 %73, label %87, label %97
+  br i1 %73, label %87, label %.critedge
 
 87:                                               ; preds = %77, %.thread, %86
   %88 = phi i32 [ %31, %.thread ], [ %71, %86 ], [ %71, %77 ]
@@ -868,7 +868,7 @@ define internal fastcc void @do_update_region(ptr noundef %0, i64 noundef %1, i3
   %96 = call i64 %93(ptr noundef %0, i64 noundef %.ph, ptr noundef null, ptr noundef null) #25
   br label %.outer
 
-97:                                               ; preds = %86, %.thread, %77
+.critedge:                                        ; preds = %77, %.thread, %86
   ret void
 }
 
@@ -1319,11 +1319,11 @@ define dso_local void @redraw_screen(ptr noundef %0, i32 noundef %1) #0 align 16
 
 13:                                               ; preds = %12, %6, %2
   %14 = icmp eq ptr %0, null
-  br i1 %14, label %180, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %13
   %16 = icmp eq i32 %1, 0
-  br i1 %16, label %.critedge, label %17
+  br i1 %16, label %.critedge7, label %17
 
 17:                                               ; preds = %15
   %18 = load i32, ptr @fg_console, align 4
@@ -1331,7 +1331,7 @@ define dso_local void @redraw_screen(ptr noundef %0, i32 noundef %1) #0 align 16
   %20 = getelementptr [63 x %struct.vc], ptr @vc_cons, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %0
-  br i1 %22, label %180, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %17
   %24 = load volatile i32, ptr @ignore_console_lock_warning, align 4
@@ -1432,14 +1432,14 @@ define dso_local void @redraw_screen(ptr noundef %0, i32 noundef %1) #0 align 16
   tail call void @sysfs_notify(ptr noundef nonnull %73, ptr noundef null, ptr noundef nonnull @.str.1) #25
   br label %76
 
-.critedge:                                        ; preds = %15
+.critedge7:                                       ; preds = %15
   tail call fastcc void @hide_cursor(ptr noundef nonnull %0)
   br label %77
 
-76:                                               ; preds = %75, %72
+76:                                               ; preds = %72, %75
   br i1 %.not, label %144, label %77
 
-77:                                               ; preds = %.critedge, %76
+77:                                               ; preds = %.critedge7, %76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %79 = load i16, ptr %78, align 8
   tail call fastcc void @set_origin(ptr noundef nonnull %0)
@@ -1594,7 +1594,7 @@ define dso_local void @redraw_screen(ptr noundef %0, i32 noundef %1) #0 align 16
   br label %176
 
 176:                                              ; preds = %175, %170, %165, %153, %144
-  br i1 %16, label %180, label %177
+  br i1 %16, label %.critedge, label %177
 
 177:                                              ; preds = %176
   tail call void @vt_set_leds_compute_shiftstate() #25
@@ -1604,9 +1604,9 @@ define dso_local void @redraw_screen(ptr noundef %0, i32 noundef %1) #0 align 16
   store ptr %0, ptr %3, align 8
   %179 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @vt_notifier_list, i64 noundef 4, ptr noundef nonnull %3) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
-  br label %180
+  br label %.critedge
 
-180:                                              ; preds = %17, %177, %176, %13
+.critedge:                                        ; preds = %17, %177, %176, %13
   ret void
 }
 

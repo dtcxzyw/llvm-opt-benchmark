@@ -3058,7 +3058,6 @@ avio_feof.exit.thread:                            ; preds = %avio_r8.exit29.thre
 ; Function Attrs: nounwind uwtable
 define i32 @ff_get_chomp_line(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = tail call i32 @ff_get_line(ptr noundef %0, ptr noundef %1, i32 noundef %2)
-  %invariant.gep = getelementptr i8, ptr %1, i64 -1
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %.critedge
 
@@ -3068,9 +3067,10 @@ define i32 @ff_get_chomp_line(ptr noundef %0, ptr noundef captures(none) %1, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %av_isspace.exit.thread
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %av_isspace.exit.thread ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %7 = load i8, ptr %gep, align 1, !tbaa !33
-  switch i8 %7, label %.critedge.loopexit.split.loop.exit [
+  %7 = getelementptr i8, ptr %1, i64 %indvars.iv
+  %8 = getelementptr i8, ptr %7, i64 -1
+  %9 = load i8, ptr %8, align 1, !tbaa !33
+  switch i8 %9, label %.critedge.loopexit.split.loop.exit [
     i8 32, label %av_isspace.exit.thread
     i8 13, label %av_isspace.exit.thread
     i8 12, label %av_isspace.exit.thread
@@ -3081,17 +3081,17 @@ define i32 @ff_get_chomp_line(ptr noundef %0, ptr noundef captures(none) %1, i32
 
 av_isspace.exit.thread:                           ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
-  store i8 0, ptr %8, align 1, !tbaa !33
-  %9 = icmp sgt i64 %indvars.iv, 1
-  br i1 %9, label %.lr.ph, label %.critedge, !llvm.loop !55
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
+  store i8 0, ptr %10, align 1, !tbaa !33
+  %11 = icmp sgt i64 %indvars.iv, 1
+  br i1 %11, label %.lr.ph, label %.critedge, !llvm.loop !55
 
 .critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph
-  %10 = trunc nuw nsw i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %av_isspace.exit.thread, %.critedge.loopexit.split.loop.exit, %3
-  %.0.lcssa = phi i32 [ %4, %3 ], [ %10, %.critedge.loopexit.split.loop.exit ], [ 0, %av_isspace.exit.thread ]
+  %.0.lcssa = phi i32 [ %4, %3 ], [ %12, %.critedge.loopexit.split.loop.exit ], [ 0, %av_isspace.exit.thread ]
   ret i32 %.0.lcssa
 }
 

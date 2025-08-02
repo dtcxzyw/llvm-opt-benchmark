@@ -154,7 +154,7 @@ define internal ptr @_posixshmem_shm_unlink(ptr readnone captures(none) %0, ptr 
   %19 = call i32 @shm_unlink(ptr noundef nonnull %11) #5
   call void @PyEval_RestoreThread(ptr noundef %18) #5
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %.critedge.i
+  br i1 %20, label %21, label %.critedge13.i
 
 21:                                               ; preds = %.preheader.i
   %22 = tail call ptr @__errno_location() #7
@@ -172,12 +172,12 @@ define internal ptr @_posixshmem_shm_unlink(ptr readnone captures(none) %0, ptr 
   %29 = call ptr @PyErr_SetFromErrnoWithFilenameObject(ptr noundef %28, ptr noundef nonnull %1) #5
   br label %_posixshmem_shm_unlink_impl.exit
 
-.critedge.i:                                      ; preds = %.preheader.i
+.critedge13.i:                                    ; preds = %.preheader.i
   %30 = call ptr @Py_GetConstantBorrowed(i32 noundef 0) #5
   br label %_posixshmem_shm_unlink_impl.exit
 
-_posixshmem_shm_unlink_impl.exit:                 ; preds = %25, %10, %16, %27, %.critedge.i
-  %.0.i = phi ptr [ null, %16 ], [ %30, %.critedge.i ], [ null, %10 ], [ null, %27 ], [ null, %25 ]
+_posixshmem_shm_unlink_impl.exit:                 ; preds = %25, %10, %16, %27, %.critedge13.i
+  %.0.i = phi ptr [ null, %16 ], [ %30, %.critedge13.i ], [ null, %10 ], [ null, %27 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
   br label %31
 

@@ -1189,14 +1189,14 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayC2Em(ptr no
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayE, i64 16), ptr %0, align 8, !tbaa !50
   invoke void @_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArray6resizeEmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef 3)
-          to label %4 unwind label %32
+          to label %4 unwind label %33
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(48) %0)
-          to label %.noexc unwind label %32
+          to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %4
   %9 = sitofp i64 %8 to float
@@ -1210,57 +1210,55 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayC2Em(ptr no
 .lr.ph.i:                                         ; preds = %.noexc
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !81
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %invariant.gep29.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %17
 
 17:                                               ; preds = %17, %.lr.ph.i
-  %.028.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %17 ]
+  %.028.i = phi i64 [ 0, %.lr.ph.i ], [ %32, %17 ]
   %18 = sdiv i64 %.028.i, %8
   %19 = sdiv i64 %18, %8
   %20 = srem i64 %19, %8
   %21 = sitofp i64 %20 to float
   %22 = fmul float %11, %21
-  %23 = mul nuw nsw i64 %.028.i, 3
-  %24 = getelementptr inbounds nuw float, ptr %16, i64 %23
-  store float %22, ptr %24, align 4, !tbaa !92
-  %25 = srem i64 %18, %8
-  %26 = sitofp i64 %25 to float
-  %27 = fmul float %11, %26
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %23
-  store float %27, ptr %gep.i, align 4, !tbaa !92
+  %.idx.i = mul nuw nsw i64 %.028.i, 12
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  store float %22, ptr %23, align 4, !tbaa !92
+  %24 = srem i64 %18, %8
+  %25 = sitofp i64 %24 to float
+  %26 = fmul float %11, %25
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  store float %26, ptr %27, align 4, !tbaa !92
   %28 = srem i64 %.028.i, %8
   %29 = uitofp nneg i64 %28 to float
   %30 = fmul float %11, %29
-  %gep30.i = getelementptr inbounds nuw float, ptr %invariant.gep29.i, i64 %23
-  store float %30, ptr %gep30.i, align 4, !tbaa !92
-  %31 = add nuw nsw i64 %.028.i, 1
-  %exitcond.not.i = icmp eq i64 %31, %13
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store float %30, ptr %31, align 4, !tbaa !92
+  %32 = add nuw nsw i64 %.028.i, 1
+  %exitcond.not.i = icmp eq i64 %32, %13
   br i1 %exitcond.not.i, label %_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArray4fillEv.exit, label %17, !llvm.loop !94
 
 _ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArray4fillEv.exit: ; preds = %17, %.noexc
   ret void
 
-32:                                               ; preds = %4, %2
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %4, %2
+  %34 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev6ArrayTIfEE, i64 16), ptr %0, align 8, !tbaa !50
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !81
-  %.not.i.i.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i.i.i, label %_ZN19OpenColorIO_v2_5dev6ArrayTIfED2Ev.exit, label %36
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %36 = load ptr, ptr %35, align 8, !tbaa !81
+  %.not.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i, label %_ZN19OpenColorIO_v2_5dev6ArrayTIfED2Ev.exit, label %37
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %38 = load ptr, ptr %37, align 8, !tbaa !95
-  %39 = ptrtoint ptr %38 to i64
-  %40 = ptrtoint ptr %35 to i64
-  %41 = sub i64 %39, %40
-  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #31
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %39 = load ptr, ptr %38, align 8, !tbaa !95
+  %40 = ptrtoint ptr %39 to i64
+  %41 = ptrtoint ptr %36 to i64
+  %42 = sub i64 %40, %41
+  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %42) #31
   br label %_ZN19OpenColorIO_v2_5dev6ArrayTIfED2Ev.exit
 
-_ZN19OpenColorIO_v2_5dev6ArrayTIfED2Ev.exit:      ; preds = %32, %36
-  resume { ptr, i32 } %33
+_ZN19OpenColorIO_v2_5dev6ArrayTIfED2Ev.exit:      ; preds = %33, %37
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1280,35 +1278,33 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArray4fillEv(ptr
 .lr.ph:                                           ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !81
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %invariant.gep29 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %14
 
 ._crit_edge:                                      ; preds = %14, %1
   ret void
 
 14:                                               ; preds = %.lr.ph, %14
-  %.028 = phi i64 [ 0, %.lr.ph ], [ %28, %14 ]
+  %.028 = phi i64 [ 0, %.lr.ph ], [ %29, %14 ]
   %15 = sdiv i64 %.028, %5
   %16 = sdiv i64 %15, %5
   %17 = srem i64 %16, %5
   %18 = sitofp i64 %17 to float
   %19 = fmul float %8, %18
-  %20 = mul nuw nsw i64 %.028, 3
-  %21 = getelementptr inbounds nuw float, ptr %13, i64 %20
-  store float %19, ptr %21, align 4, !tbaa !92
-  %22 = srem i64 %15, %5
-  %23 = sitofp i64 %22 to float
-  %24 = fmul float %8, %23
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %20
-  store float %24, ptr %gep, align 4, !tbaa !92
+  %.idx = mul nuw nsw i64 %.028, 12
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
+  store float %19, ptr %20, align 4, !tbaa !92
+  %21 = srem i64 %15, %5
+  %22 = sitofp i64 %21 to float
+  %23 = fmul float %8, %22
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store float %23, ptr %24, align 4, !tbaa !92
   %25 = srem i64 %.028, %5
   %26 = uitofp nneg i64 %25 to float
   %27 = fmul float %8, %26
-  %gep30 = getelementptr inbounds nuw float, ptr %invariant.gep29, i64 %20
-  store float %27, ptr %gep30, align 4, !tbaa !92
-  %28 = add nuw nsw i64 %.028, 1
-  %exitcond.not = icmp eq i64 %28, %10
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store float %27, ptr %28, align 4, !tbaa !92
+  %29 = add nuw nsw i64 %.028, 1
+  %exitcond.not = icmp eq i64 %29, %10
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !94
 }
 
@@ -1685,14 +1681,14 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpDataC2Em(ptr noundef nonnul
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayE, i64 16), ptr %4, align 8, !tbaa !50
   invoke void @_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArray6resizeEmm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %1, i64 noundef 3)
-          to label %6 unwind label %34
+          to label %6 unwind label %35
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8, !tbaa !50
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(48) %4)
-          to label %.noexc.i unwind label %34
+          to label %.noexc.i unwind label %35
 
 .noexc.i:                                         ; preds = %6
   %11 = sitofp i64 %10 to float
@@ -1706,64 +1702,62 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpDataC2Em(ptr noundef nonnul
 .lr.ph.i.i:                                       ; preds = %.noexc.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = load ptr, ptr %17, align 8, !tbaa !81
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %invariant.gep29.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %19
 
 19:                                               ; preds = %19, %.lr.ph.i.i
-  %.028.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %33, %19 ]
+  %.028.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %34, %19 ]
   %20 = sdiv i64 %.028.i.i, %10
   %21 = sdiv i64 %20, %10
   %22 = srem i64 %21, %10
   %23 = sitofp i64 %22 to float
   %24 = fmul float %13, %23
-  %25 = mul nuw nsw i64 %.028.i.i, 3
-  %26 = getelementptr inbounds nuw float, ptr %18, i64 %25
-  store float %24, ptr %26, align 4, !tbaa !92
-  %27 = srem i64 %20, %10
-  %28 = sitofp i64 %27 to float
-  %29 = fmul float %13, %28
-  %gep.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i, i64 %25
-  store float %29, ptr %gep.i.i, align 4, !tbaa !92
+  %.idx.i.i = mul nuw nsw i64 %.028.i.i, 12
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i
+  store float %24, ptr %25, align 4, !tbaa !92
+  %26 = srem i64 %20, %10
+  %27 = sitofp i64 %26 to float
+  %28 = fmul float %13, %27
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store float %28, ptr %29, align 4, !tbaa !92
   %30 = srem i64 %.028.i.i, %10
   %31 = uitofp nneg i64 %30 to float
   %32 = fmul float %13, %31
-  %gep30.i.i = getelementptr inbounds nuw float, ptr %invariant.gep29.i.i, i64 %25
-  store float %32, ptr %gep30.i.i, align 4, !tbaa !92
-  %33 = add nuw nsw i64 %.028.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %33, %15
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store float %32, ptr %33, align 4, !tbaa !92
+  %34 = add nuw nsw i64 %.028.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %34, %15
   br i1 %exitcond.not.i.i, label %_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayC2Em.exit, label %19, !llvm.loop !94
 
-34:                                               ; preds = %6, %2
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %6, %2
+  %36 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev6ArrayTIfEE, i64 16), ptr %4, align 8, !tbaa !50
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %37 = load ptr, ptr %36, align 8, !tbaa !81
-  %.not.i.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i.i, label %.body, label %38
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %38 = load ptr, ptr %37, align 8, !tbaa !81
+  %.not.i.i.i.i.i = icmp eq ptr %38, null
+  br i1 %.not.i.i.i.i.i, label %.body, label %39
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %40 = load ptr, ptr %39, align 8, !tbaa !95
-  %41 = ptrtoint ptr %40 to i64
-  %42 = ptrtoint ptr %37 to i64
-  %43 = sub i64 %41, %42
-  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef %43) #31
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %41 = load ptr, ptr %40, align 8, !tbaa !95
+  %42 = ptrtoint ptr %41 to i64
+  %43 = ptrtoint ptr %38 to i64
+  %44 = sub i64 %42, %43
+  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #31
   br label %.body
 
 _ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayC2Em.exit: ; preds = %19, %.noexc.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 0, ptr %44, align 8, !tbaa !11
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 0, ptr %45, align 4, !tbaa !54
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store i32 0, ptr %45, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  store i32 0, ptr %46, align 4, !tbaa !54
   ret void
 
-.body:                                            ; preds = %34, %38
+.body:                                            ; preds = %35, %39
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev6OpDataE, i64 16), ptr %0, align 8, !tbaa !50
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @_ZN19OpenColorIO_v2_5dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %46) #28
-  resume { ptr, i32 } %35
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @_ZN19OpenColorIO_v2_5dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %47) #28
+  resume { ptr, i32 } %36
 }
 
 declare void @_ZN19OpenColorIO_v2_5dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #0
@@ -1779,14 +1773,14 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpDataC2ElNS_18TransformDirec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayE, i64 16), ptr %5, align 8, !tbaa !50
   invoke void @_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArray6resizeEmm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %1, i64 noundef 3)
-          to label %7 unwind label %35
+          to label %7 unwind label %36
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(48) %5)
-          to label %.noexc.i unwind label %35
+          to label %.noexc.i unwind label %36
 
 .noexc.i:                                         ; preds = %7
   %12 = sitofp i64 %11 to float
@@ -1800,64 +1794,62 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpDataC2ElNS_18TransformDirec
 .lr.ph.i.i:                                       ; preds = %.noexc.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %19 = load ptr, ptr %18, align 8, !tbaa !81
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %invariant.gep29.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i.i
-  %.028.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %34, %20 ]
+  %.028.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %35, %20 ]
   %21 = sdiv i64 %.028.i.i, %11
   %22 = sdiv i64 %21, %11
   %23 = srem i64 %22, %11
   %24 = sitofp i64 %23 to float
   %25 = fmul float %14, %24
-  %26 = mul nuw nsw i64 %.028.i.i, 3
-  %27 = getelementptr inbounds nuw float, ptr %19, i64 %26
-  store float %25, ptr %27, align 4, !tbaa !92
-  %28 = srem i64 %21, %11
-  %29 = sitofp i64 %28 to float
-  %30 = fmul float %14, %29
-  %gep.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i, i64 %26
-  store float %30, ptr %gep.i.i, align 4, !tbaa !92
+  %.idx.i.i = mul nuw nsw i64 %.028.i.i, 12
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i
+  store float %25, ptr %26, align 4, !tbaa !92
+  %27 = srem i64 %21, %11
+  %28 = sitofp i64 %27 to float
+  %29 = fmul float %14, %28
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store float %29, ptr %30, align 4, !tbaa !92
   %31 = srem i64 %.028.i.i, %11
   %32 = uitofp nneg i64 %31 to float
   %33 = fmul float %14, %32
-  %gep30.i.i = getelementptr inbounds nuw float, ptr %invariant.gep29.i.i, i64 %26
-  store float %33, ptr %gep30.i.i, align 4, !tbaa !92
-  %34 = add nuw nsw i64 %.028.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %34, %16
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store float %33, ptr %34, align 4, !tbaa !92
+  %35 = add nuw nsw i64 %.028.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %35, %16
   br i1 %exitcond.not.i.i, label %_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayC2Em.exit, label %20, !llvm.loop !94
 
-35:                                               ; preds = %7, %3
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %7, %3
+  %37 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev6ArrayTIfEE, i64 16), ptr %5, align 8, !tbaa !50
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %38 = load ptr, ptr %37, align 8, !tbaa !81
-  %.not.i.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i.i, label %.body, label %39
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %39 = load ptr, ptr %38, align 8, !tbaa !81
+  %.not.i.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i.i, label %.body, label %40
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %41 = load ptr, ptr %40, align 8, !tbaa !95
-  %42 = ptrtoint ptr %41 to i64
-  %43 = ptrtoint ptr %38 to i64
-  %44 = sub i64 %42, %43
-  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #31
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %42 = load ptr, ptr %41, align 8, !tbaa !95
+  %43 = ptrtoint ptr %42 to i64
+  %44 = ptrtoint ptr %39 to i64
+  %45 = sub i64 %43, %44
+  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %45) #31
   br label %.body
 
 _ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayC2Em.exit: ; preds = %20, %.noexc.i
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 %2, ptr %45, align 8, !tbaa !11
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 0, ptr %46, align 4, !tbaa !54
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store i32 %2, ptr %46, align 8, !tbaa !11
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  store i32 0, ptr %47, align 4, !tbaa !54
   ret void
 
-.body:                                            ; preds = %35, %39
+.body:                                            ; preds = %36, %40
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev6OpDataE, i64 16), ptr %0, align 8, !tbaa !50
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @_ZN19OpenColorIO_v2_5dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %47) #28
-  resume { ptr, i32 } %36
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @_ZN19OpenColorIO_v2_5dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %48) #28
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1871,14 +1863,14 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpDataC2ENS_13InterpolationEm
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayE, i64 16), ptr %5, align 8, !tbaa !50
   invoke void @_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArray6resizeEmm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %2, i64 noundef 3)
-          to label %7 unwind label %35
+          to label %7 unwind label %36
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(48) %5)
-          to label %.noexc.i unwind label %35
+          to label %.noexc.i unwind label %36
 
 .noexc.i:                                         ; preds = %7
   %12 = sitofp i64 %11 to float
@@ -1892,64 +1884,62 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpDataC2ENS_13InterpolationEm
 .lr.ph.i.i:                                       ; preds = %.noexc.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %19 = load ptr, ptr %18, align 8, !tbaa !81
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %invariant.gep29.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i.i
-  %.028.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %34, %20 ]
+  %.028.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %35, %20 ]
   %21 = sdiv i64 %.028.i.i, %11
   %22 = sdiv i64 %21, %11
   %23 = srem i64 %22, %11
   %24 = sitofp i64 %23 to float
   %25 = fmul float %14, %24
-  %26 = mul nuw nsw i64 %.028.i.i, 3
-  %27 = getelementptr inbounds nuw float, ptr %19, i64 %26
-  store float %25, ptr %27, align 4, !tbaa !92
-  %28 = srem i64 %21, %11
-  %29 = sitofp i64 %28 to float
-  %30 = fmul float %14, %29
-  %gep.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i, i64 %26
-  store float %30, ptr %gep.i.i, align 4, !tbaa !92
+  %.idx.i.i = mul nuw nsw i64 %.028.i.i, 12
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i
+  store float %25, ptr %26, align 4, !tbaa !92
+  %27 = srem i64 %21, %11
+  %28 = sitofp i64 %27 to float
+  %29 = fmul float %14, %28
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store float %29, ptr %30, align 4, !tbaa !92
   %31 = srem i64 %.028.i.i, %11
   %32 = uitofp nneg i64 %31 to float
   %33 = fmul float %14, %32
-  %gep30.i.i = getelementptr inbounds nuw float, ptr %invariant.gep29.i.i, i64 %26
-  store float %33, ptr %gep30.i.i, align 4, !tbaa !92
-  %34 = add nuw nsw i64 %.028.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %34, %16
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store float %33, ptr %34, align 4, !tbaa !92
+  %35 = add nuw nsw i64 %.028.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %35, %16
   br i1 %exitcond.not.i.i, label %_ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayC2Em.exit, label %20, !llvm.loop !94
 
-35:                                               ; preds = %7, %3
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %7, %3
+  %37 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev6ArrayTIfEE, i64 16), ptr %5, align 8, !tbaa !50
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %38 = load ptr, ptr %37, align 8, !tbaa !81
-  %.not.i.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i.i, label %.body, label %39
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %39 = load ptr, ptr %38, align 8, !tbaa !81
+  %.not.i.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i.i, label %.body, label %40
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %41 = load ptr, ptr %40, align 8, !tbaa !95
-  %42 = ptrtoint ptr %41 to i64
-  %43 = ptrtoint ptr %38 to i64
-  %44 = sub i64 %42, %43
-  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #31
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %42 = load ptr, ptr %41, align 8, !tbaa !95
+  %43 = ptrtoint ptr %42 to i64
+  %44 = ptrtoint ptr %39 to i64
+  %45 = sub i64 %43, %44
+  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %45) #31
   br label %.body
 
 _ZN19OpenColorIO_v2_5dev11Lut3DOpData10Lut3DArrayC2Em.exit: ; preds = %20, %.noexc.i
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 0, ptr %45, align 8, !tbaa !11
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 0, ptr %46, align 4, !tbaa !54
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store i32 0, ptr %46, align 8, !tbaa !11
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  store i32 0, ptr %47, align 4, !tbaa !54
   ret void
 
-.body:                                            ; preds = %35, %39
+.body:                                            ; preds = %36, %40
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev6OpDataE, i64 16), ptr %0, align 8, !tbaa !50
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @_ZN19OpenColorIO_v2_5dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %47) #28
-  resume { ptr, i32 } %36
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @_ZN19OpenColorIO_v2_5dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %48) #28
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2055,16 +2045,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut3DOpData27setArrayFromRedFastes
   br i1 %.not, label %.preheader65, label %22
 
 .preheader65:                                     ; preds = %2
-  %.not75 = icmp eq i64 %9, 0
-  br i1 %.not75, label %._crit_edge, label %.preheader64.lr.ph
+  %.not69 = icmp eq i64 %9, 0
+  br i1 %.not69, label %._crit_edge, label %.preheader64.lr.ph
 
 .preheader64.lr.ph:                               ; preds = %.preheader65
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %21 = load ptr, ptr %20, align 8, !tbaa !81
-  %invariant.gep = getelementptr i8, ptr %15, i64 4
-  %invariant.gep66 = getelementptr i8, ptr %21, i64 4
-  %invariant.gep68 = getelementptr i8, ptr %15, i64 8
-  %invariant.gep70 = getelementptr i8, ptr %21, i64 8
   br label %.preheader64
 
 22:                                               ; preds = %2
@@ -2128,7 +2114,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60: ; preds = %_ZNSo
 
 42:                                               ; preds = %40
   invoke void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #29
-          to label %79 unwind label %46
+          to label %81 unwind label %46
 
 43:                                               ; preds = %_ZNSolsEm.exit59, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit57, %_ZNSolsEm.exit56, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55, %_ZNSolsEm.exit54, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit53, %_ZNSolsEm.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %22
   %44 = landingpad { ptr, i32 }
@@ -2177,55 +2163,55 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46
   resume { ptr, i32 } %.pn.pn
 
 .preheader64:                                     ; preds = %.preheader64.lr.ph, %61
-  %.04774 = phi i64 [ 0, %.preheader64.lr.ph ], [ %62, %61 ]
-  %58 = mul i64 %.04774, %9
+  %.04768 = phi i64 [ 0, %.preheader64.lr.ph ], [ %62, %61 ]
+  %58 = mul i64 %.04768, %9
   br label %.preheader
 
 ._crit_edge:                                      ; preds = %61, %.preheader65
   ret void
 
 .preheader:                                       ; preds = %.preheader64, %63
-  %.04673 = phi i64 [ 0, %.preheader64 ], [ %64, %63 ]
-  %59 = add i64 %.04673, %58
+  %.04667 = phi i64 [ 0, %.preheader64 ], [ %64, %63 ]
+  %59 = add i64 %.04667, %58
   %60 = mul i64 %59, %9
   br label %65
 
 61:                                               ; preds = %63
-  %62 = add nuw i64 %.04774, 1
-  %exitcond77.not = icmp eq i64 %62, %9
-  br i1 %exitcond77.not, label %._crit_edge, label %.preheader64, !llvm.loop !102
+  %62 = add nuw i64 %.04768, 1
+  %exitcond71.not = icmp eq i64 %62, %9
+  br i1 %exitcond71.not, label %._crit_edge, label %.preheader64, !llvm.loop !102
 
 63:                                               ; preds = %65
-  %64 = add nuw i64 %.04673, 1
-  %exitcond76.not = icmp eq i64 %64, %9
-  br i1 %exitcond76.not, label %61, label %.preheader, !llvm.loop !103
+  %64 = add nuw i64 %.04667, 1
+  %exitcond70.not = icmp eq i64 %64, %9
+  br i1 %exitcond70.not, label %61, label %.preheader, !llvm.loop !103
 
 65:                                               ; preds = %.preheader, %65
-  %.04572 = phi i64 [ 0, %.preheader ], [ %78, %65 ]
-  %66 = mul i64 %.04572, %9
-  %67 = add i64 %66, %.04673
+  %.04566 = phi i64 [ 0, %.preheader ], [ %80, %65 ]
+  %66 = mul i64 %.04566, %9
+  %67 = add i64 %66, %.04667
   %68 = mul i64 %67, %9
-  %69 = add i64 %68, %.04774
-  %70 = mul i64 %69, 3
-  %71 = add i64 %.04572, %60
-  %72 = mul i64 %71, 3
-  %73 = getelementptr inbounds nuw float, ptr %15, i64 %72
-  %74 = load float, ptr %73, align 4, !tbaa !92
-  %75 = getelementptr inbounds nuw float, ptr %21, i64 %70
-  store float %74, ptr %75, align 4, !tbaa !92
-  %gep = getelementptr float, ptr %invariant.gep, i64 %72
-  %76 = load float, ptr %gep, align 4, !tbaa !92
-  %gep67 = getelementptr float, ptr %invariant.gep66, i64 %70
-  store float %76, ptr %gep67, align 4, !tbaa !92
-  %gep69 = getelementptr float, ptr %invariant.gep68, i64 %72
-  %77 = load float, ptr %gep69, align 4, !tbaa !92
-  %gep71 = getelementptr float, ptr %invariant.gep70, i64 %70
-  store float %77, ptr %gep71, align 4, !tbaa !92
-  %78 = add nuw i64 %.04572, 1
-  %exitcond.not = icmp eq i64 %78, %9
+  %69 = add i64 %68, %.04768
+  %70 = add i64 %.04566, %60
+  %.idx = mul i64 %70, 12
+  %71 = getelementptr i8, ptr %15, i64 %.idx
+  %72 = load float, ptr %71, align 4, !tbaa !92
+  %.idx72 = mul i64 %69, 12
+  %73 = getelementptr i8, ptr %21, i64 %.idx72
+  store float %72, ptr %73, align 4, !tbaa !92
+  %74 = getelementptr i8, ptr %71, i64 4
+  %75 = load float, ptr %74, align 4, !tbaa !92
+  %76 = getelementptr i8, ptr %73, i64 4
+  store float %75, ptr %76, align 4, !tbaa !92
+  %77 = getelementptr i8, ptr %71, i64 8
+  %78 = load float, ptr %77, align 4, !tbaa !92
+  %79 = getelementptr i8, ptr %73, i64 8
+  store float %78, ptr %79, align 4, !tbaa !92
+  %80 = add nuw i64 %.04566, 1
+  %exitcond.not = icmp eq i64 %80, %9
   br i1 %exitcond.not, label %63, label %65, !llvm.loop !104
 
-79:                                               ; preds = %42
+81:                                               ; preds = %42
   unreachable
 }
 

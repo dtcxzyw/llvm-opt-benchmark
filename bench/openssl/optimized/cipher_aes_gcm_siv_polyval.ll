@@ -15,18 +15,16 @@ define void @ossl_polyval_ghash_init(ptr noundef %0, ptr noundef %1) local_unnam
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !3
-  %9 = tail call noundef i64 @llvm.bswap.i64(i64 %8)
-  %10 = load i64, ptr %1, align 8, !tbaa !3
-  %11 = tail call noundef i64 @llvm.bswap.i64(i64 %10)
+  %9 = load i64, ptr %1, align 8, !tbaa !3
   br label %byte_reverse16.exit
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %2 ]
-  %12 = sub nuw nsw i64 15, %indvars.iv.i
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !7
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
-  store i8 %14, ptr %15, align 1, !tbaa !7
+  %10 = sub nuw nsw i64 15, %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
+  %12 = load i8, ptr %11, align 1, !tbaa !7
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
+  store i8 %12, ptr %13, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %byte_reverse16.exit.loopexit, label %.preheader.i, !llvm.loop !8
@@ -35,22 +33,22 @@ byte_reverse16.exit.loopexit:                     ; preds = %.preheader.i
   %.pre = load i64, ptr %3, align 16, !tbaa !3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre2 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
+  %14 = tail call i64 @llvm.bswap.i64(i64 %.pre)
+  %15 = tail call i64 @llvm.bswap.i64(i64 %.pre2)
   br label %byte_reverse16.exit
 
 byte_reverse16.exit:                              ; preds = %byte_reverse16.exit.loopexit, %6
-  %16 = phi i64 [ %.pre2, %byte_reverse16.exit.loopexit ], [ %11, %6 ]
-  %17 = phi i64 [ %.pre, %byte_reverse16.exit.loopexit ], [ %9, %6 ]
-  %18 = tail call noundef i64 @llvm.bswap.i64(i64 %17)
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %20 = tail call noundef i64 @llvm.bswap.i64(i64 %16)
-  %21 = and i64 %20, 1
-  %22 = icmp eq i64 %21, 0
-  %23 = select i1 %22, i64 0, i64 -2233785415175766016
-  %24 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %20, i64 63)
-  %25 = lshr i64 %18, 1
-  %26 = xor i64 %23, %25
-  store i64 %26, ptr %3, align 16, !tbaa !3
-  store i64 %24, ptr %19, align 8, !tbaa !3
+  %16 = phi i64 [ %15, %byte_reverse16.exit.loopexit ], [ %9, %6 ]
+  %17 = phi i64 [ %14, %byte_reverse16.exit.loopexit ], [ %8, %6 ]
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = and i64 %16, 1
+  %20 = icmp eq i64 %19, 0
+  %21 = select i1 %20, i64 0, i64 -2233785415175766016
+  %22 = tail call i64 @llvm.fshl.i64(i64 %17, i64 %16, i64 63)
+  %23 = lshr i64 %17, 1
+  %24 = xor i64 %21, %23
+  store i64 %24, ptr %3, align 16, !tbaa !3
+  store i64 %22, ptr %18, align 8, !tbaa !3
   call void @ossl_gcm_init_4bit(ptr noundef %0, ptr noundef nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #4
   ret void

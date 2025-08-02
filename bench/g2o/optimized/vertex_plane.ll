@@ -202,102 +202,103 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 define noundef zeroext i1 @_ZN3g2o11VertexPlane4readERSi(ptr noundef nonnull align 16 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix.11", align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 32
   br label %4
 
-4:                                                ; preds = %10, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %10 ]
+4:                                                ; preds = %12, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %12 ]
   %5 = load ptr, ptr %1, align 8, !tbaa !32
   %6 = getelementptr i8, ptr %5, i64 -24
   %7 = load i64, ptr %6, align 8
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %7
-  %8 = load i32, ptr %gep.i, align 8, !tbaa !39
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %8 = getelementptr inbounds i8, ptr %1, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %10 = load i32, ptr %9, align 8, !tbaa !39
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
-  %12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %13)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %..critedge_crit_edge.i, label %4, !llvm.loop !48
 
-..critedge_crit_edge.i:                           ; preds = %10
+..critedge_crit_edge.i:                           ; preds = %12
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !32
   %.phi.trans.insert.i = getelementptr i8, ptr %.pre.i, i64 -24
   %.pre11.i = load i64, ptr %.phi.trans.insert.i, align 8
+  %.phi.trans.insert12.i = getelementptr inbounds i8, ptr %1, i64 %.pre11.i
+  %.phi.trans.insert13.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert12.i, i64 32
+  %.pre14.i = load i32, ptr %.phi.trans.insert13.i, align 8, !tbaa !39
   br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !48
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %4, %..critedge_crit_edge.i
-  %13 = phi i64 [ %.pre11.i, %..critedge_crit_edge.i ], [ %7, %4 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !39
-  %17 = load <2 x double>, ptr %3, align 16, !tbaa !10
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %19 = load <2 x double>, ptr %18, align 16, !tbaa !10
-  %20 = fmul <2 x double> %17, %17
-  %shift = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %21 = fadd <2 x double> %20, %shift
-  %22 = fmul <2 x double> %19, %19
-  %23 = fadd <2 x double> %21, %22
-  %24 = extractelement <2 x double> %23, i64 0
-  %.scalar.i.i.i.i = call noundef double @llvm.sqrt.f64(double %24)
-  %25 = fdiv double 1.000000e+00, %.scalar.i.i.i.i
-  %.sroa.6.16.vec.insert.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %25, i64 0
-  %26 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %27 = fmul <2 x double> %17, %26
-  %28 = fmul <2 x double> %19, %26
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %15 = phi i32 [ %.pre14.i, %..critedge_crit_edge.i ], [ %10, %4 ]
+  %16 = load <2 x double>, ptr %3, align 16, !tbaa !10
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %18 = load <2 x double>, ptr %17, align 16, !tbaa !10
+  %19 = fmul <2 x double> %16, %16
+  %shift = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %20 = fadd <2 x double> %19, %shift
+  %21 = fmul <2 x double> %18, %18
+  %22 = fadd <2 x double> %20, %21
+  %23 = extractelement <2 x double> %22, i64 0
+  %.scalar.i.i.i.i = call noundef double @llvm.sqrt.f64(double %23)
+  %24 = fdiv double 1.000000e+00, %.scalar.i.i.i.i
+  %.sroa.6.16.vec.insert.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %24, i64 0
+  %25 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %26 = fmul <2 x double> %16, %25
+  %27 = fmul <2 x double> %18, %25
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store <2 x double> %26, ptr %28, align 16, !tbaa !10
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store <2 x double> %27, ptr %29, align 16, !tbaa !10
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store <2 x double> %28, ptr %30, align 16, !tbaa !10
-  %31 = load ptr, ptr %0, align 16, !tbaa !32
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 216
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 16 dereferenceable(232) %0)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  br label %35
+  %30 = load ptr, ptr %0, align 16, !tbaa !32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 216
+  %32 = load ptr, ptr %31, align 8
+  call void %32(ptr noundef nonnull align 16 dereferenceable(232) %0)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  br label %34
 
-35:                                               ; preds = %41, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
-  %indvars.iv.i5 = phi i64 [ 0, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit ], [ %indvars.iv.next.i7, %41 ]
-  %36 = load ptr, ptr %1, align 8, !tbaa !32
-  %37 = getelementptr i8, ptr %36, i64 -24
-  %38 = load i64, ptr %37, align 8
-  %gep.i6 = getelementptr i8, ptr %invariant.gep.i, i64 %38
-  %39 = load i32, ptr %gep.i6, align 8, !tbaa !39
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+34:                                               ; preds = %42, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %indvars.iv.i4 = phi i64 [ 0, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit ], [ %indvars.iv.next.i5, %42 ]
+  %35 = load ptr, ptr %1, align 8, !tbaa !32
+  %36 = getelementptr i8, ptr %35, i64 -24
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %1, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load i32, ptr %39, align 8, !tbaa !39
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv.i5
-  %43 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %42)
-  %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i5, 1
-  %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, 3
-  br i1 %exitcond.not.i8, label %..critedge_crit_edge.i9, label %35, !llvm.loop !50
+42:                                               ; preds = %34
+  %43 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv.i4
+  %44 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %43)
+  %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
+  %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, 3
+  br i1 %exitcond.not.i6, label %..critedge_crit_edge.i7, label %34, !llvm.loop !50
 
-..critedge_crit_edge.i9:                          ; preds = %41
-  %.pre.i10 = load ptr, ptr %1, align 8, !tbaa !32
-  %.phi.trans.insert.i11 = getelementptr i8, ptr %.pre.i10, i64 -24
-  %.pre11.i12 = load i64, ptr %.phi.trans.insert.i11, align 8
+..critedge_crit_edge.i7:                          ; preds = %42
+  %.pre.i8 = load ptr, ptr %1, align 8, !tbaa !32
+  %.phi.trans.insert.i9 = getelementptr i8, ptr %.pre.i8, i64 -24
+  %.pre11.i10 = load i64, ptr %.phi.trans.insert.i9, align 8
+  %.phi.trans.insert12.i11 = getelementptr inbounds i8, ptr %1, i64 %.pre11.i10
+  %.phi.trans.insert13.i12 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert12.i11, i64 32
+  %.pre14.i13 = load i32, ptr %.phi.trans.insert13.i12, align 8, !tbaa !39
   br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !50
 
-_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %35, %..critedge_crit_edge.i9
-  %44 = phi i64 [ %.pre11.i12, %..critedge_crit_edge.i9 ], [ %38, %35 ]
-  %45 = icmp eq i32 %16, 0
-  %46 = and i32 %16, 2
-  %47 = icmp ne i32 %46, 0
-  %48 = or i1 %45, %47
-  %49 = getelementptr inbounds i8, ptr %1, i64 %44
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %51 = load i32, ptr %50, align 8, !tbaa !39
-  %52 = icmp eq i32 %51, 0
-  %53 = and i32 %51, 2
-  %54 = icmp ne i32 %53, 0
-  %55 = or i1 %52, %54
-  %56 = and i1 %48, %55
+_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %34, %..critedge_crit_edge.i7
+  %45 = phi i32 [ %.pre14.i13, %..critedge_crit_edge.i7 ], [ %40, %34 ]
+  %46 = icmp eq i32 %15, 0
+  %47 = and i32 %15, 2
+  %48 = icmp ne i32 %47, 0
+  %49 = or i1 %46, %48
+  %50 = icmp eq i32 %45, 0
+  %51 = and i32 %45, 2
+  %52 = icmp ne i32 %51, 0
+  %53 = or i1 %50, %52
+  %54 = and i1 %49, %53
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
-  ret i1 %56
+  ret i1 %54
 }
 
 ; Function Attrs: mustprogress uwtable

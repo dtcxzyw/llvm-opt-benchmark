@@ -387,7 +387,6 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
   %11 = uitofp i16 %9 to double
   %12 = sitofp i32 %2 to double
   %13 = fdiv double %11, %12
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %7, i64 2
   br i1 %3, label %_ZNK5ZXing11PatternView3sumEi.exit.split.us.i, label %_ZNK5ZXing11PatternView3sumEi.exit.split.i
 
 _ZNK5ZXing11PatternView3sumEi.exit.split.us.i:    ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.i, %_ZNK5ZXing11PatternView3sumEi.exit.split.us.i
@@ -396,136 +395,136 @@ _ZNK5ZXing11PatternView3sumEi.exit.split.us.i:    ; preds = %_ZNK5ZXing11Pattern
   %15 = getelementptr inbounds nuw i16, ptr %7, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !25, !noalias !19
   %17 = zext i16 %16 to i32
-  %gep.us.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i, i64 %14
-  %18 = load i16, ptr %gep.us.i, align 2, !tbaa !25, !noalias !19
-  %19 = zext i16 %18 to i32
-  %20 = add nuw nsw i32 %19, %17
-  %21 = uitofp nneg i32 %20 to double
-  %22 = fdiv double %21, %13
-  %23 = fadd double %22, 5.000000e-01
-  %24 = fptosi double %23 to i32
-  %25 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv16.i
-  store i32 %24, ptr %25, align 4, !tbaa !3, !alias.scope !19
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %19 = load i16, ptr %18, align 2, !tbaa !25, !noalias !19
+  %20 = zext i16 %19 to i32
+  %21 = add nuw nsw i32 %20, %17
+  %22 = uitofp nneg i32 %21 to double
+  %23 = fdiv double %22, %13
+  %24 = fadd double %23, 5.000000e-01
+  %25 = fptosi double %24 to i32
+  %26 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv16.i
+  store i32 %25, ptr %26, align 4, !tbaa !3, !alias.scope !19
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 6
   br i1 %exitcond19.not.i, label %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit, label %_ZNK5ZXing11PatternView3sumEi.exit.split.us.i, !llvm.loop !28
 
 _ZNK5ZXing11PatternView3sumEi.exit.split.i:       ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.i, %_ZNK5ZXing11PatternView3sumEi.exit.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK5ZXing11PatternView3sumEi.exit.split.i ], [ 0, %_ZNK5ZXing11PatternView3sumEi.exit.i ]
-  %26 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
-  %27 = load i16, ptr %26, align 2, !tbaa !25, !noalias !19
-  %28 = zext i16 %27 to i32
-  %gep.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %29 = load i16, ptr %gep.i, align 2, !tbaa !25, !noalias !19
-  %30 = zext i16 %29 to i32
-  %31 = add nuw nsw i32 %30, %28
-  %32 = uitofp nneg i32 %31 to double
-  %33 = fdiv double %32, %13
-  %34 = fadd double %33, 5.000000e-01
-  %35 = fptosi double %34 to i32
-  %36 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv.i
-  store i32 %35, ptr %36, align 4, !tbaa !3, !alias.scope !19
+  %27 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
+  %28 = load i16, ptr %27, align 2, !tbaa !25, !noalias !19
+  %29 = zext i16 %28 to i32
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 2
+  %31 = load i16, ptr %30, align 2, !tbaa !25, !noalias !19
+  %32 = zext i16 %31 to i32
+  %33 = add nuw nsw i32 %32, %29
+  %34 = uitofp nneg i32 %33 to double
+  %35 = fdiv double %34, %13
+  %36 = fadd double %35, 5.000000e-01
+  %37 = fptosi double %36 to i32
+  %38 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv.i
+  store i32 %37, ptr %38, align 4, !tbaa !3, !alias.scope !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit, label %_ZNK5ZXing11PatternView3sumEi.exit.split.i, !llvm.loop !30
 
 _ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit: ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.split.i, %_ZNK5ZXing11PatternView3sumEi.exit.split.us.i
-  %37 = select i1 %10, i32 8, i32 1
-  store i32 %37, ptr %0, align 4, !tbaa !3
-  br label %44
+  %39 = select i1 %10, i32 8, i32 1
+  store i32 %39, ptr %0, align 4, !tbaa !3
+  br label %46
 
-38:                                               ; preds = %44
-  %39 = sub nsw i32 %2, %50
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %39, ptr %40, align 4, !tbaa !3
+40:                                               ; preds = %46
+  %41 = sub nsw i32 %2, %52
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %41, ptr %42, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store i32 %37, ptr %6, align 4, !tbaa !31
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !3
-  store i32 %43, ptr %41, align 4, !tbaa !33
-  br label %52
+  store i32 %39, ptr %6, align 4, !tbaa !31
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %45 = load i32, ptr %44, align 4, !tbaa !3
+  store i32 %45, ptr %43, align 4, !tbaa !33
+  br label %54
 
-44:                                               ; preds = %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit, %44
-  %45 = phi i32 [ %37, %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit ], [ %48, %44 ]
-  %indvars.iv = phi i64 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit ], [ %indvars.iv.next, %44 ]
-  %.03137 = phi i32 [ %37, %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit ], [ %50, %44 ]
-  %46 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv
-  %47 = load i32, ptr %46, align 4, !tbaa !3
-  %48 = sub nsw i32 %47, %45
+46:                                               ; preds = %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit, %46
+  %47 = phi i32 [ %39, %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit ], [ %50, %46 ]
+  %indvars.iv = phi i64 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit ], [ %indvars.iv.next, %46 ]
+  %.03137 = phi i32 [ %39, %_ZN5ZXing20NormalizedE2EPatternILi8EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit ], [ %52, %46 ]
+  %48 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %49 = load i32, ptr %48, align 4, !tbaa !3
+  %50 = sub nsw i32 %49, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %indvars.iv.next
-  store i32 %48, ptr %49, align 4, !tbaa !3
-  %50 = add nsw i32 %48, %.03137
+  %51 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %indvars.iv.next
+  store i32 %50, ptr %51, align 4, !tbaa !3
+  %52 = add nsw i32 %50, %.03137
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %38, label %44, !llvm.loop !34
+  br i1 %exitcond.not, label %40, label %46, !llvm.loop !34
 
-51:                                               ; preds = %52
-  br i1 %10, label %59, label %.critedge
+53:                                               ; preds = %54
+  br i1 %10, label %61, label %.critedge
 
-52:                                               ; preds = %38, %52
-  %indvars.iv46 = phi i64 [ 2, %38 ], [ %indvars.iv.next47, %52 ]
-  %53 = shl i64 %indvars.iv46, 2
-  %.idx.i = and i64 %53, 4
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
-  %55 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %indvars.iv46
-  %56 = load i32, ptr %55, align 4, !tbaa !3
-  %57 = load i32, ptr %54, align 4, !tbaa !3
-  %58 = tail call i32 @llvm.smin.i32(i32 %56, i32 %57)
-  store i32 %58, ptr %54, align 4, !tbaa !3
+54:                                               ; preds = %40, %54
+  %indvars.iv46 = phi i64 [ 2, %40 ], [ %indvars.iv.next47, %54 ]
+  %55 = shl i64 %indvars.iv46, 2
+  %.idx.i = and i64 %55, 4
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
+  %57 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %indvars.iv46
+  %58 = load i32, ptr %57, align 4, !tbaa !3
+  %59 = load i32, ptr %56, align 4, !tbaa !3
+  %60 = tail call i32 @llvm.smin.i32(i32 %58, i32 %59)
+  store i32 %60, ptr %56, align 4, !tbaa !3
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 8
-  br i1 %exitcond49.not, label %51, label %52, !llvm.loop !35
+  br i1 %exitcond49.not, label %53, label %54, !llvm.loop !35
 
-59:                                               ; preds = %51
-  %60 = load i32, ptr %6, align 4, !tbaa !3
-  %61 = icmp sgt i32 %60, 1
-  br i1 %61, label %.preheader, label %.loopexit
+61:                                               ; preds = %53
+  %62 = load i32, ptr %6, align 4, !tbaa !3
+  %63 = icmp sgt i32 %62, 1
+  br i1 %63, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %59
-  %62 = add nsw i32 %60, -1
-  br label %63
+.preheader:                                       ; preds = %61
+  %64 = add nsw i32 %62, -1
+  br label %65
 
-63:                                               ; preds = %.preheader, %63
-  %indvars.iv53 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next54, %63 ]
-  %64 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %indvars.iv53
-  %65 = load i32, ptr %64, align 4, !tbaa !3
-  %66 = sub nsw i32 %65, %62
-  store i32 %66, ptr %64, align 4, !tbaa !3
-  %67 = or disjoint i64 %indvars.iv53, 1
-  %68 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %67
-  %69 = load i32, ptr %68, align 4, !tbaa !3
-  %70 = add nsw i32 %69, %62
-  store i32 %70, ptr %68, align 4, !tbaa !3
+65:                                               ; preds = %.preheader, %65
+  %indvars.iv53 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next54, %65 ]
+  %66 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %indvars.iv53
+  %67 = load i32, ptr %66, align 4, !tbaa !3
+  %68 = sub nsw i32 %67, %64
+  store i32 %68, ptr %66, align 4, !tbaa !3
+  %69 = or disjoint i64 %indvars.iv53, 1
+  %70 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %69
+  %71 = load i32, ptr %70, align 4, !tbaa !3
+  %72 = add nsw i32 %71, %64
+  store i32 %72, ptr %70, align 4, !tbaa !3
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 2
-  %71 = icmp samesign ult i64 %indvars.iv53, 6
-  br i1 %71, label %63, label %.loopexit, !llvm.loop !36
+  %73 = icmp samesign ult i64 %indvars.iv53, 6
+  br i1 %73, label %65, label %.loopexit, !llvm.loop !36
 
-.critedge:                                        ; preds = %51
-  %72 = load i32, ptr %41, align 4, !tbaa !3
-  %73 = icmp sgt i32 %72, 1
-  br i1 %73, label %.preheader34, label %.loopexit
+.critedge:                                        ; preds = %53
+  %74 = load i32, ptr %43, align 4, !tbaa !3
+  %75 = icmp sgt i32 %74, 1
+  br i1 %75, label %.preheader34, label %.loopexit
 
 .preheader34:                                     ; preds = %.critedge
-  %74 = add nsw i32 %72, -1
-  br label %75
+  %76 = add nsw i32 %74, -1
+  br label %77
 
-75:                                               ; preds = %.preheader34, %75
-  %indvars.iv50 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next51, %75 ]
-  %76 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %indvars.iv50
-  %77 = load i32, ptr %76, align 4, !tbaa !3
-  %78 = add nsw i32 %77, %74
-  store i32 %78, ptr %76, align 4, !tbaa !3
-  %79 = or disjoint i64 %indvars.iv50, 1
-  %80 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !3
-  %82 = sub nsw i32 %81, %74
-  store i32 %82, ptr %80, align 4, !tbaa !3
+77:                                               ; preds = %.preheader34, %77
+  %indvars.iv50 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next51, %77 ]
+  %78 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %indvars.iv50
+  %79 = load i32, ptr %78, align 4, !tbaa !3
+  %80 = add nsw i32 %79, %76
+  store i32 %80, ptr %78, align 4, !tbaa !3
+  %81 = or disjoint i64 %indvars.iv50, 1
+  %82 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %81
+  %83 = load i32, ptr %82, align 4, !tbaa !3
+  %84 = sub nsw i32 %83, %76
+  store i32 %84, ptr %82, align 4, !tbaa !3
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 2
-  %83 = icmp samesign ult i64 %indvars.iv50, 6
-  br i1 %83, label %75, label %.loopexit, !llvm.loop !37
+  %85 = icmp samesign ult i64 %indvars.iv50, 6
+  br i1 %85, label %77, label %.loopexit, !llvm.loop !37
 
-.loopexit:                                        ; preds = %75, %63, %59, %.critedge
+.loopexit:                                        ; preds = %77, %65, %61, %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
   ret void

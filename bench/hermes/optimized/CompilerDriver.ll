@@ -12763,16 +12763,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
   %cmp.i28 = icmp eq i64 %agg.tmp5.sroa.2.0.copyload.fr, 0
-  br i1 %cmp.i28, label %for.body.lr.ph.split.us, label %for.body
+  br i1 %cmp.i28, label %for.body.us, label %for.body
 
-for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
-  %invariant.gep = getelementptr i8, ptr %4, i64 8
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us
-  %i.011.us = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %inc.us, %for.inc.us ]
-  %gep = getelementptr %"class.llvh::cl::parser<cl::OptLevel>::OptionInfo", ptr %invariant.gep, i64 %i.011.us
-  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
+  %i.011.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw %"class.llvh::cl::parser<cl::OptLevel>::OptionInfo", ptr %4, i64 %i.011.us, i32 0, i32 0, i32 1
+  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.us, label %if.then7, label %for.inc.us
 
@@ -13178,16 +13174,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
   %cmp.i20 = icmp eq i64 %agg.tmp5.sroa.2.0.copyload.fr, 0
-  br i1 %cmp.i20, label %for.body.lr.ph.split.us, label %for.body
+  br i1 %cmp.i20, label %for.body.us, label %for.body
 
-for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
-  %invariant.gep = getelementptr i8, ptr %4, i64 8
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us
-  %i.011.us = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %inc.us, %for.inc.us ]
-  %gep = getelementptr %"class.llvh::cl::parser<cl::StaticBuiltinSetting>::OptionInfo", ptr %invariant.gep, i64 %i.011.us
-  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
+  %i.011.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw %"class.llvh::cl::parser<cl::StaticBuiltinSetting>::OptionInfo", ptr %4, i64 %i.011.us, i32 0, i32 0, i32 1
+  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.us, label %if.then7, label %for.inc.us
 
@@ -13582,16 +13574,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
   %cmp.i20 = icmp eq i64 %agg.tmp5.sroa.2.0.copyload.fr, 0
-  br i1 %cmp.i20, label %for.body.lr.ph.split.us, label %for.body
+  br i1 %cmp.i20, label %for.body.us, label %for.body
 
-for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
-  %invariant.gep = getelementptr i8, ptr %4, i64 8
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us
-  %i.011.us = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %inc.us, %for.inc.us ]
-  %gep = getelementptr %"class.llvh::cl::parser<hermes::OutputFormatKind>::OptionInfo", ptr %invariant.gep, i64 %i.011.us
-  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
+  %i.011.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::OutputFormatKind>::OptionInfo", ptr %4, i64 %i.011.us, i32 0, i32 0, i32 1
+  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.us, label %if.then7, label %for.inc.us
 
@@ -13986,16 +13974,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
   %cmp.i20 = icmp eq i64 %agg.tmp5.sroa.2.0.copyload.fr, 0
-  br i1 %cmp.i20, label %for.body.lr.ph.split.us, label %for.body
+  br i1 %cmp.i20, label %for.body.us, label %for.body
 
-for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
-  %invariant.gep = getelementptr i8, ptr %4, i64 8
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us
-  %i.011.us = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %inc.us, %for.inc.us ]
-  %gep = getelementptr %"class.llvh::cl::parser<cl::BytecodeFormatKind>::OptionInfo", ptr %invariant.gep, i64 %i.011.us
-  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
+  %i.011.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw %"class.llvh::cl::parser<cl::BytecodeFormatKind>::OptionInfo", ptr %4, i64 %i.011.us, i32 0, i32 0, i32 1
+  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.us, label %if.then7, label %for.inc.us
 
@@ -14438,16 +14422,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
   %cmp.i20 = icmp eq i64 %agg.tmp5.sroa.2.0.copyload.fr, 0
-  br i1 %cmp.i20, label %for.body.lr.ph.split.us, label %for.body
+  br i1 %cmp.i20, label %for.body.us, label %for.body
 
-for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
-  %invariant.gep = getelementptr i8, ptr %4, i64 8
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us
-  %i.011.us = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %inc.us, %for.inc.us ]
-  %gep = getelementptr %"class.llvh::cl::parser<cl::DebugLevel>::OptionInfo", ptr %invariant.gep, i64 %i.011.us
-  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
+  %i.011.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw %"class.llvh::cl::parser<cl::DebugLevel>::OptionInfo", ptr %4, i64 %i.011.us, i32 0, i32 0, i32 1
+  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.us, label %if.then7, label %for.inc.us
 
@@ -14842,16 +14822,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
   %cmp.i20 = icmp eq i64 %agg.tmp5.sroa.2.0.copyload.fr, 0
-  br i1 %cmp.i20, label %for.body.lr.ph.split.us, label %for.body
+  br i1 %cmp.i20, label %for.body.us, label %for.body
 
-for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
-  %invariant.gep = getelementptr i8, ptr %4, i64 8
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us
-  %i.011.us = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %inc.us, %for.inc.us ]
-  %gep = getelementptr %"class.llvh::cl::parser<hermes::LocationDumpMode>::OptionInfo", ptr %invariant.gep, i64 %i.011.us
-  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
+  %i.011.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::LocationDumpMode>::OptionInfo", ptr %4, i64 %i.011.us, i32 0, i32 0, i32 1
+  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.us, label %if.then7, label %for.inc.us
 
@@ -15383,16 +15359,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
   %cmp.i20 = icmp eq i64 %agg.tmp5.sroa.2.0.copyload.fr, 0
-  br i1 %cmp.i20, label %for.body.lr.ph.split.us, label %for.body
+  br i1 %cmp.i20, label %for.body.us, label %for.body
 
-for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
-  %invariant.gep = getelementptr i8, ptr %4, i64 8
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us
-  %i.011.us = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %inc.us, %for.inc.us ]
-  %gep = getelementptr %"class.llvh::cl::parser<hermes::Warning>::OptionInfo", ptr %invariant.gep, i64 %i.011.us
-  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
+  %i.011.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::Warning>::OptionInfo", ptr %4, i64 %i.011.us, i32 0, i32 0, i32 1
+  %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.us, label %if.then7, label %for.inc.us
 

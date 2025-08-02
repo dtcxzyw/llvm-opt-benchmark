@@ -1569,25 +1569,25 @@ define internal void @n_tty_set_termios(ptr noundef %0, ptr noundef readonly cap
 define internal range(i32 0, 384) i32 @n_tty_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = icmp eq ptr %2, null
-  br i1 %5, label %.thread6, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.thread6, label %8
+  br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %6
   tail call void %7(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %2) #13
   %.pr = load ptr, ptr %2, align 8
   %.not5 = icmp eq ptr %.pr, null
-  br i1 %.not5, label %.thread6, label %9
+  br i1 %.not5, label %.critedge, label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void %.pr(ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %2) #13
-  br label %.thread6
+  br label %.critedge
 
-.thread6:                                         ; preds = %3, %6, %9, %8
+.critedge:                                        ; preds = %6, %3, %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %0, i64 286
@@ -1595,15 +1595,15 @@ define internal range(i32 0, 384) i32 @n_tty_poll(ptr noundef %0, ptr noundef %1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %21
 
-16:                                               ; preds = %.thread6
+16:                                               ; preds = %.critedge
   %17 = getelementptr i8, ptr %0, i64 287
   %18 = load i8, ptr %17, align 1
   %19 = tail call i8 @llvm.umax.i8(i8 %18, i8 1)
   %20 = zext i8 %19 to i64
   br label %21
 
-21:                                               ; preds = %16, %.thread6
-  %22 = phi i64 [ 1, %.thread6 ], [ %20, %16 ]
+21:                                               ; preds = %16, %.critedge
+  %22 = phi i64 [ 1, %.critedge ], [ %20, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 93
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 16
@@ -1623,16 +1623,16 @@ define internal range(i32 0, 384) i32 @n_tty_poll(ptr noundef %0, ptr noundef %1
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 8800
   %36 = load i64, ptr %35, align 8
   %37 = sub i64 %34, %36
-  %.not9 = icmp ult i64 %37, %22
-  br i1 %.not9, label %43, label %81
+  %.not8 = icmp ult i64 %37, %22
+  br i1 %.not8, label %43, label %81
 
 38:                                               ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 8800
   %42 = load i64, ptr %41, align 8
-  %.not8 = icmp eq i64 %40, %42
-  br i1 %.not8, label %43, label %81
+  %.not7 = icmp eq i64 %40, %42
+  br i1 %.not7, label %43, label %81
 
 43:                                               ; preds = %32, %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24

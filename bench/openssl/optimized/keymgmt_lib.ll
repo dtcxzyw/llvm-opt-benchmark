@@ -721,7 +721,7 @@ define i32 @evp_keymgmt_util_match(ptr noundef captures(address_is_null) %0, ptr
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %.not = icmp eq ptr %9, %13
-  br i1 %.not, label %.thread128.thread, label %16
+  br i1 %.not, label %.thread128, label %16
 
 16:                                               ; preds = %7
   %17 = icmp ne ptr %9, null
@@ -733,7 +733,13 @@ define i32 @evp_keymgmt_util_match(ptr noundef captures(address_is_null) %0, ptr
   %20 = tail call ptr @EVP_KEYMGMT_get0_name(ptr noundef nonnull %13) #5
   %21 = tail call i32 @EVP_KEYMGMT_is_a(ptr noundef nonnull %9, ptr noundef %20) #5
   %.not83 = icmp eq i32 %21, 0
-  br i1 %.not83, label %36, label %.thread
+  br i1 %.not83, label %.critedge, label %.thread
+
+.critedge:                                        ; preds = %19
+  tail call void @ERR_new() #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 384, ptr noundef nonnull @__func__.evp_keymgmt_util_match) #5
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 101, ptr noundef null) #5
+  br label %44
 
 22:                                               ; preds = %16
   br i1 %18, label %.thread, label %29
@@ -746,77 +752,71 @@ define i32 @evp_keymgmt_util_match(ptr noundef captures(address_is_null) %0, ptr
 
 25:                                               ; preds = %.thread
   %.not85 = icmp eq ptr %11, null
-  br i1 %.not85, label %.thread128.thread, label %26
+  br i1 %.not85, label %.thread128, label %26
 
 26:                                               ; preds = %25
   %27 = tail call ptr @evp_keymgmt_util_export_to_provider(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %2)
   %.fr = freeze ptr %27
   %.not87 = icmp eq ptr %.fr, null
-  br i1 %.not87, label %29, label %.thread128.thread.thread
+  br i1 %.not87, label %29, label %.thread128.thread
 
-.thread128.thread.thread:                         ; preds = %26
+.thread128.thread:                                ; preds = %26
   %28 = icmp eq ptr %15, null
   br label %39
 
 29:                                               ; preds = %26, %.thread, %22
-  %.not163 = icmp eq ptr %9, null
-  br i1 %.not163, label %.thread128, label %30
+  %.not158 = icmp eq ptr %9, null
+  br i1 %.not158, label %36, label %30
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %32 = load ptr, ptr %31, align 8, !tbaa !52
   %.not88 = icmp eq ptr %32, null
-  br i1 %.not88, label %.thread128, label %33
+  br i1 %.not88, label %36, label %33
 
 33:                                               ; preds = %30
   %.not89 = icmp eq ptr %15, null
-  br i1 %.not89, label %.thread128.thread, label %34
+  br i1 %.not89, label %.thread128, label %34
 
 34:                                               ; preds = %33
   %35 = tail call ptr @evp_keymgmt_util_export_to_provider(ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef %2)
-  %.fr143 = freeze ptr %35
-  %.not91 = icmp eq ptr %.fr143, null
+  %.fr138 = freeze ptr %35
+  %.not91 = icmp eq ptr %.fr138, null
   %spec.select = select i1 %.not91, ptr %13, ptr %9
-  %spec.select144 = select i1 %.not91, ptr %15, ptr %.fr143
-  br label %.thread128
+  %spec.select139 = select i1 %.not91, ptr %15, ptr %.fr138
+  br label %36
 
-36:                                               ; preds = %19
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 384, ptr noundef nonnull @__func__.evp_keymgmt_util_match) #5
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 101, ptr noundef null) #5
-  br label %44
-
-.thread128:                                       ; preds = %34, %29, %30
+36:                                               ; preds = %34, %30, %29
   %.071 = phi ptr [ null, %29 ], [ %9, %30 ], [ %9, %34 ]
   %.067 = phi ptr [ %13, %29 ], [ %13, %30 ], [ %spec.select, %34 ]
-  %.060 = phi ptr [ %15, %29 ], [ %15, %30 ], [ %spec.select144, %34 ]
+  %.060 = phi ptr [ %15, %29 ], [ %15, %30 ], [ %spec.select139, %34 ]
   %.not92 = icmp eq ptr %.071, %.067
-  br i1 %.not92, label %.thread128.thread, label %44
+  br i1 %.not92, label %.thread128, label %44
 
-.thread128.thread:                                ; preds = %7, %33, %25, %.thread128
-  %.060141 = phi ptr [ %.060, %.thread128 ], [ null, %33 ], [ %15, %25 ], [ %15, %7 ]
-  %.063140 = phi ptr [ %11, %.thread128 ], [ %11, %33 ], [ null, %25 ], [ %11, %7 ]
-  %.071139 = phi ptr [ %.071, %.thread128 ], [ %9, %33 ], [ %13, %25 ], [ %9, %7 ]
-  %37 = icmp eq ptr %.063140, null
-  %38 = icmp eq ptr %.060141, null
+.thread128:                                       ; preds = %7, %33, %25, %36
+  %.060136 = phi ptr [ %.060, %36 ], [ %15, %25 ], [ null, %33 ], [ %15, %7 ]
+  %.063135 = phi ptr [ %11, %36 ], [ null, %25 ], [ %11, %33 ], [ %11, %7 ]
+  %.071134 = phi ptr [ %.071, %36 ], [ %13, %25 ], [ %9, %33 ], [ %9, %7 ]
+  %37 = icmp eq ptr %.063135, null
+  %38 = icmp eq ptr %.060136, null
   %or.cond9 = select i1 %37, i1 %38, i1 false
   br i1 %or.cond9, label %44, label %39
 
-39:                                               ; preds = %.thread128.thread.thread, %.thread128.thread
-  %40 = phi i1 [ %28, %.thread128.thread.thread ], [ %38, %.thread128.thread ]
-  %41 = phi i1 [ false, %.thread128.thread.thread ], [ %37, %.thread128.thread ]
-  %.071139162 = phi ptr [ %13, %.thread128.thread.thread ], [ %.071139, %.thread128.thread ]
-  %.063140161 = phi ptr [ %.fr, %.thread128.thread.thread ], [ %.063140, %.thread128.thread ]
-  %.060141160 = phi ptr [ %15, %.thread128.thread.thread ], [ %.060141, %.thread128.thread ]
+39:                                               ; preds = %.thread128.thread, %.thread128
+  %40 = phi i1 [ %28, %.thread128.thread ], [ %38, %.thread128 ]
+  %41 = phi i1 [ false, %.thread128.thread ], [ %37, %.thread128 ]
+  %.071134157 = phi ptr [ %13, %.thread128.thread ], [ %.071134, %.thread128 ]
+  %.063135156 = phi ptr [ %.fr, %.thread128.thread ], [ %.063135, %.thread128 ]
+  %.060136155 = phi ptr [ %15, %.thread128.thread ], [ %.060136, %.thread128 ]
   %or.cond11 = select i1 %41, i1 true, i1 %40
   br i1 %or.cond11, label %44, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call i32 @evp_keymgmt_match(ptr noundef %.071139162, ptr noundef nonnull %.063140161, ptr noundef nonnull %.060141160, i32 noundef %2) #5
+  %43 = tail call i32 @evp_keymgmt_match(ptr noundef %.071134157, ptr noundef nonnull %.063135156, ptr noundef nonnull %.060136155, i32 noundef %2) #5
   br label %44
 
-44:                                               ; preds = %36, %39, %.thread128.thread, %.thread128, %6, %42
-  %.075 = phi i32 [ %43, %42 ], [ -1, %36 ], [ %., %6 ], [ -2, %.thread128 ], [ 1, %.thread128.thread ], [ 0, %39 ]
+44:                                               ; preds = %39, %.thread128, %36, %.critedge, %6, %42
+  %.075 = phi i32 [ %43, %42 ], [ %., %6 ], [ -1, %.critedge ], [ -2, %36 ], [ 1, %.thread128 ], [ 0, %39 ]
   ret i32 %.075
 }
 

@@ -187,14 +187,14 @@ define hidden void @zim_SplHeap_insert(ptr noundef %0, ptr noundef writeonly cap
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %cond = icmp eq i32 %5, 1
-  br i1 %cond, label %.critedge, label %6, !prof !52
+  br i1 %cond, label %.critedge.critedge, label %6, !prof !52
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #15
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #15
   br label %28
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %3, align 8, !tbaa !4
   %9 = getelementptr inbounds i8, ptr %8, i64 -32
@@ -205,13 +205,13 @@ define hidden void @zim_SplHeap_insert(ptr noundef %0, ptr noundef writeonly cap
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %14
 
-12:                                               ; preds = %.critedge
+12:                                               ; preds = %.critedge.critedge
   %13 = and i32 %.val.val, 2
   %.not3.i.not = icmp eq i32 %13, 0
   br i1 %.not3.i.not, label %19, label %14
 
-14:                                               ; preds = %12, %.critedge
-  %.str.6.sink.i = phi ptr [ @.str.5, %.critedge ], [ @.str.6, %12 ]
+14:                                               ; preds = %12, %.critedge.critedge
+  %.str.6.sink.i = phi ptr [ @.str.5, %.critedge.critedge ], [ @.str.6, %12 ]
   %15 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !54
   %16 = tail call ptr @zend_throw_exception(ptr noundef %15, ptr noundef nonnull %.str.6.sink.i, i64 noundef 0) #15
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !8
@@ -602,14 +602,14 @@ define hidden void @zim_SplPriorityQueue_insert(ptr noundef %0, ptr noundef writ
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %.not = icmp eq i32 %6, 2
-  br i1 %.not, label %.critedge, label %7, !prof !52
+  br i1 %.not, label %.critedge.critedge, label %7, !prof !52
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #15
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #15
   br label %57
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %4, align 8, !tbaa !4
@@ -621,13 +621,13 @@ define hidden void @zim_SplPriorityQueue_insert(ptr noundef %0, ptr noundef writ
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %16
 
-14:                                               ; preds = %.critedge
+14:                                               ; preds = %.critedge.critedge
   %15 = and i32 %.val.val, 2
   %.not3.i.not = icmp eq i32 %15, 0
   br i1 %.not3.i.not, label %21, label %16
 
-16:                                               ; preds = %14, %.critedge
-  %.str.6.sink.i = phi ptr [ @.str.5, %.critedge ], [ @.str.6, %14 ]
+16:                                               ; preds = %14, %.critedge.critedge
+  %.str.6.sink.i = phi ptr [ @.str.5, %.critedge.critedge ], [ @.str.6, %14 ]
   %17 = load ptr, ptr @spl_ce_RuntimeException, align 8, !tbaa !54
   %18 = tail call ptr @zend_throw_exception(ptr noundef %17, ptr noundef nonnull %.str.6.sink.i, i64 noundef 0) #15
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !8
@@ -2170,7 +2170,7 @@ register_class_SplPriorityQueue.exit:             ; preds = %zend_string_release
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @spl_heap_object_new(ptr noundef %0) #0 {
+define internal noundef nonnull ptr @spl_heap_object_new(ptr noundef %0) #0 {
   %2 = tail call fastcc ptr @spl_heap_object_new_ex(ptr noundef %0, ptr noundef null, i32 noundef 0)
   ret ptr %2
 }
@@ -2212,11 +2212,11 @@ define internal noundef ptr @spl_heap_get_iterator(ptr noundef %0, ptr noundef r
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @spl_heap_object_clone(ptr noundef %0) #0 {
+define internal noundef nonnull ptr @spl_heap_object_clone(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !97
   %4 = tail call fastcc ptr @spl_heap_object_new_ex(ptr noundef %3, ptr noundef %0, i32 noundef 1)
-  tail call void @zend_objects_clone_members(ptr noundef %4, ptr noundef %0) #15
+  tail call void @zend_objects_clone_members(ptr noundef nonnull %4, ptr noundef %0) #15
   ret ptr %4
 }
 
@@ -2427,7 +2427,7 @@ declare ptr @zend_register_internal_class_with_flags(ptr noundef, ptr noundef, i
 declare void @zend_class_implements(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @spl_heap_object_new_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @spl_heap_object_new_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !101
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28

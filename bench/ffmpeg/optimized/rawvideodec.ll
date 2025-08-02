@@ -110,32 +110,32 @@ define internal range(i32 -2147483648, 1) i32 @rawvideo_read_header(ptr noundef 
   %43 = load ptr, ptr %6, align 8, !tbaa !24
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   store i32 %42, ptr %44, align 8, !tbaa !48
-  switch i32 %.057, label %53 [
-    i32 64, label %.thread
+  switch i32 %.057, label %.critedge [
+    i32 64, label %49
     i32 15, label %45
   ]
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 13, ptr %46, align 4, !tbaa !39
-  br label %.thread
+  br label %49
 
-.thread:                                          ; preds = %45, %40
-  %.063 = phi i32 [ 4, %45 ], [ 5, %40 ]
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i32 1498831189, ptr %47, align 8, !tbaa !49
-  %48 = load i32, ptr %25, align 8, !tbaa !44
-  %49 = load i32, ptr %27, align 4, !tbaa !45
-  %50 = mul i32 %48, %.063
-  %51 = mul i32 %50, %49
-  %52 = lshr i32 %51, 1
-  br label %68
-
-53:                                               ; preds = %40
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !40
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21, ptr noundef %55) #4
+.critedge:                                        ; preds = %40
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %48 = load ptr, ptr %47, align 8, !tbaa !40
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21, ptr noundef %48) #4
   br label %79
+
+49:                                               ; preds = %40, %45
+  %.063 = phi i32 [ 4, %45 ], [ 5, %40 ]
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store i32 1498831189, ptr %50, align 8, !tbaa !49
+  %51 = load i32, ptr %25, align 8, !tbaa !44
+  %52 = load i32, ptr %27, align 4, !tbaa !45
+  %53 = mul i32 %51, %.063
+  %54 = mul i32 %53, %52
+  %55 = lshr i32 %54, 1
+  br label %68
 
 56:                                               ; preds = %31, %31
   %57 = icmp eq i32 %39, 127
@@ -153,9 +153,9 @@ define internal range(i32 -2147483648, 1) i32 @rawvideo_read_header(ptr noundef 
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %79, label %68
 
-68:                                               ; preds = %.thread, %56, %65
-  %.161 = phi i32 [ %64, %56 ], [ %66, %65 ], [ %52, %.thread ]
-  %.158 = phi i32 [ %58, %56 ], [ %.057, %65 ], [ %.057, %.thread ]
+68:                                               ; preds = %49, %56, %65
+  %.161 = phi i32 [ %55, %49 ], [ %64, %56 ], [ %66, %65 ]
+  %.158 = phi i32 [ %.057, %49 ], [ %58, %56 ], [ %.057, %65 ]
   %69 = icmp eq i32 %.161, 0
   br i1 %69, label %79, label %70
 
@@ -173,8 +173,8 @@ define internal range(i32 -2147483648, 1) i32 @rawvideo_read_header(ptr noundef 
   store i64 %77, ptr %78, align 8, !tbaa !52
   br label %79
 
-79:                                               ; preds = %53, %68, %65, %20, %1, %70, %18
-  %.0 = phi i32 [ -22, %18 ], [ 0, %70 ], [ -22, %53 ], [ -12, %1 ], [ %29, %20 ], [ %66, %65 ], [ -22, %68 ]
+79:                                               ; preds = %68, %65, %.critedge, %20, %1, %70, %18
+  %.0 = phi i32 [ -22, %18 ], [ 0, %70 ], [ -12, %1 ], [ %29, %20 ], [ -22, %.critedge ], [ %66, %65 ], [ -22, %68 ]
   ret i32 %.0
 }
 

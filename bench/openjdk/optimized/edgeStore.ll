@@ -153,7 +153,7 @@ _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_on
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9EdgeStore3putE13UnifiedOopRef(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9EdgeStore3putE13UnifiedOopRef(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.StoredEdge, align 8
   call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef null, i64 %1) #14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -466,7 +466,7 @@ _ZL22find_closest_skip_edgePK10StoredEdgePm.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.StoredEdge, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -886,7 +886,7 @@ _ZNK9EdgeStore3getE13UnifiedOopRef.exit:          ; preds = %31, %_ZN13HashTable
 declare noundef ptr @_ZNK12ObjectSample11object_addrEv(ptr noundef nonnull align 8 dereferenceable(117)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9EdgeStore37associate_leak_context_with_candidateEPK4Edge(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9EdgeStore37associate_leak_context_with_candidateEPK4Edge(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.StoredEdge, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8

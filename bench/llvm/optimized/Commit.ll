@@ -506,7 +506,7 @@ _ZN5clang4edit6Commit17canInsertInOffsetENS_14SourceLocationENS0_10FileOffsetE.e
 define dso_local void @_ZN5clang4edit6Commit9addInsertENS_14SourceLocationENS0_10FileOffsetEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(600) %0, i32 %1, i64 %2, ptr readonly captures(none) %3, i64 %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"struct.clang::edit::Commit::Edit", align 8
   %8 = icmp eq i64 %4, 0
-  br i1 %8, label %56, label %9
+  br i1 %8, label %55, label %9
 
 9:                                                ; preds = %6
   %10 = zext i1 %5 to i8
@@ -568,38 +568,38 @@ _ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096EL
   %39 = icmp uge ptr %7, %.pre3.i
   %40 = icmp ult ptr %7, %38
   %spec.select.i.i.i.i.i = and i1 %39, %40
-  br i1 %spec.select.i.i.i.i.i, label %43, label %41, !prof !86
+  br i1 %spec.select.i.i.i.i.i, label %41, label %.critedge.i.i.i, !prof !86
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %42, i64 noundef %34, i64 noundef 56) #10
+  %42 = ptrtoint ptr %7 to i64
+  %43 = ptrtoint ptr %.pre3.i to i64
+  %44 = sub i64 %42, %43
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %45, i64 noundef %34, i64 noundef 56) #10
+  %46 = load ptr, ptr %30, align 8, !tbaa !71
+  %47 = getelementptr inbounds i8, ptr %46, i64 %44
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
+
+.critedge.i.i.i:                                  ; preds = %37
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %48, i64 noundef %34, i64 noundef 56) #10
   %.pre.i3 = load ptr, ptr %30, align 8, !tbaa !71
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
 
-43:                                               ; preds = %37
-  %44 = ptrtoint ptr %7 to i64
-  %45 = ptrtoint ptr %.pre3.i to i64
-  %46 = sub i64 %44, %45
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %47, i64 noundef %34, i64 noundef 56) #10
-  %48 = load ptr, ptr %30, align 8, !tbaa !71
-  %49 = getelementptr inbounds i8, ptr %48, i64 %46
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit: ; preds = %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit, %41, %43
-  %50 = phi ptr [ %.pre3.i, %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit ], [ %48, %43 ], [ %.pre.i3, %41 ]
-  %.016.i.i.i = phi ptr [ %7, %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit ], [ %49, %43 ], [ %7, %41 ]
-  %51 = load i32, ptr %31, align 8, !tbaa !72
-  %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %50, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %53, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
-  %54 = load i32, ptr %31, align 8, !tbaa !72
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %31, align 8, !tbaa !72
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit: ; preds = %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit, %41, %.critedge.i.i.i
+  %49 = phi ptr [ %.pre3.i, %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit ], [ %46, %41 ], [ %.pre.i3, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %7, %_ZNK4llvm9StringRef4copyINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEES0_RT_.exit ], [ %47, %41 ], [ %7, %.critedge.i.i.i ]
+  %50 = load i32, ptr %31, align 8, !tbaa !72
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %49, i64 %51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %52, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
+  %53 = load i32, ptr %31, align 8, !tbaa !72
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %31, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #10
-  br label %56
+  br label %55
 
-56:                                               ; preds = %6, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
+55:                                               ; preds = %6, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
   ret void
 }
 
@@ -623,7 +623,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit15insertFromRangeENS_1
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %15, align 8, !tbaa !70
-  br label %68
+  br label %67
 
 16:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
@@ -703,43 +703,43 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit15insertFromRangeENS_1
   %51 = icmp uge ptr %7, %.pre3.i.i
   %52 = icmp ult ptr %7, %50
   %spec.select.i.i.i.i.i.i = and i1 %51, %52
-  br i1 %spec.select.i.i.i.i.i.i, label %55, label %53, !prof !86
+  br i1 %spec.select.i.i.i.i.i.i, label %53, label %.critedge.i.i.i.i, !prof !86
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %54, i64 noundef %46, i64 noundef 56) #10
+  %54 = ptrtoint ptr %7 to i64
+  %55 = ptrtoint ptr %.pre3.i.i to i64
+  %56 = sub i64 %54, %55
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %57, i64 noundef %46, i64 noundef 56) #10
+  %58 = load ptr, ptr %42, align 8, !tbaa !71
+  %59 = getelementptr inbounds i8, ptr %58, i64 %56
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
+
+.critedge.i.i.i.i:                                ; preds = %49
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %60, i64 noundef %46, i64 noundef 56) #10
   %.pre.i.i = load ptr, ptr %42, align 8, !tbaa !71
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
 
-55:                                               ; preds = %49
-  %56 = ptrtoint ptr %7 to i64
-  %57 = ptrtoint ptr %.pre3.i.i to i64
-  %58 = sub i64 %56, %57
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %59, i64 noundef %46, i64 noundef 56) #10
-  %60 = load ptr, ptr %42, align 8, !tbaa !71
-  %61 = getelementptr inbounds i8, ptr %60, i64 %58
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i: ; preds = %55, %53, %34
-  %62 = phi ptr [ %.pre3.i.i, %34 ], [ %60, %55 ], [ %.pre.i.i, %53 ]
-  %.016.i.i.i.i = phi ptr [ %7, %34 ], [ %61, %55 ], [ %7, %53 ]
-  %63 = load i32, ptr %43, align 8, !tbaa !72
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %62, i64 %64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %65, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
-  %66 = load i32, ptr %43, align 8, !tbaa !72
-  %67 = add i32 %66, 1
-  store i32 %67, ptr %43, align 8, !tbaa !72
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i: ; preds = %.critedge.i.i.i.i, %53, %34
+  %61 = phi ptr [ %.pre3.i.i, %34 ], [ %58, %53 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %7, %34 ], [ %59, %53 ], [ %7, %.critedge.i.i.i.i ]
+  %62 = load i32, ptr %43, align 8, !tbaa !72
+  %63 = zext i32 %62 to i64
+  %64 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %61, i64 %63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %64, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
+  %65 = load i32, ptr %43, align 8, !tbaa !72
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %43, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #10
   br label %_ZN5clang4edit6Commit18addInsertFromRangeENS_14SourceLocationENS0_10FileOffsetES3_jb.exit
 
 _ZN5clang4edit6Commit18addInsertFromRangeENS_14SourceLocationENS0_10FileOffsetES3_jb.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i, %31, %29, %21
   %.1 = phi i1 [ false, %29 ], [ false, %21 ], [ true, %31 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
-  br label %68
+  br label %67
 
-68:                                               ; preds = %_ZN5clang4edit6Commit18addInsertFromRangeENS_14SourceLocationENS0_10FileOffsetES3_jb.exit, %14
+67:                                               ; preds = %_ZN5clang4edit6Commit18addInsertFromRangeENS_14SourceLocationENS0_10FileOffsetES3_jb.exit, %14
   %.0 = phi i1 [ %.1, %_ZN5clang4edit6Commit18addInsertFromRangeENS_14SourceLocationENS0_10FileOffsetES3_jb.exit ], [ false, %14 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
@@ -814,7 +814,7 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit29: ; preds
 define dso_local void @_ZN5clang4edit6Commit18addInsertFromRangeENS_14SourceLocationENS0_10FileOffsetES3_jb(ptr noundef nonnull align 8 dereferenceable(600) %0, i32 %1, i64 %2, i64 %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"struct.clang::edit::Commit::Edit", align 8
   %8 = icmp eq i32 %4, 0
-  br i1 %8, label %43, label %9
+  br i1 %8, label %42, label %9
 
 9:                                                ; preds = %6
   %10 = zext i1 %5 to i8
@@ -848,38 +848,38 @@ define dso_local void @_ZN5clang4edit6Commit18addInsertFromRangeENS_14SourceLoca
   %26 = icmp uge ptr %7, %.pre3.i
   %27 = icmp ult ptr %7, %25
   %spec.select.i.i.i.i.i = and i1 %26, %27
-  br i1 %spec.select.i.i.i.i.i, label %30, label %28, !prof !86
+  br i1 %spec.select.i.i.i.i.i, label %28, label %.critedge.i.i.i, !prof !86
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %29, i64 noundef %21, i64 noundef 56) #10
+  %29 = ptrtoint ptr %7 to i64
+  %30 = ptrtoint ptr %.pre3.i to i64
+  %31 = sub i64 %29, %30
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %32, i64 noundef %21, i64 noundef 56) #10
+  %33 = load ptr, ptr %17, align 8, !tbaa !71
+  %34 = getelementptr inbounds i8, ptr %33, i64 %31
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
+
+.critedge.i.i.i:                                  ; preds = %24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %35, i64 noundef %21, i64 noundef 56) #10
   %.pre.i = load ptr, ptr %17, align 8, !tbaa !71
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
 
-30:                                               ; preds = %24
-  %31 = ptrtoint ptr %7 to i64
-  %32 = ptrtoint ptr %.pre3.i to i64
-  %33 = sub i64 %31, %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %34, i64 noundef %21, i64 noundef 56) #10
-  %35 = load ptr, ptr %17, align 8, !tbaa !71
-  %36 = getelementptr inbounds i8, ptr %35, i64 %33
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit: ; preds = %9, %28, %30
-  %37 = phi ptr [ %.pre3.i, %9 ], [ %35, %30 ], [ %.pre.i, %28 ]
-  %.016.i.i.i = phi ptr [ %7, %9 ], [ %36, %30 ], [ %7, %28 ]
-  %38 = load i32, ptr %18, align 8, !tbaa !72
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %37, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %40, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
-  %41 = load i32, ptr %18, align 8, !tbaa !72
-  %42 = add i32 %41, 1
-  store i32 %42, ptr %18, align 8, !tbaa !72
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit: ; preds = %9, %28, %.critedge.i.i.i
+  %36 = phi ptr [ %.pre3.i, %9 ], [ %33, %28 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %7, %9 ], [ %34, %28 ], [ %7, %.critedge.i.i.i ]
+  %37 = load i32, ptr %18, align 8, !tbaa !72
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %36, i64 %38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %39, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
+  %40 = load i32, ptr %18, align 8, !tbaa !72
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %18, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #10
-  br label %43
+  br label %42
 
-43:                                               ; preds = %6, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
+42:                                               ; preds = %6, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
   ret void
 }
 
@@ -935,34 +935,34 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit6removeENS_15CharSourc
   %28 = icmp uge ptr %4, %.pre3.i.i
   %29 = icmp ult ptr %4, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %32, label %30, !prof !86
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !86
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %31, i64 noundef %23, i64 noundef 56) #10
+  %31 = ptrtoint ptr %4 to i64
+  %32 = ptrtoint ptr %.pre3.i.i to i64
+  %33 = sub i64 %31, %32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %34, i64 noundef %23, i64 noundef 56) #10
+  %35 = load ptr, ptr %19, align 8, !tbaa !71
+  %36 = getelementptr inbounds i8, ptr %35, i64 %33
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
+
+.critedge.i.i.i.i:                                ; preds = %26
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %37, i64 noundef %23, i64 noundef 56) #10
   %.pre.i.i = load ptr, ptr %19, align 8, !tbaa !71
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
 
-32:                                               ; preds = %26
-  %33 = ptrtoint ptr %4 to i64
-  %34 = ptrtoint ptr %.pre3.i.i to i64
-  %35 = sub i64 %33, %34
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %36, i64 noundef %23, i64 noundef 56) #10
-  %37 = load ptr, ptr %19, align 8, !tbaa !71
-  %38 = getelementptr inbounds i8, ptr %37, i64 %35
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i: ; preds = %32, %30, %14
-  %39 = phi ptr [ %.pre3.i.i, %14 ], [ %37, %32 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %4, %14 ], [ %38, %32 ], [ %4, %30 ]
-  %40 = load i32, ptr %20, align 8, !tbaa !72
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %39, i64 %41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
-  %43 = load i32, ptr %20, align 8, !tbaa !72
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %20, align 8, !tbaa !72
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i: ; preds = %.critedge.i.i.i.i, %30, %14
+  %38 = phi ptr [ %.pre3.i.i, %14 ], [ %35, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %4, %14 ], [ %36, %30 ], [ %4, %.critedge.i.i.i.i ]
+  %39 = load i32, ptr %20, align 8, !tbaa !72
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %38, i64 %40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %41, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
+  %42 = load i32, ptr %20, align 8, !tbaa !72
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %20, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #10
   br label %_ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj.exit
 
@@ -976,7 +976,7 @@ _ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj.exit: ; p
 define dso_local void @_ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj(ptr noundef nonnull align 8 dereferenceable(600) %0, i32 %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.clang::edit::Commit::Edit", align 8
   %6 = icmp eq i32 %3, 0
-  br i1 %6, label %38, label %7
+  br i1 %6, label %37, label %7
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #10
@@ -1005,38 +1005,38 @@ define dso_local void @_ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_1
   %21 = icmp uge ptr %5, %.pre3.i
   %22 = icmp ult ptr %5, %20
   %spec.select.i.i.i.i.i = and i1 %21, %22
-  br i1 %spec.select.i.i.i.i.i, label %25, label %23, !prof !86
+  br i1 %spec.select.i.i.i.i.i, label %23, label %.critedge.i.i.i, !prof !86
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %24, i64 noundef %16, i64 noundef 56) #10
+  %24 = ptrtoint ptr %5 to i64
+  %25 = ptrtoint ptr %.pre3.i to i64
+  %26 = sub i64 %24, %25
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %27, i64 noundef %16, i64 noundef 56) #10
+  %28 = load ptr, ptr %12, align 8, !tbaa !71
+  %29 = getelementptr inbounds i8, ptr %28, i64 %26
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
+
+.critedge.i.i.i:                                  ; preds = %19
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %30, i64 noundef %16, i64 noundef 56) #10
   %.pre.i = load ptr, ptr %12, align 8, !tbaa !71
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
 
-25:                                               ; preds = %19
-  %26 = ptrtoint ptr %5 to i64
-  %27 = ptrtoint ptr %.pre3.i to i64
-  %28 = sub i64 %26, %27
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %29, i64 noundef %16, i64 noundef 56) #10
-  %30 = load ptr, ptr %12, align 8, !tbaa !71
-  %31 = getelementptr inbounds i8, ptr %30, i64 %28
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit: ; preds = %7, %23, %25
-  %32 = phi ptr [ %.pre3.i, %7 ], [ %30, %25 ], [ %.pre.i, %23 ]
-  %.016.i.i.i = phi ptr [ %5, %7 ], [ %31, %25 ], [ %5, %23 ]
-  %33 = load i32, ptr %13, align 8, !tbaa !72
-  %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %32, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
-  %36 = load i32, ptr %13, align 8, !tbaa !72
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %13, align 8, !tbaa !72
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit: ; preds = %7, %23, %.critedge.i.i.i
+  %31 = phi ptr [ %.pre3.i, %7 ], [ %28, %23 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %5, %7 ], [ %29, %23 ], [ %5, %.critedge.i.i.i ]
+  %32 = load i32, ptr %13, align 8, !tbaa !72
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %31, i64 %33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
+  %35 = load i32, ptr %13, align 8, !tbaa !72
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %13, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #10
-  br label %38
+  br label %37
 
-38:                                               ; preds = %4, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
+37:                                               ; preds = %4, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit
   ret void
 }
 
@@ -1159,7 +1159,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit7replaceENS_15CharSour
 
 10:                                               ; preds = %5
   %11 = tail call noundef zeroext i1 @_ZN5clang4edit6Commit6removeENS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(600) %0, i64 %1, i8 %2)
-  br label %54
+  br label %53
 
 12:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
@@ -1177,7 +1177,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit7replaceENS_15CharSour
 17:                                               ; preds = %15, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %18, align 8, !tbaa !70
-  br label %53
+  br label %52
 
 19:                                               ; preds = %15
   %.sroa.03.0.copyload = load i64, ptr %7, align 8
@@ -1212,49 +1212,49 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit7replaceENS_15CharSour
   %36 = icmp uge ptr %6, %.pre3.i.i
   %37 = icmp ult ptr %6, %35
   %spec.select.i.i.i.i.i.i = and i1 %36, %37
-  br i1 %spec.select.i.i.i.i.i.i, label %40, label %38, !prof !86
+  br i1 %spec.select.i.i.i.i.i.i, label %38, label %.critedge.i.i.i.i, !prof !86
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %39, i64 noundef %31, i64 noundef 56) #10
+  %39 = ptrtoint ptr %6 to i64
+  %40 = ptrtoint ptr %.pre3.i.i to i64
+  %41 = sub i64 %39, %40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %42, i64 noundef %31, i64 noundef 56) #10
+  %43 = load ptr, ptr %27, align 8, !tbaa !71
+  %44 = getelementptr inbounds i8, ptr %43, i64 %41
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
+
+.critedge.i.i.i.i:                                ; preds = %34
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %45, i64 noundef %31, i64 noundef 56) #10
   %.pre.i.i = load ptr, ptr %27, align 8, !tbaa !71
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
 
-40:                                               ; preds = %34
-  %41 = ptrtoint ptr %6 to i64
-  %42 = ptrtoint ptr %.pre3.i.i to i64
-  %43 = sub i64 %41, %42
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %44, i64 noundef %31, i64 noundef 56) #10
-  %45 = load ptr, ptr %27, align 8, !tbaa !71
-  %46 = getelementptr inbounds i8, ptr %45, i64 %43
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i: ; preds = %40, %38, %22
-  %47 = phi ptr [ %.pre3.i.i, %22 ], [ %45, %40 ], [ %.pre.i.i, %38 ]
-  %.016.i.i.i.i = phi ptr [ %6, %22 ], [ %46, %40 ], [ %6, %38 ]
-  %48 = load i32, ptr %28, align 8, !tbaa !72
-  %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %47, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %50, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
-  %51 = load i32, ptr %28, align 8, !tbaa !72
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %28, align 8, !tbaa !72
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i: ; preds = %.critedge.i.i.i.i, %38, %22
+  %46 = phi ptr [ %.pre3.i.i, %22 ], [ %43, %38 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %6, %22 ], [ %44, %38 ], [ %6, %.critedge.i.i.i.i ]
+  %47 = load i32, ptr %28, align 8, !tbaa !72
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %46, i64 %48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
+  %50 = load i32, ptr %28, align 8, !tbaa !72
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %28, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
   br label %_ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj.exit
 
 _ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj.exit: ; preds = %19, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
   call void @_ZN5clang4edit6Commit9addInsertENS_14SourceLocationENS0_10FileOffsetEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(600) %0, i32 %.sroa.024.0.extract.trunc, i64 %.sroa.03.0.copyload, ptr %3, i64 %4, i1 noundef zeroext false)
-  br label %53
+  br label %52
 
-53:                                               ; preds = %_ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj.exit, %17
+52:                                               ; preds = %_ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj.exit, %17
   %.1 = phi i1 [ true, %_ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj.exit ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  br label %54
+  br label %53
 
-54:                                               ; preds = %53, %10
-  %.0 = phi i1 [ %11, %10 ], [ %.1, %53 ]
+53:                                               ; preds = %52, %10
+  %.0 = phi i1 [ %11, %10 ], [ %.1, %52 ]
   ret i1 %.0
 }
 
@@ -1370,7 +1370,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit11replaceTextENS_14Sou
   %10 = icmp eq i64 %3, 0
   %11 = icmp eq i64 %5, 0
   %or.cond = select i1 %10, i1 true, i1 %11
-  br i1 %or.cond, label %64, label %12
+  br i1 %or.cond, label %63, label %12
 
 12:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
@@ -1415,7 +1415,7 @@ _ZN5clang4edit6Commit14canReplaceTextENS_14SourceLocationEN4llvm9StringRefERNS0_
 _ZN5clang4edit6Commit14canReplaceTextENS_14SourceLocationEN4llvm9StringRefERNS0_10FileOffsetERj.exit.thread: ; preds = %12, %_ZN5clang4edit6Commit14canReplaceTextENS_14SourceLocationEN4llvm9StringRefERNS0_10FileOffsetERj.exit.thread21, %_ZN5clang4edit6Commit14canReplaceTextENS_14SourceLocationEN4llvm9StringRefERNS0_10FileOffsetERj.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %29, align 8, !tbaa !70
-  br label %63
+  br label %62
 
 30:                                               ; preds = %_ZN5clang4edit6Commit14canReplaceTextENS_14SourceLocationEN4llvm9StringRefERNS0_10FileOffsetERj.exit
   %.sroa.03.0.copyload = load i64, ptr %9, align 8
@@ -1449,48 +1449,48 @@ _ZN5clang4edit6Commit14canReplaceTextENS_14SourceLocationEN4llvm9StringRefERNS0_
   %46 = icmp uge ptr %7, %.pre3.i.i
   %47 = icmp ult ptr %7, %45
   %spec.select.i.i.i.i.i.i = and i1 %46, %47
-  br i1 %spec.select.i.i.i.i.i.i, label %50, label %48, !prof !86
+  br i1 %spec.select.i.i.i.i.i.i, label %48, label %.critedge.i.i.i.i, !prof !86
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull %49, i64 noundef %41, i64 noundef 56) #10
+  %49 = ptrtoint ptr %7 to i64
+  %50 = ptrtoint ptr %.pre3.i.i to i64
+  %51 = sub i64 %49, %50
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull %52, i64 noundef %41, i64 noundef 56) #10
+  %53 = load ptr, ptr %37, align 8, !tbaa !71
+  %54 = getelementptr inbounds i8, ptr %53, i64 %51
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
+
+.critedge.i.i.i.i:                                ; preds = %44
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull %55, i64 noundef %41, i64 noundef 56) #10
   %.pre.i.i = load ptr, ptr %37, align 8, !tbaa !71
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
 
-50:                                               ; preds = %44
-  %51 = ptrtoint ptr %7 to i64
-  %52 = ptrtoint ptr %.pre3.i.i to i64
-  %53 = sub i64 %51, %52
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull %54, i64 noundef %41, i64 noundef 56) #10
-  %55 = load ptr, ptr %37, align 8, !tbaa !71
-  %56 = getelementptr inbounds i8, ptr %55, i64 %53
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i: ; preds = %50, %48, %32
-  %57 = phi ptr [ %.pre3.i.i, %32 ], [ %55, %50 ], [ %.pre.i.i, %48 ]
-  %.016.i.i.i.i = phi ptr [ %7, %32 ], [ %56, %50 ], [ %7, %48 ]
-  %58 = load i32, ptr %38, align 8, !tbaa !72
-  %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %57, i64 %59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
-  %61 = load i32, ptr %38, align 8, !tbaa !72
-  %62 = add i32 %61, 1
-  store i32 %62, ptr %38, align 8, !tbaa !72
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i: ; preds = %.critedge.i.i.i.i, %48, %32
+  %56 = phi ptr [ %.pre3.i.i, %32 ], [ %53, %48 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %7, %32 ], [ %54, %48 ], [ %7, %.critedge.i.i.i.i ]
+  %57 = load i32, ptr %38, align 8, !tbaa !72
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %56, i64 %58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %59, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i.i, i64 56, i1 false)
+  %60 = load i32, ptr %38, align 8, !tbaa !72
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %38, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #10
   br label %_ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj.exit
 
 _ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj.exit: ; preds = %30, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4edit6Commit4EditELb1EE9push_backERKS4_.exit.i
   call void @_ZN5clang4edit6Commit9addInsertENS_14SourceLocationENS0_10FileOffsetEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(600) %0, i32 %1, i64 %.sroa.03.0.copyload, ptr %2, i64 %3, i1 noundef zeroext false)
-  br label %63
+  br label %62
 
-63:                                               ; preds = %_ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj.exit, %_ZN5clang4edit6Commit14canReplaceTextENS_14SourceLocationEN4llvm9StringRefERNS0_10FileOffsetERj.exit.thread
+62:                                               ; preds = %_ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj.exit, %_ZN5clang4edit6Commit14canReplaceTextENS_14SourceLocationEN4llvm9StringRefERNS0_10FileOffsetERj.exit.thread
   %.0.i19 = phi i1 [ true, %_ZN5clang4edit6Commit9addRemoveENS_14SourceLocationENS0_10FileOffsetEj.exit ], [ false, %_ZN5clang4edit6Commit14canReplaceTextENS_14SourceLocationEN4llvm9StringRefERNS0_10FileOffsetERj.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  br label %64
+  br label %63
 
-64:                                               ; preds = %6, %63
-  %.0 = phi i1 [ %.0.i19, %63 ], [ true, %6 ]
+63:                                               ; preds = %6, %62
+  %.0 = phi i1 [ %.0.i19, %62 ], [ true, %6 ]
   ret i1 %.0
 }
 

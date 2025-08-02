@@ -1444,7 +1444,6 @@ define internal i32 @VP8LPredictor1_C(ptr noundef readonly captures(none) %0, pt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @PredictorAdd3_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #2 {
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1455,20 +1454,21 @@ define internal void @PredictorAdd3_C(ptr noundef readonly captures(none) %0, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %7 = load i32, ptr %gep, align 4, !tbaa !3
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !3
-  %10 = and i32 %9, -16711936
-  %11 = and i32 %7, -16711936
-  %12 = add i32 %10, %11
-  %13 = and i32 %9, 16711935
-  %14 = and i32 %7, 16711935
-  %15 = add nuw nsw i32 %13, %14
-  %16 = and i32 %12, -16711936
-  %17 = and i32 %15, 16711935
-  %18 = or disjoint i32 %16, %17
-  store i32 %18, ptr %6, align 4, !tbaa !3
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %11 = load i32, ptr %10, align 4, !tbaa !3
+  %12 = and i32 %11, -16711936
+  %13 = and i32 %9, -16711936
+  %14 = add i32 %12, %13
+  %15 = and i32 %11, 16711935
+  %16 = and i32 %9, 16711935
+  %17 = add nuw nsw i32 %15, %16
+  %18 = and i32 %14, -16711936
+  %19 = and i32 %17, 16711935
+  %20 = or disjoint i32 %18, %19
+  store i32 %20, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
@@ -1479,7 +1479,6 @@ define internal void @PredictorAdd3_C(ptr noundef readonly captures(none) %0, pt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @PredictorAdd4_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noalias noundef writeonly captures(none) %3) #2 {
-  %invariant.gep = getelementptr i8, ptr %1, i64 -4
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1490,20 +1489,21 @@ define internal void @PredictorAdd4_C(ptr noundef readonly captures(none) %0, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %7 = load i32, ptr %gep, align 4, !tbaa !3
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds i8, ptr %7, i64 -4
   %9 = load i32, ptr %8, align 4, !tbaa !3
-  %10 = and i32 %9, -16711936
-  %11 = and i32 %7, -16711936
-  %12 = add i32 %10, %11
-  %13 = and i32 %9, 16711935
-  %14 = and i32 %7, 16711935
-  %15 = add nuw nsw i32 %13, %14
-  %16 = and i32 %12, -16711936
-  %17 = and i32 %15, 16711935
-  %18 = or disjoint i32 %16, %17
-  store i32 %18, ptr %6, align 4, !tbaa !3
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %11 = load i32, ptr %10, align 4, !tbaa !3
+  %12 = and i32 %11, -16711936
+  %13 = and i32 %9, -16711936
+  %14 = add i32 %12, %13
+  %15 = and i32 %11, 16711935
+  %16 = and i32 %9, 16711935
+  %17 = add nuw nsw i32 %15, %16
+  %18 = and i32 %14, -16711936
+  %19 = and i32 %17, 16711935
+  %20 = or disjoint i32 %18, %19
+  store i32 %20, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
@@ -1563,7 +1563,6 @@ define internal void @PredictorAdd5_C(ptr noundef readonly captures(none) %0, pt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @PredictorAdd6_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noalias noundef captures(none) %3) #2 {
-  %invariant.gep = getelementptr i8, ptr %1, i64 -4
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1574,28 +1573,29 @@ define internal void @PredictorAdd6_C(ptr noundef readonly captures(none) %0, pt
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %23, %.lr.ph ]
+  %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %25, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %7 = load i32, ptr %gep, align 4, !tbaa !3
-  %8 = xor i32 %7, %store_forwarded
-  %9 = lshr i32 %8, 1
-  %10 = and i32 %9, 2139062143
-  %11 = and i32 %7, %store_forwarded
-  %12 = add i32 %10, %11
-  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 4, !tbaa !3
-  %15 = and i32 %14, -16711936
-  %16 = and i32 %12, -16711936
-  %17 = add i32 %16, %15
-  %18 = and i32 %14, 16711935
-  %19 = and i32 %12, 16711935
-  %20 = add nuw nsw i32 %19, %18
-  %21 = and i32 %17, -16711936
-  %22 = and i32 %20, 16711935
-  %23 = or disjoint i32 %21, %22
-  store i32 %23, ptr %6, align 4, !tbaa !3
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds i8, ptr %7, i64 -4
+  %9 = load i32, ptr %8, align 4, !tbaa !3
+  %10 = xor i32 %9, %store_forwarded
+  %11 = lshr i32 %10, 1
+  %12 = and i32 %11, 2139062143
+  %13 = and i32 %9, %store_forwarded
+  %14 = add i32 %12, %13
+  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 4, !tbaa !3
+  %17 = and i32 %16, -16711936
+  %18 = and i32 %14, -16711936
+  %19 = add i32 %18, %17
+  %20 = and i32 %16, 16711935
+  %21 = and i32 %14, 16711935
+  %22 = add nuw nsw i32 %21, %20
+  %23 = and i32 %19, -16711936
+  %24 = and i32 %22, 16711935
+  %25 = or disjoint i32 %23, %24
+  store i32 %25, ptr %6, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73

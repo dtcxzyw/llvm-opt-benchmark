@@ -636,13 +636,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @pagemap_read(ptr noundef
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread14, label %9
+  br i1 %8, label %.thread15, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 140
   %11 = load volatile i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread14, label %.lr.ph, !prof !13
+  br i1 %12, label %.thread15, label %.lr.ph, !prof !13
 
 .lr.ph:                                           ; preds = %9, %19
   %13 = phi i32 [ %20, %19 ], [ %11, %9 ]
@@ -657,7 +657,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pagemap_read(ptr noundef
 19:                                               ; preds = %.lr.ph
   %20 = extractvalue { i8, i32 } %15, 1
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.thread14, label %.lr.ph, !prof !16, !llvm.loop !17
+  br i1 %21, label %.thread15, label %.lr.ph, !prof !16, !llvm.loop !17
 
 22:                                               ; preds = %.lr.ph
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !7
@@ -665,11 +665,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @pagemap_read(ptr noundef
   %24 = or i64 %23, %2
   %25 = and i64 %24, 7
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %118
+  br i1 %26, label %27, label %119
 
 27:                                               ; preds = %22
   %28 = icmp eq i64 %2, 0
-  br i1 %28, label %118, label %29
+  br i1 %28, label %119, label %29
 
 29:                                               ; preds = %27
   %30 = tail call zeroext i1 @file_ns_capable(ptr noundef %0, ptr noundef nonnull @init_user_ns, i32 noundef 21) #13
@@ -683,14 +683,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @pagemap_read(ptr noundef
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %35, ptr %36, align 8
   %37 = icmp eq ptr %35, null
-  br i1 %37, label %118, label %38
+  br i1 %37, label %119, label %38
 
 38:                                               ; preds = %29
   %39 = load i64, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %41 = load i64, ptr %40, align 8
   %42 = icmp ult i64 %39, 36028797018963968
-  br i1 %42, label %43, label %.thread15
+  br i1 %42, label %43, label %62
 
 43:                                               ; preds = %38
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #13
@@ -713,7 +713,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pagemap_read(ptr noundef
 
 50:                                               ; preds = %48, %45
   %51 = icmp eq i32 %47, 0
-  br i1 %51, label %52, label %.thread19
+  br i1 %51, label %52, label %.critedge
 
 52:                                               ; preds = %50
   %53 = shl nuw i64 %39, 9
@@ -724,126 +724,126 @@ define internal range(i64 -2147483648, 2147483648) i64 @pagemap_read(ptr noundef
   %57 = shl i64 %56, 9
   %58 = icmp ult i64 %57, %54
   %.pre = load i64, ptr %40, align 8
-  br i1 %58, label %.thread15, label %59
+  br i1 %58, label %62, label %59
 
 59:                                               ; preds = %52
   %60 = icmp ult i64 %57, %.pre
   %61 = select i1 %60, i64 %57, i64 %41
-  br label %.thread15
+  br label %62
 
-.thread15:                                        ; preds = %52, %59, %38
-  %62 = phi i64 [ %41, %38 ], [ %.pre, %59 ], [ %.pre, %52 ]
-  %63 = phi i64 [ %41, %38 ], [ %54, %59 ], [ %54, %52 ]
-  %64 = phi i64 [ %41, %38 ], [ %61, %59 ], [ %41, %52 ]
-  %65 = icmp ugt i64 %63, %62
-  %66 = select i1 %65, i64 %64, i64 %63
-  %67 = icmp ult i64 %66, %64
-  br i1 %67, label %68, label %.thread19
+62:                                               ; preds = %52, %59, %38
+  %63 = phi i64 [ %41, %38 ], [ %.pre, %59 ], [ %.pre, %52 ]
+  %64 = phi i64 [ %41, %38 ], [ %54, %59 ], [ %54, %52 ]
+  %65 = phi i64 [ %41, %38 ], [ %61, %59 ], [ %41, %52 ]
+  %66 = icmp ugt i64 %64, %63
+  %67 = select i1 %66, i64 %65, i64 %64
+  %68 = icmp ult i64 %67, %65
+  br i1 %68, label %69, label %.critedge
 
-68:                                               ; preds = %.thread15
-  %69 = getelementptr inbounds nuw i8, ptr %7, i64 176
-  br label %78
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  br label %79
 
-70:                                               ; preds = %106
-  %71 = trunc i64 %102 to i32
-  %72 = add i32 %81, %71
-  %73 = getelementptr i8, ptr %79, i64 %104
-  %74 = sub i64 %80, %104
-  %75 = icmp ne i64 %74, 0
-  %76 = icmp ult i64 %87, %64
-  %77 = select i1 %75, i1 %76, i1 false
-  br i1 %77, label %78, label %110
+71:                                               ; preds = %107
+  %72 = trunc i64 %103 to i32
+  %73 = add i32 %82, %72
+  %74 = getelementptr i8, ptr %80, i64 %105
+  %75 = sub i64 %81, %105
+  %76 = icmp ne i64 %75, 0
+  %77 = icmp ult i64 %88, %65
+  %78 = select i1 %76, i1 %77, i1 false
+  br i1 %78, label %79, label %111
 
-78:                                               ; preds = %70, %68
-  %79 = phi ptr [ %1, %68 ], [ %73, %70 ]
-  %80 = phi i64 [ %2, %68 ], [ %74, %70 ]
-  %81 = phi i32 [ 0, %68 ], [ %72, %70 ]
-  %82 = phi i64 [ %66, %68 ], [ %87, %70 ]
+79:                                               ; preds = %71, %69
+  %80 = phi ptr [ %1, %69 ], [ %74, %71 ]
+  %81 = phi i64 [ %2, %69 ], [ %75, %71 ]
+  %82 = phi i32 [ 0, %69 ], [ %73, %71 ]
+  %83 = phi i64 [ %67, %69 ], [ %88, %71 ]
   store i32 0, ptr %5, align 8
-  %83 = and i64 %82, -2097152
-  %84 = add i64 %83, 2097152
-  %85 = icmp ult i64 %84, %82
-  %86 = call i64 @llvm.umin.i64(i64 %84, i64 %64)
-  %87 = select i1 %85, i64 %64, i64 %86
+  %84 = and i64 %83, -2097152
+  %85 = add i64 %84, 2097152
+  %86 = icmp ult i64 %85, %83
+  %87 = call i64 @llvm.umin.i64(i64 %85, i64 %65)
+  %88 = select i1 %86, i64 %65, i64 %87
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #13
-          to label %89 [label %88], !srcloc !8
+          to label %90 [label %89], !srcloc !8
 
-88:                                               ; preds = %78
+89:                                               ; preds = %79
   call void @__mmap_lock_do_trace_start_locking(ptr noundef nonnull %7, i1 noundef zeroext false) #13
-  br label %89
+  br label %90
 
-89:                                               ; preds = %88, %78
-  %90 = call i32 @down_read_killable(ptr noundef nonnull %69) #13
+90:                                               ; preds = %89, %79
+  %91 = call i32 @down_read_killable(ptr noundef nonnull %70) #13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #13
-          to label %93 [label %91], !srcloc !8
+          to label %94 [label %92], !srcloc !8
 
-91:                                               ; preds = %89
-  %92 = icmp eq i32 %90, 0
-  call void @__mmap_lock_do_trace_acquire_returned(ptr noundef nonnull %7, i1 noundef zeroext false, i1 noundef zeroext %92) #13
-  br label %93
+92:                                               ; preds = %90
+  %93 = icmp eq i32 %91, 0
+  call void @__mmap_lock_do_trace_acquire_returned(ptr noundef nonnull %7, i1 noundef zeroext false, i1 noundef zeroext %93) #13
+  br label %94
 
-93:                                               ; preds = %91, %89
-  %94 = icmp eq i32 %90, 0
-  br i1 %94, label %95, label %.thread19
+94:                                               ; preds = %92, %90
+  %95 = icmp eq i32 %91, 0
+  br i1 %95, label %96, label %.critedge
 
-95:                                               ; preds = %93
-  %96 = call i32 @walk_page_range(ptr noundef nonnull %7, i64 noundef %82, i64 noundef %87, ptr noundef nonnull @pagemap_ops, ptr noundef nonnull %5) #13
+96:                                               ; preds = %94
+  %97 = call i32 @walk_page_range(ptr noundef nonnull %7, i64 noundef %83, i64 noundef %88, ptr noundef nonnull @pagemap_ops, ptr noundef nonnull %5) #13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #13
-          to label %98 [label %97], !srcloc !8
+          to label %99 [label %98], !srcloc !8
 
-97:                                               ; preds = %95
+98:                                               ; preds = %96
   call void @__mmap_lock_do_trace_released(ptr noundef nonnull %7, i1 noundef zeroext false) #13
-  br label %98
+  br label %99
 
-98:                                               ; preds = %97, %95
-  call void @up_read(ptr noundef nonnull %69) #13
-  %99 = load i32, ptr %5, align 8
-  %100 = sext i32 %99 to i64
-  %101 = shl nsw i64 %100, 3
-  %102 = call i64 @llvm.umin.i64(i64 %80, i64 %101)
-  %103 = shl i64 %102, 32
-  %104 = ashr exact i64 %103, 32
-  %105 = icmp ugt i64 %104, 2147483647
-  br i1 %105, label %.critedge, label %106, !prof !15
+99:                                               ; preds = %98, %96
+  call void @up_read(ptr noundef nonnull %70) #13
+  %100 = load i32, ptr %5, align 8
+  %101 = sext i32 %100 to i64
+  %102 = shl nsw i64 %101, 3
+  %103 = call i64 @llvm.umin.i64(i64 %81, i64 %102)
+  %104 = shl i64 %103, 32
+  %105 = ashr exact i64 %104, 32
+  %106 = icmp ugt i64 %105, 2147483647
+  br i1 %106, label %.critedge14, label %107, !prof !15
 
-.critedge:                                        ; preds = %98
+.critedge14:                                      ; preds = %99
   call void asm sideeffect "15: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 15b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 15) #13, !srcloc !20
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.57, i32 249, i32 2307, i64 12) #13, !srcloc !21
   call void asm sideeffect "16: nop\0A\09.pushsection .discard.instr_end\0A\09.long 16b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 16) #13, !srcloc !22
-  br label %.thread19
+  br label %.critedge
 
-106:                                              ; preds = %98
-  %107 = load ptr, ptr %36, align 8
-  %108 = call i64 @_copy_to_user(ptr noundef %79, ptr noundef %107, i64 noundef %104) #13
-  %109 = icmp eq i64 %108, 0
-  br i1 %109, label %70, label %.thread19
+107:                                              ; preds = %99
+  %108 = load ptr, ptr %36, align 8
+  %109 = call i64 @_copy_to_user(ptr noundef %80, ptr noundef %108, i64 noundef %105) #13
+  %110 = icmp eq i64 %109, 0
+  br i1 %110, label %71, label %.critedge
 
-110:                                              ; preds = %70
-  %.fr.le = freeze i32 %96
-  %111 = sext i32 %72 to i64
-  %112 = load i64, ptr %3, align 8
-  %113 = add i64 %112, %111
-  store i64 %113, ptr %3, align 8
-  %114 = icmp ult i32 %.fr.le, 2
-  %spec.select = select i1 %114, i32 %72, i32 %.fr.le
-  br label %.thread19
+111:                                              ; preds = %71
+  %.fr.le = freeze i32 %97
+  %112 = sext i32 %73 to i64
+  %113 = load i64, ptr %3, align 8
+  %114 = add i64 %113, %112
+  store i64 %114, ptr %3, align 8
+  %115 = icmp ult i32 %.fr.le, 2
+  %spec.select = select i1 %115, i32 %73, i32 %.fr.le
+  br label %.critedge
 
-.thread19:                                        ; preds = %106, %93, %.thread15, %110, %.critedge, %50
-  %115 = phi i32 [ %47, %50 ], [ -14, %.critedge ], [ %spec.select, %110 ], [ 0, %.thread15 ], [ %90, %93 ], [ -14, %106 ]
-  %116 = load ptr, ptr %36, align 8
-  call void @kfree(ptr noundef %116) #13
-  %117 = sext i32 %115 to i64
-  br label %118
+.critedge:                                        ; preds = %107, %94, %62, %111, %.critedge14, %50
+  %116 = phi i32 [ %47, %50 ], [ -14, %.critedge14 ], [ %spec.select, %111 ], [ 0, %62 ], [ %91, %94 ], [ -14, %107 ]
+  %117 = load ptr, ptr %36, align 8
+  call void @kfree(ptr noundef %117) #13
+  %118 = sext i32 %116 to i64
+  br label %119
 
-118:                                              ; preds = %.thread19, %29, %27, %22
-  %119 = phi i64 [ -22, %22 ], [ %117, %.thread19 ], [ -12, %29 ], [ 0, %27 ]
+119:                                              ; preds = %.critedge, %29, %27, %22
+  %120 = phi i64 [ -22, %22 ], [ %118, %.critedge ], [ -12, %29 ], [ 0, %27 ]
   call void @mmput(ptr noundef nonnull %7) #13
-  br label %.thread14
+  br label %.thread15
 
-.thread14:                                        ; preds = %19, %9, %118, %4
-  %120 = phi i64 [ %119, %118 ], [ 0, %4 ], [ 0, %9 ], [ 0, %19 ]
+.thread15:                                        ; preds = %19, %9, %119, %4
+  %121 = phi i64 [ %120, %119 ], [ 0, %4 ], [ 0, %9 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
-  ret i64 %120
+  ret i64 %121
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4390,7 +4390,7 @@ define internal noundef range(i32 0, 2) i32 @pagemap_hugetlb_range(ptr noundef %
   %107 = phi i64 [ %97, %101 ], [ %97, %92 ], [ 0, %5 ]
   %108 = phi i64 [ %105, %101 ], [ 0, %92 ], [ 0, %5 ]
   %109 = icmp eq i64 %2, %3
-  br i1 %109, label %.loopexit3, label %110
+  br i1 %109, label %.loopexit, label %110
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4398,41 +4398,41 @@ define internal noundef range(i32 0, 2) i32 @pagemap_hugetlb_range(ptr noundef %
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %114 = icmp slt i64 %107, 0
   %.pre = load i32, ptr %8, align 8
-  br label %123
+  br label %115
 
-115:                                              ; preds = %123
-  %116 = load i8, ptr %113, align 8, !range !34, !noundef !35
-  %117 = icmp ne i8 %116, 0
-  %118 = select i1 %117, i1 %114, i1 false
-  %119 = zext i1 %118 to i64
-  %120 = add i64 %126, %119
-  %121 = add i64 %125, 4096
-  %122 = icmp eq i64 %121, %3
-  br i1 %122, label %.loopexit3, label %123, !llvm.loop !39
+115:                                              ; preds = %127, %110
+  %116 = phi i32 [ %.pre, %110 ], [ %125, %127 ]
+  %117 = phi i64 [ %2, %110 ], [ %133, %127 ]
+  %118 = phi i64 [ %108, %110 ], [ %132, %127 ]
+  %119 = and i64 %118, 36028797018963967
+  %120 = or i64 %119, %107
+  %121 = load ptr, ptr %111, align 8
+  %122 = add i32 %116, 1
+  store i32 %122, ptr %8, align 8
+  %123 = sext i32 %116 to i64
+  %124 = getelementptr %struct.pagemap_entry_t, ptr %121, i64 %123
+  store i64 %120, ptr %124, align 8
+  %125 = load i32, ptr %8, align 8
+  %126 = load i32, ptr %112, align 4
+  %.not = icmp slt i32 %125, %126
+  br i1 %.not, label %127, label %.critedge
 
-123:                                              ; preds = %115, %110
-  %124 = phi i32 [ %.pre, %110 ], [ %133, %115 ]
-  %125 = phi i64 [ %2, %110 ], [ %121, %115 ]
-  %126 = phi i64 [ %108, %110 ], [ %120, %115 ]
-  %127 = and i64 %126, 36028797018963967
-  %128 = or i64 %127, %107
-  %129 = load ptr, ptr %111, align 8
-  %130 = add i32 %124, 1
-  store i32 %130, ptr %8, align 8
-  %131 = sext i32 %124 to i64
-  %132 = getelementptr %struct.pagemap_entry_t, ptr %129, i64 %131
-  store i64 %128, ptr %132, align 8
-  %133 = load i32, ptr %8, align 8
-  %134 = load i32, ptr %112, align 4
-  %.not = icmp slt i32 %133, %134
-  br i1 %.not, label %115, label %.loopexit
+127:                                              ; preds = %115
+  %128 = load i8, ptr %113, align 8, !range !34, !noundef !35
+  %129 = icmp ne i8 %128, 0
+  %130 = select i1 %129, i1 %114, i1 false
+  %131 = zext i1 %130 to i64
+  %132 = add i64 %118, %131
+  %133 = add i64 %117, 4096
+  %134 = icmp eq i64 %133, %3
+  br i1 %134, label %.loopexit, label %115, !llvm.loop !39
 
-.loopexit3:                                       ; preds = %115, %106
+.loopexit:                                        ; preds = %127, %106
   %135 = tail call i32 @__SCT__cond_resched() #13
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %123, %.loopexit3
-  %136 = phi i32 [ 0, %.loopexit3 ], [ 1, %123 ]
+.critedge:                                        ; preds = %115, %.loopexit
+  %136 = phi i32 [ 0, %.loopexit ], [ 1, %115 ]
   ret i32 %136
 }
 

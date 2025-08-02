@@ -860,13 +860,16 @@ define void @_ZN19colvarproxy_volmaps33compute_max_volmaps_applied_forceEv(ptr n
   %.1.i = select i1 %8, double %7, double %.012.i
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i, i64 8
   %.not.i = icmp eq ptr %9, %5
-  br i1 %.not.i, label %_Z19compute_norm2_statsIdLi1ELb0EEdRKSt6vectorIT_SaIS1_EEPi.exit, label %.lr.ph.i, !llvm.loop !52
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !52
 
-_Z19compute_norm2_statsIdLi1ELb0EEdRKSt6vectorIT_SaIS1_EEPi.exit: ; preds = %.lr.ph.i, %1
-  %.0.lcssa.i = phi double [ 0.000000e+00, %1 ], [ %.1.i, %.lr.ph.i ]
-  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %.0.lcssa.i)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store double %sqrt.i, ptr %10, align 8, !tbaa !53
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %10 = tail call double @llvm.sqrt.f64(double %.1.i)
+  br label %_Z19compute_norm2_statsIdLi1ELb0EEdRKSt6vectorIT_SaIS1_EEPi.exit
+
+_Z19compute_norm2_statsIdLi1ELb0EEdRKSt6vectorIT_SaIS1_EEPi.exit: ; preds = %1, %._crit_edge.loopexit.i
+  %.0.lcssa.i = phi double [ 0.000000e+00, %1 ], [ %10, %._crit_edge.loopexit.i ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store double %.0.lcssa.i, ptr %11, align 8, !tbaa !53
   ret void
 }
 

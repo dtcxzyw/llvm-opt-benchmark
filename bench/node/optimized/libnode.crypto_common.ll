@@ -2395,9 +2395,9 @@ if.then:                                          ; preds = %entry
   %call1 = tail call i32 @BIO_write(ptr noundef %2, ptr noundef nonnull @.str.67, i32 noundef 4) #16
   %.val = load i32, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 8
-  %.val60 = load ptr, ptr %3, align 8
+  %.val59 = load ptr, ptr %3, align 8
   %conv.i = sext i32 %.val to i64
-  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val60, i64 noundef %conv.i, i1 noundef zeroext false, ptr noundef null)
+  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val59, i64 noundef %conv.i, i1 noundef zeroext false, ptr noundef null)
   br label %return
 
 if.then4:                                         ; preds = %entry
@@ -2405,11 +2405,11 @@ if.then4:                                         ; preds = %entry
   %4 = load ptr, ptr %d6, align 8
   %5 = load ptr, ptr %out, align 8
   %call8 = tail call i32 @BIO_write(ptr noundef %5, ptr noundef nonnull @.str.68, i32 noundef 6) #16
-  %.val61 = load i32, ptr %4, align 8
+  %.val60 = load i32, ptr %4, align 8
   %6 = getelementptr i8, ptr %4, i64 8
-  %.val62 = load ptr, ptr %6, align 8
-  %conv.i69 = sext i32 %.val61 to i64
-  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val62, i64 noundef %conv.i69, i1 noundef zeroext false, ptr noundef null)
+  %.val61 = load ptr, ptr %6, align 8
+  %conv.i68 = sext i32 %.val60 to i64
+  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val61, i64 noundef %conv.i68, i1 noundef zeroext false, ptr noundef null)
   br label %return
 
 if.then12:                                        ; preds = %entry
@@ -2417,11 +2417,11 @@ if.then12:                                        ; preds = %entry
   %7 = load ptr, ptr %d14, align 8
   %8 = load ptr, ptr %out, align 8
   %call16 = tail call i32 @BIO_write(ptr noundef %8, ptr noundef nonnull @.str.69, i32 noundef 4) #16
-  %.val63 = load i32, ptr %7, align 8
+  %.val62 = load i32, ptr %7, align 8
   %9 = getelementptr i8, ptr %7, i64 8
-  %.val64 = load ptr, ptr %9, align 8
-  %conv.i70 = sext i32 %.val63 to i64
-  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val64, i64 noundef %conv.i70, i1 noundef zeroext false, ptr noundef null)
+  %.val63 = load ptr, ptr %9, align 8
+  %conv.i69 = sext i32 %.val62 to i64
+  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val63, i64 noundef %conv.i69, i1 noundef zeroext false, ptr noundef null)
   br label %return
 
 if.then20:                                        ; preds = %entry
@@ -2542,80 +2542,83 @@ if.then117:                                       ; preds = %entry
   %29 = load ptr, ptr %d118, align 8
   %30 = load ptr, ptr %29, align 8
   %call119 = tail call i32 @OBJ_obj2nid(ptr noundef %30) #16
-  switch i32 %call119, label %sw.epilog [
-    i32 1208, label %sw.bb
+  switch i32 %call119, label %if.then132 [
+    i32 1208, label %31
     i32 1209, label %sw.bb120
-    i32 1210, label %sw.bb121
+    i32 1210, label %.thread
     i32 649, label %sw.bb122
     i32 1211, label %sw.bb123
   ]
 
-sw.bb:                                            ; preds = %if.then117
-  br label %sw.epilog
-
 sw.bb120:                                         ; preds = %if.then117
-  br label %sw.epilog
-
-sw.bb121:                                         ; preds = %if.then117
-  br label %sw.epilog
+  br label %31
 
 sw.bb122:                                         ; preds = %if.then117
-  br label %sw.epilog
+  br label %31
 
 sw.bb123:                                         ; preds = %if.then117
-  br label %sw.epilog
+  br label %31
 
-sw.epilog:                                        ; preds = %sw.bb123, %sw.bb122, %sw.bb121, %sw.bb120, %sw.bb, %if.then117
-  %unicode.0 = phi i1 [ true, %if.then117 ], [ true, %sw.bb ], [ true, %sw.bb120 ], [ false, %sw.bb121 ], [ true, %sw.bb122 ], [ true, %sw.bb123 ]
-  %cmp126 = phi i1 [ true, %if.then117 ], [ false, %sw.bb ], [ false, %sw.bb120 ], [ false, %sw.bb121 ], [ false, %sw.bb122 ], [ false, %sw.bb123 ]
-  %prefix.0 = phi ptr [ null, %if.then117 ], [ @.str.84, %sw.bb ], [ @.str.85, %sw.bb120 ], [ @.str.86, %sw.bb121 ], [ @.str.87, %sw.bb122 ], [ @.str.88, %sw.bb123 ]
-  %31 = load ptr, ptr %d118, align 8
-  %value = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %32 = load ptr, ptr %value, align 8
-  %33 = load i32, ptr %32, align 8
-  %cmp127 = icmp ne i32 %33, 12
-  %or.cond = select i1 %unicode.0, i1 %cmp127, i1 false
-  %or.cond58 = select i1 %cmp126, i1 true, i1 %or.cond
-  %or.cond58.not = xor i1 %or.cond58, true
-  %cmp131 = icmp eq i32 %33, 22
-  %or.cond1.not = select i1 %unicode.0, i1 true, i1 %cmp131
-  %or.cond59 = select i1 %or.cond58.not, i1 %or.cond1.not, i1 false
-  %34 = load ptr, ptr %out, align 8
-  br i1 %or.cond59, label %if.else135, label %if.then132
+31:                                               ; preds = %if.then117, %sw.bb123, %sw.bb122, %sw.bb120
+  %prefix.0.ph = phi ptr [ @.str.84, %if.then117 ], [ @.str.88, %sw.bb123 ], [ @.str.87, %sw.bb122 ], [ @.str.85, %sw.bb120 ]
+  %32 = load ptr, ptr %d118, align 8
+  %value81 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %33 = load ptr, ptr %value81, align 8
+  %34 = load i32, ptr %33, align 8
+  %or.cond58 = icmp eq i32 %34, 12
+  br i1 %or.cond58, label %if.then139, label %if.then132
 
-if.then132:                                       ; preds = %sw.epilog
-  %call134 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %34, ptr noundef nonnull @.str.89) #16
-  br label %return
-
-if.else135:                                       ; preds = %sw.epilog
-  %call137 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %34, ptr noundef nonnull @.str.90) #16
+.thread:                                          ; preds = %if.then117
   %35 = load ptr, ptr %d118, align 8
-  %value141 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %36 = load ptr, ptr %value141, align 8
-  %value142 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %37 = load ptr, ptr %value142, align 8
-  %.val67 = load i32, ptr %37, align 8
-  %38 = getelementptr i8, ptr %37, i64 8
-  %.val68 = load ptr, ptr %38, align 8
-  %conv.i71 = sext i32 %.val67 to i64
-  br i1 %unicode.0, label %if.then139, label %if.else143
+  %value = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %36 = load ptr, ptr %value, align 8
+  %37 = load i32, ptr %36, align 8
+  %or.cond5888 = icmp eq i32 %37, 22
+  br i1 %or.cond5888, label %if.else143, label %if.then132
 
-if.then139:                                       ; preds = %if.else135
-  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val68, i64 noundef %conv.i71, i1 noundef zeroext true, ptr noundef nonnull %prefix.0)
+if.then132:                                       ; preds = %.thread, %if.then117, %31
+  %38 = load ptr, ptr %out, align 8
+  %call134 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %38, ptr noundef nonnull @.str.89) #16
   br label %return
 
-if.else143:                                       ; preds = %if.else135
-  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val68, i64 noundef %conv.i71, i1 noundef zeroext false, ptr noundef %prefix.0)
+if.then139:                                       ; preds = %31
+  %39 = load ptr, ptr %out, align 8
+  %call137 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %39, ptr noundef nonnull @.str.90) #16
+  %40 = load ptr, ptr %d118, align 8
+  %value141 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %41 = load ptr, ptr %value141, align 8
+  %value142 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %42 = load ptr, ptr %value142, align 8
+  %.val66 = load i32, ptr %42, align 8
+  %43 = getelementptr i8, ptr %42, i64 8
+  %.val67 = load ptr, ptr %43, align 8
+  %conv.i70 = sext i32 %.val66 to i64
+  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val67, i64 noundef %conv.i70, i1 noundef zeroext true, ptr noundef nonnull %prefix.0.ph)
+  br label %return
+
+if.else143:                                       ; preds = %.thread
+  %44 = load ptr, ptr %out, align 8
+  %call13793 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %44, ptr noundef nonnull @.str.90) #16
+  %45 = load ptr, ptr %d118, align 8
+  %value145 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %46 = load ptr, ptr %value145, align 8
+  %value146 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %47 = load ptr, ptr %value146, align 8
+  %.val64 = load i32, ptr %47, align 8
+  %48 = getelementptr i8, ptr %47, i64 8
+  %.val65 = load ptr, ptr %48, align 8
+  %conv.i71 = sext i32 %.val64 to i64
+  tail call fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %.val65, i64 noundef %conv.i71, i1 noundef zeroext false, ptr noundef nonnull @.str.86)
   br label %return
 
 if.then152:                                       ; preds = %entry
-  %39 = load ptr, ptr %out, align 8
-  %call154 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %39, ptr noundef nonnull @.str.91) #16
+  %49 = load ptr, ptr %out, align 8
+  %call154 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %49, ptr noundef nonnull @.str.91) #16
   br label %return
 
 if.then158:                                       ; preds = %entry
-  %40 = load ptr, ptr %out, align 8
-  %call160 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %40, ptr noundef nonnull @.str.92) #16
+  %50 = load ptr, ptr %out, align 8
+  %call160 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %50, ptr noundef nonnull @.str.92) #16
   br label %return
 
 do.body162:                                       ; preds = %entry

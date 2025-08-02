@@ -385,53 +385,53 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden i64 @internal_rle_decompress(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %30
-  %.04683 = phi i64 [ %.248, %30 ], [ 0, %4 ]
-  %.05082 = phi i64 [ %.252, %30 ], [ 0, %4 ]
-  %.05481 = phi ptr [ %.256, %30 ], [ %0, %4 ]
-  %.05880 = phi ptr [ %.260, %30 ], [ %2, %4 ]
-  %5 = load i8, ptr %.05880, align 1, !tbaa !3
+  %.04673 = phi i64 [ %.248, %30 ], [ 0, %4 ]
+  %.05072 = phi i64 [ %.252, %30 ], [ 0, %4 ]
+  %.05471 = phi ptr [ %.256, %30 ], [ %0, %4 ]
+  %.05870 = phi ptr [ %.260, %30 ], [ %2, %4 ]
+  %5 = load i8, ptr %.05870, align 1, !tbaa !3
   %6 = icmp slt i8 %5, 0
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %.lr.ph
   %8 = sext i8 %5 to i64
   %9 = sub nsw i64 0, %8
-  %10 = getelementptr inbounds nuw i8, ptr %.05880, i64 1
-  %11 = add nuw i64 %.05082, 1
+  %10 = getelementptr inbounds nuw i8, ptr %.05870, i64 1
+  %11 = add nuw i64 %.05072, 1
   %12 = sub i64 %11, %8
   %13 = icmp ugt i64 %12, %3
-  br i1 %13, label %.thread, label %14
+  br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %7
-  %15 = sub i64 %.04683, %8
+  %15 = sub i64 %.04673, %8
   %16 = icmp ugt i64 %15, %1
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05481, ptr nonnull align 1 %10, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05471, ptr nonnull align 1 %10, i64 %9, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   br label %30
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds nuw i8, ptr %.05880, i64 1
-  %21 = add i64 %.05082, 2
+  %20 = getelementptr inbounds nuw i8, ptr %.05870, i64 1
+  %21 = add i64 %.05072, 2
   %22 = icmp ugt i64 %21, %3
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %19
   %narrow = add nuw i8 %5, 1
   %24 = zext i8 %narrow to i64
-  %25 = add i64 %.04683, %24
+  %25 = add i64 %.04673, %24
   %26 = icmp ugt i64 %25, %1
-  br i1 %26, label %.thread, label %27
+  br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %23
   %28 = load i8, ptr %20, align 1, !tbaa !3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.05481, i8 %28, i64 %24, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %.05880, i64 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.05471, i8 %28, i64 %24, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %.05870, i64 2
   br label %30
 
 30:                                               ; preds = %27, %17
@@ -439,12 +439,12 @@ define hidden i64 @internal_rle_decompress(ptr noundef writeonly captures(none) 
   %.pn = phi i64 [ %9, %17 ], [ %24, %27 ]
   %.252 = phi i64 [ %12, %17 ], [ %21, %27 ]
   %.248 = phi i64 [ %15, %17 ], [ %25, %27 ]
-  %.256 = getelementptr inbounds nuw i8, ptr %.05481, i64 %.pn
+  %.256 = getelementptr inbounds nuw i8, ptr %.05471, i64 %.pn
   %31 = icmp ult i64 %.252, %3
-  br i1 %31, label %.lr.ph, label %.thread, !llvm.loop !25
+  br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !25
 
-.thread:                                          ; preds = %30, %7, %14, %19, %23, %4
-  %.2 = phi i64 [ 0, %4 ], [ 0, %23 ], [ 0, %19 ], [ 0, %14 ], [ 0, %7 ], [ %.248, %30 ]
+.critedge:                                        ; preds = %30, %14, %7, %23, %19, %4
+  %.2 = phi i64 [ 0, %4 ], [ 0, %19 ], [ 0, %23 ], [ 0, %7 ], [ 0, %14 ], [ %.248, %30 ]
   ret i64 %.2
 }
 
@@ -470,50 +470,50 @@ define hidden i32 @internal_exr_undo_rle(ptr noundef %0, ptr noundef readonly ca
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %39
-  %.04683.i = phi i64 [ %.248.i, %39 ], [ 0, %12 ]
-  %.05082.i = phi i64 [ %.252.i, %39 ], [ 0, %12 ]
-  %.05481.i = phi ptr [ %.256.i, %39 ], [ %13, %12 ]
-  %.05880.i = phi ptr [ %.260.i, %39 ], [ %1, %12 ]
-  %14 = load i8, ptr %.05880.i, align 1, !tbaa !3
+  %.04673.i = phi i64 [ %.248.i, %39 ], [ 0, %12 ]
+  %.05072.i = phi i64 [ %.252.i, %39 ], [ 0, %12 ]
+  %.05471.i = phi ptr [ %.256.i, %39 ], [ %13, %12 ]
+  %.05870.i = phi ptr [ %.260.i, %39 ], [ %1, %12 ]
+  %14 = load i8, ptr %.05870.i, align 1, !tbaa !3
   %15 = icmp slt i8 %14, 0
   br i1 %15, label %16, label %28
 
 16:                                               ; preds = %.lr.ph.i
   %17 = sext i8 %14 to i64
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds nuw i8, ptr %.05880.i, i64 1
-  %20 = add nuw i64 %.05082.i, 1
+  %19 = getelementptr inbounds nuw i8, ptr %.05870.i, i64 1
+  %20 = add nuw i64 %.05072.i, 1
   %21 = sub i64 %20, %17
   %22 = icmp ugt i64 %21, %2
   br i1 %22, label %internal_rle_decompress.exit.thread, label %23
 
 23:                                               ; preds = %16
-  %24 = sub i64 %.04683.i, %17
+  %24 = sub i64 %.04673.i, %17
   %25 = icmp ugt i64 %24, %4
   br i1 %25, label %internal_rle_decompress.exit.thread, label %26
 
 26:                                               ; preds = %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05481.i, ptr nonnull align 1 %19, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05471.i, ptr nonnull align 1 %19, i64 %18, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   br label %39
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds nuw i8, ptr %.05880.i, i64 1
-  %30 = add i64 %.05082.i, 2
+  %29 = getelementptr inbounds nuw i8, ptr %.05870.i, i64 1
+  %30 = add i64 %.05072.i, 2
   %31 = icmp ugt i64 %30, %2
   br i1 %31, label %internal_rle_decompress.exit.thread, label %32
 
 32:                                               ; preds = %28
   %narrow.i = add nuw i8 %14, 1
   %33 = zext i8 %narrow.i to i64
-  %34 = add i64 %.04683.i, %33
+  %34 = add i64 %.04673.i, %33
   %35 = icmp ugt i64 %34, %4
   br i1 %35, label %internal_rle_decompress.exit.thread, label %36
 
 36:                                               ; preds = %32
   %37 = load i8, ptr %29, align 1, !tbaa !3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.05481.i, i8 %37, i64 %33, i1 false)
-  %38 = getelementptr inbounds nuw i8, ptr %.05880.i, i64 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.05471.i, i8 %37, i64 %33, i1 false)
+  %38 = getelementptr inbounds nuw i8, ptr %.05870.i, i64 2
   br label %39
 
 39:                                               ; preds = %36, %26
@@ -521,7 +521,7 @@ define hidden i32 @internal_exr_undo_rle(ptr noundef %0, ptr noundef readonly ca
   %.pn.i = phi i64 [ %18, %26 ], [ %33, %36 ]
   %.252.i = phi i64 [ %21, %26 ], [ %30, %36 ]
   %.248.i = phi i64 [ %24, %26 ], [ %34, %36 ]
-  %.256.i = getelementptr inbounds nuw i8, ptr %.05481.i, i64 %.pn.i
+  %.256.i = getelementptr inbounds nuw i8, ptr %.05471.i, i64 %.pn.i
   %40 = icmp ult i64 %.252.i, %2
   br i1 %40, label %.lr.ph.i, label %internal_rle_decompress.exit, !llvm.loop !25
 
@@ -588,8 +588,8 @@ internal_rle_decompress.exit.thread.sink.split:   ; preds = %62, %5
   store i64 %.248.i.lcssa.sink, ptr %64, align 8, !tbaa !30
   br label %internal_rle_decompress.exit.thread
 
-internal_rle_decompress.exit.thread:              ; preds = %16, %23, %28, %32, %internal_rle_decompress.exit.thread.sink.split, %internal_rle_decompress.exit, %8
-  %.0 = phi i32 [ %11, %8 ], [ 23, %internal_rle_decompress.exit ], [ 0, %internal_rle_decompress.exit.thread.sink.split ], [ 23, %32 ], [ 23, %28 ], [ 23, %23 ], [ 23, %16 ]
+internal_rle_decompress.exit.thread:              ; preds = %23, %16, %32, %28, %internal_rle_decompress.exit.thread.sink.split, %internal_rle_decompress.exit, %8
+  %.0 = phi i32 [ %11, %8 ], [ 23, %internal_rle_decompress.exit ], [ 0, %internal_rle_decompress.exit.thread.sink.split ], [ 23, %28 ], [ 23, %32 ], [ 23, %16 ], [ 23, %23 ]
   ret i32 %.0
 }
 

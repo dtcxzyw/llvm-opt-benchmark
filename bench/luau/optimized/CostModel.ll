@@ -2516,52 +2516,52 @@ _ZN4Luau7Compile12getTripCountEddd.exit:          ; preds = %138
   %141 = sub nsw i32 %124, %116
   %142 = sdiv i32 %141, %127
   %.fr = freeze i32 %142
-  %143 = add nsw i32 %.fr, 1
-  %144 = icmp slt i32 %.fr, -1
-  %spec.select = select i1 %144, i32 3, i32 %143
+  %143 = icmp slt i32 %.fr, -1
+  %144 = tail call i32 @llvm.smin.i32(i32 %.fr, i32 126)
+  %145 = add nsw i32 %144, 1
+  %146 = select i1 %143, i32 3, i32 %145
+  %147 = sext i32 %146 to i64
   br label %_ZN4Luau7Compile12getTripCountEddd.exit.thread
 
 _ZN4Luau7Compile12getTripCountEddd.exit.thread:   ; preds = %135, %138, %94, %96, %100, %71, %74, %78, %48, %51, %55, %123, %126, %130, %_ZN4Luau7Compile12getTripCountEddd.exit
-  %145 = phi i32 [ %spec.select, %_ZN4Luau7Compile12getTripCountEddd.exit ], [ 3, %130 ], [ 3, %126 ], [ 3, %123 ], [ 3, %55 ], [ 3, %51 ], [ 3, %48 ], [ 3, %78 ], [ 3, %74 ], [ 3, %71 ], [ 3, %100 ], [ 3, %96 ], [ 3, %94 ], [ 0, %138 ], [ 0, %135 ]
+  %148 = phi i64 [ %147, %_ZN4Luau7Compile12getTripCountEddd.exit ], [ 3, %130 ], [ 3, %126 ], [ 3, %123 ], [ 3, %55 ], [ 3, %51 ], [ 3, %48 ], [ 3, %78 ], [ 3, %74 ], [ 3, %71 ], [ 3, %100 ], [ 3, %96 ], [ 3, %94 ], [ 0, %138 ], [ 0, %135 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %146 = load ptr, ptr %.in, align 8, !tbaa !86
+  %149 = load ptr, ptr %.in, align 8, !tbaa !86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %147 = load ptr, ptr %146, align 8, !tbaa !8
-  %148 = load ptr, ptr %147, align 8
-  tail call void %148(ptr noundef nonnull align 8 dereferenceable(49) %146, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  %149 = load i64, ptr %7, align 8, !tbaa !39
-  %150 = add i64 %149, 1
-  %151 = and i64 %150, -9187201950435737472
-  %152 = lshr exact i64 %151, 7
-  %153 = sub i64 %151, %152
-  %154 = or i64 %153, %150
-  %155 = tail call i32 @llvm.umin.i32(i32 %145, i32 127)
-  %156 = zext nneg i32 %155 to i64
-  %157 = and i64 %154, 35747867511423103
-  %158 = mul nuw nsw i64 %157, %156
-  %159 = lshr i64 %154, 8
-  %160 = and i64 %159, 35747867511423103
-  %161 = mul nuw nsw i64 %160, %156
-  %162 = add nuw i64 %158, 9187483429707480960
-  %163 = add nuw i64 %161, 9187483429707480960
-  %164 = and i64 %163, -9223231297218904064
-  %165 = lshr i64 %162, 8
-  %166 = and i64 %165, 36029346783166592
-  %167 = or disjoint i64 %166, %164
-  %168 = shl i64 %161, 8
-  %169 = and i64 %168, 9151454082924314368
-  %170 = and i64 %158, 35747867511423103
-  %171 = or disjoint i64 %169, %170
-  %172 = lshr exact i64 %167, 7
-  %173 = sub i64 %167, %172
-  %174 = or i64 %171, %173
-  %175 = add i64 %174, %.sroa.010.0.copyload.i
-  %176 = and i64 %175, -9187201950435737472
-  %177 = and i64 %175, 9187201950435737471
-  %178 = lshr exact i64 %176, 7
-  %179 = sub i64 %176, %178
-  %180 = or i64 %179, %177
-  store i64 %180, ptr %7, align 8, !tbaa !13
+  %150 = load ptr, ptr %149, align 8, !tbaa !8
+  %151 = load ptr, ptr %150, align 8
+  tail call void %151(ptr noundef nonnull align 8 dereferenceable(49) %149, ptr noundef nonnull align 8 dereferenceable(72) %0)
+  %152 = load i64, ptr %7, align 8, !tbaa !39
+  %153 = add i64 %152, 1
+  %154 = and i64 %153, -9187201950435737472
+  %155 = lshr exact i64 %154, 7
+  %156 = sub i64 %154, %155
+  %157 = or i64 %156, %153
+  %158 = and i64 %157, 35747867511423103
+  %159 = mul i64 %158, %148
+  %160 = lshr i64 %157, 8
+  %161 = and i64 %160, 35747867511423103
+  %162 = mul i64 %161, %148
+  %163 = add i64 %159, 9187483429707480960
+  %164 = add i64 %162, 9187483429707480960
+  %165 = and i64 %164, -9223231297218904064
+  %166 = lshr i64 %163, 8
+  %167 = and i64 %166, 36029346783166592
+  %168 = or disjoint i64 %167, %165
+  %169 = shl i64 %162, 8
+  %170 = and i64 %169, 9151454082924314368
+  %171 = and i64 %159, 35747867511423103
+  %172 = or disjoint i64 %170, %171
+  %173 = lshr exact i64 %168, 7
+  %174 = sub i64 %168, %173
+  %175 = or i64 %172, %174
+  %176 = add i64 %175, %.sroa.010.0.copyload.i
+  %177 = and i64 %176, -9187201950435737472
+  %178 = and i64 %176, 9187201950435737471
+  %179 = lshr exact i64 %177, 7
+  %180 = sub i64 %177, %179
+  %181 = or i64 %180, %178
+  store i64 %181, ptr %7, align 8, !tbaa !13
   store i64 0, ptr %15, align 8, !tbaa !13
   ret i1 false
 }
@@ -3768,14 +3768,14 @@ _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemI
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #9
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #9
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11

@@ -2453,16 +2453,16 @@ define hidden range(i32 -1, 1) i32 @_PyCompile_EnsureArrayLargeEnough(i32 nounde
 
 .thread:                                          ; preds = %8
   %12 = tail call ptr @PyErr_NoMemory() #10
-  br label %.thread59
+  br label %32
 
 13:                                               ; preds = %8
   store i32 %spec.select, ptr %2, align 4, !tbaa !4
-  br label %33
+  br label %31
 
 14:                                               ; preds = %5
   %15 = load i32, ptr %2, align 4, !tbaa !4
   %.not = icmp slt i32 %0, %15
-  br i1 %.not, label %33, label %16
+  br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %14
   %17 = sext i32 %15 to i64
@@ -2474,35 +2474,35 @@ define hidden range(i32 -1, 1) i32 @_PyCompile_EnsureArrayLargeEnough(i32 nounde
   %21 = sext i32 %spec.select58 to i64
   %22 = mul i64 %4, %21
   %23 = icmp slt i64 %18, 0
-  br i1 %23, label %24, label %26
+  br i1 %23, label %.critedge, label %25
 
-24:                                               ; preds = %16
-  %25 = tail call ptr @PyErr_NoMemory() #10
-  br label %.thread59
+.critedge:                                        ; preds = %16
+  %24 = tail call ptr @PyErr_NoMemory() #10
+  br label %32
 
-26:                                               ; preds = %16
-  %27 = tail call ptr @PyMem_Realloc(ptr noundef nonnull %6, i64 noundef %22) #10
-  %.not62 = icmp eq ptr %27, null
-  br i1 %.not62, label %28, label %30
+25:                                               ; preds = %16
+  %26 = tail call ptr @PyMem_Realloc(ptr noundef nonnull %6, i64 noundef %22) #10
+  %.not61 = icmp eq ptr %26, null
+  br i1 %.not61, label %29, label %.thread59
 
-28:                                               ; preds = %26
-  %29 = tail call ptr @PyErr_NoMemory() #10
-  br label %.thread59
-
-30:                                               ; preds = %26
+.thread59:                                        ; preds = %25
   store i32 %spec.select58, ptr %2, align 4, !tbaa !4
-  %31 = getelementptr i8, ptr %27, i64 %18
-  %32 = sub i64 %22, %18
-  tail call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false)
-  br label %33
+  %27 = getelementptr i8, ptr %26, i64 %18
+  %28 = sub i64 %22, %18
+  tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 %28, i1 false)
+  br label %31
 
-33:                                               ; preds = %30, %13, %14
-  %.039 = phi ptr [ %11, %13 ], [ %27, %30 ], [ %6, %14 ]
+29:                                               ; preds = %25
+  %30 = tail call ptr @PyErr_NoMemory() #10
+  br label %32
+
+31:                                               ; preds = %.thread59, %13, %14
+  %.039 = phi ptr [ %11, %13 ], [ %6, %14 ], [ %26, %.thread59 ]
   store ptr %.039, ptr %1, align 8, !tbaa !8
-  br label %.thread59
+  br label %32
 
-.thread59:                                        ; preds = %28, %24, %.thread, %33
-  %.1 = phi i32 [ 0, %33 ], [ -1, %.thread ], [ -1, %24 ], [ -1, %28 ]
+32:                                               ; preds = %29, %.thread, %.critedge, %31
+  %.1 = phi i32 [ 0, %31 ], [ -1, %29 ], [ -1, %.critedge ], [ -1, %.thread ]
   ret i32 %.1
 }
 
@@ -11725,71 +11725,71 @@ codegen_validate_keywords.exit.thread:            ; preds = %.loopexit.i, %7, %9
   %44 = shl i64 %43, 1
   %45 = add i64 %44, %39
   %46 = icmp sgt i64 %45, 30
-  br i1 %46, label %.loopexit, label %.preheader194
+  br i1 %46, label %.loopexit, label %.preheader183
 
-.preheader194:                                    ; preds = %42
+.preheader183:                                    ; preds = %42
   %47 = icmp sgt i64 %39, 0
-  br i1 %47, label %.lr.ph, label %.preheader193
+  br i1 %47, label %.lr.ph, label %.preheader182
 
-.lr.ph:                                           ; preds = %.preheader194
+.lr.ph:                                           ; preds = %.preheader183
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %53
 
 49:                                               ; preds = %53
-  %50 = add nuw nsw i64 %.0135201, 1
+  %50 = add nuw nsw i64 %.0135190, 1
   %exitcond.not = icmp eq i64 %50, %39
-  br i1 %exitcond.not, label %.preheader193, label %53, !llvm.loop !183
+  br i1 %exitcond.not, label %.preheader182, label %53, !llvm.loop !183
 
-.preheader193:                                    ; preds = %49, %.preheader194
+.preheader182:                                    ; preds = %49, %.preheader183
   %51 = icmp sgt i64 %43, 0
-  br i1 %51, label %.lr.ph203, label %.preheader191
+  br i1 %51, label %.lr.ph192, label %.preheader180
 
-.lr.ph203:                                        ; preds = %.preheader193
+.lr.ph192:                                        ; preds = %.preheader182
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %61
 
 53:                                               ; preds = %.lr.ph, %49
-  %.0135201 = phi i64 [ 0, %.lr.ph ], [ %50, %49 ]
-  %54 = getelementptr [1 x ptr], ptr %48, i64 0, i64 %.0135201
+  %.0135190 = phi i64 [ 0, %.lr.ph ], [ %50, %49 ]
+  %54 = getelementptr [1 x ptr], ptr %48, i64 0, i64 %.0135190
   %55 = load ptr, ptr %54, align 8, !tbaa !22
   %56 = load i32, ptr %55, align 8, !tbaa !15
   %57 = icmp eq i32 %56, 23
   br i1 %57, label %.loopexit, label %49
 
 58:                                               ; preds = %61
-  %59 = add nuw nsw i64 %.1136202, 1
-  %exitcond221.not = icmp eq i64 %59, %43
-  br i1 %exitcond221.not, label %.preheader191, label %61, !llvm.loop !184
+  %59 = add nuw nsw i64 %.1136191, 1
+  %exitcond210.not = icmp eq i64 %59, %43
+  br i1 %exitcond210.not, label %.preheader180, label %61, !llvm.loop !184
 
-.preheader191:                                    ; preds = %58, %.preheader193
-  br i1 %47, label %.lr.ph205, label %._crit_edge
+.preheader180:                                    ; preds = %58, %.preheader182
+  br i1 %47, label %.lr.ph194, label %._crit_edge
 
-.lr.ph205:                                        ; preds = %.preheader191
+.lr.ph194:                                        ; preds = %.preheader180
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %68
 
-61:                                               ; preds = %.lr.ph203, %58
-  %.1136202 = phi i64 [ 0, %.lr.ph203 ], [ %59, %58 ]
-  %62 = getelementptr [1 x ptr], ptr %52, i64 0, i64 %.1136202
+61:                                               ; preds = %.lr.ph192, %58
+  %.1136191 = phi i64 [ 0, %.lr.ph192 ], [ %59, %58 ]
+  %62 = getelementptr [1 x ptr], ptr %52, i64 0, i64 %.1136191
   %63 = load ptr, ptr %62, align 8, !tbaa !37
   %64 = load ptr, ptr %63, align 8, !tbaa !39
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.loopexit, label %58
 
 66:                                               ; preds = %68
-  %67 = add nuw nsw i64 %.2137204, 1
-  %exitcond222.not = icmp eq i64 %67, %39
-  br i1 %exitcond222.not, label %._crit_edge, label %68, !llvm.loop !185
+  %67 = add nuw nsw i64 %.2137193, 1
+  %exitcond211.not = icmp eq i64 %67, %39
+  br i1 %exitcond211.not, label %._crit_edge, label %68, !llvm.loop !185
 
-68:                                               ; preds = %.lr.ph205, %66
-  %.2137204 = phi i64 [ 0, %.lr.ph205 ], [ %67, %66 ]
-  %69 = getelementptr [1 x ptr], ptr %60, i64 0, i64 %.2137204
+68:                                               ; preds = %.lr.ph194, %66
+  %.2137193 = phi i64 [ 0, %.lr.ph194 ], [ %67, %66 ]
+  %69 = getelementptr [1 x ptr], ptr %60, i64 0, i64 %.2137193
   %70 = load ptr, ptr %69, align 8, !tbaa !22
   %71 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %70)
   %.not163 = icmp eq i32 %71, -1
   br i1 %.not163, label %.critedge172, label %66
 
-._crit_edge:                                      ; preds = %66, %.preheader191
+._crit_edge:                                      ; preds = %66, %.preheader180
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %77, label %72
 
@@ -11805,20 +11805,20 @@ codegen_validate_keywords.exit.thread:            ; preds = %.loopexit.i, %7, %9
 77:                                               ; preds = %75, %._crit_edge
   %.0144 = phi i64 [ %76, %75 ], [ %39, %._crit_edge ]
   %.not160 = icmp eq i64 %43, 0
-  br i1 %.not160, label %117, label %.preheader189
+  br i1 %.not160, label %117, label %.preheader178
 
-.preheader189:                                    ; preds = %77
+.preheader178:                                    ; preds = %77
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  br i1 %8, label %.critedge, label %.preheader189.split
+  br i1 %8, label %.critedge, label %.preheader178.split
 
-.preheader189.split:                              ; preds = %.preheader189, %81
-  %.0139 = phi i32 [ %88, %81 ], [ 0, %.preheader189 ]
+.preheader178.split:                              ; preds = %.preheader178, %81
+  %.0139 = phi i32 [ %88, %81 ], [ 0, %.preheader178 ]
   %79 = sext i32 %.0139 to i64
   %80 = load i64, ptr %6, align 8, !tbaa !17
   %.not162 = icmp sgt i64 %80, %79
   br i1 %.not162, label %81, label %.critedge
 
-81:                                               ; preds = %.preheader189.split
+81:                                               ; preds = %.preheader178.split
   %82 = getelementptr [1 x ptr], ptr %78, i64 0, i64 %79
   %83 = load ptr, ptr %82, align 8, !tbaa !37
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -11826,22 +11826,22 @@ codegen_validate_keywords.exit.thread:            ; preds = %.loopexit.i, %7, %9
   %86 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %85)
   %87 = icmp eq i32 %86, -1
   %88 = add i32 %.0139, 1
-  br i1 %87, label %.critedge172, label %.preheader189.split, !llvm.loop !186
+  br i1 %87, label %.critedge172, label %.preheader178.split, !llvm.loop !186
 
-.critedge:                                        ; preds = %.preheader189.split, %.preheader189
+.critedge:                                        ; preds = %.preheader178.split, %.preheader178
   %89 = tail call ptr @PyTuple_New(i64 noundef %43) #10
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.critedge172, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge
-  br i1 %51, label %.lr.ph.i250, label %._crit_edge.i
+  br i1 %51, label %.lr.ph.i239, label %._crit_edge.i
 
-.lr.ph.i250:                                      ; preds = %.preheader.i
+.lr.ph.i239:                                      ; preds = %.preheader.i
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 24
   br label %92
 
-92:                                               ; preds = %_Py_NewRef.exit.i, %.lr.ph.i250
-  %.01820.i = phi i64 [ 0, %.lr.ph.i250 ], [ %101, %_Py_NewRef.exit.i ]
+92:                                               ; preds = %_Py_NewRef.exit.i, %.lr.ph.i239
+  %.01820.i = phi i64 [ 0, %.lr.ph.i239 ], [ %101, %_Py_NewRef.exit.i ]
   %93 = getelementptr [1 x ptr], ptr %78, i64 0, i64 %.01820.i
   %94 = load ptr, ptr %93, align 8, !tbaa !37
   %95 = load ptr, ptr %94, align 8, !tbaa !39
@@ -11858,8 +11858,8 @@ _Py_NewRef.exit.i:                                ; preds = %98, %92
   %100 = getelementptr [1 x ptr], ptr %91, i64 0, i64 %.01820.i
   store ptr %95, ptr %100, align 8, !tbaa !24
   %101 = add nuw nsw i64 %.01820.i, 1
-  %exitcond.not.i251 = icmp eq i64 %101, %43
-  br i1 %exitcond.not.i251, label %._crit_edge.i, label %92, !llvm.loop !187
+  %exitcond.not.i240 = icmp eq i64 %101, %43
+  br i1 %exitcond.not.i240, label %._crit_edge.i, label %92, !llvm.loop !187
 
 ._crit_edge.i:                                    ; preds = %_Py_NewRef.exit.i, %.preheader.i
   %102 = tail call fastcc i32 @codegen_addop_load_const(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %89)
@@ -11929,37 +11929,37 @@ codegen_call_simple_kw_helper.exit:               ; preds = %._crit_edge.i, %104
 
 139:                                              ; preds = %136, %131
   %cond = icmp eq i64 %43, 0
-  br i1 %cond, label %182, label %.preheader
+  br i1 %cond, label %183, label %.preheader
 
 .preheader:                                       ; preds = %139
   %140 = icmp sgt i64 %43, 0
-  br i1 %140, label %.lr.ph210, label %._crit_edge211.thread
+  br i1 %140, label %.lr.ph199, label %.critedge173
 
-.lr.ph210:                                        ; preds = %.preheader
+.lr.ph199:                                        ; preds = %.preheader
   %141 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %.outer
 
-.outer:                                           ; preds = %.thread227, %.lr.ph210
-  %142 = phi i1 [ false, %.thread227 ], [ true, %.lr.ph210 ]
-  %.3138207.ph = phi i64 [ %173, %.thread227 ], [ 0, %.lr.ph210 ]
+.outer:                                           ; preds = %.thread216, %.lr.ph199
+  %142 = phi i1 [ false, %.thread216 ], [ true, %.lr.ph199 ]
+  %.3138196.ph = phi i64 [ %174, %.thread216 ], [ 0, %.lr.ph199 ]
   br label %143
 
-143:                                              ; preds = %.outer, %170
-  %.3138207 = phi i64 [ %172, %170 ], [ %.3138207.ph, %.outer ]
-  %.0140206 = phi i64 [ %171, %170 ], [ 0, %.outer ]
-  %144 = getelementptr [1 x ptr], ptr %141, i64 0, i64 %.3138207
+143:                                              ; preds = %.outer, %171
+  %.3138196 = phi i64 [ %173, %171 ], [ %.3138196.ph, %.outer ]
+  %.0140195 = phi i64 [ %172, %171 ], [ 0, %.outer ]
+  %144 = getelementptr [1 x ptr], ptr %141, i64 0, i64 %.3138196
   %145 = load ptr, ptr %144, align 8, !tbaa !37
   %146 = load ptr, ptr %145, align 8, !tbaa !39
   %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %170
+  br i1 %147, label %148, label %171
 
 148:                                              ; preds = %143
-  %.not167 = icmp eq i64 %.0140206, 0
+  %.not167 = icmp eq i64 %.0140195, 0
   br i1 %.not167, label %158, label %149
 
 149:                                              ; preds = %148
-  %150 = sub i64 %.3138207, %.0140206
-  %151 = tail call fastcc i32 @codegen_subkwargs(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %6, i64 noundef %150, i64 noundef %.3138207)
+  %150 = sub i64 %.3138196, %.0140195
+  %151 = tail call fastcc i32 @codegen_subkwargs(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %6, i64 noundef %150, i64 noundef %.3138196)
   %152 = icmp eq i32 %151, -1
   br i1 %152, label %.critedge172, label %153
 
@@ -11991,53 +11991,53 @@ codegen_call_simple_kw_helper.exit:               ; preds = %._crit_edge.i, %104
 167:                                              ; preds = %.thread
   %168 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %169 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %168, i32 noundef 66, i32 noundef 1, i64 %1, i64 %2) #10
-  %.not188 = icmp eq i32 %169, -1
-  br i1 %.not188, label %.critedge172, label %.thread227
+  %170 = icmp eq i32 %169, -1
+  br i1 %170, label %.critedge172, label %.thread216
 
-170:                                              ; preds = %143
-  %171 = add i64 %.0140206, 1
-  %172 = add nuw nsw i64 %.3138207, 1
-  %exitcond223.not = icmp eq i64 %172, %43
-  br i1 %exitcond223.not, label %._crit_edge211, label %143, !llvm.loop !188
+171:                                              ; preds = %143
+  %172 = add i64 %.0140195, 1
+  %173 = add nuw nsw i64 %.3138196, 1
+  %exitcond212.not = icmp eq i64 %173, %43
+  br i1 %exitcond212.not, label %._crit_edge200, label %143, !llvm.loop !188
 
-.thread227:                                       ; preds = %167
-  %173 = add nuw nsw i64 %.3138207, 1
-  %exitcond223.not230 = icmp eq i64 %173, %43
-  br i1 %exitcond223.not230, label %._crit_edge211.thread, label %.outer, !llvm.loop !188
+.thread216:                                       ; preds = %167
+  %174 = add nuw nsw i64 %.3138196, 1
+  %exitcond212.not219 = icmp eq i64 %174, %43
+  br i1 %exitcond212.not219, label %.critedge173, label %.outer, !llvm.loop !188
 
-._crit_edge211:                                   ; preds = %170
-  %.not165 = icmp eq i64 %43, %.3138207.ph
-  br i1 %.not165, label %._crit_edge211.thread, label %174
+._crit_edge200:                                   ; preds = %171
+  %.not165 = icmp eq i64 %43, %.3138196.ph
+  br i1 %.not165, label %.critedge173, label %175
 
-174:                                              ; preds = %._crit_edge211
-  %175 = tail call fastcc i32 @codegen_subkwargs(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %6, i64 noundef %.3138207.ph, i64 noundef %43)
-  %176 = icmp eq i32 %175, -1
-  br i1 %176, label %.critedge172, label %177
+175:                                              ; preds = %._crit_edge200
+  %176 = tail call fastcc i32 @codegen_subkwargs(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %6, i64 noundef %.3138196.ph, i64 noundef %43)
+  %177 = icmp eq i32 %176, -1
+  br i1 %177, label %.critedge172, label %178
 
-177:                                              ; preds = %174
-  br i1 %142, label %._crit_edge211.thread, label %178
+178:                                              ; preds = %175
+  br i1 %142, label %.critedge173, label %179
 
-178:                                              ; preds = %177
-  %179 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
-  %180 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %179, i32 noundef 66, i32 noundef 1, i64 %1, i64 %2) #10
-  %181 = icmp eq i32 %180, -1
-  br i1 %181, label %.critedge172, label %._crit_edge211.thread
+179:                                              ; preds = %178
+  %180 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
+  %181 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %180, i32 noundef 66, i32 noundef 1, i64 %1, i64 %2) #10
+  %182 = icmp eq i32 %181, -1
+  br i1 %182, label %.critedge172, label %.critedge173
 
-182:                                              ; preds = %139
-  %183 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
-  %184 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %183, i32 noundef 34, i32 noundef 0, i64 %1, i64 %2) #10
-  %185 = icmp eq i32 %184, -1
-  br i1 %185, label %.critedge172, label %._crit_edge211.thread
+183:                                              ; preds = %139
+  %184 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
+  %185 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %184, i32 noundef 34, i32 noundef 0, i64 %1, i64 %2) #10
+  %186 = icmp eq i32 %185, -1
+  br i1 %186, label %.critedge172, label %.critedge173
 
-._crit_edge211.thread:                            ; preds = %.thread227, %.preheader, %._crit_edge211, %178, %177, %182
-  %186 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
-  %187 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %186, i32 noundef 4, i32 noundef 0, i64 %1, i64 %2) #10
-  %188 = icmp eq i32 %187, -1
-  %.173 = sext i1 %188 to i32
+.critedge173:                                     ; preds = %.thread216, %.preheader, %._crit_edge200, %179, %178, %183
+  %187 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
+  %188 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %187, i32 noundef 4, i32 noundef 0, i64 %1, i64 %2) #10
+  %189 = icmp eq i32 %188, -1
+  %.174 = sext i1 %189 to i32
   br label %.critedge172
 
-.critedge172:                                     ; preds = %68, %81, %.thread, %159, %154, %149, %167, %.critedge, %174, %178, %._crit_edge211.thread, %182, %136, %131, %117, %109, %codegen_call_simple_kw_helper.exit, %72, %codegen_validate_keywords.exit, %123
-  %.0 = phi i32 [ 0, %123 ], [ -1, %codegen_validate_keywords.exit ], [ -1, %72 ], [ -1, %codegen_call_simple_kw_helper.exit ], [ -1, %109 ], [ -1, %117 ], [ -1, %131 ], [ -1, %136 ], [ -1, %182 ], [ %.173, %._crit_edge211.thread ], [ -1, %178 ], [ -1, %174 ], [ -1, %.critedge ], [ -1, %167 ], [ -1, %149 ], [ -1, %154 ], [ -1, %159 ], [ -1, %.thread ], [ -1, %81 ], [ -1, %68 ]
+.critedge172:                                     ; preds = %68, %81, %167, %.thread, %159, %154, %149, %.critedge, %.critedge173, %183, %175, %179, %136, %131, %117, %109, %codegen_call_simple_kw_helper.exit, %72, %codegen_validate_keywords.exit, %123
+  %.0 = phi i32 [ 0, %123 ], [ -1, %codegen_validate_keywords.exit ], [ -1, %72 ], [ -1, %codegen_call_simple_kw_helper.exit ], [ -1, %109 ], [ -1, %117 ], [ -1, %131 ], [ -1, %136 ], [ -1, %179 ], [ -1, %175 ], [ -1, %183 ], [ %.174, %.critedge173 ], [ -1, %.critedge ], [ -1, %149 ], [ -1, %154 ], [ -1, %159 ], [ -1, %.thread ], [ -1, %167 ], [ -1, %81 ], [ -1, %68 ]
   ret i32 %.0
 }
 
@@ -12153,8 +12153,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @starunpack_helper_impl(ptr 
   br i1 %11, label %.thread, label %12
 
 .thread:                                          ; preds = %10
-  %.not139.not = icmp eq ptr %4, null
-  br i1 %.not139.not, label %40, label %34
+  %.not138.not = icmp eq ptr %4, null
+  br i1 %.not138.not, label %40, label %34
 
 12:                                               ; preds = %10
   %13 = load i64, ptr %3, align 8, !tbaa !17
@@ -12172,40 +12172,40 @@ define internal fastcc noundef range(i32 -1, 1) i32 @starunpack_helper_impl(ptr 
   br label %23
 
 21:                                               ; preds = %23
-  %22 = add nuw nsw i64 %.0107126, 1
+  %22 = add nuw nsw i64 %.0107125, 1
   %exitcond.not = icmp eq i64 %22, %13
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !189
 
 23:                                               ; preds = %.lr.ph, %21
-  %.0107126 = phi i64 [ 0, %.lr.ph ], [ %22, %21 ]
-  %24 = getelementptr [1 x ptr], ptr %20, i64 0, i64 %.0107126
+  %.0107125 = phi i64 [ 0, %.lr.ph ], [ %22, %21 ]
+  %24 = getelementptr [1 x ptr], ptr %20, i64 0, i64 %.0107125
   %25 = load ptr, ptr %24, align 8, !tbaa !22
   %26 = load i32, ptr %25, align 8, !tbaa !15
   %.not111 = icmp eq i32 %26, 23
-  br i1 %.not111, label %.critedge123, label %21
+  br i1 %.not111, label %.critedge122, label %21
 
 ._crit_edge:                                      ; preds = %21, %12
-  br i1 %18, label %.critedge124, label %.preheader
+  br i1 %18, label %.critedge123, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  br i1 %19, label %.lr.ph129, label %.critedge
+  br i1 %19, label %.lr.ph128, label %.critedge
 
-.lr.ph129:                                        ; preds = %.preheader
+.lr.ph128:                                        ; preds = %.preheader
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %30
 
 28:                                               ; preds = %30
-  %29 = add nuw nsw i64 %.098128, 1
-  %exitcond137.not = icmp eq i64 %29, %13
-  br i1 %exitcond137.not, label %.critedge, label %30, !llvm.loop !190
+  %29 = add nuw nsw i64 %.098127, 1
+  %exitcond136.not = icmp eq i64 %29, %13
+  br i1 %exitcond136.not, label %.critedge, label %30, !llvm.loop !190
 
-30:                                               ; preds = %.lr.ph129, %28
-  %.098128 = phi i64 [ 0, %.lr.ph129 ], [ %29, %28 ]
-  %31 = getelementptr [1 x ptr], ptr %27, i64 0, i64 %.098128
+30:                                               ; preds = %.lr.ph128, %28
+  %.098127 = phi i64 [ 0, %.lr.ph128 ], [ %29, %28 ]
+  %31 = getelementptr [1 x ptr], ptr %27, i64 0, i64 %.098127
   %32 = load ptr, ptr %31, align 8, !tbaa !22
   %33 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %32)
   %.not112 = icmp eq i32 %33, -1
-  br i1 %.not112, label %.loopexit, label %28
+  br i1 %.not112, label %.critedge119, label %28
 
 .critedge:                                        ; preds = %28, %.preheader
   br i1 %.not, label %34, label %40
@@ -12214,7 +12214,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @starunpack_helper_impl(ptr 
   %35 = phi i64 [ 0, %.thread ], [ %13, %.critedge ]
   %36 = tail call fastcc i32 @codegen_nameop(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %4, i32 noundef 1)
   %37 = icmp eq i32 %36, -1
-  br i1 %37, label %.loopexit, label %38
+  br i1 %37, label %.critedge119, label %38
 
 38:                                               ; preds = %34
   %39 = add i64 %35, 1
@@ -12231,105 +12231,105 @@ define internal fastcc noundef range(i32 -1, 1) i32 @starunpack_helper_impl(ptr 
 44:                                               ; preds = %40
   %45 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %41, i32 noundef 51, i32 noundef %43, i64 %1, i64 %2) #10
   %46 = icmp eq i32 %45, -1
-  br i1 %46, label %.loopexit, label %50
+  br i1 %46, label %.critedge119, label %50
 
 47:                                               ; preds = %40
   %48 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %41, i32 noundef %6, i32 noundef %43, i64 %1, i64 %2) #10
   %49 = icmp eq i32 %48, -1
-  br i1 %49, label %.loopexit, label %50
+  br i1 %49, label %.critedge119, label %50
 
 50:                                               ; preds = %47, %44
-  br label %.loopexit
+  br label %.critedge119
 
-.critedge123:                                     ; preds = %23
-  br i1 %18, label %.critedge124, label %55
+.critedge122:                                     ; preds = %23
+  br i1 %18, label %.critedge123, label %55
 
-.critedge124:                                     ; preds = %._crit_edge, %.critedge123
-  %51 = phi i1 [ %19, %._crit_edge ], [ true, %.critedge123 ]
+.critedge123:                                     ; preds = %._crit_edge, %.critedge122
+  %51 = phi i1 [ %19, %._crit_edge ], [ true, %.critedge122 ]
   %52 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %53 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %52, i32 noundef %6, i32 noundef %5, i64 %1, i64 %2) #10
   %54 = icmp eq i32 %53, -1
-  br i1 %54, label %.loopexit, label %55
+  br i1 %54, label %.critedge119, label %55
 
-55:                                               ; preds = %.critedge124, %.critedge123
-  %56 = phi i1 [ true, %.critedge123 ], [ %51, %.critedge124 ]
-  %.092 = phi i32 [ 0, %.critedge123 ], [ 1, %.critedge124 ]
-  br i1 %56, label %.lr.ph135, label %.critedge119
+55:                                               ; preds = %.critedge123, %.critedge122
+  %56 = phi i1 [ true, %.critedge122 ], [ %51, %.critedge123 ]
+  %.092 = phi i32 [ 0, %.critedge122 ], [ 1, %.critedge123 ]
+  br i1 %56, label %.lr.ph134, label %.critedge120
 
-.lr.ph135:                                        ; preds = %55
+.lr.ph134:                                        ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %58
 
-58:                                               ; preds = %.lr.ph135, %88
-  %.091132 = phi i64 [ 0, %.lr.ph135 ], [ %89, %88 ]
-  %.193131 = phi i32 [ %.092, %.lr.ph135 ], [ %.496, %88 ]
-  %59 = getelementptr [1 x ptr], ptr %57, i64 0, i64 %.091132
+58:                                               ; preds = %.lr.ph134, %88
+  %.091131 = phi i64 [ 0, %.lr.ph134 ], [ %89, %88 ]
+  %.193130 = phi i32 [ %.092, %.lr.ph134 ], [ %.496, %88 ]
+  %59 = getelementptr [1 x ptr], ptr %57, i64 0, i64 %.091131
   %60 = load ptr, ptr %59, align 8, !tbaa !22
   %61 = load i32, ptr %60, align 8, !tbaa !15
   %62 = icmp eq i32 %61, 23
   br i1 %62, label %63, label %80
 
 63:                                               ; preds = %58
-  %64 = icmp eq i32 %.193131, 0
+  %64 = icmp eq i32 %.193130, 0
   br i1 %64, label %65, label %71
 
 65:                                               ; preds = %63
   %66 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
-  %67 = trunc i64 %.091132 to i32
+  %67 = trunc i64 %.091131 to i32
   %68 = add i32 %5, %67
   %69 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %66, i32 noundef %6, i32 noundef %68, i64 %1, i64 %2) #10
   %70 = icmp eq i32 %69, -1
-  br i1 %70, label %.loopexit, label %71
+  br i1 %70, label %.critedge119, label %71
 
 71:                                               ; preds = %65, %63
   %72 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !16
   %74 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %73)
   %75 = icmp eq i32 %74, -1
-  br i1 %75, label %.loopexit, label %76
+  br i1 %75, label %.critedge119, label %76
 
 76:                                               ; preds = %71
   %77 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %78 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %77, i32 noundef %8, i32 noundef 1, i64 %1, i64 %2) #10
   %79 = icmp eq i32 %78, -1
-  br i1 %79, label %.loopexit, label %88
+  br i1 %79, label %.critedge119, label %88
 
 80:                                               ; preds = %58
   %81 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef nonnull %60)
   %82 = icmp eq i32 %81, -1
-  br i1 %82, label %.loopexit, label %83
+  br i1 %82, label %.critedge119, label %83
 
 83:                                               ; preds = %80
-  %.not115 = icmp eq i32 %.193131, 0
+  %.not115 = icmp eq i32 %.193130, 0
   br i1 %.not115, label %88, label %84
 
 84:                                               ; preds = %83
   %85 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %86 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %85, i32 noundef %7, i32 noundef 1, i64 %1, i64 %2) #10
   %87 = icmp eq i32 %86, -1
-  br i1 %87, label %.loopexit, label %88
+  br i1 %87, label %.critedge119, label %88
 
 88:                                               ; preds = %83, %84, %76
   %.496 = phi i32 [ 1, %76 ], [ 1, %84 ], [ 0, %83 ]
-  %89 = add nuw nsw i64 %.091132, 1
-  %exitcond138.not = icmp eq i64 %89, %13
-  br i1 %exitcond138.not, label %.critedge119, label %58, !llvm.loop !191
+  %89 = add nuw nsw i64 %.091131, 1
+  %exitcond137.not = icmp eq i64 %89, %13
+  br i1 %exitcond137.not, label %.critedge120, label %58, !llvm.loop !191
 
-.critedge119:                                     ; preds = %88, %55
+.critedge120:                                     ; preds = %88, %55
   br i1 %.not, label %90, label %97
 
-90:                                               ; preds = %.critedge119
+90:                                               ; preds = %.critedge120
   %91 = tail call fastcc i32 @codegen_nameop(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %4, i32 noundef 1)
   %92 = icmp eq i32 %91, -1
-  br i1 %92, label %.loopexit, label %93
+  br i1 %92, label %.critedge119, label %93
 
 93:                                               ; preds = %90
   %94 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %95 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %94, i32 noundef %7, i32 noundef 1, i64 %1, i64 %2) #10
   %96 = icmp eq i32 %95, -1
-  br i1 %96, label %.loopexit, label %97
+  br i1 %96, label %.critedge119, label %97
 
-97:                                               ; preds = %93, %.critedge119
+97:                                               ; preds = %93, %.critedge120
   %.not117 = icmp eq i32 %9, 0
   br i1 %.not117, label %102, label %98
 
@@ -12337,13 +12337,13 @@ define internal fastcc noundef range(i32 -1, 1) i32 @starunpack_helper_impl(ptr 
   %99 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %100 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %99, i32 noundef 53, i32 noundef 6, i64 %1, i64 %2) #10
   %101 = icmp eq i32 %100, -1
-  br i1 %101, label %.loopexit, label %102
+  br i1 %101, label %.critedge119, label %102
 
 102:                                              ; preds = %98, %97
-  br label %.loopexit
+  br label %.critedge119
 
-.loopexit:                                        ; preds = %30, %84, %80, %76, %71, %65, %102, %.critedge124, %90, %93, %98, %47, %44, %34, %50
-  %.3 = phi i32 [ 0, %50 ], [ -1, %34 ], [ -1, %44 ], [ -1, %47 ], [ 0, %102 ], [ -1, %.critedge124 ], [ -1, %90 ], [ -1, %93 ], [ -1, %98 ], [ -1, %65 ], [ -1, %71 ], [ -1, %76 ], [ -1, %80 ], [ -1, %84 ], [ -1, %30 ]
+.critedge119:                                     ; preds = %30, %84, %80, %76, %71, %65, %102, %.critedge123, %90, %93, %98, %47, %44, %34, %50
+  %.3 = phi i32 [ 0, %50 ], [ -1, %34 ], [ -1, %44 ], [ -1, %47 ], [ 0, %102 ], [ -1, %.critedge123 ], [ -1, %90 ], [ -1, %93 ], [ -1, %98 ], [ -1, %65 ], [ -1, %71 ], [ -1, %76 ], [ -1, %80 ], [ -1, %84 ], [ -1, %30 ]
   ret i32 %.3
 }
 
@@ -20165,19 +20165,19 @@ define internal fastcc range(i32 -1, 1) i32 @codegen_sync_comprehension_generato
   %11 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %12 = tail call i32 @_PyInstructionSequence_NewLabel(ptr noundef %11) #10
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %.thread191, label %14
+  br i1 %13, label %.critedge182, label %14
 
 14:                                               ; preds = %10
   %15 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %16 = tail call i32 @_PyInstructionSequence_NewLabel(ptr noundef %15) #10
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %.thread191, label %18
+  br i1 %17, label %.critedge182, label %18
 
 18:                                               ; preds = %14
   %19 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %20 = tail call i32 @_PyInstructionSequence_NewLabel(ptr noundef %19) #10
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %.thread191, label %22
+  br i1 %21, label %.critedge182, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -20195,7 +20195,7 @@ define internal fastcc range(i32 -1, 1) i32 @codegen_sync_comprehension_generato
   %30 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %31 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %30, i32 noundef 83, i32 noundef 0, i64 %1, i64 %2) #10
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %.thread191, label %63
+  br i1 %32, label %.critedge182, label %63
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -20225,13 +20225,13 @@ define internal fastcc range(i32 -1, 1) i32 @codegen_sync_comprehension_generato
 
 46:                                               ; preds = %42
   %47 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef nonnull %44)
-  %.not199 = icmp eq i32 %47, -1
-  br i1 %.not199, label %.thread191, label %.critedge
+  %.not196 = icmp eq i32 %47, -1
+  br i1 %.not196, label %.critedge182, label %.critedge
 
 .critedge.thread:                                 ; preds = %33, %42, %37, %39
   %48 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef nonnull %35)
   %49 = icmp eq i32 %48, -1
-  br i1 %49, label %.thread191, label %50
+  br i1 %49, label %.critedge182, label %50
 
 50:                                               ; preds = %.critedge.thread
   %51 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
@@ -20254,9 +20254,9 @@ define internal fastcc range(i32 -1, 1) i32 @codegen_sync_comprehension_generato
   %.sroa.347.8.insert.insert = or disjoint i64 %.sroa.548.8.insert.shift, %.sroa.347.8.insert.ext
   %61 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %51, i32 noundef 18, i32 noundef 0, i64 %.sroa.045.0.insert.insert, i64 %.sroa.347.8.insert.insert) #10
   %62 = icmp eq i32 %61, -1
-  br i1 %62, label %.thread191, label %63
+  br i1 %62, label %.critedge182, label %63
 
-63:                                               ; preds = %50, %22, %29
+63:                                               ; preds = %22, %29, %50
   %64 = add i32 %5, 1
   %65 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %66 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -20279,13 +20279,13 @@ define internal fastcc range(i32 -1, 1) i32 @codegen_sync_comprehension_generato
   %.sroa.342.8.insert.insert = or disjoint i64 %.sroa.543.8.insert.shift, %.sroa.342.8.insert.ext
   %76 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %65, i32 noundef 18, i32 noundef 0, i64 %.sroa.040.0.insert.insert, i64 %.sroa.342.8.insert.insert) #10
   %77 = icmp eq i32 %76, -1
-  br i1 %77, label %.thread191, label %78
+  br i1 %77, label %.critedge182, label %78
 
 78:                                               ; preds = %63
   %79 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %80 = tail call i32 @_PyInstructionSequence_UseLabel(ptr noundef %79, i32 noundef %12) #10
   %81 = icmp eq i32 %80, -1
-  br i1 %81, label %.thread191, label %82
+  br i1 %81, label %.critedge182, label %82
 
 82:                                               ; preds = %78
   %83 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
@@ -20308,65 +20308,65 @@ define internal fastcc range(i32 -1, 1) i32 @codegen_sync_comprehension_generato
   %.sroa.339.8.insert.insert = or disjoint i64 %.sroa.5.8.insert.shift, %.sroa.339.8.insert.ext
   %93 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %83, i32 noundef 69, i32 noundef %20, i64 %.sroa.037.0.insert.insert, i64 %.sroa.339.8.insert.insert) #10
   %94 = icmp eq i32 %93, -1
-  br i1 %94, label %.thread191, label %.critedge
+  br i1 %94, label %.critedge182, label %.critedge
 
 .critedge:                                        ; preds = %46, %82
   %95 = phi i1 [ false, %82 ], [ true, %46 ]
-  %.sroa.089.0198 = phi i32 [ %12, %82 ], [ -1, %46 ]
+  %.sroa.089.0195 = phi i32 [ %12, %82 ], [ -1, %46 ]
   %.0164 = phi i32 [ %64, %82 ], [ %5, %46 ]
   %96 = load ptr, ptr %26, align 8, !tbaa !264
   %97 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %96)
   %98 = icmp eq i32 %97, -1
-  br i1 %98, label %.thread191, label %99
+  br i1 %98, label %.critedge182, label %99
 
 99:                                               ; preds = %.critedge
   %100 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %101 = load ptr, ptr %100, align 8, !tbaa !265
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %.critedge182.thread, label %103
+  br i1 %102, label %.critedge184.thread, label %103
 
 103:                                              ; preds = %99
   %104 = load i64, ptr %101, align 8, !tbaa !17
-  %.not179200 = icmp sgt i64 %104, 0
-  br i1 %.not179200, label %.lr.ph, label %.critedge182.thread
+  %.not179197 = icmp sgt i64 %104, 0
+  br i1 %.not179197, label %.lr.ph, label %.critedge184.thread
 
 105:                                              ; preds = %.lr.ph
-  %106 = add nuw nsw i64 %.0170201, 1
+  %106 = add nuw nsw i64 %.0170198, 1
   %exitcond.not = icmp eq i64 %106, %104
-  br i1 %exitcond.not, label %.critedge182, label %.lr.ph, !llvm.loop !267
+  br i1 %exitcond.not, label %.critedge184, label %.lr.ph, !llvm.loop !267
 
 .lr.ph:                                           ; preds = %103, %105
-  %.0170201 = phi i64 [ %106, %105 ], [ 0, %103 ]
+  %.0170198 = phi i64 [ %106, %105 ], [ 0, %103 ]
   %107 = load ptr, ptr %100, align 8, !tbaa !265
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %109 = getelementptr [1 x ptr], ptr %108, i64 0, i64 %.0170201
+  %109 = getelementptr [1 x ptr], ptr %108, i64 0, i64 %.0170198
   %110 = load ptr, ptr %109, align 8, !tbaa !22
   %111 = tail call fastcc i32 @codegen_jump_if(ptr noundef %0, ptr noundef %110, i32 %16, i32 noundef 0)
   %.not178 = icmp eq i32 %111, -1
-  br i1 %.not178, label %.thread191, label %105
+  br i1 %.not178, label %.critedge182, label %105
 
-.critedge182.thread:                              ; preds = %103, %99
+.critedge184.thread:                              ; preds = %103, %99
   %112 = add i32 %4, 1
   %113 = sext i32 %112 to i64
   br label %117
 
-.critedge182:                                     ; preds = %105
+.critedge184:                                     ; preds = %105
   %114 = add i32 %4, 1
   %115 = sext i32 %114 to i64
   %116 = icmp eq ptr %3, null
   br i1 %116, label %121, label %117
 
-117:                                              ; preds = %.critedge182.thread, %.critedge182
-  %118 = phi i64 [ %113, %.critedge182.thread ], [ %115, %.critedge182 ]
-  %119 = phi i32 [ %112, %.critedge182.thread ], [ %114, %.critedge182 ]
+117:                                              ; preds = %.critedge184.thread, %.critedge184
+  %118 = phi i64 [ %113, %.critedge184.thread ], [ %115, %.critedge184 ]
+  %119 = phi i32 [ %112, %.critedge184.thread ], [ %114, %.critedge184 ]
   %120 = load i64, ptr %3, align 8, !tbaa !17
   br label %121
 
-121:                                              ; preds = %.critedge182, %117
-  %122 = phi i1 [ false, %117 ], [ true, %.critedge182 ]
-  %123 = phi i64 [ %118, %117 ], [ %115, %.critedge182 ]
-  %124 = phi i32 [ %119, %117 ], [ %114, %.critedge182 ]
-  %125 = phi i64 [ %120, %117 ], [ 0, %.critedge182 ]
+121:                                              ; preds = %.critedge184, %117
+  %122 = phi i1 [ false, %117 ], [ true, %.critedge184 ]
+  %123 = phi i64 [ %118, %117 ], [ %115, %.critedge184 ]
+  %124 = phi i32 [ %119, %117 ], [ %114, %.critedge184 ]
+  %125 = phi i64 [ %120, %117 ], [ 0, %.critedge184 ]
   %126 = icmp sgt i64 %125, %123
   br i1 %126, label %127, label %137
 
@@ -20389,7 +20389,7 @@ define internal fastcc range(i32 -1, 1) i32 @codegen_sync_comprehension_generato
 codegen_comprehension_generator.exit:             ; preds = %132, %134
   %.0.i = phi i32 [ %133, %132 ], [ %135, %134 ]
   %136 = icmp eq i32 %.0.i, -1
-  br i1 %136, label %.thread191, label %137
+  br i1 %136, label %.critedge182, label %137
 
 137:                                              ; preds = %codegen_comprehension_generator.exit, %121
   %138 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -20422,7 +20422,7 @@ codegen_comprehension_generator.exit:             ; preds = %132, %134
 150:                                              ; preds = %148
   %151 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef nonnull %6)
   %152 = icmp eq i32 %151, -1
-  switch i32 %8, label %default.unreachable202 [
+  switch i32 %8, label %default.unreachable199 [
     i32 0, label %153
     i32 1, label %161
     i32 2, label %167
@@ -20430,46 +20430,46 @@ codegen_comprehension_generator.exit:             ; preds = %132, %134
   ]
 
 153:                                              ; preds = %150
-  br i1 %152, label %.thread191, label %154
+  br i1 %152, label %.critedge182, label %154
 
 154:                                              ; preds = %153
   %155 = tail call fastcc i32 @codegen_addop_yield(ptr noundef %0, i64 %.sroa.05.4.insert.insert, i64 %.sroa.12.12.insert.insert)
   %156 = icmp eq i32 %155, -1
-  br i1 %156, label %.thread191, label %157
+  br i1 %156, label %.critedge182, label %157
 
 157:                                              ; preds = %154
   %158 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %159 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %158, i32 noundef 32, i32 noundef 0, i64 %.sroa.05.4.insert.insert, i64 %.sroa.12.12.insert.insert) #10
   %160 = icmp eq i32 %159, -1
-  br i1 %160, label %.thread191, label %188
+  br i1 %160, label %.critedge182, label %188
 
 161:                                              ; preds = %150
-  br i1 %152, label %.thread191, label %162
+  br i1 %152, label %.critedge182, label %162
 
 162:                                              ; preds = %161
   %163 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %164 = add i32 %.0164, 1
   %165 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %163, i32 noundef 77, i32 noundef %164, i64 %.sroa.05.4.insert.insert, i64 %.sroa.12.12.insert.insert) #10
   %166 = icmp eq i32 %165, -1
-  br i1 %166, label %.thread191, label %188
+  br i1 %166, label %.critedge182, label %188
 
 167:                                              ; preds = %150
-  br i1 %152, label %.thread191, label %168
+  br i1 %152, label %.critedge182, label %168
 
 168:                                              ; preds = %167
   %169 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %170 = add i32 %.0164, 1
   %171 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %169, i32 noundef 104, i32 noundef %170, i64 %.sroa.05.4.insert.insert, i64 %.sroa.12.12.insert.insert) #10
   %172 = icmp eq i32 %171, -1
-  br i1 %172, label %.thread191, label %188
+  br i1 %172, label %.critedge182, label %188
 
 173:                                              ; preds = %150
-  br i1 %152, label %.thread191, label %174
+  br i1 %152, label %.critedge182, label %174
 
 174:                                              ; preds = %173
   %175 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %7)
   %176 = icmp eq i32 %175, -1
-  br i1 %176, label %.thread191, label %177
+  br i1 %176, label %.critedge182, label %177
 
 177:                                              ; preds = %174
   %178 = load i32, ptr %138, align 8, !tbaa !10
@@ -20490,9 +20490,9 @@ codegen_comprehension_generator.exit:             ; preds = %132, %134
   %185 = add i32 %.0164, 1
   %186 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %184, i32 noundef 95, i32 noundef %185, i64 %.sroa.05.4.insert.insert19, i64 %.sroa.12.12.insert.insert33) #10
   %187 = icmp eq i32 %186, -1
-  br i1 %187, label %.thread191, label %188
+  br i1 %187, label %.critedge182, label %188
 
-default.unreachable202:                           ; preds = %150
+default.unreachable199:                           ; preds = %150
   unreachable
 
 188:                                              ; preds = %148, %177, %168, %162, %157
@@ -20501,40 +20501,40 @@ default.unreachable202:                           ; preds = %150
   %189 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %190 = tail call i32 @_PyInstructionSequence_UseLabel(ptr noundef %189, i32 noundef %16) #10
   %191 = icmp eq i32 %190, -1
-  br i1 %191, label %.thread191, label %192
+  br i1 %191, label %.critedge182, label %192
 
 192:                                              ; preds = %188
   br i1 %95, label %209, label %193
 
 193:                                              ; preds = %192
   %194 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
-  %195 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %194, i32 noundef 256, i32 noundef %.sroa.089.0198, i64 %.sroa.05.0, i64 %.sroa.12.0) #10
+  %195 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %194, i32 noundef 256, i32 noundef %.sroa.089.0195, i64 %.sroa.05.0, i64 %.sroa.12.0) #10
   %196 = icmp eq i32 %195, -1
-  br i1 %196, label %.thread191, label %197
+  br i1 %196, label %.critedge182, label %197
 
 197:                                              ; preds = %193
   %198 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %199 = tail call i32 @_PyInstructionSequence_UseLabel(ptr noundef %198, i32 noundef %20) #10
   %200 = icmp eq i32 %199, -1
-  br i1 %200, label %.thread191, label %201
+  br i1 %200, label %.critedge182, label %201
 
 201:                                              ; preds = %197
   %202 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %203 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %202, i32 noundef 10, i32 noundef 0, i64 -1, i64 -1) #10
   %204 = icmp eq i32 %203, -1
-  br i1 %204, label %.thread191, label %205
+  br i1 %204, label %.critedge182, label %205
 
 205:                                              ; preds = %201
   %206 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %207 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %206, i32 noundef 31, i32 noundef 0, i64 -1, i64 -1) #10
   %208 = icmp eq i32 %207, -1
-  br i1 %208, label %.thread191, label %209
+  br i1 %208, label %.critedge182, label %209
 
 209:                                              ; preds = %205, %192
-  br label %.thread191
+  br label %.critedge182
 
-.thread191:                                       ; preds = %.lr.ph, %50, %.critedge.thread, %46, %14, %29, %63, %78, %82, %.critedge, %209, %153, %154, %157, %161, %162, %167, %168, %173, %174, %177, %188, %193, %197, %201, %205, %codegen_comprehension_generator.exit, %18, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %14 ], [ -1, %18 ], [ -1, %29 ], [ -1, %63 ], [ -1, %78 ], [ -1, %82 ], [ -1, %.critedge ], [ -1, %codegen_comprehension_generator.exit ], [ 0, %209 ], [ -1, %153 ], [ -1, %154 ], [ -1, %157 ], [ -1, %161 ], [ -1, %162 ], [ -1, %167 ], [ -1, %168 ], [ -1, %173 ], [ -1, %174 ], [ -1, %177 ], [ -1, %188 ], [ -1, %193 ], [ -1, %197 ], [ -1, %201 ], [ -1, %205 ], [ -1, %46 ], [ -1, %.critedge.thread ], [ -1, %50 ], [ -1, %.lr.ph ]
+.critedge182:                                     ; preds = %.lr.ph, %14, %29, %63, %78, %82, %.critedge, %209, %153, %154, %157, %161, %162, %167, %168, %173, %174, %177, %188, %193, %197, %201, %205, %codegen_comprehension_generator.exit, %50, %.critedge.thread, %46, %18, %10
+  %.0 = phi i32 [ -1, %10 ], [ -1, %14 ], [ -1, %18 ], [ -1, %29 ], [ -1, %63 ], [ -1, %78 ], [ -1, %82 ], [ -1, %.critedge ], [ -1, %codegen_comprehension_generator.exit ], [ 0, %209 ], [ -1, %153 ], [ -1, %154 ], [ -1, %157 ], [ -1, %161 ], [ -1, %162 ], [ -1, %167 ], [ -1, %168 ], [ -1, %173 ], [ -1, %174 ], [ -1, %177 ], [ -1, %188 ], [ -1, %193 ], [ -1, %197 ], [ -1, %201 ], [ -1, %205 ], [ -1, %50 ], [ -1, %.critedge.thread ], [ -1, %46 ], [ -1, %.lr.ph ]
   ret i32 %.0
 }
 

@@ -44,10 +44,10 @@ define internal range(i32 -1094995529, 1) i32 @pmp_header(ptr noundef %0) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = tail call i64 @avio_size(ptr noundef %5) #4
-  %.fr105 = freeze i64 %6
+  %.fr102 = freeze i64 %6
   %7 = tail call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #4
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.thread, label %8
+  br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -120,18 +120,18 @@ define internal range(i32 -1094995529, 1) i32 @pmp_header(ptr noundef %0) #1 {
   %41 = tail call i32 @avio_rl32(ptr noundef %5) #4
   %42 = add i32 %41, 1
   %43 = tail call i64 @avio_seek(ptr noundef %5, i64 noundef 0, i32 noundef 1) #4
-  %.not104 = icmp eq i32 %21, 0
-  br i1 %.not104, label %.preheader, label %.lr.ph
+  %.not101 = icmp eq i32 %21, 0
+  br i1 %.not101, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35
   %44 = shl nuw nsw i64 %30, 2
   %45 = add nsw i64 %43, %44
-  %46 = icmp sgt i64 %.fr105, 0
+  %46 = icmp sgt i64 %.fr102, 0
   br i1 %46, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph ]
-  %.08196.us = phi i64 [ %59, %56 ], [ %45, %.lr.ph ]
+  %.08193.us = phi i64 [ %59, %56 ], [ %45, %.lr.ph ]
   %47 = tail call i32 @avio_rl32(ptr noundef %5) #4
   %48 = and i32 %47, 1
   %49 = tail call i32 @avio_feof(ptr noundef %5) #4
@@ -144,29 +144,29 @@ define internal range(i32 -1094995529, 1) i32 @pmp_header(ptr noundef %0) #1 {
   %53 = shl nsw i32 %52, 2
   %54 = add nsw i32 %53, 9
   %55 = icmp ult i32 %51, %54
-  br i1 %55, label %.split99.us, label %56
+  br i1 %55, label %.split96.us, label %56
 
 56:                                               ; preds = %50
-  %57 = tail call i32 @av_add_index_entry(ptr noundef nonnull %7, i64 noundef %.08196.us, i64 noundef %indvars.iv, i32 noundef %51, i32 noundef 0, i32 noundef %48) #4
+  %57 = tail call i32 @av_add_index_entry(ptr noundef nonnull %7, i64 noundef %.08193.us, i64 noundef %indvars.iv, i32 noundef %51, i32 noundef 0, i32 noundef %48) #4
   %58 = zext nneg i32 %51 to i64
-  %59 = add i64 %.08196.us, %58
+  %59 = add i64 %.08193.us, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %30
   br i1 %exitcond.not, label %.preheader, label %.lr.ph.split.us, !llvm.loop !46
 
 60:                                               ; preds = %72
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %exitcond114.not = icmp eq i64 %indvars.iv.next111, %30
-  br i1 %exitcond114.not, label %.preheader, label %.lr.ph.split, !llvm.loop !49
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond111.not = icmp eq i64 %indvars.iv.next108, %30
+  br i1 %exitcond111.not, label %.preheader, label %.lr.ph.split, !llvm.loop !49
 
 .preheader:                                       ; preds = %56, %60, %35
   %61 = load i32, ptr %38, align 4, !tbaa !43
   %62 = icmp ugt i32 %61, 1
-  br i1 %62, label %.lr.ph101, label %.thread
+  br i1 %62, label %.lr.ph98, label %.critedge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %60
-  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %60 ], [ 0, %.lr.ph ]
-  %.08196 = phi i64 [ %75, %60 ], [ %45, %.lr.ph ]
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %60 ], [ 0, %.lr.ph ]
+  %.08193 = phi i64 [ %75, %60 ], [ %45, %.lr.ph ]
   %63 = tail call i32 @avio_rl32(ptr noundef %5) #4
   %64 = and i32 %63, 1
   %65 = tail call i32 @avio_feof(ptr noundef %5) #4
@@ -175,7 +175,7 @@ define internal range(i32 -1094995529, 1) i32 @pmp_header(ptr noundef %0) #1 {
 
 .split.us:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str.6) #4
-  br label %.thread
+  br label %.critedge
 
 66:                                               ; preds = %.lr.ph.split
   %67 = lshr i32 %63, 1
@@ -183,32 +183,32 @@ define internal range(i32 -1094995529, 1) i32 @pmp_header(ptr noundef %0) #1 {
   %69 = shl nsw i32 %68, 2
   %70 = add nsw i32 %69, 9
   %71 = icmp ult i32 %67, %70
-  br i1 %71, label %.split99.us, label %72
+  br i1 %71, label %.split96.us, label %72
 
-.split99.us:                                      ; preds = %50, %66
+.split96.us:                                      ; preds = %50, %66
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.7) #4
-  br label %.thread
+  br label %.critedge
 
 72:                                               ; preds = %66
-  %73 = tail call i32 @av_add_index_entry(ptr noundef nonnull %7, i64 noundef %.08196, i64 noundef %indvars.iv110, i32 noundef %67, i32 noundef 0, i32 noundef %64) #4
+  %73 = tail call i32 @av_add_index_entry(ptr noundef nonnull %7, i64 noundef %.08193, i64 noundef %indvars.iv107, i32 noundef %67, i32 noundef 0, i32 noundef %64) #4
   %74 = zext nneg i32 %67 to i64
-  %75 = add i64 %.08196, %74
-  %76 = icmp eq i64 %indvars.iv110, 0
-  %77 = icmp ugt i64 %75, %.fr105
+  %75 = add i64 %.08193, %74
+  %76 = icmp eq i64 %indvars.iv107, 0
+  %77 = icmp ugt i64 %75, %.fr102
   %or.cond91 = select i1 %76, i1 %77, i1 false
   br i1 %or.cond91, label %78, label %60
 
 78:                                               ; preds = %72
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.8) #4
-  br label %.thread
+  br label %.critedge
 
-.lr.ph101:                                        ; preds = %.preheader, %80
-  %.180100 = phi i32 [ %86, %80 ], [ 1, %.preheader ]
+.lr.ph98:                                         ; preds = %.preheader, %80
+  %.18097 = phi i32 [ %86, %80 ], [ 1, %.preheader ]
   %79 = tail call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #4
   %.not88.not = icmp eq ptr %79, null
-  br i1 %.not88.not, label %.thread, label %80
+  br i1 %.not88.not, label %.critedge, label %80
 
-80:                                               ; preds = %.lr.ph101
+80:                                               ; preds = %.lr.ph98
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !28
   store i32 1, ptr %82, align 8, !tbaa !35
@@ -219,13 +219,13 @@ define internal range(i32 -1094995529, 1) i32 @pmp_header(ptr noundef %0) #1 {
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 152
   store i32 %40, ptr %85, align 8, !tbaa !51
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %79, i32 noundef 32, i32 noundef 1, i32 noundef %40) #4
-  %86 = add nuw i32 %.180100, 1
+  %86 = add nuw i32 %.18097, 1
   %87 = load i32, ptr %38, align 4, !tbaa !43
   %88 = icmp ult i32 %86, %87
-  br i1 %88, label %.lr.ph101, label %.thread, !llvm.loop !52
+  br i1 %88, label %.lr.ph98, label %.critedge, !llvm.loop !52
 
-.thread:                                          ; preds = %80, %.lr.ph101, %.preheader, %78, %.split99.us, %.split.us, %1
-  %.0 = phi i32 [ -12, %1 ], [ -1094995529, %.split.us ], [ -1094995529, %.split99.us ], [ -1094995529, %78 ], [ 0, %.preheader ], [ 0, %80 ], [ -12, %.lr.ph101 ]
+.critedge:                                        ; preds = %80, %.lr.ph98, %.preheader, %.split.us, %.split96.us, %78, %1
+  %.0 = phi i32 [ -12, %1 ], [ -1094995529, %78 ], [ -1094995529, %.split96.us ], [ -1094995529, %.split.us ], [ 0, %.preheader ], [ 0, %80 ], [ -12, %.lr.ph98 ]
   ret i32 %.0
 }
 

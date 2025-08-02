@@ -108,56 +108,56 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8, !tbaa !18
-  %.04155 = load ptr, ptr %0, align 8, !tbaa !11
-  %.not56 = icmp eq ptr %.04155, null
-  br i1 %.not56, label %.thread97, label %.lr.ph
+  %.04154 = load ptr, ptr %0, align 8, !tbaa !11
+  %.not55 = icmp eq ptr %.04154, null
+  br i1 %.not55, label %.thread96, label %.lr.ph
 
-.thread97:                                        ; preds = %2
+.thread96:                                        ; preds = %2
   %6 = ptrtoint ptr %0 to i64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.masked89 = and i64 %6, -3
-  br label %.critedge
+  %.masked88 = and i64 %6, -3
+  br label %.critedge50
 
 .lr.ph:                                           ; preds = %2, %9
-  %.04157 = phi ptr [ %.041, %9 ], [ %.04155, %2 ]
-  %8 = tail call i32 %5(ptr noundef nonnull %.04157, ptr noundef %1) #4
-  %.fr114 = freeze i32 %8
-  %.not48 = icmp eq i32 %.fr114, 0
-  br i1 %.not48, label %__archive_rb_tree_insert_rebalance.exit, label %9
+  %.04156 = phi ptr [ %.041, %9 ], [ %.04154, %2 ]
+  %8 = tail call i32 %5(ptr noundef nonnull %.04156, ptr noundef %1) #4
+  %.fr113 = freeze i32 %8
+  %.not48 = icmp eq i32 %.fr113, 0
+  br i1 %.not48, label %.critedge, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp sgt i32 %.fr114, 0
+  %10 = icmp sgt i32 %.fr113, 0
   %11 = zext i1 %10 to i64
-  %12 = getelementptr inbounds nuw [2 x ptr], ptr %.04157, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [2 x ptr], ptr %.04156, i64 0, i64 %11
   %.041 = load ptr, ptr %12, align 8, !tbaa !11
   %.not = icmp eq ptr %.041, null
   br i1 %.not, label %13, label %.lr.ph, !llvm.loop !19
 
 13:                                               ; preds = %9
   %14 = zext i1 %10 to i64
-  %15 = ptrtoint ptr %.04157 to i64
+  %15 = ptrtoint ptr %.04156 to i64
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.masked = and i64 %15, -3
   %spec.select = select i1 %10, i64 2, i64 0
   %17 = or disjoint i64 %spec.select, %.masked
-  %18 = icmp eq ptr %.04157, %0
-  br i1 %18, label %.critedge, label %19
+  %18 = icmp eq ptr %.04156, %0
+  br i1 %18, label %.critedge50, label %19
 
 19:                                               ; preds = %13
   %20 = or i64 %17, 1
   store i64 %20, ptr %16, align 8, !tbaa !20
-  %21 = getelementptr inbounds nuw i8, ptr %.04157, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.04156, i64 16
   %22 = load i64, ptr %21, align 8, !tbaa !20
   %23 = and i64 %22, 1
   %24 = icmp eq i64 %23, 0
   %25 = zext i1 %10 to i64
-  %26 = getelementptr inbounds nuw [2 x ptr], ptr %.04157, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [2 x ptr], ptr %.04156, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !11
   store ptr %27, ptr %1, align 8, !tbaa !11
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %27, ptr %28, align 8, !tbaa !11
   store ptr %1, ptr %26, align 8, !tbaa !11
-  br i1 %24, label %__archive_rb_tree_insert_rebalance.exit, label %29
+  br i1 %24, label %.critedge, label %29
 
 29:                                               ; preds = %19
   %30 = and i64 %15, -4
@@ -181,9 +181,9 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
   %45 = load i64, ptr %44, align 8, !tbaa !20
   %46 = and i64 %45, 1
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %._crit_edge.i, label %.lr.ph59
+  br i1 %47, label %._crit_edge.i, label %.lr.ph58
 
-.lr.ph59:                                         ; preds = %.lr.ph.i.preheader
+.lr.ph58:                                         ; preds = %.lr.ph.i.preheader
   %48 = load ptr, ptr %0, align 8, !tbaa !23
   br label %64
 
@@ -207,18 +207,18 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %._crit_edge.i, label %64
 
-64:                                               ; preds = %.lr.ph59, %.lr.ph.i
-  %65 = phi i64 [ %45, %.lr.ph59 ], [ %61, %.lr.ph.i ]
-  %66 = phi ptr [ %44, %.lr.ph59 ], [ %60, %.lr.ph.i ]
-  %67 = phi ptr [ %32, %.lr.ph59 ], [ %81, %.lr.ph.i ]
-  %68 = phi ptr [ %35, %.lr.ph59 ], [ %51, %.lr.ph.i ]
+64:                                               ; preds = %.lr.ph58, %.lr.ph.i
+  %65 = phi i64 [ %45, %.lr.ph58 ], [ %61, %.lr.ph.i ]
+  %66 = phi ptr [ %44, %.lr.ph58 ], [ %60, %.lr.ph.i ]
+  %67 = phi ptr [ %32, %.lr.ph58 ], [ %81, %.lr.ph.i ]
+  %68 = phi ptr [ %35, %.lr.ph58 ], [ %51, %.lr.ph.i ]
   %69 = and i64 %65, -2
   store i64 %69, ptr %66, align 8, !tbaa !20
   %70 = load i64, ptr %67, align 8, !tbaa !20
   %71 = and i64 %70, -2
   store i64 %71, ptr %67, align 8, !tbaa !20
   %72 = icmp eq ptr %48, %68
-  br i1 %72, label %__archive_rb_tree_insert_rebalance.exit, label %73
+  br i1 %72, label %.critedge, label %73
 
 73:                                               ; preds = %64
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 16
@@ -227,7 +227,7 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
   store i64 %76, ptr %74, align 8, !tbaa !20
   %77 = and i64 %75, -4
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %__archive_rb_tree_insert_rebalance.exit, label %79
+  br i1 %78, label %.critedge, label %79
 
 79:                                               ; preds = %73
   %80 = inttoptr i64 %77 to ptr
@@ -235,7 +235,7 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
   %82 = load i64, ptr %81, align 8, !tbaa !20
   %83 = and i64 %82, 1
   %84 = icmp eq i64 %83, 0
-  br i1 %84, label %__archive_rb_tree_insert_rebalance.exit, label %49
+  br i1 %84, label %.critedge, label %49
 
 ._crit_edge.i:                                    ; preds = %49, %.lr.ph.i, %.lr.ph.i.preheader, %29
   %.025.lcssa.i = phi ptr [ %31, %29 ], [ %31, %.lr.ph.i.preheader ], [ %80, %.lr.ph.i ], [ %80, %49 ]
@@ -365,25 +365,25 @@ __archive_rb_tree_reparent_nodes.exit36.i:        ; preds = %.sink.split.i32.i, 
   %154 = load i64, ptr %153, align 8, !tbaa !20
   %155 = and i64 %154, -2
   store i64 %155, ptr %153, align 8, !tbaa !20
-  br label %__archive_rb_tree_insert_rebalance.exit
+  br label %.critedge
 
-.critedge:                                        ; preds = %.thread97, %13
-  %156 = phi i64 [ %.masked89, %.thread97 ], [ %17, %13 ]
-  %.043.lcssa91103 = phi ptr [ %0, %.thread97 ], [ %.04157, %13 ]
-  %.039.lcssa93102 = phi i64 [ 0, %.thread97 ], [ %14, %13 ]
-  %157 = phi ptr [ %7, %.thread97 ], [ %16, %13 ]
+.critedge50:                                      ; preds = %.thread96, %13
+  %156 = phi i64 [ %.masked88, %.thread96 ], [ %17, %13 ]
+  %.043.lcssa90102 = phi ptr [ %0, %.thread96 ], [ %.04156, %13 ]
+  %.039.lcssa92101 = phi i64 [ 0, %.thread96 ], [ %14, %13 ]
+  %157 = phi ptr [ %7, %.thread96 ], [ %16, %13 ]
   %158 = and i64 %156, -2
   store i64 %158, ptr %157, align 8, !tbaa !20
-  %159 = getelementptr inbounds nuw [2 x ptr], ptr %.043.lcssa91103, i64 0, i64 %.039.lcssa93102
+  %159 = getelementptr inbounds nuw [2 x ptr], ptr %.043.lcssa90102, i64 0, i64 %.039.lcssa92101
   %160 = load ptr, ptr %159, align 8, !tbaa !11
   store ptr %160, ptr %1, align 8, !tbaa !11
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %160, ptr %161, align 8, !tbaa !11
   store ptr %1, ptr %159, align 8, !tbaa !11
-  br label %__archive_rb_tree_insert_rebalance.exit
+  br label %.critedge
 
-__archive_rb_tree_insert_rebalance.exit:          ; preds = %.lr.ph, %79, %73, %64, %__archive_rb_tree_reparent_nodes.exit36.i, %19, %.critedge
-  %.2 = phi i32 [ 1, %.critedge ], [ 1, %19 ], [ 1, %__archive_rb_tree_reparent_nodes.exit36.i ], [ 1, %64 ], [ 1, %73 ], [ 1, %79 ], [ 0, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %79, %73, %64, %__archive_rb_tree_reparent_nodes.exit36.i, %19, %.critedge50
+  %.2 = phi i32 [ 1, %.critedge50 ], [ 1, %19 ], [ 1, %__archive_rb_tree_reparent_nodes.exit36.i ], [ 1, %64 ], [ 1, %73 ], [ 1, %79 ], [ 0, %.lr.ph ]
   ret i32 %.2
 }
 

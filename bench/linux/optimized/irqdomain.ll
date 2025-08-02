@@ -1568,36 +1568,36 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
 15:                                               ; preds = %13, %11
   %16 = phi i32 [ %12, %11 ], [ %14, %13 ]
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %.loopexit31, label %18
+  br i1 %17, label %.loopexit30, label %18
 
 18:                                               ; preds = %15, %7
   %19 = phi i32 [ %16, %15 ], [ %1, %7 ]
   %20 = icmp eq i32 %2, 0
-  br i1 %20, label %.loopexit42, label %21
+  br i1 %20, label %.loopexit41, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %23
 
-23:                                               ; preds = %.loopexit41, %21
-  %24 = phi i32 [ 0, %21 ], [ %65, %.loopexit41 ]
+23:                                               ; preds = %.loopexit40, %21
+  %24 = phi i32 [ 0, %21 ], [ %65, %.loopexit40 ]
   %25 = add i32 %24, %19
   %26 = tail call ptr @irq_get_irq_data(i32 noundef %25) #16
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr %0, ptr %27, align 8
   %28 = load ptr, ptr %22, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit41, label %.preheader40.preheader
+  br i1 %29, label %.loopexit40, label %.preheader39.preheader
 
-.preheader40.preheader:                           ; preds = %23
+.preheader39.preheader:                           ; preds = %23
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %26, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %.preheader40
+  br label %.preheader39
 
-.preheader40:                                     ; preds = %.preheader40.preheader, %38
-  %30 = phi ptr [ %44, %38 ], [ %.pre, %.preheader40.preheader ]
-  %31 = phi ptr [ %48, %38 ], [ %28, %.preheader40.preheader ]
-  %32 = phi ptr [ %36, %38 ], [ %26, %.preheader40.preheader ]
+.preheader39:                                     ; preds = %.preheader39.preheader, %38
+  %30 = phi ptr [ %44, %38 ], [ %.pre, %.preheader39.preheader ]
+  %31 = phi ptr [ %48, %38 ], [ %28, %.preheader39.preheader ]
+  %32 = phi ptr [ %36, %38 ], [ %26, %.preheader39.preheader ]
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
@@ -1605,7 +1605,7 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   %37 = icmp eq ptr %36, null
   br i1 %37, label %50, label %38
 
-38:                                               ; preds = %.preheader40
+38:                                               ; preds = %.preheader39
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store ptr %36, ptr %40, align 8
@@ -1621,14 +1621,14 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   %47 = getelementptr inbounds nuw i8, ptr %31, i64 128
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.loopexit41, label %.preheader40, !llvm.loop !55
+  br i1 %49, label %.loopexit40, label %.preheader39, !llvm.loop !55
 
-50:                                               ; preds = %.preheader40
+50:                                               ; preds = %.preheader39
   %51 = icmp eq i32 %24, -1
-  br i1 %51, label %.loopexit27, label %.preheader38
+  br i1 %51, label %.loopexit26, label %.preheader37
 
-.preheader38:                                     ; preds = %50, %.loopexit37
-  %52 = phi i32 [ %63, %.loopexit37 ], [ 0, %50 ]
+.preheader37:                                     ; preds = %50, %.loopexit36
+  %52 = phi i32 [ %63, %.loopexit36 ], [ 0, %50 ]
   %53 = add i32 %52, %19
   %54 = tail call ptr @irq_get_irq_data(i32 noundef %53) #16
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
@@ -1636,27 +1636,27 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %58 = icmp eq ptr %56, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
-  br i1 %58, label %.loopexit37, label %.preheader36
+  br i1 %58, label %.loopexit36, label %.preheader35
 
-.preheader36:                                     ; preds = %.preheader38, %.preheader36
-  %59 = phi ptr [ %61, %.preheader36 ], [ %56, %.preheader38 ]
+.preheader35:                                     ; preds = %.preheader37, %.preheader35
+  %59 = phi ptr [ %61, %.preheader35 ], [ %56, %.preheader37 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %61 = load ptr, ptr %60, align 8
   tail call void @kfree(ptr noundef nonnull %59) #16
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.loopexit37, label %.preheader36, !llvm.loop !56
+  br i1 %62, label %.loopexit36, label %.preheader35, !llvm.loop !56
 
-.loopexit37:                                      ; preds = %.preheader36, %.preheader38
+.loopexit36:                                      ; preds = %.preheader35, %.preheader37
   %63 = add nuw i32 %52, 1
   %64 = icmp eq i32 %52, %24
-  br i1 %64, label %.loopexit27, label %.preheader38, !llvm.loop !57
+  br i1 %64, label %.loopexit26, label %.preheader37, !llvm.loop !57
 
-.loopexit41:                                      ; preds = %38, %23
+.loopexit40:                                      ; preds = %38, %23
   %65 = add nuw i32 %24, 1
   %66 = icmp eq i32 %65, %2
-  br i1 %66, label %.loopexit42, label %23, !llvm.loop !58
+  br i1 %66, label %.loopexit41, label %23, !llvm.loop !58
 
-.loopexit42:                                      ; preds = %.loopexit41, %18
+.loopexit41:                                      ; preds = %.loopexit40, %18
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
@@ -1664,21 +1664,21 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   %71 = icmp eq ptr %70, null
   br i1 %71, label %.thread, label %72
 
-72:                                               ; preds = %.loopexit42
+72:                                               ; preds = %.loopexit41
   %73 = tail call i32 %70(ptr noundef nonnull %0, i32 noundef %19, i32 noundef %2, ptr noundef %4) #16
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %.thread, label %75
 
 75:                                               ; preds = %72
-  br i1 %20, label %.loopexit31, label %.preheader34
+  br i1 %20, label %.loopexit30, label %.preheader33
 
-.thread24:                                        ; preds = %.preheader32, %86, %107, %109
+.critedge:                                        ; preds = %.preheader31, %86, %107, %109
   %76 = add nuw i32 %78, 1
   %77 = icmp eq i32 %76, %2
-  br i1 %77, label %.preheader30, label %.preheader34, !llvm.loop !59
+  br i1 %77, label %.preheader29, label %.preheader33, !llvm.loop !59
 
-.preheader34:                                     ; preds = %75, %.thread24
-  %78 = phi i32 [ %76, %.thread24 ], [ 0, %75 ]
+.preheader33:                                     ; preds = %75, %.critedge
+  %78 = phi i32 [ %76, %.critedge ], [ 0, %75 ]
   %79 = add i32 %78, %19
   %80 = tail call ptr @irq_get_irq_data(i32 noundef %79) #16
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
@@ -1688,13 +1688,13 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   %85 = or i1 %83, %84
   br i1 %85, label %.thread, label %86
 
-86:                                               ; preds = %.preheader34
+86:                                               ; preds = %.preheader33
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.thread24, label %.preheader33
+  br i1 %89, label %.critedge, label %.preheader32
 
-.preheader33:                                     ; preds = %86, %102
+.preheader32:                                     ; preds = %86, %102
   %90 = phi ptr [ %105, %102 ], [ %88, %86 ]
   %91 = phi ptr [ %90, %102 ], [ %80, %86 ]
   %92 = phi ptr [ %103, %102 ], [ null, %86 ]
@@ -1705,7 +1705,7 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   %97 = xor i1 %96, %95
   br i1 %97, label %98, label %.thread
 
-98:                                               ; preds = %.preheader33
+98:                                               ; preds = %.preheader32
   %99 = icmp ugt ptr %94, inttoptr (i64 -4096 to ptr)
   br i1 %99, label %100, label %102
 
@@ -1718,11 +1718,11 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   %104 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %.preheader33, !llvm.loop !60
+  br i1 %106, label %107, label %.preheader32, !llvm.loop !60
 
 107:                                              ; preds = %102
   %108 = icmp eq ptr %103, null
-  br i1 %108, label %.thread24, label %109
+  br i1 %108, label %.critedge, label %109
 
 109:                                              ; preds = %107
   %110 = getelementptr inbounds nuw i8, ptr %103, i64 40
@@ -1735,25 +1735,25 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   %117 = load ptr, ptr %110, align 8
   store ptr null, ptr %110, align 8
   %118 = icmp eq ptr %117, null
-  br i1 %118, label %.thread24, label %.preheader32
+  br i1 %118, label %.critedge, label %.preheader31
 
-.preheader32:                                     ; preds = %109, %.preheader32
-  %119 = phi ptr [ %121, %.preheader32 ], [ %117, %109 ]
+.preheader31:                                     ; preds = %109, %.preheader31
+  %119 = phi ptr [ %121, %.preheader31 ], [ %117, %109 ]
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %121 = load ptr, ptr %120, align 8
   tail call void @kfree(ptr noundef nonnull %119) #16
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %.thread24, label %.preheader32, !llvm.loop !56
+  br i1 %122, label %.critedge, label %.preheader31, !llvm.loop !56
 
-.preheader30:                                     ; preds = %.thread24, %.loopexit29
-  %123 = phi i32 [ %149, %.loopexit29 ], [ 0, %.thread24 ]
+.preheader29:                                     ; preds = %.critedge, %.loopexit28
+  %123 = phi i32 [ %149, %.loopexit28 ], [ 0, %.critedge ]
   %124 = add i32 %123, %19
   %125 = tail call ptr @irq_get_irq_data(i32 noundef %124) #16
   %126 = icmp eq ptr %125, null
-  br i1 %126, label %.loopexit29, label %.preheader28
+  br i1 %126, label %.loopexit28, label %.preheader27
 
-.preheader28:                                     ; preds = %.preheader30, %145
-  %127 = phi ptr [ %147, %145 ], [ %125, %.preheader30 ]
+.preheader27:                                     ; preds = %.preheader29, %145
+  %127 = phi ptr [ %147, %145 ], [ %125, %.preheader29 ]
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 44
@@ -1768,14 +1768,14 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   %138 = icmp ult i64 %134, %137
   br i1 %138, label %139, label %142
 
-139:                                              ; preds = %.preheader28
+139:                                              ; preds = %.preheader27
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !39
   %140 = getelementptr inbounds nuw i8, ptr %129, i64 176
   %141 = getelementptr [0 x ptr], ptr %140, i64 0, i64 %134
   store volatile ptr %127, ptr %141, align 8
   br label %145
 
-142:                                              ; preds = %.preheader28
+142:                                              ; preds = %.preheader27
   %143 = getelementptr inbounds nuw i8, ptr %129, i64 160
   %144 = tail call i32 @radix_tree_insert(ptr noundef nonnull %143, i64 noundef %134, ptr noundef nonnull %127) #16
   br label %145
@@ -1784,19 +1784,19 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   %146 = getelementptr inbounds nuw i8, ptr %127, i64 40
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, null
-  br i1 %148, label %.loopexit29, label %.preheader28, !llvm.loop !61
+  br i1 %148, label %.loopexit28, label %.preheader27, !llvm.loop !61
 
-.loopexit29:                                      ; preds = %145, %.preheader30
+.loopexit28:                                      ; preds = %145, %.preheader29
   tail call void @irq_modify_status(i32 noundef %124, i64 noundef 2048, i64 noundef 0) #16
   %149 = add nuw i32 %123, 1
   %150 = icmp eq i32 %149, %2
-  br i1 %150, label %.loopexit31, label %.preheader30, !llvm.loop !62
+  br i1 %150, label %.loopexit30, label %.preheader29, !llvm.loop !62
 
-.thread:                                          ; preds = %.preheader34, %.preheader33, %100, %.loopexit42, %72
-  %151 = phi i32 [ %73, %72 ], [ -38, %.loopexit42 ], [ -22, %100 ], [ -22, %.preheader33 ], [ -22, %.preheader34 ]
-  br i1 %20, label %.loopexit27, label %.preheader26
+.thread:                                          ; preds = %.preheader33, %.preheader32, %100, %.loopexit41, %72
+  %151 = phi i32 [ %73, %72 ], [ -38, %.loopexit41 ], [ -22, %100 ], [ -22, %.preheader32 ], [ -22, %.preheader33 ]
+  br i1 %20, label %.loopexit26, label %.preheader25
 
-.preheader26:                                     ; preds = %.thread, %.loopexit
+.preheader25:                                     ; preds = %.thread, %.loopexit
   %152 = phi i32 [ %163, %.loopexit ], [ 0, %.thread ]
   %153 = add i32 %152, %19
   %154 = tail call ptr @irq_get_irq_data(i32 noundef %153) #16
@@ -1807,26 +1807,26 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, i8 0, i64 16, i1 false)
   br i1 %158, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.preheader26, %.preheader
-  %159 = phi ptr [ %161, %.preheader ], [ %156, %.preheader26 ]
+.preheader:                                       ; preds = %.preheader25, %.preheader
+  %159 = phi ptr [ %161, %.preheader ], [ %156, %.preheader25 ]
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 40
   %161 = load ptr, ptr %160, align 8
   tail call void @kfree(ptr noundef nonnull %159) #16
   %162 = icmp eq ptr %161, null
   br i1 %162, label %.loopexit, label %.preheader, !llvm.loop !56
 
-.loopexit:                                        ; preds = %.preheader, %.preheader26
+.loopexit:                                        ; preds = %.preheader, %.preheader25
   %163 = add nuw i32 %152, 1
   %164 = icmp eq i32 %163, %2
-  br i1 %164, label %.loopexit27, label %.preheader26, !llvm.loop !57
+  br i1 %164, label %.loopexit26, label %.preheader25, !llvm.loop !57
 
-.loopexit27:                                      ; preds = %.loopexit37, %.loopexit, %.thread, %50
-  %165 = phi i32 [ %151, %.thread ], [ -12, %50 ], [ %151, %.loopexit ], [ -12, %.loopexit37 ]
+.loopexit26:                                      ; preds = %.loopexit36, %.loopexit, %.thread, %50
+  %165 = phi i32 [ %151, %.thread ], [ -12, %50 ], [ %151, %.loopexit ], [ -12, %.loopexit36 ]
   tail call void @irq_free_descs(i32 noundef %19, i32 noundef %2) #16
-  br label %.loopexit31
+  br label %.loopexit30
 
-.loopexit31:                                      ; preds = %.loopexit29, %.loopexit27, %75, %15
-  %166 = phi i32 [ %165, %.loopexit27 ], [ %16, %15 ], [ %19, %75 ], [ %19, %.loopexit29 ]
+.loopexit30:                                      ; preds = %.loopexit28, %.loopexit26, %75, %15
+  %166 = phi i32 [ %165, %.loopexit26 ], [ %16, %15 ], [ %19, %75 ], [ %19, %.loopexit28 ]
   ret i32 %166
 }
 

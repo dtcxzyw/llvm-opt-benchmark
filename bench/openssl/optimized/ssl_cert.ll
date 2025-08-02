@@ -2173,18 +2173,18 @@ define internal i32 @xname_sk_cmp(ptr noundef readonly captures(none) %0, ptr no
 define internal fastcc i32 @add_uris_recursive(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call ptr @OSSL_STORE_open(ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #14
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.thread38, label %.preheader
+  br i1 %5, label %.critedge39.thread, label %.preheader
 
 .preheader:                                       ; preds = %3
   %6 = tail call i32 @OSSL_STORE_eof(ptr noundef nonnull %4) #14
-  %.not43 = icmp eq i32 %6, 0
-  br i1 %.not43, label %.lr.ph, label %.critedge
+  %.not44 = icmp eq i32 %6, 0
+  br i1 %.not44, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %.not37 = icmp eq i32 %2, 0
   br i1 %.not37, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge39.us
   %7 = tail call i32 @OSSL_STORE_error(ptr noundef nonnull %4) #14
   %.not35.us = icmp eq i32 %7, 0
   br i1 %.not35.us, label %8, label %.critedge
@@ -2192,7 +2192,7 @@ define internal fastcc i32 @add_uris_recursive(ptr noundef %0, ptr noundef %1, i
 8:                                                ; preds = %.lr.ph.split.us
   %9 = tail call ptr @OSSL_STORE_load(ptr noundef nonnull %4) #14
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread.us, label %11
+  br i1 %10, label %.critedge39.us, label %11, !llvm.loop !167
 
 11:                                               ; preds = %8
   %12 = tail call i32 @OSSL_STORE_INFO_get_type(ptr noundef nonnull %9) #14
@@ -2202,17 +2202,17 @@ define internal fastcc i32 @add_uris_recursive(ptr noundef %0, ptr noundef %1, i
 13:                                               ; preds = %11
   %14 = tail call ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef nonnull %9) #14
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.thread38, label %16
+  br i1 %15, label %.critedge39.thread, label %16
 
 16:                                               ; preds = %13
   %17 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %14) #14
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread38, label %19
+  br i1 %18, label %.critedge39.thread, label %19
 
 19:                                               ; preds = %16
   %20 = tail call ptr @X509_NAME_dup(ptr noundef nonnull %17) #14
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread38, label %22
+  br i1 %21, label %.critedge39.thread, label %22
 
 22:                                               ; preds = %19
   %23 = tail call i32 @OPENSSL_sk_find(ptr noundef %0, ptr noundef nonnull %20) #14
@@ -2230,15 +2230,15 @@ define internal fastcc i32 @add_uris_recursive(ptr noundef %0, ptr noundef %1, i
 
 28:                                               ; preds = %11, %27, %25
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %9) #14
-  br label %.thread.us
+  br label %.critedge39.us
 
-.thread.us:                                       ; preds = %28, %8
+.critedge39.us:                                   ; preds = %28, %8
   %29 = tail call i32 @OSSL_STORE_eof(ptr noundef nonnull %4) #14
   %.not.us = icmp eq i32 %29, 0
-  br i1 %.not.us, label %.lr.ph.split.us, label %.critedge, !llvm.loop !167
+  br i1 %.not.us, label %.lr.ph.split.us, label %.critedge, !llvm.loop !168
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %.02744 = phi i32 [ %.1, %.thread ], [ 1, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.critedge39
+  %.02745 = phi i32 [ %.1, %.critedge39 ], [ 1, %.lr.ph ]
   %30 = tail call i32 @OSSL_STORE_error(ptr noundef nonnull %4) #14
   %.not35 = icmp eq i32 %30, 0
   br i1 %.not35, label %31, label %.critedge
@@ -2246,7 +2246,7 @@ define internal fastcc i32 @add_uris_recursive(ptr noundef %0, ptr noundef %1, i
 31:                                               ; preds = %.lr.ph.split
   %32 = tail call ptr @OSSL_STORE_load(ptr noundef nonnull %4) #14
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread, label %34
+  br i1 %33, label %.critedge39, label %34, !llvm.loop !167
 
 34:                                               ; preds = %31
   %35 = tail call i32 @OSSL_STORE_INFO_get_type(ptr noundef nonnull %32) #14
@@ -2263,17 +2263,17 @@ define internal fastcc i32 @add_uris_recursive(ptr noundef %0, ptr noundef %1, i
 39:                                               ; preds = %34
   %40 = tail call ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef nonnull %32) #14
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread38, label %42
+  br i1 %41, label %.critedge39.thread, label %42
 
 42:                                               ; preds = %39
   %43 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %40) #14
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread38, label %45
+  br i1 %44, label %.critedge39.thread, label %45
 
 45:                                               ; preds = %42
   %46 = tail call ptr @X509_NAME_dup(ptr noundef nonnull %43) #14
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.thread38, label %48
+  br i1 %47, label %.critedge39.thread, label %48
 
 48:                                               ; preds = %45
   %49 = tail call i32 @OPENSSL_sk_find(ptr noundef %0, ptr noundef nonnull %46) #14
@@ -2290,27 +2290,27 @@ define internal fastcc i32 @add_uris_recursive(ptr noundef %0, ptr noundef %1, i
   br i1 %.not36, label %.split.us, label %54
 
 .split.us:                                        ; preds = %52, %25
-  %.us-phi47 = phi ptr [ %20, %25 ], [ %46, %52 ]
-  tail call void @X509_NAME_free(ptr noundef nonnull %.us-phi47) #14
-  br label %.thread38
+  %.us-phi48 = phi ptr [ %20, %25 ], [ %46, %52 ]
+  tail call void @X509_NAME_free(ptr noundef nonnull %.us-phi48) #14
+  br label %.critedge39.thread
 
 54:                                               ; preds = %34, %52, %51, %36
-  %.2 = phi i32 [ %38, %36 ], [ %.02744, %51 ], [ %.02744, %52 ], [ %.02744, %34 ]
+  %.2 = phi i32 [ %38, %36 ], [ %.02745, %51 ], [ %.02745, %52 ], [ %.02745, %34 ]
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %32) #14
-  br label %.thread
+  br label %.critedge39
 
-.thread:                                          ; preds = %31, %54
-  %.1 = phi i32 [ %.2, %54 ], [ %.02744, %31 ]
+.critedge39:                                      ; preds = %31, %54
+  %.1 = phi i32 [ %.2, %54 ], [ %.02745, %31 ]
   %55 = tail call i32 @OSSL_STORE_eof(ptr noundef nonnull %4) #14
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %.lr.ph.split, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph.split, %.thread, %.lr.ph.split.us, %.thread.us, %.preheader
-  %.027.lcssa = phi i32 [ 1, %.preheader ], [ 1, %.thread.us ], [ 1, %.lr.ph.split.us ], [ %.1, %.thread ], [ %.02744, %.lr.ph.split ]
+.critedge:                                        ; preds = %.lr.ph.split, %.critedge39, %.lr.ph.split.us, %.critedge39.us, %.preheader
+  %.027.lcssa = phi i32 [ 1, %.preheader ], [ 1, %.critedge39.us ], [ 1, %.lr.ph.split.us ], [ %.1, %.critedge39 ], [ %.02745, %.lr.ph.split ]
   tail call void @ERR_clear_error() #14
-  br label %.thread38
+  br label %.critedge39.thread
 
-.thread38:                                        ; preds = %45, %42, %39, %19, %16, %13, %.split.us, %.critedge, %3
+.critedge39.thread:                               ; preds = %45, %42, %39, %19, %16, %13, %.split.us, %.critedge, %3
   %.3 = phi i32 [ %.027.lcssa, %.critedge ], [ 0, %3 ], [ 0, %.split.us ], [ 0, %13 ], [ 0, %16 ], [ 0, %19 ], [ 0, %39 ], [ 0, %42 ], [ 0, %45 ]
   %56 = tail call i32 @OSSL_STORE_close(ptr noundef %4) #14
   ret i32 %.3
@@ -2366,7 +2366,7 @@ define range(i32 0, 3) i32 @ssl_build_cert_chain(ptr noundef %0, ptr noundef %1,
   %27 = load ptr, ptr %21, align 8, !tbaa !98
   %28 = tail call i32 @OPENSSL_sk_num(ptr noundef %27) #14
   %29 = icmp slt i32 %26, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !169
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !170
 
 .lr.ph:                                           ; preds = %.preheader, %25
   %.069113 = phi i32 [ %26, %25 ], [ 0, %.preheader ]
@@ -2467,7 +2467,7 @@ define range(i32 0, 3) i32 @ssl_build_cert_chain(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 .thread:                                          ; preds = %65, %67, %68
-  %.1106 = phi i32 [ 0, %68 ], [ 2, %67 ], [ 2, %65 ]
+  %.1106 = phi i32 [ 1, %68 ], [ 2, %67 ], [ 2, %65 ]
   %73 = tail call ptr @X509_STORE_CTX_get1_chain(ptr noundef nonnull %50) #14
   %74 = tail call ptr @OPENSSL_sk_shift(ptr noundef %73) #14
   tail call void @X509_free(ptr noundef %74) #14
@@ -2503,7 +2503,7 @@ define range(i32 0, 3) i32 @ssl_build_cert_chain(ptr noundef %0, ptr noundef %1,
   %91 = add nuw nsw i32 %.271114, 1
   %92 = tail call i32 @OPENSSL_sk_num(ptr noundef %73) #14
   %93 = icmp slt i32 %91, %92
-  br i1 %93, label %.lr.ph116, label %._crit_edge117, !llvm.loop !170
+  br i1 %93, label %.lr.ph116, label %._crit_edge117, !llvm.loop !171
 
 .lr.ph116:                                        ; preds = %87, %90
   %.271114 = phi i32 [ %91, %90 ], [ 0, %87 ]
@@ -2525,14 +2525,13 @@ define range(i32 0, 3) i32 @ssl_build_cert_chain(ptr noundef %0, ptr noundef %1,
   %98 = load ptr, ptr %97, align 8, !tbaa !98
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %98) #14
   store ptr %73, ptr %97, align 8, !tbaa !98
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.2.lcssa, i32 1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge117, %96, %69, %56, %52, %15
   %.pre-phi = phi i32 [ %17, %._crit_edge117 ], [ %17, %96 ], [ %17, %69 ], [ %17, %56 ], [ %17, %52 ], [ %.pre, %15 ]
   %.077 = phi ptr [ %50, %._crit_edge117 ], [ %50, %96 ], [ %50, %69 ], [ %50, %56 ], [ null, %52 ], [ null, %15 ]
   %.072 = phi ptr [ %.173, %._crit_edge117 ], [ %.173, %96 ], [ %.173, %69 ], [ %.173, %56 ], [ %.173, %52 ], [ null, %15 ]
-  %.0 = phi i32 [ %spec.store.select, %._crit_edge117 ], [ 0, %96 ], [ 0, %69 ], [ 0, %56 ], [ 0, %52 ], [ 0, %15 ]
+  %.0 = phi i32 [ %.2.lcssa, %._crit_edge117 ], [ 0, %96 ], [ 0, %69 ], [ 0, %56 ], [ 0, %52 ], [ 0, %15 ]
   %.not100 = icmp eq i32 %.pre-phi, 0
   br i1 %.not100, label %99, label %.loopexit.thread
 
@@ -2581,9 +2580,9 @@ define noundef i32 @ssl_cert_set_cert_store(ptr noundef captures(none) %0, ptr n
   %.not = icmp eq i32 %2, 0
   %.0.v = select i1 %.not, i64 120, i64 112
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v
-  %5 = load ptr, ptr %.0, align 8, !tbaa !171
+  %5 = load ptr, ptr %.0, align 8, !tbaa !172
   tail call void @X509_STORE_free(ptr noundef %5) #14
-  store ptr %1, ptr %.0, align 8, !tbaa !171
+  store ptr %1, ptr %.0, align 8, !tbaa !172
   %6 = icmp ne i32 %3, 0
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %7, %6
@@ -2602,8 +2601,8 @@ define noundef i32 @ssl_cert_get_cert_store(ptr noundef readonly captures(none) 
   %.not = icmp eq i32 %2, 0
   %.in.v = select i1 %.not, i64 120, i64 112
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %4 = load ptr, ptr %.in, align 8, !tbaa !171
-  store ptr %4, ptr %1, align 8, !tbaa !171
+  %4 = load ptr, ptr %.in, align 8, !tbaa !172
+  store ptr %4, ptr %1, align 8, !tbaa !172
   ret i32 1
 }
 
@@ -2649,7 +2648,7 @@ define i32 @ssl_security(ptr noundef readonly captures(none) %0, i32 noundef %1,
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !172
+  %11 = load ptr, ptr %10, align 8, !tbaa !173
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = tail call i32 %9(ptr noundef %11, ptr noundef null, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %13) #14
@@ -2659,7 +2658,7 @@ define i32 @ssl_security(ptr noundef readonly captures(none) %0, i32 noundef %1,
 ; Function Attrs: nounwind uwtable
 define i32 @ssl_ctx_security(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %7 = load ptr, ptr %6, align 8, !tbaa !173
+  %7 = load ptr, ptr %6, align 8, !tbaa !174
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 160
@@ -2674,31 +2673,31 @@ define range(i32 0, 2) i32 @ssl_cert_lookup_by_nid(i32 noundef %0, ptr noundef w
 
 .preheader:                                       ; preds = %12
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1688
-  %5 = load i64, ptr %4, align 8, !tbaa !174
+  %5 = load i64, ptr %4, align 8, !tbaa !175
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 352
-  %7 = load ptr, ptr %6, align 8, !tbaa !175
+  %7 = load ptr, ptr %6, align 8, !tbaa !176
   br label %14
 
 8:                                                ; preds = %3, %12
   %.017 = phi i64 [ 0, %3 ], [ %13, %12 ]
   %9 = getelementptr inbounds nuw [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %.017
-  %10 = load i32, ptr %9, align 8, !tbaa !176
+  %10 = load i32, ptr %9, align 8, !tbaa !177
   %11 = icmp eq i32 %10, %0
   br i1 %11, label %.loopexit.sink.split, label %12
 
 12:                                               ; preds = %8
   %13 = add nuw nsw i64 %.017, 1
   %exitcond.not = icmp eq i64 %13, 9
-  br i1 %exitcond.not, label %.preheader, label %8, !llvm.loop !178
+  br i1 %exitcond.not, label %.preheader, label %8, !llvm.loop !179
 
 14:                                               ; preds = %.lr.ph, %20
   %.118 = phi i64 [ 0, %.lr.ph ], [ %21, %20 ]
   %15 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr %7, i64 %.118
-  %16 = load i32, ptr %15, align 4, !tbaa !176
+  %16 = load i32, ptr %15, align 4, !tbaa !177
   %17 = icmp eq i32 %16, %0
   br i1 %17, label %18, label %20
 
@@ -2709,11 +2708,11 @@ define range(i32 0, 2) i32 @ssl_cert_lookup_by_nid(i32 noundef %0, ptr noundef w
 20:                                               ; preds = %14
   %21 = add nuw i64 %.118, 1
   %exitcond21.not = icmp eq i64 %21, %5
-  br i1 %exitcond21.not, label %.loopexit, label %14, !llvm.loop !179
+  br i1 %exitcond21.not, label %.loopexit, label %14, !llvm.loop !180
 
 .loopexit.sink.split:                             ; preds = %8, %18
   %.sink = phi i64 [ %19, %18 ], [ %.017, %8 ]
-  store i64 %.sink, ptr %1, align 8, !tbaa !180
+  store i64 %.sink, ptr %1, align 8, !tbaa !181
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %.loopexit.sink.split, %.preheader
@@ -2727,7 +2726,7 @@ define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly captur
 
 .preheader:                                       ; preds = %18
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1688
-  %5 = load i64, ptr %4, align 8, !tbaa !174
+  %5 = load i64, ptr %4, align 8, !tbaa !175
   %.not50 = icmp eq i64 %5, 0
   br i1 %.not50, label %.thread, label %.lr.ph
 
@@ -2738,7 +2737,7 @@ define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly captur
 7:                                                ; preds = %3, %18
   %.03048 = phi i64 [ 0, %3 ], [ %19, %18 ]
   %8 = getelementptr inbounds nuw [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %.03048
-  %9 = load i32, ptr %8, align 8, !tbaa !176
+  %9 = load i32, ptr %8, align 8, !tbaa !177
   %10 = tail call ptr @OBJ_nid2sn(i32 noundef %9) #14
   %11 = tail call i32 @EVP_PKEY_is_a(ptr noundef %0, ptr noundef %10) #14
   %.not36 = icmp eq i32 %11, 0
@@ -2756,26 +2755,26 @@ define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly captur
   br i1 %.not38, label %.thread, label %17
 
 17:                                               ; preds = %15
-  store i64 %.03048, ptr %1, align 8, !tbaa !180
+  store i64 %.03048, ptr %1, align 8, !tbaa !181
   br label %.thread
 
 18:                                               ; preds = %12
   %19 = add nuw nsw i64 %.03048, 1
   %exitcond.not = icmp eq i64 %19, 9
-  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !181
+  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !182
 
 20:                                               ; preds = %.lr.ph, %36
   %.13149 = phi i64 [ 0, %.lr.ph ], [ %37, %36 ]
-  %21 = load ptr, ptr %6, align 8, !tbaa !175
+  %21 = load ptr, ptr %6, align 8, !tbaa !176
   %22 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr %21, i64 %.13149
-  %23 = load i32, ptr %22, align 4, !tbaa !176
+  %23 = load i32, ptr %22, align 4, !tbaa !177
   %24 = tail call ptr @OBJ_nid2sn(i32 noundef %23) #14
   %25 = tail call i32 @EVP_PKEY_is_a(ptr noundef %0, ptr noundef %24) #14
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %30
 
 26:                                               ; preds = %20
-  %27 = load i32, ptr %22, align 4, !tbaa !176
+  %27 = load i32, ptr %22, align 4, !tbaa !177
   %28 = tail call ptr @OBJ_nid2ln(i32 noundef %27) #14
   %29 = tail call i32 @EVP_PKEY_is_a(ptr noundef %0, ptr noundef %28) #14
   %.not34 = icmp eq i32 %29, 0
@@ -2787,19 +2786,19 @@ define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly captur
 
 31:                                               ; preds = %30
   %32 = add i64 %.13149, 9
-  store i64 %32, ptr %1, align 8, !tbaa !180
+  store i64 %32, ptr %1, align 8, !tbaa !181
   br label %33
 
 33:                                               ; preds = %30, %31
-  %34 = load ptr, ptr %6, align 8, !tbaa !175
+  %34 = load ptr, ptr %6, align 8, !tbaa !176
   %35 = getelementptr inbounds nuw %struct.SSL_CERT_LOOKUP, ptr %34, i64 %.13149
   br label %.thread
 
 36:                                               ; preds = %26
   %37 = add nuw i64 %.13149, 1
-  %38 = load i64, ptr %4, align 8, !tbaa !174
+  %38 = load i64, ptr %4, align 8, !tbaa !175
   %39 = icmp ult i64 %37, %38
-  br i1 %39, label %20, label %.thread, !llvm.loop !182
+  br i1 %39, label %20, label %.thread, !llvm.loop !183
 
 .thread:                                          ; preds = %36, %.preheader, %15, %17, %33
   %.2 = phi ptr [ %35, %33 ], [ %16, %17 ], [ %16, %15 ], [ null, %.preheader ], [ null, %36 ]
@@ -2815,7 +2814,7 @@ declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ssl_cert_lookup_by_idx(i64 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1688
-  %4 = load i64, ptr %3, align 8, !tbaa !174
+  %4 = load i64, ptr %3, align 8, !tbaa !175
   %5 = add i64 %4, 9
   %.not = icmp ult i64 %0, %5
   br i1 %.not, label %6, label %15
@@ -2826,7 +2825,7 @@ define ptr @ssl_cert_lookup_by_idx(i64 noundef %0, ptr noundef readonly captures
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %10 = load ptr, ptr %9, align 8, !tbaa !175
+  %10 = load ptr, ptr %9, align 8, !tbaa !176
   %11 = getelementptr %struct.SSL_CERT_LOOKUP, ptr %10, i64 %0
   %12 = getelementptr i8, ptr %11, i64 -72
   br label %15
@@ -2925,9 +2924,6 @@ declare i32 @OSSL_STORE_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
@@ -3122,19 +3118,20 @@ attributes #16 = { nounwind willreturn memory(none) }
 !164 = distinct !{!164, !102}
 !165 = !{!166, !166, i64 0}
 !166 = !{!"p1 _ZTS12X509_name_st", !11, i64 0}
-!167 = distinct !{!167, !168}
-!168 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!169 = distinct !{!169, !102}
+!167 = distinct !{!167, !102}
+!168 = distinct !{!168, !169}
+!169 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !170 = distinct !{!170, !102}
-!171 = !{!16, !16, i64 0}
-!172 = !{!38, !39, i64 64}
-!173 = !{!124, !66, i64 344}
-!174 = !{!124, !13, i64 1688}
-!175 = !{!124, !11, i64 352}
-!176 = !{!177, !4, i64 0}
-!177 = !{!"", !4, i64 0, !4, i64 4}
-!178 = distinct !{!178, !102}
+!171 = distinct !{!171, !102}
+!172 = !{!16, !16, i64 0}
+!173 = !{!38, !39, i64 64}
+!174 = !{!124, !66, i64 344}
+!175 = !{!124, !13, i64 1688}
+!176 = !{!124, !11, i64 352}
+!177 = !{!178, !4, i64 0}
+!178 = !{!"", !4, i64 0, !4, i64 4}
 !179 = distinct !{!179, !102}
-!180 = !{!13, !13, i64 0}
-!181 = distinct !{!181, !102}
+!180 = distinct !{!180, !102}
+!181 = !{!13, !13, i64 0}
 !182 = distinct !{!182, !102}
+!183 = distinct !{!183, !102}

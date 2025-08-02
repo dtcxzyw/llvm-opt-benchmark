@@ -614,7 +614,7 @@ define internal range(i32 -1, 1) i32 @siftup(ptr noundef readonly captures(none)
 4:                                                ; preds = %2
   %5 = load ptr, ptr @PyExc_IndexError, align 8, !tbaa !3
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.12) #2
-  br label %.thread
+  br label %.critedge
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -627,18 +627,18 @@ define internal range(i32 -1, 1) i32 @siftup(ptr noundef readonly captures(none)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
-  %.04265 = phi i64 [ %.044, %47 ], [ %1, %.lr.ph.preheader ]
-  %.04664 = phi ptr [ %.147, %47 ], [ %10, %.lr.ph.preheader ]
-  %11 = shl i64 %.04265, 1
+  %.04262 = phi i64 [ %.044, %47 ], [ %1, %.lr.ph.preheader ]
+  %.04661 = phi ptr [ %.147, %47 ], [ %10, %.lr.ph.preheader ]
+  %11 = shl i64 %.04262, 1
   %12 = or disjoint i64 %11, 1
   %13 = add i64 %11, 2
   %14 = icmp slt i64 %13, %.val58
   br i1 %14, label %15, label %47
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr ptr, ptr %.04664, i64 %12
+  %16 = getelementptr ptr, ptr %.04661, i64 %12
   %17 = load ptr, ptr %16, align 8, !tbaa !3
-  %18 = getelementptr ptr, ptr %.04664, i64 %13
+  %18 = getelementptr ptr, ptr %.04661, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !3
   %20 = load i32, ptr %17, align 8, !tbaa !22
   %21 = icmp slt i32 %20, 0
@@ -692,7 +692,7 @@ Py_DECREF.exit56:                                 ; preds = %Py_INCREF.exit, %30
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit56, %35, %38
   %39 = icmp slt i32 %28, 0
-  br i1 %39, label %.thread, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %Py_DECREF.exit
   %41 = xor i32 %28, 1
@@ -706,14 +706,14 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit56, %
 45:                                               ; preds = %40
   %46 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !3
   tail call void @PyErr_SetString(ptr noundef %46, ptr noundef nonnull @.str.13) #2
-  br label %.thread
+  br label %.critedge
 
 47:                                               ; preds = %40, %.lr.ph
-  %.147 = phi ptr [ %.04664, %.lr.ph ], [ %44, %40 ]
+  %.147 = phi ptr [ %.04661, %.lr.ph ], [ %44, %40 ]
   %.044 = phi i64 [ %12, %.lr.ph ], [ %43, %40 ]
   %48 = getelementptr ptr, ptr %.147, i64 %.044
   %49 = load ptr, ptr %48, align 8, !tbaa !3
-  %50 = getelementptr ptr, ptr %.147, i64 %.04265
+  %50 = getelementptr ptr, ptr %.147, i64 %.04262
   %51 = load ptr, ptr %50, align 8, !tbaa !3
   store ptr %51, ptr %48, align 8, !tbaa !3
   store ptr %49, ptr %50, align 8, !tbaa !3
@@ -723,9 +723,9 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit56, %
 ._crit_edge:                                      ; preds = %47, %6
   %.042.lcssa = phi i64 [ %1, %6 ], [ %.044, %47 ]
   %53 = tail call fastcc i32 @siftdown(ptr noundef %0, i64 noundef %1, i64 noundef %.042.lcssa)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %Py_DECREF.exit, %45, %._crit_edge, %4
+.critedge:                                        ; preds = %Py_DECREF.exit, %45, %._crit_edge, %4
   %.0 = phi i32 [ -1, %4 ], [ %53, %._crit_edge ], [ -1, %45 ], [ -1, %Py_DECREF.exit ]
   ret i32 %.0
 }
@@ -919,7 +919,7 @@ define internal range(i32 -1, 1) i32 @siftup_max(ptr noundef readonly captures(n
   %3 = getelementptr i8, ptr %0, i64 16
   %.val58 = load i64, ptr %3, align 8, !tbaa !21
   %.not = icmp slt i64 %1, %.val58
-  br i1 %.not, label %4, label %siftdown_max.exit.sink.split
+  br i1 %.not, label %4, label %.critedge.sink.split
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -929,18 +929,18 @@ define internal range(i32 -1, 1) i32 @siftup_max(ptr noundef readonly captures(n
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %43
-  %.04267 = phi i64 [ %.044, %43 ], [ %1, %4 ]
-  %.04666 = phi ptr [ %.147, %43 ], [ %6, %4 ]
-  %9 = shl i64 %.04267, 1
+  %.04264 = phi i64 [ %.044, %43 ], [ %1, %4 ]
+  %.04663 = phi ptr [ %.147, %43 ], [ %6, %4 ]
+  %9 = shl i64 %.04264, 1
   %10 = or disjoint i64 %9, 1
   %11 = add i64 %9, 2
   %12 = icmp slt i64 %11, %.val58
   br i1 %12, label %13, label %43
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr ptr, ptr %.04666, i64 %11
+  %14 = getelementptr ptr, ptr %.04663, i64 %11
   %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr ptr, ptr %.04666, i64 %10
+  %16 = getelementptr ptr, ptr %.04663, i64 %10
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = load i32, ptr %15, align 8, !tbaa !22
   %19 = icmp slt i32 %18, 0
@@ -994,7 +994,7 @@ Py_DECREF.exit56:                                 ; preds = %Py_INCREF.exit, %28
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit56, %33, %36
   %37 = icmp slt i32 %26, 0
-  br i1 %37, label %siftdown_max.exit, label %38
+  br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %Py_DECREF.exit
   %39 = xor i32 %26, 1
@@ -1003,14 +1003,14 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit56, %
   %42 = load ptr, ptr %5, align 8, !tbaa !23
   %.val = load i64, ptr %3, align 8, !tbaa !21
   %.not53 = icmp eq i64 %.val58, %.val
-  br i1 %.not53, label %43, label %siftdown_max.exit.sink.split
+  br i1 %.not53, label %43, label %.critedge.sink.split
 
 43:                                               ; preds = %38, %.lr.ph
-  %.147 = phi ptr [ %.04666, %.lr.ph ], [ %42, %38 ]
+  %.147 = phi ptr [ %.04663, %.lr.ph ], [ %42, %38 ]
   %.044 = phi i64 [ %10, %.lr.ph ], [ %41, %38 ]
   %44 = getelementptr ptr, ptr %.147, i64 %.044
   %45 = load ptr, ptr %44, align 8, !tbaa !3
-  %46 = getelementptr ptr, ptr %.147, i64 %.04267
+  %46 = getelementptr ptr, ptr %.147, i64 %.04264
   %47 = load ptr, ptr %46, align 8, !tbaa !3
   store ptr %47, ptr %44, align 8, !tbaa !3
   store ptr %45, ptr %46, align 8, !tbaa !3
@@ -1021,11 +1021,11 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit56, %
   %49 = phi ptr [ %6, %4 ], [ %.147, %43 ]
   %.042.lcssa = phi i64 [ %1, %4 ], [ %.044, %43 ]
   %.not.i59 = icmp slt i64 %.042.lcssa, %.val58
-  br i1 %.not.i59, label %50, label %siftdown_max.exit.sink.split
+  br i1 %.not.i59, label %50, label %.critedge.sink.split
 
 50:                                               ; preds = %._crit_edge
   %51 = icmp sgt i64 %.042.lcssa, %1
-  br i1 %51, label %.lr.ph.preheader.i, label %siftdown_max.exit
+  br i1 %51, label %.lr.ph.preheader.i, label %.critedge
 
 .lr.ph.preheader.i:                               ; preds = %50
   %52 = getelementptr ptr, ptr %49, i64 %.042.lcssa
@@ -1092,16 +1092,16 @@ Py_DECREF.exit40.i:                               ; preds = %71, %68, %Py_INCREF
 
 Py_DECREF.exit.i:                                 ; preds = %76, %73, %Py_DECREF.exit40.i
   %77 = icmp slt i32 %66, 0
-  br i1 %77, label %siftdown_max.exit, label %78
+  br i1 %77, label %.critedge, label %78
 
 78:                                               ; preds = %Py_DECREF.exit.i
   %.val.i = load i64, ptr %3, align 8, !tbaa !21
   %.not38.i = icmp eq i64 %.val58, %.val.i
-  br i1 %.not38.i, label %79, label %siftdown_max.exit.sink.split
+  br i1 %.not38.i, label %79, label %.critedge.sink.split
 
 79:                                               ; preds = %78
   %80 = icmp eq i32 %66, 0
-  br i1 %80, label %siftdown_max.exit, label %81
+  br i1 %80, label %.critedge, label %81
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %5, align 8, !tbaa !23
@@ -1112,17 +1112,17 @@ Py_DECREF.exit.i:                                 ; preds = %76, %73, %Py_DECREF
   store ptr %86, ptr %83, align 8, !tbaa !3
   store ptr %84, ptr %85, align 8, !tbaa !3
   %87 = icmp sgt i64 %55, %1
-  br i1 %87, label %.lr.ph.i, label %siftdown_max.exit, !llvm.loop !35
+  br i1 %87, label %.lr.ph.i, label %.critedge, !llvm.loop !35
 
-siftdown_max.exit.sink.split:                     ; preds = %38, %78, %._crit_edge, %2
-  %PyExc_RuntimeError.sink = phi ptr [ @PyExc_IndexError, %2 ], [ @PyExc_IndexError, %._crit_edge ], [ @PyExc_RuntimeError, %78 ], [ @PyExc_RuntimeError, %38 ]
-  %.str.13.sink = phi ptr [ @.str.12, %2 ], [ @.str.12, %._crit_edge ], [ @.str.13, %78 ], [ @.str.13, %38 ]
-  %88 = load ptr, ptr %PyExc_RuntimeError.sink, align 8, !tbaa !3
-  tail call void @PyErr_SetString(ptr noundef %88, ptr noundef nonnull %.str.13.sink) #2
-  br label %siftdown_max.exit
+.critedge.sink.split:                             ; preds = %38, %78, %._crit_edge, %2
+  %PyExc_RuntimeError.sink.i.sink = phi ptr [ @PyExc_IndexError, %2 ], [ @PyExc_IndexError, %._crit_edge ], [ @PyExc_RuntimeError, %78 ], [ @PyExc_RuntimeError, %38 ]
+  %.str.13.sink.i.sink = phi ptr [ @.str.12, %2 ], [ @.str.12, %._crit_edge ], [ @.str.13, %78 ], [ @.str.13, %38 ]
+  %88 = load ptr, ptr %PyExc_RuntimeError.sink.i.sink, align 8, !tbaa !3
+  tail call void @PyErr_SetString(ptr noundef %88, ptr noundef nonnull %.str.13.sink.i.sink) #2
+  br label %.critedge
 
-siftdown_max.exit:                                ; preds = %Py_DECREF.exit, %81, %79, %Py_DECREF.exit.i, %siftdown_max.exit.sink.split, %50
-  %.0 = phi i32 [ 0, %50 ], [ -1, %siftdown_max.exit.sink.split ], [ 0, %81 ], [ 0, %79 ], [ -1, %Py_DECREF.exit.i ], [ -1, %Py_DECREF.exit ]
+.critedge:                                        ; preds = %Py_DECREF.exit, %81, %79, %Py_DECREF.exit.i, %.critedge.sink.split, %50
+  %.0 = phi i32 [ 0, %50 ], [ -1, %.critedge.sink.split ], [ 0, %81 ], [ 0, %79 ], [ -1, %Py_DECREF.exit.i ], [ -1, %Py_DECREF.exit ]
   ret i32 %.0
 }
 

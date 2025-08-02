@@ -993,14 +993,14 @@ define internal fastcc void @interp_pixels(ptr noundef captures(none) %0, i32 no
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv38 = phi i64 [ %9, %.lr.ph.us.preheader ], [ %indvars.iv.next39, %..loopexit_crit_edge.us ]
-  %indvars.iv.next39 = add nsw i64 %indvars.iv38, -2
-  %11 = trunc nuw nsw i64 %indvars.iv.next39 to i32
+  %indvars.iv37 = phi i64 [ %9, %.lr.ph.us.preheader ], [ %indvars.iv.next38, %..loopexit_crit_edge.us ]
+  %indvars.iv.next38 = add nsw i64 %indvars.iv37, -2
+  %11 = trunc nuw nsw i64 %indvars.iv.next38 to i32
   %12 = lshr i32 %11, 1
   %13 = mul nsw i32 %12, %1
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
-  %16 = mul nsw i64 %indvars.iv.next39, %10
+  %16 = mul nsw i64 %indvars.iv.next38, %10
   %17 = getelementptr inbounds i8, ptr %0, i64 %16
   %18 = getelementptr i8, ptr %15, i64 %5
   %19 = getelementptr i8, ptr %18, i64 -1
@@ -1035,7 +1035,7 @@ define internal fastcc void @interp_pixels(ptr noundef captures(none) %0, i32 no
   br i1 %39, label %24, label %..loopexit_crit_edge.us, !llvm.loop !72
 
 ..loopexit_crit_edge.us:                          ; preds = %24
-  %40 = icmp samesign ugt i64 %indvars.iv38, 3
+  %40 = icmp samesign ugt i64 %indvars.iv37, 3
   br i1 %40, label %.lr.ph.us, label %.split32.us, !llvm.loop !73
 
 .split32.us:                                      ; preds = %..loopexit_crit_edge.us

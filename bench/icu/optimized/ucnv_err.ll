@@ -642,7 +642,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   %7 = alloca [48 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #6
   %8 = icmp sgt i32 %4, 2
-  br i1 %8, label %93, label %9
+  br i1 %8, label %91, label %9
 
 9:                                                ; preds = %6
   %10 = icmp eq ptr %0, null
@@ -681,6 +681,7 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
 
 26:                                               ; preds = %9
   %27 = load i8, ptr %0, align 1, !tbaa !7
+  %28 = icmp sgt i32 %3, 0
   switch i8 %27, label %.preheader60 [
     i8 68, label %.preheader62
     i8 88, label %.preheader64
@@ -688,7 +689,6 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   ]
 
 .preheader66:                                     ; preds = %26
-  %28 = icmp sgt i32 %3, 0
   br i1 %28, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader66
@@ -696,25 +696,21 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
   br label %.lr.ph
 
 .preheader64:                                     ; preds = %26
-  %29 = icmp sgt i32 %3, 0
-  br i1 %29, label %.lr.ph72.preheader, label %.loopexit
+  br i1 %28, label %.lr.ph72.preheader, label %.loopexit
 
 .lr.ph72.preheader:                               ; preds = %.preheader64
   %wide.trip.count98 = zext nneg i32 %3 to i64
   br label %.lr.ph72
 
 .preheader62:                                     ; preds = %26
-  %30 = icmp sgt i32 %3, 0
-  br i1 %30, label %.lr.ph76.preheader, label %.loopexit
+  br i1 %28, label %.lr.ph76.preheader, label %.loopexit
 
 .lr.ph76.preheader:                               ; preds = %.preheader62
   %wide.trip.count103 = zext nneg i32 %3 to i64
   br label %.lr.ph76
 
 .preheader60:                                     ; preds = %26
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %31 = icmp sgt i32 %3, 0
-  br i1 %31, label %.lr.ph80.preheader, label %.loopexit
+  br i1 %28, label %.lr.ph80.preheader, label %.loopexit
 
 .lr.ph80.preheader:                               ; preds = %.preheader60
   %wide.trip.count112 = zext nneg i32 %3 to i64
@@ -722,116 +718,116 @@ define void @UCNV_TO_U_CALLBACK_ESCAPE_77(ptr noundef readonly captures(address_
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv100 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next101, %.lr.ph76 ]
-  %.25674 = phi i32 [ 0, %.lr.ph76.preheader ], [ %46, %.lr.ph76 ]
-  %32 = add nsw i32 %.25674, 1
-  %33 = sext i32 %.25674 to i64
+  %.25674 = phi i32 [ 0, %.lr.ph76.preheader ], [ %43, %.lr.ph76 ]
+  %29 = add nsw i32 %.25674, 1
+  %30 = sext i32 %.25674 to i64
+  %31 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %30
+  store i16 38, ptr %31, align 2, !tbaa !17
+  %32 = add nsw i32 %.25674, 2
+  %33 = sext i32 %29 to i64
   %34 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %33
-  store i16 38, ptr %34, align 2, !tbaa !17
-  %35 = add nsw i32 %.25674, 2
-  %36 = sext i32 %32 to i64
-  %37 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %36
-  store i16 35, ptr %37, align 2, !tbaa !17
-  %38 = sext i32 %35 to i64
-  %39 = getelementptr inbounds i16, ptr %7, i64 %38
-  %40 = sub nsw i32 46, %.25674
+  store i16 35, ptr %34, align 2, !tbaa !17
+  %35 = sext i32 %32 to i64
+  %36 = getelementptr inbounds i16, ptr %7, i64 %35
+  %37 = sub nsw i32 46, %.25674
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv100
-  %42 = load i8, ptr %41, align 1, !tbaa !7
-  %43 = zext i8 %42 to i32
-  %44 = call i32 @uprv_itou_77(ptr noundef nonnull %39, i32 noundef %40, i32 noundef %43, i32 noundef 10, i32 noundef 0)
-  %45 = add nsw i32 %44, %35
-  %46 = add nsw i32 %45, 1
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %47
-  store i16 59, ptr %48, align 2, !tbaa !17
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv100
+  %39 = load i8, ptr %38, align 1, !tbaa !7
+  %40 = zext i8 %39 to i32
+  %41 = call i32 @uprv_itou_77(ptr noundef nonnull %36, i32 noundef %37, i32 noundef %40, i32 noundef 10, i32 noundef 0)
+  %42 = add nsw i32 %41, %32
+  %43 = add nsw i32 %42, 1
+  %44 = sext i32 %42 to i64
+  %45 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %44
+  store i16 59, ptr %45, align 2, !tbaa !17
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
   br i1 %exitcond104.not, label %.loopexit, label %.lr.ph76, !llvm.loop !25
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv95 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next96, %.lr.ph72 ]
-  %.35770 = phi i32 [ 0, %.lr.ph72.preheader ], [ %66, %.lr.ph72 ]
-  %49 = add nsw i32 %.35770, 1
-  %50 = sext i32 %.35770 to i64
+  %.35770 = phi i32 [ 0, %.lr.ph72.preheader ], [ %63, %.lr.ph72 ]
+  %46 = add nsw i32 %.35770, 1
+  %47 = sext i32 %.35770 to i64
+  %48 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %47
+  store i16 38, ptr %48, align 2, !tbaa !17
+  %49 = add nsw i32 %.35770, 2
+  %50 = sext i32 %46 to i64
   %51 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %50
-  store i16 38, ptr %51, align 2, !tbaa !17
-  %52 = add nsw i32 %.35770, 2
+  store i16 35, ptr %51, align 2, !tbaa !17
+  %52 = add nsw i32 %.35770, 3
   %53 = sext i32 %49 to i64
   %54 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %53
-  store i16 35, ptr %54, align 2, !tbaa !17
-  %55 = add nsw i32 %.35770, 3
-  %56 = sext i32 %52 to i64
-  %57 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %56
-  store i16 120, ptr %57, align 2, !tbaa !17
-  %58 = sext i32 %55 to i64
-  %59 = getelementptr inbounds i16, ptr %7, i64 %58
-  %60 = sub nsw i32 45, %.35770
+  store i16 120, ptr %54, align 2, !tbaa !17
+  %55 = sext i32 %52 to i64
+  %56 = getelementptr inbounds i16, ptr %7, i64 %55
+  %57 = sub nsw i32 45, %.35770
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv95
-  %62 = load i8, ptr %61, align 1, !tbaa !7
-  %63 = zext i8 %62 to i32
-  %64 = call i32 @uprv_itou_77(ptr noundef nonnull %59, i32 noundef %60, i32 noundef %63, i32 noundef 16, i32 noundef 0)
-  %65 = add nsw i32 %64, %55
-  %66 = add nsw i32 %65, 1
-  %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %67
-  store i16 59, ptr %68, align 2, !tbaa !17
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv95
+  %59 = load i8, ptr %58, align 1, !tbaa !7
+  %60 = zext i8 %59 to i32
+  %61 = call i32 @uprv_itou_77(ptr noundef nonnull %56, i32 noundef %57, i32 noundef %60, i32 noundef 16, i32 noundef 0)
+  %62 = add nsw i32 %61, %52
+  %63 = add nsw i32 %62, 1
+  %64 = sext i32 %62 to i64
+  %65 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %64
+  store i16 59, ptr %65, align 2, !tbaa !17
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %.loopexit, label %.lr.ph72, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.45868 = phi i32 [ 0, %.lr.ph.preheader ], [ %82, %.lr.ph ]
-  %69 = add nsw i32 %.45868, 1
-  %70 = sext i32 %.45868 to i64
+  %.45868 = phi i32 [ 0, %.lr.ph.preheader ], [ %79, %.lr.ph ]
+  %66 = add nsw i32 %.45868, 1
+  %67 = sext i32 %.45868 to i64
+  %68 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %67
+  store i16 92, ptr %68, align 2, !tbaa !17
+  %69 = add nsw i32 %.45868, 2
+  %70 = sext i32 %66 to i64
   %71 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %70
-  store i16 92, ptr %71, align 2, !tbaa !17
-  %72 = add nsw i32 %.45868, 2
-  %73 = sext i32 %69 to i64
-  %74 = getelementptr inbounds [48 x i16], ptr %7, i64 0, i64 %73
-  store i16 120, ptr %74, align 2, !tbaa !17
-  %75 = sext i32 %72 to i64
-  %76 = getelementptr inbounds i16, ptr %7, i64 %75
-  %77 = sub nsw i32 46, %.45868
+  store i16 120, ptr %71, align 2, !tbaa !17
+  %72 = sext i32 %69 to i64
+  %73 = getelementptr inbounds i16, ptr %7, i64 %72
+  %74 = sub nsw i32 46, %.45868
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %79 = load i8, ptr %78, align 1, !tbaa !7
-  %80 = zext i8 %79 to i32
-  %81 = call i32 @uprv_itou_77(ptr noundef nonnull %76, i32 noundef %77, i32 noundef %80, i32 noundef 16, i32 noundef 2)
-  %82 = add nsw i32 %81, %72
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  %76 = load i8, ptr %75, align 1, !tbaa !7
+  %77 = zext i8 %76 to i32
+  %78 = call i32 @uprv_itou_77(ptr noundef nonnull %73, i32 noundef %74, i32 noundef %77, i32 noundef 16, i32 noundef 2)
+  %79 = add nsw i32 %78, %69
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
   %indvars.iv107 = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next108, %.lr.ph80 ]
   %indvars.iv105 = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next106, %.lr.ph80 ]
-  %83 = or disjoint i64 %indvars.iv107, 1
-  %84 = getelementptr inbounds nuw [48 x i16], ptr %7, i64 0, i64 %indvars.iv107
-  store i16 37, ptr %84, align 8, !tbaa !17
-  %85 = getelementptr inbounds nuw [48 x i16], ptr %7, i64 0, i64 %83
-  store i16 88, ptr %85, align 2, !tbaa !17
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv107
+  %80 = or disjoint i64 %indvars.iv107, 1
+  %81 = getelementptr inbounds nuw [48 x i16], ptr %7, i64 0, i64 %indvars.iv107
+  store i16 37, ptr %81, align 8, !tbaa !17
+  %82 = getelementptr inbounds nuw [48 x i16], ptr %7, i64 0, i64 %80
+  store i16 88, ptr %82, align 2, !tbaa !17
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %86 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv105
-  %87 = load i8, ptr %86, align 1, !tbaa !7
-  %88 = zext i8 %87 to i32
-  %89 = trunc i64 %indvars.iv107 to i32
-  %90 = sub i32 46, %89
-  %91 = call i32 @uprv_itou_77(ptr noundef nonnull %gep, i32 noundef %90, i32 noundef %88, i32 noundef 16, i32 noundef 2)
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv105
+  %85 = load i8, ptr %84, align 1, !tbaa !7
+  %86 = zext i8 %85 to i32
+  %87 = trunc i64 %indvars.iv107 to i32
+  %88 = sub i32 46, %87
+  %89 = call i32 @uprv_itou_77(ptr noundef nonnull %83, i32 noundef %88, i32 noundef %86, i32 noundef 16, i32 noundef 2)
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 4
   %exitcond113.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count112
   br i1 %exitcond113.not, label %.loopexit.loopexit86, label %.lr.ph80, !llvm.loop !28
 
 .loopexit.loopexit86:                             ; preds = %.lr.ph80
-  %92 = trunc nuw i64 %indvars.iv.next108 to i32
+  %90 = trunc nuw i64 %indvars.iv.next108 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph72, %.lr.ph76, %.lr.ph84, %.loopexit.loopexit86, %.preheader66, %.preheader64, %.preheader62, %.preheader60, %.preheader
-  %.155 = phi i32 [ 0, %.preheader ], [ 0, %.preheader60 ], [ 0, %.preheader62 ], [ 0, %.preheader64 ], [ 0, %.preheader66 ], [ %92, %.loopexit.loopexit86 ], [ %25, %.lr.ph84 ], [ %46, %.lr.ph76 ], [ %66, %.lr.ph72 ], [ %82, %.lr.ph ]
+  %.155 = phi i32 [ 0, %.preheader ], [ 0, %.preheader60 ], [ 0, %.preheader62 ], [ 0, %.preheader64 ], [ 0, %.preheader66 ], [ %90, %.loopexit.loopexit86 ], [ %25, %.lr.ph84 ], [ %43, %.lr.ph76 ], [ %63, %.lr.ph72 ], [ %79, %.lr.ph ]
   store i32 0, ptr %5, align 4, !tbaa !3
   call void @ucnv_cbToUWriteUChars_77(ptr noundef %1, ptr noundef nonnull %7, i32 noundef %.155, i32 noundef 0, ptr noundef nonnull %5)
-  br label %93
+  br label %91
 
-93:                                               ; preds = %6, %.loopexit
+91:                                               ; preds = %6, %.loopexit
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #6
   ret void
 }

@@ -524,7 +524,7 @@ define range(i64 0, 4294967296) i64 @X509_subject_name_hash_old(ptr noundef read
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @X509_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, %1
-  br i1 %3, label %43, label %4
+  br i1 %3, label %42, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i32 @X509_check_purpose(ptr noundef %0, i32 noundef -1, i32 noundef 0) #9
@@ -552,21 +552,21 @@ define range(i32 -1, 2) i32 @X509_cmp(ptr noundef %0, ptr noundef %1) local_unna
 20:                                               ; preds = %16
   %.inv = icmp sgt i32 %19, -1
   %21 = select i1 %.inv, i32 1, i32 -1
-  br label %43
+  br label %42
 
 .thread:                                          ; preds = %4, %11, %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %24 = load i32, ptr %23, align 8, !tbaa !62
   %.not26 = icmp eq i32 %24, 0
-  br i1 %.not26, label %25, label %41
+  br i1 %.not26, label %25, label %42
 
 25:                                               ; preds = %.thread
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %28 = load i32, ptr %27, align 8, !tbaa !62
   %.not27 = icmp eq i32 %28, 0
-  br i1 %.not27, label %29, label %41
+  br i1 %.not27, label %29, label %42
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -574,25 +574,21 @@ define range(i32 -1, 2) i32 @X509_cmp(ptr noundef %0, ptr noundef %1) local_unna
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %33 = load i64, ptr %32, align 8, !tbaa !63
   %34 = icmp slt i64 %31, %33
-  br i1 %34, label %43, label %35
+  br i1 %34, label %42, label %35
 
 35:                                               ; preds = %29
   %36 = icmp sgt i64 %31, %33
-  br i1 %36, label %43, label %37
+  br i1 %36, label %42, label %37
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %22, align 8, !tbaa !64
   %39 = load ptr, ptr %26, align 8, !tbaa !64
   %40 = tail call i32 @memcmp(ptr noundef %38, ptr noundef %39, i64 noundef %31) #10
-  br label %41
+  %41 = tail call i32 @llvm.scmp.i32.i32(i32 %40, i32 0)
+  br label %42
 
-41:                                               ; preds = %37, %25, %.thread
-  %.1 = phi i32 [ 0, %.thread ], [ 0, %25 ], [ %40, %37 ]
-  %42 = tail call i32 @llvm.scmp.i32.i32(i32 %.1, i32 0)
-  br label %43
-
-43:                                               ; preds = %35, %29, %2, %41, %20
-  %.021 = phi i32 [ %21, %20 ], [ %42, %41 ], [ 0, %2 ], [ -1, %29 ], [ 1, %35 ]
+42:                                               ; preds = %.thread, %25, %37, %35, %29, %2, %20
+  %.021 = phi i32 [ %21, %20 ], [ 0, %2 ], [ -1, %29 ], [ 1, %35 ], [ 0, %.thread ], [ 0, %25 ], [ %41, %37 ]
   ret i32 %.021
 }
 

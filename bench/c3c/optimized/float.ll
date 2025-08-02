@@ -171,7 +171,7 @@ define dso_local { double, i32 } @float_from_string(ptr noundef readonly capture
   %43 = load i8, ptr %.3, align 1
   %44 = add i8 %43, -48
   %45 = icmp ult i8 %44, 10
-  br i1 %45, label %.lr.ph111, label %.critedge12
+  br i1 %45, label %.lr.ph111, label %.critedge10.thread
 
 .lr.ph111:                                        ; preds = %.preheader, %48
   %.in = phi i8 [ %54, %48 ], [ %43, %.preheader ]
@@ -195,15 +195,14 @@ define dso_local { double, i32 } @float_from_string(ptr noundef readonly capture
   %56 = icmp ult i8 %55, 10
   br i1 %56, label %.lr.ph111, label %.critedge12, !llvm.loop !11
 
-.critedge12:                                      ; preds = %48, %.preheader
-  %.059.lcssa = phi i32 [ 0, %.preheader ], [ %53, %48 ]
-  %57 = tail call i32 @llvm.fshl.i32(i32 %.059.lcssa, i32 %.059.lcssa, i32 28)
+.critedge12:                                      ; preds = %48
+  %57 = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 28)
   %58 = icmp ult i32 %57, 9
   %switch.maskindex = trunc i32 %57 to i16
   %switch.shifted = lshr i16 279, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond150 = select i1 %58, i1 %switch.lobit, i1 false
-  br i1 %or.cond150, label %switch.lookup, label %59
+  %or.cond151 = select i1 %58, i1 %switch.lobit, i1 false
+  br i1 %or.cond151, label %switch.lookup, label %59
 
 59:                                               ; preds = %.critedge12
   %.not78 = icmp eq ptr %1, null
@@ -215,8 +214,8 @@ switch.lookup:                                    ; preds = %.critedge12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge10.thread
 
-.critedge10.thread:                               ; preds = %.backedge94, %.backedge, %switch.lookup, %2, %13, %.critedge10
-  %.060 = phi i32 [ 16, %.critedge10 ], [ 16, %13 ], [ 16, %2 ], [ %switch.load, %switch.lookup ], [ 16, %.backedge ], [ 16, %.backedge94 ]
+.critedge10.thread:                               ; preds = %.backedge94, %.backedge, %switch.lookup, %.preheader, %2, %13, %.critedge10
+  %.060 = phi i32 [ 16, %.critedge10 ], [ 16, %13 ], [ 16, %2 ], [ 15, %.preheader ], [ %switch.load, %switch.lookup ], [ 16, %.backedge ], [ 16, %.backedge94 ]
   %61 = tail call ptr @scratch_buffer_to_string() #6
   store ptr null, ptr %3, align 8
   %62 = tail call ptr @__errno_location() #7
@@ -384,7 +383,7 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(n
   %37 = load i8, ptr %.3, align 1
   %38 = add i8 %37, -48
   %39 = icmp ult i8 %38, 10
-  br i1 %39, label %.lr.ph102, label %.critedge12
+  br i1 %39, label %.lr.ph102, label %.critedge10.thread
 
 .lr.ph102:                                        ; preds = %.preheader, %42
   %.in = phi i8 [ %48, %42 ], [ %37, %.preheader ]
@@ -408,15 +407,14 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(n
   %50 = icmp ult i8 %49, 10
   br i1 %50, label %.lr.ph102, label %.critedge12, !llvm.loop !15
 
-.critedge12:                                      ; preds = %42, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %47, %42 ]
-  %51 = tail call i32 @llvm.fshl.i32(i32 %.0.lcssa, i32 %.0.lcssa, i32 28)
+.critedge12:                                      ; preds = %42
+  %51 = tail call i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 28)
   %52 = icmp ult i32 %51, 9
   %switch.maskindex = trunc i32 %51 to i16
   %switch.shifted = lshr i16 279, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond137 = select i1 %52, i1 %switch.lobit, i1 false
-  br i1 %or.cond137, label %switch.lookup, label %53
+  %or.cond138 = select i1 %52, i1 %switch.lobit, i1 false
+  br i1 %or.cond138, label %switch.lookup, label %53
 
 53:                                               ; preds = %.critedge12
   %.not75 = icmp eq ptr %1, null
@@ -428,8 +426,8 @@ switch.lookup:                                    ; preds = %.critedge12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge10.thread
 
-.critedge10.thread:                               ; preds = %.critedge77, %.critedge78, %switch.lookup, %.critedge10
-  %.056 = phi i32 [ 16, %.critedge10 ], [ %switch.load, %switch.lookup ], [ 16, %.critedge78 ], [ 16, %.critedge77 ]
+.critedge10.thread:                               ; preds = %.critedge77, %.critedge78, %switch.lookup, %.preheader, %.critedge10
+  %.056 = phi i32 [ 16, %.critedge10 ], [ 15, %.preheader ], [ %switch.load, %switch.lookup ], [ 16, %.critedge78 ], [ 16, %.critedge77 ]
   %55 = tail call ptr @scratch_buffer_to_string() #6
   store ptr null, ptr %3, align 8
   %56 = tail call ptr @__errno_location() #7

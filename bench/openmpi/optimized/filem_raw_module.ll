@@ -2676,7 +2676,7 @@ define internal void @recv_files(i32 %0, ptr readnone captures(none) %1, ptr nou
 
 15:                                               ; preds = %5, %13
   call fastcc void @send_complete(ptr noundef null, i32 noundef %12)
-  br label %.thread104
+  br label %.critedge
 
 16:                                               ; preds = %5
   store i32 1, ptr %8, align 4, !tbaa !3
@@ -2696,7 +2696,7 @@ define internal void @recv_files(i32 %0, ptr readnone captures(none) %1, ptr nou
   call fastcc void @send_complete(ptr noundef %21, i32 noundef %17)
   %22 = load ptr, ptr %6, align 8, !tbaa !66
   call void @free(ptr noundef %22) #16
-  br label %.thread104
+  br label %.critedge
 
 23:                                               ; preds = %16
   %24 = load i32, ptr %7, align 4, !tbaa !3
@@ -2725,7 +2725,7 @@ define internal void @recv_files(i32 %0, ptr readnone captures(none) %1, ptr nou
   call fastcc void @send_complete(ptr noundef %31, i32 noundef %27)
   %32 = load ptr, ptr %6, align 8, !tbaa !66
   call void @free(ptr noundef %32) #16
-  br label %.thread104
+  br label %.critedge
 
 33:                                               ; preds = %26
   %.pr = load i32, ptr %7, align 4, !tbaa !3
@@ -2750,7 +2750,7 @@ define internal void @recv_files(i32 %0, ptr readnone captures(none) %1, ptr nou
   call fastcc void @send_complete(ptr noundef %40, i32 noundef %36)
   %41 = load ptr, ptr %6, align 8, !tbaa !66
   call void @free(ptr noundef %41) #16
-  br label %.thread104
+  br label %.critedge
 
 42:                                               ; preds = %.thread, %35, %33
   %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4, !tbaa !44
@@ -2774,27 +2774,27 @@ define internal void @recv_files(i32 %0, ptr readnone captures(none) %1, ptr nou
 
 54:                                               ; preds = %49, %44, %42
   %incoming_files.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @incoming_files, i64 240), align 8, !tbaa !35
-  %.not91108 = icmp eq ptr %incoming_files.val, getelementptr inbounds nuw (i8, ptr @incoming_files, i64 120)
-  br i1 %.not91108, label %.thread102, label %.lr.ph
+  %.not91105 = icmp eq ptr %incoming_files.val, getelementptr inbounds nuw (i8, ptr @incoming_files, i64 120)
+  br i1 %.not91105, label %.thread102, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54
   %55 = load ptr, ptr %6, align 8, !tbaa !66
   br label %56
 
 56:                                               ; preds = %.lr.ph, %66
-  %.076109 = phi ptr [ %incoming_files.val, %.lr.ph ], [ %67, %66 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.076109, i64 288
+  %.076106 = phi ptr [ %incoming_files.val, %.lr.ph ], [ %67, %66 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.076106, i64 288
   %58 = load ptr, ptr %57, align 8, !tbaa !110
   %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %58) #21
   %60 = icmp eq i32 %59, 0
-  %61 = icmp eq ptr %.076109, null
+  %61 = icmp eq ptr %.076106, null
   br i1 %60, label %68, label %62
 
 62:                                               ; preds = %56
   br i1 %61, label %66, label %63
 
 63:                                               ; preds = %62
-  %64 = getelementptr inbounds nuw i8, ptr %.076109, i64 120
+  %64 = getelementptr inbounds nuw i8, ptr %.076106, i64 120
   %65 = load ptr, ptr %64, align 8, !tbaa !37
   br label %66
 
@@ -2848,7 +2848,7 @@ define internal void @recv_files(i32 %0, ptr readnone captures(none) %1, ptr nou
 
 91:                                               ; preds = %78, %68
   %92 = phi ptr [ %80, %78 ], [ %55, %68 ]
-  %.1 = phi ptr [ %79, %78 ], [ %.076109, %68 ]
+  %.1 = phi ptr [ %79, %78 ], [ %.076106, %68 ]
   %93 = load i32, ptr %7, align 4, !tbaa !3
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %173
@@ -2889,11 +2889,11 @@ define internal void @recv_files(i32 %0, ptr readnone captures(none) %1, ptr nou
   %113 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #16
   %114 = load ptr, ptr %105, align 8, !tbaa !127
   call void (i32, ptr, ...) @pmix_output(i32 noundef %106, ptr noundef nonnull @.str.9, ptr noundef %113, ptr noundef %114) #16
-  %.pre111 = load ptr, ptr %105, align 8, !tbaa !127
+  %.pre108 = load ptr, ptr %105, align 8, !tbaa !127
   br label %115
 
 115:                                              ; preds = %112, %107, %99
-  %116 = phi ptr [ %.pre111, %112 ], [ %104, %107 ], [ %104, %99 ]
+  %116 = phi ptr [ %.pre108, %112 ], [ %104, %107 ], [ %104, %99 ]
   %117 = call noalias ptr @pmix_dirname(ptr noundef %116) #16
   %118 = call i32 @pmix_os_dirpath_create(ptr noundef %117, i32 noundef 448) #16
   switch i32 %118, label %119 [
@@ -2930,7 +2930,7 @@ pmix_obj_update.exit:                             ; preds = %121
   store i32 %130, ptr %128, align 8, !tbaa !16
   %131 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %.1) #16
   %132 = icmp eq i32 %130, 0
-  br i1 %132, label %133, label %.thread104
+  br i1 %132, label %133, label %.critedge
 
 133:                                              ; preds = %pmix_obj_update.exit
   %134 = getelementptr inbounds nuw i8, ptr %.1, i64 40
@@ -2959,11 +2959,11 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %133
 144:                                              ; preds = %pmix_obj_run_destructors.exit
   %145 = getelementptr inbounds nuw i8, ptr %.1, i64 56
   call void %143(ptr noundef nonnull %145, ptr noundef nonnull %.1) #16
-  br label %.thread104
+  br label %.critedge
 
 146:                                              ; preds = %pmix_obj_run_destructors.exit
   call void @free(ptr noundef nonnull %.1) #16
-  br label %.thread104
+  br label %.critedge
 
 147:                                              ; preds = %115
   %148 = load i32, ptr %11, align 4, !tbaa !3
@@ -2987,7 +2987,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %133
   %159 = load ptr, ptr %6, align 8, !tbaa !66
   call void @free(ptr noundef %159) #16
   call void @free(ptr noundef %117) #16
-  br label %.thread104
+  br label %.critedge
 
 160:                                              ; preds = %147
   %161 = call i32 (ptr, i32, ...) @open(ptr noundef %150, i32 noundef 578, i32 noundef 384) #16
@@ -3004,9 +3004,9 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %133
   %167 = load ptr, ptr %6, align 8, !tbaa !66
   call void @free(ptr noundef %167) #16
   call void @free(ptr noundef %117) #16
-  br label %.thread104
+  br label %.critedge
 
-168:                                              ; preds = %152, %160
+168:                                              ; preds = %160, %152
   call void @free(ptr noundef %117) #16
   %169 = getelementptr inbounds nuw i8, ptr %.1, i64 280
   store i8 1, ptr %169, align 8, !tbaa !124
@@ -3099,9 +3099,9 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %179, %
 212:                                              ; preds = %210, %196
   %213 = load ptr, ptr %6, align 8, !tbaa !66
   call void @free(ptr noundef %213) #16
-  br label %.thread104
+  br label %.critedge
 
-.thread104:                                       ; preds = %pmix_obj_update.exit, %146, %144, %163, %155, %212, %39, %30, %20, %15
+.critedge:                                        ; preds = %155, %163, %144, %146, %pmix_obj_update.exit, %212, %39, %30, %20, %15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %10) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #16

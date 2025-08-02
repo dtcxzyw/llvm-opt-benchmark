@@ -4907,7 +4907,7 @@ define noundef zeroext i1 @_ZN7glslang9TIoMapper8addStageE11EShLanguageRNS_13TIn
 
 43:                                               ; preds = %40
   %.idx.i = mul nuw nsw i64 %indvars.iv, 48
-  %44 = getelementptr i8, ptr %39, i64 %.idx.i
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i
   %45 = load i64, ptr %44, align 8
   %46 = icmp ne i64 %45, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7063,7 +7063,7 @@ define noundef zeroext i1 @_ZN7glslang13TGlslIoMapper8addStageE11EShLanguageRNS_
 
 40:                                               ; preds = %37
   %.idx.i = mul nuw nsw i64 %indvars.iv, 48
-  %41 = getelementptr i8, ptr %36, i64 %.idx.i
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
   %42 = load i64, ptr %41, align 8
   %43 = icmp ne i64 %42, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

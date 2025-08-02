@@ -87,7 +87,7 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr noundef writeon
   %.035 = phi i64 [ %9, %7 ], [ %11, %14 ]
   switch i32 %2, label %.critedge [
     i32 2, label %18
-    i32 10, label %25
+    i32 10, label %24
   ]
 
 18:                                               ; preds = %17
@@ -100,66 +100,66 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr noundef writeon
   %21 = shl nuw nsw i64 4294967295, %20
   %22 = trunc i64 %21 to i32
   %23 = tail call i32 @llvm.bswap.i32(i32 %22)
-  %24 = select i1 %.not38, i32 0, i32 %23
+  %.031 = select i1 %.not38, i32 0, i32 %23
   store i32 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %24, ptr %.sroa.4.0..sroa_idx, align 4
+  store i32 %.031, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %41
+  br label %40
 
-25:                                               ; preds = %17
+24:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #9
   %or.cond4 = icmp ult i64 %.035, 129
-  br i1 %or.cond4, label %26, label %.critedge40
+  br i1 %or.cond4, label %25, label %.critedge40
 
-26:                                               ; preds = %25
+25:                                               ; preds = %24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %28
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %27
 
-28:                                               ; preds = %26, %37
-  %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %37 ]
-  %.13641 = phi i64 [ %.035, %26 ], [ %39, %37 ]
-  %29 = icmp slt i64 %.13641, 1
-  br i1 %29, label %37, label %30
+27:                                               ; preds = %25, %36
+  %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %36 ]
+  %.13641 = phi i64 [ %.035, %25 ], [ %38, %36 ]
+  %28 = icmp slt i64 %.13641, 1
+  br i1 %28, label %36, label %29
 
-30:                                               ; preds = %28
-  %31 = icmp samesign ugt i64 %.13641, 7
-  br i1 %31, label %37, label %32
+29:                                               ; preds = %27
+  %30 = icmp samesign ugt i64 %.13641, 7
+  br i1 %30, label %36, label %31
 
-32:                                               ; preds = %30
-  %33 = trunc nuw nsw i64 %.13641 to i16
-  %34 = sub nuw nsw i16 8, %33
-  %35 = shl nuw nsw i16 255, %34
-  %36 = trunc i16 %35 to i8
-  br label %37
+31:                                               ; preds = %29
+  %32 = trunc nuw nsw i64 %.13641 to i16
+  %33 = sub nuw nsw i16 8, %32
+  %34 = shl nuw nsw i16 255, %33
+  %35 = trunc i16 %34 to i8
+  br label %36
 
-37:                                               ; preds = %30, %28, %32
-  %.sink = phi i8 [ %36, %32 ], [ 0, %28 ], [ -1, %30 ]
-  %38 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 0, i64 %indvars.iv
-  store i8 %.sink, ptr %38, align 1
-  %39 = add i64 %.13641, -8
+36:                                               ; preds = %29, %27, %31
+  %.sink = phi i8 [ %35, %31 ], [ 0, %27 ], [ -1, %29 ]
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 0, i64 %indvars.iv
+  store i8 %.sink, ptr %37, align 1
+  %38 = add i64 %.13641, -8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %40, label %28, !llvm.loop !6
+  br i1 %exitcond.not, label %39, label %27, !llvm.loop !6
 
-40:                                               ; preds = %37
+39:                                               ; preds = %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %5, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #9
-  br label %41
+  br label %40
 
-41:                                               ; preds = %40, %19
-  %42 = trunc i32 %2 to i16
-  store i16 %42, ptr %0, align 8
+40:                                               ; preds = %39, %19
+  %41 = trunc i32 %2 to i16
+  store i16 %41, ptr %0, align 8
   br label %.critedge
 
-.critedge40:                                      ; preds = %25
+.critedge40:                                      ; preds = %24
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #9
   br label %.critedge
 
-.critedge:                                        ; preds = %18, %17, %.critedge40, %10, %14, %41
-  %.032 = phi i32 [ 0, %41 ], [ -1, %14 ], [ -1, %10 ], [ -1, %.critedge40 ], [ -1, %17 ], [ -1, %18 ]
+.critedge:                                        ; preds = %18, %17, %.critedge40, %10, %14, %40
+  %.032 = phi i32 [ 0, %40 ], [ -1, %14 ], [ -1, %10 ], [ -1, %.critedge40 ], [ -1, %17 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   ret i32 %.032
 }

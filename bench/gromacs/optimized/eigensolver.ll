@@ -375,16 +375,15 @@ define void @_Z18sparse_eigensolverP16gmx_sparsematrixiPfS1_i(ptr noundef %0, i3
   store i32 0, ptr %11, align 4, !tbaa !3
   %39 = load ptr, ptr @stderr, align 8, !tbaa !27
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.14, i32 noundef %4) #18
-  %invariant.gep = getelementptr i8, ptr %31, i64 -4
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %43
 
 43:                                               ; preds = %.backedge, %5
-  %.016 = phi i32 [ 1, %5 ], [ %61, %.backedge ]
+  %.016 = phi i32 [ 1, %5 ], [ %65, %.backedge ]
   call void @_Z7ssaupd_PiPKcS_S1_S_PfS2_S_S2_S_S_S_S2_S_S2_S_S_(ptr noundef nonnull %11, ptr noundef nonnull @.str.4, ptr noundef nonnull %10, ptr noundef nonnull @.str.15, ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef %27, ptr noundef nonnull %14, ptr noundef %38, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %31, ptr noundef nonnull %7, ptr noundef %33, ptr noundef nonnull %13, ptr noundef nonnull %12)
   %44 = load i32, ptr %11, align 4, !tbaa !3
-  switch i32 %44, label %50 [
+  switch i32 %44, label %54 [
     i32 -1, label %45
     i32 1, label %45
   ]
@@ -392,83 +391,85 @@ define void @_Z18sparse_eigensolverP16gmx_sparsematrixiPfS1_i(ptr noundef %0, i3
 45:                                               ; preds = %43, %43
   %46 = load i32, ptr %9, align 16, !tbaa !3
   %47 = sext i32 %46 to i64
-  %gep = getelementptr float, ptr %invariant.gep, i64 %47
-  %48 = load i32, ptr %41, align 4, !tbaa !3
-  %49 = sext i32 %48 to i64
-  %gep39 = getelementptr float, ptr %invariant.gep, i64 %49
-  call void @_Z32gmx_sparsematrix_vector_multiplyP16gmx_sparsematrixPKfPf(ptr noundef %0, ptr noundef nonnull %gep, ptr noundef nonnull %gep39)
-  br label %50
+  %48 = getelementptr inbounds float, ptr %31, i64 %47
+  %49 = getelementptr inbounds i8, ptr %48, i64 -4
+  %50 = load i32, ptr %41, align 4, !tbaa !3
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds float, ptr %31, i64 %51
+  %53 = getelementptr inbounds i8, ptr %52, i64 -4
+  call void @_Z32gmx_sparsematrix_vector_multiplyP16gmx_sparsematrixPKfPf(ptr noundef %0, ptr noundef nonnull %49, ptr noundef nonnull %53)
+  br label %54
 
-50:                                               ; preds = %43, %45
-  %51 = load ptr, ptr @stderr, align 8, !tbaa !27
-  %52 = load i32, ptr %42, align 16, !tbaa !3
-  %53 = load i32, ptr %6, align 4, !tbaa !3
-  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.16, i32 noundef %.016, i32 noundef %52, i32 noundef %53) #18
+54:                                               ; preds = %43, %45
   %55 = load ptr, ptr @stderr, align 8, !tbaa !27
-  %56 = call i32 @fflush(ptr noundef %55)
-  %57 = load i32, ptr %12, align 4, !tbaa !3
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %.critedge
+  %56 = load i32, ptr %42, align 16, !tbaa !3
+  %57 = load i32, ptr %6, align 4, !tbaa !3
+  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.16, i32 noundef %.016, i32 noundef %56, i32 noundef %57) #18
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %60 = call i32 @fflush(ptr noundef %59)
+  %61 = load i32, ptr %12, align 4, !tbaa !3
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %.critedge
 
-59:                                               ; preds = %50
-  %60 = load i32, ptr %11, align 4, !tbaa !3
-  switch i32 %60, label %.critedge [
+63:                                               ; preds = %54
+  %64 = load i32, ptr %11, align 4, !tbaa !3
+  switch i32 %64, label %.critedge [
     i32 -1, label %.backedge
     i32 1, label %.backedge
   ]
 
-.backedge:                                        ; preds = %59, %59
-  %61 = add nuw nsw i32 %.016, 1
+.backedge:                                        ; preds = %63, %63
+  %65 = add nuw nsw i32 %.016, 1
   br label %43
 
-.critedge:                                        ; preds = %59, %50
-  %62 = load ptr, ptr @stderr, align 8, !tbaa !27
-  %fputc = call i32 @fputc(i32 10, ptr %62)
-  %63 = load i32, ptr %12, align 4, !tbaa !3
-  switch i32 %63, label %70 [
-    i32 1, label %64
-    i32 0, label %75
+.critedge:                                        ; preds = %63, %54
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %fputc = call i32 @fputc(i32 10, ptr %66)
+  %67 = load i32, ptr %12, align 4, !tbaa !3
+  switch i32 %67, label %74 [
+    i32 1, label %68
+    i32 0, label %79
   ]
 
-64:                                               ; preds = %.critedge
+68:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #15
   call void @_ZNSt10filesystem7__cxx114pathC2IA135_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 1 dereferenceable(135) @.str.3, i8 noundef zeroext 2)
-  %65 = load i32, ptr %42, align 16, !tbaa !3
-  %66 = load i32, ptr %6, align 4, !tbaa !3
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef 456, ptr noundef nonnull @.str.18, i32 noundef %4, i32 noundef %65, i32 noundef %66) #16
-          to label %67 unwind label %68
+  %69 = load i32, ptr %42, align 16, !tbaa !3
+  %70 = load i32, ptr %6, align 4, !tbaa !3
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef 456, ptr noundef nonnull @.str.18, i32 noundef %4, i32 noundef %69, i32 noundef %70) #16
+          to label %71 unwind label %72
 
-67:                                               ; preds = %64
+71:                                               ; preds = %68
   unreachable
 
-68:                                               ; preds = %64
-  %69 = landingpad { ptr, i32 }
+72:                                               ; preds = %68
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #15
-  br label %78
+  br label %82
 
-70:                                               ; preds = %.critedge
+74:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #15
   call void @_ZNSt10filesystem7__cxx114pathC2IA135_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 1 dereferenceable(135) @.str.3, i8 noundef zeroext 2)
-  %71 = load i32, ptr %12, align 4, !tbaa !3
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %18, i32 noundef 465, ptr noundef nonnull @.str.19, i32 noundef %71) #16
-          to label %72 unwind label %73
+  %75 = load i32, ptr %12, align 4, !tbaa !3
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %18, i32 noundef 465, ptr noundef nonnull @.str.19, i32 noundef %75) #16
+          to label %76 unwind label %77
 
-72:                                               ; preds = %70
+76:                                               ; preds = %74
   unreachable
 
-73:                                               ; preds = %70
-  %74 = landingpad { ptr, i32 }
+77:                                               ; preds = %74
+  %78 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #15
-  br label %78
+  br label %82
 
-75:                                               ; preds = %.critedge
+79:                                               ; preds = %.critedge
   store i32 0, ptr %12, align 4, !tbaa !3
-  %76 = load ptr, ptr @stderr, align 8, !tbaa !27
-  %77 = call i64 @fwrite(ptr nonnull @.str.20, i64 44, i64 1, ptr %76) #19
+  %80 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %81 = call i64 @fwrite(ptr nonnull @.str.20, i64 44, i64 1, ptr %80) #19
   call void @_Z7sseupd_PiPKcS_PfS2_S_S2_S1_S_S1_S_S2_S2_S_S2_S_S_S_S2_S2_S_S_(ptr noundef nonnull %15, ptr noundef nonnull @.str.21, ptr noundef %35, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %10, ptr noundef nonnull @.str.15, ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef %27, ptr noundef nonnull %14, ptr noundef %38, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %31, ptr noundef %33, ptr noundef nonnull %13, ptr noundef nonnull %12)
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef %38)
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.3, i32 noundef 523, ptr noundef %27)
@@ -487,8 +488,8 @@ define void @_Z18sparse_eigensolverP16gmx_sparsematrixiPfS1_i(ptr noundef %0, i3
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %7) #15
   ret void
 
-78:                                               ; preds = %73, %68
-  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %74, %73 ]
+82:                                               ; preds = %77, %72
+  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %78, %77 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #15

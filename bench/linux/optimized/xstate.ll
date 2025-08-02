@@ -2199,42 +2199,42 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #5
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc i32 @get_xsave_compacted_size() unnamed_addr #3 section ".init.text" align 16 {
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 595, i32 8, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 114)) #15
-          to label %3 [label %3, label %1], !srcloc !12
+          to label %2 [label %2, label %.critedge], !srcloc !12
 
-1:                                                ; preds = %0
-  %2 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 1) #15, !srcloc !24
-  br label %15
+.critedge:                                        ; preds = %0
+  %1 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 1) #15, !srcloc !24
+  br label %14
 
-3:                                                ; preds = %0, %0
-  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @fpu_kernel_cfg, i64 8), align 8
-  %5 = and i64 %4, 3072
-  %6 = trunc nuw nsw i64 %5 to i32
-  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 3488, i32 %6, i32 0) #15, !srcloc !13
+2:                                                ; preds = %0, %0
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @fpu_kernel_cfg, i64 8), align 8
+  %4 = and i64 %3, 3072
+  %5 = trunc nuw nsw i64 %4 to i32
+  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 3488, i32 %5, i32 0) #15, !srcloc !13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #15
-          to label %8 [label %7], !srcloc !14
+          to label %7 [label %6], !srcloc !14
 
-7:                                                ; preds = %3
-  tail call void @do_trace_write_msr(i32 noundef 3488, i64 noundef %5, i32 noundef 0) #15
-  br label %8
+6:                                                ; preds = %2
+  tail call void @do_trace_write_msr(i32 noundef 3488, i64 noundef %4, i32 noundef 0) #15
+  br label %7
 
-8:                                                ; preds = %7, %3
-  %9 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 1) #15, !srcloc !24
-  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @fpu_kernel_cfg, i64 8), align 8
-  %11 = and i64 %10, 3072
-  %12 = or disjoint i64 %11, 32768
-  %13 = trunc nuw nsw i64 %12 to i32
-  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 3488, i32 %13, i32 0) #15, !srcloc !13
+7:                                                ; preds = %6, %2
+  %8 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 1) #15, !srcloc !24
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @fpu_kernel_cfg, i64 8), align 8
+  %10 = and i64 %9, 3072
+  %11 = or disjoint i64 %10, 32768
+  %12 = trunc nuw nsw i64 %11 to i32
+  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 3488, i32 %12, i32 0) #15, !srcloc !13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #15
-          to label %15 [label %14], !srcloc !14
+          to label %14 [label %13], !srcloc !14
 
-14:                                               ; preds = %8
-  tail call void @do_trace_write_msr(i32 noundef 3488, i64 noundef %12, i32 noundef 0) #15
-  br label %15
+13:                                               ; preds = %7
+  tail call void @do_trace_write_msr(i32 noundef 3488, i64 noundef %11, i32 noundef 0) #15
+  br label %14
 
-15:                                               ; preds = %14, %8, %1
-  %16 = phi { i32, i32, i32, i32 } [ %2, %1 ], [ %9, %8 ], [ %9, %14 ]
-  %17 = extractvalue { i32, i32, i32, i32 } %16, 1
-  ret i32 %17
+14:                                               ; preds = %13, %7, %.critedge
+  %15 = phi { i32, i32, i32, i32 } [ %1, %.critedge ], [ %8, %7 ], [ %8, %13 ]
+  %16 = extractvalue { i32, i32, i32, i32 } %15, 1
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

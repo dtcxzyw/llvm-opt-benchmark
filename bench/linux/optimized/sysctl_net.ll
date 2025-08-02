@@ -260,7 +260,7 @@ define internal range(i32 0, 2) i32 @is_seen(ptr noundef readnone captures(addre
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal ptr @net_ctl_header_lookup(ptr readnone captures(none) %0) #3 align 16 {
+define internal nonnull ptr @net_ctl_header_lookup(ptr readnone captures(none) %0) #3 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !14
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1872

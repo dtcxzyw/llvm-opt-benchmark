@@ -302,34 +302,34 @@ define internal void @_ZN12_GLOBAL__N_13DFS7enqueueERKN5clang4ento12WorkListUnit
   %12 = icmp uge ptr %1, %.pre3.i
   %13 = icmp ult ptr %1, %11
   %spec.select.i.i.i.i.i = and i1 %12, %13
-  br i1 %spec.select.i.i.i.i.i, label %16, label %14, !prof !48
+  br i1 %spec.select.i.i.i.i.i, label %14, label %.critedge.i.i.i, !prof !48
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %15, i64 noundef %7, i64 noundef 32) #20
+  %15 = ptrtoint ptr %1 to i64
+  %16 = ptrtoint ptr %.pre3.i to i64
+  %17 = sub i64 %15, %16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %18, i64 noundef %7, i64 noundef 32) #20
+  %19 = load ptr, ptr %3, align 8, !tbaa !9
+  %20 = getelementptr inbounds i8, ptr %19, i64 %17
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit
+
+.critedge.i.i.i:                                  ; preds = %10
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %21, i64 noundef %7, i64 noundef 32) #20
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit
 
-16:                                               ; preds = %10
-  %17 = ptrtoint ptr %1 to i64
-  %18 = ptrtoint ptr %.pre3.i to i64
-  %19 = sub i64 %17, %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %20, i64 noundef %7, i64 noundef 32) #20
-  %21 = load ptr, ptr %3, align 8, !tbaa !9
-  %22 = getelementptr inbounds i8, ptr %21, i64 %19
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit: ; preds = %2, %14, %16
-  %23 = phi ptr [ %.pre3.i, %2 ], [ %21, %16 ], [ %.pre.i, %14 ]
-  %.016.i.i.i = phi ptr [ %1, %2 ], [ %22, %16 ], [ %1, %14 ]
-  %24 = load i32, ptr %4, align 8, !tbaa !37
-  %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %23, i64 %25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
-  %27 = load i32, ptr %4, align 8, !tbaa !37
-  %28 = add i32 %27, 1
-  store i32 %28, ptr %4, align 8, !tbaa !37
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit: ; preds = %2, %14, %.critedge.i.i.i
+  %22 = phi ptr [ %.pre3.i, %2 ], [ %19, %14 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %1, %2 ], [ %20, %14 ], [ %1, %.critedge.i.i.i ]
+  %23 = load i32, ptr %4, align 8, !tbaa !37
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %22, i64 %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
+  %26 = load i32, ptr %4, align 8, !tbaa !37
+  %27 = add i32 %26, 1
+  store i32 %27, ptr %4, align 8, !tbaa !37
   ret void
 }
 
@@ -861,7 +861,7 @@ define internal void @_ZN12_GLOBAL__N_119BFSBlockDFSContents7enqueueERKN5clang4e
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt5dequeIN5clang4ento12WorkListUnitESaIS2_EE10push_frontERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(28) %1)
-  br label %44
+  br label %43
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -880,37 +880,37 @@ define internal void @_ZN12_GLOBAL__N_119BFSBlockDFSContents7enqueueERKN5clang4e
   %27 = icmp uge ptr %1, %.pre3.i
   %28 = icmp ult ptr %1, %26
   %spec.select.i.i.i.i.i = and i1 %27, %28
-  br i1 %spec.select.i.i.i.i.i, label %31, label %29, !prof !48
+  br i1 %spec.select.i.i.i.i.i, label %29, label %.critedge.i.i.i, !prof !48
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %30, i64 noundef %22, i64 noundef 32) #20
+  %30 = ptrtoint ptr %1 to i64
+  %31 = ptrtoint ptr %.pre3.i to i64
+  %32 = sub i64 %30, %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %33, i64 noundef %22, i64 noundef 32) #20
+  %34 = load ptr, ptr %18, align 8, !tbaa !9
+  %35 = getelementptr inbounds i8, ptr %34, i64 %32
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit
+
+.critedge.i.i.i:                                  ; preds = %25
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %36, i64 noundef %22, i64 noundef 32) #20
   %.pre.i = load ptr, ptr %18, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit
 
-31:                                               ; preds = %25
-  %32 = ptrtoint ptr %1 to i64
-  %33 = ptrtoint ptr %.pre3.i to i64
-  %34 = sub i64 %32, %33
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %35, i64 noundef %22, i64 noundef 32) #20
-  %36 = load ptr, ptr %18, align 8, !tbaa !9
-  %37 = getelementptr inbounds i8, ptr %36, i64 %34
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit: ; preds = %17, %29, %.critedge.i.i.i
+  %37 = phi ptr [ %.pre3.i, %17 ], [ %34, %29 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %1, %17 ], [ %35, %29 ], [ %1, %.critedge.i.i.i ]
+  %38 = load i32, ptr %19, align 8, !tbaa !37
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %37, i64 %39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
+  %41 = load i32, ptr %19, align 8, !tbaa !37
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %19, align 8, !tbaa !37
+  br label %43
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit: ; preds = %17, %29, %31
-  %38 = phi ptr [ %.pre3.i, %17 ], [ %36, %31 ], [ %.pre.i, %29 ]
-  %.016.i.i.i = phi ptr [ %1, %17 ], [ %37, %31 ], [ %1, %29 ]
-  %39 = load i32, ptr %19, align 8, !tbaa !37
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %38, i64 %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
-  %42 = load i32, ptr %19, align 8, !tbaa !37
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %19, align 8, !tbaa !37
-  br label %44
-
-44:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit, %15
+43:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit, %15
   ret void
 }
 
@@ -1141,12 +1141,12 @@ define internal void @_ZN12_GLOBAL__N_120UnexploredFirstStack7enqueueERKN5clang4
   %6 = load ptr, ptr %1, align 8, !tbaa !67
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !70
-  %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.523.0.copyload = load i64, ptr %.sroa.523.0..sroa_idx, align 8, !tbaa !70
+  %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.525.0.copyload = load i64, ptr %.sroa.525.0..sroa_idx, align 8, !tbaa !70
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !70
   %7 = trunc i64 %.sroa.6.0.copyload to i32
-  %8 = trunc i64 %.sroa.523.0.copyload to i32
+  %8 = trunc i64 %.sroa.525.0.copyload to i32
   %9 = shl i32 %7, 3
   %10 = and i32 %9, 48
   %11 = shl i32 %8, 1
@@ -1156,7 +1156,7 @@ define internal void @_ZN12_GLOBAL__N_120UnexploredFirstStack7enqueueERKN5clang4
   %15 = or disjoint i32 %12, %14
   %16 = or disjoint i32 %15, %10
   %17 = icmp eq i32 %16, 1
-  br i1 %17, label %45, label %18
+  br i1 %17, label %44, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1175,158 +1175,158 @@ define internal void @_ZN12_GLOBAL__N_120UnexploredFirstStack7enqueueERKN5clang4
   %28 = icmp uge ptr %1, %.pre3.i
   %29 = icmp ult ptr %1, %27
   %spec.select.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i, label %32, label %30, !prof !48
+  br i1 %spec.select.i.i.i.i.i, label %30, label %.critedge.i.i.i, !prof !48
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %31, i64 noundef %23, i64 noundef 32) #20
+  %31 = ptrtoint ptr %1 to i64
+  %32 = ptrtoint ptr %.pre3.i to i64
+  %33 = sub i64 %31, %32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %34, i64 noundef %23, i64 noundef 32) #20
+  %35 = load ptr, ptr %19, align 8, !tbaa !9
+  %36 = getelementptr inbounds i8, ptr %35, i64 %33
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit
+
+.critedge.i.i.i:                                  ; preds = %26
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %37, i64 noundef %23, i64 noundef 32) #20
   %.pre.i = load ptr, ptr %19, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit
 
-32:                                               ; preds = %26
-  %33 = ptrtoint ptr %1 to i64
-  %34 = ptrtoint ptr %.pre3.i to i64
-  %35 = sub i64 %33, %34
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %36, i64 noundef %23, i64 noundef 32) #20
-  %37 = load ptr, ptr %19, align 8, !tbaa !9
-  %38 = getelementptr inbounds i8, ptr %37, i64 %35
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit: ; preds = %18, %30, %.critedge.i.i.i
+  %38 = phi ptr [ %.pre3.i, %18 ], [ %35, %30 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %1, %18 ], [ %36, %30 ], [ %1, %.critedge.i.i.i ]
+  %39 = load i32, ptr %20, align 8, !tbaa !37
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %38, i64 %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
+  %42 = load i32, ptr %20, align 8, !tbaa !37
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %20, align 8, !tbaa !37
+  br label %109
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit: ; preds = %18, %30, %32
-  %39 = phi ptr [ %.pre3.i, %18 ], [ %37, %32 ], [ %.pre.i, %30 ]
-  %.016.i.i.i = phi ptr [ %1, %18 ], [ %38, %32 ], [ %1, %30 ]
-  %40 = load i32, ptr %20, align 8, !tbaa !37
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %39, i64 %41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
-  %43 = load i32, ptr %20, align 8, !tbaa !37
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %20, align 8, !tbaa !37
-  br label %112
-
-45:                                               ; preds = %2
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.019.0.copyload = load ptr, ptr %46, align 8, !tbaa !52
+44:                                               ; preds = %2
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.021.0.copyload = load ptr, ptr %45, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #20
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 48
-  %48 = load i32, ptr %47, align 8, !tbaa !78
-  %49 = and i64 %.sroa.523.0.copyload, -8
-  %50 = inttoptr i64 %49 to ptr
-  %51 = tail call noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48) %50) #20
-  store i32 %48, ptr %5, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1328
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.copyload, i64 48
+  %47 = load i32, ptr %46, align 8, !tbaa !78
+  %48 = and i64 %.sroa.525.0.copyload, -8
+  %49 = inttoptr i64 %48 to ptr
+  %50 = tail call noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48) %49) #20
+  store i32 %47, ptr %5, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %50, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #20, !noalias !90
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #20, !noalias !90
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjPKN5clang17StackFrameContextEENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS7_vEENS8_12DenseSetPairIS7_EEEES7_S9_SB_SD_E11try_emplaceIJRS9_EEES2_INS_16DenseMapIteratorIS7_S9_SB_SD_Lb0EEEbERKS7_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.69") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %3), !noalias !90
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %55 = load i8, ptr %54, align 8, !tbaa !93, !range !95, !noalias !90, !noundef !96
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjPKN5clang17StackFrameContextEENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS7_vEENS8_12DenseSetPairIS7_EEEES7_S9_SB_SD_E11try_emplaceIJRS9_EEES2_INS_16DenseMapIteratorIS7_S9_SB_SD_Lb0EEEbERKS7_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.69") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %3), !noalias !90
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %54 = load i8, ptr %53, align 8, !tbaa !93, !range !95, !noalias !90, !noundef !96
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #20, !noalias !90
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #20, !noalias !90
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %57, label %84
+  %55 = trunc nuw i8 %54 to i1
+  br i1 %55, label %56, label %82
 
-57:                                               ; preds = %45
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = load i32, ptr %59, align 8, !tbaa !37
-  %61 = zext i32 %60 to i64
-  %62 = add nuw nsw i64 %61, 1
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %64 = load i32, ptr %63, align 4, !tbaa !14
-  %.not.i.i.not.i7 = icmp ult i32 %60, %64
-  %.pre3.i8 = load ptr, ptr %58, align 8, !tbaa !9
-  br i1 %.not.i.i.not.i7, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit12, label %65, !prof !47
+56:                                               ; preds = %44
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %59 = load i32, ptr %58, align 8, !tbaa !37
+  %60 = zext i32 %59 to i64
+  %61 = add nuw nsw i64 %60, 1
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %63 = load i32, ptr %62, align 4, !tbaa !14
+  %.not.i.i.not.i7 = icmp ult i32 %59, %63
+  %.pre3.i8 = load ptr, ptr %57, align 8, !tbaa !9
+  br i1 %.not.i.i.not.i7, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit13, label %64, !prof !47
 
-65:                                               ; preds = %57
-  %66 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %.pre3.i8, i64 %61
-  %67 = icmp uge ptr %1, %.pre3.i8
-  %68 = icmp ult ptr %1, %66
-  %spec.select.i.i.i.i.i9 = and i1 %67, %68
-  br i1 %spec.select.i.i.i.i.i9, label %71, label %69, !prof !48
+64:                                               ; preds = %56
+  %65 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %.pre3.i8, i64 %60
+  %66 = icmp uge ptr %1, %.pre3.i8
+  %67 = icmp ult ptr %1, %65
+  %spec.select.i.i.i.i.i9 = and i1 %66, %67
+  br i1 %spec.select.i.i.i.i.i9, label %68, label %.critedge.i.i.i10, !prof !48
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull %70, i64 noundef %62, i64 noundef 32) #20
-  %.pre.i10 = load ptr, ptr %58, align 8, !tbaa !9
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit12
+68:                                               ; preds = %64
+  %69 = ptrtoint ptr %1 to i64
+  %70 = ptrtoint ptr %.pre3.i8 to i64
+  %71 = sub i64 %69, %70
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull %72, i64 noundef %61, i64 noundef 32) #20
+  %73 = load ptr, ptr %57, align 8, !tbaa !9
+  %74 = getelementptr inbounds i8, ptr %73, i64 %71
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit13
 
-71:                                               ; preds = %65
-  %72 = ptrtoint ptr %1 to i64
-  %73 = ptrtoint ptr %.pre3.i8 to i64
-  %74 = sub i64 %72, %73
+.critedge.i.i.i10:                                ; preds = %64
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull %75, i64 noundef %62, i64 noundef 32) #20
-  %76 = load ptr, ptr %58, align 8, !tbaa !9
-  %77 = getelementptr inbounds i8, ptr %76, i64 %74
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit12
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull %75, i64 noundef %61, i64 noundef 32) #20
+  %.pre.i11 = load ptr, ptr %57, align 8, !tbaa !9
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit13
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit12: ; preds = %57, %69, %71
-  %78 = phi ptr [ %.pre3.i8, %57 ], [ %76, %71 ], [ %.pre.i10, %69 ]
-  %.016.i.i.i11 = phi ptr [ %1, %57 ], [ %77, %71 ], [ %1, %69 ]
-  %79 = load i32, ptr %59, align 8, !tbaa !37
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %78, i64 %80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i11, i64 32, i1 false)
-  %82 = load i32, ptr %59, align 8, !tbaa !37
-  %83 = add i32 %82, 1
-  store i32 %83, ptr %59, align 8, !tbaa !37
-  br label %111
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit13: ; preds = %56, %68, %.critedge.i.i.i10
+  %76 = phi ptr [ %.pre3.i8, %56 ], [ %73, %68 ], [ %.pre.i11, %.critedge.i.i.i10 ]
+  %.016.i.i.i12 = phi ptr [ %1, %56 ], [ %74, %68 ], [ %1, %.critedge.i.i.i10 ]
+  %77 = load i32, ptr %58, align 8, !tbaa !37
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %76, i64 %78
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i12, i64 32, i1 false)
+  %80 = load i32, ptr %58, align 8, !tbaa !37
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %58, align 8, !tbaa !37
+  br label %108
 
-84:                                               ; preds = %45
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %87 = load i32, ptr %86, align 8, !tbaa !37
-  %88 = zext i32 %87 to i64
-  %89 = add nuw nsw i64 %88, 1
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  %91 = load i32, ptr %90, align 4, !tbaa !14
-  %.not.i.i.not.i13 = icmp ult i32 %87, %91
-  %.pre3.i14 = load ptr, ptr %85, align 8, !tbaa !9
-  br i1 %.not.i.i.not.i13, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit18, label %92, !prof !47
+82:                                               ; preds = %44
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %85 = load i32, ptr %84, align 8, !tbaa !37
+  %86 = zext i32 %85 to i64
+  %87 = add nuw nsw i64 %86, 1
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 684
+  %89 = load i32, ptr %88, align 4, !tbaa !14
+  %.not.i.i.not.i14 = icmp ult i32 %85, %89
+  %.pre3.i15 = load ptr, ptr %83, align 8, !tbaa !9
+  br i1 %.not.i.i.not.i14, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit20, label %90, !prof !47
 
-92:                                               ; preds = %84
-  %93 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %.pre3.i14, i64 %88
-  %94 = icmp uge ptr %1, %.pre3.i14
-  %95 = icmp ult ptr %1, %93
-  %spec.select.i.i.i.i.i15 = and i1 %94, %95
-  br i1 %spec.select.i.i.i.i.i15, label %98, label %96, !prof !48
+90:                                               ; preds = %82
+  %91 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %.pre3.i15, i64 %86
+  %92 = icmp uge ptr %1, %.pre3.i15
+  %93 = icmp ult ptr %1, %91
+  %spec.select.i.i.i.i.i16 = and i1 %92, %93
+  br i1 %spec.select.i.i.i.i.i16, label %94, label %.critedge.i.i.i17, !prof !48
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull %97, i64 noundef %89, i64 noundef 32) #20
-  %.pre.i16 = load ptr, ptr %85, align 8, !tbaa !9
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit18
+94:                                               ; preds = %90
+  %95 = ptrtoint ptr %1 to i64
+  %96 = ptrtoint ptr %.pre3.i15 to i64
+  %97 = sub i64 %95, %96
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull %98, i64 noundef %87, i64 noundef 32) #20
+  %99 = load ptr, ptr %83, align 8, !tbaa !9
+  %100 = getelementptr inbounds i8, ptr %99, i64 %97
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit20
 
-98:                                               ; preds = %92
-  %99 = ptrtoint ptr %1 to i64
-  %100 = ptrtoint ptr %.pre3.i14 to i64
-  %101 = sub i64 %99, %100
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull %102, i64 noundef %89, i64 noundef 32) #20
-  %103 = load ptr, ptr %85, align 8, !tbaa !9
-  %104 = getelementptr inbounds i8, ptr %103, i64 %101
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit18
+.critedge.i.i.i17:                                ; preds = %90
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull %101, i64 noundef %87, i64 noundef 32) #20
+  %.pre.i18 = load ptr, ptr %83, align 8, !tbaa !9
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit20
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit18: ; preds = %84, %96, %98
-  %105 = phi ptr [ %.pre3.i14, %84 ], [ %103, %98 ], [ %.pre.i16, %96 ]
-  %.016.i.i.i17 = phi ptr [ %1, %84 ], [ %104, %98 ], [ %1, %96 ]
-  %106 = load i32, ptr %86, align 8, !tbaa !37
-  %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %105, i64 %107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i17, i64 32, i1 false)
-  %109 = load i32, ptr %86, align 8, !tbaa !37
-  %110 = add i32 %109, 1
-  store i32 %110, ptr %86, align 8, !tbaa !37
-  br label %111
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit20: ; preds = %82, %94, %.critedge.i.i.i17
+  %102 = phi ptr [ %.pre3.i15, %82 ], [ %99, %94 ], [ %.pre.i18, %.critedge.i.i.i17 ]
+  %.016.i.i.i19 = phi ptr [ %1, %82 ], [ %100, %94 ], [ %1, %.critedge.i.i.i17 ]
+  %103 = load i32, ptr %84, align 8, !tbaa !37
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds nuw %"class.clang::ento::WorkListUnit", ptr %102, i64 %104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i19, i64 32, i1 false)
+  %106 = load i32, ptr %84, align 8, !tbaa !37
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %84, align 8, !tbaa !37
+  br label %108
 
-111:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit18, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit12
+108:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit20, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20
-  br label %112
+  br label %109
 
-112:                                              ; preds = %111, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit
+109:                                              ; preds = %108, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento12WorkListUnitELb1EE9push_backERKS3_.exit
   ret void
 }
 

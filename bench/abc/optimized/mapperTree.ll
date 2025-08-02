@@ -755,8 +755,8 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   %155 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %154, i64 0, i64 %indvars.iv315
   store float 0.000000e+00, ptr %155, align 4, !tbaa !43
   %.idx = mul nuw nsw i64 %indvars.iv315, 12
-  %156 = getelementptr i8, ptr %137, i64 156
-  %157 = getelementptr i8, ptr %156, i64 %.idx
+  %156 = getelementptr inbounds nuw i8, ptr %137, i64 156
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx
   store float 0.000000e+00, ptr %157, align 4, !tbaa !42
   %158 = load ptr, ptr %130, align 8, !tbaa !26
   %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv315
@@ -1217,9 +1217,9 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
 .lr.ph159:                                        ; preds = %._crit_edge155
   %77 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %79 = getelementptr i8, ptr %17, i64 84
+  %79 = getelementptr inbounds nuw i8, ptr %17, i64 84
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 152
-  %81 = getelementptr i8, ptr %17, i64 156
+  %81 = getelementptr inbounds nuw i8, ptr %17, i64 156
   br label %82
 
 82:                                               ; preds = %.lr.ph159, %Map_LibraryAddFaninDelays.exit
@@ -1280,7 +1280,7 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
 
 109:                                              ; preds = %105
   %.idx158.i = mul nuw nsw i64 %indvars.iv.i, 12
-  %110 = getelementptr i8, ptr %79, i64 %.idx158.i
+  %110 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx158.i
   %111 = load float, ptr %110, align 4, !tbaa !42
   %112 = fadd float %107, %90
   %113 = fcmp olt float %111, %112
@@ -1315,7 +1315,7 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
 
 129:                                              ; preds = %125
   %.idx159.i = mul nuw nsw i64 %indvars.iv.i, 12
-  %130 = getelementptr i8, ptr %81, i64 %.idx159.i
+  %130 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx159.i
   %131 = load float, ptr %130, align 4, !tbaa !42
   %132 = fadd float %127, %92
   %133 = fcmp olt float %131, %132
@@ -1369,7 +1369,7 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
 
 152:                                              ; preds = %148
   %.idx.i = mul nuw nsw i64 %indvars.iv165.i, 12
-  %153 = getelementptr i8, ptr %79, i64 %.idx.i
+  %153 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i
   %154 = load float, ptr %153, align 4, !tbaa !42
   %155 = fadd float %150, %90
   %156 = fcmp olt float %154, %155
@@ -1404,7 +1404,7 @@ define range(i32 0, 2) i32 @Map_LibraryDeriveGateInfo(ptr noundef %0, ptr nounde
 
 172:                                              ; preds = %168
   %.idx157.i = mul nuw nsw i64 %indvars.iv165.i, 12
-  %173 = getelementptr i8, ptr %81, i64 %.idx157.i
+  %173 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx157.i
   %174 = load float, ptr %173, align 4, !tbaa !42
   %175 = fadd float %170, %92
   %176 = fcmp olt float %174, %175

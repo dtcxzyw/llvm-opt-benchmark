@@ -27,12 +27,12 @@ define noundef i32 @udata_readInt32_77(ptr noundef readonly captures(none) %0, i
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, -2147483648) i32 @udata_swapInvStringBlock_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %4, null
-  br i1 %6, label %36, label %7
+  br i1 %6, label %38, label %7
 
 7:                                                ; preds = %5
   %8 = load i32, ptr %4, align 4, !tbaa !9
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %36
+  br i1 %9, label %10, label %38
 
 10:                                               ; preds = %7
   %11 = icmp eq ptr %0, null
@@ -49,54 +49,54 @@ define range(i32 0, -2147483648) i32 @udata_swapInvStringBlock_77(ptr noundef %0
   br i1 %or.cond5, label %17, label %.preheader
 
 .preheader:                                       ; preds = %14
-  %invariant.gep = getelementptr i8, ptr %1, i64 -1
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 
 17:                                               ; preds = %14, %10
   store i32 1, ptr %4, align 4, !tbaa !9
-  br label %36
+  br label %38
 
-.lr.ph:                                           ; preds = %.preheader, %20
-  %.047 = phi i32 [ %21, %20 ], [ %2, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %22
+  %.047 = phi i32 [ %23, %22 ], [ %2, %.preheader ]
   %18 = zext nneg i32 %.047 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %18
-  %19 = load i8, ptr %gep, align 1, !tbaa !11
-  %.not43 = icmp eq i8 %19, 0
-  br i1 %.not43, label %.critedge, label %20
+  %19 = getelementptr i8, ptr %1, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 -1
+  %21 = load i8, ptr %20, align 1, !tbaa !11
+  %.not43 = icmp eq i8 %21, 0
+  br i1 %.not43, label %.critedge, label %22
 
-20:                                               ; preds = %.lr.ph
-  %21 = add nsw i32 %.047, -1
-  %22 = icmp sgt i32 %.047, 1
-  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !12
+22:                                               ; preds = %.lr.ph
+  %23 = add nsw i32 %.047, -1
+  %24 = icmp sgt i32 %.047, 1
+  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !12
 
-.critedge:                                        ; preds = %.lr.ph, %20, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ 0, %20 ], [ %.047, %.lr.ph ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = tail call noundef i32 %24(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0.lcssa, ptr noundef %3, ptr noundef nonnull %4)
+.critedge:                                        ; preds = %.lr.ph, %22, %.preheader
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ 0, %22 ], [ %.047, %.lr.ph ]
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
+  %27 = tail call noundef i32 %26(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0.lcssa, ptr noundef %3, ptr noundef nonnull %4)
   %.not44 = icmp ne ptr %1, %3
-  %26 = icmp sgt i32 %2, %.0.lcssa
-  %or.cond46 = and i1 %.not44, %26
-  br i1 %or.cond46, label %27, label %33
+  %28 = icmp sgt i32 %2, %.0.lcssa
+  %or.cond46 = and i1 %.not44, %28
+  br i1 %or.cond46, label %29, label %35
 
-27:                                               ; preds = %.critedge
-  %28 = zext nneg i32 %.0.lcssa to i64
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %28
-  %31 = sub nsw i32 %2, %.0.lcssa
-  %32 = zext nneg i32 %31 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr nonnull align 1 %30, i64 %32, i1 false)
-  br label %33
+29:                                               ; preds = %.critedge
+  %30 = zext nneg i32 %.0.lcssa to i64
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %30
+  %33 = sub nsw i32 %2, %.0.lcssa
+  %34 = zext nneg i32 %33 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 1 %32, i64 %34, i1 false)
+  br label %35
 
-33:                                               ; preds = %27, %.critedge
-  %34 = load i32, ptr %4, align 4, !tbaa !9
-  %35 = icmp sgt i32 %34, 0
-  %. = select i1 %35, i32 0, i32 %2
-  br label %36
+35:                                               ; preds = %29, %.critedge
+  %36 = load i32, ptr %4, align 4, !tbaa !9
+  %37 = icmp sgt i32 %36, 0
+  %. = select i1 %37, i32 0, i32 %2
+  br label %38
 
-36:                                               ; preds = %33, %5, %7, %17
-  %.037 = phi i32 [ 0, %17 ], [ 0, %7 ], [ 0, %5 ], [ %., %33 ]
+38:                                               ; preds = %35, %5, %7, %17
+  %.037 = phi i32 [ 0, %17 ], [ 0, %7 ], [ 0, %5 ], [ %., %35 ]
   ret i32 %.037
 }
 

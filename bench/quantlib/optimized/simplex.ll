@@ -2299,24 +2299,30 @@ entry:
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.11, i64 noundef 2)
   %n_.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load i64, ptr %n_.i, align 8, !tbaa !7
-  %cmp.i = icmp eq i64 %1, 0
-  br i1 %cmp.i, label %if.end, label %for.cond.preheader
+  switch i64 %1, label %for.body.lr.ph [
+    i64 0, label %if.end
+    i64 1, label %for.cond.preheader.for.cond.cleanup_crit_edge
+  ]
 
-for.cond.preheader:                               ; preds = %entry
-  %invariant.gep = getelementptr i8, ptr %out, i64 16
-  %cmp28.not = icmp eq i64 %1, 1
+for.cond.preheader.for.cond.cleanup_crit_edge:    ; preds = %entry
   %.pre = shl i64 %0, 32
   %.pre31 = ashr exact i64 %.pre, 32
-  br i1 %cmp28.not, label %for.cond.cleanup, label %for.body
+  br label %for.cond.cleanup
 
-for.cond.cleanup:                                 ; preds = %for.body, %for.cond.preheader
-  %.lcssa = phi i64 [ 1, %for.cond.preheader ], [ %7, %for.body ]
+for.body.lr.ph:                                   ; preds = %entry
+  %sext26 = shl i64 %0, 32
+  %conv.i18 = ashr exact i64 %sext26, 32
+  br label %for.body
+
+for.cond.cleanup:                                 ; preds = %for.body, %for.cond.preheader.for.cond.cleanup_crit_edge
+  %conv.i.pre-phi = phi i64 [ %.pre31, %for.cond.preheader.for.cond.cleanup_crit_edge ], [ %conv.i18, %for.body ]
+  %.lcssa = phi i64 [ 1, %for.cond.preheader.for.cond.cleanup_crit_edge ], [ %7, %for.body ]
   %vtable.i = load ptr, ptr %out, align 8, !tbaa !36
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %out, i64 %vbase.offset.i
   %_M_width.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
-  store i64 %.pre31, ptr %_M_width.i.i, align 8, !tbaa !74
+  store i64 %conv.i.pre-phi, ptr %_M_width.i.i, align 8, !tbaa !74
   %2 = load ptr, ptr %a, align 8, !tbaa !20
   %3 = getelementptr double, ptr %2, i64 %.lcssa
   %arrayidx.i = getelementptr i8, ptr %3, i64 -8
@@ -2324,13 +2330,14 @@ for.cond.cleanup:                                 ; preds = %for.body, %for.cond
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %out, double noundef %4)
   br label %if.end
 
-for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %n.029 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %n.029 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %vtable.i14 = load ptr, ptr %out, align 8, !tbaa !36
   %vbase.offset.ptr.i15 = getelementptr i8, ptr %vtable.i14, i64 -24
   %vbase.offset.i16 = load i64, ptr %vbase.offset.ptr.i15, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset.i16
-  store i64 %.pre31, ptr %gep, align 8, !tbaa !74
+  %add.ptr.i17 = getelementptr inbounds i8, ptr %out, i64 %vbase.offset.i16
+  %_M_width.i.i19 = getelementptr inbounds nuw i8, ptr %add.ptr.i17, i64 16
+  store i64 %conv.i18, ptr %_M_width.i.i19, align 8, !tbaa !74
   %5 = load ptr, ptr %a, align 8, !tbaa !20
   %arrayidx.i20 = getelementptr inbounds nuw double, ptr %5, i64 %n.029
   %6 = load double, ptr %arrayidx.i20, align 8, !tbaa !3
@@ -2342,7 +2349,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %cmp = icmp ult i64 %inc, %sub
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !80
 
-if.end:                                           ; preds = %for.cond.cleanup, %entry
+if.end:                                           ; preds = %entry, %for.cond.cleanup
   %call1.i25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.13, i64 noundef 2)
   ret ptr %out
 }

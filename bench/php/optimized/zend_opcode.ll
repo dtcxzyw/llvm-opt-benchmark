@@ -4332,32 +4332,32 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   %.idx = shl nuw nsw i64 %8, 5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %10 = zext i32 %3 to i64
-  %.idx119 = shl nuw nsw i64 %10, 5
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx119
+  %.idx118 = shl nuw nsw i64 %10, 5
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx118
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %13 = load i8, ptr %12, align 4, !tbaa !166
-  switch i8 %13, label %._crit_edge121 [
+  switch i8 %13, label %._crit_edge120 [
     i8 -89, label %59
-    i8 68, label %.preheader112
+    i8 68, label %.preheader111
     i8 125, label %19
-    i8 46, label %.thread
-    i8 47, label %.thread
-    i8 52, label %.thread
-    i8 14, label %.thread
-    i8 109, label %.thread
-    i8 -110, label %.thread
-    i8 -94, label %.thread
+    i8 46, label %.critedge109
+    i8 47, label %.critedge109
+    i8 52, label %.critedge109
+    i8 14, label %.critedge109
+    i8 109, label %.critedge109
+    i8 -110, label %.critedge109
+    i8 -94, label %.critedge109
     i8 57, label %17
     i8 54, label %126
     i8 77, label %19
   ]
 
-.preheader112:                                    ; preds = %5
+.preheader111:                                    ; preds = %5
   %14 = add nuw nsw i64 %.idx, 32
-  %15 = icmp samesign ult i64 %14, %.idx119
+  %15 = icmp samesign ult i64 %14, %.idx118
   br i1 %15, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader112
+.lr.ph.preheader:                                 ; preds = %.preheader111
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
   br label %.lr.ph
 
@@ -4371,11 +4371,11 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %21 = phi ptr [ %32, %31 ], [ %16, %.lr.ph.preheader ]
-  %.2116 = phi i32 [ %22, %31 ], [ %2, %.lr.ph.preheader ]
-  %.086115 = phi i32 [ %.187, %31 ], [ 0, %.lr.ph.preheader ]
-  %.094114 = phi ptr [ %21, %31 ], [ %9, %.lr.ph.preheader ]
-  %22 = add i32 %.2116, 1
-  %23 = getelementptr inbounds nuw i8, ptr %.094114, i64 60
+  %.2115 = phi i32 [ %22, %31 ], [ %2, %.lr.ph.preheader ]
+  %.086114 = phi i32 [ %.187, %31 ], [ 0, %.lr.ph.preheader ]
+  %.094113 = phi ptr [ %21, %31 ], [ %9, %.lr.ph.preheader ]
+  %22 = add i32 %.2115, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.094113, i64 60
   %24 = load i8, ptr %23, align 4, !tbaa !166
   switch i8 %24, label %31 [
     i8 61, label %25
@@ -4394,25 +4394,25 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   ]
 
 25:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %26 = add nsw i32 %.086115, 1
+  %26 = add nsw i32 %.086114, 1
   br label %31
 
 27:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %28 = icmp eq i32 %.086115, 0
+  %28 = icmp eq i32 %.086114, 0
   br i1 %28, label %._crit_edge, label %29
 
 29:                                               ; preds = %27
-  %30 = add nsw i32 %.086115, -1
+  %30 = add nsw i32 %.086114, -1
   br label %31
 
 31:                                               ; preds = %29, %25, %.lr.ph
-  %.187 = phi i32 [ %.086115, %.lr.ph ], [ %26, %25 ], [ %30, %29 ]
+  %.187 = phi i32 [ %.086114, %.lr.ph ], [ %26, %25 ], [ %30, %29 ]
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %33 = icmp ult ptr %32, %11
   br i1 %33, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %27, %31, %.preheader112
-  %.3 = phi i32 [ %2, %.preheader112 ], [ %22, %31 ], [ %22, %27 ]
+._crit_edge:                                      ; preds = %27, %31, %.preheader111
+  %.3 = phi i32 [ %2, %.preheader111 ], [ %22, %31 ], [ %22, %27 ]
   %34 = add nuw i32 %2, 1
   %35 = add i32 %.3, 1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -4442,17 +4442,17 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   %55 = getelementptr i8, ptr %47, i64 -4
   store i32 %35, ptr %55, align 4, !tbaa !172
   %.not = icmp eq i32 %35, %3
-  br i1 %.not, label %.thread, label %._crit_edge121
+  br i1 %.not, label %.critedge109, label %._crit_edge120
 
-._crit_edge121:                                   ; preds = %5, %._crit_edge
+._crit_edge120:                                   ; preds = %5, %._crit_edge
   %.082 = phi i32 [ %.3, %._crit_edge ], [ %2, %5 ]
   %56 = add i32 %.082, 1
   %.not105 = icmp eq ptr %4, null
   br i1 %.not105, label %126, label %57
 
-57:                                               ; preds = %._crit_edge121
+57:                                               ; preds = %._crit_edge120
   %58 = tail call zeroext i1 %4(ptr noundef nonnull %0, ptr noundef %9) #14
-  br i1 %58, label %126, label %.thread
+  br i1 %58, label %126, label %.critedge109
 
 59:                                               ; preds = %5
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -4465,115 +4465,115 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
 
 65:                                               ; preds = %59
   %66 = tail call zeroext i1 %4(ptr noundef nonnull %0, ptr noundef nonnull %9) #14
-  br i1 %66, label %67, label %.thread
+  br i1 %66, label %67, label %.critedge109
 
 67:                                               ; preds = %65, %59
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %69 = load i8, ptr %68, align 4, !tbaa !166
   %.not101 = icmp eq i8 %69, 70
-  br i1 %.not101, label %.preheader, label %124
+  br i1 %.not101, label %.preheader, label %70
+
+70:                                               ; preds = %67
+  %71 = add nuw i32 %2, 1
+  br label %126
 
 .preheader:                                       ; preds = %67, %.preheader
-  %.0 = phi ptr [ %73, %.preheader ], [ %11, %67 ]
-  %70 = getelementptr inbounds i8, ptr %.0, i64 -4
-  %71 = load i8, ptr %70, align 4, !tbaa !166
-  %72 = icmp eq i8 %71, 70
-  %73 = getelementptr inbounds i8, ptr %.0, i64 -32
-  br i1 %72, label %.preheader, label %74
+  %.0 = phi ptr [ %75, %.preheader ], [ %11, %67 ]
+  %72 = getelementptr inbounds i8, ptr %.0, i64 -4
+  %73 = load i8, ptr %72, align 4, !tbaa !166
+  %74 = icmp eq i8 %73, 70
+  %75 = getelementptr inbounds i8, ptr %.0, i64 -32
+  br i1 %74, label %.preheader, label %76
 
-74:                                               ; preds = %.preheader
-  %75 = load ptr, ptr %6, align 8, !tbaa !27
-  %76 = ptrtoint ptr %.0 to i64
-  %77 = ptrtoint ptr %75 to i64
-  %78 = sub i64 %76, %77
-  %79 = lshr exact i64 %78, 5
-  %80 = trunc i64 %79 to i32
-  %.not102 = icmp eq i32 %3, %80
-  br i1 %.not102, label %.critedge107.preheader, label %81
+76:                                               ; preds = %.preheader
+  %77 = load ptr, ptr %6, align 8, !tbaa !27
+  %78 = ptrtoint ptr %.0 to i64
+  %79 = ptrtoint ptr %77 to i64
+  %80 = sub i64 %78, %79
+  %81 = lshr exact i64 %80, 5
+  %82 = trunc i64 %81 to i32
+  %.not102 = icmp eq i32 %3, %82
+  br i1 %.not102, label %.critedge107.preheader, label %83
 
-81:                                               ; preds = %74
-  tail call fastcc void @emit_live_range_raw(ptr noundef nonnull %0, i32 noundef %1, i32 noundef 0, i32 noundef %80, i32 noundef %3)
+83:                                               ; preds = %76
+  tail call fastcc void @emit_live_range_raw(ptr noundef nonnull %0, i32 noundef %1, i32 noundef 0, i32 noundef %82, i32 noundef %3)
   br label %.critedge107.preheader
 
-.critedge107.preheader:                           ; preds = %81, %74
+.critedge107.preheader:                           ; preds = %83, %76
   br label %.critedge107
 
 .critedge107:                                     ; preds = %.critedge107.backedge, %.critedge107.preheader
-  %.093 = phi ptr [ %11, %.critedge107.preheader ], [ %82, %.critedge107.backedge ]
-  %82 = getelementptr inbounds i8, ptr %.093, i64 -32
-  %83 = getelementptr inbounds i8, ptr %.093, i64 -4
-  %84 = load i8, ptr %83, align 4, !tbaa !166
-  %85 = icmp eq i8 %84, -89
-  br i1 %85, label %86, label %98
+  %.093 = phi ptr [ %11, %.critedge107.preheader ], [ %84, %.critedge107.backedge ]
+  %84 = getelementptr inbounds i8, ptr %.093, i64 -32
+  %85 = getelementptr inbounds i8, ptr %.093, i64 -4
+  %86 = load i8, ptr %85, align 4, !tbaa !166
+  %87 = icmp eq i8 %86, -89
+  br i1 %87, label %88, label %100
 
-86:                                               ; preds = %.critedge107
-  %87 = getelementptr inbounds i8, ptr %.093, i64 -16
-  %88 = load i32, ptr %87, align 8, !tbaa !23
-  %89 = icmp eq i32 %88, %64
-  br i1 %89, label %90, label %98
+88:                                               ; preds = %.critedge107
+  %89 = getelementptr inbounds i8, ptr %.093, i64 -16
+  %90 = load i32, ptr %89, align 8, !tbaa !23
+  %91 = icmp eq i32 %90, %64
+  br i1 %91, label %92, label %100
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %92 = load ptr, ptr %6, align 8, !tbaa !27
-  %93 = ptrtoint ptr %91 to i64
-  %94 = ptrtoint ptr %92 to i64
-  %95 = sub i64 %93, %94
-  %96 = lshr exact i64 %95, 5
-  %97 = trunc i64 %96 to i32
-  tail call fastcc void @emit_live_range_raw(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %97, i32 noundef %3)
-  br label %.thread
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %94 = load ptr, ptr %6, align 8, !tbaa !27
+  %95 = ptrtoint ptr %93 to i64
+  %96 = ptrtoint ptr %94 to i64
+  %97 = sub i64 %95, %96
+  %98 = lshr exact i64 %97, 5
+  %99 = trunc i64 %98 to i32
+  tail call fastcc void @emit_live_range_raw(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %99, i32 noundef %3)
+  br label %.critedge109
 
-98:                                               ; preds = %.critedge107, %86
-  %99 = getelementptr inbounds i8, ptr %.093, i64 -3
-  %100 = load i8, ptr %99, align 1, !tbaa !167
-  %101 = and i8 %100, 6
-  %.not103 = icmp eq i8 %101, 0
-  br i1 %.not103, label %106, label %102
+100:                                              ; preds = %.critedge107, %88
+  %101 = getelementptr inbounds i8, ptr %.093, i64 -3
+  %102 = load i8, ptr %101, align 1, !tbaa !167
+  %103 = and i8 %102, 6
+  %.not103 = icmp eq i8 %103, 0
+  br i1 %.not103, label %108, label %104
 
-102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %.093, i64 -24
-  %104 = load i32, ptr %103, align 8, !tbaa !23
-  %105 = icmp eq i32 %104, %64
-  br i1 %105, label %.critedge, label %106
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds i8, ptr %.093, i64 -24
+  %106 = load i32, ptr %105, align 8, !tbaa !23
+  %107 = icmp eq i32 %106, %64
+  br i1 %107, label %.critedge, label %108
 
-106:                                              ; preds = %102, %98
-  %107 = getelementptr inbounds i8, ptr %.093, i64 -2
-  %108 = load i8, ptr %107, align 2, !tbaa !168
-  %109 = and i8 %108, 6
-  %.not104 = icmp eq i8 %109, 0
-  br i1 %.not104, label %.critedge107.backedge, label %110
+108:                                              ; preds = %104, %100
+  %109 = getelementptr inbounds i8, ptr %.093, i64 -2
+  %110 = load i8, ptr %109, align 2, !tbaa !168
+  %111 = and i8 %110, 6
+  %.not104 = icmp eq i8 %111, 0
+  br i1 %.not104, label %.critedge107.backedge, label %112
 
-110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %.093, i64 -20
-  %112 = load i32, ptr %111, align 4, !tbaa !23
-  %.not111 = icmp eq i32 %112, %64
-  br i1 %.not111, label %.critedge, label %.critedge107.backedge
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds i8, ptr %.093, i64 -20
+  %114 = load i32, ptr %113, align 4, !tbaa !23
+  %.not110 = icmp eq i32 %114, %64
+  br i1 %.not110, label %.critedge, label %.critedge107.backedge
 
-.critedge107.backedge:                            ; preds = %110, %106
+.critedge107.backedge:                            ; preds = %112, %108
   br label %.critedge107
 
-.critedge:                                        ; preds = %102, %110
-  %113 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %114 = load ptr, ptr %6, align 8, !tbaa !27
-  %115 = ptrtoint ptr %113 to i64
-  %116 = ptrtoint ptr %114 to i64
-  %117 = sub i64 %115, %116
-  %118 = lshr exact i64 %117, 5
-  %119 = trunc i64 %118 to i32
-  %120 = ptrtoint ptr %82 to i64
-  %121 = sub i64 %120, %116
-  %122 = lshr exact i64 %121, 5
-  %123 = trunc i64 %122 to i32
-  tail call fastcc void @emit_live_range_raw(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %119, i32 noundef %123)
-  br label %.thread
+.critedge:                                        ; preds = %104, %112
+  %115 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %116 = load ptr, ptr %6, align 8, !tbaa !27
+  %117 = ptrtoint ptr %115 to i64
+  %118 = ptrtoint ptr %116 to i64
+  %119 = sub i64 %117, %118
+  %120 = lshr exact i64 %119, 5
+  %121 = trunc i64 %120 to i32
+  %122 = ptrtoint ptr %84 to i64
+  %123 = sub i64 %122, %118
+  %124 = lshr exact i64 %123, 5
+  %125 = trunc i64 %124 to i32
+  tail call fastcc void @emit_live_range_raw(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %121, i32 noundef %125)
+  br label %.critedge109
 
-124:                                              ; preds = %67
-  %125 = add nuw i32 %2, 1
-  br label %126
-
-126:                                              ; preds = %124, %5, %._crit_edge121, %57, %19, %17
-  %.091 = phi i32 [ 0, %57 ], [ 0, %._crit_edge121 ], [ 0, %124 ], [ 2, %17 ], [ 1, %19 ], [ 3, %5 ]
-  %.1 = phi i32 [ %56, %57 ], [ %56, %._crit_edge121 ], [ %125, %124 ], [ %18, %17 ], [ %20, %19 ], [ %2, %5 ]
+126:                                              ; preds = %70, %5, %._crit_edge120, %57, %19, %17
+  %.091 = phi i32 [ 0, %57 ], [ 0, %._crit_edge120 ], [ 0, %70 ], [ 2, %17 ], [ 1, %19 ], [ 3, %5 ]
+  %.1 = phi i32 [ %56, %57 ], [ %56, %._crit_edge120 ], [ %71, %70 ], [ %18, %17 ], [ %20, %19 ], [ %2, %5 ]
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %128 = load i32, ptr %127, align 8, !tbaa !163
   %129 = add nsw i32 %128, 1
@@ -4601,9 +4601,9 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   store i32 %.1, ptr %146, align 4, !tbaa !171
   %147 = getelementptr i8, ptr %138, i64 -4
   store i32 %3, ptr %147, align 4, !tbaa !172
-  br label %.thread
+  br label %.critedge109
 
-.thread:                                          ; preds = %90, %.critedge, %65, %57, %5, %5, %5, %5, %5, %5, %5, %._crit_edge, %126
+.critedge109:                                     ; preds = %65, %.critedge, %92, %57, %5, %5, %5, %5, %5, %5, %5, %._crit_edge, %126
   ret void
 }
 

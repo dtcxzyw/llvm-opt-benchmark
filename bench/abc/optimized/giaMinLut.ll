@@ -405,7 +405,6 @@ define noundef ptr @Vec_WrdReadTruthText(ptr noundef readonly captures(none) %0,
   %9 = shl i32 %6, %8
   %10 = sext i32 %9 to i64
   %11 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 8) #26
-  %invariant.gep = getelementptr i8, ptr %5, i64 -2
   %12 = icmp sgt i32 %3, 0
   br i1 %12, label %.lr.ph, label %.loopexit
 
@@ -418,26 +417,27 @@ define noundef ptr @Vec_WrdReadTruthText(ptr noundef readonly captures(none) %0,
   %.01821 = phi i32 [ %14, %13 ], [ 0, %4 ]
   %15 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #24
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #27
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %16
-  %17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %gep, ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.01821) #24
-  %18 = mul nsw i32 %.01821, %2
-  %19 = shl i32 %18, %8
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i64, ptr %11, i64 %20
-  %22 = call i32 @Vec_WrdReadTruthTextOne(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2, ptr noundef %21)
-  %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %23, label %13
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 %16
+  %18 = getelementptr inbounds i8, ptr %17, i64 -2
+  %19 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.01821) #24
+  %20 = mul nsw i32 %.01821, %2
+  %21 = shl i32 %20, %8
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i64, ptr %11, i64 %22
+  %24 = call i32 @Vec_WrdReadTruthTextOne(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2, ptr noundef %23)
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %25, label %13
 
-23:                                               ; preds = %.lr.ph
+25:                                               ; preds = %.lr.ph
   %.not20 = icmp eq ptr %11, null
-  br i1 %.not20, label %.loopexit, label %24
+  br i1 %.not20, label %.loopexit, label %26
 
-24:                                               ; preds = %23
+26:                                               ; preds = %25
   call void @free(ptr noundef nonnull %11) #24
   br label %.loopexit
 
-.loopexit:                                        ; preds = %13, %4, %24, %23
-  %.0 = phi ptr [ null, %23 ], [ null, %24 ], [ %11, %4 ], [ %11, %13 ]
+.loopexit:                                        ; preds = %13, %4, %26, %25
+  %.0 = phi ptr [ null, %25 ], [ null, %26 ], [ %11, %4 ], [ %11, %13 ]
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %5) #24
   ret ptr %.0
 }

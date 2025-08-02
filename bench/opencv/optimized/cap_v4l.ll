@@ -8546,7 +8546,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
   %176 = zext i32 %128 to i64
   %.idx = mul nuw nsw i64 %176, 736
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %178 = getelementptr i8, ptr %177, i64 %.idx
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 %.idx
   %179 = load i64, ptr %178, align 8, !tbaa !87
   %180 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %181 = load i32, ptr %180, align 8, !tbaa !247
@@ -9009,8 +9009,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
   %143 = zext nneg i32 %140 to i64
   %.idx = mul nuw nsw i64 %143, 736
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 840
-  %145 = getelementptr i8, ptr %144, i64 %.idx
-  %146 = call noundef zeroext i1 @_ZNK2cv16CvCaptureCAM_V4L8tryIoctlEmPvbi(ptr noundef nonnull align 8 dereferenceable(8736) %0, i64 noundef 3227014671, ptr noundef %145, i1 noundef zeroext true, i32 noundef 10)
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 %.idx
+  %146 = call noundef zeroext i1 @_ZNK2cv16CvCaptureCAM_V4L8tryIoctlEmPvbi(ptr noundef nonnull align 8 dereferenceable(8736) %0, i64 noundef 3227014671, ptr noundef nonnull %145, i1 noundef zeroext true, i32 noundef 10)
   br i1 %146, label %248, label %147
 
 147:                                              ; preds = %142

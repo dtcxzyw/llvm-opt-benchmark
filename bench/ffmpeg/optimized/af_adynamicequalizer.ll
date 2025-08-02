@@ -936,11 +936,7 @@ queue_sample_double.exit:                         ; preds = %.lr.ph118.i, %.lr.p
   %287 = icmp eq i32 %24, -1
   %288 = sext i32 %44 to i64
   %wide.trip.count376 = sext i32 %47 to i64
-  br i1 %281, label %.lr.ph324.us.preheader, label %.lr.ph330.split.preheader
-
-.lr.ph330.split.preheader:                        ; preds = %.lr.ph330
-  %invariant.gep = getelementptr i8, ptr %278, i64 252
-  br label %.lr.ph330.split
+  br i1 %281, label %.lr.ph324.us.preheader, label %.lr.ph330.split
 
 .lr.ph324.us.preheader:                           ; preds = %.lr.ph330
   %wide.trip.count371 = zext nneg i32 %280 to i64
@@ -1201,10 +1197,10 @@ queue_sample_double.exit:                         ; preds = %.lr.ph118.i, %.lr.p
 ._crit_edge331:                                   ; preds = %.lr.ph330.split, %._crit_edge325.us, %.loopexit
   ret i32 0
 
-.lr.ph330.split:                                  ; preds = %.lr.ph330.split.preheader, %.lr.ph330.split
-  %indvars.iv363 = phi i64 [ %288, %.lr.ph330.split.preheader ], [ %indvars.iv.next364, %.lr.ph330.split ]
-  %gep = getelementptr %struct.ChannelContext, ptr %invariant.gep, i64 %indvars.iv363
-  store i32 1, ptr %gep, align 4, !tbaa !107
+.lr.ph330.split:                                  ; preds = %.lr.ph330, %.lr.ph330.split
+  %indvars.iv363 = phi i64 [ %indvars.iv.next364, %.lr.ph330.split ], [ %288, %.lr.ph330 ]
+  %450 = getelementptr inbounds %struct.ChannelContext, ptr %278, i64 %indvars.iv363, i32 29
+  store i32 1, ptr %450, align 4, !tbaa !107
   %indvars.iv.next364 = add nsw i64 %indvars.iv363, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count376
   br i1 %exitcond367.not, label %._crit_edge331, label %.lr.ph330.split, !llvm.loop !110
@@ -1879,11 +1875,7 @@ queue_sample_float.exit:                          ; preds = %.lr.ph118.i, %.lr.p
   %305 = icmp eq i32 %29, -1
   %306 = sext i32 %56 to i64
   %wide.trip.count376 = sext i32 %59 to i64
-  br i1 %299, label %.lr.ph324.us.preheader, label %.lr.ph330.split.preheader
-
-.lr.ph330.split.preheader:                        ; preds = %.lr.ph330
-  %invariant.gep = getelementptr i8, ptr %296, i64 252
-  br label %.lr.ph330.split
+  br i1 %299, label %.lr.ph324.us.preheader, label %.lr.ph330.split
 
 .lr.ph324.us.preheader:                           ; preds = %.lr.ph330
   %wide.trip.count371 = zext nneg i32 %298 to i64
@@ -2149,10 +2141,10 @@ queue_sample_float.exit:                          ; preds = %.lr.ph118.i, %.lr.p
 ._crit_edge331:                                   ; preds = %.lr.ph330.split, %._crit_edge325.us, %.loopexit
   ret i32 0
 
-.lr.ph330.split:                                  ; preds = %.lr.ph330.split.preheader, %.lr.ph330.split
-  %indvars.iv363 = phi i64 [ %306, %.lr.ph330.split.preheader ], [ %indvars.iv.next364, %.lr.ph330.split ]
-  %gep = getelementptr %struct.ChannelContext, ptr %invariant.gep, i64 %indvars.iv363
-  store i32 1, ptr %gep, align 4, !tbaa !107
+.lr.ph330.split:                                  ; preds = %.lr.ph330, %.lr.ph330.split
+  %indvars.iv363 = phi i64 [ %indvars.iv.next364, %.lr.ph330.split ], [ %306, %.lr.ph330 ]
+  %473 = getelementptr inbounds %struct.ChannelContext, ptr %296, i64 %indvars.iv363, i32 29
+  store i32 1, ptr %473, align 4, !tbaa !107
   %indvars.iv.next364 = add nsw i64 %indvars.iv363, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count376
   br i1 %exitcond367.not, label %._crit_edge331, label %.lr.ph330.split, !llvm.loop !127

@@ -2384,7 +2384,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i99: ; preds = %227
 .noexc103.thread:                                 ; preds = %218, %231, %.noexc103
   %233 = phi ptr [ %229, %231 ], [ %229, %.noexc103 ], [ null, %218 ]
   %.not.i.i.i.i.i.i.i.i.i100330 = phi i1 [ false, %231 ], [ true, %.noexc103 ], [ true, %218 ]
-  %.pre-phi308329 = phi i64 [ %232, %231 ], [ 0, %.noexc103 ], [ 0, %218 ]
+  %.pre-phi308329 = phi i64 [ %232, %231 ], [ 1, %.noexc103 ], [ 1, %218 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #26
   %234 = load ptr, ptr %213, align 8, !tbaa !134
   %235 = load ptr, ptr %3, align 8, !tbaa !133
@@ -2428,14 +2428,10 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit111:             ; preds = %.noexc110.thread, %
   %245 = phi ptr [ %239, %.noexc110.thread ], [ %244, %243 ]
   %246 = phi ptr [ null, %.noexc110.thread ], [ %242, %243 ]
   store ptr %245, ptr %214, align 8, !tbaa !134
-  br i1 %.not.i.i.i.i.i.i.i.i.i100330, label %._crit_edge254, label %.lr.ph253.preheader
+  br i1 %.not.i.i.i.i.i.i.i.i.i100330, label %._crit_edge254, label %.lr.ph253
 
-.lr.ph253.preheader:                              ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit111
-  %umax = call i64 @llvm.umax.i64(i64 %.pre-phi308329, i64 1)
-  br label %.lr.ph253
-
-.lr.ph253:                                        ; preds = %.lr.ph253.preheader, %.lr.ph253
-  %.024252 = phi i64 [ %253, %.lr.ph253 ], [ 0, %.lr.ph253.preheader ]
+.lr.ph253:                                        ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit111, %.lr.ph253
+  %.024252 = phi i64 [ %253, %.lr.ph253 ], [ 0, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit111 ]
   %247 = getelementptr inbounds nuw i32, ptr %.sroa.0157.3.lcssa321, i64 %.024252
   %248 = load i32, ptr %247, align 4, !tbaa !98
   %249 = getelementptr inbounds nuw i32, ptr %233, i64 %.024252
@@ -2444,7 +2440,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit111:             ; preds = %.noexc110.thread, %
   %252 = getelementptr inbounds nuw i32, ptr %246, i64 %251
   store i32 %250, ptr %252, align 4, !tbaa !98
   %253 = add nuw i64 %.024252, 1
-  %exitcond.not = icmp eq i64 %253, %umax
+  %exitcond.not = icmp eq i64 %253, %.pre-phi308329
   br i1 %exitcond.not, label %._crit_edge254, label %.lr.ph253, !llvm.loop !143
 
 254:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i, %.noexc.i.i

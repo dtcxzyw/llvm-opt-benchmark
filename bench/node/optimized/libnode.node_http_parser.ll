@@ -7957,14 +7957,14 @@ _ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit: ; preds = %i
 
 land.rhs.lr.ph.i:                                 ; preds = %_ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit
   %9 = load ptr, ptr %arrayidx11, align 8
-  %invariant.gep.i = getelementptr i8, ptr %9, i64 -1
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
   %10 = phi i64 [ %size_.promoted.i, %land.rhs.lr.ph.i ], [ %dec.i, %while.body.i ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %10
-  %11 = load i8, ptr %gep.i, align 1
-  switch i8 %11, label %if.then.i.i [
+  %11 = getelementptr i8, ptr %9, i64 %10
+  %arrayidx.i = getelementptr i8, ptr %11, i64 -1
+  %12 = load i8, ptr %arrayidx.i, align 1
+  switch i8 %12, label %if.then.i.i [
     i8 32, label %while.body.i
     i8 9, label %while.body.i
   ]
@@ -7977,9 +7977,9 @@ while.body.i:                                     ; preds = %land.rhs.i, %land.r
 
 if.then.i.i:                                      ; preds = %land.rhs.i
   %isolate_.i3.i.i = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %12 = load ptr, ptr %isolate_.i3.i.i, align 8
+  %13 = load ptr, ptr %isolate_.i3.i.i, align 8
   %conv.i.i = trunc i64 %10 to i32
-  %call.i.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %12, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %conv.i.i) #20
+  %call.i.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %conv.i.i) #20
   %cmp.i.i.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4node12_GLOBAL__N_19StringPtr15ToTrimmedStringEPNS_11EnvironmentE.exit
 
@@ -7989,35 +7989,35 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i, %_ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit
   %isolate_.i3.i3.i = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %13 = load ptr, ptr %isolate_.i3.i3.i, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %add1.i.i.i.i = add i64 %14, 648
-  %15 = inttoptr i64 %add1.i.i.i.i to ptr
+  %14 = load ptr, ptr %isolate_.i3.i3.i, align 8
+  %15 = ptrtoint ptr %14 to i64
+  %add1.i.i.i.i = add i64 %15, 648
+  %16 = inttoptr i64 %add1.i.i.i.i to ptr
   br label %_ZN4node12_GLOBAL__N_19StringPtr15ToTrimmedStringEPNS_11EnvironmentE.exit
 
 _ZN4node12_GLOBAL__N_19StringPtr15ToTrimmedStringEPNS_11EnvironmentE.exit: ; preds = %if.then.i.i, %if.then.i.i.i.i, %if.else.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %15, %if.else.i.i ], [ %call.i.i.i, %if.then.i.i ], [ null, %if.then.i.i.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %16, %if.else.i.i ], [ %call.i.i.i, %if.then.i.i ], [ null, %if.then.i.i.i.i ]
   %add = or disjoint i64 %mul, 1
   %arrayidx21 = getelementptr inbounds [64 x %"class.v8::Local.0"], ptr %headers_v, i64 0, i64 %add
   store ptr %retval.sroa.0.0.i.i, ptr %arrayidx21, align 8
   %inc = add nuw i64 %i.015, 1
-  %16 = load i64, ptr %num_values_, align 8
-  %cmp = icmp ult i64 %inc, %16
+  %17 = load i64, ptr %num_values_, align 8
+  %cmp = icmp ult i64 %inc, %17
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !60
 
 for.end.loopexit:                                 ; preds = %_ZN4node12_GLOBAL__N_19StringPtr15ToTrimmedStringEPNS_11EnvironmentE.exit
-  %17 = shl i64 %16, 1
+  %18 = shl i64 %17, 1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %.lcssa13 = phi i64 [ 0, %entry ], [ %17, %for.end.loopexit ]
+  %.lcssa13 = phi i64 [ 0, %entry ], [ %18, %for.end.loopexit ]
   %realm_.i10 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %18 = load ptr, ptr %realm_.i10, align 8
-  %env_.i.i11 = getelementptr inbounds nuw i8, ptr %18, i64 176
-  %19 = load ptr, ptr %env_.i.i11, align 8
-  %isolate_.i = getelementptr inbounds nuw i8, ptr %19, i64 88
-  %20 = load ptr, ptr %isolate_.i, align 8
-  %call26 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %20, ptr noundef nonnull %headers_v, i64 noundef %.lcssa13) #20
+  %19 = load ptr, ptr %realm_.i10, align 8
+  %env_.i.i11 = getelementptr inbounds nuw i8, ptr %19, i64 176
+  %20 = load ptr, ptr %env_.i.i11, align 8
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %20, i64 88
+  %21 = load ptr, ptr %isolate_.i, align 8
+  %call26 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %21, ptr noundef nonnull %headers_v, i64 noundef %.lcssa13) #20
   ret ptr %call26
 }
 

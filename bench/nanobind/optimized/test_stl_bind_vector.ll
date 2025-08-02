@@ -19697,7 +19697,7 @@ _ZSteqISt10shared_ptrIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7modu
 }
 
 ; Function Attrs: inlinehint mustprogress optsize uwtable
-define internal noundef ptr @_ZZN8nanobind6detail11func_createILb0ELb1ERPFbRKSt6vectorISt10shared_ptrIZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElESaIS7_EESB_EbJSB_SB_EJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_11is_operatorENS_9rv_policyENS_3sigEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSM_PhSJ_PNS0_12cleanup_listEE_8__invokeES10_S11_S12_SJ_S14_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr noundef %4) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZZN8nanobind6detail11func_createILb0ELb1ERPFbRKSt6vectorISt10shared_ptrIZL38nanobind_init_test_stl_bind_vector_extRNS_7module_EE2ElESaIS7_EESB_EbJSB_SB_EJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_11is_operatorENS_9rv_policyENS_3sigEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSM_PhSJ_PNS0_12cleanup_listEE_8__invokeES10_S11_S12_SJ_S14_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr noundef %4) #12 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.nanobind::detail::tuple.868", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8

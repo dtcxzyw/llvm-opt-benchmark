@@ -2322,7 +2322,7 @@ define range(i32 -22, 1) i32 @av_image_fill_black(ptr noundef readonly captures(
   br i1 %.not103113.not, label %.critedge106, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %25 = getelementptr i8, ptr %8, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %26 = icmp eq i32 %2, 9
   %27 = and i64 %.fr107, 1056
   %28 = icmp ne i64 %27, 0
@@ -2332,7 +2332,7 @@ define range(i32 -22, 1) i32 @av_image_fill_black(ptr noundef readonly captures(
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.critedge.us ], [ 0, %.lr.ph ]
   %.sroa.3.0..sroa_idx.idx.us = mul nuw nsw i64 %indvars.iv152, 20
-  %.sroa.3.0..sroa_idx.us = getelementptr i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx.us
+  %.sroa.3.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx.us
   %.sroa.3.0.copyload.us = load i32, ptr %.sroa.3.0..sroa_idx.us, align 4, !tbaa !10
   %29 = icmp sgt i32 %.sroa.3.0.copyload.us, 32
   br i1 %29, label %.loopexit, label %.critedge.us
@@ -2350,7 +2350,7 @@ define range(i32 -22, 1) i32 @av_image_fill_black(ptr noundef readonly captures(
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge.us119
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge.us119 ], [ 0, %.lr.ph.split ]
   %.sroa.3.0..sroa_idx.idx.us116 = mul nuw nsw i64 %indvars.iv, 20
-  %.sroa.3.0..sroa_idx.us117 = getelementptr i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx.us116
+  %.sroa.3.0..sroa_idx.us117 = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx.us116
   %.sroa.3.0.copyload.us118 = load i32, ptr %.sroa.3.0..sroa_idx.us117, align 4, !tbaa !10
   %31 = icmp sgt i32 %.sroa.3.0.copyload.us118, 32
   br i1 %31, label %.loopexit, label %32
@@ -2429,7 +2429,7 @@ switch.early.test.us:                             ; preds = %49
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.critedge.us132
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %.critedge.us132 ], [ 0, %.lr.ph.split.split ]
   %.sroa.3.0..sroa_idx.idx.us123 = mul nuw nsw i64 %indvars.iv142, 20
-  %.sroa.3.0..sroa_idx.us124 = getelementptr i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx.us123
+  %.sroa.3.0..sroa_idx.us124 = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx.us123
   %.sroa.3.0.copyload.us125 = load i32, ptr %.sroa.3.0..sroa_idx.us124, align 4, !tbaa !10
   %56 = icmp sgt i32 %.sroa.3.0.copyload.us125, 32
   br i1 %56, label %.loopexit, label %57
@@ -2500,7 +2500,7 @@ switch.early.test104.us130:                       ; preds = %64
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.critedge
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.critedge ], [ 0, %.lr.ph.split.split ]
   %.sroa.3.0..sroa_idx.idx = mul nuw nsw i64 %indvars.iv147, 20
-  %.sroa.3.0..sroa_idx = getelementptr i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !10
   %80 = icmp sgt i32 %.sroa.3.0.copyload, 32
   br i1 %80, label %.loopexit, label %81

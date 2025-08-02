@@ -90,7 +90,7 @@ define dso_local range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 check_flag.exit:                                  ; preds = %0
   %16 = load ptr, ptr @stderr, align 8, !tbaa !4
   %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str, i32 noundef %14) #12
-  br label %283
+  br label %293
 
 18:                                               ; preds = %0
   %19 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
@@ -100,7 +100,7 @@ check_flag.exit:                                  ; preds = %0
 check_flag.exit233:                               ; preds = %18
   %21 = load ptr, ptr @stderr, align 8, !tbaa !4
   %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1) #12
-  br label %283
+  br label %293
 
 23:                                               ; preds = %18
   store i64 201, ptr %19, align 8, !tbaa !9
@@ -136,7 +136,7 @@ check_flag.exit233:                               ; preds = %18
 check_flag.exit235:                               ; preds = %23
   %44 = load ptr, ptr @stderr, align 8, !tbaa !4
   %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.7) #12
-  br label %283
+  br label %293
 
 46:                                               ; preds = %23
   %47 = call ptr @N_VClone(ptr noundef nonnull %42) #11
@@ -146,7 +146,7 @@ check_flag.exit235:                               ; preds = %23
 check_flag.exit237:                               ; preds = %46
   %49 = load ptr, ptr @stderr, align 8, !tbaa !4
   %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.8) #12
-  br label %283
+  br label %293
 
 51:                                               ; preds = %46
   %52 = call ptr @N_VClone(ptr noundef nonnull %42) #11
@@ -156,7 +156,7 @@ check_flag.exit237:                               ; preds = %46
 check_flag.exit239:                               ; preds = %51
   %54 = load ptr, ptr @stderr, align 8, !tbaa !4
   %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.8) #12
-  br label %283
+  br label %293
 
 56:                                               ; preds = %51
   %57 = call ptr @N_VClone(ptr noundef nonnull %42) #11
@@ -166,7 +166,7 @@ check_flag.exit239:                               ; preds = %51
 check_flag.exit241:                               ; preds = %56
   %59 = load ptr, ptr @stderr, align 8, !tbaa !4
   %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.8) #12
-  br label %283
+  br label %293
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -178,7 +178,7 @@ check_flag.exit241:                               ; preds = %56
 check_flag.exit243.thread:                        ; preds = %61
   %65 = load ptr, ptr @stderr, align 8, !tbaa !4
   %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.9) #12
-  br label %283
+  br label %293
 
 check_flag.exit243:                               ; preds = %61, %check_flag.exit243
   %.0194353 = phi i64 [ %84, %check_flag.exit243 ], [ 0, %61 ]
@@ -216,7 +216,7 @@ check_flag.exit243:                               ; preds = %61, %check_flag.exi
 check_flag.exit245.thread:                        ; preds = %85
   %88 = load ptr, ptr @stderr, align 8, !tbaa !4
   %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.9) #12
-  br label %283
+  br label %293
 
 check_flag.exit245:                               ; preds = %85, %check_flag.exit245
   %.1354 = phi i64 [ %91, %check_flag.exit245 ], [ 0, %85 ]
@@ -224,422 +224,412 @@ check_flag.exit245:                               ; preds = %85, %check_flag.exi
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx231
   store double 1.000000e+00, ptr %90, align 8, !tbaa !24
   %91 = add nuw nsw i64 %.1354, 1
-  %exitcond377.not = icmp eq i64 %91, 201
-  br i1 %exitcond377.not, label %92, label %check_flag.exit245
+  %exitcond367.not = icmp eq i64 %91, 201
+  br i1 %exitcond367.not, label %92, label %check_flag.exit245
 
 92:                                               ; preds = %check_flag.exit245
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %52) #11
   %93 = call ptr @N_VGetArrayPointer(ptr noundef nonnull %52) #11
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %check_flag.exit247.thread, label %check_flag.exit247.preheader
-
-check_flag.exit247.preheader:                     ; preds = %92
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %93, i64 8
-  br label %check_flag.exit247
+  br i1 %94, label %check_flag.exit247.thread, label %check_flag.exit247
 
 check_flag.exit247.thread:                        ; preds = %92
   %95 = load ptr, ptr @stderr, align 8, !tbaa !4
   %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.9) #12
-  br label %283
+  br label %293
 
-check_flag.exit247:                               ; preds = %check_flag.exit247.preheader, %check_flag.exit247
-  %.2355 = phi i64 [ 0, %check_flag.exit247.preheader ], [ %97, %check_flag.exit247 ]
+check_flag.exit247:                               ; preds = %92, %check_flag.exit247
+  %.2355 = phi i64 [ %99, %check_flag.exit247 ], [ 0, %92 ]
   %.idx230 = mul nuw nsw i64 %.2355, 24
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx230
-  store double 1.000000e+00, ptr %gep, align 8, !tbaa !24
-  %97 = add nuw nsw i64 %.2355, 1
-  %exitcond378.not = icmp eq i64 %97, 201
-  br i1 %exitcond378.not, label %98, label %check_flag.exit247
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx230
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store double 1.000000e+00, ptr %98, align 8, !tbaa !24
+  %99 = add nuw nsw i64 %.2355, 1
+  %exitcond368.not = icmp eq i64 %99, 201
+  br i1 %exitcond368.not, label %100, label %check_flag.exit247
 
-98:                                               ; preds = %check_flag.exit247
+100:                                              ; preds = %check_flag.exit247
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %57) #11
-  %99 = call ptr @N_VGetArrayPointer(ptr noundef nonnull %57) #11
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %check_flag.exit249.thread, label %check_flag.exit249.preheader
+  %101 = call ptr @N_VGetArrayPointer(ptr noundef nonnull %57) #11
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %check_flag.exit249.thread, label %check_flag.exit249
 
-check_flag.exit249.preheader:                     ; preds = %98
-  %invariant.gep356 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  br label %check_flag.exit249
+check_flag.exit249.thread:                        ; preds = %100
+  %103 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.9) #12
+  br label %293
 
-check_flag.exit249.thread:                        ; preds = %98
-  %101 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.9) #12
-  br label %283
+check_flag.exit249:                               ; preds = %100, %check_flag.exit249
+  %.3356 = phi i64 [ %107, %check_flag.exit249 ], [ 0, %100 ]
+  %.idx229 = mul nuw nsw i64 %.3356, 24
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx229
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  store double 1.000000e+00, ptr %106, align 8, !tbaa !24
+  %107 = add nuw nsw i64 %.3356, 1
+  %exitcond369.not = icmp eq i64 %107, 201
+  br i1 %exitcond369.not, label %108, label %check_flag.exit249
 
-check_flag.exit249:                               ; preds = %check_flag.exit249.preheader, %check_flag.exit249
-  %.3358 = phi i64 [ 0, %check_flag.exit249.preheader ], [ %103, %check_flag.exit249 ]
-  %.idx229 = mul nuw nsw i64 %.3358, 24
-  %gep357 = getelementptr inbounds nuw i8, ptr %invariant.gep356, i64 %.idx229
-  store double 1.000000e+00, ptr %gep357, align 8, !tbaa !24
-  %103 = add nuw nsw i64 %.3358, 1
-  %exitcond379.not = icmp eq i64 %103, 201
-  br i1 %exitcond379.not, label %104, label %check_flag.exit249
+108:                                              ; preds = %check_flag.exit249
+  %109 = load ptr, ptr %13, align 8, !tbaa !19
+  %110 = call ptr @ARKStepCreate(ptr noundef null, ptr noundef nonnull @f, double noundef 0.000000e+00, ptr noundef nonnull %42, ptr noundef %109) #11
+  store ptr %110, ptr %1, align 8, !tbaa !25
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %check_flag.exit251, label %114
 
-104:                                              ; preds = %check_flag.exit249
-  %105 = load ptr, ptr %13, align 8, !tbaa !19
-  %106 = call ptr @ARKStepCreate(ptr noundef null, ptr noundef nonnull @f, double noundef 0.000000e+00, ptr noundef nonnull %42, ptr noundef %105) #11
-  store ptr %106, ptr %1, align 8, !tbaa !25
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %check_flag.exit251, label %110
+check_flag.exit251:                               ; preds = %108
+  %112 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.10) #12
+  br label %293
 
-check_flag.exit251:                               ; preds = %104
-  %108 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.10) #12
-  br label %283
+114:                                              ; preds = %108
+  %115 = call i32 @ARKodeSetUserData(ptr noundef nonnull %110, ptr noundef nonnull %19) #11
+  %116 = icmp slt i32 %115, 0
+  br i1 %116, label %check_flag.exit253, label %119
 
-110:                                              ; preds = %104
-  %111 = call i32 @ARKodeSetUserData(ptr noundef nonnull %106, ptr noundef nonnull %19) #11
-  %112 = icmp slt i32 %111, 0
-  br i1 %112, label %check_flag.exit253, label %115
+check_flag.exit253:                               ; preds = %114
+  %117 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.11, i32 noundef %115) #12
+  br label %293
 
-check_flag.exit253:                               ; preds = %110
-  %113 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.11, i32 noundef %111) #12
-  br label %283
+119:                                              ; preds = %114
+  %120 = call i32 @ARKodeSStolerances(ptr noundef nonnull %110, double noundef 0x3EB0C6F7A0B5ED8D, double noundef 1.000000e-10) #11
+  %121 = icmp slt i32 %120, 0
+  br i1 %121, label %check_flag.exit255, label %124
 
-115:                                              ; preds = %110
-  %116 = call i32 @ARKodeSStolerances(ptr noundef nonnull %106, double noundef 0x3EB0C6F7A0B5ED8D, double noundef 1.000000e-10) #11
-  %117 = icmp slt i32 %116, 0
-  br i1 %117, label %check_flag.exit255, label %120
+check_flag.exit255:                               ; preds = %119
+  %122 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.12, i32 noundef %120) #12
+  br label %293
 
-check_flag.exit255:                               ; preds = %115
-  %118 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.12, i32 noundef %116) #12
-  br label %283
+124:                                              ; preds = %119
+  %125 = load ptr, ptr %13, align 8, !tbaa !19
+  %126 = call ptr @SUNBandMatrix(i64 noundef 603, i64 noundef 4, i64 noundef 4, ptr noundef %125) #11
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %check_flag.exit257, label %130
 
-120:                                              ; preds = %115
-  %121 = load ptr, ptr %13, align 8, !tbaa !19
-  %122 = call ptr @SUNBandMatrix(i64 noundef 603, i64 noundef 4, i64 noundef 4, ptr noundef %121) #11
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %check_flag.exit257, label %126
+check_flag.exit257:                               ; preds = %124
+  %128 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13) #12
+  br label %293
 
-check_flag.exit257:                               ; preds = %120
-  %124 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13) #12
-  br label %283
+130:                                              ; preds = %124
+  %131 = load ptr, ptr %13, align 8, !tbaa !19
+  %132 = call ptr @SUNLinSol_Band(ptr noundef nonnull %42, ptr noundef nonnull %126, ptr noundef %131) #11
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %check_flag.exit259, label %136
 
-126:                                              ; preds = %120
-  %127 = load ptr, ptr %13, align 8, !tbaa !19
-  %128 = call ptr @SUNLinSol_Band(ptr noundef nonnull %42, ptr noundef nonnull %122, ptr noundef %127) #11
-  %129 = icmp eq ptr %128, null
-  br i1 %129, label %check_flag.exit259, label %132
+check_flag.exit259:                               ; preds = %130
+  %134 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.14) #12
+  br label %293
 
-check_flag.exit259:                               ; preds = %126
-  %130 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.14) #12
-  br label %283
+136:                                              ; preds = %130
+  %137 = call i32 @ARKodeSetLinearSolver(ptr noundef nonnull %110, ptr noundef nonnull %132, ptr noundef nonnull %126) #11
+  %138 = icmp slt i32 %137, 0
+  br i1 %138, label %check_flag.exit261, label %141
 
-132:                                              ; preds = %126
-  %133 = call i32 @ARKodeSetLinearSolver(ptr noundef nonnull %106, ptr noundef nonnull %128, ptr noundef nonnull %122) #11
-  %134 = icmp slt i32 %133, 0
-  br i1 %134, label %check_flag.exit261, label %137
+check_flag.exit261:                               ; preds = %136
+  %139 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.15, i32 noundef %137) #12
+  br label %293
 
-check_flag.exit261:                               ; preds = %132
-  %135 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.15, i32 noundef %133) #12
-  br label %283
+141:                                              ; preds = %136
+  %142 = call i32 @ARKodeSetJacFn(ptr noundef nonnull %110, ptr noundef nonnull @Jac) #11
+  %143 = icmp slt i32 %142, 0
+  br i1 %143, label %check_flag.exit263, label %146
 
-137:                                              ; preds = %132
-  %138 = call i32 @ARKodeSetJacFn(ptr noundef nonnull %106, ptr noundef nonnull @Jac) #11
-  %139 = icmp slt i32 %138, 0
-  br i1 %139, label %check_flag.exit263, label %142
+check_flag.exit263:                               ; preds = %141
+  %144 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.16, i32 noundef %142) #12
+  br label %293
 
-check_flag.exit263:                               ; preds = %137
-  %140 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.16, i32 noundef %138) #12
-  br label %283
+146:                                              ; preds = %141
+  %147 = call i32 @ARKodeSetAutonomous(ptr noundef nonnull %110, i32 noundef 1) #11
+  %148 = icmp slt i32 %147, 0
+  br i1 %148, label %check_flag.exit265, label %151
 
-142:                                              ; preds = %137
-  %143 = call i32 @ARKodeSetAutonomous(ptr noundef nonnull %106, i32 noundef 1) #11
-  %144 = icmp slt i32 %143, 0
-  br i1 %144, label %check_flag.exit265, label %147
+check_flag.exit265:                               ; preds = %146
+  %149 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.17, i32 noundef %147) #12
+  br label %293
 
-check_flag.exit265:                               ; preds = %142
-  %145 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %146 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.17, i32 noundef %143) #12
-  br label %283
+151:                                              ; preds = %146
+  %152 = call noalias ptr @fopen(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19)
+  br label %153
 
-147:                                              ; preds = %142
-  %148 = call noalias ptr @fopen(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19)
-  br label %149
+153:                                              ; preds = %151, %153
+  %.4357 = phi i64 [ 0, %151 ], [ %158, %153 ]
+  %154 = load double, ptr %62, align 8, !tbaa !21
+  %155 = uitofp nneg i64 %.4357 to double
+  %156 = fmul double %154, %155
+  %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.20, double noundef %156) #11
+  %158 = add nuw nsw i64 %.4357, 1
+  %exitcond370.not = icmp eq i64 %158, 201
+  br i1 %exitcond370.not, label %159, label %153
 
-149:                                              ; preds = %147, %149
-  %.4359 = phi i64 [ 0, %147 ], [ %154, %149 ]
-  %150 = load double, ptr %62, align 8, !tbaa !21
-  %151 = uitofp nneg i64 %.4359 to double
-  %152 = fmul double %150, %151
-  %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.20, double noundef %152) #11
-  %154 = add nuw nsw i64 %.4359, 1
-  %exitcond380.not = icmp eq i64 %154, 201
-  br i1 %exitcond380.not, label %155, label %149
+159:                                              ; preds = %153
+  %160 = call i32 @fclose(ptr noundef %152)
+  %161 = call noalias ptr @fopen(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19)
+  %162 = call noalias ptr @fopen(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.19)
+  %163 = call noalias ptr @fopen(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.19)
+  %164 = call ptr @N_VGetArrayPointer(ptr noundef nonnull %42) #11
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %check_flag.exit267.thread, label %check_flag.exit267
 
-155:                                              ; preds = %149
-  %156 = call i32 @fclose(ptr noundef %148)
-  %157 = call noalias ptr @fopen(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19)
-  %158 = call noalias ptr @fopen(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.19)
-  %159 = call noalias ptr @fopen(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.19)
-  %160 = call ptr @N_VGetArrayPointer(ptr noundef nonnull %42) #11
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %check_flag.exit267.thread, label %check_flag.exit267
+check_flag.exit267.thread:                        ; preds = %159
+  %166 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.9) #12
+  br label %293
 
-check_flag.exit267.thread:                        ; preds = %155
-  %162 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %162, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.9) #12
-  br label %283
+check_flag.exit267:                               ; preds = %159, %check_flag.exit267
+  %.5358 = phi i64 [ %171, %check_flag.exit267 ], [ 0, %159 ]
+  %.idx228 = mul nuw nsw i64 %.5358, 24
+  %168 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx228
+  %169 = load double, ptr %168, align 8, !tbaa !24
+  %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str.24, double noundef %169) #11
+  %171 = add nuw nsw i64 %.5358, 1
+  %exitcond371.not = icmp eq i64 %171, 201
+  br i1 %exitcond371.not, label %.preheader352, label %check_flag.exit267
 
-.preheader352:                                    ; preds = %check_flag.exit267
-  %invariant.gep361 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  br label %168
+.preheader352:                                    ; preds = %check_flag.exit267, %.preheader352
+  %.6359 = phi i64 [ %176, %.preheader352 ], [ 0, %check_flag.exit267 ]
+  %.idx227 = mul nuw nsw i64 %.6359, 24
+  %172 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx227
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %174 = load double, ptr %173, align 8, !tbaa !24
+  %175 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %162, ptr noundef nonnull @.str.24, double noundef %174) #11
+  %176 = add nuw nsw i64 %.6359, 1
+  %exitcond372.not = icmp eq i64 %176, 201
+  br i1 %exitcond372.not, label %.preheader351, label %.preheader352
 
-check_flag.exit267:                               ; preds = %155, %check_flag.exit267
-  %.5360 = phi i64 [ %167, %check_flag.exit267 ], [ 0, %155 ]
-  %.idx228 = mul nuw nsw i64 %.5360, 24
-  %164 = getelementptr inbounds nuw i8, ptr %160, i64 %.idx228
-  %165 = load double, ptr %164, align 8, !tbaa !24
-  %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.24, double noundef %165) #11
-  %167 = add nuw nsw i64 %.5360, 1
-  %exitcond381.not = icmp eq i64 %167, 201
-  br i1 %exitcond381.not, label %.preheader352, label %check_flag.exit267
+.preheader351:                                    ; preds = %.preheader352, %.preheader351
+  %.7360 = phi i64 [ %181, %.preheader351 ], [ 0, %.preheader352 ]
+  %.idx226 = mul nuw nsw i64 %.7360, 24
+  %177 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx226
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %179 = load double, ptr %178, align 8, !tbaa !24
+  %180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str.24, double noundef %179) #11
+  %181 = add nuw nsw i64 %.7360, 1
+  %exitcond373.not = icmp eq i64 %181, 201
+  br i1 %exitcond373.not, label %182, label %.preheader351
 
-.preheader351:                                    ; preds = %168
-  %invariant.gep364 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  br label %172
-
-168:                                              ; preds = %.preheader352, %168
-  %.6363 = phi i64 [ 0, %.preheader352 ], [ %171, %168 ]
-  %.idx227 = mul nuw nsw i64 %.6363, 24
-  %gep362 = getelementptr inbounds nuw i8, ptr %invariant.gep361, i64 %.idx227
-  %169 = load double, ptr %gep362, align 8, !tbaa !24
-  %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.24, double noundef %169) #11
-  %171 = add nuw nsw i64 %.6363, 1
-  %exitcond382.not = icmp eq i64 %171, 201
-  br i1 %exitcond382.not, label %.preheader351, label %168
-
-172:                                              ; preds = %.preheader351, %172
-  %.7366 = phi i64 [ 0, %.preheader351 ], [ %175, %172 ]
-  %.idx226 = mul nuw nsw i64 %.7366, 24
-  %gep365 = getelementptr inbounds nuw i8, ptr %invariant.gep364, i64 %.idx226
-  %173 = load double, ptr %gep365, align 8, !tbaa !24
-  %174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %159, ptr noundef nonnull @.str.24, double noundef %173) #11
-  %175 = add nuw nsw i64 %.7366, 1
-  %exitcond383.not = icmp eq i64 %175, 201
-  br i1 %exitcond383.not, label %176, label %172
-
-176:                                              ; preds = %172
-  %fputc = call i32 @fputc(i32 10, ptr %157)
-  %fputc214 = call i32 @fputc(i32 10, ptr %158)
-  %fputc215 = call i32 @fputc(i32 10, ptr %159)
+182:                                              ; preds = %.preheader351
+  %fputc = call i32 @fputc(i32 10, ptr %161)
+  %fputc214 = call i32 @fputc(i32 10, ptr %162)
+  %fputc215 = call i32 @fputc(i32 10, ptr %163)
   store double 0.000000e+00, ptr %2, align 8, !tbaa !24
   %puts216 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %puts217 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %177
+  br label %183
 
-177:                                              ; preds = %176, %205
-  %.0375 = phi i32 [ 0, %176 ], [ %209, %205 ]
-  %.0195374 = phi double [ 1.000000e-01, %176 ], [ %208, %205 ]
-  %178 = call i32 @ARKodeEvolve(ptr noundef nonnull %106, double noundef %.0195374, ptr noundef nonnull %42, ptr noundef nonnull %2, i32 noundef 1) #11
-  %179 = icmp slt i32 %178, 0
-  br i1 %179, label %check_flag.exit269, label %182
+183:                                              ; preds = %182, %215
+  %.0365 = phi i32 [ 0, %182 ], [ %219, %215 ]
+  %.0195364 = phi double [ 1.000000e-01, %182 ], [ %218, %215 ]
+  %184 = call i32 @ARKodeEvolve(ptr noundef nonnull %110, double noundef %.0195364, ptr noundef nonnull %42, ptr noundef nonnull %2, i32 noundef 1) #11
+  %185 = icmp slt i32 %184, 0
+  br i1 %185, label %check_flag.exit269, label %188
 
-check_flag.exit269:                               ; preds = %177
-  %180 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %180, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.28, i32 noundef %178) #12
+check_flag.exit269:                               ; preds = %183
+  %186 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.28, i32 noundef %184) #12
   br label %.loopexit
 
-182:                                              ; preds = %177
-  %183 = call double @N_VWL2Norm(ptr noundef nonnull %42, ptr noundef nonnull %47) #11
-  %184 = fmul double %183, %183
-  %185 = fdiv double %184, 2.010000e+02
-  %sqrt349 = call double @llvm.sqrt.f64(double %185)
-  %186 = call double @N_VWL2Norm(ptr noundef nonnull %42, ptr noundef nonnull %52) #11
-  %187 = fmul double %186, %186
-  %188 = fdiv double %187, 2.010000e+02
-  %sqrt348 = call double @llvm.sqrt.f64(double %188)
-  %189 = call double @N_VWL2Norm(ptr noundef nonnull %42, ptr noundef nonnull %57) #11
+188:                                              ; preds = %183
+  %189 = call double @N_VWL2Norm(ptr noundef nonnull %42, ptr noundef nonnull %47) #11
   %190 = fmul double %189, %189
   %191 = fdiv double %190, 2.010000e+02
-  %sqrt = call double @llvm.sqrt.f64(double %191)
-  %192 = load double, ptr %2, align 8, !tbaa !24
-  %193 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %192, double noundef %sqrt349, double noundef %sqrt348, double noundef %sqrt)
-  br label %194
+  %sqrt349 = call double @llvm.sqrt.f64(double %191)
+  %192 = call double @N_VWL2Norm(ptr noundef nonnull %42, ptr noundef nonnull %52) #11
+  %193 = fmul double %192, %192
+  %194 = fdiv double %193, 2.010000e+02
+  %sqrt348 = call double @llvm.sqrt.f64(double %194)
+  %195 = call double @N_VWL2Norm(ptr noundef nonnull %42, ptr noundef nonnull %57) #11
+  %196 = fmul double %195, %195
+  %197 = fdiv double %196, 2.010000e+02
+  %sqrt = call double @llvm.sqrt.f64(double %197)
+  %198 = load double, ptr %2, align 8, !tbaa !24
+  %199 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %198, double noundef %sqrt349, double noundef %sqrt348, double noundef %sqrt)
+  br label %200
 
-194:                                              ; preds = %182, %194
-  %.8367 = phi i64 [ 0, %182 ], [ %198, %194 ]
-  %.idx223 = mul nuw nsw i64 %.8367, 24
-  %195 = getelementptr inbounds nuw i8, ptr %160, i64 %.idx223
-  %196 = load double, ptr %195, align 8, !tbaa !24
-  %197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.24, double noundef %196) #11
-  %198 = add nuw nsw i64 %.8367, 1
-  %exitcond384.not = icmp eq i64 %198, 201
-  br i1 %exitcond384.not, label %.preheader350, label %194
+200:                                              ; preds = %188, %200
+  %.8361 = phi i64 [ 0, %188 ], [ %204, %200 ]
+  %.idx223 = mul nuw nsw i64 %.8361, 24
+  %201 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx223
+  %202 = load double, ptr %201, align 8, !tbaa !24
+  %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str.24, double noundef %202) #11
+  %204 = add nuw nsw i64 %.8361, 1
+  %exitcond374.not = icmp eq i64 %204, 201
+  br i1 %exitcond374.not, label %.preheader350, label %200
 
-.preheader350:                                    ; preds = %194, %.preheader350
-  %.9370 = phi i64 [ %201, %.preheader350 ], [ 0, %194 ]
-  %.idx222 = mul nuw nsw i64 %.9370, 24
-  %gep369 = getelementptr inbounds nuw i8, ptr %invariant.gep361, i64 %.idx222
-  %199 = load double, ptr %gep369, align 8, !tbaa !24
-  %200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.24, double noundef %199) #11
-  %201 = add nuw nsw i64 %.9370, 1
-  %exitcond385.not = icmp eq i64 %201, 201
-  br i1 %exitcond385.not, label %.preheader, label %.preheader350
+.preheader350:                                    ; preds = %200, %.preheader350
+  %.9362 = phi i64 [ %209, %.preheader350 ], [ 0, %200 ]
+  %.idx222 = mul nuw nsw i64 %.9362, 24
+  %205 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx222
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
+  %207 = load double, ptr %206, align 8, !tbaa !24
+  %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %162, ptr noundef nonnull @.str.24, double noundef %207) #11
+  %209 = add nuw nsw i64 %.9362, 1
+  %exitcond375.not = icmp eq i64 %209, 201
+  br i1 %exitcond375.not, label %.preheader, label %.preheader350
 
 .preheader:                                       ; preds = %.preheader350, %.preheader
-  %.10373 = phi i64 [ %204, %.preheader ], [ 0, %.preheader350 ]
-  %.idx = mul nuw nsw i64 %.10373, 24
-  %gep372 = getelementptr inbounds nuw i8, ptr %invariant.gep364, i64 %.idx
-  %202 = load double, ptr %gep372, align 8, !tbaa !24
-  %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %159, ptr noundef nonnull @.str.24, double noundef %202) #11
-  %204 = add nuw nsw i64 %.10373, 1
-  %exitcond386.not = icmp eq i64 %204, 201
-  br i1 %exitcond386.not, label %205, label %.preheader
+  %.10363 = phi i64 [ %214, %.preheader ], [ 0, %.preheader350 ]
+  %.idx = mul nuw nsw i64 %.10363, 24
+  %210 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
+  %212 = load double, ptr %211, align 8, !tbaa !24
+  %213 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str.24, double noundef %212) #11
+  %214 = add nuw nsw i64 %.10363, 1
+  %exitcond376.not = icmp eq i64 %214, 201
+  br i1 %exitcond376.not, label %215, label %.preheader
 
-205:                                              ; preds = %.preheader
-  %206 = fadd double %.0195374, 1.000000e-01
-  %207 = fcmp ogt double %206, 1.000000e+01
-  %208 = select i1 %207, double 1.000000e+01, double %206
-  %fputc219 = call i32 @fputc(i32 10, ptr %157)
-  %fputc220 = call i32 @fputc(i32 10, ptr %158)
-  %fputc221 = call i32 @fputc(i32 10, ptr %159)
-  %209 = add nuw nsw i32 %.0375, 1
-  %exitcond387.not = icmp eq i32 %209, 100
-  br i1 %exitcond387.not, label %.loopexit, label %177
+215:                                              ; preds = %.preheader
+  %216 = fadd double %.0195364, 1.000000e-01
+  %217 = fcmp ogt double %216, 1.000000e+01
+  %218 = select i1 %217, double 1.000000e+01, double %216
+  %fputc219 = call i32 @fputc(i32 10, ptr %161)
+  %fputc220 = call i32 @fputc(i32 10, ptr %162)
+  %fputc221 = call i32 @fputc(i32 10, ptr %163)
+  %219 = add nuw nsw i32 %.0365, 1
+  %exitcond377.not = icmp eq i32 %219, 100
+  br i1 %exitcond377.not, label %.loopexit, label %183
 
-.loopexit:                                        ; preds = %205, %check_flag.exit269
+.loopexit:                                        ; preds = %215, %check_flag.exit269
   %puts224 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %210 = call i32 @fclose(ptr noundef %157)
-  %211 = call i32 @fclose(ptr noundef %158)
-  %212 = call i32 @fclose(ptr noundef %159)
-  %213 = call i32 @ARKodeGetNumSteps(ptr noundef nonnull %106, ptr noundef nonnull %3) #11
-  %214 = icmp slt i32 %213, 0
-  br i1 %214, label %215, label %check_flag.exit271
+  %220 = call i32 @fclose(ptr noundef %161)
+  %221 = call i32 @fclose(ptr noundef %162)
+  %222 = call i32 @fclose(ptr noundef %163)
+  %223 = call i32 @ARKodeGetNumSteps(ptr noundef nonnull %110, ptr noundef nonnull %3) #11
+  %224 = icmp slt i32 %223, 0
+  br i1 %224, label %225, label %check_flag.exit271
 
-215:                                              ; preds = %.loopexit
-  %216 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %216, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.31, i32 noundef %213) #12
+225:                                              ; preds = %.loopexit
+  %226 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %227 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %226, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.31, i32 noundef %223) #12
   br label %check_flag.exit271
 
-check_flag.exit271:                               ; preds = %.loopexit, %215
-  %218 = call i32 @ARKodeGetNumStepAttempts(ptr noundef nonnull %106, ptr noundef nonnull %4) #11
-  %219 = icmp slt i32 %218, 0
-  br i1 %219, label %220, label %check_flag.exit273
+check_flag.exit271:                               ; preds = %.loopexit, %225
+  %228 = call i32 @ARKodeGetNumStepAttempts(ptr noundef nonnull %110, ptr noundef nonnull %4) #11
+  %229 = icmp slt i32 %228, 0
+  br i1 %229, label %230, label %check_flag.exit273
 
-220:                                              ; preds = %check_flag.exit271
-  %221 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %222 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.32, i32 noundef %218) #12
+230:                                              ; preds = %check_flag.exit271
+  %231 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %232 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %231, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.32, i32 noundef %228) #12
   br label %check_flag.exit273
 
-check_flag.exit273:                               ; preds = %check_flag.exit271, %220
-  %223 = call i32 @ARKodeGetNumRhsEvals(ptr noundef nonnull %106, i32 noundef 0, ptr noundef nonnull %5) #11
-  %224 = icmp slt i32 %223, 0
-  br i1 %224, label %225, label %check_flag.exit275
+check_flag.exit273:                               ; preds = %check_flag.exit271, %230
+  %233 = call i32 @ARKodeGetNumRhsEvals(ptr noundef nonnull %110, i32 noundef 0, ptr noundef nonnull %5) #11
+  %234 = icmp slt i32 %233, 0
+  br i1 %234, label %235, label %check_flag.exit275
 
-225:                                              ; preds = %check_flag.exit273
-  %226 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %227 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %226, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.33, i32 noundef %223) #12
+235:                                              ; preds = %check_flag.exit273
+  %236 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.33, i32 noundef %233) #12
   br label %check_flag.exit275
 
-check_flag.exit275:                               ; preds = %check_flag.exit273, %225
-  %228 = call i32 @ARKodeGetNumRhsEvals(ptr noundef nonnull %106, i32 noundef 1, ptr noundef nonnull %6) #11
-  %229 = icmp slt i32 %228, 0
-  br i1 %229, label %230, label %check_flag.exit277
+check_flag.exit275:                               ; preds = %check_flag.exit273, %235
+  %238 = call i32 @ARKodeGetNumRhsEvals(ptr noundef nonnull %110, i32 noundef 1, ptr noundef nonnull %6) #11
+  %239 = icmp slt i32 %238, 0
+  br i1 %239, label %240, label %check_flag.exit277
 
-230:                                              ; preds = %check_flag.exit275
-  %231 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %232 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %231, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.33, i32 noundef %228) #12
+240:                                              ; preds = %check_flag.exit275
+  %241 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %242 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %241, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.33, i32 noundef %238) #12
   br label %check_flag.exit277
 
-check_flag.exit277:                               ; preds = %check_flag.exit275, %230
-  %233 = call i32 @ARKodeGetNumLinSolvSetups(ptr noundef nonnull %106, ptr noundef nonnull %7) #11
-  %234 = icmp slt i32 %233, 0
-  br i1 %234, label %235, label %check_flag.exit279
+check_flag.exit277:                               ; preds = %check_flag.exit275, %240
+  %243 = call i32 @ARKodeGetNumLinSolvSetups(ptr noundef nonnull %110, ptr noundef nonnull %7) #11
+  %244 = icmp slt i32 %243, 0
+  br i1 %244, label %245, label %check_flag.exit279
 
-235:                                              ; preds = %check_flag.exit277
-  %236 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.34, i32 noundef %233) #12
+245:                                              ; preds = %check_flag.exit277
+  %246 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %246, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.34, i32 noundef %243) #12
   br label %check_flag.exit279
 
-check_flag.exit279:                               ; preds = %check_flag.exit277, %235
-  %238 = call i32 @ARKodeGetNumErrTestFails(ptr noundef nonnull %106, ptr noundef nonnull %12) #11
-  %239 = icmp slt i32 %238, 0
-  br i1 %239, label %240, label %check_flag.exit281
+check_flag.exit279:                               ; preds = %check_flag.exit277, %245
+  %248 = call i32 @ARKodeGetNumErrTestFails(ptr noundef nonnull %110, ptr noundef nonnull %12) #11
+  %249 = icmp slt i32 %248, 0
+  br i1 %249, label %250, label %check_flag.exit281
 
-240:                                              ; preds = %check_flag.exit279
-  %241 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %242 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %241, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.35, i32 noundef %238) #12
+250:                                              ; preds = %check_flag.exit279
+  %251 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %252 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %251, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.35, i32 noundef %248) #12
   br label %check_flag.exit281
 
-check_flag.exit281:                               ; preds = %check_flag.exit279, %240
-  %243 = call i32 @ARKodeGetNumNonlinSolvIters(ptr noundef nonnull %106, ptr noundef nonnull %10) #11
-  %244 = icmp slt i32 %243, 0
-  br i1 %244, label %245, label %check_flag.exit283
+check_flag.exit281:                               ; preds = %check_flag.exit279, %250
+  %253 = call i32 @ARKodeGetNumNonlinSolvIters(ptr noundef nonnull %110, ptr noundef nonnull %10) #11
+  %254 = icmp slt i32 %253, 0
+  br i1 %254, label %255, label %check_flag.exit283
 
-245:                                              ; preds = %check_flag.exit281
-  %246 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %246, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.36, i32 noundef %243) #12
+255:                                              ; preds = %check_flag.exit281
+  %256 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %256, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.36, i32 noundef %253) #12
   br label %check_flag.exit283
 
-check_flag.exit283:                               ; preds = %check_flag.exit281, %245
-  %248 = call i32 @ARKodeGetNumNonlinSolvConvFails(ptr noundef nonnull %106, ptr noundef nonnull %11) #11
-  %249 = icmp slt i32 %248, 0
-  br i1 %249, label %250, label %check_flag.exit285
+check_flag.exit283:                               ; preds = %check_flag.exit281, %255
+  %258 = call i32 @ARKodeGetNumNonlinSolvConvFails(ptr noundef nonnull %110, ptr noundef nonnull %11) #11
+  %259 = icmp slt i32 %258, 0
+  br i1 %259, label %260, label %check_flag.exit285
 
-250:                                              ; preds = %check_flag.exit283
-  %251 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %252 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %251, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.37, i32 noundef %248) #12
+260:                                              ; preds = %check_flag.exit283
+  %261 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %262 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %261, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.37, i32 noundef %258) #12
   br label %check_flag.exit285
 
-check_flag.exit285:                               ; preds = %check_flag.exit283, %250
-  %253 = call i32 @ARKodeGetNumJacEvals(ptr noundef nonnull %106, ptr noundef nonnull %8) #11
-  %254 = icmp slt i32 %253, 0
-  br i1 %254, label %255, label %check_flag.exit287
+check_flag.exit285:                               ; preds = %check_flag.exit283, %260
+  %263 = call i32 @ARKodeGetNumJacEvals(ptr noundef nonnull %110, ptr noundef nonnull %8) #11
+  %264 = icmp slt i32 %263, 0
+  br i1 %264, label %265, label %check_flag.exit287
 
-255:                                              ; preds = %check_flag.exit285
-  %256 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %256, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.38, i32 noundef %253) #12
+265:                                              ; preds = %check_flag.exit285
+  %266 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %267 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %266, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.38, i32 noundef %263) #12
   br label %check_flag.exit287
 
-check_flag.exit287:                               ; preds = %check_flag.exit285, %255
-  %258 = call i32 @ARKodeGetNumLinRhsEvals(ptr noundef nonnull %106, ptr noundef nonnull %9) #11
-  %259 = icmp slt i32 %258, 0
-  br i1 %259, label %260, label %check_flag.exit289
+check_flag.exit287:                               ; preds = %check_flag.exit285, %265
+  %268 = call i32 @ARKodeGetNumLinRhsEvals(ptr noundef nonnull %110, ptr noundef nonnull %9) #11
+  %269 = icmp slt i32 %268, 0
+  br i1 %269, label %270, label %check_flag.exit289
 
-260:                                              ; preds = %check_flag.exit287
-  %261 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %262 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %261, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.39, i32 noundef %258) #12
+270:                                              ; preds = %check_flag.exit287
+  %271 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %272 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %271, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.39, i32 noundef %268) #12
   br label %check_flag.exit289
 
-check_flag.exit289:                               ; preds = %check_flag.exit287, %260
+check_flag.exit289:                               ; preds = %check_flag.exit287, %270
   %puts225 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %263 = load i64, ptr %3, align 8, !tbaa !26
-  %264 = load i64, ptr %4, align 8, !tbaa !26
-  %265 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i64 noundef %263, i64 noundef %264)
-  %266 = load i64, ptr %5, align 8, !tbaa !26
-  %267 = load i64, ptr %6, align 8, !tbaa !26
-  %268 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i64 noundef %266, i64 noundef %267)
-  %269 = load i64, ptr %7, align 8, !tbaa !26
-  %270 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i64 noundef %269)
-  %271 = load i64, ptr %9, align 8, !tbaa !26
-  %272 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i64 noundef %271)
-  %273 = load i64, ptr %8, align 8, !tbaa !26
-  %274 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i64 noundef %273)
-  %275 = load i64, ptr %10, align 8, !tbaa !26
-  %276 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i64 noundef %275)
-  %277 = load i64, ptr %11, align 8, !tbaa !26
-  %278 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, i64 noundef %277)
-  %279 = load i64, ptr %12, align 8, !tbaa !26
-  %280 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, i64 noundef %279)
+  %273 = load i64, ptr %3, align 8, !tbaa !26
+  %274 = load i64, ptr %4, align 8, !tbaa !26
+  %275 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i64 noundef %273, i64 noundef %274)
+  %276 = load i64, ptr %5, align 8, !tbaa !26
+  %277 = load i64, ptr %6, align 8, !tbaa !26
+  %278 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i64 noundef %276, i64 noundef %277)
+  %279 = load i64, ptr %7, align 8, !tbaa !26
+  %280 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i64 noundef %279)
+  %281 = load i64, ptr %9, align 8, !tbaa !26
+  %282 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i64 noundef %281)
+  %283 = load i64, ptr %8, align 8, !tbaa !26
+  %284 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i64 noundef %283)
+  %285 = load i64, ptr %10, align 8, !tbaa !26
+  %286 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i64 noundef %285)
+  %287 = load i64, ptr %11, align 8, !tbaa !26
+  %288 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, i64 noundef %287)
+  %289 = load i64, ptr %12, align 8, !tbaa !26
+  %290 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, i64 noundef %289)
   call void @N_VDestroy(ptr noundef nonnull %42) #11
   call void @N_VDestroy(ptr noundef nonnull %47) #11
   call void @N_VDestroy(ptr noundef nonnull %52) #11
   call void @N_VDestroy(ptr noundef nonnull %57) #11
   call void @free(ptr noundef %19) #11
   call void @ARKodeFree(ptr noundef nonnull %1) #11
-  %281 = call i32 @SUNLinSolFree(ptr noundef nonnull %128) #11
-  call void @SUNMatDestroy(ptr noundef nonnull %122) #11
-  %282 = call i32 @SUNContext_Free(ptr noundef nonnull %13) #11
-  br label %283
+  %291 = call i32 @SUNLinSolFree(ptr noundef nonnull %132) #11
+  call void @SUNMatDestroy(ptr noundef nonnull %126) #11
+  %292 = call i32 @SUNContext_Free(ptr noundef nonnull %13) #11
+  br label %293
 
-283:                                              ; preds = %check_flag.exit267.thread, %check_flag.exit265, %check_flag.exit263, %check_flag.exit261, %check_flag.exit259, %check_flag.exit257, %check_flag.exit255, %check_flag.exit253, %check_flag.exit251, %check_flag.exit249.thread, %check_flag.exit247.thread, %check_flag.exit245.thread, %check_flag.exit243.thread, %check_flag.exit241, %check_flag.exit239, %check_flag.exit237, %check_flag.exit235, %check_flag.exit233, %check_flag.exit, %check_flag.exit289
+293:                                              ; preds = %check_flag.exit267.thread, %check_flag.exit265, %check_flag.exit263, %check_flag.exit261, %check_flag.exit259, %check_flag.exit257, %check_flag.exit255, %check_flag.exit253, %check_flag.exit251, %check_flag.exit249.thread, %check_flag.exit247.thread, %check_flag.exit245.thread, %check_flag.exit243.thread, %check_flag.exit241, %check_flag.exit239, %check_flag.exit237, %check_flag.exit235, %check_flag.exit233, %check_flag.exit, %check_flag.exit289
   %.0193 = phi i32 [ 0, %check_flag.exit289 ], [ 1, %check_flag.exit ], [ 1, %check_flag.exit233 ], [ 1, %check_flag.exit235 ], [ 1, %check_flag.exit237 ], [ 1, %check_flag.exit239 ], [ 1, %check_flag.exit241 ], [ 1, %check_flag.exit251 ], [ 1, %check_flag.exit253 ], [ 1, %check_flag.exit255 ], [ 1, %check_flag.exit257 ], [ 1, %check_flag.exit259 ], [ 1, %check_flag.exit261 ], [ 1, %check_flag.exit263 ], [ 1, %check_flag.exit265 ], [ 1, %check_flag.exit243.thread ], [ 1, %check_flag.exit245.thread ], [ 1, %check_flag.exit247.thread ], [ 1, %check_flag.exit249.thread ], [ 1, %check_flag.exit267.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #11
@@ -825,200 +815,195 @@ define internal noundef i32 @Jac(double %0, ptr noundef %1, ptr readnone capture
   %15 = load ptr, ptr %3, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8, !tbaa !30
-  %invariant.gep.i = getelementptr i8, ptr %17, i64 -24
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %19 = load i64, ptr %18, align 8, !tbaa !34
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %invariant.gep86.i = getelementptr i8, ptr %17, i64 -16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %invariant.gep88.i = getelementptr i8, ptr %17, i64 -8
-  %invariant.gep90.i = getelementptr i8, ptr %17, i64 8
-  %invariant.gep92.i = getelementptr i8, ptr %17, i64 16
   %22 = add nsw i64 %10, -2
   br label %23
 
 23:                                               ; preds = %23, %.lr.ph.i
-  %.085.i = phi i64 [ 1, %.lr.ph.i ], [ %77, %23 ]
+  %.085.i = phi i64 [ 1, %.lr.ph.i ], [ %81, %23 ]
   %24 = load double, ptr %14, align 8, !tbaa !15
   %25 = fdiv double %24, %12
   %26 = fdiv double %25, %12
-  %27 = mul i64 %.085.i, 3
-  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %27
-  %28 = load ptr, ptr %gep.i, align 8, !tbaa !35
-  %29 = getelementptr i8, ptr %28, i64 24
-  %30 = getelementptr double, ptr %29, i64 %19
-  %31 = load double, ptr %30, align 8, !tbaa !24
-  %32 = fadd double %26, %31
-  store double %32, ptr %30, align 8, !tbaa !24
-  %33 = load double, ptr %20, align 8, !tbaa !16
-  %34 = fdiv double %33, %12
+  %.idx86.i = mul i64 %.085.i, 24
+  %27 = getelementptr i8, ptr %17, i64 %.idx86.i
+  %28 = getelementptr i8, ptr %27, i64 -24
+  %29 = load ptr, ptr %28, align 8, !tbaa !35
+  %30 = getelementptr i8, ptr %29, i64 24
+  %31 = getelementptr double, ptr %30, i64 %19
+  %32 = load double, ptr %31, align 8, !tbaa !24
+  %33 = fadd double %26, %32
+  store double %33, ptr %31, align 8, !tbaa !24
+  %34 = load double, ptr %20, align 8, !tbaa !16
   %35 = fdiv double %34, %12
-  %gep87.i = getelementptr ptr, ptr %invariant.gep86.i, i64 %27
-  %36 = load ptr, ptr %gep87.i, align 8, !tbaa !35
-  %37 = getelementptr i8, ptr %36, i64 24
-  %38 = getelementptr double, ptr %37, i64 %19
-  %39 = load double, ptr %38, align 8, !tbaa !24
-  %40 = fadd double %39, %35
-  store double %40, ptr %38, align 8, !tbaa !24
-  %41 = load double, ptr %21, align 8, !tbaa !17
-  %42 = fdiv double %41, %12
-  %43 = fdiv double %42, %12
-  %gep89.i = getelementptr ptr, ptr %invariant.gep88.i, i64 %27
-  %44 = load ptr, ptr %gep89.i, align 8, !tbaa !35
-  %45 = getelementptr i8, ptr %44, i64 24
-  %46 = getelementptr double, ptr %45, i64 %19
-  %47 = load double, ptr %46, align 8, !tbaa !24
-  %48 = fadd double %47, %43
-  store double %48, ptr %46, align 8, !tbaa !24
-  %49 = load double, ptr %14, align 8, !tbaa !15
-  %50 = fmul double %49, 2.000000e+00
-  %51 = fdiv double %50, %12
-  %52 = fdiv double %51, %12
-  %53 = getelementptr inbounds nuw ptr, ptr %17, i64 %27
-  %54 = load ptr, ptr %53, align 8, !tbaa !35
-  %55 = getelementptr inbounds double, ptr %54, i64 %19
-  %56 = load double, ptr %55, align 8, !tbaa !24
-  %57 = fsub double %56, %52
-  store double %57, ptr %55, align 8, !tbaa !24
-  %58 = load double, ptr %20, align 8, !tbaa !16
-  %59 = fmul double %58, 2.000000e+00
-  %60 = fdiv double %59, %12
-  %61 = fdiv double %60, %12
-  %gep91.i = getelementptr ptr, ptr %invariant.gep90.i, i64 %27
-  %62 = load ptr, ptr %gep91.i, align 8, !tbaa !35
-  %63 = getelementptr inbounds double, ptr %62, i64 %19
-  %64 = load double, ptr %63, align 8, !tbaa !24
-  %65 = fsub double %64, %61
-  store double %65, ptr %63, align 8, !tbaa !24
-  %66 = load double, ptr %21, align 8, !tbaa !17
-  %67 = fmul double %66, 2.000000e+00
-  %68 = fdiv double %67, %12
-  %69 = fdiv double %68, %12
-  %gep93.i = getelementptr ptr, ptr %invariant.gep92.i, i64 %27
-  %70 = load ptr, ptr %gep93.i, align 8, !tbaa !35
-  %71 = getelementptr inbounds double, ptr %70, i64 %19
-  %72 = load double, ptr %71, align 8, !tbaa !24
-  %73 = fsub double %72, %69
-  store double %73, ptr %71, align 8, !tbaa !24
-  %74 = load double, ptr %14, align 8, !tbaa !15
-  %75 = fdiv double %74, %12
-  %76 = fdiv double %75, %12
-  %77 = add nuw nsw i64 %.085.i, 1
-  %.idx.i = mul nuw nsw i64 %77, 24
-  %78 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
-  %79 = load ptr, ptr %78, align 8, !tbaa !35
-  %80 = getelementptr double, ptr %79, i64 %19
-  %81 = getelementptr i8, ptr %80, i64 -24
-  %82 = load double, ptr %81, align 8, !tbaa !24
-  %83 = fadd double %82, %76
-  store double %83, ptr %81, align 8, !tbaa !24
-  %84 = load double, ptr %20, align 8, !tbaa !16
-  %85 = fdiv double %84, %12
-  %86 = fdiv double %85, %12
-  %87 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !35
-  %89 = getelementptr double, ptr %88, i64 %19
-  %90 = getelementptr i8, ptr %89, i64 -24
-  %91 = load double, ptr %90, align 8, !tbaa !24
-  %92 = fadd double %91, %86
-  store double %92, ptr %90, align 8, !tbaa !24
-  %93 = load double, ptr %21, align 8, !tbaa !17
-  %94 = fdiv double %93, %12
-  %95 = fdiv double %94, %12
-  %96 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %97 = load ptr, ptr %96, align 8, !tbaa !35
-  %98 = getelementptr double, ptr %97, i64 %19
-  %99 = getelementptr i8, ptr %98, i64 -24
-  %100 = load double, ptr %99, align 8, !tbaa !24
-  %101 = fadd double %100, %95
-  store double %101, ptr %99, align 8, !tbaa !24
+  %36 = fdiv double %35, %12
+  %37 = getelementptr i8, ptr %27, i64 -16
+  %38 = load ptr, ptr %37, align 8, !tbaa !35
+  %39 = getelementptr i8, ptr %38, i64 24
+  %40 = getelementptr double, ptr %39, i64 %19
+  %41 = load double, ptr %40, align 8, !tbaa !24
+  %42 = fadd double %41, %36
+  store double %42, ptr %40, align 8, !tbaa !24
+  %43 = load double, ptr %21, align 8, !tbaa !17
+  %44 = fdiv double %43, %12
+  %45 = fdiv double %44, %12
+  %46 = getelementptr i8, ptr %27, i64 -8
+  %47 = load ptr, ptr %46, align 8, !tbaa !35
+  %48 = getelementptr i8, ptr %47, i64 24
+  %49 = getelementptr double, ptr %48, i64 %19
+  %50 = load double, ptr %49, align 8, !tbaa !24
+  %51 = fadd double %50, %45
+  store double %51, ptr %49, align 8, !tbaa !24
+  %52 = load double, ptr %14, align 8, !tbaa !15
+  %53 = fmul double %52, 2.000000e+00
+  %54 = fdiv double %53, %12
+  %55 = fdiv double %54, %12
+  %56 = load ptr, ptr %27, align 8, !tbaa !35
+  %57 = getelementptr inbounds double, ptr %56, i64 %19
+  %58 = load double, ptr %57, align 8, !tbaa !24
+  %59 = fsub double %58, %55
+  store double %59, ptr %57, align 8, !tbaa !24
+  %60 = load double, ptr %20, align 8, !tbaa !16
+  %61 = fmul double %60, 2.000000e+00
+  %62 = fdiv double %61, %12
+  %63 = fdiv double %62, %12
+  %64 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !35
+  %66 = getelementptr inbounds double, ptr %65, i64 %19
+  %67 = load double, ptr %66, align 8, !tbaa !24
+  %68 = fsub double %67, %63
+  store double %68, ptr %66, align 8, !tbaa !24
+  %69 = load double, ptr %21, align 8, !tbaa !17
+  %70 = fmul double %69, 2.000000e+00
+  %71 = fdiv double %70, %12
+  %72 = fdiv double %71, %12
+  %73 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %74 = load ptr, ptr %73, align 8, !tbaa !35
+  %75 = getelementptr inbounds double, ptr %74, i64 %19
+  %76 = load double, ptr %75, align 8, !tbaa !24
+  %77 = fsub double %76, %72
+  store double %77, ptr %75, align 8, !tbaa !24
+  %78 = load double, ptr %14, align 8, !tbaa !15
+  %79 = fdiv double %78, %12
+  %80 = fdiv double %79, %12
+  %81 = add nuw nsw i64 %.085.i, 1
+  %.idx.i = mul nuw nsw i64 %81, 24
+  %82 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %83 = load ptr, ptr %82, align 8, !tbaa !35
+  %84 = getelementptr double, ptr %83, i64 %19
+  %85 = getelementptr i8, ptr %84, i64 -24
+  %86 = load double, ptr %85, align 8, !tbaa !24
+  %87 = fadd double %86, %80
+  store double %87, ptr %85, align 8, !tbaa !24
+  %88 = load double, ptr %20, align 8, !tbaa !16
+  %89 = fdiv double %88, %12
+  %90 = fdiv double %89, %12
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %92 = load ptr, ptr %91, align 8, !tbaa !35
+  %93 = getelementptr double, ptr %92, i64 %19
+  %94 = getelementptr i8, ptr %93, i64 -24
+  %95 = load double, ptr %94, align 8, !tbaa !24
+  %96 = fadd double %95, %90
+  store double %96, ptr %94, align 8, !tbaa !24
+  %97 = load double, ptr %21, align 8, !tbaa !17
+  %98 = fdiv double %97, %12
+  %99 = fdiv double %98, %12
+  %100 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %101 = load ptr, ptr %100, align 8, !tbaa !35
+  %102 = getelementptr double, ptr %101, i64 %19
+  %103 = getelementptr i8, ptr %102, i64 -24
+  %104 = load double, ptr %103, align 8, !tbaa !24
+  %105 = fadd double %104, %99
+  store double %105, ptr %103, align 8, !tbaa !24
   %exitcond.not.i = icmp eq i64 %.085.i, %22
   br i1 %exitcond.not.i, label %LaplaceMatrix.exit, label %23
 
 LaplaceMatrix.exit:                               ; preds = %23
-  %102 = getelementptr i8, ptr %4, i64 56
-  %.val7 = load double, ptr %102, align 8, !tbaa !18
-  %103 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #11
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %check_flag.exit.thread.i, label %.lr.ph.i8
+  %106 = getelementptr i8, ptr %4, i64 56
+  %.val7 = load double, ptr %106, align 8, !tbaa !18
+  %107 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #11
+  %108 = icmp eq ptr %107, null
+  br i1 %108, label %check_flag.exit.thread.i, label %.lr.ph.i8
 
 LaplaceMatrix.exit.thread:                        ; preds = %8
-  %105 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #11
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %check_flag.exit.thread.i, label %ReactionJac.exit
+  %109 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #11
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %check_flag.exit.thread.i, label %ReactionJac.exit
 
 .lr.ph.i8:                                        ; preds = %LaplaceMatrix.exit
-  %107 = load ptr, ptr %3, align 8, !tbaa !27
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 64
-  %109 = load ptr, ptr %108, align 8, !tbaa !30
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  %111 = load i64, ptr %110, align 8, !tbaa !34
-  %112 = fdiv double -1.000000e+00, %.val7
+  %111 = load ptr, ptr %3, align 8, !tbaa !27
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 64
+  %113 = load ptr, ptr %112, align 8, !tbaa !30
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 40
+  %115 = load i64, ptr %114, align 8, !tbaa !34
+  %116 = fdiv double -1.000000e+00, %.val7
   br label %check_flag.exit.i
 
 check_flag.exit.thread.i:                         ; preds = %LaplaceMatrix.exit.thread, %LaplaceMatrix.exit
-  %113 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.9) #12
+  %117 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.9) #12
   br label %ReactionJac.exit
 
 check_flag.exit.i:                                ; preds = %check_flag.exit.i, %.lr.ph.i8
-  %.0763.i = phi i64 [ 1, %.lr.ph.i8 ], [ %162, %check_flag.exit.i ]
-  %115 = mul nuw nsw i64 %.0763.i, 3
-  %116 = getelementptr inbounds nuw double, ptr %103, i64 %115
-  %117 = load double, ptr %116, align 8, !tbaa !24
-  %118 = add nuw nsw i64 %115, 1
-  %119 = getelementptr inbounds nuw double, ptr %103, i64 %118
-  %120 = load double, ptr %119, align 8, !tbaa !24
-  %121 = add nuw nsw i64 %115, 2
-  %122 = getelementptr inbounds nuw double, ptr %103, i64 %121
-  %123 = load double, ptr %122, align 8, !tbaa !24
-  %124 = fmul double %117, 2.000000e+00
-  %125 = fadd double %123, 1.000000e+00
-  %126 = fneg double %125
-  %127 = tail call double @llvm.fmuladd.f64(double %124, double %120, double %126)
-  %128 = getelementptr inbounds nuw ptr, ptr %109, i64 %115
-  %129 = load ptr, ptr %128, align 8, !tbaa !35
-  %130 = getelementptr inbounds double, ptr %129, i64 %111
-  %131 = load double, ptr %130, align 8, !tbaa !24
-  %132 = fadd double %127, %131
-  store double %132, ptr %130, align 8, !tbaa !24
-  %133 = fneg double %124
-  %134 = tail call double @llvm.fmuladd.f64(double %133, double %120, double %123)
-  %135 = getelementptr i8, ptr %130, i64 8
-  %136 = load double, ptr %135, align 8, !tbaa !24
-  %137 = fadd double %134, %136
-  store double %137, ptr %135, align 8, !tbaa !24
-  %138 = getelementptr i8, ptr %130, i64 16
-  %139 = load double, ptr %138, align 8, !tbaa !24
-  %140 = fsub double %139, %123
-  store double %140, ptr %138, align 8, !tbaa !24
-  %141 = fmul double %117, %117
-  %142 = getelementptr inbounds nuw ptr, ptr %109, i64 %118
-  %143 = load ptr, ptr %142, align 8, !tbaa !35
-  %144 = getelementptr double, ptr %143, i64 %111
-  %145 = getelementptr i8, ptr %144, i64 -8
-  %146 = load double, ptr %145, align 8, !tbaa !24
-  %147 = fadd double %141, %146
-  store double %147, ptr %145, align 8, !tbaa !24
-  %148 = load double, ptr %144, align 8, !tbaa !24
-  %149 = fsub double %148, %141
-  store double %149, ptr %144, align 8, !tbaa !24
-  %150 = getelementptr inbounds nuw ptr, ptr %109, i64 %121
-  %151 = load ptr, ptr %150, align 8, !tbaa !35
-  %152 = getelementptr double, ptr %151, i64 %111
-  %153 = getelementptr i8, ptr %152, i64 -16
-  %154 = load double, ptr %153, align 8, !tbaa !24
-  %155 = fsub double %154, %117
-  store double %155, ptr %153, align 8, !tbaa !24
-  %156 = getelementptr i8, ptr %152, i64 -8
-  %157 = load double, ptr %156, align 8, !tbaa !24
-  %158 = fadd double %117, %157
-  store double %158, ptr %156, align 8, !tbaa !24
-  %159 = fsub double %112, %117
-  %160 = load double, ptr %152, align 8, !tbaa !24
-  %161 = fadd double %159, %160
-  store double %161, ptr %152, align 8, !tbaa !24
-  %162 = add nuw nsw i64 %.0763.i, 1
+  %.0763.i = phi i64 [ 1, %.lr.ph.i8 ], [ %166, %check_flag.exit.i ]
+  %119 = mul nuw nsw i64 %.0763.i, 3
+  %120 = getelementptr inbounds nuw double, ptr %107, i64 %119
+  %121 = load double, ptr %120, align 8, !tbaa !24
+  %122 = add nuw nsw i64 %119, 1
+  %123 = getelementptr inbounds nuw double, ptr %107, i64 %122
+  %124 = load double, ptr %123, align 8, !tbaa !24
+  %125 = add nuw nsw i64 %119, 2
+  %126 = getelementptr inbounds nuw double, ptr %107, i64 %125
+  %127 = load double, ptr %126, align 8, !tbaa !24
+  %128 = fmul double %121, 2.000000e+00
+  %129 = fadd double %127, 1.000000e+00
+  %130 = fneg double %129
+  %131 = tail call double @llvm.fmuladd.f64(double %128, double %124, double %130)
+  %132 = getelementptr inbounds nuw ptr, ptr %113, i64 %119
+  %133 = load ptr, ptr %132, align 8, !tbaa !35
+  %134 = getelementptr inbounds double, ptr %133, i64 %115
+  %135 = load double, ptr %134, align 8, !tbaa !24
+  %136 = fadd double %131, %135
+  store double %136, ptr %134, align 8, !tbaa !24
+  %137 = fneg double %128
+  %138 = tail call double @llvm.fmuladd.f64(double %137, double %124, double %127)
+  %139 = getelementptr i8, ptr %134, i64 8
+  %140 = load double, ptr %139, align 8, !tbaa !24
+  %141 = fadd double %138, %140
+  store double %141, ptr %139, align 8, !tbaa !24
+  %142 = getelementptr i8, ptr %134, i64 16
+  %143 = load double, ptr %142, align 8, !tbaa !24
+  %144 = fsub double %143, %127
+  store double %144, ptr %142, align 8, !tbaa !24
+  %145 = fmul double %121, %121
+  %146 = getelementptr inbounds nuw ptr, ptr %113, i64 %122
+  %147 = load ptr, ptr %146, align 8, !tbaa !35
+  %148 = getelementptr double, ptr %147, i64 %115
+  %149 = getelementptr i8, ptr %148, i64 -8
+  %150 = load double, ptr %149, align 8, !tbaa !24
+  %151 = fadd double %145, %150
+  store double %151, ptr %149, align 8, !tbaa !24
+  %152 = load double, ptr %148, align 8, !tbaa !24
+  %153 = fsub double %152, %145
+  store double %153, ptr %148, align 8, !tbaa !24
+  %154 = getelementptr inbounds nuw ptr, ptr %113, i64 %125
+  %155 = load ptr, ptr %154, align 8, !tbaa !35
+  %156 = getelementptr double, ptr %155, i64 %115
+  %157 = getelementptr i8, ptr %156, i64 -16
+  %158 = load double, ptr %157, align 8, !tbaa !24
+  %159 = fsub double %158, %121
+  store double %159, ptr %157, align 8, !tbaa !24
+  %160 = getelementptr i8, ptr %156, i64 -8
+  %161 = load double, ptr %160, align 8, !tbaa !24
+  %162 = fadd double %121, %161
+  store double %162, ptr %160, align 8, !tbaa !24
+  %163 = fsub double %116, %121
+  %164 = load double, ptr %156, align 8, !tbaa !24
+  %165 = fadd double %163, %164
+  store double %165, ptr %156, align 8, !tbaa !24
+  %166 = add nuw nsw i64 %.0763.i, 1
   %exitcond.not.i9 = icmp eq i64 %.0763.i, %22
   br i1 %exitcond.not.i9, label %ReactionJac.exit, label %check_flag.exit.i
 

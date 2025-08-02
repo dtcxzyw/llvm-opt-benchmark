@@ -1709,7 +1709,7 @@ define ptr @av_frame_get_plane_buffer(ptr noundef readonly captures(none) %0, i3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %7 = load i32, ptr %6, align 4, !tbaa !50
   %.not63.not = icmp eq i32 %7, 0
-  br i1 %.not63.not, label %.thread, label %8
+  br i1 %.not63.not, label %.critedge72, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1724,7 +1724,7 @@ define ptr @av_frame_get_plane_buffer(ptr noundef readonly captures(none) %0, i3
   %14 = icmp sgt i32 %1, -1
   %.not65 = icmp slt i32 %1, %.147
   %or.cond = select i1 %14, i1 %.not65, i1 false
-  br i1 %or.cond, label %15, label %.thread
+  br i1 %or.cond, label %15, label %.critedge72
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1733,7 +1733,7 @@ define ptr @av_frame_get_plane_buffer(ptr noundef readonly captures(none) %0, i3
   %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !47
   %.not66 = icmp eq ptr %20, null
-  br i1 %.not66, label %.thread, label %21
+  br i1 %.not66, label %.critedge72, label %21
 
 21:                                               ; preds = %15
   %22 = ptrtoint ptr %20 to i64
@@ -1759,7 +1759,7 @@ define ptr @av_frame_get_plane_buffer(ptr noundef readonly captures(none) %0, i3
   %33 = load i64, ptr %32, align 8, !tbaa !100
   %34 = add i64 %33, %31
   %35 = icmp ugt i64 %34, %22
-  br i1 %35, label %.thread, label %36
+  br i1 %35, label %.critedge72, label %36
 
 36:                                               ; preds = %27, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1770,7 +1770,7 @@ define ptr @av_frame_get_plane_buffer(ptr noundef readonly captures(none) %0, i3
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %38 = load i32, ptr %37, align 8, !tbaa !30
   %.not7084 = icmp sgt i32 %38, 0
-  br i1 %.not7084, label %.lr.ph, label %.thread
+  br i1 %.not7084, label %.lr.ph, label %.critedge72
 
 .lr.ph:                                           ; preds = %.critedge
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -1793,14 +1793,14 @@ define ptr @av_frame_get_plane_buffer(ptr noundef readonly captures(none) %0, i3
   %49 = load i64, ptr %48, align 8, !tbaa !100
   %50 = add i64 %49, %47
   %51 = icmp ugt i64 %50, %22
-  br i1 %51, label %.thread, label %52
+  br i1 %51, label %.critedge72, label %52
 
 52:                                               ; preds = %41, %46
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
-  br i1 %exitcond94.not, label %.thread, label %41, !llvm.loop !102
+  br i1 %exitcond94.not, label %.critedge72, label %41, !llvm.loop !102
 
-.thread:                                          ; preds = %30, %46, %52, %.critedge, %5, %13, %15
+.critedge72:                                      ; preds = %30, %46, %52, %.critedge, %5, %13, %15
   %.1 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %5 ], [ null, %.critedge ], [ %43, %46 ], [ null, %52 ], [ %26, %30 ]
   ret ptr %.1
 }
@@ -2091,18 +2091,18 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
   %131 = phi i32 [ %129, %121 ], [ 2147483647, %119 ]
   br i1 %.not55.i, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %144, %130
-  %.068.lcssa = phi i32 [ 2147483647, %130 ], [ %146, %144 ]
+._crit_edge:                                      ; preds = %145, %130
+  %.068.lcssa = phi i32 [ 2147483647, %130 ], [ %146, %145 ]
   %132 = icmp slt i32 %131, %.068.lcssa
   br i1 %132, label %calc_cropping_offsets.exit, label %149
 
-.lr.ph:                                           ; preds = %130, %144
-  %indvars.iv = phi i64 [ %indvars.iv.next, %144 ], [ 0, %130 ]
-  %.068104 = phi i32 [ %146, %144 ], [ 2147483647, %130 ]
+.lr.ph:                                           ; preds = %130, %145
+  %indvars.iv = phi i64 [ %indvars.iv.next, %145 ], [ 0, %130 ]
+  %.068104 = phi i32 [ %146, %145 ], [ 2147483647, %130 ]
   %133 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %indvars.iv
   %134 = load i64, ptr %133, align 8, !tbaa !39
   %.not89 = icmp eq i64 %134, 0
-  br i1 %.not89, label %144, label %135
+  br i1 %.not89, label %145, label %135
 
 135:                                              ; preds = %.lr.ph
   %136 = sub i64 0, %134
@@ -2113,11 +2113,11 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
   %141 = getelementptr inbounds nuw [32 x i8], ptr @ff_ctz_c.debruijn_ctz32, i64 0, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !92
   %143 = zext i8 %142 to i32
-  br label %144
+  %144 = tail call i32 @llvm.smin.i32(i32 %143, i32 %.068104)
+  br label %145
 
-144:                                              ; preds = %.lr.ph, %135
-  %145 = phi i32 [ %143, %135 ], [ 2147483647, %.lr.ph ]
-  %146 = tail call i32 @llvm.smin.i32(i32 %145, i32 %.068104)
+145:                                              ; preds = %.lr.ph, %135
+  %146 = phi i32 [ %144, %135 ], [ %.068104, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %147 = getelementptr inbounds nuw [8 x ptr], ptr %0, i64 0, i64 %indvars.iv.next
   %148 = load ptr, ptr %147, align 8, !tbaa !47

@@ -2249,8 +2249,8 @@ vaapi_map_to_drm_esh.exit.thread18.i:             ; preds = %25
 .lr.ph.i.i:                                       ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %38 = getelementptr i8, ptr %32, i64 16
-  %39 = getelementptr i8, ptr %32, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %wide.trip.count.i.i = zext i32 %35 to i64
   br label %40
 
@@ -2264,11 +2264,11 @@ vaapi_map_to_drm_esh.exit.thread18.i:             ; preds = %25
   %45 = load i32, ptr %44, align 4, !tbaa !159
   %46 = zext i32 %45 to i64
   %.idx80.i.i = mul nuw nsw i64 %indvars.iv.i.i, 24
-  %47 = getelementptr i8, ptr %38, i64 %.idx80.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx80.i.i
   store i64 %46, ptr %47, align 8, !tbaa !158
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !160
-  %50 = getelementptr i8, ptr %39, i64 %.idx80.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx80.i.i
   store i64 %49, ptr %50, align 8, !tbaa !148
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -2285,8 +2285,8 @@ vaapi_map_to_drm_esh.exit.thread18.i:             ; preds = %25
 .lr.ph89.i.i:                                     ; preds = %._crit_edge.i.i
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 84
   %55 = getelementptr inbounds nuw i8, ptr %32, i64 112
-  %56 = getelementptr i8, ptr %32, i64 116
-  %57 = getelementptr i8, ptr %32, i64 120
+  %56 = getelementptr inbounds nuw i8, ptr %32, i64 116
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 120
   %wide.trip.count108.i.i = zext i32 %52 to i64
   br label %58
 
@@ -2299,14 +2299,14 @@ vaapi_map_to_drm_esh.exit.thread18.i:             ; preds = %25
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %63 = load i32, ptr %62, align 8, !tbaa !167
   %.idx.i.i = mul nuw nsw i64 %indvars.iv105.i.i, 104
-  %64 = getelementptr i8, ptr %56, i64 %.idx.i.i
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i.i
   store i32 %63, ptr %64, align 4, !tbaa !166
   %.not97.i.i = icmp eq i32 %63, 0
   br i1 %.not97.i.i, label %._crit_edge86.i.i, label %.lr.ph85.i.i
 
 .lr.ph85.i.i:                                     ; preds = %58
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %66 = getelementptr i8, ptr %57, i64 %.idx.i.i
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i.i
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %wide.trip.count103.i.i = zext i32 %63 to i64

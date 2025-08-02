@@ -53508,15 +53508,15 @@ entry:
   %buffers_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %buffers_.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   %total_consumed_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i, i64 64
-  %invariant.gep.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %total_consumed_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   br label %for.body.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %entry
   %iter.06.i.idx.i.i.i.i.i.i.i.i.i = phi i64 [ %iter.06.i.add.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ], [ 0, %entry ]
   %total_buffer_size.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ], [ 0, %entry ]
-  %gep.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i.i.i.i.i.i, i64 %iter.06.i.idx.i.i.i.i.i.i.i.i.i
-  %b.sroa.1.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %gep.i.i.i.i.i.i.i.i.i, align 8
+  %iter.06.i.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %iter.06.i.idx.i.i.i.i.i.i.i.i.i
+  %b.sroa.1.0.iter.0.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %iter.06.i.ptr.i.i.i.i.i.i.i.i.i, i64 8
+  %b.sroa.1.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %b.sroa.1.0.iter.0.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %b.sroa.1.0.copyload.i.i.i.i.i.i.i.i.i.i, %total_buffer_size.05.i.i.i.i.i.i.i.i.i.i
   %iter.06.i.add.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %iter.06.i.idx.i.i.i.i.i.i.i.i.i, 16
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %iter.06.i.add.i.i.i.i.i.i.i.i.i, 48
@@ -53675,13 +53675,13 @@ _ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7pre
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
+  %buffers_4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %total_consumed_.i3 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %8 = load i64, ptr %total_consumed_.i3, align 8
   %add.i = add i64 %8, %bytes_transferred
   store i64 %add.i, ptr %total_consumed_.i3, align 8
   %next_elem_.i4 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %9 = load i64, ptr %next_elem_.i4, align 8
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp13.i13 = icmp ne i64 %9, 3
   %cmp414.i14 = icmp ne i64 %bytes_transferred, 0
   %10 = and i1 %cmp414.i14, %cmp13.i13
@@ -53693,45 +53693,46 @@ while.body.lr.ph.i:                               ; preds = %sw.default
   %next_elem_offset_.promoted.i = load i64, ptr %next_elem_offset_.i15, align 8
   br label %while.body.i16
 
-while.body.i16:                                   ; preds = %if.end.i19, %while.body.lr.ph.i
-  %11 = phi i64 [ %next_elem_offset_.promoted.i, %while.body.lr.ph.i ], [ 0, %if.end.i19 ]
-  %size.addr.017.i = phi i64 [ %bytes_transferred, %while.body.lr.ph.i ], [ %sub.i20, %if.end.i19 ]
-  %next.0.idx16.i = phi i64 [ %add.ptr.i.i5.idx.i, %while.body.lr.ph.i ], [ %next.0.add.i22, %if.end.i19 ]
-  %inc1215.i = phi i64 [ %9, %while.body.lr.ph.i ], [ %inc.i21, %if.end.i19 ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %next.0.idx16.i
-  %ref.tmp.sroa.2.0.copyload.i17 = load i64, ptr %gep.i, align 8
-  %sub.i.i18 = tail call i64 @llvm.usub.sat.i64(i64 %ref.tmp.sroa.2.0.copyload.i17, i64 %11)
-  %cmp7.i = icmp ult i64 %size.addr.017.i, %sub.i.i18
-  br i1 %cmp7.i, label %if.end.thread.i, label %if.end.i19
+while.body.i16:                                   ; preds = %if.end.i21, %while.body.lr.ph.i
+  %11 = phi i64 [ %next_elem_offset_.promoted.i, %while.body.lr.ph.i ], [ 0, %if.end.i21 ]
+  %size.addr.017.i = phi i64 [ %bytes_transferred, %while.body.lr.ph.i ], [ %sub.i22, %if.end.i21 ]
+  %next.0.idx16.i = phi i64 [ %add.ptr.i.i5.idx.i, %while.body.lr.ph.i ], [ %next.0.add.i24, %if.end.i21 ]
+  %inc1215.i = phi i64 [ %9, %while.body.lr.ph.i ], [ %inc.i23, %if.end.i21 ]
+  %next.0.ptr.i17 = getelementptr inbounds i8, ptr %buffers_4, i64 %next.0.idx16.i
+  %ref.tmp.sroa.2.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %next.0.ptr.i17, i64 8
+  %ref.tmp.sroa.2.0.copyload.i19 = load i64, ptr %ref.tmp.sroa.2.0..sroa_idx.i18, align 8
+  %sub.i.i20 = tail call i64 @llvm.usub.sat.i64(i64 %ref.tmp.sroa.2.0.copyload.i19, i64 %11)
+  %cmp7.i = icmp ult i64 %size.addr.017.i, %sub.i.i20
+  br i1 %cmp7.i, label %if.end.thread.i, label %if.end.i21
 
 if.end.thread.i:                                  ; preds = %while.body.i16
   %add9.i = add i64 %size.addr.017.i, %11
   store i64 %add9.i, ptr %next_elem_offset_.i15, align 8
   br label %_ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7consumeEm.exit
 
-if.end.i19:                                       ; preds = %while.body.i16
-  %sub.i20 = sub nuw i64 %size.addr.017.i, %sub.i.i18
-  %inc.i21 = add i64 %inc1215.i, 1
-  store i64 %inc.i21, ptr %next_elem_.i4, align 8
-  %next.0.add.i22 = add nsw i64 %next.0.idx16.i, 16
+if.end.i21:                                       ; preds = %while.body.i16
+  %sub.i22 = sub nuw i64 %size.addr.017.i, %sub.i.i20
+  %inc.i23 = add i64 %inc1215.i, 1
+  store i64 %inc.i23, ptr %next_elem_.i4, align 8
+  %next.0.add.i24 = add nsw i64 %next.0.idx16.i, 16
   store i64 0, ptr %next_elem_offset_.i15, align 8
-  %cmp.i23 = icmp ne i64 %next.0.add.i22, 48
-  %cmp4.i24 = icmp ne i64 %sub.i20, 0
-  %12 = select i1 %cmp.i23, i1 %cmp4.i24, i1 false
+  %cmp.i25 = icmp ne i64 %next.0.add.i24, 48
+  %cmp4.i26 = icmp ne i64 %sub.i22, 0
+  %12 = select i1 %cmp.i25, i1 %cmp4.i26, i1 false
   br i1 %12, label %while.body.i16, label %_ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7consumeEm.exit, !llvm.loop !823
 
-_ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7consumeEm.exit: ; preds = %if.end.i19, %sw.default, %if.end.thread.i
-  %13 = phi i64 [ %9, %sw.default ], [ %inc1215.i, %if.end.thread.i ], [ %inc.i21, %if.end.i19 ]
-  %cmp.i25 = icmp ne i32 %ec.coerce0, 0
-  %or.cond.not = or i1 %cmp.i25, %cmp414.i14
+_ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7consumeEm.exit: ; preds = %if.end.i21, %sw.default, %if.end.thread.i
+  %13 = phi i64 [ %9, %sw.default ], [ %inc1215.i, %if.end.thread.i ], [ %inc.i23, %if.end.i21 ]
+  %cmp.i27 = icmp ne i32 %ec.coerce0, 0
+  %or.cond.not = or i1 %cmp.i27, %cmp414.i14
   br i1 %or.cond.not, label %lor.lhs.false, label %for.end
 
 lor.lhs.false:                                    ; preds = %_ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7consumeEm.exit
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %14 = load i64, ptr %total_size_.i, align 8
-  %cmp.i27.not = icmp ult i64 %add.i, %14
-  %cmp.i.not.i.i29.not = icmp eq i32 %ec.coerce0, 0
-  %or.cond = select i1 %cmp.i27.not, i1 %cmp.i.not.i.i29.not, i1 false
+  %cmp.i29.not = icmp ult i64 %add.i, %14
+  %cmp.i.not.i.i31.not = icmp eq i32 %ec.coerce0, 0
+  %or.cond = select i1 %cmp.i29.not, i1 %cmp.i.not.i.i31.not, i1 false
   br i1 %or.cond, label %for.cond, label %for.end, !llvm.loop !824
 
 for.end:                                          ; preds = %lor.lhs.false, %_ZN4asio6detail17consuming_buffersINS_12const_bufferESt5arrayIS2_Lm3EEPKS2_E7consumeEm.exit
@@ -53739,8 +53740,8 @@ for.end:                                          ; preds = %lor.lhs.false, %_ZN
   %15 = load ptr, ptr %handler_, align 8
   %arg_.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %ec.coerce0, ptr %arg_.i.i.i, align 8
-  %ec.sroa.634.0.arg_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %ec.coerce1, ptr %ec.sroa.634.0.arg_.i.i.i.sroa_idx, align 8
+  %ec.sroa.636.0.arg_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store ptr %ec.coerce1, ptr %ec.sroa.636.0.arg_.i.i.i.sroa_idx, align 8
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 %add.i, ptr %second3.i.i.i.i, align 8
   %16 = load ptr, ptr %handler_, align 8
@@ -58587,8 +58588,8 @@ lpad51:                                           ; preds = %_ZN12async_simple4c
   resume { ptr, i32 } %38
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8coro_rpc8protocol17coro_rpc_protocol9read_headIN4asio19basic_stream_socketINS3_2ip3tcpENS3_15any_io_executorEEEEEN12async_simple4coro4LazyISt10error_codeEERT_RNS1_10req_headerE.destroy(ptr noundef nonnull align 8 dereferenceable(136) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN8coro_rpc8protocol17coro_rpc_protocol9read_headIN4asio19basic_stream_socketINS3_2ip3tcpENS3_15any_io_executorEEEEEN12async_simple4coro4LazyISt10error_codeEERT_RNS1_10req_headerE.destroy(ptr noundef nonnull align 8 dereferenceable(136) %0) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp9.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 112
   %ref.tmp10.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -59228,8 +59229,8 @@ unreachable177:                                   ; preds = %entry.resume
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8coro_rpc8protocol17coro_rpc_protocol12read_payloadIN4asio19basic_stream_socketINS3_2ip3tcpENS3_15any_io_executorEEEEEN12async_simple4coro4LazyISt10error_codeEERT_RNS1_10req_headerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESO_.destroy(ptr noundef nonnull align 8 dereferenceable(232) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN8coro_rpc8protocol17coro_rpc_protocol12read_payloadIN4asio19basic_stream_socketINS3_2ip3tcpENS3_15any_io_executorEEEEEN12async_simple4coro4LazyISt10error_codeEERT_RNS1_10req_headerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESO_.destroy(ptr noundef nonnull align 8 dereferenceable(232) %0) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp21.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 192
   %ref.tmp22.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -60661,8 +60662,8 @@ terminate.lpad:                                   ; preds = %ehcleanup223, %ehcl
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE10route_coroIPSt8functionIFN12async_simple4coro4LazyISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESt17basic_string_viewIcSE_ERSt10shared_ptrINS_14context_info_tIS2_EEESt7variantIJNS0_20struct_pack_protocolEEEEEEENS9_ISt4pairISt4errcSG_EEET_SK_SP_SS_RKj.destroy(ptr noundef nonnull align 8 dereferenceable(192) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN8coro_rpc8protocol6routerINS0_17coro_rpc_protocolESt13unordered_mapE10route_coroIPSt8functionIFN12async_simple4coro4LazyISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESt17basic_string_viewIcSE_ERSt10shared_ptrINS_14context_info_tIS2_EEESt7variantIJNS0_20struct_pack_protocolEEEEEEENS9_ISt4pairISt4errcSG_EEET_SK_SP_SS_RKj.destroy(ptr noundef nonnull align 8 dereferenceable(192) %0) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp19.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 160
   %ref.tmp20.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -61941,8 +61942,8 @@ unreachable303:                                   ; preds = %entry.resume
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8coro_rpc15coro_connection9send_dataEv.destroy(ptr noundef nonnull align 8 dereferenceable(512) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN8coro_rpc15coro_connection9send_dataEv.destroy(ptr noundef nonnull align 8 dereferenceable(512) %0) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %ref.tmp27.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 392
   %ref.tmp28.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -62265,8 +62266,8 @@ CoroEnd:                                          ; preds = %invoke.cont.i, %_ZZ
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseIvLb0EE5startIZN8coro_rpc15coro_connection10start_implINS5_8protocol17coro_rpc_protocolEN4asio19basic_stream_socketINSA_2ip3tcpENSA_15any_io_executorEEEEENS0_4LazyIvEERNT_6routerERT0_EUlOSI_E_EEvSN_Qsr3stdE14is_invocable_vIOTL0__NS_3TryISI_EEEENKUlS3_SO_E_clES3_SO_.destroy(ptr noundef nonnull align 8 dereferenceable(72) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseIvLb0EE5startIZN8coro_rpc15coro_connection10start_implINS5_8protocol17coro_rpc_protocolEN4asio19basic_stream_socketINSA_2ip3tcpENSA_15any_io_executorEEEEENS0_4LazyIvEERNT_6routerERT0_EUlOSI_E_EEvSN_Qsr3stdE14is_invocable_vIOTL0__NS_3TryISI_EEEENKUlS3_SO_E_clES3_SO_.destroy(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %lazy2.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 40
   %ref.tmp12.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -66074,8 +66075,8 @@ terminate.lpad:                                   ; preds = %lpad34
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseIvLb1EE5startIZNS0_14RescheduleLazyIvE6detachEvEUlOT_E_EEvS8_Qsr3stdE14is_invocable_vIOTL0__NS_3TryIS7_EEEENKUlS3_S9_E_clES3_S9_.destroy(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseIvLb1EE5startIZNS0_14RescheduleLazyIvE6detachEvEUlOT_E_EEvS8_Qsr3stdE14is_invocable_vIOTL0__NS_3TryIS7_EEEENKUlS3_S9_E_clES3_S9_.destroy(ptr noundef nonnull align 8 dereferenceable(56) %0) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %lazy2.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 24
   %ref.tmp12.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -67449,8 +67450,8 @@ _ZN12async_simple4coro6detail11LazyPromiseISt4errcED2Ev.exit: ; preds = %cleanup
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8coro_rpc20coro_rpc_server_baseINS_6config23coro_rpc_default_configEE6acceptEv.destroy(ptr noundef nonnull align 8 dereferenceable(680) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN8coro_rpc20coro_rpc_server_baseINS_6config23coro_rpc_default_configEE6acceptEv.destroy(ptr noundef nonnull align 8 dereferenceable(680) %0) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %socket.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 48
   %ref.tmp14.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -67738,8 +67739,8 @@ terminate.lpad:                                   ; preds = %lpad37
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseISt4errcLb0EE5startIZN8coro_rpc20coro_rpc_server_baseINS6_6config23coro_rpc_default_configEE11async_startEvEUlOT_E_EEvSC_Qsr3stdE14is_invocable_vIOTL0__NS_3TryISB_EEEENKUlS4_SD_E_clES4_SD_.destroy(ptr noundef nonnull align 8 dereferenceable(80) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZZN12async_simple4coro6detail8LazyBaseISt4errcLb0EE5startIZN8coro_rpc20coro_rpc_server_baseINS6_6config23coro_rpc_default_configEE11async_startEvEUlOT_E_EEvSC_Qsr3stdE14is_invocable_vIOTL0__NS_3TryISB_EEEENKUlS4_SD_E_clES4_SD_.destroy(ptr noundef nonnull align 8 dereferenceable(80) %0) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry.destroy:
   %lazy2.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 56
   %cb3.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 24

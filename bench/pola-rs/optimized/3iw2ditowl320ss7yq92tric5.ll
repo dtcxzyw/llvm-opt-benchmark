@@ -8343,8 +8343,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %44 = load i32, ptr %24, align 4, !alias.scope !1420, !noalias !1425, !noundef !10
   %45 = zext i32 %44 to i64
   %.idx.i.i.i = mul nuw nsw i64 %42, 24
-  %46 = getelementptr i8, ptr %36, i64 24
-  %47 = getelementptr i8, ptr %46, i64 %.idx.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i.i
   %48 = load ptr, ptr %47, align 8, !alias.scope !1428, !noalias !1431, !noundef !10
   %49 = zext i32 %38 to i64
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 %45
@@ -20553,8 +20553,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %65 = load i32, ptr %22, align 4, !alias.scope !3444, !noalias !3449, !noundef !10
   %66 = zext i32 %65 to i64
   %.idx.i.i.i = mul nuw nsw i64 %63, 24
-  %67 = getelementptr i8, ptr %57, i64 24
-  %68 = getelementptr i8, ptr %67, i64 %.idx.i.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i.i
   %69 = load ptr, ptr %68, align 8, !alias.scope !3452, !noalias !3455, !noundef !10
   %70 = zext i32 %59 to i64
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 %66

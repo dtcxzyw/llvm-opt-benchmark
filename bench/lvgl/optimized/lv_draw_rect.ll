@@ -266,7 +266,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br i1 %72, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader250
-  %73 = getelementptr i8, ptr %1, i64 59
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 59
   %wide.trip.count = zext i8 %71 to i64
   br label %75
 
@@ -278,7 +278,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
 75:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 5
-  %76 = getelementptr i8, ptr %73, i64 %.idx
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx
   %77 = load i8, ptr %76, align 1, !tbaa !47
   %.not223 = icmp eq i8 %77, -1
   br i1 %.not223, label %74, label %._crit_edge

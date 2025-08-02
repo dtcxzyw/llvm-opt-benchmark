@@ -7505,16 +7505,16 @@ define hidden noundef i32 @_ZN12ConstantPool16copy_cpool_bytesEiPNS_10SymbolHash
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %.lr.ph130, label %._crit_edge
+  br i1 %7, label %.lr.ph131, label %._crit_edge
 
-.lr.ph130:                                        ; preds = %4
+.lr.ph131:                                        ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %10
 
-10:                                               ; preds = %.lr.ph130, %_ZN5Bytes11put_Java_u4EPhj.exit
-  %.0129 = phi ptr [ %3, %.lr.ph130 ], [ %302, %_ZN5Bytes11put_Java_u4EPhj.exit ]
-  %.0101128 = phi i32 [ 1, %.lr.ph130 ], [ %303, %_ZN5Bytes11put_Java_u4EPhj.exit ]
+10:                                               ; preds = %.lr.ph131, %_ZN5Bytes11put_Java_u4EPhj.exit
+  %.0129 = phi ptr [ %3, %.lr.ph131 ], [ %304, %_ZN5Bytes11put_Java_u4EPhj.exit ]
+  %.0101128 = phi i32 [ 1, %.lr.ph131 ], [ %305, %_ZN5Bytes11put_Java_u4EPhj.exit ]
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = sext i32 %.0101128 to i64
@@ -7524,28 +7524,28 @@ define hidden noundef i32 @_ZN12ConstantPool16copy_cpool_bytesEiPNS_10SymbolHash
   %16 = tail call noundef i32 @_ZN12ConstantPool16cpool_entry_sizeEi(ptr noundef nonnull align 8 dereferenceable(68) %0, i32 noundef %.0101128)
   store i8 %15, ptr %.0129, align 1
   switch i8 %15, label %_ZN5Bytes11put_Java_u4EPhj.exit [
-    i8 18, label %281
-    i8 106, label %261
+    i8 18, label %283
+    i8 106, label %263
     i8 1, label %17
-    i8 3, label %34
-    i8 4, label %44
-    i8 5, label %54
-    i8 6, label %64
-    i8 7, label %74
-    i8 100, label %74
-    i8 103, label %74
-    i8 8, label %125
-    i8 9, label %172
-    i8 10, label %172
-    i8 11, label %172
-    i8 12, label %194
-    i8 101, label %214
-    i8 102, label %225
-    i8 15, label %236
-    i8 104, label %236
-    i8 16, label %250
-    i8 105, label %250
-    i8 17, label %261
+    i8 3, label %36
+    i8 4, label %46
+    i8 5, label %56
+    i8 6, label %66
+    i8 7, label %76
+    i8 100, label %76
+    i8 103, label %76
+    i8 8, label %127
+    i8 9, label %174
+    i8 10, label %174
+    i8 11, label %174
+    i8 12, label %196
+    i8 101, label %216
+    i8 102, label %227
+    i8 15, label %238
+    i8 104, label %238
+    i8 16, label %252
+    i8 105, label %252
+    i8 17, label %263
   ]
 
 17:                                               ; preds = %10
@@ -7571,7 +7571,6 @@ define hidden noundef i32 @_ZN12ConstantPool16copy_cpool_bytesEiPNS_10SymbolHash
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
 _ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %29, %30
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.0129, i64 3
   %31 = icmp sgt i32 %22, 0
   br i1 %31, label %.lr.ph.preheader, label %_ZN5Bytes11put_Java_u4EPhj.exit
 
@@ -7583,490 +7582,491 @@ _ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %29, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
   %33 = load i8, ptr %32, align 1
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  store i8 %33, ptr %gep, align 1
+  %34 = getelementptr inbounds nuw i8, ptr %.0129, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 3
+  store i8 %33, ptr %35, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN5Bytes11put_Java_u4EPhj.exit, label %.lr.ph, !llvm.loop !38
 
-34:                                               ; preds = %10
-  %35 = getelementptr inbounds i64, ptr %9, i64 %13
-  %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %38 = tail call noundef i32 @llvm.bswap.i32(i32 %36)
-  %39 = ptrtoint ptr %37 to i64
-  %40 = and i64 %39, 3
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %42, label %43
+36:                                               ; preds = %10
+  %37 = getelementptr inbounds i64, ptr %9, i64 %13
+  %38 = load i32, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %40 = tail call noundef i32 @llvm.bswap.i32(i32 %38)
+  %41 = ptrtoint ptr %39 to i64
+  %42 = and i64 %41, 3
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %44, label %45
 
-42:                                               ; preds = %34
-  store i32 %38, ptr %37, align 4
+44:                                               ; preds = %36
+  store i32 %40, ptr %39, align 4
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-43:                                               ; preds = %34
-  store i32 %38, ptr %37, align 1
+45:                                               ; preds = %36
+  store i32 %40, ptr %39, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-44:                                               ; preds = %10
-  %45 = getelementptr inbounds i64, ptr %9, i64 %13
-  %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %48 = tail call noundef i32 @llvm.bswap.i32(i32 %46)
-  %49 = ptrtoint ptr %47 to i64
-  %50 = and i64 %49, 3
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %53
+46:                                               ; preds = %10
+  %47 = getelementptr inbounds i64, ptr %9, i64 %13
+  %48 = load i32, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %50 = tail call noundef i32 @llvm.bswap.i32(i32 %48)
+  %51 = ptrtoint ptr %49 to i64
+  %52 = and i64 %51, 3
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %54, label %55
 
-52:                                               ; preds = %44
-  store i32 %48, ptr %47, align 4
+54:                                               ; preds = %46
+  store i32 %50, ptr %49, align 4
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-53:                                               ; preds = %44
-  store i32 %48, ptr %47, align 1
+55:                                               ; preds = %46
+  store i32 %50, ptr %49, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-54:                                               ; preds = %10
-  %55 = getelementptr inbounds i64, ptr %9, i64 %13
-  %.0.i.i.i = load i64, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %57 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.i.i.i)
-  %58 = ptrtoint ptr %56 to i64
-  %59 = and i64 %58, 7
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %61, label %62
+56:                                               ; preds = %10
+  %57 = getelementptr inbounds i64, ptr %9, i64 %13
+  %.0.i.i.i = load i64, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %59 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.i.i.i)
+  %60 = ptrtoint ptr %58 to i64
+  %61 = and i64 %60, 7
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %63, label %64
 
-61:                                               ; preds = %54
-  store i64 %57, ptr %56, align 8
+63:                                               ; preds = %56
+  store i64 %59, ptr %58, align 8
   br label %_ZN5Bytes11put_Java_u8EPhm.exit
 
-62:                                               ; preds = %54
-  store i64 %57, ptr %56, align 1
+64:                                               ; preds = %56
+  store i64 %59, ptr %58, align 1
   br label %_ZN5Bytes11put_Java_u8EPhm.exit
 
-_ZN5Bytes11put_Java_u8EPhm.exit:                  ; preds = %61, %62
-  %63 = add nsw i32 %.0101128, 1
+_ZN5Bytes11put_Java_u8EPhm.exit:                  ; preds = %63, %64
+  %65 = add nsw i32 %.0101128, 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-64:                                               ; preds = %10
-  %65 = getelementptr inbounds i64, ptr %9, i64 %13
-  %.0.i.i2.i123 = load i64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %67 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.i.i2.i123)
-  %68 = ptrtoint ptr %66 to i64
-  %69 = and i64 %68, 7
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %72
+66:                                               ; preds = %10
+  %67 = getelementptr inbounds i64, ptr %9, i64 %13
+  %.0.i.i2.i123 = load i64, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %69 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.i.i2.i123)
+  %70 = ptrtoint ptr %68 to i64
+  %71 = and i64 %70, 7
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %73, label %74
 
-71:                                               ; preds = %64
-  store i64 %67, ptr %66, align 8
+73:                                               ; preds = %66
+  store i64 %69, ptr %68, align 8
   br label %_ZN5Bytes11put_Java_u8EPhm.exit104
 
-72:                                               ; preds = %64
-  store i64 %67, ptr %66, align 1
+74:                                               ; preds = %66
+  store i64 %69, ptr %68, align 1
   br label %_ZN5Bytes11put_Java_u8EPhm.exit104
 
-_ZN5Bytes11put_Java_u8EPhm.exit104:               ; preds = %71, %72
-  %73 = add nsw i32 %.0101128, 1
+_ZN5Bytes11put_Java_u8EPhm.exit104:               ; preds = %73, %74
+  %75 = add nsw i32 %.0101128, 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-74:                                               ; preds = %10, %10, %10
+76:                                               ; preds = %10, %10, %10
   store i8 7, ptr %.0129, align 1
-  %75 = getelementptr inbounds i64, ptr %9, i64 %13
-  %76 = load i32, ptr %75, align 8
-  %77 = lshr i32 %76, 16
-  %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw i64, ptr %9, i64 %78
-  %80 = load ptr, ptr %79, align 8
-  %81 = ptrtoint ptr %80 to i64
-  %82 = trunc i64 %81 to i32
-  %83 = lshr i32 %82, 3
-  %84 = load volatile i32, ptr %80, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %86 = load i16, ptr %85, align 4
-  %87 = zext i16 %86 to i32
-  %88 = shl nuw nsw i32 %87, 8
-  %89 = xor i32 %88, %83
-  %90 = getelementptr inbounds nuw i8, ptr %80, i64 6
-  %91 = load i8, ptr %90, align 2
-  %92 = zext i8 %91 to i32
-  %93 = shl nuw nsw i32 %92, 8
-  %94 = getelementptr inbounds nuw i8, ptr %80, i64 7
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i32
-  %97 = or disjoint i32 %93, %96
-  %98 = xor i32 %89, %97
-  %99 = tail call noundef i32 @llvm.fshl.i32(i32 %98, i32 %84, i32 16)
-  %100 = and i32 %99, 255
-  %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw ptr, ptr %2, i64 %101
-  %103 = load ptr, ptr %102, align 8
-  %.not11.i.i.i.i = icmp eq ptr %103, null
+  %77 = getelementptr inbounds i64, ptr %9, i64 %13
+  %78 = load i32, ptr %77, align 8
+  %79 = lshr i32 %78, 16
+  %80 = zext nneg i32 %79 to i64
+  %81 = getelementptr inbounds nuw i64, ptr %9, i64 %80
+  %82 = load ptr, ptr %81, align 8
+  %83 = ptrtoint ptr %82 to i64
+  %84 = trunc i64 %83 to i32
+  %85 = lshr i32 %84, 3
+  %86 = load volatile i32, ptr %82, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  %88 = load i16, ptr %87, align 4
+  %89 = zext i16 %88 to i32
+  %90 = shl nuw nsw i32 %89, 8
+  %91 = xor i32 %90, %85
+  %92 = getelementptr inbounds nuw i8, ptr %82, i64 6
+  %93 = load i8, ptr %92, align 2
+  %94 = zext i8 %93 to i32
+  %95 = shl nuw nsw i32 %94, 8
+  %96 = getelementptr inbounds nuw i8, ptr %82, i64 7
+  %97 = load i8, ptr %96, align 1
+  %98 = zext i8 %97 to i32
+  %99 = or disjoint i32 %95, %98
+  %100 = xor i32 %91, %99
+  %101 = tail call noundef i32 @llvm.fshl.i32(i32 %100, i32 %86, i32 16)
+  %102 = and i32 %101, 255
+  %103 = zext nneg i32 %102 to i64
+  %104 = getelementptr inbounds nuw ptr, ptr %2, i64 %103
+  %105 = load ptr, ptr %104, align 8
+  %.not11.i.i.i.i = icmp eq ptr %105, null
   br i1 %.not11.i.i.i.i, label %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %74, %111
-  %104 = phi ptr [ %113, %111 ], [ %103, %74 ]
-  %105 = load i32, ptr %104, align 8
-  %106 = icmp eq i32 %105, %99
-  br i1 %106, label %107, label %111
+.lr.ph.i.i.i.i:                                   ; preds = %76, %113
+  %106 = phi ptr [ %115, %113 ], [ %105, %76 ]
+  %107 = load i32, ptr %106, align 8
+  %108 = icmp eq i32 %107, %101
+  br i1 %108, label %109, label %113
 
-107:                                              ; preds = %.lr.ph.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %109 = load ptr, ptr %108, align 8
-  %110 = icmp eq ptr %80, %109
-  br i1 %110, label %114, label %111
+109:                                              ; preds = %.lr.ph.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %111 = load ptr, ptr %110, align 8
+  %112 = icmp eq ptr %82, %111
+  br i1 %112, label %116, label %113
 
-111:                                              ; preds = %107, %.lr.ph.i.i.i.i
-  %112 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %113 = load ptr, ptr %112, align 8
-  %.not.i.i.i.i = icmp eq ptr %113, null
+113:                                              ; preds = %109, %.lr.ph.i.i.i.i
+  %114 = getelementptr inbounds nuw i8, ptr %106, i64 24
+  %115 = load ptr, ptr %114, align 8
+  %.not.i.i.i.i = icmp eq ptr %115, null
   br i1 %.not.i.i.i.i, label %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit, label %.lr.ph.i.i.i.i, !llvm.loop !36
 
-114:                                              ; preds = %107
-  %115 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %116 = load i16, ptr %115, align 2
+116:                                              ; preds = %109
+  %117 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %118 = load i16, ptr %117, align 2
+  %119 = tail call i16 @llvm.bswap.i16(i16 %118)
   br label %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit
 
-_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit: ; preds = %111, %74, %114
-  %117 = phi i16 [ %116, %114 ], [ 0, %74 ], [ 0, %111 ]
-  %118 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %119 = tail call noundef i16 @llvm.bswap.i16(i16 %117)
-  %120 = ptrtoint ptr %118 to i64
-  %121 = and i64 %120, 1
-  %122 = icmp eq i64 %121, 0
-  br i1 %122, label %123, label %124
+_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit: ; preds = %113, %76, %116
+  %120 = phi i16 [ %119, %116 ], [ 0, %76 ], [ 0, %113 ]
+  %121 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %122 = ptrtoint ptr %121 to i64
+  %123 = and i64 %122, 1
+  %124 = icmp eq i64 %123, 0
+  br i1 %124, label %125, label %126
 
-123:                                              ; preds = %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit
-  store i16 %119, ptr %118, align 2
+125:                                              ; preds = %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit
+  store i16 %120, ptr %121, align 2
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-124:                                              ; preds = %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit
-  store i16 %119, ptr %118, align 1
+126:                                              ; preds = %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit
+  store i16 %120, ptr %121, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-125:                                              ; preds = %10
+127:                                              ; preds = %10
   store i8 8, ptr %.0129, align 1
-  %126 = getelementptr inbounds i64, ptr %9, i64 %13
-  %127 = load ptr, ptr %126, align 8
-  %128 = ptrtoint ptr %127 to i64
-  %129 = trunc i64 %128 to i32
-  %130 = lshr i32 %129, 3
-  %131 = load volatile i32, ptr %127, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %127, i64 4
-  %133 = load i16, ptr %132, align 4
-  %134 = zext i16 %133 to i32
-  %135 = shl nuw nsw i32 %134, 8
-  %136 = xor i32 %135, %130
-  %137 = getelementptr inbounds nuw i8, ptr %127, i64 6
-  %138 = load i8, ptr %137, align 2
-  %139 = zext i8 %138 to i32
-  %140 = shl nuw nsw i32 %139, 8
-  %141 = getelementptr inbounds nuw i8, ptr %127, i64 7
-  %142 = load i8, ptr %141, align 1
-  %143 = zext i8 %142 to i32
-  %144 = or disjoint i32 %140, %143
-  %145 = xor i32 %136, %144
-  %146 = tail call noundef i32 @llvm.fshl.i32(i32 %145, i32 %131, i32 16)
-  %147 = and i32 %146, 255
-  %148 = zext nneg i32 %147 to i64
-  %149 = getelementptr inbounds nuw ptr, ptr %2, i64 %148
-  %150 = load ptr, ptr %149, align 8
-  %.not11.i.i.i.i106 = icmp eq ptr %150, null
+  %128 = getelementptr inbounds i64, ptr %9, i64 %13
+  %129 = load ptr, ptr %128, align 8
+  %130 = ptrtoint ptr %129 to i64
+  %131 = trunc i64 %130 to i32
+  %132 = lshr i32 %131, 3
+  %133 = load volatile i32, ptr %129, align 4
+  %134 = getelementptr inbounds nuw i8, ptr %129, i64 4
+  %135 = load i16, ptr %134, align 4
+  %136 = zext i16 %135 to i32
+  %137 = shl nuw nsw i32 %136, 8
+  %138 = xor i32 %137, %132
+  %139 = getelementptr inbounds nuw i8, ptr %129, i64 6
+  %140 = load i8, ptr %139, align 2
+  %141 = zext i8 %140 to i32
+  %142 = shl nuw nsw i32 %141, 8
+  %143 = getelementptr inbounds nuw i8, ptr %129, i64 7
+  %144 = load i8, ptr %143, align 1
+  %145 = zext i8 %144 to i32
+  %146 = or disjoint i32 %142, %145
+  %147 = xor i32 %138, %146
+  %148 = tail call noundef i32 @llvm.fshl.i32(i32 %147, i32 %133, i32 16)
+  %149 = and i32 %148, 255
+  %150 = zext nneg i32 %149 to i64
+  %151 = getelementptr inbounds nuw ptr, ptr %2, i64 %150
+  %152 = load ptr, ptr %151, align 8
+  %.not11.i.i.i.i106 = icmp eq ptr %152, null
   br i1 %.not11.i.i.i.i106, label %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109, label %.lr.ph.i.i.i.i107
 
-.lr.ph.i.i.i.i107:                                ; preds = %125, %158
-  %151 = phi ptr [ %160, %158 ], [ %150, %125 ]
-  %152 = load i32, ptr %151, align 8
-  %153 = icmp eq i32 %152, %146
-  br i1 %153, label %154, label %158
+.lr.ph.i.i.i.i107:                                ; preds = %127, %160
+  %153 = phi ptr [ %162, %160 ], [ %152, %127 ]
+  %154 = load i32, ptr %153, align 8
+  %155 = icmp eq i32 %154, %148
+  br i1 %155, label %156, label %160
 
-154:                                              ; preds = %.lr.ph.i.i.i.i107
-  %155 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  %156 = load ptr, ptr %155, align 8
-  %157 = icmp eq ptr %127, %156
-  br i1 %157, label %161, label %158
+156:                                              ; preds = %.lr.ph.i.i.i.i107
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %158 = load ptr, ptr %157, align 8
+  %159 = icmp eq ptr %129, %158
+  br i1 %159, label %163, label %160
 
-158:                                              ; preds = %154, %.lr.ph.i.i.i.i107
-  %159 = getelementptr inbounds nuw i8, ptr %151, i64 24
-  %160 = load ptr, ptr %159, align 8
-  %.not.i.i.i.i108 = icmp eq ptr %160, null
+160:                                              ; preds = %156, %.lr.ph.i.i.i.i107
+  %161 = getelementptr inbounds nuw i8, ptr %153, i64 24
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i.i.i108 = icmp eq ptr %162, null
   br i1 %.not.i.i.i.i108, label %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109, label %.lr.ph.i.i.i.i107, !llvm.loop !36
 
-161:                                              ; preds = %154
-  %162 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %163 = load i16, ptr %162, align 2
+163:                                              ; preds = %156
+  %164 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  %165 = load i16, ptr %164, align 2
+  %166 = tail call i16 @llvm.bswap.i16(i16 %165)
   br label %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109
 
-_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109: ; preds = %158, %125, %161
-  %164 = phi i16 [ %163, %161 ], [ 0, %125 ], [ 0, %158 ]
-  %165 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %166 = tail call noundef i16 @llvm.bswap.i16(i16 %164)
-  %167 = ptrtoint ptr %165 to i64
-  %168 = and i64 %167, 1
-  %169 = icmp eq i64 %168, 0
-  br i1 %169, label %170, label %171
+_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109: ; preds = %160, %127, %163
+  %167 = phi i16 [ %166, %163 ], [ 0, %127 ], [ 0, %160 ]
+  %168 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %169 = ptrtoint ptr %168 to i64
+  %170 = and i64 %169, 1
+  %171 = icmp eq i64 %170, 0
+  br i1 %171, label %172, label %173
 
-170:                                              ; preds = %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109
-  store i16 %166, ptr %165, align 2
+172:                                              ; preds = %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109
+  store i16 %167, ptr %168, align 2
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-171:                                              ; preds = %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109
-  store i16 %166, ptr %165, align 1
+173:                                              ; preds = %_ZN12ConstantPool10SymbolHash15symbol_to_valueEPK6Symbol.exit109
+  store i16 %167, ptr %168, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-172:                                              ; preds = %10, %10, %10
-  %173 = getelementptr inbounds i64, ptr %9, i64 %13
-  %174 = load i32, ptr %173, align 8
-  %175 = trunc i32 %174 to i16
-  %176 = load ptr, ptr %8, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
-  %178 = getelementptr inbounds i8, ptr %177, i64 %13
-  %179 = load volatile i8, ptr %178, align 1
+174:                                              ; preds = %10, %10, %10
+  %175 = getelementptr inbounds i64, ptr %9, i64 %13
+  %176 = load i32, ptr %175, align 8
+  %177 = trunc i32 %176 to i16
+  %178 = load ptr, ptr %8, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 4
+  %180 = getelementptr inbounds i8, ptr %179, i64 %13
+  %181 = load volatile i8, ptr %180, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
-  %.0.in.in.i = load i32, ptr %173, align 8
+  %.0.in.in.i = load i32, ptr %175, align 8
   %.0.in.i = lshr i32 %.0.in.in.i, 16
   %.0.i = trunc nuw i32 %.0.in.i to i16
-  %180 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %181 = tail call noundef i16 @llvm.bswap.i16(i16 %175)
-  %182 = ptrtoint ptr %180 to i64
-  %183 = and i64 %182, 1
-  %184 = icmp eq i64 %183, 0
-  br i1 %184, label %185, label %186
+  %182 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %183 = tail call noundef i16 @llvm.bswap.i16(i16 %177)
+  %184 = ptrtoint ptr %182 to i64
+  %185 = and i64 %184, 1
+  %186 = icmp eq i64 %185, 0
+  br i1 %186, label %187, label %188
 
-185:                                              ; preds = %172
-  store i16 %181, ptr %180, align 2
+187:                                              ; preds = %174
+  store i16 %183, ptr %182, align 2
   br label %_ZN5Bytes11put_Java_u2EPht.exit111
 
-186:                                              ; preds = %172
-  store i16 %181, ptr %180, align 1
+188:                                              ; preds = %174
+  store i16 %183, ptr %182, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit111
 
-_ZN5Bytes11put_Java_u2EPht.exit111:               ; preds = %185, %186
-  %187 = getelementptr inbounds nuw i8, ptr %.0129, i64 3
-  %188 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i)
-  %189 = ptrtoint ptr %187 to i64
-  %190 = and i64 %189, 1
-  %191 = icmp eq i64 %190, 0
-  br i1 %191, label %192, label %193
+_ZN5Bytes11put_Java_u2EPht.exit111:               ; preds = %187, %188
+  %189 = getelementptr inbounds nuw i8, ptr %.0129, i64 3
+  %190 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i)
+  %191 = ptrtoint ptr %189 to i64
+  %192 = and i64 %191, 1
+  %193 = icmp eq i64 %192, 0
+  br i1 %193, label %194, label %195
 
-192:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit111
-  store i16 %188, ptr %187, align 2
+194:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit111
+  store i16 %190, ptr %189, align 2
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-193:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit111
-  store i16 %188, ptr %187, align 1
+195:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit111
+  store i16 %190, ptr %189, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-194:                                              ; preds = %10
-  %195 = getelementptr inbounds i64, ptr %9, i64 %13
-  %196 = load i32, ptr %195, align 8
-  %197 = trunc i32 %196 to i16
-  %198 = lshr i32 %196, 16
-  %199 = trunc nuw i32 %198 to i16
-  %200 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %201 = tail call noundef i16 @llvm.bswap.i16(i16 %197)
-  %202 = ptrtoint ptr %200 to i64
-  %203 = and i64 %202, 1
-  %204 = icmp eq i64 %203, 0
-  br i1 %204, label %205, label %206
+196:                                              ; preds = %10
+  %197 = getelementptr inbounds i64, ptr %9, i64 %13
+  %198 = load i32, ptr %197, align 8
+  %199 = trunc i32 %198 to i16
+  %200 = lshr i32 %198, 16
+  %201 = trunc nuw i32 %200 to i16
+  %202 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %203 = tail call noundef i16 @llvm.bswap.i16(i16 %199)
+  %204 = ptrtoint ptr %202 to i64
+  %205 = and i64 %204, 1
+  %206 = icmp eq i64 %205, 0
+  br i1 %206, label %207, label %208
 
-205:                                              ; preds = %194
-  store i16 %201, ptr %200, align 2
+207:                                              ; preds = %196
+  store i16 %203, ptr %202, align 2
   br label %_ZN5Bytes11put_Java_u2EPht.exit113
 
-206:                                              ; preds = %194
-  store i16 %201, ptr %200, align 1
+208:                                              ; preds = %196
+  store i16 %203, ptr %202, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit113
 
-_ZN5Bytes11put_Java_u2EPht.exit113:               ; preds = %205, %206
-  %207 = getelementptr inbounds nuw i8, ptr %.0129, i64 3
-  %208 = tail call noundef i16 @llvm.bswap.i16(i16 %199)
-  %209 = ptrtoint ptr %207 to i64
-  %210 = and i64 %209, 1
-  %211 = icmp eq i64 %210, 0
-  br i1 %211, label %212, label %213
+_ZN5Bytes11put_Java_u2EPht.exit113:               ; preds = %207, %208
+  %209 = getelementptr inbounds nuw i8, ptr %.0129, i64 3
+  %210 = tail call noundef i16 @llvm.bswap.i16(i16 %201)
+  %211 = ptrtoint ptr %209 to i64
+  %212 = and i64 %211, 1
+  %213 = icmp eq i64 %212, 0
+  br i1 %213, label %214, label %215
 
-212:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit113
-  store i16 %208, ptr %207, align 2
+214:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit113
+  store i16 %210, ptr %209, align 2
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-213:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit113
-  store i16 %208, ptr %207, align 1
+215:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit113
+  store i16 %210, ptr %209, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-214:                                              ; preds = %10
+216:                                              ; preds = %10
   store i8 7, ptr %.0129, align 1
-  %215 = getelementptr inbounds i64, ptr %9, i64 %13
-  %216 = load i32, ptr %215, align 8
-  %217 = trunc i32 %216 to i16
-  %218 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %219 = tail call noundef i16 @llvm.bswap.i16(i16 %217)
-  %220 = ptrtoint ptr %218 to i64
-  %221 = and i64 %220, 1
-  %222 = icmp eq i64 %221, 0
-  br i1 %222, label %223, label %224
+  %217 = getelementptr inbounds i64, ptr %9, i64 %13
+  %218 = load i32, ptr %217, align 8
+  %219 = trunc i32 %218 to i16
+  %220 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %221 = tail call noundef i16 @llvm.bswap.i16(i16 %219)
+  %222 = ptrtoint ptr %220 to i64
+  %223 = and i64 %222, 1
+  %224 = icmp eq i64 %223, 0
+  br i1 %224, label %225, label %226
 
-223:                                              ; preds = %214
-  store i16 %219, ptr %218, align 2
+225:                                              ; preds = %216
+  store i16 %221, ptr %220, align 2
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-224:                                              ; preds = %214
-  store i16 %219, ptr %218, align 1
+226:                                              ; preds = %216
+  store i16 %221, ptr %220, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-225:                                              ; preds = %10
+227:                                              ; preds = %10
   store i8 8, ptr %.0129, align 1
-  %226 = getelementptr inbounds i64, ptr %9, i64 %13
-  %227 = load i32, ptr %226, align 8
-  %228 = trunc i32 %227 to i16
-  %229 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %230 = tail call noundef i16 @llvm.bswap.i16(i16 %228)
-  %231 = ptrtoint ptr %229 to i64
-  %232 = and i64 %231, 1
-  %233 = icmp eq i64 %232, 0
-  br i1 %233, label %234, label %235
+  %228 = getelementptr inbounds i64, ptr %9, i64 %13
+  %229 = load i32, ptr %228, align 8
+  %230 = trunc i32 %229 to i16
+  %231 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %232 = tail call noundef i16 @llvm.bswap.i16(i16 %230)
+  %233 = ptrtoint ptr %231 to i64
+  %234 = and i64 %233, 1
+  %235 = icmp eq i64 %234, 0
+  br i1 %235, label %236, label %237
 
-234:                                              ; preds = %225
-  store i16 %230, ptr %229, align 2
+236:                                              ; preds = %227
+  store i16 %232, ptr %231, align 2
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-235:                                              ; preds = %225
-  store i16 %230, ptr %229, align 1
+237:                                              ; preds = %227
+  store i16 %232, ptr %231, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-236:                                              ; preds = %10, %10
+238:                                              ; preds = %10, %10
   store i8 15, ptr %.0129, align 1
-  %237 = getelementptr inbounds i64, ptr %9, i64 %13
-  %238 = load i32, ptr %237, align 8
-  %239 = lshr i32 %238, 16
-  %240 = trunc nuw i32 %239 to i16
-  %241 = trunc i32 %238 to i8
-  %242 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  store i8 %241, ptr %242, align 1
-  %243 = getelementptr inbounds nuw i8, ptr %.0129, i64 2
-  %244 = tail call noundef i16 @llvm.bswap.i16(i16 %240)
-  %245 = ptrtoint ptr %243 to i64
-  %246 = and i64 %245, 1
-  %247 = icmp eq i64 %246, 0
-  br i1 %247, label %248, label %249
+  %239 = getelementptr inbounds i64, ptr %9, i64 %13
+  %240 = load i32, ptr %239, align 8
+  %241 = lshr i32 %240, 16
+  %242 = trunc nuw i32 %241 to i16
+  %243 = trunc i32 %240 to i8
+  %244 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  store i8 %243, ptr %244, align 1
+  %245 = getelementptr inbounds nuw i8, ptr %.0129, i64 2
+  %246 = tail call noundef i16 @llvm.bswap.i16(i16 %242)
+  %247 = ptrtoint ptr %245 to i64
+  %248 = and i64 %247, 1
+  %249 = icmp eq i64 %248, 0
+  br i1 %249, label %250, label %251
 
-248:                                              ; preds = %236
-  store i16 %244, ptr %243, align 2
+250:                                              ; preds = %238
+  store i16 %246, ptr %245, align 2
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-249:                                              ; preds = %236
-  store i16 %244, ptr %243, align 1
+251:                                              ; preds = %238
+  store i16 %246, ptr %245, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-250:                                              ; preds = %10, %10
+252:                                              ; preds = %10, %10
   store i8 16, ptr %.0129, align 1
-  %251 = getelementptr inbounds i64, ptr %9, i64 %13
-  %252 = load i32, ptr %251, align 8
-  %253 = trunc i32 %252 to i16
-  %254 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %255 = tail call noundef i16 @llvm.bswap.i16(i16 %253)
-  %256 = ptrtoint ptr %254 to i64
-  %257 = and i64 %256, 1
-  %258 = icmp eq i64 %257, 0
-  br i1 %258, label %259, label %260
+  %253 = getelementptr inbounds i64, ptr %9, i64 %13
+  %254 = load i32, ptr %253, align 8
+  %255 = trunc i32 %254 to i16
+  %256 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %257 = tail call noundef i16 @llvm.bswap.i16(i16 %255)
+  %258 = ptrtoint ptr %256 to i64
+  %259 = and i64 %258, 1
+  %260 = icmp eq i64 %259, 0
+  br i1 %260, label %261, label %262
 
-259:                                              ; preds = %250
-  store i16 %255, ptr %254, align 2
+261:                                              ; preds = %252
+  store i16 %257, ptr %256, align 2
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-260:                                              ; preds = %250
-  store i16 %255, ptr %254, align 1
+262:                                              ; preds = %252
+  store i16 %257, ptr %256, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-261:                                              ; preds = %10, %10
-  %262 = getelementptr inbounds i64, ptr %9, i64 %13
-  %263 = load i32, ptr %262, align 8
-  %264 = trunc i32 %263 to i16
-  %265 = lshr i32 %263, 16
-  %266 = trunc nuw i32 %265 to i16
-  %267 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %268 = tail call noundef i16 @llvm.bswap.i16(i16 %264)
-  %269 = ptrtoint ptr %267 to i64
-  %270 = and i64 %269, 1
-  %271 = icmp eq i64 %270, 0
-  br i1 %271, label %272, label %273
+263:                                              ; preds = %10, %10
+  %264 = getelementptr inbounds i64, ptr %9, i64 %13
+  %265 = load i32, ptr %264, align 8
+  %266 = trunc i32 %265 to i16
+  %267 = lshr i32 %265, 16
+  %268 = trunc nuw i32 %267 to i16
+  %269 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %270 = tail call noundef i16 @llvm.bswap.i16(i16 %266)
+  %271 = ptrtoint ptr %269 to i64
+  %272 = and i64 %271, 1
+  %273 = icmp eq i64 %272, 0
+  br i1 %273, label %274, label %275
 
-272:                                              ; preds = %261
-  store i16 %268, ptr %267, align 2
+274:                                              ; preds = %263
+  store i16 %270, ptr %269, align 2
   br label %_ZN5Bytes11put_Java_u2EPht.exit119
 
-273:                                              ; preds = %261
-  store i16 %268, ptr %267, align 1
+275:                                              ; preds = %263
+  store i16 %270, ptr %269, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit119
 
-_ZN5Bytes11put_Java_u2EPht.exit119:               ; preds = %272, %273
-  %274 = getelementptr inbounds nuw i8, ptr %.0129, i64 3
-  %275 = tail call noundef i16 @llvm.bswap.i16(i16 %266)
-  %276 = ptrtoint ptr %274 to i64
-  %277 = and i64 %276, 1
-  %278 = icmp eq i64 %277, 0
-  br i1 %278, label %279, label %280
+_ZN5Bytes11put_Java_u2EPht.exit119:               ; preds = %274, %275
+  %276 = getelementptr inbounds nuw i8, ptr %.0129, i64 3
+  %277 = tail call noundef i16 @llvm.bswap.i16(i16 %268)
+  %278 = ptrtoint ptr %276 to i64
+  %279 = and i64 %278, 1
+  %280 = icmp eq i64 %279, 0
+  br i1 %280, label %281, label %282
 
-279:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit119
-  store i16 %275, ptr %274, align 2
+281:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit119
+  store i16 %277, ptr %276, align 2
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-280:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit119
-  store i16 %275, ptr %274, align 1
+282:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit119
+  store i16 %277, ptr %276, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-281:                                              ; preds = %10
+283:                                              ; preds = %10
   store i8 18, ptr %.0129, align 1
-  %282 = getelementptr inbounds i64, ptr %9, i64 %13
-  %283 = load i32, ptr %282, align 8
-  %284 = trunc i32 %283 to i16
-  %285 = lshr i32 %283, 16
-  %286 = trunc nuw i32 %285 to i16
-  %287 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  %288 = tail call noundef i16 @llvm.bswap.i16(i16 %284)
-  %289 = ptrtoint ptr %287 to i64
-  %290 = and i64 %289, 1
-  %291 = icmp eq i64 %290, 0
-  br i1 %291, label %292, label %293
+  %284 = getelementptr inbounds i64, ptr %9, i64 %13
+  %285 = load i32, ptr %284, align 8
+  %286 = trunc i32 %285 to i16
+  %287 = lshr i32 %285, 16
+  %288 = trunc nuw i32 %287 to i16
+  %289 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  %290 = tail call noundef i16 @llvm.bswap.i16(i16 %286)
+  %291 = ptrtoint ptr %289 to i64
+  %292 = and i64 %291, 1
+  %293 = icmp eq i64 %292, 0
+  br i1 %293, label %294, label %295
 
-292:                                              ; preds = %281
-  store i16 %288, ptr %287, align 2
+294:                                              ; preds = %283
+  store i16 %290, ptr %289, align 2
   br label %_ZN5Bytes11put_Java_u2EPht.exit121
 
-293:                                              ; preds = %281
-  store i16 %288, ptr %287, align 1
+295:                                              ; preds = %283
+  store i16 %290, ptr %289, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit121
 
-_ZN5Bytes11put_Java_u2EPht.exit121:               ; preds = %292, %293
-  %294 = getelementptr inbounds nuw i8, ptr %.0129, i64 3
-  %295 = tail call noundef i16 @llvm.bswap.i16(i16 %286)
-  %296 = ptrtoint ptr %294 to i64
-  %297 = and i64 %296, 1
-  %298 = icmp eq i64 %297, 0
-  br i1 %298, label %299, label %300
+_ZN5Bytes11put_Java_u2EPht.exit121:               ; preds = %294, %295
+  %296 = getelementptr inbounds nuw i8, ptr %.0129, i64 3
+  %297 = tail call noundef i16 @llvm.bswap.i16(i16 %288)
+  %298 = ptrtoint ptr %296 to i64
+  %299 = and i64 %298, 1
+  %300 = icmp eq i64 %299, 0
+  br i1 %300, label %301, label %302
 
-299:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit121
-  store i16 %295, ptr %294, align 2
+301:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit121
+  store i16 %297, ptr %296, align 2
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-300:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit121
-  store i16 %295, ptr %294, align 1
+302:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit121
+  store i16 %297, ptr %296, align 1
   br label %_ZN5Bytes11put_Java_u4EPhj.exit
 
-_ZN5Bytes11put_Java_u4EPhj.exit:                  ; preds = %.lr.ph, %_ZN5Bytes11put_Java_u2EPht.exit, %300, %299, %280, %279, %260, %259, %249, %248, %235, %234, %224, %223, %213, %212, %193, %192, %171, %170, %124, %123, %53, %52, %43, %42, %_ZN5Bytes11put_Java_u8EPhm.exit104, %_ZN5Bytes11put_Java_u8EPhm.exit, %10
-  %.1 = phi i32 [ %.0101128, %10 ], [ %63, %_ZN5Bytes11put_Java_u8EPhm.exit ], [ %73, %_ZN5Bytes11put_Java_u8EPhm.exit104 ], [ %.0101128, %42 ], [ %.0101128, %43 ], [ %.0101128, %52 ], [ %.0101128, %53 ], [ %.0101128, %123 ], [ %.0101128, %124 ], [ %.0101128, %170 ], [ %.0101128, %171 ], [ %.0101128, %192 ], [ %.0101128, %193 ], [ %.0101128, %212 ], [ %.0101128, %213 ], [ %.0101128, %223 ], [ %.0101128, %224 ], [ %.0101128, %234 ], [ %.0101128, %235 ], [ %.0101128, %248 ], [ %.0101128, %249 ], [ %.0101128, %259 ], [ %.0101128, %260 ], [ %.0101128, %279 ], [ %.0101128, %280 ], [ %.0101128, %299 ], [ %.0101128, %300 ], [ %.0101128, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %.0101128, %.lr.ph ]
-  %301 = zext nneg i32 %16 to i64
-  %302 = getelementptr inbounds nuw i8, ptr %.0129, i64 %301
-  %303 = add nsw i32 %.1, 1
-  %304 = icmp slt i32 %303, %6
-  br i1 %304, label %10, label %._crit_edge, !llvm.loop !39
+_ZN5Bytes11put_Java_u4EPhj.exit:                  ; preds = %.lr.ph, %_ZN5Bytes11put_Java_u2EPht.exit, %302, %301, %282, %281, %262, %261, %251, %250, %237, %236, %226, %225, %215, %214, %195, %194, %173, %172, %126, %125, %55, %54, %45, %44, %_ZN5Bytes11put_Java_u8EPhm.exit104, %_ZN5Bytes11put_Java_u8EPhm.exit, %10
+  %.1 = phi i32 [ %.0101128, %10 ], [ %65, %_ZN5Bytes11put_Java_u8EPhm.exit ], [ %75, %_ZN5Bytes11put_Java_u8EPhm.exit104 ], [ %.0101128, %44 ], [ %.0101128, %45 ], [ %.0101128, %54 ], [ %.0101128, %55 ], [ %.0101128, %125 ], [ %.0101128, %126 ], [ %.0101128, %172 ], [ %.0101128, %173 ], [ %.0101128, %194 ], [ %.0101128, %195 ], [ %.0101128, %214 ], [ %.0101128, %215 ], [ %.0101128, %225 ], [ %.0101128, %226 ], [ %.0101128, %236 ], [ %.0101128, %237 ], [ %.0101128, %250 ], [ %.0101128, %251 ], [ %.0101128, %261 ], [ %.0101128, %262 ], [ %.0101128, %281 ], [ %.0101128, %282 ], [ %.0101128, %301 ], [ %.0101128, %302 ], [ %.0101128, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %.0101128, %.lr.ph ]
+  %303 = zext nneg i32 %16 to i64
+  %304 = getelementptr inbounds nuw i8, ptr %.0129, i64 %303
+  %305 = add nsw i32 %.1, 1
+  %306 = icmp slt i32 %305, %6
+  br i1 %306, label %10, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_ZN5Bytes11put_Java_u4EPhj.exit, %4
-  %.0.lcssa = phi ptr [ %3, %4 ], [ %302, %_ZN5Bytes11put_Java_u4EPhj.exit ]
-  %305 = ptrtoint ptr %.0.lcssa to i64
-  %306 = ptrtoint ptr %3 to i64
-  %307 = sub i64 %305, %306
-  %308 = trunc i64 %307 to i32
-  ret i32 %308
+  %.0.lcssa = phi ptr [ %3, %4 ], [ %304, %_ZN5Bytes11put_Java_u4EPhj.exit ]
+  %307 = ptrtoint ptr %.0.lcssa to i64
+  %308 = ptrtoint ptr %3 to i64
+  %309 = sub i64 %307, %308
+  %310 = trunc i64 %309 to i32
+  ret i32 %310
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

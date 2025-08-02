@@ -183,15 +183,15 @@ getendpos.exit:                                   ; preds = %posrelatI.exit, %16
   %31 = add nuw nsw i32 %30, 1
   call void @luaL_checkstack(ptr noundef %0, i32 noundef %31, ptr noundef nonnull @.str.17) #12
   %32 = getelementptr i8, ptr %3, i64 %.0.i
-  %invariant.gep = getelementptr i8, ptr %32, i64 -1
   br label %33
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %34 = load i8, ptr %gep, align 1, !tbaa !9
-  %35 = zext i8 %34 to i64
-  call void @lua_pushinteger(ptr noundef %0, i64 noundef %35) #12
+  %34 = getelementptr i8, ptr %32, i64 %indvars.iv
+  %35 = getelementptr i8, ptr %34, i64 -1
+  %36 = load i8, ptr %35, align 1, !tbaa !9
+  %37 = zext i8 %36 to i64
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %37) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %26
   br i1 %exitcond.not, label %.loopexit, label %33
@@ -209,7 +209,6 @@ define internal noundef i32 @str_char(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %2) #12
   %4 = zext i32 %3 to i64
   %5 = call ptr @luaL_buffinitsize(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %4) #12
-  %invariant.gep = getelementptr i8, ptr %5, i64 -1
   %.not14 = icmp slt i32 %3, 1
   br i1 %.not14, label %._crit_edge, label %.lr.ph.preheader
 
@@ -231,8 +230,9 @@ define internal noundef i32 @str_char(ptr noundef %0) #0 {
 
 12:                                               ; preds = %10, %.lr.ph
   %13 = trunc i64 %8 to i8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  store i8 %13, ptr %gep, align 1, !tbaa !9
+  %14 = getelementptr i8, ptr %5, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %14, i64 -1
+  store i8 %13, ptr %15, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -3156,7 +3156,7 @@ define internal fastcc ptr @match(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %16 = getelementptr i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = getelementptr i8, ptr %0, i64 8
   br label %.outer.outer
@@ -3265,7 +3265,7 @@ define internal fastcc ptr @match(ptr noundef %0, ptr noundef %1, ptr noundef %2
 68:                                               ; preds = %65
   %69 = add nsw i64 %indvars.iv.i, -1
   %.idx.i = shl nuw nsw i64 %69, 4
-  %70 = getelementptr i8, ptr %16, i64 %.idx.i
+  %70 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
   %71 = load i64, ptr %70, align 8, !tbaa !38
   %72 = icmp eq i64 %71, -1
   br i1 %72, label %.loopexit.loopexit.i, label %65
@@ -3602,7 +3602,7 @@ matchbracketclass.exit122:                        ; preds = %208, %217, %219, %2
 230:                                              ; preds = %228
   %231 = zext nneg i32 %226 to i64
   %.idx.i.i = shl nuw nsw i64 %231, 4
-  %232 = getelementptr i8, ptr %16, i64 %.idx.i.i
+  %232 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i
   %233 = load i64, ptr %232, align 8, !tbaa !38
   %234 = icmp eq i64 %233, -1
   br i1 %234, label %.critedge.i.i, label %check_capture.exit.i, !prof !8

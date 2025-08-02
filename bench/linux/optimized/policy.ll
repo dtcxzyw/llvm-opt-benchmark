@@ -799,7 +799,6 @@ define dso_local noundef range(i32 -105, 1) i32 @netlink_policy_dump_write(ptr n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %invariant.gep = getelementptr i8, ptr %1, i64 24
   %.pre = load i32, ptr %1, align 8
   %.phi.trans.insert = zext i32 %.pre to i64
   %.phi.trans.insert5 = getelementptr [0 x %struct.anon], ptr %3, i64 0, i64 %.phi.trans.insert
@@ -807,10 +806,10 @@ define dso_local noundef range(i32 -105, 1) i32 @netlink_policy_dump_write(ptr n
   %.pre7 = load i32, ptr %4, align 4
   br label %9
 
-9:                                                ; preds = %64, %2
-  %10 = phi i32 [ %60, %64 ], [ %.pre7, %2 ]
-  %11 = phi ptr [ %67, %64 ], [ %.pre6, %2 ]
-  %12 = phi i32 [ %59, %64 ], [ %.pre, %2 ]
+9:                                                ; preds = %66, %2
+  %10 = phi i32 [ %62, %66 ], [ %.pre7, %2 ]
+  %11 = phi ptr [ %69, %66 ], [ %.pre6, %2 ]
+  %12 = phi i32 [ %61, %66 ], [ %.pre, %2 ]
   %13 = or i32 %12, 32768
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %6, align 8
@@ -853,7 +852,7 @@ define dso_local noundef range(i32 -105, 1) i32 @netlink_policy_dump_write(ptr n
 
 38:                                               ; preds = %22
   %39 = icmp eq i32 %26, 0
-  br i1 %39, label %40, label %69
+  br i1 %39, label %40, label %71
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %5, align 8
@@ -874,58 +873,59 @@ define dso_local noundef range(i32 -105, 1) i32 @netlink_policy_dump_write(ptr n
   %52 = load i32, ptr %1, align 8
   %53 = zext i32 %52 to i64
   %.idx = shl nuw nsw i64 %53, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %54 = load i32, ptr %gep, align 8
-  %55 = icmp ugt i32 %51, %54
-  br i1 %55, label %56, label %58
+  %54 = getelementptr i8, ptr %3, i64 %.idx
+  %55 = getelementptr i8, ptr %54, i64 8
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp ugt i32 %51, %56
+  br i1 %57, label %58, label %60
 
-56:                                               ; preds = %49
+58:                                               ; preds = %49
   store i32 0, ptr %4, align 4
-  %57 = add i32 %52, 1
-  store i32 %57, ptr %1, align 8
-  br label %58
+  %59 = add i32 %52, 1
+  store i32 %59, ptr %1, align 8
+  br label %60
 
-58:                                               ; preds = %56, %49
-  %59 = phi i32 [ %57, %56 ], [ %52, %49 ]
-  %60 = phi i32 [ 0, %56 ], [ %51, %49 ]
-  br i1 %27, label %61, label %.loopexit
+60:                                               ; preds = %58, %49
+  %61 = phi i32 [ %59, %58 ], [ %52, %49 ]
+  %62 = phi i32 [ 0, %58 ], [ %51, %49 ]
+  br i1 %27, label %63, label %.loopexit
 
-61:                                               ; preds = %58
-  %62 = load i32, ptr %8, align 8
-  %63 = icmp ult i32 %59, %62
-  br i1 %63, label %64, label %.loopexit
+63:                                               ; preds = %60
+  %64 = load i32, ptr %8, align 8
+  %65 = icmp ult i32 %61, %64
+  br i1 %65, label %66, label %.loopexit
 
-64:                                               ; preds = %61
-  %65 = zext i32 %59 to i64
-  %66 = getelementptr [0 x %struct.anon], ptr %3, i64 0, i64 %65
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %.loopexit, label %9
+66:                                               ; preds = %63
+  %67 = zext i32 %61 to i64
+  %68 = getelementptr [0 x %struct.anon], ptr %3, i64 0, i64 %67
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %.loopexit, label %9
 
-69:                                               ; preds = %38
-  %70 = load ptr, ptr %7, align 8
-  %71 = icmp ugt ptr %70, %17
-  br i1 %71, label %72, label %73, !prof !5
+71:                                               ; preds = %38
+  %72 = load ptr, ptr %7, align 8
+  %73 = icmp ugt ptr %72, %17
+  br i1 %73, label %74, label %75, !prof !5
 
-72:                                               ; preds = %69
+74:                                               ; preds = %71
   tail call void asm sideeffect "434: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 434b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 434) #7, !srcloc !18
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1062, i32 2305, i64 12) #7, !srcloc !19
   tail call void asm sideeffect "435: nop\0A\09.pushsection .discard.instr_end\0A\09.long 435b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 435) #7, !srcloc !20
   %.pre8 = load ptr, ptr %7, align 8
-  br label %73
+  br label %75
 
-73:                                               ; preds = %72, %69
-  %74 = phi ptr [ %.pre8, %72 ], [ %70, %69 ]
-  %75 = ptrtoint ptr %17 to i64
-  %76 = ptrtoint ptr %74 to i64
-  %77 = sub i64 %75, %76
-  %78 = trunc i64 %77 to i32
-  tail call void @skb_trim(ptr noundef %0, i32 noundef %78) #7
+75:                                               ; preds = %74, %71
+  %76 = phi ptr [ %.pre8, %74 ], [ %72, %71 ]
+  %77 = ptrtoint ptr %17 to i64
+  %78 = ptrtoint ptr %76 to i64
+  %79 = sub i64 %77, %78
+  %80 = trunc i64 %79 to i32
+  tail call void @skb_trim(ptr noundef %0, i32 noundef %80) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %64, %61, %58, %9, %73
-  %79 = phi i32 [ -105, %73 ], [ -61, %61 ], [ 0, %58 ], [ -61, %64 ], [ -105, %9 ]
-  ret i32 %79
+.loopexit:                                        ; preds = %66, %63, %60, %9, %75
+  %81 = phi i32 [ -105, %75 ], [ -61, %63 ], [ 0, %60 ], [ -61, %66 ], [ -105, %9 ]
+  ret i32 %81
 }
 
 ; Function Attrs: null_pointer_is_valid

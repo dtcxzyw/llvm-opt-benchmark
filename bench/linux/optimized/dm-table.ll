@@ -1979,7 +1979,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %.loopexit23.thread, label %7
+  br i1 %.not, label %.loopexit18.thread, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 120, i1 false), !annotation !12
@@ -1988,12 +1988,12 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %16
 
-11:                                               ; preds = %57, %52
+11:                                               ; preds = %52, %57
   %12 = add nuw nsw i64 %17, 1
   %13 = load i32, ptr %5, align 8
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %12, %14
-  br i1 %15, label %16, label %.loopexit23, !llvm.loop !45
+  br i1 %15, label %16, label %.loopexit18, !llvm.loop !45
 
 16:                                               ; preds = %11, %7
   %17 = phi i64 [ 0, %7 ], [ %12, %11 ]
@@ -2045,7 +2045,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 %49(ptr noundef %21, ptr noundef nonnull @device_area_is_invalid, ptr noundef nonnull %4) #22
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %.loopexit22
+  br i1 %51, label %52, label %.critedge15
 
 52:                                               ; preds = %46, %31, %27
   %53 = phi i32 [ %39, %46 ], [ %19, %31 ], [ %19, %27 ]
@@ -2064,41 +2064,41 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %64 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef %59, i64 noundef %61, i64 noundef %63) #24
   br label %11
 
-.loopexit23:                                      ; preds = %11
+.loopexit18:                                      ; preds = %11
   %65 = icmp eq i32 %13, 0
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 109
   %67 = load i8, ptr %66, align 1, !range !46, !noundef !47
   %68 = icmp eq i8 %67, 0
-  br i1 %68, label %76, label %.thread17
+  br i1 %68, label %76, label %.thread
 
-.loopexit23.thread:                               ; preds = %2
+.loopexit18.thread:                               ; preds = %2
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 109
   %70 = load i8, ptr %69, align 1, !range !46, !noundef !47
   %71 = icmp eq i8 %70, 0
-  br i1 %71, label %.thread54, label %.thread17.thread
+  br i1 %71, label %.thread48, label %.thread.thread
 
-.thread17.thread:                                 ; preds = %.loopexit23.thread
+.thread.thread:                                   ; preds = %.loopexit18.thread
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %73 = load i32, ptr %72, align 8
   br label %91
 
-.thread54:                                        ; preds = %.loopexit23.thread
+.thread48:                                        ; preds = %.loopexit18.thread
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #22
-  br label %.thread21
+  br label %.critedge
 
-.thread17:                                        ; preds = %.loopexit23
+.thread:                                          ; preds = %.loopexit18
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %75 = load i32, ptr %74, align 8
   br i1 %65, label %91, label %79
 
-76:                                               ; preds = %.loopexit23
+76:                                               ; preds = %.loopexit18
   %77 = icmp eq i8 %54, 0
   br i1 %77, label %95, label %78
 
 78:                                               ; preds = %76
   br i1 %65, label %91, label %79
 
-79:                                               ; preds = %.thread17, %78
+79:                                               ; preds = %.thread, %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -2114,15 +2114,15 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %90 = call i32 %89(ptr noundef %81, ptr noundef nonnull @device_is_zoned_model, ptr noundef null) #22
   br label %159
 
-91:                                               ; preds = %.thread17.thread, %.thread17, %78
-  %92 = phi i32 [ %75, %.thread17 ], [ %53, %78 ], [ %73, %.thread17.thread ]
+91:                                               ; preds = %.thread.thread, %.thread, %78
+  %92 = phi i32 [ %75, %.thread ], [ %53, %78 ], [ %73, %.thread.thread ]
   %93 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %92), !range !48
   %94 = icmp eq i32 %93, 1
-  br i1 %94, label %.thread18, label %.loopexit22
+  br i1 %94, label %.thread17, label %.critedge15
 
-.thread18:                                        ; preds = %91
+.thread17:                                        ; preds = %91
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #22
-  br label %.thread21
+  br label %.critedge
 
 95:                                               ; preds = %76
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -2130,7 +2130,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %98 = lshr i32 %97, 9
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 120, i1 false), !annotation !12
-  br i1 %65, label %.thread21, label %99
+  br i1 %65, label %.critedge, label %99
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2198,7 +2198,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %146 = phi i16 [ %107, %144 ], [ %138, %130 ]
   %147 = phi i32 [ %145, %144 ], [ %140, %130 ]
   %148 = icmp eq i16 %146, 0
-  br i1 %148, label %.thread21, label %149
+  br i1 %148, label %.critedge, label %149
 
 149:                                              ; preds = %.loopexit
   %150 = getelementptr inbounds nuw i8, ptr %110, i64 24
@@ -2209,21 +2209,21 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %155 = load i64, ptr %150, align 8
   %156 = load i32, ptr %96, align 4
   %157 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43, ptr noundef %152, i32 noundef %147, i64 noundef %154, i64 noundef %155, i32 noundef %156) #24
-  br label %.thread21
+  br label %.critedge
 
-.thread21:                                        ; preds = %.thread54, %.thread18, %95, %149, %.loopexit
-  %158 = phi i32 [ -22, %149 ], [ 0, %.loopexit ], [ 0, %95 ], [ 0, %.thread18 ], [ 0, %.thread54 ]
+.critedge:                                        ; preds = %.thread48, %.thread17, %95, %149, %.loopexit
+  %158 = phi i32 [ -22, %149 ], [ 0, %.loopexit ], [ 0, %95 ], [ 0, %.thread17 ], [ 0, %.thread48 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #22
-  br label %.loopexit22
+  br label %.critedge15
 
 159:                                              ; preds = %87, %79
   %160 = load ptr, ptr %0, align 8
   %161 = call ptr @dm_device_name(ptr noundef %160) #22
   %162 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.41, ptr noundef %161) #24
-  br label %.loopexit22
+  br label %.critedge15
 
-.loopexit22:                                      ; preds = %46, %91, %159, %.thread21
-  %163 = phi i32 [ %158, %.thread21 ], [ -22, %159 ], [ -22, %91 ], [ -22, %46 ]
+.critedge15:                                      ; preds = %46, %91, %159, %.critedge
+  %163 = phi i32 [ %158, %.critedge ], [ -22, %159 ], [ -22, %91 ], [ -22, %46 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #22
   ret i32 %163
 }

@@ -16373,7 +16373,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9has
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %131, label %7
+  br i1 %6, label %133, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -16531,12 +16531,11 @@ _ZN9hashbrown3map9make_hash17h853321271dc743e1E.exit: ; preds = %"_ZN62_$LT$$u5b
   %106 = load ptr, ptr %0, align 8, !alias.scope !1216, !noalias !1217, !nonnull !6, !noundef !6
   %.sroa.01.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %103, i64 0
   %.sroa.01.15.vec.insert.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %invariant.gep.i = getelementptr i8, ptr %106, i64 -48
   br label %107
 
-107:                                              ; preds = %125, %_ZN9hashbrown3map9make_hash17h853321271dc743e1E.exit
-  %.pn.i = phi i64 [ %101, %_ZN9hashbrown3map9make_hash17h853321271dc743e1E.exit ], [ %127, %125 ]
-  %.sroa.08.0.i.i = phi i64 [ 0, %_ZN9hashbrown3map9make_hash17h853321271dc743e1E.exit ], [ %126, %125 ]
+107:                                              ; preds = %127, %_ZN9hashbrown3map9make_hash17h853321271dc743e1E.exit
+  %.pn.i = phi i64 [ %101, %_ZN9hashbrown3map9make_hash17h853321271dc743e1E.exit ], [ %129, %127 ]
+  %.sroa.08.0.i.i = phi i64 [ 0, %_ZN9hashbrown3map9make_hash17h853321271dc743e1E.exit ], [ %128, %127 ]
   %.sroa.04.0.i.i = and i64 %.pn.i, %105
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 %.sroa.04.0.i.i
   %.sroa.0.0.copyload.i5.i = load <16 x i8>, ptr %108, align 1, !noalias !1216
@@ -16547,7 +16546,7 @@ _ZN9hashbrown3map9make_hash17h853321271dc743e1E.exit: ; preds = %"_ZN62_$LT$$u5b
 111:                                              ; preds = %112, %107
   %.sroa.010.0.i.i = phi i16 [ %110, %107 ], [ %116, %112 ]
   %.not.i.not.i = icmp eq i16 %.sroa.010.0.i.i, 0
-  br i1 %.not.i.not.i, label %121, label %112
+  br i1 %.not.i.not.i, label %123, label %112
 
 112:                                              ; preds = %111
   %113 = add i16 %.sroa.010.0.i.i, -1
@@ -16557,31 +16556,32 @@ _ZN9hashbrown3map9make_hash17h853321271dc743e1E.exit: ; preds = %"_ZN62_$LT$$u5b
   %117 = add i64 %.sroa.04.0.i.i, %115
   %118 = and i64 %117, %105
   %119 = sub nsw i64 0, %118
-  %gep.i = getelementptr { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %invariant.gep.i, i64 %119
-  %120 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h4b234b5105e6784fE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %gep.i), !noalias !1219
-  br i1 %120, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h95ef9af6d4e32304E.exit", label %111
+  %120 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %106, i64 %119
+  %121 = getelementptr inbounds i8, ptr %120, i64 -48
+  %122 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h4b234b5105e6784fE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %121), !noalias !1219
+  br i1 %122, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h95ef9af6d4e32304E.exit", label %111
 
-121:                                              ; preds = %111
-  %122 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i, splat (i8 -1)
-  %123 = bitcast <16 x i1> %122 to i16
-  %124 = icmp eq i16 %123, 0
-  br i1 %124, label %125, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h95ef9af6d4e32304E.exit"
+123:                                              ; preds = %111
+  %124 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i, splat (i8 -1)
+  %125 = bitcast <16 x i1> %124 to i16
+  %126 = icmp eq i16 %125, 0
+  br i1 %126, label %127, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h95ef9af6d4e32304E.exit"
 
-125:                                              ; preds = %121
-  %126 = add i64 %.sroa.08.0.i.i, 16
-  %127 = add i64 %126, %.sroa.04.0.i.i
+127:                                              ; preds = %123
+  %128 = add i64 %.sroa.08.0.i.i, 16
+  %129 = add i64 %128, %.sroa.04.0.i.i
   br label %107
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h95ef9af6d4e32304E.exit": ; preds = %121, %112
-  %.sroa.3.0.i.i = phi i64 [ %118, %112 ], [ undef, %121 ]
-  %128 = sub nsw i64 0, %.sroa.3.0.i.i
-  %129 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %106, i64 %128
-  %.sroa.0.0.i = select i1 %.not.i.not.i, ptr null, ptr %129
-  %130 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -48
-  %.sroa.0.1 = select i1 %.not.i.not.i, ptr null, ptr %130
-  br label %131
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h95ef9af6d4e32304E.exit": ; preds = %123, %112
+  %.sroa.3.0.i.i = phi i64 [ %118, %112 ], [ undef, %123 ]
+  %130 = sub nsw i64 0, %.sroa.3.0.i.i
+  %131 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %106, i64 %130
+  %.sroa.0.0.i = select i1 %.not.i.not.i, ptr null, ptr %131
+  %132 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -48
+  %.sroa.0.1 = select i1 %.not.i.not.i, ptr null, ptr %132
+  br label %133
 
-131:                                              ; preds = %3, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h95ef9af6d4e32304E.exit"
+133:                                              ; preds = %3, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h95ef9af6d4e32304E.exit"
   %.sroa.0.0 = phi ptr [ %.sroa.0.1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h95ef9af6d4e32304E.exit" ], [ null, %3 ]
   ret ptr %.sroa.0.0
 }

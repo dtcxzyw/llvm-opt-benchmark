@@ -1374,8 +1374,8 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   %8 = icmp ult i64 %7, 8
   %9 = zext i32 %1 to i64
   %10 = icmp ult i64 %7, %9
-  %or.cond115 = or i1 %8, %10
-  br i1 %or.cond115, label %.thread, label %.preheader
+  %or.cond114 = or i1 %8, %10
+  br i1 %or.cond114, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1408,19 +1408,19 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   %30 = add i64 %25, 8
   store i64 %30, ptr %2, align 8, !tbaa !89
   %31 = icmp ugt i32 %.val.i.i93, -10
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %24
   %33 = and i32 %.val.i.i93, 1
   %34 = add nuw i32 %33, %.val.i.i93
   %35 = zext i32 %34 to i64
   %36 = sub i64 %.val86, %30
-  %spec.select113 = call i64 @llvm.umin.i64(i64 %36, i64 %35)
-  %37 = add nuw nsw i64 %spec.select113, 8
+  %spec.select112 = call i64 @llvm.umin.i64(i64 %36, i64 %35)
+  %37 = add nuw nsw i64 %spec.select112, 8
   %.val92 = load i64, ptr %12, align 8, !tbaa !90
   %38 = sub i64 %.val92, %30
   %.not = icmp ult i64 %38, %35
-  br i1 %.not, label %.thread, label %39
+  br i1 %.not, label %.critedge, label %39
 
 39:                                               ; preds = %32
   %40 = icmp ult i64 %36, %35
@@ -1440,13 +1440,13 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   store i64 %37, ptr %23, align 8, !tbaa !30
   store i32 1, ptr %19, align 8, !tbaa !38
   store i32 %0, ptr %20, align 8, !tbaa !39
-  %44 = add i64 %spec.select113, %30
+  %44 = add i64 %spec.select112, %30
   store i64 %44, ptr %2, align 8, !tbaa !89
   br label %63
 
 45:                                               ; preds = %39
-  %.not117 = icmp eq i32 %.058, 0
-  br i1 %.not117, label %46, label %.thread
+  %.not116 = icmp eq i32 %.058, 0
+  br i1 %.not116, label %46, label %.critedge
 
 46:                                               ; preds = %45, %39
   %47 = icmp eq i32 %.061, 0
@@ -1457,16 +1457,16 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   %49 = call i32 @WebPGetFeaturesInternal(ptr noundef nonnull %27, i64 noundef %37, ptr noundef nonnull %5, i32 noundef 528) #13
   %50 = icmp eq i32 %49, 7
   %or.cond = select i1 %40, i1 %50, i1 false
-  br i1 %or.cond, label %.thread94, label %51
+  br i1 %or.cond, label %.thread, label %51
 
 51:                                               ; preds = %48
   %.not77 = icmp eq i32 %49, 0
-  br i1 %.not77, label %52, label %.thread94
+  br i1 %.not77, label %52, label %.thread
 
-.thread94:                                        ; preds = %48, %51
+.thread:                                          ; preds = %48, %51
   %.4.ph = phi i32 [ 2, %51 ], [ 1, %48 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
-  br label %.thread
+  br label %.critedge
 
 52:                                               ; preds = %51
   %53 = xor i1 %40, true
@@ -1484,7 +1484,7 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   store i32 %0, ptr %20, align 8, !tbaa !39
   store i32 %54, ptr %21, align 4, !tbaa !40
   %60 = load i64, ptr %2, align 8, !tbaa !89
-  %61 = add i64 %60, %spec.select113
+  %61 = add i64 %60, %spec.select112
   store i64 %61, ptr %2, align 8, !tbaa !89
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
   %.pre = load i64, ptr %12, align 8, !tbaa !90
@@ -1501,7 +1501,7 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   %.263 = phi i32 [ %.061, %62 ], [ %.061, %43 ], [ 1, %52 ]
   %.260 = phi i32 [ %.058, %62 ], [ 1, %43 ], [ %.058, %52 ]
   %66 = icmp eq i64 %65, %64
-  br i1 %66, label %.thread, label %67
+  br i1 %66, label %.critedge, label %67
 
 67:                                               ; preds = %63
   %.val80 = load i64, ptr %6, align 8, !tbaa !91
@@ -1510,10 +1510,10 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   %spec.select79 = select i1 %69, i32 1, i32 %spec.select
   %70 = icmp eq i32 %spec.select79, 0
   %71 = select i1 %.not78, i1 %70, i1 false
-  br i1 %71, label %24, label %.thread, !llvm.loop !97
+  br i1 %71, label %24, label %.critedge, !llvm.loop !97
 
-.thread:                                          ; preds = %45, %32, %24, %63, %67, %.thread94, %4
-  %.0 = phi i32 [ 1, %4 ], [ %.4.ph, %.thread94 ], [ 2, %24 ], [ 2, %32 ], [ 2, %45 ], [ %spec.select, %63 ], [ %spec.select79, %67 ]
+.critedge:                                        ; preds = %45, %32, %24, %63, %67, %.thread, %4
+  %.0 = phi i32 [ 1, %4 ], [ %.4.ph, %.thread ], [ 2, %24 ], [ 2, %32 ], [ 2, %45 ], [ %spec.select, %63 ], [ %spec.select79, %67 ]
   ret i32 %.0
 }
 

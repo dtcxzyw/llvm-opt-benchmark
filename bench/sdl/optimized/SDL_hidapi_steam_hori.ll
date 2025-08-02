@@ -76,7 +76,7 @@ define internal zeroext i1 @HIDAPI_DriverSteamHori_UpdateDevice(ptr noundef %0) 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %10, label %268
+  br i1 %9, label %10, label %271
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -135,7 +135,7 @@ define internal zeroext i1 @HIDAPI_DriverSteamHori_UpdateDevice(ptr noundef %0) 
   br i1 %56, label %.backedge.us, label %._crit_edge, !llvm.loop !3
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %HIDAPI_DriverSteamHori_HandleStatePacket.exit
-  %57 = phi i32 [ %260, %HIDAPI_DriverSteamHori_HandleStatePacket.exit ], [ %17, %.lr.ph ]
+  %57 = phi i32 [ %263, %HIDAPI_DriverSteamHori_HandleStatePacket.exit ], [ %17, %.lr.ph ]
   %58 = call i64 @SDL_GetTicksNS_REAL() #9
   %59 = load i8, ptr %4, align 16
   switch i8 %59, label %HIDAPI_DriverSteamHori_HandleStatePacket.exit [
@@ -369,101 +369,119 @@ define internal zeroext i1 @HIDAPI_DriverSteamHori_UpdateDevice(ptr noundef %0) 
   %209 = fsub float 3.276800e+04, %208
   %210 = fdiv float %209, 6.553500e+04
   %211 = fcmp ogt float %210, 1.000000e+00
-  %212 = fcmp olt float %210, 0.000000e+00
-  %213 = select i1 %212, float 0.000000e+00, float %210
-  %214 = call float @llvm.fmuladd.f32(float %213, float 0x4051DF46A0000000, float 0xC041DF46A0000000)
-  %215 = select i1 %211, float 0x4041DF46A0000000, float %214
-  store float %215, ptr %45, align 4
-  %216 = load i16, ptr %46, align 2
-  %217 = sitofp i16 %216 to float
-  %218 = fsub float 3.276800e+04, %217
-  %219 = fdiv float %218, 6.553500e+04
-  %220 = fcmp ogt float %219, 1.000000e+00
-  %221 = fcmp olt float %219, 0.000000e+00
-  %222 = select i1 %221, float 0.000000e+00, float %219
-  %223 = call float @llvm.fmuladd.f32(float %222, float 0x4051DF46A0000000, float 0xC041DF46A0000000)
-  %224 = select i1 %220, float 0x4041DF46A0000000, float %223
-  store float %224, ptr %47, align 4
-  %225 = load i16, ptr %48, align 16
-  %226 = sitofp i16 %225 to float
-  %227 = fsub float 3.276800e+04, %226
-  %228 = fdiv float %227, 6.553500e+04
-  %229 = fcmp ogt float %228, 1.000000e+00
-  %230 = fcmp olt float %228, 0.000000e+00
-  %231 = select i1 %230, float 0.000000e+00, float %228
-  %232 = call float @llvm.fmuladd.f32(float %231, float 0x4051DF46A0000000, float 0xC041DF46A0000000)
-  %233 = select i1 %229, float 0x4041DF46A0000000, float %232
-  store float %233, ptr %3, align 4
+  br i1 %211, label %RemapValClamped.exit.i, label %212
+
+212:                                              ; preds = %185
+  %213 = fcmp olt float %210, 0.000000e+00
+  %214 = select i1 %213, float 0.000000e+00, float %210
+  %215 = call float @llvm.fmuladd.f32(float %214, float 0x4051DF46A0000000, float 0xC041DF46A0000000)
+  br label %RemapValClamped.exit.i
+
+RemapValClamped.exit.i:                           ; preds = %212, %185
+  %216 = phi float [ %215, %212 ], [ 0x4041DF46A0000000, %185 ]
+  store float %216, ptr %45, align 4
+  %217 = load i16, ptr %46, align 2
+  %218 = sitofp i16 %217 to float
+  %219 = fsub float 3.276800e+04, %218
+  %220 = fdiv float %219, 6.553500e+04
+  %221 = fcmp ogt float %220, 1.000000e+00
+  br i1 %221, label %RemapValClamped.exit167.i, label %222
+
+222:                                              ; preds = %RemapValClamped.exit.i
+  %223 = fcmp olt float %220, 0.000000e+00
+  %224 = select i1 %223, float 0.000000e+00, float %220
+  %225 = call float @llvm.fmuladd.f32(float %224, float 0x4051DF46A0000000, float 0xC041DF46A0000000)
+  br label %RemapValClamped.exit167.i
+
+RemapValClamped.exit167.i:                        ; preds = %222, %RemapValClamped.exit.i
+  %226 = phi float [ %225, %222 ], [ 0x4041DF46A0000000, %RemapValClamped.exit.i ]
+  store float %226, ptr %47, align 4
+  %227 = load i16, ptr %48, align 16
+  %228 = sitofp i16 %227 to float
+  %229 = fsub float 3.276800e+04, %228
+  %230 = fdiv float %229, 6.553500e+04
+  %231 = fcmp ogt float %230, 1.000000e+00
+  br i1 %231, label %RemapValClamped.exit168.i, label %232
+
+232:                                              ; preds = %RemapValClamped.exit167.i
+  %233 = fcmp olt float %230, 0.000000e+00
+  %234 = select i1 %233, float 0.000000e+00, float %230
+  %235 = call float @llvm.fmuladd.f32(float %234, float 0x4051DF46A0000000, float 0xC041DF46A0000000)
+  br label %RemapValClamped.exit168.i
+
+RemapValClamped.exit168.i:                        ; preds = %232, %RemapValClamped.exit167.i
+  %236 = phi float [ %235, %232 ], [ 0x4041DF46A0000000, %RemapValClamped.exit167.i ]
+  store float %236, ptr %3, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %58, ptr noundef nonnull %14, i32 noundef 2, i64 noundef %58, ptr noundef nonnull %3, i32 noundef 3) #9
-  %234 = load i16, ptr %49, align 2
-  %235 = sitofp i16 %234 to float
-  %236 = fmul float %235, 0x3F639D0140000000
-  store float %236, ptr %47, align 4
-  %237 = load i16, ptr %50, align 4
-  %238 = sext i16 %237 to i32
-  %239 = sub nsw i32 0, %238
-  %240 = sitofp i32 %239 to float
-  %241 = fmul float %240, 0x3F639D0140000000
-  store float %241, ptr %45, align 4
-  %242 = load i16, ptr %51, align 2
-  %243 = sitofp i16 %242 to float
+  %237 = load i16, ptr %49, align 2
+  %238 = sitofp i16 %237 to float
+  %239 = fmul float %238, 0x3F639D0140000000
+  store float %239, ptr %47, align 4
+  %240 = load i16, ptr %50, align 4
+  %241 = sext i16 %240 to i32
+  %242 = sub nsw i32 0, %241
+  %243 = sitofp i32 %242 to float
   %244 = fmul float %243, 0x3F639D0140000000
-  store float %244, ptr %3, align 4
+  store float %244, ptr %45, align 4
+  %245 = load i16, ptr %51, align 2
+  %246 = sitofp i16 %245 to float
+  %247 = fmul float %246, 0x3F639D0140000000
+  store float %247, ptr %3, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %58, ptr noundef nonnull %14, i32 noundef 1, i64 noundef %58, ptr noundef nonnull %3, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #9
-  %245 = load i8, ptr %52, align 8
-  %246 = load i8, ptr %53, align 8
-  %.not165.i = icmp eq i8 %245, %246
-  br i1 %.not165.i, label %256, label %247
+  %248 = load i8, ptr %52, align 8
+  %249 = load i8, ptr %53, align 8
+  %.not165.i = icmp eq i8 %248, %249
+  br i1 %.not165.i, label %259, label %250
 
-247:                                              ; preds = %185
-  %248 = zext i8 %246 to i32
-  %249 = and i32 %248, 16
-  %.not166.i = icmp eq i32 %249, 0
-  %250 = and i32 %248, 15
-  %251 = mul nuw nsw i32 %250, 10
-  br i1 %.not166.i, label %252, label %255
+250:                                              ; preds = %RemapValClamped.exit168.i
+  %251 = zext i8 %249 to i32
+  %252 = and i32 %251, 16
+  %.not166.i = icmp eq i32 %252, 0
+  %253 = and i32 %251, 15
+  %254 = mul nuw nsw i32 %253, 10
+  br i1 %.not166.i, label %255, label %258
 
-252:                                              ; preds = %247
-  %253 = load i8, ptr %29, align 4, !range !6, !noundef !7
-  %254 = trunc nuw i8 %253 to i1
-  %..i = select i1 %254, i32 1, i32 4
-  br label %255
+255:                                              ; preds = %250
+  %256 = load i8, ptr %29, align 4, !range !6, !noundef !7
+  %257 = trunc nuw i8 %256 to i1
+  %..i = select i1 %257, i32 1, i32 4
+  br label %258
 
-255:                                              ; preds = %252, %247
-  %.0.i = phi i32 [ 3, %247 ], [ %..i, %252 ]
-  call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %14, i32 noundef %.0.i, i32 noundef %251) #9
-  br label %256
+258:                                              ; preds = %255, %250
+  %.0.i = phi i32 [ 3, %250 ], [ %..i, %255 ]
+  call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %14, i32 noundef %.0.i, i32 noundef %254) #9
+  br label %259
 
-256:                                              ; preds = %255, %185
-  %257 = call i32 @llvm.umin.i32(i32 range(i32 1, -2147483648) %57, i32 64)
-  %258 = zext nneg i32 %257 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull readonly align 16 dereferenceable(1) %4, i64 %258, i1 false)
+259:                                              ; preds = %258, %RemapValClamped.exit168.i
+  %260 = call i32 @llvm.umin.i32(i32 range(i32 1, -2147483648) %57, i32 64)
+  %261 = zext nneg i32 %260 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull readonly align 16 dereferenceable(1) %4, i64 %261, i1 false)
   br label %HIDAPI_DriverSteamHori_HandleStatePacket.exit
 
-HIDAPI_DriverSteamHori_HandleStatePacket.exit:    ; preds = %.lr.ph.split, %256
-  %259 = load ptr, ptr %15, align 8
-  %260 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %259, ptr noundef nonnull %4, i64 noundef 64, i32 noundef 0) #9
-  %261 = icmp sgt i32 %260, 0
-  br i1 %261, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
+HIDAPI_DriverSteamHori_HandleStatePacket.exit:    ; preds = %.lr.ph.split, %259
+  %262 = load ptr, ptr %15, align 8
+  %263 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %262, ptr noundef nonnull %4, i64 noundef 64, i32 noundef 0) #9
+  %264 = icmp sgt i32 %263, 0
+  br i1 %264, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %HIDAPI_DriverSteamHori_HandleStatePacket.exit, %.backedge.us, %10
-  %.lcssa = phi i32 [ %17, %10 ], [ %55, %.backedge.us ], [ %260, %HIDAPI_DriverSteamHori_HandleStatePacket.exit ]
-  %262 = icmp slt i32 %.lcssa, 0
-  br i1 %262, label %263, label %266
+  %.lcssa = phi i32 [ %17, %10 ], [ %55, %.backedge.us ], [ %263, %HIDAPI_DriverSteamHori_HandleStatePacket.exit ]
+  %265 = icmp slt i32 %.lcssa, 0
+  br i1 %265, label %266, label %269
 
-263:                                              ; preds = %._crit_edge
-  %264 = load ptr, ptr %11, align 8
-  %265 = load i32, ptr %264, align 4
-  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %265) #9
-  br label %266
+266:                                              ; preds = %._crit_edge
+  %267 = load ptr, ptr %11, align 8
+  %268 = load i32, ptr %267, align 4
+  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %268) #9
+  br label %269
 
-266:                                              ; preds = %263, %._crit_edge
-  %267 = icmp eq i32 %.lcssa, 0
-  br label %268
+269:                                              ; preds = %266, %._crit_edge
+  %270 = icmp eq i32 %.lcssa, 0
+  br label %271
 
-268:                                              ; preds = %1, %266
-  %.0 = phi i1 [ %267, %266 ], [ false, %1 ]
+271:                                              ; preds = %1, %269
+  %.0 = phi i1 [ %270, %269 ], [ false, %1 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
   ret i1 %.0
 }

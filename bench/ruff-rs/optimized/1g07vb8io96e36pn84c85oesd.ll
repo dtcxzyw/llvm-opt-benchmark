@@ -4179,7 +4179,7 @@ define internal noundef zeroext i1 @"_ZN78_$LT$std..sync..poison..PoisonError$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN7ruff_db6system2os8OsSystem3new17h6c0426aead38ad83E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN7ruff_db6system2os8OsSystem3new17h6c0426aead38ad83E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [40 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8

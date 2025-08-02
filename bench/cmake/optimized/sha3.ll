@@ -46,7 +46,7 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = zext i32 %8 to i64
   %.not = icmp sgt i32 %5, -1
-  br i1 %.not, label %10, label %.thread
+  br i1 %.not, label %10, label %.critedge
 
 10:                                               ; preds = %3
   %11 = add i64 %2, %6
@@ -63,7 +63,7 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
   %.not56 = icmp ult i64 %2, %15
   %18 = tail call i64 @llvm.umin.i64(i64 %2, i64 %15)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %1, i64 %18, i1 false)
-  br i1 %.not56, label %.thread, label %19
+  br i1 %.not56, label %.critedge, label %19
 
 19:                                               ; preds = %14
   tail call fastcc void @rhash_sha3_process_block(ptr noundef nonnull %0, ptr noundef nonnull %16, i64 noundef %9)
@@ -74,30 +74,30 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
 22:                                               ; preds = %19, %10
   %.047 = phi i64 [ %21, %19 ], [ %2, %10 ]
   %.045 = phi ptr [ %20, %19 ], [ %1, %10 ]
-  %.not5761 = icmp ult i64 %.047, %9
-  br i1 %.not5761, label %._crit_edge, label %.lr.ph
+  %.not5759 = icmp ult i64 %.047, %9
+  br i1 %.not5759, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %24
 
 24:                                               ; preds = %.lr.ph, %29
-  %.263 = phi ptr [ %.045, %.lr.ph ], [ %30, %29 ]
-  %.24962 = phi i64 [ %.047, %.lr.ph ], [ %31, %29 ]
-  %25 = ptrtoint ptr %.263 to i64
+  %.261 = phi ptr [ %.045, %.lr.ph ], [ %30, %29 ]
+  %.24960 = phi i64 [ %.047, %.lr.ph ], [ %31, %29 ]
+  %25 = ptrtoint ptr %.261 to i64
   %26 = and i64 %25, 7
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 1 %.263, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 1 %.261, i64 %9, i1 false)
   br label %29
 
 29:                                               ; preds = %24, %28
-  %.0 = phi ptr [ %23, %28 ], [ %.263, %24 ]
+  %.0 = phi ptr [ %23, %28 ], [ %.261, %24 ]
   tail call fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr noundef %.0, i64 noundef %9)
-  %30 = getelementptr inbounds nuw i8, ptr %.263, i64 %9
-  %31 = sub i64 %.24962, %9
+  %30 = getelementptr inbounds nuw i8, ptr %.261, i64 %9
+  %31 = sub i64 %.24960, %9
   %.not57 = icmp ult i64 %31, %9
   br i1 %.not57, label %._crit_edge, label %24, !llvm.loop !10
 
@@ -105,14 +105,14 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
   %.249.lcssa = phi i64 [ %.047, %22 ], [ %31, %29 ]
   %.2.lcssa = phi ptr [ %.045, %22 ], [ %30, %29 ]
   %.not58 = icmp eq i64 %.249.lcssa, 0
-  br i1 %.not58, label %.thread, label %32
+  br i1 %.not58, label %.critedge, label %32
 
 32:                                               ; preds = %._crit_edge
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr align 1 %.2.lcssa, i64 %.249.lcssa, i1 false)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %14, %._crit_edge, %32, %3
+.critedge:                                        ; preds = %14, %._crit_edge, %32, %3
   ret void
 }
 

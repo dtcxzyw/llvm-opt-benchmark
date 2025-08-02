@@ -14599,14 +14599,14 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIte
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %store_forwarded = phi i64 [ %load_initial, %.lr.ph.i.i.preheader ], [ %28, %.lr.ph.i.i ]
+  %store_forwarded = phi i64 [ %load_initial, %.lr.ph.i.i.preheader ], [ %29, %.lr.ph.i.i ]
   %.05.i.i = phi i64 [ 1, %.lr.ph.i.i.preheader ], [ %30, %.lr.ph.i.i ]
-  %25 = mul i64 %.05.i.i, %21
-  %26 = getelementptr inbounds nuw i64, ptr %6, i64 %25
-  %27 = load i64, ptr %26, align 8, !tbaa !99
-  %28 = add i64 %27, %store_forwarded
-  %29 = getelementptr inbounds nuw i64, ptr %20, i64 %.05.i.i
-  store i64 %28, ptr %29, align 8, !tbaa !99
+  %25 = getelementptr i64, ptr %20, i64 %.05.i.i
+  %26 = mul i64 %.05.i.i, %21
+  %27 = getelementptr inbounds nuw i64, ptr %6, i64 %26
+  %28 = load i64, ptr %27, align 8, !tbaa !99
+  %29 = add i64 %28, %store_forwarded
+  store i64 %29, ptr %25, align 8, !tbaa !99
   %30 = add nuw i64 %.05.i.i, 1
   %exitcond77.not = icmp eq i64 %30, %.sroa.speculated54
   br i1 %exitcond77.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20CSRArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.preheader, label %.lr.ph.i.i, !llvm.loop !454
@@ -21410,14 +21410,14 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIte
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %store_forwarded = phi i64 [ %load_initial, %.lr.ph.i.i.preheader ], [ %28, %.lr.ph.i.i ]
+  %store_forwarded = phi i64 [ %load_initial, %.lr.ph.i.i.preheader ], [ %29, %.lr.ph.i.i ]
   %.05.i.i = phi i64 [ 1, %.lr.ph.i.i.preheader ], [ %30, %.lr.ph.i.i ]
-  %25 = mul i64 %.05.i.i, %21
-  %26 = getelementptr inbounds nuw i64, ptr %6, i64 %25
-  %27 = load i64, ptr %26, align 8, !tbaa !99
-  %28 = add i64 %27, %store_forwarded
-  %29 = getelementptr inbounds nuw i64, ptr %20, i64 %.05.i.i
-  store i64 %28, ptr %29, align 8, !tbaa !99
+  %25 = getelementptr i64, ptr %20, i64 %.05.i.i
+  %26 = mul i64 %.05.i.i, %21
+  %27 = getelementptr inbounds nuw i64, ptr %6, i64 %26
+  %28 = load i64, ptr %27, align 8, !tbaa !99
+  %29 = add i64 %28, %store_forwarded
+  store i64 %29, ptr %25, align 8, !tbaa !99
   %30 = add nuw i64 %.05.i.i, 1
   %exitcond77.not = icmp eq i64 %30, %.sroa.speculated54
   br i1 %exitcond77.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data17ArrayAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.preheader, label %.lr.ph.i.i, !llvm.loop !662
@@ -26518,14 +26518,14 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIte
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %store_forwarded = phi i64 [ %load_initial, %.lr.ph.i.i.preheader ], [ %28, %.lr.ph.i.i ]
+  %store_forwarded = phi i64 [ %load_initial, %.lr.ph.i.i.preheader ], [ %29, %.lr.ph.i.i ]
   %.05.i.i = phi i64 [ 1, %.lr.ph.i.i.preheader ], [ %30, %.lr.ph.i.i ]
-  %25 = mul i64 %.05.i.i, %21
-  %26 = getelementptr inbounds nuw i64, ptr %6, i64 %25
-  %27 = load i64, ptr %26, align 8, !tbaa !99
-  %28 = add i64 %27, %store_forwarded
-  %29 = getelementptr inbounds nuw i64, ptr %20, i64 %.05.i.i
-  store i64 %28, ptr %29, align 8, !tbaa !99
+  %25 = getelementptr i64, ptr %20, i64 %.05.i.i
+  %26 = mul i64 %.05.i.i, %21
+  %27 = getelementptr inbounds nuw i64, ptr %6, i64 %26
+  %28 = load i64, ptr %27, align 8, !tbaa !99
+  %29 = add i64 %28, %store_forwarded
+  store i64 %29, ptr %25, align 8, !tbaa !99
   %30 = add nuw i64 %.05.i.i, 1
   %exitcond77.not = icmp eq i64 %30, %.sroa.speculated54
   br i1 %exitcond77.not, label %_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix16PushAdapterBatchINS2_4data20ColumnarAdapterBatchEEEvPKNS2_7ContextEmmRKT_fNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEdmEUlmE_EEPmmEEviSD_SD_T1_T0_EUlvE0_JEEEvSD_DpT0_.exit.preheader, label %.lr.ph.i.i, !llvm.loop !825

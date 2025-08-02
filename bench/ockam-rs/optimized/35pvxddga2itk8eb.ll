@@ -24198,12 +24198,12 @@ define hidden void @"_ZN93_$LT$ockam_core..routing..address..Address$u20$as$u20$
           to label %34 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %202, %194, %175, %128, %105, %97, %78
-  %.pn228 = phi { ptr, i32 } [ %129, %128 ], [ %79, %78 ], [ %.pn223, %105 ], [ %.pn223, %97 ], [ %176, %175 ], [ %.pn, %202 ], [ %.pn, %194 ], [ %lpad.loopexit278, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp279, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit449, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.loopexit.split-lp ]
+  %.pn228 = phi { ptr, i32 } [ %129, %128 ], [ %79, %78 ], [ %.pn223, %105 ], [ %.pn223, %97 ], [ %176, %175 ], [ %.pn, %202 ], [ %.pn, %194 ], [ %lpad.loopexit278, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp279, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit448, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hce8ca8944c10b949E"(ptr noalias noundef align 8 dereferenceable(24) %32) #39
           to label %208 unwind label %76
 
 .loopexit.loopexit:                               ; preds = %170, %165, %.critedge, %56
-  %lpad.loopexit449 = landingpad { ptr, i32 }
+  %lpad.loopexit448 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -24217,7 +24217,7 @@ define hidden void @"_ZN93_$LT$ockam_core..routing..address..Address$u20$as$u20$
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %135, %145, %144, %.thread252.thread, %117, %3
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %135, %145, %144, %.critedge333, %117, %3
   %lpad.loopexit.split-lp279 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -24237,8 +24237,8 @@ define hidden void @"_ZN93_$LT$ockam_core..routing..address..Address$u20$as$u20$
   br i1 %.not276, label %.preheader, label %.preheader277
 
 .preheader277:                                    ; preds = %41
-  %.not333 = icmp eq i64 %40, 0
-  br i1 %.not333, label %.thread252.thread, label %.lr.ph
+  %.not334 = icmp eq i64 %40, 0
+  br i1 %.not334, label %.critedge333, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader277
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -24292,7 +24292,7 @@ define hidden void @"_ZN93_$LT$ockam_core..routing..address..Address$u20$as$u20$
           to label %59 unwind label %.loopexit.split-lp.loopexit
 
 .thread252:                                       ; preds = %75
-  br i1 %.sroa.080.4, label %123, label %.thread252.thread
+  br i1 %.sroa.080.4, label %123, label %.critedge333
 
 59:                                               ; preds = %57
   %60 = load i64, ptr %30, align 8, !range !378, !noundef !4
@@ -24526,7 +24526,7 @@ define hidden void @"_ZN93_$LT$ockam_core..routing..address..Address$u20$as$u20$
 
 121:                                              ; preds = %118
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
-  br i1 %.sroa.080.0.ph, label %123, label %.thread252.thread
+  br i1 %.sroa.080.0.ph, label %123, label %.critedge333
 
 122:                                              ; preds = %118
   %.sroa.4196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -24538,12 +24538,12 @@ define hidden void @"_ZN93_$LT$ockam_core..routing..address..Address$u20$as$u20$
   br label %147
 
 123:                                              ; preds = %121, %.thread252
-  %.sroa.481.2374 = phi i8 [ %.sroa.481.0.ph, %121 ], [ %.sroa.481.4, %.thread252 ]
+  %.sroa.481.2373 = phi i8 [ %.sroa.481.0.ph, %121 ], [ %.sroa.481.4, %.thread252 ]
   %124 = load ptr, ptr %32, align 8, !noundef !4
   %.not227 = icmp eq ptr %124, null
   br i1 %.not227, label %127, label %125
 
-.thread252.thread:                                ; preds = %.preheader277, %121, %.thread252
+.critedge333:                                     ; preds = %.preheader277, %121, %.thread252
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)
@@ -24554,7 +24554,7 @@ define hidden void @"_ZN93_$LT$ockam_core..routing..address..Address$u20$as$u20$
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %.sroa.5109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sroa.481.2374, ptr %.sroa.5109.0..sroa_idx, align 8
+  store i8 %.sroa.481.2373, ptr %.sroa.5109.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hce8ca8944c10b949E.exit237"
 
@@ -24625,7 +24625,7 @@ define hidden void @"_ZN93_$LT$ockam_core..routing..address..Address$u20$as$u20$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %147
 
-144:                                              ; preds = %.thread252.thread
+144:                                              ; preds = %.critedge333
   invoke void @_ZN8minicbor6decode5error5Error12with_message17h207551fccc32760dE(ptr noalias noundef nonnull sret({ { i64, i64 }, { i8, [23 x i8] }, { { { ptr, i64 }, i64 } } }) align 8 captures(none) dereferenceable(64) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %14, ptr noalias noundef nonnull readonly align 1 @anon.fed16768760092f29ff188aef05d4cf7.111, i64 noundef 11)
           to label %145 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -33953,12 +33953,8 @@ define hidden void @"_ZN130_$LT$ockam_identity..models..purpose_key_attestation.
   br i1 %.not390, label %.preheader, label %.preheader391
 
 .preheader391:                                    ; preds = %49
-  %.not528 = icmp eq i64 %48, 0
-  br i1 %.not528, label %.thread375.thread, label %.lr.ph
-
-.thread375.thread:                                ; preds = %.preheader391
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.0171)
-  br label %147
+  %.not529 = icmp eq i64 %48, 0
+  br i1 %.not529, label %.critedge528, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader391
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -34330,15 +34326,19 @@ define hidden void @"_ZN130_$LT$ockam_identity..models..purpose_key_attestation.
   br label %163
 
 146:                                              ; preds = %143, %.thread375
-  %.sroa.4150.2614 = phi i64 [ %.sroa.4150.1525, %143 ], [ %.sroa.4150.3, %.thread375 ]
-  %.sroa.0149.2613 = phi i64 [ %.sroa.0149.1524, %143 ], [ %.sroa.0149.3, %.thread375 ]
-  %.sroa.4140.2612 = phi i64 [ %.sroa.4140.1523, %143 ], [ %.sroa.4140.3, %.thread375 ]
-  %.sroa.0139.2611 = phi i64 [ %.sroa.0139.1522, %143 ], [ %.sroa.0139.3, %.thread375 ]
-  %.sroa.0121.2610 = phi i8 [ %.sroa.0121.1520, %143 ], [ %.sroa.0121.3, %.thread375 ]
-  %.sroa.0111.2609 = phi i1 [ %.sroa.0111.1519, %143 ], [ %.sroa.0111.3, %.thread375 ]
-  br i1 %.sroa.0111.2609, label %149, label %150
+  %.sroa.4150.2608 = phi i64 [ %.sroa.4150.1525, %143 ], [ %.sroa.4150.3, %.thread375 ]
+  %.sroa.0149.2607 = phi i64 [ %.sroa.0149.1524, %143 ], [ %.sroa.0149.3, %.thread375 ]
+  %.sroa.4140.2606 = phi i64 [ %.sroa.4140.1523, %143 ], [ %.sroa.4140.3, %.thread375 ]
+  %.sroa.0139.2605 = phi i64 [ %.sroa.0139.1522, %143 ], [ %.sroa.0139.3, %.thread375 ]
+  %.sroa.0121.2604 = phi i8 [ %.sroa.0121.1520, %143 ], [ %.sroa.0121.3, %.thread375 ]
+  %.sroa.0111.2603 = phi i1 [ %.sroa.0111.1519, %143 ], [ %.sroa.0111.3, %.thread375 ]
+  br i1 %.sroa.0111.2603, label %149, label %150
 
-147:                                              ; preds = %143, %.thread375.thread, %.thread375
+.critedge528:                                     ; preds = %.preheader391
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.0171)
+  br label %147
+
+147:                                              ; preds = %143, %.critedge528, %.thread375
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24)
@@ -34354,7 +34354,7 @@ define hidden void @"_ZN130_$LT$ockam_identity..models..purpose_key_attestation.
   br label %164
 
 149:                                              ; preds = %146
-  %.not339 = icmp eq i8 %.sroa.0121.2610, 3
+  %.not339 = icmp eq i8 %.sroa.0121.2604, 3
   br i1 %.not339, label %154, label %152
 
 150:                                              ; preds = %146
@@ -34373,7 +34373,7 @@ define hidden void @"_ZN130_$LT$ockam_identity..models..purpose_key_attestation.
   br label %164
 
 152:                                              ; preds = %149
-  %153 = icmp eq i64 %.sroa.0139.2611, 1
+  %153 = icmp eq i64 %.sroa.0139.2605, 1
   br i1 %153, label %156, label %158
 
 154:                                              ; preds = %149
@@ -34392,7 +34392,7 @@ define hidden void @"_ZN130_$LT$ockam_identity..models..purpose_key_attestation.
   br label %164
 
 156:                                              ; preds = %152
-  %157 = icmp eq i64 %.sroa.0149.2613, 1
+  %157 = icmp eq i64 %.sroa.0149.2607, 1
   br i1 %157, label %160, label %161
 
 158:                                              ; preds = %152
@@ -34416,11 +34416,11 @@ define hidden void @"_ZN130_$LT$ockam_identity..models..purpose_key_attestation.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0171.32..sroa_idx, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.4112, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0171, i64 64, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %.sroa.4140.2612, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %.sroa.4140.2606, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %.sroa.4150.2614, ptr %.sroa.7172.0..sroa_idx, align 8
+  store i64 %.sroa.4150.2608, ptr %.sroa.7172.0..sroa_idx, align 8
   %.sroa.8173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 %.sroa.0121.2610, ptr %.sroa.8173.0..sroa_idx, align 8
+  store i8 %.sroa.0121.2604, ptr %.sroa.8173.0..sroa_idx, align 8
   %.sroa.8173.sroa.5.0..sroa.8173.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %.sroa.8173.sroa.5.0..sroa.8173.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(65) %.sroa.5124, i64 65, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.0171)

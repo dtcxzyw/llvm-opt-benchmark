@@ -651,86 +651,88 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   %8 = zext i8 %6 to i64
   br label %.preheader40
 
-.preheader40:                                     ; preds = %.preheader40.lr.ph, %15
-  %indvars.iv49 = phi i64 [ %8, %.preheader40.lr.ph ], [ %indvars.iv.next50, %15 ]
-  %indvars.iv47 = phi i64 [ 0, %.preheader40.lr.ph ], [ %indvars.iv.next48, %15 ]
-  br label %10
+.preheader40:                                     ; preds = %.preheader40.lr.ph, %17
+  %indvars.iv49 = phi i64 [ %8, %.preheader40.lr.ph ], [ %indvars.iv.next50, %17 ]
+  %indvars.iv47 = phi i64 [ 0, %.preheader40.lr.ph ], [ %indvars.iv.next48, %17 ]
+  %9 = getelementptr inbounds nuw [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv47
+  %10 = getelementptr inbounds [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv49
+  br label %12
 
-.preheader:                                       ; preds = %15
+.preheader:                                       ; preds = %17
   %.not58 = icmp eq i8 %6, 1
   br i1 %.not58, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %wide.trip.count = zext i8 %6 to i64
-  br label %17
+  br label %19
 
-10:                                               ; preds = %.preheader40, %10
-  %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv47, i64 %indvars.iv
-  %12 = load i32, ptr %11, align 4, !tbaa !3
-  %13 = getelementptr inbounds [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv49, i64 %indvars.iv
+12:                                               ; preds = %.preheader40, %12
+  %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %12 ]
+  %13 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !3
-  store i32 %14, ptr %11, align 4, !tbaa !3
-  store i32 %12, ptr %13, align 4, !tbaa !3
+  %15 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 4, !tbaa !3
+  store i32 %16, ptr %13, align 4, !tbaa !3
+  store i32 %14, ptr %15, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %15, label %10, !llvm.loop !13
+  br i1 %exitcond.not, label %17, label %12, !llvm.loop !13
 
-15:                                               ; preds = %10
+17:                                               ; preds = %12
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
-  %16 = icmp slt i64 %indvars.iv.next48, %indvars.iv.next50
-  br i1 %16, label %.preheader40, label %.preheader, !llvm.loop !14
+  %18 = icmp slt i64 %indvars.iv.next48, %indvars.iv.next50
+  br i1 %18, label %.preheader40, label %.preheader, !llvm.loop !14
 
-17:                                               ; preds = %.lr.ph, %17
-  %indvars.iv54 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next55, %17 ]
-  %18 = getelementptr inbounds nuw [17 x [4 x i32]], ptr %9, i64 0, i64 %indvars.iv54
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %22 = load i32, ptr %19, align 4, !tbaa !3
-  %23 = load i32, ptr %18, align 4, !tbaa !3
+19:                                               ; preds = %.lr.ph, %19
+  %indvars.iv54 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next55, %19 ]
+  %20 = getelementptr inbounds nuw [17 x [4 x i32]], ptr %11, i64 0, i64 %indvars.iv54
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %24 = load i32, ptr %21, align 4, !tbaa !3
   %25 = load i32, ptr %20, align 4, !tbaa !3
-  %26 = tail call i32 @llvm.bswap.i32(i32 %25)
-  %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 16)
-  %28 = tail call i32 @llvm.bswap.i32(i32 %24)
-  %29 = xor i32 %27, %22
-  %30 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 16)
-  %31 = tail call i32 @llvm.bswap.i32(i32 %29)
-  %32 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 16)
-  %33 = xor i32 %30, %32
-  %34 = xor i32 %33, %28
-  %35 = xor i32 %27, %24
-  %36 = tail call i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 16)
-  %37 = tail call i32 @llvm.bswap.i32(i32 %22)
-  %38 = xor i32 %30, %37
-  %39 = xor i32 %36, %23
-  %40 = xor i32 %39, %34
-  store i32 %40, ptr %19, align 4, !tbaa !3
-  %41 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 16)
-  %42 = xor i32 %34, %41
-  %43 = tail call i32 @llvm.bswap.i32(i32 %42)
-  %44 = xor i32 %43, %22
-  %45 = xor i32 %43, %22
-  %46 = tail call i32 @llvm.fshl.i32(i32 %44, i32 %45, i32 16)
-  store i32 %46, ptr %18, align 4, !tbaa !3
-  %47 = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 16)
-  %48 = tail call i32 @llvm.bswap.i32(i32 %34)
-  %49 = xor i32 %38, %48
-  %50 = xor i32 %49, %27
-  store i32 %50, ptr %21, align 4, !tbaa !3
-  %51 = tail call i32 @llvm.bswap.i32(i32 %38)
-  %52 = xor i32 %51, %47
-  %53 = xor i32 %52, %28
-  store i32 %53, ptr %20, align 4, !tbaa !3
+  %26 = load i32, ptr %23, align 4, !tbaa !3
+  %27 = load i32, ptr %22, align 4, !tbaa !3
+  %28 = tail call i32 @llvm.bswap.i32(i32 %27)
+  %29 = tail call i32 @llvm.fshl.i32(i32 %28, i32 %28, i32 16)
+  %30 = tail call i32 @llvm.bswap.i32(i32 %26)
+  %31 = xor i32 %29, %24
+  %32 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 16)
+  %33 = tail call i32 @llvm.bswap.i32(i32 %31)
+  %34 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 16)
+  %35 = xor i32 %32, %34
+  %36 = xor i32 %35, %30
+  %37 = xor i32 %29, %26
+  %38 = tail call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 16)
+  %39 = tail call i32 @llvm.bswap.i32(i32 %24)
+  %40 = xor i32 %32, %39
+  %41 = xor i32 %38, %25
+  %42 = xor i32 %41, %36
+  store i32 %42, ptr %21, align 4, !tbaa !3
+  %43 = tail call i32 @llvm.fshl.i32(i32 %38, i32 %38, i32 16)
+  %44 = xor i32 %36, %43
+  %45 = tail call i32 @llvm.bswap.i32(i32 %44)
+  %46 = xor i32 %45, %24
+  %47 = xor i32 %45, %24
+  %48 = tail call i32 @llvm.fshl.i32(i32 %46, i32 %47, i32 16)
+  store i32 %48, ptr %20, align 4, !tbaa !3
+  %49 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 16)
+  %50 = tail call i32 @llvm.bswap.i32(i32 %36)
+  %51 = xor i32 %40, %50
+  %52 = xor i32 %51, %29
+  store i32 %52, ptr %23, align 4, !tbaa !3
+  %53 = tail call i32 @llvm.bswap.i32(i32 %40)
+  %54 = xor i32 %53, %49
+  %55 = xor i32 %54, %30
+  store i32 %55, ptr %22, align 4, !tbaa !3
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond57.not, label %.loopexit, label %17, !llvm.loop !15
+  br i1 %exitcond57.not, label %.loopexit, label %19, !llvm.loop !15
 
-.loopexit:                                        ; preds = %17, %5, %.preheader, %3
-  %.0 = phi i32 [ %4, %3 ], [ 0, %.preheader ], [ 0, %5 ], [ 0, %17 ]
+.loopexit:                                        ; preds = %19, %5, %.preheader, %3
+  %.0 = phi i32 [ %4, %3 ], [ 0, %.preheader ], [ 0, %5 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -1281,61 +1283,58 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_cfb128(ptr noundef reado
 define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_ctr(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #6 {
   %8 = load i64, ptr %2, align 8, !tbaa !18
   %9 = icmp ugt i64 %8, 15
-  br i1 %9, label %29, label %.preheader
+  br i1 %9, label %30, label %.preheader
 
 .preheader:                                       ; preds = %7
   %.not27 = icmp eq i64 %1, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader
-  %invariant.gep = getelementptr i8, ptr %3, i64 -1
-  br label %10
+.lr.ph:                                           ; preds = %.preheader, %.loopexit
+  %.in = phi i64 [ %10, %.loopexit ], [ %1, %.preheader ]
+  %.030 = phi i64 [ %29, %.loopexit ], [ %8, %.preheader ]
+  %.02129 = phi ptr [ %27, %.loopexit ], [ %6, %.preheader ]
+  %.02228 = phi ptr [ %22, %.loopexit ], [ %5, %.preheader ]
+  %10 = add i64 %.in, -1
+  %11 = icmp eq i64 %.030, 0
+  br i1 %11, label %12, label %.loopexit
 
-10:                                               ; preds = %.lr.ph, %.loopexit
-  %.in = phi i64 [ %1, %.lr.ph ], [ %11, %.loopexit ]
-  %.030 = phi i64 [ %8, %.lr.ph ], [ %28, %.loopexit ]
-  %.02129 = phi ptr [ %6, %.lr.ph ], [ %26, %.loopexit ]
-  %.02228 = phi ptr [ %5, %.lr.ph ], [ %21, %.loopexit ]
-  %11 = add i64 %.in, -1
-  %12 = icmp eq i64 %.030, 0
-  br i1 %12, label %13, label %.loopexit
+12:                                               ; preds = %.lr.ph
+  %13 = tail call i32 @mbedtls_aria_crypt_ecb(ptr noundef %0, ptr noundef %3, ptr noundef %4)
+  br label %14
 
-13:                                               ; preds = %10
-  %14 = tail call i32 @mbedtls_aria_crypt_ecb(ptr noundef %0, ptr noundef %3, ptr noundef %4)
-  br label %15
+14:                                               ; preds = %14, %12
+  %.01926 = phi i32 [ 16, %12 ], [ %20, %14 ]
+  %15 = zext nneg i32 %.01926 to i64
+  %16 = getelementptr i8, ptr %3, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 -1
+  %18 = load i8, ptr %17, align 1, !tbaa !9
+  %19 = add i8 %18, 1
+  store i8 %19, ptr %17, align 1, !tbaa !9
+  %.not25 = icmp eq i8 %19, 0
+  %20 = add nsw i32 %.01926, -1
+  %21 = icmp samesign ugt i32 %.01926, 1
+  %or.cond = and i1 %.not25, %21
+  br i1 %or.cond, label %14, label %.loopexit, !llvm.loop !22
 
-15:                                               ; preds = %15, %13
-  %.01926 = phi i32 [ 16, %13 ], [ %19, %15 ]
-  %16 = zext nneg i32 %.01926 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %16
-  %17 = load i8, ptr %gep, align 1, !tbaa !9
-  %18 = add i8 %17, 1
-  store i8 %18, ptr %gep, align 1, !tbaa !9
-  %.not25 = icmp eq i8 %18, 0
-  %19 = add nsw i32 %.01926, -1
-  %20 = icmp samesign ugt i32 %.01926, 1
-  %or.cond = and i1 %.not25, %20
-  br i1 %or.cond, label %15, label %.loopexit, !llvm.loop !22
-
-.loopexit:                                        ; preds = %15, %10
-  %21 = getelementptr inbounds nuw i8, ptr %.02228, i64 1
-  %22 = load i8, ptr %.02228, align 1, !tbaa !9
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %.030
-  %24 = load i8, ptr %23, align 1, !tbaa !9
-  %25 = xor i8 %24, %22
-  %26 = getelementptr inbounds nuw i8, ptr %.02129, i64 1
-  store i8 %25, ptr %.02129, align 1, !tbaa !9
-  %27 = add nuw nsw i64 %.030, 1
-  %28 = and i64 %27, 15
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !23
+.loopexit:                                        ; preds = %14, %.lr.ph
+  %22 = getelementptr inbounds nuw i8, ptr %.02228, i64 1
+  %23 = load i8, ptr %.02228, align 1, !tbaa !9
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %.030
+  %25 = load i8, ptr %24, align 1, !tbaa !9
+  %26 = xor i8 %25, %23
+  %27 = getelementptr inbounds nuw i8, ptr %.02129, i64 1
+  store i8 %26, ptr %.02129, align 1, !tbaa !9
+  %28 = add nuw nsw i64 %.030, 1
+  %29 = and i64 %28, 15
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
-  %.0.lcssa = phi i64 [ %8, %.preheader ], [ %28, %.loopexit ]
+  %.0.lcssa = phi i64 [ %8, %.preheader ], [ %29, %.loopexit ]
   store i64 %.0.lcssa, ptr %2, align 8, !tbaa !18
-  br label %29
+  br label %30
 
-29:                                               ; preds = %7, %._crit_edge
+30:                                               ; preds = %7, %._crit_edge
   %.020 = phi i32 [ 0, %._crit_edge ], [ -92, %7 ]
   ret i32 %.020
 }
@@ -1351,46 +1350,46 @@ define hidden range(i32 0, 2) i32 @mbedtls_aria_self_test(i32 noundef %0) local_
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %3, i8 0, i64 276, i1 false)
-  %.0.i3647.i.sroa.gep126 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.0.i3647.i.sroa.gep124 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not87 = icmp eq i32 %0, 0
-  br label %.backedge199
+  br label %.backedge197
 
-.backedge199:                                     ; preds = %.backedge199.backedge, %1
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.be, %.backedge199.backedge ]
-  %indvars.iv.tr175 = trunc i64 %indvars.iv to i32
-  %6 = shl i32 %indvars.iv.tr175, 6
-  %.pre155 = add i32 %6, 128
-  br i1 %.not87, label %._crit_edge152, label %7
+.backedge197:                                     ; preds = %.backedge197.backedge, %1
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.be, %.backedge197.backedge ]
+  %indvars.iv.tr173 = trunc i64 %indvars.iv to i32
+  %6 = shl i32 %indvars.iv.tr173, 6
+  %.pre153 = add i32 %6, 128
+  br i1 %.not87, label %._crit_edge150, label %7
 
-7:                                                ; preds = %.backedge199
-  %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.pre155)
-  br label %._crit_edge152
+7:                                                ; preds = %.backedge197
+  %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.pre153)
+  br label %._crit_edge150
 
-._crit_edge152:                                   ; preds = %.backedge199, %7
-  %9 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test1_ecb_key, i32 noundef %.pre155)
+._crit_edge150:                                   ; preds = %.backedge197, %7
+  %9 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test1_ecb_key, i32 noundef %.pre153)
   %10 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull %3, ptr noundef nonnull @aria_test1_ecb_pt, ptr noundef nonnull %2)
   %11 = getelementptr inbounds nuw [3 x [16 x i8]], ptr @aria_test1_ecb_ct, i64 0, i64 %indvars.iv
   %bcmp88 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %11, i64 16)
   %.not89 = icmp eq i32 %bcmp88, 0
   br i1 %.not89, label %14, label %12
 
-12:                                               ; preds = %._crit_edge152
+12:                                               ; preds = %._crit_edge150
   br i1 %.not87, label %.loopexit, label %13
 
 13:                                               ; preds = %12
   %puts95 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.15)
   br label %.loopexit
 
-14:                                               ; preds = %._crit_edge152
+14:                                               ; preds = %._crit_edge150
   br i1 %.not87, label %.critedge, label %15
 
 15:                                               ; preds = %14
   %puts90 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.pre155)
+  %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.pre153)
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %15
-  %17 = call i32 @mbedtls_aria_setkey_dec(ptr noundef nonnull %3, ptr noundef nonnull @aria_test1_ecb_key, i32 noundef %.pre155)
+  %17 = call i32 @mbedtls_aria_setkey_dec(ptr noundef nonnull %3, ptr noundef nonnull @aria_test1_ecb_key, i32 noundef %.pre153)
   %18 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull %3, ptr noundef nonnull %11, ptr noundef nonnull %2)
   %bcmp91 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) @aria_test1_ecb_pt, i64 16)
   %.not92 = icmp eq i32 %bcmp91, 0
@@ -1409,53 +1408,53 @@ define hidden range(i32 0, 2) i32 @mbedtls_aria_self_test(i32 noundef %0) local_
 22:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit198.preheader, label %.backedge199.backedge
+  br i1 %exitcond.not, label %.loopexit196.preheader, label %.backedge197.backedge
 
-.backedge199.backedge:                            ; preds = %22, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %22 ], [ %indvars.iv.next179, %.thread ]
-  br label %.backedge199, !llvm.loop !24
+.backedge197.backedge:                            ; preds = %22, %.thread
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %22 ], [ %indvars.iv.next177, %.thread ]
+  br label %.backedge197, !llvm.loop !24
 
 .thread:                                          ; preds = %21
   %puts93 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not180 = icmp eq i64 %indvars.iv.next179, 3
-  br i1 %exitcond.not180, label %23, label %.backedge199.backedge
+  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not178 = icmp eq i64 %indvars.iv.next177, 3
+  br i1 %exitcond.not178, label %23, label %.backedge197.backedge
 
 23:                                               ; preds = %.thread
   %putchar = tail call i32 @putchar(i32 10)
-  br label %.loopexit198.preheader
+  br label %.loopexit196.preheader
 
-.loopexit198.preheader:                           ; preds = %22, %23
-  br label %.loopexit198
+.loopexit196.preheader:                           ; preds = %22, %23
+  br label %.loopexit196
 
-.loopexit198:                                     ; preds = %.loopexit198.backedge, %.loopexit198.preheader
-  %indvars.iv139 = phi i64 [ 0, %.loopexit198.preheader ], [ %indvars.iv139.be, %.loopexit198.backedge ]
-  %indvars.iv139.tr176 = trunc i64 %indvars.iv139 to i32
-  %24 = shl i32 %indvars.iv139.tr176, 6
-  %.pre161 = add i32 %24, 128
-  br i1 %.not87, label %._crit_edge151, label %25
+.loopexit196:                                     ; preds = %.loopexit196.backedge, %.loopexit196.preheader
+  %indvars.iv137 = phi i64 [ 0, %.loopexit196.preheader ], [ %indvars.iv137.be, %.loopexit196.backedge ]
+  %indvars.iv137.tr174 = trunc i64 %indvars.iv137 to i32
+  %24 = shl i32 %indvars.iv137.tr174, 6
+  %.pre159 = add i32 %24, 128
+  br i1 %.not87, label %._crit_edge149, label %25
 
-25:                                               ; preds = %.loopexit198
-  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.pre161)
-  br label %._crit_edge151
+25:                                               ; preds = %.loopexit196
+  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.pre159)
+  br label %._crit_edge149
 
-._crit_edge151:                                   ; preds = %.loopexit198, %25
-  %27 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre161)
+._crit_edge149:                                   ; preds = %.loopexit196, %25
+  %27 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre159)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @aria_test2_iv, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 85, i64 48, i1 false)
   br label %.preheader44.i
 
-.preheader44.i:                                   ; preds = %.preheader44.i, %._crit_edge151
-  %.152.i = phi ptr [ %34, %.preheader44.i ], [ %4, %._crit_edge151 ]
-  %.13051.i = phi ptr [ %33, %.preheader44.i ], [ @aria_test2_pt, %._crit_edge151 ]
-  %.13350.i = phi i64 [ %35, %.preheader44.i ], [ 48, %._crit_edge151 ]
+.preheader44.i:                                   ; preds = %.preheader44.i, %._crit_edge149
+  %.152.i = phi ptr [ %34, %.preheader44.i ], [ %4, %._crit_edge149 ]
+  %.13051.i = phi ptr [ %33, %.preheader44.i ], [ @aria_test2_pt, %._crit_edge149 ]
+  %.13350.i = phi i64 [ %35, %.preheader44.i ], [ 48, %._crit_edge149 ]
   %.0.copyload.i39.i = load i64, ptr %.13051.i, align 1
   %.0.copyload.i.i = load i64, ptr %5, align 16
   %28 = xor i64 %.0.copyload.i.i, %.0.copyload.i39.i
   store i64 %28, ptr %.152.i, align 1
   %29 = getelementptr inbounds nuw i8, ptr %.13051.i, i64 8
   %.0.copyload.i39.i.c = load i64, ptr %29, align 1
-  %.0.copyload.i.i.c = load i64, ptr %.0.i3647.i.sroa.gep126, align 8
+  %.0.copyload.i.i.c = load i64, ptr %.0.i3647.i.sroa.gep124, align 8
   %30 = xor i64 %.0.copyload.i.i.c, %.0.copyload.i39.i.c
   %31 = getelementptr inbounds nuw i8, ptr %.152.i, i64 8
   store i64 %30, ptr %31, align 1
@@ -1468,7 +1467,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_aria_self_test(i32 noundef %0) local_
   br i1 %.not34.i, label %mbedtls_aria_crypt_cbc.exit, label %.preheader44.i, !llvm.loop !17
 
 mbedtls_aria_crypt_cbc.exit:                      ; preds = %.preheader44.i
-  %36 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @aria_test2_cbc_ct, i64 0, i64 %indvars.iv139
+  %36 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @aria_test2_cbc_ct, i64 0, i64 %indvars.iv137
   %bcmp79 = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %4, ptr noundef nonnull dereferenceable(48) %36, i64 48)
   %.not80 = icmp eq i32 %bcmp79, 0
   br i1 %.not80, label %39, label %37
@@ -1485,11 +1484,11 @@ mbedtls_aria_crypt_cbc.exit:                      ; preds = %.preheader44.i
 
 40:                                               ; preds = %39
   %puts81 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.pre161)
+  %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.pre159)
   br label %.critedge97
 
 .critedge97:                                      ; preds = %39, %40
-  %42 = call i32 @mbedtls_aria_setkey_dec(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre161)
+  %42 = call i32 @mbedtls_aria_setkey_dec(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre159)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @aria_test2_iv, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 -86, i64 48, i1 false)
   br label %.lr.ph60.i
@@ -1505,7 +1504,7 @@ mbedtls_aria_crypt_cbc.exit:                      ; preds = %.preheader44.i
   store i64 %44, ptr %.059.i, align 1
   %45 = getelementptr inbounds nuw i8, ptr %.059.i, i64 8
   %.0.copyload.i41.i.c = load i64, ptr %45, align 1
-  %.0.copyload.i40.i.c = load i64, ptr %.0.i3647.i.sroa.gep126, align 8
+  %.0.copyload.i40.i.c = load i64, ptr %.0.i3647.i.sroa.gep124, align 8
   %46 = xor i64 %.0.copyload.i40.i.c, %.0.copyload.i41.i.c
   store i64 %46, ptr %45, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %.02958.i, i64 16, i1 false)
@@ -1528,43 +1527,43 @@ mbedtls_aria_crypt_cbc.exit102:                   ; preds = %.lr.ph60.i
   br label %.loopexit
 
 52:                                               ; preds = %mbedtls_aria_crypt_cbc.exit102
-  br i1 %.not87, label %53, label %.thread182
+  br i1 %.not87, label %53, label %.thread180
 
 53:                                               ; preds = %52
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %exitcond142.not = icmp eq i64 %indvars.iv.next140, 3
-  br i1 %exitcond142.not, label %.loopexit196.preheader, label %.loopexit198.backedge
+  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %exitcond140.not = icmp eq i64 %indvars.iv.next138, 3
+  br i1 %exitcond140.not, label %.loopexit194.preheader, label %.loopexit196.backedge
 
-.loopexit198.backedge:                            ; preds = %53, %.thread182
-  %indvars.iv139.be = phi i64 [ %indvars.iv.next140, %53 ], [ %indvars.iv.next140183, %.thread182 ]
-  br label %.loopexit198, !llvm.loop !25
+.loopexit196.backedge:                            ; preds = %53, %.thread180
+  %indvars.iv137.be = phi i64 [ %indvars.iv.next138, %53 ], [ %indvars.iv.next138181, %.thread180 ]
+  br label %.loopexit196, !llvm.loop !25
 
-.thread182:                                       ; preds = %52
+.thread180:                                       ; preds = %52
   %puts84 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %indvars.iv.next140183 = add nuw nsw i64 %indvars.iv139, 1
-  %exitcond142.not184 = icmp eq i64 %indvars.iv.next140183, 3
-  br i1 %exitcond142.not184, label %54, label %.loopexit198.backedge
+  %indvars.iv.next138181 = add nuw nsw i64 %indvars.iv137, 1
+  %exitcond140.not182 = icmp eq i64 %indvars.iv.next138181, 3
+  br i1 %exitcond140.not182, label %54, label %.loopexit196.backedge
 
-54:                                               ; preds = %.thread182
+54:                                               ; preds = %.thread180
   %putchar62 = tail call i32 @putchar(i32 10)
-  br label %.loopexit196.preheader
+  br label %.loopexit194.preheader
 
-.loopexit196.preheader:                           ; preds = %53, %54
-  br label %.loopexit196
+.loopexit194.preheader:                           ; preds = %53, %54
+  br label %.loopexit194
 
-.loopexit196:                                     ; preds = %.loopexit196.backedge, %.loopexit196.preheader
-  %indvars.iv143 = phi i64 [ 0, %.loopexit196.preheader ], [ %indvars.iv143.be, %.loopexit196.backedge ]
-  %indvars.iv143.tr177 = trunc i64 %indvars.iv143 to i32
-  %55 = shl i32 %indvars.iv143.tr177, 6
-  %.pre167 = add i32 %55, 128
+.loopexit194:                                     ; preds = %.loopexit194.backedge, %.loopexit194.preheader
+  %indvars.iv141 = phi i64 [ 0, %.loopexit194.preheader ], [ %indvars.iv141.be, %.loopexit194.backedge ]
+  %indvars.iv141.tr175 = trunc i64 %indvars.iv141 to i32
+  %55 = shl i32 %indvars.iv141.tr175, 6
+  %.pre165 = add i32 %55, 128
   br i1 %.not87, label %._crit_edge, label %56
 
-56:                                               ; preds = %.loopexit196
-  %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.pre167)
+56:                                               ; preds = %.loopexit194
+  %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.pre165)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.loopexit196, %56
-  %58 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre167)
+._crit_edge:                                      ; preds = %.loopexit194, %56
+  %58 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre165)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @aria_test2_iv, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 85, i64 48, i1 false)
   br label %.lr.ph.i
@@ -1597,7 +1596,7 @@ mbedtls_aria_crypt_cbc.exit102:                   ; preds = %.lr.ph60.i
   br i1 %.not.i, label %mbedtls_aria_crypt_cfb128.exit, label %.lr.ph.i, !llvm.loop !21
 
 mbedtls_aria_crypt_cfb128.exit:                   ; preds = %63
-  %72 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @aria_test2_cfb_ct, i64 0, i64 %indvars.iv143
+  %72 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @aria_test2_cfb_ct, i64 0, i64 %indvars.iv141
   %bcmp71 = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %4, ptr noundef nonnull dereferenceable(48) %72, i64 48)
   %.not72 = icmp eq i32 %bcmp71, 0
   br i1 %.not72, label %75, label %73
@@ -1614,11 +1613,11 @@ mbedtls_aria_crypt_cfb128.exit:                   ; preds = %63
 
 76:                                               ; preds = %75
   %puts73 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.pre167)
+  %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.pre165)
   br label %78
 
 78:                                               ; preds = %76, %75
-  %79 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre167)
+  %79 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre165)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @aria_test2_iv, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 -86, i64 48, i1 false)
   br label %.lr.ph53.i
@@ -1663,189 +1662,190 @@ mbedtls_aria_crypt_cfb128.exit105:                ; preds = %84
   br label %.loopexit
 
 95:                                               ; preds = %mbedtls_aria_crypt_cfb128.exit105
-  br i1 %.not87, label %96, label %.thread186
+  br i1 %.not87, label %96, label %.thread184
 
 96:                                               ; preds = %95
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond146.not = icmp eq i64 %indvars.iv.next144, 3
-  br i1 %exitcond146.not, label %.loopexit194, label %.loopexit196.backedge
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond144.not = icmp eq i64 %indvars.iv.next142, 3
+  br i1 %exitcond144.not, label %.loopexit192.preheader, label %.loopexit194.backedge
 
-.loopexit196.backedge:                            ; preds = %96, %.thread186
-  %indvars.iv143.be = phi i64 [ %indvars.iv.next144, %96 ], [ %indvars.iv.next144187, %.thread186 ]
-  br label %.loopexit196, !llvm.loop !26
+.loopexit194.backedge:                            ; preds = %96, %.thread184
+  %indvars.iv141.be = phi i64 [ %indvars.iv.next142, %96 ], [ %indvars.iv.next142185, %.thread184 ]
+  br label %.loopexit194, !llvm.loop !26
 
-.thread186:                                       ; preds = %95
+.thread184:                                       ; preds = %95
   %puts76 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %indvars.iv.next144187 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond146.not188 = icmp eq i64 %indvars.iv.next144187, 3
-  br i1 %exitcond146.not188, label %97, label %.loopexit196.backedge
+  %indvars.iv.next142185 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond144.not186 = icmp eq i64 %indvars.iv.next142185, 3
+  br i1 %exitcond144.not186, label %97, label %.loopexit194.backedge
 
-97:                                               ; preds = %.thread186
+97:                                               ; preds = %.thread184
   %putchar63 = tail call i32 @putchar(i32 10)
-  br label %.loopexit194
+  br label %.loopexit192.preheader
 
-.loopexit194:                                     ; preds = %96, %97
-  %invariant.gep.i = getelementptr i8, ptr %5, i64 -1
-  br label %.backedge
+.loopexit192.preheader:                           ; preds = %96, %97
+  br label %.loopexit192
 
-.backedge:                                        ; preds = %.backedge.backedge, %.loopexit194
-  %indvars.iv147 = phi i64 [ 0, %.loopexit194 ], [ %indvars.iv147.be, %.backedge.backedge ]
-  %indvars.iv147.tr178 = trunc i64 %indvars.iv147 to i32
-  %98 = shl i32 %indvars.iv147.tr178, 6
-  %.pre173 = add i32 %98, 128
+.loopexit192:                                     ; preds = %.loopexit192.backedge, %.loopexit192.preheader
+  %indvars.iv145 = phi i64 [ 0, %.loopexit192.preheader ], [ %indvars.iv145.be, %.loopexit192.backedge ]
+  %indvars.iv145.tr176 = trunc i64 %indvars.iv145 to i32
+  %98 = shl i32 %indvars.iv145.tr176, 6
+  %.pre171 = add i32 %98, 128
   br i1 %.not87, label %.preheader.i, label %99
 
-99:                                               ; preds = %.backedge
-  %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.pre173)
+99:                                               ; preds = %.loopexit192
+  %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.pre171)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.backedge, %99
-  %101 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre173)
+.preheader.i:                                     ; preds = %.loopexit192, %99
+  %101 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre171)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 85, i64 48, i1 false)
-  br label %102
+  br label %.lr.ph.i106
 
-102:                                              ; preds = %.loopexit.i108, %.preheader.i
-  %.in.i107 = phi i64 [ 48, %.preheader.i ], [ %103, %.loopexit.i108 ]
-  %.030.i = phi i64 [ 0, %.preheader.i ], [ %120, %.loopexit.i108 ]
-  %.02129.i = phi ptr [ %4, %.preheader.i ], [ %118, %.loopexit.i108 ]
-  %.02228.i = phi ptr [ @aria_test2_pt, %.preheader.i ], [ %113, %.loopexit.i108 ]
-  %103 = add nsw i64 %.in.i107, -1
-  %104 = icmp eq i64 %.030.i, 0
-  br i1 %104, label %105, label %.loopexit.i108
+.lr.ph.i106:                                      ; preds = %.loopexit.i108, %.preheader.i
+  %.in.i107 = phi i64 [ %102, %.loopexit.i108 ], [ 48, %.preheader.i ]
+  %.030.i = phi i64 [ %121, %.loopexit.i108 ], [ 0, %.preheader.i ]
+  %.02129.i = phi ptr [ %119, %.loopexit.i108 ], [ %4, %.preheader.i ]
+  %.02228.i = phi ptr [ %114, %.loopexit.i108 ], [ @aria_test2_pt, %.preheader.i ]
+  %102 = add nsw i64 %.in.i107, -1
+  %103 = icmp eq i64 %.030.i, 0
+  br i1 %103, label %104, label %.loopexit.i108
 
-105:                                              ; preds = %102
-  %106 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull readonly %3, ptr noundef nonnull %5, ptr noundef nonnull %2)
-  br label %107
+104:                                              ; preds = %.lr.ph.i106
+  %105 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull readonly %3, ptr noundef nonnull %5, ptr noundef nonnull %2)
+  br label %106
 
-107:                                              ; preds = %107, %105
-  %.01926.i = phi i32 [ 16, %105 ], [ %111, %107 ]
-  %108 = zext nneg i32 %.01926.i to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %108
-  %109 = load i8, ptr %gep.i, align 1, !tbaa !9
-  %110 = add i8 %109, 1
-  store i8 %110, ptr %gep.i, align 1, !tbaa !9
-  %.not25.i = icmp eq i8 %110, 0
-  %111 = add nsw i32 %.01926.i, -1
-  %112 = icmp samesign ugt i32 %.01926.i, 1
-  %or.cond.i = and i1 %112, %.not25.i
-  br i1 %or.cond.i, label %107, label %.loopexit.i108, !llvm.loop !22
+106:                                              ; preds = %106, %104
+  %.01926.i = phi i32 [ 16, %104 ], [ %112, %106 ]
+  %107 = zext nneg i32 %.01926.i to i64
+  %108 = getelementptr i8, ptr %5, i64 %107
+  %109 = getelementptr i8, ptr %108, i64 -1
+  %110 = load i8, ptr %109, align 1, !tbaa !9
+  %111 = add i8 %110, 1
+  store i8 %111, ptr %109, align 1, !tbaa !9
+  %.not25.i = icmp eq i8 %111, 0
+  %112 = add nsw i32 %.01926.i, -1
+  %113 = icmp samesign ugt i32 %.01926.i, 1
+  %or.cond.i = and i1 %113, %.not25.i
+  br i1 %or.cond.i, label %106, label %.loopexit.i108, !llvm.loop !22
 
-.loopexit.i108:                                   ; preds = %107, %102
-  %113 = getelementptr inbounds nuw i8, ptr %.02228.i, i64 1
-  %114 = load i8, ptr %.02228.i, align 1, !tbaa !9
-  %115 = getelementptr inbounds nuw i8, ptr %2, i64 %.030.i
-  %116 = load i8, ptr %115, align 1, !tbaa !9
-  %117 = xor i8 %116, %114
-  %118 = getelementptr inbounds nuw i8, ptr %.02129.i, i64 1
-  store i8 %117, ptr %.02129.i, align 1, !tbaa !9
-  %119 = add nuw nsw i64 %.030.i, 1
-  %120 = and i64 %119, 15
-  %.not.i109 = icmp eq i64 %103, 0
-  br i1 %.not.i109, label %mbedtls_aria_crypt_ctr.exit, label %102, !llvm.loop !23
+.loopexit.i108:                                   ; preds = %106, %.lr.ph.i106
+  %114 = getelementptr inbounds nuw i8, ptr %.02228.i, i64 1
+  %115 = load i8, ptr %.02228.i, align 1, !tbaa !9
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 %.030.i
+  %117 = load i8, ptr %116, align 1, !tbaa !9
+  %118 = xor i8 %117, %115
+  %119 = getelementptr inbounds nuw i8, ptr %.02129.i, i64 1
+  store i8 %118, ptr %.02129.i, align 1, !tbaa !9
+  %120 = add nuw nsw i64 %.030.i, 1
+  %121 = and i64 %120, 15
+  %.not.i109 = icmp eq i64 %102, 0
+  br i1 %.not.i109, label %mbedtls_aria_crypt_ctr.exit, label %.lr.ph.i106, !llvm.loop !23
 
 mbedtls_aria_crypt_ctr.exit:                      ; preds = %.loopexit.i108
-  %121 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @aria_test2_ctr_ct, i64 0, i64 %indvars.iv147
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %4, ptr noundef nonnull dereferenceable(48) %121, i64 48)
+  %122 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @aria_test2_ctr_ct, i64 0, i64 %indvars.iv145
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %4, ptr noundef nonnull dereferenceable(48) %122, i64 48)
   %.not65 = icmp eq i32 %bcmp, 0
-  br i1 %.not65, label %124, label %122
+  br i1 %.not65, label %125, label %123
 
-122:                                              ; preds = %mbedtls_aria_crypt_ctr.exit
-  br i1 %.not87, label %.loopexit, label %123
+123:                                              ; preds = %mbedtls_aria_crypt_ctr.exit
+  br i1 %.not87, label %.loopexit, label %124
 
-123:                                              ; preds = %122
+124:                                              ; preds = %123
   %puts70 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.15)
   br label %.loopexit
 
-124:                                              ; preds = %mbedtls_aria_crypt_ctr.exit
-  br i1 %.not87, label %.preheader.i110, label %125
+125:                                              ; preds = %mbedtls_aria_crypt_ctr.exit
+  br i1 %.not87, label %.preheader.i110, label %126
 
-125:                                              ; preds = %124
+126:                                              ; preds = %125
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %126 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.pre173)
+  %127 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.pre171)
   br label %.preheader.i110
 
-.preheader.i110:                                  ; preds = %125, %124
-  %127 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre173)
+.preheader.i110:                                  ; preds = %126, %125
+  %128 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre171)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 -86, i64 48, i1 false)
-  br label %128
+  br label %.lr.ph.i111
 
-128:                                              ; preds = %.loopexit.i117, %.preheader.i110
-  %.in.i113 = phi i64 [ 48, %.preheader.i110 ], [ %129, %.loopexit.i117 ]
-  %.030.i114 = phi i64 [ 0, %.preheader.i110 ], [ %146, %.loopexit.i117 ]
-  %.02129.i115 = phi ptr [ %4, %.preheader.i110 ], [ %144, %.loopexit.i117 ]
-  %.02228.i116 = phi ptr [ %121, %.preheader.i110 ], [ %139, %.loopexit.i117 ]
-  %129 = add nsw i64 %.in.i113, -1
-  %130 = icmp eq i64 %.030.i114, 0
-  br i1 %130, label %131, label %.loopexit.i117
+.lr.ph.i111:                                      ; preds = %.loopexit.i116, %.preheader.i110
+  %.in.i112 = phi i64 [ %129, %.loopexit.i116 ], [ 48, %.preheader.i110 ]
+  %.030.i113 = phi i64 [ %148, %.loopexit.i116 ], [ 0, %.preheader.i110 ]
+  %.02129.i114 = phi ptr [ %146, %.loopexit.i116 ], [ %4, %.preheader.i110 ]
+  %.02228.i115 = phi ptr [ %141, %.loopexit.i116 ], [ %122, %.preheader.i110 ]
+  %129 = add nsw i64 %.in.i112, -1
+  %130 = icmp eq i64 %.030.i113, 0
+  br i1 %130, label %131, label %.loopexit.i116
 
-131:                                              ; preds = %128
+131:                                              ; preds = %.lr.ph.i111
   %132 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull readonly %3, ptr noundef nonnull %5, ptr noundef nonnull %2)
   br label %133
 
 133:                                              ; preds = %133, %131
-  %.01926.i121 = phi i32 [ 16, %131 ], [ %137, %133 ]
-  %134 = zext nneg i32 %.01926.i121 to i64
-  %gep.i122 = getelementptr i8, ptr %invariant.gep.i, i64 %134
-  %135 = load i8, ptr %gep.i122, align 1, !tbaa !9
-  %136 = add i8 %135, 1
-  store i8 %136, ptr %gep.i122, align 1, !tbaa !9
-  %.not25.i123 = icmp eq i8 %136, 0
-  %137 = add nsw i32 %.01926.i121, -1
-  %138 = icmp samesign ugt i32 %.01926.i121, 1
-  %or.cond.i124 = and i1 %138, %.not25.i123
-  br i1 %or.cond.i124, label %133, label %.loopexit.i117, !llvm.loop !22
+  %.01926.i120 = phi i32 [ 16, %131 ], [ %139, %133 ]
+  %134 = zext nneg i32 %.01926.i120 to i64
+  %135 = getelementptr i8, ptr %5, i64 %134
+  %136 = getelementptr i8, ptr %135, i64 -1
+  %137 = load i8, ptr %136, align 1, !tbaa !9
+  %138 = add i8 %137, 1
+  store i8 %138, ptr %136, align 1, !tbaa !9
+  %.not25.i121 = icmp eq i8 %138, 0
+  %139 = add nsw i32 %.01926.i120, -1
+  %140 = icmp samesign ugt i32 %.01926.i120, 1
+  %or.cond.i122 = and i1 %140, %.not25.i121
+  br i1 %or.cond.i122, label %133, label %.loopexit.i116, !llvm.loop !22
 
-.loopexit.i117:                                   ; preds = %133, %128
-  %139 = getelementptr inbounds nuw i8, ptr %.02228.i116, i64 1
-  %140 = load i8, ptr %.02228.i116, align 1, !tbaa !9
-  %141 = getelementptr inbounds nuw i8, ptr %2, i64 %.030.i114
-  %142 = load i8, ptr %141, align 1, !tbaa !9
-  %143 = xor i8 %142, %140
-  %144 = getelementptr inbounds nuw i8, ptr %.02129.i115, i64 1
-  store i8 %143, ptr %.02129.i115, align 1, !tbaa !9
-  %145 = add nuw nsw i64 %.030.i114, 1
-  %146 = and i64 %145, 15
-  %.not.i118 = icmp eq i64 %129, 0
-  br i1 %.not.i118, label %mbedtls_aria_crypt_ctr.exit125, label %128, !llvm.loop !23
+.loopexit.i116:                                   ; preds = %133, %.lr.ph.i111
+  %141 = getelementptr inbounds nuw i8, ptr %.02228.i115, i64 1
+  %142 = load i8, ptr %.02228.i115, align 1, !tbaa !9
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 %.030.i113
+  %144 = load i8, ptr %143, align 1, !tbaa !9
+  %145 = xor i8 %144, %142
+  %146 = getelementptr inbounds nuw i8, ptr %.02129.i114, i64 1
+  store i8 %145, ptr %.02129.i114, align 1, !tbaa !9
+  %147 = add nuw nsw i64 %.030.i113, 1
+  %148 = and i64 %147, 15
+  %.not.i117 = icmp eq i64 %129, 0
+  br i1 %.not.i117, label %mbedtls_aria_crypt_ctr.exit123, label %.lr.ph.i111, !llvm.loop !23
 
-mbedtls_aria_crypt_ctr.exit125:                   ; preds = %.loopexit.i117
+mbedtls_aria_crypt_ctr.exit123:                   ; preds = %.loopexit.i116
   %bcmp66 = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %4, ptr noundef nonnull dereferenceable(48) @aria_test2_pt, i64 48)
   %.not67 = icmp eq i32 %bcmp66, 0
-  br i1 %.not67, label %149, label %147
+  br i1 %.not67, label %151, label %149
 
-147:                                              ; preds = %mbedtls_aria_crypt_ctr.exit125
-  br i1 %.not87, label %.loopexit, label %148
+149:                                              ; preds = %mbedtls_aria_crypt_ctr.exit123
+  br i1 %.not87, label %.loopexit, label %150
 
-148:                                              ; preds = %147
+150:                                              ; preds = %149
   %puts69 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.15)
   br label %.loopexit
 
-149:                                              ; preds = %mbedtls_aria_crypt_ctr.exit125
-  br i1 %.not87, label %150, label %.thread190
+151:                                              ; preds = %mbedtls_aria_crypt_ctr.exit123
+  br i1 %.not87, label %152, label %.thread188
 
-150:                                              ; preds = %149
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond150.not = icmp eq i64 %indvars.iv.next148, 3
-  br i1 %exitcond150.not, label %.loopexit, label %.backedge.backedge
+152:                                              ; preds = %151
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
+  %exitcond148.not = icmp eq i64 %indvars.iv.next146, 3
+  br i1 %exitcond148.not, label %.loopexit, label %.loopexit192.backedge
 
-.backedge.backedge:                               ; preds = %150, %.thread190
-  %indvars.iv147.be = phi i64 [ %indvars.iv.next148, %150 ], [ %indvars.iv.next148191, %.thread190 ]
-  br label %.backedge, !llvm.loop !27
+.loopexit192.backedge:                            ; preds = %152, %.thread188
+  %indvars.iv145.be = phi i64 [ %indvars.iv.next146, %152 ], [ %indvars.iv.next146189, %.thread188 ]
+  br label %.loopexit192, !llvm.loop !27
 
-.thread190:                                       ; preds = %149
+.thread188:                                       ; preds = %151
   %puts68 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %indvars.iv.next148191 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond150.not192 = icmp eq i64 %indvars.iv.next148191, 3
-  br i1 %exitcond150.not192, label %151, label %.backedge.backedge
+  %indvars.iv.next146189 = add nuw nsw i64 %indvars.iv145, 1
+  %exitcond148.not190 = icmp eq i64 %indvars.iv.next146189, 3
+  br i1 %exitcond148.not190, label %153, label %.loopexit192.backedge
 
-151:                                              ; preds = %.thread190
+153:                                              ; preds = %.thread188
   %putchar64 = tail call i32 @putchar(i32 10)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %150, %151, %147, %148, %122, %123, %93, %94, %73, %74, %50, %51, %37, %38, %19, %20, %12, %13
-  %.0 = phi i32 [ 1, %13 ], [ 1, %12 ], [ 1, %20 ], [ 1, %19 ], [ 1, %38 ], [ 1, %37 ], [ 1, %51 ], [ 1, %50 ], [ 1, %74 ], [ 1, %73 ], [ 1, %94 ], [ 1, %93 ], [ 1, %123 ], [ 1, %122 ], [ 1, %148 ], [ 1, %147 ], [ 0, %151 ], [ 0, %150 ]
+.loopexit:                                        ; preds = %152, %153, %149, %150, %123, %124, %93, %94, %73, %74, %50, %51, %37, %38, %19, %20, %12, %13
+  %.0 = phi i32 [ 1, %13 ], [ 1, %12 ], [ 1, %20 ], [ 1, %19 ], [ 1, %38 ], [ 1, %37 ], [ 1, %51 ], [ 1, %50 ], [ 1, %74 ], [ 1, %73 ], [ 1, %94 ], [ 1, %93 ], [ 1, %124 ], [ 1, %123 ], [ 1, %150 ], [ 1, %149 ], [ 0, %153 ], [ 0, %152 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 276) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #13

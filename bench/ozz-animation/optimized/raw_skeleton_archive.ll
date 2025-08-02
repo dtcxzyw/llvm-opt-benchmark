@@ -120,14 +120,14 @@ define dso_local void @_ZN3ozz2io6ExternINS_9animation7offline11RawSkeletonEE4Lo
 define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  %6 = load ptr, ptr %0, align 8, !tbaa !25
-  %7 = load ptr, ptr %6, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %4, i64 noundef 4)
-  %11 = load i8, ptr %5, align 8, !tbaa !27, !range !15, !noundef !16
+  %5 = load ptr, ptr %0, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4, i64 noundef 4)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i8, ptr %10, align 8, !tbaa !27, !range !15, !noundef !16
   %12 = trunc nuw i8 %11 to i1
   %13 = load i32, ptr %4, align 4
   %.sroa.0.0.insert.insert.i = call i32 @llvm.bswap.i32(i32 %13)
@@ -181,7 +181,7 @@ _ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EE
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %3, i64 noundef 4)
-  %38 = load i8, ptr %5, align 8, !tbaa !27, !range !15, !noundef !16
+  %38 = load i8, ptr %10, align 8, !tbaa !27, !range !15, !noundef !16
   %39 = trunc nuw i8 %38 to i1
   %40 = load i32, ptr %3, align 4
   %.sroa.0.0.insert.insert.i.i.i = call i32 @llvm.bswap.i32(i32 %40)

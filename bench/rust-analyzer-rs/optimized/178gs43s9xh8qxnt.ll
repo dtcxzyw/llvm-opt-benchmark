@@ -1592,7 +1592,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %6
 
 ._crit_edge:                                      ; preds = %16, %2
@@ -1605,7 +1605,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
   %.sroa.01.09 = phi i64 [ %1, %.lr.ph ], [ %7, %16 ]
   %7 = add i64 %.sroa.01.09, 1
   %.idx = mul nuw nsw i64 %.sroa.01.09, 56
-  %8 = getelementptr i8, ptr %4, i64 %.idx
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %9 = load atomic i64, ptr %8 acquire, align 8
   %10 = and i64 %9, 2
   %11 = icmp eq i64 %10, 0
@@ -3170,14 +3170,14 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.17568388499
   br i1 %34, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17hb088dfcf35e3b976E.llvm.17568388499226789969.exit", label %48
 
 35:                                               ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h10aa32eb1dcfb122E.llvm.17568388499226789969.exit"
-  %36 = getelementptr i8, ptr %6, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %37
 
 37:                                               ; preds = %47, %35
   %.sroa.01.09.i = phi i64 [ 0, %35 ], [ %38, %47 ]
   %38 = add nuw nsw i64 %.sroa.01.09.i, 1
   %.idx.i = mul nuw nsw i64 %.sroa.01.09.i, 56
-  %39 = getelementptr i8, ptr %36, i64 %.idx.i
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
   %40 = load atomic i64, ptr %39 acquire, align 8
   %41 = and i64 %40, 2
   %42 = icmp eq i64 %41, 0
@@ -3198,14 +3198,14 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.17568388499
   br i1 %49, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17hb088dfcf35e3b976E.llvm.17568388499226789969.exit.sink.split"
 
 .lr.ph.i6:                                        ; preds = %48
-  %50 = getelementptr i8, ptr %6, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %51
 
 51:                                               ; preds = %61, %.lr.ph.i6
   %.sroa.01.09.i7 = phi i64 [ %28, %.lr.ph.i6 ], [ %52, %61 ]
   %52 = add nuw nsw i64 %.sroa.01.09.i7, 1
   %.idx.i8 = mul nuw nsw i64 %.sroa.01.09.i7, 56
-  %53 = getelementptr i8, ptr %50, i64 %.idx.i8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i8
   %54 = load atomic i64, ptr %53 acquire, align 8
   %55 = and i64 %54, 2
   %56 = icmp eq i64 %55, 0

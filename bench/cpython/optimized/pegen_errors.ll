@@ -250,8 +250,8 @@ define hidden noundef i32 @_Pypegen_tokenizer_error(ptr noundef %0) local_unname
   %6 = load ptr, ptr %0, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load i32, ptr %7, align 8, !tbaa !20
-  switch i32 %8, label %52 [
-    i32 13, label %53
+  switch i32 %8, label %53 [
+    i32 13, label %54
     i32 11, label %9
     i32 21, label %29
     i32 12, label %32
@@ -259,7 +259,7 @@ define hidden noundef i32 @_Pypegen_tokenizer_error(ptr noundef %0) local_unname
     i32 18, label %38
     i32 20, label %40
     i32 25, label %42
-    i32 29, label %50
+    i32 29, label %51
   ]
 
 9:                                                ; preds = %3
@@ -311,11 +311,11 @@ define hidden noundef i32 @_Pypegen_tokenizer_error(ptr noundef %0) local_unname
 
 38:                                               ; preds = %3
   %39 = load ptr, ptr @PyExc_TabError, align 8, !tbaa !4
-  br label %53
+  br label %54
 
 40:                                               ; preds = %3
   %41 = load ptr, ptr @PyExc_IndentationError, align 8, !tbaa !4
-  br label %53
+  br label %54
 
 42:                                               ; preds = %3
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -325,28 +325,28 @@ define hidden noundef i32 @_Pypegen_tokenizer_error(ptr noundef %0) local_unname
   %47 = ptrtoint ptr %45 to i64
   %48 = xor i64 %47, -1
   %49 = add i64 %48, %46
-  br label %53
+  %50 = tail call i64 @llvm.smax.i64(i64 %49, i64 0)
+  br label %54
 
-50:                                               ; preds = %3
-  %51 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !4
-  tail call void @PyErr_SetString(ptr noundef %51, ptr noundef nonnull @.str.7) #7
+51:                                               ; preds = %3
+  %52 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !4
+  tail call void @PyErr_SetString(ptr noundef %52, ptr noundef nonnull @.str.7) #7
   br label %58
 
-52:                                               ; preds = %3
-  br label %53
+53:                                               ; preds = %3
+  br label %54
 
-53:                                               ; preds = %3, %52, %42, %40, %38
-  %.016 = phi ptr [ @.str.8, %52 ], [ @.str.4, %38 ], [ @.str.5, %40 ], [ @.str.6, %42 ], [ @.str.1, %3 ]
-  %.015 = phi ptr [ %4, %52 ], [ %39, %38 ], [ %41, %40 ], [ %4, %42 ], [ %4, %3 ]
-  %.0 = phi i64 [ -1, %52 ], [ -1, %38 ], [ -1, %40 ], [ %49, %42 ], [ -1, %3 ]
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 512
-  %55 = load i32, ptr %54, align 8, !tbaa !28
-  %56 = sext i32 %55 to i64
-  %57 = tail call i64 @llvm.smax.i64(i64 %.0, i64 0)
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %.015, i64 noundef %56, i64 noundef %57, i64 noundef %56, i64 noundef -1, ptr noundef nonnull %.016)
+54:                                               ; preds = %3, %53, %42, %40, %38
+  %.016 = phi ptr [ @.str.8, %53 ], [ @.str.4, %38 ], [ @.str.5, %40 ], [ @.str.6, %42 ], [ @.str.1, %3 ]
+  %.015 = phi ptr [ %4, %53 ], [ %39, %38 ], [ %41, %40 ], [ %4, %42 ], [ %4, %3 ]
+  %.0 = phi i64 [ 0, %53 ], [ 0, %38 ], [ 0, %40 ], [ %50, %42 ], [ 0, %3 ]
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 512
+  %56 = load i32, ptr %55, align 8, !tbaa !28
+  %57 = sext i32 %56 to i64
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %.015, i64 noundef %57, i64 noundef %.0, i64 noundef %57, i64 noundef -1, ptr noundef nonnull %.016)
   br label %58
 
-58:                                               ; preds = %29, %36, %50, %53, %27, %12, %34, %32, %1
+58:                                               ; preds = %29, %36, %51, %54, %27, %12, %34, %32, %1
   ret i32 -1
 }
 

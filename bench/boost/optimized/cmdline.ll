@@ -2478,7 +2478,7 @@ _ZN5boost15program_options12basic_optionIcED2Ev.exit: ; preds = %_ZNKSt7__cxx111
   %455 = sub i64 %453, %454
   %456 = sdiv exact i64 %455, 96
   %.not453 = icmp eq ptr %447, %448
-  br i1 %.not453, label %.loopexit, label %.lr.ph440
+  br i1 %.not453, label %._crit_edge448, label %.lr.ph440
 
 457:                                              ; preds = %.lr.ph432, %.critedge
   %458 = phi ptr [ %.pre486, %.lr.ph432 ], [ %660, %.critedge ]
@@ -3043,10 +3043,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %7
   %715 = icmp eq ptr %707, %706
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge441, %._crit_edge433
-  %.pre-phi497 = phi i64 [ %.mux, %._crit_edge441 ], [ 0, %._crit_edge433 ], [ %713, %.loopexit.loopexit ]
-  %716 = phi ptr [ %448, %._crit_edge441 ], [ %448, %._crit_edge433 ], [ %706, %.loopexit.loopexit ]
-  %.not455 = phi i1 [ false, %._crit_edge441 ], [ true, %._crit_edge433 ], [ %715, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge441
+  %.pre-phi497 = phi i64 [ %.mux, %._crit_edge441 ], [ %713, %.loopexit.loopexit ]
+  %716 = phi ptr [ %448, %._crit_edge441 ], [ %706, %.loopexit.loopexit ]
+  %.not455 = phi i1 [ false, %._crit_edge441 ], [ %715, %.loopexit.loopexit ]
   br i1 %.not455, label %._crit_edge448, label %.lr.ph447
 
 .lr.ph447:                                        ; preds = %.loopexit
@@ -3055,7 +3055,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %7
   %719 = lshr i32 %717, 10
   br label %749
 
-._crit_edge448:                                   ; preds = %761, %.loopexit
+._crit_edge448:                                   ; preds = %761, %._crit_edge433, %.loopexit
   %720 = load ptr, ptr %17, align 8, !tbaa !56
   %721 = load ptr, ptr %451, align 8, !tbaa !54
   %.not4.i.i.i.i295 = icmp eq ptr %720, %721

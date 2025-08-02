@@ -6472,7 +6472,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN11MutexLockerD2E
 declare void @_ZN17DependencyContext49remove_and_mark_for_deoptimization_all_dependentsEP19DeoptimizationScope(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @MH_invoke_UOE(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
+define hidden noalias noundef ptr @MH_invoke_UOE(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
   %6 = inttoptr i64 %5 to ptr
@@ -6563,7 +6563,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @MH_invokeExact_UOE(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
+define hidden noalias noundef ptr @MH_invokeExact_UOE(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
   %6 = inttoptr i64 %5 to ptr

@@ -1622,14 +1622,14 @@ _ZNK5boost4urls13url_view_base16is_path_absoluteEv.exit.thread: ; preds = %_ZN5b
   %58 = call noundef i64 @_ZNK5boost4urls6detail8url_impl3lenEi(ptr noundef nonnull align 8 dereferenceable(171) %57, i32 noundef 4) #30
   %59 = icmp ne i64 %58, 0
   %60 = add i64 %46, 3
-  %spec.select19 = select i1 %59, i64 %60, i64 %47
+  %spec.select18 = select i1 %59, i64 %60, i64 %47
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK5boost4urls13url_view_base16is_path_absoluteEv.exit.thread, %_ZNK5boost4urls13url_view_base16is_path_absoluteEv.exit
   %61 = phi i1 [ false, %_ZNK5boost4urls13url_view_base16is_path_absoluteEv.exit ], [ %59, %_ZNK5boost4urls13url_view_base16is_path_absoluteEv.exit.thread ]
-  %62 = phi i64 [ %47, %_ZNK5boost4urls13url_view_base16is_path_absoluteEv.exit ], [ %spec.select19, %_ZNK5boost4urls13url_view_base16is_path_absoluteEv.exit.thread ]
+  %62 = phi i64 [ %47, %_ZNK5boost4urls13url_view_base16is_path_absoluteEv.exit ], [ %spec.select18, %_ZNK5boost4urls13url_view_base16is_path_absoluteEv.exit.thread ]
   %63 = invoke noundef ptr @_ZN5boost4urls8url_base11resize_implEiimRNS1_4op_tE(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef 0, i32 noundef 4, i64 noundef %62, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %70 unwind label %75
+          to label %70 unwind label %79
 
 64:                                               ; preds = %40
   %65 = landingpad { ptr, i32 }
@@ -1647,7 +1647,7 @@ _ZNK5boost4urls13url_view_base16is_path_absoluteEv.exit.thread: ; preds = %_ZN5b
 
 _ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit17: ; preds = %64, %67
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %7) #30
-  br label %84
+  br label %83
 
 70:                                               ; preds = %.thread
   store i8 47, ptr %63, align 1, !tbaa !25
@@ -1657,37 +1657,37 @@ _ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit17: 
   %73 = load ptr, ptr %1, align 8, !tbaa !54
   %74 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !51
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr align 1 %73, i64 %74, i1 false)
-  br i1 %61, label %79, label %77
+  br i1 %61, label %75, label %.critedge
 
-75:                                               ; preds = %.thread
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN5boost4urls14authority_viewD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %6) #30
-  br label %84
-
-77:                                               ; preds = %70
+75:                                               ; preds = %70
+  %76 = getelementptr i8, ptr %63, i64 %62
+  %77 = getelementptr i8, ptr %76, i64 -1
+  store i8 47, ptr %77, align 1, !tbaa !25
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN5boost4urls6detail8url_impl15apply_authorityERKNS0_14authority_viewE(ptr noundef nonnull align 8 dereferenceable(171) %78, ptr noundef nonnull align 8 dereferenceable(184) %6) #30
+  call void @_ZN5boost4urls6detail8url_impl12adjust_rightEiim(ptr noundef nonnull align 8 dereferenceable(171) %78, i32 noundef 5, i32 noundef 7, i64 noundef 1) #30
+  br label %82
+
+79:                                               ; preds = %.thread
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN5boost4urls14authority_viewD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %6) #30
   br label %83
 
-79:                                               ; preds = %70
-  %80 = getelementptr i8, ptr %63, i64 %62
-  %81 = getelementptr i8, ptr %80, i64 -1
-  store i8 47, ptr %81, align 1, !tbaa !25
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN5boost4urls6detail8url_impl15apply_authorityERKNS0_14authority_viewE(ptr noundef nonnull align 8 dereferenceable(171) %82, ptr noundef nonnull align 8 dereferenceable(184) %6) #30
-  call void @_ZN5boost4urls6detail8url_impl12adjust_rightEiim(ptr noundef nonnull align 8 dereferenceable(171) %82, i32 noundef 5, i32 noundef 7, i64 noundef 1) #30
-  br label %83
+.critedge:                                        ; preds = %70
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN5boost4urls6detail8url_impl15apply_authorityERKNS0_14authority_viewE(ptr noundef nonnull align 8 dereferenceable(171) %81, ptr noundef nonnull align 8 dereferenceable(184) %6) #30
+  br label %82
 
-83:                                               ; preds = %77, %79
+82:                                               ; preds = %.critedge, %75
   call void @_ZN5boost4urls14authority_viewD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %6) #30
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %6) #30
   call void @_ZN5boost4urls8url_base4op_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #30
   ret ptr %0
 
-84:                                               ; preds = %75, %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit17
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %65, %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit17 ]
+83:                                               ; preds = %79, %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit17
+  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %65, %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit17 ]
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %6) #30
   call void @_ZN5boost4urls8url_base4op_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #30

@@ -1553,7 +1553,7 @@ define hidden range(i32 0, 2) i32 @cmsSmoothToneCurve(ptr noundef readonly captu
 cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %27 = load i32, ptr %8, align 8
   %28 = icmp ult i32 %27, 4097
-  br i1 %28, label %29, label %333
+  br i1 %28, label %29, label %334
 
 29:                                               ; preds = %cmsIsToneCurveLinear.exit
   %30 = add nuw nsw i32 %27, 1
@@ -1565,7 +1565,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %or.cond = select i1 %34, i1 %35, i1 false
   %36 = icmp ne ptr %33, null
   %or.cond3 = select i1 %or.cond, i1 %36, i1 false
-  br i1 %or.cond3, label %37, label %328
+  br i1 %or.cond3, label %37, label %329
 
 37:                                               ; preds = %29
   %38 = shl nuw nsw i32 %30, 2
@@ -1965,10 +1965,9 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   br label %smooth2.exit
 
 smooth2.exit:                                     ; preds = %290, %291
-  br i1 %.0217.i, label %327, label %.preheader
+  br i1 %.0217.i, label %328, label %.preheader
 
 .preheader:                                       ; preds = %smooth2.exit
-  %invariant.gep = getelementptr i8, ptr %33, i64 -4
   %292 = icmp samesign ugt i32 %27, 1
   br i1 %292, label %.lr.ph145.preheader, label %.critedge116
 
@@ -1985,7 +1984,7 @@ smooth2.exit:                                     ; preds = %290, %291
   %indvars.iv154 = phi i64 [ %293, %.lr.ph145.preheader ], [ %indvars.iv.next155, %294 ]
   %.087144 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.2, %294 ]
   %.088143 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.290, %294 ]
-  %296 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv154
+  %296 = getelementptr float, ptr %33, i64 %indvars.iv154
   %297 = load float, ptr %296, align 4
   %298 = fcmp oeq float %297, 0.000000e+00
   %299 = zext i1 %298 to i32
@@ -1993,37 +1992,37 @@ smooth2.exit:                                     ; preds = %290, %291
   %300 = fcmp oge float %297, 6.553500e+04
   %301 = zext i1 %300 to i32
   %.2 = add i32 %.087144, %301
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv154
-  %302 = load float, ptr %gep, align 4
-  %303 = fcmp olt float %297, %302
-  br i1 %303, label %304, label %294
+  %302 = getelementptr i8, ptr %296, i64 -4
+  %303 = load float, ptr %302, align 4
+  %304 = fcmp olt float %297, %303
+  br i1 %304, label %305, label %294
 
-304:                                              ; preds = %.lr.ph145
+305:                                              ; preds = %.lr.ph145
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.1) #13
   br i1 %46, label %.critedge117.thread, label %.thread129
 
 .thread:                                          ; preds = %294
-  %305 = udiv i32 %27, 3
-  %306 = icmp ugt i32 %.290, %305
-  br i1 %306, label %309, label %.critedge
+  %306 = udiv i32 %27, 3
+  %307 = icmp ugt i32 %.290, %306
+  br i1 %307, label %310, label %.critedge
 
-.thread129:                                       ; preds = %304
-  %307 = udiv i32 %27, 3
-  %308 = icmp ugt i32 %.290, %307
-  br i1 %308, label %.thread134, label %.critedge
+.thread129:                                       ; preds = %305
+  %308 = udiv i32 %27, 3
+  %309 = icmp ugt i32 %.290, %308
+  br i1 %309, label %.thread134, label %.critedge
 
 .thread134:                                       ; preds = %.thread129
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.2) #13
   br label %.critedge
 
-309:                                              ; preds = %.thread
+310:                                              ; preds = %.thread
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.2) #13
   br i1 %46, label %.critedge117, label %.critedge
 
-.critedge:                                        ; preds = %.thread134, %.thread129, %.thread, %309
-  %310 = phi i32 [ %307, %.thread129 ], [ %305, %.thread ], [ %305, %309 ], [ %307, %.thread134 ]
-  %311 = icmp ugt i32 %.2, %310
-  br i1 %311, label %.critedge115, label %.critedge116
+.critedge:                                        ; preds = %.thread134, %.thread129, %.thread, %310
+  %311 = phi i32 [ %308, %.thread129 ], [ %306, %.thread ], [ %306, %310 ], [ %308, %.thread134 ]
+  %312 = icmp ugt i32 %.2, %311
+  br i1 %312, label %.critedge115, label %.critedge116
 
 .critedge115:                                     ; preds = %.critedge
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.3) #13
@@ -2042,71 +2041,71 @@ smooth2.exit:                                     ; preds = %290, %291
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %_cmsQuickSaturateWord.exit
   %indvars.iv157 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next158, %_cmsQuickSaturateWord.exit ]
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %312 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.next158
-  %313 = load float, ptr %312, align 4
-  %314 = fpext float %313 to double
-  %315 = fadd double %314, 5.000000e-01
-  %316 = fcmp ugt double %315, 0.000000e+00
-  br i1 %316, label %317, label %_cmsQuickSaturateWord.exit
+  %313 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.next158
+  %314 = load float, ptr %313, align 4
+  %315 = fpext float %314 to double
+  %316 = fadd double %315, 5.000000e-01
+  %317 = fcmp ugt double %316, 0.000000e+00
+  br i1 %317, label %318, label %_cmsQuickSaturateWord.exit
 
-317:                                              ; preds = %.lr.ph148
-  %318 = fcmp ult double %315, 6.553500e+04
-  br i1 %318, label %319, label %_cmsQuickSaturateWord.exit
+318:                                              ; preds = %.lr.ph148
+  %319 = fcmp ult double %316, 6.553500e+04
+  br i1 %319, label %320, label %_cmsQuickSaturateWord.exit
 
-319:                                              ; preds = %317
-  %320 = fadd double %315, -3.276700e+04
-  %321 = tail call double @llvm.floor.f64(double %320)
-  %322 = fptosi double %321 to i32
-  %323 = trunc i32 %322 to i16
-  %324 = add i16 %323, 32767
+320:                                              ; preds = %318
+  %321 = fadd double %316, -3.276700e+04
+  %322 = tail call double @llvm.floor.f64(double %321)
+  %323 = fptosi double %322 to i32
+  %324 = trunc i32 %323 to i16
+  %325 = add i16 %324, 32767
   br label %_cmsQuickSaturateWord.exit
 
-_cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph148, %317, %319
-  %.0.i121 = phi i16 [ %324, %319 ], [ 0, %.lr.ph148 ], [ -1, %317 ]
-  %325 = load ptr, ptr %7, align 8
-  %326 = getelementptr inbounds nuw i16, ptr %325, i64 %indvars.iv157
-  store i16 %.0.i121, ptr %326, align 2
+_cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph148, %318, %320
+  %.0.i121 = phi i16 [ %325, %320 ], [ 0, %.lr.ph148 ], [ -1, %318 ]
+  %326 = load ptr, ptr %7, align 8
+  %327 = getelementptr inbounds nuw i16, ptr %326, i64 %indvars.iv157
+  store i16 %.0.i121, ptr %327, align 2
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
   br i1 %exitcond161.not, label %.critedge117.thread, label %.lr.ph148, !llvm.loop !25
 
-327:                                              ; preds = %smooth2.exit
+328:                                              ; preds = %smooth2.exit
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.4) #13
   br label %.critedge117.thread
 
-328:                                              ; preds = %29
+329:                                              ; preds = %29
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.5) #13
   br label %.critedge117
 
-.critedge117:                                     ; preds = %.critedge115, %.critedge116, %309, %328
-  %.3 = phi i32 [ %.mux, %.critedge115 ], [ 0, %328 ], [ 0, %309 ], [ 1, %.critedge116 ]
-  br i1 %36, label %.critedge117.thread, label %329
+.critedge117:                                     ; preds = %.critedge115, %.critedge116, %310, %329
+  %.3 = phi i32 [ %.mux, %.critedge115 ], [ 0, %329 ], [ 0, %310 ], [ 1, %.critedge116 ]
+  br i1 %36, label %.critedge117.thread, label %330
 
-.critedge117.thread:                              ; preds = %_cmsQuickSaturateWord.exit, %327, %304, %.critedge117
-  %.3138 = phi i32 [ %.3, %.critedge117 ], [ 0, %304 ], [ 0, %327 ], [ 1, %_cmsQuickSaturateWord.exit ]
+.critedge117.thread:                              ; preds = %_cmsQuickSaturateWord.exit, %328, %305, %.critedge117
+  %.3138 = phi i32 [ %.3, %.critedge117 ], [ 0, %305 ], [ 0, %328 ], [ 1, %_cmsQuickSaturateWord.exit ]
   tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %33) #13
-  br label %329
+  br label %330
 
-329:                                              ; preds = %.critedge117.thread, %.critedge117
+330:                                              ; preds = %.critedge117.thread, %.critedge117
   %.3137 = phi i32 [ %.3138, %.critedge117.thread ], [ %.3, %.critedge117 ]
-  br i1 %35, label %330, label %331
+  br i1 %35, label %331, label %332
 
-330:                                              ; preds = %329
+331:                                              ; preds = %330
   tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %32) #13
-  br label %331
+  br label %332
 
-331:                                              ; preds = %330, %329
-  br i1 %34, label %332, label %cmsIsToneCurveLinear.exit.thread
+332:                                              ; preds = %331, %330
+  br i1 %34, label %333, label %cmsIsToneCurveLinear.exit.thread
 
-332:                                              ; preds = %331
+333:                                              ; preds = %332
   tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %31) #13
   br label %cmsIsToneCurveLinear.exit.thread
 
-333:                                              ; preds = %cmsIsToneCurveLinear.exit
+334:                                              ; preds = %cmsIsToneCurveLinear.exit
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.6) #13
   br label %cmsIsToneCurveLinear.exit.thread
 
-cmsIsToneCurveLinear.exit.thread:                 ; preds = %11, %5, %2, %3, %331, %332, %333
-  %.4 = phi i32 [ %.3137, %332 ], [ %.3137, %331 ], [ 0, %333 ], [ 0, %3 ], [ 0, %2 ], [ 1, %5 ], [ 1, %11 ]
+cmsIsToneCurveLinear.exit.thread:                 ; preds = %11, %5, %2, %3, %332, %333, %334
+  %.4 = phi i32 [ %.3137, %333 ], [ %.3137, %332 ], [ 0, %334 ], [ 0, %3 ], [ 0, %2 ], [ 1, %5 ], [ 1, %11 ]
   ret i32 %.4
 }
 

@@ -1357,7 +1357,7 @@ define hidden ptr @getJavaBuffer(ptr noundef %0, ptr noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @newGSSOID(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @newGSSOID(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %gssThrowOutOfMemoryError.exit, label %3
 

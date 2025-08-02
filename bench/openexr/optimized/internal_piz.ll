@@ -761,7 +761,7 @@ define hidden i32 @internal_exr_undo_piz(ptr noundef %0, ptr noundef %1, i64 nou
   %9 = add i64 %6, %4
   %10 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef %9) #8
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %.thread
+  br i1 %.not, label %11, label %.critedge
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -769,7 +769,7 @@ define hidden i32 @internal_exr_undo_piz(ptr noundef %0, ptr noundef %1, i64 nou
   %14 = add i64 %6, 139264
   %15 = tail call i32 @internal_decode_alloc_buffer(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %12, ptr noundef nonnull %13, i64 noundef %14) #8
   %.not163 = icmp eq i32 %15, 0
-  br i1 %.not163, label %16, label %.thread
+  br i1 %.not163, label %16, label %.critedge
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %12, align 8, !tbaa !58
@@ -777,14 +777,14 @@ define hidden i32 @internal_exr_undo_piz(ptr noundef %0, ptr noundef %1, i64 nou
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 131072
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %19, i8 0, i64 8192, i1 false)
   %20 = icmp ult i64 %2, 4
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %16
   %.val = load i16, ptr %1, align 1
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.val170 = load i16, ptr %22, align 1
   %23 = icmp ugt i16 %.val170, 8191
-  br i1 %23, label %.thread, label %24
+  br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %21
   %.not164 = icmp ugt i16 %.val, %.val170
@@ -796,7 +796,7 @@ define hidden i32 @internal_exr_undo_piz(ptr noundef %0, ptr noundef %1, i64 nou
   %26 = zext nneg i16 %narrow165 to i64
   %27 = add nuw nsw i64 %26, 4
   %.not166 = icmp ugt i64 %27, %2
-  br i1 %.not166, label %.thread, label %28
+  br i1 %.not166, label %.critedge, label %28
 
 28:                                               ; preds = %25
   %29 = zext nneg i16 %.val to i64
@@ -861,7 +861,7 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
   %56 = add i16 %55, -1
   %57 = add nuw nsw i64 %.0150, 4
   %58 = icmp ugt i64 %57, %2
-  br i1 %58, label %.thread, label %59
+  br i1 %58, label %.critedge, label %59
 
 59:                                               ; preds = %reverseLutFromBitmap.exit
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 %.0150
@@ -869,7 +869,7 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
   %61 = zext i32 %.val171 to i64
   %62 = add nuw nsw i64 %57, %61
   %63 = icmp ugt i64 %62, %2
-  br i1 %63, label %.thread, label %64
+  br i1 %63, label %.critedge, label %64
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %7, align 8, !tbaa !66
@@ -877,39 +877,39 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
   %67 = lshr i64 %4, 1
   %68 = tail call i32 @internal_huf_decompress(ptr noundef nonnull %0, ptr noundef nonnull %66, i64 noundef %61, ptr noundef %65, i64 noundef %67, ptr noundef nonnull %17, i64 noundef %6) #8
   %.not167 = icmp eq i32 %68, 0
-  br i1 %.not167, label %69, label %.thread
+  br i1 %.not167, label %69, label %.critedge
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr %7, align 8, !tbaa !66
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load i16, ptr %71, align 8, !tbaa !67
   %73 = icmp sgt i16 %72, 0
-  br i1 %73, label %.lr.ph182, label %._crit_edge183
+  br i1 %73, label %.lr.ph181, label %._crit_edge182
 
-.lr.ph182:                                        ; preds = %69
+.lr.ph181:                                        ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !68
   %76 = icmp ult i16 %56, 16384
   br label %82
 
-._crit_edge183:                                   ; preds = %._crit_edge, %69
+._crit_edge182:                                   ; preds = %._crit_edge, %69
   tail call fastcc void @applyLut(ptr noundef nonnull %18, ptr noundef %70, i64 noundef %67)
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %78 = load i32, ptr %77, align 4, !tbaa !69
   %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.lr.ph196, label %._crit_edge197
+  br i1 %79, label %.lr.ph195, label %._crit_edge196
 
-.lr.ph196:                                        ; preds = %._crit_edge183
+.lr.ph195:                                        ; preds = %._crit_edge182
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre209 = load i16, ptr %71, align 8, !tbaa !67
+  %.pre208 = load i16, ptr %71, align 8, !tbaa !67
   br label %224
 
-82:                                               ; preds = %.lr.ph182, %._crit_edge
-  %83 = phi i16 [ %72, %.lr.ph182 ], [ %96, %._crit_edge ]
-  %indvars.iv203 = phi i64 [ 0, %.lr.ph182 ], [ %indvars.iv.next204, %._crit_edge ]
-  %.0149179 = phi ptr [ %70, %.lr.ph182 ], [ %99, %._crit_edge ]
-  %84 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %75, i64 %indvars.iv203
+82:                                               ; preds = %.lr.ph181, %._crit_edge
+  %83 = phi i16 [ %72, %.lr.ph181 ], [ %96, %._crit_edge ]
+  %indvars.iv202 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next203, %._crit_edge ]
+  %.0149178 = phi ptr [ %70, %.lr.ph181 ], [ %99, %._crit_edge ]
+  %84 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %75, i64 %indvars.iv202
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %86 = load i32, ptr %85, align 4, !tbaa !40
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -935,11 +935,11 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
   %96 = phi i16 [ %.pre, %._crit_edge.loopexit ], [ %83, %82 ]
   %97 = mul i32 %94, %88
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i16, ptr %.0149179, i64 %98
-  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
+  %99 = getelementptr inbounds i16, ptr %.0149178, i64 %98
+  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %100 = sext i16 %96 to i64
-  %101 = icmp slt i64 %indvars.iv.next204, %100
-  br i1 %101, label %82, label %._crit_edge183, !llvm.loop !70
+  %101 = icmp slt i64 %indvars.iv.next203, %100
+  br i1 %101, label %82, label %._crit_edge182, !llvm.loop !70
 
 102:                                              ; preds = %.lr.ph, %wav_2D_decode.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %wav_2D_decode.exit ]
@@ -952,7 +952,7 @@ reverseLutFromBitmap.exit:                        ; preds = %.preheader.i, %.lr.
   br i1 %.not.i172, label %105, label %103, !llvm.loop !71
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw i16, ptr %.0149179, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw i16, ptr %.0149178, i64 %indvars.iv
   %107 = ashr i32 %.0.i, 2
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.lr.ph139.preheader.i, label %wav_2D_decode.exit
@@ -1195,52 +1195,52 @@ wav_2D_decode.exit:                               ; preds = %.loopexit.i, %105
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %102, !llvm.loop !78
 
-._crit_edge197:                                   ; preds = %._crit_edge190, %._crit_edge183
-  %.0141.lcssa = phi i64 [ 0, %._crit_edge183 ], [ %.1142.lcssa, %._crit_edge190 ]
+._crit_edge196:                                   ; preds = %._crit_edge189, %._crit_edge182
+  %.0141.lcssa = phi i64 [ 0, %._crit_edge182 ], [ %.1142.lcssa, %._crit_edge189 ]
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %.0141.lcssa, ptr %221, align 8, !tbaa !79
   %222 = icmp eq i64 %.0141.lcssa, %4
   %223 = select i1 %222, i32 0, i32 23
-  br label %.thread
+  br label %.critedge
 
-224:                                              ; preds = %.lr.ph196, %._crit_edge190
-  %225 = phi i32 [ %78, %.lr.ph196 ], [ %232, %._crit_edge190 ]
-  %226 = phi i16 [ %.pre209, %.lr.ph196 ], [ %233, %._crit_edge190 ]
-  %227 = phi i16 [ %.pre209, %.lr.ph196 ], [ %234, %._crit_edge190 ]
-  %.0137194 = phi ptr [ %3, %.lr.ph196 ], [ %.1138.lcssa, %._crit_edge190 ]
-  %.0139193 = phi i32 [ 0, %.lr.ph196 ], [ %235, %._crit_edge190 ]
-  %.0141192 = phi i64 [ 0, %.lr.ph196 ], [ %.1142.lcssa, %._crit_edge190 ]
+224:                                              ; preds = %.lr.ph195, %._crit_edge189
+  %225 = phi i32 [ %78, %.lr.ph195 ], [ %232, %._crit_edge189 ]
+  %226 = phi i16 [ %.pre208, %.lr.ph195 ], [ %233, %._crit_edge189 ]
+  %227 = phi i16 [ %.pre208, %.lr.ph195 ], [ %234, %._crit_edge189 ]
+  %.0137193 = phi ptr [ %3, %.lr.ph195 ], [ %.1138.lcssa, %._crit_edge189 ]
+  %.0139192 = phi i32 [ 0, %.lr.ph195 ], [ %235, %._crit_edge189 ]
+  %.0141191 = phi i64 [ 0, %.lr.ph195 ], [ %.1142.lcssa, %._crit_edge189 ]
   %228 = load i32, ptr %80, align 8, !tbaa !80
-  %229 = add nsw i32 %228, %.0139193
+  %229 = add nsw i32 %228, %.0139192
   %230 = icmp sgt i16 %227, 0
-  br i1 %230, label %.lr.ph189.preheader, label %._crit_edge190
+  br i1 %230, label %.lr.ph188.preheader, label %._crit_edge189
 
-.lr.ph189.preheader:                              ; preds = %224
+.lr.ph188.preheader:                              ; preds = %224
   %231 = load ptr, ptr %7, align 8, !tbaa !66
-  br label %.lr.ph189
+  br label %.lr.ph188
 
-._crit_edge190.loopexit:                          ; preds = %264
-  %.pre211 = load i32, ptr %77, align 4, !tbaa !69
-  br label %._crit_edge190
+._crit_edge189.loopexit:                          ; preds = %264
+  %.pre210 = load i32, ptr %77, align 4, !tbaa !69
+  br label %._crit_edge189
 
-._crit_edge190:                                   ; preds = %._crit_edge190.loopexit, %224
-  %232 = phi i32 [ %225, %224 ], [ %.pre211, %._crit_edge190.loopexit ]
-  %233 = phi i16 [ %226, %224 ], [ %265, %._crit_edge190.loopexit ]
-  %234 = phi i16 [ %227, %224 ], [ %265, %._crit_edge190.loopexit ]
-  %.1142.lcssa = phi i64 [ %.0141192, %224 ], [ %.2143, %._crit_edge190.loopexit ]
-  %.1138.lcssa = phi ptr [ %.0137194, %224 ], [ %.2, %._crit_edge190.loopexit ]
-  %235 = add nuw nsw i32 %.0139193, 1
+._crit_edge189:                                   ; preds = %._crit_edge189.loopexit, %224
+  %232 = phi i32 [ %225, %224 ], [ %.pre210, %._crit_edge189.loopexit ]
+  %233 = phi i16 [ %226, %224 ], [ %265, %._crit_edge189.loopexit ]
+  %234 = phi i16 [ %227, %224 ], [ %265, %._crit_edge189.loopexit ]
+  %.1142.lcssa = phi i64 [ %.0141191, %224 ], [ %.2143, %._crit_edge189.loopexit ]
+  %.1138.lcssa = phi ptr [ %.0137193, %224 ], [ %.2, %._crit_edge189.loopexit ]
+  %235 = add nuw nsw i32 %.0139192, 1
   %236 = icmp slt i32 %235, %232
-  br i1 %236, label %224, label %._crit_edge197, !llvm.loop !81
+  br i1 %236, label %224, label %._crit_edge196, !llvm.loop !81
 
-.lr.ph189:                                        ; preds = %.lr.ph189.preheader, %264
-  %237 = phi i16 [ %226, %.lr.ph189.preheader ], [ %265, %264 ]
-  %indvars.iv206 = phi i64 [ 0, %.lr.ph189.preheader ], [ %indvars.iv.next207, %264 ]
-  %.1138186 = phi ptr [ %.0137194, %.lr.ph189.preheader ], [ %.2, %264 ]
-  %.1142185 = phi i64 [ %.0141192, %.lr.ph189.preheader ], [ %.2143, %264 ]
-  %.0145184 = phi ptr [ %231, %.lr.ph189.preheader ], [ %.1146, %264 ]
+.lr.ph188:                                        ; preds = %.lr.ph188.preheader, %264
+  %237 = phi i16 [ %226, %.lr.ph188.preheader ], [ %265, %264 ]
+  %indvars.iv205 = phi i64 [ 0, %.lr.ph188.preheader ], [ %indvars.iv.next206, %264 ]
+  %.1138185 = phi ptr [ %.0137193, %.lr.ph188.preheader ], [ %.2, %264 ]
+  %.1142184 = phi i64 [ %.0141191, %.lr.ph188.preheader ], [ %.2143, %264 ]
+  %.0145183 = phi ptr [ %231, %.lr.ph188.preheader ], [ %.1146, %264 ]
   %238 = load ptr, ptr %81, align 8, !tbaa !68
-  %239 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %238, i64 %indvars.iv206
+  %239 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %238, i64 %indvars.iv205
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 12
   %241 = load i32, ptr %240, align 4, !tbaa !40
   %242 = sext i32 %241 to i64
@@ -1251,12 +1251,12 @@ wav_2D_decode.exit:                               ; preds = %.loopexit.i, %105
   %247 = icmp eq i64 %246, 0
   br i1 %247, label %264, label %248
 
-248:                                              ; preds = %.lr.ph189
+248:                                              ; preds = %.lr.ph188
   %249 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %250 = load i32, ptr %249, align 8, !tbaa !43
   %251 = sext i32 %250 to i64
   %252 = mul i64 %246, %251
-  %253 = getelementptr inbounds nuw i8, ptr %.0145184, i64 %252
+  %253 = getelementptr inbounds nuw i8, ptr %.0145183, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %239, i64 20
   %255 = load i32, ptr %254, align 4, !tbaa !45
   %256 = icmp sgt i32 %255, 1
@@ -1268,32 +1268,32 @@ wav_2D_decode.exit:                               ; preds = %.loopexit.i, %105
   br i1 %.not168, label %259, label %264
 
 259:                                              ; preds = %257
-  %260 = udiv i32 %.0139193, %255
+  %260 = udiv i32 %.0139192, %255
   br label %261
 
 261:                                              ; preds = %248, %259
-  %.pn169.in = phi i32 [ %260, %259 ], [ %.0139193, %248 ]
+  %.pn169.in = phi i32 [ %260, %259 ], [ %.0139192, %248 ]
   %.pn169 = zext i32 %.pn169.in to i64
   %.pn = mul i64 %246, %.pn169
-  %.0148 = getelementptr inbounds nuw i8, ptr %.0145184, i64 %.pn
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1138186, ptr align 1 %.0148, i64 %246, i1 false)
-  %262 = getelementptr inbounds nuw i8, ptr %.1138186, i64 %246
-  %263 = add i64 %246, %.1142185
-  %.pre210 = load i16, ptr %71, align 8, !tbaa !67
+  %.0148 = getelementptr inbounds nuw i8, ptr %.0145183, i64 %.pn
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1138185, ptr align 1 %.0148, i64 %246, i1 false)
+  %262 = getelementptr inbounds nuw i8, ptr %.1138185, i64 %246
+  %263 = add i64 %246, %.1142184
+  %.pre209 = load i16, ptr %71, align 8, !tbaa !67
   br label %264
 
-264:                                              ; preds = %257, %.lr.ph189, %261
-  %265 = phi i16 [ %.pre210, %261 ], [ %237, %.lr.ph189 ], [ %237, %257 ]
-  %.1146 = phi ptr [ %253, %261 ], [ %.0145184, %.lr.ph189 ], [ %253, %257 ]
-  %.2143 = phi i64 [ %263, %261 ], [ %.1142185, %.lr.ph189 ], [ %.1142185, %257 ]
-  %.2 = phi ptr [ %262, %261 ], [ %.1138186, %.lr.ph189 ], [ %.1138186, %257 ]
-  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+264:                                              ; preds = %257, %.lr.ph188, %261
+  %265 = phi i16 [ %.pre209, %261 ], [ %237, %.lr.ph188 ], [ %237, %257 ]
+  %.1146 = phi ptr [ %253, %261 ], [ %.0145183, %.lr.ph188 ], [ %253, %257 ]
+  %.2143 = phi i64 [ %263, %261 ], [ %.1142184, %.lr.ph188 ], [ %.1142184, %257 ]
+  %.2 = phi ptr [ %262, %261 ], [ %.1138185, %.lr.ph188 ], [ %.1138185, %257 ]
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %266 = sext i16 %265 to i64
-  %267 = icmp slt i64 %indvars.iv.next207, %266
-  br i1 %267, label %.lr.ph189, label %._crit_edge190.loopexit, !llvm.loop !82
+  %267 = icmp slt i64 %indvars.iv.next206, %266
+  br i1 %267, label %.lr.ph188, label %._crit_edge189.loopexit, !llvm.loop !82
 
-.thread:                                          ; preds = %25, %64, %59, %reverseLutFromBitmap.exit, %21, %16, %11, %5, %._crit_edge197
-  %.0 = phi i32 [ %223, %._crit_edge197 ], [ %10, %5 ], [ %15, %11 ], [ 23, %16 ], [ 23, %21 ], [ 23, %reverseLutFromBitmap.exit ], [ 23, %59 ], [ %68, %64 ], [ 23, %25 ]
+.critedge:                                        ; preds = %25, %64, %59, %reverseLutFromBitmap.exit, %21, %16, %11, %5, %._crit_edge196
+  %.0 = phi i32 [ %223, %._crit_edge196 ], [ %10, %5 ], [ %15, %11 ], [ 23, %16 ], [ 23, %21 ], [ 23, %reverseLutFromBitmap.exit ], [ 23, %59 ], [ %68, %64 ], [ 23, %25 ]
   ret i32 %.0
 }
 

@@ -18412,20 +18412,20 @@ _ZN4Luau10getMutableINS_20TypeFunctionTypePackEEEPT_PKNS_23TypeFunctionTypePackV
   %94 = load i32, ptr %90, align 8, !tbaa !44
   %95 = icmp ne i32 %94, 0
   %or.cond.i.i = select i1 %93, i1 true, i1 %95
-  br i1 %or.cond.i.i, label %_ZN4Luau10getMutableINS_28TypeFunctionVariadicTypePackEEEPT_PKNS_23TypeFunctionTypePackVarE.exit35.i.i, label %96
+  br i1 %or.cond.i.i, label %_ZN4Luau6get_ifINS_28TypeFunctionVariadicTypePackEJNS_20TypeFunctionTypePackES1_NS_27TypeFunctionGenericTypePackEEEEPT_PNS_7VariantIJDpT0_EEE.exit.i.i.i, label %96
 
 96:                                               ; preds = %_ZN4Luau10getMutableINS_20TypeFunctionTypePackEEEPT_PKNS_23TypeFunctionTypePackVarE.exit31.i.i
   %97 = getelementptr inbounds nuw i8, ptr %90, i64 8
   invoke void @_ZN4Luau18TypeFunctionCloner13cloneChildrenEPNS_20TypeFunctionTypePackES2_(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef nonnull %91, ptr noundef nonnull %97)
           to label %_ZN4Luau18TypeFunctionCloner13cloneChildrenENS_7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEES8_.exit unwind label %139
 
-_ZN4Luau10getMutableINS_28TypeFunctionVariadicTypePackEEEPT_PKNS_23TypeFunctionTypePackVarE.exit35.i.i: ; preds = %_ZN4Luau10getMutableINS_20TypeFunctionTypePackEEEPT_PKNS_23TypeFunctionTypePackVarE.exit31.i.i
+_ZN4Luau6get_ifINS_28TypeFunctionVariadicTypePackEJNS_20TypeFunctionTypePackES1_NS_27TypeFunctionGenericTypePackEEEEPT_PNS_7VariantIJDpT0_EEE.exit.i.i.i: ; preds = %_ZN4Luau10getMutableINS_20TypeFunctionTypePackEEEPT_PKNS_23TypeFunctionTypePackVarE.exit31.i.i
   %98 = icmp ne i32 %92, 1
   %99 = icmp ne i32 %94, 1
   %or.cond99.i.i = select i1 %98, i1 true, i1 %99
   br i1 %or.cond99.i.i, label %_ZN4Luau18TypeFunctionCloner13cloneChildrenENS_7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEES8_.exit, label %100
 
-100:                                              ; preds = %_ZN4Luau10getMutableINS_28TypeFunctionVariadicTypePackEEEPT_PKNS_23TypeFunctionTypePackVarE.exit35.i.i
+100:                                              ; preds = %_ZN4Luau6get_ifINS_28TypeFunctionVariadicTypePackEJNS_20TypeFunctionTypePackES1_NS_27TypeFunctionGenericTypePackEEEEPT_PNS_7VariantIJDpT0_EEE.exit.i.i.i
   %101 = load ptr, ptr %91, align 8, !tbaa !138
   %102 = invoke noundef ptr @_ZN4Luau18TypeFunctionCloner12shallowCloneEPKNS_16TypeFunctionTypeE(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef %101)
           to label %.noexc10 unwind label %139
@@ -18435,7 +18435,7 @@ _ZN4Luau10getMutableINS_28TypeFunctionVariadicTypePackEEEPT_PKNS_23TypeFunctionT
   store ptr %102, ptr %103, align 8, !tbaa !138
   br label %_ZN4Luau18TypeFunctionCloner13cloneChildrenENS_7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEES8_.exit
 
-_ZN4Luau18TypeFunctionCloner13cloneChildrenENS_7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEES8_.exit: ; preds = %.noexc10, %_ZN4Luau10getMutableINS_28TypeFunctionVariadicTypePackEEEPT_PKNS_23TypeFunctionTypePackVarE.exit35.i.i, %_ZN4Luau10getMutableINS_20TypeFunctionTypePackEEEPT_PKNS_23TypeFunctionTypePackVarE.exit.i.i, %88, %85, %82, %96
+_ZN4Luau18TypeFunctionCloner13cloneChildrenENS_7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEEES8_.exit: ; preds = %.noexc10, %_ZN4Luau6get_ifINS_28TypeFunctionVariadicTypePackEJNS_20TypeFunctionTypePackES1_NS_27TypeFunctionGenericTypePackEEEEPT_PNS_7VariantIJDpT0_EEE.exit.i.i.i, %_ZN4Luau10getMutableINS_20TypeFunctionTypePackEEEPT_PKNS_23TypeFunctionTypePackVarE.exit.i.i, %88, %85, %82, %96
   %104 = load i32, ptr %4, align 8, !tbaa !186
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJPKNS_16TypeFunctionTypeEPKNS_23TypeFunctionTypePackVarEEE9tableDtorE, i64 0, i64 %105

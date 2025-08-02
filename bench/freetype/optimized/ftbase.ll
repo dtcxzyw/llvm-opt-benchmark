@@ -8006,33 +8006,25 @@ define hidden range(i32 0, 36) i32 @FT_Match_Size(ptr noundef readonly captures(
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = load ptr, ptr %42, align 8, !tbaa !320
   %.not62 = icmp eq i8 %2, 0
-  br i1 %.not62, label %.lr.ph.split.preheader, label %.lr.ph.split.us
-
-.lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count72 = zext nneg i32 %40 to i64
-  br label %.lr.ph.split
+  br i1 %.not62, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %wide.trip.count = zext nneg i32 %40 to i64
-  br label %44
-
-44:                                               ; preds = %48, %.lr.ph.split.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.lr.ph.split.us ]
-  %gep = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %invariant.gep, i64 %indvars.iv
-  %45 = load i64, ptr %gep, align 8, !tbaa !324
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %48
+  %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.lr.ph ]
+  %44 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %43, i64 %indvars.iv, i32 4
+  %45 = load i64, ptr %44, align 8, !tbaa !324
   %46 = add nsw i64 %45, 32
   %47 = and i64 %46, -64
   %.not54.us = icmp eq i64 %36, %47
   br i1 %.not54.us, label %.split.us, label %48
 
-48:                                               ; preds = %44
+48:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread56, label %44, !llvm.loop !358
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count72
+  br i1 %exitcond.not, label %.thread56, label %.lr.ph.split.us, !llvm.loop !358
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %61
-  %indvars.iv69 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next70, %61 ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %61
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %61 ], [ 0, %.lr.ph ]
   %49 = getelementptr inbounds nuw %struct.FT_Bitmap_Size_, ptr %43, i64 %indvars.iv69
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i64, ptr %50, align 8, !tbaa !324
@@ -8049,8 +8041,8 @@ define hidden range(i32 0, 36) i32 @FT_Match_Size(ptr noundef readonly captures(
   %59 = icmp eq i64 %34, %58
   br i1 %59, label %.split.us, label %61
 
-.split.us:                                        ; preds = %44, %54
-  %.us-phi = phi i64 [ %indvars.iv69, %54 ], [ %indvars.iv, %44 ]
+.split.us:                                        ; preds = %.lr.ph.split.us, %54
+  %.us-phi = phi i64 [ %indvars.iv69, %54 ], [ %indvars.iv, %.lr.ph.split.us ]
   %.not55 = icmp eq ptr %3, null
   br i1 %.not55, label %.thread56, label %60
 
@@ -8765,30 +8757,38 @@ define i32 @FT_Set_Pixel_Sizes(ptr noundef readonly captures(address_is_null) %0
   %4 = alloca %struct.FT_Size_RequestRec_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #34
   %5 = icmp eq i32 %1, 0
-  %6 = icmp eq i32 %2, 0
-  %spec.select = select i1 %6, i32 %1, i32 %2
-  %.013 = select i1 %5, i32 %2, i32 %1
-  %.0 = select i1 %5, i32 %2, i32 %spec.select
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.013, i32 1)
-  %spec.store.select2 = tail call i32 @llvm.umax.i32(i32 %.0, i32 1)
-  %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 65535)
-  %spec.store.select3 = tail call i32 @llvm.umin.i32(i32 %spec.store.select2, i32 65535)
+  br i1 %5, label %6, label %8
+
+6:                                                ; preds = %3
+  %7 = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
+  br label %10
+
+8:                                                ; preds = %3
+  %9 = icmp eq i32 %2, 0
+  %spec.select = select i1 %9, i32 %1, i32 %2
+  br label %10
+
+10:                                               ; preds = %8, %6
+  %.013 = phi i32 [ %7, %6 ], [ %1, %8 ]
+  %.0 = phi i32 [ %7, %6 ], [ %spec.select, %8 ]
+  %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %.013, i32 65535)
+  %spec.store.select3 = tail call i32 @llvm.umin.i32(i32 %.0, i32 65535)
   store i32 0, ptr %4, align 8, !tbaa !352
-  %7 = shl nuw nsw i32 %spec.store.select1, 6
-  %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %8, ptr %9, align 8, !tbaa !355
-  %10 = shl nuw nsw i32 %spec.store.select3, 6
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %11, ptr %12, align 8, !tbaa !357
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 0, ptr %13, align 8, !tbaa !354
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 0, ptr %14, align 4, !tbaa !356
-  %15 = call i32 @FT_Request_Size(ptr noundef %0, ptr noundef nonnull %4)
+  %11 = shl nuw nsw i32 %spec.store.select1, 6
+  %12 = zext nneg i32 %11 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %12, ptr %13, align 8, !tbaa !355
+  %14 = shl nuw nsw i32 %spec.store.select3, 6
+  %15 = zext nneg i32 %14 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %15, ptr %16, align 8, !tbaa !357
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 0, ptr %17, align 8, !tbaa !354
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 0, ptr %18, align 4, !tbaa !356
+  %19 = call i32 @FT_Request_Size(ptr noundef %0, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #34
-  ret i32 %15
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable

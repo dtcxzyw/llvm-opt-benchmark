@@ -2140,7 +2140,7 @@ define internal fastcc void @_ZN2cv5arucoL6ptsortEPNS0_2ptEi(ptr noundef %0, i32
   %6 = alloca %"struct.cv::aruco::pt", align 4
   %7 = alloca %"struct.cv::aruco::pt", align 4
   %8 = icmp slt i32 %1, 2
-  br i1 %8, label %276, label %9
+  br i1 %8, label %290, label %9
 
 9:                                                ; preds = %2
   switch i32 %1, label %128 [
@@ -2168,7 +2168,7 @@ define internal fastcc void @_ZN2cv5arucoL6ptsortEPNS0_2ptEi(ptr noundef %0, i32
 
 18:                                               ; preds = %16, %10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  br label %276
+  br label %290
 
 19:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
@@ -2216,7 +2216,7 @@ define internal fastcc void @_ZN2cv5arucoL6ptsortEPNS0_2ptEi(ptr noundef %0, i32
 
 39:                                               ; preds = %38, %34
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  br label %276
+  br label %290
 
 40:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
@@ -2290,7 +2290,7 @@ define internal fastcc void @_ZN2cv5arucoL6ptsortEPNS0_2ptEi(ptr noundef %0, i32
 
 72:                                               ; preds = %71, %67
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
-  br label %276
+  br label %290
 
 73:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
@@ -2417,7 +2417,7 @@ define internal fastcc void @_ZN2cv5arucoL6ptsortEPNS0_2ptEi(ptr noundef %0, i32
 
 127:                                              ; preds = %126, %122
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  br label %276
+  br label %290
 
 128:                                              ; preds = %9
   call void @llvm.lifetime.start.p0(i64 12304, ptr nonnull %3) #23
@@ -2454,19 +2454,9 @@ _ZN2cv10AutoBufferINS_5aruco2ptELm1024EEC2Em.exit: ; preds = %128, %133
   %141 = icmp samesign ugt i32 %1, 17
   %142 = icmp sgt i32 %137, 8
   %143 = select i1 %141, i1 %142, i1 false
-  br i1 %143, label %.lr.ph.preheader, label %.preheader
+  br i1 %143, label %.lr.ph, label %.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader117
-  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 12
-  %invariant.gep240 = getelementptr inbounds i8, ptr %0, i64 24
-  %invariant.gep242 = getelementptr inbounds i8, ptr %0, i64 36
-  %invariant.gep244 = getelementptr inbounds i8, ptr %0, i64 48
-  %invariant.gep246 = getelementptr inbounds i8, ptr %0, i64 60
-  %invariant.gep248 = getelementptr inbounds i8, ptr %0, i64 72
-  %invariant.gep250 = getelementptr inbounds i8, ptr %0, i64 84
-  br label %.lr.ph
-
-.preheader.loopexit:                              ; preds = %228
+.preheader.loopexit:                              ; preds = %240
   %144 = trunc nuw i64 %indvars.iv.next to i32
   br label %.preheader
 
@@ -2483,10 +2473,10 @@ _ZN2cv10AutoBufferINS_5aruco2ptELm1024EEC2Em.exit: ; preds = %128, %133
   %148 = zext i32 %.0.i.lcssa to i64
   br label %.lr.ph127
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %228
-  %indvars.iv = phi i64 [ %indvars.iv.next, %228 ], [ 0, %.lr.ph.preheader ]
-  %.0144.i120 = phi i32 [ %.8152.i, %228 ], [ 0, %.lr.ph.preheader ]
-  %.0155.i119 = phi i32 [ %.8163.i, %228 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader117, %240
+  %indvars.iv = phi i64 [ %indvars.iv.next, %240 ], [ 0, %.preheader117 ]
+  %.0144.i120 = phi i32 [ %.8152.i, %240 ], [ 0, %.preheader117 ]
+  %.0155.i119 = phi i32 [ %.8163.i, %240 ], [ 0, %.preheader117 ]
   %149 = sext i32 %.0155.i119 to i64
   %150 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %149
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
@@ -2540,281 +2530,288 @@ _ZN2cv10AutoBufferINS_5aruco2ptELm1024EED2Ev.exit115: ; preds = %165, %161
   %.1156.i = phi i32 [ %.0155.i119, %166 ], [ %160, %159 ]
   %.1145.i = phi i32 [ %167, %166 ], [ %.0144.i120, %159 ]
   %171 = fcmp olt float %170, %169
-  %gep = getelementptr inbounds %"struct.cv::aruco::pt", ptr %invariant.gep, i64 %indvars.iv
-  br i1 %171, label %172, label %175
+  %172 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 12
+  br i1 %171, label %174, label %177
 
-172:                                              ; preds = %168
-  %173 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi
-  %174 = add nsw i32 %.1156.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep, ptr noundef nonnull align 4 dereferenceable(12) %173, i64 12, i1 false), !tbaa.struct !89
-  %.phi.trans.insert161 = sext i32 %174 to i64
+174:                                              ; preds = %168
+  %175 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi
+  %176 = add nsw i32 %.1156.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %173, ptr noundef nonnull align 4 dereferenceable(12) %175, i64 12, i1 false), !tbaa.struct !89
+  %.phi.trans.insert161 = sext i32 %176 to i64
   %.phi.trans.insert163 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.phi.trans.insert161, i32 2
   %.pre164 = load float, ptr %.phi.trans.insert163, align 4, !tbaa !64
-  br label %178
+  br label %180
 
-175:                                              ; preds = %168
-  %176 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi209
-  %177 = add nsw i32 %.1145.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep, ptr noundef nonnull align 4 dereferenceable(12) %176, i64 12, i1 false), !tbaa.struct !89
-  %.phi.trans.insert165 = sext i32 %177 to i64
+177:                                              ; preds = %168
+  %178 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi209
+  %179 = add nsw i32 %.1145.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %173, ptr noundef nonnull align 4 dereferenceable(12) %178, i64 12, i1 false), !tbaa.struct !89
+  %.phi.trans.insert165 = sext i32 %179 to i64
   %.phi.trans.insert167 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.phi.trans.insert165, i32 2
   %.pre168 = load float, ptr %.phi.trans.insert167, align 4, !tbaa !64
-  br label %178
+  br label %180
 
-178:                                              ; preds = %175, %172
-  %.pre-phi211 = phi i64 [ %.phi.trans.insert165, %175 ], [ %.pre-phi209, %172 ]
-  %.pre-phi210 = phi i64 [ %.pre-phi, %175 ], [ %.phi.trans.insert161, %172 ]
-  %179 = phi float [ %.pre168, %175 ], [ %169, %172 ]
-  %180 = phi float [ %170, %175 ], [ %.pre164, %172 ]
-  %.2157.i = phi i32 [ %.1156.i, %175 ], [ %174, %172 ]
-  %.2146.i = phi i32 [ %177, %175 ], [ %.1145.i, %172 ]
-  %181 = fcmp olt float %180, %179
-  %gep241 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %invariant.gep240, i64 %indvars.iv
-  br i1 %181, label %182, label %185
+180:                                              ; preds = %177, %174
+  %.pre-phi211 = phi i64 [ %.phi.trans.insert165, %177 ], [ %.pre-phi209, %174 ]
+  %.pre-phi210 = phi i64 [ %.pre-phi, %177 ], [ %.phi.trans.insert161, %174 ]
+  %181 = phi float [ %.pre168, %177 ], [ %169, %174 ]
+  %182 = phi float [ %170, %177 ], [ %.pre164, %174 ]
+  %.2157.i = phi i32 [ %.1156.i, %177 ], [ %176, %174 ]
+  %.2146.i = phi i32 [ %179, %177 ], [ %.1145.i, %174 ]
+  %183 = fcmp olt float %182, %181
+  %184 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %indvars.iv
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
+  br i1 %183, label %186, label %189
 
-182:                                              ; preds = %178
-  %183 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi210
-  %184 = add nsw i32 %.2157.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep241, ptr noundef nonnull align 4 dereferenceable(12) %183, i64 12, i1 false), !tbaa.struct !89
-  %.phi.trans.insert169 = sext i32 %184 to i64
+186:                                              ; preds = %180
+  %187 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi210
+  %188 = add nsw i32 %.2157.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %185, ptr noundef nonnull align 4 dereferenceable(12) %187, i64 12, i1 false), !tbaa.struct !89
+  %.phi.trans.insert169 = sext i32 %188 to i64
   %.phi.trans.insert171 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.phi.trans.insert169, i32 2
   %.pre172 = load float, ptr %.phi.trans.insert171, align 4, !tbaa !64
-  br label %188
+  br label %192
 
-185:                                              ; preds = %178
-  %186 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi211
-  %187 = add nsw i32 %.2146.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep241, ptr noundef nonnull align 4 dereferenceable(12) %186, i64 12, i1 false), !tbaa.struct !89
-  %.phi.trans.insert173 = sext i32 %187 to i64
+189:                                              ; preds = %180
+  %190 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi211
+  %191 = add nsw i32 %.2146.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %185, ptr noundef nonnull align 4 dereferenceable(12) %190, i64 12, i1 false), !tbaa.struct !89
+  %.phi.trans.insert173 = sext i32 %191 to i64
   %.phi.trans.insert175 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.phi.trans.insert173, i32 2
   %.pre176 = load float, ptr %.phi.trans.insert175, align 4, !tbaa !64
-  br label %188
+  br label %192
 
-188:                                              ; preds = %185, %182
-  %.pre-phi213 = phi i64 [ %.phi.trans.insert173, %185 ], [ %.pre-phi211, %182 ]
-  %.pre-phi212 = phi i64 [ %.pre-phi210, %185 ], [ %.phi.trans.insert169, %182 ]
-  %189 = phi float [ %.pre176, %185 ], [ %179, %182 ]
-  %190 = phi float [ %180, %185 ], [ %.pre172, %182 ]
-  %.3158.i = phi i32 [ %.2157.i, %185 ], [ %184, %182 ]
-  %.3147.i = phi i32 [ %187, %185 ], [ %.2146.i, %182 ]
-  %191 = fcmp olt float %190, %189
-  %gep243 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %invariant.gep242, i64 %indvars.iv
-  br i1 %191, label %192, label %195
+192:                                              ; preds = %189, %186
+  %.pre-phi213 = phi i64 [ %.phi.trans.insert173, %189 ], [ %.pre-phi211, %186 ]
+  %.pre-phi212 = phi i64 [ %.pre-phi210, %189 ], [ %.phi.trans.insert169, %186 ]
+  %193 = phi float [ %.pre176, %189 ], [ %181, %186 ]
+  %194 = phi float [ %182, %189 ], [ %.pre172, %186 ]
+  %.3158.i = phi i32 [ %.2157.i, %189 ], [ %188, %186 ]
+  %.3147.i = phi i32 [ %191, %189 ], [ %.2146.i, %186 ]
+  %195 = fcmp olt float %194, %193
+  %196 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %indvars.iv
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 36
+  br i1 %195, label %198, label %201
 
-192:                                              ; preds = %188
-  %193 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi212
-  %194 = add nsw i32 %.3158.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep243, ptr noundef nonnull align 4 dereferenceable(12) %193, i64 12, i1 false), !tbaa.struct !89
-  %.phi.trans.insert177 = sext i32 %194 to i64
+198:                                              ; preds = %192
+  %199 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi212
+  %200 = add nsw i32 %.3158.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %197, ptr noundef nonnull align 4 dereferenceable(12) %199, i64 12, i1 false), !tbaa.struct !89
+  %.phi.trans.insert177 = sext i32 %200 to i64
   %.phi.trans.insert179 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.phi.trans.insert177, i32 2
   %.pre180 = load float, ptr %.phi.trans.insert179, align 4, !tbaa !64
-  br label %198
+  br label %204
 
-195:                                              ; preds = %188
-  %196 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi213
-  %197 = add nsw i32 %.3147.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep243, ptr noundef nonnull align 4 dereferenceable(12) %196, i64 12, i1 false), !tbaa.struct !89
-  %.phi.trans.insert181 = sext i32 %197 to i64
+201:                                              ; preds = %192
+  %202 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi213
+  %203 = add nsw i32 %.3147.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %197, ptr noundef nonnull align 4 dereferenceable(12) %202, i64 12, i1 false), !tbaa.struct !89
+  %.phi.trans.insert181 = sext i32 %203 to i64
   %.phi.trans.insert183 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.phi.trans.insert181, i32 2
   %.pre184 = load float, ptr %.phi.trans.insert183, align 4, !tbaa !64
-  br label %198
+  br label %204
 
-198:                                              ; preds = %195, %192
-  %.pre-phi215 = phi i64 [ %.phi.trans.insert181, %195 ], [ %.pre-phi213, %192 ]
-  %.pre-phi214 = phi i64 [ %.pre-phi212, %195 ], [ %.phi.trans.insert177, %192 ]
-  %199 = phi float [ %.pre184, %195 ], [ %189, %192 ]
-  %200 = phi float [ %190, %195 ], [ %.pre180, %192 ]
-  %.4159.i = phi i32 [ %.3158.i, %195 ], [ %194, %192 ]
-  %.4148.i = phi i32 [ %197, %195 ], [ %.3147.i, %192 ]
-  %201 = fcmp olt float %200, %199
-  %gep245 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %invariant.gep244, i64 %indvars.iv
-  br i1 %201, label %202, label %205
+204:                                              ; preds = %201, %198
+  %.pre-phi215 = phi i64 [ %.phi.trans.insert181, %201 ], [ %.pre-phi213, %198 ]
+  %.pre-phi214 = phi i64 [ %.pre-phi212, %201 ], [ %.phi.trans.insert177, %198 ]
+  %205 = phi float [ %.pre184, %201 ], [ %193, %198 ]
+  %206 = phi float [ %194, %201 ], [ %.pre180, %198 ]
+  %.4159.i = phi i32 [ %.3158.i, %201 ], [ %200, %198 ]
+  %.4148.i = phi i32 [ %203, %201 ], [ %.3147.i, %198 ]
+  %207 = fcmp olt float %206, %205
+  %208 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %indvars.iv
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 48
+  br i1 %207, label %210, label %213
 
-202:                                              ; preds = %198
-  %203 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi214
-  %204 = add nsw i32 %.4159.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep245, ptr noundef nonnull align 4 dereferenceable(12) %203, i64 12, i1 false), !tbaa.struct !89
-  %.phi.trans.insert185 = sext i32 %204 to i64
+210:                                              ; preds = %204
+  %211 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi214
+  %212 = add nsw i32 %.4159.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %209, ptr noundef nonnull align 4 dereferenceable(12) %211, i64 12, i1 false), !tbaa.struct !89
+  %.phi.trans.insert185 = sext i32 %212 to i64
   %.phi.trans.insert187 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.phi.trans.insert185, i32 2
   %.pre188 = load float, ptr %.phi.trans.insert187, align 4, !tbaa !64
-  br label %208
+  br label %216
 
-205:                                              ; preds = %198
-  %206 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi215
-  %207 = add nsw i32 %.4148.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep245, ptr noundef nonnull align 4 dereferenceable(12) %206, i64 12, i1 false), !tbaa.struct !89
-  %.phi.trans.insert189 = sext i32 %207 to i64
+213:                                              ; preds = %204
+  %214 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi215
+  %215 = add nsw i32 %.4148.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %209, ptr noundef nonnull align 4 dereferenceable(12) %214, i64 12, i1 false), !tbaa.struct !89
+  %.phi.trans.insert189 = sext i32 %215 to i64
   %.phi.trans.insert191 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.phi.trans.insert189, i32 2
   %.pre192 = load float, ptr %.phi.trans.insert191, align 4, !tbaa !64
-  br label %208
+  br label %216
 
-208:                                              ; preds = %205, %202
-  %.pre-phi217 = phi i64 [ %.phi.trans.insert189, %205 ], [ %.pre-phi215, %202 ]
-  %.pre-phi216 = phi i64 [ %.pre-phi214, %205 ], [ %.phi.trans.insert185, %202 ]
-  %209 = phi float [ %.pre192, %205 ], [ %199, %202 ]
-  %210 = phi float [ %200, %205 ], [ %.pre188, %202 ]
-  %.5160.i = phi i32 [ %.4159.i, %205 ], [ %204, %202 ]
-  %.5149.i = phi i32 [ %207, %205 ], [ %.4148.i, %202 ]
-  %211 = fcmp olt float %210, %209
-  %gep247 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %invariant.gep246, i64 %indvars.iv
-  br i1 %211, label %212, label %215
+216:                                              ; preds = %213, %210
+  %.pre-phi217 = phi i64 [ %.phi.trans.insert189, %213 ], [ %.pre-phi215, %210 ]
+  %.pre-phi216 = phi i64 [ %.pre-phi214, %213 ], [ %.phi.trans.insert185, %210 ]
+  %217 = phi float [ %.pre192, %213 ], [ %205, %210 ]
+  %218 = phi float [ %206, %213 ], [ %.pre188, %210 ]
+  %.5160.i = phi i32 [ %.4159.i, %213 ], [ %212, %210 ]
+  %.5149.i = phi i32 [ %215, %213 ], [ %.4148.i, %210 ]
+  %219 = fcmp olt float %218, %217
+  %220 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %indvars.iv
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 60
+  br i1 %219, label %222, label %225
 
-212:                                              ; preds = %208
-  %213 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi216
-  %214 = add nsw i32 %.5160.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep247, ptr noundef nonnull align 4 dereferenceable(12) %213, i64 12, i1 false), !tbaa.struct !89
-  %.phi.trans.insert193 = sext i32 %214 to i64
+222:                                              ; preds = %216
+  %223 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi216
+  %224 = add nsw i32 %.5160.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %221, ptr noundef nonnull align 4 dereferenceable(12) %223, i64 12, i1 false), !tbaa.struct !89
+  %.phi.trans.insert193 = sext i32 %224 to i64
   %.phi.trans.insert195 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.phi.trans.insert193, i32 2
   %.pre196 = load float, ptr %.phi.trans.insert195, align 4, !tbaa !64
-  br label %218
-
-215:                                              ; preds = %208
-  %216 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi217
-  %217 = add nsw i32 %.5149.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep247, ptr noundef nonnull align 4 dereferenceable(12) %216, i64 12, i1 false), !tbaa.struct !89
-  %.phi.trans.insert197 = sext i32 %217 to i64
-  %.phi.trans.insert199 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.phi.trans.insert197, i32 2
-  %.pre200 = load float, ptr %.phi.trans.insert199, align 4, !tbaa !64
-  br label %218
-
-218:                                              ; preds = %215, %212
-  %.pre-phi219 = phi i64 [ %.phi.trans.insert197, %215 ], [ %.pre-phi217, %212 ]
-  %.pre-phi218 = phi i64 [ %.pre-phi216, %215 ], [ %.phi.trans.insert193, %212 ]
-  %219 = phi float [ %.pre200, %215 ], [ %209, %212 ]
-  %220 = phi float [ %210, %215 ], [ %.pre196, %212 ]
-  %.6161.i = phi i32 [ %.5160.i, %215 ], [ %214, %212 ]
-  %.6150.i = phi i32 [ %217, %215 ], [ %.5149.i, %212 ]
-  %221 = fcmp olt float %220, %219
-  %gep249 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %invariant.gep248, i64 %indvars.iv
-  br i1 %221, label %222, label %225
-
-222:                                              ; preds = %218
-  %223 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi218
-  %224 = add nsw i32 %.6161.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep249, ptr noundef nonnull align 4 dereferenceable(12) %223, i64 12, i1 false), !tbaa.struct !89
-  %.phi.trans.insert201 = sext i32 %224 to i64
-  %.phi.trans.insert203 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.phi.trans.insert201, i32 2
-  %.pre204 = load float, ptr %.phi.trans.insert203, align 4, !tbaa !64
   br label %228
 
-225:                                              ; preds = %218
-  %226 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi219
-  %227 = add nsw i32 %.6150.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep249, ptr noundef nonnull align 4 dereferenceable(12) %226, i64 12, i1 false), !tbaa.struct !89
-  %.phi.trans.insert205 = sext i32 %227 to i64
-  %.phi.trans.insert207 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.phi.trans.insert205, i32 2
-  %.pre208 = load float, ptr %.phi.trans.insert207, align 4, !tbaa !64
+225:                                              ; preds = %216
+  %226 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi217
+  %227 = add nsw i32 %.5149.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %221, ptr noundef nonnull align 4 dereferenceable(12) %226, i64 12, i1 false), !tbaa.struct !89
+  %.phi.trans.insert197 = sext i32 %227 to i64
+  %.phi.trans.insert199 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.phi.trans.insert197, i32 2
+  %.pre200 = load float, ptr %.phi.trans.insert199, align 4, !tbaa !64
   br label %228
 
 228:                                              ; preds = %225, %222
-  %.pre-phi221 = phi i64 [ %.phi.trans.insert205, %225 ], [ %.pre-phi219, %222 ]
-  %.pre-phi220 = phi i64 [ %.pre-phi218, %225 ], [ %.phi.trans.insert201, %222 ]
-  %229 = phi float [ %.pre208, %225 ], [ %219, %222 ]
-  %230 = phi float [ %220, %225 ], [ %.pre204, %222 ]
-  %.7162.i = phi i32 [ %.6161.i, %225 ], [ %224, %222 ]
-  %.7151.i = phi i32 [ %227, %225 ], [ %.6150.i, %222 ]
+  %.pre-phi219 = phi i64 [ %.phi.trans.insert197, %225 ], [ %.pre-phi217, %222 ]
+  %.pre-phi218 = phi i64 [ %.pre-phi216, %225 ], [ %.phi.trans.insert193, %222 ]
+  %229 = phi float [ %.pre200, %225 ], [ %217, %222 ]
+  %230 = phi float [ %218, %225 ], [ %.pre196, %222 ]
+  %.6161.i = phi i32 [ %.5160.i, %225 ], [ %224, %222 ]
+  %.6150.i = phi i32 [ %227, %225 ], [ %.5149.i, %222 ]
   %231 = fcmp olt float %230, %229
-  %gep251 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %invariant.gep250, i64 %indvars.iv
-  %232 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi221
-  %233 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi220
-  %.sink = select i1 %231, ptr %233, ptr %232
-  %234 = zext i1 %231 to i32
-  %.8163.i = add nsw i32 %.7162.i, %234
-  %not. = xor i1 %231, true
-  %235 = zext i1 %not. to i32
-  %.8152.i = add nsw i32 %.7151.i, %235
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gep251, ptr noundef nonnull align 4 dereferenceable(12) %.sink, i64 12, i1 false)
+  %232 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %indvars.iv
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 72
+  br i1 %231, label %234, label %237
+
+234:                                              ; preds = %228
+  %235 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi218
+  %236 = add nsw i32 %.6161.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %233, ptr noundef nonnull align 4 dereferenceable(12) %235, i64 12, i1 false), !tbaa.struct !89
+  %.phi.trans.insert201 = sext i32 %236 to i64
+  %.phi.trans.insert203 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.phi.trans.insert201, i32 2
+  %.pre204 = load float, ptr %.phi.trans.insert203, align 4, !tbaa !64
+  br label %240
+
+237:                                              ; preds = %228
+  %238 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi219
+  %239 = add nsw i32 %.6150.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %233, ptr noundef nonnull align 4 dereferenceable(12) %238, i64 12, i1 false), !tbaa.struct !89
+  %.phi.trans.insert205 = sext i32 %239 to i64
+  %.phi.trans.insert207 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.phi.trans.insert205, i32 2
+  %.pre208 = load float, ptr %.phi.trans.insert207, align 4, !tbaa !64
+  br label %240
+
+240:                                              ; preds = %237, %234
+  %.pre-phi221 = phi i64 [ %.phi.trans.insert205, %237 ], [ %.pre-phi219, %234 ]
+  %.pre-phi220 = phi i64 [ %.pre-phi218, %237 ], [ %.phi.trans.insert201, %234 ]
+  %241 = phi float [ %.pre208, %237 ], [ %229, %234 ]
+  %242 = phi float [ %230, %237 ], [ %.pre204, %234 ]
+  %.7162.i = phi i32 [ %.6161.i, %237 ], [ %236, %234 ]
+  %.7151.i = phi i32 [ %239, %237 ], [ %.6150.i, %234 ]
+  %243 = fcmp olt float %242, %241
+  %244 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %indvars.iv
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 84
+  %246 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %.pre-phi221
+  %247 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %.pre-phi220
+  %.sink = select i1 %243, ptr %247, ptr %246
+  %248 = zext i1 %243 to i32
+  %.8163.i = add nsw i32 %.7162.i, %248
+  %not. = xor i1 %243, true
+  %249 = zext i1 %not. to i32
+  %.8152.i = add nsw i32 %.7151.i, %249
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %245, ptr noundef nonnull align 4 dereferenceable(12) %.sink, i64 12, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %236 = icmp slt i32 %.8163.i, %invariant.op
-  %237 = add nsw i32 %.8152.i, 8
-  %238 = icmp slt i32 %237, %137
-  %239 = select i1 %236, i1 %238, i1 false
-  br i1 %239, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !95
+  %250 = icmp slt i32 %.8163.i, %invariant.op
+  %251 = add nsw i32 %.8152.i, 8
+  %252 = icmp slt i32 %251, %137
+  %253 = select i1 %250, i1 %252, i1 false
+  br i1 %253, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !95
 
 .lr.ph127:                                        ; preds = %.lr.ph127.preheader, %.lr.ph127
   %indvars.iv143 = phi i64 [ %148, %.lr.ph127.preheader ], [ %indvars.iv.next144, %.lr.ph127 ]
   %.9153.i125 = phi i32 [ %.0144.i.lcssa, %.lr.ph127.preheader ], [ %.10154.i, %.lr.ph127 ]
   %.9164.i124 = phi i32 [ %.0155.i.lcssa, %.lr.ph127.preheader ], [ %.10165.i, %.lr.ph127 ]
-  %240 = sext i32 %.9164.i124 to i64
-  %241 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %240
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
-  %243 = load float, ptr %242, align 4, !tbaa !64
-  %244 = sext i32 %.9153.i125 to i64
-  %245 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %244
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 4
-  %247 = load float, ptr %246, align 4, !tbaa !64
-  %248 = fcmp olt float %243, %247
-  %249 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %indvars.iv143
-  %.sink234 = select i1 %248, ptr %241, ptr %245
-  %250 = zext i1 %248 to i32
-  %.10165.i = add nsw i32 %.9164.i124, %250
-  %not.236 = xor i1 %248, true
-  %251 = zext i1 %not.236 to i32
-  %.10154.i = add nsw i32 %.9153.i125, %251
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %249, ptr noundef nonnull align 4 dereferenceable(12) %.sink234, i64 12, i1 false)
+  %254 = sext i32 %.9164.i124 to i64
+  %255 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %254
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 4
+  %257 = load float, ptr %256, align 4, !tbaa !64
+  %258 = sext i32 %.9153.i125 to i64
+  %259 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %258
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 4
+  %261 = load float, ptr %260, align 4, !tbaa !64
+  %262 = fcmp olt float %257, %261
+  %263 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %indvars.iv143
+  %.sink234 = select i1 %262, ptr %255, ptr %259
+  %264 = zext i1 %262 to i32
+  %.10165.i = add nsw i32 %.9164.i124, %264
+  %not.236 = xor i1 %262, true
+  %265 = zext i1 %not.236 to i32
+  %.10154.i = add nsw i32 %.9153.i125, %265
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %263, ptr noundef nonnull align 4 dereferenceable(12) %.sink234, i64 12, i1 false)
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %252 = icmp slt i32 %.10165.i, %136
-  %253 = icmp slt i32 %.10154.i, %137
-  %254 = select i1 %252, i1 %253, i1 false
-  br i1 %254, label %.lr.ph127, label %._crit_edge.loopexit, !llvm.loop !96
+  %266 = icmp slt i32 %.10165.i, %136
+  %267 = icmp slt i32 %.10154.i, %137
+  %268 = select i1 %266, i1 %267, i1 false
+  br i1 %268, label %.lr.ph127, label %._crit_edge.loopexit, !llvm.loop !96
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph127
-  %255 = trunc nuw i64 %indvars.iv.next144 to i32
-  br i1 %252, label %256, label %264
+  %269 = trunc nuw i64 %indvars.iv.next144 to i32
+  br i1 %266, label %270, label %278
 
 ._crit_edge:                                      ; preds = %.preheader
-  br i1 %145, label %256, label %264
+  br i1 %145, label %270, label %278
 
-256:                                              ; preds = %._crit_edge.loopexit, %._crit_edge
-  %.lcssa230 = phi i1 [ %253, %._crit_edge.loopexit ], [ %146, %._crit_edge ]
-  %.9.i.lcssa228 = phi i32 [ %255, %._crit_edge.loopexit ], [ %.0.i.lcssa, %._crit_edge ]
+270:                                              ; preds = %._crit_edge.loopexit, %._crit_edge
+  %.lcssa230 = phi i1 [ %267, %._crit_edge.loopexit ], [ %146, %._crit_edge ]
+  %.9.i.lcssa228 = phi i32 [ %269, %._crit_edge.loopexit ], [ %.0.i.lcssa, %._crit_edge ]
   %.9153.i.lcssa226 = phi i32 [ %.10154.i, %._crit_edge.loopexit ], [ %.0144.i.lcssa, %._crit_edge ]
   %.9164.i.lcssa224 = phi i32 [ %.10165.i, %._crit_edge.loopexit ], [ %.0155.i.lcssa, %._crit_edge ]
-  %257 = zext nneg i32 %.9.i.lcssa228 to i64
-  %258 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %257
-  %259 = sext i32 %.9164.i.lcssa224 to i64
-  %260 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %259
-  %261 = sub nsw i32 %136, %.9164.i.lcssa224
-  %262 = zext nneg i32 %261 to i64
-  %263 = mul nuw nsw i64 %262, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %258, ptr nonnull align 4 %260, i64 %263, i1 false)
-  br i1 %.lcssa230, label %265, label %_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit
+  %271 = zext nneg i32 %.9.i.lcssa228 to i64
+  %272 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %271
+  %273 = sext i32 %.9164.i.lcssa224 to i64
+  %274 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %135, i64 %273
+  %275 = sub nsw i32 %136, %.9164.i.lcssa224
+  %276 = zext nneg i32 %275 to i64
+  %277 = mul nuw nsw i64 %276, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %272, ptr nonnull align 4 %274, i64 %277, i1 false)
+  br i1 %.lcssa230, label %279, label %_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit
 
-264:                                              ; preds = %._crit_edge.loopexit, %._crit_edge
-  %.lcssa229 = phi i1 [ %253, %._crit_edge.loopexit ], [ %146, %._crit_edge ]
-  %.9.i.lcssa227 = phi i32 [ %255, %._crit_edge.loopexit ], [ %.0.i.lcssa, %._crit_edge ]
+278:                                              ; preds = %._crit_edge.loopexit, %._crit_edge
+  %.lcssa229 = phi i1 [ %267, %._crit_edge.loopexit ], [ %146, %._crit_edge ]
+  %.9.i.lcssa227 = phi i32 [ %269, %._crit_edge.loopexit ], [ %.0.i.lcssa, %._crit_edge ]
   %.9153.i.lcssa225 = phi i32 [ %.10154.i, %._crit_edge.loopexit ], [ %.0144.i.lcssa, %._crit_edge ]
-  br i1 %.lcssa229, label %265, label %_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit
+  br i1 %.lcssa229, label %279, label %_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit
 
-265:                                              ; preds = %256, %264
-  %.9153.i.lcssa225232 = phi i32 [ %.9153.i.lcssa226, %256 ], [ %.9153.i.lcssa225, %264 ]
-  %.9.i.lcssa227231 = phi i32 [ %.9.i.lcssa228, %256 ], [ %.9.i.lcssa227, %264 ]
-  %266 = zext nneg i32 %.9.i.lcssa227231 to i64
-  %267 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %266
-  %268 = sext i32 %.9153.i.lcssa225232 to i64
-  %269 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %268
-  %270 = sub nsw i32 %137, %.9153.i.lcssa225232
-  %271 = zext nneg i32 %270 to i64
-  %272 = mul nuw nsw i64 %271, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %267, ptr nonnull align 4 %269, i64 %272, i1 false)
+279:                                              ; preds = %270, %278
+  %.9153.i.lcssa225232 = phi i32 [ %.9153.i.lcssa226, %270 ], [ %.9153.i.lcssa225, %278 ]
+  %.9.i.lcssa227231 = phi i32 [ %.9.i.lcssa228, %270 ], [ %.9.i.lcssa227, %278 ]
+  %280 = zext nneg i32 %.9.i.lcssa227231 to i64
+  %281 = getelementptr inbounds nuw %"struct.cv::aruco::pt", ptr %0, i64 %280
+  %282 = sext i32 %.9153.i.lcssa225232 to i64
+  %283 = getelementptr inbounds %"struct.cv::aruco::pt", ptr %139, i64 %282
+  %284 = sub nsw i32 %137, %.9153.i.lcssa225232
+  %285 = zext nneg i32 %284 to i64
+  %286 = mul nuw nsw i64 %285, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %281, ptr nonnull align 4 %283, i64 %286, i1 false)
   br label %_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit
 
-_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit:            ; preds = %256, %264, %265
-  %273 = load ptr, ptr %3, align 8, !tbaa !91
-  %.not.i.i = icmp eq ptr %273, %130
-  %274 = icmp eq ptr %273, null
-  %or.cond235 = or i1 %.not.i.i, %274
-  br i1 %or.cond235, label %_ZN2cv10AutoBufferINS_5aruco2ptELm1024EED2Ev.exit, label %275
+_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit:            ; preds = %270, %278, %279
+  %287 = load ptr, ptr %3, align 8, !tbaa !91
+  %.not.i.i = icmp eq ptr %287, %130
+  %288 = icmp eq ptr %287, null
+  %or.cond235 = or i1 %.not.i.i, %288
+  br i1 %or.cond235, label %_ZN2cv10AutoBufferINS_5aruco2ptELm1024EED2Ev.exit, label %289
 
-275:                                              ; preds = %_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit
-  call void @_ZdaPv(ptr noundef nonnull %273) #25
+289:                                              ; preds = %_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit
+  call void @_ZdaPv(ptr noundef nonnull %287) #25
   br label %_ZN2cv10AutoBufferINS_5aruco2ptELm1024EED2Ev.exit
 
-_ZN2cv10AutoBufferINS_5aruco2ptELm1024EED2Ev.exit: ; preds = %275, %_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit
+_ZN2cv10AutoBufferINS_5aruco2ptELm1024EED2Ev.exit: ; preds = %289, %_ZN2cv5arucoL7ptsort_EPNS0_2ptEi.exit
   call void @llvm.lifetime.end.p0(i64 12304, ptr nonnull %3) #23
-  br label %276
+  br label %290
 
-276:                                              ; preds = %2, %_ZN2cv10AutoBufferINS_5aruco2ptELm1024EED2Ev.exit, %127, %72, %39, %18
+290:                                              ; preds = %2, %_ZN2cv10AutoBufferINS_5aruco2ptELm1024EED2Ev.exit, %127, %72, %39, %18
   ret void
 }
 

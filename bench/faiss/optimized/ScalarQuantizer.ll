@@ -4236,7 +4236,6 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17Quantiz
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !138
-  %invariant.gep.i = getelementptr i8, ptr %11, i64 2
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhSA_.exit, label %.lr.ph.i
 
@@ -4248,8 +4247,8 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17Quantiz
   br label %18
 
 18:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit10.i, %.lr.ph.i
-  %.022.i = phi i64 [ 0, %.lr.ph.i ], [ %116, %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit10.i ]
-  %.sroa.5.021.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %115, %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit10.i ]
+  %.022.i = phi i64 [ 0, %.lr.ph.i ], [ %118, %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit10.i ]
+  %.sroa.5.021.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %117, %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit10.i ]
   %19 = trunc i64 %.022.i to i32
   %20 = ashr i32 %19, 2
   %21 = mul nsw i32 %20, 3
@@ -4356,28 +4355,29 @@ default.unreachable:                              ; preds = %18
   %102 = getelementptr inbounds float, ptr %17, i64 %99
   %103 = load float, ptr %102, align 4, !tbaa !23
   %104 = tail call noundef float @llvm.fmuladd.f32(float %98, float %103, float %101)
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %22
-  %105 = load i8, ptr %gep.i, align 1, !tbaa !58
-  %106 = lshr i8 %105, 2
+  %105 = getelementptr inbounds i8, ptr %11, i64 %22
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 2
+  %107 = load i8, ptr %106, align 1, !tbaa !58
+  %108 = lshr i8 %107, 2
   br label %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit10.i
 
 _ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit10.i: ; preds = %92, %65, %40, %25
-  %107 = phi float [ %36, %25 ], [ %56, %40 ], [ %82, %65 ], [ %104, %92 ]
-  %108 = phi float [ %35, %25 ], [ %55, %40 ], [ %81, %65 ], [ %103, %92 ]
-  %109 = phi float [ %33, %25 ], [ %53, %40 ], [ %79, %65 ], [ %101, %92 ]
-  %.0.i.i8.i = phi i8 [ %39, %25 ], [ %64, %40 ], [ %91, %65 ], [ %106, %92 ]
-  %110 = uitofp nneg i8 %.0.i.i8.i to float
-  %111 = fadd float %110, 5.000000e-01
-  %112 = fdiv float %111, 6.300000e+01
-  %113 = tail call noundef float @llvm.fmuladd.f32(float %112, float %108, float %109)
-  %114 = fsub float %107, %113
-  %115 = tail call float @llvm.fmuladd.f32(float %114, float %114, float %.sroa.5.021.i)
-  %116 = add nuw i64 %.022.i, 1
-  %exitcond.not.i = icmp eq i64 %116, %13
+  %109 = phi float [ %36, %25 ], [ %56, %40 ], [ %82, %65 ], [ %104, %92 ]
+  %110 = phi float [ %35, %25 ], [ %55, %40 ], [ %81, %65 ], [ %103, %92 ]
+  %111 = phi float [ %33, %25 ], [ %53, %40 ], [ %79, %65 ], [ %101, %92 ]
+  %.0.i.i8.i = phi i8 [ %39, %25 ], [ %64, %40 ], [ %91, %65 ], [ %108, %92 ]
+  %112 = uitofp nneg i8 %.0.i.i8.i to float
+  %113 = fadd float %112, 5.000000e-01
+  %114 = fdiv float %113, 6.300000e+01
+  %115 = tail call noundef float @llvm.fmuladd.f32(float %114, float %110, float %111)
+  %116 = fsub float %109, %115
+  %117 = tail call float @llvm.fmuladd.f32(float %116, float %116, float %.sroa.5.021.i)
+  %118 = add nuw i64 %.022.i, 1
+  %exitcond.not.i = icmp eq i64 %118, %13
   br i1 %exitcond.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhSA_.exit, label %18, !llvm.loop !140
 
 _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhSA_.exit: ; preds = %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit10.i, %3
-  %.sroa.5.0.lcssa.i = phi float [ 0.000000e+00, %3 ], [ %115, %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit10.i ]
+  %.sroa.5.0.lcssa.i = phi float [ 0.000000e+00, %3 ], [ %117, %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit10.i ]
   ret float %.sroa.5.0.lcssa.i
 }
 
@@ -5400,7 +5400,6 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17Quantiz
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !166
-  %invariant.gep.i = getelementptr i8, ptr %11, i64 2
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhSA_.exit, label %.lr.ph.i
 
@@ -5412,8 +5411,8 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17Quantiz
   br label %18
 
 18:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit.i, %.lr.ph.i
-  %.022.i = phi i64 [ 0, %.lr.ph.i ], [ %115, %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit.i ]
-  %.sroa.5.021.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %114, %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit.i ]
+  %.022.i = phi i64 [ 0, %.lr.ph.i ], [ %117, %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit.i ]
+  %.sroa.5.021.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %116, %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit.i ]
   %19 = trunc i64 %.022.i to i32
   %20 = ashr i32 %19, 2
   %21 = mul nsw i32 %20, 3
@@ -5520,27 +5519,28 @@ default.unreachable:                              ; preds = %18
   %102 = getelementptr inbounds float, ptr %17, i64 %99
   %103 = load float, ptr %102, align 4, !tbaa !23
   %104 = tail call noundef float @llvm.fmuladd.f32(float %98, float %103, float %101)
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %22
-  %105 = load i8, ptr %gep.i, align 1, !tbaa !58
-  %106 = lshr i8 %105, 2
+  %105 = getelementptr inbounds i8, ptr %11, i64 %22
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 2
+  %107 = load i8, ptr %106, align 1, !tbaa !58
+  %108 = lshr i8 %107, 2
   br label %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit.i
 
 _ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit.i: ; preds = %92, %65, %40, %25
-  %107 = phi float [ %36, %25 ], [ %56, %40 ], [ %82, %65 ], [ %104, %92 ]
-  %108 = phi float [ %35, %25 ], [ %55, %40 ], [ %81, %65 ], [ %103, %92 ]
-  %109 = phi float [ %33, %25 ], [ %53, %40 ], [ %79, %65 ], [ %101, %92 ]
-  %.0.i.i.i = phi i8 [ %39, %25 ], [ %64, %40 ], [ %91, %65 ], [ %106, %92 ]
-  %110 = uitofp nneg i8 %.0.i.i.i to float
-  %111 = fadd float %110, 5.000000e-01
-  %112 = fdiv float %111, 6.300000e+01
-  %113 = tail call noundef float @llvm.fmuladd.f32(float %112, float %108, float %109)
-  %114 = tail call float @llvm.fmuladd.f32(float %107, float %113, float %.sroa.5.021.i)
-  %115 = add nuw i64 %.022.i, 1
-  %exitcond.not.i = icmp eq i64 %115, %13
+  %109 = phi float [ %36, %25 ], [ %56, %40 ], [ %82, %65 ], [ %104, %92 ]
+  %110 = phi float [ %35, %25 ], [ %55, %40 ], [ %81, %65 ], [ %103, %92 ]
+  %111 = phi float [ %33, %25 ], [ %53, %40 ], [ %79, %65 ], [ %101, %92 ]
+  %.0.i.i.i = phi i8 [ %39, %25 ], [ %64, %40 ], [ %91, %65 ], [ %108, %92 ]
+  %112 = uitofp nneg i8 %.0.i.i.i to float
+  %113 = fadd float %112, 5.000000e-01
+  %114 = fdiv float %113, 6.300000e+01
+  %115 = tail call noundef float @llvm.fmuladd.f32(float %114, float %110, float %111)
+  %116 = tail call float @llvm.fmuladd.f32(float %109, float %115, float %.sroa.5.021.i)
+  %117 = add nuw i64 %.022.i, 1
+  %exitcond.not.i = icmp eq i64 %117, %13
   br i1 %exitcond.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhSA_.exit, label %18, !llvm.loop !168
 
 _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhSA_.exit: ; preds = %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit.i, %3
-  %.sroa.5.0.lcssa.i = phi float [ 0.000000e+00, %3 ], [ %114, %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit.i ]
+  %.sroa.5.0.lcssa.i = phi float [ 0.000000e+00, %3 ], [ %116, %_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EE21reconstruct_componentEPKhi.exit.i ]
   ret float %.sroa.5.0.lcssa.i
 }
 

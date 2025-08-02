@@ -2029,7 +2029,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   %21 = select i1 %.not71, ptr @.str.12, ptr @.str.11
   %22 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %21) #14
   %23 = fcmp reassoc nsz arcp contract afn ogt float %22, 1.000000e+00
-  br i1 %23, label %29, label %24
+  br i1 %23, label %30, label %24
 
 24:                                               ; preds = %17
   %25 = load i32, ptr %18, align 8, !tbaa !26
@@ -2037,20 +2037,20 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   %.not72 = icmp eq i32 %26, 0
   %27 = select i1 %.not72, ptr @.str.12, ptr @.str.11
   %28 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %27) #14
-  br label %29
+  %29 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %28, float 0x3F50624DE0000000)
+  br label %30
 
-29:                                               ; preds = %17, %24
-  %30 = phi reassoc nsz arcp contract afn float [ %28, %24 ], [ 1.000000e+00, %17 ]
+30:                                               ; preds = %17, %24
+  %31 = phi float [ %29, %24 ], [ 1.000000e+00, %17 ]
   %.not73 = icmp eq i32 %3, 0
-  %31 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %30, float 0x3F50624DE0000000)
   br i1 %.not73, label %35, label %32
 
-32:                                               ; preds = %29
+32:                                               ; preds = %30
   %33 = fmul reassoc nsz arcp contract afn float %31, 1.250000e+00
   %34 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %33, float 1.000000e+00)
   br label %37
 
-35:                                               ; preds = %29
+35:                                               ; preds = %30
   %36 = fmul reassoc nsz arcp contract afn float %31, 0x3FE99999A0000000
   br label %37
 

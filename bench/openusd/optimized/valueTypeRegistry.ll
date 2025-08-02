@@ -302,7 +302,7 @@ define ptr @_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ValueTypePrivate17MakeVal
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC1EPKNS_17Sdf_ValueTypeImplE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ValueTypePrivate16GetEmptyTypeNameEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ValueTypePrivate16GetEmptyTypeNameEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__20Sdf_ValueTypePrivate16GetEmptyTypeNameEvE5empty acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %8, !prof !6
@@ -669,7 +669,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit4.i: ; preds = %
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry8FindTypeERKNS_7TfTokenE.exit: ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i
   %24 = atomicrmw sub ptr %4, i64 4 seq_cst, align 8
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC1EPKNS_17Sdf_ValueTypeImplE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %21)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC1EPKNS_17Sdf_ValueTypeImplE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %21)
   %25 = load ptr, ptr %3, align 8
   ret ptr %25
 }
@@ -738,7 +738,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit4.i: ; preds = %
 
 25:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i
   %26 = atomicrmw sub ptr %5, i64 4 seq_cst, align 8
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC1EPKNS_17Sdf_ValueTypeImplE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %22)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC1EPKNS_17Sdf_ValueTypeImplE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %22)
           to label %27 unwind label %36
 
 27:                                               ; preds = %25
@@ -847,7 +847,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit4.i: ; preds = %
 
 25:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i
   %26 = atomicrmw sub ptr %5, i64 4 seq_cst, align 8
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC1EPKNS_17Sdf_ValueTypeImplE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %22)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC1EPKNS_17Sdf_ValueTypeImplE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %22)
           to label %27 unwind label %36
 
 27:                                               ; preds = %25
@@ -897,13 +897,13 @@ define ptr @_ZNK32pxrInternal_v0_24__pxrReserved__21Sdf_ValueTypeRegistry8FindTy
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfValueTypeName", align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry8FindTypeERKNS_6TfTypeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC1EPKNS_17Sdf_ValueTypeImplE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC1EPKNS_17Sdf_ValueTypeImplE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %6)
   %7 = load ptr, ptr %4, align 8
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry8FindTypeERKNS_6TfTypeERKNS_7TfTokenE(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry8FindTypeERKNS_6TfTypeERKNS_7TfTokenE(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   br label %.preheader9.i.i.outer
 
 .preheader9.i.i.outer:                            ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i, %3
@@ -1129,7 +1129,7 @@ define ptr @_ZNK32pxrInternal_v0_24__pxrReserved__21Sdf_ValueTypeRegistry8FindTy
   %7 = tail call ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   store ptr %7, ptr %5, align 8
   %8 = call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry8FindTypeERKNS_6TfTypeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(256) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC1EPKNS_17Sdf_ValueTypeImplE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %8)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC1EPKNS_17Sdf_ValueTypeImplE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %8)
   %9 = load ptr, ptr %4, align 8
   ret ptr %9
 }
@@ -2348,7 +2348,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %.not.not.i.i = icmp eq i64 %3, 0

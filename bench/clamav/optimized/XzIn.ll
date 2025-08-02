@@ -623,13 +623,13 @@ declare i32 @CrcCalc(ptr noundef, i64 noundef) local_unnamed_addr #2
 define internal fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %0, ptr noundef %1, i64 noundef range(i64 0, -3) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = icmp ugt i64 %2, 2147483648
-  br i1 %6, label %69, label %7
+  br i1 %6, label %70, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %3, align 8, !tbaa !33
   %9 = tail call ptr %8(ptr noundef nonnull %3, i64 noundef %2) #9
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %69, label %11
+  br i1 %10, label %70, label %11
 
 11:                                               ; preds = %7
   %12 = tail call i32 @LookInStream_Read2(ptr noundef %1, ptr noundef nonnull %9, i64 noundef %2, i32 noundef 4) #9
@@ -661,100 +661,100 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %0, ptr noundef %1,
   %.not86.i = icmp eq i32 %26, 0
   %27 = zext i32 %26 to i64
   %28 = add nuw nsw i64 %27, 1
-  br i1 %.not86.i, label %.thread.i, label %29
-
-.thread.i:                                        ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %Xz_ReadIndex2.exit
+  br i1 %.not86.i, label %.critedge.i, label %29
 
 29:                                               ; preds = %23
   %30 = load i64, ptr %5, align 8, !tbaa !23
   %31 = shl i64 %30, 1
-  %.not97.i = icmp ugt i64 %31, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br i1 %.not97.i, label %Xz_ReadIndex2.exit, label %32
+  %32 = icmp ugt i64 %31, %19
+  br i1 %32, label %.critedge.i, label %33
 
-32:                                               ; preds = %29
+33:                                               ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   call void @Xz_Free(ptr noundef nonnull %0, ptr noundef nonnull %3) #9
   %.not87.i = icmp eq i64 %30, 0
-  br i1 %.not87.i, label %.loopexit.i.preheader, label %33
+  br i1 %.not87.i, label %.loopexit.i.preheader, label %34
 
-.loopexit.i.preheader:                            ; preds = %41, %32
-  %.680.i.ph = phi i64 [ %28, %32 ], [ %44, %41 ]
+.loopexit.i.preheader:                            ; preds = %42, %33
+  %.680.i.ph = phi i64 [ %28, %33 ], [ %45, %42 ]
   br label %.loopexit.i
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %30, ptr %34, align 8, !tbaa !8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %30, ptr %35, align 8, !tbaa !38
-  %36 = load ptr, ptr %3, align 8, !tbaa !33
-  %37 = shl i64 %30, 4
-  %38 = call ptr %36(ptr noundef nonnull %3, i64 noundef %37) #9
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %38, ptr %39, align 8, !tbaa !14
-  %40 = icmp eq ptr %38, null
-  br i1 %40, label %Xz_ReadIndex2.exit, label %.preheader.i
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %30, ptr %35, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %30, ptr %36, align 8, !tbaa !38
+  %37 = load ptr, ptr %3, align 8, !tbaa !33
+  %38 = shl i64 %30, 4
+  %39 = call ptr %37(ptr noundef nonnull %3, i64 noundef %38) #9
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %39, ptr %40, align 8, !tbaa !14
+  %41 = icmp eq ptr %39, null
+  br i1 %41, label %Xz_ReadIndex2.exit, label %.preheader.i
 
-41:                                               ; preds = %57
-  %42 = add nuw i64 %.067103.i, 1
-  %43 = zext i32 %56 to i64
-  %44 = add i64 %53, %43
-  %exitcond.not.i = icmp eq i64 %42, %30
+42:                                               ; preds = %58
+  %43 = add nuw i64 %.06799.i, 1
+  %44 = zext i32 %57 to i64
+  %45 = add i64 %54, %44
+  %exitcond.not.i = icmp eq i64 %43, %30
   br i1 %exitcond.not.i, label %.loopexit.i.preheader, label %.preheader.i
 
-.preheader.i:                                     ; preds = %33, %41
-  %.067103.i = phi i64 [ %42, %41 ], [ 0, %33 ]
-  %.276102.i = phi i64 [ %44, %41 ], [ %28, %33 ]
-  %45 = load ptr, ptr %39, align 8, !tbaa !14
-  %46 = getelementptr inbounds nuw %struct.CXzBlockSizes, ptr %45, i64 %.067103.i
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 %.276102.i
-  %48 = sub i64 %19, %.276102.i
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %50 = call i32 @Xz_ReadVarInt(ptr noundef nonnull %47, i64 noundef %48, ptr noundef nonnull %49) #9
-  %.not90.i = icmp eq i32 %50, 0
-  br i1 %.not90.i, label %Xz_ReadIndex2.exit, label %51
+.preheader.i:                                     ; preds = %34, %42
+  %.06799.i = phi i64 [ %43, %42 ], [ 0, %34 ]
+  %.27698.i = phi i64 [ %45, %42 ], [ %28, %34 ]
+  %46 = load ptr, ptr %40, align 8, !tbaa !14
+  %47 = getelementptr inbounds nuw %struct.CXzBlockSizes, ptr %46, i64 %.06799.i
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 %.27698.i
+  %49 = sub i64 %19, %.27698.i
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %51 = call i32 @Xz_ReadVarInt(ptr noundef nonnull %48, i64 noundef %49, ptr noundef nonnull %50) #9
+  %.not90.i = icmp eq i32 %51, 0
+  br i1 %.not90.i, label %Xz_ReadIndex2.exit, label %52
 
-51:                                               ; preds = %.preheader.i
-  %52 = zext i32 %50 to i64
-  %53 = add i64 %.276102.i, %52
-  %54 = getelementptr inbounds nuw i8, ptr %9, i64 %53
-  %55 = sub i64 %19, %53
-  %56 = call i32 @Xz_ReadVarInt(ptr noundef nonnull %54, i64 noundef %55, ptr noundef nonnull %46) #9
-  %.not91.i = icmp eq i32 %56, 0
-  br i1 %.not91.i, label %Xz_ReadIndex2.exit, label %57
+52:                                               ; preds = %.preheader.i
+  %53 = zext i32 %51 to i64
+  %54 = add i64 %.27698.i, %53
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 %54
+  %56 = sub i64 %19, %54
+  %57 = call i32 @Xz_ReadVarInt(ptr noundef nonnull %55, i64 noundef %56, ptr noundef nonnull %47) #9
+  %.not91.i = icmp eq i32 %57, 0
+  br i1 %.not91.i, label %Xz_ReadIndex2.exit, label %58
 
-57:                                               ; preds = %51
-  %58 = load i64, ptr %49, align 8, !tbaa !17
-  %.not98.i = icmp eq i64 %58, 0
-  br i1 %.not98.i, label %Xz_ReadIndex2.exit, label %41
+58:                                               ; preds = %52
+  %59 = load i64, ptr %50, align 8, !tbaa !17
+  %.not94.i = icmp eq i64 %59, 0
+  br i1 %.not94.i, label %Xz_ReadIndex2.exit, label %42
 
-.loopexit.i:                                      ; preds = %.loopexit.i.preheader, %60
-  %.680.i = phi i64 [ %61, %60 ], [ %.680.i.ph, %.loopexit.i.preheader ]
-  %59 = and i64 %.680.i, 3
-  %.not88.i = icmp eq i64 %59, 0
-  br i1 %.not88.i, label %64, label %60
+.loopexit.i:                                      ; preds = %.loopexit.i.preheader, %61
+  %.680.i = phi i64 [ %62, %61 ], [ %.680.i.ph, %.loopexit.i.preheader ]
+  %60 = and i64 %.680.i, 3
+  %.not88.i = icmp eq i64 %60, 0
+  br i1 %.not88.i, label %65, label %61
 
-60:                                               ; preds = %.loopexit.i
-  %61 = add i64 %.680.i, 1
-  %62 = getelementptr inbounds nuw i8, ptr %9, i64 %.680.i
-  %63 = load i8, ptr %62, align 1, !tbaa !7
-  %.not89.i = icmp eq i8 %63, 0
+61:                                               ; preds = %.loopexit.i
+  %62 = add i64 %.680.i, 1
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 %.680.i
+  %64 = load i8, ptr %63, align 1, !tbaa !7
+  %.not89.i = icmp eq i8 %64, 0
   br i1 %.not89.i, label %.loopexit.i, label %Xz_ReadIndex2.exit
 
-64:                                               ; preds = %.loopexit.i
-  %65 = icmp eq i64 %.680.i, %19
-  %66 = select i1 %65, i32 0, i32 16
+65:                                               ; preds = %.loopexit.i
+  %66 = icmp eq i64 %.680.i, %19
+  %67 = select i1 %66, i32 0, i32 16
   br label %Xz_ReadIndex2.exit
 
-Xz_ReadIndex2.exit:                               ; preds = %57, %51, %.preheader.i, %60, %64, %33, %29, %.thread.i, %18, %16, %14, %11
-  %.020 = phi i32 [ %12, %11 ], [ %66, %64 ], [ 16, %29 ], [ 16, %16 ], [ 16, %14 ], [ 16, %18 ], [ 2, %33 ], [ 16, %.thread.i ], [ 16, %60 ], [ 16, %.preheader.i ], [ 16, %51 ], [ 16, %57 ]
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !21
-  call void %68(ptr noundef nonnull %3, ptr noundef nonnull %9) #9
-  br label %69
+.critedge.i:                                      ; preds = %29, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  br label %Xz_ReadIndex2.exit
 
-69:                                               ; preds = %7, %4, %Xz_ReadIndex2.exit
+Xz_ReadIndex2.exit:                               ; preds = %58, %52, %.preheader.i, %61, %.critedge.i, %65, %34, %18, %16, %14, %11
+  %.020 = phi i32 [ %12, %11 ], [ %67, %65 ], [ 16, %16 ], [ 16, %14 ], [ 16, %18 ], [ 16, %.critedge.i ], [ 2, %34 ], [ 16, %61 ], [ 16, %.preheader.i ], [ 16, %52 ], [ 16, %58 ]
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !21
+  call void %69(ptr noundef nonnull %3, ptr noundef nonnull %9) #9
+  br label %70
+
+70:                                               ; preds = %7, %4, %Xz_ReadIndex2.exit
   %.0 = phi i32 [ %.020, %Xz_ReadIndex2.exit ], [ 4, %4 ], [ 2, %7 ]
   ret i32 %.0
 }

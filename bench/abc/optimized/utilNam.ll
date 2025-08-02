@@ -399,39 +399,39 @@ define noalias noundef ptr @Abc_NamLoad(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %0)
-  br label %17
+  br label %19
 
 8:                                                ; preds = %1
   %9 = tail call ptr @Abc_NamStart(i32 noundef 1000, i32 noundef 20)
-  %invariant.gep = getelementptr i8, ptr %3, i64 -1
   %10 = tail call ptr @fgets(ptr noundef %3, i32 noundef 1048576, ptr noundef nonnull %4)
   %.not18 = icmp eq ptr %10, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #24
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %11
-  store i8 0, ptr %gep, align 1, !tbaa !32
-  %12 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %2)
-  %13 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1048576, ptr noundef nonnull %4)
-  %.not = icmp eq ptr %13, null
+  %12 = getelementptr i8, ptr %3, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -1
+  store i8 0, ptr %13, align 1, !tbaa !32
+  %14 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %2)
+  %15 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1048576, ptr noundef nonnull %4)
+  %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge.thread:                               ; preds = %.lr.ph
-  %14 = call i32 @fclose(ptr noundef nonnull %4)
-  br label %16
+  %16 = call i32 @fclose(ptr noundef nonnull %4)
+  br label %18
 
 ._crit_edge:                                      ; preds = %8
-  %15 = tail call i32 @fclose(ptr noundef nonnull %4)
+  %17 = tail call i32 @fclose(ptr noundef nonnull %4)
   %.not17 = icmp eq ptr %3, null
-  br i1 %.not17, label %17, label %16
+  br i1 %.not17, label %19, label %18
 
-16:                                               ; preds = %._crit_edge.thread, %._crit_edge
+18:                                               ; preds = %._crit_edge.thread, %._crit_edge
   call void @free(ptr noundef nonnull %3) #23
-  br label %17
+  br label %19
 
-17:                                               ; preds = %16, %._crit_edge, %6
-  %.0 = phi ptr [ null, %6 ], [ %9, %._crit_edge ], [ %9, %16 ]
+19:                                               ; preds = %18, %._crit_edge, %6
+  %.0 = phi ptr [ null, %6 ], [ %9, %._crit_edge ], [ %9, %18 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #23
   ret ptr %.0
 }

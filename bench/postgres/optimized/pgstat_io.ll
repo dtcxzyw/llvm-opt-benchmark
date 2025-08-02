@@ -56,61 +56,65 @@ define dso_local noundef zeroext i1 @pgstat_bktype_io_stats_valid(ptr noundef re
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 960
   br label %.preheader38
 
-.preheader38:                                     ; preds = %2, %58
-  %indvars.iv53 = phi i64 [ 0, %2 ], [ %indvars.iv.next54, %58 ]
+.preheader38:                                     ; preds = %2, %62
+  %indvars.iv53 = phi i64 [ 0, %2 ], [ %indvars.iv.next54, %62 ]
   %8 = icmp eq i64 %indvars.iv53, 2
   %9 = icmp eq i64 %indvars.iv53, 1
   %10 = icmp ne i64 %indvars.iv53, 2
+  %11 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %6, i64 0, i64 %indvars.iv53
+  %12 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %7, i64 0, i64 %indvars.iv53
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader38, %57
-  %indvars.iv49 = phi i64 [ 0, %.preheader38 ], [ %indvars.iv.next50, %57 ]
-  %11 = trunc i64 %indvars.iv49 to i32
-  %12 = add i32 %11, -4
-  %13 = icmp ult i32 %12, -2
-  %or.cond3.i.i = and i1 %8, %13
-  %14 = icmp ne i64 %indvars.iv49, 3
-  %or.cond5.i.i = and i1 %9, %14
-  %15 = icmp eq i64 %indvars.iv49, 3
-  %or.cond17.i.i = and i1 %9, %15
-  %16 = icmp eq i64 %indvars.iv49, 4
-  %or.cond25.i.i = and i1 %3, %16
-  %17 = icmp eq i64 %indvars.iv49, 1
-  %or.cond29.not.i.i.not46 = and i1 %or.cond27.i.i, %17
-  %18 = icmp eq i64 %indvars.iv49, 0
+.preheader:                                       ; preds = %.preheader38, %61
+  %indvars.iv49 = phi i64 [ 0, %.preheader38 ], [ %indvars.iv.next50, %61 ]
+  %13 = trunc i64 %indvars.iv49 to i32
+  %14 = add i32 %13, -4
+  %15 = icmp ult i32 %14, -2
+  %or.cond3.i.i = and i1 %8, %15
+  %16 = icmp ne i64 %indvars.iv49, 3
+  %or.cond5.i.i = and i1 %9, %16
+  %17 = icmp eq i64 %indvars.iv49, 3
+  %or.cond17.i.i = and i1 %9, %17
+  %18 = icmp eq i64 %indvars.iv49, 4
+  %or.cond25.i.i = and i1 %3, %18
+  %19 = icmp eq i64 %indvars.iv49, 1
+  %or.cond29.not.i.i.not46 = and i1 %or.cond27.i.i, %19
+  %20 = icmp eq i64 %indvars.iv49, 0
   %or.cond31.i = icmp samesign ult i64 %indvars.iv49, 2
-  %spec.select.i = or i1 %or.cond31.i, %16
-  %19 = icmp eq i64 %indvars.iv49, 2
-  %or.cond35.i = and i1 %8, %19
-  %or.cond41.i = and i1 %8, %15
+  %spec.select.i = or i1 %or.cond31.i, %18
+  %21 = icmp eq i64 %indvars.iv49, 2
+  %or.cond35.i = and i1 %8, %21
+  %or.cond41.i = and i1 %8, %17
+  %22 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %11, i64 0, i64 %indvars.iv49
+  %23 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %12, i64 0, i64 %indvars.iv49
   %brmerge = or i1 %or.cond3.i.i, %or.cond5.i.i
   %brmerge44 = or i1 %or.cond25.i.i, %or.cond29.not.i.i.not46
-  %20 = trunc nuw nsw i64 %indvars.iv49 to i32
-  %21 = trunc nuw nsw i64 %indvars.iv49 to i32
-  br label %22
+  %24 = trunc nuw nsw i64 %indvars.iv49 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv49 to i32
+  br label %26
 
-22:                                               ; preds = %.preheader, %56
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %56 ]
+26:                                               ; preds = %.preheader, %60
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %60 ]
   switch i32 %1, label %pgstat_tracks_io_op.exit.thread [
-    i32 15, label %23
-    i32 14, label %23
-    i32 6, label %23
-    i32 13, label %23
-    i32 3, label %23
-    i32 4, label %23
-    i32 1, label %23
-    i32 5, label %23
-    i32 10, label %23
-    i32 11, label %23
-    i32 7, label %23
-    i32 8, label %23
-    i32 12, label %23
+    i32 15, label %27
+    i32 14, label %27
+    i32 6, label %27
+    i32 13, label %27
+    i32 3, label %27
+    i32 4, label %27
+    i32 1, label %27
+    i32 5, label %27
+    i32 10, label %27
+    i32 11, label %27
+    i32 7, label %27
+    i32 8, label %27
+    i32 12, label %27
   ]
 
-23:                                               ; preds = %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22
-  br i1 %brmerge, label %pgstat_tracks_io_op.exit.thread, label %24
+27:                                               ; preds = %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26
+  br i1 %brmerge, label %pgstat_tracks_io_op.exit.thread, label %28
 
-24:                                               ; preds = %23
+28:                                               ; preds = %27
   switch i32 %1, label %switch.edge.thread.i.i [
     i32 11, label %switch.edge.i.i
     i32 10, label %switch.edge.i.i
@@ -120,55 +124,55 @@ define dso_local noundef zeroext i1 @pgstat_bktype_io_stats_valid(ptr noundef re
     i32 12, label %switch.edge.i.i
   ]
 
-switch.edge.i.i:                                  ; preds = %24, %24, %24, %24, %24, %24
+switch.edge.i.i:                                  ; preds = %28, %28, %28, %28, %28, %28
   br i1 %or.cond17.i.i, label %pgstat_tracks_io_op.exit.thread, label %switch.edge.thread.i.i
 
-switch.edge.thread.i.i:                           ; preds = %switch.edge.i.i, %24
-  br i1 %or.cond19.i.i, label %25, label %26
+switch.edge.thread.i.i:                           ; preds = %switch.edge.i.i, %28
+  br i1 %or.cond19.i.i, label %29, label %30
 
-25:                                               ; preds = %switch.edge.thread.i.i
-  switch i32 %20, label %pgstat_tracks_io_object.exit.thread98.i [
+29:                                               ; preds = %switch.edge.thread.i.i
+  switch i32 %24, label %pgstat_tracks_io_object.exit.thread98.i [
     i32 4, label %pgstat_tracks_io_op.exit.thread
     i32 1, label %pgstat_tracks_io_op.exit.thread
     i32 0, label %pgstat_tracks_io_op.exit.thread
   ]
 
-26:                                               ; preds = %switch.edge.thread.i.i
+30:                                               ; preds = %switch.edge.thread.i.i
   br i1 %brmerge44, label %pgstat_tracks_io_op.exit.thread, label %pgstat_tracks_io_object.exit.thread98.i
 
-pgstat_tracks_io_object.exit.thread98.i:          ; preds = %26, %25
-  switch i32 %1, label %33 [
-    i32 10, label %27
-    i32 11, label %29
+pgstat_tracks_io_object.exit.thread98.i:          ; preds = %30, %29
+  switch i32 %1, label %37 [
+    i32 10, label %31
+    i32 11, label %33
   ]
 
-27:                                               ; preds = %pgstat_tracks_io_object.exit.thread98.i
-  %28 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %28, label %33 [
+31:                                               ; preds = %pgstat_tracks_io_object.exit.thread98.i
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %32, label %37 [
     i32 6, label %pgstat_tracks_io_op.exit.thread
     i32 2, label %pgstat_tracks_io_op.exit.thread
     i32 0, label %pgstat_tracks_io_op.exit.thread
   ]
 
-29:                                               ; preds = %pgstat_tracks_io_object.exit.thread98.i
-  %30 = icmp eq i64 %indvars.iv, 6
-  %or.cond5.i = and i1 %10, %30
-  %31 = and i64 %indvars.iv, 5
-  %32 = icmp eq i64 %31, 0
-  %or.cond9.i = or i1 %or.cond5.i, %32
-  br i1 %or.cond9.i, label %pgstat_tracks_io_op.exit.thread, label %33
+33:                                               ; preds = %pgstat_tracks_io_object.exit.thread98.i
+  %34 = icmp eq i64 %indvars.iv, 6
+  %or.cond5.i = and i1 %10, %34
+  %35 = and i64 %indvars.iv, 5
+  %36 = icmp eq i64 %35, 0
+  %or.cond9.i = or i1 %or.cond5.i, %36
+  br i1 %or.cond9.i, label %pgstat_tracks_io_op.exit.thread, label %37
 
-33:                                               ; preds = %29, %27, %pgstat_tracks_io_object.exit.thread98.i
-  %34 = icmp eq i64 %indvars.iv, 5
-  %or.cond15.i = and i1 %or.cond13.i, %34
-  br i1 %or.cond15.i, label %pgstat_tracks_io_op.exit.thread, label %35
+37:                                               ; preds = %33, %31, %pgstat_tracks_io_object.exit.thread98.i
+  %38 = icmp eq i64 %indvars.iv, 5
+  %or.cond15.i = and i1 %or.cond13.i, %38
+  br i1 %or.cond15.i, label %pgstat_tracks_io_op.exit.thread, label %39
 
-35:                                               ; preds = %33
-  %36 = icmp eq i64 %indvars.iv, 6
-  %or.cond17.i = and i1 %8, %36
-  br i1 %or.cond17.i, label %37, label %38
+39:                                               ; preds = %37
+  %40 = icmp eq i64 %indvars.iv, 6
+  %or.cond17.i = and i1 %8, %40
+  br i1 %or.cond17.i, label %41, label %42
 
-37:                                               ; preds = %35
+41:                                               ; preds = %39
   switch i32 %1, label %.thread103.i [
     i32 15, label %pgstat_tracks_io_op.exit.thread
     i32 13, label %pgstat_tracks_io_op.exit.thread
@@ -176,93 +180,93 @@ pgstat_tracks_io_object.exit.thread98.i:          ; preds = %26, %25
     i32 4, label %pgstat_tracks_io_op.exit.thread
   ]
 
-38:                                               ; preds = %35
-  br i1 %9, label %39, label %41
+42:                                               ; preds = %39
+  br i1 %9, label %43, label %45
 
-39:                                               ; preds = %38
-  %40 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %40, label %41 [
+43:                                               ; preds = %42
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %44, label %45 [
     i32 4, label %pgstat_tracks_io_op.exit.thread
     i32 1, label %pgstat_tracks_io_op.exit.thread
   ]
 
-41:                                               ; preds = %39, %38
-  %or.cond29.i = and i1 %18, %34
-  br i1 %or.cond29.i, label %pgstat_tracks_io_op.exit.thread, label %42
+45:                                               ; preds = %43, %42
+  %or.cond29.i = and i1 %20, %38
+  br i1 %or.cond29.i, label %pgstat_tracks_io_op.exit.thread, label %46
 
-42:                                               ; preds = %41
+46:                                               ; preds = %45
   %.not.i = icmp eq i64 %indvars.iv, 3
   br i1 %.not.i, label %switch.early.test96.i, label %.thread103.i
 
-switch.early.test96.i:                            ; preds = %42
-  switch i32 %21, label %pgstat_tracks_io_op.exit.thread [
+switch.early.test96.i:                            ; preds = %46
+  switch i32 %25, label %pgstat_tracks_io_op.exit.thread [
     i32 4, label %.thread103.i
     i32 1, label %.thread103.i
     i32 0, label %.thread103.i
   ]
 
-.thread103.i:                                     ; preds = %37, %switch.early.test96.i, %switch.early.test96.i, %switch.early.test96.i, %42
-  %43 = icmp eq i64 %indvars.iv, 1
-  br i1 %or.cond35.i, label %switch.early.test.i, label %45
+.thread103.i:                                     ; preds = %41, %switch.early.test96.i, %switch.early.test96.i, %switch.early.test96.i, %46
+  %47 = icmp eq i64 %indvars.iv, 1
+  br i1 %or.cond35.i, label %switch.early.test.i, label %49
 
 switch.early.test.i:                              ; preds = %.thread103.i
-  %44 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %44, label %pgstat_tracks_io_op.exit.thread [
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %48, label %pgstat_tracks_io_op.exit.thread [
     i32 7, label %pgstat_tracks_io_op.exit
     i32 1, label %pgstat_tracks_io_op.exit
   ]
 
-45:                                               ; preds = %.thread103.i
+49:                                               ; preds = %.thread103.i
   br i1 %or.cond41.i, label %switch.early.test95.i, label %pgstat_tracks_io_op.exit
 
-switch.early.test95.i:                            ; preds = %45
-  %46 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %46, label %pgstat_tracks_io_op.exit.thread [
+switch.early.test95.i:                            ; preds = %49
+  %50 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %50, label %pgstat_tracks_io_op.exit.thread [
     i32 7, label %pgstat_tracks_io_op.exit
     i32 6, label %pgstat_tracks_io_op.exit
     i32 1, label %pgstat_tracks_io_op.exit
   ]
 
-pgstat_tracks_io_op.exit:                         ; preds = %switch.early.test.i, %switch.early.test.i, %45, %switch.early.test95.i, %switch.early.test95.i, %switch.early.test95.i
-  %or.cond49.i = and i1 %43, %spec.select.i
-  br i1 %or.cond49.i, label %pgstat_tracks_io_op.exit.thread, label %47
+pgstat_tracks_io_op.exit:                         ; preds = %switch.early.test.i, %switch.early.test.i, %49, %switch.early.test95.i, %switch.early.test95.i, %switch.early.test95.i
+  %or.cond49.i = and i1 %47, %spec.select.i
+  br i1 %or.cond49.i, label %pgstat_tracks_io_op.exit.thread, label %51
 
-47:                                               ; preds = %pgstat_tracks_io_op.exit
-  %48 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %6, i64 0, i64 %indvars.iv53, i64 %indvars.iv49, i64 %indvars.iv
-  %49 = load i64, ptr %48, align 8
-  %.not32 = icmp eq i64 %49, 0
-  br i1 %.not32, label %56, label %50
+51:                                               ; preds = %pgstat_tracks_io_op.exit
+  %52 = getelementptr inbounds nuw [8 x i64], ptr %22, i64 0, i64 %indvars.iv
+  %53 = load i64, ptr %52, align 8
+  %.not32 = icmp eq i64 %53, 0
+  br i1 %.not32, label %60, label %54
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %7, i64 0, i64 %indvars.iv53, i64 %indvars.iv49, i64 %indvars.iv
-  %52 = load i64, ptr %51, align 8
-  %53 = icmp slt i64 %52, 1
-  br i1 %53, label %.loopexit, label %56
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw [8 x i64], ptr %23, i64 0, i64 %indvars.iv
+  %56 = load i64, ptr %55, align 8
+  %57 = icmp slt i64 %56, 1
+  br i1 %57, label %.loopexit, label %60
 
-pgstat_tracks_io_op.exit.thread:                  ; preds = %26, %23, %22, %25, %25, %25, %switch.edge.i.i, %switch.early.test95.i, %switch.early.test.i, %switch.early.test96.i, %41, %39, %39, %37, %37, %37, %37, %33, %29, %27, %27, %27, %pgstat_tracks_io_op.exit
-  %54 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %7, i64 0, i64 %indvars.iv53, i64 %indvars.iv49, i64 %indvars.iv
-  %55 = load i64, ptr %54, align 8
-  %.not = icmp eq i64 %55, 0
-  br i1 %.not, label %56, label %.loopexit
+pgstat_tracks_io_op.exit.thread:                  ; preds = %30, %27, %26, %29, %29, %29, %switch.edge.i.i, %switch.early.test95.i, %switch.early.test.i, %switch.early.test96.i, %45, %43, %43, %41, %41, %41, %41, %37, %33, %31, %31, %31, %pgstat_tracks_io_op.exit
+  %58 = getelementptr inbounds nuw [8 x i64], ptr %23, i64 0, i64 %indvars.iv
+  %59 = load i64, ptr %58, align 8
+  %.not = icmp eq i64 %59, 0
+  br i1 %.not, label %60, label %.loopexit
 
-56:                                               ; preds = %pgstat_tracks_io_op.exit.thread, %47, %50
+60:                                               ; preds = %pgstat_tracks_io_op.exit.thread, %51, %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %57, label %22, !llvm.loop !4
+  br i1 %exitcond, label %61, label %26, !llvm.loop !4
 
-57:                                               ; preds = %56
+61:                                               ; preds = %60
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 5
-  br i1 %exitcond52.not, label %58, label %.preheader, !llvm.loop !6
+  br i1 %exitcond52.not, label %62, label %.preheader, !llvm.loop !6
 
-58:                                               ; preds = %57
+62:                                               ; preds = %61
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56 = icmp eq i64 %indvars.iv.next54, 3
   br i1 %exitcond56, label %.loopexit, label %.preheader38, !llvm.loop !7
 
-.loopexit:                                        ; preds = %58, %50, %pgstat_tracks_io_op.exit.thread
-  %59 = phi i1 [ false, %pgstat_tracks_io_op.exit.thread ], [ false, %50 ], [ true, %58 ]
-  ret i1 %59
+.loopexit:                                        ; preds = %62, %54, %pgstat_tracks_io_op.exit.thread
+  %63 = phi i1 [ false, %pgstat_tracks_io_op.exit.thread ], [ false, %54 ], [ true, %62 ]
+  ret i1 %63
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -457,16 +461,20 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local void @pgstat_count_io_op(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #3 {
   %6 = zext i32 %3 to i64
   %7 = zext i32 %0 to i64
-  %8 = zext i32 %1 to i64
-  %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 960), i64 0, i64 %7, i64 %8, i64 %9
-  %11 = load i64, ptr %10, align 8
-  %12 = add i64 %11, %6
-  store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr @PendingIOStats, i64 0, i64 %7, i64 %8, i64 %9
-  %14 = load i64, ptr %13, align 8
-  %15 = add i64 %14, %4
-  store i64 %15, ptr %13, align 8
+  %8 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 960), i64 0, i64 %7
+  %9 = zext i32 %1 to i64
+  %10 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %8, i64 0, i64 %9
+  %11 = zext i32 %2 to i64
+  %12 = getelementptr inbounds nuw [8 x i64], ptr %10, i64 0, i64 %11
+  %13 = load i64, ptr %12, align 8
+  %14 = add i64 %13, %6
+  store i64 %14, ptr %12, align 8
+  %15 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr @PendingIOStats, i64 0, i64 %7
+  %16 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %15, i64 0, i64 %9
+  %17 = getelementptr inbounds nuw [8 x i64], ptr %16, i64 0, i64 %11
+  %18 = load i64, ptr %17, align 8
+  %19 = add i64 %18, %4
+  store i64 %19, ptr %17, align 8
   tail call void @pgstat_count_backend_io_op(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #11
   store i1 true, ptr @have_iostats, align 1
   ret void
@@ -509,7 +517,7 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
   %.pre = zext i32 %0 to i64
   %.pre31 = zext i32 %1 to i64
   %.pre33 = zext i32 %2 to i64
-  br label %49
+  br label %51
 
 10:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
@@ -579,28 +587,34 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
 
 42:                                               ; preds = %32, %20, %27, %24, %36, %39, %30, %10
   %43 = zext i32 %0 to i64
-  %44 = zext i32 %1 to i64
-  %45 = zext i32 %2 to i64
-  %46 = getelementptr inbounds nuw [3 x [5 x [8 x %struct.instr_time]]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 1920), i64 0, i64 %43, i64 %44, i64 %45
-  %47 = load i64, ptr %46, align 8
-  %48 = add i64 %47, %17
-  store i64 %48, ptr %46, align 8
+  %44 = getelementptr inbounds nuw [3 x [5 x [8 x %struct.instr_time]]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 1920), i64 0, i64 %43
+  %45 = zext i32 %1 to i64
+  %46 = getelementptr inbounds nuw [5 x [8 x %struct.instr_time]], ptr %44, i64 0, i64 %45
+  %47 = zext i32 %2 to i64
+  %48 = getelementptr inbounds nuw [8 x %struct.instr_time], ptr %46, i64 0, i64 %47
+  %49 = load i64, ptr %48, align 8
+  %50 = add i64 %49, %17
+  store i64 %50, ptr %48, align 8
   call void @pgstat_count_backend_io_op_time(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 %17) #11
-  br label %49
+  br label %51
 
-49:                                               ; preds = %._crit_edge, %42
-  %.pre-phi34 = phi i64 [ %.pre33, %._crit_edge ], [ %45, %42 ]
-  %.pre-phi32 = phi i64 [ %.pre31, %._crit_edge ], [ %44, %42 ]
+51:                                               ; preds = %._crit_edge, %42
+  %.pre-phi34 = phi i64 [ %.pre33, %._crit_edge ], [ %47, %42 ]
+  %.pre-phi32 = phi i64 [ %.pre31, %._crit_edge ], [ %45, %42 ]
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %43, %42 ]
-  %50 = zext i32 %4 to i64
-  %51 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 960), i64 0, i64 %.pre-phi, i64 %.pre-phi32, i64 %.pre-phi34
-  %52 = load i64, ptr %51, align 8
-  %53 = add i64 %52, %50
-  store i64 %53, ptr %51, align 8
-  %54 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr @PendingIOStats, i64 0, i64 %.pre-phi, i64 %.pre-phi32, i64 %.pre-phi34
-  %55 = load i64, ptr %54, align 8
-  %56 = add i64 %55, %5
-  store i64 %56, ptr %54, align 8
+  %52 = zext i32 %4 to i64
+  %53 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 960), i64 0, i64 %.pre-phi
+  %54 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %53, i64 0, i64 %.pre-phi32
+  %55 = getelementptr inbounds nuw [8 x i64], ptr %54, i64 0, i64 %.pre-phi34
+  %56 = load i64, ptr %55, align 8
+  %57 = add i64 %56, %52
+  store i64 %57, ptr %55, align 8
+  %58 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr @PendingIOStats, i64 0, i64 %.pre-phi
+  %59 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %58, i64 0, i64 %.pre-phi32
+  %60 = getelementptr inbounds nuw [8 x i64], ptr %59, i64 0, i64 %.pre-phi34
+  %61 = load i64, ptr %60, align 8
+  %62 = add i64 %61, %5
+  store i64 %62, ptr %60, align 8
   call void @pgstat_count_backend_io_op(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %4, i64 noundef %5) #11
   store i1 true, ptr @have_iostats, align 1
   ret void
@@ -631,7 +645,7 @@ define dso_local void @pgstat_flush_io(i1 noundef zeroext %0) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @pgstat_io_flush_cb(i1 noundef zeroext %0) local_unnamed_addr #3 {
   %.b34 = load i1, ptr @have_iostats, align 1
-  br i1 %.b34, label %2, label %36
+  br i1 %.b34, label %2, label %48
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @pgStatLocal, align 8
@@ -649,64 +663,76 @@ define dso_local noundef zeroext i1 @pgstat_io_flush_cb(i1 noundef zeroext %0) l
 
 12:                                               ; preds = %2
   %13 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %7, i32 noundef 0) #11
-  br i1 %13, label %14, label %36
+  br i1 %13, label %14, label %48
 
 14:                                               ; preds = %12, %10
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 960
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 1920
   br label %.preheader35
 
-.preheader35:                                     ; preds = %14, %18
-  %indvars.iv44 = phi i64 [ 0, %14 ], [ %indvars.iv.next45, %18 ]
+.preheader35:                                     ; preds = %14, %30
+  %indvars.iv44 = phi i64 [ 0, %14 ], [ %indvars.iv.next45, %30 ]
+  %17 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 960), i64 0, i64 %indvars.iv44
+  %18 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %15, i64 0, i64 %indvars.iv44
+  %19 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr @PendingIOStats, i64 0, i64 %indvars.iv44
+  %20 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %9, i64 0, i64 %indvars.iv44
+  %21 = getelementptr inbounds nuw [3 x [5 x [8 x %struct.instr_time]]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 1920), i64 0, i64 %indvars.iv44
+  %22 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %16, i64 0, i64 %indvars.iv44
   br label %.preheader
 
-17:                                               ; preds = %18
+23:                                               ; preds = %30
   tail call void @LWLockRelease(ptr noundef nonnull %7) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2880) @PendingIOStats, i8 0, i64 2880, i1 false)
   store i1 false, ptr @have_iostats, align 1
-  br label %36
+  br label %48
 
-.preheader:                                       ; preds = %.preheader35, %19
-  %indvars.iv40 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next41, %19 ]
-  br label %20
+.preheader:                                       ; preds = %.preheader35, %31
+  %indvars.iv40 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next41, %31 ]
+  %24 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %17, i64 0, i64 %indvars.iv40
+  %25 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %18, i64 0, i64 %indvars.iv40
+  %26 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %19, i64 0, i64 %indvars.iv40
+  %27 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %20, i64 0, i64 %indvars.iv40
+  %28 = getelementptr inbounds nuw [5 x [8 x %struct.instr_time]], ptr %21, i64 0, i64 %indvars.iv40
+  %29 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %22, i64 0, i64 %indvars.iv40
+  br label %32
 
-18:                                               ; preds = %19
+30:                                               ; preds = %31
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 3
-  br i1 %exitcond47.not, label %17, label %.preheader35, !llvm.loop !10
+  br i1 %exitcond47.not, label %23, label %.preheader35, !llvm.loop !10
 
-19:                                               ; preds = %20
+31:                                               ; preds = %32
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 5
-  br i1 %exitcond43.not, label %18, label %.preheader, !llvm.loop !11
+  br i1 %exitcond43.not, label %30, label %.preheader, !llvm.loop !11
 
-20:                                               ; preds = %.preheader, %20
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 960), i64 0, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %15, i64 0, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
-  %24 = load i64, ptr %23, align 8
-  %25 = add i64 %24, %22
-  store i64 %25, ptr %23, align 8
-  %26 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr @PendingIOStats, i64 0, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
-  %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %9, i64 0, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
-  %29 = load i64, ptr %28, align 8
-  %30 = add i64 %29, %27
-  store i64 %30, ptr %28, align 8
-  %31 = getelementptr inbounds nuw [3 x [5 x [8 x %struct.instr_time]]], ptr getelementptr inbounds nuw (i8, ptr @PendingIOStats, i64 1920), i64 0, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
-  %.sroa.0.0.copyload = load i64, ptr %31, align 8
-  %32 = sdiv i64 %.sroa.0.0.copyload, 1000
-  %33 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %16, i64 0, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
+32:                                               ; preds = %.preheader, %32
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %32 ]
+  %33 = getelementptr inbounds nuw [8 x i64], ptr %24, i64 0, i64 %indvars.iv
   %34 = load i64, ptr %33, align 8
-  %35 = add i64 %34, %32
-  store i64 %35, ptr %33, align 8
+  %35 = getelementptr inbounds nuw [8 x i64], ptr %25, i64 0, i64 %indvars.iv
+  %36 = load i64, ptr %35, align 8
+  %37 = add i64 %36, %34
+  store i64 %37, ptr %35, align 8
+  %38 = getelementptr inbounds nuw [8 x i64], ptr %26, i64 0, i64 %indvars.iv
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds nuw [8 x i64], ptr %27, i64 0, i64 %indvars.iv
+  %41 = load i64, ptr %40, align 8
+  %42 = add i64 %41, %39
+  store i64 %42, ptr %40, align 8
+  %43 = getelementptr inbounds nuw [8 x %struct.instr_time], ptr %28, i64 0, i64 %indvars.iv
+  %.sroa.0.0.copyload = load i64, ptr %43, align 8
+  %44 = sdiv i64 %.sroa.0.0.copyload, 1000
+  %45 = getelementptr inbounds nuw [8 x i64], ptr %29, i64 0, i64 %indvars.iv
+  %46 = load i64, ptr %45, align 8
+  %47 = add i64 %46, %44
+  store i64 %47, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %19, label %20, !llvm.loop !12
+  br i1 %exitcond.not, label %31, label %32, !llvm.loop !12
 
-36:                                               ; preds = %12, %1, %17
-  %.0 = phi i1 [ false, %17 ], [ false, %1 ], [ true, %12 ]
+48:                                               ; preds = %12, %1, %23
+  %.0 = phi i1 [ false, %23 ], [ false, %1 ], [ true, %12 ]
   ret i1 %.0
 }
 

@@ -14240,7 +14240,7 @@ define internal fastcc noundef ptr @array_replace_internal(ptr noundef %0, i64 n
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = tail call i32 @ArrayGetNItems(i32 noundef %13, ptr noundef nonnull %14) #18
   %16 = icmp slt i32 %15, 1
-  br i1 %16, label %283, label %17
+  br i1 %16, label %282, label %17
 
 17:                                               ; preds = %8
   %18 = icmp sgt i32 %13, 1
@@ -14702,86 +14702,86 @@ fetch_att.exit.thread:                            ; preds = %114, %111, %108, %1
   br i1 %exitcond.not, label %._crit_edge, label %94, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %241
-  br i1 %.1195240, label %246, label %245
+  br i1 %.1195240, label %245, label %.critedge
 
-245:                                              ; preds = %._crit_edge
+.critedge:                                        ; preds = %._crit_edge
   call void @pfree(ptr noundef %70) #18
   call void @pfree(ptr noundef %71) #18
-  br label %283
-
-246:                                              ; preds = %._crit_edge
-  %247 = icmp eq i32 %.1204, 0
-  br i1 %247, label %248, label %253
-
-248:                                              ; preds = %246
-  call void @pfree(ptr noundef %70) #18
-  call void @pfree(ptr noundef %71) #18
-  %249 = call ptr @palloc0(i64 noundef 16) #18
-  store i32 64, ptr %249, align 4
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 4
-  store i32 0, ptr %250, align 4
-  %251 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  store i32 0, ptr %251, align 4
-  %252 = getelementptr inbounds nuw i8, ptr %249, i64 12
-  store i32 %11, ptr %252, align 4
-  br label %283
-
-253:                                              ; preds = %246
-  %254 = shl i32 %13, 3
-  br i1 %.1207, label %255, label %262
-
-255:                                              ; preds = %253
-  %256 = add i32 %.1204, 7
-  %257 = sdiv i32 %256, 8
-  %258 = add i32 %254, 23
-  %259 = add i32 %258, %257
-  %260 = and i32 %259, -8
-  %261 = add i32 %260, %.1210
-  br label %266
-
-262:                                              ; preds = %253
-  %263 = add i32 %254, 23
-  %264 = and i32 %263, -8
-  %265 = add i32 %.1210, %264
-  br label %266
-
-266:                                              ; preds = %262, %255
-  %.3 = phi i32 [ %261, %255 ], [ %265, %262 ]
-  %.0208 = phi i32 [ %260, %255 ], [ 0, %262 ]
-  %267 = sext i32 %.3 to i64
-  %268 = call ptr @palloc0(i64 noundef %267) #18
-  %269 = shl i32 %.3, 2
-  store i32 %269, ptr %268, align 4
-  %270 = getelementptr inbounds nuw i8, ptr %268, i64 4
-  store i32 %13, ptr %270, align 4
-  %271 = getelementptr inbounds nuw i8, ptr %268, i64 8
-  store i32 %.0208, ptr %271, align 4
-  %272 = getelementptr inbounds nuw i8, ptr %268, i64 12
-  store i32 %11, ptr %272, align 4
-  %273 = getelementptr inbounds nuw i8, ptr %268, i64 16
-  %274 = sext i32 %13 to i64
-  %275 = shl nsw i64 %274, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %273, ptr nonnull align 4 %14, i64 %275, i1 false)
-  %276 = getelementptr inbounds nuw i8, ptr %273, i64 %275
-  %277 = load i32, ptr %12, align 4
-  %278 = sext i32 %277 to i64
-  %279 = shl nsw i64 %278, 2
-  %280 = getelementptr inbounds nuw i8, ptr %14, i64 %279
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %276, ptr nonnull align 4 %280, i64 %275, i1 false)
-  br i1 %5, label %281, label %282
-
-281:                                              ; preds = %266
-  store i32 %.1204, ptr %273, align 4
   br label %282
 
-282:                                              ; preds = %281, %266
-  call void @CopyArrayEls(ptr noundef nonnull %268, ptr noundef %70, ptr noundef %71, i32 noundef %.1204, i32 noundef %45, i1 noundef zeroext %48, i8 noundef signext %50, i1 noundef zeroext false)
+245:                                              ; preds = %._crit_edge
+  %246 = icmp eq i32 %.1204, 0
+  br i1 %246, label %247, label %252
+
+247:                                              ; preds = %245
   call void @pfree(ptr noundef %70) #18
   call void @pfree(ptr noundef %71) #18
-  br label %283
+  %248 = call ptr @palloc0(i64 noundef 16) #18
+  store i32 64, ptr %248, align 4
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
+  store i32 0, ptr %249, align 4
+  %250 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  store i32 0, ptr %250, align 4
+  %251 = getelementptr inbounds nuw i8, ptr %248, i64 12
+  store i32 %11, ptr %251, align 4
+  br label %282
 
-283:                                              ; preds = %8, %282, %248, %245
-  %.0190 = phi ptr [ %249, %248 ], [ %268, %282 ], [ %0, %245 ], [ %0, %8 ]
+252:                                              ; preds = %245
+  %253 = shl i32 %13, 3
+  br i1 %.1207, label %254, label %261
+
+254:                                              ; preds = %252
+  %255 = add i32 %.1204, 7
+  %256 = sdiv i32 %255, 8
+  %257 = add i32 %253, 23
+  %258 = add i32 %257, %256
+  %259 = and i32 %258, -8
+  %260 = add i32 %259, %.1210
+  br label %265
+
+261:                                              ; preds = %252
+  %262 = add i32 %253, 23
+  %263 = and i32 %262, -8
+  %264 = add i32 %.1210, %263
+  br label %265
+
+265:                                              ; preds = %261, %254
+  %.3 = phi i32 [ %260, %254 ], [ %264, %261 ]
+  %.0208 = phi i32 [ %259, %254 ], [ 0, %261 ]
+  %266 = sext i32 %.3 to i64
+  %267 = call ptr @palloc0(i64 noundef %266) #18
+  %268 = shl i32 %.3, 2
+  store i32 %268, ptr %267, align 4
+  %269 = getelementptr inbounds nuw i8, ptr %267, i64 4
+  store i32 %13, ptr %269, align 4
+  %270 = getelementptr inbounds nuw i8, ptr %267, i64 8
+  store i32 %.0208, ptr %270, align 4
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 12
+  store i32 %11, ptr %271, align 4
+  %272 = getelementptr inbounds nuw i8, ptr %267, i64 16
+  %273 = sext i32 %13 to i64
+  %274 = shl nsw i64 %273, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %272, ptr nonnull align 4 %14, i64 %274, i1 false)
+  %275 = getelementptr inbounds nuw i8, ptr %272, i64 %274
+  %276 = load i32, ptr %12, align 4
+  %277 = sext i32 %276 to i64
+  %278 = shl nsw i64 %277, 2
+  %279 = getelementptr inbounds nuw i8, ptr %14, i64 %278
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %275, ptr nonnull align 4 %279, i64 %274, i1 false)
+  br i1 %5, label %280, label %281
+
+280:                                              ; preds = %265
+  store i32 %.1204, ptr %272, align 4
+  br label %281
+
+281:                                              ; preds = %280, %265
+  call void @CopyArrayEls(ptr noundef nonnull %267, ptr noundef %70, ptr noundef %71, i32 noundef %.1204, i32 noundef %45, i1 noundef zeroext %48, i8 noundef signext %50, i1 noundef zeroext false)
+  call void @pfree(ptr noundef %70) #18
+  call void @pfree(ptr noundef %71) #18
+  br label %282
+
+282:                                              ; preds = %8, %281, %247, %.critedge
+  %.0190 = phi ptr [ %248, %247 ], [ %267, %281 ], [ %0, %.critedge ], [ %0, %8 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #18
   ret ptr %.0190
 }

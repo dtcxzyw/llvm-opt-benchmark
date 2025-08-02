@@ -150,18 +150,14 @@ define internal range(i32 -12, 1) i32 @ty_read_header(ptr noundef %0) #1 {
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %23
   br i1 %exitcond.not.i.i, label %parse_chunk_headers.exit.preheader.i, label %.lr.ph.i.i, !llvm.loop !41
 
-parse_chunk_headers.exit.preheader.i:             ; preds = %57
-  %invariant.gep.i = getelementptr i8, ptr %24, i64 6
-  br label %59
-
-59:                                               ; preds = %parse_chunk_headers.exit.i, %parse_chunk_headers.exit.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %parse_chunk_headers.exit.preheader.i ], [ %indvars.iv.next.i, %parse_chunk_headers.exit.i ]
-  %.06511.i = phi i32 [ 0, %parse_chunk_headers.exit.preheader.i ], [ %.1.i, %parse_chunk_headers.exit.i ]
-  %.06610.i = phi i32 [ 0, %parse_chunk_headers.exit.preheader.i ], [ %.167.i, %parse_chunk_headers.exit.i ]
-  %.0689.i = phi i32 [ 0, %parse_chunk_headers.exit.preheader.i ], [ %.169.i, %parse_chunk_headers.exit.i ]
-  %.0708.i = phi i32 [ 0, %parse_chunk_headers.exit.preheader.i ], [ %.171.i, %parse_chunk_headers.exit.i ]
-  %gep.i = getelementptr %struct.TyRecHdr, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %60 = load i16, ptr %gep.i, align 2
+parse_chunk_headers.exit.preheader.i:             ; preds = %57, %parse_chunk_headers.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
+  %.06511.i = phi i32 [ %.1.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
+  %.06610.i = phi i32 [ %.167.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
+  %.0689.i = phi i32 [ %.169.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
+  %.0708.i = phi i32 [ %.171.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
+  %59 = getelementptr %struct.TyRecHdr, ptr %24, i64 %indvars.iv.i, i32 2
+  %60 = load i16, ptr %59, align 2
   switch i16 %60, label %parse_chunk_headers.exit.i [
     i16 1760, label %61
     i16 3040, label %63
@@ -169,30 +165,30 @@ parse_chunk_headers.exit.preheader.i:             ; preds = %57
     i16 2496, label %67
   ]
 
-61:                                               ; preds = %59
+61:                                               ; preds = %parse_chunk_headers.exit.preheader.i
   %62 = add nsw i32 %.0708.i, 1
   br label %parse_chunk_headers.exit.i
 
-63:                                               ; preds = %59
+63:                                               ; preds = %parse_chunk_headers.exit.preheader.i
   %64 = add nsw i32 %.0689.i, 1
   br label %parse_chunk_headers.exit.i
 
-65:                                               ; preds = %59
+65:                                               ; preds = %parse_chunk_headers.exit.preheader.i
   %66 = add nsw i32 %.06511.i, 1
   br label %parse_chunk_headers.exit.i
 
-67:                                               ; preds = %59
+67:                                               ; preds = %parse_chunk_headers.exit.preheader.i
   %68 = add nsw i32 %.06610.i, 1
   br label %parse_chunk_headers.exit.i
 
-parse_chunk_headers.exit.i:                       ; preds = %67, %65, %63, %61, %59
-  %.171.i = phi i32 [ %.0708.i, %59 ], [ %62, %61 ], [ %.0708.i, %63 ], [ %.0708.i, %65 ], [ %.0708.i, %67 ]
-  %.169.i = phi i32 [ %.0689.i, %59 ], [ %.0689.i, %61 ], [ %64, %63 ], [ %.0689.i, %65 ], [ %.0689.i, %67 ]
-  %.167.i = phi i32 [ %.06610.i, %59 ], [ %.06610.i, %61 ], [ %.06610.i, %63 ], [ %.06610.i, %65 ], [ %68, %67 ]
-  %.1.i = phi i32 [ %.06511.i, %59 ], [ %.06511.i, %61 ], [ %.06511.i, %63 ], [ %66, %65 ], [ %.06511.i, %67 ]
+parse_chunk_headers.exit.i:                       ; preds = %67, %65, %63, %61, %parse_chunk_headers.exit.preheader.i
+  %.171.i = phi i32 [ %.0708.i, %parse_chunk_headers.exit.preheader.i ], [ %62, %61 ], [ %.0708.i, %63 ], [ %.0708.i, %65 ], [ %.0708.i, %67 ]
+  %.169.i = phi i32 [ %.0689.i, %parse_chunk_headers.exit.preheader.i ], [ %.0689.i, %61 ], [ %64, %63 ], [ %.0689.i, %65 ], [ %.0689.i, %67 ]
+  %.167.i = phi i32 [ %.06610.i, %parse_chunk_headers.exit.preheader.i ], [ %.06610.i, %61 ], [ %.06610.i, %63 ], [ %.06610.i, %65 ], [ %68, %67 ]
+  %.1.i = phi i32 [ %.06511.i, %parse_chunk_headers.exit.preheader.i ], [ %.06511.i, %61 ], [ %.06511.i, %63 ], [ %66, %65 ], [ %.06511.i, %67 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %23
-  br i1 %exitcond.not.i, label %69, label %59, !llvm.loop !42
+  br i1 %exitcond.not.i, label %69, label %parse_chunk_headers.exit.preheader.i, !llvm.loop !42
 
 69:                                               ; preds = %parse_chunk_headers.exit.i
   %70 = icmp sgt i32 %.171.i, 0
@@ -655,7 +651,7 @@ find_es_header.exit.i:                            ; preds = %117
   %141 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   store i64 %140, ptr %141, align 8, !tbaa !35
   %.not74.i = icmp eq i8 %107, 6
-  br i1 %.not74.i, label %.thread4.i, label %142
+  br i1 %.not74.i, label %.thread.i, label %142
 
 142:                                              ; preds = %find_es_header.exit.i
   %143 = add nsw i32 %120, 16
@@ -678,15 +674,15 @@ find_es_header.exit.i:                            ; preds = %117
 
 find_es_header.exit.thread.i:                     ; preds = %119, %105
   %152 = icmp eq i8 %107, 6
-  br i1 %152, label %find_es_header.exit.thread..thread4_crit_edge.i, label %164
+  br i1 %152, label %find_es_header.exit.thread..thread_crit_edge.i, label %164
 
-find_es_header.exit.thread..thread4_crit_edge.i:  ; preds = %find_es_header.exit.thread.i
+find_es_header.exit.thread..thread_crit_edge.i:   ; preds = %find_es_header.exit.thread.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !79
-  br label %.thread4.i
+  br label %.thread.i
 
-.thread4.i:                                       ; preds = %find_es_header.exit.thread..thread4_crit_edge.i, %find_es_header.exit.i
-  %153 = phi i32 [ %.pre.i, %find_es_header.exit.thread..thread4_crit_edge.i ], [ %114, %find_es_header.exit.i ]
+.thread.i:                                        ; preds = %find_es_header.exit.thread..thread_crit_edge.i, %find_es_header.exit.i
+  %153 = phi i32 [ %.pre.i, %find_es_header.exit.thread..thread_crit_edge.i ], [ %114, %find_es_header.exit.i ]
   %154 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %155 = add i32 %153, %.fr.i
   store i32 %155, ptr %154, align 4, !tbaa !79
@@ -1274,8 +1270,8 @@ check_sync_pes.exit165.i:                         ; preds = %467, %432
   store i32 %496, ptr %12, align 4, !tbaa !79
   br label %demux_video.exit
 
-demux_video.exit:                                 ; preds = %489, %486, %483, %check_sync_pes.exit165.i, %475, %409, %398, %395, %394, %384, %353, %340, %295, %294, %292, %281, %269, %264, %209, %196, %193, %176, %164, %.thread4.i, %150, %144, %493
-  %.1 = phi i32 [ %.0.ph103, %493 ], [ 0, %.thread4.i ], [ 0, %150 ], [ %165, %164 ], [ 1, %176 ], [ 1, %193 ], [ 1, %196 ], [ %148, %144 ], [ 0, %340 ], [ 0, %394 ], [ 0, %475 ], [ 0, %489 ], [ %296, %295 ], [ %396, %395 ], [ %410, %409 ], [ 0, %209 ], [ %267, %264 ], [ 1, %384 ], [ 1, %353 ], [ 1, %483 ], [ 1, %486 ], [ 1, %check_sync_pes.exit165.i ], [ 1, %398 ], [ 1, %292 ], [ 1, %294 ], [ 1, %281 ], [ 1, %269 ]
+demux_video.exit:                                 ; preds = %489, %486, %483, %check_sync_pes.exit165.i, %475, %409, %398, %395, %394, %384, %353, %340, %295, %294, %292, %281, %269, %264, %209, %196, %193, %176, %164, %.thread.i, %150, %144, %493
+  %.1 = phi i32 [ %.0.ph103, %493 ], [ 0, %.thread.i ], [ 0, %150 ], [ %165, %164 ], [ 1, %176 ], [ 1, %193 ], [ 1, %196 ], [ %148, %144 ], [ 0, %340 ], [ 0, %394 ], [ 0, %475 ], [ 0, %489 ], [ %296, %295 ], [ %396, %395 ], [ %410, %409 ], [ 0, %209 ], [ %267, %264 ], [ 1, %384 ], [ 1, %353 ], [ 1, %483 ], [ 1, %486 ], [ 1, %check_sync_pes.exit165.i ], [ 1, %398 ], [ 1, %292 ], [ 1, %294 ], [ 1, %281 ], [ 1, %269 ]
   %497 = icmp slt i32 %.1, 1
   br i1 %497, label %.outer.split.preheader, label %get_chunk.exit.thread, !llvm.loop !80
 

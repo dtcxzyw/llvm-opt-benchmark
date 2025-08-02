@@ -8196,16 +8196,16 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.
   %27 = sub nsw i64 %24, %26
   %28 = lshr i64 %27, 1
   %.not.not.i.i = icmp ugt i64 %1, %28
-  br i1 %.not.not.i.i, label %90, label %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i
+  br i1 %.not.not.i.i, label %90, label %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.i
 
-_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i: ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i.i
+_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.i: ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i.i
   %29 = icmp eq i64 %1, 0
-  %30 = shl nuw i64 %1, 1
-  %31 = add i64 %30, -2
-  %32 = add i64 %31, %26
-  %33 = shl nuw nsw i64 %18, 1
-  %.sroa.4.0.i.ph.i = select i1 %29, i64 %33, i64 %32
-  %34 = add i64 %.sroa.4.0.i.ph.i, 1
+  %30 = shl nuw nsw i64 %18, 1
+  %31 = shl nuw i64 %1, 1
+  %32 = add i64 %31, -2
+  %33 = add i64 %32, %26
+  %.sroa.4.0.i.i = select i1 %29, i64 %30, i64 %33
+  %34 = add i64 %.sroa.4.0.i.i, 1
   br label %38
 
 35:                                               ; preds = %15
@@ -8213,9 +8213,9 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread
   %37 = or disjoint i64 %36, 1
   br label %38
 
-38:                                               ; preds = %35, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i
-  %.061.i = phi i64 [ %36, %35 ], [ %.sroa.4.0.i.ph.i, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i ]
-  %.0.i = phi i64 [ %37, %35 ], [ %34, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i ]
+38:                                               ; preds = %35, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.i
+  %.061.i = phi i64 [ %36, %35 ], [ %.sroa.4.0.i.i, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.i ]
+  %.0.i = phi i64 [ %37, %35 ], [ %34, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.i ]
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = load i64, ptr %40, align 8, !alias.scope !1632, !noalias !1636, !noundef !4
@@ -8358,16 +8358,16 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.
   %27 = sub nsw i64 %24, %26
   %28 = lshr i64 %27, 1
   %.not.not.i.i = icmp ugt i64 %1, %28
-  br i1 %.not.not.i.i, label %79, label %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i
+  br i1 %.not.not.i.i, label %79, label %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.i
 
-_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i: ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i.i
+_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.i: ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i.i
   %29 = icmp eq i64 %1, 0
-  %30 = shl nuw i64 %1, 1
-  %31 = add i64 %30, -2
-  %32 = add i64 %31, %26
-  %33 = shl nuw nsw i64 %18, 1
-  %.sroa.4.0.i.ph.i = select i1 %29, i64 %33, i64 %32
-  %34 = add i64 %.sroa.4.0.i.ph.i, 1
+  %30 = shl nuw nsw i64 %18, 1
+  %31 = shl nuw i64 %1, 1
+  %32 = add i64 %31, -2
+  %33 = add i64 %32, %26
+  %.sroa.4.0.i.i = select i1 %29, i64 %30, i64 %33
+  %34 = add i64 %.sroa.4.0.i.i, 1
   br label %38
 
 35:                                               ; preds = %15
@@ -8375,9 +8375,9 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread
   %37 = or disjoint i64 %36, 1
   br label %38
 
-38:                                               ; preds = %35, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i
-  %.061.i = phi i64 [ %36, %35 ], [ %.sroa.4.0.i.ph.i, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i ]
-  %.0.i = phi i64 [ %37, %35 ], [ %34, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i ]
+38:                                               ; preds = %35, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.i
+  %.061.i = phi i64 [ %36, %35 ], [ %.sroa.4.0.i.i, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.i ]
+  %.0.i = phi i64 [ %37, %35 ], [ %34, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.i ]
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = load i64, ptr %40, align 8, !alias.scope !1666, !noalias !1669, !noundef !4

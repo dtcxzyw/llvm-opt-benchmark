@@ -27,14 +27,17 @@ define i32 @crc32_ccitt_table_lookup(i8 noundef zeroext %0) local_unnamed_addr #
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
 define i32 @crc32c_calculate(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = tail call i32 @llvm.bswap.i32(i32 %2)
-  %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge
+  %4 = icmp sgt i32 %1, 0
+  br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.016 = phi ptr [ %8, %.lr.ph ], [ %0, %3 ]
-  %.01215 = phi i32 [ %13, %.lr.ph ], [ %4, %3 ]
-  %.01314 = phi i32 [ %6, %.lr.ph ], [ %1, %3 ]
+.lr.ph.preheader:                                 ; preds = %3
+  %5 = tail call i32 @llvm.bswap.i32(i32 %2)
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.016 = phi ptr [ %8, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.01215 = phi i32 [ %13, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+  %.01314 = phi i32 [ %6, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %6 = add nsw i32 %.01314, -1
   %7 = lshr i32 %.01215, 8
   %8 = getelementptr i8, ptr %.016, i64 1
@@ -46,12 +49,15 @@ define i32 @crc32c_calculate(ptr noundef readonly captures(none) %0, i32 noundef
   %12 = load i32, ptr %11, align 4
   %13 = xor i32 %12, %7
   %14 = icmp samesign ugt i32 %.01314, 1
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.012.lcssa = phi i32 [ %4, %3 ], [ %13, %.lr.ph ]
-  %15 = tail call i32 @llvm.bswap.i32(i32 %.012.lcssa)
-  ret i32 %15
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %15 = tail call i32 @llvm.bswap.i32(i32 %13)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
+  %.012.lcssa = phi i32 [ %2, %3 ], [ %15, %._crit_edge.loopexit ]
+  ret i32 %.012.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable

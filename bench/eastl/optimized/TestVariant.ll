@@ -7044,7 +7044,6 @@ if.end:                                           ; preds = %_ZN5eastl7variantIJ
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl16adjust_heap_implIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEElOS5_S5_EEvT_T0_S9_S9_T1_(ptr noundef %first, i64 noundef %topPosition, i64 noundef %heapSize, i64 noundef %position, ptr noundef nonnull align 8 dereferenceable(40) %value) local_unnamed_addr #1 comdat {
 entry:
-  %invariant.gep = getelementptr i8, ptr %first, i64 40
   %childPosition.0.in42 = shl nsw i64 %position, 1
   %childPosition.043 = add nsw i64 %childPosition.0.in42, 2
   %cmp44 = icmp slt i64 %childPosition.043, %heapSize
@@ -7053,12 +7052,13 @@ entry:
 for.body:                                         ; preds = %entry, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit
   %childPosition.047 = phi i64 [ %childPosition.0, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %childPosition.043, %entry ]
   %childPosition.0.in46 = phi i64 [ %childPosition.0.in, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %childPosition.0.in42, %entry ]
-  %position.addr.045 = phi i64 [ %3, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %position, %entry ]
+  %position.addr.045 = phi i64 [ %4, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %position, %entry ]
   %add.ptr = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %childPosition.047
-  %gep = getelementptr %"class.eastl::variant.30", ptr %invariant.gep, i64 %childPosition.0.in46
-  %0 = load i64, ptr %add.ptr, align 8
-  %1 = load i64, ptr %gep, align 8
-  %cmp.i = icmp ult i64 %0, %1
+  %0 = getelementptr %"class.eastl::variant.30", ptr %first, i64 %childPosition.0.in46
+  %add.ptr1 = getelementptr i8, ptr %0, i64 40
+  %1 = load i64, ptr %add.ptr, align 8
+  %2 = load i64, ptr %add.ptr1, align 8
+  %cmp.i = icmp ult i64 %1, %2
   br i1 %cmp.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread, label %if.end7.i
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread: ; preds = %for.body
@@ -7066,46 +7066,46 @@ _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.e
   br label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread39
 
 if.end7.i:                                        ; preds = %for.body
-  %cmp10.i = icmp ugt i64 %0, %1
+  %cmp10.i = icmp ugt i64 %1, %2
   br i1 %cmp10.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread39, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit: ; preds = %if.end7.i
-  %arrayidx.i.i.i.i = getelementptr inbounds [2 x ptr], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 0, i64 %0
-  %2 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  %call1.i.i.i.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(40) %gep)
+  %arrayidx.i.i.i.i = getelementptr inbounds [2 x ptr], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 0, i64 %1
+  %3 = load ptr, ptr %arrayidx.i.i.i.i, align 8
+  %call1.i.i.i.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr1)
   %dec = or disjoint i64 %childPosition.0.in46, 1
   %spec.select = select i1 %call1.i.i.i.i, i64 %dec, i64 %childPosition.047
   br label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread39
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread39: ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit, %if.end7.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread
-  %3 = phi i64 [ %dec37, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread ], [ %childPosition.047, %if.end7.i ], [ %spec.select, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit ]
-  %add.ptr2 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %3
-  %cmp.not.i = icmp eq i64 %position.addr.045, %3
+  %4 = phi i64 [ %dec37, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread ], [ %childPosition.047, %if.end7.i ], [ %spec.select, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit ]
+  %add.ptr2 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %4
+  %cmp.not.i = icmp eq i64 %position.addr.045, %4
   br i1 %cmp.not.i, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread39
   %add.ptr4 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %position.addr.045
-  %4 = load i64, ptr %add.ptr2, align 8
-  store i64 %4, ptr %add.ptr4, align 8
+  %5 = load i64, ptr %add.ptr2, align 8
+  store i64 %5, ptr %add.ptr4, align 8
   %mStorage.i = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 8
   %mStorage4.i = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 8
   %mpHandler.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 32
-  %5 = load ptr, ptr %mpHandler.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %mpHandler.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i: ; preds = %if.then.i
-  tail call void %5(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i, ptr noundef null)
+  tail call void %6(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i, ptr noundef null)
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i, %if.then.i
   %mpHandler2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 32
-  %6 = load ptr, ptr %mpHandler2.i.i.i, align 8
-  %tobool3.not.i.i.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %mpHandler2.i.i.i, align 8
+  %tobool3.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool3.not.i.i.i, label %if.end7.i.i.i, label %if.end7.thread.i.i.i
 
 if.end7.thread.i.i.i:                             ; preds = %if.end.i.i.i
-  store ptr %6, ptr %mpHandler.i.i.i, align 8
+  store ptr %7, ptr %mpHandler.i.i.i, align 8
   br label %if.then10.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -7114,18 +7114,18 @@ if.end7.i.i.i:                                    ; preds = %if.end.i.i.i
   br i1 %tobool9.not.i.i.i, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit, label %if.then10.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.end7.i.i.i, %if.end7.thread.i.i.i
-  %7 = phi ptr [ %6, %if.end7.thread.i.i.i ], [ %.pr.i.i.i, %if.end7.i.i.i ]
-  tail call void %7(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i)
+  %8 = phi ptr [ %7, %if.end7.thread.i.i.i ], [ %.pr.i.i.i, %if.end7.i.i.i ]
+  tail call void %8(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i)
   br label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit: ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread39, %if.end7.i.i.i, %if.then10.i.i.i
-  %childPosition.0.in = shl nsw i64 %3, 1
+  %childPosition.0.in = shl nsw i64 %4, 1
   %childPosition.0 = add nsw i64 %childPosition.0.in, 2
   %cmp = icmp slt i64 %childPosition.0, %heapSize
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit, %entry
-  %position.addr.0.lcssa = phi i64 [ %position, %entry ], [ %3, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ]
+  %position.addr.0.lcssa = phi i64 [ %position, %entry ], [ %4, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ]
   %childPosition.0.in.lcssa = phi i64 [ %childPosition.0.in42, %entry ], [ %childPosition.0.in, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ]
   %childPosition.0.lcssa = phi i64 [ %childPosition.043, %entry ], [ %childPosition.0, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ]
   %cmp8 = icmp eq i64 %childPosition.0.lcssa, %heapSize
@@ -7139,27 +7139,27 @@ if.then9:                                         ; preds = %for.end
 
 if.then.i21:                                      ; preds = %if.then9
   %add.ptr13 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %position.addr.0.lcssa
-  %8 = load i64, ptr %add.ptr11, align 8
-  store i64 %8, ptr %add.ptr13, align 8
+  %9 = load i64, ptr %add.ptr11, align 8
+  store i64 %9, ptr %add.ptr13, align 8
   %mStorage.i22 = getelementptr inbounds nuw i8, ptr %add.ptr11, i64 8
   %mStorage4.i23 = getelementptr inbounds nuw i8, ptr %add.ptr13, i64 8
   %mpHandler.i.i.i24 = getelementptr inbounds nuw i8, ptr %add.ptr13, i64 32
-  %9 = load ptr, ptr %mpHandler.i.i.i24, align 8
-  %tobool.not.i.i.i25 = icmp eq ptr %9, null
+  %10 = load ptr, ptr %mpHandler.i.i.i24, align 8
+  %tobool.not.i.i.i25 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i25, label %if.end.i.i.i27, label %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i26
 
 _ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i26: ; preds = %if.then.i21
-  tail call void %9(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i23, ptr noundef null)
+  tail call void %10(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i23, ptr noundef null)
   br label %if.end.i.i.i27
 
 if.end.i.i.i27:                                   ; preds = %_ZN5eastl15variant_storageILb0EJiNS_12basic_stringIcNS_9allocatorEEEEE4DoOpENS4_9StorageOpE.exit.i.i.i26, %if.then.i21
   %mpHandler2.i.i.i28 = getelementptr inbounds nuw i8, ptr %add.ptr11, i64 32
-  %10 = load ptr, ptr %mpHandler2.i.i.i28, align 8
-  %tobool3.not.i.i.i29 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %mpHandler2.i.i.i28, align 8
+  %tobool3.not.i.i.i29 = icmp eq ptr %11, null
   br i1 %tobool3.not.i.i.i29, label %if.end7.i.i.i32, label %if.end7.thread.i.i.i30
 
 if.end7.thread.i.i.i30:                           ; preds = %if.end.i.i.i27
-  store ptr %10, ptr %mpHandler.i.i.i24, align 8
+  store ptr %11, ptr %mpHandler.i.i.i24, align 8
   br label %if.then10.i.i.i31
 
 if.end7.i.i.i32:                                  ; preds = %if.end.i.i.i27
@@ -7168,8 +7168,8 @@ if.end7.i.i.i32:                                  ; preds = %if.end.i.i.i27
   br i1 %tobool9.not.i.i.i34, label %if.end16, label %if.then10.i.i.i31
 
 if.then10.i.i.i31:                                ; preds = %if.end7.i.i.i32, %if.end7.thread.i.i.i30
-  %11 = phi ptr [ %10, %if.end7.thread.i.i.i30 ], [ %.pr.i.i.i33, %if.end7.i.i.i32 ]
-  tail call void %11(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i23, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i22)
+  %12 = phi ptr [ %11, %if.end7.thread.i.i.i30 ], [ %.pr.i.i.i33, %if.end7.i.i.i32 ]
+  tail call void %12(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %mStorage4.i23, ptr noundef nonnull align 8 dereferenceable(32) %mStorage.i22)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then10.i.i.i31, %if.end7.i.i.i32, %if.then9, %for.end

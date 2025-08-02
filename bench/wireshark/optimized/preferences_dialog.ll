@@ -4678,7 +4678,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %27
   %38 = icmp ne ptr %37, null
   %or.cond67 = select i1 %or.cond, i1 %38, i1 false
   %39 = call i32 @llvm.smax.i32(i32 %34, i32 0)
-  %spec.store.select = select i1 %or.cond67, i32 %39, i32 0
+  %.121 = select i1 %or.cond67, i32 %39, i32 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
   br label %49
@@ -4712,7 +4712,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %27
   br label %126
 
 49:                                               ; preds = %_ZNK11QModelIndex7isValidEv.exit.thread, %_Z12qobject_castIP5QMenuET_P7QObject.exit
-  %.020 = phi i32 [ %spec.store.select, %_ZNK11QModelIndex7isValidEv.exit.thread ], [ -1, %_Z12qobject_castIP5QMenuET_P7QObject.exit ]
+  %.020 = phi i32 [ %.121, %_ZNK11QModelIndex7isValidEv.exit.thread ], [ -1, %_Z12qobject_castIP5QMenuET_P7QObject.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %8, i8 0, i64 24, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 16

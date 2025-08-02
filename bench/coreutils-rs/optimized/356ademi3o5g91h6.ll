@@ -1208,8 +1208,8 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$std..sync..mpmc..list..Chan
 
 17:                                               ; preds = %.lr.ph.i
   %.idx.i = mul nuw nsw i64 %12, 136
-  %18 = getelementptr i8, ptr %.01419.i, i64 16
-  %19 = getelementptr i8, ptr %18, i64 %.idx.i
+  %18 = getelementptr inbounds nuw i8, ptr %.01419.i, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
   tail call void @"_ZN4core3ptr51drop_in_place$LT$uu_sort..chunks..RecycledChunk$GT$17hfef13e84c9784637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %19), !noalias !326
   br label %20
 
@@ -24445,8 +24445,8 @@ define hidden void @"_ZN81_$LT$std..sync..mpmc..list..Channel$LT$T$GT$$u20$as$u2
 
 18:                                               ; preds = %.lr.ph
   %.idx = mul nuw nsw i64 %12, 136
-  %19 = getelementptr i8, ptr %.01419, i64 16
-  %20 = getelementptr i8, ptr %19, i64 %.idx
+  %19 = getelementptr inbounds nuw i8, ptr %.01419, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   tail call void @"_ZN4core3ptr51drop_in_place$LT$uu_sort..chunks..RecycledChunk$GT$17hfef13e84c9784637E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %20)
   br label %21
 

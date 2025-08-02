@@ -1463,18 +1463,18 @@ define hidden void @"_ZN108_$LT$itertools..flatten_ok..FlattenOk$LT$I$C$T$C$E$GT
   %6 = load i64, ptr %5, align 8, !range !168, !noundef !16
   %narrow33 = icmp sgt i64 %6, -9223372036854775807
   %.sroa.37.0 = zext i1 %narrow33 to i64
+  %.sroa.05.0 = add nuw nsw i64 %.sroa.37.0, %.sroa.3.0
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val27 = load i8, ptr %7, align 8, !range !178, !noundef !16
   %.not = icmp eq i8 %.val27, 0
-  %8 = add nuw nsw i64 %.sroa.37.0, %.sroa.3.0
-  %spec.select24 = select i1 %.not, i64 %8, i64 undef
-  %9 = xor i8 %.val27, 1
-  %spec.select25 = zext nneg i8 %9 to i64
-  store i64 %8, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %spec.select25, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %spec.select24, ptr %11, align 8
+  %spec.select24 = select i1 %.not, i64 %.sroa.05.0, i64 undef
+  %8 = xor i8 %.val27, 1
+  %spec.select25 = zext nneg i8 %8 to i64
+  store i64 %.sroa.05.0, ptr %0, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %spec.select25, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %spec.select24, ptr %10, align 8
   ret void
 }
 

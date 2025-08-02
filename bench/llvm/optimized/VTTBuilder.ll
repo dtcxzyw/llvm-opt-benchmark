@@ -251,7 +251,7 @@ define dso_local void @_ZN5clang10VTTBuilder16AddVTablePointerENS_13BaseSubobjec
   %21 = load i8, ptr %20, align 8, !tbaa !31, !range !95, !noundef !96
   %22 = trunc nuw i8 %21 to i1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  br i1 %22, label %50, label %24
+  br i1 %22, label %49, label %24
 
 24:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #9
@@ -271,93 +271,93 @@ define dso_local void @_ZN5clang10VTTBuilder16AddVTablePointerENS_13BaseSubobjec
   %33 = icmp uge ptr %7, %.pre3.i
   %34 = icmp ult ptr %7, %32
   %spec.select.i.i.i.i.i = and i1 %33, %34
-  br i1 %spec.select.i.i.i.i.i, label %37, label %35, !prof !100
+  br i1 %spec.select.i.i.i.i.i, label %35, label %.critedge.i.i.i, !prof !100
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %36, i64 noundef %28, i64 noundef 24) #9
+  %36 = ptrtoint ptr %7 to i64
+  %37 = ptrtoint ptr %.pre3.i to i64
+  %38 = sub i64 %36, %37
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %39, i64 noundef %28, i64 noundef 24) #9
+  %40 = load ptr, ptr %23, align 8, !tbaa !27
+  %41 = getelementptr inbounds i8, ptr %40, i64 %38
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit
+
+.critedge.i.i.i:                                  ; preds = %31
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %42, i64 noundef %28, i64 noundef 24) #9
   %.pre.i = load ptr, ptr %23, align 8, !tbaa !27
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit
 
-37:                                               ; preds = %31
-  %38 = ptrtoint ptr %7 to i64
-  %39 = ptrtoint ptr %.pre3.i to i64
-  %40 = sub i64 %38, %39
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %41, i64 noundef %28, i64 noundef 24) #9
-  %42 = load ptr, ptr %23, align 8, !tbaa !27
-  %43 = getelementptr inbounds i8, ptr %42, i64 %40
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit: ; preds = %24, %35, %37
-  %44 = phi ptr [ %.pre3.i, %24 ], [ %42, %37 ], [ %.pre.i, %35 ]
-  %.016.i.i.i = phi ptr [ %7, %24 ], [ %43, %37 ], [ %7, %35 ]
-  %45 = load i32, ptr %25, align 8, !tbaa !28
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"struct.clang::VTTComponent", ptr %44, i64 %46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %48 = load i32, ptr %25, align 8, !tbaa !28
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %25, align 8, !tbaa !28
+_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit: ; preds = %24, %35, %.critedge.i.i.i
+  %43 = phi ptr [ %.pre3.i, %24 ], [ %40, %35 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %7, %24 ], [ %41, %35 ], [ %7, %.critedge.i.i.i ]
+  %44 = load i32, ptr %25, align 8, !tbaa !28
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw %"struct.clang::VTTComponent", ptr %43, i64 %45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %47 = load i32, ptr %25, align 8, !tbaa !28
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %25, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
-  br label %77
+  br label %75
 
-50:                                               ; preds = %19
+49:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #9
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8, !tbaa !87
   %.sroa.2.0.copyload = load i64, ptr %9, align 8, !tbaa !86
   store i64 %3, ptr %8, align 8, !tbaa !101
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %51, align 8, !tbaa !87
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %.sroa.0.0.copyload, ptr %50, align 8, !tbaa !87
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !86
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %53 = load i32, ptr %52, align 8, !tbaa !28
-  %54 = zext i32 %53 to i64
-  %55 = add nuw nsw i64 %54, 1
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1068
-  %57 = load i32, ptr %56, align 4, !tbaa !29
-  %.not.i.i.not.i2 = icmp ult i32 %53, %57
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  %52 = load i32, ptr %51, align 8, !tbaa !28
+  %53 = zext i32 %52 to i64
+  %54 = add nuw nsw i64 %53, 1
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1068
+  %56 = load i32, ptr %55, align 4, !tbaa !29
+  %.not.i.i.not.i2 = icmp ult i32 %52, %56
   %.pre3.i3 = load ptr, ptr %23, align 8, !tbaa !27
-  br i1 %.not.i.i.not.i2, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit7, label %58, !prof !88
+  br i1 %.not.i.i.not.i2, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit8, label %57, !prof !88
 
-58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw %"struct.clang::VTTComponent", ptr %.pre3.i3, i64 %54
-  %60 = icmp uge ptr %8, %.pre3.i3
-  %61 = icmp ult ptr %8, %59
-  %spec.select.i.i.i.i.i4 = and i1 %60, %61
-  br i1 %spec.select.i.i.i.i.i4, label %64, label %62, !prof !100
+57:                                               ; preds = %49
+  %58 = getelementptr inbounds nuw %"struct.clang::VTTComponent", ptr %.pre3.i3, i64 %53
+  %59 = icmp uge ptr %8, %.pre3.i3
+  %60 = icmp ult ptr %8, %58
+  %spec.select.i.i.i.i.i4 = and i1 %59, %60
+  br i1 %spec.select.i.i.i.i.i4, label %61, label %.critedge.i.i.i5, !prof !100
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %63, i64 noundef %55, i64 noundef 24) #9
-  %.pre.i5 = load ptr, ptr %23, align 8, !tbaa !27
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit7
+61:                                               ; preds = %57
+  %62 = ptrtoint ptr %8 to i64
+  %63 = ptrtoint ptr %.pre3.i3 to i64
+  %64 = sub i64 %62, %63
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %65, i64 noundef %54, i64 noundef 24) #9
+  %66 = load ptr, ptr %23, align 8, !tbaa !27
+  %67 = getelementptr inbounds i8, ptr %66, i64 %64
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit8
 
-64:                                               ; preds = %58
-  %65 = ptrtoint ptr %8 to i64
-  %66 = ptrtoint ptr %.pre3.i3 to i64
-  %67 = sub i64 %65, %66
+.critedge.i.i.i5:                                 ; preds = %57
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %68, i64 noundef %55, i64 noundef 24) #9
-  %69 = load ptr, ptr %23, align 8, !tbaa !27
-  %70 = getelementptr inbounds i8, ptr %69, i64 %67
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit7
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %68, i64 noundef %54, i64 noundef 24) #9
+  %.pre.i6 = load ptr, ptr %23, align 8, !tbaa !27
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit8
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit7: ; preds = %50, %62, %64
-  %71 = phi ptr [ %.pre3.i3, %50 ], [ %69, %64 ], [ %.pre.i5, %62 ]
-  %.016.i.i.i6 = phi ptr [ %8, %50 ], [ %70, %64 ], [ %8, %62 ]
-  %72 = load i32, ptr %52, align 8, !tbaa !28
-  %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw %"struct.clang::VTTComponent", ptr %71, i64 %73
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i6, i64 24, i1 false)
-  %75 = load i32, ptr %52, align 8, !tbaa !28
-  %76 = add i32 %75, 1
-  store i32 %76, ptr %52, align 8, !tbaa !28
+_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit8: ; preds = %49, %61, %.critedge.i.i.i5
+  %69 = phi ptr [ %.pre3.i3, %49 ], [ %66, %61 ], [ %.pre.i6, %.critedge.i.i.i5 ]
+  %.016.i.i.i7 = phi ptr [ %8, %49 ], [ %67, %61 ], [ %8, %.critedge.i.i.i5 ]
+  %70 = load i32, ptr %51, align 8, !tbaa !28
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds nuw %"struct.clang::VTTComponent", ptr %69, i64 %71
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i7, i64 24, i1 false)
+  %73 = load i32, ptr %51, align 8, !tbaa !28
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %51, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
-  br label %77
+  br label %75
 
-77:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit7, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit
+75:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit8, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12VTTComponentELb1EE9push_backERKS2_.exit
   ret void
 }
 

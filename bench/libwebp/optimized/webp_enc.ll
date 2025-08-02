@@ -66,7 +66,7 @@ WebPEncodingSetError.exit:                        ; preds = %15, %11, %3, %4, %9
 ; Function Attrs: nounwind uwtable
 define i32 @WebPEncode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %WebPEncodingSetError.exit85, label %4
+  br i1 %3, label %.critedge86, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -76,7 +76,7 @@ define i32 @WebPEncode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
 
 WebPEncodingSetError.exit:                        ; preds = %4
   store i32 3, ptr %5, align 8, !tbaa !3
-  br label %WebPEncodingSetError.exit85
+  br label %.critedge86
 
 7:                                                ; preds = %4
   %8 = tail call i32 @WebPValidateConfig(ptr noundef nonnull %0) #8
@@ -86,16 +86,16 @@ WebPEncodingSetError.exit:                        ; preds = %4
 9:                                                ; preds = %7
   %10 = load i32, ptr %5, align 8, !tbaa !3
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %WebPEncodingSetError.exit85
+  br i1 %11, label %12, label %.critedge86
 
 12:                                               ; preds = %9
   store i32 4, ptr %5, align 8, !tbaa !3
-  br label %WebPEncodingSetError.exit85
+  br label %.critedge86
 
 13:                                               ; preds = %7
   %14 = tail call i32 @WebPValidatePicture(ptr noundef nonnull %1) #8
   %.not70 = icmp eq i32 %14, 0
-  br i1 %.not70, label %WebPEncodingSetError.exit85, label %15
+  br i1 %.not70, label %.critedge86, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -112,11 +112,11 @@ WebPEncodingSetError.exit:                        ; preds = %4
 23:                                               ; preds = %19, %15
   %24 = load i32, ptr %5, align 8, !tbaa !3
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %WebPEncodingSetError.exit85
+  br i1 %25, label %26, label %.critedge86
 
 26:                                               ; preds = %23
   store i32 5, ptr %5, align 8, !tbaa !3
-  br label %WebPEncodingSetError.exit85
+  br label %.critedge86
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -172,7 +172,7 @@ WebPEncodingSetError.exit:                        ; preds = %4
 54:                                               ; preds = %50, %47
   %55 = tail call i32 @WebPPictureSharpARGBToYUVA(ptr noundef nonnull %1) #8
   %.not78 = icmp eq i32 %55, 0
-  br i1 %.not78, label %WebPEncodingSetError.exit85, label %67
+  br i1 %.not78, label %.critedge86, label %67
 
 56:                                               ; preds = %50
   %57 = and i32 %52, 2
@@ -192,7 +192,7 @@ WebPEncodingSetError.exit:                        ; preds = %4
   %.063 = phi float [ %64, %58 ], [ 0.000000e+00, %56 ]
   %66 = tail call i32 @WebPPictureARGBToYUVADithered(ptr noundef nonnull %1, i32 noundef 0, float noundef %.063) #8
   %.not77.not = icmp eq i32 %66, 0
-  br i1 %.not77.not, label %WebPEncodingSetError.exit85, label %67
+  br i1 %.not77.not, label %.critedge86, label %67
 
 67:                                               ; preds = %54, %65, %43
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -207,7 +207,7 @@ WebPEncodingSetError.exit:                        ; preds = %4
 71:                                               ; preds = %70, %67
   %72 = tail call fastcc ptr @InitVP8Encoder(ptr noundef %0, ptr noundef %1)
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %WebPEncodingSetError.exit85, label %74
+  br i1 %73, label %.critedge86, label %74
 
 74:                                               ; preds = %71
   %75 = tail call i32 @VP8EncAnalyze(ptr noundef nonnull %72) #8
@@ -216,21 +216,21 @@ WebPEncodingSetError.exit:                        ; preds = %4
 
 76:                                               ; preds = %74
   %77 = tail call i32 @VP8EncStartAlpha(ptr noundef nonnull %72) #8
-  %.not97 = icmp eq i32 %77, 0
+  %.not95 = icmp eq i32 %77, 0
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 23640
   %79 = load i32, ptr %78, align 8, !tbaa !28
   %.not81 = icmp eq i32 %79, 0
   br i1 %.not81, label %80, label %83
 
 80:                                               ; preds = %76
-  br i1 %.not97, label %.critedge.thread, label %81
+  br i1 %.not95, label %.critedge.thread, label %81
 
 81:                                               ; preds = %80
   %82 = tail call i32 @VP8EncLoop(ptr noundef nonnull %72) #8
   br label %86
 
 83:                                               ; preds = %76
-  br i1 %.not97, label %.critedge.thread, label %84
+  br i1 %.not95, label %.critedge.thread, label %84
 
 84:                                               ; preds = %83
   %85 = tail call i32 @VP8EncTokenLoop(ptr noundef nonnull %72) #8
@@ -243,8 +243,8 @@ WebPEncodingSetError.exit:                        ; preds = %4
 
 87:                                               ; preds = %86
   %88 = tail call i32 @VP8EncFinishAlpha(ptr noundef nonnull %72) #8
-  %.not98 = icmp eq i32 %88, 0
-  br i1 %.not98, label %.critedge.thread, label %.critedge
+  %.not96 = icmp eq i32 %88, 0
+  br i1 %.not96, label %.critedge.thread, label %.critedge
 
 .critedge.thread:                                 ; preds = %74, %87, %86, %80, %83
   tail call fastcc void @StoreStats(ptr noundef %72)
@@ -252,19 +252,19 @@ WebPEncodingSetError.exit:                        ; preds = %4
 
 .critedge:                                        ; preds = %87
   %89 = tail call i32 @VP8EncWrite(ptr noundef nonnull %72) #8
-  %.not99 = icmp eq i32 %89, 0
+  %.not97 = icmp eq i32 %89, 0
   tail call fastcc void @StoreStats(ptr noundef %72)
-  br i1 %.not99, label %90, label %92
+  br i1 %.not97, label %90, label %92
 
 90:                                               ; preds = %.critedge, %.critedge.thread
   tail call void @VP8EncFreeBitWriters(ptr noundef nonnull %72) #8
   %91 = tail call fastcc i32 @DeleteVP8Encoder(ptr noundef %72)
-  br label %WebPEncodingSetError.exit85
+  br label %.critedge86
 
 92:                                               ; preds = %.critedge
   %93 = tail call fastcc i32 @DeleteVP8Encoder(ptr noundef %72)
   %94 = and i32 %93, 1
-  br label %WebPEncodingSetError.exit85
+  br label %.critedge86
 
 95:                                               ; preds = %31
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -275,7 +275,7 @@ WebPEncodingSetError.exit:                        ; preds = %4
 99:                                               ; preds = %95
   %100 = tail call i32 @WebPPictureYUVAToARGB(ptr noundef nonnull %1) #8
   %.not83 = icmp eq i32 %100, 0
-  br i1 %.not83, label %WebPEncodingSetError.exit85, label %101
+  br i1 %.not83, label %.critedge86, label %101
 
 101:                                              ; preds = %99, %95
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -289,10 +289,10 @@ WebPEncodingSetError.exit:                        ; preds = %4
 
 105:                                              ; preds = %104, %101
   %106 = tail call i32 @VP8LEncodeImage(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
-  br label %WebPEncodingSetError.exit85
+  br label %.critedge86
 
-WebPEncodingSetError.exit85:                      ; preds = %92, %90, %71, %54, %65, %26, %23, %12, %9, %105, %99, %13, %2, %WebPEncodingSetError.exit
-  %.0 = phi i32 [ 0, %WebPEncodingSetError.exit ], [ 0, %2 ], [ 0, %13 ], [ 0, %99 ], [ %106, %105 ], [ 0, %9 ], [ 0, %12 ], [ 0, %23 ], [ 0, %26 ], [ 0, %65 ], [ 0, %54 ], [ 0, %71 ], [ %94, %92 ], [ 0, %90 ]
+.critedge86:                                      ; preds = %92, %90, %26, %23, %12, %9, %65, %54, %71, %105, %99, %13, %2, %WebPEncodingSetError.exit
+  %.0 = phi i32 [ 0, %WebPEncodingSetError.exit ], [ 0, %2 ], [ 0, %13 ], [ 0, %99 ], [ %106, %105 ], [ 0, %71 ], [ 0, %54 ], [ 0, %65 ], [ 0, %9 ], [ 0, %12 ], [ 0, %23 ], [ 0, %26 ], [ %94, %92 ], [ 0, %90 ]
   ret i32 %.0
 }
 
@@ -629,161 +629,163 @@ define internal fastcc void @StoreStats(ptr noundef nonnull readonly captures(no
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 44
   br label %11
 
-11:                                               ; preds = %.preheader, %23
-  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %23 ]
-  %12 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %6, i64 0, i64 %indvars.iv34
+11:                                               ; preds = %.preheader, %21
+  %indvars.iv36 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next37, %21 ]
+  %12 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %6, i64 0, i64 %indvars.iv36
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 684
   %14 = load i32, ptr %13, align 4, !tbaa !87
-  %15 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv34
+  %15 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv36
   store i32 %14, ptr %15, align 4, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 680
   %17 = load i32, ptr %16, align 8, !tbaa !90
-  %18 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv34
+  %18 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv36
   store i32 %17, ptr %18, align 4, !tbaa !12
+  %invariant.gep = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv36
+  %invariant.gep30 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv36
   br label %19
 
 19:                                               ; preds = %11, %19
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw [3 x [4 x i32]], ptr %9, i64 0, i64 %indvars.iv, i64 %indvars.iv34
-  %21 = load i32, ptr %20, align 4, !tbaa !12
-  %22 = getelementptr inbounds nuw [3 x [4 x i32]], ptr %10, i64 0, i64 %indvars.iv, i64 %indvars.iv34
-  store i32 %21, ptr %22, align 4, !tbaa !12
+  %gep = getelementptr inbounds nuw [3 x [4 x i32]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %20 = load i32, ptr %gep, align 4, !tbaa !12
+  %gep31 = getelementptr inbounds nuw [3 x [4 x i32]], ptr %invariant.gep30, i64 0, i64 %indvars.iv
+  store i32 %20, ptr %gep31, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %23, label %19, !llvm.loop !91
+  br i1 %exitcond.not, label %21, label %19, !llvm.loop !91
 
-23:                                               ; preds = %19
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond37.not = icmp eq i64 %indvars.iv.next35, 4
-  br i1 %exitcond37.not, label %24, label %11, !llvm.loop !92
+21:                                               ; preds = %19
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %exitcond39.not = icmp eq i64 %indvars.iv.next37, 4
+  br i1 %exitcond39.not, label %22, label %11, !llvm.loop !92
 
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 23544
-  %26 = load i64, ptr %25, align 8, !tbaa !93
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 23512
-  %28 = load i64, ptr %27, align 8, !tbaa !94
-  %29 = icmp ne i64 %28, 0
-  %30 = icmp ne i64 %26, 0
-  %or.cond.i.i = and i1 %30, %29
-  br i1 %or.cond.i.i, label %31, label %GetPSNR.exit.i
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 23544
+  %24 = load i64, ptr %23, align 8, !tbaa !93
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 23512
+  %26 = load i64, ptr %25, align 8, !tbaa !94
+  %27 = icmp ne i64 %26, 0
+  %28 = icmp ne i64 %24, 0
+  %or.cond.i.i = and i1 %28, %27
+  br i1 %or.cond.i.i, label %29, label %GetPSNR.exit.i
 
-31:                                               ; preds = %24
+29:                                               ; preds = %22
+  %30 = uitofp i64 %24 to double
+  %31 = fmul double %30, 6.502500e+04
   %32 = uitofp i64 %26 to double
-  %33 = fmul double %32, 6.502500e+04
-  %34 = uitofp i64 %28 to double
-  %35 = fdiv double %33, %34
-  %36 = tail call double @log10(double noundef %35) #8, !tbaa !12
-  %37 = fmul double %36, 1.000000e+01
-  %38 = fptrunc double %37 to float
+  %33 = fdiv double %31, %32
+  %34 = tail call double @log10(double noundef %33) #8, !tbaa !12
+  %35 = fmul double %34, 1.000000e+01
+  %36 = fptrunc double %35 to float
   br label %GetPSNR.exit.i
 
-GetPSNR.exit.i:                                   ; preds = %31, %24
-  %39 = phi float [ %38, %31 ], [ 9.900000e+01, %24 ]
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float %39, ptr %40, align 4, !tbaa !95
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 23520
-  %42 = load i64, ptr %41, align 8, !tbaa !94
-  %43 = lshr i64 %26, 2
-  %44 = icmp ne i64 %42, 0
-  %45 = icmp ugt i64 %26, 3
-  %or.cond.i19.i = and i1 %45, %44
-  br i1 %or.cond.i19.i, label %46, label %GetPSNR.exit20.i
+GetPSNR.exit.i:                                   ; preds = %29, %22
+  %37 = phi float [ %36, %29 ], [ 9.900000e+01, %22 ]
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store float %37, ptr %38, align 4, !tbaa !95
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 23520
+  %40 = load i64, ptr %39, align 8, !tbaa !94
+  %41 = lshr i64 %24, 2
+  %42 = icmp ne i64 %40, 0
+  %43 = icmp ugt i64 %24, 3
+  %or.cond.i19.i = and i1 %43, %42
+  br i1 %or.cond.i19.i, label %44, label %GetPSNR.exit20.i
 
-46:                                               ; preds = %GetPSNR.exit.i
-  %47 = uitofp nneg i64 %43 to double
-  %48 = fmul double %47, 6.502500e+04
-  %49 = uitofp i64 %42 to double
-  %50 = fdiv double %48, %49
-  %51 = tail call double @log10(double noundef %50) #8, !tbaa !12
-  %52 = fmul double %51, 1.000000e+01
-  %53 = fptrunc double %52 to float
+44:                                               ; preds = %GetPSNR.exit.i
+  %45 = uitofp nneg i64 %41 to double
+  %46 = fmul double %45, 6.502500e+04
+  %47 = uitofp i64 %40 to double
+  %48 = fdiv double %46, %47
+  %49 = tail call double @log10(double noundef %48) #8, !tbaa !12
+  %50 = fmul double %49, 1.000000e+01
+  %51 = fptrunc double %50 to float
   br label %GetPSNR.exit20.i
 
-GetPSNR.exit20.i:                                 ; preds = %46, %GetPSNR.exit.i
-  %54 = phi float [ %53, %46 ], [ 9.900000e+01, %GetPSNR.exit.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store float %54, ptr %55, align 4, !tbaa !95
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 23528
-  %57 = load i64, ptr %56, align 8, !tbaa !94
-  %58 = icmp ne i64 %57, 0
-  %or.cond.i21.i = and i1 %45, %58
-  br i1 %or.cond.i21.i, label %59, label %GetPSNR.exit22.i
+GetPSNR.exit20.i:                                 ; preds = %44, %GetPSNR.exit.i
+  %52 = phi float [ %51, %44 ], [ 9.900000e+01, %GetPSNR.exit.i ]
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store float %52, ptr %53, align 4, !tbaa !95
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 23528
+  %55 = load i64, ptr %54, align 8, !tbaa !94
+  %56 = icmp ne i64 %55, 0
+  %or.cond.i21.i = and i1 %43, %56
+  br i1 %or.cond.i21.i, label %57, label %GetPSNR.exit22.i
 
-59:                                               ; preds = %GetPSNR.exit20.i
-  %60 = uitofp nneg i64 %43 to double
-  %61 = fmul double %60, 6.502500e+04
-  %62 = uitofp i64 %57 to double
-  %63 = fdiv double %61, %62
-  %64 = tail call double @log10(double noundef %63) #8, !tbaa !12
-  %65 = fmul double %64, 1.000000e+01
-  %66 = fptrunc double %65 to float
+57:                                               ; preds = %GetPSNR.exit20.i
+  %58 = uitofp nneg i64 %41 to double
+  %59 = fmul double %58, 6.502500e+04
+  %60 = uitofp i64 %55 to double
+  %61 = fdiv double %59, %60
+  %62 = tail call double @log10(double noundef %61) #8, !tbaa !12
+  %63 = fmul double %62, 1.000000e+01
+  %64 = fptrunc double %63 to float
   br label %GetPSNR.exit22.i
 
-GetPSNR.exit22.i:                                 ; preds = %59, %GetPSNR.exit20.i
-  %67 = phi float [ %66, %59 ], [ 9.900000e+01, %GetPSNR.exit20.i ]
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store float %67, ptr %68, align 4, !tbaa !95
-  %69 = add i64 %42, %28
-  %70 = add i64 %69, %57
-  %71 = mul i64 %26, 3
-  %72 = icmp ne i64 %70, 0
-  %73 = icmp ugt i64 %71, 1
-  %or.cond.i23.i = and i1 %73, %72
-  br i1 %or.cond.i23.i, label %74, label %GetPSNR.exit24.i
+GetPSNR.exit22.i:                                 ; preds = %57, %GetPSNR.exit20.i
+  %65 = phi float [ %64, %57 ], [ 9.900000e+01, %GetPSNR.exit20.i ]
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store float %65, ptr %66, align 4, !tbaa !95
+  %67 = add i64 %40, %26
+  %68 = add i64 %67, %55
+  %69 = mul i64 %24, 3
+  %70 = icmp ne i64 %68, 0
+  %71 = icmp ugt i64 %69, 1
+  %or.cond.i23.i = and i1 %71, %70
+  br i1 %or.cond.i23.i, label %72, label %GetPSNR.exit24.i
 
-74:                                               ; preds = %GetPSNR.exit22.i
-  %75 = lshr i64 %71, 1
-  %76 = uitofp nneg i64 %75 to double
-  %77 = fmul double %76, 6.502500e+04
-  %78 = uitofp i64 %70 to double
-  %79 = fdiv double %77, %78
-  %80 = tail call double @log10(double noundef %79) #8, !tbaa !12
-  %81 = fmul double %80, 1.000000e+01
-  %82 = fptrunc double %81 to float
+72:                                               ; preds = %GetPSNR.exit22.i
+  %73 = lshr i64 %69, 1
+  %74 = uitofp nneg i64 %73 to double
+  %75 = fmul double %74, 6.502500e+04
+  %76 = uitofp i64 %68 to double
+  %77 = fdiv double %75, %76
+  %78 = tail call double @log10(double noundef %77) #8, !tbaa !12
+  %79 = fmul double %78, 1.000000e+01
+  %80 = fptrunc double %79 to float
   br label %GetPSNR.exit24.i
 
-GetPSNR.exit24.i:                                 ; preds = %74, %GetPSNR.exit22.i
-  %83 = phi float [ %82, %74 ], [ 9.900000e+01, %GetPSNR.exit22.i ]
-  %84 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store float %83, ptr %84, align 4, !tbaa !95
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 23536
-  %86 = load i64, ptr %85, align 8, !tbaa !94
-  %87 = icmp ne i64 %86, 0
-  %or.cond.i25.i = and i1 %30, %87
-  br i1 %or.cond.i25.i, label %88, label %FinalizePSNR.exit
+GetPSNR.exit24.i:                                 ; preds = %72, %GetPSNR.exit22.i
+  %81 = phi float [ %80, %72 ], [ 9.900000e+01, %GetPSNR.exit22.i ]
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store float %81, ptr %82, align 4, !tbaa !95
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 23536
+  %84 = load i64, ptr %83, align 8, !tbaa !94
+  %85 = icmp ne i64 %84, 0
+  %or.cond.i25.i = and i1 %28, %85
+  br i1 %or.cond.i25.i, label %86, label %FinalizePSNR.exit
 
-88:                                               ; preds = %GetPSNR.exit24.i
-  %89 = uitofp i64 %26 to double
-  %90 = fmul double %89, 6.502500e+04
-  %91 = uitofp i64 %86 to double
-  %92 = fdiv double %90, %91
-  %93 = tail call double @log10(double noundef %92) #8, !tbaa !12
-  %94 = fmul double %93, 1.000000e+01
-  %95 = fptrunc double %94 to float
+86:                                               ; preds = %GetPSNR.exit24.i
+  %87 = uitofp i64 %24 to double
+  %88 = fmul double %87, 6.502500e+04
+  %89 = uitofp i64 %84 to double
+  %90 = fdiv double %88, %89
+  %91 = tail call double @log10(double noundef %90) #8, !tbaa !12
+  %92 = fmul double %91, 1.000000e+01
+  %93 = fptrunc double %92 to float
   br label %FinalizePSNR.exit
 
-FinalizePSNR.exit:                                ; preds = %GetPSNR.exit24.i, %88
-  %96 = phi float [ %95, %88 ], [ 9.900000e+01, %GetPSNR.exit24.i ]
-  %97 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store float %96, ptr %97, align 4, !tbaa !95
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 23552
-  %99 = load i32, ptr %98, align 8, !tbaa !96
-  store i32 %99, ptr %5, align 4, !tbaa !97
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 23604
-  %101 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  br label %102
+FinalizePSNR.exit:                                ; preds = %GetPSNR.exit24.i, %86
+  %94 = phi float [ %93, %86 ], [ 9.900000e+01, %GetPSNR.exit24.i ]
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store float %94, ptr %95, align 4, !tbaa !95
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 23552
+  %97 = load i32, ptr %96, align 8, !tbaa !96
+  store i32 %97, ptr %5, align 4, !tbaa !97
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 23604
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  br label %100
 
-102:                                              ; preds = %FinalizePSNR.exit, %102
-  %indvars.iv38 = phi i64 [ 0, %FinalizePSNR.exit ], [ %indvars.iv.next39, %102 ]
-  %103 = getelementptr inbounds nuw [3 x i32], ptr %100, i64 0, i64 %indvars.iv38
-  %104 = load i32, ptr %103, align 4, !tbaa !12
-  %105 = getelementptr inbounds nuw [3 x i32], ptr %101, i64 0, i64 %indvars.iv38
-  store i32 %104, ptr %105, align 4, !tbaa !12
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %exitcond41.not = icmp eq i64 %indvars.iv.next39, 3
-  br i1 %exitcond41.not, label %.loopexit, label %102, !llvm.loop !99
+100:                                              ; preds = %FinalizePSNR.exit, %100
+  %indvars.iv40 = phi i64 [ 0, %FinalizePSNR.exit ], [ %indvars.iv.next41, %100 ]
+  %101 = getelementptr inbounds nuw [3 x i32], ptr %98, i64 0, i64 %indvars.iv40
+  %102 = load i32, ptr %101, align 4, !tbaa !12
+  %103 = getelementptr inbounds nuw [3 x i32], ptr %99, i64 0, i64 %indvars.iv40
+  store i32 %102, ptr %103, align 4, !tbaa !12
+  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
+  br i1 %exitcond43.not, label %.loopexit, label %100, !llvm.loop !99
 
-.loopexit:                                        ; preds = %102, %1
+.loopexit:                                        ; preds = %100, %1
   ret void
 }
 

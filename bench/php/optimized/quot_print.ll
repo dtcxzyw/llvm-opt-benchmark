@@ -492,7 +492,7 @@ zend_parse_arg_str_ex.exit..critedge132_crit_edge: ; preds = %zend_parse_arg_str
   %.0111154 = phi ptr [ null, %.thread147 ], [ %7, %zend_parse_arg_str_ex.exit ]
   %.0112153 = phi i32 [ 0, %.thread147 ], [ 4, %zend_parse_arg_str_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.0110155, i32 noundef %.0108156, ptr noundef null, i32 noundef %.0112153, ptr noundef %.0111154) #9
-  br label %81
+  br label %83
 
 .critedge132:                                     ; preds = %zend_parse_arg_str_ex.exit..critedge132_crit_edge, %.thread158
   %14 = phi ptr [ %.pre, %zend_parse_arg_str_ex.exit..critedge132_crit_edge ], [ %11, %.thread158 ]
@@ -506,7 +506,7 @@ zend_parse_arg_str_ex.exit..critedge132_crit_edge: ; preds = %zend_parse_arg_str
   store ptr %19, ptr %1, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %20, align 8, !tbaa !4
-  br label %81
+  br label %83
 
 zend_string_alloc.exit:                           ; preds = %.critedge132
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -519,7 +519,6 @@ zend_string_alloc.exit:                           ; preds = %.critedge132
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %26, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %invariant.gep = getelementptr i8, ptr %14, i64 25
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   br label %.loopexit.outer
 
@@ -532,8 +531,8 @@ zend_string_alloc.exit:                           ; preds = %.critedge132
   %.0 = phi i64 [ %.0.ph, %.loopexit.outer ], [ %.0.be, %.loopexit.backedge ]
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 %.0
   %30 = load i8, ptr %29, align 1, !tbaa !4
-  switch i8 %30, label %75 [
-    i8 0, label %78
+  switch i8 %30, label %77 [
+    i8 0, label %80
     i8 61, label %31
   ]
 
@@ -591,8 +590,8 @@ zend_string_alloc.exit:                           ; preds = %.critedge132
   %60 = add i64 %.0, 3
   br label %.loopexit.outer.backedge
 
-.loopexit.outer.backedge:                         ; preds = %50, %73, %75
-  %.0.ph.be = phi i64 [ %76, %75 ], [ %32, %73 ], [ %60, %50 ]
+.loopexit.outer.backedge:                         ; preds = %50, %75, %77
+  %.0.ph.be = phi i64 [ %78, %77 ], [ %32, %75 ], [ %60, %50 ]
   %.0105.ph.be = add i64 %.0105.ph, 1
   br label %.loopexit.outer
 
@@ -601,7 +600,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge132
   %62 = add i64 %.0107, %.0
   %63 = getelementptr inbounds nuw i8, ptr %21, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !4
-  switch i8 %64, label %73 [
+  switch i8 %64, label %75 [
     i8 9, label %.critedge3
     i8 32, label %.critedge3
     i8 0, label %.loopexit.backedge
@@ -614,45 +613,46 @@ zend_string_alloc.exit:                           ; preds = %.critedge132
   br label %61
 
 66:                                               ; preds = %61
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %62
-  %67 = load i8, ptr %gep, align 1, !tbaa !4
-  %68 = icmp eq i8 %67, 10
-  br i1 %68, label %69, label %.thread157
+  %67 = getelementptr inbounds nuw i8, ptr %21, i64 %62
+  %68 = getelementptr i8, ptr %67, i64 1
+  %69 = load i8, ptr %68, align 1, !tbaa !4
+  %70 = icmp eq i8 %69, 10
+  br i1 %70, label %71, label %.thread157
 
-69:                                               ; preds = %66
-  %70 = add i64 %.0, 2
-  %71 = add i64 %70, %.0107
+71:                                               ; preds = %66
+  %72 = add i64 %.0, 2
+  %73 = add i64 %72, %.0107
   br label %.loopexit.backedge
 
-.loopexit.backedge:                               ; preds = %61, %69, %.thread157
-  %.0.be = phi i64 [ %71, %69 ], [ %72, %.thread157 ], [ %62, %61 ]
+.loopexit.backedge:                               ; preds = %61, %71, %.thread157
+  %.0.be = phi i64 [ %73, %71 ], [ %74, %.thread157 ], [ %62, %61 ]
   br label %.loopexit
 
 .thread157:                                       ; preds = %61, %66
-  %72 = add i64 %32, %.0107
+  %74 = add i64 %32, %.0107
   br label %.loopexit.backedge
 
-73:                                               ; preds = %61
-  %74 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %.0105.ph
-  store i8 61, ptr %74, align 1, !tbaa !4
+75:                                               ; preds = %61
+  %76 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %.0105.ph
+  store i8 61, ptr %76, align 1, !tbaa !4
   br label %.loopexit.outer.backedge
 
-75:                                               ; preds = %.loopexit
-  %76 = add i64 %.0, 1
-  %77 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %.0105.ph
-  store i8 %30, ptr %77, align 1, !tbaa !4
-  br label %.loopexit.outer.backedge
-
-78:                                               ; preds = %.loopexit
+77:                                               ; preds = %.loopexit
+  %78 = add i64 %.0, 1
   %79 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %.0105.ph
-  store i8 0, ptr %79, align 1, !tbaa !4
+  store i8 %30, ptr %79, align 1, !tbaa !4
+  br label %.loopexit.outer.backedge
+
+80:                                               ; preds = %.loopexit
+  %81 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %.0105.ph
+  store i8 0, ptr %81, align 1, !tbaa !4
   store i64 %.0105.ph, ptr %27, align 8, !tbaa !13
   store ptr %24, ptr %1, align 8, !tbaa !4
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 262, ptr %80, align 8, !tbaa !4
-  br label %81
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 262, ptr %82, align 8, !tbaa !4
+  br label %83
 
-81:                                               ; preds = %13, %78, %18
+83:                                               ; preds = %13, %80, %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   ret void
 }

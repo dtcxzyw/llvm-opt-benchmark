@@ -2801,32 +2801,32 @@ define dso_local noundef ptr @_ZNK4llvm11VPIntrinsic21getMemoryPointerParamEv(pt
   tail call void @llvm.assume(i1 %5)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !40
-  switch i32 %7, label %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit [
-    i32 473, label %9
-    i32 462, label %9
-    i32 168, label %9
+  switch i32 %7, label %.critedge [
+    i32 473, label %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit
+    i32 462, label %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit
+    i32 168, label %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit
     i32 430, label %8
     i32 425, label %8
     i32 167, label %8
   ]
 
 8:                                                ; preds = %1, %1, %1
-  br label %9
-
-9:                                                ; preds = %1, %1, %1, %8
-  %.sroa.0.0.i.ph = phi i64 [ 0, %8 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4
-  %12 = and i32 %11, 134217727
-  %13 = zext nneg i32 %12 to i64
-  %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %14
-  %16 = getelementptr inbounds nuw %"class.llvm::Use", ptr %15, i64 %.sroa.0.0.i.ph
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
   br label %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit
 
-_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit: ; preds = %1, %9
-  %spec.select = phi ptr [ %17, %9 ], [ null, %1 ]
+_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit: ; preds = %1, %1, %1, %8
+  %.sroa.0.0.i = phi i64 [ 0, %8 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %10 = load i32, ptr %9, align 4
+  %11 = and i32 %10, 134217727
+  %12 = zext nneg i32 %11 to i64
+  %13 = sub nsw i64 0, %12
+  %14 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %13
+  %15 = getelementptr inbounds nuw %"class.llvm::Use", ptr %14, i64 %.sroa.0.0.i
+  %16 = load ptr, ptr %15, align 8, !tbaa !16
+  br label %.critedge
+
+.critedge:                                        ; preds = %1, %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit
+  %spec.select = phi ptr [ %16, %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit ], [ null, %1 ]
   ret ptr %spec.select
 }
 

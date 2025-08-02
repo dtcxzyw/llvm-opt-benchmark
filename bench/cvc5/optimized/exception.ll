@@ -271,32 +271,28 @@ define void @_ZN4cvc58internal24IllegalArgumentException14formatVariadicB5cxx11E
   br label %6
 
 6:                                                ; preds = %2, %14
-  %.030 = phi i32 [ 512, %2 ], [ %18, %14 ]
-  %.01729 = phi ptr [ null, %2 ], [ %12, %14 ]
+  %.028 = phi i32 [ 512, %2 ], [ %18, %14 ]
+  %.01727 = phi ptr [ null, %2 ], [ %12, %14 ]
   %7 = phi i1 [ true, %2 ], [ false, %14 ]
-  %8 = icmp eq ptr %.01729, null
+  %8 = icmp eq ptr %.01727, null
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %6
-  call void @_ZdaPv(ptr noundef nonnull %.01729) #22
+  call void @_ZdaPv(ptr noundef nonnull %.01727) #22
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = zext nneg i32 %.030 to i64
+  %11 = zext nneg i32 %.028 to i64
   %12 = call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr nonnull %4)
   %13 = call i32 @vsnprintf(ptr noundef nonnull %12, i64 noundef %11, ptr noundef %1, ptr noundef nonnull %4) #21
   call void @llvm.va_end.p0(ptr nonnull %5)
-  %.not.not = icmp slt i32 %13, %.030
-  br i1 %.not.not, label %.thread24, label %14
-
-.thread24:                                        ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #21
-  br label %.loopexit
+  %.not.not = icmp slt i32 %13, %.028
+  br i1 %.not.not, label %.thread, label %14
 
 14:                                               ; preds = %10
-  %15 = sext i32 %.030 to i64
+  %15 = sext i32 %.028 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -1
   store i8 0, ptr %17, align 1, !tbaa !21
@@ -304,7 +300,11 @@ define void @_ZN4cvc58internal24IllegalArgumentException14formatVariadicB5cxx11E
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #21
   br i1 %7, label %6, label %.loopexit, !llvm.loop !32
 
-.loopexit:                                        ; preds = %14, %.thread24
+.thread:                                          ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #21
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %14, %.thread
   %storemerge = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %storemerge, ptr %0, align 8, !tbaa !12
   %19 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #21

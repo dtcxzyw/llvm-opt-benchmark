@@ -65,7 +65,7 @@ gv_calloc.exit:                                   ; preds = %9
 gv_calloc.exit77:                                 ; preds = %23
   tail call void @srand(i32 noundef %2) #11
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %.preheader78.split.preheader.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %gv_calloc.exit77
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -80,15 +80,12 @@ gv_calloc.exit77:                                 ; preds = %23
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph, %gv_calloc.exit77
+._crit_edge:                                      ; preds = %.lr.ph
   %32 = tail call double @vector_product(i32 noundef %1, ptr noundef %24, ptr noundef %24) #11
   %33 = tail call double @sqrt(double noundef %32) #11, !tbaa !15
   %34 = fcmp ogt double %33, 0.000000e+00
   %35 = fdiv double 1.000000e+00, %33
   %.063 = select i1 %34, double %35, double %33
-  br i1 %.not, label %.preheader78.split, label %.lr.ph82.preheader
-
-.lr.ph82.preheader:                               ; preds = %._crit_edge
   %wide.trip.count99 = zext nneg i32 %1 to i64
   br label %.lr.ph82
 
@@ -97,111 +94,116 @@ gv_calloc.exit77:                                 ; preds = %23
   %wide.trip.count111 = zext nneg i32 %1 to i64
   br label %.preheader78.split.us
 
+.preheader78.split.preheader.critedge:            ; preds = %gv_calloc.exit77
+  %36 = tail call double @vector_product(i32 noundef %1, ptr noundef %24, ptr noundef %24) #11
+  %37 = tail call double @sqrt(double noundef %36) #11, !tbaa !15
+  br label %.preheader78.split
+
 .preheader78.split.us:                            ; preds = %.preheader78.split.us.preheader, %._crit_edge90.us
-  %.0.us = phi i32 [ %62, %._crit_edge90.us ], [ 0, %.preheader78.split.us.preheader ]
+  %.0.us = phi i32 [ %64, %._crit_edge90.us ], [ 0, %.preheader78.split.us.preheader ]
   call void @SparseMatrix_multiply_vector(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %4) #11
-  %36 = load ptr, ptr %4, align 8, !tbaa !9
-  %37 = call double @vector_product(i32 noundef %1, ptr noundef %36, ptr noundef %36) #11
-  %38 = call double @sqrt(double noundef %37) #11, !tbaa !15
-  %39 = fcmp ogt double %38, 0.000000e+00
-  br i1 %39, label %49, label %.lr.ph84.us
+  %38 = load ptr, ptr %4, align 8, !tbaa !9
+  %39 = call double @vector_product(i32 noundef %1, ptr noundef %38, ptr noundef %38) #11
+  %40 = call double @sqrt(double noundef %39) #11, !tbaa !15
+  %41 = fcmp ogt double %40, 0.000000e+00
+  br i1 %41, label %51, label %.lr.ph84.us
 
-._crit_edge85.us:                                 ; preds = %45
-  %40 = call double @vector_product(i32 noundef %1, ptr noundef nonnull %60, ptr noundef nonnull %60) #11
-  %41 = call double @sqrt(double noundef %40) #11, !tbaa !15
-  %42 = fcmp ogt double %41, 0.000000e+00
-  br i1 %42, label %43, label %.lr.ph89.us
+._crit_edge85.us:                                 ; preds = %47
+  %42 = call double @vector_product(i32 noundef %1, ptr noundef nonnull %62, ptr noundef nonnull %62) #11
+  %43 = call double @sqrt(double noundef %42) #11, !tbaa !15
+  %44 = fcmp ogt double %43, 0.000000e+00
+  br i1 %44, label %45, label %.lr.ph89.us
 
-43:                                               ; preds = %._crit_edge85.us
-  %44 = fdiv double 1.000000e+00, %41
+45:                                               ; preds = %._crit_edge85.us
+  %46 = fdiv double 1.000000e+00, %43
   br label %.lr.ph89.us
 
-45:                                               ; preds = %.lr.ph84.us, %45
-  %indvars.iv101 = phi i64 [ 0, %.lr.ph84.us ], [ %indvars.iv.next102, %45 ]
-  %46 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv101
-  %47 = load double, ptr %46, align 8, !tbaa !11
-  %48 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv101
-  store double %47, ptr %48, align 8, !tbaa !11
+47:                                               ; preds = %.lr.ph84.us, %47
+  %indvars.iv101 = phi i64 [ 0, %.lr.ph84.us ], [ %indvars.iv.next102, %47 ]
+  %48 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv101
+  %49 = load double, ptr %48, align 8, !tbaa !11
+  %50 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv101
+  store double %49, ptr %50, align 8, !tbaa !11
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge85.us, label %45, !llvm.loop !17
+  br i1 %exitcond106.not, label %._crit_edge85.us, label %47, !llvm.loop !17
 
-49:                                               ; preds = %.preheader78.split.us
-  %50 = fdiv double 1.000000e+00, %38
+51:                                               ; preds = %.preheader78.split.us
+  %52 = fdiv double 1.000000e+00, %40
   br label %.lr.ph89.us
 
-.lr.ph89.us:                                      ; preds = %49, %43, %._crit_edge85.us
-  %.062.us = phi double [ %50, %49 ], [ %44, %43 ], [ %41, %._crit_edge85.us ]
-  %51 = load ptr, ptr %4, align 8, !tbaa !9
-  br label %52
+.lr.ph89.us:                                      ; preds = %51, %45, %._crit_edge85.us
+  %.062.us = phi double [ %52, %51 ], [ %46, %45 ], [ %43, %._crit_edge85.us ]
+  %53 = load ptr, ptr %4, align 8, !tbaa !9
+  br label %54
 
-52:                                               ; preds = %.lr.ph89.us, %52
-  %indvars.iv107 = phi i64 [ 0, %.lr.ph89.us ], [ %indvars.iv.next108, %52 ]
-  %.16486.us = phi double [ 0.000000e+00, %.lr.ph89.us ], [ %59, %52 ]
-  %53 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv107
-  %54 = load double, ptr %53, align 8, !tbaa !11
-  %55 = fmul double %.062.us, %54
-  %56 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv107
-  store double %55, ptr %56, align 8, !tbaa !11
-  %57 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv107
-  %58 = load double, ptr %57, align 8, !tbaa !11
-  %59 = call double @llvm.fmuladd.f64(double %55, double %58, double %.16486.us)
-  store double %55, ptr %57, align 8, !tbaa !11
+54:                                               ; preds = %.lr.ph89.us, %54
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph89.us ], [ %indvars.iv.next108, %54 ]
+  %.16486.us = phi double [ 0.000000e+00, %.lr.ph89.us ], [ %61, %54 ]
+  %55 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv107
+  %56 = load double, ptr %55, align 8, !tbaa !11
+  %57 = fmul double %.062.us, %56
+  %58 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv107
+  store double %57, ptr %58, align 8, !tbaa !11
+  %59 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv107
+  %60 = load double, ptr %59, align 8, !tbaa !11
+  %61 = call double @llvm.fmuladd.f64(double %57, double %60, double %.16486.us)
+  store double %57, ptr %59, align 8, !tbaa !11
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge90.us, label %52, !llvm.loop !18
+  br i1 %exitcond112.not, label %._crit_edge90.us, label %54, !llvm.loop !18
 
 .lr.ph84.us:                                      ; preds = %.preheader78.split.us
-  %60 = load ptr, ptr %4, align 8, !tbaa !9
-  br label %45
+  %62 = load ptr, ptr %4, align 8, !tbaa !9
+  br label %47
 
-._crit_edge90.us:                                 ; preds = %52
-  %61 = fcmp olt double %59, 9.999900e-01
-  %62 = add nuw nsw i32 %.0.us, 1
-  %63 = icmp samesign ult i32 %.0.us, 100
-  %or.cond.us = select i1 %61, i1 %63, i1 false
+._crit_edge90.us:                                 ; preds = %54
+  %63 = fcmp olt double %61, 9.999900e-01
+  %64 = add nuw nsw i32 %.0.us, 1
+  %65 = icmp samesign ult i32 %.0.us, 100
+  %or.cond.us = select i1 %63, i1 %65, i1 false
   br i1 %or.cond.us, label %.preheader78.split.us, label %.critedge, !llvm.loop !19
 
-.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
-  %indvars.iv96 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next97, %.lr.ph82 ]
-  %64 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv96
-  %65 = load double, ptr %64, align 8, !tbaa !11
-  %66 = fmul double %.063, %65
-  store double %66, ptr %64, align 8, !tbaa !11
-  %67 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv96
-  store double %66, ptr %67, align 8, !tbaa !11
+.lr.ph82:                                         ; preds = %._crit_edge, %.lr.ph82
+  %indvars.iv96 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next97, %.lr.ph82 ]
+  %66 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv96
+  %67 = load double, ptr %66, align 8, !tbaa !11
+  %68 = fmul double %.063, %67
+  store double %68, ptr %66, align 8, !tbaa !11
+  %69 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv96
+  store double %68, ptr %69, align 8, !tbaa !11
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
   br i1 %exitcond100.not, label %.preheader78.split.us.preheader, label %.lr.ph82, !llvm.loop !21
 
-.preheader78.split:                               ; preds = %._crit_edge, %74
-  %.0 = phi i32 [ %75, %74 ], [ 0, %._crit_edge ]
+.preheader78.split:                               ; preds = %.preheader78.split.preheader.critedge, %76
+  %.0 = phi i32 [ %77, %76 ], [ 0, %.preheader78.split.preheader.critedge ]
   call void @SparseMatrix_multiply_vector(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %4) #11
-  %68 = load ptr, ptr %4, align 8, !tbaa !9
-  %69 = call double @vector_product(i32 noundef 0, ptr noundef %68, ptr noundef %68) #11
-  %70 = call double @sqrt(double noundef %69) #11, !tbaa !15
-  %71 = fcmp ogt double %70, 0.000000e+00
-  br i1 %71, label %74, label %._crit_edge85
+  %70 = load ptr, ptr %4, align 8, !tbaa !9
+  %71 = call double @vector_product(i32 noundef 0, ptr noundef %70, ptr noundef %70) #11
+  %72 = call double @sqrt(double noundef %71) #11, !tbaa !15
+  %73 = fcmp ogt double %72, 0.000000e+00
+  br i1 %73, label %76, label %._crit_edge85
 
 ._crit_edge85:                                    ; preds = %.preheader78.split
   %.pre117 = load ptr, ptr %4, align 8, !tbaa !9
-  %72 = call double @vector_product(i32 noundef 0, ptr noundef %.pre117, ptr noundef %.pre117) #11
-  %73 = call double @sqrt(double noundef %72) #11, !tbaa !15
-  br label %74
+  %74 = call double @vector_product(i32 noundef 0, ptr noundef %.pre117, ptr noundef %.pre117) #11
+  %75 = call double @sqrt(double noundef %74) #11, !tbaa !15
+  br label %76
 
-74:                                               ; preds = %._crit_edge85, %.preheader78.split
-  %75 = add nuw nsw i32 %.0, 1
-  %exitcond116.not = icmp eq i32 %75, 101
+76:                                               ; preds = %._crit_edge85, %.preheader78.split
+  %77 = add nuw nsw i32 %.0, 1
+  %exitcond116.not = icmp eq i32 %77, 101
   br i1 %exitcond116.not, label %.critedge.loopexit, label %.preheader78.split, !llvm.loop !22
 
-.critedge.loopexit:                               ; preds = %74
+.critedge.loopexit:                               ; preds = %76
   %.pre118 = load ptr, ptr %4, align 8, !tbaa !9
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge90.us, %.critedge.loopexit
-  %76 = phi ptr [ %.pre118, %.critedge.loopexit ], [ %51, %._crit_edge90.us ]
+  %78 = phi ptr [ %.pre118, %.critedge.loopexit ], [ %53, %._crit_edge90.us ]
   call void @free(ptr noundef %24) #11
-  call void @free(ptr noundef %76) #11
+  call void @free(ptr noundef %78) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   ret ptr %11
 }

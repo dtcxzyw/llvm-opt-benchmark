@@ -649,7 +649,7 @@ define hidden void @"_ZN3der4asn18optional79_$LT$impl$u20$der..decode..Decode$u2
   %9 = load i32, ptr %8, align 4, !alias.scope !149, !noundef !9
   %10 = tail call noundef i32 @_ZN3der6length6Length14saturating_sub17h6c49ac055b0683ecE(i32 noundef %7, i32 noundef %9), !noalias !152
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9peek_byte17hc2a3d5fabbe254c6E.exit.thread", label %12
+  br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %1, align 8, !alias.scope !140, !nonnull !9, !align !153, !noundef !9
@@ -661,13 +661,13 @@ define hidden void @"_ZN3der4asn18optional79_$LT$impl$u20$der..decode..Decode$u2
   %17 = load i32, ptr %16, align 4, !alias.scope !163, !noalias !140, !noundef !9
   %18 = tail call noundef i32 @_ZN3der6length6Length14saturating_sub17h6c49ac055b0683ecE(i32 noundef %15, i32 noundef %17), !noalias !166
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9peek_byte17hc2a3d5fabbe254c6E.exit.thread", label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9peek_byte17hc2a3d5fabbe254c6E.exit"
+  br i1 %19, label %.critedge, label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9peek_byte17hc2a3d5fabbe254c6E.exit"
 
 "_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9peek_byte17hc2a3d5fabbe254c6E.exit": ; preds = %12
   %20 = load ptr, ptr %13, align 8, !alias.scope !154, !noalias !140, !nonnull !9, !align !153, !noundef !9
   %21 = tail call { i1, i8 } @"_ZN71_$LT$der..reader..slice..SliceReader$u20$as$u20$der..reader..Reader$GT$9peek_byte17h80a23461688484c7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20), !noalias !167
   %22 = extractvalue { i1, i8 } %21, 0
-  br i1 %22, label %23, label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9peek_byte17hc2a3d5fabbe254c6E.exit.thread"
+  br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9peek_byte17hc2a3d5fabbe254c6E.exit"
   %24 = extractvalue { i1, i8 } %21, 1
@@ -677,7 +677,7 @@ define hidden void @"_ZN3der4asn18optional79_$LT$impl$u20$der..decode..Decode$u2
   %26 = icmp eq i32 %25, 2
   br i1 %26, label %27, label %32
 
-"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9peek_byte17hc2a3d5fabbe254c6E.exit.thread": ; preds = %12, %2, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9peek_byte17hc2a3d5fabbe254c6E.exit"
+.critedge:                                        ; preds = %2, %12, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9peek_byte17hc2a3d5fabbe254c6E.exit"
   %.sroa.37.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 23, ptr %.sroa.37.0..sroa_idx, align 8
   store i32 2, ptr %0, align 8
@@ -739,7 +739,7 @@ define hidden void @"_ZN3der4asn18optional79_$LT$impl$u20$der..decode..Decode$u2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   br label %38
 
-38:                                               ; preds = %32, %37, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9peek_byte17hc2a3d5fabbe254c6E.exit.thread"
+38:                                               ; preds = %32, %37, %.critedge
   ret void
 }
 

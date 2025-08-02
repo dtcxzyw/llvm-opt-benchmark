@@ -1380,101 +1380,101 @@ _ZN4llvm13GISelWorkListILj512EE15deferred_insertEPNS_12MachineInstrE.exit: ; pre
   %.not75 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %298
   br i1 %.not75, label %._crit_edge.loopexit, label %.lr.ph
 
-.lr.ph100:                                        ; preds = %_ZN4llvm20GISelObserverWrapper11addObserverEPNS_19GISelChangeObserverE.exit37, %461
-  %417 = phi i32 [ %462, %461 ], [ %293, %_ZN4llvm20GISelObserverWrapper11addObserverEPNS_19GISelChangeObserverE.exit37 ]
-  %.02499 = phi i1 [ %455, %461 ], [ false, %_ZN4llvm20GISelObserverWrapper11addObserverEPNS_19GISelChangeObserverE.exit37 ]
+.lr.ph100:                                        ; preds = %_ZN4llvm20GISelObserverWrapper11addObserverEPNS_19GISelChangeObserverE.exit37, %463
+  %417 = phi i32 [ %464, %463 ], [ %293, %_ZN4llvm20GISelObserverWrapper11addObserverEPNS_19GISelChangeObserverE.exit37 ]
+  %.02499 = phi i1 [ %457, %463 ], [ false, %_ZN4llvm20GISelObserverWrapper11addObserverEPNS_19GISelChangeObserverE.exit37 ]
   %418 = load ptr, ptr %24, align 8, !tbaa !21
-  %invariant.gep.i = getelementptr i8, ptr %418, i64 -8
   %.promoted.i = load i32, ptr %25, align 8, !tbaa !23
   br label %419
 
 419:                                              ; preds = %419, %.lr.ph100
-  %420 = phi i32 [ %423, %419 ], [ %.promoted.i, %.lr.ph100 ]
+  %420 = phi i32 [ %425, %419 ], [ %.promoted.i, %.lr.ph100 ]
   %421 = zext i32 %420 to i64
-  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %421
-  %422 = load ptr, ptr %gep.i, align 8, !tbaa !34
-  %423 = add i32 %420, -1
-  %.not.i45 = icmp eq ptr %422, null
-  br i1 %.not.i45, label %419, label %424, !llvm.loop !269
+  %422 = getelementptr inbounds nuw ptr, ptr %418, i64 %421
+  %423 = getelementptr inbounds i8, ptr %422, i64 -8
+  %424 = load ptr, ptr %423, align 8, !tbaa !34
+  %425 = add i32 %420, -1
+  %.not.i45 = icmp eq ptr %424, null
+  br i1 %.not.i45, label %419, label %426, !llvm.loop !269
 
-424:                                              ; preds = %419
-  store i32 %423, ptr %25, align 8, !tbaa !23
-  %425 = load ptr, ptr %26, align 8, !tbaa !31
-  %426 = load i32, ptr %29, align 8, !tbaa !28
-  %427 = icmp eq i32 %426, 0
-  br i1 %427, label %_ZN4llvm13GISelWorkListILj512EE12pop_back_valEv.exit, label %428
+426:                                              ; preds = %419
+  store i32 %425, ptr %25, align 8, !tbaa !23
+  %427 = load ptr, ptr %26, align 8, !tbaa !31
+  %428 = load i32, ptr %29, align 8, !tbaa !28
+  %429 = icmp eq i32 %428, 0
+  br i1 %429, label %_ZN4llvm13GISelWorkListILj512EE12pop_back_valEv.exit, label %430
 
-428:                                              ; preds = %424
-  %429 = ptrtoint ptr %422 to i64
-  %430 = trunc i64 %429 to i32
-  %431 = lshr i32 %430, 4
-  %432 = lshr i32 %430, 9
-  %433 = xor i32 %431, %432
-  %434 = add i32 %426, -1
-  %.01826.i.i.i = and i32 %434, %433
-  %435 = zext nneg i32 %.01826.i.i.i to i64
-  %436 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %425, i64 %435
-  %437 = load ptr, ptr %436, align 8, !tbaa !34
-  %438 = icmp eq ptr %422, %437
-  br i1 %438, label %.loopexit.i.i, label %.lr.ph.i.i.i, !prof !248
+430:                                              ; preds = %426
+  %431 = ptrtoint ptr %424 to i64
+  %432 = trunc i64 %431 to i32
+  %433 = lshr i32 %432, 4
+  %434 = lshr i32 %432, 9
+  %435 = xor i32 %433, %434
+  %436 = add i32 %428, -1
+  %.01826.i.i.i = and i32 %436, %435
+  %437 = zext nneg i32 %.01826.i.i.i to i64
+  %438 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %427, i64 %437
+  %439 = load ptr, ptr %438, align 8, !tbaa !34
+  %440 = icmp eq ptr %424, %439
+  br i1 %440, label %.loopexit.i.i, label %.lr.ph.i.i.i, !prof !248
 
-.lr.ph.i.i.i:                                     ; preds = %428, %441
-  %439 = phi ptr [ %446, %441 ], [ %437, %428 ]
-  %.01828.i.i.i = phi i32 [ %.018.i.i.i, %441 ], [ %.01826.i.i.i, %428 ]
-  %.01627.i.i.i = phi i32 [ %442, %441 ], [ 1, %428 ]
-  %440 = icmp eq ptr %439, inttoptr (i64 -4096 to ptr)
-  br i1 %440, label %_ZN4llvm13GISelWorkListILj512EE12pop_back_valEv.exit, label %441, !prof !250
+.lr.ph.i.i.i:                                     ; preds = %430, %443
+  %441 = phi ptr [ %448, %443 ], [ %439, %430 ]
+  %.01828.i.i.i = phi i32 [ %.018.i.i.i, %443 ], [ %.01826.i.i.i, %430 ]
+  %.01627.i.i.i = phi i32 [ %444, %443 ], [ 1, %430 ]
+  %442 = icmp eq ptr %441, inttoptr (i64 -4096 to ptr)
+  br i1 %442, label %_ZN4llvm13GISelWorkListILj512EE12pop_back_valEv.exit, label %443, !prof !250
 
-441:                                              ; preds = %.lr.ph.i.i.i
-  %442 = add i32 %.01627.i.i.i, 1
-  %443 = add i32 %.01627.i.i.i, %.01828.i.i.i
-  %.018.i.i.i = and i32 %443, %434
-  %444 = zext i32 %.018.i.i.i to i64
-  %445 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %425, i64 %444
-  %446 = load ptr, ptr %445, align 8, !tbaa !34
-  %447 = icmp eq ptr %422, %446
-  br i1 %447, label %.loopexit.i.i, label %.lr.ph.i.i.i, !prof !249, !llvm.loop !270
+443:                                              ; preds = %.lr.ph.i.i.i
+  %444 = add i32 %.01627.i.i.i, 1
+  %445 = add i32 %.01627.i.i.i, %.01828.i.i.i
+  %.018.i.i.i = and i32 %445, %436
+  %446 = zext i32 %.018.i.i.i to i64
+  %447 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %427, i64 %446
+  %448 = load ptr, ptr %447, align 8, !tbaa !34
+  %449 = icmp eq ptr %424, %448
+  br i1 %449, label %.loopexit.i.i, label %.lr.ph.i.i.i, !prof !249, !llvm.loop !270
 
-.loopexit.i.i:                                    ; preds = %441, %428
-  %.0.i.ph.i.i = phi ptr [ %436, %428 ], [ %445, %441 ]
+.loopexit.i.i:                                    ; preds = %443, %430
+  %.0.i.ph.i.i = phi ptr [ %438, %430 ], [ %447, %443 ]
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.ph.i.i, align 8, !tbaa !34
-  %448 = add i32 %417, -1
-  store i32 %448, ptr %27, align 8, !tbaa !32
-  %449 = load i32, ptr %28, align 4, !tbaa !33
-  %450 = add i32 %449, 1
-  store i32 %450, ptr %28, align 4, !tbaa !33
+  %450 = add i32 %417, -1
+  store i32 %450, ptr %27, align 8, !tbaa !32
+  %451 = load i32, ptr %28, align 4, !tbaa !33
+  %452 = add i32 %451, 1
+  store i32 %452, ptr %28, align 4, !tbaa !33
   br label %_ZN4llvm13GISelWorkListILj512EE12pop_back_valEv.exit
 
-_ZN4llvm13GISelWorkListILj512EE12pop_back_valEv.exit: ; preds = %.lr.ph.i.i.i, %424, %.loopexit.i.i
-  %451 = load ptr, ptr %0, align 8, !tbaa !15
-  %452 = getelementptr inbounds nuw i8, ptr %451, i64 88
-  %453 = load ptr, ptr %452, align 8
-  %454 = call noundef zeroext i1 %453(ptr noundef nonnull align 8 dereferenceable(4288) %0, ptr noundef nonnull align 8 dereferenceable(70) %422) #19
-  %455 = or i1 %.02499, %454
-  br i1 %454, label %456, label %461
+_ZN4llvm13GISelWorkListILj512EE12pop_back_valEv.exit: ; preds = %.lr.ph.i.i.i, %426, %.loopexit.i.i
+  %453 = load ptr, ptr %0, align 8, !tbaa !15
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 88
+  %455 = load ptr, ptr %454, align 8
+  %456 = call noundef zeroext i1 %455(ptr noundef nonnull align 8 dereferenceable(4288) %0, ptr noundef nonnull align 8 dereferenceable(70) %424) #19
+  %457 = or i1 %.02499, %456
+  br i1 %456, label %458, label %463
 
-456:                                              ; preds = %_ZN4llvm13GISelWorkListILj512EE12pop_back_valEv.exit
-  %457 = load ptr, ptr %30, align 8, !tbaa !228
-  %458 = load ptr, ptr %457, align 8, !tbaa !15
-  %459 = getelementptr inbounds nuw i8, ptr %458, i64 56
-  %460 = load ptr, ptr %459, align 8
-  call void %460(ptr noundef nonnull align 8 dereferenceable(64) %457) #19
-  br label %461
+458:                                              ; preds = %_ZN4llvm13GISelWorkListILj512EE12pop_back_valEv.exit
+  %459 = load ptr, ptr %30, align 8, !tbaa !228
+  %460 = load ptr, ptr %459, align 8, !tbaa !15
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 56
+  %462 = load ptr, ptr %461, align 8
+  call void %462(ptr noundef nonnull align 8 dereferenceable(64) %459) #19
+  br label %463
 
-461:                                              ; preds = %456, %_ZN4llvm13GISelWorkListILj512EE12pop_back_valEv.exit
-  %462 = load i32, ptr %27, align 8, !tbaa !32
-  %463 = icmp eq i32 %462, 0
-  br i1 %463, label %._crit_edge101, label %.lr.ph100, !llvm.loop !271
+463:                                              ; preds = %458, %_ZN4llvm13GISelWorkListILj512EE12pop_back_valEv.exit
+  %464 = load i32, ptr %27, align 8, !tbaa !32
+  %465 = icmp eq i32 %464, 0
+  br i1 %465, label %._crit_edge101, label %.lr.ph100, !llvm.loop !271
 
-._crit_edge101:                                   ; preds = %461
-  br i1 %455, label %select.unfold, label %.critedge
+._crit_edge101:                                   ; preds = %463
+  br i1 %457, label %select.unfold, label %.critedge
 
 select.unfold:                                    ; preds = %._crit_edge101
-  %464 = load ptr, ptr %33, align 8, !tbaa !234
-  %465 = getelementptr inbounds nuw i8, ptr %464, i64 28
-  %466 = load i32, ptr %465, align 4, !tbaa !272
-  %467 = add i32 %466, -1
-  %or.cond.not.not = icmp ult i32 %467, %62
+  %466 = load ptr, ptr %33, align 8, !tbaa !234
+  %467 = getelementptr inbounds nuw i8, ptr %466, i64 28
+  %468 = load i32, ptr %467, align 4, !tbaa !272
+  %469 = add i32 %468, -1
+  %or.cond.not.not = icmp ult i32 %469, %62
   call void @_ZN4llvm23RAIIMFObserverInstallerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #19
   call void @_ZN4llvm21RAIIDelegateInstallerD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19

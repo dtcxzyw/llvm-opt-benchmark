@@ -185,7 +185,7 @@ define dso_local i32 @mei_me_pg_enter_sync(ptr noundef initializes((440, 444)) %
   %58 = select i1 %57, i64 1, i64 %51
   %59 = icmp eq i64 %58, 0
   %60 = select i1 %55, i1 true, i1 %59
-  br i1 %60, label %._crit_edge, label %.lr.ph
+  br i1 %60, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50, %.lr.ph
   %61 = phi i64 [ %68, %.lr.ph ], [ %58, %50 ]
@@ -198,14 +198,14 @@ define dso_local i32 @mei_me_pg_enter_sync(ptr noundef initializes((440, 444)) %
   %68 = select i1 %67, i64 1, i64 %62
   %69 = icmp eq i64 %68, 0
   %70 = select i1 %65, i1 true, i1 %69
-  br i1 %70, label %._crit_edge, label %.lr.ph
+  br i1 %70, label %.critedge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %50
+.critedge:                                        ; preds = %.lr.ph, %50
   call void @finish_wait(ptr noundef nonnull %52, ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
   br label %71
 
-71:                                               ; preds = %._crit_edge, %41
+71:                                               ; preds = %.critedge, %41
   call void @mutex_lock(ptr noundef nonnull %42) #16
   %72 = load i32, ptr %38, align 8
   %73 = icmp eq i32 %72, 2
@@ -244,10 +244,10 @@ define dso_local i32 @mei_me_pg_enter_sync(ptr noundef initializes((440, 444)) %
   %95 = select i1 %94, i64 1, i64 %88
   %96 = icmp eq i64 %95, 0
   %97 = select i1 %92, i1 true, i1 %96
-  br i1 %97, label %._crit_edge13, label %.lr.ph12
+  br i1 %97, label %.critedge2, label %.lr.ph13
 
-.lr.ph12:                                         ; preds = %86, %.lr.ph12
-  %98 = phi i64 [ %105, %.lr.ph12 ], [ %95, %86 ]
+.lr.ph13:                                         ; preds = %86, %.lr.ph13
+  %98 = phi i64 [ %105, %.lr.ph13 ], [ %95, %86 ]
   %99 = call i64 @schedule_timeout(i64 noundef %98) #16
   %100 = call i64 @prepare_to_wait_event(ptr noundef nonnull %89, ptr noundef nonnull %4, i32 noundef 2) #16
   %101 = load i32, ptr %38, align 8
@@ -257,14 +257,14 @@ define dso_local i32 @mei_me_pg_enter_sync(ptr noundef initializes((440, 444)) %
   %105 = select i1 %104, i64 1, i64 %99
   %106 = icmp eq i64 %105, 0
   %107 = select i1 %102, i1 true, i1 %106
-  br i1 %107, label %._crit_edge13, label %.lr.ph12
+  br i1 %107, label %.critedge2, label %.lr.ph13
 
-._crit_edge13:                                    ; preds = %.lr.ph12, %86
+.critedge2:                                       ; preds = %.lr.ph13, %86
   call void @finish_wait(ptr noundef nonnull %89, ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
   br label %108
 
-108:                                              ; preds = %._crit_edge13, %78
+108:                                              ; preds = %.critedge2, %78
   call void @mutex_lock(ptr noundef nonnull %42) #16
   %109 = load i32, ptr %38, align 8
   %110 = icmp eq i32 %109, 4
@@ -363,10 +363,10 @@ define dso_local i32 @mei_me_pg_enter_sync(ptr noundef initializes((440, 444)) %
   %165 = select i1 %164, i64 1, i64 %158
   %166 = icmp eq i64 %165, 0
   %167 = select i1 %162, i1 true, i1 %166
-  br i1 %167, label %._crit_edge16, label %.lr.ph15
+  br i1 %167, label %.critedge4, label %.lr.ph14
 
-.lr.ph15:                                         ; preds = %157, %.lr.ph15
-  %168 = phi i64 [ %175, %.lr.ph15 ], [ %165, %157 ]
+.lr.ph14:                                         ; preds = %157, %.lr.ph14
+  %168 = phi i64 [ %175, %.lr.ph14 ], [ %165, %157 ]
   %169 = call i64 @schedule_timeout(i64 noundef %168) #16
   %170 = call i64 @prepare_to_wait_event(ptr noundef nonnull %159, ptr noundef nonnull %2, i32 noundef 2) #16
   %171 = load i32, ptr %145, align 8
@@ -376,14 +376,14 @@ define dso_local i32 @mei_me_pg_enter_sync(ptr noundef initializes((440, 444)) %
   %175 = select i1 %174, i64 1, i64 %169
   %176 = icmp eq i64 %175, 0
   %177 = select i1 %172, i1 true, i1 %176
-  br i1 %177, label %._crit_edge16, label %.lr.ph15
+  br i1 %177, label %.critedge4, label %.lr.ph14
 
-._crit_edge16:                                    ; preds = %.lr.ph15, %157
+.critedge4:                                       ; preds = %.lr.ph14, %157
   call void @finish_wait(ptr noundef nonnull %159, ptr noundef nonnull %2) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
   br label %178
 
-178:                                              ; preds = %._crit_edge16, %148
+178:                                              ; preds = %.critedge4, %148
   call void @mutex_lock(ptr noundef nonnull %149) #16
   %179 = load i32, ptr %145, align 8
   %180 = icmp eq i32 %179, 2
@@ -517,7 +517,7 @@ define dso_local i32 @mei_me_pg_exit_sync(ptr noundef %0) local_unnamed_addr #0 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 2
-  br i1 %12, label %.thread5, label %13
+  br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %9
   store i32 1, ptr %10, align 8
@@ -650,7 +650,7 @@ define dso_local i32 @mei_me_pg_exit_sync(ptr noundef %0) local_unnamed_addr #0 
   %85 = select i1 %84, i64 1, i64 %78
   %86 = icmp eq i64 %85, 0
   %87 = select i1 %82, i1 true, i1 %86
-  br i1 %87, label %._crit_edge, label %.lr.ph
+  br i1 %87, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %77, %.lr.ph
   %88 = phi i64 [ %95, %.lr.ph ], [ %85, %77 ]
@@ -663,26 +663,26 @@ define dso_local i32 @mei_me_pg_exit_sync(ptr noundef %0) local_unnamed_addr #0 
   %95 = select i1 %94, i64 1, i64 %89
   %96 = icmp eq i64 %95, 0
   %97 = select i1 %92, i1 true, i1 %96
-  br i1 %97, label %._crit_edge, label %.lr.ph
+  br i1 %97, label %.critedge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %77
+.critedge:                                        ; preds = %.lr.ph, %77
   call void @finish_wait(ptr noundef nonnull %79, ptr noundef nonnull %2) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
   br label %98
 
-98:                                               ; preds = %66, %._crit_edge
+98:                                               ; preds = %66, %.critedge
   call void @mutex_lock(ptr noundef nonnull %69) #16
   %.pr = load i32, ptr %10, align 8
   %99 = icmp eq i32 %.pr, 2
-  br i1 %99, label %.thread5, label %136
+  br i1 %99, label %.thread, label %136
 
-.thread5:                                         ; preds = %9, %98
+.thread:                                          ; preds = %9, %98
   store i32 3, ptr %10, align 8
   %100 = call i32 @mei_hbm_pg(ptr noundef %0, i8 noundef zeroext -117) #16
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %139
 
-102:                                              ; preds = %.thread5
+102:                                              ; preds = %.thread
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 216
   call void @mutex_unlock(ptr noundef nonnull %103) #16
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 3512
@@ -708,10 +708,10 @@ define dso_local i32 @mei_me_pg_exit_sync(ptr noundef %0) local_unnamed_addr #0 
   %119 = select i1 %118, i64 1, i64 %112
   %120 = icmp eq i64 %119, 0
   %121 = select i1 %116, i1 true, i1 %120
-  br i1 %121, label %._crit_edge9, label %.lr.ph8
+  br i1 %121, label %._crit_edge, label %.lr.ph6
 
-.lr.ph8:                                          ; preds = %111, %.lr.ph8
-  %122 = phi i64 [ %129, %.lr.ph8 ], [ %119, %111 ]
+.lr.ph6:                                          ; preds = %111, %.lr.ph6
+  %122 = phi i64 [ %129, %.lr.ph6 ], [ %119, %111 ]
   %123 = call i64 @schedule_timeout(i64 noundef %122) #16
   %124 = call i64 @prepare_to_wait_event(ptr noundef nonnull %113, ptr noundef nonnull %3, i32 noundef 2) #16
   %125 = load i32, ptr %10, align 8
@@ -721,14 +721,14 @@ define dso_local i32 @mei_me_pg_exit_sync(ptr noundef %0) local_unnamed_addr #0 
   %129 = select i1 %128, i64 1, i64 %123
   %130 = icmp eq i64 %129, 0
   %131 = select i1 %126, i1 true, i1 %130
-  br i1 %131, label %._crit_edge9, label %.lr.ph8
+  br i1 %131, label %._crit_edge, label %.lr.ph6
 
-._crit_edge9:                                     ; preds = %.lr.ph8, %111
+._crit_edge:                                      ; preds = %.lr.ph6, %111
   call void @finish_wait(ptr noundef nonnull %113, ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
   br label %132
 
-132:                                              ; preds = %._crit_edge9, %102
+132:                                              ; preds = %._crit_edge, %102
   call void @mutex_lock(ptr noundef nonnull %103) #16
   %133 = load i32, ptr %10, align 8
   %134 = icmp eq i32 %133, 4
@@ -742,8 +742,8 @@ define dso_local i32 @mei_me_pg_exit_sync(ptr noundef %0) local_unnamed_addr #0 
   store i32 0, ptr %138, align 4
   br label %139
 
-139:                                              ; preds = %136, %.thread5, %7
-  %140 = phi i32 [ %8, %7 ], [ %137, %136 ], [ %100, %.thread5 ]
+139:                                              ; preds = %136, %.thread, %7
+  %140 = phi i32 [ %8, %7 ], [ %137, %136 ], [ %100, %.thread ]
   ret i32 %140
 }
 
@@ -1775,7 +1775,7 @@ define dso_local noundef i32 @mei_me_polling_thread(ptr noundef %0) #0 align 16 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3768
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3728
   %6 = tail call zeroext i1 @kthread_should_stop() #16
-  br i1 %6, label %.thread4, label %.lr.ph6
+  br i1 %6, label %.critedge, label %.lr.ph6
 
 .lr.ph6:                                          ; preds = %1, %64
   %7 = phi i64 [ %65, %64 ], [ 100, %1 ]
@@ -1821,7 +1821,7 @@ define dso_local noundef i32 @mei_me_polling_thread(ptr noundef %0) #0 align 16 
 
 29:                                               ; preds = %.thread, %11, %.lr.ph6
   %30 = call zeroext i1 @kthread_should_stop() #16
-  br i1 %30, label %.thread4, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr %5, align 8
@@ -1877,19 +1877,19 @@ define dso_local noundef i32 @mei_me_polling_thread(ptr noundef %0) #0 align 16 
   br label %64
 
 61:                                               ; preds = %56
-  %62 = add nsw i64 %7, 100
-  %63 = call i64 @llvm.umin.i64(i64 %62, i64 500)
+  %62 = call i64 @llvm.smin.i64(i64 %7, i64 400)
+  %63 = add nsw i64 %62, 100
   br label %64
 
-64:                                               ; preds = %59, %61
+64:                                               ; preds = %61, %59
   %65 = phi i64 [ 100, %59 ], [ %63, %61 ]
-  %66 = trunc nuw nsw i64 %65 to i32
+  %66 = trunc i64 %65 to i32
   %67 = call i64 @__msecs_to_jiffies(i32 noundef %66) #16
   %68 = call i64 @schedule_timeout_interruptible(i64 noundef %67) #16
   %69 = call zeroext i1 @kthread_should_stop() #16
-  br i1 %69, label %.thread4, label %.lr.ph6
+  br i1 %69, label %.critedge, label %.lr.ph6
 
-.thread4:                                         ; preds = %64, %29, %1
+.critedge:                                        ; preds = %64, %29, %1
   ret i32 0
 }
 
@@ -2950,7 +2950,7 @@ define internal noundef range(i32 -62, 1) i32 @mei_me_hw_start(ptr noundef %0) #
   %23 = select i1 %22, i64 1, i64 %16
   %24 = icmp eq i64 %23, 0
   %25 = select i1 %20, i1 true, i1 %24
-  br i1 %25, label %._crit_edge, label %.lr.ph
+  br i1 %25, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %26 = phi i64 [ %33, %.lr.ph ], [ %23, %15 ]
@@ -2963,14 +2963,14 @@ define internal noundef range(i32 -62, 1) i32 @mei_me_hw_start(ptr noundef %0) #
   %33 = select i1 %32, i64 1, i64 %27
   %34 = icmp eq i64 %33, 0
   %35 = select i1 %30, i1 true, i1 %34
-  br i1 %35, label %._crit_edge, label %.lr.ph
+  br i1 %35, label %.critedge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %15
+.critedge:                                        ; preds = %.lr.ph, %15
   call void @finish_wait(ptr noundef nonnull %17, ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #16
   br label %36
 
-36:                                               ; preds = %._crit_edge, %1
+36:                                               ; preds = %.critedge, %1
   call void @mutex_lock(ptr noundef nonnull %6) #16
   %37 = load i8, ptr %10, align 8, !range !6, !noundef !7
   %38 = icmp eq i8 %37, 0
@@ -4299,8 +4299,8 @@ declare dso_local void @synchronize_irq(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #15
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -4317,7 +4317,7 @@ attributes #11 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" 
 attributes #12 = { fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #13 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 attributes #17 = { cold nounwind }
 attributes #18 = { nounwind allocsize(1) }

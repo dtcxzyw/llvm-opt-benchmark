@@ -5983,19 +5983,19 @@ define internal i32 @dissect_z3950_T_attributeValue_numeric(i1 noundef zeroext %
   %13 = load i32, ptr @proto_z3950, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %9, i32 noundef %13, i32 noundef 1)
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %27, label %15
+  br i1 %.not, label %.critedge, label %15
 
 15:                                               ; preds = %6
   %16 = load i32, ptr %14, align 4
   %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %27
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %20 = load i32, ptr %19, align 4
   %switch.tableidx = add i32 %20, -1
   %21 = icmp ult i32 %switch.tableidx, 6
-  br i1 %21, label %switch.lookup, label %27
+  br i1 %21, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %18
   %22 = zext nneg i32 %switch.tableidx to i64
@@ -6006,9 +6006,9 @@ switch.lookup:                                    ; preds = %18
   %25 = load i32, ptr %7, align 4
   %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.2185)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.2175, ptr noundef %26)
-  br label %27
+  br label %.critedge
 
-27:                                               ; preds = %18, %switch.lookup, %15, %6
+.critedge:                                        ; preds = %18, %switch.lookup, %15, %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   ret i32 %10
 }

@@ -2681,7 +2681,7 @@ define range(i32 -12, 1) i32 @ff_rfps_add_frame(ptr readnone captures(none) %0, 
   %10 = icmp sgt i64 %2, %7
   %11 = and i1 %9, %10
   %or.cond97 = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond97, label %12, label %121
+  br i1 %or.cond97, label %12, label %120
 
 12:                                               ; preds = %3
   %13 = sub i64 %2, %7
@@ -2727,42 +2727,42 @@ define range(i32 -12, 1) i32 @ff_rfps_add_frame(ptr readnone captures(none) %0, 
   %.not96 = icmp sgt i64 %36, %37
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !189
-  br i1 %.not96, label %._crit_edge, label %82
+  br i1 %.not96, label %._crit_edge, label %81
 
 38:                                               ; preds = %.preheader101, %.loopexit100
-  %indvars.iv107 = phi i64 [ 0, %.preheader101 ], [ %indvars.iv.next108, %.loopexit100 ]
-  %indvars109 = trunc i64 %indvars.iv107 to i32
-  %39 = getelementptr inbounds nuw [399 x double], ptr %31, i64 0, i64 %indvars.iv107
+  %indvars.iv109 = phi i64 [ 0, %.preheader101 ], [ %indvars.iv.next110, %.loopexit100 ]
+  %indvars111 = trunc i64 %indvars.iv109 to i32
+  %39 = getelementptr inbounds nuw [399 x double], ptr %31, i64 0, i64 %indvars.iv109
   %40 = load double, ptr %39, align 8, !tbaa !190
   %41 = fcmp nsz olt double %40, 1.000000e+10
   br i1 %41, label %42, label %.loopexit100
 
 42:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
-  %43 = icmp samesign ult i64 %indvars.iv107, 360
+  %43 = icmp samesign ult i64 %indvars.iv109, 360
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42
-  %45 = trunc nuw nsw i64 %indvars.iv107 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv109 to i32
   %46 = mul nuw nsw i32 %45, 1001
   %47 = add nuw nsw i32 %46, 1001
   br label %get_std_framerate.exit
 
 48:                                               ; preds = %42
-  %49 = icmp samesign ult i64 %indvars.iv107, 390
+  %49 = icmp samesign ult i64 %indvars.iv109, 390
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
-  %51 = mul nuw nsw i32 %indvars109, 12012
+  %51 = mul nuw nsw i32 %indvars111, 12012
   %52 = add nsw i32 %51, -3951948
   br label %get_std_framerate.exit
 
 53:                                               ; preds = %48
-  %54 = icmp samesign ult i64 %indvars.iv107, 393
+  %54 = icmp samesign ult i64 %indvars.iv109, 393
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %53
-  %56 = add nsw i64 %indvars.iv107, -390
+  %56 = add nsw i64 %indvars.iv109, -390
   store i32 80, ptr %4, align 4, !tbaa !54
   store i32 120, ptr %32, align 4, !tbaa !54
   store i32 240, ptr %33, align 4, !tbaa !54
@@ -2772,7 +2772,7 @@ define range(i32 -12, 1) i32 @ff_rfps_add_frame(ptr readnone captures(none) %0, 
   br label %get_std_framerate.exit
 
 60:                                               ; preds = %53
-  %61 = add nsw i64 %indvars.iv107, -393
+  %61 = add nsw i64 %indvars.iv109, -393
   %62 = getelementptr inbounds nuw [6 x i32], ptr @constinit, i64 0, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !54
   %64 = mul nsw i32 %63, 12000
@@ -2784,7 +2784,7 @@ get_std_framerate.exit:                           ; preds = %44, %50, %55, %60
   %65 = sitofp i32 %.0.i to double
   %66 = fmul nsz double %25, %65
   %67 = fdiv nsz double %66, 1.201200e+04
-  %invariant.gep = getelementptr inbounds nuw [399 x double], ptr %30, i64 0, i64 %indvars.iv107
+  %invariant.gep = getelementptr inbounds nuw [399 x double], ptr %30, i64 0, i64 %indvars.iv109
   br label %68
 
 68:                                               ; preds = %get_std_framerate.exit, %68
@@ -2801,96 +2801,96 @@ get_std_framerate.exit:                           ; preds = %44, %50, %55, %60
   %77 = load double, ptr %gep, align 8, !tbaa !190
   %78 = fadd nsz double %76, %77
   store double %78, ptr %gep, align 8, !tbaa !190
-  %79 = getelementptr inbounds nuw [2 x [399 x double]], ptr %30, i64 %indvars.iv, i64 1, i64 %indvars.iv107
-  %80 = load double, ptr %79, align 8, !tbaa !190
-  %81 = tail call nsz double @llvm.fmuladd.f64(double %76, double %76, double %80)
-  store double %81, ptr %79, align 8, !tbaa !190
+  %gep103 = getelementptr inbounds nuw [2 x [399 x double]], ptr %invariant.gep, i64 %indvars.iv, i64 1
+  %79 = load double, ptr %gep103, align 8, !tbaa !190
+  %80 = tail call nsz double @llvm.fmuladd.f64(double %76, double %76, double %79)
+  store double %80, ptr %gep103, align 8, !tbaa !190
   br i1 %69, label %68, label %.loopexit100, !llvm.loop !192
 
 .loopexit100:                                     ; preds = %68, %38
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next108, 399
+  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next110, 399
   br i1 %exitcond.not, label %34, label %38, !llvm.loop !193
 
-82:                                               ; preds = %34
-  %83 = add nsw i32 %.pre, 1
-  store i32 %83, ptr %.phi.trans.insert, align 8, !tbaa !189
-  %84 = add nsw i64 %36, %13
-  store i64 %84, ptr %35, align 8, !tbaa !188
+81:                                               ; preds = %34
+  %82 = add nsw i32 %.pre, 1
+  store i32 %82, ptr %.phi.trans.insert, align 8, !tbaa !189
+  %83 = add nsw i64 %36, %13
+  store i64 %83, ptr %35, align 8, !tbaa !188
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %34, %82
-  %85 = phi i32 [ %83, %82 ], [ %.pre, %34 ]
-  %86 = srem i32 %85, 10
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %.preheader, label %.loopexit
+._crit_edge:                                      ; preds = %34, %81
+  %84 = phi i32 [ %82, %81 ], [ %.pre, %34 ]
+  %85 = srem i32 %84, 10
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %._crit_edge
-  %88 = sitofp i32 %85 to double
-  %89 = getelementptr inbounds nuw i8, ptr %30, i64 6384
-  %90 = getelementptr inbounds nuw i8, ptr %30, i64 9576
-  br label %91
+  %87 = sitofp i32 %84 to double
+  %88 = getelementptr inbounds nuw i8, ptr %30, i64 6384
+  %89 = getelementptr inbounds nuw i8, ptr %30, i64 9576
+  br label %90
 
-91:                                               ; preds = %.preheader, %113
-  %indvars.iv110 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next111, %113 ]
-  %92 = getelementptr inbounds nuw [399 x double], ptr %31, i64 0, i64 %indvars.iv110
-  %93 = load double, ptr %92, align 8, !tbaa !190
-  %94 = fcmp nsz olt double %93, 1.000000e+10
-  br i1 %94, label %95, label %113
+90:                                               ; preds = %.preheader, %112
+  %indvars.iv112 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next113, %112 ]
+  %91 = getelementptr inbounds nuw [399 x double], ptr %31, i64 0, i64 %indvars.iv112
+  %92 = load double, ptr %91, align 8, !tbaa !190
+  %93 = fcmp nsz olt double %92, 1.000000e+10
+  br i1 %93, label %94, label %112
 
-95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw [399 x double], ptr %30, i64 0, i64 %indvars.iv110
-  %97 = load double, ptr %96, align 8, !tbaa !190
-  %98 = fdiv nsz double %97, %88
-  %99 = fdiv nsz double %93, %88
-  %100 = fneg nsz double %98
-  %101 = tail call nsz double @llvm.fmuladd.f64(double %100, double %98, double %99)
-  %102 = getelementptr inbounds nuw [399 x double], ptr %89, i64 0, i64 %indvars.iv110
-  %103 = load double, ptr %102, align 8, !tbaa !190
-  %104 = fdiv nsz double %103, %88
-  %105 = getelementptr inbounds nuw [399 x double], ptr %90, i64 0, i64 %indvars.iv110
-  %106 = load double, ptr %105, align 8, !tbaa !190
-  %107 = fdiv nsz double %106, %88
-  %108 = fneg nsz double %104
-  %109 = tail call nsz double @llvm.fmuladd.f64(double %108, double %104, double %107)
-  %110 = fcmp nsz ogt double %101, 4.000000e-02
-  %111 = fcmp nsz ogt double %109, 4.000000e-02
-  %or.cond3 = select i1 %110, i1 %111, i1 false
-  br i1 %or.cond3, label %112, label %113
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw [399 x double], ptr %30, i64 0, i64 %indvars.iv112
+  %96 = load double, ptr %95, align 8, !tbaa !190
+  %97 = fdiv nsz double %96, %87
+  %98 = fdiv nsz double %92, %87
+  %99 = fneg nsz double %97
+  %100 = tail call nsz double @llvm.fmuladd.f64(double %99, double %97, double %98)
+  %101 = getelementptr inbounds nuw [399 x double], ptr %88, i64 0, i64 %indvars.iv112
+  %102 = load double, ptr %101, align 8, !tbaa !190
+  %103 = fdiv nsz double %102, %87
+  %104 = getelementptr inbounds nuw [399 x double], ptr %89, i64 0, i64 %indvars.iv112
+  %105 = load double, ptr %104, align 8, !tbaa !190
+  %106 = fdiv nsz double %105, %87
+  %107 = fneg nsz double %103
+  %108 = tail call nsz double @llvm.fmuladd.f64(double %107, double %103, double %106)
+  %109 = fcmp nsz ogt double %100, 4.000000e-02
+  %110 = fcmp nsz ogt double %108, 4.000000e-02
+  %or.cond3 = select i1 %109, i1 %110, i1 false
+  br i1 %or.cond3, label %111, label %112
 
-112:                                              ; preds = %95
-  store double 2.000000e+10, ptr %92, align 8, !tbaa !190
-  store double 2.000000e+10, ptr %105, align 8, !tbaa !190
-  br label %113
+111:                                              ; preds = %94
+  store double 2.000000e+10, ptr %91, align 8, !tbaa !190
+  store double 2.000000e+10, ptr %104, align 8, !tbaa !190
+  br label %112
 
-113:                                              ; preds = %95, %112, %91
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %exitcond113.not = icmp eq i64 %indvars.iv.next111, 399
-  br i1 %exitcond113.not, label %.loopexit, label %91, !llvm.loop !194
+112:                                              ; preds = %94, %111, %90
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %exitcond115.not = icmp eq i64 %indvars.iv.next113, 399
+  br i1 %exitcond115.not, label %.loopexit, label %90, !llvm.loop !194
 
-.loopexit:                                        ; preds = %113, %._crit_edge
-  %114 = icmp sgt i32 %85, 3
-  %115 = icmp slt i64 %7, 9222809086901354496
-  %116 = xor i1 %16, %115
-  %or.cond = select i1 %114, i1 %116, i1 false
-  br i1 %or.cond, label %117, label %.thread
+.loopexit:                                        ; preds = %112, %._crit_edge
+  %113 = icmp sgt i32 %84, 3
+  %114 = icmp slt i64 %7, 9222809086901354496
+  %115 = xor i1 %16, %114
+  %or.cond = select i1 %113, i1 %115, i1 false
+  br i1 %or.cond, label %116, label %.thread
 
-117:                                              ; preds = %.loopexit
-  %118 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %119 = load i64, ptr %118, align 8, !tbaa !195
-  %120 = tail call i64 @av_gcd(i64 noundef %119, i64 noundef %13) #18
-  store i64 %120, ptr %118, align 8, !tbaa !195
+116:                                              ; preds = %.loopexit
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %118 = load i64, ptr %117, align 8, !tbaa !195
+  %119 = tail call i64 @av_gcd(i64 noundef %118, i64 noundef %13) #18
+  store i64 %119, ptr %117, align 8, !tbaa !195
   br label %.thread
 
-121:                                              ; preds = %3
+120:                                              ; preds = %3
   br i1 %8, label %.thread, label %.critedge
 
-.thread:                                          ; preds = %117, %.loopexit, %12, %121
+.thread:                                          ; preds = %116, %.loopexit, %12, %120
   store i64 %2, ptr %6, align 8, !tbaa !186
   br label %.critedge
 
-.critedge:                                        ; preds = %28, %121, %.thread
-  %.1 = phi i32 [ 0, %.thread ], [ 0, %121 ], [ -12, %28 ]
+.critedge:                                        ; preds = %28, %120, %.thread
+  %.1 = phi i32 [ 0, %.thread ], [ 0, %120 ], [ -12, %28 ]
   ret i32 %.1
 }
 

@@ -3501,26 +3501,134 @@ define internal void @_ZN12_GLOBAL__N_113FixitReceiver6insertEN5clang14SourceLoc
   %16 = icmp uge ptr %5, %.pre3.i
   %17 = icmp ult ptr %5, %15
   %spec.select.i.i.i.i.i = and i1 %16, %17
-  br i1 %spec.select.i.i.i.i.i, label %19, label %18, !prof !168
+  br i1 %spec.select.i.i.i.i.i, label %18, label %.critedge.i.i.i, !prof !168
 
 18:                                               ; preds = %14
+  %19 = ptrtoint ptr %5 to i64
+  %20 = ptrtoint ptr %.pre3.i to i64
+  %21 = sub i64 %19, %20
+  call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %11)
+  %22 = load ptr, ptr %7, align 8, !tbaa !25
+  %23 = getelementptr inbounds i8, ptr %22, i64 %21
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
+
+.critedge.i.i.i:                                  ; preds = %14
   call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %11)
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
 
-19:                                               ; preds = %14
-  %20 = ptrtoint ptr %5 to i64
+_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i: ; preds = %.critedge.i.i.i, %18, %4
+  %24 = phi ptr [ %.pre3.i, %4 ], [ %22, %18 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %5, %4 ], [ %23, %18 ], [ %5, %.critedge.i.i.i ]
+  %25 = load i32, ptr %8, align 8, !tbaa !27
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %24, i64 %26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %27, ptr noundef nonnull align 8 dereferenceable(57) %.016.i.i.i, i64 21, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  store ptr %30, ptr %28, align 8, !tbaa !270
+  %31 = load ptr, ptr %29, align 8, !tbaa !98
+  %32 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 40
+  %33 = icmp eq ptr %31, %32
+  br i1 %33, label %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+
+34:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
+  %35 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 32
+  %36 = load i64, ptr %35, align 8, !tbaa !86
+  %37 = icmp ult i64 %36, 16
+  call void @llvm.assume(i1 %37)
+  %38 = add nuw nsw i64 %36, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %30, ptr noundef nonnull align 8 dereferenceable(1) %32, i64 %38, i1 false)
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
+  store ptr %31, ptr %28, align 8, !tbaa !98
+  %39 = load i64, ptr %32, align 8, !tbaa !109
+  store i64 %39, ptr %30, align 8, !tbaa !109
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit
+
+_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit: ; preds = %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 32
+  %41 = load i64, ptr %40, align 8, !tbaa !86
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store i64 %41, ptr %42, align 8, !tbaa !86
+  store ptr %32, ptr %29, align 8, !tbaa !98
+  store i64 0, ptr %40, align 8, !tbaa !86
+  store i8 0, ptr %32, align 1, !tbaa !109
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 56
+  %45 = load i8, ptr %44, align 8, !tbaa !91, !range !95, !noundef !96
+  store i8 %45, ptr %43, align 8, !tbaa !91
+  %46 = load i32, ptr %8, align 8, !tbaa !27
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %8, align 8, !tbaa !27
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %49 = load ptr, ptr %48, align 8, !tbaa !98
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %51 = icmp eq ptr %49, %50
+  br i1 %51, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %53 = load i64, ptr %52, align 8, !tbaa !86
+  %54 = icmp ult i64 %53, 16
+  call void @llvm.assume(i1 %54)
+  br label %_ZN5clang9FixItHintD2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit
+  %55 = load i64, ptr %50, align 8, !tbaa !109
+  %56 = add i64 %55, 1
+  call void @_ZdlPvm(ptr noundef %49, i64 noundef %56) #19
+  br label %_ZN5clang9FixItHintD2Ev.exit
+
+_ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN12_GLOBAL__N_113FixitReceiver7replaceEN5clang15CharSourceRangeEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 %1, i8 %2, ptr %3, i64 %4) unnamed_addr #1 align 2 {
+  %6 = alloca %"class.clang::FixItHint", align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !267
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #18
+  call void @_ZN5clang9FixItHint17CreateReplacementENS_15CharSourceRangeEN4llvm9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.clang::FixItHint") align 8 %6, i64 %1, i8 %2, ptr %3, i64 %4)
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load i32, ptr %9, align 8, !tbaa !27
+  %11 = zext i32 %10 to i64
+  %12 = add nuw nsw i64 %11, 1
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %14 = load i32, ptr %13, align 4, !tbaa !28
+  %.not.i.i.not.i = icmp ult i32 %10, %14
+  %.pre3.i = load ptr, ptr %8, align 8, !tbaa !25
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i, label %15, !prof !108
+
+15:                                               ; preds = %5
+  %16 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %.pre3.i, i64 %11
+  %17 = icmp uge ptr %6, %.pre3.i
+  %18 = icmp ult ptr %6, %16
+  %spec.select.i.i.i.i.i = and i1 %17, %18
+  br i1 %spec.select.i.i.i.i.i, label %19, label %.critedge.i.i.i, !prof !168
+
+19:                                               ; preds = %15
+  %20 = ptrtoint ptr %6 to i64
   %21 = ptrtoint ptr %.pre3.i to i64
   %22 = sub i64 %20, %21
-  call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %11)
-  %23 = load ptr, ptr %7, align 8, !tbaa !25
+  call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %12)
+  %23 = load ptr, ptr %8, align 8, !tbaa !25
   %24 = getelementptr inbounds i8, ptr %23, i64 %22
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i: ; preds = %19, %18, %4
-  %25 = phi ptr [ %.pre3.i, %4 ], [ %23, %19 ], [ %.pre.i, %18 ]
-  %.016.i.i.i = phi ptr [ %5, %4 ], [ %24, %19 ], [ %5, %18 ]
-  %26 = load i32, ptr %8, align 8, !tbaa !27
+.critedge.i.i.i:                                  ; preds = %15
+  call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %12)
+  %.pre.i = load ptr, ptr %8, align 8, !tbaa !25
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
+
+_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i: ; preds = %.critedge.i.i.i, %19, %5
+  %25 = phi ptr [ %.pre3.i, %5 ], [ %23, %19 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %6, %5 ], [ %24, %19 ], [ %6, %.critedge.i.i.i ]
+  %26 = load i32, ptr %9, align 8, !tbaa !27
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %25, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %28, ptr noundef nonnull align 8 dereferenceable(57) %.016.i.i.i, i64 21, i1 false)
@@ -3560,134 +3668,26 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit: ;
   %45 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 56
   %46 = load i8, ptr %45, align 8, !tbaa !91, !range !95, !noundef !96
   store i8 %46, ptr %44, align 8, !tbaa !91
-  %47 = load i32, ptr %8, align 8, !tbaa !27
+  %47 = load i32, ptr %9, align 8, !tbaa !27
   %48 = add i32 %47, 1
-  store i32 %48, ptr %8, align 8, !tbaa !27
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i32 %48, ptr %9, align 8, !tbaa !27
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !98
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %52 = icmp eq ptr %50, %51
-  br i1 %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5
+  br i1 %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %54 = load i64, ptr %53, align 8, !tbaa !86
   %55 = icmp ult i64 %54, 16
   call void @llvm.assume(i1 %55)
   br label %_ZN5clang9FixItHintD2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit
   %56 = load i64, ptr %51, align 8, !tbaa !109
   %57 = add i64 %56, 1
   call void @_ZdlPvm(ptr noundef %50, i64 noundef %57) #19
-  br label %_ZN5clang9FixItHintD2Ev.exit
-
-_ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #18
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113FixitReceiver7replaceEN5clang15CharSourceRangeEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 %1, i8 %2, ptr %3, i64 %4) unnamed_addr #1 align 2 {
-  %6 = alloca %"class.clang::FixItHint", align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !267
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #18
-  call void @_ZN5clang9FixItHint17CreateReplacementENS_15CharSourceRangeEN4llvm9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.clang::FixItHint") align 8 %6, i64 %1, i8 %2, ptr %3, i64 %4)
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !27
-  %11 = zext i32 %10 to i64
-  %12 = add nuw nsw i64 %11, 1
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !28
-  %.not.i.i.not.i = icmp ult i32 %10, %14
-  %.pre3.i = load ptr, ptr %8, align 8, !tbaa !25
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i, label %15, !prof !108
-
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %.pre3.i, i64 %11
-  %17 = icmp uge ptr %6, %.pre3.i
-  %18 = icmp ult ptr %6, %16
-  %spec.select.i.i.i.i.i = and i1 %17, %18
-  br i1 %spec.select.i.i.i.i.i, label %20, label %19, !prof !168
-
-19:                                               ; preds = %15
-  call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %12)
-  %.pre.i = load ptr, ptr %8, align 8, !tbaa !25
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
-
-20:                                               ; preds = %15
-  %21 = ptrtoint ptr %6 to i64
-  %22 = ptrtoint ptr %.pre3.i to i64
-  %23 = sub i64 %21, %22
-  call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %12)
-  %24 = load ptr, ptr %8, align 8, !tbaa !25
-  %25 = getelementptr inbounds i8, ptr %24, i64 %23
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i: ; preds = %20, %19, %5
-  %26 = phi ptr [ %.pre3.i, %5 ], [ %24, %20 ], [ %.pre.i, %19 ]
-  %.016.i.i.i = phi ptr [ %6, %5 ], [ %25, %20 ], [ %6, %19 ]
-  %27 = load i32, ptr %9, align 8, !tbaa !27
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %26, i64 %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %29, ptr noundef nonnull align 8 dereferenceable(57) %.016.i.i.i, i64 21, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  store ptr %32, ptr %30, align 8, !tbaa !270
-  %33 = load ptr, ptr %31, align 8, !tbaa !98
-  %34 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 40
-  %35 = icmp eq ptr %33, %34
-  br i1 %35, label %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-36:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
-  %37 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 32
-  %38 = load i64, ptr %37, align 8, !tbaa !86
-  %39 = icmp ult i64 %38, 16
-  call void @llvm.assume(i1 %39)
-  %40 = add nuw nsw i64 %38, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %32, ptr noundef nonnull align 8 dereferenceable(1) %34, i64 %40, i1 false)
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
-  store ptr %33, ptr %30, align 8, !tbaa !98
-  %41 = load i64, ptr %34, align 8, !tbaa !109
-  store i64 %41, ptr %32, align 8, !tbaa !109
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit: ; preds = %36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 32
-  %43 = load i64, ptr %42, align 8, !tbaa !86
-  %44 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  store i64 %43, ptr %44, align 8, !tbaa !86
-  store ptr %34, ptr %31, align 8, !tbaa !98
-  store i64 0, ptr %42, align 8, !tbaa !86
-  store i8 0, ptr %34, align 1, !tbaa !109
-  %45 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %46 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 56
-  %47 = load i8, ptr %46, align 8, !tbaa !91, !range !95, !noundef !96
-  store i8 %47, ptr %45, align 8, !tbaa !91
-  %48 = load i32, ptr %9, align 8, !tbaa !27
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %9, align 8, !tbaa !27
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !98
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %53 = icmp eq ptr %51, %52
-  br i1 %53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %55 = load i64, ptr %54, align 8, !tbaa !86
-  %56 = icmp ult i64 %55, 16
-  call void @llvm.assume(i1 %56)
-  br label %_ZN5clang9FixItHintD2Ev.exit
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE9push_backEOS2_.exit
-  %57 = load i64, ptr %52, align 8, !tbaa !109
-  %58 = add i64 %57, 1
-  call void @_ZdlPvm(ptr noundef %51, i64 noundef %58) #19
   br label %_ZN5clang9FixItHintD2Ev.exit
 
 _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13

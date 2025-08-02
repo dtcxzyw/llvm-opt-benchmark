@@ -203,65 +203,65 @@ define internal noundef i32 @epx2_slice(ptr readnone captures(none) %0, ptr noun
   %51 = or disjoint i64 %50, 1
   %52 = mul nsw i64 %51, %45
   %53 = getelementptr inbounds i32, ptr %22, i64 %52
-  %invariant.gep.us = getelementptr i8, ptr %.sroa.549.0115.us, i64 -4
   br label %54
 
-54:                                               ; preds = %.lr.ph.us, %79
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %79 ]
+54:                                               ; preds = %.lr.ph.us, %81
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %81 ]
   %55 = getelementptr inbounds nuw i32, ptr %.sroa.048.0114.us, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !52
   %57 = trunc nuw nsw i64 %indvars.iv to i32
   %58 = tail call i32 @llvm.smax.i32(i32 %57, i32 1)
   %59 = zext nneg i32 %58 to i64
-  %gep.us = getelementptr i32, ptr %invariant.gep.us, i64 %59
-  %60 = load i32, ptr %gep.us, align 4, !tbaa !52
-  %61 = getelementptr inbounds nuw i32, ptr %.sroa.549.0115.us, i64 %indvars.iv
+  %60 = getelementptr i32, ptr %.sroa.549.0115.us, i64 %59
+  %61 = getelementptr i8, ptr %60, i64 -4
   %62 = load i32, ptr %61, align 4, !tbaa !52
+  %63 = getelementptr inbounds nuw i32, ptr %.sroa.549.0115.us, i64 %indvars.iv
+  %64 = load i32, ptr %63, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %63 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %64 = tail call i32 @llvm.smin.i32(i32 %63, i32 %25)
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %.sroa.549.0115.us, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !52
-  %68 = getelementptr inbounds nuw i32, ptr %.sroa.12.0116.us, i64 %indvars.iv
+  %65 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %66 = tail call i32 @llvm.smin.i32(i32 %65, i32 %25)
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i32, ptr %.sroa.549.0115.us, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !52
-  %.not.us = icmp eq i32 %56, %69
-  %.not111.us = icmp eq i32 %60, %67
+  %70 = getelementptr inbounds nuw i32, ptr %.sroa.12.0116.us, i64 %indvars.iv
+  %71 = load i32, ptr %70, align 4, !tbaa !52
+  %.not.us = icmp eq i32 %56, %71
+  %.not111.us = icmp eq i32 %62, %69
   %or.cond.us = select i1 %.not.us, i1 true, i1 %.not111.us
-  br i1 %or.cond.us, label %79, label %70
+  br i1 %or.cond.us, label %81, label %72
 
-70:                                               ; preds = %54
-  %71 = icmp eq i32 %60, %56
-  %72 = select i1 %71, i32 %60, i32 %62
-  %73 = icmp eq i32 %56, %67
-  %74 = select i1 %73, i32 %67, i32 %62
-  %75 = icmp eq i32 %60, %69
-  %76 = select i1 %75, i32 %60, i32 %62
-  %77 = icmp eq i32 %69, %67
-  %78 = select i1 %77, i32 %67, i32 %62
-  br label %79
+72:                                               ; preds = %54
+  %73 = icmp eq i32 %62, %56
+  %74 = select i1 %73, i32 %62, i32 %64
+  %75 = icmp eq i32 %56, %69
+  %76 = select i1 %75, i32 %69, i32 %64
+  %77 = icmp eq i32 %62, %71
+  %78 = select i1 %77, i32 %62, i32 %64
+  %79 = icmp eq i32 %71, %69
+  %80 = select i1 %79, i32 %69, i32 %64
+  br label %81
 
-79:                                               ; preds = %70, %54
-  %.0103.us = phi i32 [ %72, %70 ], [ %62, %54 ]
-  %.0102.us = phi i32 [ %74, %70 ], [ %62, %54 ]
-  %.0101.us = phi i32 [ %76, %70 ], [ %62, %54 ]
-  %.0100.us = phi i32 [ %78, %70 ], [ %62, %54 ]
-  %80 = shl nuw nsw i64 %indvars.iv, 1
-  %81 = getelementptr inbounds nuw i32, ptr %49, i64 %80
-  store i32 %.0103.us, ptr %81, align 4, !tbaa !52
-  %82 = or disjoint i64 %80, 1
+81:                                               ; preds = %72, %54
+  %.0103.us = phi i32 [ %74, %72 ], [ %64, %54 ]
+  %.0102.us = phi i32 [ %76, %72 ], [ %64, %54 ]
+  %.0101.us = phi i32 [ %78, %72 ], [ %64, %54 ]
+  %.0100.us = phi i32 [ %80, %72 ], [ %64, %54 ]
+  %82 = shl nuw nsw i64 %indvars.iv, 1
   %83 = getelementptr inbounds nuw i32, ptr %49, i64 %82
-  store i32 %.0102.us, ptr %83, align 4, !tbaa !52
-  %84 = getelementptr inbounds nuw i32, ptr %53, i64 %80
-  store i32 %.0101.us, ptr %84, align 4, !tbaa !52
-  %85 = getelementptr inbounds nuw i32, ptr %53, i64 %82
-  store i32 %.0100.us, ptr %85, align 4, !tbaa !52
+  store i32 %.0103.us, ptr %83, align 4, !tbaa !52
+  %84 = or disjoint i64 %82, 1
+  %85 = getelementptr inbounds nuw i32, ptr %49, i64 %84
+  store i32 %.0102.us, ptr %85, align 4, !tbaa !52
+  %86 = getelementptr inbounds nuw i32, ptr %53, i64 %82
+  store i32 %.0101.us, ptr %86, align 4, !tbaa !52
+  %87 = getelementptr inbounds nuw i32, ptr %53, i64 %84
+  store i32 %.0100.us, ptr %87, align 4, !tbaa !52
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !54
 
-._crit_edge.us:                                   ; preds = %79
-  %86 = icmp slt i64 %indvars.iv121, %46
-  %.sroa.12.1.idx.us = select i1 %86, i64 %47, i64 0
+._crit_edge.us:                                   ; preds = %81
+  %88 = icmp slt i64 %indvars.iv121, %46
+  %.sroa.12.1.idx.us = select i1 %88, i64 %47, i64 0
   %.sroa.12.1.us = getelementptr inbounds i32, ptr %.sroa.12.0116.us, i64 %.sroa.12.1.idx.us
   %indvars.iv.next122 = add nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124

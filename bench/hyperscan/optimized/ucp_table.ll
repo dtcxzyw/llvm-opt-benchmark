@@ -439,9 +439,9 @@ define hidden void @_ZN3ue28getUcpCsEv(ptr dead_on_unwind noalias nonnull writab
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 55296, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 57343, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -2509,9 +2509,9 @@ define hidden void @_ZN3ue213getUcpBrailleEv(ptr dead_on_unwind noalias nonnull 
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 10240, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 10495, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -2584,9 +2584,9 @@ define hidden void @_ZN3ue211getUcpBuhidEv(ptr dead_on_unwind noalias nonnull wr
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 5952, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 5971, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -2659,9 +2659,9 @@ define hidden void @_ZN3ue212getUcpCarianEv(ptr dead_on_unwind noalias nonnull w
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 66208, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66256, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -2823,9 +2823,9 @@ define hidden void @_ZN3ue214getUcpCherokeeEv(ptr dead_on_unwind noalias nonnull
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 5024, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 5108, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -3079,9 +3079,9 @@ define hidden void @_ZN3ue213getUcpDeseretEv(ptr dead_on_unwind noalias nonnull 
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 66560, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66639, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -3200,9 +3200,9 @@ define hidden void @_ZN3ue226getUcpEgyptian_HieroglyphsEv(ptr dead_on_unwind noa
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 77824, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 78894, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -3231,9 +3231,9 @@ define hidden void @_ZN3ue213getUcpElbasanEv(ptr dead_on_unwind noalias nonnull 
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 66816, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66855, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -3396,9 +3396,9 @@ define hidden void @_ZN3ue212getUcpGothicEv(ptr dead_on_unwind noalias nonnull w
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 66352, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66378, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -3697,9 +3697,9 @@ define hidden void @_ZN3ue213getUcpHanunooEv(ptr dead_on_unwind noalias nonnull 
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 5920, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 5940, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -4040,9 +4040,9 @@ define hidden void @_ZN3ue212getUcpKaithiEv(ptr dead_on_unwind noalias nonnull w
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 69760, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 69825, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -4653,9 +4653,9 @@ define hidden void @_ZN3ue210getUcpLisuEv(ptr dead_on_unwind noalias nonnull wri
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 42192, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 42239, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -4684,9 +4684,9 @@ define hidden void @_ZN3ue212getUcpLycianEv(ptr dead_on_unwind noalias nonnull w
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 66176, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66204, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -4759,9 +4759,9 @@ define hidden void @_ZN3ue214getUcpMahajaniEv(ptr dead_on_unwind noalias nonnull
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 69968, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 70006, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -5056,9 +5056,9 @@ define hidden void @_ZN3ue226getUcpMeroitic_HieroglyphsEv(ptr dead_on_unwind noa
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 67968, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 67999, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -5400,9 +5400,9 @@ define hidden void @_ZN3ue29getUcpNkoEv(ptr dead_on_unwind noalias nonnull writa
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 1984, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 2042, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -5431,9 +5431,9 @@ define hidden void @_ZN3ue211getUcpOghamEv(ptr dead_on_unwind noalias nonnull wr
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 5760, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 5788, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -5462,9 +5462,9 @@ define hidden void @_ZN3ue214getUcpOl_ChikiEv(ptr dead_on_unwind noalias nonnull
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 7248, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 7295, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -5493,9 +5493,9 @@ define hidden void @_ZN3ue216getUcpOld_ItalicEv(ptr dead_on_unwind noalias nonnu
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 66304, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66339, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -5524,9 +5524,9 @@ define hidden void @_ZN3ue223getUcpOld_North_ArabianEv(ptr dead_on_unwind noalia
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 68224, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 68255, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -5555,9 +5555,9 @@ define hidden void @_ZN3ue216getUcpOld_PermicEv(ptr dead_on_unwind noalias nonnu
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 66384, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66426, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -5630,9 +5630,9 @@ define hidden void @_ZN3ue223getUcpOld_South_ArabianEv(ptr dead_on_unwind noalia
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 68192, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 68223, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -5661,9 +5661,9 @@ define hidden void @_ZN3ue216getUcpOld_TurkicEv(ptr dead_on_unwind noalias nonnu
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 68608, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 68680, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -5826,9 +5826,9 @@ define hidden void @_ZN3ue215getUcpPalmyreneEv(ptr dead_on_unwind noalias nonnul
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 67680, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 67711, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -5857,9 +5857,9 @@ define hidden void @_ZN3ue217getUcpPau_Cin_HauEv(ptr dead_on_unwind noalias nonn
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 72384, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 72440, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -5888,9 +5888,9 @@ define hidden void @_ZN3ue214getUcpPhags_PaEv(ptr dead_on_unwind noalias nonnull
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 43072, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 43127, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -6229,9 +6229,9 @@ define hidden void @_ZN3ue213getUcpShavianEv(ptr dead_on_unwind noalias nonnull 
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 66640, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66687, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -6437,9 +6437,9 @@ define hidden void @_ZN3ue218getUcpSyloti_NagriEv(ptr dead_on_unwind noalias non
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 43008, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 43051, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -6869,9 +6869,9 @@ define hidden void @_ZN3ue212getUcpThaanaEv(ptr dead_on_unwind noalias nonnull w
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 1920, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1969, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
@@ -7122,9 +7122,9 @@ define hidden void @_ZN3ue29getUcpVaiEv(ptr dead_on_unwind noalias nonnull writa
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   store i32 42240, ptr %2, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 42539, ptr %8, align 4
   %9 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10

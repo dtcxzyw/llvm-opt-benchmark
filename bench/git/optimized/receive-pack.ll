@@ -3334,7 +3334,6 @@ define internal fastcc void @proc_receive_ref_append(ptr noundef nonnull %0) unn
 20:                                               ; preds = %17, %._crit_edge
   %.1 = phi ptr [ %16, %._crit_edge ], [ %0, %17 ]
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #23
-  %invariant.gep = getelementptr i8, ptr %.1, i64 -1
   %22 = and i64 %21, 4294967295
   %.not3439 = icmp eq i64 %22, 0
   br i1 %.not3439, label %.critedge, label %.lr.ph42.preheader
@@ -3344,50 +3343,51 @@ define internal fastcc void @proc_receive_ref_append(ptr noundef nonnull %0) unn
   %23 = ashr exact i64 %sext, 32
   br label %.lr.ph42
 
-.lr.ph42:                                         ; preds = %.lr.ph42.preheader, %26
-  %indvars.iv = phi i64 [ %23, %.lr.ph42.preheader ], [ %indvars.iv.next, %26 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %24 = load i8, ptr %gep, align 1, !tbaa !60
-  %25 = icmp eq i8 %24, 47
-  br i1 %25, label %26, label %.critedge.loopexit
+.lr.ph42:                                         ; preds = %.lr.ph42.preheader, %28
+  %indvars.iv = phi i64 [ %23, %.lr.ph42.preheader ], [ %indvars.iv.next, %28 ]
+  %24 = getelementptr i8, ptr %.1, i64 %indvars.iv
+  %25 = getelementptr i8, ptr %24, i64 -1
+  %26 = load i8, ptr %25, align 1, !tbaa !60
+  %27 = icmp eq i8 %26, 47
+  br i1 %27, label %28, label %.critedge.loopexit
 
-26:                                               ; preds = %.lr.ph42
+28:                                               ; preds = %.lr.ph42
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not34 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not34, label %.critedge.loopexit, label %.lr.ph42, !llvm.loop !181
 
-.critedge.loopexit:                               ; preds = %26, %.lr.ph42
-  %.029.lcssa.ph = phi i64 [ %indvars.iv, %.lr.ph42 ], [ 0, %26 ]
+.critedge.loopexit:                               ; preds = %28, %.lr.ph42
+  %.029.lcssa.ph = phi i64 [ %indvars.iv, %.lr.ph42 ], [ 0, %28 ]
   %sext47 = shl i64 %.029.lcssa.ph, 32
-  %27 = ashr exact i64 %sext47, 32
+  %29 = ashr exact i64 %sext47, 32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %20
-  %.029.lcssa = phi i64 [ 0, %20 ], [ %27, %.critedge.loopexit ]
-  %28 = tail call ptr @xmemdupz(ptr noundef nonnull %.1, i64 noundef %.029.lcssa) #21
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %28, ptr %29, align 8, !tbaa !117
-  %30 = load ptr, ptr @proc_receive_ref, align 8, !tbaa !115
-  %.not35 = icmp eq ptr %30, null
-  br i1 %.not35, label %31, label %.preheader
+  %.029.lcssa = phi i64 [ 0, %20 ], [ %29, %.critedge.loopexit ]
+  %30 = tail call ptr @xmemdupz(ptr noundef nonnull %.1, i64 noundef %.029.lcssa) #21
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %30, ptr %31, align 8, !tbaa !117
+  %32 = load ptr, ptr @proc_receive_ref, align 8, !tbaa !115
+  %.not35 = icmp eq ptr %32, null
+  br i1 %.not35, label %33, label %.preheader
 
-31:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedge
   store ptr %3, ptr @proc_receive_ref, align 8, !tbaa !115
-  br label %36
+  br label %38
 
 .preheader:                                       ; preds = %.critedge, %.preheader
-  %.0 = phi ptr [ %33, %.preheader ], [ %30, %.critedge ]
-  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !120
-  %.not36 = icmp eq ptr %33, null
-  br i1 %.not36, label %34, label %.preheader, !llvm.loop !182
+  %.0 = phi ptr [ %35, %.preheader ], [ %32, %.critedge ]
+  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !120
+  %.not36 = icmp eq ptr %35, null
+  br i1 %.not36, label %36, label %.preheader, !llvm.loop !182
 
-34:                                               ; preds = %.preheader
-  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store ptr %3, ptr %35, align 8, !tbaa !120
-  br label %36
+36:                                               ; preds = %.preheader
+  %37 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  store ptr %3, ptr %37, align 8, !tbaa !120
+  br label %38
 
-36:                                               ; preds = %34, %31
+38:                                               ; preds = %36, %33
   ret void
 }
 

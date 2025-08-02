@@ -8179,7 +8179,6 @@ if.end:                                           ; preds = %if.then.if.end_crit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm_value) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tm_value, i8 0, i64 56, i1 false)
   %tm_mon = getelementptr inbounds nuw i8, ptr %tm_value, i64 16
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %ss, i64 232
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp20, i64 16
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp20, i64 8
   %_M_out_cur.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 48
@@ -8232,8 +8231,9 @@ invoke.cont7:                                     ; preds = %for.body
   %vtable.i = load ptr, ptr %ss, align 8, !tbaa !28
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset.i
-  %12 = load ptr, ptr %gep, align 8, !tbaa !62
+  %add.ptr.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i
+  %_M_streambuf.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 232
+  %12 = load ptr, ptr %_M_streambuf.i.i, align 8, !tbaa !62
   %tobool.not.i = icmp eq ptr %12, null
   %storedv.i = zext i1 %tobool.not.i to i8
   %call10 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZSt9use_facetISt8time_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %locale)
@@ -8679,7 +8679,6 @@ if.end:                                           ; preds = %if.then.if.end_crit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm_value) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tm_value, i8 0, i64 56, i1 false)
   %tm_wday = getelementptr inbounds nuw i8, ptr %tm_value, i64 24
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %ss, i64 232
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp20, i64 16
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp20, i64 8
   %_M_out_cur.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 48
@@ -8732,8 +8731,9 @@ invoke.cont7:                                     ; preds = %for.body
   %vtable.i = load ptr, ptr %ss, align 8, !tbaa !28
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset.i
-  %12 = load ptr, ptr %gep, align 8, !tbaa !62
+  %add.ptr.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i
+  %_M_streambuf.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 232
+  %12 = load ptr, ptr %_M_streambuf.i.i, align 8, !tbaa !62
   %tobool.not.i = icmp eq ptr %12, null
   %storedv.i = zext i1 %tobool.not.i to i8
   %call10 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZSt9use_facetISt8time_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %locale)

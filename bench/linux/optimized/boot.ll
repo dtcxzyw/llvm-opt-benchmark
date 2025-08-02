@@ -2141,23 +2141,23 @@ define internal fastcc void @mp_config_acpi_legacy_irqs() unnamed_addr #0 sectio
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 7
   br label %12
 
-12:                                               ; preds = %.thread, %5
-  %13 = phi i64 [ 0, %5 ], [ %64, %.thread ]
-  %14 = phi i32 [ %3, %5 ], [ %66, %.thread ]
+12:                                               ; preds = %.critedge, %5
+  %13 = phi i64 [ 0, %5 ], [ %64, %.critedge ]
+  %14 = phi i32 [ %3, %5 ], [ %66, %.critedge ]
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %13, %15
-  br i1 %16, label %17, label %.thread
+  br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %12
   %18 = getelementptr [16 x i32], ptr @isa_irq_to_gsi, i64 0, i64 %13
   %19 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %19, -1
-  br i1 %.not, label %.thread, label %20
+  br i1 %.not, label %.critedge, label %20
 
 20:                                               ; preds = %17
   %21 = call i32 @mp_find_ioapic(i32 noundef %19) #18
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %20
   %24 = call i32 @mp_find_ioapic_pin(i32 noundef %21, i32 noundef %19) #18
@@ -2202,7 +2202,7 @@ define internal fastcc void @mp_config_acpi_legacy_irqs() unnamed_addr #0 sectio
 51:                                               ; preds = %46, %41
   %52 = add nuw nsw i64 %31, 1
   %53 = icmp eq i64 %52, %29
-  br i1 %53, label %.thread6, label %30, !llvm.loop !21
+  br i1 %53, label %.thread, label %30, !llvm.loop !21
 
 54:                                               ; preds = %36
   %55 = trunc i64 %31 to i32
@@ -2215,9 +2215,9 @@ define internal fastcc void @mp_config_acpi_legacy_irqs() unnamed_addr #0 sectio
 58:                                               ; preds = %56, %54, %23
   %59 = phi i32 [ 0, %23 ], [ %55, %54 ], [ %57, %56 ]
   %60 = icmp eq i32 %59, %26
-  br i1 %60, label %.thread6, label %.thread
+  br i1 %60, label %.thread, label %.critedge
 
-.thread6:                                         ; preds = %51, %58
+.thread:                                          ; preds = %51, %58
   store i8 3, ptr %1, align 8
   store i16 0, ptr %6, align 2
   store i8 0, ptr %7, align 4
@@ -2229,9 +2229,9 @@ define internal fastcc void @mp_config_acpi_legacy_irqs() unnamed_addr #0 sectio
   %63 = trunc i32 %24 to i8
   store i8 %63, ptr %11, align 1
   call void @mp_save_irq(ptr noundef nonnull %1) #18
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %12, %.thread6, %58, %20, %17
+.critedge:                                        ; preds = %12, %.thread, %58, %20, %17
   %64 = add nuw nsw i64 %13, 1
   %65 = load ptr, ptr @legacy_pic, align 8
   %66 = load i32, ptr %65, align 8
@@ -2239,7 +2239,7 @@ define internal fastcc void @mp_config_acpi_legacy_irqs() unnamed_addr #0 sectio
   %68 = icmp slt i64 %64, %67
   br i1 %68, label %12, label %.loopexit, !llvm.loop !22
 
-.loopexit:                                        ; preds = %.thread, %0
+.loopexit:                                        ; preds = %.critedge, %0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #18
   ret void
 }

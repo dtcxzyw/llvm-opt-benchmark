@@ -2016,7 +2016,7 @@ define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noun
 
 15:                                               ; preds = %2
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.19) #7
-  br label %SDL_EGL_DestroyContext.exit
+  br label %.critedge
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1004
@@ -2101,7 +2101,7 @@ define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noun
 
 54:                                               ; preds = %34
   %55 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.24) #7
-  br label %SDL_EGL_DestroyContext.exit
+  br label %.critedge
 
 56:                                               ; preds = %47, %44, %30, %31
   %.091 = phi i32 [ 2, %31 ], [ 0, %30 ], [ %51, %47 ], [ %.192, %44 ]
@@ -2147,8 +2147,8 @@ define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noun
 
 .preheader:                                       ; preds = %72
   %81 = load i32, ptr %80, align 4
-  %.not107113 = icmp eq i32 %81, 12344
-  br i1 %.not107113, label %._crit_edge, label %.lr.ph.preheader
+  %.not107111 = icmp eq i32 %81, 12344
+  br i1 %.not107111, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %82 = zext nneg i32 %.2 to i64
@@ -2160,12 +2160,12 @@ define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noun
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1036
   store i8 0, ptr %85, align 4
   %86 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.26) #7
-  br label %SDL_EGL_DestroyContext.exit
+  br label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %93
   %indvars.iv = phi i64 [ %82, %.lr.ph.preheader ], [ %indvars.iv.next, %93 ]
   %87 = phi i32 [ %81, %.lr.ph.preheader ], [ %100, %93 ]
-  %.090115 = phi ptr [ %80, %.lr.ph.preheader ], [ %97, %93 ]
+  %.090113 = phi ptr [ %80, %.lr.ph.preheader ], [ %97, %93 ]
   %88 = icmp samesign ugt i64 %indvars.iv, 29
   br i1 %88, label %89, label %93
 
@@ -2175,14 +2175,14 @@ define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noun
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 1036
   store i8 0, ptr %91, align 4
   %92 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.27) #7
-  br label %SDL_EGL_DestroyContext.exit
+  br label %.critedge
 
 93:                                               ; preds = %.lr.ph
-  %94 = getelementptr inbounds nuw i8, ptr %.090115, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.090113, i64 4
   %95 = add nuw nsw i64 %indvars.iv, 1
   %96 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %indvars.iv
   store i32 %87, ptr %96, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %.090115, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.090113, i64 8
   %98 = load i32, ptr %94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %99 = getelementptr inbounds nuw [33 x i32], ptr %4, i64 0, i64 %95
@@ -2256,7 +2256,7 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
   %.0.i = phi ptr [ %3, %131 ], [ %.0.i.i, %SDL_EGL_GetErrorName.exit.i ]
   %133 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull %.0.i) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
-  br label %SDL_EGL_DestroyContext.exit
+  br label %.critedge
 
 134:                                              ; preds = %102
   %135 = getelementptr inbounds nuw i8, ptr %122, i64 32
@@ -2267,7 +2267,7 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
 
 138:                                              ; preds = %134
   %.not.i = icmp eq ptr %137, null
-  br i1 %.not.i, label %SDL_EGL_DestroyContext.exit, label %139
+  br i1 %.not.i, label %.critedge, label %139
 
 139:                                              ; preds = %138
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 112
@@ -2275,7 +2275,7 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %143 = load ptr, ptr %142, align 8
   %144 = call i32 %141(ptr noundef %143, ptr noundef nonnull %120) #7
-  br label %SDL_EGL_DestroyContext.exit
+  br label %.critedge
 
 145:                                              ; preds = %134
   %146 = getelementptr inbounds nuw i8, ptr %137, i64 40
@@ -2295,24 +2295,24 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
 
 155:                                              ; preds = %151, %149
   %156 = call zeroext i1 @SDL_EGL_HasExtension(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.30)
-  br i1 %156, label %157, label %SDL_EGL_DestroyContext.exit
+  br i1 %156, label %157, label %.critedge
 
 157:                                              ; preds = %155, %151, %145
   br i1 %12, label %158, label %162
 
 158:                                              ; preds = %157
   %159 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.31) #7
-  br i1 %159, label %160, label %SDL_EGL_DestroyContext.exit
+  br i1 %159, label %160, label %.critedge
 
 160:                                              ; preds = %158
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   store i8 1, ptr %161, align 8
-  br label %SDL_EGL_DestroyContext.exit
+  br label %.critedge
 
 162:                                              ; preds = %157
   %163 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.32) #7
   %.not108 = icmp eq ptr %163, null
-  br i1 %.not108, label %SDL_EGL_DestroyContext.exit, label %164
+  br i1 %.not108, label %.critedge, label %164
 
 164:                                              ; preds = %162
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
@@ -2329,10 +2329,10 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
 
 169:                                              ; preds = %167, %164
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  br label %SDL_EGL_DestroyContext.exit
+  br label %.critedge
 
-SDL_EGL_DestroyContext.exit:                      ; preds = %83, %89, %139, %138, %155, %158, %160, %169, %162, %SDL_EGL_SetErrorEx.exit, %54, %15
-  %.0 = phi ptr [ null, %SDL_EGL_SetErrorEx.exit ], [ null, %54 ], [ null, %15 ], [ %120, %162 ], [ %120, %169 ], [ %120, %160 ], [ %120, %158 ], [ %120, %155 ], [ null, %138 ], [ null, %139 ], [ null, %89 ], [ null, %83 ]
+.critedge:                                        ; preds = %139, %138, %89, %83, %155, %158, %160, %169, %162, %SDL_EGL_SetErrorEx.exit, %54, %15
+  %.0 = phi ptr [ null, %SDL_EGL_SetErrorEx.exit ], [ null, %54 ], [ null, %15 ], [ %120, %162 ], [ %120, %169 ], [ %120, %160 ], [ %120, %158 ], [ %120, %155 ], [ null, %83 ], [ null, %89 ], [ null, %138 ], [ null, %139 ]
   call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %4) #7
   ret ptr %.0
 }
@@ -2623,7 +2623,7 @@ define hidden ptr @SDL_EGL_CreateSurface(ptr noundef captures(none) %0, ptr noun
   %5 = alloca [33 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %5) #7
   %6 = tail call zeroext i1 @SDL_EGL_ChooseConfig(ptr noundef %0)
-  br i1 %6, label %7, label %.thread
+  br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1016
@@ -2643,7 +2643,7 @@ define hidden ptr @SDL_EGL_CreateSurface(ptr noundef captures(none) %0, ptr noun
 
 14:                                               ; preds = %10
   %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.41) #7
-  br label %.thread
+  br label %.critedge
 
 16:                                               ; preds = %12, %7
   %.039 = phi i32 [ 2, %12 ], [ 0, %7 ]
@@ -2696,8 +2696,8 @@ define hidden ptr @SDL_EGL_CreateSurface(ptr noundef captures(none) %0, ptr noun
 
 .preheader:                                       ; preds = %33
   %43 = load i32, ptr %42, align 4
-  %.not5155 = icmp eq i32 %43, 12344
-  br i1 %.not5155, label %._crit_edge, label %.lr.ph.preheader
+  %.not5153 = icmp eq i32 %43, 12344
+  br i1 %.not5153, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %44 = zext nneg i32 %.140 to i64
@@ -2709,12 +2709,12 @@ define hidden ptr @SDL_EGL_CreateSurface(ptr noundef captures(none) %0, ptr noun
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1036
   store i8 0, ptr %47, align 4
   %48 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43) #7
-  br label %.thread
+  br label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
   %indvars.iv = phi i64 [ %44, %.lr.ph.preheader ], [ %indvars.iv.next, %55 ]
   %49 = phi i32 [ %43, %.lr.ph.preheader ], [ %62, %55 ]
-  %.057 = phi ptr [ %42, %.lr.ph.preheader ], [ %59, %55 ]
+  %.055 = phi ptr [ %42, %.lr.ph.preheader ], [ %59, %55 ]
   %50 = icmp samesign ugt i64 %indvars.iv, 29
   br i1 %50, label %51, label %55
 
@@ -2724,14 +2724,14 @@ define hidden ptr @SDL_EGL_CreateSurface(ptr noundef captures(none) %0, ptr noun
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1036
   store i8 0, ptr %53, align 4
   %54 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.44) #7
-  br label %.thread
+  br label %.critedge
 
 55:                                               ; preds = %.lr.ph
-  %56 = getelementptr inbounds nuw i8, ptr %.057, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %.055, i64 4
   %57 = add nuw nsw i64 %indvars.iv, 1
   %58 = getelementptr inbounds nuw [33 x i32], ptr %5, i64 0, i64 %indvars.iv
   store i32 %49, ptr %58, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %.057, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.055, i64 8
   %60 = load i32, ptr %56, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %61 = getelementptr inbounds nuw [33 x i32], ptr %5, i64 0, i64 %57
@@ -2764,7 +2764,7 @@ define hidden ptr @SDL_EGL_CreateSurface(ptr noundef captures(none) %0, ptr noun
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr %70(ptr noundef %72, ptr noundef %74, i64 noundef %2, ptr noundef nonnull %5) #7
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %.thread
+  br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %64
   %78 = load ptr, ptr %67, align 8
@@ -2796,10 +2796,10 @@ SDL_EGL_SetErrorEx.exit:                          ; preds = %SDL_EGL_GetErrorNam
   %.0.i = phi ptr [ %4, %86 ], [ %.0.i.i, %SDL_EGL_GetErrorName.exit.i ]
   %88 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull %.0.i) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %45, %51, %64, %SDL_EGL_SetErrorEx.exit, %3, %14
-  %.038 = phi ptr [ null, %14 ], [ null, %3 ], [ null, %SDL_EGL_SetErrorEx.exit ], [ %75, %64 ], [ null, %51 ], [ null, %45 ]
+.critedge:                                        ; preds = %51, %45, %64, %SDL_EGL_SetErrorEx.exit, %3, %14
+  %.038 = phi ptr [ null, %14 ], [ null, %3 ], [ null, %SDL_EGL_SetErrorEx.exit ], [ %75, %64 ], [ null, %45 ], [ null, %51 ]
   call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %5) #7
   ret ptr %.038
 }

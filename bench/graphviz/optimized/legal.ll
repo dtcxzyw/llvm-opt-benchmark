@@ -98,1241 +98,1241 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr noundef readonly captures(non
   unreachable
 
 .lr.ph111.preheader:                              ; preds = %29, %.thread.i72
-  %.sink = phi ptr [ %24, %.thread.i72 ], [ %30, %29 ]
-  %.061.lcssa145153 = phi i64 [ 0, %.thread.i72 ], [ %23, %29 ]
-  %invariant.gep149 = getelementptr i8, ptr %.sink, i64 -32
+  %36 = phi ptr [ %24, %.thread.i72 ], [ %30, %29 ]
+  %.061.lcssa145152 = phi i64 [ 0, %.thread.i72 ], [ %23, %29 ]
   %wide.trip.count141 = zext nneg i32 %1 to i64
   br label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %.lr.ph111.preheader, %._crit_edge103
   %indvars.iv138 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next139, %._crit_edge103 ]
   %.063109 = phi i32 [ 0, %.lr.ph111.preheader ], [ %.164.lcssa, %._crit_edge103 ]
-  %36 = sext i32 %.063109 to i64
-  %37 = getelementptr inbounds %struct.vertex, ptr %.sink, i64 %36
-  %38 = getelementptr inbounds nuw %struct.polygon, ptr %11, i64 %indvars.iv138
-  store ptr %37, ptr %38, align 8, !tbaa !16
-  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv138
-  %40 = load ptr, ptr %39, align 8, !tbaa !8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !10
-  %.not113 = icmp eq i64 %42, 0
+  %37 = sext i32 %.063109 to i64
+  %38 = getelementptr inbounds %struct.vertex, ptr %36, i64 %37
+  %39 = getelementptr inbounds nuw %struct.polygon, ptr %11, i64 %indvars.iv138
+  store ptr %38, ptr %39, align 8, !tbaa !16
+  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv138
+  %41 = load ptr, ptr %40, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !10
+  %.not113 = icmp eq i64 %43, 0
   br i1 %.not113, label %._crit_edge103, label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %.lr.ph111
-  %43 = load ptr, ptr %40, align 8, !tbaa !21
-  br label %47
+  %44 = load ptr, ptr %41, align 8, !tbaa !21
+  br label %50
 
-._crit_edge103.loopexit:                          ; preds = %47
-  %44 = trunc nsw i64 %indvars.iv.next135 to i32
+._crit_edge103.loopexit:                          ; preds = %50
+  %45 = trunc nsw i64 %indvars.iv.next135 to i32
   %sext = shl i64 %indvars.iv.next135, 32
   %.pre = ashr exact i64 %sext, 32
   br label %._crit_edge103
 
 ._crit_edge103:                                   ; preds = %._crit_edge103.loopexit, %.lr.ph111
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge103.loopexit ], [ %36, %.lr.ph111 ]
-  %.sroa.12.0.lcssa = phi double [ %55, %._crit_edge103.loopexit ], [ 0xFFEFFFFFFFFFFFFF, %.lr.ph111 ]
-  %.sroa.9.0.lcssa = phi double [ %54, %._crit_edge103.loopexit ], [ 0xFFEFFFFFFFFFFFFF, %.lr.ph111 ]
-  %.sroa.6.0.lcssa = phi double [ %53, %._crit_edge103.loopexit ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph111 ]
-  %.sroa.0.0.lcssa = phi double [ %52, %._crit_edge103.loopexit ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph111 ]
-  %.164.lcssa = phi i32 [ %44, %._crit_edge103.loopexit ], [ %.063109, %.lr.ph111 ]
-  %gep = getelementptr %struct.vertex, ptr %invariant.gep149, i64 %.pre-phi
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %gep, ptr %45, align 8, !tbaa !22
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store double %.sroa.0.0.lcssa, ptr %46, align 8, !tbaa !23
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge103.loopexit ], [ %37, %.lr.ph111 ]
+  %.sroa.12.0.lcssa = phi double [ %58, %._crit_edge103.loopexit ], [ 0xFFEFFFFFFFFFFFFF, %.lr.ph111 ]
+  %.sroa.9.0.lcssa = phi double [ %57, %._crit_edge103.loopexit ], [ 0xFFEFFFFFFFFFFFFF, %.lr.ph111 ]
+  %.sroa.6.0.lcssa = phi double [ %56, %._crit_edge103.loopexit ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph111 ]
+  %.sroa.0.0.lcssa = phi double [ %55, %._crit_edge103.loopexit ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph111 ]
+  %.164.lcssa = phi i32 [ %45, %._crit_edge103.loopexit ], [ %.063109, %.lr.ph111 ]
+  %46 = getelementptr %struct.vertex, ptr %36, i64 %.pre-phi
+  %47 = getelementptr i8, ptr %46, i64 -32
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store ptr %47, ptr %48, align 8, !tbaa !22
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store double %.sroa.0.0.lcssa, ptr %49, align 8, !tbaa !23
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 24
   store double %.sroa.6.0.lcssa, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !23
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 32
   store double %.sroa.9.0.lcssa, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !23
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 40
   store double %.sroa.12.0.lcssa, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !23
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
   br i1 %exitcond142.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !24
 
-47:                                               ; preds = %.lr.ph102, %47
-  %indvars.iv134 = phi i64 [ %36, %.lr.ph102 ], [ %indvars.iv.next135, %47 ]
-  %.0100 = phi i64 [ 0, %.lr.ph102 ], [ %60, %47 ]
-  %.sroa.0.098 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph102 ], [ %52, %47 ]
-  %.sroa.6.097 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph102 ], [ %53, %47 ]
-  %.sroa.9.096 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph102 ], [ %54, %47 ]
-  %.sroa.12.095 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph102 ], [ %55, %47 ]
-  %48 = getelementptr inbounds nuw %struct.pointf_s, ptr %43, i64 %.0100
-  %49 = load double, ptr %48, align 8, !tbaa !25
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %51 = load double, ptr %50, align 8, !tbaa !26
-  %52 = tail call double @llvm.minnum.f64(double %.sroa.0.098, double %49)
-  %53 = tail call double @llvm.minnum.f64(double %.sroa.6.097, double %51)
-  %54 = tail call double @llvm.maxnum.f64(double %.sroa.9.096, double %49)
-  %55 = tail call double @llvm.maxnum.f64(double %.sroa.12.095, double %51)
-  %56 = getelementptr inbounds %struct.vertex, ptr %.sink, i64 %indvars.iv134
-  store double %49, ptr %56, align 8, !tbaa !27
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store double %51, ptr %57, align 8, !tbaa !31
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store ptr %38, ptr %58, align 8, !tbaa !32
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store ptr null, ptr %59, align 8, !tbaa !33
+50:                                               ; preds = %.lr.ph102, %50
+  %indvars.iv134 = phi i64 [ %37, %.lr.ph102 ], [ %indvars.iv.next135, %50 ]
+  %.0100 = phi i64 [ 0, %.lr.ph102 ], [ %63, %50 ]
+  %.sroa.0.098 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph102 ], [ %55, %50 ]
+  %.sroa.6.097 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph102 ], [ %56, %50 ]
+  %.sroa.9.096 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph102 ], [ %57, %50 ]
+  %.sroa.12.095 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph102 ], [ %58, %50 ]
+  %51 = getelementptr inbounds nuw %struct.pointf_s, ptr %44, i64 %.0100
+  %52 = load double, ptr %51, align 8, !tbaa !25
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %54 = load double, ptr %53, align 8, !tbaa !26
+  %55 = tail call double @llvm.minnum.f64(double %.sroa.0.098, double %52)
+  %56 = tail call double @llvm.minnum.f64(double %.sroa.6.097, double %54)
+  %57 = tail call double @llvm.maxnum.f64(double %.sroa.9.096, double %52)
+  %58 = tail call double @llvm.maxnum.f64(double %.sroa.12.095, double %54)
+  %59 = getelementptr inbounds %struct.vertex, ptr %36, i64 %indvars.iv134
+  store double %52, ptr %59, align 8, !tbaa !27
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store double %54, ptr %60, align 8, !tbaa !31
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store ptr %39, ptr %61, align 8, !tbaa !32
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  store ptr null, ptr %62, align 8, !tbaa !33
   %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
-  %60 = add nuw i64 %.0100, 1
-  %exitcond137.not = icmp eq i64 %60, %42
-  br i1 %exitcond137.not, label %._crit_edge103.loopexit, label %47, !llvm.loop !34
+  %63 = add nuw i64 %.0100, 1
+  %exitcond137.not = icmp eq i64 %63, %43
+  br i1 %exitcond137.not, label %._crit_edge103.loopexit, label %50, !llvm.loop !34
 
 ._crit_edge112:                                   ; preds = %._crit_edge103
-  br i1 %.not.i69, label %.thread, label %.thread161
+  br i1 %.not.i69, label %.thread, label %.thread159
 
 .thread:                                          ; preds = %.thread.i72.thread, %._crit_edge112
-  %61 = phi ptr [ %11, %._crit_edge112 ], [ %17, %.thread.i72.thread ]
-  %62 = phi ptr [ %.sink, %._crit_edge112 ], [ %18, %.thread.i72.thread ]
-  %63 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #15
-  tail call void @qsort(ptr noundef %63, i64 noundef 0, i64 noundef 8, ptr noundef nonnull @gt) #16
-  tail call void @free(ptr noundef %63) #16
+  %64 = phi ptr [ %11, %._crit_edge112 ], [ %17, %.thread.i72.thread ]
+  %65 = phi ptr [ %36, %._crit_edge112 ], [ %18, %.thread.i72.thread ]
+  %66 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #15
+  tail call void @qsort(ptr noundef %66, i64 noundef 0, i64 noundef 8, ptr noundef nonnull @gt) #16
+  tail call void @free(ptr noundef %66) #16
   br i1 %.not.i.not, label %findInside.exit, label %.lr.ph107.preheader.i
 
-.thread161:                                       ; preds = %._crit_edge112
-  %64 = tail call noalias ptr @calloc(i64 noundef %.061.lcssa145153, i64 noundef 8) #15
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %.lr.ph.i
+.thread159:                                       ; preds = %._crit_edge112
+  %67 = tail call noalias ptr @calloc(i64 noundef %.061.lcssa145152, i64 noundef 8) #15
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %69, label %.lr.ph.i
 
-66:                                               ; preds = %.thread161
-  %67 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %68 = shl nuw nsw i64 %.061.lcssa145153, 3
-  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.1, i64 noundef %68) #13
+69:                                               ; preds = %.thread159
+  %70 = load ptr, ptr @stderr, align 8, !tbaa !3
+  %71 = shl nuw nsw i64 %.061.lcssa145152, 3
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.1, i64 noundef %71) #13
   tail call fastcc void @graphviz_exit() #14
   unreachable
 
 .lr.ph147.preheader.i:                            ; preds = %.lr.ph.i
-  tail call void @qsort(ptr noundef nonnull %64, i64 noundef %.061.lcssa145153, i64 noundef 8, ptr noundef nonnull @gt) #16
+  tail call void @qsort(ptr noundef nonnull %67, i64 noundef %.061.lcssa145152, i64 noundef 8, ptr noundef nonnull @gt) #16
   br label %.lr.ph147.i
 
-.lr.ph.i:                                         ; preds = %.thread161, %.lr.ph.i
-  %.082132.i = phi i64 [ %72, %.lr.ph.i ], [ 0, %.thread161 ]
-  %70 = getelementptr inbounds nuw %struct.vertex, ptr %.sink, i64 %.082132.i
-  %71 = getelementptr inbounds nuw ptr, ptr %64, i64 %.082132.i
-  store ptr %70, ptr %71, align 8, !tbaa !35
-  %72 = add nuw nsw i64 %.082132.i, 1
-  %exitcond.not.i = icmp eq i64 %72, %.061.lcssa145153
+.lr.ph.i:                                         ; preds = %.thread159, %.lr.ph.i
+  %.082132.i = phi i64 [ %75, %.lr.ph.i ], [ 0, %.thread159 ]
+  %73 = getelementptr inbounds nuw %struct.vertex, ptr %36, i64 %.082132.i
+  %74 = getelementptr inbounds nuw ptr, ptr %67, i64 %.082132.i
+  store ptr %73, ptr %74, align 8, !tbaa !35
+  %75 = add nuw nsw i64 %.082132.i, 1
+  %exitcond.not.i = icmp eq i64 %75, %.061.lcssa145152
   br i1 %exitcond.not.i, label %.lr.ph147.preheader.i, label %.lr.ph.i, !llvm.loop !36
 
-.lr.ph147.i:                                      ; preds = %520, %.lr.ph147.preheader.i
-  %.081145.i = phi i64 [ %521, %520 ], [ 0, %.lr.ph147.preheader.i ]
-  %.sroa.0.0144.i = phi ptr [ %.sroa.0.4.i, %520 ], [ null, %.lr.ph147.preheader.i ]
-  %.sroa.11.0143.i = phi ptr [ %.sroa.11.2.i, %520 ], [ null, %.lr.ph147.preheader.i ]
-  %.sroa.20.0142.i = phi i32 [ %.sroa.20.3.i, %520 ], [ 0, %.lr.ph147.preheader.i ]
-  %73 = getelementptr inbounds nuw ptr, ptr %64, i64 %.081145.i
-  %74 = load ptr, ptr %73, align 8, !tbaa !35
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load ptr, ptr %75, align 8, !tbaa !32
-  %77 = load ptr, ptr %76, align 8, !tbaa !16
-  %78 = icmp eq ptr %74, %77
-  br i1 %78, label %79, label %82
-
-79:                                               ; preds = %.lr.ph147.i
-  %80 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !22
-  br label %84
+.lr.ph147.i:                                      ; preds = %523, %.lr.ph147.preheader.i
+  %.081145.i = phi i64 [ %524, %523 ], [ 0, %.lr.ph147.preheader.i ]
+  %.sroa.0.0144.i = phi ptr [ %.sroa.0.4.i, %523 ], [ null, %.lr.ph147.preheader.i ]
+  %.sroa.11.0143.i = phi ptr [ %.sroa.11.2.i, %523 ], [ null, %.lr.ph147.preheader.i ]
+  %.sroa.20.0142.i = phi i32 [ %.sroa.20.3.i, %523 ], [ 0, %.lr.ph147.preheader.i ]
+  %76 = getelementptr inbounds nuw ptr, ptr %67, i64 %.081145.i
+  %77 = load ptr, ptr %76, align 8, !tbaa !35
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %79 = load ptr, ptr %78, align 8, !tbaa !32
+  %80 = load ptr, ptr %79, align 8, !tbaa !16
+  %81 = icmp eq ptr %77, %80
+  br i1 %81, label %82, label %85
 
 82:                                               ; preds = %.lr.ph147.i
-  %83 = getelementptr inbounds i8, ptr %74, i64 -32
-  br label %84
-
-84:                                               ; preds = %82, %79
-  %85 = phi ptr [ %81, %79 ], [ %83, %82 ]
-  %86 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !22
   br label %87
 
-87:                                               ; preds = %518, %84
-  %.084141.i = phi ptr [ %85, %84 ], [ %508, %518 ]
-  %.sroa.0.2140.i = phi ptr [ %.sroa.0.0144.i, %84 ], [ %.sroa.0.4.i, %518 ]
-  %.sroa.11.1139.i = phi ptr [ %.sroa.11.0143.i, %84 ], [ %.sroa.11.2.i, %518 ]
-  %.sroa.20.2138.i = phi i32 [ %.sroa.20.0142.i, %84 ], [ %.sroa.20.3.i, %518 ]
-  %88 = phi i1 [ true, %84 ], [ false, %518 ]
-  %.0101136.i = phi ptr [ %85, %84 ], [ %519, %518 ]
-  %89 = load double, ptr %74, align 8, !tbaa !27
-  %90 = load double, ptr %.0101136.i, align 8, !tbaa !27
-  %91 = fcmp ogt double %89, %90
-  br i1 %91, label %gt.exit.thread.i, label %92
+85:                                               ; preds = %.lr.ph147.i
+  %86 = getelementptr inbounds i8, ptr %77, i64 -32
+  br label %87
 
-92:                                               ; preds = %87
-  %93 = fcmp olt double %89, %90
-  br i1 %93, label %.critedge.preheader.i, label %94
+87:                                               ; preds = %85, %82
+  %88 = phi ptr [ %84, %82 ], [ %86, %85 ]
+  %89 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  br label %90
 
-94:                                               ; preds = %92
-  %95 = load double, ptr %86, align 8, !tbaa !31
-  %96 = getelementptr inbounds nuw i8, ptr %.0101136.i, i64 8
-  %97 = load double, ptr %96, align 8, !tbaa !31
-  %98 = fcmp ogt double %95, %97
-  br i1 %98, label %gt.exit.thread.i, label %gt.exit.i
+90:                                               ; preds = %521, %87
+  %.084141.i = phi ptr [ %88, %87 ], [ %511, %521 ]
+  %.sroa.0.2140.i = phi ptr [ %.sroa.0.0144.i, %87 ], [ %.sroa.0.4.i, %521 ]
+  %.sroa.11.1139.i = phi ptr [ %.sroa.11.0143.i, %87 ], [ %.sroa.11.2.i, %521 ]
+  %.sroa.20.2138.i = phi i32 [ %.sroa.20.0142.i, %87 ], [ %.sroa.20.3.i, %521 ]
+  %91 = phi i1 [ true, %87 ], [ false, %521 ]
+  %.0101136.i = phi ptr [ %88, %87 ], [ %522, %521 ]
+  %92 = load double, ptr %77, align 8, !tbaa !27
+  %93 = load double, ptr %.0101136.i, align 8, !tbaa !27
+  %94 = fcmp ogt double %92, %93
+  br i1 %94, label %gt.exit.thread.i, label %95
 
-gt.exit.i:                                        ; preds = %94
-  %99 = fcmp olt double %95, %97
-  br i1 %99, label %.critedge.preheader.i, label %507
+95:                                               ; preds = %90
+  %96 = fcmp olt double %92, %93
+  br i1 %96, label %.critedge.preheader.i, label %97
 
-.critedge.preheader.i:                            ; preds = %gt.exit.i, %92
-  %100 = icmp sgt i32 %.sroa.20.2138.i, 0
-  br i1 %100, label %.lr.ph135.i, label %.critedge._crit_edge.i
+97:                                               ; preds = %95
+  %98 = load double, ptr %89, align 8, !tbaa !31
+  %99 = getelementptr inbounds nuw i8, ptr %.0101136.i, i64 8
+  %100 = load double, ptr %99, align 8, !tbaa !31
+  %101 = fcmp ogt double %98, %100
+  br i1 %101, label %gt.exit.thread.i, label %gt.exit.i
+
+gt.exit.i:                                        ; preds = %97
+  %102 = fcmp olt double %98, %100
+  br i1 %102, label %.critedge.preheader.i, label %510
+
+.critedge.preheader.i:                            ; preds = %gt.exit.i, %95
+  %103 = icmp sgt i32 %.sroa.20.2138.i, 0
+  br i1 %103, label %.lr.ph135.i, label %.critedge._crit_edge.i
 
 .lr.ph135.i:                                      ; preds = %.critedge.preheader.i
-  %101 = getelementptr inbounds nuw i8, ptr %.084141.i, i64 8
-  %102 = getelementptr inbounds nuw i8, ptr %.084141.i, i64 16
-  %103 = getelementptr inbounds nuw i8, ptr %.084141.i, i64 32
-  br label %104
+  %104 = getelementptr inbounds nuw i8, ptr %.084141.i, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.084141.i, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.084141.i, i64 32
+  br label %107
 
-104:                                              ; preds = %.critedge.i, %.lr.ph135.i
-  %.085134.i = phi ptr [ %.sroa.0.2140.i, %.lr.ph135.i ], [ %467, %.critedge.i ]
-  %.087133.i = phi i32 [ 0, %.lr.ph135.i ], [ %465, %.critedge.i ]
-  %105 = load ptr, ptr %.085134.i, align 8, !tbaa !37
+107:                                              ; preds = %.critedge.i, %.lr.ph135.i
+  %.085134.i = phi ptr [ %.sroa.0.2140.i, %.lr.ph135.i ], [ %470, %.critedge.i ]
+  %.087133.i = phi i32 [ 0, %.lr.ph135.i ], [ %468, %.critedge.i ]
+  %108 = load ptr, ptr %.085134.i, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  %106 = load double, ptr %105, align 8, !tbaa !27
-  %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %108 = load double, ptr %107, align 8, !tbaa !31
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %110 = load ptr, ptr %109, align 8, !tbaa !32
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !22
-  %113 = icmp eq ptr %105, %112
-  br i1 %113, label %114, label %116
+  %109 = load double, ptr %108, align 8, !tbaa !27
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %111 = load double, ptr %110, align 8, !tbaa !31
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %113 = load ptr, ptr %112, align 8, !tbaa !32
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %115 = load ptr, ptr %114, align 8, !tbaa !22
+  %116 = icmp eq ptr %108, %115
+  br i1 %116, label %117, label %119
 
-114:                                              ; preds = %104
-  %115 = load ptr, ptr %110, align 8, !tbaa !16
-  br label %118
+117:                                              ; preds = %107
+  %118 = load ptr, ptr %113, align 8, !tbaa !16
+  br label %121
 
-116:                                              ; preds = %104
-  %117 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  br label %118
+119:                                              ; preds = %107
+  %120 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  br label %121
 
-118:                                              ; preds = %116, %114
-  %.in.i.i.i = phi ptr [ %115, %114 ], [ %117, %116 ]
-  %119 = load double, ptr %.in.i.i.i, align 8, !tbaa !27
-  %120 = getelementptr inbounds nuw i8, ptr %.in.i.i.i, i64 8
-  %121 = load double, ptr %120, align 8, !tbaa !31
-  %122 = load double, ptr %.084141.i, align 8, !tbaa !27
-  %123 = load double, ptr %101, align 8, !tbaa !31
-  %124 = load ptr, ptr %102, align 8, !tbaa !32
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = load ptr, ptr %125, align 8, !tbaa !22
-  %127 = icmp ne ptr %.084141.i, %126
-  br i1 %127, label %sgnarea.exit.i.i, label %128
+121:                                              ; preds = %119, %117
+  %.in.i.i.i = phi ptr [ %118, %117 ], [ %120, %119 ]
+  %122 = load double, ptr %.in.i.i.i, align 8, !tbaa !27
+  %123 = getelementptr inbounds nuw i8, ptr %.in.i.i.i, i64 8
+  %124 = load double, ptr %123, align 8, !tbaa !31
+  %125 = load double, ptr %.084141.i, align 8, !tbaa !27
+  %126 = load double, ptr %104, align 8, !tbaa !31
+  %127 = load ptr, ptr %105, align 8, !tbaa !32
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %129 = load ptr, ptr %128, align 8, !tbaa !22
+  %130 = icmp ne ptr %.084141.i, %129
+  br i1 %130, label %sgnarea.exit.i.i, label %131
 
-128:                                              ; preds = %118
-  %129 = load ptr, ptr %124, align 8, !tbaa !16
+131:                                              ; preds = %121
+  %132 = load ptr, ptr %127, align 8, !tbaa !16
   br label %sgnarea.exit.i.i
 
-sgnarea.exit.i.i:                                 ; preds = %128, %118
-  %.in46.i.i.i = phi ptr [ %129, %128 ], [ %103, %118 ]
-  %130 = load double, ptr %.in46.i.i.i, align 8, !tbaa !27
-  %131 = fsub double %130, %106
-  %132 = fsub double %123, %108
-  %133 = fsub double %122, %106
-  %134 = fsub double %121, %108
-  %135 = fsub double %119, %106
-  %136 = getelementptr inbounds nuw i8, ptr %.in46.i.i.i, i64 8
-  %137 = load double, ptr %136, align 8, !tbaa !31
-  %138 = fsub double %137, %108
-  %139 = fneg double %133
-  %140 = fmul double %134, %139
-  %141 = tail call double @llvm.fmuladd.f64(double %135, double %132, double %140)
-  %142 = fcmp olt double %141, 0.000000e+00
-  %143 = fcmp ogt double %141, 0.000000e+00
-  %..i.i.i.i = zext i1 %143 to i32
-  %.0.i.i.i.i = select i1 %142, i32 -1, i32 %..i.i.i.i
-  %144 = fneg double %131
-  %145 = fmul double %134, %144
-  %146 = tail call double @llvm.fmuladd.f64(double %135, double %138, double %145)
-  %147 = fcmp olt double %146, 0.000000e+00
-  %148 = fcmp ogt double %146, 0.000000e+00
-  %..i43.i.i.i = zext i1 %148 to i32
-  %.0.i44.i.i.i = select i1 %147, i32 -1, i32 %..i43.i.i.i
-  %149 = mul nsw i32 %.0.i44.i.i.i, %.0.i.i.i.i
-  %150 = icmp sgt i32 %149, 0
-  br i1 %150, label %.critedge.i, label %151
+sgnarea.exit.i.i:                                 ; preds = %131, %121
+  %.in46.i.i.i = phi ptr [ %132, %131 ], [ %106, %121 ]
+  %133 = load double, ptr %.in46.i.i.i, align 8, !tbaa !27
+  %134 = fsub double %133, %109
+  %135 = fsub double %126, %111
+  %136 = fsub double %125, %109
+  %137 = fsub double %124, %111
+  %138 = fsub double %122, %109
+  %139 = getelementptr inbounds nuw i8, ptr %.in46.i.i.i, i64 8
+  %140 = load double, ptr %139, align 8, !tbaa !31
+  %141 = fsub double %140, %111
+  %142 = fneg double %136
+  %143 = fmul double %137, %142
+  %144 = tail call double @llvm.fmuladd.f64(double %138, double %135, double %143)
+  %145 = fcmp olt double %144, 0.000000e+00
+  %146 = fcmp ogt double %144, 0.000000e+00
+  %..i.i.i.i = zext i1 %146 to i32
+  %.0.i.i.i.i = select i1 %145, i32 -1, i32 %..i.i.i.i
+  %147 = fneg double %134
+  %148 = fmul double %137, %147
+  %149 = tail call double @llvm.fmuladd.f64(double %138, double %141, double %148)
+  %150 = fcmp olt double %149, 0.000000e+00
+  %151 = fcmp ogt double %149, 0.000000e+00
+  %..i43.i.i.i = zext i1 %151 to i32
+  %.0.i44.i.i.i = select i1 %150, i32 -1, i32 %..i43.i.i.i
+  %152 = mul nsw i32 %.0.i44.i.i.i, %.0.i.i.i.i
+  %153 = icmp sgt i32 %152, 0
+  br i1 %153, label %.critedge.i, label %154
 
-151:                                              ; preds = %sgnarea.exit.i.i
-  %152 = icmp slt i32 %149, 0
-  br i1 %152, label %153, label %230
+154:                                              ; preds = %sgnarea.exit.i.i
+  %155 = icmp slt i32 %152, 0
+  br i1 %155, label %156, label %233
 
-153:                                              ; preds = %151
-  br i1 %127, label %156, label %154
+156:                                              ; preds = %154
+  br i1 %130, label %159, label %157
 
-154:                                              ; preds = %153
-  %155 = load ptr, ptr %124, align 8, !tbaa !16
-  br label %156
+157:                                              ; preds = %156
+  %158 = load ptr, ptr %127, align 8, !tbaa !16
+  br label %159
 
-156:                                              ; preds = %154, %153
-  %.in.i26.i.i = phi ptr [ %155, %154 ], [ %103, %153 ]
-  %157 = load double, ptr %.in.i26.i.i, align 8, !tbaa !27
-  %158 = getelementptr inbounds nuw i8, ptr %.in.i26.i.i, i64 8
-  %159 = load double, ptr %158, align 8, !tbaa !31
-  br i1 %113, label %160, label %162
+159:                                              ; preds = %157, %156
+  %.in.i26.i.i = phi ptr [ %158, %157 ], [ %106, %156 ]
+  %160 = load double, ptr %.in.i26.i.i, align 8, !tbaa !27
+  %161 = getelementptr inbounds nuw i8, ptr %.in.i26.i.i, i64 8
+  %162 = load double, ptr %161, align 8, !tbaa !31
+  br i1 %116, label %163, label %165
 
-160:                                              ; preds = %156
-  %161 = load ptr, ptr %110, align 8, !tbaa !16
+163:                                              ; preds = %159
+  %164 = load ptr, ptr %113, align 8, !tbaa !16
   br label %sgnarea.exit32.i.i
 
-162:                                              ; preds = %156
-  %163 = getelementptr inbounds nuw i8, ptr %105, i64 32
+165:                                              ; preds = %159
+  %166 = getelementptr inbounds nuw i8, ptr %108, i64 32
   br label %sgnarea.exit32.i.i
 
-sgnarea.exit32.i.i:                               ; preds = %162, %160
-  %.in46.i27.i.i = phi ptr [ %161, %160 ], [ %163, %162 ]
-  %164 = load double, ptr %.in46.i27.i.i, align 8, !tbaa !27
-  %165 = fsub double %164, %122
-  %166 = fsub double %108, %123
-  %167 = fsub double %106, %122
-  %168 = fsub double %159, %123
-  %169 = fsub double %157, %122
-  %170 = getelementptr inbounds nuw i8, ptr %.in46.i27.i.i, i64 8
-  %171 = load double, ptr %170, align 8, !tbaa !31
-  %172 = fsub double %171, %123
-  %173 = fneg double %167
-  %174 = fmul double %168, %173
-  %175 = tail call double @llvm.fmuladd.f64(double %169, double %166, double %174)
-  %176 = fcmp olt double %175, 0.000000e+00
-  %177 = fcmp ogt double %175, 0.000000e+00
-  %..i.i28.i.i = zext i1 %177 to i32
-  %.0.i.i29.i.i = select i1 %176, i32 -1, i32 %..i.i28.i.i
-  %178 = fneg double %165
-  %179 = fmul double %168, %178
-  %180 = tail call double @llvm.fmuladd.f64(double %169, double %172, double %179)
-  %181 = fcmp olt double %180, 0.000000e+00
-  %182 = fcmp ogt double %180, 0.000000e+00
-  %..i43.i30.i.i = zext i1 %182 to i32
-  %.0.i44.i31.i.i = select i1 %181, i32 -1, i32 %..i43.i30.i.i
-  %183 = mul nsw i32 %.0.i44.i31.i.i, %.0.i.i29.i.i
-  %184 = icmp sgt i32 %183, 0
-  br i1 %184, label %.critedge.i, label %185
+sgnarea.exit32.i.i:                               ; preds = %165, %163
+  %.in46.i27.i.i = phi ptr [ %164, %163 ], [ %166, %165 ]
+  %167 = load double, ptr %.in46.i27.i.i, align 8, !tbaa !27
+  %168 = fsub double %167, %125
+  %169 = fsub double %111, %126
+  %170 = fsub double %109, %125
+  %171 = fsub double %162, %126
+  %172 = fsub double %160, %125
+  %173 = getelementptr inbounds nuw i8, ptr %.in46.i27.i.i, i64 8
+  %174 = load double, ptr %173, align 8, !tbaa !31
+  %175 = fsub double %174, %126
+  %176 = fneg double %170
+  %177 = fmul double %171, %176
+  %178 = tail call double @llvm.fmuladd.f64(double %172, double %169, double %177)
+  %179 = fcmp olt double %178, 0.000000e+00
+  %180 = fcmp ogt double %178, 0.000000e+00
+  %..i.i28.i.i = zext i1 %180 to i32
+  %.0.i.i29.i.i = select i1 %179, i32 -1, i32 %..i.i28.i.i
+  %181 = fneg double %168
+  %182 = fmul double %171, %181
+  %183 = tail call double @llvm.fmuladd.f64(double %172, double %175, double %182)
+  %184 = fcmp olt double %183, 0.000000e+00
+  %185 = fcmp ogt double %183, 0.000000e+00
+  %..i43.i30.i.i = zext i1 %185 to i32
+  %.0.i44.i31.i.i = select i1 %184, i32 -1, i32 %..i43.i30.i.i
+  %186 = mul nsw i32 %.0.i44.i31.i.i, %.0.i.i29.i.i
+  %187 = icmp sgt i32 %186, 0
+  br i1 %187, label %.critedge.i, label %188
 
-185:                                              ; preds = %sgnarea.exit32.i.i
-  %186 = icmp slt i32 %183, 0
-  br i1 %186, label %online.exit.i.i, label %187
+188:                                              ; preds = %sgnarea.exit32.i.i
+  %189 = icmp slt i32 %186, 0
+  br i1 %189, label %online.exit.i.i, label %190
 
-187:                                              ; preds = %185
-  br i1 %127, label %190, label %188
+190:                                              ; preds = %188
+  br i1 %130, label %193, label %191
 
-188:                                              ; preds = %187
-  %189 = load ptr, ptr %124, align 8, !tbaa !16
-  br label %190
+191:                                              ; preds = %190
+  %192 = load ptr, ptr %127, align 8, !tbaa !16
+  br label %193
 
-190:                                              ; preds = %188, %187
-  %191 = phi ptr [ %189, %188 ], [ %103, %187 ]
-  %.sroa.05.0.copyload.i.i.i = load double, ptr %191, align 8, !tbaa !23
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %191, i64 8
+193:                                              ; preds = %191, %190
+  %194 = phi ptr [ %192, %191 ], [ %106, %190 ]
+  %.sroa.05.0.copyload.i.i.i = load double, ptr %194, align 8, !tbaa !23
+  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %194, i64 8
   %.sroa.5.0.copyload.i.i.i = load double, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !tbaa !23
-  %192 = icmp eq i32 %.0.i.i29.i.i, 0
-  br i1 %192, label %198, label %193
-
-193:                                              ; preds = %190
-  br i1 %113, label %194, label %196
-
-194:                                              ; preds = %193
-  %195 = load ptr, ptr %110, align 8, !tbaa !16
-  br label %198
+  %195 = icmp eq i32 %.0.i.i29.i.i, 0
+  br i1 %195, label %201, label %196
 
 196:                                              ; preds = %193
-  %197 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  br label %198
+  br i1 %116, label %197, label %199
 
-198:                                              ; preds = %196, %194, %190
-  %.pn.i.i.i = phi ptr [ %105, %190 ], [ %195, %194 ], [ %197, %196 ]
+197:                                              ; preds = %196
+  %198 = load ptr, ptr %113, align 8, !tbaa !16
+  br label %201
+
+199:                                              ; preds = %196
+  %200 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  br label %201
+
+201:                                              ; preds = %199, %197, %193
+  %.pn.i.i.i = phi ptr [ %108, %193 ], [ %198, %197 ], [ %200, %199 ]
   %.sroa.0.0.i.i.i = load double, ptr %.pn.i.i.i, align 8, !tbaa !23
   %.sroa.6.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.sroa.6.0.i.i.i = load double, ptr %.sroa.6.0.in.i.i.i, align 8, !tbaa !23
-  %199 = fcmp oeq double %122, %.sroa.05.0.copyload.i.i.i
-  br i1 %199, label %200, label %216
+  %202 = fcmp oeq double %125, %.sroa.05.0.copyload.i.i.i
+  br i1 %202, label %203, label %219
 
-200:                                              ; preds = %198
-  %201 = fcmp oeq double %122, %.sroa.0.0.i.i.i
-  br i1 %201, label %202, label %online.exit.i.i
+203:                                              ; preds = %201
+  %204 = fcmp oeq double %125, %.sroa.0.0.i.i.i
+  br i1 %204, label %205, label %online.exit.i.i
 
-202:                                              ; preds = %200
-  %203 = fcmp olt double %123, %.sroa.6.0.i.i.i
-  br i1 %203, label %204, label %208
+205:                                              ; preds = %203
+  %206 = fcmp olt double %126, %.sroa.6.0.i.i.i
+  br i1 %206, label %207, label %211
 
-204:                                              ; preds = %202
-  %205 = fcmp olt double %.sroa.6.0.i.i.i, %.sroa.5.0.copyload.i.i.i
-  br i1 %205, label %between.exit.i.i.i, label %206
+207:                                              ; preds = %205
+  %208 = fcmp olt double %.sroa.6.0.i.i.i, %.sroa.5.0.copyload.i.i.i
+  br i1 %208, label %between.exit.i.i.i, label %209
 
-206:                                              ; preds = %204
-  %207 = fcmp ogt double %.sroa.6.0.i.i.i, %.sroa.5.0.copyload.i.i.i
-  %..i.i34.i.i = sext i1 %207 to i32
+209:                                              ; preds = %207
+  %210 = fcmp ogt double %.sroa.6.0.i.i.i, %.sroa.5.0.copyload.i.i.i
+  %..i.i34.i.i = sext i1 %210 to i32
   br label %between.exit.i.i.i
 
-208:                                              ; preds = %202
-  %209 = fcmp ogt double %123, %.sroa.6.0.i.i.i
-  br i1 %209, label %210, label %between.exit.i.i.i
+211:                                              ; preds = %205
+  %212 = fcmp ogt double %126, %.sroa.6.0.i.i.i
+  br i1 %212, label %213, label %between.exit.i.i.i
 
-210:                                              ; preds = %208
-  %211 = fcmp ogt double %.sroa.6.0.i.i.i, %.sroa.5.0.copyload.i.i.i
-  br i1 %211, label %between.exit.i.i.i, label %212
+213:                                              ; preds = %211
+  %214 = fcmp ogt double %.sroa.6.0.i.i.i, %.sroa.5.0.copyload.i.i.i
+  br i1 %214, label %between.exit.i.i.i, label %215
 
-212:                                              ; preds = %210
-  %213 = fcmp olt double %.sroa.6.0.i.i.i, %.sroa.5.0.copyload.i.i.i
-  %.15.i.i.i.i = sext i1 %213 to i32
+215:                                              ; preds = %213
+  %216 = fcmp olt double %.sroa.6.0.i.i.i, %.sroa.5.0.copyload.i.i.i
+  %.15.i.i.i.i = sext i1 %216 to i32
   br label %between.exit.i.i.i
 
-between.exit.i.i.i:                               ; preds = %212, %210, %208, %206, %204
-  %.0.i.i33.i.i = phi i32 [ 1, %204 ], [ %..i.i34.i.i, %206 ], [ 1, %210 ], [ %.15.i.i.i.i, %212 ], [ 0, %208 ]
-  %214 = icmp ne i32 %.0.i.i33.i.i, -1
-  %215 = zext i1 %214 to i32
+between.exit.i.i.i:                               ; preds = %215, %213, %211, %209, %207
+  %.0.i.i33.i.i = phi i32 [ 1, %207 ], [ %..i.i34.i.i, %209 ], [ 1, %213 ], [ %.15.i.i.i.i, %215 ], [ 0, %211 ]
+  %217 = icmp ne i32 %.0.i.i33.i.i, -1
+  %218 = zext i1 %217 to i32
   br label %online.exit.i.i
 
-216:                                              ; preds = %198
-  %217 = fcmp olt double %122, %.sroa.0.0.i.i.i
-  br i1 %217, label %218, label %222
+219:                                              ; preds = %201
+  %220 = fcmp olt double %125, %.sroa.0.0.i.i.i
+  br i1 %220, label %221, label %225
 
-218:                                              ; preds = %216
-  %219 = fcmp olt double %.sroa.0.0.i.i.i, %.sroa.05.0.copyload.i.i.i
-  br i1 %219, label %online.exit.i.i, label %220
+221:                                              ; preds = %219
+  %222 = fcmp olt double %.sroa.0.0.i.i.i, %.sroa.05.0.copyload.i.i.i
+  br i1 %222, label %online.exit.i.i, label %223
 
-220:                                              ; preds = %218
-  %221 = fcmp ogt double %.sroa.0.0.i.i.i, %.sroa.05.0.copyload.i.i.i
-  %..i23.i.i.i = sext i1 %221 to i32
+223:                                              ; preds = %221
+  %224 = fcmp ogt double %.sroa.0.0.i.i.i, %.sroa.05.0.copyload.i.i.i
+  %..i23.i.i.i = sext i1 %224 to i32
   br label %online.exit.i.i
 
-222:                                              ; preds = %216
-  %223 = fcmp ogt double %122, %.sroa.0.0.i.i.i
-  br i1 %223, label %224, label %online.exit.i.i
+225:                                              ; preds = %219
+  %226 = fcmp ogt double %125, %.sroa.0.0.i.i.i
+  br i1 %226, label %227, label %online.exit.i.i
 
-224:                                              ; preds = %222
-  %225 = fcmp ogt double %.sroa.0.0.i.i.i, %.sroa.05.0.copyload.i.i.i
-  br i1 %225, label %online.exit.i.i, label %226
+227:                                              ; preds = %225
+  %228 = fcmp ogt double %.sroa.0.0.i.i.i, %.sroa.05.0.copyload.i.i.i
+  br i1 %228, label %online.exit.i.i, label %229
 
-226:                                              ; preds = %224
-  %227 = fcmp olt double %.sroa.0.0.i.i.i, %.sroa.05.0.copyload.i.i.i
-  %.15.i22.i.i.i = sext i1 %227 to i32
+229:                                              ; preds = %227
+  %230 = fcmp olt double %.sroa.0.0.i.i.i, %.sroa.05.0.copyload.i.i.i
+  %.15.i22.i.i.i = sext i1 %230 to i32
   br label %online.exit.i.i
 
-online.exit.i.i:                                  ; preds = %226, %224, %222, %220, %218, %between.exit.i.i.i, %200, %185
-  %228 = phi i32 [ 3, %185 ], [ 0, %200 ], [ %215, %between.exit.i.i.i ], [ 1, %218 ], [ %..i23.i.i.i, %220 ], [ 1, %224 ], [ %.15.i22.i.i.i, %226 ], [ 0, %222 ]
-  %229 = call fastcc i32 @intpoint(ptr noundef nonnull readonly %105, ptr noundef nonnull readonly %.084141.i, ptr noundef %3, ptr noundef %4, i32 noundef %228)
-  %.not25.i.i = icmp eq i32 %229, 0
-  br i1 %.not25.i.i, label %.critedge.i, label %428
+online.exit.i.i:                                  ; preds = %229, %227, %225, %223, %221, %between.exit.i.i.i, %203, %188
+  %231 = phi i32 [ 3, %188 ], [ 0, %203 ], [ %218, %between.exit.i.i.i ], [ 1, %221 ], [ %..i23.i.i.i, %223 ], [ 1, %227 ], [ %.15.i22.i.i.i, %229 ], [ 0, %225 ]
+  %232 = call fastcc i32 @intpoint(ptr noundef nonnull readonly %108, ptr noundef nonnull readonly %.084141.i, ptr noundef %3, ptr noundef %4, i32 noundef %231)
+  %.not25.i.i = icmp eq i32 %232, 0
+  br i1 %.not25.i.i, label %.critedge.i, label %431
 
-230:                                              ; preds = %151
-  %231 = icmp eq i32 %.0.i.i.i.i, %.0.i44.i.i.i
-  br i1 %231, label %232, label %386
+233:                                              ; preds = %154
+  %234 = icmp eq i32 %.0.i.i.i.i, %.0.i44.i.i.i
+  br i1 %234, label %235, label %389
 
-232:                                              ; preds = %230
-  br i1 %113, label %233, label %235
+235:                                              ; preds = %233
+  br i1 %116, label %236, label %238
 
-233:                                              ; preds = %232
-  %234 = load ptr, ptr %110, align 8, !tbaa !16
-  br label %237
+236:                                              ; preds = %235
+  %237 = load ptr, ptr %113, align 8, !tbaa !16
+  br label %240
 
-235:                                              ; preds = %232
-  %236 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  br label %237
+238:                                              ; preds = %235
+  %239 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  br label %240
 
-237:                                              ; preds = %235, %233
-  %238 = phi ptr [ %234, %233 ], [ %236, %235 ]
-  %.sroa.05.0.copyload.i38.i.i = load double, ptr %238, align 8, !tbaa !23
-  %.sroa.5.0..sroa_idx.i39.i.i = getelementptr inbounds nuw i8, ptr %238, i64 8
+240:                                              ; preds = %238, %236
+  %241 = phi ptr [ %237, %236 ], [ %239, %238 ]
+  %.sroa.05.0.copyload.i38.i.i = load double, ptr %241, align 8, !tbaa !23
+  %.sroa.5.0..sroa_idx.i39.i.i = getelementptr inbounds nuw i8, ptr %241, i64 8
   %.sroa.5.0.copyload.i40.i.i = load double, ptr %.sroa.5.0..sroa_idx.i39.i.i, align 8, !tbaa !23
-  %239 = fcmp oeq double %106, %.sroa.05.0.copyload.i38.i.i
-  br i1 %239, label %240, label %256
+  %242 = fcmp oeq double %109, %.sroa.05.0.copyload.i38.i.i
+  br i1 %242, label %243, label %259
 
-240:                                              ; preds = %237
-  %241 = fcmp oeq double %106, %122
-  br i1 %241, label %242, label %online.exit51.i.i
+243:                                              ; preds = %240
+  %244 = fcmp oeq double %109, %125
+  br i1 %244, label %245, label %online.exit51.i.i
 
-242:                                              ; preds = %240
-  %243 = fcmp olt double %108, %123
-  br i1 %243, label %244, label %248
+245:                                              ; preds = %243
+  %246 = fcmp olt double %111, %126
+  br i1 %246, label %247, label %251
 
-244:                                              ; preds = %242
-  %245 = fcmp olt double %123, %.sroa.5.0.copyload.i40.i.i
-  br i1 %245, label %between.exit.i47.i.i, label %246
+247:                                              ; preds = %245
+  %248 = fcmp olt double %126, %.sroa.5.0.copyload.i40.i.i
+  br i1 %248, label %between.exit.i47.i.i, label %249
 
-246:                                              ; preds = %244
-  %247 = fcmp ogt double %123, %.sroa.5.0.copyload.i40.i.i
-  %..i.i50.i.i = sext i1 %247 to i32
+249:                                              ; preds = %247
+  %250 = fcmp ogt double %126, %.sroa.5.0.copyload.i40.i.i
+  %..i.i50.i.i = sext i1 %250 to i32
   br label %between.exit.i47.i.i
 
-248:                                              ; preds = %242
-  %249 = fcmp ogt double %108, %123
-  br i1 %249, label %250, label %between.exit.i47.i.i
+251:                                              ; preds = %245
+  %252 = fcmp ogt double %111, %126
+  br i1 %252, label %253, label %between.exit.i47.i.i
 
-250:                                              ; preds = %248
-  %251 = fcmp ogt double %123, %.sroa.5.0.copyload.i40.i.i
-  br i1 %251, label %between.exit.i47.i.i, label %252
+253:                                              ; preds = %251
+  %254 = fcmp ogt double %126, %.sroa.5.0.copyload.i40.i.i
+  br i1 %254, label %between.exit.i47.i.i, label %255
 
-252:                                              ; preds = %250
-  %253 = fcmp olt double %123, %.sroa.5.0.copyload.i40.i.i
-  %.15.i.i49.i.i = sext i1 %253 to i32
+255:                                              ; preds = %253
+  %256 = fcmp olt double %126, %.sroa.5.0.copyload.i40.i.i
+  %.15.i.i49.i.i = sext i1 %256 to i32
   br label %between.exit.i47.i.i
 
-between.exit.i47.i.i:                             ; preds = %252, %250, %248, %246, %244
-  %.0.i.i48.i.i = phi i32 [ 1, %244 ], [ %..i.i50.i.i, %246 ], [ 1, %250 ], [ %.15.i.i49.i.i, %252 ], [ 0, %248 ]
-  %254 = icmp ne i32 %.0.i.i48.i.i, -1
-  %255 = zext i1 %254 to i32
+between.exit.i47.i.i:                             ; preds = %255, %253, %251, %249, %247
+  %.0.i.i48.i.i = phi i32 [ 1, %247 ], [ %..i.i50.i.i, %249 ], [ 1, %253 ], [ %.15.i.i49.i.i, %255 ], [ 0, %251 ]
+  %257 = icmp ne i32 %.0.i.i48.i.i, -1
+  %258 = zext i1 %257 to i32
   br label %online.exit51.i.i
 
-256:                                              ; preds = %237
-  %257 = fcmp olt double %106, %122
-  br i1 %257, label %258, label %262
+259:                                              ; preds = %240
+  %260 = fcmp olt double %109, %125
+  br i1 %260, label %261, label %265
 
-258:                                              ; preds = %256
-  %259 = fcmp olt double %122, %.sroa.05.0.copyload.i38.i.i
-  br i1 %259, label %online.exit51.i.i, label %260
+261:                                              ; preds = %259
+  %262 = fcmp olt double %125, %.sroa.05.0.copyload.i38.i.i
+  br i1 %262, label %online.exit51.i.i, label %263
 
-260:                                              ; preds = %258
-  %261 = fcmp ogt double %122, %.sroa.05.0.copyload.i38.i.i
-  %..i23.i46.i.i = sext i1 %261 to i32
+263:                                              ; preds = %261
+  %264 = fcmp ogt double %125, %.sroa.05.0.copyload.i38.i.i
+  %..i23.i46.i.i = sext i1 %264 to i32
   br label %online.exit51.i.i
 
-262:                                              ; preds = %256
-  %263 = fcmp ogt double %106, %122
-  br i1 %263, label %264, label %online.exit51.i.i
+265:                                              ; preds = %259
+  %266 = fcmp ogt double %109, %125
+  br i1 %266, label %267, label %online.exit51.i.i
 
-264:                                              ; preds = %262
-  %265 = fcmp ogt double %122, %.sroa.05.0.copyload.i38.i.i
-  br i1 %265, label %online.exit51.i.i, label %266
+267:                                              ; preds = %265
+  %268 = fcmp ogt double %125, %.sroa.05.0.copyload.i38.i.i
+  br i1 %268, label %online.exit51.i.i, label %269
 
-266:                                              ; preds = %264
-  %267 = fcmp olt double %122, %.sroa.05.0.copyload.i38.i.i
-  %.15.i22.i45.i.i = sext i1 %267 to i32
+269:                                              ; preds = %267
+  %270 = fcmp olt double %125, %.sroa.05.0.copyload.i38.i.i
+  %.15.i22.i45.i.i = sext i1 %270 to i32
   br label %online.exit51.i.i
 
-online.exit51.i.i:                                ; preds = %266, %264, %262, %260, %258, %between.exit.i47.i.i, %240
-  %268 = phi i32 [ 0, %240 ], [ %255, %between.exit.i47.i.i ], [ 1, %258 ], [ %..i23.i46.i.i, %260 ], [ 1, %264 ], [ %.15.i22.i45.i.i, %266 ], [ 0, %262 ]
-  br i1 %113, label %269, label %271
+online.exit51.i.i:                                ; preds = %269, %267, %265, %263, %261, %between.exit.i47.i.i, %243
+  %271 = phi i32 [ 0, %243 ], [ %258, %between.exit.i47.i.i ], [ 1, %261 ], [ %..i23.i46.i.i, %263 ], [ 1, %267 ], [ %.15.i22.i45.i.i, %269 ], [ 0, %265 ]
+  br i1 %116, label %272, label %274
 
-269:                                              ; preds = %online.exit51.i.i
-  %270 = load ptr, ptr %110, align 8, !tbaa !16
-  br label %273
+272:                                              ; preds = %online.exit51.i.i
+  %273 = load ptr, ptr %113, align 8, !tbaa !16
+  br label %276
 
-271:                                              ; preds = %online.exit51.i.i
-  %272 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  br label %273
+274:                                              ; preds = %online.exit51.i.i
+  %275 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  br label %276
 
-273:                                              ; preds = %271, %269
-  %274 = phi ptr [ %270, %269 ], [ %272, %271 ]
-  %.sroa.05.0.copyload.i55.i.i = load double, ptr %274, align 8, !tbaa !23
-  %.sroa.5.0..sroa_idx.i56.i.i = getelementptr inbounds nuw i8, ptr %274, i64 8
+276:                                              ; preds = %274, %272
+  %277 = phi ptr [ %273, %272 ], [ %275, %274 ]
+  %.sroa.05.0.copyload.i55.i.i = load double, ptr %277, align 8, !tbaa !23
+  %.sroa.5.0..sroa_idx.i56.i.i = getelementptr inbounds nuw i8, ptr %277, i64 8
   %.sroa.5.0.copyload.i57.i.i = load double, ptr %.sroa.5.0..sroa_idx.i56.i.i, align 8, !tbaa !23
-  br i1 %127, label %277, label %275
+  br i1 %130, label %280, label %278
 
-275:                                              ; preds = %273
-  %276 = load ptr, ptr %124, align 8, !tbaa !16
-  br label %277
+278:                                              ; preds = %276
+  %279 = load ptr, ptr %127, align 8, !tbaa !16
+  br label %280
 
-277:                                              ; preds = %275, %273
-  %.pn.i58.i.i = phi ptr [ %276, %275 ], [ %103, %273 ]
+280:                                              ; preds = %278, %276
+  %.pn.i58.i.i = phi ptr [ %279, %278 ], [ %106, %276 ]
   %.sroa.0.0.i59.i.i = load double, ptr %.pn.i58.i.i, align 8, !tbaa !23
   %.sroa.6.0.in.i60.i.i = getelementptr inbounds nuw i8, ptr %.pn.i58.i.i, i64 8
   %.sroa.6.0.i61.i.i = load double, ptr %.sroa.6.0.in.i60.i.i, align 8, !tbaa !23
-  %278 = fcmp oeq double %106, %.sroa.05.0.copyload.i55.i.i
-  br i1 %278, label %279, label %295
+  %281 = fcmp oeq double %109, %.sroa.05.0.copyload.i55.i.i
+  br i1 %281, label %282, label %298
 
-279:                                              ; preds = %277
-  %280 = fcmp oeq double %106, %.sroa.0.0.i59.i.i
-  br i1 %280, label %281, label %online.exit68.i.i
+282:                                              ; preds = %280
+  %283 = fcmp oeq double %109, %.sroa.0.0.i59.i.i
+  br i1 %283, label %284, label %online.exit68.i.i
 
-281:                                              ; preds = %279
-  %282 = fcmp olt double %108, %.sroa.6.0.i61.i.i
-  br i1 %282, label %283, label %287
+284:                                              ; preds = %282
+  %285 = fcmp olt double %111, %.sroa.6.0.i61.i.i
+  br i1 %285, label %286, label %290
 
-283:                                              ; preds = %281
-  %284 = fcmp olt double %.sroa.6.0.i61.i.i, %.sroa.5.0.copyload.i57.i.i
-  br i1 %284, label %between.exit.i64.i.i, label %285
+286:                                              ; preds = %284
+  %287 = fcmp olt double %.sroa.6.0.i61.i.i, %.sroa.5.0.copyload.i57.i.i
+  br i1 %287, label %between.exit.i64.i.i, label %288
 
-285:                                              ; preds = %283
-  %286 = fcmp ogt double %.sroa.6.0.i61.i.i, %.sroa.5.0.copyload.i57.i.i
-  %..i.i67.i.i = sext i1 %286 to i32
+288:                                              ; preds = %286
+  %289 = fcmp ogt double %.sroa.6.0.i61.i.i, %.sroa.5.0.copyload.i57.i.i
+  %..i.i67.i.i = sext i1 %289 to i32
   br label %between.exit.i64.i.i
 
-287:                                              ; preds = %281
-  %288 = fcmp ogt double %108, %.sroa.6.0.i61.i.i
-  br i1 %288, label %289, label %between.exit.i64.i.i
+290:                                              ; preds = %284
+  %291 = fcmp ogt double %111, %.sroa.6.0.i61.i.i
+  br i1 %291, label %292, label %between.exit.i64.i.i
 
-289:                                              ; preds = %287
-  %290 = fcmp ogt double %.sroa.6.0.i61.i.i, %.sroa.5.0.copyload.i57.i.i
-  br i1 %290, label %between.exit.i64.i.i, label %291
+292:                                              ; preds = %290
+  %293 = fcmp ogt double %.sroa.6.0.i61.i.i, %.sroa.5.0.copyload.i57.i.i
+  br i1 %293, label %between.exit.i64.i.i, label %294
 
-291:                                              ; preds = %289
-  %292 = fcmp olt double %.sroa.6.0.i61.i.i, %.sroa.5.0.copyload.i57.i.i
-  %.15.i.i66.i.i = sext i1 %292 to i32
+294:                                              ; preds = %292
+  %295 = fcmp olt double %.sroa.6.0.i61.i.i, %.sroa.5.0.copyload.i57.i.i
+  %.15.i.i66.i.i = sext i1 %295 to i32
   br label %between.exit.i64.i.i
 
-between.exit.i64.i.i:                             ; preds = %291, %289, %287, %285, %283
-  %.0.i.i65.i.i = phi i32 [ 1, %283 ], [ %..i.i67.i.i, %285 ], [ 1, %289 ], [ %.15.i.i66.i.i, %291 ], [ 0, %287 ]
-  %293 = icmp ne i32 %.0.i.i65.i.i, -1
-  %294 = zext i1 %293 to i32
+between.exit.i64.i.i:                             ; preds = %294, %292, %290, %288, %286
+  %.0.i.i65.i.i = phi i32 [ 1, %286 ], [ %..i.i67.i.i, %288 ], [ 1, %292 ], [ %.15.i.i66.i.i, %294 ], [ 0, %290 ]
+  %296 = icmp ne i32 %.0.i.i65.i.i, -1
+  %297 = zext i1 %296 to i32
   br label %online.exit68.i.i
 
-295:                                              ; preds = %277
-  %296 = fcmp olt double %106, %.sroa.0.0.i59.i.i
-  br i1 %296, label %297, label %301
+298:                                              ; preds = %280
+  %299 = fcmp olt double %109, %.sroa.0.0.i59.i.i
+  br i1 %299, label %300, label %304
 
-297:                                              ; preds = %295
-  %298 = fcmp olt double %.sroa.0.0.i59.i.i, %.sroa.05.0.copyload.i55.i.i
-  br i1 %298, label %online.exit68.i.i, label %299
+300:                                              ; preds = %298
+  %301 = fcmp olt double %.sroa.0.0.i59.i.i, %.sroa.05.0.copyload.i55.i.i
+  br i1 %301, label %online.exit68.i.i, label %302
 
-299:                                              ; preds = %297
-  %300 = fcmp ogt double %.sroa.0.0.i59.i.i, %.sroa.05.0.copyload.i55.i.i
-  %..i23.i63.i.i = sext i1 %300 to i32
+302:                                              ; preds = %300
+  %303 = fcmp ogt double %.sroa.0.0.i59.i.i, %.sroa.05.0.copyload.i55.i.i
+  %..i23.i63.i.i = sext i1 %303 to i32
   br label %online.exit68.i.i
 
-301:                                              ; preds = %295
-  %302 = fcmp ogt double %106, %.sroa.0.0.i59.i.i
-  br i1 %302, label %303, label %online.exit68.i.i
+304:                                              ; preds = %298
+  %305 = fcmp ogt double %109, %.sroa.0.0.i59.i.i
+  br i1 %305, label %306, label %online.exit68.i.i
 
-303:                                              ; preds = %301
-  %304 = fcmp ogt double %.sroa.0.0.i59.i.i, %.sroa.05.0.copyload.i55.i.i
-  br i1 %304, label %online.exit68.i.i, label %305
+306:                                              ; preds = %304
+  %307 = fcmp ogt double %.sroa.0.0.i59.i.i, %.sroa.05.0.copyload.i55.i.i
+  br i1 %307, label %online.exit68.i.i, label %308
 
-305:                                              ; preds = %303
-  %306 = fcmp olt double %.sroa.0.0.i59.i.i, %.sroa.05.0.copyload.i55.i.i
-  %.15.i22.i62.i.i = sext i1 %306 to i32
+308:                                              ; preds = %306
+  %309 = fcmp olt double %.sroa.0.0.i59.i.i, %.sroa.05.0.copyload.i55.i.i
+  %.15.i22.i62.i.i = sext i1 %309 to i32
   br label %online.exit68.i.i
 
-online.exit68.i.i:                                ; preds = %305, %303, %301, %299, %297, %between.exit.i64.i.i, %279
-  %307 = phi i32 [ 0, %279 ], [ %294, %between.exit.i64.i.i ], [ 1, %297 ], [ %..i23.i63.i.i, %299 ], [ 1, %303 ], [ %.15.i22.i62.i.i, %305 ], [ 0, %301 ]
-  %308 = icmp sgt i32 %268, %307
-  br i1 %308, label %309, label %345
+online.exit68.i.i:                                ; preds = %308, %306, %304, %302, %300, %between.exit.i64.i.i, %282
+  %310 = phi i32 [ 0, %282 ], [ %297, %between.exit.i64.i.i ], [ 1, %300 ], [ %..i23.i63.i.i, %302 ], [ 1, %306 ], [ %.15.i22.i62.i.i, %308 ], [ 0, %304 ]
+  %311 = icmp sgt i32 %271, %310
+  br i1 %311, label %312, label %348
 
-309:                                              ; preds = %online.exit68.i.i
-  br i1 %113, label %310, label %312
+312:                                              ; preds = %online.exit68.i.i
+  br i1 %116, label %313, label %315
 
-310:                                              ; preds = %309
-  %311 = load ptr, ptr %110, align 8, !tbaa !16
-  br label %314
+313:                                              ; preds = %312
+  %314 = load ptr, ptr %113, align 8, !tbaa !16
+  br label %317
 
-312:                                              ; preds = %309
-  %313 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  br label %314
+315:                                              ; preds = %312
+  %316 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  br label %317
 
-314:                                              ; preds = %312, %310
-  %315 = phi ptr [ %311, %310 ], [ %313, %312 ]
-  %.sroa.05.0.copyload.i72.i.i = load double, ptr %315, align 8, !tbaa !23
-  %.sroa.5.0..sroa_idx.i73.i.i = getelementptr inbounds nuw i8, ptr %315, i64 8
+317:                                              ; preds = %315, %313
+  %318 = phi ptr [ %314, %313 ], [ %316, %315 ]
+  %.sroa.05.0.copyload.i72.i.i = load double, ptr %318, align 8, !tbaa !23
+  %.sroa.5.0..sroa_idx.i73.i.i = getelementptr inbounds nuw i8, ptr %318, i64 8
   %.sroa.5.0.copyload.i74.i.i = load double, ptr %.sroa.5.0..sroa_idx.i73.i.i, align 8, !tbaa !23
-  %316 = fcmp oeq double %106, %.sroa.05.0.copyload.i72.i.i
-  br i1 %316, label %317, label %333
+  %319 = fcmp oeq double %109, %.sroa.05.0.copyload.i72.i.i
+  br i1 %319, label %320, label %336
 
-317:                                              ; preds = %314
-  %318 = fcmp oeq double %106, %122
-  br i1 %318, label %319, label %online.exit85.i.i
+320:                                              ; preds = %317
+  %321 = fcmp oeq double %109, %125
+  br i1 %321, label %322, label %online.exit85.i.i
 
-319:                                              ; preds = %317
-  %320 = fcmp olt double %108, %123
-  br i1 %320, label %321, label %325
+322:                                              ; preds = %320
+  %323 = fcmp olt double %111, %126
+  br i1 %323, label %324, label %328
 
-321:                                              ; preds = %319
-  %322 = fcmp olt double %123, %.sroa.5.0.copyload.i74.i.i
-  br i1 %322, label %between.exit.i81.i.i, label %323
+324:                                              ; preds = %322
+  %325 = fcmp olt double %126, %.sroa.5.0.copyload.i74.i.i
+  br i1 %325, label %between.exit.i81.i.i, label %326
 
-323:                                              ; preds = %321
-  %324 = fcmp ogt double %123, %.sroa.5.0.copyload.i74.i.i
-  %..i.i84.i.i = sext i1 %324 to i32
+326:                                              ; preds = %324
+  %327 = fcmp ogt double %126, %.sroa.5.0.copyload.i74.i.i
+  %..i.i84.i.i = sext i1 %327 to i32
   br label %between.exit.i81.i.i
 
-325:                                              ; preds = %319
-  %326 = fcmp ogt double %108, %123
-  br i1 %326, label %327, label %between.exit.i81.i.i
+328:                                              ; preds = %322
+  %329 = fcmp ogt double %111, %126
+  br i1 %329, label %330, label %between.exit.i81.i.i
 
-327:                                              ; preds = %325
-  %328 = fcmp ogt double %123, %.sroa.5.0.copyload.i74.i.i
-  br i1 %328, label %between.exit.i81.i.i, label %329
+330:                                              ; preds = %328
+  %331 = fcmp ogt double %126, %.sroa.5.0.copyload.i74.i.i
+  br i1 %331, label %between.exit.i81.i.i, label %332
 
-329:                                              ; preds = %327
-  %330 = fcmp olt double %123, %.sroa.5.0.copyload.i74.i.i
-  %.15.i.i83.i.i = sext i1 %330 to i32
+332:                                              ; preds = %330
+  %333 = fcmp olt double %126, %.sroa.5.0.copyload.i74.i.i
+  %.15.i.i83.i.i = sext i1 %333 to i32
   br label %between.exit.i81.i.i
 
-between.exit.i81.i.i:                             ; preds = %329, %327, %325, %323, %321
-  %.0.i.i82.i.i = phi i32 [ 1, %321 ], [ %..i.i84.i.i, %323 ], [ 1, %327 ], [ %.15.i.i83.i.i, %329 ], [ 0, %325 ]
-  %331 = icmp ne i32 %.0.i.i82.i.i, -1
-  %332 = zext i1 %331 to i32
+between.exit.i81.i.i:                             ; preds = %332, %330, %328, %326, %324
+  %.0.i.i82.i.i = phi i32 [ 1, %324 ], [ %..i.i84.i.i, %326 ], [ 1, %330 ], [ %.15.i.i83.i.i, %332 ], [ 0, %328 ]
+  %334 = icmp ne i32 %.0.i.i82.i.i, -1
+  %335 = zext i1 %334 to i32
   br label %online.exit85.i.i
 
-333:                                              ; preds = %314
-  %334 = fcmp olt double %106, %122
-  br i1 %334, label %335, label %339
+336:                                              ; preds = %317
+  %337 = fcmp olt double %109, %125
+  br i1 %337, label %338, label %342
 
-335:                                              ; preds = %333
-  %336 = fcmp olt double %122, %.sroa.05.0.copyload.i72.i.i
-  br i1 %336, label %online.exit85.i.i, label %337
+338:                                              ; preds = %336
+  %339 = fcmp olt double %125, %.sroa.05.0.copyload.i72.i.i
+  br i1 %339, label %online.exit85.i.i, label %340
 
-337:                                              ; preds = %335
-  %338 = fcmp ogt double %122, %.sroa.05.0.copyload.i72.i.i
-  %..i23.i80.i.i = sext i1 %338 to i32
+340:                                              ; preds = %338
+  %341 = fcmp ogt double %125, %.sroa.05.0.copyload.i72.i.i
+  %..i23.i80.i.i = sext i1 %341 to i32
   br label %online.exit85.i.i
 
-339:                                              ; preds = %333
-  %340 = fcmp ogt double %106, %122
-  br i1 %340, label %341, label %online.exit85.i.i
+342:                                              ; preds = %336
+  %343 = fcmp ogt double %109, %125
+  br i1 %343, label %344, label %online.exit85.i.i
 
-341:                                              ; preds = %339
-  %342 = fcmp ogt double %122, %.sroa.05.0.copyload.i72.i.i
-  br i1 %342, label %online.exit85.i.i, label %343
+344:                                              ; preds = %342
+  %345 = fcmp ogt double %125, %.sroa.05.0.copyload.i72.i.i
+  br i1 %345, label %online.exit85.i.i, label %346
 
-343:                                              ; preds = %341
-  %344 = fcmp olt double %122, %.sroa.05.0.copyload.i72.i.i
-  %.15.i22.i79.i.i = sext i1 %344 to i32
+346:                                              ; preds = %344
+  %347 = fcmp olt double %125, %.sroa.05.0.copyload.i72.i.i
+  %.15.i22.i79.i.i = sext i1 %347 to i32
   br label %online.exit85.i.i
 
-345:                                              ; preds = %online.exit68.i.i
-  br i1 %113, label %346, label %348
+348:                                              ; preds = %online.exit68.i.i
+  br i1 %116, label %349, label %351
 
-346:                                              ; preds = %345
-  %347 = load ptr, ptr %110, align 8, !tbaa !16
-  br label %350
+349:                                              ; preds = %348
+  %350 = load ptr, ptr %113, align 8, !tbaa !16
+  br label %353
 
-348:                                              ; preds = %345
-  %349 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  br label %350
+351:                                              ; preds = %348
+  %352 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  br label %353
 
-350:                                              ; preds = %348, %346
-  %351 = phi ptr [ %347, %346 ], [ %349, %348 ]
-  %.sroa.05.0.copyload.i89.i.i = load double, ptr %351, align 8, !tbaa !23
-  %.sroa.5.0..sroa_idx.i90.i.i = getelementptr inbounds nuw i8, ptr %351, i64 8
+353:                                              ; preds = %351, %349
+  %354 = phi ptr [ %350, %349 ], [ %352, %351 ]
+  %.sroa.05.0.copyload.i89.i.i = load double, ptr %354, align 8, !tbaa !23
+  %.sroa.5.0..sroa_idx.i90.i.i = getelementptr inbounds nuw i8, ptr %354, i64 8
   %.sroa.5.0.copyload.i91.i.i = load double, ptr %.sroa.5.0..sroa_idx.i90.i.i, align 8, !tbaa !23
-  br i1 %127, label %354, label %352
+  br i1 %130, label %357, label %355
 
-352:                                              ; preds = %350
-  %353 = load ptr, ptr %124, align 8, !tbaa !16
-  br label %354
+355:                                              ; preds = %353
+  %356 = load ptr, ptr %127, align 8, !tbaa !16
+  br label %357
 
-354:                                              ; preds = %352, %350
-  %.pn.i92.i.i = phi ptr [ %353, %352 ], [ %103, %350 ]
+357:                                              ; preds = %355, %353
+  %.pn.i92.i.i = phi ptr [ %356, %355 ], [ %106, %353 ]
   %.sroa.0.0.i93.i.i = load double, ptr %.pn.i92.i.i, align 8, !tbaa !23
   %.sroa.6.0.in.i94.i.i = getelementptr inbounds nuw i8, ptr %.pn.i92.i.i, i64 8
   %.sroa.6.0.i95.i.i = load double, ptr %.sroa.6.0.in.i94.i.i, align 8, !tbaa !23
-  %355 = fcmp oeq double %106, %.sroa.05.0.copyload.i89.i.i
-  br i1 %355, label %356, label %372
+  %358 = fcmp oeq double %109, %.sroa.05.0.copyload.i89.i.i
+  br i1 %358, label %359, label %375
 
-356:                                              ; preds = %354
-  %357 = fcmp oeq double %106, %.sroa.0.0.i93.i.i
-  br i1 %357, label %358, label %online.exit85.i.i
+359:                                              ; preds = %357
+  %360 = fcmp oeq double %109, %.sroa.0.0.i93.i.i
+  br i1 %360, label %361, label %online.exit85.i.i
 
-358:                                              ; preds = %356
-  %359 = fcmp olt double %108, %.sroa.6.0.i95.i.i
-  br i1 %359, label %360, label %364
+361:                                              ; preds = %359
+  %362 = fcmp olt double %111, %.sroa.6.0.i95.i.i
+  br i1 %362, label %363, label %367
 
-360:                                              ; preds = %358
-  %361 = fcmp olt double %.sroa.6.0.i95.i.i, %.sroa.5.0.copyload.i91.i.i
-  br i1 %361, label %between.exit.i98.i.i, label %362
+363:                                              ; preds = %361
+  %364 = fcmp olt double %.sroa.6.0.i95.i.i, %.sroa.5.0.copyload.i91.i.i
+  br i1 %364, label %between.exit.i98.i.i, label %365
 
-362:                                              ; preds = %360
-  %363 = fcmp ogt double %.sroa.6.0.i95.i.i, %.sroa.5.0.copyload.i91.i.i
-  %..i.i101.i.i = sext i1 %363 to i32
+365:                                              ; preds = %363
+  %366 = fcmp ogt double %.sroa.6.0.i95.i.i, %.sroa.5.0.copyload.i91.i.i
+  %..i.i101.i.i = sext i1 %366 to i32
   br label %between.exit.i98.i.i
 
-364:                                              ; preds = %358
-  %365 = fcmp ogt double %108, %.sroa.6.0.i95.i.i
-  br i1 %365, label %366, label %between.exit.i98.i.i
+367:                                              ; preds = %361
+  %368 = fcmp ogt double %111, %.sroa.6.0.i95.i.i
+  br i1 %368, label %369, label %between.exit.i98.i.i
 
-366:                                              ; preds = %364
-  %367 = fcmp ogt double %.sroa.6.0.i95.i.i, %.sroa.5.0.copyload.i91.i.i
-  br i1 %367, label %between.exit.i98.i.i, label %368
+369:                                              ; preds = %367
+  %370 = fcmp ogt double %.sroa.6.0.i95.i.i, %.sroa.5.0.copyload.i91.i.i
+  br i1 %370, label %between.exit.i98.i.i, label %371
 
-368:                                              ; preds = %366
-  %369 = fcmp olt double %.sroa.6.0.i95.i.i, %.sroa.5.0.copyload.i91.i.i
-  %.15.i.i100.i.i = sext i1 %369 to i32
+371:                                              ; preds = %369
+  %372 = fcmp olt double %.sroa.6.0.i95.i.i, %.sroa.5.0.copyload.i91.i.i
+  %.15.i.i100.i.i = sext i1 %372 to i32
   br label %between.exit.i98.i.i
 
-between.exit.i98.i.i:                             ; preds = %368, %366, %364, %362, %360
-  %.0.i.i99.i.i = phi i32 [ 1, %360 ], [ %..i.i101.i.i, %362 ], [ 1, %366 ], [ %.15.i.i100.i.i, %368 ], [ 0, %364 ]
-  %370 = icmp ne i32 %.0.i.i99.i.i, -1
-  %371 = zext i1 %370 to i32
+between.exit.i98.i.i:                             ; preds = %371, %369, %367, %365, %363
+  %.0.i.i99.i.i = phi i32 [ 1, %363 ], [ %..i.i101.i.i, %365 ], [ 1, %369 ], [ %.15.i.i100.i.i, %371 ], [ 0, %367 ]
+  %373 = icmp ne i32 %.0.i.i99.i.i, -1
+  %374 = zext i1 %373 to i32
   br label %online.exit85.i.i
 
-372:                                              ; preds = %354
-  %373 = fcmp olt double %106, %.sroa.0.0.i93.i.i
-  br i1 %373, label %374, label %378
+375:                                              ; preds = %357
+  %376 = fcmp olt double %109, %.sroa.0.0.i93.i.i
+  br i1 %376, label %377, label %381
 
-374:                                              ; preds = %372
-  %375 = fcmp olt double %.sroa.0.0.i93.i.i, %.sroa.05.0.copyload.i89.i.i
-  br i1 %375, label %online.exit85.i.i, label %376
+377:                                              ; preds = %375
+  %378 = fcmp olt double %.sroa.0.0.i93.i.i, %.sroa.05.0.copyload.i89.i.i
+  br i1 %378, label %online.exit85.i.i, label %379
 
-376:                                              ; preds = %374
-  %377 = fcmp ogt double %.sroa.0.0.i93.i.i, %.sroa.05.0.copyload.i89.i.i
-  %..i23.i97.i.i = sext i1 %377 to i32
+379:                                              ; preds = %377
+  %380 = fcmp ogt double %.sroa.0.0.i93.i.i, %.sroa.05.0.copyload.i89.i.i
+  %..i23.i97.i.i = sext i1 %380 to i32
   br label %online.exit85.i.i
 
-378:                                              ; preds = %372
-  %379 = fcmp ogt double %106, %.sroa.0.0.i93.i.i
-  br i1 %379, label %380, label %online.exit85.i.i
+381:                                              ; preds = %375
+  %382 = fcmp ogt double %109, %.sroa.0.0.i93.i.i
+  br i1 %382, label %383, label %online.exit85.i.i
 
-380:                                              ; preds = %378
-  %381 = fcmp ogt double %.sroa.0.0.i93.i.i, %.sroa.05.0.copyload.i89.i.i
-  br i1 %381, label %online.exit85.i.i, label %382
+383:                                              ; preds = %381
+  %384 = fcmp ogt double %.sroa.0.0.i93.i.i, %.sroa.05.0.copyload.i89.i.i
+  br i1 %384, label %online.exit85.i.i, label %385
 
-382:                                              ; preds = %380
-  %383 = fcmp olt double %.sroa.0.0.i93.i.i, %.sroa.05.0.copyload.i89.i.i
-  %.15.i22.i96.i.i = sext i1 %383 to i32
+385:                                              ; preds = %383
+  %386 = fcmp olt double %.sroa.0.0.i93.i.i, %.sroa.05.0.copyload.i89.i.i
+  %.15.i22.i96.i.i = sext i1 %386 to i32
   br label %online.exit85.i.i
 
-online.exit85.i.i:                                ; preds = %382, %380, %378, %376, %374, %between.exit.i98.i.i, %356, %343, %341, %339, %337, %335, %between.exit.i81.i.i, %317
-  %384 = phi i32 [ 0, %317 ], [ %332, %between.exit.i81.i.i ], [ 1, %335 ], [ %..i23.i80.i.i, %337 ], [ 1, %341 ], [ %.15.i22.i79.i.i, %343 ], [ 0, %339 ], [ 0, %356 ], [ %371, %between.exit.i98.i.i ], [ 1, %374 ], [ %..i23.i97.i.i, %376 ], [ 1, %380 ], [ %.15.i22.i96.i.i, %382 ], [ 0, %378 ]
-  %385 = shl nsw i32 %384, 1
+online.exit85.i.i:                                ; preds = %385, %383, %381, %379, %377, %between.exit.i98.i.i, %359, %346, %344, %342, %340, %338, %between.exit.i81.i.i, %320
+  %387 = phi i32 [ 0, %320 ], [ %335, %between.exit.i81.i.i ], [ 1, %338 ], [ %..i23.i80.i.i, %340 ], [ 1, %344 ], [ %.15.i22.i79.i.i, %346 ], [ 0, %342 ], [ 0, %359 ], [ %374, %between.exit.i98.i.i ], [ 1, %377 ], [ %..i23.i97.i.i, %379 ], [ 1, %383 ], [ %.15.i22.i96.i.i, %385 ], [ 0, %381 ]
+  %388 = shl nsw i32 %387, 1
   br label %online.exit119.i.i
 
-386:                                              ; preds = %230
-  br i1 %113, label %387, label %389
+389:                                              ; preds = %233
+  br i1 %116, label %390, label %392
 
-387:                                              ; preds = %386
-  %388 = load ptr, ptr %110, align 8, !tbaa !16
-  br label %391
+390:                                              ; preds = %389
+  %391 = load ptr, ptr %113, align 8, !tbaa !16
+  br label %394
 
-389:                                              ; preds = %386
-  %390 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  br label %391
+392:                                              ; preds = %389
+  %393 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  br label %394
 
-391:                                              ; preds = %389, %387
-  %392 = phi ptr [ %388, %387 ], [ %390, %389 ]
-  %.sroa.05.0.copyload.i106.i.i = load double, ptr %392, align 8, !tbaa !23
-  %.sroa.5.0..sroa_idx.i107.i.i = getelementptr inbounds nuw i8, ptr %392, i64 8
+394:                                              ; preds = %392, %390
+  %395 = phi ptr [ %391, %390 ], [ %393, %392 ]
+  %.sroa.05.0.copyload.i106.i.i = load double, ptr %395, align 8, !tbaa !23
+  %.sroa.5.0..sroa_idx.i107.i.i = getelementptr inbounds nuw i8, ptr %395, i64 8
   %.sroa.5.0.copyload.i108.i.i = load double, ptr %.sroa.5.0..sroa_idx.i107.i.i, align 8, !tbaa !23
-  %393 = icmp eq i32 %.0.i.i.i.i, 0
-  %brmerge.i = or i1 %127, %393
-  %.084141.mux.idx.i = select i1 %393, i64 0, i64 32
+  %396 = icmp eq i32 %.0.i.i.i.i, 0
+  %brmerge.i = or i1 %130, %396
+  %.084141.mux.idx.i = select i1 %396, i64 0, i64 32
   %.084141.mux.i = getelementptr inbounds nuw i8, ptr %.084141.i, i64 %.084141.mux.idx.i
-  br i1 %brmerge.i, label %396, label %394
+  br i1 %brmerge.i, label %399, label %397
 
-394:                                              ; preds = %391
-  %395 = load ptr, ptr %124, align 8, !tbaa !16
-  br label %396
+397:                                              ; preds = %394
+  %398 = load ptr, ptr %127, align 8, !tbaa !16
+  br label %399
 
-396:                                              ; preds = %394, %391
-  %.pn.i109.i.i = phi ptr [ %.084141.mux.i, %391 ], [ %395, %394 ]
+399:                                              ; preds = %397, %394
+  %.pn.i109.i.i = phi ptr [ %.084141.mux.i, %394 ], [ %398, %397 ]
   %.sroa.0.0.i110.i.i = load double, ptr %.pn.i109.i.i, align 8, !tbaa !23
   %.sroa.6.0.in.i111.i.i = getelementptr inbounds nuw i8, ptr %.pn.i109.i.i, i64 8
   %.sroa.6.0.i112.i.i = load double, ptr %.sroa.6.0.in.i111.i.i, align 8, !tbaa !23
-  %397 = fcmp oeq double %106, %.sroa.05.0.copyload.i106.i.i
-  br i1 %397, label %398, label %414
+  %400 = fcmp oeq double %109, %.sroa.05.0.copyload.i106.i.i
+  br i1 %400, label %401, label %417
 
-398:                                              ; preds = %396
-  %399 = fcmp oeq double %106, %.sroa.0.0.i110.i.i
-  br i1 %399, label %400, label %online.exit119.i.i
+401:                                              ; preds = %399
+  %402 = fcmp oeq double %109, %.sroa.0.0.i110.i.i
+  br i1 %402, label %403, label %online.exit119.i.i
 
-400:                                              ; preds = %398
-  %401 = fcmp olt double %108, %.sroa.6.0.i112.i.i
-  br i1 %401, label %402, label %406
+403:                                              ; preds = %401
+  %404 = fcmp olt double %111, %.sroa.6.0.i112.i.i
+  br i1 %404, label %405, label %409
 
-402:                                              ; preds = %400
-  %403 = fcmp olt double %.sroa.6.0.i112.i.i, %.sroa.5.0.copyload.i108.i.i
-  br i1 %403, label %between.exit.i115.i.i, label %404
+405:                                              ; preds = %403
+  %406 = fcmp olt double %.sroa.6.0.i112.i.i, %.sroa.5.0.copyload.i108.i.i
+  br i1 %406, label %between.exit.i115.i.i, label %407
 
-404:                                              ; preds = %402
-  %405 = fcmp ogt double %.sroa.6.0.i112.i.i, %.sroa.5.0.copyload.i108.i.i
-  %..i.i118.i.i = sext i1 %405 to i32
+407:                                              ; preds = %405
+  %408 = fcmp ogt double %.sroa.6.0.i112.i.i, %.sroa.5.0.copyload.i108.i.i
+  %..i.i118.i.i = sext i1 %408 to i32
   br label %between.exit.i115.i.i
 
-406:                                              ; preds = %400
-  %407 = fcmp ogt double %108, %.sroa.6.0.i112.i.i
-  br i1 %407, label %408, label %between.exit.i115.i.i
+409:                                              ; preds = %403
+  %410 = fcmp ogt double %111, %.sroa.6.0.i112.i.i
+  br i1 %410, label %411, label %between.exit.i115.i.i
 
-408:                                              ; preds = %406
-  %409 = fcmp ogt double %.sroa.6.0.i112.i.i, %.sroa.5.0.copyload.i108.i.i
-  br i1 %409, label %between.exit.i115.i.i, label %410
+411:                                              ; preds = %409
+  %412 = fcmp ogt double %.sroa.6.0.i112.i.i, %.sroa.5.0.copyload.i108.i.i
+  br i1 %412, label %between.exit.i115.i.i, label %413
 
-410:                                              ; preds = %408
-  %411 = fcmp olt double %.sroa.6.0.i112.i.i, %.sroa.5.0.copyload.i108.i.i
-  %.15.i.i117.i.i = sext i1 %411 to i32
+413:                                              ; preds = %411
+  %414 = fcmp olt double %.sroa.6.0.i112.i.i, %.sroa.5.0.copyload.i108.i.i
+  %.15.i.i117.i.i = sext i1 %414 to i32
   br label %between.exit.i115.i.i
 
-between.exit.i115.i.i:                            ; preds = %410, %408, %406, %404, %402
-  %.0.i.i116.i.i = phi i32 [ 1, %402 ], [ %..i.i118.i.i, %404 ], [ 1, %408 ], [ %.15.i.i117.i.i, %410 ], [ 0, %406 ]
-  %412 = icmp ne i32 %.0.i.i116.i.i, -1
-  %413 = zext i1 %412 to i32
+between.exit.i115.i.i:                            ; preds = %413, %411, %409, %407, %405
+  %.0.i.i116.i.i = phi i32 [ 1, %405 ], [ %..i.i118.i.i, %407 ], [ 1, %411 ], [ %.15.i.i117.i.i, %413 ], [ 0, %409 ]
+  %415 = icmp ne i32 %.0.i.i116.i.i, -1
+  %416 = zext i1 %415 to i32
   br label %online.exit119.i.i
 
-414:                                              ; preds = %396
-  %415 = fcmp olt double %106, %.sroa.0.0.i110.i.i
-  br i1 %415, label %416, label %420
+417:                                              ; preds = %399
+  %418 = fcmp olt double %109, %.sroa.0.0.i110.i.i
+  br i1 %418, label %419, label %423
 
-416:                                              ; preds = %414
-  %417 = fcmp olt double %.sroa.0.0.i110.i.i, %.sroa.05.0.copyload.i106.i.i
-  br i1 %417, label %online.exit119.i.i, label %418
+419:                                              ; preds = %417
+  %420 = fcmp olt double %.sroa.0.0.i110.i.i, %.sroa.05.0.copyload.i106.i.i
+  br i1 %420, label %online.exit119.i.i, label %421
 
-418:                                              ; preds = %416
-  %419 = fcmp ogt double %.sroa.0.0.i110.i.i, %.sroa.05.0.copyload.i106.i.i
-  %..i23.i114.i.i = sext i1 %419 to i32
+421:                                              ; preds = %419
+  %422 = fcmp ogt double %.sroa.0.0.i110.i.i, %.sroa.05.0.copyload.i106.i.i
+  %..i23.i114.i.i = sext i1 %422 to i32
   br label %online.exit119.i.i
 
-420:                                              ; preds = %414
-  %421 = fcmp ogt double %106, %.sroa.0.0.i110.i.i
-  br i1 %421, label %422, label %online.exit119.i.i
+423:                                              ; preds = %417
+  %424 = fcmp ogt double %109, %.sroa.0.0.i110.i.i
+  br i1 %424, label %425, label %online.exit119.i.i
 
-422:                                              ; preds = %420
-  %423 = fcmp ogt double %.sroa.0.0.i110.i.i, %.sroa.05.0.copyload.i106.i.i
-  br i1 %423, label %online.exit119.i.i, label %424
+425:                                              ; preds = %423
+  %426 = fcmp ogt double %.sroa.0.0.i110.i.i, %.sroa.05.0.copyload.i106.i.i
+  br i1 %426, label %online.exit119.i.i, label %427
 
-424:                                              ; preds = %422
-  %425 = fcmp olt double %.sroa.0.0.i110.i.i, %.sroa.05.0.copyload.i106.i.i
-  %.15.i22.i113.i.i = sext i1 %425 to i32
+427:                                              ; preds = %425
+  %428 = fcmp olt double %.sroa.0.0.i110.i.i, %.sroa.05.0.copyload.i106.i.i
+  %.15.i22.i113.i.i = sext i1 %428 to i32
   br label %online.exit119.i.i
 
-online.exit119.i.i:                               ; preds = %424, %422, %420, %418, %416, %between.exit.i115.i.i, %398, %online.exit85.i.i
-  %426 = phi i32 [ %385, %online.exit85.i.i ], [ 0, %398 ], [ %413, %between.exit.i115.i.i ], [ 1, %416 ], [ %..i23.i114.i.i, %418 ], [ 1, %422 ], [ %.15.i22.i113.i.i, %424 ], [ 0, %420 ]
-  %427 = call fastcc i32 @intpoint(ptr noundef nonnull readonly %105, ptr noundef nonnull readonly %.084141.i, ptr noundef %3, ptr noundef %4, i32 noundef %426)
-  %.not.i98.i = icmp eq i32 %427, 0
-  br i1 %.not.i98.i, label %.critedge.i, label %428
+online.exit119.i.i:                               ; preds = %427, %425, %423, %421, %419, %between.exit.i115.i.i, %401, %online.exit85.i.i
+  %429 = phi i32 [ %388, %online.exit85.i.i ], [ 0, %401 ], [ %416, %between.exit.i115.i.i ], [ 1, %419 ], [ %..i23.i114.i.i, %421 ], [ 1, %425 ], [ %.15.i22.i113.i.i, %427 ], [ 0, %423 ]
+  %430 = call fastcc i32 @intpoint(ptr noundef nonnull readonly %108, ptr noundef nonnull readonly %.084141.i, ptr noundef %3, ptr noundef %4, i32 noundef %429)
+  %.not.i98.i = icmp eq i32 %430, 0
+  br i1 %.not.i98.i, label %.critedge.i, label %431
 
-428:                                              ; preds = %online.exit119.i.i, %online.exit.i.i
-  %429 = load double, ptr %3, align 8, !tbaa !23
-  %430 = load double, ptr %4, align 8, !tbaa !23
-  br i1 %113, label %431, label %433
+431:                                              ; preds = %online.exit119.i.i, %online.exit.i.i
+  %432 = load double, ptr %3, align 8, !tbaa !23
+  %433 = load double, ptr %4, align 8, !tbaa !23
+  br i1 %116, label %434, label %436
 
-431:                                              ; preds = %428
-  %432 = load ptr, ptr %110, align 8, !tbaa !16
-  br label %435
+434:                                              ; preds = %431
+  %435 = load ptr, ptr %113, align 8, !tbaa !16
+  br label %438
 
-433:                                              ; preds = %428
-  %434 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  br label %435
+436:                                              ; preds = %431
+  %437 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  br label %438
 
-435:                                              ; preds = %433, %431
-  %436 = phi ptr [ %432, %431 ], [ %434, %433 ]
-  %.sroa.03.0.copyload.i.i.i = load double, ptr %436, align 8, !tbaa !23
-  %.sroa.66.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %436, i64 8
+438:                                              ; preds = %436, %434
+  %439 = phi ptr [ %435, %434 ], [ %437, %436 ]
+  %.sroa.03.0.copyload.i.i.i = load double, ptr %439, align 8, !tbaa !23
+  %.sroa.66.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %439, i64 8
   %.sroa.66.0.copyload.i.i.i = load double, ptr %.sroa.66.0..sroa_idx.i.i.i, align 8, !tbaa !23
-  br i1 %127, label %439, label %437
+  br i1 %130, label %442, label %440
 
-437:                                              ; preds = %435
-  %438 = load ptr, ptr %124, align 8, !tbaa !16
-  br label %439
+440:                                              ; preds = %438
+  %441 = load ptr, ptr %127, align 8, !tbaa !16
+  br label %442
 
-439:                                              ; preds = %437, %435
-  %440 = phi ptr [ %438, %437 ], [ %103, %435 ]
-  %.sroa.0.0.copyload.i.i.i = load double, ptr %440, align 8, !tbaa !23
-  %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %440, i64 8
+442:                                              ; preds = %440, %438
+  %443 = phi ptr [ %441, %440 ], [ %106, %438 ]
+  %.sroa.0.0.copyload.i.i.i = load double, ptr %443, align 8, !tbaa !23
+  %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %443, i64 8
   %.sroa.6.0.copyload.i.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !tbaa !23
-  %441 = fcmp une double %106, %.sroa.03.0.copyload.i.i.i
-  %442 = fcmp une double %122, %.sroa.0.0.copyload.i.i.i
-  %or.cond.i.i.i = select i1 %441, i1 %442, i1 false
-  br i1 %or.cond.i.i.i, label %459, label %443
+  %444 = fcmp une double %109, %.sroa.03.0.copyload.i.i.i
+  %445 = fcmp une double %125, %.sroa.0.0.copyload.i.i.i
+  %or.cond.i.i.i = select i1 %444, i1 %445, i1 false
+  br i1 %or.cond.i.i.i, label %462, label %446
 
-443:                                              ; preds = %439
-  %444 = fcmp oeq double %106, %.sroa.03.0.copyload.i.i.i
-  br i1 %444, label %445, label %451
+446:                                              ; preds = %442
+  %447 = fcmp oeq double %109, %.sroa.03.0.copyload.i.i.i
+  br i1 %447, label %448, label %454
 
-445:                                              ; preds = %443
-  %446 = fcmp oeq double %106, %429
-  %447 = fcmp oeq double %108, %430
-  %or.cond38.i.i.i = select i1 %446, i1 %447, i1 false
-  br i1 %or.cond38.i.i.i, label %451, label %448
+448:                                              ; preds = %446
+  %449 = fcmp oeq double %109, %432
+  %450 = fcmp oeq double %111, %433
+  %or.cond38.i.i.i = select i1 %449, i1 %450, i1 false
+  br i1 %or.cond38.i.i.i, label %454, label %451
 
-448:                                              ; preds = %445
-  %449 = fcmp oeq double %.sroa.03.0.copyload.i.i.i, %429
-  %450 = fcmp oeq double %.sroa.66.0.copyload.i.i.i, %430
-  %or.cond39.i.i.i = select i1 %449, i1 %450, i1 false
-  br i1 %or.cond39.i.i.i, label %451, label %459
+451:                                              ; preds = %448
+  %452 = fcmp oeq double %.sroa.03.0.copyload.i.i.i, %432
+  %453 = fcmp oeq double %.sroa.66.0.copyload.i.i.i, %433
+  %or.cond39.i.i.i = select i1 %452, i1 %453, i1 false
+  br i1 %or.cond39.i.i.i, label %454, label %462
 
-451:                                              ; preds = %448, %445, %443
-  %452 = fcmp oeq double %122, %.sroa.0.0.copyload.i.i.i
-  br i1 %452, label %453, label %.critedge.i
+454:                                              ; preds = %451, %448, %446
+  %455 = fcmp oeq double %125, %.sroa.0.0.copyload.i.i.i
+  br i1 %455, label %456, label %.critedge.i
 
-453:                                              ; preds = %451
-  %454 = fcmp oeq double %122, %429
-  %455 = fcmp oeq double %123, %430
-  %or.cond40.i.i.i = select i1 %454, i1 %455, i1 false
-  br i1 %or.cond40.i.i.i, label %.critedge.i, label %456
+456:                                              ; preds = %454
+  %457 = fcmp oeq double %125, %432
+  %458 = fcmp oeq double %126, %433
+  %or.cond40.i.i.i = select i1 %457, i1 %458, i1 false
+  br i1 %or.cond40.i.i.i, label %.critedge.i, label %459
 
-456:                                              ; preds = %453
-  %457 = fcmp oeq double %.sroa.0.0.copyload.i.i.i, %429
-  %458 = fcmp oeq double %.sroa.6.0.copyload.i.i.i, %430
-  %or.cond41.i.i.i = select i1 %457, i1 %458, i1 false
-  br i1 %or.cond41.i.i.i, label %.critedge.i, label %459
+459:                                              ; preds = %456
+  %460 = fcmp oeq double %.sroa.0.0.copyload.i.i.i, %432
+  %461 = fcmp oeq double %.sroa.6.0.copyload.i.i.i, %433
+  %or.cond41.i.i.i = select i1 %460, i1 %461, i1 false
+  br i1 %or.cond41.i.i.i, label %.critedge.i, label %462
 
-459:                                              ; preds = %456, %448, %439
-  %460 = load i8, ptr @Verbose, align 1, !tbaa !39
-  %461 = icmp ugt i8 %460, 1
-  br i1 %461, label %462, label %find_intersection.exit.i
+462:                                              ; preds = %459, %451, %442
+  %463 = load i8, ptr @Verbose, align 1, !tbaa !39
+  %464 = icmp ugt i8 %463, 1
+  br i1 %464, label %465, label %find_intersection.exit.i
 
-462:                                              ; preds = %459
-  %463 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %464 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %463, ptr noundef nonnull @.str.3, double noundef %429, double noundef %430) #13
-  tail call fastcc void @putSeg(i32 noundef 1, ptr noundef nonnull readonly %105)
+465:                                              ; preds = %462
+  %466 = load ptr, ptr @stderr, align 8, !tbaa !3
+  %467 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %466, ptr noundef nonnull @.str.3, double noundef %432, double noundef %433) #13
+  tail call fastcc void @putSeg(i32 noundef 1, ptr noundef nonnull readonly %108)
   tail call fastcc void @putSeg(i32 noundef 2, ptr noundef nonnull readonly %.084141.i)
   br label %find_intersection.exit.i
 
-find_intersection.exit.i:                         ; preds = %462, %459
+find_intersection.exit.i:                         ; preds = %465, %462
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   br label %.loopexit.i
 
-.critedge.i:                                      ; preds = %456, %453, %451, %online.exit119.i.i, %online.exit.i.i, %sgnarea.exit32.i.i, %sgnarea.exit.i.i
+.critedge.i:                                      ; preds = %459, %456, %454, %online.exit119.i.i, %online.exit.i.i, %sgnarea.exit32.i.i, %sgnarea.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  %465 = add nuw nsw i32 %.087133.i, 1
-  %466 = getelementptr inbounds nuw i8, ptr %.085134.i, i64 8
-  %467 = load ptr, ptr %466, align 8, !tbaa !40
-  %exitcond168.not.i = icmp eq i32 %465, %.sroa.20.2138.i
-  br i1 %exitcond168.not.i, label %.critedge._crit_edge.i, label %104, !llvm.loop !41
+  %468 = add nuw nsw i32 %.087133.i, 1
+  %469 = getelementptr inbounds nuw i8, ptr %.085134.i, i64 8
+  %470 = load ptr, ptr %469, align 8, !tbaa !40
+  %exitcond168.not.i = icmp eq i32 %468, %.sroa.20.2138.i
+  br i1 %exitcond168.not.i, label %.critedge._crit_edge.i, label %107, !llvm.loop !41
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.i, %.critedge.preheader.i
-  %468 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #15
-  %469 = icmp eq ptr %468, null
-  br i1 %469, label %470, label %gv_alloc.exit.i
+  %471 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #15
+  %472 = icmp eq ptr %471, null
+  br i1 %472, label %473, label %gv_alloc.exit.i
 
-470:                                              ; preds = %.critedge._crit_edge.i
-  %471 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %472 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %471, ptr noundef nonnull @.str.1, i64 noundef 24) #13
+473:                                              ; preds = %.critedge._crit_edge.i
+  %474 = load ptr, ptr @stderr, align 8, !tbaa !3
+  %475 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %474, ptr noundef nonnull @.str.1, i64 noundef 24) #13
   tail call fastcc void @graphviz_exit() #14
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %.critedge._crit_edge.i
-  %473 = icmp eq i32 %.sroa.20.2138.i, 0
-  br i1 %473, label %476, label %474
+  %476 = icmp eq i32 %.sroa.20.2138.i, 0
+  br i1 %476, label %479, label %477
 
-474:                                              ; preds = %gv_alloc.exit.i
-  %475 = getelementptr inbounds nuw i8, ptr %.sroa.11.1139.i, i64 8
-  store ptr %468, ptr %475, align 8, !tbaa !40
-  br label %476
+477:                                              ; preds = %gv_alloc.exit.i
+  %478 = getelementptr inbounds nuw i8, ptr %.sroa.11.1139.i, i64 8
+  store ptr %471, ptr %478, align 8, !tbaa !40
+  br label %479
 
-476:                                              ; preds = %474, %gv_alloc.exit.i
-  %.sroa.11.1139.sink.i = phi ptr [ %.sroa.11.1139.i, %474 ], [ null, %gv_alloc.exit.i ]
-  %.sroa.0.3.i = phi ptr [ %.sroa.0.2140.i, %474 ], [ %468, %gv_alloc.exit.i ]
-  %477 = getelementptr inbounds nuw i8, ptr %468, i64 16
-  store ptr %.sroa.11.1139.sink.i, ptr %477, align 8, !tbaa !42
-  store ptr %.084141.i, ptr %468, align 8, !tbaa !37
-  %478 = getelementptr inbounds nuw i8, ptr %468, i64 8
-  store ptr null, ptr %478, align 8, !tbaa !40
-  %479 = getelementptr inbounds nuw i8, ptr %.084141.i, i64 24
-  store ptr %468, ptr %479, align 8, !tbaa !33
-  %480 = add nsw i32 %.sroa.20.2138.i, 1
-  br label %507
+479:                                              ; preds = %477, %gv_alloc.exit.i
+  %.sroa.11.1139.sink.i = phi ptr [ %.sroa.11.1139.i, %477 ], [ null, %gv_alloc.exit.i ]
+  %.sroa.0.3.i = phi ptr [ %.sroa.0.2140.i, %477 ], [ %471, %gv_alloc.exit.i ]
+  %480 = getelementptr inbounds nuw i8, ptr %471, i64 16
+  store ptr %.sroa.11.1139.sink.i, ptr %480, align 8, !tbaa !42
+  store ptr %.084141.i, ptr %471, align 8, !tbaa !37
+  %481 = getelementptr inbounds nuw i8, ptr %471, i64 8
+  store ptr null, ptr %481, align 8, !tbaa !40
+  %482 = getelementptr inbounds nuw i8, ptr %.084141.i, i64 24
+  store ptr %471, ptr %482, align 8, !tbaa !33
+  %483 = add nsw i32 %.sroa.20.2138.i, 1
+  br label %510
 
-gt.exit.thread.i:                                 ; preds = %94, %87
-  %481 = getelementptr inbounds nuw i8, ptr %.084141.i, i64 24
-  %482 = load ptr, ptr %481, align 8, !tbaa !33
-  %483 = icmp eq ptr %482, null
-  br i1 %483, label %526, label %484
+gt.exit.thread.i:                                 ; preds = %97, %90
+  %484 = getelementptr inbounds nuw i8, ptr %.084141.i, i64 24
+  %485 = load ptr, ptr %484, align 8, !tbaa !33
+  %486 = icmp eq ptr %485, null
+  br i1 %486, label %529, label %487
 
-484:                                              ; preds = %gt.exit.thread.i
-  %485 = icmp eq i32 %.sroa.20.2138.i, 1
-  br i1 %485, label %505, label %486
+487:                                              ; preds = %gt.exit.thread.i
+  %488 = icmp eq i32 %.sroa.20.2138.i, 1
+  br i1 %488, label %508, label %489
 
-486:                                              ; preds = %484
-  %487 = icmp eq ptr %482, %.sroa.0.2140.i
-  br i1 %487, label %488, label %492
+489:                                              ; preds = %487
+  %490 = icmp eq ptr %485, %.sroa.0.2140.i
+  br i1 %490, label %491, label %495
 
-488:                                              ; preds = %486
-  %489 = getelementptr inbounds nuw i8, ptr %.sroa.0.2140.i, i64 8
-  %490 = load ptr, ptr %489, align 8, !tbaa !40
-  %491 = getelementptr inbounds nuw i8, ptr %490, i64 16
-  store ptr null, ptr %491, align 8, !tbaa !42
-  br label %505
+491:                                              ; preds = %489
+  %492 = getelementptr inbounds nuw i8, ptr %.sroa.0.2140.i, i64 8
+  %493 = load ptr, ptr %492, align 8, !tbaa !40
+  %494 = getelementptr inbounds nuw i8, ptr %493, i64 16
+  store ptr null, ptr %494, align 8, !tbaa !42
+  br label %508
 
-492:                                              ; preds = %486
-  %493 = icmp eq ptr %482, %.sroa.11.1139.i
-  br i1 %493, label %494, label %498
+495:                                              ; preds = %489
+  %496 = icmp eq ptr %485, %.sroa.11.1139.i
+  br i1 %496, label %497, label %501
 
-494:                                              ; preds = %492
-  %495 = getelementptr inbounds nuw i8, ptr %.sroa.11.1139.i, i64 16
-  %496 = load ptr, ptr %495, align 8, !tbaa !42
-  %497 = getelementptr inbounds nuw i8, ptr %496, i64 8
-  store ptr null, ptr %497, align 8, !tbaa !40
-  br label %505
+497:                                              ; preds = %495
+  %498 = getelementptr inbounds nuw i8, ptr %.sroa.11.1139.i, i64 16
+  %499 = load ptr, ptr %498, align 8, !tbaa !42
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 8
+  store ptr null, ptr %500, align 8, !tbaa !40
+  br label %508
 
-498:                                              ; preds = %492
-  %499 = getelementptr inbounds nuw i8, ptr %482, i64 8
-  %500 = load ptr, ptr %499, align 8, !tbaa !40
-  %501 = getelementptr inbounds nuw i8, ptr %482, i64 16
-  %502 = load ptr, ptr %501, align 8, !tbaa !42
-  %503 = getelementptr inbounds nuw i8, ptr %502, i64 8
-  store ptr %500, ptr %503, align 8, !tbaa !40
-  %504 = getelementptr inbounds nuw i8, ptr %500, i64 16
-  store ptr %502, ptr %504, align 8, !tbaa !42
-  br label %505
+501:                                              ; preds = %495
+  %502 = getelementptr inbounds nuw i8, ptr %485, i64 8
+  %503 = load ptr, ptr %502, align 8, !tbaa !40
+  %504 = getelementptr inbounds nuw i8, ptr %485, i64 16
+  %505 = load ptr, ptr %504, align 8, !tbaa !42
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 8
+  store ptr %503, ptr %506, align 8, !tbaa !40
+  %507 = getelementptr inbounds nuw i8, ptr %503, i64 16
+  store ptr %505, ptr %507, align 8, !tbaa !42
+  br label %508
 
-505:                                              ; preds = %498, %494, %488, %484
-  %.sroa.11.3.i = phi ptr [ %.sroa.11.1139.i, %488 ], [ %496, %494 ], [ %.sroa.11.1139.i, %498 ], [ null, %484 ]
-  %.sroa.0.5.i = phi ptr [ %490, %488 ], [ %.sroa.0.2140.i, %494 ], [ %.sroa.0.2140.i, %498 ], [ null, %484 ]
-  tail call void @free(ptr noundef nonnull %482) #16
-  %506 = add nsw i32 %.sroa.20.2138.i, -1
-  store ptr null, ptr %481, align 8, !tbaa !33
-  br label %507
+508:                                              ; preds = %501, %497, %491, %487
+  %.sroa.11.3.i = phi ptr [ %.sroa.11.1139.i, %491 ], [ %499, %497 ], [ %.sroa.11.1139.i, %501 ], [ null, %487 ]
+  %.sroa.0.5.i = phi ptr [ %493, %491 ], [ %.sroa.0.2140.i, %497 ], [ %.sroa.0.2140.i, %501 ], [ null, %487 ]
+  tail call void @free(ptr noundef nonnull %485) #16
+  %509 = add nsw i32 %.sroa.20.2138.i, -1
+  store ptr null, ptr %484, align 8, !tbaa !33
+  br label %510
 
-507:                                              ; preds = %505, %476, %gt.exit.i
-  %.sroa.20.3.i = phi i32 [ %.sroa.20.2138.i, %gt.exit.i ], [ %480, %476 ], [ %506, %505 ]
-  %.sroa.11.2.i = phi ptr [ %.sroa.11.1139.i, %gt.exit.i ], [ %468, %476 ], [ %.sroa.11.3.i, %505 ]
-  %.sroa.0.4.i = phi ptr [ %.sroa.0.2140.i, %gt.exit.i ], [ %.sroa.0.3.i, %476 ], [ %.sroa.0.5.i, %505 ]
-  %508 = load ptr, ptr %73, align 8, !tbaa !35
-  %509 = getelementptr inbounds nuw i8, ptr %508, i64 16
-  %510 = load ptr, ptr %509, align 8, !tbaa !32
-  %511 = getelementptr inbounds nuw i8, ptr %510, i64 8
-  %512 = load ptr, ptr %511, align 8, !tbaa !22
-  %513 = icmp eq ptr %508, %512
-  br i1 %513, label %514, label %516
+510:                                              ; preds = %508, %479, %gt.exit.i
+  %.sroa.20.3.i = phi i32 [ %.sroa.20.2138.i, %gt.exit.i ], [ %483, %479 ], [ %509, %508 ]
+  %.sroa.11.2.i = phi ptr [ %.sroa.11.1139.i, %gt.exit.i ], [ %471, %479 ], [ %.sroa.11.3.i, %508 ]
+  %.sroa.0.4.i = phi ptr [ %.sroa.0.2140.i, %gt.exit.i ], [ %.sroa.0.3.i, %479 ], [ %.sroa.0.5.i, %508 ]
+  %511 = load ptr, ptr %76, align 8, !tbaa !35
+  %512 = getelementptr inbounds nuw i8, ptr %511, i64 16
+  %513 = load ptr, ptr %512, align 8, !tbaa !32
+  %514 = getelementptr inbounds nuw i8, ptr %513, i64 8
+  %515 = load ptr, ptr %514, align 8, !tbaa !22
+  %516 = icmp eq ptr %511, %515
+  br i1 %516, label %517, label %519
 
-514:                                              ; preds = %507
-  %515 = load ptr, ptr %510, align 8, !tbaa !16
-  br label %518
+517:                                              ; preds = %510
+  %518 = load ptr, ptr %513, align 8, !tbaa !16
+  br label %521
 
-516:                                              ; preds = %507
-  %517 = getelementptr inbounds nuw i8, ptr %508, i64 32
-  br label %518
+519:                                              ; preds = %510
+  %520 = getelementptr inbounds nuw i8, ptr %511, i64 32
+  br label %521
 
-518:                                              ; preds = %516, %514
-  %519 = phi ptr [ %515, %514 ], [ %517, %516 ]
-  br i1 %88, label %87, label %520, !llvm.loop !43
+521:                                              ; preds = %519, %517
+  %522 = phi ptr [ %518, %517 ], [ %520, %519 ]
+  br i1 %91, label %90, label %523, !llvm.loop !43
 
-520:                                              ; preds = %518
-  %521 = add nuw nsw i64 %.081145.i, 1
-  %exitcond169.not.i = icmp eq i64 %521, %.061.lcssa145153
+523:                                              ; preds = %521
+  %524 = add nuw nsw i64 %.081145.i, 1
+  %exitcond169.not.i = icmp eq i64 %524, %.061.lcssa145152
   br i1 %exitcond169.not.i, label %.loopexit.i, label %.lr.ph147.i, !llvm.loop !44
 
-.loopexit.i:                                      ; preds = %520, %find_intersection.exit.i
-  %.not = phi i1 [ false, %find_intersection.exit.i ], [ true, %520 ]
-  %.sroa.20.1.ph.i = phi i32 [ %.sroa.20.2138.i, %find_intersection.exit.i ], [ %.sroa.20.3.i, %520 ]
-  %.sroa.0.1.ph.i = phi ptr [ %.sroa.0.2140.i, %find_intersection.exit.i ], [ %.sroa.0.4.i, %520 ]
-  %522 = icmp sgt i32 %.sroa.20.1.ph.i, 0
-  br i1 %522, label %.lr.ph152.i, label %.loopexit
+.loopexit.i:                                      ; preds = %523, %find_intersection.exit.i
+  %.not = phi i1 [ false, %find_intersection.exit.i ], [ true, %523 ]
+  %.sroa.20.1.ph.i = phi i32 [ %.sroa.20.2138.i, %find_intersection.exit.i ], [ %.sroa.20.3.i, %523 ]
+  %.sroa.0.1.ph.i = phi ptr [ %.sroa.0.2140.i, %find_intersection.exit.i ], [ %.sroa.0.4.i, %523 ]
+  %525 = icmp sgt i32 %.sroa.20.1.ph.i, 0
+  br i1 %525, label %.lr.ph152.i, label %.loopexit
 
 .lr.ph152.i:                                      ; preds = %.loopexit.i, %.lr.ph152.i
-  %.186150.i = phi ptr [ %524, %.lr.ph152.i ], [ %.sroa.0.1.ph.i, %.loopexit.i ]
-  %.188149.i = phi i32 [ %525, %.lr.ph152.i ], [ 0, %.loopexit.i ]
-  %523 = getelementptr inbounds nuw i8, ptr %.186150.i, i64 8
-  %524 = load ptr, ptr %523, align 8, !tbaa !40
+  %.186150.i = phi ptr [ %527, %.lr.ph152.i ], [ %.sroa.0.1.ph.i, %.loopexit.i ]
+  %.188149.i = phi i32 [ %528, %.lr.ph152.i ], [ 0, %.loopexit.i ]
+  %526 = getelementptr inbounds nuw i8, ptr %.186150.i, i64 8
+  %527 = load ptr, ptr %526, align 8, !tbaa !40
   tail call void @free(ptr noundef %.186150.i) #16
-  %525 = add nuw nsw i32 %.188149.i, 1
-  %exitcond170.not.i = icmp eq i32 %525, %.sroa.20.1.ph.i
+  %528 = add nuw nsw i32 %.188149.i, 1
+  %exitcond170.not.i = icmp eq i32 %528, %.sroa.20.1.ph.i
   br i1 %exitcond170.not.i, label %.loopexit, label %.lr.ph152.i, !llvm.loop !45
 
-526:                                              ; preds = %gt.exit.thread.i
+529:                                              ; preds = %gt.exit.thread.i
   tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str.2) #16
   br label %findInside.exit
 
 .loopexit:                                        ; preds = %.lr.ph152.i, %.loopexit.i
-  tail call void @free(ptr noundef %64) #16
+  tail call void @free(ptr noundef %67) #16
   br i1 %.not, label %.lr.ph107.preheader.i, label %findInside.exit
 
 .lr.ph107.preheader.i:                            ; preds = %.loopexit, %.thread
-  %527 = phi ptr [ %61, %.thread ], [ %11, %.loopexit ]
-  %528 = phi ptr [ %62, %.thread ], [ %.sink, %.loopexit ]
-  %529 = zext nneg i32 %1 to i64
+  %530 = phi ptr [ %64, %.thread ], [ %11, %.loopexit ]
+  %531 = phi ptr [ %65, %.thread ], [ %36, %.loopexit ]
+  %532 = zext nneg i32 %1 to i64
   br label %.lr.ph107.i
 
-.loopexit.i74:                                    ; preds = %597, %.lr.ph107.i
+.loopexit.i74:                                    ; preds = %600, %.lr.ph107.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond116.not.i = icmp eq i64 %indvars.iv.next113.i, %529
+  %exitcond116.not.i = icmp eq i64 %indvars.iv.next113.i, %532
   br i1 %exitcond116.not.i, label %findInside.exit, label %.lr.ph107.i, !llvm.loop !46
 
 .lr.ph107.i:                                      ; preds = %.loopexit.i74, %.lr.ph107.preheader.i
   %indvars.iv112.i = phi i64 [ 0, %.lr.ph107.preheader.i ], [ %indvars.iv.next113.i, %.loopexit.i74 ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph107.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i74 ]
-  %530 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv112.i
-  %531 = load ptr, ptr %530, align 8, !tbaa !8
-  %532 = load ptr, ptr %531, align 8, !tbaa !21
-  %.sroa.0.0.copyload.i = load double, ptr %532, align 8, !tbaa !23
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %532, i64 8
+  %533 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv112.i
+  %534 = load ptr, ptr %533, align 8, !tbaa !8
+  %535 = load ptr, ptr %534, align 8, !tbaa !21
+  %.sroa.0.0.copyload.i = load double, ptr %535, align 8, !tbaa !23
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %535, i64 8
   %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !23
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
-  %533 = icmp samesign ult i64 %indvars.iv.next113.i, %529
-  br i1 %533, label %.lr.ph.i75, label %.loopexit.i74
+  %536 = icmp samesign ult i64 %indvars.iv.next113.i, %532
+  br i1 %536, label %.lr.ph.i75, label %.loopexit.i74
 
 .lr.ph.i75:                                       ; preds = %.lr.ph107.i
-  %534 = getelementptr inbounds nuw %struct.polygon, ptr %527, i64 %indvars.iv112.i, i32 2
-  %535 = getelementptr inbounds nuw i8, ptr %534, i64 8
-  %536 = getelementptr inbounds nuw i8, ptr %534, i64 16
-  %537 = getelementptr inbounds nuw i8, ptr %534, i64 24
-  %538 = getelementptr inbounds nuw i8, ptr %531, i64 8
-  br label %539
+  %537 = getelementptr inbounds nuw %struct.polygon, ptr %530, i64 %indvars.iv112.i, i32 2
+  %538 = getelementptr inbounds nuw i8, ptr %537, i64 8
+  %539 = getelementptr inbounds nuw i8, ptr %537, i64 16
+  %540 = getelementptr inbounds nuw i8, ptr %537, i64 24
+  %541 = getelementptr inbounds nuw i8, ptr %534, i64 8
+  br label %542
 
-539:                                              ; preds = %597, %.lr.ph.i75
-  %indvars.iv109.i = phi i64 [ %indvars.iv.i, %.lr.ph.i75 ], [ %indvars.iv.next110.i, %597 ]
-  %540 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv109.i
-  %541 = load ptr, ptr %540, align 8, !tbaa !8
-  %542 = load double, ptr %534, align 8, !tbaa !47
-  %543 = getelementptr inbounds nuw %struct.polygon, ptr %527, i64 %indvars.iv109.i, i32 2
-  %544 = getelementptr inbounds nuw i8, ptr %543, i64 16
-  %545 = load double, ptr %544, align 8, !tbaa !48
-  %546 = fcmp ugt double %542, %545
-  %.pre.i = load double, ptr %543, align 8, !tbaa !47
-  %547 = fcmp ult double %542, %.pre.i
-  %or.cond118.i = select i1 %546, i1 true, i1 %547
-  br i1 %or.cond118.i, label %570, label %548
+542:                                              ; preds = %600, %.lr.ph.i75
+  %indvars.iv109.i = phi i64 [ %indvars.iv.i, %.lr.ph.i75 ], [ %indvars.iv.next110.i, %600 ]
+  %543 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv109.i
+  %544 = load ptr, ptr %543, align 8, !tbaa !8
+  %545 = load double, ptr %537, align 8, !tbaa !47
+  %546 = getelementptr inbounds nuw %struct.polygon, ptr %530, i64 %indvars.iv109.i, i32 2
+  %547 = getelementptr inbounds nuw i8, ptr %546, i64 16
+  %548 = load double, ptr %547, align 8, !tbaa !48
+  %549 = fcmp ugt double %545, %548
+  %.pre.i = load double, ptr %546, align 8, !tbaa !47
+  %550 = fcmp ult double %545, %.pre.i
+  %or.cond118.i = select i1 %549, i1 true, i1 %550
+  br i1 %or.cond118.i, label %573, label %551
 
-548:                                              ; preds = %539
-  %549 = load double, ptr %535, align 8, !tbaa !49
-  %550 = getelementptr inbounds nuw i8, ptr %543, i64 24
-  %551 = load double, ptr %550, align 8, !tbaa !50
-  %552 = fcmp ugt double %549, %551
-  br i1 %552, label %570, label %553
+551:                                              ; preds = %542
+  %552 = load double, ptr %538, align 8, !tbaa !49
+  %553 = getelementptr inbounds nuw i8, ptr %546, i64 24
+  %554 = load double, ptr %553, align 8, !tbaa !50
+  %555 = fcmp ugt double %552, %554
+  br i1 %555, label %573, label %556
 
-553:                                              ; preds = %548
-  %554 = getelementptr inbounds nuw i8, ptr %543, i64 8
-  %555 = load double, ptr %554, align 8, !tbaa !49
-  %556 = fcmp ult double %549, %555
-  br i1 %556, label %570, label %557
+556:                                              ; preds = %551
+  %557 = getelementptr inbounds nuw i8, ptr %546, i64 8
+  %558 = load double, ptr %557, align 8, !tbaa !49
+  %559 = fcmp ult double %552, %558
+  br i1 %559, label %573, label %560
 
-557:                                              ; preds = %553
-  %558 = load double, ptr %536, align 8, !tbaa !48
-  %559 = fcmp ugt double %558, %545
-  %560 = fcmp ult double %558, %.pre.i
-  %or.cond.i = or i1 %559, %560
-  br i1 %or.cond.i, label %570, label %561
+560:                                              ; preds = %556
+  %561 = load double, ptr %539, align 8, !tbaa !48
+  %562 = fcmp ugt double %561, %548
+  %563 = fcmp ult double %561, %.pre.i
+  %or.cond.i = or i1 %562, %563
+  br i1 %or.cond.i, label %573, label %564
 
-561:                                              ; preds = %557
-  %562 = load double, ptr %537, align 8, !tbaa !50
-  %563 = fcmp ugt double %562, %551
-  %564 = fcmp ult double %562, %555
-  %or.cond98.i = or i1 %563, %564
-  br i1 %or.cond98.i, label %570, label %565
+564:                                              ; preds = %560
+  %565 = load double, ptr %540, align 8, !tbaa !50
+  %566 = fcmp ugt double %565, %554
+  %567 = fcmp ult double %565, %558
+  %or.cond98.i = or i1 %566, %567
+  br i1 %or.cond98.i, label %573, label %568
 
-565:                                              ; preds = %561
-  %566 = load ptr, ptr %541, align 8
-  %567 = getelementptr inbounds nuw i8, ptr %541, i64 8
-  %568 = load i64, ptr %567, align 8
-  %569 = tail call zeroext i1 @in_poly(ptr %566, i64 %568, double %.sroa.0.0.copyload.i, double %.sroa.4.0.copyload.i) #16
-  br i1 %569, label %findInside.exit, label %597
+568:                                              ; preds = %564
+  %569 = load ptr, ptr %544, align 8
+  %570 = getelementptr inbounds nuw i8, ptr %544, i64 8
+  %571 = load i64, ptr %570, align 8
+  %572 = tail call zeroext i1 @in_poly(ptr %569, i64 %571, double %.sroa.0.0.copyload.i, double %.sroa.4.0.copyload.i) #16
+  br i1 %572, label %findInside.exit, label %600
 
-570:                                              ; preds = %561, %557, %553, %548, %539
-  %571 = load double, ptr %536, align 8, !tbaa !48
-  %572 = fcmp ugt double %.pre.i, %571
-  %573 = fcmp ult double %.pre.i, %542
-  %or.cond101.i = or i1 %573, %572
-  br i1 %or.cond101.i, label %597, label %574
+573:                                              ; preds = %564, %560, %556, %551, %542
+  %574 = load double, ptr %539, align 8, !tbaa !48
+  %575 = fcmp ugt double %.pre.i, %574
+  %576 = fcmp ult double %.pre.i, %545
+  %or.cond101.i = or i1 %576, %575
+  br i1 %or.cond101.i, label %600, label %577
 
-574:                                              ; preds = %570
-  %575 = getelementptr inbounds nuw i8, ptr %543, i64 8
-  %576 = load double, ptr %575, align 8, !tbaa !49
-  %577 = load double, ptr %537, align 8, !tbaa !50
-  %578 = fcmp ugt double %576, %577
-  br i1 %578, label %597, label %579
+577:                                              ; preds = %573
+  %578 = getelementptr inbounds nuw i8, ptr %546, i64 8
+  %579 = load double, ptr %578, align 8, !tbaa !49
+  %580 = load double, ptr %540, align 8, !tbaa !50
+  %581 = fcmp ugt double %579, %580
+  br i1 %581, label %600, label %582
 
-579:                                              ; preds = %574
-  %580 = load double, ptr %535, align 8, !tbaa !49
-  %581 = fcmp ult double %576, %580
-  %582 = fcmp ugt double %545, %571
-  %583 = or i1 %582, %581
-  %or.cond102.i = or i1 %546, %583
-  br i1 %or.cond102.i, label %597, label %584
+582:                                              ; preds = %577
+  %583 = load double, ptr %538, align 8, !tbaa !49
+  %584 = fcmp ult double %579, %583
+  %585 = fcmp ugt double %548, %574
+  %586 = or i1 %585, %584
+  %or.cond102.i = or i1 %549, %586
+  br i1 %or.cond102.i, label %600, label %587
 
-584:                                              ; preds = %579
-  %585 = getelementptr inbounds nuw i8, ptr %543, i64 24
-  %586 = load double, ptr %585, align 8, !tbaa !50
-  %587 = fcmp ugt double %586, %577
-  %588 = fcmp ult double %586, %580
-  %or.cond100.i = or i1 %587, %588
-  br i1 %or.cond100.i, label %597, label %589
+587:                                              ; preds = %582
+  %588 = getelementptr inbounds nuw i8, ptr %546, i64 24
+  %589 = load double, ptr %588, align 8, !tbaa !50
+  %590 = fcmp ugt double %589, %580
+  %591 = fcmp ult double %589, %583
+  %or.cond100.i = or i1 %590, %591
+  br i1 %or.cond100.i, label %600, label %592
 
-589:                                              ; preds = %584
-  %590 = load ptr, ptr %541, align 8, !tbaa !21
-  %591 = load ptr, ptr %531, align 8
-  %592 = load i64, ptr %538, align 8
-  %593 = load double, ptr %590, align 8
-  %594 = getelementptr inbounds nuw i8, ptr %590, i64 8
-  %595 = load double, ptr %594, align 8
-  %596 = tail call zeroext i1 @in_poly(ptr %591, i64 %592, double %593, double %595) #16
-  br i1 %596, label %findInside.exit, label %597
+592:                                              ; preds = %587
+  %593 = load ptr, ptr %544, align 8, !tbaa !21
+  %594 = load ptr, ptr %534, align 8
+  %595 = load i64, ptr %541, align 8
+  %596 = load double, ptr %593, align 8
+  %597 = getelementptr inbounds nuw i8, ptr %593, i64 8
+  %598 = load double, ptr %597, align 8
+  %599 = tail call zeroext i1 @in_poly(ptr %594, i64 %595, double %596, double %598) #16
+  br i1 %599, label %findInside.exit, label %600
 
-597:                                              ; preds = %589, %584, %579, %574, %570, %565
+600:                                              ; preds = %592, %587, %582, %577, %573, %568
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
-  %exitcond.not.i76 = icmp eq i64 %indvars.iv.next110.i, %529
-  br i1 %exitcond.not.i76, label %.loopexit.i74, label %539, !llvm.loop !51
+  %exitcond.not.i76 = icmp eq i64 %indvars.iv.next110.i, %532
+  br i1 %exitcond.not.i76, label %.loopexit.i74, label %542, !llvm.loop !51
 
-findInside.exit:                                  ; preds = %.loopexit.i74, %565, %589, %.loopexit, %.thread, %526
-  %.sink187 = phi ptr [ %11, %526 ], [ %11, %.loopexit ], [ %61, %.thread ], [ %527, %589 ], [ %527, %565 ], [ %527, %.loopexit.i74 ]
-  %.sink186 = phi ptr [ %.sink, %526 ], [ %.sink, %.loopexit ], [ %62, %.thread ], [ %528, %589 ], [ %528, %565 ], [ %528, %.loopexit.i74 ]
-  %.060 = phi i32 [ 0, %526 ], [ 0, %.loopexit ], [ 1, %.thread ], [ 0, %589 ], [ 0, %565 ], [ 1, %.loopexit.i74 ]
-  tail call void @free(ptr noundef %.sink187) #16
-  tail call void @free(ptr noundef %.sink186) #16
+findInside.exit:                                  ; preds = %.loopexit.i74, %568, %592, %.loopexit, %.thread, %529
+  %.sink183 = phi ptr [ %11, %529 ], [ %11, %.loopexit ], [ %64, %.thread ], [ %530, %592 ], [ %530, %568 ], [ %530, %.loopexit.i74 ]
+  %.sink = phi ptr [ %36, %529 ], [ %36, %.loopexit ], [ %65, %.thread ], [ %531, %592 ], [ %531, %568 ], [ %531, %.loopexit.i74 ]
+  %.060 = phi i32 [ 0, %529 ], [ 0, %.loopexit ], [ 1, %.thread ], [ 0, %592 ], [ 0, %568 ], [ 1, %.loopexit.i74 ]
+  tail call void @free(ptr noundef %.sink183) #16
+  tail call void @free(ptr noundef %.sink) #16
   ret i32 %.060
 }
 

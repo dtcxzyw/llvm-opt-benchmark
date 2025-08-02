@@ -14397,51 +14397,51 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5
   %30 = icmp uge ptr %5, %.pre3.i
   %31 = icmp ult ptr %5, %29
   %spec.select.i.i.i.i.i = and i1 %30, %31
-  br i1 %spec.select.i.i.i.i.i, label %33, label %32, !prof !351
+  br i1 %spec.select.i.i.i.i.i, label %32, label %.critedge.i.i.i, !prof !351
 
 32:                                               ; preds = %28
+  %33 = ptrtoint ptr %.pre3.i to i64
+  %34 = sub i64 %17, %33
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_5VPlanESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %26)
+  %35 = load ptr, ptr %14, align 8, !tbaa !25
+  %36 = getelementptr inbounds i8, ptr %35, i64 %34
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_5VPlanESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit
+
+.critedge.i.i.i:                                  ; preds = %28
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_5VPlanESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %26)
   %.pre.i = load ptr, ptr %14, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_5VPlanESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit
 
-33:                                               ; preds = %28
-  %34 = ptrtoint ptr %.pre3.i to i64
-  %35 = sub i64 %17, %34
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_5VPlanESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %26)
-  %36 = load ptr, ptr %14, align 8, !tbaa !25
-  %37 = getelementptr inbounds i8, ptr %36, i64 %35
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_5VPlanESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_5VPlanESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit: ; preds = %18, %32, %33
-  %38 = phi ptr [ %.pre3.i, %18 ], [ %36, %33 ], [ %.pre.i, %32 ]
-  %.016.i.i.i = phi ptr [ %5, %18 ], [ %37, %33 ], [ %5, %32 ]
-  %39 = load i32, ptr %15, align 8, !tbaa !26
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.std::unique_ptr.221", ptr %38, i64 %40
-  %42 = load i64, ptr %.016.i.i.i, align 8, !tbaa !504
-  store i64 %42, ptr %41, align 8, !tbaa !504
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_5VPlanESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit: ; preds = %18, %32, %.critedge.i.i.i
+  %37 = phi ptr [ %.pre3.i, %18 ], [ %35, %32 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %5, %18 ], [ %36, %32 ], [ %5, %.critedge.i.i.i ]
+  %38 = load i32, ptr %15, align 8, !tbaa !26
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw %"class.std::unique_ptr.221", ptr %37, i64 %39
+  %41 = load i64, ptr %.016.i.i.i, align 8, !tbaa !504
+  store i64 %41, ptr %40, align 8, !tbaa !504
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !504
-  %43 = add i32 %39, 1
-  store i32 %43, ptr %15, align 8, !tbaa !26
+  %42 = add i32 %38, 1
+  store i32 %42, ptr %15, align 8, !tbaa !26
   %.sroa.0.0.copyload = load i32, ptr %11, align 8
   %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 4
-  %44 = load ptr, ptr %5, align 8, !tbaa !504
-  %.not.i1 = icmp eq ptr %44, null
+  %43 = load ptr, ptr %5, align 8, !tbaa !504
+  %.not.i1 = icmp eq ptr %43, null
   br i1 %.not.i1, label %_ZNSt10unique_ptrIN4llvm5VPlanESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm5VPlanEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4llvm5VPlanEEclEPS1_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_5VPlanESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit
-  call void @_ZN4llvm5VPlanD1Ev(ptr noundef nonnull align 8 dereferenceable(592) %44) #25
-  call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef 592) #26
+  call void @_ZN4llvm5VPlanD1Ev(ptr noundef nonnull align 8 dereferenceable(592) %43) #25
+  call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef 592) #26
   br label %_ZNSt10unique_ptrIN4llvm5VPlanESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm5VPlanESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_5VPlanESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit, %_ZNKSt14default_deleteIN4llvm5VPlanEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  %45 = trunc nuw i8 %.sroa.6.0.copyload to i1
-  %.not.i = xor i1 %45, true
+  %44 = trunc nuw i8 %.sroa.6.0.copyload to i1
+  %.not.i = xor i1 %44, true
   %or.cond.i = select i1 %.not.i, i1 true, i1 %8
-  %46 = icmp ult i32 %.sroa.0.0.copyload, %.sroa.03.sroa.0.0.extract.trunc
-  %or.cond = select i1 %or.cond.i, i1 %46, i1 false
+  %45 = icmp ult i32 %.sroa.0.0.copyload, %.sroa.03.sroa.0.0.extract.trunc
+  %or.cond = select i1 %or.cond.i, i1 %45, i1 false
   br i1 %or.cond, label %18, label %_ZN4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjE9isKnownLTERKS3_S5_.exit.thread, !llvm.loop !802
 }
 

@@ -1051,12 +1051,12 @@ _ZN5zxing8ArrayRefIiED2Ev.exit:                   ; preds = %88, %92
   br label %109
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %104, %.lr.ph ]
+  %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %105, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %103 = load i32, ptr %28, align 4, !tbaa !29
-  %104 = add nsw i32 %103, %store_forwarded
-  %105 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv
-  store i32 %104, ptr %105, align 4, !tbaa !62
+  %103 = getelementptr i32, ptr %98, i64 %indvars.iv
+  %104 = load i32, ptr %28, align 4, !tbaa !29
+  %105 = add nsw i32 %104, %store_forwarded
+  store i32 %105, ptr %103, align 4, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %106 = load i32, ptr %29, align 8, !tbaa !30
   %107 = sext i32 %106 to i64

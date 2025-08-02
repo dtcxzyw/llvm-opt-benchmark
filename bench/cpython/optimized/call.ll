@@ -285,7 +285,7 @@ PyVectorcall_Function.exit.thread:                ; preds = %5, %PyVectorcall_Fu
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   %24 = call ptr @_PyStack_UnpackDict(ptr noundef %0, ptr noundef %2, i64 noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %_PyStack_UnpackDict_Free.exit, label %25
+  br i1 %.not, label %.critedge, label %25
 
 25:                                               ; preds = %23
   %26 = or i64 %3, -9223372036854775808
@@ -302,17 +302,17 @@ PyVectorcall_Function.exit.thread:                ; preds = %5, %PyVectorcall_Fu
   tail call void @PyMem_Free(ptr noundef %32) #10
   %33 = load i32, ptr %27, align 8, !tbaa !24
   %.not.i.i.i = icmp sgt i32 %33, -1
-  br i1 %.not.i.i.i, label %34, label %_PyStack_UnpackDict_Free.exit.thread
+  br i1 %.not.i.i.i, label %34, label %_PyStack_UnpackDict_Free.exit
 
 34:                                               ; preds = %._crit_edge.i
   %35 = add nsw i32 %33, -1
   store i32 %35, ptr %27, align 8, !tbaa !24
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %_PyStack_UnpackDict_Free.exit.thread
+  br i1 %36, label %37, label %_PyStack_UnpackDict_Free.exit
 
 37:                                               ; preds = %34
   tail call void @_Py_Dealloc(ptr noundef nonnull %27) #10
-  br label %_PyStack_UnpackDict_Free.exit.thread
+  br label %_PyStack_UnpackDict_Free.exit
 
 .lr.ph.i:                                         ; preds = %25, %Py_DECREF.exit.i
   %.08.i = phi i64 [ %45, %Py_DECREF.exit.i ], [ 0, %25 ]
@@ -337,21 +337,21 @@ Py_DECREF.exit.i:                                 ; preds = %44, %41, %.lr.ph.i
   %exitcond.not.i = icmp eq i64 %45, %30
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !41
 
-_PyStack_UnpackDict_Free.exit.thread:             ; preds = %37, %34, %._crit_edge.i
+_PyStack_UnpackDict_Free.exit:                    ; preds = %._crit_edge.i, %34, %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   br label %46
 
-_PyStack_UnpackDict_Free.exit:                    ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
-  br label %48
-
-46:                                               ; preds = %_PyStack_UnpackDict_Free.exit.thread, %21
-  %.029 = phi ptr [ %22, %21 ], [ %28, %_PyStack_UnpackDict_Free.exit.thread ]
+46:                                               ; preds = %_PyStack_UnpackDict_Free.exit, %21
+  %.029 = phi ptr [ %22, %21 ], [ %28, %_PyStack_UnpackDict_Free.exit ]
   %47 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %0, ptr noundef %1, ptr noundef %.029, ptr noundef null)
   br label %48
 
-48:                                               ; preds = %_PyStack_UnpackDict_Free.exit, %46, %PyVectorcall_Function.exit.thread
-  %.0 = phi ptr [ %15, %PyVectorcall_Function.exit.thread ], [ %47, %46 ], [ null, %_PyStack_UnpackDict_Free.exit ]
+.critedge:                                        ; preds = %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  br label %48
+
+48:                                               ; preds = %46, %.critedge, %PyVectorcall_Function.exit.thread
+  %.0 = phi ptr [ %15, %PyVectorcall_Function.exit.thread ], [ %47, %46 ], [ null, %.critedge ]
   ret ptr %.0
 }
 

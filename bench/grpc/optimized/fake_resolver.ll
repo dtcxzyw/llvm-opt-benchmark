@@ -2388,8 +2388,8 @@ _ZN9grpc_core13RefCountedPtrINS_29FakeResolverResponseGeneratorEED2Ev.exit:
   ret ptr %0
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_134ResponseGeneratorChannelArgDestroyEPv(ptr noundef %0) #3 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN9grpc_core12_GLOBAL__N_134ResponseGeneratorChannelArgDestroyEPv(ptr noundef %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
   %4 = icmp eq i64 %3, 1

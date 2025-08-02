@@ -99,7 +99,7 @@ define dso_local ptr @__genradix_ptr_alloc(ptr noundef %0, i64 noundef %1, i32 n
   %23 = tail call i64 @__get_free_pages(i32 noundef %5, i32 noundef 0) #5
   %24 = inttoptr i64 %23 to ptr
   %25 = icmp eq i64 %23, 0
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %20, %22
   %27 = phi ptr [ %7, %20 ], [ %24, %22 ]
@@ -150,7 +150,7 @@ define dso_local ptr @__genradix_ptr_alloc(ptr noundef %0, i64 noundef %1, i32 n
   %56 = tail call i64 @__get_free_pages(i32 noundef %5, i32 noundef 0) #5
   %57 = inttoptr i64 %56 to ptr
   %58 = icmp eq i64 %56, 0
-  br i1 %58, label %.thread, label %59
+  br i1 %58, label %.critedge, label %59
 
 59:                                               ; preds = %55, %53
   %60 = phi ptr [ %42, %53 ], [ %57, %55 ]
@@ -168,22 +168,22 @@ define dso_local ptr @__genradix_ptr_alloc(ptr noundef %0, i64 noundef %1, i32 n
   br i1 %69, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %65, %.preheader
-  %.lcssa8 = phi ptr [ %7, %.preheader ], [ %66, %65 ]
-  %.lcssa6 = phi ptr [ %11, %.preheader ], [ %67, %65 ]
+  %.lcssa7 = phi ptr [ %7, %.preheader ], [ %66, %65 ]
+  %.lcssa5 = phi ptr [ %11, %.preheader ], [ %67, %65 ]
   %.lcssa = phi i64 [ %1, %.preheader ], [ %50, %65 ]
-  %70 = icmp eq ptr %.lcssa8, null
+  %70 = icmp eq ptr %.lcssa7, null
   br i1 %70, label %73, label %71
 
 71:                                               ; preds = %._crit_edge
-  %72 = ptrtoint ptr %.lcssa8 to i64
+  %72 = ptrtoint ptr %.lcssa7 to i64
   tail call void @free_pages(i64 noundef %72, i32 noundef 0) #5
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge
-  %74 = getelementptr [4096 x i8], ptr %.lcssa6, i64 0, i64 %.lcssa
-  br label %.thread
+  %74 = getelementptr [4096 x i8], ptr %.lcssa5, i64 0, i64 %.lcssa
+  br label %.critedge
 
-.thread:                                          ; preds = %22, %55, %73
+.critedge:                                        ; preds = %22, %55, %73
   %75 = phi ptr [ %74, %73 ], [ null, %55 ], [ null, %22 ]
   ret ptr %75
 }

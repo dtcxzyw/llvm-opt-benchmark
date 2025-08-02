@@ -45,7 +45,7 @@ define internal range(i32 -2147483648, 1) i32 @h261_handle_packet(ptr noundef %0
 
 19:                                               ; preds = %17
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %6) #4
-  br label %.thread
+  br label %.critedge
 
 20:                                               ; preds = %17
   %21 = load i8, ptr %5, align 1, !tbaa !14
@@ -78,12 +78,12 @@ define internal range(i32 -2147483648, 1) i32 @h261_handle_packet(ptr noundef %0
   %43 = and i32 %32, 124
   %44 = icmp ne i32 %43, 0
   %or.cond5 = select i1 %or.cond3, i1 true, i1 %44
-  br i1 %or.cond5, label %.thread, label %45
+  br i1 %or.cond5, label %.critedge, label %45
 
 45:                                               ; preds = %29
   %46 = tail call i32 @avio_open_dyn_buf(ptr noundef nonnull %1) #4
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %.thread, label %48
+  br i1 %47, label %.critedge, label %48
 
 48:                                               ; preds = %45
   %49 = load i32, ptr %4, align 4, !tbaa !12
@@ -126,7 +126,7 @@ define internal range(i32 -2147483648, 1) i32 @h261_handle_packet(ptr noundef %0
   %73 = icmp samesign ult i32 %72, 2147483135
   %74 = add nuw nsw i32 %72, 8
   %75 = select i1 %73, i32 %74, i32 8
-  br i1 %73, label %76, label %.thread
+  br i1 %73, label %76, label %.critedge
 
 76:                                               ; preds = %70
   %.not102 = icmp eq i32 %53, 0
@@ -152,23 +152,23 @@ define internal range(i32 -2147483648, 1) i32 @h261_handle_packet(ptr noundef %0
   br label %91
 
 91:                                               ; preds = %77, %76
-  %.sroa.7.0 = phi i32 [ %23, %76 ], [ %84, %77 ]
-  %92 = sub nsw i32 %72, %.sroa.7.0
+  %.sroa.8.0 = phi i32 [ %23, %76 ], [ %84, %77 ]
+  %92 = sub nsw i32 %72, %.sroa.8.0
   %93 = icmp sgt i32 %92, 7
   br i1 %93, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %91, %.lr.ph
-  %.sroa.7.1131 = phi i32 [ %104, %.lr.ph ], [ %.sroa.7.0, %91 ]
+  %.sroa.8.1128 = phi i32 [ %104, %.lr.ph ], [ %.sroa.8.0, %91 ]
   %94 = load ptr, ptr %1, align 8, !tbaa !4
-  %95 = lshr i32 %.sroa.7.1131, 3
+  %95 = lshr i32 %.sroa.8.1128, 3
   %96 = zext nneg i32 %95 to i64
   %97 = getelementptr inbounds nuw i8, ptr %26, i64 %96
   %98 = load i32, ptr %97, align 1, !tbaa !14
   %99 = tail call i32 @llvm.bswap.i32(i32 %98)
-  %100 = and i32 %.sroa.7.1131, 7
+  %100 = and i32 %.sroa.8.1128, 7
   %101 = shl i32 %99, %100
   %102 = lshr i32 %101, 24
-  %103 = add i32 %.sroa.7.1131, 8
+  %103 = add i32 %.sroa.8.1128, 8
   %104 = tail call i32 @llvm.umin.i32(i32 %75, i32 %103)
   tail call void @avio_w8(ptr noundef %94, i32 noundef %102) #4
   %105 = sub nsw i32 %72, %104
@@ -176,19 +176,19 @@ define internal range(i32 -2147483648, 1) i32 @h261_handle_packet(ptr noundef %0
   br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %91
-  %.sroa.7.1.lcssa = phi i32 [ %.sroa.7.0, %91 ], [ %104, %.lr.ph ]
+  %.sroa.8.1.lcssa = phi i32 [ %.sroa.8.0, %91 ], [ %104, %.lr.ph ]
   %.lcssa = phi i32 [ %92, %91 ], [ %105, %.lr.ph ]
   store i32 %.lcssa, ptr %52, align 4, !tbaa !13
-  %.not103 = icmp eq i32 %72, %.sroa.7.1.lcssa
-  br i1 %.not103, label %.thread123, label %107
+  %.not103 = icmp eq i32 %72, %.sroa.8.1.lcssa
+  br i1 %.not103, label %.thread, label %107
 
 107:                                              ; preds = %._crit_edge
-  %108 = lshr i32 %.sroa.7.1.lcssa, 3
+  %108 = lshr i32 %.sroa.8.1.lcssa, 3
   %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds nuw i8, ptr %26, i64 %109
   %111 = load i32, ptr %110, align 1, !tbaa !14
   %112 = tail call i32 @llvm.bswap.i32(i32 %111)
-  %113 = and i32 %.sroa.7.1.lcssa, 7
+  %113 = and i32 %.sroa.8.1.lcssa, 7
   %114 = shl i32 %112, %113
   %115 = sub nsw i32 32, %.lcssa
   %116 = lshr i32 %114, %115
@@ -197,17 +197,17 @@ define internal range(i32 -2147483648, 1) i32 @h261_handle_packet(ptr noundef %0
   %119 = trunc i32 %118 to i8
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %119, ptr %120, align 8, !tbaa !15
-  br label %.thread123
+  br label %.thread
 
 121:                                              ; preds = %58, %51
   %.089 = phi i32 [ %67, %58 ], [ %27, %51 ]
   %.088 = phi ptr [ %66, %58 ], [ %26, %51 ]
   %.not104 = icmp eq i32 %25, 0
-  br i1 %.not104, label %.thread123, label %122
+  br i1 %.not104, label %.thread, label %122
 
 122:                                              ; preds = %121
-  %.not130 = icmp eq i32 %.089, 0
-  br i1 %.not130, label %126, label %123
+  %.not127 = icmp eq i32 %.089, 0
+  br i1 %.not127, label %126, label %123
 
 123:                                              ; preds = %122
   %124 = load ptr, ptr %1, align 8, !tbaa !4
@@ -229,17 +229,17 @@ define internal range(i32 -2147483648, 1) i32 @h261_handle_packet(ptr noundef %0
   store i8 %134, ptr %135, align 8, !tbaa !15
   br label %137
 
-.thread123:                                       ; preds = %107, %._crit_edge, %121
-  %.088129 = phi ptr [ %.088, %121 ], [ %26, %._crit_edge ], [ %26, %107 ]
-  %.089128 = phi i32 [ %.089, %121 ], [ 0, %._crit_edge ], [ 0, %107 ]
+.thread:                                          ; preds = %107, %._crit_edge, %121
+  %.088126 = phi ptr [ %.088, %121 ], [ %26, %._crit_edge ], [ %26, %107 ]
+  %.089125 = phi i32 [ %.089, %121 ], [ 0, %._crit_edge ], [ 0, %107 ]
   %136 = load ptr, ptr %1, align 8, !tbaa !4
-  tail call void @avio_write(ptr noundef %136, ptr noundef nonnull %.088129, i32 noundef %.089128) #4
+  tail call void @avio_write(ptr noundef %136, ptr noundef nonnull %.088126, i32 noundef %.089125) #4
   br label %137
 
-137:                                              ; preds = %.thread123, %126
+137:                                              ; preds = %.thread, %126
   %138 = and i32 %8, 2
   %.not105 = icmp eq i32 %138, 0
-  br i1 %.not105, label %.thread, label %139
+  br i1 %.not105, label %.critedge, label %139
 
 139:                                              ; preds = %137
   %140 = load i32, ptr %52, align 4, !tbaa !13
@@ -260,9 +260,9 @@ define internal range(i32 -2147483648, 1) i32 @h261_handle_packet(ptr noundef %0
   %148 = load i32, ptr %147, align 8, !tbaa !18
   %149 = tail call i32 @ff_rtp_finalize_packet(ptr noundef %3, ptr noundef nonnull %1, i32 noundef %148) #4
   %. = tail call i32 @llvm.smin.i32(i32 %149, i32 0)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %70, %146, %137, %29, %45, %19
+.critedge:                                        ; preds = %70, %146, %137, %29, %45, %19
   %.087 = phi i32 [ -1094995529, %19 ], [ %46, %45 ], [ -11, %29 ], [ -11, %137 ], [ %., %146 ], [ -1094995529, %70 ]
   ret i32 %.087
 }

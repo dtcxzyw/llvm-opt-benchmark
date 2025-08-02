@@ -1965,93 +1965,93 @@ define dso_local ptr @qdisc_alloc(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 32
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %56, label %31
+  br i1 %30, label %55, label %31
 
 31:                                               ; preds = %18
   %32 = tail call noalias dereferenceable_or_null(16) ptr @__alloc_percpu_gfp(i64 noundef 16, i64 noundef 16, i32 noundef 3264) #23
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread6, label %35
+  br i1 %33, label %.critedge, label %34
 
-.thread6:                                         ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store ptr null, ptr %34, align 16
-  br label %74
+34:                                               ; preds = %31
+  %35 = load i64, ptr @__cpu_possible_mask, align 8
+  br label %36
 
-35:                                               ; preds = %31
-  %36 = load i64, ptr @__cpu_possible_mask, align 8
-  br label %37
+36:                                               ; preds = %44, %34
+  %37 = phi i64 [ %48, %44 ], [ 0, %34 ]
+  %38 = and i64 %37, 4294967295
+  %39 = icmp samesign ugt i64 %38, 63
+  br i1 %39, label %.thread, label %40, !prof !6
 
-37:                                               ; preds = %45, %35
-  %38 = phi i64 [ %49, %45 ], [ 0, %35 ]
-  %39 = and i64 %38, 4294967295
-  %40 = icmp samesign ugt i64 %39, 63
-  br i1 %40, label %.thread, label %41, !prof !6
+40:                                               ; preds = %36
+  %41 = shl nsw i64 -1, %38
+  %42 = and i64 %41, %35
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %.thread, label %44
 
-41:                                               ; preds = %37
-  %42 = shl nsw i64 -1, %39
-  %43 = and i64 %42, %36
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %.thread, label %45
+44:                                               ; preds = %40
+  %45 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %42) #21, !srcloc !54
+  %46 = and i64 %45, 4294967232
+  %47 = icmp eq i64 %46, 0
+  %48 = add nuw nsw i64 %45, 1
+  br i1 %47, label %36, label %.thread, !llvm.loop !68
 
-45:                                               ; preds = %41
-  %46 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %43) #21, !srcloc !54
-  %47 = and i64 %46, 4294967232
-  %48 = icmp eq i64 %47, 0
-  %49 = add nuw nsw i64 %46, 1
-  br i1 %48, label %37, label %.thread, !llvm.loop !68
-
-.thread:                                          ; preds = %41, %37, %45
-  %50 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store ptr %32, ptr %50, align 16
-  %51 = tail call noalias dereferenceable_or_null(20) ptr @__alloc_percpu(i64 noundef 20, i64 noundef 4) #23
-  %52 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  store ptr %51, ptr %52, align 8
-  %53 = icmp eq ptr %51, null
-  br i1 %53, label %54, label %.thread._crit_edge
+.thread:                                          ; preds = %40, %36, %44
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  store ptr %32, ptr %49, align 16
+  %50 = tail call noalias dereferenceable_or_null(20) ptr @__alloc_percpu(i64 noundef 20, i64 noundef 4) #23
+  %51 = getelementptr inbounds nuw i8, ptr %16, i64 88
+  store ptr %50, ptr %51, align 8
+  %52 = icmp eq ptr %50, null
+  br i1 %52, label %53, label %.thread._crit_edge
 
 .thread._crit_edge:                               ; preds = %.thread
   %.pre = load i32, ptr %27, align 4
-  br label %56
+  br label %55
 
-54:                                               ; preds = %.thread
-  %55 = load ptr, ptr %50, align 16
-  tail call void @free_percpu(ptr noundef %55) #20
+53:                                               ; preds = %.thread
+  %54 = load ptr, ptr %49, align 16
+  tail call void @free_percpu(ptr noundef %54) #20
   br label %74
 
-56:                                               ; preds = %.thread._crit_edge, %18
-  %57 = phi i32 [ %.pre, %.thread._crit_edge ], [ %28, %18 ]
-  %58 = getelementptr inbounds nuw i8, ptr %16, i64 320
-  store i32 0, ptr %58, align 64
-  %59 = getelementptr inbounds nuw i8, ptr %16, i64 324
-  store i32 0, ptr %59, align 4
-  %60 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %1, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 %57, ptr %61, align 16
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr %16, align 64
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %65, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store ptr %0, ptr %67, align 64
-  %68 = icmp eq ptr %9, null
-  br i1 %68, label %72, label %69
+55:                                               ; preds = %.thread._crit_edge, %18
+  %56 = phi i32 [ %.pre, %.thread._crit_edge ], [ %28, %18 ]
+  %57 = getelementptr inbounds nuw i8, ptr %16, i64 320
+  store i32 0, ptr %57, align 64
+  %58 = getelementptr inbounds nuw i8, ptr %16, i64 324
+  store i32 0, ptr %58, align 4
+  %59 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store ptr %1, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i32 %56, ptr %60, align 16
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %62 = load ptr, ptr %61, align 8
+  store ptr %62, ptr %16, align 64
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %64, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  store ptr %0, ptr %66, align 64
+  %67 = icmp eq ptr %9, null
+  br i1 %67, label %71, label %68
 
-69:                                               ; preds = %56
-  %70 = getelementptr inbounds nuw i8, ptr %9, i64 1280
-  %71 = load ptr, ptr %70, align 8
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %71, ptr elementtype(i32) %71) #20, !srcloc !35
-  br label %72
+68:                                               ; preds = %55
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 1280
+  %70 = load ptr, ptr %69, align 8
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %70, ptr elementtype(i32) %70) #20, !srcloc !35
+  br label %71
 
-72:                                               ; preds = %69, %56
-  %73 = getelementptr inbounds nuw i8, ptr %16, i64 100
-  store volatile i32 1, ptr %73, align 4
+71:                                               ; preds = %68, %55
+  %72 = getelementptr inbounds nuw i8, ptr %16, i64 100
+  store volatile i32 1, ptr %72, align 4
   br label %78
 
-74:                                               ; preds = %.thread6, %54
+.critedge:                                        ; preds = %31
+  %73 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  store ptr null, ptr %73, align 16
+  br label %74
+
+74:                                               ; preds = %.critedge, %53
   tail call void @kfree(ptr noundef nonnull %16) #20
   br label %75
 
@@ -2060,8 +2060,8 @@ define dso_local ptr @qdisc_alloc(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %77 = inttoptr i64 %76 to ptr
   br label %78
 
-78:                                               ; preds = %75, %72
-  %79 = phi ptr [ %16, %72 ], [ %77, %75 ]
+78:                                               ; preds = %75, %71
+  %79 = phi ptr [ %16, %71 ], [ %77, %75 ]
   ret ptr %79
 }
 

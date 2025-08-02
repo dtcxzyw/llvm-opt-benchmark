@@ -697,7 +697,7 @@ define linkonce_odr hidden void @_ZN4llvm8SmallSetISt4pairINS_5MachO12PlatformTy
   %10 = tail call { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EES0_ISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 4 dereferenceable(20) %2)
   %.fca.0.extract9 = extractvalue { ptr, i8 } %10, 0
   %.fca.1.extract10 = extractvalue { ptr, i8 } %10, 1
-  br label %73
+  br label %72
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %1, align 8, !tbaa !56
@@ -752,7 +752,7 @@ _ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.
 
 _ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EE5vfindERKS5_.exit: ; preds = %35
   %.not = icmp eq ptr %.0915.i, %16
-  br i1 %.not, label %_ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EE5vfindERKS5_.exit.thread36, label %73
+  br i1 %.not, label %_ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EE5vfindERKS5_.exit.thread36, label %72
 
 _ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EE5vfindERKS5_.exit.thread36: ; preds = %_ZSteqIN4llvm5MachO12PlatformTypeENS0_12VersionTupleEEbRKSt4pairIT_T0_ES9_.exit.thread.i, %_ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EE5vfindERKS5_.exit
   %41 = icmp ult i32 %14, 3
@@ -769,71 +769,71 @@ _ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4les
   %46 = icmp uge ptr %2, %12
   %47 = icmp ult ptr %2, %16
   %spec.select.i.i.i.i.i = and i1 %46, %47
-  br i1 %spec.select.i.i.i.i.i, label %50, label %48, !prof !83
+  br i1 %spec.select.i.i.i.i.i, label %48, label %.critedge.i.i.i, !prof !83
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %49, i64 noundef %42, i64 noundef 20) #13
+  %49 = ptrtoint ptr %2 to i64
+  %50 = ptrtoint ptr %12 to i64
+  %51 = sub i64 %49, %50
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %52, i64 noundef %42, i64 noundef 20) #13
+  %53 = load ptr, ptr %1, align 8, !tbaa !56
+  %54 = getelementptr inbounds i8, ptr %53, i64 %51
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELb1EE9push_backERKS5_.exit
+
+.critedge.i.i.i:                                  ; preds = %45
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %55, i64 noundef %42, i64 noundef 20) #13
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !56
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELb1EE9push_backERKS5_.exit
 
-50:                                               ; preds = %45
-  %51 = ptrtoint ptr %2 to i64
-  %52 = ptrtoint ptr %12 to i64
-  %53 = sub i64 %51, %52
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %54, i64 noundef %42, i64 noundef 20) #13
-  %55 = load ptr, ptr %1, align 8, !tbaa !56
-  %56 = getelementptr inbounds i8, ptr %55, i64 %53
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELb1EE9push_backERKS5_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELb1EE9push_backERKS5_.exit: ; preds = %.thread, %48, %50
-  %57 = phi ptr [ %12, %.thread ], [ %55, %50 ], [ %.pre.i, %48 ]
-  %.016.i.i.i = phi ptr [ %2, %.thread ], [ %56, %50 ], [ %2, %48 ]
-  %58 = load i32, ptr %13, align 8, !tbaa !58
-  %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %57, i64 %59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %60, ptr noundef nonnull align 4 dereferenceable(20) %.016.i.i.i, i64 20, i1 false)
-  %61 = load i32, ptr %13, align 8, !tbaa !58
-  %62 = add i32 %61, 1
-  store i32 %62, ptr %13, align 8, !tbaa !58
-  %63 = load ptr, ptr %1, align 8, !tbaa !56
-  %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %63, i64 %64
-  %66 = getelementptr inbounds i8, ptr %65, i64 -20
-  br label %73
+_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELb1EE9push_backERKS5_.exit: ; preds = %.thread, %48, %.critedge.i.i.i
+  %56 = phi ptr [ %12, %.thread ], [ %53, %48 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %2, %.thread ], [ %54, %48 ], [ %2, %.critedge.i.i.i ]
+  %57 = load i32, ptr %13, align 8, !tbaa !58
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %56, i64 %58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %59, ptr noundef nonnull align 4 dereferenceable(20) %.016.i.i.i, i64 20, i1 false)
+  %60 = load i32, ptr %13, align 8, !tbaa !58
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %13, align 8, !tbaa !58
+  %62 = load ptr, ptr %1, align 8, !tbaa !56
+  %63 = zext i32 %61 to i64
+  %64 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %62, i64 %63
+  %65 = getelementptr inbounds i8, ptr %64, i64 -20
+  br label %72
 
 .lr.ph.i.i:                                       ; preds = %_ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EE5vfindERKS5_.exit.thread36
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store ptr %67, ptr %4, align 8, !tbaa !84
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  br label %69
+  store ptr %66, ptr %4, align 8, !tbaa !84
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  br label %68
 
-69:                                               ; preds = %69, %.lr.ph.i.i
-  %.sroa.03.07.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %71, %69 ]
-  %70 = call ptr @_ZNSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE17_M_insert_unique_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr nonnull %68, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.03.07.i.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i, i64 20
-  %.not.i.i = icmp eq ptr %71, %16
-  br i1 %.not.i.i, label %_ZNSt3setISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEESt4lessIS5_ESaIS5_EE6insertISt13move_iteratorIPS5_EEEvT_SE_.exit, label %69, !llvm.loop !86
+68:                                               ; preds = %68, %.lr.ph.i.i
+  %.sroa.03.07.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %70, %68 ]
+  %69 = call ptr @_ZNSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE17_M_insert_unique_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr nonnull %67, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.03.07.i.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i, i64 20
+  %.not.i.i = icmp eq ptr %70, %16
+  br i1 %.not.i.i, label %_ZNSt3setISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEESt4lessIS5_ESaIS5_EE6insertISt13move_iteratorIPS5_EEEvT_SE_.exit, label %68, !llvm.loop !86
 
-_ZNSt3setISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEESt4lessIS5_ESaIS5_EE6insertISt13move_iteratorIPS5_EEEvT_SE_.exit: ; preds = %69
+_ZNSt3setISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEESt4lessIS5_ESaIS5_EE6insertISt13move_iteratorIPS5_EEEvT_SE_.exit: ; preds = %68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   store i32 0, ptr %13, align 8, !tbaa !58
-  %72 = call { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EES0_ISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef nonnull align 4 dereferenceable(20) %2)
-  %.fca.0.extract = extractvalue { ptr, i8 } %72, 0
-  br label %73
+  %71 = call { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EES0_ISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 4 dereferenceable(20) %2)
+  %.fca.0.extract = extractvalue { ptr, i8 } %71, 0
+  br label %72
 
-73:                                               ; preds = %_ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EE5vfindERKS5_.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELb1EE9push_backERKS5_.exit, %_ZNSt3setISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEESt4lessIS5_ESaIS5_EE6insertISt13move_iteratorIPS5_EEEvT_SE_.exit, %8
+72:                                               ; preds = %_ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EE5vfindERKS5_.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELb1EE9push_backERKS5_.exit, %_ZNSt3setISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEESt4lessIS5_ESaIS5_EE6insertISt13move_iteratorIPS5_EEEvT_SE_.exit, %8
   %.sink42 = phi i8 [ 1, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELb1EE9push_backERKS5_.exit ], [ 0, %_ZNSt3setISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEESt4lessIS5_ESaIS5_EE6insertISt13move_iteratorIPS5_EEEvT_SE_.exit ], [ 0, %8 ], [ 1, %_ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EE5vfindERKS5_.exit ]
-  %.0915.i.lcssa.sink = phi ptr [ %66, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELb1EE9push_backERKS5_.exit ], [ %.fca.0.extract, %_ZNSt3setISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEESt4lessIS5_ESaIS5_EE6insertISt13move_iteratorIPS5_EEEvT_SE_.exit ], [ %.fca.0.extract9, %8 ], [ %.0915.i, %_ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EE5vfindERKS5_.exit ]
+  %.0915.i.lcssa.sink = phi ptr [ %65, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELb1EE9push_backERKS5_.exit ], [ %.fca.0.extract, %_ZNSt3setISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEESt4lessIS5_ESaIS5_EE6insertISt13move_iteratorIPS5_EEEvT_SE_.exit ], [ %.fca.0.extract9, %8 ], [ %.0915.i, %_ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EE5vfindERKS5_.exit ]
   %.sink = phi i8 [ 1, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELb1EE9push_backERKS5_.exit ], [ 1, %_ZNSt3setISt4pairIN4llvm5MachO12PlatformTypeENS1_12VersionTupleEESt4lessIS5_ESaIS5_EE6insertISt13move_iteratorIPS5_EEEvT_SE_.exit ], [ %.fca.1.extract10, %8 ], [ 0, %_ZNK4llvm8SmallSetISt4pairINS_5MachO12PlatformTypeENS_12VersionTupleEELj3ESt4lessIS5_EE5vfindERKS5_.exit ]
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink42, ptr %74, align 8, !tbaa !87
-  %75 = ptrtoint ptr %.0915.i.lcssa.sink to i64
-  store i64 %75, ptr %0, align 8, !tbaa !3
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %76, align 8, !tbaa !90
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink42, ptr %73, align 8, !tbaa !87
+  %74 = ptrtoint ptr %.0915.i.lcssa.sink to i64
+  store i64 %74, ptr %0, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sink, ptr %75, align 8, !tbaa !90
   ret void
 }
 

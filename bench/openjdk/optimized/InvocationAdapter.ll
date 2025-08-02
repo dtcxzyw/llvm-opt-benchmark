@@ -494,10 +494,10 @@ splitPathList.exit:                               ; preds = %16, %20, %7
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %splitPathList.exit, %148
-  %indvars.iv = phi i64 [ %indvars.iv.next, %148 ], [ 0, %splitPathList.exit ]
-  %.022 = phi ptr [ %.1, %148 ], [ null, %splitPathList.exit ]
-  %.06021 = phi i32 [ %.161, %148 ], [ 0, %splitPathList.exit ]
+.lr.ph:                                           ; preds = %splitPathList.exit, %150
+  %indvars.iv = phi i64 [ %indvars.iv.next, %150 ], [ 0, %splitPathList.exit ]
+  %.022 = phi ptr [ %.1, %150 ], [ null, %splitPathList.exit ]
+  %.06021 = phi i32 [ %.161, %150 ], [ 0, %splitPathList.exit ]
   %25 = getelementptr inbounds nuw ptr, ptr %.123.i, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = call noalias ptr @strdup(ptr noundef %26) #15
@@ -543,275 +543,274 @@ splitPathList.exit:                               ; preds = %16, %20, %7
 
 49:                                               ; preds = %44
   %50 = icmp sgt i32 %39, 0
-  br i1 %50, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %50, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %49
+.lr.ph.preheader.i:                               ; preds = %49
   %51 = load i8, ptr %27, align 1
   %52 = sext i8 %51 to i32
-  %invariant.gep.i = getelementptr i8, ptr %27, i64 1
-  %invariant.gep59.i = getelementptr i8, ptr %27, i64 2
   %53 = and i64 %38, 2147483647
-  br label %54
+  br label %.lr.ph.i
 
-54:                                               ; preds = %.backedge.i, %.lr.ph.i
-  %.03863.i = phi ptr [ %47, %.lr.ph.i ], [ %.038.be.i, %.backedge.i ]
-  %.03962.i = phi i32 [ %52, %.lr.ph.i ], [ %.039.be.i, %.backedge.i ]
-  %.04261.i = phi i32 [ 0, %.lr.ph.i ], [ %.042.be.i, %.backedge.i ]
-  %.not.i86 = icmp eq i32 %.03962.i, 37
-  br i1 %.not.i86, label %.preheader.preheader.i, label %56
+.lr.ph.i:                                         ; preds = %.backedge.i, %.lr.ph.preheader.i
+  %.03861.i = phi ptr [ %.038.be.i, %.backedge.i ], [ %47, %.lr.ph.preheader.i ]
+  %.03960.i = phi i32 [ %.039.be.i, %.backedge.i ], [ %52, %.lr.ph.preheader.i ]
+  %.04259.i = phi i32 [ %.042.be.i, %.backedge.i ], [ 0, %.lr.ph.preheader.i ]
+  %.not.i86 = icmp eq i32 %.03960.i, 37
+  br i1 %.not.i86, label %.preheader.preheader.i, label %55
 
-.preheader.preheader.i:                           ; preds = %54
-  %55 = sext i32 %.04261.i to i64
+.preheader.preheader.i:                           ; preds = %.lr.ph.i
+  %54 = sext i32 %.04259.i to i64
   br label %.preheader.i87
 
-56:                                               ; preds = %54
-  %57 = trunc nsw i32 %.03962.i to i8
-  %58 = getelementptr inbounds nuw i8, ptr %.03863.i, i64 1
-  store i8 %57, ptr %.03863.i, align 1
-  %59 = add nsw i32 %.04261.i, 1
-  %.not52.i = icmp slt i32 %59, %39
-  br i1 %.not52.i, label %60, label %._crit_edge.i
+55:                                               ; preds = %.lr.ph.i
+  %56 = trunc nsw i32 %.03960.i to i8
+  %57 = getelementptr inbounds nuw i8, ptr %.03861.i, i64 1
+  store i8 %56, ptr %.03861.i, align 1
+  %58 = add nsw i32 %.04259.i, 1
+  %.not52.i = icmp slt i32 %58, %39
+  br i1 %.not52.i, label %59, label %._crit_edge.i
 
-60:                                               ; preds = %56
-  %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds i8, ptr %27, i64 %61
-  %63 = load i8, ptr %62, align 1
-  %64 = sext i8 %63 to i32
+59:                                               ; preds = %55
+  %60 = sext i32 %58 to i64
+  %61 = getelementptr inbounds i8, ptr %27, i64 %60
+  %62 = load i8, ptr %61, align 1
+  %63 = sext i8 %62 to i32
   br label %.backedge.i
 
 .backedge.loopexit.i:                             ; preds = %decodeByte.exit.i
-  %65 = trunc nsw i64 %indvars.iv.next.i89 to i32
+  %64 = trunc nsw i64 %indvars.iv.next.i89 to i32
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %.split.loop.exit.i, %.backedge.loopexit.i, %60
-  %.042.be.i = phi i32 [ %59, %60 ], [ %92, %.split.loop.exit.i ], [ %65, %.backedge.loopexit.i ]
-  %.039.be.i = phi i32 [ %64, %60 ], [ %93, %.split.loop.exit.i ], [ 37, %.backedge.loopexit.i ]
-  %.038.be.i = phi ptr [ %58, %60 ], [ %88, %.split.loop.exit.i ], [ %88, %.backedge.loopexit.i ]
-  %66 = icmp slt i32 %.042.be.i, %39
-  br i1 %66, label %54, label %._crit_edge.i, !llvm.loop !9
+.backedge.i:                                      ; preds = %.split.loop.exit.i, %.backedge.loopexit.i, %59
+  %.042.be.i = phi i32 [ %58, %59 ], [ %94, %.split.loop.exit.i ], [ %64, %.backedge.loopexit.i ]
+  %.039.be.i = phi i32 [ %63, %59 ], [ %95, %.split.loop.exit.i ], [ 37, %.backedge.loopexit.i ]
+  %.038.be.i = phi ptr [ %57, %59 ], [ %90, %.split.loop.exit.i ], [ %90, %.backedge.loopexit.i ]
+  %65 = icmp slt i32 %.042.be.i, %39
+  br i1 %65, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
-.preheader.i87:                                   ; preds = %89, %.preheader.preheader.i
-  %indvars.iv.i88 = phi i64 [ %55, %.preheader.preheader.i ], [ %indvars.iv.next.i89, %89 ]
-  %.2.i = phi ptr [ %.03863.i, %.preheader.preheader.i ], [ %88, %89 ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i88
-  %67 = load i8, ptr %gep.i, align 1
-  %gep60.i = getelementptr i8, ptr %invariant.gep59.i, i64 %indvars.iv.i88
-  %68 = load i8, ptr %gep60.i, align 1
-  %69 = add i8 %67, -48
-  %or.cond.i.i.i = icmp ult i8 %69, 10
-  br i1 %or.cond.i.i.i, label %decodeNibble.exit.i.i, label %70
+.preheader.i87:                                   ; preds = %91, %.preheader.preheader.i
+  %indvars.iv.i88 = phi i64 [ %54, %.preheader.preheader.i ], [ %indvars.iv.next.i89, %91 ]
+  %.2.i = phi ptr [ %.03861.i, %.preheader.preheader.i ], [ %90, %91 ]
+  %66 = getelementptr i8, ptr %27, i64 %indvars.iv.i88
+  %67 = getelementptr i8, ptr %66, i64 1
+  %68 = load i8, ptr %67, align 1
+  %69 = getelementptr i8, ptr %66, i64 2
+  %70 = load i8, ptr %69, align 1
+  %71 = add i8 %68, -48
+  %or.cond.i.i.i = icmp ult i8 %71, 10
+  br i1 %or.cond.i.i.i, label %decodeNibble.exit.i.i, label %72
 
-70:                                               ; preds = %.preheader.i87
-  %71 = add i8 %67, -97
-  %or.cond5.i.i.i = icmp ult i8 %71, 6
-  br i1 %or.cond5.i.i.i, label %72, label %74
+72:                                               ; preds = %.preheader.i87
+  %73 = add i8 %68, -97
+  %or.cond5.i.i.i = icmp ult i8 %73, 6
+  br i1 %or.cond5.i.i.i, label %74, label %76
 
-72:                                               ; preds = %70
-  %73 = add nsw i8 %67, -87
+74:                                               ; preds = %72
+  %75 = add nsw i8 %68, -87
   br label %decodeNibble.exit.i.i
 
-74:                                               ; preds = %70
-  %75 = add i8 %67, -65
-  %or.cond8.i.i.i = icmp ult i8 %75, 6
-  %76 = add i8 %67, -55
-  %spec.select.i.i.i = select i1 %or.cond8.i.i.i, i8 %76, i8 -1
+76:                                               ; preds = %72
+  %77 = add i8 %68, -65
+  %or.cond8.i.i.i = icmp ult i8 %77, 6
+  %78 = add i8 %68, -55
+  %spec.select.i.i.i = select i1 %or.cond8.i.i.i, i8 %78, i8 -1
   br label %decodeNibble.exit.i.i
 
-decodeNibble.exit.i.i:                            ; preds = %74, %72, %.preheader.i87
-  %.0.i.i.i = phi i8 [ %73, %72 ], [ %spec.select.i.i.i, %74 ], [ %69, %.preheader.i87 ]
-  %77 = add i8 %68, -48
-  %or.cond.i2.i.i = icmp ult i8 %77, 10
-  br i1 %or.cond.i2.i.i, label %decodeByte.exit.i, label %78
+decodeNibble.exit.i.i:                            ; preds = %76, %74, %.preheader.i87
+  %.0.i.i.i = phi i8 [ %75, %74 ], [ %spec.select.i.i.i, %76 ], [ %71, %.preheader.i87 ]
+  %79 = add i8 %70, -48
+  %or.cond.i2.i.i = icmp ult i8 %79, 10
+  br i1 %or.cond.i2.i.i, label %decodeByte.exit.i, label %80
 
-78:                                               ; preds = %decodeNibble.exit.i.i
-  %79 = add i8 %68, -97
-  %or.cond5.i3.i.i = icmp ult i8 %79, 6
-  br i1 %or.cond5.i3.i.i, label %80, label %82
+80:                                               ; preds = %decodeNibble.exit.i.i
+  %81 = add i8 %70, -97
+  %or.cond5.i3.i.i = icmp ult i8 %81, 6
+  br i1 %or.cond5.i3.i.i, label %82, label %84
 
-80:                                               ; preds = %78
-  %81 = add nsw i8 %68, -87
+82:                                               ; preds = %80
+  %83 = add nsw i8 %70, -87
   br label %decodeByte.exit.i
 
-82:                                               ; preds = %78
-  %83 = add i8 %68, -65
-  %or.cond8.i4.i.i = icmp ult i8 %83, 6
-  %84 = add i8 %68, -55
-  %spec.select.i5.i.i = select i1 %or.cond8.i4.i.i, i8 %84, i8 -1
+84:                                               ; preds = %80
+  %85 = add i8 %70, -65
+  %or.cond8.i4.i.i = icmp ult i8 %85, 6
+  %86 = add i8 %70, -55
+  %spec.select.i5.i.i = select i1 %or.cond8.i4.i.i, i8 %86, i8 -1
   br label %decodeByte.exit.i
 
-decodeByte.exit.i:                                ; preds = %82, %80, %decodeNibble.exit.i.i
-  %.0.i6.i.i = phi i8 [ %81, %80 ], [ %spec.select.i5.i.i, %82 ], [ %77, %decodeNibble.exit.i.i ]
-  %85 = shl i8 %.0.i.i.i, 4
-  %86 = and i8 %.0.i6.i.i, 15
-  %87 = or disjoint i8 %86, %85
-  %88 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
-  store i8 %87, ptr %.2.i, align 1
+decodeByte.exit.i:                                ; preds = %84, %82, %decodeNibble.exit.i.i
+  %.0.i6.i.i = phi i8 [ %83, %82 ], [ %spec.select.i5.i.i, %84 ], [ %79, %decodeNibble.exit.i.i ]
+  %87 = shl i8 %.0.i.i.i, 4
+  %88 = and i8 %.0.i6.i.i, 15
+  %89 = or disjoint i8 %88, %87
+  %90 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
+  store i8 %89, ptr %.2.i, align 1
   %indvars.iv.next.i89 = add nsw i64 %indvars.iv.i88, 3
   %.not50.i = icmp slt i64 %indvars.iv.next.i89, %53
-  br i1 %.not50.i, label %89, label %.backedge.loopexit.i
+  br i1 %.not50.i, label %91, label %.backedge.loopexit.i
 
-89:                                               ; preds = %decodeByte.exit.i
-  %90 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv.next.i89
-  %91 = load i8, ptr %90, align 1
-  %.not51.i = icmp eq i8 %91, 37
+91:                                               ; preds = %decodeByte.exit.i
+  %92 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv.next.i89
+  %93 = load i8, ptr %92, align 1
+  %.not51.i = icmp eq i8 %93, 37
   br i1 %.not51.i, label %.preheader.i87, label %.split.loop.exit.i
 
-.split.loop.exit.i:                               ; preds = %89
-  %92 = trunc nsw i64 %indvars.iv.next.i89 to i32
-  %93 = sext i8 %91 to i32
+.split.loop.exit.i:                               ; preds = %91
+  %94 = trunc nsw i64 %indvars.iv.next.i89 to i32
+  %95 = sext i8 %93 to i32
   br label %.backedge.i
 
-._crit_edge.i:                                    ; preds = %.backedge.i, %56, %49
-  %.1.i85 = phi ptr [ %47, %49 ], [ %.038.be.i, %.backedge.i ], [ %58, %56 ]
-  %94 = ptrtoint ptr %.1.i85 to i64
-  %95 = ptrtoint ptr %47 to i64
-  %96 = sub i64 %94, %95
-  %97 = trunc i64 %96 to i32
+._crit_edge.i:                                    ; preds = %.backedge.i, %55, %49
+  %.1.i85 = phi ptr [ %47, %49 ], [ %.038.be.i, %.backedge.i ], [ %57, %55 ]
+  %96 = ptrtoint ptr %.1.i85 to i64
+  %97 = ptrtoint ptr %47 to i64
+  %98 = sub i64 %96, %97
+  %99 = trunc i64 %98 to i32
   br label %decodePath.exit
 
 decodePath.exit:                                  ; preds = %44, %._crit_edge.i
-  %.sink.i = phi i32 [ %97, %._crit_edge.i ], [ 0, %44 ]
+  %.sink.i = phi i32 [ %99, %._crit_edge.i ], [ 0, %44 ]
   %.not78 = icmp eq ptr %47, %27
-  br i1 %.not78, label %decodePath.exit.thread, label %98
+  br i1 %.not78, label %decodePath.exit.thread, label %100
 
-98:                                               ; preds = %decodePath.exit
+100:                                              ; preds = %decodePath.exit
   call void @free(ptr noundef %27) #15
   br label %decodePath.exit.thread
 
-decodePath.exit.thread:                           ; preds = %41, %37, %98, %decodePath.exit
-  %.sink.i6 = phi i32 [ %.sink.i, %98 ], [ %.sink.i, %decodePath.exit ], [ %39, %41 ], [ 0, %37 ]
-  %.066 = phi ptr [ %47, %98 ], [ %27, %decodePath.exit ], [ %27, %41 ], [ %27, %37 ]
-  %99 = icmp ne ptr %.066, null
-  %100 = zext i1 %99 to i8
-  call void @JPLISAssertCondition(i8 noundef zeroext %100, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.18, i32 noundef 900) #15
-  %101 = call i32 @convertUtf8ToPlatformString(ptr noundef %.066, i32 noundef %.sink.i6, ptr noundef nonnull %4, i32 noundef 4096) #15
+decodePath.exit.thread:                           ; preds = %41, %37, %100, %decodePath.exit
+  %.sink.i6 = phi i32 [ %.sink.i, %100 ], [ %.sink.i, %decodePath.exit ], [ %39, %41 ], [ 0, %37 ]
+  %.066 = phi ptr [ %47, %100 ], [ %27, %decodePath.exit ], [ %27, %41 ], [ %27, %37 ]
+  %101 = icmp ne ptr %.066, null
+  %102 = zext i1 %101 to i8
+  call void @JPLISAssertCondition(i8 noundef zeroext %102, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.18, i32 noundef 900) #15
+  %103 = call i32 @convertUtf8ToPlatformString(ptr noundef %.066, i32 noundef %.sink.i6, ptr noundef nonnull %4, i32 noundef 4096) #15
   call void @free(ptr noundef %.066) #15
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %148, label %103
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %150, label %105
 
-103:                                              ; preds = %decodePath.exit.thread
-  %104 = call noalias ptr @strdup(ptr noundef nonnull %4) #15
-  %105 = icmp ne ptr %104, null
-  %106 = zext i1 %105 to i8
-  call void @JPLISAssertCondition(i8 noundef zeroext %106, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.18, i32 noundef 914) #15
-  %107 = call ptr @fromURIPath(ptr noundef %104) #15
-  %.not79 = icmp eq ptr %107, %104
-  br i1 %.not79, label %109, label %108
+105:                                              ; preds = %decodePath.exit.thread
+  %106 = call noalias ptr @strdup(ptr noundef nonnull %4) #15
+  %107 = icmp ne ptr %106, null
+  %108 = zext i1 %107 to i8
+  call void @JPLISAssertCondition(i8 noundef zeroext %108, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.18, i32 noundef 914) #15
+  %109 = call ptr @fromURIPath(ptr noundef %106) #15
+  %.not79 = icmp eq ptr %109, %106
+  br i1 %.not79, label %111, label %110
 
-108:                                              ; preds = %103
-  call void @free(ptr noundef %104) #15
-  br label %109
+110:                                              ; preds = %105
+  call void @free(ptr noundef %106) #15
+  br label %111
 
-109:                                              ; preds = %108, %103
-  %.167 = phi ptr [ %107, %108 ], [ %104, %103 ]
-  %110 = icmp ne ptr %.167, null
-  %111 = zext i1 %110 to i8
-  call void @JPLISAssertCondition(i8 noundef zeroext %111, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.18, i32 noundef 921) #15
-  %112 = call ptr @normalize_path(ptr noundef %.167) #15
-  %.not80 = icmp eq ptr %112, %.167
-  br i1 %.not80, label %114, label %113
+111:                                              ; preds = %110, %105
+  %.167 = phi ptr [ %109, %110 ], [ %106, %105 ]
+  %112 = icmp ne ptr %.167, null
+  %113 = zext i1 %112 to i8
+  call void @JPLISAssertCondition(i8 noundef zeroext %113, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.18, i32 noundef 921) #15
+  %114 = call ptr @normalize_path(ptr noundef %.167) #15
+  %.not80 = icmp eq ptr %114, %.167
+  br i1 %.not80, label %116, label %115
 
-113:                                              ; preds = %109
+115:                                              ; preds = %111
   call void @free(ptr noundef %.167) #15
-  br label %114
+  br label %116
 
-114:                                              ; preds = %113, %109
-  %.268 = phi ptr [ %112, %113 ], [ %.167, %109 ]
-  %115 = icmp ne ptr %.268, null
-  %116 = zext i1 %115 to i8
-  call void @JPLISAssertCondition(i8 noundef zeroext %116, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.18, i32 noundef 927) #15
-  %117 = call i32 @isAbsolute(ptr noundef %.268) #15
-  %.not81 = icmp eq i32 %117, 0
-  br i1 %.not81, label %123, label %118
+116:                                              ; preds = %115, %111
+  %.268 = phi ptr [ %114, %115 ], [ %.167, %111 ]
+  %117 = icmp ne ptr %.268, null
+  %118 = zext i1 %117 to i8
+  call void @JPLISAssertCondition(i8 noundef zeroext %118, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.18, i32 noundef 927) #15
+  %119 = call i32 @isAbsolute(ptr noundef %.268) #15
+  %.not81 = icmp eq i32 %119, 0
+  br i1 %.not81, label %125, label %120
 
-118:                                              ; preds = %114
-  %119 = load ptr, ptr %.8.val, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1184
-  %121 = load ptr, ptr %120, align 8
-  %122 = call i32 %121(ptr noundef nonnull %.8.val, ptr noundef %.268) #15
-  br label %139
+120:                                              ; preds = %116
+  %121 = load ptr, ptr %.8.val, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 1184
+  %123 = load ptr, ptr %122, align 8
+  %124 = call i32 %123(ptr noundef nonnull %.8.val, ptr noundef %.268) #15
+  br label %141
 
-123:                                              ; preds = %114
+125:                                              ; preds = %116
   %.not82 = icmp eq i32 %.06021, 0
-  br i1 %.not82, label %124, label %133
+  br i1 %.not82, label %126, label %135
 
-124:                                              ; preds = %123
-  %125 = call i32 @JDK_Canonicalize(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4096) #15
-  %.not83 = icmp eq i32 %125, 0
-  br i1 %.not83, label %129, label %126
+126:                                              ; preds = %125
+  %127 = call i32 @JDK_Canonicalize(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4096) #15
+  %.not83 = icmp eq i32 %127, 0
+  br i1 %.not83, label %131, label %128
 
-126:                                              ; preds = %124
-  %127 = load ptr, ptr @stderr, align 8
-  %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str.41, ptr noundef %0) #18
+128:                                              ; preds = %126
+  %129 = load ptr, ptr @stderr, align 8
+  %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.41, ptr noundef %0) #18
   br label %.sink.split
 
-129:                                              ; preds = %124
-  %130 = call ptr @basePath(ptr noundef nonnull %3) #15
-  %131 = icmp ne ptr %130, null
-  %132 = zext i1 %131 to i8
-  call void @JPLISAssertCondition(i8 noundef zeroext %132, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.18, i32 noundef 951) #15
-  br label %133
+131:                                              ; preds = %126
+  %132 = call ptr @basePath(ptr noundef nonnull %3) #15
+  %133 = icmp ne ptr %132, null
+  %134 = zext i1 %133 to i8
+  call void @JPLISAssertCondition(i8 noundef zeroext %134, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.18, i32 noundef 951) #15
+  br label %135
 
-133:                                              ; preds = %129, %123
-  %.3 = phi ptr [ %.022, %123 ], [ %130, %129 ]
-  %134 = call ptr @resolve(ptr noundef %.3, ptr noundef %.268) #15
-  %135 = load ptr, ptr %.8.val, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 1184
-  %137 = load ptr, ptr %136, align 8
-  %138 = call i32 %137(ptr noundef nonnull %.8.val, ptr noundef %134) #15
-  call void @free(ptr noundef %134) #15
-  br label %139
+135:                                              ; preds = %131, %125
+  %.3 = phi ptr [ %.022, %125 ], [ %132, %131 ]
+  %136 = call ptr @resolve(ptr noundef %.3, ptr noundef %.268) #15
+  %137 = load ptr, ptr %.8.val, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 1184
+  %139 = load ptr, ptr %138, align 8
+  %140 = call i32 %139(ptr noundef nonnull %.8.val, ptr noundef %136) #15
+  call void @free(ptr noundef %136) #15
+  br label %141
 
-139:                                              ; preds = %133, %118
-  %.065 = phi i32 [ %122, %118 ], [ %138, %133 ]
-  %.262 = phi i32 [ %.06021, %118 ], [ 1, %133 ]
-  %.2 = phi ptr [ %.022, %118 ], [ %.3, %133 ]
-  switch i32 %.065, label %140 [
+141:                                              ; preds = %135, %120
+  %.065 = phi i32 [ %124, %120 ], [ %140, %135 ]
+  %.262 = phi i32 [ %.06021, %120 ], [ 1, %135 ]
+  %.2 = phi ptr [ %.022, %120 ], [ %.3, %135 ]
+  switch i32 %.065, label %142 [
     i32 0, label %.sink.split
     i32 112, label %._crit_edge.thread
   ]
 
-140:                                              ; preds = %139
-  %141 = load ptr, ptr @stderr, align 8
-  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.43, ptr noundef %.268) #18
-  %cond = icmp eq i32 %.065, 103
+142:                                              ; preds = %141
   %143 = load ptr, ptr @stderr, align 8
-  br i1 %cond, label %144, label %146
+  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.43, ptr noundef %.268) #18
+  %cond = icmp eq i32 %.065, 103
+  %145 = load ptr, ptr @stderr, align 8
+  br i1 %cond, label %146, label %148
 
-144:                                              ; preds = %140
-  %145 = call i64 @fwrite(ptr nonnull @.str.44, i64 33, i64 1, ptr %143) #17
+146:                                              ; preds = %142
+  %147 = call i64 @fwrite(ptr nonnull @.str.44, i64 33, i64 1, ptr %145) #17
   br label %.sink.split
 
-146:                                              ; preds = %140
-  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.45, i32 noundef %.065) #18
+148:                                              ; preds = %142
+  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.45, i32 noundef %.065) #18
   br label %.sink.split
 
-.sink.split:                                      ; preds = %146, %144, %139, %34, %126
-  %.268.sink = phi ptr [ %.268, %126 ], [ %27, %34 ], [ %.268, %139 ], [ %.268, %144 ], [ %.268, %146 ]
-  %.161.ph = phi i32 [ 0, %126 ], [ %.06021, %34 ], [ %.262, %139 ], [ %.262, %144 ], [ %.262, %146 ]
-  %.1.ph = phi ptr [ %.022, %126 ], [ %.022, %34 ], [ %.2, %139 ], [ %.2, %144 ], [ %.2, %146 ]
+.sink.split:                                      ; preds = %148, %146, %141, %34, %128
+  %.268.sink = phi ptr [ %.268, %128 ], [ %27, %34 ], [ %.268, %141 ], [ %.268, %146 ], [ %.268, %148 ]
+  %.161.ph = phi i32 [ 0, %128 ], [ %.06021, %34 ], [ %.262, %141 ], [ %.262, %146 ], [ %.262, %148 ]
+  %.1.ph = phi ptr [ %.022, %128 ], [ %.022, %34 ], [ %.2, %141 ], [ %.2, %146 ], [ %.2, %148 ]
   call void @free(ptr noundef %.268.sink) #15
-  br label %148
+  br label %150
 
-148:                                              ; preds = %.sink.split, %decodePath.exit.thread
+150:                                              ; preds = %.sink.split, %decodePath.exit.thread
   %.161 = phi i32 [ %.06021, %decodePath.exit.thread ], [ %.161.ph, %.sink.split ]
   %.1 = phi ptr [ %.022, %decodePath.exit.thread ], [ %.1.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv.i.lcssa.sink
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %148
-  %149 = icmp ne i32 %.161, 0
-  %150 = icmp ne ptr %.1, %3
-  %or.cond = select i1 %149, i1 %150, i1 false
-  br i1 %or.cond, label %151, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %150
+  %151 = icmp ne i32 %.161, 0
+  %152 = icmp ne ptr %.1, %3
+  %or.cond = select i1 %151, i1 %152, i1 false
+  br i1 %or.cond, label %153, label %._crit_edge.thread
 
-151:                                              ; preds = %._crit_edge
+153:                                              ; preds = %._crit_edge
   call void @free(ptr noundef %.1) #15
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %139, %._crit_edge, %151, %splitPathList.exit, %15, %2
-  %.123.i3843.sink = phi ptr [ %.123.i, %151 ], [ %.123.i, %._crit_edge ], [ %.123.i, %splitPathList.exit ], [ null, %15 ], [ null, %2 ], [ %.268, %139 ]
+._crit_edge.thread:                               ; preds = %141, %._crit_edge, %153, %splitPathList.exit, %15, %2
+  %.123.i3843.sink = phi ptr [ %.123.i, %153 ], [ %.123.i, %._crit_edge ], [ %.123.i, %splitPathList.exit ], [ null, %15 ], [ null, %2 ], [ %.268, %141 ]
   call void @free(ptr noundef %.123.i3843.sink) #15
   ret void
 }

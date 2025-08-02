@@ -1225,7 +1225,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2256) %6, ptr noundef nonnull align 8 dereferenceable(2256) @H5D_def_layout_virtual_g, i64 2256, i1 false)
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 1936
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 1952
-  br label %106
+  br label %107
 
 99:                                               ; preds = %87
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 1944
@@ -1236,36 +1236,36 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %.pre209 = load i64, ptr %.phi.trans.insert208, align 8, !tbaa !32
   %102 = icmp eq i64 %.pre207, %.pre209
   %103 = shl i64 %.pre209, 1
-  %104 = getelementptr inbounds nuw i8, ptr %6, i64 1936
-  %105 = getelementptr inbounds nuw i8, ptr %6, i64 1952
-  br i1 %102, label %106, label %120
+  %104 = call i64 @llvm.umax.i64(i64 %103, i64 8)
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 1936
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 1952
+  br i1 %102, label %107, label %120
 
-106:                                              ; preds = %.thread210, %99
-  %107 = phi ptr [ %98, %.thread210 ], [ %105, %99 ]
-  %108 = phi ptr [ %97, %.thread210 ], [ %104, %99 ]
-  %109 = phi ptr [ null, %.thread210 ], [ %101, %99 ]
-  %110 = phi i64 [ 0, %.thread210 ], [ %103, %99 ]
-  %111 = call i64 @llvm.umax.i64(i64 %110, i64 8)
+107:                                              ; preds = %.thread210, %99
+  %108 = phi ptr [ %98, %.thread210 ], [ %106, %99 ]
+  %109 = phi ptr [ %97, %.thread210 ], [ %105, %99 ]
+  %110 = phi ptr [ null, %.thread210 ], [ %101, %99 ]
+  %111 = phi i64 [ 8, %.thread210 ], [ %104, %99 ]
   %112 = mul i64 %111, 224
-  %113 = call ptr @H5MM_realloc(ptr noundef %109, i64 noundef %112) #12
+  %113 = call ptr @H5MM_realloc(ptr noundef %110, i64 noundef %112) #12
   %114 = icmp eq ptr %113, null
   br i1 %114, label %116, label %.thread
 
-.thread:                                          ; preds = %106
+.thread:                                          ; preds = %107
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 1944
   store ptr %113, ptr %115, align 8, !tbaa !32
-  store i64 %111, ptr %107, align 8, !tbaa !32
+  store i64 %111, ptr %108, align 8, !tbaa !32
   br label %120
 
-116:                                              ; preds = %106
+116:                                              ; preds = %107
   %117 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %118 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %119 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_virtual, i32 noundef 2086, i64 noundef %117, i64 noundef %118, ptr noundef nonnull @.str.23) #12
   br label %217
 
 120:                                              ; preds = %.thread, %99
-  %121 = phi ptr [ %108, %.thread ], [ %104, %99 ]
-  %122 = phi ptr [ %109, %.thread ], [ %101, %99 ]
+  %121 = phi ptr [ %109, %.thread ], [ %105, %99 ]
+  %122 = phi ptr [ %110, %.thread ], [ %101, %99 ]
   %123 = phi ptr [ %113, %.thread ], [ %101, %99 ]
   %124 = load i64, ptr %121, align 8, !tbaa !32
   %125 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %123, i64 %124
@@ -1424,7 +1424,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   br label %217
 
 217:                                              ; preds = %128, %136, %144, %152, %163, %174, %205, %213, %116, %93
-  %.0118.ph = phi ptr [ null, %93 ], [ %109, %116 ], [ %122, %213 ], [ %122, %205 ], [ %122, %174 ], [ %122, %163 ], [ %122, %152 ], [ %122, %144 ], [ %122, %136 ], [ %122, %128 ]
+  %.0118.ph = phi ptr [ null, %93 ], [ %110, %116 ], [ %122, %213 ], [ %122, %205 ], [ %122, %174 ], [ %122, %163 ], [ %122, %152 ], [ %122, %144 ], [ %122, %136 ], [ %122, %128 ]
   %.0117.ph = phi ptr [ null, %93 ], [ null, %116 ], [ %125, %213 ], [ %125, %205 ], [ %125, %174 ], [ %125, %163 ], [ %125, %152 ], [ %125, %144 ], [ %125, %136 ], [ %125, %128 ]
   %218 = call i32 @H5P_poke(ptr noundef nonnull %74, ptr noundef nonnull @.str.9, ptr noundef nonnull %6) #12
   %219 = icmp slt i32 %218, 0

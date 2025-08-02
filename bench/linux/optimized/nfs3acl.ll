@@ -458,7 +458,9 @@ define internal fastcc i32 @__nfs3_proc_setacls(ptr noundef %0, ptr noundef %1, 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  store ptr null, ptr %4, align 8, !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false), !annotation !5
@@ -533,9 +535,9 @@ define internal fastcc i32 @__nfs3_proc_setacls(ptr noundef %0, ptr noundef %1, 
   %52 = load i16, ptr %0, align 8
   %53 = and i16 %52, -4096
   %54 = icmp eq i16 %53, 16384
-  br i1 %54, label %.thread12, label %.thread9
+  br i1 %54, label %.thread14, label %.thread9
 
-.thread12:                                        ; preds = %.thread7
+.thread14:                                        ; preds = %.thread7
   store i32 5, ptr %13, align 8
   store ptr null, ptr %15, align 8
   %55 = call i32 @llvm.umax.i32(i32 %40, i32 4)
@@ -560,31 +562,33 @@ define internal fastcc i32 @__nfs3_proc_setacls(ptr noundef %0, ptr noundef %1, 
   br label %70
 
 66:                                               ; preds = %48
-  br i1 %22, label %.thread9, label %..thread9_crit_edge
+  br i1 %22, label %.thread11, label %..thread9_crit_edge
 
 ..thread9_crit_edge:                              ; preds = %66
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %.thread9
 
-.thread9:                                         ; preds = %.thread7, %..thread9_crit_edge, %66
-  %67 = phi ptr [ %44, %66 ], [ %44, %..thread9_crit_edge ], [ %34, %.thread7 ]
-  %68 = phi i32 [ 3, %66 ], [ %.pre, %..thread9_crit_edge ], [ %40, %.thread7 ]
-  %69 = call i32 @llvm.smax.i32(i32 %68, i32 4)
+.thread9:                                         ; preds = %..thread9_crit_edge, %.thread7
+  %67 = phi i32 [ %.pre, %..thread9_crit_edge ], [ %40, %.thread7 ]
+  %68 = phi ptr [ %44, %..thread9_crit_edge ], [ %34, %.thread7 ]
+  %69 = call i32 @llvm.smax.i32(i32 %67, i32 4)
   br label %70
 
-70:                                               ; preds = %.thread12, %.thread9, %63
-  %.sink18 = phi i32 [ %55, %.thread12 ], [ %69, %.thread9 ], [ %65, %63 ]
-  %.sink17 = phi i32 [ 16, %.thread12 ], [ 16, %.thread9 ], [ %64, %63 ]
-  %71 = phi ptr [ %34, %.thread12 ], [ %67, %.thread9 ], [ %44, %63 ]
-  %72 = mul i32 %.sink18, 12
-  %73 = add i32 %72, %.sink17
-  store ptr null, ptr %4, align 8, !annotation !5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !5
+.thread11:                                        ; preds = %66
+  store i64 64, ptr %16, align 8
+  br label %.thread12
+
+70:                                               ; preds = %.thread14, %.thread9, %63
+  %.sink20 = phi i32 [ %55, %.thread14 ], [ %69, %.thread9 ], [ %65, %63 ]
+  %.sink19 = phi i32 [ 16, %.thread14 ], [ 16, %.thread9 ], [ %64, %63 ]
+  %71 = phi ptr [ %34, %.thread14 ], [ %68, %.thread9 ], [ %44, %63 ]
+  %72 = mul i32 %.sink20, 12
+  %73 = add i32 %72, %.sink19
   %74 = zext i32 %73 to i64
   store i64 %74, ptr %16, align 8
   %75 = icmp ugt i32 %73, 136
-  br i1 %75, label %76, label %.thread11
+  br i1 %75, label %76, label %.thread12
 
 76:                                               ; preds = %70
   %77 = add nuw nsw i64 %74, 17592186044415
@@ -606,89 +610,90 @@ define internal fastcc i32 @__nfs3_proc_setacls(ptr noundef %0, ptr noundef %1, 
   %90 = getelementptr ptr, ptr %87, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %.loopexit13, label %93
+  br i1 %92, label %.loopexit15, label %93
 
 93:                                               ; preds = %81
   %94 = add i32 %88, 1
   store i32 %94, ptr %17, align 8
   %95 = icmp ult i32 %94, %80
-  br i1 %95, label %81, label %.thread11, !llvm.loop !18
+  br i1 %95, label %81, label %.thread12, !llvm.loop !18
 
-.thread11:                                        ; preds = %93, %70
-  %96 = call ptr @nfs_alloc_fattr() #8
-  store ptr %96, ptr %4, align 8
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %thread-pre-split, label %98
+.thread12:                                        ; preds = %93, %.thread11, %70
+  %96 = phi ptr [ %44, %.thread11 ], [ %71, %70 ], [ %71, %93 ]
+  %97 = call ptr @nfs_alloc_fattr() #8
+  store ptr %97, ptr %4, align 8
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %thread-pre-split, label %99
 
-98:                                               ; preds = %.thread11
-  %99 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr i8, ptr %102, i64 96
-  store ptr %103, ptr %7, align 8
-  store ptr %96, ptr %20, align 8
-  %104 = call i32 @rpc_call_sync(ptr noundef %100, ptr noundef nonnull %7, i32 noundef 0) #8
+99:                                               ; preds = %.thread12
+  %100 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 56
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr i8, ptr %103, i64 96
+  store ptr %104, ptr %7, align 8
+  store ptr %97, ptr %20, align 8
+  %105 = call i32 @rpc_call_sync(ptr noundef %101, ptr noundef nonnull %7, i32 noundef 0) #8
   call void @nfs_access_zap_cache(ptr noundef %0) #8
   call void @nfs_zap_acl_cache(ptr noundef %0) #8
-  switch i32 %104, label %112 [
-    i32 0, label %105
-    i32 -96, label %108
-    i32 -93, label %108
-    i32 -524, label %111
+  switch i32 %105, label %113 [
+    i32 0, label %106
+    i32 -96, label %109
+    i32 -93, label %109
+    i32 -524, label %112
   ]
 
-105:                                              ; preds = %98
-  %106 = load ptr, ptr %4, align 8
-  %107 = call i32 @nfs_refresh_inode(ptr noundef %0, ptr noundef %106) #8
+106:                                              ; preds = %99
+  %107 = load ptr, ptr %4, align 8
+  %108 = call i32 @nfs_refresh_inode(ptr noundef %0, ptr noundef %107) #8
+  br label %113
+
+109:                                              ; preds = %99, %99
+  %110 = load i32, ptr %96, align 4
+  %111 = and i32 %110, -9
+  store i32 %111, ptr %96, align 4
   br label %112
 
-108:                                              ; preds = %98, %98
-  %109 = load i32, ptr %71, align 4
-  %110 = and i32 %109, -9
-  store i32 %110, ptr %71, align 4
-  br label %111
+112:                                              ; preds = %109, %99
+  br label %113
 
-111:                                              ; preds = %108, %98
-  br label %112
-
-112:                                              ; preds = %111, %105, %98
-  %113 = phi i32 [ %104, %98 ], [ -95, %111 ], [ %107, %105 ]
-  %114 = load ptr, ptr %4, align 8
-  call void @kfree(ptr noundef %114) #8
+113:                                              ; preds = %112, %106, %99
+  %114 = phi i32 [ %105, %99 ], [ -95, %112 ], [ %108, %106 ]
+  %115 = load ptr, ptr %4, align 8
+  call void @kfree(ptr noundef %115) #8
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %.thread11, %112
-  %.ph = phi i32 [ %113, %112 ], [ -12, %.thread11 ]
+thread-pre-split:                                 ; preds = %.thread12, %113
+  %.ph13 = phi i32 [ %114, %113 ], [ -12, %.thread12 ]
   %.pr = load i32, ptr %17, align 8
-  br label %.loopexit13
+  br label %.loopexit15
 
-.loopexit13:                                      ; preds = %81, %thread-pre-split
-  %115 = phi i32 [ %.pr, %thread-pre-split ], [ %88, %81 ]
-  %116 = phi i32 [ %.ph, %thread-pre-split ], [ -12, %81 ]
-  %117 = icmp eq i32 %115, 0
-  br i1 %117, label %.loopexit, label %.preheader
+.loopexit15:                                      ; preds = %81, %thread-pre-split
+  %116 = phi i32 [ %.pr, %thread-pre-split ], [ %88, %81 ]
+  %117 = phi i32 [ %.ph13, %thread-pre-split ], [ -12, %81 ]
+  %118 = icmp eq i32 %116, 0
+  br i1 %118, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit13, %.preheader
-  %118 = phi i32 [ %124, %.preheader ], [ %115, %.loopexit13 ]
-  %119 = add i32 %118, -1
-  store i32 %119, ptr %17, align 8
-  %120 = load ptr, ptr %18, align 8
-  %121 = zext i32 %119 to i64
-  %122 = getelementptr ptr, ptr %120, i64 %121
-  %123 = load ptr, ptr %122, align 8
-  call void @__free_pages(ptr noundef %123, i32 noundef 0) #8
-  %124 = load i32, ptr %17, align 8
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %.loopexit, label %.preheader, !llvm.loop !19
+.preheader:                                       ; preds = %.loopexit15, %.preheader
+  %119 = phi i32 [ %125, %.preheader ], [ %116, %.loopexit15 ]
+  %120 = add i32 %119, -1
+  store i32 %120, ptr %17, align 8
+  %121 = load ptr, ptr %18, align 8
+  %122 = zext i32 %120 to i64
+  %123 = getelementptr ptr, ptr %121, i64 %122
+  %124 = load ptr, ptr %123, align 8
+  call void @__free_pages(ptr noundef %124, i32 noundef 0) #8
+  %125 = load i32, ptr %17, align 8
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %.loopexit, label %.preheader, !llvm.loop !19
 
-.loopexit:                                        ; preds = %.preheader, %.thread, %.loopexit13, %.thread6, %38, %29, %23
-  %126 = phi i32 [ 0, %23 ], [ -28, %38 ], [ -28, %.thread6 ], [ -95, %29 ], [ %116, %.loopexit13 ], [ -95, %.thread ], [ %116, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %.thread, %.loopexit15, %.thread6, %38, %29, %23
+  %127 = phi i32 [ 0, %23 ], [ -28, %38 ], [ -28, %.thread6 ], [ -95, %29 ], [ %117, %.loopexit15 ], [ -95, %.thread ], [ %117, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  ret i32 %126
+  ret i32 %127
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

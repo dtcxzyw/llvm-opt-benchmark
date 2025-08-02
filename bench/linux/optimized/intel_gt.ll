@@ -567,7 +567,7 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
   tail call void %53(ptr noundef %8, i32 52932, i32 noundef %52, i1 noundef zeroext true) #7
   %54 = load ptr, ptr %22, align 8
   %55 = tail call i32 %54(ptr noundef %8, i32 52932, i1 noundef zeroext false) #7
-  br label %.thread
+  br label %.critedge
 
 56:                                               ; preds = %45, %41
   %57 = load i8, ptr %9, align 8
@@ -583,7 +583,7 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
 65:                                               ; preds = %56
   %66 = tail call i32 @intel_gt_mcr_multicast_rmw(ptr noundef %0, i32 52932, i32 noundef 1, i32 noundef 0) #7
   %67 = tail call i32 @intel_gt_mcr_read_any(ptr noundef %0, i32 52932) #7
-  br label %.thread
+  br label %.critedge
 
 68:                                               ; preds = %56
   %69 = icmp ugt i8 %57, 11
@@ -597,7 +597,7 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
   tail call void %74(ptr noundef %8, i32 52932, i32 noundef %73, i1 noundef zeroext true) #7
   %75 = load ptr, ptr %22, align 8
   %76 = tail call i32 %75(ptr noundef %8, i32 52932, i1 noundef zeroext false) #7
-  br label %.thread
+  br label %.critedge
 
 77:                                               ; preds = %68
   %78 = icmp samesign ugt i8 %57, 7
@@ -611,11 +611,11 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
   tail call void %83(ptr noundef %8, i32 16532, i32 noundef %82, i1 noundef zeroext true) #7
   %84 = load ptr, ptr %22, align 8
   %85 = tail call i32 %84(ptr noundef %8, i32 16532, i1 noundef zeroext false) #7
-  br label %.thread
+  br label %.critedge
 
 86:                                               ; preds = %77
   %87 = icmp samesign ugt i8 %57, 5
-  br i1 %87, label %88, label %.thread
+  br i1 %87, label %88, label %.critedge
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 4956
@@ -632,7 +632,7 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %102 = icmp eq i32 %91, 0
-  br i1 %102, label %.thread, label %.lr.ph
+  br i1 %102, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %88, %.lr.ph
   %103 = phi i32 [ %109, %.lr.ph ], [ %91, %88 ]
@@ -691,9 +691,9 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %139 = icmp eq i32 %109, 0
-  br i1 %139, label %.thread, label %.lr.ph, !llvm.loop !6
+  br i1 %139, label %.critedge, label %.lr.ph, !llvm.loop !6
 
-.thread:                                          ; preds = %.lr.ph, %88, %86, %79, %70, %65, %49
+.critedge:                                        ; preds = %.lr.ph, %88, %86, %79, %70, %65, %49
   ret void
 }
 

@@ -95,7 +95,7 @@ define internal range(i32 -1163346256, 1) i32 @mv_read_header(ptr noundef %0) #1
   %.sroa.5.0.extract.shift = lshr i64 %12, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %13 = tail call i32 @avio_rb16(ptr noundef %5) #8
-  switch i32 %13, label %.thread184 [
+  switch i32 %13, label %.critedge [
     i32 1, label %14
     i32 2, label %16
   ]
@@ -103,14 +103,14 @@ define internal range(i32 -1163346256, 1) i32 @mv_read_header(ptr noundef %0) #1
 14:                                               ; preds = %8
   %15 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #8
   %.not172 = icmp eq ptr %15, null
-  br i1 %.not172, label %.thread184, label %16
+  br i1 %.not172, label %.critedge, label %16
 
 16:                                               ; preds = %8, %14
   %.0137 = phi ptr [ %15, %14 ], [ null, %8 ]
   %17 = tail call i64 @avio_skip(ptr noundef %5, i64 noundef 2) #8
   %18 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #8
   %.not173 = icmp eq ptr %18, null
-  br i1 %.not173, label %.thread184, label %19
+  br i1 %.not173, label %.critedge, label %19
 
 19:                                               ; preds = %16
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %18, i32 noundef 64, i32 noundef %.sroa.5.0.extract.trunc, i32 noundef %.sroa.09.0.extract.trunc) #8
@@ -147,11 +147,11 @@ define internal range(i32 -1163346256, 1) i32 @mv_read_header(ptr noundef %0) #1
 
 35:                                               ; preds = %19
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i32 noundef %27) #8
-  %.pre202 = load ptr, ptr %20, align 8, !tbaa !28
+  %.pre197 = load ptr, ptr %20, align 8, !tbaa !28
   br label %36
 
 36:                                               ; preds = %35, %31, %28
-  %37 = phi ptr [ %.pre202, %35 ], [ %32, %31 ], [ %29, %28 ]
+  %37 = phi ptr [ %.pre197, %35 ], [ %32, %31 ], [ %29, %28 ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 0, ptr %38, align 8, !tbaa !42
   %39 = tail call i32 @avio_rb32(ptr noundef %5) #8
@@ -182,7 +182,7 @@ define internal range(i32 -1163346256, 1) i32 @mv_read_header(ptr noundef %0) #1
 
 55:                                               ; preds = %46
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %51) #8
-  br label %.thread184
+  br label %.critedge
 
 56:                                               ; preds = %46
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %.0137, i32 noundef 33, i32 noundef 1, i32 noundef %51) #8
@@ -210,7 +210,7 @@ define internal range(i32 -1163346256, 1) i32 @mv_read_header(ptr noundef %0) #1
 
 64:                                               ; preds = %62, %63
   %65 = icmp eq i32 %57, 0
-  br i1 %65, label %.thread184, label %.thread
+  br i1 %65, label %.critedge, label %.thread
 
 .thread.sink.split:                               ; preds = %60, %61
   %.sink = phi i32 [ 65537, %61 ], [ 65540, %60 ]
@@ -226,7 +226,7 @@ define internal range(i32 -1163346256, 1) i32 @mv_read_header(ptr noundef %0) #1
 
 set_channels.exit.thread:                         ; preds = %.thread
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.14, i32 noundef %68) #8
-  br label %.thread184
+  br label %.critedge
 
 70:                                               ; preds = %.thread
   %71 = load ptr, ptr %47, align 8, !tbaa !28
@@ -289,45 +289,45 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
   %100 = tail call i64 @avio_skip(ptr noundef %5, i64 noundef 128) #8
   %101 = load i64, ptr %25, align 8, !tbaa !38
   %102 = icmp sgt i64 %101, 0
-  br i1 %102, label %.lr.ph, label %.thread184
+  br i1 %102, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %var_read_metadata.exit178
   %103 = getelementptr inbounds nuw i8, ptr %.0137, i64 16
   br i1 %.not174, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %108
-  %indvars.iv195 = phi i64 [ %indvars.iv.next196, %108 ], [ 0, %.lr.ph ]
+  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %108 ], [ 0, %.lr.ph ]
   %104 = tail call i32 @avio_rb32(ptr noundef %5) #8
   %105 = tail call i32 @avio_rb32(ptr noundef %5) #8
   %106 = tail call i32 @avio_rb32(ptr noundef %5) #8
   %107 = tail call i32 @avio_feof(ptr noundef %5) #8
   %.not175.us = icmp eq i32 %107, 0
-  br i1 %.not175.us, label %108, label %.thread184
+  br i1 %.not175.us, label %108, label %.critedge
 
 108:                                              ; preds = %.lr.ph.split.us
   %109 = tail call i64 @avio_skip(ptr noundef %5, i64 noundef 8) #8
   %110 = add i32 %105, %104
   %111 = zext i32 %110 to i64
-  %112 = tail call i32 @av_add_index_entry(ptr noundef nonnull %18, i64 noundef %111, i64 noundef %indvars.iv195, i32 noundef %106, i32 noundef 0, i32 noundef 1) #8
-  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
+  %112 = tail call i32 @av_add_index_entry(ptr noundef nonnull %18, i64 noundef %111, i64 noundef %indvars.iv190, i32 noundef %106, i32 noundef 0, i32 noundef 1) #8
+  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %113 = load i64, ptr %25, align 8, !tbaa !38
-  %114 = icmp sgt i64 %113, %indvars.iv.next196
-  br i1 %114, label %.lr.ph.split.us, label %.thread184, !llvm.loop !46
+  %114 = icmp sgt i64 %113, %indvars.iv.next191
+  br i1 %114, label %.lr.ph.split.us, label %.critedge, !llvm.loop !46
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %119
   %indvars.iv = phi i64 [ %indvars.iv.next, %119 ], [ 0, %.lr.ph ]
-  %.0143187 = phi i64 [ %130, %119 ], [ 0, %.lr.ph ]
+  %.0143182 = phi i64 [ %130, %119 ], [ 0, %.lr.ph ]
   %115 = tail call i32 @avio_rb32(ptr noundef %5) #8
   %116 = tail call i32 @avio_rb32(ptr noundef %5) #8
   %117 = tail call i32 @avio_rb32(ptr noundef %5) #8
   %118 = tail call i32 @avio_feof(ptr noundef %5) #8
   %.not175 = icmp eq i32 %118, 0
-  br i1 %.not175, label %119, label %.thread184
+  br i1 %.not175, label %119, label %.critedge
 
 119:                                              ; preds = %.lr.ph.split
   %120 = tail call i64 @avio_skip(ptr noundef %5, i64 noundef 8) #8
   %121 = zext i32 %115 to i64
-  %122 = tail call i32 @av_add_index_entry(ptr noundef nonnull %.0137, i64 noundef %121, i64 noundef %.0143187, i32 noundef %116, i32 noundef 0, i32 noundef 1) #8
+  %122 = tail call i32 @av_add_index_entry(ptr noundef nonnull %.0137, i64 noundef %121, i64 noundef %.0143182, i32 noundef %116, i32 noundef 0, i32 noundef 1) #8
   %123 = zext i32 %116 to i64
   %124 = load ptr, ptr %103, align 8, !tbaa !28
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 132
@@ -335,14 +335,14 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
   %127 = sext i32 %126 to i64
   %128 = mul nsw i64 %.0146, %127
   %129 = udiv i64 %123, %128
-  %130 = add i64 %129, %.0143187
+  %130 = add i64 %129, %.0143182
   %131 = add i32 %116, %115
   %132 = zext i32 %131 to i64
   %133 = tail call i32 @av_add_index_entry(ptr noundef nonnull %18, i64 noundef %132, i64 noundef %indvars.iv, i32 noundef %117, i32 noundef 0, i32 noundef 1) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %134 = load i64, ptr %25, align 8, !tbaa !38
   %135 = icmp sgt i64 %134, %indvars.iv.next
-  br i1 %135, label %.lr.ph.split, label %.thread184, !llvm.loop !50
+  br i1 %135, label %.lr.ph.split, label %.critedge, !llvm.loop !50
 
 136:                                              ; preds = %1
   %137 = tail call i32 @avio_rb16(ptr noundef %5) #8
@@ -353,7 +353,7 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
   %140 = tail call i64 @avio_skip(ptr noundef %5, i64 noundef 4) #8
   %141 = tail call fastcc i32 @read_table(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @parse_global_var)
   %142 = icmp slt i32 %141, 0
-  br i1 %142, label %.thread184, label %143
+  br i1 %142, label %.critedge, label %143
 
 143:                                              ; preds = %139
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -374,7 +374,7 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
 
 153:                                              ; preds = %150, %147, %143
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8) #8
-  br label %.thread184
+  br label %.critedge
 
 154:                                              ; preds = %150
   %155 = icmp samesign ugt i32 %145, 1
@@ -382,7 +382,7 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
 
 156:                                              ; preds = %154
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #8
-  br label %.thread184
+  br label %.critedge
 
 157:                                              ; preds = %154
   br i1 %151, label %189, label %158
@@ -390,7 +390,7 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
 158:                                              ; preds = %157
   %159 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #8
   %.not166 = icmp eq ptr %159, null
-  br i1 %.not166, label %.thread184, label %160
+  br i1 %.not166, label %.critedge, label %160
 
 160:                                              ; preds = %158
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 16
@@ -398,7 +398,7 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
   store i32 1, ptr %162, align 8, !tbaa !35
   %163 = tail call fastcc i32 @read_table(ptr noundef nonnull %0, ptr noundef nonnull %159, ptr noundef nonnull @parse_audio_var)
   %164 = icmp slt i32 %163, 0
-  br i1 %164, label %.thread184, label %165
+  br i1 %164, label %.critedge, label %165
 
 165:                                              ; preds = %160
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -409,22 +409,22 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
   br i1 %168, label %171, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %165
-  %.pre198 = load ptr, ptr %161, align 8, !tbaa !28
+  %.pre193 = load ptr, ptr %161, align 8, !tbaa !28
   br label %177
 
 171:                                              ; preds = %165
   %172 = icmp eq i32 %170, 401
-  %.pre199 = load ptr, ptr %161, align 8, !tbaa !28
+  %.pre194 = load ptr, ptr %161, align 8, !tbaa !28
   br i1 %172, label %173, label %177
 
 173:                                              ; preds = %171
-  %174 = getelementptr inbounds nuw i8, ptr %.pre199, i64 56
+  %174 = getelementptr inbounds nuw i8, ptr %.pre194, i64 56
   %175 = load i32, ptr %174, align 8, !tbaa !56
   %176 = icmp eq i32 %175, 16
   br i1 %176, label %183, label %177
 
 177:                                              ; preds = %._crit_edge, %173, %171
-  %178 = phi ptr [ %.pre198, %._crit_edge ], [ %.pre199, %173 ], [ %.pre199, %171 ]
+  %178 = phi ptr [ %.pre193, %._crit_edge ], [ %.pre194, %173 ], [ %.pre194, %171 ]
   %179 = phi i32 [ %170, %._crit_edge ], [ 401, %173 ], [ %170, %171 ]
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 56
   %181 = load i32, ptr %180, align 8, !tbaa !56
@@ -433,32 +433,32 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
   br label %183
 
 183:                                              ; preds = %173, %177
-  %.sink209 = phi ptr [ %182, %177 ], [ %.pre199, %173 ]
-  %.sink207 = phi i32 [ 0, %177 ], [ 65537, %173 ]
-  %184 = getelementptr inbounds nuw i8, ptr %.sink209, i64 4
-  store i32 %.sink207, ptr %184, align 4, !tbaa !40
-  %185 = getelementptr inbounds nuw i8, ptr %.sink209, i64 132
+  %.sink204 = phi ptr [ %182, %177 ], [ %.pre194, %173 ]
+  %.sink202 = phi i32 [ 0, %177 ], [ 65537, %173 ]
+  %184 = getelementptr inbounds nuw i8, ptr %.sink204, i64 4
+  store i32 %.sink202, ptr %184, align 4, !tbaa !40
+  %185 = getelementptr inbounds nuw i8, ptr %.sink204, i64 132
   %186 = load i32, ptr %185, align 4, !tbaa !49
   %187 = icmp slt i32 %186, 1
-  br i1 %187, label %188, label %._crit_edge200
+  br i1 %187, label %188, label %._crit_edge195
 
-._crit_edge200:                                   ; preds = %183
-  %.pre201 = load i32, ptr %3, align 4, !tbaa !53
+._crit_edge195:                                   ; preds = %183
+  %.pre196 = load i32, ptr %3, align 4, !tbaa !53
   br label %189
 
 188:                                              ; preds = %183
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11) #8
-  br label %.thread184
+  br label %.critedge
 
-189:                                              ; preds = %._crit_edge200, %157
-  %190 = phi i32 [ %.pre201, %._crit_edge200 ], [ %148, %157 ]
-  %.1138 = phi ptr [ %159, %._crit_edge200 ], [ null, %157 ]
+189:                                              ; preds = %._crit_edge195, %157
+  %190 = phi i32 [ %.pre196, %._crit_edge195 ], [ %148, %157 ]
+  %.1138 = phi ptr [ %159, %._crit_edge195 ], [ null, %157 ]
   %191 = icmp sgt i32 %190, 1
   br i1 %191, label %192, label %193
 
 192:                                              ; preds = %189
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #8
-  br label %.thread184
+  br label %.critedge
 
 193:                                              ; preds = %189
   %.not167 = icmp eq i32 %190, 0
@@ -467,7 +467,7 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
 194:                                              ; preds = %193
   %195 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #8
   %.not168 = icmp eq ptr %195, null
-  br i1 %.not168, label %.thread184, label %196
+  br i1 %.not168, label %.critedge, label %196
 
 196:                                              ; preds = %194
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 16
@@ -475,7 +475,7 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
   store i32 0, ptr %198, align 8, !tbaa !35
   %199 = tail call fastcc i32 @read_table(ptr noundef nonnull %0, ptr noundef nonnull %195, ptr noundef nonnull @parse_video_var)
   %200 = icmp slt i32 %199, 0
-  br i1 %200, label %.thread184, label %201
+  br i1 %200, label %.critedge, label %201
 
 201:                                              ; preds = %193, %196
   %.0139 = phi ptr [ %195, %196 ], [ null, %193 ]
@@ -490,17 +490,17 @@ var_read_metadata.exit178:                        ; preds = %var_read_metadata.e
 204:                                              ; preds = %203, %201
   %205 = load i32, ptr %3, align 4, !tbaa !53
   %.not170 = icmp eq i32 %205, 0
-  br i1 %.not170, label %.thread184, label %206
+  br i1 %.not170, label %.critedge, label %206
 
 206:                                              ; preds = %204
   tail call fastcc void @read_index(ptr noundef %5, ptr noundef %.0139)
-  br label %.thread184
+  br label %.critedge
 
 207:                                              ; preds = %1, %136
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i32 noundef %7) #8
-  br label %.thread184
+  br label %.critedge
 
-.thread184:                                       ; preds = %119, %.lr.ph.split, %108, %.lr.ph.split.us, %var_read_metadata.exit178, %set_channels.exit.thread, %64, %16, %8, %14, %55, %204, %206, %196, %194, %160, %158, %139, %207, %192, %188, %156, %153
+.critedge:                                        ; preds = %119, %.lr.ph.split, %108, %.lr.ph.split.us, %var_read_metadata.exit178, %set_channels.exit.thread, %64, %16, %8, %14, %55, %204, %206, %196, %194, %160, %158, %139, %207, %192, %188, %156, %153
   %.3 = phi i32 [ -1163346256, %207 ], [ -1094995529, %153 ], [ -1163346256, %156 ], [ -1094995529, %188 ], [ -1163346256, %192 ], [ %141, %139 ], [ -12, %158 ], [ %163, %160 ], [ -12, %194 ], [ %199, %196 ], [ 0, %206 ], [ 0, %204 ], [ -1094995529, %set_channels.exit.thread ], [ -1094995529, %64 ], [ -12, %16 ], [ -1094995529, %8 ], [ -12, %14 ], [ -1094995529, %55 ], [ 0, %var_read_metadata.exit178 ], [ 0, %108 ], [ -1094995529, %.lr.ph.split.us ], [ 0, %119 ], [ -1094995529, %.lr.ph.split ]
   ret i32 %.3
 }
@@ -1640,7 +1640,7 @@ define internal fastcc void @read_index(ptr noundef %0, ptr noundef %1) unnamed_
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i64, ptr %3, align 8, !tbaa !38
   %5 = icmp sgt i64 %4, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge
+  br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1648,17 +1648,17 @@ define internal fastcc void @read_index(ptr noundef %0, ptr noundef %1) unnamed_
 
 7:                                                ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.01621 = phi i64 [ 0, %.lr.ph ], [ %.2, %25 ]
+  %.01619 = phi i64 [ 0, %.lr.ph ], [ %.2, %25 ]
   %8 = tail call i32 @avio_rb32(ptr noundef %0) #8
   %9 = tail call i32 @avio_rb32(ptr noundef %0) #8
   %10 = tail call i64 @avio_skip(ptr noundef %0, i64 noundef 8) #8
   %11 = tail call i32 @avio_feof(ptr noundef %0) #8
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %._crit_edge
+  br i1 %.not, label %12, label %.critedge
 
 12:                                               ; preds = %7
   %13 = zext i32 %8 to i64
-  %14 = tail call i32 @av_add_index_entry(ptr noundef nonnull %1, i64 noundef %13, i64 noundef %.01621, i32 noundef %9, i32 noundef 0, i32 noundef 1) #8
+  %14 = tail call i32 @av_add_index_entry(ptr noundef nonnull %1, i64 noundef %13, i64 noundef %.01619, i32 noundef %9, i32 noundef 0, i32 noundef 1) #8
   %15 = load ptr, ptr %6, align 8, !tbaa !28
   %16 = load i32, ptr %15, align 8, !tbaa !35
   %17 = icmp eq i32 %16, 1
@@ -1675,13 +1675,13 @@ define internal fastcc void @read_index(ptr noundef %0, ptr noundef %1) unnamed_
 
 25:                                               ; preds = %18, %12
   %.pn = phi i64 [ %24, %18 ], [ 1, %12 ]
-  %.2 = add i64 %.pn, %.01621
+  %.2 = add i64 %.pn, %.01619
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i64, ptr %3, align 8, !tbaa !38
   %27 = icmp sgt i64 %26, %indvars.iv.next
-  br i1 %27, label %7, label %._crit_edge, !llvm.loop !90
+  br i1 %27, label %7, label %.critedge, !llvm.loop !90
 
-._crit_edge:                                      ; preds = %25, %7, %2
+.critedge:                                        ; preds = %25, %7, %2
   ret void
 }
 

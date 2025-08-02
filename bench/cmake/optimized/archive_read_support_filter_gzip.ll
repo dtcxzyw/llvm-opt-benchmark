@@ -103,19 +103,19 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
   %7 = load i64, ptr %4, align 8
   %8 = icmp eq i64 %7, 0
   %or.cond = select i1 %6, i1 true, i1 %8
-  br i1 %or.cond, label %.loopexit, label %9
+  br i1 %or.cond, label %.critedge, label %9
 
 9:                                                ; preds = %3
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %5, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %10, label %.loopexit
+  br i1 %.not, label %10, label %.critedge
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
   %.not71 = icmp ult i8 %12, 32
-  br i1 %.not71, label %14, label %.loopexit
+  br i1 %.not71, label %14, label %.critedge
 
 14:                                               ; preds = %10
   %.not72 = icmp eq ptr %2, null
@@ -136,7 +136,7 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
 21:                                               ; preds = %19
   %22 = call ptr @__archive_read_filter_ahead(ptr noundef %0, i64 noundef 12, ptr noundef nonnull %4) #8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.loopexit, label %24
+  br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr i8, ptr %22, i64 10
@@ -150,9 +150,9 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
   %.055 = phi ptr [ %22, %24 ], [ %5, %19 ]
   %30 = and i32 %13, 8
   %.not74 = icmp eq i32 %30, 0
-  br i1 %.not74, label %.thread84, label %.preheader91
+  br i1 %.not74, label %46, label %.preheader87
 
-.preheader91:                                     ; preds = %29, %.thread
+.preheader87:                                     ; preds = %29, %.thread
   %.259 = phi i64 [ %31, %.thread ], [ %.057, %29 ]
   %.2 = phi ptr [ %.383, %.thread ], [ %.055, %29 ]
   %31 = add nuw nsw i64 %.259, 1
@@ -160,24 +160,24 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
   %.not75 = icmp sgt i64 %32, %.259
   br i1 %.not75, label %.thread, label %33
 
-33:                                               ; preds = %.preheader91
+33:                                               ; preds = %.preheader87
   %34 = icmp sgt i64 %32, 1048576
-  br i1 %34, label %.loopexit, label %35
+  br i1 %34, label %.critedge, label %35
 
 35:                                               ; preds = %33
   %36 = call ptr @__archive_read_filter_ahead(ptr noundef %0, i64 noundef %31, ptr noundef nonnull %4) #8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.loopexit, label %.thread
+  br i1 %37, label %.critedge, label %.thread
 
-.thread:                                          ; preds = %.preheader91, %35
-  %.383 = phi ptr [ %36, %35 ], [ %.2, %.preheader91 ]
+.thread:                                          ; preds = %.preheader87, %35
+  %.383 = phi ptr [ %36, %35 ], [ %.2, %.preheader87 ]
   %38 = getelementptr inbounds i8, ptr %.383, i64 %.259
   %39 = load i8, ptr %38, align 1, !tbaa !25
   %.not76 = icmp eq i8 %39, 0
-  br i1 %.not76, label %40, label %.preheader91, !llvm.loop !28
+  br i1 %.not76, label %40, label %.preheader87, !llvm.loop !28
 
 40:                                               ; preds = %.thread
-  br i1 %.not72, label %.thread84, label %41
+  br i1 %.not72, label %46, label %41
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 160
@@ -186,61 +186,61 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
   %44 = getelementptr inbounds nuw i8, ptr %.383, i64 %.057
   %45 = call noalias ptr @strdup(ptr noundef nonnull %44) #8
   store ptr %45, ptr %42, align 8, !tbaa !30
-  br label %.thread84
+  br label %46
 
-.thread84:                                        ; preds = %40, %41, %29
-  %.158 = phi i64 [ %.057, %29 ], [ %31, %41 ], [ %31, %40 ]
-  %.156 = phi ptr [ %.055, %29 ], [ %.383, %41 ], [ %.383, %40 ]
+46:                                               ; preds = %41, %40, %29
+  %.158 = phi i64 [ %.057, %29 ], [ %31, %40 ], [ %31, %41 ]
+  %.156 = phi ptr [ %.055, %29 ], [ %.383, %40 ], [ %.383, %41 ]
   %.not77 = icmp ult i8 %12, 16
-  br i1 %.not77, label %.loopexit90, label %.preheader
+  br i1 %.not77, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.thread84, %.thread87
-  %.461 = phi i64 [ %46, %.thread87 ], [ %.158, %.thread84 ]
-  %.5 = phi ptr [ %.689, %.thread87 ], [ %.156, %.thread84 ]
-  %46 = add nsw i64 %.461, 1
-  %47 = load i64, ptr %4, align 8, !tbaa !27
-  %.not78 = icmp sgt i64 %47, %.461
-  br i1 %.not78, label %.thread87, label %48
+.preheader:                                       ; preds = %46, %.thread84
+  %.461 = phi i64 [ %47, %.thread84 ], [ %.158, %46 ]
+  %.5 = phi ptr [ %.686, %.thread84 ], [ %.156, %46 ]
+  %47 = add nsw i64 %.461, 1
+  %48 = load i64, ptr %4, align 8, !tbaa !27
+  %.not78 = icmp sgt i64 %48, %.461
+  br i1 %.not78, label %.thread84, label %49
 
-48:                                               ; preds = %.preheader
-  %49 = icmp sgt i64 %47, 1048576
-  br i1 %49, label %.loopexit, label %50
+49:                                               ; preds = %.preheader
+  %50 = icmp sgt i64 %48, 1048576
+  br i1 %50, label %.critedge, label %51
 
-50:                                               ; preds = %48
-  %51 = call ptr @__archive_read_filter_ahead(ptr noundef %0, i64 noundef %46, ptr noundef nonnull %4) #8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %.loopexit, label %.thread87
+51:                                               ; preds = %49
+  %52 = call ptr @__archive_read_filter_ahead(ptr noundef %0, i64 noundef %47, ptr noundef nonnull %4) #8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %.critedge, label %.thread84
 
-.thread87:                                        ; preds = %.preheader, %50
-  %.689 = phi ptr [ %51, %50 ], [ %.5, %.preheader ]
-  %53 = getelementptr inbounds i8, ptr %.689, i64 %.461
-  %54 = load i8, ptr %53, align 1, !tbaa !25
-  %.not79 = icmp eq i8 %54, 0
-  br i1 %.not79, label %.loopexit90, label %.preheader, !llvm.loop !31
+.thread84:                                        ; preds = %.preheader, %51
+  %.686 = phi ptr [ %52, %51 ], [ %.5, %.preheader ]
+  %54 = getelementptr inbounds i8, ptr %.686, i64 %.461
+  %55 = load i8, ptr %54, align 1, !tbaa !25
+  %.not79 = icmp eq i8 %55, 0
+  br i1 %.not79, label %.loopexit, label %.preheader, !llvm.loop !31
 
-.loopexit90:                                      ; preds = %.thread87, %.thread84
-  %.360 = phi i64 [ %.158, %.thread84 ], [ %46, %.thread87 ]
-  %55 = and i32 %13, 2
-  %.not80 = icmp eq i32 %55, 0
-  br i1 %.not80, label %60, label %56
+.loopexit:                                        ; preds = %.thread84, %46
+  %.360 = phi i64 [ %.158, %46 ], [ %47, %.thread84 ]
+  %56 = and i32 %13, 2
+  %.not80 = icmp eq i32 %56, 0
+  br i1 %.not80, label %61, label %57
 
-56:                                               ; preds = %.loopexit90
-  %57 = add nsw i64 %.360, 2
-  %58 = call ptr @__archive_read_filter_ahead(ptr noundef %0, i64 noundef %57, ptr noundef nonnull %4) #8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %.loopexit, label %60
+57:                                               ; preds = %.loopexit
+  %58 = add nsw i64 %.360, 2
+  %59 = call ptr @__archive_read_filter_ahead(ptr noundef %0, i64 noundef %58, ptr noundef nonnull %4) #8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %.critedge, label %61
 
-60:                                               ; preds = %56, %.loopexit90
-  %.562 = phi i64 [ %.360, %.loopexit90 ], [ %57, %56 ]
+61:                                               ; preds = %57, %.loopexit
+  %.562 = phi i64 [ %.360, %.loopexit ], [ %58, %57 ]
   %.not81 = icmp eq ptr %1, null
-  br i1 %.not81, label %.loopexit, label %61
+  br i1 %.not81, label %.critedge, label %62
 
-61:                                               ; preds = %60
+62:                                               ; preds = %61
   store i32 27, ptr %1, align 4, !tbaa !32
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %33, %35, %50, %48, %60, %61, %56, %21, %10, %9, %3
-  %.0 = phi i64 [ 0, %3 ], [ 0, %9 ], [ 0, %10 ], [ 0, %21 ], [ 0, %56 ], [ %.562, %61 ], [ %.562, %60 ], [ 0, %48 ], [ 0, %50 ], [ 0, %35 ], [ 0, %33 ]
+.critedge:                                        ; preds = %33, %35, %51, %49, %61, %62, %57, %21, %10, %9, %3
+  %.0 = phi i64 [ 0, %3 ], [ 0, %9 ], [ 0, %10 ], [ 0, %21 ], [ 0, %57 ], [ %.562, %62 ], [ %.562, %61 ], [ 0, %49 ], [ 0, %51 ], [ 0, %35 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   ret i64 %.0
 }

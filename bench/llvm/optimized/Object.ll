@@ -285,7 +285,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EE
 declare void @_ZNK4llvm6object20MachOUniversalBinary21getMachOObjectForArchENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.llvm::Expected.16") align 8, ptr noundef nonnull align 8 dereferenceable(56), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMObjectFileCopySectionIterator(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @LLVMObjectFileCopySectionIterator(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !21, !noalias !37
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %4 = load ptr, ptr %3, align 8, !noalias !37
@@ -337,7 +337,7 @@ define dso_local range(i32 0, 2) i32 @LLVMObjectFileIsSectionIteratorAtEnd(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMObjectFileCopySymbolIterator(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @LLVMObjectFileCopySymbolIterator(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !21, !noalias !43
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8, !noalias !43
@@ -378,7 +378,7 @@ define dso_local range(i32 0, 2) i32 @LLVMObjectFileIsSymbolIteratorAtEnd(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMCreateObjectFile(ptr noundef nonnull %0) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @LLVMCreateObjectFile(ptr noundef nonnull %0) local_unnamed_addr #0 {
   %2 = alloca %"class.llvm::Error", align 8
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %class.anon, align 1
@@ -496,7 +496,7 @@ _ZN4llvm6object12OwningBinaryINS0_10ObjectFileEED2Ev.exit: ; preds = %_ZNSt10uni
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @LLVMGetSections(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @LLVMGetSections(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !49
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 352
@@ -659,7 +659,7 @@ declare void @_ZN4llvm21logAllUnhandledErrorsENS_5ErrorERNS_11raw_ostreamENS_5Tw
 declare void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(34), i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @LLVMGetSymbols(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @LLVMGetSymbols(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !49
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -815,7 +815,7 @@ define dso_local range(i32 0, 2) i32 @LLVMGetSectionContainsSymbol(ptr noundef n
 declare noundef zeroext i1 @_ZNK4llvm6object10SectionRef14containsSymbolENS0_9SymbolRefE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @LLVMGetRelocations(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @LLVMGetRelocations(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !40
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8, !tbaa !20
@@ -1095,7 +1095,7 @@ define dso_local noundef i64 @LLVMGetRelocationOffset(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @LLVMGetRelocationSymbol(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @LLVMGetRelocationSymbol(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !94
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8, !tbaa !20
@@ -1125,7 +1125,7 @@ define dso_local noundef i64 @LLVMGetRelocationType(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local nonnull ptr @LLVMGetRelocationTypeName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @LLVMGetRelocationTypeName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %"class.llvm::SmallVector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24

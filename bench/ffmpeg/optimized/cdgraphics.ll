@@ -487,78 +487,79 @@ define internal fastcc range(i32 -22, 1) i32 @cdg_tile_block(ptr noundef readonl
   br i1 %or.cond, label %.loopexit, label %.preheader35
 
 .preheader35:                                     ; preds = %3
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not34 = icmp eq i32 %2, 0
   br i1 %.not34, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader35, %.split.us.us
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.split.us.us ], [ 0, %.preheader35 ]
-  %gep.us = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv48
-  %26 = trunc i64 %indvars.iv48 to i32
-  %27 = add i32 %15, %26
-  %28 = mul i32 %27, %6
-  %29 = add i32 %28, %23
-  br label %30
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv48
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %28 = trunc i64 %indvars.iv48 to i32
+  %29 = add i32 %15, %28
+  %30 = mul i32 %29, %6
+  %31 = add i32 %30, %23
+  br label %32
 
-30:                                               ; preds = %30, %.preheader.us
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %30 ], [ 0, %.preheader.us ]
-  %31 = load i8, ptr %gep.us, align 1, !tbaa !30
-  %32 = zext i8 %31 to i32
-  %33 = trunc i64 %indvars.iv44 to i32
-  %34 = sub i32 5, %33
-  %35 = lshr i32 %32, %34
-  %36 = and i32 %35, 1
-  %.029.in.in.in.idx.us.us = zext nneg i32 %36 to i64
+32:                                               ; preds = %32, %.preheader.us
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %32 ], [ 0, %.preheader.us ]
+  %33 = load i8, ptr %27, align 1, !tbaa !30
+  %34 = zext i8 %33 to i32
+  %35 = trunc i64 %indvars.iv44 to i32
+  %36 = sub i32 5, %35
+  %37 = lshr i32 %34, %36
+  %38 = and i32 %37, 1
+  %.029.in.in.in.idx.us.us = zext nneg i32 %38 to i64
   %.029.in.in.in.us.us = getelementptr inbounds nuw i8, ptr %1, i64 %.029.in.in.in.idx.us.us
   %.029.in.in.us.us = load i8, ptr %.029.in.in.in.us.us, align 1, !tbaa !30
   %.029.in.us.us = and i8 %.029.in.in.us.us, 15
-  %37 = trunc nuw nsw i64 %indvars.iv44 to i32
-  %38 = add i32 %29, %37
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %7, i64 %39
-  store i8 %.029.in.us.us, ptr %40, align 1, !tbaa !30
+  %39 = trunc nuw nsw i64 %indvars.iv44 to i32
+  %40 = add i32 %31, %39
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i8, ptr %7, i64 %41
+  store i8 %.029.in.us.us, ptr %42, align 1, !tbaa !30
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 6
-  br i1 %exitcond47.not, label %.split.us.us, label %30, !llvm.loop !57
+  br i1 %exitcond47.not, label %.split.us.us, label %32, !llvm.loop !57
 
-.split.us.us:                                     ; preds = %30
+.split.us.us:                                     ; preds = %32
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 12
   br i1 %exitcond51.not, label %.loopexit, label %.preheader.us, !llvm.loop !59
 
 .preheader:                                       ; preds = %.preheader35, %.split
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %.split ], [ 0, %.preheader35 ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv40
-  %41 = trunc i64 %indvars.iv40 to i32
-  %42 = add i32 %15, %41
-  %43 = mul i32 %42, %6
-  %44 = add i32 %43, %23
-  br label %45
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv40
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %45 = trunc i64 %indvars.iv40 to i32
+  %46 = add i32 %15, %45
+  %47 = mul i32 %46, %6
+  %48 = add i32 %47, %23
+  br label %49
 
-45:                                               ; preds = %.preheader, %45
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %45 ]
-  %46 = load i8, ptr %gep, align 1, !tbaa !30
-  %47 = zext i8 %46 to i32
-  %48 = trunc i64 %indvars.iv to i32
-  %49 = sub i32 5, %48
-  %50 = lshr i32 %47, %49
-  %51 = and i32 %50, 1
-  %.029.in.in.in.idx = zext nneg i32 %51 to i64
+49:                                               ; preds = %.preheader, %49
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %49 ]
+  %50 = load i8, ptr %44, align 1, !tbaa !30
+  %51 = zext i8 %50 to i32
+  %52 = trunc i64 %indvars.iv to i32
+  %53 = sub i32 5, %52
+  %54 = lshr i32 %51, %53
+  %55 = and i32 %54, 1
+  %.029.in.in.in.idx = zext nneg i32 %55 to i64
   %.029.in.in.in = getelementptr inbounds nuw i8, ptr %1, i64 %.029.in.in.in.idx
   %.029.in.in = load i8, ptr %.029.in.in.in, align 1, !tbaa !30
   %.029.in = and i8 %.029.in.in, 15
-  %52 = trunc nuw nsw i64 %indvars.iv to i32
-  %53 = add i32 %44, %52
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %7, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !30
-  %57 = xor i8 %56, %.029.in
-  store i8 %57, ptr %55, align 1, !tbaa !30
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
+  %57 = add i32 %48, %56
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i8, ptr %7, i64 %58
+  %60 = load i8, ptr %59, align 1, !tbaa !30
+  %61 = xor i8 %60, %.029.in
+  store i8 %61, ptr %59, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.split, label %45, !llvm.loop !60
+  br i1 %exitcond.not, label %.split, label %49, !llvm.loop !60
 
-.split:                                           ; preds = %45
+.split:                                           ; preds = %49
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 12
   br i1 %exitcond43.not, label %.loopexit, label %.preheader, !llvm.loop !61

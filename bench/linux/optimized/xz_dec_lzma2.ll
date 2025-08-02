@@ -924,7 +924,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %60 = phi i64 [ %56, %58 ], [ %56, %54 ], [ %4, %19 ], [ %4, %12 ], [ %4, %8 ], [ %4, %1 ]
   %61 = load i64, ptr %5, align 8
   %62 = icmp ult i64 %60, %61
-  br i1 %62, label %63, label %.loopexit85
+  br i1 %62, label %63, label %.loopexit86
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -962,7 +962,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %94 = load i64, ptr %64, align 8
   %95 = load i64, ptr %65, align 8
   %96 = icmp ugt i64 %94, %95
-  br i1 %96, label %.loopexit85, label %97
+  br i1 %96, label %.loopexit86, label %97
 
 97:                                               ; preds = %92
   %98 = load i32, ptr %67, align 4
@@ -971,7 +971,8 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %101 = load i32, ptr %69, align 4
   %102 = zext i32 %101 to i64
   %103 = zext i32 %100 to i64
-  %104 = getelementptr [12 x [16 x i16]], ptr %68, i64 0, i64 %102, i64 %103
+  %.split = getelementptr [12 x [16 x i16]], ptr %68, i64 0, i64 %102
+  %104 = getelementptr [16 x i16], ptr %.split, i64 0, i64 %103
   %105 = load i32, ptr %0, align 8
   %106 = icmp ult i32 %105, 16777216
   %.pre = load i32, ptr %70, align 4
@@ -1125,26 +1126,26 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 
 210:                                              ; preds = %207, %201
   %211 = phi i64 [ %209, %207 ], [ %205, %201 ]
-  br i1 %138, label %.preheader128, label %212
+  br i1 %138, label %.preheader129, label %212
 
 212:                                              ; preds = %210
   %213 = load ptr, ptr %2, align 8
   %214 = getelementptr i8, ptr %213, i64 %211
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i32
-  br label %.preheader128
+  br label %.preheader129
 
-.preheader128:                                    ; preds = %212, %210
+.preheader129:                                    ; preds = %212, %210
   %.ph = phi i32 [ 0, %210 ], [ %216, %212 ]
   br label %217
 
-217:                                              ; preds = %.preheader128, %259
-  %218 = phi i64 [ %241, %259 ], [ %117, %.preheader128 ]
-  %219 = phi i32 [ %260, %259 ], [ %118, %.preheader128 ]
-  %220 = phi i32 [ %.sink101, %259 ], [ %123, %.preheader128 ]
-  %221 = phi i32 [ %265, %259 ], [ 1, %.preheader128 ]
-  %222 = phi i32 [ %224, %259 ], [ %.ph, %.preheader128 ]
-  %223 = phi i32 [ %266, %259 ], [ 256, %.preheader128 ]
+217:                                              ; preds = %.preheader129, %259
+  %218 = phi i64 [ %241, %259 ], [ %117, %.preheader129 ]
+  %219 = phi i32 [ %260, %259 ], [ %118, %.preheader129 ]
+  %220 = phi i32 [ %.sink102, %259 ], [ %123, %.preheader129 ]
+  %221 = phi i32 [ %265, %259 ], [ 1, %.preheader129 ]
+  %222 = phi i32 [ %224, %259 ], [ %.ph, %.preheader129 ]
+  %223 = phi i32 [ %266, %259 ], [ 256, %.preheader129 ]
   %224 = shl i32 %222, 1
   %225 = and i32 %224, %223
   %226 = add i32 %223, %221
@@ -1195,11 +1196,11 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   br label %259
 
 259:                                              ; preds = %254, %249
-  %.sink101 = phi i32 [ %255, %254 ], [ %247, %249 ]
+  %.sink102 = phi i32 [ %255, %254 ], [ %247, %249 ]
   %260 = phi i32 [ %256, %254 ], [ %242, %249 ]
   %261 = phi i32 [ 0, %254 ], [ %223, %249 ]
   %262 = phi i16 [ %258, %254 ], [ %253, %249 ]
-  store i32 %.sink101, ptr %0, align 8
+  store i32 %.sink102, ptr %0, align 8
   store i16 %262, ptr %229, align 2
   %263 = shl nuw nsw i32 %221, 1
   %264 = zext i1 %248 to i32
@@ -1329,7 +1330,8 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %341 = add i16 %333, %340
   store i16 %341, ptr %317, align 2
   %342 = icmp ult i32 %335, 16777216
-  %343 = getelementptr [12 x [16 x i16]], ptr %79, i64 0, i64 %102, i64 %103
+  %.split75 = getelementptr [12 x [16 x i16]], ptr %79, i64 0, i64 %102
+  %343 = getelementptr [16 x i16], ptr %.split75, i64 0, i64 %103
   br i1 %342, label %344, label %353
 
 344:                                              ; preds = %337
@@ -1377,7 +1379,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %372 = select i1 %371, i32 9, i32 11
   store i32 %372, ptr %69, align 4
   store i32 1, ptr %81, align 4
-  br label %.loopexit83
+  br label %.loopexit84
 
 373:                                              ; preds = %328
   %374 = sub i32 %331, %335
@@ -1480,11 +1482,11 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   br label %441
 
 441:                                              ; preds = %434, %428
-  %.sink103 = phi i32 [ %426, %428 ], [ %435, %434 ]
-  %.sink102 = phi i16 [ %432, %428 ], [ %438, %434 ]
+  %.sink104 = phi i32 [ %426, %428 ], [ %435, %434 ]
+  %.sink103 = phi i16 [ %432, %428 ], [ %438, %434 ]
   %442 = phi i32 [ %433, %428 ], [ %439, %434 ]
-  store i32 %.sink103, ptr %0, align 8
-  store i16 %.sink102, ptr %409, align 2
+  store i32 %.sink104, ptr %0, align 8
+  store i16 %.sink103, ptr %409, align 2
   %443 = load i32, ptr %78, align 4
   store i32 %443, ptr %77, align 4
   br label %444
@@ -1501,7 +1503,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %449 = select i1 %448, i32 8, i32 11
   store i32 %449, ptr %69, align 4
   tail call fastcc void @lzma_len(ptr noundef %0, ptr noundef nonnull %80, i32 noundef %100)
-  br label %.loopexit83
+  br label %.loopexit84
 
 450:                                              ; preds = %303
   store i32 %310, ptr %0, align 8
@@ -1597,7 +1599,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 
 513:                                              ; preds = %510
   store i32 %511, ptr %66, align 4
-  br label %.loopexit83
+  br label %.loopexit84
 
 514:                                              ; preds = %510
   %515 = lshr i32 %511, 1
@@ -1626,13 +1628,13 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %532 = getelementptr i16, ptr %526, i64 %531
   %533 = load i32, ptr %0, align 8
   %534 = icmp ult i32 %533, 16777216
-  %.pre107 = load i32, ptr %70, align 4
+  %.pre108 = load i32, ptr %70, align 4
   br i1 %534, label %535, label %545
 
 535:                                              ; preds = %528
   %536 = shl nuw i32 %533, 8
   store i32 %536, ptr %0, align 8
-  %537 = shl i32 %.pre107, 8
+  %537 = shl i32 %.pre108, 8
   %538 = load ptr, ptr %71, align 8
   %539 = load i64, ptr %64, align 8
   %540 = add i64 %539, 1
@@ -1645,7 +1647,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   br label %545
 
 545:                                              ; preds = %535, %528
-  %546 = phi i32 [ %544, %535 ], [ %.pre107, %528 ]
+  %546 = phi i32 [ %544, %535 ], [ %.pre108, %528 ]
   %547 = phi i32 [ %536, %535 ], [ %533, %528 ]
   %548 = lshr i32 %547, 11
   %549 = load i16, ptr %532, align 2
@@ -1653,9 +1655,9 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %551 = mul i32 %548, %550
   %552 = icmp ult i32 %546, %551
   %553 = shl i32 %529, 1
-  br i1 %552, label %.thread80, label %560
+  br i1 %552, label %.thread81, label %560
 
-.thread80:                                        ; preds = %545
+.thread81:                                        ; preds = %545
   store i32 %551, ptr %0, align 8
   %554 = load i16, ptr %532, align 2
   %555 = zext i16 %554 to i32
@@ -1682,11 +1684,11 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   store i32 %569, ptr %66, align 4
   br label %570
 
-570:                                              ; preds = %.thread80, %560
-  %571 = phi i32 [ %566, %560 ], [ %553, %.thread80 ]
+570:                                              ; preds = %.thread81, %560
+  %571 = phi i32 [ %566, %560 ], [ %553, %.thread81 ]
   %572 = add nuw i32 %530, 1
   %573 = icmp eq i32 %572, %527
-  br i1 %573, label %.loopexit83, label %528, !llvm.loop !16
+  br i1 %573, label %.loopexit84, label %528, !llvm.loop !16
 
 574:                                              ; preds = %514
   %575 = add nsw i32 %515, -5
@@ -1740,7 +1742,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 607:                                              ; preds = %648, %605
   %608 = phi i32 [ %606, %605 ], [ %649, %648 ]
   %609 = phi i32 [ %599, %605 ], [ %650, %648 ]
-  %610 = phi i32 [ %595, %605 ], [ %.sink106, %648 ]
+  %610 = phi i32 [ %595, %605 ], [ %.sink107, %648 ]
   %611 = phi i32 [ 1, %605 ], [ %651, %648 ]
   %612 = phi i32 [ 0, %605 ], [ %652, %648 ]
   %613 = zext i32 %611 to i64
@@ -1771,9 +1773,9 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %631 = zext i16 %630 to i32
   %632 = mul i32 %629, %631
   %633 = icmp ult i32 %627, %632
-  br i1 %633, label %.thread81, label %639
+  br i1 %633, label %.thread82, label %639
 
-.thread81:                                        ; preds = %626
+.thread82:                                        ; preds = %626
   %634 = sub nsw i32 2048, %631
   %635 = lshr i32 %634, 5
   %636 = trunc i32 %635 to i16
@@ -1794,29 +1796,29 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   store i32 %647, ptr %66, align 4
   br label %648
 
-648:                                              ; preds = %.thread81, %639
-  %649 = phi i32 [ %608, %.thread81 ], [ %647, %639 ]
-  %.sink106 = phi i32 [ %632, %.thread81 ], [ %640, %639 ]
-  %.sink105 = phi i16 [ %637, %.thread81 ], [ %643, %639 ]
-  %650 = phi i32 [ %627, %.thread81 ], [ %641, %639 ]
-  %651 = phi i32 [ %638, %.thread81 ], [ %645, %639 ]
-  store i32 %.sink106, ptr %0, align 8
-  store i16 %.sink105, ptr %614, align 2
+648:                                              ; preds = %.thread82, %639
+  %649 = phi i32 [ %608, %.thread82 ], [ %647, %639 ]
+  %.sink107 = phi i32 [ %632, %.thread82 ], [ %640, %639 ]
+  %.sink106 = phi i16 [ %637, %.thread82 ], [ %643, %639 ]
+  %650 = phi i32 [ %627, %.thread82 ], [ %641, %639 ]
+  %651 = phi i32 [ %638, %.thread82 ], [ %645, %639 ]
+  store i32 %.sink107, ptr %0, align 8
+  store i16 %.sink106, ptr %614, align 2
   %652 = add nuw nsw i32 %612, 1
   %653 = icmp eq i32 %652, 4
-  br i1 %653, label %.loopexit83, label %607, !llvm.loop !16
+  br i1 %653, label %.loopexit84, label %607, !llvm.loop !16
 
-.loopexit83:                                      ; preds = %648, %570, %513, %447, %366
+.loopexit84:                                      ; preds = %648, %570, %513, %447, %366
   %654 = load i32, ptr %66, align 4
   %655 = zext i32 %654 to i64
   %656 = load i64, ptr %86, align 8
   %657 = icmp ugt i64 %656, %655
-  br i1 %657, label %658, label %.loopexit86
+  br i1 %657, label %658, label %.loopexit87
 
-658:                                              ; preds = %.loopexit83
+658:                                              ; preds = %.loopexit84
   %659 = load i32, ptr %87, align 8
   %660 = icmp ugt i32 %659, %654
-  br i1 %660, label %661, label %.loopexit86
+  br i1 %660, label %661, label %.loopexit87
 
 661:                                              ; preds = %658
   %662 = load i64, ptr %5, align 8
@@ -1831,20 +1833,20 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %670 = xor i64 %655, -1
   %671 = add i64 %663, %670
   %672 = icmp ugt i64 %663, %655
-  br i1 %672, label %.preheader130, label %673
+  br i1 %672, label %.preheader131, label %673
 
 673:                                              ; preds = %661
   %674 = load i64, ptr %88, align 8
   %675 = add i64 %674, %671
-  br label %.preheader130
+  br label %.preheader131
 
-.preheader130:                                    ; preds = %673, %661
-  %.ph131 = phi i64 [ %671, %661 ], [ %675, %673 ]
+.preheader131:                                    ; preds = %673, %661
+  %.ph132 = phi i64 [ %671, %661 ], [ %675, %673 ]
   br label %676
 
-676:                                              ; preds = %.preheader130, %676
-  %677 = phi i32 [ %689, %676 ], [ %668, %.preheader130 ]
-  %678 = phi i64 [ %688, %676 ], [ %.ph131, %.preheader130 ]
+676:                                              ; preds = %.preheader131, %676
+  %677 = phi i32 [ %689, %676 ], [ %668, %.preheader131 ]
+  %678 = phi i64 [ %688, %676 ], [ %.ph132, %.preheader131 ]
   %679 = load ptr, ptr %2, align 8
   %680 = add i64 %678, 1
   %681 = getelementptr i8, ptr %679, i64 %678
@@ -1875,14 +1877,14 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %697 = phi i64 [ %693, %695 ], [ %693, %691 ], [ %274, %285 ], [ %274, %283 ], [ %274, %280 ]
   %698 = load i64, ptr %5, align 8
   %699 = icmp ult i64 %697, %698
-  br i1 %699, label %92, label %.loopexit85, !llvm.loop !18
+  br i1 %699, label %92, label %.loopexit86, !llvm.loop !18
 
-.loopexit85:                                      ; preds = %696, %92, %59
+.loopexit86:                                      ; preds = %696, %92, %59
   %700 = load i32, ptr %0, align 8
   %701 = icmp ult i32 %700, 16777216
-  br i1 %701, label %702, label %.loopexit86
+  br i1 %701, label %702, label %.loopexit87
 
-702:                                              ; preds = %.loopexit85
+702:                                              ; preds = %.loopexit86
   %703 = shl nuw i32 %700, 8
   store i32 %703, ptr %0, align 8
   %704 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1899,10 +1901,10 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %714 = zext i8 %713 to i32
   %715 = or disjoint i32 %706, %714
   store i32 %715, ptr %704, align 4
-  br label %.loopexit86
+  br label %.loopexit87
 
-.loopexit86:                                      ; preds = %658, %.loopexit83, %702, %.loopexit85
-  %716 = phi i1 [ true, %.loopexit85 ], [ true, %702 ], [ false, %.loopexit83 ], [ false, %658 ]
+.loopexit87:                                      ; preds = %658, %.loopexit84, %702, %.loopexit86
+  %716 = phi i1 [ true, %.loopexit86 ], [ true, %702 ], [ false, %.loopexit84 ], [ false, %658 ]
   ret i1 %716
 }
 

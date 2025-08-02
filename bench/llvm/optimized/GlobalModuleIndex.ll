@@ -1348,86 +1348,86 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIN5clang17Glob
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
-  br i1 %spec.select.i.i.i.i, label %14, label %13, !prof !180
+  br i1 %spec.select.i.i.i.i, label %13, label %.critedge.i.i, !prof !180
 
 13:                                               ; preds = %9
+  %14 = ptrtoint ptr %1 to i64
+  %15 = ptrtoint ptr %.pre3 to i64
+  %16 = sub i64 %14, %15
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang17GlobalModuleIndex10ModuleInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
+  %17 = load ptr, ptr %0, align 8, !tbaa !28
+  %18 = getelementptr inbounds i8, ptr %17, i64 %16
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang17GlobalModuleIndex10ModuleInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit
+
+.critedge.i.i:                                    ; preds = %9
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang17GlobalModuleIndex10ModuleInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
   %.pre = load ptr, ptr %0, align 8, !tbaa !28
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang17GlobalModuleIndex10ModuleInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit
 
-14:                                               ; preds = %9
-  %15 = ptrtoint ptr %1 to i64
-  %16 = ptrtoint ptr %.pre3 to i64
-  %17 = sub i64 %15, %16
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang17GlobalModuleIndex10ModuleInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
-  %18 = load ptr, ptr %0, align 8, !tbaa !28
-  %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang17GlobalModuleIndex10ModuleInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit
+_ZN4llvm23SmallVectorTemplateBaseIN5clang17GlobalModuleIndex10ModuleInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit: ; preds = %2, %13, %.critedge.i.i
+  %19 = phi ptr [ %.pre3, %2 ], [ %17, %13 ], [ %.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
+  %20 = load i32, ptr %3, align 8, !tbaa !29
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"struct.clang::GlobalModuleIndex::ModuleInfo", ptr %19, i64 %21
+  %23 = load ptr, ptr %.016.i.i, align 8, !tbaa !181
+  store ptr %23, ptr %22, align 8, !tbaa !181
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  store ptr %26, ptr %24, align 8, !tbaa !70
+  %27 = load ptr, ptr %25, align 8, !tbaa !73
+  %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
+  %29 = icmp eq ptr %27, %28
+  br i1 %29, label %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang17GlobalModuleIndex10ModuleInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit: ; preds = %2, %13, %14
-  %20 = phi ptr [ %.pre3, %2 ], [ %18, %14 ], [ %.pre, %13 ]
-  %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %13 ]
-  %21 = load i32, ptr %3, align 8, !tbaa !29
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.clang::GlobalModuleIndex::ModuleInfo", ptr %20, i64 %22
-  %24 = load ptr, ptr %.016.i.i, align 8, !tbaa !181
-  store ptr %24, ptr %23, align 8, !tbaa !181
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr %27, ptr %25, align 8, !tbaa !70
-  %28 = load ptr, ptr %26, align 8, !tbaa !73
-  %29 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
-  %30 = icmp eq ptr %28, %29
-  br i1 %30, label %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-31:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang17GlobalModuleIndex10ModuleInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit
-  %32 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !75
-  %34 = icmp ult i64 %33, 16
-  tail call void @llvm.assume(i1 %34)
-  %35 = add nuw nsw i64 %33, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %27, ptr noundef nonnull align 8 dereferenceable(1) %29, i64 %35, i1 false)
+30:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang17GlobalModuleIndex10ModuleInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit
+  %31 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
+  %32 = load i64, ptr %31, align 8, !tbaa !75
+  %33 = icmp ult i64 %32, 16
+  tail call void @llvm.assume(i1 %33)
+  %34 = add nuw nsw i64 %32, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(1) %28, i64 %34, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang17GlobalModuleIndex10ModuleInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit
-  store ptr %28, ptr %25, align 8, !tbaa !73
-  %36 = load i64, ptr %29, align 8, !tbaa !51
-  store i64 %36, ptr %27, align 8, !tbaa !51
+  store ptr %27, ptr %24, align 8, !tbaa !73
+  %35 = load i64, ptr %28, align 8, !tbaa !51
+  store i64 %35, ptr %26, align 8, !tbaa !51
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %31
-  %37 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
-  %38 = load i64, ptr %37, align 8, !tbaa !75
-  %39 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i64 %38, ptr %39, align 8, !tbaa !75
-  store ptr %29, ptr %26, align 8, !tbaa !73
-  store i64 0, ptr %37, align 8, !tbaa !75
-  store i8 0, ptr %29, align 1, !tbaa !51
-  %40 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
-  %42 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %43 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  store ptr %43, ptr %42, align 8, !tbaa !28
-  %44 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  store i32 0, ptr %44, align 8, !tbaa !29
-  %45 = getelementptr inbounds nuw i8, ptr %23, i64 68
-  store i32 4, ptr %45, align 4, !tbaa !30
-  %46 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 64
-  %47 = load i32, ptr %46, align 8, !tbaa !29
-  %.not.i.i.i = icmp eq i32 %47, 0
-  br i1 %.not.i.i.i, label %_ZN5clang17GlobalModuleIndex10ModuleInfoC2EOS1_.exit, label %48
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %30
+  %36 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
+  %37 = load i64, ptr %36, align 8, !tbaa !75
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store i64 %37, ptr %38, align 8, !tbaa !75
+  store ptr %28, ptr %25, align 8, !tbaa !73
+  store i64 0, ptr %36, align 8, !tbaa !75
+  store i8 0, ptr %28, align 1, !tbaa !51
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  store ptr %42, ptr %41, align 8, !tbaa !28
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  store i32 0, ptr %43, align 8, !tbaa !29
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 68
+  store i32 4, ptr %44, align 4, !tbaa !30
+  %45 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 64
+  %46 = load i32, ptr %45, align 8, !tbaa !29
+  %.not.i.i.i = icmp eq i32 %46, 0
+  br i1 %.not.i.i.i, label %_ZN5clang17GlobalModuleIndex10ModuleInfoC2EOS1_.exit, label %47
 
-48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
-  %49 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
-  %50 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %49)
+47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
+  %48 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
+  %49 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %48)
   br label %_ZN5clang17GlobalModuleIndex10ModuleInfoC2EOS1_.exit
 
-_ZN5clang17GlobalModuleIndex10ModuleInfoC2EOS1_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i, %48
-  %51 = load i32, ptr %3, align 8, !tbaa !29
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %3, align 8, !tbaa !29
+_ZN5clang17GlobalModuleIndex10ModuleInfoC2EOS1_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i, %47
+  %50 = load i32, ptr %3, align 8, !tbaa !29
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %3, align 8, !tbaa !29
   ret void
 }
 

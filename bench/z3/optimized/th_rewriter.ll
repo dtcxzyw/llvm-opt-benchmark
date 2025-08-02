@@ -16645,7 +16645,7 @@ define internal fastcc noundef range(i32 1, 6) i32 @_ZN12_GLOBAL__N_115th_rewrit
   %6 = alloca [2 x ptr], align 16
   %7 = alloca [2 x ptr], align 16
   %8 = icmp eq i32 %2, 2
-  br i1 %8, label %9, label %_ZNK4decl13get_family_idEv.exit.thread.thread
+  br i1 %8, label %9, label %_ZNK4decl13get_family_idEv.exit63
 
 9:                                                ; preds = %5
   %.val58 = load ptr, ptr %0, align 8, !tbaa !341
@@ -16703,7 +16703,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit:            ; preds = %24
 44:                                               ; preds = %39
   %45 = load ptr, ptr %36, align 8, !tbaa !265
   tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb0EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2945) %0, ptr noundef nonnull %1, ptr noundef nonnull %40, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br label %_ZNK4decl13get_family_idEv.exit.thread.thread
+  br label %_ZNK4decl13get_family_idEv.exit63
 
 46:                                               ; preds = %39, %35
   %47 = load ptr, ptr %36, align 8, !tbaa !265
@@ -16766,7 +16766,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit60:          ; preds = %52
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
   %85 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(976) %.val53, i32 noundef 0, i32 noundef 4, ptr noundef %66, ptr noundef %76, ptr noundef %84)
   %86 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refI4expr11ast_managerEaSEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %85)
-  br label %_ZNK4decl13get_family_idEv.exit.thread.thread
+  br label %_ZNK4decl13get_family_idEv.exit63
 
 _ZNK11ast_manager6is_iteEPK4expr.exit.thread:     ; preds = %52, %46, %24, %18, %_ZNK11ast_manager6is_iteEPK4expr.exit60, %63, %_ZNK11ast_manager6is_iteEPK4expr.exit
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16810,29 +16810,29 @@ _ZNK11ast_manager6is_iteEPK4expr.exit62:          ; preds = %93
 112:                                              ; preds = %107
   %113 = load ptr, ptr %3, align 8, !tbaa !265
   tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb1EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2945) %0, ptr noundef nonnull %1, ptr noundef nonnull %108, ptr noundef %113, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br label %_ZNK4decl13get_family_idEv.exit.thread.thread
+  br label %_ZNK4decl13get_family_idEv.exit63
 
 _ZNK11ast_manager6is_iteEPK4expr.exit62.thread:   ; preds = %93, %_ZNK11ast_manager6is_iteEPK4expr.exit.thread, %_ZNK11ast_manager6is_iteEPK4expr.exit62, %104, %107, %15, %9
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %115 = load ptr, ptr %114, align 8, !tbaa !319
   %116 = icmp eq ptr %115, null
-  br i1 %116, label %.thread63, label %_ZNK4decl13get_family_idEv.exit
+  br i1 %116, label %.thread, label %_ZNK4decl13get_family_idEv.exit
 
 _ZNK4decl13get_family_idEv.exit:                  ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit62.thread
   %117 = load i32, ptr %115, align 8, !tbaa !322
-  switch i32 %117, label %.thread63 [
+  switch i32 %117, label %.thread [
     i32 0, label %122
     i32 5, label %122
   ]
 
-.thread63:                                        ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit62.thread, %_ZNK4decl13get_family_idEv.exit
-  %118 = phi i32 [ %117, %_ZNK4decl13get_family_idEv.exit ], [ -1, %_ZNK11ast_manager6is_iteEPK4expr.exit62.thread ]
+.thread:                                          ; preds = %_ZNK4decl13get_family_idEv.exit, %_ZNK11ast_manager6is_iteEPK4expr.exit62.thread
+  %118 = phi i32 [ -1, %_ZNK11ast_manager6is_iteEPK4expr.exit62.thread ], [ %117, %_ZNK4decl13get_family_idEv.exit ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %120 = load i32, ptr %119, align 8, !tbaa !480
   %121 = icmp eq i32 %118, %120
-  br i1 %121, label %122, label %_ZNK4decl13get_family_idEv.exit.thread.thread
+  br i1 %121, label %122, label %_ZNK4decl13get_family_idEv.exit63
 
-122:                                              ; preds = %_ZNK4decl13get_family_idEv.exit, %_ZNK4decl13get_family_idEv.exit, %.thread63
+122:                                              ; preds = %_ZNK4decl13get_family_idEv.exit, %_ZNK4decl13get_family_idEv.exit, %.thread
   %.val47 = load ptr, ptr %0, align 8, !tbaa !341
   %123 = load ptr, ptr %3, align 8, !tbaa !265
   %124 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %.val47, ptr noundef %123)
@@ -16848,28 +16848,28 @@ _ZNK4decl13get_family_idEv.exit:                  ; preds = %_ZNK11ast_manager6i
   %130 = load ptr, ptr %126, align 8, !tbaa !265
   %131 = load ptr, ptr %3, align 8, !tbaa !265
   tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb1EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2945) %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef %131, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br label %_ZNK4decl13get_family_idEv.exit.thread.thread
+  br label %_ZNK4decl13get_family_idEv.exit63
 
 132:                                              ; preds = %125, %122
   %.val = load ptr, ptr %0, align 8, !tbaa !341
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %134 = load ptr, ptr %133, align 8, !tbaa !265
   %135 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %.val, ptr noundef %134)
-  br i1 %135, label %136, label %_ZNK4decl13get_family_idEv.exit.thread.thread
+  br i1 %135, label %136, label %_ZNK4decl13get_family_idEv.exit63
 
 136:                                              ; preds = %132
   %137 = load ptr, ptr %3, align 8, !tbaa !265
   %138 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115th_rewriter_cfg17is_ite_value_treeEP4expr(ptr noundef nonnull align 8 dereferenceable(2945) %0, ptr noundef %137)
-  br i1 %138, label %139, label %_ZNK4decl13get_family_idEv.exit.thread.thread
+  br i1 %138, label %139, label %_ZNK4decl13get_family_idEv.exit63
 
 139:                                              ; preds = %136
   %140 = load ptr, ptr %3, align 8, !tbaa !265
   %141 = load ptr, ptr %133, align 8, !tbaa !265
   tail call fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg13pull_ite_coreILb0EEE9br_statusP9func_declP3appS6_R7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2945) %0, ptr noundef nonnull %1, ptr noundef %140, ptr noundef %141, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br label %_ZNK4decl13get_family_idEv.exit.thread.thread
+  br label %_ZNK4decl13get_family_idEv.exit63
 
-_ZNK4decl13get_family_idEv.exit.thread.thread:    ; preds = %5, %129, %139, %132, %136, %.thread63, %112, %70, %44
-  %.0 = phi i32 [ 1, %44 ], [ 1, %70 ], [ 1, %112 ], [ 1, %129 ], [ 1, %139 ], [ 5, %132 ], [ 5, %136 ], [ 5, %.thread63 ], [ 5, %5 ]
+_ZNK4decl13get_family_idEv.exit63:                ; preds = %5, %129, %139, %132, %136, %.thread, %112, %70, %44
+  %.0 = phi i32 [ 1, %44 ], [ 1, %70 ], [ 1, %112 ], [ 1, %129 ], [ 1, %139 ], [ 5, %132 ], [ 5, %136 ], [ 5, %.thread ], [ 5, %5 ]
   ret i32 %.0
 }
 

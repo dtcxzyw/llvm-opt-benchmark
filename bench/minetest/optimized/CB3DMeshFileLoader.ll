@@ -7557,16 +7557,7 @@ entry:
   %TextureMatrix.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %TextureMatrix.i, align 8, !tbaa !110
   %cmp.i.i = icmp eq ptr %this, %0
-  br i1 %cmp.i.i, label %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.2.thread, label %if.else12.i.i
-
-_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.2.thread: ; preds = %entry
-  %TextureMatrix.i.15 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr null, ptr %TextureMatrix.i.15, align 8, !tbaa !110
-  %TextureMatrix.i.26 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr null, ptr %TextureMatrix.i.26, align 8, !tbaa !110
-  %TextureMatrix.i.37 = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr null, ptr %TextureMatrix.i.37, align 8, !tbaa !110
-  br label %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3
+  br i1 %cmp.i.i, label %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3.critedge, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %entry
   %1 = load ptr, ptr %0, align 8, !tbaa !102
@@ -7581,7 +7572,7 @@ if.then15.i.i:                                    ; preds = %if.else12.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.i, ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false), !tbaa.struct !152
   br label %if.else12.i.i.1
 
-if.else12.i.i.1:                                  ; preds = %if.then15.i.i, %if.else12.i.i
+if.else12.i.i.1:                                  ; preds = %if.else12.i.i, %if.then15.i.i
   %storemerge.i = phi ptr [ %call.i.i, %if.then15.i.i ], [ null, %if.else12.i.i ]
   store ptr %storemerge.i, ptr %TextureMatrix.i, align 8, !tbaa !110
   %TextureWrapU.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7763,7 +7754,16 @@ if.end21.i.i.3:                                   ; preds = %if.then15.i.i.3, %i
   store i8 %27, ptr %LODBias46.i.i.3, align 1, !tbaa !109
   br label %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3
 
-_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3:     ; preds = %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.2.thread, %if.end21.i.i.3
+_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3.critedge: ; preds = %entry
+  %TextureMatrix.i.1.c = getelementptr inbounds nuw i8, ptr %this, i64 56
+  store ptr null, ptr %TextureMatrix.i.1.c, align 8, !tbaa !110
+  %TextureMatrix.i.27 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr null, ptr %TextureMatrix.i.27, align 8, !tbaa !110
+  %TextureMatrix.i.3.c = getelementptr inbounds nuw i8, ptr %this, i64 120
+  store ptr null, ptr %TextureMatrix.i.3.c, align 8, !tbaa !110
+  br label %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3
+
+_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3:     ; preds = %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3.critedge, %if.end21.i.i.3
   %MaterialType = getelementptr inbounds nuw i8, ptr %this, i64 128
   %MaterialType3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %MaterialType, ptr noundef nonnull align 8 dereferenceable(50) %MaterialType3, i64 50, i1 false)
@@ -7776,16 +7776,7 @@ entry:
   %TextureMatrix.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %TextureMatrix.i, align 8, !tbaa !110
   %cmp.i.i = icmp eq ptr %this, %0
-  br i1 %cmp.i.i, label %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.2.thread, label %if.else12.i.i
-
-_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.2.thread: ; preds = %entry
-  %TextureMatrix.i.15 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr null, ptr %TextureMatrix.i.15, align 8, !tbaa !110
-  %TextureMatrix.i.26 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr null, ptr %TextureMatrix.i.26, align 8, !tbaa !110
-  %TextureMatrix.i.37 = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr null, ptr %TextureMatrix.i.37, align 8, !tbaa !110
-  br label %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3
+  br i1 %cmp.i.i, label %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3.critedge, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %entry
   %1 = load ptr, ptr %0, align 8, !tbaa !102
@@ -7800,7 +7791,7 @@ if.then15.i.i:                                    ; preds = %if.else12.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.i, ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false), !tbaa.struct !152
   br label %if.else12.i.i.1
 
-if.else12.i.i.1:                                  ; preds = %if.then15.i.i, %if.else12.i.i
+if.else12.i.i.1:                                  ; preds = %if.else12.i.i, %if.then15.i.i
   %storemerge.i = phi ptr [ %call.i.i, %if.then15.i.i ], [ null, %if.else12.i.i ]
   store ptr %storemerge.i, ptr %TextureMatrix.i, align 8, !tbaa !110
   %TextureWrapU.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7982,7 +7973,16 @@ if.end21.i.i.3:                                   ; preds = %if.then15.i.i.3, %i
   store i8 %27, ptr %LODBias46.i.i.3, align 1, !tbaa !109
   br label %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3
 
-_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3:     ; preds = %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.2.thread, %if.end21.i.i.3
+_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3.critedge: ; preds = %entry
+  %TextureMatrix.i.1.c = getelementptr inbounds nuw i8, ptr %this, i64 56
+  store ptr null, ptr %TextureMatrix.i.1.c, align 8, !tbaa !110
+  %TextureMatrix.i.27 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr null, ptr %TextureMatrix.i.27, align 8, !tbaa !110
+  %TextureMatrix.i.3.c = getelementptr inbounds nuw i8, ptr %this, i64 120
+  store ptr null, ptr %TextureMatrix.i.3.c, align 8, !tbaa !110
+  br label %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3
+
+_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3:     ; preds = %_ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3.critedge, %if.end21.i.i.3
   %MaterialType = getelementptr inbounds nuw i8, ptr %this, i64 128
   %MaterialType3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %MaterialType, ptr noundef nonnull align 8 dereferenceable(50) %MaterialType3, i64 50, i1 false)

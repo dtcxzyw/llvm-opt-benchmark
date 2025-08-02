@@ -39266,7 +39266,6 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   %22 = icmp eq i8 %2, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %24 = load ptr, ptr %4, align 8
-  %invariant.gep = getelementptr i8, ptr %24, i64 -8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %26 = load i32, ptr %25, align 8
   %.fr18 = freeze i32 %26
@@ -39312,85 +39311,90 @@ _ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us:    ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 8
   br label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16 ], [ 0, %.lr.ph.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %56
+  %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph.split ]
   %39 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %39, label %42, label %40
+  br i1 %39, label %43, label %40
 
 40:                                               ; preds = %.lr.ph.split.split.us
   %41 = load i64, ptr %23, align 8, !tbaa !448
+  %42 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
+  store i64 %41, ptr %42, align 8, !tbaa !23
+  br label %56
+
+43:                                               ; preds = %.lr.ph.split.split.us
+  %44 = getelementptr i64, ptr %24, i64 %indvars.iv
+  %45 = getelementptr i8, ptr %44, i64 -8
+  %46 = load i64, ptr %45, align 8, !tbaa !23
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16, label %48
+
+48:                                               ; preds = %43
+  %49 = udiv i64 -1, %46
+  %50 = uitofp i64 %49 to double
+  %51 = fcmp ogt double %27, %50
+  br i1 %51, label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16, label %52
+
+52:                                               ; preds = %48
+  %53 = uitofp i64 %46 to double
+  %54 = fmul double %53, %27
+  %55 = fptoui double %54 to i64
   br label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16
 
-42:                                               ; preds = %.lr.ph.split.split.us
-  %gep.us = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
-  %43 = load i64, ptr %gep.us, align 8, !tbaa !23
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16, label %45
+_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16:  ; preds = %52, %48, %43
+  %.0.i.us17 = phi i64 [ %55, %52 ], [ 0, %43 ], [ %46, %48 ]
+  store i64 %.0.i.us17, ptr %44, align 8, !tbaa !23
+  br label %56
 
-45:                                               ; preds = %42
-  %46 = udiv i64 -1, %43
-  %47 = uitofp i64 %46 to double
-  %48 = fcmp ogt double %27, %47
-  br i1 %48, label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16, label %49
-
-49:                                               ; preds = %45
-  %50 = uitofp i64 %43 to double
-  %51 = fmul double %50, %27
-  %52 = fptoui double %51 to i64
-  br label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16
-
-_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16:  ; preds = %42, %45, %49, %40
-  %.0.i.us17.sink = phi i64 [ %41, %40 ], [ %52, %49 ], [ 0, %42 ], [ %43, %45 ]
-  %53 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
-  store i64 %.0.i.us17.sink, ptr %53, align 8, !tbaa !23
+56:                                               ; preds = %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !451
 
-._crit_edge:                                      ; preds = %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16, %69, %37, %_ZNSt6vectorImSaImEE6resizeEm.exit
+._crit_edge:                                      ; preds = %56, %73, %37, %_ZNSt6vectorImSaImEE6resizeEm.exit
   ret void
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %69
-  %indvars.iv22 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %indvars.iv.next23, %69 ]
-  switch i64 %indvars.iv22, label %55 [
-    i64 0, label %54
-    i64 1, label %67
+.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %73
+  %indvars.iv22 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %indvars.iv.next23, %73 ]
+  switch i64 %indvars.iv22, label %58 [
+    i64 0, label %57
+    i64 1, label %71
   ]
 
-54:                                               ; preds = %.lr.ph.split.split
+57:                                               ; preds = %.lr.ph.split.split
   store i64 -1, ptr %24, align 8, !tbaa !23
-  br label %69
+  br label %73
 
-55:                                               ; preds = %.lr.ph.split.split
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv22
-  %56 = load i64, ptr %gep, align 8, !tbaa !23
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit, label %58
+58:                                               ; preds = %.lr.ph.split.split
+  %59 = getelementptr i64, ptr %24, i64 %indvars.iv22
+  %60 = getelementptr i8, ptr %59, i64 -8
+  %61 = load i64, ptr %60, align 8, !tbaa !23
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit, label %63
 
-58:                                               ; preds = %55
-  %59 = udiv i64 -1, %56
-  %60 = uitofp i64 %59 to double
-  %61 = fcmp ogt double %27, %60
-  br i1 %61, label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit, label %62
+63:                                               ; preds = %58
+  %64 = udiv i64 -1, %61
+  %65 = uitofp i64 %64 to double
+  %66 = fcmp ogt double %27, %65
+  br i1 %66, label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit, label %67
 
-62:                                               ; preds = %58
-  %63 = uitofp i64 %56 to double
-  %64 = fmul double %63, %27
-  %65 = fptoui double %64 to i64
+67:                                               ; preds = %63
+  %68 = uitofp i64 %61 to double
+  %69 = fmul double %68, %27
+  %70 = fptoui double %69 to i64
   br label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit
 
-_ZN7rocksdb21MultiplyCheckOverflowEmd.exit:       ; preds = %55, %58, %62
-  %.0.i = phi i64 [ %65, %62 ], [ 0, %55 ], [ %56, %58 ]
-  %66 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv22
-  store i64 %.0.i, ptr %66, align 8, !tbaa !23
-  br label %69
+_ZN7rocksdb21MultiplyCheckOverflowEmd.exit:       ; preds = %58, %63, %67
+  %.0.i = phi i64 [ %70, %67 ], [ 0, %58 ], [ %61, %63 ]
+  store i64 %.0.i, ptr %59, align 8, !tbaa !23
+  br label %73
 
-67:                                               ; preds = %.lr.ph.split.split
-  %68 = load i64, ptr %23, align 8, !tbaa !448
-  store i64 %68, ptr %38, align 8, !tbaa !23
-  br label %69
+71:                                               ; preds = %.lr.ph.split.split
+  %72 = load i64, ptr %23, align 8, !tbaa !448
+  store i64 %72, ptr %38, align 8, !tbaa !23
+  br label %73
 
-69:                                               ; preds = %54, %67, %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit
+73:                                               ; preds = %57, %71, %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count30
   br i1 %exitcond26.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !452

@@ -2334,6 +2334,7 @@ define noundef i32 @Bmc_FxCompute(ptr noundef %0) local_unnamed_addr #2 {
   store i32 0, ptr %17, align 4, !tbaa !10
   store i32 %spec.store.select.i, ptr %15, align 8, !tbaa !40
   %.not.i = icmp eq i32 %spec.store.select.i, 0
+  %indvars.iv59.sroa.gep70 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not.i, label %Vec_IntAlloc.exit, label %18
 
 18:                                               ; preds = %1
@@ -2420,82 +2421,82 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %wide.trip.count = zext nneg i32 %.val.val to i64
   br label %.preheader49
 
-.preheader49:                                     ; preds = %.preheader49.lr.ph, %73
-  %indvars.iv63 = phi i64 [ 0, %.preheader49.lr.ph ], [ %indvars.iv.next64, %73 ]
+.preheader49:                                     ; preds = %.preheader49.lr.ph, %72
+  %indvars.iv63 = phi i64 [ 0, %.preheader49.lr.ph ], [ %indvars.iv.next64, %72 ]
   %53 = shl nuw nsw i64 %indvars.iv63, 1
   %54 = trunc nuw i64 %53 to i32
   %invariant.op54 = add i32 %14, %54
   %55 = trunc nuw nsw i64 %indvars.iv63 to i32
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader49, %72
-  %56 = phi i1 [ true, %.preheader49 ], [ false, %72 ]
-  %indvars.iv59 = phi i64 [ 0, %.preheader49 ], [ 1, %72 ]
-  %57 = trunc nuw nsw i64 %indvars.iv59 to i32
-  %58 = mul nuw nsw i32 %factor.op.mul53, %57
-  %invariant.op.reass = add i32 %58, %invariant.op54
-  br label %59
+.preheader:                                       ; preds = %.preheader49, %71
+  %56 = phi i1 [ true, %.preheader49 ], [ false, %71 ]
+  %indvars.iv59.sroa.phi = phi ptr [ %3, %.preheader49 ], [ %indvars.iv59.sroa.gep70, %71 ]
+  %indvars.iv59 = phi i32 [ 0, %.preheader49 ], [ 1, %71 ]
+  %57 = mul nuw nsw i32 %factor.op.mul53, %indvars.iv59
+  %invariant.op.reass = add i32 %57, %invariant.op54
+  br label %58
 
-59:                                               ; preds = %.preheader, %67
-  %.not = phi i1 [ true, %.preheader ], [ false, %67 ]
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %67 ]
-  %60 = select i1 %.not, ptr @.str.23, ptr @.str.22
-  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %55, ptr noundef nonnull %60)
-  %62 = or disjoint i64 %indvars.iv, %53
-  %63 = trunc nuw nsw i64 %indvars.iv to i32
-  %.reass52 = add i32 %invariant.op.reass, %63
-  %64 = trunc nuw i64 %62 to i32
-  %65 = call i32 @Bmc_FxSolve(ptr noundef %6, i32 noundef %64, i32 noundef %.reass52, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef null)
-  switch i32 %65, label %67 [
+58:                                               ; preds = %.preheader, %66
+  %.not = phi i1 [ true, %.preheader ], [ false, %66 ]
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %66 ]
+  %59 = select i1 %.not, ptr @.str.23, ptr @.str.22
+  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %55, ptr noundef nonnull %59)
+  %61 = or disjoint i64 %indvars.iv, %53
+  %62 = trunc nuw nsw i64 %indvars.iv to i32
+  %.reass52 = add i32 %invariant.op.reass, %62
+  %63 = trunc nuw i64 %61 to i32
+  %64 = call i32 @Bmc_FxSolve(ptr noundef %6, i32 noundef %63, i32 noundef %.reass52, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef null)
+  switch i32 %64, label %66 [
     i32 0, label %.sink.split
-    i32 -1, label %66
+    i32 -1, label %65
   ]
 
-66:                                               ; preds = %59
+65:                                               ; preds = %58
   br label %.sink.split
 
-.sink.split:                                      ; preds = %59, %66
-  %str.1.sink = phi ptr [ @str.4, %66 ], [ @str.3, %59 ]
+.sink.split:                                      ; preds = %58, %65
+  %str.1.sink = phi ptr [ @str.4, %65 ], [ @str.3, %58 ]
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.1.sink)
-  br label %67
+  br label %66
 
-67:                                               ; preds = %.sink.split, %59
-  %68 = load i32, ptr %2, align 4, !tbaa !11
-  %69 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %3, i64 0, i64 %indvars.iv59, i64 %indvars.iv
-  %70 = load i32, ptr %69, align 4, !tbaa !11
-  %71 = add nsw i32 %70, %68
-  store i32 %71, ptr %69, align 4, !tbaa !11
-  br i1 %.not, label %59, label %72, !llvm.loop !95
+66:                                               ; preds = %.sink.split, %58
+  %67 = load i32, ptr %2, align 4, !tbaa !11
+  %68 = getelementptr inbounds nuw [2 x i32], ptr %indvars.iv59.sroa.phi, i64 0, i64 %indvars.iv
+  %69 = load i32, ptr %68, align 4, !tbaa !11
+  %70 = add nsw i32 %69, %67
+  store i32 %70, ptr %68, align 4, !tbaa !11
+  br i1 %.not, label %58, label %71, !llvm.loop !95
 
-72:                                               ; preds = %67
-  br i1 %56, label %.preheader, label %73, !llvm.loop !96
+71:                                               ; preds = %66
+  br i1 %56, label %.preheader, label %72, !llvm.loop !96
 
-73:                                               ; preds = %72
+72:                                               ; preds = %71
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
   br i1 %exitcond66.not, label %._crit_edge57, label %.preheader49, !llvm.loop !97
 
-._crit_edge57:                                    ; preds = %73, %._crit_edge
+._crit_edge57:                                    ; preds = %72, %._crit_edge
   %.not.i48 = icmp eq ptr %49, null
-  br i1 %.not.i48, label %Vec_IntFree.exit, label %74
+  br i1 %.not.i48, label %Vec_IntFree.exit, label %73
 
-74:                                               ; preds = %._crit_edge57
+73:                                               ; preds = %._crit_edge57
   call void @free(ptr noundef nonnull %49) #18
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %._crit_edge57, %74
+Vec_IntFree.exit:                                 ; preds = %._crit_edge57, %73
   call void @free(ptr noundef nonnull %15) #18
   call void @sat_solver_delete(ptr noundef %6) #18
   call void @Cnf_DataFree(ptr noundef %5) #18
   call void @Gia_ManStop(ptr noundef %4) #18
-  %75 = load i32, ptr %3, align 16, !tbaa !11
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !11
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i32, ptr %78, align 8, !tbaa !11
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %81 = load i32, ptr %80, align 4, !tbaa !11
-  %82 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %75, i32 noundef %77, i32 noundef %79, i32 noundef %81)
+  %74 = load i32, ptr %3, align 16, !tbaa !11
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %76 = load i32, ptr %75, align 4, !tbaa !11
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %78 = load i32, ptr %77, align 8, !tbaa !11
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %80 = load i32, ptr %79, align 4, !tbaa !11
+  %81 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %74, i32 noundef %76, i32 noundef %78, i32 noundef %80)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #18
   ret i32 1

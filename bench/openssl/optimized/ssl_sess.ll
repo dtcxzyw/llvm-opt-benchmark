@@ -854,7 +854,7 @@ define ptr @lookup_sess_in_cache(ptr noundef readonly captures(none) %0, ptr nou
   %9 = load i32, ptr %8, align 8, !tbaa !132
   %10 = and i32 %9, 256
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %.thread50
+  br i1 %11, label %12, label %.thread49
 
 12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 928, ptr nonnull %4) #11
@@ -862,7 +862,7 @@ define ptr @lookup_sess_in_cache(ptr noundef readonly captures(none) %0, ptr nou
   %14 = load i32, ptr %13, align 8, !tbaa !95
   store i32 %14, ptr %4, align 8, !tbaa !129
   %15 = icmp ult i64 %2, 33
-  br i1 %15, label %16, label %34, !prof !133
+  br i1 %15, label %16, label %.critedge, !prof !133
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 600
@@ -873,7 +873,7 @@ define ptr @lookup_sess_in_cache(ptr noundef readonly captures(none) %0, ptr nou
   %20 = load ptr, ptr %19, align 8, !tbaa !99
   %21 = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %20) #11
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %34, label %22
+  br i1 %.not, label %.critedge, label %22
 
 22:                                               ; preds = %16
   %23 = load ptr, ptr %6, align 8, !tbaa !98
@@ -881,9 +881,9 @@ define ptr @lookup_sess_in_cache(ptr noundef readonly captures(none) %0, ptr nou
   %25 = load ptr, ptr %24, align 8, !tbaa !134
   %26 = call ptr @OPENSSL_LH_retrieve(ptr noundef %25, ptr noundef nonnull %4) #11
   %.not41 = icmp eq ptr %26, null
-  br i1 %.not41, label %.thread52, label %35
+  br i1 %.not41, label %.thread51, label %34
 
-.thread52:                                        ; preds = %22
+.thread51:                                        ; preds = %22
   %27 = load ptr, ptr %6, align 8, !tbaa !98
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1024
   %29 = load ptr, ptr %28, align 8, !tbaa !99
@@ -893,89 +893,89 @@ define ptr @lookup_sess_in_cache(ptr noundef readonly captures(none) %0, ptr nou
   %33 = atomicrmw add ptr %32, i32 1 monotonic, align 4
   call void @llvm.lifetime.end.p0(i64 928, ptr nonnull %4) #11
   %.pre = load ptr, ptr %6, align 8, !tbaa !98
-  br label %.thread50
+  br label %.thread49
 
-34:                                               ; preds = %16, %12
+34:                                               ; preds = %22
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 920
+  %36 = atomicrmw add ptr %35, i32 1 monotonic, align 4
+  %37 = load ptr, ptr %6, align 8, !tbaa !98
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1024
+  %39 = load ptr, ptr %38, align 8, !tbaa !99
+  %40 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %39) #11
   call void @llvm.lifetime.end.p0(i64 928, ptr nonnull %4) #11
-  br label %73
-
-35:                                               ; preds = %22
-  %36 = getelementptr inbounds nuw i8, ptr %26, i64 920
-  %37 = atomicrmw add ptr %36, i32 1 monotonic, align 4
-  %38 = load ptr, ptr %6, align 8, !tbaa !98
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1024
-  %40 = load ptr, ptr %39, align 8, !tbaa !99
-  %41 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %40) #11
-  call void @llvm.lifetime.end.p0(i64 928, ptr nonnull %4) #11
-  br label %73
-
-.thread50:                                        ; preds = %3, %.thread52
-  %42 = phi ptr [ %7, %3 ], [ %.pre, %.thread52 ]
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 112
-  %44 = load ptr, ptr %43, align 8, !tbaa !135
-  %.not42 = icmp eq ptr %44, null
-  br i1 %.not42, label %73, label %45
-
-45:                                               ; preds = %.thread50
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
-  store i32 1, ptr %5, align 4, !tbaa !92
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %47 = load ptr, ptr %46, align 8, !tbaa !136
-  %48 = trunc i64 %2 to i32
-  %49 = call ptr %44(ptr noundef %47, ptr noundef %1, i32 noundef %48, ptr noundef nonnull %5) #11
-  %.not43 = icmp eq ptr %49, null
-  br i1 %.not43, label %72, label %50
-
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 688
-  %52 = load i32, ptr %51, align 8, !tbaa !90
-  %.not44 = icmp eq i32 %52, 0
-  br i1 %.not44, label %56, label %53
-
-53:                                               ; preds = %50
-  %54 = load i32, ptr %5, align 4, !tbaa !92
-  %.not46 = icmp eq i32 %54, 0
-  br i1 %.not46, label %55, label %.critedge
-
-55:                                               ; preds = %53
-  call void @SSL_SESSION_free(ptr noundef nonnull %49)
-  br label %.critedge
-
-56:                                               ; preds = %50
-  %57 = load ptr, ptr %6, align 8, !tbaa !98
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 160
-  %59 = atomicrmw add ptr %58, i32 1 monotonic, align 4
-  %60 = load i32, ptr %5, align 4, !tbaa !92
-  %.not45 = icmp eq i32 %60, 0
-  br i1 %.not45, label %64, label %61
-
-61:                                               ; preds = %56
-  %62 = getelementptr inbounds nuw i8, ptr %49, i64 920
-  %63 = atomicrmw add ptr %62, i32 1 monotonic, align 4
-  br label %64
-
-64:                                               ; preds = %61, %56
-  %65 = load ptr, ptr %6, align 8, !tbaa !98
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 80
-  %67 = load i32, ptr %66, align 8, !tbaa !132
-  %68 = and i32 %67, 512
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %72
-
-70:                                               ; preds = %64
-  %71 = call i32 @SSL_CTX_add_session(ptr noundef nonnull %65, ptr noundef nonnull %49)
   br label %72
 
-72:                                               ; preds = %45, %70, %64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  br label %73
+.thread49:                                        ; preds = %3, %.thread51
+  %41 = phi ptr [ %7, %3 ], [ %.pre, %.thread51 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 112
+  %43 = load ptr, ptr %42, align 8, !tbaa !135
+  %.not42 = icmp eq ptr %43, null
+  br i1 %.not42, label %72, label %44
 
-.critedge:                                        ; preds = %53, %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  br label %73
+44:                                               ; preds = %.thread49
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  store i32 1, ptr %5, align 4, !tbaa !92
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %46 = load ptr, ptr %45, align 8, !tbaa !136
+  %47 = trunc i64 %2 to i32
+  %48 = call ptr %43(ptr noundef %46, ptr noundef %1, i32 noundef %47, ptr noundef nonnull %5) #11
+  %.not43 = icmp eq ptr %48, null
+  br i1 %.not43, label %71, label %49
 
-73:                                               ; preds = %35, %34, %.thread50, %72, %.critedge
-  %.237 = phi ptr [ null, %34 ], [ null, %.critedge ], [ %49, %72 ], [ null, %.thread50 ], [ %26, %35 ]
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 688
+  %51 = load i32, ptr %50, align 8, !tbaa !90
+  %.not44 = icmp eq i32 %51, 0
+  br i1 %.not44, label %55, label %52
+
+52:                                               ; preds = %49
+  %53 = load i32, ptr %5, align 4, !tbaa !92
+  %.not46 = icmp eq i32 %53, 0
+  br i1 %.not46, label %54, label %.critedge48
+
+54:                                               ; preds = %52
+  call void @SSL_SESSION_free(ptr noundef nonnull %48)
+  br label %.critedge48
+
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %6, align 8, !tbaa !98
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 160
+  %58 = atomicrmw add ptr %57, i32 1 monotonic, align 4
+  %59 = load i32, ptr %5, align 4, !tbaa !92
+  %.not45 = icmp eq i32 %59, 0
+  br i1 %.not45, label %63, label %60
+
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 920
+  %62 = atomicrmw add ptr %61, i32 1 monotonic, align 4
+  br label %63
+
+63:                                               ; preds = %60, %55
+  %64 = load ptr, ptr %6, align 8, !tbaa !98
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 80
+  %66 = load i32, ptr %65, align 8, !tbaa !132
+  %67 = and i32 %66, 512
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %71
+
+69:                                               ; preds = %63
+  %70 = call i32 @SSL_CTX_add_session(ptr noundef nonnull %64, ptr noundef nonnull %48)
+  br label %71
+
+71:                                               ; preds = %44, %69, %63
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  br label %72
+
+.critedge:                                        ; preds = %16, %12
+  call void @llvm.lifetime.end.p0(i64 928, ptr nonnull %4) #11
+  br label %72
+
+.critedge48:                                      ; preds = %52, %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  br label %72
+
+72:                                               ; preds = %34, %.thread49, %71, %.critedge48, %.critedge
+  %.237 = phi ptr [ null, %.critedge ], [ null, %.critedge48 ], [ %48, %71 ], [ null, %.thread49 ], [ %26, %34 ]
   ret ptr %.237
 }
 

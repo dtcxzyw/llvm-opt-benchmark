@@ -624,9 +624,9 @@ mi_os_prim_free.exit.i:                           ; preds = %71, %62
   call void @_mi_stat_counter_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 496), i64 noundef 1) #7
   %83 = load ptr, ptr %6, align 8, !tbaa !26
   %.not25.i.i.i = icmp eq ptr %83, null
-  br i1 %.not25.i.i.i, label %mi_os_prim_alloc.exit.thread94.i, label %mi_os_prim_alloc.exit.i
+  br i1 %.not25.i.i.i, label %mi_os_prim_alloc.exit.thread93.i, label %mi_os_prim_alloc.exit.i
 
-mi_os_prim_alloc.exit.thread94.i:                 ; preds = %82
+mi_os_prim_alloc.exit.thread93.i:                 ; preds = %82
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   br label %mi_os_prim_alloc_aligned.exit.thread
 
@@ -652,9 +652,9 @@ mi_align_up_ptr.exit.i:                           ; preds = %mi_os_prim_alloc.ex
 92:                                               ; preds = %73
   %93 = call fastcc ptr @mi_os_prim_alloc(i64 noundef %74, i64 noundef 1, i1 noundef zeroext %2, i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %mi_os_prim_alloc_aligned.exit.thread, label %mi_align_up_ptr.exit90.i
+  br i1 %94, label %mi_os_prim_alloc_aligned.exit.thread, label %mi_align_up_ptr.exit89.i
 
-mi_align_up_ptr.exit90.i:                         ; preds = %92
+mi_align_up_ptr.exit89.i:                         ; preds = %92
   %95 = ptrtoint ptr %93 to i64
   %96 = add i64 %59, %95
   %97 = sub i64 0, %.0.i17
@@ -668,34 +668,34 @@ mi_align_up_ptr.exit90.i:                         ; preds = %92
   %105 = add i64 %104, %101
   br i1 %103, label %106, label %109
 
-106:                                              ; preds = %mi_align_up_ptr.exit90.i
+106:                                              ; preds = %mi_align_up_ptr.exit89.i
   %107 = sub i64 0, %101
   %108 = and i64 %105, %107
-  br label %_mi_align_up.exit92.i
+  br label %_mi_align_up.exit91.i
 
-109:                                              ; preds = %mi_align_up_ptr.exit90.i
+109:                                              ; preds = %mi_align_up_ptr.exit89.i
   %110 = urem i64 %105, %101
   %111 = sub nuw i64 %105, %110
-  br label %_mi_align_up.exit92.i
+  br label %_mi_align_up.exit91.i
 
-_mi_align_up.exit92.i:                            ; preds = %109, %106
-  %.0.i91.i = phi i64 [ %108, %106 ], [ %111, %109 ]
-  %112 = add i64 %.0.i91.i, %100
+_mi_align_up.exit91.i:                            ; preds = %109, %106
+  %.0.i90.i = phi i64 [ %108, %106 ], [ %111, %109 ]
+  %112 = add i64 %.0.i90.i, %100
   %113 = sub i64 %74, %112
   %.not84.i = icmp eq ptr %93, %99
   br i1 %.not84.i, label %116, label %114
 
-114:                                              ; preds = %_mi_align_up.exit92.i
+114:                                              ; preds = %_mi_align_up.exit91.i
   %115 = select i1 %2, i64 %100, i64 0
   call fastcc void @mi_os_prim_free(ptr noundef nonnull %93, i64 noundef %100, i64 noundef %115) #8
   br label %116
 
-116:                                              ; preds = %114, %_mi_align_up.exit92.i
+116:                                              ; preds = %114, %_mi_align_up.exit91.i
   %.not85.i = icmp eq i64 %74, %112
   br i1 %.not85.i, label %mi_os_prim_alloc_aligned.exit, label %117
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds nuw i8, ptr %99, i64 %.0.i91.i
+  %118 = getelementptr inbounds nuw i8, ptr %99, i64 %.0.i90.i
   %119 = select i1 %2, i64 %113, i64 0
   call fastcc void @mi_os_prim_free(ptr noundef %118, i64 noundef %113, i64 noundef %119) #8
   br label %mi_os_prim_alloc_aligned.exit
@@ -739,8 +739,8 @@ mi_os_prim_alloc_aligned.exit.thread26:           ; preds = %mi_os_prim_alloc_al
   store i64 %127, ptr %125, align 8, !tbaa !21
   br label %mi_os_prim_alloc_aligned.exit.thread
 
-mi_os_prim_alloc_aligned.exit.thread:             ; preds = %77, %mi_os_prim_alloc.exit.thread94.i, %92, %mi_os_prim_alloc.exit.i, %mi_os_prim_free.exit.i, %_mi_align_up.exit.i, %_mi_align_up.exit, %mi_os_prim_alloc_aligned.exit.thread26, %mi_os_prim_alloc_aligned.exit
-  %.0.i1925 = phi ptr [ %.0.i1931, %mi_os_prim_alloc_aligned.exit.thread26 ], [ null, %mi_os_prim_alloc_aligned.exit ], [ null, %_mi_align_up.exit ], [ null, %_mi_align_up.exit.i ], [ null, %mi_os_prim_free.exit.i ], [ null, %mi_os_prim_alloc.exit.i ], [ null, %92 ], [ null, %mi_os_prim_alloc.exit.thread94.i ], [ null, %77 ]
+mi_os_prim_alloc_aligned.exit.thread:             ; preds = %77, %mi_os_prim_alloc.exit.thread93.i, %mi_os_prim_alloc.exit.i, %92, %mi_os_prim_free.exit.i, %_mi_align_up.exit.i, %_mi_align_up.exit, %mi_os_prim_alloc_aligned.exit.thread26, %mi_os_prim_alloc_aligned.exit
+  %.0.i1925 = phi ptr [ %.0.i1931, %mi_os_prim_alloc_aligned.exit.thread26 ], [ null, %mi_os_prim_alloc_aligned.exit ], [ null, %_mi_align_up.exit ], [ null, %_mi_align_up.exit.i ], [ null, %mi_os_prim_free.exit.i ], [ null, %92 ], [ null, %mi_os_prim_alloc.exit.i ], [ null, %mi_os_prim_alloc.exit.thread93.i ], [ null, %77 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
   br label %128

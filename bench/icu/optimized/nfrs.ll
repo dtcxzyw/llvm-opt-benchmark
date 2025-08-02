@@ -417,7 +417,7 @@ define void @_ZN6icu_779NFRuleSet10parseRulesERNS_13UnicodeStringER10UErrorCode(
   %4 = alloca %"class.icu_77::UnicodeString", align 8
   %5 = load i32, ptr %2, align 4, !tbaa !27
   %6 = icmp slt i32 %5, 1
-  br i1 %6, label %7, label %106
+  br i1 %6, label %7, label %105
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -508,8 +508,8 @@ _ZNK6icu_7713UnicodeString8pinIndexERi.exit.i:    ; preds = %_ZNK6icu_7713Unicod
   %45 = phi i32 [ %40, %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i.lr.ph ], [ %86, %80 ]
   %46 = phi i32 [ %39, %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i.lr.ph ], [ %85, %80 ]
   %47 = phi i1 [ %37, %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i.lr.ph ], [ %83, %80 ]
-  %.048 = phi i32 [ 0, %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i.lr.ph ], [ %81, %80 ]
-  %.0.i = call i32 @llvm.smax.i32(i32 %.048, i32 0)
+  %.045 = phi i32 [ 0, %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i.lr.ph ], [ %81, %80 ]
+  %.0.i = call i32 @llvm.smax.i32(i32 %.045, i32 0)
   %48 = select i1 %47, i32 %45, i32 %46
   %49 = sub nsw i32 %48, %.0.i
   %50 = invoke noundef i32 @_ZNK6icu_7713UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, i16 noundef zeroext 59, i32 noundef %.0.i, i32 noundef %49)
@@ -531,7 +531,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit:      ; preds = %_ZNK6icu_7713Unicod
 59:                                               ; preds = %.noexc, %61, %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i, %_ZNK6icu_7710NFRuleList4lastEv.exit
   %60 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %106
 
 61:                                               ; preds = %52, %_ZNK6icu_7713UnicodeString7indexOfEDsi.exit
   %.038 = phi i32 [ %50, %_ZNK6icu_7713UnicodeString7indexOfEDsi.exit ], [ %58, %52 ]
@@ -539,14 +539,14 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit:      ; preds = %_ZNK6icu_7713Unicod
           to label %.noexc unwind label %59
 
 .noexc:                                           ; preds = %61
-  %62 = sub nsw i32 %.038, %.048
+  %62 = sub nsw i32 %.038, %.045
   %63 = load i16, ptr %33, align 8, !tbaa !6
   %64 = icmp slt i16 %63, 0
   %65 = ashr i16 %63, 5
   %66 = sext i16 %65 to i32
   %67 = load i32, ptr %43, align 4
   %68 = select i1 %64, i32 %67, i32 %66
-  %69 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0, i32 noundef %68, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.048, i32 noundef %62)
+  %69 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0, i32 noundef %68, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.045, i32 noundef %62)
           to label %_ZN6icu_7713UnicodeString5setToERKS0_ii.exit unwind label %59
 
 _ZN6icu_7713UnicodeString5setToERKS0_ii.exit:     ; preds = %.noexc
@@ -593,9 +593,9 @@ _ZNK6icu_7710NFRuleListixEj.exit.lr.ph:           ; preds = %._crit_edge
   %wide.trip.count = zext nneg i32 %89 to i64
   br label %_ZNK6icu_7710NFRuleListixEj.exit
 
-_ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph, %103
-  %indvars.iv = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph ], [ %indvars.iv.next, %103 ]
-  %.03649 = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph ], [ %spec.select, %103 ]
+_ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph, %102
+  %indvars.iv = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph ], [ %indvars.iv.next, %102 ]
+  %.03646 = phi i64 [ 0, %_ZNK6icu_7710NFRuleListixEj.exit.lr.ph ], [ %spec.select, %102 ]
   %92 = load ptr, ptr %8, align 8, !tbaa !19, !nonnull !40, !noundef !40
   %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
   %94 = load ptr, ptr %93, align 8, !tbaa !25
@@ -604,41 +604,41 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %_ZNK6icu_7710NFRule
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %_ZNK6icu_7710NFRuleListixEj.exit
-  invoke void @_ZN6icu_776NFRule12setBaseValueElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %94, i64 noundef %.03649, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %103 unwind label %98
+  invoke void @_ZN6icu_776NFRule12setBaseValueElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %94, i64 noundef %.03646, ptr noundef nonnull align 4 dereferenceable(4) %2)
+          to label %102 unwind label %98
 
 98:                                               ; preds = %97
   %99 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %106
 
 100:                                              ; preds = %_ZNK6icu_7710NFRuleListixEj.exit
-  %101 = icmp slt i64 %95, %.03649
-  br i1 %101, label %102, label %103
+  %101 = icmp slt i64 %95, %.03646
+  br i1 %101, label %.critedge, label %102
 
-102:                                              ; preds = %100
+.critedge:                                        ; preds = %100
   store i32 9, ptr %2, align 4, !tbaa !27
   br label %.loopexit
 
-103:                                              ; preds = %97, %100
-  %.137 = phi i64 [ %.03649, %97 ], [ %95, %100 ]
-  %104 = load i8, ptr %91, align 8, !tbaa !22
-  %.not41 = icmp eq i8 %104, 0
-  %105 = zext i1 %.not41 to i64
-  %spec.select = add nuw nsw i64 %.137, %105
+102:                                              ; preds = %100, %97
+  %.137 = phi i64 [ %.03646, %97 ], [ %95, %100 ]
+  %103 = load i8, ptr %91, align 8, !tbaa !22
+  %.not41 = icmp eq i8 %103, 0
+  %104 = zext i1 %.not41 to i64
+  %spec.select = add nuw nsw i64 %.137, %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %_ZNK6icu_7710NFRuleListixEj.exit, !llvm.loop !47
 
-.loopexit:                                        ; preds = %103, %._crit_edge, %102
+.loopexit:                                        ; preds = %102, %._crit_edge, %.critedge
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
-  br label %106
+  br label %105
 
-106:                                              ; preds = %3, %.loopexit
+105:                                              ; preds = %3, %.loopexit
   ret void
 
-107:                                              ; preds = %98, %59
+106:                                              ; preds = %98, %59
   %.pn = phi { ptr, i32 } [ %60, %59 ], [ %99, %98 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15

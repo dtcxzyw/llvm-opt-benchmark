@@ -821,7 +821,7 @@ define internal fastcc void @requeue_pi_wake_futex(ptr noundef initializes((72, 
   %13 = load volatile i32, ptr %12, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !18
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %.thread, label %.lr.ph
+  br i1 %14, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %24
   %15 = phi i32 [ %25, %24 ], [ %13, %9 ]
@@ -841,14 +841,14 @@ define internal fastcc void @requeue_pi_wake_futex(ptr noundef initializes((72, 
   %22 = icmp ult i8 %21, 2
   tail call void @llvm.assume(i1 %22)
   %23 = icmp eq i8 %21, 0
-  br i1 %23, label %24, label %.thread, !prof !7
+  br i1 %23, label %24, label %.critedge, !prof !7
 
 24:                                               ; preds = %19
   %25 = extractvalue { i8, i32 } %20, 1
   %26 = icmp eq i32 %25, 1
-  br i1 %26, label %.thread, label %.lr.ph, !llvm.loop !32
+  br i1 %26, label %.critedge, label %.lr.ph, !llvm.loop !32
 
-.thread:                                          ; preds = %24, %19, %9
+.critedge:                                        ; preds = %24, %19, %9
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @wake_up_state(ptr noundef %28, i32 noundef 3) #10
@@ -862,7 +862,7 @@ define internal fastcc void @futex_requeue_pi_complete(ptr noundef %0, i32 nound
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !18
   %5 = add nuw i32 %1, 4
   %6 = icmp eq i32 %4, 1
-  br i1 %6, label %.thread, label %.lr.ph
+  br i1 %6, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = icmp sgt i32 %1, -1
@@ -886,12 +886,12 @@ define internal fastcc void @futex_requeue_pi_complete(ptr noundef %0, i32 nound
   %15 = icmp ult i8 %14, 2
   tail call void @llvm.assume(i1 %15)
   %16 = icmp eq i8 %14, 0
-  br i1 %16, label %17, label %.thread, !prof !7
+  br i1 %16, label %17, label %.critedge, !prof !7
 
 17:                                               ; preds = %12
   %18 = extractvalue { i8, i32 } %13, 1
   %19 = icmp eq i32 %18, 1
-  br i1 %19, label %.thread, label %.lr.ph.split.us, !llvm.loop !33
+  br i1 %19, label %.critedge, label %.lr.ph.split.us, !llvm.loop !33
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %29
   %20 = phi i32 [ %30, %29 ], [ %4, %.lr.ph ]
@@ -916,14 +916,14 @@ define internal fastcc void @futex_requeue_pi_complete(ptr noundef %0, i32 nound
   %27 = icmp ult i8 %26, 2
   tail call void @llvm.assume(i1 %27)
   %28 = icmp eq i8 %26, 0
-  br i1 %28, label %29, label %.thread, !prof !7
+  br i1 %28, label %29, label %.critedge, !prof !7
 
 29:                                               ; preds = %23
   %30 = extractvalue { i8, i32 } %25, 1
   %31 = icmp eq i32 %30, 1
-  br i1 %31, label %.thread, label %.lr.ph.split, !llvm.loop !32
+  br i1 %31, label %.critedge, label %.lr.ph.split, !llvm.loop !32
 
-.thread:                                          ; preds = %29, %23, %17, %12, %2
+.critedge:                                        ; preds = %29, %23, %17, %12, %2
   ret void
 }
 

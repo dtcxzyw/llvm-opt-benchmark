@@ -2402,13 +2402,13 @@ tls_release_write_buffer.exit:                    ; preds = %24, %1
   br label %42
 
 42:                                               ; preds = %40, %tls_release_write_buffer.exit
-  %43 = getelementptr i8, ptr %0, i64 1792
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   br label %44
 
 44:                                               ; preds = %44, %42
   %.06.i = phi i64 [ 0, %42 ], [ %47, %44 ]
   %.idx = mul nuw nsw i64 %.06.i, 72
-  %45 = getelementptr i8, ptr %43, i64 %.idx
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx
   %46 = load ptr, ptr %45, align 8, !tbaa !96
   tail call void @CRYPTO_free(ptr noundef %46, ptr noundef nonnull @.str, i32 noundef 37) #13
   store ptr null, ptr %45, align 8, !tbaa !96
@@ -3187,7 +3187,6 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
   br i1 %116, label %118, label %.preheader
 
 .preheader:                                       ; preds = %109
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 128
   %117 = load i64, ptr %7, align 8, !tbaa !24
   %.not149 = icmp eq i64 %117, %33
   br i1 %.not149, label %.loopexit, label %.lr.ph140
@@ -3205,8 +3204,8 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
   br label %.loopexit
 
 .lr.ph140:                                        ; preds = %.preheader, %134
-  %123 = phi i64 [ %138, %134 ], [ %117, %.preheader ]
-  %.1139 = phi i64 [ %137, %134 ], [ 0, %.preheader ]
+  %123 = phi i64 [ %140, %134 ], [ %117, %.preheader ]
+  %.1139 = phi i64 [ %139, %134 ], [ 0, %.preheader ]
   %124 = getelementptr inbounds nuw [33 x %struct.wpacket_st], ptr %4, i64 0, i64 %.1139
   %125 = getelementptr inbounds nuw [33 x %struct.tls_rl_record_st], ptr %5, i64 0, i64 %.1139
   %126 = icmp ult i64 %.1139, %123
@@ -3224,28 +3223,29 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
   %135 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %136 = load i64, ptr %135, align 8, !tbaa !65
   %.idx = mul nuw nsw i64 %.1139, 48
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  store i64 %136, ptr %gep, align 8, !tbaa !45
-  %137 = add nuw i64 %.1139, 1
-  %138 = load i64, ptr %7, align 8, !tbaa !24
-  %139 = add i64 %138, %2
-  %140 = icmp ult i64 %137, %139
-  br i1 %140, label %.lr.ph140, label %.loopexit, !llvm.loop !144
+  %137 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
+  store i64 %136, ptr %138, align 8, !tbaa !45
+  %139 = add nuw i64 %.1139, 1
+  %140 = load i64, ptr %7, align 8, !tbaa !24
+  %141 = add i64 %140, %2
+  %142 = icmp ult i64 %139, %141
+  br i1 %142, label %.lr.ph140, label %.loopexit, !llvm.loop !144
 
 .loopexit:                                        ; preds = %.lr.ph140, %134, %.preheader, %.thread, %118, %122, %104, %108, %25, %19, %18
   %.099 = phi i32 [ 0, %18 ], [ 0, %108 ], [ 0, %104 ], [ 0, %122 ], [ 0, %118 ], [ 0, %25 ], [ 0, %19 ], [ 0, %.thread ], [ 1, %.preheader ], [ 0, %.lr.ph140 ], [ 1, %134 ]
-  %141 = load i64, ptr %6, align 8, !tbaa !24
-  %.not150 = icmp eq i64 %141, 0
+  %143 = load i64, ptr %6, align 8, !tbaa !24
+  %.not150 = icmp eq i64 %143, 0
   br i1 %.not150, label %._crit_edge147, label %.lr.ph146
 
 .lr.ph146:                                        ; preds = %.loopexit, %.lr.ph146
-  %.2144 = phi i64 [ %143, %.lr.ph146 ], [ 0, %.loopexit ]
-  %142 = getelementptr inbounds nuw [33 x %struct.wpacket_st], ptr %4, i64 0, i64 %.2144
-  call void @WPACKET_cleanup(ptr noundef nonnull %142) #13
-  %143 = add nuw i64 %.2144, 1
-  %144 = load i64, ptr %6, align 8, !tbaa !24
-  %145 = icmp ult i64 %143, %144
-  br i1 %145, label %.lr.ph146, label %._crit_edge147, !llvm.loop !145
+  %.2144 = phi i64 [ %145, %.lr.ph146 ], [ 0, %.loopexit ]
+  %144 = getelementptr inbounds nuw [33 x %struct.wpacket_st], ptr %4, i64 0, i64 %.2144
+  call void @WPACKET_cleanup(ptr noundef nonnull %144) #13
+  %145 = add nuw i64 %.2144, 1
+  %146 = load i64, ptr %6, align 8, !tbaa !24
+  %147 = icmp ult i64 %145, %146
+  br i1 %147, label %.lr.ph146, label %._crit_edge147, !llvm.loop !145
 
 ._crit_edge147:                                   ; preds = %.lr.ph146, %.loopexit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #13
@@ -3273,8 +3273,8 @@ define i32 @tls_write_records(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0
 
 8:                                                ; preds = %3
   %.idx = mul nuw nsw i64 %5, 48
-  %9 = getelementptr i8, ptr %0, i64 128
-  %10 = getelementptr i8, ptr %9, i64 %.idx
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %11 = load i64, ptr %10, align 8, !tbaa !45
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %.critedge, label %13, !prof !76

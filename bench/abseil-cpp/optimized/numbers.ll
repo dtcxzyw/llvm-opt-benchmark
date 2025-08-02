@@ -1916,9 +1916,9 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i6.i
 
 .lr.ph.i6.i:                                      ; preds = %68, %82
-  %.02642.i.i = phi i32 [ %83, %82 ], [ 0, %68 ]
-  %.02841.i.i = phi ptr [ %84, %82 ], [ %.2.i.i, %68 ]
-  %71 = load i8, ptr %.02841.i.i, align 1, !tbaa !8
+  %.02640.i.i = phi i32 [ %83, %82 ], [ 0, %68 ]
+  %.02839.i.i = phi ptr [ %84, %82 ], [ %.2.i.i, %68 ]
+  %71 = load i8, ptr %.02839.i.i, align 1, !tbaa !8
   %72 = zext i8 %71 to i64
   %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !8
@@ -1927,20 +1927,20 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   br i1 %.not.i7.i, label %76, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
 
 76:                                               ; preds = %.lr.ph.i6.i
-  %77 = icmp sgt i32 %.02642.i.i, %70
+  %77 = icmp sgt i32 %.02640.i.i, %70
   br i1 %77, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %78
 
 78:                                               ; preds = %76
-  %79 = mul nsw i32 %.02642.i.i, %.0.i.i
+  %79 = mul nsw i32 %.02640.i.i, %.0.i.i
   %80 = sub nsw i32 2147483647, %75
   %81 = icmp sgt i32 %79, %80
   br i1 %81, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %82
 
 82:                                               ; preds = %78
   %83 = add nsw i32 %79, %75
-  %84 = getelementptr inbounds nuw i8, ptr %.02841.i.i, i64 1
-  %.not44.i.i = icmp ult ptr %84, %66
-  br i1 %.not44.i.i, label %.lr.ph.i6.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !35
+  %84 = getelementptr inbounds nuw i8, ptr %.02839.i.i, i64 1
+  %.not42.i.i = icmp ult ptr %84, %66
+  br i1 %.not42.i.i, label %.lr.ph.i6.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !35
 
 85:                                               ; preds = %62
   %86 = getelementptr inbounds nuw [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVminOverBaseE, i64 0, i64 %65
@@ -1948,9 +1948,9 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i9.i
 
 .lr.ph.i9.i:                                      ; preds = %85, %99
-  %.02744.i.i = phi i32 [ %100, %99 ], [ 0, %85 ]
-  %.03043.i.i = phi ptr [ %101, %99 ], [ %.2.i.i, %85 ]
-  %88 = load i8, ptr %.03043.i.i, align 1, !tbaa !8
+  %.02742.i.i = phi i32 [ %100, %99 ], [ 0, %85 ]
+  %.03041.i.i = phi ptr [ %101, %99 ], [ %.2.i.i, %85 ]
+  %88 = load i8, ptr %.03041.i.i, align 1, !tbaa !8
   %89 = zext i8 %88 to i64
   %90 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !8
@@ -1959,25 +1959,25 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   br i1 %.not.i10.i, label %93, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
 
 93:                                               ; preds = %.lr.ph.i9.i
-  %94 = icmp slt i32 %.02744.i.i, %87
+  %94 = icmp slt i32 %.02742.i.i, %87
   br i1 %94, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %95
 
 95:                                               ; preds = %93
-  %96 = mul nsw i32 %.02744.i.i, %.0.i.i
+  %96 = mul nsw i32 %.02742.i.i, %.0.i.i
   %97 = or i32 %92, -2147483648
   %98 = icmp slt i32 %96, %97
   br i1 %98, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %99
 
 99:                                               ; preds = %95
   %100 = sub nsw i32 %96, %92
-  %101 = getelementptr inbounds nuw i8, ptr %.03043.i.i, i64 1
-  %.not46.i.i = icmp ult ptr %101, %66
-  br i1 %.not46.i.i, label %.lr.ph.i9.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !36
+  %101 = getelementptr inbounds nuw i8, ptr %.03041.i.i, i64 1
+  %.not44.i.i = icmp ult ptr %101, %66
+  br i1 %.not44.i.i, label %.lr.ph.i9.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !36
 
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i: ; preds = %82, %78, %76, %.lr.ph.i6.i, %99, %95, %93, %.lr.ph.i9.i, %85, %68
-  %.sink.i12.sink.i = phi i32 [ 0, %68 ], [ 0, %85 ], [ %.02744.i.i, %.lr.ph.i9.i ], [ -2147483648, %93 ], [ -2147483648, %95 ], [ %100, %99 ], [ %.02642.i.i, %.lr.ph.i6.i ], [ 2147483647, %76 ], [ 2147483647, %78 ], [ %83, %82 ]
+  %.02742.lcssa.sink.i.sink.i = phi i32 [ 0, %68 ], [ 0, %85 ], [ %.02742.i.i, %.lr.ph.i9.i ], [ -2147483648, %93 ], [ -2147483648, %95 ], [ %100, %99 ], [ %.02640.i.i, %.lr.ph.i6.i ], [ 2147483647, %76 ], [ 2147483647, %78 ], [ %83, %82 ]
   %.0.ph.i = phi i1 [ true, %68 ], [ true, %85 ], [ false, %.lr.ph.i9.i ], [ false, %93 ], [ false, %95 ], [ true, %99 ], [ false, %.lr.ph.i6.i ], [ false, %76 ], [ false, %78 ], [ true, %82 ]
-  store i32 %.sink.i12.sink.i, ptr %2, align 4, !tbaa !31
+  store i32 %.02742.lcssa.sink.i.sink.i, ptr %2, align 4, !tbaa !31
   br label %_ZN4absl12_GLOBAL__N_117safe_int_internalIiEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_117safe_int_internalIiEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
@@ -2139,9 +2139,9 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i6.i
 
 .lr.ph.i6.i:                                      ; preds = %68, %82
-  %.02642.i.i = phi i64 [ %83, %82 ], [ 0, %68 ]
-  %.02841.i.i = phi ptr [ %84, %82 ], [ %.2.i.i, %68 ]
-  %71 = load i8, ptr %.02841.i.i, align 1, !tbaa !8
+  %.02640.i.i = phi i64 [ %83, %82 ], [ 0, %68 ]
+  %.02839.i.i = phi ptr [ %84, %82 ], [ %.2.i.i, %68 ]
+  %71 = load i8, ptr %.02839.i.i, align 1, !tbaa !8
   %72 = zext i8 %71 to i64
   %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !8
@@ -2150,20 +2150,20 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   br i1 %.not.i7.i, label %76, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
 
 76:                                               ; preds = %.lr.ph.i6.i
-  %77 = icmp sgt i64 %.02642.i.i, %70
+  %77 = icmp sgt i64 %.02640.i.i, %70
   br i1 %77, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %78
 
 78:                                               ; preds = %76
-  %79 = mul nsw i64 %.02642.i.i, %65
+  %79 = mul nsw i64 %.02640.i.i, %65
   %80 = sub nsw i64 9223372036854775807, %75
   %81 = icmp sgt i64 %79, %80
   br i1 %81, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %82
 
 82:                                               ; preds = %78
   %83 = add nsw i64 %79, %75
-  %84 = getelementptr inbounds nuw i8, ptr %.02841.i.i, i64 1
-  %.not44.i.i = icmp ult ptr %84, %66
-  br i1 %.not44.i.i, label %.lr.ph.i6.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !39
+  %84 = getelementptr inbounds nuw i8, ptr %.02839.i.i, i64 1
+  %.not42.i.i = icmp ult ptr %84, %66
+  br i1 %.not42.i.i, label %.lr.ph.i6.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !39
 
 85:                                               ; preds = %62
   %86 = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVminOverBaseE, i64 0, i64 %65
@@ -2171,9 +2171,9 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i9.i
 
 .lr.ph.i9.i:                                      ; preds = %85, %100
-  %.02743.i.i = phi i64 [ %101, %100 ], [ 0, %85 ]
-  %.03042.i.i = phi ptr [ %102, %100 ], [ %.2.i.i, %85 ]
-  %88 = load i8, ptr %.03042.i.i, align 1, !tbaa !8
+  %.02741.i.i = phi i64 [ %101, %100 ], [ 0, %85 ]
+  %.03040.i.i = phi ptr [ %102, %100 ], [ %.2.i.i, %85 ]
+  %88 = load i8, ptr %.03040.i.i, align 1, !tbaa !8
   %89 = zext i8 %88 to i64
   %90 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !8
@@ -2182,11 +2182,11 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   br i1 %.not.i10.i, label %93, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
 
 93:                                               ; preds = %.lr.ph.i9.i
-  %94 = icmp slt i64 %.02743.i.i, %87
+  %94 = icmp slt i64 %.02741.i.i, %87
   br i1 %94, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %95
 
 95:                                               ; preds = %93
-  %96 = mul nsw i64 %.02743.i.i, %65
+  %96 = mul nsw i64 %.02741.i.i, %65
   %97 = sext i8 %91 to i64
   %98 = or i64 %97, -9223372036854775808
   %99 = icmp slt i64 %96, %98
@@ -2194,14 +2194,14 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
 
 100:                                              ; preds = %95
   %101 = sub nsw i64 %96, %97
-  %102 = getelementptr inbounds nuw i8, ptr %.03042.i.i, i64 1
-  %.not45.i.i = icmp ult ptr %102, %66
-  br i1 %.not45.i.i, label %.lr.ph.i9.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !40
+  %102 = getelementptr inbounds nuw i8, ptr %.03040.i.i, i64 1
+  %.not43.i.i = icmp ult ptr %102, %66
+  br i1 %.not43.i.i, label %.lr.ph.i9.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !40
 
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i: ; preds = %82, %78, %76, %.lr.ph.i6.i, %100, %95, %93, %.lr.ph.i9.i, %85, %68
-  %.sink.i12.sink.i = phi i64 [ 0, %68 ], [ 0, %85 ], [ %.02743.i.i, %.lr.ph.i9.i ], [ -9223372036854775808, %93 ], [ -9223372036854775808, %95 ], [ %101, %100 ], [ %.02642.i.i, %.lr.ph.i6.i ], [ 9223372036854775807, %76 ], [ 9223372036854775807, %78 ], [ %83, %82 ]
+  %.02741.lcssa.sink.i.sink.i = phi i64 [ 0, %68 ], [ 0, %85 ], [ %.02741.i.i, %.lr.ph.i9.i ], [ -9223372036854775808, %93 ], [ -9223372036854775808, %95 ], [ %101, %100 ], [ %.02640.i.i, %.lr.ph.i6.i ], [ 9223372036854775807, %76 ], [ 9223372036854775807, %78 ], [ %83, %82 ]
   %.0.ph.i = phi i1 [ true, %68 ], [ true, %85 ], [ false, %.lr.ph.i9.i ], [ false, %93 ], [ false, %95 ], [ true, %100 ], [ false, %.lr.ph.i6.i ], [ false, %76 ], [ false, %78 ], [ true, %82 ]
-  store i64 %.sink.i12.sink.i, ptr %2, align 8, !tbaa !37
+  store i64 %.02741.lcssa.sink.i.sink.i, ptr %2, align 8, !tbaa !37
   br label %_ZN4absl12_GLOBAL__N_117safe_int_internalIlEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_117safe_int_internalIlEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
@@ -2648,9 +2648,9 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   br i1 %69, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %62, %81
-  %.02642.i.i = phi i32 [ %82, %81 ], [ 0, %62 ]
-  %.02841.i.i = phi ptr [ %83, %81 ], [ %.2.i.i, %62 ]
-  %70 = load i8, ptr %.02841.i.i, align 1, !tbaa !8
+  %.02640.i.i = phi i32 [ %82, %81 ], [ 0, %62 ]
+  %.02839.i.i = phi ptr [ %83, %81 ], [ %.2.i.i, %62 ]
+  %70 = load i8, ptr %.02839.i.i, align 1, !tbaa !8
   %71 = zext i8 %70 to i64
   %72 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !8
@@ -2659,25 +2659,25 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   br i1 %.not.i5.i, label %75, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i
 
 75:                                               ; preds = %.lr.ph.i4.i
-  %76 = icmp ugt i32 %.02642.i.i, %67
+  %76 = icmp ugt i32 %.02640.i.i, %67
   br i1 %76, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, label %77
 
 77:                                               ; preds = %75
-  %78 = mul i32 %.02642.i.i, %.0.i.i
+  %78 = mul i32 %.02640.i.i, %.0.i.i
   %79 = xor i32 %74, -1
   %80 = icmp ugt i32 %78, %79
   br i1 %80, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, label %81
 
 81:                                               ; preds = %77
   %82 = add i32 %78, %74
-  %83 = getelementptr inbounds nuw i8, ptr %.02841.i.i, i64 1
-  %.not44.i.i = icmp ult ptr %83, %68
-  br i1 %.not44.i.i, label %.lr.ph.i4.i, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, !llvm.loop !45
+  %83 = getelementptr inbounds nuw i8, ptr %.02839.i.i, i64 1
+  %.not42.i.i = icmp ult ptr %83, %68
+  br i1 %.not42.i.i, label %.lr.ph.i4.i, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, !llvm.loop !45
 
 _ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i: ; preds = %81, %77, %75, %.lr.ph.i4.i, %62
-  %.sink.i.i = phi i32 [ 0, %62 ], [ %.02642.i.i, %.lr.ph.i4.i ], [ -1, %75 ], [ -1, %77 ], [ %82, %81 ]
+  %.02640.lcssa.sink.i.i = phi i32 [ 0, %62 ], [ %.02640.i.i, %.lr.ph.i4.i ], [ -1, %75 ], [ -1, %77 ], [ %82, %81 ]
   %84 = phi i1 [ true, %62 ], [ false, %.lr.ph.i4.i ], [ false, %75 ], [ false, %77 ], [ true, %81 ]
-  store i32 %.sink.i.i, ptr %2, align 4, !tbaa !31
+  store i32 %.02640.lcssa.sink.i.i, ptr %2, align 4, !tbaa !31
   br label %_ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i, %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i
@@ -2839,9 +2839,9 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   br i1 %69, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %62, %81
-  %.02642.i.i = phi i64 [ %82, %81 ], [ 0, %62 ]
-  %.02841.i.i = phi ptr [ %83, %81 ], [ %.2.i.i, %62 ]
-  %70 = load i8, ptr %.02841.i.i, align 1, !tbaa !8
+  %.02640.i.i = phi i64 [ %82, %81 ], [ 0, %62 ]
+  %.02839.i.i = phi ptr [ %83, %81 ], [ %.2.i.i, %62 ]
+  %70 = load i8, ptr %.02839.i.i, align 1, !tbaa !8
   %71 = zext i8 %70 to i64
   %72 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !8
@@ -2850,25 +2850,25 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   br i1 %.not.i5.i, label %75, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i
 
 75:                                               ; preds = %.lr.ph.i4.i
-  %76 = icmp ugt i64 %.02642.i.i, %67
+  %76 = icmp ugt i64 %.02640.i.i, %67
   br i1 %76, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, label %77
 
 77:                                               ; preds = %75
-  %78 = mul i64 %.02642.i.i, %65
+  %78 = mul i64 %.02640.i.i, %65
   %79 = xor i64 %74, -1
   %80 = icmp ugt i64 %78, %79
   br i1 %80, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, label %81
 
 81:                                               ; preds = %77
   %82 = add i64 %78, %74
-  %83 = getelementptr inbounds nuw i8, ptr %.02841.i.i, i64 1
-  %.not44.i.i = icmp ult ptr %83, %68
-  br i1 %.not44.i.i, label %.lr.ph.i4.i, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, !llvm.loop !46
+  %83 = getelementptr inbounds nuw i8, ptr %.02839.i.i, i64 1
+  %.not42.i.i = icmp ult ptr %83, %68
+  br i1 %.not42.i.i, label %.lr.ph.i4.i, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, !llvm.loop !46
 
 _ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i: ; preds = %81, %77, %75, %.lr.ph.i4.i, %62
-  %.sink.i.i = phi i64 [ 0, %62 ], [ %.02642.i.i, %.lr.ph.i4.i ], [ -1, %75 ], [ -1, %77 ], [ %82, %81 ]
+  %.02640.lcssa.sink.i.i = phi i64 [ 0, %62 ], [ %.02640.i.i, %.lr.ph.i4.i ], [ -1, %75 ], [ -1, %77 ], [ %82, %81 ]
   %84 = phi i1 [ true, %62 ], [ false, %.lr.ph.i4.i ], [ false, %75 ], [ false, %77 ], [ true, %81 ]
-  store i64 %.sink.i.i, ptr %2, align 8, !tbaa !37
+  store i64 %.02640.lcssa.sink.i.i, ptr %2, align 8, !tbaa !37
   br label %_ZN4absl12_GLOBAL__N_118safe_uint_internalImEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_118safe_uint_internalImEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i, %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i

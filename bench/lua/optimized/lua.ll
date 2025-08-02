@@ -182,7 +182,7 @@ define internal range(i32 0, 2) i32 @pmain(ptr noundef %0) #0 {
   %.not50.i = icmp eq i8 %19, 0
   %20 = zext i1 %.not50.i to i32
   %spec.select = add nsw i32 %.062.i, %20
-  %spec.select92 = select i1 %.not50.i, i32 %.03961.i, i32 1
+  %spec.select91 = select i1 %.not50.i, i32 %.03961.i, i32 1
   br label %collectargs.exit
 
 21:                                               ; preds = %14
@@ -254,16 +254,16 @@ collectargs.exit.loopexit:                        ; preds = %14
   br label %collectargs.exit
 
 collectargs.exit:                                 ; preds = %51, %.lr.ph.i, %21, %26, %31, %42, %48, %14, %collectargs.exit.loopexit, %17, %9, %1
-  %.062 = phi i32 [ -1, %1 ], [ 0, %9 ], [ %spec.select, %17 ], [ %.062.i, %14 ], [ 0, %51 ], [ %.062.i, %.lr.ph.i ], [ %.062.i, %48 ], [ %.062.i, %42 ], [ %.062.i, %31 ], [ %.062.i, %26 ], [ %.062.i, %21 ], [ %.062.i, %collectargs.exit.loopexit ]
-  %.041.i = phi i32 [ 0, %1 ], [ 0, %9 ], [ %spec.select92, %17 ], [ %.03961.i, %14 ], [ %.3.i, %51 ], [ %.03961.i, %.lr.ph.i ], [ 1, %48 ], [ 1, %42 ], [ 1, %31 ], [ 1, %26 ], [ 1, %21 ], [ 1, %collectargs.exit.loopexit ]
-  %56 = icmp sgt i32 %.062, 0
-  %57 = select i1 %56, i32 %.062, i32 %3
+  %.061 = phi i32 [ -1, %1 ], [ 0, %9 ], [ %spec.select, %17 ], [ %.062.i, %14 ], [ 0, %51 ], [ %.062.i, %.lr.ph.i ], [ %.062.i, %48 ], [ %.062.i, %42 ], [ %.062.i, %31 ], [ %.062.i, %26 ], [ %.062.i, %21 ], [ %.062.i, %collectargs.exit.loopexit ]
+  %.041.i = phi i32 [ 0, %1 ], [ 0, %9 ], [ %spec.select91, %17 ], [ %.03961.i, %14 ], [ %.3.i, %51 ], [ %.03961.i, %.lr.ph.i ], [ 1, %48 ], [ 1, %42 ], [ 1, %31 ], [ 1, %26 ], [ 1, %21 ], [ 1, %collectargs.exit.loopexit ]
+  %56 = icmp sgt i32 %.061, 0
+  %57 = select i1 %56, i32 %.061, i32 %3
   tail call void @luaL_checkversion_(ptr noundef %0, double noundef 5.050000e+02, i64 noundef 136) #10
   %58 = icmp eq i32 %.041.i, 1
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %collectargs.exit
-  %60 = sext i32 %.062 to i64
+  %60 = sext i32 %.061 to i64
   %61 = getelementptr inbounds ptr, ptr %4, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !4
   tail call fastcc void @print_usage(ptr noundef %62)
@@ -291,14 +291,14 @@ collectargs.exit:                                 ; preds = %51, %.lr.ph.i, %21,
   tail call void @lua_pushboolean(ptr noundef %0, i32 noundef 1) #10
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -1001000, ptr noundef nonnull @.str.3) #10
   tail call void @luaL_openselectedlibs(ptr noundef %0, i32 noundef -1, i32 noundef 0) #10
-  %73 = add nsw i32 %.062, 1
+  %73 = add nsw i32 %.061, 1
   %74 = sub nsw i32 %3, %73
   tail call void @lua_createtable(ptr noundef %0, i32 noundef %74, i32 noundef %73) #10
   %75 = icmp sgt i32 %3, 0
   br i1 %75, label %.lr.ph.preheader.i, label %createargtable.exit
 
 .lr.ph.preheader.i:                               ; preds = %72
-  %76 = sext i32 %.062 to i64
+  %76 = sext i32 %.061 to i64
   %wide.trip.count.i = and i64 %2, 2147483647
   br label %.lr.ph.i40
 
@@ -321,14 +321,14 @@ createargtable.exit:                              ; preds = %.lr.ph.i40, %72
 
 .critedge:                                        ; preds = %71
   tail call void @luaL_openselectedlibs(ptr noundef %0, i32 noundef -1, i32 noundef 0) #10
-  %83 = add nsw i32 %.062, 1
+  %83 = add nsw i32 %.061, 1
   %84 = sub nsw i32 %3, %83
   tail call void @lua_createtable(ptr noundef %0, i32 noundef %84, i32 noundef %83) #10
   %85 = icmp sgt i32 %3, 0
   br i1 %85, label %.lr.ph.preheader.i42, label %createargtable.exit48
 
 .lr.ph.preheader.i42:                             ; preds = %.critedge
-  %86 = sext i32 %.062 to i64
+  %86 = sext i32 %.061 to i64
   %wide.trip.count.i43 = and i64 %2, 2147483647
   br label %.lr.ph.i44
 
@@ -367,14 +367,14 @@ createargtable.exit48:                            ; preds = %.lr.ph.i44, %.crite
   %101 = getelementptr inbounds nuw i8, ptr %.016.i, i64 1
   %102 = tail call i32 @luaL_loadfilex(ptr noundef %0, ptr noundef nonnull %101, ptr noundef null) #10
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %handle_luainit.exit.thread65
+  br i1 %103, label %104, label %handle_luainit.exit.thread64
 
 104:                                              ; preds = %100
   %105 = tail call fastcc i32 @docall(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %.not.i.i.i.i = icmp eq i32 %105, 0
-  br i1 %.not.i.i.i.i, label %handle_luainit.exit.thread, label %handle_luainit.exit.thread65
+  br i1 %.not.i.i.i.i, label %handle_luainit.exit.thread, label %handle_luainit.exit.thread64
 
-handle_luainit.exit.thread65:                     ; preds = %100, %104
+handle_luainit.exit.thread64:                     ; preds = %100, %104
   %106 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
   %107 = icmp eq ptr %106, null
   %spec.store.select.i.i.i.i = select i1 %107, ptr @.str.42, ptr %106
@@ -392,17 +392,17 @@ handle_luainit.exit.thread:                       ; preds = %104, %95, %createar
   %110 = icmp sgt i32 %57, 1
   br i1 %110, label %.lr.ph.i49, label %runargs.exit
 
-.lr.ph.i49:                                       ; preds = %handle_luainit.exit.thread, %.thread.i50
-  %.02435.i = phi i32 [ %147, %.thread.i50 ], [ 1, %handle_luainit.exit.thread ]
-  %111 = sext i32 %.02435.i to i64
+.lr.ph.i49:                                       ; preds = %handle_luainit.exit.thread, %146
+  %.02431.i = phi i32 [ %147, %146 ], [ 1, %handle_luainit.exit.thread ]
+  %111 = sext i32 %.02431.i to i64
   %112 = getelementptr inbounds ptr, ptr %4, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !4
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 1
   %115 = load i8, ptr %114, align 1, !tbaa !11
-  switch i8 %115, label %.thread.i50 [
+  switch i8 %115, label %146 [
     i8 101, label %116
     i8 108, label %116
-    i8 87, label %144
+    i8 87, label %145
   ]
 
 116:                                              ; preds = %.lr.ph.i49, %.lr.ph.i49
@@ -412,17 +412,17 @@ handle_luainit.exit.thread:                       ; preds = %104, %95, %createar
   br i1 %119, label %120, label %125
 
 120:                                              ; preds = %116
-  %121 = add nsw i32 %.02435.i, 1
+  %121 = add nsw i32 %.02431.i, 1
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds ptr, ptr %4, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !4
   br label %125
 
 125:                                              ; preds = %120, %116
-  %.226.i = phi i32 [ %121, %120 ], [ %.02435.i, %116 ]
+  %.226.i = phi i32 [ %121, %120 ], [ %.02431.i, %116 ]
   %.021.i = phi ptr [ %124, %120 ], [ %117, %116 ]
   %126 = icmp eq i8 %115, 101
-  br i1 %126, label %145, label %127
+  br i1 %126, label %dolibrary.exit.i, label %127
 
 127:                                              ; preds = %125
   %128 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.021.i, i32 noundef 61) #12
@@ -445,9 +445,9 @@ handle_luainit.exit.thread:                       ; preds = %104, %95, %createar
   %136 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull %.0.i.i) #10
   %137 = tail call fastcc i32 @docall(ptr noundef %0, i32 noundef 1, i32 noundef 1)
   %138 = icmp eq i32 %137, 0
-  br i1 %138, label %142, label %.thread33.i
+  br i1 %138, label %142, label %dolibrary.exit.thread29.i
 
-.thread33.i:                                      ; preds = %134
+dolibrary.exit.thread29.i:                        ; preds = %134
   %139 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
   %140 = icmp eq ptr %139, null
   %spec.store.select.i.i.i = select i1 %140, ptr @.str.42, ptr %139
@@ -458,36 +458,36 @@ handle_luainit.exit.thread:                       ; preds = %104, %95, %createar
 
 142:                                              ; preds = %134
   %.not.i.i = icmp eq ptr %.016.i.i, null
-  br i1 %.not.i.i, label %.thread31.i, label %143
+  br i1 %.not.i.i, label %dolibrary.exit.thread.i, label %143
 
 143:                                              ; preds = %142
   store i8 0, ptr %.016.i.i, align 1, !tbaa !11
-  br label %.thread31.i
+  br label %dolibrary.exit.thread.i
 
-.thread31.i:                                      ; preds = %143, %142
+dolibrary.exit.thread.i:                          ; preds = %143, %142
   tail call void @lua_setglobal(ptr noundef %0, ptr noundef nonnull %.021.i) #10
-  br label %.thread.i50
+  br label %146
 
-144:                                              ; preds = %.lr.ph.i49
+dolibrary.exit.i:                                 ; preds = %125
+  %144 = tail call fastcc i32 @dostring(ptr noundef %0, ptr noundef %.021.i, ptr noundef nonnull @.str.16)
+  %.not.i50 = icmp eq i32 %144, 0
+  br i1 %.not.i50, label %146, label %runargs.exit.thread
+
+145:                                              ; preds = %.lr.ph.i49
   tail call void @lua_warning(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef 0) #10
-  br label %.thread.i50
+  br label %146
 
-145:                                              ; preds = %125
-  %146 = tail call fastcc i32 @dostring(ptr noundef %0, ptr noundef %.021.i, ptr noundef nonnull @.str.16)
-  %.not.i51 = icmp eq i32 %146, 0
-  br i1 %.not.i51, label %.thread.i50, label %runargs.exit.thread
-
-.thread.i50:                                      ; preds = %145, %144, %.thread31.i, %.lr.ph.i49
-  %.32730.i = phi i32 [ %.226.i, %145 ], [ %.226.i, %.thread31.i ], [ %.02435.i, %144 ], [ %.02435.i, %.lr.ph.i49 ]
-  %147 = add nsw i32 %.32730.i, 1
+146:                                              ; preds = %145, %dolibrary.exit.i, %dolibrary.exit.thread.i, %.lr.ph.i49
+  %.327.i = phi i32 [ %.02431.i, %.lr.ph.i49 ], [ %.02431.i, %145 ], [ %.226.i, %dolibrary.exit.i ], [ %.226.i, %dolibrary.exit.thread.i ]
+  %147 = add nsw i32 %.327.i, 1
   %148 = icmp slt i32 %147, %57
   br i1 %148, label %.lr.ph.i49, label %runargs.exit
 
-runargs.exit:                                     ; preds = %.thread.i50, %handle_luainit.exit.thread
+runargs.exit:                                     ; preds = %146, %handle_luainit.exit.thread
   br i1 %56, label %149, label %handle_script.exit.thread
 
 149:                                              ; preds = %runargs.exit
-  %150 = zext nneg i32 %.062 to i64
+  %150 = zext nneg i32 %.061 to i64
   %151 = getelementptr inbounds nuw ptr, ptr %4, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !4
   %153 = load i8, ptr %152, align 1
@@ -528,8 +528,8 @@ sub_2.i:                                          ; preds = %sub_119.i
 
 168:                                              ; preds = %.tail17.i
   %169 = tail call i32 @lua_getglobal(ptr noundef %0, ptr noundef nonnull @.str.10) #10
-  %.not.i.i54 = icmp eq i32 %169, 5
-  br i1 %.not.i.i54, label %172, label %170
+  %.not.i.i53 = icmp eq i32 %169, 5
+  br i1 %.not.i.i53, label %172, label %170
 
 170:                                              ; preds = %168
   %171 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.21) #10
@@ -588,7 +588,7 @@ handle_script.exit.thread:                        ; preds = %181, %runargs.exit
   br label %dofile.exit
 
 188:                                              ; preds = %handle_script.exit.thread
-  %189 = icmp slt i32 %.062, 1
+  %189 = icmp slt i32 %.061, 1
   %190 = and i32 %.041.i, 12
   %.not37 = icmp eq i32 %190, 0
   %or.cond = select i1 %189, i1 %.not37, i1 false
@@ -603,7 +603,7 @@ handle_script.exit.thread:                        ; preds = %181, %runargs.exit
   %194 = load ptr, ptr @stdout, align 8, !tbaa !9
   %195 = tail call i64 @fwrite(ptr noundef nonnull @.str.8, i64 noundef 1, i64 noundef 51, ptr noundef %194)
   %196 = load ptr, ptr @stdout, align 8, !tbaa !9
-  %fputc.i55 = tail call i32 @fputc(i32 10, ptr %196)
+  %fputc.i54 = tail call i32 @fputc(i32 10, ptr %196)
   %197 = load ptr, ptr @stdout, align 8, !tbaa !9
   %198 = tail call i32 @fflush(ptr noundef %197)
   tail call fastcc void @doREPL(ptr noundef %0)
@@ -622,9 +622,9 @@ handle_script.exit.thread:                        ; preds = %181, %runargs.exit
 .thread.i.i:                                      ; preds = %202, %199
   %204 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
   %205 = icmp eq ptr %204, null
-  %spec.store.select.i.i.i56 = select i1 %205, ptr @.str.42, ptr %204
+  %spec.store.select.i.i.i55 = select i1 %205, ptr @.str.42, ptr %204
   %206 = load ptr, ptr @progname, align 8, !tbaa !4
-  tail call fastcc void @l_message(ptr noundef %206, ptr noundef nonnull %spec.store.select.i.i.i56)
+  tail call fastcc void @l_message(ptr noundef %206, ptr noundef nonnull %spec.store.select.i.i.i55)
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #10
   br label %dofile.exit
 
@@ -632,8 +632,8 @@ dofile.exit:                                      ; preds = %.thread.i.i, %202, 
   tail call void @lua_pushboolean(ptr noundef %0, i32 noundef 1) #10
   br label %runargs.exit.thread
 
-runargs.exit.thread:                              ; preds = %145, %.thread33.i, %handle_script.exit, %handle_luainit.exit.thread65, %handle_luainit.exit, %dofile.exit, %59
-  %.0 = phi i32 [ 0, %59 ], [ 1, %dofile.exit ], [ 0, %handle_luainit.exit ], [ 0, %handle_script.exit ], [ 0, %handle_luainit.exit.thread65 ], [ 0, %.thread33.i ], [ 0, %145 ]
+runargs.exit.thread:                              ; preds = %dolibrary.exit.i, %dolibrary.exit.thread29.i, %handle_script.exit, %handle_luainit.exit.thread64, %handle_luainit.exit, %dofile.exit, %59
+  %.0 = phi i32 [ 0, %59 ], [ 1, %dofile.exit ], [ 0, %handle_luainit.exit ], [ 0, %handle_script.exit ], [ 0, %handle_luainit.exit.thread64 ], [ 0, %dolibrary.exit.thread29.i ], [ 0, %dolibrary.exit.i ]
   ret i32 %.0
 }
 

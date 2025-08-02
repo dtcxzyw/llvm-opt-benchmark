@@ -2255,7 +2255,7 @@ define noundef i32 @show_pix_fmts(ptr noundef readnone captures(none) %0, ptr no
 .lr.ph:                                           ; preds = %.lr.ph25, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.lr.ph25 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %30 = getelementptr i8, ptr %24, i64 %.idx
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
   %31 = load i32, ptr %30, align 4, !tbaa !104
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

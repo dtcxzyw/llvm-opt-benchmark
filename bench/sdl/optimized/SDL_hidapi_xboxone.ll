@@ -1332,7 +1332,7 @@ define internal fastcc void @HIDAPI_GIP_DispatchPacket(ptr noundef %0, ptr nound
   %12 = and i32 %9, 32
   %.not29 = icmp eq i32 %12, 0
   %13 = load i8, ptr %2, align 1
-  br i1 %.not29, label %35, label %14
+  br i1 %.not29, label %37, label %14
 
 14:                                               ; preds = %11
   switch i8 %13, label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit [
@@ -1373,119 +1373,119 @@ define internal fastcc void @HIDAPI_GIP_DispatchPacket(ptr noundef %0, ptr nound
 
 26:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 29, ptr nonnull %6) #9
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 2
   br label %27
 
 27:                                               ; preds = %27, %26
   %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %27 ]
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %28 = load i8, ptr %gep.i, align 1
-  %29 = zext i8 %28 to i32
-  %30 = shl nuw nsw i64 %indvars.iv.i, 1
-  %31 = getelementptr inbounds nuw [29 x i8], ptr %6, i64 0, i64 %30
-  %32 = call ptr @SDL_uitoa_REAL(i32 noundef %29, ptr noundef nonnull %31, i32 noundef 16) #9
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = shl nuw nsw i64 %indvars.iv.i, 1
+  %33 = getelementptr inbounds nuw [29 x i8], ptr %6, i64 0, i64 %32
+  %34 = call ptr @SDL_uitoa_REAL(i32 noundef %31, ptr noundef nonnull %33, i32 noundef 16) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 14
   br i1 %exitcond.not.i, label %HIDAPI_DriverXboxOne_HandleSerialIDPacket.exit, label %27, !llvm.loop !11
 
 HIDAPI_DriverXboxOne_HandleSerialIDPacket.exit:   ; preds = %27
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i8 0, ptr %33, align 4
-  %34 = load ptr, ptr %1, align 8
-  call void @HIDAPI_SetDeviceSerial(ptr noundef %34, ptr noundef nonnull %6) #9
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store i8 0, ptr %35, align 4
+  %36 = load ptr, ptr %1, align 8
+  call void @HIDAPI_SetDeviceSerial(ptr noundef %36, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 29, ptr nonnull %6) #9
   br label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit
 
-35:                                               ; preds = %11
+37:                                               ; preds = %11
   switch i8 %13, label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit [
-    i8 32, label %36
-    i8 12, label %43
+    i8 32, label %38
+    i8 12, label %45
   ]
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %38, 4
-  br i1 %39, label %40, label %41
+38:                                               ; preds = %37
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp ult i32 %40, 4
+  br i1 %41, label %42, label %43
 
-40:                                               ; preds = %36
-  store i32 4, ptr %37, align 4
+42:                                               ; preds = %38
+  store i32 4, ptr %39, align 4
   br label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit
 
-41:                                               ; preds = %36
+43:                                               ; preds = %38
   %.not31 = icmp eq ptr %0, null
-  br i1 %.not31, label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit, label %42
+  br i1 %.not31, label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit, label %44
 
-42:                                               ; preds = %41
+44:                                               ; preds = %43
   tail call fastcc void @HIDAPI_DriverXboxOne_HandleStatePacket(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, i32 noundef %4)
   br label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit
 
-43:                                               ; preds = %35
+45:                                               ; preds = %37
   %.not30 = icmp eq ptr %0, null
-  br i1 %.not30, label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit, label %44
+  br i1 %.not30, label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit, label %46
 
-44:                                               ; preds = %43
-  %45 = tail call i64 @SDL_GetTicksNS_REAL() #9
-  %46 = icmp eq i32 %4, 17
-  br i1 %46, label %47, label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit
+46:                                               ; preds = %45
+  %47 = tail call i64 @SDL_GetTicksNS_REAL() #9
+  %48 = icmp eq i32 %4, 17
+  br i1 %48, label %49, label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 15
-  %49 = load i8, ptr %48, align 1
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %.critedge.i, label %51
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  %51 = load i8, ptr %50, align 1
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %.critedge.i, label %53
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %53 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %3, ptr noundef nonnull %52, i64 noundef 14) #9
-  %.not40.i = icmp eq i32 %53, 0
-  br i1 %.not40.i, label %.critedge.i, label %54
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 65
+  %55 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %3, ptr noundef nonnull %54, i64 noundef 14) #9
+  %.not40.i = icmp eq i32 %55, 0
+  br i1 %.not40.i, label %.critedge.i, label %56
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  store i8 0, ptr %55, align 1
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 0, ptr %57, align 1
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %54, %51, %47
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 46
-  %57 = load i8, ptr %56, align 2
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  %59 = load i8, ptr %58, align 1
-  %.not.i = icmp eq i8 %57, %59
-  br i1 %.not.i, label %78, label %60
+.critedge.i:                                      ; preds = %56, %53, %49
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 46
+  %59 = load i8, ptr %58, align 2
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  %61 = load i8, ptr %60, align 1
+  %.not.i = icmp eq i8 %59, %61
+  br i1 %.not.i, label %80, label %62
 
-60:                                               ; preds = %.critedge.i
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 45
-  %62 = load i8, ptr %61, align 1, !range !3, !noundef !4
-  %narrow.i = add nuw nsw i8 %62, 11
-  %63 = or disjoint i8 %62, 12
-  %64 = and i8 %59, 1
-  %65 = icmp ne i8 %64, 0
-  tail call void @SDL_SendJoystickButton(i64 noundef %45, ptr noundef nonnull %0, i8 noundef zeroext %narrow.i, i1 noundef zeroext %65) #9
-  %66 = add nuw nsw i8 %62, 13
-  %67 = load i8, ptr %58, align 1
-  %68 = and i8 %67, 2
-  %69 = icmp ne i8 %68, 0
-  tail call void @SDL_SendJoystickButton(i64 noundef %45, ptr noundef nonnull %0, i8 noundef zeroext %63, i1 noundef zeroext %69) #9
-  %70 = or disjoint i8 %62, 14
-  %71 = load i8, ptr %58, align 1
-  %72 = and i8 %71, 4
-  %73 = icmp ne i8 %72, 0
-  tail call void @SDL_SendJoystickButton(i64 noundef %45, ptr noundef nonnull %0, i8 noundef zeroext %66, i1 noundef zeroext %73) #9
-  %74 = load i8, ptr %58, align 1
-  %75 = and i8 %74, 8
-  %76 = icmp ne i8 %75, 0
-  tail call void @SDL_SendJoystickButton(i64 noundef %45, ptr noundef nonnull %0, i8 noundef zeroext %70, i1 noundef zeroext %76) #9
-  %77 = load i8, ptr %58, align 1
-  store i8 %77, ptr %56, align 2
-  br label %78
+62:                                               ; preds = %.critedge.i
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 45
+  %64 = load i8, ptr %63, align 1, !range !3, !noundef !4
+  %narrow.i = add nuw nsw i8 %64, 11
+  %65 = or disjoint i8 %64, 12
+  %66 = and i8 %61, 1
+  %67 = icmp ne i8 %66, 0
+  tail call void @SDL_SendJoystickButton(i64 noundef %47, ptr noundef nonnull %0, i8 noundef zeroext %narrow.i, i1 noundef zeroext %67) #9
+  %68 = add nuw nsw i8 %64, 13
+  %69 = load i8, ptr %60, align 1
+  %70 = and i8 %69, 2
+  %71 = icmp ne i8 %70, 0
+  tail call void @SDL_SendJoystickButton(i64 noundef %47, ptr noundef nonnull %0, i8 noundef zeroext %65, i1 noundef zeroext %71) #9
+  %72 = or disjoint i8 %64, 14
+  %73 = load i8, ptr %60, align 1
+  %74 = and i8 %73, 4
+  %75 = icmp ne i8 %74, 0
+  tail call void @SDL_SendJoystickButton(i64 noundef %47, ptr noundef nonnull %0, i8 noundef zeroext %68, i1 noundef zeroext %75) #9
+  %76 = load i8, ptr %60, align 1
+  %77 = and i8 %76, 8
+  %78 = icmp ne i8 %77, 0
+  tail call void @SDL_SendJoystickButton(i64 noundef %47, ptr noundef nonnull %0, i8 noundef zeroext %72, i1 noundef zeroext %78) #9
+  %79 = load i8, ptr %60, align 1
+  store i8 %79, ptr %58, align 2
+  br label %80
 
-78:                                               ; preds = %60, %.critedge.i
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 43
-  store i8 1, ptr %79, align 1
+80:                                               ; preds = %62, %.critedge.i
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 43
+  store i8 1, ptr %81, align 1
   br label %HIDAPI_DriverXboxOne_HandleStatusPacket.exit
 
-HIDAPI_DriverXboxOne_HandleStatusPacket.exit:     ; preds = %78, %44, %21, %17, %14, %24, %HIDAPI_DriverXboxOne_HandleSerialIDPacket.exit, %25, %22, %15, %35, %43, %41, %42, %40, %5
+HIDAPI_DriverXboxOne_HandleStatusPacket.exit:     ; preds = %80, %46, %21, %17, %14, %24, %HIDAPI_DriverXboxOne_HandleSerialIDPacket.exit, %25, %22, %15, %37, %45, %43, %44, %42, %5
   ret void
 }
 

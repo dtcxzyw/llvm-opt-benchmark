@@ -3134,32 +3134,32 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
   %44 = load ptr, ptr %10, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1148
   %46 = load volatile i32, ptr %45, align 4
-  br i1 %43, label %.preheader, label %.preheader27
+  br i1 %43, label %.preheader, label %.preheader29
 
-.preheader27:                                     ; preds = %34
+.preheader29:                                     ; preds = %34
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %.thread23, label %.lr.ph, !prof !51
+  br i1 %47, label %.critedge, label %.lr.ph, !prof !51
 
 .preheader:                                       ; preds = %34
   %48 = icmp eq i32 %46, 8
-  br i1 %48, label %.thread24, label %.lr.ph29, !prof !51
+  br i1 %48, label %.critedge2, label %.lr.ph31, !prof !51
 
-.lr.ph:                                           ; preds = %.preheader27, %55
-  %49 = phi i32 [ %56, %55 ], [ %46, %.preheader27 ]
+.lr.ph:                                           ; preds = %.preheader29, %55
+  %49 = phi i32 [ %56, %55 ], [ %46, %.preheader29 ]
   %50 = add i32 %49, -1
   %51 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %45, i32 %50, ptr nonnull elementtype(i32) %45, i32 %49) #16, !srcloc !52
   %52 = extractvalue { i8, i32 } %51, 0
   %53 = icmp ult i8 %52, 2
   call void @llvm.assume(i1 %53)
   %54 = icmp eq i8 %52, 0
-  br i1 %54, label %55, label %.thread23, !prof !32
+  br i1 %54, label %55, label %.critedge, !prof !32
 
 55:                                               ; preds = %.lr.ph
   %56 = extractvalue { i8, i32 } %51, 1
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %.thread23, label %.lr.ph, !prof !53, !llvm.loop !54
+  br i1 %57, label %.critedge, label %.lr.ph, !prof !53, !llvm.loop !54
 
-.lr.ph29:                                         ; preds = %.preheader, %64
+.lr.ph31:                                         ; preds = %.preheader, %64
   %58 = phi i32 [ %65, %64 ], [ %46, %.preheader ]
   %59 = add i32 %58, 1
   %60 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %45, i32 %59, ptr nonnull elementtype(i32) %45, i32 %58) #16, !srcloc !52
@@ -3167,18 +3167,18 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
   %62 = icmp ult i8 %61, 2
   call void @llvm.assume(i1 %62)
   %63 = icmp eq i8 %61, 0
-  br i1 %63, label %64, label %.thread24, !prof !32
+  br i1 %63, label %64, label %.critedge2, !prof !32
 
-64:                                               ; preds = %.lr.ph29
+64:                                               ; preds = %.lr.ph31
   %65 = extractvalue { i8, i32 } %60, 1
   %66 = icmp eq i32 %65, 8
-  br i1 %66, label %.thread24, label %.lr.ph29, !prof !53, !llvm.loop !54
+  br i1 %66, label %.critedge2, label %.lr.ph31, !prof !53, !llvm.loop !54
 
-.thread24:                                        ; preds = %64, %.lr.ph29, %.preheader
+.critedge2:                                       ; preds = %64, %.lr.ph31, %.preheader
   call void @_raw_spin_lock(ptr noundef %41) #16
-  br label %.thread23
+  br label %.critedge
 
-.thread23:                                        ; preds = %55, %.lr.ph, %.preheader27, %.thread24
+.critedge:                                        ; preds = %55, %.lr.ph, %.preheader29, %.critedge2
   %67 = load ptr, ptr %10, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 104
   %69 = load ptr, ptr %68, align 8
@@ -3186,18 +3186,18 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, 16
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %.critedge
+  br i1 %73, label %74, label %.critedge23
 
-74:                                               ; preds = %.thread23
+74:                                               ; preds = %.critedge
   %75 = and i32 %71, 1024
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %.critedge21, label %77
+  br i1 %76, label %.critedge25, label %77
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %67, i64 1280
   %79 = load ptr, ptr %78, align 64
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %.thread37, !prof !32
+  br i1 %80, label %81, label %.thread39, !prof !32
 
 81:                                               ; preds = %77
   call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #16, !srcloc !36
@@ -3205,42 +3205,42 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
   call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #16, !srcloc !38
   %.pre = load ptr, ptr %10, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 104
-  %.pre31 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %.pre31, i64 100
-  %.pre33 = load i32, ptr %.phi.trans.insert32, align 4
-  %.pre34 = and i32 %.pre33, 1024
-  %82 = icmp eq i32 %.pre34, 0
-  br i1 %82, label %.critedge21, label %.thread37
+  %.pre33 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert34 = getelementptr inbounds nuw i8, ptr %.pre33, i64 100
+  %.pre35 = load i32, ptr %.phi.trans.insert34, align 4
+  %.pre36 = and i32 %.pre35, 1024
+  %82 = icmp eq i32 %.pre36, 0
+  br i1 %82, label %.critedge25, label %.thread39
 
-.thread37:                                        ; preds = %77, %81
+.thread39:                                        ; preds = %77, %81
   %83 = phi ptr [ %.pre, %81 ], [ %67, %77 ]
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 1280
   %85 = load ptr, ptr %84, align 64
   %.not = icmp eq ptr %85, null
-  br i1 %.not, label %.critedge21, label %.critedge
+  br i1 %.not, label %.critedge25, label %.critedge23
 
-.critedge:                                        ; preds = %.thread23, %.thread37
+.critedge23:                                      ; preds = %.critedge, %.thread39
   %86 = getelementptr inbounds nuw i8, ptr %35, i64 18
   %87 = load i16, ptr %86, align 2
   %88 = and i16 %87, 2
   %89 = icmp eq i16 %88, 0
-  br i1 %89, label %.critedge21, label %90
+  br i1 %89, label %.critedge25, label %90
 
-90:                                               ; preds = %.critedge
+90:                                               ; preds = %.critedge23
   %91 = and i16 %87, -3
   store i16 %91, ptr %86, align 2
   %92 = call i32 @ext4_free_clusters_after_init(ptr noundef %1, i32 noundef %3, ptr noundef nonnull %35) #16
   call void @ext4_free_group_clusters_set(ptr noundef %1, ptr noundef nonnull %35, i32 noundef %92) #16
-  br label %.critedge21
+  br label %.critedge25
 
-.critedge21:                                      ; preds = %74, %81, %90, %.critedge, %.thread37
+.critedge25:                                      ; preds = %74, %81, %90, %.critedge23, %.thread39
   %93 = and i32 %6, 1
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %122, label %95
 
-95:                                               ; preds = %.critedge21
+95:                                               ; preds = %.critedge25
   %96 = icmp eq i32 %5, 0
-  br i1 %96, label %.loopexit26, label %97
+  br i1 %96, label %.loopexit28, label %97
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -3268,15 +3268,15 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
   %117 = add i32 %101, %116
   %118 = add nuw i32 %100, 1
   %119 = icmp eq i32 %118, %5
-  br i1 %119, label %.loopexit26, label %99, !llvm.loop !69
+  br i1 %119, label %.loopexit28, label %99, !llvm.loop !69
 
-.loopexit26:                                      ; preds = %99, %95
+.loopexit28:                                      ; preds = %99, %95
   %120 = phi i32 [ 0, %95 ], [ %117, %99 ]
   %121 = sub i32 %5, %120
   br label %122
 
-122:                                              ; preds = %.loopexit26, %.critedge21
-  %123 = phi i32 [ %121, %.loopexit26 ], [ %5, %.critedge21 ]
+122:                                              ; preds = %.loopexit28, %.critedge25
+  %123 = phi i32 [ %121, %.loopexit28 ], [ %5, %.critedge25 ]
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %125 = load ptr, ptr %124, align 8
   %126 = add i32 %5, %4
@@ -3329,7 +3329,7 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
   br label %184
 
 156:                                              ; preds = %122
-  br i1 %127, label %157, label %.loopexit25
+  br i1 %127, label %157, label %.loopexit27
 
 157:                                              ; preds = %156
   %158 = ptrtoint ptr %125 to i64
@@ -3360,7 +3360,7 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
   %176 = phi i32 [ 1, %179 ], [ 32, %171 ]
   %177 = add i32 %176, %165
   %178 = icmp slt i32 %177, %126
-  br i1 %178, label %164, label %.loopexit25, !llvm.loop !70
+  br i1 %178, label %164, label %.loopexit27, !llvm.loop !70
 
 179:                                              ; preds = %164
   %180 = add i32 %165, %161
@@ -3368,13 +3368,13 @@ define internal fastcc i32 @ext4_mb_mark_context(ptr noundef %0, ptr noundef %1,
   call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %163, i64 %181) #16, !srcloc !71
   br label %175
 
-.loopexit25:                                      ; preds = %175, %156
+.loopexit27:                                      ; preds = %175, %156
   %182 = call i32 @ext4_free_group_clusters(ptr noundef %1, ptr noundef nonnull %35) #16
   %183 = add i32 %182, %123
   br label %184
 
-184:                                              ; preds = %.loopexit25, %.loopexit
-  %185 = phi i32 [ %183, %.loopexit25 ], [ %155, %.loopexit ]
+184:                                              ; preds = %.loopexit27, %.loopexit
+  %185 = phi i32 [ %183, %.loopexit27 ], [ %155, %.loopexit ]
   call void @ext4_free_group_clusters_set(ptr noundef %1, ptr noundef nonnull %35, i32 noundef %185) #16
   call void @ext4_block_bitmap_csum_set(ptr noundef %1, ptr noundef nonnull %35, ptr noundef %15) #16
   call void @ext4_group_desc_csum_set(ptr noundef %1, i32 noundef %3, ptr noundef nonnull %35) #16
@@ -7597,32 +7597,32 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %60 = load ptr, ptr %51, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 1148
   %62 = load volatile i32, ptr %61, align 4
-  br i1 %59, label %.preheader.i, label %.preheader6.i
+  br i1 %59, label %.preheader.i, label %.preheader7.i
 
-.preheader6.i:                                    ; preds = %49
+.preheader7.i:                                    ; preds = %49
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.thread.i, label %.lr.ph.i, !prof !51
+  br i1 %63, label %.critedge.i, label %.lr.ph.i, !prof !51
 
 .preheader.i:                                     ; preds = %49
   %64 = icmp eq i32 %62, 8
-  br i1 %64, label %.thread5.i, label %.lr.ph8.i, !prof !51
+  br i1 %64, label %.critedge2.i, label %.lr.ph9.i, !prof !51
 
-.lr.ph.i:                                         ; preds = %.preheader6.i, %71
-  %65 = phi i32 [ %72, %71 ], [ %62, %.preheader6.i ]
+.lr.ph.i:                                         ; preds = %.preheader7.i, %71
+  %65 = phi i32 [ %72, %71 ], [ %62, %.preheader7.i ]
   %66 = add i32 %65, -1
   %67 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %61, i32 %66, ptr nonnull elementtype(i32) %61, i32 %65) #16, !srcloc !52
   %68 = extractvalue { i8, i32 } %67, 0
   %69 = icmp ult i8 %68, 2
   tail call void @llvm.assume(i1 %69)
   %70 = icmp eq i8 %68, 0
-  br i1 %70, label %71, label %.thread.i, !prof !32
+  br i1 %70, label %71, label %.critedge.i, !prof !32
 
 71:                                               ; preds = %.lr.ph.i
   %72 = extractvalue { i8, i32 } %67, 1
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.thread.i, label %.lr.ph.i, !prof !53, !llvm.loop !54
+  br i1 %73, label %.critedge.i, label %.lr.ph.i, !prof !53, !llvm.loop !54
 
-.lr.ph8.i:                                        ; preds = %.preheader.i, %80
+.lr.ph9.i:                                        ; preds = %.preheader.i, %80
   %74 = phi i32 [ %81, %80 ], [ %62, %.preheader.i ]
   %75 = add i32 %74, 1
   %76 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %61, i32 %75, ptr nonnull elementtype(i32) %61, i32 %74) #16, !srcloc !52
@@ -7630,18 +7630,18 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %78 = icmp ult i8 %77, 2
   tail call void @llvm.assume(i1 %78)
   %79 = icmp eq i8 %77, 0
-  br i1 %79, label %80, label %.thread5.i, !prof !32
+  br i1 %79, label %80, label %.critedge2.i, !prof !32
 
-80:                                               ; preds = %.lr.ph8.i
+80:                                               ; preds = %.lr.ph9.i
   %81 = extractvalue { i8, i32 } %76, 1
   %82 = icmp eq i32 %81, 8
-  br i1 %82, label %.thread5.i, label %.lr.ph8.i, !prof !53, !llvm.loop !54
+  br i1 %82, label %.critedge2.i, label %.lr.ph9.i, !prof !53, !llvm.loop !54
 
-.thread5.i:                                       ; preds = %80, %.lr.ph8.i, %.preheader.i
+.critedge2.i:                                     ; preds = %80, %.lr.ph9.i, %.preheader.i
   tail call void @_raw_spin_lock(ptr noundef %57) #16
-  br label %.thread.i
+  br label %.critedge.i
 
-.thread.i:                                        ; preds = %71, %.lr.ph.i, %.thread5.i, %.preheader6.i
+.critedge.i:                                      ; preds = %71, %.lr.ph.i, %.critedge2.i, %.preheader7.i
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %84 = load ptr, ptr %83, align 8
   %85 = load volatile i64, ptr %84, align 8
@@ -7649,7 +7649,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %88, label %176, !prof !18
 
-88:                                               ; preds = %.thread.i
+88:                                               ; preds = %.critedge.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !11
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %90 = load i32, ptr %89, align 4
@@ -7790,7 +7790,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   call fastcc void @ext4_mb_use_best_found(ptr noundef nonnull %0, ptr noundef nonnull %7)
   br label %176
 
-176:                                              ; preds = %171, %150, %148, %105, %.thread.i
+176:                                              ; preds = %171, %150, %148, %105, %.critedge.i
   %177 = load ptr, ptr %8, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 872
   %179 = load ptr, ptr %178, align 8
@@ -8384,7 +8384,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
 
 548:                                              ; preds = %546
   %549 = icmp samesign ult i64 %538, %542
-  br i1 %549, label %.thread.i44, label %550
+  br i1 %549, label %.thread.i, label %550
 
 550:                                              ; preds = %548
   %551 = load ptr, ptr %540, align 8
@@ -8395,14 +8395,14 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   %556 = zext i16 %555 to i64
   %557 = getelementptr i8, ptr %534, i64 %556
   %558 = icmp eq ptr %557, null
-  br i1 %558, label %.thread.i44, label %563
+  br i1 %558, label %.thread.i, label %563
 
-.thread.i44:                                      ; preds = %550, %548
+.thread.i:                                        ; preds = %550, %548
   %559 = call i32 @___ratelimit(ptr noundef nonnull @ext4_mb_simple_scan_group._rs, ptr noundef nonnull @__func__.ext4_mb_simple_scan_group) #16
   %560 = icmp eq i32 %559, 0
   br i1 %560, label %611, label %561, !prof !18
 
-561:                                              ; preds = %.thread.i44
+561:                                              ; preds = %.thread.i
   call void asm sideeffect "2127: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2127b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2127) #16, !srcloc !219
   %562 = trunc nuw nsw i64 %542 to i32
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.85, i32 noundef %562) #16
@@ -8483,7 +8483,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %610, ptr nonnull elementtype(i32) %610) #16, !srcloc !142
   br label %ext4_mb_simple_scan_group.exit
 
-611:                                              ; preds = %561, %.thread.i44, %541
+611:                                              ; preds = %561, %.thread.i, %541
   %612 = add nuw nsw i64 %542, 1
   %613 = load i8, ptr %525, align 4
   %614 = zext i8 %613 to i64
@@ -9283,13 +9283,13 @@ ext4_mb_find_good_group_avg_frag_lists.exit:      ; preds = %1036
   %1101 = add i64 %1089, -1
   br label %1104
 
-ext4_mb_find_good_group_avg_frag_lists.exit47.thread: ; preds = %1128, %ext4_mb_find_good_group_avg_frag_lists.exit47.thread68, %ext4_mb_find_good_group_avg_frag_lists.exit47
+ext4_mb_find_good_group_avg_frag_lists.exit46.thread: ; preds = %1128, %ext4_mb_find_good_group_avg_frag_lists.exit46.thread68, %ext4_mb_find_good_group_avg_frag_lists.exit46
   %1102 = add i32 %1105, -1
   %1103 = icmp slt i32 %1102, %1097
   br i1 %1103, label %.loopexit80, label %1104, !llvm.loop !248
 
-1104:                                             ; preds = %ext4_mb_find_good_group_avg_frag_lists.exit47.thread, %1099
-  %1105 = phi i32 [ %1063, %1099 ], [ %1102, %ext4_mb_find_good_group_avg_frag_lists.exit47.thread ]
+1104:                                             ; preds = %ext4_mb_find_good_group_avg_frag_lists.exit46.thread, %1099
+  %1105 = phi i32 [ %1063, %1099 ], [ %1102, %ext4_mb_find_good_group_avg_frag_lists.exit46.thread ]
   %1106 = shl nuw i32 1, %1105
   br i1 %1100, label %1114, label %1107
 
@@ -9336,13 +9336,13 @@ ext4_mb_find_good_group_avg_frag_lists.exit47.thread: ; preds = %1128, %ext4_mb_
   %1139 = zext i8 %1138 to i32
   %1140 = load volatile ptr, ptr %1134, align 8
   %1141 = icmp eq ptr %1140, %1134
-  br i1 %1141, label %ext4_mb_find_good_group_avg_frag_lists.exit47.thread, label %1142
+  br i1 %1141, label %ext4_mb_find_good_group_avg_frag_lists.exit46.thread, label %1142
 
 1142:                                             ; preds = %1128
   call void @_raw_read_lock(ptr noundef %1137) #16
   %1143 = load volatile ptr, ptr %1134, align 8
   %1144 = icmp eq ptr %1143, %1134
-  br i1 %1144, label %ext4_mb_find_good_group_avg_frag_lists.exit47.thread68, label %1145
+  br i1 %1144, label %ext4_mb_find_good_group_avg_frag_lists.exit46.thread68, label %1145
 
 1145:                                             ; preds = %1142
   %1146 = getelementptr inbounds nuw i8, ptr %1131, i64 888
@@ -9355,7 +9355,7 @@ ext4_mb_find_good_group_avg_frag_lists.exit47.thread: ; preds = %1128, %ext4_mb_
   %1151 = phi ptr [ %1152, %1158 ], [ %1134, %1145 ]
   %1152 = load ptr, ptr %1151, align 8
   %1153 = icmp eq ptr %1152, %1134
-  br i1 %1153, label %ext4_mb_find_good_group_avg_frag_lists.exit47.thread68, label %1154
+  br i1 %1153, label %ext4_mb_find_good_group_avg_frag_lists.exit46.thread68, label %1154
 
 1154:                                             ; preds = %1150
   %1155 = load i32, ptr %1146, align 8
@@ -9370,19 +9370,19 @@ ext4_mb_find_good_group_avg_frag_lists.exit47.thread: ; preds = %1128, %ext4_mb_
   %1159 = getelementptr i8, ptr %1152, i64 -60
   %1160 = load i32, ptr %1159, align 4
   %1161 = call fastcc zeroext i1 @ext4_mb_good_group(ptr noundef nonnull readonly %0, i32 noundef %1160, i32 noundef %1139)
-  br i1 %1161, label %ext4_mb_find_good_group_avg_frag_lists.exit47, label %1150, !prof !18, !llvm.loop !247
+  br i1 %1161, label %ext4_mb_find_good_group_avg_frag_lists.exit46, label %1150, !prof !18, !llvm.loop !247
 
-ext4_mb_find_good_group_avg_frag_lists.exit47.thread68: ; preds = %1150, %1142
+ext4_mb_find_good_group_avg_frag_lists.exit46.thread68: ; preds = %1150, %1142
   call void @_raw_read_unlock(ptr noundef %1137) #16
-  br label %ext4_mb_find_good_group_avg_frag_lists.exit47.thread
+  br label %ext4_mb_find_good_group_avg_frag_lists.exit46.thread
 
-ext4_mb_find_good_group_avg_frag_lists.exit47:    ; preds = %1158
+ext4_mb_find_good_group_avg_frag_lists.exit46:    ; preds = %1158
   %1162 = getelementptr i8, ptr %1152, i64 -96
   call void @_raw_read_unlock(ptr noundef %1137) #16
   %1163 = icmp eq ptr %1162, null
-  br i1 %1163, label %ext4_mb_find_good_group_avg_frag_lists.exit47.thread, label %1164
+  br i1 %1163, label %ext4_mb_find_good_group_avg_frag_lists.exit46.thread, label %1164
 
-1164:                                             ; preds = %ext4_mb_find_good_group_avg_frag_lists.exit47
+1164:                                             ; preds = %ext4_mb_find_good_group_avg_frag_lists.exit46
   %1165 = getelementptr i8, ptr %1152, i64 -60
   %1166 = load i32, ptr %1165, align 4
   %1167 = load i32, ptr %37, align 4
@@ -9390,7 +9390,7 @@ ext4_mb_find_good_group_avg_frag_lists.exit47:    ; preds = %1158
   store i32 %1168, ptr %37, align 4
   br label %.loopexit77
 
-.loopexit80:                                      ; preds = %ext4_mb_find_good_group_avg_frag_lists.exit47.thread, %1096
+.loopexit80:                                      ; preds = %ext4_mb_find_good_group_avg_frag_lists.exit46.thread, %1096
   %1169 = load i32, ptr %248, align 8
   store i32 %1169, ptr %192, align 4
   br label %.loopexit77
@@ -9498,58 +9498,58 @@ default.unreachable:                              ; preds = %901
   %1222 = load ptr, ptr %1213, align 8
   %1223 = getelementptr inbounds nuw i8, ptr %1222, i64 1148
   %1224 = load volatile i32, ptr %1223, align 4
-  br i1 %1221, label %.preheader.i50, label %.preheader3.i
+  br i1 %1221, label %.preheader.i49, label %.preheader4.i
 
-.preheader3.i:                                    ; preds = %1211
+.preheader4.i:                                    ; preds = %1211
   %1225 = icmp eq i32 %1224, 0
-  br i1 %1225, label %.thread.i49, label %.lr.ph.i48, !prof !51
+  br i1 %1225, label %.critedge.i48, label %.lr.ph.i47, !prof !51
 
-.preheader.i50:                                   ; preds = %1211
+.preheader.i49:                                   ; preds = %1211
   %1226 = icmp eq i32 %1224, 8
-  br i1 %1226, label %.thread2.i, label %.lr.ph5.i, !prof !51
+  br i1 %1226, label %.critedge2.i50, label %.lr.ph6.i, !prof !51
 
-.lr.ph.i48:                                       ; preds = %.preheader3.i, %1233
-  %1227 = phi i32 [ %1234, %1233 ], [ %1224, %.preheader3.i ]
+.lr.ph.i47:                                       ; preds = %.preheader4.i, %1233
+  %1227 = phi i32 [ %1234, %1233 ], [ %1224, %.preheader4.i ]
   %1228 = add i32 %1227, -1
   %1229 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %1223, i32 %1228, ptr nonnull elementtype(i32) %1223, i32 %1227) #16, !srcloc !52
   %1230 = extractvalue { i8, i32 } %1229, 0
   %1231 = icmp ult i8 %1230, 2
   call void @llvm.assume(i1 %1231)
   %1232 = icmp eq i8 %1230, 0
-  br i1 %1232, label %1233, label %.thread.i49, !prof !32
+  br i1 %1232, label %1233, label %.critedge.i48, !prof !32
 
-1233:                                             ; preds = %.lr.ph.i48
+1233:                                             ; preds = %.lr.ph.i47
   %1234 = extractvalue { i8, i32 } %1229, 1
   %1235 = icmp eq i32 %1234, 0
-  br i1 %1235, label %.thread.i49, label %.lr.ph.i48, !prof !53, !llvm.loop !54
+  br i1 %1235, label %.critedge.i48, label %.lr.ph.i47, !prof !53, !llvm.loop !54
 
-.lr.ph5.i:                                        ; preds = %.preheader.i50, %1242
-  %1236 = phi i32 [ %1243, %1242 ], [ %1224, %.preheader.i50 ]
+.lr.ph6.i:                                        ; preds = %.preheader.i49, %1242
+  %1236 = phi i32 [ %1243, %1242 ], [ %1224, %.preheader.i49 ]
   %1237 = add i32 %1236, 1
   %1238 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %1223, i32 %1237, ptr nonnull elementtype(i32) %1223, i32 %1236) #16, !srcloc !52
   %1239 = extractvalue { i8, i32 } %1238, 0
   %1240 = icmp ult i8 %1239, 2
   call void @llvm.assume(i1 %1240)
   %1241 = icmp eq i8 %1239, 0
-  br i1 %1241, label %1242, label %.thread2.i, !prof !32
+  br i1 %1241, label %1242, label %.critedge2.i50, !prof !32
 
-1242:                                             ; preds = %.lr.ph5.i
+1242:                                             ; preds = %.lr.ph6.i
   %1243 = extractvalue { i8, i32 } %1238, 1
   %1244 = icmp eq i32 %1243, 8
-  br i1 %1244, label %.thread2.i, label %.lr.ph5.i, !prof !53, !llvm.loop !54
+  br i1 %1244, label %.critedge2.i50, label %.lr.ph6.i, !prof !53, !llvm.loop !54
 
-.thread2.i:                                       ; preds = %1242, %.lr.ph5.i, %.preheader.i50
+.critedge2.i50:                                   ; preds = %1242, %.lr.ph6.i, %.preheader.i49
   call void @_raw_spin_lock(ptr noundef %1219) #16
-  br label %.thread.i49
+  br label %.critedge.i48
 
-.thread.i49:                                      ; preds = %1233, %.lr.ph.i48, %.thread2.i, %.preheader3.i
+.critedge.i48:                                    ; preds = %1233, %.lr.ph.i47, %.critedge2.i50, %.preheader4.i
   %1245 = load ptr, ptr %260, align 8
   %1246 = load volatile i64, ptr %1245, align 8
   %1247 = and i64 %1246, 4
   %1248 = icmp eq i64 %1247, 0
   br i1 %1248, label %1249, label %1254, !prof !18
 
-1249:                                             ; preds = %.thread.i49
+1249:                                             ; preds = %.critedge.i48
   %1250 = load i32, ptr %269, align 4
   %1251 = call fastcc i32 @mb_find_extent(ptr noundef nonnull %7, i32 noundef %1250, i32 noundef %1204, ptr noundef nonnull %2)
   %1252 = icmp sgt i32 %1251, 0
@@ -9560,7 +9560,7 @@ default.unreachable:                              ; preds = %901
   call fastcc void @ext4_mb_use_best_found(ptr noundef nonnull %0, ptr noundef nonnull %7)
   br label %1254
 
-1254:                                             ; preds = %1253, %1249, %.thread.i49
+1254:                                             ; preds = %1253, %1249, %.critedge.i48
   %1255 = load ptr, ptr %8, align 8
   %1256 = getelementptr inbounds nuw i8, ptr %1255, i64 872
   %1257 = load ptr, ptr %1256, align 8
@@ -9738,32 +9738,32 @@ define internal fastcc void @ext4_discard_allocated_blocks(ptr noundef nonnull r
   %33 = load ptr, ptr %24, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1148
   %35 = load volatile i32, ptr %34, align 4
-  br i1 %32, label %.preheader, label %.preheader5
+  br i1 %32, label %.preheader, label %.preheader6
 
-.preheader5:                                      ; preds = %21
+.preheader6:                                      ; preds = %21
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.thread, label %.lr.ph, !prof !51
+  br i1 %36, label %.critedge, label %.lr.ph, !prof !51
 
 .preheader:                                       ; preds = %21
   %37 = icmp eq i32 %35, 8
-  br i1 %37, label %.thread4, label %.lr.ph7, !prof !51
+  br i1 %37, label %.critedge2, label %.lr.ph8, !prof !51
 
-.lr.ph:                                           ; preds = %.preheader5, %44
-  %38 = phi i32 [ %45, %44 ], [ %35, %.preheader5 ]
+.lr.ph:                                           ; preds = %.preheader6, %44
+  %38 = phi i32 [ %45, %44 ], [ %35, %.preheader6 ]
   %39 = add i32 %38, -1
   %40 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %34, i32 %39, ptr nonnull elementtype(i32) %34, i32 %38) #16, !srcloc !52
   %41 = extractvalue { i8, i32 } %40, 0
   %42 = icmp ult i8 %41, 2
   tail call void @llvm.assume(i1 %42)
   %43 = icmp eq i8 %41, 0
-  br i1 %43, label %44, label %.thread, !prof !32
+  br i1 %43, label %44, label %.critedge, !prof !32
 
 44:                                               ; preds = %.lr.ph
   %45 = extractvalue { i8, i32 } %40, 1
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.thread, label %.lr.ph, !prof !53, !llvm.loop !54
+  br i1 %46, label %.critedge, label %.lr.ph, !prof !53, !llvm.loop !54
 
-.lr.ph7:                                          ; preds = %.preheader, %53
+.lr.ph8:                                          ; preds = %.preheader, %53
   %47 = phi i32 [ %54, %53 ], [ %35, %.preheader ]
   %48 = add i32 %47, 1
   %49 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %34, i32 %48, ptr nonnull elementtype(i32) %34, i32 %47) #16, !srcloc !52
@@ -9771,18 +9771,18 @@ define internal fastcc void @ext4_discard_allocated_blocks(ptr noundef nonnull r
   %51 = icmp ult i8 %50, 2
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i8 %50, 0
-  br i1 %52, label %53, label %.thread4, !prof !32
+  br i1 %52, label %53, label %.critedge2, !prof !32
 
-53:                                               ; preds = %.lr.ph7
+53:                                               ; preds = %.lr.ph8
   %54 = extractvalue { i8, i32 } %49, 1
   %55 = icmp eq i32 %54, 8
-  br i1 %55, label %.thread4, label %.lr.ph7, !prof !53, !llvm.loop !54
+  br i1 %55, label %.critedge2, label %.lr.ph8, !prof !53, !llvm.loop !54
 
-.thread4:                                         ; preds = %53, %.lr.ph7, %.preheader
+.critedge2:                                       ; preds = %53, %.lr.ph8, %.preheader
   tail call void @_raw_spin_lock(ptr noundef %30) #16
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %44, %.lr.ph, %.preheader5, %.thread4
+.critedge:                                        ; preds = %44, %.lr.ph, %.preheader6, %.critedge2
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %58 = load i32, ptr %57, align 4
@@ -9819,7 +9819,7 @@ define internal fastcc void @ext4_discard_allocated_blocks(ptr noundef nonnull r
   tail call void @_raw_spin_unlock(ptr noundef nonnull %74) #16
   br label %80
 
-80:                                               ; preds = %73, %69, %.thread, %20, %17, %6
+80:                                               ; preds = %73, %69, %.critedge, %20, %17, %6
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #16
   ret void
 }
@@ -9958,59 +9958,59 @@ define internal fastcc noundef zeroext i1 @ext4_mb_discard_preallocations_should
   %80 = load ptr, ptr %8, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 1148
   %82 = load volatile i32, ptr %81, align 4
-  br i1 %79, label %.preheader14.i, label %.preheader15.i
+  br i1 %79, label %.preheader15.i, label %.preheader16.i
+
+.preheader16.i:                                   ; preds = %71
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %.critedge.i, label %.lr.ph.i, !prof !51
 
 .preheader15.i:                                   ; preds = %71
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.thread.i, label %.lr.ph.i, !prof !51
-
-.preheader14.i:                                   ; preds = %71
   %84 = icmp eq i32 %82, 8
-  br i1 %84, label %.thread11.i, label %.lr.ph17.i, !prof !51
+  br i1 %84, label %.critedge2.i, label %.lr.ph18.i, !prof !51
 
-.lr.ph.i:                                         ; preds = %.preheader15.i, %91
-  %85 = phi i32 [ %92, %91 ], [ %82, %.preheader15.i ]
+.lr.ph.i:                                         ; preds = %.preheader16.i, %91
+  %85 = phi i32 [ %92, %91 ], [ %82, %.preheader16.i ]
   %86 = add i32 %85, -1
   %87 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %81, i32 %86, ptr nonnull elementtype(i32) %81, i32 %85) #16, !srcloc !52
   %88 = extractvalue { i8, i32 } %87, 0
   %89 = icmp ult i8 %88, 2
   call void @llvm.assume(i1 %89)
   %90 = icmp eq i8 %88, 0
-  br i1 %90, label %91, label %.thread.i, !prof !32
+  br i1 %90, label %91, label %.critedge.i, !prof !32
 
 91:                                               ; preds = %.lr.ph.i
   %92 = extractvalue { i8, i32 } %87, 1
   %93 = icmp eq i32 %92, 0
-  br i1 %93, label %.thread.i, label %.lr.ph.i, !prof !53, !llvm.loop !54
+  br i1 %93, label %.critedge.i, label %.lr.ph.i, !prof !53, !llvm.loop !54
 
-.lr.ph17.i:                                       ; preds = %.preheader14.i, %100
-  %94 = phi i32 [ %101, %100 ], [ %82, %.preheader14.i ]
+.lr.ph18.i:                                       ; preds = %.preheader15.i, %100
+  %94 = phi i32 [ %101, %100 ], [ %82, %.preheader15.i ]
   %95 = add i32 %94, 1
   %96 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %81, i32 %95, ptr nonnull elementtype(i32) %81, i32 %94) #16, !srcloc !52
   %97 = extractvalue { i8, i32 } %96, 0
   %98 = icmp ult i8 %97, 2
   call void @llvm.assume(i1 %98)
   %99 = icmp eq i8 %97, 0
-  br i1 %99, label %100, label %.thread11.i, !prof !32
+  br i1 %99, label %100, label %.critedge2.i, !prof !32
 
-100:                                              ; preds = %.lr.ph17.i
+100:                                              ; preds = %.lr.ph18.i
   %101 = extractvalue { i8, i32 } %96, 1
   %102 = icmp eq i32 %101, 8
-  br i1 %102, label %.thread11.i, label %.lr.ph17.i, !prof !53, !llvm.loop !54
+  br i1 %102, label %.critedge2.i, label %.lr.ph18.i, !prof !53, !llvm.loop !54
 
-.thread11.i:                                      ; preds = %100, %.lr.ph17.i, %.preheader14.i
+.critedge2.i:                                     ; preds = %100, %.lr.ph18.i, %.preheader15.i
   call void @_raw_spin_lock(ptr noundef %77) #16
-  br label %.thread.i
+  br label %.critedge.i
 
-.thread.i:                                        ; preds = %91, %.lr.ph.i, %.thread11.i, %.preheader15.i
+.critedge.i:                                      ; preds = %91, %.lr.ph.i, %.critedge2.i, %.preheader16.i
   %103 = load ptr, ptr %56, align 8
   %104 = icmp eq ptr %103, %56
-  br i1 %104, label %.loopexit13.i, label %.preheader12.i
+  br i1 %104, label %.loopexit14.i, label %.preheader13.i
 
-.preheader12.i:                                   ; preds = %.thread.i, %141
-  %.3 = phi i32 [ %.4, %141 ], [ %.1, %.thread.i ]
-  %105 = phi ptr [ %107, %141 ], [ %103, %.thread.i ]
-  %106 = phi i32 [ %142, %141 ], [ 0, %.thread.i ]
+.preheader13.i:                                   ; preds = %.critedge.i, %141
+  %.3 = phi i32 [ %.4, %141 ], [ %.1, %.critedge.i ]
+  %105 = phi ptr [ %107, %141 ], [ %103, %.critedge.i ]
+  %106 = phi i32 [ %142, %141 ], [ 0, %.critedge.i ]
   %107 = load ptr, ptr %105, align 8
   %108 = getelementptr i8, ptr %105, i64 32
   call void @_raw_spin_lock(ptr noundef %108) #16
@@ -10019,11 +10019,11 @@ define internal fastcc noundef zeroext i1 @ext4_mb_discard_preallocations_should
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %113, label %112
 
-112:                                              ; preds = %.preheader12.i
+112:                                              ; preds = %.preheader13.i
   call void @_raw_spin_unlock(ptr noundef %108) #16
   br label %141
 
-113:                                              ; preds = %.preheader12.i
+113:                                              ; preds = %.preheader13.i
   %114 = getelementptr i8, ptr %105, i64 40
   %115 = load i32, ptr %114, align 8
   %116 = icmp eq i32 %115, 0
@@ -10082,17 +10082,17 @@ define internal fastcc noundef zeroext i1 @ext4_mb_discard_preallocations_should
   %.4 = phi i32 [ %.3, %129 ], [ %.3, %117 ], [ 1, %112 ]
   %142 = phi i32 [ %132, %129 ], [ %106, %117 ], [ %106, %112 ]
   %143 = icmp eq ptr %107, %56
-  br i1 %143, label %.loopexit13.i, label %.preheader12.i, !llvm.loop !264
+  br i1 %143, label %.loopexit14.i, label %.preheader13.i, !llvm.loop !264
 
-.loopexit13.i:                                    ; preds = %141, %.thread.i
-  %.5 = phi i32 [ %.1, %.thread.i ], [ %.4, %141 ]
-  %144 = phi i32 [ 0, %.thread.i ], [ %142, %141 ]
+.loopexit14.i:                                    ; preds = %141, %.critedge.i
+  %.5 = phi i32 [ %.1, %.critedge.i ], [ %.4, %141 ]
+  %144 = phi i32 [ 0, %.critedge.i ], [ %142, %141 ]
   %145 = load ptr, ptr %4, align 8
   %146 = icmp eq ptr %145, %4
   br i1 %146, label %.loopexit.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.loopexit13.i, %189
-  %147 = phi ptr [ %149, %189 ], [ %145, %.loopexit13.i ]
+.preheader.i:                                     ; preds = %.loopexit14.i, %189
+  %147 = phi ptr [ %149, %189 ], [ %145, %.loopexit14.i ]
   %148 = getelementptr i8, ptr %147, i64 -40
   %149 = load ptr, ptr %147, align 8
   %150 = getelementptr i8, ptr %147, i64 52
@@ -10184,7 +10184,7 @@ define internal fastcc noundef zeroext i1 @ext4_mb_discard_preallocations_should
   %190 = icmp eq ptr %149, %4
   br i1 %190, label %.loopexit.i, label %.preheader.i, !llvm.loop !265
 
-.loopexit.i:                                      ; preds = %189, %.loopexit13.i
+.loopexit.i:                                      ; preds = %189, %.loopexit14.i
   %191 = load ptr, ptr %8, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 424
   %193 = load ptr, ptr %192, align 8
@@ -11286,13 +11286,13 @@ define dso_local noundef i32 @ext4_group_add_blocks(ptr noundef %0, ptr noundef 
 
 30:                                               ; preds = %21
   call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %1, ptr noundef nonnull @__func__.ext4_group_add_blocks, i32 noundef 6668, ptr noundef nonnull @.str.47, i32 noundef %29) #16
-  br label %.thread7
+  br label %.thread
 
 31:                                               ; preds = %21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false), !annotation !11
   %32 = call fastcc i32 @ext4_mb_load_buddy_gfp(ptr noundef %1, i32 noundef %29, ptr noundef nonnull %7, i32 noundef 3136)
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %.thread7
+  br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %31
   store i32 0, ptr %8, align 4, !annotation !11
@@ -11343,11 +11343,11 @@ define dso_local noundef i32 @ext4_group_add_blocks(ptr noundef %0, ptr noundef 
 
 .preheader11:                                     ; preds = %53
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.thread, label %.lr.ph, !prof !51
+  br i1 %66, label %.loopexit, label %.lr.ph, !prof !51
 
 .preheader:                                       ; preds = %53
   %67 = icmp eq i32 %65, 8
-  br i1 %67, label %.thread6, label %.lr.ph13, !prof !51
+  br i1 %67, label %.critedge2, label %.lr.ph13, !prof !51
 
 .lr.ph:                                           ; preds = %.preheader11, %74
   %68 = phi i32 [ %75, %74 ], [ %65, %.preheader11 ]
@@ -11357,12 +11357,12 @@ define dso_local noundef i32 @ext4_group_add_blocks(ptr noundef %0, ptr noundef 
   %72 = icmp ult i8 %71, 2
   call void @llvm.assume(i1 %72)
   %73 = icmp eq i8 %71, 0
-  br i1 %73, label %74, label %.thread, !prof !32
+  br i1 %73, label %74, label %.loopexit, !prof !32
 
 74:                                               ; preds = %.lr.ph
   %75 = extractvalue { i8, i32 } %70, 1
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %.thread, label %.lr.ph, !prof !53, !llvm.loop !54
+  br i1 %76, label %.loopexit, label %.lr.ph, !prof !53, !llvm.loop !54
 
 .lr.ph13:                                         ; preds = %.preheader, %83
   %77 = phi i32 [ %84, %83 ], [ %65, %.preheader ]
@@ -11372,23 +11372,23 @@ define dso_local noundef i32 @ext4_group_add_blocks(ptr noundef %0, ptr noundef 
   %81 = icmp ult i8 %80, 2
   call void @llvm.assume(i1 %81)
   %82 = icmp eq i8 %80, 0
-  br i1 %82, label %83, label %.thread6, !prof !32
+  br i1 %82, label %83, label %.critedge2, !prof !32
 
 83:                                               ; preds = %.lr.ph13
   %84 = extractvalue { i8, i32 } %79, 1
   %85 = icmp eq i32 %84, 8
-  br i1 %85, label %.thread6, label %.lr.ph13, !prof !53, !llvm.loop !54
+  br i1 %85, label %.critedge2, label %.lr.ph13, !prof !53, !llvm.loop !54
 
-.thread6:                                         ; preds = %83, %.lr.ph13, %.preheader
+.critedge2:                                       ; preds = %83, %.lr.ph13, %.preheader
   call void @_raw_spin_lock(ptr noundef %60) #16
-  br label %.thread
+  br label %.loopexit
 
 .thread10:                                        ; preds = %39, %38
   %.ph9 = phi i32 [ -22, %38 ], [ %43, %39 ]
   call fastcc void @ext4_mb_unload_buddy(ptr noundef nonnull %7)
-  br label %.thread7
+  br label %.thread
 
-.thread:                                          ; preds = %74, %.lr.ph, %.preheader11, %.thread6
+.loopexit:                                        ; preds = %.lr.ph, %74, %.preheader11, %.critedge2
   %86 = load i32, ptr %6, align 4
   call fastcc void @mb_free_blocks(ptr noundef null, ptr noundef nonnull %7, i32 noundef %86, i32 noundef %42)
   %87 = load i32, ptr %5, align 4
@@ -11404,15 +11404,15 @@ define dso_local noundef i32 @ext4_group_add_blocks(ptr noundef %0, ptr noundef 
   call void @percpu_counter_add_batch(ptr noundef nonnull %94, i64 noundef %49, i32 noundef %95) #16
   call fastcc void @ext4_mb_unload_buddy(ptr noundef nonnull %7)
   %96 = icmp eq i32 %43, 0
-  br i1 %96, label %98, label %.thread7
+  br i1 %96, label %98, label %.thread
 
-.thread7:                                         ; preds = %31, %30, %.thread10, %.thread
-  %97 = phi i32 [ %43, %.thread ], [ %.ph9, %.thread10 ], [ %32, %31 ], [ -22, %30 ]
+.thread:                                          ; preds = %31, %30, %.thread10, %.loopexit
+  %97 = phi i32 [ %43, %.loopexit ], [ %.ph9, %.thread10 ], [ %32, %31 ], [ -22, %30 ]
   call void @__ext4_std_error(ptr noundef %1, ptr noundef nonnull @__func__.ext4_group_add_blocks, i32 noundef 6703, i32 noundef %97) #16
   br label %98
 
-98:                                               ; preds = %.thread7, %.thread, %4
-  %99 = phi i32 [ 0, %4 ], [ %97, %.thread7 ], [ 0, %.thread ]
+98:                                               ; preds = %.thread, %.loopexit, %4
+  %99 = phi i32 [ 0, %4 ], [ %97, %.thread ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
@@ -12358,11 +12358,11 @@ define dso_local i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %1, i
 
 .preheader16:                                     ; preds = %10
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.thread, label %.lr.ph, !prof !51
+  br i1 %25, label %.critedge, label %.lr.ph, !prof !51
 
 .preheader15:                                     ; preds = %10
   %26 = icmp eq i32 %24, 8
-  br i1 %26, label %.thread10, label %.lr.ph18, !prof !51
+  br i1 %26, label %.critedge2, label %.lr.ph18, !prof !51
 
 .lr.ph:                                           ; preds = %.preheader16, %33
   %27 = phi i32 [ %34, %33 ], [ %24, %.preheader16 ]
@@ -12372,12 +12372,12 @@ define dso_local i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %1, i
   %31 = icmp ult i8 %30, 2
   tail call void @llvm.assume(i1 %31)
   %32 = icmp eq i8 %30, 0
-  br i1 %32, label %33, label %.thread, !prof !32
+  br i1 %32, label %33, label %.critedge, !prof !32
 
 33:                                               ; preds = %.lr.ph
   %34 = extractvalue { i8, i32 } %29, 1
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %.thread, label %.lr.ph, !prof !53, !llvm.loop !54
+  br i1 %35, label %.critedge, label %.lr.ph, !prof !53, !llvm.loop !54
 
 .lr.ph18:                                         ; preds = %.preheader15, %42
   %36 = phi i32 [ %43, %42 ], [ %24, %.preheader15 ]
@@ -12387,18 +12387,18 @@ define dso_local i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %1, i
   %40 = icmp ult i8 %39, 2
   tail call void @llvm.assume(i1 %40)
   %41 = icmp eq i8 %39, 0
-  br i1 %41, label %42, label %.thread10, !prof !32
+  br i1 %41, label %42, label %.critedge2, !prof !32
 
 42:                                               ; preds = %.lr.ph18
   %43 = extractvalue { i8, i32 } %38, 1
   %44 = icmp eq i32 %43, 8
-  br i1 %44, label %.thread10, label %.lr.ph18, !prof !53, !llvm.loop !54
+  br i1 %44, label %.critedge2, label %.lr.ph18, !prof !53, !llvm.loop !54
 
-.thread10:                                        ; preds = %42, %.lr.ph18, %.preheader15
+.critedge2:                                       ; preds = %42, %.lr.ph18, %.preheader15
   tail call void @_raw_spin_lock(ptr noundef %19) #16
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %33, %.lr.ph, %.preheader16, %.thread10
+.critedge:                                        ; preds = %33, %.lr.ph, %.preheader16, %.critedge2
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -12415,7 +12415,7 @@ define dso_local i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %1, i
   %58 = icmp sgt i32 %49, %57
   br i1 %58, label %.loopexit, label %59
 
-59:                                               ; preds = %.thread
+59:                                               ; preds = %.critedge
   %60 = add i32 %57, 1
   %61 = ptrtoint ptr %12 to i64
   %62 = trunc i64 %61 to i32
@@ -12427,8 +12427,8 @@ define dso_local i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %1, i
   %68 = sext i32 %67 to i64
   br label %69
 
-69:                                               ; preds = %.thread11, %59
-  %70 = phi i32 [ %49, %59 ], [ %122, %.thread11 ]
+69:                                               ; preds = %.thread, %59
+  %70 = phi i32 [ %49, %59 ], [ %122, %.thread ]
   %71 = add i32 %70, %64
   %72 = sext i32 %71 to i64
   %73 = tail call i64 @_find_next_zero_bit(ptr noundef %66, i64 noundef %68, i64 noundef %72) #16
@@ -12469,7 +12469,7 @@ define dso_local i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %1, i
 
 .preheader13:                                     ; preds = %92
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %.thread11, label %.lr.ph20, !prof !51
+  br i1 %102, label %.thread, label %.lr.ph20, !prof !51
 
 .preheader:                                       ; preds = %92
   %103 = icmp eq i32 %101, 8
@@ -12483,12 +12483,12 @@ define dso_local i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %1, i
   %108 = icmp ult i8 %107, 2
   tail call void @llvm.assume(i1 %108)
   %109 = icmp eq i8 %107, 0
-  br i1 %109, label %110, label %.thread11, !prof !32
+  br i1 %109, label %110, label %.thread, !prof !32
 
 110:                                              ; preds = %.lr.ph20
   %111 = extractvalue { i8, i32 } %106, 1
   %112 = icmp eq i32 %111, 0
-  br i1 %112, label %.thread11, label %.lr.ph20, !prof !53, !llvm.loop !54
+  br i1 %112, label %.thread, label %.lr.ph20, !prof !53, !llvm.loop !54
 
 .lr.ph22:                                         ; preds = %.preheader, %119
   %113 = phi i32 [ %120, %119 ], [ %101, %.preheader ]
@@ -12507,19 +12507,19 @@ define dso_local i32 @ext4_mballoc_query_range(ptr noundef %0, i32 noundef %1, i
 
 .thread12:                                        ; preds = %119, %.lr.ph22, %.preheader
   tail call void @_raw_spin_lock(ptr noundef %96) #16
-  br label %.thread11
+  br label %.thread
 
-.thread11:                                        ; preds = %110, %.lr.ph20, %.preheader13, %.thread12
+.thread:                                          ; preds = %110, %.lr.ph20, %.preheader13, %.thread12
   %122 = add i32 %84, 1
   %123 = icmp sgt i32 %122, %57
   br i1 %123, label %.loopexit.loopexit, label %69, !llvm.loop !307
 
-.loopexit.loopexit:                               ; preds = %69, %.thread11
+.loopexit.loopexit:                               ; preds = %69, %.thread
   %.pre = load ptr, ptr %13, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.thread
-  %124 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %51, %.thread ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.critedge
+  %124 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %51, %.critedge ]
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 424
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr [128 x %struct.bgl_lock], ptr %126, i64 0, i64 %18

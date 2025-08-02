@@ -96,13 +96,13 @@ _ZN5boost9container3pmr13pool_resource17priv_limit_optionERmmm.exit:
 6:                                                ; preds = %4
   %.sroa.speculated.i2 = tail call i64 @llvm.umin.i64(i64 %3, i64 4096)
   %7 = add nsw i64 %.sroa.speculated.i2, -1
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 false)
+  %9 = sub nuw nsw i64 64, %8
   br label %_ZN5boost9container3pmr13pool_resource17priv_limit_optionERmmm.exit4
 
 _ZN5boost9container3pmr13pool_resource17priv_limit_optionERmmm.exit4: ; preds = %_ZN5boost9container3pmr13pool_resource17priv_limit_optionERmmm.exit, %4, %6
-  %storemerge.i3 = phi i64 [ 4095, %_ZN5boost9container3pmr13pool_resource17priv_limit_optionERmmm.exit ], [ %7, %6 ], [ 15, %4 ]
-  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %storemerge.i3, i1 false)
-  %9 = sub nuw nsw i64 64, %8
-  %10 = shl nuw nsw i64 1, %9
+  %storemerge.i3 = phi i64 [ 12, %_ZN5boost9container3pmr13pool_resource17priv_limit_optionERmmm.exit ], [ %9, %6 ], [ 4, %4 ]
+  %10 = shl nuw nsw i64 1, %storemerge.i3
   store i64 %10, ptr %2, align 8, !tbaa !7
   ret void
 }
@@ -166,13 +166,13 @@ define hidden void @_ZN5boost9container3pmr13pool_resource21priv_constructor_bod
 7:                                                ; preds = %5
   %.sroa.speculated.i2.i = tail call i64 @llvm.umin.i64(i64 %4, i64 4096)
   %8 = add nsw i64 %.sroa.speculated.i2.i, -1
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 false)
+  %10 = sub nuw nsw i64 64, %9
   br label %_ZN5boost9container3pmr13pool_resource16priv_fix_optionsEv.exit
 
 _ZN5boost9container3pmr13pool_resource16priv_fix_optionsEv.exit: ; preds = %1, %5, %7
-  %storemerge.i3.i = phi i64 [ 4095, %1 ], [ %8, %7 ], [ 15, %5 ]
-  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %storemerge.i3.i, i1 false)
-  %10 = sub nuw nsw i64 64, %9
-  %11 = shl nuw nsw i64 1, %10
+  %storemerge.i3.i = phi i64 [ 12, %1 ], [ %10, %7 ], [ 4, %5 ]
+  %11 = shl nuw nsw i64 1, %storemerge.i3.i
   store i64 %11, ptr %3, align 8, !tbaa !7
   ret void
 }
@@ -196,22 +196,22 @@ define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_option
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %.not.i1.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i1.i.i, label %15, label %11
+  br i1 %.not.i1.i.i, label %17, label %11
 
 11:                                               ; preds = %3
   %12 = icmp ult i64 %10, 16
-  br i1 %12, label %15, label %13
+  br i1 %12, label %17, label %13
 
 13:                                               ; preds = %11
   %.sroa.speculated.i2.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 4096)
   %14 = add nsw i64 %.sroa.speculated.i2.i.i, -1
-  br label %15
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 false)
+  %16 = sub nuw nsw i64 64, %15
+  br label %17
 
-15:                                               ; preds = %13, %11, %3
-  %storemerge.i3.i.i = phi i64 [ 4095, %3 ], [ %14, %13 ], [ 15, %11 ]
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %storemerge.i3.i.i, i1 false)
-  %17 = sub nuw nsw i64 64, %16
-  %18 = shl nuw nsw i64 1, %17
+17:                                               ; preds = %13, %11, %3
+  %storemerge.i3.i.i = phi i64 [ 12, %3 ], [ %16, %13 ], [ 4, %11 ]
+  %18 = shl nuw nsw i64 1, %storemerge.i3.i.i
   store i64 %18, ptr %9, align 8, !tbaa !7
   ret void
 }
@@ -251,22 +251,22 @@ define hidden void @_ZN5boost9container3pmr13pool_resourceC2Ev(ptr noundef nonnu
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %.not.i1.i.i = icmp eq i64 %9, 0
-  br i1 %.not.i1.i.i, label %14, label %10
+  br i1 %.not.i1.i.i, label %16, label %10
 
 10:                                               ; preds = %1
   %11 = icmp ult i64 %9, 16
-  br i1 %11, label %14, label %12
+  br i1 %11, label %16, label %12
 
 12:                                               ; preds = %10
   %.sroa.speculated.i2.i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 4096)
   %13 = add nsw i64 %.sroa.speculated.i2.i.i, -1
-  br label %14
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 false)
+  %15 = sub nuw nsw i64 64, %14
+  br label %16
 
-14:                                               ; preds = %12, %10, %1
-  %storemerge.i3.i.i = phi i64 [ 4095, %1 ], [ %13, %12 ], [ 15, %10 ]
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %storemerge.i3.i.i, i1 false)
-  %16 = sub nuw nsw i64 64, %15
-  %17 = shl nuw nsw i64 1, %16
+16:                                               ; preds = %12, %10, %1
+  %storemerge.i3.i.i = phi i64 [ 12, %1 ], [ %15, %12 ], [ 4, %10 ]
+  %17 = shl nuw nsw i64 1, %storemerge.i3.i.i
   store i64 %17, ptr %8, align 8, !tbaa !7
   ret void
 }
@@ -310,22 +310,22 @@ define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_option
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %.not.i1.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i1.i.i, label %15, label %11
+  br i1 %.not.i1.i.i, label %17, label %11
 
 11:                                               ; preds = %2
   %12 = icmp ult i64 %10, 16
-  br i1 %12, label %15, label %13
+  br i1 %12, label %17, label %13
 
 13:                                               ; preds = %11
   %.sroa.speculated.i2.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 4096)
   %14 = add nsw i64 %.sroa.speculated.i2.i.i, -1
-  br label %15
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 false)
+  %16 = sub nuw nsw i64 64, %15
+  br label %17
 
-15:                                               ; preds = %13, %11, %2
-  %storemerge.i3.i.i = phi i64 [ 4095, %2 ], [ %14, %13 ], [ 15, %11 ]
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %storemerge.i3.i.i, i1 false)
-  %17 = sub nuw nsw i64 64, %16
-  %18 = shl nuw nsw i64 1, %17
+17:                                               ; preds = %13, %11, %2
+  %storemerge.i3.i.i = phi i64 [ 12, %2 ], [ %16, %13 ], [ 4, %11 ]
+  %18 = shl nuw nsw i64 1, %storemerge.i3.i.i
   store i64 %18, ptr %9, align 8, !tbaa !7
   ret void
 }
@@ -444,8 +444,8 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit: ; preds = %42, %
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resource7releaseEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN5boost9container3pmr13pool_resource7releaseEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !13
@@ -718,8 +718,8 @@ _ZN5boost9container3pmr11pool_data_t14allocate_blockEv.exit20: ; preds = %86, %_
   ret ptr %.011
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resource13do_deallocateEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN5boost9container3pmr13pool_resource13do_deallocateEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !7
   %7 = icmp ugt i64 %2, %6

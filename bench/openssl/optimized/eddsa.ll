@@ -362,10 +362,9 @@ define i32 @ossl_c448_ed448_verify(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12) #5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13) #5
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 57
   br label %17
 
-15:                                               ; preds = %23
+15:                                               ; preds = %25
   %16 = add nsw i32 %.03547, -1
   %.not48 = icmp eq i32 %.03547, 0
   br i1 %.not48, label %.thread, label %17, !llvm.loop !11
@@ -373,78 +372,80 @@ define i32 @ossl_c448_ed448_verify(ptr noundef %0, ptr noundef %1, ptr noundef %
 17:                                               ; preds = %9, %15
   %.03547 = phi i32 [ 56, %9 ], [ %16, %15 ]
   %18 = zext nneg i32 %.03547 to i64
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %18
-  %19 = load i8, ptr %gep, align 1, !tbaa !3
-  %20 = getelementptr inbounds nuw [57 x i8], ptr @ossl_c448_ed448_verify.order, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 57
   %21 = load i8, ptr %20, align 1, !tbaa !3
-  %22 = icmp ugt i8 %19, %21
-  br i1 %22, label %.thread, label %23
+  %22 = getelementptr inbounds nuw [57 x i8], ptr @ossl_c448_ed448_verify.order, i64 0, i64 %18
+  %23 = load i8, ptr %22, align 1, !tbaa !3
+  %24 = icmp ugt i8 %21, %23
+  br i1 %24, label %.thread, label %25
 
-23:                                               ; preds = %17
-  %24 = icmp ult i8 %19, %21
-  br i1 %24, label %25, label %15
-
-25:                                               ; preds = %23
-  %26 = call i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef nonnull %10, ptr noundef %2) #5
-  %.not = icmp eq i32 %26, -1
-  br i1 %.not, label %27, label %.thread
+25:                                               ; preds = %17
+  %26 = icmp ult i8 %21, %23
+  br i1 %26, label %27, label %15
 
 27:                                               ; preds = %25
-  %28 = call i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef nonnull %11, ptr noundef nonnull %1) #5
-  %.not41 = icmp eq i32 %28, -1
-  br i1 %.not41, label %29, label %.thread
+  %28 = call i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef nonnull %10, ptr noundef %2) #5
+  %.not = icmp eq i32 %28, -1
+  br i1 %.not, label %29, label %.thread
 
 29:                                               ; preds = %27
-  %30 = call ptr @EVP_MD_CTX_new() #5
+  %30 = call i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef nonnull %11, ptr noundef nonnull %1) #5
+  %.not41 = icmp eq i32 %30, -1
+  br i1 %.not41, label %31, label %.thread
+
+31:                                               ; preds = %29
+  %32 = call ptr @EVP_MD_CTX_new() #5
   call void @llvm.lifetime.start.p0(i64 114, ptr nonnull %14) #5
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %.critedge, label %32
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %.critedge, label %34
 
-32:                                               ; preds = %29
-  %33 = zext i8 %7 to i64
-  %34 = call fastcc i32 @hash_init_with_dom(ptr noundef %0, ptr noundef %30, i8 noundef zeroext %5, ptr noundef %6, i64 noundef %33, ptr noundef %8)
-  %.not42 = icmp eq i32 %34, 0
-  br i1 %.not42, label %.critedge, label %35
+34:                                               ; preds = %31
+  %35 = zext i8 %7 to i64
+  %36 = call fastcc i32 @hash_init_with_dom(ptr noundef %0, ptr noundef %32, i8 noundef zeroext %5, ptr noundef %6, i64 noundef %35, ptr noundef %8)
+  %.not42 = icmp eq i32 %36, 0
+  br i1 %.not42, label %.critedge, label %37
 
-35:                                               ; preds = %32
-  %36 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %30, ptr noundef nonnull %1, i64 noundef 57) #5
-  %.not43 = icmp eq i32 %36, 0
-  br i1 %.not43, label %.critedge, label %37
-
-37:                                               ; preds = %35
-  %38 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %30, ptr noundef %2, i64 noundef 57) #5
-  %.not44 = icmp eq i32 %38, 0
-  br i1 %.not44, label %.critedge, label %39
+37:                                               ; preds = %34
+  %38 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %32, ptr noundef nonnull %1, i64 noundef 57) #5
+  %.not43 = icmp eq i32 %38, 0
+  br i1 %.not43, label %.critedge, label %39
 
 39:                                               ; preds = %37
-  %40 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %30, ptr noundef %3, i64 noundef %4) #5
-  %.not45 = icmp eq i32 %40, 0
-  br i1 %.not45, label %.critedge, label %41
+  %40 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %32, ptr noundef %2, i64 noundef 57) #5
+  %.not44 = icmp eq i32 %40, 0
+  br i1 %.not44, label %.critedge, label %41
 
 41:                                               ; preds = %39
-  %42 = call i32 @EVP_DigestFinalXOF(ptr noundef nonnull %30, ptr noundef nonnull %14, i64 noundef 114) #5
-  %.not46 = icmp eq i32 %42, 0
-  br i1 %.not46, label %.critedge, label %43
+  %42 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %32, ptr noundef %3, i64 noundef %4) #5
+  %.not45 = icmp eq i32 %42, 0
+  br i1 %.not45, label %.critedge, label %43
 
-.critedge:                                        ; preds = %41, %39, %37, %35, %32, %29
-  call void @EVP_MD_CTX_free(ptr noundef %30) #5
+43:                                               ; preds = %41
+  %44 = call i32 @EVP_DigestFinalXOF(ptr noundef nonnull %32, ptr noundef nonnull %14, i64 noundef 114) #5
+  %.not46 = icmp eq i32 %44, 0
+  br i1 %.not46, label %.critedge, label %45
+
+.critedge:                                        ; preds = %43, %41, %39, %37, %34, %31
+  call void @EVP_MD_CTX_free(ptr noundef %32) #5
   call void @llvm.lifetime.end.p0(i64 114, ptr nonnull %14) #5
   br label %.thread
 
-43:                                               ; preds = %41
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %30) #5
+45:                                               ; preds = %43
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %32) #5
   call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %12, ptr noundef nonnull %14, i64 noundef 114) #5
   call void @OPENSSL_cleanse(ptr noundef nonnull %14, i64 noundef 114) #5
   call void @llvm.lifetime.end.p0(i64 114, ptr nonnull %14) #5
   call void @ossl_curve448_scalar_sub(ptr noundef nonnull %12, ptr noundef nonnull @ossl_curve448_scalar_zero, ptr noundef nonnull %12) #5
-  call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %13, ptr noundef nonnull %invariant.gep, i64 noundef 57) #5
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 57
+  call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %13, ptr noundef nonnull %46, i64 noundef 57) #5
   call void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %12) #5
-  %44 = call i64 @ossl_curve448_point_eq(ptr noundef nonnull %10, ptr noundef nonnull %11) #5
-  %45 = trunc i64 %44 to i32
+  %47 = call i64 @ossl_curve448_point_eq(ptr noundef nonnull %10, ptr noundef nonnull %11) #5
+  %48 = trunc i64 %47 to i32
   br label %.thread
 
-.thread:                                          ; preds = %15, %17, %.critedge, %27, %25, %43
-  %.0 = phi i32 [ %45, %43 ], [ %26, %25 ], [ %28, %27 ], [ 0, %.critedge ], [ 0, %17 ], [ 0, %15 ]
+.thread:                                          ; preds = %15, %17, %.critedge, %29, %27, %45
+  %.0 = phi i32 [ %48, %45 ], [ %28, %27 ], [ %30, %29 ], [ 0, %.critedge ], [ 0, %17 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #5
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #5
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #5

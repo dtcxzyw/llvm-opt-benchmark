@@ -48,18 +48,18 @@ define dso_local noundef zeroext i1 @fixup_umip_exception(ptr noundef %0) local_
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #7
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %.thread8, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %5, i8 0, i64 15, i1 false), !annotation !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 112, i1 false), !annotation !5
   %9 = call i32 @insn_fetch_from_user(ptr noundef nonnull %0, ptr noundef nonnull %5) #7
   %10 = icmp slt i32 %9, 1
-  br i1 %10, label %.thread8, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %8
   %12 = call zeroext i1 @insn_decode_from_regs(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %9) #7
-  br i1 %12, label %13, label %.thread8
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %11
   %14 = call i32 @insn_get_modrm(ptr noundef nonnull %6) #7
@@ -71,12 +71,12 @@ define dso_local noundef zeroext i1 @fixup_umip_exception(ptr noundef %0) local_
   %20 = load i8, ptr %19, align 8
   %21 = icmp eq i8 %20, 15
   %22 = select i1 %18, i1 %21, i1 false
-  br i1 %22, label %23, label %.thread8
+  br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 25
   %25 = load i8, ptr %24, align 1
-  switch i8 %25, label %.thread8 [
+  switch i8 %25, label %.critedge [
     i8 1, label %26
     i8 0, label %32
   ]
@@ -85,7 +85,7 @@ define dso_local noundef zeroext i1 @fixup_umip_exception(ptr noundef %0) local_
   %27 = load i32, ptr %15, align 8
   %28 = lshr i32 %27, 3
   %29 = and i32 %28, 7
-  switch i32 %29, label %.thread8 [
+  switch i32 %29, label %.critedge [
     i32 0, label %.thread
     i32 1, label %30
     i32 4, label %31
@@ -101,7 +101,7 @@ define dso_local noundef zeroext i1 @fixup_umip_exception(ptr noundef %0) local_
   %33 = load i32, ptr %15, align 8
   %34 = lshr i32 %33, 3
   %35 = and i32 %34, 7
-  switch i32 %35, label %.thread8 [
+  switch i32 %35, label %.critedge [
     i32 0, label %.thread
     i32 1, label %.thread.fold.split
   ]
@@ -192,69 +192,69 @@ default.unreachable:                              ; preds = %54
 
 78:                                               ; preds = %45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %.thread8
+  br label %.critedge
 
 79:                                               ; preds = %49, %69
-  %80 = phi i32 [ %70, %69 ], [ %46, %49 ]
-  %.ph10 = phi i32 [ %76, %69 ], [ %53, %49 ]
-  %81 = and i32 %80, 192
-  %82 = icmp eq i32 %81, 192
-  br i1 %82, label %83, label %92
+  %80 = phi i32 [ %46, %49 ], [ %70, %69 ]
+  %81 = phi i32 [ %53, %49 ], [ %76, %69 ]
+  %82 = and i32 %80, 192
+  %83 = icmp eq i32 %82, 192
+  br i1 %83, label %84, label %93
 
-83:                                               ; preds = %79
-  %84 = call i32 @insn_get_modrm_rm_off(ptr noundef nonnull %6, ptr noundef nonnull %0) #7
-  %85 = icmp slt i32 %84, 0
-  br i1 %85, label %.thread8, label %86
+84:                                               ; preds = %79
+  %85 = call i32 @insn_get_modrm_rm_off(ptr noundef nonnull %6, ptr noundef nonnull %0) #7
+  %86 = icmp slt i32 %85, 0
+  br i1 %86, label %.critedge, label %87
 
-86:                                               ; preds = %83
-  %87 = ptrtoint ptr %0 to i64
-  %88 = zext nneg i32 %84 to i64
-  %89 = add i64 %88, %87
-  %90 = inttoptr i64 %89 to ptr
-  %91 = zext nneg i32 %.ph10 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %90, ptr nonnull align 2 %4, i64 %91, i1 false)
+87:                                               ; preds = %84
+  %88 = ptrtoint ptr %0 to i64
+  %89 = zext nneg i32 %85 to i64
+  %90 = add i64 %89, %88
+  %91 = inttoptr i64 %90 to ptr
+  %92 = zext nneg i32 %81 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %91, ptr nonnull align 2 %4, i64 %92, i1 false)
+  br label %104
+
+93:                                               ; preds = %79
+  %94 = call ptr @insn_get_addr_ref(ptr noundef nonnull %6, ptr noundef nonnull %0) #7
+  %95 = icmp eq ptr %94, inttoptr (i64 -1 to ptr)
+  br i1 %95, label %.critedge, label %96
+
+96:                                               ; preds = %93
+  %97 = zext nneg i32 %81 to i64
+  %98 = icmp samesign ugt i32 %81, 10
+  br i1 %98, label %.thread9, label %99, !prof !7
+
+.thread9:                                         ; preds = %96
+  call void @__copy_overflow(i32 noundef 10, i64 noundef %97) #7
   br label %103
 
-92:                                               ; preds = %79
-  %93 = call ptr @insn_get_addr_ref(ptr noundef nonnull %6, ptr noundef nonnull %0) #7
-  %94 = icmp eq ptr %93, inttoptr (i64 -1 to ptr)
-  br i1 %94, label %.thread8, label %95
+99:                                               ; preds = %96
+  %100 = call i64 @_copy_to_user(ptr noundef %94, ptr noundef nonnull %4, i64 noundef %97) #7
+  %101 = trunc i64 %100 to i32
+  %102 = icmp sgt i32 %101, 0
+  br i1 %102, label %103, label %104
 
-95:                                               ; preds = %92
-  %96 = zext nneg i32 %.ph10 to i64
-  %97 = icmp samesign ugt i32 %.ph10, 10
-  br i1 %97, label %.thread12, label %98, !prof !7
+103:                                              ; preds = %.thread9, %99
+  call fastcc void @force_sig_info_umip_fault(ptr noundef %94, ptr noundef nonnull %0)
+  br label %.critedge
 
-.thread12:                                        ; preds = %95
-  call void @__copy_overflow(i32 noundef 10, i64 noundef %96) #7
-  br label %102
+104:                                              ; preds = %99, %87
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 82
+  %106 = load i8, ptr %105, align 2
+  %107 = zext i8 %106 to i64
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %109 = load i64, ptr %108, align 8
+  %110 = add i64 %109, %107
+  store i64 %110, ptr %108, align 8
+  br label %.critedge
 
-98:                                               ; preds = %95
-  %99 = call i64 @_copy_to_user(ptr noundef %93, ptr noundef nonnull %4, i64 noundef %96) #7
-  %100 = trunc i64 %99 to i32
-  %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %102, label %103
-
-102:                                              ; preds = %.thread12, %98
-  call fastcc void @force_sig_info_umip_fault(ptr noundef %93, ptr noundef nonnull %0)
-  br label %.thread8
-
-103:                                              ; preds = %98, %86
-  %104 = getelementptr inbounds nuw i8, ptr %6, i64 82
-  %105 = load i8, ptr %104, align 2
-  %106 = zext i8 %105 to i64
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %108 = load i64, ptr %107, align 8
-  %109 = add i64 %108, %106
-  store i64 %109, ptr %107, align 8
-  br label %.thread8
-
-.thread8:                                         ; preds = %32, %26, %23, %13, %78, %103, %102, %92, %83, %11, %8, %1
-  %110 = phi i1 [ true, %103 ], [ true, %102 ], [ false, %1 ], [ false, %8 ], [ false, %11 ], [ false, %78 ], [ false, %83 ], [ false, %92 ], [ false, %13 ], [ false, %23 ], [ false, %26 ], [ false, %32 ]
+.critedge:                                        ; preds = %32, %26, %23, %13, %78, %104, %103, %93, %84, %11, %8, %1
+  %111 = phi i1 [ true, %104 ], [ true, %103 ], [ false, %1 ], [ false, %8 ], [ false, %11 ], [ false, %84 ], [ false, %93 ], [ false, %78 ], [ false, %13 ], [ false, %23 ], [ false, %26 ], [ false, %32 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #7
-  ret i1 %110
+  ret i1 %111
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

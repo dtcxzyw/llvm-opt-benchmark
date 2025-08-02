@@ -766,8 +766,8 @@ _ZL7isAliasPKcP10UErrorCode.exit.thread:          ; preds = %5
 
 _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %5
   %7 = load i8, ptr %0, align 1, !tbaa !3
-  %.not36 = icmp eq i8 %7, 0
-  br i1 %.not36, label %.critedge, label %8
+  %.not34 = icmp eq i8 %7, 0
+  br i1 %.not34, label %.critedge, label %8
 
 8:                                                ; preds = %_ZL7isAliasPKcP10UErrorCode.exit
   %9 = tail call fastcc noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
@@ -803,8 +803,8 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %5
   store ptr %17, ptr %22, align 8, !tbaa !55
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %19, %20, %8, %_ZL7isAliasPKcP10UErrorCode.exit.thread, %3, %_ZL7isAliasPKcP10UErrorCode.exit
-  %.3 = phi ptr [ null, %_ZL7isAliasPKcP10UErrorCode.exit ], [ null, %3 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.thread ], [ null, %15 ], [ null, %19 ], [ null, %8 ], [ %13, %20 ]
+.critedge:                                        ; preds = %_ZL7isAliasPKcP10UErrorCode.exit.thread, %19, %15, %3, %_ZL7isAliasPKcP10UErrorCode.exit, %8, %20
+  %.3 = phi ptr [ null, %_ZL7isAliasPKcP10UErrorCode.exit ], [ null, %3 ], [ %13, %20 ], [ null, %8 ], [ null, %15 ], [ null, %19 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.thread ]
   ret ptr %.3
 }
 
@@ -897,7 +897,6 @@ _ZL12getTagNumberPKc.exit:                        ; preds = %15, %3, %.thread.lo
 .lr.ph:                                           ; preds = %.preheader
   %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 40), align 8
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 56), align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %47, i64 2
   %wide.trip.count = zext i32 %46 to i64
   br label %49
 
@@ -951,9 +950,10 @@ _ZL13isAliasInListPKcj.exit:                      ; preds = %60
 
 72:                                               ; preds = %_ZL13isAliasInListPKcj.exit
   %73 = zext i16 %71 to i64
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %73
-  %74 = load i16, ptr %gep, align 2, !tbaa !22
-  %.not39 = icmp eq i16 %74, 0
+  %74 = getelementptr inbounds nuw i16, ptr %47, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
+  %76 = load i16, ptr %75, align 2, !tbaa !22
+  %.not39 = icmp eq i16 %76, 0
   br i1 %.not39, label %_ZL13isAliasInListPKcj.exit.thread, label %.loopexit.split.loop.exit49
 
 _ZL13isAliasInListPKcj.exit.thread:               ; preds = %65, %72, %_ZL13isAliasInListPKcj.exit, %52, %49
@@ -962,11 +962,11 @@ _ZL13isAliasInListPKcj.exit.thread:               ; preds = %65, %72, %_ZL13isAl
   br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !59
 
 .loopexit.split.loop.exit49:                      ; preds = %72
-  %75 = zext i16 %71 to i32
+  %77 = zext i16 %71 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL13isAliasInListPKcj.exit.thread, %.loopexit.split.loop.exit49, %.preheader, %23, %27, %44, %37
-  %.0 = phi i32 [ %38, %37 ], [ 0, %44 ], [ -1, %27 ], [ -1, %23 ], [ %75, %.loopexit.split.loop.exit49 ], [ 0, %.preheader ], [ 0, %_ZL13isAliasInListPKcj.exit.thread ]
+  %.0 = phi i32 [ %38, %37 ], [ 0, %44 ], [ -1, %27 ], [ -1, %23 ], [ %77, %.loopexit.split.loop.exit49 ], [ 0, %.preheader ], [ 0, %_ZL13isAliasInListPKcj.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   ret i32 %.0
 }

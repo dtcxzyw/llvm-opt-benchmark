@@ -233,8 +233,8 @@ define void @_ZN3net22QuicCryptoClientStream15DoHandshakeLoopEPKNS_22CryptoHands
   %.pre = load i32, ptr %13, align 8, !tbaa !145
   br label %19
 
-19:                                               ; preds = %103, %2
-  %20 = phi i32 [ %105, %103 ], [ %.pre, %2 ]
+19:                                               ; preds = %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit, %2
+  %20 = phi i32 [ %104, %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit ], [ %.pre, %2 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #21
   store i32 10, ptr %6, align 4, !tbaa !145
   %.not.i = icmp eq i32 %20, 10
@@ -247,8 +247,8 @@ _ZN7logging11CheckNEImplIN3net22QuicCryptoClientStream5StateES3_EEPNSt7__cxx1112
 _ZN7logging11CheckNEImplIN3net22QuicCryptoClientStream5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %19
   %21 = call noundef ptr @_ZN7logging17MakeCheckOpStringIN3net22QuicCryptoClientStream5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull @.str.4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #21
-  %.not.i19 = icmp eq ptr %21, null
-  br i1 %.not.i19, label %thread-pre-split, label %22
+  %.not.i21 = icmp eq ptr %21, null
+  br i1 %.not.i21, label %thread-pre-split, label %22
 
 22:                                               ; preds = %_ZN7logging11CheckNEImplIN3net22QuicCryptoClientStream5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %7) #21
@@ -264,7 +264,7 @@ thread-pre-split:                                 ; preds = %22, %_ZN7logging11C
 23:                                               ; preds = %thread-pre-split, %_ZN7logging11CheckNEImplIN3net22QuicCryptoClientStream5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
   %24 = phi i32 [ %.pr, %thread-pre-split ], [ %20, %_ZN7logging11CheckNEImplIN3net22QuicCryptoClientStream5StateES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread ]
   store i32 0, ptr %13, align 8, !tbaa !146
-  switch i32 %24, label %103 [
+  switch i32 %24, label %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit [
     i32 1, label %25
     i32 2, label %35
     i32 3, label %36
@@ -299,7 +299,7 @@ thread-pre-split:                                 ; preds = %22, %_ZN7logging11C
 _ZN3net22QuicCryptoClientStream12DoInitializeEPNS_22QuicCryptoClientConfig11CachedStateE.exit: ; preds = %25, %27, %32
   %.sink.i = phi i32 [ 4, %32 ], [ 6, %27 ], [ 6, %25 ]
   store i32 %.sink.i, ptr %13, align 8, !tbaa !146
-  br label %103
+  br label %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit
 
 35:                                               ; preds = %23
   call void @_ZN3net22QuicCryptoClientStream10DoSendCHLOEPNS_22QuicCryptoClientConfig11CachedStateE(ptr noundef nonnull align 8 dereferenceable(1268) %0, ptr noundef %12)
@@ -307,24 +307,24 @@ _ZN3net22QuicCryptoClientStream12DoInitializeEPNS_22QuicCryptoClientConfig11Cach
 
 36:                                               ; preds = %23
   call void @_ZN3net22QuicCryptoClientStream12DoReceiveREJEPKNS_22CryptoHandshakeMessageEPNS_22QuicCryptoClientConfig11CachedStateE(ptr noundef nonnull align 8 dereferenceable(1268) %0, ptr noundef %1, ptr noundef %12)
-  br label %103
+  br label %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit
 
 37:                                               ; preds = %23
   %38 = call noundef i32 @_ZN3net22QuicCryptoClientStream13DoVerifyProofEPNS_22QuicCryptoClientConfig11CachedStateE(ptr noundef nonnull align 8 dereferenceable(1268) %0, ptr noundef %12)
-  br label %103
+  br label %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit
 
 39:                                               ; preds = %23
   call void @_ZN3net22QuicCryptoClientStream21DoVerifyProofCompleteEPNS_22QuicCryptoClientConfig11CachedStateE(ptr noundef nonnull align 8 dereferenceable(1268) %0, ptr noundef %12)
-  br label %103
+  br label %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit
 
 40:                                               ; preds = %23
   %41 = call noundef i32 @_ZN3net22QuicCryptoClientStream14DoGetChannelIDEPNS_22QuicCryptoClientConfig11CachedStateE(ptr noundef nonnull align 8 dereferenceable(1268) %0, ptr noundef %12)
-  br label %103
+  br label %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit
 
 42:                                               ; preds = %23
   %43 = load ptr, ptr %14, align 8, !tbaa !12
-  %.not.i20 = icmp eq ptr %43, null
-  br i1 %.not.i20, label %.noexc.i.i, label %62
+  %.not.i22 = icmp eq ptr %43, null
+  br i1 %.not.i22, label %.noexc.i.i, label %62
 
 .noexc.i.i:                                       ; preds = %42
   store i32 10, ptr %13, align 8, !tbaa !146
@@ -365,7 +365,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #21
-  br label %103
+  br label %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit
 
 56:                                               ; preds = %.noexc.i.i
   %57 = landingpad { ptr, i32 }
@@ -384,8 +384,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   call void @_ZdlPv(ptr noundef %58) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i
 
-common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i
-  %common.resume.op = phi { ptr, i32 } [ %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23 ]
+common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i
+  %common.resume.op = phi { ptr, i32 } [ %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i
@@ -394,11 +394,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i: ; preds = %_Z
 
 62:                                               ; preds = %42
   store i32 2, ptr %13, align 8, !tbaa !146
-  br label %103
+  br label %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit
 
 63:                                               ; preds = %23
   call void @_ZN3net22QuicCryptoClientStream13DoReceiveSHLOEPKNS_22CryptoHandshakeMessageEPNS_22QuicCryptoClientConfig11CachedStateE(ptr noundef nonnull align 8 dereferenceable(1268) %0, ptr noundef %1, ptr noundef %12)
-  br label %103
+  br label %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit
 
 .noexc.i:                                         ; preds = %23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #21
@@ -448,27 +448,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 78:                                               ; preds = %.noexc.i
   %79 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25
 
 80:                                               ; preds = %.noexc
   %81 = landingpad { ptr, i32 }
           cleanup
   %82 = load ptr, ptr %8, align 8, !tbaa !150
   %83 = icmp eq ptr %82, %64
-  br i1 %83, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
+  br i1 %83, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22: ; preds = %80
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24: ; preds = %80
   %84 = load i64, ptr %67, align 8, !tbaa !147
   %85 = icmp ult i64 %84, 16
   call void @llvm.assume(i1 %85)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21: ; preds = %80
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23: ; preds = %80
   call void @_ZdlPv(ptr noundef %82) #22
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, %78
-  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22 ], [ %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24, %78
+  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24 ], [ %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #21
   br label %common.resume
 
@@ -487,13 +487,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZN
   br label %94
 
 94:                                               ; preds = %93, %88
-  %.sink.i24 = phi i32 [ 10, %93 ], [ 4, %88 ]
+  %.sink.i26 = phi i32 [ 10, %93 ], [ 4, %88 ]
   %.06.i = phi i32 [ 1, %93 ], [ 0, %88 ]
-  store i32 %.sink.i24, ptr %13, align 8, !tbaa !146
+  store i32 %.sink.i26, ptr %13, align 8, !tbaa !146
   %95 = load atomic volatile i64, ptr @_ZZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateEE24atomic_histogram_pointer acquire, align 8
   %96 = inttoptr i64 %95 to ptr
-  %.not.i25 = icmp eq i64 %95, 0
-  br i1 %.not.i25, label %97, label %_ZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateE.exit
+  %.not.i27 = icmp eq i64 %95, 0
+  br i1 %.not.i27, label %97, label %_ZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateE.exit
 
 97:                                               ; preds = %94
   %98 = call noundef ptr @_ZN4base9Histogram10FactoryGetEPKciiji(ptr noundef nonnull @.str.21, i32 noundef 1, i32 noundef 1000000, i32 noundef 50, i32 noundef 1)
@@ -502,22 +502,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZN
   br label %_ZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateE.exit
 
 _ZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateE.exit: ; preds = %94, %97
-  %.0.i26 = phi ptr [ %96, %94 ], [ %98, %97 ]
-  %100 = load ptr, ptr %.0.i26, align 8, !tbaa !3
+  %.0.i28 = phi ptr [ %96, %94 ], [ %98, %97 ]
+  %100 = load ptr, ptr %.0.i28, align 8, !tbaa !3
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %102 = load ptr, ptr %101, align 8
-  call void %102(ptr noundef nonnull align 8 dereferenceable(44) %.0.i26, i32 noundef %.06.i)
-  br label %103
+  call void %102(ptr noundef nonnull align 8 dereferenceable(44) %.0.i28, i32 noundef %.06.i)
+  br label %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit
 
-103:                                              ; preds = %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateE.exit, %63, %40, %39, %37, %36, %_ZN3net22QuicCryptoClientStream12DoInitializeEPNS_22QuicCryptoClientConfig11CachedStateE.exit, %23
+_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit: ; preds = %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateE.exit, %63, %40, %39, %37, %36, %_ZN3net22QuicCryptoClientStream12DoInitializeEPNS_22QuicCryptoClientConfig11CachedStateE.exit, %23
   %.015 = phi i32 [ 0, %23 ], [ 0, %_ZN3net22QuicCryptoClientStream12DoInitializeEPNS_22QuicCryptoClientConfig11CachedStateE.exit ], [ 0, %36 ], [ %38, %37 ], [ 0, %39 ], [ %41, %40 ], [ 0, %63 ], [ 0, %_ZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateE.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 0, %62 ]
-  %104 = icmp eq i32 %.015, 2
-  %105 = load i32, ptr %13, align 8
-  %.not = icmp eq i32 %105, 10
-  %or.cond = select i1 %104, i1 true, i1 %.not
+  %103 = icmp eq i32 %.015, 2
+  %104 = load i32, ptr %13, align 8
+  %.not = icmp eq i32 %104, 10
+  %or.cond = select i1 %103, i1 true, i1 %.not
   br i1 %or.cond, label %.critedge, label %19, !llvm.loop !152
 
-.critedge:                                        ; preds = %23, %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %35
+.critedge:                                        ; preds = %23, %_ZN3net22QuicCryptoClientStream22DoGetChannelIDCompleteEv.exit, %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   ret void
 }
 

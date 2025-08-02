@@ -74205,7 +74205,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf3400c107519e14eE.exit.i: ; pr
 225:                                              ; preds = %205
   br i1 %206, label %.backedge, label %84
 
-.backedge.sink.split:                             ; preds = %.thread.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.i.i.i", %275, %267, %267, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h124cca9ab5c7ccd6E.exit.i.i.i.i.i", %283, %277, %245
+.backedge.sink.split:                             ; preds = %.thread13.i.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.i.i.i", %275, %267, %267, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h124cca9ab5c7ccd6E.exit.i.i.i.i.i", %283, %277, %245
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0150)
   br label %.backedge
 
@@ -74443,7 +74443,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h19c72e95242947a8E.exit.i.i.
   %.not.i.i34 = icmp ugt i64 %.0.i.i.i.i.i.i, %287
   br i1 %.not.i.i34, label %.backedge.sink.split, label %_ZN4core4iter8adapters5chain17and_then_or_clear17hb9a509c9c050efc7E.exit.thread.i.i.i.i.i.i
 
-.thread.i:                                        ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17hb9a509c9c050efc7E.exit.thread.i.i.i.i.i.i
+.thread13.i.i:                                    ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17hb9a509c9c050efc7E.exit.thread.i.i.i.i.i.i
   %289 = icmp eq i32 %254, 2
   br i1 %289, label %.backedge.sink.split, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.i.i.i"
 
@@ -74453,14 +74453,14 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb9a509c9c050efc7E.exit.thread.
   %290 = phi ptr [ %288, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h124cca9ab5c7ccd6E.exit.i.i.i.i.i" ], [ %255, %280 ]
   %291 = icmp eq ptr %290, null
   %292 = icmp eq ptr %290, %.sroa.28.0.copyload
-  %or.cond5.i.i = select i1 %291, i1 true, i1 %292
-  br i1 %or.cond5.i.i, label %.thread.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.thread.sink.split.i.i.i"
+  %or.cond10.i.i = select i1 %291, i1 true, i1 %292
+  br i1 %or.cond10.i.i, label %.thread13.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.thread.sink.split.i.i.i"
 
-"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.i.i.i": ; preds = %.thread.i, %275
-  %.sroa.17.6 = phi i32 [ %.sroa.17.9, %275 ], [ 3, %.thread.i ]
-  %.sroa.25.4 = phi ptr [ %.sroa.25.1, %275 ], [ %.sroa.25.2, %.thread.i ]
-  %.sroa.29.4 = phi i64 [ %.sroa.29.1, %275 ], [ 0, %.thread.i ]
-  %293 = phi ptr [ %255, %275 ], [ %290, %.thread.i ]
+"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7223d59509f23ee4E.exit.i.i.i": ; preds = %.thread13.i.i, %275
+  %.sroa.17.6 = phi i32 [ %.sroa.17.9, %275 ], [ 3, %.thread13.i.i ]
+  %.sroa.25.4 = phi ptr [ %.sroa.25.1, %275 ], [ %.sroa.25.2, %.thread13.i.i ]
+  %.sroa.29.4 = phi i64 [ %.sroa.29.1, %275 ], [ 0, %.thread13.i.i ]
+  %293 = phi ptr [ %255, %275 ], [ %290, %.thread13.i.i ]
   %switch12.not.i.i.i = icmp eq i32 %254, 0
   br i1 %switch12.not.i.i.i, label %.backedge.sink.split, label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa98d907eaf0e26bE.exit.i"
 

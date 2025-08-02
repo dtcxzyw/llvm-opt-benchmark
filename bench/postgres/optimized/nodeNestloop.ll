@@ -192,7 +192,7 @@ ExecProcNode.exit:                                ; preds = %44, %46
   %55 = load ptr, ptr %29, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %.not76 = icmp eq ptr %55, null
-  br i1 %.not76, label %._crit_edge, label %.lr.ph
+  br i1 %.not76, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -201,13 +201,9 @@ ExecProcNode.exit:                                ; preds = %44, %46
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %61 = load i32, ptr %56, align 4
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph97, label %._crit_edge
+  br i1 %62, label %.lr.ph95, label %.critedge
 
-._crit_edge:                                      ; preds = %slot_getattr.exit, %.lr.ph, %54
-  call void @ExecReScan(ptr noundef %19) #5
-  br label %93
-
-.lr.ph97:                                         ; preds = %.lr.ph, %slot_getattr.exit
+.lr.ph95:                                         ; preds = %.lr.ph, %slot_getattr.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %slot_getattr.exit ], [ 0, %.lr.ph ]
   %63 = load ptr, ptr %57, align 8
   %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv
@@ -227,11 +223,11 @@ ExecProcNode.exit:                                ; preds = %44, %46
   %78 = icmp sgt i16 %74, %77
   br i1 %78, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
-slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph97
+slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph95
   call void @slot_getsomeattrs_int(ptr noundef nonnull %48, i32 noundef range(i32 -32767, 32768) %75) #5
   br label %slot_getattr.exit
 
-slot_getattr.exit:                                ; preds = %.lr.ph97, %slot_getsomeattrs.exit.i
+slot_getattr.exit:                                ; preds = %.lr.ph95, %slot_getsomeattrs.exit.i
   %79 = load ptr, ptr %59, align 8
   %80 = add nsw i32 %75, -1
   %81 = sext i32 %80 to i64
@@ -250,9 +246,13 @@ slot_getattr.exit:                                ; preds = %.lr.ph97, %slot_get
   %90 = load i32, ptr %56, align 4
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %.lr.ph97, label %._crit_edge
+  br i1 %92, label %.lr.ph95, label %.critedge
 
-93:                                               ; preds = %._crit_edge, %.backedge
+.critedge:                                        ; preds = %slot_getattr.exit, %.lr.ph, %54
+  call void @ExecReScan(ptr noundef %19) #5
+  br label %93
+
+93:                                               ; preds = %.critedge, %.backedge
   %94 = load ptr, ptr %31, align 8
   %.not.i82 = icmp eq ptr %94, null
   br i1 %.not.i82, label %ExecProcNode.exit83, label %95
@@ -304,9 +304,9 @@ ExecQual.exit:                                    ; preds = %108
   %112 = load ptr, ptr %40, align 8
   %113 = call i64 %112(ptr noundef nonnull %15, ptr noundef nonnull %21, ptr noundef nonnull %6) #5
   store ptr %111, ptr @CurrentMemoryContext, align 8
-  %.not93 = icmp eq i64 %113, 0
+  %.not91 = icmp eq i64 %113, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
-  br i1 %.not93, label %140, label %114
+  br i1 %.not91, label %140, label %114
 
 114:                                              ; preds = %ExecQual.exit, %108
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -370,9 +370,9 @@ ExecQual.exit85:                                  ; preds = %146
   %149 = load ptr, ptr %35, align 8
   %150 = call i64 %149(ptr noundef nonnull %13, ptr noundef nonnull %21, ptr noundef nonnull %4) #5
   store ptr %148, ptr @CurrentMemoryContext, align 8
-  %.not91 = icmp eq i64 %150, 0
+  %.not89 = icmp eq i64 %150, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
-  br i1 %.not91, label %196, label %151
+  br i1 %.not89, label %196, label %151
 
 151:                                              ; preds = %ExecQual.exit85.thread, %ExecQual.exit85
   store i8 1, ptr %28, align 1
@@ -404,9 +404,9 @@ ExecQual.exit87:                                  ; preds = %159
   %162 = load ptr, ptr %40, align 8
   %163 = call i64 %162(ptr noundef nonnull %15, ptr noundef nonnull %21, ptr noundef nonnull %3) #5
   store ptr %161, ptr @CurrentMemoryContext, align 8
-  %.not92 = icmp eq i64 %163, 0
+  %.not90 = icmp eq i64 %163, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
-  br i1 %.not92, label %190, label %164
+  br i1 %.not90, label %190, label %164
 
 164:                                              ; preds = %ExecQual.exit87, %159
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 136

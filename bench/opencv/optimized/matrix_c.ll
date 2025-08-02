@@ -92,7 +92,7 @@ define void @_Z7cvMatNDRKN2cv3MatE(ptr dead_on_unwind noalias writable sret(%str
   %19 = load i64, ptr %18, align 8, !tbaa !20
   %20 = trunc i64 %19 to i32
   %.idx = shl nuw nsw i64 %indvars.iv, 3
-  %21 = getelementptr i8, ptr %16, i64 %.idx
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   store i32 %20, ptr %21, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

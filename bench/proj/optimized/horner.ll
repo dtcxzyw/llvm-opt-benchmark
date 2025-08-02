@@ -124,12 +124,12 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr
 .critedge:                                        ; preds = %24, %19
   %29 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #9
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %72, label %33
+  br i1 %30, label %88, label %33
 
 .thread:                                          ; preds = %24
   %31 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #9
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %72, label %42
+  br i1 %32, label %88, label %42
 
 33:                                               ; preds = %.critedge
   %34 = shl i64 %14, 1
@@ -143,10 +143,10 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr
   %40 = tail call noalias ptr @calloc(i64 noundef %37, i64 noundef 8) #9
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 80
   store ptr %40, ptr %41, align 8, !tbaa !47
-  %.not37.i = icmp ne ptr %38, null
-  %.not38.i = icmp ne ptr %40, null
-  %or.cond.not.i = and i1 %.not37.i, %.not38.i
-  br label %58
+  %.not37.i = icmp eq ptr %38, null
+  %.not38.i = icmp eq ptr %40, null
+  %or.cond.i = or i1 %.not37.i, %.not38.i
+  br i1 %or.cond.i, label %.critedge.i, label %58
 
 42:                                               ; preds = %.thread
   %43 = add nuw nsw i64 %14, 1
@@ -170,260 +170,278 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr
   store ptr %55, ptr %56, align 8, !tbaa !51
   %.not.i = icmp eq ptr %49, null
   %.not34.i = icmp eq ptr %51, null
-  %or.cond44.i = or i1 %.not.i, %.not34.i
-  br i1 %or.cond44.i, label %58, label %57
+  %or.cond43.i = or i1 %.not.i, %.not34.i
+  br i1 %or.cond43.i, label %.critedge.i, label %57
 
 57:                                               ; preds = %42
-  %.not35.i = icmp ne ptr %53, null
-  %.not36.i = icmp ne ptr %55, null
-  %or.cond41.not.i = and i1 %.not35.i, %.not36.i
-  br label %58
+  %.not35.i = icmp eq ptr %53, null
+  %.not36.i = icmp eq ptr %55, null
+  %or.cond41.i = or i1 %.not35.i, %.not36.i
+  br i1 %or.cond41.i, label %.critedge.i, label %58
 
-58:                                               ; preds = %57, %42, %33
-  %.0111123127 = phi i1 [ false, %42 ], [ true, %33 ], [ false, %57 ]
-  %59 = phi ptr [ %31, %42 ], [ %29, %33 ], [ %31, %57 ]
-  %60 = phi ptr [ null, %42 ], [ %40, %33 ], [ null, %57 ]
-  %61 = phi ptr [ null, %42 ], [ %38, %33 ], [ null, %57 ]
-  %62 = phi ptr [ %49, %42 ], [ null, %33 ], [ %49, %57 ]
-  %63 = phi ptr [ %51, %42 ], [ null, %33 ], [ %51, %57 ]
-  %64 = phi ptr [ %53, %42 ], [ null, %33 ], [ %53, %57 ]
-  %65 = phi ptr [ %55, %42 ], [ null, %33 ], [ %55, %57 ]
-  %.032.i = phi i1 [ false, %42 ], [ %or.cond.not.i, %33 ], [ %or.cond41.not.i, %57 ]
-  %66 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
-  %67 = getelementptr inbounds nuw i8, ptr %59, i64 88
-  store ptr %66, ptr %67, align 8, !tbaa !52
-  %68 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
-  %69 = getelementptr inbounds nuw i8, ptr %59, i64 96
-  store ptr %68, ptr %69, align 8, !tbaa !53
-  br i1 %.032.i, label %70, label %71
-
-70:                                               ; preds = %58
-  %.not39.i = icmp eq ptr %66, null
-  %.not40.i = icmp eq ptr %68, null
+58:                                               ; preds = %57, %33
+  %.0111123128 = phi i1 [ false, %57 ], [ true, %33 ]
+  %59 = phi ptr [ %31, %57 ], [ %29, %33 ]
+  %60 = phi ptr [ %55, %57 ], [ null, %33 ]
+  %61 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 88
+  store ptr %61, ptr %62, align 8, !tbaa !52
+  %63 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 96
+  store ptr %63, ptr %64, align 8, !tbaa !53
+  %.not39.i = icmp eq ptr %61, null
+  %.not40.i = icmp eq ptr %63, null
   %or.cond42.i = or i1 %.not39.i, %.not40.i
   br i1 %or.cond42.i, label %71, label %_ZL12horner_allocjb.exit
 
-71:                                               ; preds = %70, %58
-  tail call void @free(ptr noundef %65) #10
-  tail call void @free(ptr noundef %64) #10
-  tail call void @free(ptr noundef %63) #10
-  tail call void @free(ptr noundef %62) #10
-  tail call void @free(ptr noundef %61) #10
-  tail call void @free(ptr noundef %60) #10
-  tail call void @free(ptr noundef %66) #10
-  tail call void @free(ptr noundef %68) #10
-  tail call void @free(ptr noundef nonnull %59) #10
-  br label %72
+.critedge.i:                                      ; preds = %57, %42, %33
+  %65 = phi ptr [ %31, %42 ], [ %31, %57 ], [ %29, %33 ]
+  %66 = phi ptr [ %55, %42 ], [ %55, %57 ], [ null, %33 ]
+  %67 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 88
+  store ptr %67, ptr %68, align 8, !tbaa !52
+  %69 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 96
+  store ptr %69, ptr %70, align 8, !tbaa !53
+  br label %71
 
-72:                                               ; preds = %.critedge, %71, %.thread
-  %73 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
+71:                                               ; preds = %.critedge.i, %58
+  %72 = phi ptr [ %65, %.critedge.i ], [ %59, %58 ]
+  %73 = phi ptr [ %66, %.critedge.i ], [ %60, %58 ]
+  tail call void @free(ptr noundef %73) #10
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 56
+  %75 = load ptr, ptr %74, align 8, !tbaa !50
+  tail call void @free(ptr noundef %75) #10
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 48
+  %77 = load ptr, ptr %76, align 8, !tbaa !49
+  tail call void @free(ptr noundef %77) #10
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  %79 = load ptr, ptr %78, align 8, !tbaa !48
+  tail call void @free(ptr noundef %79) #10
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 72
+  %81 = load ptr, ptr %80, align 8, !tbaa !46
+  tail call void @free(ptr noundef %81) #10
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 80
+  %83 = load ptr, ptr %82, align 8, !tbaa !47
+  tail call void @free(ptr noundef %83) #10
+  %84 = getelementptr inbounds nuw i8, ptr %72, i64 88
+  %85 = load ptr, ptr %84, align 8, !tbaa !52
+  tail call void @free(ptr noundef %85) #10
+  %86 = getelementptr inbounds nuw i8, ptr %72, i64 96
+  %87 = load ptr, ptr %86, align 8, !tbaa !53
+  tail call void @free(ptr noundef %87) #10
+  tail call void @free(ptr noundef nonnull %72) #10
+  br label %88
+
+88:                                               ; preds = %.critedge, %71, %.thread
+  %89 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
   br label %.critedge121.thread
 
-_ZL12horner_allocjb.exit:                         ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %59, ptr %74, align 8, !tbaa !54
-  %75 = load ptr, ptr %7, align 8, !tbaa !42
-  br i1 %.0111123127, label %81, label %76
-
-76:                                               ; preds = %_ZL12horner_allocjb.exit
-  %77 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %75, ptr noundef nonnull @.str.7)
-  %.not115 = icmp eq ptr %77, null
-  br i1 %.not115, label %78, label %.thread141
-
-78:                                               ; preds = %76
-  %79 = load ptr, ptr %7, align 8, !tbaa !42
-  %80 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %79, ptr noundef nonnull @.str.8)
-  %.not116 = icmp eq ptr %80, null
-  br i1 %.not116, label %90, label %.thread141
-
-81:                                               ; preds = %_ZL12horner_allocjb.exit
-  %82 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %75, ptr noundef nonnull @.str.10)
-  %.not117 = icmp eq ptr %82, null
-  br i1 %.not117, label %83, label %.thread136
-
-83:                                               ; preds = %81
-  %84 = load ptr, ptr %7, align 8, !tbaa !42
-  %85 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %84, ptr noundef nonnull @.str.9)
-  %86 = icmp ne ptr %85, null
-  %87 = zext i1 %86 to i8
-  %spec.select154 = select i1 %86, ptr @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts, ptr @_ZL35complex_horner_iterative_inverse_4dR8PJ_COORDP8PJconsts
-  br label %.thread136
-
-.thread141:                                       ; preds = %76, %78
-  %88 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i8 1, ptr %88, align 8, !tbaa !55
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts, ptr %89, align 8, !tbaa !56
-  br label %124
-
-90:                                               ; preds = %78
+_ZL12horner_allocjb.exit:                         ; preds = %58
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %59, ptr %90, align 8, !tbaa !54
   %91 = load ptr, ptr %7, align 8, !tbaa !42
-  %92 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %91, ptr noundef nonnull @.str.9)
-  %93 = icmp ne ptr %92, null
-  %94 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %95 = zext i1 %93 to i8
-  store i8 %95, ptr %94, align 8, !tbaa !55
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts, ptr %96, align 8, !tbaa !56
-  %spec.select156 = select i1 %93, ptr @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts, ptr @_ZL27horner_iterative_inverse_4dR8PJ_COORDP8PJconsts
-  br label %124
+  br i1 %.0111123128, label %97, label %92
 
-.thread136:                                       ; preds = %81, %83
-  %.sink = phi i8 [ %87, %83 ], [ 1, %81 ]
-  %.0108138 = phi i1 [ %86, %83 ], [ true, %81 ]
-  %97 = phi ptr [ %spec.select154, %83 ], [ @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts, %81 ]
-  %98 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i8 %.sink, ptr %98, align 8, !tbaa !55
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @_ZL25complex_horner_forward_4dR8PJ_COORDP8PJconsts, ptr %99, align 8, !tbaa !56
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %97, ptr %100, align 8, !tbaa !57
-  %101 = load ptr, ptr %7, align 8, !tbaa !42
-  %102 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %101, ptr noundef nonnull @.str.11)
-  %.not118 = icmp ne ptr %102, null
-  %103 = zext i1 %.not118 to i32
-  store i32 %103, ptr %59, align 8, !tbaa !58
-  %104 = load ptr, ptr %7, align 8, !tbaa !42
-  %105 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %104, ptr noundef nonnull @.str.12)
-  %.not119 = icmp ne ptr %105, null
-  %106 = zext i1 %.not119 to i32
-  %107 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  store i32 %106, ptr %107, align 4, !tbaa !59
-  %108 = shl nuw nsw i32 %.sroa.023.0.extract.trunc, 1
-  %109 = add nuw nsw i32 %108, 2
-  %110 = getelementptr inbounds nuw i8, ptr %59, i64 72
-  %111 = load ptr, ptr %110, align 8, !tbaa !46
-  %112 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %111, ptr noundef nonnull @.str.13, i32 noundef %109)
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %116
+92:                                               ; preds = %_ZL12horner_allocjb.exit
+  %93 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %91, ptr noundef nonnull @.str.7)
+  %.not115 = icmp eq ptr %93, null
+  br i1 %.not115, label %94, label %.thread143
 
-114:                                              ; preds = %.thread136
+94:                                               ; preds = %92
+  %95 = load ptr, ptr %7, align 8, !tbaa !42
+  %96 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %95, ptr noundef nonnull @.str.8)
+  %.not116 = icmp eq ptr %96, null
+  br i1 %.not116, label %106, label %.thread143
+
+97:                                               ; preds = %_ZL12horner_allocjb.exit
+  %98 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %91, ptr noundef nonnull @.str.10)
+  %.not117 = icmp eq ptr %98, null
+  br i1 %.not117, label %99, label %.thread138
+
+99:                                               ; preds = %97
+  %100 = load ptr, ptr %7, align 8, !tbaa !42
+  %101 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %100, ptr noundef nonnull @.str.9)
+  %102 = icmp ne ptr %101, null
+  %103 = zext i1 %102 to i8
+  %spec.select156 = select i1 %102, ptr @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts, ptr @_ZL35complex_horner_iterative_inverse_4dR8PJ_COORDP8PJconsts
+  br label %.thread138
+
+.thread143:                                       ; preds = %92, %94
+  %104 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  store i8 1, ptr %104, align 8, !tbaa !55
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts, ptr %105, align 8, !tbaa !56
+  br label %140
+
+106:                                              ; preds = %94
+  %107 = load ptr, ptr %7, align 8, !tbaa !42
+  %108 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %107, ptr noundef nonnull @.str.9)
+  %109 = icmp ne ptr %108, null
+  %110 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %111 = zext i1 %109 to i8
+  store i8 %111, ptr %110, align 8, !tbaa !55
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts, ptr %112, align 8, !tbaa !56
+  %spec.select158 = select i1 %109, ptr @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts, ptr @_ZL27horner_iterative_inverse_4dR8PJ_COORDP8PJconsts
+  br label %140
+
+.thread138:                                       ; preds = %97, %99
+  %.sink = phi i8 [ %103, %99 ], [ 1, %97 ]
+  %.0108140 = phi i1 [ %102, %99 ], [ true, %97 ]
+  %113 = phi ptr [ %spec.select156, %99 ], [ @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts, %97 ]
+  %114 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  store i8 %.sink, ptr %114, align 8, !tbaa !55
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr @_ZL25complex_horner_forward_4dR8PJ_COORDP8PJconsts, ptr %115, align 8, !tbaa !56
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %113, ptr %116, align 8, !tbaa !57
+  %117 = load ptr, ptr %7, align 8, !tbaa !42
+  %118 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %117, ptr noundef nonnull @.str.11)
+  %.not118 = icmp ne ptr %118, null
+  %119 = zext i1 %.not118 to i32
+  store i32 %119, ptr %59, align 8, !tbaa !58
+  %120 = load ptr, ptr %7, align 8, !tbaa !42
+  %121 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %120, ptr noundef nonnull @.str.12)
+  %.not119 = icmp ne ptr %121, null
+  %122 = zext i1 %.not119 to i32
+  %123 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  store i32 %122, ptr %123, align 4, !tbaa !59
+  %124 = shl nuw nsw i32 %.sroa.023.0.extract.trunc, 1
+  %125 = add nuw nsw i32 %124, 2
+  %126 = getelementptr inbounds nuw i8, ptr %59, i64 72
+  %127 = load ptr, ptr %126, align 8, !tbaa !46
+  %128 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %127, ptr noundef nonnull @.str.13, i32 noundef %125)
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %132
+
+130:                                              ; preds = %.thread138
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.14)
-  %115 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %131 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-116:                                              ; preds = %.thread136
-  br i1 %.0108138, label %117, label %.critedge121
+132:                                              ; preds = %.thread138
+  br i1 %.0108140, label %133, label %.critedge121
 
-117:                                              ; preds = %116
-  %118 = getelementptr inbounds nuw i8, ptr %59, i64 80
-  %119 = load ptr, ptr %118, align 8, !tbaa !47
-  %120 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %119, ptr noundef nonnull @.str.10, i32 noundef %109)
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %122, label %.critedge121
+133:                                              ; preds = %132
+  %134 = getelementptr inbounds nuw i8, ptr %59, i64 80
+  %135 = load ptr, ptr %134, align 8, !tbaa !47
+  %136 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %135, ptr noundef nonnull @.str.10, i32 noundef %125)
+  %137 = icmp eq i32 %136, 0
+  br i1 %137, label %138, label %.critedge121
 
-122:                                              ; preds = %117
+138:                                              ; preds = %133
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
-  %123 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %139 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-124:                                              ; preds = %90, %.thread141
-  %.0108.ph143 = phi i1 [ true, %.thread141 ], [ %93, %90 ]
-  %125 = phi ptr [ @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts, %.thread141 ], [ %spec.select156, %90 ]
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %125, ptr %126, align 8, !tbaa !57
-  %127 = add nuw nsw i32 %.sroa.023.0.extract.trunc, 1
-  %128 = add nuw nsw i32 %.sroa.023.0.extract.trunc, 2
-  %129 = mul nuw nsw i32 %127, %128
-  %130 = lshr i32 %129, 1
-  %131 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %132 = load ptr, ptr %131, align 8, !tbaa !48
-  %133 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %132, ptr noundef nonnull @.str.16, i32 noundef %130)
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %135, label %137
+140:                                              ; preds = %106, %.thread143
+  %.0108.ph145 = phi i1 [ true, %.thread143 ], [ %109, %106 ]
+  %141 = phi ptr [ @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts, %.thread143 ], [ %spec.select158, %106 ]
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %141, ptr %142, align 8, !tbaa !57
+  %143 = add nuw nsw i32 %.sroa.023.0.extract.trunc, 1
+  %144 = add nuw nsw i32 %.sroa.023.0.extract.trunc, 2
+  %145 = mul nuw nsw i32 %143, %144
+  %146 = lshr i32 %145, 1
+  %147 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %148 = load ptr, ptr %147, align 8, !tbaa !48
+  %149 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %148, ptr noundef nonnull @.str.16, i32 noundef %146)
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %151, label %153
 
-135:                                              ; preds = %124
+151:                                              ; preds = %140
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.17)
-  %136 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %152 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-137:                                              ; preds = %124
-  %138 = getelementptr inbounds nuw i8, ptr %59, i64 48
-  %139 = load ptr, ptr %138, align 8, !tbaa !49
-  %140 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %139, ptr noundef nonnull @.str.18, i32 noundef %130)
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %144
+153:                                              ; preds = %140
+  %154 = getelementptr inbounds nuw i8, ptr %59, i64 48
+  %155 = load ptr, ptr %154, align 8, !tbaa !49
+  %156 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %155, ptr noundef nonnull @.str.18, i32 noundef %146)
+  %157 = icmp eq i32 %156, 0
+  br i1 %157, label %158, label %160
 
-142:                                              ; preds = %137
+158:                                              ; preds = %153
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.19)
-  %143 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %159 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-144:                                              ; preds = %137
-  br i1 %.0108.ph143, label %145, label %.critedge121
+160:                                              ; preds = %153
+  br i1 %.0108.ph145, label %161, label %.critedge121
 
-145:                                              ; preds = %144
-  %146 = getelementptr inbounds nuw i8, ptr %59, i64 56
-  %147 = load ptr, ptr %146, align 8, !tbaa !50
-  %148 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %147, ptr noundef nonnull @.str.7, i32 noundef %130)
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %152
+161:                                              ; preds = %160
+  %162 = getelementptr inbounds nuw i8, ptr %59, i64 56
+  %163 = load ptr, ptr %162, align 8, !tbaa !50
+  %164 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %163, ptr noundef nonnull @.str.7, i32 noundef %146)
+  %165 = icmp eq i32 %164, 0
+  br i1 %165, label %166, label %168
 
-150:                                              ; preds = %145
+166:                                              ; preds = %161
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.20)
-  %151 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %167 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-152:                                              ; preds = %145
-  %153 = getelementptr inbounds nuw i8, ptr %59, i64 64
-  %154 = load ptr, ptr %153, align 8, !tbaa !51
-  %155 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %154, ptr noundef nonnull @.str.8, i32 noundef %130)
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %157, label %.critedge121
+168:                                              ; preds = %161
+  %169 = getelementptr inbounds nuw i8, ptr %59, i64 64
+  %170 = load ptr, ptr %169, align 8, !tbaa !51
+  %171 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %170, ptr noundef nonnull @.str.8, i32 noundef %146)
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %173, label %.critedge121
 
-157:                                              ; preds = %152
+173:                                              ; preds = %168
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.21)
-  %158 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %174 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-.critedge121:                                     ; preds = %116, %117, %144, %152
-  %.0108135 = phi i1 [ true, %152 ], [ false, %144 ], [ true, %117 ], [ false, %116 ]
-  %159 = load ptr, ptr %67, align 8, !tbaa !52
-  %160 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %159, ptr noundef nonnull @.str.22, i32 noundef 2)
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %162, label %164
+.critedge121:                                     ; preds = %132, %133, %160, %168
+  %.0108137 = phi i1 [ true, %168 ], [ false, %160 ], [ true, %133 ], [ false, %132 ]
+  %175 = load ptr, ptr %62, align 8, !tbaa !52
+  %176 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %175, ptr noundef nonnull @.str.22, i32 noundef 2)
+  %177 = icmp eq i32 %176, 0
+  br i1 %177, label %178, label %180
 
-162:                                              ; preds = %.critedge121
+178:                                              ; preds = %.critedge121
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.23)
-  %163 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %179 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-164:                                              ; preds = %.critedge121
-  br i1 %.0108135, label %165, label %171
+180:                                              ; preds = %.critedge121
+  br i1 %.0108137, label %181, label %187
 
-165:                                              ; preds = %164
-  %166 = load ptr, ptr %69, align 8, !tbaa !53
-  %167 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %166, ptr noundef nonnull @.str.9, i32 noundef 2)
-  %168 = icmp eq i32 %167, 0
-  br i1 %168, label %169, label %171
+181:                                              ; preds = %180
+  %182 = load ptr, ptr %64, align 8, !tbaa !53
+  %183 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %182, ptr noundef nonnull @.str.9, i32 noundef 2)
+  %184 = icmp eq i32 %183, 0
+  br i1 %184, label %185, label %187
 
-169:                                              ; preds = %165
+185:                                              ; preds = %181
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.24)
-  %170 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %186 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-171:                                              ; preds = %165, %164
-  %172 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %173 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %172, ptr noundef nonnull @.str.25, i32 noundef 1)
-  %174 = icmp eq i32 %173, 0
-  br i1 %174, label %175, label %176
+187:                                              ; preds = %181, %180
+  %188 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %189 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %188, ptr noundef nonnull @.str.25, i32 noundef 1)
+  %190 = icmp eq i32 %189, 0
+  br i1 %190, label %191, label %192
 
-175:                                              ; preds = %171
-  store double 5.000000e+05, ptr %172, align 8, !tbaa !60
-  br label %176
+191:                                              ; preds = %187
+  store double 5.000000e+05, ptr %188, align 8, !tbaa !60
+  br label %192
 
-176:                                              ; preds = %175, %171
-  %177 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %178 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %177, ptr noundef nonnull @.str.26, i32 noundef 1)
-  %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %.critedge121.thread
+192:                                              ; preds = %191, %187
+  %193 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %194 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %193, ptr noundef nonnull @.str.26, i32 noundef 1)
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %196, label %.critedge121.thread
 
-180:                                              ; preds = %176
-  store double 1.000000e-03, ptr %177, align 8, !tbaa !61
+196:                                              ; preds = %192
+  store double 1.000000e-03, ptr %193, align 8, !tbaa !61
   br label %.critedge121.thread
 
-.critedge121.thread:                              ; preds = %157, %150, %142, %135, %114, %122, %72, %176, %180, %169, %162, %17, %15
-  %.0 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %73, %72 ], [ %163, %162 ], [ %170, %169 ], [ %0, %180 ], [ %0, %176 ], [ %115, %114 ], [ %123, %122 ], [ %158, %157 ], [ %151, %150 ], [ %143, %142 ], [ %136, %135 ]
+.critedge121.thread:                              ; preds = %173, %166, %158, %151, %130, %138, %88, %192, %196, %185, %178, %17, %15
+  %.0 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %89, %88 ], [ %179, %178 ], [ %186, %185 ], [ %0, %196 ], [ %0, %192 ], [ %131, %130 ], [ %139, %138 ], [ %174, %173 ], [ %167, %166 ], [ %159, %158 ], [ %152, %151 ]
   ret ptr %.0
 }
 
@@ -682,9 +700,9 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   br label %22
 
 22:                                               ; preds = %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
-  %23 = phi i32 [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %53, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
-  %.sroa.7.049.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %45, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
-  %.sroa.038.048.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %44, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
+  %23 = phi i32 [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %54, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
+  %.sroa.7.049.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %46, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
+  %.sroa.038.048.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %45, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
   %24 = load ptr, ptr %14, align 8, !tbaa !46
   %25 = load i32, ptr %21, align 8, !tbaa !43
   %26 = shl i32 %25, 1
@@ -698,78 +716,75 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %.ptr46.i = getelementptr inbounds i8, ptr %24, i64 %.add.i
   %31 = load double, ptr %.ptr46.i, align 8, !tbaa !62
   %32 = icmp ugt i32 %27, 4
-  br i1 %32, label %.lr.ph.i.preheader.i, label %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i
+  br i1 %32, label %.lr.ph.i.i, label %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i
 
-.lr.ph.i.preheader.i:                             ; preds = %22
-  %invariant.gep.i = getelementptr i8, ptr %24, i64 -8
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %.027.i.idx.i = phi i64 [ %.027.i.add.i, %.lr.ph.i.i ], [ %.add.i, %.lr.ph.i.preheader.i ]
-  %.02326.i.i = phi double [ %41, %.lr.ph.i.i ], [ %31, %.lr.ph.i.preheader.i ]
-  %.02425.i.i = phi double [ %36, %.lr.ph.i.i ], [ %30, %.lr.ph.i.preheader.i ]
+.lr.ph.i.i:                                       ; preds = %22, %.lr.ph.i.i
+  %.027.i.idx.i = phi i64 [ %.027.i.add.i, %.lr.ph.i.i ], [ %.add.i, %22 ]
+  %.02326.i.i = phi double [ %42, %.lr.ph.i.i ], [ %31, %22 ]
+  %.02425.i.i = phi double [ %37, %.lr.ph.i.i ], [ %30, %22 ]
+  %.027.i.ptr.i = getelementptr inbounds i8, ptr %24, i64 %.027.i.idx.i
   %33 = fmul double %.sroa.7.049.i, %.02326.i.i
   %34 = tail call double @llvm.fmuladd.f64(double %.sroa.038.048.i, double %.02425.i.i, double %33)
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.027.i.idx.i
-  %35 = load double, ptr %gep.i, align 8, !tbaa !62
-  %36 = fadd double %34, %35
-  %37 = fneg double %.02425.i.i
-  %38 = fmul double %.sroa.7.049.i, %37
-  %39 = tail call double @llvm.fmuladd.f64(double %.sroa.038.048.i, double %.02326.i.i, double %38)
+  %35 = getelementptr inbounds i8, ptr %.027.i.ptr.i, i64 -8
+  %36 = load double, ptr %35, align 8, !tbaa !62
+  %37 = fadd double %34, %36
+  %38 = fneg double %.02425.i.i
+  %39 = fmul double %.sroa.7.049.i, %38
+  %40 = tail call double @llvm.fmuladd.f64(double %.sroa.038.048.i, double %.02326.i.i, double %39)
   %.027.i.add.i = add nsw i64 %.027.i.idx.i, -16
   %.ptr.i = getelementptr inbounds i8, ptr %24, i64 %.027.i.add.i
-  %40 = load double, ptr %.ptr.i, align 8, !tbaa !62
-  %41 = fadd double %39, %40
-  %42 = icmp sgt i64 %.027.i.idx.i, 32
-  br i1 %42, label %.lr.ph.i.i, label %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i, !llvm.loop !68
+  %41 = load double, ptr %.ptr.i, align 8, !tbaa !62
+  %42 = fadd double %40, %41
+  %43 = icmp sgt i64 %.027.i.idx.i, 32
+  br i1 %43, label %.lr.ph.i.i, label %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i, !llvm.loop !68
 
 _ZL19complex_horner_evaljPKd5PJ_UVj.exit.i:       ; preds = %.lr.ph.i.i, %22
-  %.024.lcssa.i.i = phi double [ %30, %22 ], [ %36, %.lr.ph.i.i ]
-  %.023.lcssa.i.i = phi double [ %31, %22 ], [ %41, %.lr.ph.i.i ]
-  %43 = tail call noundef { double, double } @__divdc3(double noundef %17, double noundef %20, double noundef %.023.lcssa.i.i, double noundef %.024.lcssa.i.i) #10
-  %44 = extractvalue { double, double } %43, 0
-  %45 = extractvalue { double, double } %43, 1
-  %46 = fsub double %44, %.sroa.038.048.i
-  %47 = tail call double @llvm.fabs.f64(double %46)
-  %48 = fcmp olt double %47, %13
-  %49 = fsub double %45, %.sroa.7.049.i
-  %50 = tail call double @llvm.fabs.f64(double %49)
-  %51 = fcmp olt double %50, %13
-  %52 = and i1 %48, %51
-  %53 = add nsw i32 %23, -1
-  %54 = icmp eq i32 %23, 0
-  %.not35.i = select i1 %54, i1 true, i1 %52
-  br i1 %.not35.i, label %55, label %22, !llvm.loop !70
+  %.024.lcssa.i.i = phi double [ %30, %22 ], [ %37, %.lr.ph.i.i ]
+  %.023.lcssa.i.i = phi double [ %31, %22 ], [ %42, %.lr.ph.i.i ]
+  %44 = tail call noundef { double, double } @__divdc3(double noundef %17, double noundef %20, double noundef %.023.lcssa.i.i, double noundef %.024.lcssa.i.i) #10
+  %45 = extractvalue { double, double } %44, 0
+  %46 = extractvalue { double, double } %44, 1
+  %47 = fsub double %45, %.sroa.038.048.i
+  %48 = tail call double @llvm.fabs.f64(double %47)
+  %49 = fcmp olt double %48, %13
+  %50 = fsub double %46, %.sroa.7.049.i
+  %51 = tail call double @llvm.fabs.f64(double %50)
+  %52 = fcmp olt double %51, %13
+  %53 = and i1 %49, %52
+  %54 = add nsw i32 %23, -1
+  %55 = icmp eq i32 %23, 0
+  %.not35.i = select i1 %55, i1 true, i1 %53
+  br i1 %.not35.i, label %56, label %22, !llvm.loop !70
 
-55:                                               ; preds = %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i
-  br i1 %52, label %58, label %56
+56:                                               ; preds = %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i
+  br i1 %53, label %59, label %57
 
-56:                                               ; preds = %55
-  %57 = tail call i32 @proj_errno_set(ptr noundef %1, i32 noundef 2048)
+57:                                               ; preds = %56
+  %58 = tail call i32 @proj_errno_set(ptr noundef %1, i32 noundef 2048)
   br label %_ZL30complex_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
-58:                                               ; preds = %55
-  %59 = load i32, ptr %4, align 8, !tbaa !58
-  %.not.i = icmp eq i32 %59, 0
-  %60 = fneg double %45
-  %.031.i = select i1 %.not.i, double %45, double %60
-  %61 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %62 = load i32, ptr %61, align 4, !tbaa !59
-  %.not36.i = icmp eq i32 %62, 0
-  %63 = fneg double %44
-  %.0.i = select i1 %.not36.i, double %44, double %63
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %65 = load ptr, ptr %64, align 8, !tbaa !52
-  %66 = load double, ptr %65, align 8, !tbaa !66
-  %67 = fadd double %.031.i, %66
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %69 = load double, ptr %68, align 8, !tbaa !64
-  %70 = fadd double %.0.i, %69
+59:                                               ; preds = %56
+  %60 = load i32, ptr %4, align 8, !tbaa !58
+  %.not.i = icmp eq i32 %60, 0
+  %61 = fneg double %46
+  %.031.i = select i1 %.not.i, double %46, double %61
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %63 = load i32, ptr %62, align 4, !tbaa !59
+  %.not36.i = icmp eq i32 %63, 0
+  %64 = fneg double %45
+  %.0.i = select i1 %.not36.i, double %45, double %64
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %66 = load ptr, ptr %65, align 8, !tbaa !52
+  %67 = load double, ptr %66, align 8, !tbaa !66
+  %68 = fadd double %.031.i, %67
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %70 = load double, ptr %69, align 8, !tbaa !64
+  %71 = fadd double %.0.i, %70
   br label %_ZL30complex_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
-_ZL30complex_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit: ; preds = %10, %56, %58
-  %.sroa.030.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %67, %58 ], [ 0x7FF0000000000000, %56 ]
-  %.sroa.3.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %70, %58 ], [ 0x7FF0000000000000, %56 ]
+_ZL30complex_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit: ; preds = %10, %57, %59
+  %.sroa.030.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %68, %59 ], [ 0x7FF0000000000000, %57 ]
+  %.sroa.3.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %71, %59 ], [ 0x7FF0000000000000, %57 ]
   store double %.sroa.030.0.i, ptr %0, align 8, !tbaa !62
   store double %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !62
   ret void
@@ -1000,170 +1015,172 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %21 = load ptr, ptr %20, align 8, !tbaa !49
   %22 = load double, ptr %21, align 8, !tbaa !62
   %23 = fsub double %.sroa.2.0.copyload, %22
-  %invariant.gep.i = getelementptr i8, ptr %21, i64 -8
-  %invariant.gep92.i = getelementptr i8, ptr %17, i64 -8
   %24 = add i32 %13, 1
   %25 = add i32 %13, 2
   %26 = mul i32 %24, %25
   %27 = lshr i32 %26, 1
   %28 = zext nneg i32 %27 to i64
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %28
-  %29 = load double, ptr %gep.i, align 8, !tbaa !62
-  %gep93.i = getelementptr double, ptr %invariant.gep92.i, i64 %28
-  %30 = load double, ptr %gep93.i, align 8, !tbaa !62
-  %31 = icmp ugt i32 %13, 1
-  %32 = zext i32 %24 to i64
-  %gep99.i = getelementptr double, ptr %invariant.gep92.i, i64 %32
-  %gep101.i = getelementptr double, ptr %invariant.gep.i, i64 %32
-  %33 = fneg double %23
-  %34 = fneg double %19
-  %35 = load double, ptr %gep99.i, align 8, !tbaa !62
-  %36 = load double, ptr %gep101.i, align 8, !tbaa !62
-  br i1 %31, label %.lr.ph55.i.preheader.us.i, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i
+  %29 = getelementptr inbounds nuw double, ptr %17, i64 %28
+  %30 = getelementptr inbounds nuw double, ptr %21, i64 %28
+  %31 = getelementptr inbounds i8, ptr %30, i64 -8
+  %32 = load double, ptr %31, align 8, !tbaa !62
+  %33 = getelementptr inbounds i8, ptr %29, i64 -8
+  %34 = load double, ptr %33, align 8, !tbaa !62
+  %35 = icmp ugt i32 %13, 1
+  %36 = zext i32 %24 to i64
+  %37 = getelementptr inbounds nuw double, ptr %17, i64 %36
+  %38 = getelementptr inbounds i8, ptr %37, i64 -8
+  %39 = getelementptr inbounds nuw double, ptr %21, i64 %36
+  %40 = getelementptr inbounds i8, ptr %39, i64 -8
+  %41 = fneg double %23
+  %42 = fneg double %19
+  %43 = load double, ptr %38, align 8, !tbaa !62
+  %44 = load double, ptr %40, align 8, !tbaa !62
+  br i1 %35, label %.lr.ph55.i.preheader.us.i, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i
 
 .lr.ph55.i.preheader.us.i:                        ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i
-  %37 = phi i32 [ %80, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
-  %.0103.us.i = phi double [ %69, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
-  %.059102.us.i = phi double [ %72, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %45 = phi i32 [ %88, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.093.us.i = phi double [ %77, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.05992.us.i = phi double [ %80, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
   br label %.lr.ph55.i.us.i
 
 .lr.ph55.i.us.i:                                  ; preds = %._crit_edge.i.us.i, %.lr.ph55.i.preheader.us.i
-  %.03453.i.us.i = phi i32 [ %51, %._crit_edge.i.us.i ], [ %13, %.lr.ph55.i.preheader.us.i ]
-  %.03552.i.us.i = phi double [ %50, %._crit_edge.i.us.i ], [ %30, %.lr.ph55.i.preheader.us.i ]
-  %.03651.i.us.i = phi double [ %49, %._crit_edge.i.us.i ], [ %29, %.lr.ph55.i.preheader.us.i ]
-  %.03750.i.us.i = phi ptr [ %.1.lcssa.i.us.i, %._crit_edge.i.us.i ], [ %gep93.i, %.lr.ph55.i.preheader.us.i ]
-  %.03849.i.us.i = phi ptr [ %.139.lcssa.i.us.i, %._crit_edge.i.us.i ], [ %gep.i, %.lr.ph55.i.preheader.us.i ]
-  %38 = getelementptr inbounds i8, ptr %.03849.i.us.i, i64 -8
-  %39 = load double, ptr %38, align 8, !tbaa !62
-  %40 = getelementptr inbounds i8, ptr %.03750.i.us.i, i64 -8
-  %41 = load double, ptr %40, align 8, !tbaa !62
+  %.03453.i.us.i = phi i32 [ %59, %._crit_edge.i.us.i ], [ %13, %.lr.ph55.i.preheader.us.i ]
+  %.03552.i.us.i = phi double [ %58, %._crit_edge.i.us.i ], [ %34, %.lr.ph55.i.preheader.us.i ]
+  %.03651.i.us.i = phi double [ %57, %._crit_edge.i.us.i ], [ %32, %.lr.ph55.i.preheader.us.i ]
+  %.03750.i.us.i = phi ptr [ %.1.lcssa.i.us.i, %._crit_edge.i.us.i ], [ %33, %.lr.ph55.i.preheader.us.i ]
+  %.03849.i.us.i = phi ptr [ %.139.lcssa.i.us.i, %._crit_edge.i.us.i ], [ %31, %.lr.ph55.i.preheader.us.i ]
+  %46 = getelementptr inbounds i8, ptr %.03849.i.us.i, i64 -8
+  %47 = load double, ptr %46, align 8, !tbaa !62
+  %48 = getelementptr inbounds i8, ptr %.03750.i.us.i, i64 -8
+  %49 = load double, ptr %48, align 8, !tbaa !62
   %.not40.i.us.i = icmp ult i32 %13, %.03453.i.us.i
   br i1 %.not40.i.us.i, label %._crit_edge.i.us.i, label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %.lr.ph55.i.us.i, %.lr.ph.i.us.i
-  %.045.i.us.i = phi i32 [ %48, %.lr.ph.i.us.i ], [ %13, %.lr.ph55.i.us.i ]
-  %.03244.i.us.i = phi double [ %47, %.lr.ph.i.us.i ], [ %41, %.lr.ph55.i.us.i ]
-  %.03343.i.us.i = phi double [ %44, %.lr.ph.i.us.i ], [ %39, %.lr.ph55.i.us.i ]
-  %.142.i.us.i = phi ptr [ %45, %.lr.ph.i.us.i ], [ %40, %.lr.ph55.i.us.i ]
-  %.13941.i.us.i = phi ptr [ %42, %.lr.ph.i.us.i ], [ %38, %.lr.ph55.i.us.i ]
-  %42 = getelementptr inbounds i8, ptr %.13941.i.us.i, i64 -8
-  %43 = load double, ptr %42, align 8, !tbaa !62
-  %44 = tail call double @llvm.fmuladd.f64(double %.059102.us.i, double %.03343.i.us.i, double %43)
-  %45 = getelementptr inbounds i8, ptr %.142.i.us.i, i64 -8
-  %46 = load double, ptr %45, align 8, !tbaa !62
-  %47 = tail call double @llvm.fmuladd.f64(double %.0103.us.i, double %.03244.i.us.i, double %46)
-  %48 = add i32 %.045.i.us.i, -1
-  %.not.i.us.i = icmp ult i32 %48, %.03453.i.us.i
+  %.045.i.us.i = phi i32 [ %56, %.lr.ph.i.us.i ], [ %13, %.lr.ph55.i.us.i ]
+  %.03244.i.us.i = phi double [ %55, %.lr.ph.i.us.i ], [ %49, %.lr.ph55.i.us.i ]
+  %.03343.i.us.i = phi double [ %52, %.lr.ph.i.us.i ], [ %47, %.lr.ph55.i.us.i ]
+  %.142.i.us.i = phi ptr [ %53, %.lr.ph.i.us.i ], [ %48, %.lr.ph55.i.us.i ]
+  %.13941.i.us.i = phi ptr [ %50, %.lr.ph.i.us.i ], [ %46, %.lr.ph55.i.us.i ]
+  %50 = getelementptr inbounds i8, ptr %.13941.i.us.i, i64 -8
+  %51 = load double, ptr %50, align 8, !tbaa !62
+  %52 = tail call double @llvm.fmuladd.f64(double %.05992.us.i, double %.03343.i.us.i, double %51)
+  %53 = getelementptr inbounds i8, ptr %.142.i.us.i, i64 -8
+  %54 = load double, ptr %53, align 8, !tbaa !62
+  %55 = tail call double @llvm.fmuladd.f64(double %.093.us.i, double %.03244.i.us.i, double %54)
+  %56 = add i32 %.045.i.us.i, -1
+  %.not.i.us.i = icmp ult i32 %56, %.03453.i.us.i
   br i1 %.not.i.us.i, label %._crit_edge.i.us.i, label %.lr.ph.i.us.i, !llvm.loop !72
 
 ._crit_edge.i.us.i:                               ; preds = %.lr.ph.i.us.i, %.lr.ph55.i.us.i
-  %.139.lcssa.i.us.i = phi ptr [ %38, %.lr.ph55.i.us.i ], [ %42, %.lr.ph.i.us.i ]
-  %.1.lcssa.i.us.i = phi ptr [ %40, %.lr.ph55.i.us.i ], [ %45, %.lr.ph.i.us.i ]
-  %.033.lcssa.i.us.i = phi double [ %39, %.lr.ph55.i.us.i ], [ %44, %.lr.ph.i.us.i ]
-  %.032.lcssa.i.us.i = phi double [ %41, %.lr.ph55.i.us.i ], [ %47, %.lr.ph.i.us.i ]
-  %49 = tail call double @llvm.fmuladd.f64(double %.0103.us.i, double %.03651.i.us.i, double %.033.lcssa.i.us.i)
-  %50 = tail call double @llvm.fmuladd.f64(double %.059102.us.i, double %.03552.i.us.i, double %.032.lcssa.i.us.i)
-  %51 = add i32 %.03453.i.us.i, -1
-  %52 = icmp ugt i32 %51, 1
-  br i1 %52, label %.lr.ph55.i.us.i, label %.lr.ph.i65.us.i, !llvm.loop !71
+  %.139.lcssa.i.us.i = phi ptr [ %46, %.lr.ph55.i.us.i ], [ %50, %.lr.ph.i.us.i ]
+  %.1.lcssa.i.us.i = phi ptr [ %48, %.lr.ph55.i.us.i ], [ %53, %.lr.ph.i.us.i ]
+  %.033.lcssa.i.us.i = phi double [ %47, %.lr.ph55.i.us.i ], [ %52, %.lr.ph.i.us.i ]
+  %.032.lcssa.i.us.i = phi double [ %49, %.lr.ph55.i.us.i ], [ %55, %.lr.ph.i.us.i ]
+  %57 = tail call double @llvm.fmuladd.f64(double %.093.us.i, double %.03651.i.us.i, double %.033.lcssa.i.us.i)
+  %58 = tail call double @llvm.fmuladd.f64(double %.05992.us.i, double %.03552.i.us.i, double %.032.lcssa.i.us.i)
+  %59 = add i32 %.03453.i.us.i, -1
+  %60 = icmp ugt i32 %59, 1
+  br i1 %60, label %.lr.ph55.i.us.i, label %.lr.ph.i65.us.i, !llvm.loop !71
 
 .lr.ph.i65.us.i:                                  ; preds = %._crit_edge.i.us.i, %.lr.ph.i65.us.i
-  %.015.i.us.i = phi i32 [ %56, %.lr.ph.i65.us.i ], [ %13, %._crit_edge.i.us.i ]
-  %.01114.i.us.i = phi double [ %55, %.lr.ph.i65.us.i ], [ %35, %._crit_edge.i.us.i ]
-  %.01213.i.us.i = phi ptr [ %53, %.lr.ph.i65.us.i ], [ %gep99.i, %._crit_edge.i.us.i ]
-  %53 = getelementptr inbounds i8, ptr %.01213.i.us.i, i64 -8
-  %54 = load double, ptr %53, align 8, !tbaa !62
-  %55 = tail call double @llvm.fmuladd.f64(double %.0103.us.i, double %.01114.i.us.i, double %54)
-  %56 = add i32 %.015.i.us.i, -1
-  %57 = icmp ugt i32 %56, 1
-  br i1 %57, label %.lr.ph.i65.us.i, label %.lr.ph.i68.us.i, !llvm.loop !73
+  %.015.i.us.i = phi i32 [ %64, %.lr.ph.i65.us.i ], [ %13, %._crit_edge.i.us.i ]
+  %.01114.i.us.i = phi double [ %63, %.lr.ph.i65.us.i ], [ %43, %._crit_edge.i.us.i ]
+  %.01213.i.us.i = phi ptr [ %61, %.lr.ph.i65.us.i ], [ %38, %._crit_edge.i.us.i ]
+  %61 = getelementptr inbounds i8, ptr %.01213.i.us.i, i64 -8
+  %62 = load double, ptr %61, align 8, !tbaa !62
+  %63 = tail call double @llvm.fmuladd.f64(double %.093.us.i, double %.01114.i.us.i, double %62)
+  %64 = add i32 %.015.i.us.i, -1
+  %65 = icmp ugt i32 %64, 1
+  br i1 %65, label %.lr.ph.i65.us.i, label %.lr.ph.i68.us.i, !llvm.loop !73
 
 .lr.ph.i68.us.i:                                  ; preds = %.lr.ph.i65.us.i, %.lr.ph.i68.us.i
-  %.015.i69.us.i = phi i32 [ %61, %.lr.ph.i68.us.i ], [ %13, %.lr.ph.i65.us.i ]
-  %.01114.i70.us.i = phi double [ %60, %.lr.ph.i68.us.i ], [ %36, %.lr.ph.i65.us.i ]
-  %.01213.i71.us.i = phi ptr [ %58, %.lr.ph.i68.us.i ], [ %gep101.i, %.lr.ph.i65.us.i ]
-  %58 = getelementptr inbounds i8, ptr %.01213.i71.us.i, i64 -8
-  %59 = load double, ptr %58, align 8, !tbaa !62
-  %60 = tail call double @llvm.fmuladd.f64(double %.059102.us.i, double %.01114.i70.us.i, double %59)
-  %61 = add i32 %.015.i69.us.i, -1
-  %62 = icmp ugt i32 %61, 1
-  br i1 %62, label %.lr.ph.i68.us.i, label %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i, !llvm.loop !73
+  %.015.i69.us.i = phi i32 [ %69, %.lr.ph.i68.us.i ], [ %13, %.lr.ph.i65.us.i ]
+  %.01114.i70.us.i = phi double [ %68, %.lr.ph.i68.us.i ], [ %44, %.lr.ph.i65.us.i ]
+  %.01213.i71.us.i = phi ptr [ %66, %.lr.ph.i68.us.i ], [ %40, %.lr.ph.i65.us.i ]
+  %66 = getelementptr inbounds i8, ptr %.01213.i71.us.i, i64 -8
+  %67 = load double, ptr %66, align 8, !tbaa !62
+  %68 = tail call double @llvm.fmuladd.f64(double %.05992.us.i, double %.01114.i70.us.i, double %67)
+  %69 = add i32 %.015.i69.us.i, -1
+  %70 = icmp ugt i32 %69, 1
+  br i1 %70, label %.lr.ph.i68.us.i, label %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i, !llvm.loop !73
 
 _ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i: ; preds = %.lr.ph.i68.us.i
-  %63 = fneg double %49
-  %64 = fmul double %50, %63
-  %65 = tail call double @llvm.fmuladd.f64(double %55, double %60, double %64)
-  %66 = fdiv double 1.000000e+00, %65
-  %67 = fmul double %50, %33
-  %68 = tail call double @llvm.fmuladd.f64(double %60, double %19, double %67)
-  %69 = fmul double %68, %66
-  %70 = fmul double %49, %34
-  %71 = tail call double @llvm.fmuladd.f64(double %55, double %23, double %70)
-  %72 = fmul double %71, %66
-  %73 = fsub double %69, %.0103.us.i
-  %74 = tail call double @llvm.fabs.f64(double %73)
-  %75 = fcmp olt double %74, %15
-  %76 = fsub double %72, %.059102.us.i
-  %77 = tail call double @llvm.fabs.f64(double %76)
-  %78 = fcmp olt double %77, %15
-  %79 = select i1 %75, i1 %78, i1 false
-  %80 = add nsw i32 %37, -1
-  %81 = icmp eq i32 %37, 0
-  %.not63.us.i = select i1 %81, i1 true, i1 %79
+  %71 = fneg double %57
+  %72 = fmul double %58, %71
+  %73 = tail call double @llvm.fmuladd.f64(double %63, double %68, double %72)
+  %74 = fdiv double 1.000000e+00, %73
+  %75 = fmul double %58, %41
+  %76 = tail call double @llvm.fmuladd.f64(double %68, double %19, double %75)
+  %77 = fmul double %76, %74
+  %78 = fmul double %57, %42
+  %79 = tail call double @llvm.fmuladd.f64(double %63, double %23, double %78)
+  %80 = fmul double %79, %74
+  %81 = fsub double %77, %.093.us.i
+  %82 = tail call double @llvm.fabs.f64(double %81)
+  %83 = fcmp olt double %82, %15
+  %84 = fsub double %80, %.05992.us.i
+  %85 = tail call double @llvm.fabs.f64(double %84)
+  %86 = fcmp olt double %85, %15
+  %87 = select i1 %83, i1 %86, i1 false
+  %88 = add nsw i32 %45, -1
+  %89 = icmp eq i32 %45, 0
+  %.not63.us.i = select i1 %89, i1 true, i1 %87
   br i1 %.not63.us.i, label %.split.us.i, label %.lr.ph55.i.preheader.us.i, !llvm.loop !74
 
 _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i: ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
-  %82 = fneg double %29
-  %83 = fmul double %30, %82
-  %84 = tail call double @llvm.fmuladd.f64(double %35, double %36, double %83)
-  %85 = fdiv double 1.000000e+00, %84
-  %86 = fmul double %30, %33
-  %87 = tail call double @llvm.fmuladd.f64(double %36, double %19, double %86)
-  %88 = fmul double %87, %85
-  %89 = fmul double %29, %34
-  %90 = tail call double @llvm.fmuladd.f64(double %35, double %23, double %89)
-  %91 = fmul double %90, %85
+  %90 = fneg double %32
+  %91 = fmul double %34, %90
+  %92 = tail call double @llvm.fmuladd.f64(double %43, double %44, double %91)
+  %93 = fdiv double 1.000000e+00, %92
+  %94 = fmul double %34, %41
+  %95 = tail call double @llvm.fmuladd.f64(double %44, double %19, double %94)
+  %96 = fmul double %95, %93
+  %97 = fmul double %32, %42
+  %98 = tail call double @llvm.fmuladd.f64(double %43, double %23, double %97)
+  %99 = fmul double %98, %93
   br label %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i
 
 _ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i: ; preds = %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i
-  %92 = phi i32 [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %100, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %.0103.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %88, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %.059102.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %91, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %93 = fsub double %88, %.0103.i
-  %94 = tail call double @llvm.fabs.f64(double %93)
-  %95 = fcmp olt double %94, %15
-  %96 = fsub double %91, %.059102.i
-  %97 = tail call double @llvm.fabs.f64(double %96)
-  %98 = fcmp olt double %97, %15
-  %99 = select i1 %95, i1 %98, i1 false
-  %100 = add nsw i32 %92, -1
-  %101 = icmp eq i32 %92, 0
-  %.not63.i = select i1 %101, i1 true, i1 %99
+  %100 = phi i32 [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %108, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %.093.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %96, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %.05992.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %99, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %101 = fsub double %96, %.093.i
+  %102 = tail call double @llvm.fabs.f64(double %101)
+  %103 = fcmp olt double %102, %15
+  %104 = fsub double %99, %.05992.i
+  %105 = tail call double @llvm.fabs.f64(double %104)
+  %106 = fcmp olt double %105, %15
+  %107 = select i1 %103, i1 %106, i1 false
+  %108 = add nsw i32 %100, -1
+  %109 = icmp eq i32 %100, 0
+  %.not63.i = select i1 %109, i1 true, i1 %107
   br i1 %.not63.i, label %.split.us.i, label %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, !llvm.loop !76
 
 .split.us.i:                                      ; preds = %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i
-  %.us-phi.i = phi i1 [ %79, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %99, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %.us-phi104.i = phi double [ %72, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %91, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %.us-phi105.i = phi double [ %69, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %88, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  br i1 %.us-phi.i, label %104, label %102
+  %.us-phi.i = phi i1 [ %87, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %107, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %.us-phi94.i = phi double [ %80, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %99, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %.us-phi95.i = phi double [ %77, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %96, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  br i1 %.us-phi.i, label %112, label %110
 
-102:                                              ; preds = %.split.us.i
-  %103 = tail call i32 @proj_errno_set(ptr noundef %1, i32 noundef 2048)
+110:                                              ; preds = %.split.us.i
+  %111 = tail call i32 @proj_errno_set(ptr noundef %1, i32 noundef 2048)
   br label %_ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
-104:                                              ; preds = %.split.us.i
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %106 = load ptr, ptr %105, align 8, !tbaa !52
-  %107 = load double, ptr %106, align 8, !tbaa !66
-  %108 = fadd double %.us-phi105.i, %107
-  %109 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %110 = load double, ptr %109, align 8, !tbaa !64
-  %111 = fadd double %.us-phi104.i, %110
+112:                                              ; preds = %.split.us.i
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %114 = load ptr, ptr %113, align 8, !tbaa !52
+  %115 = load double, ptr %114, align 8, !tbaa !66
+  %116 = fadd double %.us-phi95.i, %115
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %118 = load double, ptr %117, align 8, !tbaa !64
+  %119 = fadd double %.us-phi94.i, %118
   br label %_ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
-_ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit: ; preds = %10, %102, %104
-  %.sroa.057.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %108, %104 ], [ 0x7FF0000000000000, %102 ]
-  %.sroa.458.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %111, %104 ], [ 0x7FF0000000000000, %102 ]
+_ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit: ; preds = %10, %110, %112
+  %.sroa.057.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %116, %112 ], [ 0x7FF0000000000000, %110 ]
+  %.sroa.458.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %119, %112 ], [ 0x7FF0000000000000, %110 ]
   store double %.sroa.057.0.i, ptr %0, align 8, !tbaa !62
   store double %.sroa.458.0.i, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !62
   ret void

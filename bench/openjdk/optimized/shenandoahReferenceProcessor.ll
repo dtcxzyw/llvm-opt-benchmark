@@ -420,25 +420,26 @@ switch.lookup:                                    ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = zext i32 %2 to i64
-  %18 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %15, i64 %16, i32 2, i64 %17
-  %19 = load i64, ptr %18, align 8
-  %20 = add i64 %19, 1
-  store i64 %20, ptr %18, align 8
-  %21 = load i8, ptr @UseCompressedOops, align 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %25
+  %17 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %15, i64 %16, i32 2
+  %18 = zext i32 %2 to i64
+  %19 = getelementptr inbounds nuw [5 x i64], ptr %17, i64 0, i64 %18
+  %20 = load i64, ptr %19, align 8
+  %21 = add i64 %20, 1
+  store i64 %21, ptr %19, align 8
+  %22 = load i8, ptr @UseCompressedOops, align 1
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %11
-  %24 = tail call noundef zeroext i1 @_ZN28ShenandoahReferenceProcessor8discoverI9narrowOopEEbP7oopDesc13ReferenceTypej(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2, i32 noundef %13)
-  br label %27
+24:                                               ; preds = %11
+  %25 = tail call noundef zeroext i1 @_ZN28ShenandoahReferenceProcessor8discoverI9narrowOopEEbP7oopDesc13ReferenceTypej(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2, i32 noundef %13)
+  br label %28
 
-25:                                               ; preds = %11
-  %26 = tail call noundef zeroext i1 @_ZN28ShenandoahReferenceProcessor8discoverIP7oopDescEEbS2_13ReferenceTypej(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2, i32 noundef %13)
-  br label %27
+26:                                               ; preds = %11
+  %27 = tail call noundef zeroext i1 @_ZN28ShenandoahReferenceProcessor8discoverIP7oopDescEEbS2_13ReferenceTypej(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2, i32 noundef %13)
+  br label %28
 
-27:                                               ; preds = %25, %23
-  %.0 = phi i1 [ %24, %23 ], [ %26, %25 ]
+28:                                               ; preds = %26, %24
+  %.0 = phi i1 [ %25, %24 ], [ %27, %26 ]
   ret i1 %.0
 }
 
@@ -454,7 +455,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN28ShenandoahReferenceProcessor8discoverI9narrowOopEEbP7oopDesc13ReferenceTypej(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 comdat align 2 {
   %5 = tail call noundef zeroext i1 @_ZNK28ShenandoahReferenceProcessor15should_discoverI9narrowOopEEbP7oopDesc13ReferenceType(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2)
-  br i1 %5, label %6, label %126
+  br i1 %5, label %6, label %127
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
@@ -523,11 +524,11 @@ _ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit: ; preds = %_ZNK24Shenand
 51:                                               ; preds = %_ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit
   %52 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not31 = icmp eq ptr %52, null
-  br i1 %.not31, label %126, label %53
+  br i1 %.not31, label %127, label %53
 
 53:                                               ; preds = %51
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.19, i64 noundef %8)
-  br label %126
+  br label %127
 
 _ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit.thread: ; preds = %6, %_ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit
   %54 = icmp eq i32 %2, 3
@@ -600,7 +601,7 @@ _ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit.thread._crit_edge: ; pred
   %105 = sub i64 0, %100
   %106 = icmp eq i64 %104, %105
   %107 = select i1 %98, i1 true, i1 %106
-  br i1 %107, label %108, label %126
+  br i1 %107, label %108, label %127
 
 108:                                              ; preds = %71
   %109 = icmp eq ptr %1, null
@@ -633,21 +634,22 @@ switch.lookup:                                    ; preds = %115
 
 120:                                              ; preds = %108, %switch.lookup
   %121 = load ptr, ptr %72, align 8
-  %122 = zext i32 %2 to i64
-  %123 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %121, i64 %.pre-phi, i32 3, i64 %122
-  %124 = load i64, ptr %123, align 8
-  %125 = add i64 %124, 1
-  store i64 %125, ptr %123, align 8
-  br label %126
+  %122 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %121, i64 %.pre-phi, i32 3
+  %123 = zext i32 %2 to i64
+  %124 = getelementptr inbounds nuw [5 x i64], ptr %122, i64 0, i64 %123
+  %125 = load i64, ptr %124, align 8
+  %126 = add i64 %125, 1
+  store i64 %126, ptr %124, align 8
+  br label %127
 
-126:                                              ; preds = %71, %120, %53, %51, %4
+127:                                              ; preds = %71, %120, %53, %51, %4
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN28ShenandoahReferenceProcessor8discoverIP7oopDescEEbS2_13ReferenceTypej(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 comdat align 2 {
   %5 = tail call noundef zeroext i1 @_ZNK28ShenandoahReferenceProcessor15should_discoverIP7oopDescEEbS2_13ReferenceType(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2)
-  br i1 %5, label %6, label %87
+  br i1 %5, label %6, label %88
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
@@ -703,11 +705,11 @@ _ZL20reference_discoveredIP7oopDescES1_S1_.exit:  ; preds = %13, %_ZNK24Shenando
 _ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread31: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit
   %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not34 = icmp eq ptr %43, null
-  br i1 %.not34, label %87, label %44
+  br i1 %.not34, label %88, label %44
 
 44:                                               ; preds = %_ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread31
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.19, i64 noundef %8)
-  br label %87
+  br label %88
 
 _ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread: ; preds = %6, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit
   %45 = icmp eq i32 %2, 3
@@ -755,7 +757,7 @@ _ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread._crit_edge: ; preds = %_Z
   %71 = inttoptr i64 %70 to ptr
   %72 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %spec.select, ptr null, ptr %71) #14, !srcloc !11
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %87
+  br i1 %73, label %74, label %88
 
 74:                                               ; preds = %62
   store ptr %1, ptr %65, align 8
@@ -783,14 +785,15 @@ switch.lookup:                                    ; preds = %76
 
 81:                                               ; preds = %74, %switch.lookup
   %82 = load ptr, ptr %63, align 8
-  %83 = zext i32 %2 to i64
-  %84 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %82, i64 %.pre-phi, i32 3, i64 %83
-  %85 = load i64, ptr %84, align 8
-  %86 = add i64 %85, 1
-  store i64 %86, ptr %84, align 8
-  br label %87
+  %83 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %82, i64 %.pre-phi, i32 3
+  %84 = zext i32 %2 to i64
+  %85 = getelementptr inbounds nuw [5 x i64], ptr %83, i64 0, i64 %84
+  %86 = load i64, ptr %85, align 8
+  %87 = add i64 %86, 1
+  store i64 %87, ptr %85, align 8
+  br label %88
 
-87:                                               ; preds = %62, %81, %44, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread31, %4
+88:                                               ; preds = %62, %81, %44, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread31, %4
   ret i1 %5
 }
 
@@ -1123,7 +1126,7 @@ _ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13Referenc
   %.pre80 = sext i32 %.pre79 to i64
   %.pre81 = add nsw i64 %.pre80, %130
   %.pre83 = inttoptr i64 %.pre81 to ptr
-  br label %223
+  br label %224
 
 205:                                              ; preds = %158, %_ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13ReferenceType.exit
   %206 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -1150,221 +1153,222 @@ switch.lookup:                                    ; preds = %207
 
 _ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.exit: ; preds = %205, %switch.lookup
   %212 = load ptr, ptr %64, align 8
-  %213 = zext i8 %127 to i64
-  %214 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %212, i64 %65, i32 4, i64 %213
-  %215 = load i64, ptr %214, align 8
-  %216 = add i64 %215, 1
-  store i64 %216, ptr %214, align 8
-  %217 = icmp eq i8 %127, 3
-  %..i.i = select i1 %217, ptr %.0.i3664, ptr null
+  %213 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %212, i64 %65, i32 4
+  %214 = zext i8 %127 to i64
+  %215 = getelementptr inbounds nuw [5 x i64], ptr %213, i64 0, i64 %214
+  %216 = load i64, ptr %215, align 8
+  %217 = add i64 %216, 1
+  store i64 %217, ptr %215, align 8
+  %218 = icmp eq i8 %127, 3
+  %..i.i = select i1 %218, ptr %.0.i3664, ptr null
   %_ZN23java_lang_ref_Reference12_next_offsetE.val.i.i = load i32, ptr @_ZN23java_lang_ref_Reference12_next_offsetE, align 4
   %_ZN23java_lang_ref_Reference16_referent_offsetE.val.i.i = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %218 = select i1 %217, i32 %_ZN23java_lang_ref_Reference12_next_offsetE.val.i.i, i32 %_ZN23java_lang_ref_Reference16_referent_offsetE.val.i.i
-  tail call void @_ZN7oopDesc17obj_field_put_rawEiPS_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i3664, i32 noundef %218, ptr noundef %..i.i) #14
-  %219 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %220 = sext i32 %219 to i64
-  %221 = add nsw i64 %220, %130
-  %222 = inttoptr i64 %221 to ptr
-  br label %223
+  %219 = select i1 %218, i32 %_ZN23java_lang_ref_Reference12_next_offsetE.val.i.i, i32 %_ZN23java_lang_ref_Reference16_referent_offsetE.val.i.i
+  tail call void @_ZN7oopDesc17obj_field_put_rawEiPS_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i3664, i32 noundef %219, ptr noundef %..i.i) #14
+  %220 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %221 = sext i32 %220 to i64
+  %222 = add nsw i64 %221, %130
+  %223 = inttoptr i64 %222 to ptr
+  br label %224
 
-223:                                              ; preds = %_ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.exit, %_ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13ReferenceType.exit.thread
-  %.pre-phi84 = phi ptr [ %222, %_ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.exit ], [ %.pre83, %_ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13ReferenceType.exit.thread ]
-  %.2 = phi ptr [ %222, %_ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.exit ], [ %.0, %_ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13ReferenceType.exit.thread ]
-  %224 = load i32, ptr %.pre-phi84, align 4
-  %225 = icmp eq i32 %224, 0
-  %226 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %227 = ptrtoint ptr %226 to i64
-  %228 = zext i32 %224 to i64
-  %229 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %230 = zext nneg i32 %229 to i64
-  %231 = shl i64 %228, %230
-  %232 = add i64 %231, %227
-  %233 = inttoptr i64 %232 to ptr
-  %.not.i1.i = icmp eq i64 %232, 0
-  %.not.i.i45 = select i1 %225, i1 true, i1 %.not.i1.i
-  br i1 %.not.i.i45, label %_ZL3lrbP7oopDesc.exit53, label %234
+224:                                              ; preds = %_ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.exit, %_ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13ReferenceType.exit.thread
+  %.pre-phi84 = phi ptr [ %223, %_ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.exit ], [ %.pre83, %_ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13ReferenceType.exit.thread ]
+  %.2 = phi ptr [ %223, %_ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.exit ], [ %.0, %_ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13ReferenceType.exit.thread ]
+  %225 = load i32, ptr %.pre-phi84, align 4
+  %226 = icmp eq i32 %225, 0
+  %227 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %228 = ptrtoint ptr %227 to i64
+  %229 = zext i32 %225 to i64
+  %230 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %231 = zext nneg i32 %230 to i64
+  %232 = shl i64 %229, %231
+  %233 = add i64 %232, %228
+  %234 = inttoptr i64 %233 to ptr
+  %.not.i1.i = icmp eq i64 %233, 0
+  %.not.i.i45 = select i1 %226, i1 true, i1 %.not.i1.i
+  br i1 %.not.i.i45, label %_ZL3lrbP7oopDesc.exit53, label %235
 
-234:                                              ; preds = %223
-  %235 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 2248
-  %237 = load ptr, ptr %236, align 8
-  %238 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %239 = lshr i64 %232, %238
-  %240 = getelementptr inbounds nuw i8, ptr %237, i64 56
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds ptr, ptr %241, i64 %239
-  %243 = load ptr, ptr %242, align 8
-  %.not.i.i.i = icmp ugt ptr %243, %233
+235:                                              ; preds = %224
+  %236 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 2248
+  %238 = load ptr, ptr %237, align 8
+  %239 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %240 = lshr i64 %233, %239
+  %241 = getelementptr inbounds nuw i8, ptr %238, i64 56
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr inbounds ptr, ptr %242, i64 %240
+  %244 = load ptr, ptr %243, align 8
+  %.not.i.i.i = icmp ugt ptr %244, %234
   br i1 %.not.i.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i.i
 
-_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i: ; preds = %234
-  %244 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  %245 = load ptr, ptr %244, align 8
-  %246 = ptrtoint ptr %245 to i64
-  %247 = sub i64 %232, %246
-  %248 = lshr i64 %247, 2
-  %249 = and i64 %248, 4611686018427387902
-  %250 = load i32, ptr %237, align 8
-  %251 = zext nneg i32 %250 to i64
-  %252 = lshr i64 %249, %251
-  %253 = and i64 %252, 63
-  %254 = shl i64 3, %253
-  %255 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  %256 = load ptr, ptr %255, align 8
-  %257 = lshr i64 %252, 6
-  %258 = getelementptr inbounds nuw i64, ptr %256, i64 %257
-  %259 = load i64, ptr %258, align 8
-  %260 = and i64 %254, %259
-  %.not6.i.i = icmp eq i64 %260, 0
+_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i: ; preds = %235
+  %245 = getelementptr inbounds nuw i8, ptr %238, i64 8
+  %246 = load ptr, ptr %245, align 8
+  %247 = ptrtoint ptr %246 to i64
+  %248 = sub i64 %233, %247
+  %249 = lshr i64 %248, 2
+  %250 = and i64 %249, 4611686018427387902
+  %251 = load i32, ptr %238, align 8
+  %252 = zext nneg i32 %251 to i64
+  %253 = lshr i64 %250, %252
+  %254 = and i64 %253, 63
+  %255 = shl i64 3, %254
+  %256 = getelementptr inbounds nuw i8, ptr %238, i64 24
+  %257 = load ptr, ptr %256, align 8
+  %258 = lshr i64 %253, 6
+  %259 = getelementptr inbounds nuw i64, ptr %257, i64 %258
+  %260 = load i64, ptr %259, align 8
+  %261 = and i64 %255, %260
+  %.not6.i.i = icmp eq i64 %261, 0
   br i1 %.not6.i.i, label %_ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i.i
 
-_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i.i: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i, %234
-  %261 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %262 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %261, ptr noundef nonnull %233)
+_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i.i: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i, %235
+  %262 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  %263 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %262, ptr noundef nonnull %234)
   br label %_ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit
 
 _ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i.i
-  %.0.i.i46 = phi ptr [ %262, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i.i ], [ %233, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
+  %.0.i.i46 = phi ptr [ %263, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i.i ], [ %234, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
   %.not.i47 = icmp eq ptr %.0.i.i46, null
-  br i1 %.not.i47, label %_ZL3lrbP7oopDesc.exit53, label %263
+  br i1 %.not.i47, label %_ZL3lrbP7oopDesc.exit53, label %264
 
-263:                                              ; preds = %_ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit
-  %264 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 2248
-  %266 = load ptr, ptr %265, align 8
-  %267 = ptrtoint ptr %.0.i.i46 to i64
-  %268 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %269 = lshr i64 %267, %268
-  %270 = getelementptr inbounds nuw i8, ptr %266, i64 56
-  %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds ptr, ptr %271, i64 %269
-  %273 = load ptr, ptr %272, align 8
-  %.not.i.i48 = icmp ult ptr %.0.i.i46, %273
+264:                                              ; preds = %_ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit
+  %265 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 2248
+  %267 = load ptr, ptr %266, align 8
+  %268 = ptrtoint ptr %.0.i.i46 to i64
+  %269 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %270 = lshr i64 %268, %269
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 56
+  %272 = load ptr, ptr %271, align 8
+  %273 = getelementptr inbounds ptr, ptr %272, i64 %270
+  %274 = load ptr, ptr %273, align 8
+  %.not.i.i48 = icmp ult ptr %.0.i.i46, %274
   br i1 %.not.i.i48, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49
 
-_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51: ; preds = %263
-  %274 = getelementptr inbounds nuw i8, ptr %266, i64 8
-  %275 = load ptr, ptr %274, align 8
-  %276 = ptrtoint ptr %275 to i64
-  %277 = sub i64 %267, %276
-  %278 = lshr i64 %277, 2
-  %279 = and i64 %278, 4611686018427387902
-  %280 = load i32, ptr %266, align 8
-  %281 = zext nneg i32 %280 to i64
-  %282 = lshr i64 %279, %281
-  %283 = and i64 %282, 63
-  %284 = shl i64 3, %283
-  %285 = getelementptr inbounds nuw i8, ptr %266, i64 24
-  %286 = load ptr, ptr %285, align 8
-  %287 = lshr i64 %282, 6
-  %288 = getelementptr inbounds nuw i64, ptr %286, i64 %287
-  %289 = load i64, ptr %288, align 8
-  %290 = and i64 %284, %289
-  %.not6.i52 = icmp eq i64 %290, 0
+_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51: ; preds = %264
+  %275 = getelementptr inbounds nuw i8, ptr %267, i64 8
+  %276 = load ptr, ptr %275, align 8
+  %277 = ptrtoint ptr %276 to i64
+  %278 = sub i64 %268, %277
+  %279 = lshr i64 %278, 2
+  %280 = and i64 %279, 4611686018427387902
+  %281 = load i32, ptr %267, align 8
+  %282 = zext nneg i32 %281 to i64
+  %283 = lshr i64 %280, %282
+  %284 = and i64 %283, 63
+  %285 = shl i64 3, %284
+  %286 = getelementptr inbounds nuw i8, ptr %267, i64 24
+  %287 = load ptr, ptr %286, align 8
+  %288 = lshr i64 %283, 6
+  %289 = getelementptr inbounds nuw i64, ptr %287, i64 %288
+  %290 = load i64, ptr %289, align 8
+  %291 = and i64 %285, %290
+  %.not6.i52 = icmp eq i64 %291, 0
   br i1 %.not6.i52, label %_ZL3lrbP7oopDesc.exit53, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49
 
-_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, %263
-  %291 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %292 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %291, ptr noundef nonnull %.0.i.i46)
+_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, %264
+  %292 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  %293 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %292, ptr noundef nonnull %.0.i.i46)
   br label %_ZL3lrbP7oopDesc.exit53
 
-_ZL3lrbP7oopDesc.exit53:                          ; preds = %223, %_ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49
-  %.0.i50 = phi ptr [ %292, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49 ], [ %.0.i.i46, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51 ], [ null, %_ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit ], [ null, %223 ]
-  %293 = icmp eq ptr %.0.i3664, %.0.i50
-  br i1 %293, label %294, label %66, !llvm.loop !14
+_ZL3lrbP7oopDesc.exit53:                          ; preds = %224, %_ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49
+  %.0.i50 = phi ptr [ %293, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49 ], [ %.0.i.i46, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51 ], [ null, %_ZL20reference_discoveredI9narrowOopEP7oopDescS2_.exit ], [ null, %224 ]
+  %294 = icmp eq ptr %.0.i3664, %.0.i50
+  br i1 %294, label %295, label %66, !llvm.loop !14
 
-294:                                              ; preds = %_ZL3lrbP7oopDesc.exit53
-  %295 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %296 = sext i32 %295 to i64
-  %297 = add nsw i64 %296, %130
-  %298 = inttoptr i64 %297 to ptr
-  store i32 0, ptr %298, align 4
+295:                                              ; preds = %_ZL3lrbP7oopDesc.exit53
+  %296 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %297 = sext i32 %296 to i64
+  %298 = add nsw i64 %297, %130
+  %299 = inttoptr i64 %298 to ptr
+  store i32 0, ptr %299, align 4
   br label %_ZL3lrbP7oopDesc.exit39.thread
 
-_ZL3lrbP7oopDesc.exit39.thread:                   ; preds = %66, %_ZL3lrbP7oopDesc.exit39, %294
-  %.1 = phi ptr [ %.2, %294 ], [ %.0, %_ZL3lrbP7oopDesc.exit39 ], [ %.0, %66 ]
-  %299 = load i32, ptr %1, align 8
-  %300 = icmp eq i32 %299, 0
-  br i1 %300, label %354, label %301
+_ZL3lrbP7oopDesc.exit39.thread:                   ; preds = %66, %_ZL3lrbP7oopDesc.exit39, %295
+  %.1 = phi ptr [ %.2, %295 ], [ %.0, %_ZL3lrbP7oopDesc.exit39 ], [ %.0, %66 ]
+  %300 = load i32, ptr %1, align 8
+  %301 = icmp eq i32 %300, 0
+  br i1 %301, label %355, label %302
 
-301:                                              ; preds = %_ZL3lrbP7oopDesc.exit39.thread
-  %302 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %303 = ptrtoint ptr %302 to i64
-  %304 = zext i32 %299 to i64
-  %305 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %306 = zext nneg i32 %305 to i64
-  %307 = shl i64 %304, %306
-  %308 = add i64 %307, %303
-  %309 = inttoptr i64 %308 to ptr
-  %.not.i54 = icmp eq i64 %308, 0
-  br i1 %.not.i54, label %_ZL3lrbP7oopDesc.exit60, label %310
+302:                                              ; preds = %_ZL3lrbP7oopDesc.exit39.thread
+  %303 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %304 = ptrtoint ptr %303 to i64
+  %305 = zext i32 %300 to i64
+  %306 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %307 = zext nneg i32 %306 to i64
+  %308 = shl i64 %305, %307
+  %309 = add i64 %308, %304
+  %310 = inttoptr i64 %309 to ptr
+  %.not.i54 = icmp eq i64 %309, 0
+  br i1 %.not.i54, label %_ZL3lrbP7oopDesc.exit60, label %311
 
-310:                                              ; preds = %301
-  %311 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %312 = getelementptr inbounds nuw i8, ptr %311, i64 2248
-  %313 = load ptr, ptr %312, align 8
-  %314 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %315 = lshr i64 %308, %314
-  %316 = getelementptr inbounds nuw i8, ptr %313, i64 56
-  %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds ptr, ptr %317, i64 %315
-  %319 = load ptr, ptr %318, align 8
-  %.not.i.i55 = icmp ugt ptr %319, %309
+311:                                              ; preds = %302
+  %312 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 2248
+  %314 = load ptr, ptr %313, align 8
+  %315 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %316 = lshr i64 %309, %315
+  %317 = getelementptr inbounds nuw i8, ptr %314, i64 56
+  %318 = load ptr, ptr %317, align 8
+  %319 = getelementptr inbounds ptr, ptr %318, i64 %316
+  %320 = load ptr, ptr %319, align 8
+  %.not.i.i55 = icmp ugt ptr %320, %310
   br i1 %.not.i.i55, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56
 
-_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58: ; preds = %310
-  %320 = getelementptr inbounds nuw i8, ptr %313, i64 8
-  %321 = load ptr, ptr %320, align 8
-  %322 = ptrtoint ptr %321 to i64
-  %323 = sub i64 %308, %322
-  %324 = lshr i64 %323, 2
-  %325 = and i64 %324, 4611686018427387902
-  %326 = load i32, ptr %313, align 8
-  %327 = zext nneg i32 %326 to i64
-  %328 = lshr i64 %325, %327
-  %329 = and i64 %328, 63
-  %330 = shl i64 3, %329
-  %331 = getelementptr inbounds nuw i8, ptr %313, i64 24
-  %332 = load ptr, ptr %331, align 8
-  %333 = lshr i64 %328, 6
-  %334 = getelementptr inbounds nuw i64, ptr %332, i64 %333
-  %335 = load i64, ptr %334, align 8
-  %336 = and i64 %330, %335
-  %.not6.i59 = icmp eq i64 %336, 0
+_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58: ; preds = %311
+  %321 = getelementptr inbounds nuw i8, ptr %314, i64 8
+  %322 = load ptr, ptr %321, align 8
+  %323 = ptrtoint ptr %322 to i64
+  %324 = sub i64 %309, %323
+  %325 = lshr i64 %324, 2
+  %326 = and i64 %325, 4611686018427387902
+  %327 = load i32, ptr %314, align 8
+  %328 = zext nneg i32 %327 to i64
+  %329 = lshr i64 %326, %328
+  %330 = and i64 %329, 63
+  %331 = shl i64 3, %330
+  %332 = getelementptr inbounds nuw i8, ptr %314, i64 24
+  %333 = load ptr, ptr %332, align 8
+  %334 = lshr i64 %329, 6
+  %335 = getelementptr inbounds nuw i64, ptr %333, i64 %334
+  %336 = load i64, ptr %335, align 8
+  %337 = and i64 %331, %336
+  %.not6.i59 = icmp eq i64 %337, 0
   br i1 %.not6.i59, label %_ZL3lrbP7oopDesc.exit60, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56
 
-_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58, %310
-  %337 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %338 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %337, ptr noundef nonnull %309)
+_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58, %311
+  %338 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  %339 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %338, ptr noundef nonnull %310)
   br label %_ZL3lrbP7oopDesc.exit60
 
-_ZL3lrbP7oopDesc.exit60:                          ; preds = %301, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56
-  %.0.i57 = phi ptr [ %338, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56 ], [ %309, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58 ], [ null, %301 ]
-  %339 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %340 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i57, ptr nonnull %339) #14, !srcloc !15
-  %341 = icmp eq ptr %340, null
-  %342 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %343 = ptrtoint ptr %340 to i64
-  %344 = ptrtoint ptr %342 to i64
-  %345 = sub i64 %343, %344
-  %346 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %347 = zext nneg i32 %346 to i64
-  %348 = lshr i64 %345, %347
-  %349 = trunc i64 %348 to i32
-  %350 = select i1 %341, i32 0, i32 %349
-  store i32 %350, ptr %.1, align 4
-  br i1 %341, label %351, label %353
+_ZL3lrbP7oopDesc.exit60:                          ; preds = %302, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56
+  %.0.i57 = phi ptr [ %339, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56 ], [ %310, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58 ], [ null, %302 ]
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %341 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i57, ptr nonnull %340) #14, !srcloc !15
+  %342 = icmp eq ptr %341, null
+  %343 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %344 = ptrtoint ptr %341 to i64
+  %345 = ptrtoint ptr %343 to i64
+  %346 = sub i64 %344, %345
+  %347 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %348 = zext nneg i32 %347 to i64
+  %349 = lshr i64 %346, %348
+  %350 = trunc i64 %349 to i32
+  %351 = select i1 %342, i32 0, i32 %350
+  store i32 %351, ptr %.1, align 4
+  br i1 %342, label %352, label %354
 
-351:                                              ; preds = %_ZL3lrbP7oopDesc.exit60
-  %352 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.1, ptr %352, align 8
-  br label %353
-
-353:                                              ; preds = %351, %_ZL3lrbP7oopDesc.exit60
-  store i32 0, ptr %1, align 8
+352:                                              ; preds = %_ZL3lrbP7oopDesc.exit60
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.1, ptr %353, align 8
   br label %354
 
-354:                                              ; preds = %353, %_ZL3lrbP7oopDesc.exit39.thread
+354:                                              ; preds = %352, %_ZL3lrbP7oopDesc.exit60
+  store i32 0, ptr %1, align 8
+  br label %355
+
+355:                                              ; preds = %354, %_ZL3lrbP7oopDesc.exit39.thread
   ret void
 }
 
@@ -1599,7 +1603,7 @@ _ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.e
   %.pre86 = sext i32 %.pre to i64
   %.pre87 = add nsw i64 %.pre86, %100
   %.pre89 = inttoptr i64 %.pre87 to ptr
-  br label %174
+  br label %175
 
 156:                                              ; preds = %119, %_ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.exit
   %157 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -1626,69 +1630,70 @@ switch.lookup:                                    ; preds = %158
 
 _ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit: ; preds = %156, %switch.lookup
   %163 = load ptr, ptr %42, align 8
-  %164 = zext i8 %97 to i64
-  %165 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %163, i64 %43, i32 4, i64 %164
-  %166 = load i64, ptr %165, align 8
-  %167 = add i64 %166, 1
-  store i64 %167, ptr %165, align 8
-  %168 = icmp eq i8 %97, 3
-  %..i.i = select i1 %168, ptr %.0.i3664, ptr null
+  %164 = getelementptr inbounds nuw %class.ShenandoahRefProcThreadLocal, ptr %163, i64 %43, i32 4
+  %165 = zext i8 %97 to i64
+  %166 = getelementptr inbounds nuw [5 x i64], ptr %164, i64 0, i64 %165
+  %167 = load i64, ptr %166, align 8
+  %168 = add i64 %167, 1
+  store i64 %168, ptr %166, align 8
+  %169 = icmp eq i8 %97, 3
+  %..i.i = select i1 %169, ptr %.0.i3664, ptr null
   %_ZN23java_lang_ref_Reference12_next_offsetE.val.i.i = load i32, ptr @_ZN23java_lang_ref_Reference12_next_offsetE, align 4
   %_ZN23java_lang_ref_Reference16_referent_offsetE.val.i.i = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %169 = select i1 %168, i32 %_ZN23java_lang_ref_Reference12_next_offsetE.val.i.i, i32 %_ZN23java_lang_ref_Reference16_referent_offsetE.val.i.i
-  tail call void @_ZN7oopDesc17obj_field_put_rawEiPS_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i3664, i32 noundef %169, ptr noundef %..i.i) #14
-  %170 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %171 = sext i32 %170 to i64
-  %172 = add nsw i64 %171, %100
-  %173 = inttoptr i64 %172 to ptr
-  br label %174
+  %170 = select i1 %169, i32 %_ZN23java_lang_ref_Reference12_next_offsetE.val.i.i, i32 %_ZN23java_lang_ref_Reference16_referent_offsetE.val.i.i
+  tail call void @_ZN7oopDesc17obj_field_put_rawEiPS_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i3664, i32 noundef %170, ptr noundef %..i.i) #14
+  %171 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %172 = sext i32 %171 to i64
+  %173 = add nsw i64 %172, %100
+  %174 = inttoptr i64 %173 to ptr
+  br label %175
 
-174:                                              ; preds = %_ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit, %_ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.exit.thread
-  %.pre-phi90 = phi ptr [ %173, %_ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit ], [ %.pre89, %_ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.exit.thread ]
-  %.2 = phi ptr [ %173, %_ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit ], [ %.0, %_ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.exit.thread ]
-  %175 = load ptr, ptr %.pre-phi90, align 8
-  %.not.i.i45 = icmp eq ptr %175, null
-  br i1 %.not.i.i45, label %_ZL3lrbP7oopDesc.exit53, label %176
+175:                                              ; preds = %_ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit, %_ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.exit.thread
+  %.pre-phi90 = phi ptr [ %174, %_ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit ], [ %.pre89, %_ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.exit.thread ]
+  %.2 = phi ptr [ %174, %_ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit ], [ %.0, %_ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.exit.thread ]
+  %176 = load ptr, ptr %.pre-phi90, align 8
+  %.not.i.i45 = icmp eq ptr %176, null
+  br i1 %.not.i.i45, label %_ZL3lrbP7oopDesc.exit53, label %177
 
-176:                                              ; preds = %174
-  %177 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 2248
-  %179 = load ptr, ptr %178, align 8
-  %180 = ptrtoint ptr %175 to i64
-  %181 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %182 = lshr i64 %180, %181
-  %183 = getelementptr inbounds nuw i8, ptr %179, i64 56
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds ptr, ptr %184, i64 %182
-  %186 = load ptr, ptr %185, align 8
-  %.not.i.i.i = icmp ult ptr %175, %186
+177:                                              ; preds = %175
+  %178 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 2248
+  %180 = load ptr, ptr %179, align 8
+  %181 = ptrtoint ptr %176 to i64
+  %182 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %183 = lshr i64 %181, %182
+  %184 = getelementptr inbounds nuw i8, ptr %180, i64 56
+  %185 = load ptr, ptr %184, align 8
+  %186 = getelementptr inbounds ptr, ptr %185, i64 %183
+  %187 = load ptr, ptr %186, align 8
+  %.not.i.i.i = icmp ult ptr %176, %187
   br i1 %.not.i.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i, label %_ZL20reference_discoveredIP7oopDescES1_S1_.exit
 
-_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i: ; preds = %176
-  %187 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %188 = load ptr, ptr %187, align 8
-  %189 = ptrtoint ptr %188 to i64
-  %190 = sub i64 %180, %189
-  %191 = lshr i64 %190, 2
-  %192 = and i64 %191, 4611686018427387902
-  %193 = load i32, ptr %179, align 8
-  %194 = zext nneg i32 %193 to i64
-  %195 = lshr i64 %192, %194
-  %196 = and i64 %195, 63
-  %197 = shl i64 3, %196
-  %198 = getelementptr inbounds nuw i8, ptr %179, i64 24
-  %199 = load ptr, ptr %198, align 8
-  %200 = lshr i64 %195, 6
-  %201 = getelementptr inbounds nuw i64, ptr %199, i64 %200
-  %202 = load i64, ptr %201, align 8
-  %203 = and i64 %197, %202
-  %.not6.i.i = icmp eq i64 %203, 0
+_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i: ; preds = %177
+  %188 = getelementptr inbounds nuw i8, ptr %180, i64 8
+  %189 = load ptr, ptr %188, align 8
+  %190 = ptrtoint ptr %189 to i64
+  %191 = sub i64 %181, %190
+  %192 = lshr i64 %191, 2
+  %193 = and i64 %192, 4611686018427387902
+  %194 = load i32, ptr %180, align 8
+  %195 = zext nneg i32 %194 to i64
+  %196 = lshr i64 %193, %195
+  %197 = and i64 %196, 63
+  %198 = shl i64 3, %197
+  %199 = getelementptr inbounds nuw i8, ptr %180, i64 24
+  %200 = load ptr, ptr %199, align 8
+  %201 = lshr i64 %196, 6
+  %202 = getelementptr inbounds nuw i64, ptr %200, i64 %201
+  %203 = load i64, ptr %202, align 8
+  %204 = and i64 %198, %203
+  %.not6.i.i = icmp eq i64 %204, 0
   br i1 %.not6.i.i, label %_ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68, label %_ZL20reference_discoveredIP7oopDescES1_S1_.exit
 
-_ZL20reference_discoveredIP7oopDescES1_S1_.exit:  ; preds = %176, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i
-  %204 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %205 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %204, ptr noundef nonnull %175)
-  %.not.i47 = icmp eq ptr %205, null
+_ZL20reference_discoveredIP7oopDescES1_S1_.exit:  ; preds = %177, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i
+  %205 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  %206 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %205, ptr noundef nonnull %176)
+  %.not.i47 = icmp eq ptr %206, null
   br i1 %.not.i47, label %_ZL3lrbP7oopDesc.exit53, label %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge
 
 _ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge: ; preds = %_ZL20reference_discoveredIP7oopDescES1_S1_.exit
@@ -1698,124 +1703,124 @@ _ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopD
   %.pre83 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
   %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %.pre82, i64 56
   %.pre85 = load ptr, ptr %.phi.trans.insert84, align 8
-  %.pre91 = ptrtoint ptr %205 to i64
+  %.pre91 = ptrtoint ptr %206 to i64
   %.pre93 = lshr i64 %.pre91, %.pre83
   br label %_ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68
 
 _ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68: ; preds = %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i
-  %.pre-phi94 = phi i64 [ %.pre93, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge ], [ %182, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
-  %.pre-phi92 = phi i64 [ %.pre91, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge ], [ %180, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
-  %206 = phi ptr [ %.pre85, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge ], [ %184, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
-  %207 = phi ptr [ %.pre82, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge ], [ %179, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
-  %.0.i.i4671 = phi ptr [ %205, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge ], [ %175, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
-  %208 = getelementptr inbounds ptr, ptr %206, i64 %.pre-phi94
-  %209 = load ptr, ptr %208, align 8
-  %.not.i.i48 = icmp ult ptr %.0.i.i4671, %209
+  %.pre-phi94 = phi i64 [ %.pre93, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge ], [ %183, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
+  %.pre-phi92 = phi i64 [ %.pre91, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge ], [ %181, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
+  %207 = phi ptr [ %.pre85, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge ], [ %185, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
+  %208 = phi ptr [ %.pre82, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge ], [ %180, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
+  %.0.i.i4671 = phi ptr [ %206, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit._ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68_crit_edge ], [ %176, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i.i ]
+  %209 = getelementptr inbounds ptr, ptr %207, i64 %.pre-phi94
+  %210 = load ptr, ptr %209, align 8
+  %.not.i.i48 = icmp ult ptr %.0.i.i4671, %210
   br i1 %.not.i.i48, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51: ; preds = %_ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68
-  %210 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  %211 = load ptr, ptr %210, align 8
-  %212 = ptrtoint ptr %211 to i64
-  %213 = sub i64 %.pre-phi92, %212
-  %214 = lshr i64 %213, 2
-  %215 = and i64 %214, 4611686018427387902
-  %216 = load i32, ptr %207, align 8
-  %217 = zext nneg i32 %216 to i64
-  %218 = lshr i64 %215, %217
-  %219 = and i64 %218, 63
-  %220 = shl i64 3, %219
-  %221 = getelementptr inbounds nuw i8, ptr %207, i64 24
-  %222 = load ptr, ptr %221, align 8
-  %223 = lshr i64 %218, 6
-  %224 = getelementptr inbounds nuw i64, ptr %222, i64 %223
-  %225 = load i64, ptr %224, align 8
-  %226 = and i64 %220, %225
-  %.not6.i52 = icmp eq i64 %226, 0
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 8
+  %212 = load ptr, ptr %211, align 8
+  %213 = ptrtoint ptr %212 to i64
+  %214 = sub i64 %.pre-phi92, %213
+  %215 = lshr i64 %214, 2
+  %216 = and i64 %215, 4611686018427387902
+  %217 = load i32, ptr %208, align 8
+  %218 = zext nneg i32 %217 to i64
+  %219 = lshr i64 %216, %218
+  %220 = and i64 %219, 63
+  %221 = shl i64 3, %220
+  %222 = getelementptr inbounds nuw i8, ptr %208, i64 24
+  %223 = load ptr, ptr %222, align 8
+  %224 = lshr i64 %219, 6
+  %225 = getelementptr inbounds nuw i64, ptr %223, i64 %224
+  %226 = load i64, ptr %225, align 8
+  %227 = and i64 %221, %226
+  %.not6.i52 = icmp eq i64 %227, 0
   br i1 %.not6.i52, label %_ZL3lrbP7oopDesc.exit53, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit.thread68
-  %227 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %228 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %227, ptr noundef nonnull %.0.i.i4671)
+  %228 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  %229 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %228, ptr noundef nonnull %.0.i.i4671)
   br label %_ZL3lrbP7oopDesc.exit53
 
-_ZL3lrbP7oopDesc.exit53:                          ; preds = %174, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49
-  %.0.i50 = phi ptr [ %228, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49 ], [ %.0.i.i4671, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51 ], [ null, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit ], [ null, %174 ]
-  %229 = icmp eq ptr %.0.i3664, %.0.i50
-  br i1 %229, label %230, label %44, !llvm.loop !16
+_ZL3lrbP7oopDesc.exit53:                          ; preds = %175, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49
+  %.0.i50 = phi ptr [ %229, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i49 ], [ %.0.i.i4671, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i51 ], [ null, %_ZL20reference_discoveredIP7oopDescES1_S1_.exit ], [ null, %175 ]
+  %230 = icmp eq ptr %.0.i3664, %.0.i50
+  br i1 %230, label %231, label %44, !llvm.loop !16
 
-230:                                              ; preds = %_ZL3lrbP7oopDesc.exit53
-  %231 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %232 = sext i32 %231 to i64
-  %233 = add nsw i64 %232, %100
-  %234 = inttoptr i64 %233 to ptr
-  store ptr null, ptr %234, align 8
+231:                                              ; preds = %_ZL3lrbP7oopDesc.exit53
+  %232 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %233 = sext i32 %232 to i64
+  %234 = add nsw i64 %233, %100
+  %235 = inttoptr i64 %234 to ptr
+  store ptr null, ptr %235, align 8
   br label %_ZL3lrbP7oopDesc.exit39.thread
 
-_ZL3lrbP7oopDesc.exit39.thread:                   ; preds = %44, %_ZL3lrbP7oopDesc.exit39, %230
-  %.1 = phi ptr [ %.2, %230 ], [ %.0, %_ZL3lrbP7oopDesc.exit39 ], [ %.0, %44 ]
-  %235 = load ptr, ptr %1, align 8
-  %236 = icmp eq ptr %235, null
-  br i1 %236, label %273, label %237
+_ZL3lrbP7oopDesc.exit39.thread:                   ; preds = %44, %_ZL3lrbP7oopDesc.exit39, %231
+  %.1 = phi ptr [ %.2, %231 ], [ %.0, %_ZL3lrbP7oopDesc.exit39 ], [ %.0, %44 ]
+  %236 = load ptr, ptr %1, align 8
+  %237 = icmp eq ptr %236, null
+  br i1 %237, label %274, label %238
 
-237:                                              ; preds = %_ZL3lrbP7oopDesc.exit39.thread
-  %238 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 2248
-  %240 = load ptr, ptr %239, align 8
-  %241 = ptrtoint ptr %235 to i64
-  %242 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %243 = lshr i64 %241, %242
-  %244 = getelementptr inbounds nuw i8, ptr %240, i64 56
-  %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds ptr, ptr %245, i64 %243
-  %247 = load ptr, ptr %246, align 8
-  %.not.i.i55 = icmp ult ptr %235, %247
+238:                                              ; preds = %_ZL3lrbP7oopDesc.exit39.thread
+  %239 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 2248
+  %241 = load ptr, ptr %240, align 8
+  %242 = ptrtoint ptr %236 to i64
+  %243 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %244 = lshr i64 %242, %243
+  %245 = getelementptr inbounds nuw i8, ptr %241, i64 56
+  %246 = load ptr, ptr %245, align 8
+  %247 = getelementptr inbounds ptr, ptr %246, i64 %244
+  %248 = load ptr, ptr %247, align 8
+  %.not.i.i55 = icmp ult ptr %236, %248
   br i1 %.not.i.i55, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56
 
-_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58: ; preds = %237
-  %248 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  %249 = load ptr, ptr %248, align 8
-  %250 = ptrtoint ptr %249 to i64
-  %251 = sub i64 %241, %250
-  %252 = lshr i64 %251, 2
-  %253 = and i64 %252, 4611686018427387902
-  %254 = load i32, ptr %240, align 8
-  %255 = zext nneg i32 %254 to i64
-  %256 = lshr i64 %253, %255
-  %257 = and i64 %256, 63
-  %258 = shl i64 3, %257
-  %259 = getelementptr inbounds nuw i8, ptr %240, i64 24
-  %260 = load ptr, ptr %259, align 8
-  %261 = lshr i64 %256, 6
-  %262 = getelementptr inbounds nuw i64, ptr %260, i64 %261
-  %263 = load i64, ptr %262, align 8
-  %264 = and i64 %258, %263
-  %.not6.i59 = icmp eq i64 %264, 0
+_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58: ; preds = %238
+  %249 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %250 = load ptr, ptr %249, align 8
+  %251 = ptrtoint ptr %250 to i64
+  %252 = sub i64 %242, %251
+  %253 = lshr i64 %252, 2
+  %254 = and i64 %253, 4611686018427387902
+  %255 = load i32, ptr %241, align 8
+  %256 = zext nneg i32 %255 to i64
+  %257 = lshr i64 %254, %256
+  %258 = and i64 %257, 63
+  %259 = shl i64 3, %258
+  %260 = getelementptr inbounds nuw i8, ptr %241, i64 24
+  %261 = load ptr, ptr %260, align 8
+  %262 = lshr i64 %257, 6
+  %263 = getelementptr inbounds nuw i64, ptr %261, i64 %262
+  %264 = load i64, ptr %263, align 8
+  %265 = and i64 %259, %264
+  %.not6.i59 = icmp eq i64 %265, 0
   br i1 %.not6.i59, label %_ZL3lrbP7oopDesc.exit60, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56
 
-_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58, %237
-  %265 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %266 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %265, ptr noundef nonnull %235)
+_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58, %238
+  %266 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  %267 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1064) %266, ptr noundef nonnull %236)
   br label %_ZL3lrbP7oopDesc.exit60
 
 _ZL3lrbP7oopDesc.exit60:                          ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56
-  %.0.i57 = phi ptr [ %266, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56 ], [ %235, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58 ]
-  %267 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %268 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i57, ptr nonnull %267) #14, !srcloc !15
-  store ptr %268, ptr %.1, align 8
-  %269 = icmp eq ptr %268, null
-  br i1 %269, label %270, label %272
+  %.0.i57 = phi ptr [ %267, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56 ], [ %236, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58 ]
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %269 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i57, ptr nonnull %268) #14, !srcloc !15
+  store ptr %269, ptr %.1, align 8
+  %270 = icmp eq ptr %269, null
+  br i1 %270, label %271, label %273
 
-270:                                              ; preds = %_ZL3lrbP7oopDesc.exit60
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.1, ptr %271, align 8
-  br label %272
-
-272:                                              ; preds = %270, %_ZL3lrbP7oopDesc.exit60
-  store ptr null, ptr %1, align 8
+271:                                              ; preds = %_ZL3lrbP7oopDesc.exit60
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.1, ptr %272, align 8
   br label %273
 
-273:                                              ; preds = %272, %_ZL3lrbP7oopDesc.exit39.thread
+273:                                              ; preds = %271, %_ZL3lrbP7oopDesc.exit60
+  store ptr null, ptr %1, align 8
+  br label %274
+
+274:                                              ; preds = %273, %_ZL3lrbP7oopDesc.exit39.thread
   ret void
 }
 

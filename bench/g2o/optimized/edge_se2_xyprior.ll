@@ -207,83 +207,85 @@ _ZN3g2o13BaseUnaryEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_9VertexSE2EE
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3g2o14EdgeSE2XYPrior4readERSi(ptr noundef nonnull align 16 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 32
   br label %4
 
-4:                                                ; preds = %11, %2
-  %5 = phi i1 [ true, %2 ], [ false, %11 ]
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ 1, %11 ]
+4:                                                ; preds = %13, %2
+  %5 = phi i1 [ true, %2 ], [ false, %13 ]
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ 1, %13 ]
   %6 = load ptr, ptr %1, align 8, !tbaa !35
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %8
-  %9 = load i32, ptr %gep.i, align 8, !tbaa !43
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %9 = getelementptr inbounds i8, ptr %1, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %11 = load i32, ptr %10, align 8, !tbaa !43
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
-  %13 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %12)
+13:                                               ; preds = %4
+  %14 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %15 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br i1 %5, label %4, label %..critedge_crit_edge.i, !llvm.loop !53
 
-..critedge_crit_edge.i:                           ; preds = %11
+..critedge_crit_edge.i:                           ; preds = %13
   br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !53
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %4, %..critedge_crit_edge.i
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  br label %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  br label %17
 
-15:                                               ; preds = %.critedge2.i, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
-  %16 = phi i1 [ true, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit ], [ false, %.critedge2.i ]
+17:                                               ; preds = %.critedge2.i, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %18 = phi i1 [ true, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit ], [ false, %.critedge2.i ]
   %indvars.iv.i3 = phi i64 [ 0, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit ], [ 1, %.critedge2.i ]
-  %17 = load ptr, ptr %1, align 8, !tbaa !35
-  %18 = getelementptr i8, ptr %17, i64 -24
-  %19 = load i64, ptr %18, align 8
-  %gep30.i = getelementptr i8, ptr %invariant.gep.i, i64 %19
-  %20 = load i32, ptr %gep30.i, align 8, !tbaa !43
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.lr.ph.i, label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit
+  %19 = load ptr, ptr %1, align 8, !tbaa !35
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %24 = load i32, ptr %23, align 8, !tbaa !43
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %.lr.ph.i, label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit
 
-.lr.ph.i:                                         ; preds = %15
-  %22 = getelementptr double, ptr %14, i64 %indvars.iv.i3
+.lr.ph.i:                                         ; preds = %17
+  %26 = getelementptr double, ptr %16, i64 %indvars.iv.i3
   %.idx.i.i.i24.i = shl nuw nsw i64 %indvars.iv.i3, 4
-  %invariant.gep27.i = getelementptr i8, ptr %14, i64 %.idx.i.i.i24.i
-  br label %23
+  %invariant.gep.i = getelementptr i8, ptr %16, i64 %.idx.i.i.i24.i
+  br label %27
 
-23:                                               ; preds = %34, %.lr.ph.i
-  %indvars.iv32.i = phi i64 [ %indvars.iv.i3, %.lr.ph.i ], [ 1, %34 ]
-  %24 = load ptr, ptr %1, align 8, !tbaa !35
-  %25 = getelementptr i8, ptr %24, i64 -24
-  %26 = load i64, ptr %25, align 8
-  %gep.i4 = getelementptr i8, ptr %invariant.gep.i, i64 %26
-  %27 = load i32, ptr %gep.i4, align 8, !tbaa !43
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %.critedge2.i
+27:                                               ; preds = %40, %.lr.ph.i
+  %indvars.iv28.i = phi i64 [ %indvars.iv.i3, %.lr.ph.i ], [ 1, %40 ]
+  %28 = load ptr, ptr %1, align 8, !tbaa !35
+  %29 = getelementptr i8, ptr %28, i64 -24
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %1, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %33 = load i32, ptr %32, align 8, !tbaa !43
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %34, %23
-  br i1 %16, label %15, label %.critedge2..critedge_crit_edge.i, !llvm.loop !55
+.critedge2.i:                                     ; preds = %40, %27
+  br i1 %18, label %17, label %.critedge2..critedge_crit_edge.i, !llvm.loop !55
 
 .critedge2..critedge_crit_edge.i:                 ; preds = %.critedge2.i
   br label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit, !llvm.loop !55
 
-29:                                               ; preds = %23
-  %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv32.i, 4
-  %30 = getelementptr i8, ptr %22, i64 %.idx.i.i.i.i
-  %31 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %30)
-  %.not.i = icmp eq i64 %indvars.iv.i3, %indvars.iv32.i
-  br i1 %.not.i, label %34, label %32
+35:                                               ; preds = %27
+  %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv28.i, 4
+  %36 = getelementptr i8, ptr %26, i64 %.idx.i.i.i.i
+  %37 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %36)
+  %.not.i = icmp eq i64 %indvars.iv.i3, %indvars.iv28.i
+  br i1 %.not.i, label %40, label %38
 
-32:                                               ; preds = %29
-  %33 = load double, ptr %30, align 8, !tbaa !56
-  %gep28.i = getelementptr double, ptr %invariant.gep27.i, i64 %indvars.iv32.i
-  store double %33, ptr %gep28.i, align 8, !tbaa !56
-  br label %34
+38:                                               ; preds = %35
+  %39 = load double, ptr %36, align 8, !tbaa !56
+  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv28.i
+  store double %39, ptr %gep.i, align 8, !tbaa !56
+  br label %40
 
-34:                                               ; preds = %32, %29
-  %35 = icmp eq i64 %indvars.iv32.i, 0
-  br i1 %35, label %23, label %.critedge2.i, !llvm.loop !58
+40:                                               ; preds = %38, %35
+  %41 = icmp eq i64 %indvars.iv28.i, 0
+  br i1 %41, label %27, label %.critedge2.i, !llvm.loop !58
 
-_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit: ; preds = %15, %.critedge2..critedge_crit_edge.i
+_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit: ; preds = %17, %.critedge2..critedge_crit_edge.i
   ret i1 true
 }
 

@@ -64,16 +64,16 @@ list_length.exit:                                 ; preds = %11
   store ptr %20, ptr %22, align 8
   %23 = load i32, ptr %13, align 4
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph, label %._crit_edge
+  br i1 %24, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %41
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %41 ], [ 0, %.lr.ph ]
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %41 ], [ 0, %.lr.ph ]
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv46
+  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv44
   %28 = load i32, ptr %27, align 8
   %29 = tail call ptr @index_open(i32 noundef %28, i32 noundef 3) #6
   %30 = tail call ptr @BuildIndexInfo(ptr noundef %29) #6
@@ -95,19 +95,15 @@ list_length.exit:                                 ; preds = %11
   br label %41
 
 41:                                               ; preds = %40, %34, %.lr.ph.split.us
-  %42 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv46
+  %42 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv44
   store ptr %29, ptr %42, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv46
+  %43 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv44
   store ptr %30, ptr %43, align 8
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %44 = load i32, ptr %13, align 4
   %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next47, %45
-  br i1 %46, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !6
-
-._crit_edge:                                      ; preds = %.lr.ph.split, %41, %16
-  tail call void @list_free(ptr noundef nonnull %12) #6
-  br label %list_length.exit.thread
+  %46 = icmp slt i64 %indvars.iv.next45, %45
+  br i1 %46, label %.lr.ph.split.us, label %.critedge, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -124,9 +120,13 @@ list_length.exit:                                 ; preds = %11
   %54 = load i32, ptr %13, align 4
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
+  br i1 %56, label %.lr.ph.split, label %.critedge, !llvm.loop !9
 
-list_length.exit.thread:                          ; preds = %11, %list_length.exit, %2, %._crit_edge
+.critedge:                                        ; preds = %.lr.ph.split, %41, %16
+  tail call void @list_free(ptr noundef nonnull %12) #6
+  br label %list_length.exit.thread
+
+list_length.exit.thread:                          ; preds = %11, %list_length.exit, %2, %.critedge
   ret void
 }
 

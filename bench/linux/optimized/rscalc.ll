@@ -618,19 +618,19 @@ define dso_local noundef range(i32 0, 12292) i32 @acpi_rs_get_pci_routing_table_
   %12 = phi i64 [ %55, %52 ], [ 0, %6 ]
   %13 = load ptr, ptr %11, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit8, label %15
+  br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 9
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 4
-  br i1 %18, label %19, label %.loopexit8
+  br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.loopexit, label %.preheader.preheader
+  br i1 %22, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -662,7 +662,7 @@ define dso_local noundef range(i32 0, 12292) i32 @acpi_rs_get_pci_routing_table_
   %37 = getelementptr i8, ptr %26, i64 8
   %38 = add nuw i32 %25, 1
   %exitcond.not = icmp eq i32 %38, %21
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !11
 
 39:                                               ; preds = %29
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -680,12 +680,12 @@ define dso_local noundef range(i32 0, 12292) i32 @acpi_rs_get_pci_routing_table_
   %50 = add i64 %47, %49
   br label %52
 
-.loopexit:                                        ; preds = %36, %19
+.critedge:                                        ; preds = %36, %19
   %51 = add i64 %12, 24
   br label %52
 
-52:                                               ; preds = %.loopexit, %45, %39
-  %53 = phi i64 [ %44, %39 ], [ %50, %45 ], [ %51, %.loopexit ]
+52:                                               ; preds = %.critedge, %45, %39
+  %53 = phi i64 [ %44, %39 ], [ %50, %45 ], [ %51, %.critedge ]
   %54 = add i64 %53, 7
   %55 = and i64 %54, -8
   %56 = getelementptr i8, ptr %11, i64 8
@@ -700,9 +700,9 @@ define dso_local noundef range(i32 0, 12292) i32 @acpi_rs_get_pci_routing_table_
 61:                                               ; preds = %59, %2
   %62 = phi i64 [ 24, %2 ], [ %60, %59 ]
   store i64 %62, ptr %1, align 8
-  br label %.loopexit8
+  br label %.loopexit
 
-.loopexit8:                                       ; preds = %15, %9, %61
+.loopexit:                                        ; preds = %15, %9, %61
   %63 = phi i32 [ 0, %61 ], [ 12291, %9 ], [ 12291, %15 ]
   ret i32 %63
 }

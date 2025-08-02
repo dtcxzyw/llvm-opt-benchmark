@@ -4619,7 +4619,6 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   br i1 %or.cond.i.i, label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread.i, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.then4.i.i
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %key, i64 2
   %cmp1420.not.i.i = icmp eq i8 %10, 0
   br i1 %cmp1420.not.i.i, label %for.end.i.i, label %for.body.i.i
 
@@ -4627,9 +4626,10 @@ for.body.i.i:                                     ; preds = %if.end13.i.i, %for.
   %i.022.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end13.i.i ]
   %or1921.i.i = phi i64 [ %or.i.i, %for.body.i.i ], [ 0, %if.end13.i.i ]
   %shl.i.i = shl i64 %or1921.i.i, 8
-  %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %i.022.i.i
-  %11 = load i8, ptr %gep.i.i, align 1
-  %conv17.i.i = zext i8 %11 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %key, i64 %i.022.i.i
+  %arrayidx16.i.i = getelementptr inbounds nuw i8, ptr %11, i64 2
+  %12 = load i8, ptr %arrayidx16.i.i, align 1
+  %conv17.i.i = zext i8 %12 to i64
   %or.i.i = or disjoint i64 %shl.i.i, %conv17.i.i
   %inc.i.i = add nuw nsw i64 %i.022.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %conv8.i.i
@@ -4674,19 +4674,19 @@ _ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i: ; preds = %if.el
 
 _ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit: ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %key, i64 %offset.0.i
-  %12 = load i8, ptr %arrayidx.i, align 1
-  %cmp1.i.not = icmp eq i8 %12, 2
+  %13 = load i8, ptr %arrayidx.i, align 1
+  %cmp1.i.not = icmp eq i8 %13, 2
   br i1 %cmp1.i.not, label %if.else34, label %if.then31
 
 if.then31:                                        ; preds = %_ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit
   %call33 = call ptr @d2i_PKCS8PrivateKey_bio(ptr noundef nonnull %call26, ptr noundef null, ptr noundef nonnull @_ZN4node6crypto16PasswordCallbackEPciiPv, ptr noundef nonnull %passphrase) #23
-  %13 = load ptr, ptr %pkey, align 8
+  %14 = load ptr, ptr %pkey, align 8
   store ptr %call33, ptr %pkey, align 8
-  %tobool.not.i.i34 = icmp eq ptr %13, null
+  %tobool.not.i.i34 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i34, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread, label %if.then.i.i35
 
 if.then.i.i35:                                    ; preds = %if.then31
-  call void @EVP_PKEY_free(ptr noundef nonnull %13) #23
+  call void @EVP_PKEY_free(ptr noundef nonnull %14) #23
   br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread
 
 if.else34:                                        ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread.i, %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i, %_ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit
@@ -4696,13 +4696,13 @@ if.else34:                                        ; preds = %_ZN4node6crypto12_G
 
 if.then38:                                        ; preds = %if.else34
   %call40 = tail call ptr @EVP_PKCS82PKEY(ptr noundef nonnull %call36) #23
-  %14 = load ptr, ptr %pkey, align 8
+  %15 = load ptr, ptr %pkey, align 8
   store ptr %call40, ptr %pkey, align 8
-  %tobool.not.i.i38 = icmp eq ptr %14, null
+  %tobool.not.i.i38 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i38, label %if.then.i42, label %if.then.i.i39
 
 if.then.i.i39:                                    ; preds = %if.then38
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %14) #23
+  tail call void @EVP_PKEY_free(ptr noundef nonnull %15) #23
   br label %if.then.i42
 
 if.then.i42:                                      ; preds = %if.then.i.i39, %if.then38
@@ -4714,8 +4714,8 @@ _ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2E
   br label %if.end64
 
 do.body47:                                        ; preds = %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit98
-  %15 = load i8, ptr %type_, align 8
-  %tobool.i = trunc i8 %15 to i1
+  %16 = load i8, ptr %type_, align 8
+  %tobool.i = trunc i8 %16 to i1
   br i1 %tobool.i, label %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit106, label %if.then.i105
 
 if.then.i105:                                     ; preds = %do.body47
@@ -4724,8 +4724,8 @@ if.then.i105:                                     ; preds = %do.body47
   br label %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit106
 
 _ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit106: ; preds = %if.then.i105, %do.body47
-  %16 = phi i32 [ %.pre, %if.then.i105 ], [ %7, %do.body47 ]
-  %cmp50.not = icmp eq i32 %16, 3
+  %17 = phi i32 [ %.pre, %if.then.i105 ], [ %7, %do.body47 ]
+  %cmp50.not = icmp eq i32 %17, 3
   br i1 %cmp50.not, label %do.end59, label %do.body56
 
 do.body56:                                        ; preds = %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit106
@@ -4736,13 +4736,13 @@ do.body56:                                        ; preds = %_ZNKR2v85MaybeIN4no
 do.end59:                                         ; preds = %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit106
   store ptr %key, ptr %p60, align 8
   %call61 = call ptr @d2i_PrivateKey(i32 noundef 408, ptr noundef null, ptr noundef nonnull %p60, i64 noundef %key_len) #23
-  %17 = load ptr, ptr %pkey, align 8
+  %18 = load ptr, ptr %pkey, align 8
   store ptr %call61, ptr %pkey, align 8
-  %tobool.not.i.i46 = icmp eq ptr %17, null
+  %tobool.not.i.i46 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i46, label %if.end64, label %if.then.i.i47
 
 if.then.i.i47:                                    ; preds = %do.end59
-  call void @EVP_PKEY_free(ptr noundef nonnull %17) #23
+  call void @EVP_PKEY_free(ptr noundef nonnull %18) #23
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then.i.i47, %do.end59, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread, %if.then.i.i29, %if.then17, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit.thread
@@ -4751,13 +4751,13 @@ if.end64:                                         ; preds = %if.then.i.i47, %do.
   br i1 %cmp66.not, label %if.end68, label %if.then67
 
 if.then67:                                        ; preds = %if.end64
-  %18 = load ptr, ptr %pkey, align 8
+  %19 = load ptr, ptr %pkey, align 8
   store ptr null, ptr %pkey, align 8
-  %tobool.not.i.i49 = icmp eq ptr %18, null
+  %tobool.not.i.i49 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i49, label %if.end71, label %if.then.i.i50
 
 if.then.i.i50:                                    ; preds = %if.then67
-  call void @EVP_PKEY_free(ptr noundef nonnull %18) #23
+  call void @EVP_PKEY_free(ptr noundef nonnull %19) #23
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then.i.i50, %if.end64
@@ -4768,17 +4768,17 @@ if.end68:                                         ; preds = %if.then.i.i50, %if.
 if.end71:                                         ; preds = %if.then67, %if.end68
   %and.i = and i64 %call65, 2147483648
   %cmp.not.i53 = icmp eq i64 %and.i, 0
-  %19 = trunc i64 %call65 to i32
-  %.mask = and i32 %19, -8388608
+  %20 = trunc i64 %call65 to i32
+  %.mask = and i32 %20, -8388608
   %cmp7374 = icmp eq i32 %.mask, 75497472
   %cmp73 = and i1 %cmp.not.i53, %cmp7374
   br i1 %cmp73, label %land.lhs.true, label %if.end81
 
 land.lhs.true:                                    ; preds = %if.end71
-  %retval.0.i57 = and i32 %19, 8388607
+  %retval.0.i57 = and i32 %20, 8388607
   %cmp75 = icmp eq i32 %retval.0.i57, 104
-  %20 = load i8, ptr %passphrase_, align 8
-  %tobool.i58 = trunc i8 %20 to i1
+  %21 = load i8, ptr %passphrase_, align 8
+  %tobool.i58 = trunc i8 %21 to i1
   %or.cond = select i1 %cmp75, i1 %tobool.i58, i1 false
   br i1 %or.cond, label %return, label %if.end81
 
@@ -5531,7 +5531,6 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %or.cond.i, label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then4.i
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %data, i64 2
   %cmp1420.not.i = icmp eq i8 %2, 0
   br i1 %cmp1420.not.i, label %for.end.i, label %for.body.i
 
@@ -5539,9 +5538,10 @@ for.body.i:                                       ; preds = %if.end13.i, %for.bo
   %i.022.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end13.i ]
   %or1921.i = phi i64 [ %or.i, %for.body.i ], [ 0, %if.end13.i ]
   %shl.i = shl i64 %or1921.i, 8
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %i.022.i
-  %3 = load i8, ptr %gep.i, align 1
-  %conv17.i = zext i8 %3 to i64
+  %3 = getelementptr inbounds nuw i8, ptr %data, i64 %i.022.i
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %4 = load i8, ptr %arrayidx16.i, align 1
+  %conv17.i = zext i8 %4 to i64
   %or.i = or disjoint i64 %shl.i, %conv17.i
   %inc.i = add nuw nsw i64 %i.022.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %conv8.i
@@ -5586,20 +5586,20 @@ _ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit: ; preds = %for.end
 
 land.lhs.true:                                    ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit
   %arrayidx = getelementptr inbounds nuw i8, ptr %data, i64 %offset.0
-  %4 = load i8, ptr %arrayidx, align 1
-  %cmp1 = icmp eq i8 %4, 2
+  %5 = load i8, ptr %arrayidx, align 1
+  %cmp1 = icmp eq i8 %5, 2
   br i1 %cmp1, label %land.lhs.true2, label %return
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
   %arrayidx3 = getelementptr i8, ptr %arrayidx, i64 1
-  %5 = load i8, ptr %arrayidx3, align 1
-  %cmp5 = icmp eq i8 %5, 1
+  %6 = load i8, ptr %arrayidx3, align 1
+  %cmp5 = icmp eq i8 %6, 1
   br i1 %cmp5, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true2
   %arrayidx7 = getelementptr i8, ptr %arrayidx, i64 2
-  %6 = load i8, ptr %arrayidx7, align 1
-  %tobool.not = icmp ult i8 %6, 2
+  %7 = load i8, ptr %arrayidx7, align 1
+  %tobool.not = icmp ult i8 %7, 2
   br label %return
 
 return:                                           ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread, %land.lhs.true, %land.lhs.true2, %land.rhs, %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit

@@ -1499,10 +1499,9 @@ define void @ff_xyz12Torgb48(ptr noundef readonly captures(none) %0, ptr noundef
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.08093.us = phi ptr [ %143, %._crit_edge.us ], [ %1, %.preheader.us.preheader ]
-  %.08192.us = phi ptr [ %142, %._crit_edge.us ], [ %3, %.preheader.us.preheader ]
-  %.08291.us = phi i32 [ %144, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %invariant.gep = getelementptr inbounds i8, ptr %.08093.us, i64 4
+  %.08093.us = phi ptr [ %145, %._crit_edge.us ], [ %1, %.preheader.us.preheader ]
+  %.08192.us = phi ptr [ %144, %._crit_edge.us ], [ %3, %.preheader.us.preheader ]
+  %.08291.us = phi i32 [ %146, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
   br label %29
 
 29:                                               ; preds = %.preheader.us, %140
@@ -1648,17 +1647,18 @@ define void @ff_xyz12Torgb48(ptr noundef readonly captures(none) %0, ptr noundef
 
 140:                                              ; preds = %127, %111
   %.sink = phi i16 [ %139, %127 ], [ %126, %111 ]
-  %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %indvars.iv
-  store i16 %.sink, ptr %gep, align 1, !tbaa !82
+  %141 = getelementptr inbounds nuw i16, ptr %.08093.us, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
+  store i16 %.sink, ptr %142, align 1, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %141 = icmp samesign ult i64 %indvars.iv.next, %28
-  br i1 %141, label %29, label %._crit_edge.us, !llvm.loop !113
+  %143 = icmp samesign ult i64 %indvars.iv.next, %28
+  br i1 %143, label %29, label %._crit_edge.us, !llvm.loop !113
 
 ._crit_edge.us:                                   ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %.08192.us, i64 %25
-  %143 = getelementptr inbounds i8, ptr %.08093.us, i64 %26
-  %144 = add nuw nsw i32 %.08291.us, 1
-  %exitcond.not = icmp eq i32 %144, %6
+  %144 = getelementptr inbounds i8, ptr %.08192.us, i64 %25
+  %145 = getelementptr inbounds i8, ptr %.08093.us, i64 %26
+  %146 = add nuw nsw i32 %.08291.us, 1
+  %exitcond.not = icmp eq i32 %146, %6
   br i1 %exitcond.not, label %._crit_edge94, label %.preheader.us, !llvm.loop !114
 
 ._crit_edge94:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %7
@@ -1697,10 +1697,9 @@ define void @ff_rgb48Toxyz12(ptr noundef readonly captures(none) %0, ptr noundef
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.08093.us = phi ptr [ %143, %._crit_edge.us ], [ %1, %.preheader.us.preheader ]
-  %.08192.us = phi ptr [ %142, %._crit_edge.us ], [ %3, %.preheader.us.preheader ]
-  %.08291.us = phi i32 [ %144, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %invariant.gep = getelementptr inbounds i8, ptr %.08093.us, i64 4
+  %.08093.us = phi ptr [ %145, %._crit_edge.us ], [ %1, %.preheader.us.preheader ]
+  %.08192.us = phi ptr [ %144, %._crit_edge.us ], [ %3, %.preheader.us.preheader ]
+  %.08291.us = phi i32 [ %146, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
   br label %29
 
 29:                                               ; preds = %.preheader.us, %140
@@ -1846,17 +1845,18 @@ define void @ff_rgb48Toxyz12(ptr noundef readonly captures(none) %0, ptr noundef
 
 140:                                              ; preds = %127, %111
   %.sink = phi i16 [ %139, %127 ], [ %126, %111 ]
-  %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %indvars.iv
-  store i16 %.sink, ptr %gep, align 1, !tbaa !82
+  %141 = getelementptr inbounds nuw i16, ptr %.08093.us, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
+  store i16 %.sink, ptr %142, align 1, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %141 = icmp samesign ult i64 %indvars.iv.next, %28
-  br i1 %141, label %29, label %._crit_edge.us, !llvm.loop !117
+  %143 = icmp samesign ult i64 %indvars.iv.next, %28
+  br i1 %143, label %29, label %._crit_edge.us, !llvm.loop !117
 
 ._crit_edge.us:                                   ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %.08192.us, i64 %25
-  %143 = getelementptr inbounds i8, ptr %.08093.us, i64 %26
-  %144 = add nuw nsw i32 %.08291.us, 1
-  %exitcond.not = icmp eq i32 %144, %6
+  %144 = getelementptr inbounds i8, ptr %.08192.us, i64 %25
+  %145 = getelementptr inbounds i8, ptr %.08093.us, i64 %26
+  %146 = add nuw nsw i32 %.08291.us, 1
+  %exitcond.not = icmp eq i32 %146, %6
   br i1 %exitcond.not, label %._crit_edge94, label %.preheader.us, !llvm.loop !118
 
 ._crit_edge94:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %7

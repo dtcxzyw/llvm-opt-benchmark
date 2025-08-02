@@ -860,7 +860,7 @@ GrantLockLocal.exit:                              ; preds = %99, %._crit_edge.i,
   call void @LWLockRelease(ptr noundef nonnull %165) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.critedge, %157, %136, %130, %126
+.critedge:                                        ; preds = %157, %.critedge.critedge, %136, %130, %126
   %.pr = load i8, ptr %9, align 1
   %166 = icmp eq i8 %.pr, 1
   br i1 %166, label %167, label %.critedge.thread
@@ -1509,73 +1509,73 @@ define internal fastcc noundef zeroext i1 @FastPathGrantRelationLock(i32 noundef
   %17 = and i64 %9, 4294967280
   br label %18
 
-18:                                               ; preds = %2, %37
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %37 ]
-  %.02334 = phi i32 [ %4, %2 ], [ %.225.ph, %37 ]
+18:                                               ; preds = %2, %36
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %36 ]
+  %.02331 = phi i32 [ %4, %2 ], [ %.225, %36 ]
   %19 = add nuw nsw i64 %indvars.iv, %17
   %20 = mul nuw nsw i64 %indvars.iv, 3
   %21 = shl nuw nsw i64 7, %20
   %22 = and i64 %15, %21
   %23 = icmp eq i64 %22, 0
   %24 = trunc nuw i64 %19 to i32
-  br i1 %23, label %37, label %25
+  br i1 %23, label %36, label %25
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %16, align 8
   %27 = getelementptr inbounds nuw i32, ptr %26, i64 %19
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, %0
-  br i1 %29, label %30, label %37
+  br i1 %29, label %.critedge, label %36
 
-30:                                               ; preds = %25
-  %31 = trunc nuw nsw i64 %20 to i32
-  %32 = add nsw i32 %1, -1
-  %33 = add nuw nsw i32 %32, %31
-  %34 = zext nneg i32 %33 to i64
-  %35 = shl nuw nsw i64 1, %34
-  %36 = or i64 %15, %35
-  store i64 %36, ptr %14, align 8
-  br label %62
+.critedge:                                        ; preds = %25
+  %30 = trunc nuw nsw i64 %20 to i32
+  %31 = add nsw i32 %1, -1
+  %32 = add nuw nsw i32 %31, %30
+  %33 = zext nneg i32 %32 to i64
+  %34 = shl nuw nsw i64 1, %33
+  %35 = or i64 %15, %34
+  store i64 %35, ptr %14, align 8
+  br label %61
 
-37:                                               ; preds = %18, %25
-  %.225.ph = phi i32 [ %24, %18 ], [ %.02334, %25 ]
+36:                                               ; preds = %18, %25
+  %.225 = phi i32 [ %.02331, %25 ], [ %24, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %38, label %18, !llvm.loop !18
+  br i1 %exitcond.not, label %37, label %18, !llvm.loop !18
 
-38:                                               ; preds = %37
-  %39 = icmp ult i32 %.225.ph, %4
-  br i1 %39, label %40, label %62
+37:                                               ; preds = %36
+  %38 = icmp ult i32 %.225, %4
+  br i1 %38, label %39, label %61
 
-40:                                               ; preds = %38
-  %41 = load ptr, ptr %16, align 8
-  %42 = zext i32 %.225.ph to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
-  store i32 %0, ptr %43, align 4
-  %44 = add nsw i32 %1, -1
-  %45 = and i32 %.225.ph, 15
-  %46 = mul nuw nsw i32 %45, 3
-  %47 = add nuw nsw i32 %44, %46
-  %48 = zext nneg i32 %47 to i64
-  %49 = shl nuw nsw i64 1, %48
-  %50 = load ptr, ptr @MyProc, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 768
-  %52 = load ptr, ptr %51, align 8
-  %53 = lshr i32 %.225.ph, 4
-  %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %52, i64 %54
-  %56 = load i64, ptr %55, align 8
-  %57 = or i64 %56, %49
-  store i64 %57, ptr %55, align 8
-  %58 = and i64 %8, 4294967295
-  %59 = getelementptr inbounds nuw [1024 x i32], ptr @FastPathLocalUseCounts, i64 0, i64 %58
-  %60 = load i32, ptr %59, align 4
-  %61 = add i32 %60, 1
-  store i32 %61, ptr %59, align 4
-  br label %62
+39:                                               ; preds = %37
+  %40 = load ptr, ptr %16, align 8
+  %41 = zext i32 %.225 to i64
+  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  store i32 %0, ptr %42, align 4
+  %43 = add nsw i32 %1, -1
+  %44 = and i32 %.225, 15
+  %45 = mul nuw nsw i32 %44, 3
+  %46 = add nuw nsw i32 %43, %45
+  %47 = zext nneg i32 %46 to i64
+  %48 = shl nuw nsw i64 1, %47
+  %49 = load ptr, ptr @MyProc, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 768
+  %51 = load ptr, ptr %50, align 8
+  %52 = lshr i32 %.225, 4
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %53
+  %55 = load i64, ptr %54, align 8
+  %56 = or i64 %55, %48
+  store i64 %56, ptr %54, align 8
+  %57 = and i64 %8, 4294967295
+  %58 = getelementptr inbounds nuw [1024 x i32], ptr @FastPathLocalUseCounts, i64 0, i64 %57
+  %59 = load i32, ptr %58, align 4
+  %60 = add i32 %59, 1
+  store i32 %60, ptr %58, align 4
+  br label %61
 
-62:                                               ; preds = %30, %38, %40
-  %.2 = phi i1 [ true, %30 ], [ true, %40 ], [ false, %38 ]
+61:                                               ; preds = %37, %.critedge, %39
+  %.2 = phi i1 [ true, %39 ], [ true, %.critedge ], [ false, %37 ]
   ret i1 %.2
 }
 
@@ -1809,13 +1809,13 @@ define dso_local noundef zeroext i1 @LockCheckConflicts(ptr noundef readonly cap
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, %11
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %.loopexit, label %15
+  br i1 %.not, label %.critedge, label %15
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = load i32, ptr %16, align 8
-  %.not6478 = icmp slt i32 %.fr, 1
-  br i1 %.not6478, label %.loopexit, label %.lr.ph
+  %.not6474 = icmp slt i32 %.fr, 1
+  br i1 %.not6474, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 108
@@ -1826,7 +1826,7 @@ define dso_local noundef zeroext i1 @LockCheckConflicts(ptr noundef readonly cap
 
 20:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %.04980 = phi i32 [ 0, %.lr.ph ], [ %.150, %31 ]
+  %.04976 = phi i32 [ 0, %.lr.ph ], [ %.150, %31 ]
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = shl nuw i32 1, %21
   %23 = and i32 %22, %11
@@ -1840,12 +1840,12 @@ define dso_local noundef zeroext i1 @LockCheckConflicts(ptr noundef readonly cap
   %.not72 = icmp ne i32 %28, 0
   %29 = sext i1 %.not72 to i32
   %spec.select = add i32 %27, %29
-  %30 = add i32 %spec.select, %.04980
+  %30 = add i32 %spec.select, %.04976
   br label %31
 
 31:                                               ; preds = %20, %25
   %spec.select.sink = phi i32 [ %spec.select, %25 ], [ 0, %20 ]
-  %.150 = phi i32 [ %30, %25 ], [ %.04980, %20 ]
+  %.150 = phi i32 [ %30, %25 ], [ %.04976, %20 ]
   %32 = getelementptr inbounds nuw [10 x i32], ptr %5, i64 0, i64 %indvars.iv
   store i32 %spec.select.sink, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1854,7 +1854,7 @@ define dso_local noundef zeroext i1 @LockCheckConflicts(ptr noundef readonly cap
 
 ._crit_edge:                                      ; preds = %31
   %33 = icmp eq i32 %.150, 0
-  br i1 %33, label %.loopexit, label %34
+  br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %._crit_edge
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1867,53 +1867,53 @@ define dso_local noundef zeroext i1 @LockCheckConflicts(ptr noundef readonly cap
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 792
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.loopexit, label %43
+  br i1 %42, label %.critedge, label %43
 
 43:                                               ; preds = %39, %34
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %45 = load i8, ptr %44, align 2
   %46 = icmp eq i8 %45, 1
-  br i1 %46, label %.loopexit, label %47
+  br i1 %46, label %.critedge, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %50 = load ptr, ptr %49, align 8
   %.not65 = icmp eq ptr %50, null
-  %.not668796 = icmp eq ptr %50, %48
-  %.not6687 = select i1 %.not65, i1 true, i1 %.not668796
-  br i1 %.not6687, label %.loopexit, label %.lr.ph91.split
+  %.not668392 = icmp eq ptr %50, %48
+  %.not6683 = select i1 %.not65, i1 true, i1 %.not668392
+  br i1 %.not6683, label %.critedge, label %.lr.ph87.split
 
-.lr.ph91.split:                                   ; preds = %47, %.thread
-  %.25189 = phi i32 [ %.676, %.thread ], [ %.150, %47 ]
-  %.sroa.0.088 = phi ptr [ %76, %.thread ], [ %50, %47 ]
-  %51 = getelementptr inbounds i8, ptr %.sroa.0.088, i64 -32
+.lr.ph87.split:                                   ; preds = %47, %75
+  %.25185 = phi i32 [ %.6, %75 ], [ %.150, %47 ]
+  %.sroa.0.084 = phi ptr [ %77, %75 ], [ %50, %47 ]
+  %51 = getelementptr inbounds i8, ptr %.sroa.0.084, i64 -32
   %.not67 = icmp eq ptr %3, %51
-  br i1 %.not67, label %.thread, label %52
+  br i1 %.not67, label %75, label %52
 
-52:                                               ; preds = %.lr.ph91.split
-  %53 = getelementptr inbounds i8, ptr %.sroa.0.088, i64 -16
+52:                                               ; preds = %.lr.ph87.split
+  %53 = getelementptr inbounds i8, ptr %.sroa.0.084, i64 -16
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %36, %54
-  br i1 %55, label %56, label %.thread
+  br i1 %55, label %56, label %75
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %.sroa.0.088, i64 -8
+  %57 = getelementptr inbounds i8, ptr %.sroa.0.084, i64 -8
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, %11
   %.not68 = icmp eq i32 %59, 0
-  br i1 %.not68, label %.thread, label %.preheader
+  br i1 %.not68, label %75, label %.preheader
 
 .preheader:                                       ; preds = %56, %73
-  %.45383 = phi i32 [ %.5, %73 ], [ %.25189, %56 ]
-  %.15582 = phi i32 [ %74, %73 ], [ 1, %56 ]
-  %60 = shl nuw i32 1, %.15582
+  %.45379 = phi i32 [ %.5, %73 ], [ %.25185, %56 ]
+  %.15578 = phi i32 [ %74, %73 ], [ 1, %56 ]
+  %60 = shl nuw i32 1, %.15578
   %61 = and i32 %60, %59
   %.not71 = icmp eq i32 %61, 0
   br i1 %.not71, label %73, label %62
 
 62:                                               ; preds = %.preheader
-  %63 = sext i32 %.15582 to i64
+  %63 = sext i32 %.15578 to i64
   %64 = getelementptr inbounds [10 x i32], ptr %5, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = icmp slt i32 %65, 1
@@ -1929,28 +1929,28 @@ define dso_local noundef zeroext i1 @LockCheckConflicts(ptr noundef readonly cap
 70:                                               ; preds = %62
   %71 = add nsw i32 %65, -1
   store i32 %71, ptr %64, align 4
-  %72 = add i32 %.45383, -1
+  %72 = add i32 %.45379, -1
   br label %73
 
 73:                                               ; preds = %.preheader, %70
-  %.5 = phi i32 [ %72, %70 ], [ %.45383, %.preheader ]
-  %74 = add i32 %.15582, 1
+  %.5 = phi i32 [ %72, %70 ], [ %.45379, %.preheader ]
+  %74 = add i32 %.15578, 1
   %.not69 = icmp sgt i32 %74, %.fr
-  br i1 %.not69, label %._crit_edge85, label %.preheader, !llvm.loop !20
+  br i1 %.not69, label %._crit_edge81, label %.preheader, !llvm.loop !20
 
-._crit_edge85:                                    ; preds = %73
-  %.not70.not = icmp eq i32 %.5, 0
-  br i1 %.not70.not, label %.loopexit, label %.thread
+._crit_edge81:                                    ; preds = %73
+  %.not70 = icmp eq i32 %.5, 0
+  br i1 %.not70, label %.critedge, label %75
 
-.thread:                                          ; preds = %.lr.ph91.split, %52, %56, %._crit_edge85
-  %.676 = phi i32 [ %.5, %._crit_edge85 ], [ %.25189, %56 ], [ %.25189, %52 ], [ %.25189, %.lr.ph91.split ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.088, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %.not66 = icmp eq ptr %76, %48
-  br i1 %.not66, label %.loopexit, label %.lr.ph91.split, !llvm.loop !21
+75:                                               ; preds = %._crit_edge81, %56, %52, %.lr.ph87.split
+  %.6 = phi i32 [ %.25185, %56 ], [ %.25185, %52 ], [ %.25185, %.lr.ph87.split ], [ %.5, %._crit_edge81 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.084, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %.not66 = icmp eq ptr %77, %48
+  br i1 %.not66, label %.critedge, label %.lr.ph87.split, !llvm.loop !21
 
-.loopexit:                                        ; preds = %._crit_edge85, %.thread, %47, %15, %43, %39, %._crit_edge, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %._crit_edge ], [ true, %39 ], [ true, %43 ], [ true, %47 ], [ false, %15 ], [ false, %._crit_edge85 ], [ true, %.thread ]
+.critedge:                                        ; preds = %75, %._crit_edge81, %47, %15, %43, %39, %._crit_edge, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %._crit_edge ], [ true, %39 ], [ true, %43 ], [ true, %47 ], [ false, %15 ], [ true, %75 ], [ false, %._crit_edge81 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
   ret i1 %.0
 }
@@ -4299,28 +4299,28 @@ CheckForSessionAndXactLocks.exit:                 ; preds = %57, %0
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %63
 
-63:                                               ; preds = %.lr.ph34, %._crit_edge.thread
-  %64 = phi ptr [ %60, %.lr.ph34 ], [ %211, %._crit_edge.thread ]
+63:                                               ; preds = %.lr.ph34, %.critedge
+  %64 = phi ptr [ %60, %.lr.ph34 ], [ %211, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #17
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 14
   %68 = load i8, ptr %67, align 2
   %69 = icmp eq i8 %68, 6
-  br i1 %69, label %._crit_edge.thread, label %70, !llvm.loop !45
+  br i1 %69, label %.critedge, label %70, !llvm.loop !45
 
 70:                                               ; preds = %63
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %72 = load i64, ptr %71, align 8
   %73 = icmp slt i64 %72, 1
-  br i1 %73, label %._crit_edge.thread, label %74, !llvm.loop !45
+  br i1 %73, label %.critedge, label %74, !llvm.loop !45
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %76 = load i32, ptr %75, align 8
   %.028 = add i32 %76, -1
   %77 = icmp sgt i32 %.028, -1
-  br i1 %77, label %.lr.ph.preheader, label %._crit_edge.thread
+  br i1 %77, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %74
   %78 = zext nneg i32 %.028 to i64
@@ -4337,11 +4337,11 @@ CheckForSessionAndXactLocks.exit:                 ; preds = %57, %0
   %not. = xor i1 %81, true
   %.017. = select i1 %not., i1 true, i1 %.01730
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not46 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  %.not44 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %.017., label %82, label %._crit_edge.thread, !llvm.loop !45
+  br i1 %.017., label %82, label %.critedge, !llvm.loop !45
 
 82:                                               ; preds = %._crit_edge
   br i1 %..018, label %83, label %87
@@ -4554,15 +4554,15 @@ FastPathGetRelationLockEntry.exit:                ; preds = %172, %204
   %210 = load i32, ptr %209, align 8
   store i32 %210, ptr %62, align 4
   call void @RegisterTwoPhaseRecord(i8 noundef zeroext 1, i16 noundef zeroext 0, ptr noundef nonnull %6, i32 noundef 20) #17
-  br label %._crit_edge.thread
+  br label %.critedge
 
-._crit_edge.thread:                               ; preds = %74, %._crit_edge, %70, %63, %207
+.critedge:                                        ; preds = %74, %._crit_edge, %70, %63, %207
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #17
   %211 = call ptr @hash_seq_search(ptr noundef nonnull %5) #17
   %.not = icmp eq ptr %211, null
   br i1 %.not, label %._crit_edge35, label %63
 
-._crit_edge35:                                    ; preds = %._crit_edge.thread, %CheckForSessionAndXactLocks.exit
+._crit_edge35:                                    ; preds = %.critedge, %CheckForSessionAndXactLocks.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
   ret void
 }
@@ -4585,40 +4585,40 @@ define dso_local void @PostPrepare_Locks(i32 noundef %0) local_unnamed_addr #0 {
   %.not59 = icmp eq ptr %8, null
   br i1 %.not59, label %.preheader, label %.lr.ph61
 
-.preheader:                                       ; preds = %._crit_edge.thread, %1
+.preheader:                                       ; preds = %.critedge, %1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %.pre76 = load ptr, ptr @MyProc, align 8
   %.pre78 = load ptr, ptr @MainLWLockArray, align 8
   br label %50
 
-.lr.ph61:                                         ; preds = %1, %._crit_edge.thread
-  %11 = phi ptr [ %49, %._crit_edge.thread ], [ %8, %1 ]
+.lr.ph61:                                         ; preds = %1, %.critedge
+  %11 = phi ptr [ %49, %.critedge ], [ %8, %1 ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %._crit_edge.thread.sink.split, label %17, !llvm.loop !48
+  br i1 %16, label %.critedge.sink.split, label %17, !llvm.loop !48
 
 17:                                               ; preds = %.lr.ph61
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %._crit_edge.thread.sink.split, label %21, !llvm.loop !48
+  br i1 %20, label %.critedge.sink.split, label %21, !llvm.loop !48
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 14
   %23 = load i8, ptr %22, align 2
   %24 = icmp eq i8 %23, 6
-  br i1 %24, label %._crit_edge.thread, label %25, !llvm.loop !48
+  br i1 %24, label %.critedge, label %25, !llvm.loop !48
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %27 = load i32, ptr %26, align 8
   %.04754 = add i32 %27, -1
   %28 = icmp sgt i32 %.04754, -1
-  br i1 %28, label %.lr.ph.preheader, label %._crit_edge.thread
+  br i1 %28, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %25
   %29 = zext nneg i32 %.04754 to i64
@@ -4635,11 +4635,11 @@ define dso_local void @PostPrepare_Locks(i32 noundef %0) local_unnamed_addr #0 {
   %.045. = select i1 %not., i1 true, i1 %.04555
   %..044 = select i1 %32, i1 true, i1 %.04456
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not81 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not81, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  %.not79 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not79, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %.045., label %33, label %._crit_edge.thread, !llvm.loop !48
+  br i1 %.045., label %33, label %.critedge, !llvm.loop !48
 
 33:                                               ; preds = %._crit_edge
   br i1 %..044, label %34, label %38
@@ -4656,7 +4656,7 @@ define dso_local void @PostPrepare_Locks(i32 noundef %0) local_unnamed_addr #0 {
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %40 = load i64, ptr %39, align 8
   %41 = icmp sgt i64 %40, 0
-  br i1 %41, label %42, label %._crit_edge.thread.sink.split
+  br i1 %41, label %42, label %.critedge.sink.split
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -4666,13 +4666,13 @@ define dso_local void @PostPrepare_Locks(i32 noundef %0) local_unnamed_addr #0 {
   %47 = load i32, ptr %46, align 4
   %48 = or i32 %47, %45
   store i32 %48, ptr %46, align 4
-  br label %._crit_edge.thread.sink.split
+  br label %.critedge.sink.split
 
-._crit_edge.thread.sink.split:                    ; preds = %38, %42, %.lr.ph61, %17
+.critedge.sink.split:                             ; preds = %38, %42, %.lr.ph61, %17
   call fastcc void @RemoveLocalLock(ptr noundef nonnull %11)
-  br label %._crit_edge.thread
+  br label %.critedge
 
-._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %25, %._crit_edge, %21
+.critedge:                                        ; preds = %.critedge.sink.split, %25, %._crit_edge, %21
   %49 = call ptr @hash_seq_search(ptr noundef nonnull %2) #17
   %.not = icmp eq ptr %49, null
   br i1 %.not, label %.preheader, label %.lr.ph61

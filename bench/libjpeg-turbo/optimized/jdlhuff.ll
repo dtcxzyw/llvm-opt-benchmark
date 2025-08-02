@@ -268,7 +268,7 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
 
 .lr.ph149:                                        ; preds = %._crit_edge
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %37 = getelementptr i8, ptr %8, i64 260
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 260
   br label %38
 
 38:                                               ; preds = %.lr.ph149, %38
@@ -276,7 +276,7 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   %39 = getelementptr inbounds nuw [10 x ptr], ptr %36, i64 0, i64 %indvars.iv164
   %40 = load ptr, ptr %39, align 8, !tbaa !72
   %.idx = mul nuw nsw i64 %indvars.iv164, 12
-  %41 = getelementptr i8, ptr %37, i64 %.idx
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
   %42 = load i32, ptr %41, align 4, !tbaa !60
   %43 = mul i32 %42, %4
   %44 = zext i32 %43 to i64

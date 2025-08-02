@@ -2347,20 +2347,20 @@ acpi_remove_pm_notifier.exit:                     ; preds = %15, %20, %25
   %70 = load i8, ptr %16, align 8
   %71 = and i8 %70, 1
   %72 = icmp eq i8 %71, 0
-  br i1 %72, label %90, label %73
+  br i1 %72, label %89, label %73
 
 73:                                               ; preds = %69, %65
   store i8 87, ptr %53, align 1
   %74 = call i32 @acpi_evaluate_integer(ptr noundef %56, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %4) #6
   %75 = icmp eq i32 %74, 5
-  br i1 %75, label %90, label %76
+  br i1 %75, label %89, label %76
 
 76:                                               ; preds = %73
   %77 = icmp eq i32 %74, 0
   %78 = load i64, ptr %4, align 8
   %79 = icmp ult i64 %78, 5
   %80 = select i1 %77, i1 %79, i1 false
-  br i1 %80, label %81, label %89
+  br i1 %80, label %81, label %.critedge
 
 81:                                               ; preds = %76
   %82 = getelementptr i8, ptr %6, i64 232
@@ -2370,21 +2370,21 @@ acpi_remove_pm_notifier.exit:                     ; preds = %15, %20, %25
   %86 = icmp eq i8 %85, 0
   %87 = trunc nuw nsw i64 %78 to i32
   %88 = select i1 %86, i32 4, i32 %87
-  br label %90
+  br label %89
 
-89:                                               ; preds = %76
+89:                                               ; preds = %81, %73, %69
+  %90 = phi i32 [ %88, %81 ], [ 4, %69 ], [ 4, %73 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #6
+  %91 = call i32 @acpi_device_set_power(ptr noundef nonnull %8, i32 noundef %90)
+  br label %92
+
+.critedge:                                        ; preds = %76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #6
   br label %92
 
-90:                                               ; preds = %81, %69, %73
-  %.ph = phi i32 [ 4, %73 ], [ 4, %69 ], [ %88, %81 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #6
-  %91 = call i32 @acpi_device_set_power(ptr noundef nonnull %8, i32 noundef %.ph)
-  br label %92
-
-92:                                               ; preds = %89, %90, %45, %acpi_remove_pm_notifier.exit, %11, %2
+92:                                               ; preds = %.critedge, %89, %45, %acpi_remove_pm_notifier.exit, %11, %2
   ret void
 }
 

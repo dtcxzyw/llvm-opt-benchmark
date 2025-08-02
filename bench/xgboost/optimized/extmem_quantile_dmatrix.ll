@@ -6413,8 +6413,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   ret ptr %29
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost4data21ExtMemQuantileDMatrix20GetGradientIndexImplEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.xgboost::BatchSet.52") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN7xgboost4data21ExtMemQuantileDMatrix20GetGradientIndexImplEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.xgboost::BatchSet.52") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %4 = load ptr, ptr %3, align 8, !tbaa !162
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 512

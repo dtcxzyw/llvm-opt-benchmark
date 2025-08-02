@@ -807,38 +807,38 @@ define dso_local void @_ZN4llvm8AliasSet17addMemoryLocationERNS_15AliasSetTracke
   %81 = icmp uge ptr %2, %.pre3.i
   %82 = icmp ult ptr %2, %80
   %spec.select.i.i.i.i.i = and i1 %81, %82
-  br i1 %spec.select.i.i.i.i.i, label %85, label %83, !prof !109
+  br i1 %spec.select.i.i.i.i.i, label %83, label %.critedge.i.i.i, !prof !109
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull %84, i64 noundef %76, i64 noundef 48) #20
+  %84 = ptrtoint ptr %2 to i64
+  %85 = ptrtoint ptr %.pre3.i to i64
+  %86 = sub i64 %84, %85
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull %87, i64 noundef %76, i64 noundef 48) #20
+  %88 = load ptr, ptr %72, align 8, !tbaa !25
+  %89 = getelementptr inbounds i8, ptr %88, i64 %86
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_14MemoryLocationELb1EE9push_backERKS1_.exit
+
+.critedge.i.i.i:                                  ; preds = %79
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull %90, i64 noundef %76, i64 noundef 48) #20
   %.pre.i = load ptr, ptr %72, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_14MemoryLocationELb1EE9push_backERKS1_.exit
 
-85:                                               ; preds = %79
-  %86 = ptrtoint ptr %2 to i64
-  %87 = ptrtoint ptr %.pre3.i to i64
-  %88 = sub i64 %86, %87
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull %89, i64 noundef %76, i64 noundef 48) #20
-  %90 = load ptr, ptr %72, align 8, !tbaa !25
-  %91 = getelementptr inbounds i8, ptr %90, i64 %88
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_14MemoryLocationELb1EE9push_backERKS1_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_14MemoryLocationELb1EE9push_backERKS1_.exit: ; preds = %71, %83, %85
-  %92 = phi ptr [ %.pre3.i, %71 ], [ %90, %85 ], [ %.pre.i, %83 ]
-  %.016.i.i.i = phi ptr [ %2, %71 ], [ %91, %85 ], [ %2, %83 ]
-  %93 = load i32, ptr %73, align 8, !tbaa !26
-  %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.llvm::MemoryLocation", ptr %92, i64 %94
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %95, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i, i64 48, i1 false)
-  %96 = load i32, ptr %73, align 8, !tbaa !26
-  %97 = add i32 %96, 1
-  store i32 %97, ptr %73, align 8, !tbaa !26
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %99 = load i32, ptr %98, align 8, !tbaa !79
-  %100 = add i32 %99, 1
-  store i32 %100, ptr %98, align 8, !tbaa !79
+_ZN4llvm23SmallVectorTemplateBaseINS_14MemoryLocationELb1EE9push_backERKS1_.exit: ; preds = %71, %83, %.critedge.i.i.i
+  %91 = phi ptr [ %.pre3.i, %71 ], [ %88, %83 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %2, %71 ], [ %89, %83 ], [ %2, %.critedge.i.i.i ]
+  %92 = load i32, ptr %73, align 8, !tbaa !26
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr inbounds nuw %"class.llvm::MemoryLocation", ptr %91, i64 %93
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %94, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i, i64 48, i1 false)
+  %95 = load i32, ptr %73, align 8, !tbaa !26
+  %96 = add i32 %95, 1
+  store i32 %96, ptr %73, align 8, !tbaa !26
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %98 = load i32, ptr %97, align 8, !tbaa !79
+  %99 = add i32 %98, 1
+  store i32 %99, ptr %97, align 8, !tbaa !79
   ret void
 }
 

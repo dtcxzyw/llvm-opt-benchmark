@@ -28,31 +28,31 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @init_packobject(ptr noundef writeonly captures(none) initializes((0, 1)) %0) local_unnamed_addr #0 {
   store i8 0, ptr %0, align 1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %invariant.gep = getelementptr i8, ptr %0, i64 264
   br label %3
 
 3:                                                ; preds = %1, %3
   %indvar = phi i64 [ 0, %1 ], [ %indvar.next, %3 ]
   %4 = mul nuw nsw i64 %indvar, 96
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %4
-  %5 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %2, i64 0, i64 %indvar
-  store i32 -1, ptr %5, align 8, !tbaa !4
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i64 20, ptr %6, align 8, !tbaa !10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %gep, i8 0, i64 80, i1 false), !tbaa !11
+  %5 = getelementptr nuw i8, ptr %0, i64 %4
+  %scevgep = getelementptr nuw i8, ptr %5, i64 264
+  %6 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %2, i64 0, i64 %indvar
+  store i32 -1, ptr %6, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store i64 20, ptr %7, align 8, !tbaa !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %scevgep, i8 0, i64 80, i1 false), !tbaa !11
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, 6
-  br i1 %exitcond.not, label %7, label %3, !llvm.loop !12
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !12
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  store i32 -1, ptr %8, align 8, !tbaa !14
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  store i64 -1, ptr %9, align 8, !tbaa !17
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 836
-  store i32 -1, ptr %10, align 4, !tbaa !18
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  store i32 0, ptr %11, align 8, !tbaa !19
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  store i32 -1, ptr %9, align 8, !tbaa !14
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  store i64 -1, ptr %10, align 8, !tbaa !17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 836
+  store i32 -1, ptr %11, align 4, !tbaa !18
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  store i32 0, ptr %12, align 8, !tbaa !19
   ret void
 }
 
@@ -74,7 +74,7 @@ define dso_local range(i32 -1, 1) i32 @options_table_init(ptr noundef writeonly 
 4:                                                ; preds = %1
   %5 = load i32, ptr @enable_error_stack, align 4, !tbaa !11
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %52
+  br i1 %6, label %7, label %53
 
 7:                                                ; preds = %4
   %8 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !20
@@ -88,14 +88,14 @@ define dso_local range(i32 -1, 1) i32 @options_table_init(ptr noundef writeonly 
   %13 = load i64, ptr @H5E_tools_g, align 8, !tbaa !20
   %14 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !20
   %15 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %8, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.options_table_init, i32 noundef 136, i64 noundef %10, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.2) #17
-  br label %52
+  br label %53
 
 16:                                               ; preds = %7
   %17 = load ptr, ptr @stderr, align 8, !tbaa !21
   %18 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 35, i64 1, ptr %17) #18
   %19 = load ptr, ptr @stderr, align 8, !tbaa !21
   %fputc21 = tail call i32 @fputc(i32 10, ptr %19)
-  br label %52
+  br label %53
 
 20:                                               ; preds = %1
   store i32 30, ptr %2, align 8, !tbaa !24
@@ -111,7 +111,7 @@ define dso_local range(i32 -1, 1) i32 @options_table_init(ptr noundef writeonly 
   tail call void @free(ptr noundef nonnull %2) #17
   %26 = load i32, ptr @enable_error_stack, align 4, !tbaa !11
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %28, label %52
+  br i1 %27, label %28, label %53
 
 28:                                               ; preds = %25
   %29 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !20
@@ -125,54 +125,54 @@ define dso_local range(i32 -1, 1) i32 @options_table_init(ptr noundef writeonly 
   %34 = load i64, ptr @H5E_tools_g, align 8, !tbaa !20
   %35 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !20
   %36 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %29, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.options_table_init, i32 noundef 143, i64 noundef %31, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.2) #17
-  br label %52
+  br label %53
 
 37:                                               ; preds = %28
   %38 = load ptr, ptr @stderr, align 8, !tbaa !21
   %39 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 35, i64 1, ptr %38) #18
   %40 = load ptr, ptr @stderr, align 8, !tbaa !21
   %fputc = tail call i32 @fputc(i32 10, ptr %40)
-  br label %52
+  br label %53
 
 .lr.ph:                                           ; preds = %20, %init_packobject.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %init_packobject.exit ], [ 0, %20 ]
   %41 = getelementptr inbounds nuw %struct.pack_info_t, ptr %22, i64 %indvars.iv
   store i8 0, ptr %41, align 1
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 256
-  %invariant.gep.i = getelementptr i8, ptr %41, i64 264
   br label %43
 
 43:                                               ; preds = %43, %.lr.ph
   %indvar.i = phi i64 [ 0, %.lr.ph ], [ %indvar.next.i, %43 ]
   %44 = mul nuw nsw i64 %indvar.i, 96
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %44
-  %45 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %42, i64 0, i64 %indvar.i
-  store i32 -1, ptr %45, align 8, !tbaa !4
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 88
-  store i64 20, ptr %46, align 8, !tbaa !10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %gep.i, i8 0, i64 80, i1 false), !tbaa !11
+  %45 = getelementptr nuw i8, ptr %41, i64 %44
+  %scevgep.i = getelementptr nuw i8, ptr %45, i64 264
+  %46 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %42, i64 0, i64 %indvar.i
+  store i32 -1, ptr %46, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 88
+  store i64 20, ptr %47, align 8, !tbaa !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %scevgep.i, i8 0, i64 80, i1 false), !tbaa !11
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond.not.i = icmp eq i64 %indvar.next.i, 6
   br i1 %exitcond.not.i, label %init_packobject.exit, label %43, !llvm.loop !12
 
 init_packobject.exit:                             ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %41, i64 1096
-  store i32 -1, ptr %47, align 8, !tbaa !14
-  %48 = getelementptr inbounds nuw i8, ptr %41, i64 1104
-  store i64 -1, ptr %48, align 8, !tbaa !17
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 836
-  store i32 -1, ptr %49, align 4, !tbaa !18
-  %50 = getelementptr inbounds nuw i8, ptr %41, i64 832
-  store i32 0, ptr %50, align 8, !tbaa !19
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 1096
+  store i32 -1, ptr %48, align 8, !tbaa !14
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 1104
+  store i64 -1, ptr %49, align 8, !tbaa !17
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 836
+  store i32 -1, ptr %50, align 4, !tbaa !18
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 832
+  store i32 0, ptr %51, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = icmp samesign ult i64 %indvars.iv, 29
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  %52 = icmp samesign ult i64 %indvars.iv, 29
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %init_packobject.exit
   store ptr %2, ptr %0, align 8, !tbaa !29
-  br label %52
+  br label %53
 
-52:                                               ; preds = %33, %37, %25, %12, %16, %4, %._crit_edge
+53:                                               ; preds = %33, %37, %25, %12, %16, %4, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %4 ], [ -1, %16 ], [ -1, %12 ], [ -1, %25 ], [ -1, %37 ], [ -1, %33 ]
   ret i32 %.0
 }
@@ -585,36 +585,36 @@ define internal fastcc range(i32 -1, 1) i32 @aux_inctable(ptr noundef captures(n
   %34 = getelementptr inbounds nuw %struct.pack_info_t, ptr %33, i64 %indvars.iv
   store i8 0, ptr %34, align 1
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 256
-  %invariant.gep.i = getelementptr i8, ptr %34, i64 264
   br label %36
 
 36:                                               ; preds = %36, %.lr.ph
   %indvar.i = phi i64 [ 0, %.lr.ph ], [ %indvar.next.i, %36 ]
   %37 = mul nuw nsw i64 %indvar.i, 96
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %37
-  %38 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %35, i64 0, i64 %indvar.i
-  store i32 -1, ptr %38, align 8, !tbaa !4
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 88
-  store i64 20, ptr %39, align 8, !tbaa !10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %gep.i, i8 0, i64 80, i1 false), !tbaa !11
+  %38 = getelementptr nuw i8, ptr %34, i64 %37
+  %scevgep.i = getelementptr nuw i8, ptr %38, i64 264
+  %39 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %35, i64 0, i64 %indvar.i
+  store i32 -1, ptr %39, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 88
+  store i64 20, ptr %40, align 8, !tbaa !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %scevgep.i, i8 0, i64 80, i1 false), !tbaa !11
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond.not.i = icmp eq i64 %indvar.next.i, 6
   br i1 %exitcond.not.i, label %init_packobject.exit, label %36, !llvm.loop !12
 
 init_packobject.exit:                             ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1096
-  store i32 -1, ptr %40, align 8, !tbaa !14
-  %41 = getelementptr inbounds nuw i8, ptr %34, i64 1104
-  store i64 -1, ptr %41, align 8, !tbaa !17
-  %42 = getelementptr inbounds nuw i8, ptr %34, i64 836
-  store i32 -1, ptr %42, align 4, !tbaa !18
-  %43 = getelementptr inbounds nuw i8, ptr %34, i64 832
-  store i32 0, ptr %43, align 8, !tbaa !19
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 1096
+  store i32 -1, ptr %41, align 8, !tbaa !14
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 1104
+  store i64 -1, ptr %42, align 8, !tbaa !17
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 836
+  store i32 -1, ptr %43, align 4, !tbaa !18
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 832
+  store i32 0, ptr %44, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = load i32, ptr %0, align 8, !tbaa !24
-  %45 = zext i32 %44 to i64
-  %46 = icmp samesign ult i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph, label %.loopexit, !llvm.loop !34
+  %45 = load i32, ptr %0, align 8, !tbaa !24
+  %46 = zext i32 %45 to i64
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
+  br i1 %47, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %init_packobject.exit, %27, %11, %23, %19
   %.0 = phi i32 [ -1, %19 ], [ -1, %23 ], [ -1, %11 ], [ 0, %27 ], [ 0, %init_packobject.exit ]

@@ -240,7 +240,7 @@ define void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %11 = load i32, ptr %6, align 4
   %12 = icmp ne i32 %11, 0
   %or.cond4.not.i = select i1 %or.cond.i, i1 %12, i1 false
-  br i1 %or.cond4.not.i, label %13, label %Abc_TruthStoreAlloc2.exit.sink.split.i
+  br i1 %or.cond4.not.i, label %13, label %.critedge38.sink.split.i
 
 13:                                               ; preds = %8
   %14 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
@@ -289,25 +289,25 @@ define void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 Abc_TruthStoreAlloc.exit.i:                       ; preds = %.lr.ph.i.i, %13
   %36 = call ptr @Abc_FileRead(ptr noundef %0) #11
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %Abc_TruthStoreAlloc2.exit.sink.split.i, label %.preheader.i.i
+  br i1 %37, label %.critedge38.sink.split.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %Abc_TruthStoreAlloc.exit.i
   %38 = load i8, ptr %36, align 1, !tbaa !33
   %.not17.i.i = icmp eq i8 %38, 10
-  br i1 %.not17.i.i, label %Abc_TruthStoreAlloc2.exit.sink.split.sink.split.i, label %.lr.ph.i37.i
+  br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i39.i
 
-.lr.ph.i37.i:                                     ; preds = %.preheader.i.i
+.lr.ph.i39.i:                                     ; preds = %.preheader.i.i
   %39 = shl nuw nsw i32 1, %10
   %40 = shl nuw nsw i32 16, %16
   %41 = select i1 %15, i32 %39, i32 %40
   %42 = zext nneg i32 %41 to i64
   br label %.lr.ph.split.us.i.i
 
-.lr.ph.split.us.i.i:                              ; preds = %79, %.lr.ph.i37.i
-  %indvars.iv28.i.i = phi i64 [ %indvars.iv.next29.i.i, %79 ], [ 0, %.lr.ph.i37.i ]
-  %43 = phi i8 [ %82, %79 ], [ %38, %.lr.ph.i37.i ]
-  %44 = phi ptr [ %81, %79 ], [ %36, %.lr.ph.i37.i ]
-  %.01418.us.i.i = phi i64 [ %indvars.iv.next26.i.i, %79 ], [ 0, %.lr.ph.i37.i ]
+.lr.ph.split.us.i.i:                              ; preds = %79, %.lr.ph.i39.i
+  %indvars.iv28.i.i = phi i64 [ %indvars.iv.next29.i.i, %79 ], [ 0, %.lr.ph.i39.i ]
+  %43 = phi i8 [ %82, %79 ], [ %38, %.lr.ph.i39.i ]
+  %44 = phi ptr [ %81, %79 ], [ %36, %.lr.ph.i39.i ]
+  %.01418.us.i.i = phi i64 [ %indvars.iv.next26.i.i, %79 ], [ 0, %.lr.ph.i39.i ]
   %indvars.iv.next29.i.i = add nuw nsw i64 %indvars.iv28.i.i, 1
   %45 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv28.i.i
   %46 = load ptr, ptr %45, align 8, !tbaa !11
@@ -396,7 +396,13 @@ Abc_TruthReadHex.exit.loopexit.us.i.i:            ; preds = %Abc_TruthReadHex.ex
 
 ._crit_edge.loopexit.i.i:                         ; preds = %79
   %83 = trunc nuw i64 %indvars.iv.next29.i.i to i32
-  br label %Abc_TruthStoreAlloc2.exit.sink.split.sink.split.i
+  br label %._crit_edge.i.i
+
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %83, %._crit_edge.loopexit.i.i ]
+  store i32 %.0.lcssa.i.i, ptr %20, align 8, !tbaa !3
+  call void @free(ptr noundef nonnull %36) #11
+  br label %.critedge38.sink.split.i
 
 84:                                               ; preds = %4
   %85 = tail call i32 @Abc_FileSize(ptr noundef %0) #11
@@ -434,38 +440,32 @@ Abc_TruthReadHex.exit.loopexit.us.i.i:            ; preds = %Abc_TruthReadHex.ex
   store ptr %103, ptr %104, align 8, !tbaa !10
   store ptr %93, ptr %103, align 8, !tbaa !11
   %105 = icmp sgt i32 %88, 1
-  br i1 %105, label %.lr.ph.i41.i, label %Abc_TtStoreLoad.exit
+  br i1 %105, label %.lr.ph.i43.i, label %Abc_TtStoreLoad.exit
 
-.lr.ph.i41.i:                                     ; preds = %92
+.lr.ph.i43.i:                                     ; preds = %92
   %106 = sext i32 %98 to i64
-  %wide.trip.count.i42.i = zext nneg i32 %88 to i64
+  %wide.trip.count.i44.i = zext nneg i32 %88 to i64
   %load_initial11 = load ptr, ptr %103, align 8
   br label %107
 
-107:                                              ; preds = %107, %.lr.ph.i41.i
-  %store_forwarded12 = phi ptr [ %load_initial11, %.lr.ph.i41.i ], [ %109, %107 ]
-  %indvars.iv.i43.i = phi i64 [ 1, %.lr.ph.i41.i ], [ %indvars.iv.next.i44.i, %107 ]
-  %108 = getelementptr ptr, ptr %103, i64 %indvars.iv.i43.i
+107:                                              ; preds = %107, %.lr.ph.i43.i
+  %store_forwarded12 = phi ptr [ %load_initial11, %.lr.ph.i43.i ], [ %109, %107 ]
+  %indvars.iv.i45.i = phi i64 [ 1, %.lr.ph.i43.i ], [ %indvars.iv.next.i46.i, %107 ]
+  %108 = getelementptr ptr, ptr %103, i64 %indvars.iv.i45.i
   %109 = getelementptr inbounds i64, ptr %store_forwarded12, i64 %106
   store ptr %109, ptr %108, align 8, !tbaa !11
-  %indvars.iv.next.i44.i = add nuw nsw i64 %indvars.iv.i43.i, 1
-  %exitcond.not.i45.i = icmp eq i64 %indvars.iv.next.i44.i, %wide.trip.count.i42.i
-  br i1 %exitcond.not.i45.i, label %Abc_TtStoreLoad.exit, label %107, !llvm.loop !40
+  %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
+  %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next.i46.i, %wide.trip.count.i44.i
+  br i1 %exitcond.not.i47.i, label %Abc_TtStoreLoad.exit, label %107, !llvm.loop !40
 
-Abc_TruthStoreAlloc2.exit.sink.split.sink.split.i: ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
-  %.sink.i = phi i32 [ %83, %._crit_edge.loopexit.i.i ], [ 0, %.preheader.i.i ]
-  store i32 %.sink.i, ptr %20, align 8, !tbaa !3
-  call void @free(ptr noundef nonnull %36) #11
-  br label %Abc_TruthStoreAlloc2.exit.sink.split.i
-
-Abc_TruthStoreAlloc2.exit.sink.split.i:           ; preds = %Abc_TruthStoreAlloc2.exit.sink.split.sink.split.i, %Abc_TruthStoreAlloc.exit.i, %8
-  %.1.ph.i = phi ptr [ null, %8 ], [ %14, %Abc_TruthStoreAlloc.exit.i ], [ %14, %Abc_TruthStoreAlloc2.exit.sink.split.sink.split.i ]
+.critedge38.sink.split.i:                         ; preds = %._crit_edge.i.i, %Abc_TruthStoreAlloc.exit.i, %8
+  %.1.ph.i = phi ptr [ %14, %Abc_TruthStoreAlloc.exit.i ], [ %14, %._crit_edge.i.i ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   br label %Abc_TtStoreLoad.exit
 
-Abc_TtStoreLoad.exit:                             ; preds = %107, %84, %92, %Abc_TruthStoreAlloc2.exit.sink.split.i
-  %.1.i = phi ptr [ null, %84 ], [ %94, %92 ], [ %.1.ph.i, %Abc_TruthStoreAlloc2.exit.sink.split.i ], [ %94, %107 ]
+Abc_TtStoreLoad.exit:                             ; preds = %107, %84, %92, %.critedge38.sink.split.i
+  %.1.i = phi ptr [ null, %84 ], [ %94, %92 ], [ %.1.ph.i, %.critedge38.sink.split.i ], [ %94, %107 ]
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.split, label %.split9
 

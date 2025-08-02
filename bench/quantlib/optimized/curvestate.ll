@@ -2267,7 +2267,6 @@ for.cond.cleanup:                                 ; preds = %for.body, %do.end10
   %div = fdiv double %sub, %71
   %add.ptr.i144 = getelementptr inbounds nuw double, ptr %1, i64 %firstValidIndex
   store double %div, ptr %add.ptr.i144, align 8, !tbaa !20
-  %invariant.gep = getelementptr i8, ptr %3, i64 -8
   %i123.0228 = add i64 %firstValidIndex, 1
   %cmp126229 = icmp ult i64 %i123.0228, %sub.ptr.div.i
   br i1 %cmp126229, label %for.body128, label %for.cond.cleanup127
@@ -2308,21 +2307,22 @@ for.body128:                                      ; preds = %for.cond.cleanup, %
   br i1 %cmp139.not, label %if.end145, label %if.then140
 
 if.then140:                                       ; preds = %for.body128
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.sroa.speculated
-  %82 = load double, ptr %gep, align 8, !tbaa !20
+  %82 = getelementptr double, ptr %3, i64 %.sroa.speculated
+  %add.ptr.i154 = getelementptr i8, ptr %82, i64 -8
+  %83 = load double, ptr %add.ptr.i154, align 8, !tbaa !20
   %add.ptr.i155 = getelementptr inbounds nuw double, ptr %49, i64 %.sroa.speculated
-  %83 = load double, ptr %add.ptr.i155, align 8, !tbaa !20
-  %84 = tail call double @llvm.fmuladd.f64(double %82, double %83, double %81)
-  store double %84, ptr %add.ptr.i153, align 8, !tbaa !20
+  %84 = load double, ptr %add.ptr.i155, align 8, !tbaa !20
+  %85 = tail call double @llvm.fmuladd.f64(double %83, double %84, double %81)
+  store double %85, ptr %add.ptr.i153, align 8, !tbaa !20
   br label %if.end145
 
 if.end145:                                        ; preds = %if.then140, %for.body128
-  %85 = phi double [ %84, %if.then140 ], [ %81, %for.body128 ]
-  %86 = load double, ptr %add.ptr.i152, align 8, !tbaa !20
+  %86 = phi double [ %85, %if.then140 ], [ %81, %for.body128 ]
+  %87 = load double, ptr %add.ptr.i152, align 8, !tbaa !20
   %add.ptr.i158 = getelementptr inbounds nuw double, ptr %49, i64 %.sroa.speculated
-  %87 = load double, ptr %add.ptr.i158, align 8, !tbaa !20
-  %sub148 = fsub double %86, %87
-  %div150 = fdiv double %sub148, %85
+  %88 = load double, ptr %add.ptr.i158, align 8, !tbaa !20
+  %sub148 = fsub double %87, %88
+  %div150 = fdiv double %sub148, %86
   %add.ptr.i160 = getelementptr inbounds nuw double, ptr %1, i64 %i123.0232
   store double %div150, ptr %add.ptr.i160, align 8, !tbaa !20
   %i123.0 = add nuw i64 %i123.0232, 1

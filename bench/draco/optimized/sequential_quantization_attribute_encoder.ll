@@ -1605,7 +1605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !97
 
-.critedge.loopexit:                               ; preds = %.lr.ph, %55
+.critedge.loopexit:                               ; preds = %55, %.lr.ph
   %.pre.pre = load ptr, ptr %6, align 8, !tbaa !52
   br label %.critedge
 

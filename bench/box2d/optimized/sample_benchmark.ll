@@ -1056,23 +1056,22 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   store i32 42, ptr @g_seed, align 4, !tbaa !44
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 31448
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 31716
   br label %22
 
-17:                                               ; preds = %31
+17:                                               ; preds = %33
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1092248
   store i32 26, ptr %18, align 8, !tbaa !45
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1092252
   store i32 150, ptr %19, align 4, !tbaa !46
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1092256
   %21 = load i32, ptr %20, align 8, !tbaa !41
-  switch i32 %21, label %34 [
-    i32 3, label %32
-    i32 4, label %33
+  switch i32 %21, label %36 [
+    i32 3, label %34
+    i32 4, label %35
   ]
 
-22:                                               ; preds = %1, %31
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %31 ]
+22:                                               ; preds = %1, %33
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %33 ]
   %23 = getelementptr inbounds nuw [3900 x %struct.b2BodyId], ptr %15, i64 0, i64 %indvars.iv
   %24 = load i32, ptr %23, align 8, !tbaa !47
   %.not = icmp eq i32 %24, 0
@@ -1086,66 +1085,67 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
 
 26:                                               ; preds = %25, %22
   %.idx = mul nuw nsw i64 %indvars.iv, 272
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  %27 = load i8, ptr %gep, align 4, !tbaa !48, !range !13, !noundef !14
-  %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %29, label %31
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 268
+  %29 = load i8, ptr %28, align 4, !tbaa !48, !range !13, !noundef !14
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %33
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw %struct.Human, ptr %16, i64 %indvars.iv
-  tail call void @DestroyHuman(ptr noundef nonnull %30)
-  br label %31
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %struct.Human, ptr %16, i64 %indvars.iv
+  tail call void @DestroyHuman(ptr noundef nonnull %32)
+  br label %33
 
-31:                                               ; preds = %26, %29
+33:                                               ; preds = %26, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3900
   br i1 %exitcond.not, label %17, label %22, !llvm.loop !50
 
-32:                                               ; preds = %17
+34:                                               ; preds = %17
   store i32 20, ptr %18, align 8, !tbaa !45
-  br label %34
+  br label %36
 
-33:                                               ; preds = %17
+35:                                               ; preds = %17
   store i32 30, ptr %19, align 4, !tbaa !46
-  br label %34
+  br label %36
 
-34:                                               ; preds = %17, %33, %32
-  %35 = phi float [ 0x402DE66660000000, %17 ], [ 0x402DE66660000000, %33 ], [ 1.150000e+01, %32 ]
+36:                                               ; preds = %17, %35, %34
+  %37 = phi float [ 0x402DE66660000000, %17 ], [ 0x402DE66660000000, %35 ], [ 1.150000e+01, %34 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #21
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %2)
   store i32 2, ptr %2, align 8, !tbaa !51
-  %36 = load i32, ptr %20, align 8, !tbaa !41
-  %37 = icmp eq i32 %36, 2
-  br i1 %37, label %38, label %40
+  %38 = load i32, ptr %20, align 8, !tbaa !41
+  %39 = icmp eq i32 %38, 2
+  br i1 %39, label %40, label %42
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store float 0x3FD3333340000000, ptr %39, align 4, !tbaa !56
-  br label %40
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  store float 0x3FD3333340000000, ptr %41, align 4, !tbaa !56
+  br label %42
 
-40:                                               ; preds = %38, %34
+42:                                               ; preds = %40, %36
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #21
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %3)
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  store float 1.000000e+00, ptr %41, align 4, !tbaa !57
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float 5.000000e-01, ptr %42, align 8, !tbaa !61
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  store float 1.000000e+00, ptr %43, align 4, !tbaa !57
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store float 5.000000e-01, ptr %44, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #21
   store float 0.000000e+00, ptr %4, align 4, !tbaa !62
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float -2.500000e-01, ptr %43, align 4, !tbaa !63
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store float 0.000000e+00, ptr %44, align 4, !tbaa !62
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store float 2.500000e-01, ptr %45, align 4, !tbaa !63
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store float 5.000000e-01, ptr %46, align 4, !tbaa !64
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store float -2.500000e-01, ptr %45, align 4, !tbaa !63
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store float 0.000000e+00, ptr %46, align 4, !tbaa !62
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store float 2.500000e-01, ptr %47, align 4, !tbaa !63
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store float 5.000000e-01, ptr %48, align 4, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #21
   store float 0.000000e+00, ptr %5, align 4, !tbaa !62
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float 0.000000e+00, ptr %47, align 4, !tbaa !63
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store float 5.000000e-01, ptr %48, align 4, !tbaa !66
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store float 0.000000e+00, ptr %49, align 4, !tbaa !63
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store float 5.000000e-01, ptr %50, align 4, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 16 dereferenceable(24) @__const._ZN15BenchmarkBarrel11CreateSceneEv.points, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %7) #21
@@ -1156,12 +1156,12 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   store float -1.000000e+00, ptr %9, align 16, !tbaa !15
   %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float 0.000000e+00, ptr %.sroa.486.0..sroa_idx, align 4, !tbaa !15
-  %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store float 5.000000e-01, ptr %49, align 8, !tbaa !15
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store float 5.000000e-01, ptr %51, align 8, !tbaa !15
   %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 12
   store float 1.000000e+00, ptr %.sroa.484.0..sroa_idx, align 4, !tbaa !15
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store float 0.000000e+00, ptr %50, align 16, !tbaa !15
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store float 0.000000e+00, ptr %52, align 16, !tbaa !15
   %.sroa.482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 20
   store float 2.000000e+00, ptr %.sroa.482.0..sroa_idx, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %10) #21
@@ -1170,9 +1170,9 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   call void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %11, ptr noundef nonnull %10, float noundef 0.000000e+00)
   store float 1.000000e+00, ptr %9, align 16, !tbaa !15
   store float 0.000000e+00, ptr %.sroa.486.0..sroa_idx, align 4, !tbaa !15
-  store float -5.000000e-01, ptr %49, align 8, !tbaa !15
+  store float -5.000000e-01, ptr %51, align 8, !tbaa !15
   store float 1.000000e+00, ptr %.sroa.484.0..sroa_idx, align 4, !tbaa !15
-  store float 0.000000e+00, ptr %50, align 16, !tbaa !15
+  store float 0.000000e+00, ptr %52, align 16, !tbaa !15
   store float 2.000000e+00, ptr %.sroa.482.0..sroa_idx, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %12) #21
   call void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %12, ptr noundef nonnull %9, i32 noundef 3)
@@ -1180,47 +1180,47 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %12) #21
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %13) #21
   call void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %13, ptr noundef nonnull %10, float noundef 0.000000e+00)
-  %51 = load i32, ptr %20, align 8, !tbaa !41
+  %53 = load i32, ptr %20, align 8, !tbaa !41
   %.pre = load i32, ptr %18, align 8, !tbaa !45
-  switch i32 %51, label %._crit_edge135 [
-    i32 3, label %52
-    i32 4, label %57
+  switch i32 %53, label %._crit_edge135 [
+    i32 3, label %54
+    i32 4, label %59
   ]
 
-52:                                               ; preds = %40
-  %53 = sitofp i32 %.pre to float
-  %54 = fmul float %53, 2.000000e+00
-  %55 = fmul float %54, 5.000000e-01
-  %56 = fadd float %55, -1.000000e+00
+54:                                               ; preds = %42
+  %55 = sitofp i32 %.pre to float
+  %56 = fmul float %55, 2.000000e+00
+  %57 = fmul float %56, 5.000000e-01
+  %58 = fadd float %57, -1.000000e+00
   br label %._crit_edge135
 
-57:                                               ; preds = %40
-  %58 = sitofp i32 %.pre to float
-  %59 = fmul float %58, 2.500000e+00
-  %60 = fmul float %59, 5.000000e-01
+59:                                               ; preds = %42
+  %60 = sitofp i32 %.pre to float
+  %61 = fmul float %60, 2.500000e+00
+  %62 = fmul float %61, 5.000000e-01
   br label %._crit_edge135
 
-._crit_edge135:                                   ; preds = %40, %57, %52
-  %.0109 = phi float [ 2.500000e-01, %52 ], [ 5.000000e-01, %57 ], [ 5.000000e-01, %40 ]
-  %.0108 = phi float [ 2.500000e-01, %52 ], [ 0x3FE19999A0000000, %57 ], [ 0xBFB99999A0000000, %40 ]
-  %.0107 = phi float [ %56, %52 ], [ %60, %57 ], [ %35, %40 ]
-  %.0106 = phi float [ 2.000000e+00, %52 ], [ 2.500000e+00, %57 ], [ 0x3FF2666660000000, %40 ]
-  %61 = icmp eq i32 %51, 4
-  %62 = select i1 %61, float 2.000000e+00, float 1.000000e+02
-  %63 = icmp sgt i32 %.pre, 0
-  br i1 %63, label %.lr.ph127, label %._crit_edge128
+._crit_edge135:                                   ; preds = %42, %59, %54
+  %.0109 = phi float [ 2.500000e-01, %54 ], [ 5.000000e-01, %59 ], [ 5.000000e-01, %42 ]
+  %.0108 = phi float [ 2.500000e-01, %54 ], [ 0x3FE19999A0000000, %59 ], [ 0xBFB99999A0000000, %42 ]
+  %.0107 = phi float [ %58, %54 ], [ %62, %59 ], [ %37, %42 ]
+  %.0106 = phi float [ 2.000000e+00, %54 ], [ 2.500000e+00, %59 ], [ 0x3FF2666660000000, %42 ]
+  %63 = icmp eq i32 %53, 4
+  %64 = select i1 %63, float 2.000000e+00, float 1.000000e+02
+  %65 = icmp sgt i32 %.pre, 0
+  br i1 %65, label %.lr.ph127, label %._crit_edge128
 
 .lr.ph127:                                        ; preds = %._crit_edge135
-  %64 = fadd float %.0109, %.0106
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %66 = fadd float %.0109, %.0106
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %67 = getelementptr inbounds nuw i8, ptr %14, i64 136
-  %68 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %70 = load i32, ptr %19, align 4, !tbaa !46
-  %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.lr.ph127.split, label %._crit_edge128
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 136
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 136
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %72 = load i32, ptr %19, align 4, !tbaa !46
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %.lr.ph127.split, label %._crit_edge128
 
 ._crit_edge128:                                   ; preds = %._crit_edge, %.lr.ph127, %._crit_edge135
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13) #21
@@ -1237,261 +1237,261 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   ret void
 
 .lr.ph127.split:                                  ; preds = %.lr.ph127, %._crit_edge
-  %72 = phi i32 [ %80, %._crit_edge ], [ %.pre, %.lr.ph127 ]
-  %73 = phi i32 [ %81, %._crit_edge ], [ %70, %.lr.ph127 ]
+  %74 = phi i32 [ %82, %._crit_edge ], [ %.pre, %.lr.ph127 ]
+  %75 = phi i32 [ %83, %._crit_edge ], [ %72, %.lr.ph127 ]
   %.1125 = phi float [ %.2.lcssa, %._crit_edge ], [ %.0108, %.lr.ph127 ]
   %.0110124 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ 0, %.lr.ph127 ]
-  %.0112123 = phi i32 [ %82, %._crit_edge ], [ 0, %.lr.ph127 ]
-  %74 = uitofp nneg i32 %.0112123 to float
-  %75 = fmul float %.0106, %74
-  %76 = fsub float %75, %.0107
-  %77 = icmp sgt i32 %73, 0
-  br i1 %77, label %.lr.ph.preheader, label %._crit_edge
+  %.0112123 = phi i32 [ %84, %._crit_edge ], [ 0, %.lr.ph127 ]
+  %76 = uitofp nneg i32 %.0112123 to float
+  %77 = fmul float %.0106, %76
+  %78 = fsub float %77, %.0107
+  %79 = icmp sgt i32 %75, 0
+  br i1 %79, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph127.split
-  %78 = sext i32 %.0110124 to i64
+  %80 = sext i32 %.0110124 to i64
   br label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %224
-  %79 = trunc nsw i64 %indvars.iv.next133 to i32
+._crit_edge.loopexit:                             ; preds = %226
+  %81 = trunc nsw i64 %indvars.iv.next133 to i32
   %.pre136 = load i32, ptr %18, align 8, !tbaa !45
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph127.split
-  %80 = phi i32 [ %72, %.lr.ph127.split ], [ %.pre136, %._crit_edge.loopexit ]
-  %81 = phi i32 [ %73, %.lr.ph127.split ], [ %226, %._crit_edge.loopexit ]
-  %.1111.lcssa = phi i32 [ %.0110124, %.lr.ph127.split ], [ %79, %._crit_edge.loopexit ]
-  %.2.lcssa = phi float [ %.1125, %.lr.ph127.split ], [ %89, %._crit_edge.loopexit ]
-  %82 = add nuw nsw i32 %.0112123, 1
-  %83 = icmp slt i32 %82, %80
-  br i1 %83, label %.lr.ph127.split, label %._crit_edge128, !llvm.loop !70
+  %82 = phi i32 [ %74, %.lr.ph127.split ], [ %.pre136, %._crit_edge.loopexit ]
+  %83 = phi i32 [ %75, %.lr.ph127.split ], [ %228, %._crit_edge.loopexit ]
+  %.1111.lcssa = phi i32 [ %.0110124, %.lr.ph127.split ], [ %81, %._crit_edge.loopexit ]
+  %.2.lcssa = phi float [ %.1125, %.lr.ph127.split ], [ %91, %._crit_edge.loopexit ]
+  %84 = add nuw nsw i32 %.0112123, 1
+  %85 = icmp slt i32 %84, %82
+  br i1 %85, label %.lr.ph127.split, label %._crit_edge128, !llvm.loop !70
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %224
-  %indvars.iv132 = phi i64 [ %78, %.lr.ph.preheader ], [ %indvars.iv.next133, %224 ]
-  %.2121 = phi float [ %.1125, %.lr.ph.preheader ], [ %89, %224 ]
-  %.0113119 = phi i32 [ 0, %.lr.ph.preheader ], [ %225, %224 ]
-  %84 = uitofp nneg i32 %.0113119 to float
-  %85 = fmul float %64, %84
-  %86 = fadd float %85, 0x3FE2666660000000
-  %87 = fadd float %62, %86
-  %88 = fadd float %76, %.2121
-  store float %88, ptr %65, align 4, !tbaa !15
-  store float %87, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !15
-  %89 = fneg float %.2121
-  %90 = load i32, ptr %20, align 8, !tbaa !41
-  switch i32 %90, label %224 [
-    i32 0, label %91
-    i32 1, label %107
-    i32 2, label %136
-    i32 3, label %215
-    i32 4, label %220
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %226
+  %indvars.iv132 = phi i64 [ %80, %.lr.ph.preheader ], [ %indvars.iv.next133, %226 ]
+  %.2121 = phi float [ %.1125, %.lr.ph.preheader ], [ %91, %226 ]
+  %.0113119 = phi i32 [ 0, %.lr.ph.preheader ], [ %227, %226 ]
+  %86 = uitofp nneg i32 %.0113119 to float
+  %87 = fmul float %66, %86
+  %88 = fadd float %87, 0x3FE2666660000000
+  %89 = fadd float %64, %88
+  %90 = fadd float %78, %.2121
+  store float %90, ptr %67, align 4, !tbaa !15
+  store float %89, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !15
+  %91 = fneg float %.2121
+  %92 = load i32, ptr %20, align 8, !tbaa !41
+  switch i32 %92, label %226 [
+    i32 0, label %93
+    i32 1, label %109
+    i32 2, label %138
+    i32 3, label %217
+    i32 4, label %222
   ]
 
-91:                                               ; preds = %.lr.ph
-  %.sroa.043.0.copyload = load i32, ptr %66, align 4
-  %92 = call i64 @b2CreateBody(i32 %.sroa.043.0.copyload, ptr noundef nonnull %2)
-  %93 = getelementptr inbounds [3900 x %struct.b2BodyId], ptr %15, i64 0, i64 %indvars.iv132
-  store i64 %92, ptr %93, align 8
-  %94 = load i32, ptr @g_seed, align 4, !tbaa !44
-  %95 = shl i32 %94, 13
-  %96 = xor i32 %95, %94
-  %97 = lshr i32 %96, 17
+93:                                               ; preds = %.lr.ph
+  %.sroa.043.0.copyload = load i32, ptr %68, align 4
+  %94 = call i64 @b2CreateBody(i32 %.sroa.043.0.copyload, ptr noundef nonnull %2)
+  %95 = getelementptr inbounds [3900 x %struct.b2BodyId], ptr %15, i64 0, i64 %indvars.iv132
+  store i64 %94, ptr %95, align 8
+  %96 = load i32, ptr @g_seed, align 4, !tbaa !44
+  %97 = shl i32 %96, 13
   %98 = xor i32 %97, %96
-  %99 = shl i32 %98, 5
+  %99 = lshr i32 %98, 17
   %100 = xor i32 %99, %98
-  store i32 %100, ptr @g_seed, align 4, !tbaa !44
-  %101 = and i32 %100, 32767
-  %102 = uitofp nneg i32 %101 to float
-  %103 = fdiv float %102, 3.276700e+04
-  %104 = fmul float %103, 5.000000e-01
-  %105 = fadd float %104, 2.500000e-01
-  store float %105, ptr %48, align 4, !tbaa !66
-  store float 0x3FC99999A0000000, ptr %69, align 8, !tbaa !72
-  %.sroa.042.0.copyload = load i64, ptr %93, align 8
-  %106 = call i64 @b2CreateCircleShape(i64 %.sroa.042.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %5)
-  br label %224
+  %101 = shl i32 %100, 5
+  %102 = xor i32 %101, %100
+  store i32 %102, ptr @g_seed, align 4, !tbaa !44
+  %103 = and i32 %102, 32767
+  %104 = uitofp nneg i32 %103 to float
+  %105 = fdiv float %104, 3.276700e+04
+  %106 = fmul float %105, 5.000000e-01
+  %107 = fadd float %106, 2.500000e-01
+  store float %107, ptr %50, align 4, !tbaa !66
+  store float 0x3FC99999A0000000, ptr %71, align 8, !tbaa !72
+  %.sroa.042.0.copyload = load i64, ptr %95, align 8
+  %108 = call i64 @b2CreateCircleShape(i64 %.sroa.042.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %5)
+  br label %226
 
-107:                                              ; preds = %.lr.ph
-  %.sroa.039.0.copyload = load i32, ptr %66, align 4
-  %108 = call i64 @b2CreateBody(i32 %.sroa.039.0.copyload, ptr noundef nonnull %2)
-  %109 = getelementptr inbounds [3900 x %struct.b2BodyId], ptr %15, i64 0, i64 %indvars.iv132
-  store i64 %108, ptr %109, align 8
-  %110 = load i32, ptr @g_seed, align 4, !tbaa !44
-  %111 = shl i32 %110, 13
-  %112 = xor i32 %111, %110
-  %113 = lshr i32 %112, 17
+109:                                              ; preds = %.lr.ph
+  %.sroa.039.0.copyload = load i32, ptr %68, align 4
+  %110 = call i64 @b2CreateBody(i32 %.sroa.039.0.copyload, ptr noundef nonnull %2)
+  %111 = getelementptr inbounds [3900 x %struct.b2BodyId], ptr %15, i64 0, i64 %indvars.iv132
+  store i64 %110, ptr %111, align 8
+  %112 = load i32, ptr @g_seed, align 4, !tbaa !44
+  %113 = shl i32 %112, 13
   %114 = xor i32 %113, %112
-  %115 = shl i32 %114, 5
+  %115 = lshr i32 %114, 17
   %116 = xor i32 %115, %114
-  %117 = and i32 %116, 32767
-  %118 = uitofp nneg i32 %117 to float
-  %119 = fdiv float %118, 3.276700e+04
-  %120 = fmul float %119, 2.500000e-01
-  %121 = fadd float %120, 2.500000e-01
-  store float %121, ptr %46, align 4, !tbaa !64
-  %122 = shl i32 %116, 13
-  %123 = xor i32 %122, %116
-  %124 = lshr i32 %123, 17
-  %125 = xor i32 %124, %123
-  %126 = shl i32 %125, 5
+  %117 = shl i32 %116, 5
+  %118 = xor i32 %117, %116
+  %119 = and i32 %118, 32767
+  %120 = uitofp nneg i32 %119 to float
+  %121 = fdiv float %120, 3.276700e+04
+  %122 = fmul float %121, 2.500000e-01
+  %123 = fadd float %122, 2.500000e-01
+  store float %123, ptr %48, align 4, !tbaa !64
+  %124 = shl i32 %118, 13
+  %125 = xor i32 %124, %118
+  %126 = lshr i32 %125, 17
   %127 = xor i32 %126, %125
-  store i32 %127, ptr @g_seed, align 4, !tbaa !44
-  %128 = and i32 %127, 32767
-  %129 = uitofp nneg i32 %128 to float
-  %130 = fdiv float %129, 3.276700e+04
-  %131 = fmul float %130, 7.500000e-01
-  %132 = fadd float %131, 2.500000e-01
-  %133 = fmul float %132, -5.000000e-01
+  %128 = shl i32 %127, 5
+  %129 = xor i32 %128, %127
+  store i32 %129, ptr @g_seed, align 4, !tbaa !44
+  %130 = and i32 %129, 32767
+  %131 = uitofp nneg i32 %130 to float
+  %132 = fdiv float %131, 3.276700e+04
+  %133 = fmul float %132, 7.500000e-01
+  %134 = fadd float %133, 2.500000e-01
+  %135 = fmul float %134, -5.000000e-01
   store float 0.000000e+00, ptr %4, align 4, !tbaa !15
-  store float %133, ptr %43, align 4, !tbaa !15
-  %134 = fmul float %132, 5.000000e-01
-  store float 0.000000e+00, ptr %44, align 4, !tbaa !15
-  store float %134, ptr %45, align 4, !tbaa !15
-  store float 0x3FC99999A0000000, ptr %69, align 8, !tbaa !72
-  %.sroa.032.0.copyload = load i64, ptr %109, align 8
-  %135 = call i64 @b2CreateCapsuleShape(i64 %.sroa.032.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  br label %224
+  store float %135, ptr %45, align 4, !tbaa !15
+  %136 = fmul float %134, 5.000000e-01
+  store float 0.000000e+00, ptr %46, align 4, !tbaa !15
+  store float %136, ptr %47, align 4, !tbaa !15
+  store float 0x3FC99999A0000000, ptr %71, align 8, !tbaa !72
+  %.sroa.032.0.copyload = load i64, ptr %111, align 8
+  %137 = call i64 @b2CreateCapsuleShape(i64 %.sroa.032.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br label %226
 
-136:                                              ; preds = %.lr.ph
-  %.sroa.029.0.copyload = load i32, ptr %66, align 4
-  %137 = call i64 @b2CreateBody(i32 %.sroa.029.0.copyload, ptr noundef nonnull %2)
-  %138 = getelementptr inbounds [3900 x %struct.b2BodyId], ptr %15, i64 0, i64 %indvars.iv132
-  store i64 %137, ptr %138, align 8
-  %139 = trunc nsw i64 %indvars.iv132 to i32
-  %140 = srem i32 %139, 3
-  %141 = load i32, ptr @g_seed, align 4, !tbaa !44
-  %142 = shl i32 %141, 13
-  %143 = xor i32 %142, %141
-  %144 = lshr i32 %143, 17
+138:                                              ; preds = %.lr.ph
+  %.sroa.029.0.copyload = load i32, ptr %68, align 4
+  %139 = call i64 @b2CreateBody(i32 %.sroa.029.0.copyload, ptr noundef nonnull %2)
+  %140 = getelementptr inbounds [3900 x %struct.b2BodyId], ptr %15, i64 0, i64 %indvars.iv132
+  store i64 %139, ptr %140, align 8
+  %141 = trunc nsw i64 %indvars.iv132 to i32
+  %142 = srem i32 %141, 3
+  %143 = load i32, ptr @g_seed, align 4, !tbaa !44
+  %144 = shl i32 %143, 13
   %145 = xor i32 %144, %143
-  %146 = shl i32 %145, 5
+  %146 = lshr i32 %145, 17
   %147 = xor i32 %146, %145
-  switch i32 %140, label %208 [
-    i32 0, label %148
-    i32 1, label %155
-    i32 2, label %175
+  %148 = shl i32 %147, 5
+  %149 = xor i32 %148, %147
+  switch i32 %142, label %210 [
+    i32 0, label %150
+    i32 1, label %157
+    i32 2, label %177
   ]
 
-148:                                              ; preds = %136
-  store i32 %147, ptr @g_seed, align 4, !tbaa !44
-  %149 = and i32 %147, 32767
-  %150 = uitofp nneg i32 %149 to float
-  %151 = fdiv float %150, 3.276700e+04
-  %152 = fmul float %151, 5.000000e-01
-  %153 = fadd float %152, 2.500000e-01
-  store float %153, ptr %48, align 4, !tbaa !66
-  %.sroa.026.0.copyload = load i64, ptr %138, align 8
-  %154 = call i64 @b2CreateCircleShape(i64 %.sroa.026.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %5)
-  br label %224
+150:                                              ; preds = %138
+  store i32 %149, ptr @g_seed, align 4, !tbaa !44
+  %151 = and i32 %149, 32767
+  %152 = uitofp nneg i32 %151 to float
+  %153 = fdiv float %152, 3.276700e+04
+  %154 = fmul float %153, 5.000000e-01
+  %155 = fadd float %154, 2.500000e-01
+  store float %155, ptr %50, align 4, !tbaa !66
+  %.sroa.026.0.copyload = load i64, ptr %140, align 8
+  %156 = call i64 @b2CreateCircleShape(i64 %.sroa.026.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %5)
+  br label %226
 
-155:                                              ; preds = %136
-  %156 = and i32 %147, 32767
-  %157 = uitofp nneg i32 %156 to float
-  %158 = fdiv float %157, 3.276700e+04
-  %159 = fmul float %158, 2.500000e-01
-  %160 = fadd float %159, 2.500000e-01
-  store float %160, ptr %46, align 4, !tbaa !64
-  %161 = shl i32 %147, 13
-  %162 = xor i32 %161, %147
-  %163 = lshr i32 %162, 17
-  %164 = xor i32 %163, %162
-  %165 = shl i32 %164, 5
+157:                                              ; preds = %138
+  %158 = and i32 %149, 32767
+  %159 = uitofp nneg i32 %158 to float
+  %160 = fdiv float %159, 3.276700e+04
+  %161 = fmul float %160, 2.500000e-01
+  %162 = fadd float %161, 2.500000e-01
+  store float %162, ptr %48, align 4, !tbaa !64
+  %163 = shl i32 %149, 13
+  %164 = xor i32 %163, %149
+  %165 = lshr i32 %164, 17
   %166 = xor i32 %165, %164
-  store i32 %166, ptr @g_seed, align 4, !tbaa !44
-  %167 = and i32 %166, 32767
-  %168 = uitofp nneg i32 %167 to float
-  %169 = fdiv float %168, 3.276700e+04
-  %170 = fmul float %169, 7.500000e-01
-  %171 = fadd float %170, 2.500000e-01
-  %172 = fmul float %171, -5.000000e-01
+  %167 = shl i32 %166, 5
+  %168 = xor i32 %167, %166
+  store i32 %168, ptr @g_seed, align 4, !tbaa !44
+  %169 = and i32 %168, 32767
+  %170 = uitofp nneg i32 %169 to float
+  %171 = fdiv float %170, 3.276700e+04
+  %172 = fmul float %171, 7.500000e-01
+  %173 = fadd float %172, 2.500000e-01
+  %174 = fmul float %173, -5.000000e-01
   store float 0.000000e+00, ptr %4, align 4, !tbaa !15
-  store float %172, ptr %43, align 4, !tbaa !15
-  %173 = fmul float %171, 5.000000e-01
-  store float 0.000000e+00, ptr %44, align 4, !tbaa !15
-  store float %173, ptr %45, align 4, !tbaa !15
-  %.sroa.019.0.copyload = load i64, ptr %138, align 8
-  %174 = call i64 @b2CreateCapsuleShape(i64 %.sroa.019.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  br label %224
+  store float %174, ptr %45, align 4, !tbaa !15
+  %175 = fmul float %173, 5.000000e-01
+  store float 0.000000e+00, ptr %46, align 4, !tbaa !15
+  store float %175, ptr %47, align 4, !tbaa !15
+  %.sroa.019.0.copyload = load i64, ptr %140, align 8
+  %176 = call i64 @b2CreateCapsuleShape(i64 %.sroa.019.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br label %226
 
-175:                                              ; preds = %136
-  %176 = and i32 %147, 32767
-  %177 = uitofp nneg i32 %176 to float
-  %178 = fdiv float %177, 3.276700e+04
-  %179 = fmul float %178, 0x3FD99999A0000000
-  %180 = fadd float %179, 0x3FB99999A0000000
-  %181 = shl i32 %147, 13
-  %182 = xor i32 %181, %147
-  %183 = lshr i32 %182, 17
-  %184 = xor i32 %183, %182
-  %185 = shl i32 %184, 5
+177:                                              ; preds = %138
+  %178 = and i32 %149, 32767
+  %179 = uitofp nneg i32 %178 to float
+  %180 = fdiv float %179, 3.276700e+04
+  %181 = fmul float %180, 0x3FD99999A0000000
+  %182 = fadd float %181, 0x3FB99999A0000000
+  %183 = shl i32 %149, 13
+  %184 = xor i32 %183, %149
+  %185 = lshr i32 %184, 17
   %186 = xor i32 %185, %184
-  store i32 %186, ptr @g_seed, align 4, !tbaa !44
-  %187 = and i32 %186, 32767
-  %188 = uitofp nneg i32 %187 to float
-  %189 = fdiv float %188, 3.276700e+04
-  %190 = fmul float %189, 2.500000e-01
-  %191 = fadd float %190, 5.000000e-01
+  %187 = shl i32 %186, 5
+  %188 = xor i32 %187, %186
+  store i32 %188, ptr @g_seed, align 4, !tbaa !44
+  %189 = and i32 %188, 32767
+  %190 = uitofp nneg i32 %189 to float
+  %191 = fdiv float %190, 3.276700e+04
+  %192 = fmul float %191, 2.500000e-01
+  %193 = fadd float %192, 5.000000e-01
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14) #21
-  call void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %14, float noundef %180, float noundef %191)
-  %192 = load i32, ptr @g_seed, align 4, !tbaa !44
-  %193 = shl i32 %192, 13
-  %194 = xor i32 %193, %192
-  %195 = lshr i32 %194, 17
+  call void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %14, float noundef %182, float noundef %193)
+  %194 = load i32, ptr @g_seed, align 4, !tbaa !44
+  %195 = shl i32 %194, 13
   %196 = xor i32 %195, %194
-  %197 = shl i32 %196, 5
+  %197 = lshr i32 %196, 17
   %198 = xor i32 %197, %196
-  store i32 %198, ptr @g_seed, align 4, !tbaa !44
-  %199 = and i32 %198, 32767
-  %200 = uitofp nneg i32 %199 to float
-  %201 = fdiv float %200, 3.276700e+04
-  %202 = fmul float %201, 2.000000e+00
-  %203 = fadd float %202, -1.000000e+00
-  %204 = fcmp olt float %203, 0.000000e+00
-  %205 = select i1 %204, float 0.000000e+00, float %203
-  %206 = fmul float %205, 2.500000e-01
-  store float %206, ptr %67, align 4, !tbaa !73
-  %.sroa.014.0.copyload = load i64, ptr %138, align 8
-  %207 = call i64 @b2CreatePolygonShape(i64 %.sroa.014.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %14)
+  %199 = shl i32 %198, 5
+  %200 = xor i32 %199, %198
+  store i32 %200, ptr @g_seed, align 4, !tbaa !44
+  %201 = and i32 %200, 32767
+  %202 = uitofp nneg i32 %201 to float
+  %203 = fdiv float %202, 3.276700e+04
+  %204 = fmul float %203, 2.000000e+00
+  %205 = fadd float %204, -1.000000e+00
+  %206 = fcmp olt float %205, 0.000000e+00
+  %207 = select i1 %206, float 0.000000e+00, float %205
+  %208 = fmul float %207, 2.500000e-01
+  store float %208, ptr %69, align 4, !tbaa !73
+  %.sroa.014.0.copyload = load i64, ptr %140, align 8
+  %209 = call i64 @b2CreatePolygonShape(i64 %.sroa.014.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14) #21
-  br label %224
+  br label %226
 
-208:                                              ; preds = %136
-  store i32 %147, ptr @g_seed, align 4, !tbaa !44
-  %209 = and i32 %147, 32767
-  %210 = uitofp nneg i32 %209 to float
-  %211 = fdiv float %210, 3.276700e+04
-  %212 = fmul float %211, 0x3FC3333340000000
-  %213 = fadd float %212, 0x3FB99999A0000000
-  store float %213, ptr %68, align 4, !tbaa !73
-  %.sroa.012.0.copyload = load i64, ptr %138, align 8
-  %214 = call i64 @b2CreatePolygonShape(i64 %.sroa.012.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %8)
-  br label %224
+210:                                              ; preds = %138
+  store i32 %149, ptr @g_seed, align 4, !tbaa !44
+  %211 = and i32 %149, 32767
+  %212 = uitofp nneg i32 %211 to float
+  %213 = fdiv float %212, 3.276700e+04
+  %214 = fmul float %213, 0x3FC3333340000000
+  %215 = fadd float %214, 0x3FB99999A0000000
+  store float %215, ptr %70, align 4, !tbaa !73
+  %.sroa.012.0.copyload = load i64, ptr %140, align 8
+  %216 = call i64 @b2CreatePolygonShape(i64 %.sroa.012.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %8)
+  br label %226
 
-215:                                              ; preds = %.lr.ph
-  %.sroa.09.0.copyload = load i32, ptr %66, align 4
-  %216 = call i64 @b2CreateBody(i32 %.sroa.09.0.copyload, ptr noundef nonnull %2)
-  %217 = getelementptr inbounds [3900 x %struct.b2BodyId], ptr %15, i64 0, i64 %indvars.iv132
-  store i64 %216, ptr %217, align 8
-  %218 = call i64 @b2CreatePolygonShape(i64 %216, ptr noundef nonnull %3, ptr noundef nonnull %11)
-  %.sroa.06.0.copyload = load i64, ptr %217, align 8
-  %219 = call i64 @b2CreatePolygonShape(i64 %.sroa.06.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %13)
-  br label %224
+217:                                              ; preds = %.lr.ph
+  %.sroa.09.0.copyload = load i32, ptr %68, align 4
+  %218 = call i64 @b2CreateBody(i32 %.sroa.09.0.copyload, ptr noundef nonnull %2)
+  %219 = getelementptr inbounds [3900 x %struct.b2BodyId], ptr %15, i64 0, i64 %indvars.iv132
+  store i64 %218, ptr %219, align 8
+  %220 = call i64 @b2CreatePolygonShape(i64 %218, ptr noundef nonnull %3, ptr noundef nonnull %11)
+  %.sroa.06.0.copyload = load i64, ptr %219, align 8
+  %221 = call i64 @b2CreatePolygonShape(i64 %.sroa.06.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %13)
+  br label %226
 
-220:                                              ; preds = %.lr.ph
-  %221 = getelementptr inbounds %struct.Human, ptr %16, i64 %indvars.iv132
-  %.sroa.01.0.copyload = load i32, ptr %66, align 4
-  %.sroa.0.0.copyload = load <2 x float>, ptr %65, align 4
-  %222 = trunc i64 %indvars.iv132 to i32
-  %223 = add i32 %222, 1
-  call void @CreateHuman(ptr noundef nonnull %221, i32 %.sroa.01.0.copyload, <2 x float> %.sroa.0.0.copyload, float noundef 3.500000e+00, float noundef 0x3FA99999A0000000, float noundef 5.000000e+00, float noundef 5.000000e-01, i32 noundef %223, ptr noundef null, i1 noundef zeroext false)
-  br label %224
+222:                                              ; preds = %.lr.ph
+  %223 = getelementptr inbounds %struct.Human, ptr %16, i64 %indvars.iv132
+  %.sroa.01.0.copyload = load i32, ptr %68, align 4
+  %.sroa.0.0.copyload = load <2 x float>, ptr %67, align 4
+  %224 = trunc i64 %indvars.iv132 to i32
+  %225 = add i32 %224, 1
+  call void @CreateHuman(ptr noundef nonnull %223, i32 %.sroa.01.0.copyload, <2 x float> %.sroa.0.0.copyload, float noundef 3.500000e+00, float noundef 0x3FA99999A0000000, float noundef 5.000000e+00, float noundef 5.000000e-01, i32 noundef %225, ptr noundef null, i1 noundef zeroext false)
+  br label %226
 
-224:                                              ; preds = %.lr.ph, %148, %175, %208, %155, %107, %215, %220, %91
+226:                                              ; preds = %.lr.ph, %150, %177, %210, %157, %109, %217, %222, %93
   %indvars.iv.next133 = add nsw i64 %indvars.iv132, 1
-  %225 = add nuw nsw i32 %.0113119, 1
-  %226 = load i32, ptr %19, align 4, !tbaa !46
-  %227 = icmp slt i32 %225, %226
-  br i1 %227, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !75
+  %227 = add nuw nsw i32 %.0113119, 1
+  %228 = load i32, ptr %19, align 4, !tbaa !46
+  %229 = icmp slt i32 %227, %228
+  br i1 %229, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !75
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

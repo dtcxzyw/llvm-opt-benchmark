@@ -9234,15 +9234,14 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops15_Iter_comp_iterINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr %3, double %4, i8 %5) local_unnamed_addr #3 comdat {
-  %.fr48 = freeze i8 %5
+  %.fr42 = freeze i8 %5
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
   %9 = icmp slt i64 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %10 = trunc i8 %.fr48 to i1
-  %invariant.gep44 = getelementptr i8, ptr %0, i64 8
+  %10 = trunc i8 %.fr42 to i1
   br i1 %10, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -9250,127 +9249,127 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %11 = shl i64 %.041.us, 1
   %12 = add i64 %11, 2
   %13 = or disjoint i64 %11, 1
-  %gep45 = getelementptr %"struct.std::pair.157", ptr %invariant.gep44, i64 %12
-  %14 = load double, ptr %gep45, align 8, !tbaa !585
-  %gep47 = getelementptr %"struct.std::pair.157", ptr %invariant.gep44, i64 %13
-  %15 = load double, ptr %gep47, align 8, !tbaa !585
-  %16 = fcmp olt double %14, %15
-  %spec.select.us = select i1 %16, i64 %13, i64 %12
-  %17 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %spec.select.us
-  %18 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.041.us
-  %19 = load ptr, ptr %17, align 8, !tbaa !405
-  store ptr %19, ptr %18, align 8, !tbaa !95
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %21 = load double, ptr %20, align 8, !tbaa !16
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store double %21, ptr %22, align 8, !tbaa !585
-  %23 = icmp slt i64 %spec.select.us, %8
-  br i1 %23, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !608
+  %14 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %12, i32 1
+  %15 = load double, ptr %14, align 8, !tbaa !585
+  %16 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %13, i32 1
+  %17 = load double, ptr %16, align 8, !tbaa !585
+  %18 = fcmp olt double %15, %17
+  %spec.select.us = select i1 %18, i64 %13, i64 %12
+  %19 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %spec.select.us
+  %20 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.041.us
+  %21 = load ptr, ptr %19, align 8, !tbaa !405
+  store ptr %21, ptr %20, align 8, !tbaa !95
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %23 = load double, ptr %22, align 8, !tbaa !16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store double %23, ptr %24, align 8, !tbaa !585
+  %25 = icmp slt i64 %spec.select.us, %8
+  br i1 %25, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !608
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.041 = phi i64 [ %spec.select, %.lr.ph.split ], [ %1, %.lr.ph ]
-  %24 = shl i64 %.041, 1
-  %25 = add i64 %24, 2
-  %26 = or disjoint i64 %24, 1
-  %gep = getelementptr %"struct.std::pair.157", ptr %invariant.gep44, i64 %26
-  %27 = load double, ptr %gep, align 8, !tbaa !585
-  %gep43 = getelementptr %"struct.std::pair.157", ptr %invariant.gep44, i64 %25
-  %28 = load double, ptr %gep43, align 8, !tbaa !585
-  %29 = fcmp olt double %27, %28
-  %spec.select = select i1 %29, i64 %26, i64 %25
-  %30 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %spec.select
-  %31 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.041
-  %32 = load ptr, ptr %30, align 8, !tbaa !405
-  store ptr %32, ptr %31, align 8, !tbaa !95
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %34 = load double, ptr %33, align 8, !tbaa !16
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store double %34, ptr %35, align 8, !tbaa !585
-  %36 = icmp slt i64 %spec.select, %8
-  br i1 %36, label %.lr.ph.split, label %._crit_edge, !llvm.loop !609
+  %26 = shl i64 %.041, 1
+  %27 = add i64 %26, 2
+  %28 = or disjoint i64 %26, 1
+  %29 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %28, i32 1
+  %30 = load double, ptr %29, align 8, !tbaa !585
+  %31 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %27, i32 1
+  %32 = load double, ptr %31, align 8, !tbaa !585
+  %33 = fcmp olt double %30, %32
+  %spec.select = select i1 %33, i64 %28, i64 %27
+  %34 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %spec.select
+  %35 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.041
+  %36 = load ptr, ptr %34, align 8, !tbaa !405
+  store ptr %36, ptr %35, align 8, !tbaa !95
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %38 = load double, ptr %37, align 8, !tbaa !16
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store double %38, ptr %39, align 8, !tbaa !585
+  %40 = icmp slt i64 %spec.select, %8
+  br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !609
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %6
   %.0.lcssa = phi i64 [ %1, %6 ], [ %spec.select.us, %.lr.ph.split.us ], [ %spec.select, %.lr.ph.split ]
-  %37 = and i64 %2, 1
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %52
+  %41 = and i64 %2, 1
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %43, label %56
 
-39:                                               ; preds = %._crit_edge
-  %40 = add nsw i64 %2, -2
-  %41 = ashr exact i64 %40, 1
-  %42 = icmp eq i64 %.0.lcssa, %41
-  br i1 %42, label %43, label %52
+43:                                               ; preds = %._crit_edge
+  %44 = add nsw i64 %2, -2
+  %45 = ashr exact i64 %44, 1
+  %46 = icmp eq i64 %.0.lcssa, %45
+  br i1 %46, label %47, label %56
 
-43:                                               ; preds = %39
-  %44 = shl nsw i64 %.0.lcssa, 1
-  %45 = or disjoint i64 %44, 1
-  %46 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %45
-  %47 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.0.lcssa
-  %48 = load ptr, ptr %46, align 8, !tbaa !405
-  store ptr %48, ptr %47, align 8, !tbaa !95
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %50 = load double, ptr %49, align 8, !tbaa !16
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store double %50, ptr %51, align 8, !tbaa !585
-  br label %52
+47:                                               ; preds = %43
+  %48 = shl nsw i64 %.0.lcssa, 1
+  %49 = or disjoint i64 %48, 1
+  %50 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %49
+  %51 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.0.lcssa
+  %52 = load ptr, ptr %50, align 8, !tbaa !405
+  store ptr %52, ptr %51, align 8, !tbaa !95
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %54 = load double, ptr %53, align 8, !tbaa !16
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store double %54, ptr %55, align 8, !tbaa !585
+  br label %56
 
-52:                                               ; preds = %43, %39, %._crit_edge
-  %.1 = phi i64 [ %45, %43 ], [ %.0.lcssa, %39 ], [ %.0.lcssa, %._crit_edge ]
-  %53 = icmp sgt i64 %.1, %1
-  br i1 %53, label %.cont.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit
+56:                                               ; preds = %47, %43, %._crit_edge
+  %.1 = phi i64 [ %49, %47 ], [ %.0.lcssa, %43 ], [ %.0.lcssa, %._crit_edge ]
+  %57 = icmp sgt i64 %.1, %1
+  br i1 %57, label %.cont.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit
 
-.cont.lr.ph.i:                                    ; preds = %52
+.cont.lr.ph.i:                                    ; preds = %56
   %.09.in23.i = add nsw i64 %.1, -1
   %.0924.i = sdiv i64 %.09.in23.i, 2
-  %54 = trunc nuw i8 %.fr48 to i1
-  br i1 %54, label %.cont.us.i, label %.cont.i
+  %58 = trunc nuw i8 %.fr42 to i1
+  br i1 %58, label %.cont.us.i, label %.cont.i
 
-.cont.us.i:                                       ; preds = %.cont.lr.ph.i, %57
-  %.0926.us.i = phi i64 [ %.09.us.i, %57 ], [ %.0924.i, %.cont.lr.ph.i ]
-  %.025.us.i = phi i64 [ %.0926.us.i, %57 ], [ %.1, %.cont.lr.ph.i ]
-  %55 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.0926.us.i
-  %.sroa.gep.us.i = getelementptr inbounds nuw i8, ptr %55, i64 8
+.cont.us.i:                                       ; preds = %.cont.lr.ph.i, %61
+  %.0926.us.i = phi i64 [ %.09.us.i, %61 ], [ %.0924.i, %.cont.lr.ph.i ]
+  %.025.us.i = phi i64 [ %.0926.us.i, %61 ], [ %.1, %.cont.lr.ph.i ]
+  %59 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.0926.us.i
+  %.sroa.gep.us.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.then.val17.us.i = load double, ptr %.sroa.gep.us.i, align 8, !tbaa !585
-  %56 = fcmp olt double %.then.val17.us.i, %4
-  br i1 %56, label %57, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit
+  %60 = fcmp olt double %.then.val17.us.i, %4
+  br i1 %60, label %61, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit
 
-57:                                               ; preds = %.cont.us.i
-  %58 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.025.us.i
-  %59 = load ptr, ptr %55, align 8, !tbaa !405
-  store ptr %59, ptr %58, align 8, !tbaa !95
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store double %.then.val17.us.i, ptr %60, align 8, !tbaa !585
+61:                                               ; preds = %.cont.us.i
+  %62 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.025.us.i
+  %63 = load ptr, ptr %59, align 8, !tbaa !405
+  store ptr %63, ptr %62, align 8, !tbaa !95
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store double %.then.val17.us.i, ptr %64, align 8, !tbaa !585
   %.09.in.us.i = add nsw i64 %.0926.us.i, -1
   %.09.us.i = sdiv i64 %.09.in.us.i, 2
-  %61 = icmp sgt i64 %.0926.us.i, %1
-  br i1 %61, label %.cont.us.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit, !llvm.loop !610
+  %65 = icmp sgt i64 %.0926.us.i, %1
+  br i1 %65, label %.cont.us.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit, !llvm.loop !610
 
-.cont.i:                                          ; preds = %.cont.lr.ph.i, %64
-  %.0926.i = phi i64 [ %.09.i, %64 ], [ %.0924.i, %.cont.lr.ph.i ]
-  %.025.i = phi i64 [ %.0926.i, %64 ], [ %.1, %.cont.lr.ph.i ]
-  %62 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.0926.i
-  %.sroa.gep.i = getelementptr inbounds nuw i8, ptr %62, i64 8
+.cont.i:                                          ; preds = %.cont.lr.ph.i, %68
+  %.0926.i = phi i64 [ %.09.i, %68 ], [ %.0924.i, %.cont.lr.ph.i ]
+  %.025.i = phi i64 [ %.0926.i, %68 ], [ %.1, %.cont.lr.ph.i ]
+  %66 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.0926.i
+  %.sroa.gep.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.then.val17.i = load double, ptr %.sroa.gep.i, align 8, !tbaa !585
-  %63 = fcmp olt double %4, %.then.val17.i
-  br i1 %63, label %64, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit
+  %67 = fcmp olt double %4, %.then.val17.i
+  br i1 %67, label %68, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit
 
-64:                                               ; preds = %.cont.i
-  %65 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.025.i
-  %66 = load ptr, ptr %62, align 8, !tbaa !405
-  store ptr %66, ptr %65, align 8, !tbaa !95
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store double %.then.val17.i, ptr %67, align 8, !tbaa !585
+68:                                               ; preds = %.cont.i
+  %69 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.025.i
+  %70 = load ptr, ptr %66, align 8, !tbaa !405
+  store ptr %70, ptr %69, align 8, !tbaa !95
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store double %.then.val17.i, ptr %71, align 8, !tbaa !585
   %.09.in.i = add nsw i64 %.0926.i, -1
   %.09.i = sdiv i64 %.09.in.i, 2
-  %68 = icmp sgt i64 %.0926.i, %1
-  br i1 %68, label %.cont.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit, !llvm.loop !611
+  %72 = icmp sgt i64 %.0926.i, %1
+  br i1 %72, label %.cont.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit, !llvm.loop !611
 
-_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit: ; preds = %.cont.i, %64, %.cont.us.i, %57, %52
-  %.0.lcssa.i = phi i64 [ %.1, %52 ], [ %.025.us.i, %.cont.us.i ], [ %.0926.us.i, %57 ], [ %.025.i, %.cont.i ], [ %.0926.i, %64 ]
-  %69 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.0.lcssa.i
-  store ptr %3, ptr %69, align 8, !tbaa !95
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store double %4, ptr %70, align 8, !tbaa !585
+_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEElSI_NS0_5__ops14_Iter_comp_valINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_T0_S1H_T1_RT2_.exit: ; preds = %.cont.i, %68, %.cont.us.i, %61, %56
+  %.0.lcssa.i = phi i64 [ %.1, %56 ], [ %.025.us.i, %.cont.us.i ], [ %.0926.us.i, %61 ], [ %.025.i, %.cont.i ], [ %.0926.i, %68 ]
+  %73 = getelementptr inbounds %"struct.std::pair.157", ptr %0, i64 %.0.lcssa.i
+  store ptr %3, ptr %73, align 8, !tbaa !95
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store double %4, ptr %74, align 8, !tbaa !585
   ret void
 }
 

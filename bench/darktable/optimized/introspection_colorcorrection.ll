@@ -908,12 +908,12 @@ define internal range(i32 0, 2) i32 @dt_iop_colorcorrection_key_press(ptr nounde
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !67
   %10 = icmp slt i32 %9, 1
-  br i1 %10, label %63, label %11
+  br i1 %10, label %.fold.split, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %13 = load i32, ptr %12, align 4, !tbaa !133
-  switch i32 %13, label %63 [
+  switch i32 %13, label %.fold.split [
     i32 65362, label %17
     i32 65431, label %17
     i32 65364, label %14
@@ -933,14 +933,14 @@ define internal range(i32 0, 2) i32 @dt_iop_colorcorrection_key_press(ptr nounde
 16:                                               ; preds = %11, %11
   br label %17
 
-17:                                               ; preds = %14, %15, %16, %11, %11
-  %.050.ph = phi float [ 0.000000e+00, %11 ], [ 0.000000e+00, %11 ], [ -5.000000e-01, %16 ], [ 5.000000e-01, %15 ], [ 0.000000e+00, %14 ]
-  %.049.ph = phi float [ 5.000000e-01, %11 ], [ 5.000000e-01, %11 ], [ 0.000000e+00, %16 ], [ 0.000000e+00, %15 ], [ -5.000000e-01, %14 ]
+17:                                               ; preds = %15, %16, %14, %11, %11
+  %.050 = phi nsz float [ 0.000000e+00, %14 ], [ 5.000000e-01, %15 ], [ -5.000000e-01, %16 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %11 ]
+  %.049 = phi nsz float [ -5.000000e-01, %14 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %16 ], [ 5.000000e-01, %11 ], [ 5.000000e-01, %11 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !135
   %20 = tail call reassoc nsz arcp contract afn float @dt_accel_get_speed_multiplier(ptr noundef %0, i32 noundef %19) #18
-  %21 = fmul reassoc nsz arcp contract afn float %20, %.050.ph
-  %22 = fmul reassoc nsz arcp contract afn float %20, %.049.ph
+  %21 = fmul reassoc nsz arcp contract afn float %20, %.050
+  %22 = fmul reassoc nsz arcp contract afn float %20, %.049
   %23 = load i32, ptr %8, align 8, !tbaa !67
   switch i32 %23, label %61 [
     i32 1, label %24
@@ -1020,9 +1020,9 @@ define internal range(i32 0, 2) i32 @dt_iop_colorcorrection_key_press(ptr nounde
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !127
   tail call void @dt_dev_add_history_item(ptr noundef %62, ptr noundef nonnull %2, i32 noundef 1) #18
   tail call void @gtk_widget_queue_draw(ptr noundef %0) #18
-  br label %63
+  br label %.fold.split
 
-63:                                               ; preds = %11, %61, %3
+.fold.split:                                      ; preds = %11, %61, %3
   %.0 = phi i32 [ 0, %3 ], [ 1, %61 ], [ 0, %11 ]
   ret i32 %.0
 }

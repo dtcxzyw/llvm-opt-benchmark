@@ -279,7 +279,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef ptr @bioProcessBackgroundJobs(ptr noundef %0) #7 {
+define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr noundef %0) #7 {
   %2 = alloca %struct.__sigset_t, align 8
   %3 = ptrtoint ptr %0 to i64
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #11

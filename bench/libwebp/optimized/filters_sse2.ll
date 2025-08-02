@@ -903,11 +903,11 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph32.i.i, %.pre
   br i1 %40, label %.lr.ph.preheader.i31.us.i, label %.lr.ph.split.i
 
 .lr.ph.preheader.i31.us.i:                        ; preds = %.lr.ph.i, %GradientPredictDirect_SSE2.exit.us.i
-  %.041.us.i = phi i32 [ %99, %GradientPredictDirect_SSE2.exit.us.i ], [ 1, %.lr.ph.i ]
-  %.pn2640.us.i = phi ptr [ %.024.us.i, %GradientPredictDirect_SSE2.exit.us.i ], [ %4, %.lr.ph.i ]
-  %.pn39.us.i = phi ptr [ %.025.us.i, %GradientPredictDirect_SSE2.exit.us.i ], [ %0, %.lr.ph.i ]
-  %.024.us.i = getelementptr inbounds i8, ptr %.pn2640.us.i, i64 %35
-  %.025.us.i = getelementptr inbounds i8, ptr %.pn39.us.i, i64 %35
+  %.039.us.i = phi i32 [ %101, %GradientPredictDirect_SSE2.exit.us.i ], [ 1, %.lr.ph.i ]
+  %.pn2638.us.i = phi ptr [ %.024.us.i, %GradientPredictDirect_SSE2.exit.us.i ], [ %4, %.lr.ph.i ]
+  %.pn37.us.i = phi ptr [ %.025.us.i, %GradientPredictDirect_SSE2.exit.us.i ], [ %0, %.lr.ph.i ]
+  %.024.us.i = getelementptr inbounds i8, ptr %.pn2638.us.i, i64 %35
+  %.025.us.i = getelementptr inbounds i8, ptr %.pn37.us.i, i64 %35
   %43 = load i8, ptr %.025.us.i, align 1, !tbaa !7, !alias.scope !69, !noalias !72
   %44 = getelementptr inbounds i8, ptr %.025.us.i, i64 %38
   %45 = load i8, ptr %44, align 1, !tbaa !7, !alias.scope !69, !noalias !72
@@ -917,7 +917,6 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph32.i.i, %.pre
   %48 = getelementptr inbounds i8, ptr %47, i64 %39
   %49 = getelementptr inbounds nuw i8, ptr %.024.us.i, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %invariant.gep.us.i = getelementptr i8, ptr %48, i64 -1
   br label %.lr.ph.i32.us.i
 
 .lr.ph.i32.us.i:                                  ; preds = %.lr.ph.i32.us.i, %.lr.ph.preheader.i31.us.i
@@ -925,145 +924,144 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph32.i.i, %.pre
   %50 = getelementptr i8, ptr %.025.us.i, i64 %indvars.iv.i33.us.i
   %51 = load i64, ptr %50, align 1, !tbaa !7, !alias.scope !69, !noalias !84
   %52 = insertelement <2 x i64> poison, i64 %51, i64 0
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv.i33.us.i
+  %53 = getelementptr i8, ptr %48, i64 %indvars.iv.i33.us.i
   %54 = load i64, ptr %53, align 1, !tbaa !7, !alias.scope !69, !noalias !84
   %55 = insertelement <2 x i64> poison, i64 %54, i64 0
-  %gep.us.i = getelementptr i8, ptr %invariant.gep.us.i, i64 %indvars.iv.i33.us.i
-  %56 = load i64, ptr %gep.us.i, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %57 = insertelement <2 x i64> poison, i64 %56, i64 0
-  %58 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv.i33.us.i
-  %59 = load i64, ptr %58, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %60 = insertelement <2 x i64> poison, i64 %59, i64 0
-  %61 = bitcast <2 x i64> %52 to <16 x i8>
-  %62 = shufflevector <16 x i8> %61, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %63 = bitcast <2 x i64> %55 to <16 x i8>
-  %64 = shufflevector <16 x i8> %63, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %65 = bitcast <2 x i64> %57 to <16 x i8>
-  %66 = shufflevector <16 x i8> %65, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %67 = bitcast <16 x i8> %62 to <8 x i16>
-  %68 = bitcast <16 x i8> %64 to <8 x i16>
-  %69 = add nuw nsw <8 x i16> %68, %67
-  %70 = bitcast <16 x i8> %66 to <8 x i16>
-  %71 = sub nsw <8 x i16> %69, %70
-  %72 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %71, <8 x i16> poison)
-  %73 = bitcast <2 x i64> %60 to <16 x i8>
-  %74 = sub <16 x i8> %73, %72
-  %75 = bitcast <16 x i8> %74 to <2 x i64>
-  %76 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv.i33.us.i
-  %77 = extractelement <2 x i64> %75, i64 0
-  store i64 %77, ptr %76, align 1, !tbaa !7, !alias.scope !84, !noalias !69
+  %56 = getelementptr i8, ptr %53, i64 -1
+  %57 = load i64, ptr %56, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %58 = insertelement <2 x i64> poison, i64 %57, i64 0
+  %59 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv.i33.us.i
+  %60 = load i64, ptr %59, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %61 = insertelement <2 x i64> poison, i64 %60, i64 0
+  %62 = bitcast <2 x i64> %52 to <16 x i8>
+  %63 = shufflevector <16 x i8> %62, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %64 = bitcast <2 x i64> %55 to <16 x i8>
+  %65 = shufflevector <16 x i8> %64, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %66 = bitcast <2 x i64> %58 to <16 x i8>
+  %67 = shufflevector <16 x i8> %66, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %68 = bitcast <16 x i8> %63 to <8 x i16>
+  %69 = bitcast <16 x i8> %65 to <8 x i16>
+  %70 = add nuw nsw <8 x i16> %69, %68
+  %71 = bitcast <16 x i8> %67 to <8 x i16>
+  %72 = sub nsw <8 x i16> %70, %71
+  %73 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %72, <8 x i16> poison)
+  %74 = bitcast <2 x i64> %61 to <16 x i8>
+  %75 = sub <16 x i8> %74, %73
+  %76 = bitcast <16 x i8> %75 to <2 x i64>
+  %77 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv.i33.us.i
+  %78 = extractelement <2 x i64> %76, i64 0
+  store i64 %78, ptr %77, align 1, !tbaa !7, !alias.scope !84, !noalias !69
   %indvars.iv.next.i34.us.i = add nuw nsw i64 %indvars.iv.i33.us.i, 8
-  %78 = icmp samesign ult i64 %indvars.iv.next.i34.us.i, %42
-  br i1 %78, label %.lr.ph.i32.us.i, label %.preheader.loopexit.i35.us.i, !llvm.loop !85
+  %79 = icmp samesign ult i64 %indvars.iv.next.i34.us.i, %42
+  br i1 %79, label %.lr.ph.i32.us.i, label %.preheader.loopexit.i35.us.i, !llvm.loop !85
 
 .preheader.loopexit.i35.us.i:                     ; preds = %.lr.ph.i32.us.i
-  %79 = trunc nuw nsw i64 %indvars.iv.next.i34.us.i to i32
-  %80 = icmp sgt i32 %9, %79
-  br i1 %80, label %.lr.ph45.preheader.i.us.i, label %GradientPredictDirect_SSE2.exit.us.i
+  %80 = trunc nuw nsw i64 %indvars.iv.next.i34.us.i to i32
+  %81 = icmp sgt i32 %9, %80
+  br i1 %81, label %.lr.ph45.preheader.i.us.i, label %GradientPredictDirect_SSE2.exit.us.i
 
 .lr.ph45.preheader.i.us.i:                        ; preds = %.preheader.loopexit.i35.us.i
-  %81 = and i64 %indvars.iv.next.i34.us.i, 4294967288
+  %82 = and i64 %indvars.iv.next.i34.us.i, 4294967288
   br label %.lr.ph45.i.us.i
 
 .lr.ph45.i.us.i:                                  ; preds = %.lr.ph45.i.us.i, %.lr.ph45.preheader.i.us.i
-  %indvars.iv47.i.us.i = phi i64 [ %81, %.lr.ph45.preheader.i.us.i ], [ %indvars.iv.next48.i.us.i, %.lr.ph45.i.us.i ]
-  %82 = getelementptr i8, ptr %.025.us.i, i64 %indvars.iv47.i.us.i
-  %83 = load i8, ptr %82, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %84 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv47.i.us.i
-  %85 = load i8, ptr %84, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %gep38.us.i = getelementptr i8, ptr %invariant.gep.us.i, i64 %indvars.iv47.i.us.i
-  %86 = load i8, ptr %gep38.us.i, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %87 = zext i8 %83 to i32
-  %88 = zext i8 %85 to i32
-  %89 = add nuw nsw i32 %88, %87
+  %indvars.iv47.i.us.i = phi i64 [ %82, %.lr.ph45.preheader.i.us.i ], [ %indvars.iv.next48.i.us.i, %.lr.ph45.i.us.i ]
+  %83 = getelementptr i8, ptr %.025.us.i, i64 %indvars.iv47.i.us.i
+  %84 = load i8, ptr %83, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %85 = getelementptr i8, ptr %48, i64 %indvars.iv47.i.us.i
+  %86 = load i8, ptr %85, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %87 = getelementptr i8, ptr %85, i64 -1
+  %88 = load i8, ptr %87, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %89 = zext i8 %84 to i32
   %90 = zext i8 %86 to i32
-  %91 = sub nsw i32 %89, %90
-  %92 = tail call i32 @llvm.smax.i32(i32 %91, i32 0)
-  %93 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %92, i32 255)
-  %94 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv47.i.us.i
-  %95 = load i8, ptr %94, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %96 = trunc nuw i32 %93 to i8
-  %97 = sub i8 %95, %96
-  %98 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv47.i.us.i
-  store i8 %97, ptr %98, align 1, !tbaa !7, !alias.scope !84, !noalias !69
+  %91 = add nuw nsw i32 %90, %89
+  %92 = zext i8 %88 to i32
+  %93 = sub nsw i32 %91, %92
+  %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 0)
+  %95 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %94, i32 255)
+  %96 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv47.i.us.i
+  %97 = load i8, ptr %96, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %98 = trunc nuw i32 %95 to i8
+  %99 = sub i8 %97, %98
+  %100 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv47.i.us.i
+  store i8 %99, ptr %100, align 1, !tbaa !7, !alias.scope !84, !noalias !69
   %indvars.iv.next48.i.us.i = add nuw nsw i64 %indvars.iv47.i.us.i, 1
   %exitcond.not.i30.us.i = icmp eq i64 %indvars.iv.next48.i.us.i, %wide.trip.count.i29.i
   br i1 %exitcond.not.i30.us.i, label %GradientPredictDirect_SSE2.exit.us.i, label %.lr.ph45.i.us.i, !llvm.loop !86
 
 GradientPredictDirect_SSE2.exit.us.i:             ; preds = %.lr.ph45.i.us.i, %.preheader.loopexit.i35.us.i
-  %99 = add nuw nsw i32 %.041.us.i, 1
-  %exitcond61.not.i = icmp eq i32 %99, %2
-  br i1 %exitcond61.not.i, label %DoGradientFilter_SSE2.exit, label %.lr.ph.preheader.i31.us.i, !llvm.loop !87
+  %101 = add nuw nsw i32 %.039.us.i, 1
+  %exitcond57.not.i = icmp eq i32 %101, %2
+  br i1 %exitcond57.not.i, label %DoGradientFilter_SSE2.exit, label %.lr.ph.preheader.i31.us.i, !llvm.loop !87
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  %100 = icmp sgt i32 %1, 1
-  br i1 %100, label %.preheader.i27.us42.i, label %.preheader.i27.i
+  %102 = icmp sgt i32 %1, 1
+  br i1 %102, label %.preheader.i27.us40.i, label %.preheader.i27.i
 
-.preheader.i27.us42.i:                            ; preds = %.lr.ph.split.i, %GradientPredictDirect_SSE2.exit.loopexit.us57.i
-  %.041.us43.i = phi i32 [ %125, %GradientPredictDirect_SSE2.exit.loopexit.us57.i ], [ 1, %.lr.ph.split.i ]
-  %.pn2640.us44.i = phi ptr [ %.024.us46.i, %GradientPredictDirect_SSE2.exit.loopexit.us57.i ], [ %4, %.lr.ph.split.i ]
-  %.pn39.us45.i = phi ptr [ %.025.us47.i, %GradientPredictDirect_SSE2.exit.loopexit.us57.i ], [ %0, %.lr.ph.split.i ]
-  %.024.us46.i = getelementptr inbounds i8, ptr %.pn2640.us44.i, i64 %35
-  %.025.us47.i = getelementptr inbounds i8, ptr %.pn39.us45.i, i64 %35
-  %101 = load i8, ptr %.025.us47.i, align 1, !tbaa !7, !alias.scope !69, !noalias !72
-  %102 = getelementptr inbounds i8, ptr %.025.us47.i, i64 %38
-  %103 = load i8, ptr %102, align 1, !tbaa !7, !alias.scope !69, !noalias !72
-  %104 = sub i8 %101, %103
-  store i8 %104, ptr %.024.us46.i, align 1, !tbaa !7, !alias.scope !72, !noalias !69
-  %105 = getelementptr inbounds nuw i8, ptr %.025.us47.i, i64 1
-  %106 = getelementptr inbounds i8, ptr %105, i64 %39
-  %107 = getelementptr inbounds nuw i8, ptr %.024.us46.i, i64 1
+.preheader.i27.us40.i:                            ; preds = %.lr.ph.split.i, %GradientPredictDirect_SSE2.exit.loopexit.us53.i
+  %.039.us41.i = phi i32 [ %128, %GradientPredictDirect_SSE2.exit.loopexit.us53.i ], [ 1, %.lr.ph.split.i ]
+  %.pn2638.us42.i = phi ptr [ %.024.us44.i, %GradientPredictDirect_SSE2.exit.loopexit.us53.i ], [ %4, %.lr.ph.split.i ]
+  %.pn37.us43.i = phi ptr [ %.025.us45.i, %GradientPredictDirect_SSE2.exit.loopexit.us53.i ], [ %0, %.lr.ph.split.i ]
+  %.024.us44.i = getelementptr inbounds i8, ptr %.pn2638.us42.i, i64 %35
+  %.025.us45.i = getelementptr inbounds i8, ptr %.pn37.us43.i, i64 %35
+  %103 = load i8, ptr %.025.us45.i, align 1, !tbaa !7, !alias.scope !69, !noalias !72
+  %104 = getelementptr inbounds i8, ptr %.025.us45.i, i64 %38
+  %105 = load i8, ptr %104, align 1, !tbaa !7, !alias.scope !69, !noalias !72
+  %106 = sub i8 %103, %105
+  store i8 %106, ptr %.024.us44.i, align 1, !tbaa !7, !alias.scope !72, !noalias !69
+  %107 = getelementptr inbounds nuw i8, ptr %.025.us45.i, i64 1
+  %108 = getelementptr inbounds i8, ptr %107, i64 %39
+  %109 = getelementptr inbounds nuw i8, ptr %.024.us44.i, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %invariant.gep37.us49.i = getelementptr i8, ptr %106, i64 -1
-  br label %.lr.ph45.i.us50.i
+  br label %.lr.ph45.i.us47.i
 
-.lr.ph45.i.us50.i:                                ; preds = %.lr.ph45.i.us50.i, %.preheader.i27.us42.i
-  %indvars.iv47.i.us51.i = phi i64 [ 0, %.preheader.i27.us42.i ], [ %indvars.iv.next48.i.us54.i, %.lr.ph45.i.us50.i ]
-  %108 = getelementptr i8, ptr %.025.us47.i, i64 %indvars.iv47.i.us51.i
-  %109 = load i8, ptr %108, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %110 = getelementptr inbounds nuw i8, ptr %106, i64 %indvars.iv47.i.us51.i
+.lr.ph45.i.us47.i:                                ; preds = %.lr.ph45.i.us47.i, %.preheader.i27.us40.i
+  %indvars.iv47.i.us48.i = phi i64 [ 0, %.preheader.i27.us40.i ], [ %indvars.iv.next48.i.us50.i, %.lr.ph45.i.us47.i ]
+  %110 = getelementptr i8, ptr %.025.us45.i, i64 %indvars.iv47.i.us48.i
   %111 = load i8, ptr %110, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %gep38.us52.i = getelementptr i8, ptr %invariant.gep37.us49.i, i64 %indvars.iv47.i.us51.i
-  %112 = load i8, ptr %gep38.us52.i, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %113 = zext i8 %109 to i32
-  %114 = zext i8 %111 to i32
-  %115 = add nuw nsw i32 %114, %113
-  %116 = zext i8 %112 to i32
-  %117 = sub nsw i32 %115, %116
-  %118 = tail call i32 @llvm.smax.i32(i32 %117, i32 0)
-  %119 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %118, i32 255)
-  %120 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv47.i.us51.i
-  %121 = load i8, ptr %120, align 1, !tbaa !7, !alias.scope !69, !noalias !84
-  %122 = trunc nuw i32 %119 to i8
-  %123 = sub i8 %121, %122
-  %124 = getelementptr inbounds nuw i8, ptr %107, i64 %indvars.iv47.i.us51.i
-  store i8 %123, ptr %124, align 1, !tbaa !7, !alias.scope !84, !noalias !69
-  %indvars.iv.next48.i.us54.i = add nuw nsw i64 %indvars.iv47.i.us51.i, 1
-  %exitcond.not.i30.us55.i = icmp eq i64 %indvars.iv.next48.i.us54.i, %wide.trip.count.i29.i
-  br i1 %exitcond.not.i30.us55.i, label %GradientPredictDirect_SSE2.exit.loopexit.us57.i, label %.lr.ph45.i.us50.i, !llvm.loop !86
+  %112 = getelementptr i8, ptr %108, i64 %indvars.iv47.i.us48.i
+  %113 = load i8, ptr %112, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %114 = getelementptr i8, ptr %112, i64 -1
+  %115 = load i8, ptr %114, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %116 = zext i8 %111 to i32
+  %117 = zext i8 %113 to i32
+  %118 = add nuw nsw i32 %117, %116
+  %119 = zext i8 %115 to i32
+  %120 = sub nsw i32 %118, %119
+  %121 = tail call i32 @llvm.smax.i32(i32 %120, i32 0)
+  %122 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %121, i32 255)
+  %123 = getelementptr inbounds nuw i8, ptr %107, i64 %indvars.iv47.i.us48.i
+  %124 = load i8, ptr %123, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %125 = trunc nuw i32 %122 to i8
+  %126 = sub i8 %124, %125
+  %127 = getelementptr inbounds nuw i8, ptr %109, i64 %indvars.iv47.i.us48.i
+  store i8 %126, ptr %127, align 1, !tbaa !7, !alias.scope !84, !noalias !69
+  %indvars.iv.next48.i.us50.i = add nuw nsw i64 %indvars.iv47.i.us48.i, 1
+  %exitcond.not.i30.us51.i = icmp eq i64 %indvars.iv.next48.i.us50.i, %wide.trip.count.i29.i
+  br i1 %exitcond.not.i30.us51.i, label %GradientPredictDirect_SSE2.exit.loopexit.us53.i, label %.lr.ph45.i.us47.i, !llvm.loop !86
 
-GradientPredictDirect_SSE2.exit.loopexit.us57.i:  ; preds = %.lr.ph45.i.us50.i
-  %125 = add nuw nsw i32 %.041.us43.i, 1
-  %exitcond60.not.i = icmp eq i32 %125, %2
-  br i1 %exitcond60.not.i, label %DoGradientFilter_SSE2.exit, label %.preheader.i27.us42.i, !llvm.loop !88
+GradientPredictDirect_SSE2.exit.loopexit.us53.i:  ; preds = %.lr.ph45.i.us47.i
+  %128 = add nuw nsw i32 %.039.us41.i, 1
+  %exitcond56.not.i = icmp eq i32 %128, %2
+  br i1 %exitcond56.not.i, label %DoGradientFilter_SSE2.exit, label %.preheader.i27.us40.i, !llvm.loop !88
 
 .preheader.i27.i:                                 ; preds = %.lr.ph.split.i, %.preheader.i27.i
-  %.041.i = phi i32 [ %130, %.preheader.i27.i ], [ 1, %.lr.ph.split.i ]
-  %.pn2640.i = phi ptr [ %.024.i, %.preheader.i27.i ], [ %4, %.lr.ph.split.i ]
-  %.pn39.i = phi ptr [ %.025.i, %.preheader.i27.i ], [ %0, %.lr.ph.split.i ]
-  %.024.i = getelementptr inbounds i8, ptr %.pn2640.i, i64 %35
-  %.025.i = getelementptr inbounds i8, ptr %.pn39.i, i64 %35
-  %126 = load i8, ptr %.025.i, align 1, !tbaa !7, !alias.scope !69, !noalias !72
-  %127 = getelementptr inbounds i8, ptr %.025.i, i64 %38
-  %128 = load i8, ptr %127, align 1, !tbaa !7, !alias.scope !69, !noalias !72
-  %129 = sub i8 %126, %128
-  store i8 %129, ptr %.024.i, align 1, !tbaa !7, !alias.scope !72, !noalias !69
+  %.039.i = phi i32 [ %133, %.preheader.i27.i ], [ 1, %.lr.ph.split.i ]
+  %.pn2638.i = phi ptr [ %.024.i, %.preheader.i27.i ], [ %4, %.lr.ph.split.i ]
+  %.pn37.i = phi ptr [ %.025.i, %.preheader.i27.i ], [ %0, %.lr.ph.split.i ]
+  %.024.i = getelementptr inbounds i8, ptr %.pn2638.i, i64 %35
+  %.025.i = getelementptr inbounds i8, ptr %.pn37.i, i64 %35
+  %129 = load i8, ptr %.025.i, align 1, !tbaa !7, !alias.scope !69, !noalias !72
+  %130 = getelementptr inbounds i8, ptr %.025.i, i64 %38
+  %131 = load i8, ptr %130, align 1, !tbaa !7, !alias.scope !69, !noalias !72
+  %132 = sub i8 %129, %131
+  store i8 %132, ptr %.024.i, align 1, !tbaa !7, !alias.scope !72, !noalias !69
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %130 = add nuw nsw i32 %.041.i, 1
-  %exitcond.not.i = icmp eq i32 %130, %2
+  %133 = add nuw nsw i32 %.039.i, 1
+  %exitcond.not.i = icmp eq i32 %133, %2
   br i1 %exitcond.not.i, label %DoGradientFilter_SSE2.exit, label %.preheader.i27.i, !llvm.loop !89
 
-DoGradientFilter_SSE2.exit:                       ; preds = %.preheader.i27.i, %GradientPredictDirect_SSE2.exit.loopexit.us57.i, %GradientPredictDirect_SSE2.exit.us.i, %PredictLineLeft_SSE2.exit.i
+DoGradientFilter_SSE2.exit:                       ; preds = %.preheader.i27.i, %GradientPredictDirect_SSE2.exit.loopexit.us53.i, %GradientPredictDirect_SSE2.exit.us.i, %PredictLineLeft_SSE2.exit.i
   ret void
 }
 

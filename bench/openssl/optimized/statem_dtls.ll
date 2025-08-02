@@ -493,7 +493,7 @@ define range(i32 0, 2) i32 @dtls_get_message(ptr noundef %0, ptr noundef writeon
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 3344
-  %23 = getelementptr i8, ptr %0, i64 3384
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 3384
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1280
@@ -794,7 +794,7 @@ dtls1_retrieve_buffered_fragment.exit.i:          ; preds = %105
   store i64 %200, ptr %21, align 8, !tbaa !90
   %201 = load i64, ptr %22, align 8, !tbaa !125
   %.idx.i = shl nuw nsw i64 %201, 6
-  %202 = getelementptr i8, ptr %23, i64 %.idx.i
+  %202 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
   %203 = load i64, ptr %202, align 8, !tbaa !126
   %204 = icmp ugt i64 %200, %203
   br i1 %204, label %205, label %206

@@ -307,30 +307,30 @@ define void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull writeonly align 8 c
   %.phi.trans.insert22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre23 = load i32, ptr %.phi.trans.insert22, align 4, !tbaa !34
   %.pre24 = load i32, ptr %4, align 16, !tbaa !34
-  %6 = add i32 %.pre24, -1900
+  %6 = tail call i32 @llvm.umax.i32(i32 %.pre21, i32 1)
+  %7 = tail call i32 @llvm.usub.sat.i32(i32 %.pre23, i32 1)
+  %8 = add i32 %.pre24, -1900
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %7 = phi i32 [ %6, %._crit_edge.loopexit ], [ -1900, %2 ]
-  %8 = phi i32 [ %.pre23, %._crit_edge.loopexit ], [ 0, %2 ]
-  %9 = phi i32 [ %.pre21, %._crit_edge.loopexit ], [ 0, %2 ]
-  %10 = phi i32 [ %.pre19, %._crit_edge.loopexit ], [ 0, %2 ]
-  %11 = phi i32 [ %.pre17, %._crit_edge.loopexit ], [ 0, %2 ]
-  %12 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %2 ]
-  %13 = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
+  %9 = phi i32 [ %8, %._crit_edge.loopexit ], [ -1900, %2 ]
+  %10 = phi i32 [ %7, %._crit_edge.loopexit ], [ 0, %2 ]
+  %11 = phi i32 [ %6, %._crit_edge.loopexit ], [ 1, %2 ]
+  %12 = phi i32 [ %.pre19, %._crit_edge.loopexit ], [ 0, %2 ]
+  %13 = phi i32 [ %.pre17, %._crit_edge.loopexit ], [ 0, %2 ]
+  %14 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #13
-  store i32 %12, ptr %3, align 8, !tbaa !24
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %11, ptr %14, align 4, !tbaa !22
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %10, ptr %15, align 8, !tbaa !20
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %13, ptr %16, align 4, !tbaa !18
-  %17 = tail call i32 @llvm.usub.sat.i32(i32 %8, i32 1)
+  store i32 %14, ptr %3, align 8, !tbaa !24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %13, ptr %15, align 4, !tbaa !22
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %12, ptr %16, align 8, !tbaa !20
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %11, ptr %17, align 4, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %17, ptr %18, align 8, !tbaa !16
+  store i32 %10, ptr %18, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %7, ptr %19, align 4, !tbaa !9
+  store i32 %9, ptr %19, align 4, !tbaa !9
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %20, align 8, !tbaa !31
   %21 = call i64 @mktime(ptr noundef nonnull %3) #13

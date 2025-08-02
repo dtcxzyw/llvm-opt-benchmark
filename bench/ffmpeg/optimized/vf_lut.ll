@@ -514,8 +514,8 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef readonly capture
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %100
 
-100:                                              ; preds = %.lr.ph, %151
-  %indvars.iv131 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next132, %151 ]
+100:                                              ; preds = %.lr.ph, %152
+  %indvars.iv131 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next132, %152 ]
   %101 = load i32, ptr %67, align 8, !tbaa !24
   %.not104 = icmp eq i32 %101, 0
   %102 = trunc nuw nsw i64 %indvars.iv131 to i32
@@ -558,60 +558,61 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef readonly capture
   %126 = add nsw i32 %124, %121
   %127 = sitofp i32 %126 to double
   %128 = zext nneg i32 %108 to i64
-  %129 = sext i32 %124 to i64
-  br label %130
+  %129 = getelementptr inbounds nuw [4 x [65536 x i16]], ptr %99, i64 0, i64 %128
+  %130 = sext i32 %124 to i64
+  br label %131
 
-130:                                              ; preds = %119, %145
-  %indvars.iv = phi i64 [ 0, %119 ], [ %indvars.iv.next, %145 ]
-  %131 = trunc nuw nsw i64 %indvars.iv to i32
-  %132 = uitofp nneg i32 %131 to double
-  store double %132, ptr %96, align 8, !tbaa !63
-  %133 = icmp slt i64 %indvars.iv, %129
-  %..i = call i32 @llvm.smin.i32(i32 %131, i32 %121)
-  %.0.i = select i1 %133, i32 %124, i32 %..i
-  %134 = sitofp i32 %.0.i to double
-  store double %134, ptr %97, align 8, !tbaa !63
-  %135 = fsub nsz double %127, %132
-  %136 = fptosi double %135 to i32
-  %137 = icmp sgt i32 %124, %136
-  %..i105 = call i32 @llvm.smin.i32(i32 %121, i32 %136)
-  %.0.i106 = select i1 %137, i32 %124, i32 %..i105
-  %138 = sitofp i32 %.0.i106 to double
-  store double %138, ptr %98, align 8, !tbaa !63
-  %139 = load ptr, ptr %109, align 8, !tbaa !20
-  %140 = call nsz double @av_expr_eval(ptr noundef %139, ptr noundef nonnull %23, ptr noundef nonnull %8) #11
-  %141 = fcmp uno double %140, 0.000000e+00
-  br i1 %141, label %142, label %145
+131:                                              ; preds = %119, %146
+  %indvars.iv = phi i64 [ 0, %119 ], [ %indvars.iv.next, %146 ]
+  %132 = trunc nuw nsw i64 %indvars.iv to i32
+  %133 = uitofp nneg i32 %132 to double
+  store double %133, ptr %96, align 8, !tbaa !63
+  %134 = icmp slt i64 %indvars.iv, %130
+  %..i = call i32 @llvm.smin.i32(i32 %132, i32 %121)
+  %.0.i = select i1 %134, i32 %124, i32 %..i
+  %135 = sitofp i32 %.0.i to double
+  store double %135, ptr %97, align 8, !tbaa !63
+  %136 = fsub nsz double %127, %133
+  %137 = fptosi double %136 to i32
+  %138 = icmp sgt i32 %124, %137
+  %..i105 = call i32 @llvm.smin.i32(i32 %121, i32 %137)
+  %.0.i106 = select i1 %138, i32 %124, i32 %..i105
+  %139 = sitofp i32 %.0.i106 to double
+  store double %139, ptr %98, align 8, !tbaa !63
+  %140 = load ptr, ptr %109, align 8, !tbaa !20
+  %141 = call nsz double @av_expr_eval(ptr noundef %140, ptr noundef nonnull %23, ptr noundef nonnull %8) #11
+  %142 = fcmp uno double %141, 0.000000e+00
+  br i1 %142, label %143, label %146
 
-142:                                              ; preds = %130
-  %143 = getelementptr inbounds nuw [4 x ptr], ptr %93, i64 0, i64 %indvars.iv131
-  %144 = load ptr, ptr %143, align 8, !tbaa !72
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %6, i32 noundef 16, ptr noundef nonnull @.str.8, ptr noundef %144, i32 noundef %131, i32 noundef %108) #11
+143:                                              ; preds = %131
+  %144 = getelementptr inbounds nuw [4 x ptr], ptr %93, i64 0, i64 %indvars.iv131
+  %145 = load ptr, ptr %144, align 8, !tbaa !72
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %6, i32 noundef 16, ptr noundef nonnull @.str.8, ptr noundef %145, i32 noundef %132, i32 noundef %108) #11
   br label %.critedge
 
-145:                                              ; preds = %130
-  %146 = fptosi double %140 to i32
-  %147 = icmp slt i32 %146, 0
-  %..i107 = call i32 @llvm.smin.i32(i32 %66, i32 %146)
-  %.0.i108 = select i1 %147, i32 0, i32 %..i107
-  %148 = trunc i32 %.0.i108 to i16
-  %149 = getelementptr inbounds nuw [4 x [65536 x i16]], ptr %99, i64 0, i64 %128, i64 %indvars.iv
-  store i16 %148, ptr %149, align 2, !tbaa !73
-  %150 = and i32 %.0.i108, 65535
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %6, i32 noundef 48, ptr noundef nonnull @.str.9, i32 noundef %108, i32 noundef %131, i32 noundef %150) #11
+146:                                              ; preds = %131
+  %147 = fptosi double %141 to i32
+  %148 = icmp slt i32 %147, 0
+  %..i107 = call i32 @llvm.smin.i32(i32 %66, i32 %147)
+  %.0.i108 = select i1 %148, i32 0, i32 %..i107
+  %149 = trunc i32 %.0.i108 to i16
+  %150 = getelementptr inbounds nuw [65536 x i16], ptr %129, i64 0, i64 %indvars.iv
+  store i16 %149, ptr %150, align 2, !tbaa !73
+  %151 = and i32 %.0.i108, 65535
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %6, i32 noundef 48, ptr noundef nonnull @.str.9, i32 noundef %108, i32 noundef %132, i32 noundef %151) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
-  br i1 %exitcond.not, label %151, label %130, !llvm.loop !75
+  br i1 %exitcond.not, label %152, label %131, !llvm.loop !75
 
-151:                                              ; preds = %145
+152:                                              ; preds = %146
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %152 = load i8, ptr %90, align 8, !tbaa !70
-  %153 = zext i8 %152 to i64
-  %154 = icmp samesign ult i64 %indvars.iv.next132, %153
-  br i1 %154, label %100, label %.critedge, !llvm.loop !76
+  %153 = load i8, ptr %90, align 8, !tbaa !70
+  %154 = zext i8 %153 to i64
+  %155 = icmp samesign ult i64 %indvars.iv.next132, %154
+  br i1 %155, label %100, label %.critedge, !llvm.loop !76
 
-.critedge:                                        ; preds = %151, %89, %115, %142
-  %.2 = phi i32 [ -22, %142 ], [ -22, %115 ], [ 0, %89 ], [ 0, %151 ]
+.critedge:                                        ; preds = %152, %89, %115, %143
+  %.2 = phi i32 [ -22, %143 ], [ -22, %115 ], [ 0, %89 ], [ 0, %152 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11

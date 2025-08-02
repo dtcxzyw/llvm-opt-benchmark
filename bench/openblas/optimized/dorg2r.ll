@@ -104,7 +104,6 @@ define void @dorg2r_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %48 = zext nneg i32 %21 to i64
   %49 = sext i32 %12 to i64
   %wide.trip.count = zext nneg i32 %21 to i64
-  %invariant.gep = getelementptr i8, ptr %14, i64 8
   br label %58
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -126,7 +125,7 @@ define void @dorg2r_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %exitcond.not = icmp eq i32 %indvar.next, %38
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.lr.ph110.preheader, %92
+.loopexit:                                        ; preds = %.lr.ph110.preheader, %94
   %indvar.next126 = add nuw nsw i64 %indvar125, 1
   %exitcond135.not = icmp eq i64 %indvar.next126, %wide.trip.count
   br i1 %exitcond135.not, label %.loopexit99, label %58, !llvm.loop !11
@@ -173,7 +172,7 @@ define void @dorg2r_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %82 = phi i32 [ %.pre, %69 ], [ %.pre136, %58 ]
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv130, %83
-  br i1 %84, label %85, label %92
+  br i1 %84, label %85, label %94
 
 85:                                               ; preds = %81
   %86 = sub nsw i32 %82, %indvars134
@@ -183,27 +182,28 @@ define void @dorg2r_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %89 = fneg double %88
   store double %89, ptr %11, align 8, !tbaa !7
   %90 = mul nsw i64 %indvars.iv130, %49
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv130
-  %91 = getelementptr double, ptr %gep, i64 %90
-  call void @dscal_(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef %91, ptr noundef nonnull @c__1) #5
-  br label %92
+  %91 = getelementptr double, ptr %14, i64 %indvars.iv130
+  %92 = getelementptr i8, ptr %91, i64 8
+  %93 = getelementptr double, ptr %92, i64 %90
+  call void @dscal_(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef %93, ptr noundef nonnull @c__1) #5
+  br label %94
 
-92:                                               ; preds = %85, %81
-  %93 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv130
-  %94 = load double, ptr %93, align 8, !tbaa !7
-  %95 = fsub double 1.000000e+00, %94
-  %96 = mul nsw i32 %12, %indvars134
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr double, ptr %14, i64 %indvars.iv130
-  %99 = getelementptr double, ptr %98, i64 %97
-  store double %95, ptr %99, align 8, !tbaa !7
+94:                                               ; preds = %85, %81
+  %95 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv130
+  %96 = load double, ptr %95, align 8, !tbaa !7
+  %97 = fsub double 1.000000e+00, %96
+  %98 = mul nsw i32 %12, %indvars134
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr double, ptr %14, i64 %indvars.iv130
+  %101 = getelementptr double, ptr %100, i64 %99
+  store double %97, ptr %101, align 8, !tbaa !7
   %indvars.iv.next131 = add nsw i64 %indvars.iv130, -1
-  %100 = trunc nuw nsw i64 %indvars.iv.next131 to i32
-  store i32 %100, ptr %9, align 4, !tbaa !3
+  %102 = trunc nuw nsw i64 %indvars.iv.next131 to i32
+  store i32 %102, ptr %9, align 4, !tbaa !3
   %.not95.not107 = icmp sgt i64 %indvars.iv130, 1
   br i1 %.not95.not107, label %.lr.ph110.preheader, label %.loopexit
 
-.lr.ph110.preheader:                              ; preds = %92
+.lr.ph110.preheader:                              ; preds = %94
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep124, i8 0, i64 %65, i1 false), !tbaa !7
   br label %.loopexit
 

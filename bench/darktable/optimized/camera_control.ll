@@ -986,7 +986,7 @@ define void @dt_camctl_unregister_listener(ptr noundef %0, ptr noundef %1) local
 declare ptr @g_list_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @dt_update_cameras_thread(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+define noalias noundef ptr @dt_update_cameras_thread(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.CameraAbilities, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -3030,7 +3030,7 @@ _camctl_lock.exit:                                ; preds = %41, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_camera_event_thread(ptr noundef %0) #0 {
+define internal noalias noundef ptr @_camera_event_thread(ptr noundef %0) #0 {
   %2 = alloca %struct.CameraFilePath, align 1
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -3385,7 +3385,7 @@ _camera_get_job.exit.thread:                      ; preds = %_camera_process_job
   br label %.loopexit
 
 _camera_get_job.exit:                             ; preds = %_camera_poll_events.exit, %_camera_process_job.exit
-  %169 = phi ptr [ %493, %_camera_process_job.exit ], [ %167, %_camera_poll_events.exit ]
+  %169 = phi ptr [ %501, %_camera_process_job.exit ], [ %167, %_camera_poll_events.exit ]
   %170 = load ptr, ptr %169, align 8, !tbaa !78
   %171 = call ptr @g_list_remove(ptr noundef nonnull %169, ptr noundef %170) #15
   store ptr %171, ptr %39, align 8, !tbaa !66
@@ -3395,14 +3395,14 @@ _camera_get_job.exit:                             ; preds = %_camera_poll_events
 
 173:                                              ; preds = %_camera_get_job.exit
   %174 = load i32, ptr %170, align 4, !tbaa !70
-  switch i32 %174, label %488 [
+  switch i32 %174, label %496 [
     i32 1, label %175
     i32 2, label %243
     i32 5, label %305
     i32 7, label %335
     i32 6, label %382
     i32 8, label %406
-    i32 9, label %446
+    i32 9, label %450
   ]
 
 175:                                              ; preds = %173
@@ -3457,42 +3457,42 @@ _dispatch_request_image_path.exit.i24:            ; preds = %192, %184
   %195 = call i32 @pthread_mutex_lock(ptr noundef nonnull %33) #15
   %.01518.i.i26 = load ptr, ptr %34, align 8, !tbaa !83
   %.not19.i.i27 = icmp eq ptr %.01518.i.i26, null
-  br i1 %.not19.i.i27, label %_dispatch_request_image_filename.exit.thread.i, label %.lr.ph.i160.i
+  br i1 %.not19.i.i27, label %_dispatch_request_image_filename.exit.thread.i, label %.lr.ph.i164.i
 
 _dispatch_request_image_filename.exit.thread.i:   ; preds = %_dispatch_request_image_path.exit.i24
   %196 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #15
   br label %.critedge.i34
 
-.lr.ph.i160.i:                                    ; preds = %_dispatch_request_image_path.exit.i24, %203
+.lr.ph.i164.i:                                    ; preds = %_dispatch_request_image_path.exit.i24, %203
   %.01521.i.i28 = phi ptr [ %.015.i.i31, %203 ], [ %.01518.i.i26, %_dispatch_request_image_path.exit.i24 ]
-  %.020.i.i29 = phi ptr [ %.1.i161.i, %203 ], [ null, %_dispatch_request_image_path.exit.i24 ]
+  %.020.i.i29 = phi ptr [ %.1.i165.i, %203 ], [ null, %_dispatch_request_image_path.exit.i24 ]
   %197 = load ptr, ptr %.01521.i.i28, align 8, !tbaa !78
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %199 = load ptr, ptr %198, align 8, !tbaa !131
   %.not17.i.i30 = icmp eq ptr %199, null
   br i1 %.not17.i.i30, label %203, label %200
 
-200:                                              ; preds = %.lr.ph.i160.i
+200:                                              ; preds = %.lr.ph.i164.i
   %201 = load ptr, ptr %197, align 8, !tbaa !86
   %202 = call ptr %199(ptr noundef %23, ptr noundef nonnull %2, ptr noundef null, ptr noundef %201) #15
   br label %203
 
-203:                                              ; preds = %200, %.lr.ph.i160.i
-  %.1.i161.i = phi ptr [ %202, %200 ], [ %.020.i.i29, %.lr.ph.i160.i ]
+203:                                              ; preds = %200, %.lr.ph.i164.i
+  %.1.i165.i = phi ptr [ %202, %200 ], [ %.020.i.i29, %.lr.ph.i164.i ]
   %204 = getelementptr inbounds nuw i8, ptr %.01521.i.i28, i64 8
   %.015.i.i31 = load ptr, ptr %204, align 8, !tbaa !83
-  %.not.i162.i = icmp eq ptr %.015.i.i31, null
-  br i1 %.not.i162.i, label %_dispatch_request_image_filename.exit.i32, label %.lr.ph.i160.i
+  %.not.i166.i = icmp eq ptr %.015.i.i31, null
+  br i1 %.not.i166.i, label %_dispatch_request_image_filename.exit.i32, label %.lr.ph.i164.i
 
 _dispatch_request_image_filename.exit.i32:        ; preds = %203
   %205 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #15
-  %.not155.not.i = icmp eq ptr %.1.i161.i, null
+  %.not155.not.i = icmp eq ptr %.1.i165.i, null
   br i1 %.not155.not.i, label %.critedge.i34, label %206
 
 206:                                              ; preds = %_dispatch_request_image_filename.exit.i32
   %.not154.i = icmp eq ptr %.0.lcssa.i.i25, null
   %spec.store.select.i33 = select i1 %.not154.i, ptr @.str.91, ptr %.0.lcssa.i.i25
-  %207 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %spec.store.select.i33, ptr noundef nonnull %.1.i161.i, ptr noundef null) #15
+  %207 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %spec.store.select.i33, ptr noundef nonnull %.1.i165.i, ptr noundef null) #15
   %208 = call i32 (ptr, i32, ...) @open(ptr noundef %207, i32 noundef 65, i32 noundef 438) #15
   %.not156.i = icmp eq i32 %208, -1
   br i1 %.not156.i, label %232, label %209
@@ -3916,7 +3916,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   %418 = load ptr, ptr %417, align 8, !tbaa !64
   %419 = call i32 @gp_widget_get_child_by_name(ptr noundef %416, ptr noundef %418, ptr noundef nonnull %13) #15
   %420 = icmp eq i32 %419, 0
-  br i1 %420, label %421, label %443
+  br i1 %420, label %421, label %447
 
 421:                                              ; preds = %414
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #15
@@ -3926,7 +3926,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   %424 = load ptr, ptr %13, align 8, !tbaa !146
   %425 = call i32 @gp_widget_set_value(ptr noundef %424, ptr noundef nonnull %14) #15
   %.not132.i = icmp eq i32 %425, 0
-  br i1 %.not132.i, label %432, label %426
+  br i1 %.not132.i, label %.critedge161.i, label %426
 
 426:                                              ; preds = %421
   %427 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
@@ -3940,140 +3940,150 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.107, i32 noundef %430, ptr noundef %431, i32 noundef %425) #15
   br label %432
 
-432:                                              ; preds = %429, %426, %421
+432:                                              ; preds = %429, %426
   %433 = load ptr, ptr %31, align 8, !tbaa !94
   %434 = load ptr, ptr %417, align 8, !tbaa !64
   %435 = load ptr, ptr %13, align 8, !tbaa !146
   %436 = load ptr, ptr %32, align 8, !tbaa !73
   %437 = call i32 @gp_camera_set_single_config(ptr noundef %433, ptr noundef %434, ptr noundef %435, ptr noundef %436) #15
-  br i1 %.not132.i, label %442, label %438
+  %438 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
+  %439 = and i32 %438, 32
+  %.not134.i = icmp eq i32 %439, 0
+  br i1 %.not134.i, label %446, label %440
 
-438:                                              ; preds = %432
-  %439 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
-  %440 = and i32 %439, 32
-  %.not134.i = icmp eq i32 %440, 0
-  br i1 %.not134.i, label %442, label %441
-
-441:                                              ; preds = %438
+440:                                              ; preds = %432
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.108, i32 noundef %437) #15
-  br label %442
+  br label %446
 
-442:                                              ; preds = %441, %438, %432
+.critedge161.i:                                   ; preds = %421
+  %441 = load ptr, ptr %31, align 8, !tbaa !94
+  %442 = load ptr, ptr %417, align 8, !tbaa !64
+  %443 = load ptr, ptr %13, align 8, !tbaa !146
+  %444 = load ptr, ptr %32, align 8, !tbaa !73
+  %445 = call i32 @gp_camera_set_single_config(ptr noundef %441, ptr noundef %442, ptr noundef %443, ptr noundef %444) #15
+  br label %446
+
+446:                                              ; preds = %.critedge161.i, %440, %432
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #15
-  br label %443
+  br label %447
 
-443:                                              ; preds = %442, %414
-  %444 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #15
-  %445 = load ptr, ptr %417, align 8, !tbaa !64
-  call void @g_free(ptr noundef %445) #15
+447:                                              ; preds = %446, %414
+  %448 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #15
+  %449 = load ptr, ptr %417, align 8, !tbaa !64
+  call void @g_free(ptr noundef %449) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
   br label %_camera_process_job.exit
 
-446:                                              ; preds = %173
-  %447 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
-  %448 = and i32 %447, 32
-  %.not.i14 = icmp eq i32 %448, 0
-  br i1 %.not.i14, label %455, label %449
+450:                                              ; preds = %173
+  %451 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
+  %452 = and i32 %451, 32
+  %.not.i14 = icmp eq i32 %452, 0
+  br i1 %.not.i14, label %459, label %453
 
-449:                                              ; preds = %446
-  %450 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %451 = load ptr, ptr %450, align 8, !tbaa !194
-  %452 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %453 = load float, ptr %452, align 8, !tbaa !197
-  %454 = fpext reassoc nsz arcp contract afn float %453 to double
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.109, ptr noundef %451, double noundef %454) #15
-  br label %455
+453:                                              ; preds = %450
+  %454 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %455 = load ptr, ptr %454, align 8, !tbaa !194
+  %456 = getelementptr inbounds nuw i8, ptr %170, i64 16
+  %457 = load float, ptr %456, align 8, !tbaa !197
+  %458 = fpext reassoc nsz arcp contract afn float %457 to double
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.109, ptr noundef %455, double noundef %458) #15
+  br label %459
 
-455:                                              ; preds = %449, %446
-  %456 = call i32 @pthread_mutex_lock(ptr noundef nonnull %36) #15
+459:                                              ; preds = %453, %450
+  %460 = call i32 @pthread_mutex_lock(ptr noundef nonnull %36) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
-  %457 = load ptr, ptr %37, align 8, !tbaa !96
-  %458 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %459 = load ptr, ptr %458, align 8, !tbaa !194
-  %460 = call i32 @gp_widget_get_child_by_name(ptr noundef %457, ptr noundef %459, ptr noundef nonnull %15) #15
-  %461 = icmp eq i32 %460, 0
-  br i1 %461, label %462, label %485
+  %461 = load ptr, ptr %37, align 8, !tbaa !96
+  %462 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %463 = load ptr, ptr %462, align 8, !tbaa !194
+  %464 = call i32 @gp_widget_get_child_by_name(ptr noundef %461, ptr noundef %463, ptr noundef nonnull %15) #15
+  %465 = icmp eq i32 %464, 0
+  br i1 %465, label %466, label %493
 
-462:                                              ; preds = %455
+466:                                              ; preds = %459
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #15
-  %463 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %464 = load float, ptr %463, align 8, !tbaa !197
-  store float %464, ptr %16, align 4, !tbaa !198
-  %465 = load ptr, ptr %15, align 8, !tbaa !146
-  %466 = call i32 @gp_widget_set_value(ptr noundef %465, ptr noundef nonnull %16) #15
-  %.not128.i = icmp eq i32 %466, 0
-  br i1 %.not128.i, label %474, label %467
+  %467 = getelementptr inbounds nuw i8, ptr %170, i64 16
+  %468 = load float, ptr %467, align 8, !tbaa !197
+  store float %468, ptr %16, align 4, !tbaa !198
+  %469 = load ptr, ptr %15, align 8, !tbaa !146
+  %470 = call i32 @gp_widget_set_value(ptr noundef %469, ptr noundef nonnull %16) #15
+  %.not128.i = icmp eq i32 %470, 0
+  br i1 %.not128.i, label %.critedge163.i, label %471
 
-467:                                              ; preds = %462
-  %468 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
-  %469 = and i32 %468, 32
-  %.not129.i = icmp eq i32 %469, 0
-  br i1 %.not129.i, label %474, label %470
+471:                                              ; preds = %466
+  %472 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
+  %473 = and i32 %472, 32
+  %.not129.i = icmp eq i32 %473, 0
+  br i1 %.not129.i, label %478, label %474
 
-470:                                              ; preds = %467
-  %471 = load float, ptr %463, align 8, !tbaa !197
-  %472 = fpext reassoc nsz arcp contract afn float %471 to double
-  %473 = load ptr, ptr %458, align 8, !tbaa !194
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.110, double noundef %472, ptr noundef %473, i32 noundef %466) #15
-  br label %474
+474:                                              ; preds = %471
+  %475 = load float, ptr %467, align 8, !tbaa !197
+  %476 = fpext reassoc nsz arcp contract afn float %475 to double
+  %477 = load ptr, ptr %462, align 8, !tbaa !194
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.110, double noundef %476, ptr noundef %477, i32 noundef %470) #15
+  br label %478
 
-474:                                              ; preds = %470, %467, %462
-  %475 = load ptr, ptr %31, align 8, !tbaa !94
-  %476 = load ptr, ptr %458, align 8, !tbaa !194
-  %477 = load ptr, ptr %15, align 8, !tbaa !146
-  %478 = load ptr, ptr %32, align 8, !tbaa !73
-  %479 = call i32 @gp_camera_set_single_config(ptr noundef %475, ptr noundef %476, ptr noundef %477, ptr noundef %478) #15
-  br i1 %.not128.i, label %484, label %480
+478:                                              ; preds = %474, %471
+  %479 = load ptr, ptr %31, align 8, !tbaa !94
+  %480 = load ptr, ptr %462, align 8, !tbaa !194
+  %481 = load ptr, ptr %15, align 8, !tbaa !146
+  %482 = load ptr, ptr %32, align 8, !tbaa !73
+  %483 = call i32 @gp_camera_set_single_config(ptr noundef %479, ptr noundef %480, ptr noundef %481, ptr noundef %482) #15
+  %484 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
+  %485 = and i32 %484, 32
+  %.not130.i = icmp eq i32 %485, 0
+  br i1 %.not130.i, label %492, label %486
 
-480:                                              ; preds = %474
-  %481 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
-  %482 = and i32 %481, 32
-  %.not130.i = icmp eq i32 %482, 0
-  br i1 %.not130.i, label %484, label %483
+486:                                              ; preds = %478
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.108, i32 noundef %483) #15
+  br label %492
 
-483:                                              ; preds = %480
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.108, i32 noundef %479) #15
-  br label %484
+.critedge163.i:                                   ; preds = %466
+  %487 = load ptr, ptr %31, align 8, !tbaa !94
+  %488 = load ptr, ptr %462, align 8, !tbaa !194
+  %489 = load ptr, ptr %15, align 8, !tbaa !146
+  %490 = load ptr, ptr %32, align 8, !tbaa !73
+  %491 = call i32 @gp_camera_set_single_config(ptr noundef %487, ptr noundef %488, ptr noundef %489, ptr noundef %490) #15
+  br label %492
 
-484:                                              ; preds = %483, %480, %474
+492:                                              ; preds = %.critedge163.i, %486, %478
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #15
-  br label %485
+  br label %493
 
-485:                                              ; preds = %484, %455
-  %486 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #15
-  %487 = load ptr, ptr %458, align 8, !tbaa !194
-  call void @g_free(ptr noundef %487) #15
+493:                                              ; preds = %492, %459
+  %494 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #15
+  %495 = load ptr, ptr %462, align 8, !tbaa !194
+  call void @g_free(ptr noundef %495) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
   br label %_camera_process_job.exit
 
-488:                                              ; preds = %173
-  %489 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
-  %490 = and i32 %489, 32
-  %.not159.i = icmp eq i32 %490, 0
-  br i1 %.not159.i, label %_camera_process_job.exit, label %491
+496:                                              ; preds = %173
+  %497 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
+  %498 = and i32 %497, 32
+  %.not159.i = icmp eq i32 %498, 0
+  br i1 %.not159.i, label %_camera_process_job.exit, label %499
 
-491:                                              ; preds = %488
+499:                                              ; preds = %496
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.111, i32 noundef %174) #15
   br label %_camera_process_job.exit
 
-_camera_process_job.exit:                         ; preds = %242, %303, %330, %380, %403, %443, %485, %488, %491
+_camera_process_job.exit:                         ; preds = %242, %303, %330, %380, %403, %447, %493, %496, %499
   call void @g_free(ptr noundef nonnull %170) #15
-  %492 = call i32 @pthread_mutex_lock(ptr noundef nonnull %38) #15
-  %493 = load ptr, ptr %39, align 8, !tbaa !66
-  %.not.i13 = icmp eq ptr %493, null
+  %500 = call i32 @pthread_mutex_lock(ptr noundef nonnull %38) #15
+  %501 = load ptr, ptr %39, align 8, !tbaa !66
+  %.not.i13 = icmp eq ptr %501, null
   br i1 %.not.i13, label %_camera_get_job.exit.thread, label %_camera_get_job.exit
 
 ._crit_edge:                                      ; preds = %.loopexit, %27
-  %494 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
-  %495 = and i32 %494, 32
-  %.not11 = icmp eq i32 %495, 0
-  br i1 %.not11, label %497, label %496
+  %502 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
+  %503 = and i32 %502, 32
+  %.not11 = icmp eq i32 %503, 0
+  br i1 %.not11, label %505, label %504
 
-496:                                              ; preds = %._crit_edge
+504:                                              ; preds = %._crit_edge
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.83) #15
-  br label %497
+  br label %505
 
-497:                                              ; preds = %496, %._crit_edge
+505:                                              ; preds = %504, %._crit_edge
   ret ptr null
 }
 

@@ -2642,8 +2642,8 @@ define void @do_graph_label(ptr noundef %0) local_unnamed_addr #4 {
   %72 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %65, i64 0, i64 %.64
   store double %55, ptr %72, align 8, !tbaa !118
   %.idx = shl nuw nsw i64 %.64, 4
-  %73 = getelementptr i8, ptr %62, i64 72
-  %74 = getelementptr i8, ptr %73, i64 %.idx
+  %73 = getelementptr inbounds nuw i8, ptr %62, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx
   store double %54, ptr %74, align 8, !tbaa !119
   br label %.critedge
 

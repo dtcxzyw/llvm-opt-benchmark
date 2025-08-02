@@ -2744,41 +2744,41 @@ define dso_local ptr @expr_scanner_get_substring(ptr noundef readonly captures(n
   %9 = sub i32 %2, %1
   %10 = icmp sgt i32 %9, 0
   %or.cond = and i1 %3, %10
-  br i1 %or.cond, label %.preheader, label %.critedge
+  br i1 %or.cond, label %.preheader.preheader, label %.critedge
 
-.preheader:                                       ; preds = %4
-  %invariant.gep = getelementptr i8, ptr %8, i64 -1
+.preheader.preheader:                             ; preds = %4
   %11 = zext nneg i32 %9 to i64
-  br label %12
+  br label %.preheader
 
-12:                                               ; preds = %.preheader, %.critedge2
-  %indvars.iv = phi i64 [ %11, %.preheader ], [ %indvars.iv.next, %.critedge2 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %13 = load i8, ptr %gep, align 1
-  switch i8 %13, label %.critedge.loopexit.split.loop.exit26 [
+.preheader:                                       ; preds = %.preheader.preheader, %.critedge2
+  %indvars.iv = phi i64 [ %11, %.preheader.preheader ], [ %indvars.iv.next, %.critedge2 ]
+  %12 = getelementptr i8, ptr %8, i64 %indvars.iv
+  %13 = getelementptr i8, ptr %12, i64 -1
+  %14 = load i8, ptr %13, align 1
+  switch i8 %14, label %.critedge.loopexit.split.loop.exit26 [
     i8 10, label %.critedge2
     i8 13, label %.critedge2
   ]
 
-.critedge2:                                       ; preds = %12, %12
+.critedge2:                                       ; preds = %.preheader, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.old3 = icmp sgt i64 %indvars.iv, 1
-  br i1 %.old3, label %12, label %.critedge
+  br i1 %.old3, label %.preheader, label %.critedge
 
-.critedge.loopexit.split.loop.exit26:             ; preds = %12
-  %14 = trunc nuw nsw i64 %indvars.iv to i32
+.critedge.loopexit.split.loop.exit26:             ; preds = %.preheader
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %.critedge.loopexit.split.loop.exit26, %4
-  %.0 = phi i32 [ %9, %4 ], [ %14, %.critedge.loopexit.split.loop.exit26 ], [ 0, %.critedge2 ]
-  %15 = add i32 %.0, 1
-  %16 = sext i32 %15 to i64
-  %17 = tail call ptr @pg_malloc(i64 noundef %16) #32
-  %18 = sext i32 %.0 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %8, i64 %18, i1 false)
-  %19 = getelementptr inbounds i8, ptr %17, i64 %18
-  store i8 0, ptr %19, align 1
-  ret ptr %17
+  %.0 = phi i32 [ %9, %4 ], [ %15, %.critedge.loopexit.split.loop.exit26 ], [ 0, %.critedge2 ]
+  %16 = add i32 %.0, 1
+  %17 = sext i32 %16 to i64
+  %18 = tail call ptr @pg_malloc(i64 noundef %17) #32
+  %19 = sext i32 %.0 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %8, i64 %19, i1 false)
+  %20 = getelementptr inbounds i8, ptr %18, i64 %19
+  store i8 0, ptr %20, align 1
+  ret ptr %18
 }
 
 ; Function Attrs: noreturn

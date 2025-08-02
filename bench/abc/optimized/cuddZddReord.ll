@@ -20,7 +20,7 @@ define i32 @Cudd_zddReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %7 = load i32, ptr %6, align 8, !tbaa !24
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, %2
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %3
   %11 = icmp eq i32 %1, 0
@@ -34,7 +34,7 @@ define i32 @Cudd_zddReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 15:                                               ; preds = %12, %10
   %.043 = phi i32 [ %14, %12 ], [ %1, %10 ]
   %16 = icmp eq i32 %.043, 1
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 452
@@ -46,9 +46,9 @@ define i32 @Cudd_zddReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   store ptr %22, ptr @empty, align 8, !tbaa !28
   %23 = tail call i64 (...) @Extra_CpuTime() #12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %.04662 = load ptr, ptr %24, align 8, !tbaa !29
-  %.not63 = icmp eq ptr %.04662, null
-  br i1 %.not63, label %._crit_edge, label %.lr.ph
+  %.04661 = load ptr, ptr %24, align 8, !tbaa !29
+  %.not62 = icmp eq ptr %.04661, null
+  br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %25 = zext i32 %.043 to i64
@@ -56,17 +56,17 @@ define i32 @Cudd_zddReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br label %29
 
 27:                                               ; preds = %29
-  %28 = getelementptr inbounds nuw i8, ptr %.04664, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.04663, i64 8
   %.046 = load ptr, ptr %28, align 8, !tbaa !29
   %.not = icmp eq ptr %.046, null
   br i1 %.not, label %._crit_edge, label %29, !llvm.loop !30
 
 29:                                               ; preds = %.lr.ph, %27
-  %.04664 = phi ptr [ %.04662, %.lr.ph ], [ %.046, %27 ]
-  %30 = load ptr, ptr %.04664, align 8, !tbaa !32
+  %.04663 = phi ptr [ %.04661, %.lr.ph ], [ %.046, %27 ]
+  %30 = load ptr, ptr %.04663, align 8, !tbaa !32
   %31 = tail call i32 %30(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %26) #12
   %.not57 = icmp eq i32 %31, 0
-  br i1 %.not57, label %.thread, label %27
+  br i1 %.not57, label %.critedge, label %27
 
 ._crit_edge:                                      ; preds = %27, %17
   tail call void @cuddCacheFlush(ptr noundef %0) #12
@@ -74,7 +74,7 @@ define i32 @Cudd_zddReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   store i32 0, ptr @zddTotalNumberSwapping, align 4, !tbaa !34
   %33 = tail call i32 @cuddZddTreeSifting(ptr noundef %0, i32 noundef %.043) #12
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.thread, label %35
+  br i1 %34, label %.critedge, label %35
 
 35:                                               ; preds = %._crit_edge
   tail call fastcc void @zddReorderPostprocess(ptr noundef %0)
@@ -86,7 +86,7 @@ define i32 @Cudd_zddReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 38:                                               ; preds = %35
   %39 = tail call i32 @cuddBddAlignToZdd(ptr noundef nonnull %0) #12
   %.not54 = icmp eq i32 %39, 0
-  br i1 %.not54, label %.thread, label %40
+  br i1 %.not54, label %.critedge, label %40
 
 40:                                               ; preds = %38, %35
   %41 = load i32, ptr %4, align 8, !tbaa !3
@@ -115,38 +115,38 @@ define i32 @Cudd_zddReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i32 1, ptr %54, align 8, !tbaa !37
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %.24865 = load ptr, ptr %55, align 8, !tbaa !29
-  %.not5566 = icmp eq ptr %.24865, null
-  br i1 %.not5566, label %._crit_edge70, label %.lr.ph69
+  %.24864 = load ptr, ptr %55, align 8, !tbaa !29
+  %.not5565 = icmp eq ptr %.24864, null
+  br i1 %.not5565, label %._crit_edge69, label %.lr.ph68
 
-.lr.ph69:                                         ; preds = %53
+.lr.ph68:                                         ; preds = %53
   %56 = inttoptr i64 %23 to ptr
   br label %59
 
 57:                                               ; preds = %59
-  %58 = getelementptr inbounds nuw i8, ptr %.24867, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.24866, i64 8
   %.248 = load ptr, ptr %58, align 8, !tbaa !29
   %.not55 = icmp eq ptr %.248, null
-  br i1 %.not55, label %._crit_edge70, label %59, !llvm.loop !38
+  br i1 %.not55, label %._crit_edge69, label %59, !llvm.loop !38
 
-59:                                               ; preds = %.lr.ph69, %57
-  %.24867 = phi ptr [ %.24865, %.lr.ph69 ], [ %.248, %57 ]
-  %60 = load ptr, ptr %.24867, align 8, !tbaa !32
+59:                                               ; preds = %.lr.ph68, %57
+  %.24866 = phi ptr [ %.24864, %.lr.ph68 ], [ %.248, %57 ]
+  %60 = load ptr, ptr %.24866, align 8, !tbaa !32
   %61 = tail call i32 %60(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %56) #12
   %.not56 = icmp eq i32 %61, 0
-  br i1 %.not56, label %.thread, label %57
+  br i1 %.not56, label %.critedge, label %57
 
-._crit_edge70:                                    ; preds = %57, %53
+._crit_edge69:                                    ; preds = %57, %53
   %62 = tail call i64 (...) @Extra_CpuTime() #12
   %63 = sub i64 %62, %23
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %65 = load i64, ptr %64, align 8, !tbaa !39
   %66 = add nsw i64 %63, %65
   store i64 %66, ptr %64, align 8, !tbaa !39
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %29, %59, %38, %._crit_edge, %15, %3, %._crit_edge70
-  %.0 = phi i32 [ %33, %._crit_edge70 ], [ 1, %3 ], [ 1, %15 ], [ 0, %._crit_edge ], [ 0, %38 ], [ 0, %59 ], [ 0, %29 ]
+.critedge:                                        ; preds = %29, %59, %38, %._crit_edge, %15, %3, %._crit_edge69
+  %.0 = phi i32 [ %33, %._crit_edge69 ], [ 1, %3 ], [ 1, %15 ], [ 0, %._crit_edge ], [ 0, %38 ], [ 0, %59 ], [ 0, %29 ]
   ret i32 %.0
 }
 

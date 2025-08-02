@@ -201,7 +201,7 @@ _ZN4lean15hashmap_foreachEP11lean_objectRKSt8functionIFvS1_S1_EE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @lean_smap_foreach_test(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @lean_smap_foreach_test(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.lean::phashmap_visitor_fn", align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8

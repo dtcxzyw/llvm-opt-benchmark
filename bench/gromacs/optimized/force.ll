@@ -577,13 +577,13 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %12, %12, %12, %12
   %58 = load i8, ptr %57, align 1, !range !215
   %59 = trunc nuw i8 %58 to i1
   %or.cond59 = select i1 %56, i1 %59, i1 false
-  br i1 %or.cond59, label %61, label %522
+  br i1 %or.cond59, label %61, label %526
 
 60:                                               ; preds = %47, %40
   %.old = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.old57 = load i8, ptr %.old, align 1, !tbaa !217, !range !215, !noundef !219
   %.old58 = trunc nuw i8 %.old57 to i1
-  br i1 %.old58, label %61, label %522
+  br i1 %.old58, label %61, label %526
 
 61:                                               ; preds = %53, %60
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #14
@@ -1223,117 +1223,121 @@ _ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.thread: ; preds = %4
   %469 = getelementptr inbounds nuw i8, ptr %464, i64 20
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %470, %.preheader10.i
-  %indvars.iv14.i = phi i64 [ 0, %.preheader10.i ], [ %indvars.iv.next15.i, %470 ]
-  br label %471
+.preheader.i:                                     ; preds = %472, %.preheader10.i
+  %indvars.iv14.i = phi i64 [ 0, %.preheader10.i ], [ %indvars.iv.next15.i, %472 ]
+  %470 = getelementptr inbounds nuw [3 x float], ptr %67, i64 %indvars.iv14.i
+  %471 = getelementptr inbounds nuw [3 x [3 x float]], ptr %469, i64 0, i64 %indvars.iv14.i
+  br label %473
 
-470:                                              ; preds = %471
+472:                                              ; preds = %473
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next15.i, 3
   br i1 %exitcond17.not.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit, label %.preheader.i, !llvm.loop !263
 
-471:                                              ; preds = %471, %.preheader.i
-  %indvars.iv.i78 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i79, %471 ]
-  %472 = getelementptr inbounds nuw [3 x float], ptr %67, i64 %indvars.iv14.i, i64 %indvars.iv.i78
-  %473 = load float, ptr %472, align 4, !tbaa !148
-  %474 = getelementptr inbounds nuw [3 x [3 x float]], ptr %469, i64 0, i64 %indvars.iv14.i, i64 %indvars.iv.i78
+473:                                              ; preds = %473, %.preheader.i
+  %indvars.iv.i78 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i79, %473 ]
+  %474 = getelementptr inbounds nuw [3 x float], ptr %470, i64 0, i64 %indvars.iv.i78
   %475 = load float, ptr %474, align 4, !tbaa !148
-  %476 = fadd float %473, %475
-  store float %476, ptr %474, align 4, !tbaa !148
+  %476 = getelementptr inbounds nuw [3 x float], ptr %471, i64 0, i64 %indvars.iv.i78
+  %477 = load float, ptr %476, align 4, !tbaa !148
+  %478 = fadd float %475, %477
+  store float %478, ptr %476, align 4, !tbaa !148
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, 3
-  br i1 %exitcond.not.i80, label %470, label %471, !llvm.loop !264
+  br i1 %exitcond.not.i80, label %472, label %473, !llvm.loop !264
 
-_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %470
-  %477 = getelementptr inbounds nuw i8, ptr %63, i64 72
+_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit: ; preds = %472
+  %479 = getelementptr inbounds nuw i8, ptr %63, i64 72
   br label %.preheader.i82
 
-.preheader.i82:                                   ; preds = %478, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit
-  %indvars.iv14.i83 = phi i64 [ 0, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit ], [ %indvars.iv.next15.i87, %478 ]
-  br label %479
+.preheader.i82:                                   ; preds = %482, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit
+  %indvars.iv14.i83 = phi i64 [ 0, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit ], [ %indvars.iv.next15.i87, %482 ]
+  %480 = getelementptr inbounds nuw [3 x float], ptr %479, i64 %indvars.iv14.i83
+  %481 = getelementptr inbounds nuw [3 x [3 x float]], ptr %469, i64 0, i64 %indvars.iv14.i83
+  br label %483
 
-478:                                              ; preds = %479
+482:                                              ; preds = %483
   %indvars.iv.next15.i87 = add nuw nsw i64 %indvars.iv14.i83, 1
   %exitcond17.not.i88 = icmp eq i64 %indvars.iv.next15.i87, 3
   br i1 %exitcond17.not.i88, label %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit89, label %.preheader.i82, !llvm.loop !263
 
-479:                                              ; preds = %479, %.preheader.i82
-  %indvars.iv.i84 = phi i64 [ 0, %.preheader.i82 ], [ %indvars.iv.next.i85, %479 ]
-  %480 = getelementptr inbounds nuw [3 x float], ptr %477, i64 %indvars.iv14.i83, i64 %indvars.iv.i84
-  %481 = load float, ptr %480, align 4, !tbaa !148
-  %482 = getelementptr inbounds nuw [3 x [3 x float]], ptr %469, i64 0, i64 %indvars.iv14.i83, i64 %indvars.iv.i84
-  %483 = load float, ptr %482, align 4, !tbaa !148
-  %484 = fadd float %481, %483
-  store float %484, ptr %482, align 4, !tbaa !148
+483:                                              ; preds = %483, %.preheader.i82
+  %indvars.iv.i84 = phi i64 [ 0, %.preheader.i82 ], [ %indvars.iv.next.i85, %483 ]
+  %484 = getelementptr inbounds nuw [3 x float], ptr %480, i64 0, i64 %indvars.iv.i84
+  %485 = load float, ptr %484, align 4, !tbaa !148
+  %486 = getelementptr inbounds nuw [3 x float], ptr %481, i64 0, i64 %indvars.iv.i84
+  %487 = load float, ptr %486, align 4, !tbaa !148
+  %488 = fadd float %485, %487
+  store float %488, ptr %486, align 4, !tbaa !148
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, 3
-  br i1 %exitcond.not.i86, label %478, label %479, !llvm.loop !264
+  br i1 %exitcond.not.i86, label %482, label %483, !llvm.loop !264
 
-_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit89: ; preds = %478, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.thread
-  %485 = phi ptr [ %468, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.thread ], [ %477, %478 ]
-  %486 = load float, ptr %65, align 4, !tbaa !148
-  %487 = fpext float %486 to double
-  %488 = getelementptr inbounds nuw i8, ptr %6, i64 528
-  %489 = load double, ptr %488, align 8, !tbaa !216
-  %490 = fadd double %489, %487
-  store double %490, ptr %488, align 8, !tbaa !216
-  %491 = load float, ptr %66, align 4, !tbaa !148
-  %492 = fpext float %491 to double
-  %493 = getelementptr inbounds nuw i8, ptr %6, i64 536
-  %494 = load double, ptr %493, align 8, !tbaa !216
-  %495 = fadd double %494, %492
-  store double %495, ptr %493, align 8, !tbaa !216
-  %496 = load float, ptr %17, align 4, !tbaa !148
-  %497 = load float, ptr %63, align 4, !tbaa !220
-  %498 = fadd float %496, %497
-  %499 = getelementptr inbounds nuw i8, ptr %6, i64 180
-  store float %498, ptr %499, align 4, !tbaa !148
-  %500 = load float, ptr %18, align 4, !tbaa !148
-  %501 = load float, ptr %64, align 4, !tbaa !223
+_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit89: ; preds = %482, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.thread
+  %489 = phi ptr [ %468, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit.thread ], [ %479, %482 ]
+  %490 = load float, ptr %65, align 4, !tbaa !148
+  %491 = fpext float %490 to double
+  %492 = getelementptr inbounds nuw i8, ptr %6, i64 528
+  %493 = load double, ptr %492, align 8, !tbaa !216
+  %494 = fadd double %493, %491
+  store double %494, ptr %492, align 8, !tbaa !216
+  %495 = load float, ptr %66, align 4, !tbaa !148
+  %496 = fpext float %495 to double
+  %497 = getelementptr inbounds nuw i8, ptr %6, i64 536
+  %498 = load double, ptr %497, align 8, !tbaa !216
+  %499 = fadd double %498, %496
+  store double %499, ptr %497, align 8, !tbaa !216
+  %500 = load float, ptr %17, align 4, !tbaa !148
+  %501 = load float, ptr %63, align 4, !tbaa !220
   %502 = fadd float %500, %501
-  %503 = getelementptr inbounds nuw i8, ptr %6, i64 184
+  %503 = getelementptr inbounds nuw i8, ptr %6, i64 180
   store float %502, ptr %503, align 4, !tbaa !148
-  %504 = load ptr, ptr @debug, align 8, !tbaa !265
-  %.not51 = icmp eq ptr %504, null
-  br i1 %.not51, label %521, label %505
+  %504 = load float, ptr %18, align 4, !tbaa !148
+  %505 = load float, ptr %64, align 4, !tbaa !223
+  %506 = fadd float %504, %505
+  %507 = getelementptr inbounds nuw i8, ptr %6, i64 184
+  store float %506, ptr %507, align 4, !tbaa !148
+  %508 = load ptr, ptr @debug, align 8, !tbaa !265
+  %.not51 = icmp eq ptr %508, null
+  br i1 %.not51, label %525, label %509
 
-505:                                              ; preds = %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit89
-  %506 = fpext float %496 to double
-  %507 = load float, ptr %63, align 4, !tbaa !220
-  %508 = fpext float %507 to double
-  %509 = fpext float %498 to double
-  %510 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %504, ptr noundef nonnull @.str.3, double noundef %506, double noundef %508, double noundef %509) #14
-  %511 = load ptr, ptr @debug, align 8, !tbaa !265
-  call void @_Z8pr_rvecsP8_IO_FILEiPKcPA3_Kfi(ptr noundef %511, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %67, i32 noundef 3)
-  %512 = load ptr, ptr @debug, align 8, !tbaa !265
-  %513 = load float, ptr %18, align 4, !tbaa !148
-  %514 = fpext float %513 to double
-  %515 = load float, ptr %64, align 4, !tbaa !223
-  %516 = fpext float %515 to double
-  %517 = load float, ptr %503, align 4, !tbaa !148
+509:                                              ; preds = %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit89
+  %510 = fpext float %500 to double
+  %511 = load float, ptr %63, align 4, !tbaa !220
+  %512 = fpext float %511 to double
+  %513 = fpext float %502 to double
+  %514 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %508, ptr noundef nonnull @.str.3, double noundef %510, double noundef %512, double noundef %513) #14
+  %515 = load ptr, ptr @debug, align 8, !tbaa !265
+  call void @_Z8pr_rvecsP8_IO_FILEiPKcPA3_Kfi(ptr noundef %515, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %67, i32 noundef 3)
+  %516 = load ptr, ptr @debug, align 8, !tbaa !265
+  %517 = load float, ptr %18, align 4, !tbaa !148
   %518 = fpext float %517 to double
-  %519 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %512, ptr noundef nonnull @.str.5, double noundef %514, double noundef %516, double noundef %518) #14
-  %520 = load ptr, ptr @debug, align 8, !tbaa !265
-  call void @_Z8pr_rvecsP8_IO_FILEiPKcPA3_Kfi(ptr noundef %520, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull %485, i32 noundef 3)
-  br label %521
+  %519 = load float, ptr %64, align 4, !tbaa !223
+  %520 = fpext float %519 to double
+  %521 = load float, ptr %507, align 4, !tbaa !148
+  %522 = fpext float %521 to double
+  %523 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %516, ptr noundef nonnull @.str.5, double noundef %518, double noundef %520, double noundef %522) #14
+  %524 = load ptr, ptr @debug, align 8, !tbaa !265
+  call void @_Z8pr_rvecsP8_IO_FILEiPKcPA3_Kfi(ptr noundef %524, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull %489, i32 noundef 3)
+  br label %525
 
-521:                                              ; preds = %505, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit89
+525:                                              ; preds = %509, %_ZN3gmx15ForceWithVirial21addVirialContributionEPA3_Kf.exit89
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
-  br label %522
+  br label %526
 
-522:                                              ; preds = %521, %60, %53
-  %523 = load ptr, ptr @debug, align 8, !tbaa !265
-  %.not52 = icmp eq ptr %523, null
-  br i1 %.not52, label %527, label %524
+526:                                              ; preds = %525, %60, %53
+  %527 = load ptr, ptr @debug, align 8, !tbaa !265
+  %.not52 = icmp eq ptr %527, null
+  br i1 %.not52, label %531, label %528
 
-524:                                              ; preds = %522
-  %525 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %526 = load ptr, ptr %525, align 8, !tbaa !137
-  call void @_Z10print_nrnbP8_IO_FILEP6t_nrnb(ptr noundef nonnull %523, ptr noundef %526)
-  br label %527
+528:                                              ; preds = %526
+  %529 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %530 = load ptr, ptr %529, align 8, !tbaa !137
+  call void @_Z10print_nrnbP8_IO_FILEP6t_nrnb(ptr noundef nonnull %527, ptr noundef %530)
+  br label %531
 
-527:                                              ; preds = %524, %522
+531:                                              ; preds = %528, %526
   ret void
 }
 

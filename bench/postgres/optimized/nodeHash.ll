@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [8 x i8] c"o%dof%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @MultiExecHash(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @MultiExecHash(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -1348,7 +1348,7 @@ tailrecurse:                                      ; preds = %65, %9
 66:                                               ; preds = %65
   %67 = add nsw i64 %16, 8
   %.not90 = icmp ugt i64 %.2, %67
-  br i1 %.not90, label %68, label %75
+  br i1 %.not90, label %68, label %77
 
 68:                                               ; preds = %66
   %69 = udiv i64 %.2, %67
@@ -1358,18 +1358,18 @@ tailrecurse:                                      ; preds = %65, %9
   %73 = sub nuw nsw i64 64, %72
   %74 = shl nuw i64 1, %73
   %.0.i91 = select i1 %71, i64 %69, i64 %74
-  br label %75
+  %75 = tail call i64 @llvm.umin.i64(i64 %.0.i91, i64 %47)
+  %76 = trunc nuw nsw i64 %75 to i32
+  br label %77
 
-75:                                               ; preds = %68, %66
-  %.082 = phi i64 [ %.0.i91, %68 ], [ 1, %66 ]
-  %76 = tail call i64 @llvm.umin.i64(i64 %.082, i64 %47)
-  %77 = trunc nuw nsw i64 %76 to i32
-  %78 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %77)
+77:                                               ; preds = %68, %66
+  %.082 = phi i32 [ %76, %68 ], [ 1, %66 ]
+  %78 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.082)
   %79 = icmp samesign ult i32 %78, 2
-  %80 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %77, i1 true)
+  %80 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.082, i1 true)
   %81 = xor i32 %80, 31
   %82 = shl nuw nsw i32 2, %81
-  %.0.i92 = select i1 %79, i32 %77, i32 %82
+  %.0.i92 = select i1 %79, i32 %.082, i32 %82
   %83 = zext nneg i32 %.0.i92 to i64
   %84 = shl nuw nsw i64 %83, 3
   %85 = sub i64 %.2, %84
@@ -1388,9 +1388,9 @@ tailrecurse:                                      ; preds = %65, %9
   %.0.i93 = select i1 %94, i32 %92, i32 %97
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %75
-  %.085 = phi i32 [ %.0.i92, %75 ], [ %.0.i, %42 ]
-  %.083 = phi i32 [ %.0.i93, %75 ], [ 1, %42 ]
+.loopexit:                                        ; preds = %42, %77
+  %.085 = phi i32 [ %.0.i92, %77 ], [ %.0.i, %42 ]
+  %.083 = phi i32 [ %.0.i93, %77 ], [ 1, %42 ]
   store i32 %.085, ptr %6, align 4
   store i32 %.083, ptr %7, align 4
   ret void
@@ -3789,12 +3789,12 @@ define internal fastcc void @ExecParallelHashIncreaseNumBatches(ptr noundef %0) 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 116
   %7 = tail call i32 @BarrierPhase(ptr noundef nonnull %6) #16
   %8 = srem i32 %7, 5
-  switch i32 %8, label %446 [
+  switch i32 %8, label %450 [
     i32 0, label %9
     i32 1, label %137
     i32 2, label %139
-    i32 3, label %360
-    i32 4, label %444
+    i32 3, label %362
+    i32 4, label %448
   ]
 
 9:                                                ; preds = %1
@@ -4196,7 +4196,6 @@ ExecParallelHashRepartitionFirst.exit:            ; preds = %242, %139
   %255 = sext i32 %250 to i64
   %256 = shl nsw i64 %255, 3
   %257 = tail call ptr @palloc0(i64 noundef %256) #16
-  %invariant.gep.i = getelementptr i8, ptr %254, i64 96
   %258 = icmp sgt i32 %250, 1
   br i1 %258, label %.lr.ph.i110, label %ExecParallelHashRepartitionRest.exit
 
@@ -4207,7 +4206,7 @@ ExecParallelHashRepartitionFirst.exit:            ; preds = %242, %139
 
 .lr.ph42.i:                                       ; preds = %261
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %275
+  br label %277
 
 261:                                              ; preds = %261, %.lr.ph.i110
   %indvars.iv.i111 = phi i64 [ 1, %.lr.ph.i110 ], [ %indvars.iv.next.i112, %261 ]
@@ -4220,295 +4219,296 @@ ExecParallelHashRepartitionFirst.exit:            ; preds = %242, %139
   %268 = and i64 %267, -16
   %269 = add i64 %268, 96
   %270 = mul i64 %269, %indvars.iv.i111
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %270
-  %271 = load i32, ptr @ParallelWorkerNumber, align 4
-  %272 = add i32 %271, 1
-  %273 = tail call ptr @sts_attach(ptr noundef nonnull %gep.i, i32 noundef %272, ptr noundef nonnull %259) #16
-  %274 = getelementptr inbounds nuw ptr, ptr %257, i64 %indvars.iv.i111
-  store ptr %273, ptr %274, align 8
+  %271 = getelementptr inbounds nuw i8, ptr %254, i64 %270
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 96
+  %273 = load i32, ptr @ParallelWorkerNumber, align 4
+  %274 = add i32 %273, 1
+  %275 = tail call ptr @sts_attach(ptr noundef nonnull %272, i32 noundef %274, ptr noundef nonnull %259) #16
+  %276 = getelementptr inbounds nuw ptr, ptr %257, i64 %indvars.iv.i111
+  store ptr %275, ptr %276, align 8
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i112, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph42.i, label %261, !llvm.loop !43
 
-275:                                              ; preds = %._crit_edge.i, %.lr.ph42.i
+277:                                              ; preds = %._crit_edge.i, %.lr.ph42.i
   %indvars.iv45.i = phi i64 [ 1, %.lr.ph42.i ], [ %indvars.iv.next46.i, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #16
-  %276 = getelementptr inbounds nuw ptr, ptr %257, i64 %indvars.iv45.i
-  %277 = load ptr, ptr %276, align 8
-  call void @sts_begin_parallel_scan(ptr noundef %277) #16
-  %278 = load ptr, ptr %276, align 8
-  %279 = call ptr @sts_parallel_scan_next(ptr noundef %278, ptr noundef nonnull %2) #16
-  %.not39.i = icmp eq ptr %279, null
+  %278 = getelementptr inbounds nuw ptr, ptr %257, i64 %indvars.iv45.i
+  %279 = load ptr, ptr %278, align 8
+  call void @sts_begin_parallel_scan(ptr noundef %279) #16
+  %280 = load ptr, ptr %278, align 8
+  %281 = call ptr @sts_parallel_scan_next(ptr noundef %280, ptr noundef nonnull %2) #16
+  %.not39.i = icmp eq ptr %281, null
   br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph40.i
 
-.lr.ph40.i:                                       ; preds = %275, %314
-  %280 = phi ptr [ %316, %314 ], [ %279, %275 ]
-  %281 = load i32, ptr %280, align 4
-  %282 = zext i32 %281 to i64
-  %283 = add nuw nsw i64 %282, 23
-  %284 = and i64 %283, 8589934584
-  %285 = load i32, ptr %260, align 8
-  %286 = icmp ugt i32 %285, 1
-  br i1 %286, label %287, label %ExecHashGetBucketAndBatch.exit.i
+.lr.ph40.i:                                       ; preds = %277, %316
+  %282 = phi ptr [ %318, %316 ], [ %281, %277 ]
+  %283 = load i32, ptr %282, align 4
+  %284 = zext i32 %283 to i64
+  %285 = add nuw nsw i64 %284, 23
+  %286 = and i64 %285, 8589934584
+  %287 = load i32, ptr %260, align 8
+  %288 = icmp ugt i32 %287, 1
+  br i1 %288, label %289, label %ExecHashGetBucketAndBatch.exit.i
 
-287:                                              ; preds = %.lr.ph40.i
-  %288 = load i32, ptr %2, align 4
-  %289 = load i32, ptr %154, align 4
-  %290 = lshr i32 %288, %289
-  %291 = sub i32 32, %289
-  %292 = shl i32 %288, %291
-  %293 = or disjoint i32 %292, %290
-  %294 = add i32 %285, -1
-  %295 = and i32 %293, %294
-  %296 = sext i32 %295 to i64
+289:                                              ; preds = %.lr.ph40.i
+  %290 = load i32, ptr %2, align 4
+  %291 = load i32, ptr %154, align 4
+  %292 = lshr i32 %290, %291
+  %293 = sub i32 32, %291
+  %294 = shl i32 %290, %293
+  %295 = or disjoint i32 %294, %292
+  %296 = add i32 %287, -1
+  %297 = and i32 %295, %296
+  %298 = sext i32 %297 to i64
   br label %ExecHashGetBucketAndBatch.exit.i
 
-ExecHashGetBucketAndBatch.exit.i:                 ; preds = %287, %.lr.ph40.i
-  %storemerge.i.i = phi i64 [ %296, %287 ], [ 0, %.lr.ph40.i ]
-  %297 = load ptr, ptr %143, align 8
-  %298 = getelementptr inbounds %struct.ParallelHashJoinBatchAccessor, ptr %297, i64 %storemerge.i.i, i32 4
-  %299 = load i64, ptr %298, align 8
-  %300 = add i64 %299, %284
-  store i64 %300, ptr %298, align 8
-  %301 = load ptr, ptr %143, align 8
-  %302 = getelementptr inbounds %struct.ParallelHashJoinBatchAccessor, ptr %301, i64 %storemerge.i.i, i32 2
-  %303 = load i64, ptr %302, align 8
-  %304 = add i64 %303, 1
-  store i64 %304, ptr %302, align 8
-  %305 = load ptr, ptr %143, align 8
-  %306 = getelementptr inbounds nuw %struct.ParallelHashJoinBatchAccessor, ptr %305, i64 %indvars.iv45.i, i32 5
-  %307 = load i64, ptr %306, align 8
-  %308 = add i64 %307, 1
-  store i64 %308, ptr %306, align 8
-  %309 = load ptr, ptr %143, align 8
-  %310 = getelementptr inbounds %struct.ParallelHashJoinBatchAccessor, ptr %309, i64 %storemerge.i.i, i32 9
-  %311 = load ptr, ptr %310, align 8
-  call void @sts_puttuple(ptr noundef %311, ptr noundef nonnull %2, ptr noundef nonnull %280) #16
-  %312 = load volatile i32, ptr @InterruptPending, align 4
-  %.not35.i = icmp eq i32 %312, 0
-  br i1 %.not35.i, label %314, label %313, !prof !10
+ExecHashGetBucketAndBatch.exit.i:                 ; preds = %289, %.lr.ph40.i
+  %storemerge.i.i = phi i64 [ %298, %289 ], [ 0, %.lr.ph40.i ]
+  %299 = load ptr, ptr %143, align 8
+  %300 = getelementptr inbounds %struct.ParallelHashJoinBatchAccessor, ptr %299, i64 %storemerge.i.i, i32 4
+  %301 = load i64, ptr %300, align 8
+  %302 = add i64 %301, %286
+  store i64 %302, ptr %300, align 8
+  %303 = load ptr, ptr %143, align 8
+  %304 = getelementptr inbounds %struct.ParallelHashJoinBatchAccessor, ptr %303, i64 %storemerge.i.i, i32 2
+  %305 = load i64, ptr %304, align 8
+  %306 = add i64 %305, 1
+  store i64 %306, ptr %304, align 8
+  %307 = load ptr, ptr %143, align 8
+  %308 = getelementptr inbounds nuw %struct.ParallelHashJoinBatchAccessor, ptr %307, i64 %indvars.iv45.i, i32 5
+  %309 = load i64, ptr %308, align 8
+  %310 = add i64 %309, 1
+  store i64 %310, ptr %308, align 8
+  %311 = load ptr, ptr %143, align 8
+  %312 = getelementptr inbounds %struct.ParallelHashJoinBatchAccessor, ptr %311, i64 %storemerge.i.i, i32 9
+  %313 = load ptr, ptr %312, align 8
+  call void @sts_puttuple(ptr noundef %313, ptr noundef nonnull %2, ptr noundef nonnull %282) #16
+  %314 = load volatile i32, ptr @InterruptPending, align 4
+  %.not35.i = icmp eq i32 %314, 0
+  br i1 %.not35.i, label %316, label %315, !prof !10
 
-313:                                              ; preds = %ExecHashGetBucketAndBatch.exit.i
+315:                                              ; preds = %ExecHashGetBucketAndBatch.exit.i
   call void @ProcessInterrupts() #16
-  br label %314
+  br label %316
 
-314:                                              ; preds = %313, %ExecHashGetBucketAndBatch.exit.i
-  %315 = load ptr, ptr %276, align 8
-  %316 = call ptr @sts_parallel_scan_next(ptr noundef %315, ptr noundef nonnull %2) #16
-  %.not.i113 = icmp eq ptr %316, null
+316:                                              ; preds = %315, %ExecHashGetBucketAndBatch.exit.i
+  %317 = load ptr, ptr %278, align 8
+  %318 = call ptr @sts_parallel_scan_next(ptr noundef %317, ptr noundef nonnull %2) #16
+  %.not.i113 = icmp eq ptr %318, null
   br i1 %.not.i113, label %._crit_edge.i, label %.lr.ph40.i, !llvm.loop !44
 
-._crit_edge.i:                                    ; preds = %314, %275
-  %317 = load ptr, ptr %276, align 8
-  call void @sts_end_parallel_scan(ptr noundef %317) #16
+._crit_edge.i:                                    ; preds = %316, %277
+  %319 = load ptr, ptr %278, align 8
+  call void @sts_end_parallel_scan(ptr noundef %319) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #16
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %wide.trip.count.i
-  br i1 %exitcond49.not.i, label %ExecParallelHashRepartitionRest.exit, label %275, !llvm.loop !45
+  br i1 %exitcond49.not.i, label %ExecParallelHashRepartitionRest.exit, label %277, !llvm.loop !45
 
 ExecParallelHashRepartitionRest.exit:             ; preds = %._crit_edge.i, %ExecParallelHashRepartitionFirst.exit
   call void @pfree(ptr noundef %257) #16
-  %318 = load ptr, ptr %4, align 8
-  %319 = getelementptr inbounds nuw i8, ptr %318, i64 64
-  %320 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %319, i32 noundef 0) #16
-  %321 = getelementptr inbounds nuw i8, ptr %318, i64 56
-  store i64 0, ptr %321, align 8
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %323 = load i32, ptr %322, align 8
-  %324 = icmp sgt i32 %323, 0
-  br i1 %324, label %.lr.ph.i115, label %ExecParallelHashMergeCounters.exit
+  %320 = load ptr, ptr %4, align 8
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 64
+  %322 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %321, i32 noundef 0) #16
+  %323 = getelementptr inbounds nuw i8, ptr %320, i64 56
+  store i64 0, ptr %323, align 8
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %325 = load i32, ptr %324, align 8
+  %326 = icmp sgt i32 %325, 0
+  br i1 %326, label %.lr.ph.i115, label %ExecParallelHashMergeCounters.exit
 
 .lr.ph.i115:                                      ; preds = %ExecParallelHashRepartitionRest.exit, %.lr.ph.i115
   %indvars.iv.i116 = phi i64 [ %indvars.iv.next.i117, %.lr.ph.i115 ], [ 0, %ExecParallelHashRepartitionRest.exit ]
-  %325 = load ptr, ptr %143, align 8
-  %326 = getelementptr inbounds nuw %struct.ParallelHashJoinBatchAccessor, ptr %325, i64 %indvars.iv.i116
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 24
-  %328 = load i64, ptr %327, align 8
-  %329 = load ptr, ptr %326, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 56
-  %331 = load i64, ptr %330, align 8
-  %332 = add i64 %331, %328
-  store i64 %332, ptr %330, align 8
-  %333 = getelementptr inbounds nuw i8, ptr %326, i64 32
-  %334 = load i64, ptr %333, align 8
-  %335 = load ptr, ptr %326, align 8
-  %336 = getelementptr inbounds nuw i8, ptr %335, i64 64
-  %337 = load i64, ptr %336, align 8
-  %338 = add i64 %337, %334
-  store i64 %338, ptr %336, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %326, i64 16
-  %340 = load i64, ptr %339, align 8
-  %341 = load ptr, ptr %326, align 8
-  %342 = getelementptr inbounds nuw i8, ptr %341, i64 72
-  %343 = load i64, ptr %342, align 8
-  %344 = add i64 %343, %340
-  store i64 %344, ptr %342, align 8
-  %345 = getelementptr inbounds nuw i8, ptr %326, i64 40
-  %346 = load i64, ptr %345, align 8
-  %347 = load ptr, ptr %326, align 8
-  %348 = getelementptr inbounds nuw i8, ptr %347, i64 80
-  %349 = load i64, ptr %348, align 8
-  %350 = add i64 %349, %346
-  store i64 %350, ptr %348, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %339, i8 0, i64 32, i1 false)
-  %351 = load ptr, ptr %326, align 8
-  %352 = getelementptr inbounds nuw i8, ptr %351, i64 72
-  %353 = load i64, ptr %352, align 8
-  %354 = load i64, ptr %321, align 8
-  %355 = add i64 %354, %353
-  store i64 %355, ptr %321, align 8
+  %327 = load ptr, ptr %143, align 8
+  %328 = getelementptr inbounds nuw %struct.ParallelHashJoinBatchAccessor, ptr %327, i64 %indvars.iv.i116
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 24
+  %330 = load i64, ptr %329, align 8
+  %331 = load ptr, ptr %328, align 8
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 56
+  %333 = load i64, ptr %332, align 8
+  %334 = add i64 %333, %330
+  store i64 %334, ptr %332, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %328, i64 32
+  %336 = load i64, ptr %335, align 8
+  %337 = load ptr, ptr %328, align 8
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 64
+  %339 = load i64, ptr %338, align 8
+  %340 = add i64 %339, %336
+  store i64 %340, ptr %338, align 8
+  %341 = getelementptr inbounds nuw i8, ptr %328, i64 16
+  %342 = load i64, ptr %341, align 8
+  %343 = load ptr, ptr %328, align 8
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 72
+  %345 = load i64, ptr %344, align 8
+  %346 = add i64 %345, %342
+  store i64 %346, ptr %344, align 8
+  %347 = getelementptr inbounds nuw i8, ptr %328, i64 40
+  %348 = load i64, ptr %347, align 8
+  %349 = load ptr, ptr %328, align 8
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 80
+  %351 = load i64, ptr %350, align 8
+  %352 = add i64 %351, %348
+  store i64 %352, ptr %350, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %341, i8 0, i64 32, i1 false)
+  %353 = load ptr, ptr %328, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 72
+  %355 = load i64, ptr %354, align 8
+  %356 = load i64, ptr %323, align 8
+  %357 = add i64 %356, %355
+  store i64 %357, ptr %323, align 8
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i116, 1
-  %356 = load i32, ptr %322, align 8
-  %357 = sext i32 %356 to i64
-  %358 = icmp slt i64 %indvars.iv.next.i117, %357
-  br i1 %358, label %.lr.ph.i115, label %ExecParallelHashMergeCounters.exit, !llvm.loop !8
+  %358 = load i32, ptr %324, align 8
+  %359 = sext i32 %358 to i64
+  %360 = icmp slt i64 %indvars.iv.next.i117, %359
+  br i1 %360, label %.lr.ph.i115, label %ExecParallelHashMergeCounters.exit, !llvm.loop !8
 
 ExecParallelHashMergeCounters.exit:               ; preds = %.lr.ph.i115, %ExecParallelHashRepartitionRest.exit
-  call void @LWLockRelease(ptr noundef nonnull %319) #16
-  %359 = call zeroext i1 @BarrierArriveAndWait(ptr noundef nonnull %6, i32 noundef 134217753) #16
-  br label %360
+  call void @LWLockRelease(ptr noundef nonnull %321) #16
+  %361 = call zeroext i1 @BarrierArriveAndWait(ptr noundef nonnull %6, i32 noundef 134217753) #16
+  br label %362
 
-360:                                              ; preds = %ExecParallelHashMergeCounters.exit, %1
-  %361 = call zeroext i1 @BarrierArriveAndWait(ptr noundef nonnull %6, i32 noundef 134217749) #16
-  br i1 %361, label %362, label %444
+362:                                              ; preds = %ExecParallelHashMergeCounters.exit, %1
+  %363 = call zeroext i1 @BarrierArriveAndWait(ptr noundef nonnull %6, i32 noundef 134217749) #16
+  br i1 %363, label %364, label %448
 
-362:                                              ; preds = %360
+364:                                              ; preds = %362
   call fastcc void @ExecParallelHashEnsureBatchAccessors(ptr noundef nonnull %0)
-  %363 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 0, ptr %363, align 4
-  %364 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 0, ptr %365, align 4
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %367 = load ptr, ptr %366, align 8
-  %368 = load ptr, ptr %367, align 8
-  %369 = load i64, ptr %368, align 8
-  %370 = call ptr @dsa_get_address(ptr noundef %365, i64 noundef %369) #16
-  %371 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %370, ptr %371, align 8
-  %372 = load ptr, ptr %4, align 8
-  %373 = getelementptr inbounds nuw i8, ptr %372, i64 24
-  %374 = load i32, ptr %373, align 8
-  store i32 %374, ptr %0, align 8
-  %375 = sext i32 %374 to i64
-  %376 = call i32 @my_log2(i64 noundef %375) #16
-  %377 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %376, ptr %377, align 4
-  %378 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store ptr null, ptr %378, align 8
-  %379 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i64 0, ptr %379, align 8
-  %380 = load ptr, ptr %366, align 8
-  %381 = getelementptr inbounds nuw i8, ptr %380, i64 48
-  store i8 0, ptr %381, align 8
-  %382 = load ptr, ptr %364, align 8
-  %383 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %384 = load i64, ptr %383, align 8
-  %385 = call ptr @dsa_get_address(ptr noundef %382, i64 noundef %384) #16
-  %386 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %invariant.gep = getelementptr i8, ptr %385, i64 88
-  %387 = load i32, ptr %386, align 8
-  %388 = icmp sgt i32 %387, 0
-  br i1 %388, label %.lr.ph145, label %.thread
+  %368 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %369 = load ptr, ptr %368, align 8
+  %370 = load ptr, ptr %369, align 8
+  %371 = load i64, ptr %370, align 8
+  %372 = call ptr @dsa_get_address(ptr noundef %367, i64 noundef %371) #16
+  %373 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %372, ptr %373, align 8
+  %374 = load ptr, ptr %4, align 8
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 24
+  %376 = load i32, ptr %375, align 8
+  store i32 %376, ptr %0, align 8
+  %377 = sext i32 %376 to i64
+  %378 = call i32 @my_log2(i64 noundef %377) #16
+  %379 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %378, ptr %379, align 4
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store ptr null, ptr %380, align 8
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i64 0, ptr %381, align 8
+  %382 = load ptr, ptr %368, align 8
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 48
+  store i8 0, ptr %383, align 8
+  %384 = load ptr, ptr %366, align 8
+  %385 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %386 = load i64, ptr %385, align 8
+  %387 = call ptr @dsa_get_address(ptr noundef %384, i64 noundef %386) #16
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %389 = load i32, ptr %388, align 8
+  %390 = icmp sgt i32 %389, 0
+  br i1 %390, label %.lr.ph145, label %.thread
 
-.lr.ph145:                                        ; preds = %362
-  %389 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %390 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  br label %393
+.lr.ph145:                                        ; preds = %364
+  %391 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %392 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  br label %395
 
-._crit_edge146:                                   ; preds = %436
-  %391 = icmp sgt i32 %437, 1073741822
-  %392 = or i1 %.198, %391
-  %brmerge = select i1 %392, i1 true, i1 %.1100
-  %.mux = select i1 %392, i32 3, i32 2
-  br i1 %brmerge, label %440, label %.thread
+._crit_edge146:                                   ; preds = %440
+  %393 = icmp sgt i32 %441, 1073741822
+  %394 = or i1 %.198, %393
+  %brmerge = select i1 %394, i1 true, i1 %.1100
+  %.mux = select i1 %394, i32 3, i32 2
+  br i1 %brmerge, label %444, label %.thread
 
-393:                                              ; preds = %.lr.ph145, %436
-  %indvars.iv156 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next157, %436 ]
-  %.097142 = phi i1 [ false, %.lr.ph145 ], [ %.198, %436 ]
-  %.099141 = phi i1 [ false, %.lr.ph145 ], [ %.1100, %436 ]
-  %394 = load ptr, ptr %366, align 8
-  %395 = getelementptr inbounds nuw %struct.ParallelHashJoinBatchAccessor, ptr %394, i64 %indvars.iv156
-  %396 = load ptr, ptr %395, align 8
-  %397 = getelementptr inbounds nuw i8, ptr %396, i64 88
-  %398 = load i8, ptr %397, align 8, !range !4, !noundef !5
-  %399 = trunc nuw i8 %398 to i1
-  br i1 %399, label %405, label %400
+395:                                              ; preds = %.lr.ph145, %440
+  %indvars.iv156 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next157, %440 ]
+  %.097142 = phi i1 [ false, %.lr.ph145 ], [ %.198, %440 ]
+  %.099141 = phi i1 [ false, %.lr.ph145 ], [ %.1100, %440 ]
+  %396 = load ptr, ptr %368, align 8
+  %397 = getelementptr inbounds nuw %struct.ParallelHashJoinBatchAccessor, ptr %396, i64 %indvars.iv156
+  %398 = load ptr, ptr %397, align 8
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 88
+  %400 = load i8, ptr %399, align 8, !range !4, !noundef !5
+  %401 = trunc nuw i8 %400 to i1
+  br i1 %401, label %407, label %402
 
-400:                                              ; preds = %393
-  %401 = getelementptr inbounds nuw i8, ptr %396, i64 64
-  %402 = load i64, ptr %401, align 8
-  %403 = load i64, ptr %389, align 8
-  %404 = icmp ugt i64 %402, %403
-  br i1 %404, label %405, label %406
+402:                                              ; preds = %395
+  %403 = getelementptr inbounds nuw i8, ptr %398, i64 64
+  %404 = load i64, ptr %403, align 8
+  %405 = load i64, ptr %391, align 8
+  %406 = icmp ugt i64 %404, %405
+  br i1 %406, label %407, label %408
 
-405:                                              ; preds = %400, %393
-  br label %406
+407:                                              ; preds = %402, %395
+  br label %408
 
-406:                                              ; preds = %405, %400
-  %.1100 = phi i1 [ true, %405 ], [ %.099141, %400 ]
-  %407 = load i32, ptr %390, align 4
-  %408 = trunc nuw nsw i64 %indvars.iv156 to i32
-  %409 = srem i32 %408, %407
-  %410 = load ptr, ptr %4, align 8
-  %411 = getelementptr inbounds nuw i8, ptr %410, i64 40
-  %412 = load i32, ptr %411, align 8
-  %413 = call i64 @sts_estimate(i32 noundef %412) #16
-  %414 = shl i64 %413, 1
-  %415 = add i64 %414, 14
-  %416 = and i64 %415, -16
-  %417 = add i64 %416, 96
-  %418 = zext nneg i32 %409 to i64
-  %419 = mul i64 %417, %418
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %419
-  %420 = load i8, ptr %gep, align 8, !range !4, !noundef !5
-  %421 = trunc nuw i8 %420 to i1
-  br i1 %421, label %427, label %422
+408:                                              ; preds = %407, %402
+  %.1100 = phi i1 [ true, %407 ], [ %.099141, %402 ]
+  %409 = load i32, ptr %392, align 4
+  %410 = trunc nuw nsw i64 %indvars.iv156 to i32
+  %411 = srem i32 %410, %409
+  %412 = load ptr, ptr %4, align 8
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 40
+  %414 = load i32, ptr %413, align 8
+  %415 = call i64 @sts_estimate(i32 noundef %414) #16
+  %416 = shl i64 %415, 1
+  %417 = add i64 %416, 14
+  %418 = and i64 %417, -16
+  %419 = add i64 %418, 96
+  %420 = zext nneg i32 %411 to i64
+  %421 = mul i64 %419, %420
+  %422 = getelementptr inbounds nuw i8, ptr %387, i64 %421
+  %423 = getelementptr inbounds nuw i8, ptr %422, i64 88
+  %424 = load i8, ptr %423, align 8, !range !4, !noundef !5
+  %425 = trunc nuw i8 %424 to i1
+  br i1 %425, label %431, label %426
 
-422:                                              ; preds = %406
-  %423 = getelementptr inbounds nuw i8, ptr %396, i64 64
-  %424 = load i64, ptr %423, align 8
-  %425 = load i64, ptr %389, align 8
-  %426 = icmp ugt i64 %424, %425
-  br i1 %426, label %427, label %436
+426:                                              ; preds = %408
+  %427 = getelementptr inbounds nuw i8, ptr %398, i64 64
+  %428 = load i64, ptr %427, align 8
+  %429 = load i64, ptr %391, align 8
+  %430 = icmp ugt i64 %428, %429
+  br i1 %430, label %431, label %440
 
-427:                                              ; preds = %422, %406
-  %428 = getelementptr inbounds nuw i8, ptr %396, i64 72
-  %429 = load i64, ptr %428, align 8
-  %430 = load ptr, ptr %366, align 8
-  %431 = getelementptr inbounds nuw %struct.ParallelHashJoinBatchAccessor, ptr %430, i64 %418
-  %432 = load ptr, ptr %431, align 8
-  %433 = getelementptr inbounds nuw i8, ptr %432, i64 80
-  %434 = load i64, ptr %433, align 8
-  %435 = icmp eq i64 %429, %434
-  %spec.select = select i1 %435, i1 true, i1 %.097142
-  br label %436
-
-436:                                              ; preds = %427, %422
-  %.198 = phi i1 [ %.097142, %422 ], [ %spec.select, %427 ]
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %437 = load i32, ptr %386, align 8
-  %438 = sext i32 %437 to i64
-  %439 = icmp slt i64 %indvars.iv.next157, %438
-  br i1 %439, label %393, label %._crit_edge146, !llvm.loop !46
-
-.thread:                                          ; preds = %._crit_edge146, %362
+431:                                              ; preds = %426, %408
+  %432 = getelementptr inbounds nuw i8, ptr %398, i64 72
+  %433 = load i64, ptr %432, align 8
+  %434 = load ptr, ptr %368, align 8
+  %435 = getelementptr inbounds nuw %struct.ParallelHashJoinBatchAccessor, ptr %434, i64 %420
+  %436 = load ptr, ptr %435, align 8
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 80
+  %438 = load i64, ptr %437, align 8
+  %439 = icmp eq i64 %433, %438
+  %spec.select = select i1 %439, i1 true, i1 %.097142
   br label %440
 
-440:                                              ; preds = %._crit_edge146, %.thread
-  %.sink = phi i32 [ 0, %.thread ], [ %.mux, %._crit_edge146 ]
-  %441 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 %.sink, ptr %441, align 4
-  %442 = load ptr, ptr %364, align 8
-  %443 = load i64, ptr %383, align 8
-  call void @dsa_free(ptr noundef %442, i64 noundef %443) #16
-  store i64 0, ptr %383, align 8
+440:                                              ; preds = %431, %426
+  %.198 = phi i1 [ %.097142, %426 ], [ %spec.select, %431 ]
+  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
+  %441 = load i32, ptr %388, align 8
+  %442 = sext i32 %441 to i64
+  %443 = icmp slt i64 %indvars.iv.next157, %442
+  br i1 %443, label %395, label %._crit_edge146, !llvm.loop !46
+
+.thread:                                          ; preds = %._crit_edge146, %364
   br label %444
 
-444:                                              ; preds = %360, %440, %1
-  %445 = call zeroext i1 @BarrierArriveAndWait(ptr noundef nonnull %6, i32 noundef 134217751) #16
-  br label %446
+444:                                              ; preds = %._crit_edge146, %.thread
+  %.sink = phi i32 [ 0, %.thread ], [ %.mux, %._crit_edge146 ]
+  %445 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  store i32 %.sink, ptr %445, align 4
+  %446 = load ptr, ptr %366, align 8
+  %447 = load i64, ptr %385, align 8
+  call void @dsa_free(ptr noundef %446, i64 noundef %447) #16
+  store i64 0, ptr %385, align 8
+  br label %448
 
-446:                                              ; preds = %444, %1
+448:                                              ; preds = %362, %444, %1
+  %449 = call zeroext i1 @BarrierArriveAndWait(ptr noundef nonnull %6, i32 noundef 134217751) #16
+  br label %450
+
+450:                                              ; preds = %448, %1
   ret void
 }
 

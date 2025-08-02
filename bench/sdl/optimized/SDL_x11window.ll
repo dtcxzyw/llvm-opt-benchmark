@@ -522,12 +522,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   %76 = load ptr, ptr @X11_XGetVisualInfo, align 8
   %77 = call ptr %76(ptr noundef %65, i64 noundef 1, ptr noundef nonnull %12, ptr noundef nonnull %13) #12
   %.not285.not = icmp eq ptr %77, null
-  br i1 %.not285.not, label %.thread, label %78
-
-.thread:                                          ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #12
-  br label %.thread315
+  br i1 %.not285.not, label %.critedge, label %78
 
 78:                                               ; preds = %73
   %79 = load ptr, ptr %77, align 8
@@ -585,7 +580,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
 105:                                              ; preds = %103, %101
   %.0263 = phi ptr [ %102, %101 ], [ %104, %103 ]
   %.not284.not = icmp eq ptr %.0263, null
-  br i1 %.not284.not, label %.thread315, label %106
+  br i1 %.not284.not, label %.critedge309, label %106
 
 106:                                              ; preds = %105
   %107 = load ptr, ptr %.0263, align 8
@@ -637,7 +632,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
 
 136:                                              ; preds = %134
   %137 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #12
-  br label %.thread315
+  br label %.critedge309
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %.1250, i64 52
@@ -646,7 +641,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   %142 = shl nsw i64 %141, 4
   %143 = call noalias ptr @SDL_malloc_REAL(i64 noundef %142) #12
   %.not289 = icmp eq ptr %143, null
-  br i1 %.not289, label %.thread315, label %144
+  br i1 %.not289, label %.critedge309, label %144
 
 144:                                              ; preds = %138
   %145 = load i32, ptr %139, align 4
@@ -658,11 +653,11 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   br i1 %150, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %144, %.lr.ph
-  %.0259322 = phi i32 [ %151, %.lr.ph ], [ 0, %144 ]
-  %.0262321 = phi i32 [ %152, %.lr.ph ], [ %148, %144 ]
-  %151 = add nuw nsw i32 %.0259322, 1
-  %152 = ashr exact i32 %.0262321, 1
-  %153 = and i32 %.0262321, 2
+  %.0259318 = phi i32 [ %151, %.lr.ph ], [ 0, %144 ]
+  %.0262317 = phi i32 [ %152, %.lr.ph ], [ %148, %144 ]
+  %151 = add nuw nsw i32 %.0259318, 1
+  %152 = ashr exact i32 %.0262317, 1
+  %153 = and i32 %.0262317, 2
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
@@ -674,49 +669,49 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   %157 = trunc i64 %156 to i32
   %158 = and i32 %157, 1
   %159 = icmp eq i32 %158, 0
-  br i1 %159, label %.lr.ph327, label %._crit_edge328
+  br i1 %159, label %.lr.ph323, label %._crit_edge324
 
-.lr.ph327:                                        ; preds = %._crit_edge, %.lr.ph327
-  %.0258325 = phi i32 [ %160, %.lr.ph327 ], [ 0, %._crit_edge ]
-  %.0261324 = phi i32 [ %161, %.lr.ph327 ], [ %157, %._crit_edge ]
-  %160 = add nuw nsw i32 %.0258325, 1
-  %161 = ashr exact i32 %.0261324, 1
-  %162 = and i32 %.0261324, 2
+.lr.ph323:                                        ; preds = %._crit_edge, %.lr.ph323
+  %.0258321 = phi i32 [ %160, %.lr.ph323 ], [ 0, %._crit_edge ]
+  %.0261320 = phi i32 [ %161, %.lr.ph323 ], [ %157, %._crit_edge ]
+  %160 = add nuw nsw i32 %.0258321, 1
+  %161 = ashr exact i32 %.0261320, 1
+  %162 = and i32 %.0261320, 2
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %.lr.ph327, label %._crit_edge328, !llvm.loop !8
+  br i1 %163, label %.lr.ph323, label %._crit_edge324, !llvm.loop !8
 
-._crit_edge328:                                   ; preds = %.lr.ph327, %._crit_edge
-  %.0261.lcssa = phi i32 [ %157, %._crit_edge ], [ %161, %.lr.ph327 ]
-  %.0258.lcssa = phi i32 [ 0, %._crit_edge ], [ %160, %.lr.ph327 ]
+._crit_edge324:                                   ; preds = %.lr.ph323, %._crit_edge
+  %.0261.lcssa = phi i32 [ %157, %._crit_edge ], [ %161, %.lr.ph323 ]
+  %.0258.lcssa = phi i32 [ 0, %._crit_edge ], [ %160, %.lr.ph323 ]
   %164 = getelementptr inbounds nuw i8, ptr %.1250, i64 40
   %165 = load i64, ptr %164, align 8
   %166 = trunc i64 %165 to i32
   %167 = and i32 %166, 1
   %168 = icmp eq i32 %167, 0
-  br i1 %168, label %.lr.ph334, label %.preheader
+  br i1 %168, label %.lr.ph330, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph334, %._crit_edge328
-  %.0260.lcssa = phi i32 [ %166, %._crit_edge328 ], [ %172, %.lr.ph334 ]
-  %.0257.lcssa = phi i32 [ 0, %._crit_edge328 ], [ %171, %.lr.ph334 ]
+.preheader:                                       ; preds = %.lr.ph330, %._crit_edge324
+  %.0260.lcssa = phi i32 [ %166, %._crit_edge324 ], [ %172, %.lr.ph330 ]
+  %.0257.lcssa = phi i32 [ 0, %._crit_edge324 ], [ %171, %.lr.ph330 ]
   %169 = icmp sgt i32 %145, 0
-  br i1 %169, label %.lr.ph338, label %._crit_edge339
+  br i1 %169, label %.lr.ph334, label %._crit_edge335
 
-.lr.ph338:                                        ; preds = %.preheader
+.lr.ph334:                                        ; preds = %.preheader
   %170 = add nsw i32 %145, -1
   %wide.trip.count = zext nneg i32 %145 to i64
   br label %175
 
-.lr.ph334:                                        ; preds = %._crit_edge328, %.lr.ph334
-  %.0257332 = phi i32 [ %171, %.lr.ph334 ], [ 0, %._crit_edge328 ]
-  %.0260331 = phi i32 [ %172, %.lr.ph334 ], [ %166, %._crit_edge328 ]
-  %171 = add nuw nsw i32 %.0257332, 1
-  %172 = ashr exact i32 %.0260331, 1
-  %173 = and i32 %.0260331, 2
+.lr.ph330:                                        ; preds = %._crit_edge324, %.lr.ph330
+  %.0257328 = phi i32 [ %171, %.lr.ph330 ], [ 0, %._crit_edge324 ]
+  %.0260327 = phi i32 [ %172, %.lr.ph330 ], [ %166, %._crit_edge324 ]
+  %171 = add nuw nsw i32 %.0257328, 1
+  %172 = ashr exact i32 %.0260327, 1
+  %173 = and i32 %.0260327, 2
   %174 = icmp eq i32 %173, 0
-  br i1 %174, label %.lr.ph334, label %.preheader, !llvm.loop !9
+  br i1 %174, label %.lr.ph330, label %.preheader, !llvm.loop !9
 
-175:                                              ; preds = %.lr.ph338, %175
-  %indvars.iv = phi i64 [ 0, %.lr.ph338 ], [ %indvars.iv.next, %175 ]
+175:                                              ; preds = %.lr.ph334, %175
+  %indvars.iv = phi i64 [ 0, %.lr.ph334 ], [ %indvars.iv.next, %175 ]
   %176 = trunc i64 %indvars.iv to i32
   %177 = mul i32 %176, 65535
   %178 = sdiv i32 %177, %170
@@ -748,9 +743,9 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   store i8 7, ptr %199, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge339, label %175, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge335, label %175, !llvm.loop !10
 
-._crit_edge339:                                   ; preds = %175, %.preheader
+._crit_edge335:                                   ; preds = %175, %.preheader
   %200 = load ptr, ptr @X11_XStoreColors, align 8
   %201 = load i64, ptr %133, align 8
   %202 = call i32 %200(ptr noundef nonnull %65, i64 noundef %201, ptr noundef nonnull %143, i32 noundef %145) #12
@@ -762,7 +757,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   store i64 %204, ptr %133, align 8
   br label %205
 
-205:                                              ; preds = %._crit_edge339, %203
+205:                                              ; preds = %._crit_edge335, %203
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 153
   %207 = load i8, ptr %206, align 1, !range !5, !noundef !6
   %208 = trunc nuw i8 %207 to i1
@@ -816,7 +811,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
 
 240:                                              ; preds = %222
   %241 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #12
-  br label %.thread315
+  br label %.critedge309
 
 242:                                              ; preds = %222
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -829,8 +824,8 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   %247 = load i64, ptr %62, align 8
   %248 = load ptr, ptr @X11_XInternAtom, align 8
   %249 = call i64 %248(ptr noundef nonnull %65, ptr noundef nonnull @.str.45, i32 noundef 1) #12
-  %.not.i308 = icmp eq i64 %249, 0
-  br i1 %.not.i308, label %258, label %250
+  %.not.i310 = icmp eq i64 %249, 0
+  br i1 %.not.i310, label %258, label %250
 
 250:                                              ; preds = %246
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
@@ -1034,7 +1029,7 @@ SetWindowBordered.exit:                           ; preds = %258, %250, %242
 361:                                              ; preds = %357
   %362 = load ptr, ptr @X11_XDestroyWindow, align 8
   %363 = call i32 %362(ptr noundef nonnull %65, i64 noundef %239) #12
-  br label %.thread315
+  br label %.critedge309
 
 364:                                              ; preds = %357
   %365 = getelementptr inbounds nuw i8, ptr %1, i64 392
@@ -1112,7 +1107,7 @@ SetWindowBordered.exit:                           ; preds = %258, %250, %242
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %408 = load ptr, ptr %407, align 8
   %.not306 = icmp eq ptr %408, null
-  br i1 %.not306, label %.thread315, label %409
+  br i1 %.not306, label %.critedge309, label %409
 
 409:                                              ; preds = %406
   %410 = call ptr @SDL_EGL_CreateSurface(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %239) #12
@@ -1123,7 +1118,7 @@ SetWindowBordered.exit:                           ; preds = %258, %250, %242
 
 413:                                              ; preds = %409
   %414 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.20) #12
-  br label %.thread315
+  br label %.critedge309
 
 415:                                              ; preds = %409, %404, %399, %392
   %416 = load i64, ptr %62, align 8
@@ -1147,21 +1142,21 @@ SetWindowBordered.exit:                           ; preds = %258, %250, %242
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 8
   %426 = load i64, ptr %425, align 8
   %427 = load i32, ptr @SDL_X11_HAVE_UTF8, align 4
-  %.not.i309 = icmp eq i32 %427, 0
-  br i1 %.not.i309, label %SetupWindowInput.exit312, label %428
+  %.not.i311 = icmp eq i32 %427, 0
+  br i1 %.not.i311, label %SetupWindowInput.exit314, label %428
 
 428:                                              ; preds = %423
   %429 = getelementptr inbounds nuw i8, ptr %424, i64 88
   %430 = load ptr, ptr %429, align 8
-  %.not15.i310 = icmp eq ptr %430, null
-  br i1 %.not15.i310, label %SetupWindowInput.exit312, label %431
+  %.not15.i312 = icmp eq ptr %430, null
+  br i1 %.not15.i312, label %SetupWindowInput.exit314, label %431
 
 431:                                              ; preds = %428
   %432 = load ptr, ptr @X11_XGetICValues, align 8
   %433 = call ptr (ptr, ...) %432(ptr noundef nonnull %430, ptr noundef nonnull @.str.44, ptr noundef nonnull %4, ptr noundef null) #12
-  br label %SetupWindowInput.exit312
+  br label %SetupWindowInput.exit314
 
-SetupWindowInput.exit312:                         ; preds = %423, %428, %431
+SetupWindowInput.exit314:                         ; preds = %423, %428, %431
   call void @X11_Xinput2SelectTouch(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   %434 = call zeroext i1 @X11_Xinput2SelectMouseAndKeyboard(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   %435 = getelementptr inbounds nuw i8, ptr %424, i64 117
@@ -1170,14 +1165,14 @@ SetupWindowInput.exit312:                         ; preds = %423, %428, %431
   %438 = getelementptr inbounds nuw i8, ptr %424, i64 116
   %439 = load i8, ptr %438, align 4, !range !5, !noundef !6
   %440 = trunc nuw i8 %439 to i1
-  %.0.i311 = select i1 %440, i64 0, i64 76
+  %.0.i313 = select i1 %440, i64 0, i64 76
   %441 = load ptr, ptr @X11_XSelectInput, align 8
   %442 = getelementptr inbounds nuw i8, ptr %424, i64 336
   %443 = load ptr, ptr %442, align 8
   %444 = load ptr, ptr %443, align 8
   %445 = load i64, ptr %4, align 8
   %446 = select i1 %437, i64 6471728, i64 6471731
-  %447 = or disjoint i64 %.0.i311, %446
+  %447 = or disjoint i64 %.0.i313, %446
   %448 = or i64 %447, %445
   %449 = call i32 %441(ptr noundef %444, i64 noundef %426, i64 noundef %448) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
@@ -1188,10 +1183,15 @@ SetupWindowInput.exit312:                         ; preds = %423, %428, %431
   %454 = call i32 %450(ptr noundef nonnull %65, i64 noundef %453, i64 noundef 4194304) #12
   %455 = load ptr, ptr @X11_XFlush, align 8
   %456 = call i32 %455(ptr noundef nonnull %65) #12
-  br label %.thread315
+  br label %.critedge309
 
-.thread315:                                       ; preds = %138, %136, %105, %.thread, %406, %SetupWindowInput.exit312, %413, %361, %240
-  %.3 = phi i1 [ %414, %413 ], [ true, %SetupWindowInput.exit312 ], [ false, %361 ], [ %241, %240 ], [ false, %406 ], [ false, %.thread ], [ false, %105 ], [ false, %138 ], [ %137, %136 ]
+.critedge:                                        ; preds = %73
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #12
+  br label %.critedge309
+
+.critedge309:                                     ; preds = %138, %136, %105, %406, %.critedge, %SetupWindowInput.exit314, %413, %361, %240
+  %.3 = phi i1 [ %414, %413 ], [ true, %SetupWindowInput.exit314 ], [ false, %361 ], [ %241, %240 ], [ false, %.critedge ], [ false, %406 ], [ false, %105 ], [ false, %138 ], [ %137, %136 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
@@ -1199,8 +1199,8 @@ SetupWindowInput.exit312:                         ; preds = %423, %428, %431
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7) #12
   br label %457
 
-457:                                              ; preds = %58, %.thread315, %24, %SetupWindowInput.exit, %19
-  %.0 = phi i1 [ false, %19 ], [ true, %SetupWindowInput.exit ], [ true, %24 ], [ %.3, %.thread315 ], [ %59, %58 ]
+457:                                              ; preds = %58, %.critedge309, %24, %SetupWindowInput.exit, %19
+  %.0 = phi i1 [ false, %19 ], [ true, %SetupWindowInput.exit ], [ true, %24 ], [ %.3, %.critedge309 ], [ %59, %58 ]
   ret i1 %.0
 }
 
@@ -1740,12 +1740,12 @@ define hidden zeroext i1 @X11_SetWindowIcon(ptr noundef readnone captures(none) 
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 352
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.thread53, label %13
+  br i1 %.not, label %.thread, label %13
 
-.thread53:                                        ; preds = %3
+.thread:                                          ; preds = %3
   %11 = load ptr, ptr @X11_XFlush, align 8
   %12 = tail call i32 %11(ptr noundef %8) #12
-  br label %69
+  br label %.critedge
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1758,7 +1758,7 @@ define hidden zeroext i1 @X11_SetWindowIcon(ptr noundef readnone captures(none) 
   %21 = shl nsw i64 %20, 3
   %22 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %21) #12
   %.not48.not = icmp eq ptr %22, null
-  br i1 %.not48.not, label %69, label %23
+  br i1 %.not48.not, label %.critedge, label %23
 
 23:                                               ; preds = %13
   %24 = load ptr, ptr @X11_XSync, align 8
@@ -1773,44 +1773,44 @@ define hidden zeroext i1 @X11_SetWindowIcon(ptr noundef readnone captures(none) 
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %31, ptr %32, align 8
   %33 = icmp sgt i32 %30, 0
-  br i1 %33, label %.lr.ph63, label %._crit_edge64
+  br i1 %33, label %.lr.ph60, label %._crit_edge61
 
-.lr.ph63:                                         ; preds = %23
+.lr.ph60:                                         ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = icmp sgt i32 %28, 0
-  br i1 %36, label %.lr.ph63.split.preheader, label %._crit_edge64
+  br i1 %36, label %.lr.ph60.split.preheader, label %._crit_edge61
 
-.lr.ph63.split.preheader:                         ; preds = %.lr.ph63
+.lr.ph60.split.preheader:                         ; preds = %.lr.ph60
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  br label %.lr.ph63.split
+  br label %.lr.ph60.split
 
-.lr.ph63.split:                                   ; preds = %.lr.ph63.split.preheader, %._crit_edge
-  %38 = phi i32 [ %53, %._crit_edge ], [ %30, %.lr.ph63.split.preheader ]
-  %39 = phi i32 [ %54, %._crit_edge ], [ %28, %.lr.ph63.split.preheader ]
-  %.03661 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %37, %.lr.ph63.split.preheader ]
-  %.04260 = phi i32 [ %55, %._crit_edge ], [ 0, %.lr.ph63.split.preheader ]
+.lr.ph60.split:                                   ; preds = %.lr.ph60.split.preheader, %._crit_edge
+  %38 = phi i32 [ %53, %._crit_edge ], [ %30, %.lr.ph60.split.preheader ]
+  %39 = phi i32 [ %54, %._crit_edge ], [ %28, %.lr.ph60.split.preheader ]
+  %.03658 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %37, %.lr.ph60.split.preheader ]
+  %.04257 = phi i32 [ %55, %._crit_edge ], [ 0, %.lr.ph60.split.preheader ]
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph63.split
+.lr.ph.preheader:                                 ; preds = %.lr.ph60.split
   %41 = load ptr, ptr %34, align 8
   %42 = load i32, ptr %35, align 8
-  %43 = mul nsw i32 %42, %.04260
+  %43 = mul nsw i32 %42, %.04257
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.159 = phi ptr [ %49, %.lr.ph ], [ %.03661, %.lr.ph.preheader ]
-  %.03758 = phi ptr [ %46, %.lr.ph ], [ %45, %.lr.ph.preheader ]
-  %.04357 = phi i32 [ %50, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %46 = getelementptr inbounds nuw i8, ptr %.03758, i64 4
-  %47 = load i32, ptr %.03758, align 4
+  %.156 = phi ptr [ %49, %.lr.ph ], [ %.03658, %.lr.ph.preheader ]
+  %.03755 = phi ptr [ %46, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+  %.04354 = phi i32 [ %50, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %46 = getelementptr inbounds nuw i8, ptr %.03755, i64 4
+  %47 = load i32, ptr %.03755, align 4
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %.159, i64 8
-  store i64 %48, ptr %.159, align 8
-  %50 = add nuw nsw i32 %.04357, 1
+  %49 = getelementptr inbounds nuw i8, ptr %.156, i64 8
+  store i64 %48, ptr %.156, align 8
+  %50 = add nuw nsw i32 %.04354, 1
   %51 = load i32, ptr %14, align 8
   %52 = icmp slt i32 %50, %51
   br i1 %52, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
@@ -1819,15 +1819,15 @@ define hidden zeroext i1 @X11_SetWindowIcon(ptr noundef readnone captures(none) 
   %.pre = load i32, ptr %16, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph63.split
-  %53 = phi i32 [ %38, %.lr.ph63.split ], [ %.pre, %._crit_edge.loopexit ]
-  %54 = phi i32 [ %39, %.lr.ph63.split ], [ %51, %._crit_edge.loopexit ]
-  %.1.lcssa = phi ptr [ %.03661, %.lr.ph63.split ], [ %49, %._crit_edge.loopexit ]
-  %55 = add nuw nsw i32 %.04260, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph60.split
+  %53 = phi i32 [ %38, %.lr.ph60.split ], [ %.pre, %._crit_edge.loopexit ]
+  %54 = phi i32 [ %39, %.lr.ph60.split ], [ %51, %._crit_edge.loopexit ]
+  %.1.lcssa = phi ptr [ %.03658, %.lr.ph60.split ], [ %49, %._crit_edge.loopexit ]
+  %55 = add nuw nsw i32 %.04257, 1
   %56 = icmp slt i32 %55, %53
-  br i1 %56, label %.lr.ph63.split, label %._crit_edge64, !llvm.loop !13
+  br i1 %56, label %.lr.ph60.split, label %._crit_edge61, !llvm.loop !13
 
-._crit_edge64:                                    ; preds = %._crit_edge, %.lr.ph63, %23
+._crit_edge61:                                    ; preds = %._crit_edge, %.lr.ph60, %23
   %57 = load ptr, ptr @X11_XChangeProperty, align 8
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load i64, ptr %58, align 8
@@ -1836,25 +1836,25 @@ define hidden zeroext i1 @X11_SetWindowIcon(ptr noundef readnone captures(none) 
   %.b49 = load i1, ptr @caught_x11_error, align 1
   br i1 %.b49, label %61, label %63
 
-61:                                               ; preds = %._crit_edge64
+61:                                               ; preds = %._crit_edge61
   %62 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25) #12
   br label %63
 
-63:                                               ; preds = %._crit_edge64, %61
-  %.145.ph = phi i1 [ true, %._crit_edge64 ], [ %62, %61 ]
+63:                                               ; preds = %61, %._crit_edge61
+  %.044 = phi i1 [ %62, %61 ], [ true, %._crit_edge61 ]
   %64 = load ptr, ptr @X11_XFlush, align 8
   %65 = tail call i32 %64(ptr noundef %8) #12
   %.not50 = icmp eq ptr %27, null
-  br i1 %.not50, label %69, label %66
+  br i1 %.not50, label %.critedge, label %66
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr @X11_XSetErrorHandler, align 8
   %68 = tail call ptr %67(ptr noundef nonnull %27) #12
   store i1 false, ptr @caught_x11_error, align 1
-  br label %69
+  br label %.critedge
 
-69:                                               ; preds = %.thread53, %13, %63, %66
-  %.139 = phi i1 [ %.145.ph, %66 ], [ %.145.ph, %63 ], [ false, %13 ], [ true, %.thread53 ]
+.critedge:                                        ; preds = %.thread, %13, %63, %66
+  %.139 = phi i1 [ %.044, %66 ], [ %.044, %63 ], [ false, %13 ], [ true, %.thread ]
   ret i1 %.139
 }
 
@@ -4457,7 +4457,7 @@ X11_SetWindowFullscreenViaWM.exit:                ; preds = %8, %14, %18, %24, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X11_GetWindowICCProfile(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define hidden noalias ptr @X11_GetWindowICCProfile(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4

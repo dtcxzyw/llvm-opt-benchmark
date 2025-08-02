@@ -64,67 +64,64 @@ define linkonce_odr void @_ZN5folly10symbolizer21SafeStackTracePrinterD0Ev(ptr n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %_ZN5folly10symbolizer21SafeStackTracePrinterD2Ev.exit, label %4
+  br i1 %.not.i.i, label %_ZN5folly10symbolizer21SafeStackTracePrinterD2Ev.exit, label %.preheader.i.i.i
 
-4:                                                ; preds = %1
-  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 144
-  br label %5
-
-5:                                                ; preds = %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i, %4
-  %.idx.i.i.i.i = phi i64 [ 16008, %4 ], [ %.add.i.i.i.i, %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i ]
+.preheader.i.i.i:                                 ; preds = %1, %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i
+  %.idx.i.i.i.i = phi i64 [ %.add.i.i.i.i, %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i ], [ 16008, %1 ]
   %.add.i.i.i.i = add nsw i64 %.idx.i.i.i.i, -152
-  %gep.i.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i.i, i64 %.add.i.i.i.i
-  %6 = load ptr, ptr %gep.i.i.i.i, align 8, !tbaa !14
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i, label %7
+  %.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.add.i.i.i.i
+  %4 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i.i.i, i64 144
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i, label %6
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load atomic i64, ptr %8 acquire, align 8
-  %10 = icmp eq i64 %9, 4294967297
-  %11 = trunc i64 %9 to i32
-  br i1 %10, label %12, label %20
+6:                                                ; preds = %.preheader.i.i.i
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = load atomic i64, ptr %7 acquire, align 8
+  %9 = icmp eq i64 %8, 4294967297
+  %10 = trunc i64 %8 to i32
+  br i1 %9, label %11, label %19
 
-12:                                               ; preds = %7
-  store i32 0, ptr %8, align 8, !tbaa !17
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %13, align 4, !tbaa !20
-  %14 = load ptr, ptr %6, align 8, !tbaa !7
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
-  %17 = load ptr, ptr %6, align 8, !tbaa !7
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+11:                                               ; preds = %6
+  store i32 0, ptr %7, align 8, !tbaa !17
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 0, ptr %12, align 4, !tbaa !20
+  %13 = load ptr, ptr %5, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load ptr, ptr %14, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %18 = load ptr, ptr %17, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i
 
-20:                                               ; preds = %7
-  %21 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !21
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %21, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %24, label %22
+19:                                               ; preds = %6
+  %20 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !21
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %20, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %23, label %21
 
-22:                                               ; preds = %20
-  %23 = add nsw i32 %11, -1
-  store i32 %23, ptr %8, align 4, !tbaa !22
+21:                                               ; preds = %19
+  %22 = add nsw i32 %10, -1
+  store i32 %22, ptr %7, align 4, !tbaa !22
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
-24:                                               ; preds = %20
-  %25 = atomicrmw volatile add ptr %8, i32 -1 acq_rel, align 4
+23:                                               ; preds = %19
+  %24 = atomicrmw volatile add ptr %7, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %24, %22
-  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %11, %22 ], [ %25, %24 ]
-  %26 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %26, label %27, label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i, !prof !23
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %23, %21
+  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %10, %21 ], [ %24, %23 ]
+  %25 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
+  br i1 %25, label %26, label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i, !prof !23
 
-27:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+26:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i
 
-_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i: ; preds = %27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %12, %5
-  %28 = icmp eq i64 %.add.i.i.i.i, 808
-  br i1 %28, label %_ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i.i, label %5
+_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i: ; preds = %26, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %11, %.preheader.i.i.i
+  %27 = icmp eq i64 %.add.i.i.i.i, 808
+  br i1 %27, label %_ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i.i, label %.preheader.i.i.i
 
 _ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i.i: ; preds = %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16008) #20
@@ -132,8 +129,8 @@ _ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i.i
 
 _ZN5folly10symbolizer21SafeStackTracePrinterD2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i.i
   store ptr null, ptr %2, align 8, !tbaa !10
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN5folly10symbolizer18FDSymbolizePrinterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #19
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN5folly10symbolizer18FDSymbolizePrinterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #20
   ret void
 }
@@ -162,67 +159,64 @@ define linkonce_odr void @_ZN5folly10symbolizer21SafeStackTracePrinterD2Ev(ptr n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN5folly10symbolizer10FrameArrayILm100EEESt14default_deleteIS3_EED2Ev.exit, label %4
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN5folly10symbolizer10FrameArrayILm100EEESt14default_deleteIS3_EED2Ev.exit, label %.preheader.i.i
 
-4:                                                ; preds = %1
-  %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 144
-  br label %5
-
-5:                                                ; preds = %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i, %4
-  %.idx.i.i.i = phi i64 [ 16008, %4 ], [ %.add.i.i.i, %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i ]
+.preheader.i.i:                                   ; preds = %1, %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i
+  %.idx.i.i.i = phi i64 [ %.add.i.i.i, %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i ], [ 16008, %1 ]
   %.add.i.i.i = add nsw i64 %.idx.i.i.i, -152
-  %gep.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i, i64 %.add.i.i.i
-  %6 = load ptr, ptr %gep.i.i.i, align 8, !tbaa !14
-  %.not.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i, label %7
+  %.ptr1.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.add.i.i.i
+  %4 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i.i, i64 144
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  %.not.i.i.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i, label %6
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load atomic i64, ptr %8 acquire, align 8
-  %10 = icmp eq i64 %9, 4294967297
-  %11 = trunc i64 %9 to i32
-  br i1 %10, label %12, label %20
+6:                                                ; preds = %.preheader.i.i
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = load atomic i64, ptr %7 acquire, align 8
+  %9 = icmp eq i64 %8, 4294967297
+  %10 = trunc i64 %8 to i32
+  br i1 %9, label %11, label %19
 
-12:                                               ; preds = %7
-  store i32 0, ptr %8, align 8, !tbaa !17
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %13, align 4, !tbaa !20
-  %14 = load ptr, ptr %6, align 8, !tbaa !7
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
-  %17 = load ptr, ptr %6, align 8, !tbaa !7
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+11:                                               ; preds = %6
+  store i32 0, ptr %7, align 8, !tbaa !17
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 0, ptr %12, align 4, !tbaa !20
+  %13 = load ptr, ptr %5, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load ptr, ptr %14, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %18 = load ptr, ptr %17, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i
 
-20:                                               ; preds = %7
-  %21 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !21
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %21, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %24, label %22
+19:                                               ; preds = %6
+  %20 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !21
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %20, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %23, label %21
 
-22:                                               ; preds = %20
-  %23 = add nsw i32 %11, -1
-  store i32 %23, ptr %8, align 4, !tbaa !22
+21:                                               ; preds = %19
+  %22 = add nsw i32 %10, -1
+  store i32 %22, ptr %7, align 4, !tbaa !22
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
-24:                                               ; preds = %20
-  %25 = atomicrmw volatile add ptr %8, i32 -1 acq_rel, align 4
+23:                                               ; preds = %19
+  %24 = atomicrmw volatile add ptr %7, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %24, %22
-  %.0.i.i.i.i.i.i.i.i = phi i32 [ %11, %22 ], [ %25, %24 ]
-  %26 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %26, label %27, label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i, !prof !23
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %23, %21
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %10, %21 ], [ %24, %23 ]
+  %25 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
+  br i1 %25, label %26, label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i, !prof !23
 
-27:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+26:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i
 
-_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i: ; preds = %27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %12, %5
-  %28 = icmp eq i64 %.add.i.i.i, 808
-  br i1 %28, label %_ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i, label %5
+_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i: ; preds = %26, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %11, %.preheader.i.i
+  %27 = icmp eq i64 %.add.i.i.i, 808
+  br i1 %27, label %_ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i, label %.preheader.i.i
 
 _ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i: ; preds = %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16008) #20
@@ -230,8 +224,8 @@ _ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i: 
 
 _ZNSt10unique_ptrIN5folly10symbolizer10FrameArrayILm100EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i
   store ptr null, ptr %2, align 8, !tbaa !10
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN5folly10symbolizer18FDSymbolizePrinterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #19
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN5folly10symbolizer18FDSymbolizePrinterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #19
   ret void
 }
 
@@ -241,67 +235,64 @@ define linkonce_odr void @_ZN5folly10symbolizer35UnsafeSelfAllocateStackTracePri
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %_ZN5folly10symbolizer21SafeStackTracePrinterD2Ev.exit, label %4
+  br i1 %.not.i.i, label %_ZN5folly10symbolizer21SafeStackTracePrinterD2Ev.exit, label %.preheader.i.i.i
 
-4:                                                ; preds = %1
-  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 144
-  br label %5
-
-5:                                                ; preds = %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i, %4
-  %.idx.i.i.i.i = phi i64 [ 16008, %4 ], [ %.add.i.i.i.i, %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i ]
+.preheader.i.i.i:                                 ; preds = %1, %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i
+  %.idx.i.i.i.i = phi i64 [ %.add.i.i.i.i, %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i ], [ 16008, %1 ]
   %.add.i.i.i.i = add nsw i64 %.idx.i.i.i.i, -152
-  %gep.i.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i.i, i64 %.add.i.i.i.i
-  %6 = load ptr, ptr %gep.i.i.i.i, align 8, !tbaa !14
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i, label %7
+  %.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.add.i.i.i.i
+  %4 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i.i.i, i64 144
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i, label %6
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load atomic i64, ptr %8 acquire, align 8
-  %10 = icmp eq i64 %9, 4294967297
-  %11 = trunc i64 %9 to i32
-  br i1 %10, label %12, label %20
+6:                                                ; preds = %.preheader.i.i.i
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = load atomic i64, ptr %7 acquire, align 8
+  %9 = icmp eq i64 %8, 4294967297
+  %10 = trunc i64 %8 to i32
+  br i1 %9, label %11, label %19
 
-12:                                               ; preds = %7
-  store i32 0, ptr %8, align 8, !tbaa !17
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %13, align 4, !tbaa !20
-  %14 = load ptr, ptr %6, align 8, !tbaa !7
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
-  %17 = load ptr, ptr %6, align 8, !tbaa !7
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+11:                                               ; preds = %6
+  store i32 0, ptr %7, align 8, !tbaa !17
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 0, ptr %12, align 4, !tbaa !20
+  %13 = load ptr, ptr %5, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load ptr, ptr %14, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %18 = load ptr, ptr %17, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i
 
-20:                                               ; preds = %7
-  %21 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !21
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %21, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %24, label %22
+19:                                               ; preds = %6
+  %20 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !21
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %20, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %23, label %21
 
-22:                                               ; preds = %20
-  %23 = add nsw i32 %11, -1
-  store i32 %23, ptr %8, align 4, !tbaa !22
+21:                                               ; preds = %19
+  %22 = add nsw i32 %10, -1
+  store i32 %22, ptr %7, align 4, !tbaa !22
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
-24:                                               ; preds = %20
-  %25 = atomicrmw volatile add ptr %8, i32 -1 acq_rel, align 4
+23:                                               ; preds = %19
+  %24 = atomicrmw volatile add ptr %7, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %24, %22
-  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %11, %22 ], [ %25, %24 ]
-  %26 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %26, label %27, label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i, !prof !23
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %23, %21
+  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %10, %21 ], [ %24, %23 ]
+  %25 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
+  br i1 %25, label %26, label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i, !prof !23
 
-27:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+26:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i
 
-_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i: ; preds = %27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %12, %5
-  %28 = icmp eq i64 %.add.i.i.i.i, 808
-  br i1 %28, label %_ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i.i, label %5
+_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i: ; preds = %26, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %11, %.preheader.i.i.i
+  %27 = icmp eq i64 %.add.i.i.i.i, 808
+  br i1 %27, label %_ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i.i, label %.preheader.i.i.i
 
 _ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i.i: ; preds = %_ZN5folly10symbolizer15SymbolizedFrameD2Ev.exit.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 16008) #20
@@ -309,8 +300,8 @@ _ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i.i
 
 _ZN5folly10symbolizer21SafeStackTracePrinterD2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5folly10symbolizer10FrameArrayILm100EEEEclEPS3_.exit.i.i
   store ptr null, ptr %2, align 8, !tbaa !10
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN5folly10symbolizer18FDSymbolizePrinterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #19
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN5folly10symbolizer18FDSymbolizePrinterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #20
   ret void
 }

@@ -879,16 +879,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %_ZN4abs
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %9
   %second.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i.i)
-          to label %.noexc unwind label %terminate.lpad.loopexit
-
-.noexc:                                           ; preds = %for.body.i.i
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i.i)
   %arrayidx.i.i.i.i.i = getelementptr i8, ptr %it.sroa.0.025.i.i, i64 11
   %11 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %cmp.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %land.lhs.true.i.i.i.i
 
-land.lhs.true.i.i.i.i:                            ; preds = %.noexc
+land.lhs.true.i.i.i.i:                            ; preds = %for.body.i.i
   %inc.i.i.i.i = add nsw i32 %it.sroa.9.024.i.i, 1
   %arrayidx.i1.i.i.i.i = getelementptr i8, ptr %it.sroa.0.025.i.i, i64 10
   %12 = load i8, ptr %arrayidx.i1.i.i.i.i, align 1
@@ -912,7 +909,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %cmp.i2.i.i.i.i = icmp eq i8 %16, %17
   br i1 %cmp.i2.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.loopexit17.split.loop.exit18.i.i, !llvm.loop !28
 
-if.else.i.i.i.i.i:                                ; preds = %.noexc
+if.else.i.i.i.i.i:                                ; preds = %for.body.i.i
   %add.ptr.i.i.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.025.i.i, i64 240
   %18 = add i32 %it.sroa.9.024.i.i, 1
   %19 = and i32 %18, 255
@@ -948,18 +945,15 @@ if.end.i:                                         ; preds = %if.then
   %cmp.not4.i.i = icmp eq i16 %this.val, 0
   br i1 %cmp.not4.i.i, label %invoke.cont, label %for.body.i5.i
 
-for.body.i5.i:                                    ; preds = %if.end.i, %.noexc2
-  %it.05.i.i = phi ptr [ %incdec.ptr.i.i, %.noexc2 ], [ %this.val1, %if.end.i ]
+for.body.i5.i:                                    ; preds = %if.end.i, %for.body.i5.i
+  %it.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i5.i ], [ %this.val1, %if.end.i ]
   %second.i6.i = getelementptr inbounds nuw i8, ptr %it.05.i.i, i64 8
-  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i6.i)
-          to label %.noexc2 unwind label %terminate.lpad.loopexit.split-lp
-
-.noexc2:                                          ; preds = %for.body.i5.i
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i6.i)
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %it.05.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %for.body.i5.i, !llvm.loop !31
 
-invoke.cont:                                      ; preds = %.noexc2, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.end.i, %if.then.i
+invoke.cont:                                      ; preds = %for.body.i5.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.end.i, %if.then.i
   %21 = load i16, ptr %1, align 2
   %cmp.i = icmp slt i16 %21, 0
   %22 = load ptr, ptr %2, align 8
@@ -990,22 +984,6 @@ if.else:                                          ; preds = %invoke.cont
 
 if.end6:                                          ; preds = %if.else, %_ZN4absl12lts_202308029btree_mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS6_EEED2Ev.exit, %if.then3, %entry
   ret void
-
-terminate.lpad.loopexit:                          ; preds = %for.body.i.i
-  %lpad.loopexit = landingpad { ptr, i32 }
-          catch ptr null
-  br label %terminate.lpad
-
-terminate.lpad.loopexit.split-lp:                 ; preds = %for.body.i5.i
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          catch ptr null
-  br label %terminate.lpad
-
-terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
-  %25 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %25) #32
-  unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
@@ -7901,8 +7879,8 @@ if.end19:                                         ; preds = %_ZN6google8protobuf
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %is_repeated = getelementptr inbounds nuw i8, ptr %this, i64 9
   %0 = load i8, ptr %is_repeated, align 1

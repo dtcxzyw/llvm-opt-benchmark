@@ -206,7 +206,6 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Cudd_ApaShiftRight(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
-  %invariant.gep = getelementptr i8, ptr %2, i64 -8
   %5 = icmp sgt i32 %0, 1
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -219,18 +218,19 @@ define void @Cudd_ApaShiftRight(i32 noundef %0, i32 noundef %1, ptr noundef read
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
   %8 = load i32, ptr %7, align 4, !tbaa !3
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %9 = load i32, ptr %gep, align 4, !tbaa !3
-  %10 = tail call i32 @llvm.fshl.i32(i32 %9, i32 %8, i32 31)
-  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next
-  store i32 %10, ptr %11, align 4, !tbaa !3
-  %12 = icmp samesign ugt i64 %indvars.iv, 2
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  %9 = getelementptr i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr i8, ptr %9, i64 -8
+  %11 = load i32, ptr %10, align 4, !tbaa !3
+  %12 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %8, i32 31)
+  %13 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next
+  store i32 %12, ptr %13, align 4, !tbaa !3
+  %14 = icmp samesign ugt i64 %indvars.iv, 2
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %13 = load i32, ptr %2, align 4, !tbaa !3
-  %14 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %13, i32 31)
-  store i32 %14, ptr %3, align 4, !tbaa !3
+  %15 = load i32, ptr %2, align 4, !tbaa !3
+  %16 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %15, i32 31)
+  store i32 %16, ptr %3, align 4, !tbaa !3
   ret void
 }
 
@@ -1063,7 +1063,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   %13 = icmp eq ptr %0, %12
   %or.cond = select i1 %11, i1 true, i1 %13
   %spec.select = select i1 %or.cond, ptr %3, ptr %2
-  br label %114
+  br label %116
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1078,7 +1078,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %6, align 8, !tbaa !46
-  br label %114
+  br label %116
 
 22:                                               ; preds = %18, %14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1087,7 +1087,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   %26 = load ptr, ptr %25, align 8, !tbaa !18
   %27 = call fastcc ptr @cuddApaCountMintermAux(ptr noundef %24, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %114, label %29
+  br i1 %28, label %116, label %29
 
 29:                                               ; preds = %22
   %30 = ptrtoint ptr %26 to i64
@@ -1101,11 +1101,11 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !44
   %38 = icmp eq i32 %37, 1
-  br i1 %38, label %39, label %114
+  br i1 %38, label %39, label %116
 
 39:                                               ; preds = %35
   call void @free(ptr noundef nonnull %27) #19
-  br label %114
+  br label %116
 
 40:                                               ; preds = %29
   %41 = sext i32 %1 to i64
@@ -1129,11 +1129,11 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   %51 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !44
   %53 = icmp eq i32 %52, 1
-  br i1 %53, label %54, label %114
+  br i1 %53, label %54, label %116
 
 54:                                               ; preds = %50
   call void @free(ptr noundef nonnull %33) #19
-  br label %114
+  br label %116
 
 55:                                               ; preds = %40
   %56 = and i64 %30, 1
@@ -1201,7 +1201,6 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   br i1 %87, label %.lr.ph.i75, label %Cudd_ApaAdd.exit, !llvm.loop !9
 
 Cudd_ApaAdd.exit:                                 ; preds = %.lr.ph.i71, %.lr.ph.i75
-  %invariant.gep.i = getelementptr i8, ptr %43, i64 -8
   %88 = icmp samesign ugt i32 %1, 1
   br i1 %88, label %.lr.ph.preheader.i79, label %Cudd_ApaShiftRight.exit
 
@@ -1214,58 +1213,59 @@ Cudd_ApaAdd.exit:                                 ; preds = %.lr.ph.i71, %.lr.ph
   %indvars.iv.next.i82 = add nsw i64 %indvars.iv.i81, -1
   %90 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.next.i82
   %91 = load i32, ptr %90, align 4, !tbaa !3
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i81
-  %92 = load i32, ptr %gep.i, align 4, !tbaa !3
-  %93 = call i32 @llvm.fshl.i32(i32 %92, i32 %91, i32 31)
-  store i32 %93, ptr %90, align 4, !tbaa !3
-  %94 = icmp samesign ugt i64 %indvars.iv.i81, 2
-  br i1 %94, label %.lr.ph.i80, label %Cudd_ApaShiftRight.exit, !llvm.loop !13
+  %92 = getelementptr i32, ptr %43, i64 %indvars.iv.i81
+  %93 = getelementptr i8, ptr %92, i64 -8
+  %94 = load i32, ptr %93, align 4, !tbaa !3
+  %95 = call i32 @llvm.fshl.i32(i32 %94, i32 %91, i32 31)
+  store i32 %95, ptr %90, align 4, !tbaa !3
+  %96 = icmp samesign ugt i64 %indvars.iv.i81, 2
+  br i1 %96, label %.lr.ph.i80, label %Cudd_ApaShiftRight.exit, !llvm.loop !13
 
 Cudd_ApaShiftRight.exit:                          ; preds = %.lr.ph.i80, %58, %79, %Cudd_ApaAdd.exit
-  %95 = load i32, ptr %43, align 4, !tbaa !3
-  %96 = lshr i32 %95, 1
-  store i32 %96, ptr %43, align 4, !tbaa !3
-  %97 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %98 = load i32, ptr %97, align 4, !tbaa !44
-  %99 = icmp eq i32 %98, 1
-  br i1 %99, label %100, label %101
+  %97 = load i32, ptr %43, align 4, !tbaa !3
+  %98 = lshr i32 %97, 1
+  store i32 %98, ptr %43, align 4, !tbaa !3
+  %99 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %100 = load i32, ptr %99, align 4, !tbaa !44
+  %101 = icmp eq i32 %100, 1
+  br i1 %101, label %102, label %103
 
-100:                                              ; preds = %Cudd_ApaShiftRight.exit
+102:                                              ; preds = %Cudd_ApaShiftRight.exit
   call void @free(ptr noundef nonnull %27) #19
-  br label %101
+  br label %103
 
-101:                                              ; preds = %100, %Cudd_ApaShiftRight.exit
-  %102 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %103 = load i32, ptr %102, align 4, !tbaa !44
-  %104 = icmp eq i32 %103, 1
-  br i1 %104, label %105, label %106
+103:                                              ; preds = %102, %Cudd_ApaShiftRight.exit
+  %104 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %105 = load i32, ptr %104, align 4, !tbaa !44
+  %106 = icmp eq i32 %105, 1
+  br i1 %106, label %107, label %108
 
-105:                                              ; preds = %101
+107:                                              ; preds = %103
   call void @free(ptr noundef nonnull %33) #19
-  br label %106
+  br label %108
 
-106:                                              ; preds = %105, %101
-  %107 = load i32, ptr %15, align 4, !tbaa !44
-  %108 = icmp ugt i32 %107, 1
-  %.pre86 = load ptr, ptr %6, align 8, !tbaa !46
-  br i1 %108, label %109, label %114
+108:                                              ; preds = %107, %103
+  %109 = load i32, ptr %15, align 4, !tbaa !44
+  %110 = icmp ugt i32 %109, 1
+  %.pre85 = load ptr, ptr %6, align 8, !tbaa !46
+  br i1 %110, label %111, label %116
 
-109:                                              ; preds = %106
-  %110 = call i32 @st__insert(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %.pre86) #19
-  %111 = icmp eq i32 %110, -10000
+111:                                              ; preds = %108
+  %112 = call i32 @st__insert(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %.pre85) #19
+  %113 = icmp eq i32 %112, -10000
   %.pre = load ptr, ptr %6, align 8, !tbaa !46
-  br i1 %111, label %112, label %114
+  br i1 %113, label %114, label %116
 
-112:                                              ; preds = %109
+114:                                              ; preds = %111
   %.not68 = icmp eq ptr %.pre, null
-  br i1 %.not68, label %114, label %113
+  br i1 %.not68, label %116, label %115
 
-113:                                              ; preds = %112
+115:                                              ; preds = %114
   call void @free(ptr noundef nonnull %.pre) #19
-  br label %114
+  br label %116
 
-114:                                              ; preds = %106, %109, %9, %113, %112, %50, %54, %35, %39, %22, %20
-  %.061 = phi ptr [ %21, %20 ], [ null, %22 ], [ null, %39 ], [ null, %35 ], [ null, %54 ], [ null, %50 ], [ null, %112 ], [ null, %113 ], [ %spec.select, %9 ], [ %.pre, %109 ], [ %.pre86, %106 ]
+116:                                              ; preds = %108, %111, %9, %115, %114, %50, %54, %35, %39, %22, %20
+  %.061 = phi ptr [ %21, %20 ], [ null, %22 ], [ null, %39 ], [ null, %35 ], [ null, %54 ], [ null, %50 ], [ null, %114 ], [ null, %115 ], [ %spec.select, %9 ], [ %.pre, %111 ], [ %.pre85, %108 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   ret ptr %.061
 }

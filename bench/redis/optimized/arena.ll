@@ -854,7 +854,7 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
 
 57:                                               ; preds = %san_large_extent_decide_guard.exit
   %58 = icmp ugt i64 %2, 8070450532247928832
-  br i1 %58, label %73, label %59, !prof !144
+  br i1 %58, label %75, label %59, !prof !144
 
 59:                                               ; preds = %57
   %spec.store.select.i = call i64 @llvm.umax.i64(i64 %2, i64 16384)
@@ -872,14 +872,14 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
   %71 = shl nuw nsw i32 %63, 2
   %reass.sub30 = sub nsw i32 %70, %71
   %72 = add nsw i32 %reass.sub30, 232
-  br label %73
+  %73 = call i32 @llvm.usub.sat.i32(i32 %72, i32 39)
+  %74 = zext nneg i32 %73 to i64
+  br label %75
 
-73:                                               ; preds = %59, %57
-  %.0.i.i = phi i32 [ %72, %59 ], [ 235, %57 ]
-  %74 = call i32 @llvm.usub.sat.i32(i32 %.0.i.i, i32 39)
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 976
-  %76 = zext nneg i32 %74 to i64
-  %77 = getelementptr inbounds nuw [196 x %struct.arena_stats_large_s], ptr %75, i64 0, i64 %76
+75:                                               ; preds = %59, %57
+  %.0.i.i = phi i64 [ %74, %59 ], [ 196, %57 ]
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 976
+  %77 = getelementptr inbounds nuw [196 x %struct.arena_stats_large_s], ptr %76, i64 0, i64 %.0.i.i
   %78 = atomicrmw add ptr %77, i64 1 monotonic, align 8
   %79 = load i64, ptr @je_sz_large_pad, align 8
   %80 = icmp ne i64 %79, 0
@@ -887,7 +887,7 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
   %or.cond = and i1 %81, %80
   br i1 %or.cond, label %82, label %arena_cache_oblivious_randomize.exit
 
-82:                                               ; preds = %73
+82:                                               ; preds = %75
   %83 = add nuw nsw i64 %3, 63
   %84 = and i64 %83, 8128
   %85 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 0, -2305843009213693952) %84, i1 true)
@@ -924,7 +924,7 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   br label %arena_cache_oblivious_randomize.exit
 
-arena_cache_oblivious_randomize.exit:             ; preds = %san_large_extent_decide_guard.exit, %97, %73
+arena_cache_oblivious_randomize.exit:             ; preds = %san_large_extent_decide_guard.exit, %97, %75
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #16
   ret ptr %56
 }
@@ -965,16 +965,16 @@ define hidden void @je_arena_extent_dalloc_large_prep(ptr noundef readnone captu
   %21 = shl nuw nsw i32 %13, 2
   %reass.sub = sub nsw i32 %20, %21
   %22 = add nsw i32 %reass.sub, 232
+  %23 = tail call i32 @llvm.usub.sat.i32(i32 %22, i32 39)
+  %24 = zext nneg i32 %23 to i64
+  %25 = mul nuw nsw i64 %24, 48
   br label %arena_large_dalloc_stats_update.exit
 
 arena_large_dalloc_stats_update.exit:             ; preds = %3, %9
-  %.0.i.i = phi i32 [ %22, %9 ], [ 235, %3 ]
-  %23 = tail call i32 @llvm.usub.sat.i32(i32 %.0.i.i, i32 39)
-  %24 = zext nneg i32 %23 to i64
-  %.idx.i = mul nuw nsw i64 %24, 48
-  %25 = getelementptr i8, ptr %1, i64 984
-  %26 = getelementptr i8, ptr %25, i64 %.idx.i
-  %27 = atomicrmw add ptr %26, i64 1 monotonic, align 8
+  %.0.i.i = phi i64 [ %25, %9 ], [ 9408, %3 ]
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 984
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.0.i.i
+  %28 = atomicrmw add ptr %27, i64 1 monotonic, align 8
   ret void
 }
 
@@ -1004,14 +1004,14 @@ define hidden void @je_arena_extent_ralloc_large_shrink(ptr noundef readnone cap
   %22 = shl nuw nsw i32 %14, 2
   %reass.sub = sub nsw i32 %21, %22
   %23 = add nsw i32 %reass.sub, 232
+  %24 = tail call i32 @llvm.usub.sat.i32(i32 %23, i32 39)
+  %25 = zext nneg i32 %24 to i64
   br label %arena_large_malloc_stats_update.exit.i
 
 arena_large_malloc_stats_update.exit.i:           ; preds = %10, %4
-  %.0.i.i.i = phi i32 [ %23, %10 ], [ 235, %4 ]
-  %24 = tail call i32 @llvm.usub.sat.i32(i32 %.0.i.i.i, i32 39)
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 976
-  %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw [196 x %struct.arena_stats_large_s], ptr %25, i64 0, i64 %26
+  %.0.i.i.i = phi i64 [ %25, %10 ], [ 196, %4 ]
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 976
+  %27 = getelementptr inbounds nuw [196 x %struct.arena_stats_large_s], ptr %26, i64 0, i64 %.0.i.i.i
   %28 = atomicrmw add ptr %27, i64 1 monotonic, align 8
   %29 = icmp ugt i64 %3, 8070450532247928832
   br i1 %29, label %arena_large_ralloc_stats_update.exit, label %30, !prof !144
@@ -1032,16 +1032,16 @@ arena_large_malloc_stats_update.exit.i:           ; preds = %10, %4
   %42 = shl nuw nsw i32 %34, 2
   %reass.sub6 = sub nsw i32 %41, %42
   %43 = add nsw i32 %reass.sub6, 232
+  %44 = tail call i32 @llvm.usub.sat.i32(i32 %43, i32 39)
+  %45 = zext nneg i32 %44 to i64
+  %46 = mul nuw nsw i64 %45, 48
   br label %arena_large_ralloc_stats_update.exit
 
 arena_large_ralloc_stats_update.exit:             ; preds = %arena_large_malloc_stats_update.exit.i, %30
-  %.0.i.i7.i = phi i32 [ %43, %30 ], [ 235, %arena_large_malloc_stats_update.exit.i ]
-  %44 = tail call i32 @llvm.usub.sat.i32(i32 %.0.i.i7.i, i32 39)
-  %45 = zext nneg i32 %44 to i64
-  %.idx.i.i = mul nuw nsw i64 %45, 48
-  %46 = getelementptr i8, ptr %1, i64 984
-  %47 = getelementptr i8, ptr %46, i64 %.idx.i.i
-  %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
+  %.0.i.i7.i = phi i64 [ %46, %30 ], [ 9408, %arena_large_malloc_stats_update.exit.i ]
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 984
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.0.i.i7.i
+  %49 = atomicrmw add ptr %48, i64 1 monotonic, align 8
   ret void
 }
 
@@ -1071,14 +1071,14 @@ define hidden void @je_arena_extent_ralloc_large_expand(ptr noundef readnone cap
   %22 = shl nuw nsw i32 %14, 2
   %reass.sub = sub nsw i32 %21, %22
   %23 = add nsw i32 %reass.sub, 232
+  %24 = tail call i32 @llvm.usub.sat.i32(i32 %23, i32 39)
+  %25 = zext nneg i32 %24 to i64
   br label %arena_large_malloc_stats_update.exit.i
 
 arena_large_malloc_stats_update.exit.i:           ; preds = %10, %4
-  %.0.i.i.i = phi i32 [ %23, %10 ], [ 235, %4 ]
-  %24 = tail call i32 @llvm.usub.sat.i32(i32 %.0.i.i.i, i32 39)
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 976
-  %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw [196 x %struct.arena_stats_large_s], ptr %25, i64 0, i64 %26
+  %.0.i.i.i = phi i64 [ %25, %10 ], [ 196, %4 ]
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 976
+  %27 = getelementptr inbounds nuw [196 x %struct.arena_stats_large_s], ptr %26, i64 0, i64 %.0.i.i.i
   %28 = atomicrmw add ptr %27, i64 1 monotonic, align 8
   %29 = icmp ugt i64 %3, 8070450532247928832
   br i1 %29, label %arena_large_ralloc_stats_update.exit, label %30, !prof !144
@@ -1099,16 +1099,16 @@ arena_large_malloc_stats_update.exit.i:           ; preds = %10, %4
   %42 = shl nuw nsw i32 %34, 2
   %reass.sub6 = sub nsw i32 %41, %42
   %43 = add nsw i32 %reass.sub6, 232
+  %44 = tail call i32 @llvm.usub.sat.i32(i32 %43, i32 39)
+  %45 = zext nneg i32 %44 to i64
+  %46 = mul nuw nsw i64 %45, 48
   br label %arena_large_ralloc_stats_update.exit
 
 arena_large_ralloc_stats_update.exit:             ; preds = %arena_large_malloc_stats_update.exit.i, %30
-  %.0.i.i7.i = phi i32 [ %43, %30 ], [ 235, %arena_large_malloc_stats_update.exit.i ]
-  %44 = tail call i32 @llvm.usub.sat.i32(i32 %.0.i.i7.i, i32 39)
-  %45 = zext nneg i32 %44 to i64
-  %.idx.i.i = mul nuw nsw i64 %45, 48
-  %46 = getelementptr i8, ptr %1, i64 984
-  %47 = getelementptr i8, ptr %46, i64 %.idx.i.i
-  %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
+  %.0.i.i7.i = phi i64 [ %46, %30 ], [ 9408, %arena_large_malloc_stats_update.exit.i ]
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 984
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.0.i.i7.i
+  %49 = atomicrmw add ptr %48, i64 1 monotonic, align 8
   ret void
 }
 

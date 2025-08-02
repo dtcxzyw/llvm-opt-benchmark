@@ -25042,7 +25042,6 @@ for.end:                                          ; preds = %_ZN5eastl8pop_heapI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl16adjust_heap_implIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_S4_EEvT_T0_S8_S8_T1_(ptr noundef %first, i64 noundef %topPosition, i64 noundef %heapSize, i64 noundef %position, ptr noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %invariant.gep = getelementptr i8, ptr %first, i64 8
   %childPosition.0.in26 = shl nsw i64 %position, 1
   %childPosition.027 = add nsw i64 %childPosition.0.in26, 2
   %cmp28 = icmp slt i64 %childPosition.027, %heapSize
@@ -25053,27 +25052,28 @@ for.body:                                         ; preds = %entry, %_ZN5eastl10
   %childPosition.0.in30 = phi i64 [ %childPosition.0.in, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit ], [ %childPosition.0.in26, %entry ]
   %position.addr.029 = phi i64 [ %spec.select, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit ], [ %position, %entry ]
   %add.ptr = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.031
-  %gep = getelementptr %"class.eastl::unique_ptr", ptr %invariant.gep, i64 %childPosition.0.in30
-  %0 = load ptr, ptr %add.ptr, align 8
-  %1 = load ptr, ptr %gep, align 8
-  %cmp.i.i = icmp ult ptr %0, %1
+  %0 = getelementptr %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.0.in30
+  %add.ptr1 = getelementptr i8, ptr %0, i64 8
+  %1 = load ptr, ptr %add.ptr, align 8
+  %2 = load ptr, ptr %add.ptr1, align 8
+  %cmp.i.i = icmp ult ptr %1, %2
   %dec = or disjoint i64 %childPosition.0.in30, 1
   %spec.select = select i1 %cmp.i.i, i64 %dec, i64 %childPosition.031
   %add.ptr2 = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %spec.select
   %add.ptr4 = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.029
-  %2 = load ptr, ptr %add.ptr2, align 8
+  %3 = load ptr, ptr %add.ptr2, align 8
   store ptr null, ptr %add.ptr2, align 8
-  %3 = load ptr, ptr %add.ptr4, align 8
-  %cmp.not.i.i = icmp eq ptr %2, %3
+  %4 = load ptr, ptr %add.ptr4, align 8
+  %cmp.not.i.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i.i, label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit, label %invoke.cont3.i.i
 
 invoke.cont3.i.i:                                 ; preds = %for.body
-  store ptr %2, ptr %add.ptr4, align 8
-  %tobool.not.i.i = icmp eq ptr %3, null
+  store ptr %3, ptr %add.ptr4, align 8
+  %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit, label %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i
 
 _ZNK5eastl14default_deleteIiEclEPi.exit.i.i:      ; preds = %invoke.cont3.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #12
   br label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit
 
 _ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit: ; preds = %for.body, %invoke.cont3.i.i, %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i
@@ -25093,19 +25093,19 @@ if.then9:                                         ; preds = %for.end
   %sub10 = or disjoint i64 %childPosition.0.in.lcssa, 1
   %add.ptr11 = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %sub10
   %add.ptr13 = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.0.lcssa
-  %4 = load ptr, ptr %add.ptr11, align 8
+  %5 = load ptr, ptr %add.ptr11, align 8
   store ptr null, ptr %add.ptr11, align 8
-  %5 = load ptr, ptr %add.ptr13, align 8
-  %cmp.not.i.i20 = icmp eq ptr %4, %5
+  %6 = load ptr, ptr %add.ptr13, align 8
+  %cmp.not.i.i20 = icmp eq ptr %5, %6
   br i1 %cmp.not.i.i20, label %if.end16, label %invoke.cont3.i.i21
 
 invoke.cont3.i.i21:                               ; preds = %if.then9
-  store ptr %4, ptr %add.ptr13, align 8
-  %tobool.not.i.i22 = icmp eq ptr %5, null
+  store ptr %5, ptr %add.ptr13, align 8
+  %tobool.not.i.i22 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i22, label %if.end16, label %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i23
 
 _ZNK5eastl14default_deleteIiEclEPi.exit.i.i23:    ; preds = %invoke.cont3.i.i21
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #12
   br label %if.end16
 
 if.end16:                                         ; preds = %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i23, %invoke.cont3.i.i21, %if.then9, %for.end
@@ -25118,25 +25118,25 @@ land.rhs.i.i:                                     ; preds = %if.end16, %_ZN5east
   %parentPosition.020.in.i.i = add nsw i64 %position.addr.019.i.i, -1
   %parentPosition.020.i.i = ashr i64 %parentPosition.020.in.i.i, 1
   %add.ptr.i.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %parentPosition.020.i.i
-  %6 = load ptr, ptr %add.ptr.i.i, align 8
-  %7 = load ptr, ptr %value, align 8
-  %cmp.i.i.i.i = icmp ult ptr %6, %7
+  %7 = load ptr, ptr %add.ptr.i.i, align 8
+  %8 = load ptr, ptr %value, align 8
+  %cmp.i.i.i.i = icmp ult ptr %7, %8
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs.i.i
   %add.ptr3.i.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.019.i.i
   store ptr null, ptr %add.ptr.i.i, align 8
-  %8 = load ptr, ptr %add.ptr3.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %6, %8
+  %9 = load ptr, ptr %add.ptr3.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %7, %9
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i, label %invoke.cont3.i.i.i.i
 
 invoke.cont3.i.i.i.i:                             ; preds = %for.body.i.i
-  store ptr %6, ptr %add.ptr3.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %8, null
+  store ptr %7, ptr %add.ptr3.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i, label %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i.i
 
 _ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i.i:  ; preds = %invoke.cont3.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #12
   br label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i
 
 _ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i: ; preds = %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i.i, %invoke.cont3.i.i.i.i, %for.body.i.i
@@ -25146,19 +25146,19 @@ _ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i: ; preds = %_ZNK
 for.end.i.i:                                      ; preds = %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i, %land.rhs.i.i, %if.end16
   %position.addr.0.lcssa.i.i = phi i64 [ %position.addr.1, %if.end16 ], [ %parentPosition.020.i.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i ], [ %position.addr.019.i.i, %land.rhs.i.i ]
   %add.ptr8.i.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.0.lcssa.i.i
-  %9 = load ptr, ptr %value, align 8
+  %10 = load ptr, ptr %value, align 8
   store ptr null, ptr %value, align 8
-  %10 = load ptr, ptr %add.ptr8.i.i, align 8
-  %cmp.not.i.i11.i.i = icmp eq ptr %9, %10
+  %11 = load ptr, ptr %add.ptr8.i.i, align 8
+  %cmp.not.i.i11.i.i = icmp eq ptr %10, %11
   br i1 %cmp.not.i.i11.i.i, label %_ZN5eastl12promote_heapIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_EEvT_T0_S8_OT1_.exit, label %invoke.cont3.i.i12.i.i
 
 invoke.cont3.i.i12.i.i:                           ; preds = %for.end.i.i
-  store ptr %9, ptr %add.ptr8.i.i, align 8
-  %tobool.not.i.i13.i.i = icmp eq ptr %10, null
+  store ptr %10, ptr %add.ptr8.i.i, align 8
+  %tobool.not.i.i13.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i13.i.i, label %_ZN5eastl12promote_heapIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_EEvT_T0_S8_OT1_.exit, label %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i14.i.i
 
 _ZNK5eastl14default_deleteIiEclEPi.exit.i.i14.i.i: ; preds = %invoke.cont3.i.i12.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #12
   br label %_ZN5eastl12promote_heapIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_EEvT_T0_S8_OT1_.exit
 
 _ZN5eastl12promote_heapIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_EEvT_T0_S8_OT1_.exit: ; preds = %for.end.i.i, %invoke.cont3.i.i12.i.i, %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i14.i.i
@@ -25354,7 +25354,6 @@ if.end:                                           ; preds = %"_ZN5eastl8pop_heap
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN5eastl11adjust_heapIPNS_10unique_ptrIiNS_14default_deleteIiEEEElS4_Z13TestAlgorithmvE4$_44EEvT_T0_S8_S8_OT1_T2_"(ptr noundef captures(none) %first, i64 noundef range(i64 0, 576460752303423487) %topPosition, i64 noundef range(i64 -1152921504606846977, 1152921504606846976) %heapSize, i64 noundef range(i64 0, 576460752303423487) %position, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %first, i64 8
   %childPosition.0.in25.i = shl nuw nsw i64 %position, 1
   %childPosition.026.i = add nuw nsw i64 %childPosition.0.in25.i, 2
   %cmp27.i = icmp slt i64 %childPosition.026.i, %heapSize
@@ -25365,9 +25364,10 @@ for.body.i:                                       ; preds = %entry, %_ZN5eastl10
   %childPosition.0.in29.i = phi i64 [ %childPosition.0.in.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.0.in25.i, %entry ]
   %position.addr.028.i = phi i64 [ %spec.select.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %position, %entry ]
   %add.ptr.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.030.i
-  %gep.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %invariant.gep.i, i64 %childPosition.0.in29.i
+  %0 = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.0.in29.i
+  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %add.ptr.val.i = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr1.val.i = load ptr, ptr %gep.i, align 8
+  %add.ptr1.val.i = load ptr, ptr %add.ptr1.i, align 8
   %add.ptr.val.val.i = load i32, ptr %add.ptr.val.i, align 4
   %add.ptr1.val.val.i = load i32, ptr %add.ptr1.val.i, align 4
   %cmp.i.i = icmp slt i32 %add.ptr.val.val.i, %add.ptr1.val.val.i
@@ -25375,19 +25375,19 @@ for.body.i:                                       ; preds = %entry, %_ZN5eastl10
   %spec.select.i = select i1 %cmp.i.i, i64 %dec.i, i64 %childPosition.030.i
   %add.ptr2.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %spec.select.i
   %add.ptr4.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.028.i
-  %0 = load ptr, ptr %add.ptr2.i, align 8
+  %1 = load ptr, ptr %add.ptr2.i, align 8
   store ptr null, ptr %add.ptr2.i, align 8
-  %1 = load ptr, ptr %add.ptr4.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, %1
+  %2 = load ptr, ptr %add.ptr4.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i, label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i, label %invoke.cont3.i.i.i
 
 invoke.cont3.i.i.i:                               ; preds = %for.body.i
-  store ptr %0, ptr %add.ptr4.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %1, null
+  store ptr %1, ptr %add.ptr4.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i, label %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i
 
 _ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i:    ; preds = %invoke.cont3.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #12
   br label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i
 
 _ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i: ; preds = %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i, %invoke.cont3.i.i.i, %for.body.i
@@ -25407,19 +25407,19 @@ if.then9.i:                                       ; preds = %for.end.i
   %sub10.i = or disjoint i64 %childPosition.0.in.lcssa.i, 1
   %add.ptr11.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %sub10.i
   %add.ptr13.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.0.lcssa.i
-  %2 = load ptr, ptr %add.ptr11.i, align 8
+  %3 = load ptr, ptr %add.ptr11.i, align 8
   store ptr null, ptr %add.ptr11.i, align 8
-  %3 = load ptr, ptr %add.ptr13.i, align 8
-  %cmp.not.i.i20.i = icmp eq ptr %2, %3
+  %4 = load ptr, ptr %add.ptr13.i, align 8
+  %cmp.not.i.i20.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i.i20.i, label %if.end16.i, label %invoke.cont3.i.i21.i
 
 invoke.cont3.i.i21.i:                             ; preds = %if.then9.i
-  store ptr %2, ptr %add.ptr13.i, align 8
-  %tobool.not.i.i22.i = icmp eq ptr %3, null
+  store ptr %3, ptr %add.ptr13.i, align 8
+  %tobool.not.i.i22.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i22.i, label %if.end16.i, label %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i23.i
 
 _ZNK5eastl14default_deleteIiEclEPi.exit.i.i23.i:  ; preds = %invoke.cont3.i.i21.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #12
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i23.i, %invoke.cont3.i.i21.i, %if.then9.i, %for.end.i
@@ -25442,17 +25442,17 @@ land.rhs.i.i.i:                                   ; preds = %if.end16.i, %_ZN5ea
 for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i
   %add.ptr3.i.i.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.019.i.i.i
   store ptr null, ptr %add.ptr.i.i.i, align 8
-  %4 = load ptr, ptr %add.ptr3.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %add.ptr.val.i.i.i, %4
+  %5 = load ptr, ptr %add.ptr3.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %add.ptr.val.i.i.i, %5
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i, label %invoke.cont3.i.i.i.i.i
 
 invoke.cont3.i.i.i.i.i:                           ; preds = %for.body.i.i.i
   store ptr %add.ptr.val.i.i.i, ptr %add.ptr3.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i, label %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i.i.i
 
 _ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i.i.i: ; preds = %invoke.cont3.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #12
   br label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i
 
 _ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i: ; preds = %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i.i.i, %invoke.cont3.i.i.i.i.i, %for.body.i.i.i
@@ -25462,19 +25462,19 @@ _ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i: ; preds = %_Z
 for.end.i.i.i:                                    ; preds = %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i, %land.rhs.i.i.i, %if.end16.i
   %position.addr.0.lcssa.i.i.i = phi i64 [ %position.addr.1.i, %if.end16.i ], [ %position.addr.019.i.i.i, %land.rhs.i.i.i ], [ %parentPosition.020.i.i.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i ]
   %add.ptr8.i.i.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.0.lcssa.i.i.i
-  %5 = load ptr, ptr %value, align 8
+  %6 = load ptr, ptr %value, align 8
   store ptr null, ptr %value, align 8
-  %6 = load ptr, ptr %add.ptr8.i.i.i, align 8
-  %cmp.not.i.i11.i.i.i = icmp eq ptr %5, %6
+  %7 = load ptr, ptr %add.ptr8.i.i.i, align 8
+  %cmp.not.i.i11.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.not.i.i11.i.i.i, label %"_ZN5eastl16adjust_heap_implIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_Z13TestAlgorithmvE4$_44S4_EEvT_T0_S9_S9_T1_T2_.exit", label %invoke.cont3.i.i12.i.i.i
 
 invoke.cont3.i.i12.i.i.i:                         ; preds = %for.end.i.i.i
-  store ptr %5, ptr %add.ptr8.i.i.i, align 8
-  %tobool.not.i.i13.i.i.i = icmp eq ptr %6, null
+  store ptr %6, ptr %add.ptr8.i.i.i, align 8
+  %tobool.not.i.i13.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i13.i.i.i, label %"_ZN5eastl16adjust_heap_implIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_Z13TestAlgorithmvE4$_44S4_EEvT_T0_S9_S9_T1_T2_.exit", label %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i14.i.i.i
 
 _ZNK5eastl14default_deleteIiEclEPi.exit.i.i14.i.i.i: ; preds = %invoke.cont3.i.i12.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #12
   br label %"_ZN5eastl16adjust_heap_implIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_Z13TestAlgorithmvE4$_44S4_EEvT_T0_S9_S9_T1_T2_.exit"
 
 "_ZN5eastl16adjust_heap_implIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_Z13TestAlgorithmvE4$_44S4_EEvT_T0_S9_S9_T1_T2_.exit": ; preds = %for.end.i.i.i, %invoke.cont3.i.i12.i.i.i, %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i14.i.i.i
@@ -25670,7 +25670,6 @@ if.end:                                           ; preds = %"_ZN5eastl8pop_heap
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN5eastl11adjust_heapIPNS_10unique_ptrIiNS_14default_deleteIiEEEElS4_Z13TestAlgorithmvE4$_45EEvT_T0_S8_S8_OT1_T2_"(ptr noundef captures(none) %first, i64 noundef range(i64 0, 576460752303423487) %topPosition, i64 noundef range(i64 -1152921504606846977, 1152921504606846976) %heapSize, i64 noundef range(i64 0, 576460752303423487) %position, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %first, i64 8
   %childPosition.0.in25.i = shl nuw nsw i64 %position, 1
   %childPosition.026.i = add nuw nsw i64 %childPosition.0.in25.i, 2
   %cmp27.i = icmp slt i64 %childPosition.026.i, %heapSize
@@ -25681,9 +25680,10 @@ for.body.i:                                       ; preds = %entry, %_ZN5eastl10
   %childPosition.0.in29.i = phi i64 [ %childPosition.0.in.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.0.in25.i, %entry ]
   %position.addr.028.i = phi i64 [ %spec.select.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %position, %entry ]
   %add.ptr.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.030.i
-  %gep.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %invariant.gep.i, i64 %childPosition.0.in29.i
+  %0 = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.0.in29.i
+  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %add.ptr.val.i = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr1.val.i = load ptr, ptr %gep.i, align 8
+  %add.ptr1.val.i = load ptr, ptr %add.ptr1.i, align 8
   %add.ptr.val.val.i = load i32, ptr %add.ptr.val.i, align 4
   %add.ptr1.val.val.i = load i32, ptr %add.ptr1.val.i, align 4
   %cmp.i.i = icmp slt i32 %add.ptr.val.val.i, %add.ptr1.val.val.i
@@ -25691,19 +25691,19 @@ for.body.i:                                       ; preds = %entry, %_ZN5eastl10
   %spec.select.i = select i1 %cmp.i.i, i64 %dec.i, i64 %childPosition.030.i
   %add.ptr2.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %spec.select.i
   %add.ptr4.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.028.i
-  %0 = load ptr, ptr %add.ptr2.i, align 8
+  %1 = load ptr, ptr %add.ptr2.i, align 8
   store ptr null, ptr %add.ptr2.i, align 8
-  %1 = load ptr, ptr %add.ptr4.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, %1
+  %2 = load ptr, ptr %add.ptr4.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i, label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i, label %invoke.cont3.i.i.i
 
 invoke.cont3.i.i.i:                               ; preds = %for.body.i
-  store ptr %0, ptr %add.ptr4.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %1, null
+  store ptr %1, ptr %add.ptr4.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i, label %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i
 
 _ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i:    ; preds = %invoke.cont3.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #12
   br label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i
 
 _ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i: ; preds = %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i, %invoke.cont3.i.i.i, %for.body.i
@@ -25723,19 +25723,19 @@ if.then9.i:                                       ; preds = %for.end.i
   %sub10.i = or disjoint i64 %childPosition.0.in.lcssa.i, 1
   %add.ptr11.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %sub10.i
   %add.ptr13.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.0.lcssa.i
-  %2 = load ptr, ptr %add.ptr11.i, align 8
+  %3 = load ptr, ptr %add.ptr11.i, align 8
   store ptr null, ptr %add.ptr11.i, align 8
-  %3 = load ptr, ptr %add.ptr13.i, align 8
-  %cmp.not.i.i20.i = icmp eq ptr %2, %3
+  %4 = load ptr, ptr %add.ptr13.i, align 8
+  %cmp.not.i.i20.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i.i20.i, label %if.end16.i, label %invoke.cont3.i.i21.i
 
 invoke.cont3.i.i21.i:                             ; preds = %if.then9.i
-  store ptr %2, ptr %add.ptr13.i, align 8
-  %tobool.not.i.i22.i = icmp eq ptr %3, null
+  store ptr %3, ptr %add.ptr13.i, align 8
+  %tobool.not.i.i22.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i22.i, label %if.end16.i, label %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i23.i
 
 _ZNK5eastl14default_deleteIiEclEPi.exit.i.i23.i:  ; preds = %invoke.cont3.i.i21.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #12
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i23.i, %invoke.cont3.i.i21.i, %if.then9.i, %for.end.i
@@ -25758,17 +25758,17 @@ land.rhs.i.i.i:                                   ; preds = %if.end16.i, %_ZN5ea
 for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i
   %add.ptr3.i.i.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.019.i.i.i
   store ptr null, ptr %add.ptr.i.i.i, align 8
-  %4 = load ptr, ptr %add.ptr3.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %add.ptr.val.i.i.i, %4
+  %5 = load ptr, ptr %add.ptr3.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %add.ptr.val.i.i.i, %5
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i, label %invoke.cont3.i.i.i.i.i
 
 invoke.cont3.i.i.i.i.i:                           ; preds = %for.body.i.i.i
   store ptr %add.ptr.val.i.i.i, ptr %add.ptr3.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i, label %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i.i.i
 
 _ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i.i.i: ; preds = %invoke.cont3.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #12
   br label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i
 
 _ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i: ; preds = %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i.i.i, %invoke.cont3.i.i.i.i.i, %for.body.i.i.i
@@ -25778,19 +25778,19 @@ _ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i: ; preds = %_Z
 for.end.i.i.i:                                    ; preds = %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i, %land.rhs.i.i.i, %if.end16.i
   %position.addr.0.lcssa.i.i.i = phi i64 [ %position.addr.1.i, %if.end16.i ], [ %position.addr.019.i.i.i, %land.rhs.i.i.i ], [ %parentPosition.020.i.i.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i ]
   %add.ptr8.i.i.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.0.lcssa.i.i.i
-  %5 = load ptr, ptr %value, align 8
+  %6 = load ptr, ptr %value, align 8
   store ptr null, ptr %value, align 8
-  %6 = load ptr, ptr %add.ptr8.i.i.i, align 8
-  %cmp.not.i.i11.i.i.i = icmp eq ptr %5, %6
+  %7 = load ptr, ptr %add.ptr8.i.i.i, align 8
+  %cmp.not.i.i11.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.not.i.i11.i.i.i, label %"_ZN5eastl16adjust_heap_implIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_Z13TestAlgorithmvE4$_45S4_EEvT_T0_S9_S9_T1_T2_.exit", label %invoke.cont3.i.i12.i.i.i
 
 invoke.cont3.i.i12.i.i.i:                         ; preds = %for.end.i.i.i
-  store ptr %5, ptr %add.ptr8.i.i.i, align 8
-  %tobool.not.i.i13.i.i.i = icmp eq ptr %6, null
+  store ptr %6, ptr %add.ptr8.i.i.i, align 8
+  %tobool.not.i.i13.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i13.i.i.i, label %"_ZN5eastl16adjust_heap_implIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_Z13TestAlgorithmvE4$_45S4_EEvT_T0_S9_S9_T1_T2_.exit", label %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i14.i.i.i
 
 _ZNK5eastl14default_deleteIiEclEPi.exit.i.i14.i.i.i: ; preds = %invoke.cont3.i.i12.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #12
   br label %"_ZN5eastl16adjust_heap_implIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_Z13TestAlgorithmvE4$_45S4_EEvT_T0_S9_S9_T1_T2_.exit"
 
 "_ZN5eastl16adjust_heap_implIPNS_10unique_ptrIiNS_14default_deleteIiEEEElOS4_Z13TestAlgorithmvE4$_45S4_EEvT_T0_S9_S9_T1_T2_.exit": ; preds = %for.end.i.i.i, %invoke.cont3.i.i12.i.i.i, %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i14.i.i.i

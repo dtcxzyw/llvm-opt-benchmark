@@ -972,7 +972,7 @@ vfio_msi_disable.exit:                            ; preds = %68, %71, %73, %79, 
 
 145:                                              ; preds = %141
   call void @pci_default_write_config(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #26
-  %146 = getelementptr i8, ptr %10, i64 3120
+  %146 = getelementptr inbounds nuw i8, ptr %10, i64 3120
   br label %147
 
 147:                                              ; preds = %145, %161
@@ -986,7 +986,7 @@ vfio_msi_disable.exit:                            ; preds = %68, %71, %73, %79, 
 
 152:                                              ; preds = %147
   %.idx = mul nuw nsw i64 %indvars.iv91, 88
-  %153 = getelementptr i8, ptr %146, i64 %.idx
+  %153 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx
   %154 = load i64, ptr %153, align 8
   %.not83 = icmp eq i64 %154, 0
   br i1 %.not83, label %161, label %155
@@ -3376,7 +3376,7 @@ define internal i32 @vfio_pci_load_config(ptr noundef %0, ptr noundef %1) #0 {
   %.val = load i16, ptr %15, align 1
   %16 = zext i16 %.val to i32
   tail call void @vfio_pci_write_config(ptr noundef nonnull %10, i32 noundef 4, i32 noundef %16, i32 noundef 2)
-  %17 = getelementptr i8, ptr %0, i64 368
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 368
   br label %18
 
 18:                                               ; preds = %12, %32
@@ -3390,7 +3390,7 @@ define internal i32 @vfio_pci_load_config(ptr noundef %0, ptr noundef %1) #0 {
 
 23:                                               ; preds = %18
   %.idx = mul nuw nsw i64 %indvars.iv39, 88
-  %24 = getelementptr i8, ptr %17, i64 %.idx
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %25 = load i64, ptr %24, align 8
   %.not35 = icmp eq i64 %25, 0
   br i1 %.not35, label %32, label %26
@@ -5255,8 +5255,8 @@ define internal fastcc noundef zeroext i1 @vfio_msix_early_setup(ptr noundef %0,
   %68 = load i8, ptr %48, align 1
   %69 = zext i8 %68 to i64
   %.idx = mul nuw nsw i64 %69, 88
-  %70 = getelementptr i8, ptr %0, i64 3120
-  %71 = getelementptr i8, ptr %70, i64 %.idx
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 3120
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx
   %72 = load i64, ptr %71, align 8
   %.not53 = icmp ugt i64 %72, %67
   br i1 %.not53, label %88, label %73
@@ -6798,7 +6798,6 @@ define internal fastcc noundef zeroext i1 @vfio_add_std_cap(ptr noundef %0, i8 n
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 52
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %16, i64 1
   %.0101.i = load i8, ptr %23, align 1
   %.not2.i = icmp eq i8 %.0101.i, 0
   br i1 %.not2.i, label %vfio_std_cap_max_size.exit, label %.lr.ph.i
@@ -6811,787 +6810,788 @@ define internal fastcc noundef zeroext i1 @vfio_add_std_cap(ptr noundef %0, i8 n
   %26 = zext i8 %.0104.i to i16
   %27 = tail call i16 @llvm.umin.i16(i16 %.03.i, i16 %26)
   %.1.i = select i1 %25, i16 %27, i16 %.03.i
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %24
-  %.010.i = load i8, ptr %gep.i, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  %.010.i = load i8, ptr %29, align 1
   %.not.i = icmp eq i8 %.010.i, 0
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !46
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %28 = trunc i16 %.1.i to i8
+  %30 = trunc i16 %.1.i to i8
   br label %vfio_std_cap_max_size.exit
 
 vfio_std_cap_max_size.exit:                       ; preds = %3, %._crit_edge.loopexit.i
-  %.0.lcssa.i = phi i8 [ 0, %3 ], [ %28, %._crit_edge.loopexit.i ]
-  %29 = sub i8 %.0.lcssa.i, %1
+  %.0.lcssa.i = phi i8 [ 0, %3 ], [ %30, %._crit_edge.loopexit.i ]
+  %31 = sub i8 %.0.lcssa.i, %1
   %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %32, label %30
-
-30:                                               ; preds = %vfio_std_cap_max_size.exit
-  %31 = call fastcc zeroext i1 @vfio_add_std_cap(ptr noundef nonnull %0, i8 noundef zeroext %22, ptr noundef nonnull %spec.select)
-  br i1 %31, label %41, label %vfio_setup_pcie_cap.exit.thread
+  br i1 %.not, label %34, label %32
 
 32:                                               ; preds = %vfio_std_cap_max_size.exit
+  %33 = call fastcc zeroext i1 @vfio_add_std_cap(ptr noundef nonnull %0, i8 noundef zeroext %22, ptr noundef nonnull %spec.select)
+  br i1 %33, label %43, label %vfio_setup_pcie_cap.exit.thread
+
+34:                                               ; preds = %vfio_std_cap_max_size.exit
   store i8 0, ptr %23, align 1
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 3024
-  %34 = load ptr, ptr %33, align 16
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 52
-  store i8 -1, ptr %35, align 1
-  %36 = load ptr, ptr %33, align 16
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 6
-  %38 = load i8, ptr %37, align 1
-  %39 = or i8 %38, 16
-  store i8 %39, ptr %37, align 1
-  %40 = call zeroext i1 @vfio_add_virt_caps(ptr noundef nonnull %0, ptr noundef nonnull %spec.select) #26
-  br i1 %40, label %41, label %vfio_setup_pcie_cap.exit.thread
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 3024
+  %36 = load ptr, ptr %35, align 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 52
+  store i8 -1, ptr %37, align 1
+  %38 = load ptr, ptr %35, align 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 6
+  %40 = load i8, ptr %39, align 1
+  %41 = or i8 %40, 16
+  store i8 %41, ptr %39, align 1
+  %42 = call zeroext i1 @vfio_add_virt_caps(ptr noundef nonnull %0, ptr noundef nonnull %spec.select) #26
+  br i1 %42, label %43, label %vfio_setup_pcie_cap.exit.thread
 
-41:                                               ; preds = %32, %30
+43:                                               ; preds = %34, %32
   %.val78 = load ptr, ptr %15, align 16
-  %42 = getelementptr inbounds nuw i8, ptr %.val78, i64 52
-  %invariant.gep.i81 = getelementptr inbounds nuw i8, ptr %.val78, i64 1
-  %.0101.i82 = load i8, ptr %42, align 1
-  %.not2.i83 = icmp eq i8 %.0101.i82, 0
-  br i1 %.not2.i83, label %vfio_std_cap_max_size.exit93, label %.lr.ph.i84
+  %44 = getelementptr inbounds nuw i8, ptr %.val78, i64 52
+  %.0101.i81 = load i8, ptr %44, align 1
+  %.not2.i82 = icmp eq i8 %.0101.i81, 0
+  br i1 %.not2.i82, label %vfio_std_cap_max_size.exit91, label %.lr.ph.i83
 
-.lr.ph.i84:                                       ; preds = %41, %.lr.ph.i84
-  %.0104.i85 = phi i8 [ %.010.i89, %.lr.ph.i84 ], [ %.0101.i82, %41 ]
-  %.03.i86 = phi i16 [ %.1.i87, %.lr.ph.i84 ], [ 256, %41 ]
-  %43 = zext i8 %.0104.i85 to i64
-  %44 = icmp ugt i8 %.0104.i85, %1
-  %45 = zext i8 %.0104.i85 to i16
-  %46 = call i16 @llvm.umin.i16(i16 %.03.i86, i16 %45)
-  %.1.i87 = select i1 %44, i16 %46, i16 %.03.i86
-  %gep.i88 = getelementptr inbounds nuw i8, ptr %invariant.gep.i81, i64 %43
-  %.010.i89 = load i8, ptr %gep.i88, align 1
-  %.not.i90 = icmp eq i8 %.010.i89, 0
-  br i1 %.not.i90, label %._crit_edge.loopexit.i91, label %.lr.ph.i84, !llvm.loop !46
+.lr.ph.i83:                                       ; preds = %43, %.lr.ph.i83
+  %.0104.i84 = phi i8 [ %.010.i87, %.lr.ph.i83 ], [ %.0101.i81, %43 ]
+  %.03.i85 = phi i16 [ %.1.i86, %.lr.ph.i83 ], [ 256, %43 ]
+  %45 = zext i8 %.0104.i84 to i64
+  %46 = icmp ugt i8 %.0104.i84, %1
+  %47 = zext i8 %.0104.i84 to i16
+  %48 = call i16 @llvm.umin.i16(i16 %.03.i85, i16 %47)
+  %.1.i86 = select i1 %46, i16 %48, i16 %.03.i85
+  %49 = getelementptr inbounds nuw i8, ptr %.val78, i64 %45
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  %.010.i87 = load i8, ptr %50, align 1
+  %.not.i88 = icmp eq i8 %.010.i87, 0
+  br i1 %.not.i88, label %._crit_edge.loopexit.i89, label %.lr.ph.i83, !llvm.loop !46
 
-._crit_edge.loopexit.i91:                         ; preds = %.lr.ph.i84
-  %47 = trunc i16 %.1.i87 to i8
-  br label %vfio_std_cap_max_size.exit93
+._crit_edge.loopexit.i89:                         ; preds = %.lr.ph.i83
+  %51 = trunc i16 %.1.i86 to i8
+  br label %vfio_std_cap_max_size.exit91
 
-vfio_std_cap_max_size.exit93:                     ; preds = %41, %._crit_edge.loopexit.i91
-  %.0.lcssa.i92 = phi i8 [ 0, %41 ], [ %47, %._crit_edge.loopexit.i91 ]
-  %48 = sub i8 %.0.lcssa.i92, %1
-  %49 = call i8 @llvm.umin.i8(i8 %29, i8 %48)
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 3024
-  %51 = load ptr, ptr %50, align 16
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %17
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  store i8 -1, ptr %53, align 1
-  %54 = zext i8 %19 to i32
-  switch i8 %19, label %431 [
-    i8 5, label %55
-    i8 16, label %105
-    i8 17, label %319
-    i8 1, label %361
-    i8 19, label %389
-    i8 9, label %414
+vfio_std_cap_max_size.exit91:                     ; preds = %43, %._crit_edge.loopexit.i89
+  %.0.lcssa.i90 = phi i8 [ 0, %43 ], [ %51, %._crit_edge.loopexit.i89 ]
+  %52 = sub i8 %.0.lcssa.i90, %1
+  %53 = call i8 @llvm.umin.i8(i8 %31, i8 %52)
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 3024
+  %55 = load ptr, ptr %54, align 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %17
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  store i8 -1, ptr %57, align 1
+  %58 = zext i8 %19 to i32
+  switch i8 %19, label %435 [
+    i8 5, label %59
+    i8 16, label %109
+    i8 17, label %323
+    i8 1, label %365
+    i8 19, label %393
+    i8 9, label %418
   ]
 
-55:                                               ; preds = %vfio_std_cap_max_size.exit93
+59:                                               ; preds = %vfio_std_cap_max_size.exit91
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #26
   store i16 0, ptr %9, align 2, !annotation !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #26
   store ptr null, ptr %10, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 2840
-  %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 3032
-  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %61 = load i32, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 3032
+  %63 = load i64, ptr %62, align 8
   %narrow.i = add nuw nsw i32 %20, 2
-  %60 = zext nneg i32 %narrow.i to i64
-  %61 = add i64 %59, %60
-  %62 = call i64 @pread64(i32 noundef %57, ptr noundef nonnull %9, i64 noundef 2, i64 noundef %61) #26
-  %.not.i94 = icmp eq i64 %62, 2
-  br i1 %.not.i94, label %66, label %63
+  %64 = zext nneg i32 %narrow.i to i64
+  %65 = add i64 %63, %64
+  %66 = call i64 @pread64(i32 noundef %61, ptr noundef nonnull %9, i64 noundef 2, i64 noundef %65) #26
+  %.not.i92 = icmp eq i64 %66, 2
+  br i1 %.not.i92, label %70, label %67
 
-63:                                               ; preds = %55
-  %64 = tail call ptr @__errno_location() #28
-  %65 = load i32, ptr %64, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 1348, ptr noundef nonnull @__func__.vfio_msi_setup, i32 noundef %65, ptr noundef nonnull @.str.203) #26
+67:                                               ; preds = %59
+  %68 = tail call ptr @__errno_location() #28
+  %69 = load i32, ptr %68, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 1348, ptr noundef nonnull @__func__.vfio_msi_setup, i32 noundef %69, ptr noundef nonnull @.str.203) #26
   br label %vfio_msi_setup.exit
 
-66:                                               ; preds = %55
-  %67 = load i16, ptr %9, align 2
-  %68 = zext i16 %67 to i32
-  %69 = and i32 %68, 128
-  %70 = icmp ne i32 %69, 0
-  %71 = and i32 %68, 256
-  %72 = icmp ne i32 %71, 0
-  %73 = lshr i32 %68, 1
-  %74 = and i32 %73, 7
-  %75 = shl nuw nsw i32 1, %74
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 2824
-  %77 = load ptr, ptr %76, align 8
-  %78 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i.i = icmp eq i32 %78, 0
-  br i1 %.not.i.i.i, label %trace_vfio_msi_setup.exit.i, label %79, !prof !5
+70:                                               ; preds = %59
+  %71 = load i16, ptr %9, align 2
+  %72 = zext i16 %71 to i32
+  %73 = and i32 %72, 128
+  %74 = icmp ne i32 %73, 0
+  %75 = and i32 %72, 256
+  %76 = icmp ne i32 %75, 0
+  %77 = lshr i32 %72, 1
+  %78 = and i32 %77, 7
+  %79 = shl nuw nsw i32 1, %78
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %81 = load ptr, ptr %80, align 8
+  %82 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i = icmp eq i32 %82, 0
+  br i1 %.not.i.i.i, label %trace_vfio_msi_setup.exit.i, label %83, !prof !5
 
-79:                                               ; preds = %66
-  %80 = load i16, ptr @_TRACE_VFIO_MSI_SETUP_DSTATE, align 2
-  %.not3.i.i.i = icmp eq i16 %80, 0
-  br i1 %.not3.i.i.i, label %trace_vfio_msi_setup.exit.i, label %81
+83:                                               ; preds = %70
+  %84 = load i16, ptr @_TRACE_VFIO_MSI_SETUP_DSTATE, align 2
+  %.not3.i.i.i = icmp eq i16 %84, 0
+  br i1 %.not3.i.i.i, label %trace_vfio_msi_setup.exit.i, label %85
 
-81:                                               ; preds = %79
-  %82 = load i32, ptr @qemu_loglevel, align 4
-  %83 = and i32 %82, 32768
-  %.not4.i.i.i = icmp eq i32 %83, 0
-  br i1 %.not4.i.i.i, label %trace_vfio_msi_setup.exit.i, label %84
+85:                                               ; preds = %83
+  %86 = load i32, ptr @qemu_loglevel, align 4
+  %87 = and i32 %86, 32768
+  %.not4.i.i.i = icmp eq i32 %87, 0
+  br i1 %.not4.i.i.i, label %trace_vfio_msi_setup.exit.i, label %88
 
-84:                                               ; preds = %81
-  %85 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
-  %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %87, label %93
+88:                                               ; preds = %85
+  %89 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %90 = trunc nuw i8 %89 to i1
+  br i1 %90, label %91, label %97
 
-87:                                               ; preds = %84
+91:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !4
-  %88 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #26
-  %89 = call i32 @qemu_get_thread_id() #26
-  %90 = load i64, ptr %8, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %92 = load i64, ptr %91, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.205, i32 noundef %89, i64 noundef %90, i64 noundef %92, ptr noundef %77, i32 noundef range(i32 1, 256) %20) #26
+  %92 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #26
+  %93 = call i32 @qemu_get_thread_id() #26
+  %94 = load i64, ptr %8, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %96 = load i64, ptr %95, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.205, i32 noundef %93, i64 noundef %94, i64 noundef %96, ptr noundef %81, i32 noundef range(i32 1, 256) %20) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #26
   br label %trace_vfio_msi_setup.exit.i
 
-93:                                               ; preds = %84
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.206, ptr noundef %77, i32 noundef range(i32 1, 256) %20) #26
+97:                                               ; preds = %88
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.206, ptr noundef %81, i32 noundef range(i32 1, 256) %20) #26
   br label %trace_vfio_msi_setup.exit.i
 
-trace_vfio_msi_setup.exit.i:                      ; preds = %93, %87, %81, %79, %66
-  %94 = call i32 @msi_init(ptr noundef nonnull %0, i8 noundef zeroext %1, i32 noundef %75, i1 noundef zeroext %70, i1 noundef zeroext %72, ptr noundef nonnull %10) #26
-  %95 = icmp slt i32 %94, 0
-  br i1 %95, label %96, label %100
-
-96:                                               ; preds = %trace_vfio_msi_setup.exit.i
-  %97 = icmp eq i32 %94, -95
-  br i1 %97, label %vfio_msi_setup.exit.thread, label %98
-
-98:                                               ; preds = %96
-  %99 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ptr, ...) @error_propagate_prepend(ptr noundef nonnull %spec.select, ptr noundef %99, ptr noundef nonnull @.str.204) #26
-  br label %vfio_msi_setup.exit
+trace_vfio_msi_setup.exit.i:                      ; preds = %97, %91, %85, %83, %70
+  %98 = call i32 @msi_init(ptr noundef nonnull %0, i8 noundef zeroext %1, i32 noundef %79, i1 noundef zeroext %74, i1 noundef zeroext %76, ptr noundef nonnull %10) #26
+  %99 = icmp slt i32 %98, 0
+  br i1 %99, label %100, label %104
 
 100:                                              ; preds = %trace_vfio_msi_setup.exit.i
-  %101 = select i1 %72, i32 20, i32 10
-  %102 = lshr exact i32 %69, 5
-  %103 = add nuw nsw i32 %101, %102
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 3064
-  store i32 %103, ptr %104, align 8
+  %101 = icmp eq i32 %98, -95
+  br i1 %101, label %vfio_msi_setup.exit.thread, label %102
+
+102:                                              ; preds = %100
+  %103 = load ptr, ptr %10, align 8
+  call void (ptr, ptr, ptr, ...) @error_propagate_prepend(ptr noundef nonnull %spec.select, ptr noundef %103, ptr noundef nonnull @.str.204) #26
+  br label %vfio_msi_setup.exit
+
+104:                                              ; preds = %trace_vfio_msi_setup.exit.i
+  %105 = select i1 %76, i32 20, i32 10
+  %106 = lshr exact i32 %73, 5
+  %107 = add nuw nsw i32 %105, %106
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 3064
+  store i32 %107, ptr %108, align 8
   br label %vfio_msi_setup.exit.thread
 
-vfio_msi_setup.exit.thread:                       ; preds = %100, %96
+vfio_msi_setup.exit.thread:                       ; preds = %104, %100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #26
   br label %vfio_setup_pcie_cap.exit.thread
 
-vfio_msi_setup.exit:                              ; preds = %63, %98
+vfio_msi_setup.exit:                              ; preds = %67, %102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #26
-  br label %vfio_setup_pcie_cap.exit.thread115
+  br label %vfio_setup_pcie_cap.exit.thread113
 
-105:                                              ; preds = %vfio_std_cap_max_size.exit93
-  %106 = load ptr, ptr %15, align 16
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %17
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  %.val.i = load i32, ptr %108, align 1
-  %109 = and i32 %.val.i, 268435456
-  %.not.i95 = icmp eq i32 %109, 0
-  br i1 %.not.i95, label %vfio_check_pcie_flr.exit, label %110
+109:                                              ; preds = %vfio_std_cap_max_size.exit91
+  %110 = load ptr, ptr %15, align 16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %17
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  %.val.i = load i32, ptr %112, align 1
+  %113 = and i32 %.val.i, 268435456
+  %.not.i93 = icmp eq i32 %113, 0
+  br i1 %.not.i93, label %vfio_check_pcie_flr.exit, label %114
 
-110:                                              ; preds = %105
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 2824
-  %112 = load ptr, ptr %111, align 8
-  %113 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i.i96 = icmp eq i32 %113, 0
-  br i1 %.not.i.i.i96, label %trace_vfio_check_pcie_flr.exit.i, label %114, !prof !5
+114:                                              ; preds = %109
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %116 = load ptr, ptr %115, align 8
+  %117 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i94 = icmp eq i32 %117, 0
+  br i1 %.not.i.i.i94, label %trace_vfio_check_pcie_flr.exit.i, label %118, !prof !5
 
-114:                                              ; preds = %110
-  %115 = load i16, ptr @_TRACE_VFIO_CHECK_PCIE_FLR_DSTATE, align 2
-  %.not2.i.i.i = icmp eq i16 %115, 0
-  br i1 %.not2.i.i.i, label %trace_vfio_check_pcie_flr.exit.i, label %116
+118:                                              ; preds = %114
+  %119 = load i16, ptr @_TRACE_VFIO_CHECK_PCIE_FLR_DSTATE, align 2
+  %.not2.i.i.i = icmp eq i16 %119, 0
+  br i1 %.not2.i.i.i, label %trace_vfio_check_pcie_flr.exit.i, label %120
 
-116:                                              ; preds = %114
-  %117 = load i32, ptr @qemu_loglevel, align 4
-  %118 = and i32 %117, 32768
-  %.not3.i.i.i97 = icmp eq i32 %118, 0
-  br i1 %.not3.i.i.i97, label %trace_vfio_check_pcie_flr.exit.i, label %119
+120:                                              ; preds = %118
+  %121 = load i32, ptr @qemu_loglevel, align 4
+  %122 = and i32 %121, 32768
+  %.not3.i.i.i95 = icmp eq i32 %122, 0
+  br i1 %.not3.i.i.i95, label %trace_vfio_check_pcie_flr.exit.i, label %123
 
-119:                                              ; preds = %116
-  %120 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
-  %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %122, label %128
+123:                                              ; preds = %120
+  %124 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %125 = trunc nuw i8 %124 to i1
+  br i1 %125, label %126, label %132
 
-122:                                              ; preds = %119
+126:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !4
-  %123 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #26
-  %124 = call i32 @qemu_get_thread_id() #26
-  %125 = load i64, ptr %7, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %127 = load i64, ptr %126, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, i32 noundef %124, i64 noundef %125, i64 noundef %127, ptr noundef %112) #26
+  %127 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #26
+  %128 = call i32 @qemu_get_thread_id() #26
+  %129 = load i64, ptr %7, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %131 = load i64, ptr %130, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, i32 noundef %128, i64 noundef %129, i64 noundef %131, ptr noundef %116) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
   br label %trace_vfio_check_pcie_flr.exit.i
 
-128:                                              ; preds = %119
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.208, ptr noundef %112) #26
+132:                                              ; preds = %123
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.208, ptr noundef %116) #26
   br label %trace_vfio_check_pcie_flr.exit.i
 
-trace_vfio_check_pcie_flr.exit.i:                 ; preds = %128, %122, %116, %114, %110
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 3752
-  store i8 1, ptr %129, align 8
+trace_vfio_check_pcie_flr.exit.i:                 ; preds = %132, %126, %120, %118, %114
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 3752
+  store i8 1, ptr %133, align 8
   %.pre = load ptr, ptr %15, align 16
   br label %vfio_check_pcie_flr.exit
 
-vfio_check_pcie_flr.exit:                         ; preds = %105, %trace_vfio_check_pcie_flr.exit.i
-  %130 = phi ptr [ %106, %105 ], [ %.pre, %trace_vfio_check_pcie_flr.exit.i ]
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %17
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 2
-  %.val.i98 = load i16, ptr %132, align 1
-  %133 = lshr i16 %.val.i98, 4
-  %134 = and i16 %133, 15
-  switch i16 %134, label %135 [
-    i16 9, label %137
-    i16 1, label %137
-    i16 0, label %137
+vfio_check_pcie_flr.exit:                         ; preds = %109, %trace_vfio_check_pcie_flr.exit.i
+  %134 = phi ptr [ %110, %109 ], [ %.pre, %trace_vfio_check_pcie_flr.exit.i ]
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 %17
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 2
+  %.val.i96 = load i16, ptr %136, align 1
+  %137 = lshr i16 %.val.i96, 4
+  %138 = and i16 %137, 15
+  switch i16 %138, label %139 [
+    i16 9, label %141
+    i16 1, label %141
+    i16 0, label %141
   ]
 
-135:                                              ; preds = %vfio_check_pcie_flr.exit
-  %136 = zext nneg i16 %134 to i32
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 1991, ptr noundef nonnull @__func__.vfio_setup_pcie_cap, ptr noundef nonnull @.str.209, i32 noundef %136) #26
-  br label %vfio_setup_pcie_cap.exit.thread115
+139:                                              ; preds = %vfio_check_pcie_flr.exit
+  %140 = zext nneg i16 %138 to i32
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 1991, ptr noundef nonnull @__func__.vfio_setup_pcie_cap, ptr noundef nonnull @.str.209, i32 noundef %140) #26
+  br label %vfio_setup_pcie_cap.exit.thread113
 
-137:                                              ; preds = %vfio_check_pcie_flr.exit, %vfio_check_pcie_flr.exit, %vfio_check_pcie_flr.exit
-  %138 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
-  %139 = call ptr @qdev_get_parent_bus(ptr noundef %138) #26
-  %140 = call ptr @object_dynamic_cast_assert(ptr noundef %139, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
-  %141 = call zeroext i1 @pci_bus_is_express(ptr noundef %140) #26
+141:                                              ; preds = %vfio_check_pcie_flr.exit, %vfio_check_pcie_flr.exit, %vfio_check_pcie_flr.exit
   %142 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
   %143 = call ptr @qdev_get_parent_bus(ptr noundef %142) #26
   %144 = call ptr @object_dynamic_cast_assert(ptr noundef %143, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
-  %145 = getelementptr i8, ptr %144, i64 120
-  %.val62.i = load i32, ptr %145, align 8
-  %146 = and i32 %.val62.i, 1
-  %.not78.i = icmp eq i32 %146, 0
-  br i1 %141, label %155, label %147
+  %145 = call zeroext i1 @pci_bus_is_express(ptr noundef %144) #26
+  %146 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
+  %147 = call ptr @qdev_get_parent_bus(ptr noundef %146) #26
+  %148 = call ptr @object_dynamic_cast_assert(ptr noundef %147, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
+  %149 = getelementptr i8, ptr %148, i64 120
+  %.val62.i = load i32, ptr %149, align 8
+  %150 = and i32 %.val62.i, 1
+  %.not78.i = icmp eq i32 %150, 0
+  br i1 %145, label %159, label %151
 
-147:                                              ; preds = %137
-  br i1 %.not78.i, label %.lr.ph.i100, label %._crit_edge.i
+151:                                              ; preds = %141
+  br i1 %.not78.i, label %.lr.ph.i98, label %._crit_edge.i
 
-.lr.ph.i100:                                      ; preds = %147, %.lr.ph.i100
-  %.081.i = phi ptr [ %151, %.lr.ph.i100 ], [ %144, %147 ]
-  %148 = call ptr @pci_bridge_get_device(ptr noundef nonnull %.081.i) #26
-  %149 = call ptr @object_dynamic_cast_assert(ptr noundef %148, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
-  %150 = call ptr @qdev_get_parent_bus(ptr noundef %149) #26
-  %151 = call ptr @object_dynamic_cast_assert(ptr noundef %150, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
-  %152 = getelementptr i8, ptr %151, i64 120
-  %.0.val.i = load i32, ptr %152, align 8
-  %153 = and i32 %.0.val.i, 1
-  %.not.i101 = icmp eq i32 %153, 0
-  br i1 %.not.i101, label %.lr.ph.i100, label %._crit_edge.i, !llvm.loop !47
+.lr.ph.i98:                                       ; preds = %151, %.lr.ph.i98
+  %.081.i = phi ptr [ %155, %.lr.ph.i98 ], [ %148, %151 ]
+  %152 = call ptr @pci_bridge_get_device(ptr noundef nonnull %.081.i) #26
+  %153 = call ptr @object_dynamic_cast_assert(ptr noundef %152, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
+  %154 = call ptr @qdev_get_parent_bus(ptr noundef %153) #26
+  %155 = call ptr @object_dynamic_cast_assert(ptr noundef %154, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
+  %156 = getelementptr i8, ptr %155, i64 120
+  %.0.val.i = load i32, ptr %156, align 8
+  %157 = and i32 %.0.val.i, 1
+  %.not.i99 = icmp eq i32 %157, 0
+  br i1 %.not.i99, label %.lr.ph.i98, label %._crit_edge.i, !llvm.loop !47
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i100, %147
-  %.0.lcssa.i99 = phi ptr [ %144, %147 ], [ %151, %.lr.ph.i100 ]
-  %154 = call zeroext i1 @pci_bus_is_express(ptr noundef nonnull %.0.lcssa.i99) #26
-  br i1 %154, label %vfio_setup_pcie_cap.exit.thread, label %297
+._crit_edge.i:                                    ; preds = %.lr.ph.i98, %151
+  %.0.lcssa.i97 = phi ptr [ %148, %151 ], [ %155, %.lr.ph.i98 ]
+  %158 = call zeroext i1 @pci_bus_is_express(ptr noundef nonnull %.0.lcssa.i97) #26
+  br i1 %158, label %vfio_setup_pcie_cap.exit.thread, label %301
 
-155:                                              ; preds = %137
-  br i1 %.not78.i, label %222, label %156
+159:                                              ; preds = %141
+  br i1 %.not78.i, label %226, label %160
 
-156:                                              ; preds = %155
-  switch i16 %134, label %297 [
-    i16 0, label %157
+160:                                              ; preds = %159
+  switch i16 %138, label %301 [
+    i16 0, label %161
     i16 1, label %vfio_setup_pcie_cap.exit.thread
   ]
 
-157:                                              ; preds = %156
-  %158 = add nuw nsw i32 %20, 2
-  %159 = load ptr, ptr %15, align 16
-  %160 = zext nneg i32 %158 to i64
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 %160
-  %.val.i.i.i = load i16, ptr %161, align 1
-  %162 = and i16 %.val.i.i.i, -241
-  %163 = or disjoint i16 %162, 144
-  store i16 %163, ptr %161, align 1
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %165 = load ptr, ptr %164, align 16
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 %160
-  store i16 -241, ptr %166, align 1
-  %167 = load ptr, ptr %50, align 16
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 %160
-  %.val.i12.i.i = load i16, ptr %168, align 1
-  %169 = or i16 %.val.i12.i.i, 240
-  store i16 %169, ptr %168, align 1
-  %170 = icmp ugt i8 %49, 16
-  br i1 %170, label %171, label %297
+161:                                              ; preds = %160
+  %162 = add nuw nsw i32 %20, 2
+  %163 = load ptr, ptr %15, align 16
+  %164 = zext nneg i32 %162 to i64
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 %164
+  %.val.i.i.i = load i16, ptr %165, align 1
+  %166 = and i16 %.val.i.i.i, -241
+  %167 = or disjoint i16 %166, 144
+  store i16 %167, ptr %165, align 1
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %169 = load ptr, ptr %168, align 16
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 %164
+  store i16 -241, ptr %170, align 1
+  %171 = load ptr, ptr %54, align 16
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 %164
+  %.val.i12.i.i = load i16, ptr %172, align 1
+  %173 = or i16 %.val.i12.i.i, 240
+  store i16 %173, ptr %172, align 1
+  %174 = icmp ugt i8 %53, 16
+  br i1 %174, label %175, label %301
 
-171:                                              ; preds = %157
-  %172 = add nuw nsw i32 %20, 12
-  %173 = load ptr, ptr %15, align 16
-  %174 = zext nneg i32 %172 to i64
-  %175 = getelementptr inbounds nuw i8, ptr %173, i64 %174
-  store i32 0, ptr %175, align 1
-  %176 = load ptr, ptr %164, align 16
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 %174
-  store i32 0, ptr %177, align 1
-  %178 = load ptr, ptr %50, align 16
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 %174
-  store i32 -1, ptr %179, align 1
-  %180 = add nuw nsw i32 %20, 16
-  %181 = load ptr, ptr %15, align 16
-  %182 = zext nneg i32 %180 to i64
-  %183 = getelementptr inbounds nuw i8, ptr %181, i64 %182
-  store i16 0, ptr %183, align 1
-  %184 = load ptr, ptr %164, align 16
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 %182
-  store i16 0, ptr %185, align 1
-  %186 = load ptr, ptr %50, align 16
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 %182
-  store i16 -1, ptr %187, align 1
-  %188 = add nuw nsw i32 %20, 18
-  %189 = load ptr, ptr %15, align 16
-  %190 = zext nneg i32 %188 to i64
-  %191 = getelementptr inbounds nuw i8, ptr %189, i64 %190
-  store i16 0, ptr %191, align 1
-  %192 = load ptr, ptr %164, align 16
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 %190
-  store i16 0, ptr %193, align 1
-  %194 = load ptr, ptr %50, align 16
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 %190
-  store i16 -1, ptr %195, align 1
-  %196 = icmp ugt i8 %49, 44
-  br i1 %196, label %197, label %297
+175:                                              ; preds = %161
+  %176 = add nuw nsw i32 %20, 12
+  %177 = load ptr, ptr %15, align 16
+  %178 = zext nneg i32 %176 to i64
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 %178
+  store i32 0, ptr %179, align 1
+  %180 = load ptr, ptr %168, align 16
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %178
+  store i32 0, ptr %181, align 1
+  %182 = load ptr, ptr %54, align 16
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 %178
+  store i32 -1, ptr %183, align 1
+  %184 = add nuw nsw i32 %20, 16
+  %185 = load ptr, ptr %15, align 16
+  %186 = zext nneg i32 %184 to i64
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 %186
+  store i16 0, ptr %187, align 1
+  %188 = load ptr, ptr %168, align 16
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 %186
+  store i16 0, ptr %189, align 1
+  %190 = load ptr, ptr %54, align 16
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 %186
+  store i16 -1, ptr %191, align 1
+  %192 = add nuw nsw i32 %20, 18
+  %193 = load ptr, ptr %15, align 16
+  %194 = zext nneg i32 %192 to i64
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 %194
+  store i16 0, ptr %195, align 1
+  %196 = load ptr, ptr %168, align 16
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %194
+  store i16 0, ptr %197, align 1
+  %198 = load ptr, ptr %54, align 16
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 %194
+  store i16 -1, ptr %199, align 1
+  %200 = icmp ugt i8 %53, 44
+  br i1 %200, label %201, label %301
 
-197:                                              ; preds = %171
-  %198 = add nuw nsw i32 %20, 44
-  %199 = load ptr, ptr %15, align 16
-  %200 = zext nneg i32 %198 to i64
-  %201 = getelementptr inbounds nuw i8, ptr %199, i64 %200
-  store i32 0, ptr %201, align 1
-  %202 = load ptr, ptr %164, align 16
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 %200
-  store i32 0, ptr %203, align 1
-  %204 = load ptr, ptr %50, align 16
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 %200
-  store i32 -1, ptr %205, align 1
-  %206 = add nuw nsw i32 %20, 48
-  %207 = load ptr, ptr %15, align 16
-  %208 = zext nneg i32 %206 to i64
-  %209 = getelementptr inbounds nuw i8, ptr %207, i64 %208
-  store i16 0, ptr %209, align 1
-  %210 = load ptr, ptr %164, align 16
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 %208
-  store i16 0, ptr %211, align 1
-  %212 = load ptr, ptr %50, align 16
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 %208
-  store i16 -1, ptr %213, align 1
-  %214 = add nuw nsw i32 %20, 50
-  %215 = load ptr, ptr %15, align 16
-  %216 = zext nneg i32 %214 to i64
-  %217 = getelementptr inbounds nuw i8, ptr %215, i64 %216
-  store i16 0, ptr %217, align 1
-  %218 = load ptr, ptr %164, align 16
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 %216
-  store i16 0, ptr %219, align 1
-  %220 = load ptr, ptr %50, align 16
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %216
-  store i16 -1, ptr %221, align 1
-  br label %297
+201:                                              ; preds = %175
+  %202 = add nuw nsw i32 %20, 44
+  %203 = load ptr, ptr %15, align 16
+  %204 = zext nneg i32 %202 to i64
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 %204
+  store i32 0, ptr %205, align 1
+  %206 = load ptr, ptr %168, align 16
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 %204
+  store i32 0, ptr %207, align 1
+  %208 = load ptr, ptr %54, align 16
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 %204
+  store i32 -1, ptr %209, align 1
+  %210 = add nuw nsw i32 %20, 48
+  %211 = load ptr, ptr %15, align 16
+  %212 = zext nneg i32 %210 to i64
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 %212
+  store i16 0, ptr %213, align 1
+  %214 = load ptr, ptr %168, align 16
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 %212
+  store i16 0, ptr %215, align 1
+  %216 = load ptr, ptr %54, align 16
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 %212
+  store i16 -1, ptr %217, align 1
+  %218 = add nuw nsw i32 %20, 50
+  %219 = load ptr, ptr %15, align 16
+  %220 = zext nneg i32 %218 to i64
+  %221 = getelementptr inbounds nuw i8, ptr %219, i64 %220
+  store i16 0, ptr %221, align 1
+  %222 = load ptr, ptr %168, align 16
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 %220
+  store i16 0, ptr %223, align 1
+  %224 = load ptr, ptr %54, align 16
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 %220
+  store i16 -1, ptr %225, align 1
+  br label %301
 
-222:                                              ; preds = %155
-  %223 = icmp eq i16 %134, 9
-  br i1 %223, label %224, label %252
+226:                                              ; preds = %159
+  %227 = icmp eq i16 %138, 9
+  br i1 %227, label %228, label %256
 
-224:                                              ; preds = %222
-  %225 = add nuw nsw i32 %20, 2
-  %226 = load ptr, ptr %15, align 16
-  %227 = zext nneg i32 %225 to i64
-  %228 = getelementptr inbounds nuw i8, ptr %226, i64 %227
-  %.val.i.i71.i = load i16, ptr %228, align 1
-  %229 = and i16 %.val.i.i71.i, -241
-  store i16 %229, ptr %228, align 1
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %231 = load ptr, ptr %230, align 16
-  %232 = getelementptr inbounds nuw i8, ptr %231, i64 %227
-  store i16 -241, ptr %232, align 1
-  %233 = load ptr, ptr %50, align 16
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 %227
-  %.val.i12.i72.i = load i16, ptr %234, align 1
-  %235 = or i16 %.val.i12.i72.i, 240
-  store i16 %235, ptr %234, align 1
-  %236 = add nuw nsw i32 %20, 12
-  %237 = load ptr, ptr %15, align 16
-  %238 = zext nneg i32 %236 to i64
-  %239 = getelementptr inbounds nuw i8, ptr %237, i64 %238
-  store i32 17, ptr %239, align 1
-  %240 = load ptr, ptr %230, align 16
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 %238
-  store i32 0, ptr %241, align 1
-  %242 = load ptr, ptr %50, align 16
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 %238
-  store i32 -1, ptr %243, align 1
-  %244 = add nuw nsw i32 %20, 16
-  %245 = load ptr, ptr %15, align 16
-  %246 = zext nneg i32 %244 to i64
-  %247 = getelementptr inbounds nuw i8, ptr %245, i64 %246
-  store i16 0, ptr %247, align 1
-  %248 = load ptr, ptr %230, align 16
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 %246
-  store i16 0, ptr %249, align 1
-  %250 = load ptr, ptr %50, align 16
-  %251 = getelementptr inbounds nuw i8, ptr %250, i64 %246
-  store i16 -1, ptr %251, align 1
-  br label %252
+228:                                              ; preds = %226
+  %229 = add nuw nsw i32 %20, 2
+  %230 = load ptr, ptr %15, align 16
+  %231 = zext nneg i32 %229 to i64
+  %232 = getelementptr inbounds nuw i8, ptr %230, i64 %231
+  %.val.i.i71.i = load i16, ptr %232, align 1
+  %233 = and i16 %.val.i.i71.i, -241
+  store i16 %233, ptr %232, align 1
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %235 = load ptr, ptr %234, align 16
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 %231
+  store i16 -241, ptr %236, align 1
+  %237 = load ptr, ptr %54, align 16
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 %231
+  %.val.i12.i72.i = load i16, ptr %238, align 1
+  %239 = or i16 %.val.i12.i72.i, 240
+  store i16 %239, ptr %238, align 1
+  %240 = add nuw nsw i32 %20, 12
+  %241 = load ptr, ptr %15, align 16
+  %242 = zext nneg i32 %240 to i64
+  %243 = getelementptr inbounds nuw i8, ptr %241, i64 %242
+  store i32 17, ptr %243, align 1
+  %244 = load ptr, ptr %234, align 16
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 %242
+  store i32 0, ptr %245, align 1
+  %246 = load ptr, ptr %54, align 16
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 %242
+  store i32 -1, ptr %247, align 1
+  %248 = add nuw nsw i32 %20, 16
+  %249 = load ptr, ptr %15, align 16
+  %250 = zext nneg i32 %248 to i64
+  %251 = getelementptr inbounds nuw i8, ptr %249, i64 %250
+  store i16 0, ptr %251, align 1
+  %252 = load ptr, ptr %234, align 16
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 %250
+  store i16 0, ptr %253, align 1
+  %254 = load ptr, ptr %54, align 16
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 %250
+  store i16 -1, ptr %255, align 1
+  br label %256
 
-252:                                              ; preds = %224, %222
-  %253 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
-  %254 = call ptr @qdev_get_parent_bus(ptr noundef %253) #26
-  %255 = call ptr @object_dynamic_cast_assert(ptr noundef %254, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 2232
-  %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr i8, ptr %255, i64 120
-  %.val41.i.i = load i32, ptr %258, align 8
-  %259 = and i32 %.val41.i.i, 1
-  %260 = icmp ne i32 %259, 0
-  %261 = icmp eq ptr %257, null
-  %or.cond.not.i.i = select i1 %260, i1 true, i1 %261
-  br i1 %or.cond.not.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %262
+256:                                              ; preds = %228, %226
+  %257 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #26
+  %258 = call ptr @qdev_get_parent_bus(ptr noundef %257) #26
+  %259 = call ptr @object_dynamic_cast_assert(ptr noundef %258, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #26
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 2232
+  %261 = load ptr, ptr %260, align 8
+  %262 = getelementptr i8, ptr %259, i64 120
+  %.val41.i.i = load i32, ptr %262, align 8
+  %263 = and i32 %.val41.i.i, 1
+  %264 = icmp ne i32 %263, 0
+  %265 = icmp eq ptr %261, null
+  %or.cond.not.i.i = select i1 %264, i1 true, i1 %265
+  br i1 %or.cond.not.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %266
 
-262:                                              ; preds = %252
-  %263 = getelementptr inbounds nuw i8, ptr %257, i64 2232
-  %264 = load i8, ptr %263, align 8
-  %.not.i.i = icmp eq i8 %264, 0
-  br i1 %.not.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %265
+266:                                              ; preds = %256
+  %267 = getelementptr inbounds nuw i8, ptr %261, i64 2232
+  %268 = load i8, ptr %267, align 8
+  %.not.i.i = icmp eq i8 %268, 0
+  br i1 %.not.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %269
 
-265:                                              ; preds = %262
-  %266 = call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %257) #26
-  %.not29.i.i = icmp eq i8 %266, 4
-  br i1 %.not29.i.i, label %267, label %vfio_pci_enable_rp_atomics.exit.i
+269:                                              ; preds = %266
+  %270 = call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %261) #26
+  %.not29.i.i = icmp eq i8 %270, 4
+  br i1 %.not29.i.i, label %271, label %vfio_pci_enable_rp_atomics.exit.i
 
-267:                                              ; preds = %265
-  %268 = call zeroext i8 @pcie_cap_get_version(ptr noundef nonnull %257) #26
-  %.not30.i.i = icmp eq i8 %268, 2
-  br i1 %.not30.i.i, label %269, label %vfio_pci_enable_rp_atomics.exit.i
+271:                                              ; preds = %269
+  %272 = call zeroext i8 @pcie_cap_get_version(ptr noundef nonnull %261) #26
+  %.not30.i.i = icmp eq i8 %272, 2
+  br i1 %.not30.i.i, label %273, label %vfio_pci_enable_rp_atomics.exit.i
 
-269:                                              ; preds = %267
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %271 = load i32, ptr %270, align 8
-  %.not31.i.i = icmp eq i32 %271, 0
-  br i1 %.not31.i.i, label %272, label %vfio_pci_enable_rp_atomics.exit.i
+273:                                              ; preds = %271
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %275 = load i32, ptr %274, align 8
+  %.not31.i.i = icmp eq i32 %275, 0
+  br i1 %.not31.i.i, label %276, label %vfio_pci_enable_rp_atomics.exit.i
 
-272:                                              ; preds = %269
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 1324
-  %274 = load i32, ptr %273, align 4
-  %275 = and i32 %274, 8
-  %.not32.i.i = icmp eq i32 %275, 0
-  br i1 %.not32.i.i, label %276, label %vfio_pci_enable_rp_atomics.exit.i
+276:                                              ; preds = %273
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 1324
+  %278 = load i32, ptr %277, align 4
+  %279 = and i32 %278, 8
+  %.not32.i.i = icmp eq i32 %279, 0
+  br i1 %.not32.i.i, label %280, label %vfio_pci_enable_rp_atomics.exit.i
 
-276:                                              ; preds = %272
-  %277 = getelementptr inbounds nuw i8, ptr %257, i64 160
-  %278 = load ptr, ptr %277, align 16
-  %279 = load i8, ptr %263, align 8
-  %280 = zext i8 %279 to i64
-  %281 = getelementptr inbounds nuw i8, ptr %278, i64 %280
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 36
-  %.val40.i.i = load i32, ptr %282, align 1
-  %283 = and i32 %.val40.i.i, 896
-  %.not33.i.i = icmp eq i32 %283, 0
-  br i1 %.not33.i.i, label %284, label %vfio_pci_enable_rp_atomics.exit.i
+280:                                              ; preds = %276
+  %281 = getelementptr inbounds nuw i8, ptr %261, i64 160
+  %282 = load ptr, ptr %281, align 16
+  %283 = load i8, ptr %267, align 8
+  %284 = zext i8 %283 to i64
+  %285 = getelementptr inbounds nuw i8, ptr %282, i64 %284
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 36
+  %.val40.i.i = load i32, ptr %286, align 1
+  %287 = and i32 %.val40.i.i, 896
+  %.not33.i.i = icmp eq i32 %287, 0
+  br i1 %.not33.i.i, label %288, label %vfio_pci_enable_rp_atomics.exit.i
 
-284:                                              ; preds = %276
-  %285 = getelementptr inbounds nuw i8, ptr %0, i64 2840
-  %286 = load i32, ptr %285, align 8
-  %287 = call ptr @vfio_get_device_info(i32 noundef %286) #26
-  %.not34.i.i = icmp eq ptr %287, null
-  br i1 %.not34.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %288
+288:                                              ; preds = %280
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  %290 = load i32, ptr %289, align 8
+  %291 = call ptr @vfio_get_device_info(i32 noundef %290) #26
+  %.not34.i.i = icmp eq ptr %291, null
+  br i1 %.not34.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %292
 
-288:                                              ; preds = %284
-  %289 = call ptr @vfio_get_device_info_cap(ptr noundef nonnull %287, i16 noundef zeroext 5) #26
-  %.not35.i.i = icmp eq ptr %289, null
-  br i1 %.not35.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %290
+292:                                              ; preds = %288
+  %293 = call ptr @vfio_get_device_info_cap(ptr noundef nonnull %291, i16 noundef zeroext 5) #26
+  %.not35.i.i = icmp eq ptr %293, null
+  br i1 %.not35.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %294
 
-290:                                              ; preds = %288
-  %291 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  %292 = load i32, ptr %291, align 4
-  %293 = shl i32 %292, 7
-  %.2.i.i = and i32 %293, 896
+294:                                              ; preds = %292
+  %295 = getelementptr inbounds nuw i8, ptr %293, i64 8
+  %296 = load i32, ptr %295, align 4
+  %297 = shl i32 %296, 7
+  %.2.i.i = and i32 %297, 896
   %.not39.i.i = icmp eq i32 %.2.i.i, 0
-  br i1 %.not39.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %294
+  br i1 %.not39.i.i, label %vfio_pci_enable_rp_atomics.exit.i, label %298
 
-294:                                              ; preds = %290
-  %.val.i.i75.i = load i32, ptr %282, align 1
-  %295 = or i32 %.val.i.i75.i, %.2.i.i
-  store i32 %295, ptr %282, align 1
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 3769
-  store i8 1, ptr %296, align 1
+298:                                              ; preds = %294
+  %.val.i.i75.i = load i32, ptr %286, align 1
+  %299 = or i32 %.val.i.i75.i, %.2.i.i
+  store i32 %299, ptr %286, align 1
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 3769
+  store i8 1, ptr %300, align 1
   br label %vfio_pci_enable_rp_atomics.exit.i
 
-vfio_pci_enable_rp_atomics.exit.i:                ; preds = %294, %290, %288, %284, %276, %272, %269, %267, %265, %262, %252
-  %.0.i.i = phi ptr [ null, %252 ], [ null, %262 ], [ null, %284 ], [ %287, %288 ], [ %287, %290 ], [ %287, %294 ], [ null, %276 ], [ null, %272 ], [ null, %269 ], [ null, %267 ], [ null, %265 ]
+vfio_pci_enable_rp_atomics.exit.i:                ; preds = %298, %294, %292, %288, %280, %276, %273, %271, %269, %266, %256
+  %.0.i.i = phi ptr [ null, %256 ], [ null, %266 ], [ null, %288 ], [ %291, %292 ], [ %291, %294 ], [ %291, %298 ], [ null, %280 ], [ null, %276 ], [ null, %273 ], [ null, %271 ], [ null, %269 ]
   call void @g_free(ptr noundef %.0.i.i) #26
-  br label %297
+  br label %301
 
-297:                                              ; preds = %vfio_pci_enable_rp_atomics.exit.i, %197, %171, %157, %156, %._crit_edge.i
-  %298 = and i16 %.val.i98, 15
-  %299 = icmp eq i16 %298, 0
-  br i1 %299, label %300, label %313
+301:                                              ; preds = %vfio_pci_enable_rp_atomics.exit.i, %201, %175, %161, %160, %._crit_edge.i
+  %302 = and i16 %.val.i96, 15
+  %303 = icmp eq i16 %302, 0
+  br i1 %303, label %304, label %317
 
-300:                                              ; preds = %297
-  %301 = add nuw nsw i32 %20, 2
-  %302 = load ptr, ptr %15, align 16
-  %303 = zext nneg i32 %301 to i64
-  %304 = getelementptr inbounds nuw i8, ptr %302, i64 %303
-  %.val.i.i76.i = load i16, ptr %304, align 1
-  %305 = and i16 %.val.i.i76.i, -16
-  %306 = or disjoint i16 %305, 1
-  store i16 %306, ptr %304, align 1
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %308 = load ptr, ptr %307, align 16
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 %303
-  store i16 -16, ptr %309, align 1
-  %310 = load ptr, ptr %50, align 16
-  %311 = getelementptr inbounds nuw i8, ptr %310, i64 %303
-  %.val.i12.i77.i = load i16, ptr %311, align 1
-  %312 = or i16 %.val.i12.i77.i, 15
-  store i16 %312, ptr %311, align 1
-  br label %313
+304:                                              ; preds = %301
+  %305 = add nuw nsw i32 %20, 2
+  %306 = load ptr, ptr %15, align 16
+  %307 = zext nneg i32 %305 to i64
+  %308 = getelementptr inbounds nuw i8, ptr %306, i64 %307
+  %.val.i.i76.i = load i16, ptr %308, align 1
+  %309 = and i16 %.val.i.i76.i, -16
+  %310 = or disjoint i16 %309, 1
+  store i16 %310, ptr %308, align 1
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %312 = load ptr, ptr %311, align 16
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 %307
+  store i16 -16, ptr %313, align 1
+  %314 = load ptr, ptr %54, align 16
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 %307
+  %.val.i12.i77.i = load i16, ptr %315, align 1
+  %316 = or i16 %.val.i12.i77.i, 15
+  store i16 %316, ptr %315, align 1
+  br label %317
 
-313:                                              ; preds = %300, %297
-  %314 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 16, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef nonnull %spec.select) #26
-  %315 = icmp slt i32 %314, 0
-  br i1 %315, label %vfio_setup_pcie_cap.exit.thread115, label %316
+317:                                              ; preds = %304, %301
+  %318 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 16, i8 noundef zeroext %1, i8 noundef zeroext %53, ptr noundef nonnull %spec.select) #26
+  %319 = icmp slt i32 %318, 0
+  br i1 %319, label %vfio_setup_pcie_cap.exit.thread113, label %320
 
-316:                                              ; preds = %313
-  %317 = trunc i32 %314 to i8
-  %318 = getelementptr inbounds nuw i8, ptr %0, i64 2232
-  store i8 %317, ptr %318, align 8
+320:                                              ; preds = %317
+  %321 = trunc i32 %318 to i8
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 2232
+  store i8 %321, ptr %322, align 8
   br label %vfio_setup_pcie_cap.exit.thread
 
-319:                                              ; preds = %vfio_std_cap_max_size.exit93
+323:                                              ; preds = %vfio_std_cap_max_size.exit91
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
   store ptr null, ptr %6, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %0, i64 3080
-  %321 = load ptr, ptr %320, align 8
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 2
-  %323 = load i16, ptr %322, align 2
-  %324 = zext i16 %323 to i64
-  %325 = add nuw nsw i64 %324, 63
-  %326 = lshr i64 %325, 6
-  %327 = call noalias ptr @g_malloc0_n(i64 noundef %326, i64 noundef 8) #29
-  %328 = load ptr, ptr %320, align 8
-  %329 = getelementptr inbounds nuw i8, ptr %328, i64 16
-  store ptr %327, ptr %329, align 8
-  %330 = load ptr, ptr %320, align 8
-  %331 = getelementptr inbounds nuw i8, ptr %330, i64 2
-  %332 = load i16, ptr %331, align 2
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 3096
-  %334 = load i8, ptr %330, align 8
-  %335 = zext i8 %334 to i64
-  %.idx.i = mul nuw nsw i64 %335, 88
-  %336 = getelementptr inbounds nuw i8, ptr %333, i64 %.idx.i
-  %337 = getelementptr inbounds nuw i8, ptr %336, i64 56
-  %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %330, i64 4
-  %340 = load i32, ptr %339, align 4
-  %341 = getelementptr inbounds nuw i8, ptr %330, i64 1
-  %342 = load i8, ptr %341, align 1
-  %343 = zext i8 %342 to i64
-  %.idx32.i = mul nuw nsw i64 %343, 88
-  %344 = getelementptr inbounds nuw i8, ptr %333, i64 %.idx32.i
-  %345 = getelementptr inbounds nuw i8, ptr %344, i64 56
-  %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds nuw i8, ptr %330, i64 8
-  %348 = load i32, ptr %347, align 8
-  %349 = call i32 @msix_init(ptr noundef nonnull %0, i16 noundef zeroext %332, ptr noundef %338, i8 noundef zeroext %334, i32 noundef %340, ptr noundef %346, i8 noundef zeroext %342, i32 noundef %348, i8 noundef zeroext %1, ptr noundef nonnull %6) #26
-  %350 = icmp slt i32 %349, 0
-  br i1 %350, label %351, label %355
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 3080
+  %325 = load ptr, ptr %324, align 8
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 2
+  %327 = load i16, ptr %326, align 2
+  %328 = zext i16 %327 to i64
+  %329 = add nuw nsw i64 %328, 63
+  %330 = lshr i64 %329, 6
+  %331 = call noalias ptr @g_malloc0_n(i64 noundef %330, i64 noundef 8) #29
+  %332 = load ptr, ptr %324, align 8
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
+  store ptr %331, ptr %333, align 8
+  %334 = load ptr, ptr %324, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 2
+  %336 = load i16, ptr %335, align 2
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 3096
+  %338 = load i8, ptr %334, align 8
+  %339 = zext i8 %338 to i64
+  %.idx.i = mul nuw nsw i64 %339, 88
+  %340 = getelementptr inbounds nuw i8, ptr %337, i64 %.idx.i
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 56
+  %342 = load ptr, ptr %341, align 8
+  %343 = getelementptr inbounds nuw i8, ptr %334, i64 4
+  %344 = load i32, ptr %343, align 4
+  %345 = getelementptr inbounds nuw i8, ptr %334, i64 1
+  %346 = load i8, ptr %345, align 1
+  %347 = zext i8 %346 to i64
+  %.idx32.i = mul nuw nsw i64 %347, 88
+  %348 = getelementptr inbounds nuw i8, ptr %337, i64 %.idx32.i
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 56
+  %350 = load ptr, ptr %349, align 8
+  %351 = getelementptr inbounds nuw i8, ptr %334, i64 8
+  %352 = load i32, ptr %351, align 8
+  %353 = call i32 @msix_init(ptr noundef nonnull %0, i16 noundef zeroext %336, ptr noundef %342, i8 noundef zeroext %338, i32 noundef %344, ptr noundef %350, i8 noundef zeroext %346, i32 noundef %352, i8 noundef zeroext %1, ptr noundef nonnull %6) #26
+  %354 = icmp slt i32 %353, 0
+  br i1 %354, label %355, label %359
 
-351:                                              ; preds = %319
-  %352 = icmp eq i32 %349, -95
-  %353 = load ptr, ptr %6, align 8
-  br i1 %352, label %354, label %vfio_msix_setup.exit
+355:                                              ; preds = %323
+  %356 = icmp eq i32 %353, -95
+  %357 = load ptr, ptr %6, align 8
+  br i1 %356, label %358, label %vfio_msix_setup.exit
 
-354:                                              ; preds = %351
-  call void @warn_report_err(ptr noundef %353) #26
+358:                                              ; preds = %355
+  call void @warn_report_err(ptr noundef %357) #26
   br label %vfio_msix_setup.exit.thread
 
-355:                                              ; preds = %319
-  %356 = getelementptr inbounds nuw i8, ptr %0, i64 1936
-  call void @memory_region_set_enabled(ptr noundef nonnull %356, i1 noundef zeroext false) #26
-  %357 = call ptr @qdev_get_machine() #26
-  %358 = call zeroext i1 @object_property_get_bool(ptr noundef %357, ptr noundef nonnull @.str.212, ptr noundef null) #26
-  br i1 %358, label %359, label %vfio_msix_setup.exit.thread
-
-359:                                              ; preds = %355
-  %360 = getelementptr inbounds nuw i8, ptr %0, i64 1664
+359:                                              ; preds = %323
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 1936
   call void @memory_region_set_enabled(ptr noundef nonnull %360, i1 noundef zeroext false) #26
+  %361 = call ptr @qdev_get_machine() #26
+  %362 = call zeroext i1 @object_property_get_bool(ptr noundef %361, ptr noundef nonnull @.str.212, ptr noundef null) #26
+  br i1 %362, label %363, label %vfio_msix_setup.exit.thread
+
+363:                                              ; preds = %359
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 1664
+  call void @memory_region_set_enabled(ptr noundef nonnull %364, i1 noundef zeroext false) #26
   br label %vfio_msix_setup.exit.thread
 
-vfio_msix_setup.exit.thread:                      ; preds = %354, %359, %355
+vfio_msix_setup.exit.thread:                      ; preds = %358, %363, %359
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
   br label %vfio_setup_pcie_cap.exit.thread
 
-vfio_msix_setup.exit:                             ; preds = %351
-  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef %353) #26
+vfio_msix_setup.exit:                             ; preds = %355
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef %357) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
-  br label %vfio_setup_pcie_cap.exit.thread115
+  br label %vfio_setup_pcie_cap.exit.thread113
 
-361:                                              ; preds = %vfio_std_cap_max_size.exit93
-  %362 = load ptr, ptr %15, align 16
-  %363 = getelementptr inbounds nuw i8, ptr %362, i64 %17
-  %364 = getelementptr inbounds nuw i8, ptr %363, i64 4
-  %.val.i103 = load i16, ptr %364, align 1
-  %365 = and i16 %.val.i103, 8
-  %.not.i104 = icmp eq i16 %365, 0
-  br i1 %.not.i104, label %366, label %vfio_check_pm_reset.exit
+365:                                              ; preds = %vfio_std_cap_max_size.exit91
+  %366 = load ptr, ptr %15, align 16
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 %17
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 4
+  %.val.i101 = load i16, ptr %368, align 1
+  %369 = and i16 %.val.i101, 8
+  %.not.i102 = icmp eq i16 %369, 0
+  br i1 %.not.i102, label %370, label %vfio_check_pm_reset.exit
 
-366:                                              ; preds = %361
-  %367 = getelementptr inbounds nuw i8, ptr %0, i64 2824
-  %368 = load ptr, ptr %367, align 8
-  %369 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i.i105 = icmp eq i32 %369, 0
-  br i1 %.not.i.i.i105, label %trace_vfio_check_pm_reset.exit.i, label %370, !prof !5
+370:                                              ; preds = %365
+  %371 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %372 = load ptr, ptr %371, align 8
+  %373 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i103 = icmp eq i32 %373, 0
+  br i1 %.not.i.i.i103, label %trace_vfio_check_pm_reset.exit.i, label %374, !prof !5
 
-370:                                              ; preds = %366
-  %371 = load i16, ptr @_TRACE_VFIO_CHECK_PM_RESET_DSTATE, align 2
-  %.not2.i.i.i106 = icmp eq i16 %371, 0
-  br i1 %.not2.i.i.i106, label %trace_vfio_check_pm_reset.exit.i, label %372
+374:                                              ; preds = %370
+  %375 = load i16, ptr @_TRACE_VFIO_CHECK_PM_RESET_DSTATE, align 2
+  %.not2.i.i.i104 = icmp eq i16 %375, 0
+  br i1 %.not2.i.i.i104, label %trace_vfio_check_pm_reset.exit.i, label %376
 
-372:                                              ; preds = %370
-  %373 = load i32, ptr @qemu_loglevel, align 4
-  %374 = and i32 %373, 32768
-  %.not3.i.i.i107 = icmp eq i32 %374, 0
-  br i1 %.not3.i.i.i107, label %trace_vfio_check_pm_reset.exit.i, label %375
+376:                                              ; preds = %374
+  %377 = load i32, ptr @qemu_loglevel, align 4
+  %378 = and i32 %377, 32768
+  %.not3.i.i.i105 = icmp eq i32 %378, 0
+  br i1 %.not3.i.i.i105, label %trace_vfio_check_pm_reset.exit.i, label %379
 
-375:                                              ; preds = %372
-  %376 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
-  %377 = trunc nuw i8 %376 to i1
-  br i1 %377, label %378, label %384
+379:                                              ; preds = %376
+  %380 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %381 = trunc nuw i8 %380 to i1
+  br i1 %381, label %382, label %388
 
-378:                                              ; preds = %375
+382:                                              ; preds = %379
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !4
-  %379 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #26
-  %380 = call i32 @qemu_get_thread_id() #26
-  %381 = load i64, ptr %5, align 8
-  %382 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %383 = load i64, ptr %382, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.213, i32 noundef %380, i64 noundef %381, i64 noundef %383, ptr noundef %368) #26
+  %383 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #26
+  %384 = call i32 @qemu_get_thread_id() #26
+  %385 = load i64, ptr %5, align 8
+  %386 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %387 = load i64, ptr %386, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.213, i32 noundef %384, i64 noundef %385, i64 noundef %387, ptr noundef %372) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
   br label %trace_vfio_check_pm_reset.exit.i
 
-384:                                              ; preds = %375
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.214, ptr noundef %368) #26
+388:                                              ; preds = %379
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.214, ptr noundef %372) #26
   br label %trace_vfio_check_pm_reset.exit.i
 
-trace_vfio_check_pm_reset.exit.i:                 ; preds = %384, %378, %372, %370, %366
-  %385 = getelementptr inbounds nuw i8, ptr %0, i64 3753
-  store i8 1, ptr %385, align 1
+trace_vfio_check_pm_reset.exit.i:                 ; preds = %388, %382, %376, %374, %370
+  %389 = getelementptr inbounds nuw i8, ptr %0, i64 3753
+  store i8 1, ptr %389, align 1
   br label %vfio_check_pm_reset.exit
 
-vfio_check_pm_reset.exit:                         ; preds = %361, %trace_vfio_check_pm_reset.exit.i
-  %386 = getelementptr inbounds nuw i8, ptr %0, i64 3748
-  store i8 %1, ptr %386, align 4
-  %387 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 1, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef nonnull %spec.select) #26
-  %388 = icmp sgt i32 %387, -1
-  br i1 %388, label %vfio_setup_pcie_cap.exit.thread, label %vfio_setup_pcie_cap.exit.thread115
+vfio_check_pm_reset.exit:                         ; preds = %365, %trace_vfio_check_pm_reset.exit.i
+  %390 = getelementptr inbounds nuw i8, ptr %0, i64 3748
+  store i8 %1, ptr %390, align 4
+  %391 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 1, i8 noundef zeroext %1, i8 noundef zeroext %53, ptr noundef nonnull %spec.select) #26
+  %392 = icmp sgt i32 %391, -1
+  br i1 %392, label %vfio_setup_pcie_cap.exit.thread, label %vfio_setup_pcie_cap.exit.thread113
 
-389:                                              ; preds = %vfio_std_cap_max_size.exit93
-  %390 = load ptr, ptr %15, align 16
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 %17
-  %392 = getelementptr inbounds nuw i8, ptr %391, i64 3
-  %.val.i108 = load i8, ptr %392, align 1
-  %393 = and i8 %.val.i108, 3
-  %or.cond.not.i = icmp eq i8 %393, 3
-  br i1 %or.cond.not.i, label %394, label %vfio_setup_pcie_cap.exit
+393:                                              ; preds = %vfio_std_cap_max_size.exit91
+  %394 = load ptr, ptr %15, align 16
+  %395 = getelementptr inbounds nuw i8, ptr %394, i64 %17
+  %396 = getelementptr inbounds nuw i8, ptr %395, i64 3
+  %.val.i106 = load i8, ptr %396, align 1
+  %397 = and i8 %.val.i106, 3
+  %or.cond.not.i = icmp eq i8 %397, 3
+  br i1 %or.cond.not.i, label %398, label %vfio_setup_pcie_cap.exit
 
-394:                                              ; preds = %389
-  %395 = getelementptr inbounds nuw i8, ptr %0, i64 2824
-  %396 = load ptr, ptr %395, align 8
-  %397 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i.i109 = icmp eq i32 %397, 0
-  br i1 %.not.i.i.i109, label %trace_vfio_check_af_flr.exit.i, label %398, !prof !5
+398:                                              ; preds = %393
+  %399 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %400 = load ptr, ptr %399, align 8
+  %401 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i107 = icmp eq i32 %401, 0
+  br i1 %.not.i.i.i107, label %trace_vfio_check_af_flr.exit.i, label %402, !prof !5
 
-398:                                              ; preds = %394
-  %399 = load i16, ptr @_TRACE_VFIO_CHECK_AF_FLR_DSTATE, align 2
-  %.not2.i.i.i110 = icmp eq i16 %399, 0
-  br i1 %.not2.i.i.i110, label %trace_vfio_check_af_flr.exit.i, label %400
+402:                                              ; preds = %398
+  %403 = load i16, ptr @_TRACE_VFIO_CHECK_AF_FLR_DSTATE, align 2
+  %.not2.i.i.i108 = icmp eq i16 %403, 0
+  br i1 %.not2.i.i.i108, label %trace_vfio_check_af_flr.exit.i, label %404
 
-400:                                              ; preds = %398
-  %401 = load i32, ptr @qemu_loglevel, align 4
-  %402 = and i32 %401, 32768
-  %.not3.i.i.i111 = icmp eq i32 %402, 0
-  br i1 %.not3.i.i.i111, label %trace_vfio_check_af_flr.exit.i, label %403
+404:                                              ; preds = %402
+  %405 = load i32, ptr @qemu_loglevel, align 4
+  %406 = and i32 %405, 32768
+  %.not3.i.i.i109 = icmp eq i32 %406, 0
+  br i1 %.not3.i.i.i109, label %trace_vfio_check_af_flr.exit.i, label %407
 
-403:                                              ; preds = %400
-  %404 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
-  %405 = trunc nuw i8 %404 to i1
-  br i1 %405, label %406, label %412
+407:                                              ; preds = %404
+  %408 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %409 = trunc nuw i8 %408 to i1
+  br i1 %409, label %410, label %416
 
-406:                                              ; preds = %403
+410:                                              ; preds = %407
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !4
-  %407 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #26
-  %408 = call i32 @qemu_get_thread_id() #26
-  %409 = load i64, ptr %4, align 8
-  %410 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %411 = load i64, ptr %410, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.215, i32 noundef %408, i64 noundef %409, i64 noundef %411, ptr noundef %396) #26
+  %411 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #26
+  %412 = call i32 @qemu_get_thread_id() #26
+  %413 = load i64, ptr %4, align 8
+  %414 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %415 = load i64, ptr %414, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.215, i32 noundef %412, i64 noundef %413, i64 noundef %415, ptr noundef %400) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
   br label %trace_vfio_check_af_flr.exit.i
 
-412:                                              ; preds = %403
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.216, ptr noundef %396) #26
+416:                                              ; preds = %407
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.216, ptr noundef %400) #26
   br label %trace_vfio_check_af_flr.exit.i
 
-trace_vfio_check_af_flr.exit.i:                   ; preds = %412, %406, %400, %398, %394
-  %413 = getelementptr inbounds nuw i8, ptr %0, i64 3752
-  store i8 1, ptr %413, align 8
+trace_vfio_check_af_flr.exit.i:                   ; preds = %416, %410, %404, %402, %398
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 3752
+  store i8 1, ptr %417, align 8
   br label %vfio_setup_pcie_cap.exit
 
-414:                                              ; preds = %vfio_std_cap_max_size.exit93
-  %415 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 9, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef nonnull %spec.select) #26
-  %416 = icmp sgt i32 %415, -1
-  br i1 %416, label %417, label %vfio_setup_pcie_cap.exit.thread115
+418:                                              ; preds = %vfio_std_cap_max_size.exit91
+  %419 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 9, i8 noundef zeroext %1, i8 noundef zeroext %53, ptr noundef nonnull %spec.select) #26
+  %420 = icmp sgt i32 %419, -1
+  br i1 %420, label %421, label %vfio_setup_pcie_cap.exit.thread113
 
-417:                                              ; preds = %414
-  %418 = getelementptr inbounds nuw i8, ptr %0, i64 3770
-  %419 = load i8, ptr %418, align 2, !range !6, !noundef !7
-  %420 = trunc nuw i8 %419 to i1
-  %421 = icmp ugt i8 %49, 3
-  %or.cond.i = and i1 %421, %420
-  br i1 %or.cond.i, label %422, label %vfio_setup_pcie_cap.exit.thread
+421:                                              ; preds = %418
+  %422 = getelementptr inbounds nuw i8, ptr %0, i64 3770
+  %423 = load i8, ptr %422, align 2, !range !6, !noundef !7
+  %424 = trunc nuw i8 %423 to i1
+  %425 = icmp ugt i8 %53, 3
+  %or.cond.i = and i1 %425, %424
+  br i1 %or.cond.i, label %426, label %vfio_setup_pcie_cap.exit.thread
 
-422:                                              ; preds = %417
-  %423 = zext i8 %49 to i64
-  %424 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %425 = load ptr, ptr %424, align 8
-  %426 = zext nneg i32 %415 to i64
-  %427 = getelementptr inbounds nuw i8, ptr %425, i64 %426
-  %428 = getelementptr inbounds nuw i8, ptr %427, i64 3
-  %429 = add nuw nsw i64 %423, 4294967293
-  %430 = and i64 %429, 4294967295
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %428, i8 noundef 0, i64 noundef %430, i1 noundef false) #26
+426:                                              ; preds = %421
+  %427 = zext i8 %53 to i64
+  %428 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %429 = load ptr, ptr %428, align 8
+  %430 = zext nneg i32 %419 to i64
+  %431 = getelementptr inbounds nuw i8, ptr %429, i64 %430
+  %432 = getelementptr inbounds nuw i8, ptr %431, i64 3
+  %433 = add nuw nsw i64 %427, 4294967293
+  %434 = and i64 %433, 4294967295
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %432, i8 noundef 0, i64 noundef %434, i1 noundef false) #26
   br label %vfio_setup_pcie_cap.exit.thread
 
-431:                                              ; preds = %vfio_std_cap_max_size.exit93
-  %432 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext %19, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef nonnull %spec.select) #26
-  %433 = icmp sgt i32 %432, -1
-  br i1 %433, label %vfio_setup_pcie_cap.exit.thread, label %vfio_setup_pcie_cap.exit.thread115
+435:                                              ; preds = %vfio_std_cap_max_size.exit91
+  %436 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext %19, i8 noundef zeroext %1, i8 noundef zeroext %53, ptr noundef nonnull %spec.select) #26
+  %437 = icmp sgt i32 %436, -1
+  br i1 %437, label %vfio_setup_pcie_cap.exit.thread, label %vfio_setup_pcie_cap.exit.thread113
 
-vfio_setup_pcie_cap.exit:                         ; preds = %trace_vfio_check_af_flr.exit.i, %389
-  %434 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 19, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef nonnull %spec.select) #26
-  %435 = icmp sgt i32 %434, -1
-  br i1 %435, label %vfio_setup_pcie_cap.exit.thread, label %vfio_setup_pcie_cap.exit.thread115
+vfio_setup_pcie_cap.exit:                         ; preds = %trace_vfio_check_af_flr.exit.i, %393
+  %438 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 19, i8 noundef zeroext %1, i8 noundef zeroext %53, ptr noundef nonnull %spec.select) #26
+  %439 = icmp sgt i32 %438, -1
+  br i1 %439, label %vfio_setup_pcie_cap.exit.thread, label %vfio_setup_pcie_cap.exit.thread113
 
-vfio_setup_pcie_cap.exit.thread115:               ; preds = %414, %313, %135, %vfio_msix_setup.exit, %vfio_msi_setup.exit, %vfio_check_pm_reset.exit, %431, %vfio_setup_pcie_cap.exit
-  %436 = zext i8 %49 to i32
-  call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.202, i32 noundef %54, i32 noundef %436, i32 noundef %20) #26
+vfio_setup_pcie_cap.exit.thread113:               ; preds = %418, %317, %139, %vfio_msix_setup.exit, %vfio_msi_setup.exit, %vfio_check_pm_reset.exit, %435, %vfio_setup_pcie_cap.exit
+  %440 = zext i8 %53 to i32
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.202, i32 noundef %58, i32 noundef %440, i32 noundef %20) #26
   br label %vfio_setup_pcie_cap.exit.thread
 
-vfio_setup_pcie_cap.exit.thread:                  ; preds = %422, %417, %156, %._crit_edge.i, %316, %vfio_msix_setup.exit.thread, %vfio_msi_setup.exit.thread, %vfio_check_pm_reset.exit, %431, %vfio_setup_pcie_cap.exit, %vfio_setup_pcie_cap.exit.thread115, %32, %30
-  %.0 = phi i1 [ false, %30 ], [ false, %32 ], [ false, %vfio_setup_pcie_cap.exit.thread115 ], [ true, %vfio_setup_pcie_cap.exit ], [ true, %431 ], [ true, %vfio_check_pm_reset.exit ], [ true, %vfio_msi_setup.exit.thread ], [ true, %vfio_msix_setup.exit.thread ], [ true, %422 ], [ true, %417 ], [ true, %156 ], [ true, %._crit_edge.i ], [ true, %316 ]
+vfio_setup_pcie_cap.exit.thread:                  ; preds = %426, %421, %160, %._crit_edge.i, %320, %vfio_msix_setup.exit.thread, %vfio_msi_setup.exit.thread, %vfio_check_pm_reset.exit, %435, %vfio_setup_pcie_cap.exit, %vfio_setup_pcie_cap.exit.thread113, %34, %32
+  %.0 = phi i1 [ false, %32 ], [ false, %34 ], [ false, %vfio_setup_pcie_cap.exit.thread113 ], [ true, %vfio_setup_pcie_cap.exit ], [ true, %435 ], [ true, %vfio_check_pm_reset.exit ], [ true, %vfio_msi_setup.exit.thread ], [ true, %vfio_msix_setup.exit.thread ], [ true, %426 ], [ true, %421 ], [ true, %160 ], [ true, %._crit_edge.i ], [ true, %320 ]
   %.val79 = load ptr, ptr %11, align 8
   %.val80 = load ptr, ptr %12, align 8
   call void @error_propagate(ptr noundef %.val80, ptr noundef %.val79) #26

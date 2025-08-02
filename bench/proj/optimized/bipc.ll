@@ -147,14 +147,14 @@ define internal { double, double } @_ZL14bipc_s_inverse5PJ_XYP8PJconsts(double %
   br label %28
 
 26:                                               ; preds = %48
-  %27 = add nsw i32 %.057, -1
+  %27 = add nsw i32 %.056, -1
   %.not54 = icmp eq i32 %27, 0
-  br i1 %.not54, label %52, label %28, !llvm.loop !49
+  br i1 %.not54, label %.critedge, label %28, !llvm.loop !49
 
 28:                                               ; preds = %20, %26
-  %.057 = phi i32 [ 10, %20 ], [ %27, %26 ]
-  %.05056 = phi double [ %21, %20 ], [ %.152, %26 ]
-  %29 = fdiv double %.05056, 0x3FFE5B201DDB1510
+  %.056 = phi i32 [ 10, %20 ], [ %27, %26 ]
+  %.05055 = phi double [ %21, %20 ], [ %.152, %26 ]
+  %29 = fdiv double %.05055, 0x3FFE5B201DDB1510
   %30 = tail call double @pow(double noundef %29, double noundef 0x3FF95FD4481A6FAB) #6, !tbaa !48
   %31 = tail call double @atan(double noundef %30) #6, !tbaa !48
   %32 = fmul double %31, 2.000000e+00
@@ -178,41 +178,41 @@ define internal { double, double } @_ZL14bipc_s_inverse5PJ_XYP8PJconsts(double %
   br label %48
 
 48:                                               ; preds = %44, %28
-  %.152 = phi double [ %47, %44 ], [ %.05056, %28 ]
-  %49 = fsub double %.05056, %.152
+  %.152 = phi double [ %47, %44 ], [ %.05055, %28 ]
+  %49 = fsub double %.05055, %.152
   %50 = tail call double @llvm.fabs.f64(double %49)
   %51 = fcmp olt double %50, 1.000000e-10
-  br i1 %51, label %54, label %26
+  br i1 %51, label %53, label %26
 
-52:                                               ; preds = %26
-  %53 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
-  br label %73
+.critedge:                                        ; preds = %26
+  %52 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
+  br label %72
 
-54:                                               ; preds = %48
-  %55 = fdiv double %22, 0x3FE42D88E97BC06A
-  %56 = fsub double %.046, %55
-  %57 = tail call double @cos(double noundef %32) #6, !tbaa !48
-  %58 = tail call double @sin(double noundef %32) #6, !tbaa !48
-  %59 = fmul double %.047, %58
-  %60 = tail call double @cos(double noundef %56) #6, !tbaa !48
-  %61 = fmul double %59, %60
-  %62 = tail call double @llvm.fmuladd.f64(double %.048, double %57, double %61)
-  %63 = tail call double @asin(double noundef %62) #6, !tbaa !48
-  %64 = tail call double @sin(double noundef %56) #6, !tbaa !48
-  %65 = tail call double @tan(double noundef %32) #6, !tbaa !48
-  %66 = fdiv double %.047, %65
-  %67 = tail call double @cos(double noundef %56) #6, !tbaa !48
-  %68 = fneg double %.048
-  %69 = tail call double @llvm.fmuladd.f64(double %68, double %67, double %66)
-  %70 = tail call double @atan2(double noundef %64, double noundef %69) #6, !tbaa !48
-  %71 = fadd double %70, 0xBFFEB7C166FDFE3A
-  %72 = fsub double 0xBFD655316795B6BC, %70
-  %.sroa.043.1 = select i1 %15, double %71, double %72
-  br label %73
+53:                                               ; preds = %48
+  %54 = fdiv double %22, 0x3FE42D88E97BC06A
+  %55 = fsub double %.046, %54
+  %56 = tail call double @cos(double noundef %32) #6, !tbaa !48
+  %57 = tail call double @sin(double noundef %32) #6, !tbaa !48
+  %58 = fmul double %.047, %57
+  %59 = tail call double @cos(double noundef %55) #6, !tbaa !48
+  %60 = fmul double %58, %59
+  %61 = tail call double @llvm.fmuladd.f64(double %.048, double %56, double %60)
+  %62 = tail call double @asin(double noundef %61) #6, !tbaa !48
+  %63 = tail call double @sin(double noundef %55) #6, !tbaa !48
+  %64 = tail call double @tan(double noundef %32) #6, !tbaa !48
+  %65 = fdiv double %.047, %64
+  %66 = tail call double @cos(double noundef %55) #6, !tbaa !48
+  %67 = fneg double %.048
+  %68 = tail call double @llvm.fmuladd.f64(double %67, double %66, double %65)
+  %69 = tail call double @atan2(double noundef %63, double noundef %68) #6, !tbaa !48
+  %70 = fadd double %69, 0xBFFEB7C166FDFE3A
+  %71 = fsub double 0xBFD655316795B6BC, %69
+  %.sroa.043.1 = select i1 %15, double %70, double %71
+  br label %72
 
-73:                                               ; preds = %54, %52
-  %.sroa.745.0 = phi double [ %63, %54 ], [ 0.000000e+00, %52 ]
-  %.sroa.043.0 = phi double [ %.sroa.043.1, %54 ], [ 0.000000e+00, %52 ]
+72:                                               ; preds = %53, %.critedge
+  %.sroa.745.0 = phi double [ %62, %53 ], [ 0.000000e+00, %.critedge ]
+  %.sroa.043.0 = phi double [ %.sroa.043.1, %53 ], [ 0.000000e+00, %.critedge ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.043.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.745.0, 1
   ret { double, double } %.fca.1.insert

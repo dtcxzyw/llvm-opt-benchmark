@@ -203,59 +203,61 @@ define hidden i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %0, ptr nou
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %9
 
-9:                                                ; preds = %.lr.ph, %37
-  %10 = phi i16 [ %7, %.lr.ph ], [ %31, %37 ]
-  %.02228 = phi ptr [ %2, %.lr.ph ], [ %11, %37 ]
+9:                                                ; preds = %.lr.ph, %39
+  %10 = phi i16 [ %7, %.lr.ph ], [ %33, %39 ]
+  %.02228 = phi ptr [ %2, %.lr.ph ], [ %11, %39 ]
   %11 = getelementptr inbounds nuw i8, ptr %.02228, i64 1
   %12 = load i8, ptr %.02228, align 1, !tbaa !3
   %13 = and i16 %10, 511
   %14 = zext nneg i16 %13 to i64
-  %15 = zext i8 %12 to i32
-  %16 = lshr i32 %15, 4
-  %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %14, i64 %17
-  %19 = load i16, ptr %18, align 2, !tbaa !28
-  %.not25 = icmp sgt i16 %19, -1
-  br i1 %.not25, label %25, label %20
+  %15 = getelementptr inbounds nuw [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %14
+  %16 = zext i8 %12 to i32
+  %17 = lshr i32 %16, 4
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr inbounds nuw [16 x %struct.nghttp2_huff_decode], ptr %15, i64 0, i64 %18
+  %20 = load i16, ptr %19, align 2, !tbaa !28
+  %.not25 = icmp sgt i16 %20, -1
+  br i1 %.not25, label %26, label %21
 
-20:                                               ; preds = %9
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  %22 = load i8, ptr %21, align 2, !tbaa !30
-  %23 = load ptr, ptr %8, align 8, !tbaa !31
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store ptr %24, ptr %8, align 8, !tbaa !31
-  store i8 %22, ptr %23, align 1, !tbaa !3
-  br label %25
+21:                                               ; preds = %9
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  %23 = load i8, ptr %22, align 2, !tbaa !30
+  %24 = load ptr, ptr %8, align 8, !tbaa !31
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  store ptr %25, ptr %8, align 8, !tbaa !31
+  store i8 %23, ptr %24, align 1, !tbaa !3
+  br label %26
 
-25:                                               ; preds = %20, %9
-  %26 = and i16 %19, 511
-  %27 = zext nneg i16 %26 to i64
-  %28 = and i32 %15, 15
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %27, i64 %29
-  %31 = load i16, ptr %30, align 2, !tbaa !28
-  %.not26 = icmp sgt i16 %31, -1
-  br i1 %.not26, label %37, label %32
+26:                                               ; preds = %21, %9
+  %27 = and i16 %20, 511
+  %28 = zext nneg i16 %27 to i64
+  %29 = getelementptr inbounds nuw [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %28
+  %30 = and i32 %16, 15
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr inbounds nuw [16 x %struct.nghttp2_huff_decode], ptr %29, i64 0, i64 %31
+  %33 = load i16, ptr %32, align 2, !tbaa !28
+  %.not26 = icmp sgt i16 %33, -1
+  br i1 %.not26, label %39, label %34
 
-32:                                               ; preds = %25
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 2
-  %34 = load i8, ptr %33, align 2, !tbaa !30
-  %35 = load ptr, ptr %8, align 8, !tbaa !31
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  store ptr %36, ptr %8, align 8, !tbaa !31
-  store i8 %34, ptr %35, align 1, !tbaa !3
-  br label %37
+34:                                               ; preds = %26
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 2
+  %36 = load i8, ptr %35, align 2, !tbaa !30
+  %37 = load ptr, ptr %8, align 8, !tbaa !31
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  store ptr %38, ptr %8, align 8, !tbaa !31
+  store i8 %36, ptr %37, align 1, !tbaa !3
+  br label %39
 
-37:                                               ; preds = %32, %25
+39:                                               ; preds = %34, %26
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %37, %5
-  %38 = phi i16 [ %7, %5 ], [ %31, %37 ]
-  store i16 %38, ptr %0, align 2, !tbaa !25
+._crit_edge:                                      ; preds = %39, %5
+  %40 = phi i16 [ %7, %5 ], [ %33, %39 ]
+  store i16 %40, ptr %0, align 2, !tbaa !25
   %.not23 = icmp ne i32 %4, 0
-  %39 = and i16 %38, 16384
-  %.not24 = icmp eq i16 %39, 0
+  %41 = and i16 %40, 16384
+  %.not24 = icmp eq i16 %41, 0
   %or.cond = select i1 %.not23, i1 %.not24, i1 false
   %.0 = select i1 %or.cond, i64 -523, i64 %3
   ret i64 %.0

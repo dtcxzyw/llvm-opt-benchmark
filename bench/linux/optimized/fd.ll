@@ -526,7 +526,7 @@ declare dso_local void @security_task_to_inode(ptr noundef, ptr noundef) local_u
 define internal noundef range(i32 -10, 2) i32 @tid_fd_revalidate(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = and i32 %1, 64
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %.thread8
+  br i1 %4, label %5, label %.thread7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -535,7 +535,7 @@ define internal noundef range(i32 -10, 2) i32 @tid_fd_revalidate(ptr noundef rea
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @get_pid_task(ptr noundef %9, i32 noundef 0) #7
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.thread8, label %12
+  br i1 %11, label %.thread7, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr i8, ptr %7, i64 -64
@@ -544,7 +544,7 @@ define internal noundef range(i32 -10, 2) i32 @tid_fd_revalidate(ptr noundef rea
   %15 = tail call ptr @task_lookup_fdget_rcu(ptr noundef nonnull %10, i32 noundef %14) #7
   tail call void @__rcu_read_unlock() #7
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %40, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -574,43 +574,43 @@ define internal noundef range(i32 -10, 2) i32 @tid_fd_revalidate(ptr noundef rea
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %35 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %34, i32 -1, ptr nonnull elementtype(i32) %34) #7, !srcloc !6
   %36 = icmp eq i32 %35, 1
-  br i1 %36, label %47, label %37
+  br i1 %36, label %46, label %37
 
 37:                                               ; preds = %33
   %38 = icmp sgt i32 %35, 0
-  br i1 %38, label %.thread8, label %39, !prof !7
+  br i1 %38, label %.thread7, label %39, !prof !7
 
 39:                                               ; preds = %37
   tail call void @refcount_warn_saturate(ptr noundef nonnull %34, i32 noundef 3) #7
-  br label %.thread8
+  br label %.thread7
 
-40:                                               ; preds = %12
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %42 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %41, i32 -1, ptr nonnull elementtype(i32) %41) #7, !srcloc !6
-  %43 = icmp eq i32 %42, 1
-  br i1 %43, label %.thread9, label %44
+.critedge:                                        ; preds = %12
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %41 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %40, i32 -1, ptr nonnull elementtype(i32) %40) #7, !srcloc !6
+  %42 = icmp eq i32 %41, 1
+  br i1 %42, label %.thread8, label %43
 
-44:                                               ; preds = %40
-  %45 = icmp sgt i32 %42, 0
-  br i1 %45, label %.thread8, label %46, !prof !7
+43:                                               ; preds = %.critedge
+  %44 = icmp sgt i32 %41, 0
+  br i1 %44, label %.thread7, label %45, !prof !7
 
-46:                                               ; preds = %44
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %41, i32 noundef 3) #7
-  br label %.thread8
+45:                                               ; preds = %43
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %40, i32 noundef 3) #7
+  br label %.thread7
 
-.thread9:                                         ; preds = %40
+.thread8:                                         ; preds = %.critedge
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !8
   tail call void @__put_task_struct(ptr noundef nonnull %10) #7
-  br label %.thread8
+  br label %.thread7
 
-47:                                               ; preds = %33
+46:                                               ; preds = %33
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !8
   tail call void @__put_task_struct(ptr noundef nonnull %10) #7
-  br label %.thread8
+  br label %.thread7
 
-.thread8:                                         ; preds = %46, %44, %39, %37, %5, %.thread9, %47, %2
-  %48 = phi i32 [ 1, %47 ], [ -10, %2 ], [ 0, %.thread9 ], [ 0, %5 ], [ 1, %37 ], [ 1, %39 ], [ 0, %44 ], [ 0, %46 ]
-  ret i32 %48
+.thread7:                                         ; preds = %45, %43, %39, %37, %5, %.thread8, %46, %2
+  %47 = phi i32 [ 1, %46 ], [ -10, %2 ], [ 0, %.thread8 ], [ 0, %5 ], [ 1, %37 ], [ 1, %39 ], [ 0, %43 ], [ 0, %45 ]
+  ret i32 %47
 }
 
 ; Function Attrs: null_pointer_is_valid

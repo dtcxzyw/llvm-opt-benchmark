@@ -1623,13 +1623,13 @@ base_16_char_type.exit:                           ; preds = %4, %8, %10
   %20 = sext i8 %19 to i64
   %21 = sub nsw i64 %16, %20
   %22 = icmp ugt i64 %.020, 1152921504606846975
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %15
   %24 = xor i64 %21, -1
   %25 = lshr i64 %24, 4
   %26 = icmp samesign ugt i64 %.020, %25
-  br i1 %26, label %.thread, label %27
+  br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %23
   %28 = shl nuw i64 %.020, 4
@@ -1639,10 +1639,10 @@ base_16_char_type.exit:                           ; preds = %4, %8, %10
 
 31:                                               ; preds = %base_16_char_type.exit
   store i64 %.020, ptr %2, align 8, !tbaa !38
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %15, %23, %31
-  %.2 = phi i32 [ 1, %31 ], [ -1, %23 ], [ -1, %15 ]
+.critedge:                                        ; preds = %23, %15, %31
+  %.2 = phi i32 [ 1, %31 ], [ -1, %15 ], [ -1, %23 ]
   ret i32 %.2
 }
 
@@ -2488,7 +2488,7 @@ define dso_local ptr @getAbsolutePath(ptr noundef %0) local_unnamed_addr #4 {
   %4 = tail call ptr @sdstrim(ptr noundef %3, ptr noundef nonnull @.str.18) #29
   %5 = load i8, ptr %4, align 1, !tbaa !9
   %6 = icmp eq i8 %5, 47
-  br i1 %6, label %138, label %7
+  br i1 %6, label %140, label %7
 
 7:                                                ; preds = %1
   %8 = call ptr @getcwd(ptr noundef nonnull %2, i64 noundef 1024) #29
@@ -2597,7 +2597,6 @@ sdslen.exit32:                                    ; preds = %35, %38, %42, %46, 
 sdslen.exit.thread:                               ; preds = %10, %56, %sdslen.exit32, %sdslen.exit
   %.027 = phi ptr [ %57, %56 ], [ %11, %sdslen.exit32 ], [ %11, %sdslen.exit ], [ %11, %10 ]
   %58 = getelementptr inbounds i8, ptr %4, i64 -1
-  %invariant.gep = getelementptr i8, ptr %.027, i64 -2
   %59 = getelementptr inbounds i8, ptr %4, i64 -17
   %60 = getelementptr inbounds i8, ptr %4, i64 -9
   %61 = getelementptr inbounds i8, ptr %4, i64 -5
@@ -2750,40 +2749,41 @@ default.unreachable:                              ; preds = %116
 
 sdslen.exit38:                                    ; preds = %117, %120, %123, %126, %129
   %.0.i37 = phi i64 [ %119, %117 ], [ %122, %120 ], [ %125, %123 ], [ %128, %126 ], [ %130, %129 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0.i37
-  %131 = load i8, ptr %gep, align 1, !tbaa !9
-  %.not3044 = icmp eq i8 %131, 47
+  %131 = getelementptr inbounds nuw i8, ptr %.027, i64 %.0.i37
+  %132 = getelementptr inbounds i8, ptr %131, i64 -2
+  %133 = load i8, ptr %132, align 1, !tbaa !9
+  %.not3044 = icmp eq i8 %133, 47
   br i1 %.not3044, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %sdslen.exit38, %.lr.ph
-  %.046 = phi i32 [ %133, %.lr.ph ], [ 1, %sdslen.exit38 ]
-  %.02645 = phi ptr [ %132, %.lr.ph ], [ %gep, %sdslen.exit38 ]
-  %132 = getelementptr inbounds i8, ptr %.02645, i64 -1
-  %133 = add nuw nsw i32 %.046, 1
-  %134 = load i8, ptr %132, align 1, !tbaa !9
-  %.not30 = icmp eq i8 %134, 47
+  %.046 = phi i32 [ %135, %.lr.ph ], [ 1, %sdslen.exit38 ]
+  %.02645 = phi ptr [ %134, %.lr.ph ], [ %132, %sdslen.exit38 ]
+  %134 = getelementptr inbounds i8, ptr %.02645, i64 -1
+  %135 = add nuw nsw i32 %.046, 1
+  %136 = load i8, ptr %134, align 1, !tbaa !9
+  %.not30 = icmp eq i8 %136, 47
   br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %135 = sub nuw i32 -2, %.046
-  %136 = sext i32 %135 to i64
+  %137 = sub nuw i32 -2, %.046
+  %138 = sext i32 %137 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %sdslen.exit38
-  %.0.lcssa = phi i64 [ -2, %sdslen.exit38 ], [ %136, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ -2, %sdslen.exit38 ], [ %138, %._crit_edge.loopexit ]
   call void @sdsrange(ptr noundef nonnull %.027, i64 noundef 0, i64 noundef %.0.lcssa) #29
   br label %sdslen.exit36.thread.backedge
 
 .critedge:                                        ; preds = %sdslen.exit36.thread, %91, %88, %sdslen.exit34, %94
-  %137 = call ptr @sdscatsds(ptr noundef %.027, ptr noundef nonnull %4) #29
+  %139 = call ptr @sdscatsds(ptr noundef %.027, ptr noundef nonnull %4) #29
   br label %.sink.split
 
 .sink.split:                                      ; preds = %7, %.critedge
-  %.028.ph = phi ptr [ %137, %.critedge ], [ null, %7 ]
+  %.028.ph = phi ptr [ %139, %.critedge ], [ null, %7 ]
   call void @sdsfree(ptr noundef nonnull %4) #29
-  br label %138
+  br label %140
 
-138:                                              ; preds = %.sink.split, %1
+140:                                              ; preds = %.sink.split, %1
   %.028 = phi ptr [ %4, %1 ], [ %.028.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #29
   ret ptr %.028

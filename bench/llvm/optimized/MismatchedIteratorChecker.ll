@@ -1193,7 +1193,7 @@ _ZN4llvmneENS_9StringRefES0_.exit250.thread276.i: ; preds = %_ZN4llvmneENS_9Stri
 
 .lr.ph291.i:                                      ; preds = %269
   %276 = getelementptr inbounds nuw i8, ptr %271, i64 24
-  %277 = getelementptr i8, ptr %272, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %272, i64 16
   %278 = getelementptr inbounds nuw i8, ptr %21, i64 120
   br label %279
 
@@ -1216,7 +1216,7 @@ _ZN4llvmneENS_9StringRefES0_.exit250.thread276.i: ; preds = %_ZN4llvmneENS_9Stri
 288:                                              ; preds = %286
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
   %.idx.i = mul nuw nsw i64 %.0204290.i, 24
-  %289 = getelementptr i8, ptr %277, i64 %.idx.i
+  %289 = getelementptr inbounds nuw i8, ptr %277, i64 %.idx.i
   %290 = load i64, ptr %289, align 8, !tbaa !16
   store i64 %290, ptr %17, align 8
   %291 = call noundef zeroext i1 @_ZN5clang4ento8iterator14isIteratorTypeERKNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(8) %17) #15

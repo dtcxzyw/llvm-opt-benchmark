@@ -2110,11 +2110,11 @@ WrapPosition.exit:                                ; preds = %5, %22
   %51 = add nuw nsw i64 %50, 7
   %52 = lshr i64 %51, 3
   store i64 %52, ptr %3, align 8, !tbaa !69
-  br label %1853
+  br label %1852
 
 53:                                               ; preds = %38
   store i64 0, ptr %3, align 8, !tbaa !69
-  br label %1853
+  br label %1852
 
 54:                                               ; preds = %37
   %55 = icmp eq i32 %2, 0
@@ -2124,19 +2124,19 @@ WrapPosition.exit:                                ; preds = %5, %22
 
 56:                                               ; preds = %54
   store i64 0, ptr %3, align 8, !tbaa !69
-  br label %1853
+  br label %1852
 
 57:                                               ; preds = %54, %WrapPosition.exit
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   %59 = load i32, ptr %58, align 8, !tbaa !132
   %60 = icmp sgt i32 %31, %59
-  br i1 %60, label %1853, label %61
+  br i1 %60, label %1852, label %61
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 6968
   %63 = load i32, ptr %62, align 8, !tbaa !58
   %.not244 = icmp eq i32 %63, 0
-  br i1 %.not244, label %64, label %1853
+  br i1 %.not244, label %64, label %1852
 
 64:                                               ; preds = %61
   %.not249 = icmp eq i32 %1, 0
@@ -2152,7 +2152,7 @@ WrapPosition.exit:                                ; preds = %5, %22
   %68 = zext nneg i32 %.val322 to i64
   %69 = shl nuw i64 1, %68
   %70 = icmp ugt i64 %18, %69
-  br i1 %70, label %1853, label %71
+  br i1 %70, label %1852, label %71
 
 71:                                               ; preds = %66
   switch i32 %31, label %145 [
@@ -2298,7 +2298,7 @@ WrapPosition.exit.i:                              ; preds = %130, %127
   store ptr %92, ptr %4, align 8, !tbaa !71
   store i64 %138, ptr %3, align 8, !tbaa !69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #18
-  br label %1853
+  br label %1852
 
 145:                                              ; preds = %71
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 1488
@@ -4363,7 +4363,6 @@ PrepareHROLLING.exit:                             ; preds = %StitchToPreviousBlo
   %1412 = load ptr, ptr %1411, align 8, !tbaa !214, !alias.scope !559, !noalias !562
   %1413 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   %1414 = load ptr, ptr %1413, align 8, !tbaa !219, !alias.scope !559, !noalias !562
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1414, i64 4
   %1415 = getelementptr inbounds nuw i8, ptr %0, i64 1728
   br label %1416
 
@@ -4491,13 +4490,13 @@ FindMatchLengthWithLimit.exit:                    ; preds = %1445, %.critedge.i
 
 1469:                                             ; preds = %FindMatchLengthWithLimit.exit
   %1470 = and i64 %.093.i488, %1410
-  %1471 = shl nuw nsw i64 %1470, 1
-  %1472 = getelementptr inbounds nuw i32, ptr %1414, i64 %1471
-  %1473 = load i32, ptr %1472, align 4, !tbaa !59
-  %1474 = getelementptr inbounds nuw i32, ptr %1414, i64 %.098.i486
-  store i32 %1473, ptr %1474, align 4, !tbaa !59
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %1471
-  %1475 = load i32, ptr %gep, align 4, !tbaa !59
+  %.idx = shl nuw nsw i64 %1470, 3
+  %1471 = getelementptr inbounds nuw i8, ptr %1414, i64 %.idx
+  %1472 = load i32, ptr %1471, align 4, !tbaa !59
+  %1473 = getelementptr inbounds nuw i32, ptr %1414, i64 %.098.i486
+  store i32 %1472, ptr %1473, align 4, !tbaa !59
+  %1474 = getelementptr inbounds nuw i8, ptr %1471, i64 4
+  %1475 = load i32, ptr %1474, align 4, !tbaa !59
   br label %StoreAndFindMatchesH10.exit
 
 1476:                                             ; preds = %FindMatchLengthWithLimit.exit
@@ -4684,7 +4683,7 @@ ChooseContextMode.exit:                           ; preds = %1507, %1512
 
 .critedge:                                        ; preds = %1575, %1573
   store i64 0, ptr %3, align 8, !tbaa !69
-  br label %1853
+  br label %1852
 
 1576:                                             ; preds = %1570, %1566, %1563
   %1577 = getelementptr inbounds nuw i8, ptr %0, i64 1504
@@ -4784,7 +4783,7 @@ GetInsertLengthCode.exit:                         ; preds = %1591, %1595, %1609,
 
 1635:                                             ; preds = %1633
   store i64 0, ptr %3, align 8, !tbaa !69
-  br label %1853
+  br label %1852
 
 1636:                                             ; preds = %1633
   %1637 = shl i64 %1550, 1
@@ -4873,7 +4872,7 @@ WrapPosition.exit.i396:                           ; preds = %1673, %GetBrotliSto
 
 1692:                                             ; preds = %WrapPosition.exit.i396
   %1693 = icmp samesign ult i64 %1659, 3
-  br i1 %1693, label %1754, label %1694
+  br i1 %1693, label %1753, label %1694
 
 1694:                                             ; preds = %1692
   %1695 = lshr i64 %1659, 8
@@ -4895,10 +4894,6 @@ WrapPosition.exit.i396:                           ; preds = %1673, %GetBrotliSto
   %1704 = udiv i64 %1703, 13
   br label %.lr.ph.i.i
 
-.preheader.i.i:                                   ; preds = %.lr.ph.i.i
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %6, i64 4
-  br label %1715
-
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.01729.i.i = phi i64 [ %1714, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %.01828.i.i = phi i32 [ %1713, %.lr.ph.i.i ], [ %1671, %.lr.ph.preheader.i.i ]
@@ -4916,314 +4911,314 @@ WrapPosition.exit.i396:                           ; preds = %1673, %GetBrotliSto
   %exitcond.not.i.i = icmp eq i64 %1714, %1704
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !586
 
-1715:                                             ; preds = %FastLog2.exit.i.i, %.preheader.i.i
-  %.1.i.idx32.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.add.i.i, %FastLog2.exit.i.i ]
-  %.124.i31.i.i = phi double [ 0.000000e+00, %.preheader.i.i ], [ %1739, %FastLog2.exit.i.i ]
-  %.126.i30.i.i = phi i64 [ 0, %.preheader.i.i ], [ %1730, %FastLog2.exit.i.i ]
+.preheader.i.i:                                   ; preds = %.lr.ph.i.i, %FastLog2.exit.i.i
+  %.1.i.idx32.i.i = phi i64 [ %.add.i.i, %FastLog2.exit.i.i ], [ 0, %.lr.ph.i.i ]
+  %.124.i31.i.i = phi double [ %1738, %FastLog2.exit.i.i ], [ 0.000000e+00, %.lr.ph.i.i ]
+  %.126.i30.i.i = phi i64 [ %1729, %FastLog2.exit.i.i ], [ 0, %.lr.ph.i.i ]
   %.1.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i.idx32.i.i
-  %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %.1.i.idx32.i.i
-  %1716 = load i32, ptr %.1.i.ptr.i.i, align 8, !tbaa !59
-  %1717 = zext i32 %1716 to i64
-  %1718 = add i64 %.126.i30.i.i, %1717
-  %1719 = uitofp i32 %1716 to double
-  %1720 = icmp ult i32 %1716, 256
-  br i1 %1720, label %1721, label %1724
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %.1.i.ptr.i.i, i64 4
+  %1715 = load i32, ptr %.1.i.ptr.i.i, align 8, !tbaa !59
+  %1716 = zext i32 %1715 to i64
+  %1717 = add i64 %.126.i30.i.i, %1716
+  %1718 = uitofp i32 %1715 to double
+  %1719 = icmp ult i32 %1715, 256
+  br i1 %1719, label %1720, label %1723
 
-1721:                                             ; preds = %1715
-  %1722 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %1717
-  %1723 = load double, ptr %1722, align 8, !tbaa !587
+1720:                                             ; preds = %.preheader.i.i
+  %1721 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %1716
+  %1722 = load double, ptr %1721, align 8, !tbaa !587
   br label %FastLog2.exit24.i.i
 
-1724:                                             ; preds = %1715
-  %1725 = tail call double @log2(double noundef %1719) #18, !tbaa !59
+1723:                                             ; preds = %.preheader.i.i
+  %1724 = tail call double @log2(double noundef %1718) #18, !tbaa !59
   br label %FastLog2.exit24.i.i
 
-FastLog2.exit24.i.i:                              ; preds = %1724, %1721
-  %.0.i23.i.i = phi double [ %1723, %1721 ], [ %1725, %1724 ]
-  %1726 = fneg double %1719
-  %1727 = tail call double @llvm.fmuladd.f64(double %1726, double %.0.i23.i.i, double %.124.i31.i.i)
+FastLog2.exit24.i.i:                              ; preds = %1723, %1720
+  %.0.i23.i.i = phi double [ %1722, %1720 ], [ %1724, %1723 ]
+  %1725 = fneg double %1718
+  %1726 = tail call double @llvm.fmuladd.f64(double %1725, double %.0.i23.i.i, double %.124.i31.i.i)
   %.add.i.i = add nuw nsw i64 %.1.i.idx32.i.i, 8
-  %1728 = load i32, ptr %gep.i.i, align 4, !tbaa !59
-  %1729 = zext i32 %1728 to i64
-  %1730 = add i64 %1718, %1729
-  %1731 = uitofp i32 %1728 to double
-  %1732 = icmp ult i32 %1728, 256
-  br i1 %1732, label %1733, label %1736
+  %1727 = load i32, ptr %.ptr.i.i, align 4, !tbaa !59
+  %1728 = zext i32 %1727 to i64
+  %1729 = add i64 %1717, %1728
+  %1730 = uitofp i32 %1727 to double
+  %1731 = icmp ult i32 %1727, 256
+  br i1 %1731, label %1732, label %1735
 
-1733:                                             ; preds = %FastLog2.exit24.i.i
-  %1734 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %1729
-  %1735 = load double, ptr %1734, align 8, !tbaa !587
+1732:                                             ; preds = %FastLog2.exit24.i.i
+  %1733 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %1728
+  %1734 = load double, ptr %1733, align 8, !tbaa !587
   br label %FastLog2.exit.i.i
 
-1736:                                             ; preds = %FastLog2.exit24.i.i
-  %1737 = tail call double @log2(double noundef %1731) #18, !tbaa !59
+1735:                                             ; preds = %FastLog2.exit24.i.i
+  %1736 = tail call double @log2(double noundef %1730) #18, !tbaa !59
   br label %FastLog2.exit.i.i
 
-FastLog2.exit.i.i:                                ; preds = %1736, %1733
-  %.0.i22.i.i = phi double [ %1735, %1733 ], [ %1737, %1736 ]
-  %1738 = fneg double %1731
-  %1739 = tail call double @llvm.fmuladd.f64(double %1738, double %.0.i22.i.i, double %1727)
-  %1740 = icmp samesign ult i64 %.1.i.idx32.i.i, 1016
-  br i1 %1740, label %1715, label %1741, !llvm.loop !589
+FastLog2.exit.i.i:                                ; preds = %1735, %1732
+  %.0.i22.i.i = phi double [ %1734, %1732 ], [ %1736, %1735 ]
+  %1737 = fneg double %1730
+  %1738 = tail call double @llvm.fmuladd.f64(double %1737, double %.0.i22.i.i, double %1726)
+  %1739 = icmp samesign ult i64 %.1.i.idx32.i.i, 1016
+  br i1 %1739, label %.preheader.i.i, label %1740, !llvm.loop !589
 
-1741:                                             ; preds = %FastLog2.exit.i.i
-  %1742 = fmul double %1700, 7.920000e+00
-  %1743 = fmul double %1742, 0x3FB3B13B13B13B14
-  %.not27.i.i.i = icmp eq i64 %1730, 0
-  %.pre.i.i = uitofp i64 %1730 to double
-  br i1 %.not27.i.i.i, label %ShannonEntropy.exit.i.i, label %1744
+1740:                                             ; preds = %FastLog2.exit.i.i
+  %1741 = fmul double %1700, 7.920000e+00
+  %1742 = fmul double %1741, 0x3FB3B13B13B13B14
+  %.not27.i.i.i = icmp eq i64 %1729, 0
+  %.pre.i.i = uitofp i64 %1729 to double
+  br i1 %.not27.i.i.i, label %ShannonEntropy.exit.i.i, label %1743
 
-1744:                                             ; preds = %1741
-  %1745 = icmp ult i64 %1730, 256
-  br i1 %1745, label %1746, label %1749
+1743:                                             ; preds = %1740
+  %1744 = icmp ult i64 %1729, 256
+  br i1 %1744, label %1745, label %1748
 
-1746:                                             ; preds = %1744
-  %1747 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %1730
-  %1748 = load double, ptr %1747, align 8, !tbaa !587
+1745:                                             ; preds = %1743
+  %1746 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %1729
+  %1747 = load double, ptr %1746, align 8, !tbaa !587
   br label %FastLog2.exit26.i.i
 
-1749:                                             ; preds = %1744
-  %1750 = tail call double @log2(double noundef %.pre.i.i) #18, !tbaa !59
+1748:                                             ; preds = %1743
+  %1749 = tail call double @log2(double noundef %.pre.i.i) #18, !tbaa !59
   br label %FastLog2.exit26.i.i
 
-FastLog2.exit26.i.i:                              ; preds = %1749, %1746
-  %.0.i25.i.i = phi double [ %1748, %1746 ], [ %1750, %1749 ]
-  %1751 = tail call double @llvm.fmuladd.f64(double %.pre.i.i, double %.0.i25.i.i, double %1739)
+FastLog2.exit26.i.i:                              ; preds = %1748, %1745
+  %.0.i25.i.i = phi double [ %1747, %1745 ], [ %1749, %1748 ]
+  %1750 = tail call double @llvm.fmuladd.f64(double %.pre.i.i, double %.0.i25.i.i, double %1738)
   br label %ShannonEntropy.exit.i.i
 
-ShannonEntropy.exit.i.i:                          ; preds = %FastLog2.exit26.i.i, %1741
-  %.2.i.i.i = phi double [ %1751, %FastLog2.exit26.i.i ], [ %1739, %1741 ]
-  %1752 = fcmp olt double %.2.i.i.i, %.pre.i.i
-  %.0.i.i.i = select i1 %1752, double %.pre.i.i, double %.2.i.i.i
-  %1753 = fcmp ule double %.0.i.i.i, %1743
+ShannonEntropy.exit.i.i:                          ; preds = %FastLog2.exit26.i.i, %1740
+  %.2.i.i.i = phi double [ %1750, %FastLog2.exit26.i.i ], [ %1738, %1740 ]
+  %1751 = fcmp olt double %.2.i.i.i, %.pre.i.i
+  %.0.i.i.i = select i1 %1751, double %.pre.i.i, double %.2.i.i.i
+  %1752 = fcmp ule double %.0.i.i.i, %1742
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #18
-  br i1 %1753, label %ShannonEntropy.exit.i.i.ShouldCompress.exit.i_crit_edge, label %1754
+  br i1 %1752, label %ShannonEntropy.exit.i.i.ShouldCompress.exit.i_crit_edge, label %1753
 
 ShannonEntropy.exit.i.i.ShouldCompress.exit.i_crit_edge: ; preds = %ShannonEntropy.exit.i.i
   %.pre516 = load i8, ptr %1657, align 1, !tbaa !70
   %.pre517 = load i8, ptr %1647, align 1, !tbaa !70
   br label %ShouldCompress.exit.i
 
-1754:                                             ; preds = %ShannonEntropy.exit.i.i, %1692
+1753:                                             ; preds = %ShannonEntropy.exit.i.i, %1692
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1670, ptr noundef nonnull readonly align 4 dereferenceable(16) %1669, i64 16, i1 false)
-  %1755 = zext i32 %.0.i.i397 to i64
-  call void @BrotliStoreUncompressedMetaBlock(i32 noundef range(i32 0, 2) %1, ptr noundef %33, i64 noundef %1755, i64 noundef range(i64 0, 4294967296) %174, i64 noundef range(i64 0, 4294967296) %1659, ptr noundef nonnull %15, ptr noundef nonnull %1647) #18
+  %1754 = zext i32 %.0.i.i397 to i64
+  call void @BrotliStoreUncompressedMetaBlock(i32 noundef range(i32 0, 2) %1, ptr noundef %33, i64 noundef %1754, i64 noundef range(i64 0, 4294967296) %174, i64 noundef range(i64 0, 4294967296) %1659, ptr noundef nonnull %15, ptr noundef nonnull %1647) #18
   br label %WriteMetaBlockInternal.exit
 
 ShouldCompress.exit.i:                            ; preds = %ShannonEntropy.exit.i.i.ShouldCompress.exit.i_crit_edge, %1698, %1694
-  %1756 = phi i8 [ %.pre517, %ShannonEntropy.exit.i.i.ShouldCompress.exit.i_crit_edge ], [ %1653, %1698 ], [ %1653, %1694 ]
-  %1757 = phi i8 [ %.pre516, %ShannonEntropy.exit.i.i.ShouldCompress.exit.i_crit_edge ], [ %1656, %1698 ], [ %1656, %1694 ]
-  %1758 = load i64, ptr %15, align 8, !tbaa !69
-  %1759 = load i32, ptr %30, align 4, !tbaa !47
-  %1760 = icmp slt i32 %1759, 3
-  br i1 %1760, label %1761, label %1763
+  %1755 = phi i8 [ %.pre517, %ShannonEntropy.exit.i.i.ShouldCompress.exit.i_crit_edge ], [ %1653, %1698 ], [ %1653, %1694 ]
+  %1756 = phi i8 [ %.pre516, %ShannonEntropy.exit.i.i.ShouldCompress.exit.i_crit_edge ], [ %1656, %1698 ], [ %1656, %1694 ]
+  %1757 = load i64, ptr %15, align 8, !tbaa !69
+  %1758 = load i32, ptr %30, align 4, !tbaa !47
+  %1759 = icmp slt i32 %1758, 3
+  br i1 %1759, label %1760, label %1762
 
-1761:                                             ; preds = %ShouldCompress.exit.i
-  %1762 = zext i32 %.0.i.i397 to i64
-  call void @BrotliStoreMetaBlockFast(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1762, i64 noundef range(i64 0, 4294967296) %1659, i64 noundef range(i64 0, 4294967296) %174, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %0, ptr noundef %1668, i64 noundef %1666, ptr noundef nonnull %15, ptr noundef nonnull %1647) #18
-  br label %1804
+1760:                                             ; preds = %ShouldCompress.exit.i
+  %1761 = zext i32 %.0.i.i397 to i64
+  call void @BrotliStoreMetaBlockFast(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1761, i64 noundef range(i64 0, 4294967296) %1659, i64 noundef range(i64 0, 4294967296) %174, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %0, ptr noundef %1668, i64 noundef %1666, ptr noundef nonnull %15, ptr noundef nonnull %1647) #18
+  br label %1803
 
-1763:                                             ; preds = %ShouldCompress.exit.i
-  %1764 = icmp eq i32 %1759, 3
-  br i1 %1764, label %1765, label %1767
+1762:                                             ; preds = %ShouldCompress.exit.i
+  %1763 = icmp eq i32 %1758, 3
+  br i1 %1763, label %1764, label %1766
 
-1765:                                             ; preds = %1763
-  %1766 = zext i32 %.0.i.i397 to i64
-  call void @BrotliStoreMetaBlockTrivial(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1766, i64 noundef range(i64 0, 4294967296) %1659, i64 noundef range(i64 0, 4294967296) %174, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %0, ptr noundef %1668, i64 noundef %1666, ptr noundef nonnull %15, ptr noundef nonnull %1647) #18
-  br label %1804
+1764:                                             ; preds = %1762
+  %1765 = zext i32 %.0.i.i397 to i64
+  call void @BrotliStoreMetaBlockTrivial(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1765, i64 noundef range(i64 0, 4294967296) %1659, i64 noundef range(i64 0, 4294967296) %174, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %0, ptr noundef %1668, i64 noundef %1666, ptr noundef nonnull %15, ptr noundef nonnull %1647) #18
+  br label %1803
 
-1767:                                             ; preds = %1763
+1766:                                             ; preds = %1762
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %8) #18
   call void @BrotliInitBlockSplit(ptr noundef nonnull %8) #18
-  %1768 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %1767 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  call void @BrotliInitBlockSplit(ptr noundef nonnull %1767) #18
+  %1768 = getelementptr inbounds nuw i8, ptr %8, i64 96
   call void @BrotliInitBlockSplit(ptr noundef nonnull %1768) #18
-  %1769 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  call void @BrotliInitBlockSplit(ptr noundef nonnull %1769) #18
-  %1770 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %1771 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  %1772 = getelementptr inbounds nuw i8, ptr %8, i64 176
-  %1773 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %1774 = getelementptr inbounds nuw i8, ptr %8, i64 208
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1770, i8 0, i64 80, i1 false)
-  %1775 = load i32, ptr %30, align 4, !tbaa !47
-  %1776 = icmp slt i32 %1775, 10
-  br i1 %1776, label %1777, label %1789
+  %1769 = getelementptr inbounds nuw i8, ptr %8, i64 144
+  %1770 = getelementptr inbounds nuw i8, ptr %8, i64 160
+  %1771 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  %1772 = getelementptr inbounds nuw i8, ptr %8, i64 192
+  %1773 = getelementptr inbounds nuw i8, ptr %8, i64 208
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1769, i8 0, i64 80, i1 false)
+  %1774 = load i32, ptr %30, align 4, !tbaa !47
+  %1775 = icmp slt i32 %1774, 10
+  br i1 %1775, label %1776, label %1788
 
-1777:                                             ; preds = %1767
+1776:                                             ; preds = %1766
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #18
   store i64 1, ptr %9, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #18
   store ptr null, ptr %10, align 8, !tbaa !590
-  %1778 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1779 = load i32, ptr %1778, align 8, !tbaa !591
-  %.not112.i = icmp eq i32 %1779, 0
-  br i1 %.not112.i, label %1780, label %._crit_edge.i398
+  %1777 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1778 = load i32, ptr %1777, align 8, !tbaa !591
+  %.not112.i = icmp eq i32 %1778, 0
+  br i1 %.not112.i, label %1779, label %._crit_edge.i398
 
-._crit_edge.i398:                                 ; preds = %1777
+._crit_edge.i398:                                 ; preds = %1776
   %.pre118.i = zext i32 %.0.i.i397 to i64
-  br label %1786
+  br label %1785
 
-1780:                                             ; preds = %1777
-  %1781 = call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef 1792) #18
-  %1782 = zext i32 %.0.i.i397 to i64
-  %1783 = load i32, ptr %30, align 4, !tbaa !47
-  %1784 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1785 = load i64, ptr %1784, align 8, !tbaa !137
-  call fastcc void @DecideOverLiteralContextModeling(ptr noundef %33, i64 noundef %1782, i64 noundef range(i64 0, 4294967296) %1659, i64 noundef range(i64 0, 4294967296) %174, i32 noundef %1783, i64 noundef %1785, ptr noundef %9, ptr noundef %10, ptr noundef %1781)
-  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1781) #18
+1779:                                             ; preds = %1776
+  %1780 = call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef 1792) #18
+  %1781 = zext i32 %.0.i.i397 to i64
+  %1782 = load i32, ptr %30, align 4, !tbaa !47
+  %1783 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1784 = load i64, ptr %1783, align 8, !tbaa !137
+  call fastcc void @DecideOverLiteralContextModeling(ptr noundef %33, i64 noundef %1781, i64 noundef range(i64 0, 4294967296) %1659, i64 noundef range(i64 0, 4294967296) %174, i32 noundef %1782, i64 noundef %1784, ptr noundef %9, ptr noundef %10, ptr noundef %1780)
+  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1780) #18
   %.pre.i399 = load i64, ptr %9, align 8, !tbaa !69
   %.pre117.i = load ptr, ptr %10, align 8, !tbaa !590
-  br label %1786
+  br label %1785
 
-1786:                                             ; preds = %1780, %._crit_edge.i398
-  %.pre-phi.i = phi i64 [ %.pre118.i, %._crit_edge.i398 ], [ %1782, %1780 ]
-  %1787 = phi ptr [ null, %._crit_edge.i398 ], [ %.pre117.i, %1780 ]
-  %1788 = phi i64 [ 1, %._crit_edge.i398 ], [ %.pre.i399, %1780 ]
-  call void @BrotliBuildMetaBlockGreedy(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %.pre-phi.i, i64 noundef range(i64 0, 4294967296) %174, i8 noundef zeroext %1661, i8 noundef zeroext %1663, ptr noundef nonnull %1515, i64 noundef %1788, ptr noundef %1787, ptr noundef %1668, i64 noundef %1666, ptr noundef nonnull %8) #18
+1785:                                             ; preds = %1779, %._crit_edge.i398
+  %.pre-phi.i = phi i64 [ %.pre118.i, %._crit_edge.i398 ], [ %1781, %1779 ]
+  %1786 = phi ptr [ null, %._crit_edge.i398 ], [ %.pre117.i, %1779 ]
+  %1787 = phi i64 [ 1, %._crit_edge.i398 ], [ %.pre.i399, %1779 ]
+  call void @BrotliBuildMetaBlockGreedy(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %.pre-phi.i, i64 noundef range(i64 0, 4294967296) %174, i8 noundef zeroext %1661, i8 noundef zeroext %1663, ptr noundef nonnull %1515, i64 noundef %1787, ptr noundef %1786, ptr noundef %1668, i64 noundef %1666, ptr noundef nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
-  br label %1791
+  br label %1790
 
-1789:                                             ; preds = %1767
-  %1790 = zext i32 %.0.i.i397 to i64
-  call void @BrotliBuildMetaBlock(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1790, i64 noundef range(i64 0, 4294967296) %174, ptr noundef nonnull %7, i8 noundef zeroext %1661, i8 noundef zeroext %1663, ptr noundef %1668, i64 noundef %1666, i32 noundef range(i32 2, 4) %.0.i390, ptr noundef nonnull %8) #18
-  br label %1791
+1788:                                             ; preds = %1766
+  %1789 = zext i32 %.0.i.i397 to i64
+  call void @BrotliBuildMetaBlock(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1789, i64 noundef range(i64 0, 4294967296) %174, ptr noundef nonnull %7, i8 noundef zeroext %1661, i8 noundef zeroext %1663, ptr noundef %1668, i64 noundef %1666, i32 noundef range(i32 2, 4) %.0.i390, ptr noundef nonnull %8) #18
+  br label %1790
 
-1791:                                             ; preds = %1789, %1786
-  %1792 = load i32, ptr %30, align 4, !tbaa !47
-  %1793 = icmp sgt i32 %1792, 3
-  br i1 %1793, label %1794, label %1797
+1790:                                             ; preds = %1788, %1785
+  %1791 = load i32, ptr %30, align 4, !tbaa !47
+  %1792 = icmp sgt i32 %1791, 3
+  br i1 %1792, label %1793, label %1796
 
-1794:                                             ; preds = %1791
-  %1795 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  %1796 = load i32, ptr %1795, align 4, !tbaa !52
-  call void @BrotliOptimizeHistograms(i32 noundef %1796, ptr noundef nonnull %8) #18
-  br label %1797
+1793:                                             ; preds = %1790
+  %1794 = getelementptr inbounds nuw i8, ptr %7, i64 68
+  %1795 = load i32, ptr %1794, align 4, !tbaa !52
+  call void @BrotliOptimizeHistograms(i32 noundef %1795, ptr noundef nonnull %8) #18
+  br label %1796
 
-1797:                                             ; preds = %1794, %1791
-  %1798 = zext i32 %.0.i.i397 to i64
-  call void @BrotliStoreMetaBlock(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1798, i64 noundef range(i64 0, 4294967296) %1659, i64 noundef range(i64 0, 4294967296) %174, i8 noundef zeroext %1661, i8 noundef zeroext %1663, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %7, i32 noundef range(i32 2, 4) %.0.i390, ptr noundef %1668, i64 noundef %1666, ptr noundef nonnull %8, ptr noundef nonnull %15, ptr noundef nonnull %1647) #18
+1796:                                             ; preds = %1793, %1790
+  %1797 = zext i32 %.0.i.i397 to i64
+  call void @BrotliStoreMetaBlock(ptr noundef nonnull %29, ptr noundef %33, i64 noundef %1797, i64 noundef range(i64 0, 4294967296) %1659, i64 noundef range(i64 0, 4294967296) %174, i8 noundef zeroext %1661, i8 noundef zeroext %1663, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %7, i32 noundef range(i32 2, 4) %.0.i390, ptr noundef %1668, i64 noundef %1666, ptr noundef nonnull %8, ptr noundef nonnull %15, ptr noundef nonnull %1647) #18
   call void @BrotliDestroyBlockSplit(ptr noundef nonnull %29, ptr noundef nonnull %8) #18
+  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %29, ptr noundef nonnull %1767) #18
   call void @BrotliDestroyBlockSplit(ptr noundef nonnull %29, ptr noundef nonnull %1768) #18
-  call void @BrotliDestroyBlockSplit(ptr noundef nonnull %29, ptr noundef nonnull %1769) #18
-  %1799 = load ptr, ptr %1770, align 8, !tbaa !592
+  %1798 = load ptr, ptr %1769, align 8, !tbaa !592
+  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1798) #18
+  store ptr null, ptr %1769, align 8, !tbaa !592
+  %1799 = load ptr, ptr %1770, align 8, !tbaa !598
   call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1799) #18
-  store ptr null, ptr %1770, align 8, !tbaa !592
-  %1800 = load ptr, ptr %1771, align 8, !tbaa !598
+  store ptr null, ptr %1770, align 8, !tbaa !598
+  %1800 = load ptr, ptr %1771, align 8, !tbaa !599
   call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1800) #18
-  store ptr null, ptr %1771, align 8, !tbaa !598
-  %1801 = load ptr, ptr %1772, align 8, !tbaa !599
+  store ptr null, ptr %1771, align 8, !tbaa !599
+  %1801 = load ptr, ptr %1772, align 8, !tbaa !600
   call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1801) #18
-  store ptr null, ptr %1772, align 8, !tbaa !599
-  %1802 = load ptr, ptr %1773, align 8, !tbaa !600
+  store ptr null, ptr %1772, align 8, !tbaa !600
+  %1802 = load ptr, ptr %1773, align 8, !tbaa !601
   call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1802) #18
-  store ptr null, ptr %1773, align 8, !tbaa !600
-  %1803 = load ptr, ptr %1774, align 8, !tbaa !601
-  call void @BrotliFree(ptr noundef nonnull %29, ptr noundef %1803) #18
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %8) #18
-  br label %1804
+  br label %1803
 
-1804:                                             ; preds = %1797, %1765, %1761
-  %1805 = add nuw nsw i64 %1659, 4
-  %1806 = load i64, ptr %15, align 8, !tbaa !69
-  %1807 = lshr i64 %1806, 3
-  %1808 = icmp samesign ult i64 %1805, %1807
-  br i1 %1808, label %1809, label %WriteMetaBlockInternal.exit
+1803:                                             ; preds = %1796, %1764, %1760
+  %1804 = add nuw nsw i64 %1659, 4
+  %1805 = load i64, ptr %15, align 8, !tbaa !69
+  %1806 = lshr i64 %1805, 3
+  %1807 = icmp samesign ult i64 %1804, %1806
+  br i1 %1807, label %1808, label %WriteMetaBlockInternal.exit
 
-1809:                                             ; preds = %1804
+1808:                                             ; preds = %1803
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1670, ptr noundef nonnull readonly align 4 dereferenceable(16) %1669, i64 16, i1 false)
-  store i8 %1756, ptr %1647, align 1, !tbaa !70
-  store i8 %1757, ptr %1657, align 1, !tbaa !70
-  %1810 = and i64 %1758, 255
-  store i64 %1810, ptr %15, align 8, !tbaa !69
-  %1811 = zext i32 %.0.i.i397 to i64
-  call void @BrotliStoreUncompressedMetaBlock(i32 noundef range(i32 0, 2) %1, ptr noundef %33, i64 noundef %1811, i64 noundef range(i64 0, 4294967296) %174, i64 noundef range(i64 0, 4294967296) %1659, ptr noundef nonnull %15, ptr noundef nonnull %1647) #18
+  store i8 %1755, ptr %1647, align 1, !tbaa !70
+  store i8 %1756, ptr %1657, align 1, !tbaa !70
+  %1809 = and i64 %1757, 255
+  store i64 %1809, ptr %15, align 8, !tbaa !69
+  %1810 = zext i32 %.0.i.i397 to i64
+  call void @BrotliStoreUncompressedMetaBlock(i32 noundef range(i32 0, 2) %1, ptr noundef %33, i64 noundef %1810, i64 noundef range(i64 0, 4294967296) %174, i64 noundef range(i64 0, 4294967296) %1659, ptr noundef nonnull %15, ptr noundef nonnull %1647) #18
   br label %WriteMetaBlockInternal.exit
 
-WriteMetaBlockInternal.exit:                      ; preds = %1681, %1754, %1804, %1809
+WriteMetaBlockInternal.exit:                      ; preds = %1681, %1753, %1803, %1808
   call void @llvm.lifetime.end.p0(i64 1400, ptr nonnull %7) #18
-  %1812 = load i64, ptr %15, align 8, !tbaa !69
-  %1813 = lshr i64 %1812, 3
-  %1814 = getelementptr inbounds nuw i8, ptr %1647, i64 %1813
-  %1815 = load i8, ptr %1814, align 1, !tbaa !70
-  %1816 = zext i8 %1815 to i16
-  store i16 %1816, ptr %1651, align 8, !tbaa !76
-  %1817 = trunc i64 %1812 to i8
-  %1818 = and i8 %1817, 7
-  store i8 %1818, ptr %1648, align 2, !tbaa !75
-  %1819 = load i64, ptr %16, align 8, !tbaa !54
-  store i64 %1819, ptr %1495, align 8, !tbaa !86
-  %1820 = load i64, ptr %17, align 8, !tbaa !83
-  %1821 = trunc i64 %1820 to i32
-  %1822 = icmp ugt i64 %1820, 3221225471
-  br i1 %1822, label %1823, label %WrapPosition.exit.i400
+  %1811 = load i64, ptr %15, align 8, !tbaa !69
+  %1812 = lshr i64 %1811, 3
+  %1813 = getelementptr inbounds nuw i8, ptr %1647, i64 %1812
+  %1814 = load i8, ptr %1813, align 1, !tbaa !70
+  %1815 = zext i8 %1814 to i16
+  store i16 %1815, ptr %1651, align 8, !tbaa !76
+  %1816 = trunc i64 %1811 to i8
+  %1817 = and i8 %1816, 7
+  store i8 %1817, ptr %1648, align 2, !tbaa !75
+  %1818 = load i64, ptr %16, align 8, !tbaa !54
+  store i64 %1818, ptr %1495, align 8, !tbaa !86
+  %1819 = load i64, ptr %17, align 8, !tbaa !83
+  %1820 = trunc i64 %1819 to i32
+  %1821 = icmp ugt i64 %1819, 3221225471
+  br i1 %1821, label %1822, label %WrapPosition.exit.i400
 
-1823:                                             ; preds = %WriteMetaBlockInternal.exit
-  %1824 = and i32 %1821, 1073741823
-  %1825 = shl i32 %1821, 1
-  %1826 = ashr exact i32 %1825, 1
-  %1827 = and i32 %1826, -1073741824
-  %1828 = or disjoint i32 %1827, %1824
-  %1829 = xor i32 %1828, -2147483648
+1822:                                             ; preds = %WriteMetaBlockInternal.exit
+  %1823 = and i32 %1820, 1073741823
+  %1824 = shl i32 %1820, 1
+  %1825 = ashr exact i32 %1824, 1
+  %1826 = and i32 %1825, -1073741824
+  %1827 = or disjoint i32 %1826, %1823
+  %1828 = xor i32 %1827, -2147483648
   br label %WrapPosition.exit.i400
 
-WrapPosition.exit.i400:                           ; preds = %1823, %WriteMetaBlockInternal.exit
-  %.0.i.i401 = phi i32 [ %1829, %1823 ], [ %1821, %WriteMetaBlockInternal.exit ]
-  %1830 = trunc i64 %1819 to i32
-  %1831 = icmp ugt i64 %1819, 3221225471
-  br i1 %1831, label %1832, label %UpdateLastProcessedPos.exit403
+WrapPosition.exit.i400:                           ; preds = %1822, %WriteMetaBlockInternal.exit
+  %.0.i.i401 = phi i32 [ %1828, %1822 ], [ %1820, %WriteMetaBlockInternal.exit ]
+  %1829 = trunc i64 %1818 to i32
+  %1830 = icmp ugt i64 %1818, 3221225471
+  br i1 %1830, label %1831, label %UpdateLastProcessedPos.exit403
 
-1832:                                             ; preds = %WrapPosition.exit.i400
-  %1833 = and i32 %1830, 1073741823
-  %1834 = shl i32 %1830, 1
-  %1835 = ashr exact i32 %1834, 1
-  %1836 = and i32 %1835, -1073741824
-  %1837 = or disjoint i32 %1836, %1833
-  %1838 = xor i32 %1837, -2147483648
+1831:                                             ; preds = %WrapPosition.exit.i400
+  %1832 = and i32 %1829, 1073741823
+  %1833 = shl i32 %1829, 1
+  %1834 = ashr exact i32 %1833, 1
+  %1835 = and i32 %1834, -1073741824
+  %1836 = or disjoint i32 %1835, %1832
+  %1837 = xor i32 %1836, -2147483648
   br label %UpdateLastProcessedPos.exit403
 
-UpdateLastProcessedPos.exit403:                   ; preds = %WrapPosition.exit.i400, %1832
-  %.0.i5.i402 = phi i32 [ %1838, %1832 ], [ %1830, %WrapPosition.exit.i400 ]
-  store i64 %1819, ptr %17, align 8, !tbaa !83
+UpdateLastProcessedPos.exit403:                   ; preds = %WrapPosition.exit.i400, %1831
+  %.0.i5.i402 = phi i32 [ %1837, %1831 ], [ %1829, %WrapPosition.exit.i400 ]
+  store i64 %1818, ptr %17, align 8, !tbaa !83
   %.not452 = icmp ult i32 %.0.i5.i402, %.0.i.i401
-  br i1 %.not452, label %1839, label %1840
+  br i1 %.not452, label %1838, label %1839
 
-1839:                                             ; preds = %UpdateLastProcessedPos.exit403
+1838:                                             ; preds = %UpdateLastProcessedPos.exit403
   store i32 0, ptr %484, align 8, !tbaa !222
-  br label %1840
+  br label %1839
 
-1840:                                             ; preds = %1839, %UpdateLastProcessedPos.exit403
-  %.not254 = icmp eq i64 %1819, 0
-  br i1 %.not254, label %.thread443, label %1841
+1839:                                             ; preds = %1838, %UpdateLastProcessedPos.exit403
+  %.not254 = icmp eq i64 %1818, 0
+  br i1 %.not254, label %.thread443, label %1840
 
-1841:                                             ; preds = %1840
-  %1842 = add i32 %1830, -1
-  %1843 = and i32 %1842, %35
-  %1844 = zext i32 %1843 to i64
-  %1845 = getelementptr inbounds nuw i8, ptr %33, i64 %1844
-  %1846 = load i8, ptr %1845, align 1, !tbaa !70
-  store i8 %1846, ptr %1660, align 4, !tbaa !55
-  %.not453 = icmp eq i64 %1819, 1
-  br i1 %.not453, label %.thread443, label %1847
+1840:                                             ; preds = %1839
+  %1841 = add i32 %1829, -1
+  %1842 = and i32 %1841, %35
+  %1843 = zext i32 %1842 to i64
+  %1844 = getelementptr inbounds nuw i8, ptr %33, i64 %1843
+  %1845 = load i8, ptr %1844, align 1, !tbaa !70
+  store i8 %1845, ptr %1660, align 4, !tbaa !55
+  %.not453 = icmp eq i64 %1818, 1
+  br i1 %.not453, label %.thread443, label %1846
 
-1847:                                             ; preds = %1841
-  %1848 = add i32 %1830, -2
-  %1849 = and i32 %1848, %35
-  %1850 = zext i32 %1849 to i64
-  %1851 = getelementptr inbounds nuw i8, ptr %33, i64 %1850
-  %1852 = load i8, ptr %1851, align 1, !tbaa !70
-  store i8 %1852, ptr %1662, align 1, !tbaa !56
+1846:                                             ; preds = %1840
+  %1847 = add i32 %1829, -2
+  %1848 = and i32 %1847, %35
+  %1849 = zext i32 %1848 to i64
+  %1850 = getelementptr inbounds nuw i8, ptr %33, i64 %1849
+  %1851 = load i8, ptr %1850, align 1, !tbaa !70
+  store i8 %1851, ptr %1662, align 1, !tbaa !56
   br label %.thread443
 
-.thread443:                                       ; preds = %1840, %1847, %1841
+.thread443:                                       ; preds = %1839, %1846, %1840
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1669, ptr noundef nonnull align 8 dereferenceable(16) %1670, i64 16, i1 false)
   store ptr %1647, ptr %4, align 8, !tbaa !71
-  store i64 %1813, ptr %3, align 8, !tbaa !69
+  store i64 %1812, ptr %3, align 8, !tbaa !69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #18
-  br label %1853
+  br label %1852
 
-1853:                                             ; preds = %.critedge, %66, %61, %57, %.thread443, %1635, %WrapPosition.exit.i, %56, %53, %39
+1852:                                             ; preds = %.critedge, %66, %61, %57, %.thread443, %1635, %WrapPosition.exit.i, %56, %53, %39
   %.0 = phi i32 [ 1, %WrapPosition.exit.i ], [ 1, %.thread443 ], [ 1, %1635 ], [ 1, %56 ], [ 1, %39 ], [ 1, %53 ], [ 0, %57 ], [ 0, %61 ], [ 0, %66 ], [ 1, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #18
@@ -7416,7 +7411,7 @@ define internal fastcc void @DecideOverLiteralContextModeling(ptr noundef readon
   %12 = icmp slt i32 %4, 5
   %13 = icmp samesign ult i64 %2, 64
   %or.cond = select i1 %12, i1 true, i1 %13
-  br i1 %or.cond, label %347, label %14
+  br i1 %or.cond, label %346, label %14
 
 14:                                               ; preds = %9
   %15 = icmp ult i64 %5, 1048576
@@ -7432,10 +7427,6 @@ define internal fastcc void @DecideOverLiteralContextModeling(ptr noundef readon
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1792) %8, i8 0, i64 1792, i1 false)
   %17 = add nuw nsw i64 %1, 64
   br label %.lr.ph.preheader.i
-
-.preheader.i:                                     ; preds = %._crit_edge.i
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 4
-  br label %55
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i, %.lr.ph85.preheader.i
   %indvars.iv.i = phi i64 [ %17, %.lr.ph85.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
@@ -7494,230 +7485,229 @@ define internal fastcc void @DecideOverLiteralContextModeling(ptr noundef readon
   %.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %.pre
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.preheader.i, !llvm.loop !740
 
-55:                                               ; preds = %FastLog2.exit.i, %.preheader.i
-  %.1.i59.idx89.i = phi i64 [ 0, %.preheader.i ], [ %.add.i, %FastLog2.exit.i ]
-  %.124.i5888.i = phi double [ 0.000000e+00, %.preheader.i ], [ %79, %FastLog2.exit.i ]
-  %.126.i5787.i = phi i64 [ 0, %.preheader.i ], [ %70, %FastLog2.exit.i ]
+.preheader.i:                                     ; preds = %._crit_edge.i, %FastLog2.exit.i
+  %.1.i59.idx89.i = phi i64 [ %.add.i, %FastLog2.exit.i ], [ 0, %._crit_edge.i ]
+  %.124.i5888.i = phi double [ %78, %FastLog2.exit.i ], [ 0.000000e+00, %._crit_edge.i ]
+  %.126.i5787.i = phi i64 [ %69, %FastLog2.exit.i ], [ 0, %._crit_edge.i ]
   %.1.i59.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i59.idx89.i
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.1.i59.idx89.i
-  %56 = load i32, ptr %.1.i59.ptr.i, align 4, !tbaa !59
-  %57 = zext i32 %56 to i64
-  %58 = add i64 %.126.i5787.i, %57
-  %59 = uitofp i32 %56 to double
-  %60 = icmp ult i32 %56, 256
-  br i1 %60, label %61, label %64
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %.1.i59.ptr.i, i64 4
+  %55 = load i32, ptr %.1.i59.ptr.i, align 4, !tbaa !59
+  %56 = zext i32 %55 to i64
+  %57 = add i64 %.126.i5787.i, %56
+  %58 = uitofp i32 %55 to double
+  %59 = icmp ult i32 %55, 256
+  br i1 %59, label %60, label %63
 
-61:                                               ; preds = %55
-  %62 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %57
-  %63 = load double, ptr %62, align 8, !tbaa !587
+60:                                               ; preds = %.preheader.i
+  %61 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %56
+  %62 = load double, ptr %61, align 8, !tbaa !587
   br label %FastLog2.exit64.i
 
-64:                                               ; preds = %55
-  %65 = tail call double @log2(double noundef %59) #18, !tbaa !59
+63:                                               ; preds = %.preheader.i
+  %64 = tail call double @log2(double noundef %58) #18, !tbaa !59
   br label %FastLog2.exit64.i
 
-FastLog2.exit64.i:                                ; preds = %64, %61
-  %.0.i63.i = phi double [ %63, %61 ], [ %65, %64 ]
-  %66 = fneg double %59
-  %67 = tail call double @llvm.fmuladd.f64(double %66, double %.0.i63.i, double %.124.i5888.i)
+FastLog2.exit64.i:                                ; preds = %63, %60
+  %.0.i63.i = phi double [ %62, %60 ], [ %64, %63 ]
+  %65 = fneg double %58
+  %66 = tail call double @llvm.fmuladd.f64(double %65, double %.0.i63.i, double %.124.i5888.i)
   %.add.i = add nuw nsw i64 %.1.i59.idx89.i, 8
-  %68 = load i32, ptr %gep.i, align 4, !tbaa !59
-  %69 = zext i32 %68 to i64
-  %70 = add i64 %58, %69
-  %71 = uitofp i32 %68 to double
-  %72 = icmp ult i32 %68, 256
-  br i1 %72, label %73, label %76
+  %67 = load i32, ptr %.ptr.i, align 4, !tbaa !59
+  %68 = zext i32 %67 to i64
+  %69 = add i64 %57, %68
+  %70 = uitofp i32 %67 to double
+  %71 = icmp ult i32 %67, 256
+  br i1 %71, label %72, label %75
 
-73:                                               ; preds = %FastLog2.exit64.i
-  %74 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %69
-  %75 = load double, ptr %74, align 8, !tbaa !587
+72:                                               ; preds = %FastLog2.exit64.i
+  %73 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %68
+  %74 = load double, ptr %73, align 8, !tbaa !587
   br label %FastLog2.exit.i
 
-76:                                               ; preds = %FastLog2.exit64.i
-  %77 = tail call double @log2(double noundef %71) #18, !tbaa !59
+75:                                               ; preds = %FastLog2.exit64.i
+  %76 = tail call double @log2(double noundef %70) #18, !tbaa !59
   br label %FastLog2.exit.i
 
-FastLog2.exit.i:                                  ; preds = %76, %73
-  %.0.i.i = phi double [ %75, %73 ], [ %77, %76 ]
-  %78 = fneg double %71
-  %79 = tail call double @llvm.fmuladd.f64(double %78, double %.0.i.i, double %67)
-  %80 = icmp samesign ult i64 %.1.i59.idx89.i, 120
-  br i1 %80, label %55, label %81, !llvm.loop !589
+FastLog2.exit.i:                                  ; preds = %75, %72
+  %.0.i.i = phi double [ %74, %72 ], [ %76, %75 ]
+  %77 = fneg double %70
+  %78 = tail call double @llvm.fmuladd.f64(double %77, double %.0.i.i, double %66)
+  %79 = icmp samesign ult i64 %.1.i59.idx89.i, 120
+  br i1 %79, label %.preheader.i, label %80, !llvm.loop !589
 
-81:                                               ; preds = %FastLog2.exit.i
-  %.not27.i60.i = icmp eq i64 %70, 0
-  br i1 %.not27.i60.i, label %ShannonEntropy.exit62.i, label %82
+80:                                               ; preds = %FastLog2.exit.i
+  %.not27.i60.i = icmp eq i64 %69, 0
+  br i1 %.not27.i60.i, label %ShannonEntropy.exit62.i, label %81
 
-82:                                               ; preds = %81
-  %83 = uitofp i64 %70 to double
-  %84 = icmp ult i64 %70, 256
-  br i1 %84, label %85, label %88
+81:                                               ; preds = %80
+  %82 = uitofp i64 %69 to double
+  %83 = icmp ult i64 %69, 256
+  br i1 %83, label %84, label %87
 
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %70
-  %87 = load double, ptr %86, align 8, !tbaa !587
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %69
+  %86 = load double, ptr %85, align 8, !tbaa !587
   br label %FastLog2.exit66.i
 
-88:                                               ; preds = %82
-  %89 = tail call double @log2(double noundef %83) #18, !tbaa !59
+87:                                               ; preds = %81
+  %88 = tail call double @log2(double noundef %82) #18, !tbaa !59
   br label %FastLog2.exit66.i
 
-FastLog2.exit66.i:                                ; preds = %88, %85
-  %.0.i65.i = phi double [ %87, %85 ], [ %89, %88 ]
-  %90 = tail call double @llvm.fmuladd.f64(double %83, double %.0.i65.i, double %79)
+FastLog2.exit66.i:                                ; preds = %87, %84
+  %.0.i65.i = phi double [ %86, %84 ], [ %88, %87 ]
+  %89 = tail call double @llvm.fmuladd.f64(double %82, double %.0.i65.i, double %78)
   br label %ShannonEntropy.exit62.i
 
-ShannonEntropy.exit62.i:                          ; preds = %FastLog2.exit66.i, %81
-  %.2.i61.i = phi double [ %90, %FastLog2.exit66.i ], [ %79, %81 ]
-  br label %91
+ShannonEntropy.exit62.i:                          ; preds = %FastLog2.exit66.i, %80
+  %.2.i61.i = phi double [ %89, %FastLog2.exit66.i ], [ %78, %80 ]
+  br label %90
 
-91:                                               ; preds = %ShannonEntropy.exit.i, %ShannonEntropy.exit62.i
-  %.sroa.9.096.i = phi double [ 0.000000e+00, %ShannonEntropy.exit62.i ], [ %129, %ShannonEntropy.exit.i ]
-  %.05495.i = phi i64 [ 0, %ShannonEntropy.exit62.i ], [ %130, %ShannonEntropy.exit.i ]
-  %.idx.i = shl nuw nsw i64 %.05495.i, 7
-  %92 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
-  %invariant.gep90.i = getelementptr inbounds nuw i8, ptr %92, i64 4
-  br label %93
+90:                                               ; preds = %ShannonEntropy.exit.i, %ShannonEntropy.exit62.i
+  %.sroa.9.094.i = phi double [ 0.000000e+00, %ShannonEntropy.exit62.i ], [ %128, %ShannonEntropy.exit.i ]
+  %.05493.i = phi i64 [ 0, %ShannonEntropy.exit62.i ], [ %129, %ShannonEntropy.exit.i ]
+  %.idx.i = shl nuw nsw i64 %.05493.i, 7
+  %91 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  br label %92
 
-93:                                               ; preds = %FastLog2.exit68.i, %91
-  %.1.i.idx94.i = phi i64 [ 0, %91 ], [ %.add74.i, %FastLog2.exit68.i ]
-  %.124.i93.i = phi double [ 0.000000e+00, %91 ], [ %117, %FastLog2.exit68.i ]
-  %.126.i92.i = phi i64 [ 0, %91 ], [ %108, %FastLog2.exit68.i ]
-  %.1.i.ptr.i = getelementptr inbounds nuw i8, ptr %92, i64 %.1.i.idx94.i
-  %gep91.i = getelementptr inbounds nuw i8, ptr %invariant.gep90.i, i64 %.1.i.idx94.i
-  %94 = load i32, ptr %.1.i.ptr.i, align 4, !tbaa !59
-  %95 = zext i32 %94 to i64
-  %96 = add i64 %.126.i92.i, %95
-  %97 = uitofp i32 %94 to double
-  %98 = icmp ult i32 %94, 256
-  br i1 %98, label %99, label %102
+92:                                               ; preds = %FastLog2.exit68.i, %90
+  %.1.i.idx92.i = phi i64 [ 0, %90 ], [ %.add74.i, %FastLog2.exit68.i ]
+  %.124.i91.i = phi double [ 0.000000e+00, %90 ], [ %116, %FastLog2.exit68.i ]
+  %.126.i90.i = phi i64 [ 0, %90 ], [ %107, %FastLog2.exit68.i ]
+  %.1.i.ptr.i = getelementptr inbounds nuw i8, ptr %91, i64 %.1.i.idx92.i
+  %.ptr75.i = getelementptr inbounds nuw i8, ptr %.1.i.ptr.i, i64 4
+  %93 = load i32, ptr %.1.i.ptr.i, align 4, !tbaa !59
+  %94 = zext i32 %93 to i64
+  %95 = add i64 %.126.i90.i, %94
+  %96 = uitofp i32 %93 to double
+  %97 = icmp ult i32 %93, 256
+  br i1 %97, label %98, label %101
 
-99:                                               ; preds = %93
-  %100 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %95
-  %101 = load double, ptr %100, align 8, !tbaa !587
+98:                                               ; preds = %92
+  %99 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %94
+  %100 = load double, ptr %99, align 8, !tbaa !587
   br label %FastLog2.exit70.i
 
-102:                                              ; preds = %93
-  %103 = tail call double @log2(double noundef %97) #18, !tbaa !59
+101:                                              ; preds = %92
+  %102 = tail call double @log2(double noundef %96) #18, !tbaa !59
   br label %FastLog2.exit70.i
 
-FastLog2.exit70.i:                                ; preds = %102, %99
-  %.0.i69.i = phi double [ %101, %99 ], [ %103, %102 ]
-  %104 = fneg double %97
-  %105 = tail call double @llvm.fmuladd.f64(double %104, double %.0.i69.i, double %.124.i93.i)
-  %.add74.i = add nuw nsw i64 %.1.i.idx94.i, 8
-  %106 = load i32, ptr %gep91.i, align 4, !tbaa !59
-  %107 = zext i32 %106 to i64
-  %108 = add i64 %96, %107
-  %109 = uitofp i32 %106 to double
-  %110 = icmp ult i32 %106, 256
-  br i1 %110, label %111, label %114
+FastLog2.exit70.i:                                ; preds = %101, %98
+  %.0.i69.i = phi double [ %100, %98 ], [ %102, %101 ]
+  %103 = fneg double %96
+  %104 = tail call double @llvm.fmuladd.f64(double %103, double %.0.i69.i, double %.124.i91.i)
+  %.add74.i = add nuw nsw i64 %.1.i.idx92.i, 8
+  %105 = load i32, ptr %.ptr75.i, align 4, !tbaa !59
+  %106 = zext i32 %105 to i64
+  %107 = add i64 %95, %106
+  %108 = uitofp i32 %105 to double
+  %109 = icmp ult i32 %105, 256
+  br i1 %109, label %110, label %113
 
-111:                                              ; preds = %FastLog2.exit70.i
-  %112 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %107
-  %113 = load double, ptr %112, align 8, !tbaa !587
+110:                                              ; preds = %FastLog2.exit70.i
+  %111 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %106
+  %112 = load double, ptr %111, align 8, !tbaa !587
   br label %FastLog2.exit68.i
 
-114:                                              ; preds = %FastLog2.exit70.i
-  %115 = tail call double @log2(double noundef %109) #18, !tbaa !59
+113:                                              ; preds = %FastLog2.exit70.i
+  %114 = tail call double @log2(double noundef %108) #18, !tbaa !59
   br label %FastLog2.exit68.i
 
-FastLog2.exit68.i:                                ; preds = %114, %111
-  %.0.i67.i = phi double [ %113, %111 ], [ %115, %114 ]
-  %116 = fneg double %109
-  %117 = tail call double @llvm.fmuladd.f64(double %116, double %.0.i67.i, double %105)
-  %118 = icmp samesign ult i64 %.1.i.idx94.i, 120
-  br i1 %118, label %93, label %119, !llvm.loop !589
+FastLog2.exit68.i:                                ; preds = %113, %110
+  %.0.i67.i = phi double [ %112, %110 ], [ %114, %113 ]
+  %115 = fneg double %108
+  %116 = tail call double @llvm.fmuladd.f64(double %115, double %.0.i67.i, double %104)
+  %117 = icmp samesign ult i64 %.1.i.idx92.i, 120
+  br i1 %117, label %92, label %118, !llvm.loop !589
 
-119:                                              ; preds = %FastLog2.exit68.i
-  %.not27.i.i = icmp eq i64 %108, 0
-  br i1 %.not27.i.i, label %ShannonEntropy.exit.i, label %120
+118:                                              ; preds = %FastLog2.exit68.i
+  %.not27.i.i = icmp eq i64 %107, 0
+  br i1 %.not27.i.i, label %ShannonEntropy.exit.i, label %119
 
-120:                                              ; preds = %119
-  %121 = uitofp i64 %108 to double
-  %122 = icmp ult i64 %108, 256
-  br i1 %122, label %123, label %126
+119:                                              ; preds = %118
+  %120 = uitofp i64 %107 to double
+  %121 = icmp ult i64 %107, 256
+  br i1 %121, label %122, label %125
 
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %108
-  %125 = load double, ptr %124, align 8, !tbaa !587
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %107
+  %124 = load double, ptr %123, align 8, !tbaa !587
   br label %FastLog2.exit72.i
 
-126:                                              ; preds = %120
-  %127 = tail call double @log2(double noundef %121) #18, !tbaa !59
+125:                                              ; preds = %119
+  %126 = tail call double @log2(double noundef %120) #18, !tbaa !59
   br label %FastLog2.exit72.i
 
-FastLog2.exit72.i:                                ; preds = %126, %123
-  %.0.i71.i = phi double [ %125, %123 ], [ %127, %126 ]
-  %128 = tail call double @llvm.fmuladd.f64(double %121, double %.0.i71.i, double %117)
+FastLog2.exit72.i:                                ; preds = %125, %122
+  %.0.i71.i = phi double [ %124, %122 ], [ %126, %125 ]
+  %127 = tail call double @llvm.fmuladd.f64(double %120, double %.0.i71.i, double %116)
   br label %ShannonEntropy.exit.i
 
-ShannonEntropy.exit.i:                            ; preds = %FastLog2.exit72.i, %119
-  %.2.i.i = phi double [ %128, %FastLog2.exit72.i ], [ %117, %119 ]
-  %129 = fadd double %.sroa.9.096.i, %.2.i.i
-  %130 = add nuw nsw i64 %.05495.i, 1
-  %exitcond102.not.i = icmp eq i64 %130, 13
-  br i1 %exitcond102.not.i, label %131, label %91, !llvm.loop !741
+ShannonEntropy.exit.i:                            ; preds = %FastLog2.exit72.i, %118
+  %.2.i.i = phi double [ %127, %FastLog2.exit72.i ], [ %116, %118 ]
+  %128 = fadd double %.sroa.9.094.i, %.2.i.i
+  %129 = add nuw nsw i64 %.05493.i, 1
+  %exitcond100.not.i = icmp eq i64 %129, 13
+  br i1 %exitcond100.not.i, label %130, label %90, !llvm.loop !741
 
-131:                                              ; preds = %ShannonEntropy.exit.i
-  %132 = uitofp nneg i32 %53 to double
-  %133 = fdiv double 1.000000e+00, %132
-  %134 = fmul double %133, %129
-  %135 = fcmp ogt double %134, 3.000000e+00
-  br i1 %135, label %.lr.ph75.preheader, label %136
+130:                                              ; preds = %ShannonEntropy.exit.i
+  %131 = uitofp nneg i32 %53 to double
+  %132 = fdiv double 1.000000e+00, %131
+  %133 = fmul double %132, %128
+  %134 = fcmp ogt double %133, 3.000000e+00
+  br i1 %134, label %.lr.ph75.preheader, label %135
 
-136:                                              ; preds = %131
-  %137 = fmul double %133, %.2.i61.i
-  %138 = fsub double %137, %134
-  %139 = fcmp olt double %138, 2.000000e-01
-  br i1 %139, label %.lr.ph75.preheader, label %ShouldUseComplexStaticContextMap.exit
+135:                                              ; preds = %130
+  %136 = fmul double %132, %.2.i61.i
+  %137 = fsub double %136, %133
+  %138 = fcmp olt double %137, 2.000000e-01
+  br i1 %138, label %.lr.ph75.preheader, label %ShouldUseComplexStaticContextMap.exit
 
-ShouldUseComplexStaticContextMap.exit:            ; preds = %136
+ShouldUseComplexStaticContextMap.exit:            ; preds = %135
   store i64 13, ptr %6, align 8, !tbaa !69
   store ptr @ShouldUseComplexStaticContextMap.kStaticContextMapComplexUTF8, ptr %7, align 8, !tbaa !590
-  br label %347
+  br label %346
 
-.lr.ph75.preheader:                               ; preds = %131, %136, %._crit_edge92
-  %.pre-phi94 = phi i64 [ %.pre93, %._crit_edge92 ], [ %17, %136 ], [ %17, %131 ]
+.lr.ph75.preheader:                               ; preds = %130, %135, %._crit_edge92
+  %.pre-phi94 = phi i64 [ %.pre93, %._crit_edge92 ], [ %17, %135 ], [ %17, %130 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %8, i8 0, i64 36, i1 false)
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %.lr.ph75.preheader
   %indvars.iv = phi i64 [ %.pre-phi94, %.lr.ph75.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %.073 = phi i64 [ %1, %.lr.ph75.preheader ], [ %158, %._crit_edge ]
+  %.073 = phi i64 [ %1, %.lr.ph75.preheader ], [ %157, %._crit_edge ]
   %.03769 = add nuw nsw i64 %.073, 1
-  %140 = and i64 %.073, %3
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 %140
-  %142 = load i8, ptr %141, align 1, !tbaa !70
-  %143 = lshr i8 %142, 6
-  %144 = zext nneg i8 %143 to i64
-  %145 = getelementptr inbounds nuw [4 x i32], ptr @DecideOverLiteralContextModeling.lut, i64 0, i64 %144
-  %.038.in.pre = load i32, ptr %145, align 4, !tbaa !59
+  %139 = and i64 %.073, %3
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 %139
+  %141 = load i8, ptr %140, align 1, !tbaa !70
+  %142 = lshr i8 %141, 6
+  %143 = zext nneg i8 %142 to i64
+  %144 = getelementptr inbounds nuw [4 x i32], ptr @DecideOverLiteralContextModeling.lut, i64 0, i64 %143
+  %.038.in.pre = load i32, ptr %144, align 4, !tbaa !59
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.038.in = phi i32 [ %152, %.lr.ph ], [ %.038.in.pre, %.lr.ph.preheader ]
+  %.038.in = phi i32 [ %151, %.lr.ph ], [ %.038.in.pre, %.lr.ph.preheader ]
   %.03771 = phi i64 [ %.037, %.lr.ph ], [ %.03769, %.lr.ph.preheader ]
   %.038 = mul nsw i32 %.038.in, 3
-  %146 = and i64 %.03771, %3
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 %146
-  %148 = load i8, ptr %147, align 1, !tbaa !70
-  %149 = lshr i8 %148, 6
-  %150 = zext nneg i8 %149 to i64
-  %151 = getelementptr inbounds nuw [4 x i32], ptr @DecideOverLiteralContextModeling.lut, i64 0, i64 %150
-  %152 = load i32, ptr %151, align 4, !tbaa !59
-  %153 = add nsw i32 %152, %.038
-  %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i32, ptr %8, i64 %154
-  %156 = load i32, ptr %155, align 4, !tbaa !59
-  %157 = add i32 %156, 1
-  store i32 %157, ptr %155, align 4, !tbaa !59
+  %145 = and i64 %.03771, %3
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 %145
+  %147 = load i8, ptr %146, align 1, !tbaa !70
+  %148 = lshr i8 %147, 6
+  %149 = zext nneg i8 %148 to i64
+  %150 = getelementptr inbounds nuw [4 x i32], ptr @DecideOverLiteralContextModeling.lut, i64 0, i64 %149
+  %151 = load i32, ptr %150, align 4, !tbaa !59
+  %152 = add nsw i32 %151, %.038
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds i32, ptr %8, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !59
+  %156 = add i32 %155, 1
+  store i32 %156, ptr %154, align 4, !tbaa !59
   %.037 = add nuw nsw i64 %.03771, 1
   %exitcond.not = icmp eq i64 %.037, %indvars.iv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !742
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %158 = add nuw nsw i64 %.073, 4096
+  %157 = add nuw nsw i64 %.073, 4096
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4096
   %.not42 = icmp samesign ugt i64 %indvars.iv.next, %.pre
   br i1 %.not42, label %._crit_edge76, label %.lr.ph.preheader, !llvm.loop !743
@@ -7727,412 +7717,408 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, i8 0, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  br label %159
+  br label %158
 
-.preheader.i44:                                   ; preds = %159
-  %.0.i43.idx.sroa.gep.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %invariant.gep.i45 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  br label %184
-
-159:                                              ; preds = %159, %._crit_edge76
-  %.088.i = phi i64 [ 0, %._crit_edge76 ], [ %170, %159 ]
-  %160 = getelementptr inbounds nuw i32, ptr %8, i64 %.088.i
-  %161 = load i32, ptr %160, align 4, !tbaa !59
+158:                                              ; preds = %158, %._crit_edge76
+  %.088.i = phi i64 [ 0, %._crit_edge76 ], [ %169, %158 ]
+  %159 = getelementptr inbounds nuw i32, ptr %8, i64 %.088.i
+  %160 = load i32, ptr %159, align 4, !tbaa !59
   %.lhs.trunc.i = trunc nuw nsw i64 %.088.i to i8
-  %162 = urem i8 %.lhs.trunc.i, 3
-  %.zext.i = zext nneg i8 %162 to i64
-  %163 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.zext.i
-  %164 = load i32, ptr %163, align 4, !tbaa !59
-  %165 = add i32 %164, %161
-  store i32 %165, ptr %163, align 4, !tbaa !59
+  %161 = urem i8 %.lhs.trunc.i, 3
+  %.zext.i = zext nneg i8 %161 to i64
+  %162 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.zext.i
+  %163 = load i32, ptr %162, align 4, !tbaa !59
+  %164 = add i32 %163, %160
+  store i32 %164, ptr %162, align 4, !tbaa !59
   %.urem.i = add nsw i64 %.088.i, -6
   %.cmp.i = icmp samesign ult i64 %.088.i, 6
-  %166 = select i1 %.cmp.i, i64 %.088.i, i64 %.urem.i
-  %167 = getelementptr inbounds nuw [6 x i32], ptr %11, i64 0, i64 %166
-  %168 = load i32, ptr %167, align 4, !tbaa !59
-  %169 = add i32 %168, %161
-  store i32 %169, ptr %167, align 4, !tbaa !59
-  %170 = add nuw nsw i64 %.088.i, 1
-  %exitcond.not.i43 = icmp eq i64 %170, 9
-  br i1 %exitcond.not.i43, label %.preheader.i44, label %159, !llvm.loop !744
+  %165 = select i1 %.cmp.i, i64 %.088.i, i64 %.urem.i
+  %166 = getelementptr inbounds nuw [6 x i32], ptr %11, i64 0, i64 %165
+  %167 = load i32, ptr %166, align 4, !tbaa !59
+  %168 = add i32 %167, %160
+  store i32 %168, ptr %166, align 4, !tbaa !59
+  %169 = add nuw nsw i64 %.088.i, 1
+  %exitcond.not.i43 = icmp eq i64 %169, 9
+  br i1 %exitcond.not.i43, label %.preheader.i44.preheader, label %158, !llvm.loop !744
 
-171:                                              ; preds = %FastLog2.exit51.i
-  %172 = load i32, ptr %gep.i46, align 4, !tbaa !59
-  %173 = zext i32 %172 to i64
-  %174 = add i64 %188, %173
-  %175 = uitofp i32 %172 to double
-  %176 = icmp ult i32 %172, 256
-  br i1 %176, label %177, label %180
+.preheader.i44.preheader:                         ; preds = %158
+  %.0.i43.idx.sroa.gep.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  br label %.preheader.i44
 
-177:                                              ; preds = %171
-  %178 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %173
-  %179 = load double, ptr %178, align 8, !tbaa !587
+170:                                              ; preds = %FastLog2.exit51.i
+  %171 = load i32, ptr %.ptr.i45, align 4, !tbaa !59
+  %172 = zext i32 %171 to i64
+  %173 = add i64 %186, %172
+  %174 = uitofp i32 %171 to double
+  %175 = icmp ult i32 %171, 256
+  br i1 %175, label %176, label %179
+
+176:                                              ; preds = %170
+  %177 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %172
+  %178 = load double, ptr %177, align 8, !tbaa !587
   br label %FastLog2.exit.i52
 
-180:                                              ; preds = %171
-  %181 = tail call double @log2(double noundef %175) #18, !tbaa !59
+179:                                              ; preds = %170
+  %180 = tail call double @log2(double noundef %174) #18, !tbaa !59
   br label %FastLog2.exit.i52
 
-FastLog2.exit.i52:                                ; preds = %180, %177
-  %.0.i47.i = phi double [ %179, %177 ], [ %181, %180 ]
-  %182 = fneg double %175
-  %183 = tail call double @llvm.fmuladd.f64(double %182, double %.0.i47.i, double %197)
-  br label %184
+FastLog2.exit.i52:                                ; preds = %179, %176
+  %.0.i47.i = phi double [ %178, %176 ], [ %180, %179 ]
+  %181 = fneg double %174
+  %182 = tail call double @llvm.fmuladd.f64(double %181, double %.0.i47.i, double %195)
+  br label %.preheader.i44
 
-184:                                              ; preds = %FastLog2.exit.i52, %.preheader.i44
-  %.025.i41.i = phi i64 [ %174, %FastLog2.exit.i52 ], [ 0, %.preheader.i44 ]
-  %.023.i42.i = phi double [ %183, %FastLog2.exit.i52 ], [ 0.000000e+00, %.preheader.i44 ]
-  %.0.i43.idx.sroa.phi.i = phi ptr [ %.0.i43.idx.sroa.gep.i, %FastLog2.exit.i52 ], [ %10, %.preheader.i44 ]
-  %185 = phi i1 [ false, %FastLog2.exit.i52 ], [ true, %.preheader.i44 ]
-  %.0.i43.idx.i = phi i64 [ 8, %FastLog2.exit.i52 ], [ 0, %.preheader.i44 ]
-  %gep.i46 = getelementptr inbounds nuw i8, ptr %invariant.gep.i45, i64 %.0.i43.idx.i
-  %186 = load i32, ptr %.0.i43.idx.sroa.phi.i, align 4, !tbaa !59
-  %187 = zext i32 %186 to i64
-  %188 = add i64 %.025.i41.i, %187
-  %189 = uitofp i32 %186 to double
-  %190 = icmp ult i32 %186, 256
-  br i1 %190, label %191, label %194
+.preheader.i44:                                   ; preds = %.preheader.i44.preheader, %FastLog2.exit.i52
+  %.025.i41.i = phi i64 [ %173, %FastLog2.exit.i52 ], [ 0, %.preheader.i44.preheader ]
+  %.023.i42.i = phi double [ %182, %FastLog2.exit.i52 ], [ 0.000000e+00, %.preheader.i44.preheader ]
+  %.0.i43.idx.sroa.phi.i = phi ptr [ %.0.i43.idx.sroa.gep.i, %FastLog2.exit.i52 ], [ %10, %.preheader.i44.preheader ]
+  %183 = phi i1 [ false, %FastLog2.exit.i52 ], [ true, %.preheader.i44.preheader ]
+  %.ptr.i45 = getelementptr inbounds nuw i8, ptr %.0.i43.idx.sroa.phi.i, i64 4
+  %184 = load i32, ptr %.0.i43.idx.sroa.phi.i, align 4, !tbaa !59
+  %185 = zext i32 %184 to i64
+  %186 = add i64 %.025.i41.i, %185
+  %187 = uitofp i32 %184 to double
+  %188 = icmp ult i32 %184, 256
+  br i1 %188, label %189, label %192
 
-191:                                              ; preds = %184
-  %192 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %187
-  %193 = load double, ptr %192, align 8, !tbaa !587
+189:                                              ; preds = %.preheader.i44
+  %190 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %185
+  %191 = load double, ptr %190, align 8, !tbaa !587
   br label %FastLog2.exit51.i
 
-194:                                              ; preds = %184
-  %195 = tail call double @log2(double noundef %189) #18, !tbaa !59
+192:                                              ; preds = %.preheader.i44
+  %193 = tail call double @log2(double noundef %187) #18, !tbaa !59
   br label %FastLog2.exit51.i
 
-FastLog2.exit51.i:                                ; preds = %194, %191
-  %.0.i50.i = phi double [ %193, %191 ], [ %195, %194 ]
-  %196 = fneg double %189
-  %197 = tail call double @llvm.fmuladd.f64(double %196, double %.0.i50.i, double %.023.i42.i)
-  br i1 %185, label %171, label %198
+FastLog2.exit51.i:                                ; preds = %192, %189
+  %.0.i50.i = phi double [ %191, %189 ], [ %193, %192 ]
+  %194 = fneg double %187
+  %195 = tail call double @llvm.fmuladd.f64(double %194, double %.0.i50.i, double %.023.i42.i)
+  br i1 %183, label %170, label %196
 
-198:                                              ; preds = %FastLog2.exit51.i
-  %.0.i37.idx.sroa.gep106.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.not27.i44.i = icmp eq i64 %188, 0
-  br i1 %.not27.i44.i, label %ShannonEntropy.exit46.i, label %199
+196:                                              ; preds = %FastLog2.exit51.i
+  %.0.i37.idx.sroa.gep100.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.not27.i44.i = icmp eq i64 %186, 0
+  br i1 %.not27.i44.i, label %ShannonEntropy.exit46.i, label %197
 
-199:                                              ; preds = %198
-  %200 = uitofp i64 %188 to double
-  %201 = icmp ult i64 %188, 256
-  br i1 %201, label %202, label %205
+197:                                              ; preds = %196
+  %198 = uitofp i64 %186 to double
+  %199 = icmp ult i64 %186, 256
+  br i1 %199, label %200, label %203
 
-202:                                              ; preds = %199
-  %203 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %188
-  %204 = load double, ptr %203, align 8, !tbaa !587
+200:                                              ; preds = %197
+  %201 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %186
+  %202 = load double, ptr %201, align 8, !tbaa !587
   br label %FastLog2.exit49.i
 
-205:                                              ; preds = %199
-  %206 = tail call double @log2(double noundef %200) #18, !tbaa !59
+203:                                              ; preds = %197
+  %204 = tail call double @log2(double noundef %198) #18, !tbaa !59
   br label %FastLog2.exit49.i
 
-FastLog2.exit49.i:                                ; preds = %205, %202
-  %.0.i48.i = phi double [ %204, %202 ], [ %206, %205 ]
-  %207 = tail call double @llvm.fmuladd.f64(double %200, double %.0.i48.i, double %197)
+FastLog2.exit49.i:                                ; preds = %203, %200
+  %.0.i48.i = phi double [ %202, %200 ], [ %204, %203 ]
+  %205 = tail call double @llvm.fmuladd.f64(double %198, double %.0.i48.i, double %195)
   br label %ShannonEntropy.exit46.i
 
-ShannonEntropy.exit46.i:                          ; preds = %FastLog2.exit49.i, %198
-  %.2.i45.i = phi double [ %207, %FastLog2.exit49.i ], [ %197, %198 ]
-  %invariant.gep89.i = getelementptr inbounds nuw i8, ptr %11, i64 4
-  br label %221
+ShannonEntropy.exit46.i:                          ; preds = %FastLog2.exit49.i, %196
+  %.2.i45.i = phi double [ %205, %FastLog2.exit49.i ], [ %195, %196 ]
+  br label %219
 
-208:                                              ; preds = %FastLog2.exit57.i
-  %209 = load i32, ptr %gep90.i, align 4, !tbaa !59
-  %210 = zext i32 %209 to i64
-  %211 = add i64 %225, %210
-  %212 = uitofp i32 %209 to double
-  %213 = icmp ult i32 %209, 256
-  br i1 %213, label %214, label %217
+206:                                              ; preds = %FastLog2.exit57.i
+  %207 = load i32, ptr %.ptr72.i, align 4, !tbaa !59
+  %208 = zext i32 %207 to i64
+  %209 = add i64 %223, %208
+  %210 = uitofp i32 %207 to double
+  %211 = icmp ult i32 %207, 256
+  br i1 %211, label %212, label %215
 
-214:                                              ; preds = %208
-  %215 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %210
-  %216 = load double, ptr %215, align 8, !tbaa !587
+212:                                              ; preds = %206
+  %213 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %208
+  %214 = load double, ptr %213, align 8, !tbaa !587
   br label %FastLog2.exit53.i
 
-217:                                              ; preds = %208
-  %218 = tail call double @log2(double noundef %212) #18, !tbaa !59
+215:                                              ; preds = %206
+  %216 = tail call double @log2(double noundef %210) #18, !tbaa !59
   br label %FastLog2.exit53.i
 
-FastLog2.exit53.i:                                ; preds = %217, %214
-  %.0.i52.i = phi double [ %216, %214 ], [ %218, %217 ]
-  %219 = fneg double %212
-  %220 = tail call double @llvm.fmuladd.f64(double %219, double %.0.i52.i, double %234)
-  br label %221
+FastLog2.exit53.i:                                ; preds = %215, %212
+  %.0.i52.i = phi double [ %214, %212 ], [ %216, %215 ]
+  %217 = fneg double %210
+  %218 = tail call double @llvm.fmuladd.f64(double %217, double %.0.i52.i, double %232)
+  br label %219
 
-221:                                              ; preds = %FastLog2.exit53.i, %ShannonEntropy.exit46.i
-  %.025.i35.i = phi i64 [ 0, %ShannonEntropy.exit46.i ], [ %211, %FastLog2.exit53.i ]
-  %.023.i36.i = phi double [ 0.000000e+00, %ShannonEntropy.exit46.i ], [ %220, %FastLog2.exit53.i ]
-  %.0.i37.idx.sroa.phi.i = phi ptr [ %11, %ShannonEntropy.exit46.i ], [ %.0.i37.idx.sroa.gep106.i, %FastLog2.exit53.i ]
-  %222 = phi i1 [ true, %ShannonEntropy.exit46.i ], [ false, %FastLog2.exit53.i ]
-  %.0.i37.idx.i = phi i64 [ 0, %ShannonEntropy.exit46.i ], [ 8, %FastLog2.exit53.i ]
-  %gep90.i = getelementptr inbounds nuw i8, ptr %invariant.gep89.i, i64 %.0.i37.idx.i
-  %223 = load i32, ptr %.0.i37.idx.sroa.phi.i, align 4, !tbaa !59
-  %224 = zext i32 %223 to i64
-  %225 = add i64 %.025.i35.i, %224
-  %226 = uitofp i32 %223 to double
-  %227 = icmp ult i32 %223, 256
-  br i1 %227, label %228, label %231
+219:                                              ; preds = %FastLog2.exit53.i, %ShannonEntropy.exit46.i
+  %.025.i35.i = phi i64 [ 0, %ShannonEntropy.exit46.i ], [ %209, %FastLog2.exit53.i ]
+  %.023.i36.i = phi double [ 0.000000e+00, %ShannonEntropy.exit46.i ], [ %218, %FastLog2.exit53.i ]
+  %.0.i37.idx.sroa.phi.i = phi ptr [ %11, %ShannonEntropy.exit46.i ], [ %.0.i37.idx.sroa.gep100.i, %FastLog2.exit53.i ]
+  %220 = phi i1 [ true, %ShannonEntropy.exit46.i ], [ false, %FastLog2.exit53.i ]
+  %.ptr72.i = getelementptr inbounds nuw i8, ptr %.0.i37.idx.sroa.phi.i, i64 4
+  %221 = load i32, ptr %.0.i37.idx.sroa.phi.i, align 4, !tbaa !59
+  %222 = zext i32 %221 to i64
+  %223 = add i64 %.025.i35.i, %222
+  %224 = uitofp i32 %221 to double
+  %225 = icmp ult i32 %221, 256
+  br i1 %225, label %226, label %229
 
-228:                                              ; preds = %221
-  %229 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %224
-  %230 = load double, ptr %229, align 8, !tbaa !587
+226:                                              ; preds = %219
+  %227 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %222
+  %228 = load double, ptr %227, align 8, !tbaa !587
   br label %FastLog2.exit57.i
 
-231:                                              ; preds = %221
-  %232 = tail call double @log2(double noundef %226) #18, !tbaa !59
+229:                                              ; preds = %219
+  %230 = tail call double @log2(double noundef %224) #18, !tbaa !59
   br label %FastLog2.exit57.i
 
-FastLog2.exit57.i:                                ; preds = %231, %228
-  %.0.i56.i = phi double [ %230, %228 ], [ %232, %231 ]
-  %233 = fneg double %226
-  %234 = tail call double @llvm.fmuladd.f64(double %233, double %.0.i56.i, double %.023.i36.i)
-  br i1 %222, label %208, label %235
+FastLog2.exit57.i:                                ; preds = %229, %226
+  %.0.i56.i = phi double [ %228, %226 ], [ %230, %229 ]
+  %231 = fneg double %224
+  %232 = tail call double @llvm.fmuladd.f64(double %231, double %.0.i56.i, double %.023.i36.i)
+  br i1 %220, label %206, label %233
 
-235:                                              ; preds = %FastLog2.exit57.i
-  %.not27.i38.i = icmp eq i64 %225, 0
-  br i1 %.not27.i38.i, label %ShannonEntropy.exit40.i, label %236
+233:                                              ; preds = %FastLog2.exit57.i
+  %.not27.i38.i = icmp eq i64 %223, 0
+  br i1 %.not27.i38.i, label %ShannonEntropy.exit40.i, label %234
 
-236:                                              ; preds = %235
-  %237 = uitofp i64 %225 to double
-  %238 = icmp ult i64 %225, 256
-  br i1 %238, label %239, label %242
+234:                                              ; preds = %233
+  %235 = uitofp i64 %223 to double
+  %236 = icmp ult i64 %223, 256
+  br i1 %236, label %237, label %240
 
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %225
-  %241 = load double, ptr %240, align 8, !tbaa !587
+237:                                              ; preds = %234
+  %238 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %223
+  %239 = load double, ptr %238, align 8, !tbaa !587
   br label %FastLog2.exit55.i
 
-242:                                              ; preds = %236
-  %243 = tail call double @log2(double noundef %237) #18, !tbaa !59
+240:                                              ; preds = %234
+  %241 = tail call double @log2(double noundef %235) #18, !tbaa !59
   br label %FastLog2.exit55.i
 
-FastLog2.exit55.i:                                ; preds = %242, %239
-  %.0.i54.i = phi double [ %241, %239 ], [ %243, %242 ]
-  %244 = tail call double @llvm.fmuladd.f64(double %237, double %.0.i54.i, double %234)
+FastLog2.exit55.i:                                ; preds = %240, %237
+  %.0.i54.i = phi double [ %239, %237 ], [ %241, %240 ]
+  %242 = tail call double @llvm.fmuladd.f64(double %235, double %.0.i54.i, double %232)
   br label %ShannonEntropy.exit40.i
 
-ShannonEntropy.exit40.i:                          ; preds = %FastLog2.exit55.i, %235
-  %.2.i39.i = phi double [ %244, %FastLog2.exit55.i ], [ %234, %235 ]
-  br label %258
+ShannonEntropy.exit40.i:                          ; preds = %FastLog2.exit55.i, %233
+  %.2.i39.i = phi double [ %242, %FastLog2.exit55.i ], [ %232, %233 ]
+  br label %256
 
-245:                                              ; preds = %FastLog2.exit63.i
+243:                                              ; preds = %FastLog2.exit63.i
   %.add74.i51 = add nuw nsw i64 %.0.i31.idx.i, 8
-  %246 = load i32, ptr %gep92.i, align 4, !tbaa !59
-  %247 = zext i32 %246 to i64
-  %248 = add i64 %261, %247
-  %249 = uitofp i32 %246 to double
-  %250 = icmp ult i32 %246, 256
-  br i1 %250, label %251, label %254
+  %244 = load i32, ptr %.ptr75.i46, align 4, !tbaa !59
+  %245 = zext i32 %244 to i64
+  %246 = add i64 %259, %245
+  %247 = uitofp i32 %244 to double
+  %248 = icmp ult i32 %244, 256
+  br i1 %248, label %249, label %252
 
-251:                                              ; preds = %245
-  %252 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %247
-  %253 = load double, ptr %252, align 8, !tbaa !587
+249:                                              ; preds = %243
+  %250 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %245
+  %251 = load double, ptr %250, align 8, !tbaa !587
   br label %FastLog2.exit59.i
 
-254:                                              ; preds = %245
-  %255 = tail call double @log2(double noundef %249) #18, !tbaa !59
+252:                                              ; preds = %243
+  %253 = tail call double @log2(double noundef %247) #18, !tbaa !59
   br label %FastLog2.exit59.i
 
-FastLog2.exit59.i:                                ; preds = %254, %251
-  %.0.i58.i = phi double [ %253, %251 ], [ %255, %254 ]
-  %256 = fneg double %249
-  %257 = tail call double @llvm.fmuladd.f64(double %256, double %.0.i58.i, double %270)
-  br label %258
+FastLog2.exit59.i:                                ; preds = %252, %249
+  %.0.i58.i = phi double [ %251, %249 ], [ %253, %252 ]
+  %254 = fneg double %247
+  %255 = tail call double @llvm.fmuladd.f64(double %254, double %.0.i58.i, double %268)
+  br label %256
 
-258:                                              ; preds = %FastLog2.exit59.i, %ShannonEntropy.exit40.i
-  %.025.i29.i = phi i64 [ 0, %ShannonEntropy.exit40.i ], [ %248, %FastLog2.exit59.i ]
-  %.023.i30.i = phi double [ 0.000000e+00, %ShannonEntropy.exit40.i ], [ %257, %FastLog2.exit59.i ]
+256:                                              ; preds = %FastLog2.exit59.i, %ShannonEntropy.exit40.i
+  %.025.i29.i = phi i64 [ 0, %ShannonEntropy.exit40.i ], [ %246, %FastLog2.exit59.i ]
+  %.023.i30.i = phi double [ 0.000000e+00, %ShannonEntropy.exit40.i ], [ %255, %FastLog2.exit59.i ]
   %.0.i31.idx.i = phi i64 [ 12, %ShannonEntropy.exit40.i ], [ %.add74.i51, %FastLog2.exit59.i ]
   %.0.i31.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 %.0.i31.idx.i
-  %gep92.i = getelementptr inbounds nuw i8, ptr %invariant.gep89.i, i64 %.0.i31.idx.i
-  %259 = load i32, ptr %.0.i31.ptr.i, align 4, !tbaa !59
-  %260 = zext i32 %259 to i64
-  %261 = add i64 %.025.i29.i, %260
-  %262 = uitofp i32 %259 to double
-  %263 = icmp ult i32 %259, 256
-  br i1 %263, label %264, label %267
+  %.ptr75.i46 = getelementptr inbounds nuw i8, ptr %.0.i31.ptr.i, i64 4
+  %257 = load i32, ptr %.0.i31.ptr.i, align 4, !tbaa !59
+  %258 = zext i32 %257 to i64
+  %259 = add i64 %.025.i29.i, %258
+  %260 = uitofp i32 %257 to double
+  %261 = icmp ult i32 %257, 256
+  br i1 %261, label %262, label %265
 
-264:                                              ; preds = %258
-  %265 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %260
-  %266 = load double, ptr %265, align 8, !tbaa !587
+262:                                              ; preds = %256
+  %263 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %258
+  %264 = load double, ptr %263, align 8, !tbaa !587
   br label %FastLog2.exit63.i
 
-267:                                              ; preds = %258
-  %268 = tail call double @log2(double noundef %262) #18, !tbaa !59
+265:                                              ; preds = %256
+  %266 = tail call double @log2(double noundef %260) #18, !tbaa !59
   br label %FastLog2.exit63.i
 
-FastLog2.exit63.i:                                ; preds = %267, %264
-  %.0.i62.i = phi double [ %266, %264 ], [ %268, %267 ]
-  %269 = fneg double %262
-  %270 = tail call double @llvm.fmuladd.f64(double %269, double %.0.i62.i, double %.023.i30.i)
-  %271 = icmp samesign ult i64 %.0.i31.idx.i, 20
-  br i1 %271, label %245, label %272
+FastLog2.exit63.i:                                ; preds = %265, %262
+  %.0.i62.i = phi double [ %264, %262 ], [ %266, %265 ]
+  %267 = fneg double %260
+  %268 = tail call double @llvm.fmuladd.f64(double %267, double %.0.i62.i, double %.023.i30.i)
+  %269 = icmp samesign ult i64 %.0.i31.idx.i, 20
+  br i1 %269, label %243, label %270
 
-272:                                              ; preds = %FastLog2.exit63.i
-  %.not27.i32.i = icmp eq i64 %261, 0
-  br i1 %.not27.i32.i, label %ShannonEntropy.exit34.i, label %273
+270:                                              ; preds = %FastLog2.exit63.i
+  %.not27.i32.i = icmp eq i64 %259, 0
+  br i1 %.not27.i32.i, label %ShannonEntropy.exit34.i, label %271
 
-273:                                              ; preds = %272
-  %274 = uitofp i64 %261 to double
-  %275 = icmp ult i64 %261, 256
-  br i1 %275, label %276, label %279
+271:                                              ; preds = %270
+  %272 = uitofp i64 %259 to double
+  %273 = icmp ult i64 %259, 256
+  br i1 %273, label %274, label %277
 
-276:                                              ; preds = %273
-  %277 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %261
-  %278 = load double, ptr %277, align 8, !tbaa !587
+274:                                              ; preds = %271
+  %275 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %259
+  %276 = load double, ptr %275, align 8, !tbaa !587
   br label %FastLog2.exit61.i
 
-279:                                              ; preds = %273
-  %280 = tail call double @log2(double noundef %274) #18, !tbaa !59
+277:                                              ; preds = %271
+  %278 = tail call double @log2(double noundef %272) #18, !tbaa !59
   br label %FastLog2.exit61.i
 
-FastLog2.exit61.i:                                ; preds = %279, %276
-  %.0.i60.i = phi double [ %278, %276 ], [ %280, %279 ]
-  %281 = tail call double @llvm.fmuladd.f64(double %274, double %.0.i60.i, double %270)
+FastLog2.exit61.i:                                ; preds = %277, %274
+  %.0.i60.i = phi double [ %276, %274 ], [ %278, %277 ]
+  %279 = tail call double @llvm.fmuladd.f64(double %272, double %.0.i60.i, double %268)
   br label %ShannonEntropy.exit34.i
 
-ShannonEntropy.exit34.i:                          ; preds = %FastLog2.exit61.i, %272
-  %.2.i33.i = phi double [ %281, %FastLog2.exit61.i ], [ %270, %272 ]
-  br label %282
+ShannonEntropy.exit34.i:                          ; preds = %FastLog2.exit61.i, %270
+  %.2.i33.i = phi double [ %279, %FastLog2.exit61.i ], [ %268, %270 ]
+  br label %280
 
-282:                                              ; preds = %ShannonEntropy.exit.i49, %ShannonEntropy.exit34.i
-  %.196.i = phi i64 [ 0, %ShannonEntropy.exit34.i ], [ %322, %ShannonEntropy.exit.i49 ]
-  %.sroa.17.095.i = phi double [ 0.000000e+00, %ShannonEntropy.exit34.i ], [ %321, %ShannonEntropy.exit.i49 ]
-  %.idx.i47 = mul nuw nsw i64 %.196.i, 12
-  %283 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i47
-  %invariant.gep93.i = getelementptr inbounds nuw i8, ptr %283, i64 4
-  br label %297
+280:                                              ; preds = %ShannonEntropy.exit.i49, %ShannonEntropy.exit34.i
+  %.190.i = phi i64 [ 0, %ShannonEntropy.exit34.i ], [ %320, %ShannonEntropy.exit.i49 ]
+  %.sroa.17.089.i = phi double [ 0.000000e+00, %ShannonEntropy.exit34.i ], [ %319, %ShannonEntropy.exit.i49 ]
+  %.idx.i47 = mul nuw nsw i64 %.190.i, 12
+  %281 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i47
+  br label %295
 
-284:                                              ; preds = %FastLog2.exit69.i
-  %285 = load i32, ptr %gep94.i, align 4, !tbaa !59
-  %286 = zext i32 %285 to i64
-  %287 = add i64 %301, %286
-  %288 = uitofp i32 %285 to double
-  %289 = icmp ult i32 %285, 256
-  br i1 %289, label %290, label %293
+282:                                              ; preds = %FastLog2.exit69.i
+  %283 = load i32, ptr %.ptr79.i, align 4, !tbaa !59
+  %284 = zext i32 %283 to i64
+  %285 = add i64 %299, %284
+  %286 = uitofp i32 %283 to double
+  %287 = icmp ult i32 %283, 256
+  br i1 %287, label %288, label %291
 
-290:                                              ; preds = %284
-  %291 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %286
-  %292 = load double, ptr %291, align 8, !tbaa !587
+288:                                              ; preds = %282
+  %289 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %284
+  %290 = load double, ptr %289, align 8, !tbaa !587
   br label %FastLog2.exit65.i
 
-293:                                              ; preds = %284
-  %294 = tail call double @log2(double noundef %288) #18, !tbaa !59
+291:                                              ; preds = %282
+  %292 = tail call double @log2(double noundef %286) #18, !tbaa !59
   br label %FastLog2.exit65.i
 
-FastLog2.exit65.i:                                ; preds = %293, %290
-  %.0.i64.i = phi double [ %292, %290 ], [ %294, %293 ]
-  %295 = fneg double %288
-  %296 = tail call double @llvm.fmuladd.f64(double %295, double %.0.i64.i, double %310)
-  br label %297
+FastLog2.exit65.i:                                ; preds = %291, %288
+  %.0.i64.i = phi double [ %290, %288 ], [ %292, %291 ]
+  %293 = fneg double %286
+  %294 = tail call double @llvm.fmuladd.f64(double %293, double %.0.i64.i, double %308)
+  br label %295
 
-297:                                              ; preds = %FastLog2.exit65.i, %282
-  %.025.i.i = phi i64 [ 0, %282 ], [ %287, %FastLog2.exit65.i ]
-  %.023.i.i = phi double [ 0.000000e+00, %282 ], [ %296, %FastLog2.exit65.i ]
-  %298 = phi i1 [ true, %282 ], [ false, %FastLog2.exit65.i ]
-  %.0.i.idx.i = phi i64 [ 0, %282 ], [ 8, %FastLog2.exit65.i ]
-  %.0.i.ptr.i = getelementptr inbounds nuw i8, ptr %283, i64 %.0.i.idx.i
-  %gep94.i = getelementptr inbounds nuw i8, ptr %invariant.gep93.i, i64 %.0.i.idx.i
-  %299 = load i32, ptr %.0.i.ptr.i, align 4, !tbaa !59
-  %300 = zext i32 %299 to i64
-  %301 = add i64 %.025.i.i, %300
-  %302 = uitofp i32 %299 to double
-  %303 = icmp ult i32 %299, 256
-  br i1 %303, label %304, label %307
+295:                                              ; preds = %FastLog2.exit65.i, %280
+  %.025.i.i = phi i64 [ 0, %280 ], [ %285, %FastLog2.exit65.i ]
+  %.023.i.i = phi double [ 0.000000e+00, %280 ], [ %294, %FastLog2.exit65.i ]
+  %296 = phi i1 [ true, %280 ], [ false, %FastLog2.exit65.i ]
+  %.0.i.idx.i = phi i64 [ 0, %280 ], [ 8, %FastLog2.exit65.i ]
+  %.0.i.ptr.i = getelementptr inbounds nuw i8, ptr %281, i64 %.0.i.idx.i
+  %.ptr79.i = getelementptr inbounds nuw i8, ptr %.0.i.ptr.i, i64 4
+  %297 = load i32, ptr %.0.i.ptr.i, align 4, !tbaa !59
+  %298 = zext i32 %297 to i64
+  %299 = add i64 %.025.i.i, %298
+  %300 = uitofp i32 %297 to double
+  %301 = icmp ult i32 %297, 256
+  br i1 %301, label %302, label %305
 
-304:                                              ; preds = %297
-  %305 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %300
-  %306 = load double, ptr %305, align 8, !tbaa !587
+302:                                              ; preds = %295
+  %303 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %298
+  %304 = load double, ptr %303, align 8, !tbaa !587
   br label %FastLog2.exit69.i
 
-307:                                              ; preds = %297
-  %308 = tail call double @log2(double noundef %302) #18, !tbaa !59
+305:                                              ; preds = %295
+  %306 = tail call double @log2(double noundef %300) #18, !tbaa !59
   br label %FastLog2.exit69.i
 
-FastLog2.exit69.i:                                ; preds = %307, %304
-  %.0.i68.i = phi double [ %306, %304 ], [ %308, %307 ]
-  %309 = fneg double %302
-  %310 = tail call double @llvm.fmuladd.f64(double %309, double %.0.i68.i, double %.023.i.i)
-  br i1 %298, label %284, label %311
+FastLog2.exit69.i:                                ; preds = %305, %302
+  %.0.i68.i = phi double [ %304, %302 ], [ %306, %305 ]
+  %307 = fneg double %300
+  %308 = tail call double @llvm.fmuladd.f64(double %307, double %.0.i68.i, double %.023.i.i)
+  br i1 %296, label %282, label %309
 
-311:                                              ; preds = %FastLog2.exit69.i
-  %.not27.i.i48 = icmp eq i64 %301, 0
-  br i1 %.not27.i.i48, label %ShannonEntropy.exit.i49, label %312
+309:                                              ; preds = %FastLog2.exit69.i
+  %.not27.i.i48 = icmp eq i64 %299, 0
+  br i1 %.not27.i.i48, label %ShannonEntropy.exit.i49, label %310
 
-312:                                              ; preds = %311
-  %313 = uitofp i64 %301 to double
-  %314 = icmp ult i64 %301, 256
-  br i1 %314, label %315, label %318
+310:                                              ; preds = %309
+  %311 = uitofp i64 %299 to double
+  %312 = icmp ult i64 %299, 256
+  br i1 %312, label %313, label %316
 
-315:                                              ; preds = %312
-  %316 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %301
-  %317 = load double, ptr %316, align 8, !tbaa !587
+313:                                              ; preds = %310
+  %314 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %299
+  %315 = load double, ptr %314, align 8, !tbaa !587
   br label %FastLog2.exit67.i
 
-318:                                              ; preds = %312
-  %319 = tail call double @log2(double noundef %313) #18, !tbaa !59
+316:                                              ; preds = %310
+  %317 = tail call double @log2(double noundef %311) #18, !tbaa !59
   br label %FastLog2.exit67.i
 
-FastLog2.exit67.i:                                ; preds = %318, %315
-  %.0.i66.i = phi double [ %317, %315 ], [ %319, %318 ]
-  %320 = tail call double @llvm.fmuladd.f64(double %313, double %.0.i66.i, double %310)
+FastLog2.exit67.i:                                ; preds = %316, %313
+  %.0.i66.i = phi double [ %315, %313 ], [ %317, %316 ]
+  %318 = tail call double @llvm.fmuladd.f64(double %311, double %.0.i66.i, double %308)
   br label %ShannonEntropy.exit.i49
 
-ShannonEntropy.exit.i49:                          ; preds = %FastLog2.exit67.i, %311
-  %.2.i.i50 = phi double [ %320, %FastLog2.exit67.i ], [ %310, %311 ]
-  %321 = fadd double %.sroa.17.095.i, %.2.i.i50
-  %322 = add nuw nsw i64 %.196.i, 1
-  %exitcond105.not.i = icmp eq i64 %322, 3
-  br i1 %exitcond105.not.i, label %323, label %282, !llvm.loop !745
+ShannonEntropy.exit.i49:                          ; preds = %FastLog2.exit67.i, %309
+  %.2.i.i50 = phi double [ %318, %FastLog2.exit67.i ], [ %308, %309 ]
+  %319 = fadd double %.sroa.17.089.i, %.2.i.i50
+  %320 = add nuw nsw i64 %.190.i, 1
+  %exitcond99.not.i = icmp eq i64 %320, 3
+  br i1 %exitcond99.not.i, label %321, label %280, !llvm.loop !745
 
-323:                                              ; preds = %ShannonEntropy.exit.i49
-  %324 = fadd double %.2.i39.i, %.2.i33.i
-  %325 = load i32, ptr %10, align 4, !tbaa !59
-  %326 = load i32, ptr %invariant.gep.i45, align 4, !tbaa !59
-  %327 = add i32 %326, %325
-  %328 = load i32, ptr %.0.i43.idx.sroa.gep.i, align 4, !tbaa !59
-  %329 = add i32 %327, %328
-  %330 = uitofp i32 %329 to double
-  %331 = fdiv double 1.000000e+00, %330
-  %332 = fmul double %.2.i45.i, %331
-  %333 = fmul double %324, %331
-  %334 = fmul double %321, %331
-  %335 = icmp samesign ult i32 %4, 7
-  %336 = fmul double %332, 1.000000e+01
-  %.sroa.17.1.i = select i1 %335, double %336, double %334
-  %337 = fsub double %332, %333
-  %338 = fcmp olt double %337, 2.000000e-01
-  %339 = fsub double %332, %.sroa.17.1.i
-  %340 = fcmp olt double %339, 2.000000e-01
-  %or.cond.i = select i1 %338, i1 %340, i1 false
-  br i1 %or.cond.i, label %341, label %342
+321:                                              ; preds = %ShannonEntropy.exit.i49
+  %322 = fadd double %.2.i39.i, %.2.i33.i
+  %323 = load i32, ptr %10, align 4, !tbaa !59
+  %324 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %325 = load i32, ptr %324, align 4, !tbaa !59
+  %326 = add i32 %325, %323
+  %327 = load i32, ptr %.0.i43.idx.sroa.gep.i, align 4, !tbaa !59
+  %328 = add i32 %326, %327
+  %329 = uitofp i32 %328 to double
+  %330 = fdiv double 1.000000e+00, %329
+  %331 = fmul double %.2.i45.i, %330
+  %332 = fmul double %322, %330
+  %333 = fmul double %319, %330
+  %334 = icmp samesign ult i32 %4, 7
+  %335 = fmul double %331, 1.000000e+01
+  %.sroa.17.1.i = select i1 %334, double %335, double %333
+  %336 = fsub double %331, %332
+  %337 = fcmp olt double %336, 2.000000e-01
+  %338 = fsub double %331, %.sroa.17.1.i
+  %339 = fcmp olt double %338, 2.000000e-01
+  %or.cond.i = select i1 %337, i1 %339, i1 false
+  br i1 %or.cond.i, label %340, label %341
 
-341:                                              ; preds = %323
+340:                                              ; preds = %321
   store i64 1, ptr %6, align 8, !tbaa !69
   br label %ChooseContextMap.exit
 
-342:                                              ; preds = %323
-  %343 = fsub double %333, %.sroa.17.1.i
-  %344 = fcmp olt double %343, 2.000000e-02
-  br i1 %344, label %345, label %346
+341:                                              ; preds = %321
+  %342 = fsub double %332, %.sroa.17.1.i
+  %343 = fcmp olt double %342, 2.000000e-02
+  br i1 %343, label %344, label %345
 
-345:                                              ; preds = %342
+344:                                              ; preds = %341
   store i64 2, ptr %6, align 8, !tbaa !69
   store ptr @ChooseContextMap.kStaticContextMapSimpleUTF8, ptr %7, align 8, !tbaa !590
   br label %ChooseContextMap.exit
 
-346:                                              ; preds = %342
+345:                                              ; preds = %341
   store i64 3, ptr %6, align 8, !tbaa !69
   store ptr @ChooseContextMap.kStaticContextMapContinuation, ptr %7, align 8, !tbaa !590
   br label %ChooseContextMap.exit
 
-ChooseContextMap.exit:                            ; preds = %341, %345, %346
+ChooseContextMap.exit:                            ; preds = %340, %344, %345
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #18
-  br label %347
+  br label %346
 
-347:                                              ; preds = %ShouldUseComplexStaticContextMap.exit, %ChooseContextMap.exit, %9
+346:                                              ; preds = %ShouldUseComplexStaticContextMap.exit, %ChooseContextMap.exit, %9
   ret void
 }
 

@@ -2495,7 +2495,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.preheader: ; preds = %3
   %8 = load ptr, ptr %6, align 8, !tbaa !54
   %9 = tail call i32 @fgetc(ptr noundef %8)
   %.not = icmp eq i32 %9, -1
-  br i1 %.not, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
+  br i1 %.not, label %_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %.lr.ph
   %10 = trunc i32 %9 to i8
@@ -2503,13 +2503,17 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %.lr.ph
   store i8 %10, ptr %11, align 1, !tbaa !22
   %12 = add nuw i64 %.01621, 1
   %exitcond.not = icmp eq i64 %12, %2
-  br i1 %exitcond.not, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %.lr.ph, !llvm.loop !105
+  br i1 %exitcond.not, label %_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit, label %.lr.ph, !llvm.loop !105
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %.lr.ph, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.preheader
-  %.016.lcssa = phi i64 [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.preheader ], [ %.01621, %.lr.ph ], [ %2, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.016.lcssa, i64 %2)
-  %13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #27
-  ret i64 %spec.select
+_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit:   ; preds = %.lr.ph, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
+  %.016.lcssa.ph = phi i64 [ %2, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ %.01621, %.lr.ph ]
+  %13 = tail call i64 @llvm.umin.i64(i64 %.016.lcssa.ph, i64 %2)
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
+
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.preheader
+  %.016.lcssa = phi i64 [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.preheader ], [ %13, %_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit ]
+  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #27
+  ret i64 %.016.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable

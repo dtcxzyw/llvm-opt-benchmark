@@ -841,22 +841,22 @@ define dso_local range(i32 -1, 1) i32 @parseopt_column_callback(ptr noundef read
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1, !tbaa !38
-  %.not55 = icmp eq i8 %3, 0
-  br i1 %.not55, label %._crit_edge.thread, label %.lr.ph
+  %.not52 = icmp eq i8 %3, 0
+  br i1 %.not52, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %65
   %4 = phi i8 [ %68, %65 ], [ %3, %2 ]
-  %.01657 = phi ptr [ %67, %65 ], [ %1, %2 ]
-  %.056 = phi i32 [ %.1, %65 ], [ 0, %2 ]
-  %5 = tail call i64 @strcspn(ptr noundef nonnull %.01657, ptr noundef nonnull @.str.15) #11
+  %.01654 = phi ptr [ %67, %65 ], [ %1, %2 ]
+  %.053 = phi i32 [ %.1, %65 ], [ 0, %2 ]
+  %5 = tail call i64 @strcspn(ptr noundef nonnull %.01654, ptr noundef nonnull @.str.15) #11
   %6 = trunc i64 %5 to i32
   %.not22 = icmp eq i32 %6, 0
   br i1 %.not22, label %65, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = icmp sgt i32 %6, 2
-  %9 = getelementptr inbounds nuw i8, ptr %.01657, i64 1
-  %10 = getelementptr inbounds nuw i8, ptr %.01657, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %.01654, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.01654, i64 2
   %11 = add nsw i32 %6, -2
   br i1 %8, label %.split.i.preheader, label %.split.us.i
 
@@ -877,14 +877,14 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
 16:                                               ; preds = %.split.i.us
   %sext.i.us = shl i64 %14, 32
   %17 = ashr exact i64 %sext.i.us, 32
-  %18 = tail call i32 @strncmp(ptr noundef nonnull %.01657, ptr noundef nonnull %13, i64 noundef %17) #11
+  %18 = tail call i32 @strncmp(ptr noundef nonnull %.01654, ptr noundef nonnull %13, i64 noundef %17) #11
   %.not41.i.us = icmp eq i32 %18, 0
   br i1 %.not41.i.us, label %.split48.i.sink.split, label %.critedge.i.us
 
 .critedge.i.us:                                   ; preds = %16, %.split.i.us
   %indvars.iv.next69.i.us = add nuw nsw i64 %indvars.iv68.i.us, 1
   %exitcond71.not.i.us = icmp eq i64 %indvars.iv.next69.i.us, 7
-  br i1 %exitcond71.not.i.us, label %.thread, label %.split.i.us, !llvm.loop !44
+  br i1 %exitcond71.not.i.us, label %parse_option.exit, label %.split.i.us, !llvm.loop !44
 
 .split.us.i:                                      ; preds = %7, %.critedge.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge.us.i ], [ 0, %7 ]
@@ -898,14 +898,14 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
 23:                                               ; preds = %.split.us.i
   %sext.us.i = shl i64 %21, 32
   %24 = ashr exact i64 %sext.us.i, 32
-  %25 = tail call i32 @strncmp(ptr noundef nonnull %.01657, ptr noundef nonnull %20, i64 noundef %24) #11
+  %25 = tail call i32 @strncmp(ptr noundef nonnull %.01654, ptr noundef nonnull %20, i64 noundef %24) #11
   %.not41.us.i = icmp eq i32 %25, 0
   br i1 %.not41.us.i, label %.split48.i.sink.split, label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %23, %.split.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %.thread, label %.split.us.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %parse_option.exit, label %.split.us.i, !llvm.loop !45
 
 .split.i:                                         ; preds = %.split.i.preheader, %.critedge.i
   %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %.critedge.i ], [ 0, %.split.i.preheader ]
@@ -926,7 +926,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
 .tail.thread.i:                                   ; preds = %32, %.tail.i, %.split.i
   %.not43.i = phi i1 [ false, %.tail.i ], [ true, %32 ], [ false, %.split.i ]
   %.033.i = phi i32 [ %6, %.tail.i ], [ %11, %32 ], [ %6, %.split.i ]
-  %.031.i = phi ptr [ %.01657, %.tail.i ], [ %10, %32 ], [ %.01657, %.split.i ]
+  %.031.i = phi ptr [ %.01654, %.tail.i ], [ %10, %32 ], [ %.01654, %.split.i ]
   %33 = load ptr, ptr %26, align 16, !tbaa !42
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #11
   %35 = trunc i64 %34 to i32
@@ -941,15 +941,15 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
   br i1 %.not41.i, label %.split48.i, label %.critedge.i
 
 .split48.i.sink.split:                            ; preds = %23, %16
-  %.lcssa80.sink = phi ptr [ %12, %16 ], [ %19, %23 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.lcssa80.sink, i64 12
+  %.lcssa77.sink = phi ptr [ %12, %16 ], [ %19, %23 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.lcssa77.sink, i64 12
   %40 = load i32, ptr %39, align 4, !tbaa !46
   %41 = icmp eq i32 %40, 0
   br label %.split48.i
 
 .split48.i:                                       ; preds = %36, %.split48.i.sink.split
   %.us-phi.i = phi i1 [ false, %.split48.i.sink.split ], [ %.not43.i, %36 ]
-  %.us-phi49.i = phi ptr [ %.lcssa80.sink, %.split48.i.sink.split ], [ %26, %36 ]
+  %.us-phi49.i = phi ptr [ %.lcssa77.sink, %.split48.i.sink.split ], [ %26, %36 ]
   %.us-phi50.i = phi i32 [ %40, %.split48.i.sink.split ], [ %28, %36 ]
   %.us-phi51.i = phi i1 [ %41, %.split48.i.sink.split ], [ %29, %36 ]
   switch i32 %.us-phi50.i, label %43 [
@@ -965,11 +965,11 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
 
 .thread.sink.split.i:                             ; preds = %42, %.split48.i
   %.sink83.i = phi i32 [ 1, %42 ], [ 2, %.split48.i ]
-  %44 = or i32 %.sink83.i, %.056
+  %44 = or i32 %.sink83.i, %.053
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %43
-  %.3 = phi i32 [ %.056, %43 ], [ %44, %.thread.sink.split.i ]
+  %.225 = phi i32 [ %.053, %43 ], [ %44, %.thread.sink.split.i ]
   %45 = load i32, ptr %0, align 4, !tbaa !23
   %46 = xor i32 %.us-phi50.i, -1
   %47 = and i32 %45, %46
@@ -997,24 +997,24 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
 .critedge.i:                                      ; preds = %36, %.tail.thread.i
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, 7
-  br i1 %exitcond71.not.i, label %.thread, label %.split.i, !llvm.loop !48
+  br i1 %exitcond71.not.i, label %parse_option.exit, label %.split.i, !llvm.loop !48
 
-.thread:                                          ; preds = %.critedge.us.i, %.critedge.i.us, %.critedge.i
-  %61 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef nonnull %.01657) #10
-  br label %._crit_edge.thread
+parse_option.exit:                                ; preds = %.critedge.us.i, %.critedge.i.us, %.critedge.i
+  %61 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef nonnull %.01654) #10
+  br label %.critedge
 
 62:                                               ; preds = %.thread.i, %57, %54
   %.sink = phi i32 [ %50, %.thread.i ], [ %60, %57 ], [ %56, %54 ]
-  %.4.ph = phi i32 [ %.3, %.thread.i ], [ %.056, %57 ], [ %.056, %54 ]
+  %.3.ph = phi i32 [ %.225, %.thread.i ], [ %.053, %57 ], [ %.053, %54 ]
   store i32 %.sink, ptr %0, align 4, !tbaa !23
   %sext = shl i64 %5, 32
   %63 = ashr exact i64 %sext, 32
-  %64 = getelementptr inbounds i8, ptr %.01657, i64 %63
+  %64 = getelementptr inbounds i8, ptr %.01654, i64 %63
   br label %65
 
-65:                                               ; preds = %.lr.ph, %62
-  %.1 = phi i32 [ %.056, %.lr.ph ], [ %.4.ph, %62 ]
-  %.117 = phi ptr [ %.01657, %.lr.ph ], [ %64, %62 ]
+65:                                               ; preds = %62, %.lr.ph
+  %.1 = phi i32 [ %.053, %.lr.ph ], [ %.3.ph, %62 ]
+  %.117 = phi ptr [ %.01654, %.lr.ph ], [ %64, %62 ]
   %66 = tail call i64 @strspn(ptr noundef %.117, ptr noundef nonnull @.str.15) #11
   %67 = getelementptr inbounds nuw i8, ptr %.117, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !38
@@ -1023,17 +1023,17 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
 
 ._crit_edge:                                      ; preds = %65
   %69 = icmp eq i32 %.1, 1
-  br i1 %69, label %70, label %._crit_edge.thread
+  br i1 %69, label %70, label %.critedge
 
 70:                                               ; preds = %._crit_edge
   %71 = load i32, ptr %0, align 4, !tbaa !23
   %72 = and i32 %71, -49
   %73 = or disjoint i32 %72, 16
   store i32 %73, ptr %0, align 4, !tbaa !23
-  br label %._crit_edge.thread
+  br label %.critedge
 
-._crit_edge.thread:                               ; preds = %2, %.thread, %._crit_edge, %70
-  %.2 = phi i32 [ 0, %70 ], [ 0, %._crit_edge ], [ -1, %.thread ], [ 0, %2 ]
+.critedge:                                        ; preds = %2, %parse_option.exit, %._crit_edge, %70
+  %.2 = phi i32 [ 0, %70 ], [ 0, %._crit_edge ], [ -1, %parse_option.exit ], [ 0, %2 ]
   ret i32 %.2
 }
 

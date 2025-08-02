@@ -62,7 +62,7 @@ mi_bin.exit:                                      ; preds = %1, %7, %11, %13
 define hidden i64 @_mi_bin_size(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = zext i8 %0 to i64
   %.idx = mul nuw nsw i64 %2, 24
-  %3 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1056), i64 %.idx
+  %3 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1056), i64 %.idx
   %4 = load i64, ptr %3, align 8, !tbaa !3
   ret i64 %4
 }
@@ -103,7 +103,7 @@ define hidden i64 @mi_good_size(i64 noundef %0) local_unnamed_addr #1 {
 mi_bin.exit:                                      ; preds = %3, %9, %12
   %.0.i = phi i64 [ %11, %9 ], [ %22, %12 ], [ 1, %3 ]
   %.idx.i = mul nuw nsw i64 %.0.i, 24
-  %23 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1056), i64 %.idx.i
+  %23 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1056), i64 %.idx.i
   %24 = load i64, ptr %23, align 8, !tbaa !3
   br label %_mi_align_up.exit
 

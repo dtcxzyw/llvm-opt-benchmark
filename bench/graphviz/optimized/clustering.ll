@@ -358,7 +358,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %18
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i8 0, ptr %28, align 8, !tbaa !41
   %29 = icmp eq i32 %1, 0
-  br i1 %29, label %30, label %88
+  br i1 %29, label %30, label %87
 
 30:                                               ; preds = %gv_calloc.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -473,18 +473,18 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %18
   br i1 %exitcond113.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !47
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %._crit_edge95.thread
-  %84 = phi double [ 1.000000e+00, %._crit_edge95.thread ], [ %74, %.lr.ph99 ]
-  %85 = phi ptr [ %52, %._crit_edge95.thread ], [ %39, %.lr.ph99 ]
-  %86 = phi ptr [ %53, %._crit_edge95.thread ], [ %46, %.lr.ph99 ]
+  %.075.lcssa115 = phi double [ 1.000000e+00, %._crit_edge95.thread ], [ %74, %.lr.ph99 ]
+  %84 = phi ptr [ %52, %._crit_edge95.thread ], [ %39, %.lr.ph99 ]
+  %85 = phi ptr [ %53, %._crit_edge95.thread ], [ %46, %.lr.ph99 ]
   %.076.lcssa = phi double [ 0.000000e+00, %._crit_edge95.thread ], [ %83, %.lr.ph99 ]
-  store double %84, ptr %37, align 8, !tbaa !48
-  store ptr %85, ptr %27, align 8, !tbaa !39
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store double %.076.lcssa, ptr %87, align 8, !tbaa !28
-  tail call void @free(ptr noundef %86) #11
-  br label %88
+  store double %.075.lcssa115, ptr %37, align 8, !tbaa !48
+  store ptr %84, ptr %27, align 8, !tbaa !39
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store double %.076.lcssa, ptr %86, align 8, !tbaa !28
+  tail call void @free(ptr noundef %85) #11
+  br label %87
 
-88:                                               ; preds = %gv_calloc.exit, %._crit_edge100
+87:                                               ; preds = %gv_calloc.exit, %._crit_edge100
   ret ptr %5
 }
 

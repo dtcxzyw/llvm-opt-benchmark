@@ -425,7 +425,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @ps_gc_files(ptr noundef re
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !16
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %59
+  br i1 %10, label %11, label %61
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -463,7 +463,6 @@ define hidden range(i64 -2147483648, 2147483648) i64 @ps_gc_files(ptr noundef re
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 8 %14, i64 %24, i1 false)
   %29 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %24
   store i8 47, ptr %29, align 1, !tbaa !4
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   %30 = call ptr @readdir(ptr noundef nonnull %15) #15
   %.not2729.i = icmp eq ptr %30, null
   br i1 %.not2729.i, label %._crit_edge.i, label %.lr.ph.i
@@ -472,13 +471,13 @@ define hidden range(i64 -2147483648, 2147483648) i64 @ps_gc_files(ptr noundef re
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 88
   br label %32
 
-32:                                               ; preds = %55, %.lr.ph.i
-  %33 = phi ptr [ %30, %.lr.ph.i ], [ %56, %55 ]
-  %.02330.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %55 ]
+32:                                               ; preds = %57, %.lr.ph.i
+  %33 = phi ptr [ %30, %.lr.ph.i ], [ %58, %57 ]
+  %.02330.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %57 ]
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 19
   %35 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(6) @.str.12, i64 noundef 5) #16
   %.not28.i = icmp eq i32 %35, 0
-  br i1 %.not28.i, label %36, label %55
+  br i1 %.not28.i, label %36, label %57
 
 36:                                               ; preds = %32
   %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #16
@@ -486,43 +485,44 @@ define hidden range(i64 -2147483648, 2147483648) i64 @ps_gc_files(ptr noundef re
   %39 = add i64 %38, %37
   %40 = add i64 %39, 2
   %41 = icmp ult i64 %40, 4096
-  br i1 %41, label %42, label %55
+  br i1 %41, label %42, label %57
 
 42:                                               ; preds = %36
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %gep.i, ptr nonnull align 1 %34, i64 %37, i1 false)
-  %43 = add nsw i64 %39, 1
-  %44 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %43
-  store i8 0, ptr %44, align 1, !tbaa !4
-  %45 = call i32 @stat(ptr noundef nonnull %5, ptr noundef nonnull %4) #15
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %55
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 %38
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull align 1 %34, i64 %37, i1 false)
+  %45 = add nsw i64 %39, 1
+  %46 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %45
+  store i8 0, ptr %46, align 1, !tbaa !4
+  %47 = call i32 @stat(ptr noundef nonnull %5, ptr noundef nonnull %4) #15
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %57
 
-47:                                               ; preds = %42
-  %48 = load i64, ptr %6, align 8, !tbaa !31
-  %49 = load i64, ptr %31, align 8, !tbaa !32
-  %50 = sub nsw i64 %48, %49
-  %51 = icmp sgt i64 %50, %1
-  br i1 %51, label %52, label %55
+49:                                               ; preds = %42
+  %50 = load i64, ptr %6, align 8, !tbaa !31
+  %51 = load i64, ptr %31, align 8, !tbaa !32
+  %52 = sub nsw i64 %50, %51
+  %53 = icmp sgt i64 %52, %1
+  br i1 %53, label %54, label %57
 
-52:                                               ; preds = %47
-  %53 = call i32 @unlink(ptr noundef nonnull %5) #15
-  %54 = add nsw i32 %.02330.i, 1
-  br label %55
+54:                                               ; preds = %49
+  %55 = call i32 @unlink(ptr noundef nonnull %5) #15
+  %56 = add nsw i32 %.02330.i, 1
+  br label %57
 
-55:                                               ; preds = %52, %47, %42, %36, %32
-  %.1.i = phi i32 [ %.02330.i, %32 ], [ %54, %52 ], [ %.02330.i, %47 ], [ %.02330.i, %42 ], [ %.02330.i, %36 ]
-  %56 = call ptr @readdir(ptr noundef nonnull %15) #15
-  %.not27.i = icmp eq ptr %56, null
+57:                                               ; preds = %54, %49, %42, %36, %32
+  %.1.i = phi i32 [ %.02330.i, %32 ], [ %56, %54 ], [ %.02330.i, %49 ], [ %.02330.i, %42 ], [ %.02330.i, %36 ]
+  %58 = call ptr @readdir(ptr noundef nonnull %15) #15
+  %.not27.i = icmp eq ptr %58, null
   br i1 %.not27.i, label %._crit_edge.i.loopexit, label %32
 
-._crit_edge.i.loopexit:                           ; preds = %55
-  %57 = sext i32 %.1.i to i64
+._crit_edge.i.loopexit:                           ; preds = %57
+  %59 = sext i32 %.1.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %28
-  %.023.lcssa.i = phi i64 [ 0, %28 ], [ %57, %._crit_edge.i.loopexit ]
-  %58 = call i32 @closedir(ptr noundef nonnull %15)
+  %.023.lcssa.i = phi i64 [ 0, %28 ], [ %59, %._crit_edge.i.loopexit ]
+  %60 = call i32 @closedir(ptr noundef nonnull %15)
   br label %ps_files_cleanup_dir.exit
 
 ps_files_cleanup_dir.exit:                        ; preds = %16, %26, %._crit_edge.i
@@ -530,9 +530,9 @@ ps_files_cleanup_dir.exit:                        ; preds = %16, %26, %._crit_ed
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #15
-  br label %59
+  br label %61
 
-59:                                               ; preds = %3, %ps_files_cleanup_dir.exit
+61:                                               ; preds = %3, %ps_files_cleanup_dir.exit
   %storemerge = phi i64 [ %.0.i, %ps_files_cleanup_dir.exit ], [ -1, %3 ]
   store i64 %storemerge, ptr %2, align 8, !tbaa !31
   ret i64 %storemerge
@@ -546,18 +546,17 @@ define hidden ptr @ps_create_sid_files(ptr noundef readonly captures(none) %0) #
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   %5 = load ptr, ptr %0, align 8, !tbaa !24
   store ptr %5, ptr %4, align 8, !tbaa !24
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 6
   br label %6
 
-6:                                                ; preds = %53, %1
-  %.0 = phi i32 [ 3, %1 ], [ %.1, %53 ]
+6:                                                ; preds = %55, %1
+  %.0 = phi i32 [ 3, %1 ], [ %.1, %55 ]
   %7 = call ptr @php_session_create_id(ptr noundef nonnull %4) #15
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %6
   %9 = icmp slt i32 %.0, 1
-  br i1 %9, label %.thread, label %53
+  br i1 %9, label %.thread, label %55
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %4, align 8, !tbaa !24
@@ -625,41 +624,42 @@ ps_files_key_exists.exit:                         ; preds = %.lr.ph.i.i, %27
   %.0.lcssa.i.i = phi i64 [ %.041.i.i, %27 ], [ %.0.i.i, %.lr.ph.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %39, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0.in.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %gep, ptr nonnull readonly align 8 %28, i64 %14, i1 false)
-  %40 = getelementptr i8, ptr %gep, i64 %14
-  store i8 0, ptr %40, align 1, !tbaa !4
-  %41 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #15
-  %.not5.i.not = icmp eq i32 %41, 0
+  %40 = getelementptr i8, ptr %2, i64 %.0.in.lcssa.i.i
+  %41 = getelementptr i8, ptr %40, i64 6
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 8 %28, i64 %14, i1 false)
+  %42 = getelementptr i8, ptr %41, i64 %14
+  store i8 0, ptr %42, align 1, !tbaa !4
+  %43 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #15
+  %.not5.i.not = icmp eq i32 %43, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #15
-  br i1 %.not5.i.not, label %42, label %.thread
+  br i1 %.not5.i.not, label %44, label %.thread
 
-42:                                               ; preds = %ps_files_key_exists.exit
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %44 = load i32, ptr %43, align 4, !tbaa !4
-  %45 = and i32 %44, 64
-  %.not.i = icmp eq i32 %45, 0
-  br i1 %.not.i, label %46, label %zend_string_release_ex.exit
+44:                                               ; preds = %ps_files_key_exists.exit
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !4
+  %47 = and i32 %46, 64
+  %.not.i = icmp eq i32 %47, 0
+  br i1 %.not.i, label %48, label %zend_string_release_ex.exit
 
-46:                                               ; preds = %42
-  %47 = load i32, ptr %7, align 4, !tbaa !18
-  %48 = icmp ne i32 %47, 0
-  call void @llvm.assume(i1 %48)
-  %49 = add i32 %47, -1
-  store i32 %49, ptr %7, align 4, !tbaa !18
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %zend_string_release_ex.exit
+48:                                               ; preds = %44
+  %49 = load i32, ptr %7, align 4, !tbaa !18
+  %50 = icmp ne i32 %49, 0
+  call void @llvm.assume(i1 %50)
+  %51 = add i32 %49, -1
+  store i32 %51, ptr %7, align 4, !tbaa !18
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %zend_string_release_ex.exit
 
-51:                                               ; preds = %46
+53:                                               ; preds = %48
   call void @_efree(ptr noundef nonnull %7) #15
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %42, %46, %51
-  %52 = icmp slt i32 %.0, 1
-  br i1 %52, label %.thread, label %53
+zend_string_release_ex.exit:                      ; preds = %44, %48, %53
+  %54 = icmp slt i32 %.0, 1
+  br i1 %54, label %.thread, label %55
 
-53:                                               ; preds = %zend_string_release_ex.exit, %8
+55:                                               ; preds = %zend_string_release_ex.exit, %8
   %.1 = add nsw i32 %.0, -1
   br label %6
 

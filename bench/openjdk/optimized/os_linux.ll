@@ -2208,7 +2208,7 @@ declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZL19thread_native_entryP6Thread(ptr noundef nonnull %0) #0 {
+define internal noalias noundef ptr @_ZL19thread_native_entryP6Thread(ptr noundef nonnull %0) #0 {
   tail call void @_ZN6Thread26record_stack_base_and_sizeEv(ptr noundef nonnull align 8 dereferenceable(888) %0) #26
   tail call void @_ZN6Thread25initialize_thread_currentEv(ptr noundef nonnull align 8 dereferenceable(888) %0) #26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 792

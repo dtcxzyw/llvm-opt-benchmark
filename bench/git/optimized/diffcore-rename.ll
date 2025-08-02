@@ -3184,20 +3184,19 @@ define internal fastcc void @update_dir_rename_counts(ptr noundef nonnull readon
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load i32, ptr %6, align 8, !tbaa !44
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %60, label %8
+  br i1 %.not, label %61, label %8
 
 8:                                                ; preds = %4
   %9 = tail call ptr @xstrdup(ptr noundef %2) #14
   %10 = tail call ptr @xstrdup(ptr noundef nonnull %3) #14
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %invariant.gep = getelementptr i8, ptr %10, i64 1
   %.not47 = icmp eq ptr %1, null
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %14
 
-14:                                               ; preds = %58, %8
-  %15 = phi i1 [ true, %8 ], [ false, %58 ]
+14:                                               ; preds = %59, %8
+  %15 = phi i1 [ true, %8 ], [ false, %59 ]
   %16 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 47) #16
   %.not.i = icmp eq ptr %16, null
   %spec.select.i = select i1 %.not.i, ptr %9, ptr %16
@@ -3216,104 +3215,105 @@ define internal fastcc void @update_dir_rename_counts(ptr noundef nonnull readon
   %.not.i50 = icmp eq ptr %21, null
   %spec.select.i51 = select i1 %.not.i50, ptr %10, ptr %21
   store i8 0, ptr %spec.select.i51, align 1, !tbaa !103
-  br i1 %15, label %32, label %22
+  br i1 %15, label %33, label %22
 
 22:                                               ; preds = %20
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %9)
   %strchr = getelementptr inbounds i8, ptr %9, i64 %strlen
   %23 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
   %strlen41 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %10)
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %strlen41
-  %24 = load i8, ptr %10, align 1, !tbaa !103
-  %.not43 = icmp eq i8 %24, 0
-  br i1 %.not43, label %25, label %30
+  %strchr42 = getelementptr inbounds i8, ptr %10, i64 %strlen41
+  %24 = getelementptr inbounds nuw i8, ptr %strchr42, i64 1
+  %25 = load i8, ptr %10, align 1, !tbaa !103
+  %.not43 = icmp eq i8 %25, 0
+  br i1 %.not43, label %26, label %31
 
-25:                                               ; preds = %22
-  %26 = load i8, ptr %23, align 1, !tbaa !103
-  %.not44 = icmp eq i8 %5, %26
-  br i1 %.not44, label %27, label %.thread
+26:                                               ; preds = %22
+  %27 = load i8, ptr %23, align 1, !tbaa !103
+  %.not44 = icmp eq i8 %5, %27
+  br i1 %.not44, label %28, label %.thread
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %strchr, i64 2
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %gep) #16
-  %.not45 = icmp eq i32 %29, 0
-  br i1 %.not45, label %32, label %.thread
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %strchr, i64 2
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %24) #16
+  %.not45 = icmp eq i32 %30, 0
+  br i1 %.not45, label %33, label %.thread
 
-30:                                               ; preds = %22
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %gep) #16
-  %.not46 = icmp eq i32 %31, 0
-  br i1 %.not46, label %32, label %.thread
+31:                                               ; preds = %22
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %24) #16
+  %.not46 = icmp eq i32 %32, 0
+  br i1 %.not46, label %33, label %.thread
 
-32:                                               ; preds = %30, %27, %20
-  br i1 %.not47, label %strintmap_get.exit, label %33
+33:                                               ; preds = %31, %28, %20
+  br i1 %.not47, label %strintmap_get.exit, label %34
 
-33:                                               ; preds = %32
-  %34 = tail call ptr @strmap_get_entry(ptr noundef nonnull %1, ptr noundef nonnull %9) #14
-  %.not.i52 = icmp eq ptr %34, null
-  br i1 %.not.i52, label %35, label %37
+34:                                               ; preds = %33
+  %35 = tail call ptr @strmap_get_entry(ptr noundef nonnull %1, ptr noundef nonnull %9) #14
+  %.not.i52 = icmp eq ptr %35, null
+  br i1 %.not.i52, label %36, label %38
 
-35:                                               ; preds = %33
-  %36 = load i32, ptr %12, align 8, !tbaa !111
+36:                                               ; preds = %34
+  %37 = load i32, ptr %12, align 8, !tbaa !111
   br label %strintmap_get.exit
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !4
-  %40 = ptrtoint ptr %39 to i64
-  %41 = trunc i64 %40 to i32
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %40 = load ptr, ptr %39, align 8, !tbaa !4
+  %41 = ptrtoint ptr %40 to i64
+  %42 = trunc i64 %41 to i32
   br label %strintmap_get.exit
 
-strintmap_get.exit:                               ; preds = %37, %35, %32
-  %.036 = phi i32 [ 0, %32 ], [ %41, %37 ], [ %36, %35 ]
-  %42 = icmp eq i32 %.036, 2
-  %or.cond = or i1 %15, %42
-  br i1 %or.cond, label %43, label %54
+strintmap_get.exit:                               ; preds = %38, %36, %33
+  %.036 = phi i32 [ 0, %33 ], [ %42, %38 ], [ %37, %36 ]
+  %43 = icmp eq i32 %.036, 2
+  %or.cond = or i1 %15, %43
+  br i1 %or.cond, label %44, label %55
 
-43:                                               ; preds = %strintmap_get.exit
-  %44 = load ptr, ptr %13, align 8, !tbaa !110
-  %45 = tail call ptr @strmap_get_entry(ptr noundef %44, ptr noundef nonnull %9) #14
-  %.not.i53 = icmp eq ptr %45, null
-  br i1 %.not.i53, label %49, label %46
+44:                                               ; preds = %strintmap_get.exit
+  %45 = load ptr, ptr %13, align 8, !tbaa !110
+  %46 = tail call ptr @strmap_get_entry(ptr noundef %45, ptr noundef nonnull %9) #14
+  %.not.i53 = icmp eq ptr %46, null
+  br i1 %.not.i53, label %50, label %47
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !4
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %49 = load ptr, ptr %48, align 8, !tbaa !4
   br label %increment_count.exit
 
-49:                                               ; preds = %43
-  %50 = tail call ptr @xmalloc(i64 noundef 72) #14
-  tail call void @strmap_init_with_options(ptr noundef %50, ptr noundef null, i32 noundef 1) #14
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  store i32 0, ptr %51, align 8, !tbaa !111
-  %52 = load ptr, ptr %13, align 8, !tbaa !110
-  %53 = tail call ptr @strmap_put(ptr noundef %52, ptr noundef nonnull %9, ptr noundef %50) #14
+50:                                               ; preds = %44
+  %51 = tail call ptr @xmalloc(i64 noundef 72) #14
+  tail call void @strmap_init_with_options(ptr noundef %51, ptr noundef null, i32 noundef 1) #14
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  store i32 0, ptr %52, align 8, !tbaa !111
+  %53 = load ptr, ptr %13, align 8, !tbaa !110
+  %54 = tail call ptr @strmap_put(ptr noundef %53, ptr noundef nonnull %9, ptr noundef %51) #14
   br label %increment_count.exit
 
-increment_count.exit:                             ; preds = %46, %49
-  %.0.i54 = phi ptr [ %48, %46 ], [ %50, %49 ]
+increment_count.exit:                             ; preds = %47, %50
+  %.0.i54 = phi ptr [ %49, %47 ], [ %51, %50 ]
   tail call void @strintmap_incr(ptr noundef %.0.i54, ptr noundef nonnull %10, i64 noundef 1) #14
-  br label %54
+  br label %55
 
-54:                                               ; preds = %strintmap_get.exit, %increment_count.exit
-  %55 = icmp eq i32 %.036, 0
-  br i1 %55, label %.thread, label %56
+55:                                               ; preds = %strintmap_get.exit, %increment_count.exit
+  %56 = icmp eq i32 %.036, 0
+  br i1 %56, label %.thread, label %57
 
-56:                                               ; preds = %54
-  %57 = load i8, ptr %9, align 1, !tbaa !103
-  %.not48 = icmp eq i8 %57, 0
-  br i1 %.not48, label %.thread, label %58
+57:                                               ; preds = %55
+  %58 = load i8, ptr %9, align 1, !tbaa !103
+  %.not48 = icmp eq i8 %58, 0
+  br i1 %.not48, label %.thread, label %59
 
-58:                                               ; preds = %56
-  %59 = load i8, ptr %10, align 1, !tbaa !103
-  %.not49 = icmp eq i8 %59, 0
+59:                                               ; preds = %57
+  %60 = load i8, ptr %10, align 1, !tbaa !103
+  %.not49 = icmp eq i8 %60, 0
   br i1 %.not49, label %.thread, label %14
 
-.thread:                                          ; preds = %58, %30, %25, %27, %18, %54, %56
+.thread:                                          ; preds = %59, %31, %26, %28, %18, %55, %57
   tail call void @free(ptr noundef nonnull %9) #14
   tail call void @free(ptr noundef %10) #14
-  br label %60
+  br label %61
 
-60:                                               ; preds = %4, %.thread
+61:                                               ; preds = %4, %.thread
   ret void
 }
 

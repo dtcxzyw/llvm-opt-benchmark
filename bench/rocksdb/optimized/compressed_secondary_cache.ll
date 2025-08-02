@@ -7097,8 +7097,8 @@ define internal void @"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbEN3$_0
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbEN3$_18__invokeEPvPNS_15MemoryAllocatorE"(ptr noundef %0, ptr readnone captures(none) %1) #10 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbEN3$_18__invokeEPvPNS_15MemoryAllocatorE"(ptr noundef %0, ptr readnone captures(none) %1) #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %"_ZZNK7rocksdb24CompressedSecondaryCache9GetHelperEbENK3$_1clEPvPNS_15MemoryAllocatorE.exit", label %4
 

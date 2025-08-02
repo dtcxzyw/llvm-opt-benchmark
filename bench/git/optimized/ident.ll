@@ -591,9 +591,9 @@ define dso_local void @apply_mailmap_to_header(ptr noundef %0, ptr noundef reado
   %8 = alloca %struct.ident_split, align 8
   %9 = alloca %struct.strbuf, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.thread41, label %.preheader48
+  br i1 %.not, label %.critedge, label %.preheader45
 
-.preheader48:                                     ; preds = %3
+.preheader45:                                     ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -602,24 +602,24 @@ define dso_local void @apply_mailmap_to_header(ptr noundef %0, ptr noundef reado
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %16
 
-16:                                               ; preds = %.backedge, %.preheader48
-  %.0 = phi i64 [ 0, %.preheader48 ], [ %.0.be, %.backedge ]
+16:                                               ; preds = %.backedge, %.preheader45
+  %.0 = phi i64 [ 0, %.preheader45 ], [ %.0.be, %.backedge ]
   %17 = load ptr, ptr %10, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.0
   %19 = load i8, ptr %18, align 1, !tbaa !13
-  switch i8 %19, label %.preheader47 [
-    i8 0, label %.thread41
-    i8 10, label %.thread41
+  switch i8 %19, label %.preheader44 [
+    i8 0, label %.critedge
+    i8 10, label %.critedge
   ]
 
-.preheader47:                                     ; preds = %16
+.preheader44:                                     ; preds = %16
   %20 = load ptr, ptr %1, align 8, !tbaa !42
-  %.not3050 = icmp eq ptr %20, null
-  br i1 %.not3050, label %.thread, label %.preheader
+  %.not3047 = icmp eq ptr %20, null
+  br i1 %.not3047, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %.preheader47, %skip_prefix.exit
-  %21 = phi ptr [ %67, %skip_prefix.exit ], [ %20, %.preheader47 ]
-  %.02551 = phi i64 [ %65, %skip_prefix.exit ], [ 0, %.preheader47 ]
+.preheader:                                       ; preds = %.preheader44, %skip_prefix.exit
+  %21 = phi ptr [ %67, %skip_prefix.exit ], [ %20, %.preheader44 ]
+  %.02548 = phi i64 [ %65, %skip_prefix.exit ], [ 0, %.preheader44 ]
   br label %22
 
 22:                                               ; preds = %.preheader, %24
@@ -697,7 +697,7 @@ define dso_local void @apply_mailmap_to_header(ptr noundef %0, ptr noundef reado
   br label %68
 
 skip_prefix.exit:                                 ; preds = %24
-  %65 = add i64 %.02551, 1
+  %65 = add i64 %.02548, 1
   %66 = getelementptr inbounds nuw ptr, ptr %1, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !42
   %.not30 = icmp eq ptr %67, null
@@ -719,7 +719,7 @@ skip_prefix.exit:                                 ; preds = %24
   %.0.be = phi i64 [ %71, %68 ], [ %spec.select, %.thread ]
   br label %16
 
-.thread:                                          ; preds = %skip_prefix.exit, %.preheader47
+.thread:                                          ; preds = %skip_prefix.exit, %.preheader44
   %72 = call ptr @strchrnul(ptr noundef nonnull %18, i32 noundef 10) #20
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %17 to i64
@@ -731,7 +731,7 @@ skip_prefix.exit:                                 ; preds = %24
   %spec.select = add i64 %75, %79
   br label %.backedge
 
-.thread41:                                        ; preds = %16, %16, %3
+.critedge:                                        ; preds = %16, %16, %3
   ret void
 }
 
@@ -752,7 +752,7 @@ define dso_local ptr @fmt_ident(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %13 = xor i32 %12, 1
   store i32 %13, ptr @fmt_ident.index, align 4, !tbaa !4
   %.not72 = icmp eq ptr %1, null
-  br i1 %.not72, label %14, label %.thread101
+  br i1 %.not72, label %14, label %.thread105
 
 14:                                               ; preds = %5
   %15 = icmp eq i32 %2, 1
@@ -772,7 +772,7 @@ select.unfold:                                    ; preds = %14, %18
   %.064.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @git_committer_email, i64 16), %18 ], [ getelementptr inbounds nuw (i8, ptr @git_author_email, i64 16), %14 ]
   %.064 = load ptr, ptr %.064.in, align 8
   %.not73 = icmp eq ptr %.064, null
-  br i1 %.not73, label %.thread, label %.thread101
+  br i1 %.not73, label %.thread, label %.thread105
 
 .thread:                                          ; preds = %18, %select.unfold
   %22 = icmp ne i32 %6, 0
@@ -795,9 +795,9 @@ select.unfold:                                    ; preds = %14, %18
 
 30:                                               ; preds = %25, %.thread
   %31 = tail call ptr @ident_default_email()
-  %.b118 = load i1, ptr @default_email_is_bogus, align 4
-  %or.cond7 = select i1 %22, i1 %.b118, i1 false
-  br i1 %or.cond7, label %32, label %.thread101
+  %.b123 = load i1, ptr @default_email_is_bogus, align 4
+  %or.cond7 = select i1 %22, i1 %.b123, i1 false
+  br i1 %or.cond7, label %32, label %.thread105
 
 32:                                               ; preds = %30
   tail call fastcc void @ident_env_hint(i32 noundef %2)
@@ -805,42 +805,42 @@ select.unfold:                                    ; preds = %14, %18
   tail call void (ptr, ...) @die(ptr noundef %33, ptr noundef %31) #21
   unreachable
 
-.thread101:                                       ; preds = %5, %30, %select.unfold
+.thread105:                                       ; preds = %5, %30, %select.unfold
   %.165 = phi ptr [ %.064, %select.unfold ], [ %31, %30 ], [ %1, %5 ]
-  br i1 %.not71, label %34, label %has_non_crud.exit
+  br i1 %.not71, label %34, label %.critedge
 
-34:                                               ; preds = %.thread101
+34:                                               ; preds = %.thread105
   %.not75 = icmp eq ptr %0, null
-  br i1 %.not75, label %35, label %.thread110
+  br i1 %.not75, label %35, label %.thread114
 
 35:                                               ; preds = %34
   %36 = icmp eq i32 %2, 1
   %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_author_name, i64 8), align 8
   %38 = icmp ne i64 %37, 0
   %or.cond9 = select i1 %36, i1 %38, i1 false
-  br i1 %or.cond9, label %select.unfold104, label %39
+  br i1 %or.cond9, label %select.unfold108, label %39
 
 39:                                               ; preds = %35
   %40 = icmp eq i32 %2, 2
   %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_committer_name, i64 8), align 8
   %42 = icmp ne i64 %41, 0
   %or.cond11 = select i1 %40, i1 %42, i1 false
-  br i1 %or.cond11, label %select.unfold104, label %.thread105
+  br i1 %or.cond11, label %select.unfold108, label %.thread109
 
-select.unfold104:                                 ; preds = %35, %39
+select.unfold108:                                 ; preds = %35, %39
   %.1.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @git_committer_name, i64 16), %39 ], [ getelementptr inbounds nuw (i8, ptr @git_author_name, i64 16), %35 ]
   %.1 = load ptr, ptr %.1.in, align 8
   %.not76.not = icmp eq ptr %.1, null
-  br i1 %.not76.not, label %.thread105, label %.thread110
+  br i1 %.not76.not, label %.thread109, label %.thread114
 
-.thread105:                                       ; preds = %39, %select.unfold104
+.thread109:                                       ; preds = %39, %select.unfold108
   %43 = icmp ne i32 %6, 0
   %44 = load i32, ptr @ident_use_config_only, align 4
   %45 = icmp ne i32 %44, 0
   %or.cond13 = select i1 %43, i1 %45, i1 false
   br i1 %or.cond13, label %46, label %51
 
-46:                                               ; preds = %.thread105
+46:                                               ; preds = %.thread109
   %47 = load i32, ptr @ident_config_given, align 4, !tbaa !4
   %48 = and i32 %47, 1
   %.not77 = icmp eq i32 %48, 0
@@ -852,11 +852,11 @@ select.unfold104:                                 ; preds = %35, %39
   tail call void (ptr, ...) @die(ptr noundef %50) #21
   unreachable
 
-51:                                               ; preds = %46, %.thread105
+51:                                               ; preds = %46, %.thread109
   %52 = tail call ptr @ident_default_name()
   %.b = load i1, ptr @default_name_is_bogus, align 4
   %or.cond15 = select i1 %43, i1 %.b, i1 false
-  br i1 %or.cond15, label %53, label %.thread110
+  br i1 %or.cond15, label %53, label %.thread114
 
 53:                                               ; preds = %51
   tail call fastcc void @ident_env_hint(i32 noundef %2)
@@ -864,19 +864,19 @@ select.unfold104:                                 ; preds = %35, %39
   tail call void (ptr, ...) @die(ptr noundef %54, ptr noundef %52) #21
   unreachable
 
-.thread110:                                       ; preds = %34, %51, %select.unfold104
-  %.not76.not108 = phi i1 [ false, %select.unfold104 ], [ true, %51 ], [ false, %34 ]
-  %.2 = phi ptr [ %.1, %select.unfold104 ], [ %52, %51 ], [ %0, %34 ]
+.thread114:                                       ; preds = %34, %51, %select.unfold108
+  %.not76.not112 = phi i1 [ false, %select.unfold108 ], [ true, %51 ], [ false, %34 ]
+  %.2 = phi ptr [ %.1, %select.unfold108 ], [ %52, %51 ], [ %0, %34 ]
   %55 = load i8, ptr %.2, align 1, !tbaa !13
   %.not78 = icmp eq i8 %55, 0
   %.not79 = icmp eq i32 %6, 0
   br i1 %.not78, label %56, label %66
 
-56:                                               ; preds = %.thread110
+56:                                               ; preds = %.thread114
   br i1 %.not79, label %61, label %57
 
 57:                                               ; preds = %56
-  br i1 %.not76.not108, label %58, label %59
+  br i1 %.not76.not112, label %58, label %59
 
 58:                                               ; preds = %57
   tail call fastcc void @ident_env_hint(i32 noundef %2)
@@ -893,9 +893,9 @@ select.unfold104:                                 ; preds = %35, %39
   %63 = tail call i32 @getuid() #19
   %64 = tail call ptr @getpwuid(i32 noundef %63) #19
   %.not.i = icmp eq ptr %64, null
-  br i1 %.not.i, label %65, label %..thread113_crit_edge
+  br i1 %.not.i, label %65, label %..thread117_crit_edge
 
-..thread113_crit_edge:                            ; preds = %61
+..thread117_crit_edge:                            ; preds = %61
   %.pre = load ptr, ptr %64, align 8, !tbaa !12
   br label %has_non_crud.exit
 
@@ -904,7 +904,7 @@ select.unfold104:                                 ; preds = %35, %39
   store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @xgetpwuid_self.fallback, i64 24), align 8, !tbaa !8
   br label %has_non_crud.exit
 
-66:                                               ; preds = %.thread110
+66:                                               ; preds = %.thread114
   br i1 %.not79, label %has_non_crud.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %66, %crud.exit.thread.i
@@ -928,45 +928,58 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i
 crud.exit.thread.i:                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i
   %69 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !13
-  %.not.i86 = icmp eq i8 %70, 0
-  br i1 %.not.i86, label %.loopexit, label %.lr.ph.i, !llvm.loop !46
+  %.not.i88 = icmp eq i8 %70, 0
+  br i1 %.not.i88, label %.loopexit, label %.lr.ph.i, !llvm.loop !46
 
 .loopexit:                                        ; preds = %crud.exit.thread.i
   %71 = tail call fastcc ptr @_(ptr noundef nonnull @.str.7)
   tail call void (ptr, ...) @die(ptr noundef %71, ptr noundef nonnull %.2) #21
   unreachable
 
-has_non_crud.exit:                                ; preds = %switch.early.test.i.i, %65, %..thread113_crit_edge, %66, %.thread101
-  %.0 = phi ptr [ %0, %.thread101 ], [ %.2, %66 ], [ %.pre, %..thread113_crit_edge ], [ @.str.17, %65 ], [ %.2, %switch.early.test.i.i ]
+has_non_crud.exit:                                ; preds = %switch.early.test.i.i, %65, %..thread117_crit_edge, %66
+  %.3120 = phi ptr [ %.2, %66 ], [ %.pre, %..thread117_crit_edge ], [ @.str.17, %65 ], [ %.2, %switch.early.test.i.i ]
   %72 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %72, align 8, !tbaa !17
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !18
   %.not9.i = icmp eq ptr %74, @strbuf_slopbuf
-  br i1 %.not9.i, label %strbuf_setlen.exit, label %75
+  br i1 %.not9.i, label %strbuf_setlen.exit90, label %75
 
 75:                                               ; preds = %has_non_crud.exit
   store i8 0, ptr %74, align 1, !tbaa !13
-  br label %strbuf_setlen.exit
+  br label %strbuf_setlen.exit90
 
-strbuf_setlen.exit:                               ; preds = %has_non_crud.exit, %75
-  br i1 %.not71, label %76, label %.critedge
+.critedge:                                        ; preds = %.thread105
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 0, ptr %76, align 8, !tbaa !17
+  %77 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %78 = load ptr, ptr %77, align 8, !tbaa !18
+  %.not9.i89 = icmp eq ptr %78, @strbuf_slopbuf
+  br i1 %.not9.i89, label %strbuf_setlen.exit90.thread, label %79
 
-76:                                               ; preds = %strbuf_setlen.exit
-  tail call fastcc void @strbuf_addstr_without_crud(ptr noundef nonnull %11, ptr noundef %.0)
+79:                                               ; preds = %.critedge
+  store i8 0, ptr %78, align 1, !tbaa !13
+  br label %strbuf_setlen.exit90.thread
+
+strbuf_setlen.exit90.thread:                      ; preds = %79, %.critedge
+  tail call fastcc void @strbuf_addstr_without_crud(ptr noundef nonnull %11, ptr noundef %.165)
+  br label %88
+
+strbuf_setlen.exit90:                             ; preds = %has_non_crud.exit, %75
+  tail call fastcc void @strbuf_addstr_without_crud(ptr noundef nonnull %11, ptr noundef %.3120)
   tail call void @strbuf_add(ptr noundef nonnull %11, ptr noundef nonnull @.str.8, i64 noundef 2) #19
   tail call fastcc void @strbuf_addstr_without_crud(ptr noundef nonnull %11, ptr noundef %.165)
-  %77 = load i64, ptr %11, align 8, !tbaa !14
-  %.not.i.i = icmp eq i64 %77, 0
+  %80 = load i64, ptr %11, align 8, !tbaa !14
+  %.not.i.i = icmp eq i64 %80, 0
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
-strbuf_avail.exit.i:                              ; preds = %76
-  %78 = load i64, ptr %72, align 8, !tbaa !17
-  %.neg.i = add i64 %78, 1
-  %.not.i87 = icmp eq i64 %77, %.neg.i
-  br i1 %.not.i87, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
+strbuf_avail.exit.i:                              ; preds = %strbuf_setlen.exit90
+  %81 = load i64, ptr %72, align 8, !tbaa !17
+  %.neg.i = add i64 %81, 1
+  %.not.i91 = icmp eq i64 %80, %.neg.i
+  br i1 %.not.i91, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
-strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %76
+strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %strbuf_setlen.exit90
   tail call void @strbuf_grow(ptr noundef nonnull %11, i64 noundef 1) #19
   %.pre.i = load i64, ptr %72, align 8, !tbaa !17
   %.pre7.i = add i64 %.pre.i, 1
@@ -974,88 +987,89 @@ strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %strbuf_avail.exit.thread.i
   %.pre-phi.i = phi i64 [ %.pre7.i, %strbuf_avail.exit.thread.i ], [ %.neg.i, %strbuf_avail.exit.i ]
-  %79 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %78, %strbuf_avail.exit.i ]
-  %80 = load ptr, ptr %73, align 8, !tbaa !18
+  %82 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %81, %strbuf_avail.exit.i ]
+  %83 = load ptr, ptr %73, align 8, !tbaa !18
   store i64 %.pre-phi.i, ptr %72, align 8, !tbaa !17
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %79
-  store i8 62, ptr %81, align 1, !tbaa !13
-  %82 = load ptr, ptr %73, align 8, !tbaa !18
-  %83 = load i64, ptr %72, align 8, !tbaa !17
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %83
-  store i8 0, ptr %84, align 1, !tbaa !13
-  br label %85
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %82
+  store i8 62, ptr %84, align 1, !tbaa !13
+  %85 = load ptr, ptr %73, align 8, !tbaa !18
+  %86 = load i64, ptr %72, align 8, !tbaa !17
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 %86
+  store i8 0, ptr %87, align 1, !tbaa !13
+  br label %88
 
-.critedge:                                        ; preds = %strbuf_setlen.exit
-  tail call fastcc void @strbuf_addstr_without_crud(ptr noundef nonnull %11, ptr noundef %.165)
-  br label %85
+88:                                               ; preds = %strbuf_setlen.exit90.thread, %strbuf_addch.exit
+  br i1 %.not, label %89, label %113
 
-85:                                               ; preds = %.critedge, %strbuf_addch.exit
-  br i1 %.not, label %86, label %107
+89:                                               ; preds = %88
+  %90 = load i64, ptr %11, align 8, !tbaa !14
+  %.not.i.i92 = icmp eq i64 %90, 0
+  br i1 %.not.i.i92, label %strbuf_avail.exit.thread.i97, label %strbuf_avail.exit.i93
 
-86:                                               ; preds = %85
-  %87 = load i64, ptr %11, align 8, !tbaa !14
-  %.not.i.i88 = icmp eq i64 %87, 0
-  br i1 %.not.i.i88, label %strbuf_avail.exit.thread.i93, label %strbuf_avail.exit.i89
+strbuf_avail.exit.i93:                            ; preds = %89
+  %91 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %92 = load i64, ptr %91, align 8, !tbaa !17
+  %.neg.i94 = add i64 %92, 1
+  %.not.i95 = icmp eq i64 %90, %.neg.i94
+  br i1 %.not.i95, label %strbuf_avail.exit.thread.i97, label %strbuf_addch.exit101
 
-strbuf_avail.exit.i89:                            ; preds = %86
-  %88 = load i64, ptr %72, align 8, !tbaa !17
-  %.neg.i90 = add i64 %88, 1
-  %.not.i91 = icmp eq i64 %87, %.neg.i90
-  br i1 %.not.i91, label %strbuf_avail.exit.thread.i93, label %strbuf_addch.exit97
-
-strbuf_avail.exit.thread.i93:                     ; preds = %strbuf_avail.exit.i89, %86
+strbuf_avail.exit.thread.i97:                     ; preds = %strbuf_avail.exit.i93, %89
   tail call void @strbuf_grow(ptr noundef nonnull %11, i64 noundef 1) #19
-  %.pre.i95 = load i64, ptr %72, align 8, !tbaa !17
-  %.pre7.i96 = add i64 %.pre.i95, 1
-  br label %strbuf_addch.exit97
+  %.phi.trans.insert.i98 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.pre.i99 = load i64, ptr %.phi.trans.insert.i98, align 8, !tbaa !17
+  %.pre7.i100 = add i64 %.pre.i99, 1
+  br label %strbuf_addch.exit101
 
-strbuf_addch.exit97:                              ; preds = %strbuf_avail.exit.i89, %strbuf_avail.exit.thread.i93
-  %.pre-phi.i92 = phi i64 [ %.pre7.i96, %strbuf_avail.exit.thread.i93 ], [ %.neg.i90, %strbuf_avail.exit.i89 ]
-  %89 = phi i64 [ %.pre.i95, %strbuf_avail.exit.thread.i93 ], [ %88, %strbuf_avail.exit.i89 ]
-  %90 = load ptr, ptr %73, align 8, !tbaa !18
-  store i64 %.pre-phi.i92, ptr %72, align 8, !tbaa !17
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %89
-  store i8 32, ptr %91, align 1, !tbaa !13
-  %92 = load ptr, ptr %73, align 8, !tbaa !18
-  %93 = load i64, ptr %72, align 8, !tbaa !17
-  %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
-  store i8 0, ptr %94, align 1, !tbaa !13
+strbuf_addch.exit101:                             ; preds = %strbuf_avail.exit.i93, %strbuf_avail.exit.thread.i97
+  %.pre-phi.i96 = phi i64 [ %.pre7.i100, %strbuf_avail.exit.thread.i97 ], [ %.neg.i94, %strbuf_avail.exit.i93 ]
+  %93 = phi i64 [ %.pre.i99, %strbuf_avail.exit.thread.i97 ], [ %92, %strbuf_avail.exit.i93 ]
+  %94 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %95 = load ptr, ptr %94, align 8, !tbaa !18
+  %96 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %.pre-phi.i96, ptr %96, align 8, !tbaa !17
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 %93
+  store i8 32, ptr %97, align 1, !tbaa !13
+  %98 = load ptr, ptr %94, align 8, !tbaa !18
+  %99 = load i64, ptr %96, align 8, !tbaa !17
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 %99
+  store i8 0, ptr %100, align 1, !tbaa !13
   %.not83 = icmp eq ptr %3, null
-  br i1 %.not83, label %102, label %95
+  br i1 %.not83, label %108, label %101
 
-95:                                               ; preds = %strbuf_addch.exit97
-  %96 = load i8, ptr %3, align 1, !tbaa !13
-  %.not84 = icmp eq i8 %96, 0
-  br i1 %.not84, label %102, label %97
+101:                                              ; preds = %strbuf_addch.exit101
+  %102 = load i8, ptr %3, align 1, !tbaa !13
+  %.not84 = icmp eq i8 %102, 0
+  br i1 %.not84, label %108, label %103
 
-97:                                               ; preds = %95
-  %98 = tail call i32 @parse_date(ptr noundef nonnull %3, ptr noundef nonnull %11) #19
-  %99 = icmp slt i32 %98, 0
-  br i1 %99, label %100, label %107
+103:                                              ; preds = %101
+  %104 = tail call i32 @parse_date(ptr noundef nonnull %3, ptr noundef nonnull %11) #19
+  %105 = icmp slt i32 %104, 0
+  br i1 %105, label %106, label %113
 
-100:                                              ; preds = %97
-  %101 = tail call fastcc ptr @_(ptr noundef nonnull @.str.9)
-  tail call void (ptr, ...) @die(ptr noundef %101, ptr noundef nonnull %3) #21
+106:                                              ; preds = %103
+  %107 = tail call fastcc ptr @_(ptr noundef nonnull @.str.9)
+  tail call void (ptr, ...) @die(ptr noundef %107, ptr noundef nonnull %3) #21
   unreachable
 
-102:                                              ; preds = %95, %strbuf_addch.exit97
-  %103 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_date, i64 8), align 8, !tbaa !17
-  %.not.i98 = icmp eq i64 %103, 0
-  br i1 %.not.i98, label %104, label %ident_default_date.exit
+108:                                              ; preds = %101, %strbuf_addch.exit101
+  %109 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_date, i64 8), align 8, !tbaa !17
+  %.not.i102 = icmp eq i64 %109, 0
+  br i1 %.not.i102, label %110, label %ident_default_date.exit
 
-104:                                              ; preds = %102
+110:                                              ; preds = %108
   tail call void @datestamp(ptr noundef nonnull @git_default_date) #19
   br label %ident_default_date.exit
 
-ident_default_date.exit:                          ; preds = %102, %104
-  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_date, i64 16), align 8, !tbaa !18
-  %106 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #20
-  tail call void @strbuf_add(ptr noundef nonnull %11, ptr noundef nonnull %105, i64 noundef %106) #19
-  br label %107
+ident_default_date.exit:                          ; preds = %108, %110
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_date, i64 16), align 8, !tbaa !18
+  %112 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #20
+  tail call void @strbuf_add(ptr noundef nonnull %11, ptr noundef nonnull %111, i64 noundef %112) #19
+  br label %113
 
-107:                                              ; preds = %ident_default_date.exit, %97, %85
-  %108 = load ptr, ptr %73, align 8, !tbaa !18
-  ret ptr %108
+113:                                              ; preds = %ident_default_date.exit, %103, %88
+  %114 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %115 = load ptr, ptr %114, align 8, !tbaa !18
+  ret ptr %115
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1158,19 +1172,19 @@ crud.exit.thread:                                 ; preds = %switch.early.test.i
 switch.early.test.i._crit_edge:                   ; preds = %crud.exit.thread, %switch.early.test.i, %2
   %.021.lcssa = phi ptr [ %1, %2 ], [ %.02132, %switch.early.test.i ], [ %6, %crud.exit.thread ]
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.021.lcssa) #20
-  %invariant.gep = getelementptr i8, ptr %.021.lcssa, i64 -1
   %.not2334 = icmp eq i64 %8, 0
   br i1 %.not2334, label %switch.early.test.i25._crit_edge.thread, label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %switch.early.test.i._crit_edge, %crud.exit26.thread
-  %.035 = phi i64 [ %11, %crud.exit26.thread ], [ %8, %switch.early.test.i._crit_edge ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.035
-  %9 = load i8, ptr %gep, align 1, !tbaa !13
-  %10 = icmp ult i8 %9, 33
-  br i1 %10, label %crud.exit26.thread, label %switch.early.test.i25
+  %.035 = phi i64 [ %13, %crud.exit26.thread ], [ %8, %switch.early.test.i._crit_edge ]
+  %9 = getelementptr i8, ptr %.021.lcssa, i64 %.035
+  %10 = getelementptr i8, ptr %9, i64 -1
+  %11 = load i8, ptr %10, align 1, !tbaa !13
+  %12 = icmp ult i8 %11, 33
+  br i1 %12, label %crud.exit26.thread, label %switch.early.test.i25
 
 switch.early.test.i25:                            ; preds = %.lr.ph37
-  switch i8 %9, label %.lr.ph44 [
+  switch i8 %11, label %.lr.ph44 [
     i8 92, label %crud.exit26.thread
     i8 62, label %crud.exit26.thread
     i8 60, label %crud.exit26.thread
@@ -1182,8 +1196,8 @@ switch.early.test.i25:                            ; preds = %.lr.ph37
   ]
 
 crud.exit26.thread:                               ; preds = %switch.early.test.i25, %switch.early.test.i25, %switch.early.test.i25, %switch.early.test.i25, %switch.early.test.i25, %switch.early.test.i25, %switch.early.test.i25, %switch.early.test.i25, %.lr.ph37
-  %11 = add i64 %.035, -1
-  %.not23 = icmp eq i64 %11, 0
+  %13 = add i64 %.035, -1
+  %.not23 = icmp eq i64 %13, 0
   br i1 %.not23, label %switch.early.test.i25._crit_edge.thread, label %.lr.ph37, !llvm.loop !50
 
 switch.early.test.i25._crit_edge.thread:          ; preds = %crud.exit26.thread, %switch.early.test.i._crit_edge
@@ -1192,42 +1206,42 @@ switch.early.test.i25._crit_edge.thread:          ; preds = %crud.exit26.thread,
 
 .lr.ph44:                                         ; preds = %switch.early.test.i25
   tail call void @strbuf_grow(ptr noundef %0, i64 noundef %.035) #19
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %14
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %16
 
-14:                                               ; preds = %.lr.ph44, %22
-  %.02042 = phi i64 [ 0, %.lr.ph44 ], [ %23, %22 ]
-  %.141 = phi ptr [ %.021.lcssa, %.lr.ph44 ], [ %15, %22 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.141, i64 1
-  %16 = load i8, ptr %.141, align 1, !tbaa !13
-  switch i8 %16, label %17 [
-    i8 10, label %22
-    i8 60, label %22
-    i8 62, label %22
+16:                                               ; preds = %.lr.ph44, %24
+  %.02042 = phi i64 [ 0, %.lr.ph44 ], [ %25, %24 ]
+  %.141 = phi ptr [ %.021.lcssa, %.lr.ph44 ], [ %17, %24 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.141, i64 1
+  %18 = load i8, ptr %.141, align 1, !tbaa !13
+  switch i8 %18, label %19 [
+    i8 10, label %24
+    i8 60, label %24
+    i8 62, label %24
   ]
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr %12, align 8, !tbaa !18
-  %19 = load i64, ptr %13, align 8, !tbaa !17
-  %20 = add i64 %19, 1
-  store i64 %20, ptr %13, align 8, !tbaa !17
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %19
-  store i8 %16, ptr %21, align 1, !tbaa !13
-  br label %22
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %14, align 8, !tbaa !18
+  %21 = load i64, ptr %15, align 8, !tbaa !17
+  %22 = add i64 %21, 1
+  store i64 %22, ptr %15, align 8, !tbaa !17
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  store i8 %18, ptr %23, align 1, !tbaa !13
+  br label %24
 
-22:                                               ; preds = %14, %14, %14, %17
-  %23 = add nuw i64 %.02042, 1
-  %exitcond.not = icmp eq i64 %23, %.035
-  br i1 %exitcond.not, label %._crit_edge45, label %14, !llvm.loop !51
+24:                                               ; preds = %16, %16, %16, %19
+  %25 = add nuw i64 %.02042, 1
+  %exitcond.not = icmp eq i64 %25, %.035
+  br i1 %exitcond.not, label %._crit_edge45, label %16, !llvm.loop !51
 
-._crit_edge45:                                    ; preds = %22, %switch.early.test.i25._crit_edge.thread
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !17
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %27
-  store i8 0, ptr %28, align 1, !tbaa !13
+._crit_edge45:                                    ; preds = %24, %switch.early.test.i25._crit_edge.thread
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !18
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = load i64, ptr %28, align 8, !tbaa !17
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
+  store i8 0, ptr %30, align 1, !tbaa !13
   ret void
 }
 

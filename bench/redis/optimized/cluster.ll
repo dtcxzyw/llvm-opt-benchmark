@@ -476,12 +476,12 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %60
   %14 = phi i32 [ %62, %60 ], [ %8, %1 ]
-  %.0154 = phi i64 [ %.2, %60 ], [ -1, %1 ]
-  %.095153 = phi i32 [ %61, %60 ], [ 4, %1 ]
-  %.098152 = phi i32 [ %.2100, %60 ], [ 0, %1 ]
-  %.0101151 = phi i32 [ %.2103, %60 ], [ 0, %1 ]
+  %.0149 = phi i64 [ %.2, %60 ], [ -1, %1 ]
+  %.095148 = phi i32 [ %61, %60 ], [ 4, %1 ]
+  %.098147 = phi i32 [ %.2100, %60 ], [ 0, %1 ]
+  %.0101146 = phi i32 [ %.2103, %60 ], [ 0, %1 ]
   %15 = load ptr, ptr %10, align 8, !tbaa !58
-  %16 = sext i32 %.095153 to i64
+  %16 = sext i32 %.095148 to i64
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !59
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -498,7 +498,7 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
 24:                                               ; preds = %22
   %25 = call i32 @strcasecmp(ptr noundef %20, ptr noundef nonnull @.str.5) #18
   %26 = icmp eq i32 %25, 0
-  %27 = sub i32 %.095153, %14
+  %27 = sub i32 %.095148, %14
   %28 = icmp slt i32 %27, -1
   %or.cond = and i1 %28, %26
   %29 = load i64, ptr %4, align 8
@@ -507,13 +507,13 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond3, label %31, label %44
 
 31:                                               ; preds = %24
-  %32 = add nsw i32 %.095153, 1
+  %32 = add nsw i32 %.095148, 1
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds ptr, ptr %15, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !59
   %36 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull %5, ptr noundef null) #16
   %.not123 = icmp eq i32 %36, 0
-  br i1 %.not123, label %37, label %.thread
+  br i1 %.not123, label %37, label %.critedge
 
 37:                                               ; preds = %31
   %38 = load i64, ptr %5, align 8, !tbaa !62
@@ -522,7 +522,7 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 40:                                               ; preds = %37
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #16
-  br label %.thread
+  br label %.critedge
 
 41:                                               ; preds = %37
   %42 = call i32 @LRU_CLOCK() #16
@@ -539,13 +539,13 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond7, label %49, label %58
 
 49:                                               ; preds = %44
-  %50 = add nsw i32 %.095153, 1
+  %50 = add nsw i32 %.095148, 1
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds ptr, ptr %15, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !59
   %54 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %53, ptr noundef nonnull %4, ptr noundef null) #16
   %.not122 = icmp eq i32 %54, 0
-  br i1 %.not122, label %55, label %.thread
+  br i1 %.not122, label %55, label %.critedge
 
 55:                                               ; preds = %49
   %56 = load i64, ptr %4, align 8, !tbaa !62
@@ -554,18 +554,18 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 57:                                               ; preds = %55
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #16
-  br label %.thread
+  br label %.critedge
 
 58:                                               ; preds = %44
   %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !66
   call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %59) #16
-  br label %.thread
+  br label %.critedge
 
 60:                                               ; preds = %55, %22, %.lr.ph, %41
-  %.2103 = phi i32 [ %.0101151, %41 ], [ %.0101151, %.lr.ph ], [ 1, %22 ], [ %.0101151, %55 ]
-  %.2100 = phi i32 [ %.098152, %41 ], [ 1, %.lr.ph ], [ %.098152, %22 ], [ %.098152, %55 ]
-  %.297 = phi i32 [ %32, %41 ], [ %.095153, %.lr.ph ], [ %.095153, %22 ], [ %50, %55 ]
-  %.2 = phi i64 [ %43, %41 ], [ %.0154, %.lr.ph ], [ %.0154, %22 ], [ %.0154, %55 ]
+  %.2103 = phi i32 [ %.0101146, %41 ], [ %.0101146, %.lr.ph ], [ 1, %22 ], [ %.0101146, %55 ]
+  %.2100 = phi i32 [ %.098147, %41 ], [ 1, %.lr.ph ], [ %.098147, %22 ], [ %.098147, %55 ]
+  %.297 = phi i32 [ %32, %41 ], [ %.095148, %.lr.ph ], [ %.095148, %22 ], [ %50, %55 ]
+  %.2 = phi i64 [ %43, %41 ], [ %.0149, %.lr.ph ], [ %.0149, %22 ], [ %.0149, %55 ]
   %61 = add nsw i32 %.297, 1
   %62 = load i32, ptr %7, align 8, !tbaa !63
   %63 = icmp slt i32 %61, %62
@@ -583,35 +583,35 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
 70:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %71 = phi ptr [ %13, %._crit_edge.thread ], [ %69, %._crit_edge ]
   %72 = phi ptr [ %10, %._crit_edge.thread ], [ %66, %._crit_edge ]
-  %.0.lcssa170 = phi i64 [ -1, %._crit_edge.thread ], [ %.2, %._crit_edge ]
-  %.0101.lcssa166 = phi i1 [ false, %._crit_edge.thread ], [ %65, %._crit_edge ]
+  %.0.lcssa165 = phi i64 [ -1, %._crit_edge.thread ], [ %.2, %._crit_edge ]
+  %.0101.lcssa161 = phi i1 [ false, %._crit_edge.thread ], [ %65, %._crit_edge ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %74 = load ptr, ptr %73, align 8, !tbaa !47
   %75 = call ptr @lookupKeyWrite(ptr noundef %74, ptr noundef %71) #16
   %.not112 = icmp eq ptr %75, null
-  br i1 %.not112, label %._crit_edge157, label %76
+  br i1 %.not112, label %._crit_edge152, label %76
 
-._crit_edge157:                                   ; preds = %70
+._crit_edge152:                                   ; preds = %70
   %.pre = load ptr, ptr %72, align 8, !tbaa !58
   br label %78
 
 76:                                               ; preds = %70
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 328), align 8, !tbaa !69
   call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %77) #16
-  br label %.thread
+  br label %.critedge
 
-78:                                               ; preds = %._crit_edge157, %._crit_edge
-  %79 = phi ptr [ %71, %._crit_edge157 ], [ %69, %._crit_edge ]
-  %80 = phi ptr [ %72, %._crit_edge157 ], [ %66, %._crit_edge ]
-  %.0.lcssa169 = phi i64 [ %.0.lcssa170, %._crit_edge157 ], [ %.2, %._crit_edge ]
-  %.098.lcssa167 = phi i1 [ true, %._crit_edge157 ], [ false, %._crit_edge ]
-  %.0101.lcssa165 = phi i1 [ %.0101.lcssa166, %._crit_edge157 ], [ %65, %._crit_edge ]
-  %81 = phi ptr [ %.pre, %._crit_edge157 ], [ %67, %._crit_edge ]
+78:                                               ; preds = %._crit_edge152, %._crit_edge
+  %79 = phi ptr [ %71, %._crit_edge152 ], [ %69, %._crit_edge ]
+  %80 = phi ptr [ %72, %._crit_edge152 ], [ %66, %._crit_edge ]
+  %.0.lcssa164 = phi i64 [ %.0.lcssa165, %._crit_edge152 ], [ %.2, %._crit_edge ]
+  %.098.lcssa162 = phi i1 [ true, %._crit_edge152 ], [ false, %._crit_edge ]
+  %.0101.lcssa160 = phi i1 [ %.0101.lcssa161, %._crit_edge152 ], [ %65, %._crit_edge ]
+  %81 = phi ptr [ %.pre, %._crit_edge152 ], [ %67, %._crit_edge ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !59
   %84 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %83, ptr noundef nonnull %3, ptr noundef null) #16
   %.not113 = icmp eq i32 %84, 0
-  br i1 %.not113, label %85, label %.thread
+  br i1 %.not113, label %85, label %.critedge
 
 85:                                               ; preds = %78
   %86 = load i64, ptr %3, align 8, !tbaa !62
@@ -620,7 +620,7 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 88:                                               ; preds = %85
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #16
-  br label %.thread
+  br label %.critedge
 
 89:                                               ; preds = %85
   %90 = load ptr, ptr %80, align 8, !tbaa !58
@@ -688,9 +688,9 @@ sdslen.exit:                                      ; preds = %99, %102, %106, %11
 123:                                              ; preds = %118
   %124 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6324), align 4, !tbaa !46
   %.not14.i = icmp eq i32 %124, 0
-  br i1 %.not14.i, label %verifyDumpPayload.exit, label %verifyDumpPayload.exit.thread132
+  br i1 %.not14.i, label %verifyDumpPayload.exit, label %verifyDumpPayload.exit.thread127
 
-verifyDumpPayload.exit.thread132:                 ; preds = %123
+verifyDumpPayload.exit.thread127:                 ; preds = %123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
   br label %129
 
@@ -704,24 +704,24 @@ verifyDumpPayload.exit:                           ; preds = %123
   store i64 %126, ptr %2, align 8, !tbaa !45
   %127 = getelementptr i8, ptr %119, i64 -8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %2, ptr noundef nonnull dereferenceable(8) %127, i64 8)
-  %.not134 = icmp eq i32 %bcmp.i, 0
+  %.not129 = icmp eq i32 %bcmp.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  br i1 %.not134, label %verifyDumpPayload.exit._crit_edge, label %128
+  br i1 %.not129, label %verifyDumpPayload.exit._crit_edge, label %128
 
 verifyDumpPayload.exit._crit_edge:                ; preds = %verifyDumpPayload.exit
-  %.pre158 = load ptr, ptr %80, align 8, !tbaa !58
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre158, i64 24
-  %.pre159 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
-  %.phi.trans.insert160 = getelementptr inbounds nuw i8, ptr %.pre159, i64 8
-  %.pre161 = load ptr, ptr %.phi.trans.insert160, align 8, !tbaa !64
+  %.pre153 = load ptr, ptr %80, align 8, !tbaa !58
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre153, i64 24
+  %.pre154 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
+  %.phi.trans.insert155 = getelementptr inbounds nuw i8, ptr %.pre154, i64 8
+  %.pre156 = load ptr, ptr %.phi.trans.insert155, align 8, !tbaa !64
   br label %129
 
 128:                                              ; preds = %verifyDumpPayload.exit.thread, %verifyDumpPayload.exit
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #16
-  br label %.thread
+  br label %.critedge
 
-129:                                              ; preds = %verifyDumpPayload.exit._crit_edge, %verifyDumpPayload.exit.thread132
-  %130 = phi ptr [ %.pre161, %verifyDumpPayload.exit._crit_edge ], [ %94, %verifyDumpPayload.exit.thread132 ]
+129:                                              ; preds = %verifyDumpPayload.exit._crit_edge, %verifyDumpPayload.exit.thread127
+  %130 = phi ptr [ %.pre156, %verifyDumpPayload.exit._crit_edge ], [ %94, %verifyDumpPayload.exit.thread127 ]
   call void @rioInitWithBuffer(ptr noundef nonnull %6, ptr noundef %130) #16
   %131 = call i32 @rdbLoadObjectType(ptr noundef nonnull %6) #16
   %132 = icmp eq i32 %131, -1
@@ -740,10 +740,10 @@ verifyDumpPayload.exit._crit_edge:                ; preds = %verifyDumpPayload.e
 
 142:                                              ; preds = %133, %129
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #16
-  br label %.thread
+  br label %.critedge
 
 143:                                              ; preds = %133
-  br i1 %.098.lcssa167, label %148, label %144
+  br i1 %.098.lcssa162, label %148, label %144
 
 144:                                              ; preds = %143
   %145 = load ptr, ptr %136, align 8, !tbaa !47
@@ -755,7 +755,7 @@ verifyDumpPayload.exit._crit_edge:                ; preds = %verifyDumpPayload.e
   %.0104 = phi i1 [ %147, %144 ], [ true, %143 ]
   %149 = load i64, ptr %3, align 8, !tbaa !62
   %150 = icmp eq i64 %149, 0
-  %or.cond11 = select i1 %150, i1 true, i1 %.0101.lcssa165
+  %or.cond11 = select i1 %150, i1 true, i1 %.0101.lcssa160
   br i1 %or.cond11, label %155, label %151
 
 151:                                              ; preds = %148
@@ -800,7 +800,7 @@ verifyDumpPayload.exit._crit_edge:                ; preds = %verifyDumpPayload.e
   call void @decrRefCount(ptr noundef nonnull %140) #16
   %172 = load ptr, ptr @shared, align 8, !tbaa !72
   call void @addReply(ptr noundef nonnull %0, ptr noundef %172) #16
-  br label %.thread
+  br label %.critedge
 
 173:                                              ; preds = %157, %155
   %174 = load ptr, ptr %136, align 8, !tbaa !47
@@ -829,7 +829,7 @@ verifyDumpPayload.exit._crit_edge:                ; preds = %verifyDumpPayload.e
 186:                                              ; preds = %184
   %187 = load ptr, ptr %136, align 8, !tbaa !47
   call void @setExpire(ptr noundef nonnull %0, ptr noundef %187, ptr noundef nonnull %79, i64 noundef %185) #16
-  br i1 %.0101.lcssa165, label %193, label %188
+  br i1 %.0101.lcssa160, label %193, label %188
 
 188:                                              ; preds = %186
   %189 = load i64, ptr %3, align 8, !tbaa !62
@@ -844,7 +844,7 @@ verifyDumpPayload.exit._crit_edge:                ; preds = %verifyDumpPayload.e
 193:                                              ; preds = %186, %188, %184
   %194 = load i64, ptr %4, align 8, !tbaa !62
   %195 = load i64, ptr %5, align 8, !tbaa !62
-  %196 = call i32 @objectSetLRUOrLFU(ptr noundef nonnull %140, i64 noundef %194, i64 noundef %195, i64 noundef %.0.lcssa169, i32 noundef 1000) #16
+  %196 = call i32 @objectSetLRUOrLFU(ptr noundef nonnull %140, i64 noundef %194, i64 noundef %195, i64 noundef %.0.lcssa164, i32 noundef 1000) #16
   %197 = load ptr, ptr %136, align 8, !tbaa !47
   call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %197, ptr noundef nonnull %79) #16
   %198 = load ptr, ptr %136, align 8, !tbaa !47
@@ -856,9 +856,9 @@ verifyDumpPayload.exit._crit_edge:                ; preds = %verifyDumpPayload.e
   %202 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !71
   %203 = add nsw i64 %202, 1
   store i64 %203, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !71
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %49, %31, %58, %57, %40, %76, %88, %128, %142, %78, %193, %171
+.critedge:                                        ; preds = %31, %49, %40, %57, %58, %76, %88, %128, %142, %78, %193, %171
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16

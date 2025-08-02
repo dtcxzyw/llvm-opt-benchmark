@@ -462,17 +462,20 @@ define dso_local double @zend_strtod(ptr noundef %0, ptr noundef writeonly captu
   %144 = load i8, ptr %143, align 1, !tbaa !45
   %145 = add i8 %144, -48
   %146 = icmp ult i8 %145, 10
-  br i1 %146, label %.lr.ph898, label %._crit_edge899
+  br i1 %146, label %.lr.ph898, label %._crit_edge899.loopexit
 
-._crit_edge899:                                   ; preds = %.lr.ph898, %131
-  %.0414.lcssa = phi i32 [ %132, %131 ], [ %142, %.lr.ph898 ]
-  %.lcssa844 = phi ptr [ %133, %131 ], [ %143, %.lr.ph898 ]
-  %147 = ptrtoint ptr %.lcssa844 to i64
-  %148 = ptrtoint ptr %.12.lcssa to i64
-  %149 = sub i64 %147, %148
-  %150 = icmp sgt i64 %149, 8
-  %151 = tail call i32 @llvm.smin.i32(i32 %.0414.lcssa, i32 19999)
-  %..0414 = select i1 %150, i32 19999, i32 %151
+._crit_edge899.loopexit:                          ; preds = %.lr.ph898
+  %147 = tail call i32 @llvm.smin.i32(i32 %142, i32 19999)
+  br label %._crit_edge899
+
+._crit_edge899:                                   ; preds = %._crit_edge899.loopexit, %131
+  %.0414.lcssa = phi i32 [ %132, %131 ], [ %147, %._crit_edge899.loopexit ]
+  %.lcssa844 = phi ptr [ %133, %131 ], [ %143, %._crit_edge899.loopexit ]
+  %148 = ptrtoint ptr %.lcssa844 to i64
+  %149 = ptrtoint ptr %.12.lcssa to i64
+  %150 = sub i64 %148, %149
+  %151 = icmp sgt i64 %150, 8
+  %..0414 = select i1 %151, i32 19999, i32 %.0414.lcssa
   %152 = sub nsw i32 0, %..0414
   %spec.select568 = select i1 %.0473, i32 %..0414, i32 %152
   br label %153

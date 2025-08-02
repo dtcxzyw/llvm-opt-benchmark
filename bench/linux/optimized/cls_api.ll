@@ -555,7 +555,7 @@ define internal fastcc void @__tcf_chain_put(ptr noundef %0, i1 noundef zeroext 
 
 54:                                               ; preds = %52, %._crit_edge
   %55 = icmp eq i32 %21, 0
-  br i1 %55, label %56, label %77
+  br i1 %55, label %56, label %.critedge
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr %4, align 8
@@ -587,22 +587,18 @@ define internal fastcc void @__tcf_chain_put(ptr noundef %0, i1 noundef zeroext 
   %73 = getelementptr inbounds nuw i8, ptr %57, i64 72
   %74 = load volatile i32, ptr %73, align 4
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %78, label %76
+  br i1 %75, label %77, label %76
 
 76:                                               ; preds = %72, %68
-  br label %78
+  br label %77
 
-77:                                               ; preds = %54
-  tail call void @mutex_unlock(ptr noundef nonnull %6) #14
-  br label %95
-
-78:                                               ; preds = %76, %72
-  %.ph = phi i1 [ true, %72 ], [ false, %76 ]
+77:                                               ; preds = %76, %72
+  %78 = phi i1 [ false, %76 ], [ true, %72 ]
   tail call void @mutex_unlock(ptr noundef nonnull %6) #14
   %79 = icmp eq ptr %24, null
   br i1 %79, label %85, label %80
 
-80:                                               ; preds = %78
+80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %24, i64 144
   %82 = load ptr, ptr %81, align 8
   tail call void %82(ptr noundef %26) #14
@@ -611,7 +607,7 @@ define internal fastcc void @__tcf_chain_put(ptr noundef %0, i1 noundef zeroext 
   tail call void @module_put(ptr noundef %84) #14
   br label %85
 
-85:                                               ; preds = %80, %78
+85:                                               ; preds = %80, %77
   %86 = load ptr, ptr %4, align 8
   %87 = icmp eq ptr %0, null
   br i1 %87, label %90, label %88
@@ -622,7 +618,7 @@ define internal fastcc void @__tcf_chain_put(ptr noundef %0, i1 noundef zeroext 
   br label %90
 
 90:                                               ; preds = %88, %85
-  br i1 %.ph, label %91, label %95
+  br i1 %78, label %91, label %95
 
 91:                                               ; preds = %90
   tail call void @xa_destroy(ptr noundef %86) #14
@@ -634,7 +630,11 @@ define internal fastcc void @__tcf_chain_put(ptr noundef %0, i1 noundef zeroext 
   tail call void @kvfree_call_rcu(ptr noundef nonnull %94, ptr noundef nonnull %86) #14
   br label %95
 
-95:                                               ; preds = %77, %93, %91, %90, %11
+.critedge:                                        ; preds = %54
+  tail call void @mutex_unlock(ptr noundef nonnull %6) #14
+  br label %95
+
+95:                                               ; preds = %.critedge, %93, %91, %90, %11
   ret void
 }
 
@@ -780,7 +780,7 @@ define dso_local ptr @tcf_get_next_proto(ptr noundef %0, ptr noundef %1) #0 alig
   store volatile ptr null, ptr %22, align 8
   br label %tcf_proto_destroy.exit
 
-tcf_proto_destroy.exit:                           ; preds = %31, %12
+tcf_proto_destroy.exit:                           ; preds = %12, %31
   tail call void @mutex_unlock(ptr noundef nonnull %21) #14
   %32 = load ptr, ptr %17, align 8
   tail call fastcc void @__tcf_chain_put(ptr noundef %32, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -3848,60 +3848,6 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 sect
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcf_proto_destroy(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) #14
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1248
-  tail call void @mutex_lock(ptr noundef nonnull %12) #14
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %23, label %16
-
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %18 = load ptr, ptr %17, align 8
-  store volatile ptr %18, ptr %14, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %22, label %20
-
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store volatile ptr %14, ptr %21, align 8
-  br label %22
-
-22:                                               ; preds = %20, %16
-  store volatile ptr null, ptr %13, align 8
-  br label %23
-
-23:                                               ; preds = %22, %3
-  tail call void @mutex_unlock(ptr noundef nonnull %12) #14
-  %24 = load ptr, ptr %8, align 8
-  tail call fastcc void @__tcf_chain_put(ptr noundef %24, i1 noundef zeroext false, i1 noundef zeroext false)
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 192
-  %27 = load ptr, ptr %26, align 8
-  tail call void @module_put(ptr noundef %27) #14
-  %28 = icmp eq ptr %0, null
-  br i1 %28, label %31, label %29
-
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @kvfree_call_rcu(ptr noundef nonnull %30, ptr noundef nonnull %0) #14
-  br label %31
-
-31:                                               ; preds = %29, %23
-  ret void
-}
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
 
@@ -5013,9 +4959,9 @@ define internal i32 @tc_new_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
   %21 = getelementptr i8, ptr %1, i64 24
   br label %22
 
-22:                                               ; preds = %320, %3
-  %23 = phi i1 [ true, %3 ], [ false, %320 ]
-  %24 = phi i8 [ 0, %3 ], [ 1, %320 ]
+22:                                               ; preds = %344, %3
+  %23 = phi i1 [ true, %3 ], [ false, %344 ]
+  %24 = phi i8 [ 0, %3 ], [ 1, %344 ]
   %25 = load i32, ptr %1, align 4
   %26 = icmp ult i32 %25, 36
   br i1 %26, label %27, label %28
@@ -5164,7 +5110,7 @@ define internal i32 @tc_new_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
   %110 = trunc i64 %109 to i32
   %111 = load ptr, ptr %7, align 8
   %112 = icmp ne i8 %86, 0
-  br label %312
+  br label %336
 
 113:                                              ; preds = %104
   %114 = getelementptr inbounds nuw i8, ptr %107, i64 68
@@ -5326,7 +5272,7 @@ define internal i32 @tc_new_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 .thread74.thread:                                 ; preds = %187
   %192 = ptrtoint ptr %190 to i64
   %193 = trunc i64 %192 to i32
-  br label %303
+  br label %327
 
 194:                                              ; preds = %187
   %195 = call fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef nonnull %124, ptr noundef %190, i32 noundef %34, i32 noundef %188, i1 noundef zeroext %189)
@@ -5489,8 +5435,8 @@ define internal i32 @tc_new_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread63
 
 .thread63:                                        ; preds = %283, %285, %197, %277, %279, %.thread58
-  %287 = phi ptr [ %202, %285 ], [ %202, %283 ], [ %195, %197 ], [ %202, %279 ], [ %202, %277 ], [ %322, %.thread58 ]
-  %288 = phi i32 [ %284, %285 ], [ %284, %283 ], [ %199, %197 ], [ 0, %279 ], [ 0, %277 ], [ %323, %.thread58 ]
+  %287 = phi ptr [ %202, %285 ], [ %202, %283 ], [ %195, %197 ], [ %202, %279 ], [ %202, %277 ], [ %346, %.thread58 ]
+  %288 = phi i32 [ %284, %285 ], [ %284, %283 ], [ %199, %197 ], [ 0, %279 ], [ 0, %277 ], [ %347, %.thread58 ]
   %289 = phi i32 [ 1, %285 ], [ %204, %283 ], [ 1, %197 ], [ %204, %279 ], [ %204, %277 ], [ 0, %.thread58 ]
   %290 = icmp eq ptr %287, null
   %291 = icmp ugt ptr %287, inttoptr (i64 -4096 to ptr)
@@ -5514,15 +5460,56 @@ define internal i32 @tc_new_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 300:                                              ; preds = %293
   %301 = icmp ne i8 %86, 0
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
-  call fastcc void @tcf_proto_destroy(ptr noundef nonnull %287, i1 noundef zeroext %301, ptr noundef null)
+  %302 = getelementptr inbounds nuw i8, ptr %287, i64 40
+  %303 = load ptr, ptr %302, align 8
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 48
+  %305 = load ptr, ptr %304, align 8
+  call void %305(ptr noundef nonnull %287, i1 noundef zeroext %301, ptr noundef null) #14
+  %306 = getelementptr inbounds nuw i8, ptr %287, i64 48
+  %307 = load ptr, ptr %306, align 8
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 56
+  %309 = load ptr, ptr %308, align 8
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 1248
+  call void @mutex_lock(ptr noundef nonnull %310) #14
+  %311 = getelementptr inbounds nuw i8, ptr %287, i64 96
+  %312 = load ptr, ptr %311, align 8
+  %313 = icmp eq ptr %312, null
+  br i1 %313, label %tcf_proto_destroy.exit, label %314
+
+314:                                              ; preds = %300
+  %315 = getelementptr inbounds nuw i8, ptr %287, i64 88
+  %316 = load ptr, ptr %315, align 8
+  store volatile ptr %316, ptr %312, align 8
+  %317 = icmp eq ptr %316, null
+  br i1 %317, label %320, label %318
+
+318:                                              ; preds = %314
+  %319 = getelementptr inbounds nuw i8, ptr %316, i64 8
+  store volatile ptr %312, ptr %319, align 8
+  br label %320
+
+320:                                              ; preds = %318, %314
+  store volatile ptr null, ptr %311, align 8
+  br label %tcf_proto_destroy.exit
+
+tcf_proto_destroy.exit:                           ; preds = %300, %320
+  call void @mutex_unlock(ptr noundef nonnull %310) #14
+  %321 = load ptr, ptr %306, align 8
+  call fastcc void @__tcf_chain_put(ptr noundef %321, i1 noundef zeroext false, i1 noundef zeroext false)
+  %322 = load ptr, ptr %302, align 8
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 192
+  %324 = load ptr, ptr %323, align 8
+  call void @module_put(ptr noundef %324) #14
+  %325 = getelementptr inbounds nuw i8, ptr %287, i64 72
+  call void @kvfree_call_rcu(ptr noundef nonnull %325, ptr noundef nonnull %287) #14
   br label %.thread74
 
-.thread74:                                        ; preds = %297, %299, %300, %.thread63
-  %302 = icmp eq i32 %289, 0
-  br i1 %302, label %303, label %.thread63.thread
+.thread74:                                        ; preds = %297, %299, %tcf_proto_destroy.exit, %.thread63
+  %326 = icmp eq i32 %289, 0
+  br i1 %326, label %327, label %.thread63.thread
 
-303:                                              ; preds = %.thread74.thread, %.thread74
-  %304 = phi i32 [ %193, %.thread74.thread ], [ %288, %.thread74 ]
+327:                                              ; preds = %.thread74.thread, %.thread74
+  %328 = phi i32 [ %193, %.thread74.thread ], [ %288, %.thread74 ]
   call fastcc void @__tcf_chain_put(ptr noundef nonnull %124, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %.thread63.thread
 
@@ -5536,53 +5523,53 @@ define internal i32 @tc_new_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
 .thread63.thread.thread:                          ; preds = %.thread63.thread.thread.sink.split, %55, %103
   %.ph80 = phi i8 [ %86, %103 ], [ %24, %55 ], [ %.ph80.ph, %.thread63.thread.thread.sink.split ]
   %.ph81 = phi i32 [ -2, %103 ], [ -22, %55 ], [ %.ph81.ph, %.thread63.thread.thread.sink.split ]
-  %305 = load ptr, ptr %7, align 8
-  %306 = icmp ne i8 %.ph80, 0
-  br label %312
+  %329 = load ptr, ptr %7, align 8
+  %330 = icmp ne i8 %.ph80, 0
+  br label %336
 
-.thread63.thread:                                 ; preds = %121, %122, %126, %127, %303, %.thread74
-  %307 = phi i32 [ %304, %303 ], [ %288, %.thread74 ], [ -22, %121 ], [ -22, %122 ], [ -12, %126 ], [ -12, %127 ]
-  %308 = load ptr, ptr %7, align 8
-  %309 = icmp ne i8 %86, 0
-  %310 = icmp eq ptr %107, null
-  br i1 %310, label %312, label %311
+.thread63.thread:                                 ; preds = %121, %122, %126, %127, %327, %.thread74
+  %331 = phi i32 [ %328, %327 ], [ %288, %.thread74 ], [ -22, %121 ], [ -22, %122 ], [ -12, %126 ], [ -12, %127 ]
+  %332 = load ptr, ptr %7, align 8
+  %333 = icmp ne i8 %86, 0
+  %334 = icmp eq ptr %107, null
+  br i1 %334, label %336, label %335
 
-311:                                              ; preds = %.thread63.thread
-  call fastcc void @__tcf_block_put(ptr noundef nonnull %107, ptr noundef null, ptr noundef null, i1 noundef zeroext %309)
-  br label %312
+335:                                              ; preds = %.thread63.thread
+  call fastcc void @__tcf_block_put(ptr noundef nonnull %107, ptr noundef null, ptr noundef null, i1 noundef zeroext %333)
+  br label %336
 
-312:                                              ; preds = %.thread63.thread.thread94, %.thread63.thread.thread, %311, %.thread63.thread
-  %313 = phi i1 [ %306, %.thread63.thread.thread ], [ %309, %311 ], [ %309, %.thread63.thread ], [ %112, %.thread63.thread.thread94 ]
-  %314 = phi ptr [ %305, %.thread63.thread.thread ], [ %308, %311 ], [ %308, %.thread63.thread ], [ %111, %.thread63.thread.thread94 ]
-  %315 = phi i32 [ %.ph81, %.thread63.thread.thread ], [ %307, %311 ], [ %307, %.thread63.thread ], [ %110, %.thread63.thread.thread94 ]
-  %316 = icmp eq ptr %314, null
-  br i1 %316, label %318, label %317
+336:                                              ; preds = %.thread63.thread.thread94, %.thread63.thread.thread, %335, %.thread63.thread
+  %337 = phi i1 [ %330, %.thread63.thread.thread ], [ %333, %335 ], [ %333, %.thread63.thread ], [ %112, %.thread63.thread.thread94 ]
+  %338 = phi ptr [ %329, %.thread63.thread.thread ], [ %332, %335 ], [ %332, %.thread63.thread ], [ %111, %.thread63.thread.thread94 ]
+  %339 = phi i32 [ %.ph81, %.thread63.thread.thread ], [ %331, %335 ], [ %331, %.thread63.thread ], [ %110, %.thread63.thread.thread94 ]
+  %340 = icmp eq ptr %338, null
+  br i1 %340, label %342, label %341
 
-317:                                              ; preds = %312
-  br i1 %313, label %.thread75, label %.thread76
+341:                                              ; preds = %336
+  br i1 %337, label %.thread75, label %.thread76
 
-.thread75:                                        ; preds = %317
-  call void @qdisc_put(ptr noundef nonnull %314) #14
-  br label %319
+.thread75:                                        ; preds = %341
+  call void @qdisc_put(ptr noundef nonnull %338) #14
+  br label %343
 
-.thread76:                                        ; preds = %317
-  call void @qdisc_put_unlocked(ptr noundef nonnull %314) #14
-  br label %320
+.thread76:                                        ; preds = %341
+  call void @qdisc_put_unlocked(ptr noundef nonnull %338) #14
+  br label %344
 
-318:                                              ; preds = %312
-  br i1 %313, label %319, label %320
+342:                                              ; preds = %336
+  br i1 %337, label %343, label %344
 
-319:                                              ; preds = %.thread75, %318
+343:                                              ; preds = %.thread75, %342
   call void @rtnl_unlock() #14
-  br label %320
+  br label %344
 
-320:                                              ; preds = %.thread76, %319, %318
-  %321 = icmp eq i32 %315, -11
-  br i1 %321, label %22, label %.thread
+344:                                              ; preds = %.thread76, %343, %342
+  %345 = icmp eq i32 %339, -11
+  br i1 %345, label %22, label %.thread
 
 .thread58:                                        ; preds = %179, %180, %173, %174, %.loopexit, %162
-  %322 = phi ptr [ %160, %162 ], [ null, %.loopexit ], [ null, %174 ], [ null, %173 ], [ null, %180 ], [ null, %179 ]
-  %323 = phi i32 [ %164, %162 ], [ -11, %.loopexit ], [ -22, %174 ], [ -22, %173 ], [ -2, %180 ], [ -2, %179 ]
+  %346 = phi ptr [ %160, %162 ], [ null, %.loopexit ], [ null, %174 ], [ null, %173 ], [ null, %180 ], [ null, %179 ]
+  %347 = phi i32 [ %164, %162 ], [ -11, %.loopexit ], [ -22, %174 ], [ -22, %173 ], [ -2, %180 ], [ -2, %179 ]
   call void @mutex_unlock(ptr noundef nonnull %124) #14
   br label %.thread63
 
@@ -5592,14 +5579,14 @@ define internal i32 @tc_new_tfilter(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %__nlmsg_parse.__msg.sink, ptr %2, align 8
   br label %.thread
 
-.thread:                                          ; preds = %320, %43, %28, %.thread.sink.split, %27, %42
-  %324 = phi i32 [ -2, %42 ], [ -22, %27 ], [ %.ph101, %.thread.sink.split ], [ %315, %320 ], [ %46, %43 ], [ %30, %28 ]
+.thread:                                          ; preds = %344, %43, %28, %.thread.sink.split, %27, %42
+  %348 = phi i32 [ -2, %42 ], [ -22, %27 ], [ %.ph101, %.thread.sink.split ], [ %339, %344 ], [ %46, %43 ], [ %30, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #14
-  ret i32 %324
+  ret i32 %348
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5792,7 +5779,7 @@ define internal i32 @tc_del_tfilter(ptr noundef readonly captures(address_is_nul
 .thread33.thread48:                               ; preds = %110
   %115 = ptrtoint ptr %113 to i64
   %116 = trunc i64 %115 to i32
-  br label %200
+  br label %224
 
 117:                                              ; preds = %110
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -5965,11 +5952,52 @@ define internal i32 @tc_del_tfilter(ptr noundef readonly captures(address_is_nul
 
 192:                                              ; preds = %.thread44
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
-  call fastcc void @tcf_proto_destroy(ptr noundef nonnull %137, i1 noundef zeroext %90, ptr noundef null)
+  %193 = getelementptr inbounds nuw i8, ptr %137, i64 40
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 48
+  %196 = load ptr, ptr %195, align 8
+  call void %196(ptr noundef nonnull %137, i1 noundef zeroext %90, ptr noundef null) #14
+  %197 = getelementptr inbounds nuw i8, ptr %137, i64 48
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 56
+  %200 = load ptr, ptr %199, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 1248
+  call void @mutex_lock(ptr noundef nonnull %201) #14
+  %202 = getelementptr inbounds nuw i8, ptr %137, i64 96
+  %203 = load ptr, ptr %202, align 8
+  %204 = icmp eq ptr %203, null
+  br i1 %204, label %tcf_proto_destroy.exit, label %205
+
+205:                                              ; preds = %192
+  %206 = getelementptr inbounds nuw i8, ptr %137, i64 88
+  %207 = load ptr, ptr %206, align 8
+  store volatile ptr %207, ptr %203, align 8
+  %208 = icmp eq ptr %207, null
+  br i1 %208, label %211, label %209
+
+209:                                              ; preds = %205
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  store volatile ptr %203, ptr %210, align 8
+  br label %211
+
+211:                                              ; preds = %209, %205
+  store volatile ptr null, ptr %202, align 8
+  br label %tcf_proto_destroy.exit
+
+tcf_proto_destroy.exit:                           ; preds = %192, %211
+  call void @mutex_unlock(ptr noundef nonnull %201) #14
+  %212 = load ptr, ptr %197, align 8
+  call fastcc void @__tcf_chain_put(ptr noundef %212, i1 noundef zeroext false, i1 noundef zeroext false)
+  %213 = load ptr, ptr %193, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 192
+  %215 = load ptr, ptr %214, align 8
+  call void @module_put(ptr noundef %215) #14
+  %216 = getelementptr inbounds nuw i8, ptr %137, i64 72
+  call void @kvfree_call_rcu(ptr noundef nonnull %216, ptr noundef nonnull %137) #14
   br label %.thread36
 
-.thread36:                                        ; preds = %.thread47, %189, %191, %.thread34, %192
-  %193 = phi i32 [ 0, %.thread34 ], [ %185, %192 ], [ %185, %191 ], [ %185, %189 ], [ %.ph46, %.thread47 ]
+.thread36:                                        ; preds = %.thread47, %189, %191, %.thread34, %tcf_proto_destroy.exit
+  %217 = phi i32 [ 0, %.thread34 ], [ %185, %tcf_proto_destroy.exit ], [ %185, %191 ], [ %185, %189 ], [ %.ph46, %.thread47 ]
   call fastcc void @__tcf_chain_put(ptr noundef nonnull %129, i1 noundef zeroext false, i1 noundef zeroext false)
   %.pre42 = load ptr, ptr %7, align 8
   br label %.thread33
@@ -5984,53 +6012,53 @@ define internal i32 @tc_del_tfilter(ptr noundef readonly captures(address_is_nul
 .thread33.thread:                                 ; preds = %.thread33.thread.sink.split, %108, %58
   %.ph39 = phi i8 [ 0, %58 ], [ %91, %108 ], [ %.ph39.ph, %.thread33.thread.sink.split ]
   %.ph40 = phi i32 [ -22, %58 ], [ -2, %108 ], [ %.ph40.ph, %.thread33.thread.sink.split ]
-  %194 = load ptr, ptr %7, align 8
-  %195 = icmp ne i8 %.ph39, 0
-  br label %200
+  %218 = load ptr, ptr %7, align 8
+  %219 = icmp ne i8 %.ph39, 0
+  br label %224
 
 .thread33:                                        ; preds = %132, %134, %131, %125, %127, %.thread36
-  %196 = phi ptr [ %.pre42, %.thread36 ], [ %92, %132 ], [ %92, %134 ], [ %92, %131 ], [ %92, %125 ], [ %92, %127 ]
-  %197 = phi i32 [ %193, %.thread36 ], [ -2, %132 ], [ -2, %134 ], [ 0, %131 ], [ -22, %125 ], [ -22, %127 ]
-  %198 = icmp eq ptr %113, null
-  br i1 %198, label %200, label %199
+  %220 = phi ptr [ %.pre42, %.thread36 ], [ %92, %132 ], [ %92, %134 ], [ %92, %131 ], [ %92, %125 ], [ %92, %127 ]
+  %221 = phi i32 [ %217, %.thread36 ], [ -2, %132 ], [ -2, %134 ], [ 0, %131 ], [ -22, %125 ], [ -22, %127 ]
+  %222 = icmp eq ptr %113, null
+  br i1 %222, label %224, label %223
 
-199:                                              ; preds = %.thread33
+223:                                              ; preds = %.thread33
   call fastcc void @__tcf_block_put(ptr noundef nonnull %113, ptr noundef null, ptr noundef null, i1 noundef zeroext %90)
-  br label %200
+  br label %224
 
-200:                                              ; preds = %.thread33.thread48, %.thread33.thread, %199, %.thread33
-  %201 = phi i1 [ %195, %.thread33.thread ], [ %90, %199 ], [ %90, %.thread33 ], [ %90, %.thread33.thread48 ]
-  %202 = phi ptr [ %194, %.thread33.thread ], [ %196, %199 ], [ %196, %.thread33 ], [ %92, %.thread33.thread48 ]
-  %203 = phi i32 [ %.ph40, %.thread33.thread ], [ %197, %199 ], [ %197, %.thread33 ], [ %116, %.thread33.thread48 ]
-  %204 = icmp eq ptr %202, null
-  br i1 %204, label %206, label %205
+224:                                              ; preds = %.thread33.thread48, %.thread33.thread, %223, %.thread33
+  %225 = phi i1 [ %219, %.thread33.thread ], [ %90, %223 ], [ %90, %.thread33 ], [ %90, %.thread33.thread48 ]
+  %226 = phi ptr [ %218, %.thread33.thread ], [ %220, %223 ], [ %220, %.thread33 ], [ %92, %.thread33.thread48 ]
+  %227 = phi i32 [ %.ph40, %.thread33.thread ], [ %221, %223 ], [ %221, %.thread33 ], [ %116, %.thread33.thread48 ]
+  %228 = icmp eq ptr %226, null
+  br i1 %228, label %230, label %229
 
-205:                                              ; preds = %200
-  br i1 %201, label %.thread37, label %.thread38
+229:                                              ; preds = %224
+  br i1 %225, label %.thread37, label %.thread38
 
-.thread37:                                        ; preds = %205
-  call void @qdisc_put(ptr noundef nonnull %202) #14
-  br label %207
+.thread37:                                        ; preds = %229
+  call void @qdisc_put(ptr noundef nonnull %226) #14
+  br label %231
 
-.thread38:                                        ; preds = %205
-  call void @qdisc_put_unlocked(ptr noundef nonnull %202) #14
+.thread38:                                        ; preds = %229
+  call void @qdisc_put_unlocked(ptr noundef nonnull %226) #14
   br label %.thread
 
-206:                                              ; preds = %200
-  br i1 %201, label %207, label %.thread
+230:                                              ; preds = %224
+  br i1 %225, label %231, label %.thread
 
-207:                                              ; preds = %.thread37, %206
+231:                                              ; preds = %.thread37, %230
   call void @rtnl_unlock() #14
   br label %.thread
 
-.thread:                                          ; preds = %16, %18, %.thread38, %207, %206, %45, %44, %42, %19
-  %208 = phi i32 [ %22, %19 ], [ -2, %44 ], [ -2, %42 ], [ %48, %45 ], [ %203, %207 ], [ %203, %206 ], [ %203, %.thread38 ], [ -22, %18 ], [ -22, %16 ]
+.thread:                                          ; preds = %16, %18, %.thread38, %231, %230, %45, %44, %42, %19
+  %232 = phi i32 [ %22, %19 ], [ -2, %44 ], [ -2, %42 ], [ %48, %45 ], [ %227, %231 ], [ %227, %230 ], [ %227, %.thread38 ], [ -22, %18 ], [ -22, %16 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #14
-  ret i32 %208
+  ret i32 %232
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -6205,7 +6233,7 @@ define internal i32 @tc_get_tfilter(ptr noundef readonly captures(address_is_nul
 .thread37.thread47:                               ; preds = %98
   %103 = ptrtoint ptr %101 to i64
   %104 = trunc i64 %103 to i32
-  br label %190
+  br label %214
 
 105:                                              ; preds = %98
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -6357,13 +6385,54 @@ define internal i32 @tc_get_tfilter(ptr noundef readonly captures(address_is_nul
 
 182:                                              ; preds = %175
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
-  call fastcc void @tcf_proto_destroy(ptr noundef nonnull %123, i1 noundef zeroext %78, ptr noundef null)
+  %183 = getelementptr inbounds nuw i8, ptr %123, i64 40
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 48
+  %186 = load ptr, ptr %185, align 8
+  call void %186(ptr noundef nonnull %123, i1 noundef zeroext %78, ptr noundef null) #14
+  %187 = getelementptr inbounds nuw i8, ptr %123, i64 48
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 56
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 1248
+  call void @mutex_lock(ptr noundef nonnull %191) #14
+  %192 = getelementptr inbounds nuw i8, ptr %123, i64 96
+  %193 = load ptr, ptr %192, align 8
+  %194 = icmp eq ptr %193, null
+  br i1 %194, label %tcf_proto_destroy.exit, label %195
+
+195:                                              ; preds = %182
+  %196 = getelementptr inbounds nuw i8, ptr %123, i64 88
+  %197 = load ptr, ptr %196, align 8
+  store volatile ptr %197, ptr %193, align 8
+  %198 = icmp eq ptr %197, null
+  br i1 %198, label %201, label %199
+
+199:                                              ; preds = %195
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 8
+  store volatile ptr %193, ptr %200, align 8
+  br label %201
+
+201:                                              ; preds = %199, %195
+  store volatile ptr null, ptr %192, align 8
+  br label %tcf_proto_destroy.exit
+
+tcf_proto_destroy.exit:                           ; preds = %182, %201
+  call void @mutex_unlock(ptr noundef nonnull %191) #14
+  %202 = load ptr, ptr %187, align 8
+  call fastcc void @__tcf_chain_put(ptr noundef %202, i1 noundef zeroext false, i1 noundef zeroext false)
+  %203 = load ptr, ptr %183, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 192
+  %205 = load ptr, ptr %204, align 8
+  call void @module_put(ptr noundef %205) #14
+  %206 = getelementptr inbounds nuw i8, ptr %123, i64 72
+  call void @kvfree_call_rcu(ptr noundef nonnull %206, ptr noundef nonnull %123) #14
   %.pre45.pre = load ptr, ptr %7, align 8
   br label %.thread38
 
-.thread38:                                        ; preds = %179, %181, %130, %182, %.thread32
-  %.pre45 = phi ptr [ %.pre45.pre, %182 ], [ %80, %.thread32 ], [ %80, %130 ], [ %80, %181 ], [ %80, %179 ]
-  %183 = phi i32 [ %174, %182 ], [ %174, %.thread32 ], [ -2, %130 ], [ %174, %181 ], [ %174, %179 ]
+.thread38:                                        ; preds = %179, %181, %130, %tcf_proto_destroy.exit, %.thread32
+  %.pre45 = phi ptr [ %.pre45.pre, %tcf_proto_destroy.exit ], [ %80, %.thread32 ], [ %80, %130 ], [ %80, %181 ], [ %80, %179 ]
+  %207 = phi i32 [ %174, %tcf_proto_destroy.exit ], [ %174, %.thread32 ], [ -2, %130 ], [ %174, %181 ], [ %174, %179 ]
   call fastcc void @__tcf_chain_put(ptr noundef nonnull %117, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %.thread37
 
@@ -6377,53 +6446,53 @@ define internal i32 @tc_get_tfilter(ptr noundef readonly captures(address_is_nul
 .thread37.thread:                                 ; preds = %.thread37.thread.sink.split, %96, %47
   %.ph43 = phi i8 [ 0, %47 ], [ %79, %96 ], [ %.ph43.ph, %.thread37.thread.sink.split ]
   %.ph44 = phi i32 [ -22, %47 ], [ -2, %96 ], [ %.ph44.ph, %.thread37.thread.sink.split ]
-  %184 = load ptr, ptr %7, align 8
-  %185 = icmp ne i8 %.ph43, 0
-  br label %190
+  %208 = load ptr, ptr %7, align 8
+  %209 = icmp ne i8 %.ph43, 0
+  br label %214
 
 .thread37:                                        ; preds = %119, %121, %113, %115, %.thread38
-  %186 = phi ptr [ %.pre45, %.thread38 ], [ %80, %119 ], [ %80, %121 ], [ %80, %113 ], [ %80, %115 ]
-  %187 = phi i32 [ %183, %.thread38 ], [ -22, %119 ], [ -22, %121 ], [ -22, %113 ], [ -22, %115 ]
-  %188 = icmp eq ptr %101, null
-  br i1 %188, label %190, label %189
+  %210 = phi ptr [ %.pre45, %.thread38 ], [ %80, %119 ], [ %80, %121 ], [ %80, %113 ], [ %80, %115 ]
+  %211 = phi i32 [ %207, %.thread38 ], [ -22, %119 ], [ -22, %121 ], [ -22, %113 ], [ -22, %115 ]
+  %212 = icmp eq ptr %101, null
+  br i1 %212, label %214, label %213
 
-189:                                              ; preds = %.thread37
+213:                                              ; preds = %.thread37
   call fastcc void @__tcf_block_put(ptr noundef nonnull %101, ptr noundef null, ptr noundef null, i1 noundef zeroext %78)
-  br label %190
+  br label %214
 
-190:                                              ; preds = %.thread37.thread47, %.thread37.thread, %189, %.thread37
-  %191 = phi i1 [ %185, %.thread37.thread ], [ %78, %189 ], [ %78, %.thread37 ], [ %78, %.thread37.thread47 ]
-  %192 = phi ptr [ %184, %.thread37.thread ], [ %186, %189 ], [ %186, %.thread37 ], [ %80, %.thread37.thread47 ]
-  %193 = phi i32 [ %.ph44, %.thread37.thread ], [ %187, %189 ], [ %187, %.thread37 ], [ %104, %.thread37.thread47 ]
-  %194 = icmp eq ptr %192, null
-  br i1 %194, label %196, label %195
+214:                                              ; preds = %.thread37.thread47, %.thread37.thread, %213, %.thread37
+  %215 = phi i1 [ %209, %.thread37.thread ], [ %78, %213 ], [ %78, %.thread37 ], [ %78, %.thread37.thread47 ]
+  %216 = phi ptr [ %208, %.thread37.thread ], [ %210, %213 ], [ %210, %.thread37 ], [ %80, %.thread37.thread47 ]
+  %217 = phi i32 [ %.ph44, %.thread37.thread ], [ %211, %213 ], [ %211, %.thread37 ], [ %104, %.thread37.thread47 ]
+  %218 = icmp eq ptr %216, null
+  br i1 %218, label %220, label %219
 
-195:                                              ; preds = %190
-  br i1 %191, label %.thread41, label %.thread42
+219:                                              ; preds = %214
+  br i1 %215, label %.thread41, label %.thread42
 
-.thread41:                                        ; preds = %195
-  call void @qdisc_put(ptr noundef nonnull %192) #14
-  br label %197
+.thread41:                                        ; preds = %219
+  call void @qdisc_put(ptr noundef nonnull %216) #14
+  br label %221
 
-.thread42:                                        ; preds = %195
-  call void @qdisc_put_unlocked(ptr noundef nonnull %192) #14
+.thread42:                                        ; preds = %219
+  call void @qdisc_put_unlocked(ptr noundef nonnull %216) #14
   br label %.thread
 
-196:                                              ; preds = %190
-  br i1 %191, label %197, label %.thread
+220:                                              ; preds = %214
+  br i1 %215, label %221, label %.thread
 
-197:                                              ; preds = %.thread41, %196
+221:                                              ; preds = %.thread41, %220
   call void @rtnl_unlock() #14
   br label %.thread
 
-.thread:                                          ; preds = %15, %17, %.thread42, %197, %196, %34, %33, %31, %18
-  %198 = phi i32 [ %21, %18 ], [ -2, %33 ], [ -2, %31 ], [ %37, %34 ], [ %193, %197 ], [ %193, %196 ], [ %193, %.thread42 ], [ -22, %17 ], [ -22, %15 ]
+.thread:                                          ; preds = %15, %17, %.thread42, %221, %220, %34, %33, %31, %18
+  %222 = phi i32 [ %21, %18 ], [ -2, %33 ], [ -2, %31 ], [ %37, %34 ], [ %217, %221 ], [ %217, %220 ], [ %217, %.thread42 ], [ -22, %17 ], [ -22, %15 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #14
-  ret i32 %198
+  ret i32 %222
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -6814,7 +6883,7 @@ define internal i32 @tc_dump_tfilter(ptr noundef %0, ptr noundef %1) #0 align 16
   store volatile ptr null, ptr %234, align 8
   br label %tcf_proto_destroy.exit
 
-tcf_proto_destroy.exit:                           ; preds = %243, %224
+tcf_proto_destroy.exit:                           ; preds = %224, %243
   call void @mutex_unlock(ptr noundef nonnull %233) #14
   %244 = load ptr, ptr %229, align 8
   call fastcc void @__tcf_chain_put(ptr noundef %244, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -6879,7 +6948,7 @@ tcf_proto_destroy.exit:                           ; preds = %243, %224
   store volatile ptr null, ptr %268, align 8
   br label %tcf_proto_destroy.exit34
 
-tcf_proto_destroy.exit34:                         ; preds = %277, %258
+tcf_proto_destroy.exit34:                         ; preds = %258, %277
   call void @mutex_unlock(ptr noundef nonnull %267) #14
   %278 = load ptr, ptr %263, align 8
   call fastcc void @__tcf_chain_put(ptr noundef %278, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -8161,9 +8230,9 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef nonnull %0, p
   %46 = load volatile ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   %48 = getelementptr i8, ptr %46, i64 -88
-  %.not17 = icmp eq ptr %48, null
-  %.not = or i1 %47, %.not17
-  br i1 %.not, label %.critedge, label %49
+  %.not16 = icmp eq ptr %48, null
+  %.not = or i1 %47, %.not16
+  br i1 %.not, label %.critedge20, label %49
 
 49:                                               ; preds = %5
   %50 = load ptr, ptr %6, align 8
@@ -8199,9 +8268,9 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef nonnull %0, p
   %72 = load volatile ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   %74 = getelementptr i8, ptr %72, i64 -88
-  %.not1829 = icmp eq ptr %74, null
-  %.not18 = or i1 %73, %.not1829
-  br i1 %.not18, label %.critedge, label %53, !llvm.loop !100
+  %.not1725 = icmp eq ptr %74, null
+  %.not17 = or i1 %73, %.not1725
+  br i1 %.not17, label %.critedge20, label %53, !llvm.loop !100
 
 75:                                               ; preds = %65
   tail call void @__rcu_read_unlock() #14
@@ -8218,23 +8287,23 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef nonnull %0, p
   %83 = load ptr, ptr %82, align 8
   tail call void @module_put(ptr noundef %83) #14
   %84 = icmp eq ptr %1, null
-  br i1 %84, label %173, label %85
+  br i1 %84, label %172, label %85
 
 85:                                               ; preds = %75
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @kvfree_call_rcu(ptr noundef nonnull %86, ptr noundef nonnull %1) #14
-  br label %173
+  br label %172
 
-.critedge:                                        ; preds = %70, %5
+.critedge20:                                      ; preds = %70, %5
   tail call void @__rcu_read_unlock() #14
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %88
 
-88:                                               ; preds = %92, %.critedge
-  %89 = phi ptr [ %87, %.critedge ], [ %90, %92 ]
+88:                                               ; preds = %92, %.critedge20
+  %89 = phi ptr [ %87, %.critedge20 ], [ %90, %92 ]
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.loopexit30, label %92
+  br i1 %91, label %.loopexit26, label %92
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 28
@@ -8244,14 +8313,14 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef nonnull %0, p
 
 96:                                               ; preds = %92
   %97 = icmp eq i32 %94, %3
-  br i1 %97, label %98, label %.loopexit30
+  br i1 %97, label %98, label %.loopexit26
 
 98:                                               ; preds = %96
   %99 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %100 = load i16, ptr %99, align 8
   %101 = zext i16 %100 to i32
-  %.not19 = icmp eq i32 %2, %101
-  br i1 %.not19, label %102, label %149
+  %.not18 = icmp eq i32 %2, %101
+  br i1 %.not18, label %102, label %.critedge
 
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %90, i64 64
@@ -8263,132 +8332,132 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef nonnull %0, p
   %107 = add i32 %104, 1
   %108 = or i32 %107, %104
   %109 = icmp sgt i32 %108, -1
-  br i1 %109, label %149, label %110, !prof !21
+  br i1 %109, label %.critedge, label %110, !prof !21
 
 110:                                              ; preds = %106, %102
   %111 = phi i32 [ 2, %102 ], [ 1, %106 ]
   tail call void @refcount_warn_saturate(ptr noundef nonnull %103, i32 noundef %111) #14
-  br label %149
+  br label %.critedge
 
-.loopexit30:                                      ; preds = %88, %96
+.loopexit26:                                      ; preds = %88, %96
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 77
   %113 = load i8, ptr %112, align 1, !range !17, !noundef !18
   %114 = icmp eq i8 %113, 0
-  br i1 %114, label %115, label %161
+  br i1 %114, label %124, label %.thread24
 
-115:                                              ; preds = %.loopexit30
+.thread24:                                        ; preds = %.loopexit26
+  tail call void @mutex_unlock(ptr noundef nonnull %0) #14
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 48
+  %118 = load ptr, ptr %117, align 8
+  tail call void %118(ptr noundef %1, i1 noundef zeroext %4, ptr noundef null) #14
+  %119 = load ptr, ptr %6, align 8
+  tail call fastcc void @__tcf_chain_put(ptr noundef %119, i1 noundef zeroext false, i1 noundef zeroext false)
+  %120 = load ptr, ptr %115, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 192
+  %122 = load ptr, ptr %121, align 8
+  tail call void @module_put(ptr noundef %122) #14
+  %123 = icmp eq ptr %1, null
+  br i1 %123, label %172, label %170
+
+124:                                              ; preds = %.loopexit26
   store volatile ptr %90, ptr %1, align 8
-  %116 = load ptr, ptr %89, align 8
-  %117 = load ptr, ptr %87, align 8
-  %118 = icmp eq ptr %116, %117
-  br i1 %118, label %119, label %139
+  %125 = load ptr, ptr %89, align 8
+  %126 = load ptr, ptr %87, align 8
+  %127 = icmp eq ptr %125, %126
+  br i1 %127, label %128, label %148
 
-119:                                              ; preds = %115
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %121 = load i32, ptr %120, align 8
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %139
+128:                                              ; preds = %124
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %130 = load i32, ptr %129, align 8
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %132, label %148
 
-123:                                              ; preds = %119
-  %124 = load ptr, ptr %39, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  tail call void @mutex_lock(ptr noundef nonnull %125) #14
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 192
-  %127 = load ptr, ptr %126, align 8
-  %128 = icmp eq ptr %127, %126
-  br i1 %128, label %.loopexit, label %.preheader
+132:                                              ; preds = %128
+  %133 = load ptr, ptr %39, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
+  tail call void @mutex_lock(ptr noundef nonnull %134) #14
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 192
+  %136 = load ptr, ptr %135, align 8
+  %137 = icmp eq ptr %136, %135
+  br i1 %137, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %123, %136
-  %129 = phi ptr [ %137, %136 ], [ %127, %123 ]
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %131 = load ptr, ptr %130, align 8
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %136, label %133
+.preheader:                                       ; preds = %132, %145
+  %138 = phi ptr [ %146, %145 ], [ %136, %132 ]
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
+  %140 = load ptr, ptr %139, align 8
+  %141 = icmp eq ptr %140, null
+  br i1 %141, label %145, label %142
 
-133:                                              ; preds = %.preheader
-  %134 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  %135 = load ptr, ptr %134, align 8
-  tail call void %131(ptr noundef %1, ptr noundef %135) #14
-  br label %136
+142:                                              ; preds = %.preheader
+  %143 = getelementptr inbounds nuw i8, ptr %138, i64 24
+  %144 = load ptr, ptr %143, align 8
+  tail call void %140(ptr noundef %1, ptr noundef %144) #14
+  br label %145
 
-136:                                              ; preds = %133, %.preheader
-  %137 = load ptr, ptr %129, align 8
-  %138 = icmp eq ptr %137, %126
-  br i1 %138, label %.loopexit, label %.preheader, !llvm.loop !88
+145:                                              ; preds = %142, %.preheader
+  %146 = load ptr, ptr %138, align 8
+  %147 = icmp eq ptr %146, %135
+  br i1 %147, label %.loopexit, label %.preheader, !llvm.loop !88
 
-.loopexit:                                        ; preds = %136, %123
-  tail call void @mutex_unlock(ptr noundef nonnull %125) #14
-  br label %139
+.loopexit:                                        ; preds = %145, %132
+  tail call void @mutex_unlock(ptr noundef nonnull %134) #14
+  br label %148
 
-139:                                              ; preds = %.loopexit, %119, %115
-  %140 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %141 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %140, i32 1, ptr nonnull elementtype(i32) %140) #14, !srcloc !29
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %147, label %143, !prof !30
+148:                                              ; preds = %.loopexit, %128, %124
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %150 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 1, ptr nonnull elementtype(i32) %149) #14, !srcloc !29
+  %151 = icmp eq i32 %150, 0
+  br i1 %151, label %156, label %152, !prof !30
 
-143:                                              ; preds = %139
-  %144 = add i32 %141, 1
-  %145 = or i32 %144, %141
-  %146 = icmp sgt i32 %145, -1
-  br i1 %146, label %.thread26, label %147, !prof !21
+152:                                              ; preds = %148
+  %153 = add i32 %150, 1
+  %154 = or i32 %153, %150
+  %155 = icmp sgt i32 %154, -1
+  br i1 %155, label %158, label %156, !prof !21
 
-147:                                              ; preds = %143, %139
-  %148 = phi i32 [ 2, %139 ], [ 1, %143 ]
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %140, i32 noundef %148) #14
-  br label %.thread26
+156:                                              ; preds = %152, %148
+  %157 = phi i32 [ 2, %148 ], [ 1, %152 ]
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %149, i32 noundef %157) #14
+  br label %158
 
-.thread26:                                        ; preds = %143, %147
+158:                                              ; preds = %152, %156
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !101
   store volatile ptr %1, ptr %89, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %0) #14
-  br label %173
+  br label %172
 
-149:                                              ; preds = %110, %98, %106
-  %.ph21 = phi ptr [ %90, %110 ], [ inttoptr (i64 -22 to ptr), %98 ], [ %90, %106 ]
+.critedge:                                        ; preds = %106, %98, %110
+  %.ph22 = phi ptr [ %90, %110 ], [ inttoptr (i64 -22 to ptr), %98 ], [ %90, %106 ]
   tail call void @mutex_unlock(ptr noundef nonnull %0) #14
-  %150 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 48
-  %153 = load ptr, ptr %152, align 8
-  tail call void %153(ptr noundef %1, i1 noundef zeroext %4, ptr noundef null) #14
-  %154 = load ptr, ptr %6, align 8
-  tail call fastcc void @__tcf_chain_put(ptr noundef %154, i1 noundef zeroext false, i1 noundef zeroext false)
-  %155 = load ptr, ptr %150, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 192
-  %157 = load ptr, ptr %156, align 8
-  tail call void @module_put(ptr noundef %157) #14
-  %158 = icmp eq ptr %1, null
-  br i1 %158, label %173, label %159
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 48
+  %162 = load ptr, ptr %161, align 8
+  tail call void %162(ptr noundef %1, i1 noundef zeroext %4, ptr noundef null) #14
+  %163 = load ptr, ptr %6, align 8
+  tail call fastcc void @__tcf_chain_put(ptr noundef %163, i1 noundef zeroext false, i1 noundef zeroext false)
+  %164 = load ptr, ptr %159, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 192
+  %166 = load ptr, ptr %165, align 8
+  tail call void @module_put(ptr noundef %166) #14
+  %167 = icmp eq ptr %1, null
+  br i1 %167, label %172, label %168
 
-159:                                              ; preds = %149
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  tail call void @kvfree_call_rcu(ptr noundef nonnull %160, ptr noundef nonnull %1) #14
-  br label %173
+168:                                              ; preds = %.critedge
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %169, ptr noundef nonnull %1) #14
+  br label %172
 
-161:                                              ; preds = %.loopexit30
-  tail call void @mutex_unlock(ptr noundef nonnull %0) #14
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 48
-  %165 = load ptr, ptr %164, align 8
-  tail call void %165(ptr noundef %1, i1 noundef zeroext %4, ptr noundef null) #14
-  %166 = load ptr, ptr %6, align 8
-  tail call fastcc void @__tcf_chain_put(ptr noundef %166, i1 noundef zeroext false, i1 noundef zeroext false)
-  %167 = load ptr, ptr %162, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 192
-  %169 = load ptr, ptr %168, align 8
-  tail call void @module_put(ptr noundef %169) #14
-  %170 = icmp eq ptr %1, null
-  br i1 %170, label %173, label %171
+170:                                              ; preds = %.thread24
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %171, ptr noundef nonnull %1) #14
+  br label %172
 
-171:                                              ; preds = %161
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  tail call void @kvfree_call_rcu(ptr noundef nonnull %172, ptr noundef nonnull %1) #14
-  br label %173
-
-173:                                              ; preds = %161, %171, %.thread26, %159, %149, %85, %75
-  %174 = phi ptr [ inttoptr (i64 -11 to ptr), %75 ], [ inttoptr (i64 -11 to ptr), %85 ], [ %.ph21, %149 ], [ %.ph21, %159 ], [ %1, %.thread26 ], [ inttoptr (i64 -11 to ptr), %171 ], [ inttoptr (i64 -11 to ptr), %161 ]
-  ret ptr %174
+172:                                              ; preds = %.thread24, %170, %158, %168, %.critedge, %85, %75
+  %173 = phi ptr [ %1, %158 ], [ inttoptr (i64 -11 to ptr), %75 ], [ inttoptr (i64 -11 to ptr), %85 ], [ %.ph22, %.critedge ], [ %.ph22, %168 ], [ inttoptr (i64 -11 to ptr), %170 ], [ inttoptr (i64 -11 to ptr), %.thread24 ]
+  ret ptr %173
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -8469,7 +8538,7 @@ define internal fastcc void @tcf_chain_tp_delete_empty(ptr noundef %0, ptr nound
   %7 = phi ptr [ %5, %4 ], [ %8, %10 ]
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit8, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %6
   %11 = icmp eq ptr %8, %1
@@ -8488,7 +8557,7 @@ define internal fastcc void @tcf_chain_tp_delete_empty(ptr noundef %0, ptr nound
   tail call void asm sideeffect "1047: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1047b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1047) #14, !srcloc !105
   br label %18
 
-18:                                               ; preds = %17, %12
+18:                                               ; preds = %12, %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 88
@@ -8498,16 +8567,16 @@ define internal fastcc void @tcf_chain_tp_delete_empty(ptr noundef %0, ptr nound
 
 24:                                               ; preds = %18
   %25 = tail call zeroext i1 %22(ptr noundef %1) #14
-  br i1 %25, label %28, label %.loopexit8
+  br i1 %25, label %28, label %.critedge
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i8 1, ptr %27, align 4
   br label %28
 
-.loopexit8:                                       ; preds = %6, %24
+.critedge:                                        ; preds = %6, %24
   tail call void @mutex_unlock(ptr noundef %0) #14
-  br label %.thread7
+  br label %.thread
 
 28:                                               ; preds = %26, %24
   %29 = getelementptr i8, ptr %0, i64 56
@@ -8620,18 +8689,55 @@ tcf_proto_signal_destroying.exit:                 ; preds = %28, %73
 
 101:                                              ; preds = %97
   %102 = icmp sgt i32 %99, 0
-  br i1 %102, label %.thread7, label %103, !prof !21
+  br i1 %102, label %.thread, label %103, !prof !21
 
 103:                                              ; preds = %101
   tail call void @refcount_warn_saturate(ptr noundef nonnull %98, i32 noundef 3) #14
-  br label %.thread7
+  br label %.thread
 
 104:                                              ; preds = %97
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
-  tail call fastcc void @tcf_proto_destroy(ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3)
-  br label %.thread7
+  %105 = load ptr, ptr %19, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
+  %107 = load ptr, ptr %106, align 8
+  tail call void %107(ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef %3) #14
+  %108 = load ptr, ptr %33, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 56
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1248
+  tail call void @mutex_lock(ptr noundef nonnull %111) #14
+  %112 = load ptr, ptr %71, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %tcf_proto_destroy.exit, label %114
 
-.thread7:                                         ; preds = %101, %103, %104, %.loopexit8
+114:                                              ; preds = %104
+  %115 = load ptr, ptr %31, align 8
+  store volatile ptr %115, ptr %112, align 8
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %119, label %117
+
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  store volatile ptr %112, ptr %118, align 8
+  br label %119
+
+119:                                              ; preds = %117, %114
+  store volatile ptr null, ptr %71, align 8
+  br label %tcf_proto_destroy.exit
+
+tcf_proto_destroy.exit:                           ; preds = %104, %119
+  tail call void @mutex_unlock(ptr noundef nonnull %111) #14
+  %120 = load ptr, ptr %33, align 8
+  tail call fastcc void @__tcf_chain_put(ptr noundef %120, i1 noundef zeroext false, i1 noundef zeroext false)
+  %121 = load ptr, ptr %19, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 192
+  %123 = load ptr, ptr %122, align 8
+  tail call void @module_put(ptr noundef %123) #14
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %124, ptr noundef nonnull %1) #14
+  br label %.thread
+
+.thread:                                          ; preds = %101, %103, %tcf_proto_destroy.exit, %.critedge
   ret void
 }
 

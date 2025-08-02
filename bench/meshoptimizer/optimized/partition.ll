@@ -196,10 +196,10 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %14
 
 ._crit_edge225.i:                                 ; preds = %99
   %.pre297.i = load i32, ptr %80, align 4, !tbaa !11
-  %86 = icmp ult i32 %.pre297.i, %103
-  %87 = tail call i64 @llvm.umin.i64(i64 %101, i64 %34)
-  %88 = add i64 %87, %.0187232.i
-  br i1 %86, label %.lr.ph230.i.preheader, label %.loopexit200.i
+  %86 = tail call i64 @llvm.umin.i64(i64 %101, i64 %34)
+  %87 = icmp ult i32 %.pre297.i, %103
+  %88 = add i64 %86, %.0187232.i
+  br i1 %87, label %.lr.ph230.i.preheader, label %.loopexit200.i
 
 .lr.ph230.i.preheader:                            ; preds = %._crit_edge225.i
   %.pre303.i = zext i32 %.pre297.i to i64

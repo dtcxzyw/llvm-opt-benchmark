@@ -1201,21 +1201,21 @@ resetQueryRepresentation.exit.i:                  ; preds = %.lr.ph.i.i, %tailre
   %182 = getelementptr inbounds %struct.DocRepresentation, ptr %.195.i, i64 %indvars.iv191
   br label %.lr.ph.i106
 
-.lr.ph.i106:                                      ; preds = %241, %.lr.ph.preheader.i
-  %183 = phi i64 [ %245, %241 ], [ %indvars.iv191, %.lr.ph.preheader.i ]
-  %.05185.i = phi ptr [ %242, %241 ], [ %182, %.lr.ph.preheader.i ]
-  %184 = getelementptr inbounds nuw i8, ptr %.05185.i, i64 8
+.lr.ph.i106:                                      ; preds = %259, %.lr.ph.preheader.i
+  %183 = phi i64 [ %263, %259 ], [ %indvars.iv191, %.lr.ph.preheader.i ]
+  %.05183.i = phi ptr [ %260, %259 ], [ %182, %.lr.ph.preheader.i ]
+  %184 = getelementptr inbounds nuw i8, ptr %.05183.i, i64 8
   %185 = load i16, ptr %184, align 8
   %186 = icmp sgt i16 %185, 0
   br i1 %186, label %.lr.ph.i56.i, label %fillQueryRepresentationData.exit.i
 
 .lr.ph.i56.i:                                     ; preds = %.lr.ph.i106
-  %187 = getelementptr inbounds nuw i8, ptr %.05185.i, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %.05183.i, i64 16
   br label %188
 
 188:                                              ; preds = %230, %.lr.ph.i56.i
   %indvars.iv.i57.i = phi i64 [ 0, %.lr.ph.i56.i ], [ %indvars.iv.next.i58.i, %230 ]
-  %189 = load ptr, ptr %.05185.i, align 8
+  %189 = load ptr, ptr %.05183.i, align 8
   %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv.i57.i
   %191 = load ptr, ptr %190, align 8
   %192 = load i8, ptr %191, align 4
@@ -1288,73 +1288,73 @@ fillQueryRepresentationData.exit.i:               ; preds = %230, %.lr.ph.i106
   %234 = load ptr, ptr %7, align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %236 = call zeroext i1 @TS_execute(ptr noundef nonnull %235, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @checkcondition_QueryOperand) #10
-  br i1 %236, label %237, label %241
+  br i1 %236, label %237, label %259
 
 237:                                              ; preds = %fillQueryRepresentationData.exit.i
-  %238 = getelementptr inbounds nuw i8, ptr %.05185.i, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %.05183.i, i64 16
   %239 = load i16, ptr %238, align 8
   %240 = and i16 %239, 16383
   %.not = icmp eq i16 %240, 0
-  br i1 %.not, label %.loopexit, label %247
+  br i1 %.not, label %.loopexit, label %241
 
-241:                                              ; preds = %fillQueryRepresentationData.exit.i
-  %242 = getelementptr inbounds nuw i8, ptr %.05185.i, i64 24
-  %243 = ptrtoint ptr %242 to i64
-  %244 = sub i64 %243, %125
-  %245 = sdiv exact i64 %244, 24
-  %246 = icmp slt i64 %245, %162
-  br i1 %246, label %.lr.ph.i106, label %.loopexit, !llvm.loop !24
+241:                                              ; preds = %237
+  %242 = load ptr, ptr %7, align 8
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 4
+  %244 = load i32, ptr %243, align 4
+  %245 = icmp sgt i32 %244, 0
+  br i1 %245, label %.lr.ph.i59.i, label %resetQueryRepresentation.exit62.i
 
-247:                                              ; preds = %237
-  %248 = load ptr, ptr %7, align 8
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
-  %250 = load i32, ptr %249, align 4
-  %251 = icmp sgt i32 %250, 0
-  br i1 %251, label %.lr.ph.i59.i, label %resetQueryRepresentation.exit62.i
-
-.lr.ph.i59.i:                                     ; preds = %247, %.lr.ph.i59.i
-  %indvars.iv.i60.i = phi i64 [ %indvars.iv.next.i61.i, %.lr.ph.i59.i ], [ 0, %247 ]
-  %252 = load ptr, ptr %32, align 8
-  %253 = getelementptr inbounds nuw %struct.QueryRepresentationOperand, ptr %252, i64 %indvars.iv.i60.i
-  store i8 0, ptr %253, align 4
-  %254 = load ptr, ptr %32, align 8
-  %255 = getelementptr inbounds nuw %struct.QueryRepresentationOperand, ptr %254, i64 %indvars.iv.i60.i, i32 1
-  store i8 1, ptr %255, align 1
-  %256 = load ptr, ptr %32, align 8
-  %257 = getelementptr inbounds nuw %struct.QueryRepresentationOperand, ptr %256, i64 %indvars.iv.i60.i, i32 2
-  store i32 0, ptr %257, align 4
+.lr.ph.i59.i:                                     ; preds = %241, %.lr.ph.i59.i
+  %indvars.iv.i60.i = phi i64 [ %indvars.iv.next.i61.i, %.lr.ph.i59.i ], [ 0, %241 ]
+  %246 = load ptr, ptr %32, align 8
+  %247 = getelementptr inbounds nuw %struct.QueryRepresentationOperand, ptr %246, i64 %indvars.iv.i60.i
+  store i8 0, ptr %247, align 4
+  %248 = load ptr, ptr %32, align 8
+  %249 = getelementptr inbounds nuw %struct.QueryRepresentationOperand, ptr %248, i64 %indvars.iv.i60.i, i32 1
+  store i8 1, ptr %249, align 1
+  %250 = load ptr, ptr %32, align 8
+  %251 = getelementptr inbounds nuw %struct.QueryRepresentationOperand, ptr %250, i64 %indvars.iv.i60.i, i32 2
+  store i32 0, ptr %251, align 4
   %indvars.iv.next.i61.i = add nuw nsw i64 %indvars.iv.i60.i, 1
-  %258 = load ptr, ptr %7, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
-  %260 = load i32, ptr %259, align 4
-  %261 = sext i32 %260 to i64
-  %262 = icmp slt i64 %indvars.iv.next.i61.i, %261
-  br i1 %262, label %.lr.ph.i59.i, label %resetQueryRepresentation.exit62.i, !llvm.loop !20
+  %252 = load ptr, ptr %7, align 8
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 4
+  %254 = load i32, ptr %253, align 4
+  %255 = sext i32 %254 to i64
+  %256 = icmp slt i64 %indvars.iv.next.i61.i, %255
+  br i1 %256, label %.lr.ph.i59.i, label %resetQueryRepresentation.exit62.i, !llvm.loop !20
 
-resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %247
+resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %241
   %sext.i = shl i64 %183, 32
-  %263 = ashr exact i64 %sext.i, 32
-  %.not86.i = icmp slt i64 %263, %indvars.iv191
-  br i1 %.not86.i, label %.loopexit.i108.thread, label %.lr.ph88.i.preheader
+  %257 = ashr exact i64 %sext.i, 32
+  %.not84.i = icmp slt i64 %257, %indvars.iv191
+  br i1 %.not84.i, label %.loopexit.i108.thread, label %.lr.ph86.i.preheader
 
-.lr.ph88.i.preheader:                             ; preds = %resetQueryRepresentation.exit62.i
-  %264 = getelementptr inbounds %struct.DocRepresentation, ptr %.195.i, i64 %263
-  br label %.lr.ph88.i
+.lr.ph86.i.preheader:                             ; preds = %resetQueryRepresentation.exit62.i
+  %258 = getelementptr inbounds %struct.DocRepresentation, ptr %.195.i, i64 %257
+  br label %.lr.ph86.i
 
-.lr.ph88.i:                                       ; preds = %.lr.ph88.i.preheader, %318
-  %.187.i = phi ptr [ %319, %318 ], [ %264, %.lr.ph88.i.preheader ]
-  %265 = getelementptr inbounds nuw i8, ptr %.187.i, i64 8
+259:                                              ; preds = %fillQueryRepresentationData.exit.i
+  %260 = getelementptr inbounds nuw i8, ptr %.05183.i, i64 24
+  %261 = ptrtoint ptr %260 to i64
+  %262 = sub i64 %261, %125
+  %263 = sdiv exact i64 %262, 24
+  %264 = icmp slt i64 %263, %162
+  br i1 %264, label %.lr.ph.i106, label %.loopexit, !llvm.loop !24
+
+.lr.ph86.i:                                       ; preds = %.lr.ph86.i.preheader, %318
+  %.185.i = phi ptr [ %319, %318 ], [ %258, %.lr.ph86.i.preheader ]
+  %265 = getelementptr inbounds nuw i8, ptr %.185.i, i64 8
   %266 = load i16, ptr %265, align 8
   %267 = icmp sgt i16 %266, 0
   br i1 %267, label %.lr.ph.i63.i, label %fillQueryRepresentationData.exit71.i
 
-.lr.ph.i63.i:                                     ; preds = %.lr.ph88.i
-  %268 = getelementptr inbounds nuw i8, ptr %.187.i, i64 16
+.lr.ph.i63.i:                                     ; preds = %.lr.ph86.i
+  %268 = getelementptr inbounds nuw i8, ptr %.185.i, i64 16
   br label %269
 
 269:                                              ; preds = %311, %.lr.ph.i63.i
   %indvars.iv.i64.i = phi i64 [ 0, %.lr.ph.i63.i ], [ %indvars.iv.next.i66.i, %311 ]
-  %270 = load ptr, ptr %.187.i, align 8
+  %270 = load ptr, ptr %.185.i, align 8
   %271 = getelementptr inbounds nuw ptr, ptr %270, i64 %indvars.iv.i64.i
   %272 = load ptr, ptr %271, align 8
   %273 = load i8, ptr %272, align 4
@@ -1423,19 +1423,19 @@ resetQueryRepresentation.exit62.i:                ; preds = %.lr.ph.i59.i, %247
   %314 = icmp slt i64 %indvars.iv.next.i66.i, %313
   br i1 %314, label %269, label %fillQueryRepresentationData.exit71.i, !llvm.loop !23
 
-fillQueryRepresentationData.exit71.i:             ; preds = %311, %.lr.ph88.i
+fillQueryRepresentationData.exit71.i:             ; preds = %311, %.lr.ph86.i
   %315 = load ptr, ptr %7, align 8
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
   %317 = call zeroext i1 @TS_execute(ptr noundef nonnull %316, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @checkcondition_QueryOperand) #10
   br i1 %317, label %.loopexit.i108, label %318
 
 318:                                              ; preds = %fillQueryRepresentationData.exit71.i
-  %319 = getelementptr inbounds i8, ptr %.187.i, i64 -24
+  %319 = getelementptr inbounds i8, ptr %.185.i, i64 -24
   %.not.i107 = icmp ult ptr %319, %182
-  br i1 %.not.i107, label %.loopexit.i108.thread, label %.lr.ph88.i, !llvm.loop !25
+  br i1 %.not.i107, label %.loopexit.i108.thread, label %.lr.ph86.i, !llvm.loop !25
 
 .loopexit.i108:                                   ; preds = %fillQueryRepresentationData.exit71.i
-  %320 = getelementptr inbounds nuw i8, ptr %.187.i, i64 16
+  %320 = getelementptr inbounds nuw i8, ptr %.185.i, i64 16
   %321 = load i16, ptr %320, align 8
   %322 = and i16 %321, 16383
   %.not55.i = icmp samesign ugt i16 %322, %240
@@ -1448,15 +1448,15 @@ fillQueryRepresentationData.exit71.i:             ; preds = %311, %.lr.ph88.i
 323:                                              ; preds = %.loopexit.i108
   %324 = zext nneg i16 %240 to i32
   %325 = zext nneg i16 %322 to i32
-  %326 = ptrtoint ptr %.187.i to i64
+  %326 = ptrtoint ptr %.185.i to i64
   %327 = sub i64 %326, %125
   %328 = sdiv exact i64 %327, 24
   %329 = add nsw i64 %328, 1
-  %.not105157 = icmp ugt ptr %.187.i, %.05185.i
+  %.not105157 = icmp ugt ptr %.185.i, %.05183.i
   br i1 %.not105157, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %323, %.lr.ph
-  %.0159 = phi ptr [ %337, %.lr.ph ], [ %.187.i, %323 ]
+  %.0159 = phi ptr [ %337, %.lr.ph ], [ %.185.i, %323 ]
   %.083158 = phi double [ %336, %.lr.ph ], [ 0.000000e+00, %323 ]
   %330 = getelementptr inbounds nuw i8, ptr %.0159, i64 16
   %331 = load i16, ptr %330, align 8
@@ -1466,13 +1466,13 @@ fillQueryRepresentationData.exit71.i:             ; preds = %311, %.lr.ph88.i
   %335 = load double, ptr %334, align 8
   %336 = fadd double %.083158, %335
   %337 = getelementptr inbounds nuw i8, ptr %.0159, i64 24
-  %.not105 = icmp ugt ptr %337, %.05185.i
+  %.not105 = icmp ugt ptr %337, %.05183.i
   br i1 %.not105, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %323
   %.083.lcssa = phi double [ 0.000000e+00, %323 ], [ %336, %.lr.ph ]
-  %338 = ptrtoint ptr %.05185.i to i64
-  %339 = ptrtoint ptr %.187.i to i64
+  %338 = ptrtoint ptr %.05183.i to i64
+  %339 = ptrtoint ptr %.185.i to i64
   %340 = sub i64 %338, %339
   %341 = sdiv exact i64 %340, 24
   %342 = add nsw i64 %341, 1
@@ -1502,7 +1502,7 @@ fillQueryRepresentationData.exit71.i:             ; preds = %311, %.lr.ph88.i
   %363 = add i32 %.090, 1
   br label %164, !llvm.loop !27
 
-.loopexit:                                        ; preds = %resetQueryRepresentation.exit.i, %237, %241
+.loopexit:                                        ; preds = %resetQueryRepresentation.exit.i, %237, %259
   %364 = and i32 %3, 1
   %.not100 = icmp eq i32 %364, 0
   br i1 %.not100, label %388, label %365

@@ -457,17 +457,20 @@ while.body189.i:                                  ; preds = %if.then178.i, %whil
   %31 = load i8, ptr %incdec.ptr181.i, align 1
   %32 = add i8 %31, -48
   %33 = icmp ult i8 %32, 10
-  br i1 %33, label %while.body189.i, label %while.end193.i, !llvm.loop !13
+  br i1 %33, label %while.body189.i, label %while.end193.loopexit.i, !llvm.loop !13
 
-while.end193.i:                                   ; preds = %while.body189.i, %if.then178.i
-  %UL.0.lcssa.i = phi i32 [ %sub179.i, %if.then178.i ], [ %sub192.i, %while.body189.i ]
-  %incdec.ptr181.lcssa.i = phi ptr [ %incdec.ptr181834.i, %if.then178.i ], [ %incdec.ptr181.i, %while.body189.i ]
+while.end193.loopexit.i:                          ; preds = %while.body189.i
+  %34 = call i32 @llvm.umin.i32(i32 %sub192.i, i32 19999)
+  br label %while.end193.i
+
+while.end193.i:                                   ; preds = %while.end193.loopexit.i, %if.then178.i
+  %UL.0.lcssa.i = phi i32 [ %sub179.i, %if.then178.i ], [ %34, %while.end193.loopexit.i ]
+  %incdec.ptr181.lcssa.i = phi ptr [ %incdec.ptr181834.i, %if.then178.i ], [ %incdec.ptr181.i, %while.end193.loopexit.i ]
   %sub.ptr.lhs.cast194.i = ptrtoint ptr %incdec.ptr181.lcssa.i to i64
   %sub.ptr.rhs.cast195.i = ptrtoint ptr %s.12.lcssa.i to i64
   %sub.ptr.sub196.i = sub i64 %sub.ptr.lhs.cast194.i, %sub.ptr.rhs.cast195.i
   %cmp197.i = icmp sgt i64 %sub.ptr.sub196.i, 8
-  %34 = call i32 @llvm.umin.i32(i32 %UL.0.lcssa.i, i32 19999)
-  %.UL.0.i = select i1 %cmp197.i, i32 19999, i32 %34
+  %.UL.0.i = select i1 %cmp197.i, i32 19999, i32 %UL.0.lcssa.i
   %sub207.i = sub nsw i32 0, %.UL.0.i
   %spec.select341.i = select i1 %esign.0.i, i32 %.UL.0.i, i32 %sub207.i
   br label %if.end213.i

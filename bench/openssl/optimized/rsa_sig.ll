@@ -868,13 +868,13 @@ rsa_generate_signature_aid.exit.thread:           ; preds = %10
 22:                                               ; preds = %20
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 332, ptr noundef nonnull @__func__.rsa_generate_signature_aid) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef null) #11
-  br label %rsa_generate_signature_aid.exit.thread89
+  br label %rsa_generate_signature_aid.exit.thread91
 
 23:                                               ; preds = %20
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 335, ptr noundef nonnull @__func__.rsa_generate_signature_aid) #11
   %24 = load i32, ptr %16, align 8, !tbaa !26
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 524556, ptr noundef nonnull @.str.34, i32 noundef %24) #11
-  br label %rsa_generate_signature_aid.exit.thread89
+  br label %rsa_generate_signature_aid.exit.thread91
 
 25:                                               ; preds = %12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -895,7 +895,7 @@ rsa_generate_signature_aid.exit.thread:           ; preds = %10
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 269, ptr noundef nonnull @__func__.rsa_pss_compute_saltlen) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 122, ptr noundef null) #11
-  br label %rsa_generate_signature_aid.exit.thread89
+  br label %rsa_generate_signature_aid.exit.thread91
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -908,7 +908,7 @@ rsa_generate_signature_aid.exit.thread:           ; preds = %10
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 275, ptr noundef nonnull @__func__.rsa_pss_compute_saltlen) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 122, ptr noundef null) #11
-  br label %rsa_generate_signature_aid.exit.thread89
+  br label %rsa_generate_signature_aid.exit.thread91
 
 40:                                               ; preds = %28, %25
   %.027.i.i = phi i32 [ %31, %28 ], [ %27, %25 ]
@@ -928,7 +928,7 @@ rsa_generate_signature_aid.exit.thread:           ; preds = %10
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 283, ptr noundef nonnull @__func__.rsa_pss_compute_saltlen) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 122, ptr noundef null) #11
-  br label %rsa_generate_signature_aid.exit.thread89
+  br label %rsa_generate_signature_aid.exit.thread91
 
 47:                                               ; preds = %.thread.i.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -944,7 +944,7 @@ rsa_generate_signature_aid.exit.thread:           ; preds = %10
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 287, ptr noundef nonnull @__func__.rsa_pss_compute_saltlen) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 158, ptr noundef null) #11
-  br label %rsa_generate_signature_aid.exit.thread89
+  br label %rsa_generate_signature_aid.exit.thread91
 
 55:                                               ; preds = %47
   %56 = sub nsw i32 %50, %44
@@ -968,7 +968,7 @@ rsa_generate_signature_aid.exit.thread:           ; preds = %10
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 297, ptr noundef nonnull @__func__.rsa_pss_compute_saltlen) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef null) #11
-  br label %rsa_generate_signature_aid.exit.thread89
+  br label %rsa_generate_signature_aid.exit.thread91
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -981,7 +981,7 @@ rsa_generate_signature_aid.exit.thread:           ; preds = %10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 300, ptr noundef nonnull @__func__.rsa_pss_compute_saltlen) #11
   %71 = load i32, ptr %67, align 4, !tbaa !17
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 172, ptr noundef nonnull @.str.36, i32 noundef %71, i32 noundef %.128.i.i) #11
-  br label %rsa_generate_signature_aid.exit.thread89
+  br label %rsa_generate_signature_aid.exit.thread91
 
 rsa_pss_compute_saltlen.exit.i:                   ; preds = %66
   %72 = call i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef nonnull %4) #11
@@ -1016,21 +1016,21 @@ rsa_pss_compute_saltlen.exit.i:                   ; preds = %66
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 351, ptr noundef nonnull @__func__.rsa_generate_signature_aid) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef null) #11
-  br label %rsa_generate_signature_aid.exit.thread89
+  br label %rsa_generate_signature_aid.exit.thread91
 
 86:                                               ; preds = %12
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @__func__.rsa_generate_signature_aid) #11
   %87 = load i32, ptr %13, align 8, !tbaa !23
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 524556, ptr noundef nonnull @.str.35, i32 noundef %87) #11
-  br label %rsa_generate_signature_aid.exit.thread89
+  br label %rsa_generate_signature_aid.exit.thread91
 
 88:                                               ; preds = %83, %15
   %89 = call i32 @WPACKET_finish(ptr noundef nonnull %3) #11
   %.not23.i = icmp eq i32 %89, 0
-  br i1 %.not23.i, label %rsa_generate_signature_aid.exit.thread89, label %rsa_generate_signature_aid.exit
+  br i1 %.not23.i, label %rsa_generate_signature_aid.exit.thread91, label %rsa_generate_signature_aid.exit
 
-rsa_generate_signature_aid.exit.thread89:         ; preds = %86, %88, %22, %23, %85, %33, %65, %70, %39, %46, %54
+rsa_generate_signature_aid.exit.thread91:         ; preds = %86, %88, %22, %23, %85, %33, %65, %70, %39, %54, %46
   call void @WPACKET_cleanup(ptr noundef nonnull %3) #11
   br label %.sink.split
 
@@ -1054,7 +1054,7 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #11
   br label %97
 
-.sink.split:                                      ; preds = %rsa_generate_signature_aid.exit.thread, %rsa_generate_signature_aid.exit.thread89
+.sink.split:                                      ; preds = %rsa_generate_signature_aid.exit.thread, %rsa_generate_signature_aid.exit.thread91
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #11
   br label %96
@@ -1091,8 +1091,8 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
   br i1 %.not74, label %.critedge86, label %.critedge84
 
 .lr.ph:                                           ; preds = %.preheader, %109
-  %indvars.iv103 = phi i64 [ %indvars.iv.next, %109 ], [ 0, %.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv103, 1
+  %indvars.iv101 = phi i64 [ %indvars.iv.next, %109 ], [ 0, %.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv101, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %.thread, label %109, !llvm.loop !39
 
@@ -1145,12 +1145,12 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
 126:                                              ; preds = %123, %121
   %127 = call ptr @OSSL_PARAM_locate(ptr noundef %1, ptr noundef nonnull @.str.29) #11
   %.not79 = icmp eq ptr %127, null
-  br i1 %.not79, label %.critedge87, label %128
+  br i1 %.not79, label %.critedge88, label %128
 
 128:                                              ; preds = %126
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = load i32, ptr %129, align 8, !tbaa !37
-  switch i32 %130, label %.critedge87 [
+  switch i32 %130, label %.critedge88 [
     i32 1, label %131
     i32 4, label %135
   ]
@@ -1160,7 +1160,7 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
   %133 = load i32, ptr %132, align 8, !tbaa !16
   %134 = call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %127, i32 noundef %133) #11
   %.not82 = icmp eq i32 %134, 0
-  br i1 %.not82, label %.critedge86, label %.critedge87
+  br i1 %.not82, label %.critedge86, label %.critedge88
 
 135:                                              ; preds = %128
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -1181,7 +1181,7 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
   %147 = zext nneg i32 %144 to i64
   %148 = getelementptr inbounds nuw i8, ptr %127, i64 32
   store i64 %147, ptr %148, align 8, !tbaa !46
-  br label %.critedge87
+  br label %.critedge88
 
 switch.lookup:                                    ; preds = %135
   %switch.tableidx = add nsw i32 %137, 4
@@ -1190,13 +1190,13 @@ switch.lookup:                                    ; preds = %135
   %switch.load = load ptr, ptr %switch.gep, align 8
   %150 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %127, ptr noundef nonnull %switch.load) #11
   %.not81 = icmp eq i32 %150, 0
-  br i1 %.not81, label %.critedge86, label %.critedge87
+  br i1 %.not81, label %.critedge86, label %.critedge88
 
-.critedge87:                                      ; preds = %146, %switch.lookup, %128, %131, %126
+.critedge88:                                      ; preds = %switch.lookup, %146, %128, %131, %126
   br label %.critedge86
 
-.critedge86:                                      ; preds = %switch.lookup, %139, %131, %123, %118, %99, %115, %105, %96, %2, %.critedge87
-  %.0 = phi i32 [ 1, %.critedge87 ], [ 0, %96 ], [ 0, %2 ], [ 0, %105 ], [ 0, %115 ], [ 0, %99 ], [ 0, %118 ], [ 0, %123 ], [ 0, %131 ], [ 0, %139 ], [ 0, %switch.lookup ]
+.critedge86:                                      ; preds = %switch.lookup, %139, %131, %123, %118, %99, %115, %105, %96, %2, %.critedge88
+  %.0 = phi i32 [ 1, %.critedge88 ], [ 0, %96 ], [ 0, %2 ], [ 0, %105 ], [ 0, %115 ], [ 0, %99 ], [ 0, %118 ], [ 0, %123 ], [ 0, %131 ], [ 0, %139 ], [ 0, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -3013,7 +3013,7 @@ rsa_get_md_size.exit:                             ; preds = %6, %15
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 709, ptr noundef nonnull @__func__.rsa_sign_directly) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 168, ptr noundef nonnull @.str.12) #11
-  br label %.thread
+  br label %.critedge107
 
 34:                                               ; preds = %30
   %35 = trunc nuw nsw i64 %5 to i32
@@ -3026,11 +3026,7 @@ rsa_get_md_size.exit:                             ; preds = %6, %15
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 717, ptr noundef nonnull @__func__.rsa_sign_directly) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 524292, ptr noundef null) #11
-  br label %.thread
-
-.thread:                                          ; preds = %33, %39
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  br label %132
+  br label %.critedge107
 
 40:                                               ; preds = %34
   %41 = load i32, ptr %7, align 4, !tbaa !33
@@ -3099,9 +3095,9 @@ rsa_get_md_size.exit:                             ; preds = %6, %15
   %73 = load ptr, ptr %10, align 8, !tbaa !20
   %74 = call i32 @RSA_sign(i32 noundef %71, ptr noundef %4, i32 noundef %72, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef %73) #11
   %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %.thread108, label %77
+  br i1 %75, label %.thread, label %77
 
-.thread108:                                       ; preds = %69
+.thread:                                          ; preds = %69
   %76 = load i32, ptr %8, align 4, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
   br label %127
@@ -3139,7 +3135,7 @@ rsa_get_md_size.exit:                             ; preds = %6, %15
   %90 = load ptr, ptr %14, align 8, !tbaa !22
   %91 = tail call i32 @EVP_MD_get_size(ptr noundef %90) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 172, ptr noundef nonnull @.str.14, i32 noundef %89, i32 noundef %91) #11
-  br label %.thread111
+  br label %.critedge
 
 thread-pre-split:                                 ; preds = %84
   %.pr = load i32, ptr %82, align 8, !tbaa !16
@@ -3161,12 +3157,12 @@ thread-pre-split:                                 ; preds = %84
   %99 = load i32, ptr %79, align 4, !tbaa !17
   %100 = load i32, ptr %82, align 8, !tbaa !16
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 172, ptr noundef nonnull @.str.15, i32 noundef %99, i32 noundef %100) #11
-  br label %.thread111
+  br label %.critedge
 
 101:                                              ; preds = %95, %92, %78
   %102 = tail call fastcc i32 @setup_tbuf(ptr noundef nonnull %0)
   %.not101 = icmp eq i32 %102, 0
-  br i1 %.not101, label %.thread111, label %103
+  br i1 %.not101, label %.critedge, label %103
 
 103:                                              ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -3186,11 +3182,7 @@ thread-pre-split:                                 ; preds = %84
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 795, ptr noundef nonnull @__func__.rsa_sign_directly) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 524292, ptr noundef null) #11
-  br label %.thread111
-
-.thread111:                                       ; preds = %88, %98, %113, %101
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
-  br label %132
+  br label %.critedge
 
 114:                                              ; preds = %103
   %115 = load ptr, ptr %10, align 8, !tbaa !20
@@ -3216,8 +3208,8 @@ thread-pre-split:                                 ; preds = %84
   %126 = tail call i32 @RSA_private_encrypt(i32 noundef %122, ptr noundef %4, ptr noundef nonnull %1, ptr noundef %123, i32 noundef %125) #11
   br label %127
 
-127:                                              ; preds = %114, %.thread108, %40, %121, %56
-  %.183 = phi i32 [ %41, %40 ], [ %68, %56 ], [ %119, %114 ], [ %126, %121 ], [ %76, %.thread108 ]
+127:                                              ; preds = %.thread, %40, %114, %121, %56
+  %.183 = phi i32 [ %41, %40 ], [ %68, %56 ], [ %119, %114 ], [ %126, %121 ], [ %76, %.thread ]
   %128 = icmp slt i32 %.183, 1
   br i1 %128, label %129, label %130
 
@@ -3232,8 +3224,16 @@ thread-pre-split:                                 ; preds = %84
   store i64 %131, ptr %2, align 8, !tbaa !21
   br label %132
 
-132:                                              ; preds = %.thread111, %77, %.thread, %rsa_get_md_size.exit, %130, %129, %120, %55, %50, %26, %23, %20
-  %.079 = phi i32 [ 1, %20 ], [ 0, %23 ], [ 0, %26 ], [ 0, %129 ], [ 1, %130 ], [ 0, %120 ], [ 0, %50 ], [ 0, %55 ], [ 0, %77 ], [ 0, %rsa_get_md_size.exit ], [ 0, %.thread ], [ 0, %.thread111 ]
+.critedge:                                        ; preds = %101, %113, %98, %88
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
+  br label %132
+
+.critedge107:                                     ; preds = %39, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
+  br label %132
+
+132:                                              ; preds = %77, %.critedge107, %.critedge, %rsa_get_md_size.exit, %130, %129, %120, %55, %50, %26, %23, %20
+  %.079 = phi i32 [ 1, %20 ], [ 0, %23 ], [ 0, %26 ], [ 0, %129 ], [ 1, %130 ], [ 0, %120 ], [ 0, %50 ], [ 0, %55 ], [ 0, %77 ], [ 0, %rsa_get_md_size.exit ], [ 0, %.critedge ], [ 0, %.critedge107 ]
   ret i32 %.079
 }
 

@@ -63,14 +63,13 @@ define internal range(i32 0, 101) i32 @nsv_probe(ptr noundef readonly captures(n
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %16 = load i8, ptr %15, align 1, !tbaa !11
   switch i8 %16, label %17 [
-    i8 102, label %.loopexit
-    i8 115, label %.loopexit
+    i8 102, label %.critedge
+    i8 115, label %.critedge
   ]
 
 17:                                               ; preds = %14, %10, %6, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !12
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 1
   %20 = icmp sgt i32 %19, 4
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -80,13 +79,13 @@ define internal range(i32 0, 101) i32 @nsv_probe(ptr noundef readonly captures(n
   %wide.trip.count = zext nneg i32 %21 to i64
   br label %23
 
-23:                                               ; preds = %.lr.ph, %.thread
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %.02939 = phi i32 [ 0, %.lr.ph ], [ %.231, %.thread ]
+23:                                               ; preds = %.lr.ph, %50
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %50 ]
+  %.02937 = phi i32 [ 0, %.lr.ph ], [ %.231, %50 ]
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %25 = load i32, ptr %24, align 1, !tbaa !11
   %26 = icmp eq i32 %25, 1935037262
-  br i1 %26, label %27, label %.thread
+  br i1 %26, label %27, label %50
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 19
@@ -106,30 +105,31 @@ define internal range(i32 0, 101) i32 @nsv_probe(ptr noundef readonly captures(n
   %42 = add nuw nsw i32 %41, %39
   %43 = add nuw nsw i32 %42, %36
   %.not35.not = icmp slt i32 %43, %22
-  br i1 %.not35.not, label %44, label %.thread
+  br i1 %.not35.not, label %44, label %50
 
 44:                                               ; preds = %27
   %45 = zext nneg i32 %43 to i64
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %45
-  %46 = load i16, ptr %gep, align 1, !tbaa !11
-  %47 = icmp eq i16 %46, -16657
-  br i1 %47, label %.loopexit, label %.thread
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
+  %48 = load i16, ptr %47, align 1, !tbaa !11
+  %49 = icmp eq i16 %48, -16657
+  br i1 %49, label %.critedge, label %50
 
-.thread:                                          ; preds = %44, %27, %23
-  %.231 = phi i32 [ %.02939, %23 ], [ 20, %27 ], [ 20, %44 ]
+50:                                               ; preds = %27, %44, %23
+  %.231 = phi i32 [ %.02937, %23 ], [ 20, %44 ], [ 20, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.thread, %17
-  %.029.lcssa = phi i32 [ 0, %17 ], [ %.231, %.thread ]
-  %48 = load ptr, ptr %0, align 8, !tbaa !15
-  %49 = tail call i32 @av_match_ext(ptr noundef %48, ptr noundef nonnull @.str) #8
-  %.not = icmp eq i32 %49, 0
+._crit_edge:                                      ; preds = %50, %17
+  %.029.lcssa = phi i32 [ 0, %17 ], [ %.231, %50 ]
+  %51 = load ptr, ptr %0, align 8, !tbaa !15
+  %52 = tail call i32 @av_match_ext(ptr noundef %51, ptr noundef nonnull @.str) #8
+  %.not = icmp eq i32 %52, 0
   %.029. = select i1 %.not, i32 %.029.lcssa, i32 50
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %44, %._crit_edge, %14, %14
+.critedge:                                        ; preds = %44, %._crit_edge, %14, %14
   %.0 = phi i32 [ 100, %14 ], [ 100, %14 ], [ %.029., %._crit_edge ], [ 80, %44 ]
   ret i32 %.0
 }

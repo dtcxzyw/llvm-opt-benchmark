@@ -184,19 +184,19 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit:       ; preds = %_ZN23AdaptiveWeight
 
 29:                                               ; preds = %_ZN23AdaptiveWeightedAverage6sampleEf.exit
   %30 = udiv i32 100, %5
+  %31 = tail call i32 @llvm.umax.i32(i32 %17, i32 %30)
   br label %_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit
 
 _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %_ZN23AdaptiveWeightedAverage6sampleEf.exit, %29
-  %.0.i = phi i32 [ 0, %_ZN23AdaptiveWeightedAverage6sampleEf.exit ], [ %30, %29 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = fsub float %1, %25
-  %33 = tail call noundef float @llvm.fabs.f32(float %32)
-  %34 = tail call noundef i32 @llvm.umax.i32(i32 %17, i32 %.0.i)
-  %35 = uitofp i32 %34 to float
+  %.0.i = phi i32 [ %17, %_ZN23AdaptiveWeightedAverage6sampleEf.exit ], [ %31, %29 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = fsub float %1, %25
+  %34 = tail call noundef float @llvm.fabs.f32(float %33)
+  %35 = uitofp i32 %.0.i to float
   %36 = fsub float 1.000000e+02, %35
   %37 = fmul float %27, %36
   %38 = fdiv float %37, 1.000000e+02
-  %39 = fmul float %33, %35
+  %39 = fmul float %34, %35
   %40 = fdiv float %39, 1.000000e+02
   %41 = fadd float %40, %38
   store float %41, ptr %26, align 4
@@ -206,7 +206,7 @@ _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %_ZN23
   %45 = tail call float @llvm.fmuladd.f32(float %44, float %41, float %25)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %45, ptr %46, align 4
-  store float %1, ptr %31, align 4
+  store float %1, ptr %32, align 4
   ret void
 }
 
@@ -272,12 +272,12 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit._crit_edge: ; preds = %_ZN23AdaptiveW
 
 33:                                               ; preds = %27
   %34 = udiv i32 100, %5
+  %35 = tail call i32 @llvm.umax.i32(i32 %17, i32 %34)
   br label %_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit
 
 _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %27, %33
-  %.0.i = phi i32 [ 0, %27 ], [ %34, %33 ]
-  %35 = tail call noundef i32 @llvm.umax.i32(i32 %17, i32 %.0.i)
-  %36 = uitofp i32 %35 to float
+  %.0.i = phi i32 [ %17, %27 ], [ %35, %33 ]
+  %36 = uitofp i32 %.0.i to float
   %37 = fsub float 1.000000e+02, %36
   %38 = fmul float %31, %37
   %39 = fdiv float %38, 1.000000e+02

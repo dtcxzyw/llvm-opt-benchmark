@@ -804,23 +804,19 @@ _ZN12b3HashStringC2EPKc.exit._ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit.thre
   %47 = load ptr, ptr %46, align 8
   br i1 %45, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
-.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i
-  %invariant.gep.i.i = getelementptr i8, ptr %44, i64 8
-  br label %48
-
-48:                                               ; preds = %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i.i, %.lr.ph.split.us.i.i
-  %.015.us.i.i = phi i32 [ %.013.i.i, %.lr.ph.split.us.i.i ], [ %.0.us.i.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i.i ]
-  %49 = sext i32 %.015.us.i.i to i64
-  %gep.i.i = getelementptr %struct.b3HashString, ptr %invariant.gep.i.i, i64 %49
-  %50 = load i64, ptr %gep.i.i, align 8, !tbaa !68
+.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i.i
+  %.015.us.i.i = phi i32 [ %.0.us.i.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i.i ], [ %.013.i.i, %.lr.ph.i.i ]
+  %48 = sext i32 %.015.us.i.i to i64
+  %49 = getelementptr inbounds %struct.b3HashString, ptr %44, i64 %48, i32 0, i32 1
+  %50 = load i64, ptr %49, align 8, !tbaa !68
   %51 = icmp eq i64 %50, 0
   br i1 %51, label %_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit, label %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i.i
 
-_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i.i: ; preds = %48
-  %52 = getelementptr inbounds i32, ptr %47, i64 %49
+_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i.i: ; preds = %.lr.ph.split.us.i.i
+  %52 = getelementptr inbounds i32, ptr %47, i64 %48
   %.0.us.i.i = load i32, ptr %52, align 4, !tbaa !78
   %.not11.us.i.i = icmp eq i32 %.0.us.i.i, -1
-  br i1 %.not11.us.i.i, label %_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit.thread, label %48, !llvm.loop !87
+  br i1 %.not11.us.i.i, label %_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit.thread, label %.lr.ph.split.us.i.i, !llvm.loop !87
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.i.i
   %.015.i.i = phi i32 [ %.0.i.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.i.i ], [ %.013.i.i, %.lr.ph.i.i ]
@@ -843,8 +839,8 @@ _ZNK12b3HashString6equalsERKS_.exit.thread12.i.i: ; preds = %_ZNK12b3HashString6
   %.not11.i.i = icmp eq i32 %.0.i.i, -1
   br i1 %.not11.i.i, label %_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit.thread, label %.lr.ph.split.i.i, !llvm.loop !89
 
-_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit:   ; preds = %_ZNK12b3HashString6equalsERKS_.exit.i.i, %48
-  %.pre-phi.i = phi i64 [ %49, %48 ], [ %53, %_ZNK12b3HashString6equalsERKS_.exit.i.i ]
+_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit:   ; preds = %_ZNK12b3HashString6equalsERKS_.exit.i.i, %.lr.ph.split.us.i.i
+  %.pre-phi.i = phi i64 [ %48, %.lr.ph.split.us.i.i ], [ %53, %_ZNK12b3HashString6equalsERKS_.exit.i.i ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %62 = load ptr, ptr %61, align 8, !tbaa !13
   %.not = icmp eq ptr %62, null
@@ -2481,23 +2477,19 @@ define linkonce_odr dso_local void @_ZN9b3HashMapI12b3HashStringiE6insertERKS0_R
   %25 = load ptr, ptr %24, align 8
   br i1 %22, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %invariant.gep.i = getelementptr i8, ptr %19, i64 8
-  br label %26
-
-26:                                               ; preds = %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i, %.lr.ph.split.us.i
-  %.015.us.i = phi i32 [ %.013.i, %.lr.ph.split.us.i ], [ %.0.us.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i ]
-  %27 = sext i32 %.015.us.i to i64
-  %gep.i = getelementptr %struct.b3HashString, ptr %invariant.gep.i, i64 %27
-  %28 = load i64, ptr %gep.i, align 8, !tbaa !68
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i
+  %.015.us.i = phi i32 [ %.0.us.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i ], [ %.013.i, %.lr.ph.i ]
+  %26 = sext i32 %.015.us.i to i64
+  %27 = getelementptr inbounds %struct.b3HashString, ptr %19, i64 %26, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8, !tbaa !68
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %_ZNK9b3HashMapI12b3HashStringiE9findIndexERKS0_.exit, label %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i
 
-_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i: ; preds = %26
-  %30 = getelementptr inbounds i32, ptr %25, i64 %27
+_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i: ; preds = %.lr.ph.split.us.i
+  %30 = getelementptr inbounds i32, ptr %25, i64 %26
   %.0.us.i = load i32, ptr %30, align 4, !tbaa !78
   %.not11.us.i = icmp eq i32 %.0.us.i, -1
-  br i1 %.not11.us.i, label %.loopexit, label %26, !llvm.loop !87
+  br i1 %.not11.us.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !87
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.i
   %.015.i = phi i32 [ %.0.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.i ], [ %.013.i, %.lr.ph.i ]
@@ -2520,8 +2512,8 @@ _ZNK12b3HashString6equalsERKS_.exit.thread12.i:   ; preds = %_ZNK12b3HashString6
   %.not11.i = icmp eq i32 %.0.i, -1
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !89
 
-_ZNK9b3HashMapI12b3HashStringiE9findIndexERKS0_.exit: ; preds = %_ZNK12b3HashString6equalsERKS_.exit.i, %26
-  %.pre-phi = phi i64 [ %27, %26 ], [ %31, %_ZNK12b3HashString6equalsERKS_.exit.i ]
+_ZNK9b3HashMapI12b3HashStringiE9findIndexERKS0_.exit: ; preds = %_ZNK12b3HashString6equalsERKS_.exit.i, %.lr.ph.split.us.i
+  %.pre-phi = phi i64 [ %26, %.lr.ph.split.us.i ], [ %31, %_ZNK12b3HashString6equalsERKS_.exit.i ]
   %39 = load i32, ptr %2, align 4, !tbaa !78
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load ptr, ptr %40, align 8, !tbaa !13

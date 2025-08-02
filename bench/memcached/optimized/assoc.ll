@@ -349,7 +349,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #9
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @assoc_maintenance_thread(ptr readnone captures(none) %0) #0 {
+define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captures(none) %0) #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @maintenance_lock) #18
   %3 = load volatile i32, ptr @do_run_maintenance_thread, align 4, !tbaa !4
   %.not26 = icmp eq i32 %3, 0

@@ -100,25 +100,25 @@ define range(i32 -1094995529, 1) i32 @ff_mms_asf_header_parser(ptr noundef initi
   %14 = ptrtoint ptr %13 to i64
   %gepdiff = add nsw i64 %7, -30
   %15 = icmp ugt i64 %gepdiff, 23
-  br i1 %15, label %.lr.ph142, label %.thread120
+  br i1 %15, label %.lr.ph141, label %.thread120
 
-.lr.ph142:                                        ; preds = %12
+.lr.ph141:                                        ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 66116
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 66104
   br label %20
 
-20:                                               ; preds = %.lr.ph142, %105
-  %21 = phi i32 [ 0, %.lr.ph142 ], [ %106, %105 ]
-  %22 = phi i64 [ %gepdiff, %.lr.ph142 ], [ %109, %105 ]
-  %.094140 = phi ptr [ %16, %.lr.ph142 ], [ %107, %105 ]
-  %bcmp101 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.094140, ptr noundef nonnull dereferenceable(16) @ff_asf_data_header, i64 16)
+20:                                               ; preds = %.lr.ph141, %109
+  %21 = phi i32 [ 0, %.lr.ph141 ], [ %110, %109 ]
+  %22 = phi i64 [ %gepdiff, %.lr.ph141 ], [ %113, %109 ]
+  %.094138 = phi ptr [ %16, %.lr.ph141 ], [ %111, %109 ]
+  %bcmp101 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.094138, ptr noundef nonnull dereferenceable(16) @ff_asf_data_header, i64 16)
   %.not102 = icmp eq i32 %bcmp101, 0
   br i1 %.not102, label %26, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %.094140, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.094138, i64 16
   %25 = load i64, ptr %24, align 1, !tbaa !19
   br label %26
 
@@ -134,21 +134,21 @@ define range(i32 -1094995529, 1) i32 @ff_mms_asf_header_parser(ptr noundef initi
   br label %.thread120
 
 30:                                               ; preds = %26
-  %bcmp104 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.094140, ptr noundef nonnull dereferenceable(16) @ff_asf_file_header, i64 16)
+  %bcmp104 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.094138, ptr noundef nonnull dereferenceable(16) @ff_asf_file_header, i64 16)
   %.not105 = icmp eq i32 %bcmp104, 0
   br i1 %.not105, label %31, label %39
 
 31:                                               ; preds = %30
   %32 = icmp ugt i64 %22, 100
-  br i1 %32, label %33, label %105
+  br i1 %32, label %33, label %109
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %.094140, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %.094138, i64 96
   %35 = load i32, ptr %34, align 1, !tbaa !19
   store i32 %35, ptr %19, align 8, !tbaa !20
   %36 = add i32 %35, -65537
   %or.cond115 = icmp ult i32 %36, -65536
-  br i1 %or.cond115, label %37, label %105
+  br i1 %or.cond115, label %37, label %109
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %0, align 8, !tbaa !18
@@ -156,16 +156,16 @@ define range(i32 -1094995529, 1) i32 @ff_mms_asf_header_parser(ptr noundef initi
   br label %.thread120
 
 39:                                               ; preds = %30
-  %bcmp106 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.094140, ptr noundef nonnull dereferenceable(16) @ff_asf_stream_header, i64 16)
+  %bcmp106 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.094138, ptr noundef nonnull dereferenceable(16) @ff_asf_stream_header, i64 16)
   %.not107 = icmp eq i32 %bcmp106, 0
   br i1 %.not107, label %40, label %65
 
 40:                                               ; preds = %39
   %41 = icmp ugt i64 %22, 73
-  br i1 %41, label %42, label %105
+  br i1 %41, label %42, label %109
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds nuw i8, ptr %.094140, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %.094138, i64 72
   %44 = load i16, ptr %43, align 1, !tbaa !19
   %45 = and i16 %44, 127
   %46 = zext nneg i16 %45 to i32
@@ -195,7 +195,7 @@ define range(i32 -1094995529, 1) i32 @ff_mms_asf_header_parser(ptr noundef initi
   store i32 %46, ptr %61, align 4, !tbaa !22
   %62 = add nsw i32 %59, 1
   store i32 %62, ptr %4, align 8, !tbaa !17
-  br label %105
+  br label %109
 
 63:                                               ; preds = %48, %42
   %64 = load ptr, ptr %0, align 8, !tbaa !18
@@ -203,21 +203,20 @@ define range(i32 -1094995529, 1) i32 @ff_mms_asf_header_parser(ptr noundef initi
   br label %.thread120
 
 65:                                               ; preds = %39
-  %bcmp109 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.094140, ptr noundef nonnull dereferenceable(16) @ff_asf_ext_stream_header, i64 16)
+  %bcmp109 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.094138, ptr noundef nonnull dereferenceable(16) @ff_asf_ext_stream_header, i64 16)
   %.not110 = icmp eq i32 %bcmp109, 0
-  br i1 %.not110, label %66, label %100
+  br i1 %.not110, label %66, label %104
 
 66:                                               ; preds = %65
   %67 = icmp sgt i64 %22, 87
-  br i1 %67, label %68, label %105
+  br i1 %67, label %68, label %109
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %.094140, i64 84
+  %69 = getelementptr inbounds nuw i8, ptr %.094138, i64 84
   %70 = load i16, ptr %69, align 1, !tbaa !19
-  %71 = getelementptr inbounds nuw i8, ptr %.094140, i64 86
+  %71 = getelementptr inbounds nuw i8, ptr %.094138, i64 86
   %72 = load i16, ptr %71, align 1, !tbaa !19
   %73 = zext i16 %72 to i32
-  %invariant.gep = getelementptr i8, ptr %.094140, i64 2
   %.not111132 = icmp eq i16 %70, 0
   br i1 %.not111132, label %.preheader, label %.lr.ph.preheader
 
@@ -226,14 +225,13 @@ define range(i32 -1094995529, 1) i32 @ff_mms_asf_header_parser(ptr noundef initi
   br label %.lr.ph
 
 .preheader:                                       ; preds = %79, %68
-  %.0.lcssa = phi i64 [ 88, %68 ], [ %83, %79 ]
-  %invariant.gep134 = getelementptr i8, ptr %.094140, i64 18
-  %.not112136 = icmp eq i16 %72, 0
-  br i1 %.not112136, label %._crit_edge, label %.lr.ph138
+  %.0.lcssa = phi i64 [ 88, %68 ], [ %85, %79 ]
+  %.not112134 = icmp eq i16 %72, 0
+  br i1 %.not112134, label %._crit_edge, label %.lr.ph136
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
   %.in = phi i32 [ %80, %79 ], [ %74, %.lr.ph.preheader ]
-  %.0133 = phi i64 [ %83, %79 ], [ 88, %.lr.ph.preheader ]
+  %.0133 = phi i64 [ %85, %79 ], [ 88, %.lr.ph.preheader ]
   %75 = add i64 %.0133, 4
   %76 = icmp ult i64 %22, %75
   br i1 %76, label %77, label %79
@@ -245,76 +243,78 @@ define range(i32 -1094995529, 1) i32 @ff_mms_asf_header_parser(ptr noundef initi
 
 79:                                               ; preds = %.lr.ph
   %80 = add nsw i32 %.in, -1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0133
-  %81 = load i16, ptr %gep, align 1, !tbaa !19
-  %82 = zext i16 %81 to i64
-  %83 = add i64 %75, %82
+  %81 = getelementptr inbounds nuw i8, ptr %.094138, i64 %.0133
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 2
+  %83 = load i16, ptr %82, align 1, !tbaa !19
+  %84 = zext i16 %83 to i64
+  %85 = add i64 %75, %84
   %.not111 = icmp eq i32 %80, 0
   br i1 %.not111, label %.preheader, label %.lr.ph, !llvm.loop !24
 
-.lr.ph138:                                        ; preds = %.preheader, %88
-  %.in146 = phi i32 [ %89, %88 ], [ %73, %.preheader ]
-  %.1137 = phi i64 [ %93, %88 ], [ %.0.lcssa, %.preheader ]
-  %84 = add i64 %.1137, 22
-  %85 = icmp ult i64 %22, %84
-  br i1 %85, label %86, label %88
+.lr.ph136:                                        ; preds = %.preheader, %90
+  %.in145 = phi i32 [ %91, %90 ], [ %73, %.preheader ]
+  %.1135 = phi i64 [ %97, %90 ], [ %.0.lcssa, %.preheader ]
+  %86 = add i64 %.1135, 22
+  %87 = icmp ult i64 %22, %86
+  br i1 %87, label %88, label %90
 
-86:                                               ; preds = %.lr.ph138
-  %87 = load ptr, ptr %0, align 8, !tbaa !18
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %87, i32 noundef 16, ptr noundef nonnull @.str.5) #6
+88:                                               ; preds = %.lr.ph136
+  %89 = load ptr, ptr %0, align 8, !tbaa !18
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %89, i32 noundef 16, ptr noundef nonnull @.str.5) #6
   br label %.thread120
 
-88:                                               ; preds = %.lr.ph138
-  %89 = add nsw i32 %.in146, -1
-  %gep135 = getelementptr i8, ptr %invariant.gep134, i64 %.1137
-  %90 = load i32, ptr %gep135, align 1, !tbaa !19
-  %91 = add i32 %90, 22
-  %92 = zext i32 %91 to i64
-  %93 = add i64 %.1137, %92
-  %.not112 = icmp eq i32 %89, 0
-  br i1 %.not112, label %._crit_edge, label %.lr.ph138, !llvm.loop !26
+90:                                               ; preds = %.lr.ph136
+  %91 = add nsw i32 %.in145, -1
+  %92 = getelementptr inbounds nuw i8, ptr %.094138, i64 %.1135
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 18
+  %94 = load i32, ptr %93, align 1, !tbaa !19
+  %95 = add i32 %94, 22
+  %96 = zext i32 %95 to i64
+  %97 = add i64 %.1135, %96
+  %.not112 = icmp eq i32 %91, 0
+  br i1 %.not112, label %._crit_edge, label %.lr.ph136, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %88, %.preheader
-  %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %93, %88 ]
-  %94 = icmp ult i64 %22, %.1.lcssa
-  br i1 %94, label %95, label %97
+._crit_edge:                                      ; preds = %90, %.preheader
+  %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %97, %90 ]
+  %98 = icmp ult i64 %22, %.1.lcssa
+  br i1 %98, label %99, label %101
 
-95:                                               ; preds = %._crit_edge
-  %96 = load ptr, ptr %0, align 8, !tbaa !18
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %96, i32 noundef 16, ptr noundef nonnull @.str.6) #6
+99:                                               ; preds = %._crit_edge
+  %100 = load ptr, ptr %0, align 8, !tbaa !18
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %100, i32 noundef 16, ptr noundef nonnull @.str.6) #6
   br label %.thread120
 
-97:                                               ; preds = %._crit_edge
-  %98 = sub i64 %.086, %.1.lcssa
-  %99 = icmp ugt i64 %98, 24
-  %spec.select = select i1 %99, i64 %.1.lcssa, i64 %.086
-  br label %105
+101:                                              ; preds = %._crit_edge
+  %102 = sub i64 %.086, %.1.lcssa
+  %103 = icmp ugt i64 %102, 24
+  %spec.select = select i1 %103, i64 %.1.lcssa, i64 %.086
+  br label %109
 
-100:                                              ; preds = %65
-  %bcmp113 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.094140, ptr noundef nonnull dereferenceable(16) @ff_asf_head1_guid, i64 16)
+104:                                              ; preds = %65
+  %bcmp113 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.094138, ptr noundef nonnull dereferenceable(16) @ff_asf_head1_guid, i64 16)
   %.not114 = icmp eq i32 %bcmp113, 0
-  br i1 %.not114, label %101, label %105
+  br i1 %.not114, label %105, label %109
 
-101:                                              ; preds = %100
-  %102 = icmp ult i64 %22, 46
-  br i1 %102, label %103, label %105
+105:                                              ; preds = %104
+  %106 = icmp ult i64 %22, 46
+  br i1 %106, label %107, label %109
 
-103:                                              ; preds = %101
-  %104 = load ptr, ptr %0, align 8, !tbaa !18
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %104, i32 noundef 16, ptr noundef nonnull @.str.1, i64 noundef 46) #6
+107:                                              ; preds = %105
+  %108 = load ptr, ptr %0, align 8, !tbaa !18
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %108, i32 noundef 16, ptr noundef nonnull @.str.1, i64 noundef 46) #6
   br label %.thread120
 
-105:                                              ; preds = %31, %66, %101, %100, %40, %58, %33, %97
-  %106 = phi i32 [ %21, %100 ], [ %21, %101 ], [ %21, %97 ], [ %21, %66 ], [ %62, %58 ], [ %21, %40 ], [ %21, %31 ], [ %21, %33 ]
-  %.187 = phi i64 [ %.086, %100 ], [ 46, %101 ], [ %spec.select, %97 ], [ %.086, %66 ], [ %.086, %58 ], [ %.086, %40 ], [ %.086, %31 ], [ %.086, %33 ]
-  %107 = getelementptr inbounds nuw i8, ptr %.094140, i64 %.187
-  %108 = ptrtoint ptr %107 to i64
-  %109 = sub i64 %14, %108
-  %110 = icmp ugt i64 %109, 23
-  br i1 %110, label %20, label %.thread120, !llvm.loop !27
+109:                                              ; preds = %31, %66, %105, %104, %40, %58, %33, %101
+  %110 = phi i32 [ %21, %104 ], [ %21, %105 ], [ %21, %101 ], [ %21, %66 ], [ %62, %58 ], [ %21, %40 ], [ %21, %31 ], [ %21, %33 ]
+  %.187 = phi i64 [ %.086, %104 ], [ 46, %105 ], [ %spec.select, %101 ], [ %.086, %66 ], [ %.086, %58 ], [ %.086, %40 ], [ %.086, %31 ], [ %.086, %33 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.094138, i64 %.187
+  %112 = ptrtoint ptr %111 to i64
+  %113 = sub i64 %14, %112
+  %114 = icmp ugt i64 %113, 23
+  br i1 %114, label %20, label %.thread120, !llvm.loop !27
 
-.thread120:                                       ; preds = %105, %52, %12, %95, %86, %77, %37, %63, %103, %28, %10
-  %.090 = phi i32 [ -1094995529, %10 ], [ -1094995529, %37 ], [ -1094995529, %63 ], [ -1094995529, %103 ], [ -1094995529, %28 ], [ -1094995529, %77 ], [ -1094995529, %86 ], [ -1094995529, %95 ], [ 0, %12 ], [ 0, %105 ], [ -12, %52 ]
+.thread120:                                       ; preds = %109, %52, %12, %99, %88, %77, %37, %63, %107, %28, %10
+  %.090 = phi i32 [ -1094995529, %10 ], [ -1094995529, %37 ], [ -1094995529, %63 ], [ -1094995529, %107 ], [ -1094995529, %28 ], [ -1094995529, %77 ], [ -1094995529, %88 ], [ -1094995529, %99 ], [ 0, %12 ], [ 0, %109 ], [ -12, %52 ]
   ret i32 %.090
 }
 

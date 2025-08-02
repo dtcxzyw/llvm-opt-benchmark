@@ -101,21 +101,21 @@ define hidden zeroext i1 @SDL_CreateDirectory_REAL(ptr noundef %0) local_unnamed
 
 2:                                                ; preds = %1
   %3 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
-  br label %.thread48
+  br label %.critedge
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @SDL_SYS_CreateDirectory(ptr noundef nonnull %0) #8
-  br i1 %5, label %.thread48, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %4
   %7 = load i8, ptr %0, align 1
   %.not41 = icmp eq i8 %7, 0
-  br i1 %.not41, label %.thread48, label %8
+  br i1 %.not41, label %.critedge, label %8
 
 8:                                                ; preds = %6
   %9 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %0) #8
   %.not42.not = icmp eq ptr %9, null
-  br i1 %.not42.not, label %.thread48, label %10
+  br i1 %.not42.not, label %.critedge, label %10
 
 10:                                               ; preds = %8
   %11 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %9) #8
@@ -123,25 +123,25 @@ define hidden zeroext i1 @SDL_CreateDirectory_REAL(ptr noundef %0) local_unnamed
   %13 = getelementptr i8, ptr %12, i64 -1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 47
-  br i1 %15, label %16, label %.critedge.preheader
+  br i1 %15, label %16, label %.critedge50.preheader
 
 16:                                               ; preds = %10
   store i8 0, ptr %13, align 1
   %17 = tail call zeroext i1 @SDL_SYS_CreateDirectory(ptr noundef nonnull %9) #8
-  br i1 %17, label %27, label %.critedge.preheader
+  br i1 %17, label %27, label %.critedge50.preheader
 
-.critedge.preheader:                              ; preds = %16, %10
+.critedge50.preheader:                            ; preds = %16, %10
   %18 = load i8, ptr %9, align 1
   %.not4351 = icmp eq i8 %18, 0
   br i1 %.not4351, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.critedge.preheader, %.critedge
-  %19 = phi i8 [ %25, %.critedge ], [ %18, %.critedge.preheader ]
-  %.03552 = phi ptr [ %24, %.critedge ], [ %9, %.critedge.preheader ]
+.lr.ph:                                           ; preds = %.critedge50.preheader, %.critedge50
+  %19 = phi i8 [ %25, %.critedge50 ], [ %18, %.critedge50.preheader ]
+  %.03552 = phi ptr [ %24, %.critedge50 ], [ %9, %.critedge50.preheader ]
   %20 = icmp eq i8 %19, 47
   %21 = icmp ne ptr %.03552, %9
   %brmerge.not = and i1 %21, %20
-  br i1 %brmerge.not, label %22, label %.critedge
+  br i1 %brmerge.not, label %22, label %.critedge50
 
 22:                                               ; preds = %.lr.ph
   store i8 0, ptr %.03552, align 1
@@ -150,24 +150,24 @@ define hidden zeroext i1 @SDL_CreateDirectory_REAL(ptr noundef %0) local_unnamed
 
 .thread46:                                        ; preds = %22
   store i8 47, ptr %.03552, align 1
-  br label %.critedge
+  br label %.critedge50
 
-.critedge:                                        ; preds = %.lr.ph, %.thread46
+.critedge50:                                      ; preds = %.lr.ph, %.thread46
   %24 = getelementptr inbounds nuw i8, ptr %.03552, i64 1
   %25 = load i8, ptr %24, align 1
   %.not43 = icmp eq i8 %25, 0
   br i1 %.not43, label %.thread, label %.lr.ph, !llvm.loop !3
 
-.thread:                                          ; preds = %.critedge, %22, %.critedge.preheader
+.thread:                                          ; preds = %.critedge50, %22, %.critedge50.preheader
   %26 = tail call zeroext i1 @SDL_SYS_CreateDirectory(ptr noundef nonnull %9) #8
   br label %27
 
-27:                                               ; preds = %16, %.thread
+27:                                               ; preds = %.thread, %16
   %.3 = phi i1 [ true, %16 ], [ %26, %.thread ]
   tail call void @SDL_free_REAL(ptr noundef nonnull %9) #8
-  br label %.thread48
+  br label %.critedge
 
-.thread48:                                        ; preds = %4, %6, %27, %8, %2
+.critedge:                                        ; preds = %4, %6, %27, %8, %2
   %.0 = phi i1 [ %3, %2 ], [ false, %8 ], [ true, %4 ], [ %.3, %27 ], [ false, %6 ]
   ret i1 %.0
 }

@@ -1068,7 +1068,7 @@ define internal fastcc i32 @read_length(ptr noundef captures(none) %0, ptr nound
 
 6:                                                ; preds = %3
   %7 = zext i8 %5 to i32
-  br label %.thread
+  br label %23
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %0, align 4
@@ -1079,7 +1079,7 @@ define internal fastcc i32 @read_length(ptr noundef captures(none) %0, ptr nound
   %14 = load i32, ptr %0, align 4
   %15 = add i32 %14, 1
   store i32 %15, ptr %0, align 4
-  switch i8 %10, label %32 [
+  switch i8 %10, label %.critedge [
     i8 -120, label %get_byte_length.exit
     i8 -122, label %get_byte_length.exit
     i8 -123, label %19
@@ -1089,36 +1089,36 @@ define internal fastcc i32 @read_length(ptr noundef captures(none) %0, ptr nound
 16:                                               ; preds = %8
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %15)
   %18 = zext i8 %17 to i32
-  br label %.thread
+  br label %23
 
 19:                                               ; preds = %8
   %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %15)
   %21 = zext i16 %20 to i32
-  br label %.thread
+  br label %23
 
 get_byte_length.exit:                             ; preds = %8, %8
   %22 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %15)
-  br label %.thread
+  br label %23
 
-.thread:                                          ; preds = %16, %19, %get_byte_length.exit, %6
-  %.034 = phi i32 [ 1, %6 ], [ 4, %get_byte_length.exit ], [ 2, %19 ], [ 1, %16 ]
-  %.032 = phi i32 [ %7, %6 ], [ %22, %get_byte_length.exit ], [ %21, %19 ], [ %18, %16 ]
-  %23 = load i32, ptr @hf_etch_length, align 4
-  %24 = load i32, ptr %0, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %1, i32 noundef %24, i32 noundef %.034, i32 noundef 0)
-  %26 = load i32, ptr %0, align 4
-  %27 = add i32 %26, %.034
-  store i32 %27, ptr %0, align 4
-  %28 = xor i32 %27, -1
-  %29 = icmp ugt i32 %.032, %28
-  br i1 %29, label %30, label %32
+23:                                               ; preds = %get_byte_length.exit, %19, %16, %6
+  %.034 = phi i32 [ 1, %6 ], [ 1, %16 ], [ 2, %19 ], [ 4, %get_byte_length.exit ]
+  %.032 = phi i32 [ %7, %6 ], [ %18, %16 ], [ %21, %19 ], [ %22, %get_byte_length.exit ]
+  %24 = load i32, ptr @hf_etch_length, align 4
+  %25 = load i32, ptr %0, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %1, i32 noundef %25, i32 noundef %.034, i32 noundef 0)
+  %27 = load i32, ptr %0, align 4
+  %28 = add i32 %27, %.034
+  store i32 %28, ptr %0, align 4
+  %29 = xor i32 %28, -1
+  %30 = icmp ugt i32 %.032, %29
+  br i1 %30, label %31, label %.critedge
 
-30:                                               ; preds = %.thread
-  %31 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %27)
-  br label %32
+31:                                               ; preds = %23
+  %32 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %28)
+  br label %.critedge
 
-32:                                               ; preds = %8, %.thread, %30
-  %.1 = phi i32 [ %31, %30 ], [ %.032, %.thread ], [ 0, %8 ]
+.critedge:                                        ; preds = %8, %23, %31
+  %.1 = phi i32 [ %32, %31 ], [ %.032, %23 ], [ 0, %8 ]
   ret i32 %.1
 }
 

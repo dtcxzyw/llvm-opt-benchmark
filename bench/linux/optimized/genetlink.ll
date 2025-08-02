@@ -946,10 +946,10 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   %6 = alloca i16, align 2
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 280), align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread14, label %9
+  br i1 %8, label %.thread12, label %9
 
 9:                                                ; preds = %4
-  switch i32 %0, label %.thread14 [
+  switch i32 %0, label %.thread12 [
     i32 1, label %10
     i32 2, label %10
     i32 7, label %23
@@ -969,7 +969,7 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
 13:                                               ; preds = %12, %10
   %14 = tail call ptr @__alloc_skb(i32 noundef 3776, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #15
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.thread14, label %16
+  br i1 %15, label %.thread12, label %16
 
 16:                                               ; preds = %13
   %17 = trunc nuw nsw i32 %0 to i8
@@ -996,7 +996,7 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   %27 = trunc nuw nsw i32 %0 to i8
   %28 = tail call ptr @__alloc_skb(i32 noundef 3776, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #15
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread14, label %30
+  br i1 %29, label %.thread12, label %30
 
 30:                                               ; preds = %26
   %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @genl_ctrl, i64 128), align 8
@@ -1047,7 +1047,7 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   %63 = add i32 %62, 1
   %64 = tail call i32 @nla_put(ptr noundef nonnull %28, i32 noundef 2, i32 noundef %63, ptr noundef nonnull %60) #15
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %98
+  br i1 %65, label %66, label %122
 
 66:                                               ; preds = %59
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -1058,7 +1058,7 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   %70 = call i32 @nla_put(ptr noundef nonnull %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #15
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %98
+  br i1 %71, label %72, label %122
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds nuw i8, ptr %28, i64 192
@@ -1071,7 +1071,7 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   %80 = icmp slt i32 %79, 0
   %81 = icmp eq ptr %78, null
   %82 = select i1 %80, i1 true, i1 %81
-  br i1 %82, label %98, label %83
+  br i1 %82, label %122, label %83
 
 83:                                               ; preds = %72
   %84 = load ptr, ptr %73, align 8
@@ -1082,7 +1082,7 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   %89 = icmp slt i32 %88, 0
   %90 = icmp eq ptr %87, null
   %91 = select i1 %89, i1 true, i1 %90
-  br i1 %91, label %98, label %92
+  br i1 %91, label %122, label %92
 
 92:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
@@ -1090,75 +1090,75 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   %93 = call i32 @nla_put(ptr noundef nonnull %28, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %98
+  br i1 %94, label %95, label %122
 
 95:                                               ; preds = %92
   %96 = call fastcc i32 @nla_put_string(ptr noundef nonnull %28, ptr noundef nonnull %2)
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %109, label %98
+  br i1 %97, label %.critedge, label %122
 
-98:                                               ; preds = %59, %66, %72, %83, %92, %95
-  %99 = getelementptr inbounds nuw i8, ptr %28, i64 200
-  %100 = load ptr, ptr %99, align 8
-  %101 = icmp ugt ptr %100, %49
-  br i1 %101, label %102, label %103, !prof !5
+.critedge:                                        ; preds = %95
+  %98 = load ptr, ptr %73, align 8
+  %99 = load i32, ptr %75, align 8
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr i8, ptr %98, i64 %100
+  %102 = ptrtoint ptr %101 to i64
+  %103 = ptrtoint ptr %87 to i64
+  %104 = sub i64 %102, %103
+  %105 = trunc i64 %104 to i16
+  store i16 %105, ptr %87, align 2
+  %106 = load ptr, ptr %73, align 8
+  %107 = load i32, ptr %75, align 8
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr i8, ptr %106, i64 %108
+  %110 = ptrtoint ptr %109 to i64
+  %111 = ptrtoint ptr %78 to i64
+  %112 = sub i64 %110, %111
+  %113 = trunc i64 %112 to i16
+  store i16 %113, ptr %78, align 2
+  %114 = load ptr, ptr %73, align 8
+  %115 = load i32, ptr %75, align 8
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr i8, ptr %114, i64 %116
+  %118 = ptrtoint ptr %117 to i64
+  %119 = ptrtoint ptr %49 to i64
+  %120 = sub i64 %118, %119
+  %121 = trunc i64 %120 to i32
+  store i32 %121, ptr %49, align 4
+  br label %135
 
-102:                                              ; preds = %98
+122:                                              ; preds = %59, %66, %72, %83, %92, %95
+  %123 = getelementptr inbounds nuw i8, ptr %28, i64 200
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp ugt ptr %124, %49
+  br i1 %125, label %126, label %127, !prof !5
+
+126:                                              ; preds = %122
   call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #15, !srcloc !71
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 1062, i32 2305, i64 12) #15, !srcloc !72
   call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_end\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #15, !srcloc !73
-  %.pre = load ptr, ptr %99, align 8
-  br label %103
+  %.pre = load ptr, ptr %123, align 8
+  br label %127
 
-103:                                              ; preds = %102, %98
-  %104 = phi ptr [ %.pre, %102 ], [ %100, %98 ]
-  %105 = ptrtoint ptr %49 to i64
-  %106 = ptrtoint ptr %104 to i64
-  %107 = sub i64 %105, %106
-  %108 = trunc i64 %107 to i32
-  call void @skb_trim(ptr noundef nonnull %28, i32 noundef %108) #15
+127:                                              ; preds = %126, %122
+  %128 = phi ptr [ %.pre, %126 ], [ %124, %122 ]
+  %129 = ptrtoint ptr %49 to i64
+  %130 = ptrtoint ptr %128 to i64
+  %131 = sub i64 %129, %130
+  %132 = trunc i64 %131 to i32
+  call void @skb_trim(ptr noundef nonnull %28, i32 noundef %132) #15
   br label %.thread10
 
-109:                                              ; preds = %95
-  %110 = load ptr, ptr %73, align 8
-  %111 = load i32, ptr %75, align 8
-  %112 = zext i32 %111 to i64
-  %113 = getelementptr i8, ptr %110, i64 %112
-  %114 = ptrtoint ptr %113 to i64
-  %115 = ptrtoint ptr %87 to i64
-  %116 = sub i64 %114, %115
-  %117 = trunc i64 %116 to i16
-  store i16 %117, ptr %87, align 2
-  %118 = load ptr, ptr %73, align 8
-  %119 = load i32, ptr %75, align 8
-  %120 = zext i32 %119 to i64
-  %121 = getelementptr i8, ptr %118, i64 %120
-  %122 = ptrtoint ptr %121 to i64
-  %123 = ptrtoint ptr %78 to i64
-  %124 = sub i64 %122, %123
-  %125 = trunc i64 %124 to i16
-  store i16 %125, ptr %78, align 2
-  %126 = load ptr, ptr %73, align 8
-  %127 = load i32, ptr %75, align 8
-  %128 = zext i32 %127 to i64
-  %129 = getelementptr i8, ptr %126, i64 %128
-  %130 = ptrtoint ptr %129 to i64
-  %131 = ptrtoint ptr %49 to i64
-  %132 = sub i64 %130, %131
-  %133 = trunc i64 %132 to i32
-  store i32 %133, ptr %49, align 4
-  br label %135
-
-.thread10:                                        ; preds = %43, %48, %51, %103
-  %.ph = phi i64 [ -90, %103 ], [ -1, %51 ], [ -1, %48 ], [ -1, %43 ]
+.thread10:                                        ; preds = %43, %48, %51, %127
+  %133 = phi i64 [ -1, %51 ], [ -90, %127 ], [ -1, %48 ], [ -1, %43 ]
   call void @kfree_skb_reason(ptr noundef nonnull %28, i32 noundef 2) #15
-  %134 = inttoptr i64 %.ph to ptr
+  %134 = inttoptr i64 %133 to ptr
   br label %135
 
-135:                                              ; preds = %109, %.thread10, %20, %16
-  %136 = phi ptr [ %22, %20 ], [ %14, %16 ], [ %134, %.thread10 ], [ %28, %109 ]
+135:                                              ; preds = %.critedge, %.thread10, %20, %16
+  %136 = phi ptr [ %22, %20 ], [ %14, %16 ], [ %134, %.thread10 ], [ %28, %.critedge ]
   %137 = icmp ugt ptr %136, inttoptr (i64 -4096 to ptr)
-  br i1 %137, label %.thread14, label %138
+  br i1 %137, label %.thread12, label %138
 
 138:                                              ; preds = %135
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -1176,7 +1176,7 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   call void asm sideeffect "670: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 670b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 670) #15, !srcloc !74
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 476, i32 2307, i64 12) #15, !srcloc !75
   call void asm sideeffect "671: nop\0A\09.pushsection .discard.instr_end\0A\09.long 671b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 671) #15, !srcloc !76
-  br label %.thread14
+  br label %.thread12
 
 147:                                              ; preds = %143
   %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @genl_ctrl, i64 132), align 4
@@ -1184,15 +1184,15 @@ define internal fastcc void @genl_ctrl_event(i32 noundef range(i32 1, 9) %0, ptr
   %150 = getelementptr inbounds nuw i8, ptr %136, i64 56
   store i32 %148, ptr %150, align 8
   %151 = call i32 @netlink_broadcast_filtered(ptr noundef %149, ptr noundef %136, i32 noundef 0, i32 noundef %148, i32 noundef 3264, ptr noundef null, ptr noundef null) #15
-  br label %.thread14
+  br label %.thread12
 
 152:                                              ; preds = %138
   call void @__rcu_read_lock() #15
   %153 = call i32 @genlmsg_multicast_allns(ptr noundef nonnull @genl_ctrl, ptr noundef %136, i32 noundef 0, i32 noundef 0, i32 noundef 2080)
   call void @__rcu_read_unlock() #15
-  br label %.thread14
+  br label %.thread12
 
-.thread14:                                        ; preds = %26, %13, %152, %147, %146, %135, %9, %4
+.thread12:                                        ; preds = %26, %13, %152, %147, %146, %135, %9, %4
   ret void
 }
 

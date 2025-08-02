@@ -27161,13 +27161,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9e
 
 171:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i92, %163, %152, %140
   %172 = mul nsw i32 %149, %147
+  %173 = tail call i32 @llvm.umax.i32(i32 %172, i32 1)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit94
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit94: ; preds = %155, %163, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i92, %171
-  %173 = phi i32 [ %172, %171 ], [ 536870912, %155 ], [ 536870912, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i92 ], [ 536870912, %163 ]
+  %narrow62 = phi i32 [ %173, %171 ], [ 536870912, %155 ], [ 536870912, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i92 ], [ 536870912, %163 ]
   %narrow = tail call i32 @llvm.umax.i32(i32 %145, i32 1)
   %spec.store.select = sext i32 %narrow to i64
-  %narrow62 = tail call i32 @llvm.umax.i32(i32 %173, i32 1)
   %174 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %175 = load ptr, ptr %174, align 8
   %176 = load ptr, ptr %2, align 8
@@ -61435,12 +61435,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKSt4pairIKdNS_7VtVa
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3mapIdNS_7VtValueESt4lessIdESaISt4pairIKdS3_EEEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSD_i.exit.loopexit.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKSt4pairIKdNS_7VtValueEEEENSt9enable_ifIXntsr3std11is_integralINSt5decayIT_E4typeEEE5valueEvE4typeEOSA_.exit.i.i.i.i.i.i.i.i
   %22 = mul i64 %21, -7046029254386353067
+  %23 = tail call i64 @llvm.bswap.i64(i64 %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperISt3mapIdS0_St4lessIdESaISt4pairIKdS0_EEEvE4HashERKS9_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperISt3mapIdS0_St4lessIdESaISt4pairIKdS0_EEEvE4HashERKS9_.exit: ; preds = %1, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3mapIdNS_7VtValueESt4lessIdESaISt4pairIKdS3_EEEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSD_i.exit.loopexit.i.i.i.i
-  %.sroa.0.1.i.i.i.i = phi i64 [ 0, %1 ], [ %22, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3mapIdNS_7VtValueESt4lessIdESaISt4pairIKdS3_EEEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSD_i.exit.loopexit.i.i.i.i ]
-  %23 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.0.1.i.i.i.i)
-  ret i64 %23
+  %.sroa.0.1.i.i.i.i = phi i64 [ 0, %1 ], [ %23, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt3mapIdNS_7VtValueESt4lessIdESaISt4pairIKdS3_EEEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSD_i.exit.loopexit.i.i.i.i ]
+  ret i64 %.sroa.0.1.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable

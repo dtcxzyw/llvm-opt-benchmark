@@ -11527,8 +11527,8 @@ define noundef range(i32 1, 112) i32 @_ZN3nix6Worker17failingExitStatusEv(ptr no
   %.3 = select i1 %16, i32 %17, i32 %.2
   %.not = icmp eq i32 %.3, 0
   %18 = or i32 %.3, 96
-  %19 = select i1 %.not, i32 1, i32 %18
-  ret i32 %19
+  %.4 = select i1 %.not, i32 1, i32 %18
+  ret i32 %.4
 }
 
 ; Function Attrs: mustprogress uwtable

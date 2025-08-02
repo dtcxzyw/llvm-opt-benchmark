@@ -6345,7 +6345,7 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
 
 486:                                              ; preds = %472
   %487 = icmp ult i64 %455, %475
-  br i1 %487, label %488, label %.thread.i.i
+  br i1 %487, label %488, label %524
 
 488:                                              ; preds = %486
   %489 = call ptr @proto_tree_add_expert(ptr noundef %293, ptr noundef %1, ptr noundef nonnull @ei_quic_overlap, ptr noundef %256, i32 noundef %420, i32 noundef %457)
@@ -6365,14 +6365,14 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   %501 = getelementptr inbounds nuw i8, ptr %.025.i, i64 24
   %502 = load ptr, ptr %501, align 8
   %503 = call ptr @wmem_map_insert(ptr noundef %502, ptr noundef %500, ptr noundef %497)
-  br label %.thread.i.i
+  br label %524
 
 504:                                              ; preds = %461
   %505 = getelementptr inbounds nuw i8, ptr %.025.i, i64 24
   %506 = load ptr, ptr %505, align 8
   %507 = call ptr @wmem_map_lookup(ptr noundef %506, ptr noundef %464)
   %.not237.i.i = icmp eq ptr %507, null
-  br i1 %.not237.i.i, label %.thread.i.i, label %508
+  br i1 %.not237.i.i, label %524, label %508
 
 508:                                              ; preds = %504
   %sext = shl i64 %456, 32
@@ -6380,41 +6380,41 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   %510 = add i64 %509, %455
   %511 = load i64, ptr %507, align 8
   %.not238.i.i = icmp ugt i64 %510, %511
-  br i1 %.not238.i.i, label %512, label %523
+  br i1 %.not238.i.i, label %513, label %.critedge.i.i
 
-512:                                              ; preds = %508
-  %513 = icmp ult i64 %455, %511
-  br i1 %513, label %514, label %522
+.critedge.i.i:                                    ; preds = %508
+  %512 = call ptr @proto_tree_add_expert(ptr noundef %293, ptr noundef %1, ptr noundef nonnull @ei_quic_retransmission, ptr noundef %256, i32 noundef %420, i32 noundef %457)
+  br label %dissect_quic_crypto_payload.exit
 
-514:                                              ; preds = %512
-  %515 = call ptr @proto_tree_add_expert(ptr noundef %293, ptr noundef %1, ptr noundef nonnull @ei_quic_overlap, ptr noundef %256, i32 noundef %420, i32 noundef %457)
-  %516 = load i64, ptr %507, align 8
-  %517 = sub i64 %516, %455
-  %518 = trunc i64 %517 to i32
-  %519 = sub i32 %457, %518
-  %520 = trunc i64 %516 to i32
-  %521 = add i32 %420, %518
-  br label %.thread.i.i
+513:                                              ; preds = %508
+  %514 = icmp ult i64 %455, %511
+  br i1 %514, label %515, label %523
 
-522:                                              ; preds = %512
+515:                                              ; preds = %513
+  %516 = call ptr @proto_tree_add_expert(ptr noundef %293, ptr noundef %1, ptr noundef nonnull @ei_quic_overlap, ptr noundef %256, i32 noundef %420, i32 noundef %457)
+  %517 = load i64, ptr %507, align 8
+  %518 = sub i64 %517, %455
+  %519 = trunc i64 %518 to i32
+  %520 = sub i32 %457, %519
+  %521 = trunc i64 %517 to i32
+  %522 = add i32 %420, %519
+  br label %524
+
+523:                                              ; preds = %513
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.573, ptr noundef nonnull @.str.375, i32 noundef 2149) #16
   unreachable
 
-523:                                              ; preds = %508
-  %524 = call ptr @proto_tree_add_expert(ptr noundef %293, ptr noundef %1, ptr noundef nonnull @ei_quic_retransmission, ptr noundef %256, i32 noundef %420, i32 noundef %457)
-  br label %dissect_quic_crypto_payload.exit
-
-.thread.i.i:                                      ; preds = %514, %504, %488, %486
-  %.0217.i.i = phi i32 [ %494, %488 ], [ %460, %486 ], [ %460, %504 ], [ %520, %514 ]
-  %.0203.i.i = phi i32 [ %493, %488 ], [ %457, %486 ], [ %457, %504 ], [ %519, %514 ]
-  %.0.i.i55 = phi i32 [ %495, %488 ], [ %420, %486 ], [ %420, %504 ], [ %521, %514 ]
+524:                                              ; preds = %515, %504, %488, %486
+  %.0217.i.i = phi i32 [ %494, %488 ], [ %460, %486 ], [ %521, %515 ], [ %460, %504 ]
+  %.0203.i.i = phi i32 [ %493, %488 ], [ %457, %486 ], [ %520, %515 ], [ %457, %504 ]
+  %.0.i.i55 = phi i32 [ %495, %488 ], [ %420, %486 ], [ %522, %515 ], [ %420, %504 ]
   %525 = getelementptr inbounds nuw i8, ptr %.025.i, i64 16
   %526 = load ptr, ptr %525, align 8
   %527 = call ptr @wmem_tree_lookup32_le(ptr noundef %526, i32 noundef %.0217.i.i)
   %.not239.i.i = icmp eq ptr %527, null
   br i1 %.not239.i.i, label %535, label %528
 
-528:                                              ; preds = %.thread.i.i
+528:                                              ; preds = %524
   %529 = getelementptr inbounds nuw i8, ptr %527, i64 36
   %530 = load i32, ptr %529, align 4
   %531 = and i32 %530, 2
@@ -6428,8 +6428,8 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   %spec.store.select.i.i = select i1 %.not241.i.i, ptr %527, ptr null
   br label %535
 
-535:                                              ; preds = %532, %528, %.thread.i.i
-  %.0215.i.i = phi ptr [ %spec.store.select.i.i, %532 ], [ %527, %528 ], [ null, %.thread.i.i ]
+535:                                              ; preds = %532, %528, %524
+  %.0215.i.i = phi ptr [ %spec.store.select.i.i, %532 ], [ %527, %528 ], [ null, %524 ]
   %.not242.i.i = icmp eq ptr %.0215.i.i, null
   %536 = getelementptr inbounds nuw i8, ptr %.0215.i.i, i64 8
   %.in.i.i = select i1 %.not242.i.i, ptr %269, ptr %536
@@ -6450,10 +6450,10 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   %548 = load i64, ptr %.025.i, align 8
   %549 = zext i32 %.0217.i.i to i64
   %550 = icmp ult i64 %548, %549
-  br i1 %550, label %.thread42.i.i, label %551
+  br i1 %550, label %.thread36.i.i, label %551
 
 551:                                              ; preds = %547
-  br i1 %.not242.i.i, label %.thread8.thread.i.i, label %552
+  br i1 %.not242.i.i, label %.thread2.thread.i.i, label %552
 
 552:                                              ; preds = %551
   %553 = call ptr @fragment_get(ptr noundef nonnull @quic_crypto_reassembly_table, ptr noundef %1, i32 noundef %542, ptr noundef nonnull %.0215.i.i)
@@ -6467,42 +6467,42 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
 555:                                              ; preds = %552
   %556 = load i32, ptr %.0215.i.i, align 8
   %557 = sub i32 %462, %556
-  %.020947.i.i = load ptr, ptr %553, align 8
-  %.not24548.i.i = icmp eq ptr %.020947.i.i, null
-  br i1 %.not24548.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.020941.i.i = load ptr, ptr %553, align 8
+  %.not24542.i.i = icmp eq ptr %.020941.i.i, null
+  br i1 %.not24542.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %555, %.lr.ph.i.i
-  %.020950.i.i = phi ptr [ %.0209.i.i, %.lr.ph.i.i ], [ %.020947.i.i, %555 ]
-  %.021049.i.i = phi i32 [ %.1211.i.i, %.lr.ph.i.i ], [ %557, %555 ]
-  %558 = getelementptr inbounds nuw i8, ptr %.020950.i.i, i64 12
+  %.020944.i.i = phi ptr [ %.0209.i.i, %.lr.ph.i.i ], [ %.020941.i.i, %555 ]
+  %.021043.i.i = phi i32 [ %.1211.i.i, %.lr.ph.i.i ], [ %557, %555 ]
+  %558 = getelementptr inbounds nuw i8, ptr %.020944.i.i, i64 12
   %559 = load i32, ptr %558, align 4
-  %560 = getelementptr inbounds nuw i8, ptr %.020950.i.i, i64 16
+  %560 = getelementptr inbounds nuw i8, ptr %.020944.i.i, i64 16
   %561 = load i32, ptr %560, align 8
   %562 = add i32 %561, %559
-  %.not246.not.i.i = icmp ugt i32 %559, %.021049.i.i
-  %563 = call i32 @llvm.umax.i32(i32 %.021049.i.i, i32 %562)
-  %.1211.i.i = select i1 %.not246.not.i.i, i32 %.021049.i.i, i32 %563
-  %.0209.i.i = load ptr, ptr %.020950.i.i, align 8
+  %.not246.not.i.i = icmp ugt i32 %559, %.021043.i.i
+  %563 = call i32 @llvm.umax.i32(i32 %.021043.i.i, i32 %562)
+  %.1211.i.i = select i1 %.not246.not.i.i, i32 %.021043.i.i, i32 %563
+  %.0209.i.i = load ptr, ptr %.020944.i.i, align 8
   %.not245.i.i = icmp eq ptr %.0209.i.i, null
   br i1 %.not245.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !27
 
-.thread8.thread.i.i:                              ; preds = %551
+.thread2.thread.i.i:                              ; preds = %551
   %564 = zext i32 %462 to i64
   store i64 %564, ptr %.025.i, align 8
-  br label %.thread18.i.i
+  br label %.thread12.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %555
   %.0210.lcssa.i.i = phi i32 [ %557, %555 ], [ %.1211.i.i, %.lr.ph.i.i ]
   %565 = add i32 %.0210.lcssa.i.i, %556
   %566 = zext i32 %565 to i64
   store i64 %566, ptr %.025.i, align 8
-  br label %.thread13.i.i
+  br label %.thread7.i.i
 
-.thread42.i.i:                                    ; preds = %547
-  br i1 %.not242.i.i, label %.thread8.thread45.i.i, label %.thread13.i.i
+.thread36.i.i:                                    ; preds = %547
+  br i1 %.not242.i.i, label %.thread2.thread39.i.i, label %.thread7.i.i
 
-.thread13.i.i:                                    ; preds = %.thread42.i.i, %._crit_edge.i.i
-  %.120744.i.i = phi ptr [ null, %.thread42.i.i ], [ %553, %._crit_edge.i.i ]
+.thread7.i.i:                                     ; preds = %.thread36.i.i, %._crit_edge.i.i
+  %.120738.i.i = phi ptr [ null, %.thread36.i.i ], [ %553, %._crit_edge.i.i ]
   %567 = getelementptr inbounds nuw i8, ptr %.0215.i.i, i64 4
   %568 = load i32, ptr %567, align 4
   %..i.i = call i32 @llvm.umax.i32(i32 %568, i32 %462)
@@ -6510,11 +6510,11 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   br label %570
 
 569:                                              ; preds = %535
-  br i1 %.not242.i.i, label %.thread18.i.i, label %570
+  br i1 %.not242.i.i, label %.thread12.i.i, label %570
 
-570:                                              ; preds = %569, %.thread13.i.i
-  %.020617.i.i = phi ptr [ %.120744.i.i, %.thread13.i.i ], [ null, %569 ]
-  %.0214.shrunk16.i.i = phi i1 [ %550, %.thread13.i.i ], [ false, %569 ]
+570:                                              ; preds = %569, %.thread7.i.i
+  %.020611.i.i = phi ptr [ %.120738.i.i, %.thread7.i.i ], [ null, %569 ]
+  %.0214.shrunk10.i.i = phi i1 [ %550, %.thread7.i.i ], [ false, %569 ]
   %571 = load i32, ptr %.0215.i.i, align 8
   %.not247.i.i = icmp ugt i32 %571, %.0217.i.i
   br i1 %.not247.i.i, label %600, label %572
@@ -6560,32 +6560,32 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   store i32 %595, ptr %593, align 4
   %596 = and i32 %594, 4
   %.not251.i.i = icmp eq i32 %596, 0
-  br i1 %.not251.i.i, label %.thread24.i.i, label %597
+  br i1 %.not251.i.i, label %.thread18.i.i, label %597
 
 597:                                              ; preds = %592
   %598 = getelementptr inbounds nuw i8, ptr %.0215.i.i, i64 32
   store i32 %.0217.i.i, ptr %598, align 8
   %599 = and i32 %595, -5
   store i32 %599, ptr %593, align 4
-  br label %.thread24.i.i
+  br label %.thread18.i.i
 
 600:                                              ; preds = %572, %570
-  br i1 %.0214.shrunk16.i.i, label %..thread8.thread45_crit_edge.i.i, label %.thread18.i.i
+  br i1 %.0214.shrunk10.i.i, label %..thread2.thread39_crit_edge.i.i, label %.thread12.i.i
 
-..thread8.thread45_crit_edge.i.i:                 ; preds = %600
+..thread2.thread39_crit_edge.i.i:                 ; preds = %600
   %.pre.i.i = load ptr, ptr %79, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 57
-  %.pre51.i.i = load i16, ptr %.phi.trans.insert.i.i, align 1
-  br label %.thread8.thread45.i.i
+  %.pre45.i.i = load i16, ptr %.phi.trans.insert.i.i, align 1
+  br label %.thread2.thread39.i.i
 
-.thread8.thread45.i.i:                            ; preds = %..thread8.thread45_crit_edge.i.i, %.thread42.i.i
-  %601 = phi i16 [ %.pre51.i.i, %..thread8.thread45_crit_edge.i.i ], [ %545, %.thread42.i.i ]
-  %.02061222.i.i = phi ptr [ %.020617.i.i, %..thread8.thread45_crit_edge.i.i ], [ null, %.thread42.i.i ]
+.thread2.thread39.i.i:                            ; preds = %..thread2.thread39_crit_edge.i.i, %.thread36.i.i
+  %601 = phi i16 [ %.pre45.i.i, %..thread2.thread39_crit_edge.i.i ], [ %545, %.thread36.i.i ]
+  %.0206616.i.i = phi ptr [ %.020611.i.i, %..thread2.thread39_crit_edge.i.i ], [ null, %.thread36.i.i ]
   %602 = and i16 %601, 8
   %.not248.i.i = icmp eq i16 %602, 0
   br i1 %.not248.i.i, label %603, label %624
 
-603:                                              ; preds = %.thread8.thread45.i.i
+603:                                              ; preds = %.thread2.thread39.i.i
   %604 = load i64, ptr %.025.i, align 8
   %605 = trunc i64 %604 to i32
   %606 = load ptr, ptr %525, align 8
@@ -6602,8 +6602,8 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   %616 = call ptr @fragment_add(ptr noundef nonnull @quic_crypto_reassembly_table, ptr noundef %256, i32 noundef %.0.i.i55, ptr noundef %1, i32 noundef %542, ptr noundef %607, i32 noundef %612, i32 noundef %.0203.i.i, i1 noundef zeroext %615)
   br label %624
 
-.thread18.i.i:                                    ; preds = %600, %569, %.thread8.thread.i.i
-  %.02061221.i.i = phi ptr [ %.020617.i.i, %600 ], [ null, %.thread8.thread.i.i ], [ null, %569 ]
+.thread12.i.i:                                    ; preds = %600, %569, %.thread2.thread.i.i
+  %.0206615.i.i = phi ptr [ %.020611.i.i, %600 ], [ null, %.thread2.thread.i.i ], [ null, %569 ]
   %617 = call ptr @tvb_new_subset_length(ptr noundef %256, i32 noundef %.0.i.i55, i32 noundef %.0203.i.i)
   %618 = load ptr, ptr %263, align 8
   call void @col_set_writable(ptr noundef %618, i32 noundef -1, i1 noundef zeroext false)
@@ -6615,36 +6615,36 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   call void @col_set_writable(ptr noundef %623, i32 noundef -1, i1 noundef zeroext true)
   br label %624
 
-624:                                              ; preds = %.thread18.i.i, %603, %.thread8.thread45.i.i
-  %.1216.i.i = phi ptr [ %.0215.i.i, %.thread8.thread45.i.i ], [ %607, %603 ], [ %.0215.i.i, %.thread18.i.i ]
-  %.0212.i.i = phi i1 [ false, %.thread8.thread45.i.i ], [ false, %603 ], [ true, %.thread18.i.i ]
-  %.2208.i.i = phi ptr [ %.02061222.i.i, %.thread8.thread45.i.i ], [ %616, %603 ], [ %.02061221.i.i, %.thread18.i.i ]
+624:                                              ; preds = %.thread12.i.i, %603, %.thread2.thread39.i.i
+  %.1216.i.i = phi ptr [ %.0215.i.i, %.thread2.thread39.i.i ], [ %607, %603 ], [ %.0215.i.i, %.thread12.i.i ]
+  %.0212.i.i = phi i1 [ false, %.thread2.thread39.i.i ], [ false, %603 ], [ true, %.thread12.i.i ]
+  %.2208.i.i = phi ptr [ %.0206616.i.i, %.thread2.thread39.i.i ], [ %616, %603 ], [ %.0206615.i.i, %.thread12.i.i ]
   %625 = icmp eq ptr %.2208.i.i, null
-  br i1 %625, label %dissect_quic_crypto_payload.exit, label %.thread24.i.i
+  br i1 %625, label %dissect_quic_crypto_payload.exit, label %.thread18.i.i
 
-.thread24.i.i:                                    ; preds = %624, %597, %592
-  %.220830.i.i = phi ptr [ %.2208.i.i, %624 ], [ %591, %597 ], [ %591, %592 ]
-  %.021229.i.i = phi i1 [ %.0212.i.i, %624 ], [ false, %597 ], [ false, %592 ]
-  %.121628.i.i = phi ptr [ %.1216.i.i, %624 ], [ %.0215.i.i, %597 ], [ %.0215.i.i, %592 ]
-  %626 = getelementptr inbounds nuw i8, ptr %.220830.i.i, i64 40
+.thread18.i.i:                                    ; preds = %624, %597, %592
+  %.220824.i.i = phi ptr [ %.2208.i.i, %624 ], [ %591, %597 ], [ %591, %592 ]
+  %.021223.i.i = phi i1 [ %.0212.i.i, %624 ], [ false, %597 ], [ false, %592 ]
+  %.121622.i.i = phi ptr [ %.1216.i.i, %624 ], [ %.0215.i.i, %597 ], [ %.0215.i.i, %592 ]
+  %626 = getelementptr inbounds nuw i8, ptr %.220824.i.i, i64 40
   %627 = load i32, ptr %626, align 8
   %628 = load i32, ptr %269, align 4
   %629 = icmp eq i32 %627, %628
   br i1 %629, label %630, label %647
 
-630:                                              ; preds = %.thread24.i.i
-  %631 = getelementptr inbounds nuw i8, ptr %.121628.i.i, i64 32
+630:                                              ; preds = %.thread18.i.i
+  %631 = getelementptr inbounds nuw i8, ptr %.121622.i.i, i64 32
   %632 = load i32, ptr %631, align 8
   %633 = icmp eq i32 %.0217.i.i, %632
   br i1 %633, label %634, label %dissect_quic_crypto_payload.exit
 
 634:                                              ; preds = %630
-  %635 = getelementptr inbounds nuw i8, ptr %.220830.i.i, i64 56
+  %635 = getelementptr inbounds nuw i8, ptr %.220824.i.i, i64 56
   %636 = load ptr, ptr %635, align 8
   %637 = call ptr @tvb_new_chain(ptr noundef %256, ptr noundef %636)
   call void @add_new_data_source(ptr noundef %1, ptr noundef %637, ptr noundef nonnull @.str.575)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
-  %638 = call zeroext i1 @show_fragment_tree(ptr noundef nonnull %.220830.i.i, ptr noundef nonnull @quic_crypto_fragment_items, ptr noundef %293, ptr noundef %1, ptr noundef %637, ptr noundef nonnull %12)
+  %638 = call zeroext i1 @show_fragment_tree(ptr noundef nonnull %.220824.i.i, ptr noundef nonnull @quic_crypto_fragment_items, ptr noundef %293, ptr noundef %1, ptr noundef %637, ptr noundef nonnull %12)
   %639 = call i32 @tvb_captured_length(ptr noundef %637)
   %640 = call ptr @tvb_new_subset_length(ptr noundef %637, i32 noundef 0, i32 noundef %639)
   %641 = load ptr, ptr %263, align 8
@@ -6658,9 +6658,9 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
   br label %dissect_quic_crypto_payload.exit
 
-647:                                              ; preds = %.thread24.i.i
+647:                                              ; preds = %.thread18.i.i
   %.not.i.i56 = icmp eq i32 %627, 0
-  %or.cond.i.i = or i1 %.021229.i.i, %.not.i.i56
+  %or.cond.i.i = or i1 %.021223.i.i, %.not.i.i56
   br i1 %or.cond.i.i, label %dissect_quic_crypto_payload.exit, label %648
 
 648:                                              ; preds = %647
@@ -6694,7 +6694,7 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   call void @col_set_writable(ptr noundef %665, i32 noundef -1, i1 noundef zeroext true)
   br label %dissect_quic_crypto_payload.exit
 
-dissect_quic_crypto_payload.exit:                 ; preds = %476, %523, %585, %624, %630, %634, %647, %648, %651, %654, %658
+dissect_quic_crypto_payload.exit:                 ; preds = %476, %.critedge.i.i, %585, %624, %630, %634, %647, %648, %651, %654, %658
   %666 = load i64, ptr %29, align 8
   %667 = trunc i64 %666 to i32
   %668 = add i32 %420, %667

@@ -215,7 +215,6 @@ entry:
 for.body.lr.ph.i:                                 ; preds = %entry
   %lowerDiagonal_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %lowerDiagonal_.i, align 8, !tbaa !28
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 -8
   %diagonal_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %diagonal_.i, align 8, !tbaa !28
   %upperDiagonal_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -226,8 +225,9 @@ for.body.lr.ph.i:                                 ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %i.08.i
-  store double %div6, ptr %gep.i, align 8, !tbaa !29
+  %5 = getelementptr double, ptr %1, i64 %i.08.i
+  %arrayidx.i.i = getelementptr i8, ptr %5, i64 -8
+  store double %div6, ptr %arrayidx.i.i, align 8, !tbaa !29
   %arrayidx.i5.i = getelementptr inbounds nuw double, ptr %2, i64 %i.08.i
   store double %add13, ptr %arrayidx.i5.i, align 8, !tbaa !29
   %arrayidx.i6.i = getelementptr inbounds nuw double, ptr %3, i64 %i.08.i
@@ -851,7 +851,6 @@ for.body.i:                                       ; preds = %invoke.cont10, %for
 
 _ZSt9transformIPdS0_ZN8QuantLib7LogGridC1ERKNS1_5ArrayEEUldE_ET0_T_S8_S7_T1_.exit: ; preds = %for.body.i, %invoke.cont10
   %sub = add i64 %12, -1
-  %invariant.gep = getelementptr i8, ptr %cond.i, i64 -8
   %cmp81 = icmp ugt i64 %sub, 1
   br i1 %cmp81, label %for.body.preheader, label %for.cond.cleanup
 
@@ -887,8 +886,9 @@ lpad9:                                            ; preds = %cond.true.i45
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %30 = phi double [ %32, %for.body ], [ %.pre86, %for.body.preheader ]
   %i.082 = phi i64 [ %add, %for.body ], [ 1, %for.body.preheader ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %i.082
-  %31 = load double, ptr %gep, align 8, !tbaa !29
+  %arrayidx.i = getelementptr double, ptr %cond.i, i64 %i.082
+  %arrayidx.i55 = getelementptr i8, ptr %arrayidx.i, i64 -8
+  %31 = load double, ptr %arrayidx.i55, align 8, !tbaa !29
   %sub30 = fsub double %30, %31
   %arrayidx.i56 = getelementptr inbounds nuw double, ptr %cond.i30, i64 %i.082
   store double %sub30, ptr %arrayidx.i56, align 8, !tbaa !29

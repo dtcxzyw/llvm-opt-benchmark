@@ -3389,7 +3389,7 @@ define dso_local noundef zeroext i1 @check_synchronized_standby_slots(ptr nounde
   %5 = load ptr, ptr %0, align 8
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %95, label %8
+  br i1 %7, label %94, label %8
 
 8:                                                ; preds = %3
   %9 = tail call ptr @pstrdup(ptr noundef nonnull %5) #17
@@ -3443,21 +3443,21 @@ validate_sync_standby_slots.exit.thread:          ; preds = %8
 .lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.i
   %smax.i = call i32 @llvm.smax.i32(i32 %25, i32 0)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
-  %exitcond.not.i52 = icmp slt i32 %25, 1
-  br i1 %exitcond.not.i52, label %.split37.us.i, label %.lr.ph.i.us.i.lr.ph
+  %exitcond.not.i54 = icmp slt i32 %25, 1
+  br i1 %exitcond.not.i54, label %.split37.us.i, label %.lr.ph.i.us.i.lr.ph
 
 .lr.ph.i.us.i.lr.ph:                              ; preds = %.lr.ph.split.us.preheader.i
   %30 = load ptr, ptr %26, align 8
   br label %.lr.ph.i.us.i
 
 .lr.ph.split.us.i:                                ; preds = %SearchNamedReplicationSlot.exit.us.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i53, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i55, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.split37.us.i, label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %.lr.ph.i.us.i.lr.ph, %.lr.ph.split.us.i
-  %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.i.us.i.lr.ph ], [ %indvars.iv.next.i, %.lr.ph.split.us.i ]
-  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv.i53
+  %indvars.iv.i55 = phi i64 [ 0, %.lr.ph.i.us.i.lr.ph ], [ %indvars.iv.next.i, %.lr.ph.split.us.i ]
+  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv.i55
   %32 = load ptr, ptr %31, align 8
   br label %33
 
@@ -3531,12 +3531,12 @@ validate_sync_standby_slots.exit:                 ; preds = %14, %.split37.us.i
 
 63:                                               ; preds = %.critedge.preheader.split.us, %63
   %indvars.iv = phi i64 [ 0, %.critedge.preheader.split.us ], [ %indvars.iv.next, %63 ]
-  %.13755.us = phi i32 [ 4, %.critedge.preheader.split.us ], [ %69, %63 ]
+  %.13757.us = phi i32 [ 4, %.critedge.preheader.split.us ], [ %69, %63 ]
   %64 = getelementptr inbounds nuw %union.ListCell, ptr %62, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #18
   %67 = trunc i64 %66 to i32
-  %68 = add i32 %.13755.us, 1
+  %68 = add i32 %.13757.us, 1
   %69 = add i32 %68, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3550,8 +3550,8 @@ validate_sync_standby_slots.exit:                 ; preds = %14, %.split37.us.i
   %.us-phi = phi i64 [ 4, %.critedge.preheader ], [ %70, %.split.loopexit ]
   %71 = call ptr @guc_malloc(i32 noundef 15, i64 noundef %.us-phi) #17
   %72 = load ptr, ptr %4, align 8
-  %.not.i45 = icmp eq ptr %72, null
-  br i1 %.not.i45, label %list_length.exit, label %73
+  %.not.i47 = icmp eq ptr %72, null
+  br i1 %.not.i47, label %list_length.exit, label %73
 
 73:                                               ; preds = %.split
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
@@ -3562,48 +3562,48 @@ list_length.exit:                                 ; preds = %.split, %73
   %76 = phi i32 [ %75, %73 ], [ 0, %.split ]
   store i32 %76, ptr %71, align 4
   %77 = load ptr, ptr %4, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %.split69.us, label %.lr.ph
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  %.not43 = icmp eq ptr %77, null
+  br i1 %.not43, label %.critedge3, label %.lr.ph
 
-.split69.us:                                      ; preds = %.lr.ph66, %.lr.ph, %list_length.exit
+.lr.ph:                                           ; preds = %list_length.exit
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %80 = load i32, ptr %78, align 4
+  %81 = icmp sgt i32 %80, 0
+  br i1 %81, label %.lr.ph64.preheader, label %.critedge3
+
+.lr.ph64.preheader:                               ; preds = %.lr.ph
+  %82 = getelementptr inbounds nuw i8, ptr %71, i64 4
+  br label %.lr.ph64
+
+.lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
+  %indvars.iv71 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next72, %.lr.ph64 ]
+  %.15963 = phi ptr [ %82, %.lr.ph64.preheader ], [ %89, %.lr.ph64 ]
+  %83 = load ptr, ptr %79, align 8
+  %84 = getelementptr inbounds nuw %union.ListCell, ptr %83, i64 %indvars.iv71
+  %85 = load ptr, ptr %84, align 8
+  %86 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.15963, ptr noundef nonnull dereferenceable(1) %85) #17
+  %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #18
+  %88 = getelementptr i8, ptr %.15963, i64 %87
+  %89 = getelementptr i8, ptr %88, i64 1
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %90 = load i32, ptr %78, align 4
+  %91 = sext i32 %90 to i64
+  %92 = icmp slt i64 %indvars.iv.next72, %91
+  br i1 %92, label %.lr.ph64, label %.critedge3
+
+.critedge3:                                       ; preds = %.lr.ph64, %.lr.ph, %list_length.exit
   store ptr %71, ptr %1, align 8
   br label %.sink.split
 
-.lr.ph:                                           ; preds = %list_length.exit
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %81 = load i32, ptr %79, align 4
-  %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %.lr.ph66.preheader, label %.split69.us
-
-.lr.ph66.preheader:                               ; preds = %.lr.ph
-  %83 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  br label %.lr.ph66
-
-.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
-  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %.lr.ph66 ], [ 0, %.lr.ph66.preheader ]
-  %.15765 = phi ptr [ %90, %.lr.ph66 ], [ %83, %.lr.ph66.preheader ]
-  %84 = load ptr, ptr %80, align 8
-  %85 = getelementptr inbounds nuw %union.ListCell, ptr %84, i64 %indvars.iv76
-  %86 = load ptr, ptr %85, align 8
-  %87 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.15765, ptr noundef nonnull dereferenceable(1) %86) #17
-  %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #18
-  %89 = getelementptr i8, ptr %.15765, i64 %88
-  %90 = getelementptr i8, ptr %89, i64 1
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %91 = load i32, ptr %79, align 4
-  %92 = sext i32 %91 to i64
-  %93 = icmp slt i64 %indvars.iv.next77, %92
-  br i1 %93, label %.lr.ph66, label %.split69.us
-
-.sink.split:                                      ; preds = %validate_sync_standby_slots.exit, %validate_sync_standby_slots.exit.thread, %.split69.us
-  %.0.ph = phi i1 [ true, %.split69.us ], [ false, %validate_sync_standby_slots.exit.thread ], [ %.0.i, %validate_sync_standby_slots.exit ]
+.sink.split:                                      ; preds = %validate_sync_standby_slots.exit, %validate_sync_standby_slots.exit.thread, %.critedge3
+  %.0.ph = phi i1 [ true, %.critedge3 ], [ false, %validate_sync_standby_slots.exit.thread ], [ %.0.i, %validate_sync_standby_slots.exit ]
   call void @pfree(ptr noundef %9) #17
-  %94 = load ptr, ptr %4, align 8
-  call void @list_free(ptr noundef %94) #17
-  br label %95
+  %93 = load ptr, ptr %4, align 8
+  call void @list_free(ptr noundef %93) #17
+  br label %94
 
-95:                                               ; preds = %.sink.split, %3
+94:                                               ; preds = %.sink.split, %3
   %.0 = phi i1 [ true, %3 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   ret i1 %.0

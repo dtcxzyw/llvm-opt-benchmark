@@ -200,15 +200,15 @@ define hidden ptr @getMessageFromThrowable(ptr noundef %0, ptr noundef %1) local
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i8 %14(ptr noundef nonnull %0) #3
   %.not.i26 = icmp eq i8 %15, 0
-  br i1 %.not.i26, label %19, label %.thread
+  br i1 %.not.i26, label %19, label %checkForAndClearThrowable.exit
 
-.thread:                                          ; preds = %2
+checkForAndClearThrowable.exit:                   ; preds = %2
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 136
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0) #3
   tail call void @JPLISAssertCondition(i8 noundef zeroext 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 291) #3
-  br label %46
+  br label %.critedge
 
 19:                                               ; preds = %2
   tail call void @JPLISAssertCondition(i8 noundef zeroext 1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 291) #3
@@ -221,50 +221,50 @@ define hidden ptr @getMessageFromThrowable(ptr noundef %0, ptr noundef %1) local
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i8 %26(ptr noundef nonnull %0) #3
   %.not.i27 = icmp eq i8 %27, 0
-  br i1 %.not.i27, label %32, label %28
+  br i1 %.not.i27, label %31, label %checkForAndClearThrowable.exit28
 
-28:                                               ; preds = %19
-  %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 136
-  %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull %0) #3
+checkForAndClearThrowable.exit28:                 ; preds = %19
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 136
+  %30 = load ptr, ptr %29, align 8
+  tail call void %30(ptr noundef nonnull %0) #3
   tail call void @JPLISAssertCondition(i8 noundef zeroext 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 299) #3
-  br label %46
+  br label %.critedge
 
-32:                                               ; preds = %19
+31:                                               ; preds = %19
   tail call void @JPLISAssertCondition(i8 noundef zeroext 1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 299) #3
-  %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 272
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call ptr (ptr, ptr, ptr, ...) %35(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %23) #3
-  %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1824
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call zeroext i8 %39(ptr noundef nonnull %0) #3
-  %.not.i29 = icmp eq i8 %40, 0
-  br i1 %.not.i29, label %checkForAndClearThrowable.exit30, label %41
+  %32 = load ptr, ptr %0, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 272
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call ptr (ptr, ptr, ptr, ...) %34(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %23) #3
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1824
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call zeroext i8 %38(ptr noundef nonnull %0) #3
+  %.not.i29 = icmp eq i8 %39, 0
+  br i1 %.not.i29, label %checkForAndClearThrowable.exit30, label %40
 
-41:                                               ; preds = %32
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 136
-  %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull %0) #3
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 136
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull %0) #3
   br label %checkForAndClearThrowable.exit30
 
-checkForAndClearThrowable.exit30:                 ; preds = %32, %41
-  %45 = zext i1 %.not.i29 to i8
-  tail call void @JPLISAssertCondition(i8 noundef zeroext %45, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 305) #3
-  br label %46
+checkForAndClearThrowable.exit30:                 ; preds = %31, %40
+  %44 = zext i1 %.not.i29 to i8
+  tail call void @JPLISAssertCondition(i8 noundef zeroext %44, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 305) #3
+  br label %.critedge
 
-46:                                               ; preds = %28, %.thread, %checkForAndClearThrowable.exit30
-  %.020 = phi ptr [ null, %28 ], [ %36, %checkForAndClearThrowable.exit30 ], [ null, %.thread ]
-  %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1824
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call zeroext i8 %49(ptr noundef nonnull %0) #3
-  %.not.i31 = icmp eq i8 %50, 0
-  %51 = zext i1 %.not.i31 to i8
-  tail call void @JPLISAssertCondition(i8 noundef zeroext %51, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 308) #3
+.critedge:                                        ; preds = %checkForAndClearThrowable.exit28, %checkForAndClearThrowable.exit, %checkForAndClearThrowable.exit30
+  %.020 = phi ptr [ null, %checkForAndClearThrowable.exit28 ], [ %35, %checkForAndClearThrowable.exit30 ], [ null, %checkForAndClearThrowable.exit ]
+  %45 = load ptr, ptr %0, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1824
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call zeroext i8 %47(ptr noundef nonnull %0) #3
+  %.not.i31 = icmp eq i8 %48, 0
+  %49 = zext i1 %.not.i31 to i8
+  tail call void @JPLISAssertCondition(i8 noundef zeroext %49, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 308) #3
   ret ptr %.020
 }
 
@@ -318,15 +318,15 @@ define hidden ptr @createThrowable(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i8 %17(ptr noundef nonnull %0) #3
   %.not.i28 = icmp eq i8 %18, 0
-  br i1 %.not.i28, label %22, label %.thread
+  br i1 %.not.i28, label %22, label %checkForAndClearThrowable.exit
 
-.thread:                                          ; preds = %3
+checkForAndClearThrowable.exit:                   ; preds = %3
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 136
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull %0) #3
   tail call void @JPLISAssertCondition(i8 noundef zeroext 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 137) #3
-  br label %49
+  br label %.critedge
 
 22:                                               ; preds = %3
   tail call void @JPLISAssertCondition(i8 noundef zeroext 1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 137) #3
@@ -339,50 +339,50 @@ define hidden ptr @createThrowable(ptr noundef %0, ptr noundef %1, ptr noundef %
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i8 %29(ptr noundef nonnull %0) #3
   %.not.i29 = icmp eq i8 %30, 0
-  br i1 %.not.i29, label %35, label %31
+  br i1 %.not.i29, label %34, label %checkForAndClearThrowable.exit30
 
-31:                                               ; preds = %22
-  %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 136
-  %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull %0) #3
+checkForAndClearThrowable.exit30:                 ; preds = %22
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 136
+  %33 = load ptr, ptr %32, align 8
+  tail call void %33(ptr noundef nonnull %0) #3
   tail call void @JPLISAssertCondition(i8 noundef zeroext 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 145) #3
-  br label %49
+  br label %.critedge
 
-35:                                               ; preds = %22
+34:                                               ; preds = %22
   tail call void @JPLISAssertCondition(i8 noundef zeroext 1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 145) #3
-  %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 224
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr (ptr, ptr, ptr, ...) %38(ptr noundef nonnull %0, ptr noundef %14, ptr noundef %26, ptr noundef %2) #3
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1824
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call zeroext i8 %42(ptr noundef nonnull %0) #3
-  %.not.i31 = icmp eq i8 %43, 0
-  br i1 %.not.i31, label %checkForAndClearThrowable.exit32, label %44
+  %35 = load ptr, ptr %0, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 224
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call ptr (ptr, ptr, ptr, ...) %37(ptr noundef nonnull %0, ptr noundef %14, ptr noundef %26, ptr noundef %2) #3
+  %39 = load ptr, ptr %0, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1824
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call zeroext i8 %41(ptr noundef nonnull %0) #3
+  %.not.i31 = icmp eq i8 %42, 0
+  br i1 %.not.i31, label %checkForAndClearThrowable.exit32, label %43
 
-44:                                               ; preds = %35
-  %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 136
-  %47 = load ptr, ptr %46, align 8
-  tail call void %47(ptr noundef nonnull %0) #3
+43:                                               ; preds = %34
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 136
+  %46 = load ptr, ptr %45, align 8
+  tail call void %46(ptr noundef nonnull %0) #3
   br label %checkForAndClearThrowable.exit32
 
-checkForAndClearThrowable.exit32:                 ; preds = %35, %44
-  %48 = zext i1 %.not.i31 to i8
-  tail call void @JPLISAssertCondition(i8 noundef zeroext %48, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 151) #3
-  br label %49
+checkForAndClearThrowable.exit32:                 ; preds = %34, %43
+  %47 = zext i1 %.not.i31 to i8
+  tail call void @JPLISAssertCondition(i8 noundef zeroext %47, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 151) #3
+  br label %.critedge
 
-49:                                               ; preds = %31, %.thread, %checkForAndClearThrowable.exit32
-  %.023 = phi ptr [ null, %31 ], [ %39, %checkForAndClearThrowable.exit32 ], [ null, %.thread ]
-  %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1824
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call zeroext i8 %52(ptr noundef nonnull %0) #3
-  %.not.i33 = icmp eq i8 %53, 0
-  %54 = zext i1 %.not.i33 to i8
-  tail call void @JPLISAssertCondition(i8 noundef zeroext %54, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 154) #3
+.critedge:                                        ; preds = %checkForAndClearThrowable.exit30, %checkForAndClearThrowable.exit, %checkForAndClearThrowable.exit32
+  %.023 = phi ptr [ null, %checkForAndClearThrowable.exit30 ], [ %38, %checkForAndClearThrowable.exit32 ], [ null, %checkForAndClearThrowable.exit ]
+  %48 = load ptr, ptr %0, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1824
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call zeroext i8 %50(ptr noundef nonnull %0) #3
+  %.not.i33 = icmp eq i8 %51, 0
+  %52 = zext i1 %.not.i33 to i8
+  tail call void @JPLISAssertCondition(i8 noundef zeroext %52, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 154) #3
   ret ptr %.023
 }
 

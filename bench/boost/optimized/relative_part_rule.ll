@@ -251,11 +251,11 @@ _ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit: ; 
 
 _ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit._crit_edge: ; preds = %66, %70
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #7
-  %.pre93 = load ptr, ptr %2, align 8, !tbaa !3
+  %.pre89 = load ptr, ptr %2, align 8, !tbaa !3
   br label %74
 
 74:                                               ; preds = %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit._crit_edge, %53, %51
-  %75 = phi ptr [ %.pre93, %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit._crit_edge ], [ %16, %53 ], [ %16, %51 ]
+  %75 = phi ptr [ %.pre89, %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit._crit_edge ], [ %16, %53 ], [ %16, %51 ]
   %76 = icmp eq ptr %75, %3
   br i1 %76, label %77, label %80
 
@@ -301,7 +301,7 @@ _ZNKR5boost6system6resultINS_4urls15pct_string_viewENS0_10error_codeEE5errorEv.e
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 2, ptr %90, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  br label %.thread75
+  br label %.critedge
 
 91:                                               ; preds = %82
   %.sroa.gep67 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -315,7 +315,7 @@ _ZNKR5boost6system6resultINS_4urls15pct_string_viewENS0_10error_codeEE5errorEv.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %95, ptr noundef nonnull align 8 dereferenceable(33) %15, i64 33, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 1, ptr %96, align 8, !tbaa !7
-  br label %.thread75
+  br label %.critedge
 
 97:                                               ; preds = %91
   %.sroa.gep68 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -359,11 +359,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   store i64 %114, ptr %.sroa.666.0..sroa_idx, align 8, !tbaa !27
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 2, ptr %115, align 8, !tbaa !7
-  br label %.thread75
-
-.thread75:                                        ; preds = %94, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit, %_ZNKR5boost6system6resultINS_4urls15pct_string_viewENS0_10error_codeEE5errorEv.exit55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #7
-  br label %149
+  br label %.critedge
 
 116:                                              ; preds = %97, %103
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #7
@@ -372,8 +368,8 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
 117:                                              ; preds = %116, %80
   %118 = phi ptr [ %102, %116 ], [ %75, %80 ]
   %.0 = phi i64 [ %98, %116 ], [ 0, %80 ]
-  %.not5388 = icmp eq ptr %118, %3
-  br i1 %.not5388, label %.loopexit, label %.lr.ph
+  %.not5384 = icmp eq ptr %118, %3
+  br i1 %.not5384, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %117
   %119 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -384,13 +380,13 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
 
 121:                                              ; preds = %.lr.ph, %.backedge
   %122 = phi ptr [ %118, %.lr.ph ], [ %130, %.backedge ]
-  %.289 = phi i64 [ %.0, %.lr.ph ], [ %.2.be, %.backedge ]
+  %.285 = phi i64 [ %.0, %.lr.ph ], [ %.2.be, %.backedge ]
   %123 = load i8, ptr %122, align 1, !tbaa !10
   %124 = icmp eq i8 %123, 47
   br i1 %124, label %125, label %131
 
 125:                                              ; preds = %121
-  %126 = add i64 %.289, 1
+  %126 = add i64 %.285, 1
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 1
   store ptr %127, ptr %2, align 8, !tbaa !3
   %128 = load i64, ptr %120, align 8, !tbaa !11
@@ -399,7 +395,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   br label %.backedge
 
 .backedge:                                        ; preds = %125, %142
-  %130 = phi ptr [ %127, %125 ], [ %.pre94, %142 ]
+  %130 = phi ptr [ %127, %125 ], [ %.pre90, %142 ]
   %.2.be = phi i64 [ %126, %125 ], [ %144, %142 ]
   %.not53 = icmp eq ptr %130, %3
   br i1 %.not53, label %.loopexit, label %121, !llvm.loop !53
@@ -418,13 +414,13 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
 
 136:                                              ; preds = %134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 24, i1 false), !tbaa.struct !26
-  br label %.thread78
+  br label %.thread74
 
 137:                                              ; preds = %134
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !alias.scope !55
-  br label %.thread78
+  br label %.thread74
 
-.thread78:                                        ; preds = %137, %136
+.thread74:                                        ; preds = %137, %136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !tbaa.struct !26
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 2, ptr %138, align 8, !tbaa !7
@@ -435,31 +431,31 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
 139:                                              ; preds = %131
   %140 = load i64, ptr %.sroa.gep, align 8, !tbaa !31
   %141 = icmp eq i64 %140, 0
-  br i1 %141, label %.thread81, label %142
+  br i1 %141, label %.thread77, label %142
 
-.thread81:                                        ; preds = %139
+.thread77:                                        ; preds = %139
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #7
-  %.pre95 = load ptr, ptr %2, align 8, !tbaa !3
-  %.pre96 = ptrtoint ptr %.pre95 to i64
+  %.pre91 = load ptr, ptr %2, align 8, !tbaa !3
+  %.pre92 = ptrtoint ptr %.pre91 to i64
   br label %.loopexit
 
 142:                                              ; preds = %139
   %143 = load i64, ptr %.sroa.gep61, align 8, !tbaa !44
-  %144 = add i64 %143, %.289
+  %144 = add i64 %143, %.285
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #7
-  %.pre94 = load ptr, ptr %2, align 8, !tbaa !3
+  %.pre90 = load ptr, ptr %2, align 8, !tbaa !3
   br label %.backedge
 
-.loopexit:                                        ; preds = %.backedge, %117, %.thread81
-  %.pre-phi = phi i64 [ %22, %117 ], [ %.pre96, %.thread81 ], [ %22, %.backedge ]
-  %.286 = phi i64 [ %.0, %117 ], [ %.289, %.thread81 ], [ %.2.be, %.backedge ]
+.loopexit:                                        ; preds = %.backedge, %117, %.thread77
+  %.pre-phi = phi i64 [ %22, %117 ], [ %.pre92, %.thread77 ], [ %22, %.backedge ]
+  %.282 = phi i64 [ %.0, %117 ], [ %.285, %.thread77 ], [ %.2.be, %.backedge ]
   %145 = ptrtoint ptr %75 to i64
   %146 = sub i64 %.pre-phi, %145
   store ptr %75, ptr %15, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 192
   store i64 %146, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 200
-  store i64 %.286, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.282, ptr %.sroa.5.0..sroa_idx, align 8
   call void @_ZN5boost4urls14authority_viewC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(217) %5) #7
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %147, ptr noundef nonnull align 8 dereferenceable(33) %15, i64 33, i1 false)
@@ -467,7 +463,11 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   store i32 1, ptr %148, align 8, !tbaa !7
   br label %149
 
-149:                                              ; preds = %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit, %.thread78, %.thread75, %46, %.loopexit, %77, %48, %28, %18
+.critedge:                                        ; preds = %_ZNKR5boost6system6resultINS_4urls15pct_string_viewENS0_10error_codeEE5errorEv.exit55, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit, %94
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #7
+  br label %149
+
+149:                                              ; preds = %_ZN5boost6system6resultINS_4urls14authority_viewENS0_10error_codeEED2Ev.exit, %.thread74, %46, %.loopexit, %.critedge, %77, %48, %28, %18
   call void @_ZN5boost4urls14authority_viewD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %5) #7
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #7
   ret void

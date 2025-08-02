@@ -700,14 +700,14 @@ define void @_ZN3net14QuicHeaderList18OnHeaderBlockStartEv(ptr noundef nonnull r
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %2, ptr noundef nonnull @.str, i32 noundef 25, i32 noundef 2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.1, i64 noundef 41)
-          to label %.critedge10 unwind label %9
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %9
 
-.critedge10:                                      ; preds = %6
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %6
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %2) #17
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %2) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %1, %.critedge10
+.critedge:                                        ; preds = %1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   ret void
 
 9:                                                ; preds = %6

@@ -523,12 +523,12 @@ getMatrix.exit272:                                ; preds = %128, %.preheader.i2
   %.neg.i275 = sext i1 %266 to i32
   %267 = sub i32 %.neg.i275, %146
   %268 = add i32 %267, %265
+  %269 = tail call i32 @llvm.smax.i32(i32 %246, i32 %268)
   br label %computeLB.exit
 
 computeLB.exit:                                   ; preds = %._crit_edge.i274.loopexit, %262
-  %.043.i = phi i32 [ %268, %262 ], [ 0, %._crit_edge.i274.loopexit ]
-  %269 = tail call i32 @llvm.smax.i32(i32 %246, i32 %.043.i)
-  %270 = add nsw i32 %269, %.045.lcssa.i
+  %.043.i = phi i32 [ %269, %262 ], [ %246, %._crit_edge.i274.loopexit ]
+  %270 = add nsw i32 %.043.i, %.045.lcssa.i
   %.not255 = icmp slt i32 %270, %.1227514
   br i1 %.not255, label %271, label %.loopexit445
 

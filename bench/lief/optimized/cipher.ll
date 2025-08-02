@@ -1224,24 +1224,24 @@ define internal void @add_zeros_and_len_padding(ptr noundef writeonly captures(n
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 %2
-  %invariant.gep = getelementptr i8, ptr %6, i64 -1
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
-  %8 = phi i64 [ 1, %.lr.ph ], [ %10, %7 ]
-  %.012 = phi i8 [ 1, %.lr.ph ], [ %9, %7 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %8
-  store i8 0, ptr %gep, align 1, !tbaa !47
-  %9 = add i8 %.012, 1
-  %10 = zext i8 %9 to i64
-  %11 = icmp ugt i64 %4, %10
-  br i1 %11, label %7, label %._crit_edge, !llvm.loop !56
+  %8 = phi i64 [ 1, %.lr.ph ], [ %12, %7 ]
+  %.012 = phi i8 [ 1, %.lr.ph ], [ %11, %7 ]
+  %9 = getelementptr i8, ptr %6, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 -1
+  store i8 0, ptr %10, align 1, !tbaa !47
+  %11 = add i8 %.012, 1
+  %12 = zext i8 %11 to i64
+  %13 = icmp ugt i64 %4, %12
+  br i1 %13, label %7, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %7, %3
-  %12 = trunc nuw i64 %4 to i8
-  %13 = getelementptr i8, ptr %0, i64 %1
-  %14 = getelementptr i8, ptr %13, i64 -1
-  store i8 %12, ptr %14, align 1, !tbaa !47
+  %14 = trunc nuw i64 %4 to i8
+  %15 = getelementptr i8, ptr %0, i64 %1
+  %16 = getelementptr i8, ptr %15, i64 -1
+  store i8 %14, ptr %16, align 1, !tbaa !47
   ret void
 }
 
@@ -1316,28 +1316,28 @@ define internal range(i32 -24832, 1) i32 @get_zeros_padding(ptr noundef readonly
 
 7:                                                ; preds = %3
   store i64 0, ptr %2, align 8, !tbaa !37
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %.not20 = icmp eq i64 %1, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.01622 = phi i64 [ %14, %.lr.ph ], [ %4, %7 ]
-  %.01721 = phi i64 [ %19, %.lr.ph ], [ %1, %7 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.01721
-  %8 = load i8, ptr %gep, align 1, !tbaa !47
-  %9 = zext i8 %8 to i64
-  %10 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %9) #15, !srcloc !50
-  %11 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #15, !srcloc !50
-  %12 = xor i64 %11, %10
-  %13 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %12) #15, !srcloc !51
-  %14 = or i64 %13, %.01622
-  %15 = xor i64 %14, %.01622
-  %16 = load i64, ptr %2, align 8, !tbaa !37
-  %17 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %15, i64 %.01721, i64 %16) #15, !srcloc !54
-  %18 = extractvalue { i64, i64, i64 } %17, 2
-  store i64 %18, ptr %2, align 8, !tbaa !37
-  %19 = add i64 %.01721, -1
-  %.not = icmp eq i64 %19, 0
+  %.01622 = phi i64 [ %16, %.lr.ph ], [ %4, %7 ]
+  %.01721 = phi i64 [ %21, %.lr.ph ], [ %1, %7 ]
+  %8 = getelementptr i8, ptr %0, i64 %.01721
+  %9 = getelementptr i8, ptr %8, i64 -1
+  %10 = load i8, ptr %9, align 1, !tbaa !47
+  %11 = zext i8 %10 to i64
+  %12 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %11) #15, !srcloc !50
+  %13 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #15, !srcloc !50
+  %14 = xor i64 %13, %12
+  %15 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %14) #15, !srcloc !51
+  %16 = or i64 %15, %.01622
+  %17 = xor i64 %16, %.01622
+  %18 = load i64, ptr %2, align 8, !tbaa !37
+  %19 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %17, i64 %.01721, i64 %18) #15, !srcloc !54
+  %20 = extractvalue { i64, i64, i64 } %19, 2
+  store i64 %20, ptr %2, align 8, !tbaa !37
+  %21 = add i64 %.01721, -1
+  %.not = icmp eq i64 %21, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3

@@ -270,7 +270,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38: ; 
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %11, align 8
   %.not44 = icmp eq ptr %73, %74
-  br i1 %.not44, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not44, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %75 = phi ptr [ %84, %.lr.ph ], [ %74, %.preheader ]
@@ -293,16 +293,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38: ; 
   br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %80, label %93, label %._crit_edge.thread
+  br i1 %80, label %93, label %.critedge
 
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
+.critedge:                                        ; preds = %.preheader, %._crit_edge
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10Arch_ErrorEPKcS1_mS1_(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.main, i64 noundef 65, ptr noundef nonnull @.str.1) #12
           to label %90 unwind label %91
 
-90:                                               ; preds = %._crit_edge.thread
+90:                                               ; preds = %.critedge
   unreachable
 
-91:                                               ; preds = %._crit_edge.thread
+91:                                               ; preds = %.critedge
   %92 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13

@@ -5825,20 +5825,16 @@ define hidden void @_ZN3opt7context3popEj(ptr noundef nonnull align 8 dereferenc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %_ZNK3opt7context12scoped_state10num_scopesEv.exit, label %7
+  br i1 %6, label %._crit_edge, label %_ZNK3opt7context12scoped_state10num_scopesEv.exit
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %5, i64 -4
-  %9 = load i32, ptr %8, align 4, !tbaa !10
-  br label %_ZNK3opt7context12scoped_state10num_scopesEv.exit
-
-_ZNK3opt7context12scoped_state10num_scopesEv.exit: ; preds = %2, %7
-  %.0.i.i = phi i32 [ %9, %7 ], [ 0, %2 ]
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.0.i.i, i32 %1)
-  %.not = icmp eq i32 %.sroa.speculated, 0
+_ZNK3opt7context12scoped_state10num_scopesEv.exit: ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %5, i64 -4
+  %8 = load i32, ptr %7, align 4, !tbaa !10
+  %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 %1)
+  %.not = icmp eq i32 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZNK3opt7context12scoped_state10num_scopesEv.exit
+._crit_edge:                                      ; preds = %.lr.ph, %2, %_ZNK3opt7context12scoped_state10num_scopesEv.exit
   tail call void @_ZN3opt7context11clear_stateEv(ptr noundef nonnull align 8 dereferenceable(808) %0)
   tail call void @_ZN3opt7context13reset_maxsmtsEv(ptr noundef nonnull align 8 dereferenceable(808) %0)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -5900,7 +5896,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
   %.06 = phi i32 [ %32, %.lr.ph ], [ 0, %_ZNK3opt7context12scoped_state10num_scopesEv.exit ]
   tail call void @_ZN3opt7context12scoped_state3popEv(ptr noundef nonnull align 8 dereferenceable(168) %3)
   %32 = add nuw i32 %.06, 1
-  %exitcond.not = icmp eq i32 %32, %.sroa.speculated
+  %exitcond.not = icmp eq i32 %32, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !257
 }
 

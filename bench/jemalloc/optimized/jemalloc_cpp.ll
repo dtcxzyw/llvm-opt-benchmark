@@ -1322,7 +1322,7 @@ define internal fastcc noundef ptr @_ZL15fallbackNewImplILb0EEPvm(i64 noundef %0
 declare ptr @je_malloc_default(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef ptr @_ZL9handleOOMmb(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZL9handleOOMmb(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr @je_opt_experimental_infallible_new, align 1, !tbaa !52, !range !54, !noundef !55
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %.preheader

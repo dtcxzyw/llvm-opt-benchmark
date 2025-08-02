@@ -646,7 +646,7 @@ define ptr @UI_construct_prompt(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #8
   store i16 58, ptr %6, align 2
   %15 = icmp eq ptr %1, null
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %14
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
@@ -667,7 +667,7 @@ define ptr @UI_construct_prompt(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %25 = ashr exact i64 %sext, 32
   %26 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %25, ptr noundef nonnull @.str, i32 noundef 358) #8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread, label %28
+  br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %23
   %29 = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %26, ptr noundef nonnull %4, i64 noundef %25) #8
@@ -679,12 +679,6 @@ define ptr @UI_construct_prompt(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %33 = call i64 @OPENSSL_strlcat(ptr noundef nonnull %26, ptr noundef nonnull %2, i64 noundef %25) #8
   br label %34
 
-.thread:                                          ; preds = %14, %23
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #8
-  br label %36
-
 34:                                               ; preds = %31, %28
   %35 = call i64 @OPENSSL_strlcat(ptr noundef nonnull %26, ptr noundef nonnull %6, i64 noundef %25) #8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #8
@@ -692,8 +686,14 @@ define ptr @UI_construct_prompt(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #8
   br label %36
 
-36:                                               ; preds = %34, %.thread, %12
-  %.132 = phi ptr [ %13, %12 ], [ %26, %34 ], [ null, %.thread ]
+.critedge:                                        ; preds = %23, %14
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #8
+  br label %36
+
+36:                                               ; preds = %12, %34, %.critedge
+  %.132 = phi ptr [ null, %.critedge ], [ %13, %12 ], [ %26, %34 ]
   ret ptr %.132
 }
 

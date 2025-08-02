@@ -1706,11 +1706,10 @@ define hidden void @_ZN5boost4urls6detail22normalized_path_digestENS_4core17basi
 
 .lr.ph:                                           ; preds = %13
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !3
-  %invariant.gep = getelementptr i8, ptr %.pre.i, i64 -1
   br label %15
 
-15:                                               ; preds = %.lr.ph, %32
-  %16 = phi i64 [ %.promoted, %.lr.ph ], [ %33, %32 ]
+15:                                               ; preds = %.lr.ph, %34
+  %16 = phi i64 [ %.promoted, %.lr.ph ], [ %35, %34 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6)
   %17 = icmp ult i64 %16, 3
   br i1 %17, label %22, label %18
@@ -1723,52 +1722,53 @@ define hidden void @_ZN5boost4urls6detail22normalized_path_digestENS_4core17basi
   br i1 %.not.i, label %_ZNK5boost4core17basic_string_viewIcE6substrEmm.exit.i, label %22
 
 22:                                               ; preds = %18, %15
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %16
-  %23 = load i8, ptr %gep, align 1, !tbaa !9
-  %24 = add i64 %16, -1
-  br label %32
+  %23 = getelementptr i8, ptr %.pre.i, i64 %16
+  %24 = getelementptr i8, ptr %23, i64 -1
+  %25 = load i8, ptr %24, align 1, !tbaa !9
+  %26 = add i64 %16, -1
+  br label %34
 
 _ZNK5boost4core17basic_string_viewIcE6substrEmm.exit.i: ; preds = %18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #23
   store i8 0, ptr %5, align 1, !tbaa !9
   call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %6, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #23
   %.0.copyload.i = load i24, ptr %6, align 4
-  %25 = call noundef i64 @_ZN5boost4urls6detail13decode_unsafeEPcPKcNS_4core17basic_string_viewIcEENS0_13encoding_optsE(ptr noundef nonnull %5, ptr noundef nonnull %12, ptr nonnull %20, i64 3, i24 %.0.copyload.i) #23
-  %26 = load i8, ptr %5, align 1, !tbaa !9
-  %.not11.i = icmp eq i8 %26, 47
-  br i1 %.not11.i, label %27, label %30
+  %27 = call noundef i64 @_ZN5boost4urls6detail13decode_unsafeEPcPKcNS_4core17basic_string_viewIcEENS0_13encoding_optsE(ptr noundef nonnull %5, ptr noundef nonnull %12, ptr nonnull %20, i64 3, i24 %.0.copyload.i) #23
+  %28 = load i8, ptr %5, align 1, !tbaa !9
+  %.not11.i = icmp eq i8 %28, 47
+  br i1 %.not11.i, label %29, label %32
 
-27:                                               ; preds = %_ZNK5boost4core17basic_string_viewIcE6substrEmm.exit.i
-  %28 = getelementptr i8, ptr %19, i64 -1
-  %29 = load i8, ptr %28, align 1, !tbaa !9
-  br label %30
-
-30:                                               ; preds = %_ZNK5boost4core17basic_string_viewIcE6substrEmm.exit.i, %27
-  %.sink = phi i64 [ -1, %27 ], [ -3, %_ZNK5boost4core17basic_string_viewIcE6substrEmm.exit.i ]
-  %.1.i = phi i8 [ %29, %27 ], [ %26, %_ZNK5boost4core17basic_string_viewIcE6substrEmm.exit.i ]
-  %31 = add i64 %16, %.sink
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
+29:                                               ; preds = %_ZNK5boost4core17basic_string_viewIcE6substrEmm.exit.i
+  %30 = getelementptr i8, ptr %19, i64 -1
+  %31 = load i8, ptr %30, align 1, !tbaa !9
   br label %32
 
-32:                                               ; preds = %30, %22
-  %33 = phi i64 [ %24, %22 ], [ %31, %30 ]
-  %.0.i = phi i8 [ %23, %22 ], [ %.1.i, %30 ]
+32:                                               ; preds = %_ZNK5boost4core17basic_string_viewIcE6substrEmm.exit.i, %29
+  %.sink = phi i64 [ -1, %29 ], [ -3, %_ZNK5boost4core17basic_string_viewIcE6substrEmm.exit.i ]
+  %.1.i = phi i8 [ %31, %29 ], [ %28, %_ZNK5boost4core17basic_string_viewIcE6substrEmm.exit.i ]
+  %33 = add i64 %16, %.sink
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
+  br label %34
+
+34:                                               ; preds = %32, %22
+  %35 = phi i64 [ %26, %22 ], [ %33, %32 ]
+  %.0.i = phi i8 [ %25, %22 ], [ %.1.i, %32 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6)
-  %34 = sext i8 %.0.i to i64
-  %35 = load i64, ptr %3, align 8, !tbaa !14
-  %36 = xor i64 %35, %34
-  %37 = mul i64 %36, 1099511628211
-  store i64 %37, ptr %3, align 8, !tbaa !14
-  %38 = icmp eq i64 %33, 0
-  br i1 %38, label %._crit_edge, label %15, !llvm.loop !34
+  %36 = sext i8 %.0.i to i64
+  %37 = load i64, ptr %3, align 8, !tbaa !14
+  %38 = xor i64 %37, %36
+  %39 = mul i64 %38, 1099511628211
+  store i64 %39, ptr %3, align 8, !tbaa !14
+  %40 = icmp eq i64 %35, 0
+  br i1 %40, label %._crit_edge, label %15, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %32, %13
+._crit_edge:                                      ; preds = %34, %13
   store i64 0, ptr %11, align 8
-  %39 = load i64, ptr %10, align 8, !tbaa !10
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %13, !llvm.loop !35
+  %41 = load i64, ptr %10, align 8, !tbaa !10
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %43, label %13, !llvm.loop !35
 
-41:                                               ; preds = %._crit_edge
+43:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #23
   ret void

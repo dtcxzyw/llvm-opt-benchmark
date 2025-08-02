@@ -1325,15 +1325,15 @@ define dso_local noundef i32 @_ZNK5clang21TemplateParameterList23getMinRequiredA
   %.not.i.i.i38 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i37, 7
   br i1 %.not.i.i.i38, label %.thread49, label %_ZN5clang19getExpandedPackSizeEPKNS_9NamedDeclE.exit
 
-_ZN5clang19getExpandedPackSizeEPKNS_9NamedDeclE.exit: ; preds = %34, %31, %24, %17
+_ZN5clang19getExpandedPackSizeEPKNS_9NamedDeclE.exit: ; preds = %34, %17, %24, %31
   %.sroa.0.1.i.pn = phi i32 [ %33, %31 ], [ %26, %24 ], [ %19, %17 ], [ 1, %34 ]
   %.3 = add i32 %.sroa.0.1.i.pn, %.058
   %36 = getelementptr inbounds nuw i8, ptr %.02457, i64 8
   %.not = icmp eq ptr %36, %6
   br i1 %.not, label %.thread49, label %.lr.ph
 
-.thread49:                                        ; preds = %9, %13, %20, %27, %_ZN5clang19getExpandedPackSizeEPKNS_9NamedDeclE.exit, %34, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.058, %9 ], [ %.058, %13 ], [ %.058, %20 ], [ %.058, %27 ], [ %.3, %_ZN5clang19getExpandedPackSizeEPKNS_9NamedDeclE.exit ], [ %.058, %34 ]
+.thread49:                                        ; preds = %_ZN5clang19getExpandedPackSizeEPKNS_9NamedDeclE.exit, %9, %13, %20, %27, %34, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %.058, %27 ], [ %.058, %20 ], [ %.058, %13 ], [ %.058, %9 ], [ %.3, %_ZN5clang19getExpandedPackSizeEPKNS_9NamedDeclE.exit ], [ %.058, %34 ]
   ret i32 %.0.lcssa
 }
 

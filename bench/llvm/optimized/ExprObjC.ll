@@ -1346,72 +1346,74 @@ _ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit: ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = zext i32 %.1.i17 to i64
-  br label %23
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = zext i32 %.1.i17 to i64
+  br label %24
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit, %2, %_ZNK5clang15ObjCMessageExpr18getNumSelectorLocsEv.exit
   ret void
 
-23:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit
+24:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit ]
-  %24 = load i32, ptr %4, align 8
-  %25 = and i32 %24, 402653184
-  %.not.i5 = icmp eq i32 %25, 0
-  br i1 %.not.i5, label %36, label %26
+  %25 = load i32, ptr %4, align 8
+  %26 = and i32 %25, 402653184
+  %.not.i5 = icmp eq i32 %26, 0
+  br i1 %.not.i5, label %37, label %27
 
-26:                                               ; preds = %23
-  %27 = and i32 %24, 16777216
-  %.not.i.i6 = icmp eq i32 %27, 0
-  %28 = load i64, ptr %16, align 8
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %.sroa.0.0.in.i.i7 = select i1 %.not.i.i6, ptr %16, ptr %30
+27:                                               ; preds = %24
+  %28 = and i32 %25, 16777216
+  %.not.i.i6 = icmp eq i32 %28, 0
+  %29 = load i64, ptr %16, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %.sroa.0.0.in.i.i7 = select i1 %.not.i.i6, ptr %16, ptr %31
   %.sroa.0.0.i.i8 = load i64, ptr %.sroa.0.0.in.i.i7, align 8, !tbaa !69
-  %31 = icmp eq i32 %25, 268435456
-  %32 = and i32 %24, 65535
-  %33 = zext nneg i32 %32 to i64
+  %32 = icmp eq i32 %26, 268435456
+  %33 = and i32 %25, 65535
+  %34 = zext nneg i32 %33 to i64
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 4, !tbaa !58
-  %34 = trunc nuw i64 %indvars.iv to i32
-  %35 = call i32 @_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE(i32 noundef %34, i64 %.sroa.0.0.i.i8, i1 noundef zeroext %31, ptr nonnull %17, i64 %33, i32 %.sroa.0.0.copyload.i) #14
+  %35 = trunc nuw i64 %indvars.iv to i32
+  %36 = call i32 @_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE(i32 noundef %35, i64 %.sroa.0.0.i.i8, i1 noundef zeroext %32, ptr nonnull %17, i64 %34, i32 %.sroa.0.0.copyload.i) #14
   br label %_ZNK5clang15ObjCMessageExpr14getSelectorLocEj.exit
 
-36:                                               ; preds = %23
-  %37 = and i32 %24, 65535
-  %38 = zext nneg i32 %37 to i64
-  %gep = getelementptr inbounds nuw ptr, ptr %17, i64 %38
-  %39 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %gep, i64 %indvars.iv
-  %.sroa.03.0.copyload.i = load i32, ptr %39, align 4, !tbaa !58
+37:                                               ; preds = %24
+  %38 = and i32 %25, 65535
+  %39 = zext nneg i32 %38 to i64
+  %40 = getelementptr inbounds nuw ptr, ptr %19, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %41, i64 %indvars.iv
+  %.sroa.03.0.copyload.i = load i32, ptr %42, align 4, !tbaa !58
   br label %_ZNK5clang15ObjCMessageExpr14getSelectorLocEj.exit
 
-_ZNK5clang15ObjCMessageExpr14getSelectorLocEj.exit: ; preds = %26, %36
-  %.sroa.03.0.i = phi i32 [ %35, %26 ], [ %.sroa.03.0.copyload.i, %36 ]
-  %40 = load i32, ptr %19, align 8, !tbaa !78
-  %41 = load i32, ptr %20, align 4, !tbaa !79
-  %.not.i.i.not.i = icmp ult i32 %40, %41
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit, label %42, !prof !44
+_ZNK5clang15ObjCMessageExpr14getSelectorLocEj.exit: ; preds = %27, %37
+  %.sroa.03.0.i = phi i32 [ %36, %27 ], [ %.sroa.03.0.copyload.i, %37 ]
+  %43 = load i32, ptr %20, align 8, !tbaa !78
+  %44 = load i32, ptr %21, align 4, !tbaa !79
+  %.not.i.i.not.i = icmp ult i32 %43, %44
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit, label %45, !prof !44
 
-42:                                               ; preds = %_ZNK5clang15ObjCMessageExpr14getSelectorLocEj.exit
-  %43 = zext i32 %40 to i64
-  %44 = add nuw nsw i64 %43, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %21, i64 noundef %44, i64 noundef 4) #14
-  %.pre.i = load i32, ptr %19, align 8, !tbaa !78
+45:                                               ; preds = %_ZNK5clang15ObjCMessageExpr14getSelectorLocEj.exit
+  %46 = zext i32 %43 to i64
+  %47 = add nuw nsw i64 %46, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %22, i64 noundef %47, i64 noundef 4) #14
+  %.pre.i = load i32, ptr %20, align 8, !tbaa !78
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit: ; preds = %_ZNK5clang15ObjCMessageExpr14getSelectorLocEj.exit, %42
-  %45 = phi i32 [ %40, %_ZNK5clang15ObjCMessageExpr14getSelectorLocEj.exit ], [ %.pre.i, %42 ]
-  %46 = load ptr, ptr %1, align 8, !tbaa !80
-  %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %46, i64 %47
-  store i32 %.sroa.03.0.i, ptr %48, align 1
-  %49 = load i32, ptr %19, align 8, !tbaa !78
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %19, align 8, !tbaa !78
+_ZN4llvm23SmallVectorTemplateBaseIN5clang14SourceLocationELb1EE9push_backES2_.exit: ; preds = %_ZNK5clang15ObjCMessageExpr14getSelectorLocEj.exit, %45
+  %48 = phi i32 [ %43, %_ZNK5clang15ObjCMessageExpr14getSelectorLocEj.exit ], [ %.pre.i, %45 ]
+  %49 = load ptr, ptr %1, align 8, !tbaa !80
+  %50 = zext i32 %48 to i64
+  %51 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %49, i64 %50
+  store i32 %.sroa.03.0.i, ptr %51, align 1
+  %52 = load i32, ptr %20, align 8, !tbaa !78
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %20, align 8, !tbaa !78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, %22
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !81
+  %.not = icmp eq i64 %indvars.iv.next, %23
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !81
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

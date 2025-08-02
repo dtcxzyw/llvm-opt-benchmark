@@ -8416,7 +8416,7 @@ define ptr @SSL_get_client_ciphers(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define ptr @SSL_get1_supported_ciphers(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %.thread, label %3
+  br i1 %2, label %.critedge, label %3
 
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 8, !tbaa !19
@@ -8426,12 +8426,12 @@ define ptr @SSL_get1_supported_ciphers(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %3
   %7 = and i32 %4, 128
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %.thread, label %8
+  br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %6
   %9 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #20
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %8
   %.pr = load i32, ptr %0, align 8, !tbaa !19
@@ -8441,12 +8441,12 @@ define ptr @SSL_get1_supported_ciphers(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %11
   %14 = and i32 %.pr, 128
   %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %.thread, label %15
+  br i1 %.not.i, label %.critedge, label %15
 
 15:                                               ; preds = %13
   %16 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #20
   %.not18.i = icmp eq ptr %16, null
-  br i1 %.not18.i, label %.thread, label %.thread23.i
+  br i1 %.not18.i, label %.critedge, label %.thread23.i
 
 .thread23.i:                                      ; preds = %3, %15, %11
   %17 = phi ptr [ %9, %15 ], [ %9, %11 ], [ %0, %3 ]
@@ -8460,61 +8460,61 @@ define ptr @SSL_get1_supported_ciphers(ptr noundef %0) local_unnamed_addr #0 {
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !119
   %.not20.i = icmp eq ptr %23, null
-  br i1 %.not20.i, label %.thread, label %24
+  br i1 %.not20.i, label %.critedge, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !292
   %.not21.i = icmp eq ptr %26, null
-  br i1 %.not21.i, label %.thread, label %SSL_get_ciphers.exit
+  br i1 %.not21.i, label %.critedge, label %SSL_get_ciphers.exit
 
 SSL_get_ciphers.exit:                             ; preds = %24, %.thread23.i
   %.0.i = phi ptr [ %20, %.thread23.i ], [ %26, %24 ]
   %27 = tail call i32 @ssl_set_client_disabled(ptr noundef nonnull %17) #20
   %.not33 = icmp eq i32 %27, 0
-  br i1 %.not33, label %.thread, label %.preheader
+  br i1 %.not33, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %SSL_get_ciphers.exit
   %28 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %.0.i) #20
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph, label %.thread
+  br i1 %29, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %37
-  %.02452 = phi ptr [ %.3.ph, %37 ], [ null, %.preheader ]
-  %.02751 = phi i32 [ %38, %37 ], [ 0, %.preheader ]
-  %30 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %.0.i, i32 noundef %.02751) #20
+  %.02447 = phi ptr [ %.3, %37 ], [ null, %.preheader ]
+  %.02746 = phi i32 [ %38, %37 ], [ 0, %.preheader ]
+  %30 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %.0.i, i32 noundef %.02746) #20
   %31 = tail call i32 @ssl_cipher_disabled(ptr noundef nonnull %17, ptr noundef %30, i32 noundef 65537, i32 noundef 0) #20
   %.not34 = icmp eq i32 %31, 0
   br i1 %.not34, label %32, label %37
 
 32:                                               ; preds = %.lr.ph
-  %.not35 = icmp eq ptr %.02452, null
+  %.not35 = icmp eq ptr %.02447, null
   br i1 %.not35, label %33, label %.thread42
 
 33:                                               ; preds = %32
   %34 = tail call ptr @OPENSSL_sk_new_null() #20
   %.not36 = icmp eq ptr %34, null
-  br i1 %.not36, label %.thread, label %.thread42
+  br i1 %.not36, label %.critedge, label %.thread42
 
 .thread42:                                        ; preds = %32, %33
-  %.22645 = phi ptr [ %34, %33 ], [ %.02452, %32 ]
+  %.22645 = phi ptr [ %34, %33 ], [ %.02447, %32 ]
   %35 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %.22645, ptr noundef %30) #20
   %.not37 = icmp eq i32 %35, 0
   br i1 %.not37, label %36, label %37
 
 36:                                               ; preds = %.thread42
   tail call void @OPENSSL_sk_free(ptr noundef nonnull %.22645) #20
-  br label %.thread
+  br label %.critedge
 
 37:                                               ; preds = %.thread42, %.lr.ph
-  %.3.ph = phi ptr [ %.22645, %.thread42 ], [ %.02452, %.lr.ph ]
-  %38 = add nuw nsw i32 %.02751, 1
+  %.3 = phi ptr [ %.02447, %.lr.ph ], [ %.22645, %.thread42 ]
+  %38 = add nuw nsw i32 %.02746, 1
   %39 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %.0.i) #20
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph, label %.thread, !llvm.loop !425
+  br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !425
 
-.thread:                                          ; preds = %37, %33, %.preheader, %24, %13, %15, %21, %6, %1, %36, %SSL_get_ciphers.exit, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %SSL_get_ciphers.exit ], [ null, %36 ], [ null, %1 ], [ null, %6 ], [ null, %21 ], [ null, %15 ], [ null, %13 ], [ null, %24 ], [ null, %.preheader ], [ %.3.ph, %37 ], [ null, %33 ]
+.critedge:                                        ; preds = %37, %33, %.preheader, %24, %13, %15, %21, %6, %1, %36, %SSL_get_ciphers.exit, %8
+  %.0 = phi ptr [ null, %8 ], [ null, %SSL_get_ciphers.exit ], [ null, %36 ], [ null, %1 ], [ null, %6 ], [ null, %21 ], [ null, %15 ], [ null, %13 ], [ null, %24 ], [ null, %.preheader ], [ %.3, %37 ], [ null, %33 ]
   ret ptr %.0
 }
 

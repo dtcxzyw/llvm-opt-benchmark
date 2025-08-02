@@ -1046,23 +1046,23 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv117__pbase_type_info9can_catchE
   %5 = load i32, ptr %4, align 8, !tbaa !50
   %6 = and i32 %5, 24
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %.thread18
+  br i1 %.not, label %7, label %.thread14
 
 7:                                                ; preds = %3
   %8 = icmp eq ptr %1, null
-  br i1 %8, label %_ZL8is_equalPKSt9type_infoS1_b.exit, label %9
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %7
   %10 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN10__cxxabiv116__shim_type_infoE, ptr nonnull @_ZTIN10__cxxabiv117__pbase_type_infoE, i64 0) #18
   %.not.not = icmp eq ptr %10, null
-  br i1 %.not.not, label %_ZL8is_equalPKSt9type_infoS1_b.exit, label %11
+  br i1 %.not.not, label %.critedge, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !50
   %14 = and i32 %13, 24
-  %.not20 = icmp eq i32 %14, 0
-  br i1 %.not20, label %15, label %.thread18
+  %.not16 = icmp eq i32 %14, 0
+  br i1 %.not16, label %15, label %.thread14
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1070,23 +1070,23 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv117__pbase_type_info9can_catchE
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = icmp eq ptr %17, %19
-  br label %_ZL8is_equalPKSt9type_infoS1_b.exit
+  br label %.critedge
 
-.thread18:                                        ; preds = %3, %11
+.thread14:                                        ; preds = %3, %11
   %21 = icmp eq ptr %0, %1
-  br i1 %21, label %_ZL8is_equalPKSt9type_infoS1_b.exit, label %22
+  br i1 %21, label %.critedge, label %22
 
-22:                                               ; preds = %.thread18
+22:                                               ; preds = %.thread14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !4
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %26) #22
   %28 = icmp eq i32 %27, 0
-  br label %_ZL8is_equalPKSt9type_infoS1_b.exit
+  br label %.critedge
 
-_ZL8is_equalPKSt9type_infoS1_b.exit:              ; preds = %7, %9, %22, %.thread18, %15
-  %.1 = phi i1 [ %20, %15 ], [ true, %.thread18 ], [ %28, %22 ], [ false, %9 ], [ false, %7 ]
+.critedge:                                        ; preds = %7, %22, %.thread14, %15, %9
+  %.1 = phi i1 [ false, %9 ], [ %20, %15 ], [ true, %.thread14 ], [ %28, %22 ], [ false, %7 ]
   ret i1 %.1
 }
 
@@ -1107,7 +1107,7 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv119__pointer_type_info9can_catc
   %11 = load i32, ptr %10, align 8, !tbaa !50
   %12 = and i32 %11, 24
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %13, label %.thread18.i
+  br i1 %.not.i, label %13, label %.thread14.i
 
 13:                                               ; preds = %9
   %14 = tail call ptr @__dynamic_cast(ptr nonnull readonly %1, ptr nonnull @_ZTIN10__cxxabiv116__shim_type_infoE, ptr nonnull @_ZTIN10__cxxabiv117__pbase_type_infoE, i64 0) #18
@@ -1118,8 +1118,8 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv119__pointer_type_info9can_catc
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !50
   %18 = and i32 %17, 24
-  %.not20.i = icmp eq i32 %18, 0
-  br i1 %.not20.i, label %19, label %.thread18.i
+  %.not16.i = icmp eq i32 %18, 0
+  br i1 %.not16.i, label %19, label %.thread14.i
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1127,18 +1127,18 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv119__pointer_type_info9can_catc
   %22 = icmp eq ptr %21, %6
   br i1 %22, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread57
 
-.thread18.i:                                      ; preds = %15, %9
+.thread14.i:                                      ; preds = %15, %9
   %23 = icmp eq ptr %0, %1
   br i1 %23, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit
 
-_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit: ; preds = %.thread18.i
+_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit: ; preds = %.thread14.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %6) #22
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread57
 
-_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread: ; preds = %.thread18.i, %19, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit
+_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread: ; preds = %.thread14.i, %19, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit
   %28 = load ptr, ptr %2, align 8, !tbaa !10
   %.not55 = icmp eq ptr %28, null
   br i1 %.not55, label %100, label %29
@@ -1424,7 +1424,7 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv129__pointer_to_member_type_inf
   %18 = load i32, ptr %17, align 8, !tbaa !50
   %19 = and i32 %18, 24
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %20, label %.thread18.i
+  br i1 %.not.i, label %20, label %.thread14.i
 
 20:                                               ; preds = %16
   %21 = tail call ptr @__dynamic_cast(ptr nonnull readonly %1, ptr nonnull @_ZTIN10__cxxabiv116__shim_type_infoE, ptr nonnull @_ZTIN10__cxxabiv117__pbase_type_infoE, i64 0) #18
@@ -1435,8 +1435,8 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv129__pointer_to_member_type_inf
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !50
   %25 = and i32 %24, 24
-  %.not20.i = icmp eq i32 %25, 0
-  br i1 %.not20.i, label %26, label %.thread18.i
+  %.not16.i = icmp eq i32 %25, 0
+  br i1 %.not16.i, label %26, label %.thread14.i
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1444,11 +1444,11 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv129__pointer_to_member_type_inf
   %29 = icmp eq ptr %28, %5
   br i1 %29, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21
 
-.thread18.i:                                      ; preds = %22, %16
+.thread14.i:                                      ; preds = %22, %16
   %30 = icmp eq ptr %0, %1
   br i1 %30, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit
 
-_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit: ; preds = %.thread18.i
+_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit: ; preds = %.thread14.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %5) #22
@@ -1500,8 +1500,8 @@ _ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.t
   %66 = icmp eq ptr %63, %65
   br label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread
 
-_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread: ; preds = %.thread18.i, %26, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21, %37, %43, %47, %57, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit, %14
-  %.0 = phi i1 [ true, %14 ], [ true, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit ], [ false, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21 ], [ false, %37 ], [ false, %43 ], [ false, %47 ], [ %66, %57 ], [ true, %26 ], [ true, %.thread18.i ]
+_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread: ; preds = %.thread14.i, %26, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21, %37, %43, %47, %57, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit, %14
+  %.0 = phi i1 [ true, %14 ], [ true, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit ], [ false, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21 ], [ false, %37 ], [ false, %43 ], [ false, %47 ], [ %66, %57 ], [ true, %26 ], [ true, %.thread14.i ]
   ret i1 %.0
 }
 

@@ -1168,23 +1168,23 @@ define hidden noundef zeroext i1 @_Z9is_sortedjPKP4expr(i32 noundef %0, ptr noun
 
 .lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext i32 %0 to i64
-  %invariant.gep = getelementptr i8, ptr %1, i64 -8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
-  %4 = load ptr, ptr %gep, align 8, !tbaa !55
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %4 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr i8, ptr %4, i64 -8
   %6 = load ptr, ptr %5, align 8, !tbaa !55
-  %7 = tail call noundef zeroext i1 @_Z2ltP3astS0_(ptr noundef %6, ptr noundef %4)
+  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %9 = tail call noundef zeroext i1 @_Z2ltP3astS0_(ptr noundef %8, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %7, i1 true, i1 %exitcond.not
+  %or.cond = select i1 %9, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.lcssa.ph = xor i1 %7, true
+  %.lcssa.ph = xor i1 %9, true
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2

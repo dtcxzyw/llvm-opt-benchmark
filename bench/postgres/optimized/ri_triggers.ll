@@ -4423,7 +4423,6 @@ define internal fastcc void @ri_ReportViolation(ptr noundef %0, ptr noundef read
   call void @initStringInfo(ptr noundef nonnull %9) #11
   call void @initStringInfo(ptr noundef nonnull %10) #11
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %invariant.gep = getelementptr i8, ptr %.0, i64 24
   %41 = load i32, ptr %40, align 8
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph89, label %.loopexit
@@ -4434,8 +4433,8 @@ define internal fastcc void @ri_ReportViolation(ptr noundef %0, ptr noundef read
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %46
 
-46:                                               ; preds = %.lr.ph89, %73
-  %indvars.iv92 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next93, %73 ]
+46:                                               ; preds = %.lr.ph89, %75
+  %indvars.iv92 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next93, %75 ]
   %47 = getelementptr inbounds nuw i16, ptr %.068, i64 %indvars.iv92
   %48 = load i16, ptr %47, align 2
   %49 = sext i16 %48 to i32
@@ -4443,177 +4442,178 @@ define internal fastcc void @ri_ReportViolation(ptr noundef %0, ptr noundef read
   %51 = load i32, ptr %.0, align 8
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %52, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %53
-  %54 = sext i32 %50 to i64
-  %55 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %gep, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %57 = load i16, ptr %43, align 2
-  %58 = icmp sgt i16 %48, %57
-  br i1 %58, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
+  %54 = getelementptr i8, ptr %.0, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 24
+  %56 = sext i32 %50 to i64
+  %57 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %55, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %59 = load i16, ptr %43, align 2
+  %60 = icmp sgt i16 %48, %59
+  br i1 %60, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %46
   call void @slot_getsomeattrs_int(ptr noundef nonnull %3, i32 noundef range(i32 -32767, 32768) %49) #11
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %46, %slot_getsomeattrs.exit.i
-  %59 = load ptr, ptr %44, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 %54
-  %61 = load i8, ptr %60, align 1, !range !4, !noundef !5
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %71, label %63
+  %61 = load ptr, ptr %44, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 %56
+  %63 = load i8, ptr %62, align 1, !range !4, !noundef !5
+  %64 = trunc nuw i8 %63 to i1
+  br i1 %64, label %73, label %65
 
-63:                                               ; preds = %slot_getattr.exit
-  %64 = load ptr, ptr %45, align 8
-  %65 = getelementptr inbounds i64, ptr %64, i64 %54
-  %66 = load i64, ptr %65, align 8
+65:                                               ; preds = %slot_getattr.exit
+  %66 = load ptr, ptr %45, align 8
+  %67 = getelementptr inbounds i64, ptr %66, i64 %56
+  %68 = load i64, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #11
-  %67 = getelementptr inbounds nuw i8, ptr %55, i64 68
-  %68 = load i32, ptr %67, align 4
-  call void @getTypeOutputInfo(i32 noundef %68, ptr noundef nonnull %11, ptr noundef nonnull %12) #11
-  %69 = load i32, ptr %11, align 4
-  %70 = call ptr @OidOutputFunctionCall(i32 noundef %69, i64 noundef %66) #11
+  %69 = getelementptr inbounds nuw i8, ptr %57, i64 68
+  %70 = load i32, ptr %69, align 4
+  call void @getTypeOutputInfo(i32 noundef %70, ptr noundef nonnull %11, ptr noundef nonnull %12) #11
+  %71 = load i32, ptr %11, align 4
+  %72 = call ptr @OidOutputFunctionCall(i32 noundef %71, i64 noundef %68) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
-  br label %71
-
-71:                                               ; preds = %slot_getattr.exit, %63
-  %.067 = phi ptr [ %70, %63 ], [ @.str.83, %slot_getattr.exit ]
-  %.not95 = icmp eq i64 %indvars.iv92, 0
-  br i1 %.not95, label %73, label %72
-
-72:                                               ; preds = %71
-  call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.25) #11
-  call void @appendStringInfoString(ptr noundef nonnull %10, ptr noundef nonnull @.str.25) #11
   br label %73
 
-73:                                               ; preds = %72, %71
-  call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull %56) #11
+73:                                               ; preds = %slot_getattr.exit, %65
+  %.067 = phi ptr [ %72, %65 ], [ @.str.83, %slot_getattr.exit ]
+  %.not95 = icmp eq i64 %indvars.iv92, 0
+  br i1 %.not95, label %75, label %74
+
+74:                                               ; preds = %73
+  call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.25) #11
+  call void @appendStringInfoString(ptr noundef nonnull %10, ptr noundef nonnull @.str.25) #11
+  br label %75
+
+75:                                               ; preds = %74, %73
+  call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull %58) #11
   call void @appendStringInfoString(ptr noundef nonnull %10, ptr noundef %.067) #11
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %74 = load i32, ptr %40, align 8
-  %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next93, %75
-  br i1 %76, label %46, label %.loopexit, !llvm.loop !27
+  %76 = load i32, ptr %40, align 8
+  %77 = sext i32 %76 to i64
+  %78 = icmp slt i64 %indvars.iv.next93, %77
+  br i1 %78, label %46, label %.loopexit, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.lr.ph, %73, %.loopexit84
-  %.07278 = phi i1 [ true, %.loopexit84 ], [ true, %73 ], [ false, %.lr.ph ]
-  br i1 %7, label %77, label %.thread80
+.loopexit:                                        ; preds = %.lr.ph, %75, %.loopexit84
+  %.07278 = phi i1 [ true, %.loopexit84 ], [ true, %75 ], [ false, %.lr.ph ]
+  br i1 %7, label %79, label %.thread80
 
-77:                                               ; preds = %.loopexit
-  %78 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %78)
-  %79 = call i32 @errcode(i32 noundef 50352322) #11
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %84 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.84, ptr noundef nonnull %82, ptr noundef nonnull %83) #11
-  %85 = load ptr, ptr %9, align 8
-  %86 = load ptr, ptr %10, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %90 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.85, ptr noundef %85, ptr noundef %86, ptr noundef nonnull %89) #11
-  %91 = call i32 @errtableconstraint(ptr noundef %2, ptr noundef nonnull %83) #11
+79:                                               ; preds = %.loopexit
+  %80 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %80)
+  %81 = call i32 @errcode(i32 noundef 50352322) #11
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %86 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.84, ptr noundef nonnull %84, ptr noundef nonnull %85) #11
+  %87 = load ptr, ptr %9, align 8
+  %88 = load ptr, ptr %10, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %92 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.85, ptr noundef %87, ptr noundef %88, ptr noundef nonnull %91) #11
+  %93 = call i32 @errtableconstraint(ptr noundef %2, ptr noundef nonnull %85) #11
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2770, ptr noundef nonnull @__func__.ri_ReportViolation) #11
   unreachable
 
 .thread80:                                        ; preds = %26, %.loopexit
   %.0727882 = phi i1 [ %.07278, %.loopexit ], [ false, %26 ]
-  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %92)
-  br i1 %13, label %93, label %114
+  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %94)
+  br i1 %13, label %95, label %116
 
-93:                                               ; preds = %.thread80
-  %94 = call i32 @errcode(i32 noundef 50352322) #11
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %99 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef nonnull %97, ptr noundef nonnull %98) #11
-  br i1 %.0727882, label %100, label %107
+95:                                               ; preds = %.thread80
+  %96 = call i32 @errcode(i32 noundef 50352322) #11
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %101 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef nonnull %99, ptr noundef nonnull %100) #11
+  br i1 %.0727882, label %102, label %109
 
-100:                                              ; preds = %93
-  %101 = load ptr, ptr %9, align 8
-  %102 = load ptr, ptr %10, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  %106 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.86, ptr noundef %101, ptr noundef %102, ptr noundef nonnull %105) #11
-  br label %112
+102:                                              ; preds = %95
+  %103 = load ptr, ptr %9, align 8
+  %104 = load ptr, ptr %10, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  %108 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.86, ptr noundef %103, ptr noundef %104, ptr noundef nonnull %107) #11
+  br label %114
 
-107:                                              ; preds = %93
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  %111 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.87, ptr noundef nonnull %110) #11
-  br label %112
+109:                                              ; preds = %95
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  %113 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.87, ptr noundef nonnull %112) #11
+  br label %114
 
-112:                                              ; preds = %107, %100
-  %113 = call i32 @errtableconstraint(ptr noundef nonnull %2, ptr noundef nonnull %98) #11
+114:                                              ; preds = %109, %102
+  %115 = call i32 @errtableconstraint(ptr noundef nonnull %2, ptr noundef nonnull %100) #11
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2783, ptr noundef nonnull @__func__.ri_ReportViolation) #11
   unreachable
 
-114:                                              ; preds = %.thread80
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %117 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  br i1 %6, label %118, label %137
+116:                                              ; preds = %.thread80
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  br i1 %6, label %120, label %139
 
-118:                                              ; preds = %114
-  %119 = call i32 @errcode(i32 noundef 16777410) #11
-  %120 = load ptr, ptr %115, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
+120:                                              ; preds = %116
+  %121 = call i32 @errcode(i32 noundef 16777410) #11
   %122 = load ptr, ptr %117, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
-  %124 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.88, ptr noundef nonnull %121, ptr noundef nonnull %116, ptr noundef nonnull %123) #11
-  br i1 %.0727882, label %125, label %131
+  %124 = load ptr, ptr %119, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
+  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.88, ptr noundef nonnull %123, ptr noundef nonnull %118, ptr noundef nonnull %125) #11
+  br i1 %.0727882, label %127, label %133
 
-125:                                              ; preds = %118
-  %126 = load ptr, ptr %9, align 8
-  %127 = load ptr, ptr %10, align 8
-  %128 = load ptr, ptr %117, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  %130 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.89, ptr noundef %126, ptr noundef %127, ptr noundef nonnull %129) #11
-  br label %135
+127:                                              ; preds = %120
+  %128 = load ptr, ptr %9, align 8
+  %129 = load ptr, ptr %10, align 8
+  %130 = load ptr, ptr %119, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
+  %132 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.89, ptr noundef %128, ptr noundef %129, ptr noundef nonnull %131) #11
+  br label %137
 
-131:                                              ; preds = %118
-  %132 = load ptr, ptr %117, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  %134 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.90, ptr noundef nonnull %133) #11
-  br label %135
+133:                                              ; preds = %120
+  %134 = load ptr, ptr %119, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
+  %136 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.90, ptr noundef nonnull %135) #11
+  br label %137
 
-135:                                              ; preds = %131, %125
-  %136 = call i32 @errtableconstraint(ptr noundef nonnull %2, ptr noundef nonnull %116) #11
+137:                                              ; preds = %133, %127
+  %138 = call i32 @errtableconstraint(ptr noundef nonnull %2, ptr noundef nonnull %118) #11
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2797, ptr noundef nonnull @__func__.ri_ReportViolation) #11
   unreachable
 
-137:                                              ; preds = %114
-  %138 = call i32 @errcode(i32 noundef 50352322) #11
-  %139 = load ptr, ptr %115, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
+139:                                              ; preds = %116
+  %140 = call i32 @errcode(i32 noundef 50352322) #11
   %141 = load ptr, ptr %117, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  %143 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.91, ptr noundef nonnull %140, ptr noundef nonnull %116, ptr noundef nonnull %142) #11
-  br i1 %.0727882, label %144, label %150
+  %143 = load ptr, ptr %119, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
+  %145 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.91, ptr noundef nonnull %142, ptr noundef nonnull %118, ptr noundef nonnull %144) #11
+  br i1 %.0727882, label %146, label %152
 
-144:                                              ; preds = %137
-  %145 = load ptr, ptr %9, align 8
-  %146 = load ptr, ptr %10, align 8
-  %147 = load ptr, ptr %117, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 4
-  %149 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.85, ptr noundef %145, ptr noundef %146, ptr noundef nonnull %148) #11
-  br label %154
+146:                                              ; preds = %139
+  %147 = load ptr, ptr %9, align 8
+  %148 = load ptr, ptr %10, align 8
+  %149 = load ptr, ptr %119, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
+  %151 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.85, ptr noundef %147, ptr noundef %148, ptr noundef nonnull %150) #11
+  br label %156
 
-150:                                              ; preds = %137
-  %151 = load ptr, ptr %117, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
-  %153 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.92, ptr noundef nonnull %152) #11
-  br label %154
+152:                                              ; preds = %139
+  %153 = load ptr, ptr %119, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
+  %155 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.92, ptr noundef nonnull %154) #11
+  br label %156
 
-154:                                              ; preds = %150, %144
-  %155 = call i32 @errtableconstraint(ptr noundef nonnull %2, ptr noundef nonnull %116) #11
+156:                                              ; preds = %152, %146
+  %157 = call i32 @errtableconstraint(ptr noundef nonnull %2, ptr noundef nonnull %118) #11
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2811, ptr noundef nonnull @__func__.ri_ReportViolation) #11
   unreachable
 }

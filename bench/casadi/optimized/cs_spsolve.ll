@@ -72,157 +72,156 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 .lr.ph97.preheader:                               ; preds = %._crit_edge
   %47 = sext i32 %43 to i64
-  %wide.trip.count114 = sext i32 %45 to i64
+  %wide.trip.count108 = sext i32 %45 to i64
   br label %.lr.ph97
 
 .preheader:                                       ; preds = %.lr.ph97, %._crit_edge
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %invariant.gep103 = getelementptr i8, ptr %25, i64 -8
-  br i1 %35, label %.lr.ph108, label %.loopexit93
+  br i1 %35, label %.lr.ph102, label %.loopexit93
 
-.lr.ph108:                                        ; preds = %.preheader
+.lr.ph102:                                        ; preds = %.preheader
   %.not90 = icmp eq ptr %5, null
   %.not91 = icmp eq i32 %6, 0
   %48 = sext i32 %34 to i64
-  %wide.trip.count133 = sext i32 %27 to i64
-  br i1 %.not91, label %.lr.ph108.split.us, label %.lr.ph108.split
+  %wide.trip.count127 = sext i32 %27 to i64
+  br i1 %.not91, label %.lr.ph102.split.us, label %.lr.ph102.split
 
-.lr.ph108.split.us:                               ; preds = %.lr.ph108, %.loopexit.us
-  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.loopexit.us ], [ %48, %.lr.ph108 ]
-  %49 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv130
+.lr.ph102.split.us:                               ; preds = %.lr.ph102, %.loopexit.us
+  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %.loopexit.us ], [ %48, %.lr.ph102 ]
+  %49 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv124
   %50 = load i32, ptr %49, align 4, !tbaa !15
   br i1 %.not90, label %55, label %51
 
-51:                                               ; preds = %.lr.ph108.split.us
+51:                                               ; preds = %.lr.ph102.split.us
   %52 = sext i32 %50 to i64
   %53 = getelementptr inbounds i32, ptr %5, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !15
   br label %55
 
-55:                                               ; preds = %51, %.lr.ph108.split.us
-  %56 = phi i32 [ %54, %51 ], [ %50, %.lr.ph108.split.us ]
+55:                                               ; preds = %51, %.lr.ph102.split.us
+  %56 = phi i32 [ %54, %51 ], [ %50, %.lr.ph102.split.us ]
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %.loopexit.us, label %58
 
 58:                                               ; preds = %55
   %59 = zext nneg i32 %56 to i64
-  %gep102.us = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %59
-  %60 = load i32, ptr %gep102.us, align 4, !tbaa !15
-  %61 = sext i32 %60 to i64
-  %gep104.us = getelementptr double, ptr %invariant.gep103, i64 %61
-  %62 = load double, ptr %gep104.us, align 8, !tbaa !16
-  %63 = sext i32 %50 to i64
-  %64 = getelementptr inbounds double, ptr %4, i64 %63
-  %65 = load double, ptr %64, align 8, !tbaa !16
-  %66 = fdiv double %65, %62
-  store double %66, ptr %64, align 8, !tbaa !16
-  %67 = getelementptr inbounds nuw i32, ptr %21, i64 %59
-  %68 = load i32, ptr %67, align 4, !tbaa !15
-  %69 = add nsw i32 %60, -1
-  %70 = icmp slt i32 %68, %69
-  br i1 %70, label %.lr.ph100.us.preheader, label %.loopexit.us
+  %60 = getelementptr inbounds nuw i32, ptr %21, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %62 = load i32, ptr %61, align 4, !tbaa !15
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr double, ptr %25, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 -8
+  %66 = load double, ptr %65, align 8, !tbaa !16
+  %67 = sext i32 %50 to i64
+  %68 = getelementptr inbounds double, ptr %4, i64 %67
+  %69 = load double, ptr %68, align 8, !tbaa !16
+  %70 = fdiv double %69, %66
+  store double %70, ptr %68, align 8, !tbaa !16
+  %71 = load i32, ptr %60, align 4, !tbaa !15
+  %72 = add nsw i32 %62, -1
+  %73 = icmp slt i32 %71, %72
+  br i1 %73, label %.lr.ph100.us.preheader, label %.loopexit.us
 
 .lr.ph100.us.preheader:                           ; preds = %58
-  %71 = sext i32 %68 to i64
-  %wide.trip.count128 = sext i32 %69 to i64
+  %74 = sext i32 %71 to i64
+  %wide.trip.count122 = sext i32 %72 to i64
   br label %.lr.ph100.us
 
 .lr.ph100.us:                                     ; preds = %.lr.ph100.us.preheader, %.lr.ph100.us
-  %indvars.iv125 = phi i64 [ %71, %.lr.ph100.us.preheader ], [ %indvars.iv.next126, %.lr.ph100.us ]
-  %72 = getelementptr inbounds double, ptr %25, i64 %indvars.iv125
-  %73 = load double, ptr %72, align 8, !tbaa !16
-  %74 = load double, ptr %64, align 8, !tbaa !16
-  %75 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv125
-  %76 = load i32, ptr %75, align 4, !tbaa !15
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds double, ptr %4, i64 %77
-  %79 = load double, ptr %78, align 8, !tbaa !16
-  %80 = fneg double %73
-  %81 = tail call double @llvm.fmuladd.f64(double %80, double %74, double %79)
-  store double %81, ptr %78, align 8, !tbaa !16
-  %indvars.iv.next126 = add nsw i64 %indvars.iv125, 1
-  %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %.loopexit.us, label %.lr.ph100.us, !llvm.loop !20
+  %indvars.iv119 = phi i64 [ %74, %.lr.ph100.us.preheader ], [ %indvars.iv.next120, %.lr.ph100.us ]
+  %75 = getelementptr inbounds double, ptr %25, i64 %indvars.iv119
+  %76 = load double, ptr %75, align 8, !tbaa !16
+  %77 = load double, ptr %68, align 8, !tbaa !16
+  %78 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv119
+  %79 = load i32, ptr %78, align 4, !tbaa !15
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds double, ptr %4, i64 %80
+  %82 = load double, ptr %81, align 8, !tbaa !16
+  %83 = fneg double %76
+  %84 = tail call double @llvm.fmuladd.f64(double %83, double %77, double %82)
+  store double %84, ptr %81, align 8, !tbaa !16
+  %indvars.iv.next120 = add nsw i64 %indvars.iv119, 1
+  %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
+  br i1 %exitcond123.not, label %.loopexit.us, label %.lr.ph100.us, !llvm.loop !20
 
 .loopexit.us:                                     ; preds = %.lr.ph100.us, %58, %55
-  %indvars.iv.next131 = add nsw i64 %indvars.iv130, 1
-  %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
-  br i1 %exitcond134.not, label %.loopexit93, label %.lr.ph108.split.us, !llvm.loop !21
+  %indvars.iv.next125 = add nsw i64 %indvars.iv124, 1
+  %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
+  br i1 %exitcond128.not, label %.loopexit93, label %.lr.ph102.split.us, !llvm.loop !21
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
-  %indvars.iv111 = phi i64 [ %47, %.lr.ph97.preheader ], [ %indvars.iv.next112, %.lr.ph97 ]
-  %82 = getelementptr inbounds double, ptr %33, i64 %indvars.iv111
-  %83 = load double, ptr %82, align 8, !tbaa !16
-  %84 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv111
-  %85 = load i32, ptr %84, align 4, !tbaa !15
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds double, ptr %4, i64 %86
-  store double %83, ptr %87, align 8, !tbaa !16
-  %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
-  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %.preheader, label %.lr.ph97, !llvm.loop !23
+  %indvars.iv105 = phi i64 [ %47, %.lr.ph97.preheader ], [ %indvars.iv.next106, %.lr.ph97 ]
+  %85 = getelementptr inbounds double, ptr %33, i64 %indvars.iv105
+  %86 = load double, ptr %85, align 8, !tbaa !16
+  %87 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv105
+  %88 = load i32, ptr %87, align 4, !tbaa !15
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds double, ptr %4, i64 %89
+  store double %86, ptr %90, align 8, !tbaa !16
+  %indvars.iv.next106 = add nsw i64 %indvars.iv105, 1
+  %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
+  br i1 %exitcond109.not, label %.preheader, label %.lr.ph97, !llvm.loop !23
 
-.lr.ph108.split:                                  ; preds = %.lr.ph108, %.loopexit
-  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.loopexit ], [ %48, %.lr.ph108 ]
-  %88 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv120
-  %89 = load i32, ptr %88, align 4, !tbaa !15
-  br i1 %.not90, label %94, label %90
+.lr.ph102.split:                                  ; preds = %.lr.ph102, %.loopexit
+  %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.loopexit ], [ %48, %.lr.ph102 ]
+  %91 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv114
+  %92 = load i32, ptr %91, align 4, !tbaa !15
+  br i1 %.not90, label %97, label %93
 
-90:                                               ; preds = %.lr.ph108.split
-  %91 = sext i32 %89 to i64
-  %92 = getelementptr inbounds i32, ptr %5, i64 %91
-  %93 = load i32, ptr %92, align 4, !tbaa !15
-  br label %94
+93:                                               ; preds = %.lr.ph102.split
+  %94 = sext i32 %92 to i64
+  %95 = getelementptr inbounds i32, ptr %5, i64 %94
+  %96 = load i32, ptr %95, align 4, !tbaa !15
+  br label %97
 
-94:                                               ; preds = %.lr.ph108.split, %90
-  %95 = phi i32 [ %93, %90 ], [ %89, %.lr.ph108.split ]
-  %96 = icmp slt i32 %95, 0
-  br i1 %96, label %.loopexit, label %97
+97:                                               ; preds = %.lr.ph102.split, %93
+  %98 = phi i32 [ %96, %93 ], [ %92, %.lr.ph102.split ]
+  %99 = icmp slt i32 %98, 0
+  br i1 %99, label %.loopexit, label %100
 
-97:                                               ; preds = %94
-  %98 = zext nneg i32 %95 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %21, i64 %98
-  %100 = load i32, ptr %99, align 4, !tbaa !15
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds double, ptr %25, i64 %101
-  %103 = load double, ptr %102, align 8, !tbaa !16
-  %104 = sext i32 %89 to i64
-  %105 = getelementptr inbounds double, ptr %4, i64 %104
+100:                                              ; preds = %97
+  %101 = zext nneg i32 %98 to i64
+  %102 = getelementptr inbounds nuw i32, ptr %21, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !15
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds double, ptr %25, i64 %104
   %106 = load double, ptr %105, align 8, !tbaa !16
-  %107 = fdiv double %106, %103
-  store double %107, ptr %105, align 8, !tbaa !16
-  %108 = add nsw i32 %100, 1
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %98
-  %109 = load i32, ptr %gep, align 4, !tbaa !15
-  %110 = icmp slt i32 %108, %109
-  br i1 %110, label %.lr.ph100.preheader, label %.loopexit
+  %107 = sext i32 %92 to i64
+  %108 = getelementptr inbounds double, ptr %4, i64 %107
+  %109 = load double, ptr %108, align 8, !tbaa !16
+  %110 = fdiv double %109, %106
+  store double %110, ptr %108, align 8, !tbaa !16
+  %111 = add nsw i32 %103, 1
+  %112 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  %113 = load i32, ptr %112, align 4, !tbaa !15
+  %114 = icmp slt i32 %111, %113
+  br i1 %114, label %.lr.ph100.preheader, label %.loopexit
 
-.lr.ph100.preheader:                              ; preds = %97
-  %111 = add nsw i64 %101, 1
+.lr.ph100.preheader:                              ; preds = %100
+  %115 = add nsw i64 %104, 1
   br label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
-  %indvars.iv116 = phi i64 [ %111, %.lr.ph100.preheader ], [ %indvars.iv.next117, %.lr.ph100 ]
-  %112 = getelementptr inbounds double, ptr %25, i64 %indvars.iv116
-  %113 = load double, ptr %112, align 8, !tbaa !16
-  %114 = load double, ptr %105, align 8, !tbaa !16
-  %115 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv116
-  %116 = load i32, ptr %115, align 4, !tbaa !15
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds double, ptr %4, i64 %117
-  %119 = load double, ptr %118, align 8, !tbaa !16
-  %120 = fneg double %113
-  %121 = tail call double @llvm.fmuladd.f64(double %120, double %114, double %119)
-  store double %121, ptr %118, align 8, !tbaa !16
-  %indvars.iv.next117 = add nsw i64 %indvars.iv116, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next117 to i32
-  %exitcond119.not = icmp eq i32 %109, %lftr.wideiv
-  br i1 %exitcond119.not, label %.loopexit, label %.lr.ph100, !llvm.loop !20
+  %indvars.iv110 = phi i64 [ %115, %.lr.ph100.preheader ], [ %indvars.iv.next111, %.lr.ph100 ]
+  %116 = getelementptr inbounds double, ptr %25, i64 %indvars.iv110
+  %117 = load double, ptr %116, align 8, !tbaa !16
+  %118 = load double, ptr %108, align 8, !tbaa !16
+  %119 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv110
+  %120 = load i32, ptr %119, align 4, !tbaa !15
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds double, ptr %4, i64 %121
+  %123 = load double, ptr %122, align 8, !tbaa !16
+  %124 = fneg double %117
+  %125 = tail call double @llvm.fmuladd.f64(double %124, double %118, double %123)
+  store double %125, ptr %122, align 8, !tbaa !16
+  %indvars.iv.next111 = add nsw i64 %indvars.iv110, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next111 to i32
+  %exitcond113.not = icmp eq i32 %113, %lftr.wideiv
+  br i1 %exitcond113.not, label %.loopexit, label %.lr.ph100, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph100, %97, %94
-  %indvars.iv.next121 = add nsw i64 %indvars.iv120, 1
-  %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count133
-  br i1 %exitcond124.not, label %.loopexit93, label %.lr.ph108.split, !llvm.loop !24
+.loopexit:                                        ; preds = %.lr.ph100, %100, %97
+  %indvars.iv.next115 = add nsw i64 %indvars.iv114, 1
+  %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count127
+  br i1 %exitcond118.not, label %.loopexit93, label %.lr.ph102.split, !llvm.loop !24
 
 .loopexit93:                                      ; preds = %.loopexit, %.loopexit.us, %.preheader, %7, %8, %13
   %.0 = phi i32 [ -1, %13 ], [ -1, %8 ], [ -1, %7 ], [ %34, %.preheader ], [ %34, %.loopexit.us ], [ %34, %.loopexit ]

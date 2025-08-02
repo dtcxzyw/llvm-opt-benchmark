@@ -192,7 +192,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @hsw_disable_lcpll.__UNIQUE_ID___addressable___SCK__preempt_schedule1000, ptr @hsw_restore_lcpll.__UNIQUE_ID___addressable___SCK__preempt_schedule1002, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @intel_display_power_domain_str(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef nonnull ptr @intel_display_power_domain_str(i32 noundef %0) local_unnamed_addr #0 align 16 {
   switch i32 %0, label %77 [
     i32 0, label %79
     i32 1, label %2
@@ -1072,7 +1072,7 @@ define internal fastcc void @__intel_display_power_put_domain(ptr noundef %0, i3
 
 20:                                               ; preds = %18, %10
   %21 = phi ptr [ %19, %18 ], [ %16, %10 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.102, ptr noundef %13, ptr noundef %21, ptr noundef %4) #10
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.102, ptr noundef %13, ptr noundef %21, ptr noundef nonnull %4) #10
   tail call void asm sideeffect "906: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 906b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 906) #10, !srcloc !33
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.78, i32 594, i32 2313, i64 12) #10, !srcloc !34
   tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_end\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #10, !srcloc !35
@@ -1106,7 +1106,7 @@ define internal fastcc void @__intel_display_power_put_domain(ptr noundef %0, i3
 
 38:                                               ; preds = %36, %28
   %39 = phi ptr [ %37, %36 ], [ %34, %28 ]
-  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.103, ptr noundef %31, ptr noundef %39, ptr noundef %4) #10
+  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.103, ptr noundef %31, ptr noundef %39, ptr noundef nonnull %4) #10
   call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #10, !srcloc !38
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.78, i32 599, i32 2313, i64 12) #10, !srcloc !39
   call void asm sideeffect "911: nop\0A\09.pushsection .discard.instr_end\0A\09.long 911b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 911) #10, !srcloc !40
@@ -4765,7 +4765,7 @@ define dso_local void @intel_display_power_debug(ptr noundef %0, ptr noundef %1)
   %24 = tail call ptr @intel_display_power_domain_str(i32 noundef %23)
   %25 = getelementptr [76 x i32], ptr %9, i64 0, i64 %17
   %26 = load i32, ptr %25, align 4
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.96, ptr noundef %24, i32 noundef %26) #10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.96, ptr noundef nonnull %24, i32 noundef %26) #10
   br label %27
 
 27:                                               ; preds = %22, %16

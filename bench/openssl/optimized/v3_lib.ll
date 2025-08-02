@@ -464,142 +464,140 @@ define ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
 
 8:                                                ; preds = %7, %6
   %.not45 = icmp eq ptr %2, null
-  br i1 %.not45, label %58, label %9
+  br i1 %.not45, label %60, label %9
 
 9:                                                ; preds = %8
   store i32 -1, ptr %2, align 4, !tbaa !16
-  br label %58
+  br label %60
 
 10:                                               ; preds = %4
-  br i1 %.not44, label %14, label %11
+  br i1 %.not44, label %11, label %.thread69
 
 11:                                               ; preds = %10
-  %12 = load i32, ptr %3, align 4, !tbaa !16
-  %13 = add nsw i32 %12, 1
-  br label %14
+  %12 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %.lr.ph.split.us, label %._crit_edge.thread
 
-14:                                               ; preds = %10, %11
-  %.035 = phi i32 [ %13, %11 ], [ 0, %10 ]
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %.035, i32 0)
-  %15 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
-  %16 = icmp slt i32 %spec.store.select, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge.thread
+.thread69:                                        ; preds = %10
+  %14 = load i32, ptr %3, align 4, !tbaa !16
+  %15 = tail call i32 @llvm.smax.i32(i32 %14, i32 -1)
+  %16 = add nsw i32 %15, 1
+  %17 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
+  %18 = icmp slt i32 %16, %17
+  br i1 %18, label %.lr.ph.split, label %.thread55
 
-.lr.ph:                                           ; preds = %14
-  br i1 %.not44, label %.lr.ph.split.us, label %.lr.ph.split
+.lr.ph.split.us:                                  ; preds = %11, %24
+  %.062.us = phi ptr [ %.2.us, %24 ], [ null, %11 ]
+  %.03461.us = phi i32 [ %25, %24 ], [ 0, %11 ]
+  %19 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.03461.us) #7
+  %20 = tail call ptr @X509_EXTENSION_get_object(ptr noundef %19) #7
+  %21 = tail call i32 @OBJ_obj2nid(ptr noundef %20) #7
+  %22 = icmp eq i32 %21, %1
+  br i1 %22, label %23, label %24
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %22
-  %.062.us = phi ptr [ %.2.us, %22 ], [ null, %.lr.ph ]
-  %.03461.us = phi i32 [ %23, %22 ], [ %spec.store.select, %.lr.ph ]
-  %17 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.03461.us) #7
-  %18 = tail call ptr @X509_EXTENSION_get_object(ptr noundef %17) #7
-  %19 = tail call i32 @OBJ_obj2nid(ptr noundef %18) #7
-  %20 = icmp eq i32 %19, %1
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %.lr.ph.split.us
+23:                                               ; preds = %.lr.ph.split.us
   %.not47.us = icmp eq ptr %.062.us, null
-  br i1 %.not47.us, label %22, label %.split.us
+  br i1 %.not47.us, label %24, label %.split.us
 
-22:                                               ; preds = %21, %.lr.ph.split.us
-  %.2.us = phi ptr [ %.062.us, %.lr.ph.split.us ], [ %17, %21 ]
-  %23 = add nuw nsw i32 %.03461.us, 1
-  %24 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
-  %25 = icmp slt i32 %23, %24
-  br i1 %25, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
+24:                                               ; preds = %23, %.lr.ph.split.us
+  %.2.us = phi ptr [ %.062.us, %.lr.ph.split.us ], [ %19, %23 ]
+  %25 = add nuw nsw i32 %.03461.us, 1
+  %26 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
+  %27 = icmp slt i32 %25, %26
+  br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %31
-  %.03461 = phi i32 [ %32, %31 ], [ %spec.store.select, %.lr.ph ]
-  %26 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.03461) #7
-  %27 = tail call ptr @X509_EXTENSION_get_object(ptr noundef %26) #7
-  %28 = tail call i32 @OBJ_obj2nid(ptr noundef %27) #7
-  %29 = icmp eq i32 %28, %1
-  br i1 %29, label %.thread, label %31
+.lr.ph.split:                                     ; preds = %.thread69, %33
+  %.03461 = phi i32 [ %34, %33 ], [ %16, %.thread69 ]
+  %28 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.03461) #7
+  %29 = tail call ptr @X509_EXTENSION_get_object(ptr noundef %28) #7
+  %30 = tail call i32 @OBJ_obj2nid(ptr noundef %29) #7
+  %31 = icmp eq i32 %30, %1
+  br i1 %31, label %.thread, label %33
 
-.split.us:                                        ; preds = %21
+.split.us:                                        ; preds = %23
   %.not48 = icmp eq ptr %2, null
-  br i1 %.not48, label %58, label %30
+  br i1 %.not48, label %60, label %32
 
-30:                                               ; preds = %.split.us
+32:                                               ; preds = %.split.us
   store i32 -2, ptr %2, align 4, !tbaa !16
-  br label %58
+  br label %60
 
-31:                                               ; preds = %.lr.ph.split
-  %32 = add nuw nsw i32 %.03461, 1
-  %33 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
-  %34 = icmp slt i32 %32, %33
-  br i1 %34, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !25
+33:                                               ; preds = %.lr.ph.split
+  %34 = add nuw nsw i32 %.03461, 1
+  %35 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
+  %36 = icmp slt i32 %34, %35
+  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %22
+._crit_edge:                                      ; preds = %24
   %.not49 = icmp eq ptr %.2.us, null
-  br i1 %.not49, label %._crit_edge.thread, label %35
+  br i1 %.not49, label %._crit_edge.thread, label %37
 
 .thread:                                          ; preds = %.lr.ph.split
   store i32 %.03461, ptr %3, align 4, !tbaa !16
-  %.not4953 = icmp eq ptr %26, null
-  br i1 %.not4953, label %.thread55, label %35
+  %.not4953 = icmp eq ptr %28, null
+  br i1 %.not4953, label %.thread55, label %37
 
-35:                                               ; preds = %.thread, %._crit_edge
-  %.154 = phi ptr [ %26, %.thread ], [ %.2.us, %._crit_edge ]
+37:                                               ; preds = %.thread, %._crit_edge
+  %.154 = phi ptr [ %28, %.thread ], [ %.2.us, %._crit_edge ]
   %.not51 = icmp eq ptr %2, null
-  br i1 %.not51, label %38, label %36
+  br i1 %.not51, label %40, label %38
 
-36:                                               ; preds = %35
-  %37 = tail call i32 @X509_EXTENSION_get_critical(ptr noundef nonnull %.154) #7
-  store i32 %37, ptr %2, align 4, !tbaa !16
-  br label %38
+38:                                               ; preds = %37
+  %39 = tail call i32 @X509_EXTENSION_get_critical(ptr noundef nonnull %.154) #7
+  store i32 %39, ptr %2, align 4, !tbaa !16
+  br label %40
 
-38:                                               ; preds = %36, %35
+40:                                               ; preds = %38, %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  %39 = tail call ptr @X509V3_EXT_get(ptr noundef nonnull %.154)
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %X509V3_EXT_d2i.exit, label %41
+  %41 = tail call ptr @X509V3_EXT_get(ptr noundef nonnull %.154)
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %X509V3_EXT_d2i.exit, label %43
 
-41:                                               ; preds = %38
-  %42 = tail call ptr @X509_EXTENSION_get_data(ptr noundef nonnull %.154) #7
-  %43 = tail call ptr @ASN1_STRING_get0_data(ptr noundef %42) #7
-  store ptr %43, ptr %5, align 8, !tbaa !19
-  %44 = tail call i32 @ASN1_STRING_length(ptr noundef %42) #7
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !21
-  %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %51, label %47
+43:                                               ; preds = %40
+  %44 = tail call ptr @X509_EXTENSION_get_data(ptr noundef nonnull %.154) #7
+  %45 = tail call ptr @ASN1_STRING_get0_data(ptr noundef %44) #7
+  store ptr %45, ptr %5, align 8, !tbaa !19
+  %46 = tail call i32 @ASN1_STRING_length(ptr noundef %44) #7
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !21
+  %.not.i = icmp eq ptr %48, null
+  br i1 %.not.i, label %53, label %49
 
-47:                                               ; preds = %41
-  %48 = sext i32 %44 to i64
-  %49 = tail call ptr %46() #7
-  %50 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %5, i64 noundef %48, ptr noundef %49) #7
+49:                                               ; preds = %43
+  %50 = sext i32 %46 to i64
+  %51 = tail call ptr %48() #7
+  %52 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %5, i64 noundef %50, ptr noundef %51) #7
   br label %X509V3_EXT_d2i.exit
 
-51:                                               ; preds = %41
-  %52 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !22
-  %54 = sext i32 %44 to i64
-  %55 = call ptr %53(ptr noundef null, ptr noundef nonnull %5, i64 noundef %54) #7
+53:                                               ; preds = %43
+  %54 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %55 = load ptr, ptr %54, align 8, !tbaa !22
+  %56 = sext i32 %46 to i64
+  %57 = call ptr %55(ptr noundef null, ptr noundef nonnull %5, i64 noundef %56) #7
   br label %X509V3_EXT_d2i.exit
 
-X509V3_EXT_d2i.exit:                              ; preds = %38, %47, %51
-  %.0.i = phi ptr [ %50, %47 ], [ %55, %51 ], [ null, %38 ]
+X509V3_EXT_d2i.exit:                              ; preds = %40, %49, %53
+  %.0.i = phi ptr [ %52, %49 ], [ %57, %53 ], [ null, %40 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  br label %58
+  br label %60
 
-._crit_edge.thread:                               ; preds = %31, %14, %._crit_edge
-  br i1 %.not44, label %56, label %.thread55
+._crit_edge.thread:                               ; preds = %33, %11, %._crit_edge
+  br i1 %.not44, label %58, label %.thread55
 
-.thread55:                                        ; preds = %.thread, %._crit_edge.thread
+.thread55:                                        ; preds = %.thread69, %.thread, %._crit_edge.thread
   store i32 -1, ptr %3, align 4, !tbaa !16
-  br label %56
-
-56:                                               ; preds = %.thread55, %._crit_edge.thread
-  %.not50 = icmp eq ptr %2, null
-  br i1 %.not50, label %58, label %57
-
-57:                                               ; preds = %56
-  store i32 -1, ptr %2, align 4, !tbaa !16
   br label %58
 
-58:                                               ; preds = %56, %57, %.split.us, %30, %8, %9, %X509V3_EXT_d2i.exit
-  %.033 = phi ptr [ %.0.i, %X509V3_EXT_d2i.exit ], [ null, %9 ], [ null, %8 ], [ null, %30 ], [ null, %.split.us ], [ null, %57 ], [ null, %56 ]
+58:                                               ; preds = %.thread55, %._crit_edge.thread
+  %.not50 = icmp eq ptr %2, null
+  br i1 %.not50, label %60, label %59
+
+59:                                               ; preds = %58
+  store i32 -1, ptr %2, align 4, !tbaa !16
+  br label %60
+
+60:                                               ; preds = %58, %59, %.split.us, %32, %8, %9, %X509V3_EXT_d2i.exit
+  %.033 = phi ptr [ %.0.i, %X509V3_EXT_d2i.exit ], [ null, %9 ], [ null, %8 ], [ null, %32 ], [ null, %.split.us ], [ null, %59 ], [ null, %58 ]
   ret ptr %.033
 }
 

@@ -12212,7 +12212,6 @@ for.body.lr.ph:                                   ; preds = %entry
   store i64 %4, ptr %n_.i, align 8, !tbaa !89
   %t_7 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %8 = load ptr, ptr %t_7, align 8
-  %invariant.gep = getelementptr i8, ptr %8, i64 -8
   %T_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %9 = load double, ptr %T_, align 8
   %sub14 = add i64 %4, -1
@@ -12235,10 +12234,10 @@ cond.true:                                        ; preds = %for.body
   br label %cond.end
 
 cond.false:                                       ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %8, i64 %i.040
+  %add.ptr.i = getelementptr double, ptr %8, i64 %i.040
   %14 = load double, ptr %add.ptr.i, align 8, !tbaa !90
-  %gep = getelementptr double, ptr %invariant.gep, i64 %i.040
-  %15 = load double, ptr %gep, align 8, !tbaa !90
+  %add.ptr.i28 = getelementptr i8, ptr %add.ptr.i, i64 -8
+  %15 = load double, ptr %add.ptr.i28, align 8, !tbaa !90
   %sub12 = fsub double %14, %15
   br label %cond.end
 

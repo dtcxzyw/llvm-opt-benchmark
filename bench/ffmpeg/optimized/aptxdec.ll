@@ -45,6 +45,7 @@ define internal range(i32 -2147483648, 536870912) i32 @aptx_decode_frame(ptr nou
   %15 = load i32, ptr %14, align 4, !tbaa !29
   %16 = icmp slt i32 %13, %15
   %indvars.iv52.i.sroa.gep41 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %indvars.iv59.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 16
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %4
@@ -240,13 +241,13 @@ aptx_check_parity.exit.i:                         ; preds = %116
   %indvars.iv52.i = phi i64 [ 0, %aptx_check_parity.exit.i ], [ 1, %aptx_decode_channel.exit.i ]
   %125 = getelementptr inbounds nuw [2 x %struct.Channel], ptr %29, i64 0, i64 %indvars.iv52.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #4
-  %126 = getelementptr i8, ptr %125, i64 1220
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 1220
   br label %127
 
 127:                                              ; preds = %127, %123
   %indvars.iv.i.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i.i, %127 ]
   %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 320
-  %128 = getelementptr i8, ptr %126, i64 %.idx.i.i
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i.i
   %129 = load i32, ptr %128, align 4, !tbaa !50
   %130 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv.i.i
   store i32 %129, ptr %130, align 4, !tbaa !49
@@ -434,13 +435,14 @@ aptx_decode_samples.exit:                         ; preds = %aptx_decode_channel
 
 .preheader:                                       ; preds = %aptx_decode_samples.exit, %241
   %231 = phi i1 [ false, %241 ], [ true, %aptx_decode_samples.exit ]
+  %indvars.iv59.sroa.phi = phi ptr [ %indvars.iv59.sroa.gep, %241 ], [ %9, %aptx_decode_samples.exit ]
   %indvars.iv59 = phi i64 [ 1, %241 ], [ 0, %aptx_decode_samples.exit ]
   %232 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv59
   br label %233
 
 233:                                              ; preds = %.preheader, %233
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %233 ]
-  %234 = getelementptr inbounds nuw [2 x [4 x i32]], ptr %9, i64 0, i64 %indvars.iv59, i64 %indvars.iv
+  %234 = getelementptr inbounds nuw [4 x i32], ptr %indvars.iv59.sroa.phi, i64 0, i64 %indvars.iv
   %235 = load i32, ptr %234, align 4, !tbaa !49
   %236 = shl nsw i32 %235, 8
   %237 = load ptr, ptr %232, align 8, !tbaa !60

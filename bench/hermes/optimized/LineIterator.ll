@@ -272,7 +272,6 @@ if.end31:                                         ; preds = %if.end24, %if.end24
 while.cond37.preheader:                           ; preds = %land.lhs.true.i29, %for.cond, %land.lhs.true.i17, %land.lhs.true.i29.us, %land.lhs.true.i9, %land.lhs.true, %land.lhs.true.i5, %if.end31
   %Pos.0117 = phi ptr [ %Pos.0, %if.end31 ], [ %Pos.554, %land.lhs.true ], [ %Pos.554, %land.lhs.true.i5 ], [ %Pos.1, %land.lhs.true.i9 ], [ %Pos.3.ph.ph.us106, %land.lhs.true.i29.us ], [ %Pos.2, %land.lhs.true.i17 ], [ %Pos.2, %for.cond ], [ %Pos.3.ph.ph112, %land.lhs.true.i29 ]
   %25 = phi i8 [ %24, %if.end31 ], [ %6, %land.lhs.true ], [ 13, %land.lhs.true.i5 ], [ 13, %land.lhs.true.i9 ], [ 13, %land.lhs.true.i29.us ], [ 13, %land.lhs.true.i17 ], [ %19, %for.cond ], [ 13, %land.lhs.true.i29 ]
-  %invariant.gep = getelementptr i8, ptr %Pos.0117, i64 1
   br label %while.cond37
 
 if.then34:                                        ; preds = %do.body, %do.body.us, %if.end31
@@ -290,8 +289,9 @@ while.cond37:                                     ; preds = %while.cond37.prehea
   ]
 
 land.lhs.true.i37:                                ; preds = %while.cond37
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %Length.0
-  %27 = load i8, ptr %gep, align 1
+  %arrayidx = getelementptr inbounds i8, ptr %Pos.0117, i64 %Length.0
+  %add.ptr.i38 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
+  %27 = load i8, ptr %add.ptr.i38, align 1
   %cmp4.i39 = icmp eq i8 %27, 10
   br i1 %cmp4.i39, label %while.end47, label %while.body45
 

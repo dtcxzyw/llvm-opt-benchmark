@@ -260,7 +260,7 @@ malloc_mutex_lock.exit.i.i:                       ; preds = %60, %54
   %.val.i.i = load ptr, ptr %70, align 8, !tbaa !4
   %71 = tail call ptr @je_base_alloc(ptr noundef %0, ptr noundef %.val.i.i, i64 noundef 248, i64 noundef 64) #8
   %72 = icmp eq ptr %71, null
-  br i1 %69, label %73, label %93
+  br i1 %69, label %73, label %91
 
 73:                                               ; preds = %66
   br i1 %72, label %74, label %77
@@ -285,70 +285,70 @@ malloc_mutex_lock.exit.i.i:                       ; preds = %60, %54
   store i8 1, ptr %7, align 1, !tbaa !43
   %82 = call ptr @je_pages_map(ptr noundef null, i64 noundef 268435456, i64 noundef 2097152, ptr noundef nonnull %7) #8
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %.thread62.i.i, label %84
+  br i1 %83, label %.critedge.i.i, label %84
 
 84:                                               ; preds = %81
   %85 = getelementptr i8, ptr %46, i64 128
   %.val60.i.i = load ptr, ptr %85, align 8, !tbaa !4
   %86 = call ptr @je_base_alloc(ptr noundef %0, ptr noundef %.val60.i.i, i64 noundef 248, i64 noundef 64) #8
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %88, label %91
+  br i1 %87, label %88, label %89
 
 88:                                               ; preds = %84
   call void @je_pages_unmap(ptr noundef nonnull %82, i64 noundef 268435456) #8
-  br label %.thread62.i.i
+  br label %.critedge.i.i
 
-.thread62.i.i:                                    ; preds = %88, %81
-  %89 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  store atomic i8 0, ptr %89 monotonic, align 1
-  %90 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %50) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
-  br label %106
-
-91:                                               ; preds = %84
+89:                                               ; preds = %84
   store ptr %82, ptr %64, align 8, !tbaa !61
-  %92 = getelementptr inbounds nuw i8, ptr %46, i64 120
-  store i64 268435456, ptr %92, align 8, !tbaa !62
+  %90 = getelementptr inbounds nuw i8, ptr %46, i64 120
+  store i64 268435456, ptr %90, align 8, !tbaa !62
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
-  br label %97
+  br label %95
 
-93:                                               ; preds = %66
-  br i1 %72, label %94, label %._crit_edge.i.i
+91:                                               ; preds = %66
+  br i1 %72, label %92, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %93
+._crit_edge.i.i:                                  ; preds = %91
   %.pre.i.i = load ptr, ptr %64, align 8, !tbaa !61
-  br label %97
+  br label %95
 
-94:                                               ; preds = %93
-  %95 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  store atomic i8 0, ptr %95 monotonic, align 1
-  %96 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %50) #8
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  store atomic i8 0, ptr %93 monotonic, align 1
+  %94 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %50) #8
   br label %106
 
-97:                                               ; preds = %._crit_edge.i.i, %91
-  %98 = phi ptr [ %82, %91 ], [ %.pre.i.i, %._crit_edge.i.i ]
-  %.154.i.i = phi ptr [ %86, %91 ], [ %71, %._crit_edge.i.i ]
-  call void @je_hpdata_init(ptr noundef nonnull %.154.i.i, ptr noundef %98, i64 noundef %48) #8
-  %99 = load ptr, ptr %64, align 8, !tbaa !61
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 2097152
-  store ptr %100, ptr %64, align 8, !tbaa !61
-  %101 = getelementptr inbounds nuw i8, ptr %46, i64 120
-  %102 = load i64, ptr %101, align 8, !tbaa !62
-  %103 = add i64 %102, -2097152
-  store i64 %103, ptr %101, align 8, !tbaa !62
+95:                                               ; preds = %._crit_edge.i.i, %89
+  %96 = phi ptr [ %82, %89 ], [ %.pre.i.i, %._crit_edge.i.i ]
+  %.154.i.i = phi ptr [ %86, %89 ], [ %71, %._crit_edge.i.i ]
+  call void @je_hpdata_init(ptr noundef nonnull %.154.i.i, ptr noundef %96, i64 noundef %48) #8
+  %97 = load ptr, ptr %64, align 8, !tbaa !61
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 2097152
+  store ptr %98, ptr %64, align 8, !tbaa !61
+  %99 = getelementptr inbounds nuw i8, ptr %46, i64 120
+  %100 = load i64, ptr %99, align 8, !tbaa !62
+  %101 = add i64 %100, -2097152
+  store i64 %101, ptr %99, align 8, !tbaa !62
+  %102 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  store atomic i8 0, ptr %102 monotonic, align 1
+  %103 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %50) #8
+  br label %hpa_central_extract.exit.i
+
+.critedge.i.i:                                    ; preds = %88, %81
   %104 = getelementptr inbounds nuw i8, ptr %46, i64 64
   store atomic i8 0, ptr %104 monotonic, align 1
   %105 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %50) #8
-  br label %hpa_central_extract.exit.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
+  br label %106
 
-106:                                              ; preds = %94, %.thread62.i.i, %74
+106:                                              ; preds = %.critedge.i.i, %92, %74
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store atomic i8 0, ptr %107 monotonic, align 1
   %108 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #8
   br label %hpa_alloc_batch_psset.exit
 
-hpa_central_extract.exit.i:                       ; preds = %97, %77
-  %.0.i.i = phi ptr [ %71, %77 ], [ %.154.i.i, %97 ]
+hpa_central_extract.exit.i:                       ; preds = %95, %77
+  %.0.i.i = phi ptr [ %71, %77 ], [ %.154.i.i, %95 ]
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %110 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %109) #8
   %.not.i58.i = icmp eq i32 %110, 0

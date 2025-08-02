@@ -2247,7 +2247,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findNex
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %85, label %12
+  br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %6
   %13 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 0)
@@ -2266,7 +2266,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findNex
   %.sroa.9.0.copyload = load ptr, ptr %.sroa.9.0..0.31.sroa_idx, align 8
   %.sroa.15.0..0.31.sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.15.0.copyload = load ptr, ptr %.sroa.15.0..0.31.sroa_idx, align 8
-  br label %.thread109
+  br label %74
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %9, align 8, !tbaa !17
@@ -2284,17 +2284,17 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findNex
   %.sroa.9.0.copyload39 = load ptr, ptr %.sroa.9.0..0.33.sroa_idx, align 8
   %.sroa.15.0..0.33.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.sroa.15.0.copyload42 = load ptr, ptr %.sroa.15.0..0.33.sroa_idx, align 8
-  br label %.thread109
+  br label %74
 
 28:                                               ; preds = %19
   %29 = fcmp ugt double %25, %1
-  br i1 %29, label %52, label %30
+  br i1 %29, label %53, label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %32 = load ptr, ptr %31, align 8, !tbaa !20
   %.not87 = icmp eq ptr %32, null
-  br i1 %.not87, label %85, label %33
+  br i1 %.not87, label %.critedge, label %33
 
 33:                                               ; preds = %30
   %34 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 0)
@@ -2316,106 +2316,106 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findNex
   %48 = call noundef signext i8 %47(ptr noundef nonnull align 8 dereferenceable(80) %36, double noundef %1, i32 noundef %43, i32 noundef %44, i8 noundef signext %2, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %49 = or i8 %48, %42
   %or.cond.not.not = icmp eq i8 %49, 0
-  br i1 %or.cond.not.not, label %73, label %.thread102
+  br i1 %or.cond.not.not, label %.critedge.critedge, label %50
 
-.thread102:                                       ; preds = %33
+50:                                               ; preds = %33
   %.not88 = icmp eq i8 %48, 0
   %.pre = load double, ptr %7, align 8, !tbaa !34
-  %50 = load double, ptr %8, align 8
-  %51 = fcmp olt double %.pre, %50
-  %or.cond = select i1 %.not88, i1 true, i1 %51
-  %.sroa.9.2.ph = select i1 %or.cond, ptr %36, ptr %34
-  %.sroa.0.2.ph = select i1 %or.cond, double %.pre, double %50
-  %.sroa.15.2.ph = select i1 %or.cond, ptr %34, ptr %36
+  %51 = load double, ptr %8, align 8
+  %52 = fcmp olt double %.pre, %51
+  %or.cond = select i1 %.not88, i1 true, i1 %52
+  %.sroa.9.2 = select i1 %or.cond, ptr %36, ptr %34
+  %.sroa.0.2 = select i1 %or.cond, double %.pre, double %51
+  %.sroa.15.2 = select i1 %or.cond, ptr %34, ptr %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  br label %.thread109
+  br label %74
 
-52:                                               ; preds = %28
-  %53 = icmp sgt i32 %22, 2
-  br i1 %53, label %.lr.ph.preheader, label %._crit_edge
+53:                                               ; preds = %28
+  %54 = icmp sgt i32 %22, 2
+  br i1 %54, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %52
-  %54 = add nsw i32 %22, -2
-  %55 = load ptr, ptr %9, align 8, !tbaa !17
-  %56 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %55, i32 noundef %54)
-  %57 = load double, ptr %56, align 8, !tbaa !39
-  %58 = fcmp olt double %57, %1
-  %59 = fcmp oeq double %57, %1
-  %or.cond93135 = and i1 %.not, %59
-  %or.cond94136 = or i1 %58, %or.cond93135
-  br i1 %or.cond94136, label %._crit_edge.loopexit, label %.lr.ph138
+.lr.ph.preheader:                                 ; preds = %53
+  %55 = add nsw i32 %22, -2
+  %56 = load ptr, ptr %9, align 8, !tbaa !17
+  %57 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %56, i32 noundef %55)
+  %58 = load double, ptr %57, align 8, !tbaa !39
+  %59 = fcmp olt double %58, %1
+  %60 = fcmp oeq double %58, %1
+  %or.cond93114 = and i1 %.not, %60
+  %or.cond95115 = or i1 %59, %or.cond93114
+  br i1 %or.cond95115, label %._crit_edge.loopexit, label %.lr.ph117
 
-.lr.ph138:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %60 = phi ptr [ %64, %.lr.ph ], [ %56, %.lr.ph.preheader ]
-  %.079129137 = phi i32 [ %62, %.lr.ph ], [ %54, %.lr.ph.preheader ]
-  %61 = icmp sgt i32 %.079129137, 1
-  br i1 %61, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !52
+.lr.ph117:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %61 = phi ptr [ %65, %.lr.ph ], [ %57, %.lr.ph.preheader ]
+  %.079108116 = phi i32 [ %63, %.lr.ph ], [ %55, %.lr.ph.preheader ]
+  %62 = icmp sgt i32 %.079108116, 1
+  br i1 %62, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !52
 
-.lr.ph:                                           ; preds = %.lr.ph138
-  %62 = add nsw i32 %.079129137, -1
-  %63 = load ptr, ptr %9, align 8, !tbaa !17
-  %64 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %63, i32 noundef %62)
-  %65 = load double, ptr %64, align 8, !tbaa !39
-  %66 = fcmp olt double %65, %1
-  %67 = fcmp oeq double %65, %1
-  %or.cond93 = and i1 %.not, %67
-  %or.cond94 = or i1 %66, %or.cond93
-  br i1 %or.cond94, label %._crit_edge.loopexit, label %.lr.ph138, !llvm.loop !52
+.lr.ph:                                           ; preds = %.lr.ph117
+  %63 = add nsw i32 %.079108116, -1
+  %64 = load ptr, ptr %9, align 8, !tbaa !17
+  %65 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %64, i32 noundef %63)
+  %66 = load double, ptr %65, align 8, !tbaa !39
+  %67 = fcmp olt double %66, %1
+  %68 = fcmp oeq double %66, %1
+  %or.cond93 = and i1 %.not, %68
+  %or.cond95 = or i1 %67, %or.cond93
+  br i1 %or.cond95, label %._crit_edge.loopexit, label %.lr.ph117, !llvm.loop !52
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph138
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph117
   br label %._crit_edge.loopexit, !llvm.loop !52
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %.._crit_edge.loopexit_crit_edge, %.lr.ph.preheader
-  %.0.lcssa.ph = phi ptr [ %60, %.._crit_edge.loopexit_crit_edge ], [ %24, %.lr.ph.preheader ], [ %60, %.lr.ph ]
-  %.pre133 = load double, ptr %.0.lcssa.ph, align 8, !tbaa !39
+  %.0.lcssa.ph = phi ptr [ %61, %.._crit_edge.loopexit_crit_edge ], [ %24, %.lr.ph.preheader ], [ %61, %.lr.ph ]
+  %.pre112 = load double, ptr %.0.lcssa.ph, align 8, !tbaa !39
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %52
-  %68 = phi double [ %25, %52 ], [ %.pre133, %._crit_edge.loopexit ]
-  %.0.lcssa = phi ptr [ %24, %52 ], [ %.0.lcssa.ph, %._crit_edge.loopexit ]
-  %69 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !42
-  %71 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
-  %72 = load ptr, ptr %71, align 8, !tbaa !43
-  br label %.thread109
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %53
+  %69 = phi double [ %25, %53 ], [ %.pre112, %._crit_edge.loopexit ]
+  %.0.lcssa = phi ptr [ %24, %53 ], [ %.0.lcssa.ph, %._crit_edge.loopexit ]
+  %70 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !42
+  %72 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
+  %73 = load ptr, ptr %72, align 8, !tbaa !43
+  br label %74
 
-73:                                               ; preds = %33
+74:                                               ; preds = %18, %27, %._crit_edge, %50
+  %.sroa.9.0.ph = phi ptr [ %.sroa.9.2, %50 ], [ %71, %._crit_edge ], [ %.sroa.9.0.copyload39, %27 ], [ %.sroa.9.0.copyload, %18 ]
+  %.sroa.0.0.ph = phi double [ %.sroa.0.2, %50 ], [ %69, %._crit_edge ], [ %25, %27 ], [ %14, %18 ]
+  %.sroa.15.0.ph = phi ptr [ %.sroa.15.2, %50 ], [ %73, %._crit_edge ], [ %.sroa.15.0.copyload42, %27 ], [ %.sroa.15.0.copyload, %18 ]
+  %.not90 = phi i1 [ false, %50 ], [ true, %._crit_edge ], [ true, %27 ], [ true, %18 ]
+  %75 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.9.0.ph)
+  %76 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.15.0.ph)
+  %77 = icmp eq i32 %75, %76
+  br i1 %77, label %78, label %85
+
+78:                                               ; preds = %74
+  %79 = call noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.9.0.ph)
+  %80 = call noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.15.0.ph)
+  %81 = icmp eq i32 %79, %80
+  br i1 %81, label %82, label %85
+
+82:                                               ; preds = %78
+  br i1 %.not90, label %83, label %.critedge
+
+83:                                               ; preds = %82
+  %84 = call noundef signext i8 @_ZNK6icu_7717RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %0, double noundef %.sroa.0.0.ph, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br label %.critedge
+
+85:                                               ; preds = %78, %74
+  store double %.sroa.0.0.ph, ptr %3, align 8, !tbaa !34
+  store ptr %.sroa.9.0.ph, ptr %4, align 8, !tbaa !51
+  store ptr %.sroa.15.0.ph, ptr %5, align 8, !tbaa !51
+  br label %.critedge
+
+.critedge.critedge:                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  br label %85
+  br label %.critedge
 
-.thread109:                                       ; preds = %27, %._crit_edge, %.thread102, %18
-  %.not90 = phi i1 [ false, %.thread102 ], [ true, %18 ], [ true, %._crit_edge ], [ true, %27 ]
-  %.sroa.15.0118 = phi ptr [ %.sroa.15.2.ph, %.thread102 ], [ %.sroa.15.0.copyload, %18 ], [ %72, %._crit_edge ], [ %.sroa.15.0.copyload42, %27 ]
-  %.sroa.0.0117 = phi double [ %.sroa.0.2.ph, %.thread102 ], [ %14, %18 ], [ %68, %._crit_edge ], [ %25, %27 ]
-  %.sroa.9.0116 = phi ptr [ %.sroa.9.2.ph, %.thread102 ], [ %.sroa.9.0.copyload, %18 ], [ %70, %._crit_edge ], [ %.sroa.9.0.copyload39, %27 ]
-  %74 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.9.0116)
-  %75 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.15.0118)
-  %76 = icmp eq i32 %74, %75
-  br i1 %76, label %77, label %84
-
-77:                                               ; preds = %.thread109
-  %78 = call noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.9.0116)
-  %79 = call noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.15.0118)
-  %80 = icmp eq i32 %78, %79
-  br i1 %80, label %81, label %84
-
-81:                                               ; preds = %77
-  br i1 %.not90, label %82, label %85
-
-82:                                               ; preds = %81
-  %83 = call noundef signext i8 @_ZNK6icu_7717RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %0, double noundef %.sroa.0.0117, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %85
-
-84:                                               ; preds = %77, %.thread109
-  store double %.sroa.0.0117, ptr %3, align 8, !tbaa !34
-  store ptr %.sroa.9.0116, ptr %4, align 8, !tbaa !51
-  store ptr %.sroa.15.0118, ptr %5, align 8, !tbaa !51
-  br label %85
-
-85:                                               ; preds = %30, %73, %82, %84, %81, %6
-  %.069 = phi i8 [ 0, %6 ], [ %83, %82 ], [ 1, %84 ], [ 0, %73 ], [ 0, %81 ], [ 0, %30 ]
+.critedge:                                        ; preds = %30, %.critedge.critedge, %83, %85, %82, %6
+  %.069 = phi i8 [ 0, %6 ], [ %84, %83 ], [ 1, %85 ], [ 0, %82 ], [ 0, %.critedge.critedge ], [ 0, %30 ]
   ret i8 %.069
 }
 
@@ -2698,7 +2698,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findPre
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %74, label %12
+  br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %6
   %13 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 0)
@@ -2713,11 +2713,11 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findPre
   %.sroa.10.0.copyload = load ptr, ptr %.sroa.10.0..0.28.sroa_idx, align 8
   %.sroa.15.0..0.28.sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.15.0.copyload = load ptr, ptr %.sroa.15.0..0.28.sroa_idx, align 8
-  br label %.thread
+  br label %64
 
 17:                                               ; preds = %12
   %18 = fcmp olt double %14, %1
-  br i1 %18, label %19, label %74
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %9, align 8, !tbaa !17
@@ -2735,17 +2735,17 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findPre
   %.sroa.10.0.copyload38 = load ptr, ptr %.sroa.10.0..0.30.sroa_idx, align 8
   %.sroa.15.0..0.30.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.sroa.15.0.copyload43 = load ptr, ptr %.sroa.15.0..0.30.sroa_idx, align 8
-  br label %.thread
+  br label %64
 
 28:                                               ; preds = %19
   %29 = fcmp olt double %25, %1
-  br i1 %29, label %30, label %53
+  br i1 %29, label %30, label %54
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %32 = load ptr, ptr %31, align 8, !tbaa !20
   %.not85 = icmp eq ptr %32, null
-  br i1 %.not85, label %52, label %33
+  br i1 %.not85, label %53, label %33
 
 33:                                               ; preds = %30
   %34 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 0)
@@ -2767,91 +2767,91 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717RuleBasedTimeZone8findPre
   %48 = call noundef signext i8 %47(ptr noundef nonnull align 8 dereferenceable(80) %36, double noundef %1, i32 noundef %43, i32 noundef %44, i8 noundef signext %2, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %49 = or i8 %48, %42
   %or.cond.not.not = icmp eq i8 %49, 0
-  br i1 %or.cond.not.not, label %63, label %.thread99
+  br i1 %or.cond.not.not, label %.critedge.critedge, label %50
 
-.thread99:                                        ; preds = %33
+50:                                               ; preds = %33
   %.not86 = icmp eq i8 %48, 0
   %.pre = load double, ptr %7, align 8, !tbaa !34
-  %50 = load double, ptr %8, align 8
-  %51 = fcmp ogt double %.pre, %50
-  %or.cond122 = select i1 %.not86, i1 true, i1 %51
-  %.sroa.0.2.ph = select i1 %or.cond122, double %.pre, double %50
-  %.sroa.10.2.ph = select i1 %or.cond122, ptr %36, ptr %34
-  %.sroa.15.2.ph = select i1 %or.cond122, ptr %34, ptr %36
+  %51 = load double, ptr %8, align 8
+  %52 = fcmp ogt double %.pre, %51
+  %or.cond108 = select i1 %.not86, i1 true, i1 %52
+  %.sroa.0.2 = select i1 %or.cond108, double %.pre, double %51
+  %.sroa.10.2 = select i1 %or.cond108, ptr %36, ptr %34
+  %.sroa.15.2 = select i1 %or.cond108, ptr %34, ptr %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  br label %.thread
+  br label %64
 
-52:                                               ; preds = %30
+53:                                               ; preds = %30
   %.sroa.10.0..0.31.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.10.0.copyload39 = load ptr, ptr %.sroa.10.0..0.31.sroa_idx, align 8
   %.sroa.15.0..0.31.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.sroa.15.0.copyload44 = load ptr, ptr %.sroa.15.0..0.31.sroa_idx, align 8
-  br label %.thread
+  br label %64
 
-53:                                               ; preds = %28
-  %54 = icmp sgt i32 %22, 1
-  br i1 %54, label %.lr.ph.preheader, label %._crit_edge
+54:                                               ; preds = %28
+  %55 = icmp sgt i32 %22, 1
+  br i1 %55, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %53
-  %55 = add nsw i32 %22, -2
+.lr.ph.preheader:                                 ; preds = %54
+  %56 = add nsw i32 %22, -2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.075116 = phi i32 [ %55, %.lr.ph.preheader ], [ %61, %.lr.ph ]
-  %56 = load ptr, ptr %9, align 8, !tbaa !17
-  %57 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %56, i32 noundef %.075116)
-  %58 = load double, ptr %57, align 8, !tbaa !39
-  %59 = fcmp olt double %58, %1
-  %60 = fcmp oeq double %58, %1
-  %or.cond91 = and i1 %.not, %60
-  %or.cond115 = or i1 %59, %or.cond91
-  %61 = add nsw i32 %.075116, -1
-  %62 = icmp slt i32 %.075116, 1
-  %or.cond124.not = or i1 %62, %or.cond115
-  br i1 %or.cond124.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  %.075102 = phi i32 [ %56, %.lr.ph.preheader ], [ %62, %.lr.ph ]
+  %57 = load ptr, ptr %9, align 8, !tbaa !17
+  %58 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %57, i32 noundef %.075102)
+  %59 = load double, ptr %58, align 8, !tbaa !39
+  %60 = fcmp olt double %59, %1
+  %61 = fcmp oeq double %59, %1
+  %or.cond91 = and i1 %.not, %61
+  %or.cond101 = or i1 %60, %or.cond91
+  %62 = add nsw i32 %.075102, -1
+  %63 = icmp slt i32 %.075102, 1
+  %or.cond110.not = or i1 %63, %or.cond101
+  br i1 %or.cond110.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
-._crit_edge:                                      ; preds = %.lr.ph, %53
-  %.sroa.0.0.copyload37 = phi double [ %25, %53 ], [ %58, %.lr.ph ]
-  %.177 = phi ptr [ %24, %53 ], [ %57, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %54
+  %.sroa.0.0.copyload37 = phi double [ %25, %54 ], [ %59, %.lr.ph ]
+  %.177 = phi ptr [ %24, %54 ], [ %58, %.lr.ph ]
   %.sroa.10.0..0.33.sroa_idx = getelementptr inbounds nuw i8, ptr %.177, i64 8
   %.sroa.10.0.copyload40 = load ptr, ptr %.sroa.10.0..0.33.sroa_idx, align 8
   %.sroa.15.0..0.33.sroa_idx = getelementptr inbounds nuw i8, ptr %.177, i64 16
   %.sroa.15.0.copyload45 = load ptr, ptr %.sroa.15.0..0.33.sroa_idx, align 8
-  br label %.thread
+  br label %64
 
-63:                                               ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  br label %74
+64:                                               ; preds = %16, %27, %._crit_edge, %53, %50
+  %.sroa.0.0.ph = phi double [ %.sroa.0.2, %50 ], [ %25, %53 ], [ %.sroa.0.0.copyload37, %._crit_edge ], [ %25, %27 ], [ %14, %16 ]
+  %.sroa.10.0.ph = phi ptr [ %.sroa.10.2, %50 ], [ %.sroa.10.0.copyload39, %53 ], [ %.sroa.10.0.copyload40, %._crit_edge ], [ %.sroa.10.0.copyload38, %27 ], [ %.sroa.10.0.copyload, %16 ]
+  %.sroa.15.0.ph = phi ptr [ %.sroa.15.2, %50 ], [ %.sroa.15.0.copyload44, %53 ], [ %.sroa.15.0.copyload45, %._crit_edge ], [ %.sroa.15.0.copyload43, %27 ], [ %.sroa.15.0.copyload, %16 ]
+  %65 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.10.0.ph)
+  %66 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.15.0.ph)
+  %67 = icmp eq i32 %65, %66
+  br i1 %67, label %68, label %74
 
-.thread:                                          ; preds = %.thread99, %27, %._crit_edge, %52, %16
-  %.sroa.0.0.ph = phi double [ %.sroa.0.2.ph, %.thread99 ], [ %14, %16 ], [ %25, %52 ], [ %.sroa.0.0.copyload37, %._crit_edge ], [ %25, %27 ]
-  %.sroa.10.0.ph = phi ptr [ %.sroa.10.2.ph, %.thread99 ], [ %.sroa.10.0.copyload, %16 ], [ %.sroa.10.0.copyload39, %52 ], [ %.sroa.10.0.copyload40, %._crit_edge ], [ %.sroa.10.0.copyload38, %27 ]
-  %.sroa.15.0.ph = phi ptr [ %.sroa.15.2.ph, %.thread99 ], [ %.sroa.15.0.copyload, %16 ], [ %.sroa.15.0.copyload44, %52 ], [ %.sroa.15.0.copyload45, %._crit_edge ], [ %.sroa.15.0.copyload43, %27 ]
-  %64 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.10.0.ph)
-  %65 = call noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.15.0.ph)
-  %66 = icmp eq i32 %64, %65
-  br i1 %66, label %67, label %73
+68:                                               ; preds = %64
+  %69 = call noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.10.0.ph)
+  %70 = call noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.15.0.ph)
+  %71 = icmp eq i32 %69, %70
+  br i1 %71, label %72, label %74
 
-67:                                               ; preds = %.thread
-  %68 = call noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.10.0.ph)
-  %69 = call noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.15.0.ph)
-  %70 = icmp eq i32 %68, %69
-  br i1 %70, label %71, label %73
+72:                                               ; preds = %68
+  %73 = call noundef signext i8 @_ZNK6icu_7717RuleBasedTimeZone8findPrevEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %0, double noundef %.sroa.0.0.ph, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br label %.critedge
 
-71:                                               ; preds = %67
-  %72 = call noundef signext i8 @_ZNK6icu_7717RuleBasedTimeZone8findPrevEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %0, double noundef %.sroa.0.0.ph, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %74
-
-73:                                               ; preds = %67, %.thread
+74:                                               ; preds = %68, %64
   store double %.sroa.0.0.ph, ptr %3, align 8, !tbaa !34
   store ptr %.sroa.10.0.ph, ptr %4, align 8, !tbaa !51
   store ptr %.sroa.15.0.ph, ptr %5, align 8, !tbaa !51
-  br label %74
+  br label %.critedge
 
-74:                                               ; preds = %17, %63, %71, %73, %6
-  %.070 = phi i8 [ 0, %6 ], [ %72, %71 ], [ 1, %73 ], [ 0, %63 ], [ 0, %17 ]
+.critedge.critedge:                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  br label %.critedge
+
+.critedge:                                        ; preds = %17, %.critedge.critedge, %72, %74, %6
+  %.070 = phi i8 [ 0, %6 ], [ %73, %72 ], [ 1, %74 ], [ 0, %.critedge.critedge ], [ 0, %17 ]
   ret i8 %.070
 }
 

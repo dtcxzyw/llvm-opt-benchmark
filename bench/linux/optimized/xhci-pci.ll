@@ -1918,7 +1918,7 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr readonly captures(none) 
 52:                                               ; preds = %47, %43, %38
   %53 = load volatile i32, ptr %4, align 4
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %.thread, label %.lr.ph, !prof !27
+  br i1 %54, label %.critedge, label %.lr.ph, !prof !27
 
 .lr.ph:                                           ; preds = %52, %61
   %55 = phi i32 [ %62, %61 ], [ %53, %52 ]
@@ -1928,23 +1928,23 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr readonly captures(none) 
   %59 = icmp ult i8 %58, 2
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i8 %58, 0
-  br i1 %60, label %61, label %.thread, !prof !29
+  br i1 %60, label %61, label %.critedge, !prof !29
 
 61:                                               ; preds = %.lr.ph
   %62 = extractvalue { i8, i32 } %57, 1
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.thread, label %.lr.ph, !prof !30, !llvm.loop !31
+  br i1 %63, label %.critedge, label %.lr.ph, !prof !30, !llvm.loop !31
 
-.thread:                                          ; preds = %61, %.lr.ph, %52
+.critedge:                                        ; preds = %61, %.lr.ph, %52
   %64 = tail call i32 @pci_choose_state(ptr noundef %0, i32 2) #10
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %67
 
-66:                                               ; preds = %.thread
+66:                                               ; preds = %.critedge
   tail call void @pm_runtime_forbid(ptr noundef nonnull %3) #10
   br label %72
 
-67:                                               ; preds = %.thread
+67:                                               ; preds = %.critedge
   %68 = load i64, ptr %39, align 8
   %69 = and i64 %68, 8589934592
   %70 = icmp eq i64 %69, 0
@@ -1958,11 +1958,11 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr readonly captures(none) 
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread7, label %76
+  br i1 %75, label %.critedge2, label %76
 
 76:                                               ; preds = %72
   store i32 -1, ptr %74, align 8
-  br label %.thread7
+  br label %.critedge2
 
 77:                                               ; preds = %32, %29
   %78 = phi i32 [ %30, %29 ], [ %36, %32 ]
@@ -1979,9 +1979,9 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr readonly captures(none) 
   %83 = phi i32 [ %5, %2 ], [ %81, %80 ]
   %84 = load volatile i32, ptr %4, align 4
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %.thread7, label %.lr.ph9, !prof !27
+  br i1 %85, label %.critedge2, label %.lr.ph10, !prof !27
 
-.lr.ph9:                                          ; preds = %82, %92
+.lr.ph10:                                         ; preds = %82, %92
   %86 = phi i32 [ %93, %92 ], [ %84, %82 ]
   %87 = add i32 %86, -1
   %88 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 %87, ptr nonnull elementtype(i32) %4, i32 %86) #10, !srcloc !28
@@ -1989,15 +1989,15 @@ define internal i32 @xhci_pci_probe(ptr noundef %0, ptr readonly captures(none) 
   %90 = icmp ult i8 %89, 2
   tail call void @llvm.assume(i1 %90)
   %91 = icmp eq i8 %89, 0
-  br i1 %91, label %92, label %.thread7, !prof !29
+  br i1 %91, label %92, label %.critedge2, !prof !29
 
-92:                                               ; preds = %.lr.ph9
+92:                                               ; preds = %.lr.ph10
   %93 = extractvalue { i8, i32 } %88, 1
   %94 = icmp eq i32 %93, 0
-  br i1 %94, label %.thread7, label %.lr.ph9, !prof !30, !llvm.loop !31
+  br i1 %94, label %.critedge2, label %.lr.ph10, !prof !30, !llvm.loop !31
 
-.thread7:                                         ; preds = %92, %.lr.ph9, %82, %76, %72
-  %95 = phi i32 [ 0, %72 ], [ 0, %76 ], [ %83, %82 ], [ %83, %.lr.ph9 ], [ %83, %92 ]
+.critedge2:                                       ; preds = %92, %.lr.ph10, %82, %76, %72
+  %95 = phi i32 [ 0, %72 ], [ 0, %76 ], [ %83, %82 ], [ %83, %.lr.ph10 ], [ %83, %92 ]
   ret i32 %95
 }
 

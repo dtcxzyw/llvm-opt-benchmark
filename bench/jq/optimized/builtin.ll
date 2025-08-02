@@ -6136,7 +6136,6 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 %142
   %144 = call ptr @onig_region_new() #14
-  %invariant.gep = getelementptr i8, ptr %136, i64 1
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -6144,10 +6143,10 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br i1 %.not443, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %135, %429
-  %.0416.us = phi ptr [ %.1417.us, %429 ], [ %137, %135 ]
-  %.sroa.0353.1.us = phi i64 [ %.sroa.0353.3.us, %429 ], [ %.sroa.0353.0, %135 ]
-  %.sroa.12.1.us = phi ptr [ %.sroa.12.3.us, %429 ], [ %.sroa.12.0, %135 ]
+.split.us:                                        ; preds = %135, %431
+  %.0416.us = phi ptr [ %.1417.us, %431 ], [ %137, %135 ]
+  %.sroa.0353.1.us = phi i64 [ %.sroa.0353.3.us, %431 ], [ %.sroa.0353.0, %135 ]
+  %.sroa.12.1.us = phi ptr [ %.sroa.12.3.us, %431 ], [ %.sroa.12.0, %135 ]
   %150 = load ptr, ptr %11, align 8, !tbaa !41
   %151 = call ptr @jv_string_value(i64 %1, ptr %2) #14
   %152 = call i32 @onig_search(ptr noundef %150, ptr noundef %151, ptr noundef %143, ptr noundef %.0416.us, ptr noundef %143, ptr noundef %144, i32 noundef 0) #14
@@ -6238,7 +6237,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %221 = getelementptr inbounds i8, ptr %136, i64 %220
   call void @onig_region_free(ptr noundef nonnull %144, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #14
-  br label %429
+  br label %431
 
 .lr.ph522.us:                                     ; preds = %._crit_edge.us, %345
   %indvars.iv = phi i64 [ %indvars.iv.next, %345 ], [ 1, %._crit_edge.us ]
@@ -6457,7 +6456,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %378, label %.lr.ph504.us, label %._crit_edge.us.loopexit, !llvm.loop !52
 
 ._crit_edge527.us.loopexit:                       ; preds = %.lr.ph526.us
-  %379 = uitofp i64 %501 to double
+  %379 = uitofp i64 %503 to double
   br label %._crit_edge527.us
 
 ._crit_edge527.us:                                ; preds = %._crit_edge527.us.loopexit, %.preheader476.us
@@ -6502,7 +6501,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %414 = icmp sgt i32 %413, 1
   br i1 %414, label %.lr.ph531.us, label %._crit_edge532.us
 
-._crit_edge532.us:                                ; preds = %470, %._crit_edge527.us
+._crit_edge532.us:                                ; preds = %472, %._crit_edge527.us
   %415 = load ptr, ptr %11, align 8, !tbaa !41
   %416 = call i32 @onig_foreach_name(ptr noundef %415, ptr noundef nonnull @f_match_name_iter, ptr noundef nonnull %14) #14
   %417 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.215) #14
@@ -6517,122 +6516,123 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %426 = load ptr, ptr %145, align 8, !tbaa !43
   %427 = load i32, ptr %426, align 4, !tbaa !19
   %428 = sext i32 %427 to i64
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %428
+  %429 = getelementptr inbounds i8, ptr %136, i64 %428
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
-  br label %429
+  br label %431
 
-429:                                              ; preds = %._crit_edge532.us, %._crit_edge523.us
-  %.1417.us = phi ptr [ %gep.us, %._crit_edge532.us ], [ %221, %._crit_edge523.us ]
+431:                                              ; preds = %._crit_edge532.us, %._crit_edge523.us
+  %.1417.us = phi ptr [ %430, %._crit_edge532.us ], [ %221, %._crit_edge523.us ]
   %.pn450.us = phi { i64, ptr } [ %425, %._crit_edge532.us ], [ %217, %._crit_edge523.us ]
   %.sroa.12.3.us = extractvalue { i64, ptr } %.pn450.us, 1
   %.sroa.0353.3.us = extractvalue { i64, ptr } %.pn450.us, 0
-  %430 = icmp ule ptr %.1417.us, %143
-  %431 = select i1 %.4, i1 %430, i1 false
-  br i1 %431, label %.split.us, label %.loopexit, !llvm.loop !53
+  %432 = icmp ule ptr %.1417.us, %143
+  %433 = select i1 %.4, i1 %432, i1 false
+  br i1 %433, label %.split.us, label %.loopexit, !llvm.loop !53
 
-.lr.ph531.us:                                     ; preds = %._crit_edge527.us, %470
-  %indvars.iv548 = phi i64 [ %indvars.iv.next549, %470 ], [ 1, %._crit_edge527.us ]
-  %432 = call { i64, ptr } @jv_object() #14
-  %433 = extractvalue { i64, ptr } %432, 0
-  %434 = extractvalue { i64, ptr } %432, 1
-  %435 = load ptr, ptr %146, align 8, !tbaa !47
-  %436 = getelementptr inbounds nuw i32, ptr %435, i64 %indvars.iv548
-  %437 = load i32, ptr %436, align 4, !tbaa !19
-  %438 = icmp eq i32 %437, -1
-  %439 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #14
-  %440 = extractvalue { i64, ptr } %439, 0
-  %441 = extractvalue { i64, ptr } %439, 1
-  br i1 %438, label %456, label %442
+.lr.ph531.us:                                     ; preds = %._crit_edge527.us, %472
+  %indvars.iv548 = phi i64 [ %indvars.iv.next549, %472 ], [ 1, %._crit_edge527.us ]
+  %434 = call { i64, ptr } @jv_object() #14
+  %435 = extractvalue { i64, ptr } %434, 0
+  %436 = extractvalue { i64, ptr } %434, 1
+  %437 = load ptr, ptr %146, align 8, !tbaa !47
+  %438 = getelementptr inbounds nuw i32, ptr %437, i64 %indvars.iv548
+  %439 = load i32, ptr %438, align 4, !tbaa !19
+  %440 = icmp eq i32 %439, -1
+  %441 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #14
+  %442 = extractvalue { i64, ptr } %441, 0
+  %443 = extractvalue { i64, ptr } %441, 1
+  br i1 %440, label %458, label %444
 
-442:                                              ; preds = %.lr.ph531.us
-  %443 = call { i64, ptr } @jv_number(double noundef %.0418.lcssa.us) #14
-  %444 = extractvalue { i64, ptr } %443, 0
-  %445 = extractvalue { i64, ptr } %443, 1
-  %446 = call { i64, ptr } @jv_object_set(i64 %433, ptr %434, i64 %440, ptr %441, i64 %444, ptr %445) #14
-  %447 = extractvalue { i64, ptr } %446, 0
-  %448 = extractvalue { i64, ptr } %446, 1
-  %449 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
-  %450 = extractvalue { i64, ptr } %449, 0
-  %451 = extractvalue { i64, ptr } %449, 1
-  %452 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
-  %453 = extractvalue { i64, ptr } %452, 0
-  %454 = extractvalue { i64, ptr } %452, 1
-  %455 = call { i64, ptr } @jv_object_set(i64 %447, ptr %448, i64 %450, ptr %451, i64 %453, ptr %454) #14
-  br label %470
+444:                                              ; preds = %.lr.ph531.us
+  %445 = call { i64, ptr } @jv_number(double noundef %.0418.lcssa.us) #14
+  %446 = extractvalue { i64, ptr } %445, 0
+  %447 = extractvalue { i64, ptr } %445, 1
+  %448 = call { i64, ptr } @jv_object_set(i64 %435, ptr %436, i64 %442, ptr %443, i64 %446, ptr %447) #14
+  %449 = extractvalue { i64, ptr } %448, 0
+  %450 = extractvalue { i64, ptr } %448, 1
+  %451 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
+  %452 = extractvalue { i64, ptr } %451, 0
+  %453 = extractvalue { i64, ptr } %451, 1
+  %454 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
+  %455 = extractvalue { i64, ptr } %454, 0
+  %456 = extractvalue { i64, ptr } %454, 1
+  %457 = call { i64, ptr } @jv_object_set(i64 %449, ptr %450, i64 %452, ptr %453, i64 %455, ptr %456) #14
+  br label %472
 
-456:                                              ; preds = %.lr.ph531.us
-  %457 = call { i64, ptr } @jv_number(double noundef -1.000000e+00) #14
-  %458 = extractvalue { i64, ptr } %457, 0
-  %459 = extractvalue { i64, ptr } %457, 1
-  %460 = call { i64, ptr } @jv_object_set(i64 %433, ptr %434, i64 %440, ptr %441, i64 %458, ptr %459) #14
-  %461 = extractvalue { i64, ptr } %460, 0
-  %462 = extractvalue { i64, ptr } %460, 1
-  %463 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
-  %464 = extractvalue { i64, ptr } %463, 0
-  %465 = extractvalue { i64, ptr } %463, 1
-  %466 = call { i64, ptr } @jv_null() #14
-  %467 = extractvalue { i64, ptr } %466, 0
-  %468 = extractvalue { i64, ptr } %466, 1
-  %469 = call { i64, ptr } @jv_object_set(i64 %461, ptr %462, i64 %464, ptr %465, i64 %467, ptr %468) #14
-  br label %470
+458:                                              ; preds = %.lr.ph531.us
+  %459 = call { i64, ptr } @jv_number(double noundef -1.000000e+00) #14
+  %460 = extractvalue { i64, ptr } %459, 0
+  %461 = extractvalue { i64, ptr } %459, 1
+  %462 = call { i64, ptr } @jv_object_set(i64 %435, ptr %436, i64 %442, ptr %443, i64 %460, ptr %461) #14
+  %463 = extractvalue { i64, ptr } %462, 0
+  %464 = extractvalue { i64, ptr } %462, 1
+  %465 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
+  %466 = extractvalue { i64, ptr } %465, 0
+  %467 = extractvalue { i64, ptr } %465, 1
+  %468 = call { i64, ptr } @jv_null() #14
+  %469 = extractvalue { i64, ptr } %468, 0
+  %470 = extractvalue { i64, ptr } %468, 1
+  %471 = call { i64, ptr } @jv_object_set(i64 %463, ptr %464, i64 %466, ptr %467, i64 %469, ptr %470) #14
+  br label %472
 
-470:                                              ; preds = %456, %442
-  %.pn452.us = phi { i64, ptr } [ %469, %456 ], [ %455, %442 ]
+472:                                              ; preds = %458, %444
+  %.pn452.us = phi { i64, ptr } [ %471, %458 ], [ %457, %444 ]
   %.sroa.16.0.us = extractvalue { i64, ptr } %.pn452.us, 1
   %.sroa.0200.0.us = extractvalue { i64, ptr } %.pn452.us, 0
-  %471 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #14
-  %472 = extractvalue { i64, ptr } %471, 0
-  %473 = extractvalue { i64, ptr } %471, 1
-  %474 = call { i64, ptr } @jv_number(double noundef 0.000000e+00) #14
-  %475 = extractvalue { i64, ptr } %474, 0
-  %476 = extractvalue { i64, ptr } %474, 1
-  %477 = call { i64, ptr } @jv_object_set(i64 %.sroa.0200.0.us, ptr %.sroa.16.0.us, i64 %472, ptr %473, i64 %475, ptr %476) #14
-  %478 = extractvalue { i64, ptr } %477, 0
-  %479 = extractvalue { i64, ptr } %477, 1
-  %480 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.214) #14
-  %481 = extractvalue { i64, ptr } %480, 0
-  %482 = extractvalue { i64, ptr } %480, 1
-  %483 = call { i64, ptr } @jv_null() #14
-  %484 = extractvalue { i64, ptr } %483, 0
-  %485 = extractvalue { i64, ptr } %483, 1
-  %486 = call { i64, ptr } @jv_object_set(i64 %478, ptr %479, i64 %481, ptr %482, i64 %484, ptr %485) #14
-  %487 = extractvalue { i64, ptr } %486, 0
-  %488 = extractvalue { i64, ptr } %486, 1
-  %489 = load i64, ptr %14, align 8
-  %490 = load ptr, ptr %149, align 8
-  %491 = call { i64, ptr } @jv_array_append(i64 %489, ptr %490, i64 %487, ptr %488) #14
-  %492 = extractvalue { i64, ptr } %491, 0
-  %493 = extractvalue { i64, ptr } %491, 1
-  store i64 %492, ptr %14, align 8
-  store ptr %493, ptr %149, align 8, !tbaa !25
+  %473 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #14
+  %474 = extractvalue { i64, ptr } %473, 0
+  %475 = extractvalue { i64, ptr } %473, 1
+  %476 = call { i64, ptr } @jv_number(double noundef 0.000000e+00) #14
+  %477 = extractvalue { i64, ptr } %476, 0
+  %478 = extractvalue { i64, ptr } %476, 1
+  %479 = call { i64, ptr } @jv_object_set(i64 %.sroa.0200.0.us, ptr %.sroa.16.0.us, i64 %474, ptr %475, i64 %477, ptr %478) #14
+  %480 = extractvalue { i64, ptr } %479, 0
+  %481 = extractvalue { i64, ptr } %479, 1
+  %482 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.214) #14
+  %483 = extractvalue { i64, ptr } %482, 0
+  %484 = extractvalue { i64, ptr } %482, 1
+  %485 = call { i64, ptr } @jv_null() #14
+  %486 = extractvalue { i64, ptr } %485, 0
+  %487 = extractvalue { i64, ptr } %485, 1
+  %488 = call { i64, ptr } @jv_object_set(i64 %480, ptr %481, i64 %483, ptr %484, i64 %486, ptr %487) #14
+  %489 = extractvalue { i64, ptr } %488, 0
+  %490 = extractvalue { i64, ptr } %488, 1
+  %491 = load i64, ptr %14, align 8
+  %492 = load ptr, ptr %149, align 8
+  %493 = call { i64, ptr } @jv_array_append(i64 %491, ptr %492, i64 %489, ptr %490) #14
+  %494 = extractvalue { i64, ptr } %493, 0
+  %495 = extractvalue { i64, ptr } %493, 1
+  store i64 %494, ptr %14, align 8
+  store ptr %495, ptr %149, align 8, !tbaa !25
   %indvars.iv.next549 = add nuw nsw i64 %indvars.iv548, 1
-  %494 = load i32, ptr %148, align 4, !tbaa !48
-  %495 = sext i32 %494 to i64
-  %496 = icmp slt i64 %indvars.iv.next549, %495
-  br i1 %496, label %.lr.ph531.us, label %._crit_edge532.us, !llvm.loop !55
+  %496 = load i32, ptr %148, align 4, !tbaa !48
+  %497 = sext i32 %496 to i64
+  %498 = icmp slt i64 %indvars.iv.next549, %497
+  br i1 %498, label %.lr.ph531.us, label %._crit_edge532.us, !llvm.loop !55
 
 .lr.ph526.us:                                     ; preds = %.preheader476.us, %.lr.ph526.us
-  %.0418525.us = phi i64 [ %501, %.lr.ph526.us ], [ 0, %.preheader476.us ]
-  %.0419524.us = phi ptr [ %500, %.lr.ph526.us ], [ %136, %.preheader476.us ]
-  %497 = load i8, ptr %.0419524.us, align 1, !tbaa !25
-  %498 = call i32 @jvp_utf8_decode_length(i8 noundef signext %497) #14
-  %499 = sext i32 %498 to i64
-  %500 = getelementptr inbounds i8, ptr %.0419524.us, i64 %499
-  %501 = add i64 %.0418525.us, 1
-  %502 = load ptr, ptr %146, align 8, !tbaa !47
-  %503 = load i32, ptr %502, align 4, !tbaa !19
-  %504 = sext i32 %503 to i64
-  %505 = getelementptr inbounds i8, ptr %136, i64 %504
-  %506 = icmp ult ptr %500, %505
-  br i1 %506, label %.lr.ph526.us, label %._crit_edge527.us.loopexit, !llvm.loop !56
+  %.0418525.us = phi i64 [ %503, %.lr.ph526.us ], [ 0, %.preheader476.us ]
+  %.0419524.us = phi ptr [ %502, %.lr.ph526.us ], [ %136, %.preheader476.us ]
+  %499 = load i8, ptr %.0419524.us, align 1, !tbaa !25
+  %500 = call i32 @jvp_utf8_decode_length(i8 noundef signext %499) #14
+  %501 = sext i32 %500 to i64
+  %502 = getelementptr inbounds i8, ptr %.0419524.us, i64 %501
+  %503 = add i64 %.0418525.us, 1
+  %504 = load ptr, ptr %146, align 8, !tbaa !47
+  %505 = load i32, ptr %504, align 4, !tbaa !19
+  %506 = sext i32 %505 to i64
+  %507 = getelementptr inbounds i8, ptr %136, i64 %506
+  %508 = icmp ult ptr %502, %507
+  br i1 %508, label %.lr.ph526.us, label %._crit_edge527.us.loopexit, !llvm.loop !56
 
 .preheader.us:                                    ; preds = %284
-  %507 = icmp sgt i32 %224, 0
-  br i1 %507, label %.lr.ph517.us, label %._crit_edge518.us
+  %509 = icmp sgt i32 %224, 0
+  br i1 %509, label %.lr.ph517.us, label %._crit_edge518.us
 
 .preheader475.us:                                 ; preds = %.lr.ph522.us
-  %508 = icmp sgt i32 %227, 0
-  br i1 %508, label %.lr.ph510.us, label %._crit_edge511.us
+  %510 = icmp sgt i32 %227, 0
+  br i1 %510, label %.lr.ph510.us, label %._crit_edge511.us
 
 .preheader476.us:                                 ; preds = %154
   br i1 %160, label %.lr.ph526.us, label %._crit_edge527.us
@@ -6641,58 +6641,58 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %160, label %.lr.ph504.us, label %._crit_edge.us
 
 .split:                                           ; preds = %135
-  %509 = load ptr, ptr %11, align 8, !tbaa !41
-  %510 = call ptr @jv_string_value(i64 %1, ptr %2) #14
-  %511 = call i32 @onig_search(ptr noundef %509, ptr noundef %510, ptr noundef %143, ptr noundef %137, ptr noundef %143, ptr noundef %144, i32 noundef 0) #14
-  %512 = icmp sgt i32 %511, -1
-  br i1 %512, label %513, label %.split534.us
+  %511 = load ptr, ptr %11, align 8, !tbaa !41
+  %512 = call ptr @jv_string_value(i64 %1, ptr %2) #14
+  %513 = call i32 @onig_search(ptr noundef %511, ptr noundef %512, ptr noundef %143, ptr noundef %137, ptr noundef %143, ptr noundef %144, i32 noundef 0) #14
+  %514 = icmp sgt i32 %513, -1
+  br i1 %514, label %515, label %.split534.us
 
-513:                                              ; preds = %.split
-  %514 = call { i64, ptr } @jv_true() #14
-  %515 = extractvalue { i64, ptr } %514, 0
-  %516 = extractvalue { i64, ptr } %514, 1
+515:                                              ; preds = %.split
+  %516 = call { i64, ptr } @jv_true() #14
+  %517 = extractvalue { i64, ptr } %516, 0
+  %518 = extractvalue { i64, ptr } %516, 1
   br label %.loopexit
 
 .split534.us:                                     ; preds = %.split.us, %.split
   %.us-phi = phi i64 [ %.sroa.0353.0, %.split ], [ %.sroa.0353.1.us, %.split.us ]
   %.us-phi535 = phi ptr [ %.sroa.12.0, %.split ], [ %.sroa.12.1.us, %.split.us ]
-  %.us-phi536 = phi i32 [ %511, %.split ], [ %152, %.split.us ]
-  %517 = icmp eq i32 %.us-phi536, -1
-  br i1 %517, label %.loopexit, label %518
+  %.us-phi536 = phi i32 [ %513, %.split ], [ %152, %.split.us ]
+  %519 = icmp eq i32 %.us-phi536, -1
+  br i1 %519, label %.loopexit, label %520
 
-518:                                              ; preds = %.split534.us
+520:                                              ; preds = %.split534.us
   call void @llvm.lifetime.start.p0(i64 90, ptr nonnull %16) #14
-  %519 = call i32 (ptr, i32, ...) @onig_error_code_to_str(ptr noundef nonnull %16, i32 noundef %.us-phi536, ptr noundef nonnull %12) #14
+  %521 = call i32 (ptr, i32, ...) @onig_error_code_to_str(ptr noundef nonnull %16, i32 noundef %.us-phi536, ptr noundef nonnull %12) #14
   call void @jv_free(i64 %.us-phi, ptr %.us-phi535) #14
-  %520 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.211) #14
-  %521 = extractvalue { i64, ptr } %520, 0
-  %522 = extractvalue { i64, ptr } %520, 1
-  %523 = call { i64, ptr } @jv_string(ptr noundef nonnull %16) #14
-  %524 = extractvalue { i64, ptr } %523, 0
-  %525 = extractvalue { i64, ptr } %523, 1
-  %526 = call { i64, ptr } @jv_string_concat(i64 %521, ptr %522, i64 %524, ptr %525) #14
-  %527 = extractvalue { i64, ptr } %526, 0
-  %528 = extractvalue { i64, ptr } %526, 1
-  %529 = call { i64, ptr } @jv_invalid_with_msg(i64 %527, ptr %528) #14
-  %530 = extractvalue { i64, ptr } %529, 0
-  %531 = extractvalue { i64, ptr } %529, 1
+  %522 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.211) #14
+  %523 = extractvalue { i64, ptr } %522, 0
+  %524 = extractvalue { i64, ptr } %522, 1
+  %525 = call { i64, ptr } @jv_string(ptr noundef nonnull %16) #14
+  %526 = extractvalue { i64, ptr } %525, 0
+  %527 = extractvalue { i64, ptr } %525, 1
+  %528 = call { i64, ptr } @jv_string_concat(i64 %523, ptr %524, i64 %526, ptr %527) #14
+  %529 = extractvalue { i64, ptr } %528, 0
+  %530 = extractvalue { i64, ptr } %528, 1
+  %531 = call { i64, ptr } @jv_invalid_with_msg(i64 %529, ptr %530) #14
+  %532 = extractvalue { i64, ptr } %531, 0
+  %533 = extractvalue { i64, ptr } %531, 1
   call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %16) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %429, %.split534.us, %518, %513
-  %.sroa.0353.2 = phi i64 [ %515, %513 ], [ %.us-phi, %.split534.us ], [ %530, %518 ], [ %.sroa.0353.3.us, %429 ]
-  %.sroa.12.2 = phi ptr [ %516, %513 ], [ %.us-phi535, %.split534.us ], [ %531, %518 ], [ %.sroa.12.3.us, %429 ]
+.loopexit:                                        ; preds = %431, %.split534.us, %520, %515
+  %.sroa.0353.2 = phi i64 [ %517, %515 ], [ %.us-phi, %.split534.us ], [ %532, %520 ], [ %.sroa.0353.3.us, %431 ]
+  %.sroa.12.2 = phi ptr [ %518, %515 ], [ %.us-phi535, %.split534.us ], [ %533, %520 ], [ %.sroa.12.3.us, %431 ]
   call void @onig_region_free(ptr noundef %144, i32 noundef 1) #14
-  %532 = load ptr, ptr %11, align 8, !tbaa !41
-  call void @onig_free(ptr noundef %532) #14
+  %534 = load ptr, ptr %11, align 8, !tbaa !41
+  call void @onig_free(ptr noundef %534) #14
   call void @jv_free(i64 %1, ptr %2) #14
   call void @jv_free(i64 %3, ptr %4) #14
-  %533 = insertvalue { i64, ptr } poison, i64 %.sroa.0353.2, 0
-  %534 = insertvalue { i64, ptr } %533, ptr %.sroa.12.2, 1
+  %535 = insertvalue { i64, ptr } poison, i64 %.sroa.0353.2, 0
+  %536 = insertvalue { i64, ptr } %535, ptr %.sroa.12.2, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %100, %118, %.loopexit, %89, %38, %25
-  %.fca.1.insert.merged = phi { i64, ptr } [ %35, %25 ], [ %48, %38 ], [ %129, %118 ], [ %534, %.loopexit ], [ %107, %100 ], [ %96, %89 ]
+  %.fca.1.insert.merged = phi { i64, ptr } [ %35, %25 ], [ %48, %38 ], [ %129, %118 ], [ %536, %.loopexit ], [ %107, %100 ], [ %96, %89 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
   ret { i64, ptr } %.fca.1.insert.merged

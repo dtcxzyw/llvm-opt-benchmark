@@ -73,25 +73,25 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %.sink, ptr %10, align 4, !tbaa !3
   store i32 %.ph158.neg, ptr %12, align 4, !tbaa !3
   %44 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %12, i32 noundef 7) #4
-  br label %97
+  br label %101
 
 45:                                               ; preds = %41
   %46 = uitofp nneg i32 %42 to double
   store double %46, ptr %8, align 8, !tbaa !7
   %47 = tail call i32 @llvm.umin.i32(i32 %23, i32 %26)
   %48 = icmp eq i32 %47, 0
-  %or.cond169 = or i1 %22, %48
-  br i1 %or.cond169, label %97, label %49
+  %or.cond167 = or i1 %22, %48
+  br i1 %or.cond167, label %101, label %49
 
 49:                                               ; preds = %45
   %.not148 = icmp samesign ult i32 %23, %26
   %.not150 = icmp samesign ult i32 %34, %26
-  %or.cond170 = select i1 %.not148, i1 %.not150, i1 false
-  br i1 %or.cond170, label %51, label %50
+  %or.cond168 = select i1 %.not148, i1 %.not150, i1 false
+  br i1 %or.cond168, label %51, label %50
 
 50:                                               ; preds = %49
   tail call void @dgelqt_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #4
-  br label %97
+  br label %101
 
 51:                                               ; preds = %49
   %52 = sub nuw nsw i32 %26, %23
@@ -108,12 +108,10 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %61 = sub nsw i32 %57, %59
   %62 = add i32 %57, 1
   %63 = icmp slt i32 %61, 0
-  %invariant.gep = getelementptr i8, ptr %17, i64 8
-  %invariant.gep160 = getelementptr i8, ptr %20, i64 8
   %64 = icmp sge i32 %62, %60
   %65 = icmp slt i32 %57, %60
-  %.in162 = select i1 %63, i1 %64, i1 %65
-  br i1 %.in162, label %.lr.ph.preheader, label %._crit_edge
+  %.in160 = select i1 %63, i1 %64, i1 %65
+  br i1 %.in160, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %51
   %66 = sext i32 %62 to i64
@@ -123,62 +121,64 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %66, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0164 = phi i32 [ 1, %.lr.ph.preheader ], [ %77, %.lr.ph ]
+  %.0162 = phi i32 [ 1, %.lr.ph.preheader ], [ %81, %.lr.ph ]
   %69 = load i32, ptr %3, align 4, !tbaa !3
   %70 = load i32, ptr %0, align 4, !tbaa !3
   %71 = sub nsw i32 %69, %70
   store i32 %71, ptr %13, align 4, !tbaa !3
   %72 = mul nsw i64 %indvars.iv, %68
-  %gep = getelementptr double, ptr %invariant.gep, i64 %72
-  %73 = mul nsw i32 %70, %.0164
-  %74 = add nsw i32 %73, 1
-  %75 = mul nsw i32 %74, %18
-  %76 = sext i32 %75 to i64
-  %gep161 = getelementptr double, ptr %invariant.gep160, i64 %76
-  call void @dtplqt_(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @c__0, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %gep, ptr noundef nonnull %5, ptr noundef %gep161, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #4
-  %77 = add nuw nsw i32 %.0164, 1
+  %73 = getelementptr double, ptr %17, i64 %72
+  %74 = getelementptr i8, ptr %73, i64 8
+  %75 = mul nsw i32 %70, %.0162
+  %76 = add nsw i32 %75, 1
+  %77 = mul nsw i32 %76, %18
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr double, ptr %20, i64 %78
+  %80 = getelementptr i8, ptr %79, i64 8
+  call void @dtplqt_(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @c__0, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %74, ptr noundef nonnull %5, ptr noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #4
+  %81 = add nuw nsw i32 %.0162, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, %67
   %indvars = trunc i64 %indvars.iv.next to i32
-  %78 = icmp sle i32 %60, %indvars
-  %79 = icmp sge i32 %60, %indvars
-  %.in = select i1 %63, i1 %78, i1 %79
+  %82 = icmp sle i32 %60, %indvars
+  %83 = icmp sge i32 %60, %indvars
+  %.in = select i1 %63, i1 %82, i1 %83
   br i1 %.in, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre166.pre = load i32, ptr %0, align 4, !tbaa !3
+  %.pre164.pre = load i32, ptr %0, align 4, !tbaa !3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %51
-  %.pre166 = phi i32 [ %59, %51 ], [ %.pre166.pre, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i32 [ 1, %51 ], [ %77, %._crit_edge.loopexit ]
-  %80 = load i32, ptr %1, align 4, !tbaa !3
-  %.not151.not = icmp slt i32 %55, %80
-  br i1 %.not151.not, label %81, label %92
+  %.pre164 = phi i32 [ %59, %51 ], [ %.pre164.pre, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 1, %51 ], [ %81, %._crit_edge.loopexit ]
+  %84 = load i32, ptr %1, align 4, !tbaa !3
+  %.not151.not = icmp slt i32 %55, %84
+  br i1 %.not151.not, label %85, label %96
 
-81:                                               ; preds = %._crit_edge
-  %82 = mul nsw i32 %56, %15
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr double, ptr %17, i64 %83
-  %85 = getelementptr i8, ptr %84, i64 8
-  %86 = mul nsw i32 %.pre166, %.0.lcssa
-  %87 = add nsw i32 %86, 1
-  %88 = mul nsw i32 %87, %18
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr double, ptr %20, i64 %89
-  %91 = getelementptr i8, ptr %90, i64 8
-  call void @dtplqt_(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull @c__0, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %85, ptr noundef nonnull %5, ptr noundef %91, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #4
+85:                                               ; preds = %._crit_edge
+  %86 = mul nsw i32 %56, %15
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr double, ptr %17, i64 %87
+  %89 = getelementptr i8, ptr %88, i64 8
+  %90 = mul nsw i32 %.pre164, %.0.lcssa
+  %91 = add nsw i32 %90, 1
+  %92 = mul nsw i32 %91, %18
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr double, ptr %20, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 8
+  call void @dtplqt_(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull @c__0, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %89, ptr noundef nonnull %5, ptr noundef %95, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #4
   %.pre = load i32, ptr %0, align 4, !tbaa !3
-  br label %92
+  br label %96
 
-92:                                               ; preds = %81, %._crit_edge
-  %93 = phi i32 [ %.pre, %81 ], [ %.pre166, %._crit_edge ]
-  %94 = load i32, ptr %2, align 4, !tbaa !3
-  %95 = mul nsw i32 %94, %93
-  %96 = sitofp i32 %95 to double
-  store double %96, ptr %8, align 8, !tbaa !7
-  br label %97
+96:                                               ; preds = %85, %._crit_edge
+  %97 = phi i32 [ %.pre, %85 ], [ %.pre164, %._crit_edge ]
+  %98 = load i32, ptr %2, align 4, !tbaa !3
+  %99 = mul nsw i32 %98, %97
+  %100 = sitofp i32 %99 to double
+  store double %100, ptr %8, align 8, !tbaa !7
+  br label %101
 
-97:                                               ; preds = %45, %92, %50, %.thread
+101:                                              ; preds = %45, %96, %50, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4

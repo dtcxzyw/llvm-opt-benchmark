@@ -59,8 +59,8 @@ _ZNSt10unique_ptrIN13BalanceRegion4ImplESt14default_deleteIS1_EED2Ev.exit: ; pre
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZNK22DDBalanceRegionHandler17openRegionCpuImplE26DdAllowBalanceRegionReopen(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZNK22DDBalanceRegionHandler17openRegionCpuImplE26DdAllowBalanceRegionReopen(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = getelementptr i8, ptr %4, i64 912

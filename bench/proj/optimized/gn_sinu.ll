@@ -643,45 +643,45 @@ define internal { double, double } @_ZL17gn_sinu_s_forward5PJ_LPP8PJconsts(doubl
   br label %23
 
 21:                                               ; preds = %23
-  %22 = add nsw i32 %.02832, -1
+  %22 = add nsw i32 %.02833, -1
   %.not.not = icmp eq i32 %22, 0
-  br i1 %.not.not, label %33, label %23, !llvm.loop !56
+  br i1 %.not.not, label %.critedge31, label %23, !llvm.loop !56
 
 23:                                               ; preds = %18, %21
-  %.02832 = phi i32 [ 8, %18 ], [ %22, %21 ]
-  %.sroa.2.131 = phi double [ %1, %18 ], [ %30, %21 ]
-  %24 = tail call double @sin(double noundef %.sroa.2.131) #7, !tbaa !51
-  %25 = tail call double @llvm.fmuladd.f64(double %7, double %.sroa.2.131, double %24)
+  %.02833 = phi i32 [ 8, %18 ], [ %22, %21 ]
+  %.sroa.2.132 = phi double [ %1, %18 ], [ %30, %21 ]
+  %24 = tail call double @sin(double noundef %.sroa.2.132) #7, !tbaa !51
+  %25 = tail call double @llvm.fmuladd.f64(double %7, double %.sroa.2.132, double %24)
   %26 = fsub double %25, %20
-  %27 = tail call double @cos(double noundef %.sroa.2.131) #7, !tbaa !51
+  %27 = tail call double @cos(double noundef %.sroa.2.132) #7, !tbaa !51
   %28 = fadd double %7, %27
   %29 = fdiv double %26, %28
-  %30 = fsub double %.sroa.2.131, %29
+  %30 = fsub double %.sroa.2.132, %29
   %31 = tail call double @llvm.fabs.f64(double %29)
   %32 = fcmp olt double %31, 0x3E7AD7F29ABCAF48
   br i1 %32, label %.critedge, label %21
 
-33:                                               ; preds = %21
-  %34 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
-  br label %45
+.critedge31:                                      ; preds = %21
+  %33 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
+  br label %44
 
 .critedge:                                        ; preds = %23, %13, %11
-  %35 = phi double [ %.pre, %13 ], [ %7, %11 ], [ %7, %23 ]
+  %34 = phi double [ %.pre, %13 ], [ %7, %11 ], [ %7, %23 ]
   %.sroa.2.0 = phi double [ %17, %13 ], [ %1, %11 ], [ %30, %23 ]
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %37 = load double, ptr %36, align 8, !tbaa !53
-  %38 = fmul double %0, %37
-  %39 = tail call double @cos(double noundef %.sroa.2.0) #7, !tbaa !51
-  %40 = fadd double %35, %39
-  %41 = fmul double %38, %40
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %43 = load double, ptr %42, align 8, !tbaa !52
-  %44 = fmul double %.sroa.2.0, %43
-  br label %45
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %36 = load double, ptr %35, align 8, !tbaa !53
+  %37 = fmul double %0, %36
+  %38 = tail call double @cos(double noundef %.sroa.2.0) #7, !tbaa !51
+  %39 = fadd double %34, %38
+  %40 = fmul double %37, %39
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %42 = load double, ptr %41, align 8, !tbaa !52
+  %43 = fmul double %.sroa.2.0, %42
+  br label %44
 
-45:                                               ; preds = %33, %.critedge
-  %.sroa.3.0 = phi double [ %44, %.critedge ], [ 0.000000e+00, %33 ]
-  %.sroa.027.0 = phi double [ %41, %.critedge ], [ 0.000000e+00, %33 ]
+44:                                               ; preds = %.critedge31, %.critedge
+  %.sroa.3.0 = phi double [ %43, %.critedge ], [ 0.000000e+00, %.critedge31 ]
+  %.sroa.027.0 = phi double [ %40, %.critedge ], [ 0.000000e+00, %.critedge31 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
   ret { double, double } %.fca.1.insert

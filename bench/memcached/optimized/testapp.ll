@@ -3104,340 +3104,341 @@ define internal range(i32 1, 3) i32 @test_binary_pipeline_hickup() #0 {
   %7 = load ptr, ptr @stderr, align 8, !tbaa !44
   %8 = call ptr @strerror(i32 noundef %5) #21
   %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.305, ptr noundef %8) #26
-  br label %114
+  br label %117
 
 10:                                               ; preds = %0
   %11 = call i32 @usleep(i32 noundef 250) #21
   %12 = call i64 @time(ptr noundef null) #21
   %13 = trunc i64 %12 to i32
   call void @srand(i32 noundef %13) #21
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  br label %23
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  br label %24
 
-23:                                               ; preds = %10, %test_binary_pipeline_hickup_chunk.exit
-  %24 = phi i1 [ true, %10 ], [ false, %test_binary_pipeline_hickup_chunk.exit ]
+24:                                               ; preds = %10, %test_binary_pipeline_hickup_chunk.exit
+  %25 = phi i1 [ true, %10 ], [ false, %test_binary_pipeline_hickup_chunk.exit ]
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %1, i8 0, i64 2048, i1 false)
-  %25 = load volatile i8, ptr @hickup_thread_running, align 1, !tbaa !53, !range !55, !noundef !56
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %.lr.ph.i, label %test_binary_pipeline_hickup_chunk.exit
+  %26 = load volatile i8, ptr @hickup_thread_running, align 1, !tbaa !53, !range !55, !noundef !56
+  %27 = trunc nuw i8 %26 to i1
+  br i1 %27, label %.lr.ph.i, label %test_binary_pipeline_hickup_chunk.exit
 
-.lr.ph.i:                                         ; preds = %23, %85
-  %.02951.i = phi i64 [ %83, %85 ], [ 0, %23 ]
+.lr.ph.i:                                         ; preds = %24, %88
+  %.02951.i = phi i64 [ %86, %88 ], [ 0, %24 ]
   call void @llvm.lifetime.start.p0(i64 66560, ptr nonnull %2) #21
-  %27 = call i32 @rand() #21
-  %28 = trunc i32 %27 to i8
-  %29 = call i32 @rand() #21
-  %30 = srem i32 %29, 250
-  %31 = add nsw i32 %30, 1
-  %32 = sext i32 %31 to i64
-  switch i8 %28, label %81 [
-    i8 2, label %33
-    i8 18, label %33
-    i8 3, label %33
-    i8 19, label %33
-    i8 1, label %33
-    i8 17, label %33
-    i8 14, label %41
-    i8 25, label %41
-    i8 15, label %41
-    i8 26, label %41
-    i8 8, label %48
-    i8 24, label %48
-    i8 10, label %49
-    i8 4, label %50
-    i8 20, label %50
-    i8 6, label %56
-    i8 22, label %56
-    i8 5, label %56
-    i8 21, label %56
-    i8 11, label %66
-    i8 0, label %67
-    i8 12, label %67
-    i8 13, label %67
-    i8 9, label %67
-    i8 28, label %73
-    i8 29, label %73
-    i8 30, label %73
-    i8 35, label %73
-    i8 36, label %73
-    i8 16, label %78
-    i8 32, label %79
-    i8 33, label %79
-    i8 34, label %79
-    i8 23, label %79
-    i8 7, label %79
+  %28 = call i32 @rand() #21
+  %29 = trunc i32 %28 to i8
+  %30 = call i32 @rand() #21
+  %31 = srem i32 %30, 250
+  %32 = add nsw i32 %31, 1
+  %33 = sext i32 %32 to i64
+  switch i8 %29, label %84 [
+    i8 2, label %34
+    i8 18, label %34
+    i8 3, label %34
+    i8 19, label %34
+    i8 1, label %34
+    i8 17, label %34
+    i8 14, label %42
+    i8 25, label %42
+    i8 15, label %42
+    i8 26, label %42
+    i8 8, label %51
+    i8 24, label %51
+    i8 10, label %52
+    i8 4, label %53
+    i8 20, label %53
+    i8 6, label %59
+    i8 22, label %59
+    i8 5, label %59
+    i8 21, label %59
+    i8 11, label %69
+    i8 0, label %70
+    i8 12, label %70
+    i8 13, label %70
+    i8 9, label %70
+    i8 28, label %76
+    i8 29, label %76
+    i8 30, label %76
+    i8 35, label %76
+    i8 36, label %76
+    i8 16, label %81
+    i8 32, label %82
+    i8 33, label %82
+    i8 34, label %82
+    i8 23, label %82
+    i8 7, label %82
   ]
 
-33:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %34 = add nsw i64 %32, 40
-  %35 = icmp ult i64 %34, 66560
-  br i1 %35, label %storage_command.exit.i, label %36
+34:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %35 = add nsw i64 %33, 40
+  %36 = icmp ult i64 %35, 66560
+  br i1 %36, label %storage_command.exit.i, label %37
 
-36:                                               ; preds = %33
+37:                                               ; preds = %34
   call void @__assert_fail(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.62, i32 noundef 1085, ptr noundef nonnull @__PRETTY_FUNCTION__.storage_command) #22
   unreachable
 
-storage_command.exit.i:                           ; preds = %33
+storage_command.exit.i:                           ; preds = %34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   store i8 -128, ptr %2, align 8, !tbaa !6
-  store i8 %28, ptr %14, align 1, !tbaa !6
-  %37 = trunc nsw i32 %31 to i16
-  %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %37)
+  store i8 %29, ptr %14, align 1, !tbaa !6
+  %38 = trunc nsw i32 %32 to i16
+  %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %38)
   store i16 %rev.i.i.i, ptr %15, align 2, !tbaa !6
   store i8 8, ptr %18, align 4, !tbaa !6
-  %38 = add nsw i32 %30, 17
-  %39 = call noundef i32 @llvm.bswap.i32(i32 %38)
-  store i32 %39, ptr %16, align 8, !tbaa !6
+  %39 = add nsw i32 %31, 17
+  %40 = call noundef i32 @llvm.bswap.i32(i32 %39)
+  store i32 %40, ptr %16, align 8, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
-  store i32 0, ptr %invariant.gep.i, align 8, !tbaa !6
-  store i32 0, ptr %19, align 4, !tbaa !6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull readonly align 16 %1, i64 %32, i1 false)
-  %40 = getelementptr inbounds nuw i8, ptr %20, i64 %32
-  store i64 -77129852189294865, ptr %40, align 1
-  br label %82
+  store i32 0, ptr %19, align 8, !tbaa !6
+  store i32 0, ptr %20, align 4, !tbaa !6
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr nonnull readonly align 16 %1, i64 %33, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 %33
+  store i64 -77129852189294865, ptr %41, align 1
+  br label %85
 
-41:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %42 = add nsw i64 %32, 32
-  %43 = icmp ult i64 %42, 66560
-  br i1 %43, label %raw_command.exit.i, label %44
+42:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %43 = add nsw i64 %33, 32
+  %44 = icmp ult i64 %43, 66560
+  br i1 %44, label %raw_command.exit.i, label %45
 
-44:                                               ; preds = %41
+45:                                               ; preds = %42
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #22
   unreachable
 
-raw_command.exit.i:                               ; preds = %41
+raw_command.exit.i:                               ; preds = %42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i8 -128, ptr %2, align 8, !tbaa !6
-  store i8 %28, ptr %14, align 1, !tbaa !6
-  %45 = trunc nsw i32 %31 to i16
-  %rev.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %45)
+  store i8 %29, ptr %14, align 1, !tbaa !6
+  %46 = trunc nsw i32 %32 to i16
+  %rev.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %46)
   store i16 %rev.i.i.i.i, ptr %15, align 2, !tbaa !6
-  %46 = add nsw i32 %30, 9
-  %47 = call noundef i32 @llvm.bswap.i32(i32 %46)
-  store i32 %47, ptr %16, align 8, !tbaa !6
+  %47 = add nsw i32 %31, 9
+  %48 = call noundef i32 @llvm.bswap.i32(i32 %47)
+  store i32 %48, ptr %16, align 8, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull readonly align 16 %1, i64 %32, i1 false)
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %32
-  store i64 -77129852189294865, ptr %gep.i, align 1
-  br label %82
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull readonly align 16 %1, i64 %33, i1 false)
+  %49 = getelementptr i8, ptr %2, i64 %33
+  %50 = getelementptr i8, ptr %49, i64 24
+  store i64 -77129852189294865, ptr %50, align 1
+  br label %85
 
-48:                                               ; preds = %.lr.ph.i, %.lr.ph.i
+51:                                               ; preds = %.lr.ph.i, %.lr.ph.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i8 -128, ptr %2, align 8, !tbaa !6
-  store i8 %28, ptr %14, align 1, !tbaa !6
+  store i8 %29, ptr %14, align 1, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
-  br label %82
+  br label %85
 
-49:                                               ; preds = %.lr.ph.i
+52:                                               ; preds = %.lr.ph.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i8 -128, ptr %2, align 8, !tbaa !6
   store i8 10, ptr %14, align 1, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
-  br label %82
+  br label %85
 
-50:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %51 = add nsw i64 %32, 24
-  %52 = icmp ult i64 %51, 66560
-  br i1 %52, label %raw_command.exit35.i, label %53
+53:                                               ; preds = %.lr.ph.i, %.lr.ph.i
+  %54 = add nsw i64 %33, 24
+  %55 = icmp ult i64 %54, 66560
+  br i1 %55, label %raw_command.exit35.i, label %56
 
-53:                                               ; preds = %50
+56:                                               ; preds = %53
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #22
   unreachable
 
-raw_command.exit35.i:                             ; preds = %50
+raw_command.exit35.i:                             ; preds = %53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i8 -128, ptr %2, align 8, !tbaa !6
-  store i8 %28, ptr %14, align 1, !tbaa !6
-  %54 = trunc nsw i32 %31 to i16
-  %rev.i.i.i34.i = call noundef i16 @llvm.bswap.i16(i16 %54)
+  store i8 %29, ptr %14, align 1, !tbaa !6
+  %57 = trunc nsw i32 %32 to i16
+  %rev.i.i.i34.i = call noundef i16 @llvm.bswap.i16(i16 %57)
   store i16 %rev.i.i.i34.i, ptr %15, align 2, !tbaa !6
-  %55 = call noundef i32 @llvm.bswap.i32(i32 %31)
-  store i32 %55, ptr %16, align 8, !tbaa !6
+  %58 = call noundef i32 @llvm.bswap.i32(i32 %32)
+  store i32 %58, ptr %16, align 8, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull readonly align 16 %1, i64 %32, i1 false)
-  br label %82
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull readonly align 16 %1, i64 %33, i1 false)
+  br label %85
 
-56:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %57 = add nsw i64 %32, 48
-  %58 = icmp ult i64 %57, 66560
-  br i1 %58, label %arithmetic_command.exit.i, label %59
+59:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %60 = add nsw i64 %33, 48
+  %61 = icmp ult i64 %60, 66560
+  br i1 %61, label %arithmetic_command.exit.i, label %62
 
-59:                                               ; preds = %56
+62:                                               ; preds = %59
   call void @__assert_fail(ptr noundef nonnull @.str.288, ptr noundef nonnull @.str.62, i32 noundef 1212, ptr noundef nonnull @__PRETTY_FUNCTION__.arithmetic_command) #22
   unreachable
 
-arithmetic_command.exit.i:                        ; preds = %56
+arithmetic_command.exit.i:                        ; preds = %59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   store i8 -128, ptr %2, align 8, !tbaa !6
-  store i8 %28, ptr %14, align 1, !tbaa !6
-  %60 = trunc nsw i32 %31 to i16
-  %rev.i.i36.i = call noundef i16 @llvm.bswap.i16(i16 %60)
+  store i8 %29, ptr %14, align 1, !tbaa !6
+  %63 = trunc nsw i32 %32 to i16
+  %rev.i.i36.i = call noundef i16 @llvm.bswap.i16(i16 %63)
   store i16 %rev.i.i36.i, ptr %15, align 2, !tbaa !6
   store i8 20, ptr %18, align 4, !tbaa !6
-  %61 = add nsw i32 %30, 21
-  %62 = call noundef i32 @llvm.bswap.i32(i32 %61)
-  store i32 %62, ptr %16, align 8, !tbaa !6
+  %64 = add nsw i32 %31, 21
+  %65 = call noundef i32 @llvm.bswap.i32(i32 %64)
+  store i32 %65, ptr %16, align 8, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
-  %63 = call i64 @htonll(i64 noundef 1) #21
-  store i64 %63, ptr %invariant.gep.i, align 8, !tbaa !6
-  %64 = call i64 @htonll(i64 noundef 0) #21
-  store i64 %64, ptr %20, align 8, !tbaa !6
-  store i32 0, ptr %21, align 8, !tbaa !6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %22, ptr nonnull readonly align 16 %1, i64 %32, i1 false)
-  %65 = add nsw i64 %32, 44
-  br label %82
+  %66 = call i64 @htonll(i64 noundef 1) #21
+  store i64 %66, ptr %19, align 8, !tbaa !6
+  %67 = call i64 @htonll(i64 noundef 0) #21
+  store i64 %67, ptr %21, align 8, !tbaa !6
+  store i32 0, ptr %22, align 8, !tbaa !6
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull readonly align 16 %1, i64 %33, i1 false)
+  %68 = add nsw i64 %33, 44
+  br label %85
 
-66:                                               ; preds = %.lr.ph.i
+69:                                               ; preds = %.lr.ph.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i8 -128, ptr %2, align 8, !tbaa !6
   store i8 11, ptr %14, align 1, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
-  br label %82
+  br label %85
 
-67:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %68 = add nsw i64 %32, 24
-  %69 = icmp ult i64 %68, 66560
-  br i1 %69, label %raw_command.exit38.i, label %70
+70:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %71 = add nsw i64 %33, 24
+  %72 = icmp ult i64 %71, 66560
+  br i1 %72, label %raw_command.exit38.i, label %73
 
-70:                                               ; preds = %67
+73:                                               ; preds = %70
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #22
   unreachable
 
-raw_command.exit38.i:                             ; preds = %67
+raw_command.exit38.i:                             ; preds = %70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i8 -128, ptr %2, align 8, !tbaa !6
-  store i8 %28, ptr %14, align 1, !tbaa !6
-  %71 = trunc nsw i32 %31 to i16
-  %rev.i.i.i37.i = call noundef i16 @llvm.bswap.i16(i16 %71)
+  store i8 %29, ptr %14, align 1, !tbaa !6
+  %74 = trunc nsw i32 %32 to i16
+  %rev.i.i.i37.i = call noundef i16 @llvm.bswap.i16(i16 %74)
   store i16 %rev.i.i.i37.i, ptr %15, align 2, !tbaa !6
-  %72 = call noundef i32 @llvm.bswap.i32(i32 %31)
-  store i32 %72, ptr %16, align 8, !tbaa !6
+  %75 = call noundef i32 @llvm.bswap.i32(i32 %32)
+  store i32 %75, ptr %16, align 8, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull readonly align 16 %1, i64 %32, i1 false)
-  br label %82
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull readonly align 16 %1, i64 %33, i1 false)
+  br label %85
 
-73:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+76:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store i8 -128, ptr %2, align 8, !tbaa !6
-  store i8 %28, ptr %14, align 1, !tbaa !6
-  %74 = trunc nsw i32 %31 to i16
-  %rev.i.i39.i = call noundef i16 @llvm.bswap.i16(i16 %74)
+  store i8 %29, ptr %14, align 1, !tbaa !6
+  %77 = trunc nsw i32 %32 to i16
+  %rev.i.i39.i = call noundef i16 @llvm.bswap.i16(i16 %77)
   store i16 %rev.i.i39.i, ptr %15, align 2, !tbaa !6
   store i8 4, ptr %18, align 4, !tbaa !6
-  store i32 167772160, ptr %invariant.gep.i, align 8, !tbaa !6
-  %75 = add nsw i32 %30, 5
-  %76 = call noundef i32 @llvm.bswap.i32(i32 %75)
-  store i32 %76, ptr %16, align 8, !tbaa !6
+  store i32 167772160, ptr %19, align 8, !tbaa !6
+  %78 = add nsw i32 %31, 5
+  %79 = call noundef i32 @llvm.bswap.i32(i32 %78)
+  store i32 %79, ptr %16, align 8, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr nonnull readonly align 16 %1, i64 range(i64 -248, 251) %32, i1 false)
-  %77 = add nsw i64 %32, 28
-  br label %82
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %20, ptr nonnull readonly align 16 %1, i64 range(i64 -248, 251) %33, i1 false)
+  %80 = add nsw i64 %33, 28
+  br label %85
 
-78:                                               ; preds = %.lr.ph.i
+81:                                               ; preds = %.lr.ph.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i8 -128, ptr %2, align 8, !tbaa !6
   store i8 16, ptr %14, align 1, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
-  br label %82
+  br label %85
 
-79:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %80 = or i8 %28, -16
-  br label %81
+82:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %83 = or i8 %29, -16
+  br label %84
 
-81:                                               ; preds = %79, %.lr.ph.i
-  %.031.i = phi i8 [ %28, %.lr.ph.i ], [ %80, %79 ]
+84:                                               ; preds = %82, %.lr.ph.i
+  %.031.i = phi i8 [ %29, %.lr.ph.i ], [ %83, %82 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i8 -128, ptr %2, align 8, !tbaa !6
   store i8 %.031.i, ptr %14, align 1, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
-  br label %82
+  br label %85
 
-82:                                               ; preds = %81, %78, %73, %raw_command.exit38.i, %66, %arithmetic_command.exit.i, %raw_command.exit35.i, %49, %48, %raw_command.exit.i, %storage_command.exit.i
-  %.030.i = phi i64 [ 24, %81 ], [ %34, %storage_command.exit.i ], [ %42, %raw_command.exit.i ], [ 24, %48 ], [ 24, %49 ], [ %51, %raw_command.exit35.i ], [ %65, %arithmetic_command.exit.i ], [ 24, %66 ], [ %68, %raw_command.exit38.i ], [ %77, %73 ], [ 24, %78 ]
-  %83 = add nsw i64 %.030.i, %.02951.i
-  %84 = icmp ult i64 %83, 66560
-  br i1 %84, label %85, label %.thread.i
+85:                                               ; preds = %84, %81, %76, %raw_command.exit38.i, %69, %arithmetic_command.exit.i, %raw_command.exit35.i, %52, %51, %raw_command.exit.i, %storage_command.exit.i
+  %.030.i = phi i64 [ 24, %84 ], [ %35, %storage_command.exit.i ], [ %43, %raw_command.exit.i ], [ 24, %51 ], [ 24, %52 ], [ %54, %raw_command.exit35.i ], [ %68, %arithmetic_command.exit.i ], [ 24, %69 ], [ %71, %raw_command.exit38.i ], [ %80, %76 ], [ 24, %81 ]
+  %86 = add nsw i64 %.030.i, %.02951.i
+  %87 = icmp ult i64 %86, 66560
+  br i1 %87, label %88, label %.thread.i
 
-.thread.i:                                        ; preds = %82
+.thread.i:                                        ; preds = %85
   call void @llvm.lifetime.end.p0(i64 66560, ptr nonnull %2) #21
   br label %test_binary_pipeline_hickup_chunk.exit
 
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 %.02951.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr nonnull align 8 %2, i64 %.030.i, i1 false)
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 %.02951.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr nonnull align 8 %2, i64 %.030.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 66560, ptr nonnull %2) #21
-  %87 = load volatile i8, ptr @hickup_thread_running, align 1, !tbaa !53, !range !55, !noundef !56
-  %88 = trunc nuw i8 %87 to i1
-  %89 = icmp samesign ult i64 %83, 66536
-  %90 = and i1 %89, %88
-  br i1 %90, label %.lr.ph.i, label %test_binary_pipeline_hickup_chunk.exit
+  %90 = load volatile i8, ptr @hickup_thread_running, align 1, !tbaa !53, !range !55, !noundef !56
+  %91 = trunc nuw i8 %90 to i1
+  %92 = icmp samesign ult i64 %86, 66536
+  %93 = and i1 %92, %91
+  br i1 %93, label %.lr.ph.i, label %test_binary_pipeline_hickup_chunk.exit
 
-test_binary_pipeline_hickup_chunk.exit:           ; preds = %85, %23, %.thread.i
-  %.02950.i = phi i64 [ %.02951.i, %.thread.i ], [ 0, %23 ], [ %83, %85 ]
+test_binary_pipeline_hickup_chunk.exit:           ; preds = %88, %24, %.thread.i
+  %.02950.i = phi i64 [ %.02951.i, %.thread.i ], [ 0, %24 ], [ %86, %88 ]
   call fastcc void @safe_send(ptr noundef %4, i64 noundef %.02950.i, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %1)
-  br i1 %24, label %23, label %91, !llvm.loop !57
+  br i1 %25, label %24, label %94, !llvm.loop !57
 
-91:                                               ; preds = %test_binary_pipeline_hickup_chunk.exit
+94:                                               ; preds = %test_binary_pipeline_hickup_chunk.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i8 -128, ptr %4, align 8, !tbaa !6
-  %92 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 23, ptr %92, align 1, !tbaa !6
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %93, align 8, !tbaa !6
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 -559038737, ptr %94, align 4, !tbaa !6
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 23, ptr %95, align 1, !tbaa !6
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %96, align 8, !tbaa !6
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i32 -559038737, ptr %97, align 4, !tbaa !6
   br label %.split.us.i
 
-.split.us.i:                                      ; preds = %107, %91
-  %.0.us.i = phi i64 [ %.1.us.i, %107 ], [ 0, %91 ]
-  %95 = sub nuw nsw i64 24, %.0.us.i
-  %96 = load ptr, ptr @con, align 8, !tbaa !35
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !39
-  %99 = getelementptr inbounds i8, ptr %4, i64 %.0.us.i
-  %100 = call i64 %98(ptr noundef %96, ptr noundef nonnull %99, i64 noundef %95) #21
-  %101 = icmp eq i64 %100, -1
-  br i1 %101, label %104, label %102
+.split.us.i:                                      ; preds = %110, %94
+  %.0.us.i = phi i64 [ %.1.us.i, %110 ], [ 0, %94 ]
+  %98 = sub nuw nsw i64 24, %.0.us.i
+  %99 = load ptr, ptr @con, align 8, !tbaa !35
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %101 = load ptr, ptr %100, align 8, !tbaa !39
+  %102 = getelementptr inbounds i8, ptr %4, i64 %.0.us.i
+  %103 = call i64 %101(ptr noundef %99, ptr noundef nonnull %102, i64 noundef %98) #21
+  %104 = icmp eq i64 %103, -1
+  br i1 %104, label %107, label %105
 
-102:                                              ; preds = %.split.us.i
-  %103 = add nsw i64 %100, %.0.us.i
-  br label %107
+105:                                              ; preds = %.split.us.i
+  %106 = add nsw i64 %103, %.0.us.i
+  br label %110
 
-104:                                              ; preds = %.split.us.i
-  %105 = tail call ptr @__errno_location() #25
-  %106 = load i32, ptr %105, align 4, !tbaa !9
-  %.not.us.i = icmp eq i32 %106, 4
-  br i1 %.not.us.i, label %107, label %.split18.us.i
+107:                                              ; preds = %.split.us.i
+  %108 = tail call ptr @__errno_location() #25
+  %109 = load i32, ptr %108, align 4, !tbaa !9
+  %.not.us.i = icmp eq i32 %109, 4
+  br i1 %.not.us.i, label %110, label %.split18.us.i
 
-107:                                              ; preds = %104, %102
-  %.1.us.i = phi i64 [ %.0.us.i, %104 ], [ %103, %102 ]
-  %108 = icmp ult i64 %.1.us.i, 24
-  br i1 %108, label %.split.us.i, label %safe_send.exit, !llvm.loop !49
+110:                                              ; preds = %107, %105
+  %.1.us.i = phi i64 [ %.0.us.i, %107 ], [ %106, %105 ]
+  %111 = icmp ult i64 %.1.us.i, 24
+  br i1 %111, label %.split.us.i, label %safe_send.exit, !llvm.loop !49
 
-.split18.us.i:                                    ; preds = %104
-  %109 = load ptr, ptr @stderr, align 8, !tbaa !44
-  %110 = call ptr @strerror(i32 noundef %106) #21
-  %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.238, ptr noundef %110) #26
+.split18.us.i:                                    ; preds = %107
+  %112 = load ptr, ptr @stderr, align 8, !tbaa !44
+  %113 = call ptr @strerror(i32 noundef %109) #21
+  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.238, ptr noundef %113) #26
   call void @abort() #22
   unreachable
 
-safe_send.exit:                                   ; preds = %107
-  %112 = load i64, ptr %3, align 8, !tbaa !31
-  %113 = call i32 @pthread_join(i64 noundef %112, ptr noundef null) #21
-  br label %114
+safe_send.exit:                                   ; preds = %110
+  %115 = load i64, ptr %3, align 8, !tbaa !31
+  %116 = call i32 @pthread_join(i64 noundef %115, ptr noundef null) #21
+  br label %117
 
-114:                                              ; preds = %safe_send.exit, %6
+117:                                              ; preds = %safe_send.exit, %6
   %.0 = phi i32 [ 2, %6 ], [ 1, %safe_send.exit ]
   call void @free(ptr noundef %4) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21

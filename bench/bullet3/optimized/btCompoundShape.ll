@@ -1379,7 +1379,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store float 0.000000e+00, ptr %9, align 4, !tbaa !22
   %10 = icmp sgt i32 %3, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1390,7 +1390,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   br label %16
 
 16:                                               ; preds = %.lr.ph, %101
-  %.0118 = phi i32 [ %3, %.lr.ph ], [ %102, %101 ]
+  %.0115 = phi i32 [ %3, %.lr.ph ], [ %102, %101 ]
   %17 = load float, ptr %11, align 4, !tbaa !22
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
   %19 = load float, ptr %12, align 4, !tbaa !22
@@ -1427,10 +1427,10 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
 37:                                               ; preds = %26
   %38 = fmul float %35, 0x3E80000000000000
   %39 = fcmp ugt float %.1103, %38
-  br i1 %39, label %40, label %._crit_edge
+  br i1 %39, label %40, label %.critedge
 
 40:                                               ; preds = %37, %26
-  %.1 = phi i32 [ %.0118, %26 ], [ 1, %37 ]
+  %.1 = phi i32 [ %.0115, %26 ], [ 1, %37 ]
   %41 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %.098
   %42 = getelementptr inbounds nuw float, ptr %41, i64 %.1100
   %43 = load float, ptr %42, align 4, !tbaa !22
@@ -1450,14 +1450,14 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
 55:                                               ; preds = %40
   %56 = fcmp ult float %51, 0.000000e+00
   %57 = fadd float %52, 1.000000e+00
-  %sqrt115 = tail call float @llvm.sqrt.f32(float %57)
-  %58 = fneg float %sqrt115
-  %.pn.p = select i1 %56, float %58, float %sqrt115
+  %sqrt112 = tail call float @llvm.sqrt.f32(float %57)
+  %58 = fneg float %sqrt112
+  %.pn.p = select i1 %56, float %58, float %sqrt112
   %.pn = fadd float %51, %.pn.p
   %59 = fdiv float 1.000000e+00, %.pn
   %60 = tail call float @llvm.fmuladd.f32(float %59, float %59, float 1.000000e+00)
-  %sqrt116 = tail call float @llvm.sqrt.f32(float %60)
-  %61 = fdiv float 1.000000e+00, %sqrt116
+  %sqrt113 = tail call float @llvm.sqrt.f32(float %60)
+  %61 = fdiv float 1.000000e+00, %sqrt113
   %62 = fmul float %59, %61
   br label %71
 
@@ -1524,9 +1524,9 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
 101:                                              ; preds = %90
   %102 = add nsw i32 %.1, -1
   %103 = icmp sgt i32 %.1, 1
-  br i1 %103, label %16, label %._crit_edge, !llvm.loop !56
+  br i1 %103, label %16, label %.critedge, !llvm.loop !56
 
-._crit_edge:                                      ; preds = %101, %37, %4
+.critedge:                                        ; preds = %101, %37, %4
   ret void
 }
 
@@ -1740,7 +1740,7 @@ define dso_local void @_ZN15btCompoundShape26createAabbTreeFromChildrenEv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK15btCompoundShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %6 = load float, ptr %5, align 4, !tbaa !29

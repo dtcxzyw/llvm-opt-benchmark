@@ -152,10 +152,10 @@ define noundef i64 @_Z19fast_rv64i_fmvh_x_qP11processor_t6insn_tm(ptr noundef ca
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %28 = getelementptr i8, ptr %0, i64 520
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %29 = lshr i64 %1, 11
   %.sroa.2.0..sroa_idx.idx = and i64 %29, 496
-  %.sroa.2.0..sroa_idx = getelementptr i8, ptr %28, i64 %.sroa.2.0..sroa_idx.idx
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 %.sroa.2.0..sroa_idx.idx
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw [32 x i64], ptr %27, i64 0, i64 %25
   store i64 %.sroa.2.0.copyload, ptr %30, align 8, !tbaa !14
@@ -233,8 +233,8 @@ define noundef i64 @_Z21logged_rv64i_fmvh_x_qP11processor_t6insn_tm(ptr noundef 
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 %1, i1 noundef zeroext false)
   %25 = lshr i64 %1, 11
   %.sroa.2.0..sroa_idx.idx = and i64 %25, 496
-  %26 = getelementptr i8, ptr %0, i64 520
-  %.sroa.2.0..sroa_idx = getelementptr i8, ptr %26, i64 %.sroa.2.0..sroa_idx.idx
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 %.sroa.2.0..sroa_idx.idx
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
@@ -408,8 +408,8 @@ define noundef i64 @_Z19fast_rv64e_fmvh_x_qP11processor_t6insn_tm(ptr noundef ca
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 %1, i1 noundef zeroext false)
   %24 = lshr i64 %1, 11
   %.sroa.2.0..sroa_idx.idx = and i64 %24, 496
-  %25 = getelementptr i8, ptr %0, i64 520
-  %.sroa.2.0..sroa_idx = getelementptr i8, ptr %25, i64 %.sroa.2.0..sroa_idx.idx
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.2.0..sroa_idx.idx
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !22
   %26 = lshr i64 %1, 7
   %27 = and i64 %26, 31
@@ -505,8 +505,8 @@ define noundef i64 @_Z21logged_rv64e_fmvh_x_qP11processor_t6insn_tm(ptr noundef 
   tail call void @_ZNK11float_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 %1, i1 noundef zeroext false)
   %25 = lshr i64 %1, 11
   %.sroa.2.0..sroa_idx.idx = and i64 %25, 496
-  %26 = getelementptr i8, ptr %0, i64 520
-  %.sroa.2.0..sroa_idx = getelementptr i8, ptr %26, i64 %.sroa.2.0..sroa_idx.idx
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 %.sroa.2.0..sroa_idx.idx
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !22
   %27 = lshr i64 %1, 7
   %28 = and i64 %27, 31

@@ -523,7 +523,7 @@ define internal fastcc void @__mutex_unlock_slowpath(ptr noundef %0) unnamed_add
   %29 = phi ptr [ null, %.loopexit ], [ %27, %25 ]
   %30 = and i64 %20, 2
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.thread1, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %28
   %33 = load volatile i64, ptr %0, align 8
@@ -538,13 +538,13 @@ define internal fastcc void @__mutex_unlock_slowpath(ptr noundef %0) unnamed_add
   %42 = icmp ult i8 %41, 2
   call void @llvm.assume(i1 %42)
   %43 = icmp eq i8 %41, 0
-  br i1 %43, label %.lr.ph3, label %.thread1, !prof !18
+  br i1 %43, label %.lr.ph2, label %.critedge, !prof !18
 
-.lr.ph3:                                          ; preds = %32
-  br i1 %35, label %.lr.ph3.split.us, label %.lr.ph3.split
+.lr.ph2:                                          ; preds = %32
+  br i1 %35, label %.lr.ph2.split.us, label %.lr.ph2.split
 
-.lr.ph3.split.us:                                 ; preds = %.lr.ph3, %.lr.ph3.split.us
-  %44 = phi { i8, i64 } [ %47, %.lr.ph3.split.us ], [ %40, %.lr.ph3 ]
+.lr.ph2.split.us:                                 ; preds = %.lr.ph2, %.lr.ph2.split.us
+  %44 = phi { i8, i64 } [ %47, %.lr.ph2.split.us ], [ %40, %.lr.ph2 ]
   %45 = extractvalue { i8, i64 } %44, 1
   %46 = and i64 %45, 1
   %47 = call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %46, ptr elementtype(i64) %0, i64 %45) #12, !srcloc !16
@@ -552,10 +552,10 @@ define internal fastcc void @__mutex_unlock_slowpath(ptr noundef %0) unnamed_add
   %49 = icmp ult i8 %48, 2
   call void @llvm.assume(i1 %49)
   %50 = icmp eq i8 %48, 0
-  br i1 %50, label %.lr.ph3.split.us, label %.thread1, !prof !19, !llvm.loop !20
+  br i1 %50, label %.lr.ph2.split.us, label %.critedge, !prof !19, !llvm.loop !20
 
-.lr.ph3.split:                                    ; preds = %.lr.ph3, %.lr.ph3.split
-  %51 = phi { i8, i64 } [ %55, %.lr.ph3.split ], [ %40, %.lr.ph3 ]
+.lr.ph2.split:                                    ; preds = %.lr.ph2, %.lr.ph2.split
+  %51 = phi { i8, i64 } [ %55, %.lr.ph2.split ], [ %40, %.lr.ph2 ]
   %52 = extractvalue { i8, i64 } %51, 1
   %53 = and i64 %52, 1
   %54 = or i64 %36, %53
@@ -564,14 +564,14 @@ define internal fastcc void @__mutex_unlock_slowpath(ptr noundef %0) unnamed_add
   %57 = icmp ult i8 %56, 2
   call void @llvm.assume(i1 %57)
   %58 = icmp eq i8 %56, 0
-  br i1 %58, label %.lr.ph3.split, label %.thread1, !prof !19
+  br i1 %58, label %.lr.ph2.split, label %.critedge, !prof !19
 
-.thread1:                                         ; preds = %.lr.ph3.split, %.lr.ph3.split.us, %32, %28
+.critedge:                                        ; preds = %.lr.ph2.split, %.lr.ph2.split.us, %32, %28
   call void @_raw_spin_unlock(ptr noundef nonnull %21) #12
   call void @wake_up_q(ptr noundef nonnull %2) #12
   br label %59
 
-59:                                               ; preds = %.thread1, %17
+59:                                               ; preds = %.critedge, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
   ret void
 }

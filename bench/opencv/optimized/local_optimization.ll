@@ -5915,7 +5915,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(8) %14)
   %19 = icmp sge i32 %12, %18
-  br i1 %19, label %20, label %.loopexit
+  br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #25
@@ -5938,9 +5938,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %32 = load i32, ptr %31, align 8, !tbaa !246
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph133, label %.loopexit
+  br i1 %33, label %.lr.ph130, label %.critedge
 
-.lr.ph133:                                        ; preds = %20
+.lr.ph130:                                        ; preds = %20
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -5964,11 +5964,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %55
 
-55:                                               ; preds = %.lr.ph133, %191
-  %.055131 = phi i32 [ 0, %.lr.ph133 ], [ %193, %191 ]
-  %.056130 = phi i32 [ %30, %.lr.ph133 ], [ %.157.ph, %191 ]
+55:                                               ; preds = %.lr.ph130, %191
+  %.055128 = phi i32 [ 0, %.lr.ph130 ], [ %193, %191 ]
+  %.056127 = phi i32 [ %30, %.lr.ph130 ], [ %.157, %191 ]
   %56 = load i32, ptr %34, align 8, !tbaa !249
-  %57 = icmp sgt i32 %.056130, %56
+  %57 = icmp sgt i32 %.056127, %56
   br i1 %57, label %58, label %70
 
 58:                                               ; preds = %55
@@ -5977,7 +5977,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   %61 = load ptr, ptr %60, align 8, !tbaa !17
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 128
   %63 = load ptr, ptr %62, align 8
-  %64 = call noundef nonnull align 8 dereferenceable(24) ptr %63(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(24) %26, i32 noundef %.056130)
+  %64 = call noundef nonnull align 8 dereferenceable(24) ptr %63(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(24) %26, i32 noundef %.056127)
   %65 = load i32, ptr %34, align 8, !tbaa !249
   %66 = load ptr, ptr %59, align 8, !tbaa !17
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 80
@@ -5986,15 +5986,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   br label %77
 
 70:                                               ; preds = %55
-  %.not = icmp eq i32 %.055131, 0
-  br i1 %.not, label %71, label %.loopexit
+  %.not = icmp eq i32 %.055128, 0
+  br i1 %.not, label %71, label %.critedge
 
 71:                                               ; preds = %70
   %72 = load ptr, ptr %13, align 8, !tbaa !90
   %73 = load ptr, ptr %72, align 8, !tbaa !17
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 80
   %75 = load ptr, ptr %74, align 8
-  %76 = call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull align 8 dereferenceable(24) %26, i32 noundef %.056130, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36)
+  %76 = call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull align 8 dereferenceable(24) %26, i32 noundef %.056127, ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36)
   br label %77
 
 77:                                               ; preds = %71, %58
@@ -6055,27 +6055,27 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #25
   %102 = load i32, ptr %44, align 4, !tbaa !247
   %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph123, label %._crit_edge124
+  br i1 %103, label %.lr.ph120, label %._crit_edge121
 
-.lr.ph123:                                        ; preds = %95, %169
-  %.048121 = phi i32 [ %171, %169 ], [ 0, %95 ]
-  %.049120 = phi i32 [ %.1, %169 ], [ %101, %95 ]
-  %.050119 = phi double [ %105, %169 ], [ %96, %95 ]
-  %.sroa.7.0118 = phi float [ %.sroa.7.1.lcssa, %169 ], [ 0x47EFFFFFE0000000, %95 ]
-  %.sroa.085.0117 = phi i32 [ %.sroa.085.1.lcssa, %169 ], [ 0, %95 ]
+.lr.ph120:                                        ; preds = %95, %169
+  %.048118 = phi i32 [ %171, %169 ], [ 0, %95 ]
+  %.049117 = phi i32 [ %.1, %169 ], [ %101, %95 ]
+  %.050116 = phi double [ %105, %169 ], [ %96, %95 ]
+  %.sroa.7.0115 = phi float [ %.sroa.7.1.lcssa, %169 ], [ 0x47EFFFFFE0000000, %95 ]
+  %.sroa.085.0114 = phi i32 [ %.sroa.085.1.lcssa, %169 ], [ 0, %95 ]
   %104 = load double, ptr %45, align 8, !tbaa !255
-  %105 = fsub double %.050119, %104
+  %105 = fsub double %.050116, %104
   %106 = load i32, ptr %46, align 4, !tbaa !243
-  %107 = icmp sgt i32 %.049120, %106
+  %107 = icmp sgt i32 %.049117, %106
   %108 = load ptr, ptr %13, align 8, !tbaa !90
   br i1 %107, label %109, label %.invoke
 
-109:                                              ; preds = %.lr.ph123
+109:                                              ; preds = %.lr.ph120
   %110 = load ptr, ptr %48, align 8, !tbaa !96
   %111 = load ptr, ptr %110, align 8, !tbaa !17
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 128
   %113 = load ptr, ptr %112, align 8
-  %114 = invoke noundef nonnull align 8 dereferenceable(24) ptr %113(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(24) %43, i32 noundef %.049120)
+  %114 = invoke noundef nonnull align 8 dereferenceable(24) ptr %113(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(24) %43, i32 noundef %.049117)
           to label %115 unwind label %117
 
 115:                                              ; preds = %109
@@ -6087,9 +6087,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
           cleanup
   br label %180
 
-.invoke:                                          ; preds = %.lr.ph123, %115
-  %119 = phi ptr [ %114, %115 ], [ %43, %.lr.ph123 ]
-  %120 = phi i32 [ %116, %115 ], [ %.049120, %.lr.ph123 ]
+.invoke:                                          ; preds = %.lr.ph120, %115
+  %119 = phi ptr [ %114, %115 ], [ %43, %.lr.ph120 ]
+  %120 = phi i32 [ %116, %115 ], [ %.049117, %.lr.ph120 ]
   %121 = load ptr, ptr %108, align 8, !tbaa !17
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 80
   %123 = load ptr, ptr %122, align 8
@@ -6098,7 +6098,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
 
 125:                                              ; preds = %.invoke
   %126 = icmp eq i32 %124, 0
-  br i1 %126, label %._crit_edge124, label %127
+  br i1 %126, label %._crit_edge121, label %127
 
 127:                                              ; preds = %125
   %128 = load ptr, ptr %47, align 8, !tbaa !164
@@ -6124,18 +6124,18 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   %.sroa.7.0.extract.trunc = trunc nuw i64 %.sroa.7.0.extract.shift to i32
   %136 = bitcast i32 %.sroa.7.0.extract.trunc to float
   %137 = icmp sgt i32 %124, 1
-  br i1 %137, label %.lr.ph114.preheader, label %._crit_edge115
+  br i1 %137, label %.lr.ph111.preheader, label %._crit_edge112
 
-.lr.ph114.preheader:                              ; preds = %135
-  %wide.trip.count139 = zext nneg i32 %124 to i64
-  br label %.lr.ph114
+.lr.ph111.preheader:                              ; preds = %135
+  %wide.trip.count136 = zext nneg i32 %124 to i64
+  br label %.lr.ph111
 
-._crit_edge115:                                   ; preds = %162, %135
+._crit_edge112:                                   ; preds = %162, %135
   %.sroa.085.1.lcssa = phi i32 [ %.sroa.085.0.extract.trunc, %135 ], [ %.sroa.085.2, %162 ]
   %.sroa.7.1.lcssa = phi float [ %136, %135 ], [ %.sroa.7.2, %162 ]
   %138 = load i32, ptr %44, align 4, !tbaa !247
   %139 = add nsw i32 %138, -1
-  %.not70 = icmp eq i32 %.048121, %139
+  %.not70 = icmp eq i32 %.048118, %139
   br i1 %.not70, label %169, label %163
 
 140:                                              ; preds = %127
@@ -6149,30 +6149,30 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
           cleanup
   br label %180
 
-.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %162
-  %indvars.iv136 = phi i64 [ 1, %.lr.ph114.preheader ], [ %indvars.iv.next137, %162 ]
-  %.sroa.7.1111 = phi float [ %136, %.lr.ph114.preheader ], [ %.sroa.7.2, %162 ]
-  %.sroa.085.1110 = phi i32 [ %.sroa.085.0.extract.trunc, %.lr.ph114.preheader ], [ %.sroa.085.2, %162 ]
+.lr.ph111:                                        ; preds = %.lr.ph111.preheader, %162
+  %indvars.iv133 = phi i64 [ 1, %.lr.ph111.preheader ], [ %indvars.iv.next134, %162 ]
+  %.sroa.7.1108 = phi float [ %136, %.lr.ph111.preheader ], [ %.sroa.7.2, %162 ]
+  %.sroa.085.1107 = phi i32 [ %.sroa.085.0.extract.trunc, %.lr.ph111.preheader ], [ %.sroa.085.2, %162 ]
   %144 = load ptr, ptr %24, align 8, !tbaa !93
   %145 = load ptr, ptr %47, align 8, !tbaa !164
-  %146 = getelementptr inbounds nuw %"class.cv::Mat", ptr %145, i64 %indvars.iv136
+  %146 = getelementptr inbounds nuw %"class.cv::Mat", ptr %145, i64 %indvars.iv133
   %147 = load ptr, ptr %144, align 8, !tbaa !17
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 64
   %149 = load ptr, ptr %148, align 8
   %150 = invoke i64 %149(ptr noundef nonnull align 8 dereferenceable(8) %144, ptr noundef nonnull align 8 dereferenceable(96) %146)
           to label %151 unwind label %158
 
-151:                                              ; preds = %.lr.ph114
+151:                                              ; preds = %.lr.ph111
   %.sroa.0.0.extract.trunc = trunc i64 %150 to i32
   %.sroa.5.0.extract.shift = lshr i64 %150, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %152 = bitcast i32 %.sroa.5.0.extract.trunc to float
-  %153 = fcmp ogt float %.sroa.7.1111, %152
+  %153 = fcmp ogt float %.sroa.7.1108, %152
   br i1 %153, label %154, label %162
 
 154:                                              ; preds = %151
   %155 = load ptr, ptr %47, align 8, !tbaa !164
-  %156 = getelementptr inbounds nuw %"class.cv::Mat", ptr %155, i64 %indvars.iv136
+  %156 = getelementptr inbounds nuw %"class.cv::Mat", ptr %155, i64 %indvars.iv133
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #25
   store i64 0, ptr %52, align 8
   store i32 33619968, ptr %10, align 8, !tbaa !171
@@ -6184,7 +6184,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #25
   br label %162
 
-158:                                              ; preds = %.lr.ph114
+158:                                              ; preds = %.lr.ph111
   %159 = landingpad { ptr, i32 }
           cleanup
   br label %180
@@ -6196,39 +6196,39 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   br label %180
 
 162:                                              ; preds = %157, %151
-  %.sroa.085.2 = phi i32 [ %.sroa.0.0.extract.trunc, %157 ], [ %.sroa.085.1110, %151 ]
-  %.sroa.7.2 = phi float [ %152, %157 ], [ %.sroa.7.1111, %151 ]
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %._crit_edge115, label %.lr.ph114, !llvm.loop !259
+  %.sroa.085.2 = phi i32 [ %.sroa.0.0.extract.trunc, %157 ], [ %.sroa.085.1107, %151 ]
+  %.sroa.7.2 = phi float [ %152, %157 ], [ %.sroa.7.1108, %151 ]
+  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
+  br i1 %exitcond137.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !259
 
-163:                                              ; preds = %._crit_edge115
+163:                                              ; preds = %._crit_edge112
   %164 = load ptr, ptr %24, align 8, !tbaa !93
   %165 = load ptr, ptr %164, align 8, !tbaa !17
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 88
   %167 = load ptr, ptr %166, align 8
   %168 = invoke noundef i32 %167(ptr noundef nonnull align 8 dereferenceable(8) %164, ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(24) %43, double noundef %105)
-          to label %._crit_edge141 unwind label %117
+          to label %._crit_edge138 unwind label %117
 
-._crit_edge141:                                   ; preds = %163
+._crit_edge138:                                   ; preds = %163
   %.pre = load i32, ptr %44, align 4, !tbaa !247
   br label %169
 
-169:                                              ; preds = %._crit_edge141, %._crit_edge115
-  %170 = phi i32 [ %138, %._crit_edge115 ], [ %.pre, %._crit_edge141 ]
-  %.1 = phi i32 [ %.049120, %._crit_edge115 ], [ %168, %._crit_edge141 ]
-  %171 = add nuw nsw i32 %.048121, 1
+169:                                              ; preds = %._crit_edge138, %._crit_edge112
+  %170 = phi i32 [ %138, %._crit_edge112 ], [ %.pre, %._crit_edge138 ]
+  %.1 = phi i32 [ %.049117, %._crit_edge112 ], [ %168, %._crit_edge138 ]
+  %171 = add nuw nsw i32 %.048118, 1
   %172 = icmp slt i32 %171, %170
-  br i1 %172, label %.lr.ph123, label %._crit_edge124, !llvm.loop !260
+  br i1 %172, label %.lr.ph120, label %._crit_edge121, !llvm.loop !260
 
-._crit_edge124:                                   ; preds = %169, %125, %95
-  %.sroa.085.0.lcssa = phi i32 [ 0, %95 ], [ %.sroa.085.0117, %125 ], [ %.sroa.085.1.lcssa, %169 ]
-  %.sroa.7.0.lcssa = phi float [ 0x47EFFFFFE0000000, %95 ], [ %.sroa.7.0118, %125 ], [ %.sroa.7.1.lcssa, %169 ]
+._crit_edge121:                                   ; preds = %169, %125, %95
+  %.sroa.085.0.lcssa = phi i32 [ 0, %95 ], [ %.sroa.085.0114, %125 ], [ %.sroa.085.1.lcssa, %169 ]
+  %.sroa.7.0.lcssa = phi float [ 0x47EFFFFFE0000000, %95 ], [ %.sroa.7.0115, %125 ], [ %.sroa.7.1.lcssa, %169 ]
   %173 = load float, ptr %38, align 4, !tbaa !175
   %174 = fcmp olt float %.sroa.7.0.lcssa, %173
   br i1 %174, label %175, label %179
 
-175:                                              ; preds = %._crit_edge124
+175:                                              ; preds = %._crit_edge121
   store i32 %.sroa.085.0.lcssa, ptr %4, align 4
   store float %.sroa.7.0.lcssa, ptr %38, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #25
@@ -6248,7 +6248,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #25
   br label %180
 
-179:                                              ; preds = %176, %._crit_edge124
+179:                                              ; preds = %176, %._crit_edge121
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #25
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #25
   br label %181
@@ -6261,10 +6261,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
 
 181:                                              ; preds = %179, %._crit_edge
   %182 = load i32, ptr %4, align 4, !tbaa !168
-  %183 = icmp sge i32 %.056130, %182
-  %.pre143 = load i32, ptr %31, align 8, !tbaa !246
-  %184 = add nsw i32 %.pre143, -1
-  %.not78 = icmp eq i32 %.055131, %184
+  %183 = icmp sge i32 %.056127, %182
+  %.pre140 = load i32, ptr %31, align 8, !tbaa !246
+  %184 = add nsw i32 %.pre140, -1
+  %.not78 = icmp eq i32 %.055128, %184
   %or.cond = select i1 %183, i1 true, i1 %.not78
   br i1 %or.cond, label %191, label %185
 
@@ -6274,17 +6274,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac35InnerIterativeLocalO
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 80
   %189 = load ptr, ptr %188, align 8
   %190 = call noundef i32 %189(ptr noundef nonnull align 8 dereferenceable(8) %186, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(24) %26)
-  %.pre142 = load i32, ptr %31, align 8, !tbaa !246
+  %.pre139 = load i32, ptr %31, align 8, !tbaa !246
   br label %191
 
 191:                                              ; preds = %185, %181
-  %192 = phi i32 [ %.pre143, %181 ], [ %.pre142, %185 ]
-  %.157.ph = phi i32 [ %.056130, %181 ], [ %190, %185 ]
-  %193 = add nuw nsw i32 %.055131, 1
+  %192 = phi i32 [ %.pre139, %185 ], [ %.pre140, %181 ]
+  %.157 = phi i32 [ %190, %185 ], [ %.056127, %181 ]
+  %193 = add nuw nsw i32 %.055128, 1
   %194 = icmp slt i32 %193, %192
-  br i1 %194, label %55, label %.loopexit, !llvm.loop !261
+  br i1 %194, label %55, label %.critedge, !llvm.loop !261
 
-.loopexit:                                        ; preds = %191, %70, %20, %5
+.critedge:                                        ; preds = %70, %191, %20, %5
   ret i1 %19
 }
 

@@ -5809,7 +5809,7 @@ _ZNKSt13unordered_mapItN4llvm11SmallVectorISt6vectorISt4pairItNS0_21LegacyLegali
   %.phi.trans.insert69 = zext nneg i32 %7 to i64
   %.phi.trans.insert71.idx = mul nuw nsw i64 %.phi.trans.insert69, 56
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 54680
-  %.phi.trans.insert71 = getelementptr i8, ptr %54, i64 %.phi.trans.insert71.idx
+  %.phi.trans.insert71 = getelementptr inbounds nuw i8, ptr %54, i64 %.phi.trans.insert71.idx
   %.pre = load i64, ptr %.phi.trans.insert71, align 8, !tbaa !125
   %.pre73 = lshr i64 %9, 24
   %.pre75 = trunc i64 %.pre73 to i16

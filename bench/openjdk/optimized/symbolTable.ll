@@ -1352,7 +1352,7 @@ _ZN11SymbolTable13lookup_commonEPKcij.exit.thread: ; preds = %24, %30, %21, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11SymbolTable16do_add_if_neededEPKcimb(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11SymbolTable16do_add_if_neededEPKcimb(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %struct.NOP, align 1
   %6 = alloca %class.SymbolTableLookup, align 8
   %7 = alloca i8, align 1
@@ -2097,7 +2097,7 @@ _ZN11SymbolTable15trigger_cleanupEv.exit:         ; preds = %29, %_ZN11MutexLock
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11SymbolTable20new_permanent_symbolEPKc(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11SymbolTable20new_permanent_symbolEPKc(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19

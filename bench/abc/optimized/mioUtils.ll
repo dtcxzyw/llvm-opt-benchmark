@@ -3571,71 +3571,70 @@ define void @Mio_DeriveTruthTable(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph.i:                                         ; preds = %._crit_edge
   %18 = shl nsw i32 %2, 1
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %.val24.i, i64 4
   %wide.trip.count.i = zext nneg i32 %13 to i64
   br label %19
 
 19:                                               ; preds = %Exp_Truth6Lit.exit31.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Exp_Truth6Lit.exit31.i ]
-  %20 = shl nuw nsw i64 %indvars.iv.i, 1
-  %21 = getelementptr inbounds nuw i32, ptr %.val24.i, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !72
-  switch i32 %22, label %24 [
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
+  %20 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 %.idx.i
+  %21 = load i32, ptr %20, align 4, !tbaa !72
+  switch i32 %21, label %23 [
     i32 -1, label %Exp_Truth6Lit.exit.i
-    i32 -2, label %23
+    i32 -2, label %22
   ]
 
+22:                                               ; preds = %19
+  br label %Exp_Truth6Lit.exit.i
+
 23:                                               ; preds = %19
+  %24 = icmp slt i32 %21, %18
+  %25 = and i32 %21, 1
+  %.not17.i.i = icmp eq i32 %25, 0
+  br i1 %24, label %26, label %38
+
+26:                                               ; preds = %23
+  br i1 %.not17.i.i, label %33, label %27
+
+27:                                               ; preds = %26
+  %28 = sdiv i32 %21, 2
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds i64, ptr %6, i64 %29
+  %31 = load i64, ptr %30, align 8, !tbaa !154
+  %32 = xor i64 %31, -1
   br label %Exp_Truth6Lit.exit.i
 
-24:                                               ; preds = %19
-  %25 = icmp slt i32 %22, %18
-  %26 = and i32 %22, 1
-  %.not17.i.i = icmp eq i32 %26, 0
-  br i1 %25, label %27, label %39
-
-27:                                               ; preds = %24
-  br i1 %.not17.i.i, label %34, label %28
-
-28:                                               ; preds = %27
-  %29 = sdiv i32 %22, 2
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i64, ptr %6, i64 %30
-  %32 = load i64, ptr %31, align 8, !tbaa !154
-  %33 = xor i64 %32, -1
+33:                                               ; preds = %26
+  %34 = ashr exact i32 %21, 1
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i64, ptr %6, i64 %35
+  %37 = load i64, ptr %36, align 8, !tbaa !154
   br label %Exp_Truth6Lit.exit.i
 
-34:                                               ; preds = %27
-  %35 = ashr exact i32 %22, 1
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i64, ptr %6, i64 %36
-  %38 = load i64, ptr %37, align 8, !tbaa !154
+38:                                               ; preds = %23
+  br i1 %.not17.i.i, label %46, label %39
+
+39:                                               ; preds = %38
+  %40 = sdiv i32 %21, 2
+  %41 = sub nsw i32 %40, %2
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i64, ptr %15, i64 %42
+  %44 = load i64, ptr %43, align 8, !tbaa !154
+  %45 = xor i64 %44, -1
   br label %Exp_Truth6Lit.exit.i
 
-39:                                               ; preds = %24
-  br i1 %.not17.i.i, label %47, label %40
-
-40:                                               ; preds = %39
-  %41 = sdiv i32 %22, 2
-  %42 = sub nsw i32 %41, %2
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i64, ptr %15, i64 %43
-  %45 = load i64, ptr %44, align 8, !tbaa !154
-  %46 = xor i64 %45, -1
+46:                                               ; preds = %38
+  %47 = ashr exact i32 %21, 1
+  %48 = sub nsw i32 %47, %2
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i64, ptr %15, i64 %49
+  %51 = load i64, ptr %50, align 8, !tbaa !154
   br label %Exp_Truth6Lit.exit.i
 
-47:                                               ; preds = %39
-  %48 = ashr exact i32 %22, 1
-  %49 = sub nsw i32 %48, %2
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i64, ptr %15, i64 %50
-  %52 = load i64, ptr %51, align 8, !tbaa !154
-  br label %Exp_Truth6Lit.exit.i
-
-Exp_Truth6Lit.exit.i:                             ; preds = %47, %40, %34, %28, %23, %19
-  %.0.i.i = phi i64 [ -1, %23 ], [ 0, %19 ], [ %33, %28 ], [ %38, %34 ], [ %46, %40 ], [ %52, %47 ]
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %20
-  %53 = load i32, ptr %gep.i, align 4, !tbaa !72
+Exp_Truth6Lit.exit.i:                             ; preds = %46, %39, %33, %27, %22, %19
+  %.0.i.i = phi i64 [ -1, %22 ], [ 0, %19 ], [ %32, %27 ], [ %37, %33 ], [ %45, %39 ], [ %51, %46 ]
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %53 = load i32, ptr %52, align 4, !tbaa !72
   switch i32 %53, label %55 [
     i32 -1, label %Exp_Truth6Lit.exit31.i
     i32 -2, label %54
@@ -4441,7 +4440,7 @@ define void @Nf_ManPreparePrint(i32 noundef %0, ptr noundef readonly captures(no
 
 ._crit_edge:                                      ; preds = %9, %4
   %14 = sext i32 %0 to i64
-  %15 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %14
+  %15 = getelementptr [8 x i8], ptr %3, i64 0, i64 %14
   store i8 43, ptr %15, align 1, !tbaa !63
   %16 = add nsw i32 %0, 1
   %17 = sext i32 %16 to i64
@@ -4450,6 +4449,10 @@ define void @Nf_ManPreparePrint(i32 noundef %0, ptr noundef readonly captures(no
   %19 = icmp sgt i32 %5, 0
   %.not = icmp eq i32 %0, 31
   br i1 %19, label %.preheader78.lr.ph.us.preheader, label %.preheader77.thread
+
+.preheader77.thread:                              ; preds = %._crit_edge
+  store i8 45, ptr %15, align 1, !tbaa !63
+  br label %.split113.us
 
 .preheader78.lr.ph.us.preheader:                  ; preds = %._crit_edge
   %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
@@ -4463,24 +4466,28 @@ define void @Nf_ManPreparePrint(i32 noundef %0, ptr noundef readonly captures(no
   %.not.us = phi i1 [ false, %._crit_edge86.us ], [ true, %.preheader78.lr.ph.us.preheader ]
   %20 = select i1 %.not.us, i8 43, i8 45
   %21 = sext i32 %.089.us to i64
-  %22 = getelementptr inbounds [8 x i8], ptr %3, i64 %21, i64 %14
-  store i8 %20, ptr %22, align 1, !tbaa !63
-  br i1 %.not, label %.preheader78.us90, label %.preheader78.us.us
+  %gep.us = getelementptr [8 x i8], ptr %15, i64 %21
+  store i8 %20, ptr %gep.us, align 1, !tbaa !63
+  br i1 %.not, label %.preheader78.lr.ph.split.us93, label %.preheader78.us.us
 
-.preheader78.us90:                                ; preds = %.preheader78.lr.ph.us, %.preheader78.us90
-  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.preheader78.us90 ], [ 0, %.preheader78.lr.ph.us ]
-  %23 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv134
-  %24 = load i32, ptr %23, align 4, !tbaa !72
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [8 x i8], ptr %3, i64 %21, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
+.preheader78.us90:                                ; preds = %.preheader78.lr.ph.split.us93, %.preheader78.us90
+  %indvars.iv134 = phi i64 [ 0, %.preheader78.lr.ph.split.us93 ], [ %indvars.iv.next135, %.preheader78.us90 ]
+  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv134
+  %23 = load i32, ptr %22, align 4, !tbaa !72
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds [8 x i8], ptr %29, i64 0, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  %27 = load i8, ptr %25, align 1, !tbaa !63
   %28 = load i8, ptr %26, align 1, !tbaa !63
-  %29 = load i8, ptr %27, align 1, !tbaa !63
-  store i8 %29, ptr %26, align 1, !tbaa !63
-  store i8 %28, ptr %27, align 1, !tbaa !63
+  store i8 %28, ptr %25, align 1, !tbaa !63
+  store i8 %27, ptr %26, align 1, !tbaa !63
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count137
   br i1 %exitcond138.not, label %._crit_edge86.us, label %.preheader78.us90, !llvm.loop !180
+
+.preheader78.lr.ph.split.us93:                    ; preds = %.preheader78.lr.ph.us
+  %29 = getelementptr inbounds [8 x i8], ptr %3, i64 %21
+  br label %.preheader78.us90
 
 ._crit_edge86.us:                                 ; preds = %._crit_edge83.us.us, %.preheader78.us90
   %.us-phi.us = phi i32 [ %.089.us, %.preheader78.us90 ], [ %47, %._crit_edge83.us.us ]
@@ -4502,7 +4509,7 @@ define void @Nf_ManPreparePrint(i32 noundef %0, ptr noundef readonly captures(no
   %35 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv122
   %36 = load i32, ptr %35, align 4, !tbaa !72
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv.next121, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %32, i64 0, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !63
   %40 = add i8 %39, -65
   %or.cond.us.us = icmp ult i8 %40, 26
@@ -4534,23 +4541,20 @@ define void @Nf_ManPreparePrint(i32 noundef %0, ptr noundef readonly captures(no
 ._crit_edge83.us.us:                              ; preds = %46
   %47 = trunc nsw i64 %indvars.iv.next121 to i32
   %sext = shl i64 %indvars.iv.next121, 32
-  %48 = ashr exact i64 %sext, 32
-  %49 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv129
-  %50 = load i32, ptr %49, align 4, !tbaa !72
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [8 x i8], ptr %3, i64 %48, i64 %51
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  %54 = load i8, ptr %52, align 1, !tbaa !63
+  %48 = ashr exact i64 %sext, 29
+  %49 = getelementptr inbounds i8, ptr %3, i64 %48
+  %50 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv129
+  %51 = load i32, ptr %50, align 4, !tbaa !72
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds [8 x i8], ptr %49, i64 0, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %55 = load i8, ptr %53, align 1, !tbaa !63
-  store i8 %55, ptr %52, align 1, !tbaa !63
-  store i8 %54, ptr %53, align 1, !tbaa !63
+  %56 = load i8, ptr %54, align 1, !tbaa !63
+  store i8 %56, ptr %53, align 1, !tbaa !63
+  store i8 %55, ptr %54, align 1, !tbaa !63
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
   br i1 %exitcond133.not, label %._crit_edge86.us, label %.preheader78.us.us, !llvm.loop !183
-
-.preheader77.thread:                              ; preds = %._crit_edge
-  store i8 45, ptr %15, align 1, !tbaa !63
-  br label %.split113.us
 
 .preheader76.us.preheader:                        ; preds = %._crit_edge86.us
   %smax142 = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
@@ -4558,35 +4562,35 @@ define void @Nf_ManPreparePrint(i32 noundef %0, ptr noundef readonly captures(no
 
 .preheader76.us:                                  ; preds = %.preheader76.us.preheader, %._crit_edge100.us
   %.3104.us = phi i32 [ %.us-phi.us110, %._crit_edge100.us ], [ 0, %.preheader76.us.preheader ]
-  %56 = phi i1 [ false, %._crit_edge100.us ], [ true, %.preheader76.us.preheader ]
+  %57 = phi i1 [ false, %._crit_edge100.us ], [ true, %.preheader76.us.preheader ]
   %.270102.us = phi i32 [ 1, %._crit_edge100.us ], [ 0, %.preheader76.us.preheader ]
   br i1 %.not, label %._crit_edge100.us, label %.preheader.us.us
 
 ._crit_edge100.us:                                ; preds = %._crit_edge97.us.us, %.preheader76.us
-  %.us-phi.us110 = phi i32 [ %.3104.us, %.preheader76.us ], [ %63, %._crit_edge97.us.us ]
-  br i1 %56, label %.preheader76.us, label %.split113.us, !llvm.loop !184
+  %.us-phi.us110 = phi i32 [ %.3104.us, %.preheader76.us ], [ %64, %._crit_edge97.us.us ]
+  br i1 %57, label %.preheader76.us, label %.split113.us, !llvm.loop !184
 
 .preheader.us.us:                                 ; preds = %.preheader76.us, %._crit_edge97.us.us
-  %.499.us.us = phi i32 [ %63, %._crit_edge97.us.us ], [ %.3104.us, %.preheader76.us ]
-  %.16798.us.us = phi i32 [ %64, %._crit_edge97.us.us ], [ 0, %.preheader76.us ]
-  %57 = sext i32 %.499.us.us to i64
-  br label %58
+  %.499.us.us = phi i32 [ %64, %._crit_edge97.us.us ], [ %.3104.us, %.preheader76.us ]
+  %.16798.us.us = phi i32 [ %65, %._crit_edge97.us.us ], [ 0, %.preheader76.us ]
+  %58 = sext i32 %.499.us.us to i64
+  br label %59
 
-58:                                               ; preds = %58, %.preheader.us.us
-  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %58 ], [ %57, %.preheader.us.us ]
-  %.16594.us.us = phi i32 [ %62, %58 ], [ 0, %.preheader.us.us ]
-  %59 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv139
-  %60 = trunc nsw i64 %indvars.iv139 to i32
-  %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %60, i32 noundef %.270102.us, i32 noundef %.16798.us.us, i32 noundef %.16594.us.us, ptr noundef %59)
+59:                                               ; preds = %59, %.preheader.us.us
+  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %59 ], [ %58, %.preheader.us.us ]
+  %.16594.us.us = phi i32 [ %63, %59 ], [ 0, %.preheader.us.us ]
+  %60 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv139
+  %61 = trunc nsw i64 %indvars.iv139 to i32
+  %62 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %61, i32 noundef %.270102.us, i32 noundef %.16798.us.us, i32 noundef %.16594.us.us, ptr noundef %60)
   %indvars.iv.next140 = add nsw i64 %indvars.iv139, 1
-  %62 = add nuw nsw i32 %.16594.us.us, 1
-  %exitcond143.not = icmp eq i32 %62, %smax142
-  br i1 %exitcond143.not, label %._crit_edge97.us.us, label %58, !llvm.loop !185
+  %63 = add nuw nsw i32 %.16594.us.us, 1
+  %exitcond143.not = icmp eq i32 %63, %smax142
+  br i1 %exitcond143.not, label %._crit_edge97.us.us, label %59, !llvm.loop !185
 
-._crit_edge97.us.us:                              ; preds = %58
-  %63 = trunc nsw i64 %indvars.iv.next140 to i32
-  %64 = add nuw nsw i32 %.16798.us.us, 1
-  %exitcond144.not = icmp eq i32 %64, %5
+._crit_edge97.us.us:                              ; preds = %59
+  %64 = trunc nsw i64 %indvars.iv.next140 to i32
+  %65 = add nuw nsw i32 %.16798.us.us, 1
+  %exitcond144.not = icmp eq i32 %65, %5
   br i1 %exitcond144.not, label %._crit_edge100.us, label %.preheader.us.us, !llvm.loop !186
 
 .split113.us:                                     ; preds = %._crit_edge100.us, %.preheader77.thread

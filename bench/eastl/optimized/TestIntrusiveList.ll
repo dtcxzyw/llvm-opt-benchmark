@@ -183,13 +183,13 @@ entry:
   %agg.tmp912 = alloca %"class.eastl::intrusive_list_iterator", align 8
   store i32 0, ptr %nErrorCount, align 4
   %call = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 98, ptr noundef nonnull @.str.1)
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %nodes, i64 16
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
   %arrayctor.cur.idx = phi i64 [ 0, %entry ], [ %arrayctor.cur.add, %arrayctor.loop ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %arrayctor.cur.idx
-  store i32 0, ptr %gep, align 8
+  %arrayctor.cur.ptr = getelementptr inbounds nuw i8, ptr %nodes, i64 %arrayctor.cur.idx
+  %mX.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr, i64 16
+  store i32 0, ptr %mX.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 24
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 480
   br i1 %arrayctor.done, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit, label %arrayctor.loop
@@ -202,7 +202,8 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %ilist, ptr %agg.tmp4, align 8, !alias.scope !8
   %call6 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp, ptr noundef %agg.tmp4, i32 poison, ptr noundef nonnull @.str.2, i32 noundef -1)
   %call8 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call6, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 122, ptr noundef nonnull @.str.3)
-  store i32 0, ptr %invariant.gep, align 16
+  %mX.i84 = getelementptr inbounds nuw i8, ptr %nodes, i64 16
+  store i32 0, ptr %mX.i84, align 16
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %nodes, i64 24
   %mpPrev2.i.i = getelementptr inbounds nuw i8, ptr %nodes, i64 8
   store ptr %ilist, ptr %mpPrev2.i.i, align 8
@@ -327,7 +328,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   %18 = load ptr, ptr %mpPrev.i.i, align 8
   %cmp.i146 = icmp eq ptr %18, %ilist
   %call156 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i146, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 179, ptr noundef nonnull @.str.22)
-  store i32 0, ptr %invariant.gep, align 16
+  store i32 0, ptr %mX.i84, align 16
   store ptr %ilist, ptr %mpPrev2.i.i, align 8
   store ptr %nodes, ptr %ilist, align 8
   store i32 1, ptr %mX.i87, align 8
@@ -505,7 +506,7 @@ if.else.i:                                        ; preds = %invoke.cont265
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i265
-  %ilist.val351168 = phi ptr [ %33, %if.else.i ], [ %ilist, %if.then.i265 ]
+  %ilist.val351158 = phi ptr [ %33, %if.else.i ], [ %ilist, %if.then.i265 ]
   %34 = load ptr, ptr %ilist2, align 8
   %cmp21.i = icmp eq ptr %34, %ilist
   br i1 %cmp21.i, label %if.then22.i, label %if.else28.i
@@ -525,7 +526,7 @@ if.else28.i:                                      ; preds = %if.end.i
   br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit: ; preds = %if.then22.i, %if.else28.i
-  %ilist.val35 = phi ptr [ %ilist.val351168, %if.then22.i ], [ %ilist.val35.pre, %if.else28.i ]
+  %ilist.val35 = phi ptr [ %ilist.val351158, %if.then22.i ], [ %ilist.val35.pre, %if.else28.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
   store ptr %ilist.val35, ptr %agg.tmp273, align 8, !alias.scope !47
   store ptr %ilist, ptr %agg.tmp274, align 8, !alias.scope !50
@@ -570,7 +571,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %ilist2, ptr %agg.tmp298, align 8, !alias.scope !68
   %call300 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp297, ptr noundef %agg.tmp298, i32 poison, ptr noundef nonnull @.str.23, i32 noundef -1)
   %call302 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call300, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 206, ptr noundef nonnull @.str.34)
-  store i32 0, ptr %invariant.gep, align 16
+  store i32 0, ptr %mX.i84, align 16
   store ptr %ilist, ptr %mpPrev2.i.i, align 8
   store ptr %nodes, ptr %ilist, align 8
   store i32 1, ptr %mX.i87, align 8
@@ -618,7 +619,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %ilist, ptr %agg.tmp357, align 8, !alias.scope !80
   %call359 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp356, ptr noundef %agg.tmp357, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
   %call361 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call359, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 214, ptr noundef nonnull @.str.35)
-  store i32 0, ptr %invariant.gep, align 16
+  store i32 0, ptr %mX.i84, align 16
   store ptr %ilist, ptr %mpPrev2.i.i, align 8
   store ptr %nodes, ptr %ilist, align 8
   store i32 1, ptr %mX.i87, align 8
@@ -662,16 +663,16 @@ for.body406:                                      ; preds = %_ZN5eastl14intrusiv
   br i1 %cmp405.not, label %for.cond411.preheader, label %for.body406, !llvm.loop !89
 
 for.body413:                                      ; preds = %for.cond411.preheader, %for.body413
-  %indvars.iv1158 = phi i64 [ 5, %for.cond411.preheader ], [ %indvars.iv.next1159, %for.body413 ]
-  %arrayidx415 = getelementptr inbounds nuw [20 x %"struct.(anonymous namespace)::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv1158
+  %indvars.iv1148 = phi i64 [ 5, %for.cond411.preheader ], [ %indvars.iv.next1149, %for.body413 ]
+  %arrayidx415 = getelementptr inbounds nuw [20 x %"struct.(anonymous namespace)::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv1148
   %46 = load ptr, ptr %mpPrev.i.i201, align 8
   %mpPrev2.i354 = getelementptr inbounds nuw i8, ptr %arrayidx415, i64 8
   store ptr %46, ptr %mpPrev2.i354, align 8
   store ptr %ilist2, ptr %arrayidx415, align 8
   store ptr %arrayidx415, ptr %mpPrev.i.i201, align 8
   store ptr %arrayidx415, ptr %46, align 8
-  %indvars.iv.next1159 = add nuw nsw i64 %indvars.iv1158, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next1159, 10
+  %indvars.iv.next1149 = add nuw nsw i64 %indvars.iv1148, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next1149, 10
   br i1 %exitcond.not, label %for.end418, label %for.body413, !llvm.loop !91
 
 for.end418:                                       ; preds = %for.body413
@@ -726,17 +727,17 @@ for.end438:                                       ; preds = %for.body433
   br label %for.body457
 
 for.body457:                                      ; preds = %for.end438, %for.body457
-  %indvars.iv1161 = phi i64 [ 0, %for.end438 ], [ %indvars.iv.next1162, %for.body457 ]
-  %arrayidx459 = getelementptr inbounds nuw [20 x %"struct.(anonymous namespace)::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv1161
+  %indvars.iv1151 = phi i64 [ 0, %for.end438 ], [ %indvars.iv.next1152, %for.body457 ]
+  %arrayidx459 = getelementptr inbounds nuw [20 x %"struct.(anonymous namespace)::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv1151
   %56 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i363 = getelementptr inbounds nuw i8, ptr %arrayidx459, i64 8
   store ptr %56, ptr %mpPrev2.i363, align 8
   store ptr %ilist, ptr %arrayidx459, align 8
   store ptr %arrayidx459, ptr %mpPrev.i.i, align 8
   store ptr %arrayidx459, ptr %56, align 8
-  %indvars.iv.next1162 = add nuw nsw i64 %indvars.iv1161, 1
-  %exitcond1164.not = icmp eq i64 %indvars.iv.next1162, 5
-  br i1 %exitcond1164.not, label %for.cond.i, label %for.body457, !llvm.loop !117
+  %indvars.iv.next1152 = add nuw nsw i64 %indvars.iv1151, 1
+  %exitcond1154.not = icmp eq i64 %indvars.iv.next1152, 5
+  br i1 %exitcond1154.not, label %for.cond.i, label %for.body457, !llvm.loop !117
 
 for.cond.i:                                       ; preds = %for.body457, %for.cond.i
   %p.0.in.i = phi ptr [ %p.0.i, %for.cond.i ], [ %ilist, %for.body457 ]
@@ -866,7 +867,7 @@ if.else.i411:                                     ; preds = %invoke.cont524
   br label %if.end.i413
 
 if.end.i413:                                      ; preds = %if.else.i411, %if.then.i419
-  %ilist.val551171 = phi ptr [ %60, %if.else.i411 ], [ %ilist, %if.then.i419 ]
+  %ilist.val551161 = phi ptr [ %60, %if.else.i411 ], [ %ilist, %if.then.i419 ]
   %61 = load ptr, ptr %ilist2, align 8
   %cmp21.i414 = icmp eq ptr %61, %ilist
   br i1 %cmp21.i414, label %if.then22.i418, label %if.else28.i416
@@ -886,7 +887,7 @@ if.else28.i416:                                   ; preds = %if.end.i413
   br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit420
 
 _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit420: ; preds = %if.then22.i418, %if.else28.i416
-  %ilist.val55 = phi ptr [ %ilist.val551171, %if.then22.i418 ], [ %ilist.val55.pre, %if.else28.i416 ]
+  %ilist.val55 = phi ptr [ %ilist.val551161, %if.then22.i418 ], [ %ilist.val55.pre, %if.else28.i416 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i408)
   store ptr %ilist.val55, ptr %agg.tmp530, align 8, !alias.scope !136
   store ptr %ilist, ptr %agg.tmp531, align 8, !alias.scope !139
@@ -897,7 +898,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit420: ; preds =
   store ptr %ilist2, ptr %agg.tmp537, align 8, !alias.scope !145
   %call539 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp536, ptr noundef %agg.tmp537, i32 poison, ptr noundef nonnull @.str.52, i32 noundef 4, i32 noundef 3, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef -1)
   %call541 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call539, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @.str.54)
-  store i32 0, ptr %invariant.gep, align 16
+  store i32 0, ptr %mX.i84, align 16
   store ptr %ilist2, ptr %mpPrev2.i.i, align 8
   store ptr %nodes, ptr %ilist2, align 8
   store i32 1, ptr %mX.i87, align 8
@@ -1002,13 +1003,13 @@ _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
   %mpPrev.i.i486 = getelementptr inbounds nuw i8, ptr %ilist2641, i64 8
   store ptr %ilist2641, ptr %mpPrev.i.i486, align 8
   store ptr %ilist2641, ptr %ilist2641, align 8
-  %invariant.gep1147 = getelementptr inbounds nuw i8, ptr %nodes649, i64 16
   br label %arrayctor.loop652
 
 arrayctor.loop652:                                ; preds = %arrayctor.loop652, %_ZNK5eastl19intrusive_list_base4sizeEv.exit
   %arrayctor.cur653.idx = phi i64 [ 0, %_ZNK5eastl19intrusive_list_base4sizeEv.exit ], [ %arrayctor.cur653.add, %arrayctor.loop652 ]
-  %gep1148 = getelementptr inbounds nuw i8, ptr %invariant.gep1147, i64 %arrayctor.cur653.idx
-  store i32 0, ptr %gep1148, align 8
+  %arrayctor.cur653.ptr = getelementptr inbounds nuw i8, ptr %nodes649, i64 %arrayctor.cur653.idx
+  %mX.i487 = getelementptr inbounds nuw i8, ptr %arrayctor.cur653.ptr, i64 16
+  store i32 0, ptr %mX.i487, align 8
   %arrayctor.cur653.add = add nuw nsw i64 %arrayctor.cur653.idx, 24
   %arrayctor.done655 = icmp eq i64 %arrayctor.cur653.add, 240
   br i1 %arrayctor.done655, label %arrayctor.cont656, label %arrayctor.loop652
@@ -1024,7 +1025,8 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   %call662 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp659, ptr noundef %agg.tmp660, i32 poison, ptr noundef nonnull @.str.64, i32 noundef -1)
   %call664 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call662, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 322, ptr noundef nonnull @.str.65)
   %mpPrev.i.i489 = getelementptr inbounds nuw i8, ptr %list1, i64 8
-  store i32 1, ptr %invariant.gep1147, align 16
+  %mX.i493 = getelementptr inbounds nuw i8, ptr %nodes649, i64 16
+  store i32 1, ptr %mX.i493, align 16
   %mpPrev2.i.i496 = getelementptr inbounds nuw i8, ptr %nodes649, i64 8
   store ptr %list1, ptr %mpPrev2.i.i496, align 8
   store ptr %list1, ptr %nodes649, align 16
@@ -1039,7 +1041,7 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   store ptr %list1, ptr %mpPrev.i.i489, align 8
   store ptr %list1, ptr %list1, align 8
   %mpPrev.i.i498 = getelementptr inbounds nuw i8, ptr %list4, i64 8
-  store i32 1, ptr %invariant.gep1147, align 16
+  store i32 1, ptr %mX.i493, align 16
   %incdec.ptr.i503 = getelementptr inbounds nuw i8, ptr %nodes649, i64 24
   store ptr %list4, ptr %mpPrev2.i.i496, align 8
   store ptr %nodes649, ptr %list4, align 8
@@ -1071,7 +1073,7 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   store ptr %list4, ptr %mpPrev.i.i498, align 8
   store ptr %list4, ptr %list4, align 8
   %mpPrev.i.i522 = getelementptr inbounds nuw i8, ptr %listA, i64 8
-  store i32 1, ptr %invariant.gep1147, align 16
+  store i32 1, ptr %mX.i493, align 16
   store ptr %listA, ptr %mpPrev2.i.i496, align 8
   store ptr %nodes649, ptr %listA, align 8
   store i32 9, ptr %mX.i507, align 8
@@ -1130,7 +1132,7 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   store ptr %listA, ptr %mpPrev.i.i522, align 8
   store ptr %listA, ptr %listA, align 8
   %mpPrev.i.i576 = getelementptr inbounds nuw i8, ptr %listB, i64 8
-  store i32 1, ptr %invariant.gep1147, align 16
+  store i32 1, ptr %mX.i493, align 16
   store ptr %listB, ptr %mpPrev2.i.i496, align 8
   store ptr %nodes649, ptr %listB, align 8
   store i32 9, ptr %mX.i507, align 8
@@ -1170,32 +1172,30 @@ arrayctor.cont656:                                ; preds = %arrayctor.loop652
   %call763 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call761, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 345, ptr noundef nonnull @.str.69)
   store ptr %listB, ptr %mpPrev.i.i576, align 8
   store ptr %listB, ptr %listB, align 8
-  %invariant.gep1149 = getelementptr inbounds nuw i8, ptr %nodesA, i64 16
   br label %arrayctor.loop772
 
 arrayctor.loop772:                                ; preds = %arrayctor.loop772, %arrayctor.cont656
   %arrayctor.cur773.idx = phi i64 [ 0, %arrayctor.cont656 ], [ %arrayctor.cur773.add, %arrayctor.loop772 ]
-  %gep1150 = getelementptr inbounds nuw i8, ptr %invariant.gep1149, i64 %arrayctor.cur773.idx
-  store i32 0, ptr %gep1150, align 8
+  %arrayctor.cur773.ptr = getelementptr inbounds nuw i8, ptr %nodesA, i64 %arrayctor.cur773.idx
+  %mX.i630 = getelementptr inbounds nuw i8, ptr %arrayctor.cur773.ptr, i64 16
+  store i32 0, ptr %mX.i630, align 8
   %arrayctor.cur773.add = add nuw nsw i64 %arrayctor.cur773.idx, 24
   %arrayctor.done775 = icmp eq i64 %arrayctor.cur773.add, 192
-  br i1 %arrayctor.done775, label %arrayctor.loop779.preheader, label %arrayctor.loop772
+  br i1 %arrayctor.done775, label %arrayctor.loop779, label %arrayctor.loop772
 
-arrayctor.loop779.preheader:                      ; preds = %arrayctor.loop772
-  %invariant.gep1151 = getelementptr inbounds nuw i8, ptr %nodesB, i64 16
-  br label %arrayctor.loop779
-
-arrayctor.loop779:                                ; preds = %arrayctor.loop779.preheader, %arrayctor.loop779
-  %arrayctor.cur780.idx = phi i64 [ %arrayctor.cur780.add, %arrayctor.loop779 ], [ 0, %arrayctor.loop779.preheader ]
-  %gep1152 = getelementptr inbounds nuw i8, ptr %invariant.gep1151, i64 %arrayctor.cur780.idx
-  store i32 0, ptr %gep1152, align 8
+arrayctor.loop779:                                ; preds = %arrayctor.loop772, %arrayctor.loop779
+  %arrayctor.cur780.idx = phi i64 [ %arrayctor.cur780.add, %arrayctor.loop779 ], [ 0, %arrayctor.loop772 ]
+  %arrayctor.cur780.ptr = getelementptr inbounds nuw i8, ptr %nodesB, i64 %arrayctor.cur780.idx
+  %mX.i631 = getelementptr inbounds nuw i8, ptr %arrayctor.cur780.ptr, i64 16
+  store i32 0, ptr %mX.i631, align 8
   %arrayctor.cur780.add = add nuw nsw i64 %arrayctor.cur780.idx, 24
   %arrayctor.done782 = icmp eq i64 %arrayctor.cur780.add, 192
   br i1 %arrayctor.done782, label %invoke.cont825, label %arrayctor.loop779
 
 invoke.cont825:                                   ; preds = %arrayctor.loop779
   %mpPrev.i.i632 = getelementptr inbounds nuw i8, ptr %listA784, i64 8
-  store i32 1, ptr %invariant.gep1149, align 16
+  %mX.i636 = getelementptr inbounds nuw i8, ptr %nodesA, i64 16
+  store i32 1, ptr %mX.i636, align 16
   %incdec.ptr.i637 = getelementptr inbounds nuw i8, ptr %nodesA, i64 24
   %mpPrev2.i.i639 = getelementptr inbounds nuw i8, ptr %nodesA, i64 8
   store ptr %listA784, ptr %mpPrev2.i.i639, align 8
@@ -1244,7 +1244,8 @@ invoke.cont825:                                   ; preds = %arrayctor.loop779
   store ptr %incdec.ptr.i667, ptr %mpPrev.i.i632, align 8
   store ptr %incdec.ptr.i667, ptr %incdec.ptr.i662, align 16
   %mpPrev.i.i675 = getelementptr inbounds nuw i8, ptr %listB805, i64 8
-  store i32 1, ptr %invariant.gep1151, align 16
+  %mX.i679 = getelementptr inbounds nuw i8, ptr %nodesB, i64 16
+  store i32 1, ptr %mX.i679, align 16
   %incdec.ptr.i680 = getelementptr inbounds nuw i8, ptr %nodesB, i64 24
   %mpPrev2.i.i682 = getelementptr inbounds nuw i8, ptr %nodesB, i64 8
   store ptr %listB805, ptr %mpPrev2.i.i682, align 8
@@ -1370,32 +1371,30 @@ invoke.cont827:                                   ; preds = %_ZN5eastl14intrusiv
   store ptr %listB805, ptr %agg.tmp835, align 8, !alias.scope !228
   %call837 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp834, ptr noundef %agg.tmp835, i32 poison, ptr noundef nonnull @.str.70, i32 noundef -1)
   %call839 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call837, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 366, ptr noundef nonnull @.str.72)
-  %invariant.gep1153 = getelementptr inbounds nuw i8, ptr %nodesA843, i64 16
   br label %arrayctor.loop846
 
 arrayctor.loop846:                                ; preds = %invoke.cont827, %arrayctor.loop846
   %arrayctor.cur847.idx = phi i64 [ %arrayctor.cur847.add, %arrayctor.loop846 ], [ 0, %invoke.cont827 ]
-  %gep1154 = getelementptr inbounds nuw i8, ptr %invariant.gep1153, i64 %arrayctor.cur847.idx
-  store i32 0, ptr %gep1154, align 8
+  %arrayctor.cur847.ptr = getelementptr inbounds nuw i8, ptr %nodesA843, i64 %arrayctor.cur847.idx
+  %mX.i724 = getelementptr inbounds nuw i8, ptr %arrayctor.cur847.ptr, i64 16
+  store i32 0, ptr %mX.i724, align 8
   %arrayctor.cur847.add = add nuw nsw i64 %arrayctor.cur847.idx, 24
   %arrayctor.done849 = icmp eq i64 %arrayctor.cur847.add, 192
-  br i1 %arrayctor.done849, label %arrayctor.loop854.preheader, label %arrayctor.loop846
+  br i1 %arrayctor.done849, label %arrayctor.loop854, label %arrayctor.loop846
 
-arrayctor.loop854.preheader:                      ; preds = %arrayctor.loop846
-  %invariant.gep1155 = getelementptr inbounds nuw i8, ptr %nodesB851, i64 16
-  br label %arrayctor.loop854
-
-arrayctor.loop854:                                ; preds = %arrayctor.loop854.preheader, %arrayctor.loop854
-  %arrayctor.cur855.idx = phi i64 [ %arrayctor.cur855.add, %arrayctor.loop854 ], [ 0, %arrayctor.loop854.preheader ]
-  %gep1156 = getelementptr inbounds nuw i8, ptr %invariant.gep1155, i64 %arrayctor.cur855.idx
-  store i32 0, ptr %gep1156, align 8
+arrayctor.loop854:                                ; preds = %arrayctor.loop846, %arrayctor.loop854
+  %arrayctor.cur855.idx = phi i64 [ %arrayctor.cur855.add, %arrayctor.loop854 ], [ 0, %arrayctor.loop846 ]
+  %arrayctor.cur855.ptr = getelementptr inbounds nuw i8, ptr %nodesB851, i64 %arrayctor.cur855.idx
+  %mX.i725 = getelementptr inbounds nuw i8, ptr %arrayctor.cur855.ptr, i64 16
+  store i32 0, ptr %mX.i725, align 8
   %arrayctor.cur855.add = add nuw nsw i64 %arrayctor.cur855.idx, 24
   %arrayctor.done857 = icmp eq i64 %arrayctor.cur855.add, 192
   br i1 %arrayctor.done857, label %while.cond.preheader.i, label %arrayctor.loop854
 
 while.cond.preheader.i:                           ; preds = %arrayctor.loop854
   %mpPrev.i.i726 = getelementptr inbounds nuw i8, ptr %listA859, i64 8
-  store i32 1, ptr %invariant.gep1153, align 16
+  %mX.i730 = getelementptr inbounds nuw i8, ptr %nodesA843, i64 16
+  store i32 1, ptr %mX.i730, align 16
   %incdec.ptr.i731 = getelementptr inbounds nuw i8, ptr %nodesA843, i64 24
   %mpPrev2.i.i733 = getelementptr inbounds nuw i8, ptr %nodesA843, i64 8
   store ptr %listA859, ptr %mpPrev2.i.i733, align 8
@@ -1477,7 +1476,8 @@ invoke.cont880:                                   ; preds = %if.end.i773
   %call884 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp881, ptr noundef %agg.tmp882, i32 poison, ptr noundef nonnull @.str.73, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 9, i32 noundef -1)
   %call886 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call884, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 381, ptr noundef nonnull @.str.74)
   %mpPrev.i.i776 = getelementptr inbounds nuw i8, ptr %listB887, i64 8
-  store i32 1, ptr %invariant.gep1155, align 16
+  %mX.i780 = getelementptr inbounds nuw i8, ptr %nodesB851, i64 16
+  store i32 1, ptr %mX.i780, align 16
   %incdec.ptr.i781 = getelementptr inbounds nuw i8, ptr %nodesB851, i64 24
   %mpPrev2.i.i783 = getelementptr inbounds nuw i8, ptr %nodesB851, i64 8
   store ptr %listB887, ptr %mpPrev2.i.i783, align 8

@@ -2534,7 +2534,7 @@ snort_parse_ts.exit.i:                            ; preds = %.lr.ph
   %62 = getelementptr i8, ptr %55, i64 6
   %63 = call i32 @g_str_has_prefix(ptr noundef %62, ptr noundef nonnull @snort_parse_fast_line.classification)
   %.not44.i = icmp eq i32 %63, 0
-  br i1 %.not44.i, label %.thread53.i, label %64
+  br i1 %.not44.i, label %.thread.i, label %64
 
 64:                                               ; preds = %56
   %65 = getelementptr i8, ptr %55, i64 23
@@ -2542,7 +2542,7 @@ snort_parse_ts.exit.i:                            ; preds = %.lr.ph
   %.not45.not.i = icmp eq ptr %66, null
   br i1 %.not45.not.i, label %111, label %67
 
-.thread53.i:                                      ; preds = %56
+.thread.i:                                        ; preds = %56
   store ptr null, ptr %23, align 8
   br label %74
 
@@ -2556,15 +2556,15 @@ snort_parse_ts.exit.i:                            ; preds = %.lr.ph
   %73 = icmp eq ptr %71, null
   br i1 %73, label %74, label %76
 
-74:                                               ; preds = %67, %.thread53.i
-  %.13557.i = phi ptr [ %62, %.thread53.i ], [ %72, %67 ]
-  %75 = call i32 @g_str_has_prefix(ptr noundef %.13557.i, ptr noundef nonnull @snort_parse_fast_line.priority)
+74:                                               ; preds = %67, %.thread.i
+  %.13555.i = phi ptr [ %62, %.thread.i ], [ %72, %67 ]
+  %75 = call i32 @g_str_has_prefix(ptr noundef %.13555.i, ptr noundef nonnull @snort_parse_fast_line.priority)
   %.not47.i = icmp eq i32 %75, 0
   br i1 %.not47.i, label %81, label %76
 
 76:                                               ; preds = %74, %67
-  %.13556.i = phi ptr [ %.13557.i, %74 ], [ %72, %67 ]
-  %77 = getelementptr i8, ptr %.13556.i, i64 11
+  %.13554.i = phi ptr [ %.13555.i, %74 ], [ %72, %67 ]
+  %77 = getelementptr i8, ptr %.13554.i, i64 11
   %78 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %77, ptr noundef nonnull @.str.162, ptr noundef nonnull %24) #13
   %.not48.i = icmp eq i32 %78, 1
   br i1 %.not48.i, label %79, label %111
@@ -2639,7 +2639,7 @@ fill_alert_config.exit:                           ; preds = %snort_parse_fast_li
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(72) %110, ptr noundef nonnull readonly align 8 dereferenceable(72) %10, i64 72, i1 false)
   br label %add_alert_to_session_tree.exit
 
-111:                                              ; preds = %snort_parse_ts.exit.i, %46, %49, %52, %54, %76, %79, %snort_parse_ts.exit.thread.i, %64
+111:                                              ; preds = %snort_parse_ts.exit.i, %46, %49, %52, %54, %76, %79, %64, %snort_parse_ts.exit.thread.i
   call void (ptr, ...) @g_print(ptr noundef nonnull @.str.159, ptr noundef %.13150)
   br label %add_alert_to_session_tree.exit
 

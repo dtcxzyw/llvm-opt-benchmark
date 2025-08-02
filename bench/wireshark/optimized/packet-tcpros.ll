@@ -262,30 +262,30 @@ define internal i32 @dissect_tcpros_pdu(ptr noundef %0, ptr noundef captures(non
   br i1 %.not.i, label %dissect_ros_common.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %75
-  %.05261.i = phi i32 [ %.1.i, %75 ], [ 0, %4 ]
-  %13 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.05261.i)
+  %.05259.i = phi i32 [ %.1.i, %75 ], [ 0, %4 ]
+  %13 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.05259.i)
   %14 = icmp slt i32 %13, 4
-  br i1 %14, label %.thread.i, label %15
+  br i1 %14, label %.critedge.i, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05261.i)
+  %16 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05259.i)
   %17 = icmp ult i32 %13, %16
-  br i1 %17, label %.thread.i, label %20
+  br i1 %17, label %.critedge.i, label %20
 
-.thread.i:                                        ; preds = %15, %.lr.ph.i
+.critedge.i:                                      ; preds = %15, %.lr.ph.i
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 332
-  store i32 %.05261.i, ptr %18, align 4
+  store i32 %.05259.i, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %19, align 8
   br label %dissect_ros_common.exit
 
 20:                                               ; preds = %15
-  %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.05261.i)
+  %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.05259.i)
   %.not.i.i = icmp eq i32 %21, 12
   br i1 %.not.i.i, label %is_rosclock.exit.i, label %is_rosclock.exit.thread.i
 
 is_rosclock.exit.i:                               ; preds = %20
-  %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05261.i)
+  %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05259.i)
   %.not5.i.i = icmp eq i32 %22, 8
   br i1 %.not5.i.i, label %23, label %is_rosclock.exit.thread.i
 
@@ -293,12 +293,12 @@ is_rosclock.exit.i:                               ; preds = %20
   %24 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.75)
   %25 = load i32, ptr @hf_tcpros_clock, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %25, ptr noundef %0, i32 noundef %.05261.i, i32 noundef 4, i32 noundef -2147483648)
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %25, ptr noundef %0, i32 noundef %.05259.i, i32 noundef 4, i32 noundef -2147483648)
   %27 = load i32, ptr @ett_tcpros, align 4
   %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27)
   %29 = load i32, ptr @hf_tcpros_clock_length, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef %.05261.i, i32 noundef 4, i32 noundef -2147483648)
-  %31 = add i32 %.05261.i, 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef %.05259.i, i32 noundef 4, i32 noundef -2147483648)
+  %31 = add i32 %.05259.i, 4
   %32 = load i32, ptr @hf_tcpros_message_header_stamp, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %32, ptr noundef %0, i32 noundef %31, i32 noundef 8, i32 noundef -2147483648)
   %34 = load i32, ptr @ett_tcpros, align 4
@@ -307,26 +307,26 @@ is_rosclock.exit.i:                               ; preds = %20
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef -2147483648)
   %38 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %31)
   %39 = load i32, ptr @hf_tcpros_message_header_stamp_nsec, align 4
-  %40 = add i32 %.05261.i, 8
+  %40 = add i32 %.05259.i, 8
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef -2147483648)
   %42 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %40)
   %43 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.76, i32 noundef %38, i32 noundef %42)
-  %44 = add i32 %.05261.i, 12
+  %44 = add i32 %.05259.i, 12
   br label %75
 
 is_rosclock.exit.thread.i:                        ; preds = %is_rosclock.exit.i, %20
-  %45 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.05261.i)
+  %45 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.05259.i)
   %46 = icmp slt i32 %45, 20
   br i1 %46, label %is_rosmsg.exit.thread.i, label %47
 
 47:                                               ; preds = %is_rosclock.exit.thread.i
-  %48 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05261.i)
+  %48 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05259.i)
   %49 = icmp ult i32 %48, 16
   br i1 %49, label %is_rosmsg.exit.thread.i, label %50
 
 50:                                               ; preds = %47
-  %51 = add i32 %.05261.i, 16
+  %51 = add i32 %.05259.i, 16
   %52 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %51)
   %53 = add i32 %48, -16
   %54 = icmp ule i32 %52, %53
@@ -336,34 +336,34 @@ is_rosclock.exit.thread.i:                        ; preds = %is_rosclock.exit.i,
   br i1 %or.cond.i, label %57, label %is_rosmsg.exit.thread.i
 
 57:                                               ; preds = %50
-  %58 = tail call fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05261.i)
-  %59 = add i32 %58, %.05261.i
+  %58 = tail call fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05259.i)
+  %59 = add i32 %58, %.05259.i
   br label %75
 
 is_rosmsg.exit.thread.i:                          ; preds = %50, %47, %is_rosclock.exit.thread.i
-  %60 = tail call fastcc zeroext i1 @is_rosconnection_header(ptr noundef %0, i32 noundef %.05261.i)
+  %60 = tail call fastcc zeroext i1 @is_rosconnection_header(ptr noundef %0, i32 noundef %.05259.i)
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %is_rosmsg.exit.thread.i
-  %62 = tail call fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05261.i)
-  %63 = add i32 %62, %.05261.i
+  %62 = tail call fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05259.i)
+  %63 = add i32 %62, %.05259.i
   br label %75
 
 64:                                               ; preds = %is_rosmsg.exit.thread.i
-  %65 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05261.i)
-  %66 = add i32 %.05261.i, 4
+  %65 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05259.i)
+  %66 = add i32 %.05259.i, 4
   %67 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %66)
   %68 = icmp ugt i32 %65, %67
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %64
-  %70 = tail call fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05261.i)
-  %71 = add i32 %70, %.05261.i
+  %70 = tail call fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05259.i)
+  %71 = add i32 %70, %.05259.i
   br label %75
 
 72:                                               ; preds = %64
-  %73 = tail call fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05261.i)
-  %74 = add i32 %73, %.05261.i
+  %73 = tail call fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05259.i)
+  %74 = add i32 %73, %.05259.i
   br label %75
 
 75:                                               ; preds = %72, %69, %61, %57, %23
@@ -372,7 +372,7 @@ is_rosmsg.exit.thread.i:                          ; preds = %50, %47, %is_rosclo
   %77 = icmp ult i32 %.1.i, %76
   br i1 %77, label %.lr.ph.i, label %dissect_ros_common.exit, !llvm.loop !8
 
-dissect_ros_common.exit:                          ; preds = %75, %4, %.thread.i
+dissect_ros_common.exit:                          ; preds = %75, %4, %.critedge.i
   %78 = tail call i32 @tvb_reported_length(ptr noundef %0)
   ret i32 %78
 }

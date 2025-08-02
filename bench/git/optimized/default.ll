@@ -170,8 +170,8 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
   %27 = and i32 %.fr.i, 64
   %.not28.i = icmp eq i32 %27, 0
   %.2.i = select i1 %.not28.i, ptr %14, ptr null
-  %.not3036.i = icmp eq ptr %18, null
-  br i1 %.not3036.i, label %.loopexit.i, label %.lr.ph.i
+  %.not3034.i = icmp eq ptr %18, null
+  br i1 %.not3034.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25
   %28 = and i32 %.fr.i, 192
@@ -179,8 +179,8 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
   br i1 %29, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %rev_list_push.exit.us.i
-  %.02237.us.i = phi ptr [ %44, %rev_list_push.exit.us.i ], [ %18, %.lr.ph.i ]
-  %30 = load ptr, ptr %.02237.us.i, align 8, !tbaa !32
+  %.02235.us.i = phi ptr [ %44, %rev_list_push.exit.us.i ], [ %18, %.lr.ph.i ]
+  %30 = load ptr, ptr %.02235.us.i, align 8, !tbaa !32
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 256
   %.not31.us.i = icmp eq i32 %32, 0
@@ -208,14 +208,14 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
   br label %rev_list_push.exit.us.i
 
 rev_list_push.exit.us.i:                          ; preds = %40, %37, %33, %.lr.ph.split.us.i
-  %43 = getelementptr inbounds nuw i8, ptr %.02237.us.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.02235.us.i, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !35
   %.not30.us.i = icmp eq ptr %44, null
   br i1 %.not30.us.i, label %.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !36
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %rev_list_push.exit.i
-  %.02237.i = phi ptr [ %60, %rev_list_push.exit.i ], [ %18, %.lr.ph.i ]
-  %45 = load ptr, ptr %.02237.i, align 8, !tbaa !32
+  %.02235.i = phi ptr [ %60, %rev_list_push.exit.i ], [ %18, %.lr.ph.i ]
+  %45 = load ptr, ptr %.02235.i, align 8, !tbaa !32
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 320
   %or.cond.i = icmp eq i32 %47, 0
@@ -243,9 +243,9 @@ rev_list_push.exit.us.i:                          ; preds = %40, %37, %33, %.lr.
   br label %rev_list_push.exit.i
 
 rev_list_push.exit.i:                             ; preds = %55, %52, %48, %.lr.ph.split.i
-  %58 = load ptr, ptr %.02237.i, align 8, !tbaa !32
+  %58 = load ptr, ptr %.02235.i, align 8, !tbaa !32
   tail call fastcc void @mark_common(ptr noundef nonnull %3, ptr noundef %58, i32 noundef 1, i32 noundef 0)
-  %59 = getelementptr inbounds nuw i8, ptr %.02237.i, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.02235.i, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !35
   %.not30.i = icmp eq ptr %60, null
   br i1 %.not30.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !38

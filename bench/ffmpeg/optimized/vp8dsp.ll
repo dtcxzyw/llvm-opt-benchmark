@@ -5078,102 +5078,105 @@ vp7_normal_limit.exit:                            ; preds = %51
   %57 = icmp sgt i32 %47, %4
   %.not = icmp samesign ugt i32 %55, %4
   %or.cond = select i1 %57, i1 true, i1 %.not
-  br i1 %or.cond, label %hev.exit.thread, label %83
+  br i1 %or.cond, label %hev.exit.thread, label %87
 
 hev.exit.thread:                                  ; preds = %56
   %58 = sub nsw i32 %24, %22
   %59 = mul nsw i32 %58, 3
   %60 = sub nsw i32 %19, %27
   %61 = sext i32 %60 to i64
-  %gep21 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %61
-  %62 = load i8, ptr %gep21, align 1, !tbaa !10
-  %63 = zext i8 %62 to i32
-  %64 = add nsw i32 %59, -128
-  %65 = add nsw i32 %64, %63
-  %66 = sext i32 %65 to i64
-  %gep22 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %66
-  %67 = load i8, ptr %gep22, align 1, !tbaa !10
-  %68 = zext i8 %67 to i32
-  %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 251)
-  %70 = add nsw i32 %69, -124
-  %71 = ashr i32 %70, 3
-  %72 = and i32 %68, 7
-  %73 = icmp eq i32 %72, 4
-  %.neg.i = sext i1 %73 to i32
-  %74 = add nsw i32 %.neg.i, %22
-  %75 = add nsw i32 %74, %71
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %76
-  %78 = load i8, ptr %77, align 1, !tbaa !10
-  store i8 %78, ptr %20, align 1, !tbaa !10
-  %79 = sub nsw i32 %24, %71
+  %62 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %61
+  %63 = getelementptr i8, ptr %62, i64 128
+  %64 = load i8, ptr %63, align 1, !tbaa !10
+  %65 = zext i8 %64 to i32
+  %66 = add nsw i32 %59, -128
+  %67 = add nsw i32 %66, %65
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %68
+  %70 = getelementptr i8, ptr %69, i64 128
+  %71 = load i8, ptr %70, align 1, !tbaa !10
+  %72 = zext i8 %71 to i32
+  %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 251)
+  %74 = add nsw i32 %73, -124
+  %75 = ashr i32 %74, 3
+  %76 = and i32 %72, 7
+  %77 = icmp eq i32 %76, 4
+  %.neg.i = sext i1 %77 to i32
+  %78 = add nsw i32 %.neg.i, %22
+  %79 = add nsw i32 %78, %75
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !10
-  store i8 %82, ptr %13, align 1, !tbaa !10
+  store i8 %82, ptr %20, align 1, !tbaa !10
+  %83 = sub nsw i32 %24, %75
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %84
+  %86 = load i8, ptr %85, align 1, !tbaa !10
+  store i8 %86, ptr %13, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.thread
 
-83:                                               ; preds = %56
-  %84 = sub nsw i32 %19, %27
-  %85 = sext i32 %84 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %85
-  %86 = load i8, ptr %gep, align 1, !tbaa !10
-  %87 = zext i8 %86 to i32
-  %88 = sub nsw i32 %24, %22
-  %89 = mul nsw i32 %88, 3
-  %90 = add nsw i32 %89, %87
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %91
-  %93 = load i8, ptr %92, align 1, !tbaa !10
-  %94 = zext i8 %93 to i32
-  %95 = add nsw i32 %94, -128
-  %96 = mul nsw i32 %95, 27
-  %97 = add nsw i32 %96, 63
-  %98 = ashr i32 %97, 7
-  %99 = mul nsw i32 %95, 18
-  %100 = add nsw i32 %99, 63
-  %101 = ashr i32 %100, 7
-  %102 = mul nsw i32 %95, 9
+87:                                               ; preds = %56
+  %88 = sub nsw i32 %19, %27
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %89
+  %91 = getelementptr i8, ptr %90, i64 128
+  %92 = load i8, ptr %91, align 1, !tbaa !10
+  %93 = zext i8 %92 to i32
+  %94 = sub nsw i32 %24, %22
+  %95 = mul nsw i32 %94, 3
+  %96 = add nsw i32 %95, %93
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %97
+  %99 = load i8, ptr %98, align 1, !tbaa !10
+  %100 = zext i8 %99 to i32
+  %101 = add nsw i32 %100, -128
+  %102 = mul nsw i32 %101, 27
   %103 = add nsw i32 %102, 63
   %104 = ashr i32 %103, 7
-  %105 = add nsw i32 %104, %16
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %106
-  %108 = load i8, ptr %107, align 1, !tbaa !10
-  store i8 %108, ptr %14, align 1, !tbaa !10
-  %109 = add nsw i32 %101, %19
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %110
-  %112 = load i8, ptr %111, align 1, !tbaa !10
-  store i8 %112, ptr %17, align 1, !tbaa !10
-  %113 = add nsw i32 %98, %22
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !10
-  store i8 %116, ptr %20, align 1, !tbaa !10
-  %117 = sub nsw i32 %24, %98
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %118
-  %120 = load i8, ptr %119, align 1, !tbaa !10
-  store i8 %120, ptr %13, align 1, !tbaa !10
-  %121 = sub nsw i32 %27, %101
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !10
-  store i8 %124, ptr %25, align 1, !tbaa !10
-  %125 = sub nsw i32 %30, %104
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %126
-  %128 = load i8, ptr %127, align 1, !tbaa !10
-  store i8 %128, ptr %28, align 1, !tbaa !10
+  %105 = mul nsw i32 %101, 18
+  %106 = add nsw i32 %105, 63
+  %107 = ashr i32 %106, 7
+  %108 = mul nsw i32 %101, 9
+  %109 = add nsw i32 %108, 63
+  %110 = ashr i32 %109, 7
+  %111 = add nsw i32 %110, %16
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %112
+  %114 = load i8, ptr %113, align 1, !tbaa !10
+  store i8 %114, ptr %14, align 1, !tbaa !10
+  %115 = add nsw i32 %107, %19
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %116
+  %118 = load i8, ptr %117, align 1, !tbaa !10
+  store i8 %118, ptr %17, align 1, !tbaa !10
+  %119 = add nsw i32 %104, %22
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %120
+  %122 = load i8, ptr %121, align 1, !tbaa !10
+  store i8 %122, ptr %20, align 1, !tbaa !10
+  %123 = sub nsw i32 %24, %104
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %124
+  %126 = load i8, ptr %125, align 1, !tbaa !10
+  store i8 %126, ptr %13, align 1, !tbaa !10
+  %127 = sub nsw i32 %27, %107
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %128
+  %130 = load i8, ptr %129, align 1, !tbaa !10
+  store i8 %130, ptr %25, align 1, !tbaa !10
+  %131 = sub nsw i32 %30, %110
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %132
+  %134 = load i8, ptr %133, align 1, !tbaa !10
+  store i8 %134, ptr %28, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.thread
 
-vp7_normal_limit.exit.thread:                     ; preds = %12, %36, %42, %45, %48, %51, %vp7_normal_limit.exit, %83, %hev.exit.thread
+vp7_normal_limit.exit.thread:                     ; preds = %12, %36, %42, %45, %48, %51, %vp7_normal_limit.exit, %87, %hev.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %129, label %12, !llvm.loop !134
+  br i1 %exitcond.not, label %135, label %12, !llvm.loop !134
 
-129:                                              ; preds = %vp7_normal_limit.exit.thread
+135:                                              ; preds = %vp7_normal_limit.exit.thread
   ret void
 }
 
@@ -5253,102 +5256,105 @@ vp7_normal_limit.exit:                            ; preds = %46
   %52 = icmp sgt i32 %42, %4
   %.not = icmp samesign ugt i32 %50, %4
   %or.cond = select i1 %52, i1 true, i1 %.not
-  br i1 %or.cond, label %hev.exit.thread, label %78
+  br i1 %or.cond, label %hev.exit.thread, label %82
 
 hev.exit.thread:                                  ; preds = %51
   %53 = sub nsw i32 %19, %17
   %54 = mul nsw i32 %53, 3
   %55 = sub nsw i32 %14, %22
   %56 = sext i32 %55 to i64
-  %gep21 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %56
-  %57 = load i8, ptr %gep21, align 1, !tbaa !10
-  %58 = zext i8 %57 to i32
-  %59 = add nsw i32 %54, -128
-  %60 = add nsw i32 %59, %58
-  %61 = sext i32 %60 to i64
-  %gep22 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %61
-  %62 = load i8, ptr %gep22, align 1, !tbaa !10
-  %63 = zext i8 %62 to i32
-  %64 = tail call i32 @llvm.umin.i32(i32 %63, i32 251)
-  %65 = add nsw i32 %64, -124
-  %66 = ashr i32 %65, 3
-  %67 = and i32 %63, 7
-  %68 = icmp eq i32 %67, 4
-  %.neg.i = sext i1 %68 to i32
-  %69 = add nsw i32 %.neg.i, %17
-  %70 = add nsw i32 %69, %66
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !10
-  store i8 %73, ptr %15, align 1, !tbaa !10
-  %74 = sub nsw i32 %19, %66
+  %57 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %56
+  %58 = getelementptr i8, ptr %57, i64 128
+  %59 = load i8, ptr %58, align 1, !tbaa !10
+  %60 = zext i8 %59 to i32
+  %61 = add nsw i32 %54, -128
+  %62 = add nsw i32 %61, %60
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %63
+  %65 = getelementptr i8, ptr %64, i64 128
+  %66 = load i8, ptr %65, align 1, !tbaa !10
+  %67 = zext i8 %66 to i32
+  %68 = tail call i32 @llvm.umin.i32(i32 %67, i32 251)
+  %69 = add nsw i32 %68, -124
+  %70 = ashr i32 %69, 3
+  %71 = and i32 %67, 7
+  %72 = icmp eq i32 %71, 4
+  %.neg.i = sext i1 %72 to i32
+  %73 = add nsw i32 %.neg.i, %17
+  %74 = add nsw i32 %73, %70
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !10
-  store i8 %77, ptr %8, align 1, !tbaa !10
+  store i8 %77, ptr %15, align 1, !tbaa !10
+  %78 = sub nsw i32 %19, %70
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %79
+  %81 = load i8, ptr %80, align 1, !tbaa !10
+  store i8 %81, ptr %8, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.thread
 
-78:                                               ; preds = %51
-  %79 = sub nsw i32 %14, %22
-  %80 = sext i32 %79 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %80
-  %81 = load i8, ptr %gep, align 1, !tbaa !10
-  %82 = zext i8 %81 to i32
-  %83 = sub nsw i32 %19, %17
-  %84 = mul nsw i32 %83, 3
-  %85 = add nsw i32 %84, %82
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %86
-  %88 = load i8, ptr %87, align 1, !tbaa !10
-  %89 = zext i8 %88 to i32
-  %90 = add nsw i32 %89, -128
-  %91 = mul nsw i32 %90, 27
-  %92 = add nsw i32 %91, 63
-  %93 = ashr i32 %92, 7
-  %94 = mul nsw i32 %90, 18
-  %95 = add nsw i32 %94, 63
-  %96 = ashr i32 %95, 7
-  %97 = mul nsw i32 %90, 9
+82:                                               ; preds = %51
+  %83 = sub nsw i32 %14, %22
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %84
+  %86 = getelementptr i8, ptr %85, i64 128
+  %87 = load i8, ptr %86, align 1, !tbaa !10
+  %88 = zext i8 %87 to i32
+  %89 = sub nsw i32 %19, %17
+  %90 = mul nsw i32 %89, 3
+  %91 = add nsw i32 %90, %88
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %92
+  %94 = load i8, ptr %93, align 1, !tbaa !10
+  %95 = zext i8 %94 to i32
+  %96 = add nsw i32 %95, -128
+  %97 = mul nsw i32 %96, 27
   %98 = add nsw i32 %97, 63
   %99 = ashr i32 %98, 7
-  %100 = add nsw i32 %99, %11
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %101
-  %103 = load i8, ptr %102, align 1, !tbaa !10
-  store i8 %103, ptr %9, align 1, !tbaa !10
-  %104 = add nsw i32 %96, %14
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %105
-  %107 = load i8, ptr %106, align 1, !tbaa !10
-  store i8 %107, ptr %12, align 1, !tbaa !10
-  %108 = add nsw i32 %93, %17
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %109
-  %111 = load i8, ptr %110, align 1, !tbaa !10
-  store i8 %111, ptr %15, align 1, !tbaa !10
-  %112 = sub nsw i32 %19, %93
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %113
-  %115 = load i8, ptr %114, align 1, !tbaa !10
-  store i8 %115, ptr %8, align 1, !tbaa !10
-  %116 = sub nsw i32 %22, %96
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %117
-  %119 = load i8, ptr %118, align 1, !tbaa !10
-  store i8 %119, ptr %20, align 1, !tbaa !10
-  %120 = sub nsw i32 %25, %99
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %121
-  %123 = load i8, ptr %122, align 1, !tbaa !10
-  store i8 %123, ptr %23, align 1, !tbaa !10
+  %100 = mul nsw i32 %96, 18
+  %101 = add nsw i32 %100, 63
+  %102 = ashr i32 %101, 7
+  %103 = mul nsw i32 %96, 9
+  %104 = add nsw i32 %103, 63
+  %105 = ashr i32 %104, 7
+  %106 = add nsw i32 %105, %11
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %107
+  %109 = load i8, ptr %108, align 1, !tbaa !10
+  store i8 %109, ptr %9, align 1, !tbaa !10
+  %110 = add nsw i32 %102, %14
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %111
+  %113 = load i8, ptr %112, align 1, !tbaa !10
+  store i8 %113, ptr %12, align 1, !tbaa !10
+  %114 = add nsw i32 %99, %17
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %115
+  %117 = load i8, ptr %116, align 1, !tbaa !10
+  store i8 %117, ptr %15, align 1, !tbaa !10
+  %118 = sub nsw i32 %19, %99
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %119
+  %121 = load i8, ptr %120, align 1, !tbaa !10
+  store i8 %121, ptr %8, align 1, !tbaa !10
+  %122 = sub nsw i32 %22, %102
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %123
+  %125 = load i8, ptr %124, align 1, !tbaa !10
+  store i8 %125, ptr %20, align 1, !tbaa !10
+  %126 = sub nsw i32 %25, %105
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %127
+  %129 = load i8, ptr %128, align 1, !tbaa !10
+  store i8 %129, ptr %23, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.thread
 
-vp7_normal_limit.exit.thread:                     ; preds = %6, %31, %37, %40, %43, %46, %vp7_normal_limit.exit, %78, %hev.exit.thread
+vp7_normal_limit.exit.thread:                     ; preds = %6, %31, %37, %40, %43, %46, %vp7_normal_limit.exit, %82, %hev.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %124, label %6, !llvm.loop !135
+  br i1 %exitcond.not, label %130, label %6, !llvm.loop !135
 
-124:                                              ; preds = %vp7_normal_limit.exit.thread
+130:                                              ; preds = %vp7_normal_limit.exit.thread
   ret void
 }
 
@@ -5433,266 +5439,272 @@ vp7_normal_limit.exit.i:                          ; preds = %52
   %58 = icmp sgt i32 %48, %5
   %.not30 = icmp samesign ugt i32 %56, %5
   %or.cond = select i1 %58, i1 true, i1 %.not30
-  br i1 %or.cond, label %hev.exit.i.thread, label %84
+  br i1 %or.cond, label %hev.exit.i.thread, label %88
 
 hev.exit.i.thread:                                ; preds = %57
   %59 = sub nsw i32 %25, %23
   %60 = mul nsw i32 %59, 3
   %61 = sub nsw i32 %20, %28
   %62 = sext i32 %61 to i64
-  %gep31 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %62
-  %63 = load i8, ptr %gep31, align 1, !tbaa !10
-  %64 = zext i8 %63 to i32
-  %65 = add nsw i32 %60, -128
-  %66 = add nsw i32 %65, %64
-  %67 = sext i32 %66 to i64
-  %gep32 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %67
-  %68 = load i8, ptr %gep32, align 1, !tbaa !10
-  %69 = zext i8 %68 to i32
-  %70 = tail call i32 @llvm.umin.i32(i32 %69, i32 251)
-  %71 = add nsw i32 %70, -124
-  %72 = ashr i32 %71, 3
-  %73 = and i32 %69, 7
-  %74 = icmp eq i32 %73, 4
-  %.neg.i.i = sext i1 %74 to i32
-  %75 = add nsw i32 %.neg.i.i, %23
-  %76 = add nsw i32 %75, %72
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !10
-  store i8 %79, ptr %21, align 1, !tbaa !10
-  %80 = sub nsw i32 %25, %72
+  %63 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %62
+  %64 = getelementptr i8, ptr %63, i64 128
+  %65 = load i8, ptr %64, align 1, !tbaa !10
+  %66 = zext i8 %65 to i32
+  %67 = add nsw i32 %60, -128
+  %68 = add nsw i32 %67, %66
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %69
+  %71 = getelementptr i8, ptr %70, i64 128
+  %72 = load i8, ptr %71, align 1, !tbaa !10
+  %73 = zext i8 %72 to i32
+  %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 251)
+  %75 = add nsw i32 %74, -124
+  %76 = ashr i32 %75, 3
+  %77 = and i32 %73, 7
+  %78 = icmp eq i32 %77, 4
+  %.neg.i.i = sext i1 %78 to i32
+  %79 = add nsw i32 %.neg.i.i, %23
+  %80 = add nsw i32 %79, %76
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !10
-  store i8 %83, ptr %14, align 1, !tbaa !10
+  store i8 %83, ptr %21, align 1, !tbaa !10
+  %84 = sub nsw i32 %25, %76
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %85
+  %87 = load i8, ptr %86, align 1, !tbaa !10
+  store i8 %87, ptr %14, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i.thread
 
-84:                                               ; preds = %57
-  %85 = sub nsw i32 %20, %28
-  %86 = sext i32 %85 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %86
-  %87 = load i8, ptr %gep, align 1, !tbaa !10
-  %88 = zext i8 %87 to i32
-  %89 = sub nsw i32 %25, %23
-  %90 = mul nsw i32 %89, 3
-  %91 = add nsw i32 %90, %88
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %92
-  %94 = load i8, ptr %93, align 1, !tbaa !10
-  %95 = zext i8 %94 to i32
-  %96 = add nsw i32 %95, -128
-  %97 = mul nsw i32 %96, 27
-  %98 = add nsw i32 %97, 63
-  %99 = ashr i32 %98, 7
-  %100 = mul nsw i32 %96, 18
-  %101 = add nsw i32 %100, 63
-  %102 = ashr i32 %101, 7
-  %103 = mul nsw i32 %96, 9
+88:                                               ; preds = %57
+  %89 = sub nsw i32 %20, %28
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %90
+  %92 = getelementptr i8, ptr %91, i64 128
+  %93 = load i8, ptr %92, align 1, !tbaa !10
+  %94 = zext i8 %93 to i32
+  %95 = sub nsw i32 %25, %23
+  %96 = mul nsw i32 %95, 3
+  %97 = add nsw i32 %96, %94
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %98
+  %100 = load i8, ptr %99, align 1, !tbaa !10
+  %101 = zext i8 %100 to i32
+  %102 = add nsw i32 %101, -128
+  %103 = mul nsw i32 %102, 27
   %104 = add nsw i32 %103, 63
   %105 = ashr i32 %104, 7
-  %106 = add nsw i32 %105, %17
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %107
-  %109 = load i8, ptr %108, align 1, !tbaa !10
-  store i8 %109, ptr %15, align 1, !tbaa !10
-  %110 = add nsw i32 %102, %20
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %111
-  %113 = load i8, ptr %112, align 1, !tbaa !10
-  store i8 %113, ptr %18, align 1, !tbaa !10
-  %114 = add nsw i32 %99, %23
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %115
-  %117 = load i8, ptr %116, align 1, !tbaa !10
-  store i8 %117, ptr %21, align 1, !tbaa !10
-  %118 = sub nsw i32 %25, %99
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %119
-  %121 = load i8, ptr %120, align 1, !tbaa !10
-  store i8 %121, ptr %14, align 1, !tbaa !10
-  %122 = sub nsw i32 %28, %102
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %123
-  %125 = load i8, ptr %124, align 1, !tbaa !10
-  store i8 %125, ptr %26, align 1, !tbaa !10
-  %126 = sub nsw i32 %31, %105
-  %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %127
-  %129 = load i8, ptr %128, align 1, !tbaa !10
-  store i8 %129, ptr %29, align 1, !tbaa !10
+  %106 = mul nsw i32 %102, 18
+  %107 = add nsw i32 %106, 63
+  %108 = ashr i32 %107, 7
+  %109 = mul nsw i32 %102, 9
+  %110 = add nsw i32 %109, 63
+  %111 = ashr i32 %110, 7
+  %112 = add nsw i32 %111, %17
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %113
+  %115 = load i8, ptr %114, align 1, !tbaa !10
+  store i8 %115, ptr %15, align 1, !tbaa !10
+  %116 = add nsw i32 %108, %20
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %117
+  %119 = load i8, ptr %118, align 1, !tbaa !10
+  store i8 %119, ptr %18, align 1, !tbaa !10
+  %120 = add nsw i32 %105, %23
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %121
+  %123 = load i8, ptr %122, align 1, !tbaa !10
+  store i8 %123, ptr %21, align 1, !tbaa !10
+  %124 = sub nsw i32 %25, %105
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %125
+  %127 = load i8, ptr %126, align 1, !tbaa !10
+  store i8 %127, ptr %14, align 1, !tbaa !10
+  %128 = sub nsw i32 %28, %108
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %129
+  %131 = load i8, ptr %130, align 1, !tbaa !10
+  store i8 %131, ptr %26, align 1, !tbaa !10
+  %132 = sub nsw i32 %31, %111
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %133
+  %135 = load i8, ptr %134, align 1, !tbaa !10
+  store i8 %135, ptr %29, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i.thread
 
-vp7_normal_limit.exit.i.thread:                   ; preds = %13, %37, %43, %46, %49, %52, %84, %hev.exit.i.thread, %vp7_normal_limit.exit.i
+vp7_normal_limit.exit.i.thread:                   ; preds = %13, %37, %43, %46, %49, %52, %88, %hev.exit.i.thread, %vp7_normal_limit.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %vp7_v_loop_filter8_c.exit.preheader, label %13, !llvm.loop !136
 
 vp7_v_loop_filter8_c.exit.preheader:              ; preds = %vp7_normal_limit.exit.i.thread, %vp7_normal_limit.exit.i16.thread
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %vp7_normal_limit.exit.i16.thread ], [ 0, %vp7_normal_limit.exit.i.thread ]
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv39
-  %131 = getelementptr inbounds i8, ptr %130, i64 %7
-  %132 = load i8, ptr %131, align 1, !tbaa !10
-  %133 = zext i8 %132 to i32
-  %134 = getelementptr inbounds i8, ptr %130, i64 %8
-  %135 = load i8, ptr %134, align 1, !tbaa !10
-  %136 = zext i8 %135 to i32
-  %137 = getelementptr inbounds i8, ptr %130, i64 %9
+  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %vp7_normal_limit.exit.i16.thread ], [ 0, %vp7_normal_limit.exit.i.thread ]
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv34
+  %137 = getelementptr inbounds i8, ptr %136, i64 %7
   %138 = load i8, ptr %137, align 1, !tbaa !10
   %139 = zext i8 %138 to i32
-  %140 = load i8, ptr %130, align 1, !tbaa !10
-  %141 = zext i8 %140 to i32
-  %142 = getelementptr inbounds i8, ptr %130, i64 %2
-  %143 = load i8, ptr %142, align 1, !tbaa !10
-  %144 = zext i8 %143 to i32
-  %145 = getelementptr inbounds i8, ptr %130, i64 %10
-  %146 = load i8, ptr %145, align 1, !tbaa !10
+  %140 = getelementptr inbounds i8, ptr %136, i64 %8
+  %141 = load i8, ptr %140, align 1, !tbaa !10
+  %142 = zext i8 %141 to i32
+  %143 = getelementptr inbounds i8, ptr %136, i64 %9
+  %144 = load i8, ptr %143, align 1, !tbaa !10
+  %145 = zext i8 %144 to i32
+  %146 = load i8, ptr %136, align 1, !tbaa !10
   %147 = zext i8 %146 to i32
-  %148 = getelementptr inbounds i8, ptr %130, i64 %11
+  %148 = getelementptr inbounds i8, ptr %136, i64 %2
   %149 = load i8, ptr %148, align 1, !tbaa !10
   %150 = zext i8 %149 to i32
-  %151 = sub nsw i32 %139, %141
-  %152 = tail call i32 @llvm.abs.i32(i32 %151, i1 true)
-  %.not = icmp sgt i32 %152, %3
-  br i1 %.not, label %vp7_normal_limit.exit.i16.thread, label %153
-
-153:                                              ; preds = %vp7_v_loop_filter8_c.exit.preheader
-  %154 = getelementptr inbounds i8, ptr %130, i64 %12
+  %151 = getelementptr inbounds i8, ptr %136, i64 %10
+  %152 = load i8, ptr %151, align 1, !tbaa !10
+  %153 = zext i8 %152 to i32
+  %154 = getelementptr inbounds i8, ptr %136, i64 %11
   %155 = load i8, ptr %154, align 1, !tbaa !10
   %156 = zext i8 %155 to i32
-  %157 = sub nsw i32 %156, %133
+  %157 = sub nsw i32 %145, %147
   %158 = tail call i32 @llvm.abs.i32(i32 %157, i1 true)
-  %.not71.i.i11 = icmp sgt i32 %158, %4
-  br i1 %.not71.i.i11, label %vp7_normal_limit.exit.i16.thread, label %159
+  %.not = icmp sgt i32 %158, %3
+  br i1 %.not, label %vp7_normal_limit.exit.i16.thread, label %159
 
-159:                                              ; preds = %153
-  %160 = sub nsw i32 %133, %136
-  %161 = tail call i32 @llvm.abs.i32(i32 %160, i1 true)
-  %.not72.i.i12 = icmp samesign ugt i32 %161, %4
-  br i1 %.not72.i.i12, label %vp7_normal_limit.exit.i16.thread, label %162
-
-162:                                              ; preds = %159
-  %163 = sub nsw i32 %136, %139
+159:                                              ; preds = %vp7_v_loop_filter8_c.exit.preheader
+  %160 = getelementptr inbounds i8, ptr %136, i64 %12
+  %161 = load i8, ptr %160, align 1, !tbaa !10
+  %162 = zext i8 %161 to i32
+  %163 = sub nsw i32 %162, %139
   %164 = tail call i32 @llvm.abs.i32(i32 %163, i1 true)
-  %.not73.i.i13 = icmp samesign ugt i32 %164, %4
-  br i1 %.not73.i.i13, label %vp7_normal_limit.exit.i16.thread, label %165
+  %.not71.i.i11 = icmp sgt i32 %164, %4
+  br i1 %.not71.i.i11, label %vp7_normal_limit.exit.i16.thread, label %165
 
-165:                                              ; preds = %162
-  %166 = sub nsw i32 %150, %147
+165:                                              ; preds = %159
+  %166 = sub nsw i32 %139, %142
   %167 = tail call i32 @llvm.abs.i32(i32 %166, i1 true)
-  %.not74.i.i14 = icmp samesign ugt i32 %167, %4
-  br i1 %.not74.i.i14, label %vp7_normal_limit.exit.i16.thread, label %168
+  %.not72.i.i12 = icmp samesign ugt i32 %167, %4
+  br i1 %.not72.i.i12, label %vp7_normal_limit.exit.i16.thread, label %168
 
 168:                                              ; preds = %165
-  %169 = sub nsw i32 %147, %144
+  %169 = sub nsw i32 %142, %145
   %170 = tail call i32 @llvm.abs.i32(i32 %169, i1 true)
-  %.not75.i.i15 = icmp samesign ugt i32 %170, %4
+  %.not73.i.i13 = icmp samesign ugt i32 %170, %4
+  br i1 %.not73.i.i13, label %vp7_normal_limit.exit.i16.thread, label %171
+
+171:                                              ; preds = %168
+  %172 = sub nsw i32 %156, %153
+  %173 = tail call i32 @llvm.abs.i32(i32 %172, i1 true)
+  %.not74.i.i14 = icmp samesign ugt i32 %173, %4
+  br i1 %.not74.i.i14, label %vp7_normal_limit.exit.i16.thread, label %174
+
+174:                                              ; preds = %171
+  %175 = sub nsw i32 %153, %150
+  %176 = tail call i32 @llvm.abs.i32(i32 %175, i1 true)
+  %.not75.i.i15 = icmp samesign ugt i32 %176, %4
   br i1 %.not75.i.i15, label %vp7_normal_limit.exit.i16.thread, label %vp7_normal_limit.exit.i16
 
-vp7_normal_limit.exit.i16:                        ; preds = %168
-  %171 = sub nsw i32 %144, %141
-  %172 = tail call i32 @llvm.abs.i32(i32 %171, i1 true)
-  %.not26 = icmp samesign ugt i32 %172, %4
-  br i1 %.not26, label %vp7_normal_limit.exit.i16.thread, label %173
+vp7_normal_limit.exit.i16:                        ; preds = %174
+  %177 = sub nsw i32 %150, %147
+  %178 = tail call i32 @llvm.abs.i32(i32 %177, i1 true)
+  %.not26 = icmp samesign ugt i32 %178, %4
+  br i1 %.not26, label %vp7_normal_limit.exit.i16.thread, label %179
 
-173:                                              ; preds = %vp7_normal_limit.exit.i16
-  %174 = icmp sgt i32 %164, %5
-  %.not27 = icmp samesign ugt i32 %172, %5
-  %or.cond43 = select i1 %174, i1 true, i1 %.not27
-  br i1 %or.cond43, label %hev.exit.i18.thread, label %200
+179:                                              ; preds = %vp7_normal_limit.exit.i16
+  %180 = icmp sgt i32 %170, %5
+  %.not27 = icmp samesign ugt i32 %178, %5
+  %or.cond38 = select i1 %180, i1 true, i1 %.not27
+  br i1 %or.cond38, label %hev.exit.i18.thread, label %210
 
-hev.exit.i18.thread:                              ; preds = %173
-  %175 = sub nsw i32 %141, %139
-  %176 = mul nsw i32 %175, 3
-  %177 = sub nsw i32 %136, %144
-  %178 = sext i32 %177 to i64
-  %gep35 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %178
-  %179 = load i8, ptr %gep35, align 1, !tbaa !10
-  %180 = zext i8 %179 to i32
-  %181 = add nsw i32 %176, -128
-  %182 = add nsw i32 %181, %180
-  %183 = sext i32 %182 to i64
-  %gep36 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %183
-  %184 = load i8, ptr %gep36, align 1, !tbaa !10
-  %185 = zext i8 %184 to i32
-  %186 = tail call i32 @llvm.umin.i32(i32 %185, i32 251)
-  %187 = add nsw i32 %186, -124
-  %188 = ashr i32 %187, 3
-  %189 = and i32 %185, 7
-  %190 = icmp eq i32 %189, 4
-  %.neg.i.i20 = sext i1 %190 to i32
-  %191 = add nsw i32 %.neg.i.i20, %139
-  %192 = add nsw i32 %191, %188
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %193
-  %195 = load i8, ptr %194, align 1, !tbaa !10
-  store i8 %195, ptr %137, align 1, !tbaa !10
-  %196 = sub nsw i32 %141, %188
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %197
-  %199 = load i8, ptr %198, align 1, !tbaa !10
-  store i8 %199, ptr %130, align 1, !tbaa !10
+hev.exit.i18.thread:                              ; preds = %179
+  %181 = sub nsw i32 %147, %145
+  %182 = mul nsw i32 %181, 3
+  %183 = sub nsw i32 %142, %150
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %184
+  %186 = getelementptr i8, ptr %185, i64 128
+  %187 = load i8, ptr %186, align 1, !tbaa !10
+  %188 = zext i8 %187 to i32
+  %189 = add nsw i32 %182, -128
+  %190 = add nsw i32 %189, %188
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %191
+  %193 = getelementptr i8, ptr %192, i64 128
+  %194 = load i8, ptr %193, align 1, !tbaa !10
+  %195 = zext i8 %194 to i32
+  %196 = tail call i32 @llvm.umin.i32(i32 %195, i32 251)
+  %197 = add nsw i32 %196, -124
+  %198 = ashr i32 %197, 3
+  %199 = and i32 %195, 7
+  %200 = icmp eq i32 %199, 4
+  %.neg.i.i20 = sext i1 %200 to i32
+  %201 = add nsw i32 %.neg.i.i20, %145
+  %202 = add nsw i32 %201, %198
+  %203 = sext i32 %202 to i64
+  %204 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %203
+  %205 = load i8, ptr %204, align 1, !tbaa !10
+  store i8 %205, ptr %143, align 1, !tbaa !10
+  %206 = sub nsw i32 %147, %198
+  %207 = sext i32 %206 to i64
+  %208 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %207
+  %209 = load i8, ptr %208, align 1, !tbaa !10
+  store i8 %209, ptr %136, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i16.thread
 
-200:                                              ; preds = %173
-  %201 = sub nsw i32 %136, %144
-  %202 = sext i32 %201 to i64
-  %gep34 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %202
-  %203 = load i8, ptr %gep34, align 1, !tbaa !10
-  %204 = zext i8 %203 to i32
-  %205 = sub nsw i32 %141, %139
-  %206 = mul nsw i32 %205, 3
-  %207 = add nsw i32 %206, %204
-  %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %208
-  %210 = load i8, ptr %209, align 1, !tbaa !10
-  %211 = zext i8 %210 to i32
-  %212 = add nsw i32 %211, -128
-  %213 = mul nsw i32 %212, 27
-  %214 = add nsw i32 %213, 63
-  %215 = ashr i32 %214, 7
-  %216 = mul nsw i32 %212, 18
-  %217 = add nsw i32 %216, 63
-  %218 = ashr i32 %217, 7
-  %219 = mul nsw i32 %212, 9
-  %220 = add nsw i32 %219, 63
-  %221 = ashr i32 %220, 7
-  %222 = add nsw i32 %221, %133
-  %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %223
-  %225 = load i8, ptr %224, align 1, !tbaa !10
-  store i8 %225, ptr %131, align 1, !tbaa !10
-  %226 = add nsw i32 %218, %136
-  %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %227
-  %229 = load i8, ptr %228, align 1, !tbaa !10
-  store i8 %229, ptr %134, align 1, !tbaa !10
-  %230 = add nsw i32 %215, %139
-  %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %231
-  %233 = load i8, ptr %232, align 1, !tbaa !10
-  store i8 %233, ptr %137, align 1, !tbaa !10
-  %234 = sub nsw i32 %141, %215
+210:                                              ; preds = %179
+  %211 = sub nsw i32 %142, %150
+  %212 = sext i32 %211 to i64
+  %213 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %212
+  %214 = getelementptr i8, ptr %213, i64 128
+  %215 = load i8, ptr %214, align 1, !tbaa !10
+  %216 = zext i8 %215 to i32
+  %217 = sub nsw i32 %147, %145
+  %218 = mul nsw i32 %217, 3
+  %219 = add nsw i32 %218, %216
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %220
+  %222 = load i8, ptr %221, align 1, !tbaa !10
+  %223 = zext i8 %222 to i32
+  %224 = add nsw i32 %223, -128
+  %225 = mul nsw i32 %224, 27
+  %226 = add nsw i32 %225, 63
+  %227 = ashr i32 %226, 7
+  %228 = mul nsw i32 %224, 18
+  %229 = add nsw i32 %228, 63
+  %230 = ashr i32 %229, 7
+  %231 = mul nsw i32 %224, 9
+  %232 = add nsw i32 %231, 63
+  %233 = ashr i32 %232, 7
+  %234 = add nsw i32 %233, %139
   %235 = sext i32 %234 to i64
   %236 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %235
   %237 = load i8, ptr %236, align 1, !tbaa !10
-  store i8 %237, ptr %130, align 1, !tbaa !10
-  %238 = sub nsw i32 %144, %218
+  store i8 %237, ptr %137, align 1, !tbaa !10
+  %238 = add nsw i32 %230, %142
   %239 = sext i32 %238 to i64
   %240 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %239
   %241 = load i8, ptr %240, align 1, !tbaa !10
-  store i8 %241, ptr %142, align 1, !tbaa !10
-  %242 = sub nsw i32 %147, %221
+  store i8 %241, ptr %140, align 1, !tbaa !10
+  %242 = add nsw i32 %227, %145
   %243 = sext i32 %242 to i64
   %244 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %243
   %245 = load i8, ptr %244, align 1, !tbaa !10
-  store i8 %245, ptr %145, align 1, !tbaa !10
+  store i8 %245, ptr %143, align 1, !tbaa !10
+  %246 = sub nsw i32 %147, %227
+  %247 = sext i32 %246 to i64
+  %248 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %247
+  %249 = load i8, ptr %248, align 1, !tbaa !10
+  store i8 %249, ptr %136, align 1, !tbaa !10
+  %250 = sub nsw i32 %150, %230
+  %251 = sext i32 %250 to i64
+  %252 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %251
+  %253 = load i8, ptr %252, align 1, !tbaa !10
+  store i8 %253, ptr %148, align 1, !tbaa !10
+  %254 = sub nsw i32 %153, %233
+  %255 = sext i32 %254 to i64
+  %256 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %255
+  %257 = load i8, ptr %256, align 1, !tbaa !10
+  store i8 %257, ptr %151, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i16.thread
 
-vp7_normal_limit.exit.i16.thread:                 ; preds = %vp7_v_loop_filter8_c.exit.preheader, %153, %159, %162, %165, %168, %200, %hev.exit.i18.thread, %vp7_normal_limit.exit.i16
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %exitcond42.not = icmp eq i64 %indvars.iv.next40, 8
-  br i1 %exitcond42.not, label %vp7_v_loop_filter8_c.exit21, label %vp7_v_loop_filter8_c.exit.preheader, !llvm.loop !136
+vp7_normal_limit.exit.i16.thread:                 ; preds = %vp7_v_loop_filter8_c.exit.preheader, %159, %165, %168, %171, %174, %210, %hev.exit.i18.thread, %vp7_normal_limit.exit.i16
+  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
+  %exitcond37.not = icmp eq i64 %indvars.iv.next35, 8
+  br i1 %exitcond37.not, label %vp7_v_loop_filter8_c.exit21, label %vp7_v_loop_filter8_c.exit.preheader, !llvm.loop !136
 
 vp7_v_loop_filter8_c.exit21:                      ; preds = %vp7_normal_limit.exit.i16.thread
   ret void
@@ -5774,267 +5786,273 @@ vp7_normal_limit.exit.i:                          ; preds = %47
   %53 = icmp sgt i32 %43, %5
   %.not30 = icmp samesign ugt i32 %51, %5
   %or.cond = select i1 %53, i1 true, i1 %.not30
-  br i1 %or.cond, label %hev.exit.i.thread, label %79
+  br i1 %or.cond, label %hev.exit.i.thread, label %83
 
 hev.exit.i.thread:                                ; preds = %52
   %54 = sub nsw i32 %20, %18
   %55 = mul nsw i32 %54, 3
   %56 = sub nsw i32 %15, %23
   %57 = sext i32 %56 to i64
-  %gep31 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %57
-  %58 = load i8, ptr %gep31, align 1, !tbaa !10
-  %59 = zext i8 %58 to i32
-  %60 = add nsw i32 %55, -128
-  %61 = add nsw i32 %60, %59
-  %62 = sext i32 %61 to i64
-  %gep32 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %62
-  %63 = load i8, ptr %gep32, align 1, !tbaa !10
-  %64 = zext i8 %63 to i32
-  %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 251)
-  %66 = add nsw i32 %65, -124
-  %67 = ashr i32 %66, 3
-  %68 = and i32 %64, 7
-  %69 = icmp eq i32 %68, 4
-  %.neg.i.i = sext i1 %69 to i32
-  %70 = add nsw i32 %.neg.i.i, %18
-  %71 = add nsw i32 %70, %67
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %72
-  %74 = load i8, ptr %73, align 1, !tbaa !10
-  store i8 %74, ptr %16, align 1, !tbaa !10
-  %75 = sub nsw i32 %20, %67
+  %58 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %57
+  %59 = getelementptr i8, ptr %58, i64 128
+  %60 = load i8, ptr %59, align 1, !tbaa !10
+  %61 = zext i8 %60 to i32
+  %62 = add nsw i32 %55, -128
+  %63 = add nsw i32 %62, %61
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %64
+  %66 = getelementptr i8, ptr %65, i64 128
+  %67 = load i8, ptr %66, align 1, !tbaa !10
+  %68 = zext i8 %67 to i32
+  %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 251)
+  %70 = add nsw i32 %69, -124
+  %71 = ashr i32 %70, 3
+  %72 = and i32 %68, 7
+  %73 = icmp eq i32 %72, 4
+  %.neg.i.i = sext i1 %73 to i32
+  %74 = add nsw i32 %.neg.i.i, %18
+  %75 = add nsw i32 %74, %71
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !10
-  store i8 %78, ptr %9, align 1, !tbaa !10
+  store i8 %78, ptr %16, align 1, !tbaa !10
+  %79 = sub nsw i32 %20, %71
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %80
+  %82 = load i8, ptr %81, align 1, !tbaa !10
+  store i8 %82, ptr %9, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i.thread
 
-79:                                               ; preds = %52
-  %80 = sub nsw i32 %15, %23
-  %81 = sext i32 %80 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %81
-  %82 = load i8, ptr %gep, align 1, !tbaa !10
-  %83 = zext i8 %82 to i32
-  %84 = sub nsw i32 %20, %18
-  %85 = mul nsw i32 %84, 3
-  %86 = add nsw i32 %85, %83
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %87
-  %89 = load i8, ptr %88, align 1, !tbaa !10
-  %90 = zext i8 %89 to i32
-  %91 = add nsw i32 %90, -128
-  %92 = mul nsw i32 %91, 27
-  %93 = add nsw i32 %92, 63
-  %94 = ashr i32 %93, 7
-  %95 = mul nsw i32 %91, 18
-  %96 = add nsw i32 %95, 63
-  %97 = ashr i32 %96, 7
-  %98 = mul nsw i32 %91, 9
+83:                                               ; preds = %52
+  %84 = sub nsw i32 %15, %23
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %85
+  %87 = getelementptr i8, ptr %86, i64 128
+  %88 = load i8, ptr %87, align 1, !tbaa !10
+  %89 = zext i8 %88 to i32
+  %90 = sub nsw i32 %20, %18
+  %91 = mul nsw i32 %90, 3
+  %92 = add nsw i32 %91, %89
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %93
+  %95 = load i8, ptr %94, align 1, !tbaa !10
+  %96 = zext i8 %95 to i32
+  %97 = add nsw i32 %96, -128
+  %98 = mul nsw i32 %97, 27
   %99 = add nsw i32 %98, 63
   %100 = ashr i32 %99, 7
-  %101 = add nsw i32 %100, %12
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %102
-  %104 = load i8, ptr %103, align 1, !tbaa !10
-  store i8 %104, ptr %10, align 1, !tbaa !10
-  %105 = add nsw i32 %97, %15
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %106
-  %108 = load i8, ptr %107, align 1, !tbaa !10
-  store i8 %108, ptr %13, align 1, !tbaa !10
-  %109 = add nsw i32 %94, %18
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %110
-  %112 = load i8, ptr %111, align 1, !tbaa !10
-  store i8 %112, ptr %16, align 1, !tbaa !10
-  %113 = sub nsw i32 %20, %94
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !10
-  store i8 %116, ptr %9, align 1, !tbaa !10
-  %117 = sub nsw i32 %23, %97
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %118
-  %120 = load i8, ptr %119, align 1, !tbaa !10
-  store i8 %120, ptr %21, align 1, !tbaa !10
-  %121 = sub nsw i32 %26, %100
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !10
-  store i8 %124, ptr %24, align 1, !tbaa !10
+  %101 = mul nsw i32 %97, 18
+  %102 = add nsw i32 %101, 63
+  %103 = ashr i32 %102, 7
+  %104 = mul nsw i32 %97, 9
+  %105 = add nsw i32 %104, 63
+  %106 = ashr i32 %105, 7
+  %107 = add nsw i32 %106, %12
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %108
+  %110 = load i8, ptr %109, align 1, !tbaa !10
+  store i8 %110, ptr %10, align 1, !tbaa !10
+  %111 = add nsw i32 %103, %15
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %112
+  %114 = load i8, ptr %113, align 1, !tbaa !10
+  store i8 %114, ptr %13, align 1, !tbaa !10
+  %115 = add nsw i32 %100, %18
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %116
+  %118 = load i8, ptr %117, align 1, !tbaa !10
+  store i8 %118, ptr %16, align 1, !tbaa !10
+  %119 = sub nsw i32 %20, %100
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %120
+  %122 = load i8, ptr %121, align 1, !tbaa !10
+  store i8 %122, ptr %9, align 1, !tbaa !10
+  %123 = sub nsw i32 %23, %103
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %124
+  %126 = load i8, ptr %125, align 1, !tbaa !10
+  store i8 %126, ptr %21, align 1, !tbaa !10
+  %127 = sub nsw i32 %26, %106
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %128
+  %130 = load i8, ptr %129, align 1, !tbaa !10
+  store i8 %130, ptr %24, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i.thread
 
-vp7_normal_limit.exit.i.thread:                   ; preds = %7, %32, %38, %41, %44, %47, %79, %hev.exit.i.thread, %vp7_normal_limit.exit.i
+vp7_normal_limit.exit.i.thread:                   ; preds = %7, %32, %38, %41, %44, %47, %83, %hev.exit.i.thread, %vp7_normal_limit.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %vp7_h_loop_filter8_c.exit.preheader, label %7, !llvm.loop !137
 
 vp7_h_loop_filter8_c.exit.preheader:              ; preds = %vp7_normal_limit.exit.i.thread, %vp7_normal_limit.exit.i16.thread
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %vp7_normal_limit.exit.i16.thread ], [ 0, %vp7_normal_limit.exit.i.thread ]
-  %125 = mul nsw i64 %2, %indvars.iv39
-  %126 = getelementptr inbounds i8, ptr %1, i64 %125
-  %127 = getelementptr inbounds i8, ptr %126, i64 -3
-  %128 = load i8, ptr %127, align 1, !tbaa !10
-  %129 = zext i8 %128 to i32
-  %130 = getelementptr inbounds i8, ptr %126, i64 -2
-  %131 = load i8, ptr %130, align 1, !tbaa !10
-  %132 = zext i8 %131 to i32
-  %133 = getelementptr inbounds i8, ptr %126, i64 -1
+  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %vp7_normal_limit.exit.i16.thread ], [ 0, %vp7_normal_limit.exit.i.thread ]
+  %131 = mul nsw i64 %2, %indvars.iv34
+  %132 = getelementptr inbounds i8, ptr %1, i64 %131
+  %133 = getelementptr inbounds i8, ptr %132, i64 -3
   %134 = load i8, ptr %133, align 1, !tbaa !10
   %135 = zext i8 %134 to i32
-  %136 = load i8, ptr %126, align 1, !tbaa !10
-  %137 = zext i8 %136 to i32
-  %138 = getelementptr inbounds nuw i8, ptr %126, i64 1
-  %139 = load i8, ptr %138, align 1, !tbaa !10
-  %140 = zext i8 %139 to i32
-  %141 = getelementptr inbounds nuw i8, ptr %126, i64 2
-  %142 = load i8, ptr %141, align 1, !tbaa !10
+  %136 = getelementptr inbounds i8, ptr %132, i64 -2
+  %137 = load i8, ptr %136, align 1, !tbaa !10
+  %138 = zext i8 %137 to i32
+  %139 = getelementptr inbounds i8, ptr %132, i64 -1
+  %140 = load i8, ptr %139, align 1, !tbaa !10
+  %141 = zext i8 %140 to i32
+  %142 = load i8, ptr %132, align 1, !tbaa !10
   %143 = zext i8 %142 to i32
-  %144 = getelementptr inbounds nuw i8, ptr %126, i64 3
+  %144 = getelementptr inbounds nuw i8, ptr %132, i64 1
   %145 = load i8, ptr %144, align 1, !tbaa !10
   %146 = zext i8 %145 to i32
-  %147 = sub nsw i32 %135, %137
-  %148 = tail call i32 @llvm.abs.i32(i32 %147, i1 true)
-  %.not = icmp sgt i32 %148, %3
-  br i1 %.not, label %vp7_normal_limit.exit.i16.thread, label %149
-
-149:                                              ; preds = %vp7_h_loop_filter8_c.exit.preheader
-  %150 = getelementptr inbounds i8, ptr %126, i64 -4
+  %147 = getelementptr inbounds nuw i8, ptr %132, i64 2
+  %148 = load i8, ptr %147, align 1, !tbaa !10
+  %149 = zext i8 %148 to i32
+  %150 = getelementptr inbounds nuw i8, ptr %132, i64 3
   %151 = load i8, ptr %150, align 1, !tbaa !10
   %152 = zext i8 %151 to i32
-  %153 = sub nsw i32 %152, %129
+  %153 = sub nsw i32 %141, %143
   %154 = tail call i32 @llvm.abs.i32(i32 %153, i1 true)
-  %.not71.i.i11 = icmp sgt i32 %154, %4
-  br i1 %.not71.i.i11, label %vp7_normal_limit.exit.i16.thread, label %155
+  %.not = icmp sgt i32 %154, %3
+  br i1 %.not, label %vp7_normal_limit.exit.i16.thread, label %155
 
-155:                                              ; preds = %149
-  %156 = sub nsw i32 %129, %132
-  %157 = tail call i32 @llvm.abs.i32(i32 %156, i1 true)
-  %.not72.i.i12 = icmp samesign ugt i32 %157, %4
-  br i1 %.not72.i.i12, label %vp7_normal_limit.exit.i16.thread, label %158
-
-158:                                              ; preds = %155
-  %159 = sub nsw i32 %132, %135
+155:                                              ; preds = %vp7_h_loop_filter8_c.exit.preheader
+  %156 = getelementptr inbounds i8, ptr %132, i64 -4
+  %157 = load i8, ptr %156, align 1, !tbaa !10
+  %158 = zext i8 %157 to i32
+  %159 = sub nsw i32 %158, %135
   %160 = tail call i32 @llvm.abs.i32(i32 %159, i1 true)
-  %.not73.i.i13 = icmp samesign ugt i32 %160, %4
-  br i1 %.not73.i.i13, label %vp7_normal_limit.exit.i16.thread, label %161
+  %.not71.i.i11 = icmp sgt i32 %160, %4
+  br i1 %.not71.i.i11, label %vp7_normal_limit.exit.i16.thread, label %161
 
-161:                                              ; preds = %158
-  %162 = sub nsw i32 %146, %143
+161:                                              ; preds = %155
+  %162 = sub nsw i32 %135, %138
   %163 = tail call i32 @llvm.abs.i32(i32 %162, i1 true)
-  %.not74.i.i14 = icmp samesign ugt i32 %163, %4
-  br i1 %.not74.i.i14, label %vp7_normal_limit.exit.i16.thread, label %164
+  %.not72.i.i12 = icmp samesign ugt i32 %163, %4
+  br i1 %.not72.i.i12, label %vp7_normal_limit.exit.i16.thread, label %164
 
 164:                                              ; preds = %161
-  %165 = sub nsw i32 %143, %140
+  %165 = sub nsw i32 %138, %141
   %166 = tail call i32 @llvm.abs.i32(i32 %165, i1 true)
-  %.not75.i.i15 = icmp samesign ugt i32 %166, %4
+  %.not73.i.i13 = icmp samesign ugt i32 %166, %4
+  br i1 %.not73.i.i13, label %vp7_normal_limit.exit.i16.thread, label %167
+
+167:                                              ; preds = %164
+  %168 = sub nsw i32 %152, %149
+  %169 = tail call i32 @llvm.abs.i32(i32 %168, i1 true)
+  %.not74.i.i14 = icmp samesign ugt i32 %169, %4
+  br i1 %.not74.i.i14, label %vp7_normal_limit.exit.i16.thread, label %170
+
+170:                                              ; preds = %167
+  %171 = sub nsw i32 %149, %146
+  %172 = tail call i32 @llvm.abs.i32(i32 %171, i1 true)
+  %.not75.i.i15 = icmp samesign ugt i32 %172, %4
   br i1 %.not75.i.i15, label %vp7_normal_limit.exit.i16.thread, label %vp7_normal_limit.exit.i16
 
-vp7_normal_limit.exit.i16:                        ; preds = %164
-  %167 = sub nsw i32 %140, %137
-  %168 = tail call i32 @llvm.abs.i32(i32 %167, i1 true)
-  %.not26 = icmp samesign ugt i32 %168, %4
-  br i1 %.not26, label %vp7_normal_limit.exit.i16.thread, label %169
+vp7_normal_limit.exit.i16:                        ; preds = %170
+  %173 = sub nsw i32 %146, %143
+  %174 = tail call i32 @llvm.abs.i32(i32 %173, i1 true)
+  %.not26 = icmp samesign ugt i32 %174, %4
+  br i1 %.not26, label %vp7_normal_limit.exit.i16.thread, label %175
 
-169:                                              ; preds = %vp7_normal_limit.exit.i16
-  %170 = icmp sgt i32 %160, %5
-  %.not27 = icmp samesign ugt i32 %168, %5
-  %or.cond43 = select i1 %170, i1 true, i1 %.not27
-  br i1 %or.cond43, label %hev.exit.i18.thread, label %196
+175:                                              ; preds = %vp7_normal_limit.exit.i16
+  %176 = icmp sgt i32 %166, %5
+  %.not27 = icmp samesign ugt i32 %174, %5
+  %or.cond38 = select i1 %176, i1 true, i1 %.not27
+  br i1 %or.cond38, label %hev.exit.i18.thread, label %206
 
-hev.exit.i18.thread:                              ; preds = %169
-  %171 = sub nsw i32 %137, %135
-  %172 = mul nsw i32 %171, 3
-  %173 = sub nsw i32 %132, %140
-  %174 = sext i32 %173 to i64
-  %gep35 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %174
-  %175 = load i8, ptr %gep35, align 1, !tbaa !10
-  %176 = zext i8 %175 to i32
-  %177 = add nsw i32 %172, -128
-  %178 = add nsw i32 %177, %176
-  %179 = sext i32 %178 to i64
-  %gep36 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %179
-  %180 = load i8, ptr %gep36, align 1, !tbaa !10
-  %181 = zext i8 %180 to i32
-  %182 = tail call i32 @llvm.umin.i32(i32 %181, i32 251)
-  %183 = add nsw i32 %182, -124
-  %184 = ashr i32 %183, 3
-  %185 = and i32 %181, 7
-  %186 = icmp eq i32 %185, 4
-  %.neg.i.i20 = sext i1 %186 to i32
-  %187 = add nsw i32 %.neg.i.i20, %135
-  %188 = add nsw i32 %187, %184
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %189
-  %191 = load i8, ptr %190, align 1, !tbaa !10
-  store i8 %191, ptr %133, align 1, !tbaa !10
-  %192 = sub nsw i32 %137, %184
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %193
-  %195 = load i8, ptr %194, align 1, !tbaa !10
-  store i8 %195, ptr %126, align 1, !tbaa !10
+hev.exit.i18.thread:                              ; preds = %175
+  %177 = sub nsw i32 %143, %141
+  %178 = mul nsw i32 %177, 3
+  %179 = sub nsw i32 %138, %146
+  %180 = sext i32 %179 to i64
+  %181 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %180
+  %182 = getelementptr i8, ptr %181, i64 128
+  %183 = load i8, ptr %182, align 1, !tbaa !10
+  %184 = zext i8 %183 to i32
+  %185 = add nsw i32 %178, -128
+  %186 = add nsw i32 %185, %184
+  %187 = sext i32 %186 to i64
+  %188 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %187
+  %189 = getelementptr i8, ptr %188, i64 128
+  %190 = load i8, ptr %189, align 1, !tbaa !10
+  %191 = zext i8 %190 to i32
+  %192 = tail call i32 @llvm.umin.i32(i32 %191, i32 251)
+  %193 = add nsw i32 %192, -124
+  %194 = ashr i32 %193, 3
+  %195 = and i32 %191, 7
+  %196 = icmp eq i32 %195, 4
+  %.neg.i.i20 = sext i1 %196 to i32
+  %197 = add nsw i32 %.neg.i.i20, %141
+  %198 = add nsw i32 %197, %194
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %199
+  %201 = load i8, ptr %200, align 1, !tbaa !10
+  store i8 %201, ptr %139, align 1, !tbaa !10
+  %202 = sub nsw i32 %143, %194
+  %203 = sext i32 %202 to i64
+  %204 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %203
+  %205 = load i8, ptr %204, align 1, !tbaa !10
+  store i8 %205, ptr %132, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i16.thread
 
-196:                                              ; preds = %169
-  %197 = sub nsw i32 %132, %140
-  %198 = sext i32 %197 to i64
-  %gep34 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %198
-  %199 = load i8, ptr %gep34, align 1, !tbaa !10
-  %200 = zext i8 %199 to i32
-  %201 = sub nsw i32 %137, %135
-  %202 = mul nsw i32 %201, 3
-  %203 = add nsw i32 %202, %200
-  %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %204
-  %206 = load i8, ptr %205, align 1, !tbaa !10
-  %207 = zext i8 %206 to i32
-  %208 = add nsw i32 %207, -128
-  %209 = mul nsw i32 %208, 27
-  %210 = add nsw i32 %209, 63
-  %211 = ashr i32 %210, 7
-  %212 = mul nsw i32 %208, 18
-  %213 = add nsw i32 %212, 63
-  %214 = ashr i32 %213, 7
-  %215 = mul nsw i32 %208, 9
-  %216 = add nsw i32 %215, 63
-  %217 = ashr i32 %216, 7
-  %218 = add nsw i32 %217, %129
-  %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %219
-  %221 = load i8, ptr %220, align 1, !tbaa !10
-  store i8 %221, ptr %127, align 1, !tbaa !10
-  %222 = add nsw i32 %214, %132
-  %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %223
-  %225 = load i8, ptr %224, align 1, !tbaa !10
-  store i8 %225, ptr %130, align 1, !tbaa !10
-  %226 = add nsw i32 %211, %135
-  %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %227
-  %229 = load i8, ptr %228, align 1, !tbaa !10
-  store i8 %229, ptr %133, align 1, !tbaa !10
-  %230 = sub nsw i32 %137, %211
+206:                                              ; preds = %175
+  %207 = sub nsw i32 %138, %146
+  %208 = sext i32 %207 to i64
+  %209 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %208
+  %210 = getelementptr i8, ptr %209, i64 128
+  %211 = load i8, ptr %210, align 1, !tbaa !10
+  %212 = zext i8 %211 to i32
+  %213 = sub nsw i32 %143, %141
+  %214 = mul nsw i32 %213, 3
+  %215 = add nsw i32 %214, %212
+  %216 = sext i32 %215 to i64
+  %217 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %216
+  %218 = load i8, ptr %217, align 1, !tbaa !10
+  %219 = zext i8 %218 to i32
+  %220 = add nsw i32 %219, -128
+  %221 = mul nsw i32 %220, 27
+  %222 = add nsw i32 %221, 63
+  %223 = ashr i32 %222, 7
+  %224 = mul nsw i32 %220, 18
+  %225 = add nsw i32 %224, 63
+  %226 = ashr i32 %225, 7
+  %227 = mul nsw i32 %220, 9
+  %228 = add nsw i32 %227, 63
+  %229 = ashr i32 %228, 7
+  %230 = add nsw i32 %229, %135
   %231 = sext i32 %230 to i64
   %232 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %231
   %233 = load i8, ptr %232, align 1, !tbaa !10
-  store i8 %233, ptr %126, align 1, !tbaa !10
-  %234 = sub nsw i32 %140, %214
+  store i8 %233, ptr %133, align 1, !tbaa !10
+  %234 = add nsw i32 %226, %138
   %235 = sext i32 %234 to i64
   %236 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %235
   %237 = load i8, ptr %236, align 1, !tbaa !10
-  store i8 %237, ptr %138, align 1, !tbaa !10
-  %238 = sub nsw i32 %143, %217
+  store i8 %237, ptr %136, align 1, !tbaa !10
+  %238 = add nsw i32 %223, %141
   %239 = sext i32 %238 to i64
   %240 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %239
   %241 = load i8, ptr %240, align 1, !tbaa !10
-  store i8 %241, ptr %141, align 1, !tbaa !10
+  store i8 %241, ptr %139, align 1, !tbaa !10
+  %242 = sub nsw i32 %143, %223
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %243
+  %245 = load i8, ptr %244, align 1, !tbaa !10
+  store i8 %245, ptr %132, align 1, !tbaa !10
+  %246 = sub nsw i32 %146, %226
+  %247 = sext i32 %246 to i64
+  %248 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %247
+  %249 = load i8, ptr %248, align 1, !tbaa !10
+  store i8 %249, ptr %144, align 1, !tbaa !10
+  %250 = sub nsw i32 %149, %229
+  %251 = sext i32 %250 to i64
+  %252 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %251
+  %253 = load i8, ptr %252, align 1, !tbaa !10
+  store i8 %253, ptr %147, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i16.thread
 
-vp7_normal_limit.exit.i16.thread:                 ; preds = %vp7_h_loop_filter8_c.exit.preheader, %149, %155, %158, %161, %164, %196, %hev.exit.i18.thread, %vp7_normal_limit.exit.i16
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %exitcond42.not = icmp eq i64 %indvars.iv.next40, 8
-  br i1 %exitcond42.not, label %vp7_h_loop_filter8_c.exit21, label %vp7_h_loop_filter8_c.exit.preheader, !llvm.loop !137
+vp7_normal_limit.exit.i16.thread:                 ; preds = %vp7_h_loop_filter8_c.exit.preheader, %155, %161, %164, %167, %170, %206, %hev.exit.i18.thread, %vp7_normal_limit.exit.i16
+  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
+  %exitcond37.not = icmp eq i64 %indvars.iv.next35, 8
+  br i1 %exitcond37.not, label %vp7_h_loop_filter8_c.exit21, label %vp7_h_loop_filter8_c.exit.preheader, !llvm.loop !137
 
 vp7_h_loop_filter8_c.exit21:                      ; preds = %vp7_normal_limit.exit.i16.thread
   ret void
@@ -6123,81 +6141,84 @@ vp7_normal_limit.exit:                            ; preds = %51
   %or.cond = select i1 %57, i1 true, i1 %.not
   %58 = sub nsw i32 %24, %22
   %59 = mul nsw i32 %58, 3
-  br i1 %or.cond, label %hev.exit.thread, label %83
+  br i1 %or.cond, label %hev.exit.thread, label %87
 
 hev.exit.thread:                                  ; preds = %56
   %60 = sub nsw i32 %19, %27
   %61 = sext i32 %60 to i64
-  %gep23 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %61
-  %62 = load i8, ptr %gep23, align 1, !tbaa !10
-  %63 = zext i8 %62 to i32
-  %64 = add nsw i32 %59, -128
-  %65 = add nsw i32 %64, %63
-  %66 = sext i32 %65 to i64
-  %gep24 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %66
-  %67 = load i8, ptr %gep24, align 1, !tbaa !10
-  %68 = zext i8 %67 to i32
-  %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 251)
-  %70 = add nsw i32 %69, -124
-  %71 = ashr i32 %70, 3
-  %72 = and i32 %68, 7
-  %73 = icmp eq i32 %72, 4
-  %.neg.i18 = sext i1 %73 to i32
-  %74 = add nsw i32 %.neg.i18, %22
-  %75 = add nsw i32 %74, %71
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %76
-  %78 = load i8, ptr %77, align 1, !tbaa !10
-  store i8 %78, ptr %20, align 1, !tbaa !10
-  %79 = sub nsw i32 %24, %71
+  %62 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %61
+  %63 = getelementptr i8, ptr %62, i64 128
+  %64 = load i8, ptr %63, align 1, !tbaa !10
+  %65 = zext i8 %64 to i32
+  %66 = add nsw i32 %59, -128
+  %67 = add nsw i32 %66, %65
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %68
+  %70 = getelementptr i8, ptr %69, i64 128
+  %71 = load i8, ptr %70, align 1, !tbaa !10
+  %72 = zext i8 %71 to i32
+  %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 251)
+  %74 = add nsw i32 %73, -124
+  %75 = ashr i32 %74, 3
+  %76 = and i32 %72, 7
+  %77 = icmp eq i32 %76, 4
+  %.neg.i18 = sext i1 %77 to i32
+  %78 = add nsw i32 %.neg.i18, %22
+  %79 = add nsw i32 %78, %75
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !10
-  store i8 %82, ptr %13, align 1, !tbaa !10
+  store i8 %82, ptr %20, align 1, !tbaa !10
+  %83 = sub nsw i32 %24, %75
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %84
+  %86 = load i8, ptr %85, align 1, !tbaa !10
+  store i8 %86, ptr %13, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.thread
 
-83:                                               ; preds = %56
-  %84 = sext i32 %59 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %84
-  %85 = load i8, ptr %gep, align 1, !tbaa !10
-  %86 = zext i8 %85 to i32
-  %87 = tail call i32 @llvm.umin.i32(i32 %86, i32 251)
-  %88 = add nsw i32 %87, -124
-  %89 = ashr i32 %88, 3
-  %90 = and i32 %86, 7
-  %91 = icmp eq i32 %90, 4
-  %.neg.i = sext i1 %91 to i32
-  %92 = add nsw i32 %.neg.i, %22
-  %93 = add nsw i32 %92, %89
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %94
-  %96 = load i8, ptr %95, align 1, !tbaa !10
-  store i8 %96, ptr %20, align 1, !tbaa !10
-  %97 = sub nsw i32 %24, %89
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %98
-  %100 = load i8, ptr %99, align 1, !tbaa !10
-  store i8 %100, ptr %13, align 1, !tbaa !10
-  %101 = add nsw i32 %89, 1
-  %102 = ashr i32 %101, 1
-  %103 = add nsw i32 %102, %19
+87:                                               ; preds = %56
+  %88 = sext i32 %59 to i64
+  %89 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %88
+  %90 = getelementptr i8, ptr %89, i64 128
+  %91 = load i8, ptr %90, align 1, !tbaa !10
+  %92 = zext i8 %91 to i32
+  %93 = tail call i32 @llvm.umin.i32(i32 %92, i32 251)
+  %94 = add nsw i32 %93, -124
+  %95 = ashr i32 %94, 3
+  %96 = and i32 %92, 7
+  %97 = icmp eq i32 %96, 4
+  %.neg.i = sext i1 %97 to i32
+  %98 = add nsw i32 %.neg.i, %22
+  %99 = add nsw i32 %98, %95
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %100
+  %102 = load i8, ptr %101, align 1, !tbaa !10
+  store i8 %102, ptr %20, align 1, !tbaa !10
+  %103 = sub nsw i32 %24, %95
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !10
-  store i8 %106, ptr %17, align 1, !tbaa !10
-  %107 = sub nsw i32 %27, %102
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !10
-  store i8 %110, ptr %25, align 1, !tbaa !10
+  store i8 %106, ptr %13, align 1, !tbaa !10
+  %107 = add nsw i32 %95, 1
+  %108 = ashr i32 %107, 1
+  %109 = add nsw i32 %108, %19
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %110
+  %112 = load i8, ptr %111, align 1, !tbaa !10
+  store i8 %112, ptr %17, align 1, !tbaa !10
+  %113 = sub nsw i32 %27, %108
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %114
+  %116 = load i8, ptr %115, align 1, !tbaa !10
+  store i8 %116, ptr %25, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.thread
 
-vp7_normal_limit.exit.thread:                     ; preds = %12, %36, %42, %45, %48, %51, %hev.exit.thread, %83, %vp7_normal_limit.exit
+vp7_normal_limit.exit.thread:                     ; preds = %12, %36, %42, %45, %48, %51, %hev.exit.thread, %87, %vp7_normal_limit.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %111, label %12, !llvm.loop !138
+  br i1 %exitcond.not, label %117, label %12, !llvm.loop !138
 
-111:                                              ; preds = %vp7_normal_limit.exit.thread
+117:                                              ; preds = %vp7_normal_limit.exit.thread
   ret void
 }
 
@@ -6279,81 +6300,84 @@ vp7_normal_limit.exit:                            ; preds = %46
   %or.cond = select i1 %52, i1 true, i1 %.not
   %53 = sub nsw i32 %19, %17
   %54 = mul nsw i32 %53, 3
-  br i1 %or.cond, label %hev.exit.thread, label %78
+  br i1 %or.cond, label %hev.exit.thread, label %82
 
 hev.exit.thread:                                  ; preds = %51
   %55 = sub nsw i32 %14, %22
   %56 = sext i32 %55 to i64
-  %gep23 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %56
-  %57 = load i8, ptr %gep23, align 1, !tbaa !10
-  %58 = zext i8 %57 to i32
-  %59 = add nsw i32 %54, -128
-  %60 = add nsw i32 %59, %58
-  %61 = sext i32 %60 to i64
-  %gep24 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %61
-  %62 = load i8, ptr %gep24, align 1, !tbaa !10
-  %63 = zext i8 %62 to i32
-  %64 = tail call i32 @llvm.umin.i32(i32 %63, i32 251)
-  %65 = add nsw i32 %64, -124
-  %66 = ashr i32 %65, 3
-  %67 = and i32 %63, 7
-  %68 = icmp eq i32 %67, 4
-  %.neg.i18 = sext i1 %68 to i32
-  %69 = add nsw i32 %.neg.i18, %17
-  %70 = add nsw i32 %69, %66
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !10
-  store i8 %73, ptr %15, align 1, !tbaa !10
-  %74 = sub nsw i32 %19, %66
+  %57 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %56
+  %58 = getelementptr i8, ptr %57, i64 128
+  %59 = load i8, ptr %58, align 1, !tbaa !10
+  %60 = zext i8 %59 to i32
+  %61 = add nsw i32 %54, -128
+  %62 = add nsw i32 %61, %60
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %63
+  %65 = getelementptr i8, ptr %64, i64 128
+  %66 = load i8, ptr %65, align 1, !tbaa !10
+  %67 = zext i8 %66 to i32
+  %68 = tail call i32 @llvm.umin.i32(i32 %67, i32 251)
+  %69 = add nsw i32 %68, -124
+  %70 = ashr i32 %69, 3
+  %71 = and i32 %67, 7
+  %72 = icmp eq i32 %71, 4
+  %.neg.i18 = sext i1 %72 to i32
+  %73 = add nsw i32 %.neg.i18, %17
+  %74 = add nsw i32 %73, %70
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !10
-  store i8 %77, ptr %8, align 1, !tbaa !10
+  store i8 %77, ptr %15, align 1, !tbaa !10
+  %78 = sub nsw i32 %19, %70
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %79
+  %81 = load i8, ptr %80, align 1, !tbaa !10
+  store i8 %81, ptr %8, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.thread
 
-78:                                               ; preds = %51
-  %79 = sext i32 %54 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %79
-  %80 = load i8, ptr %gep, align 1, !tbaa !10
-  %81 = zext i8 %80 to i32
-  %82 = tail call i32 @llvm.umin.i32(i32 %81, i32 251)
-  %83 = add nsw i32 %82, -124
-  %84 = ashr i32 %83, 3
-  %85 = and i32 %81, 7
-  %86 = icmp eq i32 %85, 4
-  %.neg.i = sext i1 %86 to i32
-  %87 = add nsw i32 %.neg.i, %17
-  %88 = add nsw i32 %87, %84
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %89
-  %91 = load i8, ptr %90, align 1, !tbaa !10
-  store i8 %91, ptr %15, align 1, !tbaa !10
-  %92 = sub nsw i32 %19, %84
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %93
-  %95 = load i8, ptr %94, align 1, !tbaa !10
-  store i8 %95, ptr %8, align 1, !tbaa !10
-  %96 = add nsw i32 %84, 1
-  %97 = ashr i32 %96, 1
-  %98 = add nsw i32 %97, %14
+82:                                               ; preds = %51
+  %83 = sext i32 %54 to i64
+  %84 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %83
+  %85 = getelementptr i8, ptr %84, i64 128
+  %86 = load i8, ptr %85, align 1, !tbaa !10
+  %87 = zext i8 %86 to i32
+  %88 = tail call i32 @llvm.umin.i32(i32 %87, i32 251)
+  %89 = add nsw i32 %88, -124
+  %90 = ashr i32 %89, 3
+  %91 = and i32 %87, 7
+  %92 = icmp eq i32 %91, 4
+  %.neg.i = sext i1 %92 to i32
+  %93 = add nsw i32 %.neg.i, %17
+  %94 = add nsw i32 %93, %90
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %95
+  %97 = load i8, ptr %96, align 1, !tbaa !10
+  store i8 %97, ptr %15, align 1, !tbaa !10
+  %98 = sub nsw i32 %19, %90
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !10
-  store i8 %101, ptr %12, align 1, !tbaa !10
-  %102 = sub nsw i32 %22, %97
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %103
-  %105 = load i8, ptr %104, align 1, !tbaa !10
-  store i8 %105, ptr %20, align 1, !tbaa !10
+  store i8 %101, ptr %8, align 1, !tbaa !10
+  %102 = add nsw i32 %90, 1
+  %103 = ashr i32 %102, 1
+  %104 = add nsw i32 %103, %14
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %105
+  %107 = load i8, ptr %106, align 1, !tbaa !10
+  store i8 %107, ptr %12, align 1, !tbaa !10
+  %108 = sub nsw i32 %22, %103
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %109
+  %111 = load i8, ptr %110, align 1, !tbaa !10
+  store i8 %111, ptr %20, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.thread
 
-vp7_normal_limit.exit.thread:                     ; preds = %6, %31, %37, %40, %43, %46, %hev.exit.thread, %78, %vp7_normal_limit.exit
+vp7_normal_limit.exit.thread:                     ; preds = %6, %31, %37, %40, %43, %46, %hev.exit.thread, %82, %vp7_normal_limit.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %106, label %6, !llvm.loop !139
+  br i1 %exitcond.not, label %112, label %6, !llvm.loop !139
 
-106:                                              ; preds = %vp7_normal_limit.exit.thread
+112:                                              ; preds = %vp7_normal_limit.exit.thread
   ret void
 }
 
@@ -6440,226 +6464,232 @@ vp7_normal_limit.exit.i:                          ; preds = %52
   %or.cond = select i1 %58, i1 true, i1 %.not31
   %59 = sub nsw i32 %25, %23
   %60 = mul nsw i32 %59, 3
-  br i1 %or.cond, label %hev.exit.i.thread, label %84
+  br i1 %or.cond, label %hev.exit.i.thread, label %88
 
 hev.exit.i.thread:                                ; preds = %57
   %61 = sub nsw i32 %20, %28
   %62 = sext i32 %61 to i64
-  %gep32 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %62
-  %63 = load i8, ptr %gep32, align 1, !tbaa !10
-  %64 = zext i8 %63 to i32
-  %65 = add nsw i32 %60, -128
-  %66 = add nsw i32 %65, %64
-  %67 = sext i32 %66 to i64
-  %gep33 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %67
-  %68 = load i8, ptr %gep33, align 1, !tbaa !10
-  %69 = zext i8 %68 to i32
-  %70 = tail call i32 @llvm.umin.i32(i32 %69, i32 251)
-  %71 = add nsw i32 %70, -124
-  %72 = ashr i32 %71, 3
-  %73 = and i32 %69, 7
-  %74 = icmp eq i32 %73, 4
-  %.neg.i.i = sext i1 %74 to i32
-  %75 = add nsw i32 %.neg.i.i, %23
-  %76 = add nsw i32 %75, %72
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !10
-  store i8 %79, ptr %21, align 1, !tbaa !10
-  %80 = sub nsw i32 %25, %72
+  %63 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %62
+  %64 = getelementptr i8, ptr %63, i64 128
+  %65 = load i8, ptr %64, align 1, !tbaa !10
+  %66 = zext i8 %65 to i32
+  %67 = add nsw i32 %60, -128
+  %68 = add nsw i32 %67, %66
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %69
+  %71 = getelementptr i8, ptr %70, i64 128
+  %72 = load i8, ptr %71, align 1, !tbaa !10
+  %73 = zext i8 %72 to i32
+  %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 251)
+  %75 = add nsw i32 %74, -124
+  %76 = ashr i32 %75, 3
+  %77 = and i32 %73, 7
+  %78 = icmp eq i32 %77, 4
+  %.neg.i.i = sext i1 %78 to i32
+  %79 = add nsw i32 %.neg.i.i, %23
+  %80 = add nsw i32 %79, %76
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !10
-  store i8 %83, ptr %14, align 1, !tbaa !10
+  store i8 %83, ptr %21, align 1, !tbaa !10
+  %84 = sub nsw i32 %25, %76
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %85
+  %87 = load i8, ptr %86, align 1, !tbaa !10
+  store i8 %87, ptr %14, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i.thread
 
-84:                                               ; preds = %57
-  %85 = sext i32 %60 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %85
-  %86 = load i8, ptr %gep, align 1, !tbaa !10
-  %87 = zext i8 %86 to i32
-  %88 = tail call i32 @llvm.umin.i32(i32 %87, i32 251)
-  %89 = add nsw i32 %88, -124
-  %90 = ashr i32 %89, 3
-  %91 = and i32 %87, 7
-  %92 = icmp eq i32 %91, 4
-  %.neg.i18.i = sext i1 %92 to i32
-  %93 = add nsw i32 %.neg.i18.i, %23
-  %94 = add nsw i32 %93, %90
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %95
-  %97 = load i8, ptr %96, align 1, !tbaa !10
-  store i8 %97, ptr %21, align 1, !tbaa !10
-  %98 = sub nsw i32 %25, %90
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %99
-  %101 = load i8, ptr %100, align 1, !tbaa !10
-  store i8 %101, ptr %14, align 1, !tbaa !10
-  %102 = add nsw i32 %90, 1
-  %103 = ashr i32 %102, 1
-  %104 = add nsw i32 %103, %20
+88:                                               ; preds = %57
+  %89 = sext i32 %60 to i64
+  %90 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %89
+  %91 = getelementptr i8, ptr %90, i64 128
+  %92 = load i8, ptr %91, align 1, !tbaa !10
+  %93 = zext i8 %92 to i32
+  %94 = tail call i32 @llvm.umin.i32(i32 %93, i32 251)
+  %95 = add nsw i32 %94, -124
+  %96 = ashr i32 %95, 3
+  %97 = and i32 %93, 7
+  %98 = icmp eq i32 %97, 4
+  %.neg.i18.i = sext i1 %98 to i32
+  %99 = add nsw i32 %.neg.i18.i, %23
+  %100 = add nsw i32 %99, %96
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %101
+  %103 = load i8, ptr %102, align 1, !tbaa !10
+  store i8 %103, ptr %21, align 1, !tbaa !10
+  %104 = sub nsw i32 %25, %96
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %105
   %107 = load i8, ptr %106, align 1, !tbaa !10
-  store i8 %107, ptr %18, align 1, !tbaa !10
-  %108 = sub nsw i32 %28, %103
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %109
-  %111 = load i8, ptr %110, align 1, !tbaa !10
-  store i8 %111, ptr %26, align 1, !tbaa !10
+  store i8 %107, ptr %14, align 1, !tbaa !10
+  %108 = add nsw i32 %96, 1
+  %109 = ashr i32 %108, 1
+  %110 = add nsw i32 %109, %20
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %111
+  %113 = load i8, ptr %112, align 1, !tbaa !10
+  store i8 %113, ptr %18, align 1, !tbaa !10
+  %114 = sub nsw i32 %28, %109
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %115
+  %117 = load i8, ptr %116, align 1, !tbaa !10
+  store i8 %117, ptr %26, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i.thread
 
-vp7_normal_limit.exit.i.thread:                   ; preds = %13, %37, %43, %46, %49, %52, %84, %hev.exit.i.thread, %vp7_normal_limit.exit.i
+vp7_normal_limit.exit.i.thread:                   ; preds = %13, %37, %43, %46, %49, %52, %88, %hev.exit.i.thread, %vp7_normal_limit.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %vp7_v_loop_filter8_inner_c.exit.preheader, label %13, !llvm.loop !140
 
 vp7_v_loop_filter8_inner_c.exit.preheader:        ; preds = %vp7_normal_limit.exit.i.thread, %vp7_normal_limit.exit.i16.thread
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %vp7_normal_limit.exit.i16.thread ], [ 0, %vp7_normal_limit.exit.i.thread ]
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv40
-  %113 = getelementptr inbounds i8, ptr %112, i64 %7
-  %114 = load i8, ptr %113, align 1, !tbaa !10
-  %115 = zext i8 %114 to i32
-  %116 = getelementptr inbounds i8, ptr %112, i64 %8
-  %117 = load i8, ptr %116, align 1, !tbaa !10
-  %118 = zext i8 %117 to i32
-  %119 = getelementptr inbounds i8, ptr %112, i64 %9
+  %indvars.iv35 = phi i64 [ %indvars.iv.next36, %vp7_normal_limit.exit.i16.thread ], [ 0, %vp7_normal_limit.exit.i.thread ]
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv35
+  %119 = getelementptr inbounds i8, ptr %118, i64 %7
   %120 = load i8, ptr %119, align 1, !tbaa !10
   %121 = zext i8 %120 to i32
-  %122 = load i8, ptr %112, align 1, !tbaa !10
-  %123 = zext i8 %122 to i32
-  %124 = getelementptr inbounds i8, ptr %112, i64 %2
-  %125 = load i8, ptr %124, align 1, !tbaa !10
-  %126 = zext i8 %125 to i32
-  %127 = getelementptr inbounds i8, ptr %112, i64 %10
-  %128 = load i8, ptr %127, align 1, !tbaa !10
+  %122 = getelementptr inbounds i8, ptr %118, i64 %8
+  %123 = load i8, ptr %122, align 1, !tbaa !10
+  %124 = zext i8 %123 to i32
+  %125 = getelementptr inbounds i8, ptr %118, i64 %9
+  %126 = load i8, ptr %125, align 1, !tbaa !10
+  %127 = zext i8 %126 to i32
+  %128 = load i8, ptr %118, align 1, !tbaa !10
   %129 = zext i8 %128 to i32
-  %130 = getelementptr inbounds i8, ptr %112, i64 %11
+  %130 = getelementptr inbounds i8, ptr %118, i64 %2
   %131 = load i8, ptr %130, align 1, !tbaa !10
   %132 = zext i8 %131 to i32
-  %133 = sub nsw i32 %121, %123
-  %134 = tail call i32 @llvm.abs.i32(i32 %133, i1 true)
-  %.not = icmp sgt i32 %134, %3
-  br i1 %.not, label %vp7_normal_limit.exit.i16.thread, label %135
-
-135:                                              ; preds = %vp7_v_loop_filter8_inner_c.exit.preheader
-  %136 = getelementptr inbounds i8, ptr %112, i64 %12
+  %133 = getelementptr inbounds i8, ptr %118, i64 %10
+  %134 = load i8, ptr %133, align 1, !tbaa !10
+  %135 = zext i8 %134 to i32
+  %136 = getelementptr inbounds i8, ptr %118, i64 %11
   %137 = load i8, ptr %136, align 1, !tbaa !10
   %138 = zext i8 %137 to i32
-  %139 = sub nsw i32 %138, %115
+  %139 = sub nsw i32 %127, %129
   %140 = tail call i32 @llvm.abs.i32(i32 %139, i1 true)
-  %.not71.i.i11 = icmp sgt i32 %140, %4
-  br i1 %.not71.i.i11, label %vp7_normal_limit.exit.i16.thread, label %141
+  %.not = icmp sgt i32 %140, %3
+  br i1 %.not, label %vp7_normal_limit.exit.i16.thread, label %141
 
-141:                                              ; preds = %135
-  %142 = sub nsw i32 %115, %118
-  %143 = tail call i32 @llvm.abs.i32(i32 %142, i1 true)
-  %.not72.i.i12 = icmp samesign ugt i32 %143, %4
-  br i1 %.not72.i.i12, label %vp7_normal_limit.exit.i16.thread, label %144
-
-144:                                              ; preds = %141
-  %145 = sub nsw i32 %118, %121
+141:                                              ; preds = %vp7_v_loop_filter8_inner_c.exit.preheader
+  %142 = getelementptr inbounds i8, ptr %118, i64 %12
+  %143 = load i8, ptr %142, align 1, !tbaa !10
+  %144 = zext i8 %143 to i32
+  %145 = sub nsw i32 %144, %121
   %146 = tail call i32 @llvm.abs.i32(i32 %145, i1 true)
-  %.not73.i.i13 = icmp samesign ugt i32 %146, %4
-  br i1 %.not73.i.i13, label %vp7_normal_limit.exit.i16.thread, label %147
+  %.not71.i.i11 = icmp sgt i32 %146, %4
+  br i1 %.not71.i.i11, label %vp7_normal_limit.exit.i16.thread, label %147
 
-147:                                              ; preds = %144
-  %148 = sub nsw i32 %132, %129
+147:                                              ; preds = %141
+  %148 = sub nsw i32 %121, %124
   %149 = tail call i32 @llvm.abs.i32(i32 %148, i1 true)
-  %.not74.i.i14 = icmp samesign ugt i32 %149, %4
-  br i1 %.not74.i.i14, label %vp7_normal_limit.exit.i16.thread, label %150
+  %.not72.i.i12 = icmp samesign ugt i32 %149, %4
+  br i1 %.not72.i.i12, label %vp7_normal_limit.exit.i16.thread, label %150
 
 150:                                              ; preds = %147
-  %151 = sub nsw i32 %129, %126
+  %151 = sub nsw i32 %124, %127
   %152 = tail call i32 @llvm.abs.i32(i32 %151, i1 true)
-  %.not75.i.i15 = icmp samesign ugt i32 %152, %4
+  %.not73.i.i13 = icmp samesign ugt i32 %152, %4
+  br i1 %.not73.i.i13, label %vp7_normal_limit.exit.i16.thread, label %153
+
+153:                                              ; preds = %150
+  %154 = sub nsw i32 %138, %135
+  %155 = tail call i32 @llvm.abs.i32(i32 %154, i1 true)
+  %.not74.i.i14 = icmp samesign ugt i32 %155, %4
+  br i1 %.not74.i.i14, label %vp7_normal_limit.exit.i16.thread, label %156
+
+156:                                              ; preds = %153
+  %157 = sub nsw i32 %135, %132
+  %158 = tail call i32 @llvm.abs.i32(i32 %157, i1 true)
+  %.not75.i.i15 = icmp samesign ugt i32 %158, %4
   br i1 %.not75.i.i15, label %vp7_normal_limit.exit.i16.thread, label %vp7_normal_limit.exit.i16
 
-vp7_normal_limit.exit.i16:                        ; preds = %150
-  %153 = sub nsw i32 %126, %123
-  %154 = tail call i32 @llvm.abs.i32(i32 %153, i1 true)
-  %.not27 = icmp samesign ugt i32 %154, %4
-  br i1 %.not27, label %vp7_normal_limit.exit.i16.thread, label %155
+vp7_normal_limit.exit.i16:                        ; preds = %156
+  %159 = sub nsw i32 %132, %129
+  %160 = tail call i32 @llvm.abs.i32(i32 %159, i1 true)
+  %.not27 = icmp samesign ugt i32 %160, %4
+  br i1 %.not27, label %vp7_normal_limit.exit.i16.thread, label %161
 
-155:                                              ; preds = %vp7_normal_limit.exit.i16
-  %156 = icmp sgt i32 %146, %5
-  %.not28 = icmp samesign ugt i32 %154, %5
-  %or.cond44 = select i1 %156, i1 true, i1 %.not28
-  %157 = sub nsw i32 %123, %121
-  %158 = mul nsw i32 %157, 3
-  br i1 %or.cond44, label %hev.exit.i18.thread, label %182
+161:                                              ; preds = %vp7_normal_limit.exit.i16
+  %162 = icmp sgt i32 %152, %5
+  %.not28 = icmp samesign ugt i32 %160, %5
+  %or.cond39 = select i1 %162, i1 true, i1 %.not28
+  %163 = sub nsw i32 %129, %127
+  %164 = mul nsw i32 %163, 3
+  br i1 %or.cond39, label %hev.exit.i18.thread, label %192
 
-hev.exit.i18.thread:                              ; preds = %155
-  %159 = sub nsw i32 %118, %126
-  %160 = sext i32 %159 to i64
-  %gep36 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %160
-  %161 = load i8, ptr %gep36, align 1, !tbaa !10
-  %162 = zext i8 %161 to i32
-  %163 = add nsw i32 %158, -128
-  %164 = add nsw i32 %163, %162
-  %165 = sext i32 %164 to i64
-  %gep37 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %165
-  %166 = load i8, ptr %gep37, align 1, !tbaa !10
-  %167 = zext i8 %166 to i32
-  %168 = tail call i32 @llvm.umin.i32(i32 %167, i32 251)
-  %169 = add nsw i32 %168, -124
-  %170 = ashr i32 %169, 3
-  %171 = and i32 %167, 7
-  %172 = icmp eq i32 %171, 4
-  %.neg.i.i20 = sext i1 %172 to i32
-  %173 = add nsw i32 %.neg.i.i20, %121
-  %174 = add nsw i32 %173, %170
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %175
-  %177 = load i8, ptr %176, align 1, !tbaa !10
-  store i8 %177, ptr %119, align 1, !tbaa !10
-  %178 = sub nsw i32 %123, %170
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %179
-  %181 = load i8, ptr %180, align 1, !tbaa !10
-  store i8 %181, ptr %112, align 1, !tbaa !10
+hev.exit.i18.thread:                              ; preds = %161
+  %165 = sub nsw i32 %124, %132
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %166
+  %168 = getelementptr i8, ptr %167, i64 128
+  %169 = load i8, ptr %168, align 1, !tbaa !10
+  %170 = zext i8 %169 to i32
+  %171 = add nsw i32 %164, -128
+  %172 = add nsw i32 %171, %170
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %173
+  %175 = getelementptr i8, ptr %174, i64 128
+  %176 = load i8, ptr %175, align 1, !tbaa !10
+  %177 = zext i8 %176 to i32
+  %178 = tail call i32 @llvm.umin.i32(i32 %177, i32 251)
+  %179 = add nsw i32 %178, -124
+  %180 = ashr i32 %179, 3
+  %181 = and i32 %177, 7
+  %182 = icmp eq i32 %181, 4
+  %.neg.i.i20 = sext i1 %182 to i32
+  %183 = add nsw i32 %.neg.i.i20, %127
+  %184 = add nsw i32 %183, %180
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %185
+  %187 = load i8, ptr %186, align 1, !tbaa !10
+  store i8 %187, ptr %125, align 1, !tbaa !10
+  %188 = sub nsw i32 %129, %180
+  %189 = sext i32 %188 to i64
+  %190 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %189
+  %191 = load i8, ptr %190, align 1, !tbaa !10
+  store i8 %191, ptr %118, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i16.thread
 
-182:                                              ; preds = %155
-  %183 = sext i32 %158 to i64
-  %gep35 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %183
-  %184 = load i8, ptr %gep35, align 1, !tbaa !10
-  %185 = zext i8 %184 to i32
-  %186 = tail call i32 @llvm.umin.i32(i32 %185, i32 251)
-  %187 = add nsw i32 %186, -124
-  %188 = ashr i32 %187, 3
-  %189 = and i32 %185, 7
-  %190 = icmp eq i32 %189, 4
-  %.neg.i18.i21 = sext i1 %190 to i32
-  %191 = add nsw i32 %.neg.i18.i21, %121
-  %192 = add nsw i32 %191, %188
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %193
-  %195 = load i8, ptr %194, align 1, !tbaa !10
-  store i8 %195, ptr %119, align 1, !tbaa !10
-  %196 = sub nsw i32 %123, %188
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %197
-  %199 = load i8, ptr %198, align 1, !tbaa !10
-  store i8 %199, ptr %112, align 1, !tbaa !10
-  %200 = add nsw i32 %188, 1
-  %201 = ashr i32 %200, 1
-  %202 = add nsw i32 %201, %118
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %203
-  %205 = load i8, ptr %204, align 1, !tbaa !10
-  store i8 %205, ptr %116, align 1, !tbaa !10
-  %206 = sub nsw i32 %126, %201
-  %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %207
-  %209 = load i8, ptr %208, align 1, !tbaa !10
-  store i8 %209, ptr %124, align 1, !tbaa !10
+192:                                              ; preds = %161
+  %193 = sext i32 %164 to i64
+  %194 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %193
+  %195 = getelementptr i8, ptr %194, i64 128
+  %196 = load i8, ptr %195, align 1, !tbaa !10
+  %197 = zext i8 %196 to i32
+  %198 = tail call i32 @llvm.umin.i32(i32 %197, i32 251)
+  %199 = add nsw i32 %198, -124
+  %200 = ashr i32 %199, 3
+  %201 = and i32 %197, 7
+  %202 = icmp eq i32 %201, 4
+  %.neg.i18.i21 = sext i1 %202 to i32
+  %203 = add nsw i32 %.neg.i18.i21, %127
+  %204 = add nsw i32 %203, %200
+  %205 = sext i32 %204 to i64
+  %206 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %205
+  %207 = load i8, ptr %206, align 1, !tbaa !10
+  store i8 %207, ptr %125, align 1, !tbaa !10
+  %208 = sub nsw i32 %129, %200
+  %209 = sext i32 %208 to i64
+  %210 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %209
+  %211 = load i8, ptr %210, align 1, !tbaa !10
+  store i8 %211, ptr %118, align 1, !tbaa !10
+  %212 = add nsw i32 %200, 1
+  %213 = ashr i32 %212, 1
+  %214 = add nsw i32 %213, %124
+  %215 = sext i32 %214 to i64
+  %216 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %215
+  %217 = load i8, ptr %216, align 1, !tbaa !10
+  store i8 %217, ptr %122, align 1, !tbaa !10
+  %218 = sub nsw i32 %132, %213
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %219
+  %221 = load i8, ptr %220, align 1, !tbaa !10
+  store i8 %221, ptr %130, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i16.thread
 
-vp7_normal_limit.exit.i16.thread:                 ; preds = %vp7_v_loop_filter8_inner_c.exit.preheader, %135, %141, %144, %147, %150, %182, %hev.exit.i18.thread, %vp7_normal_limit.exit.i16
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond43.not = icmp eq i64 %indvars.iv.next41, 8
-  br i1 %exitcond43.not, label %vp7_v_loop_filter8_inner_c.exit22, label %vp7_v_loop_filter8_inner_c.exit.preheader, !llvm.loop !140
+vp7_normal_limit.exit.i16.thread:                 ; preds = %vp7_v_loop_filter8_inner_c.exit.preheader, %141, %147, %150, %153, %156, %192, %hev.exit.i18.thread, %vp7_normal_limit.exit.i16
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+  %exitcond38.not = icmp eq i64 %indvars.iv.next36, 8
+  br i1 %exitcond38.not, label %vp7_v_loop_filter8_inner_c.exit22, label %vp7_v_loop_filter8_inner_c.exit.preheader, !llvm.loop !140
 
 vp7_v_loop_filter8_inner_c.exit22:                ; preds = %vp7_normal_limit.exit.i16.thread
   ret void
@@ -6743,227 +6773,233 @@ vp7_normal_limit.exit.i:                          ; preds = %47
   %or.cond = select i1 %53, i1 true, i1 %.not31
   %54 = sub nsw i32 %20, %18
   %55 = mul nsw i32 %54, 3
-  br i1 %or.cond, label %hev.exit.i.thread, label %79
+  br i1 %or.cond, label %hev.exit.i.thread, label %83
 
 hev.exit.i.thread:                                ; preds = %52
   %56 = sub nsw i32 %15, %23
   %57 = sext i32 %56 to i64
-  %gep32 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %57
-  %58 = load i8, ptr %gep32, align 1, !tbaa !10
-  %59 = zext i8 %58 to i32
-  %60 = add nsw i32 %55, -128
-  %61 = add nsw i32 %60, %59
-  %62 = sext i32 %61 to i64
-  %gep33 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %62
-  %63 = load i8, ptr %gep33, align 1, !tbaa !10
-  %64 = zext i8 %63 to i32
-  %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 251)
-  %66 = add nsw i32 %65, -124
-  %67 = ashr i32 %66, 3
-  %68 = and i32 %64, 7
-  %69 = icmp eq i32 %68, 4
-  %.neg.i.i = sext i1 %69 to i32
-  %70 = add nsw i32 %.neg.i.i, %18
-  %71 = add nsw i32 %70, %67
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %72
-  %74 = load i8, ptr %73, align 1, !tbaa !10
-  store i8 %74, ptr %16, align 1, !tbaa !10
-  %75 = sub nsw i32 %20, %67
+  %58 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %57
+  %59 = getelementptr i8, ptr %58, i64 128
+  %60 = load i8, ptr %59, align 1, !tbaa !10
+  %61 = zext i8 %60 to i32
+  %62 = add nsw i32 %55, -128
+  %63 = add nsw i32 %62, %61
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %64
+  %66 = getelementptr i8, ptr %65, i64 128
+  %67 = load i8, ptr %66, align 1, !tbaa !10
+  %68 = zext i8 %67 to i32
+  %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 251)
+  %70 = add nsw i32 %69, -124
+  %71 = ashr i32 %70, 3
+  %72 = and i32 %68, 7
+  %73 = icmp eq i32 %72, 4
+  %.neg.i.i = sext i1 %73 to i32
+  %74 = add nsw i32 %.neg.i.i, %18
+  %75 = add nsw i32 %74, %71
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !10
-  store i8 %78, ptr %9, align 1, !tbaa !10
+  store i8 %78, ptr %16, align 1, !tbaa !10
+  %79 = sub nsw i32 %20, %71
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %80
+  %82 = load i8, ptr %81, align 1, !tbaa !10
+  store i8 %82, ptr %9, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i.thread
 
-79:                                               ; preds = %52
-  %80 = sext i32 %55 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %80
-  %81 = load i8, ptr %gep, align 1, !tbaa !10
-  %82 = zext i8 %81 to i32
-  %83 = tail call i32 @llvm.umin.i32(i32 %82, i32 251)
-  %84 = add nsw i32 %83, -124
-  %85 = ashr i32 %84, 3
-  %86 = and i32 %82, 7
-  %87 = icmp eq i32 %86, 4
-  %.neg.i18.i = sext i1 %87 to i32
-  %88 = add nsw i32 %.neg.i18.i, %18
-  %89 = add nsw i32 %88, %85
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %90
-  %92 = load i8, ptr %91, align 1, !tbaa !10
-  store i8 %92, ptr %16, align 1, !tbaa !10
-  %93 = sub nsw i32 %20, %85
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %94
-  %96 = load i8, ptr %95, align 1, !tbaa !10
-  store i8 %96, ptr %9, align 1, !tbaa !10
-  %97 = add nsw i32 %85, 1
-  %98 = ashr i32 %97, 1
-  %99 = add nsw i32 %98, %15
+83:                                               ; preds = %52
+  %84 = sext i32 %55 to i64
+  %85 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %84
+  %86 = getelementptr i8, ptr %85, i64 128
+  %87 = load i8, ptr %86, align 1, !tbaa !10
+  %88 = zext i8 %87 to i32
+  %89 = tail call i32 @llvm.umin.i32(i32 %88, i32 251)
+  %90 = add nsw i32 %89, -124
+  %91 = ashr i32 %90, 3
+  %92 = and i32 %88, 7
+  %93 = icmp eq i32 %92, 4
+  %.neg.i18.i = sext i1 %93 to i32
+  %94 = add nsw i32 %.neg.i18.i, %18
+  %95 = add nsw i32 %94, %91
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %96
+  %98 = load i8, ptr %97, align 1, !tbaa !10
+  store i8 %98, ptr %16, align 1, !tbaa !10
+  %99 = sub nsw i32 %20, %91
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !10
-  store i8 %102, ptr %13, align 1, !tbaa !10
-  %103 = sub nsw i32 %23, %98
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %104
-  %106 = load i8, ptr %105, align 1, !tbaa !10
-  store i8 %106, ptr %21, align 1, !tbaa !10
+  store i8 %102, ptr %9, align 1, !tbaa !10
+  %103 = add nsw i32 %91, 1
+  %104 = ashr i32 %103, 1
+  %105 = add nsw i32 %104, %15
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %106
+  %108 = load i8, ptr %107, align 1, !tbaa !10
+  store i8 %108, ptr %13, align 1, !tbaa !10
+  %109 = sub nsw i32 %23, %104
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %110
+  %112 = load i8, ptr %111, align 1, !tbaa !10
+  store i8 %112, ptr %21, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i.thread
 
-vp7_normal_limit.exit.i.thread:                   ; preds = %7, %32, %38, %41, %44, %47, %79, %hev.exit.i.thread, %vp7_normal_limit.exit.i
+vp7_normal_limit.exit.i.thread:                   ; preds = %7, %32, %38, %41, %44, %47, %83, %hev.exit.i.thread, %vp7_normal_limit.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %vp7_h_loop_filter8_inner_c.exit.preheader, label %7, !llvm.loop !141
 
 vp7_h_loop_filter8_inner_c.exit.preheader:        ; preds = %vp7_normal_limit.exit.i.thread, %vp7_normal_limit.exit.i16.thread
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %vp7_normal_limit.exit.i16.thread ], [ 0, %vp7_normal_limit.exit.i.thread ]
-  %107 = mul nsw i64 %2, %indvars.iv40
-  %108 = getelementptr inbounds i8, ptr %1, i64 %107
-  %109 = getelementptr inbounds i8, ptr %108, i64 -3
-  %110 = load i8, ptr %109, align 1, !tbaa !10
-  %111 = zext i8 %110 to i32
-  %112 = getelementptr inbounds i8, ptr %108, i64 -2
-  %113 = load i8, ptr %112, align 1, !tbaa !10
-  %114 = zext i8 %113 to i32
-  %115 = getelementptr inbounds i8, ptr %108, i64 -1
+  %indvars.iv35 = phi i64 [ %indvars.iv.next36, %vp7_normal_limit.exit.i16.thread ], [ 0, %vp7_normal_limit.exit.i.thread ]
+  %113 = mul nsw i64 %2, %indvars.iv35
+  %114 = getelementptr inbounds i8, ptr %1, i64 %113
+  %115 = getelementptr inbounds i8, ptr %114, i64 -3
   %116 = load i8, ptr %115, align 1, !tbaa !10
   %117 = zext i8 %116 to i32
-  %118 = load i8, ptr %108, align 1, !tbaa !10
-  %119 = zext i8 %118 to i32
-  %120 = getelementptr inbounds nuw i8, ptr %108, i64 1
-  %121 = load i8, ptr %120, align 1, !tbaa !10
-  %122 = zext i8 %121 to i32
-  %123 = getelementptr inbounds nuw i8, ptr %108, i64 2
-  %124 = load i8, ptr %123, align 1, !tbaa !10
+  %118 = getelementptr inbounds i8, ptr %114, i64 -2
+  %119 = load i8, ptr %118, align 1, !tbaa !10
+  %120 = zext i8 %119 to i32
+  %121 = getelementptr inbounds i8, ptr %114, i64 -1
+  %122 = load i8, ptr %121, align 1, !tbaa !10
+  %123 = zext i8 %122 to i32
+  %124 = load i8, ptr %114, align 1, !tbaa !10
   %125 = zext i8 %124 to i32
-  %126 = getelementptr inbounds nuw i8, ptr %108, i64 3
+  %126 = getelementptr inbounds nuw i8, ptr %114, i64 1
   %127 = load i8, ptr %126, align 1, !tbaa !10
   %128 = zext i8 %127 to i32
-  %129 = sub nsw i32 %117, %119
-  %130 = tail call i32 @llvm.abs.i32(i32 %129, i1 true)
-  %.not = icmp sgt i32 %130, %3
-  br i1 %.not, label %vp7_normal_limit.exit.i16.thread, label %131
-
-131:                                              ; preds = %vp7_h_loop_filter8_inner_c.exit.preheader
-  %132 = getelementptr inbounds i8, ptr %108, i64 -4
+  %129 = getelementptr inbounds nuw i8, ptr %114, i64 2
+  %130 = load i8, ptr %129, align 1, !tbaa !10
+  %131 = zext i8 %130 to i32
+  %132 = getelementptr inbounds nuw i8, ptr %114, i64 3
   %133 = load i8, ptr %132, align 1, !tbaa !10
   %134 = zext i8 %133 to i32
-  %135 = sub nsw i32 %134, %111
+  %135 = sub nsw i32 %123, %125
   %136 = tail call i32 @llvm.abs.i32(i32 %135, i1 true)
-  %.not71.i.i11 = icmp sgt i32 %136, %4
-  br i1 %.not71.i.i11, label %vp7_normal_limit.exit.i16.thread, label %137
+  %.not = icmp sgt i32 %136, %3
+  br i1 %.not, label %vp7_normal_limit.exit.i16.thread, label %137
 
-137:                                              ; preds = %131
-  %138 = sub nsw i32 %111, %114
-  %139 = tail call i32 @llvm.abs.i32(i32 %138, i1 true)
-  %.not72.i.i12 = icmp samesign ugt i32 %139, %4
-  br i1 %.not72.i.i12, label %vp7_normal_limit.exit.i16.thread, label %140
-
-140:                                              ; preds = %137
-  %141 = sub nsw i32 %114, %117
+137:                                              ; preds = %vp7_h_loop_filter8_inner_c.exit.preheader
+  %138 = getelementptr inbounds i8, ptr %114, i64 -4
+  %139 = load i8, ptr %138, align 1, !tbaa !10
+  %140 = zext i8 %139 to i32
+  %141 = sub nsw i32 %140, %117
   %142 = tail call i32 @llvm.abs.i32(i32 %141, i1 true)
-  %.not73.i.i13 = icmp samesign ugt i32 %142, %4
-  br i1 %.not73.i.i13, label %vp7_normal_limit.exit.i16.thread, label %143
+  %.not71.i.i11 = icmp sgt i32 %142, %4
+  br i1 %.not71.i.i11, label %vp7_normal_limit.exit.i16.thread, label %143
 
-143:                                              ; preds = %140
-  %144 = sub nsw i32 %128, %125
+143:                                              ; preds = %137
+  %144 = sub nsw i32 %117, %120
   %145 = tail call i32 @llvm.abs.i32(i32 %144, i1 true)
-  %.not74.i.i14 = icmp samesign ugt i32 %145, %4
-  br i1 %.not74.i.i14, label %vp7_normal_limit.exit.i16.thread, label %146
+  %.not72.i.i12 = icmp samesign ugt i32 %145, %4
+  br i1 %.not72.i.i12, label %vp7_normal_limit.exit.i16.thread, label %146
 
 146:                                              ; preds = %143
-  %147 = sub nsw i32 %125, %122
+  %147 = sub nsw i32 %120, %123
   %148 = tail call i32 @llvm.abs.i32(i32 %147, i1 true)
-  %.not75.i.i15 = icmp samesign ugt i32 %148, %4
+  %.not73.i.i13 = icmp samesign ugt i32 %148, %4
+  br i1 %.not73.i.i13, label %vp7_normal_limit.exit.i16.thread, label %149
+
+149:                                              ; preds = %146
+  %150 = sub nsw i32 %134, %131
+  %151 = tail call i32 @llvm.abs.i32(i32 %150, i1 true)
+  %.not74.i.i14 = icmp samesign ugt i32 %151, %4
+  br i1 %.not74.i.i14, label %vp7_normal_limit.exit.i16.thread, label %152
+
+152:                                              ; preds = %149
+  %153 = sub nsw i32 %131, %128
+  %154 = tail call i32 @llvm.abs.i32(i32 %153, i1 true)
+  %.not75.i.i15 = icmp samesign ugt i32 %154, %4
   br i1 %.not75.i.i15, label %vp7_normal_limit.exit.i16.thread, label %vp7_normal_limit.exit.i16
 
-vp7_normal_limit.exit.i16:                        ; preds = %146
-  %149 = sub nsw i32 %122, %119
-  %150 = tail call i32 @llvm.abs.i32(i32 %149, i1 true)
-  %.not27 = icmp samesign ugt i32 %150, %4
-  br i1 %.not27, label %vp7_normal_limit.exit.i16.thread, label %151
+vp7_normal_limit.exit.i16:                        ; preds = %152
+  %155 = sub nsw i32 %128, %125
+  %156 = tail call i32 @llvm.abs.i32(i32 %155, i1 true)
+  %.not27 = icmp samesign ugt i32 %156, %4
+  br i1 %.not27, label %vp7_normal_limit.exit.i16.thread, label %157
 
-151:                                              ; preds = %vp7_normal_limit.exit.i16
-  %152 = icmp sgt i32 %142, %5
-  %.not28 = icmp samesign ugt i32 %150, %5
-  %or.cond44 = select i1 %152, i1 true, i1 %.not28
-  %153 = sub nsw i32 %119, %117
-  %154 = mul nsw i32 %153, 3
-  br i1 %or.cond44, label %hev.exit.i18.thread, label %178
+157:                                              ; preds = %vp7_normal_limit.exit.i16
+  %158 = icmp sgt i32 %148, %5
+  %.not28 = icmp samesign ugt i32 %156, %5
+  %or.cond39 = select i1 %158, i1 true, i1 %.not28
+  %159 = sub nsw i32 %125, %123
+  %160 = mul nsw i32 %159, 3
+  br i1 %or.cond39, label %hev.exit.i18.thread, label %188
 
-hev.exit.i18.thread:                              ; preds = %151
-  %155 = sub nsw i32 %114, %122
-  %156 = sext i32 %155 to i64
-  %gep36 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %156
-  %157 = load i8, ptr %gep36, align 1, !tbaa !10
-  %158 = zext i8 %157 to i32
-  %159 = add nsw i32 %154, -128
-  %160 = add nsw i32 %159, %158
-  %161 = sext i32 %160 to i64
-  %gep37 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %161
-  %162 = load i8, ptr %gep37, align 1, !tbaa !10
-  %163 = zext i8 %162 to i32
-  %164 = tail call i32 @llvm.umin.i32(i32 %163, i32 251)
-  %165 = add nsw i32 %164, -124
-  %166 = ashr i32 %165, 3
-  %167 = and i32 %163, 7
-  %168 = icmp eq i32 %167, 4
-  %.neg.i.i20 = sext i1 %168 to i32
-  %169 = add nsw i32 %.neg.i.i20, %117
-  %170 = add nsw i32 %169, %166
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %171
-  %173 = load i8, ptr %172, align 1, !tbaa !10
-  store i8 %173, ptr %115, align 1, !tbaa !10
-  %174 = sub nsw i32 %119, %166
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %175
-  %177 = load i8, ptr %176, align 1, !tbaa !10
-  store i8 %177, ptr %108, align 1, !tbaa !10
+hev.exit.i18.thread:                              ; preds = %157
+  %161 = sub nsw i32 %120, %128
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %162
+  %164 = getelementptr i8, ptr %163, i64 128
+  %165 = load i8, ptr %164, align 1, !tbaa !10
+  %166 = zext i8 %165 to i32
+  %167 = add nsw i32 %160, -128
+  %168 = add nsw i32 %167, %166
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %169
+  %171 = getelementptr i8, ptr %170, i64 128
+  %172 = load i8, ptr %171, align 1, !tbaa !10
+  %173 = zext i8 %172 to i32
+  %174 = tail call i32 @llvm.umin.i32(i32 %173, i32 251)
+  %175 = add nsw i32 %174, -124
+  %176 = ashr i32 %175, 3
+  %177 = and i32 %173, 7
+  %178 = icmp eq i32 %177, 4
+  %.neg.i.i20 = sext i1 %178 to i32
+  %179 = add nsw i32 %.neg.i.i20, %123
+  %180 = add nsw i32 %179, %176
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %181
+  %183 = load i8, ptr %182, align 1, !tbaa !10
+  store i8 %183, ptr %121, align 1, !tbaa !10
+  %184 = sub nsw i32 %125, %176
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %185
+  %187 = load i8, ptr %186, align 1, !tbaa !10
+  store i8 %187, ptr %114, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i16.thread
 
-178:                                              ; preds = %151
-  %179 = sext i32 %154 to i64
-  %gep35 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %179
-  %180 = load i8, ptr %gep35, align 1, !tbaa !10
-  %181 = zext i8 %180 to i32
-  %182 = tail call i32 @llvm.umin.i32(i32 %181, i32 251)
-  %183 = add nsw i32 %182, -124
-  %184 = ashr i32 %183, 3
-  %185 = and i32 %181, 7
-  %186 = icmp eq i32 %185, 4
-  %.neg.i18.i21 = sext i1 %186 to i32
-  %187 = add nsw i32 %.neg.i18.i21, %117
-  %188 = add nsw i32 %187, %184
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %189
-  %191 = load i8, ptr %190, align 1, !tbaa !10
-  store i8 %191, ptr %115, align 1, !tbaa !10
-  %192 = sub nsw i32 %119, %184
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %193
-  %195 = load i8, ptr %194, align 1, !tbaa !10
-  store i8 %195, ptr %108, align 1, !tbaa !10
-  %196 = add nsw i32 %184, 1
-  %197 = ashr i32 %196, 1
-  %198 = add nsw i32 %197, %114
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %199
-  %201 = load i8, ptr %200, align 1, !tbaa !10
-  store i8 %201, ptr %112, align 1, !tbaa !10
-  %202 = sub nsw i32 %122, %197
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %203
-  %205 = load i8, ptr %204, align 1, !tbaa !10
-  store i8 %205, ptr %120, align 1, !tbaa !10
+188:                                              ; preds = %157
+  %189 = sext i32 %160 to i64
+  %190 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %189
+  %191 = getelementptr i8, ptr %190, i64 128
+  %192 = load i8, ptr %191, align 1, !tbaa !10
+  %193 = zext i8 %192 to i32
+  %194 = tail call i32 @llvm.umin.i32(i32 %193, i32 251)
+  %195 = add nsw i32 %194, -124
+  %196 = ashr i32 %195, 3
+  %197 = and i32 %193, 7
+  %198 = icmp eq i32 %197, 4
+  %.neg.i18.i21 = sext i1 %198 to i32
+  %199 = add nsw i32 %.neg.i18.i21, %123
+  %200 = add nsw i32 %199, %196
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %201
+  %203 = load i8, ptr %202, align 1, !tbaa !10
+  store i8 %203, ptr %121, align 1, !tbaa !10
+  %204 = sub nsw i32 %125, %196
+  %205 = sext i32 %204 to i64
+  %206 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %205
+  %207 = load i8, ptr %206, align 1, !tbaa !10
+  store i8 %207, ptr %114, align 1, !tbaa !10
+  %208 = add nsw i32 %196, 1
+  %209 = ashr i32 %208, 1
+  %210 = add nsw i32 %209, %120
+  %211 = sext i32 %210 to i64
+  %212 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %211
+  %213 = load i8, ptr %212, align 1, !tbaa !10
+  store i8 %213, ptr %118, align 1, !tbaa !10
+  %214 = sub nsw i32 %128, %209
+  %215 = sext i32 %214 to i64
+  %216 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %215
+  %217 = load i8, ptr %216, align 1, !tbaa !10
+  store i8 %217, ptr %126, align 1, !tbaa !10
   br label %vp7_normal_limit.exit.i16.thread
 
-vp7_normal_limit.exit.i16.thread:                 ; preds = %vp7_h_loop_filter8_inner_c.exit.preheader, %131, %137, %140, %143, %146, %178, %hev.exit.i18.thread, %vp7_normal_limit.exit.i16
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond43.not = icmp eq i64 %indvars.iv.next41, 8
-  br i1 %exitcond43.not, label %vp7_h_loop_filter8_inner_c.exit22, label %vp7_h_loop_filter8_inner_c.exit.preheader, !llvm.loop !141
+vp7_normal_limit.exit.i16.thread:                 ; preds = %vp7_h_loop_filter8_inner_c.exit.preheader, %137, %143, %146, %149, %152, %188, %hev.exit.i18.thread, %vp7_normal_limit.exit.i16
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+  %exitcond38.not = icmp eq i64 %indvars.iv.next36, 8
+  br i1 %exitcond38.not, label %vp7_h_loop_filter8_inner_c.exit22, label %vp7_h_loop_filter8_inner_c.exit.preheader, !llvm.loop !141
 
 vp7_h_loop_filter8_inner_c.exit22:                ; preds = %vp7_normal_limit.exit.i16.thread
   ret void
@@ -6975,8 +7011,8 @@ define internal void @vp7_v_loop_filter_simple_c(ptr noundef captures(none) %0, 
   %5 = mul nsw i64 %1, -2
   br label %6
 
-6:                                                ; preds = %3, %46
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %46 ]
+6:                                                ; preds = %3, %50
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %50 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = getelementptr inbounds i8, ptr %7, i64 %4
   %9 = load i8, ptr %8, align 1, !tbaa !10
@@ -6986,7 +7022,7 @@ define internal void @vp7_v_loop_filter_simple_c(ptr noundef captures(none) %0, 
   %13 = sub nsw i32 %10, %12
   %14 = tail call i32 @llvm.abs.i32(i32 %13, i1 true)
   %.not8 = icmp sgt i32 %14, %2
-  br i1 %.not8, label %46, label %15
+  br i1 %.not8, label %50, label %15
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %7, i64 %5
@@ -6998,40 +7034,42 @@ define internal void @vp7_v_loop_filter_simple_c(ptr noundef captures(none) %0, 
   %22 = sub nsw i32 %12, %10
   %23 = mul nsw i32 %22, 3
   %24 = sub nsw i64 %18, %21
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %24
-  %25 = load i8, ptr %gep, align 1, !tbaa !10
-  %26 = zext i8 %25 to i32
-  %27 = add nsw i32 %23, -128
-  %28 = add nsw i32 %27, %26
-  %29 = sext i32 %28 to i64
-  %gep9 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %29
-  %30 = load i8, ptr %gep9, align 1, !tbaa !10
-  %31 = zext i8 %30 to i32
-  %32 = tail call i32 @llvm.umin.i32(i32 %31, i32 251)
-  %33 = add nsw i32 %32, -124
-  %34 = ashr i32 %33, 3
-  %35 = and i32 %31, 7
-  %36 = icmp eq i32 %35, 4
-  %.neg.i = sext i1 %36 to i32
-  %37 = add nsw i32 %.neg.i, %10
-  %38 = add nsw i32 %37, %34
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %39
-  %41 = load i8, ptr %40, align 1, !tbaa !10
-  store i8 %41, ptr %8, align 1, !tbaa !10
-  %42 = sub nsw i32 %12, %34
+  %25 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %24
+  %26 = getelementptr i8, ptr %25, i64 128
+  %27 = load i8, ptr %26, align 1, !tbaa !10
+  %28 = zext i8 %27 to i32
+  %29 = add nsw i32 %23, -128
+  %30 = add nsw i32 %29, %28
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %31
+  %33 = getelementptr i8, ptr %32, i64 128
+  %34 = load i8, ptr %33, align 1, !tbaa !10
+  %35 = zext i8 %34 to i32
+  %36 = tail call i32 @llvm.umin.i32(i32 %35, i32 251)
+  %37 = add nsw i32 %36, -124
+  %38 = ashr i32 %37, 3
+  %39 = and i32 %35, 7
+  %40 = icmp eq i32 %39, 4
+  %.neg.i = sext i1 %40 to i32
+  %41 = add nsw i32 %.neg.i, %10
+  %42 = add nsw i32 %41, %38
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !10
-  store i8 %45, ptr %7, align 1, !tbaa !10
-  br label %46
+  store i8 %45, ptr %8, align 1, !tbaa !10
+  %46 = sub nsw i32 %12, %38
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !10
+  store i8 %49, ptr %7, align 1, !tbaa !10
+  br label %50
 
-46:                                               ; preds = %6, %15
+50:                                               ; preds = %6, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %47, label %6, !llvm.loop !142
+  br i1 %exitcond.not, label %51, label %6, !llvm.loop !142
 
-47:                                               ; preds = %46
+51:                                               ; preds = %50
   ret void
 }
 
@@ -7039,8 +7077,8 @@ define internal void @vp7_v_loop_filter_simple_c(ptr noundef captures(none) %0, 
 define internal void @vp7_h_loop_filter_simple_c(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) #1 {
   br label %4
 
-4:                                                ; preds = %3, %45
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %45 ]
+4:                                                ; preds = %3, %49
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %49 ]
   %5 = mul nsw i64 %1, %indvars.iv
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
@@ -7051,7 +7089,7 @@ define internal void @vp7_h_loop_filter_simple_c(ptr noundef captures(none) %0, 
   %12 = sub nsw i32 %9, %11
   %13 = tail call i32 @llvm.abs.i32(i32 %12, i1 true)
   %.not8 = icmp sgt i32 %13, %2
-  br i1 %.not8, label %45, label %14
+  br i1 %.not8, label %49, label %14
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %6, i64 -2
@@ -7063,40 +7101,42 @@ define internal void @vp7_h_loop_filter_simple_c(ptr noundef captures(none) %0, 
   %21 = sub nsw i32 %11, %9
   %22 = mul nsw i32 %21, 3
   %23 = sub nsw i64 %17, %20
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %23
-  %24 = load i8, ptr %gep, align 1, !tbaa !10
-  %25 = zext i8 %24 to i32
-  %26 = add nsw i32 %22, -128
-  %27 = add nsw i32 %26, %25
-  %28 = sext i32 %27 to i64
-  %gep9 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %28
-  %29 = load i8, ptr %gep9, align 1, !tbaa !10
-  %30 = zext i8 %29 to i32
-  %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 251)
-  %32 = add nsw i32 %31, -124
-  %33 = ashr i32 %32, 3
-  %34 = and i32 %30, 7
-  %35 = icmp eq i32 %34, 4
-  %.neg.i = sext i1 %35 to i32
-  %36 = add nsw i32 %.neg.i, %9
-  %37 = add nsw i32 %36, %33
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !10
-  store i8 %40, ptr %7, align 1, !tbaa !10
-  %41 = sub nsw i32 %11, %33
+  %24 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %23
+  %25 = getelementptr i8, ptr %24, i64 128
+  %26 = load i8, ptr %25, align 1, !tbaa !10
+  %27 = zext i8 %26 to i32
+  %28 = add nsw i32 %22, -128
+  %29 = add nsw i32 %28, %27
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %30
+  %32 = getelementptr i8, ptr %31, i64 128
+  %33 = load i8, ptr %32, align 1, !tbaa !10
+  %34 = zext i8 %33 to i32
+  %35 = tail call i32 @llvm.umin.i32(i32 %34, i32 251)
+  %36 = add nsw i32 %35, -124
+  %37 = ashr i32 %36, 3
+  %38 = and i32 %34, 7
+  %39 = icmp eq i32 %38, 4
+  %.neg.i = sext i1 %39 to i32
+  %40 = add nsw i32 %.neg.i, %9
+  %41 = add nsw i32 %40, %37
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !10
-  store i8 %44, ptr %6, align 1, !tbaa !10
-  br label %45
+  store i8 %44, ptr %7, align 1, !tbaa !10
+  %45 = sub nsw i32 %11, %37
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %46
+  %48 = load i8, ptr %47, align 1, !tbaa !10
+  store i8 %48, ptr %6, align 1, !tbaa !10
+  br label %49
 
-45:                                               ; preds = %4, %14
+49:                                               ; preds = %4, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %46, label %4, !llvm.loop !143
+  br i1 %exitcond.not, label %50, label %4, !llvm.loop !143
 
-46:                                               ; preds = %45
+50:                                               ; preds = %49
   ret void
 }
 
@@ -8589,99 +8629,102 @@ vp8_normal_limit.exit:                            ; preds = %56
   %62 = icmp sgt i32 %52, %4
   %.not = icmp samesign ugt i32 %60, %4
   %or.cond = select i1 %62, i1 true, i1 %.not
-  br i1 %or.cond, label %hev.exit.thread, label %87
+  br i1 %or.cond, label %hev.exit.thread, label %91
 
 hev.exit.thread:                                  ; preds = %61
   %63 = sub nsw i32 %24, %22
   %64 = mul nsw i32 %63, 3
   %65 = sext i32 %36 to i64
-  %gep21 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %65
-  %66 = load i8, ptr %gep21, align 1, !tbaa !10
-  %67 = zext i8 %66 to i32
-  %68 = add nsw i32 %64, -128
-  %69 = add nsw i32 %68, %67
-  %70 = sext i32 %69 to i64
-  %gep22 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %70
-  %71 = load i8, ptr %gep22, align 1, !tbaa !10
-  %72 = zext i8 %71 to i32
-  %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 251)
-  %74 = add nsw i32 %73, -124
-  %75 = ashr i32 %74, 3
-  %76 = tail call i32 @llvm.umin.i32(i32 %72, i32 252)
-  %77 = add nsw i32 %76, -125
-  %78 = ashr i32 %77, 3
-  %79 = add nsw i32 %78, %22
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !10
-  store i8 %82, ptr %20, align 1, !tbaa !10
-  %83 = sub nsw i32 %24, %75
+  %66 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %65
+  %67 = getelementptr i8, ptr %66, i64 128
+  %68 = load i8, ptr %67, align 1, !tbaa !10
+  %69 = zext i8 %68 to i32
+  %70 = add nsw i32 %64, -128
+  %71 = add nsw i32 %70, %69
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %72
+  %74 = getelementptr i8, ptr %73, i64 128
+  %75 = load i8, ptr %74, align 1, !tbaa !10
+  %76 = zext i8 %75 to i32
+  %77 = tail call i32 @llvm.umin.i32(i32 %76, i32 251)
+  %78 = add nsw i32 %77, -124
+  %79 = ashr i32 %78, 3
+  %80 = tail call i32 @llvm.umin.i32(i32 %76, i32 252)
+  %81 = add nsw i32 %80, -125
+  %82 = ashr i32 %81, 3
+  %83 = add nsw i32 %82, %22
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !10
-  store i8 %86, ptr %13, align 1, !tbaa !10
+  store i8 %86, ptr %20, align 1, !tbaa !10
+  %87 = sub nsw i32 %24, %79
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %88
+  %90 = load i8, ptr %89, align 1, !tbaa !10
+  store i8 %90, ptr %13, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.thread
 
-87:                                               ; preds = %61
-  %88 = sext i32 %36 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %88
-  %89 = load i8, ptr %gep, align 1, !tbaa !10
-  %90 = zext i8 %89 to i32
-  %91 = sub nsw i32 %24, %22
-  %92 = mul nsw i32 %91, 3
-  %93 = add nsw i32 %92, %90
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %94
-  %96 = load i8, ptr %95, align 1, !tbaa !10
-  %97 = zext i8 %96 to i32
-  %98 = add nsw i32 %97, -128
-  %99 = mul nsw i32 %98, 27
-  %100 = add nsw i32 %99, 63
-  %101 = ashr i32 %100, 7
-  %102 = mul nsw i32 %98, 18
-  %103 = add nsw i32 %102, 63
-  %104 = ashr i32 %103, 7
-  %105 = mul nsw i32 %98, 9
+91:                                               ; preds = %61
+  %92 = sext i32 %36 to i64
+  %93 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %92
+  %94 = getelementptr i8, ptr %93, i64 128
+  %95 = load i8, ptr %94, align 1, !tbaa !10
+  %96 = zext i8 %95 to i32
+  %97 = sub nsw i32 %24, %22
+  %98 = mul nsw i32 %97, 3
+  %99 = add nsw i32 %98, %96
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %100
+  %102 = load i8, ptr %101, align 1, !tbaa !10
+  %103 = zext i8 %102 to i32
+  %104 = add nsw i32 %103, -128
+  %105 = mul nsw i32 %104, 27
   %106 = add nsw i32 %105, 63
   %107 = ashr i32 %106, 7
-  %108 = add nsw i32 %107, %16
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %109
-  %111 = load i8, ptr %110, align 1, !tbaa !10
-  store i8 %111, ptr %14, align 1, !tbaa !10
-  %112 = add nsw i32 %104, %19
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %113
-  %115 = load i8, ptr %114, align 1, !tbaa !10
-  store i8 %115, ptr %17, align 1, !tbaa !10
-  %116 = add nsw i32 %101, %22
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %117
-  %119 = load i8, ptr %118, align 1, !tbaa !10
-  store i8 %119, ptr %20, align 1, !tbaa !10
-  %120 = sub nsw i32 %24, %101
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %121
-  %123 = load i8, ptr %122, align 1, !tbaa !10
-  store i8 %123, ptr %13, align 1, !tbaa !10
-  %124 = sub nsw i32 %27, %104
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %125
-  %127 = load i8, ptr %126, align 1, !tbaa !10
-  store i8 %127, ptr %25, align 1, !tbaa !10
-  %128 = sub nsw i32 %30, %107
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %129
-  %131 = load i8, ptr %130, align 1, !tbaa !10
-  store i8 %131, ptr %28, align 1, !tbaa !10
+  %108 = mul nsw i32 %104, 18
+  %109 = add nsw i32 %108, 63
+  %110 = ashr i32 %109, 7
+  %111 = mul nsw i32 %104, 9
+  %112 = add nsw i32 %111, 63
+  %113 = ashr i32 %112, 7
+  %114 = add nsw i32 %113, %16
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %115
+  %117 = load i8, ptr %116, align 1, !tbaa !10
+  store i8 %117, ptr %14, align 1, !tbaa !10
+  %118 = add nsw i32 %110, %19
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %119
+  %121 = load i8, ptr %120, align 1, !tbaa !10
+  store i8 %121, ptr %17, align 1, !tbaa !10
+  %122 = add nsw i32 %107, %22
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %123
+  %125 = load i8, ptr %124, align 1, !tbaa !10
+  store i8 %125, ptr %20, align 1, !tbaa !10
+  %126 = sub nsw i32 %24, %107
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %127
+  %129 = load i8, ptr %128, align 1, !tbaa !10
+  store i8 %129, ptr %13, align 1, !tbaa !10
+  %130 = sub nsw i32 %27, %110
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %131
+  %133 = load i8, ptr %132, align 1, !tbaa !10
+  store i8 %133, ptr %25, align 1, !tbaa !10
+  %134 = sub nsw i32 %30, %113
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %135
+  %137 = load i8, ptr %136, align 1, !tbaa !10
+  store i8 %137, ptr %28, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.thread
 
-vp8_normal_limit.exit.thread:                     ; preds = %12, %41, %47, %50, %53, %56, %vp8_normal_limit.exit, %87, %hev.exit.thread
+vp8_normal_limit.exit.thread:                     ; preds = %12, %41, %47, %50, %53, %56, %vp8_normal_limit.exit, %91, %hev.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %132, label %12, !llvm.loop !150
+  br i1 %exitcond.not, label %138, label %12, !llvm.loop !150
 
-132:                                              ; preds = %vp8_normal_limit.exit.thread
+138:                                              ; preds = %vp8_normal_limit.exit.thread
   ret void
 }
 
@@ -8766,99 +8809,102 @@ vp8_normal_limit.exit:                            ; preds = %51
   %57 = icmp sgt i32 %47, %4
   %.not = icmp samesign ugt i32 %55, %4
   %or.cond = select i1 %57, i1 true, i1 %.not
-  br i1 %or.cond, label %hev.exit.thread, label %82
+  br i1 %or.cond, label %hev.exit.thread, label %86
 
 hev.exit.thread:                                  ; preds = %56
   %58 = sub nsw i32 %19, %17
   %59 = mul nsw i32 %58, 3
   %60 = sext i32 %31 to i64
-  %gep21 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %60
-  %61 = load i8, ptr %gep21, align 1, !tbaa !10
-  %62 = zext i8 %61 to i32
-  %63 = add nsw i32 %59, -128
-  %64 = add nsw i32 %63, %62
-  %65 = sext i32 %64 to i64
-  %gep22 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %65
-  %66 = load i8, ptr %gep22, align 1, !tbaa !10
-  %67 = zext i8 %66 to i32
-  %68 = tail call i32 @llvm.umin.i32(i32 %67, i32 251)
-  %69 = add nsw i32 %68, -124
-  %70 = ashr i32 %69, 3
-  %71 = tail call i32 @llvm.umin.i32(i32 %67, i32 252)
-  %72 = add nsw i32 %71, -125
-  %73 = ashr i32 %72, 3
-  %74 = add nsw i32 %73, %17
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %75
-  %77 = load i8, ptr %76, align 1, !tbaa !10
-  store i8 %77, ptr %15, align 1, !tbaa !10
-  %78 = sub nsw i32 %19, %70
+  %61 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %60
+  %62 = getelementptr i8, ptr %61, i64 128
+  %63 = load i8, ptr %62, align 1, !tbaa !10
+  %64 = zext i8 %63 to i32
+  %65 = add nsw i32 %59, -128
+  %66 = add nsw i32 %65, %64
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %67
+  %69 = getelementptr i8, ptr %68, i64 128
+  %70 = load i8, ptr %69, align 1, !tbaa !10
+  %71 = zext i8 %70 to i32
+  %72 = tail call i32 @llvm.umin.i32(i32 %71, i32 251)
+  %73 = add nsw i32 %72, -124
+  %74 = ashr i32 %73, 3
+  %75 = tail call i32 @llvm.umin.i32(i32 %71, i32 252)
+  %76 = add nsw i32 %75, -125
+  %77 = ashr i32 %76, 3
+  %78 = add nsw i32 %77, %17
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !10
-  store i8 %81, ptr %8, align 1, !tbaa !10
+  store i8 %81, ptr %15, align 1, !tbaa !10
+  %82 = sub nsw i32 %19, %74
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %83
+  %85 = load i8, ptr %84, align 1, !tbaa !10
+  store i8 %85, ptr %8, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.thread
 
-82:                                               ; preds = %56
-  %83 = sext i32 %31 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %83
-  %84 = load i8, ptr %gep, align 1, !tbaa !10
-  %85 = zext i8 %84 to i32
-  %86 = sub nsw i32 %19, %17
-  %87 = mul nsw i32 %86, 3
-  %88 = add nsw i32 %87, %85
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %89
-  %91 = load i8, ptr %90, align 1, !tbaa !10
-  %92 = zext i8 %91 to i32
-  %93 = add nsw i32 %92, -128
-  %94 = mul nsw i32 %93, 27
-  %95 = add nsw i32 %94, 63
-  %96 = ashr i32 %95, 7
-  %97 = mul nsw i32 %93, 18
-  %98 = add nsw i32 %97, 63
-  %99 = ashr i32 %98, 7
-  %100 = mul nsw i32 %93, 9
+86:                                               ; preds = %56
+  %87 = sext i32 %31 to i64
+  %88 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %87
+  %89 = getelementptr i8, ptr %88, i64 128
+  %90 = load i8, ptr %89, align 1, !tbaa !10
+  %91 = zext i8 %90 to i32
+  %92 = sub nsw i32 %19, %17
+  %93 = mul nsw i32 %92, 3
+  %94 = add nsw i32 %93, %91
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %95
+  %97 = load i8, ptr %96, align 1, !tbaa !10
+  %98 = zext i8 %97 to i32
+  %99 = add nsw i32 %98, -128
+  %100 = mul nsw i32 %99, 27
   %101 = add nsw i32 %100, 63
   %102 = ashr i32 %101, 7
-  %103 = add nsw i32 %102, %11
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %104
-  %106 = load i8, ptr %105, align 1, !tbaa !10
-  store i8 %106, ptr %9, align 1, !tbaa !10
-  %107 = add nsw i32 %99, %14
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !10
-  store i8 %110, ptr %12, align 1, !tbaa !10
-  %111 = add nsw i32 %96, %17
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %112
-  %114 = load i8, ptr %113, align 1, !tbaa !10
-  store i8 %114, ptr %15, align 1, !tbaa !10
-  %115 = sub nsw i32 %19, %96
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %116
-  %118 = load i8, ptr %117, align 1, !tbaa !10
-  store i8 %118, ptr %8, align 1, !tbaa !10
-  %119 = sub nsw i32 %22, %99
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %120
-  %122 = load i8, ptr %121, align 1, !tbaa !10
-  store i8 %122, ptr %20, align 1, !tbaa !10
-  %123 = sub nsw i32 %25, %102
-  %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %124
-  %126 = load i8, ptr %125, align 1, !tbaa !10
-  store i8 %126, ptr %23, align 1, !tbaa !10
+  %103 = mul nsw i32 %99, 18
+  %104 = add nsw i32 %103, 63
+  %105 = ashr i32 %104, 7
+  %106 = mul nsw i32 %99, 9
+  %107 = add nsw i32 %106, 63
+  %108 = ashr i32 %107, 7
+  %109 = add nsw i32 %108, %11
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %110
+  %112 = load i8, ptr %111, align 1, !tbaa !10
+  store i8 %112, ptr %9, align 1, !tbaa !10
+  %113 = add nsw i32 %105, %14
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %114
+  %116 = load i8, ptr %115, align 1, !tbaa !10
+  store i8 %116, ptr %12, align 1, !tbaa !10
+  %117 = add nsw i32 %102, %17
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %118
+  %120 = load i8, ptr %119, align 1, !tbaa !10
+  store i8 %120, ptr %15, align 1, !tbaa !10
+  %121 = sub nsw i32 %19, %102
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %122
+  %124 = load i8, ptr %123, align 1, !tbaa !10
+  store i8 %124, ptr %8, align 1, !tbaa !10
+  %125 = sub nsw i32 %22, %105
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %126
+  %128 = load i8, ptr %127, align 1, !tbaa !10
+  store i8 %128, ptr %20, align 1, !tbaa !10
+  %129 = sub nsw i32 %25, %108
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %130
+  %132 = load i8, ptr %131, align 1, !tbaa !10
+  store i8 %132, ptr %23, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.thread
 
-vp8_normal_limit.exit.thread:                     ; preds = %6, %36, %42, %45, %48, %51, %vp8_normal_limit.exit, %82, %hev.exit.thread
+vp8_normal_limit.exit.thread:                     ; preds = %6, %36, %42, %45, %48, %51, %vp8_normal_limit.exit, %86, %hev.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %127, label %6, !llvm.loop !151
+  br i1 %exitcond.not, label %133, label %6, !llvm.loop !151
 
-127:                                              ; preds = %vp8_normal_limit.exit.thread
+133:                                              ; preds = %vp8_normal_limit.exit.thread
   ret void
 }
 
@@ -8948,265 +8994,271 @@ vp8_normal_limit.exit.i:                          ; preds = %57
   %63 = icmp sgt i32 %53, %5
   %.not29 = icmp samesign ugt i32 %61, %5
   %or.cond = select i1 %63, i1 true, i1 %.not29
-  br i1 %or.cond, label %hev.exit.i.thread, label %88
+  br i1 %or.cond, label %hev.exit.i.thread, label %92
 
 hev.exit.i.thread:                                ; preds = %62
   %64 = sub nsw i32 %25, %23
   %65 = mul nsw i32 %64, 3
   %66 = sext i32 %37 to i64
-  %gep30 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %66
-  %67 = load i8, ptr %gep30, align 1, !tbaa !10
-  %68 = zext i8 %67 to i32
-  %69 = add nsw i32 %65, -128
-  %70 = add nsw i32 %69, %68
-  %71 = sext i32 %70 to i64
-  %gep31 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %71
-  %72 = load i8, ptr %gep31, align 1, !tbaa !10
-  %73 = zext i8 %72 to i32
-  %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 251)
-  %75 = add nsw i32 %74, -124
-  %76 = ashr i32 %75, 3
-  %77 = tail call i32 @llvm.umin.i32(i32 %73, i32 252)
-  %78 = add nsw i32 %77, -125
-  %79 = ashr i32 %78, 3
-  %80 = add nsw i32 %79, %23
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %81
-  %83 = load i8, ptr %82, align 1, !tbaa !10
-  store i8 %83, ptr %21, align 1, !tbaa !10
-  %84 = sub nsw i32 %25, %76
+  %67 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %66
+  %68 = getelementptr i8, ptr %67, i64 128
+  %69 = load i8, ptr %68, align 1, !tbaa !10
+  %70 = zext i8 %69 to i32
+  %71 = add nsw i32 %65, -128
+  %72 = add nsw i32 %71, %70
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %73
+  %75 = getelementptr i8, ptr %74, i64 128
+  %76 = load i8, ptr %75, align 1, !tbaa !10
+  %77 = zext i8 %76 to i32
+  %78 = tail call i32 @llvm.umin.i32(i32 %77, i32 251)
+  %79 = add nsw i32 %78, -124
+  %80 = ashr i32 %79, 3
+  %81 = tail call i32 @llvm.umin.i32(i32 %77, i32 252)
+  %82 = add nsw i32 %81, -125
+  %83 = ashr i32 %82, 3
+  %84 = add nsw i32 %83, %23
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !10
-  store i8 %87, ptr %14, align 1, !tbaa !10
+  store i8 %87, ptr %21, align 1, !tbaa !10
+  %88 = sub nsw i32 %25, %80
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %89
+  %91 = load i8, ptr %90, align 1, !tbaa !10
+  store i8 %91, ptr %14, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i.thread
 
-88:                                               ; preds = %62
-  %89 = sext i32 %37 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %89
-  %90 = load i8, ptr %gep, align 1, !tbaa !10
-  %91 = zext i8 %90 to i32
-  %92 = sub nsw i32 %25, %23
-  %93 = mul nsw i32 %92, 3
-  %94 = add nsw i32 %93, %91
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %95
-  %97 = load i8, ptr %96, align 1, !tbaa !10
-  %98 = zext i8 %97 to i32
-  %99 = add nsw i32 %98, -128
-  %100 = mul nsw i32 %99, 27
-  %101 = add nsw i32 %100, 63
-  %102 = ashr i32 %101, 7
-  %103 = mul nsw i32 %99, 18
-  %104 = add nsw i32 %103, 63
-  %105 = ashr i32 %104, 7
-  %106 = mul nsw i32 %99, 9
+92:                                               ; preds = %62
+  %93 = sext i32 %37 to i64
+  %94 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %93
+  %95 = getelementptr i8, ptr %94, i64 128
+  %96 = load i8, ptr %95, align 1, !tbaa !10
+  %97 = zext i8 %96 to i32
+  %98 = sub nsw i32 %25, %23
+  %99 = mul nsw i32 %98, 3
+  %100 = add nsw i32 %99, %97
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %101
+  %103 = load i8, ptr %102, align 1, !tbaa !10
+  %104 = zext i8 %103 to i32
+  %105 = add nsw i32 %104, -128
+  %106 = mul nsw i32 %105, 27
   %107 = add nsw i32 %106, 63
   %108 = ashr i32 %107, 7
-  %109 = add nsw i32 %108, %17
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %110
-  %112 = load i8, ptr %111, align 1, !tbaa !10
-  store i8 %112, ptr %15, align 1, !tbaa !10
-  %113 = add nsw i32 %105, %20
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !10
-  store i8 %116, ptr %18, align 1, !tbaa !10
-  %117 = add nsw i32 %102, %23
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %118
-  %120 = load i8, ptr %119, align 1, !tbaa !10
-  store i8 %120, ptr %21, align 1, !tbaa !10
-  %121 = sub nsw i32 %25, %102
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !10
-  store i8 %124, ptr %14, align 1, !tbaa !10
-  %125 = sub nsw i32 %28, %105
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %126
-  %128 = load i8, ptr %127, align 1, !tbaa !10
-  store i8 %128, ptr %26, align 1, !tbaa !10
-  %129 = sub nsw i32 %31, %108
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %130
-  %132 = load i8, ptr %131, align 1, !tbaa !10
-  store i8 %132, ptr %29, align 1, !tbaa !10
+  %109 = mul nsw i32 %105, 18
+  %110 = add nsw i32 %109, 63
+  %111 = ashr i32 %110, 7
+  %112 = mul nsw i32 %105, 9
+  %113 = add nsw i32 %112, 63
+  %114 = ashr i32 %113, 7
+  %115 = add nsw i32 %114, %17
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %116
+  %118 = load i8, ptr %117, align 1, !tbaa !10
+  store i8 %118, ptr %15, align 1, !tbaa !10
+  %119 = add nsw i32 %111, %20
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %120
+  %122 = load i8, ptr %121, align 1, !tbaa !10
+  store i8 %122, ptr %18, align 1, !tbaa !10
+  %123 = add nsw i32 %108, %23
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %124
+  %126 = load i8, ptr %125, align 1, !tbaa !10
+  store i8 %126, ptr %21, align 1, !tbaa !10
+  %127 = sub nsw i32 %25, %108
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %128
+  %130 = load i8, ptr %129, align 1, !tbaa !10
+  store i8 %130, ptr %14, align 1, !tbaa !10
+  %131 = sub nsw i32 %28, %111
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %132
+  %134 = load i8, ptr %133, align 1, !tbaa !10
+  store i8 %134, ptr %26, align 1, !tbaa !10
+  %135 = sub nsw i32 %31, %114
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %136
+  %138 = load i8, ptr %137, align 1, !tbaa !10
+  store i8 %138, ptr %29, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i.thread
 
-vp8_normal_limit.exit.i.thread:                   ; preds = %13, %42, %48, %51, %54, %57, %88, %hev.exit.i.thread, %vp8_normal_limit.exit.i
+vp8_normal_limit.exit.i.thread:                   ; preds = %13, %42, %48, %51, %54, %57, %92, %hev.exit.i.thread, %vp8_normal_limit.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %vp8_v_loop_filter8_c.exit.preheader, label %13, !llvm.loop !152
 
 vp8_v_loop_filter8_c.exit.preheader:              ; preds = %vp8_normal_limit.exit.i.thread, %vp8_normal_limit.exit.i16.thread
-  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %vp8_normal_limit.exit.i16.thread ], [ 0, %vp8_normal_limit.exit.i.thread ]
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv38
-  %134 = getelementptr inbounds i8, ptr %133, i64 %7
-  %135 = load i8, ptr %134, align 1, !tbaa !10
-  %136 = zext i8 %135 to i32
-  %137 = getelementptr inbounds i8, ptr %133, i64 %8
-  %138 = load i8, ptr %137, align 1, !tbaa !10
-  %139 = zext i8 %138 to i32
-  %140 = getelementptr inbounds i8, ptr %133, i64 %9
+  %indvars.iv33 = phi i64 [ %indvars.iv.next34, %vp8_normal_limit.exit.i16.thread ], [ 0, %vp8_normal_limit.exit.i.thread ]
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv33
+  %140 = getelementptr inbounds i8, ptr %139, i64 %7
   %141 = load i8, ptr %140, align 1, !tbaa !10
   %142 = zext i8 %141 to i32
-  %143 = load i8, ptr %133, align 1, !tbaa !10
-  %144 = zext i8 %143 to i32
-  %145 = getelementptr inbounds i8, ptr %133, i64 %2
-  %146 = load i8, ptr %145, align 1, !tbaa !10
-  %147 = zext i8 %146 to i32
-  %148 = getelementptr inbounds i8, ptr %133, i64 %10
-  %149 = load i8, ptr %148, align 1, !tbaa !10
+  %143 = getelementptr inbounds i8, ptr %139, i64 %8
+  %144 = load i8, ptr %143, align 1, !tbaa !10
+  %145 = zext i8 %144 to i32
+  %146 = getelementptr inbounds i8, ptr %139, i64 %9
+  %147 = load i8, ptr %146, align 1, !tbaa !10
+  %148 = zext i8 %147 to i32
+  %149 = load i8, ptr %139, align 1, !tbaa !10
   %150 = zext i8 %149 to i32
-  %151 = getelementptr inbounds i8, ptr %133, i64 %11
+  %151 = getelementptr inbounds i8, ptr %139, i64 %2
   %152 = load i8, ptr %151, align 1, !tbaa !10
   %153 = zext i8 %152 to i32
-  %154 = sub nsw i32 %142, %144
-  %155 = tail call i32 @llvm.abs.i32(i32 %154, i1 true)
-  %156 = sub nsw i32 %139, %147
-  %157 = tail call i32 @llvm.abs.i32(i32 %156, i1 true)
-  %158 = shl nuw nsw i32 %155, 1
-  %159 = lshr i32 %157, 1
-  %160 = add nuw nsw i32 %159, %158
-  %.not = icmp sgt i32 %160, %3
-  br i1 %.not, label %vp8_normal_limit.exit.i16.thread, label %161
+  %154 = getelementptr inbounds i8, ptr %139, i64 %10
+  %155 = load i8, ptr %154, align 1, !tbaa !10
+  %156 = zext i8 %155 to i32
+  %157 = getelementptr inbounds i8, ptr %139, i64 %11
+  %158 = load i8, ptr %157, align 1, !tbaa !10
+  %159 = zext i8 %158 to i32
+  %160 = sub nsw i32 %148, %150
+  %161 = tail call i32 @llvm.abs.i32(i32 %160, i1 true)
+  %162 = sub nsw i32 %145, %153
+  %163 = tail call i32 @llvm.abs.i32(i32 %162, i1 true)
+  %164 = shl nuw nsw i32 %161, 1
+  %165 = lshr i32 %163, 1
+  %166 = add nuw nsw i32 %165, %164
+  %.not = icmp sgt i32 %166, %3
+  br i1 %.not, label %vp8_normal_limit.exit.i16.thread, label %167
 
-161:                                              ; preds = %vp8_v_loop_filter8_c.exit.preheader
-  %162 = getelementptr inbounds i8, ptr %133, i64 %12
-  %163 = load i8, ptr %162, align 1, !tbaa !10
-  %164 = zext i8 %163 to i32
-  %165 = sub nsw i32 %164, %136
-  %166 = tail call i32 @llvm.abs.i32(i32 %165, i1 true)
-  %.not71.i.i11 = icmp sgt i32 %166, %4
-  br i1 %.not71.i.i11, label %vp8_normal_limit.exit.i16.thread, label %167
-
-167:                                              ; preds = %161
-  %168 = sub nsw i32 %136, %139
-  %169 = tail call i32 @llvm.abs.i32(i32 %168, i1 true)
-  %.not72.i.i12 = icmp samesign ugt i32 %169, %4
-  br i1 %.not72.i.i12, label %vp8_normal_limit.exit.i16.thread, label %170
-
-170:                                              ; preds = %167
-  %171 = sub nsw i32 %139, %142
+167:                                              ; preds = %vp8_v_loop_filter8_c.exit.preheader
+  %168 = getelementptr inbounds i8, ptr %139, i64 %12
+  %169 = load i8, ptr %168, align 1, !tbaa !10
+  %170 = zext i8 %169 to i32
+  %171 = sub nsw i32 %170, %142
   %172 = tail call i32 @llvm.abs.i32(i32 %171, i1 true)
-  %.not73.i.i13 = icmp samesign ugt i32 %172, %4
-  br i1 %.not73.i.i13, label %vp8_normal_limit.exit.i16.thread, label %173
+  %.not71.i.i11 = icmp sgt i32 %172, %4
+  br i1 %.not71.i.i11, label %vp8_normal_limit.exit.i16.thread, label %173
 
-173:                                              ; preds = %170
-  %174 = sub nsw i32 %153, %150
+173:                                              ; preds = %167
+  %174 = sub nsw i32 %142, %145
   %175 = tail call i32 @llvm.abs.i32(i32 %174, i1 true)
-  %.not74.i.i14 = icmp samesign ugt i32 %175, %4
-  br i1 %.not74.i.i14, label %vp8_normal_limit.exit.i16.thread, label %176
+  %.not72.i.i12 = icmp samesign ugt i32 %175, %4
+  br i1 %.not72.i.i12, label %vp8_normal_limit.exit.i16.thread, label %176
 
 176:                                              ; preds = %173
-  %177 = sub nsw i32 %150, %147
+  %177 = sub nsw i32 %145, %148
   %178 = tail call i32 @llvm.abs.i32(i32 %177, i1 true)
-  %.not75.i.i15 = icmp samesign ugt i32 %178, %4
+  %.not73.i.i13 = icmp samesign ugt i32 %178, %4
+  br i1 %.not73.i.i13, label %vp8_normal_limit.exit.i16.thread, label %179
+
+179:                                              ; preds = %176
+  %180 = sub nsw i32 %159, %156
+  %181 = tail call i32 @llvm.abs.i32(i32 %180, i1 true)
+  %.not74.i.i14 = icmp samesign ugt i32 %181, %4
+  br i1 %.not74.i.i14, label %vp8_normal_limit.exit.i16.thread, label %182
+
+182:                                              ; preds = %179
+  %183 = sub nsw i32 %156, %153
+  %184 = tail call i32 @llvm.abs.i32(i32 %183, i1 true)
+  %.not75.i.i15 = icmp samesign ugt i32 %184, %4
   br i1 %.not75.i.i15, label %vp8_normal_limit.exit.i16.thread, label %vp8_normal_limit.exit.i16
 
-vp8_normal_limit.exit.i16:                        ; preds = %176
-  %179 = sub nsw i32 %147, %144
-  %180 = tail call i32 @llvm.abs.i32(i32 %179, i1 true)
-  %.not25 = icmp samesign ugt i32 %180, %4
-  br i1 %.not25, label %vp8_normal_limit.exit.i16.thread, label %181
+vp8_normal_limit.exit.i16:                        ; preds = %182
+  %185 = sub nsw i32 %153, %150
+  %186 = tail call i32 @llvm.abs.i32(i32 %185, i1 true)
+  %.not25 = icmp samesign ugt i32 %186, %4
+  br i1 %.not25, label %vp8_normal_limit.exit.i16.thread, label %187
 
-181:                                              ; preds = %vp8_normal_limit.exit.i16
-  %182 = icmp sgt i32 %172, %5
-  %.not26 = icmp samesign ugt i32 %180, %5
-  %or.cond42 = select i1 %182, i1 true, i1 %.not26
-  br i1 %or.cond42, label %hev.exit.i18.thread, label %207
+187:                                              ; preds = %vp8_normal_limit.exit.i16
+  %188 = icmp sgt i32 %178, %5
+  %.not26 = icmp samesign ugt i32 %186, %5
+  %or.cond37 = select i1 %188, i1 true, i1 %.not26
+  br i1 %or.cond37, label %hev.exit.i18.thread, label %217
 
-hev.exit.i18.thread:                              ; preds = %181
-  %183 = sub nsw i32 %144, %142
-  %184 = mul nsw i32 %183, 3
-  %185 = sext i32 %156 to i64
-  %gep34 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %185
-  %186 = load i8, ptr %gep34, align 1, !tbaa !10
-  %187 = zext i8 %186 to i32
-  %188 = add nsw i32 %184, -128
-  %189 = add nsw i32 %188, %187
-  %190 = sext i32 %189 to i64
-  %gep35 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %190
-  %191 = load i8, ptr %gep35, align 1, !tbaa !10
-  %192 = zext i8 %191 to i32
-  %193 = tail call i32 @llvm.umin.i32(i32 %192, i32 251)
-  %194 = add nsw i32 %193, -124
-  %195 = ashr i32 %194, 3
-  %196 = tail call i32 @llvm.umin.i32(i32 %192, i32 252)
-  %197 = add nsw i32 %196, -125
-  %198 = ashr i32 %197, 3
-  %199 = add nsw i32 %198, %142
-  %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %200
-  %202 = load i8, ptr %201, align 1, !tbaa !10
-  store i8 %202, ptr %140, align 1, !tbaa !10
-  %203 = sub nsw i32 %144, %195
-  %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %204
-  %206 = load i8, ptr %205, align 1, !tbaa !10
-  store i8 %206, ptr %133, align 1, !tbaa !10
-  br label %vp8_normal_limit.exit.i16.thread
-
-207:                                              ; preds = %181
-  %208 = sext i32 %156 to i64
-  %gep33 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %208
-  %209 = load i8, ptr %gep33, align 1, !tbaa !10
-  %210 = zext i8 %209 to i32
-  %211 = sub nsw i32 %144, %142
-  %212 = mul nsw i32 %211, 3
-  %213 = add nsw i32 %212, %210
+hev.exit.i18.thread:                              ; preds = %187
+  %189 = sub nsw i32 %150, %148
+  %190 = mul nsw i32 %189, 3
+  %191 = sext i32 %162 to i64
+  %192 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %191
+  %193 = getelementptr i8, ptr %192, i64 128
+  %194 = load i8, ptr %193, align 1, !tbaa !10
+  %195 = zext i8 %194 to i32
+  %196 = add nsw i32 %190, -128
+  %197 = add nsw i32 %196, %195
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %198
+  %200 = getelementptr i8, ptr %199, i64 128
+  %201 = load i8, ptr %200, align 1, !tbaa !10
+  %202 = zext i8 %201 to i32
+  %203 = tail call i32 @llvm.umin.i32(i32 %202, i32 251)
+  %204 = add nsw i32 %203, -124
+  %205 = ashr i32 %204, 3
+  %206 = tail call i32 @llvm.umin.i32(i32 %202, i32 252)
+  %207 = add nsw i32 %206, -125
+  %208 = ashr i32 %207, 3
+  %209 = add nsw i32 %208, %148
+  %210 = sext i32 %209 to i64
+  %211 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %210
+  %212 = load i8, ptr %211, align 1, !tbaa !10
+  store i8 %212, ptr %146, align 1, !tbaa !10
+  %213 = sub nsw i32 %150, %205
   %214 = sext i32 %213 to i64
   %215 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %214
   %216 = load i8, ptr %215, align 1, !tbaa !10
-  %217 = zext i8 %216 to i32
-  %218 = add nsw i32 %217, -128
-  %219 = mul nsw i32 %218, 27
-  %220 = add nsw i32 %219, 63
-  %221 = ashr i32 %220, 7
-  %222 = mul nsw i32 %218, 18
-  %223 = add nsw i32 %222, 63
-  %224 = ashr i32 %223, 7
-  %225 = mul nsw i32 %218, 9
-  %226 = add nsw i32 %225, 63
-  %227 = ashr i32 %226, 7
-  %228 = add nsw i32 %227, %136
-  %229 = sext i32 %228 to i64
-  %230 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %229
-  %231 = load i8, ptr %230, align 1, !tbaa !10
-  store i8 %231, ptr %134, align 1, !tbaa !10
-  %232 = add nsw i32 %224, %139
-  %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %233
-  %235 = load i8, ptr %234, align 1, !tbaa !10
-  store i8 %235, ptr %137, align 1, !tbaa !10
-  %236 = add nsw i32 %221, %142
-  %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %237
-  %239 = load i8, ptr %238, align 1, !tbaa !10
-  store i8 %239, ptr %140, align 1, !tbaa !10
-  %240 = sub nsw i32 %144, %221
+  store i8 %216, ptr %139, align 1, !tbaa !10
+  br label %vp8_normal_limit.exit.i16.thread
+
+217:                                              ; preds = %187
+  %218 = sext i32 %162 to i64
+  %219 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %218
+  %220 = getelementptr i8, ptr %219, i64 128
+  %221 = load i8, ptr %220, align 1, !tbaa !10
+  %222 = zext i8 %221 to i32
+  %223 = sub nsw i32 %150, %148
+  %224 = mul nsw i32 %223, 3
+  %225 = add nsw i32 %224, %222
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %226
+  %228 = load i8, ptr %227, align 1, !tbaa !10
+  %229 = zext i8 %228 to i32
+  %230 = add nsw i32 %229, -128
+  %231 = mul nsw i32 %230, 27
+  %232 = add nsw i32 %231, 63
+  %233 = ashr i32 %232, 7
+  %234 = mul nsw i32 %230, 18
+  %235 = add nsw i32 %234, 63
+  %236 = ashr i32 %235, 7
+  %237 = mul nsw i32 %230, 9
+  %238 = add nsw i32 %237, 63
+  %239 = ashr i32 %238, 7
+  %240 = add nsw i32 %239, %142
   %241 = sext i32 %240 to i64
   %242 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %241
   %243 = load i8, ptr %242, align 1, !tbaa !10
-  store i8 %243, ptr %133, align 1, !tbaa !10
-  %244 = sub nsw i32 %147, %224
+  store i8 %243, ptr %140, align 1, !tbaa !10
+  %244 = add nsw i32 %236, %145
   %245 = sext i32 %244 to i64
   %246 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %245
   %247 = load i8, ptr %246, align 1, !tbaa !10
-  store i8 %247, ptr %145, align 1, !tbaa !10
-  %248 = sub nsw i32 %150, %227
+  store i8 %247, ptr %143, align 1, !tbaa !10
+  %248 = add nsw i32 %233, %148
   %249 = sext i32 %248 to i64
   %250 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %249
   %251 = load i8, ptr %250, align 1, !tbaa !10
-  store i8 %251, ptr %148, align 1, !tbaa !10
+  store i8 %251, ptr %146, align 1, !tbaa !10
+  %252 = sub nsw i32 %150, %233
+  %253 = sext i32 %252 to i64
+  %254 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %253
+  %255 = load i8, ptr %254, align 1, !tbaa !10
+  store i8 %255, ptr %139, align 1, !tbaa !10
+  %256 = sub nsw i32 %153, %236
+  %257 = sext i32 %256 to i64
+  %258 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %257
+  %259 = load i8, ptr %258, align 1, !tbaa !10
+  store i8 %259, ptr %151, align 1, !tbaa !10
+  %260 = sub nsw i32 %156, %239
+  %261 = sext i32 %260 to i64
+  %262 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %261
+  %263 = load i8, ptr %262, align 1, !tbaa !10
+  store i8 %263, ptr %154, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i16.thread
 
-vp8_normal_limit.exit.i16.thread:                 ; preds = %vp8_v_loop_filter8_c.exit.preheader, %161, %167, %170, %173, %176, %207, %hev.exit.i18.thread, %vp8_normal_limit.exit.i16
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %exitcond41.not = icmp eq i64 %indvars.iv.next39, 8
-  br i1 %exitcond41.not, label %vp8_v_loop_filter8_c.exit20, label %vp8_v_loop_filter8_c.exit.preheader, !llvm.loop !152
+vp8_normal_limit.exit.i16.thread:                 ; preds = %vp8_v_loop_filter8_c.exit.preheader, %167, %173, %176, %179, %182, %217, %hev.exit.i18.thread, %vp8_normal_limit.exit.i16
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next34, 8
+  br i1 %exitcond36.not, label %vp8_v_loop_filter8_c.exit20, label %vp8_v_loop_filter8_c.exit.preheader, !llvm.loop !152
 
 vp8_v_loop_filter8_c.exit20:                      ; preds = %vp8_normal_limit.exit.i16.thread
   ret void
@@ -9293,266 +9345,272 @@ vp8_normal_limit.exit.i:                          ; preds = %52
   %58 = icmp sgt i32 %48, %5
   %.not29 = icmp samesign ugt i32 %56, %5
   %or.cond = select i1 %58, i1 true, i1 %.not29
-  br i1 %or.cond, label %hev.exit.i.thread, label %83
+  br i1 %or.cond, label %hev.exit.i.thread, label %87
 
 hev.exit.i.thread:                                ; preds = %57
   %59 = sub nsw i32 %20, %18
   %60 = mul nsw i32 %59, 3
   %61 = sext i32 %32 to i64
-  %gep30 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %61
-  %62 = load i8, ptr %gep30, align 1, !tbaa !10
-  %63 = zext i8 %62 to i32
-  %64 = add nsw i32 %60, -128
-  %65 = add nsw i32 %64, %63
-  %66 = sext i32 %65 to i64
-  %gep31 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %66
-  %67 = load i8, ptr %gep31, align 1, !tbaa !10
-  %68 = zext i8 %67 to i32
-  %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 251)
-  %70 = add nsw i32 %69, -124
-  %71 = ashr i32 %70, 3
-  %72 = tail call i32 @llvm.umin.i32(i32 %68, i32 252)
-  %73 = add nsw i32 %72, -125
-  %74 = ashr i32 %73, 3
-  %75 = add nsw i32 %74, %18
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %76
-  %78 = load i8, ptr %77, align 1, !tbaa !10
-  store i8 %78, ptr %16, align 1, !tbaa !10
-  %79 = sub nsw i32 %20, %71
+  %62 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %61
+  %63 = getelementptr i8, ptr %62, i64 128
+  %64 = load i8, ptr %63, align 1, !tbaa !10
+  %65 = zext i8 %64 to i32
+  %66 = add nsw i32 %60, -128
+  %67 = add nsw i32 %66, %65
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %68
+  %70 = getelementptr i8, ptr %69, i64 128
+  %71 = load i8, ptr %70, align 1, !tbaa !10
+  %72 = zext i8 %71 to i32
+  %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 251)
+  %74 = add nsw i32 %73, -124
+  %75 = ashr i32 %74, 3
+  %76 = tail call i32 @llvm.umin.i32(i32 %72, i32 252)
+  %77 = add nsw i32 %76, -125
+  %78 = ashr i32 %77, 3
+  %79 = add nsw i32 %78, %18
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !10
-  store i8 %82, ptr %9, align 1, !tbaa !10
+  store i8 %82, ptr %16, align 1, !tbaa !10
+  %83 = sub nsw i32 %20, %75
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %84
+  %86 = load i8, ptr %85, align 1, !tbaa !10
+  store i8 %86, ptr %9, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i.thread
 
-83:                                               ; preds = %57
-  %84 = sext i32 %32 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %84
-  %85 = load i8, ptr %gep, align 1, !tbaa !10
-  %86 = zext i8 %85 to i32
-  %87 = sub nsw i32 %20, %18
-  %88 = mul nsw i32 %87, 3
-  %89 = add nsw i32 %88, %86
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %90
-  %92 = load i8, ptr %91, align 1, !tbaa !10
-  %93 = zext i8 %92 to i32
-  %94 = add nsw i32 %93, -128
-  %95 = mul nsw i32 %94, 27
-  %96 = add nsw i32 %95, 63
-  %97 = ashr i32 %96, 7
-  %98 = mul nsw i32 %94, 18
-  %99 = add nsw i32 %98, 63
-  %100 = ashr i32 %99, 7
-  %101 = mul nsw i32 %94, 9
+87:                                               ; preds = %57
+  %88 = sext i32 %32 to i64
+  %89 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %88
+  %90 = getelementptr i8, ptr %89, i64 128
+  %91 = load i8, ptr %90, align 1, !tbaa !10
+  %92 = zext i8 %91 to i32
+  %93 = sub nsw i32 %20, %18
+  %94 = mul nsw i32 %93, 3
+  %95 = add nsw i32 %94, %92
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %96
+  %98 = load i8, ptr %97, align 1, !tbaa !10
+  %99 = zext i8 %98 to i32
+  %100 = add nsw i32 %99, -128
+  %101 = mul nsw i32 %100, 27
   %102 = add nsw i32 %101, 63
   %103 = ashr i32 %102, 7
-  %104 = add nsw i32 %103, %12
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %105
-  %107 = load i8, ptr %106, align 1, !tbaa !10
-  store i8 %107, ptr %10, align 1, !tbaa !10
-  %108 = add nsw i32 %100, %15
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %109
-  %111 = load i8, ptr %110, align 1, !tbaa !10
-  store i8 %111, ptr %13, align 1, !tbaa !10
-  %112 = add nsw i32 %97, %18
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %113
-  %115 = load i8, ptr %114, align 1, !tbaa !10
-  store i8 %115, ptr %16, align 1, !tbaa !10
-  %116 = sub nsw i32 %20, %97
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %117
-  %119 = load i8, ptr %118, align 1, !tbaa !10
-  store i8 %119, ptr %9, align 1, !tbaa !10
-  %120 = sub nsw i32 %23, %100
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %121
-  %123 = load i8, ptr %122, align 1, !tbaa !10
-  store i8 %123, ptr %21, align 1, !tbaa !10
-  %124 = sub nsw i32 %26, %103
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %125
-  %127 = load i8, ptr %126, align 1, !tbaa !10
-  store i8 %127, ptr %24, align 1, !tbaa !10
+  %104 = mul nsw i32 %100, 18
+  %105 = add nsw i32 %104, 63
+  %106 = ashr i32 %105, 7
+  %107 = mul nsw i32 %100, 9
+  %108 = add nsw i32 %107, 63
+  %109 = ashr i32 %108, 7
+  %110 = add nsw i32 %109, %12
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %111
+  %113 = load i8, ptr %112, align 1, !tbaa !10
+  store i8 %113, ptr %10, align 1, !tbaa !10
+  %114 = add nsw i32 %106, %15
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %115
+  %117 = load i8, ptr %116, align 1, !tbaa !10
+  store i8 %117, ptr %13, align 1, !tbaa !10
+  %118 = add nsw i32 %103, %18
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %119
+  %121 = load i8, ptr %120, align 1, !tbaa !10
+  store i8 %121, ptr %16, align 1, !tbaa !10
+  %122 = sub nsw i32 %20, %103
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %123
+  %125 = load i8, ptr %124, align 1, !tbaa !10
+  store i8 %125, ptr %9, align 1, !tbaa !10
+  %126 = sub nsw i32 %23, %106
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %127
+  %129 = load i8, ptr %128, align 1, !tbaa !10
+  store i8 %129, ptr %21, align 1, !tbaa !10
+  %130 = sub nsw i32 %26, %109
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %131
+  %133 = load i8, ptr %132, align 1, !tbaa !10
+  store i8 %133, ptr %24, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i.thread
 
-vp8_normal_limit.exit.i.thread:                   ; preds = %7, %37, %43, %46, %49, %52, %83, %hev.exit.i.thread, %vp8_normal_limit.exit.i
+vp8_normal_limit.exit.i.thread:                   ; preds = %7, %37, %43, %46, %49, %52, %87, %hev.exit.i.thread, %vp8_normal_limit.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %vp8_h_loop_filter8_c.exit.preheader, label %7, !llvm.loop !153
 
 vp8_h_loop_filter8_c.exit.preheader:              ; preds = %vp8_normal_limit.exit.i.thread, %vp8_normal_limit.exit.i16.thread
-  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %vp8_normal_limit.exit.i16.thread ], [ 0, %vp8_normal_limit.exit.i.thread ]
-  %128 = mul nsw i64 %2, %indvars.iv38
-  %129 = getelementptr inbounds i8, ptr %1, i64 %128
-  %130 = getelementptr inbounds i8, ptr %129, i64 -3
-  %131 = load i8, ptr %130, align 1, !tbaa !10
-  %132 = zext i8 %131 to i32
-  %133 = getelementptr inbounds i8, ptr %129, i64 -2
-  %134 = load i8, ptr %133, align 1, !tbaa !10
-  %135 = zext i8 %134 to i32
-  %136 = getelementptr inbounds i8, ptr %129, i64 -1
+  %indvars.iv33 = phi i64 [ %indvars.iv.next34, %vp8_normal_limit.exit.i16.thread ], [ 0, %vp8_normal_limit.exit.i.thread ]
+  %134 = mul nsw i64 %2, %indvars.iv33
+  %135 = getelementptr inbounds i8, ptr %1, i64 %134
+  %136 = getelementptr inbounds i8, ptr %135, i64 -3
   %137 = load i8, ptr %136, align 1, !tbaa !10
   %138 = zext i8 %137 to i32
-  %139 = load i8, ptr %129, align 1, !tbaa !10
-  %140 = zext i8 %139 to i32
-  %141 = getelementptr inbounds nuw i8, ptr %129, i64 1
-  %142 = load i8, ptr %141, align 1, !tbaa !10
-  %143 = zext i8 %142 to i32
-  %144 = getelementptr inbounds nuw i8, ptr %129, i64 2
-  %145 = load i8, ptr %144, align 1, !tbaa !10
+  %139 = getelementptr inbounds i8, ptr %135, i64 -2
+  %140 = load i8, ptr %139, align 1, !tbaa !10
+  %141 = zext i8 %140 to i32
+  %142 = getelementptr inbounds i8, ptr %135, i64 -1
+  %143 = load i8, ptr %142, align 1, !tbaa !10
+  %144 = zext i8 %143 to i32
+  %145 = load i8, ptr %135, align 1, !tbaa !10
   %146 = zext i8 %145 to i32
-  %147 = getelementptr inbounds nuw i8, ptr %129, i64 3
+  %147 = getelementptr inbounds nuw i8, ptr %135, i64 1
   %148 = load i8, ptr %147, align 1, !tbaa !10
   %149 = zext i8 %148 to i32
-  %150 = sub nsw i32 %138, %140
-  %151 = tail call i32 @llvm.abs.i32(i32 %150, i1 true)
-  %152 = sub nsw i32 %135, %143
-  %153 = tail call i32 @llvm.abs.i32(i32 %152, i1 true)
-  %154 = shl nuw nsw i32 %151, 1
-  %155 = lshr i32 %153, 1
-  %156 = add nuw nsw i32 %155, %154
-  %.not = icmp sgt i32 %156, %3
-  br i1 %.not, label %vp8_normal_limit.exit.i16.thread, label %157
+  %150 = getelementptr inbounds nuw i8, ptr %135, i64 2
+  %151 = load i8, ptr %150, align 1, !tbaa !10
+  %152 = zext i8 %151 to i32
+  %153 = getelementptr inbounds nuw i8, ptr %135, i64 3
+  %154 = load i8, ptr %153, align 1, !tbaa !10
+  %155 = zext i8 %154 to i32
+  %156 = sub nsw i32 %144, %146
+  %157 = tail call i32 @llvm.abs.i32(i32 %156, i1 true)
+  %158 = sub nsw i32 %141, %149
+  %159 = tail call i32 @llvm.abs.i32(i32 %158, i1 true)
+  %160 = shl nuw nsw i32 %157, 1
+  %161 = lshr i32 %159, 1
+  %162 = add nuw nsw i32 %161, %160
+  %.not = icmp sgt i32 %162, %3
+  br i1 %.not, label %vp8_normal_limit.exit.i16.thread, label %163
 
-157:                                              ; preds = %vp8_h_loop_filter8_c.exit.preheader
-  %158 = getelementptr inbounds i8, ptr %129, i64 -4
-  %159 = load i8, ptr %158, align 1, !tbaa !10
-  %160 = zext i8 %159 to i32
-  %161 = sub nsw i32 %160, %132
-  %162 = tail call i32 @llvm.abs.i32(i32 %161, i1 true)
-  %.not71.i.i11 = icmp sgt i32 %162, %4
-  br i1 %.not71.i.i11, label %vp8_normal_limit.exit.i16.thread, label %163
-
-163:                                              ; preds = %157
-  %164 = sub nsw i32 %132, %135
-  %165 = tail call i32 @llvm.abs.i32(i32 %164, i1 true)
-  %.not72.i.i12 = icmp samesign ugt i32 %165, %4
-  br i1 %.not72.i.i12, label %vp8_normal_limit.exit.i16.thread, label %166
-
-166:                                              ; preds = %163
-  %167 = sub nsw i32 %135, %138
+163:                                              ; preds = %vp8_h_loop_filter8_c.exit.preheader
+  %164 = getelementptr inbounds i8, ptr %135, i64 -4
+  %165 = load i8, ptr %164, align 1, !tbaa !10
+  %166 = zext i8 %165 to i32
+  %167 = sub nsw i32 %166, %138
   %168 = tail call i32 @llvm.abs.i32(i32 %167, i1 true)
-  %.not73.i.i13 = icmp samesign ugt i32 %168, %4
-  br i1 %.not73.i.i13, label %vp8_normal_limit.exit.i16.thread, label %169
+  %.not71.i.i11 = icmp sgt i32 %168, %4
+  br i1 %.not71.i.i11, label %vp8_normal_limit.exit.i16.thread, label %169
 
-169:                                              ; preds = %166
-  %170 = sub nsw i32 %149, %146
+169:                                              ; preds = %163
+  %170 = sub nsw i32 %138, %141
   %171 = tail call i32 @llvm.abs.i32(i32 %170, i1 true)
-  %.not74.i.i14 = icmp samesign ugt i32 %171, %4
-  br i1 %.not74.i.i14, label %vp8_normal_limit.exit.i16.thread, label %172
+  %.not72.i.i12 = icmp samesign ugt i32 %171, %4
+  br i1 %.not72.i.i12, label %vp8_normal_limit.exit.i16.thread, label %172
 
 172:                                              ; preds = %169
-  %173 = sub nsw i32 %146, %143
+  %173 = sub nsw i32 %141, %144
   %174 = tail call i32 @llvm.abs.i32(i32 %173, i1 true)
-  %.not75.i.i15 = icmp samesign ugt i32 %174, %4
+  %.not73.i.i13 = icmp samesign ugt i32 %174, %4
+  br i1 %.not73.i.i13, label %vp8_normal_limit.exit.i16.thread, label %175
+
+175:                                              ; preds = %172
+  %176 = sub nsw i32 %155, %152
+  %177 = tail call i32 @llvm.abs.i32(i32 %176, i1 true)
+  %.not74.i.i14 = icmp samesign ugt i32 %177, %4
+  br i1 %.not74.i.i14, label %vp8_normal_limit.exit.i16.thread, label %178
+
+178:                                              ; preds = %175
+  %179 = sub nsw i32 %152, %149
+  %180 = tail call i32 @llvm.abs.i32(i32 %179, i1 true)
+  %.not75.i.i15 = icmp samesign ugt i32 %180, %4
   br i1 %.not75.i.i15, label %vp8_normal_limit.exit.i16.thread, label %vp8_normal_limit.exit.i16
 
-vp8_normal_limit.exit.i16:                        ; preds = %172
-  %175 = sub nsw i32 %143, %140
-  %176 = tail call i32 @llvm.abs.i32(i32 %175, i1 true)
-  %.not25 = icmp samesign ugt i32 %176, %4
-  br i1 %.not25, label %vp8_normal_limit.exit.i16.thread, label %177
+vp8_normal_limit.exit.i16:                        ; preds = %178
+  %181 = sub nsw i32 %149, %146
+  %182 = tail call i32 @llvm.abs.i32(i32 %181, i1 true)
+  %.not25 = icmp samesign ugt i32 %182, %4
+  br i1 %.not25, label %vp8_normal_limit.exit.i16.thread, label %183
 
-177:                                              ; preds = %vp8_normal_limit.exit.i16
-  %178 = icmp sgt i32 %168, %5
-  %.not26 = icmp samesign ugt i32 %176, %5
-  %or.cond42 = select i1 %178, i1 true, i1 %.not26
-  br i1 %or.cond42, label %hev.exit.i18.thread, label %203
+183:                                              ; preds = %vp8_normal_limit.exit.i16
+  %184 = icmp sgt i32 %174, %5
+  %.not26 = icmp samesign ugt i32 %182, %5
+  %or.cond37 = select i1 %184, i1 true, i1 %.not26
+  br i1 %or.cond37, label %hev.exit.i18.thread, label %213
 
-hev.exit.i18.thread:                              ; preds = %177
-  %179 = sub nsw i32 %140, %138
-  %180 = mul nsw i32 %179, 3
-  %181 = sext i32 %152 to i64
-  %gep34 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %181
-  %182 = load i8, ptr %gep34, align 1, !tbaa !10
-  %183 = zext i8 %182 to i32
-  %184 = add nsw i32 %180, -128
-  %185 = add nsw i32 %184, %183
-  %186 = sext i32 %185 to i64
-  %gep35 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %186
-  %187 = load i8, ptr %gep35, align 1, !tbaa !10
-  %188 = zext i8 %187 to i32
-  %189 = tail call i32 @llvm.umin.i32(i32 %188, i32 251)
-  %190 = add nsw i32 %189, -124
-  %191 = ashr i32 %190, 3
-  %192 = tail call i32 @llvm.umin.i32(i32 %188, i32 252)
-  %193 = add nsw i32 %192, -125
-  %194 = ashr i32 %193, 3
-  %195 = add nsw i32 %194, %138
-  %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %196
-  %198 = load i8, ptr %197, align 1, !tbaa !10
-  store i8 %198, ptr %136, align 1, !tbaa !10
-  %199 = sub nsw i32 %140, %191
-  %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %200
-  %202 = load i8, ptr %201, align 1, !tbaa !10
-  store i8 %202, ptr %129, align 1, !tbaa !10
-  br label %vp8_normal_limit.exit.i16.thread
-
-203:                                              ; preds = %177
-  %204 = sext i32 %152 to i64
-  %gep33 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %204
-  %205 = load i8, ptr %gep33, align 1, !tbaa !10
-  %206 = zext i8 %205 to i32
-  %207 = sub nsw i32 %140, %138
-  %208 = mul nsw i32 %207, 3
-  %209 = add nsw i32 %208, %206
+hev.exit.i18.thread:                              ; preds = %183
+  %185 = sub nsw i32 %146, %144
+  %186 = mul nsw i32 %185, 3
+  %187 = sext i32 %158 to i64
+  %188 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %187
+  %189 = getelementptr i8, ptr %188, i64 128
+  %190 = load i8, ptr %189, align 1, !tbaa !10
+  %191 = zext i8 %190 to i32
+  %192 = add nsw i32 %186, -128
+  %193 = add nsw i32 %192, %191
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %194
+  %196 = getelementptr i8, ptr %195, i64 128
+  %197 = load i8, ptr %196, align 1, !tbaa !10
+  %198 = zext i8 %197 to i32
+  %199 = tail call i32 @llvm.umin.i32(i32 %198, i32 251)
+  %200 = add nsw i32 %199, -124
+  %201 = ashr i32 %200, 3
+  %202 = tail call i32 @llvm.umin.i32(i32 %198, i32 252)
+  %203 = add nsw i32 %202, -125
+  %204 = ashr i32 %203, 3
+  %205 = add nsw i32 %204, %144
+  %206 = sext i32 %205 to i64
+  %207 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %206
+  %208 = load i8, ptr %207, align 1, !tbaa !10
+  store i8 %208, ptr %142, align 1, !tbaa !10
+  %209 = sub nsw i32 %146, %201
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %210
   %212 = load i8, ptr %211, align 1, !tbaa !10
-  %213 = zext i8 %212 to i32
-  %214 = add nsw i32 %213, -128
-  %215 = mul nsw i32 %214, 27
-  %216 = add nsw i32 %215, 63
-  %217 = ashr i32 %216, 7
-  %218 = mul nsw i32 %214, 18
-  %219 = add nsw i32 %218, 63
-  %220 = ashr i32 %219, 7
-  %221 = mul nsw i32 %214, 9
-  %222 = add nsw i32 %221, 63
-  %223 = ashr i32 %222, 7
-  %224 = add nsw i32 %223, %132
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %225
-  %227 = load i8, ptr %226, align 1, !tbaa !10
-  store i8 %227, ptr %130, align 1, !tbaa !10
-  %228 = add nsw i32 %220, %135
-  %229 = sext i32 %228 to i64
-  %230 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %229
-  %231 = load i8, ptr %230, align 1, !tbaa !10
-  store i8 %231, ptr %133, align 1, !tbaa !10
-  %232 = add nsw i32 %217, %138
-  %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %233
-  %235 = load i8, ptr %234, align 1, !tbaa !10
-  store i8 %235, ptr %136, align 1, !tbaa !10
-  %236 = sub nsw i32 %140, %217
+  store i8 %212, ptr %135, align 1, !tbaa !10
+  br label %vp8_normal_limit.exit.i16.thread
+
+213:                                              ; preds = %183
+  %214 = sext i32 %158 to i64
+  %215 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %214
+  %216 = getelementptr i8, ptr %215, i64 128
+  %217 = load i8, ptr %216, align 1, !tbaa !10
+  %218 = zext i8 %217 to i32
+  %219 = sub nsw i32 %146, %144
+  %220 = mul nsw i32 %219, 3
+  %221 = add nsw i32 %220, %218
+  %222 = sext i32 %221 to i64
+  %223 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %222
+  %224 = load i8, ptr %223, align 1, !tbaa !10
+  %225 = zext i8 %224 to i32
+  %226 = add nsw i32 %225, -128
+  %227 = mul nsw i32 %226, 27
+  %228 = add nsw i32 %227, 63
+  %229 = ashr i32 %228, 7
+  %230 = mul nsw i32 %226, 18
+  %231 = add nsw i32 %230, 63
+  %232 = ashr i32 %231, 7
+  %233 = mul nsw i32 %226, 9
+  %234 = add nsw i32 %233, 63
+  %235 = ashr i32 %234, 7
+  %236 = add nsw i32 %235, %138
   %237 = sext i32 %236 to i64
   %238 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %237
   %239 = load i8, ptr %238, align 1, !tbaa !10
-  store i8 %239, ptr %129, align 1, !tbaa !10
-  %240 = sub nsw i32 %143, %220
+  store i8 %239, ptr %136, align 1, !tbaa !10
+  %240 = add nsw i32 %232, %141
   %241 = sext i32 %240 to i64
   %242 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %241
   %243 = load i8, ptr %242, align 1, !tbaa !10
-  store i8 %243, ptr %141, align 1, !tbaa !10
-  %244 = sub nsw i32 %146, %223
+  store i8 %243, ptr %139, align 1, !tbaa !10
+  %244 = add nsw i32 %229, %144
   %245 = sext i32 %244 to i64
   %246 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %245
   %247 = load i8, ptr %246, align 1, !tbaa !10
-  store i8 %247, ptr %144, align 1, !tbaa !10
+  store i8 %247, ptr %142, align 1, !tbaa !10
+  %248 = sub nsw i32 %146, %229
+  %249 = sext i32 %248 to i64
+  %250 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %249
+  %251 = load i8, ptr %250, align 1, !tbaa !10
+  store i8 %251, ptr %135, align 1, !tbaa !10
+  %252 = sub nsw i32 %149, %232
+  %253 = sext i32 %252 to i64
+  %254 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %253
+  %255 = load i8, ptr %254, align 1, !tbaa !10
+  store i8 %255, ptr %147, align 1, !tbaa !10
+  %256 = sub nsw i32 %152, %235
+  %257 = sext i32 %256 to i64
+  %258 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %257
+  %259 = load i8, ptr %258, align 1, !tbaa !10
+  store i8 %259, ptr %150, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i16.thread
 
-vp8_normal_limit.exit.i16.thread:                 ; preds = %vp8_h_loop_filter8_c.exit.preheader, %157, %163, %166, %169, %172, %203, %hev.exit.i18.thread, %vp8_normal_limit.exit.i16
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %exitcond41.not = icmp eq i64 %indvars.iv.next39, 8
-  br i1 %exitcond41.not, label %vp8_h_loop_filter8_c.exit20, label %vp8_h_loop_filter8_c.exit.preheader, !llvm.loop !153
+vp8_normal_limit.exit.i16.thread:                 ; preds = %vp8_h_loop_filter8_c.exit.preheader, %163, %169, %172, %175, %178, %213, %hev.exit.i18.thread, %vp8_normal_limit.exit.i16
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next34, 8
+  br i1 %exitcond36.not, label %vp8_h_loop_filter8_c.exit20, label %vp8_h_loop_filter8_c.exit.preheader, !llvm.loop !153
 
 vp8_h_loop_filter8_c.exit20:                      ; preds = %vp8_normal_limit.exit.i16.thread
   ret void
@@ -9646,78 +9704,81 @@ vp8_normal_limit.exit:                            ; preds = %56
   %or.cond = select i1 %62, i1 true, i1 %.not
   %63 = sub nsw i32 %24, %22
   %64 = mul nsw i32 %63, 3
-  br i1 %or.cond, label %hev.exit.thread, label %87
+  br i1 %or.cond, label %hev.exit.thread, label %91
 
 hev.exit.thread:                                  ; preds = %61
   %65 = sext i32 %36 to i64
-  %gep22 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %65
-  %66 = load i8, ptr %gep22, align 1, !tbaa !10
-  %67 = zext i8 %66 to i32
-  %68 = add nsw i32 %64, -128
-  %69 = add nsw i32 %68, %67
-  %70 = sext i32 %69 to i64
-  %gep23 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %70
-  %71 = load i8, ptr %gep23, align 1, !tbaa !10
-  %72 = zext i8 %71 to i32
-  %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 251)
-  %74 = add nsw i32 %73, -124
-  %75 = ashr i32 %74, 3
-  %76 = tail call i32 @llvm.umin.i32(i32 %72, i32 252)
-  %77 = add nsw i32 %76, -125
-  %78 = ashr i32 %77, 3
-  %79 = add nsw i32 %78, %22
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !10
-  store i8 %82, ptr %20, align 1, !tbaa !10
-  %83 = sub nsw i32 %24, %75
+  %66 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %65
+  %67 = getelementptr i8, ptr %66, i64 128
+  %68 = load i8, ptr %67, align 1, !tbaa !10
+  %69 = zext i8 %68 to i32
+  %70 = add nsw i32 %64, -128
+  %71 = add nsw i32 %70, %69
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %72
+  %74 = getelementptr i8, ptr %73, i64 128
+  %75 = load i8, ptr %74, align 1, !tbaa !10
+  %76 = zext i8 %75 to i32
+  %77 = tail call i32 @llvm.umin.i32(i32 %76, i32 251)
+  %78 = add nsw i32 %77, -124
+  %79 = ashr i32 %78, 3
+  %80 = tail call i32 @llvm.umin.i32(i32 %76, i32 252)
+  %81 = add nsw i32 %80, -125
+  %82 = ashr i32 %81, 3
+  %83 = add nsw i32 %82, %22
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !10
-  store i8 %86, ptr %13, align 1, !tbaa !10
+  store i8 %86, ptr %20, align 1, !tbaa !10
+  %87 = sub nsw i32 %24, %79
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %88
+  %90 = load i8, ptr %89, align 1, !tbaa !10
+  store i8 %90, ptr %13, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.thread
 
-87:                                               ; preds = %61
-  %88 = sext i32 %64 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %88
-  %89 = load i8, ptr %gep, align 1, !tbaa !10
-  %90 = zext i8 %89 to i32
-  %91 = tail call i32 @llvm.umin.i32(i32 %90, i32 251)
-  %92 = add nsw i32 %91, -124
-  %93 = ashr i32 %92, 3
-  %94 = tail call i32 @llvm.umin.i32(i32 %90, i32 252)
-  %95 = add nsw i32 %94, -125
-  %96 = ashr i32 %95, 3
-  %97 = add nsw i32 %96, %22
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %98
-  %100 = load i8, ptr %99, align 1, !tbaa !10
-  store i8 %100, ptr %20, align 1, !tbaa !10
-  %101 = sub nsw i32 %24, %93
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %102
-  %104 = load i8, ptr %103, align 1, !tbaa !10
-  store i8 %104, ptr %13, align 1, !tbaa !10
-  %105 = add nsw i32 %93, 1
-  %106 = ashr i32 %105, 1
-  %107 = add nsw i32 %106, %19
+91:                                               ; preds = %61
+  %92 = sext i32 %64 to i64
+  %93 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %92
+  %94 = getelementptr i8, ptr %93, i64 128
+  %95 = load i8, ptr %94, align 1, !tbaa !10
+  %96 = zext i8 %95 to i32
+  %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 251)
+  %98 = add nsw i32 %97, -124
+  %99 = ashr i32 %98, 3
+  %100 = tail call i32 @llvm.umin.i32(i32 %96, i32 252)
+  %101 = add nsw i32 %100, -125
+  %102 = ashr i32 %101, 3
+  %103 = add nsw i32 %102, %22
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %104
+  %106 = load i8, ptr %105, align 1, !tbaa !10
+  store i8 %106, ptr %20, align 1, !tbaa !10
+  %107 = sub nsw i32 %24, %99
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !10
-  store i8 %110, ptr %17, align 1, !tbaa !10
-  %111 = sub nsw i32 %27, %106
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %112
-  %114 = load i8, ptr %113, align 1, !tbaa !10
-  store i8 %114, ptr %25, align 1, !tbaa !10
+  store i8 %110, ptr %13, align 1, !tbaa !10
+  %111 = add nsw i32 %99, 1
+  %112 = ashr i32 %111, 1
+  %113 = add nsw i32 %112, %19
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %114
+  %116 = load i8, ptr %115, align 1, !tbaa !10
+  store i8 %116, ptr %17, align 1, !tbaa !10
+  %117 = sub nsw i32 %27, %112
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %118
+  %120 = load i8, ptr %119, align 1, !tbaa !10
+  store i8 %120, ptr %25, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.thread
 
-vp8_normal_limit.exit.thread:                     ; preds = %12, %41, %47, %50, %53, %56, %hev.exit.thread, %87, %vp8_normal_limit.exit
+vp8_normal_limit.exit.thread:                     ; preds = %12, %41, %47, %50, %53, %56, %hev.exit.thread, %91, %vp8_normal_limit.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %115, label %12, !llvm.loop !154
+  br i1 %exitcond.not, label %121, label %12, !llvm.loop !154
 
-115:                                              ; preds = %vp8_normal_limit.exit.thread
+121:                                              ; preds = %vp8_normal_limit.exit.thread
   ret void
 }
 
@@ -9804,78 +9865,81 @@ vp8_normal_limit.exit:                            ; preds = %51
   %or.cond = select i1 %57, i1 true, i1 %.not
   %58 = sub nsw i32 %19, %17
   %59 = mul nsw i32 %58, 3
-  br i1 %or.cond, label %hev.exit.thread, label %82
+  br i1 %or.cond, label %hev.exit.thread, label %86
 
 hev.exit.thread:                                  ; preds = %56
   %60 = sext i32 %31 to i64
-  %gep22 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %60
-  %61 = load i8, ptr %gep22, align 1, !tbaa !10
-  %62 = zext i8 %61 to i32
-  %63 = add nsw i32 %59, -128
-  %64 = add nsw i32 %63, %62
-  %65 = sext i32 %64 to i64
-  %gep23 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %65
-  %66 = load i8, ptr %gep23, align 1, !tbaa !10
-  %67 = zext i8 %66 to i32
-  %68 = tail call i32 @llvm.umin.i32(i32 %67, i32 251)
-  %69 = add nsw i32 %68, -124
-  %70 = ashr i32 %69, 3
-  %71 = tail call i32 @llvm.umin.i32(i32 %67, i32 252)
-  %72 = add nsw i32 %71, -125
-  %73 = ashr i32 %72, 3
-  %74 = add nsw i32 %73, %17
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %75
-  %77 = load i8, ptr %76, align 1, !tbaa !10
-  store i8 %77, ptr %15, align 1, !tbaa !10
-  %78 = sub nsw i32 %19, %70
+  %61 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %60
+  %62 = getelementptr i8, ptr %61, i64 128
+  %63 = load i8, ptr %62, align 1, !tbaa !10
+  %64 = zext i8 %63 to i32
+  %65 = add nsw i32 %59, -128
+  %66 = add nsw i32 %65, %64
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %67
+  %69 = getelementptr i8, ptr %68, i64 128
+  %70 = load i8, ptr %69, align 1, !tbaa !10
+  %71 = zext i8 %70 to i32
+  %72 = tail call i32 @llvm.umin.i32(i32 %71, i32 251)
+  %73 = add nsw i32 %72, -124
+  %74 = ashr i32 %73, 3
+  %75 = tail call i32 @llvm.umin.i32(i32 %71, i32 252)
+  %76 = add nsw i32 %75, -125
+  %77 = ashr i32 %76, 3
+  %78 = add nsw i32 %77, %17
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !10
-  store i8 %81, ptr %8, align 1, !tbaa !10
+  store i8 %81, ptr %15, align 1, !tbaa !10
+  %82 = sub nsw i32 %19, %74
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %83
+  %85 = load i8, ptr %84, align 1, !tbaa !10
+  store i8 %85, ptr %8, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.thread
 
-82:                                               ; preds = %56
-  %83 = sext i32 %59 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %83
-  %84 = load i8, ptr %gep, align 1, !tbaa !10
-  %85 = zext i8 %84 to i32
-  %86 = tail call i32 @llvm.umin.i32(i32 %85, i32 251)
-  %87 = add nsw i32 %86, -124
-  %88 = ashr i32 %87, 3
-  %89 = tail call i32 @llvm.umin.i32(i32 %85, i32 252)
-  %90 = add nsw i32 %89, -125
-  %91 = ashr i32 %90, 3
-  %92 = add nsw i32 %91, %17
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %93
-  %95 = load i8, ptr %94, align 1, !tbaa !10
-  store i8 %95, ptr %15, align 1, !tbaa !10
-  %96 = sub nsw i32 %19, %88
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !10
-  store i8 %99, ptr %8, align 1, !tbaa !10
-  %100 = add nsw i32 %88, 1
-  %101 = ashr i32 %100, 1
-  %102 = add nsw i32 %101, %14
+86:                                               ; preds = %56
+  %87 = sext i32 %59 to i64
+  %88 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %87
+  %89 = getelementptr i8, ptr %88, i64 128
+  %90 = load i8, ptr %89, align 1, !tbaa !10
+  %91 = zext i8 %90 to i32
+  %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 251)
+  %93 = add nsw i32 %92, -124
+  %94 = ashr i32 %93, 3
+  %95 = tail call i32 @llvm.umin.i32(i32 %91, i32 252)
+  %96 = add nsw i32 %95, -125
+  %97 = ashr i32 %96, 3
+  %98 = add nsw i32 %97, %17
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %99
+  %101 = load i8, ptr %100, align 1, !tbaa !10
+  store i8 %101, ptr %15, align 1, !tbaa !10
+  %102 = sub nsw i32 %19, %94
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !10
-  store i8 %105, ptr %12, align 1, !tbaa !10
-  %106 = sub nsw i32 %22, %101
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %107
-  %109 = load i8, ptr %108, align 1, !tbaa !10
-  store i8 %109, ptr %20, align 1, !tbaa !10
+  store i8 %105, ptr %8, align 1, !tbaa !10
+  %106 = add nsw i32 %94, 1
+  %107 = ashr i32 %106, 1
+  %108 = add nsw i32 %107, %14
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %109
+  %111 = load i8, ptr %110, align 1, !tbaa !10
+  store i8 %111, ptr %12, align 1, !tbaa !10
+  %112 = sub nsw i32 %22, %107
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %113
+  %115 = load i8, ptr %114, align 1, !tbaa !10
+  store i8 %115, ptr %20, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.thread
 
-vp8_normal_limit.exit.thread:                     ; preds = %6, %36, %42, %45, %48, %51, %hev.exit.thread, %82, %vp8_normal_limit.exit
+vp8_normal_limit.exit.thread:                     ; preds = %6, %36, %42, %45, %48, %51, %hev.exit.thread, %86, %vp8_normal_limit.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %110, label %6, !llvm.loop !155
+  br i1 %exitcond.not, label %116, label %6, !llvm.loop !155
 
-110:                                              ; preds = %vp8_normal_limit.exit.thread
+116:                                              ; preds = %vp8_normal_limit.exit.thread
   ret void
 }
 
@@ -9967,225 +10031,231 @@ vp8_normal_limit.exit.i:                          ; preds = %57
   %or.cond = select i1 %63, i1 true, i1 %.not29
   %64 = sub nsw i32 %25, %23
   %65 = mul nsw i32 %64, 3
-  br i1 %or.cond, label %hev.exit.i.thread, label %88
+  br i1 %or.cond, label %hev.exit.i.thread, label %92
 
 hev.exit.i.thread:                                ; preds = %62
   %66 = sext i32 %37 to i64
-  %gep30 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %66
-  %67 = load i8, ptr %gep30, align 1, !tbaa !10
-  %68 = zext i8 %67 to i32
-  %69 = add nsw i32 %65, -128
-  %70 = add nsw i32 %69, %68
-  %71 = sext i32 %70 to i64
-  %gep31 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %71
-  %72 = load i8, ptr %gep31, align 1, !tbaa !10
-  %73 = zext i8 %72 to i32
-  %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 251)
-  %75 = add nsw i32 %74, -124
-  %76 = ashr i32 %75, 3
-  %77 = tail call i32 @llvm.umin.i32(i32 %73, i32 252)
-  %78 = add nsw i32 %77, -125
-  %79 = ashr i32 %78, 3
-  %80 = add nsw i32 %79, %23
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %81
-  %83 = load i8, ptr %82, align 1, !tbaa !10
-  store i8 %83, ptr %21, align 1, !tbaa !10
-  %84 = sub nsw i32 %25, %76
+  %67 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %66
+  %68 = getelementptr i8, ptr %67, i64 128
+  %69 = load i8, ptr %68, align 1, !tbaa !10
+  %70 = zext i8 %69 to i32
+  %71 = add nsw i32 %65, -128
+  %72 = add nsw i32 %71, %70
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %73
+  %75 = getelementptr i8, ptr %74, i64 128
+  %76 = load i8, ptr %75, align 1, !tbaa !10
+  %77 = zext i8 %76 to i32
+  %78 = tail call i32 @llvm.umin.i32(i32 %77, i32 251)
+  %79 = add nsw i32 %78, -124
+  %80 = ashr i32 %79, 3
+  %81 = tail call i32 @llvm.umin.i32(i32 %77, i32 252)
+  %82 = add nsw i32 %81, -125
+  %83 = ashr i32 %82, 3
+  %84 = add nsw i32 %83, %23
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !10
-  store i8 %87, ptr %14, align 1, !tbaa !10
+  store i8 %87, ptr %21, align 1, !tbaa !10
+  %88 = sub nsw i32 %25, %80
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %89
+  %91 = load i8, ptr %90, align 1, !tbaa !10
+  store i8 %91, ptr %14, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i.thread
 
-88:                                               ; preds = %62
-  %89 = sext i32 %65 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %89
-  %90 = load i8, ptr %gep, align 1, !tbaa !10
-  %91 = zext i8 %90 to i32
-  %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 251)
-  %93 = add nsw i32 %92, -124
-  %94 = ashr i32 %93, 3
-  %95 = tail call i32 @llvm.umin.i32(i32 %91, i32 252)
-  %96 = add nsw i32 %95, -125
-  %97 = ashr i32 %96, 3
-  %98 = add nsw i32 %97, %23
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %99
-  %101 = load i8, ptr %100, align 1, !tbaa !10
-  store i8 %101, ptr %21, align 1, !tbaa !10
-  %102 = sub nsw i32 %25, %94
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %103
-  %105 = load i8, ptr %104, align 1, !tbaa !10
-  store i8 %105, ptr %14, align 1, !tbaa !10
-  %106 = add nsw i32 %94, 1
-  %107 = ashr i32 %106, 1
-  %108 = add nsw i32 %107, %20
+92:                                               ; preds = %62
+  %93 = sext i32 %65 to i64
+  %94 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %93
+  %95 = getelementptr i8, ptr %94, i64 128
+  %96 = load i8, ptr %95, align 1, !tbaa !10
+  %97 = zext i8 %96 to i32
+  %98 = tail call i32 @llvm.umin.i32(i32 %97, i32 251)
+  %99 = add nsw i32 %98, -124
+  %100 = ashr i32 %99, 3
+  %101 = tail call i32 @llvm.umin.i32(i32 %97, i32 252)
+  %102 = add nsw i32 %101, -125
+  %103 = ashr i32 %102, 3
+  %104 = add nsw i32 %103, %23
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %105
+  %107 = load i8, ptr %106, align 1, !tbaa !10
+  store i8 %107, ptr %21, align 1, !tbaa !10
+  %108 = sub nsw i32 %25, %100
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %109
   %111 = load i8, ptr %110, align 1, !tbaa !10
-  store i8 %111, ptr %18, align 1, !tbaa !10
-  %112 = sub nsw i32 %28, %107
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %113
-  %115 = load i8, ptr %114, align 1, !tbaa !10
-  store i8 %115, ptr %26, align 1, !tbaa !10
+  store i8 %111, ptr %14, align 1, !tbaa !10
+  %112 = add nsw i32 %100, 1
+  %113 = ashr i32 %112, 1
+  %114 = add nsw i32 %113, %20
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %115
+  %117 = load i8, ptr %116, align 1, !tbaa !10
+  store i8 %117, ptr %18, align 1, !tbaa !10
+  %118 = sub nsw i32 %28, %113
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %119
+  %121 = load i8, ptr %120, align 1, !tbaa !10
+  store i8 %121, ptr %26, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i.thread
 
-vp8_normal_limit.exit.i.thread:                   ; preds = %13, %42, %48, %51, %54, %57, %88, %hev.exit.i.thread, %vp8_normal_limit.exit.i
+vp8_normal_limit.exit.i.thread:                   ; preds = %13, %42, %48, %51, %54, %57, %92, %hev.exit.i.thread, %vp8_normal_limit.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %vp8_v_loop_filter8_inner_c.exit.preheader, label %13, !llvm.loop !156
 
 vp8_v_loop_filter8_inner_c.exit.preheader:        ; preds = %vp8_normal_limit.exit.i.thread, %vp8_normal_limit.exit.i16.thread
-  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %vp8_normal_limit.exit.i16.thread ], [ 0, %vp8_normal_limit.exit.i.thread ]
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv38
-  %117 = getelementptr inbounds i8, ptr %116, i64 %7
-  %118 = load i8, ptr %117, align 1, !tbaa !10
-  %119 = zext i8 %118 to i32
-  %120 = getelementptr inbounds i8, ptr %116, i64 %8
-  %121 = load i8, ptr %120, align 1, !tbaa !10
-  %122 = zext i8 %121 to i32
-  %123 = getelementptr inbounds i8, ptr %116, i64 %9
+  %indvars.iv33 = phi i64 [ %indvars.iv.next34, %vp8_normal_limit.exit.i16.thread ], [ 0, %vp8_normal_limit.exit.i.thread ]
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv33
+  %123 = getelementptr inbounds i8, ptr %122, i64 %7
   %124 = load i8, ptr %123, align 1, !tbaa !10
   %125 = zext i8 %124 to i32
-  %126 = load i8, ptr %116, align 1, !tbaa !10
-  %127 = zext i8 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %116, i64 %2
-  %129 = load i8, ptr %128, align 1, !tbaa !10
-  %130 = zext i8 %129 to i32
-  %131 = getelementptr inbounds i8, ptr %116, i64 %10
-  %132 = load i8, ptr %131, align 1, !tbaa !10
+  %126 = getelementptr inbounds i8, ptr %122, i64 %8
+  %127 = load i8, ptr %126, align 1, !tbaa !10
+  %128 = zext i8 %127 to i32
+  %129 = getelementptr inbounds i8, ptr %122, i64 %9
+  %130 = load i8, ptr %129, align 1, !tbaa !10
+  %131 = zext i8 %130 to i32
+  %132 = load i8, ptr %122, align 1, !tbaa !10
   %133 = zext i8 %132 to i32
-  %134 = getelementptr inbounds i8, ptr %116, i64 %11
+  %134 = getelementptr inbounds i8, ptr %122, i64 %2
   %135 = load i8, ptr %134, align 1, !tbaa !10
   %136 = zext i8 %135 to i32
-  %137 = sub nsw i32 %125, %127
-  %138 = tail call i32 @llvm.abs.i32(i32 %137, i1 true)
-  %139 = sub nsw i32 %122, %130
-  %140 = tail call i32 @llvm.abs.i32(i32 %139, i1 true)
-  %141 = shl nuw nsw i32 %138, 1
-  %142 = lshr i32 %140, 1
-  %143 = add nuw nsw i32 %142, %141
-  %.not = icmp sgt i32 %143, %3
-  br i1 %.not, label %vp8_normal_limit.exit.i16.thread, label %144
+  %137 = getelementptr inbounds i8, ptr %122, i64 %10
+  %138 = load i8, ptr %137, align 1, !tbaa !10
+  %139 = zext i8 %138 to i32
+  %140 = getelementptr inbounds i8, ptr %122, i64 %11
+  %141 = load i8, ptr %140, align 1, !tbaa !10
+  %142 = zext i8 %141 to i32
+  %143 = sub nsw i32 %131, %133
+  %144 = tail call i32 @llvm.abs.i32(i32 %143, i1 true)
+  %145 = sub nsw i32 %128, %136
+  %146 = tail call i32 @llvm.abs.i32(i32 %145, i1 true)
+  %147 = shl nuw nsw i32 %144, 1
+  %148 = lshr i32 %146, 1
+  %149 = add nuw nsw i32 %148, %147
+  %.not = icmp sgt i32 %149, %3
+  br i1 %.not, label %vp8_normal_limit.exit.i16.thread, label %150
 
-144:                                              ; preds = %vp8_v_loop_filter8_inner_c.exit.preheader
-  %145 = getelementptr inbounds i8, ptr %116, i64 %12
-  %146 = load i8, ptr %145, align 1, !tbaa !10
-  %147 = zext i8 %146 to i32
-  %148 = sub nsw i32 %147, %119
-  %149 = tail call i32 @llvm.abs.i32(i32 %148, i1 true)
-  %.not71.i.i11 = icmp sgt i32 %149, %4
-  br i1 %.not71.i.i11, label %vp8_normal_limit.exit.i16.thread, label %150
-
-150:                                              ; preds = %144
-  %151 = sub nsw i32 %119, %122
-  %152 = tail call i32 @llvm.abs.i32(i32 %151, i1 true)
-  %.not72.i.i12 = icmp samesign ugt i32 %152, %4
-  br i1 %.not72.i.i12, label %vp8_normal_limit.exit.i16.thread, label %153
-
-153:                                              ; preds = %150
-  %154 = sub nsw i32 %122, %125
+150:                                              ; preds = %vp8_v_loop_filter8_inner_c.exit.preheader
+  %151 = getelementptr inbounds i8, ptr %122, i64 %12
+  %152 = load i8, ptr %151, align 1, !tbaa !10
+  %153 = zext i8 %152 to i32
+  %154 = sub nsw i32 %153, %125
   %155 = tail call i32 @llvm.abs.i32(i32 %154, i1 true)
-  %.not73.i.i13 = icmp samesign ugt i32 %155, %4
-  br i1 %.not73.i.i13, label %vp8_normal_limit.exit.i16.thread, label %156
+  %.not71.i.i11 = icmp sgt i32 %155, %4
+  br i1 %.not71.i.i11, label %vp8_normal_limit.exit.i16.thread, label %156
 
-156:                                              ; preds = %153
-  %157 = sub nsw i32 %136, %133
+156:                                              ; preds = %150
+  %157 = sub nsw i32 %125, %128
   %158 = tail call i32 @llvm.abs.i32(i32 %157, i1 true)
-  %.not74.i.i14 = icmp samesign ugt i32 %158, %4
-  br i1 %.not74.i.i14, label %vp8_normal_limit.exit.i16.thread, label %159
+  %.not72.i.i12 = icmp samesign ugt i32 %158, %4
+  br i1 %.not72.i.i12, label %vp8_normal_limit.exit.i16.thread, label %159
 
 159:                                              ; preds = %156
-  %160 = sub nsw i32 %133, %130
+  %160 = sub nsw i32 %128, %131
   %161 = tail call i32 @llvm.abs.i32(i32 %160, i1 true)
-  %.not75.i.i15 = icmp samesign ugt i32 %161, %4
+  %.not73.i.i13 = icmp samesign ugt i32 %161, %4
+  br i1 %.not73.i.i13, label %vp8_normal_limit.exit.i16.thread, label %162
+
+162:                                              ; preds = %159
+  %163 = sub nsw i32 %142, %139
+  %164 = tail call i32 @llvm.abs.i32(i32 %163, i1 true)
+  %.not74.i.i14 = icmp samesign ugt i32 %164, %4
+  br i1 %.not74.i.i14, label %vp8_normal_limit.exit.i16.thread, label %165
+
+165:                                              ; preds = %162
+  %166 = sub nsw i32 %139, %136
+  %167 = tail call i32 @llvm.abs.i32(i32 %166, i1 true)
+  %.not75.i.i15 = icmp samesign ugt i32 %167, %4
   br i1 %.not75.i.i15, label %vp8_normal_limit.exit.i16.thread, label %vp8_normal_limit.exit.i16
 
-vp8_normal_limit.exit.i16:                        ; preds = %159
-  %162 = sub nsw i32 %130, %127
-  %163 = tail call i32 @llvm.abs.i32(i32 %162, i1 true)
-  %.not25 = icmp samesign ugt i32 %163, %4
-  br i1 %.not25, label %vp8_normal_limit.exit.i16.thread, label %164
+vp8_normal_limit.exit.i16:                        ; preds = %165
+  %168 = sub nsw i32 %136, %133
+  %169 = tail call i32 @llvm.abs.i32(i32 %168, i1 true)
+  %.not25 = icmp samesign ugt i32 %169, %4
+  br i1 %.not25, label %vp8_normal_limit.exit.i16.thread, label %170
 
-164:                                              ; preds = %vp8_normal_limit.exit.i16
-  %165 = icmp sgt i32 %155, %5
-  %.not26 = icmp samesign ugt i32 %163, %5
-  %or.cond42 = select i1 %165, i1 true, i1 %.not26
-  %166 = sub nsw i32 %127, %125
-  %167 = mul nsw i32 %166, 3
-  br i1 %or.cond42, label %hev.exit.i18.thread, label %190
+170:                                              ; preds = %vp8_normal_limit.exit.i16
+  %171 = icmp sgt i32 %161, %5
+  %.not26 = icmp samesign ugt i32 %169, %5
+  %or.cond37 = select i1 %171, i1 true, i1 %.not26
+  %172 = sub nsw i32 %133, %131
+  %173 = mul nsw i32 %172, 3
+  br i1 %or.cond37, label %hev.exit.i18.thread, label %200
 
-hev.exit.i18.thread:                              ; preds = %164
-  %168 = sext i32 %139 to i64
-  %gep34 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %168
-  %169 = load i8, ptr %gep34, align 1, !tbaa !10
-  %170 = zext i8 %169 to i32
-  %171 = add nsw i32 %167, -128
-  %172 = add nsw i32 %171, %170
-  %173 = sext i32 %172 to i64
-  %gep35 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %173
-  %174 = load i8, ptr %gep35, align 1, !tbaa !10
-  %175 = zext i8 %174 to i32
-  %176 = tail call i32 @llvm.umin.i32(i32 %175, i32 251)
-  %177 = add nsw i32 %176, -124
-  %178 = ashr i32 %177, 3
-  %179 = tail call i32 @llvm.umin.i32(i32 %175, i32 252)
-  %180 = add nsw i32 %179, -125
-  %181 = ashr i32 %180, 3
-  %182 = add nsw i32 %181, %125
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %183
-  %185 = load i8, ptr %184, align 1, !tbaa !10
-  store i8 %185, ptr %123, align 1, !tbaa !10
-  %186 = sub nsw i32 %127, %178
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %187
-  %189 = load i8, ptr %188, align 1, !tbaa !10
-  store i8 %189, ptr %116, align 1, !tbaa !10
+hev.exit.i18.thread:                              ; preds = %170
+  %174 = sext i32 %145 to i64
+  %175 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %174
+  %176 = getelementptr i8, ptr %175, i64 128
+  %177 = load i8, ptr %176, align 1, !tbaa !10
+  %178 = zext i8 %177 to i32
+  %179 = add nsw i32 %173, -128
+  %180 = add nsw i32 %179, %178
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %181
+  %183 = getelementptr i8, ptr %182, i64 128
+  %184 = load i8, ptr %183, align 1, !tbaa !10
+  %185 = zext i8 %184 to i32
+  %186 = tail call i32 @llvm.umin.i32(i32 %185, i32 251)
+  %187 = add nsw i32 %186, -124
+  %188 = ashr i32 %187, 3
+  %189 = tail call i32 @llvm.umin.i32(i32 %185, i32 252)
+  %190 = add nsw i32 %189, -125
+  %191 = ashr i32 %190, 3
+  %192 = add nsw i32 %191, %131
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %193
+  %195 = load i8, ptr %194, align 1, !tbaa !10
+  store i8 %195, ptr %129, align 1, !tbaa !10
+  %196 = sub nsw i32 %133, %188
+  %197 = sext i32 %196 to i64
+  %198 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %197
+  %199 = load i8, ptr %198, align 1, !tbaa !10
+  store i8 %199, ptr %122, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i16.thread
 
-190:                                              ; preds = %164
-  %191 = sext i32 %167 to i64
-  %gep33 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %191
-  %192 = load i8, ptr %gep33, align 1, !tbaa !10
-  %193 = zext i8 %192 to i32
-  %194 = tail call i32 @llvm.umin.i32(i32 %193, i32 251)
-  %195 = add nsw i32 %194, -124
-  %196 = ashr i32 %195, 3
-  %197 = tail call i32 @llvm.umin.i32(i32 %193, i32 252)
-  %198 = add nsw i32 %197, -125
-  %199 = ashr i32 %198, 3
-  %200 = add nsw i32 %199, %125
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %201
-  %203 = load i8, ptr %202, align 1, !tbaa !10
-  store i8 %203, ptr %123, align 1, !tbaa !10
-  %204 = sub nsw i32 %127, %196
-  %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %205
-  %207 = load i8, ptr %206, align 1, !tbaa !10
-  store i8 %207, ptr %116, align 1, !tbaa !10
-  %208 = add nsw i32 %196, 1
-  %209 = ashr i32 %208, 1
-  %210 = add nsw i32 %209, %122
-  %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %211
-  %213 = load i8, ptr %212, align 1, !tbaa !10
-  store i8 %213, ptr %120, align 1, !tbaa !10
-  %214 = sub nsw i32 %130, %209
-  %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %215
-  %217 = load i8, ptr %216, align 1, !tbaa !10
-  store i8 %217, ptr %128, align 1, !tbaa !10
+200:                                              ; preds = %170
+  %201 = sext i32 %173 to i64
+  %202 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %201
+  %203 = getelementptr i8, ptr %202, i64 128
+  %204 = load i8, ptr %203, align 1, !tbaa !10
+  %205 = zext i8 %204 to i32
+  %206 = tail call i32 @llvm.umin.i32(i32 %205, i32 251)
+  %207 = add nsw i32 %206, -124
+  %208 = ashr i32 %207, 3
+  %209 = tail call i32 @llvm.umin.i32(i32 %205, i32 252)
+  %210 = add nsw i32 %209, -125
+  %211 = ashr i32 %210, 3
+  %212 = add nsw i32 %211, %131
+  %213 = sext i32 %212 to i64
+  %214 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %213
+  %215 = load i8, ptr %214, align 1, !tbaa !10
+  store i8 %215, ptr %129, align 1, !tbaa !10
+  %216 = sub nsw i32 %133, %208
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %217
+  %219 = load i8, ptr %218, align 1, !tbaa !10
+  store i8 %219, ptr %122, align 1, !tbaa !10
+  %220 = add nsw i32 %208, 1
+  %221 = ashr i32 %220, 1
+  %222 = add nsw i32 %221, %128
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %223
+  %225 = load i8, ptr %224, align 1, !tbaa !10
+  store i8 %225, ptr %126, align 1, !tbaa !10
+  %226 = sub nsw i32 %136, %221
+  %227 = sext i32 %226 to i64
+  %228 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %227
+  %229 = load i8, ptr %228, align 1, !tbaa !10
+  store i8 %229, ptr %134, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i16.thread
 
-vp8_normal_limit.exit.i16.thread:                 ; preds = %vp8_v_loop_filter8_inner_c.exit.preheader, %144, %150, %153, %156, %159, %190, %hev.exit.i18.thread, %vp8_normal_limit.exit.i16
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %exitcond41.not = icmp eq i64 %indvars.iv.next39, 8
-  br i1 %exitcond41.not, label %vp8_v_loop_filter8_inner_c.exit20, label %vp8_v_loop_filter8_inner_c.exit.preheader, !llvm.loop !156
+vp8_normal_limit.exit.i16.thread:                 ; preds = %vp8_v_loop_filter8_inner_c.exit.preheader, %150, %156, %159, %162, %165, %200, %hev.exit.i18.thread, %vp8_normal_limit.exit.i16
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next34, 8
+  br i1 %exitcond36.not, label %vp8_v_loop_filter8_inner_c.exit20, label %vp8_v_loop_filter8_inner_c.exit.preheader, !llvm.loop !156
 
 vp8_v_loop_filter8_inner_c.exit20:                ; preds = %vp8_normal_limit.exit.i16.thread
   ret void
@@ -10274,226 +10344,232 @@ vp8_normal_limit.exit.i:                          ; preds = %52
   %or.cond = select i1 %58, i1 true, i1 %.not29
   %59 = sub nsw i32 %20, %18
   %60 = mul nsw i32 %59, 3
-  br i1 %or.cond, label %hev.exit.i.thread, label %83
+  br i1 %or.cond, label %hev.exit.i.thread, label %87
 
 hev.exit.i.thread:                                ; preds = %57
   %61 = sext i32 %32 to i64
-  %gep30 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %61
-  %62 = load i8, ptr %gep30, align 1, !tbaa !10
-  %63 = zext i8 %62 to i32
-  %64 = add nsw i32 %60, -128
-  %65 = add nsw i32 %64, %63
-  %66 = sext i32 %65 to i64
-  %gep31 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %66
-  %67 = load i8, ptr %gep31, align 1, !tbaa !10
-  %68 = zext i8 %67 to i32
-  %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 251)
-  %70 = add nsw i32 %69, -124
-  %71 = ashr i32 %70, 3
-  %72 = tail call i32 @llvm.umin.i32(i32 %68, i32 252)
-  %73 = add nsw i32 %72, -125
-  %74 = ashr i32 %73, 3
-  %75 = add nsw i32 %74, %18
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %76
-  %78 = load i8, ptr %77, align 1, !tbaa !10
-  store i8 %78, ptr %16, align 1, !tbaa !10
-  %79 = sub nsw i32 %20, %71
+  %62 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %61
+  %63 = getelementptr i8, ptr %62, i64 128
+  %64 = load i8, ptr %63, align 1, !tbaa !10
+  %65 = zext i8 %64 to i32
+  %66 = add nsw i32 %60, -128
+  %67 = add nsw i32 %66, %65
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %68
+  %70 = getelementptr i8, ptr %69, i64 128
+  %71 = load i8, ptr %70, align 1, !tbaa !10
+  %72 = zext i8 %71 to i32
+  %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 251)
+  %74 = add nsw i32 %73, -124
+  %75 = ashr i32 %74, 3
+  %76 = tail call i32 @llvm.umin.i32(i32 %72, i32 252)
+  %77 = add nsw i32 %76, -125
+  %78 = ashr i32 %77, 3
+  %79 = add nsw i32 %78, %18
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !10
-  store i8 %82, ptr %9, align 1, !tbaa !10
+  store i8 %82, ptr %16, align 1, !tbaa !10
+  %83 = sub nsw i32 %20, %75
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %84
+  %86 = load i8, ptr %85, align 1, !tbaa !10
+  store i8 %86, ptr %9, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i.thread
 
-83:                                               ; preds = %57
-  %84 = sext i32 %60 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %84
-  %85 = load i8, ptr %gep, align 1, !tbaa !10
-  %86 = zext i8 %85 to i32
-  %87 = tail call i32 @llvm.umin.i32(i32 %86, i32 251)
-  %88 = add nsw i32 %87, -124
-  %89 = ashr i32 %88, 3
-  %90 = tail call i32 @llvm.umin.i32(i32 %86, i32 252)
-  %91 = add nsw i32 %90, -125
-  %92 = ashr i32 %91, 3
-  %93 = add nsw i32 %92, %18
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %94
-  %96 = load i8, ptr %95, align 1, !tbaa !10
-  store i8 %96, ptr %16, align 1, !tbaa !10
-  %97 = sub nsw i32 %20, %89
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %98
-  %100 = load i8, ptr %99, align 1, !tbaa !10
-  store i8 %100, ptr %9, align 1, !tbaa !10
-  %101 = add nsw i32 %89, 1
-  %102 = ashr i32 %101, 1
-  %103 = add nsw i32 %102, %15
+87:                                               ; preds = %57
+  %88 = sext i32 %60 to i64
+  %89 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %88
+  %90 = getelementptr i8, ptr %89, i64 128
+  %91 = load i8, ptr %90, align 1, !tbaa !10
+  %92 = zext i8 %91 to i32
+  %93 = tail call i32 @llvm.umin.i32(i32 %92, i32 251)
+  %94 = add nsw i32 %93, -124
+  %95 = ashr i32 %94, 3
+  %96 = tail call i32 @llvm.umin.i32(i32 %92, i32 252)
+  %97 = add nsw i32 %96, -125
+  %98 = ashr i32 %97, 3
+  %99 = add nsw i32 %98, %18
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %100
+  %102 = load i8, ptr %101, align 1, !tbaa !10
+  store i8 %102, ptr %16, align 1, !tbaa !10
+  %103 = sub nsw i32 %20, %95
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !10
-  store i8 %106, ptr %13, align 1, !tbaa !10
-  %107 = sub nsw i32 %23, %102
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !10
-  store i8 %110, ptr %21, align 1, !tbaa !10
+  store i8 %106, ptr %9, align 1, !tbaa !10
+  %107 = add nsw i32 %95, 1
+  %108 = ashr i32 %107, 1
+  %109 = add nsw i32 %108, %15
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %110
+  %112 = load i8, ptr %111, align 1, !tbaa !10
+  store i8 %112, ptr %13, align 1, !tbaa !10
+  %113 = sub nsw i32 %23, %108
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %114
+  %116 = load i8, ptr %115, align 1, !tbaa !10
+  store i8 %116, ptr %21, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i.thread
 
-vp8_normal_limit.exit.i.thread:                   ; preds = %7, %37, %43, %46, %49, %52, %83, %hev.exit.i.thread, %vp8_normal_limit.exit.i
+vp8_normal_limit.exit.i.thread:                   ; preds = %7, %37, %43, %46, %49, %52, %87, %hev.exit.i.thread, %vp8_normal_limit.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %vp8_h_loop_filter8_inner_c.exit.preheader, label %7, !llvm.loop !157
 
 vp8_h_loop_filter8_inner_c.exit.preheader:        ; preds = %vp8_normal_limit.exit.i.thread, %vp8_normal_limit.exit.i16.thread
-  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %vp8_normal_limit.exit.i16.thread ], [ 0, %vp8_normal_limit.exit.i.thread ]
-  %111 = mul nsw i64 %2, %indvars.iv38
-  %112 = getelementptr inbounds i8, ptr %1, i64 %111
-  %113 = getelementptr inbounds i8, ptr %112, i64 -3
-  %114 = load i8, ptr %113, align 1, !tbaa !10
-  %115 = zext i8 %114 to i32
-  %116 = getelementptr inbounds i8, ptr %112, i64 -2
-  %117 = load i8, ptr %116, align 1, !tbaa !10
-  %118 = zext i8 %117 to i32
-  %119 = getelementptr inbounds i8, ptr %112, i64 -1
+  %indvars.iv33 = phi i64 [ %indvars.iv.next34, %vp8_normal_limit.exit.i16.thread ], [ 0, %vp8_normal_limit.exit.i.thread ]
+  %117 = mul nsw i64 %2, %indvars.iv33
+  %118 = getelementptr inbounds i8, ptr %1, i64 %117
+  %119 = getelementptr inbounds i8, ptr %118, i64 -3
   %120 = load i8, ptr %119, align 1, !tbaa !10
   %121 = zext i8 %120 to i32
-  %122 = load i8, ptr %112, align 1, !tbaa !10
-  %123 = zext i8 %122 to i32
-  %124 = getelementptr inbounds nuw i8, ptr %112, i64 1
-  %125 = load i8, ptr %124, align 1, !tbaa !10
-  %126 = zext i8 %125 to i32
-  %127 = getelementptr inbounds nuw i8, ptr %112, i64 2
-  %128 = load i8, ptr %127, align 1, !tbaa !10
+  %122 = getelementptr inbounds i8, ptr %118, i64 -2
+  %123 = load i8, ptr %122, align 1, !tbaa !10
+  %124 = zext i8 %123 to i32
+  %125 = getelementptr inbounds i8, ptr %118, i64 -1
+  %126 = load i8, ptr %125, align 1, !tbaa !10
+  %127 = zext i8 %126 to i32
+  %128 = load i8, ptr %118, align 1, !tbaa !10
   %129 = zext i8 %128 to i32
-  %130 = getelementptr inbounds nuw i8, ptr %112, i64 3
+  %130 = getelementptr inbounds nuw i8, ptr %118, i64 1
   %131 = load i8, ptr %130, align 1, !tbaa !10
   %132 = zext i8 %131 to i32
-  %133 = sub nsw i32 %121, %123
-  %134 = tail call i32 @llvm.abs.i32(i32 %133, i1 true)
-  %135 = sub nsw i32 %118, %126
-  %136 = tail call i32 @llvm.abs.i32(i32 %135, i1 true)
-  %137 = shl nuw nsw i32 %134, 1
-  %138 = lshr i32 %136, 1
-  %139 = add nuw nsw i32 %138, %137
-  %.not = icmp sgt i32 %139, %3
-  br i1 %.not, label %vp8_normal_limit.exit.i16.thread, label %140
+  %133 = getelementptr inbounds nuw i8, ptr %118, i64 2
+  %134 = load i8, ptr %133, align 1, !tbaa !10
+  %135 = zext i8 %134 to i32
+  %136 = getelementptr inbounds nuw i8, ptr %118, i64 3
+  %137 = load i8, ptr %136, align 1, !tbaa !10
+  %138 = zext i8 %137 to i32
+  %139 = sub nsw i32 %127, %129
+  %140 = tail call i32 @llvm.abs.i32(i32 %139, i1 true)
+  %141 = sub nsw i32 %124, %132
+  %142 = tail call i32 @llvm.abs.i32(i32 %141, i1 true)
+  %143 = shl nuw nsw i32 %140, 1
+  %144 = lshr i32 %142, 1
+  %145 = add nuw nsw i32 %144, %143
+  %.not = icmp sgt i32 %145, %3
+  br i1 %.not, label %vp8_normal_limit.exit.i16.thread, label %146
 
-140:                                              ; preds = %vp8_h_loop_filter8_inner_c.exit.preheader
-  %141 = getelementptr inbounds i8, ptr %112, i64 -4
-  %142 = load i8, ptr %141, align 1, !tbaa !10
-  %143 = zext i8 %142 to i32
-  %144 = sub nsw i32 %143, %115
-  %145 = tail call i32 @llvm.abs.i32(i32 %144, i1 true)
-  %.not71.i.i11 = icmp sgt i32 %145, %4
-  br i1 %.not71.i.i11, label %vp8_normal_limit.exit.i16.thread, label %146
-
-146:                                              ; preds = %140
-  %147 = sub nsw i32 %115, %118
-  %148 = tail call i32 @llvm.abs.i32(i32 %147, i1 true)
-  %.not72.i.i12 = icmp samesign ugt i32 %148, %4
-  br i1 %.not72.i.i12, label %vp8_normal_limit.exit.i16.thread, label %149
-
-149:                                              ; preds = %146
-  %150 = sub nsw i32 %118, %121
+146:                                              ; preds = %vp8_h_loop_filter8_inner_c.exit.preheader
+  %147 = getelementptr inbounds i8, ptr %118, i64 -4
+  %148 = load i8, ptr %147, align 1, !tbaa !10
+  %149 = zext i8 %148 to i32
+  %150 = sub nsw i32 %149, %121
   %151 = tail call i32 @llvm.abs.i32(i32 %150, i1 true)
-  %.not73.i.i13 = icmp samesign ugt i32 %151, %4
-  br i1 %.not73.i.i13, label %vp8_normal_limit.exit.i16.thread, label %152
+  %.not71.i.i11 = icmp sgt i32 %151, %4
+  br i1 %.not71.i.i11, label %vp8_normal_limit.exit.i16.thread, label %152
 
-152:                                              ; preds = %149
-  %153 = sub nsw i32 %132, %129
+152:                                              ; preds = %146
+  %153 = sub nsw i32 %121, %124
   %154 = tail call i32 @llvm.abs.i32(i32 %153, i1 true)
-  %.not74.i.i14 = icmp samesign ugt i32 %154, %4
-  br i1 %.not74.i.i14, label %vp8_normal_limit.exit.i16.thread, label %155
+  %.not72.i.i12 = icmp samesign ugt i32 %154, %4
+  br i1 %.not72.i.i12, label %vp8_normal_limit.exit.i16.thread, label %155
 
 155:                                              ; preds = %152
-  %156 = sub nsw i32 %129, %126
+  %156 = sub nsw i32 %124, %127
   %157 = tail call i32 @llvm.abs.i32(i32 %156, i1 true)
-  %.not75.i.i15 = icmp samesign ugt i32 %157, %4
+  %.not73.i.i13 = icmp samesign ugt i32 %157, %4
+  br i1 %.not73.i.i13, label %vp8_normal_limit.exit.i16.thread, label %158
+
+158:                                              ; preds = %155
+  %159 = sub nsw i32 %138, %135
+  %160 = tail call i32 @llvm.abs.i32(i32 %159, i1 true)
+  %.not74.i.i14 = icmp samesign ugt i32 %160, %4
+  br i1 %.not74.i.i14, label %vp8_normal_limit.exit.i16.thread, label %161
+
+161:                                              ; preds = %158
+  %162 = sub nsw i32 %135, %132
+  %163 = tail call i32 @llvm.abs.i32(i32 %162, i1 true)
+  %.not75.i.i15 = icmp samesign ugt i32 %163, %4
   br i1 %.not75.i.i15, label %vp8_normal_limit.exit.i16.thread, label %vp8_normal_limit.exit.i16
 
-vp8_normal_limit.exit.i16:                        ; preds = %155
-  %158 = sub nsw i32 %126, %123
-  %159 = tail call i32 @llvm.abs.i32(i32 %158, i1 true)
-  %.not25 = icmp samesign ugt i32 %159, %4
-  br i1 %.not25, label %vp8_normal_limit.exit.i16.thread, label %160
+vp8_normal_limit.exit.i16:                        ; preds = %161
+  %164 = sub nsw i32 %132, %129
+  %165 = tail call i32 @llvm.abs.i32(i32 %164, i1 true)
+  %.not25 = icmp samesign ugt i32 %165, %4
+  br i1 %.not25, label %vp8_normal_limit.exit.i16.thread, label %166
 
-160:                                              ; preds = %vp8_normal_limit.exit.i16
-  %161 = icmp sgt i32 %151, %5
-  %.not26 = icmp samesign ugt i32 %159, %5
-  %or.cond42 = select i1 %161, i1 true, i1 %.not26
-  %162 = sub nsw i32 %123, %121
-  %163 = mul nsw i32 %162, 3
-  br i1 %or.cond42, label %hev.exit.i18.thread, label %186
+166:                                              ; preds = %vp8_normal_limit.exit.i16
+  %167 = icmp sgt i32 %157, %5
+  %.not26 = icmp samesign ugt i32 %165, %5
+  %or.cond37 = select i1 %167, i1 true, i1 %.not26
+  %168 = sub nsw i32 %129, %127
+  %169 = mul nsw i32 %168, 3
+  br i1 %or.cond37, label %hev.exit.i18.thread, label %196
 
-hev.exit.i18.thread:                              ; preds = %160
-  %164 = sext i32 %135 to i64
-  %gep34 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %164
-  %165 = load i8, ptr %gep34, align 1, !tbaa !10
-  %166 = zext i8 %165 to i32
-  %167 = add nsw i32 %163, -128
-  %168 = add nsw i32 %167, %166
-  %169 = sext i32 %168 to i64
-  %gep35 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %169
-  %170 = load i8, ptr %gep35, align 1, !tbaa !10
-  %171 = zext i8 %170 to i32
-  %172 = tail call i32 @llvm.umin.i32(i32 %171, i32 251)
-  %173 = add nsw i32 %172, -124
-  %174 = ashr i32 %173, 3
-  %175 = tail call i32 @llvm.umin.i32(i32 %171, i32 252)
-  %176 = add nsw i32 %175, -125
-  %177 = ashr i32 %176, 3
-  %178 = add nsw i32 %177, %121
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %179
-  %181 = load i8, ptr %180, align 1, !tbaa !10
-  store i8 %181, ptr %119, align 1, !tbaa !10
-  %182 = sub nsw i32 %123, %174
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %183
-  %185 = load i8, ptr %184, align 1, !tbaa !10
-  store i8 %185, ptr %112, align 1, !tbaa !10
+hev.exit.i18.thread:                              ; preds = %166
+  %170 = sext i32 %141 to i64
+  %171 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %170
+  %172 = getelementptr i8, ptr %171, i64 128
+  %173 = load i8, ptr %172, align 1, !tbaa !10
+  %174 = zext i8 %173 to i32
+  %175 = add nsw i32 %169, -128
+  %176 = add nsw i32 %175, %174
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %177
+  %179 = getelementptr i8, ptr %178, i64 128
+  %180 = load i8, ptr %179, align 1, !tbaa !10
+  %181 = zext i8 %180 to i32
+  %182 = tail call i32 @llvm.umin.i32(i32 %181, i32 251)
+  %183 = add nsw i32 %182, -124
+  %184 = ashr i32 %183, 3
+  %185 = tail call i32 @llvm.umin.i32(i32 %181, i32 252)
+  %186 = add nsw i32 %185, -125
+  %187 = ashr i32 %186, 3
+  %188 = add nsw i32 %187, %127
+  %189 = sext i32 %188 to i64
+  %190 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %189
+  %191 = load i8, ptr %190, align 1, !tbaa !10
+  store i8 %191, ptr %125, align 1, !tbaa !10
+  %192 = sub nsw i32 %129, %184
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %193
+  %195 = load i8, ptr %194, align 1, !tbaa !10
+  store i8 %195, ptr %118, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i16.thread
 
-186:                                              ; preds = %160
-  %187 = sext i32 %163 to i64
-  %gep33 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %187
-  %188 = load i8, ptr %gep33, align 1, !tbaa !10
-  %189 = zext i8 %188 to i32
-  %190 = tail call i32 @llvm.umin.i32(i32 %189, i32 251)
-  %191 = add nsw i32 %190, -124
-  %192 = ashr i32 %191, 3
-  %193 = tail call i32 @llvm.umin.i32(i32 %189, i32 252)
-  %194 = add nsw i32 %193, -125
-  %195 = ashr i32 %194, 3
-  %196 = add nsw i32 %195, %121
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %197
-  %199 = load i8, ptr %198, align 1, !tbaa !10
-  store i8 %199, ptr %119, align 1, !tbaa !10
-  %200 = sub nsw i32 %123, %192
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %201
-  %203 = load i8, ptr %202, align 1, !tbaa !10
-  store i8 %203, ptr %112, align 1, !tbaa !10
-  %204 = add nsw i32 %192, 1
-  %205 = ashr i32 %204, 1
-  %206 = add nsw i32 %205, %118
-  %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %207
-  %209 = load i8, ptr %208, align 1, !tbaa !10
-  store i8 %209, ptr %116, align 1, !tbaa !10
-  %210 = sub nsw i32 %126, %205
-  %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %211
-  %213 = load i8, ptr %212, align 1, !tbaa !10
-  store i8 %213, ptr %124, align 1, !tbaa !10
+196:                                              ; preds = %166
+  %197 = sext i32 %169 to i64
+  %198 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %197
+  %199 = getelementptr i8, ptr %198, i64 128
+  %200 = load i8, ptr %199, align 1, !tbaa !10
+  %201 = zext i8 %200 to i32
+  %202 = tail call i32 @llvm.umin.i32(i32 %201, i32 251)
+  %203 = add nsw i32 %202, -124
+  %204 = ashr i32 %203, 3
+  %205 = tail call i32 @llvm.umin.i32(i32 %201, i32 252)
+  %206 = add nsw i32 %205, -125
+  %207 = ashr i32 %206, 3
+  %208 = add nsw i32 %207, %127
+  %209 = sext i32 %208 to i64
+  %210 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %209
+  %211 = load i8, ptr %210, align 1, !tbaa !10
+  store i8 %211, ptr %125, align 1, !tbaa !10
+  %212 = sub nsw i32 %129, %204
+  %213 = sext i32 %212 to i64
+  %214 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %213
+  %215 = load i8, ptr %214, align 1, !tbaa !10
+  store i8 %215, ptr %118, align 1, !tbaa !10
+  %216 = add nsw i32 %204, 1
+  %217 = ashr i32 %216, 1
+  %218 = add nsw i32 %217, %124
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %219
+  %221 = load i8, ptr %220, align 1, !tbaa !10
+  store i8 %221, ptr %122, align 1, !tbaa !10
+  %222 = sub nsw i32 %132, %217
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %223
+  %225 = load i8, ptr %224, align 1, !tbaa !10
+  store i8 %225, ptr %130, align 1, !tbaa !10
   br label %vp8_normal_limit.exit.i16.thread
 
-vp8_normal_limit.exit.i16.thread:                 ; preds = %vp8_h_loop_filter8_inner_c.exit.preheader, %140, %146, %149, %152, %155, %186, %hev.exit.i18.thread, %vp8_normal_limit.exit.i16
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %exitcond41.not = icmp eq i64 %indvars.iv.next39, 8
-  br i1 %exitcond41.not, label %vp8_h_loop_filter8_inner_c.exit20, label %vp8_h_loop_filter8_inner_c.exit.preheader, !llvm.loop !157
+vp8_normal_limit.exit.i16.thread:                 ; preds = %vp8_h_loop_filter8_inner_c.exit.preheader, %146, %152, %155, %158, %161, %196, %hev.exit.i18.thread, %vp8_normal_limit.exit.i16
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next34, 8
+  br i1 %exitcond36.not, label %vp8_h_loop_filter8_inner_c.exit20, label %vp8_h_loop_filter8_inner_c.exit.preheader, !llvm.loop !157
 
 vp8_h_loop_filter8_inner_c.exit20:                ; preds = %vp8_normal_limit.exit.i16.thread
   ret void
@@ -10505,8 +10581,8 @@ define internal void @vp8_v_loop_filter_simple_c(ptr noundef captures(none) %0, 
   %5 = sub nsw i64 0, %1
   br label %6
 
-6:                                                ; preds = %3, %51
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %51 ]
+6:                                                ; preds = %3, %55
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %55 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = getelementptr inbounds i8, ptr %7, i64 %4
   %9 = load i8, ptr %8, align 1, !tbaa !10
@@ -10527,45 +10603,47 @@ define internal void @vp8_v_loop_filter_simple_c(ptr noundef captures(none) %0, 
   %24 = lshr i32 %22, 1
   %25 = add nuw nsw i32 %24, %23
   %.not8 = icmp sgt i32 %25, %2
-  br i1 %.not8, label %51, label %26
+  br i1 %.not8, label %55, label %26
 
 26:                                               ; preds = %6
   %27 = sub nsw i32 %15, %13
   %28 = mul nsw i32 %27, 3
   %29 = sext i32 %21 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %29
-  %30 = load i8, ptr %gep, align 1, !tbaa !10
-  %31 = zext i8 %30 to i32
-  %32 = add nsw i32 %28, -128
-  %33 = add nsw i32 %32, %31
-  %34 = sext i32 %33 to i64
-  %gep9 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %34
-  %35 = load i8, ptr %gep9, align 1, !tbaa !10
-  %36 = zext i8 %35 to i32
-  %37 = tail call i32 @llvm.umin.i32(i32 %36, i32 251)
-  %38 = add nsw i32 %37, -124
-  %39 = ashr i32 %38, 3
-  %40 = tail call i32 @llvm.umin.i32(i32 %36, i32 252)
-  %41 = add nsw i32 %40, -125
-  %42 = ashr i32 %41, 3
-  %43 = add nsw i32 %42, %13
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !10
-  store i8 %46, ptr %11, align 1, !tbaa !10
-  %47 = sub nsw i32 %15, %39
+  %30 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %29
+  %31 = getelementptr i8, ptr %30, i64 128
+  %32 = load i8, ptr %31, align 1, !tbaa !10
+  %33 = zext i8 %32 to i32
+  %34 = add nsw i32 %28, -128
+  %35 = add nsw i32 %34, %33
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %36
+  %38 = getelementptr i8, ptr %37, i64 128
+  %39 = load i8, ptr %38, align 1, !tbaa !10
+  %40 = zext i8 %39 to i32
+  %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 251)
+  %42 = add nsw i32 %41, -124
+  %43 = ashr i32 %42, 3
+  %44 = tail call i32 @llvm.umin.i32(i32 %40, i32 252)
+  %45 = add nsw i32 %44, -125
+  %46 = ashr i32 %45, 3
+  %47 = add nsw i32 %46, %13
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !10
-  store i8 %50, ptr %7, align 1, !tbaa !10
-  br label %51
+  store i8 %50, ptr %11, align 1, !tbaa !10
+  %51 = sub nsw i32 %15, %43
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !10
+  store i8 %54, ptr %7, align 1, !tbaa !10
+  br label %55
 
-51:                                               ; preds = %6, %26
+55:                                               ; preds = %6, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %52, label %6, !llvm.loop !158
+  br i1 %exitcond.not, label %56, label %6, !llvm.loop !158
 
-52:                                               ; preds = %51
+56:                                               ; preds = %55
   ret void
 }
 
@@ -10573,8 +10651,8 @@ define internal void @vp8_v_loop_filter_simple_c(ptr noundef captures(none) %0, 
 define internal void @vp8_h_loop_filter_simple_c(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) #1 {
   br label %4
 
-4:                                                ; preds = %3, %50
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %50 ]
+4:                                                ; preds = %3, %54
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %54 ]
   %5 = mul nsw i64 %1, %indvars.iv
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -2
@@ -10596,45 +10674,47 @@ define internal void @vp8_h_loop_filter_simple_c(ptr noundef captures(none) %0, 
   %23 = lshr i32 %21, 1
   %24 = add nuw nsw i32 %23, %22
   %.not8 = icmp sgt i32 %24, %2
-  br i1 %.not8, label %50, label %25
+  br i1 %.not8, label %54, label %25
 
 25:                                               ; preds = %4
   %26 = sub nsw i32 %14, %12
   %27 = mul nsw i32 %26, 3
   %28 = sext i32 %20 to i64
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %28
-  %29 = load i8, ptr %gep, align 1, !tbaa !10
-  %30 = zext i8 %29 to i32
-  %31 = add nsw i32 %27, -128
-  %32 = add nsw i32 %31, %30
-  %33 = sext i32 %32 to i64
-  %gep9 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1152), i64 %33
-  %34 = load i8, ptr %gep9, align 1, !tbaa !10
-  %35 = zext i8 %34 to i32
-  %36 = tail call i32 @llvm.umin.i32(i32 %35, i32 251)
-  %37 = add nsw i32 %36, -124
-  %38 = ashr i32 %37, 3
-  %39 = tail call i32 @llvm.umin.i32(i32 %35, i32 252)
-  %40 = add nsw i32 %39, -125
-  %41 = ashr i32 %40, 3
-  %42 = add nsw i32 %41, %12
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !10
-  store i8 %45, ptr %10, align 1, !tbaa !10
-  %46 = sub nsw i32 %14, %38
+  %29 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %28
+  %30 = getelementptr i8, ptr %29, i64 128
+  %31 = load i8, ptr %30, align 1, !tbaa !10
+  %32 = zext i8 %31 to i32
+  %33 = add nsw i32 %27, -128
+  %34 = add nsw i32 %33, %32
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %35
+  %37 = getelementptr i8, ptr %36, i64 128
+  %38 = load i8, ptr %37, align 1, !tbaa !10
+  %39 = zext i8 %38 to i32
+  %40 = tail call i32 @llvm.umin.i32(i32 %39, i32 251)
+  %41 = add nsw i32 %40, -124
+  %42 = ashr i32 %41, 3
+  %43 = tail call i32 @llvm.umin.i32(i32 %39, i32 252)
+  %44 = add nsw i32 %43, -125
+  %45 = ashr i32 %44, 3
+  %46 = add nsw i32 %45, %12
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !10
-  store i8 %49, ptr %6, align 1, !tbaa !10
-  br label %50
+  store i8 %49, ptr %10, align 1, !tbaa !10
+  %50 = sub nsw i32 %14, %42
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %51
+  %53 = load i8, ptr %52, align 1, !tbaa !10
+  store i8 %53, ptr %6, align 1, !tbaa !10
+  br label %54
 
-50:                                               ; preds = %4, %25
+54:                                               ; preds = %4, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %51, label %4, !llvm.loop !159
+  br i1 %exitcond.not, label %55, label %4, !llvm.loop !159
 
-51:                                               ; preds = %50
+55:                                               ; preds = %54
   ret void
 }
 

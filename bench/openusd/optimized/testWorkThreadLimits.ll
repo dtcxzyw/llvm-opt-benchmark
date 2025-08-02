@@ -892,12 +892,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 324:                                              ; preds = %321, %319
   %325 = phi i32 [ %.sroa.speculated8.i47, %321 ], [ %31, %319 ]
-  %326 = zext nneg i32 %325 to i64
+  %326 = call i32 @llvm.umin.i32(i32 %325, i32 257)
+  %327 = zext nneg i32 %326 to i64
   br label %_ZL14_ExpectedLimitim.exit48
 
 _ZL14_ExpectedLimitim.exit48:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit, %324
-  %327 = phi i64 [ %326, %324 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit ]
-  %.sroa.speculated.i46 = call noundef range(i64 0, 258) i64 @llvm.umin.i64(i64 %327, i64 257)
+  %.sroa.speculated.i46 = phi i64 [ %327, %324 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit ]
   %328 = icmp eq i64 %.sroa.speculated.i46, %318
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
   br i1 %328, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit49, label %329
@@ -938,12 +938,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 339:                                              ; preds = %336, %334
   %340 = phi i32 [ %.sroa.speculated8.i52, %336 ], [ %31, %334 ]
-  %341 = zext nneg i32 %340 to i64
+  %341 = call i32 @llvm.umin.i32(i32 %340, i32 257)
+  %342 = zext nneg i32 %341 to i64
   br label %_ZL14_ExpectedLimitim.exit53
 
 _ZL14_ExpectedLimitim.exit53:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit49, %339
-  %342 = phi i64 [ %341, %339 ], [ 2, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit49 ]
-  %.sroa.speculated.i51 = call noundef range(i64 0, 258) i64 @llvm.umin.i64(i64 %342, i64 257)
+  %.sroa.speculated.i51 = phi i64 [ %342, %339 ], [ 2, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit49 ]
   %343 = icmp eq i64 %.sroa.speculated.i51, %333
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
   br i1 %343, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit54, label %344
@@ -984,12 +984,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 354:                                              ; preds = %351, %349
   %355 = phi i32 [ %.sroa.speculated8.i57, %351 ], [ %31, %349 ]
-  %356 = zext nneg i32 %355 to i64
+  %356 = call i32 @llvm.umin.i32(i32 %355, i32 257)
+  %357 = zext nneg i32 %356 to i64
   br label %_ZL14_ExpectedLimitim.exit58
 
 _ZL14_ExpectedLimitim.exit58:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit54, %354
-  %357 = phi i64 [ %356, %354 ], [ 4, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit54 ]
-  %.sroa.speculated.i56 = call noundef range(i64 0, 258) i64 @llvm.umin.i64(i64 %357, i64 257)
+  %.sroa.speculated.i56 = phi i64 [ %357, %354 ], [ 4, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit54 ]
   %358 = icmp eq i64 %.sroa.speculated.i56, %348
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
   br i1 %358, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit59, label %359
@@ -1030,12 +1030,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 369:                                              ; preds = %366, %364
   %370 = phi i32 [ %.sroa.speculated8.i62, %366 ], [ %31, %364 ]
-  %371 = zext nneg i32 %370 to i64
+  %371 = call i32 @llvm.umin.i32(i32 %370, i32 257)
+  %372 = zext nneg i32 %371 to i64
   br label %_ZL14_ExpectedLimitim.exit63
 
 _ZL14_ExpectedLimitim.exit63:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit59, %369
-  %372 = phi i64 [ %371, %369 ], [ 1000, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit59 ]
-  %.sroa.speculated.i61 = call noundef range(i64 0, 258) i64 @llvm.umin.i64(i64 %372, i64 257)
+  %.sroa.speculated.i61 = phi i64 [ %372, %369 ], [ 257, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit59 ]
   %373 = icmp eq i64 %.sroa.speculated.i61, %363
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   br i1 %373, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit64, label %374
@@ -1166,12 +1166,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 414:                                              ; preds = %411, %409
   %415 = phi i32 [ %.sroa.speculated8.i23.i, %411 ], [ %31, %409 ]
-  %416 = zext nneg i32 %415 to i64
+  %416 = call i32 @llvm.umin.i32(i32 %415, i32 257)
+  %417 = zext nneg i32 %416 to i64
   br label %_ZL14_ExpectedLimitim.exit24.i
 
 _ZL14_ExpectedLimitim.exit24.i:                   ; preds = %414, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit20.i
-  %417 = phi i64 [ %416, %414 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit20.i ]
-  %.sroa.speculated.i22.i = call noundef range(i64 0, 258) i64 @llvm.umin.i64(i64 %417, i64 257)
+  %.sroa.speculated.i22.i = phi i64 [ %417, %414 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit20.i ]
   %418 = icmp eq i64 %.sroa.speculated.i22.i, %408
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   br i1 %418, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit25.i, label %419
@@ -1210,12 +1210,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 428:                                              ; preds = %425, %423
   %429 = phi i32 [ %.sroa.speculated8.i28.i, %425 ], [ %31, %423 ]
-  %430 = zext nneg i32 %429 to i64
+  %430 = call i32 @llvm.umin.i32(i32 %429, i32 257)
+  %431 = zext nneg i32 %430 to i64
   br label %_ZL14_ExpectedLimitim.exit29.i
 
 _ZL14_ExpectedLimitim.exit29.i:                   ; preds = %428, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit25.i
-  %431 = phi i64 [ %430, %428 ], [ 3, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit25.i ]
-  %.sroa.speculated.i27.i = call noundef range(i64 0, 258) i64 @llvm.umin.i64(i64 %431, i64 257)
+  %.sroa.speculated.i27.i = phi i64 [ %431, %428 ], [ 3, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit25.i ]
   %432 = icmp eq i64 %.sroa.speculated.i27.i, %422
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   br i1 %432, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit30.i, label %433
@@ -1254,12 +1254,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 442:                                              ; preds = %439, %437
   %443 = phi i32 [ %.sroa.speculated8.i33.i, %439 ], [ %31, %437 ]
-  %444 = zext nneg i32 %443 to i64
+  %444 = call i32 @llvm.umin.i32(i32 %443, i32 257)
+  %445 = zext nneg i32 %444 to i64
   br label %_ZL14_ExpectedLimitim.exit34.i
 
 _ZL14_ExpectedLimitim.exit34.i:                   ; preds = %442, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit30.i
-  %445 = phi i64 [ %444, %442 ], [ 1000, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit30.i ]
-  %.sroa.speculated.i32.i = call noundef range(i64 0, 258) i64 @llvm.umin.i64(i64 %445, i64 257)
+  %.sroa.speculated.i32.i = phi i64 [ %445, %442 ], [ 257, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit30.i ]
   %446 = icmp eq i64 %.sroa.speculated.i32.i, %436
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   br i1 %446, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit35.i, label %447
@@ -1379,12 +1379,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 479:                                              ; preds = %476, %474
   %480 = phi i32 [ %.sroa.speculated8.i49.i, %476 ], [ %31, %474 ]
-  %481 = zext nneg i32 %480 to i64
+  %481 = call i32 @llvm.umin.i32(i32 %480, i32 257)
+  %482 = zext nneg i32 %481 to i64
   br label %_ZL14_ExpectedLimitim.exit50.i
 
 _ZL14_ExpectedLimitim.exit50.i:                   ; preds = %479, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit46.i
-  %482 = phi i64 [ %481, %479 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit46.i ]
-  %.sroa.speculated.i48.i = call noundef range(i64 0, 258) i64 @llvm.umin.i64(i64 %482, i64 257)
+  %.sroa.speculated.i48.i = phi i64 [ %482, %479 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit46.i ]
   %483 = icmp eq i64 %.sroa.speculated.i48.i, %473
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   br i1 %483, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51.i, label %484
@@ -1424,12 +1424,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 494:                                              ; preds = %491, %489
   %495 = phi i32 [ %.sroa.speculated8.i54.i, %491 ], [ %31, %489 ]
-  %496 = zext nneg i32 %495 to i64
+  %496 = call i32 @llvm.umin.i32(i32 %495, i32 257)
+  %497 = zext nneg i32 %496 to i64
   br label %_ZL14_ExpectedLimitim.exit55.i
 
 _ZL14_ExpectedLimitim.exit55.i:                   ; preds = %494, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51.i
-  %497 = phi i64 [ %496, %494 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51.i ]
-  %.sroa.speculated.i53.i = call noundef range(i64 0, 258) i64 @llvm.umin.i64(i64 %497, i64 257)
+  %.sroa.speculated.i53.i = phi i64 [ %497, %494 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51.i ]
   %498 = icmp eq i64 %.sroa.speculated.i53.i, %488
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   br i1 %498, label %_ZL14_TestArgumentsi.exit, label %499

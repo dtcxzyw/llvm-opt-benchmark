@@ -56,17 +56,17 @@ define noundef range(i64 0, 2147483648) i64 @_ZN4base9GetMaxFdsEv() local_unname
 
 3:                                                ; preds = %0
   call void @_ZN7logging6RawLogEiPKc(i32 noundef 2, ptr noundef nonnull @.str)
-  br label %6
+  br label %7
 
 4:                                                ; preds = %0
   %5 = load i64, ptr %1, align 8, !tbaa !9
-  br label %6
+  %6 = call i64 @llvm.umin.i64(i64 %5, i64 2147483647)
+  br label %7
 
-6:                                                ; preds = %4, %3
-  %.0 = phi i64 [ 8192, %3 ], [ %5, %4 ]
-  %spec.store.select = call i64 @llvm.umin.i64(i64 %.0, i64 2147483647)
+7:                                                ; preds = %4, %3
+  %.0 = phi i64 [ 8192, %3 ], [ %6, %4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
-  ret i64 %spec.store.select
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind

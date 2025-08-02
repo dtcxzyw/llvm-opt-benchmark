@@ -29,14 +29,14 @@ define dso_local noundef i32 @LLVMFuzzerTestOneInput(ptr noundef readonly captur
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = getelementptr i8, ptr %7, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   br label %11
 
 11:                                               ; preds = %.lr.ph, %19
   %12 = phi i64 [ %9, %.lr.ph ], [ %20, %19 ]
   %.02327 = phi i64 [ 0, %.lr.ph ], [ %21, %19 ]
   %.idx = shl nuw nsw i64 %.02327, 4
-  %13 = getelementptr i8, ptr %10, i64 %.idx
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = load ptr, ptr %13, align 8, !tbaa !9
   %15 = icmp eq ptr %14, @git_attr__true
   %16 = icmp eq ptr %14, @git_attr__false

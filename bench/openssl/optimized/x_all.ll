@@ -980,7 +980,7 @@ define ptr @X509_digest_sig(ptr noundef %0, ptr noundef writeonly captures(addre
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %27
   %32 = call i32 @ossl_rsa_pss_get_param_unverified(ptr noundef nonnull %29, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11) #4
@@ -988,9 +988,9 @@ define ptr @X509_digest_sig(ptr noundef %0, ptr noundef writeonly captures(addre
   %34 = load ptr, ptr %9, align 8
   %35 = icmp eq ptr %34, null
   %or.cond = select i1 %33, i1 true, i1 %35
-  br i1 %or.cond, label %.thread, label %36
+  br i1 %or.cond, label %.critedge, label %36
 
-.thread:                                          ; preds = %27, %31
+.critedge:                                        ; preds = %31, %27
   call void @RSA_PSS_PARAMS_free(ptr noundef %29) #4
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 553, ptr noundef nonnull @__func__.X509_digest_sig) #4
@@ -1010,12 +1010,12 @@ define ptr @X509_digest_sig(ptr noundef %0, ptr noundef writeonly captures(addre
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %42 = load ptr, ptr %41, align 8, !tbaa !36
   %43 = call ptr @EVP_MD_fetch(ptr noundef %38, ptr noundef %40, ptr noundef %42) #4
-  %.not59 = icmp eq ptr %43, null
+  %.not57 = icmp eq ptr %43, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  br i1 %.not59, label %94, label %70
+  br i1 %.not57, label %94, label %70
 
 44:                                               ; preds = %25
   br label %46
@@ -1128,8 +1128,8 @@ X509_digest.exit:                                 ; preds = %70, %72
   call void @EVP_MD_free(ptr noundef nonnull %.134) #4
   br label %94
 
-94:                                               ; preds = %.thread, %90, %91, %46, %36, %93, %69, %55, %21, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %93 ], [ null, %36 ], [ null, %55 ], [ null, %69 ], [ null, %21 ], [ null, %46 ], [ %84, %91 ], [ %84, %90 ], [ null, %.thread ]
+94:                                               ; preds = %90, %91, %46, %.critedge, %36, %93, %69, %55, %21, %17
+  %.0 = phi ptr [ null, %17 ], [ null, %93 ], [ null, %36 ], [ null, %55 ], [ null, %69 ], [ null, %21 ], [ null, %.critedge ], [ null, %46 ], [ %84, %91 ], [ %84, %90 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #4

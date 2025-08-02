@@ -2948,10 +2948,10 @@ define void @_ZN6icu_7716SimpleDateFormat21processOverrideStringERKNS_6LocaleERK
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %33
 
-33:                                               ; preds = %16, %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162
-  %.0239 = phi i32 [ 0, %16 ], [ %204, %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162 ]
-  %.092238 = phi ptr [ null, %16 ], [ %.193, %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162 ]
-  %34 = icmp slt i32 %.0239, 0
+33:                                               ; preds = %16, %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread
+  %.0234 = phi i32 [ 0, %16 ], [ %204, %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread ]
+  %.092233 = phi ptr [ null, %16 ], [ %.193, %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread ]
+  %34 = icmp slt i32 %.0234, 0
   %.pre.i = load i16, ptr %11, align 8, !tbaa !51
   %.pre5.i = ashr i16 %.pre.i, 5
   %.pre6.i = sext i16 %.pre5.i to i32
@@ -2965,7 +2965,7 @@ define void @_ZN6icu_7716SimpleDateFormat21processOverrideStringERKNS_6LocaleERK
   %36 = icmp slt i16 %.pre.i, 0
   %37 = load i32, ptr %19, align 4
   %38 = select i1 %36, i32 %37, i32 %.pre6.i
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %.0239, i32 %38)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %.0234, i32 %38)
   br label %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i
 
 _ZNK6icu_7713UnicodeString8pinIndexERi.exit.i:    ; preds = %35, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i
@@ -2997,9 +2997,9 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit:      ; preds = %_ZNK6icu_7713Unicod
 
 54:                                               ; preds = %45, %_ZNK6icu_7713UnicodeString7indexOfEDsi.exit
   %.pn = phi i32 [ %51, %45 ], [ %43, %_ZNK6icu_7713UnicodeString7indexOfEDsi.exit ]
-  %.068 = sub nsw i32 %.pn, %.0239
+  %.068 = sub nsw i32 %.pn, %.0234
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #23
-  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %.0239, i32 noundef %.068)
+  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %.0234, i32 noundef %.068)
           to label %55 unwind label %66
 
 55:                                               ; preds = %54
@@ -3093,15 +3093,15 @@ _ZN6icu_7713UnicodeString5setToERKS0_ii.exit:     ; preds = %.noexc137, %_ZN6icu
           to label %_ZNK6icu_7713UnicodeString8hashCodeEv.exit.preheader unwind label %98
 
 _ZNK6icu_7713UnicodeString8hashCodeEv.exit.preheader: ; preds = %_ZN6icu_7713UnicodeString5setToERKS0_ii.exit
-  %.not240 = icmp eq ptr %.092238, null
-  br i1 %.not240, label %.thread, label %.lr.ph
+  %.not235 = icmp eq ptr %.092233, null
+  br i1 %.not235, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6icu_7713UnicodeString8hashCodeEv.exit.preheader, %_ZNK6icu_7713UnicodeString8hashCodeEv.exit
-  %.075229 = phi ptr [ %101, %_ZNK6icu_7713UnicodeString8hashCodeEv.exit ], [ %.092238, %_ZNK6icu_7713UnicodeString8hashCodeEv.exit.preheader ]
-  %96 = getelementptr inbounds nuw i8, ptr %.075229, i64 8
+  %.075224 = phi ptr [ %101, %_ZNK6icu_7713UnicodeString8hashCodeEv.exit ], [ %.092233, %_ZNK6icu_7713UnicodeString8hashCodeEv.exit.preheader ]
+  %96 = getelementptr inbounds nuw i8, ptr %.075224, i64 8
   %97 = load i32, ptr %96, align 8, !tbaa !75
-  %.not318 = icmp eq i32 %97, %95
-  br i1 %.not318, label %_ZNK6icu_7713UnicodeString8hashCodeEv.exit._crit_edge, label %_ZNK6icu_7713UnicodeString8hashCodeEv.exit
+  %.not313 = icmp eq i32 %97, %95
+  br i1 %.not313, label %_ZNK6icu_7713UnicodeString8hashCodeEv.exit._crit_edge, label %_ZNK6icu_7713UnicodeString8hashCodeEv.exit
 
 98:                                               ; preds = %_ZN6icu_7713UnicodeString5setToERKS0_ii.exit
   %99 = landingpad { ptr, i32 }
@@ -3109,13 +3109,13 @@ _ZNK6icu_7713UnicodeString8hashCodeEv.exit.preheader: ; preds = %_ZN6icu_7713Uni
   br label %205
 
 _ZNK6icu_7713UnicodeString8hashCodeEv.exit:       ; preds = %.lr.ph
-  %100 = getelementptr inbounds nuw i8, ptr %.075229, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.075224, i64 16
   %101 = load ptr, ptr %100, align 8, !tbaa !19
-  %.not319 = icmp eq ptr %101, null
-  br i1 %.not319, label %103, label %.lr.ph, !llvm.loop !76
+  %.not314 = icmp eq ptr %101, null
+  br i1 %.not314, label %103, label %.lr.ph, !llvm.loop !76
 
 _ZNK6icu_7713UnicodeString8hashCodeEv.exit._crit_edge: ; preds = %.lr.ph
-  %102 = load ptr, ptr %.075229, align 8, !tbaa !15
+  %102 = load ptr, ptr %.075224, align 8, !tbaa !15
   br label %143
 
 103:                                              ; preds = %_ZNK6icu_7713UnicodeString8hashCodeEv.exit
@@ -3126,11 +3126,11 @@ _ZNK6icu_7713UnicodeString8hashCodeEv.exit._crit_edge: ; preds = %.lr.ph
 .thread:                                          ; preds = %_ZNK6icu_7713UnicodeString8hashCodeEv.exit.preheader
   %106 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #23
   %107 = icmp eq ptr %106, null
-  br i1 %107, label %.thread280, label %108
+  br i1 %107, label %.thread275, label %108
 
-.thread280:                                       ; preds = %.thread
+.thread275:                                       ; preds = %.thread
   store i32 7, ptr %4, align 4, !tbaa !13
-  br label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread199
+  br label %.critedge
 
 108:                                              ; preds = %.thread, %103
   %109 = phi ptr [ %106, %.thread ], [ %104, %103 ]
@@ -3158,7 +3158,7 @@ _ZNK6icu_7713UnicodeString8hashCodeEv.exit._crit_edge: ; preds = %.lr.ph
 
 120:                                              ; preds = %113
   store i32 %95, ptr %110, align 8, !tbaa !75
-  store ptr %.092238, ptr %111, align 8, !tbaa !19
+  store ptr %.092233, ptr %111, align 8, !tbaa !19
   %121 = invoke fastcc noundef ptr @_ZN6icu_77L24createSharedNumberFormatERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %10, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %122 unwind label %136
 
@@ -3190,16 +3190,16 @@ _ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit: ; pre
   br i1 %128, label %_ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit147, label %129
 
 129:                                              ; preds = %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit
-  br i1 %.not240, label %.loopexit, label %.preheader208
+  br i1 %.not235, label %.loopexit, label %.preheader203
 
-.preheader208:                                    ; preds = %129, %.preheader208
-  %.05.i = phi ptr [ %131, %.preheader208 ], [ %.092238, %129 ]
+.preheader203:                                    ; preds = %129, %.preheader203
+  %.05.i = phi ptr [ %131, %.preheader203 ], [ %.092233, %129 ]
   %130 = getelementptr inbounds nuw i8, ptr %.05.i, i64 16
   %131 = load ptr, ptr %130, align 8, !tbaa !19
   call void @_ZN6icu_7716SimpleDateFormat10NSOverrideD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.05.i) #23
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.05.i) #23
   %.not.i143 = icmp eq ptr %131, null
-  br i1 %.not.i143, label %.loopexit, label %.preheader208, !llvm.loop !20
+  br i1 %.not.i143, label %.loopexit, label %.preheader203, !llvm.loop !20
 
 132:                                              ; preds = %108
   %133 = landingpad { ptr, i32 }
@@ -3231,24 +3231,24 @@ _ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit: ; preds =
 
 139:                                              ; preds = %103
   store i32 7, ptr %4, align 4, !tbaa !13
-  br label %.preheader205
+  br label %.preheader200
 
-.preheader205:                                    ; preds = %139, %.preheader205
-  %.05.i144 = phi ptr [ %141, %.preheader205 ], [ %.092238, %139 ]
+.preheader200:                                    ; preds = %139, %.preheader200
+  %.05.i144 = phi ptr [ %141, %.preheader200 ], [ %.092233, %139 ]
   %140 = getelementptr inbounds nuw i8, ptr %.05.i144, i64 16
   %141 = load ptr, ptr %140, align 8, !tbaa !19
   call void @_ZN6icu_7716SimpleDateFormat10NSOverrideD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.05.i144) #23
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.05.i144) #23
   %.not.i145 = icmp eq ptr %141, null
-  br i1 %.not.i145, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread199, label %.preheader205, !llvm.loop !20
+  br i1 %.not.i145, label %.critedge, label %.preheader200, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.preheader208, %129
+.loopexit:                                        ; preds = %.preheader203, %129
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %10) #23
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %10) #23
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %9) #23
   call void @_ZN6icu_7716SimpleDateFormat10NSOverrideD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %109) #23
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %109) #23
-  br label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread199
+  br label %.critedge
 
 _ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit147: ; preds = %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit
   %142 = load ptr, ptr %109, align 8, !tbaa !15
@@ -3258,7 +3258,7 @@ _ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit147: ; pred
   br label %143
 
 143:                                              ; preds = %_ZNK6icu_7713UnicodeString8hashCodeEv.exit._crit_edge, %_ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit147
-  %.193 = phi ptr [ %.092238, %_ZNK6icu_7713UnicodeString8hashCodeEv.exit._crit_edge ], [ %109, %_ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit147 ]
+  %.193 = phi ptr [ %.092233, %_ZNK6icu_7713UnicodeString8hashCodeEv.exit._crit_edge ], [ %109, %_ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit147 ]
   %.273 = phi ptr [ %102, %_ZNK6icu_7713UnicodeString8hashCodeEv.exit._crit_edge ], [ %142, %_ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit147 ]
   %.273.fr = freeze ptr %.273
   %144 = load i16, ptr %18, align 8, !tbaa !51
@@ -3267,7 +3267,7 @@ _ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit147: ; pred
   br i1 %.not113, label %178, label %146
 
 146:                                              ; preds = %143
-  switch i8 %3, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162 [
+  switch i8 %3, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread [
     i8 0, label %147
     i8 2, label %147
     i8 1, label %165
@@ -3278,9 +3278,9 @@ _ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit147: ; pred
   br i1 %.not10.i150, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %147, %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153.us
-  %indvars.iv268 = phi i64 [ %indvars.iv.next269, %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153.us ], [ 0, %147 ]
+  %indvars.iv263 = phi i64 [ %indvars.iv.next264, %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153.us ], [ 0, %147 ]
   %148 = load ptr, ptr %29, align 8, !tbaa !22
-  %149 = getelementptr inbounds nuw [16 x i32], ptr @_ZN6icu_77L11kDateFieldsE, i64 0, i64 %indvars.iv268
+  %149 = getelementptr inbounds nuw [16 x i32], ptr @_ZN6icu_77L11kDateFieldsE, i64 0, i64 %indvars.iv263
   %150 = load i32, ptr %149, align 4, !tbaa !78
   %151 = zext i32 %150 to i64
   %152 = getelementptr inbounds nuw ptr, ptr %148, i64 %151
@@ -3290,24 +3290,24 @@ _ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit147: ; pred
 
 154:                                              ; preds = %.split.us
   invoke void @_ZNK6icu_7712SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %153)
-          to label %.noexc151.us unwind label %.split234.us
+          to label %.noexc151.us unwind label %.split229.us
 
 .noexc151.us:                                     ; preds = %154
   store ptr null, ptr %152, align 8, !tbaa !42
   br label %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153.us
 
 _ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153.us: ; preds = %.noexc151.us, %.split.us
-  %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
-  %exitcond271.not = icmp eq i64 %indvars.iv.next269, 16
-  br i1 %exitcond271.not, label %.split236.us, label %.split.us, !llvm.loop !80
+  %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
+  %exitcond266.not = icmp eq i64 %indvars.iv.next264, 16
+  br i1 %exitcond266.not, label %.split231.us, label %.split.us, !llvm.loop !80
 
-.split234.us:                                     ; preds = %154
+.split229.us:                                     ; preds = %154
   %155 = landingpad { ptr, i32 }
           cleanup
   br label %205
 
-.split236.us:                                     ; preds = %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153, %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153.us
-  br i1 %30, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162, label %165
+.split231.us:                                     ; preds = %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153, %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153.us
+  br i1 %30, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread, label %165
 
 .split:                                           ; preds = %147, %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153 ], [ 0, %147 ]
@@ -3326,31 +3326,31 @@ _ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153.us:
 
 163:                                              ; preds = %162
   invoke void @_ZNK6icu_7712SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %161)
-          to label %.noexc151 unwind label %.split234
+          to label %.noexc151 unwind label %.split229
 
 .noexc151:                                        ; preds = %163, %162
   store ptr %.273.fr, ptr %160, align 8, !tbaa !42
   invoke void @_ZNK6icu_7712SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %.273.fr)
-          to label %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153 unwind label %.split234
+          to label %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153 unwind label %.split229
 
 _ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153: ; preds = %.split, %.noexc151
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.split236.us, label %.split, !llvm.loop !82
+  br i1 %exitcond.not, label %.split231.us, label %.split, !llvm.loop !82
 
-.split234:                                        ; preds = %.noexc151, %163
+.split229:                                        ; preds = %.noexc151, %163
   %164 = landingpad { ptr, i32 }
           cleanup
   br label %205
 
-165:                                              ; preds = %.split236.us, %146
+165:                                              ; preds = %.split231.us, %146
   %.not10.i156 = icmp eq ptr %.273.fr, null
   br label %166
 
 166:                                              ; preds = %165, %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit159
-  %indvars.iv272 = phi i64 [ 0, %165 ], [ %indvars.iv.next273, %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit159 ]
+  %indvars.iv267 = phi i64 [ 0, %165 ], [ %indvars.iv.next268, %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit159 ]
   %167 = load ptr, ptr %29, align 8, !tbaa !22
-  %168 = getelementptr inbounds nuw [10 x i32], ptr @_ZN6icu_77L11kTimeFieldsE, i64 0, i64 %indvars.iv272
+  %168 = getelementptr inbounds nuw [10 x i32], ptr @_ZN6icu_77L11kTimeFieldsE, i64 0, i64 %indvars.iv267
   %169 = load i32, ptr %168, align 4, !tbaa !78
   %170 = zext i32 %169 to i64
   %171 = getelementptr inbounds nuw ptr, ptr %167, i64 %170
@@ -3375,9 +3375,9 @@ _ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit153: ; 
           to label %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit159 unwind label %176
 
 _ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit159: ; preds = %.noexc157, %166, %175
-  %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
-  %exitcond275.not = icmp eq i64 %indvars.iv.next273, 10
-  br i1 %exitcond275.not, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162, label %166, !llvm.loop !83
+  %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
+  %exitcond270.not = icmp eq i64 %indvars.iv.next268, 10
+  br i1 %exitcond270.not, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread, label %166, !llvm.loop !83
 
 176:                                              ; preds = %175, %174
   %177 = landingpad { ptr, i32 }
@@ -3390,8 +3390,8 @@ _ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit159: ; 
   %181 = sext i16 %180 to i32
   %182 = load i32, ptr %22, align 4
   %183 = select i1 %179, i32 %182, i32 %181
-  %.not203 = icmp eq i32 %183, 0
-  br i1 %.not203, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %184
+  %.not198 = icmp eq i32 %183, 0
+  br i1 %.not198, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %184
 
 184:                                              ; preds = %178
   %185 = and i16 %144, 2
@@ -3412,16 +3412,16 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %184, %178
 
 191:                                              ; preds = %190
   store i32 3, ptr %4, align 4, !tbaa !13
-  br label %.preheader206
+  br label %.preheader201
 
-.preheader206:                                    ; preds = %191, %.preheader206
-  %.05.i160 = phi ptr [ %193, %.preheader206 ], [ %.193, %191 ]
+.preheader201:                                    ; preds = %191, %.preheader201
+  %.05.i160 = phi ptr [ %193, %.preheader201 ], [ %.193, %191 ]
   %192 = getelementptr inbounds nuw i8, ptr %.05.i160, i64 16
   %193 = load ptr, ptr %192, align 8, !tbaa !19
   call void @_ZN6icu_7716SimpleDateFormat10NSOverrideD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.05.i160) #23
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.05.i160) #23
   %.not.i161 = icmp eq ptr %193, null
-  br i1 %.not.i161, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread199, label %.preheader206, !llvm.loop !20
+  br i1 %.not.i161, label %.critedge, label %.preheader201, !llvm.loop !20
 
 194:                                              ; preds = %203, %202, %_ZNK6icu_7713UnicodeString6charAtEi.exit
   %195 = landingpad { ptr, i32 }
@@ -3434,7 +3434,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %184, %178
   %199 = getelementptr inbounds nuw ptr, ptr %197, i64 %198
   %200 = load ptr, ptr %199, align 8, !tbaa !42
   %.not.i163 = icmp eq ptr %.273.fr, %200
-  br i1 %.not.i163, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162, label %201
+  br i1 %.not.i163, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread, label %201
 
 201:                                              ; preds = %196
   %.not9.i164 = icmp eq ptr %200, null
@@ -3447,25 +3447,20 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %184, %178
 .noexc166:                                        ; preds = %202, %201
   store ptr %.273.fr, ptr %199, align 8, !tbaa !42
   %.not10.i165 = icmp eq ptr %.273.fr, null
-  br i1 %.not10.i165, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162, label %203
+  br i1 %.not10.i165, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread, label %203
 
 203:                                              ; preds = %.noexc166
   invoke void @_ZNK6icu_7712SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %.273.fr)
-          to label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162 unwind label %194
+          to label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread unwind label %194
 
-_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread199: ; preds = %.preheader205, %.preheader206, %.thread280, %.loopexit
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #23
-  br label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit171
-
-_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162: ; preds = %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit159, %203, %196, %.noexc166, %.split236.us, %146
+_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread: ; preds = %_ZN6icu_7712SharedObject7copyPtrINS_18SharedNumberFormatEEEvPKT_RS5_.exit159, %203, %196, %.noexc166, %146, %.split231.us
   %204 = add nuw nsw i32 %43, 1
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #23
   br i1 %44, label %.preheader, label %33, !llvm.loop !84
 
-205:                                              ; preds = %.split234, %.split234.us, %_ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit, %98, %194, %176, %68
-  %.pn116.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %99, %98 ], [ %177, %176 ], [ %195, %194 ], [ %.pn106.pn, %_ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit ], [ %164, %.split234 ], [ %155, %.split234.us ]
+205:                                              ; preds = %.split229, %.split229.us, %_ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit, %98, %194, %176, %68
+  %.pn116.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %99, %98 ], [ %177, %176 ], [ %195, %194 ], [ %.pn106.pn, %_ZN6icu_7712LocalPointerINS_16SimpleDateFormat10NSOverrideEED2Ev.exit ], [ %164, %.split229 ], [ %155, %.split229.us ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #23
   br label %206
 
@@ -3482,8 +3477,8 @@ _ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162: ; preds = %_ZN6icu_7712
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #23
   resume { ptr, i32 } %.pn116.pn.pn.pn.pn
 
-.preheader:                                       ; preds = %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162, %.preheader
-  %.05.i169 = phi ptr [ %209, %.preheader ], [ %.193, %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162 ]
+.preheader:                                       ; preds = %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread, %.preheader
+  %.05.i169 = phi ptr [ %209, %.preheader ], [ %.193, %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread ]
   %208 = getelementptr inbounds nuw i8, ptr %.05.i169, i64 16
   %209 = load ptr, ptr %208, align 8, !tbaa !19
   call void @_ZN6icu_7716SimpleDateFormat10NSOverrideD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.05.i169) #23
@@ -3491,7 +3486,12 @@ _ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162: ; preds = %_ZN6icu_7712
   %.not.i170 = icmp eq ptr %209, null
   br i1 %.not.i170, label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit171, label %.preheader, !llvm.loop !20
 
-_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit171: ; preds = %.preheader, %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit162.thread199
+.critedge:                                        ; preds = %.preheader200, %.preheader201, %.thread275, %.loopexit
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #23
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #23
+  br label %_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit171
+
+_ZN6icu_7716SimpleDateFormat10NSOverride4freeEv.exit171: ; preds = %.preheader, %.critedge
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #23
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #23
@@ -7250,8 +7250,8 @@ tailrecurse.backedge:                             ; preds = %710, %712, %620, %6
 759:                                              ; preds = %754
   %760 = load ptr, ptr %26, align 8, !tbaa !46
   %.idx = shl nuw nsw i64 %.0452, 1
-  %761 = getelementptr i8, ptr %760, i64 833
-  %762 = getelementptr i8, ptr %761, i64 %.idx
+  %761 = getelementptr inbounds nuw i8, ptr %760, i64 833
+  %762 = getelementptr inbounds nuw i8, ptr %761, i64 %.idx
   br label %763
 
 763:                                              ; preds = %759, %755

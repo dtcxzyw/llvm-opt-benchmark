@@ -5041,14 +5041,14 @@ for.body.preheader:                               ; preds = %invoke.cont
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %store_forwarded = phi double [ %load_initial, %for.body.preheader ], [ %div9, %for.body ]
   %i.012 = phi i64 [ 1, %for.body.preheader ], [ %inc, %for.body ]
+  %7 = getelementptr double, ptr %call5.i.i.i.i2.i.i7, i64 %i.012
   %add.ptr.i8 = getelementptr inbounds nuw double, ptr %2, i64 %i.012
-  %7 = load double, ptr %add.ptr.i8, align 8, !tbaa !78
+  %8 = load double, ptr %add.ptr.i8, align 8, !tbaa !78
   %add.ptr.i9 = getelementptr inbounds nuw double, ptr %4, i64 %i.012
-  %8 = load double, ptr %add.ptr.i9, align 8, !tbaa !78
-  %9 = tail call double @llvm.fmuladd.f64(double %7, double %8, double 1.000000e+00)
-  %div9 = fdiv double %store_forwarded, %9
-  %add.ptr.i10 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i7, i64 %i.012
-  store double %div9, ptr %add.ptr.i10, align 8, !tbaa !78
+  %9 = load double, ptr %add.ptr.i9, align 8, !tbaa !78
+  %10 = tail call double @llvm.fmuladd.f64(double %8, double %9, double 1.000000e+00)
+  %div9 = fdiv double %store_forwarded, %10
+  store double %div9, ptr %7, align 8, !tbaa !78
   %inc = add nuw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, %0
   br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !163

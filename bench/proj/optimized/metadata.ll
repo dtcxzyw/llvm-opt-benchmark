@@ -9057,9 +9057,9 @@ define hidden void @_ZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7
   ret void
 
 .lr.ph:                                           ; preds = %3, %.critedge
-  %8 = phi i8 [ %220, %.critedge ], [ %7, %3 ]
-  %9 = phi ptr [ %219, %.critedge ], [ %6, %3 ]
-  %storemerge143 = phi i64 [ %218, %.critedge ], [ 0, %3 ]
+  %8 = phi i8 [ %221, %.critedge ], [ %7, %3 ]
+  %9 = phi ptr [ %220, %.critedge ], [ %6, %3 ]
+  %storemerge143 = phi i64 [ %219, %.critedge ], [ 0, %3 ]
   %10 = add i8 %8, -65
   %or.cond.i = icmp ult i8 %10, 26
   %11 = add nuw nsw i8 %8, 32
@@ -9082,10 +9082,10 @@ define hidden void @_ZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7
   %21 = icmp eq i8 %20, 32
   br i1 %21, label %.critedge, label %50
 
-22:                                               ; preds = %208
+22:                                               ; preds = %209
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %221
+  br label %222
 
 24:                                               ; preds = %.lr.ph
   %25 = load i64, ptr %5, align 8, !tbaa !25
@@ -9453,7 +9453,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i92: ; 
 164:                                              ; preds = %157, %124
   %165 = landingpad { ptr, i32 }
           cleanup
-  br label %221
+  br label %222
 
 .thread133:                                       ; preds = %134, %57, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i, %51, %.loopexit, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i90, %.thread124, %50
   %166 = icmp slt i8 %12, 0
@@ -9483,50 +9483,51 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i92: ; 
   br i1 %.not.i98, label %.critedge41, label %169
 
 _ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit: ; preds = %173
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 8), i64 %.014.idx18.i
-  %178 = load i8, ptr %gep, align 8, !tbaa !232
-  %179 = load i64, ptr %5, align 8, !tbaa !25
-  %180 = add i64 %179, 1
-  %181 = load ptr, ptr %0, align 8, !tbaa !24
-  %182 = icmp eq ptr %181, %4
-  br i1 %182, label %183, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+  %.014.ptr19.i.le = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 %.014.idx18.i
+  %178 = getelementptr inbounds nuw i8, ptr %.014.ptr19.i.le, i64 8
+  %179 = load i8, ptr %178, align 8, !tbaa !232
+  %180 = load i64, ptr %5, align 8, !tbaa !25
+  %181 = add i64 %180, 1
+  %182 = load ptr, ptr %0, align 8, !tbaa !24
+  %183 = icmp eq ptr %182, %4
+  br i1 %183, label %184, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-183:                                              ; preds = %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit
-  %184 = icmp ult i64 %179, 16
-  tail call void @llvm.assume(i1 %184)
+184:                                              ; preds = %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit
+  %185 = icmp ult i64 %180, 16
+  tail call void @llvm.assume(i1 %185)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %183, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit
-  %185 = load i64, ptr %4, align 8
-  %186 = select i1 %182, i64 15, i64 %185
-  %187 = icmp ugt i64 %180, %186
-  br i1 %187, label %188, label %189
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %184, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit
+  %186 = load i64, ptr %4, align 8
+  %187 = select i1 %183, i64 15, i64 %186
+  %188 = icmp ugt i64 %181, %187
+  br i1 %188, label %189, label %190
 
-188:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %179, i64 noundef 0, ptr noundef null, i64 noundef 1)
-          to label %.noexc99 unwind label %197
+189:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %180, i64 noundef 0, ptr noundef null, i64 noundef 1)
+          to label %.noexc99 unwind label %198
 
-.noexc99:                                         ; preds = %188
+.noexc99:                                         ; preds = %189
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !24
-  br label %189
+  br label %190
 
-189:                                              ; preds = %.noexc99, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
-  %190 = phi ptr [ %.pre.i, %.noexc99 ], [ %181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 %179
-  store i8 %178, ptr %191, align 1, !tbaa !26
-  store i64 %180, ptr %5, align 8, !tbaa !25
-  %192 = load ptr, ptr %0, align 8, !tbaa !24
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 %180
-  store i8 0, ptr %193, align 1, !tbaa !26
-  %194 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %170) #41
-  %195 = add i64 %storemerge143, -1
-  %196 = add i64 %195, %194
+190:                                              ; preds = %.noexc99, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+  %191 = phi ptr [ %.pre.i, %.noexc99 ], [ %182, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %180
+  store i8 %179, ptr %192, align 1, !tbaa !26
+  store i64 %181, ptr %5, align 8, !tbaa !25
+  %193 = load ptr, ptr %0, align 8, !tbaa !24
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 %181
+  store i8 0, ptr %194, align 1, !tbaa !26
+  %195 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %170) #41
+  %196 = add i64 %storemerge143, -1
+  %197 = add i64 %196, %195
   br label %.critedge
 
-197:                                              ; preds = %188
-  %198 = landingpad { ptr, i32 }
+198:                                              ; preds = %189
+  %199 = landingpad { ptr, i32 }
           cleanup
-  br label %221
+  br label %222
 
 .critedge41:                                      ; preds = %177, %.thread133
   switch i8 %12, label %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit [
@@ -9542,76 +9543,76 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
   ]
 
 _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit:   ; preds = %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i95, %126, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i, %93, %53, %52, %73, %72, %.critedge41
-  %199 = load i64, ptr %5, align 8, !tbaa !25
-  %200 = add i64 %199, 1
-  %201 = load ptr, ptr %0, align 8, !tbaa !24
-  %202 = icmp eq ptr %201, %4
-  br i1 %202, label %203, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i100
+  %200 = load i64, ptr %5, align 8, !tbaa !25
+  %201 = add i64 %200, 1
+  %202 = load ptr, ptr %0, align 8, !tbaa !24
+  %203 = icmp eq ptr %202, %4
+  br i1 %203, label %204, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i100
 
-203:                                              ; preds = %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit
-  %204 = icmp ult i64 %199, 16
-  tail call void @llvm.assume(i1 %204)
+204:                                              ; preds = %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit
+  %205 = icmp ult i64 %200, 16
+  tail call void @llvm.assume(i1 %205)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i100
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i100: ; preds = %203, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit
-  %205 = load i64, ptr %4, align 8
-  %206 = select i1 %202, i64 15, i64 %205
-  %207 = icmp ugt i64 %200, %206
-  br i1 %207, label %208, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit103
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i100: ; preds = %204, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit
+  %206 = load i64, ptr %4, align 8
+  %207 = select i1 %203, i64 15, i64 %206
+  %208 = icmp ugt i64 %201, %207
+  br i1 %208, label %209, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit103
 
-208:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i100
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %199, i64 noundef 0, ptr noundef null, i64 noundef 1)
+209:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i100
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %200, i64 noundef 0, ptr noundef null, i64 noundef 1)
           to label %.noexc102 unwind label %22
 
-.noexc102:                                        ; preds = %208
+.noexc102:                                        ; preds = %209
   %.pre.i101 = load ptr, ptr %0, align 8, !tbaa !24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit103
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit103: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i100, %.noexc102
-  %209 = phi ptr [ %.pre.i101, %.noexc102 ], [ %201, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i100 ]
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 %199
-  store i8 %12, ptr %210, align 1, !tbaa !26
-  store i64 %200, ptr %5, align 8, !tbaa !25
-  %211 = load ptr, ptr %0, align 8, !tbaa !24
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 %200
-  store i8 0, ptr %212, align 1, !tbaa !26
+  %210 = phi ptr [ %.pre.i101, %.noexc102 ], [ %202, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i100 ]
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 %200
+  store i8 %12, ptr %211, align 1, !tbaa !26
+  store i64 %201, ptr %5, align 8, !tbaa !25
+  %212 = load ptr, ptr %0, align 8, !tbaa !24
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 %201
+  store i8 0, ptr %213, align 1, !tbaa !26
   br label %.critedge
 
 .critedge43:                                      ; preds = %.noexc, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
-  %213 = phi ptr [ %.pre.i.i, %.noexc ], [ %117, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i ]
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 %115
-  store i8 %12, ptr %214, align 1, !tbaa !26
+  %214 = phi ptr [ %.pre.i.i, %.noexc ], [ %117, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i ]
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 %115
+  store i8 %12, ptr %215, align 1, !tbaa !26
   store i64 %116, ptr %5, align 8, !tbaa !25
-  %215 = load ptr, ptr %0, align 8, !tbaa !24
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 %116
-  store i8 0, ptr %216, align 1, !tbaa !26
-  %217 = add i64 %storemerge143, 4
+  %216 = load ptr, ptr %0, align 8, !tbaa !24
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 %116
+  store i8 0, ptr %217, align 1, !tbaa !26
+  %218 = add i64 %storemerge143, 4
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge41, %.critedge41, %.critedge41, %.critedge41, %.critedge41, %.critedge41, %.critedge41, %.critedge41, %.critedge41, %"_ZZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENK3$_0clEcPKcRmSD_.exit", %"_ZZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENK3$_0clEcPKcRmSD_.exit59", %189, %158, %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit103, %.critedge43, %48
-  %.0 = phi i64 [ %217, %.critedge43 ], [ %storemerge143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit103 ], [ %196, %189 ], [ %163, %158 ], [ %49, %48 ], [ %18, %17 ], [ %71, %"_ZZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENK3$_0clEcPKcRmSD_.exit" ], [ %92, %"_ZZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENK3$_0clEcPKcRmSD_.exit59" ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ]
-  %218 = add i64 %.0, 1
-  %219 = getelementptr inbounds nuw i8, ptr %6, i64 %218
-  %220 = load i8, ptr %219, align 1, !tbaa !26
-  %.not = icmp eq i8 %220, 0
+.critedge:                                        ; preds = %.critedge41, %.critedge41, %.critedge41, %.critedge41, %.critedge41, %.critedge41, %.critedge41, %.critedge41, %.critedge41, %"_ZZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENK3$_0clEcPKcRmSD_.exit", %"_ZZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENK3$_0clEcPKcRmSD_.exit59", %190, %158, %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit103, %.critedge43, %48
+  %.0 = phi i64 [ %218, %.critedge43 ], [ %storemerge143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit103 ], [ %197, %190 ], [ %163, %158 ], [ %49, %48 ], [ %18, %17 ], [ %71, %"_ZZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENK3$_0clEcPKcRmSD_.exit" ], [ %92, %"_ZZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENK3$_0clEcPKcRmSD_.exit59" ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ], [ %storemerge143, %.critedge41 ]
+  %219 = add i64 %.0, 1
+  %220 = getelementptr inbounds nuw i8, ptr %6, i64 %219
+  %221 = load i8, ptr %220, align 1, !tbaa !26
+  %.not = icmp eq i8 %221, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !233
 
-221:                                              ; preds = %164, %197, %22
-  %.pn38 = phi { ptr, i32 } [ %23, %22 ], [ %198, %197 ], [ %165, %164 ]
-  %222 = load ptr, ptr %0, align 8, !tbaa !24
-  %223 = icmp eq ptr %222, %4
-  br i1 %223, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+222:                                              ; preds = %164, %198, %22
+  %.pn38 = phi { ptr, i32 } [ %23, %22 ], [ %199, %198 ], [ %165, %164 ]
+  %223 = load ptr, ptr %0, align 8, !tbaa !24
+  %224 = icmp eq ptr %223, %4
+  br i1 %224, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %221
-  %224 = load i64, ptr %5, align 8, !tbaa !25
-  %225 = icmp ult i64 %224, 16
-  tail call void @llvm.assume(i1 %225)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %222
+  %225 = load i64, ptr %5, align 8, !tbaa !25
+  %226 = icmp ult i64 %225, 16
+  tail call void @llvm.assume(i1 %226)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %221
-  %226 = load i64, ptr %4, align 8, !tbaa !26
-  %227 = add i64 %226, 1
-  tail call void @_ZdlPvm(ptr noundef %222, i64 noundef %227) #38
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %222
+  %227 = load i64, ptr %4, align 8, !tbaa !26
+  %228 = add i64 %227, 1
+  tail call void @_ZdlPvm(ptr noundef %223, i64 noundef %228) #38
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -9624,26 +9625,26 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #24
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_b(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i8, ptr %0, align 1, !tbaa !26
-  %.not363 = icmp eq i8 %4, 0
+  %.not362 = icmp eq i8 %4, 0
   %5 = load i8, ptr %1, align 1, !tbaa !26
-  %.not78364 = icmp eq i8 %5, 0
-  %or.cond347365 = select i1 %.not363, i1 %.not78364, i1 false
-  br i1 %or.cond347365, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread290", label %.critedge
+  %.not78363 = icmp eq i8 %5, 0
+  %or.cond346364 = select i1 %.not362, i1 %.not78363, i1 false
+  br i1 %or.cond346364, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread290", label %.critedge
 
 .critedge:                                        ; preds = %3, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208"
-  %6 = phi i8 [ %310, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ %5, %3 ]
-  %.not370 = phi i1 [ %.not, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ %.not363, %3 ]
-  %7 = phi i8 [ %308, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ %4, %3 ]
-  %8 = phi ptr [ %307, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ %0, %3 ]
-  %.061369 = phi i8 [ %.162, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ 0, %3 ]
-  %.072368 = phi i8 [ %.173, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ 0, %3 ]
-  %.0367 = phi i64 [ %.1, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ 0, %3 ]
-  %.0248366 = phi i64 [ %.1249, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ 0, %3 ]
+  %6 = phi i8 [ %312, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ %5, %3 ]
+  %.not369 = phi i1 [ %.not, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ %.not362, %3 ]
+  %7 = phi i8 [ %310, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ %4, %3 ]
+  %8 = phi ptr [ %309, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ %0, %3 ]
+  %.061368 = phi i8 [ %.162, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ 0, %3 ]
+  %.072367 = phi i8 [ %.173, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ 0, %3 ]
+  %.0366 = phi i64 [ %.1, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ 0, %3 ]
+  %.0248365 = phi i64 [ %.1249, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ], [ 0, %3 ]
   %9 = add i8 %7, -65
   %or.cond.i = icmp ult i8 %9, 26
   %10 = add nuw nsw i8 %7, 32
   %11 = select i1 %or.cond.i, i8 %10, i8 %7
-  %12 = getelementptr i8, ptr %1, i64 %.0248366
+  %12 = getelementptr i8, ptr %1, i64 %.0248365
   %13 = add i8 %6, -65
   %or.cond.i87 = icmp ult i8 %13, 26
   %14 = add nuw nsw i8 %6, 32
@@ -9664,7 +9665,7 @@ define noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentName
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %21
-  %26 = add i64 %.0367, 3
+  %26 = add i64 %.0366, 3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !26
   %.not79 = icmp eq i8 %28, 0
@@ -9687,7 +9688,7 @@ define noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentName
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %35
-  %40 = add i64 %.0248366, 3
+  %40 = add i64 %.0248365, 3
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !26
   %.not80 = icmp eq i8 %42, 0
@@ -9707,7 +9708,7 @@ define noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentName
   ]
 
 44:                                               ; preds = %43, %43, %43, %43, %43, %43, %43, %43, %43
-  %45 = add i64 %.0367, 1
+  %45 = add i64 %.0366, 1
   br label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208", !llvm.loop !234
 
 _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit:   ; preds = %43
@@ -9724,12 +9725,12 @@ _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit:   ; preds = %43
   ]
 
 46:                                               ; preds = %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit
-  %47 = add i64 %.0248366, 1
+  %47 = add i64 %.0248365, 1
   br label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208", !llvm.loop !234
 
 _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit88: ; preds = %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit
   %48 = icmp ne i8 %11, 49
-  %49 = add i8 %.061369, -48
+  %49 = add i8 %.061368, -48
   %50 = icmp ult i8 %49, 10
   %or.cond = select i1 %48, i1 true, i1 %50
   br i1 %or.cond, label %67, label %51
@@ -9755,12 +9756,12 @@ _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit88: ; preds = %_ZN5osgeo4proj8meta
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %60
-  %66 = add i64 %.0367, 2
+  %66 = add i64 %.0366, 2
   br label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208", !llvm.loop !234
 
 67:                                               ; preds = %60, %55, %51, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit88
   %68 = icmp ne i8 %15, 49
-  %69 = add i8 %.072368, -48
+  %69 = add i8 %.072367, -48
   %70 = icmp ult i8 %69, 10
   %or.cond298 = select i1 %68, i1 true, i1 %70
   br i1 %or.cond298, label %87, label %71
@@ -9786,7 +9787,7 @@ _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit88: ; preds = %_ZN5osgeo4proj8meta
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %80
-  %86 = add i64 %.0248366, 2
+  %86 = add i64 %.0248365, 2
   br label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208", !llvm.loop !234
 
 87:                                               ; preds = %80, %75, %71, %67
@@ -9797,7 +9798,7 @@ _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit88: ; preds = %_ZN5osgeo4proj8meta
   br i1 %89, label %90, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_0clEcS4_RmS4_.exit.thread"
 
 90:                                               ; preds = %88
-  %.not.i = icmp eq i64 %.0367, 0
+  %.not.i = icmp eq i64 %.0366, 0
   br i1 %.not.i, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_0clEcS4_RmS4_.exit.thread", label %91
 
 91:                                               ; preds = %90
@@ -9816,7 +9817,7 @@ _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit88: ; preds = %_ZN5osgeo4proj8meta
   ]
 
 94:                                               ; preds = %91, %91, %91, %91, %91, %91, %91, %91, %91
-  br i1 %.not370, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_0clEcS4_RmS4_.exit.thread", label %.lr.ph.i.i
+  br i1 %.not369, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_0clEcS4_RmS4_.exit.thread", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %94, %105
   %95 = phi i8 [ %108, %105 ], [ %7, %94 ]
@@ -9852,14 +9853,14 @@ _ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i: ; preds = %105
   br i1 %109, label %.loopexit305, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_0clEcS4_RmS4_.exit.thread"
 
 .loopexit305:                                     ; preds = %.lr.ph.i.i, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i
-  %110 = add i64 %.0367, 4
+  %110 = add i64 %.0366, 4
   br label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_0clEcS4_RmS4_.exit.thread"
 
 "_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_0clEcS4_RmS4_.exit.thread": ; preds = %96, %94, %91, %88, %90, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i, %.loopexit305
-  %.7260 = phi i64 [ %110, %.loopexit305 ], [ %.0367, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i ], [ 0, %90 ], [ %.0367, %88 ], [ %.0367, %91 ], [ %.0367, %94 ], [ %.0367, %96 ]
+  %.7260 = phi i64 [ %110, %.loopexit305 ], [ %.0366, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i ], [ 0, %90 ], [ %.0366, %88 ], [ %.0366, %91 ], [ %.0366, %94 ], [ %.0366, %96 ]
   %111 = phi i1 [ true, %.loopexit305 ], [ false, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i ], [ false, %90 ], [ false, %88 ], [ false, %91 ], [ false, %94 ], [ false, %96 ]
   %112 = icmp ne i8 %15, 122
-  %.not.i90 = icmp eq i64 %.0248366, 0
+  %.not.i90 = icmp eq i64 %.0248365, 0
   %or.cond299 = or i1 %112, %.not.i90
   br i1 %or.cond299, label %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread, label %113
 
@@ -9916,7 +9917,7 @@ _ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102: ; preds = %127
   br i1 %131, label %.thread, label %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread
 
 .thread:                                          ; preds = %.lr.ph.i.i92, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102
-  %132 = add i64 %.0248366, 4
+  %132 = add i64 %.0248365, 4
   br label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208"
 
 _ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread: ; preds = %118, %116, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_0clEcS4_RmS4_.exit.thread", %113
@@ -10048,7 +10049,7 @@ _ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134: ; preds = %174
   br i1 %178, label %.thread271, label %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134.thread
 
 .thread271:                                       ; preds = %.lr.ph.i.i124, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134
-  %179 = add i64 %.0248366, 6
+  %179 = add i64 %.0248365, 6
   br label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208"
 
 _ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134.thread: ; preds = %165, %163, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_0clEcS4_RmS4_.exit120.thread", %160
@@ -10223,8 +10224,8 @@ _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i188: ; preds = %230
   %233 = add i8 %232, -58
   %234 = icmp ult i8 %233, -10
   %.not17.i.i175 = icmp eq i8 %6, 0
-  %or.cond348 = select i1 %234, i1 true, i1 %.not17.i.i175
-  br i1 %or.cond348, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread", label %.lr.ph.i.i176.preheader
+  %or.cond347 = select i1 %234, i1 true, i1 %.not17.i.i175
+  br i1 %or.cond347, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread", label %.lr.ph.i.i176.preheader
 
 _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.thread.i174: ; preds = %230, %230, %230, %230, %230, %230, %230, %230, %230
   %.not17.i.i175.old = icmp eq i8 %6, 0
@@ -10267,7 +10268,7 @@ _ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i186: ; preds = %245
   br i1 %249, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit189", label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread"
 
 "_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit189": ; preds = %.lr.ph.i.i176, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i186
-  %250 = add i64 %.0248366, 4
+  %250 = add i64 %.0248365, 4
   br label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread"
 
 251:                                              ; preds = %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit170"
@@ -10292,8 +10293,8 @@ _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i207: ; preds = %252
   %255 = add i8 %254, -58
   %256 = icmp ult i8 %255, -10
   %.not17.i.i194 = icmp eq i8 %6, 0
-  %or.cond349 = select i1 %256, i1 true, i1 %.not17.i.i194
-  br i1 %or.cond349, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread", label %.lr.ph.i.i195.preheader
+  %or.cond348 = select i1 %256, i1 true, i1 %.not17.i.i194
+  br i1 %or.cond348, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread", label %.lr.ph.i.i195.preheader
 
 _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.thread.i193: ; preds = %252, %252, %252, %252, %252, %252, %252, %252, %252
   %.not17.i.i194.old = icmp eq i8 %6, 0
@@ -10336,12 +10337,12 @@ _ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i205: ; preds = %267
   br i1 %271, label %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.thread3.i206, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread"
 
 _ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.thread3.i206: ; preds = %.lr.ph.i.i195, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i205
-  %272 = add i64 %.0248366, 4
+  %272 = add i64 %.0248365, 4
   br label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread"
 
 "_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread": ; preds = %258, %236, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i186, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit170", %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.thread.i193, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.thread.i174, %229, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i188, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit189", %251, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i207, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i205, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.thread3.i206, %87
-  %.2250 = phi i64 [ %.0248366, %87 ], [ %.0248366, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i207 ], [ %.0248366, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i205 ], [ %272, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.thread3.i206 ], [ 0, %251 ], [ %250, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit189" ], [ %.0248366, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i188 ], [ 0, %229 ], [ %.0248366, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.thread.i174 ], [ %.0248366, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.thread.i193 ], [ %.0248366, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit170" ], [ %.0248366, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i186 ], [ %.0248366, %236 ], [ %.0248366, %258 ]
-  %.2246 = phi i64 [ %.0367, %87 ], [ %.4, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i207 ], [ %.4, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i205 ], [ %.4, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.thread3.i206 ], [ %.4, %251 ], [ %.4, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit189" ], [ %.4, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i188 ], [ %.4, %229 ], [ %.4, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.thread.i174 ], [ %.4, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.thread.i193 ], [ %.4, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit170" ], [ %.4, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i186 ], [ %.4, %236 ], [ %.4, %258 ]
+  %.2250 = phi i64 [ %.0248365, %87 ], [ %.0248365, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i207 ], [ %.0248365, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i205 ], [ %272, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.thread3.i206 ], [ 0, %251 ], [ %250, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit189" ], [ %.0248365, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i188 ], [ 0, %229 ], [ %.0248365, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.thread.i174 ], [ %.0248365, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.thread.i193 ], [ %.0248365, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit170" ], [ %.0248365, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i186 ], [ %.0248365, %236 ], [ %.0248365, %258 ]
+  %.2246 = phi i64 [ %.0366, %87 ], [ %.4, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i207 ], [ %.4, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i205 ], [ %.4, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.thread3.i206 ], [ %.4, %251 ], [ %.4, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit189" ], [ %.4, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.i188 ], [ %.4, %229 ], [ %.4, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.thread.i174 ], [ %.4, %_ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit.thread.i193 ], [ %.4, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit170" ], [ %.4, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i186 ], [ %.4, %236 ], [ %.4, %258 ]
   %273 = icmp slt i8 %11, 0
   br i1 %273, label %274, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread
 
@@ -10370,79 +10371,81 @@ _ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.thread3.i206: ; preds = %
   br i1 %.not.i209, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread, label %277
 
 _ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit: ; preds = %281
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 8), i64 %.014.idx18.i
-  %286 = load i8, ptr %gep, align 8, !tbaa !232
-  %287 = add i64 %.2246, -1
-  %288 = add i64 %287, %282
+  %.014.ptr19.i.le = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 %.014.idx18.i
+  %286 = getelementptr inbounds nuw i8, ptr %.014.ptr19.i.le, i64 8
+  %287 = load i8, ptr %286, align 8, !tbaa !232
+  %288 = add i64 %.2246, -1
+  %289 = add i64 %288, %282
   br label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread
 
 _ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread: ; preds = %285, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread"
-  %.5 = phi i64 [ %288, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit ], [ %.2246, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread" ], [ %.2246, %285 ]
-  %.070 = phi i8 [ %286, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit ], [ %11, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread" ], [ %11, %285 ]
-  %289 = icmp slt i8 %15, 0
-  br i1 %289, label %290, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217.thread
+  %.5 = phi i64 [ %289, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit ], [ %.2246, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread" ], [ %.2246, %285 ]
+  %.070 = phi i8 [ %287, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit ], [ %11, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread" ], [ %11, %285 ]
+  %290 = icmp slt i8 %15, 0
+  br i1 %290, label %291, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217.thread
 
-290:                                              ; preds = %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread
-  %291 = getelementptr inbounds nuw i8, ptr %1, i64 %.2250
-  %292 = load i8, ptr %291, align 1, !tbaa !26
-  br label %293
+291:                                              ; preds = %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread
+  %292 = getelementptr inbounds nuw i8, ptr %1, i64 %.2250
+  %293 = load i8, ptr %292, align 1, !tbaa !26
+  br label %294
 
-293:                                              ; preds = %301, %290
-  %.014.idx18.i210 = phi i64 [ 0, %290 ], [ %.014.add.i212, %301 ]
+294:                                              ; preds = %302, %291
+  %.014.idx18.i210 = phi i64 [ 0, %291 ], [ %.014.add.i212, %302 ]
   %.014.ptr19.i211 = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 %.014.idx18.i210
-  %294 = load ptr, ptr %.014.ptr19.i211, align 16, !tbaa !230
-  %295 = load i8, ptr %294, align 1, !tbaa !26
-  %296 = icmp eq i8 %292, %295
-  br i1 %296, label %297, label %301
+  %295 = load ptr, ptr %.014.ptr19.i211, align 16, !tbaa !230
+  %296 = load i8, ptr %295, align 1, !tbaa !26
+  %297 = icmp eq i8 %293, %296
+  br i1 %297, label %298, label %302
 
-297:                                              ; preds = %293
-  %298 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %294) #41
-  %299 = tail call i32 @strncmp(ptr noundef nonnull readonly %291, ptr noundef nonnull %294, i64 noundef %298) #41
-  %300 = icmp eq i32 %299, 0
-  br i1 %300, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217, label %301
+298:                                              ; preds = %294
+  %299 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %295) #41
+  %300 = tail call i32 @strncmp(ptr noundef nonnull readonly %292, ptr noundef nonnull %295, i64 noundef %299) #41
+  %301 = icmp eq i32 %300, 0
+  br i1 %301, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217, label %302
 
-301:                                              ; preds = %297, %293
+302:                                              ; preds = %298, %294
   %.014.add.i212 = add nuw nsw i64 %.014.idx18.i210, 16
   %.not.i213 = icmp eq i64 %.014.add.i212, 160
-  br i1 %.not.i213, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217.thread, label %293
+  br i1 %.not.i213, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217.thread, label %294
 
-_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217: ; preds = %297
-  %gep346 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 8), i64 %.014.idx18.i210
-  %302 = load i8, ptr %gep346, align 8, !tbaa !232
-  %303 = add i64 %.2250, -1
-  %304 = add i64 %303, %298
+_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217: ; preds = %298
+  %.014.ptr19.i211.le = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 %.014.idx18.i210
+  %303 = getelementptr inbounds nuw i8, ptr %.014.ptr19.i211.le, i64 8
+  %304 = load i8, ptr %303, align 8, !tbaa !232
+  %305 = add i64 %.2250, -1
+  %306 = add i64 %305, %299
   br label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217.thread
 
-_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217.thread: ; preds = %301, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread
-  %.5253 = phi i64 [ %304, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217 ], [ %.2250, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread ], [ %.2250, %301 ]
-  %.068 = phi i8 [ %302, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217 ], [ %15, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread ], [ %15, %301 ]
+_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217.thread: ; preds = %302, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread
+  %.5253 = phi i64 [ %306, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217 ], [ %.2250, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread ], [ %.2250, %302 ]
+  %.068 = phi i8 [ %304, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217 ], [ %15, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread ], [ %15, %302 ]
   %.not83 = icmp eq i8 %.070, %.068
-  br i1 %.not83, label %305, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread290"
+  br i1 %.not83, label %307, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread290"
 
-305:                                              ; preds = %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217.thread
+307:                                              ; preds = %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217.thread
   %.not84 = icmp ne i8 %.070, 0
-  %306 = zext i1 %.not84 to i64
-  %spec.select = add i64 %.5, %306
-  %spec.select301 = add i64 %.5253, %306
+  %308 = zext i1 %.not84 to i64
+  %spec.select = add i64 %.5, %308
+  %spec.select301 = add i64 %.5253, %308
   br label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208"
 
-"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208": ; preds = %305, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134.thread, %.thread, %.thread271, %39, %25, %85, %65, %46, %44
-  %.1249 = phi i64 [ %.0248366, %44 ], [ %47, %46 ], [ %86, %85 ], [ %.0248366, %65 ], [ %.0248366, %25 ], [ %40, %39 ], [ %.0248366, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread ], [ %.0248366, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134.thread ], [ %132, %.thread ], [ %179, %.thread271 ], [ %spec.select301, %305 ]
-  %.1 = phi i64 [ %45, %44 ], [ %.0367, %46 ], [ %.0367, %85 ], [ %66, %65 ], [ %26, %25 ], [ %.0367, %39 ], [ %.7260, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread ], [ %.8267, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134.thread ], [ %.7260, %.thread ], [ %.8267, %.thread271 ], [ %spec.select, %305 ]
-  %.173 = phi i8 [ %.072368, %44 ], [ %.072368, %46 ], [ 57, %85 ], [ %.072368, %65 ], [ %.072368, %25 ], [ %.072368, %39 ], [ %.072368, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread ], [ %.072368, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134.thread ], [ %.072368, %.thread ], [ %.072368, %.thread271 ], [ %.070, %305 ]
-  %.162 = phi i8 [ %.061369, %44 ], [ %.061369, %46 ], [ %.061369, %85 ], [ 57, %65 ], [ %.061369, %25 ], [ %.061369, %39 ], [ %.061369, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread ], [ %.061369, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134.thread ], [ %.061369, %.thread ], [ %.061369, %.thread271 ], [ %.070, %305 ]
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 %.1
-  %308 = load i8, ptr %307, align 1, !tbaa !26
-  %.not = icmp eq i8 %308, 0
-  %309 = getelementptr inbounds nuw i8, ptr %1, i64 %.1249
+"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208": ; preds = %307, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134.thread, %.thread, %.thread271, %39, %25, %85, %65, %46, %44
+  %.1249 = phi i64 [ %.0248365, %44 ], [ %47, %46 ], [ %86, %85 ], [ %.0248365, %65 ], [ %.0248365, %25 ], [ %40, %39 ], [ %.0248365, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread ], [ %.0248365, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134.thread ], [ %132, %.thread ], [ %179, %.thread271 ], [ %spec.select301, %307 ]
+  %.1 = phi i64 [ %45, %44 ], [ %.0366, %46 ], [ %.0366, %85 ], [ %66, %65 ], [ %26, %25 ], [ %.0366, %39 ], [ %.7260, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread ], [ %.8267, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134.thread ], [ %.7260, %.thread ], [ %.8267, %.thread271 ], [ %spec.select, %307 ]
+  %.173 = phi i8 [ %.072367, %44 ], [ %.072367, %46 ], [ 57, %85 ], [ %.072367, %65 ], [ %.072367, %25 ], [ %.072367, %39 ], [ %.072367, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread ], [ %.072367, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134.thread ], [ %.072367, %.thread ], [ %.072367, %.thread271 ], [ %.070, %307 ]
+  %.162 = phi i8 [ %.061368, %44 ], [ %.061368, %46 ], [ %.061368, %85 ], [ 57, %65 ], [ %.061368, %25 ], [ %.061368, %39 ], [ %.061368, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i102.thread ], [ %.061368, %_ZN5osgeo4proj8metadataL16matchesLowerCaseEPKcS3_.exit.i134.thread ], [ %.061368, %.thread ], [ %.061368, %.thread271 ], [ %.070, %307 ]
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 %.1
   %310 = load i8, ptr %309, align 1, !tbaa !26
-  %.not78 = icmp eq i8 %310, 0
-  %or.cond347 = select i1 %.not, i1 %.not78, i1 false
-  br i1 %or.cond347, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread290", label %.critedge
+  %.not = icmp eq i8 %310, 0
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 %.1249
+  %312 = load i8, ptr %311, align 1, !tbaa !26
+  %.not78 = icmp eq i8 %312, 0
+  %or.cond346 = select i1 %.not, i1 %.not78, i1 false
+  br i1 %or.cond346, label %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread290", label %.critedge
 
 "_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208.thread290": ; preds = %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217.thread, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208", %3
-  %or.cond347.lcssa = phi i1 [ true, %3 ], [ false, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217.thread ], [ true, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ]
-  ret i1 %or.cond347.lcssa
+  %or.cond346.lcssa = phi i1 [ true, %3 ], [ false, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit217.thread ], [ true, %"_ZZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_bENK3$_1clEcS4_RmS4_.exit208" ]
+  ret i1 %or.cond346.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable

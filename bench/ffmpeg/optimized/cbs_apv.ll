@@ -361,9 +361,9 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_read_unit(ptr noundef %0,
     i32 25, label %91
     i32 26, label %91
     i32 27, label %91
-    i32 65, label %393
-    i32 66, label %443
-    i32 67, label %721
+    i32 65, label %394
+    i32 66, label %444
+    i32 67, label %722
   ]
 
 91:                                               ; preds = %89, %89, %89, %89, %89
@@ -573,11 +573,7 @@ switch.lookup:                                    ; preds = %165
 .preheader149.i.i:                                ; preds = %178
   %182 = load i32, ptr %174, align 4, !tbaa !55
   %183 = icmp sgt i32 %182, 0
-  br i1 %183, label %.preheader148.lr.ph.i.i, label %.loopexit150.i.i
-
-.preheader148.lr.ph.i.i:                          ; preds = %.preheader149.i.i
-  %invariant.gep.i.i = getelementptr i8, ptr %93, i64 31
-  br label %.preheader148.i.i
+  br i1 %183, label %.preheader148.i.i, label %.loopexit150.i.i
 
 184:                                              ; preds = %178
   %185 = getelementptr inbounds nuw i8, ptr %93, i64 31
@@ -596,37 +592,39 @@ switch.lookup:                                    ; preds = %165
 
 .preheader42.i.i.i:                               ; preds = %.thread39.i.i.i, %.preheader42.lr.ph.i.i.i
   %indvars.iv53.i.i.i = phi i64 [ 0, %.preheader42.lr.ph.i.i.i ], [ %indvars.iv.next54.i.i.i, %.thread39.i.i.i ]
-  %192 = trunc nuw nsw i64 %indvars.iv53.i.i.i to i32
+  %192 = getelementptr inbounds nuw [4 x [8 x [8 x i8]]], ptr %185, i64 0, i64 %indvars.iv53.i.i.i
+  %193 = trunc nuw nsw i64 %indvars.iv53.i.i.i to i32
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %202, %.preheader42.i.i.i
   %indvars.iv49.i.i.i = phi i64 [ 0, %.preheader42.i.i.i ], [ %indvars.iv.next50.i.i.i, %202 ]
-  %193 = trunc nuw nsw i64 %indvars.iv49.i.i.i to i32
-  br label %194
+  %invariant.gep.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %192, i64 0, i64 %indvars.iv49.i.i.i
+  %194 = trunc nuw nsw i64 %indvars.iv49.i.i.i to i32
+  br label %195
 
-194:                                              ; preds = %198, %.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %198 ]
+195:                                              ; preds = %199, %.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %199 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56) #7
   store i32 3, ptr %57, align 4, !tbaa !27
-  store i32 %192, ptr %189, align 4, !tbaa !27
-  %195 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  store i32 %195, ptr %190, align 4, !tbaa !27
-  store i32 %193, ptr %191, align 4, !tbaa !27
-  %196 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.31, ptr noundef nonnull %57, ptr noundef nonnull %56, i32 noundef 1, i32 noundef 255) #7
-  %197 = icmp sgt i32 %196, -1
-  br i1 %197, label %198, label %cbs_apv_read_quantization_matrix.exit.i.i
+  store i32 %193, ptr %189, align 4, !tbaa !27
+  %196 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  store i32 %196, ptr %190, align 4, !tbaa !27
+  store i32 %194, ptr %191, align 4, !tbaa !27
+  %197 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.31, ptr noundef nonnull %57, ptr noundef nonnull %56, i32 noundef 1, i32 noundef 255) #7
+  %198 = icmp sgt i32 %197, -1
+  br i1 %198, label %199, label %cbs_apv_read_quantization_matrix.exit.i.i
 
-198:                                              ; preds = %194
-  %199 = load i32, ptr %56, align 4, !tbaa !27
-  %200 = trunc i32 %199 to i8
-  %201 = getelementptr inbounds nuw [4 x [8 x [8 x i8]]], ptr %185, i64 0, i64 %indvars.iv53.i.i.i, i64 %indvars.iv.i.i.i, i64 %indvars.iv49.i.i.i
-  store i8 %200, ptr %201, align 1, !tbaa !19
+199:                                              ; preds = %195
+  %200 = load i32, ptr %56, align 4, !tbaa !27
+  %201 = trunc i32 %200 to i8
+  %gep.i.i.i = getelementptr inbounds nuw [8 x [8 x i8]], ptr %invariant.gep.i.i.i, i64 0, i64 %indvars.iv.i.i.i
+  store i8 %201, ptr %gep.i.i.i, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #7
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.i.i.i, label %202, label %194, !llvm.loop !57
+  br i1 %exitcond.i.i.i, label %202, label %195, !llvm.loop !57
 
-202:                                              ; preds = %198
+202:                                              ; preds = %199
   %indvars.iv.next50.i.i.i = add nuw nsw i64 %indvars.iv49.i.i.i, 1
   %exitcond52.i.i.i = icmp eq i64 %indvars.iv.next50.i.i.i, 8
   br i1 %exitcond52.i.i.i, label %.thread39.i.i.i, label %.preheader.i.i.i, !llvm.loop !59
@@ -642,404 +640,405 @@ cbs_apv_read_quantization_matrix.exit.thread.i.i: ; preds = %.thread39.i.i.i, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57)
   br label %.loopexit150.i.i
 
-cbs_apv_read_quantization_matrix.exit.i.i:        ; preds = %194
+cbs_apv_read_quantization_matrix.exit.i.i:        ; preds = %195
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57)
   br label %.thread
 
-.preheader148.i.i:                                ; preds = %.preheader148.i.i, %.preheader148.lr.ph.i.i
-  %indvar.i.i = phi i64 [ 0, %.preheader148.lr.ph.i.i ], [ %indvar.next.i.i, %.preheader148.i.i ]
+.preheader148.i.i:                                ; preds = %.preheader149.i.i, %.preheader148.i.i
+  %indvar.i.i = phi i64 [ %indvar.next.i.i, %.preheader148.i.i ], [ 0, %.preheader149.i.i ]
   %205 = shl nuw nsw i64 %indvar.i.i, 6
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %205
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %gep.i.i, i8 16, i64 64, i1 false), !tbaa !19
+  %206 = getelementptr i8, ptr %114, i64 %205
+  %scevgep163.i.i = getelementptr i8, ptr %206, i64 23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %scevgep163.i.i, i8 16, i64 64, i1 false), !tbaa !19
   %indvar.next.i.i = add nuw nsw i64 %indvar.i.i, 1
   %indvars.i.i = trunc i64 %indvar.next.i.i to i32
-  %206 = load i32, ptr %174, align 4, !tbaa !55
-  %207 = icmp sgt i32 %206, %indvars.i.i
-  br i1 %207, label %.preheader148.i.i, label %.loopexit150.i.i, !llvm.loop !61
+  %207 = load i32, ptr %174, align 4, !tbaa !55
+  %208 = icmp sgt i32 %207, %indvars.i.i
+  br i1 %208, label %.preheader148.i.i, label %.loopexit150.i.i, !llvm.loop !61
 
 .loopexit150.i.i:                                 ; preds = %.preheader148.i.i, %cbs_apv_read_quantization_matrix.exit.thread.i.i, %.preheader149.i.i
-  %208 = getelementptr inbounds nuw i8, ptr %93, i64 288
+  %209 = getelementptr inbounds nuw i8, ptr %93, i64 288
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
-  %209 = load ptr, ptr %94, align 8, !tbaa !34
-  %210 = getelementptr inbounds nuw i8, ptr %93, i64 12
-  %211 = load i32, ptr %210, align 4, !tbaa !62
-  %212 = add i32 %211, 15
-  %213 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %214 = load i32, ptr %213, align 4, !tbaa !63
-  %215 = add i32 %214, 15
-  %216 = lshr i32 %215, 4
-  %217 = icmp ult i32 %212, 4816
-  br i1 %217, label %222, label %218
+  %210 = load ptr, ptr %94, align 8, !tbaa !34
+  %211 = getelementptr inbounds nuw i8, ptr %93, i64 12
+  %212 = load i32, ptr %211, align 4, !tbaa !62
+  %213 = add i32 %212, 15
+  %214 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %215 = load i32, ptr %214, align 4, !tbaa !63
+  %216 = add i32 %215, 15
+  %217 = lshr i32 %216, 4
+  %218 = icmp ult i32 %213, 4816
+  br i1 %218, label %223, label %219
 
-218:                                              ; preds = %.loopexit150.i.i
-  %219 = lshr i32 %212, 4
-  %220 = add nuw nsw i32 %219, 19
-  %221 = udiv i32 %220, 20
-  br label %222
+219:                                              ; preds = %.loopexit150.i.i
+  %220 = lshr i32 %213, 4
+  %221 = add nuw nsw i32 %220, 19
+  %222 = udiv i32 %221, 20
+  br label %223
 
-222:                                              ; preds = %218, %.loopexit150.i.i
-  %223 = phi i32 [ %221, %218 ], [ 16, %.loopexit150.i.i ]
-  %224 = icmp ult i32 %215, 2256
-  br i1 %224, label %228, label %225
+223:                                              ; preds = %219, %.loopexit150.i.i
+  %224 = phi i32 [ %222, %219 ], [ 16, %.loopexit150.i.i ]
+  %225 = icmp ult i32 %216, 2256
+  br i1 %225, label %229, label %226
 
-225:                                              ; preds = %222
-  %226 = add nuw nsw i32 %216, 19
-  %227 = udiv i32 %226, 20
-  br label %228
+226:                                              ; preds = %223
+  %227 = add nuw nsw i32 %217, 19
+  %228 = udiv i32 %227, 20
+  br label %229
 
-228:                                              ; preds = %225, %222
-  %229 = phi i32 [ %227, %225 ], [ 8, %222 ]
+229:                                              ; preds = %226, %223
+  %230 = phi i32 [ %228, %226 ], [ 8, %223 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51) #7
-  %230 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 20, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef nonnull %51, i32 noundef %223, i32 noundef 1048575) #7
-  %231 = icmp sgt i32 %230, -1
-  br i1 %231, label %232, label %.critedge.i.i.i
+  %231 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 20, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef nonnull %51, i32 noundef %224, i32 noundef 1048575) #7
+  %232 = icmp sgt i32 %231, -1
+  br i1 %232, label %233, label %.critedge.i.i.i
 
-232:                                              ; preds = %228
-  %233 = load i32, ptr %51, align 4, !tbaa !27
-  store i32 %233, ptr %208, align 4, !tbaa !64
+233:                                              ; preds = %229
+  %234 = load i32, ptr %51, align 4, !tbaa !27
+  store i32 %234, ptr %209, align 4, !tbaa !64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %52) #7
-  %234 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 20, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef nonnull %52, i32 noundef %229, i32 noundef 1048575) #7
-  %235 = icmp sgt i32 %234, -1
-  br i1 %235, label %237, label %236
+  %235 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 20, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef nonnull %52, i32 noundef %230, i32 noundef 1048575) #7
+  %236 = icmp sgt i32 %235, -1
+  br i1 %236, label %238, label %237
 
-236:                                              ; preds = %232
+237:                                              ; preds = %233
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #7
   br label %cbs_apv_read_tile_info.exit.thread.i.i
 
-237:                                              ; preds = %232
-  %238 = load i32, ptr %52, align 4, !tbaa !27
-  %239 = getelementptr inbounds nuw i8, ptr %93, i64 292
-  store i32 %238, ptr %239, align 4, !tbaa !65
+238:                                              ; preds = %233
+  %239 = load i32, ptr %52, align 4, !tbaa !27
+  %240 = getelementptr inbounds nuw i8, ptr %93, i64 292
+  store i32 %239, ptr %240, align 4, !tbaa !65
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %53) #7
-  %240 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 1, ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef nonnull %53, i32 noundef 0, i32 noundef 1) #7
-  %241 = icmp sgt i32 %240, -1
-  br i1 %241, label %243, label %242
+  %241 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 1, ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef nonnull %53, i32 noundef 0, i32 noundef 1) #7
+  %242 = icmp sgt i32 %241, -1
+  br i1 %242, label %244, label %243
 
-242:                                              ; preds = %237
+243:                                              ; preds = %238
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53) #7
   br label %cbs_apv_read_tile_info.exit.thread.i.i
 
-243:                                              ; preds = %237
-  %244 = load i32, ptr %53, align 4, !tbaa !27
-  %245 = trunc i32 %244 to i8
-  %246 = getelementptr inbounds nuw i8, ptr %93, i64 296
-  store i8 %245, ptr %246, align 4, !tbaa !66
+244:                                              ; preds = %238
+  %245 = load i32, ptr %53, align 4, !tbaa !27
+  %246 = trunc i32 %245 to i8
+  %247 = getelementptr inbounds nuw i8, ptr %93, i64 296
+  store i8 %246, ptr %247, align 4, !tbaa !66
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53) #7
-  %247 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  call fastcc void @cbs_apv_derive_tile_info(ptr noundef nonnull %247, ptr noundef nonnull readonly %114)
-  %248 = load i8, ptr %246, align 4, !tbaa !66
-  %.not.i120.i.i = icmp eq i8 %248, 0
+  %248 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  call fastcc void @cbs_apv_derive_tile_info(ptr noundef nonnull %248, ptr noundef nonnull readonly %114)
+  %249 = load i8, ptr %247, align 4, !tbaa !66
+  %.not.i120.i.i = icmp eq i8 %249, 0
   br i1 %.not.i120.i.i, label %.loopexit.i.i, label %.preheader.i121.i.i
 
-.preheader.i121.i.i:                              ; preds = %243
-  %249 = getelementptr inbounds nuw i8, ptr %209, i64 10
-  %250 = load i16, ptr %249, align 2, !tbaa !67
-  %.not5768.not.i.i.i = icmp eq i16 %250, 0
+.preheader.i121.i.i:                              ; preds = %244
+  %250 = getelementptr inbounds nuw i8, ptr %210, i64 10
+  %251 = load i16, ptr %250, align 2, !tbaa !67
+  %.not5768.not.i.i.i = icmp eq i16 %251, 0
   br i1 %.not5768.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i121.i.i
-  %251 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %252 = getelementptr inbounds nuw i8, ptr %93, i64 300
-  br label %253
+  %252 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %253 = getelementptr inbounds nuw i8, ptr %93, i64 300
+  br label %254
 
-253:                                              ; preds = %257, %.lr.ph.i.i.i
-  %indvars.iv.i122.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i123.i.i, %257 ]
+254:                                              ; preds = %258, %.lr.ph.i.i.i
+  %indvars.iv.i122.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i123.i.i, %258 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54) #7
   store i32 1, ptr %55, align 4, !tbaa !27
-  %254 = trunc nuw nsw i64 %indvars.iv.i122.i.i to i32
-  store i32 %254, ptr %251, align 4, !tbaa !27
-  %255 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.35, ptr noundef nonnull %55, ptr noundef nonnull %54, i32 noundef 10, i32 noundef -1) #7
-  %256 = icmp sgt i32 %255, -1
-  br i1 %256, label %257, label %.thread66.i.i.i
+  %255 = trunc nuw nsw i64 %indvars.iv.i122.i.i to i32
+  store i32 %255, ptr %252, align 4, !tbaa !27
+  %256 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.35, ptr noundef nonnull %55, ptr noundef nonnull %54, i32 noundef 10, i32 noundef -1) #7
+  %257 = icmp sgt i32 %256, -1
+  br i1 %257, label %258, label %.thread66.i.i.i
 
-.thread66.i.i.i:                                  ; preds = %253
+.thread66.i.i.i:                                  ; preds = %254
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #7
   br label %cbs_apv_read_tile_info.exit.thread.i.i
 
-257:                                              ; preds = %253
-  %258 = load i32, ptr %54, align 4, !tbaa !27
-  %259 = getelementptr inbounds nuw [400 x i32], ptr %252, i64 0, i64 %indvars.iv.i122.i.i
-  store i32 %258, ptr %259, align 4, !tbaa !27
+258:                                              ; preds = %254
+  %259 = load i32, ptr %54, align 4, !tbaa !27
+  %260 = getelementptr inbounds nuw [400 x i32], ptr %253, i64 0, i64 %indvars.iv.i122.i.i
+  store i32 %259, ptr %260, align 4, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #7
   %indvars.iv.next.i123.i.i = add nuw nsw i64 %indvars.iv.i122.i.i, 1
-  %260 = load i16, ptr %249, align 2, !tbaa !67
-  %261 = zext i16 %260 to i64
-  %.not57.i.i.i = icmp samesign ult i64 %indvars.iv.next.i123.i.i, %261
-  br i1 %.not57.i.i.i, label %253, label %.loopexit.i.i, !llvm.loop !68
+  %261 = load i16, ptr %250, align 2, !tbaa !67
+  %262 = zext i16 %261 to i64
+  %.not57.i.i.i = icmp samesign ult i64 %indvars.iv.next.i123.i.i, %262
+  br i1 %.not57.i.i.i, label %254, label %.loopexit.i.i, !llvm.loop !68
 
-.critedge.i.i.i:                                  ; preds = %228
+.critedge.i.i.i:                                  ; preds = %229
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #7
   br label %cbs_apv_read_tile_info.exit.thread.i.i
 
-cbs_apv_read_tile_info.exit.thread.i.i:           ; preds = %.critedge.i.i.i, %.thread66.i.i.i, %242, %236
-  %.148.i.ph.i.i = phi i32 [ %255, %.thread66.i.i.i ], [ %230, %.critedge.i.i.i ], [ %234, %236 ], [ %240, %242 ]
+cbs_apv_read_tile_info.exit.thread.i.i:           ; preds = %.critedge.i.i.i, %.thread66.i.i.i, %243, %237
+  %.148.i.ph.i.i = phi i32 [ %256, %.thread66.i.i.i ], [ %231, %.critedge.i.i.i ], [ %235, %237 ], [ %241, %243 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
   br label %.thread
 
-.loopexit.i.i:                                    ; preds = %257, %.preheader.i121.i.i, %243
+.loopexit.i.i:                                    ; preds = %258, %.preheader.i121.i.i, %244
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %65) #7
-  %262 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef nonnull %65, i32 noundef 0, i32 noundef 0) #7
-  %263 = icmp sgt i32 %262, -1
-  br i1 %263, label %265, label %264
+  %263 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef nonnull %65, i32 noundef 0, i32 noundef 0) #7
+  %264 = icmp sgt i32 %263, -1
+  br i1 %264, label %266, label %265
 
-264:                                              ; preds = %.loopexit.i.i
+265:                                              ; preds = %.loopexit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65) #7
   br label %.thread
 
-265:                                              ; preds = %.loopexit.i.i
-  %266 = load i32, ptr %65, align 4, !tbaa !27
-  %267 = trunc i32 %266 to i8
-  %268 = getelementptr inbounds nuw i8, ptr %93, i64 1900
-  store i8 %267, ptr %268, align 4, !tbaa !69
+266:                                              ; preds = %.loopexit.i.i
+  %267 = load i32, ptr %65, align 4, !tbaa !27
+  %268 = trunc i32 %267 to i8
+  %269 = getelementptr inbounds nuw i8, ptr %93, i64 1900
+  store i8 %268, ptr %269, align 4, !tbaa !69
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65) #7
-  br label %269
+  br label %270
 
-269:                                              ; preds = %278, %265
+270:                                              ; preds = %279, %266
   %.val.i.i.i = load i32, ptr %85, align 8, !tbaa !26
-  %270 = and i32 %.val.i.i.i, 7
-  %.not.i124.i.i = icmp eq i32 %270, 0
-  br i1 %.not.i124.i.i, label %cbs_apv_read_frame_header.exit.preheader.i, label %278
+  %271 = and i32 %.val.i.i.i, 7
+  %.not.i124.i.i = icmp eq i32 %271, 0
+  br i1 %.not.i124.i.i, label %cbs_apv_read_frame_header.exit.preheader.i, label %279
 
-cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %269
-  %271 = getelementptr inbounds nuw i8, ptr %95, i64 10
-  %272 = load i16, ptr %271, align 2, !tbaa !67
-  %.not101.not.i = icmp eq i16 %272, 0
+cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
+  %272 = getelementptr inbounds nuw i8, ptr %95, i64 10
+  %273 = load i16, ptr %272, align 2, !tbaa !67
+  %.not101.not.i = icmp eq i16 %273, 0
   br i1 %.not101.not.i, label %.thread65.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %cbs_apv_read_frame_header.exit.preheader.i
-  %273 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %274 = getelementptr inbounds nuw i8, ptr %93, i64 1904
-  %275 = getelementptr inbounds nuw i8, ptr %93, i64 3504
-  %276 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %277 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  br label %281
+  %274 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %275 = getelementptr inbounds nuw i8, ptr %93, i64 1904
+  %276 = getelementptr inbounds nuw i8, ptr %93, i64 3504
+  %277 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %278 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  br label %282
 
-278:                                              ; preds = %269
+279:                                              ; preds = %270
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %50) #7
-  %279 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 1, ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull %50, i32 noundef 0, i32 noundef 0) #7
-  %280 = icmp sgt i32 %279, -1
+  %280 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 1, ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull %50, i32 noundef 0, i32 noundef 0) #7
+  %281 = icmp sgt i32 %280, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #7
-  br i1 %280, label %269, label %.thread, !llvm.loop !70
+  br i1 %281, label %270, label %.thread, !llvm.loop !70
 
 .critedge.i47.i:                                  ; preds = %118
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #7
   br label %.thread
 
-281:                                              ; preds = %cbs_apv_read_frame_header.exit.i, %.lr.ph.i
+282:                                              ; preds = %cbs_apv_read_frame_header.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %cbs_apv_read_frame_header.exit.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %69) #7
   store i32 1, ptr %70, align 4, !tbaa !27
-  %282 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %282, ptr %273, align 4, !tbaa !27
-  %283 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.12, ptr noundef nonnull %70, ptr noundef nonnull %69, i32 noundef 10, i32 noundef -1) #7
-  %284 = icmp sgt i32 %283, -1
-  br i1 %284, label %285, label %.thread63.i
+  %283 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %283, ptr %274, align 4, !tbaa !27
+  %284 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.12, ptr noundef nonnull %70, ptr noundef nonnull %69, i32 noundef 10, i32 noundef -1) #7
+  %285 = icmp sgt i32 %284, -1
+  br i1 %285, label %286, label %.thread63.i
 
-.thread63.i:                                      ; preds = %281
+.thread63.i:                                      ; preds = %282
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %69) #7
   br label %.thread
 
-285:                                              ; preds = %281
-  %286 = load i32, ptr %69, align 4, !tbaa !27
-  %287 = getelementptr inbounds nuw [400 x i32], ptr %274, i64 0, i64 %indvars.iv.i
-  store i32 %286, ptr %287, align 4, !tbaa !27
+286:                                              ; preds = %282
+  %287 = load i32, ptr %69, align 4, !tbaa !27
+  %288 = getelementptr inbounds nuw [400 x i32], ptr %275, i64 0, i64 %indvars.iv.i
+  store i32 %287, ptr %288, align 4, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %69) #7
-  %288 = getelementptr inbounds nuw [400 x %struct.APVRawTile], ptr %275, i64 0, i64 %indvars.iv.i
-  %289 = load ptr, ptr %94, align 8, !tbaa !34
+  %289 = getelementptr inbounds nuw [400 x %struct.APVRawTile], ptr %276, i64 0, i64 %indvars.iv.i
+  %290 = load ptr, ptr %94, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
-  %290 = getelementptr inbounds nuw i8, ptr %289, i64 4
-  %291 = load i32, ptr %290, align 4, !tbaa !55
-  %292 = mul i32 %291, 5
-  %293 = add i32 %292, 5
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 4
+  %292 = load i32, ptr %291, align 4, !tbaa !55
+  %293 = mul i32 %292, 5
+  %294 = add i32 %293, 5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #7
-  %294 = and i32 %293, 65535
-  %295 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.42, ptr noundef null, ptr noundef nonnull %43, i32 noundef %294, i32 noundef %294) #7
-  %296 = icmp sgt i32 %295, -1
-  br i1 %296, label %297, label %.critedge.i.i48.i
+  %295 = and i32 %294, 65535
+  %296 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.42, ptr noundef null, ptr noundef nonnull %43, i32 noundef %295, i32 noundef %295) #7
+  %297 = icmp sgt i32 %296, -1
+  br i1 %297, label %298, label %.critedge.i.i48.i
 
-297:                                              ; preds = %285
-  %298 = load i32, ptr %43, align 4, !tbaa !27
-  %299 = trunc i32 %298 to i16
-  store i16 %299, ptr %288, align 4, !tbaa !71
+298:                                              ; preds = %286
+  %299 = load i32, ptr %43, align 4, !tbaa !27
+  %300 = trunc i32 %299 to i16
+  store i16 %300, ptr %289, align 4, !tbaa !71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #7
-  %300 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull %44, i32 noundef range(i32 -2147483648, 65535) %282, i32 noundef range(i32 -2147483648, 65535) %282) #7
-  %301 = icmp sgt i32 %300, -1
-  br i1 %301, label %303, label %302
+  %301 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull %44, i32 noundef range(i32 -2147483648, 65535) %283, i32 noundef range(i32 -2147483648, 65535) %283) #7
+  %302 = icmp sgt i32 %301, -1
+  br i1 %302, label %304, label %303
 
-302:                                              ; preds = %297
+303:                                              ; preds = %298
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #7
   br label %.thread67.i
 
-303:                                              ; preds = %297
-  %304 = load i32, ptr %44, align 4, !tbaa !27
-  %305 = trunc i32 %304 to i16
-  %306 = getelementptr inbounds nuw i8, ptr %288, i64 2
-  store i16 %305, ptr %306, align 2, !tbaa !73
+304:                                              ; preds = %298
+  %305 = load i32, ptr %44, align 4, !tbaa !27
+  %306 = trunc i32 %305 to i16
+  %307 = getelementptr inbounds nuw i8, ptr %289, i64 2
+  store i16 %306, ptr %307, align 2, !tbaa !73
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #7
-  %307 = load i32, ptr %290, align 4, !tbaa !55
-  %.not90.i.i.i = icmp sgt i32 %307, 0
+  %308 = load i32, ptr %291, align 4, !tbaa !55
+  %.not90.i.i.i = icmp sgt i32 %308, 0
   br i1 %.not90.i.i.i, label %.lr.ph.i.i50.i, label %._crit_edge97.i.i.i
 
-.lr.ph.i.i50.i:                                   ; preds = %303
-  %308 = load i16, ptr %288, align 4, !tbaa !71
-  %309 = zext i16 %308 to i32
-  %310 = sub i32 %286, %309
-  %311 = getelementptr inbounds nuw i8, ptr %288, i64 4
-  br label %312
+.lr.ph.i.i50.i:                                   ; preds = %304
+  %309 = load i16, ptr %289, align 4, !tbaa !71
+  %310 = zext i16 %309 to i32
+  %311 = sub i32 %287, %310
+  %312 = getelementptr inbounds nuw i8, ptr %289, i64 4
+  br label %313
 
-312:                                              ; preds = %316, %.lr.ph.i.i50.i
-  %indvars.iv.i.i51.i = phi i64 [ 0, %.lr.ph.i.i50.i ], [ %indvars.iv.next.i.i52.i, %316 ]
-  %.07191.i.i.i = phi i32 [ %310, %.lr.ph.i.i50.i ], [ %319, %316 ]
+313:                                              ; preds = %317, %.lr.ph.i.i50.i
+  %indvars.iv.i.i51.i = phi i64 [ 0, %.lr.ph.i.i50.i ], [ %indvars.iv.next.i.i52.i, %317 ]
+  %.07191.i.i.i = phi i32 [ %311, %.lr.ph.i.i50.i ], [ %320, %317 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #7
   store i32 1, ptr %46, align 4, !tbaa !27
-  %313 = trunc nuw nsw i64 %indvars.iv.i.i51.i to i32
-  store i32 %313, ptr %276, align 4, !tbaa !27
-  %314 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.44, ptr noundef nonnull %46, ptr noundef nonnull %45, i32 noundef 1, i32 noundef %.07191.i.i.i) #7
-  %315 = icmp sgt i32 %314, -1
-  br i1 %315, label %316, label %.thread82.i.i.i
+  %314 = trunc nuw nsw i64 %indvars.iv.i.i51.i to i32
+  store i32 %314, ptr %277, align 4, !tbaa !27
+  %315 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.44, ptr noundef nonnull %46, ptr noundef nonnull %45, i32 noundef 1, i32 noundef %.07191.i.i.i) #7
+  %316 = icmp sgt i32 %315, -1
+  br i1 %316, label %317, label %.thread82.i.i.i
 
-.thread82.i.i.i:                                  ; preds = %312
+.thread82.i.i.i:                                  ; preds = %313
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #7
-  br label %367
+  br label %368
 
-316:                                              ; preds = %312
-  %317 = load i32, ptr %45, align 4, !tbaa !27
-  %318 = getelementptr inbounds nuw [4 x i32], ptr %311, i64 0, i64 %indvars.iv.i.i51.i
-  store i32 %317, ptr %318, align 4, !tbaa !27
+317:                                              ; preds = %313
+  %318 = load i32, ptr %45, align 4, !tbaa !27
+  %319 = getelementptr inbounds nuw [4 x i32], ptr %312, i64 0, i64 %indvars.iv.i.i51.i
+  store i32 %318, ptr %319, align 4, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #7
-  %319 = sub i32 %.07191.i.i.i, %317
+  %320 = sub i32 %.07191.i.i.i, %318
   %indvars.iv.next.i.i52.i = add nuw nsw i64 %indvars.iv.i.i51.i, 1
-  %320 = load i32, ptr %290, align 4, !tbaa !55
-  %321 = sext i32 %320 to i64
-  %.not.i.i53.i = icmp slt i64 %indvars.iv.next.i.i52.i, %321
-  br i1 %.not.i.i53.i, label %312, label %._crit_edge.i.i.i, !llvm.loop !74
+  %321 = load i32, ptr %291, align 4, !tbaa !55
+  %322 = sext i32 %321 to i64
+  %.not.i.i53.i = icmp slt i64 %indvars.iv.next.i.i52.i, %322
+  br i1 %.not.i.i53.i, label %313, label %._crit_edge.i.i.i, !llvm.loop !74
 
-._crit_edge.i.i.i:                                ; preds = %316
-  %322 = icmp sgt i32 %320, 0
-  br i1 %322, label %.lr.ph96.i.i.i, label %._crit_edge97.i.i.i
+._crit_edge.i.i.i:                                ; preds = %317
+  %323 = icmp sgt i32 %321, 0
+  br i1 %323, label %.lr.ph96.i.i.i, label %._crit_edge97.i.i.i
 
 .lr.ph96.i.i.i:                                   ; preds = %._crit_edge.i.i.i
-  %323 = load i32, ptr %289, align 4, !tbaa !51
-  %324 = mul i32 %323, 6
-  %325 = add i32 %324, 3
-  %326 = and i32 %325, 255
-  %327 = getelementptr inbounds nuw i8, ptr %288, i64 20
-  br label %328
+  %324 = load i32, ptr %290, align 4, !tbaa !51
+  %325 = mul i32 %324, 6
+  %326 = add i32 %325, 3
+  %327 = and i32 %326, 255
+  %328 = getelementptr inbounds nuw i8, ptr %289, i64 20
+  br label %329
 
-328:                                              ; preds = %332, %.lr.ph96.i.i.i
-  %indvars.iv102.i.i.i = phi i64 [ 0, %.lr.ph96.i.i.i ], [ %indvars.iv.next103.i.i.i, %332 ]
+329:                                              ; preds = %333, %.lr.ph96.i.i.i
+  %indvars.iv102.i.i.i = phi i64 [ 0, %.lr.ph96.i.i.i ], [ %indvars.iv.next103.i.i.i, %333 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47) #7
   store i32 1, ptr %48, align 4, !tbaa !27
-  %329 = trunc nuw nsw i64 %indvars.iv102.i.i.i to i32
-  store i32 %329, ptr %277, align 4, !tbaa !27
-  %330 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.45, ptr noundef nonnull %48, ptr noundef nonnull %47, i32 noundef 0, i32 noundef %326) #7
-  %331 = icmp sgt i32 %330, -1
-  br i1 %331, label %332, label %.thread87.i.i.i
+  %330 = trunc nuw nsw i64 %indvars.iv102.i.i.i to i32
+  store i32 %330, ptr %278, align 4, !tbaa !27
+  %331 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.45, ptr noundef nonnull %48, ptr noundef nonnull %47, i32 noundef 0, i32 noundef %327) #7
+  %332 = icmp sgt i32 %331, -1
+  br i1 %332, label %333, label %.thread87.i.i.i
 
-.thread87.i.i.i:                                  ; preds = %328
+.thread87.i.i.i:                                  ; preds = %329
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #7
-  br label %367
+  br label %368
 
-332:                                              ; preds = %328
-  %333 = load i32, ptr %47, align 4, !tbaa !27
-  %334 = trunc i32 %333 to i8
-  %335 = getelementptr inbounds nuw [4 x i8], ptr %327, i64 0, i64 %indvars.iv102.i.i.i
-  store i8 %334, ptr %335, align 1, !tbaa !19
+333:                                              ; preds = %329
+  %334 = load i32, ptr %47, align 4, !tbaa !27
+  %335 = trunc i32 %334 to i8
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %328, i64 0, i64 %indvars.iv102.i.i.i
+  store i8 %335, ptr %336, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #7
   %indvars.iv.next103.i.i.i = add nuw nsw i64 %indvars.iv102.i.i.i, 1
-  %336 = load i32, ptr %290, align 4, !tbaa !55
-  %337 = sext i32 %336 to i64
-  %.not76.i.i.i = icmp slt i64 %indvars.iv.next103.i.i.i, %337
-  br i1 %.not76.i.i.i, label %328, label %._crit_edge97.i.i.i, !llvm.loop !75
+  %337 = load i32, ptr %291, align 4, !tbaa !55
+  %338 = sext i32 %337 to i64
+  %.not76.i.i.i = icmp slt i64 %indvars.iv.next103.i.i.i, %338
+  br i1 %.not76.i.i.i, label %329, label %._crit_edge97.i.i.i, !llvm.loop !75
 
-._crit_edge97.i.i.i:                              ; preds = %332, %._crit_edge.i.i.i, %303
+._crit_edge97.i.i.i:                              ; preds = %333, %._crit_edge.i.i.i, %304
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49) #7
-  %338 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %49, i32 noundef 0, i32 noundef 0) #7
-  %339 = icmp sgt i32 %338, -1
-  br i1 %339, label %cbs_apv_read_tile_header.exit.i.i, label %cbs_apv_read_tile_header.exit.thread24.i.i
+  %339 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %49, i32 noundef 0, i32 noundef 0) #7
+  %340 = icmp sgt i32 %339, -1
+  br i1 %340, label %cbs_apv_read_tile_header.exit.i.i, label %cbs_apv_read_tile_header.exit.thread24.i.i
 
 cbs_apv_read_tile_header.exit.thread24.i.i:       ; preds = %._crit_edge97.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #7
-  br label %367
+  br label %368
 
-.critedge.i.i48.i:                                ; preds = %285
+.critedge.i.i48.i:                                ; preds = %286
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #7
   br label %.thread67.i
 
 cbs_apv_read_tile_header.exit.i.i:                ; preds = %._crit_edge97.i.i.i
-  %340 = load i32, ptr %49, align 4, !tbaa !27
-  %341 = trunc i32 %340 to i8
-  %342 = getelementptr inbounds nuw i8, ptr %288, i64 24
-  store i8 %341, ptr %342, align 4, !tbaa !76
+  %341 = load i32, ptr %49, align 4, !tbaa !27
+  %342 = trunc i32 %341 to i8
+  %343 = getelementptr inbounds nuw i8, ptr %289, i64 24
+  store i8 %342, ptr %343, align 4, !tbaa !76
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
-  %343 = load i32, ptr %290, align 4, !tbaa !55
-  %344 = icmp sgt i32 %343, 0
-  br i1 %344, label %.lr.ph.i.i, label %cbs_apv_read_frame_header.exit.i
+  %344 = load i32, ptr %291, align 4, !tbaa !55
+  %345 = icmp sgt i32 %344, 0
+  br i1 %345, label %.lr.ph.i.i, label %cbs_apv_read_frame_header.exit.i
 
 .lr.ph.i.i:                                       ; preds = %cbs_apv_read_tile_header.exit.i.i
-  %345 = getelementptr inbounds nuw i8, ptr %288, i64 4
-  %346 = getelementptr inbounds nuw i8, ptr %288, i64 32
+  %346 = getelementptr inbounds nuw i8, ptr %289, i64 4
+  %347 = getelementptr inbounds nuw i8, ptr %289, i64 32
   %.promoted.i.i = load i32, ptr %85, align 8, !tbaa !26
-  %wide.trip.count.i.i = zext nneg i32 %343 to i64
-  %347 = load i32, ptr %81, align 8
-  br label %348
+  %wide.trip.count.i.i = zext nneg i32 %344 to i64
+  %348 = load i32, ptr %81, align 8
+  br label %349
 
-348:                                              ; preds = %align_get_bits.exit.i.i, %.lr.ph.i.i
+349:                                              ; preds = %align_get_bits.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %align_get_bits.exit.i.i ]
-  %349 = phi i32 [ %.promoted.i.i, %.lr.ph.i.i ], [ %364, %align_get_bits.exit.i.i ]
-  %350 = and i32 %349, 7
-  %351 = icmp eq i32 %350, 0
-  br i1 %351, label %align_get_bits.exit.i.i, label %352
+  %350 = phi i32 [ %.promoted.i.i, %.lr.ph.i.i ], [ %365, %align_get_bits.exit.i.i ]
+  %351 = and i32 %350, 7
+  %352 = icmp eq i32 %351, 0
+  br i1 %352, label %align_get_bits.exit.i.i, label %353
 
-352:                                              ; preds = %348
+353:                                              ; preds = %349
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef 238) #7
   call void @abort() #8
   unreachable
 
-align_get_bits.exit.i.i:                          ; preds = %348
-  %353 = getelementptr inbounds nuw [4 x i32], ptr %345, i64 0, i64 %indvars.iv.i.i
-  %354 = load i32, ptr %353, align 4, !tbaa !27
-  %355 = load ptr, ptr %71, align 8, !tbaa !21
-  %356 = ashr exact i32 %349, 3
-  %357 = sext i32 %356 to i64
-  %358 = getelementptr inbounds i8, ptr %355, i64 %357
-  %359 = getelementptr inbounds nuw [4 x ptr], ptr %346, i64 0, i64 %indvars.iv.i.i
-  store ptr %358, ptr %359, align 8, !tbaa !77
-  %360 = shl i32 %354, 3
-  %361 = sub nsw i32 0, %349
-  %362 = sub nsw i32 %347, %349
-  %363 = icmp slt i32 %360, %361
-  %..i.i.i.i = call i32 @llvm.smin.i32(i32 %360, i32 %362)
-  %.0.i.i.i.i = select i1 %363, i32 %361, i32 %..i.i.i.i
-  %364 = add nsw i32 %.0.i.i.i.i, %349
-  store i32 %364, ptr %85, align 8, !tbaa !26
+align_get_bits.exit.i.i:                          ; preds = %349
+  %354 = getelementptr inbounds nuw [4 x i32], ptr %346, i64 0, i64 %indvars.iv.i.i
+  %355 = load i32, ptr %354, align 4, !tbaa !27
+  %356 = load ptr, ptr %71, align 8, !tbaa !21
+  %357 = ashr exact i32 %350, 3
+  %358 = sext i32 %357 to i64
+  %359 = getelementptr inbounds i8, ptr %356, i64 %358
+  %360 = getelementptr inbounds nuw [4 x ptr], ptr %347, i64 0, i64 %indvars.iv.i.i
+  store ptr %359, ptr %360, align 8, !tbaa !77
+  %361 = shl i32 %355, 3
+  %362 = sub nsw i32 0, %350
+  %363 = sub nsw i32 %348, %350
+  %364 = icmp slt i32 %361, %362
+  %..i.i.i.i = call i32 @llvm.smin.i32(i32 %361, i32 %363)
+  %.0.i.i.i.i = select i1 %364, i32 %362, i32 %..i.i.i.i
+  %365 = add nsw i32 %.0.i.i.i.i, %350
+  store i32 %365, ptr %85, align 8, !tbaa !26
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %cbs_apv_read_frame_header.exit.i, label %348, !llvm.loop !78
+  br i1 %exitcond.not.i.i, label %cbs_apv_read_frame_header.exit.i, label %349, !llvm.loop !78
 
 cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit.i.i, %cbs_apv_read_tile_header.exit.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %365 = load i16, ptr %271, align 2, !tbaa !67
-  %366 = zext i16 %365 to i64
-  %.not.i = icmp samesign ult i64 %indvars.iv.next.i, %366
-  br i1 %.not.i, label %281, label %.thread65.loopexit.i, !llvm.loop !79
+  %366 = load i16, ptr %272, align 2, !tbaa !67
+  %367 = zext i16 %366 to i64
+  %.not.i = icmp samesign ult i64 %indvars.iv.next.i, %367
+  br i1 %.not.i, label %282, label %.thread65.loopexit.i, !llvm.loop !79
 
-.thread67.i:                                      ; preds = %.critedge.i.i48.i, %302
-  %.0.ph.i.ph.i = phi i32 [ %300, %302 ], [ %295, %.critedge.i.i48.i ]
+.thread67.i:                                      ; preds = %.critedge.i.i48.i, %303
+  %.0.ph.i.ph.i = phi i32 [ %301, %303 ], [ %296, %.critedge.i.i48.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
   br label %.thread
 
-367:                                              ; preds = %cbs_apv_read_tile_header.exit.thread24.i.i, %.thread87.i.i.i, %.thread82.i.i.i
-  %.0.ph.i.i = phi i32 [ %338, %cbs_apv_read_tile_header.exit.thread24.i.i ], [ %330, %.thread87.i.i.i ], [ %314, %.thread82.i.i.i ]
+368:                                              ; preds = %cbs_apv_read_tile_header.exit.thread24.i.i, %.thread87.i.i.i, %.thread82.i.i.i
+  %.0.ph.i.i = phi i32 [ %339, %cbs_apv_read_tile_header.exit.thread24.i.i ], [ %331, %.thread87.i.i.i ], [ %315, %.thread82.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
   br label %.thread
@@ -1052,158 +1051,158 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
 .thread65.i:                                      ; preds = %.thread65.loopexit.i, %cbs_apv_read_frame_header.exit.preheader.i
   %.pre-phi.i = phi i32 [ %.pre.i, %.thread65.loopexit.i ], [ 0, %cbs_apv_read_frame_header.exit.preheader.i ]
   %.val1214.i.i = phi i32 [ %.val1214.i.pre.i, %.thread65.loopexit.i ], [ %.val.i.i.i, %cbs_apv_read_frame_header.exit.preheader.i ]
-  %368 = getelementptr inbounds nuw i8, ptr %93, i64 35504
-  store i64 0, ptr %368, align 8, !tbaa !80
+  %369 = getelementptr inbounds nuw i8, ptr %93, i64 35504
+  store i64 0, ptr %369, align 8, !tbaa !80
   %.val13.i.i = load ptr, ptr %71, align 8, !tbaa !21
-  %369 = lshr i32 %.val1214.i.i, 3
-  %370 = zext nneg i32 %369 to i64
-  %371 = getelementptr inbounds nuw i8, ptr %.val13.i.i, i64 %370
-  %372 = load i32, ptr %371, align 1, !tbaa !19
-  %373 = call i32 @llvm.bswap.i32(i32 %372)
-  %374 = shl i32 %373, %.pre-phi.i
-  %375 = icmp ugt i32 %374, -16777217
-  br i1 %375, label %.lr.ph.i54.i, label %.loopexit
+  %370 = lshr i32 %.val1214.i.i, 3
+  %371 = zext nneg i32 %370 to i64
+  %372 = getelementptr inbounds nuw i8, ptr %.val13.i.i, i64 %371
+  %373 = load i32, ptr %372, align 1, !tbaa !19
+  %374 = call i32 @llvm.bswap.i32(i32 %373)
+  %375 = shl i32 %374, %.pre-phi.i
+  %376 = icmp ugt i32 %375, -16777217
+  br i1 %376, label %.lr.ph.i54.i, label %.loopexit
 
-.lr.ph.i54.i:                                     ; preds = %.thread65.i, %378
+.lr.ph.i54.i:                                     ; preds = %.thread65.i, %379
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #7
-  %376 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %42, i32 noundef 255, i32 noundef 255) #7
-  %377 = icmp sgt i32 %376, -1
+  %377 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %42, i32 noundef 255, i32 noundef 255) #7
+  %378 = icmp sgt i32 %377, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #7
-  br i1 %377, label %378, label %.thread
+  br i1 %378, label %379, label %.thread
 
-378:                                              ; preds = %.lr.ph.i54.i
-  %379 = load i64, ptr %368, align 8, !tbaa !80
-  %380 = add i64 %379, 1
-  store i64 %380, ptr %368, align 8, !tbaa !80
+379:                                              ; preds = %.lr.ph.i54.i
+  %380 = load i64, ptr %369, align 8, !tbaa !80
+  %381 = add i64 %380, 1
+  store i64 %381, ptr %369, align 8, !tbaa !80
   %.val.i55.i = load ptr, ptr %71, align 8, !tbaa !21
   %.val12.i.i = load i32, ptr %85, align 8, !tbaa !26
-  %381 = lshr i32 %.val12.i.i, 3
-  %382 = zext nneg i32 %381 to i64
-  %383 = getelementptr inbounds nuw i8, ptr %.val.i55.i, i64 %382
-  %384 = load i32, ptr %383, align 1, !tbaa !19
-  %385 = call i32 @llvm.bswap.i32(i32 %384)
-  %386 = and i32 %.val12.i.i, 7
-  %387 = shl i32 %385, %386
-  %388 = icmp ugt i32 %387, -16777217
-  br i1 %388, label %.lr.ph.i54.i, label %.loopexit, !llvm.loop !82
+  %382 = lshr i32 %.val12.i.i, 3
+  %383 = zext nneg i32 %382 to i64
+  %384 = getelementptr inbounds nuw i8, ptr %.val.i55.i, i64 %383
+  %385 = load i32, ptr %384, align 1, !tbaa !19
+  %386 = call i32 @llvm.bswap.i32(i32 %385)
+  %387 = and i32 %.val12.i.i, 7
+  %388 = shl i32 %386, %387
+  %389 = icmp ugt i32 %388, -16777217
+  br i1 %389, label %.lr.ph.i54.i, label %.loopexit, !llvm.loop !82
 
-.thread:                                          ; preds = %278, %.lr.ph.i54.i, %264, %177, %159, %149, %142, %135, %127, %110, %.critedge.i47.i, %cbs_apv_read_quantization_matrix.exit.i.i, %cbs_apv_read_tile_info.exit.thread.i.i, %103, %.critedge.i.i, %.thread67.i, %.thread63.i, %cbs_apv_read_pbu_header.exit.thread57.i, %367
-  %.040.i.ph = phi i32 [ %262, %264 ], [ %175, %177 ], [ %154, %159 ], [ %147, %149 ], [ %140, %142 ], [ %133, %135 ], [ %125, %127 ], [ %116, %110 ], [ %119, %.critedge.i47.i ], [ %196, %cbs_apv_read_quantization_matrix.exit.i.i ], [ %.148.i.ph.i.i, %cbs_apv_read_tile_info.exit.thread.i.i ], [ %101, %103 ], [ %96, %.critedge.i.i ], [ %.0.ph.i.ph.i, %.thread67.i ], [ %283, %.thread63.i ], [ %108, %cbs_apv_read_pbu_header.exit.thread57.i ], [ %.0.ph.i.i, %367 ], [ %376, %.lr.ph.i54.i ], [ %279, %278 ]
+.thread:                                          ; preds = %279, %.lr.ph.i54.i, %265, %177, %159, %149, %142, %135, %127, %110, %.critedge.i47.i, %cbs_apv_read_quantization_matrix.exit.i.i, %cbs_apv_read_tile_info.exit.thread.i.i, %103, %.critedge.i.i, %.thread67.i, %.thread63.i, %cbs_apv_read_pbu_header.exit.thread57.i, %368
+  %.040.i.ph = phi i32 [ %263, %265 ], [ %175, %177 ], [ %154, %159 ], [ %147, %149 ], [ %140, %142 ], [ %133, %135 ], [ %125, %127 ], [ %116, %110 ], [ %119, %.critedge.i47.i ], [ %197, %cbs_apv_read_quantization_matrix.exit.i.i ], [ %.148.i.ph.i.i, %cbs_apv_read_tile_info.exit.thread.i.i ], [ %101, %103 ], [ %96, %.critedge.i.i ], [ %.0.ph.i.ph.i, %.thread67.i ], [ %284, %.thread63.i ], [ %108, %cbs_apv_read_pbu_header.exit.thread57.i ], [ %.0.ph.i.i, %368 ], [ %377, %.lr.ph.i54.i ], [ %280, %279 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70)
   br label %cbs_apv_read_filler.exit
 
-.loopexit:                                        ; preds = %378, %.thread65.i
+.loopexit:                                        ; preds = %379, %.thread65.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70)
-  %389 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %390 = load ptr, ptr %389, align 8, !tbaa !83
-  %391 = call ptr @av_buffer_ref(ptr noundef %390) #7
-  %392 = getelementptr inbounds nuw i8, ptr %93, i64 35512
-  store ptr %391, ptr %392, align 8, !tbaa !84
-  %.not.not = icmp eq ptr %391, null
+  %390 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %391 = load ptr, ptr %390, align 8, !tbaa !83
+  %392 = call ptr @av_buffer_ref(ptr noundef %391) #7
+  %393 = getelementptr inbounds nuw i8, ptr %93, i64 35512
+  store ptr %392, ptr %393, align 8, !tbaa !84
+  %.not.not = icmp eq ptr %392, null
   br i1 %.not.not, label %cbs_apv_read_filler.exit, label %cbs_apv_read_metadata.exit
 
-393:                                              ; preds = %89
-  %394 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %395 = load ptr, ptr %394, align 8, !tbaa !33
+394:                                              ; preds = %89
+  %395 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %396 = load ptr, ptr %395, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.46) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #7
-  %396 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef nonnull %34, i32 noundef 1, i32 noundef 8) #7
-  %397 = icmp sgt i32 %396, -1
-  br i1 %397, label %398, label %.critedge.i
+  %397 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef nonnull %34, i32 noundef 1, i32 noundef 8) #7
+  %398 = icmp sgt i32 %397, -1
+  br i1 %398, label %399, label %.critedge.i
 
-398:                                              ; preds = %393
-  %399 = load i32, ptr %34, align 4, !tbaa !27
-  %400 = trunc i32 %399 to i16
-  store i16 %400, ptr %395, align 8, !tbaa !86
+399:                                              ; preds = %394
+  %400 = load i32, ptr %34, align 4, !tbaa !27
+  %401 = trunc i32 %400 to i16
+  store i16 %401, ptr %396, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #7
-  %401 = and i32 %399, 65535
-  %.not83.not.i = icmp eq i32 %401, 0
+  %402 = and i32 %400, 65535
+  %.not83.not.i = icmp eq i32 %402, 0
   br i1 %.not83.not.i, label %._crit_edge.i, label %.lr.ph.i38
 
-.lr.ph.i38:                                       ; preds = %398
-  %402 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %403 = getelementptr inbounds nuw i8, ptr %395, i64 2
-  %404 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %405 = getelementptr inbounds nuw i8, ptr %395, i64 10
-  %406 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %407 = getelementptr inbounds nuw i8, ptr %395, i64 18
-  %408 = getelementptr inbounds nuw i8, ptr %395, i64 28
-  br label %412
+.lr.ph.i38:                                       ; preds = %399
+  %403 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %404 = getelementptr inbounds nuw i8, ptr %396, i64 2
+  %405 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %406 = getelementptr inbounds nuw i8, ptr %396, i64 10
+  %407 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %408 = getelementptr inbounds nuw i8, ptr %396, i64 18
+  %409 = getelementptr inbounds nuw i8, ptr %396, i64 28
+  br label %413
 
-409:                                              ; preds = %431
+410:                                              ; preds = %432
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
-  %410 = load i16, ptr %395, align 8, !tbaa !86
-  %411 = zext i16 %410 to i64
-  %.not.i41 = icmp samesign ult i64 %indvars.iv.next.i40, %411
-  br i1 %.not.i41, label %412, label %._crit_edge.i, !llvm.loop !88
+  %411 = load i16, ptr %396, align 8, !tbaa !86
+  %412 = zext i16 %411 to i64
+  %.not.i41 = icmp samesign ult i64 %indvars.iv.next.i40, %412
+  br i1 %.not.i41, label %413, label %._crit_edge.i, !llvm.loop !88
 
-412:                                              ; preds = %409, %.lr.ph.i38
-  %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.i38 ], [ %indvars.iv.next.i40, %409 ]
+413:                                              ; preds = %410, %.lr.ph.i38
+  %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.i38 ], [ %indvars.iv.next.i40, %410 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #7
   store i32 1, ptr %36, align 4, !tbaa !27
-  %413 = trunc nuw nsw i64 %indvars.iv.i39 to i32
-  store i32 %413, ptr %402, align 4, !tbaa !27
-  %414 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %36, ptr noundef nonnull %35, i32 noundef 0, i32 noundef 255) #7
-  %415 = icmp sgt i32 %414, -1
-  br i1 %415, label %417, label %416
+  %414 = trunc nuw nsw i64 %indvars.iv.i39 to i32
+  store i32 %414, ptr %403, align 4, !tbaa !27
+  %415 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %36, ptr noundef nonnull %35, i32 noundef 0, i32 noundef 255) #7
+  %416 = icmp sgt i32 %415, -1
+  br i1 %416, label %418, label %417
 
-416:                                              ; preds = %412
+417:                                              ; preds = %413
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #7
   br label %cbs_apv_read_au_info.exit.thread
 
-417:                                              ; preds = %412
-  %418 = load i32, ptr %35, align 4, !tbaa !27
-  %419 = trunc i32 %418 to i8
-  %420 = getelementptr inbounds nuw [8 x i8], ptr %403, i64 0, i64 %indvars.iv.i39
-  store i8 %419, ptr %420, align 1, !tbaa !19
+418:                                              ; preds = %413
+  %419 = load i32, ptr %35, align 4, !tbaa !27
+  %420 = trunc i32 %419 to i8
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %404, i64 0, i64 %indvars.iv.i39
+  store i8 %420, ptr %421, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #7
   store i32 1, ptr %38, align 4, !tbaa !27
-  store i32 %413, ptr %404, align 4, !tbaa !27
-  %421 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.49, ptr noundef nonnull %38, ptr noundef nonnull %37, i32 noundef 0, i32 noundef 255) #7
-  %422 = icmp sgt i32 %421, -1
-  br i1 %422, label %424, label %423
+  store i32 %414, ptr %405, align 4, !tbaa !27
+  %422 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.49, ptr noundef nonnull %38, ptr noundef nonnull %37, i32 noundef 0, i32 noundef 255) #7
+  %423 = icmp sgt i32 %422, -1
+  br i1 %423, label %425, label %424
 
-423:                                              ; preds = %417
+424:                                              ; preds = %418
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #7
   br label %cbs_apv_read_au_info.exit.thread
 
-424:                                              ; preds = %417
-  %425 = load i32, ptr %37, align 4, !tbaa !27
-  %426 = trunc i32 %425 to i8
-  %427 = getelementptr inbounds nuw [8 x i8], ptr %405, i64 0, i64 %indvars.iv.i39
-  store i8 %426, ptr %427, align 1, !tbaa !19
+425:                                              ; preds = %418
+  %426 = load i32, ptr %37, align 4, !tbaa !27
+  %427 = trunc i32 %426 to i8
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %406, i64 0, i64 %indvars.iv.i39
+  store i8 %427, ptr %428, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #7
   store i32 1, ptr %40, align 4, !tbaa !27
-  store i32 %413, ptr %406, align 4, !tbaa !27
-  %428 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.50, ptr noundef nonnull %40, ptr noundef nonnull %39, i32 noundef 0, i32 noundef 0) #7
-  %429 = icmp sgt i32 %428, -1
-  br i1 %429, label %431, label %430
+  store i32 %414, ptr %407, align 4, !tbaa !27
+  %429 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.50, ptr noundef nonnull %40, ptr noundef nonnull %39, i32 noundef 0, i32 noundef 0) #7
+  %430 = icmp sgt i32 %429, -1
+  br i1 %430, label %432, label %431
 
-430:                                              ; preds = %424
+431:                                              ; preds = %425
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #7
   br label %cbs_apv_read_au_info.exit.thread
 
-431:                                              ; preds = %424
-  %432 = load i32, ptr %39, align 4, !tbaa !27
-  %433 = trunc i32 %432 to i8
-  %434 = getelementptr inbounds nuw [8 x i8], ptr %407, i64 0, i64 %indvars.iv.i39
-  store i8 %433, ptr %434, align 1, !tbaa !19
+432:                                              ; preds = %425
+  %433 = load i32, ptr %39, align 4, !tbaa !27
+  %434 = trunc i32 %433 to i8
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %408, i64 0, i64 %indvars.iv.i39
+  store i8 %434, ptr %435, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #7
-  %435 = getelementptr inbounds nuw [8 x %struct.APVRawFrameInfo], ptr %408, i64 0, i64 %indvars.iv.i39
-  %436 = call fastcc i32 @cbs_apv_read_frame_info(ptr noundef %0, ptr noundef nonnull %71, ptr noundef nonnull %435)
-  %437 = icmp slt i32 %436, 0
-  br i1 %437, label %cbs_apv_read_au_info.exit.thread, label %409
+  %436 = getelementptr inbounds nuw [8 x %struct.APVRawFrameInfo], ptr %409, i64 0, i64 %indvars.iv.i39
+  %437 = call fastcc i32 @cbs_apv_read_frame_info(ptr noundef %0, ptr noundef nonnull %71, ptr noundef nonnull %436)
+  %438 = icmp slt i32 %437, 0
+  br i1 %438, label %cbs_apv_read_au_info.exit.thread, label %410
 
-._crit_edge.i:                                    ; preds = %409, %398
+._crit_edge.i:                                    ; preds = %410, %399
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #7
-  %438 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef nonnull %41, i32 noundef 0, i32 noundef 0) #7
-  %439 = icmp sgt i32 %438, -1
-  br i1 %439, label %cbs_apv_read_au_info.exit, label %cbs_apv_read_au_info.exit.thread68
+  %439 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef nonnull %41, i32 noundef 0, i32 noundef 0) #7
+  %440 = icmp sgt i32 %439, -1
+  br i1 %440, label %cbs_apv_read_au_info.exit, label %cbs_apv_read_au_info.exit.thread68
 
 cbs_apv_read_au_info.exit.thread68:               ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #7
@@ -1212,725 +1211,725 @@ cbs_apv_read_au_info.exit.thread68:               ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   br label %cbs_apv_read_filler.exit
 
-.critedge.i:                                      ; preds = %393
+.critedge.i:                                      ; preds = %394
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #7
   br label %cbs_apv_read_au_info.exit.thread
 
-cbs_apv_read_au_info.exit.thread:                 ; preds = %431, %.critedge.i, %416, %423, %430
-  %.154.i.ph = phi i32 [ %428, %430 ], [ %421, %423 ], [ %414, %416 ], [ %396, %.critedge.i ], [ %436, %431 ]
+cbs_apv_read_au_info.exit.thread:                 ; preds = %432, %.critedge.i, %417, %424, %431
+  %.154.i.ph = phi i32 [ %429, %431 ], [ %422, %424 ], [ %415, %417 ], [ %397, %.critedge.i ], [ %437, %432 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   br label %cbs_apv_read_filler.exit
 
 cbs_apv_read_au_info.exit:                        ; preds = %._crit_edge.i
-  %440 = load i32, ptr %41, align 4, !tbaa !27
-  %441 = trunc i32 %440 to i8
-  %442 = getelementptr inbounds nuw i8, ptr %395, i64 156
-  store i8 %441, ptr %442, align 4, !tbaa !89
+  %441 = load i32, ptr %41, align 4, !tbaa !27
+  %442 = trunc i32 %441 to i8
+  %443 = getelementptr inbounds nuw i8, ptr %396, i64 156
+  store i8 %442, ptr %443, align 4, !tbaa !89
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   br label %cbs_apv_read_metadata.exit
 
-443:                                              ; preds = %89
-  %444 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %445 = load ptr, ptr %444, align 8, !tbaa !33
+444:                                              ; preds = %89
+  %445 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %446 = load ptr, ptr %445, align 8, !tbaa !33
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.51) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #7
-  %446 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull %26, i32 noundef 0, i32 noundef 255) #7
-  %447 = icmp sgt i32 %446, -1
-  br i1 %447, label %448, label %.critedge.i.i42
+  %447 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull %26, i32 noundef 0, i32 noundef 255) #7
+  %448 = icmp sgt i32 %447, -1
+  br i1 %448, label %449, label %.critedge.i.i42
 
-448:                                              ; preds = %443
-  %449 = load i32, ptr %26, align 4, !tbaa !27
-  %450 = trunc i32 %449 to i8
-  store i8 %450, ptr %445, align 2, !tbaa !35
+449:                                              ; preds = %444
+  %450 = load i32, ptr %26, align 4, !tbaa !27
+  %451 = trunc i32 %450 to i8
+  store i8 %451, ptr %446, align 2, !tbaa !35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #7
-  %451 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef nonnull %27, i32 noundef 0, i32 noundef 65535) #7
-  %452 = icmp sgt i32 %451, -1
-  br i1 %452, label %454, label %453
+  %452 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef nonnull %27, i32 noundef 0, i32 noundef 65535) #7
+  %453 = icmp sgt i32 %452, -1
+  br i1 %453, label %455, label %454
 
-453:                                              ; preds = %448
+454:                                              ; preds = %449
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #7
   br label %cbs_apv_read_filler.exit
 
-454:                                              ; preds = %448
-  %455 = load i32, ptr %27, align 4, !tbaa !27
-  %456 = trunc i32 %455 to i16
-  %457 = getelementptr inbounds nuw i8, ptr %445, i64 2
-  store i16 %456, ptr %457, align 2, !tbaa !38
+455:                                              ; preds = %449
+  %456 = load i32, ptr %27, align 4, !tbaa !27
+  %457 = trunc i32 %456 to i16
+  %458 = getelementptr inbounds nuw i8, ptr %446, i64 2
+  store i16 %457, ptr %458, align 2, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #7
-  %458 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %28, i32 noundef 0, i32 noundef 0) #7
-  %459 = icmp sgt i32 %458, -1
-  br i1 %459, label %460, label %cbs_apv_read_pbu_header.exit.thread118.i
+  %459 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %28, i32 noundef 0, i32 noundef 0) #7
+  %460 = icmp sgt i32 %459, -1
+  br i1 %460, label %461, label %cbs_apv_read_pbu_header.exit.thread118.i
 
-cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %454
+cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #7
   br label %cbs_apv_read_filler.exit
 
-.critedge.i.i42:                                  ; preds = %443
+.critedge.i.i42:                                  ; preds = %444
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #7
   br label %cbs_apv_read_filler.exit
 
-460:                                              ; preds = %454
-  %461 = load i32, ptr %28, align 4, !tbaa !27
-  %462 = trunc i32 %461 to i8
-  %463 = getelementptr inbounds nuw i8, ptr %445, i64 4
-  store i8 %462, ptr %463, align 2, !tbaa !39
+461:                                              ; preds = %455
+  %462 = load i32, ptr %28, align 4, !tbaa !27
+  %463 = trunc i32 %462 to i8
+  %464 = getelementptr inbounds nuw i8, ptr %446, i64 4
+  store i8 %463, ptr %464, align 2, !tbaa !39
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #7
-  %464 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.52, ptr noundef null, ptr noundef nonnull %29, i32 noundef 0, i32 noundef -1) #7
-  %465 = icmp sgt i32 %464, -1
-  br i1 %465, label %466, label %.critedge.i43
+  %465 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.52, ptr noundef null, ptr noundef nonnull %29, i32 noundef 0, i32 noundef -1) #7
+  %466 = icmp sgt i32 %465, -1
+  br i1 %466, label %467, label %.critedge.i43
 
-466:                                              ; preds = %460
-  %467 = load i32, ptr %29, align 4, !tbaa !27
-  %468 = getelementptr inbounds nuw i8, ptr %445, i64 8
-  store i32 %467, ptr %468, align 8, !tbaa !90
+467:                                              ; preds = %461
+  %468 = load i32, ptr %29, align 4, !tbaa !27
+  %469 = getelementptr inbounds nuw i8, ptr %446, i64 8
+  store i32 %468, ptr %469, align 8, !tbaa !90
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #7
-  %469 = getelementptr inbounds nuw i8, ptr %445, i64 16
-  %470 = getelementptr inbounds nuw i8, ptr %445, i64 12
-  %471 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %472 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %473 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %474 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %475 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %476 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  br label %477
+  %470 = getelementptr inbounds nuw i8, ptr %446, i64 16
+  %471 = getelementptr inbounds nuw i8, ptr %446, i64 12
+  %472 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %473 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %474 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %475 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %476 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %477 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  br label %478
 
-477:                                              ; preds = %.loopexit.i, %466
-  %indvars.iv.i44 = phi i64 [ 0, %466 ], [ %indvars.iv.next.i46, %.loopexit.i ]
-  %.095209.i = phi i32 [ %467, %466 ], [ %698, %.loopexit.i ]
-  %478 = getelementptr inbounds nuw [8 x %struct.APVRawMetadataPayload], ptr %469, i64 0, i64 %indvars.iv.i44
-  store i32 0, ptr %478, align 8, !tbaa !92
+478:                                              ; preds = %.loopexit.i, %467
+  %indvars.iv.i44 = phi i64 [ 0, %467 ], [ %indvars.iv.next.i46, %.loopexit.i ]
+  %.095209.i = phi i32 [ %468, %467 ], [ %699, %.loopexit.i ]
+  %479 = getelementptr inbounds nuw [8 x %struct.APVRawMetadataPayload], ptr %470, i64 0, i64 %indvars.iv.i44
+  store i32 0, ptr %479, align 8, !tbaa !92
   %.val198.i = load ptr, ptr %71, align 8, !tbaa !21
   %.val114199.i = load i32, ptr %85, align 8, !tbaa !26
-  %479 = lshr i32 %.val114199.i, 3
-  %480 = zext nneg i32 %479 to i64
-  %481 = getelementptr inbounds nuw i8, ptr %.val198.i, i64 %480
-  %482 = load i32, ptr %481, align 1, !tbaa !19
-  %483 = call i32 @llvm.bswap.i32(i32 %482)
-  %484 = and i32 %.val114199.i, 7
-  %485 = shl i32 %483, %484
-  %486 = icmp ugt i32 %485, -16777217
-  br i1 %486, label %.lr.ph.i60, label %._crit_edge.i45
+  %480 = lshr i32 %.val114199.i, 3
+  %481 = zext nneg i32 %480 to i64
+  %482 = getelementptr inbounds nuw i8, ptr %.val198.i, i64 %481
+  %483 = load i32, ptr %482, align 1, !tbaa !19
+  %484 = call i32 @llvm.bswap.i32(i32 %483)
+  %485 = and i32 %.val114199.i, 7
+  %486 = shl i32 %484, %485
+  %487 = icmp ugt i32 %486, -16777217
+  br i1 %487, label %.lr.ph.i60, label %._crit_edge.i45
 
-.lr.ph.i60:                                       ; preds = %477, %489
-  %.196200.i = phi i32 [ %492, %489 ], [ %.095209.i, %477 ]
+.lr.ph.i60:                                       ; preds = %478, %490
+  %.196200.i = phi i32 [ %493, %490 ], [ %.095209.i, %478 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #7
-  %487 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %30, i32 noundef 255, i32 noundef 255) #7
-  %488 = icmp sgt i32 %487, -1
+  %488 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %30, i32 noundef 255, i32 noundef 255) #7
+  %489 = icmp sgt i32 %488, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #7
-  br i1 %488, label %489, label %cbs_apv_read_filler.exit
+  br i1 %489, label %490, label %cbs_apv_read_filler.exit
 
-489:                                              ; preds = %.lr.ph.i60
-  %490 = load i32, ptr %478, align 8, !tbaa !92
-  %491 = add i32 %490, 255
-  store i32 %491, ptr %478, align 8, !tbaa !92
-  %492 = add i32 %.196200.i, -1
+490:                                              ; preds = %.lr.ph.i60
+  %491 = load i32, ptr %479, align 8, !tbaa !92
+  %492 = add i32 %491, 255
+  store i32 %492, ptr %479, align 8, !tbaa !92
+  %493 = add i32 %.196200.i, -1
   %.val.i = load ptr, ptr %71, align 8, !tbaa !21
   %.val114.i = load i32, ptr %85, align 8, !tbaa !26
-  %493 = lshr i32 %.val114.i, 3
-  %494 = zext nneg i32 %493 to i64
-  %495 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %494
-  %496 = load i32, ptr %495, align 1, !tbaa !19
-  %497 = call i32 @llvm.bswap.i32(i32 %496)
-  %498 = and i32 %.val114.i, 7
-  %499 = shl i32 %497, %498
-  %500 = icmp ugt i32 %499, -16777217
-  br i1 %500, label %.lr.ph.i60, label %._crit_edge.i45, !llvm.loop !94
+  %494 = lshr i32 %.val114.i, 3
+  %495 = zext nneg i32 %494 to i64
+  %496 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %495
+  %497 = load i32, ptr %496, align 1, !tbaa !19
+  %498 = call i32 @llvm.bswap.i32(i32 %497)
+  %499 = and i32 %.val114.i, 7
+  %500 = shl i32 %498, %499
+  %501 = icmp ugt i32 %500, -16777217
+  br i1 %501, label %.lr.ph.i60, label %._crit_edge.i45, !llvm.loop !94
 
-._crit_edge.i45:                                  ; preds = %489, %477
-  %.196.lcssa.i = phi i32 [ %.095209.i, %477 ], [ %492, %489 ]
+._crit_edge.i45:                                  ; preds = %490, %478
+  %.196.lcssa.i = phi i32 [ %.095209.i, %478 ], [ %493, %490 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #7
-  %501 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.54, ptr noundef null, ptr noundef nonnull %31, i32 noundef 0, i32 noundef 254) #7
-  %502 = icmp sgt i32 %501, -1
-  %503 = load i32, ptr %31, align 4
+  %502 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.54, ptr noundef null, ptr noundef nonnull %31, i32 noundef 0, i32 noundef 254) #7
+  %503 = icmp sgt i32 %502, -1
+  %504 = load i32, ptr %31, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #7
-  br i1 %502, label %504, label %cbs_apv_read_filler.exit
+  br i1 %503, label %505, label %cbs_apv_read_filler.exit
 
-504:                                              ; preds = %._crit_edge.i45
-  %505 = load i32, ptr %478, align 8, !tbaa !92
-  %506 = add i32 %505, %503
-  store i32 %506, ptr %478, align 8, !tbaa !92
-  %507 = getelementptr inbounds nuw i8, ptr %478, i64 4
-  store i32 0, ptr %507, align 4, !tbaa !95
+505:                                              ; preds = %._crit_edge.i45
+  %506 = load i32, ptr %479, align 8, !tbaa !92
+  %507 = add i32 %506, %504
+  store i32 %507, ptr %479, align 8, !tbaa !92
+  %508 = getelementptr inbounds nuw i8, ptr %479, i64 4
+  store i32 0, ptr %508, align 4, !tbaa !95
   %.val115202.i = load ptr, ptr %71, align 8, !tbaa !21
   %.val116203.i = load i32, ptr %85, align 8, !tbaa !26
-  %508 = lshr i32 %.val116203.i, 3
-  %509 = zext nneg i32 %508 to i64
-  %510 = getelementptr inbounds nuw i8, ptr %.val115202.i, i64 %509
-  %511 = load i32, ptr %510, align 1, !tbaa !19
-  %512 = call i32 @llvm.bswap.i32(i32 %511)
-  %513 = and i32 %.val116203.i, 7
-  %514 = shl i32 %512, %513
-  %515 = icmp ugt i32 %514, -16777217
-  br i1 %515, label %.lr.ph206.i, label %._crit_edge207.i
+  %509 = lshr i32 %.val116203.i, 3
+  %510 = zext nneg i32 %509 to i64
+  %511 = getelementptr inbounds nuw i8, ptr %.val115202.i, i64 %510
+  %512 = load i32, ptr %511, align 1, !tbaa !19
+  %513 = call i32 @llvm.bswap.i32(i32 %512)
+  %514 = and i32 %.val116203.i, 7
+  %515 = shl i32 %513, %514
+  %516 = icmp ugt i32 %515, -16777217
+  br i1 %516, label %.lr.ph206.i, label %._crit_edge207.i
 
-.lr.ph206.i:                                      ; preds = %504, %518
-  %.398204.in.i = phi i32 [ %.398204.i, %518 ], [ %.196.lcssa.i, %504 ]
+.lr.ph206.i:                                      ; preds = %505, %519
+  %.398204.in.i = phi i32 [ %.398204.i, %519 ], [ %.196.lcssa.i, %505 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #7
-  %516 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %32, i32 noundef 255, i32 noundef 255) #7
-  %517 = icmp sgt i32 %516, -1
+  %517 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %32, i32 noundef 255, i32 noundef 255) #7
+  %518 = icmp sgt i32 %517, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #7
-  br i1 %517, label %518, label %cbs_apv_read_filler.exit
+  br i1 %518, label %519, label %cbs_apv_read_filler.exit
 
-518:                                              ; preds = %.lr.ph206.i
+519:                                              ; preds = %.lr.ph206.i
   %.398204.i = add i32 %.398204.in.i, -1
-  %519 = load i32, ptr %507, align 4, !tbaa !95
-  %520 = add i32 %519, 255
-  store i32 %520, ptr %507, align 4, !tbaa !95
+  %520 = load i32, ptr %508, align 4, !tbaa !95
+  %521 = add i32 %520, 255
+  store i32 %521, ptr %508, align 4, !tbaa !95
   %.val115.i = load ptr, ptr %71, align 8, !tbaa !21
   %.val116.i = load i32, ptr %85, align 8, !tbaa !26
-  %521 = lshr i32 %.val116.i, 3
-  %522 = zext nneg i32 %521 to i64
-  %523 = getelementptr inbounds nuw i8, ptr %.val115.i, i64 %522
-  %524 = load i32, ptr %523, align 1, !tbaa !19
-  %525 = call i32 @llvm.bswap.i32(i32 %524)
-  %526 = and i32 %.val116.i, 7
-  %527 = shl i32 %525, %526
-  %528 = icmp ugt i32 %527, -16777217
-  br i1 %528, label %.lr.ph206.i, label %._crit_edge207.i, !llvm.loop !96
+  %522 = lshr i32 %.val116.i, 3
+  %523 = zext nneg i32 %522 to i64
+  %524 = getelementptr inbounds nuw i8, ptr %.val115.i, i64 %523
+  %525 = load i32, ptr %524, align 1, !tbaa !19
+  %526 = call i32 @llvm.bswap.i32(i32 %525)
+  %527 = and i32 %.val116.i, 7
+  %528 = shl i32 %526, %527
+  %529 = icmp ugt i32 %528, -16777217
+  br i1 %529, label %.lr.ph206.i, label %._crit_edge207.i, !llvm.loop !96
 
-._crit_edge207.i:                                 ; preds = %518, %504
-  %.398.in.lcssa.i = phi i32 [ %.196.lcssa.i, %504 ], [ %.398204.i, %518 ]
+._crit_edge207.i:                                 ; preds = %519, %505
+  %.398.in.lcssa.i = phi i32 [ %.196.lcssa.i, %505 ], [ %.398204.i, %519 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #7
-  %529 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef nonnull %33, i32 noundef 0, i32 noundef 254) #7
-  %530 = icmp sgt i32 %529, -1
-  %531 = load i32, ptr %33, align 4
+  %530 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef nonnull %33, i32 noundef 0, i32 noundef 254) #7
+  %531 = icmp sgt i32 %530, -1
+  %532 = load i32, ptr %33, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #7
-  br i1 %530, label %532, label %cbs_apv_read_filler.exit
+  br i1 %531, label %533, label %cbs_apv_read_filler.exit
 
-532:                                              ; preds = %._crit_edge207.i
-  %533 = load i32, ptr %507, align 4, !tbaa !95
-  %534 = add i32 %533, %531
-  store i32 %534, ptr %507, align 4, !tbaa !95
-  %535 = add i32 %.398.in.lcssa.i, -2
-  %536 = icmp ugt i32 %534, %535
-  br i1 %536, label %537, label %539
+533:                                              ; preds = %._crit_edge207.i
+  %534 = load i32, ptr %508, align 4, !tbaa !95
+  %535 = add i32 %534, %532
+  store i32 %535, ptr %508, align 4, !tbaa !95
+  %536 = add i32 %.398.in.lcssa.i, -2
+  %537 = icmp ugt i32 %535, %536
+  br i1 %537, label %538, label %540
 
-537:                                              ; preds = %532
-  %538 = load ptr, ptr %0, align 8, !tbaa !20
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %538, i32 noundef 16, ptr noundef nonnull @.str.56, i32 noundef %534) #7
+538:                                              ; preds = %533
+  %539 = load ptr, ptr %0, align 8, !tbaa !20
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %539, i32 noundef 16, ptr noundef nonnull @.str.56, i32 noundef %535) #7
   br label %cbs_apv_read_filler.exit
 
-539:                                              ; preds = %532
+540:                                              ; preds = %533
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i44, 1
-  %540 = trunc nuw nsw i64 %indvars.iv.next.i46 to i32
-  store i32 %540, ptr %470, align 4, !tbaa !97
-  %541 = load i32, ptr %478, align 8, !tbaa !92
-  switch i32 %541, label %676 [
-    i32 4, label %542
-    i32 5, label %581
-    i32 6, label %625
-    i32 10, label %637
-    i32 170, label %643
+  %541 = trunc nuw nsw i64 %indvars.iv.next.i46 to i32
+  store i32 %541, ptr %471, align 4, !tbaa !97
+  %542 = load i32, ptr %479, align 8, !tbaa !92
+  switch i32 %542, label %677 [
+    i32 4, label %543
+    i32 5, label %582
+    i32 6, label %626
+    i32 10, label %638
+    i32 170, label %644
   ]
 
-542:                                              ; preds = %539
-  %543 = zext i32 %534 to i64
+543:                                              ; preds = %540
+  %544 = zext i32 %535 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.57) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #7
-  %544 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef nonnull %22, i32 noundef 0, i32 noundef 255) #7
-  %545 = icmp sgt i32 %544, -1
-  br i1 %545, label %546, label %.critedge.i.i.i57
+  %545 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef nonnull %22, i32 noundef 0, i32 noundef 255) #7
+  %546 = icmp sgt i32 %545, -1
+  br i1 %546, label %547, label %.critedge.i.i.i57
 
-546:                                              ; preds = %542
-  %547 = getelementptr inbounds nuw i8, ptr %478, i64 8
-  %548 = add nsw i64 %543, -1
-  %549 = load i32, ptr %22, align 4, !tbaa !27
-  %550 = trunc i32 %549 to i8
-  store i8 %550, ptr %547, align 8, !tbaa !98
+547:                                              ; preds = %543
+  %548 = getelementptr inbounds nuw i8, ptr %479, i64 8
+  %549 = add nsw i64 %544, -1
+  %550 = load i32, ptr %22, align 4, !tbaa !27
+  %551 = trunc i32 %550 to i8
+  store i8 %551, ptr %548, align 8, !tbaa !98
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #7
-  %551 = icmp eq i8 %550, -1
-  br i1 %551, label %552, label %561
+  %552 = icmp eq i8 %551, -1
+  br i1 %552, label %553, label %562
 
-552:                                              ; preds = %546
+553:                                              ; preds = %547
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #7
-  %553 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.59, ptr noundef null, ptr noundef nonnull %23, i32 noundef 0, i32 noundef 255) #7
-  %554 = icmp sgt i32 %553, -1
-  br i1 %554, label %556, label %555
+  %554 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.59, ptr noundef null, ptr noundef nonnull %23, i32 noundef 0, i32 noundef 255) #7
+  %555 = icmp sgt i32 %554, -1
+  br i1 %555, label %557, label %556
 
-555:                                              ; preds = %552
+556:                                              ; preds = %553
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #7
   br label %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i
 
-556:                                              ; preds = %552
-  %557 = load i32, ptr %23, align 4, !tbaa !27
-  %558 = trunc i32 %557 to i8
-  %559 = getelementptr inbounds nuw i8, ptr %478, i64 9
-  store i8 %558, ptr %559, align 1, !tbaa !100
+557:                                              ; preds = %553
+  %558 = load i32, ptr %23, align 4, !tbaa !27
+  %559 = trunc i32 %558 to i8
+  %560 = getelementptr inbounds nuw i8, ptr %479, i64 9
+  store i8 %559, ptr %560, align 1, !tbaa !100
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #7
-  %560 = add nsw i64 %543, -2
-  br label %561
+  %561 = add nsw i64 %544, -2
+  br label %562
 
-561:                                              ; preds = %556, %546
-  %.039.i.i.i = phi i64 [ %560, %556 ], [ %548, %546 ]
-  %562 = getelementptr inbounds nuw i8, ptr %478, i64 32
-  store i64 %.039.i.i.i, ptr %562, align 8, !tbaa !101
-  %563 = call ptr @av_buffer_alloc(i64 noundef %.039.i.i.i) #7
-  %564 = getelementptr inbounds nuw i8, ptr %478, i64 24
-  store ptr %563, ptr %564, align 8, !tbaa !102
-  %.not.i.i.i58 = icmp eq ptr %563, null
-  br i1 %.not.i.i.i58, label %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i, label %565
+562:                                              ; preds = %557, %547
+  %.039.i.i.i = phi i64 [ %561, %557 ], [ %549, %547 ]
+  %563 = getelementptr inbounds nuw i8, ptr %479, i64 32
+  store i64 %.039.i.i.i, ptr %563, align 8, !tbaa !101
+  %564 = call ptr @av_buffer_alloc(i64 noundef %.039.i.i.i) #7
+  %565 = getelementptr inbounds nuw i8, ptr %479, i64 24
+  store ptr %564, ptr %565, align 8, !tbaa !102
+  %.not.i.i.i58 = icmp eq ptr %564, null
+  br i1 %.not.i.i.i58, label %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i, label %566
 
-565:                                              ; preds = %561
-  %566 = getelementptr inbounds nuw i8, ptr %563, i64 8
-  %567 = load ptr, ptr %566, align 8, !tbaa !103
-  %568 = getelementptr inbounds nuw i8, ptr %478, i64 16
-  store ptr %567, ptr %568, align 8, !tbaa !106
-  %569 = load i64, ptr %562, align 8, !tbaa !101
-  %.not4753.not.i.i.i = icmp eq i64 %569, 0
+566:                                              ; preds = %562
+  %567 = getelementptr inbounds nuw i8, ptr %564, i64 8
+  %568 = load ptr, ptr %567, align 8, !tbaa !103
+  %569 = getelementptr inbounds nuw i8, ptr %479, i64 16
+  store ptr %568, ptr %569, align 8, !tbaa !106
+  %570 = load i64, ptr %563, align 8, !tbaa !101
+  %.not4753.not.i.i.i = icmp eq i64 %570, 0
   br i1 %.not4753.not.i.i.i, label %cbs_apv_read_metadata_itu_t_t35.exit.i.i, label %.lr.ph.i.i.i59
 
-.lr.ph.i.i.i59:                                   ; preds = %565, %574
-  %.054.i.i.i = phi i64 [ %579, %574 ], [ 0, %565 ]
+.lr.ph.i.i.i59:                                   ; preds = %566, %575
+  %.054.i.i.i = phi i64 [ %580, %575 ], [ 0, %566 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #7
   store i32 1, ptr %25, align 4, !tbaa !27
-  %570 = trunc i64 %.054.i.i.i to i32
-  store i32 %570, ptr %475, align 4, !tbaa !27
-  %571 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.60, ptr noundef nonnull %25, ptr noundef nonnull %24, i32 noundef 0, i32 noundef 255) #7
-  %572 = icmp sgt i32 %571, -1
-  br i1 %572, label %574, label %573
+  %571 = trunc i64 %.054.i.i.i to i32
+  store i32 %571, ptr %476, align 4, !tbaa !27
+  %572 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.60, ptr noundef nonnull %25, ptr noundef nonnull %24, i32 noundef 0, i32 noundef 255) #7
+  %573 = icmp sgt i32 %572, -1
+  br i1 %573, label %575, label %574
 
-573:                                              ; preds = %.lr.ph.i.i.i59
+574:                                              ; preds = %.lr.ph.i.i.i59
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #7
   br label %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i
 
-574:                                              ; preds = %.lr.ph.i.i.i59
-  %575 = load i32, ptr %24, align 4, !tbaa !27
-  %576 = trunc i32 %575 to i8
-  %577 = load ptr, ptr %568, align 8, !tbaa !106
-  %578 = getelementptr inbounds nuw i8, ptr %577, i64 %.054.i.i.i
-  store i8 %576, ptr %578, align 1, !tbaa !19
+575:                                              ; preds = %.lr.ph.i.i.i59
+  %576 = load i32, ptr %24, align 4, !tbaa !27
+  %577 = trunc i32 %576 to i8
+  %578 = load ptr, ptr %569, align 8, !tbaa !106
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 %.054.i.i.i
+  store i8 %577, ptr %579, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #7
-  %579 = add nuw i64 %.054.i.i.i, 1
-  %580 = load i64, ptr %562, align 8, !tbaa !101
-  %.not47.i.i.i = icmp ult i64 %579, %580
+  %580 = add nuw i64 %.054.i.i.i, 1
+  %581 = load i64, ptr %563, align 8, !tbaa !101
+  %.not47.i.i.i = icmp ult i64 %580, %581
   br i1 %.not47.i.i.i, label %.lr.ph.i.i.i59, label %cbs_apv_read_metadata_itu_t_t35.exit.i.i, !llvm.loop !107
 
-.critedge.i.i.i57:                                ; preds = %542
+.critedge.i.i.i57:                                ; preds = %543
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #7
   br label %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i
 
-cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i:  ; preds = %561, %.critedge.i.i.i57, %573, %555
-  %.141.i.ph.i.i = phi i32 [ %571, %573 ], [ %544, %.critedge.i.i.i57 ], [ %553, %555 ], [ -12, %561 ]
+cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i:  ; preds = %562, %.critedge.i.i.i57, %574, %556
+  %.141.i.ph.i.i = phi i32 [ %572, %574 ], [ %545, %.critedge.i.i.i57 ], [ %554, %556 ], [ -12, %562 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   br label %cbs_apv_read_filler.exit
 
-cbs_apv_read_metadata_itu_t_t35.exit.i.i:         ; preds = %574, %565
+cbs_apv_read_metadata_itu_t_t35.exit.i.i:         ; preds = %575, %566
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   br label %.loopexit.i
 
-581:                                              ; preds = %539
-  %582 = getelementptr inbounds nuw i8, ptr %478, i64 8
+582:                                              ; preds = %540
+  %583 = getelementptr inbounds nuw i8, ptr %479, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.61) #7
-  %583 = getelementptr inbounds nuw i8, ptr %478, i64 14
-  br label %584
+  %584 = getelementptr inbounds nuw i8, ptr %479, i64 14
+  br label %585
 
-584:                                              ; preds = %596, %581
-  %indvars.iv.i.i.i55 = phi i64 [ 0, %581 ], [ %indvars.iv.next.i.i.i56, %596 ]
+585:                                              ; preds = %597, %582
+  %indvars.iv.i.i.i55 = phi i64 [ 0, %582 ], [ %indvars.iv.next.i.i.i56, %597 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #7
   store i32 1, ptr %15, align 4, !tbaa !27
-  %585 = trunc nuw nsw i64 %indvars.iv.i.i.i55 to i32
-  store i32 %585, ptr %473, align 4, !tbaa !27
-  %586 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.62, ptr noundef nonnull %15, ptr noundef nonnull %14, i32 noundef 0, i32 noundef 65535) #7
-  %587 = icmp sgt i32 %586, -1
-  br i1 %587, label %589, label %588
+  %586 = trunc nuw nsw i64 %indvars.iv.i.i.i55 to i32
+  store i32 %586, ptr %474, align 4, !tbaa !27
+  %587 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.62, ptr noundef nonnull %15, ptr noundef nonnull %14, i32 noundef 0, i32 noundef 65535) #7
+  %588 = icmp sgt i32 %587, -1
+  br i1 %588, label %590, label %589
 
-588:                                              ; preds = %584
+589:                                              ; preds = %585
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
   br label %cbs_apv_read_metadata_mdcv.exit.thread.i.i
 
-589:                                              ; preds = %584
-  %590 = load i32, ptr %14, align 4, !tbaa !27
-  %591 = trunc i32 %590 to i16
-  %592 = getelementptr inbounds nuw [3 x i16], ptr %582, i64 0, i64 %indvars.iv.i.i.i55
-  store i16 %591, ptr %592, align 2, !tbaa !108
+590:                                              ; preds = %585
+  %591 = load i32, ptr %14, align 4, !tbaa !27
+  %592 = trunc i32 %591 to i16
+  %593 = getelementptr inbounds nuw [3 x i16], ptr %583, i64 0, i64 %indvars.iv.i.i.i55
+  store i16 %592, ptr %593, align 2, !tbaa !108
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
   store i32 1, ptr %17, align 4, !tbaa !27
-  store i32 %585, ptr %474, align 4, !tbaa !27
-  %593 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull %17, ptr noundef nonnull %16, i32 noundef 0, i32 noundef 65535) #7
-  %594 = icmp sgt i32 %593, -1
-  br i1 %594, label %596, label %595
+  store i32 %586, ptr %475, align 4, !tbaa !27
+  %594 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull %17, ptr noundef nonnull %16, i32 noundef 0, i32 noundef 65535) #7
+  %595 = icmp sgt i32 %594, -1
+  br i1 %595, label %597, label %596
 
-595:                                              ; preds = %589
+596:                                              ; preds = %590
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
   br label %cbs_apv_read_metadata_mdcv.exit.thread.i.i
 
-596:                                              ; preds = %589
-  %597 = load i32, ptr %16, align 4, !tbaa !27
-  %598 = trunc i32 %597 to i16
-  %599 = getelementptr inbounds nuw [3 x i16], ptr %583, i64 0, i64 %indvars.iv.i.i.i55
-  store i16 %598, ptr %599, align 2, !tbaa !108
+597:                                              ; preds = %590
+  %598 = load i32, ptr %16, align 4, !tbaa !27
+  %599 = trunc i32 %598 to i16
+  %600 = getelementptr inbounds nuw [3 x i16], ptr %584, i64 0, i64 %indvars.iv.i.i.i55
+  store i16 %599, ptr %600, align 2, !tbaa !108
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
   %indvars.iv.next.i.i.i56 = add nuw nsw i64 %indvars.iv.i.i.i55, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i56, 3
-  br i1 %exitcond.not.i.i.i, label %600, label %584, !llvm.loop !109
+  br i1 %exitcond.not.i.i.i, label %601, label %585, !llvm.loop !109
 
-600:                                              ; preds = %596
+601:                                              ; preds = %597
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #7
-  %601 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.64, ptr noundef null, ptr noundef nonnull %18, i32 noundef 0, i32 noundef 65535) #7
-  %602 = icmp sgt i32 %601, -1
-  br i1 %602, label %604, label %603
+  %602 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.64, ptr noundef null, ptr noundef nonnull %18, i32 noundef 0, i32 noundef 65535) #7
+  %603 = icmp sgt i32 %602, -1
+  br i1 %603, label %605, label %604
 
-603:                                              ; preds = %600
+604:                                              ; preds = %601
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
   br label %cbs_apv_read_metadata_mdcv.exit.thread.i.i
 
-604:                                              ; preds = %600
-  %605 = load i32, ptr %18, align 4, !tbaa !27
-  %606 = trunc i32 %605 to i16
-  %607 = getelementptr inbounds nuw i8, ptr %478, i64 20
-  store i16 %606, ptr %607, align 4, !tbaa !110
+605:                                              ; preds = %601
+  %606 = load i32, ptr %18, align 4, !tbaa !27
+  %607 = trunc i32 %606 to i16
+  %608 = getelementptr inbounds nuw i8, ptr %479, i64 20
+  store i16 %607, ptr %608, align 4, !tbaa !110
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #7
-  %608 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.65, ptr noundef null, ptr noundef nonnull %19, i32 noundef 0, i32 noundef 65535) #7
-  %609 = icmp sgt i32 %608, -1
-  br i1 %609, label %611, label %610
+  %609 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.65, ptr noundef null, ptr noundef nonnull %19, i32 noundef 0, i32 noundef 65535) #7
+  %610 = icmp sgt i32 %609, -1
+  br i1 %610, label %612, label %611
 
-610:                                              ; preds = %604
+611:                                              ; preds = %605
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #7
   br label %cbs_apv_read_metadata_mdcv.exit.thread.i.i
 
-611:                                              ; preds = %604
-  %612 = load i32, ptr %19, align 4, !tbaa !27
-  %613 = trunc i32 %612 to i16
-  %614 = getelementptr inbounds nuw i8, ptr %478, i64 22
-  store i16 %613, ptr %614, align 2, !tbaa !112
+612:                                              ; preds = %605
+  %613 = load i32, ptr %19, align 4, !tbaa !27
+  %614 = trunc i32 %613 to i16
+  %615 = getelementptr inbounds nuw i8, ptr %479, i64 22
+  store i16 %614, ptr %615, align 2, !tbaa !112
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #7
-  %615 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.66, ptr noundef null, ptr noundef nonnull %20, i32 noundef 0, i32 noundef -1) #7
-  %616 = icmp sgt i32 %615, -1
-  br i1 %616, label %618, label %617
+  %616 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.66, ptr noundef null, ptr noundef nonnull %20, i32 noundef 0, i32 noundef -1) #7
+  %617 = icmp sgt i32 %616, -1
+  br i1 %617, label %619, label %618
 
-617:                                              ; preds = %611
+618:                                              ; preds = %612
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #7
   br label %cbs_apv_read_metadata_mdcv.exit.thread.i.i
 
-618:                                              ; preds = %611
-  %619 = load i32, ptr %20, align 4, !tbaa !27
-  %620 = getelementptr inbounds nuw i8, ptr %478, i64 24
-  store i32 %619, ptr %620, align 4, !tbaa !113
+619:                                              ; preds = %612
+  %620 = load i32, ptr %20, align 4, !tbaa !27
+  %621 = getelementptr inbounds nuw i8, ptr %479, i64 24
+  store i32 %620, ptr %621, align 4, !tbaa !113
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #7
-  %621 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef nonnull %21, i32 noundef 0, i32 noundef -1) #7
-  %622 = icmp sgt i32 %621, -1
-  br i1 %622, label %cbs_apv_read_metadata_mdcv.exit.i.i, label %cbs_apv_read_metadata_mdcv.exit.thread54.i.i
+  %622 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef nonnull %21, i32 noundef 0, i32 noundef -1) #7
+  %623 = icmp sgt i32 %622, -1
+  br i1 %623, label %cbs_apv_read_metadata_mdcv.exit.i.i, label %cbs_apv_read_metadata_mdcv.exit.thread54.i.i
 
-cbs_apv_read_metadata_mdcv.exit.thread54.i.i:     ; preds = %618
+cbs_apv_read_metadata_mdcv.exit.thread54.i.i:     ; preds = %619
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %cbs_apv_read_filler.exit
 
-cbs_apv_read_metadata_mdcv.exit.thread.i.i:       ; preds = %617, %610, %603, %595, %588
-  %.251.i.ph.i.i = phi i32 [ %601, %603 ], [ %608, %610 ], [ %615, %617 ], [ %586, %588 ], [ %593, %595 ]
+cbs_apv_read_metadata_mdcv.exit.thread.i.i:       ; preds = %618, %611, %604, %596, %589
+  %.251.i.ph.i.i = phi i32 [ %602, %604 ], [ %609, %611 ], [ %616, %618 ], [ %587, %589 ], [ %594, %596 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %cbs_apv_read_filler.exit
 
-cbs_apv_read_metadata_mdcv.exit.i.i:              ; preds = %618
-  %623 = load i32, ptr %21, align 4, !tbaa !27
-  %624 = getelementptr inbounds nuw i8, ptr %478, i64 28
-  store i32 %623, ptr %624, align 4, !tbaa !114
+cbs_apv_read_metadata_mdcv.exit.i.i:              ; preds = %619
+  %624 = load i32, ptr %21, align 4, !tbaa !27
+  %625 = getelementptr inbounds nuw i8, ptr %479, i64 28
+  store i32 %624, ptr %625, align 4, !tbaa !114
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %.loopexit.i
 
-625:                                              ; preds = %539
+626:                                              ; preds = %540
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.68) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
-  %626 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.69, ptr noundef null, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 65535) #7
-  %627 = icmp sgt i32 %626, -1
-  br i1 %627, label %628, label %cbs_apv_read_metadata_cll.exit.thread.i.i
+  %627 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.69, ptr noundef null, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 65535) #7
+  %628 = icmp sgt i32 %627, -1
+  br i1 %628, label %629, label %cbs_apv_read_metadata_cll.exit.thread.i.i
 
-628:                                              ; preds = %625
-  %629 = getelementptr inbounds nuw i8, ptr %478, i64 8
-  %630 = load i32, ptr %12, align 4, !tbaa !27
-  %631 = trunc i32 %630 to i16
-  store i16 %631, ptr %629, align 2, !tbaa !115
+629:                                              ; preds = %626
+  %630 = getelementptr inbounds nuw i8, ptr %479, i64 8
+  %631 = load i32, ptr %12, align 4, !tbaa !27
+  %632 = trunc i32 %631 to i16
+  store i16 %632, ptr %630, align 2, !tbaa !115
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
-  %632 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.70, ptr noundef null, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 65535) #7
-  %633 = icmp sgt i32 %632, -1
-  br i1 %633, label %cbs_apv_read_metadata_cll.exit.i.i, label %cbs_apv_read_metadata_cll.exit.thread57.i.i
+  %633 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.70, ptr noundef null, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 65535) #7
+  %634 = icmp sgt i32 %633, -1
+  br i1 %634, label %cbs_apv_read_metadata_cll.exit.i.i, label %cbs_apv_read_metadata_cll.exit.thread57.i.i
 
-cbs_apv_read_metadata_cll.exit.thread57.i.i:      ; preds = %628
+cbs_apv_read_metadata_cll.exit.thread57.i.i:      ; preds = %629
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
   br label %cbs_apv_read_filler.exit
 
-cbs_apv_read_metadata_cll.exit.thread.i.i:        ; preds = %625
+cbs_apv_read_metadata_cll.exit.thread.i.i:        ; preds = %626
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
   br label %cbs_apv_read_filler.exit
 
-cbs_apv_read_metadata_cll.exit.i.i:               ; preds = %628
-  %634 = load i32, ptr %13, align 4, !tbaa !27
-  %635 = trunc i32 %634 to i16
-  %636 = getelementptr inbounds nuw i8, ptr %478, i64 10
-  store i16 %635, ptr %636, align 2, !tbaa !117
+cbs_apv_read_metadata_cll.exit.i.i:               ; preds = %629
+  %635 = load i32, ptr %13, align 4, !tbaa !27
+  %636 = trunc i32 %635 to i16
+  %637 = getelementptr inbounds nuw i8, ptr %479, i64 10
+  store i16 %636, ptr %637, align 2, !tbaa !117
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
   br label %.loopexit.i
 
-637:                                              ; preds = %539
-  %638 = zext i32 %534 to i64
+638:                                              ; preds = %540
+  %639 = zext i32 %535 to i64
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.71) #7
-  %.not1.not.i.i.i = icmp eq i32 %534, 0
+  %.not1.not.i.i.i = icmp eq i32 %535, 0
   br i1 %.not1.not.i.i.i, label %.loopexit.i, label %.lr.ph.i43.i.i
 
-639:                                              ; preds = %.lr.ph.i43.i.i
-  %640 = add nuw nsw i64 %.0132.i.i.i, 1
-  %exitcond.not.i45.i.i = icmp eq i64 %640, %638
+640:                                              ; preds = %.lr.ph.i43.i.i
+  %641 = add nuw nsw i64 %.0132.i.i.i, 1
+  %exitcond.not.i45.i.i = icmp eq i64 %641, %639
   br i1 %exitcond.not.i45.i.i, label %.loopexit.i, label %.lr.ph.i43.i.i, !llvm.loop !118
 
-.lr.ph.i43.i.i:                                   ; preds = %637, %639
-  %.0132.i.i.i = phi i64 [ %640, %639 ], [ 0, %637 ]
+.lr.ph.i43.i.i:                                   ; preds = %638, %640
+  %.0132.i.i.i = phi i64 [ %641, %640 ], [ 0, %638 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
-  %641 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %11, i32 noundef 255, i32 noundef 255) #7
-  %642 = icmp sgt i32 %641, -1
+  %642 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %11, i32 noundef 255, i32 noundef 255) #7
+  %643 = icmp sgt i32 %642, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
-  br i1 %642, label %639, label %cbs_apv_read_filler.exit
+  br i1 %643, label %640, label %cbs_apv_read_filler.exit
 
-643:                                              ; preds = %539
-  %644 = getelementptr inbounds nuw i8, ptr %478, i64 8
-  %645 = zext i32 %534 to i64
+644:                                              ; preds = %540
+  %645 = getelementptr inbounds nuw i8, ptr %479, i64 8
+  %646 = zext i32 %535 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.72) #7
-  br label %646
+  br label %647
 
-646:                                              ; preds = %650, %643
-  %indvars.iv.i46.i.i = phi i64 [ 0, %643 ], [ %indvars.iv.next.i47.i.i, %650 ]
+647:                                              ; preds = %651, %644
+  %indvars.iv.i46.i.i = phi i64 [ 0, %644 ], [ %indvars.iv.next.i47.i.i, %651 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
   store i32 1, ptr %8, align 4, !tbaa !27
-  %647 = trunc nuw nsw i64 %indvars.iv.i46.i.i to i32
-  store i32 %647, ptr %471, align 4, !tbaa !27
-  %648 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.73, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 255) #7
-  %649 = icmp sgt i32 %648, -1
-  br i1 %649, label %650, label %654
+  %648 = trunc nuw nsw i64 %indvars.iv.i46.i.i to i32
+  store i32 %648, ptr %472, align 4, !tbaa !27
+  %649 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.73, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 255) #7
+  %650 = icmp sgt i32 %649, -1
+  br i1 %650, label %651, label %655
 
-650:                                              ; preds = %646
-  %651 = load i32, ptr %7, align 4, !tbaa !27
-  %652 = trunc i32 %651 to i8
-  %653 = getelementptr inbounds nuw [16 x i8], ptr %644, i64 0, i64 %indvars.iv.i46.i.i
-  store i8 %652, ptr %653, align 1, !tbaa !19
+651:                                              ; preds = %647
+  %652 = load i32, ptr %7, align 4, !tbaa !27
+  %653 = trunc i32 %652 to i8
+  %654 = getelementptr inbounds nuw [16 x i8], ptr %645, i64 0, i64 %indvars.iv.i46.i.i
+  store i8 %653, ptr %654, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
   %indvars.iv.next.i47.i.i = add nuw nsw i64 %indvars.iv.i46.i.i, 1
   %exitcond.i.i.i47 = icmp eq i64 %indvars.iv.next.i47.i.i, 16
-  br i1 %exitcond.i.i.i47, label %655, label %646, !llvm.loop !119
+  br i1 %exitcond.i.i.i47, label %656, label %647, !llvm.loop !119
 
-654:                                              ; preds = %646
+655:                                              ; preds = %647
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
   br label %cbs_apv_read_metadata_user_defined.exit.thread.i.i
 
-655:                                              ; preds = %650
-  %656 = add nsw i64 %645, -16
-  %657 = getelementptr inbounds nuw i8, ptr %478, i64 40
-  store i64 %656, ptr %657, align 8, !tbaa !120
-  %658 = call ptr @av_buffer_alloc(i64 noundef %656) #7
-  %659 = getelementptr inbounds nuw i8, ptr %478, i64 32
-  store ptr %658, ptr %659, align 8, !tbaa !122
-  %.not.i48.i.i = icmp eq ptr %658, null
-  br i1 %.not.i48.i.i, label %cbs_apv_read_metadata_user_defined.exit.thread.i.i, label %660
+656:                                              ; preds = %651
+  %657 = add nsw i64 %646, -16
+  %658 = getelementptr inbounds nuw i8, ptr %479, i64 40
+  store i64 %657, ptr %658, align 8, !tbaa !120
+  %659 = call ptr @av_buffer_alloc(i64 noundef %657) #7
+  %660 = getelementptr inbounds nuw i8, ptr %479, i64 32
+  store ptr %659, ptr %660, align 8, !tbaa !122
+  %.not.i48.i.i = icmp eq ptr %659, null
+  br i1 %.not.i48.i.i, label %cbs_apv_read_metadata_user_defined.exit.thread.i.i, label %661
 
-660:                                              ; preds = %655
-  %661 = getelementptr inbounds nuw i8, ptr %658, i64 8
-  %662 = load ptr, ptr %661, align 8, !tbaa !103
-  %663 = getelementptr inbounds nuw i8, ptr %478, i64 24
-  store ptr %662, ptr %663, align 8, !tbaa !123
-  %664 = load i64, ptr %657, align 8, !tbaa !120
-  %.not4354.not.i.i.i = icmp eq i64 %664, 0
+661:                                              ; preds = %656
+  %662 = getelementptr inbounds nuw i8, ptr %659, i64 8
+  %663 = load ptr, ptr %662, align 8, !tbaa !103
+  %664 = getelementptr inbounds nuw i8, ptr %479, i64 24
+  store ptr %663, ptr %664, align 8, !tbaa !123
+  %665 = load i64, ptr %658, align 8, !tbaa !120
+  %.not4354.not.i.i.i = icmp eq i64 %665, 0
   br i1 %.not4354.not.i.i.i, label %cbs_apv_read_metadata_user_defined.exit.i.i, label %.lr.ph.i49.i.i
 
-.lr.ph.i49.i.i:                                   ; preds = %660, %669
-  %.055.i.i.i = phi i64 [ %674, %669 ], [ 0, %660 ]
+.lr.ph.i49.i.i:                                   ; preds = %661, %670
+  %.055.i.i.i = phi i64 [ %675, %670 ], [ 0, %661 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
   store i32 1, ptr %10, align 4, !tbaa !27
-  %665 = trunc i64 %.055.i.i.i to i32
-  store i32 %665, ptr %472, align 4, !tbaa !27
-  %666 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.74, ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 255) #7
-  %667 = icmp sgt i32 %666, -1
-  br i1 %667, label %669, label %668
+  %666 = trunc i64 %.055.i.i.i to i32
+  store i32 %666, ptr %473, align 4, !tbaa !27
+  %667 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.74, ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 255) #7
+  %668 = icmp sgt i32 %667, -1
+  br i1 %668, label %670, label %669
 
-668:                                              ; preds = %.lr.ph.i49.i.i
+669:                                              ; preds = %.lr.ph.i49.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
   br label %cbs_apv_read_metadata_user_defined.exit.thread.i.i
 
-669:                                              ; preds = %.lr.ph.i49.i.i
-  %670 = load i32, ptr %9, align 4, !tbaa !27
-  %671 = trunc i32 %670 to i8
-  %672 = load ptr, ptr %663, align 8, !tbaa !123
-  %673 = getelementptr inbounds nuw i8, ptr %672, i64 %.055.i.i.i
-  store i8 %671, ptr %673, align 1, !tbaa !19
+670:                                              ; preds = %.lr.ph.i49.i.i
+  %671 = load i32, ptr %9, align 4, !tbaa !27
+  %672 = trunc i32 %671 to i8
+  %673 = load ptr, ptr %664, align 8, !tbaa !123
+  %674 = getelementptr inbounds nuw i8, ptr %673, i64 %.055.i.i.i
+  store i8 %672, ptr %674, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
-  %674 = add nuw i64 %.055.i.i.i, 1
-  %675 = load i64, ptr %657, align 8, !tbaa !120
-  %.not43.i.i.i = icmp ult i64 %674, %675
+  %675 = add nuw i64 %.055.i.i.i, 1
+  %676 = load i64, ptr %658, align 8, !tbaa !120
+  %.not43.i.i.i = icmp ult i64 %675, %676
   br i1 %.not43.i.i.i, label %.lr.ph.i49.i.i, label %cbs_apv_read_metadata_user_defined.exit.i.i, !llvm.loop !124
 
-cbs_apv_read_metadata_user_defined.exit.thread.i.i: ; preds = %655, %668, %654
-  %.339.i.ph.i.i = phi i32 [ %666, %668 ], [ %648, %654 ], [ -12, %655 ]
+cbs_apv_read_metadata_user_defined.exit.thread.i.i: ; preds = %656, %669, %655
+  %.339.i.ph.i.i = phi i32 [ %667, %669 ], [ %649, %655 ], [ -12, %656 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %cbs_apv_read_filler.exit
 
-cbs_apv_read_metadata_user_defined.exit.i.i:      ; preds = %669, %660
+cbs_apv_read_metadata_user_defined.exit.i.i:      ; preds = %670, %661
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %.loopexit.i
 
-676:                                              ; preds = %539
-  %677 = getelementptr inbounds nuw i8, ptr %478, i64 8
-  %678 = zext i32 %534 to i64
+677:                                              ; preds = %540
+  %678 = getelementptr inbounds nuw i8, ptr %479, i64 8
+  %679 = zext i32 %535 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.75) #7
-  %679 = getelementptr inbounds nuw i8, ptr %478, i64 24
-  store i64 %678, ptr %679, align 8, !tbaa !125
-  %680 = call ptr @av_buffer_alloc(i64 noundef range(i64 0, 4294967296) %678) #7
-  %681 = getelementptr inbounds nuw i8, ptr %478, i64 16
-  store ptr %680, ptr %681, align 8, !tbaa !127
-  %.not.i50.i.i = icmp eq ptr %680, null
-  br i1 %.not.i50.i.i, label %cbs_apv_read_metadata_undefined.exit.thread.i.i, label %682
+  %680 = getelementptr inbounds nuw i8, ptr %479, i64 24
+  store i64 %679, ptr %680, align 8, !tbaa !125
+  %681 = call ptr @av_buffer_alloc(i64 noundef range(i64 0, 4294967296) %679) #7
+  %682 = getelementptr inbounds nuw i8, ptr %479, i64 16
+  store ptr %681, ptr %682, align 8, !tbaa !127
+  %.not.i50.i.i = icmp eq ptr %681, null
+  br i1 %.not.i50.i.i, label %cbs_apv_read_metadata_undefined.exit.thread.i.i, label %683
 
-682:                                              ; preds = %676
-  %683 = getelementptr inbounds nuw i8, ptr %680, i64 8
-  %684 = load ptr, ptr %683, align 8, !tbaa !103
-  store ptr %684, ptr %677, align 8, !tbaa !128
-  %685 = load i64, ptr %679, align 8, !tbaa !125
-  %.not2629.not.i.i.i = icmp eq i64 %685, 0
+683:                                              ; preds = %677
+  %684 = getelementptr inbounds nuw i8, ptr %681, i64 8
+  %685 = load ptr, ptr %684, align 8, !tbaa !103
+  store ptr %685, ptr %678, align 8, !tbaa !128
+  %686 = load i64, ptr %680, align 8, !tbaa !125
+  %.not2629.not.i.i.i = icmp eq i64 %686, 0
   br i1 %.not2629.not.i.i.i, label %cbs_apv_read_metadata_undefined.exit.i.i, label %.lr.ph.i51.i.i
 
-.lr.ph.i51.i.i:                                   ; preds = %682, %690
-  %.030.i.i.i = phi i64 [ %695, %690 ], [ 0, %682 ]
+.lr.ph.i51.i.i:                                   ; preds = %683, %691
+  %.030.i.i.i = phi i64 [ %696, %691 ], [ 0, %683 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   store i32 1, ptr %6, align 4, !tbaa !27
-  %686 = trunc i64 %.030.i.i.i to i32
-  store i32 %686, ptr %476, align 4, !tbaa !27
-  %687 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.76, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 255) #7
-  %688 = icmp sgt i32 %687, -1
-  br i1 %688, label %690, label %689
+  %687 = trunc i64 %.030.i.i.i to i32
+  store i32 %687, ptr %477, align 4, !tbaa !27
+  %688 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.76, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 255) #7
+  %689 = icmp sgt i32 %688, -1
+  br i1 %689, label %691, label %690
 
-689:                                              ; preds = %.lr.ph.i51.i.i
+690:                                              ; preds = %.lr.ph.i51.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   br label %cbs_apv_read_metadata_undefined.exit.thread.i.i
 
-690:                                              ; preds = %.lr.ph.i51.i.i
-  %691 = load i32, ptr %5, align 4, !tbaa !27
-  %692 = trunc i32 %691 to i8
-  %693 = load ptr, ptr %677, align 8, !tbaa !128
-  %694 = getelementptr inbounds nuw i8, ptr %693, i64 %.030.i.i.i
-  store i8 %692, ptr %694, align 1, !tbaa !19
+691:                                              ; preds = %.lr.ph.i51.i.i
+  %692 = load i32, ptr %5, align 4, !tbaa !27
+  %693 = trunc i32 %692 to i8
+  %694 = load ptr, ptr %678, align 8, !tbaa !128
+  %695 = getelementptr inbounds nuw i8, ptr %694, i64 %.030.i.i.i
+  store i8 %693, ptr %695, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  %695 = add nuw i64 %.030.i.i.i, 1
-  %696 = load i64, ptr %679, align 8, !tbaa !125
-  %.not26.i.i.i = icmp ult i64 %695, %696
+  %696 = add nuw i64 %.030.i.i.i, 1
+  %697 = load i64, ptr %680, align 8, !tbaa !125
+  %.not26.i.i.i = icmp ult i64 %696, %697
   br i1 %.not26.i.i.i, label %.lr.ph.i51.i.i, label %cbs_apv_read_metadata_undefined.exit.i.i, !llvm.loop !129
 
-cbs_apv_read_metadata_undefined.exit.thread.i.i:  ; preds = %676, %689
-  %.022.i.ph.i.i = phi i32 [ %687, %689 ], [ -12, %676 ]
+cbs_apv_read_metadata_undefined.exit.thread.i.i:  ; preds = %677, %690
+  %.022.i.ph.i.i = phi i32 [ %688, %690 ], [ -12, %677 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %cbs_apv_read_filler.exit
 
-cbs_apv_read_metadata_undefined.exit.i.i:         ; preds = %690, %682
+cbs_apv_read_metadata_undefined.exit.i.i:         ; preds = %691, %683
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %639, %cbs_apv_read_metadata_undefined.exit.i.i, %cbs_apv_read_metadata_user_defined.exit.i.i, %637, %cbs_apv_read_metadata_cll.exit.i.i, %cbs_apv_read_metadata_mdcv.exit.i.i, %cbs_apv_read_metadata_itu_t_t35.exit.i.i
-  %697 = load i32, ptr %507, align 4, !tbaa !95
-  %698 = sub i32 %535, %697
-  %.not.i48 = icmp eq i32 %698, 0
+.loopexit.i:                                      ; preds = %640, %cbs_apv_read_metadata_undefined.exit.i.i, %cbs_apv_read_metadata_user_defined.exit.i.i, %638, %cbs_apv_read_metadata_cll.exit.i.i, %cbs_apv_read_metadata_mdcv.exit.i.i, %cbs_apv_read_metadata_itu_t_t35.exit.i.i
+  %698 = load i32, ptr %508, align 4, !tbaa !95
+  %699 = sub i32 %536, %698
+  %.not.i48 = icmp eq i32 %699, 0
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i46, 8
   %or.cond.i49 = select i1 %.not.i48, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i49, label %.thread126.i, label %477, !llvm.loop !130
+  br i1 %or.cond.i49, label %.thread126.i, label %478, !llvm.loop !130
 
 .thread126.i:                                     ; preds = %.loopexit.i
-  %699 = getelementptr inbounds nuw i8, ptr %445, i64 400
-  store i64 0, ptr %699, align 8, !tbaa !80
+  %700 = getelementptr inbounds nuw i8, ptr %446, i64 400
+  store i64 0, ptr %700, align 8, !tbaa !80
   %.val13.i.i50 = load ptr, ptr %71, align 8, !tbaa !21
   %.val1214.i.i51 = load i32, ptr %85, align 8, !tbaa !26
-  %700 = lshr i32 %.val1214.i.i51, 3
-  %701 = zext nneg i32 %700 to i64
-  %702 = getelementptr inbounds nuw i8, ptr %.val13.i.i50, i64 %701
-  %703 = load i32, ptr %702, align 1, !tbaa !19
-  %704 = call i32 @llvm.bswap.i32(i32 %703)
-  %705 = and i32 %.val1214.i.i51, 7
-  %706 = shl i32 %704, %705
-  %707 = icmp ugt i32 %706, -16777217
-  br i1 %707, label %.lr.ph.i.i52, label %cbs_apv_read_metadata.exit
+  %701 = lshr i32 %.val1214.i.i51, 3
+  %702 = zext nneg i32 %701 to i64
+  %703 = getelementptr inbounds nuw i8, ptr %.val13.i.i50, i64 %702
+  %704 = load i32, ptr %703, align 1, !tbaa !19
+  %705 = call i32 @llvm.bswap.i32(i32 %704)
+  %706 = and i32 %.val1214.i.i51, 7
+  %707 = shl i32 %705, %706
+  %708 = icmp ugt i32 %707, -16777217
+  br i1 %708, label %.lr.ph.i.i52, label %cbs_apv_read_metadata.exit
 
-.lr.ph.i.i52:                                     ; preds = %.thread126.i, %710
+.lr.ph.i.i52:                                     ; preds = %.thread126.i, %711
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  %708 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %4, i32 noundef 255, i32 noundef 255) #7
-  %709 = icmp sgt i32 %708, -1
+  %709 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %4, i32 noundef 255, i32 noundef 255) #7
+  %710 = icmp sgt i32 %709, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
-  br i1 %709, label %710, label %cbs_apv_read_filler.exit
+  br i1 %710, label %711, label %cbs_apv_read_filler.exit
 
-710:                                              ; preds = %.lr.ph.i.i52
-  %711 = load i64, ptr %699, align 8, !tbaa !80
-  %712 = add i64 %711, 1
-  store i64 %712, ptr %699, align 8, !tbaa !80
+711:                                              ; preds = %.lr.ph.i.i52
+  %712 = load i64, ptr %700, align 8, !tbaa !80
+  %713 = add i64 %712, 1
+  store i64 %713, ptr %700, align 8, !tbaa !80
   %.val.i.i53 = load ptr, ptr %71, align 8, !tbaa !21
   %.val12.i.i54 = load i32, ptr %85, align 8, !tbaa !26
-  %713 = lshr i32 %.val12.i.i54, 3
-  %714 = zext nneg i32 %713 to i64
-  %715 = getelementptr inbounds nuw i8, ptr %.val.i.i53, i64 %714
-  %716 = load i32, ptr %715, align 1, !tbaa !19
-  %717 = call i32 @llvm.bswap.i32(i32 %716)
-  %718 = and i32 %.val12.i.i54, 7
-  %719 = shl i32 %717, %718
-  %720 = icmp ugt i32 %719, -16777217
-  br i1 %720, label %.lr.ph.i.i52, label %cbs_apv_read_metadata.exit, !llvm.loop !82
+  %714 = lshr i32 %.val12.i.i54, 3
+  %715 = zext nneg i32 %714 to i64
+  %716 = getelementptr inbounds nuw i8, ptr %.val.i.i53, i64 %715
+  %717 = load i32, ptr %716, align 1, !tbaa !19
+  %718 = call i32 @llvm.bswap.i32(i32 %717)
+  %719 = and i32 %.val12.i.i54, 7
+  %720 = shl i32 %718, %719
+  %721 = icmp ugt i32 %720, -16777217
+  br i1 %721, label %.lr.ph.i.i52, label %cbs_apv_read_metadata.exit, !llvm.loop !82
 
-.critedge.i43:                                    ; preds = %460
+.critedge.i43:                                    ; preds = %461
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #7
   br label %cbs_apv_read_filler.exit
 
-721:                                              ; preds = %89
-  %722 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %723 = load ptr, ptr %722, align 8, !tbaa !33
-  store i64 0, ptr %723, align 8, !tbaa !80
-  %724 = load i32, ptr %73, align 1, !tbaa !19
-  %.mask = and i32 %724, 255
-  %725 = icmp eq i32 %.mask, 255
-  br i1 %725, label %.lr.ph.i62, label %cbs_apv_read_metadata.exit
+722:                                              ; preds = %89
+  %723 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %724 = load ptr, ptr %723, align 8, !tbaa !33
+  store i64 0, ptr %724, align 8, !tbaa !80
+  %725 = load i32, ptr %73, align 1, !tbaa !19
+  %.mask = and i32 %725, 255
+  %726 = icmp eq i32 %.mask, 255
+  br i1 %726, label %.lr.ph.i62, label %cbs_apv_read_metadata.exit
 
-.lr.ph.i62:                                       ; preds = %721, %728
+.lr.ph.i62:                                       ; preds = %722, %729
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
-  %726 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %3, i32 noundef 255, i32 noundef 255) #7
-  %727 = icmp sgt i32 %726, -1
+  %727 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %3, i32 noundef 255, i32 noundef 255) #7
+  %728 = icmp sgt i32 %727, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
-  br i1 %727, label %728, label %cbs_apv_read_filler.exit
+  br i1 %728, label %729, label %cbs_apv_read_filler.exit
 
-728:                                              ; preds = %.lr.ph.i62
-  %729 = load i64, ptr %723, align 8, !tbaa !80
-  %730 = add i64 %729, 1
-  store i64 %730, ptr %723, align 8, !tbaa !80
+729:                                              ; preds = %.lr.ph.i62
+  %730 = load i64, ptr %724, align 8, !tbaa !80
+  %731 = add i64 %730, 1
+  store i64 %731, ptr %724, align 8, !tbaa !80
   %.val.i63 = load ptr, ptr %71, align 8, !tbaa !21
   %.val12.i = load i32, ptr %85, align 8, !tbaa !26
-  %731 = lshr i32 %.val12.i, 3
-  %732 = zext nneg i32 %731 to i64
-  %733 = getelementptr inbounds nuw i8, ptr %.val.i63, i64 %732
-  %734 = load i32, ptr %733, align 1, !tbaa !19
-  %735 = call i32 @llvm.bswap.i32(i32 %734)
-  %736 = and i32 %.val12.i, 7
-  %737 = shl i32 %735, %736
-  %738 = icmp ugt i32 %737, -16777217
-  br i1 %738, label %.lr.ph.i62, label %cbs_apv_read_metadata.exit, !llvm.loop !82
+  %732 = lshr i32 %.val12.i, 3
+  %733 = zext nneg i32 %732 to i64
+  %734 = getelementptr inbounds nuw i8, ptr %.val.i63, i64 %733
+  %735 = load i32, ptr %734, align 1, !tbaa !19
+  %736 = call i32 @llvm.bswap.i32(i32 %735)
+  %737 = and i32 %.val12.i, 7
+  %738 = shl i32 %736, %737
+  %739 = icmp ugt i32 %738, -16777217
+  br i1 %739, label %.lr.ph.i62, label %cbs_apv_read_metadata.exit, !llvm.loop !82
 
-cbs_apv_read_metadata.exit:                       ; preds = %728, %710, %721, %.thread126.i, %cbs_apv_read_au_info.exit, %.loopexit
+cbs_apv_read_metadata.exit:                       ; preds = %729, %711, %722, %.thread126.i, %cbs_apv_read_au_info.exit, %.loopexit
   br label %cbs_apv_read_filler.exit
 
-cbs_apv_read_filler.exit:                         ; preds = %.lr.ph.i62, %._crit_edge.i45, %._crit_edge207.i, %.lr.ph.i60, %.lr.ph206.i, %.lr.ph.i43.i.i, %.lr.ph.i.i52, %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i, %cbs_apv_read_metadata_mdcv.exit.thread.i.i, %cbs_apv_read_metadata_mdcv.exit.thread54.i.i, %cbs_apv_read_metadata_cll.exit.thread.i.i, %cbs_apv_read_metadata_cll.exit.thread57.i.i, %cbs_apv_read_metadata_user_defined.exit.thread.i.i, %cbs_apv_read_metadata_undefined.exit.thread.i.i, %537, %453, %.critedge.i.i42, %cbs_apv_read_pbu_header.exit.thread118.i, %.critedge.i43, %cbs_apv_read_au_info.exit.thread68, %cbs_apv_read_au_info.exit.thread, %.thread, %89, %86, %2, %.loopexit, %cbs_apv_read_metadata.exit
-  %.0 = phi i32 [ 0, %cbs_apv_read_metadata.exit ], [ -12, %.loopexit ], [ -1094995529, %2 ], [ %87, %86 ], [ -38, %89 ], [ %.040.i.ph, %.thread ], [ %.154.i.ph, %cbs_apv_read_au_info.exit.thread ], [ %438, %cbs_apv_read_au_info.exit.thread68 ], [ %.141.i.ph.i.i, %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i ], [ %.251.i.ph.i.i, %cbs_apv_read_metadata_mdcv.exit.thread.i.i ], [ %621, %cbs_apv_read_metadata_mdcv.exit.thread54.i.i ], [ %626, %cbs_apv_read_metadata_cll.exit.thread.i.i ], [ %632, %cbs_apv_read_metadata_cll.exit.thread57.i.i ], [ %.339.i.ph.i.i, %cbs_apv_read_metadata_user_defined.exit.thread.i.i ], [ %.022.i.ph.i.i, %cbs_apv_read_metadata_undefined.exit.thread.i.i ], [ -1094995529, %537 ], [ %451, %453 ], [ %446, %.critedge.i.i42 ], [ %458, %cbs_apv_read_pbu_header.exit.thread118.i ], [ %464, %.critedge.i43 ], [ %708, %.lr.ph.i.i52 ], [ %641, %.lr.ph.i43.i.i ], [ %516, %.lr.ph206.i ], [ %487, %.lr.ph.i60 ], [ %529, %._crit_edge207.i ], [ %501, %._crit_edge.i45 ], [ %726, %.lr.ph.i62 ]
+cbs_apv_read_filler.exit:                         ; preds = %.lr.ph.i62, %._crit_edge.i45, %._crit_edge207.i, %.lr.ph.i60, %.lr.ph206.i, %.lr.ph.i43.i.i, %.lr.ph.i.i52, %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i, %cbs_apv_read_metadata_mdcv.exit.thread.i.i, %cbs_apv_read_metadata_mdcv.exit.thread54.i.i, %cbs_apv_read_metadata_cll.exit.thread.i.i, %cbs_apv_read_metadata_cll.exit.thread57.i.i, %cbs_apv_read_metadata_user_defined.exit.thread.i.i, %cbs_apv_read_metadata_undefined.exit.thread.i.i, %538, %454, %.critedge.i.i42, %cbs_apv_read_pbu_header.exit.thread118.i, %.critedge.i43, %cbs_apv_read_au_info.exit.thread68, %cbs_apv_read_au_info.exit.thread, %.thread, %89, %86, %2, %.loopexit, %cbs_apv_read_metadata.exit
+  %.0 = phi i32 [ 0, %cbs_apv_read_metadata.exit ], [ -12, %.loopexit ], [ -1094995529, %2 ], [ %87, %86 ], [ -38, %89 ], [ %.040.i.ph, %.thread ], [ %.154.i.ph, %cbs_apv_read_au_info.exit.thread ], [ %439, %cbs_apv_read_au_info.exit.thread68 ], [ %.141.i.ph.i.i, %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i ], [ %.251.i.ph.i.i, %cbs_apv_read_metadata_mdcv.exit.thread.i.i ], [ %622, %cbs_apv_read_metadata_mdcv.exit.thread54.i.i ], [ %627, %cbs_apv_read_metadata_cll.exit.thread.i.i ], [ %633, %cbs_apv_read_metadata_cll.exit.thread57.i.i ], [ %.339.i.ph.i.i, %cbs_apv_read_metadata_user_defined.exit.thread.i.i ], [ %.022.i.ph.i.i, %cbs_apv_read_metadata_undefined.exit.thread.i.i ], [ -1094995529, %538 ], [ %452, %454 ], [ %447, %.critedge.i.i42 ], [ %459, %cbs_apv_read_pbu_header.exit.thread118.i ], [ %465, %.critedge.i43 ], [ %709, %.lr.ph.i.i52 ], [ %642, %.lr.ph.i43.i.i ], [ %517, %.lr.ph206.i ], [ %488, %.lr.ph.i60 ], [ %530, %._crit_edge207.i ], [ %502, %._crit_edge.i45 ], [ %727, %.lr.ph.i62 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %71) #7
   ret i32 %.0
 }
@@ -1957,9 +1956,9 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_write_unit(ptr noundef %0
     i32 25, label %18
     i32 26, label %18
     i32 27, label %18
-    i32 65, label %251
-    i32 66, label %297
-    i32 67, label %545
+    i32 65, label %253
+    i32 66, label %299
+    i32 67, label %547
   ]
 
 18:                                               ; preds = %3, %3, %3, %3, %3
@@ -2152,910 +2151,912 @@ switch.lookup:                                    ; preds = %103
 
 .preheader164.i.i:                                ; preds = %.thread159.i.i, %.preheader164.lr.ph.i.i
   %indvars.iv176.i.i = phi i64 [ 0, %.preheader164.lr.ph.i.i ], [ %indvars.iv.next177.i.i, %.thread159.i.i ]
+  %126 = getelementptr inbounds nuw [4 x [8 x [8 x i8]]], ptr %121, i64 0, i64 %indvars.iv176.i.i
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %130, %.preheader164.i.i
-  %indvars.iv172.i.i = phi i64 [ 0, %.preheader164.i.i ], [ %indvars.iv.next173.i.i, %130 ]
-  br label %127
+.preheader.i.i:                                   ; preds = %132, %.preheader164.i.i
+  %indvars.iv172.i.i = phi i64 [ 0, %.preheader164.i.i ], [ %indvars.iv.next173.i.i, %132 ]
+  %127 = getelementptr inbounds nuw [8 x [8 x i8]], ptr %126, i64 0, i64 %indvars.iv172.i.i
+  br label %129
 
-126:                                              ; preds = %127
+128:                                              ; preds = %129
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.i.i, label %130, label %127, !llvm.loop !131
+  br i1 %exitcond.i.i, label %132, label %129, !llvm.loop !131
 
-127:                                              ; preds = %126, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %126 ]
-  %128 = getelementptr inbounds nuw [4 x [8 x [8 x i8]]], ptr %121, i64 0, i64 %indvars.iv176.i.i, i64 %indvars.iv172.i.i, i64 %indvars.iv.i.i
-  %129 = load i8, ptr %128, align 1, !tbaa !19
-  %.not154.i.i = icmp eq i8 %129, 16
-  br i1 %.not154.i.i, label %126, label %131
+129:                                              ; preds = %128, %.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %128 ]
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 0, i64 %indvars.iv.i.i
+  %131 = load i8, ptr %130, align 1, !tbaa !19
+  %.not154.i.i = icmp eq i8 %131, 16
+  br i1 %.not154.i.i, label %128, label %133
 
-130:                                              ; preds = %126
+132:                                              ; preds = %128
   %indvars.iv.next173.i.i = add nuw nsw i64 %indvars.iv172.i.i, 1
   %exitcond175.i.i = icmp eq i64 %indvars.iv.next173.i.i, 8
   br i1 %exitcond175.i.i, label %.thread159.i.i, label %.preheader.i.i, !llvm.loop !132
 
-131:                                              ; preds = %127
-  %132 = load ptr, ptr %0, align 8, !tbaa !20
-  %133 = zext i8 %129 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %132, i32 noundef 16, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.78, i64 noundef %133, i64 noundef 16) #7
+133:                                              ; preds = %129
+  %134 = load ptr, ptr %0, align 8, !tbaa !20
+  %135 = zext i8 %131 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %134, i32 noundef 16, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.78, i64 noundef %135, i64 noundef 16) #7
   br label %cbs_apv_write_frame.exit.thread
 
-.thread159.i.i:                                   ; preds = %130
+.thread159.i.i:                                   ; preds = %132
   %indvars.iv.next177.i.i = add nuw nsw i64 %indvars.iv176.i.i, 1
   %exitcond179.not.i.i = icmp eq i64 %indvars.iv.next177.i.i, %wide.trip.count.i.i
   br i1 %exitcond179.not.i.i, label %.thread162.i.i, label %.preheader164.i.i, !llvm.loop !133
 
 .thread162.i.i:                                   ; preds = %.thread159.i.i, %122, %.preheader165.i.i
-  %134 = getelementptr inbounds nuw i8, ptr %20, i64 288
-  %135 = tail call fastcc i32 @cbs_apv_write_tile_info(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull readonly %134, ptr noundef nonnull readonly %39)
-  %136 = icmp slt i32 %135, 0
-  br i1 %136, label %cbs_apv_write_frame.exit.thread, label %137
+  %136 = getelementptr inbounds nuw i8, ptr %20, i64 288
+  %137 = tail call fastcc i32 @cbs_apv_write_tile_info(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull readonly %136, ptr noundef nonnull readonly %39)
+  %138 = icmp slt i32 %137, 0
+  br i1 %138, label %cbs_apv_write_frame.exit.thread, label %139
 
-137:                                              ; preds = %.thread162.i.i
-  %138 = getelementptr inbounds nuw i8, ptr %20, i64 1900
-  %139 = load i8, ptr %138, align 4, !tbaa !69
-  %140 = zext i8 %139 to i32
-  %141 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef null, i32 noundef %140, i32 noundef 0, i32 noundef 0) #7
-  %142 = icmp sgt i32 %141, -1
-  br i1 %142, label %cbs_apv_write_frame_header.exit.i, label %cbs_apv_write_frame.exit.thread
+139:                                              ; preds = %.thread162.i.i
+  %140 = getelementptr inbounds nuw i8, ptr %20, i64 1900
+  %141 = load i8, ptr %140, align 4, !tbaa !69
+  %142 = zext i8 %141 to i32
+  %143 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef null, i32 noundef %142, i32 noundef 0, i32 noundef 0) #7
+  %144 = icmp sgt i32 %143, -1
+  br i1 %144, label %cbs_apv_write_frame_header.exit.i, label %cbs_apv_write_frame.exit.thread
 
-cbs_apv_write_frame_header.exit.i:                ; preds = %137
-  %143 = tail call fastcc i32 @cbs_apv_write_byte_alignment(ptr noundef nonnull %0, ptr noundef %2)
-  %144 = icmp slt i32 %143, 0
-  br i1 %144, label %cbs_apv_write_frame.exit.thread, label %.preheader.i
+cbs_apv_write_frame_header.exit.i:                ; preds = %139
+  %145 = tail call fastcc i32 @cbs_apv_write_byte_alignment(ptr noundef nonnull %0, ptr noundef %2)
+  %146 = icmp slt i32 %145, 0
+  br i1 %146, label %cbs_apv_write_frame.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %cbs_apv_write_frame_header.exit.i
-  %145 = getelementptr inbounds nuw i8, ptr %22, i64 10
-  %146 = load i16, ptr %145, align 2, !tbaa !67
-  %.not77.not.i = icmp eq i16 %146, 0
+  %147 = getelementptr inbounds nuw i8, ptr %22, i64 10
+  %148 = load i16, ptr %147, align 2, !tbaa !67
+  %.not77.not.i = icmp eq i16 %148, 0
   br i1 %.not77.not.i, label %.thread60.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %147 = getelementptr inbounds nuw i8, ptr %20, i64 1904
-  %148 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %149 = getelementptr inbounds nuw i8, ptr %20, i64 3504
-  %150 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %151 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %152 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %153 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %154 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  br label %155
+  %149 = getelementptr inbounds nuw i8, ptr %20, i64 1904
+  %150 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %20, i64 3504
+  %152 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  br label %157
 
-155:                                              ; preds = %cbs_apv_write_tile.exit.i, %.lr.ph.i
+157:                                              ; preds = %cbs_apv_write_tile.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %cbs_apv_write_tile.exit.i ]
-  %156 = getelementptr inbounds nuw [400 x i32], ptr %147, i64 0, i64 %indvars.iv.i
-  %157 = load i32, ptr %156, align 4, !tbaa !27
+  %158 = getelementptr inbounds nuw [400 x i32], ptr %149, i64 0, i64 %indvars.iv.i
+  %159 = load i32, ptr %158, align 4, !tbaa !27
   store i32 1, ptr %16, align 4, !tbaa !27
-  %158 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %158, ptr %148, align 4, !tbaa !27
-  %159 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 32, ptr noundef nonnull @.str.12, ptr noundef nonnull %16, i32 noundef %157, i32 noundef 10, i32 noundef -1) #7
-  %160 = icmp sgt i32 %159, -1
-  br i1 %160, label %161, label %cbs_apv_write_frame.exit.thread
+  %160 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %160, ptr %150, align 4, !tbaa !27
+  %161 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 32, ptr noundef nonnull @.str.12, ptr noundef nonnull %16, i32 noundef %159, i32 noundef 10, i32 noundef -1) #7
+  %162 = icmp sgt i32 %161, -1
+  br i1 %162, label %163, label %cbs_apv_write_frame.exit.thread
 
-161:                                              ; preds = %155
-  %162 = getelementptr inbounds nuw [400 x %struct.APVRawTile], ptr %149, i64 0, i64 %indvars.iv.i
-  %163 = load i32, ptr %156, align 4, !tbaa !27
-  %164 = load ptr, ptr %21, align 8, !tbaa !34
+163:                                              ; preds = %157
+  %164 = getelementptr inbounds nuw [400 x %struct.APVRawTile], ptr %151, i64 0, i64 %indvars.iv.i
+  %165 = load i32, ptr %158, align 4, !tbaa !27
+  %166 = load ptr, ptr %21, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
-  %166 = load i32, ptr %165, align 4, !tbaa !55
-  %167 = mul i32 %166, 5
-  %168 = add i32 %167, 5
-  %169 = load i16, ptr %162, align 4, !tbaa !71
-  %170 = zext i16 %169 to i32
-  %171 = and i32 %168, 65535
-  %172 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.42, ptr noundef null, i32 noundef %170, i32 noundef %171, i32 noundef %171) #7
-  %173 = icmp sgt i32 %172, -1
-  br i1 %173, label %174, label %cbs_apv_write_tile_header.exit.thread.i.i
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
+  %168 = load i32, ptr %167, align 4, !tbaa !55
+  %169 = mul i32 %168, 5
+  %170 = add i32 %169, 5
+  %171 = load i16, ptr %164, align 4, !tbaa !71
+  %172 = zext i16 %171 to i32
+  %173 = and i32 %170, 65535
+  %174 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.42, ptr noundef null, i32 noundef %172, i32 noundef %173, i32 noundef %173) #7
+  %175 = icmp sgt i32 %174, -1
+  br i1 %175, label %176, label %cbs_apv_write_tile_header.exit.thread.i.i
 
-174:                                              ; preds = %161
-  %175 = getelementptr inbounds nuw i8, ptr %162, i64 2
-  %176 = load i16, ptr %175, align 2, !tbaa !73
-  %177 = zext i16 %176 to i32
-  %178 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.43, ptr noundef null, i32 noundef %177, i32 noundef range(i32 -2147483648, 65535) %158, i32 noundef range(i32 -2147483648, 65535) %158) #7
-  %179 = icmp sgt i32 %178, -1
-  br i1 %179, label %180, label %cbs_apv_write_tile_header.exit.thread.i.i
+176:                                              ; preds = %163
+  %177 = getelementptr inbounds nuw i8, ptr %164, i64 2
+  %178 = load i16, ptr %177, align 2, !tbaa !73
+  %179 = zext i16 %178 to i32
+  %180 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.43, ptr noundef null, i32 noundef %179, i32 noundef range(i32 -2147483648, 65535) %160, i32 noundef range(i32 -2147483648, 65535) %160) #7
+  %181 = icmp sgt i32 %180, -1
+  br i1 %181, label %182, label %cbs_apv_write_tile_header.exit.thread.i.i
 
-180:                                              ; preds = %174
-  %181 = load i32, ptr %165, align 4, !tbaa !55
-  %.not86.i.i.i = icmp sgt i32 %181, 0
+182:                                              ; preds = %176
+  %183 = load i32, ptr %167, align 4, !tbaa !55
+  %.not86.i.i.i = icmp sgt i32 %183, 0
   br i1 %.not86.i.i.i, label %.lr.ph.i.i.i, label %cbs_apv_write_tile_header.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %180
-  %182 = load i16, ptr %162, align 4, !tbaa !71
-  %183 = zext i16 %182 to i32
-  %184 = sub i32 %163, %183
-  %185 = getelementptr inbounds nuw i8, ptr %162, i64 4
-  br label %186
+.lr.ph.i.i.i:                                     ; preds = %182
+  %184 = load i16, ptr %164, align 4, !tbaa !71
+  %185 = zext i16 %184 to i32
+  %186 = sub i32 %165, %185
+  %187 = getelementptr inbounds nuw i8, ptr %164, i64 4
+  br label %188
 
-186:                                              ; preds = %192, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %192 ]
-  %.06788.i.i.i = phi i32 [ %184, %.lr.ph.i.i.i ], [ %194, %192 ]
-  %187 = getelementptr inbounds nuw [4 x i32], ptr %185, i64 0, i64 %indvars.iv.i.i.i
-  %188 = load i32, ptr %187, align 4, !tbaa !27
+188:                                              ; preds = %194, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %194 ]
+  %.06788.i.i.i = phi i32 [ %186, %.lr.ph.i.i.i ], [ %196, %194 ]
+  %189 = getelementptr inbounds nuw [4 x i32], ptr %187, i64 0, i64 %indvars.iv.i.i.i
+  %190 = load i32, ptr %189, align 4, !tbaa !27
   store i32 1, ptr %14, align 4, !tbaa !27
-  %189 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  store i32 %189, ptr %150, align 4, !tbaa !27
-  %190 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 32, ptr noundef nonnull @.str.44, ptr noundef nonnull %14, i32 noundef %188, i32 noundef 1, i32 noundef %.06788.i.i.i) #7
-  %191 = icmp sgt i32 %190, -1
-  br i1 %191, label %192, label %cbs_apv_write_tile_header.exit.thread.i.i
+  %191 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  store i32 %191, ptr %152, align 4, !tbaa !27
+  %192 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 32, ptr noundef nonnull @.str.44, ptr noundef nonnull %14, i32 noundef %190, i32 noundef 1, i32 noundef %.06788.i.i.i) #7
+  %193 = icmp sgt i32 %192, -1
+  br i1 %193, label %194, label %cbs_apv_write_tile_header.exit.thread.i.i
 
-192:                                              ; preds = %186
-  %193 = load i32, ptr %187, align 4, !tbaa !27
-  %194 = sub i32 %.06788.i.i.i, %193
+194:                                              ; preds = %188
+  %195 = load i32, ptr %189, align 4, !tbaa !27
+  %196 = sub i32 %.06788.i.i.i, %195
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %195 = load i32, ptr %165, align 4, !tbaa !55
-  %196 = sext i32 %195 to i64
-  %.not.i.i.i = icmp slt i64 %indvars.iv.next.i.i.i, %196
-  br i1 %.not.i.i.i, label %186, label %._crit_edge.i.i.i, !llvm.loop !134
+  %197 = load i32, ptr %167, align 4, !tbaa !55
+  %198 = sext i32 %197 to i64
+  %.not.i.i.i = icmp slt i64 %indvars.iv.next.i.i.i, %198
+  br i1 %.not.i.i.i, label %188, label %._crit_edge.i.i.i, !llvm.loop !134
 
-._crit_edge.i.i.i:                                ; preds = %192
-  %197 = icmp sgt i32 %195, 0
-  br i1 %197, label %.lr.ph92.i.i.i, label %cbs_apv_write_tile_header.exit.i.i
+._crit_edge.i.i.i:                                ; preds = %194
+  %199 = icmp sgt i32 %197, 0
+  br i1 %199, label %.lr.ph92.i.i.i, label %cbs_apv_write_tile_header.exit.i.i
 
 .lr.ph92.i.i.i:                                   ; preds = %._crit_edge.i.i.i
-  %198 = load i32, ptr %164, align 4, !tbaa !51
-  %199 = mul i32 %198, 6
-  %200 = add i32 %199, 3
-  %201 = getelementptr inbounds nuw i8, ptr %162, i64 20
-  %202 = and i32 %200, 255
-  br label %206
+  %200 = load i32, ptr %166, align 4, !tbaa !51
+  %201 = mul i32 %200, 6
+  %202 = add i32 %201, 3
+  %203 = getelementptr inbounds nuw i8, ptr %164, i64 20
+  %204 = and i32 %202, 255
+  br label %208
 
-203:                                              ; preds = %206
+205:                                              ; preds = %208
   %indvars.iv.next100.i.i.i = add nuw nsw i64 %indvars.iv99.i.i.i, 1
-  %204 = load i32, ptr %165, align 4, !tbaa !55
-  %205 = sext i32 %204 to i64
-  %.not80.i.i.i = icmp slt i64 %indvars.iv.next100.i.i.i, %205
-  br i1 %.not80.i.i.i, label %206, label %cbs_apv_write_tile_header.exit.i.i, !llvm.loop !135
+  %206 = load i32, ptr %167, align 4, !tbaa !55
+  %207 = sext i32 %206 to i64
+  %.not80.i.i.i = icmp slt i64 %indvars.iv.next100.i.i.i, %207
+  br i1 %.not80.i.i.i, label %208, label %cbs_apv_write_tile_header.exit.i.i, !llvm.loop !135
 
-206:                                              ; preds = %203, %.lr.ph92.i.i.i
-  %indvars.iv99.i.i.i = phi i64 [ 0, %.lr.ph92.i.i.i ], [ %indvars.iv.next100.i.i.i, %203 ]
-  %207 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 0, i64 %indvars.iv99.i.i.i
-  %208 = load i8, ptr %207, align 1, !tbaa !19
-  %209 = zext i8 %208 to i32
+208:                                              ; preds = %205, %.lr.ph92.i.i.i
+  %indvars.iv99.i.i.i = phi i64 [ 0, %.lr.ph92.i.i.i ], [ %indvars.iv.next100.i.i.i, %205 ]
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 0, i64 %indvars.iv99.i.i.i
+  %210 = load i8, ptr %209, align 1, !tbaa !19
+  %211 = zext i8 %210 to i32
   store i32 1, ptr %15, align 4, !tbaa !27
-  %210 = trunc nuw nsw i64 %indvars.iv99.i.i.i to i32
-  store i32 %210, ptr %151, align 4, !tbaa !27
-  %211 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.45, ptr noundef nonnull %15, i32 noundef %209, i32 noundef 0, i32 noundef %202) #7
-  %212 = icmp sgt i32 %211, -1
-  br i1 %212, label %203, label %cbs_apv_write_tile_header.exit.thread.i.i
+  %212 = trunc nuw nsw i64 %indvars.iv99.i.i.i to i32
+  store i32 %212, ptr %153, align 4, !tbaa !27
+  %213 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.45, ptr noundef nonnull %15, i32 noundef %211, i32 noundef 0, i32 noundef %204) #7
+  %214 = icmp sgt i32 %213, -1
+  br i1 %214, label %205, label %cbs_apv_write_tile_header.exit.thread.i.i
 
-cbs_apv_write_tile_header.exit.thread.i.i:        ; preds = %174, %161, %186, %206
-  %.1.i.ph.i.i = phi i32 [ %211, %206 ], [ %190, %186 ], [ %172, %161 ], [ %178, %174 ]
+cbs_apv_write_tile_header.exit.thread.i.i:        ; preds = %176, %163, %188, %208
+  %.1.i.ph.i.i = phi i32 [ %213, %208 ], [ %192, %188 ], [ %174, %163 ], [ %180, %176 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   br label %cbs_apv_write_frame.exit.thread
 
-cbs_apv_write_tile_header.exit.i.i:               ; preds = %203, %._crit_edge.i.i.i, %180
-  %213 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  %214 = load i8, ptr %213, align 4, !tbaa !76
-  %215 = zext i8 %214 to i32
-  %216 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, i32 noundef %215, i32 noundef 0, i32 noundef 0) #7
+cbs_apv_write_tile_header.exit.i.i:               ; preds = %205, %._crit_edge.i.i.i, %182
+  %215 = getelementptr inbounds nuw i8, ptr %164, i64 24
+  %216 = load i8, ptr %215, align 4, !tbaa !76
+  %217 = zext i8 %216 to i32
+  %218 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, i32 noundef %217, i32 noundef 0, i32 noundef 0) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  %217 = icmp slt i32 %216, 0
-  br i1 %217, label %cbs_apv_write_frame.exit.thread, label %.preheader.i49.i
+  %219 = icmp slt i32 %218, 0
+  br i1 %219, label %cbs_apv_write_frame.exit.thread, label %.preheader.i49.i
 
 .preheader.i49.i:                                 ; preds = %cbs_apv_write_tile_header.exit.i.i
-  %218 = getelementptr inbounds nuw i8, ptr %162, i64 4
-  %219 = load i32, ptr %165, align 4, !tbaa !55
-  %.not2736.i.i = icmp sgt i32 %219, 0
+  %220 = getelementptr inbounds nuw i8, ptr %164, i64 4
+  %221 = load i32, ptr %167, align 4, !tbaa !55
+  %.not2736.i.i = icmp sgt i32 %221, 0
   br i1 %.not2736.i.i, label %.lr.ph.i.i, label %cbs_apv_write_tile.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i49.i
-  %220 = getelementptr inbounds nuw i8, ptr %162, i64 32
-  br label %221
+  %222 = getelementptr inbounds nuw i8, ptr %164, i64 32
+  br label %223
 
-221:                                              ; preds = %235, %.lr.ph.i.i
-  %indvars.iv.i50.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i52.i, %235 ]
-  %222 = getelementptr inbounds nuw [4 x i32], ptr %218, i64 0, i64 %indvars.iv.i50.i
-  %223 = load i32, ptr %222, align 4, !tbaa !27
-  %224 = load ptr, ptr %152, align 8, !tbaa !136
-  %225 = load ptr, ptr %153, align 8, !tbaa !138
-  %226 = ptrtoint ptr %224 to i64
-  %227 = ptrtoint ptr %225 to i64
-  %228 = load i32, ptr %154, align 4, !tbaa !139
-  %229 = sub nsw i32 32, %228
-  %230 = ashr i32 %229, 3
-  %231 = zext i32 %230 to i64
-  %232 = add i64 %227, %231
-  %233 = sub i64 %226, %232
-  %234 = trunc i64 %233 to i32
-  %.not.i51.i = icmp ugt i32 %223, %234
-  br i1 %.not.i51.i, label %cbs_apv_write_frame.exit.thread, label %235
+223:                                              ; preds = %237, %.lr.ph.i.i
+  %indvars.iv.i50.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i52.i, %237 ]
+  %224 = getelementptr inbounds nuw [4 x i32], ptr %220, i64 0, i64 %indvars.iv.i50.i
+  %225 = load i32, ptr %224, align 4, !tbaa !27
+  %226 = load ptr, ptr %154, align 8, !tbaa !136
+  %227 = load ptr, ptr %155, align 8, !tbaa !138
+  %228 = ptrtoint ptr %226 to i64
+  %229 = ptrtoint ptr %227 to i64
+  %230 = load i32, ptr %156, align 4, !tbaa !139
+  %231 = sub nsw i32 32, %230
+  %232 = ashr i32 %231, 3
+  %233 = zext i32 %232 to i64
+  %234 = add i64 %229, %233
+  %235 = sub i64 %228, %234
+  %236 = trunc i64 %235 to i32
+  %.not.i51.i = icmp ugt i32 %225, %236
+  br i1 %.not.i51.i, label %cbs_apv_write_frame.exit.thread, label %237
 
-235:                                              ; preds = %221
-  %236 = getelementptr inbounds nuw [4 x ptr], ptr %220, i64 0, i64 %indvars.iv.i50.i
-  %237 = load ptr, ptr %236, align 8, !tbaa !77
-  %238 = shl i32 %223, 3
-  call void @ff_copy_bits(ptr noundef nonnull %2, ptr noundef %237, i32 noundef %238) #7
+237:                                              ; preds = %223
+  %238 = getelementptr inbounds nuw [4 x ptr], ptr %222, i64 0, i64 %indvars.iv.i50.i
+  %239 = load ptr, ptr %238, align 8, !tbaa !77
+  %240 = shl i32 %225, 3
+  call void @ff_copy_bits(ptr noundef nonnull %2, ptr noundef %239, i32 noundef %240) #7
   %indvars.iv.next.i52.i = add nuw nsw i64 %indvars.iv.i50.i, 1
-  %239 = load i32, ptr %165, align 4, !tbaa !55
-  %240 = sext i32 %239 to i64
-  %.not27.i.i = icmp slt i64 %indvars.iv.next.i52.i, %240
-  br i1 %.not27.i.i, label %221, label %cbs_apv_write_tile.exit.i, !llvm.loop !140
+  %241 = load i32, ptr %167, align 4, !tbaa !55
+  %242 = sext i32 %241 to i64
+  %.not27.i.i = icmp slt i64 %indvars.iv.next.i52.i, %242
+  br i1 %.not27.i.i, label %223, label %cbs_apv_write_tile.exit.i, !llvm.loop !140
 
-cbs_apv_write_tile.exit.i:                        ; preds = %235, %.preheader.i49.i
+cbs_apv_write_tile.exit.i:                        ; preds = %237, %.preheader.i49.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %241 = load i16, ptr %145, align 2, !tbaa !67
-  %242 = zext i16 %241 to i64
-  %.not.i = icmp samesign ult i64 %indvars.iv.next.i, %242
-  br i1 %.not.i, label %155, label %.thread60.i, !llvm.loop !141
+  %243 = load i16, ptr %147, align 2, !tbaa !67
+  %244 = zext i16 %243 to i64
+  %.not.i = icmp samesign ult i64 %indvars.iv.next.i, %244
+  br i1 %.not.i, label %157, label %.thread60.i, !llvm.loop !141
 
 .thread60.i:                                      ; preds = %cbs_apv_write_tile.exit.i, %.preheader.i
-  %243 = getelementptr inbounds nuw i8, ptr %20, i64 35504
-  %244 = load i64, ptr %243, align 8, !tbaa !80
-  %.not18.not.i.i = icmp eq i64 %244, 0
+  %245 = getelementptr inbounds nuw i8, ptr %20, i64 35504
+  %246 = load i64, ptr %245, align 8, !tbaa !80
+  %.not18.not.i.i = icmp eq i64 %246, 0
   br i1 %.not18.not.i.i, label %cbs_apv_write_frame.exit, label %.lr.ph.i53.i
 
-245:                                              ; preds = %.lr.ph.i53.i
-  %246 = add i32 %.01619.i.i, 1
-  %247 = zext i32 %246 to i64
-  %248 = load i64, ptr %243, align 8, !tbaa !80
-  %.not.i55.i = icmp ugt i64 %248, %247
+247:                                              ; preds = %.lr.ph.i53.i
+  %248 = add i32 %.01619.i.i, 1
+  %249 = zext i32 %248 to i64
+  %250 = load i64, ptr %245, align 8, !tbaa !80
+  %.not.i55.i = icmp ugt i64 %250, %249
   br i1 %.not.i55.i, label %.lr.ph.i53.i, label %cbs_apv_write_frame.exit, !llvm.loop !142
 
-.lr.ph.i53.i:                                     ; preds = %.thread60.i, %245
-  %.01619.i.i = phi i32 [ %246, %245 ], [ 0, %.thread60.i ]
-  %249 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #7
-  %250 = icmp sgt i32 %249, -1
-  br i1 %250, label %245, label %cbs_apv_write_frame.exit.thread
+.lr.ph.i53.i:                                     ; preds = %.thread60.i, %247
+  %.01619.i.i = phi i32 [ %248, %247 ], [ 0, %.thread60.i ]
+  %251 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #7
+  %252 = icmp sgt i32 %251, -1
+  br i1 %252, label %247, label %cbs_apv_write_frame.exit.thread
 
-cbs_apv_write_frame.exit.thread:                  ; preds = %cbs_apv_write_tile_header.exit.i.i, %155, %221, %.lr.ph.i53.i, %cbs_apv_write_pbu_header.exit.i, %cbs_apv_write_frame_header.exit.i, %18, %27, %.thread162.i.i, %122, %38, %43, %49, %100, %94, %88, %82, %59, %63, %69, %75, %switch.lookup, %131, %137, %cbs_apv_write_tile_header.exit.thread.i.i
-  %.0.i.ph = phi i32 [ %.1.i.ph.i.i, %cbs_apv_write_tile_header.exit.thread.i.i ], [ %141, %137 ], [ -1094995529, %131 ], [ %116, %switch.lookup ], [ %79, %75 ], [ %73, %69 ], [ %67, %63 ], [ %61, %59 ], [ -1094995529, %82 ], [ -1094995529, %88 ], [ -1094995529, %94 ], [ -1094995529, %100 ], [ %53, %49 ], [ %47, %43 ], [ %41, %38 ], [ %124, %122 ], [ %135, %.thread162.i.i ], [ %31, %27 ], [ %25, %18 ], [ %143, %cbs_apv_write_frame_header.exit.i ], [ %36, %cbs_apv_write_pbu_header.exit.i ], [ %249, %.lr.ph.i53.i ], [ -28, %221 ], [ %216, %cbs_apv_write_tile_header.exit.i.i ], [ %159, %155 ]
+cbs_apv_write_frame.exit.thread:                  ; preds = %cbs_apv_write_tile_header.exit.i.i, %157, %223, %.lr.ph.i53.i, %cbs_apv_write_pbu_header.exit.i, %cbs_apv_write_frame_header.exit.i, %18, %27, %.thread162.i.i, %122, %38, %43, %49, %100, %94, %88, %82, %59, %63, %69, %75, %switch.lookup, %133, %139, %cbs_apv_write_tile_header.exit.thread.i.i
+  %.0.i.ph = phi i32 [ %.1.i.ph.i.i, %cbs_apv_write_tile_header.exit.thread.i.i ], [ %143, %139 ], [ -1094995529, %133 ], [ %116, %switch.lookup ], [ %79, %75 ], [ %73, %69 ], [ %67, %63 ], [ %61, %59 ], [ -1094995529, %82 ], [ -1094995529, %88 ], [ -1094995529, %94 ], [ -1094995529, %100 ], [ %53, %49 ], [ %47, %43 ], [ %41, %38 ], [ %124, %122 ], [ %137, %.thread162.i.i ], [ %31, %27 ], [ %25, %18 ], [ %145, %cbs_apv_write_frame_header.exit.i ], [ %36, %cbs_apv_write_pbu_header.exit.i ], [ %251, %.lr.ph.i53.i ], [ -28, %223 ], [ %218, %cbs_apv_write_tile_header.exit.i.i ], [ %161, %157 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   br label %cbs_apv_write_filler.exit
 
-cbs_apv_write_frame.exit:                         ; preds = %245, %.thread60.i
+cbs_apv_write_frame.exit:                         ; preds = %247, %.thread60.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   br label %cbs_apv_write_filler.exit.thread
 
-251:                                              ; preds = %3
-  %252 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %253 = load ptr, ptr %252, align 8, !tbaa !33
+253:                                              ; preds = %3
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %255 = load ptr, ptr %254, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.46) #7
-  %254 = load i16, ptr %253, align 8, !tbaa !86
-  %255 = zext i16 %254 to i32
-  %256 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.47, ptr noundef null, i32 noundef %255, i32 noundef 1, i32 noundef 8) #7
-  %257 = icmp sgt i32 %256, -1
-  br i1 %257, label %.preheader.i27, label %cbs_apv_write_au_info.exit.thread
+  %256 = load i16, ptr %255, align 8, !tbaa !86
+  %257 = zext i16 %256 to i32
+  %258 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.47, ptr noundef null, i32 noundef %257, i32 noundef 1, i32 noundef 8) #7
+  %259 = icmp sgt i32 %258, -1
+  br i1 %259, label %.preheader.i27, label %cbs_apv_write_au_info.exit.thread
 
-.preheader.i27:                                   ; preds = %251
-  %258 = load i16, ptr %253, align 8, !tbaa !86
-  %.not69.not.i = icmp eq i16 %258, 0
+.preheader.i27:                                   ; preds = %253
+  %260 = load i16, ptr %255, align 8, !tbaa !86
+  %.not69.not.i = icmp eq i16 %260, 0
   br i1 %.not69.not.i, label %cbs_apv_write_au_info.exit, label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %.preheader.i27
-  %259 = getelementptr inbounds nuw i8, ptr %253, i64 2
-  %260 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %261 = getelementptr inbounds nuw i8, ptr %253, i64 10
-  %262 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %263 = getelementptr inbounds nuw i8, ptr %253, i64 18
-  %264 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %265 = getelementptr inbounds nuw i8, ptr %253, i64 28
-  br label %269
+  %261 = getelementptr inbounds nuw i8, ptr %255, i64 2
+  %262 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %263 = getelementptr inbounds nuw i8, ptr %255, i64 10
+  %264 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %265 = getelementptr inbounds nuw i8, ptr %255, i64 18
+  %266 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %267 = getelementptr inbounds nuw i8, ptr %255, i64 28
+  br label %271
 
-266:                                              ; preds = %288
+268:                                              ; preds = %290
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
-  %267 = load i16, ptr %253, align 8, !tbaa !86
-  %268 = zext i16 %267 to i64
-  %.not.i31 = icmp samesign ult i64 %indvars.iv.next.i30, %268
-  br i1 %.not.i31, label %269, label %cbs_apv_write_au_info.exit, !llvm.loop !143
+  %269 = load i16, ptr %255, align 8, !tbaa !86
+  %270 = zext i16 %269 to i64
+  %.not.i31 = icmp samesign ult i64 %indvars.iv.next.i30, %270
+  br i1 %.not.i31, label %271, label %cbs_apv_write_au_info.exit, !llvm.loop !143
 
-269:                                              ; preds = %266, %.lr.ph.i28
-  %indvars.iv.i29 = phi i64 [ 0, %.lr.ph.i28 ], [ %indvars.iv.next.i30, %266 ]
-  %270 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 0, i64 %indvars.iv.i29
-  %271 = load i8, ptr %270, align 1, !tbaa !19
-  %272 = zext i8 %271 to i32
+271:                                              ; preds = %268, %.lr.ph.i28
+  %indvars.iv.i29 = phi i64 [ 0, %.lr.ph.i28 ], [ %indvars.iv.next.i30, %268 ]
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 0, i64 %indvars.iv.i29
+  %273 = load i8, ptr %272, align 1, !tbaa !19
+  %274 = zext i8 %273 to i32
   store i32 1, ptr %11, align 4, !tbaa !27
-  %273 = trunc nuw nsw i64 %indvars.iv.i29 to i32
-  store i32 %273, ptr %260, align 4, !tbaa !27
-  %274 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %11, i32 noundef %272, i32 noundef 0, i32 noundef 255) #7
-  %275 = icmp sgt i32 %274, -1
-  br i1 %275, label %276, label %cbs_apv_write_au_info.exit.thread
+  %275 = trunc nuw nsw i64 %indvars.iv.i29 to i32
+  store i32 %275, ptr %262, align 4, !tbaa !27
+  %276 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %11, i32 noundef %274, i32 noundef 0, i32 noundef 255) #7
+  %277 = icmp sgt i32 %276, -1
+  br i1 %277, label %278, label %cbs_apv_write_au_info.exit.thread
 
-276:                                              ; preds = %269
-  %277 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 0, i64 %indvars.iv.i29
-  %278 = load i8, ptr %277, align 1, !tbaa !19
-  %279 = zext i8 %278 to i32
+278:                                              ; preds = %271
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 0, i64 %indvars.iv.i29
+  %280 = load i8, ptr %279, align 1, !tbaa !19
+  %281 = zext i8 %280 to i32
   store i32 1, ptr %12, align 4, !tbaa !27
-  store i32 %273, ptr %262, align 4, !tbaa !27
-  %280 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.49, ptr noundef nonnull %12, i32 noundef %279, i32 noundef 0, i32 noundef 255) #7
-  %281 = icmp sgt i32 %280, -1
-  br i1 %281, label %282, label %cbs_apv_write_au_info.exit.thread
+  store i32 %275, ptr %264, align 4, !tbaa !27
+  %282 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.49, ptr noundef nonnull %12, i32 noundef %281, i32 noundef 0, i32 noundef 255) #7
+  %283 = icmp sgt i32 %282, -1
+  br i1 %283, label %284, label %cbs_apv_write_au_info.exit.thread
 
-282:                                              ; preds = %276
-  %283 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 0, i64 %indvars.iv.i29
-  %284 = load i8, ptr %283, align 1, !tbaa !19
-  %285 = zext i8 %284 to i32
+284:                                              ; preds = %278
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 0, i64 %indvars.iv.i29
+  %286 = load i8, ptr %285, align 1, !tbaa !19
+  %287 = zext i8 %286 to i32
   store i32 1, ptr %13, align 4, !tbaa !27
-  store i32 %273, ptr %264, align 4, !tbaa !27
-  %286 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.50, ptr noundef nonnull %13, i32 noundef %285, i32 noundef 0, i32 noundef 0) #7
-  %287 = icmp sgt i32 %286, -1
-  br i1 %287, label %288, label %cbs_apv_write_au_info.exit.thread
+  store i32 %275, ptr %266, align 4, !tbaa !27
+  %288 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.50, ptr noundef nonnull %13, i32 noundef %287, i32 noundef 0, i32 noundef 0) #7
+  %289 = icmp sgt i32 %288, -1
+  br i1 %289, label %290, label %cbs_apv_write_au_info.exit.thread
 
-288:                                              ; preds = %282
-  %289 = getelementptr inbounds nuw [8 x %struct.APVRawFrameInfo], ptr %265, i64 0, i64 %indvars.iv.i29
-  %290 = call fastcc i32 @cbs_apv_write_frame_info(ptr noundef %0, ptr noundef %2, ptr noundef nonnull readonly %289)
-  %291 = icmp slt i32 %290, 0
-  br i1 %291, label %cbs_apv_write_au_info.exit.thread, label %266
+290:                                              ; preds = %284
+  %291 = getelementptr inbounds nuw [8 x %struct.APVRawFrameInfo], ptr %267, i64 0, i64 %indvars.iv.i29
+  %292 = call fastcc i32 @cbs_apv_write_frame_info(ptr noundef %0, ptr noundef %2, ptr noundef nonnull readonly %291)
+  %293 = icmp slt i32 %292, 0
+  br i1 %293, label %cbs_apv_write_au_info.exit.thread, label %268
 
-cbs_apv_write_au_info.exit.thread:                ; preds = %282, %276, %269, %288, %251
-  %.1.i.ph = phi i32 [ %256, %251 ], [ %286, %282 ], [ %280, %276 ], [ %274, %269 ], [ %290, %288 ]
+cbs_apv_write_au_info.exit.thread:                ; preds = %284, %278, %271, %290, %253
+  %.1.i.ph = phi i32 [ %258, %253 ], [ %288, %284 ], [ %282, %278 ], [ %276, %271 ], [ %292, %290 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   br label %cbs_apv_write_filler.exit
 
-cbs_apv_write_au_info.exit:                       ; preds = %266, %.preheader.i27
-  %292 = getelementptr inbounds nuw i8, ptr %253, i64 156
-  %293 = load i8, ptr %292, align 4, !tbaa !89
-  %294 = zext i8 %293 to i32
-  %295 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef null, i32 noundef %294, i32 noundef 0, i32 noundef 0) #7
+cbs_apv_write_au_info.exit:                       ; preds = %268, %.preheader.i27
+  %294 = getelementptr inbounds nuw i8, ptr %255, i64 156
+  %295 = load i8, ptr %294, align 4, !tbaa !89
+  %296 = zext i8 %295 to i32
+  %297 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef null, i32 noundef %296, i32 noundef 0, i32 noundef 0) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %296 = icmp slt i32 %295, 0
-  br i1 %296, label %cbs_apv_write_filler.exit, label %cbs_apv_write_filler.exit.thread
+  %298 = icmp slt i32 %297, 0
+  br i1 %298, label %cbs_apv_write_filler.exit, label %cbs_apv_write_filler.exit.thread
 
-297:                                              ; preds = %3
-  %298 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %299 = load ptr, ptr %298, align 8, !tbaa !33
+299:                                              ; preds = %3
+  %300 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %301 = load ptr, ptr %300, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.51) #7
-  %300 = load i8, ptr %299, align 2, !tbaa !35
-  %301 = zext i8 %300 to i32
-  %302 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.8, ptr noundef null, i32 noundef %301, i32 noundef 0, i32 noundef 255) #7
-  %303 = icmp sgt i32 %302, -1
-  br i1 %303, label %304, label %cbs_apv_write_metadata.exit.thread
+  %302 = load i8, ptr %301, align 2, !tbaa !35
+  %303 = zext i8 %302 to i32
+  %304 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.8, ptr noundef null, i32 noundef %303, i32 noundef 0, i32 noundef 255) #7
+  %305 = icmp sgt i32 %304, -1
+  br i1 %305, label %306, label %cbs_apv_write_metadata.exit.thread
 
-304:                                              ; preds = %297
-  %305 = getelementptr inbounds nuw i8, ptr %299, i64 2
-  %306 = load i16, ptr %305, align 2, !tbaa !38
-  %307 = zext i16 %306 to i32
-  %308 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef null, i32 noundef %307, i32 noundef 0, i32 noundef 65535) #7
-  %309 = icmp sgt i32 %308, -1
-  br i1 %309, label %cbs_apv_write_pbu_header.exit.i33, label %cbs_apv_write_metadata.exit.thread
+306:                                              ; preds = %299
+  %307 = getelementptr inbounds nuw i8, ptr %301, i64 2
+  %308 = load i16, ptr %307, align 2, !tbaa !38
+  %309 = zext i16 %308 to i32
+  %310 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef null, i32 noundef %309, i32 noundef 0, i32 noundef 65535) #7
+  %311 = icmp sgt i32 %310, -1
+  br i1 %311, label %cbs_apv_write_pbu_header.exit.i33, label %cbs_apv_write_metadata.exit.thread
 
-cbs_apv_write_pbu_header.exit.i33:                ; preds = %304
-  %310 = getelementptr inbounds nuw i8, ptr %299, i64 4
-  %311 = load i8, ptr %310, align 2, !tbaa !39
-  %312 = zext i8 %311 to i32
-  %313 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, i32 noundef %312, i32 noundef 0, i32 noundef 0) #7
-  %314 = icmp slt i32 %313, 0
-  br i1 %314, label %cbs_apv_write_metadata.exit.thread, label %315
+cbs_apv_write_pbu_header.exit.i33:                ; preds = %306
+  %312 = getelementptr inbounds nuw i8, ptr %301, i64 4
+  %313 = load i8, ptr %312, align 2, !tbaa !39
+  %314 = zext i8 %313 to i32
+  %315 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, i32 noundef %314, i32 noundef 0, i32 noundef 0) #7
+  %316 = icmp slt i32 %315, 0
+  br i1 %316, label %cbs_apv_write_metadata.exit.thread, label %317
 
-315:                                              ; preds = %cbs_apv_write_pbu_header.exit.i33
+317:                                              ; preds = %cbs_apv_write_pbu_header.exit.i33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !144
-  %316 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %317 = load ptr, ptr %316, align 8, !tbaa !138
-  %318 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %319 = load ptr, ptr %318, align 8, !tbaa !145
-  %320 = ptrtoint ptr %317 to i64
-  %321 = ptrtoint ptr %319 to i64
-  %.neg141.i = sub i64 %321, %320
-  %322 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %323 = load i32, ptr %322, align 4, !tbaa !139
+  %318 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %319 = load ptr, ptr %318, align 8, !tbaa !138
+  %320 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %321 = load ptr, ptr %320, align 8, !tbaa !145
+  %322 = ptrtoint ptr %319 to i64
+  %323 = ptrtoint ptr %321 to i64
+  %.neg141.i = sub i64 %323, %322
+  %324 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %325 = load i32, ptr %324, align 4, !tbaa !139
   %.tr.i.neg.i = trunc i64 %.neg141.i to i32
   %.neg142.i = shl i32 %.tr.i.neg.i, 3
-  %324 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %325 = load i32, ptr %324, align 4, !tbaa !15
-  store i32 0, ptr %324, align 4, !tbaa !15
-  %326 = getelementptr inbounds nuw i8, ptr %299, i64 8
-  %327 = getelementptr inbounds nuw i8, ptr %299, i64 12
-  %328 = getelementptr inbounds nuw i8, ptr %299, i64 16
-  %329 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %330 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %331 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %332 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %333 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %334 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %reass.sub.i124.i = add i32 %.neg142.i, %323
-  br label %335
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %327 = load i32, ptr %326, align 4, !tbaa !15
+  store i32 0, ptr %326, align 4, !tbaa !15
+  %328 = getelementptr inbounds nuw i8, ptr %301, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %301, i64 12
+  %330 = getelementptr inbounds nuw i8, ptr %301, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %332 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %333 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %334 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %335 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %336 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %reass.sub.i124.i = add i32 %.neg142.i, %325
+  br label %337
 
-335:                                              ; preds = %535, %315
-  %.0105220.i = phi i32 [ 1, %315 ], [ %536, %535 ]
+337:                                              ; preds = %537, %317
+  %.0105220.i = phi i32 [ 1, %317 ], [ %538, %537 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !144
-  %336 = load i32, ptr %326, align 8, !tbaa !90
-  %337 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull @.str.52, ptr noundef null, i32 noundef %336, i32 noundef 0, i32 noundef -1) #7
-  %338 = icmp sgt i32 %337, -1
-  br i1 %338, label %.preheader.i34, label %cbs_apv_write_metadata.exit.thread
+  %338 = load i32, ptr %328, align 8, !tbaa !90
+  %339 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull @.str.52, ptr noundef null, i32 noundef %338, i32 noundef 0, i32 noundef -1) #7
+  %340 = icmp sgt i32 %339, -1
+  br i1 %340, label %.preheader.i34, label %cbs_apv_write_metadata.exit.thread
 
-.preheader.i34:                                   ; preds = %335
-  %339 = load i32, ptr %327, align 4, !tbaa !97
-  %.not215.not.i = icmp eq i32 %339, 0
+.preheader.i34:                                   ; preds = %337
+  %341 = load i32, ptr %329, align 4, !tbaa !97
+  %.not215.not.i = icmp eq i32 %341, 0
   br i1 %.not215.not.i, label %.thread130.i, label %.lr.ph218.i
 
 .lr.ph218.i:                                      ; preds = %.preheader.i34
-  %340 = icmp eq i32 %.0105220.i, 1
-  br label %341
+  %342 = icmp eq i32 %.0105220.i, 1
+  br label %343
 
-341:                                              ; preds = %520, %.lr.ph218.i
-  %indvars.iv.i35 = phi i64 [ 0, %.lr.ph218.i ], [ %indvars.iv.next.i37, %520 ]
-  %342 = getelementptr inbounds nuw [8 x %struct.APVRawMetadataPayload], ptr %328, i64 0, i64 %indvars.iv.i35
-  %343 = load i32, ptr %342, align 8, !tbaa !92
-  %344 = icmp ugt i32 %343, 254
-  br i1 %344, label %.lr.ph.i48, label %._crit_edge.i36
+343:                                              ; preds = %522, %.lr.ph218.i
+  %indvars.iv.i35 = phi i64 [ 0, %.lr.ph218.i ], [ %indvars.iv.next.i37, %522 ]
+  %344 = getelementptr inbounds nuw [8 x %struct.APVRawMetadataPayload], ptr %330, i64 0, i64 %indvars.iv.i35
+  %345 = load i32, ptr %344, align 8, !tbaa !92
+  %346 = icmp ugt i32 %345, 254
+  br i1 %346, label %.lr.ph.i48, label %._crit_edge.i36
 
-.lr.ph.i48:                                       ; preds = %341, %347
-  %.0107209.i = phi i32 [ %348, %347 ], [ %343, %341 ]
-  %345 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #7
-  %346 = icmp sgt i32 %345, -1
-  br i1 %346, label %347, label %cbs_apv_write_metadata.exit.thread
+.lr.ph.i48:                                       ; preds = %343, %349
+  %.0107209.i = phi i32 [ %350, %349 ], [ %345, %343 ]
+  %347 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #7
+  %348 = icmp sgt i32 %347, -1
+  br i1 %348, label %349, label %cbs_apv_write_metadata.exit.thread
 
-347:                                              ; preds = %.lr.ph.i48
-  %348 = add i32 %.0107209.i, -255
-  %349 = icmp ugt i32 %348, 254
-  br i1 %349, label %.lr.ph.i48, label %._crit_edge.i36, !llvm.loop !146
+349:                                              ; preds = %.lr.ph.i48
+  %350 = add i32 %.0107209.i, -255
+  %351 = icmp ugt i32 %350, 254
+  br i1 %351, label %.lr.ph.i48, label %._crit_edge.i36, !llvm.loop !146
 
-._crit_edge.i36:                                  ; preds = %347, %341
-  %.0107.lcssa.i = phi i32 [ %343, %341 ], [ %348, %347 ]
-  %350 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.54, ptr noundef null, i32 noundef %.0107.lcssa.i, i32 noundef 0, i32 noundef 254) #7
-  %351 = icmp sgt i32 %350, -1
-  br i1 %351, label %352, label %cbs_apv_write_metadata.exit.thread
+._crit_edge.i36:                                  ; preds = %349, %343
+  %.0107.lcssa.i = phi i32 [ %345, %343 ], [ %350, %349 ]
+  %352 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.54, ptr noundef null, i32 noundef %.0107.lcssa.i, i32 noundef 0, i32 noundef 254) #7
+  %353 = icmp sgt i32 %352, -1
+  br i1 %353, label %354, label %cbs_apv_write_metadata.exit.thread
 
-352:                                              ; preds = %._crit_edge.i36
-  %353 = getelementptr inbounds nuw i8, ptr %342, i64 4
-  %354 = load i32, ptr %353, align 4, !tbaa !95
-  %355 = icmp ugt i32 %354, 254
-  br i1 %355, label %.lr.ph212.i, label %._crit_edge213.i
+354:                                              ; preds = %._crit_edge.i36
+  %355 = getelementptr inbounds nuw i8, ptr %344, i64 4
+  %356 = load i32, ptr %355, align 4, !tbaa !95
+  %357 = icmp ugt i32 %356, 254
+  br i1 %357, label %.lr.ph212.i, label %._crit_edge213.i
 
-.lr.ph212.i:                                      ; preds = %352, %358
-  %.1108210.i = phi i32 [ %359, %358 ], [ %354, %352 ]
-  %356 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #7
-  %357 = icmp sgt i32 %356, -1
-  br i1 %357, label %358, label %cbs_apv_write_metadata.exit.thread
+.lr.ph212.i:                                      ; preds = %354, %360
+  %.1108210.i = phi i32 [ %361, %360 ], [ %356, %354 ]
+  %358 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #7
+  %359 = icmp sgt i32 %358, -1
+  br i1 %359, label %360, label %cbs_apv_write_metadata.exit.thread
 
-358:                                              ; preds = %.lr.ph212.i
-  %359 = add i32 %.1108210.i, -255
-  %360 = icmp ugt i32 %359, 254
-  br i1 %360, label %.lr.ph212.i, label %._crit_edge213.i, !llvm.loop !147
+360:                                              ; preds = %.lr.ph212.i
+  %361 = add i32 %.1108210.i, -255
+  %362 = icmp ugt i32 %361, 254
+  br i1 %362, label %.lr.ph212.i, label %._crit_edge213.i, !llvm.loop !147
 
-._crit_edge213.i:                                 ; preds = %358, %352
-  %.1108.lcssa.i = phi i32 [ %354, %352 ], [ %359, %358 ]
-  %361 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.55, ptr noundef null, i32 noundef %.1108.lcssa.i, i32 noundef 0, i32 noundef 254) #7
-  %362 = icmp sgt i32 %361, -1
-  br i1 %362, label %363, label %cbs_apv_write_metadata.exit.thread
+._crit_edge213.i:                                 ; preds = %360, %354
+  %.1108.lcssa.i = phi i32 [ %356, %354 ], [ %361, %360 ]
+  %363 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.55, ptr noundef null, i32 noundef %.1108.lcssa.i, i32 noundef 0, i32 noundef 254) #7
+  %364 = icmp sgt i32 %363, -1
+  br i1 %364, label %365, label %cbs_apv_write_metadata.exit.thread
 
-363:                                              ; preds = %._crit_edge213.i
-  %364 = load ptr, ptr %316, align 8, !tbaa !138
-  %365 = load ptr, ptr %318, align 8, !tbaa !145
-  %366 = ptrtoint ptr %364 to i64
-  %367 = ptrtoint ptr %365 to i64
-  %.neg139.i = sub i64 %367, %366
-  %368 = load i32, ptr %322, align 4, !tbaa !139
+365:                                              ; preds = %._crit_edge213.i
+  %366 = load ptr, ptr %318, align 8, !tbaa !138
+  %367 = load ptr, ptr %320, align 8, !tbaa !145
+  %368 = ptrtoint ptr %366 to i64
+  %369 = ptrtoint ptr %367 to i64
+  %.neg139.i = sub i64 %369, %368
+  %370 = load i32, ptr %324, align 4, !tbaa !139
   %.tr.i119.neg.i = trunc i64 %.neg139.i to i32
   %.neg140.i = shl i32 %.tr.i119.neg.i, 3
-  %369 = load i32, ptr %342, align 8, !tbaa !92
-  switch i32 %369, label %491 [
-    i32 4, label %370
-    i32 5, label %406
-    i32 6, label %444
-    i32 10, label %455
-    i32 170, label %462
+  %371 = load i32, ptr %344, align 8, !tbaa !92
+  switch i32 %371, label %493 [
+    i32 4, label %372
+    i32 5, label %408
+    i32 6, label %446
+    i32 10, label %457
+    i32 170, label %464
   ]
 
-370:                                              ; preds = %363
-  %371 = getelementptr inbounds nuw i8, ptr %342, i64 8
-  %372 = load i32, ptr %353, align 4, !tbaa !95
-  %373 = zext i32 %372 to i64
+372:                                              ; preds = %365
+  %373 = getelementptr inbounds nuw i8, ptr %344, i64 8
+  %374 = load i32, ptr %355, align 4, !tbaa !95
+  %375 = zext i32 %374 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.57) #7
-  %374 = load i8, ptr %371, align 8, !tbaa !98
-  %375 = zext i8 %374 to i32
-  %376 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.58, ptr noundef null, i32 noundef %375, i32 noundef 0, i32 noundef 255) #7
-  %377 = icmp sgt i32 %376, -1
-  br i1 %377, label %378, label %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i
+  %376 = load i8, ptr %373, align 8, !tbaa !98
+  %377 = zext i8 %376 to i32
+  %378 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.58, ptr noundef null, i32 noundef %377, i32 noundef 0, i32 noundef 255) #7
+  %379 = icmp sgt i32 %378, -1
+  br i1 %379, label %380, label %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i
 
-378:                                              ; preds = %370
-  %379 = add nsw i64 %373, -1
-  %380 = load i8, ptr %371, align 8, !tbaa !98
-  %381 = icmp eq i8 %380, -1
-  br i1 %381, label %382, label %390
+380:                                              ; preds = %372
+  %381 = add nsw i64 %375, -1
+  %382 = load i8, ptr %373, align 8, !tbaa !98
+  %383 = icmp eq i8 %382, -1
+  br i1 %383, label %384, label %392
 
-382:                                              ; preds = %378
-  %383 = getelementptr inbounds nuw i8, ptr %342, i64 9
-  %384 = load i8, ptr %383, align 1, !tbaa !100
-  %385 = zext i8 %384 to i32
-  %386 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.59, ptr noundef null, i32 noundef %385, i32 noundef 0, i32 noundef 255) #7
-  %387 = icmp sgt i32 %386, -1
-  br i1 %387, label %388, label %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i
+384:                                              ; preds = %380
+  %385 = getelementptr inbounds nuw i8, ptr %344, i64 9
+  %386 = load i8, ptr %385, align 1, !tbaa !100
+  %387 = zext i8 %386 to i32
+  %388 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.59, ptr noundef null, i32 noundef %387, i32 noundef 0, i32 noundef 255) #7
+  %389 = icmp sgt i32 %388, -1
+  br i1 %389, label %390, label %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i
 
-388:                                              ; preds = %382
-  %389 = add nsw i64 %373, -2
-  br label %390
+390:                                              ; preds = %384
+  %391 = add nsw i64 %375, -2
+  br label %392
 
-390:                                              ; preds = %388, %378
-  %.044.i.i.i = phi i64 [ %389, %388 ], [ %379, %378 ]
-  %391 = getelementptr inbounds nuw i8, ptr %342, i64 32
-  %392 = load i64, ptr %391, align 8, !tbaa !101
-  %.not.i.i.i46 = icmp eq i64 %392, %.044.i.i.i
-  br i1 %.not.i.i.i46, label %.preheader.i.i.i, label %394
+392:                                              ; preds = %390, %380
+  %.044.i.i.i = phi i64 [ %391, %390 ], [ %381, %380 ]
+  %393 = getelementptr inbounds nuw i8, ptr %344, i64 32
+  %394 = load i64, ptr %393, align 8, !tbaa !101
+  %.not.i.i.i46 = icmp eq i64 %394, %.044.i.i.i
+  br i1 %.not.i.i.i46, label %.preheader.i.i.i, label %396
 
-.preheader.i.i.i:                                 ; preds = %390
-  %393 = getelementptr inbounds nuw i8, ptr %342, i64 16
+.preheader.i.i.i:                                 ; preds = %392
+  %395 = getelementptr inbounds nuw i8, ptr %344, i64 16
   %.not4748.not.i.i.i = icmp eq i64 %.044.i.i.i, 0
   br i1 %.not4748.not.i.i.i, label %cbs_apv_write_metadata_itu_t_t35.exit.i.i, label %.lr.ph.i.i.i47
 
-394:                                              ; preds = %390
-  %395 = load ptr, ptr %0, align 8, !tbaa !20
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %395, i32 noundef 16, ptr noundef nonnull @.str.79, i64 noundef %392, i64 noundef %.044.i.i.i) #7
+396:                                              ; preds = %392
+  %397 = load ptr, ptr %0, align 8, !tbaa !20
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %397, i32 noundef 16, ptr noundef nonnull @.str.79, i64 noundef %394, i64 noundef %.044.i.i.i) #7
   br label %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i
 
-396:                                              ; preds = %.lr.ph.i.i.i47
-  %397 = add nuw i64 %.03949.i.i.i, 1
-  %398 = load i64, ptr %391, align 8, !tbaa !101
-  %.not47.i.i.i = icmp ult i64 %397, %398
+398:                                              ; preds = %.lr.ph.i.i.i47
+  %399 = add nuw i64 %.03949.i.i.i, 1
+  %400 = load i64, ptr %393, align 8, !tbaa !101
+  %.not47.i.i.i = icmp ult i64 %399, %400
   br i1 %.not47.i.i.i, label %.lr.ph.i.i.i47, label %cbs_apv_write_metadata_itu_t_t35.exit.i.i, !llvm.loop !148
 
-.lr.ph.i.i.i47:                                   ; preds = %.preheader.i.i.i, %396
-  %.03949.i.i.i = phi i64 [ %397, %396 ], [ 0, %.preheader.i.i.i ]
-  %399 = load ptr, ptr %393, align 8, !tbaa !106
-  %400 = getelementptr inbounds nuw i8, ptr %399, i64 %.03949.i.i.i
-  %401 = load i8, ptr %400, align 1, !tbaa !19
-  %402 = zext i8 %401 to i32
+.lr.ph.i.i.i47:                                   ; preds = %.preheader.i.i.i, %398
+  %.03949.i.i.i = phi i64 [ %399, %398 ], [ 0, %.preheader.i.i.i ]
+  %401 = load ptr, ptr %395, align 8, !tbaa !106
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 %.03949.i.i.i
+  %403 = load i8, ptr %402, align 1, !tbaa !19
+  %404 = zext i8 %403 to i32
   store i32 1, ptr %9, align 4, !tbaa !27
-  %403 = trunc i64 %.03949.i.i.i to i32
-  store i32 %403, ptr %333, align 4, !tbaa !27
-  %404 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.60, ptr noundef nonnull %9, i32 noundef %402, i32 noundef 0, i32 noundef 255) #7
-  %405 = icmp sgt i32 %404, -1
-  br i1 %405, label %396, label %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i
+  %405 = trunc i64 %.03949.i.i.i to i32
+  store i32 %405, ptr %335, align 4, !tbaa !27
+  %406 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.60, ptr noundef nonnull %9, i32 noundef %404, i32 noundef 0, i32 noundef 255) #7
+  %407 = icmp sgt i32 %406, -1
+  br i1 %407, label %398, label %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i
 
-cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i: ; preds = %382, %370, %.lr.ph.i.i.i47, %394
-  %.1.i.ph.i.i45 = phi i32 [ -22, %394 ], [ %404, %.lr.ph.i.i.i47 ], [ %376, %370 ], [ %386, %382 ]
+cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i: ; preds = %384, %372, %.lr.ph.i.i.i47, %396
+  %.1.i.ph.i.i45 = phi i32 [ -22, %396 ], [ %406, %.lr.ph.i.i.i47 ], [ %378, %372 ], [ %388, %384 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %cbs_apv_write_metadata_payload.exit.thread.i
 
-cbs_apv_write_metadata_itu_t_t35.exit.i.i:        ; preds = %396, %.preheader.i.i.i
+cbs_apv_write_metadata_itu_t_t35.exit.i.i:        ; preds = %398, %.preheader.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %.loopexit.i
 
-406:                                              ; preds = %363
-  %407 = getelementptr inbounds nuw i8, ptr %342, i64 8
+408:                                              ; preds = %365
+  %409 = getelementptr inbounds nuw i8, ptr %344, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.61) #7
-  %408 = getelementptr inbounds nuw i8, ptr %342, i64 14
-  br label %410
+  %410 = getelementptr inbounds nuw i8, ptr %344, i64 14
+  br label %412
 
-409:                                              ; preds = %417
+411:                                              ; preds = %419
   %indvars.iv.next.i.i.i44 = add nuw nsw i64 %indvars.iv.i.i.i43, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i44, 3
-  br i1 %exitcond.not.i.i.i, label %423, label %410, !llvm.loop !149
+  br i1 %exitcond.not.i.i.i, label %425, label %412, !llvm.loop !149
 
-410:                                              ; preds = %409, %406
-  %indvars.iv.i.i.i43 = phi i64 [ 0, %406 ], [ %indvars.iv.next.i.i.i44, %409 ]
-  %411 = getelementptr inbounds nuw [3 x i16], ptr %407, i64 0, i64 %indvars.iv.i.i.i43
-  %412 = load i16, ptr %411, align 2, !tbaa !108
-  %413 = zext i16 %412 to i32
+412:                                              ; preds = %411, %408
+  %indvars.iv.i.i.i43 = phi i64 [ 0, %408 ], [ %indvars.iv.next.i.i.i44, %411 ]
+  %413 = getelementptr inbounds nuw [3 x i16], ptr %409, i64 0, i64 %indvars.iv.i.i.i43
+  %414 = load i16, ptr %413, align 2, !tbaa !108
+  %415 = zext i16 %414 to i32
   store i32 1, ptr %7, align 4, !tbaa !27
-  %414 = trunc nuw nsw i64 %indvars.iv.i.i.i43 to i32
-  store i32 %414, ptr %331, align 4, !tbaa !27
-  %415 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.62, ptr noundef nonnull %7, i32 noundef %413, i32 noundef 0, i32 noundef 65535) #7
-  %416 = icmp sgt i32 %415, -1
-  br i1 %416, label %417, label %cbs_apv_write_metadata_mdcv.exit.thread.i.i
+  %416 = trunc nuw nsw i64 %indvars.iv.i.i.i43 to i32
+  store i32 %416, ptr %333, align 4, !tbaa !27
+  %417 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.62, ptr noundef nonnull %7, i32 noundef %415, i32 noundef 0, i32 noundef 65535) #7
+  %418 = icmp sgt i32 %417, -1
+  br i1 %418, label %419, label %cbs_apv_write_metadata_mdcv.exit.thread.i.i
 
-417:                                              ; preds = %410
-  %418 = getelementptr inbounds nuw [3 x i16], ptr %408, i64 0, i64 %indvars.iv.i.i.i43
-  %419 = load i16, ptr %418, align 2, !tbaa !108
-  %420 = zext i16 %419 to i32
+419:                                              ; preds = %412
+  %420 = getelementptr inbounds nuw [3 x i16], ptr %410, i64 0, i64 %indvars.iv.i.i.i43
+  %421 = load i16, ptr %420, align 2, !tbaa !108
+  %422 = zext i16 %421 to i32
   store i32 1, ptr %8, align 4, !tbaa !27
-  store i32 %414, ptr %332, align 4, !tbaa !27
-  %421 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull %8, i32 noundef %420, i32 noundef 0, i32 noundef 65535) #7
-  %422 = icmp sgt i32 %421, -1
-  br i1 %422, label %409, label %cbs_apv_write_metadata_mdcv.exit.thread.i.i
+  store i32 %416, ptr %334, align 4, !tbaa !27
+  %423 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull %8, i32 noundef %422, i32 noundef 0, i32 noundef 65535) #7
+  %424 = icmp sgt i32 %423, -1
+  br i1 %424, label %411, label %cbs_apv_write_metadata_mdcv.exit.thread.i.i
 
-423:                                              ; preds = %409
-  %424 = getelementptr inbounds nuw i8, ptr %342, i64 20
-  %425 = load i16, ptr %424, align 4, !tbaa !110
-  %426 = zext i16 %425 to i32
-  %427 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.64, ptr noundef null, i32 noundef %426, i32 noundef 0, i32 noundef 65535) #7
-  %428 = icmp sgt i32 %427, -1
-  br i1 %428, label %429, label %cbs_apv_write_metadata_mdcv.exit.thread.i.i
+425:                                              ; preds = %411
+  %426 = getelementptr inbounds nuw i8, ptr %344, i64 20
+  %427 = load i16, ptr %426, align 4, !tbaa !110
+  %428 = zext i16 %427 to i32
+  %429 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.64, ptr noundef null, i32 noundef %428, i32 noundef 0, i32 noundef 65535) #7
+  %430 = icmp sgt i32 %429, -1
+  br i1 %430, label %431, label %cbs_apv_write_metadata_mdcv.exit.thread.i.i
 
-429:                                              ; preds = %423
-  %430 = getelementptr inbounds nuw i8, ptr %342, i64 22
-  %431 = load i16, ptr %430, align 2, !tbaa !112
-  %432 = zext i16 %431 to i32
-  %433 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.65, ptr noundef null, i32 noundef %432, i32 noundef 0, i32 noundef 65535) #7
-  %434 = icmp sgt i32 %433, -1
-  br i1 %434, label %435, label %cbs_apv_write_metadata_mdcv.exit.thread.i.i
+431:                                              ; preds = %425
+  %432 = getelementptr inbounds nuw i8, ptr %344, i64 22
+  %433 = load i16, ptr %432, align 2, !tbaa !112
+  %434 = zext i16 %433 to i32
+  %435 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.65, ptr noundef null, i32 noundef %434, i32 noundef 0, i32 noundef 65535) #7
+  %436 = icmp sgt i32 %435, -1
+  br i1 %436, label %437, label %cbs_apv_write_metadata_mdcv.exit.thread.i.i
 
-435:                                              ; preds = %429
-  %436 = getelementptr inbounds nuw i8, ptr %342, i64 24
-  %437 = load i32, ptr %436, align 4, !tbaa !113
-  %438 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull @.str.66, ptr noundef null, i32 noundef %437, i32 noundef 0, i32 noundef -1) #7
-  %439 = icmp sgt i32 %438, -1
-  br i1 %439, label %cbs_apv_write_metadata_mdcv.exit.i.i, label %cbs_apv_write_metadata_mdcv.exit.thread.i.i
+437:                                              ; preds = %431
+  %438 = getelementptr inbounds nuw i8, ptr %344, i64 24
+  %439 = load i32, ptr %438, align 4, !tbaa !113
+  %440 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull @.str.66, ptr noundef null, i32 noundef %439, i32 noundef 0, i32 noundef -1) #7
+  %441 = icmp sgt i32 %440, -1
+  br i1 %441, label %cbs_apv_write_metadata_mdcv.exit.i.i, label %cbs_apv_write_metadata_mdcv.exit.thread.i.i
 
-cbs_apv_write_metadata_mdcv.exit.thread.i.i:      ; preds = %435, %429, %423, %417, %410
-  %.2.i.ph.i.i = phi i32 [ %415, %410 ], [ %421, %417 ], [ %427, %423 ], [ %433, %429 ], [ %438, %435 ]
+cbs_apv_write_metadata_mdcv.exit.thread.i.i:      ; preds = %437, %431, %425, %419, %412
+  %.2.i.ph.i.i = phi i32 [ %417, %412 ], [ %423, %419 ], [ %429, %425 ], [ %435, %431 ], [ %440, %437 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %cbs_apv_write_metadata_payload.exit.thread.i
 
-cbs_apv_write_metadata_mdcv.exit.i.i:             ; preds = %435
-  %440 = getelementptr inbounds nuw i8, ptr %342, i64 28
-  %441 = load i32, ptr %440, align 4, !tbaa !114
-  %442 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull @.str.67, ptr noundef null, i32 noundef %441, i32 noundef 0, i32 noundef -1) #7
+cbs_apv_write_metadata_mdcv.exit.i.i:             ; preds = %437
+  %442 = getelementptr inbounds nuw i8, ptr %344, i64 28
+  %443 = load i32, ptr %442, align 4, !tbaa !114
+  %444 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull @.str.67, ptr noundef null, i32 noundef %443, i32 noundef 0, i32 noundef -1) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %443 = icmp slt i32 %442, 0
-  br i1 %443, label %cbs_apv_write_metadata_payload.exit.thread.i, label %.loopexit.i
+  %445 = icmp slt i32 %444, 0
+  br i1 %445, label %cbs_apv_write_metadata_payload.exit.thread.i, label %.loopexit.i
 
-444:                                              ; preds = %363
-  %445 = getelementptr inbounds nuw i8, ptr %342, i64 8
+446:                                              ; preds = %365
+  %447 = getelementptr inbounds nuw i8, ptr %344, i64 8
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.68) #7
-  %446 = load i16, ptr %445, align 2, !tbaa !115
-  %447 = zext i16 %446 to i32
-  %448 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.69, ptr noundef null, i32 noundef %447, i32 noundef 0, i32 noundef 65535) #7
-  %449 = icmp sgt i32 %448, -1
-  br i1 %449, label %cbs_apv_write_metadata_cll.exit.i.i, label %cbs_apv_write_metadata_payload.exit.thread.i
+  %448 = load i16, ptr %447, align 2, !tbaa !115
+  %449 = zext i16 %448 to i32
+  %450 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.69, ptr noundef null, i32 noundef %449, i32 noundef 0, i32 noundef 65535) #7
+  %451 = icmp sgt i32 %450, -1
+  br i1 %451, label %cbs_apv_write_metadata_cll.exit.i.i, label %cbs_apv_write_metadata_payload.exit.thread.i
 
-cbs_apv_write_metadata_cll.exit.i.i:              ; preds = %444
-  %450 = getelementptr inbounds nuw i8, ptr %342, i64 10
-  %451 = load i16, ptr %450, align 2, !tbaa !117
-  %452 = zext i16 %451 to i32
-  %453 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.70, ptr noundef null, i32 noundef %452, i32 noundef 0, i32 noundef 65535) #7
-  %454 = icmp slt i32 %453, 0
-  br i1 %454, label %cbs_apv_write_metadata_payload.exit.thread.i, label %.loopexit.i
+cbs_apv_write_metadata_cll.exit.i.i:              ; preds = %446
+  %452 = getelementptr inbounds nuw i8, ptr %344, i64 10
+  %453 = load i16, ptr %452, align 2, !tbaa !117
+  %454 = zext i16 %453 to i32
+  %455 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.70, ptr noundef null, i32 noundef %454, i32 noundef 0, i32 noundef 65535) #7
+  %456 = icmp slt i32 %455, 0
+  br i1 %456, label %cbs_apv_write_metadata_payload.exit.thread.i, label %.loopexit.i
 
-455:                                              ; preds = %363
-  %456 = load i32, ptr %353, align 4, !tbaa !95
-  %457 = zext i32 %456 to i64
+457:                                              ; preds = %365
+  %458 = load i32, ptr %355, align 4, !tbaa !95
+  %459 = zext i32 %458 to i64
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.71) #7
-  %.not1.not.i.i.i = icmp eq i32 %456, 0
+  %.not1.not.i.i.i = icmp eq i32 %458, 0
   br i1 %.not1.not.i.i.i, label %.loopexit.i, label %.lr.ph.i43.i.i
 
-458:                                              ; preds = %.lr.ph.i43.i.i
-  %459 = add nuw nsw i64 %.0152.i.i.i, 1
-  %exitcond.not.i45.i.i = icmp eq i64 %459, %457
+460:                                              ; preds = %.lr.ph.i43.i.i
+  %461 = add nuw nsw i64 %.0152.i.i.i, 1
+  %exitcond.not.i45.i.i = icmp eq i64 %461, %459
   br i1 %exitcond.not.i45.i.i, label %.loopexit.i, label %.lr.ph.i43.i.i, !llvm.loop !150
 
-.lr.ph.i43.i.i:                                   ; preds = %455, %458
-  %.0152.i.i.i = phi i64 [ %459, %458 ], [ 0, %455 ]
-  %460 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #7
-  %461 = icmp sgt i32 %460, -1
-  br i1 %461, label %458, label %cbs_apv_write_metadata_payload.exit.thread.i
+.lr.ph.i43.i.i:                                   ; preds = %457, %460
+  %.0152.i.i.i = phi i64 [ %461, %460 ], [ 0, %457 ]
+  %462 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #7
+  %463 = icmp sgt i32 %462, -1
+  br i1 %463, label %460, label %cbs_apv_write_metadata_payload.exit.thread.i
 
-462:                                              ; preds = %363
-  %463 = getelementptr inbounds nuw i8, ptr %342, i64 8
-  %464 = load i32, ptr %353, align 4, !tbaa !95
-  %465 = zext i32 %464 to i64
+464:                                              ; preds = %365
+  %465 = getelementptr inbounds nuw i8, ptr %344, i64 8
+  %466 = load i32, ptr %355, align 4, !tbaa !95
+  %467 = zext i32 %466 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.72) #7
-  br label %467
+  br label %469
 
-466:                                              ; preds = %467
+468:                                              ; preds = %469
   %indvars.iv.next.i47.i.i = add nuw nsw i64 %indvars.iv.i46.i.i, 1
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i47.i.i, 16
-  br i1 %exitcond.i.i.i, label %474, label %467, !llvm.loop !151
+  br i1 %exitcond.i.i.i, label %476, label %469, !llvm.loop !151
 
-467:                                              ; preds = %466, %462
-  %indvars.iv.i46.i.i = phi i64 [ 0, %462 ], [ %indvars.iv.next.i47.i.i, %466 ]
-  %468 = getelementptr inbounds nuw [16 x i8], ptr %463, i64 0, i64 %indvars.iv.i46.i.i
-  %469 = load i8, ptr %468, align 1, !tbaa !19
-  %470 = zext i8 %469 to i32
+469:                                              ; preds = %468, %464
+  %indvars.iv.i46.i.i = phi i64 [ 0, %464 ], [ %indvars.iv.next.i47.i.i, %468 ]
+  %470 = getelementptr inbounds nuw [16 x i8], ptr %465, i64 0, i64 %indvars.iv.i46.i.i
+  %471 = load i8, ptr %470, align 1, !tbaa !19
+  %472 = zext i8 %471 to i32
   store i32 1, ptr %5, align 4, !tbaa !27
-  %471 = trunc nuw nsw i64 %indvars.iv.i46.i.i to i32
-  store i32 %471, ptr %329, align 4, !tbaa !27
-  %472 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.73, ptr noundef nonnull %5, i32 noundef %470, i32 noundef 0, i32 noundef 255) #7
-  %473 = icmp sgt i32 %472, -1
-  br i1 %473, label %466, label %cbs_apv_write_metadata_user_defined.exit.thread.i.i
+  %473 = trunc nuw nsw i64 %indvars.iv.i46.i.i to i32
+  store i32 %473, ptr %331, align 4, !tbaa !27
+  %474 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.73, ptr noundef nonnull %5, i32 noundef %472, i32 noundef 0, i32 noundef 255) #7
+  %475 = icmp sgt i32 %474, -1
+  br i1 %475, label %468, label %cbs_apv_write_metadata_user_defined.exit.thread.i.i
 
-474:                                              ; preds = %466
-  %475 = getelementptr inbounds nuw i8, ptr %342, i64 40
-  %476 = load i64, ptr %475, align 8, !tbaa !120
-  %477 = add nsw i64 %465, -16
-  %.not.i48.i.i = icmp eq i64 %476, %477
-  br i1 %.not.i48.i.i, label %.preheader.i49.i.i, label %479
+476:                                              ; preds = %468
+  %477 = getelementptr inbounds nuw i8, ptr %344, i64 40
+  %478 = load i64, ptr %477, align 8, !tbaa !120
+  %479 = add nsw i64 %467, -16
+  %.not.i48.i.i = icmp eq i64 %478, %479
+  br i1 %.not.i48.i.i, label %.preheader.i49.i.i, label %481
 
-.preheader.i49.i.i:                               ; preds = %474
-  %478 = getelementptr inbounds nuw i8, ptr %342, i64 24
-  %.not4449.not.i.i.i = icmp eq i64 %476, 0
+.preheader.i49.i.i:                               ; preds = %476
+  %480 = getelementptr inbounds nuw i8, ptr %344, i64 24
+  %.not4449.not.i.i.i = icmp eq i64 %478, 0
   br i1 %.not4449.not.i.i.i, label %cbs_apv_write_metadata_user_defined.exit.i.i, label %.lr.ph.i50.i.i
 
-479:                                              ; preds = %474
-  %480 = load ptr, ptr %0, align 8, !tbaa !20
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %480, i32 noundef 16, ptr noundef nonnull @.str.79, i64 noundef %476, i64 noundef %477) #7
+481:                                              ; preds = %476
+  %482 = load ptr, ptr %0, align 8, !tbaa !20
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %482, i32 noundef 16, ptr noundef nonnull @.str.79, i64 noundef %478, i64 noundef %479) #7
   br label %cbs_apv_write_metadata_user_defined.exit.thread.i.i
 
-481:                                              ; preds = %.lr.ph.i50.i.i
-  %482 = add nuw i64 %.03450.i.i.i, 1
-  %483 = load i64, ptr %475, align 8, !tbaa !120
-  %.not44.i.i.i = icmp ult i64 %482, %483
+483:                                              ; preds = %.lr.ph.i50.i.i
+  %484 = add nuw i64 %.03450.i.i.i, 1
+  %485 = load i64, ptr %477, align 8, !tbaa !120
+  %.not44.i.i.i = icmp ult i64 %484, %485
   br i1 %.not44.i.i.i, label %.lr.ph.i50.i.i, label %cbs_apv_write_metadata_user_defined.exit.i.i, !llvm.loop !152
 
-.lr.ph.i50.i.i:                                   ; preds = %.preheader.i49.i.i, %481
-  %.03450.i.i.i = phi i64 [ %482, %481 ], [ 0, %.preheader.i49.i.i ]
-  %484 = load ptr, ptr %478, align 8, !tbaa !123
-  %485 = getelementptr inbounds nuw i8, ptr %484, i64 %.03450.i.i.i
-  %486 = load i8, ptr %485, align 1, !tbaa !19
-  %487 = zext i8 %486 to i32
+.lr.ph.i50.i.i:                                   ; preds = %.preheader.i49.i.i, %483
+  %.03450.i.i.i = phi i64 [ %484, %483 ], [ 0, %.preheader.i49.i.i ]
+  %486 = load ptr, ptr %480, align 8, !tbaa !123
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 %.03450.i.i.i
+  %488 = load i8, ptr %487, align 1, !tbaa !19
+  %489 = zext i8 %488 to i32
   store i32 1, ptr %6, align 4, !tbaa !27
-  %488 = trunc i64 %.03450.i.i.i to i32
-  store i32 %488, ptr %330, align 4, !tbaa !27
-  %489 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.74, ptr noundef nonnull %6, i32 noundef %487, i32 noundef 0, i32 noundef 255) #7
-  %490 = icmp sgt i32 %489, -1
-  br i1 %490, label %481, label %cbs_apv_write_metadata_user_defined.exit.thread.i.i
+  %490 = trunc i64 %.03450.i.i.i to i32
+  store i32 %490, ptr %332, align 4, !tbaa !27
+  %491 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.74, ptr noundef nonnull %6, i32 noundef %489, i32 noundef 0, i32 noundef 255) #7
+  %492 = icmp sgt i32 %491, -1
+  br i1 %492, label %483, label %cbs_apv_write_metadata_user_defined.exit.thread.i.i
 
-cbs_apv_write_metadata_user_defined.exit.thread.i.i: ; preds = %467, %.lr.ph.i50.i.i, %479
-  %.3.i.ph.i.i = phi i32 [ -22, %479 ], [ %489, %.lr.ph.i50.i.i ], [ %472, %467 ]
+cbs_apv_write_metadata_user_defined.exit.thread.i.i: ; preds = %469, %.lr.ph.i50.i.i, %481
+  %.3.i.ph.i.i = phi i32 [ -22, %481 ], [ %491, %.lr.ph.i50.i.i ], [ %474, %469 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %cbs_apv_write_metadata_payload.exit.thread.i
 
-cbs_apv_write_metadata_user_defined.exit.i.i:     ; preds = %481, %.preheader.i49.i.i
+cbs_apv_write_metadata_user_defined.exit.i.i:     ; preds = %483, %.preheader.i49.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit.i
 
-491:                                              ; preds = %363
-  %492 = getelementptr inbounds nuw i8, ptr %342, i64 8
-  %493 = load i32, ptr %353, align 4, !tbaa !95
-  %494 = zext i32 %493 to i64
+493:                                              ; preds = %365
+  %494 = getelementptr inbounds nuw i8, ptr %344, i64 8
+  %495 = load i32, ptr %355, align 4, !tbaa !95
+  %496 = zext i32 %495 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.75) #7
-  %495 = getelementptr inbounds nuw i8, ptr %342, i64 24
-  %496 = load i64, ptr %495, align 8, !tbaa !125
-  %.not.i51.i.i = icmp eq i64 %496, %494
-  br i1 %.not.i51.i.i, label %.preheader.i52.i.i, label %497
+  %497 = getelementptr inbounds nuw i8, ptr %344, i64 24
+  %498 = load i64, ptr %497, align 8, !tbaa !125
+  %.not.i51.i.i = icmp eq i64 %498, %496
+  br i1 %.not.i51.i.i, label %.preheader.i52.i.i, label %499
 
-.preheader.i52.i.i:                               ; preds = %491
-  %.not2627.not.i.i.i = icmp eq i32 %493, 0
+.preheader.i52.i.i:                               ; preds = %493
+  %.not2627.not.i.i.i = icmp eq i32 %495, 0
   br i1 %.not2627.not.i.i.i, label %cbs_apv_write_metadata_undefined.exit.i.i, label %.lr.ph.i53.i.i
 
-497:                                              ; preds = %491
-  %498 = load ptr, ptr %0, align 8, !tbaa !20
-  %499 = add nsw i64 %494, -16
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %498, i32 noundef 16, ptr noundef nonnull @.str.79, i64 noundef %496, i64 noundef %499) #7
+499:                                              ; preds = %493
+  %500 = load ptr, ptr %0, align 8, !tbaa !20
+  %501 = add nsw i64 %496, -16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %500, i32 noundef 16, ptr noundef nonnull @.str.79, i64 noundef %498, i64 noundef %501) #7
   br label %cbs_apv_write_metadata_undefined.exit.thread.i.i
 
-500:                                              ; preds = %.lr.ph.i53.i.i
-  %501 = add nuw i64 %.02028.i.i.i, 1
-  %502 = load i64, ptr %495, align 8, !tbaa !125
-  %.not26.i.i.i = icmp ult i64 %501, %502
+502:                                              ; preds = %.lr.ph.i53.i.i
+  %503 = add nuw i64 %.02028.i.i.i, 1
+  %504 = load i64, ptr %497, align 8, !tbaa !125
+  %.not26.i.i.i = icmp ult i64 %503, %504
   br i1 %.not26.i.i.i, label %.lr.ph.i53.i.i, label %cbs_apv_write_metadata_undefined.exit.i.i, !llvm.loop !153
 
-.lr.ph.i53.i.i:                                   ; preds = %.preheader.i52.i.i, %500
-  %.02028.i.i.i = phi i64 [ %501, %500 ], [ 0, %.preheader.i52.i.i ]
-  %503 = load ptr, ptr %492, align 8, !tbaa !128
-  %504 = getelementptr inbounds nuw i8, ptr %503, i64 %.02028.i.i.i
-  %505 = load i8, ptr %504, align 1, !tbaa !19
-  %506 = zext i8 %505 to i32
+.lr.ph.i53.i.i:                                   ; preds = %.preheader.i52.i.i, %502
+  %.02028.i.i.i = phi i64 [ %503, %502 ], [ 0, %.preheader.i52.i.i ]
+  %505 = load ptr, ptr %494, align 8, !tbaa !128
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 %.02028.i.i.i
+  %507 = load i8, ptr %506, align 1, !tbaa !19
+  %508 = zext i8 %507 to i32
   store i32 1, ptr %4, align 4, !tbaa !27
-  %507 = trunc i64 %.02028.i.i.i to i32
-  store i32 %507, ptr %334, align 4, !tbaa !27
-  %508 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.76, ptr noundef nonnull %4, i32 noundef %506, i32 noundef 0, i32 noundef 255) #7
-  %509 = icmp sgt i32 %508, -1
-  br i1 %509, label %500, label %cbs_apv_write_metadata_undefined.exit.thread.i.i
+  %509 = trunc i64 %.02028.i.i.i to i32
+  store i32 %509, ptr %336, align 4, !tbaa !27
+  %510 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.76, ptr noundef nonnull %4, i32 noundef %508, i32 noundef 0, i32 noundef 255) #7
+  %511 = icmp sgt i32 %510, -1
+  br i1 %511, label %502, label %cbs_apv_write_metadata_undefined.exit.thread.i.i
 
-cbs_apv_write_metadata_undefined.exit.thread.i.i: ; preds = %.lr.ph.i53.i.i, %497
-  %.0.i.ph.i.i = phi i32 [ -22, %497 ], [ %508, %.lr.ph.i53.i.i ]
+cbs_apv_write_metadata_undefined.exit.thread.i.i: ; preds = %.lr.ph.i53.i.i, %499
+  %.0.i.ph.i.i = phi i32 [ -22, %499 ], [ %510, %.lr.ph.i53.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %cbs_apv_write_metadata_payload.exit.thread.i
 
-cbs_apv_write_metadata_undefined.exit.i.i:        ; preds = %500, %.preheader.i52.i.i
+cbs_apv_write_metadata_undefined.exit.i.i:        ; preds = %502, %.preheader.i52.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.loopexit.i
 
-cbs_apv_write_metadata_payload.exit.thread.i:     ; preds = %cbs_apv_write_metadata_cll.exit.i.i, %444, %cbs_apv_write_metadata_mdcv.exit.i.i, %.lr.ph.i43.i.i, %cbs_apv_write_metadata_undefined.exit.thread.i.i, %cbs_apv_write_metadata_user_defined.exit.thread.i.i, %cbs_apv_write_metadata_mdcv.exit.thread.i.i, %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i
-  %.0.i.ph.i = phi i32 [ %.0.i.ph.i.i, %cbs_apv_write_metadata_undefined.exit.thread.i.i ], [ %.3.i.ph.i.i, %cbs_apv_write_metadata_user_defined.exit.thread.i.i ], [ %.2.i.ph.i.i, %cbs_apv_write_metadata_mdcv.exit.thread.i.i ], [ %.1.i.ph.i.i45, %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i ], [ %460, %.lr.ph.i43.i.i ], [ %448, %444 ], [ %453, %cbs_apv_write_metadata_cll.exit.i.i ], [ %442, %cbs_apv_write_metadata_mdcv.exit.i.i ]
-  store i32 %325, ptr %324, align 4, !tbaa !15
+cbs_apv_write_metadata_payload.exit.thread.i:     ; preds = %cbs_apv_write_metadata_cll.exit.i.i, %446, %cbs_apv_write_metadata_mdcv.exit.i.i, %.lr.ph.i43.i.i, %cbs_apv_write_metadata_undefined.exit.thread.i.i, %cbs_apv_write_metadata_user_defined.exit.thread.i.i, %cbs_apv_write_metadata_mdcv.exit.thread.i.i, %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i
+  %.0.i.ph.i = phi i32 [ %.0.i.ph.i.i, %cbs_apv_write_metadata_undefined.exit.thread.i.i ], [ %.3.i.ph.i.i, %cbs_apv_write_metadata_user_defined.exit.thread.i.i ], [ %.2.i.ph.i.i, %cbs_apv_write_metadata_mdcv.exit.thread.i.i ], [ %.1.i.ph.i.i45, %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i ], [ %462, %.lr.ph.i43.i.i ], [ %450, %446 ], [ %455, %cbs_apv_write_metadata_cll.exit.i.i ], [ %444, %cbs_apv_write_metadata_mdcv.exit.i.i ]
+  store i32 %327, ptr %326, align 4, !tbaa !15
   br label %cbs_apv_write_metadata.exit.thread
 
-.loopexit.i:                                      ; preds = %458, %cbs_apv_write_metadata_undefined.exit.i.i, %cbs_apv_write_metadata_user_defined.exit.i.i, %455, %cbs_apv_write_metadata_cll.exit.i.i, %cbs_apv_write_metadata_mdcv.exit.i.i, %cbs_apv_write_metadata_itu_t_t35.exit.i.i
-  store i32 %325, ptr %324, align 4, !tbaa !15
-  br i1 %340, label %510, label %520
+.loopexit.i:                                      ; preds = %460, %cbs_apv_write_metadata_undefined.exit.i.i, %cbs_apv_write_metadata_user_defined.exit.i.i, %457, %cbs_apv_write_metadata_cll.exit.i.i, %cbs_apv_write_metadata_mdcv.exit.i.i, %cbs_apv_write_metadata_itu_t_t35.exit.i.i
+  store i32 %327, ptr %326, align 4, !tbaa !15
+  br i1 %342, label %512, label %522
 
-510:                                              ; preds = %.loopexit.i
-  %511 = load ptr, ptr %316, align 8, !tbaa !138
-  %512 = load ptr, ptr %318, align 8, !tbaa !145
-  %513 = ptrtoint ptr %511 to i64
-  %514 = ptrtoint ptr %512 to i64
-  %515 = sub i64 %513, %514
-  %516 = load i32, ptr %322, align 4, !tbaa !139
-  %.tr.i121.i = trunc i64 %515 to i32
-  %reass.sub.i122.i = add i32 %.neg140.i, %368
-  %reass.sub.i120.neg.i = sub i32 %reass.sub.i122.i, %516
-  %517 = lshr i32 %reass.sub.i120.neg.i, 3
-  %518 = add i32 %517, %.tr.i121.i
-  %519 = and i32 %518, 536870911
-  store i32 %519, ptr %353, align 4, !tbaa !95
-  br label %520
+512:                                              ; preds = %.loopexit.i
+  %513 = load ptr, ptr %318, align 8, !tbaa !138
+  %514 = load ptr, ptr %320, align 8, !tbaa !145
+  %515 = ptrtoint ptr %513 to i64
+  %516 = ptrtoint ptr %514 to i64
+  %517 = sub i64 %515, %516
+  %518 = load i32, ptr %324, align 4, !tbaa !139
+  %.tr.i121.i = trunc i64 %517 to i32
+  %reass.sub.i122.i = add i32 %.neg140.i, %370
+  %reass.sub.i120.neg.i = sub i32 %reass.sub.i122.i, %518
+  %519 = lshr i32 %reass.sub.i120.neg.i, 3
+  %520 = add i32 %519, %.tr.i121.i
+  %521 = and i32 %520, 536870911
+  store i32 %521, ptr %355, align 4, !tbaa !95
+  br label %522
 
-520:                                              ; preds = %510, %.loopexit.i
+522:                                              ; preds = %512, %.loopexit.i
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i35, 1
-  %521 = load i32, ptr %327, align 4, !tbaa !97
-  %522 = zext i32 %521 to i64
-  %.not.i38 = icmp samesign ult i64 %indvars.iv.next.i37, %522
-  br i1 %.not.i38, label %341, label %.thread130.i, !llvm.loop !154
+  %523 = load i32, ptr %329, align 4, !tbaa !97
+  %524 = zext i32 %523 to i64
+  %.not.i38 = icmp samesign ult i64 %indvars.iv.next.i37, %524
+  br i1 %.not.i38, label %343, label %.thread130.i, !llvm.loop !154
 
-.thread130.i:                                     ; preds = %520, %.preheader.i34
-  %523 = icmp eq i32 %.0105220.i, 1
-  br i1 %523, label %524, label %535
+.thread130.i:                                     ; preds = %522, %.preheader.i34
+  %525 = icmp eq i32 %.0105220.i, 1
+  br i1 %525, label %526, label %537
 
-524:                                              ; preds = %.thread130.i
-  %525 = load ptr, ptr %316, align 8, !tbaa !138
-  %526 = load ptr, ptr %318, align 8, !tbaa !145
-  %527 = ptrtoint ptr %525 to i64
-  %528 = ptrtoint ptr %526 to i64
-  %529 = sub i64 %527, %528
-  %530 = load i32, ptr %322, align 4, !tbaa !139
-  %.tr.i123.i = trunc i64 %529 to i32
-  %reass.sub.i.neg.i = sub i32 %reass.sub.i124.i, %530
-  %531 = lshr i32 %reass.sub.i.neg.i, 3
-  %532 = add i32 %531, %.tr.i123.i
-  %533 = and i32 %532, 536870911
-  %534 = add nsw i32 %533, -4
-  store i32 %534, ptr %326, align 8, !tbaa !90
-  store i32 %325, ptr %324, align 4, !tbaa !15
-  br label %535
+526:                                              ; preds = %.thread130.i
+  %527 = load ptr, ptr %318, align 8, !tbaa !138
+  %528 = load ptr, ptr %320, align 8, !tbaa !145
+  %529 = ptrtoint ptr %527 to i64
+  %530 = ptrtoint ptr %528 to i64
+  %531 = sub i64 %529, %530
+  %532 = load i32, ptr %324, align 4, !tbaa !139
+  %.tr.i123.i = trunc i64 %531 to i32
+  %reass.sub.i.neg.i = sub i32 %reass.sub.i124.i, %532
+  %533 = lshr i32 %reass.sub.i.neg.i, 3
+  %534 = add i32 %533, %.tr.i123.i
+  %535 = and i32 %534, 536870911
+  %536 = add nsw i32 %535, -4
+  store i32 %536, ptr %328, align 8, !tbaa !90
+  store i32 %327, ptr %326, align 4, !tbaa !15
+  br label %537
 
-535:                                              ; preds = %524, %.thread130.i
-  %536 = add nuw nsw i32 %.0105220.i, 1
-  %exitcond.i = icmp eq i32 %536, 3
-  br i1 %exitcond.i, label %.thread133.i, label %335, !llvm.loop !155
+537:                                              ; preds = %526, %.thread130.i
+  %538 = add nuw nsw i32 %.0105220.i, 1
+  %exitcond.i = icmp eq i32 %538, 3
+  br i1 %exitcond.i, label %.thread133.i, label %337, !llvm.loop !155
 
-.thread133.i:                                     ; preds = %535
-  %537 = getelementptr inbounds nuw i8, ptr %299, i64 400
-  %538 = load i64, ptr %537, align 8, !tbaa !80
-  %.not18.not.i.i39 = icmp eq i64 %538, 0
+.thread133.i:                                     ; preds = %537
+  %539 = getelementptr inbounds nuw i8, ptr %301, i64 400
+  %540 = load i64, ptr %539, align 8, !tbaa !80
+  %.not18.not.i.i39 = icmp eq i64 %540, 0
   br i1 %.not18.not.i.i39, label %cbs_apv_write_metadata.exit, label %.lr.ph.i.i40
 
-539:                                              ; preds = %.lr.ph.i.i40
-  %540 = add i32 %.01619.i.i41, 1
-  %541 = zext i32 %540 to i64
-  %542 = load i64, ptr %537, align 8, !tbaa !80
-  %.not.i.i42 = icmp ugt i64 %542, %541
+541:                                              ; preds = %.lr.ph.i.i40
+  %542 = add i32 %.01619.i.i41, 1
+  %543 = zext i32 %542 to i64
+  %544 = load i64, ptr %539, align 8, !tbaa !80
+  %.not.i.i42 = icmp ugt i64 %544, %543
   br i1 %.not.i.i42, label %.lr.ph.i.i40, label %cbs_apv_write_metadata.exit, !llvm.loop !142
 
-.lr.ph.i.i40:                                     ; preds = %.thread133.i, %539
-  %.01619.i.i41 = phi i32 [ %540, %539 ], [ 0, %.thread133.i ]
-  %543 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #7
-  %544 = icmp sgt i32 %543, -1
-  br i1 %544, label %539, label %cbs_apv_write_metadata.exit.thread
+.lr.ph.i.i40:                                     ; preds = %.thread133.i, %541
+  %.01619.i.i41 = phi i32 [ %542, %541 ], [ 0, %.thread133.i ]
+  %545 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #7
+  %546 = icmp sgt i32 %545, -1
+  br i1 %546, label %541, label %cbs_apv_write_metadata.exit.thread
 
-cbs_apv_write_metadata.exit.thread:               ; preds = %335, %._crit_edge213.i, %._crit_edge.i36, %.lr.ph.i48, %.lr.ph212.i, %.lr.ph.i.i40, %cbs_apv_write_pbu_header.exit.i33, %297, %304, %cbs_apv_write_metadata_payload.exit.thread.i
-  %.0.i32.ph = phi i32 [ %.0.i.ph.i, %cbs_apv_write_metadata_payload.exit.thread.i ], [ %308, %304 ], [ %302, %297 ], [ %313, %cbs_apv_write_pbu_header.exit.i33 ], [ %543, %.lr.ph.i.i40 ], [ %356, %.lr.ph212.i ], [ %345, %.lr.ph.i48 ], [ %361, %._crit_edge213.i ], [ %350, %._crit_edge.i36 ], [ %337, %335 ]
+cbs_apv_write_metadata.exit.thread:               ; preds = %337, %._crit_edge213.i, %._crit_edge.i36, %.lr.ph.i48, %.lr.ph212.i, %.lr.ph.i.i40, %cbs_apv_write_pbu_header.exit.i33, %299, %306, %cbs_apv_write_metadata_payload.exit.thread.i
+  %.0.i32.ph = phi i32 [ %.0.i.ph.i, %cbs_apv_write_metadata_payload.exit.thread.i ], [ %310, %306 ], [ %304, %299 ], [ %315, %cbs_apv_write_pbu_header.exit.i33 ], [ %545, %.lr.ph.i.i40 ], [ %358, %.lr.ph212.i ], [ %347, %.lr.ph.i48 ], [ %363, %._crit_edge213.i ], [ %352, %._crit_edge.i36 ], [ %339, %337 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %cbs_apv_write_filler.exit
 
-cbs_apv_write_metadata.exit:                      ; preds = %539, %.thread133.i
+cbs_apv_write_metadata.exit:                      ; preds = %541, %.thread133.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %cbs_apv_write_filler.exit.thread
 
-545:                                              ; preds = %3
-  %546 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %547 = load ptr, ptr %546, align 8, !tbaa !33
-  %548 = load i64, ptr %547, align 8, !tbaa !80
-  %.not18.not.i = icmp eq i64 %548, 0
+547:                                              ; preds = %3
+  %548 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %549 = load ptr, ptr %548, align 8, !tbaa !33
+  %550 = load i64, ptr %549, align 8, !tbaa !80
+  %.not18.not.i = icmp eq i64 %550, 0
   br i1 %.not18.not.i, label %cbs_apv_write_filler.exit.thread, label %.lr.ph.i49
 
-549:                                              ; preds = %.lr.ph.i49
-  %550 = add i32 %.01619.i, 1
-  %551 = zext i32 %550 to i64
-  %552 = load i64, ptr %547, align 8, !tbaa !80
-  %.not.i52 = icmp ugt i64 %552, %551
+551:                                              ; preds = %.lr.ph.i49
+  %552 = add i32 %.01619.i, 1
+  %553 = zext i32 %552 to i64
+  %554 = load i64, ptr %549, align 8, !tbaa !80
+  %.not.i52 = icmp ugt i64 %554, %553
   br i1 %.not.i52, label %.lr.ph.i49, label %cbs_apv_write_filler.exit.thread, !llvm.loop !142
 
-.lr.ph.i49:                                       ; preds = %545, %549
-  %.01619.i = phi i32 [ %550, %549 ], [ 0, %545 ]
-  %553 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #7
-  %554 = icmp sgt i32 %553, -1
-  br i1 %554, label %549, label %cbs_apv_write_filler.exit
+.lr.ph.i49:                                       ; preds = %547, %551
+  %.01619.i = phi i32 [ %552, %551 ], [ 0, %547 ]
+  %555 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #7
+  %556 = icmp sgt i32 %555, -1
+  br i1 %556, label %551, label %cbs_apv_write_filler.exit
 
-cbs_apv_write_filler.exit.thread:                 ; preds = %549, %545, %cbs_apv_write_metadata.exit, %cbs_apv_write_frame.exit, %cbs_apv_write_au_info.exit
+cbs_apv_write_filler.exit.thread:                 ; preds = %551, %547, %cbs_apv_write_metadata.exit, %cbs_apv_write_frame.exit, %cbs_apv_write_au_info.exit
   br label %cbs_apv_write_filler.exit
 
 cbs_apv_write_filler.exit:                        ; preds = %.lr.ph.i49, %cbs_apv_write_metadata.exit.thread, %cbs_apv_write_au_info.exit.thread, %cbs_apv_write_frame.exit.thread, %3, %cbs_apv_write_au_info.exit, %cbs_apv_write_filler.exit.thread
-  %.1 = phi i32 [ 0, %cbs_apv_write_filler.exit.thread ], [ %295, %cbs_apv_write_au_info.exit ], [ -38, %3 ], [ %.0.i.ph, %cbs_apv_write_frame.exit.thread ], [ %.1.i.ph, %cbs_apv_write_au_info.exit.thread ], [ %.0.i32.ph, %cbs_apv_write_metadata.exit.thread ], [ %553, %.lr.ph.i49 ]
+  %.1 = phi i32 [ 0, %cbs_apv_write_filler.exit.thread ], [ %297, %cbs_apv_write_au_info.exit ], [ -38, %3 ], [ %.0.i.ph, %cbs_apv_write_frame.exit.thread ], [ %.1.i.ph, %cbs_apv_write_au_info.exit.thread ], [ %.0.i32.ph, %cbs_apv_write_metadata.exit.thread ], [ %555, %.lr.ph.i49 ]
   ret i32 %.1
 }
 
@@ -3632,34 +3633,36 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_write_quantization
 
 .preheader40:                                     ; preds = %.preheader40.lr.ph, %.thread37
   %indvars.iv53 = phi i64 [ 0, %.preheader40.lr.ph ], [ %indvars.iv.next54, %.thread37 ]
-  %12 = trunc nuw nsw i64 %indvars.iv53 to i32
+  %12 = getelementptr inbounds nuw [4 x [8 x [8 x i8]]], ptr %2, i64 0, i64 %indvars.iv53
+  %13 = trunc nuw nsw i64 %indvars.iv53 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader40, %22
   %indvars.iv49 = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next50, %22 ]
-  %13 = trunc nuw nsw i64 %indvars.iv49 to i32
-  br label %15
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %12, i64 0, i64 %indvars.iv49
+  %14 = trunc nuw nsw i64 %indvars.iv49 to i32
+  br label %16
 
-14:                                               ; preds = %15
+15:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %22, label %15, !llvm.loop !179
+  br i1 %exitcond, label %22, label %16, !llvm.loop !179
 
-15:                                               ; preds = %.preheader, %14
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw [4 x [8 x [8 x i8]]], ptr %2, i64 0, i64 %indvars.iv53, i64 %indvars.iv, i64 %indvars.iv49
-  %17 = load i8, ptr %16, align 1, !tbaa !19
+16:                                               ; preds = %.preheader, %15
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
+  %gep = getelementptr inbounds nuw [8 x [8 x i8]], ptr %invariant.gep, i64 0, i64 %indvars.iv
+  %17 = load i8, ptr %gep, align 1, !tbaa !19
   %18 = zext i8 %17 to i32
   store i32 3, ptr %4, align 4, !tbaa !27
-  store i32 %12, ptr %9, align 4, !tbaa !27
+  store i32 %13, ptr %9, align 4, !tbaa !27
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %19, ptr %10, align 4, !tbaa !27
-  store i32 %13, ptr %11, align 4, !tbaa !27
+  store i32 %14, ptr %11, align 4, !tbaa !27
   %20 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef 8, ptr noundef nonnull @.str.31, ptr noundef nonnull %4, i32 noundef %18, i32 noundef 1, i32 noundef 255) #7
   %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %14, label %.loopexit
+  br i1 %21, label %15, label %.loopexit
 
-22:                                               ; preds = %14
+22:                                               ; preds = %15
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52 = icmp eq i64 %indvars.iv.next50, 8
   br i1 %exitcond52, label %.thread37, label %.preheader, !llvm.loop !180
@@ -3671,8 +3674,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_write_quantization
   %.not = icmp slt i64 %indvars.iv.next54, %24
   br i1 %.not, label %.preheader40, label %.loopexit, !llvm.loop !181
 
-.loopexit:                                        ; preds = %.thread37, %15, %3
-  %spec.select = phi i32 [ 0, %3 ], [ %20, %15 ], [ 0, %.thread37 ]
+.loopexit:                                        ; preds = %.thread37, %16, %3
+  %spec.select = phi i32 [ 0, %3 ], [ %20, %16 ], [ 0, %.thread37 ]
   ret i32 %spec.select
 }
 

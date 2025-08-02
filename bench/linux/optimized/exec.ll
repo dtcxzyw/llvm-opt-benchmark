@@ -851,7 +851,7 @@ define internal fastcc ptr @do_open_execat(i32 noundef %0, ptr noundef %1, i32 n
   store i32 1, ptr %9, align 4
   %10 = and i32 %2, -4353
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %.thread2
+  br i1 %11, label %12, label %.critedge.thread
 
 12:                                               ; preds = %3
   %.not = icmp eq i32 %2, 0
@@ -860,8 +860,8 @@ define internal fastcc ptr @do_open_execat(i32 noundef %0, ptr noundef %1, i32 n
 13:                                               ; preds = %12
   %14 = icmp ugt i32 %2, 4095
   %15 = and i32 %2, 256
-  %.not3 = icmp eq i32 %15, 0
-  %16 = select i1 %.not3, i32 16385, i32 16384
+  %.not2 = icmp eq i32 %15, 0
+  %16 = select i1 %.not2, i32 16385, i32 16384
   %simplifycfg.merge = select i1 %14, i32 %16, i32 0
   store i32 %simplifycfg.merge, ptr %9, align 4
   br label %17
@@ -869,7 +869,7 @@ define internal fastcc ptr @do_open_execat(i32 noundef %0, ptr noundef %1, i32 n
 17:                                               ; preds = %12, %13
   %18 = call ptr @do_filp_open(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %4) #15
   %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
-  br i1 %19, label %.thread2, label %20
+  br i1 %19, label %.critedge.thread, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 168
@@ -900,13 +900,13 @@ define internal fastcc ptr @do_open_execat(i32 noundef %0, ptr noundef %1, i32 n
   call void asm sideeffect "1072: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1072b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1072) #15, !srcloc !20
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 940, i32 2307, i64 12) #15, !srcloc !21
   call void asm sideeffect "1073: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1073b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1073) #15, !srcloc !22
-  br label %.loopexit
+  br label %.critedge
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 336
   %42 = load volatile i32, ptr %41, align 4
   %43 = icmp slt i32 %42, 1
-  br i1 %43, label %.lr.ph, label %.loopexit, !prof !23
+  br i1 %43, label %.lr.ph, label %.critedge, !prof !23
 
 .lr.ph:                                           ; preds = %40, %50
   %44 = phi i32 [ %51, %50 ], [ %42, %40 ]
@@ -916,21 +916,21 @@ define internal fastcc ptr @do_open_execat(i32 noundef %0, ptr noundef %1, i32 n
   %48 = icmp ult i8 %47, 2
   call void @llvm.assume(i1 %48)
   %49 = icmp eq i8 %47, 0
-  br i1 %49, label %50, label %.thread2, !prof !13
+  br i1 %49, label %50, label %.critedge.thread, !prof !13
 
 50:                                               ; preds = %.lr.ph
   %51 = extractvalue { i8, i32 } %46, 1
   %52 = icmp slt i32 %51, 1
-  br i1 %52, label %.lr.ph, label %.loopexit, !prof !25, !llvm.loop !26
+  br i1 %52, label %.lr.ph, label %.critedge, !prof !25, !llvm.loop !26
 
-.loopexit:                                        ; preds = %50, %40, %39
+.critedge:                                        ; preds = %50, %40, %39
   %53 = phi i64 [ -13, %39 ], [ -26, %40 ], [ -26, %50 ]
   call void @fput(ptr noundef %18) #15
   %54 = inttoptr i64 %53 to ptr
-  br label %.thread2
+  br label %.critedge.thread
 
-.thread2:                                         ; preds = %.lr.ph, %.loopexit, %17, %3
-  %55 = phi ptr [ %54, %.loopexit ], [ %18, %17 ], [ inttoptr (i64 -22 to ptr), %3 ], [ %18, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %.critedge, %17, %3
+  %55 = phi ptr [ %54, %.critedge ], [ %18, %17 ], [ inttoptr (i64 -22 to ptr), %3 ], [ %18, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #15
   ret ptr %55
 }

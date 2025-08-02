@@ -268,7 +268,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.21 = private unnamed_addr constant [59 x i8] c"--files-are-der Specified files are in DER, not PEM format\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @client_test(ptr noundef captures(none) initializes((16, 20)) %0) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @client_test(ptr noundef captures(none) initializes((16, 20)) %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i32], align 16
   %3 = alloca %struct.fd_set, align 8
   %4 = alloca %struct.fd_set, align 8

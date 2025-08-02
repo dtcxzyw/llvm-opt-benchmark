@@ -689,18 +689,18 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
 
 103:                                              ; preds = %98
   call void @do_trace_netlink_extack(ptr noundef nonnull @ethnl_update_bitset32_verbose.__msg.4) #8
-  br i1 %87, label %.thread25, label %104
+  br i1 %87, label %.thread26, label %104
 
 104:                                              ; preds = %103
   store ptr @ethnl_update_bitset32_verbose.__msg.4, ptr %4, align 8
   store ptr %93, ptr %88, align 8
   store ptr null, ptr %89, align 8
-  br label %.thread25
+  br label %.thread26
 
 105:                                              ; preds = %98
   %106 = call fastcc i32 @ethnl_parse_bit(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef %1, ptr noundef %93, i1 noundef zeroext %54, ptr noundef %3, ptr noundef %4)
   %107 = icmp slt i32 %106, 0
-  br i1 %107, label %.thread25, label %108
+  br i1 %107, label %.thread26, label %108
 
 108:                                              ; preds = %105
   %109 = load i32, ptr %8, align 4
@@ -727,7 +727,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
   store i8 1, ptr %5, align 1
   br label %127
 
-.thread25:                                        ; preds = %105, %104, %103
+.thread26:                                        ; preds = %105, %104, %103
   %.ph = phi i32 [ -22, %103 ], [ -22, %104 ], [ %106, %105 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
@@ -962,8 +962,8 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
   store i8 1, ptr %5, align 1
   br label %.critedge
 
-.critedge:                                        ; preds = %127, %.lr.ph, %183, %84, %155, %15, %17, %.thread25, %268, %260, %.loopexit, %229, %219, %210, %136, %47, %45, %37, %35, %20, %6
-  %271 = phi i32 [ 0, %6 ], [ %25, %20 ], [ %137, %136 ], [ 0, %210 ], [ -22, %37 ], [ -22, %35 ], [ -22, %47 ], [ -22, %45 ], [ 0, %219 ], [ 0, %229 ], [ 0, %.loopexit ], [ 0, %260 ], [ 0, %268 ], [ %.ph, %.thread25 ], [ -22, %17 ], [ -22, %15 ], [ 0, %155 ], [ 0, %84 ], [ 0, %183 ], [ 0, %.lr.ph ], [ 0, %127 ]
+.critedge:                                        ; preds = %127, %.lr.ph, %183, %84, %155, %15, %17, %.thread26, %268, %260, %.loopexit, %229, %219, %210, %136, %47, %45, %37, %35, %20, %6
+  %271 = phi i32 [ 0, %6 ], [ %25, %20 ], [ %137, %136 ], [ 0, %210 ], [ -22, %37 ], [ -22, %35 ], [ -22, %47 ], [ -22, %45 ], [ 0, %219 ], [ 0, %229 ], [ 0, %.loopexit ], [ 0, %260 ], [ 0, %268 ], [ %.ph, %.thread26 ], [ -22, %17 ], [ -22, %15 ], [ 0, %155 ], [ 0, %84 ], [ 0, %183 ], [ 0, %.lr.ph ], [ 0, %127 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #8
   ret i32 %271
 }

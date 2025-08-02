@@ -74,26 +74,27 @@ define void @ff_matrix_invert_3x3(ptr noundef readonly captures(none) %0, ptr no
   %57 = fdiv nsz double 1.000000e+00, %56
   br label %.preheader
 
-.preheader:                                       ; preds = %2, %62
-  %indvars.iv72 = phi i64 [ 0, %2 ], [ %indvars.iv.next73, %62 ]
-  br label %58
+.preheader:                                       ; preds = %2, %63
+  %indvars.iv72 = phi i64 [ 0, %2 ], [ %indvars.iv.next73, %63 ]
+  %58 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %indvars.iv72
+  br label %59
 
-58:                                               ; preds = %.preheader, %58
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw [3 x double], ptr %1, i64 %indvars.iv72, i64 %indvars.iv
-  %60 = load double, ptr %59, align 8, !tbaa !4
-  %61 = fmul nsz double %57, %60
-  store double %61, ptr %59, align 8, !tbaa !4
+59:                                               ; preds = %.preheader, %59
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %59 ]
+  %60 = getelementptr inbounds nuw [3 x double], ptr %58, i64 0, i64 %indvars.iv
+  %61 = load double, ptr %60, align 8, !tbaa !4
+  %62 = fmul nsz double %57, %61
+  store double %62, ptr %60, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %62, label %58, !llvm.loop !8
+  br i1 %exitcond.not, label %63, label %59, !llvm.loop !8
 
-62:                                               ; preds = %58
+63:                                               ; preds = %59
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 3
-  br i1 %exitcond75.not, label %63, label %.preheader, !llvm.loop !10
+  br i1 %exitcond75.not, label %64, label %.preheader, !llvm.loop !10
 
-63:                                               ; preds = %62
+64:                                               ; preds = %63
   ret void
 }
 
@@ -112,39 +113,40 @@ define void @ff_matrix_mul_3x3(ptr noundef writeonly captures(none) %0, ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %23
-  %indvars.iv22 = phi i64 [ 0, %3 ], [ %indvars.iv.next23, %23 ]
+.preheader:                                       ; preds = %3, %24
+  %indvars.iv22 = phi i64 [ 0, %3 ], [ %indvars.iv.next23, %24 ]
   %6 = getelementptr inbounds nuw [3 x double], ptr %2, i64 %indvars.iv22
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  br label %9
+  %9 = getelementptr inbounds nuw [3 x double], ptr %0, i64 %indvars.iv22
+  br label %10
 
-9:                                                ; preds = %.preheader, %9
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
-  %10 = load double, ptr %6, align 8, !tbaa !4
-  %11 = getelementptr inbounds nuw [3 x double], ptr %1, i64 0, i64 %indvars.iv
-  %12 = load double, ptr %11, align 8, !tbaa !4
-  %13 = load double, ptr %7, align 8, !tbaa !4
-  %14 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv
-  %15 = load double, ptr %14, align 8, !tbaa !4
-  %16 = fmul nsz double %13, %15
-  %17 = tail call nsz double @llvm.fmuladd.f64(double %10, double %12, double %16)
-  %18 = load double, ptr %8, align 8, !tbaa !4
-  %19 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv
-  %20 = load double, ptr %19, align 8, !tbaa !4
-  %21 = tail call nsz double @llvm.fmuladd.f64(double %18, double %20, double %17)
-  %22 = getelementptr inbounds nuw [3 x double], ptr %0, i64 %indvars.iv22, i64 %indvars.iv
-  store double %21, ptr %22, align 8, !tbaa !4
+10:                                               ; preds = %.preheader, %10
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %10 ]
+  %11 = load double, ptr %6, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw [3 x double], ptr %1, i64 0, i64 %indvars.iv
+  %13 = load double, ptr %12, align 8, !tbaa !4
+  %14 = load double, ptr %7, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv
+  %16 = load double, ptr %15, align 8, !tbaa !4
+  %17 = fmul nsz double %14, %16
+  %18 = tail call nsz double @llvm.fmuladd.f64(double %11, double %13, double %17)
+  %19 = load double, ptr %8, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv
+  %21 = load double, ptr %20, align 8, !tbaa !4
+  %22 = tail call nsz double @llvm.fmuladd.f64(double %19, double %21, double %18)
+  %23 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %indvars.iv
+  store double %22, ptr %23, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %23, label %9, !llvm.loop !11
+  br i1 %exitcond.not, label %24, label %10, !llvm.loop !11
 
-23:                                               ; preds = %9
+24:                                               ; preds = %10
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 3
-  br i1 %exitcond25.not, label %24, label %.preheader, !llvm.loop !12
+  br i1 %exitcond25.not, label %25, label %.preheader, !llvm.loop !12
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   ret void
 }
 

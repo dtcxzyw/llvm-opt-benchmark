@@ -757,14 +757,14 @@ mi_segment_raw_page_size.exit.i:                  ; preds = %108, %106
   br i1 %.not24.i, label %mi_segment_os_free.exit, label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %mi_segment_raw_page_size.exit.i
-  %115 = getelementptr i8, ptr %0, i64 161
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 161
   br label %116
 
 116:                                              ; preds = %116, %.lr.ph.i11
   %.023.i = phi i64 [ 0, %.lr.ph.i11 ], [ %121, %116 ]
   %.02022.i = phi i64 [ 0, %.lr.ph.i11 ], [ %spec.select.i, %116 ]
   %.idx.i = mul nuw nsw i64 %.023.i, 80
-  %117 = getelementptr i8, ptr %115, i64 %.idx.i
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx.i
   %118 = load i8, ptr %117, align 1
   %119 = and i8 %118, 2
   %.not.i12 = icmp eq i8 %119, 0
@@ -2535,17 +2535,17 @@ define internal fastcc ptr @mi_segment_page_alloc(ptr noundef %0, i64 noundef ra
 mi_segment_page_try_alloc_in_queue.exit:          ; preds = %10
   %16 = tail call fastcc ptr @mi_segment_find_free(ptr noundef nonnull %.01118.i, ptr noundef %4) #7
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %mi_segment_page_try_alloc_in_queue.exit.thread, label %mi_segment_page_try_alloc_in_queue.exit32
+  br i1 %17, label %mi_segment_page_try_alloc_in_queue.exit.thread, label %.critedge
 
 mi_segment_page_try_alloc_in_queue.exit.thread:   ; preds = %14, %5, %mi_segment_page_try_alloc_in_queue.exit
   %18 = tail call fastcc ptr @mi_segment_reclaim_or_alloc(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #7
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %mi_segment_page_try_alloc_in_queue.exit32, label %19
+  br i1 %.not, label %.critedge, label %19
 
 19:                                               ; preds = %mi_segment_page_try_alloc_in_queue.exit.thread
   %.01116.i23 = load ptr, ptr %spec.select14.i, align 8, !tbaa !112
   %.not17.i24 = icmp eq ptr %.01116.i23, null
-  br i1 %.not17.i24, label %mi_segment_page_try_alloc_in_queue.exit32, label %.lr.ph.i25
+  br i1 %.not17.i24, label %.critedge, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2567,15 +2567,15 @@ mi_segment_page_try_alloc_in_queue.exit.thread:   ; preds = %14, %5, %mi_segment
 
 28:                                               ; preds = %24
   %29 = tail call fastcc ptr @mi_segment_find_free(ptr noundef nonnull %.01118.i26, ptr noundef %4) #7
-  br label %mi_segment_page_try_alloc_in_queue.exit32
+  br label %.critedge
 
 30:                                               ; preds = %24, %21
   %31 = getelementptr inbounds nuw i8, ptr %.01118.i26, i64 48
   %.011.i27 = load ptr, ptr %31, align 8, !tbaa !112
   %.not.i28 = icmp eq ptr %.011.i27, null
-  br i1 %.not.i28, label %mi_segment_page_try_alloc_in_queue.exit32, label %21, !llvm.loop !113
+  br i1 %.not.i28, label %.critedge, label %21, !llvm.loop !113
 
-mi_segment_page_try_alloc_in_queue.exit32:        ; preds = %30, %mi_segment_page_try_alloc_in_queue.exit.thread, %19, %28, %mi_segment_page_try_alloc_in_queue.exit
+.critedge:                                        ; preds = %30, %28, %19, %mi_segment_page_try_alloc_in_queue.exit.thread, %mi_segment_page_try_alloc_in_queue.exit
   %.1 = phi ptr [ %16, %mi_segment_page_try_alloc_in_queue.exit ], [ null, %mi_segment_page_try_alloc_in_queue.exit.thread ], [ %29, %28 ], [ null, %19 ], [ null, %30 ]
   ret ptr %.1
 }

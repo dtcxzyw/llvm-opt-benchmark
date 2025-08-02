@@ -293,7 +293,7 @@ define hidden void @_ZN26ShenandoahRegionPartitions27retire_range_from_partition
 .lr.ph:                                           ; preds = %4
   %.idx = mul nuw nsw i64 %.pre, 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = getelementptr i8, ptr %5, i64 %.idx
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
@@ -353,7 +353,7 @@ define linkonce_odr hidden void @_ZN26ShenandoahRegionPartitions49shrink_interva
   %21 = add nsw i64 %17, 1
   %.idx.i = mul nuw nsw i64 %6, 24
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = getelementptr i8, ptr %22, i64 %.idx.i
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -423,7 +423,7 @@ _ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28Shenando
   %spec.select.i33 = tail call i64 @llvm.smin.i64(i64 %54, i64 %3)
   %.idx.i34 = mul nuw nsw i64 %6, 24
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %56 = getelementptr i8, ptr %55, i64 %.idx.i34
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i34
   %57 = load ptr, ptr %56, align 8
   br label %58
 
@@ -523,7 +523,7 @@ define hidden void @_ZN26ShenandoahRegionPartitions21retire_from_partitionE28She
   %19 = xor i64 %18, -1
   %.idx = mul nuw nsw i64 %.pre-phi, 24
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = getelementptr i8, ptr %20, i64 %.idx
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i64, ptr %22, i64 %16
   %24 = load i64, ptr %23, align 8
@@ -546,7 +546,7 @@ define hidden void @_ZN26ShenandoahRegionPartitions9make_freeEl28ShenandoahFreeS
   %8 = shl nuw i64 1, %7
   %.idx = mul nuw nsw i64 %5, 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = getelementptr i8, ptr %9, i64 %.idx
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i64, ptr %11, i64 %6
   %13 = load i64, ptr %12, align 8
@@ -732,30 +732,31 @@ _ZN26ShenandoahRegionPartitions36expand_interval_if_boundary_modifiedE28Shenando
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef nonnull ptr @_ZNK26ShenandoahRegionPartitions25partition_membership_nameEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = ashr i64 %1, 6
-  %4 = and i64 %1, 63
-  %5 = shl nuw i64 1, %4
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %6
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = ashr i64 %1, 6
+  %5 = and i64 %1, 63
+  %6 = shl nuw i64 1, %5
+  br label %7
 
-6:                                                ; preds = %6, %2
-  %7 = phi i1 [ true, %2 ], [ false, %6 ]
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ 1, %6 ]
-  %.068.i = phi i8 [ 2, %2 ], [ %spec.select.i, %6 ]
-  %8 = mul nuw nsw i64 %indvars.iv.i, 24
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %8
-  %9 = load ptr, ptr %gep.i, align 8
-  %10 = getelementptr inbounds i64, ptr %9, i64 %3
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, %5
-  %.not.i = icmp eq i64 %12, 0
-  %13 = trunc nuw nsw i64 %indvars.iv.i to i8
-  %spec.select.i = select i1 %.not.i, i8 %.068.i, i8 %13
-  br i1 %7, label %6, label %switch.lookup, !llvm.loop !12
+7:                                                ; preds = %7, %2
+  %8 = phi i1 [ true, %2 ], [ false, %7 ]
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ 1, %7 ]
+  %.068.i = phi i8 [ 2, %2 ], [ %spec.select.i, %7 ]
+  %9 = mul nuw nsw i64 %indvars.iv.i, 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i64, ptr %12, i64 %4
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, %6
+  %.not.i = icmp eq i64 %15, 0
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i8
+  %spec.select.i = select i1 %.not.i, i8 %.068.i, i8 %16
+  br i1 %8, label %7, label %switch.lookup, !llvm.loop !12
 
-switch.lookup:                                    ; preds = %6
-  %14 = zext i8 %spec.select.i to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %14
+switch.lookup:                                    ; preds = %7
+  %17 = zext i8 %spec.select.i to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -789,7 +790,7 @@ define hidden noundef i64 @_ZN26ShenandoahRegionPartitions14leftmost_emptyE28She
   %19 = add nsw i64 %.fr43, 1
   %.idx.i = mul nuw nsw i64 %5, 24
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = getelementptr i8, ptr %20, i64 %.idx.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i
   %22 = load ptr, ptr %21, align 8
   br label %23
 
@@ -837,7 +838,7 @@ _ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28Shenando
   %47 = add nsw i64 %.fr43, 1
   %.idx.i21 = mul nuw nsw i64 %5, 24
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %49 = getelementptr i8, ptr %48, i64 %.idx.i21
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i21
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -988,7 +989,7 @@ define hidden noundef range(i64 -1, -9223372036854775808) i64 @_ZN26ShenandoahRe
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %6, i64 %17)
   %.idx.i = mul nuw nsw i64 %4, 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = getelementptr i8, ptr %18, i64 %.idx.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
   %20 = load ptr, ptr %19, align 8
   br label %21
 
@@ -1041,7 +1042,7 @@ _ZNK22ShenandoahSimpleBitMap17find_last_set_bitEll.exit.i: ; preds = %35, %29
   %50 = getelementptr inbounds nuw [2 x i64], ptr %49, i64 0, i64 %4
   %.idx.i18 = mul nuw nsw i64 %4, 24
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %52 = getelementptr i8, ptr %51, i64 %.idx.i18
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i18
   br label %53
 
 53:                                               ; preds = %_ZNK22ShenandoahSimpleBitMap17find_last_set_bitEll.exit.i23, %.lr.ph
@@ -1873,16 +1874,16 @@ define hidden noundef ptr @_ZN17ShenandoahFreeSet15try_allocate_inEP20Shenandoah
   %7 = load volatile i8, ptr %6, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
   %8 = and i8 %7, 16
-  %.not115 = icmp eq i8 %8, 0
+  %.not113 = icmp eq i8 %8, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br i1 %.not115, label %12, label %9
+  br i1 %.not113, label %12, label %9
 
 9:                                                ; preds = %4
   %10 = icmp eq i32 %.pre, 9
-  br i1 %10, label %212, label %.thread120
+  br i1 %10, label %218, label %.thread118
 
-.thread120:                                       ; preds = %9
+.thread118:                                       ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %_ZN17ShenandoahFreeSet19try_recycle_trashedEP20ShenandoahHeapRegion.exit
 
@@ -1905,9 +1906,9 @@ define hidden noundef ptr @_ZN17ShenandoahFreeSet15try_allocate_inEP20Shenandoah
   %.pr = load i32, ptr %13, align 8
   br label %_ZN17ShenandoahFreeSet19try_recycle_trashedEP20ShenandoahHeapRegion.exit
 
-_ZN17ShenandoahFreeSet19try_recycle_trashedEP20ShenandoahHeapRegion.exit: ; preds = %.thread120, %12, %15
-  %24 = phi ptr [ %13, %12 ], [ %13, %15 ], [ %11, %.thread120 ]
-  %25 = phi i32 [ %.pre, %12 ], [ %.pr, %15 ], [ %.pre, %.thread120 ]
+_ZN17ShenandoahFreeSet19try_recycle_trashedEP20ShenandoahHeapRegion.exit: ; preds = %.thread118, %12, %15
+  %24 = phi ptr [ %13, %12 ], [ %13, %15 ], [ %11, %.thread118 ]
+  %25 = phi i32 [ %.pre, %12 ], [ %.pr, %15 ], [ %.pre, %.thread118 ]
   %spec.select.i = icmp ult i32 %25, 2
   %26 = zext i1 %spec.select.i to i8
   store i8 %26, ptr %3, align 1
@@ -1915,8 +1916,8 @@ _ZN17ShenandoahFreeSet19try_recycle_trashedEP20ShenandoahHeapRegion.exit: ; pred
 
 27:                                               ; preds = %_ZN17ShenandoahFreeSet19try_recycle_trashedEP20ShenandoahHeapRegion.exit
   %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not116 = icmp eq ptr %28, null
-  br i1 %.not116, label %38, label %29
+  %.not114 = icmp eq ptr %28, null
+  br i1 %.not114, label %38, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1973,27 +1974,27 @@ switch.lookup:                                    ; preds = %29
   %spec.select = tail call i64 @llvm.umin.i64(i64 %45, i64 %57)
   %58 = load i64, ptr %2, align 8
   %.not65 = icmp ult i64 %spec.select, %58
-  br i1 %.not65, label %88, label %.sink.split.i.i
+  br i1 %.not65, label %91, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %43
   tail call void @_ZN20ShenandoahHeapRegion23make_regular_allocationEv(ptr noundef nonnull align 8 dereferenceable(96) %1) #18
   %switch = icmp eq i32 %40, 3
-  %spec.select114 = select i1 %switch, i64 64, i64 56
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select114
+  %spec.select112 = select i1 %switch, i64 64, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select112
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, %spec.select
   store i64 %61, ptr %59, align 8
   %62 = getelementptr inbounds nuw ptr, ptr %47, i64 %spec.select
   store ptr %62, ptr %46, align 8
   %63 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not118 = icmp eq ptr %63, null
-  br i1 %.not118, label %129, label %64
+  %.not116 = icmp eq ptr %63, null
+  br i1 %.not116, label %135, label %64
 
 64:                                               ; preds = %.sink.split.i.i
   %65 = load i64, ptr %44, align 8
   %66 = load i32, ptr %39, align 8
   %67 = icmp ult i32 %66, 4
-  br i1 %67, label %switch.lookup121, label %68
+  br i1 %67, label %switch.lookup119, label %68
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr @g_assert_poison, align 8
@@ -2001,296 +2002,298 @@ switch.lookup:                                    ; preds = %29
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.35, i32 noundef 51) #19
   unreachable
 
-switch.lookup121:                                 ; preds = %64
+switch.lookup119:                                 ; preds = %64
   %70 = zext nneg i32 %66 to i64
-  %switch.gep122 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.3, i64 0, i64 %70
-  %switch.load123 = load ptr, ptr %switch.gep122, align 8
+  %switch.gep120 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.3, i64 0, i64 %70
+  %switch.load121 = load ptr, ptr %switch.gep120, align 8
   %71 = load i64, ptr %1, align 8
-  %72 = ashr i64 %71, 6
-  %73 = and i64 %71, 63
-  %74 = shl nuw i64 1, %73
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %75
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %73 = ashr i64 %71, 6
+  %74 = and i64 %71, 63
+  %75 = shl nuw i64 1, %74
+  br label %76
 
-75:                                               ; preds = %75, %switch.lookup121
-  %76 = phi i1 [ true, %switch.lookup121 ], [ false, %75 ]
-  %indvars.iv.i.i = phi i64 [ 0, %switch.lookup121 ], [ 1, %75 ]
-  %.068.i.i = phi i8 [ 2, %switch.lookup121 ], [ %spec.select.i.i, %75 ]
-  %77 = mul nuw nsw i64 %indvars.iv.i.i, 24
-  %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %77
-  %78 = load ptr, ptr %gep.i.i, align 8
-  %79 = getelementptr inbounds i64, ptr %78, i64 %72
-  %80 = load i64, ptr %79, align 8
-  %81 = and i64 %80, %74
-  %.not.i.i = icmp eq i64 %81, 0
-  %82 = trunc nuw nsw i64 %indvars.iv.i.i to i8
-  %spec.select.i.i = select i1 %.not.i.i, i8 %.068.i.i, i8 %82
-  br i1 %76, label %75, label %switch.lookup124, !llvm.loop !12
+76:                                               ; preds = %76, %switch.lookup119
+  %77 = phi i1 [ true, %switch.lookup119 ], [ false, %76 ]
+  %indvars.iv.i.i = phi i64 [ 0, %switch.lookup119 ], [ 1, %76 ]
+  %.068.i.i = phi i8 [ 2, %switch.lookup119 ], [ %spec.select.i.i, %76 ]
+  %78 = mul nuw nsw i64 %indvars.iv.i.i, 24
+  %79 = getelementptr inbounds nuw i8, ptr %72, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i64, ptr %81, i64 %73
+  %83 = load i64, ptr %82, align 8
+  %84 = and i64 %83, %75
+  %.not.i.i = icmp eq i64 %84, 0
+  %85 = trunc nuw nsw i64 %indvars.iv.i.i to i8
+  %spec.select.i.i = select i1 %.not.i.i, i8 %.068.i.i, i8 %85
+  br i1 %77, label %76, label %switch.lookup122, !llvm.loop !12
 
-switch.lookup124:                                 ; preds = %75
-  %83 = zext i8 %spec.select.i.i to i64
-  %switch.gep125 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %83
-  %switch.load126 = load ptr, ptr %switch.gep125, align 8
-  %84 = load ptr, ptr %48, align 8
-  %85 = ptrtoint ptr %84 to i64
-  %86 = ptrtoint ptr %62 to i64
-  %87 = sub i64 %85, %86
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i64 noundef %spec.select, i64 noundef %65, ptr noundef nonnull %switch.load123, i64 noundef %51, ptr noundef nonnull %switch.load126, i64 noundef %71, i64 noundef %87)
-  br label %129
+switch.lookup122:                                 ; preds = %76
+  %86 = zext i8 %spec.select.i.i to i64
+  %switch.gep123 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %86
+  %switch.load124 = load ptr, ptr %switch.gep123, align 8
+  %87 = load ptr, ptr %48, align 8
+  %88 = ptrtoint ptr %87 to i64
+  %89 = ptrtoint ptr %62 to i64
+  %90 = sub i64 %88, %89
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i64 noundef %spec.select, i64 noundef %65, ptr noundef nonnull %switch.load121, i64 noundef %51, ptr noundef nonnull %switch.load124, i64 noundef %71, i64 noundef %90)
+  br label %135
 
-88:                                               ; preds = %43
-  %89 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_47ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not119 = icmp eq ptr %89, null
-  br i1 %.not119, label %.thread, label %90
+91:                                               ; preds = %43
+  %92 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_47ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not117 = icmp eq ptr %92, null
+  br i1 %.not117, label %.thread, label %93
 
-90:                                               ; preds = %88
-  %91 = load i64, ptr %1, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_47ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.7, i64 noundef %45, i64 noundef %91, i64 noundef %spec.select, i64 noundef %58)
+93:                                               ; preds = %91
+  %94 = load i64, ptr %1, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_47ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.7, i64 noundef %45, i64 noundef %94, i64 noundef %spec.select, i64 noundef %58)
   br label %.thread
 
 _ZN22ShenandoahAllocRequest12is_lab_allocEv.exit: ; preds = %38, %38
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %97 = load ptr, ptr %96, align 8
-  %98 = ptrtoint ptr %97 to i64
-  %99 = ptrtoint ptr %95 to i64
-  %100 = sub i64 %98, %99
-  %101 = lshr i64 %100, 3
-  %.not.i73 = icmp ult i64 %101, %93
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %96 = load i64, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %100 = load ptr, ptr %99, align 8
+  %101 = ptrtoint ptr %100 to i64
+  %102 = ptrtoint ptr %98 to i64
+  %103 = sub i64 %101, %102
+  %104 = lshr i64 %103, 3
+  %.not.i73 = icmp ult i64 %104, %96
   br i1 %.not.i73, label %.thread, label %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78
 
 _ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78: ; preds = %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit
   tail call void @_ZN20ShenandoahHeapRegion23make_regular_allocationEv(ptr noundef nonnull align 8 dereferenceable(96) %1) #18
-  %102 = getelementptr inbounds ptr, ptr %95, i64 %93
-  store ptr %102, ptr %94, align 8
-  %.not = icmp eq ptr %95, null
-  br i1 %.not, label %.thread, label %103
+  %105 = getelementptr inbounds ptr, ptr %98, i64 %96
+  store ptr %105, ptr %97, align 8
+  %.not = icmp eq ptr %98, null
+  br i1 %.not, label %.thread, label %106
 
-103:                                              ; preds = %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78
-  %104 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not117 = icmp eq ptr %104, null
-  br i1 %.not117, label %.thread104, label %105
+106:                                              ; preds = %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78
+  %107 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not115 = icmp eq ptr %107, null
+  br i1 %.not115, label %.thread102, label %108
 
-105:                                              ; preds = %103
-  %106 = load i32, ptr %39, align 8
-  %107 = icmp ult i32 %106, 4
-  br i1 %107, label %switch.lookup127, label %108
+108:                                              ; preds = %106
+  %109 = load i32, ptr %39, align 8
+  %110 = icmp ult i32 %109, 4
+  br i1 %110, label %switch.lookup125, label %111
 
-108:                                              ; preds = %105
-  %109 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %109, align 1
+111:                                              ; preds = %108
+  %112 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %112, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.35, i32 noundef 51) #19
   unreachable
 
-switch.lookup127:                                 ; preds = %105
-  %110 = zext nneg i32 %106 to i64
-  %switch.gep128 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.3, i64 0, i64 %110
-  %switch.load129 = load ptr, ptr %switch.gep128, align 8
-  %111 = load i64, ptr %1, align 8
-  %112 = ashr i64 %111, 6
-  %113 = and i64 %111, 63
-  %114 = shl nuw i64 1, %113
-  %invariant.gep.i.i81 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %115
+switch.lookup125:                                 ; preds = %108
+  %113 = zext nneg i32 %109 to i64
+  %switch.gep126 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.3, i64 0, i64 %113
+  %switch.load127 = load ptr, ptr %switch.gep126, align 8
+  %114 = load i64, ptr %1, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %116 = ashr i64 %114, 6
+  %117 = and i64 %114, 63
+  %118 = shl nuw i64 1, %117
+  br label %119
 
-115:                                              ; preds = %115, %switch.lookup127
-  %116 = phi i1 [ true, %switch.lookup127 ], [ false, %115 ]
-  %indvars.iv.i.i82 = phi i64 [ 0, %switch.lookup127 ], [ 1, %115 ]
-  %.068.i.i83 = phi i8 [ 2, %switch.lookup127 ], [ %spec.select.i.i86, %115 ]
-  %117 = mul nuw nsw i64 %indvars.iv.i.i82, 24
-  %gep.i.i84 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i81, i64 %117
-  %118 = load ptr, ptr %gep.i.i84, align 8
-  %119 = getelementptr inbounds i64, ptr %118, i64 %112
-  %120 = load i64, ptr %119, align 8
-  %121 = and i64 %120, %114
-  %.not.i.i85 = icmp eq i64 %121, 0
-  %122 = trunc nuw nsw i64 %indvars.iv.i.i82 to i8
-  %spec.select.i.i86 = select i1 %.not.i.i85, i8 %.068.i.i83, i8 %122
-  br i1 %116, label %115, label %switch.lookup130, !llvm.loop !12
+119:                                              ; preds = %119, %switch.lookup125
+  %120 = phi i1 [ true, %switch.lookup125 ], [ false, %119 ]
+  %indvars.iv.i.i81 = phi i64 [ 0, %switch.lookup125 ], [ 1, %119 ]
+  %.068.i.i82 = phi i8 [ 2, %switch.lookup125 ], [ %spec.select.i.i84, %119 ]
+  %121 = mul nuw nsw i64 %indvars.iv.i.i81, 24
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 %121
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds i64, ptr %124, i64 %116
+  %126 = load i64, ptr %125, align 8
+  %127 = and i64 %126, %118
+  %.not.i.i83 = icmp eq i64 %127, 0
+  %128 = trunc nuw nsw i64 %indvars.iv.i.i81 to i8
+  %spec.select.i.i84 = select i1 %.not.i.i83, i8 %.068.i.i82, i8 %128
+  br i1 %120, label %119, label %switch.lookup128, !llvm.loop !12
 
-switch.lookup130:                                 ; preds = %115
-  %123 = zext i8 %spec.select.i.i86 to i64
-  %switch.gep131 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %123
-  %switch.load132 = load ptr, ptr %switch.gep131, align 8
-  %124 = load ptr, ptr %96, align 8
-  %125 = ptrtoint ptr %124 to i64
-  %126 = ptrtoint ptr %102 to i64
-  %127 = sub i64 %125, %126
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %93, ptr noundef nonnull %switch.load129, i64 noundef %99, ptr noundef nonnull %switch.load132, i64 noundef %111, i64 noundef %127)
-  br label %.thread104
+switch.lookup128:                                 ; preds = %119
+  %129 = zext i8 %spec.select.i.i84 to i64
+  %switch.gep129 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %129
+  %switch.load130 = load ptr, ptr %switch.gep129, align 8
+  %130 = load ptr, ptr %99, align 8
+  %131 = ptrtoint ptr %130 to i64
+  %132 = ptrtoint ptr %105 to i64
+  %133 = sub i64 %131, %132
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %96, ptr noundef nonnull %switch.load127, i64 noundef %102, ptr noundef nonnull %switch.load130, i64 noundef %114, i64 noundef %133)
+  br label %.thread102
 
-.thread104:                                       ; preds = %switch.lookup130, %103
-  %128 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %93, ptr %128, align 8
-  br label %131
+.thread102:                                       ; preds = %switch.lookup128, %106
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %96, ptr %134, align 8
+  br label %137
 
-129:                                              ; preds = %switch.lookup124, %.sink.split.i.i
-  %130 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %spec.select, ptr %130, align 8
+135:                                              ; preds = %switch.lookup122, %.sink.split.i.i
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %spec.select, ptr %136, align 8
   %.not66 = icmp eq ptr %47, null
-  br i1 %.not66, label %.thread, label %131
+  br i1 %.not66, label %.thread, label %137
 
-131:                                              ; preds = %.thread104, %129
-  %132 = phi i64 [ %93, %.thread104 ], [ %spec.select, %129 ]
-  %.060107 = phi ptr [ %95, %.thread104 ], [ %47, %129 ]
-  %133 = load i32, ptr %39, align 8
-  switch i32 %133, label %134 [
-    i32 2, label %136
-    i32 0, label %136
+137:                                              ; preds = %.thread102, %135
+  %138 = phi i64 [ %96, %.thread102 ], [ %spec.select, %135 ]
+  %.060105 = phi ptr [ %98, %.thread102 ], [ %47, %135 ]
+  %139 = load i32, ptr %39, align 8
+  switch i32 %139, label %140 [
+    i32 2, label %142
+    i32 0, label %142
     i32 3, label %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit
     i32 1, label %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit
   ]
 
-134:                                              ; preds = %131
-  %135 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %135, align 1
+140:                                              ; preds = %137
+  %141 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %141, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.35, i32 noundef 129) #19
   unreachable
 
-136:                                              ; preds = %131, %131
-  %137 = shl nuw i64 %132, 3
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %139 = load i64, ptr %138, align 8
-  %140 = add i64 %139, %137
-  store i64 %140, ptr %138, align 8
+142:                                              ; preds = %137, %137
+  %143 = shl nuw i64 %138, 3
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %145 = load i64, ptr %144, align 8
+  %146 = add i64 %145, %143
+  store i64 %146, ptr %144, align 8
   br label %.thread
 
-_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit: ; preds = %131, %131
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 88
+_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit: ; preds = %137, %137
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 88
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
-  store volatile ptr %142, ptr %143, align 8
+  store volatile ptr %148, ptr %149, align 8
   br label %.thread
 
-.thread:                                          ; preds = %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit, %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78, %88, %90, %136, %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit, %129
-  %.not66103 = phi i1 [ false, %136 ], [ false, %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit ], [ true, %129 ], [ true, %90 ], [ true, %88 ], [ true, %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78 ], [ true, %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit ]
-  %.060102 = phi ptr [ %.060107, %136 ], [ %.060107, %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit ], [ null, %129 ], [ null, %90 ], [ null, %88 ], [ null, %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78 ], [ null, %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit ]
-  %144 = load atomic i8, ptr @_ZGVZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRbE12min_capacity acquire, align 8
-  %145 = icmp eq i8 %144, 0
-  br i1 %145, label %146, label %156, !prof !20
+.thread:                                          ; preds = %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit, %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78, %91, %93, %142, %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit, %135
+  %.not66101 = phi i1 [ false, %142 ], [ false, %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit ], [ true, %135 ], [ true, %93 ], [ true, %91 ], [ true, %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78 ], [ true, %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit ]
+  %.060100 = phi ptr [ %.060105, %142 ], [ %.060105, %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit ], [ null, %135 ], [ null, %93 ], [ null, %91 ], [ null, %_ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78 ], [ null, %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit ]
+  %150 = load atomic i8, ptr @_ZGVZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRbE12min_capacity acquire, align 8
+  %151 = icmp eq i8 %150, 0
+  br i1 %151, label %152, label %162, !prof !20
 
-146:                                              ; preds = %.thread
-  %147 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRbE12min_capacity) #18
-  %.not67 = icmp eq i32 %147, 0
-  br i1 %.not67, label %156, label %148
+152:                                              ; preds = %.thread
+  %153 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRbE12min_capacity) #18
+  %.not67 = icmp eq i32 %153, 0
+  br i1 %.not67, label %162, label %154
 
-148:                                              ; preds = %146
-  %149 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
-  %150 = uitofp i64 %149 to double
-  %151 = load double, ptr @ShenandoahEvacWaste, align 8
-  %152 = fdiv double 1.000000e+00, %151
-  %153 = fsub double 1.000000e+00, %152
-  %154 = fmul double %153, %150
-  %155 = fptoui double %154 to i64
-  store i64 %155, ptr @_ZZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRbE12min_capacity, align 8
+154:                                              ; preds = %152
+  %155 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
+  %156 = uitofp i64 %155 to double
+  %157 = load double, ptr @ShenandoahEvacWaste, align 8
+  %158 = fdiv double 1.000000e+00, %157
+  %159 = fsub double 1.000000e+00, %158
+  %160 = fmul double %159, %156
+  %161 = fptoui double %160 to i64
+  store i64 %161, ptr @_ZZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRbE12min_capacity, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRbE12min_capacity) #18
-  br label %156
+  br label %162
 
-156:                                              ; preds = %148, %146, %.thread
-  %157 = load i32, ptr %24, align 8
-  %158 = icmp eq i32 %157, 9
-  br i1 %158, label %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit, label %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit.thread
+162:                                              ; preds = %154, %152, %.thread
+  %163 = load i32, ptr %24, align 8
+  %164 = icmp eq i32 %163, 9
+  br i1 %164, label %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit, label %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit.thread
 
-_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit: ; preds = %156
-  %159 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
-  %160 = load i64, ptr @_ZZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRbE12min_capacity, align 8
-  %161 = icmp ult i64 %159, %160
-  %or.cond = select i1 %.not66103, i1 %161, i1 false
-  br i1 %or.cond, label %174, label %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit94
+_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit: ; preds = %162
+  %165 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
+  %166 = load i64, ptr @_ZZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRbE12min_capacity, align 8
+  %167 = icmp ult i64 %165, %166
+  %or.cond = select i1 %.not66101, i1 %167, i1 false
+  br i1 %or.cond, label %180, label %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit92
 
-_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit.thread: ; preds = %156
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %165 = load ptr, ptr %164, align 8
-  %166 = ptrtoint ptr %165 to i64
-  %167 = ptrtoint ptr %163 to i64
-  %168 = sub i64 %166, %167
-  %169 = load i64, ptr @_ZZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRbE12min_capacity, align 8
-  %170 = icmp ult i64 %168, %169
-  %or.cond111 = select i1 %.not66103, i1 %170, i1 false
-  br i1 %or.cond111, label %174, label %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit94
+_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit.thread: ; preds = %162
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %171 = load ptr, ptr %170, align 8
+  %172 = ptrtoint ptr %171 to i64
+  %173 = ptrtoint ptr %169 to i64
+  %174 = sub i64 %172, %173
+  %175 = load i64, ptr @_ZZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRbE12min_capacity, align 8
+  %176 = icmp ult i64 %174, %175
+  %or.cond109 = select i1 %.not66101, i1 %176, i1 false
+  br i1 %or.cond109, label %180, label %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit92
 
-_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit94: ; preds = %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit.thread, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit
-  %.0.i93 = phi i64 [ %159, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit ], [ %168, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit.thread ]
-  %171 = tail call noundef i64 @_ZN4PLAB8min_sizeEv() #18
-  %172 = shl i64 %171, 3
-  %173 = icmp ult i64 %.0.i93, %172
-  br i1 %173, label %174, label %212
+_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit92: ; preds = %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit.thread, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit
+  %.0.i91 = phi i64 [ %165, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit ], [ %174, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit.thread ]
+  %177 = tail call noundef i64 @_ZN4PLAB8min_sizeEv() #18
+  %178 = shl i64 %177, 3
+  %179 = icmp ult i64 %.0.i91, %178
+  br i1 %179, label %180, label %218
 
-174:                                              ; preds = %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit.thread, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit94
-  %175 = load i64, ptr %1, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %177 = load i32, ptr %39, align 8
-  %178 = icmp ult i32 %177, 4
-  br i1 %178, label %switch.lookup133, label %179
+180:                                              ; preds = %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit.thread, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit92
+  %181 = load i64, ptr %1, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %183 = load i32, ptr %39, align 8
+  %184 = icmp ult i32 %183, 4
+  br i1 %184, label %switch.lookup131, label %185
 
-179:                                              ; preds = %174
-  %180 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %180, align 1
+185:                                              ; preds = %180
+  %186 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %186, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.35, i32 noundef 129) #19
   unreachable
 
-switch.lookup133:                                 ; preds = %174
-  %switch.shiftamt = shl nuw nsw i32 %177, 3
+switch.lookup131:                                 ; preds = %180
+  %switch.shiftamt = shl nuw nsw i32 %183, 3
   %switch.downshift = lshr i32 16777472, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %184 = load ptr, ptr %183, align 8
-  %185 = ptrtoint ptr %184 to i64
-  %186 = ptrtoint ptr %182 to i64
-  %187 = sub i64 %185, %186
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %189 = load i64, ptr %188, align 8
-  %190 = icmp ult i64 %187, %189
-  br i1 %190, label %191, label %._crit_edge.i
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %190 = load ptr, ptr %189, align 8
+  %191 = ptrtoint ptr %190 to i64
+  %192 = ptrtoint ptr %188 to i64
+  %193 = sub i64 %191, %192
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %195 = load i64, ptr %194, align 8
+  %196 = icmp ult i64 %193, %195
+  br i1 %196, label %197, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %switch.lookup133
+._crit_edge.i:                                    ; preds = %switch.lookup131
   %switch.masked.mask = and i32 %switch.downshift, 1
   %.pre.i = zext nneg i32 %switch.masked.mask to i64
   br label %_ZN26ShenandoahRegionPartitions21retire_from_partitionE28ShenandoahFreeSetPartitionIdlm.exit
 
-191:                                              ; preds = %switch.lookup133
-  %192 = sub nuw i64 %189, %187
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %switch.masked.mask134 = and i32 %switch.downshift, 1
-  %194 = zext nneg i32 %switch.masked.mask134 to i64
-  %195 = getelementptr inbounds nuw [2 x i64], ptr %193, i64 0, i64 %194
-  %196 = load i64, ptr %195, align 8
-  %197 = add i64 %192, %196
-  store i64 %197, ptr %195, align 8
+197:                                              ; preds = %switch.lookup131
+  %198 = sub nuw i64 %195, %193
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %switch.masked.mask132 = and i32 %switch.downshift, 1
+  %200 = zext nneg i32 %switch.masked.mask132 to i64
+  %201 = getelementptr inbounds nuw [2 x i64], ptr %199, i64 0, i64 %200
+  %202 = load i64, ptr %201, align 8
+  %203 = add i64 %198, %202
+  store i64 %203, ptr %201, align 8
   br label %_ZN26ShenandoahRegionPartitions21retire_from_partitionE28ShenandoahFreeSetPartitionIdlm.exit
 
-_ZN26ShenandoahRegionPartitions21retire_from_partitionE28ShenandoahFreeSetPartitionIdlm.exit: ; preds = %._crit_edge.i, %191
-  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %194, %191 ]
-  %198 = ashr i64 %175, 6
-  %199 = and i64 %175, 63
-  %200 = shl nuw i64 1, %199
-  %201 = xor i64 %200, -1
+_ZN26ShenandoahRegionPartitions21retire_from_partitionE28ShenandoahFreeSetPartitionIdlm.exit: ; preds = %._crit_edge.i, %197
+  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %200, %197 ]
+  %204 = ashr i64 %181, 6
+  %205 = and i64 %181, 63
+  %206 = shl nuw i64 1, %205
+  %207 = xor i64 %206, -1
   %.idx.i = mul nuw nsw i64 %.pre-phi.i, 24
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %203 = getelementptr i8, ptr %202, i64 %.idx.i
-  %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds i64, ptr %204, i64 %198
-  %206 = load i64, ptr %205, align 8
-  %207 = and i64 %206, %201
-  store i64 %207, ptr %205, align 8
-  tail call void @_ZN26ShenandoahRegionPartitions49shrink_interval_if_range_modifies_either_boundaryE28ShenandoahFreeSetPartitionIdll(ptr noundef nonnull align 8 dereferenceable(184) %176, i8 noundef zeroext %switch.masked, i64 noundef %175, i64 noundef %175)
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %209 = getelementptr inbounds nuw [2 x i64], ptr %208, i64 0, i64 %.pre-phi.i
-  %210 = load i64, ptr %209, align 8
-  %211 = add i64 %210, -1
-  store i64 %211, ptr %209, align 8
-  br label %212
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 %.idx.i
+  %210 = load ptr, ptr %209, align 8
+  %211 = getelementptr inbounds i64, ptr %210, i64 %204
+  %212 = load i64, ptr %211, align 8
+  %213 = and i64 %212, %207
+  store i64 %213, ptr %211, align 8
+  tail call void @_ZN26ShenandoahRegionPartitions49shrink_interval_if_range_modifies_either_boundaryE28ShenandoahFreeSetPartitionIdll(ptr noundef nonnull align 8 dereferenceable(184) %182, i8 noundef zeroext %switch.masked, i64 noundef %181, i64 noundef %181)
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %215 = getelementptr inbounds nuw [2 x i64], ptr %214, i64 0, i64 %.pre-phi.i
+  %216 = load i64, ptr %215, align 8
+  %217 = add i64 %216, -1
+  store i64 %217, ptr %215, align 8
+  br label %218
 
-212:                                              ; preds = %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit94, %_ZN26ShenandoahRegionPartitions21retire_from_partitionE28ShenandoahFreeSetPartitionIdlm.exit, %9
-  %.0 = phi ptr [ null, %9 ], [ %.060102, %_ZN26ShenandoahRegionPartitions21retire_from_partitionE28ShenandoahFreeSetPartitionIdlm.exit ], [ %.060102, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit94 ]
+218:                                              ; preds = %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit92, %_ZN26ShenandoahRegionPartitions21retire_from_partitionE28ShenandoahFreeSetPartitionIdlm.exit, %9
+  %.0 = phi ptr [ null, %9 ], [ %.060100, %_ZN26ShenandoahRegionPartitions21retire_from_partitionE28ShenandoahFreeSetPartitionIdlm.exit ], [ %.060100, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit92 ]
   ret ptr %.0
 }
 

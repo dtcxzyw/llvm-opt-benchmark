@@ -40948,8 +40948,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %37 = load i32, ptr %36, align 4, !alias.scope !7754, !noalias !7759, !noundef !15
   %38 = zext i32 %37 to i64
   %.idx.i.i.i.i.i.i = mul nuw nsw i64 %34, 24
-  %39 = getelementptr i8, ptr %26, i64 24
-  %40 = getelementptr i8, ptr %39, i64 %.idx.i.i.i.i.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i.i.i.i.i
   %41 = load ptr, ptr %40, align 8, !alias.scope !7760, !noalias !7763, !noundef !15
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %38
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17h413ad5fc3f1cecf4E.exit.i.i.i.i"
@@ -41072,8 +41072,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %100 = icmp ugt i64 %92, %99
   tail call void @llvm.assume(i1 %100), !noalias !7740
   %.idx.i.i.i.i.i = mul nuw nsw i64 %99, 24
-  %101 = getelementptr i8, ptr %90, i64 24
-  %102 = getelementptr i8, ptr %101, i64 %.idx.i.i.i.i.i
+  %101 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx.i.i.i.i.i
   %103 = load ptr, ptr %102, align 8, !alias.scope !7781, !noalias !7784, !noundef !15
   %.not1.i.i = icmp eq ptr %103, null
   br i1 %.not1.i.i, label %308, label %104
@@ -41181,8 +41181,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %146 = load i32, ptr %145, align 4, !alias.scope !7809, !noalias !7814, !noundef !15
   %147 = zext i32 %146 to i64
   %.idx.i.i.i.i.i.i12.i = mul nuw nsw i64 %143, 24
-  %148 = getelementptr i8, ptr %135, i64 24
-  %149 = getelementptr i8, ptr %148, i64 %.idx.i.i.i.i.i.i12.i
+  %148 = getelementptr inbounds nuw i8, ptr %135, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %.idx.i.i.i.i.i.i12.i
   %150 = load ptr, ptr %149, align 8, !alias.scope !7815, !noalias !7818, !noundef !15
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 %147
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17h413ad5fc3f1cecf4E.exit.i.i.i.i13.i"
@@ -41293,8 +41293,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %197 = icmp ugt i64 %190, %196
   tail call void @llvm.assume(i1 %197)
   %.idx.i.i.i.i.i37.i = mul nuw nsw i64 %196, 24
-  %198 = getelementptr i8, ptr %188, i64 24
-  %199 = getelementptr i8, ptr %198, i64 %.idx.i.i.i.i.i37.i
+  %198 = getelementptr inbounds nuw i8, ptr %188, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 %.idx.i.i.i.i.i37.i
   %200 = load ptr, ptr %199, align 8, !alias.scope !7832, !noalias !7835, !noundef !15
   %.not1.i.i38.i = icmp eq ptr %200, null
   br i1 %.not1.i.i38.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h3ca3e075a0b00d0aE.exit.i", label %201
@@ -41402,8 +41402,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %245 = icmp ugt i64 %239, %244
   call void @llvm.assume(i1 %245)
   %.idx.i.i.i.i.i.us.i = mul nuw nsw i64 %244, 24
-  %246 = getelementptr i8, ptr %238, i64 24
-  %247 = getelementptr i8, ptr %246, i64 %.idx.i.i.i.i.i.us.i
+  %246 = getelementptr inbounds nuw i8, ptr %238, i64 24
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 %.idx.i.i.i.i.i.us.i
   %248 = load ptr, ptr %247, align 8, !alias.scope !7858, !noalias !7861, !noundef !15
   %.not1.i.i.us.i = icmp eq ptr %248, null
   br i1 %.not1.i.i.us.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h3ca3e075a0b00d0aE.exit.i", label %249
@@ -41484,8 +41484,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %282 = load i32, ptr %281, align 4, !alias.scope !7869, !noalias !7874, !noundef !15
   %283 = zext i32 %282 to i64
   %.idx.i.i.i.i.i.i.i = mul nuw nsw i64 %279, 24
-  %284 = getelementptr i8, ptr %272, i64 24
-  %285 = getelementptr i8, ptr %284, i64 %.idx.i.i.i.i.i.i.i
+  %284 = getelementptr inbounds nuw i8, ptr %272, i64 24
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 %.idx.i.i.i.i.i.i.i
   %286 = load ptr, ptr %285, align 8, !alias.scope !7875, !noalias !7878, !noundef !15
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 %283
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17h413ad5fc3f1cecf4E.exit.i.i.i.i.i"
@@ -42775,8 +42775,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %32 = load i32, ptr %31, align 4, !alias.scope !8245, !noalias !8250, !noundef !15
   %33 = zext i32 %32 to i64
   %.idx.i.i.i.i.i = mul nuw nsw i64 %29, 24
-  %34 = getelementptr i8, ptr %21, i64 24
-  %35 = getelementptr i8, ptr %34, i64 %.idx.i.i.i.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i.i.i.i.i
   %36 = load ptr, ptr %35, align 8, !alias.scope !8251, !noalias !8254, !noundef !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %33
   %.not.i.i = icmp eq ptr %36, null
@@ -42849,8 +42849,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %68 = load i32, ptr %67, align 4, !alias.scope !8270, !noalias !8275, !noundef !15
   %69 = zext i32 %68 to i64
   %.idx.i.i.i.i.i.i.i = mul nuw nsw i64 %65, 24
-  %70 = getelementptr i8, ptr %58, i64 24
-  %71 = getelementptr i8, ptr %70, i64 %.idx.i.i.i.i.i.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.i.i.i.i.i.i.i
   %72 = load ptr, ptr %71, align 8, !alias.scope !8276, !noalias !8279, !noundef !15
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 %69
   %.not.i.i.i.i = icmp eq ptr %72, null

@@ -106,7 +106,7 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %8
 
-8:                                                ; preds = %._crit_edge.i, %1
+8:                                                ; preds = %select.unfold.i, %1
   %9 = load i64, ptr %5, align 8, !tbaa !27
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %get_rev.exit, label %11
@@ -151,9 +151,9 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
   %30 = load ptr, ptr @the_repository, align 8, !tbaa !20
   %31 = call i32 @repo_parse_commit_gently(ptr noundef %30, ptr noundef nonnull %16, i32 noundef 0) #6
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %.02750.i = load ptr, ptr %32, align 8, !tbaa !29
-  %.not3451.i = icmp eq ptr %.02750.i, null
-  br i1 %.not3451.i, label %._crit_edge.i, label %.lr.ph.i
+  %.02749.i = load ptr, ptr %32, align 8, !tbaa !29
+  %.not3450.i = icmp eq ptr %.02749.i, null
+  br i1 %.not3450.i, label %select.unfold.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 10
@@ -161,9 +161,9 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
   br label %35
 
 35:                                               ; preds = %push_parent.exit.i, %.lr.ph.i
-  %.02753.i = phi ptr [ %.02750.i, %.lr.ph.i ], [ %.027.i, %push_parent.exit.i ]
-  %.02652.i = phi i32 [ 0, %.lr.ph.i ], [ %99, %push_parent.exit.i ]
-  %36 = load ptr, ptr %.02753.i, align 8, !tbaa !31
+  %.02752.i = phi ptr [ %.02749.i, %.lr.ph.i ], [ %.027.i, %push_parent.exit.i ]
+  %.02651.i = phi i32 [ 0, %.lr.ph.i ], [ %99, %push_parent.exit.i ]
+  %36 = load ptr, ptr %.02752.i, align 8, !tbaa !31
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 256
   %.not.i.i = icmp eq i32 %38, 0
@@ -319,29 +319,29 @@ mark_common.exit.i:                               ; preds = %._crit_edge.i40.i, 
 
 push_parent.exit.i:                               ; preds = %95, %85, %mark_common.exit.i, %39
   %.0.i.i = phi i32 [ 0, %39 ], [ 1, %85 ], [ 1, %95 ], [ 1, %mark_common.exit.i ]
-  %99 = or i32 %.0.i.i, %.02652.i
-  %100 = getelementptr inbounds nuw i8, ptr %.02753.i, i64 8
+  %99 = or i32 %.0.i.i, %.02651.i
+  %100 = getelementptr inbounds nuw i8, ptr %.02752.i, i64 8
   %.027.i = load ptr, ptr %100, align 8, !tbaa !29
   %.not34.i = icmp eq ptr %.027.i, null
-  br i1 %.not34.i, label %._crit_edge.loopexit.i, label %35, !llvm.loop !41
+  br i1 %.not34.i, label %select.unfold.loopexit.i, label %35, !llvm.loop !41
 
-._crit_edge.loopexit.i:                           ; preds = %push_parent.exit.i
+select.unfold.loopexit.i:                         ; preds = %push_parent.exit.i
   %101 = icmp ne i32 %99, 0
-  br label %._crit_edge.i
+  br label %select.unfold.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %29
-  %.026.lcssa.i = phi i1 [ false, %29 ], [ %101, %._crit_edge.loopexit.i ]
+select.unfold.i:                                  ; preds = %select.unfold.loopexit.i, %29
+  %.026.lcssa.i = phi i1 [ false, %29 ], [ %101, %select.unfold.loopexit.i ]
   %102 = load i32, ptr %16, align 8
   %103 = and i32 %102, 64
   %104 = icmp ne i32 %103, 0
   %or.cond.i = select i1 %104, i1 true, i1 %.026.lcssa.i
-  %spec.select35.i = select i1 %or.cond.i, ptr %.231.i, ptr %16
   call void @free(ptr noundef %15) #6
-  %105 = icmp eq ptr %spec.select35.i, null
-  br i1 %105, label %8, label %106, !llvm.loop !42
+  %spec.select41.i = select i1 %or.cond.i, ptr %.231.i, ptr %16
+  %105 = icmp eq ptr %spec.select41.i, null
+  br i1 %105, label %8, label %106
 
-106:                                              ; preds = %._crit_edge.i
-  %107 = getelementptr inbounds nuw i8, ptr %spec.select35.i, i64 4
+106:                                              ; preds = %select.unfold.i
+  %107 = getelementptr inbounds nuw i8, ptr %spec.select41.i, i64 4
   br label %get_rev.exit
 
 get_rev.exit:                                     ; preds = %8, %11, %106
@@ -398,7 +398,7 @@ define internal void @release(ptr noundef readonly captures(none) %0) #0 {
   %11 = add nuw i64 %.07, 1
   %12 = load i64, ptr %4, align 8, !tbaa !27
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %7, label %._crit_edge, !llvm.loop !43
+  br i1 %13, label %7, label %._crit_edge, !llvm.loop !42
 }
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
@@ -608,4 +608,3 @@ attributes #7 = { noreturn nounwind }
 !40 = !{!23, !25, i64 8}
 !41 = distinct !{!41, !35}
 !42 = distinct !{!42, !35}
-!43 = distinct !{!43, !35}

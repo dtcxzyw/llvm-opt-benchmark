@@ -286,17 +286,17 @@ define ptr @ff_http_auth_create_response(ptr noundef initializes((860, 864)) %0,
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 860
   store i32 0, ptr %12, align 4, !tbaa !11
   %.not = icmp eq ptr %1, null
-  %indvars.iv.i.sroa.gep55 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  br i1 %.not, label %.thread, label %13
+  %indvars.iv.i.sroa.gep57 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  br i1 %.not, label %.critedge, label %13
 
 13:                                               ; preds = %4
   %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #9
   %.not50 = icmp eq ptr %14, null
-  br i1 %.not50, label %.thread, label %15
+  br i1 %.not50, label %.critedge, label %15
 
 15:                                               ; preds = %13
   %16 = load i32, ptr %0, align 4, !tbaa !4
-  switch i32 %16, label %.thread [
+  switch i32 %16, label %.critedge [
     i32 1, label %17
     i32 2, label %38
   ]
@@ -304,7 +304,7 @@ define ptr @ff_http_auth_create_response(ptr noundef initializes((860, 864)) %0,
 17:                                               ; preds = %15
   %18 = tail call ptr @ff_urldecode(ptr noundef nonnull %1, i32 noundef 0) #8
   %.not53 = icmp eq ptr %18, null
-  br i1 %.not53, label %.thread, label %19
+  br i1 %.not53, label %.critedge, label %19
 
 19:                                               ; preds = %17
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #9
@@ -320,7 +320,7 @@ define ptr @ff_http_auth_create_response(ptr noundef initializes((860, 864)) %0,
 
 27:                                               ; preds = %19
   tail call void @av_free(ptr noundef nonnull %18) #8
-  br label %.thread
+  br label %.critedge
 
 28:                                               ; preds = %19
   %29 = or disjoint i32 %23, 1
@@ -333,19 +333,19 @@ define ptr @ff_http_auth_create_response(ptr noundef initializes((860, 864)) %0,
   %36 = sub nsw i64 %25, %31
   %37 = tail call i64 @av_strlcat(ptr noundef nonnull %32, ptr noundef nonnull @.str.7, i64 noundef %36) #8
   tail call void @av_free(ptr noundef nonnull %18) #8
-  br label %.thread
+  br label %.critedge
 
 38:                                               ; preds = %15
   %39 = tail call ptr @ff_urldecode(ptr noundef nonnull %1, i32 noundef 0) #8
   %.not51.not = icmp eq ptr %39, null
-  br i1 %.not51.not, label %.thread, label %40
+  br i1 %.not51.not, label %.critedge, label %40
 
 40:                                               ; preds = %38
   %41 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %39, i32 noundef 58) #9
   %.not52 = icmp eq ptr %41, null
-  br i1 %.not52, label %120, label %.critedge
+  br i1 %.not52, label %120, label %.critedge59
 
-.critedge:                                        ; preds = %40
+.critedge59:                                      ; preds = %40
   store i8 0, ptr %41, align 1, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %6) #8
@@ -362,14 +362,14 @@ define ptr @ff_http_auth_create_response(ptr noundef initializes((860, 864)) %0,
   %46 = tail call i32 @av_get_random_seed() #8
   store i32 %46, ptr %5, align 4, !tbaa !15
   %47 = tail call i32 @av_get_random_seed() #8
-  store i32 %47, ptr %indvars.iv.i.sroa.gep55, align 4, !tbaa !15
+  store i32 %47, ptr %indvars.iv.i.sroa.gep57, align 4, !tbaa !15
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %49 = call ptr @ff_data_to_hex(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 8, i32 noundef 1) #8
   %50 = call ptr @av_md5_alloc() #8
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %make_digest_auth.exit, label %51
 
-51:                                               ; preds = %.critedge
+51:                                               ; preds = %.critedge59
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 1
   call void @av_md5_init(ptr noundef nonnull %50) #8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -504,8 +504,8 @@ define ptr @ff_http_auth_create_response(ptr noundef initializes((860, 864)) %0,
   %119 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %97, i64 noundef %96, ptr noundef nonnull @.str.7) #8
   br label %make_digest_auth.exit
 
-make_digest_auth.exit:                            ; preds = %.critedge, %62, %72, %74, %118
-  %.0.i = phi ptr [ null, %62 ], [ %97, %118 ], [ null, %.critedge ], [ null, %72 ], [ null, %74 ]
+make_digest_auth.exit:                            ; preds = %.critedge59, %62, %72, %74, %118
+  %.0.i = phi ptr [ null, %62 ], [ %97, %118 ], [ null, %.critedge59 ], [ null, %72 ], [ null, %74 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %9) #8
@@ -515,13 +515,13 @@ make_digest_auth.exit:                            ; preds = %.critedge, %62, %72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   br label %120
 
-120:                                              ; preds = %40, %make_digest_auth.exit
+120:                                              ; preds = %make_digest_auth.exit, %40
   %.3 = phi ptr [ %.0.i, %make_digest_auth.exit ], [ null, %40 ]
   call void @av_free(ptr noundef nonnull %39) #8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %38, %17, %27, %15, %28, %120, %4, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ %26, %28 ], [ %.3, %120 ], [ null, %15 ], [ null, %27 ], [ null, %17 ], [ null, %38 ]
+.critedge:                                        ; preds = %120, %38, %27, %17, %28, %15, %4, %13
+  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ %26, %28 ], [ null, %15 ], [ null, %17 ], [ null, %27 ], [ null, %38 ], [ %.3, %120 ]
   ret ptr %.0
 }
 

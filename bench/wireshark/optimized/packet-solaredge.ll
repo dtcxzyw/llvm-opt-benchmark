@@ -722,7 +722,7 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #8
   %15 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef 0, i32 noundef -2147483648)
   %.not = icmp eq i32 %15, 2035692562
-  br i1 %.not, label %16, label %435
+  br i1 %.not, label %16, label %439
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -767,10 +767,10 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   %49 = tail call ptr @val_to_str_const(i32 noundef %48, ptr noundef nonnull @solaredge_packet_commandtypes, ptr noundef nonnull @.str.525)
   tail call void @col_append_str(ptr noundef %47, i32 noundef 25, ptr noundef %49)
   tail call void @increment_dissection_depth(ptr noundef %1)
-  switch i16 %44, label %418 [
+  switch i16 %44, label %422 [
     i16 61, label %50
-    i16 1280, label %104
-    i16 1283, label %378
+    i16 1280, label %108
+    i16 1283, label %382
   ]
 
 50:                                               ; preds = %32
@@ -779,12 +779,12 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   %53 = load i32, ptr @proto_solaredge, align 4
   %54 = tail call ptr @conversation_get_proto_data(ptr noundef %4, i32 noundef %53)
   %.not122 = icmp eq ptr %54, null
-  br i1 %.not122, label %102, label %55
+  br i1 %.not122, label %106, label %55
 
 55:                                               ; preds = %50
   %56 = load i8, ptr %54, align 8, !range !6, !noundef !7
   %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %58, label %102
+  br i1 %57, label %58, label %106
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -813,11 +813,6 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
 .lr.ph.preheader.i:                               ; preds = %58
   %wide.trip.count.i = zext nneg i32 %67 to i64
   br label %.lr.ph.i
-
-.preheader.i:                                     ; preds = %90
-  %invariant.gep.i = getelementptr i8, ptr %70, i64 6
-  %invariant.gep42.i = getelementptr i8, ptr %70, i64 2
-  br label %.lr.ph45.i
 
 .lr.ph.i:                                         ; preds = %90, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %90 ]
@@ -854,533 +849,535 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   %.1.i = phi i32 [ 0, %88 ], [ %77, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.lr.ph43.i, label %.lr.ph.i, !llvm.loop !10
 
-.lr.ph45.i:                                       ; preds = %.lr.ph45.i, %.preheader.i
-  %indvars.iv47.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next48.i, %.lr.ph45.i ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv47.i
-  %91 = load i8, ptr %gep.i, align 1
-  %92 = and i64 %indvars.iv47.i, 3
-  %gep43.i = getelementptr i8, ptr %invariant.gep42.i, i64 %92
-  %93 = load i8, ptr %gep43.i, align 1
-  %94 = xor i8 %93, %91
-  %95 = getelementptr i8, ptr %62, i64 %indvars.iv47.i
-  store i8 %94, ptr %95, align 1
-  %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
-  %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count.i
-  br i1 %exitcond51.not.i, label %solaredge_decrypt.exit, label %.lr.ph45.i, !llvm.loop !11
+.lr.ph43.i:                                       ; preds = %90, %.lr.ph43.i
+  %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %.lr.ph43.i ], [ 0, %90 ]
+  %91 = getelementptr i8, ptr %70, i64 %indvars.iv45.i
+  %92 = getelementptr i8, ptr %91, i64 6
+  %93 = load i8, ptr %92, align 1
+  %94 = and i64 %indvars.iv45.i, 3
+  %95 = getelementptr i8, ptr %70, i64 %94
+  %96 = getelementptr i8, ptr %95, i64 2
+  %97 = load i8, ptr %96, align 1
+  %98 = xor i8 %97, %93
+  %99 = getelementptr i8, ptr %62, i64 %indvars.iv45.i
+  store i8 %98, ptr %99, align 1
+  %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
+  %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %wide.trip.count.i
+  br i1 %exitcond49.not.i, label %solaredge_decrypt.exit, label %.lr.ph43.i, !llvm.loop !11
 
-solaredge_decrypt.exit:                           ; preds = %.lr.ph45.i, %58
+solaredge_decrypt.exit:                           ; preds = %.lr.ph43.i, %58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
-  %96 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %62, i32 noundef %28, i32 noundef %28)
-  %97 = call i32 @tvb_get_uint32(ptr noundef %96, i32 noundef 0, i32 noundef -2147483648)
-  %98 = icmp eq i32 %97, 2035692562
-  br i1 %98, label %99, label %102
+  %100 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %62, i32 noundef %28, i32 noundef %28)
+  %101 = call i32 @tvb_get_uint32(ptr noundef %100, i32 noundef 0, i32 noundef -2147483648)
+  %102 = icmp eq i32 %101, 2035692562
+  br i1 %102, label %103, label %106
 
-99:                                               ; preds = %solaredge_decrypt.exit
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %96, ptr noundef nonnull @.str.526)
-  %100 = load i32, ptr @ett_solaredge_packet_decrypted, align 4
-  %101 = call fastcc i32 @dissect_solaredge_recursive(ptr noundef %96, ptr noundef %1, ptr noundef %2, i32 noundef %100, ptr noundef %4)
-  br label %102
+103:                                              ; preds = %solaredge_decrypt.exit
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %100, ptr noundef nonnull @.str.526)
+  %104 = load i32, ptr @ett_solaredge_packet_decrypted, align 4
+  %105 = call fastcc i32 @dissect_solaredge_recursive(ptr noundef %100, ptr noundef %1, ptr noundef %2, i32 noundef %104, ptr noundef %4)
+  br label %106
 
-102:                                              ; preds = %solaredge_decrypt.exit, %99, %55, %50
-  %103 = add nuw nsw i32 %28, 20
+106:                                              ; preds = %solaredge_decrypt.exit, %103, %55, %50
+  %107 = add nuw nsw i32 %28, 20
   br label %dissect_solaredge_devicedata.exit
 
-104:                                              ; preds = %32
-  %105 = load i32, ptr @hf_solaredge_post_type, align 4
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %105, ptr noundef %0, i32 noundef 20, i32 noundef %28, i32 noundef 0)
-  %107 = load i32, ptr @ett_solaredge_packet_post, align 4
-  %108 = tail call ptr @proto_item_add_subtree(ptr noundef %106, i32 noundef %107)
+108:                                              ; preds = %32
+  %109 = load i32, ptr @hf_solaredge_post_type, align 4
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %109, ptr noundef %0, i32 noundef 20, i32 noundef %28, i32 noundef 0)
+  %111 = load i32, ptr @ett_solaredge_packet_post, align 4
+  %112 = tail call ptr @proto_item_add_subtree(ptr noundef %110, i32 noundef %111)
   br label %tailrecurse.i
 
-tailrecurse.i:                                    ; preds = %376, %104
-  %.tr267.i = phi i32 [ 20, %104 ], [ %.0.i, %376 ]
-  %109 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.tr267.i)
-  %110 = add nuw nsw i32 %.tr267.i, 2
-  %111 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %110)
-  %112 = add nuw nsw i32 %.tr267.i, 6
-  %113 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %112)
-  %114 = load i32, ptr @hf_solaredge_post_device_type, align 4
-  %115 = zext i16 %113 to i32
-  %116 = add nuw nsw i32 %115, 8
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %114, ptr noundef %0, i32 noundef %.tr267.i, i32 noundef %116, i32 noundef 0)
-  %118 = load i32, ptr @ett_solaredge_packet_post_device, align 4
-  %119 = tail call ptr @proto_item_add_subtree(ptr noundef %117, i32 noundef %118)
-  %120 = load i32, ptr @hf_solaredge_post_device_type_type, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %0, i32 noundef %.tr267.i, i32 noundef 2, i32 noundef -2147483648)
-  %122 = load i32, ptr @hf_solaredge_post_device_id_type, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %122, ptr noundef %0, i32 noundef %110, i32 noundef 4, i32 noundef -2147483648)
-  %124 = load i32, ptr @hf_solaredge_post_length_type, align 4
-  %125 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %124, ptr noundef %0, i32 noundef %112, i32 noundef 2, i32 noundef -2147483648)
-  %126 = add nuw nsw i32 %.tr267.i, 8
-  %127 = load ptr, ptr %17, align 8
-  tail call void @col_append_str(ptr noundef %127, i32 noundef 25, ptr noundef nonnull @.str.527)
+tailrecurse.i:                                    ; preds = %380, %108
+  %.tr267.i = phi i32 [ 20, %108 ], [ %.0.i, %380 ]
+  %113 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.tr267.i)
+  %114 = add nuw nsw i32 %.tr267.i, 2
+  %115 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %114)
+  %116 = add nuw nsw i32 %.tr267.i, 6
+  %117 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %116)
+  %118 = load i32, ptr @hf_solaredge_post_device_type, align 4
+  %119 = zext i16 %117 to i32
+  %120 = add nuw nsw i32 %119, 8
+  %121 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %118, ptr noundef %0, i32 noundef %.tr267.i, i32 noundef %120, i32 noundef 0)
+  %122 = load i32, ptr @ett_solaredge_packet_post_device, align 4
+  %123 = tail call ptr @proto_item_add_subtree(ptr noundef %121, i32 noundef %122)
+  %124 = load i32, ptr @hf_solaredge_post_device_type_type, align 4
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %124, ptr noundef %0, i32 noundef %.tr267.i, i32 noundef 2, i32 noundef -2147483648)
+  %126 = load i32, ptr @hf_solaredge_post_device_id_type, align 4
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %126, ptr noundef %0, i32 noundef %114, i32 noundef 4, i32 noundef -2147483648)
+  %128 = load i32, ptr @hf_solaredge_post_length_type, align 4
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %128, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef -2147483648)
+  %130 = add nuw nsw i32 %.tr267.i, 8
+  %131 = load ptr, ptr %17, align 8
+  tail call void @col_append_str(ptr noundef %131, i32 noundef 25, ptr noundef nonnull @.str.527)
   tail call void @increment_dissection_depth(ptr noundef %1)
-  %128 = load ptr, ptr %17, align 8
-  switch i16 %109, label %372 [
-    i16 0, label %129
-    i16 16, label %161
-    i16 17, label %272
-    i16 128, label %274
-    i16 768, label %342
+  %132 = load ptr, ptr %17, align 8
+  switch i16 %113, label %376 [
+    i16 0, label %133
+    i16 16, label %165
+    i16 17, label %276
+    i16 128, label %278
+    i16 768, label %346
   ]
 
-129:                                              ; preds = %tailrecurse.i
-  tail call void @col_append_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.519)
-  %130 = load i32, ptr @hf_solaredge_post_optimizer_timestamp_type, align 4
-  %131 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %130, ptr noundef %0, i32 noundef %126, i32 noundef 4, i32 noundef -2147483648)
-  %132 = add nuw nsw i32 %.tr267.i, 12
-  %133 = load i32, ptr @hf_solaredge_post_optimizer_inverter_type, align 4
-  %134 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %133, ptr noundef %0, i32 noundef %132, i32 noundef 4, i32 noundef -2147483648)
-  %135 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
-  %136 = trunc nuw i8 %135 to i1
-  br i1 %136, label %137, label %141
+133:                                              ; preds = %tailrecurse.i
+  tail call void @col_append_str(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.519)
+  %134 = load i32, ptr @hf_solaredge_post_optimizer_timestamp_type, align 4
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %134, ptr noundef %0, i32 noundef %130, i32 noundef 4, i32 noundef -2147483648)
+  %136 = add nuw nsw i32 %.tr267.i, 12
+  %137 = load i32, ptr @hf_solaredge_post_optimizer_inverter_type, align 4
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %137, ptr noundef %0, i32 noundef %136, i32 noundef 4, i32 noundef -2147483648)
+  %139 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %140 = trunc nuw i8 %139 to i1
+  br i1 %140, label %141, label %145
 
-137:                                              ; preds = %129
-  %138 = add nuw nsw i32 %.tr267.i, 16
-  %139 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %139, ptr noundef %0, i32 noundef %138, i32 noundef 4, i32 noundef -2147483648)
-  br label %141
+141:                                              ; preds = %133
+  %142 = add nuw nsw i32 %.tr267.i, 16
+  %143 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %144 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %143, ptr noundef %0, i32 noundef %142, i32 noundef 4, i32 noundef -2147483648)
+  br label %145
 
-141:                                              ; preds = %137, %129
-  %142 = add nuw nsw i32 %.tr267.i, 20
-  %143 = load i32, ptr @hf_solaredge_post_optimizer_uptime_type, align 4
-  %144 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %143, ptr noundef %0, i32 noundef %142, i32 noundef 4, i32 noundef -2147483648)
-  %145 = add nuw nsw i32 %.tr267.i, 24
-  %146 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_panel_type, align 4
-  %147 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %146, ptr noundef %0, i32 noundef %145, i32 noundef 4, i32 noundef -2147483648)
-  %148 = add nuw nsw i32 %.tr267.i, 28
-  %149 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_optimzer_type, align 4
-  %150 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %149, ptr noundef %0, i32 noundef %148, i32 noundef 4, i32 noundef -2147483648)
-  %151 = add nuw nsw i32 %.tr267.i, 32
-  %152 = load i32, ptr @hf_solaredge_post_optimizer_dc_current_panel_type, align 4
-  %153 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %152, ptr noundef %0, i32 noundef %151, i32 noundef 4, i32 noundef -2147483648)
-  %154 = add nuw nsw i32 %.tr267.i, 36
-  %155 = load i32, ptr @hf_solaredge_post_optimizer_energy_day_type, align 4
-  %156 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %155, ptr noundef %0, i32 noundef %154, i32 noundef 4, i32 noundef -2147483648)
-  %157 = add nuw nsw i32 %.tr267.i, 40
-  %158 = load i32, ptr @hf_solaredge_post_optimizer_temperature_type, align 4
-  %159 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %158, ptr noundef %0, i32 noundef %157, i32 noundef 4, i32 noundef -2147483648)
-  %160 = add nuw nsw i32 %.tr267.i, 44
-  br label %374
+145:                                              ; preds = %141, %133
+  %146 = add nuw nsw i32 %.tr267.i, 20
+  %147 = load i32, ptr @hf_solaredge_post_optimizer_uptime_type, align 4
+  %148 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %147, ptr noundef %0, i32 noundef %146, i32 noundef 4, i32 noundef -2147483648)
+  %149 = add nuw nsw i32 %.tr267.i, 24
+  %150 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_panel_type, align 4
+  %151 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %150, ptr noundef %0, i32 noundef %149, i32 noundef 4, i32 noundef -2147483648)
+  %152 = add nuw nsw i32 %.tr267.i, 28
+  %153 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_optimzer_type, align 4
+  %154 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %153, ptr noundef %0, i32 noundef %152, i32 noundef 4, i32 noundef -2147483648)
+  %155 = add nuw nsw i32 %.tr267.i, 32
+  %156 = load i32, ptr @hf_solaredge_post_optimizer_dc_current_panel_type, align 4
+  %157 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %156, ptr noundef %0, i32 noundef %155, i32 noundef 4, i32 noundef -2147483648)
+  %158 = add nuw nsw i32 %.tr267.i, 36
+  %159 = load i32, ptr @hf_solaredge_post_optimizer_energy_day_type, align 4
+  %160 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %159, ptr noundef %0, i32 noundef %158, i32 noundef 4, i32 noundef -2147483648)
+  %161 = add nuw nsw i32 %.tr267.i, 40
+  %162 = load i32, ptr @hf_solaredge_post_optimizer_temperature_type, align 4
+  %163 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %162, ptr noundef %0, i32 noundef %161, i32 noundef 4, i32 noundef -2147483648)
+  %164 = add nuw nsw i32 %.tr267.i, 44
+  br label %378
 
-161:                                              ; preds = %tailrecurse.i
-  tail call void @col_append_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.520)
-  %162 = load i32, ptr @hf_solaredge_post_singlephase_inverter_timestamp_type, align 4
-  %163 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %162, ptr noundef %0, i32 noundef %126, i32 noundef 4, i32 noundef -2147483648)
-  %164 = add nuw nsw i32 %.tr267.i, 12
-  %165 = load i32, ptr @hf_solaredge_post_singlephase_inverter_uptime_type, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %165, ptr noundef %0, i32 noundef %164, i32 noundef 4, i32 noundef -2147483648)
-  %167 = add nuw nsw i32 %.tr267.i, 16
-  %168 = load i32, ptr @hf_solaredge_post_singlephase_inverter_interval_type, align 4
-  %169 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %168, ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef -2147483648)
-  %170 = add nuw nsw i32 %.tr267.i, 20
-  %171 = load i32, ptr @hf_solaredge_post_singlephase_inverter_temperature_type, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %171, ptr noundef %0, i32 noundef %170, i32 noundef 4, i32 noundef -2147483648)
-  %173 = add nuw nsw i32 %.tr267.i, 24
-  %174 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_day_type, align 4
-  %175 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %174, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef -2147483648)
-  %176 = add nuw nsw i32 %.tr267.i, 28
-  %177 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_interval_type, align 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %177, ptr noundef %0, i32 noundef %176, i32 noundef 4, i32 noundef -2147483648)
-  %179 = add nuw nsw i32 %.tr267.i, 32
-  %180 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_voltage_type, align 4
-  %181 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %180, ptr noundef %0, i32 noundef %179, i32 noundef 4, i32 noundef -2147483648)
-  %182 = add nuw nsw i32 %.tr267.i, 36
-  %183 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_current_type, align 4
-  %184 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %183, ptr noundef %0, i32 noundef %182, i32 noundef 4, i32 noundef -2147483648)
-  %185 = add nuw nsw i32 %.tr267.i, 40
-  %186 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_frequency_type, align 4
-  %187 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %186, ptr noundef %0, i32 noundef %185, i32 noundef 4, i32 noundef -2147483648)
-  %188 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
-  %189 = trunc nuw i8 %188 to i1
-  br i1 %189, label %190, label %.thread.i
+165:                                              ; preds = %tailrecurse.i
+  tail call void @col_append_str(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.520)
+  %166 = load i32, ptr @hf_solaredge_post_singlephase_inverter_timestamp_type, align 4
+  %167 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %166, ptr noundef %0, i32 noundef %130, i32 noundef 4, i32 noundef -2147483648)
+  %168 = add nuw nsw i32 %.tr267.i, 12
+  %169 = load i32, ptr @hf_solaredge_post_singlephase_inverter_uptime_type, align 4
+  %170 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %169, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef -2147483648)
+  %171 = add nuw nsw i32 %.tr267.i, 16
+  %172 = load i32, ptr @hf_solaredge_post_singlephase_inverter_interval_type, align 4
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %172, ptr noundef %0, i32 noundef %171, i32 noundef 4, i32 noundef -2147483648)
+  %174 = add nuw nsw i32 %.tr267.i, 20
+  %175 = load i32, ptr @hf_solaredge_post_singlephase_inverter_temperature_type, align 4
+  %176 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %175, ptr noundef %0, i32 noundef %174, i32 noundef 4, i32 noundef -2147483648)
+  %177 = add nuw nsw i32 %.tr267.i, 24
+  %178 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_day_type, align 4
+  %179 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %178, ptr noundef %0, i32 noundef %177, i32 noundef 4, i32 noundef -2147483648)
+  %180 = add nuw nsw i32 %.tr267.i, 28
+  %181 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_interval_type, align 4
+  %182 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %181, ptr noundef %0, i32 noundef %180, i32 noundef 4, i32 noundef -2147483648)
+  %183 = add nuw nsw i32 %.tr267.i, 32
+  %184 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_voltage_type, align 4
+  %185 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %184, ptr noundef %0, i32 noundef %183, i32 noundef 4, i32 noundef -2147483648)
+  %186 = add nuw nsw i32 %.tr267.i, 36
+  %187 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_current_type, align 4
+  %188 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %187, ptr noundef %0, i32 noundef %186, i32 noundef 4, i32 noundef -2147483648)
+  %189 = add nuw nsw i32 %.tr267.i, 40
+  %190 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_frequency_type, align 4
+  %191 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %190, ptr noundef %0, i32 noundef %189, i32 noundef 4, i32 noundef -2147483648)
+  %192 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %193 = trunc nuw i8 %192 to i1
+  br i1 %193, label %194, label %.thread.i
 
-190:                                              ; preds = %161
-  %191 = add nuw nsw i32 %.tr267.i, 44
-  %192 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %192, ptr noundef %0, i32 noundef %191, i32 noundef 4, i32 noundef -2147483648)
+194:                                              ; preds = %165
+  %195 = add nuw nsw i32 %.tr267.i, 44
+  %196 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %197 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %196, ptr noundef %0, i32 noundef %195, i32 noundef 4, i32 noundef -2147483648)
   %.pre270.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
-  %194 = trunc nuw i8 %.pre270.i to i1
-  br i1 %194, label %195, label %.thread.i
+  %198 = trunc nuw i8 %.pre270.i to i1
+  br i1 %198, label %199, label %.thread.i
 
-195:                                              ; preds = %190
-  %196 = add nuw nsw i32 %.tr267.i, 48
-  %197 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %198 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %197, ptr noundef %0, i32 noundef %196, i32 noundef 4, i32 noundef -2147483648)
+199:                                              ; preds = %194
+  %200 = add nuw nsw i32 %.tr267.i, 48
+  %201 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %202 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %201, ptr noundef %0, i32 noundef %200, i32 noundef 4, i32 noundef -2147483648)
   br label %.thread.i
 
-.thread.i:                                        ; preds = %195, %190, %161
-  %199 = add nuw nsw i32 %.tr267.i, 52
-  %200 = load i32, ptr @hf_solaredge_post_singlephase_inverter_dc_voltage_type, align 4
-  %201 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %200, ptr noundef %0, i32 noundef %199, i32 noundef 4, i32 noundef -2147483648)
-  %202 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
-  %203 = trunc nuw i8 %202 to i1
-  br i1 %203, label %204, label %208
+.thread.i:                                        ; preds = %199, %194, %165
+  %203 = add nuw nsw i32 %.tr267.i, 52
+  %204 = load i32, ptr @hf_solaredge_post_singlephase_inverter_dc_voltage_type, align 4
+  %205 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %204, ptr noundef %0, i32 noundef %203, i32 noundef 4, i32 noundef -2147483648)
+  %206 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %207 = trunc nuw i8 %206 to i1
+  br i1 %207, label %208, label %212
 
-204:                                              ; preds = %.thread.i
-  %205 = add nuw nsw i32 %.tr267.i, 56
-  %206 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %207 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %206, ptr noundef %0, i32 noundef %205, i32 noundef 4, i32 noundef -2147483648)
-  br label %208
+208:                                              ; preds = %.thread.i
+  %209 = add nuw nsw i32 %.tr267.i, 56
+  %210 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %211 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %210, ptr noundef %0, i32 noundef %209, i32 noundef 4, i32 noundef -2147483648)
+  br label %212
 
-208:                                              ; preds = %204, %.thread.i
-  %209 = add nuw nsw i32 %.tr267.i, 60
-  %210 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_total_type, align 4
-  %211 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %210, ptr noundef %0, i32 noundef %209, i32 noundef 4, i32 noundef -2147483648)
-  %212 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
-  %213 = trunc nuw i8 %212 to i1
-  br i1 %213, label %214, label %.thread281.i
+212:                                              ; preds = %208, %.thread.i
+  %213 = add nuw nsw i32 %.tr267.i, 60
+  %214 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_total_type, align 4
+  %215 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %214, ptr noundef %0, i32 noundef %213, i32 noundef 4, i32 noundef -2147483648)
+  %216 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %217 = trunc nuw i8 %216 to i1
+  br i1 %217, label %218, label %.thread281.i
 
-214:                                              ; preds = %208
-  %215 = add nuw nsw i32 %.tr267.i, 64
-  %216 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %217 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %216, ptr noundef %0, i32 noundef %215, i32 noundef 4, i32 noundef -2147483648)
+218:                                              ; preds = %212
+  %219 = add nuw nsw i32 %.tr267.i, 64
+  %220 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %221 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %220, ptr noundef %0, i32 noundef %219, i32 noundef 4, i32 noundef -2147483648)
   %.pre271.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
-  %218 = trunc nuw i8 %.pre271.i to i1
-  br i1 %218, label %219, label %.thread281.i
+  %222 = trunc nuw i8 %.pre271.i to i1
+  br i1 %222, label %223, label %.thread281.i
 
-219:                                              ; preds = %214
-  %220 = add nuw nsw i32 %.tr267.i, 68
-  %221 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %222 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %221, ptr noundef %0, i32 noundef %220, i32 noundef 4, i32 noundef -2147483648)
+223:                                              ; preds = %218
+  %224 = add nuw nsw i32 %.tr267.i, 68
+  %225 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %226 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %225, ptr noundef %0, i32 noundef %224, i32 noundef 4, i32 noundef -2147483648)
   %.pre272.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
-  %223 = trunc nuw i8 %.pre272.i to i1
-  br i1 %223, label %224, label %.thread281.i
+  %227 = trunc nuw i8 %.pre272.i to i1
+  br i1 %227, label %228, label %.thread281.i
 
-224:                                              ; preds = %219
-  %225 = add nuw nsw i32 %.tr267.i, 72
-  %226 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %227 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %226, ptr noundef %0, i32 noundef %225, i32 noundef 4, i32 noundef -2147483648)
+228:                                              ; preds = %223
+  %229 = add nuw nsw i32 %.tr267.i, 72
+  %230 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %231 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %230, ptr noundef %0, i32 noundef %229, i32 noundef 4, i32 noundef -2147483648)
   %.pre273.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
-  %228 = trunc nuw i8 %.pre273.i to i1
-  br i1 %228, label %229, label %.thread281.i
+  %232 = trunc nuw i8 %.pre273.i to i1
+  br i1 %232, label %233, label %.thread281.i
 
-229:                                              ; preds = %224
-  %230 = add nuw nsw i32 %.tr267.i, 76
-  %231 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %232 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %231, ptr noundef %0, i32 noundef %230, i32 noundef 4, i32 noundef -2147483648)
+233:                                              ; preds = %228
+  %234 = add nuw nsw i32 %.tr267.i, 76
+  %235 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %236 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %235, ptr noundef %0, i32 noundef %234, i32 noundef 4, i32 noundef -2147483648)
   br label %.thread281.i
 
-.thread281.i:                                     ; preds = %229, %224, %219, %214, %208
-  %233 = add nuw nsw i32 %.tr267.i, 80
-  %234 = load i32, ptr @hf_solaredge_post_singlephase_inverter_power_max_type, align 4
-  %235 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %234, ptr noundef %0, i32 noundef %233, i32 noundef 4, i32 noundef -2147483648)
-  %236 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
-  %237 = trunc nuw i8 %236 to i1
-  br i1 %237, label %238, label %.thread286.i
+.thread281.i:                                     ; preds = %233, %228, %223, %218, %212
+  %237 = add nuw nsw i32 %.tr267.i, 80
+  %238 = load i32, ptr @hf_solaredge_post_singlephase_inverter_power_max_type, align 4
+  %239 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %238, ptr noundef %0, i32 noundef %237, i32 noundef 4, i32 noundef -2147483648)
+  %240 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %241 = trunc nuw i8 %240 to i1
+  br i1 %241, label %242, label %.thread286.i
 
-238:                                              ; preds = %.thread281.i
-  %239 = add nuw nsw i32 %.tr267.i, 84
-  %240 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %241 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %240, ptr noundef %0, i32 noundef %239, i32 noundef 4, i32 noundef -2147483648)
+242:                                              ; preds = %.thread281.i
+  %243 = add nuw nsw i32 %.tr267.i, 84
+  %244 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %245 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %244, ptr noundef %0, i32 noundef %243, i32 noundef 4, i32 noundef -2147483648)
   %.pre274.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
-  %242 = trunc nuw i8 %.pre274.i to i1
-  br i1 %242, label %243, label %.thread286.i
+  %246 = trunc nuw i8 %.pre274.i to i1
+  br i1 %246, label %247, label %.thread286.i
 
-243:                                              ; preds = %238
-  %244 = add nuw nsw i32 %.tr267.i, 88
-  %245 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %246 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %245, ptr noundef %0, i32 noundef %244, i32 noundef 4, i32 noundef -2147483648)
+247:                                              ; preds = %242
+  %248 = add nuw nsw i32 %.tr267.i, 88
+  %249 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %250 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %249, ptr noundef %0, i32 noundef %248, i32 noundef 4, i32 noundef -2147483648)
   %.pre275.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
-  %247 = trunc nuw i8 %.pre275.i to i1
-  br i1 %247, label %248, label %.thread286.i
+  %251 = trunc nuw i8 %.pre275.i to i1
+  br i1 %251, label %252, label %.thread286.i
 
-248:                                              ; preds = %243
-  %249 = add nuw nsw i32 %.tr267.i, 92
-  %250 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %251 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %250, ptr noundef %0, i32 noundef %249, i32 noundef 4, i32 noundef -2147483648)
+252:                                              ; preds = %247
+  %253 = add nuw nsw i32 %.tr267.i, 92
+  %254 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %255 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %254, ptr noundef %0, i32 noundef %253, i32 noundef 4, i32 noundef -2147483648)
   %.pre276.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
-  %252 = trunc nuw i8 %.pre276.i to i1
-  br i1 %252, label %253, label %.thread286.i
+  %256 = trunc nuw i8 %.pre276.i to i1
+  br i1 %256, label %257, label %.thread286.i
 
-253:                                              ; preds = %248
-  %254 = add nuw nsw i32 %.tr267.i, 96
-  %255 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %256 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %255, ptr noundef %0, i32 noundef %254, i32 noundef 4, i32 noundef -2147483648)
+257:                                              ; preds = %252
+  %258 = add nuw nsw i32 %.tr267.i, 96
+  %259 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %260 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %259, ptr noundef %0, i32 noundef %258, i32 noundef 4, i32 noundef -2147483648)
   br label %.thread286.i
 
-.thread286.i:                                     ; preds = %253, %248, %243, %238, %.thread281.i
-  %257 = add nuw nsw i32 %.tr267.i, 100
-  %258 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_power_type, align 4
-  %259 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %258, ptr noundef %0, i32 noundef %257, i32 noundef 4, i32 noundef -2147483648)
-  %260 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
-  %261 = trunc nuw i8 %260 to i1
-  br i1 %261, label %262, label %.thread287.i
+.thread286.i:                                     ; preds = %257, %252, %247, %242, %.thread281.i
+  %261 = add nuw nsw i32 %.tr267.i, 100
+  %262 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_power_type, align 4
+  %263 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %262, ptr noundef %0, i32 noundef %261, i32 noundef 4, i32 noundef -2147483648)
+  %264 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %265 = trunc nuw i8 %264 to i1
+  br i1 %265, label %266, label %.thread287.i
 
-262:                                              ; preds = %.thread286.i
-  %263 = add nuw nsw i32 %.tr267.i, 104
-  %264 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %265 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %264, ptr noundef %0, i32 noundef %263, i32 noundef 4, i32 noundef -2147483648)
+266:                                              ; preds = %.thread286.i
+  %267 = add nuw nsw i32 %.tr267.i, 104
+  %268 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %269 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %268, ptr noundef %0, i32 noundef %267, i32 noundef 4, i32 noundef -2147483648)
   %.pre277.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
-  %266 = trunc nuw i8 %.pre277.i to i1
-  br i1 %266, label %267, label %.thread287.i
+  %270 = trunc nuw i8 %.pre277.i to i1
+  br i1 %270, label %271, label %.thread287.i
 
-267:                                              ; preds = %262
-  %268 = add nuw nsw i32 %.tr267.i, 108
-  %269 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %270 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %269, ptr noundef %0, i32 noundef %268, i32 noundef 4, i32 noundef -2147483648)
+271:                                              ; preds = %266
+  %272 = add nuw nsw i32 %.tr267.i, 108
+  %273 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %274 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %273, ptr noundef %0, i32 noundef %272, i32 noundef 4, i32 noundef -2147483648)
   br label %.thread287.i
 
-.thread287.i:                                     ; preds = %267, %262, %.thread286.i
-  %271 = add nuw nsw i32 %.tr267.i, 112
-  br label %374
+.thread287.i:                                     ; preds = %271, %266, %.thread286.i
+  %275 = add nuw nsw i32 %.tr267.i, 112
+  br label %378
 
-272:                                              ; preds = %tailrecurse.i
-  tail call void @col_append_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.521)
-  %273 = add nuw nsw i32 %126, %115
-  br label %374
+276:                                              ; preds = %tailrecurse.i
+  tail call void @col_append_str(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.521)
+  %277 = add nuw nsw i32 %130, %119
+  br label %378
 
-274:                                              ; preds = %tailrecurse.i
-  tail call void @col_append_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.519)
-  %275 = load i32, ptr @hf_solaredge_post_optimizer_timestamp_type, align 4
-  %276 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %275, ptr noundef %0, i32 noundef %126, i32 noundef 4, i32 noundef -2147483648)
-  %277 = add nuw nsw i32 %.tr267.i, 12
-  %278 = load i32, ptr @hf_solaredge_post_optimizer_uptime_short_type, align 4
-  %279 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %278, ptr noundef %0, i32 noundef %277, i32 noundef 2, i32 noundef -2147483648)
-  %280 = add nuw nsw i32 %.tr267.i, 14
-  %281 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %280, i32 noundef 6)
-  %282 = load i8, ptr %281, align 1
-  %283 = zext i8 %282 to i32
-  %284 = getelementptr i8, ptr %281, i64 1
-  %285 = load i8, ptr %284, align 1
-  %286 = zext i8 %285 to i32
-  %287 = shl nuw nsw i32 %286, 8
-  %288 = and i32 %287, 768
-  %289 = or disjoint i32 %288, %283
-  %290 = uitofp nneg i32 %289 to double
-  %291 = fmul double %290, 1.250000e-01
-  %292 = fptrunc double %291 to float
-  %293 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_panel_type, align 4
-  %294 = fpext float %292 to double
-  %295 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %119, i32 noundef %293, ptr noundef %0, i32 noundef %280, i32 noundef 6, float noundef %292, ptr noundef nonnull @.str.528, double noundef %294)
-  %296 = load i8, ptr %284, align 1
-  %297 = lshr i8 %296, 2
-  %298 = zext nneg i8 %297 to i32
-  %299 = getelementptr i8, ptr %281, i64 2
-  %300 = load i8, ptr %299, align 1
-  %301 = zext i8 %300 to i32
-  %302 = shl nuw nsw i32 %301, 6
-  %303 = and i32 %302, 960
-  %304 = or disjoint i32 %303, %298
-  %305 = uitofp nneg i32 %304 to double
-  %306 = fmul double %305, 1.250000e-01
-  %307 = fptrunc double %306 to float
-  %308 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_optimzer_type, align 4
-  %309 = fpext float %307 to double
-  %310 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %119, i32 noundef %308, ptr noundef %0, i32 noundef %280, i32 noundef 6, float noundef %307, ptr noundef nonnull @.str.528, double noundef %309)
-  %311 = getelementptr i8, ptr %281, i64 3
-  %312 = load i8, ptr %311, align 1
-  %313 = zext i8 %312 to i32
-  %314 = shl nuw nsw i32 %313, 4
-  %315 = load i8, ptr %299, align 1
-  %316 = lshr i8 %315, 4
-  %317 = zext nneg i8 %316 to i32
-  %318 = or disjoint i32 %314, %317
-  %319 = uitofp nneg i32 %318 to double
-  %320 = fmul double %319, 6.250000e-03
-  %321 = fptrunc double %320 to float
-  %322 = load i32, ptr @hf_solaredge_post_optimizer_dc_current_optimzer_type, align 4
-  %323 = fpext float %321 to double
-  %324 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %119, i32 noundef %322, ptr noundef %0, i32 noundef %280, i32 noundef 6, float noundef %321, ptr noundef nonnull @.str.528, double noundef %323)
-  %325 = getelementptr i8, ptr %281, i64 5
-  %326 = load i16, ptr %325, align 1
-  %327 = uitofp i16 %326 to double
-  %328 = fmul double %327, 2.500000e-01
-  %329 = fptrunc double %328 to float
-  %330 = load i32, ptr @hf_solaredge_post_optimizer_energy_day_type, align 4
-  %331 = fpext float %329 to double
-  %332 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %119, i32 noundef %330, ptr noundef %0, i32 noundef %280, i32 noundef 6, float noundef %329, ptr noundef nonnull @.str.528, double noundef %331)
-  %333 = add nuw nsw i32 %.tr267.i, 20
-  %334 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %333)
-  %335 = uitofp i8 %334 to double
-  %336 = fmul double %335, 2.000000e+00
-  %337 = fptrunc double %336 to float
-  %338 = load i32, ptr @hf_solaredge_post_optimizer_temperature_type, align 4
-  %339 = fpext float %337 to double
-  %340 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %119, i32 noundef %338, ptr noundef %0, i32 noundef %333, i32 noundef 2, float noundef %337, ptr noundef nonnull @.str.528, double noundef %339)
-  %341 = add nuw nsw i32 %.tr267.i, 21
-  br label %374
+278:                                              ; preds = %tailrecurse.i
+  tail call void @col_append_str(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.519)
+  %279 = load i32, ptr @hf_solaredge_post_optimizer_timestamp_type, align 4
+  %280 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %279, ptr noundef %0, i32 noundef %130, i32 noundef 4, i32 noundef -2147483648)
+  %281 = add nuw nsw i32 %.tr267.i, 12
+  %282 = load i32, ptr @hf_solaredge_post_optimizer_uptime_short_type, align 4
+  %283 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %282, ptr noundef %0, i32 noundef %281, i32 noundef 2, i32 noundef -2147483648)
+  %284 = add nuw nsw i32 %.tr267.i, 14
+  %285 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %284, i32 noundef 6)
+  %286 = load i8, ptr %285, align 1
+  %287 = zext i8 %286 to i32
+  %288 = getelementptr i8, ptr %285, i64 1
+  %289 = load i8, ptr %288, align 1
+  %290 = zext i8 %289 to i32
+  %291 = shl nuw nsw i32 %290, 8
+  %292 = and i32 %291, 768
+  %293 = or disjoint i32 %292, %287
+  %294 = uitofp nneg i32 %293 to double
+  %295 = fmul double %294, 1.250000e-01
+  %296 = fptrunc double %295 to float
+  %297 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_panel_type, align 4
+  %298 = fpext float %296 to double
+  %299 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %123, i32 noundef %297, ptr noundef %0, i32 noundef %284, i32 noundef 6, float noundef %296, ptr noundef nonnull @.str.528, double noundef %298)
+  %300 = load i8, ptr %288, align 1
+  %301 = lshr i8 %300, 2
+  %302 = zext nneg i8 %301 to i32
+  %303 = getelementptr i8, ptr %285, i64 2
+  %304 = load i8, ptr %303, align 1
+  %305 = zext i8 %304 to i32
+  %306 = shl nuw nsw i32 %305, 6
+  %307 = and i32 %306, 960
+  %308 = or disjoint i32 %307, %302
+  %309 = uitofp nneg i32 %308 to double
+  %310 = fmul double %309, 1.250000e-01
+  %311 = fptrunc double %310 to float
+  %312 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_optimzer_type, align 4
+  %313 = fpext float %311 to double
+  %314 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %123, i32 noundef %312, ptr noundef %0, i32 noundef %284, i32 noundef 6, float noundef %311, ptr noundef nonnull @.str.528, double noundef %313)
+  %315 = getelementptr i8, ptr %285, i64 3
+  %316 = load i8, ptr %315, align 1
+  %317 = zext i8 %316 to i32
+  %318 = shl nuw nsw i32 %317, 4
+  %319 = load i8, ptr %303, align 1
+  %320 = lshr i8 %319, 4
+  %321 = zext nneg i8 %320 to i32
+  %322 = or disjoint i32 %318, %321
+  %323 = uitofp nneg i32 %322 to double
+  %324 = fmul double %323, 6.250000e-03
+  %325 = fptrunc double %324 to float
+  %326 = load i32, ptr @hf_solaredge_post_optimizer_dc_current_optimzer_type, align 4
+  %327 = fpext float %325 to double
+  %328 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %123, i32 noundef %326, ptr noundef %0, i32 noundef %284, i32 noundef 6, float noundef %325, ptr noundef nonnull @.str.528, double noundef %327)
+  %329 = getelementptr i8, ptr %285, i64 5
+  %330 = load i16, ptr %329, align 1
+  %331 = uitofp i16 %330 to double
+  %332 = fmul double %331, 2.500000e-01
+  %333 = fptrunc double %332 to float
+  %334 = load i32, ptr @hf_solaredge_post_optimizer_energy_day_type, align 4
+  %335 = fpext float %333 to double
+  %336 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %123, i32 noundef %334, ptr noundef %0, i32 noundef %284, i32 noundef 6, float noundef %333, ptr noundef nonnull @.str.528, double noundef %335)
+  %337 = add nuw nsw i32 %.tr267.i, 20
+  %338 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %337)
+  %339 = uitofp i8 %338 to double
+  %340 = fmul double %339, 2.000000e+00
+  %341 = fptrunc double %340 to float
+  %342 = load i32, ptr @hf_solaredge_post_optimizer_temperature_type, align 4
+  %343 = fpext float %341 to double
+  %344 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %123, i32 noundef %342, ptr noundef %0, i32 noundef %337, i32 noundef 2, float noundef %341, ptr noundef nonnull @.str.528, double noundef %343)
+  %345 = add nuw nsw i32 %.tr267.i, 21
+  br label %378
 
-342:                                              ; preds = %tailrecurse.i
-  tail call void @col_append_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.522)
-  %343 = load i32, ptr @hf_solaredge_post_event_timestamp_type, align 4
-  %344 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %343, ptr noundef %0, i32 noundef %126, i32 noundef 4, i32 noundef -2147483648)
-  %345 = add nuw nsw i32 %.tr267.i, 12
-  %346 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %345, i32 noundef -2147483648)
-  %347 = load i32, ptr @hf_solaredge_post_event_type_type, align 4
-  %348 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %347, ptr noundef %0, i32 noundef %345, i32 noundef 4, i32 noundef -2147483648)
-  %349 = add nuw nsw i32 %.tr267.i, 16
-  %350 = load i32, ptr @hf_solaredge_post_event_event_start_timestamp_type, align 4
-  %351 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %350, ptr noundef %0, i32 noundef %349, i32 noundef 4, i32 noundef -2147483648)
-  %352 = add nuw nsw i32 %.tr267.i, 20
-  %353 = icmp eq i32 %346, 1
-  br i1 %353, label %354, label %358
+346:                                              ; preds = %tailrecurse.i
+  tail call void @col_append_str(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.522)
+  %347 = load i32, ptr @hf_solaredge_post_event_timestamp_type, align 4
+  %348 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %347, ptr noundef %0, i32 noundef %130, i32 noundef 4, i32 noundef -2147483648)
+  %349 = add nuw nsw i32 %.tr267.i, 12
+  %350 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %349, i32 noundef -2147483648)
+  %351 = load i32, ptr @hf_solaredge_post_event_type_type, align 4
+  %352 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %351, ptr noundef %0, i32 noundef %349, i32 noundef 4, i32 noundef -2147483648)
+  %353 = add nuw nsw i32 %.tr267.i, 16
+  %354 = load i32, ptr @hf_solaredge_post_event_event_start_timestamp_type, align 4
+  %355 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %354, ptr noundef %0, i32 noundef %353, i32 noundef 4, i32 noundef -2147483648)
+  %356 = add nuw nsw i32 %.tr267.i, 20
+  %357 = icmp eq i32 %350, 1
+  br i1 %357, label %358, label %362
 
-354:                                              ; preds = %342
-  %355 = load i32, ptr @hf_solaredge_post_event_event_timezone_offset_type, align 4
-  %356 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %355, ptr noundef %0, i32 noundef %352, i32 noundef 4, i32 noundef -2147483648)
-  %357 = add nuw nsw i32 %.tr267.i, 24
-  br label %358
+358:                                              ; preds = %346
+  %359 = load i32, ptr @hf_solaredge_post_event_event_timezone_offset_type, align 4
+  %360 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %359, ptr noundef %0, i32 noundef %356, i32 noundef 4, i32 noundef -2147483648)
+  %361 = add nuw nsw i32 %.tr267.i, 24
+  br label %362
 
-358:                                              ; preds = %354, %342
-  %.sink289.i = phi i32 [ %357, %354 ], [ %352, %342 ]
-  %359 = load i32, ptr @hf_solaredge_post_event_event_end_timestamp_type, align 4
-  %360 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %359, ptr noundef %0, i32 noundef %.sink289.i, i32 noundef 4, i32 noundef -2147483648)
-  %361 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
-  %362 = trunc nuw i8 %361 to i1
-  br i1 %362, label %363, label %.thread288.i
-
-363:                                              ; preds = %358
-  %.1.i123 = add nuw nsw i32 %.tr267.i, 28
-  %364 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %365 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %364, ptr noundef %0, i32 noundef %.1.i123, i32 noundef 4, i32 noundef -2147483648)
-  %.pre.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
-  %366 = trunc nuw i8 %.pre.i to i1
+362:                                              ; preds = %358, %346
+  %.sink289.i = phi i32 [ %361, %358 ], [ %356, %346 ]
+  %363 = load i32, ptr @hf_solaredge_post_event_event_end_timestamp_type, align 4
+  %364 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %363, ptr noundef %0, i32 noundef %.sink289.i, i32 noundef 4, i32 noundef -2147483648)
+  %365 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %366 = trunc nuw i8 %365 to i1
   br i1 %366, label %367, label %.thread288.i
 
-367:                                              ; preds = %363
-  %368 = add nuw nsw i32 %.tr267.i, 32
-  %369 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %370 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %369, ptr noundef %0, i32 noundef %368, i32 noundef 4, i32 noundef -2147483648)
+367:                                              ; preds = %362
+  %.1.i123 = add nuw nsw i32 %.tr267.i, 28
+  %368 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %369 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %368, ptr noundef %0, i32 noundef %.1.i123, i32 noundef 4, i32 noundef -2147483648)
+  %.pre.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
+  %370 = trunc nuw i8 %.pre.i to i1
+  br i1 %370, label %371, label %.thread288.i
+
+371:                                              ; preds = %367
+  %372 = add nuw nsw i32 %.tr267.i, 32
+  %373 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %374 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %373, ptr noundef %0, i32 noundef %372, i32 noundef 4, i32 noundef -2147483648)
   br label %.thread288.i
 
-.thread288.i:                                     ; preds = %367, %363, %358
-  %371 = add nuw nsw i32 %.tr267.i, 36
-  br label %374
+.thread288.i:                                     ; preds = %371, %367, %362
+  %375 = add nuw nsw i32 %.tr267.i, 36
+  br label %378
 
-372:                                              ; preds = %tailrecurse.i
-  tail call void @col_append_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.529)
-  %373 = add nuw nsw i32 %126, %115
-  br label %374
+376:                                              ; preds = %tailrecurse.i
+  tail call void @col_append_str(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.529)
+  %377 = add nuw nsw i32 %130, %119
+  br label %378
 
-374:                                              ; preds = %372, %.thread288.i, %274, %272, %.thread287.i, %141
-  %.0.i = phi i32 [ %373, %372 ], [ %160, %141 ], [ %271, %.thread287.i ], [ %273, %272 ], [ %341, %274 ], [ %371, %.thread288.i ]
+378:                                              ; preds = %376, %.thread288.i, %278, %276, %.thread287.i, %145
+  %.0.i = phi i32 [ %377, %376 ], [ %164, %145 ], [ %275, %.thread287.i ], [ %277, %276 ], [ %345, %278 ], [ %375, %.thread288.i ]
   tail call void @decrement_dissection_depth(ptr noundef %1)
-  %375 = icmp samesign ult i32 %.0.i, %28
-  br i1 %375, label %376, label %dissect_solaredge_devicedata.exit
+  %379 = icmp samesign ult i32 %.0.i, %28
+  br i1 %379, label %380, label %dissect_solaredge_devicedata.exit
 
-376:                                              ; preds = %374
-  %377 = load ptr, ptr %17, align 8
-  tail call void @col_append_str(ptr noundef %377, i32 noundef 25, ptr noundef nonnull @.str.530)
+380:                                              ; preds = %378
+  %381 = load ptr, ptr %17, align 8
+  tail call void @col_append_str(ptr noundef %381, i32 noundef 25, ptr noundef nonnull @.str.530)
   br label %tailrecurse.i
 
-378:                                              ; preds = %32
-  %379 = load i32, ptr @hf_solaredge_session_key_type, align 4
-  %380 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %379, ptr noundef %0, i32 noundef 20, i32 noundef %28, i32 noundef 0)
-  %381 = tail call i32 @gcry_cipher_open(ptr noundef nonnull @cipher_hd_system, i32 noundef 7, i32 noundef 1, i32 noundef 0)
-  %.not118 = icmp eq i32 %381, 0
-  br i1 %.not118, label %382, label %dissect_solaredge_devicedata.exit
-
-382:                                              ; preds = %378
-  %383 = tail call ptr @g_byte_array_new()
-  %384 = load ptr, ptr @global_system_encryption_key, align 8
-  %385 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %384, ptr noundef %383, i1 noundef zeroext false)
-  br i1 %385, label %386, label %dissect_solaredge_devicedata.exit
+382:                                              ; preds = %32
+  %383 = load i32, ptr @hf_solaredge_session_key_type, align 4
+  %384 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %383, ptr noundef %0, i32 noundef 20, i32 noundef %28, i32 noundef 0)
+  %385 = tail call i32 @gcry_cipher_open(ptr noundef nonnull @cipher_hd_system, i32 noundef 7, i32 noundef 1, i32 noundef 0)
+  %.not118 = icmp eq i32 %385, 0
+  br i1 %.not118, label %386, label %dissect_solaredge_devicedata.exit
 
 386:                                              ; preds = %382
-  %387 = getelementptr inbounds nuw i8, ptr %383, i64 8
-  %388 = load i32, ptr %387, align 8
-  %389 = icmp eq i32 %388, 16
+  %387 = tail call ptr @g_byte_array_new()
+  %388 = load ptr, ptr @global_system_encryption_key, align 8
+  %389 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %388, ptr noundef %387, i1 noundef zeroext false)
   br i1 %389, label %390, label %dissect_solaredge_devicedata.exit
 
 390:                                              ; preds = %386
-  %391 = load ptr, ptr @cipher_hd_system, align 8
-  %392 = load ptr, ptr %383, align 8
-  %393 = tail call i32 @gcry_cipher_setkey(ptr noundef %391, ptr noundef %392, i64 noundef 16)
-  %.not119 = icmp eq i32 %393, 0
-  br i1 %.not119, label %394, label %416
+  %391 = getelementptr inbounds nuw i8, ptr %387, i64 8
+  %392 = load i32, ptr %391, align 8
+  %393 = icmp eq i32 %392, 16
+  br i1 %393, label %394, label %dissect_solaredge_devicedata.exit
 
 394:                                              ; preds = %390
-  %395 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 20, i64 noundef 16)
-  %396 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %13, i32 noundef 36, i64 noundef 16)
-  %397 = load ptr, ptr @cipher_hd_system, align 8
-  %398 = call i32 @gcry_cipher_encrypt(ptr noundef %397, ptr noundef nonnull %14, i64 noundef 16, ptr noundef nonnull %12, i64 noundef 16)
-  br label %399
+  %395 = load ptr, ptr @cipher_hd_system, align 8
+  %396 = load ptr, ptr %387, align 8
+  %397 = tail call i32 @gcry_cipher_setkey(ptr noundef %395, ptr noundef %396, i64 noundef 16)
+  %.not119 = icmp eq i32 %397, 0
+  br i1 %.not119, label %398, label %420
 
-399:                                              ; preds = %394, %399
-  %indvars.iv = phi i64 [ 0, %394 ], [ %indvars.iv.next, %399 ]
-  %400 = getelementptr [16 x i8], ptr %14, i64 0, i64 %indvars.iv
-  %401 = load i8, ptr %400, align 1
-  %402 = getelementptr [16 x i8], ptr %13, i64 0, i64 %indvars.iv
-  %403 = load i8, ptr %402, align 1
-  %404 = xor i8 %403, %401
-  store i8 %404, ptr %402, align 1
+398:                                              ; preds = %394
+  %399 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 20, i64 noundef 16)
+  %400 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %13, i32 noundef 36, i64 noundef 16)
+  %401 = load ptr, ptr @cipher_hd_system, align 8
+  %402 = call i32 @gcry_cipher_encrypt(ptr noundef %401, ptr noundef nonnull %14, i64 noundef 16, ptr noundef nonnull %12, i64 noundef 16)
+  br label %403
+
+403:                                              ; preds = %398, %403
+  %indvars.iv = phi i64 [ 0, %398 ], [ %indvars.iv.next, %403 ]
+  %404 = getelementptr [16 x i8], ptr %14, i64 0, i64 %indvars.iv
+  %405 = load i8, ptr %404, align 1
+  %406 = getelementptr [16 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %407 = load i8, ptr %406, align 1
+  %408 = xor i8 %407, %405
+  store i8 %408, ptr %406, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %405, label %399, !llvm.loop !12
+  br i1 %exitcond.not, label %409, label %403, !llvm.loop !12
 
-405:                                              ; preds = %399
-  %406 = load i32, ptr @proto_solaredge, align 4
-  %407 = call ptr @conversation_get_proto_data(ptr noundef %4, i32 noundef %406)
-  %408 = getelementptr inbounds nuw i8, ptr %407, i64 8
-  %409 = call i32 @gcry_cipher_open(ptr noundef nonnull %408, i32 noundef 7, i32 noundef 1, i32 noundef 0)
-  %.not120 = icmp eq i32 %409, 0
-  br i1 %.not120, label %410, label %416
+409:                                              ; preds = %403
+  %410 = load i32, ptr @proto_solaredge, align 4
+  %411 = call ptr @conversation_get_proto_data(ptr noundef %4, i32 noundef %410)
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 8
+  %413 = call i32 @gcry_cipher_open(ptr noundef nonnull %412, i32 noundef 7, i32 noundef 1, i32 noundef 0)
+  %.not120 = icmp eq i32 %413, 0
+  br i1 %.not120, label %414, label %420
 
-410:                                              ; preds = %405
-  %411 = load ptr, ptr %408, align 8
-  %412 = call i32 @gcry_cipher_setkey(ptr noundef %411, ptr noundef nonnull %13, i64 noundef 16)
-  %.not121 = icmp eq i32 %412, 0
-  br i1 %.not121, label %413, label %414
+414:                                              ; preds = %409
+  %415 = load ptr, ptr %412, align 8
+  %416 = call i32 @gcry_cipher_setkey(ptr noundef %415, ptr noundef nonnull %13, i64 noundef 16)
+  %.not121 = icmp eq i32 %416, 0
+  br i1 %.not121, label %417, label %418
 
-413:                                              ; preds = %410
-  store i8 1, ptr %407, align 8
-  br label %416
+417:                                              ; preds = %414
+  store i8 1, ptr %411, align 8
+  br label %420
 
-414:                                              ; preds = %410
-  %415 = load ptr, ptr %408, align 8
-  call void @gcry_cipher_close(ptr noundef %415)
-  br label %416
+418:                                              ; preds = %414
+  %419 = load ptr, ptr %412, align 8
+  call void @gcry_cipher_close(ptr noundef %419)
+  br label %420
 
-416:                                              ; preds = %405, %414, %413, %390
-  %.1 = phi i32 [ 20, %390 ], [ 52, %405 ], [ 52, %414 ], [ 52, %413 ]
-  %417 = load ptr, ptr @cipher_hd_system, align 8
-  call void @gcry_cipher_close(ptr noundef %417)
+420:                                              ; preds = %409, %418, %417, %394
+  %.1 = phi i32 [ 20, %394 ], [ 52, %409 ], [ 52, %418 ], [ 52, %417 ]
+  %421 = load ptr, ptr @cipher_hd_system, align 8
+  call void @gcry_cipher_close(ptr noundef %421)
   br label %dissect_solaredge_devicedata.exit
 
-418:                                              ; preds = %32
-  %419 = add nuw nsw i32 %28, 20
+422:                                              ; preds = %32
+  %423 = add nuw nsw i32 %28, 20
   br label %dissect_solaredge_devicedata.exit
 
-dissect_solaredge_devicedata.exit:                ; preds = %374, %378, %416, %386, %382, %418, %102
-  %.0113 = phi i32 [ %419, %418 ], [ %103, %102 ], [ 20, %378 ], [ %.1, %416 ], [ 20, %386 ], [ 20, %382 ], [ 20, %374 ]
+dissect_solaredge_devicedata.exit:                ; preds = %378, %382, %420, %390, %386, %422, %106
+  %.0113 = phi i32 [ %423, %422 ], [ %107, %106 ], [ 20, %382 ], [ %.1, %420 ], [ 20, %390 ], [ 20, %386 ], [ 20, %378 ]
   call void @decrement_dissection_depth(ptr noundef %1)
-  %420 = add nuw nsw i32 %28, 20
-  %421 = load i32, ptr @hf_solaredge_crc_type, align 4
-  %422 = load i32, ptr @hf_solaredge_crc_status_type, align 4
-  %423 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 20, i32 noundef %28)
+  %424 = add nuw nsw i32 %28, 20
+  %425 = load i32, ptr @hf_solaredge_crc_type, align 4
+  %426 = load i32, ptr @hf_solaredge_crc_status_type, align 4
+  %427 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 20, i32 noundef %28)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #8
   %rev.i = call i16 @llvm.bswap.i16(i16 %35)
   store i16 %rev.i, ptr %6, align 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  %424 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %38) #9, !srcloc !13
-  store i32 %424, ptr %7, align 4
+  %428 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %38) #9, !srcloc !13
+  store i32 %428, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  %425 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %41) #9, !srcloc !14
-  store i32 %425, ptr %8, align 4
+  %429 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %41) #9, !srcloc !14
+  store i32 %429, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #8
   %rev35.i = call i16 @llvm.bswap.i16(i16 %44)
   store i16 %rev35.i, ptr %9, align 2
-  %426 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext 23130, ptr noundef nonnull %6, i64 noundef 2)
-  %427 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %426, ptr noundef nonnull %7, i64 noundef 4)
-  %428 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %427, ptr noundef nonnull %8, i64 noundef 4)
-  %429 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %428, ptr noundef nonnull %9, i64 noundef 2)
-  %430 = zext i16 %23 to i64
-  %431 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %429, ptr noundef %423, i64 noundef %430)
+  %430 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext 23130, ptr noundef nonnull %6, i64 noundef 2)
+  %431 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %430, ptr noundef nonnull %7, i64 noundef 4)
+  %432 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %431, ptr noundef nonnull %8, i64 noundef 4)
+  %433 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %432, ptr noundef nonnull %9, i64 noundef 2)
+  %434 = zext i16 %23 to i64
+  %435 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %433, ptr noundef %427, i64 noundef %434)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #8
-  %432 = zext i16 %431 to i32
-  %433 = call ptr @proto_tree_add_checksum(ptr noundef %22, ptr noundef %0, i32 noundef %420, i32 noundef %421, i32 noundef %422, ptr noundef nonnull @ei_solaredge_invalid_crc, ptr noundef %1, i32 noundef %432, i32 noundef -2147483648, i32 noundef 1)
-  %434 = add nuw nsw i32 %.0113, 2
-  br label %435
+  %436 = zext i16 %435 to i32
+  %437 = call ptr @proto_tree_add_checksum(ptr noundef %22, ptr noundef %0, i32 noundef %424, i32 noundef %425, i32 noundef %426, ptr noundef nonnull @ei_solaredge_invalid_crc, ptr noundef %1, i32 noundef %436, i32 noundef -2147483648, i32 noundef 1)
+  %438 = add nuw nsw i32 %.0113, 2
+  br label %439
 
-435:                                              ; preds = %5, %dissect_solaredge_devicedata.exit
-  %.0 = phi i32 [ %434, %dissect_solaredge_devicedata.exit ], [ 0, %5 ]
+439:                                              ; preds = %5, %dissect_solaredge_devicedata.exit
+  %.0 = phi i32 [ %438, %dissect_solaredge_devicedata.exit ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8

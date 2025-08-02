@@ -3034,21 +3034,19 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_data(ptr noundef readonly cap
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 431872
   %27 = load i32, ptr %26, align 32
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 431876
-  %30 = load i32, ptr %29, align 4
-  %31 = sext i32 %30 to i64
-  %.idx = shl nsw i64 %28, 10
-  %.idx18 = shl nsw i64 %31, 4
-  %32 = getelementptr i8, ptr %25, i64 %.idx
-  %33 = getelementptr i8, ptr %32, i64 %.idx18
-  %34 = getelementptr i8, ptr %33, i64 8
-  %35 = load i64, ptr %34, align 8
-  store i64 %35, ptr %17, align 8
-  %36 = load i32, ptr %26, align 32
-  %37 = sext i32 %36 to i64
-  %38 = load i32, ptr %29, align 4
+  %29 = getelementptr inbounds [64 x [64 x %struct.TileBufferDec]], ptr %25, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 431876
+  %31 = load i32, ptr %30, align 4
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds [64 x %struct.TileBufferDec], ptr %29, i64 0, i64 %32, i32 1
+  %34 = load i64, ptr %33, align 8
+  store i64 %34, ptr %17, align 8
+  %35 = load i32, ptr %26, align 32
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds [64 x [64 x %struct.TileBufferDec]], ptr %25, i64 0, i64 %36
+  %38 = load i32, ptr %30, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [64 x [64 x %struct.TileBufferDec]], ptr %25, i64 0, i64 %37, i64 %39
+  %40 = getelementptr inbounds [64 x %struct.TileBufferDec], ptr %37, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 16
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %41, ptr %42, align 8

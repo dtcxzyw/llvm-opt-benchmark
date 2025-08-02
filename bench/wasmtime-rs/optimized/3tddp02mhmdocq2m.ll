@@ -695,10 +695,10 @@ define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr w
   invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he828f09ea8fbbd3fE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %68, ptr nonnull align 8 %72)
           to label %76 unwind label %74
 
-73:                                               ; preds = %378, %74
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %378 ], [ %75, %74 ]
+73:                                               ; preds = %377, %74
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %377 ], [ %75, %74 ]
   invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17hc373ccf807d99c22E"(ptr nonnull align 8 %69) #16
-          to label %376 unwind label %374
+          to label %375 unwind label %373
 
 74:                                               ; preds = %2
   %75 = landingpad { ptr, i32 }
@@ -714,10 +714,10 @@ define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr w
   invoke void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hd3df3dd5e801f645E"(ptr nonnull sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 %66)
           to label %82 unwind label %80
 
-79:                                               ; preds = %377, %80
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %377 ], [ %81, %80 ]
+79:                                               ; preds = %376, %80
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %376 ], [ %81, %80 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hc8584cd5ad91e300E"(ptr nonnull align 8 %67) #16
-          to label %378 unwind label %374
+          to label %377 unwind label %373
 
 80:                                               ; preds = %76
   %81 = landingpad { ptr, i32 }
@@ -736,7 +736,7 @@ define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr w
 85:                                               ; preds = %89, %86
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %87, %86 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..sema..Type$GT$$GT$17h5f7a723c20b3430fE"(ptr nonnull align 8 %65) #16
-          to label %377 unwind label %374
+          to label %376 unwind label %373
 
 86:                                               ; preds = %82
   %87 = landingpad { ptr, i32 }
@@ -751,7 +751,7 @@ define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr w
   %90 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr110drop_in_place$LT$cranelift_isle..StableMap$LT$cranelift_isle..sema..Sym$C$cranelift_isle..sema..TypeId$GT$$GT$17hc6163da3c1691f93E"(ptr nonnull align 8 %64) #16
-          to label %85 unwind label %374
+          to label %85 unwind label %373
 
 91:                                               ; preds = %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false)
@@ -781,13 +781,13 @@ define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr w
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit:                      ; preds = %343, %250, %242, %.noexc61, %.noexc60, %.noexc59, %238, %234, %232, %209, %344, %.backedge93
-  %lpad.loopexit90 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %343, %250, %242, %.noexc61, %.noexc60, %.noexc59, %238, %234, %232, %209, %344, %.backedge91
+  %lpad.loopexit88 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.backedge96, %354, %357, %360, %363, %364, %367, %372, %373, %345, %351, %.noexc71, %.noexc72, %.noexc73
-  %lpad.loopexit94 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.backedge94, %354, %357, %.critedge, %362, %363, %366, %371, %372, %345, %351, %.noexc71, %.noexc72, %.noexc73
+  %lpad.loopexit92 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -797,9 +797,9 @@ define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr w
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %252, %167
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %167 ], [ %.pn46.i, %252 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit90, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit94, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %167 ], [ %.pn46.i, %252 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit88, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit92, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$cranelift_isle..sema..TypeEnv$GT$17h15076797d719f66eE"(ptr nonnull align 8 %70) #16
-          to label %376 unwind label %374
+          to label %375 unwind label %373
 
 100:                                              ; preds = %91
   %101 = extractvalue { ptr, ptr } %99, 0
@@ -813,13 +813,13 @@ define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr w
   %107 = getelementptr inbounds nuw i8, ptr %70, i64 88
   %108 = getelementptr inbounds nuw i8, ptr %70, i64 80
   %109 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  br label %.backedge96
+  br label %.backedge94
 
-.backedge96:                                      ; preds = %.backedge96.backedge, %100
+.backedge94:                                      ; preds = %.backedge94.backedge, %100
   %110 = invoke align 16 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6132d389a4a6f5bcE"(ptr nonnull align 8 %62)
           to label %111 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-111:                                              ; preds = %.backedge96
+111:                                              ; preds = %.backedge94
   %112 = icmp eq ptr %110, null
   br i1 %112, label %113, label %115
 
@@ -830,10 +830,10 @@ define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr w
 115:                                              ; preds = %111
   %116 = load i64, ptr %110, align 16, !range !9, !noundef !4
   %117 = icmp eq i64 %116, 2
-  br i1 %117, label %345, label %.backedge96.backedge
+  br i1 %117, label %345, label %.backedge94.backedge
 
-.backedge96.backedge:                             ; preds = %115, %365, %373, %360
-  br label %.backedge96
+.backedge94.backedge:                             ; preds = %115, %364, %372, %.critedge
+  br label %.backedge94
 
 118:                                              ; preds = %113
   %119 = extractvalue { ptr, ptr } %114, 0
@@ -867,28 +867,28 @@ define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr w
   %145 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %146 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %147 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %.sroa.9.0..sroa_idx153 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %.sroa.9.0..sroa_idx151 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 24
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 32
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 40
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 48
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 56
-  %.sroa.15154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 72
+  %.sroa.15152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 72
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 73
-  br label %.backedge93
+  br label %.backedge91
 
-.backedge93:                                      ; preds = %.backedge93.backedge, %118
-  %.sroa.16.0 = phi i8 [ undef, %118 ], [ %.sroa.16.2, %.backedge93.backedge ]
-  %.sroa.15154.0 = phi i8 [ undef, %118 ], [ %.sroa.15154.2, %.backedge93.backedge ]
-  %.sroa.14.0 = phi i64 [ undef, %118 ], [ %.sroa.14.2, %.backedge93.backedge ]
-  %.sroa.12.0 = phi i64 [ undef, %118 ], [ %.sroa.12.2, %.backedge93.backedge ]
-  %.sroa.11.0 = phi i64 [ undef, %118 ], [ %.sroa.11.2, %.backedge93.backedge ]
-  %.sroa.10.0 = phi i64 [ undef, %118 ], [ %.sroa.10.2, %.backedge93.backedge ]
+.backedge91:                                      ; preds = %.backedge91.backedge, %118
+  %.sroa.16.0 = phi i8 [ undef, %118 ], [ %.sroa.16.2, %.backedge91.backedge ]
+  %.sroa.15152.0 = phi i8 [ undef, %118 ], [ %.sroa.15152.2, %.backedge91.backedge ]
+  %.sroa.14.0 = phi i64 [ undef, %118 ], [ %.sroa.14.2, %.backedge91.backedge ]
+  %.sroa.12.0 = phi i64 [ undef, %118 ], [ %.sroa.12.2, %.backedge91.backedge ]
+  %.sroa.11.0 = phi i64 [ undef, %118 ], [ %.sroa.11.2, %.backedge91.backedge ]
+  %.sroa.10.0 = phi i64 [ undef, %118 ], [ %.sroa.10.2, %.backedge91.backedge ]
   %148 = invoke align 16 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6132d389a4a6f5bcE"(ptr nonnull align 8 %52)
           to label %149 unwind label %.loopexit.split-lp.loopexit
 
-149:                                              ; preds = %.backedge93
+149:                                              ; preds = %.backedge91
   %150 = icmp eq ptr %148, null
   br i1 %150, label %151, label %153
 
@@ -899,7 +899,7 @@ define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr w
 153:                                              ; preds = %149
   %154 = load i64, ptr %148, align 16, !range !9, !noundef !4
   %155 = icmp eq i64 %154, 2
-  br i1 %155, label %209, label %.backedge93.backedge
+  br i1 %155, label %209, label %.backedge91.backedge
 
 156:                                              ; preds = %151
   %157 = extractvalue { ptr, ptr } %152, 0
@@ -1257,8 +1257,8 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   %261 = getelementptr inbounds nuw i8, ptr %148, i64 185
   %262 = load i8, ptr %261, align 1, !range !8, !noalias !14, !noundef !4
   %263 = getelementptr inbounds nuw i8, ptr %148, i64 152
-  %.sroa.0.0.copyload152 = load i64, ptr %39, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx153, i64 16, i1 false)
+  %.sroa.0.0.copyload150 = load i64, ptr %39, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx151, i64 16, i1 false)
   %.sroa.12.40.copyload = load i64, ptr %263, align 8
   %.sroa.14.40..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 160
   %.sroa.14.40.copyload = load i64, ptr %.sroa.14.40..sroa_idx, align 16
@@ -1589,12 +1589,12 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
 
 .noexc57:                                         ; preds = %250, %242, %232, %260, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i, %343
   %.sroa.16.1 = phi i8 [ %262, %260 ], [ %.sroa.16.0, %343 ], [ %.sroa.16.0, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.16.0, %232 ], [ %.sroa.16.0, %242 ], [ %.sroa.16.0, %250 ]
-  %.sroa.15154.1 = phi i8 [ %226, %260 ], [ %.sroa.15154.0, %343 ], [ %.sroa.15154.0, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.15154.0, %232 ], [ %.sroa.15154.0, %242 ], [ %.sroa.15154.0, %250 ]
+  %.sroa.15152.1 = phi i8 [ %226, %260 ], [ %.sroa.15152.0, %343 ], [ %.sroa.15152.0, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.15152.0, %232 ], [ %.sroa.15152.0, %242 ], [ %.sroa.15152.0, %250 ]
   %.sroa.14.1 = phi i64 [ %.sroa.14.40.copyload, %260 ], [ %.sroa.14.0, %343 ], [ %.0.i.i, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.14.0, %232 ], [ %.sroa.14.0, %242 ], [ %.sroa.14.0, %250 ]
   %.sroa.12.1 = phi i64 [ %.sroa.12.40.copyload, %260 ], [ %.sroa.12.0, %343 ], [ %210, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.12.0, %232 ], [ %.sroa.12.0, %242 ], [ %.sroa.12.0, %250 ]
   %.sroa.11.1 = phi i64 [ %210, %260 ], [ %.sroa.11.0, %343 ], [ %.sroa.11.8.copyload, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.11.0, %232 ], [ %.sroa.11.0, %242 ], [ %.sroa.11.0, %250 ]
   %.sroa.10.1 = phi i64 [ %216, %260 ], [ %.sroa.10.0, %343 ], [ %.sroa.10.8.copyload, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.10.0, %232 ], [ %.sroa.10.0, %242 ], [ %.sroa.10.0, %250 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload152, %260 ], [ -9223372036854775807, %343 ], [ -9223372036854775808, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ -9223372036854775807, %232 ], [ -9223372036854775807, %242 ], [ -9223372036854775807, %250 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload150, %260 ], [ -9223372036854775807, %343 ], [ -9223372036854775808, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ -9223372036854775807, %232 ], [ -9223372036854775807, %242 ], [ -9223372036854775807, %250 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
@@ -1625,7 +1625,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
   %.not44 = icmp eq i64 %.sroa.0.0, -9223372036854775807
-  br i1 %.not44, label %.backedge93.backedge, label %344
+  br i1 %.not44, label %.backedge91.backedge, label %344
 
 344:                                              ; preds = %.noexc57
   store i64 %.sroa.0.0, ptr %51, align 8
@@ -1635,19 +1635,19 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   store i64 %.sroa.12.1, ptr %.sroa.12.0..sroa_idx, align 8
   store i64 %.sroa.14.1, ptr %.sroa.14.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15, i64 16, i1 false)
-  store i8 %.sroa.15154.1, ptr %.sroa.15154.0..sroa_idx, align 8
+  store i8 %.sroa.15152.1, ptr %.sroa.15152.0..sroa_idx, align 8
   store i8 %.sroa.16.1, ptr %.sroa.16.0..sroa_idx, align 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8ee9c068f8f4f3aeE"(ptr nonnull align 8 %95, ptr nonnull align 8 %51)
-          to label %.backedge93.backedge unwind label %.loopexit.split-lp.loopexit
+          to label %.backedge91.backedge unwind label %.loopexit.split-lp.loopexit
 
-.backedge93.backedge:                             ; preds = %344, %.noexc57, %153
+.backedge91.backedge:                             ; preds = %344, %.noexc57, %153
   %.sroa.16.2 = phi i8 [ %.sroa.16.1, %.noexc57 ], [ %.sroa.16.1, %344 ], [ %.sroa.16.0, %153 ]
-  %.sroa.15154.2 = phi i8 [ %.sroa.15154.1, %.noexc57 ], [ %.sroa.15154.1, %344 ], [ %.sroa.15154.0, %153 ]
+  %.sroa.15152.2 = phi i8 [ %.sroa.15152.1, %.noexc57 ], [ %.sroa.15152.1, %344 ], [ %.sroa.15152.0, %153 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.1, %.noexc57 ], [ %.sroa.14.1, %344 ], [ %.sroa.14.0, %153 ]
   %.sroa.12.2 = phi i64 [ %.sroa.12.1, %.noexc57 ], [ %.sroa.12.1, %344 ], [ %.sroa.12.0, %153 ]
   %.sroa.11.2 = phi i64 [ %.sroa.11.1, %.noexc57 ], [ %.sroa.11.1, %344 ], [ %.sroa.11.0, %153 ]
   %.sroa.10.2 = phi i64 [ %.sroa.10.1, %.noexc57 ], [ %.sroa.10.1, %344 ], [ %.sroa.10.0, %153 ]
-  br label %.backedge93
+  br label %.backedge91
 
 345:                                              ; preds = %115
   %346 = load i64, ptr %104, align 8, !noundef !4
@@ -1692,7 +1692,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
 
 356:                                              ; preds = %354
   %.not = icmp eq ptr %355, null
-  br i1 %.not, label %360, label %357
+  br i1 %.not, label %.critedge, label %357
 
 357:                                              ; preds = %356
   %358 = load i64, ptr %355, align 8, !noundef !4
@@ -1701,64 +1701,64 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   store ptr %347, ptr %57, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17hfd92b114c250e98cE", ptr %106, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %58, ptr nonnull align 8 @anon.5e57fe82ff1aab3e07530ed2abc6b869.15, i64 2, ptr nonnull align 8 %57, i64 1)
+          to label %362 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+
+.critedge:                                        ; preds = %356
+  %360 = load i64, ptr %61, align 8, !noundef !4
+  %361 = invoke { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8e19088105f449a8E"(ptr nonnull align 8 %96, i64 %360, i64 %346)
+          to label %.backedge94.backedge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+
+362:                                              ; preds = %357
+  invoke void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %59, ptr nonnull align 8 %58)
           to label %363 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-360:                                              ; preds = %356
-  %361 = load i64, ptr %61, align 8, !noundef !4
-  %362 = invoke { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8e19088105f449a8E"(ptr nonnull align 8 %96, i64 %361, i64 %346)
-          to label %.backedge96.backedge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
-
-363:                                              ; preds = %357
-  invoke void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %59, ptr nonnull align 8 %58)
+363:                                              ; preds = %362
+  invoke void @_ZN14cranelift_isle4sema7TypeEnv12report_error17hc627d80067833dd6E(ptr nonnull align 8 %70, ptr nonnull align 8 %60, ptr nonnull align 8 %59)
           to label %364 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 364:                                              ; preds = %363
-  invoke void @_ZN14cranelift_isle4sema7TypeEnv12report_error17hc627d80067833dd6E(ptr nonnull align 8 %70, ptr nonnull align 8 %60, ptr nonnull align 8 %59)
-          to label %365 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+  %365 = load i64, ptr %107, align 8, !noundef !4
+  %.not87 = icmp ult i64 %358, %365
+  br i1 %.not87, label %366, label %.backedge94.backedge
 
-365:                                              ; preds = %364
-  %366 = load i64, ptr %107, align 8, !noundef !4
-  %.not89 = icmp ult i64 %358, %366
-  br i1 %.not89, label %367, label %.backedge96.backedge
-
-367:                                              ; preds = %365
-  %368 = load ptr, ptr %108, align 8, !nonnull !4, !noundef !4
-  %369 = getelementptr inbounds { i64, [9 x i64] }, ptr %368, i64 %358
-  %370 = load i64, ptr %369, align 8, !range !3, !noundef !4
-  %371 = icmp eq i64 %370, -9223372036854775808
-  %.0.v.i = select i1 %371, i64 8, i64 40
-  %.0.i76 = getelementptr inbounds nuw i8, ptr %369, i64 %.0.v.i
+366:                                              ; preds = %364
+  %367 = load ptr, ptr %108, align 8, !nonnull !4, !noundef !4
+  %368 = getelementptr inbounds { i64, [9 x i64] }, ptr %367, i64 %358
+  %369 = load i64, ptr %368, align 8, !range !3, !noundef !4
+  %370 = icmp eq i64 %369, -9223372036854775808
+  %.0.v.i = select i1 %370, i64 8, i64 40
+  %.0.i76 = getelementptr inbounds nuw i8, ptr %368, i64 %.0.v.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull readonly align 8 dereferenceable(32) %.0.i76, i64 32, i1 false)
   store ptr %347, ptr %53, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17hfd92b114c250e98cE", ptr %109, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %54, ptr nonnull align 8 @anon.5e57fe82ff1aab3e07530ed2abc6b869.17, i64 2, ptr nonnull align 8 %53, i64 1)
+          to label %371 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+
+371:                                              ; preds = %366
+  invoke void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %55, ptr nonnull align 8 %54)
           to label %372 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-372:                                              ; preds = %367
-  invoke void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %55, ptr nonnull align 8 %54)
-          to label %373 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
-
-373:                                              ; preds = %372
+372:                                              ; preds = %371
   invoke void @_ZN14cranelift_isle4sema7TypeEnv12report_error17hc627d80067833dd6E(ptr nonnull align 8 %70, ptr nonnull align 8 %56, ptr nonnull align 8 %55)
-          to label %.backedge96.backedge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.backedge94.backedge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-374:                                              ; preds = %378, %377, %.body, %89, %85, %79, %73
-  %375 = landingpad { ptr, i32 }
+373:                                              ; preds = %377, %376, %.body, %89, %85, %79, %73
+  %374 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #17
   unreachable
 
-376:                                              ; preds = %.body, %73
+375:                                              ; preds = %.body, %73
   %.pn45 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn.pn.pn, %73 ]
   resume { ptr, i32 } %.pn45
 
-377:                                              ; preds = %85
+376:                                              ; preds = %85
   invoke void @"_ZN4core3ptr103drop_in_place$LT$cranelift_isle..StableMap$LT$alloc..string..String$C$cranelift_isle..sema..Sym$GT$$GT$17hb8fe7d6125beca59E"(ptr nonnull align 8 %66) #16
-          to label %79 unwind label %374
+          to label %79 unwind label %373
 
-378:                                              ; preds = %79
+377:                                              ; preds = %79
   invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17hc373ccf807d99c22E"(ptr nonnull align 8 %68) #16
-          to label %73 unwind label %374
+          to label %73 unwind label %373
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2239,7 +2239,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
           to label %.noexc80 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %.noexc77, %335, %.noexc91, %406, %814, %777, %1001
-  %246 = phi i64 [ %1002, %1001 ], [ %778, %777 ], [ %815, %814 ], [ %407, %406 ], [ %.sroa.01.046.i, %.noexc91 ], [ %336, %335 ], [ %237, %.noexc77 ]
+  %246 = phi i64 [ %1002, %1001 ], [ %778, %777 ], [ %815, %814 ], [ %407, %406 ], [ %.sroa.01.044.i, %.noexc91 ], [ %336, %335 ], [ %237, %.noexc77 ]
   %247 = phi i64 [ %1003, %1001 ], [ %779, %777 ], [ %816, %814 ], [ %408, %406 ], [ %304, %.noexc91 ], [ %337, %335 ], [ %238, %.noexc77 ]
   %248 = phi ptr [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.102, %1001 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.81, %777 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.90, %814 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.52, %406 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.46, %.noexc91 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.47, %335 ], [ @anon.5e57fe82ff1aab3e07530ed2abc6b869.39, %.noexc77 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %246, i64 %247, ptr nonnull align 8 %248) #15
@@ -2405,10 +2405,10 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %150)
   %289 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %290 = load i64, ptr %289, align 8, !noundef !4
-  %.not45.not.i = icmp eq i64 %290, 0
-  br i1 %.not45.not.i, label %.loopexit341, label %.lr.ph47.i
+  %.not43.not.i = icmp eq i64 %290, 0
+  br i1 %.not43.not.i, label %.loopexit341, label %.lr.ph45.i
 
-.lr.ph47.i:                                       ; preds = %.loopexit344
+.lr.ph45.i:                                       ; preds = %.loopexit344
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %292 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %293 = getelementptr inbounds nuw i8, ptr %181, i64 16
@@ -2423,19 +2423,19 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   %301 = getelementptr inbounds nuw i8, ptr %145, i64 8
   br label %302
 
-302:                                              ; preds = %.backedge.i89, %.lr.ph47.i
-  %.sroa.01.046.i = phi i64 [ 0, %.lr.ph47.i ], [ %303, %.backedge.i89 ]
-  %303 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %.sroa.01.046.i, i64 1)
+302:                                              ; preds = %.backedge.i89, %.lr.ph45.i
+  %.sroa.01.044.i = phi i64 [ 0, %.lr.ph45.i ], [ %303, %.backedge.i89 ]
+  %303 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %.sroa.01.044.i, i64 1)
           to label %.noexc91 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc91:                                         ; preds = %302
   %304 = load i64, ptr %289, align 8, !noundef !4
-  %305 = icmp ult i64 %.sroa.01.046.i, %304
+  %305 = icmp ult i64 %.sroa.01.044.i, %304
   br i1 %305, label %306, label %.invoke, !prof !5
 
 306:                                              ; preds = %.noexc91
   %307 = load ptr, ptr %291, align 8, !nonnull !4, !noundef !4
-  %308 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %307, i64 0, i64 %.sroa.01.046.i
+  %308 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %307, i64 0, i64 %.sroa.01.044.i
   %309 = load i64, ptr %308, align 8, !range !3, !noundef !4
   %.not32.i = icmp eq i64 %309, -9223372036854775808
   br i1 %.not32.i, label %.backedge.i89, label %310

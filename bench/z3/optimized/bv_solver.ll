@@ -1237,7 +1237,7 @@ define hidden noundef zeroext i1 @_ZNK2bv6solver15get_fixed_valueEiR8rational(pt
   %12 = getelementptr inbounds nuw %class.svector.3, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !133
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.critedge, label %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
+  br i1 %14, label %.critedge24, label %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
 
 _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %3
   %15 = getelementptr inbounds i8, ptr %13, i64 -4
@@ -1245,8 +1245,8 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %3
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 2
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 %18
-  %.not29 = icmp eq i32 %16, 0
-  br i1 %.not29, label %.critedge, label %.lr.ph
+  %.not28 = icmp eq i32 %16, 0
+  br i1 %.not28, label %.critedge24, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 556
@@ -1254,9 +1254,9 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %3
   br label %22
 
 22:                                               ; preds = %.lr.ph, %39
-  %.01831 = phi i32 [ 0, %.lr.ph ], [ %40, %39 ]
-  %.02230 = phi ptr [ %13, %.lr.ph ], [ %41, %39 ]
-  %23 = load i32, ptr %.02230, align 4, !tbaa !58
+  %.01830 = phi i32 [ 0, %.lr.ph ], [ %40, %39 ]
+  %.02229 = phi ptr [ %13, %.lr.ph ], [ %41, %39 ]
+  %23 = load i32, ptr %.02229, align 4, !tbaa !58
   %.sroa.02.0.copyload = load i32, ptr %20, align 4, !tbaa !58
   %24 = xor i32 %.sroa.02.0.copyload, %23
   %25 = icmp eq i32 %24, 1
@@ -1277,22 +1277,22 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %3
   %36 = load i32, ptr %35, align 4, !tbaa !157
   switch i32 %36, label %39 [
     i32 1, label %.sink.split
-    i32 0, label %.critedge
+    i32 0, label %.critedge24
   ]
 
 .sink.split:                                      ; preds = %28, %26
-  %37 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2bv6solver6power2Ej(ptr noundef nonnull align 8 dereferenceable(640) %0, i32 noundef %.01831)
+  %37 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2bv6solver6power2Ej(ptr noundef nonnull align 8 dereferenceable(640) %0, i32 noundef %.01830)
   %38 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !135
   tail call void @_ZN11mpq_managerILb1EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br label %39
 
-39:                                               ; preds = %.sink.split, %22, %28
-  %40 = add i32 %.01831, 1
-  %41 = getelementptr inbounds nuw i8, ptr %.02230, i64 4
+39:                                               ; preds = %.sink.split, %28, %22
+  %40 = add i32 %.01830, 1
+  %41 = getelementptr inbounds nuw i8, ptr %.02229, i64 4
   %.not = icmp eq ptr %41, %19
-  br i1 %.not, label %.critedge, label %22
+  br i1 %.not, label %.critedge24, label %22
 
-.critedge:                                        ; preds = %39, %28, %3, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
+.critedge24:                                      ; preds = %39, %28, %3, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
   %.not.lcssa = phi i1 [ true, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ true, %3 ], [ false, %28 ], [ true, %39 ]
   ret i1 %.not.lcssa
 }

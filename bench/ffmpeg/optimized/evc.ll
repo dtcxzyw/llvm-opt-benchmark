@@ -60,18 +60,18 @@ define range(i32 -2147483648, 1) i32 @ff_isom_write_evcc(ptr noundef %0, ptr nou
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 14
   br label %24
 
-24:                                               ; preds = %.lr.ph, %evcc_parse_sps.exit
-  %.04778 = phi i32 [ %2, %.lr.ph ], [ %527, %evcc_parse_sps.exit ]
-  %.04977 = phi ptr [ %1, %.lr.ph ], [ %526, %evcc_parse_sps.exit ]
-  %.049.val = load i32, ptr %.04977, align 1, !tbaa !4
+24:                                               ; preds = %.lr.ph, %.critedge
+  %.04775 = phi i32 [ %2, %.lr.ph ], [ %527, %.critedge ]
+  %.04974 = phi ptr [ %1, %.lr.ph ], [ %526, %.critedge ]
+  %.049.val = load i32, ptr %.04974, align 1, !tbaa !4
   %25 = call i32 @llvm.bswap.i32(i32 %.049.val)
   %26 = zext i32 %25 to i64
   %27 = icmp eq i32 %.049.val, 0
   br i1 %27, label %._crit_edge, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %.04977, i64 4
-  %30 = add nsw i32 %.04778, -4
+  %29 = getelementptr inbounds nuw i8, ptr %.04974, i64 4
+  %30 = add nsw i32 %.04775, -4
   %31 = icmp ult i32 %30, %25
   br i1 %31, label %._crit_edge, label %32
 
@@ -97,7 +97,7 @@ evc_get_nalu_type.exit:                           ; preds = %34
   %switch.shifted = lshr i8 23, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %41, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %evcc_parse_sps.exit
+  br i1 %or.cond, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %40
   %42 = zext nneg i8 %switch.tableidx to i64
@@ -155,10 +155,10 @@ evcc_array_add_nal_unit.exit:                     ; preds = %67, %56
 
 72:                                               ; preds = %69, %evcc_array_add_nal_unit.exit
   %73 = icmp eq i32 %38, 24
-  br i1 %73, label %74, label %evcc_parse_sps.exit
+  br i1 %73, label %74, label %.critedge
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw i8, ptr %.04977, i64 6
+  %75 = getelementptr inbounds nuw i8, ptr %.04974, i64 6
   %76 = add nsw i32 %25, -2
   %or.cond.i.i = icmp ugt i32 %76, 268435455
   %77 = shl nuw nsw i32 %76, 3
@@ -374,8 +374,8 @@ get_ue_golomb_long.exit38.thread.i:               ; preds = %135
 
 241:                                              ; preds = %232
   %242 = lshr i32 %240, %226
-  %reass.sub81 = sub nsw i32 %231, %226
-  %243 = add nsw i32 %reass.sub81, 32
+  %reass.sub78 = sub nsw i32 %231, %226
+  %243 = add nsw i32 %reass.sub78, 32
   %244 = call i32 @llvm.umin.i32(i32 %79, i32 %243)
   br label %get_ue_golomb_long.exit38.i
 
@@ -466,8 +466,8 @@ get_ue_golomb_long.exit38.i:                      ; preds = %245, %241
 
 308:                                              ; preds = %299
   %309 = lshr i32 %307, %293
-  %reass.sub82 = sub nsw i32 %298, %293
-  %310 = add nsw i32 %reass.sub82, 32
+  %reass.sub79 = sub nsw i32 %298, %293
+  %310 = add nsw i32 %reass.sub79, 32
   %311 = call i32 @llvm.umin.i32(i32 %79, i32 %310)
   br label %get_ue_golomb_long.exit55.i
 
@@ -553,8 +553,8 @@ get_ue_golomb_long.exit55.i:                      ; preds = %312, %308, %266
 
 373:                                              ; preds = %364
   %374 = lshr i32 %372, %358
-  %reass.sub83 = sub i32 %363, %358
-  %375 = add i32 %reass.sub83, 32
+  %reass.sub80 = sub i32 %363, %358
+  %375 = add i32 %reass.sub80, 32
   %376 = call i32 @llvm.umin.i32(i32 %79, i32 %375)
   br label %get_ue_golomb_long.exit72.i
 
@@ -640,8 +640,8 @@ get_ue_golomb_long.exit72.i:                      ; preds = %377, %373, %get_ue_
 
 438:                                              ; preds = %429
   %439 = lshr i32 %437, %423
-  %reass.sub84 = sub i32 %428, %423
-  %440 = add i32 %reass.sub84, 32
+  %reass.sub81 = sub i32 %428, %423
+  %440 = add i32 %reass.sub81, 32
   %441 = call i32 @llvm.umin.i32(i32 %79, i32 %440)
   br label %get_ue_golomb_long.exit89.i
 
@@ -760,15 +760,15 @@ get_ue_golomb_long.exit106.i:                     ; preds = %505, %503
   %524 = and i32 %521, 255
   %525 = icmp samesign ugt i32 %524, 6
   %or.cond.i58 = select i1 %523, i1 true, i1 %525
-  br i1 %or.cond.i58, label %evcc_write.exit, label %evcc_parse_sps.exit
+  br i1 %or.cond.i58, label %evcc_write.exit, label %.critedge
 
-evcc_parse_sps.exit:                              ; preds = %40, %get_ue_golomb_long.exit106.i, %72
+.critedge:                                        ; preds = %40, %get_ue_golomb_long.exit106.i, %72
   %526 = getelementptr inbounds nuw i8, ptr %29, i64 %26
   %527 = sub nsw i32 %30, %25
   %528 = icmp sgt i32 %527, 4
   br i1 %528, label %24, label %._crit_edge, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %evcc_parse_sps.exit, %24, %28
+._crit_edge:                                      ; preds = %.critedge, %24, %28
   %.pre = load i8, ptr %5, align 8, !tbaa !7
   %529 = zext i8 %.pre to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 56, ptr noundef nonnull @.str, i32 noundef %529) #5

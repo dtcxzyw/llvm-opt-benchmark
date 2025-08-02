@@ -285,7 +285,7 @@ define internal i32 @DOTypeNameCompare(ptr noundef readonly captures(none) %0, p
 define dso_local void @sortDumpableObjects(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = icmp slt i32 %1, 1
-  br i1 %6, label %845, label %7
+  br i1 %6, label %848, label %7
 
 7:                                                ; preds = %4
   store i32 %3, ptr @postDataBoundId, align 4
@@ -450,7 +450,7 @@ define dso_local void @sortDumpableObjects(ptr noundef captures(none) %0, i32 no
 
 ._crit_edge100.i:                                 ; preds = %.loopexit.i
   %95 = icmp eq i32 %70, 0
-  br i1 %95, label %TopoSort.exit, label %.preheader.i
+  br i1 %95, label %.critedge, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge100.i, %62
   %smax.i = call i32 @llvm.smax.i32(i32 %14, i32 2)
@@ -481,47 +481,42 @@ define dso_local void @sortDumpableObjects(ptr noundef captures(none) %0, i32 no
   %.2.i = phi i32 [ %104, %98 ], [ %.1103.i, %.lr.ph104.i ]
   %indvars.iv.next123.i = add nuw nsw i64 %indvars.iv122.i, 1
   %exitcond126.i = icmp eq i64 %indvars.iv.next123.i, %wide.trip.count125.i
-  br i1 %exitcond126.i, label %TopoSort.exit, label %.lr.ph104.i, !llvm.loop !11
+  br i1 %exitcond126.i, label %TopoSort.exit.loopexit, label %.lr.ph104.i, !llvm.loop !11
 
-TopoSort.exit:                                    ; preds = %107, %._crit_edge100.i
-  %.0 = phi i32 [ %1, %._crit_edge100.i ], [ %.2.i, %107 ]
-  %.278.lcssa129.i = phi i1 [ true, %._crit_edge100.i ], [ false, %107 ]
+TopoSort.exit.loopexit:                           ; preds = %107
   call void @binaryheap_free(ptr noundef nonnull %13) #9
-  call void @free(ptr noundef %17) #9
+  call void @free(ptr noundef nonnull %17) #9
   call void @free(ptr noundef %18) #9
-  br i1 %.278.lcssa129.i, label %844, label %108
+  %108 = call i32 @getMaxDumpId() #9
+  %109 = add i32 %108, 1
+  %110 = sext i32 %109 to i64
+  %111 = call ptr @pg_malloc0(i64 noundef %110) #9
+  %112 = call i32 @getMaxDumpId() #9
+  %113 = add i32 %112, 1
+  %114 = sext i32 %113 to i64
+  %115 = shl nsw i64 %114, 2
+  %116 = call ptr @pg_malloc0(i64 noundef %115) #9
+  %117 = call ptr @pg_malloc(i64 noundef %9) #9
+  %118 = icmp sgt i32 %.2.i, 0
+  br i1 %118, label %.lr.ph69.i, label %.critedge.i
 
-108:                                              ; preds = %TopoSort.exit
-  %109 = call i32 @getMaxDumpId() #9
-  %110 = add i32 %109, 1
-  %111 = sext i32 %110 to i64
-  %112 = call ptr @pg_malloc0(i64 noundef %111) #9
-  %113 = call i32 @getMaxDumpId() #9
-  %114 = add i32 %113, 1
-  %115 = sext i32 %114 to i64
-  %116 = shl nsw i64 %115, 2
-  %117 = call ptr @pg_malloc0(i64 noundef %116) #9
-  %118 = call ptr @pg_malloc(i64 noundef %9) #9
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %119 = icmp sgt i32 %.0, 0
-  br i1 %119, label %.lr.ph71.i, label %.critedge.i
-
-.lr.ph71.i:                                       ; preds = %108
-  %wide.trip.count96.i = zext nneg i32 %.0 to i64
+.lr.ph69.i:                                       ; preds = %TopoSort.exit.loopexit
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %wide.trip.count94.i = zext nneg i32 %.2.i to i64
   br label %.outer.i
 
-.outer.i:                                         ; preds = %.loopexit.thread.i, %.lr.ph71.i
-  %indvars.iv94.ph.i = phi i64 [ %indvars.iv.next95108.i, %.loopexit.thread.i ], [ 0, %.lr.ph71.i ]
-  %.02570.ph.i = phi i1 [ true, %.loopexit.thread.i ], [ false, %.lr.ph71.i ]
+.outer.i:                                         ; preds = %.loopexit.thread.i, %.lr.ph69.i
+  %indvars.iv92.ph.i = phi i64 [ %indvars.iv.next93106.i, %.loopexit.thread.i ], [ 0, %.lr.ph69.i ]
+  %.02568.ph.i = phi i1 [ true, %.loopexit.thread.i ], [ false, %.lr.ph69.i ]
   br label %120
 
 120:                                              ; preds = %.loopexit.i12, %.outer.i
-  %indvars.iv94.i = phi i64 [ %indvars.iv.next95.i, %.loopexit.i12 ], [ %indvars.iv94.ph.i, %.outer.i ]
-  %121 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv94.i
+  %indvars.iv92.i = phi i64 [ %indvars.iv.next93.i, %.loopexit.i12 ], [ %indvars.iv92.ph.i, %.outer.i ]
+  %121 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv92.i
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 12
   %124 = load i32, ptr %123, align 4
-  %125 = call fastcc i32 @findLoop(ptr noundef %122, i32 noundef %124, ptr noundef %112, ptr noundef %117, ptr noundef %118, i32 noundef 0)
+  %125 = call fastcc i32 @findLoop(ptr noundef %122, i32 noundef %124, ptr noundef %111, ptr noundef %116, ptr noundef %117, i32 noundef 0)
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %127, label %.loopexit.i12
 
@@ -530,17 +525,17 @@ TopoSort.exit:                                    ; preds = %107, %._crit_edge10
   br i1 %.not356.not.i.i, label %128, label %.critedge273.i.i
 
 128:                                              ; preds = %127
-  %129 = load ptr, ptr %118, align 8
+  %129 = load ptr, ptr %117, align 8
   %130 = load i32, ptr %129, align 8
   %131 = icmp eq i32 %130, 2
-  %132 = load ptr, ptr %invariant.gep.i, align 8
+  %132 = load ptr, ptr %119, align 8
   %133 = load i32, ptr %132, align 8
   br i1 %131, label %134, label %149
 
 134:                                              ; preds = %128
   switch i32 %133, label %.critedge283.thread.thread.i.i [
     i32 4, label %135
-    i32 20, label %382
+    i32 20, label %386
   ]
 
 135:                                              ; preds = %134
@@ -685,7 +680,7 @@ TopoSort.exit:                                    ; preds = %107, %._crit_edge10
 
 .preheader325.i.i:                                ; preds = %.loopexit324.i.i, %.preheader325.preheader.i.i
   %indvars.iv383.i.i = phi i64 [ 0, %.preheader325.preheader.i.i ], [ %indvars.iv.next384.i.i, %.loopexit324.i.i ]
-  %205 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv383.i.i
+  %205 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv383.i.i
   %206 = load ptr, ptr %205, align 8
   %207 = load i32, ptr %206, align 8
   %208 = icmp eq i32 %207, 12
@@ -699,7 +694,7 @@ TopoSort.exit:                                    ; preds = %107, %._crit_edge10
 
 .preheader323.i.i:                                ; preds = %209, %237
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %237 ], [ 0, %209 ]
-  %213 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv.i.i
+  %213 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i.i
   %214 = load ptr, ptr %213, align 8
   %215 = load i32, ptr %214, align 8
   %216 = icmp eq i32 %215, 18
@@ -750,7 +745,7 @@ TopoSort.exit:                                    ; preds = %107, %._crit_edge10
 
 .preheader322.i.i:                                ; preds = %.loopexit324.i.i, %.loopexit321.i.i
   %indvars.iv393.i.i = phi i64 [ %indvars.iv.next394.i.i, %.loopexit321.i.i ], [ 0, %.loopexit324.i.i ]
-  %238 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv393.i.i
+  %238 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv393.i.i
   %239 = load ptr, ptr %238, align 8
   %240 = load i32, ptr %239, align 8
   %241 = icmp eq i32 %240, 12
@@ -762,1061 +757,1066 @@ TopoSort.exit:                                    ; preds = %107, %._crit_edge10
   %245 = icmp eq i8 %244, 109
   br i1 %245, label %.preheader320.i.i, label %.loopexit321.i.i
 
-.preheader320.i.i:                                ; preds = %242, %265
-  %indvars.iv388.i.i = phi i64 [ %indvars.iv.next389.i.i, %265 ], [ 0, %242 ]
-  %246 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv388.i.i
+.preheader320.i.i:                                ; preds = %242, %267
+  %indvars.iv388.i.i = phi i64 [ %indvars.iv.next389.i.i, %267 ], [ 0, %242 ]
+  %246 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv388.i.i
   %247 = load ptr, ptr %246, align 8
   %248 = load i32, ptr %247, align 8
   %249 = icmp eq i32 %248, 37
-  br i1 %249, label %250, label %265
+  br i1 %249, label %250, label %267
 
 250:                                              ; preds = %.preheader320.i.i
-  %251 = trunc nuw nsw i64 %indvars.iv388.i.i to i32
-  %252 = add nsw i32 %125, -1
-  %253 = icmp sgt i32 %252, %251
-  %gep68.i = getelementptr inbounds nuw ptr, ptr %invariant.gep.i, i64 %indvars.iv388.i.i
-  %.in271.i.i = select i1 %253, ptr %gep68.i, ptr %118
-  %254 = load ptr, ptr %.in271.i.i, align 8
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 12
-  %256 = load i32, ptr %255, align 4
-  call void @removeObjectDependency(ptr noundef nonnull %247, i32 noundef %256) #9
-  %257 = load i32, ptr %254, align 8
-  %258 = icmp eq i32 %257, 12
-  br i1 %258, label %259, label %.lr.ph.preheader.i
+  %251 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv388.i.i
+  %252 = trunc nuw nsw i64 %indvars.iv388.i.i to i32
+  %253 = add nsw i32 %125, -1
+  %254 = icmp sgt i32 %253, %252
+  %255 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %.in271.i.i = select i1 %254, ptr %255, ptr %117
+  %256 = load ptr, ptr %.in271.i.i, align 8
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 12
+  %258 = load i32, ptr %257, align 4
+  call void @removeObjectDependency(ptr noundef nonnull %247, i32 noundef %258) #9
+  %259 = load i32, ptr %256, align 8
+  %260 = icmp eq i32 %259, 12
+  br i1 %260, label %261, label %.lr.ph.preheader.i
 
-259:                                              ; preds = %250
-  %260 = getelementptr inbounds nuw i8, ptr %254, i64 104
-  %261 = load i8, ptr %260, align 8
-  %262 = icmp eq i8 %261, 109
-  br i1 %262, label %263, label %.lr.ph.preheader.i
+261:                                              ; preds = %250
+  %262 = getelementptr inbounds nuw i8, ptr %256, i64 104
+  %263 = load i8, ptr %262, align 8
+  %264 = icmp eq i8 %263, 109
+  br i1 %264, label %265, label %.lr.ph.preheader.i
 
-263:                                              ; preds = %259
-  %264 = getelementptr inbounds nuw i8, ptr %254, i64 210
-  store i8 1, ptr %264, align 2
+265:                                              ; preds = %261
+  %266 = getelementptr inbounds nuw i8, ptr %256, i64 210
+  store i8 1, ptr %266, align 2
   br label %.lr.ph.preheader.i
 
-265:                                              ; preds = %.preheader320.i.i
+267:                                              ; preds = %.preheader320.i.i
   %indvars.iv.next389.i.i = add nuw nsw i64 %indvars.iv388.i.i, 1
   %exitcond392.not.i.i = icmp eq i64 %indvars.iv.next389.i.i, %wide.trip.count386.i.i
   br i1 %exitcond392.not.i.i, label %.loopexit321.i.i, label %.preheader320.i.i, !llvm.loop !16
 
-.loopexit321.i.i:                                 ; preds = %265, %242, %.preheader322.i.i
+.loopexit321.i.i:                                 ; preds = %267, %242, %.preheader322.i.i
   %indvars.iv.next394.i.i = add nuw nsw i64 %indvars.iv393.i.i, 1
   %exitcond397.not.i.i = icmp eq i64 %indvars.iv.next394.i.i, %wide.trip.count386.i.i
   br i1 %exitcond397.not.i.i, label %.critedge275.preheader.i.i, label %.preheader322.i.i, !llvm.loop !17
 
 .critedge275.preheader.i.i:                       ; preds = %.loopexit321.i.i, %.critedge275.i.i
   %indvars.iv403.i.i = phi i64 [ %indvars.iv.next404.i.i, %.critedge275.i.i ], [ 0, %.loopexit321.i.i ]
-  %266 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv403.i.i
-  %267 = load ptr, ptr %266, align 8
-  %268 = load i32, ptr %267, align 8
-  %269 = icmp eq i32 %268, 4
-  br i1 %269, label %.preheader318.i.i, label %.critedge275.i.i
+  %268 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv403.i.i
+  %269 = load ptr, ptr %268, align 8
+  %270 = load i32, ptr %269, align 8
+  %271 = icmp eq i32 %270, 4
+  br i1 %271, label %.preheader318.i.i, label %.critedge275.i.i
 
-.preheader318.i.i:                                ; preds = %.critedge275.preheader.i.i, %285
-  %indvars.iv398.i.i = phi i64 [ %indvars.iv.next399.i.i, %285 ], [ 0, %.critedge275.preheader.i.i ]
-  %270 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv398.i.i
-  %271 = load ptr, ptr %270, align 8
-  %272 = load i32, ptr %271, align 8
-  %273 = icmp eq i32 %272, 37
-  br i1 %273, label %274, label %285
+.preheader318.i.i:                                ; preds = %.critedge275.preheader.i.i, %289
+  %indvars.iv398.i.i = phi i64 [ %indvars.iv.next399.i.i, %289 ], [ 0, %.critedge275.preheader.i.i ]
+  %272 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv398.i.i
+  %273 = load ptr, ptr %272, align 8
+  %274 = load i32, ptr %273, align 8
+  %275 = icmp eq i32 %274, 37
+  br i1 %275, label %276, label %289
 
-274:                                              ; preds = %.preheader318.i.i
-  %275 = trunc nuw nsw i64 %indvars.iv398.i.i to i32
-  %276 = add nsw i32 %125, -1
-  %277 = icmp sgt i32 %276, %275
-  %gep.i = getelementptr inbounds nuw ptr, ptr %invariant.gep.i, i64 %indvars.iv398.i.i
-  %.in.i.i = select i1 %277, ptr %gep.i, ptr %118
-  %278 = load ptr, ptr %.in.i.i, align 8
-  %279 = getelementptr inbounds nuw i8, ptr %278, i64 12
-  %280 = load i32, ptr %279, align 4
-  call void @removeObjectDependency(ptr noundef nonnull %271, i32 noundef %280) #9
-  %281 = load i32, ptr %278, align 8
-  %282 = icmp eq i32 %281, 4
-  br i1 %282, label %283, label %.lr.ph.preheader.i
+276:                                              ; preds = %.preheader318.i.i
+  %277 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv398.i.i
+  %278 = trunc nuw nsw i64 %indvars.iv398.i.i to i32
+  %279 = add nsw i32 %125, -1
+  %280 = icmp sgt i32 %279, %278
+  %281 = getelementptr inbounds nuw i8, ptr %277, i64 8
+  %.in.i.i = select i1 %280, ptr %281, ptr %117
+  %282 = load ptr, ptr %.in.i.i, align 8
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 12
+  %284 = load i32, ptr %283, align 4
+  call void @removeObjectDependency(ptr noundef nonnull %273, i32 noundef %284) #9
+  %285 = load i32, ptr %282, align 8
+  %286 = icmp eq i32 %285, 4
+  br i1 %286, label %287, label %.lr.ph.preheader.i
 
-283:                                              ; preds = %274
-  %284 = getelementptr inbounds nuw i8, ptr %278, i64 124
-  store i8 1, ptr %284, align 4
+287:                                              ; preds = %276
+  %288 = getelementptr inbounds nuw i8, ptr %282, i64 124
+  store i8 1, ptr %288, align 4
   br label %.lr.ph.preheader.i
 
-285:                                              ; preds = %.preheader318.i.i
+289:                                              ; preds = %.preheader318.i.i
   %indvars.iv.next399.i.i = add nuw nsw i64 %indvars.iv398.i.i, 1
   %exitcond402.not.i.i = icmp eq i64 %indvars.iv.next399.i.i, %wide.trip.count386.i.i
   br i1 %exitcond402.not.i.i, label %.critedge275.i.i, label %.preheader318.i.i, !llvm.loop !18
 
-.critedge275.i.i:                                 ; preds = %285, %.critedge275.preheader.i.i
+.critedge275.i.i:                                 ; preds = %289, %.critedge275.preheader.i.i
   %indvars.iv.next404.i.i = add nuw nsw i64 %indvars.iv403.i.i, 1
   %exitcond407.not.i.i = icmp eq i64 %indvars.iv.next404.i.i, %wide.trip.count386.i.i
   br i1 %exitcond407.not.i.i, label %.preheader316.i.i, label %.critedge275.preheader.i.i, !llvm.loop !19
 
 .critedge276.thread.i.i:                          ; preds = %.critedge272.i.i
-  br i1 %166, label %286, label %297
+  br i1 %166, label %290, label %301
 
-286:                                              ; preds = %.critedge276.thread.i.i
+290:                                              ; preds = %.critedge276.thread.i.i
   switch i32 %133, label %.critedge283.thread.thread.i.i [
-    i32 20, label %287
-    i32 14, label %333
+    i32 20, label %291
+    i32 14, label %337
   ]
 
-287:                                              ; preds = %286
-  %288 = getelementptr inbounds nuw i8, ptr %132, i64 80
-  %289 = load i8, ptr %288, align 8
-  %290 = icmp eq i8 %289, 99
-  br i1 %290, label %291, label %.critedge283.thread.thread.i.i
-
-291:                                              ; preds = %287
-  %292 = getelementptr inbounds nuw i8, ptr %132, i64 64
-  %293 = load ptr, ptr %292, align 8
-  %294 = icmp eq ptr %293, %129
+291:                                              ; preds = %290
+  %292 = getelementptr inbounds nuw i8, ptr %132, i64 80
+  %293 = load i8, ptr %292, align 8
+  %294 = icmp eq i8 %293, 99
   br i1 %294, label %295, label %.critedge283.thread.thread.i.i
 
 295:                                              ; preds = %291
-  %296 = getelementptr i8, ptr %129, i64 12
-  %.val285.i.i = load i32, ptr %296, align 4
+  %296 = getelementptr inbounds nuw i8, ptr %132, i64 64
+  %297 = load ptr, ptr %296, align 8
+  %298 = icmp eq ptr %297, %129
+  br i1 %298, label %299, label %.critedge283.thread.thread.i.i
+
+299:                                              ; preds = %295
+  %300 = getelementptr i8, ptr %129, i64 12
+  %.val285.i.i = load i32, ptr %300, align 4
   call void @removeObjectDependency(ptr noundef nonnull %132, i32 noundef %.val285.i.i) #9
   br label %.lr.ph.preheader.i
 
-297:                                              ; preds = %.critedge276.thread.i.i
-  %298 = icmp eq i32 %130, 20
-  %or.cond306.i.i = and i1 %298, %185
-  br i1 %or.cond306.i.i, label %299, label %._crit_edge.i.i
+301:                                              ; preds = %.critedge276.thread.i.i
+  %302 = icmp eq i32 %130, 20
+  %or.cond306.i.i = and i1 %302, %185
+  br i1 %or.cond306.i.i, label %303, label %._crit_edge.i.i
 
-299:                                              ; preds = %297
-  %300 = getelementptr inbounds nuw i8, ptr %129, i64 80
-  %301 = load i8, ptr %300, align 8
-  %302 = icmp eq i8 %301, 99
-  br i1 %302, label %303, label %.critedge283.thread.thread.i.i
-
-303:                                              ; preds = %299
-  %304 = getelementptr inbounds nuw i8, ptr %129, i64 64
-  %305 = load ptr, ptr %304, align 8
-  %306 = icmp eq ptr %305, %132
+303:                                              ; preds = %301
+  %304 = getelementptr inbounds nuw i8, ptr %129, i64 80
+  %305 = load i8, ptr %304, align 8
+  %306 = icmp eq i8 %305, 99
   br i1 %306, label %307, label %.critedge283.thread.thread.i.i
 
 307:                                              ; preds = %303
-  %308 = getelementptr i8, ptr %132, i64 12
-  %.val286.i.i = load i32, ptr %308, align 4
+  %308 = getelementptr inbounds nuw i8, ptr %129, i64 64
+  %309 = load ptr, ptr %308, align 8
+  %310 = icmp eq ptr %309, %132
+  br i1 %310, label %311, label %.critedge283.thread.thread.i.i
+
+311:                                              ; preds = %307
+  %312 = getelementptr i8, ptr %132, i64 12
+  %.val286.i.i = load i32, ptr %312, align 4
   call void @removeObjectDependency(ptr noundef nonnull %129, i32 noundef %.val286.i.i) #9
   br label %.lr.ph.preheader.i
 
 .preheader316.i.i:                                ; preds = %.critedge275.i.i, %.loopexit315.i.i
   %indvars.iv413.i.i = phi i64 [ %indvars.iv.next414.i.i, %.loopexit315.i.i ], [ 0, %.critedge275.i.i ]
-  %309 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv413.i.i
-  %310 = load ptr, ptr %309, align 8
-  %311 = load i32, ptr %310, align 8
-  %312 = icmp eq i32 %311, 12
-  br i1 %312, label %.preheader314.i.i, label %.loopexit315.i.i
-
-.preheader314.i.i:                                ; preds = %.preheader316.i.i, %332
-  %indvars.iv408.i.i = phi i64 [ %indvars.iv.next409.i.i, %332 ], [ 0, %.preheader316.i.i ]
-  %313 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv408.i.i
+  %313 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv413.i.i
   %314 = load ptr, ptr %313, align 8
   %315 = load i32, ptr %314, align 8
-  %316 = icmp eq i32 %315, 20
-  br i1 %316, label %317, label %332
+  %316 = icmp eq i32 %315, 12
+  br i1 %316, label %.preheader314.i.i, label %.loopexit315.i.i
 
-317:                                              ; preds = %.preheader314.i.i
-  %318 = getelementptr inbounds nuw i8, ptr %314, i64 80
-  %319 = load i8, ptr %318, align 8
-  %320 = icmp eq i8 %319, 99
-  br i1 %320, label %321, label %332
+.preheader314.i.i:                                ; preds = %.preheader316.i.i, %336
+  %indvars.iv408.i.i = phi i64 [ %indvars.iv.next409.i.i, %336 ], [ 0, %.preheader316.i.i ]
+  %317 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv408.i.i
+  %318 = load ptr, ptr %317, align 8
+  %319 = load i32, ptr %318, align 8
+  %320 = icmp eq i32 %319, 20
+  br i1 %320, label %321, label %336
 
-321:                                              ; preds = %317
-  %322 = getelementptr inbounds nuw i8, ptr %314, i64 64
-  %323 = load ptr, ptr %322, align 8
-  %324 = icmp eq ptr %323, %310
-  br i1 %324, label %325, label %332
+321:                                              ; preds = %.preheader314.i.i
+  %322 = getelementptr inbounds nuw i8, ptr %318, i64 80
+  %323 = load i8, ptr %322, align 8
+  %324 = icmp eq i8 %323, 99
+  br i1 %324, label %325, label %336
 
 325:                                              ; preds = %321
-  %326 = getelementptr inbounds nuw i8, ptr %314, i64 12
-  %327 = load i32, ptr %326, align 4
-  call void @removeObjectDependency(ptr noundef nonnull %310, i32 noundef %327) #9
-  %328 = getelementptr inbounds nuw i8, ptr %314, i64 108
-  store i8 1, ptr %328, align 4
-  %329 = getelementptr inbounds nuw i8, ptr %310, i64 12
-  %330 = load i32, ptr %329, align 4
-  call void @addObjectDependency(ptr noundef nonnull %314, i32 noundef %330) #9
-  %331 = load i32, ptr @postDataBoundId, align 4
-  call void @addObjectDependency(ptr noundef nonnull %314, i32 noundef %331) #9
+  %326 = getelementptr inbounds nuw i8, ptr %318, i64 64
+  %327 = load ptr, ptr %326, align 8
+  %328 = icmp eq ptr %327, %314
+  br i1 %328, label %329, label %336
+
+329:                                              ; preds = %325
+  %330 = getelementptr inbounds nuw i8, ptr %318, i64 12
+  %331 = load i32, ptr %330, align 4
+  call void @removeObjectDependency(ptr noundef nonnull %314, i32 noundef %331) #9
+  %332 = getelementptr inbounds nuw i8, ptr %318, i64 108
+  store i8 1, ptr %332, align 4
+  %333 = getelementptr inbounds nuw i8, ptr %314, i64 12
+  %334 = load i32, ptr %333, align 4
+  call void @addObjectDependency(ptr noundef nonnull %318, i32 noundef %334) #9
+  %335 = load i32, ptr @postDataBoundId, align 4
+  call void @addObjectDependency(ptr noundef nonnull %318, i32 noundef %335) #9
   br label %.lr.ph.preheader.i
 
-332:                                              ; preds = %321, %317, %.preheader314.i.i
+336:                                              ; preds = %325, %321, %.preheader314.i.i
   %indvars.iv.next409.i.i = add nuw nsw i64 %indvars.iv408.i.i, 1
   %exitcond412.not.i.i = icmp eq i64 %indvars.iv.next409.i.i, %wide.trip.count386.i.i
   br i1 %exitcond412.not.i.i, label %.loopexit315.i.i, label %.preheader314.i.i, !llvm.loop !20
 
-.loopexit315.i.i:                                 ; preds = %332, %.preheader316.i.i
+.loopexit315.i.i:                                 ; preds = %336, %.preheader316.i.i
   %indvars.iv.next414.i.i = add nuw nsw i64 %indvars.iv413.i.i, 1
   %exitcond417.not.i.i = icmp eq i64 %indvars.iv.next414.i.i, %wide.trip.count386.i.i
   br i1 %exitcond417.not.i.i, label %.loopexit317.i.i, label %.preheader316.i.i, !llvm.loop !21
 
-333:                                              ; preds = %286
-  %334 = getelementptr inbounds nuw i8, ptr %132, i64 64
-  %335 = load ptr, ptr %334, align 8
-  %336 = icmp eq ptr %335, %129
-  br i1 %336, label %337, label %.critedge283.thread.thread.i.i
+337:                                              ; preds = %290
+  %338 = getelementptr inbounds nuw i8, ptr %132, i64 64
+  %339 = load ptr, ptr %338, align 8
+  %340 = icmp eq ptr %339, %129
+  br i1 %340, label %341, label %.critedge283.thread.thread.i.i
 
-337:                                              ; preds = %333
-  %338 = getelementptr i8, ptr %129, i64 12
-  %.val287.i.i = load i32, ptr %338, align 4
+341:                                              ; preds = %337
+  %342 = getelementptr i8, ptr %129, i64 12
+  %.val287.i.i = load i32, ptr %342, align 4
   call void @removeObjectDependency(ptr noundef nonnull %132, i32 noundef %.val287.i.i) #9
   br label %.lr.ph.preheader.i
 
-._crit_edge.i.i:                                  ; preds = %297
+._crit_edge.i.i:                                  ; preds = %301
   br i1 %185, label %._crit_edge.i.thread.i, label %.critedge280.i.i
 
 ._crit_edge.i.thread.i:                           ; preds = %._crit_edge.i.i
   %cond.i = icmp eq i32 %130, 14
-  br i1 %cond.i, label %339, label %.critedge283.thread.thread.i.i
+  br i1 %cond.i, label %343, label %.critedge283.thread.thread.i.i
 
-339:                                              ; preds = %._crit_edge.i.thread.i
-  %340 = getelementptr inbounds nuw i8, ptr %129, i64 64
-  %341 = load ptr, ptr %340, align 8
-  %342 = icmp eq ptr %341, %132
-  br i1 %342, label %343, label %.critedge283.thread.thread.i.i
+343:                                              ; preds = %._crit_edge.i.thread.i
+  %344 = getelementptr inbounds nuw i8, ptr %129, i64 64
+  %345 = load ptr, ptr %344, align 8
+  %346 = icmp eq ptr %345, %132
+  br i1 %346, label %347, label %.critedge283.thread.thread.i.i
 
-343:                                              ; preds = %339
-  %344 = getelementptr i8, ptr %132, i64 12
-  %.val288.i.i = load i32, ptr %344, align 4
+347:                                              ; preds = %343
+  %348 = getelementptr i8, ptr %132, i64 12
+  %.val288.i.i = load i32, ptr %348, align 4
   call void @removeObjectDependency(ptr noundef nonnull %129, i32 noundef %.val288.i.i) #9
   br label %.lr.ph.preheader.i
 
 .critedge280.i.i:                                 ; preds = %._crit_edge.i.i
-  %345 = icmp eq i32 %130, 15
-  %346 = icmp eq i32 %133, 15
-  %or.cond307.i.i = and i1 %345, %346
-  br i1 %or.cond307.i.i, label %347, label %.thread301.i.i
+  %349 = icmp eq i32 %130, 15
+  %350 = icmp eq i32 %133, 15
+  %or.cond307.i.i = and i1 %349, %350
+  br i1 %or.cond307.i.i, label %351, label %.thread301.i.i
 
-347:                                              ; preds = %.critedge280.i.i
-  %348 = getelementptr inbounds nuw i8, ptr %129, i64 132
-  %349 = load i32, ptr %348, align 4
-  %350 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %351 = load i32, ptr %350, align 4
-  %352 = icmp eq i32 %349, %351
-  br i1 %352, label %353, label %355
+351:                                              ; preds = %.critedge280.i.i
+  %352 = getelementptr inbounds nuw i8, ptr %129, i64 132
+  %353 = load i32, ptr %352, align 4
+  %354 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %355 = load i32, ptr %354, align 4
+  %356 = icmp eq i32 %353, %355
+  br i1 %356, label %357, label %359
 
-353:                                              ; preds = %347
-  %354 = getelementptr i8, ptr %132, i64 12
-  %.val289.i.i = load i32, ptr %354, align 4
+357:                                              ; preds = %351
+  %358 = getelementptr i8, ptr %132, i64 12
+  %.val289.i.i = load i32, ptr %358, align 4
   call void @removeObjectDependency(ptr noundef nonnull %129, i32 noundef %.val289.i.i) #9
   br label %.lr.ph.preheader.i
 
-355:                                              ; preds = %347
-  %356 = getelementptr inbounds nuw i8, ptr %132, i64 132
-  %357 = load i32, ptr %356, align 4
-  %358 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %359 = load i32, ptr %358, align 4
-  %360 = icmp eq i32 %357, %359
-  br i1 %360, label %361, label %.critedge283.thread.thread.i.i
+359:                                              ; preds = %351
+  %360 = getelementptr inbounds nuw i8, ptr %132, i64 132
+  %361 = load i32, ptr %360, align 4
+  %362 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %363 = load i32, ptr %362, align 4
+  %364 = icmp eq i32 %361, %363
+  br i1 %364, label %365, label %.critedge283.thread.thread.i.i
 
-361:                                              ; preds = %355
-  %362 = getelementptr i8, ptr %129, i64 12
-  %.val290.i.i = load i32, ptr %362, align 4
+365:                                              ; preds = %359
+  %366 = getelementptr i8, ptr %129, i64 12
+  %.val290.i.i = load i32, ptr %366, align 4
   call void @removeObjectDependency(ptr noundef nonnull %132, i32 noundef %.val290.i.i) #9
   br label %.lr.ph.preheader.i
 
 .loopexit317.i.i:                                 ; preds = %.loopexit315.i.i, %.loopexit311.i.i
   %indvars.iv423.i.i = phi i64 [ %indvars.iv.next424.i.i, %.loopexit311.i.i ], [ 0, %.loopexit315.i.i ]
-  %363 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv423.i.i
-  %364 = load ptr, ptr %363, align 8
-  %365 = load i32, ptr %364, align 8
-  %366 = icmp eq i32 %365, 12
-  br i1 %366, label %.preheader310.i.i, label %.loopexit311.i.i
-
-.preheader310.i.i:                                ; preds = %.loopexit317.i.i, %381
-  %indvars.iv418.i.i = phi i64 [ %indvars.iv.next419.i.i, %381 ], [ 0, %.loopexit317.i.i ]
-  %367 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv418.i.i
+  %367 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv423.i.i
   %368 = load ptr, ptr %367, align 8
   %369 = load i32, ptr %368, align 8
-  %370 = icmp eq i32 %369, 14
-  br i1 %370, label %371, label %381
+  %370 = icmp eq i32 %369, 12
+  br i1 %370, label %.preheader310.i.i, label %.loopexit311.i.i
 
-371:                                              ; preds = %.preheader310.i.i
-  %372 = getelementptr inbounds nuw i8, ptr %368, i64 64
-  %373 = load ptr, ptr %372, align 8
-  %374 = icmp eq ptr %373, %364
-  br i1 %374, label %375, label %381
+.preheader310.i.i:                                ; preds = %.loopexit317.i.i, %385
+  %indvars.iv418.i.i = phi i64 [ %indvars.iv.next419.i.i, %385 ], [ 0, %.loopexit317.i.i ]
+  %371 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv418.i.i
+  %372 = load ptr, ptr %371, align 8
+  %373 = load i32, ptr %372, align 8
+  %374 = icmp eq i32 %373, 14
+  br i1 %374, label %375, label %385
 
-375:                                              ; preds = %371
-  %376 = getelementptr inbounds nuw i8, ptr %368, i64 12
-  %377 = load i32, ptr %376, align 4
-  call void @removeObjectDependency(ptr noundef nonnull %364, i32 noundef %377) #9
-  %378 = getelementptr inbounds nuw i8, ptr %368, i64 88
-  store i8 1, ptr %378, align 8
-  %379 = getelementptr inbounds nuw i8, ptr %364, i64 12
-  %380 = load i32, ptr %379, align 4
-  call void @addObjectDependency(ptr noundef nonnull %368, i32 noundef %380) #9
+375:                                              ; preds = %.preheader310.i.i
+  %376 = getelementptr inbounds nuw i8, ptr %372, i64 64
+  %377 = load ptr, ptr %376, align 8
+  %378 = icmp eq ptr %377, %368
+  br i1 %378, label %379, label %385
+
+379:                                              ; preds = %375
+  %380 = getelementptr inbounds nuw i8, ptr %372, i64 12
+  %381 = load i32, ptr %380, align 4
+  call void @removeObjectDependency(ptr noundef nonnull %368, i32 noundef %381) #9
+  %382 = getelementptr inbounds nuw i8, ptr %372, i64 88
+  store i8 1, ptr %382, align 8
+  %383 = getelementptr inbounds nuw i8, ptr %368, i64 12
+  %384 = load i32, ptr %383, align 4
+  call void @addObjectDependency(ptr noundef nonnull %372, i32 noundef %384) #9
   br label %.lr.ph.preheader.i
 
-381:                                              ; preds = %371, %.preheader310.i.i
+385:                                              ; preds = %375, %.preheader310.i.i
   %indvars.iv.next419.i.i = add nuw nsw i64 %indvars.iv418.i.i, 1
   %exitcond422.not.i.i = icmp eq i64 %indvars.iv.next419.i.i, %wide.trip.count386.i.i
   br i1 %exitcond422.not.i.i, label %.loopexit311.i.i, label %.preheader310.i.i, !llvm.loop !22
 
-.loopexit311.i.i:                                 ; preds = %381, %.loopexit317.i.i
+.loopexit311.i.i:                                 ; preds = %385, %.loopexit317.i.i
   %indvars.iv.next424.i.i = add nuw nsw i64 %indvars.iv423.i.i, 1
   %exitcond427.not.i.i = icmp eq i64 %indvars.iv.next424.i.i, %wide.trip.count386.i.i
   br i1 %exitcond427.not.i.i, label %.preheader309.i.i, label %.loopexit317.i.i, !llvm.loop !23
 
-382:                                              ; preds = %134
-  %383 = getelementptr inbounds nuw i8, ptr %132, i64 80
-  %384 = load i8, ptr %383, align 8
-  %385 = icmp eq i8 %384, 99
-  br i1 %385, label %386, label %.critedge283.thread.thread.i.i
-
-386:                                              ; preds = %382
-  %387 = getelementptr inbounds nuw i8, ptr %132, i64 72
-  %388 = load ptr, ptr %387, align 8
-  %389 = icmp eq ptr %388, %129
+386:                                              ; preds = %134
+  %387 = getelementptr inbounds nuw i8, ptr %132, i64 80
+  %388 = load i8, ptr %387, align 8
+  %389 = icmp eq i8 %388, 99
   br i1 %389, label %390, label %.critedge283.thread.thread.i.i
 
 390:                                              ; preds = %386
-  %391 = getelementptr i8, ptr %129, i64 12
-  %.val291.i.i = load i32, ptr %391, align 4
+  %391 = getelementptr inbounds nuw i8, ptr %132, i64 72
+  %392 = load ptr, ptr %391, align 8
+  %393 = icmp eq ptr %392, %129
+  br i1 %393, label %394, label %.critedge283.thread.thread.i.i
+
+394:                                              ; preds = %390
+  %395 = getelementptr i8, ptr %129, i64 12
+  %.val291.i.i = load i32, ptr %395, align 4
   call void @removeObjectDependency(ptr noundef nonnull %132, i32 noundef %.val291.i.i) #9
   br label %.lr.ph.preheader.i
 
 .thread301.i.i:                                   ; preds = %.critedge280.i.i
-  %or.cond308.i.i = and i1 %298, %150
-  br i1 %or.cond308.i.i, label %392, label %.critedge283.thread.thread.i.i
+  %or.cond308.i.i = and i1 %302, %150
+  br i1 %or.cond308.i.i, label %396, label %.critedge283.thread.thread.i.i
 
-392:                                              ; preds = %.thread301.i.i
-  %393 = getelementptr inbounds nuw i8, ptr %129, i64 80
-  %394 = load i8, ptr %393, align 8
-  %395 = icmp eq i8 %394, 99
-  br i1 %395, label %396, label %.critedge283.thread.thread.i.i
-
-396:                                              ; preds = %392
-  %397 = getelementptr inbounds nuw i8, ptr %129, i64 72
-  %398 = load ptr, ptr %397, align 8
-  %399 = icmp eq ptr %398, %132
+396:                                              ; preds = %.thread301.i.i
+  %397 = getelementptr inbounds nuw i8, ptr %129, i64 80
+  %398 = load i8, ptr %397, align 8
+  %399 = icmp eq i8 %398, 99
   br i1 %399, label %400, label %.critedge283.thread.thread.i.i
 
 400:                                              ; preds = %396
-  %401 = getelementptr i8, ptr %132, i64 12
-  %.val292.i.i = load i32, ptr %401, align 4
+  %401 = getelementptr inbounds nuw i8, ptr %129, i64 72
+  %402 = load ptr, ptr %401, align 8
+  %403 = icmp eq ptr %402, %132
+  br i1 %403, label %404, label %.critedge283.thread.thread.i.i
+
+404:                                              ; preds = %400
+  %405 = getelementptr i8, ptr %132, i64 12
+  %.val292.i.i = load i32, ptr %405, align 4
   call void @removeObjectDependency(ptr noundef nonnull %129, i32 noundef %.val292.i.i) #9
   br label %.lr.ph.preheader.i
 
 .preheader309.i.i:                                ; preds = %.loopexit311.i.i, %.loopexit.i.i
   %indvars.iv433.i.i = phi i64 [ %indvars.iv.next434.i.i, %.loopexit.i.i ], [ 0, %.loopexit311.i.i ]
-  %402 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv433.i.i
-  %403 = load ptr, ptr %402, align 8
-  %404 = load i32, ptr %403, align 8
-  %405 = icmp eq i32 %404, 2
-  br i1 %405, label %.preheader.i.i, label %.loopexit.i.i
-
-.preheader.i.i:                                   ; preds = %.preheader309.i.i, %425
-  %indvars.iv428.i.i = phi i64 [ %indvars.iv.next429.i.i, %425 ], [ 0, %.preheader309.i.i ]
-  %406 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv428.i.i
+  %406 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv433.i.i
   %407 = load ptr, ptr %406, align 8
   %408 = load i32, ptr %407, align 8
-  %409 = icmp eq i32 %408, 20
-  br i1 %409, label %410, label %425
+  %409 = icmp eq i32 %408, 2
+  br i1 %409, label %.preheader.i.i, label %.loopexit.i.i
 
-410:                                              ; preds = %.preheader.i.i
-  %411 = getelementptr inbounds nuw i8, ptr %407, i64 80
-  %412 = load i8, ptr %411, align 8
-  %413 = icmp eq i8 %412, 99
-  br i1 %413, label %414, label %425
+.preheader.i.i:                                   ; preds = %.preheader309.i.i, %429
+  %indvars.iv428.i.i = phi i64 [ %indvars.iv.next429.i.i, %429 ], [ 0, %.preheader309.i.i ]
+  %410 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv428.i.i
+  %411 = load ptr, ptr %410, align 8
+  %412 = load i32, ptr %411, align 8
+  %413 = icmp eq i32 %412, 20
+  br i1 %413, label %414, label %429
 
-414:                                              ; preds = %410
-  %415 = getelementptr inbounds nuw i8, ptr %407, i64 72
-  %416 = load ptr, ptr %415, align 8
-  %417 = icmp eq ptr %416, %403
-  br i1 %417, label %418, label %425
+414:                                              ; preds = %.preheader.i.i
+  %415 = getelementptr inbounds nuw i8, ptr %411, i64 80
+  %416 = load i8, ptr %415, align 8
+  %417 = icmp eq i8 %416, 99
+  br i1 %417, label %418, label %429
 
 418:                                              ; preds = %414
-  %419 = getelementptr inbounds nuw i8, ptr %407, i64 12
-  %420 = load i32, ptr %419, align 4
-  call void @removeObjectDependency(ptr noundef nonnull %403, i32 noundef %420) #9
-  %421 = getelementptr inbounds nuw i8, ptr %407, i64 108
-  store i8 1, ptr %421, align 4
-  %422 = getelementptr inbounds nuw i8, ptr %403, i64 12
-  %423 = load i32, ptr %422, align 4
-  call void @addObjectDependency(ptr noundef nonnull %407, i32 noundef %423) #9
-  %424 = load i32, ptr @postDataBoundId, align 4
-  call void @addObjectDependency(ptr noundef nonnull %407, i32 noundef %424) #9
+  %419 = getelementptr inbounds nuw i8, ptr %411, i64 72
+  %420 = load ptr, ptr %419, align 8
+  %421 = icmp eq ptr %420, %407
+  br i1 %421, label %422, label %429
+
+422:                                              ; preds = %418
+  %423 = getelementptr inbounds nuw i8, ptr %411, i64 12
+  %424 = load i32, ptr %423, align 4
+  call void @removeObjectDependency(ptr noundef nonnull %407, i32 noundef %424) #9
+  %425 = getelementptr inbounds nuw i8, ptr %411, i64 108
+  store i8 1, ptr %425, align 4
+  %426 = getelementptr inbounds nuw i8, ptr %407, i64 12
+  %427 = load i32, ptr %426, align 4
+  call void @addObjectDependency(ptr noundef nonnull %411, i32 noundef %427) #9
+  %428 = load i32, ptr @postDataBoundId, align 4
+  call void @addObjectDependency(ptr noundef nonnull %411, i32 noundef %428) #9
   br label %.lr.ph.preheader.i
 
-425:                                              ; preds = %414, %410, %.preheader.i.i
+429:                                              ; preds = %418, %414, %.preheader.i.i
   %indvars.iv.next429.i.i = add nuw nsw i64 %indvars.iv428.i.i, 1
   %exitcond432.not.i.i = icmp eq i64 %indvars.iv.next429.i.i, %wide.trip.count386.i.i
   br i1 %exitcond432.not.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !24
 
-.loopexit.i.i:                                    ; preds = %425, %.preheader309.i.i
+.loopexit.i.i:                                    ; preds = %429, %.preheader309.i.i
   %indvars.iv.next434.i.i = add nuw nsw i64 %indvars.iv433.i.i, 1
   %exitcond437.not.i.i = icmp eq i64 %indvars.iv.next434.i.i, %wide.trip.count386.i.i
   br i1 %exitcond437.not.i.i, label %.critedge283.thread.i.i, label %.preheader309.i.i, !llvm.loop !25
 
 .critedge283.thread.i.i:                          ; preds = %.loopexit.i.i, %.critedge273.i.i
-  %426 = icmp eq i32 %125, 1
-  br i1 %426, label %427, label %.critedge283.thread.thread.i.i
-
-427:                                              ; preds = %.critedge283.thread.i.i
-  %428 = load ptr, ptr %118, align 8
-  %429 = load i32, ptr %428, align 8
-  %430 = icmp eq i32 %429, 12
+  %430 = icmp eq i32 %125, 1
   br i1 %430, label %431, label %.critedge283.thread.thread.i.i
 
-431:                                              ; preds = %427
-  %432 = getelementptr inbounds nuw i8, ptr %428, i64 12
-  %433 = load i32, ptr %432, align 4
-  call void @removeObjectDependency(ptr noundef nonnull %428, i32 noundef %433) #9
+431:                                              ; preds = %.critedge283.thread.i.i
+  %432 = load ptr, ptr %117, align 8
+  %433 = load i32, ptr %432, align 8
+  %434 = icmp eq i32 %433, 12
+  br i1 %434, label %435, label %.critedge283.thread.thread.i.i
+
+435:                                              ; preds = %431
+  %436 = getelementptr inbounds nuw i8, ptr %432, i64 12
+  %437 = load i32, ptr %436, align 4
+  call void @removeObjectDependency(ptr noundef nonnull %432, i32 noundef %437) #9
   br label %.lr.ph.preheader.i
 
-.critedge283.thread.thread.i.i:                   ; preds = %427, %.critedge283.thread.i.i, %396, %392, %.thread301.i.i, %386, %382, %355, %339, %._crit_edge.i.thread.i, %333, %303, %299, %291, %287, %286, %198, %194, %190, %187, %179, %175, %171, %168, %134
-  %434 = phi ptr [ @.str.3, %427 ], [ @.str.4, %.critedge283.thread.i.i ], [ @.str.4, %386 ], [ @.str.4, %382 ], [ @.str.4, %339 ], [ @.str.4, %.thread301.i.i ], [ @.str.4, %392 ], [ @.str.4, %396 ], [ @.str.4, %355 ], [ @.str.4, %333 ], [ @.str.4, %291 ], [ @.str.4, %287 ], [ @.str.4, %179 ], [ @.str.4, %175 ], [ @.str.4, %171 ], [ @.str.4, %168 ], [ @.str.4, %187 ], [ @.str.4, %190 ], [ @.str.4, %194 ], [ @.str.4, %198 ], [ @.str.4, %299 ], [ @.str.4, %303 ], [ @.str.4, %._crit_edge.i.thread.i ], [ @.str.4, %286 ], [ @.str.4, %134 ]
+.critedge283.thread.thread.i.i:                   ; preds = %431, %.critedge283.thread.i.i, %400, %396, %.thread301.i.i, %390, %386, %359, %343, %._crit_edge.i.thread.i, %337, %307, %303, %295, %291, %290, %198, %194, %190, %187, %179, %175, %171, %168, %134
+  %438 = phi ptr [ @.str.3, %431 ], [ @.str.4, %.critedge283.thread.i.i ], [ @.str.4, %390 ], [ @.str.4, %386 ], [ @.str.4, %343 ], [ @.str.4, %.thread301.i.i ], [ @.str.4, %396 ], [ @.str.4, %400 ], [ @.str.4, %359 ], [ @.str.4, %337 ], [ @.str.4, %295 ], [ @.str.4, %291 ], [ @.str.4, %179 ], [ @.str.4, %175 ], [ @.str.4, %171 ], [ @.str.4, %168 ], [ @.str.4, %187 ], [ @.str.4, %190 ], [ @.str.4, %194 ], [ @.str.4, %198 ], [ @.str.4, %303 ], [ @.str.4, %307 ], [ @.str.4, %._crit_edge.i.thread.i ], [ @.str.4, %290 ], [ @.str.4, %134 ]
   %wide.trip.count441.i.i = zext nneg i32 %125 to i64
-  br label %436
+  br label %440
 
-435:                                              ; preds = %436
+439:                                              ; preds = %440
   %indvars.iv.next439.i.i = add nuw nsw i64 %indvars.iv438.i.i, 1
   %exitcond442.not.i.i = icmp eq i64 %indvars.iv.next439.i.i, %wide.trip.count441.i.i
-  br i1 %exitcond442.not.i.i, label %440, label %436, !llvm.loop !26
+  br i1 %exitcond442.not.i.i, label %444, label %440, !llvm.loop !26
 
-436:                                              ; preds = %435, %.critedge283.thread.thread.i.i
-  %indvars.iv438.i.i = phi i64 [ 0, %.critedge283.thread.thread.i.i ], [ %indvars.iv.next439.i.i, %435 ]
-  %437 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv438.i.i
-  %438 = load ptr, ptr %437, align 8
-  %439 = load i32, ptr %438, align 8
-  %.not.i.i = icmp eq i32 %439, 24
-  br i1 %.not.i.i, label %435, label %455
+440:                                              ; preds = %439, %.critedge283.thread.thread.i.i
+  %indvars.iv438.i.i = phi i64 [ 0, %.critedge283.thread.thread.i.i ], [ %indvars.iv.next439.i.i, %439 ]
+  %441 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv438.i.i
+  %442 = load ptr, ptr %441, align 8
+  %443 = load i32, ptr %442, align 8
+  %.not.i.i = icmp eq i32 %443, 24
+  br i1 %.not.i.i, label %439, label %459
 
-440:                                              ; preds = %435
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull %434) #9
-  br label %441
+444:                                              ; preds = %439
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull %438) #9
+  br label %445
 
-441:                                              ; preds = %441, %440
-  %indvars.iv448.i.i = phi i64 [ 0, %440 ], [ %indvars.iv.next449.i.i, %441 ]
-  %442 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv448.i.i
-  %443 = load ptr, ptr %442, align 8
-  %444 = getelementptr inbounds nuw i8, ptr %443, i64 16
-  %445 = load ptr, ptr %444, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %445) #9
+445:                                              ; preds = %445, %444
+  %indvars.iv448.i.i = phi i64 [ 0, %444 ], [ %indvars.iv.next449.i.i, %445 ]
+  %446 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv448.i.i
+  %447 = load ptr, ptr %446, align 8
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 16
+  %449 = load ptr, ptr %448, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %449) #9
   %indvars.iv.next449.i.i = add nuw nsw i64 %indvars.iv448.i.i, 1
   %exitcond452.not.i.i = icmp eq i64 %indvars.iv.next449.i.i, %wide.trip.count441.i.i
-  br i1 %exitcond452.not.i.i, label %446, label %441, !llvm.loop !27
+  br i1 %exitcond452.not.i.i, label %450, label %445, !llvm.loop !27
 
-446:                                              ; preds = %441
+450:                                              ; preds = %445
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 2, ptr noundef nonnull @.str.6) #9
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 2, ptr noundef nonnull @.str.7) #9
   %.not38.i = icmp eq i32 %125, 1
-  %447 = load ptr, ptr %118, align 8
-  br i1 %.not38.i, label %452, label %448
+  %451 = load ptr, ptr %117, align 8
+  br i1 %.not38.i, label %456, label %452
 
-448:                                              ; preds = %446
-  %449 = load ptr, ptr %invariant.gep.i, align 8
-  %450 = getelementptr inbounds nuw i8, ptr %449, i64 12
-  %451 = load i32, ptr %450, align 4
-  call void @removeObjectDependency(ptr noundef %447, i32 noundef %451) #9
+452:                                              ; preds = %450
+  %453 = load ptr, ptr %119, align 8
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 12
+  %455 = load i32, ptr %454, align 4
+  call void @removeObjectDependency(ptr noundef %451, i32 noundef %455) #9
   br label %.lr.ph.preheader.i
 
-452:                                              ; preds = %446
-  %453 = getelementptr inbounds nuw i8, ptr %447, i64 12
-  %454 = load i32, ptr %453, align 4
-  call void @removeObjectDependency(ptr noundef %447, i32 noundef %454) #9
+456:                                              ; preds = %450
+  %457 = getelementptr inbounds nuw i8, ptr %451, i64 12
+  %458 = load i32, ptr %457, align 4
+  call void @removeObjectDependency(ptr noundef %451, i32 noundef %458) #9
   br label %.lr.ph.preheader.i
 
-455:                                              ; preds = %436
+459:                                              ; preds = %440
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.8) #9
-  br label %456
+  br label %460
 
-456:                                              ; preds = %describeDumpableObject.exit.i.i, %455
-  %indvars.iv443.i.i = phi i64 [ 0, %455 ], [ %indvars.iv.next444.i.i, %describeDumpableObject.exit.i.i ]
+460:                                              ; preds = %describeDumpableObject.exit.i.i, %459
+  %indvars.iv443.i.i = phi i64 [ 0, %459 ], [ %indvars.iv.next444.i.i, %describeDumpableObject.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #9
-  %457 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv443.i.i
-  %458 = load ptr, ptr %457, align 8
-  %459 = load i32, ptr %458, align 8
-  switch i32 %459, label %820 [
-    i32 0, label %460
-    i32 1, label %468
-    i32 2, label %476
-    i32 3, label %484
-    i32 4, label %492
-    i32 5, label %500
-    i32 6, label %508
-    i32 7, label %516
-    i32 8, label %524
-    i32 9, label %532
-    i32 10, label %540
-    i32 11, label %548
-    i32 12, label %556
-    i32 13, label %564
-    i32 14, label %570
-    i32 15, label %588
-    i32 16, label %596
-    i32 17, label %602
-    i32 40, label %610
-    i32 18, label %618
-    i32 19, label %626
-    i32 39, label %634
-    i32 20, label %642
-    i32 21, label %650
-    i32 22, label %658
-    i32 23, label %666
-    i32 34, label %676
-    i32 24, label %686
-    i32 25, label %694
-    i32 26, label %702
-    i32 27, label %710
-    i32 28, label %718
-    i32 29, label %726
-    i32 30, label %734
-    i32 31, label %742
-    i32 32, label %750
-    i32 33, label %758
-    i32 35, label %766
-    i32 36, label %772
-    i32 41, label %776
-    i32 42, label %782
-    i32 43, label %788
-    i32 44, label %794
-    i32 45, label %800
-    i32 46, label %806
-    i32 37, label %812
-    i32 38, label %816
+  %461 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv443.i.i
+  %462 = load ptr, ptr %461, align 8
+  %463 = load i32, ptr %462, align 8
+  switch i32 %463, label %824 [
+    i32 0, label %464
+    i32 1, label %472
+    i32 2, label %480
+    i32 3, label %488
+    i32 4, label %496
+    i32 5, label %504
+    i32 6, label %512
+    i32 7, label %520
+    i32 8, label %528
+    i32 9, label %536
+    i32 10, label %544
+    i32 11, label %552
+    i32 12, label %560
+    i32 13, label %568
+    i32 14, label %574
+    i32 15, label %592
+    i32 16, label %600
+    i32 17, label %606
+    i32 40, label %614
+    i32 18, label %622
+    i32 19, label %630
+    i32 39, label %638
+    i32 20, label %646
+    i32 21, label %654
+    i32 22, label %662
+    i32 23, label %670
+    i32 34, label %680
+    i32 24, label %690
+    i32 25, label %698
+    i32 26, label %706
+    i32 27, label %714
+    i32 28, label %722
+    i32 29, label %730
+    i32 30, label %738
+    i32 31, label %746
+    i32 32, label %754
+    i32 33, label %762
+    i32 35, label %770
+    i32 36, label %776
+    i32 41, label %780
+    i32 42, label %786
+    i32 43, label %792
+    i32 44, label %798
+    i32 45, label %804
+    i32 46, label %810
+    i32 37, label %816
+    i32 38, label %820
   ]
 
-460:                                              ; preds = %456
-  %461 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %462 = load ptr, ptr %461, align 8
-  %463 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %464 = load i32, ptr %463, align 4
-  %465 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %466 = load i32, ptr %465, align 4
-  %467 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.9, ptr noundef %462, i32 noundef %464, i32 noundef %466) #9
+464:                                              ; preds = %460
+  %465 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %466 = load ptr, ptr %465, align 8
+  %467 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %468 = load i32, ptr %467, align 4
+  %469 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %470 = load i32, ptr %469, align 4
+  %471 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.9, ptr noundef %466, i32 noundef %468, i32 noundef %470) #9
   br label %describeDumpableObject.exit.i.i
 
-468:                                              ; preds = %456
-  %469 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %470 = load ptr, ptr %469, align 8
-  %471 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %472 = load i32, ptr %471, align 4
-  %473 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %474 = load i32, ptr %473, align 4
-  %475 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.10, ptr noundef %470, i32 noundef %472, i32 noundef %474) #9
+472:                                              ; preds = %460
+  %473 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %474 = load ptr, ptr %473, align 8
+  %475 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %476 = load i32, ptr %475, align 4
+  %477 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %478 = load i32, ptr %477, align 4
+  %479 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.10, ptr noundef %474, i32 noundef %476, i32 noundef %478) #9
   br label %describeDumpableObject.exit.i.i
 
-476:                                              ; preds = %456
-  %477 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %478 = load ptr, ptr %477, align 8
-  %479 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %480 = load i32, ptr %479, align 4
-  %481 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %482 = load i32, ptr %481, align 4
-  %483 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %478, i32 noundef %480, i32 noundef %482) #9
+480:                                              ; preds = %460
+  %481 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %482 = load ptr, ptr %481, align 8
+  %483 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %484 = load i32, ptr %483, align 4
+  %485 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %486 = load i32, ptr %485, align 4
+  %487 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %482, i32 noundef %484, i32 noundef %486) #9
   br label %describeDumpableObject.exit.i.i
 
-484:                                              ; preds = %456
-  %485 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %486 = load ptr, ptr %485, align 8
-  %487 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %488 = load i32, ptr %487, align 4
-  %489 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %490 = load i32, ptr %489, align 4
-  %491 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %486, i32 noundef %488, i32 noundef %490) #9
+488:                                              ; preds = %460
+  %489 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %490 = load ptr, ptr %489, align 8
+  %491 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %492 = load i32, ptr %491, align 4
+  %493 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %494 = load i32, ptr %493, align 4
+  %495 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.12, ptr noundef %490, i32 noundef %492, i32 noundef %494) #9
   br label %describeDumpableObject.exit.i.i
 
-492:                                              ; preds = %456
-  %493 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %494 = load ptr, ptr %493, align 8
-  %495 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %496 = load i32, ptr %495, align 4
-  %497 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %498 = load i32, ptr %497, align 4
-  %499 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.13, ptr noundef %494, i32 noundef %496, i32 noundef %498) #9
+496:                                              ; preds = %460
+  %497 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %498 = load ptr, ptr %497, align 8
+  %499 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %500 = load i32, ptr %499, align 4
+  %501 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %502 = load i32, ptr %501, align 4
+  %503 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.13, ptr noundef %498, i32 noundef %500, i32 noundef %502) #9
   br label %describeDumpableObject.exit.i.i
 
-500:                                              ; preds = %456
-  %501 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %502 = load ptr, ptr %501, align 8
-  %503 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %504 = load i32, ptr %503, align 4
-  %505 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %506 = load i32, ptr %505, align 4
-  %507 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.14, ptr noundef %502, i32 noundef %504, i32 noundef %506) #9
+504:                                              ; preds = %460
+  %505 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %506 = load ptr, ptr %505, align 8
+  %507 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %508 = load i32, ptr %507, align 4
+  %509 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %510 = load i32, ptr %509, align 4
+  %511 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.14, ptr noundef %506, i32 noundef %508, i32 noundef %510) #9
   br label %describeDumpableObject.exit.i.i
 
-508:                                              ; preds = %456
-  %509 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %510 = load ptr, ptr %509, align 8
-  %511 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %512 = load i32, ptr %511, align 4
-  %513 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %514 = load i32, ptr %513, align 4
-  %515 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.15, ptr noundef %510, i32 noundef %512, i32 noundef %514) #9
+512:                                              ; preds = %460
+  %513 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %514 = load ptr, ptr %513, align 8
+  %515 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %516 = load i32, ptr %515, align 4
+  %517 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %518 = load i32, ptr %517, align 4
+  %519 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.15, ptr noundef %514, i32 noundef %516, i32 noundef %518) #9
   br label %describeDumpableObject.exit.i.i
 
-516:                                              ; preds = %456
-  %517 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %518 = load ptr, ptr %517, align 8
-  %519 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %520 = load i32, ptr %519, align 4
-  %521 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %522 = load i32, ptr %521, align 4
-  %523 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.16, ptr noundef %518, i32 noundef %520, i32 noundef %522) #9
+520:                                              ; preds = %460
+  %521 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %522 = load ptr, ptr %521, align 8
+  %523 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %524 = load i32, ptr %523, align 4
+  %525 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %526 = load i32, ptr %525, align 4
+  %527 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.16, ptr noundef %522, i32 noundef %524, i32 noundef %526) #9
   br label %describeDumpableObject.exit.i.i
 
-524:                                              ; preds = %456
-  %525 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %526 = load ptr, ptr %525, align 8
-  %527 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %528 = load i32, ptr %527, align 4
-  %529 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %530 = load i32, ptr %529, align 4
-  %531 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef %526, i32 noundef %528, i32 noundef %530) #9
+528:                                              ; preds = %460
+  %529 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %530 = load ptr, ptr %529, align 8
+  %531 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %532 = load i32, ptr %531, align 4
+  %533 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %534 = load i32, ptr %533, align 4
+  %535 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef %530, i32 noundef %532, i32 noundef %534) #9
   br label %describeDumpableObject.exit.i.i
 
-532:                                              ; preds = %456
-  %533 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %534 = load ptr, ptr %533, align 8
-  %535 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %536 = load i32, ptr %535, align 4
-  %537 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %538 = load i32, ptr %537, align 4
-  %539 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.18, ptr noundef %534, i32 noundef %536, i32 noundef %538) #9
+536:                                              ; preds = %460
+  %537 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %538 = load ptr, ptr %537, align 8
+  %539 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %540 = load i32, ptr %539, align 4
+  %541 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %542 = load i32, ptr %541, align 4
+  %543 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.18, ptr noundef %538, i32 noundef %540, i32 noundef %542) #9
   br label %describeDumpableObject.exit.i.i
 
-540:                                              ; preds = %456
-  %541 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %542 = load ptr, ptr %541, align 8
-  %543 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %544 = load i32, ptr %543, align 4
-  %545 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %546 = load i32, ptr %545, align 4
-  %547 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.19, ptr noundef %542, i32 noundef %544, i32 noundef %546) #9
+544:                                              ; preds = %460
+  %545 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %546 = load ptr, ptr %545, align 8
+  %547 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %548 = load i32, ptr %547, align 4
+  %549 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %550 = load i32, ptr %549, align 4
+  %551 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.19, ptr noundef %546, i32 noundef %548, i32 noundef %550) #9
   br label %describeDumpableObject.exit.i.i
 
-548:                                              ; preds = %456
-  %549 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %550 = load ptr, ptr %549, align 8
-  %551 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %552 = load i32, ptr %551, align 4
-  %553 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %554 = load i32, ptr %553, align 4
-  %555 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.20, ptr noundef %550, i32 noundef %552, i32 noundef %554) #9
+552:                                              ; preds = %460
+  %553 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %554 = load ptr, ptr %553, align 8
+  %555 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %556 = load i32, ptr %555, align 4
+  %557 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %558 = load i32, ptr %557, align 4
+  %559 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.20, ptr noundef %554, i32 noundef %556, i32 noundef %558) #9
   br label %describeDumpableObject.exit.i.i
 
-556:                                              ; preds = %456
-  %557 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %558 = load ptr, ptr %557, align 8
-  %559 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %560 = load i32, ptr %559, align 4
-  %561 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %562 = load i32, ptr %561, align 4
-  %563 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef %558, i32 noundef %560, i32 noundef %562) #9
+560:                                              ; preds = %460
+  %561 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %562 = load ptr, ptr %561, align 8
+  %563 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %564 = load i32, ptr %563, align 4
+  %565 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %566 = load i32, ptr %565, align 4
+  %567 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef %562, i32 noundef %564, i32 noundef %566) #9
   br label %describeDumpableObject.exit.i.i
 
-564:                                              ; preds = %456
-  %565 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %566 = load ptr, ptr %565, align 8
-  %567 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %568 = load i32, ptr %567, align 4
-  %569 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.22, ptr noundef %566, i32 noundef %568) #9
+568:                                              ; preds = %460
+  %569 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %570 = load ptr, ptr %569, align 8
+  %571 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %572 = load i32, ptr %571, align 4
+  %573 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.22, ptr noundef %570, i32 noundef %572) #9
   br label %describeDumpableObject.exit.i.i
 
-570:                                              ; preds = %456
-  %571 = getelementptr inbounds nuw i8, ptr %458, i64 64
-  %572 = load ptr, ptr %571, align 8
-  %573 = getelementptr inbounds nuw i8, ptr %572, i64 16
-  %574 = load ptr, ptr %573, align 8
-  %575 = getelementptr inbounds nuw i8, ptr %572, i64 240
+574:                                              ; preds = %460
+  %575 = getelementptr inbounds nuw i8, ptr %462, i64 64
   %576 = load ptr, ptr %575, align 8
-  %577 = getelementptr inbounds nuw i8, ptr %458, i64 72
-  %578 = load i32, ptr %577, align 8
-  %579 = add i32 %578, -1
-  %580 = sext i32 %579 to i64
-  %581 = getelementptr inbounds ptr, ptr %576, i64 %580
-  %582 = load ptr, ptr %581, align 8
-  %583 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %584 = load i32, ptr %583, align 4
-  %585 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %586 = load i32, ptr %585, align 4
-  %587 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.23, ptr noundef %574, ptr noundef %582, i32 noundef %584, i32 noundef %586) #9
+  %577 = getelementptr inbounds nuw i8, ptr %576, i64 16
+  %578 = load ptr, ptr %577, align 8
+  %579 = getelementptr inbounds nuw i8, ptr %576, i64 240
+  %580 = load ptr, ptr %579, align 8
+  %581 = getelementptr inbounds nuw i8, ptr %462, i64 72
+  %582 = load i32, ptr %581, align 8
+  %583 = add i32 %582, -1
+  %584 = sext i32 %583 to i64
+  %585 = getelementptr inbounds ptr, ptr %580, i64 %584
+  %586 = load ptr, ptr %585, align 8
+  %587 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %588 = load i32, ptr %587, align 4
+  %589 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %590 = load i32, ptr %589, align 4
+  %591 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.23, ptr noundef %578, ptr noundef %586, i32 noundef %588, i32 noundef %590) #9
   br label %describeDumpableObject.exit.i.i
 
-588:                                              ; preds = %456
-  %589 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %590 = load ptr, ptr %589, align 8
-  %591 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %592 = load i32, ptr %591, align 4
-  %593 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %594 = load i32, ptr %593, align 4
-  %595 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.24, ptr noundef %590, i32 noundef %592, i32 noundef %594) #9
+592:                                              ; preds = %460
+  %593 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %594 = load ptr, ptr %593, align 8
+  %595 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %596 = load i32, ptr %595, align 4
+  %597 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %598 = load i32, ptr %597, align 4
+  %599 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.24, ptr noundef %594, i32 noundef %596, i32 noundef %598) #9
   br label %describeDumpableObject.exit.i.i
 
-596:                                              ; preds = %456
-  %597 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %598 = load ptr, ptr %597, align 8
-  %599 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %600 = load i32, ptr %599, align 4
-  %601 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.25, ptr noundef %598, i32 noundef %600) #9
+600:                                              ; preds = %460
+  %601 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %602 = load ptr, ptr %601, align 8
+  %603 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %604 = load i32, ptr %603, align 4
+  %605 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.25, ptr noundef %602, i32 noundef %604) #9
   br label %describeDumpableObject.exit.i.i
 
-602:                                              ; preds = %456
-  %603 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %604 = load ptr, ptr %603, align 8
-  %605 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %606 = load i32, ptr %605, align 4
-  %607 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %608 = load i32, ptr %607, align 4
-  %609 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.26, ptr noundef %604, i32 noundef %606, i32 noundef %608) #9
+606:                                              ; preds = %460
+  %607 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %608 = load ptr, ptr %607, align 8
+  %609 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %610 = load i32, ptr %609, align 4
+  %611 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %612 = load i32, ptr %611, align 4
+  %613 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.26, ptr noundef %608, i32 noundef %610, i32 noundef %612) #9
   br label %describeDumpableObject.exit.i.i
 
-610:                                              ; preds = %456
-  %611 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %612 = load ptr, ptr %611, align 8
-  %613 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %614 = load i32, ptr %613, align 4
-  %615 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %616 = load i32, ptr %615, align 4
-  %617 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.27, ptr noundef %612, i32 noundef %614, i32 noundef %616) #9
+614:                                              ; preds = %460
+  %615 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %616 = load ptr, ptr %615, align 8
+  %617 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %618 = load i32, ptr %617, align 4
+  %619 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %620 = load i32, ptr %619, align 4
+  %621 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.27, ptr noundef %616, i32 noundef %618, i32 noundef %620) #9
   br label %describeDumpableObject.exit.i.i
 
-618:                                              ; preds = %456
-  %619 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %620 = load ptr, ptr %619, align 8
-  %621 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %622 = load i32, ptr %621, align 4
-  %623 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %624 = load i32, ptr %623, align 4
-  %625 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.28, ptr noundef %620, i32 noundef %622, i32 noundef %624) #9
+622:                                              ; preds = %460
+  %623 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %624 = load ptr, ptr %623, align 8
+  %625 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %626 = load i32, ptr %625, align 4
+  %627 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %628 = load i32, ptr %627, align 4
+  %629 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.28, ptr noundef %624, i32 noundef %626, i32 noundef %628) #9
   br label %describeDumpableObject.exit.i.i
 
-626:                                              ; preds = %456
-  %627 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %628 = load ptr, ptr %627, align 8
-  %629 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %630 = load i32, ptr %629, align 4
-  %631 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %632 = load i32, ptr %631, align 4
-  %633 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.29, ptr noundef %628, i32 noundef %630, i32 noundef %632) #9
+630:                                              ; preds = %460
+  %631 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %632 = load ptr, ptr %631, align 8
+  %633 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %634 = load i32, ptr %633, align 4
+  %635 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %636 = load i32, ptr %635, align 4
+  %637 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.29, ptr noundef %632, i32 noundef %634, i32 noundef %636) #9
   br label %describeDumpableObject.exit.i.i
 
-634:                                              ; preds = %456
-  %635 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %636 = load ptr, ptr %635, align 8
-  %637 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %638 = load i32, ptr %637, align 4
-  %639 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %640 = load i32, ptr %639, align 4
-  %641 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.30, ptr noundef %636, i32 noundef %638, i32 noundef %640) #9
+638:                                              ; preds = %460
+  %639 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %640 = load ptr, ptr %639, align 8
+  %641 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %642 = load i32, ptr %641, align 4
+  %643 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %644 = load i32, ptr %643, align 4
+  %645 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.30, ptr noundef %640, i32 noundef %642, i32 noundef %644) #9
   br label %describeDumpableObject.exit.i.i
 
-642:                                              ; preds = %456
-  %643 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %644 = load ptr, ptr %643, align 8
-  %645 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %646 = load i32, ptr %645, align 4
-  %647 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %648 = load i32, ptr %647, align 4
-  %649 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.31, ptr noundef %644, i32 noundef %646, i32 noundef %648) #9
+646:                                              ; preds = %460
+  %647 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %648 = load ptr, ptr %647, align 8
+  %649 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %650 = load i32, ptr %649, align 4
+  %651 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %652 = load i32, ptr %651, align 4
+  %653 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.31, ptr noundef %648, i32 noundef %650, i32 noundef %652) #9
   br label %describeDumpableObject.exit.i.i
 
-650:                                              ; preds = %456
-  %651 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %652 = load ptr, ptr %651, align 8
-  %653 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %654 = load i32, ptr %653, align 4
-  %655 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %656 = load i32, ptr %655, align 4
-  %657 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.32, ptr noundef %652, i32 noundef %654, i32 noundef %656) #9
+654:                                              ; preds = %460
+  %655 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %656 = load ptr, ptr %655, align 8
+  %657 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %658 = load i32, ptr %657, align 4
+  %659 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %660 = load i32, ptr %659, align 4
+  %661 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.32, ptr noundef %656, i32 noundef %658, i32 noundef %660) #9
   br label %describeDumpableObject.exit.i.i
 
-658:                                              ; preds = %456
-  %659 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %660 = load ptr, ptr %659, align 8
-  %661 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %662 = load i32, ptr %661, align 4
-  %663 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %664 = load i32, ptr %663, align 4
-  %665 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.33, ptr noundef %660, i32 noundef %662, i32 noundef %664) #9
+662:                                              ; preds = %460
+  %663 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %664 = load ptr, ptr %663, align 8
+  %665 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %666 = load i32, ptr %665, align 4
+  %667 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %668 = load i32, ptr %667, align 4
+  %669 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.33, ptr noundef %664, i32 noundef %666, i32 noundef %668) #9
   br label %describeDumpableObject.exit.i.i
 
-666:                                              ; preds = %456
-  %667 = getelementptr inbounds nuw i8, ptr %458, i64 64
-  %668 = load i32, ptr %667, align 8
-  %669 = getelementptr inbounds nuw i8, ptr %458, i64 68
-  %670 = load i32, ptr %669, align 4
-  %671 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %672 = load i32, ptr %671, align 4
-  %673 = getelementptr inbounds nuw i8, ptr %458, i64 8
+670:                                              ; preds = %460
+  %671 = getelementptr inbounds nuw i8, ptr %462, i64 64
+  %672 = load i32, ptr %671, align 8
+  %673 = getelementptr inbounds nuw i8, ptr %462, i64 68
   %674 = load i32, ptr %673, align 4
-  %675 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.34, i32 noundef %668, i32 noundef %670, i32 noundef %672, i32 noundef %674) #9
+  %675 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %676 = load i32, ptr %675, align 4
+  %677 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %678 = load i32, ptr %677, align 4
+  %679 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.34, i32 noundef %672, i32 noundef %674, i32 noundef %676, i32 noundef %678) #9
   br label %describeDumpableObject.exit.i.i
 
-676:                                              ; preds = %456
-  %677 = getelementptr inbounds nuw i8, ptr %458, i64 64
-  %678 = load i32, ptr %677, align 8
-  %679 = getelementptr inbounds nuw i8, ptr %458, i64 68
-  %680 = load i32, ptr %679, align 4
-  %681 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %682 = load i32, ptr %681, align 4
-  %683 = getelementptr inbounds nuw i8, ptr %458, i64 8
+680:                                              ; preds = %460
+  %681 = getelementptr inbounds nuw i8, ptr %462, i64 64
+  %682 = load i32, ptr %681, align 8
+  %683 = getelementptr inbounds nuw i8, ptr %462, i64 68
   %684 = load i32, ptr %683, align 4
-  %685 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.35, i32 noundef %678, i32 noundef %680, i32 noundef %682, i32 noundef %684) #9
+  %685 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %686 = load i32, ptr %685, align 4
+  %687 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %688 = load i32, ptr %687, align 4
+  %689 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.35, i32 noundef %682, i32 noundef %684, i32 noundef %686, i32 noundef %688) #9
   br label %describeDumpableObject.exit.i.i
 
-686:                                              ; preds = %456
-  %687 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %688 = load ptr, ptr %687, align 8
-  %689 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %690 = load i32, ptr %689, align 4
-  %691 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %692 = load i32, ptr %691, align 4
-  %693 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.36, ptr noundef %688, i32 noundef %690, i32 noundef %692) #9
+690:                                              ; preds = %460
+  %691 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %692 = load ptr, ptr %691, align 8
+  %693 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %694 = load i32, ptr %693, align 4
+  %695 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %696 = load i32, ptr %695, align 4
+  %697 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.36, ptr noundef %692, i32 noundef %694, i32 noundef %696) #9
   br label %describeDumpableObject.exit.i.i
 
-694:                                              ; preds = %456
-  %695 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %696 = load ptr, ptr %695, align 8
-  %697 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %698 = load i32, ptr %697, align 4
-  %699 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %700 = load i32, ptr %699, align 4
-  %701 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.37, ptr noundef %696, i32 noundef %698, i32 noundef %700) #9
+698:                                              ; preds = %460
+  %699 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %700 = load ptr, ptr %699, align 8
+  %701 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %702 = load i32, ptr %701, align 4
+  %703 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %704 = load i32, ptr %703, align 4
+  %705 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.37, ptr noundef %700, i32 noundef %702, i32 noundef %704) #9
   br label %describeDumpableObject.exit.i.i
 
-702:                                              ; preds = %456
-  %703 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %704 = load ptr, ptr %703, align 8
-  %705 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %706 = load i32, ptr %705, align 4
-  %707 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %708 = load i32, ptr %707, align 4
-  %709 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.38, ptr noundef %704, i32 noundef %706, i32 noundef %708) #9
+706:                                              ; preds = %460
+  %707 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %708 = load ptr, ptr %707, align 8
+  %709 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %710 = load i32, ptr %709, align 4
+  %711 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %712 = load i32, ptr %711, align 4
+  %713 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.38, ptr noundef %708, i32 noundef %710, i32 noundef %712) #9
   br label %describeDumpableObject.exit.i.i
 
-710:                                              ; preds = %456
-  %711 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %712 = load ptr, ptr %711, align 8
-  %713 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %714 = load i32, ptr %713, align 4
-  %715 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %716 = load i32, ptr %715, align 4
-  %717 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.39, ptr noundef %712, i32 noundef %714, i32 noundef %716) #9
+714:                                              ; preds = %460
+  %715 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %716 = load ptr, ptr %715, align 8
+  %717 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %718 = load i32, ptr %717, align 4
+  %719 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %720 = load i32, ptr %719, align 4
+  %721 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.39, ptr noundef %716, i32 noundef %718, i32 noundef %720) #9
   br label %describeDumpableObject.exit.i.i
 
-718:                                              ; preds = %456
-  %719 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %720 = load ptr, ptr %719, align 8
-  %721 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %722 = load i32, ptr %721, align 4
-  %723 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %724 = load i32, ptr %723, align 4
-  %725 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.40, ptr noundef %720, i32 noundef %722, i32 noundef %724) #9
+722:                                              ; preds = %460
+  %723 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %724 = load ptr, ptr %723, align 8
+  %725 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %726 = load i32, ptr %725, align 4
+  %727 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %728 = load i32, ptr %727, align 4
+  %729 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.40, ptr noundef %724, i32 noundef %726, i32 noundef %728) #9
   br label %describeDumpableObject.exit.i.i
 
-726:                                              ; preds = %456
-  %727 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %728 = load ptr, ptr %727, align 8
-  %729 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %730 = load i32, ptr %729, align 4
-  %731 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %732 = load i32, ptr %731, align 4
-  %733 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.41, ptr noundef %728, i32 noundef %730, i32 noundef %732) #9
+730:                                              ; preds = %460
+  %731 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %732 = load ptr, ptr %731, align 8
+  %733 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %734 = load i32, ptr %733, align 4
+  %735 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %736 = load i32, ptr %735, align 4
+  %737 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.41, ptr noundef %732, i32 noundef %734, i32 noundef %736) #9
   br label %describeDumpableObject.exit.i.i
 
-734:                                              ; preds = %456
-  %735 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %736 = load ptr, ptr %735, align 8
-  %737 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %738 = load i32, ptr %737, align 4
-  %739 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %740 = load i32, ptr %739, align 4
-  %741 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.42, ptr noundef %736, i32 noundef %738, i32 noundef %740) #9
+738:                                              ; preds = %460
+  %739 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %740 = load ptr, ptr %739, align 8
+  %741 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %742 = load i32, ptr %741, align 4
+  %743 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %744 = load i32, ptr %743, align 4
+  %745 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.42, ptr noundef %740, i32 noundef %742, i32 noundef %744) #9
   br label %describeDumpableObject.exit.i.i
 
-742:                                              ; preds = %456
-  %743 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %744 = load ptr, ptr %743, align 8
-  %745 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %746 = load i32, ptr %745, align 4
-  %747 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %748 = load i32, ptr %747, align 4
-  %749 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef %744, i32 noundef %746, i32 noundef %748) #9
+746:                                              ; preds = %460
+  %747 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %748 = load ptr, ptr %747, align 8
+  %749 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %750 = load i32, ptr %749, align 4
+  %751 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %752 = load i32, ptr %751, align 4
+  %753 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef %748, i32 noundef %750, i32 noundef %752) #9
   br label %describeDumpableObject.exit.i.i
 
-750:                                              ; preds = %456
-  %751 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %752 = load ptr, ptr %751, align 8
-  %753 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %754 = load i32, ptr %753, align 4
-  %755 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %756 = load i32, ptr %755, align 4
-  %757 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.44, ptr noundef %752, i32 noundef %754, i32 noundef %756) #9
+754:                                              ; preds = %460
+  %755 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %756 = load ptr, ptr %755, align 8
+  %757 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %758 = load i32, ptr %757, align 4
+  %759 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %760 = load i32, ptr %759, align 4
+  %761 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.44, ptr noundef %756, i32 noundef %758, i32 noundef %760) #9
   br label %describeDumpableObject.exit.i.i
 
-758:                                              ; preds = %456
-  %759 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %760 = load ptr, ptr %759, align 8
-  %761 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  %762 = load i32, ptr %761, align 4
-  %763 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %764 = load i32, ptr %763, align 4
-  %765 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.45, ptr noundef %760, i32 noundef %762, i32 noundef %764) #9
-  br label %describeDumpableObject.exit.i.i
-
-766:                                              ; preds = %456
-  %767 = getelementptr inbounds nuw i8, ptr %458, i64 12
+762:                                              ; preds = %460
+  %763 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %764 = load ptr, ptr %763, align 8
+  %765 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %766 = load i32, ptr %765, align 4
+  %767 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %768 = load i32, ptr %767, align 4
-  %769 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %770 = load i32, ptr %769, align 4
-  %771 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.46, i32 noundef %768, i32 noundef %770) #9
+  %769 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.45, ptr noundef %764, i32 noundef %766, i32 noundef %768) #9
   br label %describeDumpableObject.exit.i.i
 
-772:                                              ; preds = %456
-  %773 = getelementptr inbounds nuw i8, ptr %458, i64 12
+770:                                              ; preds = %460
+  %771 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %772 = load i32, ptr %771, align 4
+  %773 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %774 = load i32, ptr %773, align 4
-  %775 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.47, i32 noundef %774) #9
+  %775 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.46, i32 noundef %772, i32 noundef %774) #9
   br label %describeDumpableObject.exit.i.i
 
-776:                                              ; preds = %456
-  %777 = getelementptr inbounds nuw i8, ptr %458, i64 12
+776:                                              ; preds = %460
+  %777 = getelementptr inbounds nuw i8, ptr %462, i64 12
   %778 = load i32, ptr %777, align 4
-  %779 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %780 = load i32, ptr %779, align 4
-  %781 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.48, i32 noundef %778, i32 noundef %780) #9
+  %779 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.47, i32 noundef %778) #9
   br label %describeDumpableObject.exit.i.i
 
-782:                                              ; preds = %456
-  %783 = getelementptr inbounds nuw i8, ptr %458, i64 12
+780:                                              ; preds = %460
+  %781 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %782 = load i32, ptr %781, align 4
+  %783 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %784 = load i32, ptr %783, align 4
-  %785 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %786 = load i32, ptr %785, align 4
-  %787 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.49, i32 noundef %784, i32 noundef %786) #9
+  %785 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.48, i32 noundef %782, i32 noundef %784) #9
   br label %describeDumpableObject.exit.i.i
 
-788:                                              ; preds = %456
-  %789 = getelementptr inbounds nuw i8, ptr %458, i64 12
+786:                                              ; preds = %460
+  %787 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %788 = load i32, ptr %787, align 4
+  %789 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %790 = load i32, ptr %789, align 4
-  %791 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %792 = load i32, ptr %791, align 4
-  %793 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.50, i32 noundef %790, i32 noundef %792) #9
+  %791 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.49, i32 noundef %788, i32 noundef %790) #9
   br label %describeDumpableObject.exit.i.i
 
-794:                                              ; preds = %456
-  %795 = getelementptr inbounds nuw i8, ptr %458, i64 12
+792:                                              ; preds = %460
+  %793 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %794 = load i32, ptr %793, align 4
+  %795 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %796 = load i32, ptr %795, align 4
-  %797 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %798 = load i32, ptr %797, align 4
-  %799 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.51, i32 noundef %796, i32 noundef %798) #9
+  %797 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.50, i32 noundef %794, i32 noundef %796) #9
   br label %describeDumpableObject.exit.i.i
 
-800:                                              ; preds = %456
-  %801 = getelementptr inbounds nuw i8, ptr %458, i64 12
+798:                                              ; preds = %460
+  %799 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %800 = load i32, ptr %799, align 4
+  %801 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %802 = load i32, ptr %801, align 4
-  %803 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %804 = load i32, ptr %803, align 4
-  %805 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.52, i32 noundef %802, i32 noundef %804) #9
+  %803 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.51, i32 noundef %800, i32 noundef %802) #9
   br label %describeDumpableObject.exit.i.i
 
-806:                                              ; preds = %456
-  %807 = getelementptr inbounds nuw i8, ptr %458, i64 12
+804:                                              ; preds = %460
+  %805 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %806 = load i32, ptr %805, align 4
+  %807 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %808 = load i32, ptr %807, align 4
-  %809 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %810 = load i32, ptr %809, align 4
-  %811 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.53, i32 noundef %808, i32 noundef %810) #9
+  %809 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.52, i32 noundef %806, i32 noundef %808) #9
   br label %describeDumpableObject.exit.i.i
 
-812:                                              ; preds = %456
-  %813 = getelementptr inbounds nuw i8, ptr %458, i64 12
+810:                                              ; preds = %460
+  %811 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %812 = load i32, ptr %811, align 4
+  %813 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %814 = load i32, ptr %813, align 4
-  %815 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.54, i32 noundef %814) #9
+  %815 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.53, i32 noundef %812, i32 noundef %814) #9
   br label %describeDumpableObject.exit.i.i
 
-816:                                              ; preds = %456
-  %817 = getelementptr inbounds nuw i8, ptr %458, i64 12
+816:                                              ; preds = %460
+  %817 = getelementptr inbounds nuw i8, ptr %462, i64 12
   %818 = load i32, ptr %817, align 4
-  %819 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.55, i32 noundef %818) #9
+  %819 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.54, i32 noundef %818) #9
   br label %describeDumpableObject.exit.i.i
 
-820:                                              ; preds = %456
-  %821 = getelementptr inbounds nuw i8, ptr %458, i64 12
+820:                                              ; preds = %460
+  %821 = getelementptr inbounds nuw i8, ptr %462, i64 12
   %822 = load i32, ptr %821, align 4
-  %823 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %824 = load i32, ptr %823, align 4
-  %825 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.56, i32 noundef %459, i32 noundef %822, i32 noundef %824) #9
+  %823 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.55, i32 noundef %822) #9
   br label %describeDumpableObject.exit.i.i
 
-describeDumpableObject.exit.i.i:                  ; preds = %820, %816, %812, %806, %800, %794, %788, %782, %776, %772, %766, %758, %750, %742, %734, %726, %718, %710, %702, %694, %686, %676, %666, %658, %650, %642, %634, %626, %618, %610, %602, %596, %588, %570, %564, %556, %548, %540, %532, %524, %516, %508, %500, %492, %484, %476, %468, %460
+824:                                              ; preds = %460
+  %825 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  %826 = load i32, ptr %825, align 4
+  %827 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %828 = load i32, ptr %827, align 4
+  %829 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.56, i32 noundef %463, i32 noundef %826, i32 noundef %828) #9
+  br label %describeDumpableObject.exit.i.i
+
+describeDumpableObject.exit.i.i:                  ; preds = %824, %820, %816, %810, %804, %798, %792, %786, %780, %776, %770, %762, %754, %746, %738, %730, %722, %714, %706, %698, %690, %680, %670, %662, %654, %646, %638, %630, %622, %614, %606, %600, %592, %574, %568, %560, %552, %544, %536, %528, %520, %512, %504, %496, %488, %480, %472, %464
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #9
   %indvars.iv.next444.i.i = add nuw nsw i64 %indvars.iv443.i.i, 1
   %exitcond447.not.i.i = icmp eq i64 %indvars.iv.next444.i.i, %wide.trip.count441.i.i
-  br i1 %exitcond447.not.i.i, label %826, label %456, !llvm.loop !28
+  br i1 %exitcond447.not.i.i, label %830, label %460, !llvm.loop !28
 
-826:                                              ; preds = %describeDumpableObject.exit.i.i
+830:                                              ; preds = %describeDumpableObject.exit.i.i
   %.not.i14 = icmp eq i32 %125, 1
-  %827 = load ptr, ptr %118, align 8
-  br i1 %.not.i14, label %832, label %828
+  %831 = load ptr, ptr %117, align 8
+  br i1 %.not.i14, label %836, label %832
 
-828:                                              ; preds = %826
-  %829 = load ptr, ptr %invariant.gep.i, align 8
-  %830 = getelementptr inbounds nuw i8, ptr %829, i64 12
-  %831 = load i32, ptr %830, align 4
-  call void @removeObjectDependency(ptr noundef %827, i32 noundef %831) #9
+832:                                              ; preds = %830
+  %833 = load ptr, ptr %119, align 8
+  %834 = getelementptr inbounds nuw i8, ptr %833, i64 12
+  %835 = load i32, ptr %834, align 4
+  call void @removeObjectDependency(ptr noundef %831, i32 noundef %835) #9
   br label %.lr.ph.preheader.i
 
-832:                                              ; preds = %826
-  %833 = getelementptr inbounds nuw i8, ptr %827, i64 12
-  %834 = load i32, ptr %833, align 4
-  call void @removeObjectDependency(ptr noundef %827, i32 noundef %834) #9
+836:                                              ; preds = %830
+  %837 = getelementptr inbounds nuw i8, ptr %831, i64 12
+  %838 = load i32, ptr %837, align 4
+  call void @removeObjectDependency(ptr noundef %831, i32 noundef %838) #9
   br label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %832, %828, %452, %448, %431, %418, %400, %390, %375, %361, %353, %343, %337, %325, %307, %295, %283, %274, %263, %259, %250, %229, %202, %183, %162, %157, %152, %145, %140, %135
+.lr.ph.preheader.i:                               ; preds = %836, %832, %456, %452, %435, %422, %404, %394, %379, %365, %357, %347, %341, %329, %311, %299, %287, %276, %265, %261, %250, %229, %202, %183, %162, %157, %152, %145, %140, %135
   %wide.trip.count.i16 = zext nneg i32 %125 to i64
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i
   %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i19, %.lr.ph.i17 ]
-  %835 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv.i18
-  %836 = load ptr, ptr %835, align 8
-  %837 = getelementptr inbounds nuw i8, ptr %836, i64 12
-  %838 = load i32, ptr %837, align 4
-  %839 = sext i32 %838 to i64
-  %840 = getelementptr inbounds i8, ptr %112, i64 %839
-  store i8 1, ptr %840, align 1
+  %839 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i18
+  %840 = load ptr, ptr %839, align 8
+  %841 = getelementptr inbounds nuw i8, ptr %840, i64 12
+  %842 = load i32, ptr %841, align 4
+  %843 = sext i32 %842 to i64
+  %844 = getelementptr inbounds i8, ptr %111, i64 %843
+  store i8 1, ptr %844, align 1
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, %wide.trip.count.i16
   br i1 %exitcond.not.i20, label %.loopexit.thread.i, label %.lr.ph.i17, !llvm.loop !29
 
 .loopexit.i12:                                    ; preds = %120
-  %841 = load i32, ptr %123, align 4
-  %842 = sext i32 %841 to i64
-  %843 = getelementptr inbounds i8, ptr %112, i64 %842
-  store i8 1, ptr %843, align 1
-  %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
-  %exitcond97.not.i = icmp eq i64 %indvars.iv.next95.i, %wide.trip.count96.i
-  br i1 %exitcond97.not.i, label %._crit_edge.i13, label %120, !llvm.loop !30
+  %845 = load i32, ptr %123, align 4
+  %846 = sext i32 %845 to i64
+  %847 = getelementptr inbounds i8, ptr %111, i64 %846
+  store i8 1, ptr %847, align 1
+  %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
+  %exitcond95.not.i = icmp eq i64 %indvars.iv.next93.i, %wide.trip.count94.i
+  br i1 %exitcond95.not.i, label %._crit_edge.i13, label %120, !llvm.loop !30
 
 .loopexit.thread.i:                               ; preds = %.lr.ph.i17
-  %indvars.iv.next95108.i = add nuw nsw i64 %indvars.iv94.i, 1
-  %exitcond97.not109.i = icmp eq i64 %indvars.iv.next95108.i, %wide.trip.count96.i
-  br i1 %exitcond97.not109.i, label %findDependencyLoops.exit, label %.outer.i, !llvm.loop !30
+  %indvars.iv.next93106.i = add nuw nsw i64 %indvars.iv92.i, 1
+  %exitcond95.not107.i = icmp eq i64 %indvars.iv.next93106.i, %wide.trip.count94.i
+  br i1 %exitcond95.not107.i, label %findDependencyLoops.exit, label %.outer.i, !llvm.loop !30
 
 ._crit_edge.i13:                                  ; preds = %.loopexit.i12
-  br i1 %.02570.ph.i, label %findDependencyLoops.exit, label %.critedge.i
+  br i1 %.02568.ph.i, label %findDependencyLoops.exit, label %.critedge.i
 
-.critedge.i:                                      ; preds = %._crit_edge.i13, %108
+.critedge.i:                                      ; preds = %._crit_edge.i13, %TopoSort.exit.loopexit
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2) #9
   call void @exit_nicely(i32 noundef 1) #11
   unreachable
 
 findDependencyLoops.exit:                         ; preds = %.loopexit.thread.i, %._crit_edge.i13
-  call void @free(ptr noundef %118) #9
   call void @free(ptr noundef %117) #9
-  call void @free(ptr noundef nonnull %112) #9
+  call void @free(ptr noundef %116) #9
+  call void @free(ptr noundef nonnull %111) #9
   br label %11, !llvm.loop !31
 
-844:                                              ; preds = %TopoSort.exit
+.critedge:                                        ; preds = %._crit_edge100.i
+  call void @binaryheap_free(ptr noundef nonnull %13) #9
+  call void @free(ptr noundef %17) #9
+  call void @free(ptr noundef %18) #9
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %10, i64 %9, i1 false)
   call void @free(ptr noundef %10) #9
-  br label %845
+  br label %848
 
-845:                                              ; preds = %4, %844
+848:                                              ; preds = %4, %.critedge
   ret void
 }
 

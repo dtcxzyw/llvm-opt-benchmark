@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: noreturn nounwind uwtable
-define noundef ptr @Util_Thread(ptr noundef captures(none) %0) #0 {
+define noalias noundef nonnull ptr @Util_Thread(ptr noundef captures(none) %0) #0 {
   %2 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
   store i64 0, ptr %2, align 8, !tbaa !3

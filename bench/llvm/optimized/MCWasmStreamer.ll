@@ -540,7 +540,7 @@ _ZN4llvm11SmallVectorINS_7MCFixupELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVect
   ret void
 
 59:                                               ; preds = %.lr.ph28, %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit
-  %60 = phi i32 [ %.pre, %.lr.ph28 ], [ %87, %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit ]
+  %60 = phi i32 [ %.pre, %.lr.ph28 ], [ %86, %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next, %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit ]
   %61 = load ptr, ptr %4, align 8, !tbaa !96
   %62 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %61, i64 %indvars.iv
@@ -562,32 +562,32 @@ _ZN4llvm11SmallVectorINS_7MCFixupELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVect
   %73 = icmp uge ptr %62, %.pre3.i
   %74 = icmp ult ptr %62, %72
   %spec.select.i.i.i.i.i = and i1 %73, %74
-  br i1 %spec.select.i.i.i.i.i, label %76, label %75, !prof !122
+  br i1 %spec.select.i.i.i.i.i, label %75, label %.critedge.i.i.i, !prof !122
 
 75:                                               ; preds = %71
+  %76 = ptrtoint ptr %62 to i64
+  %77 = ptrtoint ptr %.pre3.i to i64
+  %78 = sub i64 %76, %77
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %29, i64 noundef %69, i64 noundef 24) #12
+  %79 = load ptr, ptr %26, align 8, !tbaa !96
+  %80 = getelementptr inbounds i8, ptr %79, i64 %78
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit
+
+.critedge.i.i.i:                                  ; preds = %71
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %29, i64 noundef %69, i64 noundef 24) #12
   %.pre.i = load ptr, ptr %26, align 8, !tbaa !96
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit
 
-76:                                               ; preds = %71
-  %77 = ptrtoint ptr %62 to i64
-  %78 = ptrtoint ptr %.pre3.i to i64
-  %79 = sub i64 %77, %78
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %29, i64 noundef %69, i64 noundef 24) #12
-  %80 = load ptr, ptr %26, align 8, !tbaa !96
-  %81 = getelementptr inbounds i8, ptr %80, i64 %79
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; preds = %59, %75, %76
-  %82 = phi ptr [ %.pre3.i, %59 ], [ %80, %76 ], [ %.pre.i, %75 ]
-  %.016.i.i.i = phi ptr [ %62, %59 ], [ %81, %76 ], [ %62, %75 ]
-  %83 = load i32, ptr %27, align 8, !tbaa !97
-  %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %82, i64 %84
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %86 = load i32, ptr %27, align 8, !tbaa !97
-  %87 = add i32 %86, 1
-  store i32 %87, ptr %27, align 8, !tbaa !97
+_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; preds = %59, %75, %.critedge.i.i.i
+  %81 = phi ptr [ %.pre3.i, %59 ], [ %79, %75 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %62, %59 ], [ %80, %75 ], [ %62, %.critedge.i.i.i ]
+  %82 = load i32, ptr %27, align 8, !tbaa !97
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %81, i64 %83
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %84, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %85 = load i32, ptr %27, align 8, !tbaa !97
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %27, align 8, !tbaa !97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not22 = icmp eq i64 %indvars.iv.next, %30
   br i1 %.not22, label %._crit_edge29, label %59, !llvm.loop !123

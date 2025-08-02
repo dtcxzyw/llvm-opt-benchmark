@@ -4351,7 +4351,7 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captu
   br i1 %26, label %.lr.ph98, label %.loopexit.thread
 
 .lr.ph98:                                         ; preds = %.preheader
-  %27 = getelementptr i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4362,7 +4362,7 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captu
 33:                                               ; preds = %.lr.ph98, %54
   %indvars.iv109 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next110, %54 ]
   %.idx75 = shl nuw nsw i64 %indvars.iv109, 6
-  %34 = getelementptr i8, ptr %27, i64 %.idx75
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx75
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !57
   store i64 %36, ptr %5, align 8, !tbaa !70
@@ -4413,7 +4413,7 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captu
   br i1 %61, label %.lr.ph95, label %.loopexit.thread
 
 .lr.ph95:                                         ; preds = %60
-  %62 = getelementptr i8, ptr %0, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4426,7 +4426,7 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captu
   %indvars.iv106 = phi i64 [ %68, %.lr.ph95 ], [ %indvars.iv.next107, %85 ]
   %.169.in93 = phi i32 [ %25, %.lr.ph95 ], [ %95, %85 ]
   %.idx74 = shl nuw nsw i64 %indvars.iv106, 6
-  %70 = getelementptr i8, ptr %62, i64 %.idx74
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx74
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !57
   store i64 %72, ptr %5, align 8, !tbaa !70
@@ -4502,7 +4502,7 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captu
   br i1 %106, label %.lr.ph90, label %.loopexit84.thread
 
 .lr.ph90:                                         ; preds = %.preheader83
-  %107 = getelementptr i8, ptr %0, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %108
 
 108:                                              ; preds = %.lr.ph90, %117
@@ -4515,9 +4515,9 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captu
 111:                                              ; preds = %108
   %112 = load ptr, ptr %19, align 8, !tbaa !33
   %.idx72 = shl nuw nsw i64 %indvars.iv103, 6
-  %113 = getelementptr i8, ptr %107, i64 %.idx72
+  %113 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx72
   %114 = trunc nuw nsw i64 %indvars.iv103 to i32
-  %115 = call i32 %112(i32 noundef %114, ptr noundef %113, ptr noundef %3) #16
+  %115 = call i32 %112(i32 noundef %114, ptr noundef nonnull %113, ptr noundef %3) #16
   %116 = call i32 @H5_user_cb_restore(ptr noundef nonnull %8) #16
   %.inv79 = icmp sgt i32 %116, -1
   %spec.select77 = select i1 %.inv79, i32 %115, i32 -1
@@ -4541,7 +4541,7 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captu
   br i1 %124, label %.lr.ph, label %.loopexit84.thread
 
 .lr.ph:                                           ; preds = %123
-  %125 = getelementptr i8, ptr %0, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %126 = zext nneg i32 %.37186 to i64
   br label %127
 
@@ -4563,8 +4563,8 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captu
   %133 = trunc i64 %132 to i32
   %134 = sub i32 %133, %.371.in87
   %.idx = shl nuw nsw i64 %indvars.iv, 6
-  %135 = getelementptr i8, ptr %125, i64 %.idx
-  %136 = call i32 %131(i32 noundef %134, ptr noundef %135, ptr noundef %3) #16
+  %135 = getelementptr inbounds nuw i8, ptr %125, i64 %.idx
+  %136 = call i32 %131(i32 noundef %134, ptr noundef nonnull %135, ptr noundef %3) #16
   %137 = call i32 @H5_user_cb_restore(ptr noundef nonnull %9) #16
   %.inv = icmp sgt i32 %137, -1
   %spec.select78 = select i1 %.inv, i32 %136, i32 -1

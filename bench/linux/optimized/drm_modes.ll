@@ -3216,19 +3216,15 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   store ptr null, ptr %8, align 8, !annotation !28
   %301 = load i8, ptr %294, align 1
   %302 = icmp eq i8 %301, 61
-  br i1 %302, label %303, label %.thread.i
-
-.thread.i:                                        ; preds = %300
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  br label %.thread
+  br i1 %302, label %303, label %.critedge.i
 
 303:                                              ; preds = %300
   %304 = getelementptr i8, ptr %294, i64 1
   %305 = call i64 @simple_strtol(ptr noundef %304, ptr noundef nonnull %8, i32 noundef 10) #14
   %306 = load ptr, ptr %8, align 8
-  %.not13.i = icmp eq ptr %306, %304
+  %.not12.i = icmp eq ptr %306, %304
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  br i1 %.not13.i, label %.thread, label %307
+  br i1 %.not12.i, label %.thread, label %307
 
 307:                                              ; preds = %303
   %308 = trunc i64 %305 to i32
@@ -3283,9 +3279,9 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   store ptr null, ptr %7, align 8, !annotation !28
   %331 = load i8, ptr %294, align 1
   %332 = icmp eq i8 %331, 61
-  br i1 %332, label %333, label %.thread6.i
+  br i1 %332, label %333, label %.thread.i
 
-.thread6.i:                                       ; preds = %330
+.thread.i:                                        ; preds = %330
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   br label %.thread
 
@@ -3293,9 +3289,9 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   %334 = getelementptr i8, ptr %294, i64 1
   %335 = call i64 @simple_strtol(ptr noundef %334, ptr noundef nonnull %7, i32 noundef 10) #14
   %336 = load ptr, ptr %7, align 8
-  %.not12.i = icmp eq ptr %336, %334
+  %.not11.i = icmp eq ptr %336, %334
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  br i1 %.not12.i, label %.thread, label %337
+  br i1 %.not11.i, label %.thread, label %337
 
 337:                                              ; preds = %333
   %338 = trunc i64 %335 to i32
@@ -3312,9 +3308,9 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   store ptr null, ptr %6, align 8, !annotation !28
   %343 = load i8, ptr %294, align 1
   %344 = icmp eq i8 %343, 61
-  br i1 %344, label %345, label %.thread7.i
+  br i1 %344, label %345, label %.thread6.i
 
-.thread7.i:                                       ; preds = %342
+.thread6.i:                                       ; preds = %342
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
   br label %.thread
 
@@ -3322,9 +3318,9 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   %346 = getelementptr i8, ptr %294, i64 1
   %347 = call i64 @simple_strtol(ptr noundef %346, ptr noundef nonnull %6, i32 noundef 10) #14
   %348 = load ptr, ptr %6, align 8
-  %.not11.i = icmp eq ptr %348, %346
+  %.not10.i = icmp eq ptr %348, %346
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  br i1 %.not11.i, label %.thread, label %349
+  br i1 %.not10.i, label %.thread, label %349
 
 349:                                              ; preds = %345
   %350 = trunc i64 %347 to i32
@@ -3341,9 +3337,9 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   store ptr null, ptr %5, align 8, !annotation !28
   %355 = load i8, ptr %294, align 1
   %356 = icmp eq i8 %355, 61
-  br i1 %356, label %357, label %.thread8.i
+  br i1 %356, label %357, label %.thread7.i
 
-.thread8.i:                                       ; preds = %354
+.thread7.i:                                       ; preds = %354
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   br label %.thread
 
@@ -3351,9 +3347,9 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   %358 = getelementptr i8, ptr %294, i64 1
   %359 = call i64 @simple_strtol(ptr noundef %358, ptr noundef nonnull %5, i32 noundef 10) #14
   %360 = load ptr, ptr %5, align 8
-  %.not10.i = icmp eq ptr %360, %358
+  %.not9.i = icmp eq ptr %360, %358
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  br i1 %.not10.i, label %.thread, label %361
+  br i1 %.not9.i, label %.thread, label %361
 
 361:                                              ; preds = %357
   %362 = trunc i64 %359 to i32
@@ -3370,9 +3366,9 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   store ptr null, ptr %4, align 8, !annotation !28
   %367 = load i8, ptr %294, align 1
   %368 = icmp eq i8 %367, 61
-  br i1 %368, label %369, label %.thread9.i
+  br i1 %368, label %369, label %.thread8.i
 
-.thread9.i:                                       ; preds = %366
+.thread8.i:                                       ; preds = %366
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   br label %.thread
 
@@ -3506,13 +3502,17 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   %443 = icmp eq i32 %442, 1
   br i1 %443, label %drm_mode_parse_cmdline_options.exit, label %.thread
 
+.critedge.i:                                      ; preds = %300
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  br label %.thread
+
 drm_mode_parse_cmdline_options.exit:              ; preds = %436
   %444 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %440, ptr %444, align 4
   br label %.thread
 
-.thread:                                          ; preds = %79, %267, %263, %256, %254, %252, %248, %421, %411, %408, %404, %378, %369, %357, %345, %333, %307, %303, %.thread9.i, %.thread8.i, %.thread7.i, %.thread6.i, %.thread.i, %436, %433, %.loopexit, %drm_mode_parse_cmdline_options.exit, %184, %.thread23, %214, %211, %202, %199, %92, %62, %3
-  %445 = phi i1 [ false, %3 ], [ false, %62 ], [ false, %92 ], [ false, %199 ], [ false, %202 ], [ false, %211 ], [ false, %214 ], [ false, %.thread23 ], [ false, %184 ], [ true, %drm_mode_parse_cmdline_options.exit ], [ true, %.loopexit ], [ false, %433 ], [ false, %436 ], [ false, %.thread.i ], [ false, %.thread6.i ], [ false, %.thread7.i ], [ false, %.thread8.i ], [ false, %.thread9.i ], [ false, %303 ], [ false, %307 ], [ false, %333 ], [ false, %345 ], [ false, %357 ], [ false, %369 ], [ false, %378 ], [ false, %404 ], [ false, %408 ], [ false, %411 ], [ false, %421 ], [ false, %248 ], [ false, %252 ], [ false, %254 ], [ false, %256 ], [ false, %263 ], [ false, %267 ], [ false, %79 ]
+.thread:                                          ; preds = %79, %267, %263, %256, %254, %252, %248, %421, %411, %408, %404, %378, %369, %357, %345, %333, %307, %303, %.thread8.i, %.thread7.i, %.thread6.i, %.thread.i, %.critedge.i, %436, %433, %.loopexit, %drm_mode_parse_cmdline_options.exit, %184, %.thread23, %214, %211, %202, %199, %92, %62, %3
+  %445 = phi i1 [ false, %3 ], [ false, %62 ], [ false, %92 ], [ false, %199 ], [ false, %202 ], [ false, %211 ], [ false, %214 ], [ false, %.thread23 ], [ false, %184 ], [ true, %drm_mode_parse_cmdline_options.exit ], [ true, %.loopexit ], [ false, %433 ], [ false, %436 ], [ false, %.critedge.i ], [ false, %.thread.i ], [ false, %.thread6.i ], [ false, %.thread7.i ], [ false, %.thread8.i ], [ false, %303 ], [ false, %307 ], [ false, %333 ], [ false, %345 ], [ false, %357 ], [ false, %369 ], [ false, %378 ], [ false, %404 ], [ false, %408 ], [ false, %411 ], [ false, %421 ], [ false, %248 ], [ false, %252 ], [ false, %254 ], [ false, %256 ], [ false, %263 ], [ false, %267 ], [ false, %79 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
   ret i1 %445

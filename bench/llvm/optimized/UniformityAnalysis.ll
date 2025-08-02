@@ -8909,24 +8909,24 @@ define linkonce_odr void @_ZSt16__introsort_loopIPPKN4llvm12GenericCycleINS0_17G
   br i1 %8, label %.lr.ph, label %_ZSt14__partial_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEET_SJ_SJ_T0_.exit
-  %11 = phi i64 [ %7, %.lr.ph ], [ %112, %_ZSt27__unguarded_partition_pivotIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEET_SJ_SJ_T0_.exit ]
+  %11 = phi i64 [ %7, %.lr.ph ], [ %114, %_ZSt27__unguarded_partition_pivotIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEET_SJ_SJ_T0_.exit ]
   %.025 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEET_SJ_SJ_T0_.exit ]
-  %.01724 = phi i64 [ %2, %.lr.ph ], [ %63, %_ZSt27__unguarded_partition_pivotIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEET_SJ_SJ_T0_.exit ]
+  %.01724 = phi i64 [ %2, %.lr.ph ], [ %65, %_ZSt27__unguarded_partition_pivotIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEET_SJ_SJ_T0_.exit ]
   %12 = icmp eq i64 %.01724, 0
-  br i1 %12, label %.lr.ph.i.i, label %62
+  br i1 %12, label %13, label %64
 
-.lr.ph.i.i:                                       ; preds = %10
+13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZSt11__make_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_RT0_(ptr noundef %0, ptr noundef %.025, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %13
+  br label %.lr.ph.i.i
 
-13:                                               ; preds = %_ZSt10__pop_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_RT0_.exit.i.i, %.lr.ph.i.i
-  %.07.i.i = phi ptr [ %.025, %.lr.ph.i.i ], [ %14, %_ZSt10__pop_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_RT0_.exit.i.i ]
+.lr.ph.i.i:                                       ; preds = %13, %_ZSt10__pop_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_RT0_.exit.i.i
+  %.07.i.i = phi ptr [ %14, %_ZSt10__pop_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_RT0_.exit.i.i ], [ %.025, %13 ]
   %14 = getelementptr inbounds i8, ptr %.07.i.i, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !201
   %16 = load ptr, ptr %0, align 8, !tbaa !201
@@ -8939,194 +8939,195 @@ define linkonce_odr void @_ZSt16__introsort_loopIPPKN4llvm12GenericCycleINS0_17G
   %22 = icmp sgt i64 %19, 2
   br i1 %22, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %13, %.lr.ph.i.i.i.i
-  %.029.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %13 ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i
+  %.029.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %23 = shl i64 %.029.i.i.i.i, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds ptr, ptr %0, i64 %24
-  %gep.i.i.i.i = getelementptr ptr, ptr %9, i64 %23
-  %26 = load ptr, ptr %25, align 8, !tbaa !201
-  %27 = load ptr, ptr %gep.i.i.i.i, align 8, !tbaa !201
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 160
-  %29 = load i32, ptr %28, align 8, !tbaa !344
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 160
+  %26 = getelementptr ptr, ptr %0, i64 %23
+  %27 = getelementptr i8, ptr %26, i64 8
+  %28 = load ptr, ptr %25, align 8, !tbaa !201
+  %29 = load ptr, ptr %27, align 8, !tbaa !201
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 160
   %31 = load i32, ptr %30, align 8, !tbaa !344
-  %32 = icmp ugt i32 %29, %31
-  %33 = or disjoint i64 %23, 1
-  %spec.select.i.i.i.i = select i1 %32, i64 %33, i64 %24
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
-  %35 = load ptr, ptr %34, align 8, !tbaa !201
-  %36 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.i.i.i
-  store ptr %35, ptr %36, align 8, !tbaa !201
-  %37 = icmp slt i64 %spec.select.i.i.i.i, %21
-  br i1 %37, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !413
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 160
+  %33 = load i32, ptr %32, align 8, !tbaa !344
+  %34 = icmp ugt i32 %31, %33
+  %35 = or disjoint i64 %23, 1
+  %spec.select.i.i.i.i = select i1 %34, i64 %35, i64 %24
+  %36 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %37 = load ptr, ptr %36, align 8, !tbaa !201
+  %38 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.i.i.i
+  store ptr %37, ptr %38, align 8, !tbaa !201
+  %39 = icmp slt i64 %spec.select.i.i.i.i, %21
+  br i1 %39, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !413
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %13
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %13 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %38 = and i64 %18, 8
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %49
+._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %40 = and i64 %18, 8
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %42, label %51
 
-40:                                               ; preds = %._crit_edge.i.i.i.i
-  %41 = add nsw i64 %19, -2
-  %42 = ashr exact i64 %41, 1
-  %43 = icmp eq i64 %.0.lcssa.i.i.i.i, %42
-  br i1 %43, label %.thread.i.i.i, label %49
+42:                                               ; preds = %._crit_edge.i.i.i.i
+  %43 = add nsw i64 %19, -2
+  %44 = ashr exact i64 %43, 1
+  %45 = icmp eq i64 %.0.lcssa.i.i.i.i, %44
+  br i1 %45, label %.thread.i.i.i, label %51
 
-.thread.i.i.i:                                    ; preds = %40
-  %44 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %45 = or disjoint i64 %44, 1
-  %46 = getelementptr inbounds nuw ptr, ptr %0, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !201
-  %48 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
-  store ptr %47, ptr %48, align 8, !tbaa !201
+.thread.i.i.i:                                    ; preds = %42
+  %46 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %47 = or disjoint i64 %46, 1
+  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %47
+  %49 = load ptr, ptr %48, align 8, !tbaa !201
+  %50 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  store ptr %49, ptr %50, align 8, !tbaa !201
   br label %.lr.ph.i.i.i.i.i
 
-49:                                               ; preds = %40, %._crit_edge.i.i.i.i
+51:                                               ; preds = %42, %._crit_edge.i.i.i.i
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %49, %.thread.i.i.i
-  %.128.i9.i.i.i = phi i64 [ %45, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %49 ]
-  %50 = getelementptr inbounds nuw i8, ptr %15, i64 160
-  %51 = load i32, ptr %50, align 8, !tbaa !344
-  br label %52
+.lr.ph.i.i.i.i.i:                                 ; preds = %51, %.thread.i.i.i
+  %.128.i9.i.i.i = phi i64 [ %47, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %51 ]
+  %52 = getelementptr inbounds nuw i8, ptr %15, i64 160
+  %53 = load i32, ptr %52, align 8, !tbaa !344
+  br label %54
 
-52:                                               ; preds = %58, %.lr.ph.i.i.i.i.i
-  %.01317.i.i.i.i.i = phi i64 [ %.128.i9.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.018.i.i1011.i.i.i, %58 ]
+54:                                               ; preds = %60, %.lr.ph.i.i.i.i.i
+  %.01317.i.i.i.i.i = phi i64 [ %.128.i9.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.018.i.i1011.i.i.i, %60 ]
   %.018.in.i.i.i.i.i = add nsw i64 %.01317.i.i.i.i.i, -1
   %.018.i.i1011.i.i.i = lshr i64 %.018.in.i.i.i.i.i, 1
-  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %.018.i.i1011.i.i.i
-  %54 = load ptr, ptr %53, align 8, !tbaa !201
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 160
-  %56 = load i32, ptr %55, align 8, !tbaa !344
-  %57 = icmp ugt i32 %56, %51
-  br i1 %57, label %58, label %_ZSt10__pop_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_RT0_.exit.i.i
+  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %.018.i.i1011.i.i.i
+  %56 = load ptr, ptr %55, align 8, !tbaa !201
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 160
+  %58 = load i32, ptr %57, align 8, !tbaa !344
+  %59 = icmp ugt i32 %58, %53
+  br i1 %59, label %60, label %_ZSt10__pop_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_RT0_.exit.i.i
 
-58:                                               ; preds = %52
-  %59 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
-  store ptr %54, ptr %59, align 8, !tbaa !201
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
+  store ptr %56, ptr %61, align 8, !tbaa !201
   %.not12.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
-  br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_RT0_.exit.i.i, label %52, !llvm.loop !414
+  br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_RT0_.exit.i.i, label %54, !llvm.loop !414
 
-_ZSt10__pop_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_RT0_.exit.i.i: ; preds = %58, %52, %49
-  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %49 ], [ %.01317.i.i.i.i.i, %52 ], [ 0, %58 ]
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store ptr %15, ptr %60, align 8, !tbaa !201
-  %61 = icmp sgt i64 %18, 8
-  br i1 %61, label %13, label %_ZSt14__partial_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_T0_.exit, !llvm.loop !415
+_ZSt10__pop_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_RT0_.exit.i.i: ; preds = %60, %54, %51
+  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %51 ], [ %.01317.i.i.i.i.i, %54 ], [ 0, %60 ]
+  %62 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store ptr %15, ptr %62, align 8, !tbaa !201
+  %63 = icmp sgt i64 %18, 8
+  br i1 %63, label %.lr.ph.i.i, label %_ZSt14__partial_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_T0_.exit, !llvm.loop !415
 
-62:                                               ; preds = %10
-  %63 = add nsw i64 %.01724, -1
-  %64 = lshr i64 %11, 4
-  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %64
-  %66 = getelementptr inbounds i8, ptr %.025, i64 -8
-  %67 = load ptr, ptr %9, align 8, !tbaa !201
-  %68 = load ptr, ptr %65, align 8, !tbaa !201
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 160
-  %70 = load i32, ptr %69, align 8, !tbaa !344
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 160
+64:                                               ; preds = %10
+  %65 = add nsw i64 %.01724, -1
+  %66 = lshr i64 %11, 4
+  %67 = getelementptr inbounds nuw ptr, ptr %0, i64 %66
+  %68 = getelementptr inbounds i8, ptr %.025, i64 -8
+  %69 = load ptr, ptr %9, align 8, !tbaa !201
+  %70 = load ptr, ptr %67, align 8, !tbaa !201
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 160
   %72 = load i32, ptr %71, align 8, !tbaa !344
-  %73 = icmp ugt i32 %70, %72
-  %74 = load ptr, ptr %66, align 8, !tbaa !201
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 160
-  %76 = load i32, ptr %75, align 8, !tbaa !344
-  br i1 %73, label %77, label %86
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 160
+  %74 = load i32, ptr %73, align 8, !tbaa !344
+  %75 = icmp ugt i32 %72, %74
+  %76 = load ptr, ptr %68, align 8, !tbaa !201
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 160
+  %78 = load i32, ptr %77, align 8, !tbaa !344
+  br i1 %75, label %79, label %88
 
-77:                                               ; preds = %62
-  %78 = icmp ugt i32 %72, %76
-  br i1 %78, label %79, label %81
+79:                                               ; preds = %64
+  %80 = icmp ugt i32 %74, %78
+  br i1 %80, label %81, label %83
 
-79:                                               ; preds = %77
-  %80 = load ptr, ptr %0, align 8, !tbaa !201
-  store ptr %68, ptr %0, align 8, !tbaa !201
-  store ptr %80, ptr %65, align 8, !tbaa !201
+81:                                               ; preds = %79
+  %82 = load ptr, ptr %0, align 8, !tbaa !201
+  store ptr %70, ptr %0, align 8, !tbaa !201
+  store ptr %82, ptr %67, align 8, !tbaa !201
   br label %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader
 
-81:                                               ; preds = %77
-  %82 = icmp ugt i32 %70, %76
-  %83 = load ptr, ptr %0, align 8, !tbaa !201
-  br i1 %82, label %84, label %85
+83:                                               ; preds = %79
+  %84 = icmp ugt i32 %72, %78
+  %85 = load ptr, ptr %0, align 8, !tbaa !201
+  br i1 %84, label %86, label %87
 
-84:                                               ; preds = %81
-  store ptr %74, ptr %0, align 8, !tbaa !201
-  store ptr %83, ptr %66, align 8, !tbaa !201
+86:                                               ; preds = %83
+  store ptr %76, ptr %0, align 8, !tbaa !201
+  store ptr %85, ptr %68, align 8, !tbaa !201
   br label %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader
 
-85:                                               ; preds = %81
-  store ptr %67, ptr %0, align 8, !tbaa !201
-  store ptr %83, ptr %9, align 8, !tbaa !201
+87:                                               ; preds = %83
+  store ptr %69, ptr %0, align 8, !tbaa !201
+  store ptr %85, ptr %9, align 8, !tbaa !201
   br label %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader
 
-86:                                               ; preds = %62
-  %87 = icmp ugt i32 %70, %76
-  br i1 %87, label %88, label %90
+88:                                               ; preds = %64
+  %89 = icmp ugt i32 %72, %78
+  br i1 %89, label %90, label %92
 
-88:                                               ; preds = %86
-  %89 = load ptr, ptr %0, align 8, !tbaa !201
-  store ptr %67, ptr %0, align 8, !tbaa !201
-  store ptr %89, ptr %9, align 8, !tbaa !201
+90:                                               ; preds = %88
+  %91 = load ptr, ptr %0, align 8, !tbaa !201
+  store ptr %69, ptr %0, align 8, !tbaa !201
+  store ptr %91, ptr %9, align 8, !tbaa !201
   br label %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader
 
-90:                                               ; preds = %86
-  %91 = icmp ugt i32 %72, %76
-  %92 = load ptr, ptr %0, align 8, !tbaa !201
-  br i1 %91, label %93, label %94
+92:                                               ; preds = %88
+  %93 = icmp ugt i32 %74, %78
+  %94 = load ptr, ptr %0, align 8, !tbaa !201
+  br i1 %93, label %95, label %96
 
-93:                                               ; preds = %90
-  store ptr %74, ptr %0, align 8, !tbaa !201
-  store ptr %92, ptr %66, align 8, !tbaa !201
+95:                                               ; preds = %92
+  store ptr %76, ptr %0, align 8, !tbaa !201
+  store ptr %94, ptr %68, align 8, !tbaa !201
   br label %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader
 
-94:                                               ; preds = %90
-  store ptr %68, ptr %0, align 8, !tbaa !201
-  store ptr %92, ptr %65, align 8, !tbaa !201
+96:                                               ; preds = %92
+  store ptr %70, ptr %0, align 8, !tbaa !201
+  store ptr %94, ptr %67, align 8, !tbaa !201
   br label %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader: ; preds = %94, %93, %88, %85, %84, %79
+_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader: ; preds = %96, %95, %90, %87, %86, %81
   br label %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader, %110
-  %.013.i.i = phi ptr [ %.114.i.i, %110 ], [ %.025, %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %103, %110 ], [ %9, %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader ]
-  %95 = load ptr, ptr %0, align 8, !tbaa !201
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 160
-  %97 = load i32, ptr %96, align 8, !tbaa !344
-  br label %98
+_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader, %112
+  %.013.i.i = phi ptr [ %.114.i.i, %112 ], [ %.025, %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %105, %112 ], [ %9, %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i.preheader ]
+  %97 = load ptr, ptr %0, align 8, !tbaa !201
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 160
+  %99 = load i32, ptr %98, align 8, !tbaa !344
+  br label %100
 
-98:                                               ; preds = %98, %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i ], [ %103, %98 ]
-  %99 = load ptr, ptr %.1.i.i, align 8, !tbaa !201
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 160
-  %101 = load i32, ptr %100, align 8, !tbaa !344
-  %102 = icmp ugt i32 %101, %97
-  %103 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %102, label %98, label %.preheader.i.i, !llvm.loop !416
+100:                                              ; preds = %100, %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i ], [ %105, %100 ]
+  %101 = load ptr, ptr %.1.i.i, align 8, !tbaa !201
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 160
+  %103 = load i32, ptr %102, align 8, !tbaa !344
+  %104 = icmp ugt i32 %103, %99
+  %105 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  br i1 %104, label %100, label %.preheader.i.i, !llvm.loop !416
 
-.preheader.i.i:                                   ; preds = %98, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %98 ]
+.preheader.i.i:                                   ; preds = %100, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %100 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
-  %104 = load ptr, ptr %.114.i.i, align 8, !tbaa !201
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 160
-  %106 = load i32, ptr %105, align 8, !tbaa !344
-  %107 = icmp ugt i32 %97, %106
-  br i1 %107, label %.preheader.i.i, label %108, !llvm.loop !417
+  %106 = load ptr, ptr %.114.i.i, align 8, !tbaa !201
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 160
+  %108 = load i32, ptr %107, align 8, !tbaa !344
+  %109 = icmp ugt i32 %99, %108
+  br i1 %109, label %.preheader.i.i, label %110, !llvm.loop !417
 
-108:                                              ; preds = %.preheader.i.i
-  %109 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %109, label %110, label %_ZSt27__unguarded_partition_pivotIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEET_SJ_SJ_T0_.exit
+110:                                              ; preds = %.preheader.i.i
+  %111 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %111, label %112, label %_ZSt27__unguarded_partition_pivotIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEET_SJ_SJ_T0_.exit
 
-110:                                              ; preds = %108
-  store ptr %104, ptr %.1.i.i, align 8, !tbaa !201
-  store ptr %99, ptr %.114.i.i, align 8, !tbaa !201
+112:                                              ; preds = %110
+  store ptr %106, ptr %.1.i.i, align 8, !tbaa !201
+  store ptr %101, ptr %.114.i.i, align 8, !tbaa !201
   br label %_ZSt22__move_median_to_firstIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_SJ_T0_.exit.i, !llvm.loop !418
 
-_ZSt27__unguarded_partition_pivotIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEET_SJ_SJ_T0_.exit: ; preds = %108
-  tail call void @_ZSt16__introsort_loopIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %63)
-  %111 = ptrtoint ptr %.1.i.i to i64
-  %112 = sub i64 %111, %5
-  %113 = icmp sgt i64 %112, 128
-  br i1 %113, label %10, label %_ZSt14__partial_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_T0_.exit, !llvm.loop !419
+_ZSt27__unguarded_partition_pivotIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEET_SJ_SJ_T0_.exit: ; preds = %110
+  tail call void @_ZSt16__introsort_loopIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %65)
+  %113 = ptrtoint ptr %.1.i.i to i64
+  %114 = sub i64 %113, %5
+  %115 = icmp sgt i64 %114, 128
+  br i1 %115, label %10, label %_ZSt14__partial_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_T0_.exit, !llvm.loop !419
 
 _ZSt14__partial_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEET_SJ_SJ_T0_.exit, %_ZSt10__pop_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_SJ_SJ_RT0_.exit.i.i, %3
   ret void
@@ -9296,7 +9297,6 @@ define linkonce_odr void @_ZSt11__make_heapIPPKN4llvm12GenericCycleINS0_17Generi
   %11 = lshr i64 %10, 1
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %invariant.gep.i = getelementptr i8, ptr %0, i64 8
   %14 = and i64 %6, 8
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
@@ -9309,7 +9309,7 @@ define linkonce_odr void @_ZSt11__make_heapIPPKN4llvm12GenericCycleINS0_17Generi
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us
-  %.014.us = phi i64 [ %51, %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us ], [ %11, %9 ]
+  %.014.us = phi i64 [ %53, %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us ], [ %11, %9 ]
   %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.us
   %21 = load ptr, ptr %20, align 8, !tbaa !201
   %22 = icmp slt i64 %.014.us, %13
@@ -9320,129 +9320,131 @@ define linkonce_odr void @_ZSt11__make_heapIPPKN4llvm12GenericCycleINS0_17Generi
   %23 = shl i64 %.029.i.us, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds ptr, ptr %0, i64 %24
-  %gep.i.us = getelementptr ptr, ptr %invariant.gep.i, i64 %23
-  %26 = load ptr, ptr %25, align 8, !tbaa !201
-  %27 = load ptr, ptr %gep.i.us, align 8, !tbaa !201
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 160
-  %29 = load i32, ptr %28, align 8, !tbaa !344
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 160
+  %26 = getelementptr ptr, ptr %0, i64 %23
+  %27 = getelementptr i8, ptr %26, i64 8
+  %28 = load ptr, ptr %25, align 8, !tbaa !201
+  %29 = load ptr, ptr %27, align 8, !tbaa !201
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 160
   %31 = load i32, ptr %30, align 8, !tbaa !344
-  %32 = icmp ugt i32 %29, %31
-  %33 = or disjoint i64 %23, 1
-  %spec.select.i.us = select i1 %32, i64 %33, i64 %24
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.us
-  %35 = load ptr, ptr %34, align 8, !tbaa !201
-  %36 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.us
-  store ptr %35, ptr %36, align 8, !tbaa !201
-  %37 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %37, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !413
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 160
+  %33 = load i32, ptr %32, align 8, !tbaa !344
+  %34 = icmp ugt i32 %31, %33
+  %35 = or disjoint i64 %23, 1
+  %spec.select.i.us = select i1 %34, i64 %35, i64 %24
+  %36 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.us
+  %37 = load ptr, ptr %36, align 8, !tbaa !201
+  %38 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.us
+  store ptr %37, ptr %38, align 8, !tbaa !201
+  %39 = icmp slt i64 %spec.select.i.us, %13
+  br i1 %39, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !413
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
-  %38 = icmp sgt i64 %spec.select.i.us, %.014.us
-  br i1 %38, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us
+  %40 = icmp sgt i64 %spec.select.i.us, %.014.us
+  br i1 %40, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us
 
 .lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us
-  %39 = getelementptr inbounds nuw i8, ptr %21, i64 160
-  %40 = load i32, ptr %39, align 8, !tbaa !344
-  br label %41
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 160
+  %42 = load i32, ptr %41, align 8, !tbaa !344
+  br label %43
 
-41:                                               ; preds = %47, %.lr.ph.i.i.us
-  %.01317.i.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %47 ]
+43:                                               ; preds = %49, %.lr.ph.i.i.us
+  %.01317.i.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %49 ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %42 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i.us
-  %43 = load ptr, ptr %42, align 8, !tbaa !201
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 160
-  %45 = load i32, ptr %44, align 8, !tbaa !344
-  %46 = icmp ugt i32 %45, %40
-  br i1 %46, label %47, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us
+  %44 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i.us
+  %45 = load ptr, ptr %44, align 8, !tbaa !201
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 160
+  %47 = load i32, ptr %46, align 8, !tbaa !344
+  %48 = icmp ugt i32 %47, %42
+  br i1 %48, label %49, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.us
-  store ptr %43, ptr %48, align 8, !tbaa !201
-  %49 = icmp sgt i64 %.018.i.i.us, %.014.us
-  br i1 %49, label %41, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us, !llvm.loop !414
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.us
+  store ptr %45, ptr %50, align 8, !tbaa !201
+  %51 = icmp sgt i64 %.018.i.i.us, %.014.us
+  br i1 %51, label %43, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us, !llvm.loop !414
 
-_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us: ; preds = %41, %47, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.018.i.i.us, %47 ], [ %.01317.i.i.us, %41 ]
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us
-  store ptr %21, ptr %50, align 8, !tbaa !201
+_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us: ; preds = %43, %49, %.split.us, %._crit_edge.i.us
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.018.i.i.us, %49 ], [ %.01317.i.i.us, %43 ]
+  %52 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us
+  store ptr %21, ptr %52, align 8, !tbaa !201
   %.not.us = icmp eq i64 %.014.us, 0
-  %51 = add nsw i64 %.014.us, -1
+  %53 = add nsw i64 %.014.us, -1
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !423
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit
-  %.014 = phi i64 [ %87, %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014
-  %53 = load ptr, ptr %52, align 8, !tbaa !201
-  %54 = icmp slt i64 %.014, %13
-  br i1 %54, label %.lr.ph.i, label %._crit_edge.i
+  %.014 = phi i64 [ %91, %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit ], [ %11, %.split.preheader ]
+  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014
+  %55 = load ptr, ptr %54, align 8, !tbaa !201
+  %56 = icmp slt i64 %.014, %13
+  br i1 %56, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
   %.029.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.014, %.split ]
-  %55 = shl i64 %.029.i, 1
-  %56 = add i64 %55, 2
-  %57 = getelementptr inbounds ptr, ptr %0, i64 %56
-  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %55
-  %58 = load ptr, ptr %57, align 8, !tbaa !201
-  %59 = load ptr, ptr %gep.i, align 8, !tbaa !201
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 160
-  %61 = load i32, ptr %60, align 8, !tbaa !344
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 160
-  %63 = load i32, ptr %62, align 8, !tbaa !344
-  %64 = icmp ugt i32 %61, %63
-  %65 = or disjoint i64 %55, 1
-  %spec.select.i = select i1 %64, i64 %65, i64 %56
-  %66 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i
-  %67 = load ptr, ptr %66, align 8, !tbaa !201
-  %68 = getelementptr inbounds ptr, ptr %0, i64 %.029.i
-  store ptr %67, ptr %68, align 8, !tbaa !201
-  %69 = icmp slt i64 %spec.select.i, %13
-  br i1 %69, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !413
+  %57 = shl i64 %.029.i, 1
+  %58 = add i64 %57, 2
+  %59 = getelementptr inbounds ptr, ptr %0, i64 %58
+  %60 = getelementptr ptr, ptr %0, i64 %57
+  %61 = getelementptr i8, ptr %60, i64 8
+  %62 = load ptr, ptr %59, align 8, !tbaa !201
+  %63 = load ptr, ptr %61, align 8, !tbaa !201
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 160
+  %65 = load i32, ptr %64, align 8, !tbaa !344
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 160
+  %67 = load i32, ptr %66, align 8, !tbaa !344
+  %68 = icmp ugt i32 %65, %67
+  %69 = or disjoint i64 %57, 1
+  %spec.select.i = select i1 %68, i64 %69, i64 %58
+  %70 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i
+  %71 = load ptr, ptr %70, align 8, !tbaa !201
+  %72 = getelementptr inbounds ptr, ptr %0, i64 %.029.i
+  store ptr %71, ptr %72, align 8, !tbaa !201
+  %73 = icmp slt i64 %spec.select.i, %13
+  br i1 %73, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !413
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.014, %.split ], [ %spec.select.i, %.lr.ph.i ]
-  %70 = icmp eq i64 %.0.lcssa.i, %16
-  br i1 %70, label %71, label %73
+  %74 = icmp eq i64 %.0.lcssa.i, %16
+  br i1 %74, label %75, label %77
 
-71:                                               ; preds = %._crit_edge.i
-  %72 = load ptr, ptr %18, align 8, !tbaa !201
-  store ptr %72, ptr %19, align 8, !tbaa !201
-  br label %73
-
-73:                                               ; preds = %71, %._crit_edge.i
-  %.128.i = phi i64 [ %17, %71 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %74 = icmp sgt i64 %.128.i, %.014
-  br i1 %74, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit
-
-.lr.ph.i.i:                                       ; preds = %73
-  %75 = getelementptr inbounds nuw i8, ptr %53, i64 160
-  %76 = load i32, ptr %75, align 8, !tbaa !344
+75:                                               ; preds = %._crit_edge.i
+  %76 = load ptr, ptr %18, align 8, !tbaa !201
+  store ptr %76, ptr %19, align 8, !tbaa !201
   br label %77
 
-77:                                               ; preds = %83, %.lr.ph.i.i
-  %.01317.i.i = phi i64 [ %.128.i, %.lr.ph.i.i ], [ %.018.i.i, %83 ]
+77:                                               ; preds = %75, %._crit_edge.i
+  %.128.i = phi i64 [ %17, %75 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %78 = icmp sgt i64 %.128.i, %.014
+  br i1 %78, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit
+
+.lr.ph.i.i:                                       ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %55, i64 160
+  %80 = load i32, ptr %79, align 8, !tbaa !344
+  br label %81
+
+81:                                               ; preds = %87, %.lr.ph.i.i
+  %.01317.i.i = phi i64 [ %.128.i, %.lr.ph.i.i ], [ %.018.i.i, %87 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %78 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i
-  %79 = load ptr, ptr %78, align 8, !tbaa !201
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 160
-  %81 = load i32, ptr %80, align 8, !tbaa !344
-  %82 = icmp ugt i32 %81, %76
-  br i1 %82, label %83, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit
+  %82 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i
+  %83 = load ptr, ptr %82, align 8, !tbaa !201
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 160
+  %85 = load i32, ptr %84, align 8, !tbaa !344
+  %86 = icmp ugt i32 %85, %80
+  br i1 %86, label %87, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit
 
-83:                                               ; preds = %77
-  %84 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i
-  store ptr %79, ptr %84, align 8, !tbaa !201
-  %85 = icmp sgt i64 %.018.i.i, %.014
-  br i1 %85, label %77, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit, !llvm.loop !414
+87:                                               ; preds = %81
+  %88 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i
+  store ptr %83, ptr %88, align 8, !tbaa !201
+  %89 = icmp sgt i64 %.018.i.i, %.014
+  br i1 %89, label %81, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit, !llvm.loop !414
 
-_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit: ; preds = %77, %83, %73
-  %.013.lcssa.i.i = phi i64 [ %.128.i, %73 ], [ %.018.i.i, %83 ], [ %.01317.i.i, %77 ]
-  %86 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i
-  store ptr %53, ptr %86, align 8, !tbaa !201
+_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit: ; preds = %81, %87, %77
+  %.013.lcssa.i.i = phi i64 [ %.128.i, %77 ], [ %.018.i.i, %87 ], [ %.01317.i.i, %81 ]
+  %90 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i
+  store ptr %55, ptr %90, align 8, !tbaa !201
   %.not = icmp eq i64 %.014, 0
-  %87 = add nsw i64 %.014, -1
+  %91 = add nsw i64 %.014, -1
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !425
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit.us, %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_11InstructionEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit, %3

@@ -792,21 +792,21 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
   %46 = phi i64 [ 0, %32 ], [ %.be, %.backedge ]
   %47 = load volatile i64, ptr %34, align 8
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %.critedge
+  br i1 %48, label %49, label %.critedge11
 
 49:                                               ; preds = %45
   %50 = load volatile i64, ptr %7, align 8
   %51 = and i64 %50, 131072
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %53, label %.critedge, !prof !20
+  br i1 %52, label %53, label %.critedge11, !prof !20
 
 53:                                               ; preds = %49
   %54 = load volatile i64, ptr %7, align 8
   %55 = and i64 %54, 4
   %56 = icmp eq i64 %55, 0
-  br i1 %56, label %92, label %.critedge
+  br i1 %56, label %92, label %.critedge11
 
-.critedge:                                        ; preds = %49, %53, %45
+.critedge11:                                      ; preds = %49, %53, %45
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 88, i1 false), !annotation !36
   %57 = load volatile i64, ptr %34, align 8
@@ -814,7 +814,7 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
   %59 = icmp eq i64 %58, 0
   br i1 %59, label %60, label %68
 
-60:                                               ; preds = %.critedge
+60:                                               ; preds = %.critedge11
   %61 = load volatile i64, ptr %7, align 8
   %62 = and i64 %61, 131072
   %63 = icmp eq i64 %62, 0
@@ -826,7 +826,7 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %83, label %68
 
-68:                                               ; preds = %64, %60, %.critedge
+68:                                               ; preds = %64, %60, %.critedge11
   call void @mutex_unlock(ptr noundef nonnull %33) #14
   %69 = load volatile i64, ptr %7, align 8
   %70 = and i64 %69, 131072
@@ -859,7 +859,7 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
   %85 = and i64 %84, 1
   %86 = icmp eq i64 %85, 0
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #14
-  br i1 %86, label %87, label %.loopexit20
+  br i1 %86, label %87, label %.critedge
 
 87:                                               ; preds = %83
   %88 = load volatile i64, ptr @jiffies, align 64
@@ -902,7 +902,7 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
   %117 = icmp ne ptr %116, null
   %118 = icmp ne i32 %113, 0
   %119 = select i1 %117, i1 true, i1 %118
-  br i1 %119, label %120, label %.thread11
+  br i1 %119, label %120, label %.thread13
 
 120:                                              ; preds = %98
   %121 = getelementptr i8, ptr %99, i64 -40
@@ -977,24 +977,24 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
   %158 = icmp eq i8 %100, 0
   br i1 %158, label %160, label %165
 
-.thread11:                                        ; preds = %98
+.thread13:                                        ; preds = %98
   %159 = icmp eq i8 %100, 0
-  br i1 %159, label %.thread12, label %165
+  br i1 %159, label %.thread14, label %165
 
 160:                                              ; preds = %157
   %161 = icmp sgt i32 %154, 0
-  br i1 %161, label %164, label %.thread12
+  br i1 %161, label %164, label %.thread14
 
-.thread12:                                        ; preds = %.thread11, %160
+.thread14:                                        ; preds = %.thread13, %160
   %162 = load volatile ptr, ptr %115, align 32
   %163 = icmp eq ptr %162, null
   br i1 %163, label %165, label %164
 
-164:                                              ; preds = %.thread12, %160
+164:                                              ; preds = %.thread14, %160
   br label %165
 
-165:                                              ; preds = %.thread11, %164, %.thread12, %157
-  %166 = phi i8 [ %100, %157 ], [ 1, %164 ], [ 0, %.thread12 ], [ %100, %.thread11 ]
+165:                                              ; preds = %.thread13, %164, %.thread14, %157
+  %166 = phi i8 [ %100, %157 ], [ 1, %164 ], [ 0, %.thread14 ], [ %100, %.thread13 ]
   %167 = load ptr, ptr %99, align 8
   %168 = icmp eq ptr %167, %36
   br i1 %168, label %.thread.loopexit, label %98, !llvm.loop !41
@@ -1050,9 +1050,9 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
 191:                                              ; preds = %190, %187, %179, %175
   %192 = load volatile ptr, ptr %42, align 16
   %193 = icmp eq ptr %192, null
-  br i1 %193, label %195, label %.thread13
+  br i1 %193, label %195, label %.thread15
 
-.thread13:                                        ; preds = %191
+.thread15:                                        ; preds = %191
   store volatile i32 0, ptr %41, align 8
   call void @task_work_run() #14
   %194 = load volatile i64, ptr @jiffies, align 64
@@ -1067,8 +1067,8 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
   %199 = icmp slt i64 %198, 0
   br i1 %199, label %213, label %205
 
-200:                                              ; preds = %.thread13, %195
-  %201 = phi i64 [ %194, %.thread13 ], [ %196, %195 ]
+200:                                              ; preds = %.thread15, %195
+  %201 = phi i64 [ %194, %.thread15 ], [ %196, %195 ]
   %202 = load i32, ptr %35, align 8
   %203 = zext i32 %202 to i64
   %204 = add i64 %201, %203
@@ -1174,9 +1174,9 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
 
 259:                                              ; preds = %76
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #14
-  br label %.loopexit20
+  br label %.critedge
 
-.loopexit20:                                      ; preds = %83, %259
+.critedge:                                        ; preds = %83, %259
   call void @io_uring_cancel_generic(i1 noundef zeroext true, ptr noundef %0) #16
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %260, align 8
@@ -1184,8 +1184,8 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
   %262 = icmp eq ptr %261, %36
   br i1 %262, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit20, %.preheader
-  %263 = phi ptr [ %267, %.preheader ], [ %261, %.loopexit20 ]
+.preheader:                                       ; preds = %.critedge, %.preheader
+  %263 = phi ptr [ %267, %.preheader ], [ %261, %.critedge ]
   %264 = getelementptr i8, ptr %263, i64 -976
   %265 = load ptr, ptr %264, align 16
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 36
@@ -1194,7 +1194,7 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #5 align 16 {
   %268 = icmp eq ptr %267, %36
   br i1 %268, label %.loopexit, label %.preheader, !llvm.loop !49
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit20
+.loopexit:                                        ; preds = %.preheader, %.critedge
   call fastcc void @io_run_task_work()
   call void @mutex_unlock(ptr noundef nonnull %33) #14
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 112

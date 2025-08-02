@@ -1101,13 +1101,13 @@ print_escaped_xml.exit175:                        ; preds = %199, %194, %188
 254:                                              ; preds = %104, %250, %252, %240, %97, %99
   %255 = load ptr, ptr %0, align 8
   %.not157 = icmp eq ptr %255, null
-  br i1 %.not157, label %303, label %256
+  br i1 %.not157, label %305, label %256
 
 256:                                              ; preds = %254
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %258 = load ptr, ptr %257, align 8
   %259 = icmp eq ptr %258, null
-  br i1 %259, label %.thread, label %260
+  br i1 %259, label %.critedge, label %260
 
 260:                                              ; preds = %256
   %261 = load ptr, ptr %6, align 8
@@ -1115,11 +1115,11 @@ print_escaped_xml.exit175:                        ; preds = %199, %194, %188
   %263 = load ptr, ptr %262, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
   %264 = icmp eq ptr %263, null
-  br i1 %264, label %278, label %265
+  br i1 %264, label %276, label %265
 
 265:                                              ; preds = %260
   %266 = call zeroext i1 @wmem_map_lookup_extended(ptr noundef nonnull %258, ptr noundef nonnull %263, ptr noundef null, ptr noundef nonnull %3)
-  br i1 %266, label %267, label %278
+  br i1 %266, label %267, label %276
 
 267:                                              ; preds = %265
   %268 = load ptr, ptr %3, align 8
@@ -1127,186 +1127,188 @@ print_escaped_xml.exit175:                        ; preds = %199, %194, %188
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
   %270 = and i64 %269, 1
   %.not158 = icmp eq i64 %270, 0
-  br i1 %.not158, label %.thread, label %271
+  br i1 %.not158, label %.critedge, label %.thread
 
-271:                                              ; preds = %267
-  %272 = load ptr, ptr %257, align 8
+.thread:                                          ; preds = %267
+  %271 = load ptr, ptr %257, align 8
   store ptr null, ptr %257, align 8
-  br label %.thread
-
-.thread:                                          ; preds = %256, %271, %267
-  %.not158196 = phi i1 [ false, %271 ], [ true, %267 ], [ true, %256 ]
-  %.0 = phi ptr [ %272, %271 ], [ null, %267 ], [ null, %256 ]
-  %273 = load i32, ptr %1, align 8
-  %274 = add i32 %273, 1
-  store i32 %274, ptr %1, align 8
+  %272 = load i32, ptr %1, align 8
+  %273 = add i32 %272, 1
+  store i32 %273, ptr %1, align 8
   call void @proto_tree_children_foreach(ptr noundef %0, ptr noundef nonnull @proto_tree_write_node_pdml, ptr noundef %1)
-  %275 = load i32, ptr %1, align 8
-  %276 = add i32 %275, -1
-  store i32 %276, ptr %1, align 8
-  br i1 %.not158196, label %303, label %277
+  %274 = load i32, ptr %1, align 8
+  %275 = add i32 %274, -1
+  store i32 %275, ptr %1, align 8
+  store ptr %271, ptr %257, align 8
+  br label %305
 
-277:                                              ; preds = %.thread
-  store ptr %.0, ptr %257, align 8
-  br label %303
-
-278:                                              ; preds = %260, %265
+276:                                              ; preds = %260, %265
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  %279 = load i32, ptr %1, align 8
-  %280 = load ptr, ptr %21, align 8
+  %277 = load i32, ptr %1, align 8
+  %278 = load ptr, ptr %21, align 8
   %.b9.i179 = load i1, ptr @print_indent.inited, align 1
-  br i1 %.b9.i179, label %281, label %.preheader.preheader.i180
+  br i1 %.b9.i179, label %279, label %.preheader.preheader.i180
 
-.preheader.preheader.i180:                        ; preds = %278
+.preheader.preheader.i180:                        ; preds = %276
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @print_indent.spaces, i8 32, i64 2048, i1 false)
   store i1 true, ptr @print_indent.inited, align 1
-  br label %281
+  br label %279
 
-281:                                              ; preds = %.preheader.preheader.i180, %278
-  %282 = icmp eq ptr %280, null
-  br i1 %282, label %print_indent.exit181, label %283
+279:                                              ; preds = %.preheader.preheader.i180, %276
+  %280 = icmp eq ptr %278, null
+  br i1 %280, label %print_indent.exit181, label %281
 
-283:                                              ; preds = %281
-  %284 = shl i32 %279, 1
-  %285 = add i32 %284, 4
-  %286 = call i32 @llvm.smin.i32(i32 %285, i32 2047)
-  %287 = sext i32 %286 to i64
-  %288 = getelementptr [2048 x i8], ptr @print_indent.spaces, i64 0, i64 %287
-  store i8 0, ptr %288, align 1
-  %289 = call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %280)
-  store i8 32, ptr %288, align 1
+281:                                              ; preds = %279
+  %282 = shl i32 %277, 1
+  %283 = add i32 %282, 4
+  %284 = call i32 @llvm.smin.i32(i32 %283, i32 2047)
+  %285 = sext i32 %284 to i64
+  %286 = getelementptr [2048 x i8], ptr @print_indent.spaces, i64 0, i64 %285
+  store i8 0, ptr %286, align 1
+  %287 = call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %278)
+  store i8 32, ptr %286, align 1
   br label %print_indent.exit181
 
-print_indent.exit181:                             ; preds = %281, %283
+print_indent.exit181:                             ; preds = %279, %281
+  %288 = load ptr, ptr %21, align 8
+  %289 = call i64 @fwrite(ptr nonnull @.str.78, i64 30, i64 1, ptr %288)
   %290 = load ptr, ptr %21, align 8
-  %291 = call i64 @fwrite(ptr nonnull @.str.78, i64 30, i64 1, ptr %290)
-  %292 = load ptr, ptr %21, align 8
-  %293 = load ptr, ptr %6, align 8
-  %294 = getelementptr inbounds nuw i8, ptr %293, i64 8
-  %295 = load ptr, ptr %294, align 8
-  %296 = icmp eq ptr %292, null
-  %297 = icmp eq ptr %295, null
-  %or.cond.i182 = or i1 %296, %297
-  br i1 %or.cond.i182, label %print_escaped_xml.exit183, label %298
+  %291 = load ptr, ptr %6, align 8
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
+  %293 = load ptr, ptr %292, align 8
+  %294 = icmp eq ptr %290, null
+  %295 = icmp eq ptr %293, null
+  %or.cond.i182 = or i1 %294, %295
+  br i1 %or.cond.i182, label %print_escaped_xml.exit183, label %296
 
-298:                                              ; preds = %print_indent.exit181
-  %299 = call ptr @xml_escape(ptr noundef nonnull %295)
-  %300 = call i32 @fputs(ptr noundef %299, ptr noundef nonnull %292)
-  call void @g_free(ptr noundef %299)
+296:                                              ; preds = %print_indent.exit181
+  %297 = call ptr @xml_escape(ptr noundef nonnull %293)
+  %298 = call i32 @fputs(ptr noundef %297, ptr noundef nonnull %290)
+  call void @g_free(ptr noundef %297)
   %.pre200 = load ptr, ptr %21, align 8
   br label %print_escaped_xml.exit183
 
-print_escaped_xml.exit183:                        ; preds = %print_indent.exit181, %298
-  %301 = phi ptr [ %292, %print_indent.exit181 ], [ %.pre200, %298 ]
-  %302 = call i64 @fwrite(ptr nonnull @.str.79, i64 5, i64 1, ptr %301)
-  br label %303
+print_escaped_xml.exit183:                        ; preds = %print_indent.exit181, %296
+  %299 = phi ptr [ %290, %print_indent.exit181 ], [ %.pre200, %296 ]
+  %300 = call i64 @fwrite(ptr nonnull @.str.79, i64 5, i64 1, ptr %299)
+  br label %305
 
-303:                                              ; preds = %print_escaped_xml.exit183, %277, %.thread, %254
-  br i1 %20, label %304, label %307
+.critedge:                                        ; preds = %256, %267
+  %301 = load i32, ptr %1, align 8
+  %302 = add i32 %301, 1
+  store i32 %302, ptr %1, align 8
+  call void @proto_tree_children_foreach(ptr noundef %0, ptr noundef nonnull @proto_tree_write_node_pdml, ptr noundef %1)
+  %303 = load i32, ptr %1, align 8
+  %304 = add i32 %303, -1
+  store i32 %304, ptr %1, align 8
+  br label %305
 
-304:                                              ; preds = %303
-  %305 = load i32, ptr %1, align 8
-  %306 = add i32 %305, -1
-  store i32 %306, ptr %1, align 8
-  br label %307
+305:                                              ; preds = %.critedge, %print_escaped_xml.exit183, %.thread, %254
+  br i1 %20, label %306, label %309
 
-307:                                              ; preds = %304, %303
-  %308 = load ptr, ptr %0, align 8
-  %.not160 = icmp eq ptr %308, null
-  br i1 %.not160, label %338, label %309
+306:                                              ; preds = %305
+  %307 = load i32, ptr %1, align 8
+  %308 = add i32 %307, -1
+  store i32 %308, ptr %1, align 8
+  br label %309
 
-309:                                              ; preds = %307
-  %310 = load i32, ptr %1, align 8
-  %311 = load ptr, ptr %21, align 8
+309:                                              ; preds = %306, %305
+  %310 = load ptr, ptr %0, align 8
+  %.not160 = icmp eq ptr %310, null
+  br i1 %.not160, label %340, label %311
+
+311:                                              ; preds = %309
+  %312 = load i32, ptr %1, align 8
+  %313 = load ptr, ptr %21, align 8
   %.b9.i184 = load i1, ptr @print_indent.inited, align 1
-  br i1 %.b9.i184, label %312, label %.preheader.preheader.i185
+  br i1 %.b9.i184, label %314, label %.preheader.preheader.i185
 
-.preheader.preheader.i185:                        ; preds = %309
+.preheader.preheader.i185:                        ; preds = %311
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @print_indent.spaces, i8 32, i64 2048, i1 false)
   store i1 true, ptr @print_indent.inited, align 1
-  br label %312
+  br label %314
 
-312:                                              ; preds = %.preheader.preheader.i185, %309
-  %313 = icmp eq ptr %311, null
-  br i1 %313, label %print_indent.exit186, label %314
+314:                                              ; preds = %.preheader.preheader.i185, %311
+  %315 = icmp eq ptr %313, null
+  br i1 %315, label %print_indent.exit186, label %316
 
-314:                                              ; preds = %312
-  %315 = shl i32 %310, 1
-  %316 = add i32 %315, 2
-  %317 = call i32 @llvm.smin.i32(i32 %316, i32 2047)
-  %318 = sext i32 %317 to i64
-  %319 = getelementptr [2048 x i8], ptr @print_indent.spaces, i64 0, i64 %318
-  store i8 0, ptr %319, align 1
-  %320 = call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %311)
-  store i8 32, ptr %319, align 1
+316:                                              ; preds = %314
+  %317 = shl i32 %312, 1
+  %318 = add i32 %317, 2
+  %319 = call i32 @llvm.smin.i32(i32 %318, i32 2047)
+  %320 = sext i32 %319 to i64
+  %321 = getelementptr [2048 x i8], ptr @print_indent.spaces, i64 0, i64 %320
+  store i8 0, ptr %321, align 1
+  %322 = call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %313)
+  store i8 32, ptr %321, align 1
   br label %print_indent.exit186
 
-print_indent.exit186:                             ; preds = %312, %314
-  %321 = load ptr, ptr %6, align 8
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 48
-  %323 = load i32, ptr %322, align 8
-  %324 = load i32, ptr @proto_data, align 4
-  %.not161 = icmp eq i32 %323, %324
-  %325 = load i32, ptr @proto_expert, align 4
-  %.not162 = icmp eq i32 %323, %325
+print_indent.exit186:                             ; preds = %314, %316
+  %323 = load ptr, ptr %6, align 8
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 48
+  %325 = load i32, ptr %324, align 8
+  %326 = load i32, ptr @proto_data, align 4
+  %.not161 = icmp eq i32 %325, %326
+  %327 = load i32, ptr @proto_expert, align 4
+  %.not162 = icmp eq i32 %325, %327
   %or.cond165 = select i1 %.not161, i1 true, i1 %.not162
-  br i1 %or.cond165, label %335, label %326
+  br i1 %or.cond165, label %337, label %328
 
-326:                                              ; preds = %print_indent.exit186
-  %327 = getelementptr inbounds nuw i8, ptr %321, i64 16
-  %328 = load i32, ptr %327, align 8
-  %329 = icmp eq i32 %328, 1
-  %330 = load ptr, ptr %21, align 8
-  br i1 %329, label %331, label %333
+328:                                              ; preds = %print_indent.exit186
+  %329 = getelementptr inbounds nuw i8, ptr %323, i64 16
+  %330 = load i32, ptr %329, align 8
+  %331 = icmp eq i32 %330, 1
+  %332 = load ptr, ptr %21, align 8
+  br i1 %331, label %333, label %335
 
-331:                                              ; preds = %326
-  %332 = call i64 @fwrite(ptr nonnull @.str.80, i64 9, i64 1, ptr %330)
-  br label %338
+333:                                              ; preds = %328
+  %334 = call i64 @fwrite(ptr nonnull @.str.80, i64 9, i64 1, ptr %332)
+  br label %340
 
-333:                                              ; preds = %326
-  %334 = call i64 @fwrite(ptr nonnull @.str.81, i64 9, i64 1, ptr %330)
-  br label %338
+335:                                              ; preds = %328
+  %336 = call i64 @fwrite(ptr nonnull @.str.81, i64 9, i64 1, ptr %332)
+  br label %340
 
-335:                                              ; preds = %print_indent.exit186
-  %336 = load ptr, ptr %21, align 8
-  %337 = call i64 @fwrite(ptr nonnull @.str.81, i64 9, i64 1, ptr %336)
-  br label %338
+337:                                              ; preds = %print_indent.exit186
+  %338 = load ptr, ptr %21, align 8
+  %339 = call i64 @fwrite(ptr nonnull @.str.81, i64 9, i64 1, ptr %338)
+  br label %340
 
-338:                                              ; preds = %335, %333, %331, %307
-  br i1 %20, label %339, label %353
+340:                                              ; preds = %337, %335, %333, %309
+  br i1 %20, label %341, label %355
 
-339:                                              ; preds = %338
-  %340 = load i32, ptr %1, align 8
-  %341 = load ptr, ptr %21, align 8
+341:                                              ; preds = %340
+  %342 = load i32, ptr %1, align 8
+  %343 = load ptr, ptr %21, align 8
   %.b9.i187 = load i1, ptr @print_indent.inited, align 1
-  br i1 %.b9.i187, label %342, label %.preheader.preheader.i188
+  br i1 %.b9.i187, label %344, label %.preheader.preheader.i188
 
-.preheader.preheader.i188:                        ; preds = %339
+.preheader.preheader.i188:                        ; preds = %341
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @print_indent.spaces, i8 32, i64 2048, i1 false)
   store i1 true, ptr @print_indent.inited, align 1
-  br label %342
+  br label %344
 
-342:                                              ; preds = %.preheader.preheader.i188, %339
-  %343 = icmp eq ptr %341, null
-  br i1 %343, label %print_indent.exit189, label %344
+344:                                              ; preds = %.preheader.preheader.i188, %341
+  %345 = icmp eq ptr %343, null
+  br i1 %345, label %print_indent.exit189, label %346
 
-344:                                              ; preds = %342
-  %345 = shl i32 %340, 1
-  %346 = add i32 %345, 2
-  %347 = call i32 @llvm.smin.i32(i32 %346, i32 2047)
-  %348 = sext i32 %347 to i64
-  %349 = getelementptr [2048 x i8], ptr @print_indent.spaces, i64 0, i64 %348
-  store i8 0, ptr %349, align 1
-  %350 = call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %341)
-  store i8 32, ptr %349, align 1
+346:                                              ; preds = %344
+  %347 = shl i32 %342, 1
+  %348 = add i32 %347, 2
+  %349 = call i32 @llvm.smin.i32(i32 %348, i32 2047)
+  %350 = sext i32 %349 to i64
+  %351 = getelementptr [2048 x i8], ptr @print_indent.spaces, i64 0, i64 %350
+  store i8 0, ptr %351, align 1
+  %352 = call i32 @fputs(ptr noundef nonnull @print_indent.spaces, ptr noundef nonnull %343)
+  store i8 32, ptr %351, align 1
   br label %print_indent.exit189
 
-print_indent.exit189:                             ; preds = %342, %344
-  %351 = load ptr, ptr %21, align 8
-  %352 = call i64 @fwrite(ptr nonnull @.str.80, i64 9, i64 1, ptr %351)
-  br label %353
+print_indent.exit189:                             ; preds = %344, %346
+  %353 = load ptr, ptr %21, align 8
+  %354 = call i64 @fwrite(ptr nonnull @.str.80, i64 9, i64 1, ptr %353)
+  br label %355
 
-353:                                              ; preds = %print_indent.exit189, %338
+355:                                              ; preds = %print_indent.exit189, %340
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %4) #21
   ret void
 }
@@ -4664,18 +4666,18 @@ check_protocolfilter.exit:                        ; preds = %27, %29, %.sink.spl
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %41, i32 noundef 2, i32 noundef %43)
-  %.not11.not.i = icmp eq ptr %13, null
-  br i1 %.not11.not.i, label %any_has_children.exit, label %.lr.ph.i
+  %.not10.not.i = icmp eq ptr %13, null
+  br i1 %.not10.not.i, label %any_has_children.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36, %47
-  %.0712.i = phi ptr [ %49, %47 ], [ %13, %36 ]
-  %45 = load ptr, ptr %.0712.i, align 8
+  %.0711.i = phi ptr [ %49, %47 ], [ %13, %36 ]
+  %45 = load ptr, ptr %.0711.i, align 8
   %46 = load ptr, ptr %45, align 8
   %.not9.not.i.not.not = icmp ne ptr %46, null
   br i1 %.not9.not.i.not.not, label %any_has_children.exit, label %47
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = getelementptr inbounds nuw i8, ptr %.0712.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.0711.i, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not.not.i = icmp eq ptr %49, null
   br i1 %.not.not.i, label %any_has_children.exit, label %.lr.ph.i, !llvm.loop !50
@@ -4771,7 +4773,7 @@ proto_node_to_json_key.exit.i:                    ; preds = %79, %76
 98:                                               ; preds = %proto_node_to_json_key.exit.i
   %99 = load ptr, ptr %6, align 8
   call void @json_dumper_begin_array(ptr noundef %99)
-  br i1 %.not11.not.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %.not10.not.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %98, %.lr.ph.i.i
   %.013.i.i = phi ptr [ %111, %.lr.ph.i.i ], [ %13, %98 ]
@@ -4900,7 +4902,7 @@ proto_node_to_json_key.exit.i67:                  ; preds = %128, %125
 159:                                              ; preds = %proto_node_to_json_key.exit.i67
   %160 = load ptr, ptr %6, align 8
   call void @json_dumper_begin_array(ptr noundef %160)
-  br i1 %.not11.not.i, label %._crit_edge.i.i73, label %.lr.ph.i.i70
+  br i1 %.not10.not.i, label %._crit_edge.i.i73, label %.lr.ph.i.i70
 
 .lr.ph.i.i70:                                     ; preds = %159, %write_json_proto_node_dynamic.exit
   %.013.i.i71 = phi ptr [ %184, %write_json_proto_node_dynamic.exit ], [ %13, %159 ]

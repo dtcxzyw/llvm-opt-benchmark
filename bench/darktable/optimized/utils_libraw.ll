@@ -1696,38 +1696,39 @@ define noundef i32 @_ZN6LibRaw6streadEPcmP26LibRaw_abstract_datastream(ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN6LibRaw18find_ifd_by_offsetEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 381536
-  %4 = load i32, ptr %3, align 8, !tbaa !136
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 433356
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %._crit_edge, label %.lr.ph.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 433336
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 381536
+  %5 = load i32, ptr %4, align 8, !tbaa !136
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %6 = add i32 %4, -1
-  %umin = tail call i32 @llvm.umin.i32(i32 %6, i32 9)
-  %7 = add nuw nsw i32 %umin, 1
-  %wide.trip.count = zext nneg i32 %7 to i64
+  %7 = add i32 %5, -1
+  %umin = tail call i32 @llvm.umin.i32(i32 %7, i32 9)
+  %8 = add nuw nsw i32 %umin, 1
+  %wide.trip.count = zext nneg i32 %8 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
-  %8 = mul nuw nsw i64 %indvars.iv, 33408
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %8
-  %9 = load i32, ptr %gep, align 4, !tbaa !137
-  %10 = icmp eq i32 %9, %1
-  br i1 %10, label %._crit_edge.loopexit.split.loop.exit, label %11
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
+  %9 = mul nuw nsw i64 %indvars.iv, 33408
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %12 = load i32, ptr %11, align 4, !tbaa !137
+  %13 = icmp eq i32 %12, %1
+  br i1 %13, label %._crit_edge.loopexit.split.loop.exit, label %14
 
-11:                                               ; preds = %.lr.ph
+14:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !139
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %12 = trunc nuw nsw i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %11, %._crit_edge.loopexit.split.loop.exit, %2
-  %spec.select = phi i32 [ -1, %2 ], [ %12, %._crit_edge.loopexit.split.loop.exit ], [ -1, %11 ]
+._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit.split.loop.exit, %2
+  %spec.select = phi i32 [ -1, %2 ], [ %15, %._crit_edge.loopexit.split.loop.exit ], [ -1, %14 ]
   ret i32 %spec.select
 }
 

@@ -1119,7 +1119,6 @@ for.body.i.i.i.i176.preheader:                    ; preds = %_ZNSt6vectorImSaImE
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit: ; preds = %for.body.i.i.i.i176.preheader, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %135 = load ptr, ptr %this, align 8, !tbaa !24
   %136 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !24
-  %invariant.gep = getelementptr i8, ptr %129, i64 -8
   %cmp.i179.not299 = icmp eq ptr %135, %136
   br i1 %cmp.i179.not299, label %for.cond.cleanup246, label %for.body247.lr.ph
 
@@ -1209,10 +1208,11 @@ for.inc264:                                       ; preds = %for.body255
 
 if.then267:                                       ; preds = %for.inc264, %for.body247
   %150 = load i64, ptr %bins_, align 8, !tbaa !3
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %150
-  %151 = load i64, ptr %gep, align 8, !tbaa !20
-  %inc272 = add i64 %151, 1
-  store i64 %inc272, ptr %gep, align 8, !tbaa !20
+  %151 = getelementptr i64, ptr %129, i64 %150
+  %add.ptr.i207 = getelementptr i8, ptr %151, i64 -8
+  %152 = load i64, ptr %add.ptr.i207, align 8, !tbaa !20
+  %inc272 = add i64 %152, 1
+  store i64 %inc272, ptr %add.ptr.i207, align 8, !tbaa !20
   br label %if.end273
 
 if.end273:                                        ; preds = %if.then259, %if.then267
@@ -1226,8 +1226,8 @@ for.cond.cleanup287:                              ; preds = %for.body288, %_ZNSt
 for.body288:                                      ; preds = %for.body288.lr.ph, %for.body288
   %i283.0302 = phi i64 [ 0, %for.body288.lr.ph ], [ %inc297, %for.body288 ]
   %add.ptr.i208 = getelementptr inbounds nuw i64, ptr %145, i64 %i283.0302
-  %152 = load i64, ptr %add.ptr.i208, align 8, !tbaa !20
-  %conv291 = uitofp i64 %152 to double
+  %153 = load i64, ptr %add.ptr.i208, align 8, !tbaa !20
+  %conv291 = uitofp i64 %153 to double
   %div293 = fdiv double %conv291, %conv292
   %add.ptr.i209 = getelementptr inbounds nuw double, ptr %146, i64 %i283.0302
   store double %div293, ptr %add.ptr.i209, align 8, !tbaa !22

@@ -2283,8 +2283,8 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6: ; preds = %2
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_NoticeRegistry14_FreeDelivererERKNS_9TfWeakPtrINS_8TfNotice14_DelivererBaseEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(336) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_NoticeRegistry14_FreeDelivererERKNS_9TfWeakPtrINS_8TfNotice14_DelivererBaseEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(336) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -6215,11 +6215,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(15) %28)
   %33 = ptrtoint ptr %32 to i64
   %34 = mul i64 %33, -7046029254386353067
+  %35 = tail call i64 @llvm.bswap.i64(i64 %34)
   br label %_ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8TfNotice5ProbeEEES5_NS_9_IdentityENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS5_EEmRKT_.exit
 
 _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8TfNotice5ProbeEEES5_NS_9_IdentityENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS5_EEmRKT_.exit: ; preds = %.loopexit, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i.i.i
-  %35 = phi i64 [ %34, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i.i.i ], [ 0, %.loopexit ]
-  %36 = tail call noundef i64 @llvm.bswap.i64(i64 %35)
+  %36 = phi i64 [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i.i.i ], [ 0, %.loopexit ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = urem i64 %36, %38
@@ -6646,11 +6646,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %38 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(15) %34)
   %39 = ptrtoint ptr %38 to i64
   %40 = mul i64 %39, -7046029254386353067
+  %41 = tail call i64 @llvm.bswap.i64(i64 %40)
   br label %_ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8TfNotice5ProbeEEES5_NS_9_IdentityENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS5_.exit
 
 _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8TfNotice5ProbeEEES5_NS_9_IdentityENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS5_.exit: ; preds = %32, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i.i.i23
-  %41 = phi i64 [ %40, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i.i.i23 ], [ 0, %32 ]
-  %42 = tail call noundef i64 @llvm.bswap.i64(i64 %41)
+  %42 = phi i64 [ %41, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i.i.i23 ], [ 0, %32 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = urem i64 %42, %44

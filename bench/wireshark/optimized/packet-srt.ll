@@ -1217,27 +1217,27 @@ define internal fastcc void @format_text_reorder_32(ptr noundef %0, ptr noundef 
 23:                                               ; preds = %22, %._crit_edge
   %24 = tail call ptr @wmem_strbuf_get_str(ptr noundef %9)
   %25 = tail call i64 @wmem_strbuf_get_len(ptr noundef %9)
-  %invariant.gep = getelementptr i8, ptr %24, i64 -1
   %.not33 = icmp eq i64 %25, 0
   br i1 %.not33, label %.critedge, label %.lr.ph36
 
-.lr.ph36:                                         ; preds = %23, %28
-  %.034 = phi i64 [ %29, %28 ], [ %25, %23 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.034
-  %26 = load i8, ptr %gep, align 1
-  %27 = icmp eq i8 %26, 0
-  br i1 %27, label %28, label %.critedge
+.lr.ph36:                                         ; preds = %23, %30
+  %.034 = phi i64 [ %31, %30 ], [ %25, %23 ]
+  %26 = getelementptr i8, ptr %24, i64 %.034
+  %27 = getelementptr i8, ptr %26, i64 -1
+  %28 = load i8, ptr %27, align 1
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %30, label %.critedge
 
-28:                                               ; preds = %.lr.ph36
-  %29 = add i64 %.034, -1
-  %.not = icmp eq i64 %29, 0
+30:                                               ; preds = %.lr.ph36
+  %31 = add i64 %.034, -1
+  %.not = icmp eq i64 %31, 0
   br i1 %.not, label %.critedge, label %.lr.ph36, !llvm.loop !15
 
-.critedge:                                        ; preds = %.lr.ph36, %28, %23
-  %.0.lcssa = phi i64 [ 0, %23 ], [ 0, %28 ], [ %.034, %.lr.ph36 ]
-  %30 = load ptr, ptr %7, align 8
-  %31 = tail call ptr @format_text(ptr noundef %30, ptr noundef %24, i64 noundef %.0.lcssa)
-  %32 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef %4, i32 noundef %5, ptr noundef %31)
+.critedge:                                        ; preds = %.lr.ph36, %30, %23
+  %.0.lcssa = phi i64 [ 0, %23 ], [ 0, %30 ], [ %.034, %.lr.ph36 ]
+  %32 = load ptr, ptr %7, align 8
+  %33 = tail call ptr @format_text(ptr noundef %32, ptr noundef %24, i64 noundef %.0.lcssa)
+  %34 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef %4, i32 noundef %5, ptr noundef %33)
   ret void
 }
 

@@ -1626,9 +1626,9 @@ define internal fastcc void @do_connect_step(ptr noundef readonly captures(none)
     i32 0, label %5
     i32 1, label %16
     i32 2, label %17
-    i32 3, label %155
-    i32 4, label %166
-    i32 5, label %167
+    i32 3, label %156
+    i32 4, label %167
+    i32 5, label %168
   ]
 
 5:                                                ; preds = %3
@@ -1677,23 +1677,23 @@ define internal fastcc void @do_connect_step(ptr noundef readonly captures(none)
   store i32 1, ptr %18, align 4, !tbaa !58
   %22 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 787, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 1, i32 noundef 1) #10
   %.not.i.i = icmp eq i32 %22, 0
-  br i1 %.not.i.i, label %.critedge.sink.split.i, label %23
+  br i1 %.not.i.i, label %.critedge109.sink.split.i, label %23
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %1, align 8, !tbaa !54
   %25 = tail call i32 @SSL_do_handshake(ptr noundef %24) #10
   switch i32 %25, label %27 [
-    i32 1, label %.critedge.sink.split.i
+    i32 1, label %.critedge109.sink.split.i
     i32 0, label %26
   ]
 
 26:                                               ; preds = %23
-  br label %.critedge.sink.split.i
+  br label %.critedge109.sink.split.i
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %1, align 8, !tbaa !54
   %29 = tail call i32 @SSL_get_error(ptr noundef %28, i32 noundef %25) #10
-  switch i32 %29, label %.critedge.sink.split.i [
+  switch i32 %29, label %.critedge109.sink.split.i [
     i32 12, label %do_reneg_setup_step.exit
     i32 2, label %do_reneg_setup_step.exit
   ]
@@ -1701,7 +1701,7 @@ define internal fastcc void @do_connect_step(ptr noundef readonly captures(none)
 30:                                               ; preds = %17
   %31 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 895, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %19, i32 noundef 1) #10
   %.not.i7 = icmp eq i32 %31, 0
-  br i1 %.not.i7, label %.critedge.sink.split.i, label %32
+  br i1 %.not.i7, label %.critedge109.sink.split.i, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1711,7 +1711,7 @@ define internal fastcc void @do_connect_step(ptr noundef readonly captures(none)
   %36 = zext i1 %narrow.i to i32
   %37 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 905, ptr noundef nonnull @.str.54, i32 noundef %36) #10
   %.not89.i = icmp eq i32 %37, 0
-  br i1 %.not89.i, label %.critedge.sink.split.i, label %38
+  br i1 %.not89.i, label %.critedge109.sink.split.i, label %38
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1737,7 +1737,7 @@ thread-pre-split.i:                               ; preds = %45
 48:                                               ; preds = %thread-pre-split.i, %38
   %49 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %43, %38 ]
   %50 = icmp eq i32 %49, 3
-  br i1 %50, label %51, label %94
+  br i1 %50, label %51, label %95
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %1, align 8, !tbaa !54
@@ -1747,13 +1747,13 @@ thread-pre-split.i:                               ; preds = %45
 
 ._crit_edge.i:                                    ; preds = %51
   %.pre.i = load i32, ptr %33, align 4, !tbaa !21
-  br label %94
+  br label %95
 
 54:                                               ; preds = %51, %45
   %55 = load ptr, ptr %1, align 8, !tbaa !54
   %56 = tail call i32 @SSL_renegotiate_pending(ptr noundef %55) #10
   %.not99.i = icmp eq i32 %56, 0
-  br i1 %.not99.i, label %57, label %145
+  br i1 %.not99.i, label %57, label %146
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %1, align 8, !tbaa !54
@@ -1764,13 +1764,13 @@ thread-pre-split.i:                               ; preds = %45
 60:                                               ; preds = %57
   %61 = load ptr, ptr %1, align 8, !tbaa !54
   %62 = tail call i32 @SSL_renegotiate(ptr noundef %61) #10
-  br label %.thread124.i
+  br label %82
 
 63:                                               ; preds = %57
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %65 = load i32, ptr %64, align 4, !tbaa !93
   %.not101.i = icmp eq i32 %65, 0
-  br i1 %.not101.i, label %66, label %.thread132.i
+  br i1 %.not101.i, label %66, label %.thread130.i
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1778,307 +1778,307 @@ thread-pre-split.i:                               ; preds = %45
   %.not102.i = icmp eq ptr %68, null
   br i1 %.not102.i, label %79, label %73
 
-.thread132.i:                                     ; preds = %63
+.thread130.i:                                     ; preds = %63
   %69 = load ptr, ptr %1, align 8, !tbaa !54
   %70 = tail call i64 @SSL_set_options(ptr noundef %69, i64 noundef 1) #10
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %72 = load ptr, ptr %71, align 8, !tbaa !94
-  %.not102133.i = icmp eq ptr %72, null
-  br i1 %.not102133.i, label %.thread.i, label %73
+  %.not102131.i = icmp eq ptr %72, null
+  br i1 %.not102131.i, label %.thread.i, label %73
 
-73:                                               ; preds = %.thread132.i, %66
-  %74 = phi ptr [ %72, %.thread132.i ], [ %68, %66 ]
+73:                                               ; preds = %.thread130.i, %66
+  %74 = phi ptr [ %72, %.thread130.i ], [ %68, %66 ]
   %75 = load ptr, ptr %1, align 8, !tbaa !54
   %76 = tail call i32 @SSL_set_cipher_list(ptr noundef %75, ptr noundef nonnull %74) #10
   %.not103.i = icmp eq i32 %76, 0
-  br i1 %.not103.i, label %.critedge.sink.split.i, label %.thread.i
+  br i1 %.not103.i, label %.critedge109.sink.split.i, label %.thread.i
 
-.thread.i:                                        ; preds = %73, %.thread132.i
+.thread.i:                                        ; preds = %73, %.thread130.i
   %77 = load ptr, ptr %1, align 8, !tbaa !54
   %78 = tail call i32 @SSL_renegotiate(ptr noundef %77) #10
-  br label %.thread124.i
+  br label %82
 
 79:                                               ; preds = %66
   %80 = load ptr, ptr %1, align 8, !tbaa !54
   %81 = tail call i32 @SSL_renegotiate_abbreviated(ptr noundef %80) #10
-  br label %.thread124.i
+  br label %82
 
-.thread124.i:                                     ; preds = %79, %.thread.i, %60
-  %.0.i = phi i32 [ %62, %60 ], [ %81, %79 ], [ %78, %.thread.i ]
+82:                                               ; preds = %79, %.thread.i, %60
+  %.0.i = phi i32 [ %62, %60 ], [ %78, %.thread.i ], [ %81, %79 ]
   %.not105.i = icmp eq i32 %.0.i, 0
-  br i1 %.not105.i, label %.critedge.sink.split.i, label %82
+  br i1 %.not105.i, label %.critedge109.sink.split.i, label %83
 
-82:                                               ; preds = %.thread124.i
-  %83 = load i32, ptr %18, align 4, !tbaa !58
-  %84 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 787, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %83, i32 noundef 1) #10
-  %.not.i110.i = icmp eq i32 %84, 0
-  br i1 %.not.i110.i, label %.sink.split.i111.i, label %85
+83:                                               ; preds = %82
+  %84 = load i32, ptr %18, align 4, !tbaa !58
+  %85 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 787, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %84, i32 noundef 1) #10
+  %.not.i112.i = icmp eq i32 %85, 0
+  br i1 %.not.i112.i, label %.sink.split.i113.i, label %86
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %1, align 8, !tbaa !54
-  %87 = tail call i32 @SSL_do_handshake(ptr noundef %86) #10
-  switch i32 %87, label %89 [
-    i32 1, label %.sink.split.i111.i
-    i32 0, label %88
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %1, align 8, !tbaa !54
+  %88 = tail call i32 @SSL_do_handshake(ptr noundef %87) #10
+  switch i32 %88, label %90 [
+    i32 1, label %.sink.split.i113.i
+    i32 0, label %89
   ]
 
-88:                                               ; preds = %85
-  br label %.sink.split.i111.i
+89:                                               ; preds = %86
+  br label %.sink.split.i113.i
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr %1, align 8, !tbaa !54
-  %91 = tail call i32 @SSL_get_error(ptr noundef %90, i32 noundef %87) #10
-  switch i32 %91, label %.sink.split.i111.i [
-    i32 12, label %do_handshake_step.exit113thread-pre-split.i
-    i32 2, label %do_handshake_step.exit113thread-pre-split.i
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %1, align 8, !tbaa !54
+  %92 = tail call i32 @SSL_get_error(ptr noundef %91, i32 noundef %88) #10
+  switch i32 %92, label %.sink.split.i113.i [
+    i32 12, label %do_handshake_step.exit115thread-pre-split.i
+    i32 2, label %do_handshake_step.exit115thread-pre-split.i
   ]
 
-.sink.split.i111.i:                               ; preds = %89, %88, %85, %82
-  %.sink.i112.i = phi i32 [ 2, %88 ], [ 4, %82 ], [ 0, %85 ], [ 2, %89 ]
-  store i32 %.sink.i112.i, ptr %18, align 4, !tbaa !58
-  br label %do_handshake_step.exit113.i
+.sink.split.i113.i:                               ; preds = %90, %89, %86, %83
+  %.sink.i114.i = phi i32 [ 2, %89 ], [ 4, %83 ], [ 0, %86 ], [ 2, %90 ]
+  store i32 %.sink.i114.i, ptr %18, align 4, !tbaa !58
+  br label %do_handshake_step.exit115.i
 
-do_handshake_step.exit113thread-pre-split.i:      ; preds = %89, %89
+do_handshake_step.exit115thread-pre-split.i:      ; preds = %90, %90
+  %.pr126.i = load i32, ptr %18, align 4, !tbaa !58
+  br label %do_handshake_step.exit115.i
+
+do_handshake_step.exit115.i:                      ; preds = %do_handshake_step.exit115thread-pre-split.i, %.sink.split.i113.i
+  %93 = phi i32 [ %.pr126.i, %do_handshake_step.exit115thread-pre-split.i ], [ %.sink.i114.i, %.sink.split.i113.i ]
+  switch i32 %93, label %do_reneg_setup_step.exit [
+    i32 1, label %.critedge109.sink.split.i
+    i32 0, label %94
+  ]
+
+94:                                               ; preds = %do_handshake_step.exit115.i
+  br label %.critedge109.sink.split.i
+
+95:                                               ; preds = %._crit_edge.i, %48
+  %96 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %49, %48 ]
+  switch i32 %96, label %146 [
+    i32 4, label %97
+    i32 5, label %97
+    i32 6, label %119
+  ]
+
+97:                                               ; preds = %95, %95
+  %98 = load ptr, ptr %1, align 8, !tbaa !54
+  %99 = tail call i32 @SSL_is_server(ptr noundef %98) #10
+  %100 = load i32, ptr %33, align 4, !tbaa !21
+  %101 = icmp eq i32 %100, 4
+  %102 = zext i1 %101 to i32
+  %.not96.i = icmp eq i32 %99, %102
+  br i1 %.not96.i, label %103, label %.critedge109.sink.split.i
+
+103:                                              ; preds = %97
+  %104 = load ptr, ptr %1, align 8, !tbaa !54
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %106 = load i32, ptr %105, align 8, !tbaa !95
+  %107 = tail call i32 @SSL_key_update(ptr noundef %104, i32 noundef %106) #10
+  %.not97.i = icmp eq i32 %107, 0
+  br i1 %.not97.i, label %.critedge109.sink.split.i, label %108
+
+108:                                              ; preds = %103
+  %109 = load i32, ptr %18, align 4, !tbaa !58
+  %110 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 787, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %109, i32 noundef 1) #10
+  %.not.i116.i = icmp eq i32 %110, 0
+  br i1 %.not.i116.i, label %.sink.split.i117.i, label %111
+
+111:                                              ; preds = %108
+  %112 = load ptr, ptr %1, align 8, !tbaa !54
+  %113 = tail call i32 @SSL_do_handshake(ptr noundef %112) #10
+  switch i32 %113, label %115 [
+    i32 1, label %.sink.split.i117.i
+    i32 0, label %114
+  ]
+
+114:                                              ; preds = %111
+  br label %.sink.split.i117.i
+
+115:                                              ; preds = %111
+  %116 = load ptr, ptr %1, align 8, !tbaa !54
+  %117 = tail call i32 @SSL_get_error(ptr noundef %116, i32 noundef %113) #10
+  switch i32 %117, label %.sink.split.i117.i [
+    i32 12, label %do_handshake_step.exit119thread-pre-split.i
+    i32 2, label %do_handshake_step.exit119thread-pre-split.i
+  ]
+
+.sink.split.i117.i:                               ; preds = %115, %114, %111, %108
+  %.sink.i118.i = phi i32 [ 2, %114 ], [ 4, %108 ], [ 0, %111 ], [ 2, %115 ]
+  store i32 %.sink.i118.i, ptr %18, align 4, !tbaa !58
+  br label %do_handshake_step.exit119.i
+
+do_handshake_step.exit119thread-pre-split.i:      ; preds = %115, %115
   %.pr127.i = load i32, ptr %18, align 4, !tbaa !58
-  br label %do_handshake_step.exit113.i
+  br label %do_handshake_step.exit119.i
 
-do_handshake_step.exit113.i:                      ; preds = %do_handshake_step.exit113thread-pre-split.i, %.sink.split.i111.i
-  %92 = phi i32 [ %.pr127.i, %do_handshake_step.exit113thread-pre-split.i ], [ %.sink.i112.i, %.sink.split.i111.i ]
-  switch i32 %92, label %do_reneg_setup_step.exit [
-    i32 1, label %.critedge.sink.split.i
-    i32 0, label %93
+do_handshake_step.exit119.i:                      ; preds = %do_handshake_step.exit119thread-pre-split.i, %.sink.split.i117.i
+  %118 = phi i32 [ %.pr127.i, %do_handshake_step.exit119thread-pre-split.i ], [ %.sink.i118.i, %.sink.split.i117.i ]
+  %.not98.i = icmp eq i32 %118, 0
+  br i1 %.not98.i, label %do_reneg_setup_step.exit, label %.critedge109.sink.split.i
+
+119:                                              ; preds = %95
+  %120 = load ptr, ptr %1, align 8, !tbaa !54
+  %121 = tail call i32 @SSL_is_server(ptr noundef %120) #10
+  %.not92.i = icmp eq i32 %121, 0
+  br i1 %.not92.i, label %135, label %122
+
+122:                                              ; preds = %119
+  %123 = load ptr, ptr %1, align 8, !tbaa !54
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %.critedge109.sink.split.i, label %125
+
+125:                                              ; preds = %122
+  %126 = load i32, ptr %123, align 8, !tbaa !96
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %.critedge109.sink.split.i
+
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %130 = load i32, ptr %129, align 8, !tbaa !103
+  %.not93.i = icmp eq i32 %130, 0
+  br i1 %.not93.i, label %133, label %131
+
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds nuw i8, ptr %123, i64 2984
+  store i32 2, ptr %132, align 8, !tbaa !104
+  br label %133
+
+133:                                              ; preds = %131, %128
+  %134 = tail call i32 @SSL_verify_client_post_handshake(ptr noundef nonnull %123) #10
+  %.not94.i = icmp eq i32 %134, 0
+  br i1 %.not94.i, label %.critedge109.sink.split.i, label %135
+
+135:                                              ; preds = %133, %119
+  %136 = load i32, ptr %18, align 4, !tbaa !58
+  %137 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 787, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %136, i32 noundef 1) #10
+  %.not.i120.i = icmp eq i32 %137, 0
+  br i1 %.not.i120.i, label %.sink.split.i121.i, label %138
+
+138:                                              ; preds = %135
+  %139 = load ptr, ptr %1, align 8, !tbaa !54
+  %140 = tail call i32 @SSL_do_handshake(ptr noundef %139) #10
+  switch i32 %140, label %142 [
+    i32 1, label %.sink.split.i121.i
+    i32 0, label %141
   ]
 
-93:                                               ; preds = %do_handshake_step.exit113.i
-  br label %.critedge.sink.split.i
+141:                                              ; preds = %138
+  br label %.sink.split.i121.i
 
-94:                                               ; preds = %._crit_edge.i, %48
-  %95 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %49, %48 ]
-  switch i32 %95, label %145 [
-    i32 4, label %96
-    i32 5, label %96
-    i32 6, label %118
+142:                                              ; preds = %138
+  %143 = load ptr, ptr %1, align 8, !tbaa !54
+  %144 = tail call i32 @SSL_get_error(ptr noundef %143, i32 noundef %140) #10
+  switch i32 %144, label %.sink.split.i121.i [
+    i32 12, label %do_handshake_step.exit123thread-pre-split.i
+    i32 2, label %do_handshake_step.exit123thread-pre-split.i
   ]
 
-96:                                               ; preds = %94, %94
-  %97 = load ptr, ptr %1, align 8, !tbaa !54
-  %98 = tail call i32 @SSL_is_server(ptr noundef %97) #10
-  %99 = load i32, ptr %33, align 4, !tbaa !21
-  %100 = icmp eq i32 %99, 4
-  %101 = zext i1 %100 to i32
-  %.not96.i = icmp eq i32 %98, %101
-  br i1 %.not96.i, label %102, label %.critedge.sink.split.i
+.sink.split.i121.i:                               ; preds = %142, %141, %138, %135
+  %.sink.i122.i = phi i32 [ 2, %141 ], [ 4, %135 ], [ 0, %138 ], [ 2, %142 ]
+  store i32 %.sink.i122.i, ptr %18, align 4, !tbaa !58
+  br label %do_handshake_step.exit123.i
 
-102:                                              ; preds = %96
-  %103 = load ptr, ptr %1, align 8, !tbaa !54
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %105 = load i32, ptr %104, align 8, !tbaa !95
-  %106 = tail call i32 @SSL_key_update(ptr noundef %103, i32 noundef %105) #10
-  %.not97.i = icmp eq i32 %106, 0
-  br i1 %.not97.i, label %.critedge.sink.split.i, label %107
+do_handshake_step.exit123thread-pre-split.i:      ; preds = %142, %142
+  %.pr129.i = load i32, ptr %18, align 4, !tbaa !58
+  br label %do_handshake_step.exit123.i
 
-107:                                              ; preds = %102
-  %108 = load i32, ptr %18, align 4, !tbaa !58
-  %109 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 787, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %108, i32 noundef 1) #10
-  %.not.i114.i = icmp eq i32 %109, 0
-  br i1 %.not.i114.i, label %.sink.split.i115.i, label %110
+do_handshake_step.exit123.i:                      ; preds = %do_handshake_step.exit123thread-pre-split.i, %.sink.split.i121.i
+  %145 = phi i32 [ %.pr129.i, %do_handshake_step.exit123thread-pre-split.i ], [ %.sink.i122.i, %.sink.split.i121.i ]
+  %.not95.i = icmp eq i32 %145, 0
+  br i1 %.not95.i, label %do_reneg_setup_step.exit, label %.critedge109.sink.split.i
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr %1, align 8, !tbaa !54
-  %112 = tail call i32 @SSL_do_handshake(ptr noundef %111) #10
-  switch i32 %112, label %114 [
-    i32 1, label %.sink.split.i115.i
-    i32 0, label %113
-  ]
+146:                                              ; preds = %95, %54
+  %147 = load ptr, ptr %1, align 8, !tbaa !54
+  %148 = call i32 @SSL_read(ptr noundef %147, ptr noundef nonnull %4, i32 noundef 1) #10
+  %149 = icmp sgt i32 %148, -1
+  br i1 %149, label %.critedge109.sink.split.i, label %150
 
-113:                                              ; preds = %110
-  br label %.sink.split.i115.i
+150:                                              ; preds = %146
+  %151 = load ptr, ptr %1, align 8, !tbaa !54
+  %152 = call i32 @SSL_get_error(ptr noundef %151, i32 noundef %148) #10
+  %.not106.i = icmp eq i32 %152, 2
+  br i1 %.not106.i, label %153, label %.critedge109.sink.split.i
 
-114:                                              ; preds = %110
-  %115 = load ptr, ptr %1, align 8, !tbaa !54
-  %116 = tail call i32 @SSL_get_error(ptr noundef %115, i32 noundef %112) #10
-  switch i32 %116, label %.sink.split.i115.i [
-    i32 12, label %do_handshake_step.exit117thread-pre-split.i
-    i32 2, label %do_handshake_step.exit117thread-pre-split.i
-  ]
+153:                                              ; preds = %150
+  %154 = load ptr, ptr %1, align 8, !tbaa !54
+  %155 = call i32 @SSL_in_init(ptr noundef %154) #10
+  %.not107.not.i = icmp eq i32 %155, 0
+  br i1 %.not107.not.i, label %do_reneg_setup_step.exit, label %.critedge109.sink.split.i
 
-.sink.split.i115.i:                               ; preds = %114, %113, %110, %107
-  %.sink.i116.i = phi i32 [ 2, %113 ], [ 4, %107 ], [ 0, %110 ], [ 2, %114 ]
-  store i32 %.sink.i116.i, ptr %18, align 4, !tbaa !58
-  br label %do_handshake_step.exit117.i
-
-do_handshake_step.exit117thread-pre-split.i:      ; preds = %114, %114
-  %.pr128.i = load i32, ptr %18, align 4, !tbaa !58
-  br label %do_handshake_step.exit117.i
-
-do_handshake_step.exit117.i:                      ; preds = %do_handshake_step.exit117thread-pre-split.i, %.sink.split.i115.i
-  %117 = phi i32 [ %.pr128.i, %do_handshake_step.exit117thread-pre-split.i ], [ %.sink.i116.i, %.sink.split.i115.i ]
-  %.not98.i = icmp eq i32 %117, 0
-  br i1 %.not98.i, label %do_reneg_setup_step.exit, label %.critedge.sink.split.i
-
-118:                                              ; preds = %94
-  %119 = load ptr, ptr %1, align 8, !tbaa !54
-  %120 = tail call i32 @SSL_is_server(ptr noundef %119) #10
-  %.not92.i = icmp eq i32 %120, 0
-  br i1 %.not92.i, label %134, label %121
-
-121:                                              ; preds = %118
-  %122 = load ptr, ptr %1, align 8, !tbaa !54
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %.critedge.sink.split.i, label %124
-
-124:                                              ; preds = %121
-  %125 = load i32, ptr %122, align 8, !tbaa !96
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %.critedge.sink.split.i
-
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %129 = load i32, ptr %128, align 8, !tbaa !103
-  %.not93.i = icmp eq i32 %129, 0
-  br i1 %.not93.i, label %132, label %130
-
-130:                                              ; preds = %127
-  %131 = getelementptr inbounds nuw i8, ptr %122, i64 2984
-  store i32 2, ptr %131, align 8, !tbaa !104
-  br label %132
-
-132:                                              ; preds = %130, %127
-  %133 = tail call i32 @SSL_verify_client_post_handshake(ptr noundef nonnull %122) #10
-  %.not94.i = icmp eq i32 %133, 0
-  br i1 %.not94.i, label %.critedge.sink.split.i, label %134
-
-134:                                              ; preds = %132, %118
-  %135 = load i32, ptr %18, align 4, !tbaa !58
-  %136 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 787, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %135, i32 noundef 1) #10
-  %.not.i118.i = icmp eq i32 %136, 0
-  br i1 %.not.i118.i, label %.sink.split.i119.i, label %137
-
-137:                                              ; preds = %134
-  %138 = load ptr, ptr %1, align 8, !tbaa !54
-  %139 = tail call i32 @SSL_do_handshake(ptr noundef %138) #10
-  switch i32 %139, label %141 [
-    i32 1, label %.sink.split.i119.i
-    i32 0, label %140
-  ]
-
-140:                                              ; preds = %137
-  br label %.sink.split.i119.i
-
-141:                                              ; preds = %137
-  %142 = load ptr, ptr %1, align 8, !tbaa !54
-  %143 = tail call i32 @SSL_get_error(ptr noundef %142, i32 noundef %139) #10
-  switch i32 %143, label %.sink.split.i119.i [
-    i32 12, label %do_handshake_step.exit121thread-pre-split.i
-    i32 2, label %do_handshake_step.exit121thread-pre-split.i
-  ]
-
-.sink.split.i119.i:                               ; preds = %141, %140, %137, %134
-  %.sink.i120.i = phi i32 [ 2, %140 ], [ 4, %134 ], [ 0, %137 ], [ 2, %141 ]
-  store i32 %.sink.i120.i, ptr %18, align 4, !tbaa !58
-  br label %do_handshake_step.exit121.i
-
-do_handshake_step.exit121thread-pre-split.i:      ; preds = %141, %141
-  %.pr131.i = load i32, ptr %18, align 4, !tbaa !58
-  br label %do_handshake_step.exit121.i
-
-do_handshake_step.exit121.i:                      ; preds = %do_handshake_step.exit121thread-pre-split.i, %.sink.split.i119.i
-  %144 = phi i32 [ %.pr131.i, %do_handshake_step.exit121thread-pre-split.i ], [ %.sink.i120.i, %.sink.split.i119.i ]
-  %.not95.i = icmp eq i32 %144, 0
-  br i1 %.not95.i, label %do_reneg_setup_step.exit, label %.critedge.sink.split.i
-
-145:                                              ; preds = %94, %54
-  %146 = load ptr, ptr %1, align 8, !tbaa !54
-  %147 = call i32 @SSL_read(ptr noundef %146, ptr noundef nonnull %4, i32 noundef 1) #10
-  %148 = icmp sgt i32 %147, -1
-  br i1 %148, label %.critedge.sink.split.i, label %149
-
-149:                                              ; preds = %145
-  %150 = load ptr, ptr %1, align 8, !tbaa !54
-  %151 = call i32 @SSL_get_error(ptr noundef %150, i32 noundef %147) #10
-  %.not106.i = icmp eq i32 %151, 2
-  br i1 %.not106.i, label %152, label %.critedge.sink.split.i
-
-152:                                              ; preds = %149
-  %153 = load ptr, ptr %1, align 8, !tbaa !54
-  %154 = call i32 @SSL_in_init(ptr noundef %153) #10
-  %.not107.not.i = icmp eq i32 %154, 0
-  br i1 %.not107.not.i, label %do_reneg_setup_step.exit, label %.critedge.sink.split.i
-
-.critedge.sink.split.i:                           ; preds = %152, %149, %145, %do_handshake_step.exit121.i, %132, %124, %121, %do_handshake_step.exit117.i, %102, %96, %93, %do_handshake_step.exit113.i, %.thread124.i, %73, %32, %30, %27, %26, %23, %21
-  %.sink.i8 = phi i32 [ 1, %93 ], [ 2, %26 ], [ 4, %21 ], [ 0, %23 ], [ 2, %27 ], [ 4, %32 ], [ 4, %30 ], [ 2, %73 ], [ 2, %.thread124.i ], [ 0, %do_handshake_step.exit113.i ], [ 0, %96 ], [ 2, %102 ], [ 2, %do_handshake_step.exit117.i ], [ 2, %121 ], [ 2, %124 ], [ 2, %132 ], [ 2, %do_handshake_step.exit121.i ], [ 2, %145 ], [ 2, %149 ], [ 0, %152 ]
-  store i32 %.sink.i8, ptr %18, align 4, !tbaa !58
+.critedge109.sink.split.i:                        ; preds = %153, %150, %146, %do_handshake_step.exit123.i, %133, %125, %122, %do_handshake_step.exit119.i, %103, %97, %94, %do_handshake_step.exit115.i, %82, %73, %32, %30, %27, %26, %23, %21
+  %.sink.i.sink.i = phi i32 [ 1, %94 ], [ 2, %26 ], [ 4, %21 ], [ 0, %23 ], [ 2, %27 ], [ 4, %32 ], [ 4, %30 ], [ 2, %73 ], [ 2, %82 ], [ 0, %do_handshake_step.exit115.i ], [ 0, %97 ], [ 2, %103 ], [ 2, %do_handshake_step.exit119.i ], [ 2, %122 ], [ 2, %125 ], [ 2, %133 ], [ 2, %do_handshake_step.exit123.i ], [ 2, %146 ], [ 2, %150 ], [ 0, %153 ]
+  store i32 %.sink.i.sink.i, ptr %18, align 4, !tbaa !58
   br label %do_reneg_setup_step.exit
 
-do_reneg_setup_step.exit:                         ; preds = %27, %27, %do_handshake_step.exit113.i, %do_handshake_step.exit117.i, %do_handshake_step.exit121.i, %152, %.critedge.sink.split.i
+do_reneg_setup_step.exit:                         ; preds = %27, %27, %do_handshake_step.exit115.i, %do_handshake_step.exit119.i, %do_handshake_step.exit123.i, %153, %.critedge109.sink.split.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
   br label %do_handshake_step.exit
 
-155:                                              ; preds = %3
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %157 = load i32, ptr %156, align 4, !tbaa !58
-  %158 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 787, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %157, i32 noundef 1) #10
-  %.not.i9 = icmp eq i32 %158, 0
-  br i1 %.not.i9, label %.sink.split.i10, label %159
+156:                                              ; preds = %3
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %158 = load i32, ptr %157, align 4, !tbaa !58
+  %159 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 787, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %158, i32 noundef 1) #10
+  %.not.i8 = icmp eq i32 %159, 0
+  br i1 %.not.i8, label %.sink.split.i9, label %160
 
-159:                                              ; preds = %155
-  %160 = load ptr, ptr %1, align 8, !tbaa !54
-  %161 = tail call i32 @SSL_do_handshake(ptr noundef %160) #10
-  switch i32 %161, label %163 [
-    i32 1, label %.sink.split.i10
-    i32 0, label %162
+160:                                              ; preds = %156
+  %161 = load ptr, ptr %1, align 8, !tbaa !54
+  %162 = tail call i32 @SSL_do_handshake(ptr noundef %161) #10
+  switch i32 %162, label %164 [
+    i32 1, label %.sink.split.i9
+    i32 0, label %163
   ]
 
-162:                                              ; preds = %159
-  br label %.sink.split.i10
+163:                                              ; preds = %160
+  br label %.sink.split.i9
 
-163:                                              ; preds = %159
-  %164 = load ptr, ptr %1, align 8, !tbaa !54
-  %165 = tail call i32 @SSL_get_error(ptr noundef %164, i32 noundef %161) #10
-  switch i32 %165, label %.sink.split.i10 [
+164:                                              ; preds = %160
+  %165 = load ptr, ptr %1, align 8, !tbaa !54
+  %166 = tail call i32 @SSL_get_error(ptr noundef %165, i32 noundef %162) #10
+  switch i32 %166, label %.sink.split.i9 [
     i32 12, label %do_handshake_step.exit
     i32 2, label %do_handshake_step.exit
   ]
 
-.sink.split.i10:                                  ; preds = %163, %162, %159, %155
-  %.sink.i11 = phi i32 [ 2, %162 ], [ 4, %155 ], [ 0, %159 ], [ 2, %163 ]
-  store i32 %.sink.i11, ptr %156, align 4, !tbaa !58
-  br label %do_handshake_step.exit
-
-166:                                              ; preds = %3
-  tail call fastcc void @do_app_data_step(ptr noundef %1)
+.sink.split.i9:                                   ; preds = %164, %163, %160, %156
+  %.sink.i10 = phi i32 [ 2, %163 ], [ 4, %156 ], [ 0, %160 ], [ 2, %164 ]
+  store i32 %.sink.i10, ptr %157, align 4, !tbaa !58
   br label %do_handshake_step.exit
 
 167:                                              ; preds = %3
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %169 = load i32, ptr %168, align 4, !tbaa !58
-  %170 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 1068, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %169, i32 noundef 1) #10
-  %.not.i13 = icmp eq i32 %170, 0
-  br i1 %.not.i13, label %.sink.split.i14, label %171
-
-171:                                              ; preds = %167
-  %172 = load ptr, ptr %1, align 8, !tbaa !54
-  %173 = tail call i32 @SSL_shutdown(ptr noundef %172) #10
-  %174 = icmp eq i32 %173, 1
-  br i1 %174, label %.sink.split.i14, label %175
-
-175:                                              ; preds = %171
-  %176 = icmp slt i32 %173, 0
-  br i1 %176, label %177, label %do_handshake_step.exit
-
-177:                                              ; preds = %175
-  %178 = load ptr, ptr %1, align 8, !tbaa !54
-  %179 = tail call i32 @SSL_get_error(ptr noundef %178, i32 noundef %173) #10
-  %180 = add i32 %179, -4
-  %or.cond.i = icmp ult i32 %180, -2
-  br i1 %or.cond.i, label %.sink.split.i14, label %do_handshake_step.exit
-
-.sink.split.i14:                                  ; preds = %177, %171, %167
-  %.sink.i15 = phi i32 [ 4, %167 ], [ 0, %171 ], [ 2, %177 ]
-  store i32 %.sink.i15, ptr %168, align 4, !tbaa !58
+  tail call fastcc void @do_app_data_step(ptr noundef %1)
   br label %do_handshake_step.exit
 
-do_handshake_step.exit:                           ; preds = %.sink.split.i14, %177, %175, %.sink.split.i10, %163, %163, %.sink.split.i, %13, %13, %166, %do_reneg_setup_step.exit, %16, %3
+168:                                              ; preds = %3
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %170 = load i32, ptr %169, align 4, !tbaa !58
+  %171 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 1068, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %170, i32 noundef 1) #10
+  %.not.i12 = icmp eq i32 %171, 0
+  br i1 %.not.i12, label %.sink.split.i13, label %172
+
+172:                                              ; preds = %168
+  %173 = load ptr, ptr %1, align 8, !tbaa !54
+  %174 = tail call i32 @SSL_shutdown(ptr noundef %173) #10
+  %175 = icmp eq i32 %174, 1
+  br i1 %175, label %.sink.split.i13, label %176
+
+176:                                              ; preds = %172
+  %177 = icmp slt i32 %174, 0
+  br i1 %177, label %178, label %do_handshake_step.exit
+
+178:                                              ; preds = %176
+  %179 = load ptr, ptr %1, align 8, !tbaa !54
+  %180 = tail call i32 @SSL_get_error(ptr noundef %179, i32 noundef %174) #10
+  %181 = add i32 %180, -4
+  %or.cond.i = icmp ult i32 %181, -2
+  br i1 %or.cond.i, label %.sink.split.i13, label %do_handshake_step.exit
+
+.sink.split.i13:                                  ; preds = %178, %172, %168
+  %.sink.i14 = phi i32 [ 4, %168 ], [ 0, %172 ], [ 2, %178 ]
+  store i32 %.sink.i14, ptr %169, align 4, !tbaa !58
+  br label %do_handshake_step.exit
+
+do_handshake_step.exit:                           ; preds = %.sink.split.i13, %178, %176, %.sink.split.i9, %164, %164, %.sink.split.i, %13, %13, %167, %do_reneg_setup_step.exit, %16, %3
   ret void
 }
 

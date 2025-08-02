@@ -796,11 +796,7 @@ define internal void @horiz_slice_c(ptr noundef captures(none) %0, i32 noundef %
   %21 = mul nsw i64 %indvars.iv62, %14
   %22 = getelementptr inbounds float, ptr %0, i64 %21
   %23 = getelementptr inbounds float, ptr %22, i64 %12
-  br i1 %10, label %.lr.ph.us.us.preheader, label %.lr.ph37.split.split.us47
-
-.lr.ph.us.us.preheader:                           ; preds = %.preheader.us
-  %invariant.gep = getelementptr i8, ptr %22, i64 -4
-  br label %.lr.ph.us.us
+  br i1 %10, label %.lr.ph.us.us, label %.lr.ph37.split.split.us47
 
 .lr.ph37.split.split.us47:                        ; preds = %.preheader.us, %.lr.ph37.split.split.us47
   %.02836.us44 = phi i32 [ %28, %.lr.ph37.split.split.us47 ], [ 0, %.preheader.us ]
@@ -819,13 +815,13 @@ define internal void @horiz_slice_c(ptr noundef captures(none) %0, i32 noundef %
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
   br i1 %exitcond66.not, label %._crit_edge, label %.preheader.us, !llvm.loop !87
 
-.lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %._crit_edge35.us.us
-  %.02836.us.us = phi i32 [ %31, %._crit_edge35.us.us ], [ 0, %.lr.ph.us.us.preheader ]
+.lr.ph.us.us:                                     ; preds = %.preheader.us, %._crit_edge35.us.us
+  %.02836.us.us = phi i32 [ %31, %._crit_edge35.us.us ], [ 0, %.preheader.us ]
   %29 = load float, ptr %22, align 4, !tbaa !39
   %30 = fmul nsz float %5, %29
   store float %30, ptr %22, align 4, !tbaa !39
   %load_initial = load float, ptr %scevgep, align 4
-  br label %35
+  br label %37
 
 ._crit_edge35.us.us:                              ; preds = %.lr.ph34.us.us
   %31 = add nuw nsw i32 %.02836.us.us, 1
@@ -833,31 +829,32 @@ define internal void @horiz_slice_c(ptr noundef captures(none) %0, i32 noundef %
   br i1 %exitcond61.not, label %._crit_edge38.us, label %.lr.ph.us.us, !llvm.loop !88
 
 .lr.ph34.us.us:                                   ; preds = %.lr.ph34.us.us.preheader, %.lr.ph34.us.us
-  %store_forwarded71 = phi float [ %load_initial70, %.lr.ph34.us.us.preheader ], [ %33, %.lr.ph34.us.us ]
+  %store_forwarded71 = phi float [ %load_initial70, %.lr.ph34.us.us.preheader ], [ %35, %.lr.ph34.us.us ]
   %indvars.iv58 = phi i64 [ %13, %.lr.ph34.us.us.preheader ], [ %indvars.iv.next59, %.lr.ph34.us.us ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv58
-  %32 = load float, ptr %gep, align 4, !tbaa !39
-  %33 = tail call nsz float @llvm.fmuladd.f32(float %4, float %store_forwarded71, float %32)
-  store float %33, ptr %gep, align 4, !tbaa !39
+  %32 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv58
+  %33 = getelementptr i8, ptr %32, i64 -4
+  %34 = load float, ptr %33, align 4, !tbaa !39
+  %35 = tail call nsz float @llvm.fmuladd.f32(float %4, float %store_forwarded71, float %34)
+  store float %35, ptr %33, align 4, !tbaa !39
   %indvars.iv.next59 = add nsw i64 %indvars.iv58, -1
-  %34 = icmp sgt i64 %indvars.iv58, 1
-  br i1 %34, label %.lr.ph34.us.us, label %._crit_edge35.us.us, !llvm.loop !89
+  %36 = icmp sgt i64 %indvars.iv58, 1
+  br i1 %36, label %.lr.ph34.us.us, label %._crit_edge35.us.us, !llvm.loop !89
 
-35:                                               ; preds = %35, %.lr.ph.us.us
-  %store_forwarded = phi float [ %load_initial, %.lr.ph.us.us ], [ %38, %35 ]
-  %indvars.iv54 = phi i64 [ 1, %.lr.ph.us.us ], [ %indvars.iv.next55, %35 ]
-  %36 = getelementptr float, ptr %22, i64 %indvars.iv54
-  %37 = load float, ptr %36, align 4, !tbaa !39
-  %38 = tail call nsz float @llvm.fmuladd.f32(float %4, float %store_forwarded, float %37)
-  store float %38, ptr %36, align 4, !tbaa !39
+37:                                               ; preds = %37, %.lr.ph.us.us
+  %store_forwarded = phi float [ %load_initial, %.lr.ph.us.us ], [ %40, %37 ]
+  %indvars.iv54 = phi i64 [ 1, %.lr.ph.us.us ], [ %indvars.iv.next55, %37 ]
+  %38 = getelementptr float, ptr %22, i64 %indvars.iv54
+  %39 = load float, ptr %38, align 4, !tbaa !39
+  %40 = tail call nsz float @llvm.fmuladd.f32(float %4, float %store_forwarded, float %39)
+  store float %40, ptr %38, align 4, !tbaa !39
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond57.not, label %.lr.ph34.us.us.preheader, label %35, !llvm.loop !90
+  br i1 %exitcond57.not, label %.lr.ph34.us.us.preheader, label %37, !llvm.loop !90
 
-.lr.ph34.us.us.preheader:                         ; preds = %35
-  %39 = load float, ptr %23, align 4, !tbaa !39
-  %40 = fmul nsz float %5, %39
-  store float %40, ptr %23, align 4, !tbaa !39
+.lr.ph34.us.us.preheader:                         ; preds = %37
+  %41 = load float, ptr %23, align 4, !tbaa !39
+  %42 = fmul nsz float %5, %41
+  store float %42, ptr %23, align 4, !tbaa !39
   %load_initial70 = load float, ptr %scevgep69, align 4
   br label %.lr.ph34.us.us
 

@@ -249,34 +249,34 @@ If_Dec08ComposeLut4.exit:                         ; preds = %59
 .lr.ph:                                           ; preds = %._crit_edge
   %72 = add nsw i32 %.137.lcssa, -1
   %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds [16 x [16 x i64]], ptr %5, i64 0, i64 %73
   %wide.trip.count84 = zext nneg i32 %10 to i64
-  br label %75
+  br label %76
 
-74:                                               ; preds = %75
+75:                                               ; preds = %76
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %.loopexit, label %75, !llvm.loop !26
+  br i1 %exitcond85.not, label %.loopexit, label %76, !llvm.loop !26
 
-75:                                               ; preds = %.lr.ph, %74
-  %indvars.iv81 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next82, %74 ]
-  %76 = getelementptr inbounds [16 x [16 x i64]], ptr %5, i64 0, i64 %73, i64 %indvars.iv81
-  %77 = load i64, ptr %76, align 8, !tbaa !12
-  %78 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv81
-  %79 = load i64, ptr %78, align 8, !tbaa !12
-  %.not41 = icmp eq i64 %77, %79
-  br i1 %.not41, label %74, label %80
+76:                                               ; preds = %.lr.ph, %75
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next82, %75 ]
+  %77 = getelementptr inbounds nuw [16 x i64], ptr %74, i64 0, i64 %indvars.iv81
+  %78 = load i64, ptr %77, align 8, !tbaa !12
+  %79 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv81
+  %80 = load i64, ptr %79, align 8, !tbaa !12
+  %.not41 = icmp eq i64 %78, %80
+  br i1 %.not41, label %75, label %81
 
-80:                                               ; preds = %75
-  %81 = getelementptr inbounds [16 x [16 x i64]], ptr %5, i64 0, i64 %73
+81:                                               ; preds = %76
   call void @If_Dec08PrintConfig(ptr noundef nonnull %2)
   call void @Kit_DsdPrintFromTruth(ptr noundef nonnull %0, i32 noundef %1) #11
   %putchar = call i32 @putchar(i32 10)
-  call void @Kit_DsdPrintFromTruth(ptr noundef nonnull %81, i32 noundef %1) #11
+  call void @Kit_DsdPrintFromTruth(ptr noundef nonnull %74, i32 noundef %1) #11
   %putchar42 = call i32 @putchar(i32 10)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %74, %._crit_edge, %80
+.loopexit:                                        ; preds = %75, %._crit_edge, %81
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %5) #11
   ret void

@@ -679,17 +679,17 @@ define internal void @moom_callback(ptr readnone captures(none) %0) #2 align 16 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %9, label %6
+  br i1 %5, label %11, label %6
 
 6:                                                ; preds = %1
   %7 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %4) #20, !srcloc !13
   %8 = trunc i64 %7 to i32
-  br label %9
+  %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 64)
+  %10 = zext nneg i32 %9 to i64
+  br label %11
 
-9:                                                ; preds = %6, %1
-  %10 = phi i32 [ %8, %6 ], [ 64, %1 ]
-  %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 64)
-  %12 = zext nneg i32 %11 to i64
+11:                                               ; preds = %6, %1
+  %12 = phi i64 [ %10, %6 ], [ 64, %1 ]
   %13 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4864
@@ -702,11 +702,11 @@ define internal void @moom_callback(ptr readnone captures(none) %0) #2 align 16 
   %18 = call zeroext i1 @out_of_memory(ptr noundef nonnull %2) #18
   br i1 %18, label %21, label %19
 
-19:                                               ; preds = %9
+19:                                               ; preds = %11
   %20 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #17
   br label %21
 
-21:                                               ; preds = %19, %9
+21:                                               ; preds = %19, %11
   call void @mutex_unlock(ptr noundef nonnull @oom_lock) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #18
   ret void

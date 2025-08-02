@@ -106,7 +106,7 @@ define hidden i32 @ExUtilGetInts(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %6 = icmp ne ptr %0, null
   %7 = icmp sgt i32 %2, 0
   %8 = and i1 %6, %7
-  br i1 %8, label %.lr.ph.preheader, label %.loopexit
+  br i1 %8, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %4
   %9 = zext nneg i32 %2 to i64
@@ -114,40 +114,40 @@ define hidden i32 @ExUtilGetInts(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %.01634 = phi ptr [ %0, %.lr.ph.preheader ], [ %spec.select, %14 ]
+  %.01628 = phi ptr [ %0, %.lr.ph.preheader ], [ %spec.select, %14 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   store ptr null, ptr %5, align 8, !tbaa !4
-  %10 = call i64 @strtoul(ptr noundef nonnull %.01634, ptr noundef nonnull %5, i32 noundef %1) #8
+  %10 = call i64 @strtoul(ptr noundef nonnull %.01628, ptr noundef nonnull %5, i32 noundef %1) #8
   %.pre.i.i = load ptr, ptr %5, align 8, !tbaa !4
-  %11 = icmp eq ptr %.pre.i.i, %.01634
-  br i1 %11, label %.thread, label %14
+  %11 = icmp eq ptr %.pre.i.i, %.01628
+  br i1 %11, label %ExUtilGetInt.exit, label %14
 
-.thread:                                          ; preds = %.lr.ph
+ExUtilGetInt.exit:                                ; preds = %.lr.ph
   %12 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef nonnull %.01634) #9
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef nonnull %.01628) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  br label %.loopexit
+  br label %.critedge
 
 14:                                               ; preds = %.lr.ph
   %15 = trunc i64 %10 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   %16 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %15, ptr %16, align 4, !tbaa !9
-  %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.01634, i32 noundef 44) #10
+  %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.01628, i32 noundef 44) #10
   %.not21 = icmp ne ptr %17, null
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %spec.select = select i1 %.not21, ptr %18, ptr null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = icmp samesign ult i64 %indvars.iv.next, %9
   %20 = select i1 %.not21, i1 %19, i1 false
-  br i1 %20, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !13
+  br i1 %20, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !13
 
-.loopexit.loopexit:                               ; preds = %14
+.critedge.loopexit:                               ; preds = %14
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %4, %.thread
-  %.2 = phi i32 [ -1, %.thread ], [ 0, %4 ], [ %21, %.loopexit.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %4, %ExUtilGetInt.exit
+  %.2 = phi i32 [ -1, %ExUtilGetInt.exit ], [ 0, %4 ], [ %21, %.critedge.loopexit ]
   ret i32 %.2
 }
 

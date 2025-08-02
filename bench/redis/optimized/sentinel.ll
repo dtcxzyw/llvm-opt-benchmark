@@ -1861,21 +1861,21 @@ define dso_local void @sentinelPendingScriptsCommand(ptr noundef %0) local_unnam
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !94
   %.not39 = icmp eq i64 %38, 0
-  br i1 %.not39, label %42, label %39
+  br i1 %.not39, label %43, label %39
 
 39:                                               ; preds = %36
   %40 = call i64 @mstime() #30
   %41 = sub nsw i64 %38, %40
-  br label %42
+  %42 = call i64 @llvm.smax.i64(i64 %41, i64 0)
+  br label %43
 
-42:                                               ; preds = %36, %39
-  %43 = phi i64 [ %41, %39 ], [ 0, %36 ]
-  %spec.store.select = call i64 @llvm.smax.i64(i64 %43, i64 0)
+43:                                               ; preds = %36, %39
+  %spec.store.select = phi i64 [ %42, %39 ], [ 0, %36 ]
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.37) #30
   br label %44
 
-44:                                               ; preds = %42, %31
-  %spec.store.select.sink = phi i64 [ %spec.store.select, %42 ], [ %35, %31 ]
+44:                                               ; preds = %43, %31
+  %spec.store.select.sink = phi i64 [ %spec.store.select, %43 ], [ %35, %31 ]
   call void @addReplyBulkLongLong(ptr noundef %0, i64 noundef %spec.store.select.sink) #30
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.38) #30
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -12360,24 +12360,24 @@ define dso_local void @sentinelCheckObjectivelyDown(ptr noundef captures(address
   %2 = load i32, ptr %0, align 8, !tbaa !34
   %3 = and i32 %2, 8
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %.thread, label %4
+  br i1 %.not, label %.critedge, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8, !tbaa !5
   %7 = tail call ptr @dictGetIterator(ptr noundef %6) #30
   %8 = tail call ptr @dictNext(ptr noundef %7) #30
-  %.not2028 = icmp eq ptr %8, null
-  br i1 %.not2028, label %._crit_edge, label %.lr.ph
+  %.not2026 = icmp eq ptr %8, null
+  br i1 %.not2026, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %9 = phi ptr [ %14, %.lr.ph ], [ %8, %4 ]
-  %.129 = phi i32 [ %spec.select, %.lr.ph ], [ 1, %4 ]
+  %.127 = phi i32 [ %spec.select, %.lr.ph ], [ 1, %4 ]
   %10 = tail call ptr @dictGetVal(ptr noundef nonnull %9) #30
   %11 = load i32, ptr %10, align 8, !tbaa !34
   %12 = lshr i32 %11, 5
   %13 = and i32 %12, 1
-  %spec.select = add i32 %13, %.129
+  %spec.select = add i32 %13, %.127
   %14 = tail call ptr @dictNext(ptr noundef %7) #30
   %.not20 = icmp eq ptr %14, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !288
@@ -12389,7 +12389,7 @@ define dso_local void @sentinelCheckObjectivelyDown(ptr noundef captures(address
   %16 = load i32, ptr %15, align 8, !tbaa !83
   %.not21 = icmp ult i32 %.1.lcssa, %16
   %.pre = load i32, ptr %0, align 8, !tbaa !34
-  br i1 %.not21, label %.thread, label %17
+  br i1 %.not21, label %.critedge, label %17
 
 17:                                               ; preds = %._crit_edge
   %18 = and i32 %.pre, 16
@@ -12406,20 +12406,20 @@ define dso_local void @sentinelCheckObjectivelyDown(ptr noundef captures(address
   store i64 %23, ptr %24, align 8, !tbaa !179
   br label %30
 
-.thread:                                          ; preds = %1, %._crit_edge
+.critedge:                                        ; preds = %1, %._crit_edge
   %25 = phi i32 [ %2, %1 ], [ %.pre, %._crit_edge ]
   %26 = and i32 %25, 16
   %.not23 = icmp eq i32 %26, 0
   br i1 %.not23, label %30, label %27
 
-27:                                               ; preds = %.thread
+27:                                               ; preds = %.critedge
   tail call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef nonnull @.str.408, ptr noundef nonnull %0, ptr noundef nonnull @.str.54)
   %28 = load i32, ptr %0, align 8, !tbaa !34
   %29 = and i32 %28, -17
   store i32 %29, ptr %0, align 8, !tbaa !34
   br label %30
 
-30:                                               ; preds = %.thread, %27, %17, %20
+30:                                               ; preds = %.critedge, %27, %17, %20
   ret void
 }
 

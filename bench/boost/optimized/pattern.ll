@@ -1654,8 +1654,8 @@ declare void @_ZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIc
 ; Function Attrs: nounwind
 declare void @_ZN5boost4urls8url_base4op_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls6detail13parse_patternENS_4core17basic_string_viewIcEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::system::result.50") align 8 captures(none) initializes((0, 24), (136, 140)) %0, ptr %1, i64 %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5boost4urls6detail13parse_patternENS_4core17basic_string_viewIcEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::system::result.50") align 8 captures(none) initializes((0, 24), (136, 140)) %0, ptr %1, i64 %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.boost::system::result.50", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
@@ -1711,10 +1711,10 @@ _ZN5boost4urls7grammar5parseINS0_6detail14pattern_rule_tEEENS_6system6resultINT_
 declare ptr @strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost4urls7grammar9lut_chars9constructINS1_22implementation_defined13alpha_chars_tEEES2_T_h(ptr dead_on_unwind noalias writable sret(%"class.boost::urls::grammar::lut_chars") align 8 %0, i8 noundef zeroext %1) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost4urls7grammar9lut_chars9constructINS1_22implementation_defined13alpha_chars_tEEES2_T_h(ptr dead_on_unwind noalias writable sret(%"class.boost::urls::grammar::lut_chars") align 8 %0, i8 noundef zeroext %1) local_unnamed_addr #8 comdat align 2 {
   %3 = alloca %"class.boost::urls::grammar::lut_chars", align 8
   %4 = icmp eq i8 %1, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
@@ -1798,7 +1798,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost4urls7grammar9lut_chars9constructINS1_22implementation_defined13digit_chars_tEEES2_T_h(ptr dead_on_unwind noalias writable sret(%"class.boost::urls::grammar::lut_chars") align 8 %0, i8 noundef zeroext %1) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost4urls7grammar9lut_chars9constructINS1_22implementation_defined13digit_chars_tEEES2_T_h(ptr dead_on_unwind noalias writable sret(%"class.boost::urls::grammar::lut_chars") align 8 %0, i8 noundef zeroext %1) local_unnamed_addr #8 comdat align 2 {
   %3 = alloca %"class.boost::urls::grammar::lut_chars", align 8
   %4 = icmp eq i8 %1, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
@@ -2811,7 +2811,7 @@ declare void @_ZNK5boost4urls6detail11host_rule_t5parseERPKcS4_(ptr dead_on_unwi
 declare void @_ZNK5boost4urls6detail16port_part_rule_t5parseERPKcS4_(ptr dead_on_unwind writable sret(%"class.boost::system::result.20") align 8, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5boost4urls6detail14pattern_rule_t5parseERPKcS4_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.50") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost4urls6detail14pattern_rule_t5parseERPKcS4_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.50") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::system::result.35", align 8
   %6 = alloca %"class.boost::system::result.71", align 8
   %7 = alloca %"class.boost::system::result.35", align 8
@@ -3889,7 +3889,7 @@ select.unfold:                                    ; preds = %98
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5boost4urls6detail25authority_template_rule_t5parseERPKcS4_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.50") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost4urls6detail25authority_template_rule_t5parseERPKcS4_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.50") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::system::result.35", align 8
   %6 = alloca %"class.boost::system::result.71", align 8
   %.sroa.025 = alloca <{ %"class.boost::core::basic_string_view", %"class.boost::core::basic_string_view", %"class.boost::core::basic_string_view", %"class.boost::core::basic_string_view" }>, align 8
@@ -4114,7 +4114,7 @@ _ZN5boost15optional_detail13optional_baseINS_4urls6detail24userinfo_template_rul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5boost4urls6detail29pct_encoded_fmt_string_rule_tINS0_7grammar22implementation_defined11charset_refINS3_9lut_charsEEEE5parseERPKcSA_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.35") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost4urls6detail29pct_encoded_fmt_string_rule_tINS0_7grammar22implementation_defined11charset_refINS3_9lut_charsEEEE5parseERPKcSA_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.35") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::urls::implementation_defined::pct_encoded_rule_t.182", align 8
   %6 = alloca %"class.boost::system::result.35", align 8
   %7 = alloca %"class.boost::system::result.71", align 8
@@ -4498,7 +4498,7 @@ select.unfold:                                    ; preds = %100
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5boost4urls6detail20host_template_rule_t5parseERPKcS4_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.71") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost4urls6detail20host_template_rule_t5parseERPKcS4_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.71") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::is_same.100", align 1
   %6 = alloca %"struct.boost::urls::grammar::detail::parse_sequence.192", align 8
   %7 = alloca %"struct.std::integral_constant", align 1
@@ -4702,7 +4702,7 @@ _ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5boost4urls6detail16fmt_token_rule_tINS0_7grammar22implementation_defined13digit_chars_tEE5parseERPKcS8_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.35") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost4urls6detail16fmt_token_rule_tINS0_7grammar22implementation_defined13digit_chars_tEE5parseERPKcS8_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.35") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::system::result.71", align 8
   %6 = alloca %"class.boost::system::result.71", align 8
   %7 = alloca %"struct.boost::urls::grammar::implementation_defined::optional_rule_t.198", align 1
@@ -4982,7 +4982,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5boost4urls6detail29pct_encoded_fmt_string_rule_tINS0_7grammar9lut_charsEE5parseERPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.35") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost4urls6detail29pct_encoded_fmt_string_rule_tINS0_7grammar9lut_charsEE5parseERPKcS7_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.35") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::urls::implementation_defined::pct_encoded_rule_t", align 8
   %6 = alloca %"class.boost::system::result.35", align 8
   %7 = alloca %"class.boost::system::result.71", align 8
@@ -5082,8 +5082,8 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { cold noreturn }
 attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress noinline noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

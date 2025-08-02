@@ -674,9 +674,9 @@ define signext range(i8 0, 2) i8 @ucnv_extInitialMatchFromU_77(ptr noundef %0, p
 
 70:                                               ; preds = %67, %64
   %storemerge.i = phi i32 [ 1, %64 ], [ 2, %67 ]
-  %.0.ph.i = phi i8 [ 15, %64 ], [ 14, %67 ]
+  %.0.i = phi i8 [ 15, %64 ], [ 14, %67 ]
   store i32 %storemerge.i, ptr %62, align 8, !tbaa !46
-  store i8 %.0.ph.i, ptr %12, align 16, !tbaa !24
+  store i8 %.0.i, ptr %12, align 16, !tbaa !24
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %.not45.i = icmp eq ptr %.039.i, %71
   br i1 %.not45.i, label %74, label %72
@@ -1175,9 +1175,9 @@ define void @ucnv_extContinueMatchFromU_77(ptr noundef %0, ptr noundef %1, i32 n
 
 84:                                               ; preds = %81, %78
   %storemerge.i = phi i32 [ 1, %78 ], [ 2, %81 ]
-  %.0.ph.i = phi i8 [ 15, %78 ], [ 14, %81 ]
+  %.0.i = phi i8 [ 15, %78 ], [ 14, %81 ]
   store i32 %storemerge.i, ptr %76, align 8, !tbaa !46
-  store i8 %.0.ph.i, ptr %5, align 16, !tbaa !24
+  store i8 %.0.i, ptr %5, align 16, !tbaa !24
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %.not45.i = icmp eq ptr %.039.i, %85
   br i1 %.not45.i, label %88, label %86

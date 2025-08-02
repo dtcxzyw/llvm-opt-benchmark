@@ -5794,7 +5794,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr noundef re
   %68 = phi i16 [ %98, %.loopexit ], [ 0, %.lr.ph.preheader ]
   %69 = tail call fastcc i32 @e1000_spi_eeprom_ready(ptr noundef %0), !range !9
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %.thread7
+  br i1 %70, label %71, label %.critedge
 
 71:                                               ; preds = %.lr.ph
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
@@ -5818,7 +5818,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr noundef re
 83:                                               ; preds = %86, %71
   %84 = phi i64 [ %90, %86 ], [ %82, %71 ]
   %85 = icmp eq i64 %84, %67
-  br i1 %85, label %.thread7, label %86
+  br i1 %85, label %.critedge, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr i16, ptr %3, i64 %84
@@ -5839,15 +5839,15 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr noundef re
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
   %98 = trunc i64 %90 to i16
   %99 = icmp ugt i16 %2, %98
-  br i1 %99, label %.lr.ph, label %.thread7, !llvm.loop !42
+  br i1 %99, label %.lr.ph, label %.critedge
 
-.thread7:                                         ; preds = %.loopexit, %.lr.ph, %83
+.critedge:                                        ; preds = %.loopexit, %.lr.ph, %83
   %.ph = phi i32 [ 0, %83 ], [ -1, %.lr.ph ], [ 0, %.loopexit ]
   tail call void @msleep(i32 noundef 10) #7
   br label %.thread
 
-.thread:                                          ; preds = %52, %.thread7, %59
-  %100 = phi i32 [ %.ph, %.thread7 ], [ 0, %59 ], [ -1, %52 ]
+.thread:                                          ; preds = %52, %.critedge, %59
+  %100 = phi i32 [ %.ph, %.critedge ], [ 0, %59 ], [ -1, %52 ]
   tail call fastcc void @e1000_release_eeprom(ptr noundef %0)
   br label %101
 
@@ -5885,7 +5885,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_read_mac_addr(ptr noundef c
   store i8 %15, ptr %17, align 1
   %18 = add nuw nsw i64 %5, 2
   %19 = icmp samesign ult i64 %5, 4
-  br i1 %19, label %4, label %20, !llvm.loop !43
+  br i1 %19, label %4, label %20, !llvm.loop !42
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6736,13 +6736,13 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_get_cable_length(ptr noundef 
   %27 = zext i16 %26 to i32
   %28 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %4)
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %._crit_edge8, !llvm.loop !44
+  br i1 %29, label %30, label %._crit_edge8, !llvm.loop !43
 
 30:                                               ; preds = %24
   %31 = load i16, ptr %4, align 2
   %32 = add i16 %31, -16256
   %33 = icmp ult i16 %32, -16128
-  br i1 %33, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %33, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 .lr.ph:                                           ; preds = %.preheader, %30
   %34 = phi i16 [ %31, %30 ], [ %10, %.preheader ]
@@ -6754,7 +6754,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_get_cable_length(ptr noundef 
   %40 = tail call i16 @llvm.umin.i16(i16 %36, i16 %38)
   %41 = add nuw nsw i64 %35, 1
   %42 = icmp eq i64 %41, 4
-  br i1 %42, label %43, label %24, !llvm.loop !44
+  br i1 %42, label %43, label %24, !llvm.loop !43
 
 43:                                               ; preds = %.lr.ph
   %44 = icmp ult i16 %39, 200
@@ -6847,7 +6847,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_acquire_eeprom(ptr no
   %24 = icmp eq i32 %23, 0
   %25 = icmp samesign ult i32 %18, 999
   %26 = select i1 %24, i1 %25, i1 false
-  br i1 %26, label %.preheader, label %27, !llvm.loop !45
+  br i1 %26, label %.preheader, label %27, !llvm.loop !44
 
 27:                                               ; preds = %.preheader
   br i1 %24, label %28, label %.thread
@@ -6950,7 +6950,7 @@ define internal fastcc range(i32 -1, 1) i32 @e1000_spi_eeprom_ready(ptr noundef 
   %39 = add nuw nsw i16 %5, 5
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
   %40 = icmp samesign ult i16 %5, 4995
-  br i1 %40, label %4, label %41, !llvm.loop !46
+  br i1 %40, label %4, label %41, !llvm.loop !45
 
 41:                                               ; preds = %38, %35
   %42 = phi i16 [ 5000, %38 ], [ %5, %35 ]
@@ -7187,7 +7187,7 @@ define internal fastcc void @e1000_shift_out_ee_bits(ptr noundef readonly captur
   tail call void @__udelay(i64 noundef %50) #7
   %51 = lshr i32 %22, 1
   %52 = icmp ult i32 %22, 2
-  br i1 %52, label %53, label %20, !llvm.loop !47
+  br i1 %52, label %53, label %20, !llvm.loop !46
 
 53:                                               ; preds = %20
   %54 = and i32 %21, -6
@@ -7276,4 +7276,3 @@ attributes #7 = { nounwind }
 !44 = distinct !{!44, !11, !12}
 !45 = distinct !{!45, !11, !12}
 !46 = distinct !{!46, !11, !12}
-!47 = distinct !{!47, !11, !12}

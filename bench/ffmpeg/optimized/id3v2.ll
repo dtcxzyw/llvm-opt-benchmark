@@ -2606,25 +2606,25 @@ declare ptr @av_buffer_alloc(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @rstrip_spaces(ptr noundef captures(none) %0) unnamed_addr #7 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %.not5 = icmp eq i64 %2, 0
   br i1 %.not5, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %5
-  %.06 = phi i64 [ %6, %5 ], [ %2, %1 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.06
-  %3 = load i8, ptr %gep, align 1, !tbaa !4
-  %4 = icmp eq i8 %3, 32
-  br i1 %4, label %5, label %.critedge
+.lr.ph:                                           ; preds = %1, %7
+  %.06 = phi i64 [ %8, %7 ], [ %2, %1 ]
+  %3 = getelementptr i8, ptr %0, i64 %.06
+  %4 = getelementptr i8, ptr %3, i64 -1
+  %5 = load i8, ptr %4, align 1, !tbaa !4
+  %6 = icmp eq i8 %5, 32
+  br i1 %6, label %7, label %.critedge
 
-5:                                                ; preds = %.lr.ph
-  %6 = add i64 %.06, -1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
-  store i8 0, ptr %7, align 1, !tbaa !4
-  %.not = icmp eq i64 %6, 0
+7:                                                ; preds = %.lr.ph
+  %8 = add i64 %.06, -1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
+  store i8 0, ptr %9, align 1, !tbaa !4
+  %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !105
 
-.critedge:                                        ; preds = %.lr.ph, %5, %1
+.critedge:                                        ; preds = %.lr.ph, %7, %1
   ret void
 }
 

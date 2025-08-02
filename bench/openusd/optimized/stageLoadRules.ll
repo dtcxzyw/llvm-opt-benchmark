@@ -2269,12 +2269,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSC_i.exit.loopexit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEEEEEvDpOT_.exit.i.i.i.i.i
   %38 = mul i64 %37, -7046029254386353067
+  %39 = tail call i64 @llvm.bswap.i64(i64 %38)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__6TfHashclIRKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl11Tf_HashImplclL_ZSt7declvalIRNS_12Tf_HashStateEEDTcl9__declvalIT_ELi0EEEvEEclsr3stdE7forwardISF_Efp_ELi0EEcvm_EEOSF_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__6TfHashclIRKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl11Tf_HashImplclL_ZSt7declvalIRNS_12Tf_HashStateEEDTcl9__declvalIT_ELi0EEEvEEclsr3stdE7forwardISF_Efp_ELi0EEcvm_EEOSF_.exit: ; preds = %1, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSC_i.exit.loopexit.i
-  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %38, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSC_i.exit.loopexit.i ]
-  %39 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.0.0.i)
-  ret i64 %39
+  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %39, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESaIS7_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSC_i.exit.loopexit.i ]
+  ret i64 %.sroa.0.0.i
 }
 
 ; Function Attrs: uwtable

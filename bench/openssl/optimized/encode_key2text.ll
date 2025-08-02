@@ -1297,11 +1297,11 @@ define internal fastcc range(i32 0, 2) i32 @ec_to_text(ptr noundef %0, ptr nound
 100:                                              ; preds = %97
   %101 = call ptr @OBJ_nid2sn(i32 noundef %98) #4
   %102 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, ptr noundef %101) #4
-  %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %104, label %ec_param_explicit_curve_to_text.exit.thread.i.i
+  %103 = icmp slt i32 %102, 1
+  br i1 %103, label %ec_param_explicit_curve_to_text.exit.thread.i.i, label %104
 
 104:                                              ; preds = %100, %94
-  %.023.i.i.i = phi ptr [ @.str.24, %100 ], [ @.str.22, %94 ]
+  %.023.i.i.i = phi ptr [ @.str.22, %94 ], [ @.str.24, %100 ]
   %105 = call i32 @ossl_bio_print_labeled_bignum(ptr noundef nonnull %0, ptr noundef nonnull %.023.i.i.i, ptr noundef %88) #4
   %.not27.i.i.i = icmp eq i32 %105, 0
   br i1 %.not27.i.i.i, label %ec_param_explicit_curve_to_text.exit.thread.i.i, label %106
@@ -1382,7 +1382,7 @@ ec_param_explicit_gen_to_text.exit.i.i:           ; preds = %116
   br label %ec_param_explicit_curve_to_text.exit.thread.i.i
 
 ec_param_explicit_curve_to_text.exit.thread.i.i:  ; preds = %130, %128, %125, %122, %ec_param_explicit_gen_to_text.exit.i.i, %ec_param_explicit_gen_to_text.exit.thread.i.i, %ec_param_explicit_curve_to_text.exit.i.i, %106, %104, %100, %97, %92, %87, %82, %74
-  %.031.i.i = phi i32 [ 0, %74 ], [ 0, %82 ], [ 1, %130 ], [ 0, %128 ], [ 0, %125 ], [ 0, %122 ], [ 0, %ec_param_explicit_gen_to_text.exit.i.i ], [ 0, %ec_param_explicit_curve_to_text.exit.i.i ], [ 0, %ec_param_explicit_gen_to_text.exit.thread.i.i ], [ 0, %100 ], [ 0, %92 ], [ 0, %87 ], [ 0, %106 ], [ 0, %104 ], [ 0, %97 ]
+  %.031.i.i = phi i32 [ 0, %74 ], [ 0, %82 ], [ 1, %130 ], [ 0, %128 ], [ 0, %125 ], [ 0, %122 ], [ 0, %ec_param_explicit_gen_to_text.exit.i.i ], [ 0, %ec_param_explicit_curve_to_text.exit.i.i ], [ 0, %ec_param_explicit_gen_to_text.exit.thread.i.i ], [ 0, %92 ], [ 0, %87 ], [ 0, %106 ], [ 0, %104 ], [ 0, %97 ], [ 0, %100 ]
   call void @BN_CTX_end(ptr noundef nonnull %72) #4
   call void @BN_CTX_free(ptr noundef nonnull %72) #4
   br label %ec_param_to_text.exit

@@ -3786,7 +3786,7 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
   %10 = zext nneg i32 %9 to i64
   %11 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %10, i32 noundef 3520) #16
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %156, label %13
+  br i1 %12, label %158, label %13
 
 13:                                               ; preds = %5
   %14 = shl nuw nsw i32 %3, 4
@@ -3798,7 +3798,7 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
 
 19:                                               ; preds = %13
   tail call void @kfree(ptr noundef nonnull %11) #13
-  br label %156
+  br label %158
 
 20:                                               ; preds = %13
   store i8 0, ptr %7, align 1, !annotation !11
@@ -3934,11 +3934,10 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
 
 99:                                               ; preds = %93
   %100 = zext nneg i32 %3 to i64
-  %invariant.gep = getelementptr i8, ptr %11, i64 1
   br label %101
 
 101:                                              ; preds = %101, %99
-  %102 = phi i64 [ 0, %99 ], [ %117, %101 ]
+  %102 = phi i64 [ 0, %99 ], [ %119, %101 ]
   %103 = getelementptr %struct.i2c_msg, ptr %17, i64 %102
   store i16 %.pre22, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 2
@@ -3958,89 +3957,90 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
   %114 = trunc i64 %102 to i32
   %115 = shl i32 %114, 1
   %116 = sext i32 %115 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %116
-  store i8 %113, ptr %gep, align 1
-  %117 = add nuw nsw i64 %102, 1
-  %118 = icmp eq i64 %117, %100
-  br i1 %118, label %._crit_edge, label %101, !llvm.loop !65
+  %117 = getelementptr i8, ptr %11, i64 %116
+  %118 = getelementptr i8, ptr %117, i64 1
+  store i8 %113, ptr %118, align 1
+  %119 = add nuw nsw i64 %102, 1
+  %120 = icmp eq i64 %119, %100
+  br i1 %120, label %._crit_edge, label %101, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %101, %93
-  %119 = zext nneg i32 %3 to i64
-  %120 = getelementptr %struct.i2c_msg, ptr %17, i64 %119
-  store i16 %.pre22, ptr %120, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 2
-  store i16 0, ptr %121, align 2
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  store i16 2, ptr %122, align 4
-  %123 = shl nuw nsw i32 %3, 1
-  %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr i8, ptr %11, i64 %124
-  %126 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store ptr %125, ptr %126, align 8
-  store i8 8, ptr %125, align 2
-  %127 = getelementptr i8, ptr %125, i64 1
-  store i8 %1, ptr %127, align 1
+  %121 = zext nneg i32 %3 to i64
+  %122 = getelementptr %struct.i2c_msg, ptr %17, i64 %121
+  store i16 %.pre22, ptr %122, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 2
+  store i16 0, ptr %123, align 2
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  store i16 2, ptr %124, align 4
+  %125 = shl nuw nsw i32 %3, 1
+  %126 = zext nneg i32 %125 to i64
+  %127 = getelementptr i8, ptr %11, i64 %126
+  %128 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  store ptr %127, ptr %128, align 8
+  store i8 8, ptr %127, align 2
+  %129 = getelementptr i8, ptr %127, i64 1
+  store i8 %1, ptr %129, align 1
   store i8 9, ptr %7, align 1
-  %128 = zext nneg i32 %3 to i64
-  %129 = getelementptr %struct.i2c_msg, ptr %17, i64 %128
-  %130 = getelementptr i8, ptr %129, i64 16
-  store i16 %.pre22, ptr %130, align 8
-  %131 = getelementptr i8, ptr %129, i64 18
-  store i16 0, ptr %131, align 2
-  %132 = getelementptr i8, ptr %129, i64 20
-  store i16 1, ptr %132, align 4
-  %133 = getelementptr i8, ptr %129, i64 24
-  store ptr %7, ptr %133, align 8
-  %134 = zext nneg i32 %3 to i64
-  %135 = getelementptr %struct.i2c_msg, ptr %17, i64 %134
-  %136 = getelementptr i8, ptr %135, i64 32
-  store i16 %.pre22, ptr %136, align 8
-  %137 = getelementptr i8, ptr %135, i64 34
-  store i16 1, ptr %137, align 2
-  %138 = getelementptr i8, ptr %135, i64 36
-  store i16 1, ptr %138, align 4
-  %139 = getelementptr i8, ptr %135, i64 40
-  store ptr %7, ptr %139, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %141 = load ptr, ptr %140, align 8
-  %142 = add nuw nsw i32 %3, 3
-  br i1 %4, label %143, label %145
-
-143:                                              ; preds = %._crit_edge
-  %144 = call i32 @i2c_transfer(ptr noundef %141, ptr noundef nonnull %17, i32 noundef %142) #13
-  br label %147
+  %130 = zext nneg i32 %3 to i64
+  %131 = getelementptr %struct.i2c_msg, ptr %17, i64 %130
+  %132 = getelementptr i8, ptr %131, i64 16
+  store i16 %.pre22, ptr %132, align 8
+  %133 = getelementptr i8, ptr %131, i64 18
+  store i16 0, ptr %133, align 2
+  %134 = getelementptr i8, ptr %131, i64 20
+  store i16 1, ptr %134, align 4
+  %135 = getelementptr i8, ptr %131, i64 24
+  store ptr %7, ptr %135, align 8
+  %136 = zext nneg i32 %3 to i64
+  %137 = getelementptr %struct.i2c_msg, ptr %17, i64 %136
+  %138 = getelementptr i8, ptr %137, i64 32
+  store i16 %.pre22, ptr %138, align 8
+  %139 = getelementptr i8, ptr %137, i64 34
+  store i16 1, ptr %139, align 2
+  %140 = getelementptr i8, ptr %137, i64 36
+  store i16 1, ptr %140, align 4
+  %141 = getelementptr i8, ptr %137, i64 40
+  store ptr %7, ptr %141, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %143 = load ptr, ptr %142, align 8
+  %144 = add nuw nsw i32 %3, 3
+  br i1 %4, label %145, label %147
 
 145:                                              ; preds = %._crit_edge
-  %146 = call i32 @__i2c_transfer(ptr noundef %141, ptr noundef nonnull %17, i32 noundef %142) #13
-  br label %147
+  %146 = call i32 @i2c_transfer(ptr noundef %143, ptr noundef nonnull %17, i32 noundef %144) #13
+  br label %149
 
-147:                                              ; preds = %145, %143
-  %148 = phi i32 [ %144, %143 ], [ %146, %145 ]
-  %149 = icmp slt i32 %148, 0
-  br i1 %149, label %150, label %151
+147:                                              ; preds = %._crit_edge
+  %148 = call i32 @__i2c_transfer(ptr noundef %143, ptr noundef nonnull %17, i32 noundef %144) #13
+  br label %149
 
-150:                                              ; preds = %147
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %148) #13
-  br label %154
+149:                                              ; preds = %147, %145
+  %150 = phi i32 [ %146, %145 ], [ %148, %147 ]
+  %151 = icmp slt i32 %150, 0
+  br i1 %151, label %152, label %153
 
-151:                                              ; preds = %147
-  %152 = icmp eq i32 %148, %142
-  br i1 %152, label %154, label %153
-
-153:                                              ; preds = %151
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %148, i32 noundef %142) #13
-  br label %154
-
-154:                                              ; preds = %153, %151, %150
-  %155 = phi i1 [ false, %150 ], [ false, %153 ], [ true, %151 ]
-  call void @kfree(ptr noundef nonnull %17) #13
-  call void @kfree(ptr noundef nonnull %11) #13
+152:                                              ; preds = %149
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %150) #13
   br label %156
 
-156:                                              ; preds = %154, %19, %5
-  %157 = phi i1 [ %155, %154 ], [ false, %19 ], [ false, %5 ]
+153:                                              ; preds = %149
+  %154 = icmp eq i32 %150, %144
+  br i1 %154, label %156, label %155
+
+155:                                              ; preds = %153
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %150, i32 noundef %144) #13
+  br label %156
+
+156:                                              ; preds = %155, %153, %152
+  %157 = phi i1 [ false, %152 ], [ false, %155 ], [ true, %153 ]
+  call void @kfree(ptr noundef nonnull %17) #13
+  call void @kfree(ptr noundef nonnull %11) #13
+  br label %158
+
+158:                                              ; preds = %156, %19, %5
+  %159 = phi i1 [ %157, %156 ], [ false, %19 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #13
-  ret i1 %157
+  ret i1 %159
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -8703,14 +8703,10 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %13
 30:                                               ; preds = %.loopexit.split-lp.i, %.loopexit5.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit5.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %31 = icmp eq i64 %5, 0
-  br i1 %31, label %common.resume, label %.preheader.i.preheader
+  br i1 %31, label %common.resume, label %.preheader.i
 
-.preheader.i.preheader:                           ; preds = %30
-  %invariant.gep = getelementptr i8, ptr %0, i64 -8
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %_ZN15InteractionListD2Ev.exit.i
-  %.idx = phi i64 [ %.add, %_ZN15InteractionListD2Ev.exit.i ], [ %.add7, %.preheader.i.preheader ]
+.preheader.i:                                     ; preds = %30, %_ZN15InteractionListD2Ev.exit.i
+  %.idx = phi i64 [ %.add, %_ZN15InteractionListD2Ev.exit.i ], [ %.add7, %30 ]
   %.add = add nsw i64 %.idx, -24
   %.ptr8 = getelementptr inbounds i8, ptr %0, i64 %.add
   %32 = load ptr, ptr %.ptr8, align 8, !tbaa !62
@@ -8718,57 +8714,58 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %13
   br i1 %.not.i.i.i.i.i, label %_ZN15InteractionListD2Ev.exit.i, label %33
 
 33:                                               ; preds = %.preheader.i
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %34 = load ptr, ptr %gep, align 8, !tbaa !221
-  %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %32 to i64
-  %37 = sub i64 %35, %36
-  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %37) #32
+  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %34 = getelementptr inbounds i8, ptr %.ptr, i64 -8
+  %35 = load ptr, ptr %34, align 8, !tbaa !221
+  %36 = ptrtoint ptr %35 to i64
+  %37 = ptrtoint ptr %32 to i64
+  %38 = sub i64 %36, %37
+  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %38) #32
   br label %_ZN15InteractionListD2Ev.exit.i
 
 _ZN15InteractionListD2Ev.exit.i:                  ; preds = %33, %.preheader.i
-  %38 = icmp eq i64 %.add, 80
-  br i1 %38, label %common.resume, label %.preheader.i
+  %39 = icmp eq i64 %.add, 80
+  br i1 %39, label %common.resume, label %.preheader.i
 
 common.resume:                                    ; preds = %_ZN15InteractionListD2Ev.exit.i, %_ZN15InteractionListD2Ev.exit.i6, %30
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %30 ], [ %43, %_ZN15InteractionListD2Ev.exit.i6 ], [ %lpad.phi.i, %_ZN15InteractionListD2Ev.exit.i ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %30 ], [ %44, %_ZN15InteractionListD2Ev.exit.i6 ], [ %lpad.phi.i, %_ZN15InteractionListD2Ev.exit.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt5arrayI15InteractionListLm95EEC2ERKS1_.exit: ; preds = %26
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2360
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 2360
-  invoke void @_ZN3gmx11ListOfListsIiEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %40)
-          to label %41 unwind label %42
-
-41:                                               ; preds = %_ZNSt5arrayI15InteractionListLm95EEC2ERKS1_.exit
-  ret void
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2360
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 2360
+  invoke void @_ZN3gmx11ListOfListsIiEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(48) %41)
+          to label %42 unwind label %43
 
 42:                                               ; preds = %_ZNSt5arrayI15InteractionListLm95EEC2ERKS1_.exit
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %invariant.gep22 = getelementptr i8, ptr %0, i64 -8
-  br label %44
+  ret void
 
-44:                                               ; preds = %_ZN15InteractionListD2Ev.exit.i6, %42
-  %.idx11 = phi i64 [ 2360, %42 ], [ %.add12, %_ZN15InteractionListD2Ev.exit.i6 ]
+43:                                               ; preds = %_ZNSt5arrayI15InteractionListLm95EEC2ERKS1_.exit
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  br label %45
+
+45:                                               ; preds = %_ZN15InteractionListD2Ev.exit.i6, %43
+  %.idx11 = phi i64 [ 2360, %43 ], [ %.add12, %_ZN15InteractionListD2Ev.exit.i6 ]
   %.add12 = add nsw i64 %.idx11, -24
   %.ptr14 = getelementptr inbounds i8, ptr %0, i64 %.add12
-  %45 = load ptr, ptr %.ptr14, align 8, !tbaa !62
-  %.not.i.i.i.i.i5 = icmp eq ptr %45, null
-  br i1 %.not.i.i.i.i.i5, label %_ZN15InteractionListD2Ev.exit.i6, label %46
+  %46 = load ptr, ptr %.ptr14, align 8, !tbaa !62
+  %.not.i.i.i.i.i5 = icmp eq ptr %46, null
+  br i1 %.not.i.i.i.i.i5, label %_ZN15InteractionListD2Ev.exit.i6, label %47
 
-46:                                               ; preds = %44
-  %gep23 = getelementptr i8, ptr %invariant.gep22, i64 %.idx11
-  %47 = load ptr, ptr %gep23, align 8, !tbaa !221
-  %48 = ptrtoint ptr %47 to i64
-  %49 = ptrtoint ptr %45 to i64
-  %50 = sub i64 %48, %49
-  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %50) #32
+47:                                               ; preds = %45
+  %.ptr13 = getelementptr inbounds i8, ptr %0, i64 %.idx11
+  %48 = getelementptr inbounds i8, ptr %.ptr13, i64 -8
+  %49 = load ptr, ptr %48, align 8, !tbaa !221
+  %50 = ptrtoint ptr %49 to i64
+  %51 = ptrtoint ptr %46 to i64
+  %52 = sub i64 %50, %51
+  tail call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %52) #32
   br label %_ZN15InteractionListD2Ev.exit.i6
 
-_ZN15InteractionListD2Ev.exit.i6:                 ; preds = %46, %44
-  %51 = icmp eq i64 %.add12, 80
-  br i1 %51, label %common.resume, label %44
+_ZN15InteractionListD2Ev.exit.i6:                 ; preds = %47, %45
+  %53 = icmp eq i64 %.add12, 80
+  br i1 %53, label %common.resume, label %45
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

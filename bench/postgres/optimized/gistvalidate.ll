@@ -68,15 +68,15 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %29 = load i32, ptr %28, align 8
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph149, label %._crit_edge
+  br i1 %30, label %.lr.ph146, label %._crit_edge
 
-.lr.ph149:                                        ; preds = %.preheader
+.lr.ph146:                                        ; preds = %.preheader
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 80
   br label %112
 
 32:                                               ; preds = %.lr.ph, %108
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %108 ]
-  %.0146 = phi i1 [ true, %.lr.ph ], [ %.2, %108 ]
+  %.0143 = phi i1 [ true, %.lr.ph ], [ %.2, %108 ]
   %33 = getelementptr inbounds nuw [0 x ptr], ptr %27, i64 0, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr i8, ptr %34, i64 80
@@ -106,7 +106,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %52
 
 52:                                               ; preds = %44, %46, %32
-  %.1 = phi i1 [ %.0146, %32 ], [ false, %46 ], [ false, %44 ]
+  %.1 = phi i1 [ %.0143, %32 ], [ false, %46 ], [ false, %44 ]
   %53 = load i32, ptr %40, align 4
   %.not138 = icmp eq i32 %53, %16
   br i1 %.not138, label %54, label %108
@@ -218,10 +218,10 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   %111 = icmp slt i64 %indvars.iv.next, %110
   br i1 %111, label %32, label %.preheader, !llvm.loop !4
 
-112:                                              ; preds = %.lr.ph149, %177
-  %indvars.iv166 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next167, %177 ]
-  %.4148 = phi i1 [ %.0.lcssa, %.lr.ph149 ], [ %.8, %177 ]
-  %113 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %indvars.iv166
+112:                                              ; preds = %.lr.ph146, %177
+  %indvars.iv162 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next163, %177 ]
+  %.4145 = phi i1 [ %.0.lcssa, %.lr.ph146 ], [ %.8, %177 ]
+  %113 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %indvars.iv162
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr i8, ptr %114, i64 80
   %.val141 = load ptr, ptr %115, align 8
@@ -250,7 +250,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %133
 
 133:                                              ; preds = %123, %125, %112
-  %.5 = phi i1 [ %.4148, %112 ], [ false, %125 ], [ false, %123 ]
+  %.5 = phi i1 [ %.4145, %112 ], [ false, %125 ], [ false, %123 ]
   %134 = getelementptr inbounds nuw i8, ptr %119, i64 18
   %135 = load i8, ptr %134, align 2
   %.not135 = icmp eq i8 %135, 115
@@ -324,72 +324,72 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 177:                                              ; preds = %170, %172, %162
   %.8 = phi i1 [ %.7, %162 ], [ false, %172 ], [ false, %170 ]
-  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
+  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %178 = load i32, ptr %28, align 8
   %179 = sext i32 %178 to i64
-  %180 = icmp slt i64 %indvars.iv.next167, %179
+  %180 = icmp slt i64 %indvars.iv.next163, %179
   br i1 %180, label %112, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %177, %.preheader
   %.4.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %.8, %177 ]
   %181 = tail call ptr @identify_opfamily_groups(ptr noundef nonnull %22, ptr noundef %23) #4
   %.not131 = icmp eq ptr %181, null
-  br i1 %.not131, label %._crit_edge157, label %.lr.ph154
+  br i1 %.not131, label %.critedge, label %.lr.ph151
 
-.lr.ph154:                                        ; preds = %._crit_edge
+.lr.ph151:                                        ; preds = %._crit_edge
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %183 = load i32, ptr %182, align 4
   %184 = icmp sgt i32 %183, 0
-  br i1 %184, label %.lr.ph162, label %._crit_edge157
+  br i1 %184, label %.lr.ph158, label %.critedge
 
-.lr.ph162:                                        ; preds = %.lr.ph154
+.lr.ph158:                                        ; preds = %.lr.ph151
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %186 = load ptr, ptr %185, align 8
   %wide.trip.count = zext nneg i32 %183 to i64
-  br label %188
+  br label %187
 
-._crit_edge157:                                   ; preds = %197, %.lr.ph154, %._crit_edge
-  %.0117.lcssa = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph154 ], [ %.1118, %197 ]
+187:                                              ; preds = %.lr.ph158, %197
+  %indvars.iv164 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next165, %197 ]
+  %.0117148157 = phi ptr [ null, %.lr.ph158 ], [ %.1118, %197 ]
+  %188 = getelementptr inbounds nuw %union.ListCell, ptr %186, i64 %indvars.iv164
+  %189 = load ptr, ptr %188, align 8
+  %190 = load i32, ptr %189, align 8
+  %191 = icmp eq i32 %190, %16
+  br i1 %191, label %193, label %197
+
+.critedge:                                        ; preds = %197, %.lr.ph151, %._crit_edge
+  %.0117.lcssa = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph151 ], [ %.1118, %197 ]
   %.not133 = icmp eq ptr %.0117.lcssa, null
-  %187 = getelementptr inbounds nuw i8, ptr %.0117.lcssa, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %.0117.lcssa, i64 16
   br label %198
 
-188:                                              ; preds = %.lr.ph162, %197
-  %indvars.iv168 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next169, %197 ]
-  %.0117151161 = phi ptr [ null, %.lr.ph162 ], [ %.1118, %197 ]
-  %189 = getelementptr inbounds nuw %union.ListCell, ptr %186, i64 %indvars.iv168
-  %190 = load ptr, ptr %189, align 8
-  %191 = load i32, ptr %190, align 8
-  %192 = icmp eq i32 %191, %16
-  br i1 %192, label %193, label %197
-
-193:                                              ; preds = %188
-  %194 = getelementptr inbounds nuw i8, ptr %190, i64 4
+193:                                              ; preds = %187
+  %194 = getelementptr inbounds nuw i8, ptr %189, i64 4
   %195 = load i32, ptr %194, align 4
   %196 = icmp eq i32 %195, %16
-  %spec.select139 = select i1 %196, ptr %190, ptr %.0117151161
+  %spec.select139 = select i1 %196, ptr %189, ptr %.0117148157
   br label %197
 
-197:                                              ; preds = %193, %188
-  %.1118 = phi ptr [ %.0117151161, %188 ], [ %spec.select139, %193 ]
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge157, label %188
+197:                                              ; preds = %193, %187
+  %.1118 = phi ptr [ %.0117148157, %187 ], [ %spec.select139, %193 ]
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge, label %187
 
-198:                                              ; preds = %._crit_edge157, %212
-  %indvars.iv171 = phi i64 [ 1, %._crit_edge157 ], [ %indvars.iv.next172, %212 ]
-  %.9165 = phi i1 [ %.4.lcssa, %._crit_edge157 ], [ %.10, %212 ]
+198:                                              ; preds = %.critedge, %212
+  %indvars.iv167 = phi i64 [ 1, %.critedge ], [ %indvars.iv.next168, %212 ]
+  %.9161 = phi i1 [ %.4.lcssa, %.critedge ], [ %.10, %212 ]
   br i1 %.not133, label %203, label %199
 
 199:                                              ; preds = %198
-  %200 = load i64, ptr %187, align 8
-  %201 = shl nuw nsw i64 1, %indvars.iv171
+  %200 = load i64, ptr %192, align 8
+  %201 = shl nuw nsw i64 1, %indvars.iv167
   %202 = and i64 %200, %201
   %.not134 = icmp eq i64 %202, 0
   br i1 %.not134, label %203, label %212
 
 203:                                              ; preds = %199, %198
-  %204 = trunc nuw nsw i64 %indvars.iv171 to i32
+  %204 = trunc nuw nsw i64 %indvars.iv167 to i32
   %205 = and i32 %204, 12
   %206 = icmp eq i32 %205, 8
   br i1 %206, label %212, label %switch.early.test
@@ -412,10 +412,10 @@ switch.early.test:                                ; preds = %203
   br label %212
 
 212:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %203, %207, %209, %199
-  %.10 = phi i1 [ %.9165, %199 ], [ %.9165, %switch.early.test ], [ false, %209 ], [ false, %207 ], [ %.9165, %203 ], [ %.9165, %switch.early.test ], [ %.9165, %switch.early.test ]
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %exitcond173.not = icmp eq i64 %indvars.iv.next172, 13
-  br i1 %exitcond173.not, label %213, label %198, !llvm.loop !7
+  %.10 = phi i1 [ %.9161, %199 ], [ %.9161, %switch.early.test ], [ false, %209 ], [ false, %207 ], [ %.9161, %203 ], [ %.9161, %switch.early.test ], [ %.9161, %switch.early.test ]
+  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
+  %exitcond169.not = icmp eq i64 %indvars.iv.next168, 13
+  br i1 %exitcond169.not, label %213, label %198, !llvm.loop !7
 
 213:                                              ; preds = %212
   tail call void @ReleaseCatCacheList(ptr noundef %23) #4
@@ -469,49 +469,46 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 define dso_local void @gistadjustmembers(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %._crit_edge37, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph39, label %._crit_edge37
+  br i1 %8, label %.lr.ph35, label %.critedge
 
-._crit_edge37:                                    ; preds = %.lr.ph39, %.lr.ph, %4
-  %.not28 = icmp eq ptr %3, null
-  br i1 %.not28, label %._crit_edge44, label %.lr.ph43
-
-.lr.ph43:                                         ; preds = %._crit_edge37
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %11 = load i32, ptr %9, align 4
-  %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph47, label %._crit_edge44
-
-.lr.ph39:                                         ; preds = %.lr.ph, %.lr.ph39
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph39 ], [ 0, %.lr.ph ]
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store i8 0, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 25
-  store i8 1, ptr %17, align 1
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 28
-  store i32 %0, ptr %18, align 4
+.lr.ph35:                                         ; preds = %.lr.ph, %.lr.ph35
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph35 ], [ 0, %.lr.ph ]
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i8 0, ptr %12, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 25
+  store i8 1, ptr %13, align 1
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  store i32 %0, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %5, align 4
-  %20 = sext i32 %19 to i64
-  %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph39, label %._crit_edge37
+  %15 = load i32, ptr %5, align 4
+  %16 = sext i32 %15 to i64
+  %17 = icmp slt i64 %indvars.iv.next, %16
+  br i1 %17, label %.lr.ph35, label %.critedge
 
-._crit_edge44:                                    ; preds = %38, %.lr.ph43, %._crit_edge37
-  ret void
+.critedge:                                        ; preds = %.lr.ph35, %.lr.ph, %4
+  %.not28 = icmp eq ptr %3, null
+  br i1 %.not28, label %.critedge31, label %.lr.ph38
 
-.lr.ph47:                                         ; preds = %.lr.ph43, %38
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %38 ], [ 0, %.lr.ph43 ]
-  %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv50
+.lr.ph38:                                         ; preds = %.critedge
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %20 = load i32, ptr %18, align 4
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph41, label %.critedge31
+
+.lr.ph41:                                         ; preds = %.lr.ph38, %38
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %38 ], [ 0, %.lr.ph38 ]
+  %22 = load ptr, ptr %19, align 8
+  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv44
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 4
@@ -530,12 +527,15 @@ define dso_local void @gistadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
     i32 12, label %29
   ]
 
-27:                                               ; preds = %.lr.ph47, %.lr.ph47, %.lr.ph47, %.lr.ph47, %.lr.ph47
+.critedge31:                                      ; preds = %38, %.lr.ph38, %.critedge
+  ret void
+
+27:                                               ; preds = %.lr.ph41, %.lr.ph41, %.lr.ph41, %.lr.ph41, %.lr.ph41
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i8 1, ptr %28, align 4
   br label %38
 
-29:                                               ; preds = %.lr.ph47, %.lr.ph47, %.lr.ph47, %.lr.ph47, %.lr.ph47, %.lr.ph47, %.lr.ph47
+29:                                               ; preds = %.lr.ph41, %.lr.ph41, %.lr.ph41, %.lr.ph41, %.lr.ph41, %.lr.ph41, %.lr.ph41
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i8 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 25
@@ -544,7 +544,7 @@ define dso_local void @gistadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   store i32 %0, ptr %32, align 4
   br label %38
 
-.split:                                           ; preds = %.lr.ph47
+.split:                                           ; preds = %.lr.ph41
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %34)
@@ -555,11 +555,11 @@ define dso_local void @gistadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   unreachable
 
 38:                                               ; preds = %29, %27
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %39 = load i32, ptr %9, align 4
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %39 = load i32, ptr %18, align 4
   %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next51, %40
-  br i1 %41, label %.lr.ph47, label %._crit_edge44
+  %41 = icmp slt i64 %indvars.iv.next45, %40
+  br i1 %41, label %.lr.ph41, label %.critedge31
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

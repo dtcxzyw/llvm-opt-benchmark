@@ -2842,7 +2842,7 @@ define internal void @tcp_v4_send_reset(ptr noundef %0, ptr noundef %1) #0 align
   %184 = call i16 @llvm.bswap.i16(i16 %181)
   %185 = call ptr @__inet_lookup_listener(ptr noundef %75, ptr noundef %173, ptr noundef null, i32 noundef 0, i32 noundef %180, i16 noundef zeroext %181, i32 noundef %183, i16 noundef zeroext %184, i32 noundef %171, i32 noundef 0) #21
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %.thread, label %187
+  br i1 %186, label %.critedge, label %187
 
 187:                                              ; preds = %170
   %188 = load ptr, ptr %8, align 8
@@ -2851,18 +2851,18 @@ define internal void @tcp_v4_send_reset(ptr noundef %0, ptr noundef %1) #0 align
   %191 = getelementptr i8, ptr %188, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 12
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @tcp_md5_needed, i32 2) #21
-          to label %.thread [label %193], !srcloc !23
+          to label %.critedge [label %193], !srcloc !23
 
 193:                                              ; preds = %187
   %194 = getelementptr inbounds nuw i8, ptr %185, i64 2232
   %195 = load volatile ptr, ptr %194, align 8
   %196 = icmp eq ptr %195, null
-  br i1 %196, label %.thread, label %197
+  br i1 %196, label %.critedge, label %197
 
 197:                                              ; preds = %193
   %198 = load volatile ptr, ptr %195, align 8
   %199 = icmp eq ptr %198, null
-  br i1 %199, label %.thread, label %.preheader.i12
+  br i1 %199, label %.critedge, label %.preheader.i12
 
 .preheader.i12:                                   ; preds = %197, %245
   %200 = phi ptr [ %247, %245 ], [ %198, %197 ]
@@ -2936,17 +2936,17 @@ define internal void @tcp_v4_send_reset(ptr noundef %0, ptr noundef %1) #0 align
 
 tcp_md5_do_lookup.exit13:                         ; preds = %245
   %249 = icmp eq ptr %246, null
-  br i1 %249, label %.thread, label %250
+  br i1 %249, label %.critedge, label %250
 
 250:                                              ; preds = %tcp_md5_do_lookup.exit13
   %251 = call i32 @tcp_v4_md5_hash_skb(ptr noundef nonnull %7, ptr noundef nonnull %246, ptr noundef null, ptr noundef %1), !range !41
   %252 = icmp eq i32 %251, 0
-  br i1 %252, label %253, label %.thread
+  br i1 %252, label %253, label %.critedge
 
 253:                                              ; preds = %250
   %254 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %78, ptr noundef nonnull dereferenceable(16) %7, i64 16)
   %255 = icmp eq i32 %254, 0
-  br i1 %255, label %.tcp_md5_do_lookup.exit.thread14_crit_edge, label %.thread
+  br i1 %255, label %.tcp_md5_do_lookup.exit.thread14_crit_edge, label %.critedge
 
 .tcp_md5_do_lookup.exit.thread14_crit_edge:       ; preds = %253
   %.pre = load i64, ptr %63, align 8
@@ -2981,8 +2981,8 @@ tcp_md5_do_lookup.exit.thread14:                  ; preds = %.tcp_md5_do_lookup.
   %275 = getelementptr inbounds nuw i8, ptr %272, i64 16
   %276 = load i32, ptr %275, align 4
   call fastcc void @tcp_v4_md5_hash_hdr(ptr noundef nonnull %267, ptr noundef nonnull %259, i32 noundef %274, i32 noundef %276, ptr noundef nonnull %5)
-  %.pre19 = load i64, ptr %63, align 8
-  %277 = trunc i64 %.pre19 to i32
+  %.pre17 = load i64, ptr %63, align 8
+  %277 = trunc i64 %.pre17 to i32
   br label %tcp_md5_do_lookup.exit.thread
 
 tcp_md5_do_lookup.exit.thread:                    ; preds = %104, %100, %93, %156, %tcp_md5_do_lookup.exit.thread14, %tcp_md5_do_lookup.exit
@@ -3098,7 +3098,7 @@ trace_tcp_send_reset.exit:                        ; preds = %tcp_md5_do_lookup.e
   %347 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 %346, ptr %347, align 8
   %348 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  br label %.thread16
+  br label %.thread
 
 349:                                              ; preds = %341, %337, %324, %323, %311
   %350 = load ptr, ptr %8, align 8
@@ -3115,14 +3115,14 @@ trace_tcp_send_reset.exit:                        ; preds = %tcp_md5_do_lookup.e
   %360 = shl nuw i32 1, %359
   %361 = and i32 %360, -4161
   %362 = icmp eq i32 %361, 0
-  br i1 %362, label %.thread16, label %363
+  br i1 %362, label %.thread, label %363
 
 363:                                              ; preds = %349
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %365 = load i32, ptr %364, align 8
-  br label %.thread16
+  br label %.thread
 
-.thread16:                                        ; preds = %349, %trace_tcp_send_reset.exit, %363
+.thread:                                          ; preds = %349, %trace_tcp_send_reset.exit, %363
   %366 = phi ptr [ %357, %363 ], [ %348, %trace_tcp_send_reset.exit ], [ %357, %349 ]
   %367 = phi i32 [ %365, %363 ], [ 0, %trace_tcp_send_reset.exit ], [ 0, %349 ]
   store i32 %367, ptr %366, align 4
@@ -3136,7 +3136,7 @@ trace_tcp_send_reset.exit:                        ; preds = %tcp_md5_do_lookup.e
   store volatile ptr %75, ptr %371, align 8
   br i1 %19, label %425, label %372
 
-372:                                              ; preds = %.thread16
+372:                                              ; preds = %.thread
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %374 = load volatile i8, ptr %373, align 2
   %375 = icmp eq i8 %374, 6
@@ -3213,7 +3213,7 @@ trace_tcp_send_reset.exit:                        ; preds = %tcp_md5_do_lookup.e
   %424 = load i32, ptr %423, align 4
   br label %428
 
-425:                                              ; preds = %.thread16
+425:                                              ; preds = %.thread
   %426 = getelementptr inbounds nuw i8, ptr %370, i64 452
   store i32 0, ptr %426, align 4
   %427 = getelementptr inbounds nuw i8, ptr %370, i64 448
@@ -3265,13 +3265,13 @@ trace_tcp_send_reset.exit:                        ; preds = %tcp_md5_do_lookup.e
   %456 = getelementptr i8, ptr %455, i64 112
   call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %456, ptr elementtype(i64) %456) #21, !srcloc !55
   call void @__local_bh_enable_ip(i64 noundef %368, i32 noundef 512) #21
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %197, %193, %187, %250, %tcp_md5_do_lookup.exit13, %170, %451, %253
+.critedge:                                        ; preds = %197, %193, %187, %170, %tcp_md5_do_lookup.exit13, %250, %451, %253
   call void @__rcu_read_unlock() #21
   br label %457
 
-457:                                              ; preds = %.thread, %73, %20, %2
+457:                                              ; preds = %.critedge, %73, %20, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %5) #21
@@ -5088,15 +5088,15 @@ define dso_local noundef i32 @tcp_v4_rcv(ptr noundef %0) local_unnamed_addr #0 a
   %55 = load i8, ptr %9, align 8
   %56 = lshr i8 %55, 5
   %57 = and i8 %56, 3
-  switch i8 %57, label %..critedge26_crit_edge [
-    i8 1, label %.critedge
+  switch i8 %57, label %..critedge_crit_edge [
+    i8 1, label %.critedge26
     i8 3, label %58
   ]
 
-..critedge26_crit_edge:                           ; preds = %51
+..critedge_crit_edge:                             ; preds = %51
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %.critedge26
+  br label %.critedge
 
 58:                                               ; preds = %51
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -5111,16 +5111,16 @@ define dso_local noundef i32 @tcp_v4_rcv(ptr noundef %0) local_unnamed_addr #0 a
   %68 = trunc i64 %67 to i32
   %69 = add i32 %68, %61
   %70 = icmp slt i32 %69, 0
-  br i1 %70, label %.critedge26, label %.critedge
+  br i1 %70, label %.critedge, label %.critedge26
 
-.critedge:                                        ; preds = %51, %58
+.critedge26:                                      ; preds = %51, %58
   %71 = or i24 %53, 32768
   store i24 %71, ptr %52, align 1
   %72 = and i8 %55, 96
   %73 = icmp eq i8 %72, 32
   br i1 %73, label %74, label %.critedge28
 
-74:                                               ; preds = %.critedge
+74:                                               ; preds = %.critedge26
   %75 = trunc i24 %53 to i8
   %76 = and i8 %75, 96
   %77 = icmp eq i8 %76, 0
@@ -5140,8 +5140,8 @@ define dso_local noundef i32 @tcp_v4_rcv(ptr noundef %0) local_unnamed_addr #0 a
   store i24 %85, ptr %52, align 1
   br label %.critedge28
 
-.critedge26:                                      ; preds = %..critedge26_crit_edge, %58
-  %86 = phi ptr [ %.pre, %..critedge26_crit_edge ], [ %64, %58 ]
+.critedge:                                        ; preds = %..critedge_crit_edge, %58
+  %86 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %64, %58 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %88 = load i16, ptr %87, align 4
   %89 = zext i16 %88 to i64
@@ -5158,7 +5158,7 @@ define dso_local noundef i32 @tcp_v4_rcv(ptr noundef %0) local_unnamed_addr #0 a
   %100 = icmp eq i8 %99, 64
   br i1 %100, label %101, label %110
 
-101:                                              ; preds = %.critedge26
+101:                                              ; preds = %.critedge
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %103 = load i32, ptr %102, align 8
   %104 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %98, i32 %103) #22, !srcloc !73
@@ -5173,7 +5173,7 @@ define dso_local noundef i32 @tcp_v4_rcv(ptr noundef %0) local_unnamed_addr #0 a
   store i24 %109, ptr %52, align 1
   br label %.critedge28
 
-110:                                              ; preds = %101, %.critedge26
+110:                                              ; preds = %101, %.critedge
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %98, ptr %111, align 8
   %112 = icmp ult i32 %95, 77
@@ -5189,7 +5189,7 @@ define dso_local noundef i32 @tcp_v4_rcv(ptr noundef %0) local_unnamed_addr #0 a
   store i24 %119, ptr %52, align 1
   br i1 %115, label %.critedge28, label %413
 
-.critedge28:                                      ; preds = %110, %80, %78, %.critedge, %.critedge34, %113
+.critedge28:                                      ; preds = %110, %80, %78, %.critedge26, %.critedge34, %113
   %120 = load ptr, ptr %30, align 8
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %122 = load ptr, ptr %121, align 8

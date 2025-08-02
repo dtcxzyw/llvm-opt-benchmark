@@ -1930,8 +1930,8 @@ define noundef i32 @_ZN19OpenColorIO_v2_5dev16GpuShaderCreator20getNextResourceI
   ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator18hasDynamicPropertyENS_19DynamicPropertyTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator18hasDynamicPropertyENS_19DynamicPropertyTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 440

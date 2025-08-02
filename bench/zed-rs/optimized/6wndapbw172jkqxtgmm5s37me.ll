@@ -13062,12 +13062,11 @@ define noundef zeroext i1 @_ZN4call4room4Room20contains_participant17hb8e74d5c8c
   %13 = load ptr, ptr %7, align 8, !alias.scope !2607, !noalias !2608, !nonnull !4, !noundef !4
   %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %10, i64 0
   %.sroa.0.15.vec.insert.i.i.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %invariant.gep.i.i = getelementptr i8, ptr %13, i64 -8
   br label %14
 
-14:                                               ; preds = %31, %6
-  %.sroa.9.0.i.i.i = phi i64 [ 0, %6 ], [ %32, %31 ]
-  %.pn.i.i.i = phi i64 [ %8, %6 ], [ %33, %31 ]
+14:                                               ; preds = %33, %6
+  %.sroa.9.0.i.i.i = phi i64 [ 0, %6 ], [ %34, %33 ]
+  %.pn.i.i.i = phi i64 [ %8, %6 ], [ %35, %33 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %12
   %15 = getelementptr inbounds i8, ptr %13, i64 %.sroa.01.0.i.i.i
   %.sroa.0.0.copyload.i23.i.i = load <16 x i8>, ptr %15, align 1, !noalias !2611
@@ -13076,33 +13075,34 @@ define noundef zeroext i1 @_ZN4call4room4Room20contains_participant17hb8e74d5c8c
   %18 = icmp eq i16 %17, 0
   br i1 %18, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %14, %27
-  %.sroa.06.0.i26.i.i = phi i16 [ %29, %27 ], [ %17, %14 ]
+.lr.ph.i.i:                                       ; preds = %14, %29
+  %.sroa.06.0.i26.i.i = phi i16 [ %31, %29 ], [ %17, %14 ]
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i26.i.i, i1 true)
   %20 = zext nneg i16 %19 to i64
   %21 = add i64 %.sroa.01.0.i.i.i, %20
   %22 = and i64 %21, %12
   %23 = sub nsw i64 0, %22
-  %gep.i.i = getelementptr i64, ptr %invariant.gep.i.i, i64 %23
-  %.val3.i.i.i = load i64, ptr %gep.i.i, align 8, !alias.scope !2614, !noalias !2619, !noundef !4
-  %24 = icmp eq i64 %1, %.val3.i.i.i
-  br i1 %24, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hffaa68b7f2fc3887E.exit", label %27
+  %24 = getelementptr inbounds i64, ptr %13, i64 %23
+  %25 = getelementptr inbounds i8, ptr %24, i64 -8
+  %.val3.i.i.i = load i64, ptr %25, align 8, !alias.scope !2614, !noalias !2619, !noundef !4
+  %26 = icmp eq i64 %1, %.val3.i.i.i
+  br i1 %26, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hffaa68b7f2fc3887E.exit", label %29
 
-._crit_edge.i.i:                                  ; preds = %27, %14
-  %25 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
-  %26 = bitcast <16 x i1> %25 to i16
-  %.not.i.i.i = icmp eq i16 %26, 0
-  br i1 %.not.i.i.i, label %31, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hffaa68b7f2fc3887E.exit"
+._crit_edge.i.i:                                  ; preds = %29, %14
+  %27 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
+  %28 = bitcast <16 x i1> %27 to i16
+  %.not.i.i.i = icmp eq i16 %28, 0
+  br i1 %.not.i.i.i, label %33, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hffaa68b7f2fc3887E.exit"
 
-27:                                               ; preds = %.lr.ph.i.i
-  %28 = add i16 %.sroa.06.0.i26.i.i, -1
-  %29 = and i16 %28, %.sroa.06.0.i26.i.i
-  %30 = icmp eq i16 %29, 0
-  br i1 %30, label %._crit_edge.i.i, label %.lr.ph.i.i
+29:                                               ; preds = %.lr.ph.i.i
+  %30 = add i16 %.sroa.06.0.i26.i.i, -1
+  %31 = and i16 %30, %.sroa.06.0.i26.i.i
+  %32 = icmp eq i16 %31, 0
+  br i1 %32, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-31:                                               ; preds = %._crit_edge.i.i
-  %32 = add i64 %.sroa.9.0.i.i.i, 16
-  %33 = add i64 %.sroa.01.0.i.i.i, %32
+33:                                               ; preds = %._crit_edge.i.i
+  %34 = add i64 %.sroa.9.0.i.i.i, 16
+  %35 = add i64 %.sroa.01.0.i.i.i, %34
   br label %14
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hffaa68b7f2fc3887E.exit": ; preds = %._crit_edge.i.i, %.lr.ph.i.i, %2

@@ -635,18 +635,18 @@ define internal noundef i32 @i2c_acpi_fill_info(ptr noundef readonly captures(no
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
   %5 = load i16, ptr %4, align 2
   %6 = icmp eq i16 %5, 0
-  br i1 %6, label %7, label %.thread
+  br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %0, align 1
   %9 = icmp eq i32 %8, 19
-  br i1 %9, label %10, label %.thread
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 1
-  br i1 %13, label %14, label %.thread
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -660,7 +660,7 @@ define internal noundef i32 @i2c_acpi_fill_info(ptr noundef readonly captures(no
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 8
   %22 = icmp eq i32 %20, %16
-  br i1 %22, label %23, label %.thread
+  br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %18, %14
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -670,7 +670,7 @@ define internal noundef i32 @i2c_acpi_fill_info(ptr noundef readonly captures(no
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = tail call i32 @acpi_get_handle(ptr noundef %25, ptr noundef %27, ptr noundef nonnull %28) #9
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %.thread
+  br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 38
@@ -683,16 +683,16 @@ define internal noundef i32 @i2c_acpi_fill_info(ptr noundef readonly captures(no
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 1
-  br i1 %39, label %40, label %.thread
+  br i1 %39, label %40, label %.critedge
 
 40:                                               ; preds = %31
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %42 = load i16, ptr %41, align 4
   %43 = or i16 %42, 16
   store i16 %43, ptr %41, align 4
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %7, %40, %31, %23, %18, %10, %2
+.critedge:                                        ; preds = %7, %40, %31, %23, %18, %10, %2
   ret i32 1
 }
 
@@ -814,23 +814,23 @@ define internal i32 @i2c_acpi_space_handler(i32 noundef %0, i64 noundef %1, i32 
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %19 = call noalias align 8 dereferenceable_or_null(792) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3520, i64 noundef 792) #11
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %17
   %22 = icmp eq ptr %3, null
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr %24, align 1
   %26 = icmp eq i32 %25, 19
-  br i1 %26, label %27, label %.thread
+  br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 9
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 1
-  br i1 %30, label %31, label %.thread
+  br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -969,23 +969,23 @@ define internal i32 @i2c_acpi_space_handler(i32 noundef %0, i64 noundef %1, i32 
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %109 = zext i16 %34 to i32
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %108, ptr noundef nonnull @.str.5, i32 noundef %10, i32 noundef %109) #10
-  br label %.thread
+  br label %.critedge
 
 110:                                              ; preds = %105, %103, %92, %89, %85, %78, %75, %72, %65, %62, %59, %52, %49, %46
   %111 = phi i32 [ %104, %103 ], [ %106, %105 ], [ 0, %89 ], [ %87, %85 ], [ %96, %92 ], [ 0, %75 ], [ %73, %72 ], [ %81, %78 ], [ 0, %62 ], [ %60, %59 ], [ %68, %65 ], [ 0, %49 ], [ %47, %46 ], [ %55, %52 ]
   %112 = trunc i32 %111 to i8
   store i8 %112, ptr %3, align 1
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %23, %110, %107, %27, %21, %17
+.critedge:                                        ; preds = %23, %110, %107, %27, %21, %17
   %113 = phi i32 [ 4097, %107 ], [ 0, %110 ], [ 4, %17 ], [ 4097, %27 ], [ 4097, %21 ], [ 4097, %23 ]
   call void @kfree(ptr noundef %19) #9
   %114 = load ptr, ptr %7, align 8
   call void @kfree(ptr noundef %114) #9
   br label %115
 
-115:                                              ; preds = %.thread, %6
-  %116 = phi i32 [ %113, %.thread ], [ %15, %6 ]
+115:                                              ; preds = %.critedge, %6
+  %116 = phi i32 [ %113, %.critedge ], [ %15, %6 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   ret i32 %116
 }

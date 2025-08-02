@@ -899,7 +899,6 @@ for.body.lr.ph:                                   ; preds = %_ZSt4copyIN9__gnu_c
   %55 = load ptr, ptr %cmSwapAnnuities_, align 8, !tbaa !18
   %rateTaus_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %56 = load ptr, ptr %rateTaus_, align 8, !tbaa !18
-  %invariant.gep = getelementptr i8, ptr %56, i64 -8
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %if.end149, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.for.cond.cleanup_crit_edge
@@ -956,11 +955,12 @@ if.then138:                                       ; preds = %for.body
   %conv140 = sext i32 %oldAnnuityEndIndex.0160 to i64
   %add.ptr.i112 = getelementptr inbounds nuw double, ptr %53, i64 %conv140
   %74 = load double, ptr %add.ptr.i112, align 8, !tbaa !20
-  %gep = getelementptr double, ptr %invariant.gep, i64 %conv140
-  %75 = load double, ptr %gep, align 8, !tbaa !20
+  %75 = getelementptr double, ptr %56, i64 %conv140
+  %add.ptr.i113 = getelementptr i8, ptr %75, i64 -8
+  %76 = load double, ptr %add.ptr.i113, align 8, !tbaa !20
   %neg = fneg double %74
-  %76 = tail call double @llvm.fmuladd.f64(double %neg, double %75, double %73)
-  store double %76, ptr %add.ptr.i111, align 8, !tbaa !20
+  %77 = tail call double @llvm.fmuladd.f64(double %neg, double %76, double %73)
+  store double %77, ptr %add.ptr.i111, align 8, !tbaa !20
   br label %if.end149
 
 if.end149:                                        ; preds = %if.then138, %for.body

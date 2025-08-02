@@ -3817,67 +3817,67 @@ _ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6Triple
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val57 = load i32, ptr %336, align 8, !tbaa !101
   %337 = icmp eq i32 %.val57, 1
-  br i1 %337, label %.preheader.preheader, label %338
+  br i1 %337, label %.critedge.preheader, label %338
 
-.preheader.preheader:                             ; preds = %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
-  br label %.preheader
+.critedge.preheader:                              ; preds = %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %338, %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
+  br label %.critedge
 
 338:                                              ; preds = %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
   switch i32 %331, label %339 [
-    i32 1, label %.preheader70
-    i32 2, label %.preheader70
+    i32 1, label %_ZNK12_GLOBAL__N_117AArch64AsmBackend33getFixupKindContainereSizeInBytesEj.exit
+    i32 2, label %_ZNK12_GLOBAL__N_117AArch64AsmBackend33getFixupKindContainereSizeInBytesEj.exit
     i32 3, label %340
     i32 4, label %341
-    i32 137, label %.preheader.preheader
-    i32 138, label %.preheader.preheader
-    i32 139, label %.preheader.preheader
-    i32 140, label %.preheader.preheader
-    i32 130, label %.preheader.preheader
-    i32 131, label %.preheader.preheader
-    i32 132, label %.preheader.preheader
-    i32 133, label %.preheader.preheader
-    i32 134, label %.preheader.preheader
-    i32 135, label %.preheader.preheader
-    i32 136, label %.preheader.preheader
-    i32 141, label %.preheader.preheader
-    i32 128, label %.preheader.preheader
-    i32 129, label %.preheader.preheader
-    i32 142, label %.preheader.preheader
-    i32 143, label %.preheader.preheader
+    i32 137, label %.critedge.preheader
+    i32 138, label %.critedge.preheader
+    i32 139, label %.critedge.preheader
+    i32 140, label %.critedge.preheader
+    i32 130, label %.critedge.preheader
+    i32 131, label %.critedge.preheader
+    i32 132, label %.critedge.preheader
+    i32 133, label %.critedge.preheader
+    i32 134, label %.critedge.preheader
+    i32 135, label %.critedge.preheader
+    i32 136, label %.critedge.preheader
+    i32 141, label %.critedge.preheader
+    i32 128, label %.critedge.preheader
+    i32 129, label %.critedge.preheader
+    i32 142, label %.critedge.preheader
+    i32 143, label %.critedge.preheader
   ]
 
 339:                                              ; preds = %338
   unreachable
 
 340:                                              ; preds = %338
-  br label %.preheader70
+  br label %_ZNK12_GLOBAL__N_117AArch64AsmBackend33getFixupKindContainereSizeInBytesEj.exit
 
 341:                                              ; preds = %338
-  br label %.preheader70
+  br label %_ZNK12_GLOBAL__N_117AArch64AsmBackend33getFixupKindContainereSizeInBytesEj.exit
 
-.preheader70:                                     ; preds = %338, %340, %341, %338
-  %.0.i59.ph = phi i32 [ %331, %338 ], [ 8, %341 ], [ 4, %340 ], [ %331, %338 ]
-  %342 = add i32 %.0.i59.ph, %335
+_ZNK12_GLOBAL__N_117AArch64AsmBackend33getFixupKindContainereSizeInBytesEj.exit: ; preds = %338, %338, %340, %341
+  %.0.i59 = phi i32 [ 4, %340 ], [ 8, %341 ], [ %331, %338 ], [ %331, %338 ]
+  %342 = add i32 %.0.i59, %335
   br label %352
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %.preheader ], [ 0, %.preheader.preheader ]
-  %343 = shl i64 %indvars.iv76, 3
+.critedge:                                        ; preds = %.critedge.preheader, %.critedge
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.critedge ], [ 0, %.critedge.preheader ]
+  %343 = shl i64 %indvars.iv75, 3
   %344 = lshr i64 %333, %343
   %345 = trunc i64 %344 to i8
-  %346 = trunc nuw nsw i64 %indvars.iv76 to i32
+  %346 = trunc nuw nsw i64 %indvars.iv75 to i32
   %347 = add i32 %335, %346
   %348 = zext i32 %347 to i64
   %349 = getelementptr inbounds nuw i8, ptr %4, i64 %348
   %350 = load i8, ptr %349, align 1, !tbaa !24
   %351 = or i8 %350, %345
   store i8 %351, ptr %349, align 1, !tbaa !24
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %.not54 = icmp eq i64 %indvars.iv.next77, %.0.i
-  br i1 %.not54, label %.loopexit, label %.preheader, !llvm.loop !102
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %.not54 = icmp eq i64 %indvars.iv.next76, %.0.i
+  br i1 %.not54, label %.loopexit, label %.critedge, !llvm.loop !102
 
-352:                                              ; preds = %.preheader70, %352
-  %indvars.iv = phi i64 [ 0, %.preheader70 ], [ %indvars.iv.next, %352 ]
+352:                                              ; preds = %_ZNK12_GLOBAL__N_117AArch64AsmBackend33getFixupKindContainereSizeInBytesEj.exit, %352
+  %indvars.iv = phi i64 [ 0, %_ZNK12_GLOBAL__N_117AArch64AsmBackend33getFixupKindContainereSizeInBytesEj.exit ], [ %indvars.iv.next, %352 ]
   %353 = trunc nuw nsw i64 %indvars.iv to i32
   %354 = xor i32 %353, -1
   %355 = shl i64 %indvars.iv, 3
@@ -3893,7 +3893,7 @@ _ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6Triple
   %.not53 = icmp eq i64 %indvars.iv.next, %.0.i
   br i1 %.not53, label %.loopexit, label %352, !llvm.loop !104
 
-.loopexit:                                        ; preds = %352, %.preheader
+.loopexit:                                        ; preds = %352, %.critedge
   %363 = load i32, ptr %76, align 8, !tbaa !43
   %364 = and i32 %363, 15
   %365 = icmp eq i32 %364, 2

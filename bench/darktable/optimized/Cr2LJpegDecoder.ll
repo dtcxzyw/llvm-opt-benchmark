@@ -1184,7 +1184,7 @@ _ZSt6fill_nIPPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23Pref
 19:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %20 = getelementptr i8, ptr %17, i64 %.idx
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %21 = load i32, ptr %20, align 4, !tbaa !168
   %.not = icmp ult i32 %21, 4
   br i1 %.not, label %25, label %22

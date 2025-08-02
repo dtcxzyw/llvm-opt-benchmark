@@ -163,7 +163,7 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.43, i32 620, i32 2313, i64 12) #8, !srcloc !11
   tail call void asm sideeffect "981: nop\0A\09.pushsection .discard.instr_end\0A\09.long 981b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 981) #8, !srcloc !12
   tail call void asm sideeffect "982: nop\0A\09.pushsection .discard.instr_end\0A\09.long 982b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 982) #8, !srcloc !13
-  br label %.thread12
+  br label %.critedge
 
 29:                                               ; preds = %.thread, %14
   %30 = phi ptr [ %13, %.thread ], [ %15, %14 ]
@@ -174,7 +174,7 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   %34 = getelementptr [12 x ptr], ptr %33, i64 0, i64 %32
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.thread12, label %37
+  br i1 %36, label %.critedge, label %37
 
 37:                                               ; preds = %29
   %38 = load i8, ptr %35, align 1
@@ -228,7 +228,7 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   %67 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %68 = load i8, ptr %66, align 1
   %69 = icmp eq i8 %68, 0
-  br i1 %69, label %.thread12, label %.lr.ph
+  br i1 %69, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %58
   %70 = zext i8 %68 to i32
@@ -240,19 +240,19 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   %73 = phi ptr [ %102, %101 ], [ %66, %.lr.ph ]
   %74 = getelementptr i8, ptr %73, i64 1
   %75 = icmp ult i8 %72, 7
-  br i1 %75, label %84, label %.thread13.us
+  br i1 %75, label %84, label %.thread10.us
 
-.thread13.us:                                     ; preds = %.lr.ph.split.us
+.thread10.us:                                     ; preds = %.lr.ph.split.us
   %76 = load i8, ptr %62, align 4
   %77 = icmp ugt i8 %76, 2
-  br i1 %77, label %.thread14.us, label %.thread10
+  br i1 %77, label %.thread11.us, label %.thread9
 
-.thread14.us:                                     ; preds = %.thread13.us
+.thread11.us:                                     ; preds = %.thread10.us
   %78 = load i8, ptr %74, align 1
   %79 = icmp eq i8 %78, 0
-  br i1 %79, label %.thread10, label %80
+  br i1 %79, label %.thread9, label %80
 
-80:                                               ; preds = %.thread14.us
+80:                                               ; preds = %.thread11.us
   %81 = getelementptr i8, ptr %73, i64 2
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.47, i32 noundef %71) #8
   %82 = zext i8 %78 to i64
@@ -265,14 +265,14 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   %87 = load ptr, ptr %86, align 8
   %88 = load i8, ptr %62, align 4
   %89 = icmp ugt i8 %88, 2
-  br i1 %89, label %90, label %.thread9.us
+  br i1 %89, label %90, label %.thread8.us
 
 90:                                               ; preds = %84
   %91 = getelementptr i8, ptr %73, i64 2
   %92 = load i8, ptr %74, align 1
-  br label %.thread9.us
+  br label %.thread8.us
 
-.thread9.us:                                      ; preds = %90, %84
+.thread8.us:                                      ; preds = %90, %84
   %93 = phi i8 [ %92, %90 ], [ 0, %84 ]
   %94 = phi ptr [ %91, %90 ], [ %74, %84 ]
   %95 = tail call ptr %87(ptr noundef %0, ptr noundef %94) #8
@@ -283,12 +283,12 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   %100 = select i1 %96, i1 true, i1 %99
   br i1 %100, label %101, label %.split.us
 
-101:                                              ; preds = %.thread9.us, %80
-  %102 = phi ptr [ %83, %80 ], [ %95, %.thread9.us ]
+101:                                              ; preds = %.thread8.us, %80
+  %102 = phi ptr [ %83, %80 ], [ %95, %.thread8.us ]
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
   %105 = icmp eq i8 %103, 0
-  br i1 %105, label %.thread12, label %.lr.ph.split.us, !llvm.loop !20
+  br i1 %105, label %.critedge, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %145
   %106 = phi i32 [ %148, %145 ], [ %70, %.lr.ph ]
@@ -296,7 +296,7 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   %108 = phi ptr [ %146, %145 ], [ %66, %.lr.ph ]
   %109 = getelementptr i8, ptr %108, i64 1
   %110 = icmp ult i8 %107, 7
-  br i1 %110, label %111, label %.thread13
+  br i1 %110, label %111, label %.thread10
 
 111:                                              ; preds = %.lr.ph.split
   %112 = zext nneg i8 %107 to i64
@@ -304,24 +304,24 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   %114 = load ptr, ptr %113, align 8
   %115 = load i8, ptr %62, align 4
   %116 = icmp ugt i8 %115, 2
-  br i1 %116, label %121, label %.thread9
+  br i1 %116, label %121, label %.thread8
 
-.thread13:                                        ; preds = %.lr.ph.split
+.thread10:                                        ; preds = %.lr.ph.split
   %117 = load i8, ptr %62, align 4
   %118 = icmp ugt i8 %117, 2
-  br i1 %118, label %.thread14, label %.thread10
+  br i1 %118, label %.thread11, label %.thread9
 
-.thread14:                                        ; preds = %.thread13
+.thread11:                                        ; preds = %.thread10
   %119 = load i8, ptr %109, align 1
   %120 = icmp eq i8 %119, 0
-  br i1 %120, label %.thread10, label %136
+  br i1 %120, label %.thread9, label %136
 
 121:                                              ; preds = %111
   %122 = getelementptr i8, ptr %108, i64 2
   %123 = load i8, ptr %109, align 1
-  br label %.thread9
+  br label %.thread8
 
-.thread9:                                         ; preds = %111, %121
+.thread8:                                         ; preds = %111, %121
   %124 = phi i8 [ %123, %121 ], [ 0, %111 ]
   %125 = phi ptr [ %122, %121 ], [ %109, %111 ]
   %126 = tail call ptr %114(ptr noundef %0, ptr noundef %125) #8
@@ -332,7 +332,7 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   %131 = select i1 %127, i1 true, i1 %130
   br i1 %131, label %145, label %.split.us
 
-.split.us:                                        ; preds = %.thread9, %.thread9.us
+.split.us:                                        ; preds = %.thread8, %.thread8.us
   br i1 %54, label %134, label %132
 
 132:                                              ; preds = %.split.us
@@ -342,9 +342,9 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
 134:                                              ; preds = %132, %.split.us
   %135 = phi ptr [ %133, %132 ], [ null, %.split.us ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %135, ptr noundef nonnull @.str.46) #9
-  br label %.thread12
+  br label %.critedge
 
-136:                                              ; preds = %.thread14
+136:                                              ; preds = %.thread11
   %137 = getelementptr i8, ptr %108, i64 2
   %138 = load ptr, ptr %67, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %138, i32 noundef 2, ptr noundef nonnull @.str.47, i32 noundef %106) #8
@@ -352,33 +352,33 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   %140 = getelementptr i8, ptr %137, i64 %139
   br label %145
 
-.thread10:                                        ; preds = %.thread14, %.thread13, %.thread13.us, %.thread14.us
-  %.us-phi = phi i32 [ %71, %.thread14.us ], [ %71, %.thread13.us ], [ %106, %.thread13 ], [ %106, %.thread14 ]
+.thread9:                                         ; preds = %.thread11, %.thread10, %.thread10.us, %.thread11.us
+  %.us-phi = phi i32 [ %71, %.thread11.us ], [ %71, %.thread10.us ], [ %106, %.thread10 ], [ %106, %.thread11 ]
   br i1 %54, label %143, label %141
 
-141:                                              ; preds = %.thread10
+141:                                              ; preds = %.thread9
   %142 = load ptr, ptr %67, align 8
   br label %143
 
-143:                                              ; preds = %141, %.thread10
-  %144 = phi ptr [ %142, %141 ], [ null, %.thread10 ]
+143:                                              ; preds = %141, %.thread9
+  %144 = phi ptr [ %142, %141 ], [ null, %.thread9 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %144, ptr noundef nonnull @.str.48, i32 noundef %.us-phi) #9
-  br label %.thread12
+  br label %.critedge
 
-145:                                              ; preds = %136, %.thread9
-  %146 = phi ptr [ %140, %136 ], [ %126, %.thread9 ]
+145:                                              ; preds = %136, %.thread8
+  %146 = phi ptr [ %140, %136 ], [ %126, %.thread8 ]
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i32
   %149 = icmp eq i8 %147, 0
-  br i1 %149, label %.thread12, label %.lr.ph.split, !llvm.loop !24
+  br i1 %149, label %.critedge, label %.lr.ph.split, !llvm.loop !24
 
-.thread12:                                        ; preds = %145, %101, %58, %134, %143, %29, %27
+.critedge:                                        ; preds = %145, %101, %58, %143, %134, %29, %27
   switch i32 %1, label %160 [
     i32 11, label %150
     i32 7, label %155
   ]
 
-150:                                              ; preds = %.thread12
+150:                                              ; preds = %.critedge
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
@@ -390,7 +390,7 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   tail call void asm sideeffect "46: nop\0A\09.pushsection .discard.instr_end\0A\09.long 46b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 46) #8, !srcloc !7
   br label %160
 
-155:                                              ; preds = %.thread12
+155:                                              ; preds = %.critedge
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %157 = load ptr, ptr %156, align 8
   %158 = icmp eq ptr %157, null
@@ -402,7 +402,7 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   tail call void asm sideeffect "46: nop\0A\09.pushsection .discard.instr_end\0A\09.long 46b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 46) #8, !srcloc !7
   br label %160
 
-160:                                              ; preds = %150, %154, %159, %155, %.thread12
+160:                                              ; preds = %150, %154, %159, %155, %.critedge
   ret void
 }
 
@@ -859,7 +859,7 @@ define dso_local noundef zeroext i1 @intel_dsi_vbt_init(ptr noundef initializes(
 125:                                              ; preds = %122, %121
   %126 = phi ptr [ %124, %122 ], [ null, %121 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %126, ptr noundef nonnull @.str.31) #9
-  br label %.thread
+  br label %.critedge
 
 127:                                              ; preds = %117
   %128 = tail call i32 @intel_dsi_bitrate(ptr noundef %0) #8
@@ -869,13 +869,13 @@ define dso_local noundef zeroext i1 @intel_dsi_vbt_init(ptr noundef initializes(
 
 131:                                              ; preds = %127
   %132 = tail call zeroext i1 @intel_fuzzy_clock_check(i32 noundef %129, i32 noundef %128) #8
-  br i1 %132, label %.thread7, label %._crit_edge
+  br i1 %132, label %.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %131
   %.pre = load i32, ptr %118, align 1
   br label %133
 
-.thread7:                                         ; preds = %131
+.thread:                                          ; preds = %131
   store i32 %128, ptr %118, align 1
   br label %142
 
@@ -895,10 +895,10 @@ define dso_local noundef zeroext i1 @intel_dsi_vbt_init(ptr noundef initializes(
 140:                                              ; preds = %137, %136
   %141 = phi ptr [ %139, %137 ], [ null, %136 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %141, ptr noundef nonnull @.str.32) #9
-  br label %.thread
+  br label %.critedge
 
-142:                                              ; preds = %.thread7, %133
-  %143 = phi i32 [ %128, %.thread7 ], [ %134, %133 ]
+142:                                              ; preds = %.thread, %133
+  %143 = phi i32 [ %128, %.thread ], [ %134, %133 ]
   %144 = mul i32 %143, 100
   %145 = add i32 %128, -1
   %146 = add i32 %145, %144
@@ -966,10 +966,10 @@ define dso_local noundef zeroext i1 @intel_dsi_vbt_init(ptr noundef initializes(
 192:                                              ; preds = %186, %179
   %193 = add nuw nsw i64 %180, 1
   %194 = icmp eq i64 %193, 9
-  br i1 %194, label %.thread, label %179, !llvm.loop !25
+  br i1 %194, label %.critedge, label %179, !llvm.loop !25
 
-.thread:                                          ; preds = %192, %140, %125
-  %195 = phi i1 [ false, %125 ], [ false, %140 ], [ true, %192 ]
+.critedge:                                        ; preds = %192, %125, %140
+  %195 = phi i1 [ false, %140 ], [ false, %125 ], [ true, %192 ]
   ret i1 %195
 }
 

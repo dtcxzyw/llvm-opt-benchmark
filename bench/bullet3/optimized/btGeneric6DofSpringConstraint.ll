@@ -134,7 +134,7 @@ define dso_local void @_ZN29btGeneric6DofSpringConstraint12enableSpringEib(ptr n
   %14 = zext nneg i32 %13 to i64
   %.idx = shl nuw nsw i64 %14, 6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %16 = getelementptr i8, ptr %15, i64 %.idx
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   store i8 %4, ptr %16, align 8, !tbaa !17
   br label %17
 

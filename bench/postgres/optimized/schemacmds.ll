@@ -197,49 +197,49 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
   %86 = call ptr @transformCreateSchemaStmtElements(ptr noundef %85, ptr noundef %.053) #5
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %.not69 = icmp eq ptr %86, null
-  br i1 %.not69, label %._crit_edge, label %.lr.ph
+  br i1 %.not69, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %80
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %89 = load i32, ptr %87, align 4
   %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %.lr.ph76, label %._crit_edge
+  br i1 %90, label %.lr.ph74, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph76, %.lr.ph, %80
-  call void @AtEOXact_GUC(i1 noundef zeroext true, i32 noundef %71) #5
-  %91 = load i32, ptr %5, align 4
-  %92 = load i32, ptr %6, align 4
-  call void @SetUserIdAndSecContext(i32 noundef %91, i32 noundef %92) #5
-  br label %106
-
-.lr.ph76:                                         ; preds = %.lr.ph, %.lr.ph76
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph76 ], [ 0, %.lr.ph ]
-  %93 = load ptr, ptr %88, align 8
-  %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv
-  %95 = load ptr, ptr %94, align 8
-  %96 = call noundef ptr @palloc0(i64 noundef 152) #5
-  store i32 329, ptr %96, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  store i32 6, ptr %97, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 18
-  store i8 0, ptr %98, align 2
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 136
-  store ptr %95, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 144
-  store i32 %2, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %96, i64 148
-  store i32 %3, ptr %101, align 4
-  %102 = load ptr, ptr @None_Receiver, align 8
-  call void @ProcessUtility(ptr noundef nonnull %96, ptr noundef %1, i1 noundef zeroext false, i32 noundef 3, ptr noundef null, ptr noundef null, ptr noundef %102, ptr noundef null) #5
+.lr.ph74:                                         ; preds = %.lr.ph, %.lr.ph74
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph74 ], [ 0, %.lr.ph ]
+  %91 = load ptr, ptr %88, align 8
+  %92 = getelementptr inbounds nuw %union.ListCell, ptr %91, i64 %indvars.iv
+  %93 = load ptr, ptr %92, align 8
+  %94 = call noundef ptr @palloc0(i64 noundef 152) #5
+  store i32 329, ptr %94, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  store i32 6, ptr %95, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 18
+  store i8 0, ptr %96, align 2
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 136
+  store ptr %93, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 144
+  store i32 %2, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 148
+  store i32 %3, ptr %99, align 4
+  %100 = load ptr, ptr @None_Receiver, align 8
+  call void @ProcessUtility(ptr noundef nonnull %94, ptr noundef %1, i1 noundef zeroext false, i32 noundef 3, ptr noundef null, ptr noundef null, ptr noundef %100, ptr noundef null) #5
   call void @CommandCounterIncrement() #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %103 = load i32, ptr %87, align 4
-  %104 = sext i32 %103 to i64
-  %105 = icmp slt i64 %indvars.iv.next, %104
-  br i1 %105, label %.lr.ph76, label %._crit_edge
+  %101 = load i32, ptr %87, align 4
+  %102 = sext i32 %101 to i64
+  %103 = icmp slt i64 %indvars.iv.next, %102
+  br i1 %103, label %.lr.ph74, label %.critedge
 
-106:                                              ; preds = %57, %61, %._crit_edge
-  %.0 = phi i32 [ %70, %._crit_edge ], [ 0, %61 ], [ 0, %57 ]
+.critedge:                                        ; preds = %.lr.ph74, %.lr.ph, %80
+  call void @AtEOXact_GUC(i1 noundef zeroext true, i32 noundef %71) #5
+  %104 = load i32, ptr %5, align 4
+  %105 = load i32, ptr %6, align 4
+  call void @SetUserIdAndSecContext(i32 noundef %104, i32 noundef %105) #5
+  br label %106
+
+106:                                              ; preds = %57, %61, %.critedge
+  %.0 = phi i32 [ %70, %.critedge ], [ 0, %61 ], [ 0, %57 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #5
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5

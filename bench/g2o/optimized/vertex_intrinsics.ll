@@ -189,42 +189,42 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3g2o16VertexIntrinsics4readERSi(ptr noundef nonnull align 16 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 32
   br label %4
 
-4:                                                ; preds = %10, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %10 ]
+4:                                                ; preds = %12, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %12 ]
   %5 = load ptr, ptr %1, align 8, !tbaa !31
   %6 = getelementptr i8, ptr %5, i64 -24
   %7 = load i64, ptr %6, align 8
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %7
-  %8 = load i32, ptr %gep.i, align 8, !tbaa !38
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi5ELi1ELi0ELi5ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %8 = getelementptr inbounds i8, ptr %1, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %10 = load i32, ptr %9, align 8, !tbaa !38
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi5ELi1ELi0ELi5ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
-  %12 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %14 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %13)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %..critedge_crit_edge.i, label %4, !llvm.loop !47
 
-..critedge_crit_edge.i:                           ; preds = %10
+..critedge_crit_edge.i:                           ; preds = %12
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !31
   %.phi.trans.insert.i = getelementptr i8, ptr %.pre.i, i64 -24
   %.pre11.i = load i64, ptr %.phi.trans.insert.i, align 8
+  %.phi.trans.insert12.i = getelementptr inbounds i8, ptr %1, i64 %.pre11.i
+  %.phi.trans.insert13.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert12.i, i64 32
+  %.pre14.i = load i32, ptr %.phi.trans.insert13.i, align 8, !tbaa !38
   br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi5ELi1ELi0ELi5ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !47
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi5ELi1ELi0ELi5ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %4, %..critedge_crit_edge.i
-  %13 = phi i64 [ %.pre11.i, %..critedge_crit_edge.i ], [ %7, %4 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !38
-  %17 = icmp eq i32 %16, 0
-  %18 = and i32 %16, 2
-  %19 = icmp ne i32 %18, 0
-  %20 = or i1 %17, %19
-  ret i1 %20
+  %15 = phi i32 [ %.pre14.i, %..critedge_crit_edge.i ], [ %10, %4 ]
+  %16 = icmp eq i32 %15, 0
+  %17 = and i32 %15, 2
+  %18 = icmp ne i32 %17, 0
+  %19 = or i1 %16, %18
+  ret i1 %19
 }
 
 ; Function Attrs: mustprogress uwtable

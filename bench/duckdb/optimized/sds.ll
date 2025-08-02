@@ -8,9 +8,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [4 x i8] c"\\%c\00", align 1
 @.str.8 = private unnamed_addr constant [3 x i8] c"%c\00", align 1
 @.str.9 = private unnamed_addr constant [7 x i8] c"\\x%02x\00", align 1
-@switch.table._ZN10duckdb_hll14sdsMakeRoomForEPcm.1 = private unnamed_addr constant [4 x i64] [i64 4, i64 6, i64 10, i64 18], align 8
-@switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.2 = private unnamed_addr constant [5 x i64] [i64 2, i64 4, i64 6, i64 10, i64 18], align 8
-@switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.4 = private unnamed_addr constant [5 x i64] [i64 -2, i64 -4, i64 -6, i64 -10, i64 -18], align 8
+@switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.1 = private unnamed_addr constant [5 x i64] [i64 2, i64 4, i64 6, i64 10, i64 18], align 8
+@switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.3 = private unnamed_addr constant [5 x i64] [i64 -2, i64 -4, i64 -6, i64 -10, i64 -18], align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noalias noundef ptr @_ZN10duckdb_hll9sdsnewlenEPKvm(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -37,7 +36,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit:              ; preds = %2, %4, %6, %8
   %or.cond = and i1 %11, %10
   %spec.store.select = select i1 %or.cond, i8 1, i8 %.0.i
   %12 = zext nneg i8 %spec.store.select to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.2, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.1, i64 0, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = add i64 %1, 1
   %14 = add i64 %13, %switch.load
@@ -197,7 +196,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit.i:            ; preds = %11, %9, %7, %.split
   %or.cond.i = and i1 %14, %13
   %spec.store.select.i = select i1 %or.cond.i, i8 1, i8 %.0.i.i
   %15 = zext nneg i8 %spec.store.select.i to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.2, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.1, i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = add i64 %5, 1
   %17 = add i64 %16, %switch.load
@@ -345,7 +344,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit.i:            ; preds = %1, %6, %29, %27, %2
   %or.cond.i = and i1 %32, %31
   %spec.store.select.i = select i1 %or.cond.i, i8 1, i8 %.0.i.i
   %33 = zext nneg i8 %spec.store.select.i to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.2, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.1, i64 0, i64 %33
   %switch.load = load i64, ptr %switch.gep, align 8
   %34 = add i64 %.0.i4, 1
   %35 = add i64 %34, %switch.load
@@ -436,7 +435,7 @@ define void @_ZN10duckdb_hll7sdsfreeEPc(ptr noundef captures(address_is_null) %0
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.4, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.3, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit
 
@@ -642,7 +641,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %35, %38, %41, %45, 
 
 switch.lookup:                                    ; preds = %_ZN10duckdb_hllL6sdslenEPc.exit
   %57 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.4, i64 0, i64 %57
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.3, i64 0, i64 %57
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit
 
@@ -654,125 +653,118 @@ _ZN10duckdb_hllL10sdsHdrSizeEc.exit:              ; preds = %_ZN10duckdb_hllL6sd
   %61 = shl nuw nsw i64 %59, 1
   %62 = add i64 %59, 1048576
   %.042 = select i1 %60, i64 %61, i64 %62
-  %63 = icmp ult i64 %.042, 32
-  br i1 %63, label %_ZN10duckdb_hllL10sdsReqTypeEm.exit, label %64
+  %63 = icmp ult i64 %.042, 256
+  br i1 %63, label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit51, label %64
 
 64:                                               ; preds = %_ZN10duckdb_hllL10sdsHdrSizeEc.exit
-  %65 = icmp ult i64 %.042, 256
-  br i1 %65, label %_ZN10duckdb_hllL10sdsReqTypeEm.exit, label %66
+  %65 = icmp ult i64 %.042, 65536
+  br i1 %65, label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit51, label %66
 
 66:                                               ; preds = %64
-  %67 = icmp ult i64 %.042, 65536
-  br i1 %67, label %_ZN10duckdb_hllL10sdsReqTypeEm.exit, label %68
+  %67 = icmp ult i64 %.042, 4294967296
+  %spec.select = select i1 %67, i8 3, i8 4
+  %spec.select73 = select i1 %67, i64 10, i64 18
+  br label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit51
 
-68:                                               ; preds = %66
-  %69 = icmp ult i64 %.042, 4294967296
-  %..i = select i1 %69, i8 3, i8 4
-  br label %_ZN10duckdb_hllL10sdsReqTypeEm.exit
-
-_ZN10duckdb_hllL10sdsReqTypeEm.exit:              ; preds = %_ZN10duckdb_hllL10sdsHdrSizeEc.exit, %64, %66, %68
-  %.0.i49 = phi i8 [ 0, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit ], [ 1, %64 ], [ 2, %66 ], [ %..i, %68 ]
-  %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.0.i49, i8 1)
-  %switch.tableidx = add nsw i8 %spec.store.select, -1
-  %70 = zext i8 %switch.tableidx to i64
-  %switch.gep66 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN10duckdb_hll14sdsMakeRoomForEPcm.1, i64 0, i64 %70
-  %switch.load67 = load i64, ptr %switch.gep66, align 8
-  %71 = icmp eq i8 %5, %spec.store.select
-  %72 = add i64 %.042, 1
-  %73 = add i64 %72, %switch.load67
-  br i1 %71, label %74, label %77
-
-default.unreachable53:                            ; preds = %80
+default.unreachable53:                            ; preds = %77
   unreachable
 
-74:                                               ; preds = %_ZN10duckdb_hllL10sdsReqTypeEm.exit
-  %75 = tail call ptr @realloc(ptr noundef %58, i64 noundef %73) #31
+_ZN10duckdb_hllL10sdsHdrSizeEc.exit51:            ; preds = %66, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit, %64
+  %.0.i4955 = phi i8 [ 2, %64 ], [ 1, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit ], [ %spec.select, %66 ]
+  %.0.i50 = phi i64 [ 6, %64 ], [ 4, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit ], [ %spec.select73, %66 ]
+  %68 = icmp eq i8 %5, %.0.i4955
+  %69 = add i64 %.042, 1
+  %70 = add i64 %69, %.0.i50
+  br i1 %68, label %71, label %74
+
+71:                                               ; preds = %_ZN10duckdb_hllL10sdsHdrSizeEc.exit51
+  %72 = tail call ptr @realloc(ptr noundef %58, i64 noundef %70) #31
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
+
+74:                                               ; preds = %_ZN10duckdb_hllL10sdsHdrSizeEc.exit51
+  %75 = tail call noalias ptr @malloc(i64 noundef %70) #28
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
+  br i1 %76, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit, label %77
 
-77:                                               ; preds = %_ZN10duckdb_hllL10sdsReqTypeEm.exit
-  %78 = tail call noalias ptr @malloc(i64 noundef %73) #28
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit, label %80
-
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 %switch.load67
-  %82 = add i64 %.0.i47, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr nonnull align 1 %0, i64 %82, i1 false)
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 %.0.i50
+  %79 = add i64 %.0.i47, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull align 1 %0, i64 %79, i1 false)
   tail call void @free(ptr noundef %58) #30
-  %83 = getelementptr inbounds i8, ptr %81, i64 -1
-  store i8 %spec.store.select, ptr %83, align 1, !tbaa !20
-  switch i8 %spec.store.select, label %default.unreachable53 [
+  %80 = getelementptr inbounds i8, ptr %78, i64 -1
+  store i8 %.0.i4955, ptr %80, align 1, !tbaa !20
+  switch i8 %.0.i4955, label %default.unreachable53 [
     i8 4, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread
-    i8 1, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread56
-    i8 2, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread59
-    i8 3, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread62
+    i8 1, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread64
+    i8 2, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread67
+    i8 3, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread70
   ]
 
-_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread56:     ; preds = %80
-  %84 = trunc i64 %.0.i47 to i8
-  %85 = getelementptr inbounds i8, ptr %81, i64 -4
-  store i8 %84, ptr %85, align 1, !tbaa !3
+_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread64:     ; preds = %77
+  %81 = trunc i64 %.0.i47 to i8
+  %82 = getelementptr inbounds i8, ptr %78, i64 -4
+  store i8 %81, ptr %82, align 1, !tbaa !3
+  br label %90
+
+_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread67:     ; preds = %77
+  %83 = trunc i64 %.0.i47 to i16
+  %84 = getelementptr inbounds i8, ptr %78, i64 -6
+  store i16 %83, ptr %84, align 1, !tbaa !8
   br label %93
 
-_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread59:     ; preds = %80
-  %86 = trunc i64 %.0.i47 to i16
-  %87 = getelementptr inbounds i8, ptr %81, i64 -6
-  store i16 %86, ptr %87, align 1, !tbaa !8
+_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread70:     ; preds = %77
+  %85 = trunc i64 %.0.i47 to i32
+  %86 = getelementptr inbounds i8, ptr %78, i64 -10
+  store i32 %85, ptr %86, align 1, !tbaa !12
   br label %96
 
-_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread62:     ; preds = %80
-  %88 = trunc i64 %.0.i47 to i32
-  %89 = getelementptr inbounds i8, ptr %81, i64 -10
-  store i32 %88, ptr %89, align 1, !tbaa !12
+_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread:       ; preds = %77
+  %87 = getelementptr inbounds i8, ptr %78, i64 -18
+  store i64 %.0.i47, ptr %87, align 1, !tbaa !16
   br label %99
 
-_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread:       ; preds = %80
-  %90 = getelementptr inbounds i8, ptr %81, i64 -18
-  store i64 %.0.i47, ptr %90, align 1, !tbaa !16
-  br label %102
-
-_ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %74
-  %91 = getelementptr inbounds nuw i8, ptr %75, i64 %switch.load67
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %91, i64 -1
+_ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %71
+  %88 = getelementptr inbounds nuw i8, ptr %72, i64 %.0.i50
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %88, i64 -1
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !20
-  %92 = and i8 %.pre, 7
-  switch i8 %92, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit [
-    i8 4, label %102
-    i8 1, label %93
-    i8 2, label %96
-    i8 3, label %99
+  %89 = and i8 %.pre, 7
+  switch i8 %89, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit [
+    i8 4, label %99
+    i8 1, label %90
+    i8 2, label %93
+    i8 3, label %96
   ]
 
-93:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread56, %_ZN10duckdb_hllL9sdssetlenEPcm.exit
-  %.04158 = phi ptr [ %81, %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread56 ], [ %91, %_ZN10duckdb_hllL9sdssetlenEPcm.exit ]
-  %94 = trunc i64 %.042 to i8
-  %95 = getelementptr inbounds i8, ptr %.04158, i64 -3
-  store i8 %94, ptr %95, align 1, !tbaa !7
+90:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread64, %_ZN10duckdb_hllL9sdssetlenEPcm.exit
+  %.04166 = phi ptr [ %78, %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread64 ], [ %88, %_ZN10duckdb_hllL9sdssetlenEPcm.exit ]
+  %91 = trunc i64 %.042 to i8
+  %92 = getelementptr inbounds i8, ptr %.04166, i64 -3
+  store i8 %91, ptr %92, align 1, !tbaa !7
   br label %_ZN10duckdb_hllL11sdssetallocEPcm.exit
 
-96:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread59, %_ZN10duckdb_hllL9sdssetlenEPcm.exit
-  %.04161 = phi ptr [ %81, %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread59 ], [ %91, %_ZN10duckdb_hllL9sdssetlenEPcm.exit ]
-  %97 = trunc i64 %.042 to i16
-  %98 = getelementptr inbounds i8, ptr %.04161, i64 -4
-  store i16 %97, ptr %98, align 1, !tbaa !11
+93:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread67, %_ZN10duckdb_hllL9sdssetlenEPcm.exit
+  %.04169 = phi ptr [ %78, %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread67 ], [ %88, %_ZN10duckdb_hllL9sdssetlenEPcm.exit ]
+  %94 = trunc i64 %.042 to i16
+  %95 = getelementptr inbounds i8, ptr %.04169, i64 -4
+  store i16 %94, ptr %95, align 1, !tbaa !11
   br label %_ZN10duckdb_hllL11sdssetallocEPcm.exit
 
-99:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread62, %_ZN10duckdb_hllL9sdssetlenEPcm.exit
-  %.04164 = phi ptr [ %81, %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread62 ], [ %91, %_ZN10duckdb_hllL9sdssetlenEPcm.exit ]
-  %100 = trunc i64 %.042 to i32
-  %101 = getelementptr inbounds i8, ptr %.04164, i64 -6
-  store i32 %100, ptr %101, align 1, !tbaa !15
+96:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread70, %_ZN10duckdb_hllL9sdssetlenEPcm.exit
+  %.04172 = phi ptr [ %78, %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread70 ], [ %88, %_ZN10duckdb_hllL9sdssetlenEPcm.exit ]
+  %97 = trunc i64 %.042 to i32
+  %98 = getelementptr inbounds i8, ptr %.04172, i64 -6
+  store i32 %97, ptr %98, align 1, !tbaa !15
   br label %_ZN10duckdb_hllL11sdssetallocEPcm.exit
 
-102:                                              ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread, %_ZN10duckdb_hllL9sdssetlenEPcm.exit
-  %.04155 = phi ptr [ %81, %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread ], [ %91, %_ZN10duckdb_hllL9sdssetlenEPcm.exit ]
-  %103 = getelementptr inbounds i8, ptr %.04155, i64 -10
-  store i64 %.042, ptr %103, align 1, !tbaa !19
+99:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread, %_ZN10duckdb_hllL9sdssetlenEPcm.exit
+  %.04163 = phi ptr [ %78, %_ZN10duckdb_hllL9sdssetlenEPcm.exit.thread ], [ %88, %_ZN10duckdb_hllL9sdssetlenEPcm.exit ]
+  %100 = getelementptr inbounds i8, ptr %.04163, i64 -10
+  store i64 %.042, ptr %100, align 1, !tbaa !19
   br label %_ZN10duckdb_hllL11sdssetallocEPcm.exit
 
-_ZN10duckdb_hllL11sdssetallocEPcm.exit:           ; preds = %102, %99, %96, %93, %_ZN10duckdb_hllL9sdssetlenEPcm.exit, %77, %74, %_ZN10duckdb_hllL8sdsavailEPc.exit
-  %.0 = phi ptr [ %0, %_ZN10duckdb_hllL8sdsavailEPc.exit ], [ null, %74 ], [ null, %77 ], [ %91, %_ZN10duckdb_hllL9sdssetlenEPcm.exit ], [ %.04158, %93 ], [ %.04161, %96 ], [ %.04164, %99 ], [ %.04155, %102 ]
+_ZN10duckdb_hllL11sdssetallocEPcm.exit:           ; preds = %99, %96, %93, %90, %_ZN10duckdb_hllL9sdssetlenEPcm.exit, %74, %71, %_ZN10duckdb_hllL8sdsavailEPc.exit
+  %.0 = phi ptr [ %0, %_ZN10duckdb_hllL8sdsavailEPc.exit ], [ null, %71 ], [ null, %74 ], [ %88, %_ZN10duckdb_hllL9sdssetlenEPcm.exit ], [ %.04166, %90 ], [ %.04169, %93 ], [ %.04172, %96 ], [ %.04163, %99 ]
   ret ptr %.0
 }
 
@@ -789,7 +781,7 @@ define noalias noundef ptr @_ZN10duckdb_hll18sdsRemoveFreeSpaceEPc(ptr noundef c
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.2, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.1, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit
 
@@ -990,7 +982,7 @@ _ZN10duckdb_hllL8sdsallocEPc.exit:                ; preds = %1, %6, %9, %13, %17
 
 switch.lookup:                                    ; preds = %_ZN10duckdb_hllL8sdsallocEPc.exit
   %26 = zext nneg i8 %24 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.2, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.1, i64 0, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit
 
@@ -1011,7 +1003,7 @@ define noundef ptr @_ZN10duckdb_hll11sdsAllocPtrEPc(ptr noundef readonly capture
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.4, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.3, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit
 
@@ -1856,7 +1848,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit.i:            ; preds = %30, %28, %26, %_ZN1
   %or.cond.i = and i1 %33, %32
   %spec.store.select.i = select i1 %or.cond.i, i8 1, i8 %.0.i.i
   %34 = zext nneg i8 %spec.store.select.i to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.2, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.1, i64 0, i64 %34
   %switch.load = load i64, ptr %switch.gep, align 8
   %35 = add nsw i64 %24, 1
   %36 = add nsw i64 %35, %switch.load
@@ -3578,7 +3570,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit.i:            ; preds = %46, %44, %42, %38
   %or.cond.i = and i1 %49, %48
   %spec.store.select.i = select i1 %or.cond.i, i8 1, i8 %.0.i.i
   %50 = zext nneg i8 %spec.store.select.i to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.2, i64 0, i64 %50
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.1, i64 0, i64 %50
   %switch.load = load i64, ptr %switch.gep, align 8
   %51 = add i64 %40, 1
   %52 = add i64 %51, %switch.load
@@ -3702,7 +3694,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit.i76:          ; preds = %96, %94, %92, %._cr
   %or.cond.i78 = and i1 %99, %98
   %spec.store.select.i79 = select i1 %or.cond.i78, i8 1, i8 %.0.i.i77
   %100 = zext nneg i8 %spec.store.select.i79 to i64
-  %switch.gep139 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.2, i64 0, i64 %100
+  %switch.gep139 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll11sdssplitlenEPKclS1_iPi.1, i64 0, i64 %100
   %switch.load140 = load i64, ptr %switch.gep139, align 8
   %101 = add i64 %90, 1
   %102 = add i64 %101, %switch.load140
@@ -3819,7 +3811,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit.i76:          ; preds = %96, %94, %92, %._cr
 
 switch.lookup:                                    ; preds = %142
   %147 = zext nneg i8 %145 to i64
-  %switch.gep141 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.4, i64 0, i64 %147
+  %switch.gep141 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.3, i64 0, i64 %147
   %switch.load142 = load i64, ptr %switch.gep141, align 8
   br label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i88
 
@@ -3879,7 +3871,7 @@ define void @_ZN10duckdb_hll15sdsfreesplitresEPPci(ptr noundef captures(address_
 
 switch.lookup:                                    ; preds = %7
   %12 = zext nneg i8 %10 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.4, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.3, i64 0, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i
 
@@ -5531,7 +5523,7 @@ _ZN10duckdb_hll9sdscatlenEPcPKvm.exit:            ; preds = %289, %_ZN10duckdb_h
 
 switch.lookup:                                    ; preds = %358
   %363 = zext nneg i8 %361 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.4, i64 0, i64 %363
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.3, i64 0, i64 %363
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i
 
@@ -5563,7 +5555,7 @@ _ZN10duckdb_hll7sdsfreeEPc.exit:                  ; preds = %.lr.ph151, %_ZN10du
 
 switch.lookup215:                                 ; preds = %367
   %372 = zext nneg i8 %370 to i64
-  %switch.gep216 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.4, i64 0, i64 %372
+  %switch.gep216 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.3, i64 0, i64 %372
   %switch.load217 = load i64, ptr %switch.gep216, align 8
   br label %_ZN10duckdb_hll7sdsfreeEPc.exit127
 
@@ -6067,9 +6059,6 @@ define void @_ZN10duckdb_hll6sdfreeEPv(ptr noundef captures(none) %0) local_unna
   tail call void @free(ptr noundef %0) #30
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #25

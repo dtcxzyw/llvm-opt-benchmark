@@ -400,13 +400,16 @@ select.unfold.i.i.i:                              ; preds = %select.unfold.prehe
   %spec.select.i.i.i = add i32 %198, %.01325.i.i.i
   %spec.select20.i.i.i = select i1 %.not19.i.i.i, i32 %.127.i.i.i, i32 %196
   %.not18.i.i.i = icmp eq i32 %spec.select20.i.i.i, 0
-  br i1 %.not18.i.i.i, label %rev_precision_uint32.exit.i.i, label %select.unfold.i.i.i
+  br i1 %.not18.i.i.i, label %rev_precision_uint32.exit.loopexit.i.i, label %select.unfold.i.i.i
 
-rev_precision_uint32.exit.i.i:                    ; preds = %select.unfold.i.i.i, %select.unfold.preheader.i.i.i
-  %.013.lcssa.i.i.i = phi i32 [ 0, %select.unfold.preheader.i.i.i ], [ %spec.select.i.i.i, %select.unfold.i.i.i ]
-  %199 = tail call i32 @llvm.umin.i32(i32 %.013.lcssa.i.i.i, i32 %134)
+rev_precision_uint32.exit.loopexit.i.i:           ; preds = %select.unfold.i.i.i
+  %199 = tail call i32 @llvm.umin.i32(i32 %spec.select.i.i.i, i32 %134)
   %200 = tail call i32 @llvm.umax.i32(i32 %199, i32 1)
-  %201 = add i32 %200, -1
+  br label %rev_precision_uint32.exit.i.i
+
+rev_precision_uint32.exit.i.i:                    ; preds = %rev_precision_uint32.exit.loopexit.i.i, %select.unfold.preheader.i.i.i
+  %.013.lcssa.i.i.i = phi i32 [ 1, %select.unfold.preheader.i.i.i ], [ %200, %rev_precision_uint32.exit.loopexit.i.i ]
+  %201 = add i32 %.013.lcssa.i.i.i, -1
   %202 = zext i32 %201 to i64
   %203 = shl i64 %202, %128
   %204 = getelementptr inbounds nuw i8, ptr %129, i64 8
@@ -439,7 +442,7 @@ stream_write_bits.exit.i.i:                       ; preds = %208, %rev_precision
   store i64 %220, ptr %204, align 8, !tbaa !20
   %reass.sub = sub i32 %132, %.132.i
   %221 = add i32 %reass.sub, -5
-  %222 = call fastcc i32 @encode_ints_uint32(ptr noundef nonnull %129, i32 noundef %221, i32 noundef %200, ptr noundef %6)
+  %222 = call fastcc i32 @encode_ints_uint32(ptr noundef nonnull %129, i32 noundef %221, i32 noundef %.013.lcssa.i.i.i, ptr noundef %6)
   %223 = add i32 %222, 5
   %224 = icmp ult i32 %223, %189
   br i1 %224, label %225, label %rev_encode_block_int32_3.exit.i
@@ -1288,7 +1291,11 @@ define range(i64 0, 4294967296) i64 @zfp_encode_partial_block_strided_float_3(pt
   %9 = alloca [64 x float], align 256
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #11
   %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader.us.preheader.i, label %.preheader70.lr.ph.i
+  br i1 %.not.i, label %.preheader.us.i.preheader, label %.preheader70.lr.ph.i
+
+.preheader.us.i.preheader:                        ; preds = %8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 256 dereferenceable(256) %9, i8 0, i64 256, i1 false)
+  br label %gather_partial_float_3.exit
 
 .preheader70.lr.ph.i:                             ; preds = %8
   %.not129.i = icmp eq i64 %3, 0
@@ -1446,10 +1453,6 @@ pad_block_float.exit.us.us.i:                     ; preds = %._crit_edge.us.us.i
     i64 2, label %.preheader.us116.i
   ]
 
-.preheader.us.preheader.i:                        ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 256 dereferenceable(256) %9, i8 0, i64 256, i1 false)
-  br label %gather_partial_float_3.exit
-
 .preheader.us109.i:                               ; preds = %.preheader67.i, %.split.split.us.us.i
   %.1102.us110.i = phi i64 [ %61, %.split.split.us.us.i ], [ 0, %.preheader67.i ]
   %.idx.us111.i = shl nuw nsw i64 %.1102.us110.i, 4
@@ -1521,7 +1524,7 @@ pad_block_float.exit66.us101.us.i:                ; preds = %pad_block_float.exi
   %exitcond145.not.i = icmp eq i64 %74, 4
   br i1 %exitcond145.not.i, label %gather_partial_float_3.exit, label %.preheader.us123.i, !llvm.loop !49
 
-gather_partial_float_3.exit:                      ; preds = %.split.split.split.us.us.i, %.split.split.us.us.i, %.split.split.split.split.us.us.i, %.preheader.us.preheader.i, %.preheader67.i
+gather_partial_float_3.exit:                      ; preds = %.split.split.split.us.us.i, %.split.split.us.us.i, %.split.split.split.split.us.us.i, %.preheader.us.i.preheader, %.preheader67.i
   %75 = call i64 @zfp_encode_block_float_3(ptr noundef %0, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #11
   ret i64 %75

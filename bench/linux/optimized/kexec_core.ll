@@ -236,7 +236,6 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
 
 67:                                               ; preds = %63
   %68 = lshr i64 %4, 1
-  %invariant.gep = getelementptr i8, ptr %0, i64 88
   br label %77
 
 .preheader38:                                     ; preds = %.thread15, %63
@@ -250,67 +249,68 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   %76 = icmp ugt i64 %73, %75
   br i1 %76, label %.thread17, label %63
 
-77:                                               ; preds = %85, %67
-  %78 = phi i64 [ 0, %67 ], [ %88, %85 ]
-  %79 = phi i32 [ 0, %67 ], [ %87, %85 ]
-  %80 = phi i64 [ 0, %67 ], [ %86, %85 ]
+77:                                               ; preds = %87, %67
+  %78 = phi i64 [ 0, %67 ], [ %90, %87 ]
+  %79 = phi i32 [ 0, %67 ], [ %89, %87 ]
+  %80 = phi i64 [ 0, %67 ], [ %88, %87 ]
   %.idx = shl nsw i64 %78, 5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %81 = load i64, ptr %gep, align 8
-  %82 = add i64 %81, 4095
-  %83 = lshr i64 %82, 12
-  %84 = icmp samesign ugt i64 %83, %68
-  br i1 %84, label %.thread17, label %85
+  %81 = getelementptr i8, ptr %7, i64 %.idx
+  %82 = getelementptr i8, ptr %81, i64 24
+  %83 = load i64, ptr %82, align 8
+  %84 = add i64 %83, 4095
+  %85 = lshr i64 %84, 12
+  %86 = icmp samesign ugt i64 %85, %68
+  br i1 %86, label %.thread17, label %87
 
-85:                                               ; preds = %77
-  %86 = add i64 %83, %80
-  %87 = add i32 %79, 1
-  %88 = sext i32 %87 to i64
-  %89 = icmp ugt i64 %3, %88
-  br i1 %89, label %77, label %90, !llvm.loop !16
+87:                                               ; preds = %77
+  %88 = add i64 %85, %80
+  %89 = add i32 %79, 1
+  %90 = sext i32 %89 to i64
+  %91 = icmp ugt i64 %3, %90
+  br i1 %91, label %77, label %92, !llvm.loop !16
 
-90:                                               ; preds = %85
-  %91 = icmp ugt i64 %86, %68
-  br i1 %91, label %.thread17, label %92
+92:                                               ; preds = %87
+  %93 = icmp ugt i64 %88, %68
+  br i1 %93, label %.thread17, label %94
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %94 = load i8, ptr %93, align 8
-  %95 = and i8 %94, 1
-  %.not19 = icmp eq i8 %95, 0
-  br i1 %.not19, label %.thread17, label %96
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %96 = load i8, ptr %95, align 8
+  %97 = and i8 %96, 1
+  %.not19 = icmp eq i8 %97, 0
+  br i1 %.not19, label %.thread17, label %98
 
-96:                                               ; preds = %92
-  %97 = load i64, ptr @crashk_res, align 8
-  %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @crashk_res, i64 8), align 8
-  br label %103
+98:                                               ; preds = %94
+  %99 = load i64, ptr @crashk_res, align 8
+  %100 = load i64, ptr getelementptr inbounds nuw (i8, ptr @crashk_res, i64 8), align 8
+  br label %105
 
-99:                                               ; preds = %110
-  %100 = add i32 %105, 1
-  %101 = sext i32 %100 to i64
-  %102 = icmp ugt i64 %3, %101
-  br i1 %102, label %103, label %.thread17, !llvm.loop !17
+101:                                              ; preds = %112
+  %102 = add i32 %107, 1
+  %103 = sext i32 %102 to i64
+  %104 = icmp ugt i64 %3, %103
+  br i1 %104, label %105, label %.thread17, !llvm.loop !17
 
-103:                                              ; preds = %99, %96
-  %104 = phi i64 [ 0, %96 ], [ %101, %99 ]
-  %105 = phi i32 [ 0, %96 ], [ %100, %99 ]
-  %106 = getelementptr [16 x %struct.kexec_segment], ptr %7, i64 0, i64 %104
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  %108 = load i64, ptr %107, align 8
-  %109 = icmp ult i64 %108, %97
-  br i1 %109, label %.thread17, label %110
+105:                                              ; preds = %101, %98
+  %106 = phi i64 [ 0, %98 ], [ %103, %101 ]
+  %107 = phi i32 [ 0, %98 ], [ %102, %101 ]
+  %108 = getelementptr [16 x %struct.kexec_segment], ptr %7, i64 0, i64 %106
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %110 = load i64, ptr %109, align 8
+  %111 = icmp ult i64 %110, %99
+  br i1 %111, label %.thread17, label %112
 
-110:                                              ; preds = %103
-  %111 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  %112 = load i64, ptr %111, align 8
-  %113 = add i64 %108, -1
-  %114 = add i64 %113, %112
-  %.not20 = icmp ugt i64 %114, %98
-  br i1 %.not20, label %.thread17, label %99
+112:                                              ; preds = %105
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %114 = load i64, ptr %113, align 8
+  %115 = add i64 %110, -1
+  %116 = add i64 %115, %114
+  %.not20 = icmp ugt i64 %116, %100
+  br i1 %.not20, label %.thread17, label %101
 
-.thread17:                                        ; preds = %28, %22, %12, %60, %.preheader38, %77, %103, %110, %99, %1, %92, %90
-  %115 = phi i32 [ -22, %90 ], [ 0, %92 ], [ 0, %1 ], [ -99, %103 ], [ -99, %110 ], [ 0, %99 ], [ -22, %77 ], [ -22, %.preheader38 ], [ %62, %60 ], [ -99, %12 ], [ -99, %22 ], [ -99, %28 ]
-  ret i32 %115
+.thread17:                                        ; preds = %28, %22, %12, %60, %.preheader38, %77, %105, %112, %101, %1, %94, %92
+  %117 = phi i32 [ -22, %92 ], [ 0, %94 ], [ 0, %1 ], [ -99, %105 ], [ -99, %112 ], [ 0, %101 ], [ -22, %77 ], [ -22, %.preheader38 ], [ %62, %60 ], [ -99, %12 ], [ -99, %22 ], [ -99, %28 ]
+  ret i32 %117
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

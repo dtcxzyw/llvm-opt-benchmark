@@ -3419,169 +3419,175 @@ define internal fastcc void @pg_stat_io_build_tuples(ptr noundef readonly captur
   %.0.i62.sroa.gep154 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %21
 
-20:                                               ; preds = %24
+20:                                               ; preds = %27
   ret void
 
-21:                                               ; preds = %4, %24
-  %indvars.iv99 = phi i64 [ 0, %4 ], [ %indvars.iv.next100, %24 ]
+21:                                               ; preds = %4, %27
+  %indvars.iv99 = phi i64 [ 0, %4 ], [ %indvars.iv.next100, %27 ]
   %22 = trunc nuw nsw i64 %indvars.iv99 to i32
   %23 = call ptr @pgstat_get_io_object_name(i32 noundef %22) #9
-  br label %25
+  %24 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %15, i64 0, i64 %indvars.iv99
+  %25 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %16, i64 0, i64 %indvars.iv99
+  %26 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %1, i64 0, i64 %indvars.iv99
+  br label %28
 
-24:                                               ; preds = %67
+27:                                               ; preds = %74
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 3
   br i1 %exitcond102.not, label %20, label %21, !llvm.loop !16
 
-25:                                               ; preds = %21, %67
-  %indvars.iv95 = phi i64 [ 0, %21 ], [ %indvars.iv.next96, %67 ]
-  %26 = trunc nuw nsw i64 %indvars.iv95 to i32
-  %27 = call ptr @pgstat_get_io_context_name(i32 noundef %26) #9
+28:                                               ; preds = %21, %74
+  %indvars.iv95 = phi i64 [ 0, %21 ], [ %indvars.iv.next96, %74 ]
+  %29 = trunc nuw nsw i64 %indvars.iv95 to i32
+  %30 = call ptr @pgstat_get_io_context_name(i32 noundef %29) #9
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %5, i8 0, i64 160, i1 false)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
-  %28 = call zeroext i1 @pgstat_tracks_io_object(i32 noundef %2, i32 noundef %22, i32 noundef %26) #9
-  br i1 %28, label %29, label %67
+  %31 = call zeroext i1 @pgstat_tracks_io_object(i32 noundef %2, i32 noundef %22, i32 noundef %29) #9
+  br i1 %31, label %32, label %74
 
-29:                                               ; preds = %25
+32:                                               ; preds = %28
   store i64 %10, ptr %5, align 16
-  %30 = call ptr @cstring_to_text(ptr noundef %27) #9
-  %31 = ptrtoint ptr %30 to i64
-  store i64 %31, ptr %11, align 16
-  %32 = call ptr @cstring_to_text(ptr noundef %23) #9
-  %33 = ptrtoint ptr %32 to i64
-  store i64 %33, ptr %12, align 8
-  br i1 %.not, label %35, label %34
+  %33 = call ptr @cstring_to_text(ptr noundef %30) #9
+  %34 = ptrtoint ptr %33 to i64
+  store i64 %34, ptr %11, align 16
+  %35 = call ptr @cstring_to_text(ptr noundef %23) #9
+  %36 = ptrtoint ptr %35 to i64
+  store i64 %36, ptr %12, align 8
+  br i1 %.not, label %38, label %37
 
-34:                                               ; preds = %29
+37:                                               ; preds = %32
   store i64 %3, ptr %13, align 8
-  br label %.preheader
-
-.preheader:                                       ; preds = %35, %34
   br label %39
 
-35:                                               ; preds = %29
+38:                                               ; preds = %32
   store i8 1, ptr %14, align 1
-  br label %.preheader
+  br label %39
 
-36:                                               ; preds = %66
-  %37 = load ptr, ptr %18, align 8
-  %38 = load ptr, ptr %19, align 8
-  call void @tuplestore_putvalues(ptr noundef %37, ptr noundef %38, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
-  br label %67
+39:                                               ; preds = %38, %37
+  %40 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %24, i64 0, i64 %indvars.iv95
+  %41 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %25, i64 0, i64 %indvars.iv95
+  %42 = getelementptr inbounds nuw [5 x [8 x i64]], ptr %26, i64 0, i64 %indvars.iv95
+  br label %46
 
-39:                                               ; preds = %.preheader, %66
-  %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 0, %.preheader ]
-  %40 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %40, label %default.unreachable [
-    i32 0, label %44
+43:                                               ; preds = %73
+  %44 = load ptr, ptr %18, align 8
+  %45 = load ptr, ptr %19, align 8
+  call void @tuplestore_putvalues(ptr noundef %44, ptr noundef %45, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  br label %74
+
+46:                                               ; preds = %39, %73
+  %indvars.iv = phi i64 [ 0, %39 ], [ %indvars.iv.next, %73 ]
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %47, label %default.unreachable [
+    i32 0, label %51
     i32 5, label %pgstat_get_io_time_index.exit.thread83
     i32 1, label %pgstat_get_io_op_index.exit
-    i32 2, label %41
+    i32 2, label %48
     i32 6, label %pgstat_get_io_byte_index.exit
-    i32 3, label %42
+    i32 3, label %49
     i32 7, label %pgstat_get_io_time_index.exit
-    i32 4, label %43
+    i32 4, label %50
   ]
 
-41:                                               ; preds = %39
+48:                                               ; preds = %46
   br label %pgstat_get_io_byte_index.exit
 
-42:                                               ; preds = %39
+49:                                               ; preds = %46
   br label %pgstat_get_io_byte_index.exit
 
-default.unreachable:                              ; preds = %39
+default.unreachable:                              ; preds = %46
   unreachable
 
-43:                                               ; preds = %39
+50:                                               ; preds = %46
   br label %pgstat_get_io_byte_index.exit
 
-pgstat_get_io_time_index.exit.thread83:           ; preds = %39
+pgstat_get_io_time_index.exit.thread83:           ; preds = %46
   br label %pgstat_get_io_byte_index.exit
 
-pgstat_get_io_op_index.exit:                      ; preds = %39
+pgstat_get_io_op_index.exit:                      ; preds = %46
   br label %pgstat_get_io_byte_index.exit
 
-44:                                               ; preds = %39
+51:                                               ; preds = %46
   br label %pgstat_get_io_byte_index.exit
 
-pgstat_get_io_time_index.exit:                    ; preds = %39
+pgstat_get_io_time_index.exit:                    ; preds = %46
   br label %pgstat_get_io_byte_index.exit
 
-pgstat_get_io_byte_index.exit:                    ; preds = %44, %pgstat_get_io_op_index.exit, %43, %41, %42, %39, %pgstat_get_io_time_index.exit.thread83, %pgstat_get_io_time_index.exit
-  %.not57 = phi i1 [ false, %pgstat_get_io_time_index.exit ], [ false, %pgstat_get_io_time_index.exit.thread83 ], [ false, %39 ], [ true, %44 ], [ true, %42 ], [ true, %41 ], [ false, %pgstat_get_io_op_index.exit ], [ false, %43 ]
-  %.0.i6182.sroa.phi = phi ptr [ %.0.i6182.sroa.gep, %pgstat_get_io_time_index.exit ], [ %.0.i6182.sroa.gep119, %pgstat_get_io_time_index.exit.thread83 ], [ %.0.i6182.sroa.gep120, %39 ], [ %.0.i6182.sroa.gep121, %44 ], [ %.0.i6182.sroa.gep121, %42 ], [ %.0.i6182.sroa.gep121, %41 ], [ %.0.i6182.sroa.gep124, %pgstat_get_io_op_index.exit ], [ %.0.i6182.sroa.gep125, %43 ]
-  %.0.i6182.sroa.phi142 = phi ptr [ %.0.i6182.sroa.gep143, %pgstat_get_io_time_index.exit ], [ %.0.i6182.sroa.gep144, %pgstat_get_io_time_index.exit.thread83 ], [ %.0.i6182.sroa.gep145, %39 ], [ %.0.i6182.sroa.gep146, %44 ], [ %.0.i6182.sroa.gep146, %42 ], [ %.0.i6182.sroa.gep146, %41 ], [ %.0.i6182.sroa.gep149, %pgstat_get_io_op_index.exit ], [ %.0.i6182.sroa.gep150, %43 ]
-  %.0.i6580.sroa.phi = phi ptr [ %.0.i6580.sroa.gep, %pgstat_get_io_time_index.exit ], [ %.0.i6580.sroa.gep103, %pgstat_get_io_time_index.exit.thread83 ], [ %.0.i6580.sroa.gep104, %39 ], [ %.0.i6580.sroa.gep105, %44 ], [ %.0.i6580.sroa.gep106, %42 ], [ %.0.i6580.sroa.gep107, %41 ], [ %.0.i6580.sroa.gep108, %pgstat_get_io_op_index.exit ], [ %.0.i6580.sroa.gep109, %43 ]
-  %.0.i6580.sroa.phi133 = phi ptr [ %.0.i6580.sroa.gep134, %pgstat_get_io_time_index.exit ], [ %.0.i6580.sroa.gep135, %pgstat_get_io_time_index.exit.thread83 ], [ %.0.i6580.sroa.gep136, %39 ], [ %.0.i6580.sroa.gep137, %44 ], [ %.0.i6580.sroa.gep138, %42 ], [ %.0.i6580.sroa.gep139, %41 ], [ %.0.i6580.sroa.gep140, %pgstat_get_io_op_index.exit ], [ %.0.i6580.sroa.gep141, %43 ]
-  %.not58 = phi i1 [ false, %pgstat_get_io_time_index.exit ], [ false, %pgstat_get_io_time_index.exit.thread83 ], [ false, %39 ], [ true, %44 ], [ true, %42 ], [ true, %41 ], [ true, %pgstat_get_io_op_index.exit ], [ true, %43 ]
-  %.0.i62.sroa.phi = phi ptr [ %.0.i62.sroa.gep, %pgstat_get_io_time_index.exit ], [ %.0.i62.sroa.gep126, %pgstat_get_io_time_index.exit.thread83 ], [ %.0.i62.sroa.gep127, %39 ], [ %.0.i6182.sroa.gep121, %44 ], [ %.0.i6182.sroa.gep121, %42 ], [ %.0.i6182.sroa.gep121, %41 ], [ %.0.i6182.sroa.gep121, %pgstat_get_io_op_index.exit ], [ %.0.i6182.sroa.gep121, %43 ]
-  %.0.i62.sroa.phi151 = phi ptr [ %.0.i62.sroa.gep152, %pgstat_get_io_time_index.exit ], [ %.0.i62.sroa.gep153, %pgstat_get_io_time_index.exit.thread83 ], [ %.0.i62.sroa.gep154, %39 ], [ %.0.i6182.sroa.gep146, %44 ], [ %.0.i6182.sroa.gep146, %42 ], [ %.0.i6182.sroa.gep146, %41 ], [ %.0.i6182.sroa.gep146, %pgstat_get_io_op_index.exit ], [ %.0.i6182.sroa.gep146, %43 ]
-  %45 = call zeroext i1 @pgstat_tracks_io_op(i32 noundef %2, i32 noundef %22, i32 noundef %26, i32 noundef %40) #9
-  br i1 %45, label %46, label %.thread
+pgstat_get_io_byte_index.exit:                    ; preds = %51, %pgstat_get_io_op_index.exit, %50, %48, %49, %46, %pgstat_get_io_time_index.exit.thread83, %pgstat_get_io_time_index.exit
+  %.not57 = phi i1 [ false, %pgstat_get_io_time_index.exit ], [ false, %pgstat_get_io_time_index.exit.thread83 ], [ false, %46 ], [ true, %51 ], [ true, %49 ], [ true, %48 ], [ false, %pgstat_get_io_op_index.exit ], [ false, %50 ]
+  %.0.i6182.sroa.phi = phi ptr [ %.0.i6182.sroa.gep, %pgstat_get_io_time_index.exit ], [ %.0.i6182.sroa.gep119, %pgstat_get_io_time_index.exit.thread83 ], [ %.0.i6182.sroa.gep120, %46 ], [ %.0.i6182.sroa.gep121, %51 ], [ %.0.i6182.sroa.gep121, %49 ], [ %.0.i6182.sroa.gep121, %48 ], [ %.0.i6182.sroa.gep124, %pgstat_get_io_op_index.exit ], [ %.0.i6182.sroa.gep125, %50 ]
+  %.0.i6182.sroa.phi142 = phi ptr [ %.0.i6182.sroa.gep143, %pgstat_get_io_time_index.exit ], [ %.0.i6182.sroa.gep144, %pgstat_get_io_time_index.exit.thread83 ], [ %.0.i6182.sroa.gep145, %46 ], [ %.0.i6182.sroa.gep146, %51 ], [ %.0.i6182.sroa.gep146, %49 ], [ %.0.i6182.sroa.gep146, %48 ], [ %.0.i6182.sroa.gep149, %pgstat_get_io_op_index.exit ], [ %.0.i6182.sroa.gep150, %50 ]
+  %.0.i6580.sroa.phi = phi ptr [ %.0.i6580.sroa.gep, %pgstat_get_io_time_index.exit ], [ %.0.i6580.sroa.gep103, %pgstat_get_io_time_index.exit.thread83 ], [ %.0.i6580.sroa.gep104, %46 ], [ %.0.i6580.sroa.gep105, %51 ], [ %.0.i6580.sroa.gep106, %49 ], [ %.0.i6580.sroa.gep107, %48 ], [ %.0.i6580.sroa.gep108, %pgstat_get_io_op_index.exit ], [ %.0.i6580.sroa.gep109, %50 ]
+  %.0.i6580.sroa.phi133 = phi ptr [ %.0.i6580.sroa.gep134, %pgstat_get_io_time_index.exit ], [ %.0.i6580.sroa.gep135, %pgstat_get_io_time_index.exit.thread83 ], [ %.0.i6580.sroa.gep136, %46 ], [ %.0.i6580.sroa.gep137, %51 ], [ %.0.i6580.sroa.gep138, %49 ], [ %.0.i6580.sroa.gep139, %48 ], [ %.0.i6580.sroa.gep140, %pgstat_get_io_op_index.exit ], [ %.0.i6580.sroa.gep141, %50 ]
+  %.not58 = phi i1 [ false, %pgstat_get_io_time_index.exit ], [ false, %pgstat_get_io_time_index.exit.thread83 ], [ false, %46 ], [ true, %51 ], [ true, %49 ], [ true, %48 ], [ true, %pgstat_get_io_op_index.exit ], [ true, %50 ]
+  %.0.i62.sroa.phi = phi ptr [ %.0.i62.sroa.gep, %pgstat_get_io_time_index.exit ], [ %.0.i62.sroa.gep126, %pgstat_get_io_time_index.exit.thread83 ], [ %.0.i62.sroa.gep127, %46 ], [ %.0.i6182.sroa.gep121, %51 ], [ %.0.i6182.sroa.gep121, %49 ], [ %.0.i6182.sroa.gep121, %48 ], [ %.0.i6182.sroa.gep121, %pgstat_get_io_op_index.exit ], [ %.0.i6182.sroa.gep121, %50 ]
+  %.0.i62.sroa.phi151 = phi ptr [ %.0.i62.sroa.gep152, %pgstat_get_io_time_index.exit ], [ %.0.i62.sroa.gep153, %pgstat_get_io_time_index.exit.thread83 ], [ %.0.i62.sroa.gep154, %46 ], [ %.0.i6182.sroa.gep146, %51 ], [ %.0.i6182.sroa.gep146, %49 ], [ %.0.i6182.sroa.gep146, %48 ], [ %.0.i6182.sroa.gep146, %pgstat_get_io_op_index.exit ], [ %.0.i6182.sroa.gep146, %50 ]
+  %52 = call zeroext i1 @pgstat_tracks_io_op(i32 noundef %2, i32 noundef %22, i32 noundef %29, i32 noundef %47) #9
+  br i1 %52, label %53, label %.thread
 
 .thread:                                          ; preds = %pgstat_get_io_byte_index.exit
   store i8 1, ptr %.0.i6580.sroa.phi, align 1
-  br label %62
+  br label %69
 
-46:                                               ; preds = %pgstat_get_io_byte_index.exit
-  %47 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %15, i64 0, i64 %indvars.iv99, i64 %indvars.iv95, i64 %indvars.iv
-  %48 = load i64, ptr %47, align 8
-  store i64 %48, ptr %.0.i6580.sroa.phi133, align 8
+53:                                               ; preds = %pgstat_get_io_byte_index.exit
+  %54 = getelementptr inbounds nuw [8 x i64], ptr %40, i64 0, i64 %indvars.iv
+  %55 = load i64, ptr %54, align 8
+  store i64 %55, ptr %.0.i6580.sroa.phi133, align 8
   %.pre = load i8, ptr %.0.i6580.sroa.phi, align 1, !range !7
-  %49 = trunc nuw i8 %.pre to i1
-  br i1 %49, label %62, label %50
+  %56 = trunc nuw i8 %.pre to i1
+  br i1 %56, label %69, label %57
 
-50:                                               ; preds = %46
-  br i1 %.not57, label %56, label %51
+57:                                               ; preds = %53
+  br i1 %.not57, label %63, label %58
 
-51:                                               ; preds = %50
-  %52 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %16, i64 0, i64 %indvars.iv99, i64 %indvars.iv95, i64 %indvars.iv
-  %53 = load i64, ptr %52, align 8
-  %54 = sitofp i64 %53 to double
-  %55 = fmul double %54, 1.000000e-03
-  store double %55, ptr %.0.i6182.sroa.phi142, align 8
-  br label %56
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw [8 x i64], ptr %41, i64 0, i64 %indvars.iv
+  %60 = load i64, ptr %59, align 8
+  %61 = sitofp i64 %60 to double
+  %62 = fmul double %61, 1.000000e-03
+  store double %62, ptr %.0.i6182.sroa.phi142, align 8
+  br label %63
 
-56:                                               ; preds = %51, %50
-  br i1 %.not58, label %66, label %57
+63:                                               ; preds = %58, %57
+  br i1 %.not58, label %73, label %64
 
-57:                                               ; preds = %56
+64:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #9
-  %58 = getelementptr inbounds nuw [3 x [5 x [8 x i64]]], ptr %1, i64 0, i64 %indvars.iv99, i64 %indvars.iv95, i64 %indvars.iv
-  %59 = load i64, ptr %58, align 8
-  %60 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 256, ptr noundef nonnull @.str.28, i64 noundef %59) #9
-  %61 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %17, i64 noundef 0, i64 noundef -1) #9
-  store i64 %61, ptr %.0.i62.sroa.phi151, align 8
+  %65 = getelementptr inbounds nuw [8 x i64], ptr %42, i64 0, i64 %indvars.iv
+  %66 = load i64, ptr %65, align 8
+  %67 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 256, ptr noundef nonnull @.str.28, i64 noundef %66) #9
+  %68 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %17, i64 noundef 0, i64 noundef -1) #9
+  store i64 %68, ptr %.0.i62.sroa.phi151, align 8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #9
-  br label %66
+  br label %73
 
-62:                                               ; preds = %.thread, %46
-  br i1 %.not57, label %64, label %63
+69:                                               ; preds = %.thread, %53
+  br i1 %.not57, label %71, label %70
 
-63:                                               ; preds = %62
+70:                                               ; preds = %69
   store i8 1, ptr %.0.i6182.sroa.phi, align 1
-  br label %64
+  br label %71
 
-64:                                               ; preds = %63, %62
-  br i1 %.not58, label %66, label %65
+71:                                               ; preds = %70, %69
+  br i1 %.not58, label %73, label %72
 
-65:                                               ; preds = %64
+72:                                               ; preds = %71
   store i8 1, ptr %.0.i62.sroa.phi, align 1
-  br label %66
+  br label %73
 
-66:                                               ; preds = %64, %65, %56, %57
+73:                                               ; preds = %71, %72, %63, %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %36, label %39, !llvm.loop !17
+  br i1 %exitcond.not, label %43, label %46, !llvm.loop !17
 
-67:                                               ; preds = %25, %36
+74:                                               ; preds = %28, %43
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #9
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 5
-  br i1 %exitcond98.not, label %24, label %25, !llvm.loop !18
+  br i1 %exitcond98.not, label %27, label %28, !llvm.loop !18
 }
 
 ; Function Attrs: nounwind uwtable

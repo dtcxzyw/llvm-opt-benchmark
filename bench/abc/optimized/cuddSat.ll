@@ -1534,8 +1534,8 @@ define ptr @cuddBddMakePrime(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
   %14 = load i32, ptr %13, align 8, !tbaa !3
-  %.not51 = icmp eq i32 %14, 2147483647
-  br i1 %.not51, label %._crit_edge, label %.lr.ph
+  %.not48 = icmp eq i32 %14, 2147483647
+  br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -1543,24 +1543,24 @@ define ptr @cuddBddMakePrime(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
 
 16:                                               ; preds = %.lr.ph, %32
   %17 = phi i32 [ %14, %.lr.ph ], [ %36, %32 ]
-  %.03453 = phi ptr [ %1, %.lr.ph ], [ %.135, %32 ]
-  %.03752 = phi ptr [ %1, %.lr.ph ], [ %.03752., %32 ]
+  %.03450 = phi ptr [ %1, %.lr.ph ], [ %.135, %32 ]
+  %.03749 = phi ptr [ %1, %.lr.ph ], [ %.03749., %32 ]
   %18 = load ptr, ptr %15, align 8, !tbaa !40
   %19 = zext i32 %17 to i64
   %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !29
-  %22 = call ptr @Cudd_bddExistAbstract(ptr noundef nonnull %0, ptr noundef %.03752, ptr noundef %21) #10
+  %22 = call ptr @Cudd_bddExistAbstract(ptr noundef nonnull %0, ptr noundef %.03749, ptr noundef %21) #10
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread, label %24
+  br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %16
   call void @Cudd_Ref(ptr noundef nonnull %22) #10
   %25 = call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef %2) #10
   %.not43 = icmp eq i32 %25, 0
-  %..03752 = select i1 %.not43, ptr %22, ptr %.03752
-  %.03752. = select i1 %.not43, ptr %.03752, ptr %22
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %..03752) #10
-  call void @cuddGetBranches(ptr noundef %.03453, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  %..03749 = select i1 %.not43, ptr %22, ptr %.03749
+  %.03749. = select i1 %.not43, ptr %.03749, ptr %22
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %..03749) #10
+  call void @cuddGetBranches(ptr noundef %.03450, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %26 = load ptr, ptr %4, align 8, !tbaa !29
   %27 = icmp eq ptr %26, %10
   %28 = load ptr, ptr %5, align 8, !tbaa !29
@@ -1571,8 +1571,8 @@ define ptr @cuddBddMakePrime(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %29
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.03752.) #10
-  br label %.thread
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.03749.) #10
+  br label %.critedge
 
 32:                                               ; preds = %24, %29
   %.135 = phi ptr [ %26, %29 ], [ %28, %24 ]
@@ -1584,7 +1584,7 @@ define ptr @cuddBddMakePrime(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %32, %3
-  %.037.lcssa = phi ptr [ %1, %3 ], [ %.03752., %32 ]
+  %.037.lcssa = phi ptr [ %1, %3 ], [ %.03749., %32 ]
   %.034.lcssa = phi ptr [ %1, %3 ], [ %.135, %32 ]
   %37 = load ptr, ptr %6, align 8, !tbaa !15
   %38 = icmp eq ptr %.034.lcssa, %37
@@ -1592,13 +1592,13 @@ define ptr @cuddBddMakePrime(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
 
 39:                                               ; preds = %._crit_edge
   call void @Cudd_Deref(ptr noundef %.037.lcssa) #10
-  br label %.thread
+  br label %.critedge
 
 40:                                               ; preds = %._crit_edge
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.037.lcssa) #10
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %16, %31, %40, %39
+.critedge:                                        ; preds = %16, %31, %40, %39
   %.2 = phi ptr [ %.037.lcssa, %39 ], [ null, %40 ], [ null, %31 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10

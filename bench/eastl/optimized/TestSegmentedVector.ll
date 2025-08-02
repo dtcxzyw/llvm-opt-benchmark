@@ -2410,14 +2410,14 @@ while.body:                                       ; preds = %while.cond.preheade
   %segment.015 = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %0, %while.cond.preheader ]
   %2 = getelementptr inbounds nuw i8, ptr %segment.015, i64 8
   %3 = load ptr, ptr %2, align 8
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %segment.015, i64 16
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN10TestObjectD2Ev.exit.i, %while.body
   %arraydestroy.elementPast.idx.i = phi i64 [ 400, %while.body ], [ %arraydestroy.elementPast.add.i, %_ZN10TestObjectD2Ev.exit.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -24
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %arraydestroy.elementPast.add.i
-  %4 = load i32, ptr %gep.i, align 8
+  %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %segment.015, i64 %arraydestroy.elementPast.add.i
+  %mMagicValue.i.i = getelementptr inbounds nuw i8, ptr %arraydestroy.element.ptr.i, i64 16
+  %4 = load i32, ptr %mMagicValue.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %4, 32623592
   br i1 %cmp.not.i.i, label %_ZN10TestObjectD2Ev.exit.i, label %if.then.i.i
 
@@ -2428,7 +2428,7 @@ if.then.i.i:                                      ; preds = %arraydestroy.body.i
   br label %_ZN10TestObjectD2Ev.exit.i
 
 _ZN10TestObjectD2Ev.exit.i:                       ; preds = %if.then.i.i, %arraydestroy.body.i
-  store i32 0, ptr %gep.i, align 8
+  store i32 0, ptr %mMagicValue.i.i, align 8
   %6 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %dec.i.i = add nsw i64 %6, -1
   store i64 %dec.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -4189,14 +4189,14 @@ while.body:                                       ; preds = %while.cond.preheade
   %segment.015 = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %0, %while.cond.preheader ]
   %2 = getelementptr inbounds nuw i8, ptr %segment.015, i64 8
   %3 = load ptr, ptr %2, align 8
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %segment.015, i64 16
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN10TestObjectD2Ev.exit.i, %while.body
   %arraydestroy.elementPast.idx.i = phi i64 [ 208, %while.body ], [ %arraydestroy.elementPast.add.i, %_ZN10TestObjectD2Ev.exit.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -24
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %arraydestroy.elementPast.add.i
-  %4 = load i32, ptr %gep.i, align 8
+  %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %segment.015, i64 %arraydestroy.elementPast.add.i
+  %mMagicValue.i.i = getelementptr inbounds nuw i8, ptr %arraydestroy.element.ptr.i, i64 16
+  %4 = load i32, ptr %mMagicValue.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %4, 32623592
   br i1 %cmp.not.i.i, label %_ZN10TestObjectD2Ev.exit.i, label %if.then.i.i
 
@@ -4207,7 +4207,7 @@ if.then.i.i:                                      ; preds = %arraydestroy.body.i
   br label %_ZN10TestObjectD2Ev.exit.i
 
 _ZN10TestObjectD2Ev.exit.i:                       ; preds = %if.then.i.i, %arraydestroy.body.i
-  store i32 0, ptr %gep.i, align 8
+  store i32 0, ptr %mMagicValue.i.i, align 8
   %6 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %dec.i.i = add nsw i64 %6, -1
   store i64 %dec.i.i, ptr @_ZN10TestObject8sTOCountE, align 8

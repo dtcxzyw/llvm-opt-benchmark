@@ -1393,7 +1393,7 @@ define dso_local i32 @phy_restore_page(ptr noundef %0, i32 noundef %1, i32 nound
 define dso_local i32 @phy_read_paged(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = tail call i32 @phy_select_page(ptr noundef %0, i32 noundef %1)
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %28
+  br i1 %5, label %6, label %.critedge
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -1408,9 +1408,9 @@ define dso_local i32 @phy_read_paged(ptr noundef %0, i32 noundef %1, i32 noundef
   %16 = icmp ne ptr %15, null
   %17 = load i1, ptr @__phy_write_page.__already_done, align 1
   %18 = select i1 %16, i1 true, i1 %17
-  br i1 %18, label %19, label %.thread1, !prof !5
+  br i1 %18, label %19, label %.thread, !prof !5
 
-.thread1:                                         ; preds = %6
+.thread:                                          ; preds = %6
   store i1 true, ptr @__phy_write_page.__already_done, align 1
   tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #9, !srcloc !29
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.28) #9
@@ -1427,28 +1427,28 @@ define dso_local i32 @phy_read_paged(ptr noundef %0, i32 noundef %1, i32 noundef
   %21 = tail call i32 %15(ptr noundef %0, i32 noundef %4) #9
   br label %22
 
-22:                                               ; preds = %.thread1, %20, %19
-  %23 = phi i32 [ %21, %20 ], [ -95, %19 ], [ -95, %.thread1 ]
+22:                                               ; preds = %.thread, %20, %19
+  %23 = phi i32 [ %21, %20 ], [ -95, %19 ], [ -95, %.thread ]
   %24 = icmp sgt i32 %11, -1
   %25 = icmp slt i32 %23, 0
   %26 = select i1 %24, i1 %25, i1 false
   %27 = select i1 %26, i32 %23, i32 %11
-  br label %28
+  br label %.critedge
 
-28:                                               ; preds = %3, %22
-  %29 = phi i32 [ %27, %22 ], [ %4, %3 ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1152
-  tail call void @mutex_unlock(ptr noundef nonnull %32) #9
-  ret i32 %29
+.critedge:                                        ; preds = %3, %22
+  %28 = phi i32 [ %27, %22 ], [ %4, %3 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1152
+  tail call void @mutex_unlock(ptr noundef nonnull %31) #9
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @phy_write_paged(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3) #1 align 16 {
   %5 = tail call i32 @phy_select_page(ptr noundef %0, i32 noundef %1)
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %7, label %29
+  br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -1463,9 +1463,9 @@ define dso_local i32 @phy_write_paged(ptr noundef %0, i32 noundef %1, i32 nounde
   %17 = icmp ne ptr %16, null
   %18 = load i1, ptr @__phy_write_page.__already_done, align 1
   %19 = select i1 %17, i1 true, i1 %18
-  br i1 %19, label %20, label %.thread1, !prof !5
+  br i1 %19, label %20, label %.thread, !prof !5
 
-.thread1:                                         ; preds = %7
+.thread:                                          ; preds = %7
   store i1 true, ptr @__phy_write_page.__already_done, align 1
   tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #9, !srcloc !29
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.28) #9
@@ -1482,28 +1482,28 @@ define dso_local i32 @phy_write_paged(ptr noundef %0, i32 noundef %1, i32 nounde
   %22 = tail call i32 %16(ptr noundef %0, i32 noundef %5) #9
   br label %23
 
-23:                                               ; preds = %.thread1, %21, %20
-  %24 = phi i32 [ %22, %21 ], [ -95, %20 ], [ -95, %.thread1 ]
+23:                                               ; preds = %.thread, %21, %20
+  %24 = phi i32 [ %22, %21 ], [ -95, %20 ], [ -95, %.thread ]
   %25 = icmp sgt i32 %12, -1
   %26 = icmp slt i32 %24, 0
   %27 = select i1 %25, i1 %26, i1 false
   %28 = select i1 %27, i32 %24, i32 %12
-  br label %29
+  br label %.critedge
 
-29:                                               ; preds = %4, %23
-  %30 = phi i32 [ %28, %23 ], [ %5, %4 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1152
-  tail call void @mutex_unlock(ptr noundef nonnull %33) #9
-  ret i32 %30
+.critedge:                                        ; preds = %4, %23
+  %29 = phi i32 [ %28, %23 ], [ %5, %4 ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1152
+  tail call void @mutex_unlock(ptr noundef nonnull %32) #9
+  ret i32 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @phy_modify_paged_changed(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
   %6 = tail call i32 @phy_select_page(ptr noundef %0, i32 noundef %1)
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %8, label %30
+  br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -1518,9 +1518,9 @@ define dso_local i32 @phy_modify_paged_changed(ptr noundef %0, i32 noundef %1, i
   %18 = icmp ne ptr %17, null
   %19 = load i1, ptr @__phy_write_page.__already_done, align 1
   %20 = select i1 %18, i1 true, i1 %19
-  br i1 %20, label %21, label %.thread1, !prof !5
+  br i1 %20, label %21, label %.thread, !prof !5
 
-.thread1:                                         ; preds = %8
+.thread:                                          ; preds = %8
   store i1 true, ptr @__phy_write_page.__already_done, align 1
   tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #9, !srcloc !29
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.28) #9
@@ -1537,21 +1537,21 @@ define dso_local i32 @phy_modify_paged_changed(ptr noundef %0, i32 noundef %1, i
   %23 = tail call i32 %17(ptr noundef %0, i32 noundef %6) #9
   br label %24
 
-24:                                               ; preds = %.thread1, %22, %21
-  %25 = phi i32 [ %23, %22 ], [ -95, %21 ], [ -95, %.thread1 ]
+24:                                               ; preds = %.thread, %22, %21
+  %25 = phi i32 [ %23, %22 ], [ -95, %21 ], [ -95, %.thread ]
   %26 = icmp sgt i32 %13, -1
   %27 = icmp slt i32 %25, 0
   %28 = select i1 %26, i1 %27, i1 false
   %29 = select i1 %28, i32 %25, i32 %13
-  br label %30
+  br label %.critedge
 
-30:                                               ; preds = %5, %24
-  %31 = phi i32 [ %29, %24 ], [ %6, %5 ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1152
-  tail call void @mutex_unlock(ptr noundef nonnull %34) #9
-  ret i32 %31
+.critedge:                                        ; preds = %5, %24
+  %30 = phi i32 [ %29, %24 ], [ %6, %5 ]
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1152
+  tail call void @mutex_unlock(ptr noundef nonnull %33) #9
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

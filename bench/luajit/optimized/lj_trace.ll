@@ -668,7 +668,7 @@ define hidden void @lj_trace_ins(ptr noundef initializes((136, 160)) %0, ptr nou
 declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @trace_state(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #2 {
+define internal noalias noundef ptr @trace_state(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 236
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 3032

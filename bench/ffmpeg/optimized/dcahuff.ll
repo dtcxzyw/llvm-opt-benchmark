@@ -47,252 +47,254 @@ define void @ff_dca_init_vlcs() local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader159
-  %3 = getelementptr inbounds nuw [10 x i8], ptr @ff_dca_bitalloc_sizes, i64 0, i64 %indvars.iv189
-  %4 = load i8, ptr %3, align 1, !tbaa !4
-  %5 = zext i8 %4 to i32
-  %6 = getelementptr inbounds nuw [10 x i8], ptr @ff_dca_bitalloc_offsets, i64 0, i64 %indvars.iv189
-  %7 = load i8, ptr %6, align 1, !tbaa !4
-  %8 = sext i8 %7 to i32
-  %9 = zext i8 %4 to i64
+  %3 = getelementptr inbounds nuw [10 x [7 x %struct.VLC]], ptr @ff_dca_vlc_quant_index, i64 0, i64 %indvars.iv189
+  %4 = getelementptr inbounds nuw [10 x [7 x i8]], ptr @bitalloc_maxbits, i64 0, i64 %indvars.iv189
+  %5 = getelementptr inbounds nuw [10 x i8], ptr @ff_dca_bitalloc_sizes, i64 0, i64 %indvars.iv189
+  %6 = load i8, ptr %5, align 1, !tbaa !4
+  %7 = zext i8 %6 to i32
+  %8 = getelementptr inbounds nuw [10 x i8], ptr @ff_dca_bitalloc_offsets, i64 0, i64 %indvars.iv189
+  %9 = load i8, ptr %8, align 1, !tbaa !4
+  %10 = sext i8 %9 to i32
+  %11 = zext i8 %6 to i64
   %wide.trip.count = zext i8 %2 to i64
-  br label %10
+  br label %12
 
-._crit_edge:                                      ; preds = %10, %.preheader159
-  %.1147.lcssa = phi ptr [ %.0146164, %.preheader159 ], [ %25, %10 ]
-  %.1.lcssa = phi i32 [ %.0145165, %.preheader159 ], [ %24, %10 ]
+._crit_edge:                                      ; preds = %12, %.preheader159
+  %.1147.lcssa = phi ptr [ %.0146164, %.preheader159 ], [ %27, %12 ]
+  %.1.lcssa = phi i32 [ %.0145165, %.preheader159 ], [ %26, %12 ]
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next190, 10
   br i1 %exitcond192.not, label %.preheader158, label %.preheader159, !llvm.loop !7
 
-10:                                               ; preds = %.lr.ph, %10
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %.1161 = phi i32 [ %.0145165, %.lr.ph ], [ %24, %10 ]
-  %.1147160 = phi ptr [ %.0146164, %.lr.ph ], [ %25, %10 ]
-  %11 = zext i32 %.1161 to i64
-  %12 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %11
-  %13 = getelementptr inbounds nuw [10 x [7 x %struct.VLC]], ptr @ff_dca_vlc_quant_index, i64 0, i64 %indvars.iv189, i64 %indvars.iv
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %12, ptr %14, align 8, !tbaa !9
-  %15 = sub i32 30218, %.1161
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  store i32 %15, ptr %16, align 4, !tbaa !14
-  %17 = getelementptr inbounds nuw [10 x [7 x i8]], ptr @bitalloc_maxbits, i64 0, i64 %indvars.iv189, i64 %indvars.iv
-  %18 = load i8, ptr %17, align 1, !tbaa !4
-  %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds nuw i8, ptr %.1147160, i64 1
-  %21 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %13, i32 noundef %19, i32 noundef %5, ptr noundef nonnull %20, i32 noundef 2, ptr noundef %.1147160, i32 noundef 2, i32 noundef 1, i32 noundef %8, i32 noundef 3, ptr noundef null) #2
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %23 = load i32, ptr %22, align 8, !tbaa !15
-  %24 = add i32 %23, %.1161
-  %25 = getelementptr inbounds nuw [2 x i8], ptr %.1147160, i64 %9
+12:                                               ; preds = %.lr.ph, %12
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
+  %.1161 = phi i32 [ %.0145165, %.lr.ph ], [ %26, %12 ]
+  %.1147160 = phi ptr [ %.0146164, %.lr.ph ], [ %27, %12 ]
+  %13 = zext i32 %.1161 to i64
+  %14 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw [7 x %struct.VLC], ptr %3, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %14, ptr %16, align 8, !tbaa !9
+  %17 = sub i32 30218, %.1161
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  store i32 %17, ptr %18, align 4, !tbaa !14
+  %19 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %20 = load i8, ptr %19, align 1, !tbaa !4
+  %21 = zext i8 %20 to i32
+  %22 = getelementptr inbounds nuw i8, ptr %.1147160, i64 1
+  %23 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %15, i32 noundef %21, i32 noundef %7, ptr noundef nonnull %22, i32 noundef 2, ptr noundef %.1147160, i32 noundef 2, i32 noundef 1, i32 noundef %10, i32 noundef 3, ptr noundef null) #2
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %25 = load i32, ptr %24, align 8, !tbaa !15
+  %26 = add i32 %25, %.1161
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.1147160, i64 %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !16
 
 .preheader158:                                    ; preds = %._crit_edge, %.preheader158
   %indvars.iv193 = phi i64 [ %indvars.iv.next194, %.preheader158 ], [ 0, %._crit_edge ]
-  %.2168 = phi i32 [ %39, %.preheader158 ], [ %.1.lcssa, %._crit_edge ]
-  %.2148167 = phi ptr [ %40, %.preheader158 ], [ %.1147.lcssa, %._crit_edge ]
-  %26 = zext i32 %.2168 to i64
-  %27 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %26
-  %28 = getelementptr inbounds nuw [5 x %struct.VLC], ptr @ff_dca_vlc_bit_allocation, i64 0, i64 %indvars.iv193
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %27, ptr %29, align 8, !tbaa !9
-  %30 = sub i32 30218, %.2168
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 20
-  store i32 %30, ptr %31, align 4, !tbaa !14
-  %32 = getelementptr inbounds nuw [5 x i8], ptr @bitalloc_12_vlc_bits, i64 0, i64 %indvars.iv193
-  %33 = load i8, ptr %32, align 1, !tbaa !4
-  %34 = zext i8 %33 to i32
-  %35 = getelementptr inbounds nuw i8, ptr %.2148167, i64 1
-  %36 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %28, i32 noundef %34, i32 noundef 12, ptr noundef nonnull %35, i32 noundef 2, ptr noundef %.2148167, i32 noundef 2, i32 noundef 1, i32 noundef 1, i32 noundef 3, ptr noundef null) #2
-  %37 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %38 = load i32, ptr %37, align 8, !tbaa !15
-  %39 = add i32 %38, %.2168
-  %40 = getelementptr inbounds nuw i8, ptr %.2148167, i64 24
+  %.2168 = phi i32 [ %41, %.preheader158 ], [ %.1.lcssa, %._crit_edge ]
+  %.2148167 = phi ptr [ %42, %.preheader158 ], [ %.1147.lcssa, %._crit_edge ]
+  %28 = zext i32 %.2168 to i64
+  %29 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw [5 x %struct.VLC], ptr @ff_dca_vlc_bit_allocation, i64 0, i64 %indvars.iv193
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %29, ptr %31, align 8, !tbaa !9
+  %32 = sub i32 30218, %.2168
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 20
+  store i32 %32, ptr %33, align 4, !tbaa !14
+  %34 = getelementptr inbounds nuw [5 x i8], ptr @bitalloc_12_vlc_bits, i64 0, i64 %indvars.iv193
+  %35 = load i8, ptr %34, align 1, !tbaa !4
+  %36 = zext i8 %35 to i32
+  %37 = getelementptr inbounds nuw i8, ptr %.2148167, i64 1
+  %38 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %30, i32 noundef %36, i32 noundef 12, ptr noundef nonnull %37, i32 noundef 2, ptr noundef %.2148167, i32 noundef 2, i32 noundef 1, i32 noundef 1, i32 noundef 3, ptr noundef null) #2
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %40 = load i32, ptr %39, align 8, !tbaa !15
+  %41 = add i32 %40, %.2168
+  %42 = getelementptr inbounds nuw i8, ptr %.2148167, i64 24
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next194, 5
   br i1 %exitcond196.not, label %.preheader157, label %.preheader158, !llvm.loop !17
 
 .preheader157:                                    ; preds = %.preheader158, %.preheader157
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %.preheader157 ], [ 0, %.preheader158 ]
-  %.3171 = phi i32 [ %51, %.preheader157 ], [ %39, %.preheader158 ]
-  %.3149170 = phi ptr [ %52, %.preheader157 ], [ %40, %.preheader158 ]
-  %41 = zext i32 %.3171 to i64
-  %42 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %41
-  %43 = getelementptr inbounds nuw [5 x %struct.VLC], ptr @ff_dca_vlc_scale_factor, i64 0, i64 %indvars.iv197
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr %42, ptr %44, align 8, !tbaa !9
-  %45 = sub i32 30218, %.3171
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 20
-  store i32 %45, ptr %46, align 4, !tbaa !14
-  %47 = getelementptr inbounds nuw i8, ptr %.3149170, i64 1
-  %48 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %43, i32 noundef 9, i32 noundef 129, ptr noundef nonnull %47, i32 noundef 2, ptr noundef nonnull %.3149170, i32 noundef 2, i32 noundef 1, i32 noundef -64, i32 noundef 3, ptr noundef null) #2
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %50 = load i32, ptr %49, align 8, !tbaa !15
-  %51 = add i32 %50, %.3171
-  %52 = getelementptr inbounds nuw i8, ptr %.3149170, i64 258
+  %.3171 = phi i32 [ %53, %.preheader157 ], [ %41, %.preheader158 ]
+  %.3149170 = phi ptr [ %54, %.preheader157 ], [ %42, %.preheader158 ]
+  %43 = zext i32 %.3171 to i64
+  %44 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %43
+  %45 = getelementptr inbounds nuw [5 x %struct.VLC], ptr @ff_dca_vlc_scale_factor, i64 0, i64 %indvars.iv197
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store ptr %44, ptr %46, align 8, !tbaa !9
+  %47 = sub i32 30218, %.3171
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 20
+  store i32 %47, ptr %48, align 4, !tbaa !14
+  %49 = getelementptr inbounds nuw i8, ptr %.3149170, i64 1
+  %50 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %45, i32 noundef 9, i32 noundef 129, ptr noundef nonnull %49, i32 noundef 2, ptr noundef nonnull %.3149170, i32 noundef 2, i32 noundef 1, i32 noundef -64, i32 noundef 3, ptr noundef null) #2
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %52 = load i32, ptr %51, align 8, !tbaa !15
+  %53 = add i32 %52, %.3171
+  %54 = getelementptr inbounds nuw i8, ptr %.3149170, i64 258
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next198, 5
   br i1 %exitcond200.not, label %.preheader156, label %.preheader157, !llvm.loop !18
 
 .preheader156:                                    ; preds = %.preheader157, %.preheader156
   %indvars.iv201 = phi i64 [ %indvars.iv.next202, %.preheader156 ], [ 0, %.preheader157 ]
-  %.4174 = phi i32 [ %63, %.preheader156 ], [ %51, %.preheader157 ]
-  %.4150173 = phi ptr [ %64, %.preheader156 ], [ %52, %.preheader157 ]
-  %53 = zext i32 %.4174 to i64
-  %54 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %53
-  %55 = getelementptr inbounds nuw [4 x %struct.VLC], ptr @ff_dca_vlc_transition_mode, i64 0, i64 %indvars.iv201
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %54, ptr %56, align 8, !tbaa !9
-  %57 = sub i32 30218, %.4174
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 20
-  store i32 %57, ptr %58, align 4, !tbaa !14
-  %59 = getelementptr inbounds nuw i8, ptr %.4150173, i64 1
-  %60 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %55, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %59, i32 noundef 2, ptr noundef nonnull %.4150173, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 3, ptr noundef null) #2
-  %61 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %62 = load i32, ptr %61, align 8, !tbaa !15
-  %63 = add i32 %62, %.4174
-  %64 = getelementptr inbounds nuw i8, ptr %.4150173, i64 8
+  %.4174 = phi i32 [ %65, %.preheader156 ], [ %53, %.preheader157 ]
+  %.4150173 = phi ptr [ %66, %.preheader156 ], [ %54, %.preheader157 ]
+  %55 = zext i32 %.4174 to i64
+  %56 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %55
+  %57 = getelementptr inbounds nuw [4 x %struct.VLC], ptr @ff_dca_vlc_transition_mode, i64 0, i64 %indvars.iv201
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store ptr %56, ptr %58, align 8, !tbaa !9
+  %59 = sub i32 30218, %.4174
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 20
+  store i32 %59, ptr %60, align 4, !tbaa !14
+  %61 = getelementptr inbounds nuw i8, ptr %.4150173, i64 1
+  %62 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %57, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %61, i32 noundef 2, ptr noundef nonnull %.4150173, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 3, ptr noundef null) #2
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %64 = load i32, ptr %63, align 8, !tbaa !15
+  %65 = add i32 %64, %.4174
+  %66 = getelementptr inbounds nuw i8, ptr %.4150173, i64 8
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next202, 4
   br i1 %exitcond204.not, label %.preheader, label %.preheader156, !llvm.loop !19
 
-65:                                               ; preds = %.preheader
-  %66 = zext i32 %164 to i64
-  %67 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %66
-  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_tnl_scf, i64 8), align 8, !tbaa !9
-  %68 = sub i32 30218, %164
-  store i32 %68, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_tnl_scf, i64 20), align 4, !tbaa !14
-  %69 = getelementptr inbounds nuw i8, ptr %166, i64 1
-  %70 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_tnl_scf, i32 noundef 9, i32 noundef 20, ptr noundef nonnull %69, i32 noundef 2, ptr noundef nonnull %166, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
-  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_tnl_scf, i64 16), align 8, !tbaa !15
-  %72 = add i32 %71, %164
-  %73 = getelementptr inbounds nuw i8, ptr %166, i64 40
-  %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %74
-  store ptr %75, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_damp, i64 8), align 8, !tbaa !9
-  %76 = sub i32 30218, %72
-  store i32 %76, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_damp, i64 20), align 4, !tbaa !14
-  %77 = getelementptr inbounds nuw i8, ptr %166, i64 41
-  %78 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_damp, i32 noundef 6, i32 noundef 7, ptr noundef nonnull %77, i32 noundef 2, ptr noundef nonnull %73, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
-  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_damp, i64 16), align 8, !tbaa !15
-  %80 = add i32 %79, %72
-  %81 = getelementptr inbounds nuw i8, ptr %166, i64 54
-  %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %82
-  store ptr %83, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_dph, i64 8), align 8, !tbaa !9
-  %84 = sub i32 30218, %80
-  store i32 %84, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_dph, i64 20), align 4, !tbaa !14
-  %85 = getelementptr inbounds nuw i8, ptr %166, i64 55
-  %86 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_dph, i32 noundef 6, i32 noundef 9, ptr noundef nonnull %85, i32 noundef 2, ptr noundef nonnull %81, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
-  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_dph, i64 16), align 8, !tbaa !15
-  %88 = add i32 %87, %80
-  %89 = getelementptr inbounds nuw i8, ptr %166, i64 72
-  %90 = zext i32 %88 to i64
-  %91 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %90
-  store ptr %91, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_fst_rsd_amp, i64 8), align 8, !tbaa !9
-  %92 = sub i32 30218, %88
-  store i32 %92, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_fst_rsd_amp, i64 20), align 4, !tbaa !14
-  %93 = getelementptr inbounds nuw i8, ptr %166, i64 73
-  %94 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_fst_rsd_amp, i32 noundef 9, i32 noundef 24, ptr noundef nonnull %93, i32 noundef 2, ptr noundef nonnull %89, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
-  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_fst_rsd_amp, i64 16), align 8, !tbaa !15
-  %96 = add i32 %95, %88
-  %97 = getelementptr inbounds nuw i8, ptr %166, i64 120
-  %98 = zext i32 %96 to i64
-  %99 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %98
-  store ptr %99, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_apprx, i64 8), align 8, !tbaa !9
-  %100 = sub i32 30218, %96
-  store i32 %100, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_apprx, i64 20), align 4, !tbaa !14
-  %101 = getelementptr inbounds nuw i8, ptr %166, i64 121
-  %102 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_rsd_apprx, i32 noundef 5, i32 noundef 6, ptr noundef nonnull %101, i32 noundef 2, ptr noundef nonnull %97, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
-  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_apprx, i64 16), align 8, !tbaa !15
-  %104 = add i32 %103, %96
-  %105 = getelementptr inbounds nuw i8, ptr %166, i64 132
-  %106 = zext i32 %104 to i64
-  %107 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %106
-  store ptr %107, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_amp, i64 8), align 8, !tbaa !9
-  %108 = sub i32 30218, %104
-  store i32 %108, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_amp, i64 20), align 4, !tbaa !14
-  %109 = getelementptr inbounds nuw i8, ptr %166, i64 133
-  %110 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_rsd_amp, i32 noundef 9, i32 noundef 33, ptr noundef nonnull %109, i32 noundef 2, ptr noundef nonnull %105, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
-  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_amp, i64 16), align 8, !tbaa !15
-  %112 = add i32 %111, %104
-  %113 = getelementptr inbounds nuw i8, ptr %166, i64 198
-  %114 = zext i32 %112 to i64
-  %115 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %114
-  store ptr %115, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_avg_g3, i64 8), align 8, !tbaa !9
-  %116 = sub i32 30218, %112
-  store i32 %116, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_avg_g3, i64 20), align 4, !tbaa !14
-  %117 = getelementptr inbounds nuw i8, ptr %166, i64 199
-  %118 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_avg_g3, i32 noundef 9, i32 noundef 18, ptr noundef nonnull %117, i32 noundef 2, ptr noundef nonnull %113, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
-  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_avg_g3, i64 16), align 8, !tbaa !15
-  %120 = add i32 %119, %112
-  %121 = getelementptr inbounds nuw i8, ptr %166, i64 234
-  %122 = zext i32 %120 to i64
-  %123 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %122
-  store ptr %123, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_st_grid, i64 8), align 8, !tbaa !9
-  %124 = sub i32 30218, %120
-  store i32 %124, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_st_grid, i64 20), align 4, !tbaa !14
-  %125 = getelementptr inbounds nuw i8, ptr %166, i64 235
-  %126 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_st_grid, i32 noundef 9, i32 noundef 22, ptr noundef nonnull %125, i32 noundef 2, ptr noundef nonnull %121, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
-  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_st_grid, i64 16), align 8, !tbaa !15
-  %128 = add i32 %127, %120
-  %129 = getelementptr inbounds nuw i8, ptr %166, i64 278
-  %130 = zext i32 %128 to i64
-  %131 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %130
-  store ptr %131, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_2, i64 8), align 8, !tbaa !9
-  %132 = sub i32 30218, %128
-  store i32 %132, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_2, i64 20), align 4, !tbaa !14
-  %133 = getelementptr inbounds nuw i8, ptr %166, i64 279
-  %134 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_grid_2, i32 noundef 9, i32 noundef 20, ptr noundef nonnull %133, i32 noundef 2, ptr noundef nonnull %129, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
-  %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_2, i64 16), align 8, !tbaa !15
-  %136 = add i32 %135, %128
-  %137 = getelementptr inbounds nuw i8, ptr %166, i64 318
-  %138 = zext i32 %136 to i64
-  %139 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %138
-  store ptr %139, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_3, i64 8), align 8, !tbaa !9
-  %140 = sub i32 30218, %136
-  store i32 %140, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_3, i64 20), align 4, !tbaa !14
-  %141 = getelementptr inbounds nuw i8, ptr %166, i64 319
-  %142 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_grid_3, i32 noundef 9, i32 noundef 13, ptr noundef nonnull %141, i32 noundef 2, ptr noundef nonnull %137, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
-  %143 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_3, i64 16), align 8, !tbaa !15
-  %144 = add i32 %143, %136
-  %145 = getelementptr inbounds nuw i8, ptr %166, i64 344
-  %146 = zext i32 %144 to i64
-  %147 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %146
-  store ptr %147, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd, i64 8), align 8, !tbaa !9
-  %148 = sub i32 30218, %144
-  store i32 %148, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd, i64 20), align 4, !tbaa !14
-  %149 = getelementptr inbounds nuw i8, ptr %166, i64 345
-  %150 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_rsd, i32 noundef 6, i32 noundef 9, ptr noundef nonnull %149, i32 noundef 2, ptr noundef nonnull %145, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 15, ptr noundef null) #2
+67:                                               ; preds = %.preheader
+  %68 = zext i32 %166 to i64
+  %69 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %68
+  store ptr %69, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_tnl_scf, i64 8), align 8, !tbaa !9
+  %70 = sub i32 30218, %166
+  store i32 %70, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_tnl_scf, i64 20), align 4, !tbaa !14
+  %71 = getelementptr inbounds nuw i8, ptr %168, i64 1
+  %72 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_tnl_scf, i32 noundef 9, i32 noundef 20, ptr noundef nonnull %71, i32 noundef 2, ptr noundef nonnull %168, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_tnl_scf, i64 16), align 8, !tbaa !15
+  %74 = add i32 %73, %166
+  %75 = getelementptr inbounds nuw i8, ptr %168, i64 40
+  %76 = zext i32 %74 to i64
+  %77 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %76
+  store ptr %77, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_damp, i64 8), align 8, !tbaa !9
+  %78 = sub i32 30218, %74
+  store i32 %78, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_damp, i64 20), align 4, !tbaa !14
+  %79 = getelementptr inbounds nuw i8, ptr %168, i64 41
+  %80 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_damp, i32 noundef 6, i32 noundef 7, ptr noundef nonnull %79, i32 noundef 2, ptr noundef nonnull %75, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_damp, i64 16), align 8, !tbaa !15
+  %82 = add i32 %81, %74
+  %83 = getelementptr inbounds nuw i8, ptr %168, i64 54
+  %84 = zext i32 %82 to i64
+  %85 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %84
+  store ptr %85, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_dph, i64 8), align 8, !tbaa !9
+  %86 = sub i32 30218, %82
+  store i32 %86, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_dph, i64 20), align 4, !tbaa !14
+  %87 = getelementptr inbounds nuw i8, ptr %168, i64 55
+  %88 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_dph, i32 noundef 6, i32 noundef 9, ptr noundef nonnull %87, i32 noundef 2, ptr noundef nonnull %83, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_dph, i64 16), align 8, !tbaa !15
+  %90 = add i32 %89, %82
+  %91 = getelementptr inbounds nuw i8, ptr %168, i64 72
+  %92 = zext i32 %90 to i64
+  %93 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %92
+  store ptr %93, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_fst_rsd_amp, i64 8), align 8, !tbaa !9
+  %94 = sub i32 30218, %90
+  store i32 %94, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_fst_rsd_amp, i64 20), align 4, !tbaa !14
+  %95 = getelementptr inbounds nuw i8, ptr %168, i64 73
+  %96 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_fst_rsd_amp, i32 noundef 9, i32 noundef 24, ptr noundef nonnull %95, i32 noundef 2, ptr noundef nonnull %91, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
+  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_fst_rsd_amp, i64 16), align 8, !tbaa !15
+  %98 = add i32 %97, %90
+  %99 = getelementptr inbounds nuw i8, ptr %168, i64 120
+  %100 = zext i32 %98 to i64
+  %101 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %100
+  store ptr %101, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_apprx, i64 8), align 8, !tbaa !9
+  %102 = sub i32 30218, %98
+  store i32 %102, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_apprx, i64 20), align 4, !tbaa !14
+  %103 = getelementptr inbounds nuw i8, ptr %168, i64 121
+  %104 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_rsd_apprx, i32 noundef 5, i32 noundef 6, ptr noundef nonnull %103, i32 noundef 2, ptr noundef nonnull %99, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_apprx, i64 16), align 8, !tbaa !15
+  %106 = add i32 %105, %98
+  %107 = getelementptr inbounds nuw i8, ptr %168, i64 132
+  %108 = zext i32 %106 to i64
+  %109 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %108
+  store ptr %109, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_amp, i64 8), align 8, !tbaa !9
+  %110 = sub i32 30218, %106
+  store i32 %110, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_amp, i64 20), align 4, !tbaa !14
+  %111 = getelementptr inbounds nuw i8, ptr %168, i64 133
+  %112 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_rsd_amp, i32 noundef 9, i32 noundef 33, ptr noundef nonnull %111, i32 noundef 2, ptr noundef nonnull %107, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
+  %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd_amp, i64 16), align 8, !tbaa !15
+  %114 = add i32 %113, %106
+  %115 = getelementptr inbounds nuw i8, ptr %168, i64 198
+  %116 = zext i32 %114 to i64
+  %117 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %116
+  store ptr %117, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_avg_g3, i64 8), align 8, !tbaa !9
+  %118 = sub i32 30218, %114
+  store i32 %118, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_avg_g3, i64 20), align 4, !tbaa !14
+  %119 = getelementptr inbounds nuw i8, ptr %168, i64 199
+  %120 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_avg_g3, i32 noundef 9, i32 noundef 18, ptr noundef nonnull %119, i32 noundef 2, ptr noundef nonnull %115, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
+  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_avg_g3, i64 16), align 8, !tbaa !15
+  %122 = add i32 %121, %114
+  %123 = getelementptr inbounds nuw i8, ptr %168, i64 234
+  %124 = zext i32 %122 to i64
+  %125 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %124
+  store ptr %125, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_st_grid, i64 8), align 8, !tbaa !9
+  %126 = sub i32 30218, %122
+  store i32 %126, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_st_grid, i64 20), align 4, !tbaa !14
+  %127 = getelementptr inbounds nuw i8, ptr %168, i64 235
+  %128 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_st_grid, i32 noundef 9, i32 noundef 22, ptr noundef nonnull %127, i32 noundef 2, ptr noundef nonnull %123, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
+  %129 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_st_grid, i64 16), align 8, !tbaa !15
+  %130 = add i32 %129, %122
+  %131 = getelementptr inbounds nuw i8, ptr %168, i64 278
+  %132 = zext i32 %130 to i64
+  %133 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %132
+  store ptr %133, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_2, i64 8), align 8, !tbaa !9
+  %134 = sub i32 30218, %130
+  store i32 %134, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_2, i64 20), align 4, !tbaa !14
+  %135 = getelementptr inbounds nuw i8, ptr %168, i64 279
+  %136 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_grid_2, i32 noundef 9, i32 noundef 20, ptr noundef nonnull %135, i32 noundef 2, ptr noundef nonnull %131, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
+  %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_2, i64 16), align 8, !tbaa !15
+  %138 = add i32 %137, %130
+  %139 = getelementptr inbounds nuw i8, ptr %168, i64 318
+  %140 = zext i32 %138 to i64
+  %141 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %140
+  store ptr %141, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_3, i64 8), align 8, !tbaa !9
+  %142 = sub i32 30218, %138
+  store i32 %142, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_3, i64 20), align 4, !tbaa !14
+  %143 = getelementptr inbounds nuw i8, ptr %168, i64 319
+  %144 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_grid_3, i32 noundef 9, i32 noundef 13, ptr noundef nonnull %143, i32 noundef 2, ptr noundef nonnull %139, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
+  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_grid_3, i64 16), align 8, !tbaa !15
+  %146 = add i32 %145, %138
+  %147 = getelementptr inbounds nuw i8, ptr %168, i64 344
+  %148 = zext i32 %146 to i64
+  %149 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %148
+  store ptr %149, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd, i64 8), align 8, !tbaa !9
+  %150 = sub i32 30218, %146
+  store i32 %150, ptr getelementptr inbounds nuw (i8, ptr @ff_dca_vlc_rsd, i64 20), align 4, !tbaa !14
+  %151 = getelementptr inbounds nuw i8, ptr %168, i64 345
+  %152 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull @ff_dca_vlc_rsd, i32 noundef 6, i32 noundef 9, ptr noundef nonnull %151, i32 noundef 2, ptr noundef nonnull %147, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 15, ptr noundef null) #2
   ret void
 
 .preheader:                                       ; preds = %.preheader156, %.preheader
   %indvars.iv205 = phi i64 [ %indvars.iv.next206, %.preheader ], [ 0, %.preheader156 ]
-  %.5177 = phi i32 [ %164, %.preheader ], [ %63, %.preheader156 ]
-  %.5151176 = phi ptr [ %166, %.preheader ], [ %64, %.preheader156 ]
-  %151 = zext i32 %.5177 to i64
-  %152 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %151
-  %153 = getelementptr inbounds nuw [5 x %struct.VLC], ptr @ff_dca_vlc_tnl_grp, i64 0, i64 %indvars.iv205
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store ptr %152, ptr %154, align 8, !tbaa !9
-  %155 = sub i32 30218, %.5177
-  %156 = getelementptr inbounds nuw i8, ptr %153, i64 20
-  store i32 %155, ptr %156, align 4, !tbaa !14
-  %157 = getelementptr inbounds nuw [5 x i8], ptr @tnl_grp_sizes, i64 0, i64 %indvars.iv205
-  %158 = load i8, ptr %157, align 1, !tbaa !4
-  %159 = zext i8 %158 to i32
-  %160 = getelementptr inbounds nuw i8, ptr %.5151176, i64 1
-  %161 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %153, i32 noundef 9, i32 noundef %159, ptr noundef nonnull %160, i32 noundef 2, ptr noundef nonnull %.5151176, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
-  %162 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %163 = load i32, ptr %162, align 8, !tbaa !15
-  %164 = add i32 %163, %.5177
-  %165 = zext i8 %158 to i64
-  %166 = getelementptr inbounds nuw [2 x i8], ptr %.5151176, i64 %165
+  %.5177 = phi i32 [ %166, %.preheader ], [ %65, %.preheader156 ]
+  %.5151176 = phi ptr [ %168, %.preheader ], [ %66, %.preheader156 ]
+  %153 = zext i32 %.5177 to i64
+  %154 = getelementptr inbounds nuw [30218 x %struct.VLCElem], ptr @ff_dca_init_vlcs.dca_table, i64 0, i64 %153
+  %155 = getelementptr inbounds nuw [5 x %struct.VLC], ptr @ff_dca_vlc_tnl_grp, i64 0, i64 %indvars.iv205
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  store ptr %154, ptr %156, align 8, !tbaa !9
+  %157 = sub i32 30218, %.5177
+  %158 = getelementptr inbounds nuw i8, ptr %155, i64 20
+  store i32 %157, ptr %158, align 4, !tbaa !14
+  %159 = getelementptr inbounds nuw [5 x i8], ptr @tnl_grp_sizes, i64 0, i64 %indvars.iv205
+  %160 = load i8, ptr %159, align 1, !tbaa !4
+  %161 = zext i8 %160 to i32
+  %162 = getelementptr inbounds nuw i8, ptr %.5151176, i64 1
+  %163 = tail call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %155, i32 noundef 9, i32 noundef %161, ptr noundef nonnull %162, i32 noundef 2, ptr noundef nonnull %.5151176, i32 noundef 2, i32 noundef 1, i32 noundef -1, i32 noundef 15, ptr noundef null) #2
+  %164 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  %165 = load i32, ptr %164, align 8, !tbaa !15
+  %166 = add i32 %165, %.5177
+  %167 = zext i8 %160 to i64
+  %168 = getelementptr inbounds nuw [2 x i8], ptr %.5151176, i64 %167
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next206, 5
-  br i1 %exitcond208.not, label %65, label %.preheader, !llvm.loop !20
+  br i1 %exitcond208.not, label %67, label %.preheader, !llvm.loop !20
 }
 
 declare i32 @ff_vlc_init_from_lengths(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

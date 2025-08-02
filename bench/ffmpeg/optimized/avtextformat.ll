@@ -537,7 +537,7 @@ define void @avtext_print_section_footer(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.14, i32 noundef %3) #12
-  br label %36
+  br label %37
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4904
@@ -564,32 +564,33 @@ define void @avtext_print_section_footer(ptr noundef %0) local_unnamed_addr #0 {
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 4, !tbaa !59
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %24 = sext i32 %10 to i64
-  %25 = getelementptr inbounds [12 x [100 x i32]], ptr %23, i64 0, i64 %13, i64 %24
-  %26 = load i32, ptr %25, align 4, !tbaa !59
-  %27 = add i32 %26, 1
-  store i32 %27, ptr %25, align 4, !tbaa !59
+  %24 = getelementptr inbounds nuw [12 x [100 x i32]], ptr %23, i64 0, i64 %13
+  %25 = sext i32 %10 to i64
+  %26 = getelementptr inbounds [100 x i32], ptr %24, i64 0, i64 %25
+  %27 = load i32, ptr %26, align 4, !tbaa !59
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %26, align 4, !tbaa !59
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %18, %11
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !9
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !64
-  %.not20 = icmp eq ptr %31, null
-  br i1 %.not20, label %33, label %32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !9
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  %32 = load ptr, ptr %31, align 8, !tbaa !64
+  %.not20 = icmp eq ptr %32, null
+  br i1 %.not20, label %34, label %33
 
-32:                                               ; preds = %.critedge
-  tail call void %31(ptr noundef nonnull %0) #12
-  br label %33
+33:                                               ; preds = %.critedge
+  tail call void %32(ptr noundef nonnull %0) #12
+  br label %34
 
-33:                                               ; preds = %32, %.critedge
-  %34 = load i32, ptr %2, align 4, !tbaa !38
-  %35 = add nsw i32 %34, -1
-  store i32 %35, ptr %2, align 4, !tbaa !38
-  br label %36
+34:                                               ; preds = %33, %.critedge
+  %35 = load i32, ptr %2, align 4, !tbaa !38
+  %36 = add nsw i32 %35, -1
+  store i32 %36, ptr %2, align 4, !tbaa !38
+  br label %37
 
-36:                                               ; preds = %33, %4
+37:                                               ; preds = %34, %4
   ret void
 }
 

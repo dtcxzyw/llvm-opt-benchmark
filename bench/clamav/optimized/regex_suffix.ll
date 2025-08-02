@@ -149,7 +149,6 @@ declare ptr @cli_safer_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_regex(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
-  %invariant.gep.i = getelementptr i8, ptr %0, i64 2
   br label %make_node.exit106
 
 make_node.exit106:                                ; preds = %make_node.exit106.backedge, %3
@@ -157,7 +156,7 @@ make_node.exit106:                                ; preds = %make_node.exit106.b
   %4 = load i64, ptr %2, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !20
-  switch i8 %6, label %174 [
+  switch i8 %6, label %176 [
     i8 36, label %.critedge
     i8 0, label %.critedge
     i8 124, label %7
@@ -168,7 +167,7 @@ make_node.exit106:                                ; preds = %make_node.exit106.b
     i8 41, label %.critedge
     i8 46, label %70
     i8 91, label %86
-    i8 92, label %172
+    i8 92, label %174
   ]
 
 7:                                                ; preds = %make_node.exit106
@@ -199,8 +198,8 @@ make_node.exit106:                                ; preds = %make_node.exit106.b
   %.not24.i = icmp eq ptr %9, null
   br i1 %.not24.i, label %make_node.exit106.backedge, label %18
 
-make_node.exit106.backedge:                       ; preds = %17, %18, %64, %63, %57, %make_node.exit128.thread, %170, %84, %46, %29
-  %.064.be = phi ptr [ %.0.i127155, %make_node.exit128.thread ], [ %22, %29 ], [ %44, %46 ], [ %.0.i112.ph, %84 ], [ %.0.i121.ph, %170 ], [ null, %63 ], [ %55, %57 ], [ %62, %64 ], [ %10, %18 ], [ %10, %17 ]
+make_node.exit106.backedge:                       ; preds = %17, %18, %64, %63, %57, %make_node.exit128.thread, %172, %84, %46, %29
+  %.064.be = phi ptr [ %.0.i127155, %make_node.exit128.thread ], [ %22, %29 ], [ %44, %46 ], [ %.0.i112.ph, %84 ], [ %.0.i121.ph, %172 ], [ null, %63 ], [ %55, %57 ], [ %62, %64 ], [ %10, %18 ], [ %10, %17 ]
   br label %make_node.exit106
 
 18:                                               ; preds = %17
@@ -436,261 +435,262 @@ make_node.exit113:                                ; preds = %77
   br label %100
 
 100:                                              ; preds = %.preheader, %.loopexit.i
-  %101 = phi i8 [ %153, %.loopexit.i ], [ %.ph, %.preheader ]
-  %102 = phi i64 [ %154, %.loopexit.i ], [ %.ph335, %.preheader ]
+  %101 = phi i8 [ %155, %.loopexit.i ], [ %.ph, %.preheader ]
+  %102 = phi i64 [ %156, %.loopexit.i ], [ %.ph335, %.preheader ]
   %.0105.i = phi i8 [ %.1106.i, %.loopexit.i ], [ 0, %.preheader ]
   %.0102.i = phi i32 [ %.2104.i, %.loopexit.i ], [ 0, %.preheader ]
-  %103 = icmp eq i8 %101, 45
-  %104 = icmp ne i32 %.0102.i, 0
-  %or.cond.i = and i1 %103, %104
-  br i1 %or.cond.i, label %105, label %142
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 %102
+  %104 = icmp eq i8 %101, 45
+  %105 = icmp ne i32 %.0102.i, 0
+  %or.cond.i = and i1 %104, %105
+  br i1 %or.cond.i, label %106, label %144
 
-105:                                              ; preds = %100
-  %106 = zext i8 %.0105.i to i32
-  %107 = icmp eq i8 %.0105.i, 0
-  br i1 %107, label %108, label %109
+106:                                              ; preds = %100
+  %107 = zext i8 %.0105.i to i32
+  %108 = icmp eq i8 %.0105.i, 0
+  br i1 %108, label %109, label %110
 
-108:                                              ; preds = %105
+109:                                              ; preds = %106
   tail call void @free(ptr noundef nonnull %88) #9
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.10) #9
   br label %parse_char_class.exit.thread
 
-109:                                              ; preds = %105
-  %110 = add i64 %102, 1
-  %.not127.i = icmp ult i64 %110, %1
-  br i1 %.not127.i, label %112, label %111
+110:                                              ; preds = %106
+  %111 = add i64 %102, 1
+  %.not127.i = icmp ult i64 %111, %1
+  br i1 %.not127.i, label %113, label %112
 
-111:                                              ; preds = %109
+112:                                              ; preds = %110
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #9
   tail call void @free(ptr noundef nonnull %88) #9
   br label %parse_char_class.exit.thread
 
-112:                                              ; preds = %109
-  store i64 %110, ptr %2, align 8, !tbaa !3
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 %110
-  %114 = load i8, ptr %113, align 1, !tbaa !20
-  %115 = icmp eq i8 %114, 91
-  br i1 %115, label %116, label %132
+113:                                              ; preds = %110
+  store i64 %111, ptr %2, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 %111
+  %115 = load i8, ptr %114, align 1, !tbaa !20
+  %116 = icmp eq i8 %115, 91
+  br i1 %116, label %117, label %134
 
-116:                                              ; preds = %112
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %102
-  %117 = load i8, ptr %gep.i, align 1, !tbaa !20
-  %118 = icmp eq i8 %117, 46
-  br i1 %118, label %.lr.ph152.preheader.i, label %132
+117:                                              ; preds = %113
+  %118 = getelementptr i8, ptr %103, i64 2
+  %119 = load i8, ptr %118, align 1, !tbaa !20
+  %120 = icmp eq i8 %119, 46
+  br i1 %120, label %.lr.ph152.preheader.i, label %134
 
-.lr.ph152.preheader.i:                            ; preds = %116
+.lr.ph152.preheader.i:                            ; preds = %117
   tail call void @free(ptr noundef nonnull %88) #9
   br label %.lr.ph152.i
 
-.lr.ph152.i:                                      ; preds = %122, %.lr.ph152.preheader.i
-  %119 = phi i64 [ %120, %122 ], [ %110, %.lr.ph152.preheader.i ]
-  %120 = add nuw i64 %119, 1
-  %.not134.i = icmp ult i64 %120, %1
-  br i1 %.not134.i, label %122, label %121
+.lr.ph152.i:                                      ; preds = %124, %.lr.ph152.preheader.i
+  %121 = phi i64 [ %122, %124 ], [ %111, %.lr.ph152.preheader.i ]
+  %122 = add nuw i64 %121, 1
+  %.not134.i = icmp ult i64 %122, %1
+  br i1 %.not134.i, label %124, label %123
 
-121:                                              ; preds = %.lr.ph152.i
+123:                                              ; preds = %.lr.ph152.i
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #9
   br label %parse_char_class.exit.thread
 
-122:                                              ; preds = %.lr.ph152.i
-  store i64 %120, ptr %2, align 8, !tbaa !3
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 %120
-  %124 = load i8, ptr %123, align 1, !tbaa !20
-  %.not130.i = icmp eq i8 %124, 93
+124:                                              ; preds = %.lr.ph152.i
+  store i64 %122, ptr %2, align 8, !tbaa !3
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 %122
+  %126 = load i8, ptr %125, align 1, !tbaa !20
+  %.not130.i = icmp eq i8 %126, 93
   br i1 %.not130.i, label %._crit_edge.i, label %.lr.ph152.i
 
-._crit_edge.i:                                    ; preds = %122
-  %125 = add i64 %119, 2
-  %.not131.i = icmp ult i64 %125, %1
-  br i1 %.not131.i, label %.preheader.i, label %126
+._crit_edge.i:                                    ; preds = %124
+  %127 = add i64 %121, 2
+  %.not131.i = icmp ult i64 %127, %1
+  br i1 %.not131.i, label %.preheader.i, label %128
 
-126:                                              ; preds = %._crit_edge.i
+128:                                              ; preds = %._crit_edge.i
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #9
   br label %parse_char_class.exit.thread
 
-.preheader.i:                                     ; preds = %._crit_edge.i, %129
-  %storemerge.i = phi i64 [ %130, %129 ], [ %125, %._crit_edge.i ]
+.preheader.i:                                     ; preds = %._crit_edge.i, %131
+  %storemerge.i = phi i64 [ %132, %131 ], [ %127, %._crit_edge.i ]
   store i64 %storemerge.i, ptr %2, align 8, !tbaa !3
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 %storemerge.i
-  %128 = load i8, ptr %127, align 1, !tbaa !20
-  %.not132.i = icmp eq i8 %128, 93
-  br i1 %.not132.i, label %parse_char_class.exit.thread145, label %129
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 %storemerge.i
+  %130 = load i8, ptr %129, align 1, !tbaa !20
+  %.not132.i = icmp eq i8 %130, 93
+  br i1 %.not132.i, label %parse_char_class.exit.thread145, label %131
 
-129:                                              ; preds = %.preheader.i
-  %130 = add i64 %storemerge.i, 1
-  %exitcond156.not.i = icmp eq i64 %130, %1
-  br i1 %exitcond156.not.i, label %131, label %.preheader.i
+131:                                              ; preds = %.preheader.i
+  %132 = add i64 %storemerge.i, 1
+  %exitcond156.not.i = icmp eq i64 %132, %1
+  br i1 %exitcond156.not.i, label %133, label %.preheader.i
 
-131:                                              ; preds = %129
+133:                                              ; preds = %131
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #9
   br label %parse_char_class.exit.thread
 
-132:                                              ; preds = %116, %112
-  %133 = zext i8 %114 to i32
-  %.not128.not148.i = icmp ult i8 %.0105.i, %114
+134:                                              ; preds = %117, %113
+  %135 = zext i8 %115 to i32
+  %.not128.not148.i = icmp ult i8 %.0105.i, %115
   br i1 %.not128.not148.i, label %.lr.ph.i, label %.loopexit.i
 
-.lr.ph.i:                                         ; preds = %132, %.lr.ph.i
-  %.099.in149.i = phi i32 [ %.099.i, %.lr.ph.i ], [ %106, %132 ]
+.lr.ph.i:                                         ; preds = %134, %.lr.ph.i
+  %.099.in149.i = phi i32 [ %.099.i, %.lr.ph.i ], [ %107, %134 ]
   %.099.i = add nuw nsw i32 %.099.in149.i, 1
-  %134 = and i32 %.099.i, 7
-  %135 = shl nuw nsw i32 1, %134
-  %136 = lshr i32 %.099.i, 3
-  %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw i8, ptr %88, i64 %137
-  %139 = load i8, ptr %138, align 1, !tbaa !20
-  %140 = trunc nuw i32 %135 to i8
-  %141 = xor i8 %139, %140
-  store i8 %141, ptr %138, align 1, !tbaa !20
-  %exitcond.not.i = icmp eq i32 %.099.i, %133
+  %136 = and i32 %.099.i, 7
+  %137 = shl nuw nsw i32 1, %136
+  %138 = lshr i32 %.099.i, 3
+  %139 = zext nneg i32 %138 to i64
+  %140 = getelementptr inbounds nuw i8, ptr %88, i64 %139
+  %141 = load i8, ptr %140, align 1, !tbaa !20
+  %142 = trunc nuw i32 %137 to i8
+  %143 = xor i8 %141, %142
+  store i8 %143, ptr %140, align 1, !tbaa !20
+  %exitcond.not.i = icmp eq i32 %.099.i, %135
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i
 
-142:                                              ; preds = %100
-  %143 = and i8 %101, 7
-  %144 = shl nuw i8 1, %143
-  %145 = lshr i8 %101, 3
-  %146 = zext nneg i8 %145 to i64
-  %147 = getelementptr inbounds nuw i8, ptr %88, i64 %146
-  %148 = load i8, ptr %147, align 1, !tbaa !20
-  %149 = xor i8 %148, %144
-  store i8 %149, ptr %147, align 1, !tbaa !20
-  %150 = add i64 %102, 1
-  %.not125.i = icmp ult i64 %150, %1
-  br i1 %.not125.i, label %152, label %151
+144:                                              ; preds = %100
+  %145 = and i8 %101, 7
+  %146 = shl nuw i8 1, %145
+  %147 = lshr i8 %101, 3
+  %148 = zext nneg i8 %147 to i64
+  %149 = getelementptr inbounds nuw i8, ptr %88, i64 %148
+  %150 = load i8, ptr %149, align 1, !tbaa !20
+  %151 = xor i8 %150, %146
+  store i8 %151, ptr %149, align 1, !tbaa !20
+  %152 = add i64 %102, 1
+  %.not125.i = icmp ult i64 %152, %1
+  br i1 %.not125.i, label %154, label %153
 
-151:                                              ; preds = %142
+153:                                              ; preds = %144
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #9
   tail call void @free(ptr noundef nonnull %88) #9
   br label %parse_char_class.exit.thread
 
-152:                                              ; preds = %142
-  store i64 %150, ptr %2, align 8, !tbaa !3
-  %.phi.trans.insert158.i = getelementptr inbounds nuw i8, ptr %0, i64 %150
+154:                                              ; preds = %144
+  store i64 %152, ptr %2, align 8, !tbaa !3
+  %.phi.trans.insert158.i = getelementptr inbounds nuw i8, ptr %0, i64 %152
   %.pre159.i = load i8, ptr %.phi.trans.insert158.i, align 1, !tbaa !20
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph.i, %152, %132
-  %153 = phi i8 [ %.pre159.i, %152 ], [ %114, %132 ], [ %114, %.lr.ph.i ]
-  %154 = phi i64 [ %150, %152 ], [ %110, %132 ], [ %110, %.lr.ph.i ]
-  %.1106.i = phi i8 [ %101, %152 ], [ %.0105.i, %132 ], [ %.0105.i, %.lr.ph.i ]
-  %.2104.i = phi i32 [ 1, %152 ], [ 0, %132 ], [ 0, %.lr.ph.i ]
-  %.not137.i = icmp eq i8 %153, 93
+.loopexit.i:                                      ; preds = %.lr.ph.i, %154, %134
+  %155 = phi i8 [ %.pre159.i, %154 ], [ %115, %134 ], [ %115, %.lr.ph.i ]
+  %156 = phi i64 [ %152, %154 ], [ %111, %134 ], [ %111, %.lr.ph.i ]
+  %.1106.i = phi i8 [ %101, %154 ], [ %.0105.i, %134 ], [ %.0105.i, %.lr.ph.i ]
+  %.2104.i = phi i32 [ 1, %154 ], [ 0, %134 ], [ 0, %.lr.ph.i ]
+  %.not137.i = icmp eq i8 %155, 93
   br i1 %.not137.i, label %parse_char_class.exit.thread145, label %100
 
 parse_char_class.exit.thread145:                  ; preds = %.loopexit.i, %.preheader.i
-  %155 = phi i64 [ %storemerge.i, %.preheader.i ], [ %154, %.loopexit.i ]
+  %157 = phi i64 [ %storemerge.i, %.preheader.i ], [ %156, %.loopexit.i ]
   %.2109.i147 = phi ptr [ @dot_bitmap, %.preheader.i ], [ %88, %.loopexit.i ]
-  %156 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
-  %.not.i115 = icmp eq ptr %156, null
-  br i1 %.not.i115, label %157, label %158
+  %158 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %.not.i115 = icmp eq ptr %158, null
+  br i1 %.not.i115, label %159, label %160
 
-157:                                              ; preds = %parse_char_class.exit.thread145
+159:                                              ; preds = %parse_char_class.exit.thread145
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.7) #9
   br label %parse_char_class.exit.thread
 
-parse_char_class.exit.thread:                     ; preds = %111, %131, %126, %121, %108, %151, %97, %90, %157
+parse_char_class.exit.thread:                     ; preds = %112, %133, %128, %123, %109, %153, %97, %90, %159
   tail call fastcc void @destroy_tree(ptr noundef %.064)
   br label %.critedge
 
-158:                                              ; preds = %parse_char_class.exit.thread145
-  store i32 5, ptr %156, align 8, !tbaa !21
-  %159 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  store ptr null, ptr %159, align 8, !tbaa !14
-  %160 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  store ptr %.2109.i147, ptr %160, align 8, !tbaa !20
-  %161 = icmp eq ptr %.064, null
-  br i1 %161, label %170, label %162
+160:                                              ; preds = %parse_char_class.exit.thread145
+  store i32 5, ptr %158, align 8, !tbaa !21
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 8
+  store ptr null, ptr %161, align 8, !tbaa !14
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 16
+  store ptr %.2109.i147, ptr %162, align 8, !tbaa !20
+  %163 = icmp eq ptr %.064, null
+  br i1 %163, label %172, label %164
 
-162:                                              ; preds = %158
-  %163 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
-  %.not.i118 = icmp eq ptr %163, null
-  br i1 %.not.i118, label %169, label %164
+164:                                              ; preds = %160
+  %165 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %.not.i118 = icmp eq ptr %165, null
+  br i1 %.not.i118, label %171, label %166
 
-164:                                              ; preds = %162
-  store i32 1, ptr %163, align 8, !tbaa !21
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  store ptr null, ptr %165, align 8, !tbaa !14
-  %166 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  store ptr %.064, ptr %166, align 8, !tbaa !20
-  %167 = getelementptr inbounds nuw i8, ptr %163, i64 24
-  store ptr %156, ptr %167, align 8, !tbaa !20
-  %168 = getelementptr inbounds nuw i8, ptr %.064, i64 8
-  store ptr %163, ptr %168, align 8, !tbaa !14
-  store ptr %163, ptr %159, align 8, !tbaa !14
-  br label %170
+166:                                              ; preds = %164
+  store i32 1, ptr %165, align 8, !tbaa !21
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  store ptr null, ptr %167, align 8, !tbaa !14
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 16
+  store ptr %.064, ptr %168, align 8, !tbaa !20
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 24
+  store ptr %158, ptr %169, align 8, !tbaa !20
+  %170 = getelementptr inbounds nuw i8, ptr %.064, i64 8
+  store ptr %165, ptr %170, align 8, !tbaa !14
+  store ptr %165, ptr %161, align 8, !tbaa !14
+  br label %172
 
-169:                                              ; preds = %162
+171:                                              ; preds = %164
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #9
-  tail call fastcc void @destroy_tree(ptr noundef nonnull %156)
+  tail call fastcc void @destroy_tree(ptr noundef nonnull %158)
   br label %.critedge
 
-170:                                              ; preds = %158, %164
-  %.0.i121.ph = phi ptr [ %163, %164 ], [ %156, %158 ]
-  %171 = add i64 %155, 1
-  store i64 %171, ptr %2, align 8, !tbaa !3
+172:                                              ; preds = %160, %166
+  %.0.i121.ph = phi ptr [ %165, %166 ], [ %158, %160 ]
+  %173 = add i64 %157, 1
+  store i64 %173, ptr %2, align 8, !tbaa !3
   br label %make_node.exit106.backedge
 
-172:                                              ; preds = %make_node.exit106
-  %173 = add i64 %4, 1
-  store i64 %173, ptr %2, align 8, !tbaa !3
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 %173
+174:                                              ; preds = %make_node.exit106
+  %175 = add i64 %4, 1
+  store i64 %175, ptr %2, align 8, !tbaa !3
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 %175
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !20
-  br label %174
+  br label %176
 
-174:                                              ; preds = %make_node.exit106, %172
-  %175 = phi i8 [ %6, %make_node.exit106 ], [ %.pre, %172 ]
-  %176 = phi i64 [ %4, %make_node.exit106 ], [ %173, %172 ]
-  %177 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
-  %.not.i123 = icmp eq ptr %177, null
+176:                                              ; preds = %make_node.exit106, %174
+  %177 = phi i8 [ %6, %make_node.exit106 ], [ %.pre, %174 ]
+  %178 = phi i64 [ %4, %make_node.exit106 ], [ %175, %174 ]
+  %179 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %.not.i123 = icmp eq ptr %179, null
   br i1 %.not.i123, label %make_leaf.exit, label %make_leaf.exit.thread
 
-make_leaf.exit:                                   ; preds = %174
-  %178 = icmp eq ptr %.064, null
-  br i1 %178, label %.loopexit, label %make_node.exit128.thread
+make_leaf.exit:                                   ; preds = %176
+  %180 = icmp eq ptr %.064, null
+  br i1 %180, label %.loopexit, label %make_node.exit128.thread
 
-make_leaf.exit.thread:                            ; preds = %174
-  store i32 4, ptr %177, align 8, !tbaa !21
-  %179 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  store ptr null, ptr %179, align 8, !tbaa !14
-  %180 = getelementptr inbounds nuw i8, ptr %177, i64 16
-  store i8 %175, ptr %180, align 8, !tbaa !20
-  %181 = icmp eq ptr %.064, null
-  br i1 %181, label %make_node.exit128.thread, label %182
+make_leaf.exit.thread:                            ; preds = %176
+  store i32 4, ptr %179, align 8, !tbaa !21
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  store ptr null, ptr %181, align 8, !tbaa !14
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 16
+  store i8 %177, ptr %182, align 8, !tbaa !20
+  %183 = icmp eq ptr %.064, null
+  br i1 %183, label %make_node.exit128.thread, label %184
 
-182:                                              ; preds = %make_leaf.exit.thread
-  %183 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
-  %.not.i124 = icmp eq ptr %183, null
-  br i1 %.not.i124, label %make_node.exit128.thread156, label %184
+184:                                              ; preds = %make_leaf.exit.thread
+  %185 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %.not.i124 = icmp eq ptr %185, null
+  br i1 %.not.i124, label %make_node.exit128.thread156, label %186
 
-make_node.exit128.thread156:                      ; preds = %182
+make_node.exit128.thread156:                      ; preds = %184
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #9
   br label %.loopexit
 
-184:                                              ; preds = %182
-  store i32 1, ptr %183, align 8, !tbaa !21
-  %185 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  store ptr null, ptr %185, align 8, !tbaa !14
-  %186 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  store ptr %.064, ptr %186, align 8, !tbaa !20
-  %187 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  store ptr %177, ptr %187, align 8, !tbaa !20
-  %188 = getelementptr inbounds nuw i8, ptr %.064, i64 8
-  store ptr %183, ptr %188, align 8, !tbaa !14
-  store ptr %183, ptr %179, align 8, !tbaa !14
+186:                                              ; preds = %184
+  store i32 1, ptr %185, align 8, !tbaa !21
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  store ptr null, ptr %187, align 8, !tbaa !14
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  store ptr %.064, ptr %188, align 8, !tbaa !20
+  %189 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  store ptr %179, ptr %189, align 8, !tbaa !20
+  %190 = getelementptr inbounds nuw i8, ptr %.064, i64 8
+  store ptr %185, ptr %190, align 8, !tbaa !14
+  store ptr %185, ptr %181, align 8, !tbaa !14
   br label %make_node.exit128.thread
 
 .loopexit:                                        ; preds = %make_leaf.exit, %make_node.exit128.thread156
-  tail call fastcc void @destroy_tree(ptr noundef %177)
+  tail call fastcc void @destroy_tree(ptr noundef %179)
   br label %.critedge
 
-make_node.exit128.thread:                         ; preds = %make_leaf.exit, %make_leaf.exit.thread, %184
-  %.0.i127155 = phi ptr [ %177, %make_leaf.exit.thread ], [ %183, %184 ], [ %.064, %make_leaf.exit ]
-  %189 = add i64 %176, 1
-  store i64 %189, ptr %2, align 8, !tbaa !3
+make_node.exit128.thread:                         ; preds = %make_leaf.exit, %make_leaf.exit.thread, %186
+  %.0.i127155 = phi ptr [ %179, %make_leaf.exit.thread ], [ %185, %186 ], [ %.064, %make_leaf.exit ]
+  %191 = add i64 %178, 1
+  store i64 %191, ptr %2, align 8, !tbaa !3
   br label %make_node.exit106.backedge
 
-.critedge:                                        ; preds = %make_node.exit106, %make_node.exit106, %make_node.exit106, %make_node.exit113, %make_node.exit92, %.loopexit, %169, %parse_char_class.exit.thread, %72, %56, %45, %42, %39, %20
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %20 ], [ null, %45 ], [ null, %42 ], [ null, %39 ], [ null, %56 ], [ null, %72 ], [ null, %169 ], [ null, %parse_char_class.exit.thread ], [ null, %make_node.exit92 ], [ null, %make_node.exit113 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ]
+.critedge:                                        ; preds = %make_node.exit106, %make_node.exit106, %make_node.exit106, %make_node.exit113, %make_node.exit92, %.loopexit, %171, %parse_char_class.exit.thread, %72, %56, %45, %42, %39, %20
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %20 ], [ null, %45 ], [ null, %42 ], [ null, %39 ], [ null, %56 ], [ null, %72 ], [ null, %171 ], [ null, %parse_char_class.exit.thread ], [ null, %make_node.exit92 ], [ null, %make_node.exit113 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ]
   ret ptr %.0
 }
 

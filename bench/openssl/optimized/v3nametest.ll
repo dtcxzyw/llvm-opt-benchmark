@@ -190,8 +190,8 @@ make_cert.exit:                                   ; preds = %11, %15, %20
 
 .preheader:                                       ; preds = %22, %.loopexit.i
   %28 = phi ptr [ %100, %.loopexit.i ], [ @.str.13, %22 ]
-  %.068143.i = phi ptr [ %99, %.loopexit.i ], [ @names, %22 ]
-  %.069142.i = phi i32 [ %spec.select95.i, %.loopexit.i ], [ 0, %22 ]
+  %.068141.i = phi ptr [ %99, %.loopexit.i ], [ @names, %22 ]
+  %.069140.i = phi i32 [ %spec.select95.i, %.loopexit.i ], [ 0, %22 ]
   %29 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %12, ptr noundef nonnull %28) #7
   %30 = icmp eq i32 %29, 0
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #8
@@ -223,7 +223,7 @@ make_cert.exit:                                   ; preds = %11, %15, %20
   br i1 %43, label %.thread113.i, label %.thread.i
 
 .thread.i:                                        ; preds = %42, %35
-  %.271.ph.i = phi i32 [ %.069142.i, %42 ], [ 1, %35 ]
+  %.271.ph.i = phi i32 [ %.069140.i, %42 ], [ 1, %35 ]
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #7
   br label %check_message.exit.i
 
@@ -261,7 +261,7 @@ make_cert.exit:                                   ; preds = %11, %15, %20
   br label %check_message.exit.i
 
 check_message.exit.i:                             ; preds = %52, %56, %45, %.thread.i
-  %.271111.i = phi i32 [ %.069142.i, %56 ], [ %.069142.i, %45 ], [ %.271.ph.i, %.thread.i ], [ %.069142.i, %52 ]
+  %.271111.i = phi i32 [ %.069140.i, %56 ], [ %.069140.i, %45 ], [ %.271.ph.i, %.thread.i ], [ %.069140.i, %52 ]
   %.0.i.i = phi i32 [ 0, %56 ], [ 1, %45 ], [ 1, %.thread.i ], [ 1, %52 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #7
   %57 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 307, ptr noundef nonnull @.str.68, i32 noundef %.0.i.i) #7
@@ -388,11 +388,11 @@ select.unfold131.i:                               ; preds = %83, %82
   %.0.i106.i = phi i32 [ 0, %96 ], [ 1, %select.unfold131.i ], [ 1, %.thread137.i ], [ 1, %92 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #7
   %97 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 335, ptr noundef nonnull @.str.73, i32 noundef %.0.i106.i) #7
-  call void @CRYPTO_free(ptr noundef %33, ptr noundef nonnull @.str.2, i32 noundef 337) #7
   %.not86.i = icmp eq i32 %97, 0
   %98 = select i1 %.not86.i, i1 true, i1 %.not82.i
   %spec.select95.i = select i1 %98, i32 1, i32 %.473124.i
-  %99 = getelementptr inbounds nuw i8, ptr %.068143.i, i64 8
+  call void @CRYPTO_free(ptr noundef %33, ptr noundef nonnull @.str.2, i32 noundef 337) #7
+  %99 = getelementptr inbounds nuw i8, ptr %.068141.i, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !13
   %.not.i15 = icmp eq ptr %100, null
   br i1 %.not.i15, label %run_cert.exit, label %.preheader, !llvm.loop !17

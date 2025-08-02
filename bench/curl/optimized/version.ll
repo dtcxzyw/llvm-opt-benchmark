@@ -182,7 +182,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @curl_version_info(i32 noundef %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @curl_version_info(i32 noundef %0) local_unnamed_addr #0 {
   tail call void @Curl_ssl_version(ptr noundef nonnull @curl_version_info.ssl_buffer, i64 noundef 80) #7
   store ptr @curl_version_info.ssl_buffer, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 40), align 8, !tbaa !11
   %2 = tail call ptr @zlibVersion() #7

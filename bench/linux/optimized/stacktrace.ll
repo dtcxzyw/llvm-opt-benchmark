@@ -173,17 +173,17 @@ define dso_local void @arch_stack_walk_user(ptr noundef readonly captures(none) 
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %7 = load i64, ptr %6, align 8
   %8 = tail call zeroext i1 %0(ptr noundef %1, i64 noundef %7) #7
-  br i1 %8, label %9, label %.thread2
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 152
   br label %11
 
-11:                                               ; preds = %48, %9
-  %.in = phi i64 [ %23, %48 ], [ %5, %9 ]
+11:                                               ; preds = %44, %9
+  %.in = phi i64 [ %23, %44 ], [ %5, %9 ]
   %12 = inttoptr i64 %.in to ptr
   %13 = icmp sgt i64 %.in, -1
-  br i1 %13, label %14, label %.thread2
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %11
   %15 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !6
@@ -202,7 +202,7 @@ define dso_local void @arch_stack_walk_user(ptr noundef readonly captures(none) 
   tail call void @llvm.write_register.i64(metadata !0, i64 %24)
   %26 = and i64 %25, 4294967295
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %38
+  br i1 %27, label %28, label %.critedge.critedge
 
 28:                                               ; preds = %14
   %29 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -214,30 +214,32 @@ define dso_local void @arch_stack_walk_user(ptr noundef readonly captures(none) 
   %35 = ptrtoint ptr %32 to i64
   tail call void @llvm.write_register.i64(metadata !0, i64 %34)
   %36 = and i64 %35, 4294967295
-  %37 = icmp ne i64 %36, 0
-  br label %38
-
-38:                                               ; preds = %14, %28
-  %39 = phi i64 [ 0, %14 ], [ %33, %28 ]
-  %40 = phi i1 [ true, %14 ], [ %37, %28 ]
+  %.not = icmp eq i64 %36, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
-  %41 = load i32, ptr %17, align 4
-  %42 = add i32 %41, -1
-  store i32 %42, ptr %17, align 4
-  br i1 %40, label %.thread2, label %43
+  %37 = load i32, ptr %17, align 4
+  %38 = add i32 %37, -1
+  store i32 %38, ptr %17, align 4
+  br i1 %.not, label %39, label %.critedge
 
-43:                                               ; preds = %38
-  %44 = load i64, ptr %10, align 8
-  %45 = icmp ugt i64 %44, %.in
-  %46 = icmp eq i64 %39, 0
-  %47 = select i1 %45, i1 true, i1 %46
-  br i1 %47, label %.thread2, label %48
+39:                                               ; preds = %28
+  %40 = load i64, ptr %10, align 8
+  %41 = icmp ugt i64 %40, %.in
+  %42 = icmp eq i64 %33, 0
+  %43 = select i1 %41, i1 true, i1 %42
+  br i1 %43, label %.critedge, label %44
 
-48:                                               ; preds = %43
-  %49 = tail call zeroext i1 %0(ptr noundef %1, i64 noundef %39) #7
-  br i1 %49, label %11, label %.thread2
+44:                                               ; preds = %39
+  %45 = tail call zeroext i1 %0(ptr noundef %1, i64 noundef %33) #7
+  br i1 %45, label %11, label %.critedge
 
-.thread2:                                         ; preds = %11, %43, %38, %48, %3
+.critedge.critedge:                               ; preds = %14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
+  %46 = load i32, ptr %17, align 4
+  %47 = add i32 %46, -1
+  store i32 %47, ptr %17, align 4
+  br label %.critedge
+
+.critedge:                                        ; preds = %11, %28, %39, %44, %.critedge.critedge, %3
   ret void
 }
 

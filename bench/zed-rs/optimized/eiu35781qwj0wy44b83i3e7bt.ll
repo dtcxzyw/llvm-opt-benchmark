@@ -10524,7 +10524,7 @@ define hidden noundef ptr @"_ZN13wasmtime_wasi10filesystem4File15_spawn_blocking
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @"_ZN13wasmtime_wasi10filesystem4File15_spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h34378b85f09e099cE.llvm.7826144646137628382"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @"_ZN13wasmtime_wasi10filesystem4File15_spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h34378b85f09e099cE.llvm.7826144646137628382"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22281,7 +22281,7 @@ common.ret:                                       ; preds = %210, %"_ZN50_$LT$T$
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17ha04ee329d7e6fdcfE.exit": ; preds = %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h10404877c56d9194E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i46", %45, %49, %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h55200e0956499113E.exit"
   %.sroa.082.0 = phi i64 [ %.sroa.017.i.sroa.0.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h55200e0956499113E.exit" ], [ -9223372036854775808, %54 ], [ -9223372036854775808, %49 ], [ -9223372036854775808, %45 ], [ -9223372036854775808, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i46" ], [ -9223372036854775808, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h10404877c56d9194E.exit" ]
   %.sroa.683.0 = phi ptr [ %.sroa.017.i.sroa.5.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h55200e0956499113E.exit" ], [ %55, %54 ], [ %50, %49 ], [ %46, %45 ], [ %215, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i46" ], [ %215, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h10404877c56d9194E.exit" ]
-  %.sroa.1184.0 = phi i64 [ %217, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h55200e0956499113E.exit" ], [ undef, %54 ], [ undef, %49 ], [ undef, %45 ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i46" ], [ undef, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h10404877c56d9194E.exit" ]
+  %.sroa.1184.0 = phi i64 [ %216, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h55200e0956499113E.exit" ], [ undef, %54 ], [ undef, %49 ], [ undef, %45 ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i46" ], [ undef, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h10404877c56d9194E.exit" ]
   %.sroa.12.0 = phi i8 [ %218, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h55200e0956499113E.exit" ], [ undef, %54 ], [ undef, %49 ], [ undef, %45 ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i46" ], [ undef, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h10404877c56d9194E.exit" ]
   store i64 %.sroa.082.0, ptr %0, align 8
   %.sroa.683.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22881,10 +22881,10 @@ common.ret:                                       ; preds = %210, %"_ZN50_$LT$T$
           to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h10404877c56d9194E.exit" unwind label %219
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h55200e0956499113E.exit": ; preds = %.thread118
-  %216 = icmp eq i64 %.sroa.4.0.i, 0
   %.sroa.017.i.sroa.6.0.fr = freeze i64 %.sroa.017.i.sroa.6.0
-  %217 = call i64 @llvm.umin.i64(i64 %.sroa.4.0.i, i64 %.sroa.017.i.sroa.6.0.fr)
-  %218 = zext i1 %216 to i8
+  %216 = call i64 @llvm.umin.i64(i64 %.sroa.4.0.i, i64 %.sroa.017.i.sroa.6.0.fr)
+  %217 = icmp eq i64 %.sroa.4.0.i, 0
+  %218 = zext i1 %217 to i8
   br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17ha04ee329d7e6fdcfE.exit"
 
 219:                                              ; preds = %213
@@ -26705,7 +26705,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @"_ZN13wasmtime_wasi4host10filesystem142_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he09341966a16da85E.llvm.7826144646137628382"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @"_ZN13wasmtime_wasi4host10filesystem142_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he09341966a16da85E.llvm.7826144646137628382"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -99643,7 +99643,7 @@ define hidden { i64, ptr } @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef ptr @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_io_ext..FileIoExt$GT$6advise17h4760c382bcf4de2aE.llvm.7826144646137628382"(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef ptr @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_io_ext..FileIoExt$GT$6advise17h4760c382bcf4de2aE.llvm.7826144646137628382"(ptr noalias noundef readonly align 4 dereferenceable(4) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = tail call noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h937dc38f5675d461E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %0), !range !1801
   %6 = zext i32 %5 to i64
   %7 = inttoptr i64 %6 to ptr

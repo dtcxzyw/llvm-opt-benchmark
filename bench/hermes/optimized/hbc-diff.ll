@@ -1503,7 +1503,6 @@ _ZNK6hermes3hbc20BCProviderFromBuffer11getBytecodeEj.exit.i: ; preds = %if.else.
   %retval.0.i.i.i = phi i32 [ %126, %if.then.i1.i.i ], [ %bf.cast.i.i.i, %if.else.i.i469.i ]
   %idx.ext.i.i = zext i32 %retval.0.i.i.i to i64
   %add.ptr.i468.i = getelementptr inbounds nuw i8, ptr %121, i64 %idx.ext.i.i
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %121, i64 1
   %cmp1051014.not.i = icmp eq i32 %120, 0
   br i1 %cmp1051014.not.i, label %for.end.i, label %for.body106.preheader.i
 
@@ -1530,11 +1529,12 @@ if.then.i.i475.i:                                 ; preds = %for.body106.i
   %129 = trunc i120 %bf.load.i.i.i476.i to i64
   %bf.cast4.i.i.i480.i = and i64 %129, 33554431
   %or.i.i.i481.i = or i64 %shl.i.i.i479.i, %bf.cast4.i.i.i480.i
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %or.i.i.i481.i
+  %add.ptr.i.i482.i = getelementptr inbounds nuw i8, ptr %121, i64 %or.i.i.i481.i
+  %add.ptr.i.i.i483.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i482.i, i64 1
   br label %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit.i484.i
 
 _ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit.i484.i: ; preds = %if.then.i.i475.i, %for.body106.i
-  %retval.sroa.0.0.i.i485.i = phi ptr [ %gep.i, %if.then.i.i475.i ], [ %arrayidx.i.i.i, %for.body106.i ]
+  %retval.sroa.0.0.i.i485.i = phi ptr [ %add.ptr.i.i.i483.i, %if.then.i.i475.i ], [ %arrayidx.i.i.i, %for.body106.i ]
   %130 = ptrtoint ptr %retval.sroa.0.0.i.i485.i to i64
   %and.i.i.i486.i = and i64 %130, 1
   %tobool.i.not.i.i487.i = icmp eq i64 %and.i.i.i486.i, 0

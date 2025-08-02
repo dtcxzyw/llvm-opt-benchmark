@@ -720,7 +720,7 @@ define internal range(i32 -30, 1) i32 @archive_write_client_close(ptr noundef ca
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %20 = load i32, ptr %19, align 8, !tbaa !19
   %21 = sext i32 %20 to i64
-  br label %28
+  br label %29
 
 22:                                               ; preds = %10
   %23 = zext nneg i32 %16 to i64
@@ -732,73 +732,72 @@ define internal range(i32 -30, 1) i32 @archive_write_client_close(ptr noundef ca
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 224
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !19
   %.pre62 = sext i32 %.pre to i64
-  br label %28
+  %28 = tail call i64 @llvm.smin.i64(i64 %27, i64 %.pre62)
+  br label %29
 
-28:                                               ; preds = %22, %18
-  %.pre-phi = phi i64 [ %.pre62, %22 ], [ %21, %18 ]
-  %.047 = phi i64 [ %27, %22 ], [ %21, %18 ]
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %.047, i64 %.pre-phi)
-  %29 = icmp slt i64 %14, %spec.select
-  br i1 %29, label %30, label %32
+29:                                               ; preds = %22, %18
+  %.047 = phi i64 [ %28, %22 ], [ %21, %18 ]
+  %30 = icmp slt i64 %14, %.047
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %28
-  %31 = sub nsw i64 %spec.select, %14
-  tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %31, i1 false)
-  br label %32
+31:                                               ; preds = %29
+  %32 = sub nsw i64 %.047, %14
+  tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %32, i1 false)
+  br label %33
 
-32:                                               ; preds = %30, %28
-  %.046 = phi i64 [ %spec.select, %30 ], [ %14, %28 ]
+33:                                               ; preds = %31, %29
+  %.046 = phi i64 [ %.047, %31 ], [ %14, %29 ]
   %.not5557 = icmp eq i64 %.046, 0
   br i1 %.not5557, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %32
-  %33 = load ptr, ptr %8, align 8, !tbaa !52
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  br label %36
+.lr.ph:                                           ; preds = %33
+  %34 = load ptr, ptr %8, align 8, !tbaa !52
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 216
+  br label %37
 
-36:                                               ; preds = %.lr.ph, %44
-  %.04459 = phi ptr [ %33, %.lr.ph ], [ %45, %44 ]
-  %.04558 = phi i64 [ %.046, %.lr.ph ], [ %46, %44 ]
-  %37 = load ptr, ptr %34, align 8, !tbaa !35
-  %38 = load ptr, ptr %35, align 8, !tbaa !39
-  %39 = tail call i64 %37(ptr noundef nonnull %3, ptr noundef %38, ptr noundef %.04459, i64 noundef %.04558) #13
-  %40 = icmp slt i64 %39, 1
-  br i1 %40, label %.loopexit, label %41
+37:                                               ; preds = %.lr.ph, %45
+  %.04459 = phi ptr [ %34, %.lr.ph ], [ %46, %45 ]
+  %.04558 = phi i64 [ %.046, %.lr.ph ], [ %47, %45 ]
+  %38 = load ptr, ptr %35, align 8, !tbaa !35
+  %39 = load ptr, ptr %36, align 8, !tbaa !39
+  %40 = tail call i64 %38(ptr noundef nonnull %3, ptr noundef %39, ptr noundef %.04459, i64 noundef %.04558) #13
+  %41 = icmp slt i64 %40, 1
+  br i1 %41, label %.loopexit, label %42
 
-41:                                               ; preds = %36
-  %42 = icmp ugt i64 %39, %.04558
-  br i1 %42, label %43, label %44
+42:                                               ; preds = %37
+  %43 = icmp ugt i64 %40, %.04558
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %41
+44:                                               ; preds = %42
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %3, i32 noundef -1, ptr noundef nonnull @.str.14) #13
   br label %.loopexit
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %.04459, i64 %39
-  %46 = sub nuw i64 %.04558, %39
-  %.not55 = icmp eq i64 %46, 0
-  br i1 %.not55, label %.loopexit, label %36, !llvm.loop !59
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %.04459, i64 %40
+  %47 = sub nuw i64 %.04558, %40
+  %.not55 = icmp eq i64 %47, 0
+  br i1 %.not55, label %.loopexit, label %37, !llvm.loop !59
 
-.loopexit:                                        ; preds = %44, %36, %32, %43, %1
-  %.0 = phi i32 [ -30, %43 ], [ 0, %1 ], [ 0, %32 ], [ 0, %44 ], [ -30, %36 ]
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %48 = load ptr, ptr %47, align 8, !tbaa !37
-  %.not56 = icmp eq ptr %48, null
-  br i1 %.not56, label %53, label %49
+.loopexit:                                        ; preds = %45, %37, %33, %44, %1
+  %.0 = phi i32 [ -30, %44 ], [ 0, %1 ], [ 0, %33 ], [ 0, %45 ], [ -30, %37 ]
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %49 = load ptr, ptr %48, align 8, !tbaa !37
+  %.not56 = icmp eq ptr %49, null
+  br i1 %.not56, label %54, label %50
 
-49:                                               ; preds = %.loopexit
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  %51 = load ptr, ptr %50, align 8, !tbaa !39
-  %52 = tail call i32 %48(ptr noundef nonnull %3, ptr noundef %51) #13
-  br label %53
+50:                                               ; preds = %.loopexit
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 216
+  %52 = load ptr, ptr %51, align 8, !tbaa !39
+  %53 = tail call i32 %49(ptr noundef nonnull %3, ptr noundef %52) #13
+  br label %54
 
-53:                                               ; preds = %49, %.loopexit
-  %54 = load ptr, ptr %8, align 8, !tbaa !52
-  tail call void @free(ptr noundef %54) #13
+54:                                               ; preds = %50, %.loopexit
+  %55 = load ptr, ptr %8, align 8, !tbaa !52
+  tail call void @free(ptr noundef %55) #13
   tail call void @free(ptr noundef %5) #13
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 4, ptr %55, align 4, !tbaa !29
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 4, ptr %56, align 4, !tbaa !29
   ret i32 %.0
 }
 

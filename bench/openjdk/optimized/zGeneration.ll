@@ -2811,10 +2811,10 @@ define hidden noundef i32 @_ZN16ZGenerationYoung26compute_tenuring_thresholdE27Z
   %6 = getelementptr inbounds nuw [16 x %class.ZRelocationSetSelectorGroupStats], ptr %1, i64 0, i64 %indvars.iv, i32 2
   %7 = load i64, ptr %6, align 8
   %.idx = mul nuw nsw i64 %indvars.iv, 48
-  %8 = getelementptr i8, ptr %3, i64 %.idx
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %7
-  %11 = getelementptr i8, ptr %4, i64 %.idx
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %10, %12
   %.not = icmp eq i64 %13, 0

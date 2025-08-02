@@ -83,15 +83,15 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
   %narrow = sub nuw nsw i32 128, %25
   %38 = zext nneg i32 %narrow to i64
   %39 = zext nneg i32 %25 to i64
-  %invariant.gep81 = getelementptr i8, ptr %0, i64 %39
+  %invariant.gep = getelementptr i8, ptr %0, i64 %39
   br label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
   %indvars.iv76 = phi i64 [ %38, %.lr.ph65.preheader ], [ %indvars.iv.next77, %.lr.ph65 ]
   %.1.in63 = phi i8 [ %37, %.lr.ph65.preheader ], [ %44, %.lr.ph65 ]
   %indvars.iv.next77 = add nsw i64 %indvars.iv76, -1
-  %gep82 = getelementptr i8, ptr %invariant.gep81, i64 %indvars.iv.next77
-  %40 = load i8, ptr %gep82, align 1, !tbaa !3
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv.next77
+  %40 = load i8, ptr %gep, align 1, !tbaa !3
   %41 = xor i8 %40, %.1.in63
   %42 = zext i8 %41 to i64
   %43 = getelementptr inbounds nuw [256 x i8], ptr @key_table, i64 0, i64 %42
@@ -103,22 +103,22 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
 
 ._crit_edge66:                                    ; preds = %.lr.ph65, %._crit_edge60
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %48
 
 48:                                               ; preds = %._crit_edge66, %48
   %indvars.iv78 = phi i64 [ 127, %._crit_edge66 ], [ %indvars.iv.next79, %48 ]
-  %.05068 = phi ptr [ %47, %._crit_edge66 ], [ %51, %48 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv78
-  %49 = load i16, ptr %gep, align 1
-  %50 = zext i16 %49 to i32
-  %51 = getelementptr inbounds i8, ptr %.05068, i64 -4
-  store i32 %50, ptr %.05068, align 4, !tbaa !10
+  %.05068 = phi ptr [ %47, %._crit_edge66 ], [ %53, %48 ]
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv78
+  %50 = getelementptr i8, ptr %49, i64 -1
+  %51 = load i16, ptr %50, align 1
+  %52 = zext i16 %51 to i32
+  %53 = getelementptr inbounds i8, ptr %.05068, i64 -4
+  store i32 %52, ptr %.05068, align 4, !tbaa !10
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -2
-  %52 = icmp samesign ugt i64 %indvars.iv78, 1
-  br i1 %52, label %48, label %53, !llvm.loop !12
+  %54 = icmp samesign ugt i64 %indvars.iv78, 1
+  br i1 %54, label %48, label %55, !llvm.loop !12
 
-53:                                               ; preds = %48
+55:                                               ; preds = %48
   ret void
 }
 

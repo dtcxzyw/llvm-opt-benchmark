@@ -176,179 +176,147 @@ _ZN3MD56updateEPKhj.exit:                         ; preds = %.lr.ph.i, %18, %28
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef nonnull align 4 dereferenceable(108) ptr @_ZN3MD58finalizeEv(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(108) %0) local_unnamed_addr #4 align 2 {
-  %2 = alloca [8 x i8], align 1
+  %2 = alloca [8 x i8], align 8
   %3 = load i8, ptr %0, align 4, !tbaa !6, !range !22, !noundef !23
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %85, label %5
+  br i1 %4, label %78, label %_ZN3MD56encodeEPhPKjj.exit
 
-5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %invariant.gep27.i = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %invariant.gep29.i = getelementptr inbounds nuw i8, ptr %2, i64 3
-  br label %.lr.ph.i
+_ZN3MD56encodeEPhPKjj.exit:                       ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %6 = load i64, ptr %5, align 4
+  store i64 %6, ptr %2, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !11
+  %8 = lshr i32 %7, 3
+  %9 = and i32 %8, 63
+  %10 = icmp samesign ult i32 %9, 56
+  %.v = select i1 %10, i32 56, i32 120
+  %11 = sub nsw i32 %.v, %9
+  %12 = shl nsw i32 %11, 3
+  %13 = add i32 %12, %7
+  store i32 %13, ptr %5, align 4, !tbaa !11
+  %14 = icmp ult i32 %13, %12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %16 = load i32, ptr %15, align 4, !tbaa !11
+  %17 = zext i1 %14 to i32
+  %18 = lshr i32 %11, 29
+  %19 = add i32 %18, %16
+  %20 = add i32 %19, %17
+  store i32 %20, ptr %15, align 4, !tbaa !11
+  %21 = sub nuw nsw i32 64, %9
+  %.not.i = icmp ult i32 %11, %21
+  br i1 %.not.i, label %32, label %22
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %5
-  %indvars.iv22.i = phi i64 [ 0, %5 ], [ %indvars.iv.next23.i, %.lr.ph.i ]
-  %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv22.i
-  %8 = load i32, ptr %7, align 4, !tbaa !11
-  %9 = trunc i32 %8 to i8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
-  store i8 %9, ptr %10, align 1, !tbaa !24
-  %11 = lshr i32 %8, 8
-  %12 = trunc i32 %11 to i8
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  store i8 %12, ptr %gep.i, align 1, !tbaa !24
-  %13 = lshr i32 %8, 16
-  %14 = trunc i32 %13 to i8
-  %gep28.i = getelementptr inbounds nuw i8, ptr %invariant.gep27.i, i64 %indvars.iv.i
-  store i8 %14, ptr %gep28.i, align 1, !tbaa !24
-  %15 = lshr i32 %8, 24
-  %16 = trunc nuw i32 %15 to i8
-  %gep30.i = getelementptr inbounds nuw i8, ptr %invariant.gep29.i, i64 %indvars.iv.i
-  store i8 %16, ptr %gep30.i, align 1, !tbaa !24
-  %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 2
-  br i1 %exitcond.not.i, label %_ZN3MD56encodeEPhPKjj.exit, label %.lr.ph.i, !llvm.loop !25
-
-_ZN3MD56encodeEPhPKjj.exit:                       ; preds = %.lr.ph.i
-  %17 = load i32, ptr %6, align 4, !tbaa !11
-  %18 = lshr i32 %17, 3
-  %19 = and i32 %18, 63
-  %20 = icmp samesign ult i32 %19, 56
-  %.v = select i1 %20, i32 56, i32 120
-  %21 = sub nsw i32 %.v, %19
-  %22 = shl nsw i32 %21, 3
-  %23 = add i32 %22, %17
-  store i32 %23, ptr %6, align 4, !tbaa !11
-  %24 = icmp ult i32 %23, %22
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %26 = load i32, ptr %25, align 4, !tbaa !11
-  %27 = zext i1 %24 to i32
-  %28 = lshr i32 %21, 29
-  %29 = add i32 %28, %26
-  %30 = add i32 %29, %27
-  store i32 %30, ptr %25, align 4, !tbaa !11
-  %31 = sub nuw nsw i32 64, %19
-  %.not.i = icmp ult i32 %21, %31
-  br i1 %.not.i, label %42, label %32
-
-32:                                               ; preds = %_ZN3MD56encodeEPhPKjj.exit
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %34 = zext nneg i32 %19 to i64
-  %35 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 0, i64 %34
-  %36 = zext nneg i32 %31 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 16 dereferenceable(1) @_ZZN3MD58finalizeEvE7padding, i64 %36, i1 false)
-  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %33)
-  %37 = sub nuw nsw i32 128, %19
-  %.not2425.i = icmp ugt i32 %37, %21
+22:                                               ; preds = %_ZN3MD56encodeEPhPKjj.exit
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %24 = zext nneg i32 %9 to i64
+  %25 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 0, i64 %24
+  %26 = zext nneg i32 %21 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 16 dereferenceable(1) @_ZZN3MD58finalizeEvE7padding, i64 %26, i1 false)
+  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %23)
+  %27 = sub nuw nsw i32 128, %9
+  %.not2425.i = icmp ugt i32 %27, %11
   br i1 %.not2425.i, label %_ZN3MD56updateEPKhj.exit, label %.lr.ph.i4
 
-.lr.ph.i4:                                        ; preds = %32, %.lr.ph.i4
-  %38 = phi i32 [ %41, %.lr.ph.i4 ], [ %37, %32 ]
-  %.026.i = phi i32 [ %38, %.lr.ph.i4 ], [ %31, %32 ]
-  %39 = zext i32 %.026.i to i64
-  %40 = getelementptr inbounds nuw i8, ptr @_ZZN3MD58finalizeEvE7padding, i64 %39
-  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull readonly %40)
-  %41 = add i32 %38, 64
-  %.not24.i = icmp ugt i32 %41, %21
+.lr.ph.i4:                                        ; preds = %22, %.lr.ph.i4
+  %28 = phi i32 [ %31, %.lr.ph.i4 ], [ %27, %22 ]
+  %.026.i = phi i32 [ %28, %.lr.ph.i4 ], [ %21, %22 ]
+  %29 = zext i32 %.026.i to i64
+  %30 = getelementptr inbounds nuw i8, ptr @_ZZN3MD58finalizeEvE7padding, i64 %29
+  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull readonly %30)
+  %31 = add i32 %28, 64
+  %.not24.i = icmp ugt i32 %31, %11
   br i1 %.not24.i, label %_ZN3MD56updateEPKhj.exit, label %.lr.ph.i4, !llvm.loop !20
 
-42:                                               ; preds = %_ZN3MD56encodeEPhPKjj.exit
-  %43 = zext nneg i32 %19 to i64
+32:                                               ; preds = %_ZN3MD56encodeEPhPKjj.exit
+  %33 = zext nneg i32 %9 to i64
   br label %_ZN3MD56updateEPKhj.exit
 
-_ZN3MD56updateEPKhj.exit:                         ; preds = %.lr.ph.i4, %32, %42
-  %.020.i = phi i64 [ %43, %42 ], [ 0, %32 ], [ 0, %.lr.ph.i4 ]
-  %.1.i = phi i32 [ 0, %42 ], [ %31, %32 ], [ %38, %.lr.ph.i4 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %45 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 0, i64 %.020.i
-  %46 = zext i32 %.1.i to i64
-  %47 = getelementptr inbounds nuw i8, ptr @_ZZN3MD58finalizeEvE7padding, i64 %46
-  %48 = sub i32 %21, %.1.i
-  %49 = zext i32 %48 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull readonly align 1 %47, i64 %49, i1 false)
-  %50 = load i32, ptr %6, align 4, !tbaa !11
-  %51 = lshr i32 %50, 3
-  %52 = and i32 %51, 63
-  %53 = add i32 %50, 64
-  store i32 %53, ptr %6, align 4, !tbaa !11
-  %54 = icmp ugt i32 %50, -65
-  %55 = load i32, ptr %25, align 4, !tbaa !11
-  %56 = zext i1 %54 to i32
-  %57 = add i32 %55, %56
-  store i32 %57, ptr %25, align 4, !tbaa !11
-  %.not.i5 = icmp samesign ult i32 %52, 56
-  br i1 %.not.i5, label %63, label %58
+_ZN3MD56updateEPKhj.exit:                         ; preds = %.lr.ph.i4, %22, %32
+  %.020.i = phi i64 [ %33, %32 ], [ 0, %22 ], [ 0, %.lr.ph.i4 ]
+  %.1.i = phi i32 [ 0, %32 ], [ %21, %22 ], [ %28, %.lr.ph.i4 ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %35 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 0, i64 %.020.i
+  %36 = zext i32 %.1.i to i64
+  %37 = getelementptr inbounds nuw i8, ptr @_ZZN3MD58finalizeEvE7padding, i64 %36
+  %38 = sub i32 %11, %.1.i
+  %39 = zext i32 %38 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %37, i64 %39, i1 false)
+  %40 = load i32, ptr %5, align 4, !tbaa !11
+  %41 = lshr i32 %40, 3
+  %42 = and i32 %41, 63
+  %43 = add i32 %40, 64
+  store i32 %43, ptr %5, align 4, !tbaa !11
+  %44 = icmp ugt i32 %40, -65
+  %45 = load i32, ptr %15, align 4, !tbaa !11
+  %46 = zext i1 %44 to i32
+  %47 = add i32 %45, %46
+  store i32 %47, ptr %15, align 4, !tbaa !11
+  %.not.i5 = icmp samesign ult i32 %42, 56
+  br i1 %.not.i5, label %53, label %48
 
-58:                                               ; preds = %_ZN3MD56updateEPKhj.exit
-  %59 = sub nuw nsw i32 64, %52
-  %60 = zext nneg i32 %52 to i64
-  %61 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 0, i64 %60
-  %62 = zext nneg i32 %59 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 %62, i1 false)
-  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %44)
+48:                                               ; preds = %_ZN3MD56updateEPKhj.exit
+  %49 = sub nuw nsw i32 64, %42
+  %50 = zext nneg i32 %42 to i64
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 0, i64 %50
+  %52 = zext nneg i32 %49 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 8 dereferenceable(1) %2, i64 %52, i1 false)
+  tail call void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull %34)
   br label %_ZN3MD56updateEPKhj.exit12
 
-63:                                               ; preds = %_ZN3MD56updateEPKhj.exit
-  %64 = zext nneg i32 %52 to i64
+53:                                               ; preds = %_ZN3MD56updateEPKhj.exit
+  %54 = zext nneg i32 %42 to i64
   br label %_ZN3MD56updateEPKhj.exit12
 
-_ZN3MD56updateEPKhj.exit12:                       ; preds = %58, %63
-  %.020.i10 = phi i64 [ %64, %63 ], [ 0, %58 ]
-  %.1.i11 = phi i32 [ 0, %63 ], [ %59, %58 ]
-  %65 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 0, i64 %.020.i10
-  %66 = zext nneg i32 %.1.i11 to i64
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 %66
-  %68 = sub nuw nsw i32 8, %.1.i11
-  %69 = zext nneg i32 %68 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull readonly align 1 %67, i64 %69, i1 false)
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %invariant.gep.i13 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  %invariant.gep27.i14 = getelementptr inbounds nuw i8, ptr %0, i64 94
-  %invariant.gep29.i15 = getelementptr inbounds nuw i8, ptr %0, i64 95
-  br label %.lr.ph.i16
+_ZN3MD56updateEPKhj.exit12:                       ; preds = %48, %53
+  %.020.i10 = phi i64 [ %54, %53 ], [ 0, %48 ]
+  %.1.i11 = phi i32 [ 0, %53 ], [ %49, %48 ]
+  %55 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 0, i64 %.020.i10
+  %56 = zext nneg i32 %.1.i11 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 %56
+  %58 = sub nuw nsw i32 8, %.1.i11
+  %59 = zext nneg i32 %58 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull readonly align 1 %57, i64 %59, i1 false)
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  br label %.lr.ph.i13
 
-.lr.ph.i16:                                       ; preds = %.lr.ph.i16, %_ZN3MD56updateEPKhj.exit12
-  %indvars.iv22.i17 = phi i64 [ 0, %_ZN3MD56updateEPKhj.exit12 ], [ %indvars.iv.next23.i22, %.lr.ph.i16 ]
-  %indvars.iv.i18 = phi i64 [ 0, %_ZN3MD56updateEPKhj.exit12 ], [ %indvars.iv.next.i23, %.lr.ph.i16 ]
-  %72 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv22.i17
-  %73 = load i32, ptr %72, align 4, !tbaa !11
-  %74 = trunc i32 %73 to i8
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv.i18
-  store i8 %74, ptr %75, align 4, !tbaa !24
-  %76 = load i32, ptr %72, align 4, !tbaa !11
-  %77 = lshr i32 %76, 8
-  %78 = trunc i32 %77 to i8
-  %gep.i19 = getelementptr inbounds nuw i8, ptr %invariant.gep.i13, i64 %indvars.iv.i18
-  store i8 %78, ptr %gep.i19, align 1, !tbaa !24
-  %79 = load i32, ptr %72, align 4, !tbaa !11
-  %80 = lshr i32 %79, 16
-  %81 = trunc i32 %80 to i8
-  %gep28.i20 = getelementptr inbounds nuw i8, ptr %invariant.gep27.i14, i64 %indvars.iv.i18
-  store i8 %81, ptr %gep28.i20, align 2, !tbaa !24
-  %82 = load i32, ptr %72, align 4, !tbaa !11
-  %83 = lshr i32 %82, 24
-  %84 = trunc nuw i32 %83 to i8
-  %gep30.i21 = getelementptr inbounds nuw i8, ptr %invariant.gep29.i15, i64 %indvars.iv.i18
-  store i8 %84, ptr %gep30.i21, align 1, !tbaa !24
-  %indvars.iv.next23.i22 = add nuw nsw i64 %indvars.iv22.i17, 1
-  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i18, 4
-  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next23.i22, 4
-  br i1 %exitcond.not.i24, label %_ZN3MD56encodeEPhPKjj.exit25, label %.lr.ph.i16, !llvm.loop !25
+.lr.ph.i13:                                       ; preds = %.lr.ph.i13, %_ZN3MD56updateEPKhj.exit12
+  %indvars.iv22.i14 = phi i64 [ 0, %_ZN3MD56updateEPKhj.exit12 ], [ %indvars.iv.next23.i16, %.lr.ph.i13 ]
+  %indvars.iv.i15 = phi i64 [ 0, %_ZN3MD56updateEPKhj.exit12 ], [ %indvars.iv.next.i17, %.lr.ph.i13 ]
+  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv22.i14
+  %63 = load i32, ptr %62, align 4, !tbaa !11
+  %64 = trunc i32 %63 to i8
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv.i15
+  store i8 %64, ptr %65, align 4, !tbaa !24
+  %66 = load i32, ptr %62, align 4, !tbaa !11
+  %67 = lshr i32 %66, 8
+  %68 = trunc i32 %67 to i8
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  store i8 %68, ptr %69, align 1, !tbaa !24
+  %70 = load i32, ptr %62, align 4, !tbaa !11
+  %71 = lshr i32 %70, 16
+  %72 = trunc i32 %71 to i8
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 2
+  store i8 %72, ptr %73, align 2, !tbaa !24
+  %74 = load i32, ptr %62, align 4, !tbaa !11
+  %75 = lshr i32 %74, 24
+  %76 = trunc nuw i32 %75 to i8
+  %77 = getelementptr inbounds nuw i8, ptr %65, i64 3
+  store i8 %76, ptr %77, align 1, !tbaa !24
+  %indvars.iv.next23.i16 = add nuw nsw i64 %indvars.iv22.i14, 1
+  %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 4
+  %exitcond.not.i18 = icmp eq i64 %indvars.iv.next23.i16, 4
+  br i1 %exitcond.not.i18, label %_ZN3MD56encodeEPhPKjj.exit19, label %.lr.ph.i13, !llvm.loop !25
 
-_ZN3MD56encodeEPhPKjj.exit25:                     ; preds = %.lr.ph.i16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %44, i8 0, i64 64, i1 false)
-  store i64 0, ptr %6, align 4
+_ZN3MD56encodeEPhPKjj.exit19:                     ; preds = %.lr.ph.i13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %34, i8 0, i64 64, i1 false)
+  store i64 0, ptr %5, align 4
   store i8 1, ptr %0, align 4, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
-  br label %85
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  br label %78
 
-85:                                               ; preds = %_ZN3MD56encodeEPhPKjj.exit25, %1
+78:                                               ; preds = %_ZN3MD56encodeEPhPKjj.exit19, %1
   ret ptr %0
 }
 
@@ -362,9 +330,6 @@ define void @_ZN3MD56decodeEPjPKhj(ptr noundef writeonly captures(none) %0, ptr 
   %5 = lshr i32 %4, 2
   %6 = add nuw nsw i32 %5, 1
   %wide.trip.count = zext nneg i32 %6 to i64
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %invariant.gep21 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %invariant.gep23 = getelementptr inbounds nuw i8, ptr %1, i64 3
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -376,23 +341,26 @@ define void @_ZN3MD56decodeEPjPKhj(ptr noundef writeonly captures(none) %0, ptr 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1, !tbaa !24
   %9 = zext i8 %8 to i32
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  %10 = load i8, ptr %gep, align 1, !tbaa !24
-  %11 = zext i8 %10 to i32
-  %12 = shl nuw nsw i32 %11, 8
-  %13 = or disjoint i32 %12, %9
-  %gep22 = getelementptr inbounds nuw i8, ptr %invariant.gep21, i64 %indvars.iv
-  %14 = load i8, ptr %gep22, align 1, !tbaa !24
-  %15 = zext i8 %14 to i32
-  %16 = shl nuw nsw i32 %15, 16
-  %17 = or disjoint i32 %13, %16
-  %gep24 = getelementptr inbounds nuw i8, ptr %invariant.gep23, i64 %indvars.iv
-  %18 = load i8, ptr %gep24, align 1, !tbaa !24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %12 = load i8, ptr %11, align 1, !tbaa !24
+  %13 = zext i8 %12 to i32
+  %14 = shl nuw nsw i32 %13, 8
+  %15 = or disjoint i32 %14, %9
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i8, ptr %17, align 1, !tbaa !24
   %19 = zext i8 %18 to i32
-  %20 = shl nuw i32 %19, 24
-  %21 = or disjoint i32 %17, %20
-  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv16
-  store i32 %21, ptr %22, align 4, !tbaa !11
+  %20 = shl nuw nsw i32 %19, 16
+  %21 = or disjoint i32 %15, %20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 3
+  %24 = load i8, ptr %23, align 1, !tbaa !24
+  %25 = zext i8 %24 to i32
+  %26 = shl nuw i32 %25, 24
+  %27 = or disjoint i32 %21, %26
+  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv16
+  store i32 %27, ptr %28, align 4, !tbaa !11
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next17, %wide.trip.count
@@ -415,9 +383,6 @@ define void @_ZN3MD56encodeEPhPKjj(ptr noundef writeonly captures(none) %0, ptr 
   %5 = lshr i32 %4, 2
   %6 = add nuw nsw i32 %5, 1
   %wide.trip.count = zext nneg i32 %6 to i64
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %invariant.gep27 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %invariant.gep29 = getelementptr inbounds nuw i8, ptr %0, i64 3
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -434,766 +399,733 @@ define void @_ZN3MD56encodeEPhPKjj(ptr noundef writeonly captures(none) %0, ptr 
   %11 = load i32, ptr %7, align 4, !tbaa !11
   %12 = lshr i32 %11, 8
   %13 = trunc i32 %12 to i8
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  store i8 %13, ptr %gep, align 1, !tbaa !24
-  %14 = load i32, ptr %7, align 4, !tbaa !11
-  %15 = lshr i32 %14, 16
-  %16 = trunc i32 %15 to i8
-  %gep28 = getelementptr inbounds nuw i8, ptr %invariant.gep27, i64 %indvars.iv
-  store i8 %16, ptr %gep28, align 1, !tbaa !24
-  %17 = load i32, ptr %7, align 4, !tbaa !11
-  %18 = lshr i32 %17, 24
-  %19 = trunc nuw i32 %18 to i8
-  %gep30 = getelementptr inbounds nuw i8, ptr %invariant.gep29, i64 %indvars.iv
-  store i8 %19, ptr %gep30, align 1, !tbaa !24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  store i8 %13, ptr %15, align 1, !tbaa !24
+  %16 = load i32, ptr %7, align 4, !tbaa !11
+  %17 = lshr i32 %16, 16
+  %18 = trunc i32 %17 to i8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store i8 %18, ptr %20, align 1, !tbaa !24
+  %21 = load i32, ptr %7, align 4, !tbaa !11
+  %22 = lshr i32 %21, 24
+  %23 = trunc nuw i32 %22 to i8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 3
+  store i8 %23, ptr %25, align 1, !tbaa !24
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 captures(none) dereferenceable(108) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
-  %3 = alloca [16 x i32], align 16
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @_ZN3MD59transformEPKh(ptr noundef nonnull align 4 captures(none) dereferenceable(108) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 align 2 {
+_ZN3MD56decodeEPjPKhj.exit:
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %3 = load i32, ptr %2, align 4, !tbaa !11
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 4, !tbaa !11
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %7 = load i32, ptr %6, align 4, !tbaa !11
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i32, ptr %8, align 4, !tbaa !11
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %11 = load i32, ptr %10, align 4, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #17
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %invariant.gep21.i = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %invariant.gep23.i = getelementptr inbounds nuw i8, ptr %1, i64 3
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %2
-  %indvars.iv16.i = phi i64 [ 0, %2 ], [ %indvars.iv.next17.i, %.lr.ph.i ]
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %13 = load i8, ptr %12, align 1, !tbaa !24
-  %14 = zext i8 %13 to i32
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %15 = load i8, ptr %gep.i, align 1, !tbaa !24
-  %16 = zext i8 %15 to i32
-  %17 = shl nuw nsw i32 %16, 8
-  %18 = or disjoint i32 %17, %14
-  %gep22.i = getelementptr inbounds nuw i8, ptr %invariant.gep21.i, i64 %indvars.iv.i
-  %19 = load i8, ptr %gep22.i, align 1, !tbaa !24
-  %20 = zext i8 %19 to i32
-  %21 = shl nuw nsw i32 %20, 16
-  %22 = or disjoint i32 %18, %21
-  %gep24.i = getelementptr inbounds nuw i8, ptr %invariant.gep23.i, i64 %indvars.iv.i
-  %23 = load i8, ptr %gep24.i, align 1, !tbaa !24
-  %24 = zext i8 %23 to i32
-  %25 = shl nuw i32 %24, 24
-  %26 = or disjoint i32 %22, %25
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv16.i
-  store i32 %26, ptr %27, align 4, !tbaa !11
-  %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next17.i, 16
-  br i1 %exitcond.not.i, label %_ZN3MD56decodeEPjPKhj.exit, label %.lr.ph.i, !llvm.loop !26
-
-_ZN3MD56decodeEPjPKhj.exit:                       ; preds = %.lr.ph.i
-  %28 = load i32, ptr %3, align 16, !tbaa !11
-  %29 = and i32 %9, %7
-  %30 = xor i32 %7, -1
-  %31 = and i32 %11, %30
-  %32 = add i32 %5, -680876936
-  %33 = add i32 %32, %29
-  %34 = add i32 %33, %31
-  %35 = add i32 %34, %28
-  %36 = shl i32 %35, 7
-  %37 = lshr i32 %35, 25
-  %38 = add i32 %36, %7
-  %39 = add i32 %38, %37
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %41 = load i32, ptr %40, align 4, !tbaa !11
-  %42 = and i32 %39, %7
-  %43 = xor i32 %39, -1
-  %44 = and i32 %9, %43
-  %45 = add i32 %11, -389564586
-  %46 = add i32 %45, %41
-  %47 = add i32 %46, %42
-  %48 = add i32 %47, %44
-  %49 = shl i32 %48, 12
-  %50 = lshr i32 %48, 20
-  %51 = add i32 %49, %39
-  %52 = add i32 %51, %50
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %54 = load i32, ptr %53, align 8, !tbaa !11
-  %55 = and i32 %52, %39
-  %56 = xor i32 %52, -1
-  %57 = and i32 %7, %56
-  %58 = add i32 %9, 606105819
+  %.sroa.0.0.copyload = load i32, ptr %1, align 1
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 1
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 1
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 1
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.sroa.11.0.copyload = load i32, ptr %.sroa.11.0..sroa_idx, align 1
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.12.0.copyload = load i32, ptr %.sroa.12.0..sroa_idx, align 1
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 1
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.14.0.copyload = load i32, ptr %.sroa.14.0..sroa_idx, align 1
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %.sroa.15.0.copyload = load i32, ptr %.sroa.15.0..sroa_idx, align 1
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.sroa.16.0.copyload = load i32, ptr %.sroa.16.0..sroa_idx, align 1
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %.sroa.17.0.copyload = load i32, ptr %.sroa.17.0..sroa_idx, align 1
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.sroa.18.0.copyload = load i32, ptr %.sroa.18.0..sroa_idx, align 1
+  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %.sroa.19.0.copyload = load i32, ptr %.sroa.19.0..sroa_idx, align 1
+  %10 = and i32 %7, %5
+  %11 = xor i32 %5, -1
+  %12 = and i32 %9, %11
+  %13 = add i32 %3, -680876936
+  %14 = add i32 %13, %10
+  %15 = add i32 %14, %12
+  %16 = add i32 %15, %.sroa.0.0.copyload
+  %17 = shl i32 %16, 7
+  %18 = lshr i32 %16, 25
+  %19 = add i32 %17, %5
+  %20 = add i32 %19, %18
+  %21 = and i32 %20, %5
+  %22 = xor i32 %20, -1
+  %23 = and i32 %7, %22
+  %24 = add i32 %9, -389564586
+  %25 = add i32 %24, %.sroa.5.0.copyload
+  %26 = add i32 %25, %21
+  %27 = add i32 %26, %23
+  %28 = shl i32 %27, 12
+  %29 = lshr i32 %27, 20
+  %30 = add i32 %28, %20
+  %31 = add i32 %30, %29
+  %32 = and i32 %31, %20
+  %33 = xor i32 %31, -1
+  %34 = and i32 %5, %33
+  %35 = add i32 %7, 606105819
+  %36 = add i32 %35, %.sroa.6.0.copyload
+  %37 = add i32 %36, %32
+  %38 = add i32 %37, %34
+  %39 = shl i32 %38, 17
+  %40 = lshr i32 %38, 15
+  %41 = add i32 %39, %31
+  %42 = add i32 %41, %40
+  %43 = and i32 %42, %31
+  %44 = xor i32 %42, -1
+  %45 = and i32 %20, %44
+  %46 = add i32 %5, -1044525330
+  %47 = add i32 %46, %.sroa.7.0.copyload
+  %48 = add i32 %47, %43
+  %49 = add i32 %48, %45
+  %50 = shl i32 %49, 22
+  %51 = lshr i32 %49, 10
+  %52 = add i32 %50, %42
+  %53 = add i32 %52, %51
+  %54 = and i32 %53, %42
+  %55 = xor i32 %53, -1
+  %56 = and i32 %31, %55
+  %57 = add i32 %.sroa.8.0.copyload, -176418897
+  %58 = add i32 %57, %20
   %59 = add i32 %58, %54
-  %60 = add i32 %59, %55
-  %61 = add i32 %60, %57
-  %62 = shl i32 %61, 17
-  %63 = lshr i32 %61, 15
-  %64 = add i32 %62, %52
-  %65 = add i32 %64, %63
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %67 = load i32, ptr %66, align 4, !tbaa !11
-  %68 = and i32 %65, %52
-  %69 = xor i32 %65, -1
-  %70 = and i32 %39, %69
-  %71 = add i32 %7, -1044525330
-  %72 = add i32 %71, %67
-  %73 = add i32 %72, %68
-  %74 = add i32 %73, %70
-  %75 = shl i32 %74, 22
-  %76 = lshr i32 %74, 10
-  %77 = add i32 %75, %65
-  %78 = add i32 %77, %76
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %80 = load i32, ptr %79, align 16, !tbaa !11
-  %81 = and i32 %78, %65
-  %82 = xor i32 %78, -1
-  %83 = and i32 %52, %82
-  %84 = add i32 %80, -176418897
-  %85 = add i32 %84, %39
-  %86 = add i32 %85, %81
-  %87 = add i32 %86, %83
-  %88 = shl i32 %87, 7
-  %89 = lshr i32 %87, 25
-  %90 = add i32 %88, %78
-  %91 = add i32 %90, %89
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %93 = load i32, ptr %92, align 4, !tbaa !11
-  %94 = and i32 %91, %78
-  %95 = xor i32 %91, -1
-  %96 = and i32 %65, %95
-  %97 = add i32 %93, 1200080426
-  %98 = add i32 %97, %52
-  %99 = add i32 %98, %94
-  %100 = add i32 %99, %96
-  %101 = shl i32 %100, 12
-  %102 = lshr i32 %100, 20
-  %103 = add i32 %101, %91
-  %104 = add i32 %103, %102
-  %105 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %106 = load i32, ptr %105, align 8, !tbaa !11
-  %107 = and i32 %104, %91
-  %108 = xor i32 %104, -1
-  %109 = and i32 %78, %108
-  %110 = add i32 %106, -1473231341
-  %111 = add i32 %110, %65
-  %112 = add i32 %111, %107
-  %113 = add i32 %112, %109
-  %114 = shl i32 %113, 17
-  %115 = lshr i32 %113, 15
-  %116 = add i32 %114, %104
-  %117 = add i32 %116, %115
-  %118 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %119 = load i32, ptr %118, align 4, !tbaa !11
-  %120 = and i32 %117, %104
-  %121 = xor i32 %117, -1
-  %122 = and i32 %91, %121
-  %123 = add i32 %119, -45705983
-  %124 = add i32 %123, %78
+  %60 = add i32 %59, %56
+  %61 = shl i32 %60, 7
+  %62 = lshr i32 %60, 25
+  %63 = add i32 %61, %53
+  %64 = add i32 %63, %62
+  %65 = and i32 %64, %53
+  %66 = xor i32 %64, -1
+  %67 = and i32 %42, %66
+  %68 = add i32 %.sroa.9.0.copyload, 1200080426
+  %69 = add i32 %68, %31
+  %70 = add i32 %69, %65
+  %71 = add i32 %70, %67
+  %72 = shl i32 %71, 12
+  %73 = lshr i32 %71, 20
+  %74 = add i32 %72, %64
+  %75 = add i32 %74, %73
+  %76 = and i32 %75, %64
+  %77 = xor i32 %75, -1
+  %78 = and i32 %53, %77
+  %79 = add i32 %.sroa.10.0.copyload, -1473231341
+  %80 = add i32 %79, %42
+  %81 = add i32 %80, %76
+  %82 = add i32 %81, %78
+  %83 = shl i32 %82, 17
+  %84 = lshr i32 %82, 15
+  %85 = add i32 %83, %75
+  %86 = add i32 %85, %84
+  %87 = and i32 %86, %75
+  %88 = xor i32 %86, -1
+  %89 = and i32 %64, %88
+  %90 = add i32 %.sroa.11.0.copyload, -45705983
+  %91 = add i32 %90, %53
+  %92 = add i32 %91, %87
+  %93 = add i32 %92, %89
+  %94 = shl i32 %93, 22
+  %95 = lshr i32 %93, 10
+  %96 = add i32 %94, %86
+  %97 = add i32 %96, %95
+  %98 = and i32 %97, %86
+  %99 = xor i32 %97, -1
+  %100 = and i32 %75, %99
+  %101 = add i32 %.sroa.12.0.copyload, 1770035416
+  %102 = add i32 %101, %64
+  %103 = add i32 %102, %98
+  %104 = add i32 %103, %100
+  %105 = shl i32 %104, 7
+  %106 = lshr i32 %104, 25
+  %107 = add i32 %105, %97
+  %108 = add i32 %107, %106
+  %109 = and i32 %108, %97
+  %110 = xor i32 %108, -1
+  %111 = and i32 %86, %110
+  %112 = add i32 %.sroa.13.0.copyload, -1958414417
+  %113 = add i32 %112, %75
+  %114 = add i32 %113, %109
+  %115 = add i32 %114, %111
+  %116 = shl i32 %115, 12
+  %117 = lshr i32 %115, 20
+  %118 = add i32 %116, %108
+  %119 = add i32 %118, %117
+  %120 = and i32 %119, %108
+  %121 = xor i32 %119, -1
+  %122 = and i32 %97, %121
+  %123 = add i32 %.sroa.14.0.copyload, -42063
+  %124 = add i32 %123, %86
   %125 = add i32 %124, %120
   %126 = add i32 %125, %122
-  %127 = shl i32 %126, 22
-  %128 = lshr i32 %126, 10
-  %129 = add i32 %127, %117
+  %127 = shl i32 %126, 17
+  %128 = lshr i32 %126, 15
+  %129 = add i32 %127, %119
   %130 = add i32 %129, %128
-  %131 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %132 = load i32, ptr %131, align 16, !tbaa !11
-  %133 = and i32 %130, %117
-  %134 = xor i32 %130, -1
-  %135 = and i32 %104, %134
-  %136 = add i32 %132, 1770035416
-  %137 = add i32 %136, %91
-  %138 = add i32 %137, %133
-  %139 = add i32 %138, %135
-  %140 = shl i32 %139, 7
-  %141 = lshr i32 %139, 25
-  %142 = add i32 %140, %130
-  %143 = add i32 %142, %141
-  %144 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %145 = load i32, ptr %144, align 4, !tbaa !11
-  %146 = and i32 %143, %130
-  %147 = xor i32 %143, -1
-  %148 = and i32 %117, %147
-  %149 = add i32 %145, -1958414417
-  %150 = add i32 %149, %104
-  %151 = add i32 %150, %146
-  %152 = add i32 %151, %148
-  %153 = shl i32 %152, 12
-  %154 = lshr i32 %152, 20
-  %155 = add i32 %153, %143
-  %156 = add i32 %155, %154
-  %157 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %158 = load i32, ptr %157, align 8, !tbaa !11
-  %159 = and i32 %156, %143
-  %160 = xor i32 %156, -1
-  %161 = and i32 %130, %160
-  %162 = add i32 %158, -42063
-  %163 = add i32 %162, %117
-  %164 = add i32 %163, %159
-  %165 = add i32 %164, %161
-  %166 = shl i32 %165, 17
-  %167 = lshr i32 %165, 15
-  %168 = add i32 %166, %156
-  %169 = add i32 %168, %167
-  %170 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %171 = load i32, ptr %170, align 4, !tbaa !11
-  %172 = and i32 %169, %156
-  %173 = xor i32 %169, -1
-  %174 = and i32 %143, %173
-  %175 = add i32 %171, -1990404162
-  %176 = add i32 %175, %130
-  %177 = add i32 %176, %172
-  %178 = add i32 %177, %174
-  %179 = shl i32 %178, 22
-  %180 = lshr i32 %178, 10
-  %181 = add i32 %179, %169
-  %182 = add i32 %181, %180
-  %183 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %184 = load i32, ptr %183, align 16, !tbaa !11
-  %185 = and i32 %182, %169
-  %186 = xor i32 %182, -1
-  %187 = and i32 %156, %186
-  %188 = add i32 %184, 1804603682
-  %189 = add i32 %188, %143
-  %190 = add i32 %189, %185
-  %191 = add i32 %190, %187
-  %192 = shl i32 %191, 7
-  %193 = lshr i32 %191, 25
-  %194 = add i32 %192, %182
+  %131 = and i32 %130, %119
+  %132 = xor i32 %130, -1
+  %133 = and i32 %108, %132
+  %134 = add i32 %.sroa.15.0.copyload, -1990404162
+  %135 = add i32 %134, %97
+  %136 = add i32 %135, %131
+  %137 = add i32 %136, %133
+  %138 = shl i32 %137, 22
+  %139 = lshr i32 %137, 10
+  %140 = add i32 %138, %130
+  %141 = add i32 %140, %139
+  %142 = and i32 %141, %130
+  %143 = xor i32 %141, -1
+  %144 = and i32 %119, %143
+  %145 = add i32 %.sroa.16.0.copyload, 1804603682
+  %146 = add i32 %145, %108
+  %147 = add i32 %146, %142
+  %148 = add i32 %147, %144
+  %149 = shl i32 %148, 7
+  %150 = lshr i32 %148, 25
+  %151 = add i32 %149, %141
+  %152 = add i32 %151, %150
+  %153 = and i32 %152, %141
+  %154 = xor i32 %152, -1
+  %155 = and i32 %130, %154
+  %156 = add i32 %.sroa.17.0.copyload, -40341101
+  %157 = add i32 %156, %119
+  %158 = add i32 %157, %153
+  %159 = add i32 %158, %155
+  %160 = shl i32 %159, 12
+  %161 = lshr i32 %159, 20
+  %162 = add i32 %160, %152
+  %163 = add i32 %162, %161
+  %164 = and i32 %163, %152
+  %165 = xor i32 %163, -1
+  %166 = and i32 %141, %165
+  %167 = add i32 %.sroa.18.0.copyload, -1502002290
+  %168 = add i32 %167, %130
+  %169 = add i32 %168, %164
+  %170 = add i32 %169, %166
+  %171 = shl i32 %170, 17
+  %172 = lshr i32 %170, 15
+  %173 = add i32 %171, %163
+  %174 = add i32 %173, %172
+  %175 = and i32 %174, %163
+  %176 = xor i32 %174, -1
+  %177 = and i32 %152, %176
+  %178 = add i32 %.sroa.19.0.copyload, 1236535329
+  %179 = add i32 %178, %141
+  %180 = add i32 %179, %175
+  %181 = add i32 %180, %177
+  %182 = shl i32 %181, 22
+  %183 = lshr i32 %181, 10
+  %184 = add i32 %182, %174
+  %185 = add i32 %184, %183
+  %186 = and i32 %185, %163
+  %187 = and i32 %174, %165
+  %188 = add i32 %.sroa.5.0.copyload, -165796510
+  %189 = add i32 %188, %152
+  %190 = add i32 %189, %187
+  %191 = add i32 %190, %186
+  %192 = shl i32 %191, 5
+  %193 = lshr i32 %191, 27
+  %194 = add i32 %192, %185
   %195 = add i32 %194, %193
-  %196 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %197 = load i32, ptr %196, align 4, !tbaa !11
-  %198 = and i32 %195, %182
-  %199 = xor i32 %195, -1
-  %200 = and i32 %169, %199
-  %201 = add i32 %197, -40341101
-  %202 = add i32 %201, %156
-  %203 = add i32 %202, %198
-  %204 = add i32 %203, %200
-  %205 = shl i32 %204, 12
-  %206 = lshr i32 %204, 20
-  %207 = add i32 %205, %195
-  %208 = add i32 %207, %206
-  %209 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %210 = load i32, ptr %209, align 8, !tbaa !11
-  %211 = and i32 %208, %195
-  %212 = xor i32 %208, -1
-  %213 = and i32 %182, %212
-  %214 = add i32 %210, -1502002290
-  %215 = add i32 %214, %169
-  %216 = add i32 %215, %211
-  %217 = add i32 %216, %213
-  %218 = shl i32 %217, 17
-  %219 = lshr i32 %217, 15
-  %220 = add i32 %218, %208
-  %221 = add i32 %220, %219
-  %222 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  %223 = load i32, ptr %222, align 4, !tbaa !11
-  %224 = and i32 %221, %208
-  %225 = xor i32 %221, -1
-  %226 = and i32 %195, %225
-  %227 = add i32 %223, 1236535329
-  %228 = add i32 %227, %182
-  %229 = add i32 %228, %224
-  %230 = add i32 %229, %226
-  %231 = shl i32 %230, 22
-  %232 = lshr i32 %230, 10
-  %233 = add i32 %231, %221
-  %234 = add i32 %233, %232
-  %235 = and i32 %234, %208
-  %236 = and i32 %221, %212
-  %237 = add i32 %41, -165796510
-  %238 = add i32 %237, %195
-  %239 = add i32 %238, %236
-  %240 = add i32 %239, %235
-  %241 = shl i32 %240, 5
-  %242 = lshr i32 %240, 27
-  %243 = add i32 %241, %234
-  %244 = add i32 %243, %242
-  %245 = and i32 %244, %221
-  %246 = and i32 %234, %225
-  %247 = add i32 %106, -1069501632
-  %248 = add i32 %247, %208
-  %249 = add i32 %248, %246
-  %250 = add i32 %249, %245
-  %251 = shl i32 %250, 9
-  %252 = lshr i32 %250, 23
-  %253 = add i32 %251, %244
-  %254 = add i32 %253, %252
-  %255 = and i32 %254, %234
-  %256 = xor i32 %234, -1
-  %257 = and i32 %244, %256
-  %258 = add i32 %171, 643717713
-  %259 = add i32 %258, %221
-  %260 = add i32 %259, %257
-  %261 = add i32 %260, %255
-  %262 = shl i32 %261, 14
-  %263 = lshr i32 %261, 18
-  %264 = add i32 %262, %254
-  %265 = add i32 %264, %263
-  %266 = and i32 %265, %244
-  %267 = xor i32 %244, -1
-  %268 = and i32 %254, %267
-  %269 = add i32 %28, -373897302
-  %270 = add i32 %269, %234
-  %271 = add i32 %270, %268
-  %272 = add i32 %271, %266
-  %273 = shl i32 %272, 20
-  %274 = lshr i32 %272, 12
-  %275 = add i32 %273, %265
-  %276 = add i32 %275, %274
-  %277 = and i32 %276, %254
-  %278 = xor i32 %254, -1
-  %279 = and i32 %265, %278
-  %280 = add i32 %93, -701558691
-  %281 = add i32 %280, %244
-  %282 = add i32 %281, %279
-  %283 = add i32 %282, %277
-  %284 = shl i32 %283, 5
-  %285 = lshr i32 %283, 27
-  %286 = add i32 %284, %276
-  %287 = add i32 %286, %285
-  %288 = and i32 %287, %265
-  %289 = xor i32 %265, -1
-  %290 = and i32 %276, %289
-  %291 = add i32 %158, 38016083
-  %292 = add i32 %291, %254
-  %293 = add i32 %292, %290
-  %294 = add i32 %293, %288
-  %295 = shl i32 %294, 9
-  %296 = lshr i32 %294, 23
-  %297 = add i32 %295, %287
-  %298 = add i32 %297, %296
-  %299 = and i32 %298, %276
-  %300 = xor i32 %276, -1
-  %301 = and i32 %287, %300
-  %302 = add i32 %223, -660478335
-  %303 = add i32 %302, %265
-  %304 = add i32 %303, %301
-  %305 = add i32 %304, %299
-  %306 = shl i32 %305, 14
-  %307 = lshr i32 %305, 18
-  %308 = add i32 %306, %298
-  %309 = add i32 %308, %307
-  %310 = and i32 %309, %287
-  %311 = xor i32 %287, -1
-  %312 = and i32 %298, %311
-  %313 = add i32 %80, -405537848
-  %314 = add i32 %313, %276
-  %315 = add i32 %314, %312
-  %316 = add i32 %315, %310
-  %317 = shl i32 %316, 20
-  %318 = lshr i32 %316, 12
-  %319 = add i32 %317, %309
-  %320 = add i32 %319, %318
-  %321 = and i32 %320, %298
-  %322 = xor i32 %298, -1
-  %323 = and i32 %309, %322
-  %324 = add i32 %145, 568446438
-  %325 = add i32 %324, %287
-  %326 = add i32 %325, %323
-  %327 = add i32 %326, %321
-  %328 = shl i32 %327, 5
-  %329 = lshr i32 %327, 27
-  %330 = add i32 %328, %320
-  %331 = add i32 %330, %329
-  %332 = and i32 %331, %309
-  %333 = xor i32 %309, -1
-  %334 = and i32 %320, %333
-  %335 = add i32 %210, -1019803690
-  %336 = add i32 %335, %298
-  %337 = add i32 %336, %334
-  %338 = add i32 %337, %332
-  %339 = shl i32 %338, 9
-  %340 = lshr i32 %338, 23
-  %341 = add i32 %339, %331
-  %342 = add i32 %341, %340
-  %343 = and i32 %342, %320
-  %344 = xor i32 %320, -1
-  %345 = and i32 %331, %344
-  %346 = add i32 %67, -187363961
-  %347 = add i32 %346, %309
-  %348 = add i32 %347, %345
-  %349 = add i32 %348, %343
-  %350 = shl i32 %349, 14
-  %351 = lshr i32 %349, 18
-  %352 = add i32 %350, %342
-  %353 = add i32 %352, %351
-  %354 = and i32 %353, %331
-  %355 = xor i32 %331, -1
-  %356 = and i32 %342, %355
-  %357 = add i32 %132, 1163531501
-  %358 = add i32 %357, %320
-  %359 = add i32 %358, %356
-  %360 = add i32 %359, %354
-  %361 = shl i32 %360, 20
-  %362 = lshr i32 %360, 12
-  %363 = add i32 %361, %353
-  %364 = add i32 %363, %362
-  %365 = and i32 %364, %342
-  %366 = xor i32 %342, -1
-  %367 = and i32 %353, %366
-  %368 = add i32 %197, -1444681467
-  %369 = add i32 %368, %331
+  %196 = and i32 %195, %174
+  %197 = and i32 %185, %176
+  %198 = add i32 %.sroa.10.0.copyload, -1069501632
+  %199 = add i32 %198, %163
+  %200 = add i32 %199, %197
+  %201 = add i32 %200, %196
+  %202 = shl i32 %201, 9
+  %203 = lshr i32 %201, 23
+  %204 = add i32 %202, %195
+  %205 = add i32 %204, %203
+  %206 = and i32 %205, %185
+  %207 = xor i32 %185, -1
+  %208 = and i32 %195, %207
+  %209 = add i32 %.sroa.15.0.copyload, 643717713
+  %210 = add i32 %209, %174
+  %211 = add i32 %210, %208
+  %212 = add i32 %211, %206
+  %213 = shl i32 %212, 14
+  %214 = lshr i32 %212, 18
+  %215 = add i32 %213, %205
+  %216 = add i32 %215, %214
+  %217 = and i32 %216, %195
+  %218 = xor i32 %195, -1
+  %219 = and i32 %205, %218
+  %220 = add i32 %.sroa.0.0.copyload, -373897302
+  %221 = add i32 %220, %185
+  %222 = add i32 %221, %219
+  %223 = add i32 %222, %217
+  %224 = shl i32 %223, 20
+  %225 = lshr i32 %223, 12
+  %226 = add i32 %224, %216
+  %227 = add i32 %226, %225
+  %228 = and i32 %227, %205
+  %229 = xor i32 %205, -1
+  %230 = and i32 %216, %229
+  %231 = add i32 %.sroa.9.0.copyload, -701558691
+  %232 = add i32 %231, %195
+  %233 = add i32 %232, %230
+  %234 = add i32 %233, %228
+  %235 = shl i32 %234, 5
+  %236 = lshr i32 %234, 27
+  %237 = add i32 %235, %227
+  %238 = add i32 %237, %236
+  %239 = and i32 %238, %216
+  %240 = xor i32 %216, -1
+  %241 = and i32 %227, %240
+  %242 = add i32 %.sroa.14.0.copyload, 38016083
+  %243 = add i32 %242, %205
+  %244 = add i32 %243, %241
+  %245 = add i32 %244, %239
+  %246 = shl i32 %245, 9
+  %247 = lshr i32 %245, 23
+  %248 = add i32 %246, %238
+  %249 = add i32 %248, %247
+  %250 = and i32 %249, %227
+  %251 = xor i32 %227, -1
+  %252 = and i32 %238, %251
+  %253 = add i32 %.sroa.19.0.copyload, -660478335
+  %254 = add i32 %253, %216
+  %255 = add i32 %254, %252
+  %256 = add i32 %255, %250
+  %257 = shl i32 %256, 14
+  %258 = lshr i32 %256, 18
+  %259 = add i32 %257, %249
+  %260 = add i32 %259, %258
+  %261 = and i32 %260, %238
+  %262 = xor i32 %238, -1
+  %263 = and i32 %249, %262
+  %264 = add i32 %.sroa.8.0.copyload, -405537848
+  %265 = add i32 %264, %227
+  %266 = add i32 %265, %263
+  %267 = add i32 %266, %261
+  %268 = shl i32 %267, 20
+  %269 = lshr i32 %267, 12
+  %270 = add i32 %268, %260
+  %271 = add i32 %270, %269
+  %272 = and i32 %271, %249
+  %273 = xor i32 %249, -1
+  %274 = and i32 %260, %273
+  %275 = add i32 %.sroa.13.0.copyload, 568446438
+  %276 = add i32 %275, %238
+  %277 = add i32 %276, %274
+  %278 = add i32 %277, %272
+  %279 = shl i32 %278, 5
+  %280 = lshr i32 %278, 27
+  %281 = add i32 %279, %271
+  %282 = add i32 %281, %280
+  %283 = and i32 %282, %260
+  %284 = xor i32 %260, -1
+  %285 = and i32 %271, %284
+  %286 = add i32 %.sroa.18.0.copyload, -1019803690
+  %287 = add i32 %286, %249
+  %288 = add i32 %287, %285
+  %289 = add i32 %288, %283
+  %290 = shl i32 %289, 9
+  %291 = lshr i32 %289, 23
+  %292 = add i32 %290, %282
+  %293 = add i32 %292, %291
+  %294 = and i32 %293, %271
+  %295 = xor i32 %271, -1
+  %296 = and i32 %282, %295
+  %297 = add i32 %.sroa.7.0.copyload, -187363961
+  %298 = add i32 %297, %260
+  %299 = add i32 %298, %296
+  %300 = add i32 %299, %294
+  %301 = shl i32 %300, 14
+  %302 = lshr i32 %300, 18
+  %303 = add i32 %301, %293
+  %304 = add i32 %303, %302
+  %305 = and i32 %304, %282
+  %306 = xor i32 %282, -1
+  %307 = and i32 %293, %306
+  %308 = add i32 %.sroa.12.0.copyload, 1163531501
+  %309 = add i32 %308, %271
+  %310 = add i32 %309, %307
+  %311 = add i32 %310, %305
+  %312 = shl i32 %311, 20
+  %313 = lshr i32 %311, 12
+  %314 = add i32 %312, %304
+  %315 = add i32 %314, %313
+  %316 = and i32 %315, %293
+  %317 = xor i32 %293, -1
+  %318 = and i32 %304, %317
+  %319 = add i32 %.sroa.17.0.copyload, -1444681467
+  %320 = add i32 %319, %282
+  %321 = add i32 %320, %318
+  %322 = add i32 %321, %316
+  %323 = shl i32 %322, 5
+  %324 = lshr i32 %322, 27
+  %325 = add i32 %323, %315
+  %326 = add i32 %325, %324
+  %327 = and i32 %326, %304
+  %328 = xor i32 %304, -1
+  %329 = and i32 %315, %328
+  %330 = add i32 %.sroa.6.0.copyload, -51403784
+  %331 = add i32 %330, %293
+  %332 = add i32 %331, %329
+  %333 = add i32 %332, %327
+  %334 = shl i32 %333, 9
+  %335 = lshr i32 %333, 23
+  %336 = add i32 %334, %326
+  %337 = add i32 %336, %335
+  %338 = and i32 %337, %315
+  %339 = xor i32 %315, -1
+  %340 = and i32 %326, %339
+  %341 = add i32 %.sroa.11.0.copyload, 1735328473
+  %342 = add i32 %341, %304
+  %343 = add i32 %342, %340
+  %344 = add i32 %343, %338
+  %345 = shl i32 %344, 14
+  %346 = lshr i32 %344, 18
+  %347 = add i32 %345, %337
+  %348 = add i32 %347, %346
+  %349 = and i32 %348, %326
+  %350 = xor i32 %326, -1
+  %351 = and i32 %337, %350
+  %352 = add i32 %.sroa.16.0.copyload, -1926607734
+  %353 = add i32 %352, %315
+  %354 = add i32 %353, %351
+  %355 = add i32 %354, %349
+  %356 = shl i32 %355, 20
+  %357 = lshr i32 %355, 12
+  %358 = add i32 %356, %348
+  %359 = add i32 %358, %357
+  %360 = xor i32 %359, %348
+  %361 = xor i32 %360, %337
+  %362 = add i32 %.sroa.9.0.copyload, -378558
+  %363 = add i32 %362, %326
+  %364 = add i32 %363, %361
+  %365 = tail call i32 @llvm.fshl.i32(i32 %364, i32 %364, i32 4)
+  %366 = add i32 %365, %359
+  %367 = xor i32 %360, %366
+  %368 = add i32 %.sroa.12.0.copyload, -2022574463
+  %369 = add i32 %368, %337
   %370 = add i32 %369, %367
-  %371 = add i32 %370, %365
-  %372 = shl i32 %371, 5
-  %373 = lshr i32 %371, 27
-  %374 = add i32 %372, %364
-  %375 = add i32 %374, %373
-  %376 = and i32 %375, %353
-  %377 = xor i32 %353, -1
-  %378 = and i32 %364, %377
-  %379 = add i32 %54, -51403784
-  %380 = add i32 %379, %342
-  %381 = add i32 %380, %378
-  %382 = add i32 %381, %376
-  %383 = shl i32 %382, 9
-  %384 = lshr i32 %382, 23
-  %385 = add i32 %383, %375
-  %386 = add i32 %385, %384
-  %387 = and i32 %386, %364
-  %388 = xor i32 %364, -1
-  %389 = and i32 %375, %388
-  %390 = add i32 %119, 1735328473
-  %391 = add i32 %390, %353
-  %392 = add i32 %391, %389
-  %393 = add i32 %392, %387
-  %394 = shl i32 %393, 14
-  %395 = lshr i32 %393, 18
-  %396 = add i32 %394, %386
-  %397 = add i32 %396, %395
-  %398 = and i32 %397, %375
-  %399 = xor i32 %375, -1
-  %400 = and i32 %386, %399
-  %401 = add i32 %184, -1926607734
-  %402 = add i32 %401, %364
-  %403 = add i32 %402, %400
-  %404 = add i32 %403, %398
-  %405 = shl i32 %404, 20
-  %406 = lshr i32 %404, 12
-  %407 = add i32 %405, %397
-  %408 = add i32 %407, %406
-  %409 = xor i32 %408, %397
-  %410 = xor i32 %409, %386
-  %411 = add i32 %93, -378558
-  %412 = add i32 %411, %375
-  %413 = add i32 %412, %410
-  %414 = tail call i32 @llvm.fshl.i32(i32 %413, i32 %413, i32 4)
-  %415 = add i32 %414, %408
-  %416 = xor i32 %409, %415
-  %417 = add i32 %132, -2022574463
-  %418 = add i32 %417, %386
-  %419 = add i32 %418, %416
-  %420 = shl i32 %419, 11
-  %421 = lshr i32 %419, 21
-  %422 = add i32 %420, %415
-  %423 = add i32 %422, %421
-  %424 = xor i32 %415, %408
-  %425 = xor i32 %424, %423
-  %426 = add i32 %171, 1839030562
-  %427 = add i32 %426, %397
-  %428 = add i32 %427, %425
-  %429 = shl i32 %428, 16
-  %430 = lshr i32 %428, 16
-  %431 = add i32 %429, %423
-  %432 = add i32 %431, %430
-  %433 = xor i32 %423, %415
-  %434 = xor i32 %433, %432
-  %435 = add i32 %210, -35309556
-  %436 = add i32 %435, %408
-  %437 = add i32 %436, %434
-  %438 = shl i32 %437, 23
-  %439 = lshr i32 %437, 9
-  %440 = add i32 %438, %432
-  %441 = add i32 %440, %439
-  %442 = xor i32 %432, %423
-  %443 = xor i32 %442, %441
-  %444 = add i32 %41, -1530992060
-  %445 = add i32 %444, %415
-  %446 = add i32 %445, %443
-  %447 = shl i32 %446, 4
-  %448 = lshr i32 %446, 28
-  %449 = add i32 %447, %441
-  %450 = add i32 %449, %448
-  %451 = xor i32 %441, %432
-  %452 = xor i32 %451, %450
-  %453 = add i32 %80, 1272893353
-  %454 = add i32 %453, %423
-  %455 = add i32 %454, %452
-  %456 = shl i32 %455, 11
-  %457 = lshr i32 %455, 21
-  %458 = add i32 %456, %450
-  %459 = add i32 %458, %457
-  %460 = xor i32 %450, %441
-  %461 = xor i32 %460, %459
-  %462 = add i32 %119, -155497632
-  %463 = add i32 %462, %432
-  %464 = add i32 %463, %461
-  %465 = shl i32 %464, 16
-  %466 = lshr i32 %464, 16
-  %467 = add i32 %465, %459
-  %468 = add i32 %467, %466
-  %469 = xor i32 %459, %450
-  %470 = xor i32 %469, %468
-  %471 = add i32 %158, -1094730640
-  %472 = add i32 %471, %441
-  %473 = add i32 %472, %470
-  %474 = shl i32 %473, 23
-  %475 = lshr i32 %473, 9
-  %476 = add i32 %474, %468
-  %477 = add i32 %476, %475
-  %478 = xor i32 %468, %459
-  %479 = xor i32 %478, %477
-  %480 = add i32 %197, 681279174
-  %481 = add i32 %480, %450
-  %482 = add i32 %481, %479
-  %483 = shl i32 %482, 4
-  %484 = lshr i32 %482, 28
-  %485 = add i32 %483, %477
-  %486 = add i32 %485, %484
-  %487 = xor i32 %477, %468
-  %488 = xor i32 %487, %486
-  %489 = add i32 %28, -358537222
-  %490 = add i32 %489, %459
-  %491 = add i32 %490, %488
-  %492 = shl i32 %491, 11
-  %493 = lshr i32 %491, 21
-  %494 = add i32 %492, %486
-  %495 = add i32 %494, %493
-  %496 = xor i32 %486, %477
-  %497 = xor i32 %496, %495
-  %498 = add i32 %67, -722521979
-  %499 = add i32 %498, %468
-  %500 = add i32 %499, %497
-  %501 = shl i32 %500, 16
-  %502 = lshr i32 %500, 16
-  %503 = add i32 %501, %495
-  %504 = add i32 %503, %502
-  %505 = xor i32 %495, %486
-  %506 = xor i32 %505, %504
-  %507 = add i32 %106, 76029189
-  %508 = add i32 %507, %477
-  %509 = add i32 %508, %506
-  %510 = shl i32 %509, 23
-  %511 = lshr i32 %509, 9
-  %512 = add i32 %510, %504
-  %513 = add i32 %512, %511
-  %514 = xor i32 %504, %495
-  %515 = xor i32 %514, %513
-  %516 = add i32 %145, -640364487
-  %517 = add i32 %516, %486
-  %518 = add i32 %517, %515
-  %519 = shl i32 %518, 4
-  %520 = lshr i32 %518, 28
-  %521 = add i32 %519, %513
-  %522 = add i32 %521, %520
-  %523 = xor i32 %513, %504
-  %524 = xor i32 %523, %522
-  %525 = add i32 %184, -421815835
-  %526 = add i32 %525, %495
-  %527 = add i32 %526, %524
-  %528 = shl i32 %527, 11
-  %529 = lshr i32 %527, 21
-  %530 = add i32 %528, %522
-  %531 = add i32 %530, %529
-  %532 = xor i32 %522, %513
-  %533 = xor i32 %532, %531
-  %534 = add i32 %223, 530742520
-  %535 = add i32 %534, %504
+  %371 = shl i32 %370, 11
+  %372 = lshr i32 %370, 21
+  %373 = add i32 %371, %366
+  %374 = add i32 %373, %372
+  %375 = xor i32 %366, %359
+  %376 = xor i32 %375, %374
+  %377 = add i32 %.sroa.15.0.copyload, 1839030562
+  %378 = add i32 %377, %348
+  %379 = add i32 %378, %376
+  %380 = shl i32 %379, 16
+  %381 = lshr i32 %379, 16
+  %382 = add i32 %380, %374
+  %383 = add i32 %382, %381
+  %384 = xor i32 %374, %366
+  %385 = xor i32 %384, %383
+  %386 = add i32 %.sroa.18.0.copyload, -35309556
+  %387 = add i32 %386, %359
+  %388 = add i32 %387, %385
+  %389 = shl i32 %388, 23
+  %390 = lshr i32 %388, 9
+  %391 = add i32 %389, %383
+  %392 = add i32 %391, %390
+  %393 = xor i32 %383, %374
+  %394 = xor i32 %393, %392
+  %395 = add i32 %.sroa.5.0.copyload, -1530992060
+  %396 = add i32 %395, %366
+  %397 = add i32 %396, %394
+  %398 = shl i32 %397, 4
+  %399 = lshr i32 %397, 28
+  %400 = add i32 %398, %392
+  %401 = add i32 %400, %399
+  %402 = xor i32 %392, %383
+  %403 = xor i32 %402, %401
+  %404 = add i32 %.sroa.8.0.copyload, 1272893353
+  %405 = add i32 %404, %374
+  %406 = add i32 %405, %403
+  %407 = shl i32 %406, 11
+  %408 = lshr i32 %406, 21
+  %409 = add i32 %407, %401
+  %410 = add i32 %409, %408
+  %411 = xor i32 %401, %392
+  %412 = xor i32 %411, %410
+  %413 = add i32 %.sroa.11.0.copyload, -155497632
+  %414 = add i32 %413, %383
+  %415 = add i32 %414, %412
+  %416 = shl i32 %415, 16
+  %417 = lshr i32 %415, 16
+  %418 = add i32 %416, %410
+  %419 = add i32 %418, %417
+  %420 = xor i32 %410, %401
+  %421 = xor i32 %420, %419
+  %422 = add i32 %.sroa.14.0.copyload, -1094730640
+  %423 = add i32 %422, %392
+  %424 = add i32 %423, %421
+  %425 = shl i32 %424, 23
+  %426 = lshr i32 %424, 9
+  %427 = add i32 %425, %419
+  %428 = add i32 %427, %426
+  %429 = xor i32 %419, %410
+  %430 = xor i32 %429, %428
+  %431 = add i32 %.sroa.17.0.copyload, 681279174
+  %432 = add i32 %431, %401
+  %433 = add i32 %432, %430
+  %434 = shl i32 %433, 4
+  %435 = lshr i32 %433, 28
+  %436 = add i32 %434, %428
+  %437 = add i32 %436, %435
+  %438 = xor i32 %428, %419
+  %439 = xor i32 %438, %437
+  %440 = add i32 %.sroa.0.0.copyload, -358537222
+  %441 = add i32 %440, %410
+  %442 = add i32 %441, %439
+  %443 = shl i32 %442, 11
+  %444 = lshr i32 %442, 21
+  %445 = add i32 %443, %437
+  %446 = add i32 %445, %444
+  %447 = xor i32 %437, %428
+  %448 = xor i32 %447, %446
+  %449 = add i32 %.sroa.7.0.copyload, -722521979
+  %450 = add i32 %449, %419
+  %451 = add i32 %450, %448
+  %452 = shl i32 %451, 16
+  %453 = lshr i32 %451, 16
+  %454 = add i32 %452, %446
+  %455 = add i32 %454, %453
+  %456 = xor i32 %446, %437
+  %457 = xor i32 %456, %455
+  %458 = add i32 %.sroa.10.0.copyload, 76029189
+  %459 = add i32 %458, %428
+  %460 = add i32 %459, %457
+  %461 = shl i32 %460, 23
+  %462 = lshr i32 %460, 9
+  %463 = add i32 %461, %455
+  %464 = add i32 %463, %462
+  %465 = xor i32 %455, %446
+  %466 = xor i32 %465, %464
+  %467 = add i32 %.sroa.13.0.copyload, -640364487
+  %468 = add i32 %467, %437
+  %469 = add i32 %468, %466
+  %470 = shl i32 %469, 4
+  %471 = lshr i32 %469, 28
+  %472 = add i32 %470, %464
+  %473 = add i32 %472, %471
+  %474 = xor i32 %464, %455
+  %475 = xor i32 %474, %473
+  %476 = add i32 %.sroa.16.0.copyload, -421815835
+  %477 = add i32 %476, %446
+  %478 = add i32 %477, %475
+  %479 = shl i32 %478, 11
+  %480 = lshr i32 %478, 21
+  %481 = add i32 %479, %473
+  %482 = add i32 %481, %480
+  %483 = xor i32 %473, %464
+  %484 = xor i32 %483, %482
+  %485 = add i32 %.sroa.19.0.copyload, 530742520
+  %486 = add i32 %485, %455
+  %487 = add i32 %486, %484
+  %488 = shl i32 %487, 16
+  %489 = lshr i32 %487, 16
+  %490 = add i32 %488, %482
+  %491 = add i32 %490, %489
+  %492 = xor i32 %482, %473
+  %493 = xor i32 %492, %491
+  %494 = add i32 %.sroa.6.0.copyload, -995338651
+  %495 = add i32 %494, %464
+  %496 = add i32 %495, %493
+  %497 = shl i32 %496, 23
+  %498 = lshr i32 %496, 9
+  %499 = add i32 %497, %491
+  %500 = add i32 %499, %498
+  %501 = xor i32 %482, -1
+  %502 = or i32 %500, %501
+  %503 = xor i32 %502, %491
+  %504 = add i32 %.sroa.0.0.copyload, -198630844
+  %505 = add i32 %504, %473
+  %506 = add i32 %505, %503
+  %507 = shl i32 %506, 6
+  %508 = lshr i32 %506, 26
+  %509 = add i32 %507, %500
+  %510 = add i32 %509, %508
+  %511 = xor i32 %491, -1
+  %512 = or i32 %510, %511
+  %513 = xor i32 %512, %500
+  %514 = add i32 %.sroa.11.0.copyload, 1126891415
+  %515 = add i32 %514, %482
+  %516 = add i32 %515, %513
+  %517 = shl i32 %516, 10
+  %518 = lshr i32 %516, 22
+  %519 = add i32 %517, %510
+  %520 = add i32 %519, %518
+  %521 = xor i32 %500, -1
+  %522 = or i32 %520, %521
+  %523 = xor i32 %522, %510
+  %524 = add i32 %.sroa.18.0.copyload, -1416354905
+  %525 = add i32 %524, %491
+  %526 = add i32 %525, %523
+  %527 = shl i32 %526, 15
+  %528 = lshr i32 %526, 17
+  %529 = add i32 %527, %520
+  %530 = add i32 %529, %528
+  %531 = xor i32 %510, -1
+  %532 = or i32 %530, %531
+  %533 = xor i32 %532, %520
+  %534 = add i32 %.sroa.9.0.copyload, -57434055
+  %535 = add i32 %534, %500
   %536 = add i32 %535, %533
-  %537 = shl i32 %536, 16
-  %538 = lshr i32 %536, 16
-  %539 = add i32 %537, %531
+  %537 = shl i32 %536, 21
+  %538 = lshr i32 %536, 11
+  %539 = add i32 %537, %530
   %540 = add i32 %539, %538
-  %541 = xor i32 %531, %522
-  %542 = xor i32 %541, %540
-  %543 = add i32 %54, -995338651
-  %544 = add i32 %543, %513
-  %545 = add i32 %544, %542
-  %546 = shl i32 %545, 23
-  %547 = lshr i32 %545, 9
-  %548 = add i32 %546, %540
-  %549 = add i32 %548, %547
-  %550 = xor i32 %531, -1
-  %551 = or i32 %549, %550
-  %552 = xor i32 %551, %540
-  %553 = add i32 %28, -198630844
-  %554 = add i32 %553, %522
-  %555 = add i32 %554, %552
-  %556 = shl i32 %555, 6
-  %557 = lshr i32 %555, 26
-  %558 = add i32 %556, %549
-  %559 = add i32 %558, %557
-  %560 = xor i32 %540, -1
-  %561 = or i32 %559, %560
-  %562 = xor i32 %561, %549
-  %563 = add i32 %119, 1126891415
-  %564 = add i32 %563, %531
-  %565 = add i32 %564, %562
-  %566 = shl i32 %565, 10
-  %567 = lshr i32 %565, 22
-  %568 = add i32 %566, %559
-  %569 = add i32 %568, %567
-  %570 = xor i32 %549, -1
-  %571 = or i32 %569, %570
-  %572 = xor i32 %571, %559
-  %573 = add i32 %210, -1416354905
-  %574 = add i32 %573, %540
-  %575 = add i32 %574, %572
-  %576 = shl i32 %575, 15
-  %577 = lshr i32 %575, 17
-  %578 = add i32 %576, %569
-  %579 = add i32 %578, %577
-  %580 = xor i32 %559, -1
-  %581 = or i32 %579, %580
-  %582 = xor i32 %581, %569
-  %583 = add i32 %93, -57434055
-  %584 = add i32 %583, %549
-  %585 = add i32 %584, %582
-  %586 = shl i32 %585, 21
-  %587 = lshr i32 %585, 11
-  %588 = add i32 %586, %579
-  %589 = add i32 %588, %587
-  %590 = xor i32 %569, -1
-  %591 = or i32 %589, %590
-  %592 = xor i32 %591, %579
-  %593 = add i32 %184, 1700485571
-  %594 = add i32 %593, %559
-  %595 = add i32 %594, %592
-  %596 = shl i32 %595, 6
-  %597 = lshr i32 %595, 26
-  %598 = add i32 %596, %589
-  %599 = add i32 %598, %597
-  %600 = xor i32 %579, -1
-  %601 = or i32 %599, %600
-  %602 = xor i32 %601, %589
-  %603 = add i32 %67, -1894986606
-  %604 = add i32 %603, %569
-  %605 = add i32 %604, %602
-  %606 = shl i32 %605, 10
-  %607 = lshr i32 %605, 22
-  %608 = add i32 %606, %599
-  %609 = add i32 %608, %607
-  %610 = xor i32 %589, -1
-  %611 = or i32 %609, %610
-  %612 = xor i32 %611, %599
-  %613 = add i32 %158, -1051523
-  %614 = add i32 %613, %579
-  %615 = add i32 %614, %612
-  %616 = shl i32 %615, 15
-  %617 = lshr i32 %615, 17
-  %618 = add i32 %616, %609
-  %619 = add i32 %618, %617
-  %620 = xor i32 %599, -1
-  %621 = or i32 %619, %620
-  %622 = xor i32 %621, %609
-  %623 = add i32 %41, -2054922799
-  %624 = add i32 %623, %589
-  %625 = add i32 %624, %622
-  %626 = shl i32 %625, 21
-  %627 = lshr i32 %625, 11
-  %628 = add i32 %626, %619
-  %629 = add i32 %628, %627
-  %630 = xor i32 %609, -1
-  %631 = or i32 %629, %630
-  %632 = xor i32 %631, %619
-  %633 = add i32 %132, 1873313359
-  %634 = add i32 %633, %599
-  %635 = add i32 %634, %632
-  %636 = shl i32 %635, 6
-  %637 = lshr i32 %635, 26
-  %638 = add i32 %636, %629
-  %639 = add i32 %638, %637
-  %640 = xor i32 %619, -1
-  %641 = or i32 %639, %640
-  %642 = xor i32 %641, %629
-  %643 = add i32 %223, -30611744
-  %644 = add i32 %643, %609
-  %645 = add i32 %644, %642
-  %646 = shl i32 %645, 10
-  %647 = lshr i32 %645, 22
-  %648 = add i32 %646, %639
-  %649 = add i32 %648, %647
-  %650 = xor i32 %629, -1
-  %651 = or i32 %649, %650
-  %652 = xor i32 %651, %639
-  %653 = add i32 %106, -1560198380
-  %654 = add i32 %653, %619
-  %655 = add i32 %654, %652
-  %656 = shl i32 %655, 15
-  %657 = lshr i32 %655, 17
-  %658 = add i32 %656, %649
-  %659 = add i32 %658, %657
-  %660 = xor i32 %639, -1
-  %661 = or i32 %659, %660
-  %662 = xor i32 %661, %649
-  %663 = add i32 %197, 1309151649
-  %664 = add i32 %663, %629
-  %665 = add i32 %664, %662
-  %666 = shl i32 %665, 21
-  %667 = lshr i32 %665, 11
-  %668 = add i32 %666, %659
-  %669 = add i32 %668, %667
-  %670 = xor i32 %649, -1
-  %671 = or i32 %669, %670
-  %672 = xor i32 %671, %659
-  %673 = add i32 %80, -145523070
-  %674 = add i32 %673, %639
-  %675 = add i32 %674, %672
-  %676 = shl i32 %675, 6
-  %677 = lshr i32 %675, 26
-  %678 = add i32 %676, %669
-  %679 = add i32 %678, %677
-  %680 = xor i32 %659, -1
-  %681 = or i32 %679, %680
-  %682 = xor i32 %681, %669
-  %683 = add i32 %171, -1120210379
-  %684 = add i32 %683, %649
-  %685 = add i32 %684, %682
-  %686 = shl i32 %685, 10
-  %687 = lshr i32 %685, 22
-  %688 = add i32 %686, %679
-  %689 = add i32 %688, %687
-  %690 = xor i32 %669, -1
-  %691 = or i32 %689, %690
-  %692 = xor i32 %691, %679
-  %693 = add i32 %54, 718787259
-  %694 = add i32 %693, %659
-  %695 = add i32 %694, %692
-  %696 = shl i32 %695, 15
-  %697 = lshr i32 %695, 17
-  %698 = add i32 %696, %689
-  %699 = add i32 %698, %697
-  %700 = xor i32 %679, -1
-  %701 = or i32 %699, %700
-  %702 = xor i32 %701, %689
-  %703 = add i32 %145, -343485551
-  %704 = add i32 %703, %669
-  %705 = add i32 %704, %702
-  %706 = shl i32 %705, 21
-  %707 = lshr i32 %705, 11
-  %708 = add i32 %679, %5
-  store i32 %708, ptr %4, align 4, !tbaa !11
-  %709 = add i32 %699, %7
-  %710 = add i32 %709, %706
-  %711 = add i32 %710, %707
-  store i32 %711, ptr %6, align 4, !tbaa !11
-  %712 = add i32 %699, %9
-  store i32 %712, ptr %8, align 4, !tbaa !11
-  %713 = add i32 %689, %11
-  store i32 %713, ptr %10, align 4, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #17
+  %541 = xor i32 %520, -1
+  %542 = or i32 %540, %541
+  %543 = xor i32 %542, %530
+  %544 = add i32 %.sroa.16.0.copyload, 1700485571
+  %545 = add i32 %544, %510
+  %546 = add i32 %545, %543
+  %547 = shl i32 %546, 6
+  %548 = lshr i32 %546, 26
+  %549 = add i32 %547, %540
+  %550 = add i32 %549, %548
+  %551 = xor i32 %530, -1
+  %552 = or i32 %550, %551
+  %553 = xor i32 %552, %540
+  %554 = add i32 %.sroa.7.0.copyload, -1894986606
+  %555 = add i32 %554, %520
+  %556 = add i32 %555, %553
+  %557 = shl i32 %556, 10
+  %558 = lshr i32 %556, 22
+  %559 = add i32 %557, %550
+  %560 = add i32 %559, %558
+  %561 = xor i32 %540, -1
+  %562 = or i32 %560, %561
+  %563 = xor i32 %562, %550
+  %564 = add i32 %.sroa.14.0.copyload, -1051523
+  %565 = add i32 %564, %530
+  %566 = add i32 %565, %563
+  %567 = shl i32 %566, 15
+  %568 = lshr i32 %566, 17
+  %569 = add i32 %567, %560
+  %570 = add i32 %569, %568
+  %571 = xor i32 %550, -1
+  %572 = or i32 %570, %571
+  %573 = xor i32 %572, %560
+  %574 = add i32 %.sroa.5.0.copyload, -2054922799
+  %575 = add i32 %574, %540
+  %576 = add i32 %575, %573
+  %577 = shl i32 %576, 21
+  %578 = lshr i32 %576, 11
+  %579 = add i32 %577, %570
+  %580 = add i32 %579, %578
+  %581 = xor i32 %560, -1
+  %582 = or i32 %580, %581
+  %583 = xor i32 %582, %570
+  %584 = add i32 %.sroa.12.0.copyload, 1873313359
+  %585 = add i32 %584, %550
+  %586 = add i32 %585, %583
+  %587 = shl i32 %586, 6
+  %588 = lshr i32 %586, 26
+  %589 = add i32 %587, %580
+  %590 = add i32 %589, %588
+  %591 = xor i32 %570, -1
+  %592 = or i32 %590, %591
+  %593 = xor i32 %592, %580
+  %594 = add i32 %.sroa.19.0.copyload, -30611744
+  %595 = add i32 %594, %560
+  %596 = add i32 %595, %593
+  %597 = shl i32 %596, 10
+  %598 = lshr i32 %596, 22
+  %599 = add i32 %597, %590
+  %600 = add i32 %599, %598
+  %601 = xor i32 %580, -1
+  %602 = or i32 %600, %601
+  %603 = xor i32 %602, %590
+  %604 = add i32 %.sroa.10.0.copyload, -1560198380
+  %605 = add i32 %604, %570
+  %606 = add i32 %605, %603
+  %607 = shl i32 %606, 15
+  %608 = lshr i32 %606, 17
+  %609 = add i32 %607, %600
+  %610 = add i32 %609, %608
+  %611 = xor i32 %590, -1
+  %612 = or i32 %610, %611
+  %613 = xor i32 %612, %600
+  %614 = add i32 %.sroa.17.0.copyload, 1309151649
+  %615 = add i32 %614, %580
+  %616 = add i32 %615, %613
+  %617 = shl i32 %616, 21
+  %618 = lshr i32 %616, 11
+  %619 = add i32 %617, %610
+  %620 = add i32 %619, %618
+  %621 = xor i32 %600, -1
+  %622 = or i32 %620, %621
+  %623 = xor i32 %622, %610
+  %624 = add i32 %.sroa.8.0.copyload, -145523070
+  %625 = add i32 %624, %590
+  %626 = add i32 %625, %623
+  %627 = shl i32 %626, 6
+  %628 = lshr i32 %626, 26
+  %629 = add i32 %627, %620
+  %630 = add i32 %629, %628
+  %631 = xor i32 %610, -1
+  %632 = or i32 %630, %631
+  %633 = xor i32 %632, %620
+  %634 = add i32 %.sroa.15.0.copyload, -1120210379
+  %635 = add i32 %634, %600
+  %636 = add i32 %635, %633
+  %637 = shl i32 %636, 10
+  %638 = lshr i32 %636, 22
+  %639 = add i32 %637, %630
+  %640 = add i32 %639, %638
+  %641 = xor i32 %620, -1
+  %642 = or i32 %640, %641
+  %643 = xor i32 %642, %630
+  %644 = add i32 %.sroa.6.0.copyload, 718787259
+  %645 = add i32 %644, %610
+  %646 = add i32 %645, %643
+  %647 = shl i32 %646, 15
+  %648 = lshr i32 %646, 17
+  %649 = add i32 %647, %640
+  %650 = add i32 %649, %648
+  %651 = xor i32 %630, -1
+  %652 = or i32 %650, %651
+  %653 = xor i32 %652, %640
+  %654 = add i32 %.sroa.13.0.copyload, -343485551
+  %655 = add i32 %654, %620
+  %656 = add i32 %655, %653
+  %657 = shl i32 %656, 21
+  %658 = lshr i32 %656, 11
+  %659 = add i32 %630, %3
+  store i32 %659, ptr %2, align 4, !tbaa !11
+  %660 = add i32 %650, %5
+  %661 = add i32 %660, %657
+  %662 = add i32 %661, %658
+  store i32 %662, ptr %4, align 4, !tbaa !11
+  %663 = add i32 %650, %7
+  store i32 %663, ptr %6, align 4, !tbaa !11
+  %664 = add i32 %640, %9
+  store i32 %664, ptr %8, align 4, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN3MD56updateEPKhj(ptr noundef nonnull align 4 captures(none) dereferenceable(108) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
@@ -1257,10 +1189,10 @@ define void @_ZN3MD56updateEPKhj(ptr noundef nonnull align 4 captures(none) dere
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3MD59hexdigestB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(108) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3MD59hexdigestB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(108) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca [33 x i8], align 16
   %5 = load i8, ptr %1, align 4, !tbaa !6, !range !22, !noundef !23
@@ -1276,7 +1208,7 @@ define void @_ZNK3MD59hexdigestB5cxx11Ev(ptr dead_on_unwind noalias writable sre
   br label %34
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4) #18
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 92
   br label %22
 
@@ -1285,8 +1217,8 @@ define void @_ZNK3MD59hexdigestB5cxx11Ev(ptr dead_on_unwind noalias writable sre
   store i8 0, ptr %12, align 16, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %0, align 8, !tbaa !27
-  %14 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  %14 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   store i64 %14, ptr %3, align 8, !tbaa !28
   %15 = icmp ugt i64 %14, 15
   br i1 %15, label %.noexc.i10, label %._crit_edge.i.i9
@@ -1321,7 +1253,7 @@ define void @_ZNK3MD59hexdigestB5cxx11Ev(ptr dead_on_unwind noalias writable sre
   %25 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 0, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1, !tbaa !24
   %27 = zext i8 %26 to i32
-  %28 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %27) #17
+  %28 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %27) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %11, label %22, !llvm.loop !29
@@ -1333,8 +1265,8 @@ define void @_ZNK3MD59hexdigestB5cxx11Ev(ptr dead_on_unwind noalias writable sre
   %32 = load ptr, ptr %0, align 8, !tbaa !13
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %30
   store i8 0, ptr %33, align 1, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4) #18
   br label %34
 
 34:                                               ; preds = %29, %._crit_edge.i.i
@@ -1344,14 +1276,14 @@ define void @_ZNK3MD59hexdigestB5cxx11Ev(ptr dead_on_unwind noalias writable sre
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo3MD5(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly byval(%class.MD5) align 8 captures(none) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo3MD5(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly byval(%class.MD5) align 8 captures(none) %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca [33 x i8], align 16
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %6 = load i8, ptr %1, align 8, !tbaa !6, !range !22, !noalias !30, !noundef !23
   %7 = trunc nuw i8 %6 to i1
@@ -1366,7 +1298,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo3MD5(ptr noundef n
   br label %_ZNK3MD59hexdigestB5cxx11Ev.exit
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4) #17, !noalias !30
+  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4) #18, !noalias !30
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 92
   br label %23
 
@@ -1375,8 +1307,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo3MD5(ptr noundef n
   store i8 0, ptr %13, align 16, !tbaa !24, !noalias !30
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %14, ptr %5, align 8, !tbaa !27, !alias.scope !30
-  %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17, !noalias !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17, !noalias !30
+  %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18, !noalias !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18, !noalias !30
   store i64 %15, ptr %3, align 8, !tbaa !28, !noalias !30
   %16 = icmp ugt i64 %15, 15
   br i1 %16, label %.noexc.i10.i, label %._crit_edge.i.i9.i
@@ -1411,7 +1343,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo3MD5(ptr noundef n
   %26 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %indvars.iv.i
   %27 = load i8, ptr %26, align 1, !tbaa !24, !noalias !30
   %28 = zext i8 %27 to i32
-  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %28) #17, !noalias !30
+  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %28) #18, !noalias !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %12, label %23, !llvm.loop !29
@@ -1423,8 +1355,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo3MD5(ptr noundef n
   %33 = load ptr, ptr %5, align 8, !tbaa !13, !alias.scope !30
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
   store i8 0, ptr %34, align 1, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17, !noalias !30
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4) #17, !noalias !30
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18, !noalias !30
+  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4) #18, !noalias !30
   %.pre = load ptr, ptr %5, align 8, !tbaa !13
   %.pre5 = load i64, ptr %32, align 8, !tbaa !19
   br label %_ZNK3MD59hexdigestB5cxx11Ev.exit
@@ -1451,11 +1383,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
   %44 = load i64, ptr %40, align 8, !tbaa !24
   %45 = add i64 %44, 1
-  call void @_ZdlPvm(ptr noundef %39, i64 noundef %45) #18
+  call void @_ZdlPvm(ptr noundef %39, i64 noundef %45) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #18
   ret ptr %38
 
 46:                                               ; preds = %_ZNK3MD59hexdigestB5cxx11Ev.exit
@@ -1475,20 +1407,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2: ; preds = %46
   %53 = load i64, ptr %49, align 8, !tbaa !24
   %54 = add i64 %53, 1
-  call void @_ZdlPvm(ptr noundef %48, i64 noundef %54) #18
+  call void @_ZdlPvm(ptr noundef %48, i64 noundef %54) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #18
   resume { ptr, i32 } %47
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z3md5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_Z3md5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca [33 x i8], align 16
   %5 = alloca %class.MD5, align 4
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %5) #18
   call void @_ZN3MD5C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(108) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %6 = load i8, ptr %5, align 4, !tbaa !6, !range !22, !noalias !33, !noundef !23
@@ -1504,7 +1436,7 @@ define void @_Z3md5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead
   br label %_ZNK3MD59hexdigestB5cxx11Ev.exit
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4) #17, !noalias !33
+  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4) #18, !noalias !33
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 92
   br label %23
 
@@ -1513,8 +1445,8 @@ define void @_Z3md5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead
   store i8 0, ptr %13, align 16, !tbaa !24, !noalias !33
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %0, align 8, !tbaa !27, !alias.scope !33
-  %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17, !noalias !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17, !noalias !33
+  %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18, !noalias !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18, !noalias !33
   store i64 %15, ptr %3, align 8, !tbaa !28, !noalias !33
   %16 = icmp ugt i64 %15, 15
   br i1 %16, label %.noexc.i10.i, label %._crit_edge.i.i9.i
@@ -1549,7 +1481,7 @@ define void @_Z3md5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead
   %26 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %indvars.iv.i
   %27 = load i8, ptr %26, align 1, !tbaa !24, !noalias !33
   %28 = zext i8 %27 to i32
-  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %28) #17, !noalias !33
+  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %28) #18, !noalias !33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %12, label %23, !llvm.loop !29
@@ -1561,40 +1493,40 @@ define void @_Z3md5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead
   %33 = load ptr, ptr %0, align 8, !tbaa !13, !alias.scope !33
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
   store i8 0, ptr %34, align 1, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17, !noalias !33
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4) #17, !noalias !33
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18, !noalias !33
+  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4) #18, !noalias !33
   br label %_ZNK3MD59hexdigestB5cxx11Ev.exit
 
 _ZNK3MD59hexdigestB5cxx11Ev.exit:                 ; preds = %._crit_edge.i.i.i, %30
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %5) #18
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_md5.cpp() #13 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_md5.cpp() #14 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #15
+declare i32 @llvm.fshl.i32(i32, i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1603,18 +1535,19 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { builtin nounwind }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

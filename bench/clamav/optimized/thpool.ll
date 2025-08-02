@@ -433,7 +433,7 @@ define dso_local i32 @thpool_num_threads_working(ptr noundef %0) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @thread_do(ptr noundef readonly captures(none) %0) #0 {
+define internal noalias noundef ptr @thread_do(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca %struct.sigaction, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15

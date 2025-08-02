@@ -1413,27 +1413,30 @@ define void @_ZN3gmx4Bias23restoreStateFromHistoryEPKNS_14AwhBiasHistoryEPK9t_co
   %.not10.i.i = icmp eq ptr %31, %33
   br i1 %.not10.i.i, label %_ZN3gmxL12countSamplesENS_8ArrayRefIKNS_10PointStateEEE.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %27, %.lr.ph.i.i
-  %.012.i.i = phi double [ %36, %.lr.ph.i.i ], [ 0.000000e+00, %27 ]
-  %.sroa.0.011.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %31, %27 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.i.i, i64 40
-  %35 = load double, ptr %34, align 8, !tbaa !179
-  %36 = fadd double %.012.i.i, %35
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.i.i, i64 96
-  %.not.i.i = icmp eq ptr %37, %33
-  br i1 %.not.i.i, label %_ZN3gmxL12countSamplesENS_8ArrayRefIKNS_10PointStateEEE.exit.i, label %.lr.ph.i.i
+._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
+  %34 = tail call double @llvm.rint.f64(double %38)
+  %35 = fptosi double %34 to i64
+  br label %_ZN3gmxL12countSamplesENS_8ArrayRefIKNS_10PointStateEEE.exit.i
 
-_ZN3gmxL12countSamplesENS_8ArrayRefIKNS_10PointStateEEE.exit.i: ; preds = %.lr.ph.i.i, %27
-  %.0.lcssa.i.i = phi double [ 0.000000e+00, %27 ], [ %36, %.lr.ph.i.i ]
-  %38 = tail call double @llvm.rint.f64(double %.0.lcssa.i.i)
-  %39 = fptosi double %38 to i64
+.lr.ph.i.i:                                       ; preds = %27, %.lr.ph.i.i
+  %.012.i.i = phi double [ %38, %.lr.ph.i.i ], [ 0.000000e+00, %27 ]
+  %.sroa.0.011.i.i = phi ptr [ %39, %.lr.ph.i.i ], [ %31, %27 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.i.i, i64 40
+  %37 = load double, ptr %36, align 8, !tbaa !179
+  %38 = fadd double %.012.i.i, %37
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.i.i, i64 96
+  %.not.i.i = icmp eq ptr %39, %33
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i
+
+_ZN3gmxL12countSamplesENS_8ArrayRefIKNS_10PointStateEEE.exit.i: ; preds = %._crit_edge.loopexit.i.i, %27
+  %.0.lcssa.i.i = phi i64 [ 0, %27 ], [ %35, %._crit_edge.loopexit.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load i32, ptr %40, align 8, !tbaa !111
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %43 = load i32, ptr %42, align 4, !tbaa !180
   %44 = mul nsw i32 %43, %41
   %45 = sext i32 %44 to i64
-  %46 = sdiv i64 %39, %45
+  %46 = sdiv i64 %.0.lcssa.i.i, %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %.sroa.044.0.copyload.i = load i64, ptr %47, align 8, !tbaa !127
   %sext.i = shl i64 %.sroa.044.0.copyload.i, 32
@@ -1443,7 +1446,7 @@ _ZN3gmxL12countSamplesENS_8ArrayRefIKNS_10PointStateEEE.exit.i: ; preds = %.lr.p
 
 49:                                               ; preds = %_ZN3gmxL12countSamplesENS_8ArrayRefIKNS_10PointStateEEE.exit.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
-  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.15, i64 noundef %48, i32 noundef %43, i64 noundef %39, i32 noundef %44, i64 noundef %46)
+  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.15, i64 noundef %48, i32 noundef %43, i64 noundef %.0.lcssa.i.i, i32 noundef %44, i64 noundef %46)
   %50 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.16)
           to label %51 unwind label %69
 

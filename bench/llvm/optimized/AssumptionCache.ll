@@ -1127,57 +1127,57 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_15Assumpti
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
-  br i1 %spec.select.i.i.i.i, label %14, label %13, !prof !114
+  br i1 %spec.select.i.i.i.i, label %13, label %.critedge.i.i, !prof !114
 
 13:                                               ; preds = %9
+  %14 = ptrtoint ptr %1 to i64
+  %15 = ptrtoint ptr %.pre3 to i64
+  %16 = sub i64 %14, %15
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
+  %17 = load ptr, ptr %0, align 8, !tbaa !25
+  %18 = getelementptr inbounds i8, ptr %17, i64 %16
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit
+
+.critedge.i.i:                                    ; preds = %9
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
   %.pre = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit
 
-14:                                               ; preds = %9
-  %15 = ptrtoint ptr %1 to i64
-  %16 = ptrtoint ptr %.pre3 to i64
-  %17 = sub i64 %15, %16
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
-  %18 = load ptr, ptr %0, align 8, !tbaa !25
-  %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit: ; preds = %2, %13, %14
-  %20 = phi ptr [ %.pre3, %2 ], [ %18, %14 ], [ %.pre, %13 ]
-  %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %13 ]
-  %21 = load i32, ptr %3, align 8, !tbaa !26
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::AssumptionCache::ResultElem", ptr %20, i64 %22
-  store i64 4, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !70
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !60
-  store ptr %27, ptr %25, align 8, !tbaa !60
-  %magicptr.i.i.i = ptrtoint ptr %27 to i64
-  switch i64 %magicptr.i.i.i, label %28 [
+_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit: ; preds = %2, %13, %.critedge.i.i
+  %19 = phi ptr [ %.pre3, %2 ], [ %17, %13 ], [ %.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
+  %20 = load i32, ptr %3, align 8, !tbaa !26
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"struct.llvm::AssumptionCache::ResultElem", ptr %19, i64 %21
+  store i64 4, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr null, ptr %23, align 8, !tbaa !70
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !60
+  store ptr %26, ptr %24, align 8, !tbaa !60
+  %magicptr.i.i.i = ptrtoint ptr %26 to i64
+  switch i64 %magicptr.i.i.i, label %27 [
     i64 0, label %_ZN4llvm15AssumptionCache10ResultElemC2EOS1_.exit
     i64 -4096, label %_ZN4llvm15AssumptionCache10ResultElemC2EOS1_.exit
     i64 -8192, label %_ZN4llvm15AssumptionCache10ResultElemC2EOS1_.exit
   ]
 
-28:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit
+27:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.016.i.i, align 8
-  %29 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %30 = inttoptr i64 %29 to ptr
-  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(28) %23, ptr noundef %30) #20
+  %28 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
+  %29 = inttoptr i64 %28 to ptr
+  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(28) %22, ptr noundef %29) #20
   br label %_ZN4llvm15AssumptionCache10ResultElemC2EOS1_.exit
 
-_ZN4llvm15AssumptionCache10ResultElemC2EOS1_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit, %28
-  %31 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %32 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
-  %33 = load i32, ptr %32, align 8, !tbaa !86
-  store i32 %33, ptr %31, align 8, !tbaa !86
-  %34 = load i32, ptr %3, align 8, !tbaa !26
-  %35 = add i32 %34, 1
-  store i32 %35, ptr %3, align 8, !tbaa !26
+_ZN4llvm15AssumptionCache10ResultElemC2EOS1_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit, %27
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
+  %32 = load i32, ptr %31, align 8, !tbaa !86
+  store i32 %32, ptr %30, align 8, !tbaa !86
+  %33 = load i32, ptr %3, align 8, !tbaa !26
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %3, align 8, !tbaa !26
   ret void
 }
 
@@ -1960,57 +1960,57 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_15Assumpti
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
-  br i1 %spec.select.i.i.i.i, label %14, label %13, !prof !114
+  br i1 %spec.select.i.i.i.i, label %13, label %.critedge.i.i, !prof !114
 
 13:                                               ; preds = %9
+  %14 = ptrtoint ptr %1 to i64
+  %15 = ptrtoint ptr %.pre3 to i64
+  %16 = sub i64 %14, %15
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
+  %17 = load ptr, ptr %0, align 8, !tbaa !25
+  %18 = getelementptr inbounds i8, ptr %17, i64 %16
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+
+.critedge.i.i:                                    ; preds = %9
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
   %.pre = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
 
-14:                                               ; preds = %9
-  %15 = ptrtoint ptr %1 to i64
-  %16 = ptrtoint ptr %.pre3 to i64
-  %17 = sub i64 %15, %16
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
-  %18 = load ptr, ptr %0, align 8, !tbaa !25
-  %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %13, %14
-  %20 = phi ptr [ %.pre3, %2 ], [ %18, %14 ], [ %.pre, %13 ]
-  %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %13 ]
-  %21 = load i32, ptr %3, align 8, !tbaa !26
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::AssumptionCache::ResultElem", ptr %20, i64 %22
-  store i64 4, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !70
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !60
-  store ptr %27, ptr %25, align 8, !tbaa !60
-  %magicptr.i.i.i = ptrtoint ptr %27 to i64
-  switch i64 %magicptr.i.i.i, label %28 [
+_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %13, %.critedge.i.i
+  %19 = phi ptr [ %.pre3, %2 ], [ %17, %13 ], [ %.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
+  %20 = load i32, ptr %3, align 8, !tbaa !26
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"struct.llvm::AssumptionCache::ResultElem", ptr %19, i64 %21
+  store i64 4, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr null, ptr %23, align 8, !tbaa !70
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !60
+  store ptr %26, ptr %24, align 8, !tbaa !60
+  %magicptr.i.i.i = ptrtoint ptr %26 to i64
+  switch i64 %magicptr.i.i.i, label %27 [
     i64 0, label %_ZN4llvm15AssumptionCache10ResultElemC2ERKS1_.exit
     i64 -4096, label %_ZN4llvm15AssumptionCache10ResultElemC2ERKS1_.exit
     i64 -8192, label %_ZN4llvm15AssumptionCache10ResultElemC2ERKS1_.exit
   ]
 
-28:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+27:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.016.i.i, align 8
-  %29 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %30 = inttoptr i64 %29 to ptr
-  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(28) %23, ptr noundef %30) #20
+  %28 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
+  %29 = inttoptr i64 %28 to ptr
+  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(28) %22, ptr noundef %29) #20
   br label %_ZN4llvm15AssumptionCache10ResultElemC2ERKS1_.exit
 
-_ZN4llvm15AssumptionCache10ResultElemC2ERKS1_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit, %28
-  %31 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %32 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
-  %33 = load i32, ptr %32, align 8, !tbaa !86
-  store i32 %33, ptr %31, align 8, !tbaa !86
-  %34 = load i32, ptr %3, align 8, !tbaa !26
-  %35 = add i32 %34, 1
-  store i32 %35, ptr %3, align 8, !tbaa !26
+_ZN4llvm15AssumptionCache10ResultElemC2ERKS1_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERKS2_m.exit, %27
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
+  %32 = load i32, ptr %31, align 8, !tbaa !86
+  store i32 %32, ptr %30, align 8, !tbaa !86
+  %33 = load i32, ptr %3, align 8, !tbaa !26
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %3, align 8, !tbaa !26
   ret void
 }
 
@@ -2151,75 +2151,75 @@ _ZN4llvm6WeakVHC2EPNS_5ValueE.exit:               ; preds = %44, %44, %44, %45
   %52 = icmp uge ptr %2, %.pre3.i
   %53 = icmp ult ptr %2, %51
   %spec.select.i.i.i.i.i = and i1 %52, %53
-  br i1 %spec.select.i.i.i.i.i, label %55, label %54, !prof !114
+  br i1 %spec.select.i.i.i.i.i, label %54, label %.critedge.i.i.i, !prof !114
 
 54:                                               ; preds = %50
+  %55 = ptrtoint ptr %.pre3.i to i64
+  %56 = sub i64 %12, %55
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %48)
+  %57 = load ptr, ptr %6, align 8, !tbaa !25
+  %58 = getelementptr inbounds i8, ptr %57, i64 %56
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
+
+.critedge.i.i.i:                                  ; preds = %50
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %48)
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
 
-55:                                               ; preds = %50
-  %56 = ptrtoint ptr %.pre3.i to i64
-  %57 = sub i64 %12, %56
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %48)
-  %58 = load ptr, ptr %6, align 8, !tbaa !25
-  %59 = getelementptr inbounds i8, ptr %58, i64 %57
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
-
-_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i: ; preds = %55, %54, %_ZN4llvm6WeakVHC2EPNS_5ValueE.exit
-  %60 = phi ptr [ %.pre3.i, %_ZN4llvm6WeakVHC2EPNS_5ValueE.exit ], [ %58, %55 ], [ %.pre.i, %54 ]
-  %.016.i.i.i = phi ptr [ %2, %_ZN4llvm6WeakVHC2EPNS_5ValueE.exit ], [ %59, %55 ], [ %2, %54 ]
-  %61 = load i32, ptr %10, align 8, !tbaa !26
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::AssumptionCache::ResultElem", ptr %60, i64 %62
-  store i64 4, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr null, ptr %64, align 8, !tbaa !70
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %66 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !60
-  store ptr %67, ptr %65, align 8, !tbaa !60
-  %magicptr.i.i.i.i = ptrtoint ptr %67 to i64
-  switch i64 %magicptr.i.i.i.i, label %68 [
+_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i: ; preds = %.critedge.i.i.i, %54, %_ZN4llvm6WeakVHC2EPNS_5ValueE.exit
+  %59 = phi ptr [ %.pre3.i, %_ZN4llvm6WeakVHC2EPNS_5ValueE.exit ], [ %57, %54 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %2, %_ZN4llvm6WeakVHC2EPNS_5ValueE.exit ], [ %58, %54 ], [ %2, %.critedge.i.i.i ]
+  %60 = load i32, ptr %10, align 8, !tbaa !26
+  %61 = zext i32 %60 to i64
+  %62 = getelementptr inbounds nuw %"struct.llvm::AssumptionCache::ResultElem", ptr %59, i64 %61
+  store i64 4, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store ptr null, ptr %63, align 8, !tbaa !70
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
+  %66 = load ptr, ptr %65, align 8, !tbaa !60
+  store ptr %66, ptr %64, align 8, !tbaa !60
+  %magicptr.i.i.i.i = ptrtoint ptr %66 to i64
+  switch i64 %magicptr.i.i.i.i, label %67 [
     i64 0, label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit
     i64 -4096, label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit
     i64 -8192, label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit
   ]
 
-68:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
+67:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.016.i.i.i, align 8
-  %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %70 = inttoptr i64 %69 to ptr
-  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(28) %63, ptr noundef %70) #20
+  %68 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %69 = inttoptr i64 %68 to ptr
+  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(28) %62, ptr noundef %69) #20
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i, %68
-  %71 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %72 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
-  %73 = load i32, ptr %72, align 8, !tbaa !86
-  store i32 %73, ptr %71, align 8, !tbaa !86
-  %74 = load i32, ptr %10, align 8, !tbaa !26
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %10, align 8, !tbaa !26
-  %76 = load ptr, ptr %8, align 8, !tbaa !60
-  %magicptr.i.i21 = ptrtoint ptr %76 to i64
-  switch i64 %magicptr.i.i21, label %77 [
+_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE28reserveForParamAndGetAddressERS2_m.exit.i, %67
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
+  %72 = load i32, ptr %71, align 8, !tbaa !86
+  store i32 %72, ptr %70, align 8, !tbaa !86
+  %73 = load i32, ptr %10, align 8, !tbaa !26
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %10, align 8, !tbaa !26
+  %75 = load ptr, ptr %8, align 8, !tbaa !60
+  %magicptr.i.i21 = ptrtoint ptr %75 to i64
+  switch i64 %magicptr.i.i21, label %76 [
     i64 0, label %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit
     i64 -4096, label %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit
     i64 -8192, label %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit
   ]
 
-77:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit
+76:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit
   call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(28) %2) #20
   br label %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit
 
-_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit:   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit, %77
+_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit:   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_15AssumptionCache10ResultElemELb0EE9push_backEOS2_.exit, %76
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
   br label %_ZN4llvm3isaINS_10AssumeInstEPNS_11InstructionEEEbRKT0_.exit.thread
 
 _ZN4llvm3isaINS_10AssumeInstEPNS_11InstructionEEEbRKT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %27, %30, %.lr.ph, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit, %_ZN4llvm3isaINS_10AssumeInstEPNS_11InstructionEEEbRKT0_.exit
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.022.033, i64 8
-  %.sroa.022.0 = load ptr, ptr %78, align 8, !tbaa !127
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.022.033, i64 8
+  %.sroa.022.0 = load ptr, ptr %77, align 8, !tbaa !127
   %.not30 = icmp eq ptr %.sroa.022.0, %22
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
@@ -2227,12 +2227,12 @@ _ZN4llvm3isaINS_10AssumeInstEPNS_11InstructionEEEbRKT0_.exit.thread: ; preds = %
   ret void
 
 .lr.ph43:                                         ; preds = %._crit_edge39, %.lr.ph43
-  %.041 = phi ptr [ %81, %.lr.ph43 ], [ %15, %._crit_edge39 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.041, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !60
-  call void @_ZN4llvm15AssumptionCache20updateAffectedValuesEPNS_10AssumeInstE(ptr noundef nonnull align 8 dereferenceable(185) %0, ptr noundef %80)
-  %81 = getelementptr inbounds nuw i8, ptr %.041, i64 32
-  %.not = icmp eq ptr %81, %19
+  %.041 = phi ptr [ %80, %.lr.ph43 ], [ %15, %._crit_edge39 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.041, i64 16
+  %79 = load ptr, ptr %78, align 8, !tbaa !60
+  call void @_ZN4llvm15AssumptionCache20updateAffectedValuesEPNS_10AssumeInstE(ptr noundef nonnull align 8 dereferenceable(185) %0, ptr noundef %79)
+  %80 = getelementptr inbounds nuw i8, ptr %.041, i64 32
+  %.not = icmp eq ptr %80, %19
   br i1 %.not, label %._crit_edge44, label %.lr.ph43
 }
 

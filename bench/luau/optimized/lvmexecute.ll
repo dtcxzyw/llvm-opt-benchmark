@@ -5059,14 +5059,14 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1505
   br i1 %3086, label %.preheader3246, label %.loopexit, !prof !75
 
 .preheader3246:                                   ; preds = %3077
-  %3087 = getelementptr i8, ptr %3068, i64 60
+  %3087 = getelementptr inbounds nuw i8, ptr %3068, i64 60
   %wide.trip.count3429 = zext nneg i32 %3069 to i64
   br label %3088
 
 3088:                                             ; preds = %.preheader3246, %3088
   %indvars.iv3426 = phi i64 [ 2, %.preheader3246 ], [ %indvars.iv.next3427, %3088 ]
   %.idx = shl nuw nsw i64 %indvars.iv3426, 4
-  %3089 = getelementptr i8, ptr %3087, i64 %.idx
+  %3089 = getelementptr inbounds nuw i8, ptr %3087, i64 %.idx
   store i32 0, ptr %3089, align 4, !tbaa !63
   %indvars.iv.next3427 = add nuw nsw i64 %indvars.iv3426, 1
   %exitcond3430.not = icmp eq i64 %indvars.iv.next3427, %wide.trip.count3429
@@ -11701,14 +11701,14 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1698
   br i1 %3545, label %.preheader3427, label %.loopexit, !prof !75
 
 .preheader3427:                                   ; preds = %3536
-  %3546 = getelementptr i8, ptr %3527, i64 60
+  %3546 = getelementptr inbounds nuw i8, ptr %3527, i64 60
   %wide.trip.count3617 = zext nneg i32 %3528 to i64
   br label %3547
 
 3547:                                             ; preds = %.preheader3427, %3547
   %indvars.iv3614 = phi i64 [ 2, %.preheader3427 ], [ %indvars.iv.next3615, %3547 ]
   %.idx = shl nuw nsw i64 %indvars.iv3614, 4
-  %3548 = getelementptr i8, ptr %3546, i64 %.idx
+  %3548 = getelementptr inbounds nuw i8, ptr %3546, i64 %.idx
   store i32 0, ptr %3548, align 4, !tbaa !63
   %indvars.iv.next3615 = add nuw nsw i64 %indvars.iv3614, 1
   %exitcond3618.not = icmp eq i64 %indvars.iv.next3615, %wide.trip.count3617

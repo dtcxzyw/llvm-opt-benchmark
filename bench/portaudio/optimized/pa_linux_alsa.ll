@@ -436,8 +436,8 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !42
-  %.not26.i = icmp eq i64 %33, 1
-  br i1 %.not26.i, label %34, label %37, !prof !35
+  %.not25.i = icmp eq i64 %33, 1
+  br i1 %.not25.i, label %34, label %37, !prof !35
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -451,9 +451,9 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
   br label %39
 
 37:                                               ; preds = %34, %31, %28, %20, %19
-  %.str.91.sink.i = phi ptr [ @.str.89, %19 ], [ @.str.91, %28 ], [ @.str.91, %31 ], [ @.str.92, %34 ], [ @.str.93, %20 ]
+  %.str.89.sink.i = phi ptr [ @.str.89, %19 ], [ @.str.91, %28 ], [ @.str.91, %31 ], [ @.str.92, %34 ], [ @.str.93, %20 ]
   %.1.ph.i = phi i32 [ -9993, %19 ], [ -9984, %28 ], [ -9984, %31 ], [ -9996, %34 ], [ -9998, %20 ]
-  tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull %.str.91.sink.i) #25
+  tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull %.str.89.sink.i) #25
   store i32 %.1.ph.i, ptr @paUtilErr_, align 4, !tbaa !3
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.100) #25
   %38 = load i32, ptr @paUtilErr_, align 4, !tbaa !3
@@ -504,8 +504,8 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %62 = load i64, ptr %61, align 8, !tbaa !42
-  %.not26.i86 = icmp eq i64 %62, 1
-  br i1 %.not26.i86, label %63, label %66, !prof !35
+  %.not25.i86 = icmp eq i64 %62, 1
+  br i1 %.not25.i86, label %63, label %66, !prof !35
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -519,9 +519,9 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
   br label %68
 
 66:                                               ; preds = %63, %60, %57, %49, %48
-  %.str.91.sink.i80 = phi ptr [ @.str.89, %48 ], [ @.str.91, %57 ], [ @.str.91, %60 ], [ @.str.92, %63 ], [ @.str.93, %49 ]
+  %.str.89.sink.i80 = phi ptr [ @.str.89, %48 ], [ @.str.91, %57 ], [ @.str.91, %60 ], [ @.str.92, %63 ], [ @.str.93, %49 ]
   %.1.ph.i81 = phi i32 [ -9993, %48 ], [ -9984, %57 ], [ -9984, %60 ], [ -9996, %63 ], [ -9998, %49 ]
-  tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull %.str.91.sink.i80) #25
+  tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull %.str.89.sink.i80) #25
   store i32 %.1.ph.i81, ptr @paUtilErr_, align 4, !tbaa !3
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.101) #25
   %67 = load i32, ptr @paUtilErr_, align 4, !tbaa !3
@@ -753,8 +753,8 @@ define internal i32 @IsFormatSupported(ptr noundef readonly captures(none) %0, p
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !42
-  %.not26.i = icmp eq i64 %23, 1
-  br i1 %.not26.i, label %24, label %27, !prof !35
+  %.not25.i = icmp eq i64 %23, 1
+  br i1 %.not25.i, label %24, label %27, !prof !35
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -768,9 +768,9 @@ define internal i32 @IsFormatSupported(ptr noundef readonly captures(none) %0, p
   br label %29
 
 27:                                               ; preds = %24, %21, %18, %10, %9
-  %.str.91.sink.i = phi ptr [ @.str.89, %9 ], [ @.str.91, %18 ], [ @.str.91, %21 ], [ @.str.92, %24 ], [ @.str.93, %10 ]
+  %.str.89.sink.i = phi ptr [ @.str.89, %9 ], [ @.str.91, %18 ], [ @.str.91, %21 ], [ @.str.92, %24 ], [ @.str.93, %10 ]
   %.1.ph.i = phi i32 [ -9993, %9 ], [ -9984, %18 ], [ -9984, %21 ], [ -9996, %24 ], [ -9998, %10 ]
-  tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull %.str.91.sink.i) #25
+  tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull %.str.89.sink.i) #25
   store i32 %.1.ph.i, ptr @paUtilErr_, align 4, !tbaa !3
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.87) #25
   %28 = load i32, ptr @paUtilErr_, align 4, !tbaa !3
@@ -820,8 +820,8 @@ define internal i32 @IsFormatSupported(ptr noundef readonly captures(none) %0, p
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %50 = load i64, ptr %49, align 8, !tbaa !42
-  %.not26.i40 = icmp eq i64 %50, 1
-  br i1 %.not26.i40, label %51, label %54, !prof !35
+  %.not25.i40 = icmp eq i64 %50, 1
+  br i1 %.not25.i40, label %51, label %54, !prof !35
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 24
@@ -835,9 +835,9 @@ define internal i32 @IsFormatSupported(ptr noundef readonly captures(none) %0, p
   br label %56
 
 54:                                               ; preds = %51, %48, %45, %37, %36
-  %.str.91.sink.i34 = phi ptr [ @.str.89, %36 ], [ @.str.91, %45 ], [ @.str.91, %48 ], [ @.str.92, %51 ], [ @.str.93, %37 ]
+  %.str.89.sink.i34 = phi ptr [ @.str.89, %36 ], [ @.str.91, %45 ], [ @.str.91, %48 ], [ @.str.92, %51 ], [ @.str.93, %37 ]
   %.1.ph.i35 = phi i32 [ -9993, %36 ], [ -9984, %45 ], [ -9984, %48 ], [ -9996, %51 ], [ -9998, %37 ]
-  tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull %.str.91.sink.i34) #25
+  tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull %.str.89.sink.i34) #25
   store i32 %.1.ph.i35, ptr @paUtilErr_, align 4, !tbaa !3
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.88) #25
   %55 = load i32, ptr @paUtilErr_, align 4, !tbaa !3
@@ -5441,7 +5441,7 @@ declare void @PaUtil_ResetBufferProcessor(ptr noundef) local_unnamed_addr #4
 declare i32 @PaUnixThread_New(ptr noundef, ptr noundef, ptr noundef, double noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef ptr @CallbackThreadFunc(ptr noundef %0) #18 {
+define internal noalias noundef nonnull ptr @CallbackThreadFunc(ptr noundef %0) #18 {
   %2 = alloca %struct.PaStreamCallbackTimeInfo, align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.__pthread_unwind_buf_t, align 16

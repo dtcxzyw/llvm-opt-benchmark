@@ -411,7 +411,7 @@ define i32 @sch_stop(ptr noundef %0, ptr noundef writeonly captures(address_is_n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %9 = load i32, ptr %8, align 4, !tbaa !67
   %.not = icmp eq i32 %9, 1
-  br i1 %.not, label %10, label %201
+  br i1 %.not, label %10, label %202
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -754,11 +754,11 @@ err_merge.exit107:                                ; preds = %task_stop.exit103, 
 
 ._crit_edge151:                                   ; preds = %err_merge.exit117
   %.not75 = icmp eq ptr %1, null
-  br i1 %.not75, label %200, label %186
+  br i1 %.not75, label %201, label %186
 
 ._crit_edge151.thread:                            ; preds = %.preheader
   %.not75185 = icmp eq ptr %1, null
-  br i1 %.not75185, label %200, label %trailing_dts.exit
+  br i1 %.not75185, label %201, label %trailing_dts.exit
 
 158:                                              ; preds = %.lr.ph150, %err_merge.exit117
   %indvars.iv180 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next181, %err_merge.exit117 ]
@@ -839,8 +839,8 @@ err_merge.exit117:                                ; preds = %task_stop.exit113, 
   %.not67.i = icmp eq i32 %191, 0
   br i1 %.not67.i, label %._crit_edge.split.us.us.i, label %.lr.ph.us.i
 
-._crit_edge.split.us.us.i:                        ; preds = %197, %.lr.ph58.split.us.i
-  %.229.lcssa.us.i = phi i64 [ %.02755.us.i, %.lr.ph58.split.us.i ], [ %..229.us.us.i, %197 ]
+._crit_edge.split.us.us.i:                        ; preds = %198, %.lr.ph58.split.us.i
+  %.229.lcssa.us.i = phi i64 [ %.02755.us.i, %.lr.ph58.split.us.i ], [ %..229.us.us.i, %198 ]
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count87.i
   br i1 %exitcond78.not.i, label %trailing_dts.exit, label %.lr.ph58.split.us.i, !llvm.loop !81
@@ -848,20 +848,19 @@ err_merge.exit117:                                ; preds = %task_stop.exit113, 
 .lr.ph.us.i:                                      ; preds = %.lr.ph58.split.us.i
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %193 = load ptr, ptr %192, align 8, !tbaa !41
-  %invariant.gep.us.i = getelementptr inbounds nuw i8, ptr %193, i64 80
   %wide.trip.count.i = zext i32 %191 to i64
   br label %194
 
-194:                                              ; preds = %197, %.lr.ph.us.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %197 ], [ 0, %.lr.ph.us.i ]
-  %.22949.us.us.i = phi i64 [ %..229.us.us.i, %197 ], [ %.02755.us.i, %.lr.ph.us.i ]
-  %gep.us.i = getelementptr inbounds nuw %struct.SchMuxStream, ptr %invariant.gep.us.i, i64 %indvars.iv.i
-  %195 = load i64, ptr %gep.us.i, align 8, !tbaa !82
-  %196 = icmp eq i64 %195, -9223372036854775808
-  br i1 %196, label %trailing_dts.exit, label %197
+194:                                              ; preds = %198, %.lr.ph.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %198 ], [ 0, %.lr.ph.us.i ]
+  %.22949.us.us.i = phi i64 [ %..229.us.us.i, %198 ], [ %.02755.us.i, %.lr.ph.us.i ]
+  %195 = getelementptr inbounds nuw %struct.SchMuxStream, ptr %193, i64 %indvars.iv.i, i32 6
+  %196 = load i64, ptr %195, align 8, !tbaa !82
+  %197 = icmp eq i64 %196, -9223372036854775808
+  br i1 %197, label %trailing_dts.exit, label %198
 
-197:                                              ; preds = %194
-  %..229.us.us.i = call i64 @llvm.smin.i64(i64 %.22949.us.us.i, i64 %195)
+198:                                              ; preds = %194
+  %..229.us.us.i = call i64 @llvm.smin.i64(i64 %.22949.us.us.i, i64 %196)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.split.us.us.i, label %194, !llvm.loop !83
@@ -870,19 +869,19 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.u
   %.4.lcssa186192 = phi i32 [ %.0.i116, %186 ], [ %.3.lcssa, %._crit_edge151.thread ], [ %.0.i116, %194 ], [ %.0.i116, %._crit_edge.split.us.us.i ]
   %.not47.i = phi i1 [ false, %186 ], [ false, %._crit_edge151.thread ], [ true, %194 ], [ false, %._crit_edge.split.us.us.i ]
   %.128.i = phi i64 [ 9223372036854775807, %186 ], [ 9223372036854775807, %._crit_edge151.thread ], [ %.22949.us.us.i, %194 ], [ %.229.lcssa.us.i, %._crit_edge.split.us.us.i ]
-  %198 = icmp eq i64 %.128.i, 9223372036854775807
-  %199 = select i1 %.not47.i, i1 true, i1 %198
-  %.5.i = select i1 %199, i64 -9223372036854775808, i64 %.128.i
+  %199 = icmp eq i64 %.128.i, 9223372036854775807
+  %200 = select i1 %.not47.i, i1 true, i1 %199
+  %.5.i = select i1 %200, i64 -9223372036854775808, i64 %.128.i
   store i64 %.5.i, ptr %1, align 8, !tbaa !84
-  br label %200
-
-200:                                              ; preds = %._crit_edge151.thread, %trailing_dts.exit, %._crit_edge151
-  %.4.lcssa187 = phi i32 [ %.3.lcssa, %._crit_edge151.thread ], [ %.4.lcssa186192, %trailing_dts.exit ], [ %.0.i116, %._crit_edge151 ]
-  store i32 2, ptr %8, align 4, !tbaa !67
   br label %201
 
-201:                                              ; preds = %2, %200
-  %.0 = phi i32 [ %.4.lcssa187, %200 ], [ 0, %2 ]
+201:                                              ; preds = %._crit_edge151.thread, %trailing_dts.exit, %._crit_edge151
+  %.4.lcssa187 = phi i32 [ %.3.lcssa, %._crit_edge151.thread ], [ %.4.lcssa186192, %trailing_dts.exit ], [ %.0.i116, %._crit_edge151 ]
+  store i32 2, ptr %8, align 4, !tbaa !67
+  br label %202
+
+202:                                              ; preds = %2, %201
+  %.0 = phi i32 [ %.4.lcssa187, %201 ], [ 0, %2 ]
   ret i32 %.0
 }
 

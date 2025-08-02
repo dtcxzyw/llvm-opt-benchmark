@@ -24155,7 +24155,7 @@ define linkonce_odr dso_local void @_ZN15TristateVisitor43removeAssignmentsNotSt
   ret void
 
 10:                                               ; preds = %.lr.ph, %.thread
-  %.sroa.024.033 = phi ptr [ %6, %.lr.ph ], [ %111, %.thread ]
+  %.sroa.024.033 = phi ptr [ %6, %.lr.ph ], [ %114, %.thread ]
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.024.033, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.024.033, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !324
@@ -24181,8 +24181,8 @@ define linkonce_odr dso_local void @_ZN15TristateVisitor43removeAssignmentsNotSt
   br i1 %.not16.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlS3_S3_E_ET_SB_SB_T0_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i
-  %22 = phi ptr [ %65, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i ], [ %21, %.preheader.i.i ]
-  %.sroa.02.117.i.i = phi ptr [ %64, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i ], [ %14, %.preheader.i.i ]
+  %22 = phi ptr [ %67, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i ], [ %21, %.preheader.i.i ]
+  %.sroa.02.117.i.i = phi ptr [ %66, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i ], [ %14, %.preheader.i.i ]
   %23 = load ptr, ptr %.sroa.02.117.i.i, align 8, !tbaa !325
   %24 = load ptr, ptr %22, align 8, !tbaa !325
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 140
@@ -24239,180 +24239,177 @@ _ZN13TristateGraph10isTristateEP7AstNode.exit15.thread.i.i.i.i: ; preds = %_ZN13
   %.sroa.0.0.copyload.i8.i.i.i.i.i = load i8, ptr %52, align 8, !tbaa !321
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 153
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i8, ptr %53, align 1, !tbaa !321
+  %54 = call i8 @llvm.umin.i8(i8 %.sroa.0.0.copyload.i.i.i.i.i.i, i8 %.sroa.0.0.copyload.i8.i.i.i.i.i)
   br label %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit18.i.i.i.i
 
 _ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit18.i.i.i.i: ; preds = %51, %_ZN13TristateGraph10isTristateEP7AstNode.exit15.thread.i.i.i.i
-  %spec.select.i37.i.i.i.i = phi i8 [ %.sroa.0.0.copyload.i8.i.i.i.i.i, %51 ], [ 6, %_ZN13TristateGraph10isTristateEP7AstNode.exit15.thread.i.i.i.i ]
-  %spec.select.i17.i.i.i.i = phi i8 [ %.sroa.0.0.copyload.i.i.i.i.i.i, %51 ], [ 6, %_ZN13TristateGraph10isTristateEP7AstNode.exit15.thread.i.i.i.i ]
-  %.sroa.speculated31.i.i.i.i = call i8 @llvm.umin.i8(i8 %spec.select.i17.i.i.i.i, i8 %spec.select.i37.i.i.i.i)
-  %54 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %55 = load ptr, ptr %54, align 8, !tbaa !182
-  %.not.not.i19.i.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.not.i19.i.i.i.i, label %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit26.i.i.i.i, label %56
+  %spec.select.i17.i.i.i.i = phi i8 [ %54, %51 ], [ 6, %_ZN13TristateGraph10isTristateEP7AstNode.exit15.thread.i.i.i.i ]
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %56 = load ptr, ptr %55, align 8, !tbaa !182
+  %.not.not.i19.i.i.i.i = icmp eq ptr %56, null
+  br i1 %.not.not.i19.i.i.i.i, label %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit26.i.i.i.i, label %57
 
-56:                                               ; preds = %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit18.i.i.i.i
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 152
-  %.sroa.0.0.copyload.i8.i20.i.i.i.i = load i8, ptr %57, align 8, !tbaa !321
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 153
-  %.sroa.0.0.copyload.i.i24.i.i.i.i = load i8, ptr %58, align 1, !tbaa !321
+57:                                               ; preds = %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit18.i.i.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 152
+  %.sroa.0.0.copyload.i8.i20.i.i.i.i = load i8, ptr %58, align 8, !tbaa !321
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 153
+  %.sroa.0.0.copyload.i.i24.i.i.i.i = load i8, ptr %59, align 1, !tbaa !321
+  %60 = call i8 @llvm.umin.i8(i8 %.sroa.0.0.copyload.i.i24.i.i.i.i, i8 %.sroa.0.0.copyload.i8.i20.i.i.i.i)
   br label %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit26.i.i.i.i
 
-_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit26.i.i.i.i: ; preds = %56, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit18.i.i.i.i
-  %spec.select.i2139.i.i.i.i = phi i8 [ %.sroa.0.0.copyload.i8.i20.i.i.i.i, %56 ], [ 6, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit18.i.i.i.i ]
-  %spec.select.i25.i.i.i.i = phi i8 [ %.sroa.0.0.copyload.i.i24.i.i.i.i, %56 ], [ 6, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit18.i.i.i.i ]
-  %.sroa.speculated.i.i.i.i = call i8 @llvm.umin.i8(i8 %spec.select.i25.i.i.i.i, i8 %spec.select.i2139.i.i.i.i)
-  %59 = icmp ult i8 %.sroa.speculated31.i.i.i.i, %.sroa.speculated.i.i.i.i
-  %cond.fr15.i.i = freeze i1 %59
+_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit26.i.i.i.i: ; preds = %57, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit18.i.i.i.i
+  %spec.select.i25.i.i.i.i = phi i8 [ %60, %57 ], [ 6, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit18.i.i.i.i ]
+  %61 = icmp ult i8 %spec.select.i17.i.i.i.i, %spec.select.i25.i.i.i.i
+  %cond.fr15.i.i = freeze i1 %61
   br i1 %cond.fr15.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.i.i: ; preds = %34
-  %60 = inttoptr i64 %39 to ptr
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 88
-  %62 = load i8, ptr %61, align 8, !tbaa !126, !range !55, !noundef !56
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread.i.i
+  %62 = inttoptr i64 %39 to ptr
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 88
+  %64 = load i8, ptr %63, align 8, !tbaa !126, !range !55, !noundef !56
+  %65 = trunc nuw i8 %64 to i1
+  br i1 %65, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.i.i, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit26.i.i.i.i, %34
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.i.i, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit26.i.i.i.i, %_ZN13TristateGraph10isTristateEP7AstNode.exit15.i.i.i.i
-  %64 = phi ptr [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread.i.i ], [ %.sroa.02.117.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.i.i ], [ %.sroa.02.117.i.i, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit26.i.i.i.i ], [ %.sroa.02.117.i.i, %_ZN13TristateGraph10isTristateEP7AstNode.exit15.i.i.i.i ]
-  %65 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.not.i.i = icmp eq ptr %65, %13
+  %66 = phi ptr [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread.i.i ], [ %.sroa.02.117.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.i.i ], [ %.sroa.02.117.i.i, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit26.i.i.i.i ], [ %.sroa.02.117.i.i, %_ZN13TristateGraph10isTristateEP7AstNode.exit15.i.i.i.i ]
+  %67 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.not.i.i = icmp eq ptr %67, %13
   br i1 %.not.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlS3_S3_E_ET_SB_SB_T0_.exit, label %.lr.ph.i.i, !llvm.loop !391
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlS3_S3_E_ET_SB_SB_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i, %._ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlS3_S3_E_ET_SB_SB_T0_.exit_crit_edge, %.preheader.i.i
-  %66 = phi i32 [ %.pre, %._ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlS3_S3_E_ET_SB_SB_T0_.exit_crit_edge ], [ %.pre34, %.preheader.i.i ], [ %.pre34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i ]
-  %.sroa.02.0.i.i = phi ptr [ %14, %._ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlS3_S3_E_ET_SB_SB_T0_.exit_crit_edge ], [ %14, %.preheader.i.i ], [ %64, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i ]
-  %67 = load ptr, ptr %.sroa.02.0.i.i, align 8, !tbaa !325
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 140
-  %69 = load i32, ptr %68, align 4, !tbaa !173
-  %70 = icmp ne i32 %69, %66
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 144
-  %72 = load i64, ptr %71, align 8
-  %.not3.i = icmp eq i64 %72, 0
-  %.not.i = select i1 %70, i1 true, i1 %.not3.i
+  %68 = phi i32 [ %.pre, %._ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlS3_S3_E_ET_SB_SB_T0_.exit_crit_edge ], [ %.pre34, %.preheader.i.i ], [ %.pre34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i ]
+  %.sroa.02.0.i.i = phi ptr [ %14, %._ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlS3_S3_E_ET_SB_SB_T0_.exit_crit_edge ], [ %14, %.preheader.i.i ], [ %66, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlP10AstAssignWS4_E_EclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread12.i.i ]
+  %69 = load ptr, ptr %.sroa.02.0.i.i, align 8, !tbaa !325
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 140
+  %71 = load i32, ptr %70, align 4, !tbaa !173
+  %72 = icmp ne i32 %71, %68
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 144
+  %74 = load i64, ptr %73, align 8
+  %.not3.i = icmp eq i64 %74, 0
+  %.not.i = select i1 %72, i1 true, i1 %.not3.i
   br i1 %.not.i, label %_ZN13TristateGraph10isTristateEP7AstNode.exit.thread, label %_ZN13TristateGraph10isTristateEP7AstNode.exit
 
 _ZN13TristateGraph10isTristateEP7AstNode.exit:    ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlS3_S3_E_ET_SB_SB_T0_.exit
-  %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 88
-  %75 = load i8, ptr %74, align 8, !tbaa !126, !range !55, !noundef !56
-  %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %.thread, label %_ZN13TristateGraph10isTristateEP7AstNode.exit.thread
+  %75 = inttoptr i64 %74 to ptr
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 88
+  %77 = load i8, ptr %76, align 8, !tbaa !126, !range !55, !noundef !56
+  %78 = trunc nuw i8 %77 to i1
+  br i1 %78, label %.thread, label %_ZN13TristateGraph10isTristateEP7AstNode.exit.thread
 
 _ZN13TristateGraph10isTristateEP7AstNode.exit.thread: ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor43removeAssignmentsNotStrongerThanNonTristateEvEUlS3_S3_E_ET_SB_SB_T0_.exit, %_ZN13TristateGraph10isTristateEP7AstNode.exit
-  %77 = getelementptr inbounds nuw i8, ptr %67, i64 48
-  %78 = load ptr, ptr %77, align 8, !tbaa !182
-  %.not.not.i = icmp eq ptr %78, null
-  br i1 %.not.not.i, label %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16, label %79
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 48
+  %80 = load ptr, ptr %79, align 8, !tbaa !182
+  %.not.not.i = icmp eq ptr %80, null
+  br i1 %.not.not.i, label %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16, label %81
 
-79:                                               ; preds = %_ZN13TristateGraph10isTristateEP7AstNode.exit.thread
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 152
-  %.sroa.0.0.copyload.i8.i = load i8, ptr %80, align 8, !tbaa !321
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 153
-  %.sroa.0.0.copyload.i.i = load i8, ptr %81, align 1, !tbaa !321
+81:                                               ; preds = %_ZN13TristateGraph10isTristateEP7AstNode.exit.thread
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 152
+  %.sroa.0.0.copyload.i8.i = load i8, ptr %82, align 8, !tbaa !321
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 153
+  %.sroa.0.0.copyload.i.i = load i8, ptr %83, align 1, !tbaa !321
+  %84 = call i8 @llvm.umin.i8(i8 %.sroa.0.0.copyload.i.i, i8 %.sroa.0.0.copyload.i8.i)
   br label %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16
 
-_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16: ; preds = %_ZN13TristateGraph10isTristateEP7AstNode.exit.thread, %79
-  %spec.select.i30 = phi i8 [ %.sroa.0.0.copyload.i8.i, %79 ], [ 6, %_ZN13TristateGraph10isTristateEP7AstNode.exit.thread ]
-  %spec.select.i15 = phi i8 [ %.sroa.0.0.copyload.i.i, %79 ], [ 6, %_ZN13TristateGraph10isTristateEP7AstNode.exit.thread ]
-  %.sroa.speculated = call i8 @llvm.umin.i8(i8 %spec.select.i15, i8 %spec.select.i30)
+_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16: ; preds = %_ZN13TristateGraph10isTristateEP7AstNode.exit.thread, %81
+  %spec.select.i15 = phi i8 [ %84, %81 ], [ 6, %_ZN13TristateGraph10isTristateEP7AstNode.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store ptr %67, ptr %3, align 8, !tbaa !325
-  store i8 %.sroa.speculated, ptr %4, align 1, !tbaa !14
+  store ptr %69, ptr %3, align 8, !tbaa !325
+  store i8 %spec.select.i15, ptr %4, align 1, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   store ptr %0, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %4, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %82 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERS7_S3_hEUlS3_E_EEET_SF_SF_T0_St26random_access_iterator_tag(ptr %14, ptr %13, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_pred") align 8 %2)
-  %83 = icmp eq ptr %82, %13
-  %.sroa.06.015.i.i.i = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %85 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERS7_S3_hEUlS3_E_EEET_SF_SF_T0_St26random_access_iterator_tag(ptr %14, ptr %13, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_pred") align 8 %2)
+  %86 = icmp eq ptr %85, %13
+  %.sroa.06.015.i.i.i = getelementptr inbounds nuw i8, ptr %85, i64 8
   %.not16.i.i.i = icmp eq ptr %.sroa.06.015.i.i.i, %13
-  %or.cond.i.i.i = select i1 %83, i1 true, i1 %.not16.i.i.i
+  %or.cond.i.i.i = select i1 %86, i1 true, i1 %.not16.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor28removeNotStrongerAssignmentsERS7_S3_hEUlS3_E_ET_SC_SC_T0_.exit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16, %104
-  %.sroa.06.018.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %104 ], [ %.sroa.06.015.i.i.i, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16 ]
-  %.sroa.012.117.i.i.i = phi ptr [ %.sroa.012.2.i.i.i, %104 ], [ %82, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16 ]
-  %84 = load ptr, ptr %.sroa.06.018.i.i.i, align 8, !tbaa !325
-  %85 = load ptr, ptr %3, align 8, !tbaa !325
-  %86 = icmp eq ptr %84, %85
-  br i1 %86, label %101, label %87
+.lr.ph.i.i.i:                                     ; preds = %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16, %107
+  %.sroa.06.018.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %107 ], [ %.sroa.06.015.i.i.i, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16 ]
+  %.sroa.012.117.i.i.i = phi ptr [ %.sroa.012.2.i.i.i, %107 ], [ %85, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16 ]
+  %87 = load ptr, ptr %.sroa.06.018.i.i.i, align 8, !tbaa !325
+  %88 = load ptr, ptr %3, align 8, !tbaa !325
+  %89 = icmp eq ptr %87, %88
+  br i1 %89, label %104, label %90
 
-87:                                               ; preds = %.lr.ph.i.i.i
-  %88 = load i8, ptr %4, align 1, !tbaa !14
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  %90 = load ptr, ptr %89, align 8, !tbaa !182
-  %.not.not.i.i.i.i = icmp eq ptr %90, null
-  br i1 %.not.not.i.i.i.i, label %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16.i.i.i, label %91
+90:                                               ; preds = %.lr.ph.i.i.i
+  %91 = load i8, ptr %4, align 1, !tbaa !14
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 48
+  %93 = load ptr, ptr %92, align 8, !tbaa !182
+  %.not.not.i.i.i.i = icmp eq ptr %93, null
+  br i1 %.not.not.i.i.i.i, label %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16.i.i.i, label %94
 
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 152
-  %.sroa.0.0.copyload.i8.i.i.i.i = load i8, ptr %92, align 8, !tbaa !321
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 153
-  %.sroa.0.0.copyload.i.i.i.i.i = load i8, ptr %93, align 1, !tbaa !321
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 152
+  %.sroa.0.0.copyload.i8.i.i.i.i = load i8, ptr %95, align 8, !tbaa !321
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 153
+  %.sroa.0.0.copyload.i.i.i.i.i = load i8, ptr %96, align 1, !tbaa !321
   br label %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16.i.i.i
 
-_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16.i.i.i: ; preds = %91, %87
-  %spec.select.i18.i.i.i = phi i8 [ %.sroa.0.0.copyload.i8.i.i.i.i, %91 ], [ 6, %87 ]
-  %spec.select.i15.i.i.i = phi i8 [ %.sroa.0.0.copyload.i.i.i.i.i, %91 ], [ 6, %87 ]
-  %.not.i.i.i17 = icmp ugt i8 %spec.select.i18.i.i.i, %88
-  %.not12.i.i.i = icmp ugt i8 %spec.select.i15.i.i.i, %88
+_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16.i.i.i: ; preds = %94, %90
+  %spec.select.i18.i.i.i = phi i8 [ %.sroa.0.0.copyload.i8.i.i.i.i, %94 ], [ 6, %90 ]
+  %spec.select.i15.i.i.i = phi i8 [ %.sroa.0.0.copyload.i.i.i.i.i, %94 ], [ 6, %90 ]
+  %.not.i.i.i17 = icmp ugt i8 %spec.select.i18.i.i.i, %91
+  %.not12.i.i.i = icmp ugt i8 %spec.select.i15.i.i.i, %91
   %or.cond.i.i.i18 = or i1 %.not.i.i.i17, %.not12.i.i.i
-  br i1 %or.cond.i.i.i18, label %94, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_.exit
+  br i1 %or.cond.i.i.i18, label %97, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_.exit
 
-94:                                               ; preds = %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16.i.i.i
-  br i1 %.not.i.i.i17, label %97, label %95
+97:                                               ; preds = %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16.i.i.i
+  br i1 %.not.i.i.i17, label %100, label %98
 
-95:                                               ; preds = %94
-  %96 = call noundef zeroext i1 @_ZN15TristateVisitor26assignmentOfValueOnAllBitsEP10AstAssignWb(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %84, i1 noundef zeroext false)
-  %brmerge.i.i.i = or i1 %.not12.i.i.i, %96
-  br i1 %brmerge.i.i.i, label %_ZN15TristateVisitor35isAssignmentNotStrongerThanStrengthEP10AstAssignWh.exit.i.i, label %98
+98:                                               ; preds = %97
+  %99 = call noundef zeroext i1 @_ZN15TristateVisitor26assignmentOfValueOnAllBitsEP10AstAssignWb(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %87, i1 noundef zeroext false)
+  %brmerge.i.i.i = or i1 %.not12.i.i.i, %99
+  br i1 %brmerge.i.i.i, label %_ZN15TristateVisitor35isAssignmentNotStrongerThanStrengthEP10AstAssignWh.exit.i.i, label %101
 
-97:                                               ; preds = %94
-  br i1 %.not12.i.i.i, label %101, label %98
+100:                                              ; preds = %97
+  br i1 %.not12.i.i.i, label %104, label %101
 
-98:                                               ; preds = %97, %95
-  %99 = call noundef zeroext i1 @_ZN15TristateVisitor26assignmentOfValueOnAllBitsEP10AstAssignWb(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %84, i1 noundef zeroext true)
-  br i1 %99, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_.exit, label %101
+101:                                              ; preds = %100, %98
+  %102 = call noundef zeroext i1 @_ZN15TristateVisitor26assignmentOfValueOnAllBitsEP10AstAssignWb(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %87, i1 noundef zeroext true)
+  br i1 %102, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_.exit, label %104
 
-_ZN15TristateVisitor35isAssignmentNotStrongerThanStrengthEP10AstAssignWh.exit.i.i: ; preds = %95
-  br i1 %96, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_.exit, label %101
+_ZN15TristateVisitor35isAssignmentNotStrongerThanStrengthEP10AstAssignWh.exit.i.i: ; preds = %98
+  br i1 %99, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_.exit, label %104
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_.exit: ; preds = %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16.i.i.i, %98, %_ZN15TristateVisitor35isAssignmentNotStrongerThanStrengthEP10AstAssignWh.exit.i.i
-  call void @_ZN13TristateGraph32deleteVerticesFromSubtreeRecurseEP7AstNode(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %84)
-  %100 = call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %84, ptr noundef null)
-  call void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %100)
-  br label %104
+_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_.exit: ; preds = %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16.i.i.i, %101, %_ZN15TristateVisitor35isAssignmentNotStrongerThanStrengthEP10AstAssignWh.exit.i.i
+  call void @_ZN13TristateGraph32deleteVerticesFromSubtreeRecurseEP7AstNode(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %87)
+  %103 = call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %87, ptr noundef null)
+  call void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %103)
+  br label %107
 
-101:                                              ; preds = %.lr.ph.i.i.i, %_ZN15TristateVisitor35isAssignmentNotStrongerThanStrengthEP10AstAssignWh.exit.i.i, %98, %97
-  %102 = load ptr, ptr %.sroa.06.018.i.i.i, align 8, !tbaa !325
-  store ptr %102, ptr %.sroa.012.117.i.i.i, align 8, !tbaa !325
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.012.117.i.i.i, i64 8
-  br label %104
+104:                                              ; preds = %.lr.ph.i.i.i, %_ZN15TristateVisitor35isAssignmentNotStrongerThanStrengthEP10AstAssignWh.exit.i.i, %101, %100
+  %105 = load ptr, ptr %.sroa.06.018.i.i.i, align 8, !tbaa !325
+  store ptr %105, ptr %.sroa.012.117.i.i.i, align 8, !tbaa !325
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.012.117.i.i.i, i64 8
+  br label %107
 
-104:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_.exit, %101
-  %.sroa.012.2.i.i.i = phi ptr [ %.sroa.012.117.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_.exit ], [ %103, %101 ]
+107:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_.exit, %104
+  %.sroa.012.2.i.i.i = phi ptr [ %.sroa.012.117.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS5_EES5_hEUlS5_E_EclINS_17__normal_iteratorIPS5_S7_EEEEbT_.exit ], [ %106, %104 ]
   %.sroa.06.0.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.06.018.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i, %13
   br i1 %.not.i.i.i, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor28removeNotStrongerAssignmentsERS7_S3_hEUlS3_E_ET_SC_SC_T0_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !387
 
-_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor28removeNotStrongerAssignmentsERS7_S3_hEUlS3_E_ET_SC_SC_T0_.exit.i: ; preds = %104, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16
-  %.sroa.012.0.i.i.i = phi ptr [ %82, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16 ], [ %.sroa.012.2.i.i.i, %104 ]
+_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor28removeNotStrongerAssignmentsERS7_S3_hEUlS3_E_ET_SC_SC_T0_.exit.i: ; preds = %107, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16
+  %.sroa.012.0.i.i.i = phi ptr [ %85, %_ZN15TristateVisitor11getStrengthEP10AstAssignWb.exit16 ], [ %.sroa.012.2.i.i.i, %107 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %105 = load ptr, ptr %12, align 8, !tbaa !382
-  %.not.i.i7.i = icmp eq ptr %.sroa.012.0.i.i.i, %105
+  %108 = load ptr, ptr %12, align 8, !tbaa !382
+  %.not.i.i7.i = icmp eq ptr %.sroa.012.0.i.i.i, %108
   br i1 %.not.i.i7.i, label %_ZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS2_EES2_h.exit, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor28removeNotStrongerAssignmentsERS7_S3_hEUlS3_E_ET_SC_SC_T0_.exit.i
-  %106 = load ptr, ptr %11, align 8, !tbaa !382
-  %107 = ptrtoint ptr %.sroa.012.0.i.i.i to i64
-  %108 = ptrtoint ptr %106 to i64
-  %109 = sub i64 %107, %108
-  %110 = getelementptr inbounds i8, ptr %106, i64 %109
-  store ptr %110, ptr %12, align 8, !tbaa !324
+  %109 = load ptr, ptr %11, align 8, !tbaa !382
+  %110 = ptrtoint ptr %.sroa.012.0.i.i.i to i64
+  %111 = ptrtoint ptr %109 to i64
+  %112 = sub i64 %110, %111
+  %113 = getelementptr inbounds i8, ptr %109, i64 %112
+  store ptr %113, ptr %12, align 8, !tbaa !324
   br label %_ZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS2_EES2_h.exit
 
 _ZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS2_EES2_h.exit: ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPP10AstAssignWSt6vectorIS3_SaIS3_EEEEZN15TristateVisitor28removeNotStrongerAssignmentsERS7_S3_hEUlS3_E_ET_SC_SC_T0_.exit.i, %._crit_edge.i.i.i
@@ -24421,8 +24418,8 @@ _ZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS2
   br label %.thread
 
 .thread:                                          ; preds = %_ZN13TristateGraph10isTristateEP7AstNode.exit, %_ZN15TristateVisitor28removeNotStrongerAssignmentsERSt6vectorIP10AstAssignWSaIS2_EES2_h.exit, %10
-  %111 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.024.033) #28
-  %.not = icmp eq ptr %111, %7
+  %114 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.024.033) #28
+  %.not = icmp eq ptr %114, %7
   br i1 %.not, label %._crit_edge, label %10
 }
 

@@ -3233,14 +3233,14 @@ define dso_local i32 @snd_hda_override_amp_caps(ptr noundef %0, i16 noundef zero
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
   %9 = icmp ugt i16 %7, %1
-  br i1 %9, label %28, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, %8
   %14 = icmp ugt i32 %13, %5
-  br i1 %14, label %15, label %28
+  br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1144
@@ -3250,19 +3250,14 @@ define dso_local i32 @snd_hda_override_amp_caps(ptr noundef %0, i16 noundef zero
   %20 = getelementptr i32, ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %24 = load ptr, ptr %23, align 8
-  %25 = sub nsw i32 %5, %8
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr i32, ptr %24, i64 %26
-  store i32 %22, ptr %27, align 4
-  br label %28
+  store i32 %22, ptr %20, align 4
+  br label %.critedge
 
-28:                                               ; preds = %10, %4, %15
-  %29 = icmp eq i32 %2, 1
-  %30 = select i1 %29, i32 18, i32 13
-  %31 = tail call i32 @snd_hdac_override_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %30, i32 noundef %3) #24
-  ret i32 %31
+.critedge:                                        ; preds = %10, %4, %15
+  %23 = icmp eq i32 %2, 1
+  %24 = select i1 %23, i32 18, i32 13
+  %25 = tail call i32 @snd_hdac_override_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %24, i32 noundef %3) #24
+  ret i32 %25
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -6919,7 +6914,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_build_pcms(ptr nou
 
 32:                                               ; preds = %28
   %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr [4 x [5 x i32]], ptr @get_empty_pcm_device.audio_idx, i64 0, i64 %33, i64 0
+  %34 = getelementptr [4 x [5 x i32]], ptr @get_empty_pcm_device.audio_idx, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   br label %46
 
@@ -6933,7 +6928,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_build_pcms(ptr nou
 40:                                               ; preds = %46
   %41 = add i32 %48, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr [4 x [5 x i32]], ptr @get_empty_pcm_device.audio_idx, i64 0, i64 %33, i64 %42
+  %43 = getelementptr [5 x i32], ptr %34, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = icmp ugt i32 %44, 7
   br i1 %45, label %53, label %46, !llvm.loop !76

@@ -69,92 +69,92 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
 .lr.ph:                                           ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %invariant.gep = getelementptr i8, ptr %1, i64 39
   br label %15
 
-15:                                               ; preds = %.lr.ph, %40
-  %.pn31 = phi { ptr, i64 } [ %10, %.lr.ph ], [ %45, %40 ]
-  %16 = phi ptr [ %11, %.lr.ph ], [ %46, %40 ]
+15:                                               ; preds = %.lr.ph, %42
+  %.pn31 = phi { ptr, i64 } [ %10, %.lr.ph ], [ %47, %42 ]
+  %16 = phi ptr [ %11, %.lr.ph ], [ %48, %42 ]
   %17 = extractvalue { ptr, i64 } %.pn31, 1
   %18 = load i64, ptr %14, align 8, !noundef !3
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %18
-  %19 = load i8, ptr %gep, align 1, !noundef !3
-  %20 = icmp ult i64 %17, 16
-  br i1 %20, label %23, label %21
-
-21:                                               ; preds = %15
-  %22 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 %19, ptr nonnull align 1 %16, i64 %17)
-  br label %25
+  %19 = getelementptr i8, ptr %13, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 -1
+  %21 = load i8, ptr %20, align 1, !noundef !3
+  %22 = icmp ult i64 %17, 16
+  br i1 %22, label %25, label %23
 
 23:                                               ; preds = %15
-  %24 = tail call { i64, i64 } @_ZN4core5slice6memchr12memchr_naive17hee291000a88e9b9dE(i8 %19, ptr nonnull align 1 %16, i64 %17)
-  br label %25
+  %24 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 %21, ptr nonnull align 1 %16, i64 %17)
+  br label %27
 
-25:                                               ; preds = %23, %21
-  %.pn = phi { i64, i64 } [ %24, %23 ], [ %22, %21 ]
+25:                                               ; preds = %15
+  %26 = tail call { i64, i64 } @_ZN4core5slice6memchr12memchr_naive17hee291000a88e9b9dE(i8 %21, ptr nonnull align 1 %16, i64 %17)
+  br label %27
+
+27:                                               ; preds = %25, %23
+  %.pn = phi { i64, i64 } [ %26, %25 ], [ %24, %23 ]
   %.sroa.05.0 = extractvalue { i64, i64 } %.pn, 0
-  %26 = icmp eq i64 %.sroa.05.0, 1
-  br i1 %26, label %27, label %32
+  %28 = icmp eq i64 %.sroa.05.0, 1
+  br i1 %28, label %29, label %34
 
-27:                                               ; preds = %25
+29:                                               ; preds = %27
   %.sroa.36.0 = extractvalue { i64, i64 } %.pn, 1
-  %28 = add i64 %.sroa.36.0, 1
-  %29 = load i64, ptr %4, align 8, !noundef !3
-  %30 = add i64 %28, %29
-  store i64 %30, ptr %4, align 8
-  %31 = load i64, ptr %14, align 8, !noundef !3
-  %.not23 = icmp ult i64 %30, %31
-  br i1 %.not23, label %40, label %34
-
-32:                                               ; preds = %25
-  %33 = load i64, ptr %5, align 8, !noundef !3
-  store i64 %33, ptr %4, align 8
-  br label %._crit_edge
+  %30 = add i64 %.sroa.36.0, 1
+  %31 = load i64, ptr %4, align 8, !noundef !3
+  %32 = add i64 %30, %31
+  store i64 %32, ptr %4, align 8
+  %33 = load i64, ptr %14, align 8, !noundef !3
+  %.not23 = icmp ult i64 %32, %33
+  br i1 %.not23, label %42, label %36
 
 34:                                               ; preds = %27
-  %35 = sub nuw i64 %30, %31
-  %36 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
-  %37 = load i64, ptr %3, align 8, !noundef !3
-  %38 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17h896c038cb005b107E"(i64 %35, i64 %30, ptr nonnull align 1 %36, i64 %37)
-  %39 = extractvalue { ptr, i64 } %38, 0
-  %.not24 = icmp eq ptr %39, null
-  br i1 %.not24, label %._crit_edge32, label %48
-
-._crit_edge32:                                    ; preds = %34
-  %.pre = load i64, ptr %4, align 8
-  br label %40
-
-40:                                               ; preds = %._crit_edge32, %48, %27
-  %41 = phi i64 [ %.pre, %._crit_edge32 ], [ %.pre33, %48 ], [ %30, %27 ]
-  %42 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
-  %43 = load i64, ptr %3, align 8, !noundef !3
-  %44 = load i64, ptr %5, align 8, !noundef !3
-  %45 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17h896c038cb005b107E"(i64 %41, i64 %44, ptr nonnull align 1 %42, i64 %43)
-  %46 = extractvalue { ptr, i64 } %45, 0
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %._crit_edge, label %15
-
-48:                                               ; preds = %34
-  %49 = extractvalue { ptr, i64 } %38, 1
-  %50 = load i64, ptr %14, align 8, !noundef !3
-  %51 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3ba23042c09a90f2E"(i64 0, i64 %50, ptr nonnull align 1 %13, i64 4, ptr nonnull align 8 @anon.c90a177a3ebe8af1281c72e2f34f0f3c.2)
-  %52 = extractvalue { ptr, i64 } %51, 0
-  %53 = extractvalue { ptr, i64 } %51, 1
-  %54 = icmp ne ptr %52, null
-  tail call void @llvm.assume(i1 %54)
-  %55 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03b0043b8ab24311E"(ptr nonnull align 1 %39, i64 %49, ptr nonnull align 1 %52, i64 %53)
-  %.pre33 = load i64, ptr %4, align 8
-  br i1 %55, label %56, label %40
-
-56:                                               ; preds = %48
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %35, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.pre33, ptr %58, align 8
+  %35 = load i64, ptr %5, align 8, !noundef !3
+  store i64 %35, ptr %4, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %40, %2, %32, %56
-  %.sink = phi i64 [ 0, %32 ], [ 1, %56 ], [ 0, %2 ], [ 0, %40 ]
+36:                                               ; preds = %29
+  %37 = sub nuw i64 %32, %33
+  %38 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
+  %39 = load i64, ptr %3, align 8, !noundef !3
+  %40 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17h896c038cb005b107E"(i64 %37, i64 %32, ptr nonnull align 1 %38, i64 %39)
+  %41 = extractvalue { ptr, i64 } %40, 0
+  %.not24 = icmp eq ptr %41, null
+  br i1 %.not24, label %._crit_edge32, label %50
+
+._crit_edge32:                                    ; preds = %36
+  %.pre = load i64, ptr %4, align 8
+  br label %42
+
+42:                                               ; preds = %._crit_edge32, %50, %29
+  %43 = phi i64 [ %.pre, %._crit_edge32 ], [ %.pre33, %50 ], [ %32, %29 ]
+  %44 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
+  %45 = load i64, ptr %3, align 8, !noundef !3
+  %46 = load i64, ptr %5, align 8, !noundef !3
+  %47 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17h896c038cb005b107E"(i64 %43, i64 %46, ptr nonnull align 1 %44, i64 %45)
+  %48 = extractvalue { ptr, i64 } %47, 0
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %._crit_edge, label %15
+
+50:                                               ; preds = %36
+  %51 = extractvalue { ptr, i64 } %40, 1
+  %52 = load i64, ptr %14, align 8, !noundef !3
+  %53 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3ba23042c09a90f2E"(i64 0, i64 %52, ptr nonnull align 1 %13, i64 4, ptr nonnull align 8 @anon.c90a177a3ebe8af1281c72e2f34f0f3c.2)
+  %54 = extractvalue { ptr, i64 } %53, 0
+  %55 = extractvalue { ptr, i64 } %53, 1
+  %56 = icmp ne ptr %54, null
+  tail call void @llvm.assume(i1 %56)
+  %57 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03b0043b8ab24311E"(ptr nonnull align 1 %41, i64 %51, ptr nonnull align 1 %54, i64 %55)
+  %.pre33 = load i64, ptr %4, align 8
+  br i1 %57, label %58, label %42
+
+58:                                               ; preds = %50
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %37, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.pre33, ptr %60, align 8
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %42, %2, %34, %58
+  %.sink = phi i64 [ 0, %34 ], [ 1, %58 ], [ 0, %2 ], [ 0, %42 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

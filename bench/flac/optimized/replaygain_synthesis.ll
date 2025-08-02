@@ -303,7 +303,7 @@ define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply
   %215 = and i32 %104, 15
   %216 = xor i32 %215, 15
   %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds [8 x [16 x float]], ptr %31, i64 0, i64 %48, i64 %217
+  %218 = getelementptr inbounds nuw [16 x float], ptr %49, i64 0, i64 %217
   store float %214, ptr %218, align 4, !tbaa !25
   %219 = fpext float %214 to double
   %220 = fadd double %102, %219
@@ -367,7 +367,7 @@ define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply
   %277 = sitofp i64 %276 to double
   %278 = fsub double %220, %277
   %279 = fptrunc double %278 to float
-  %280 = getelementptr inbounds [8 x [16 x float]], ptr %32, i64 0, i64 %48, i64 %217
+  %280 = getelementptr inbounds nuw [16 x float], ptr %65, i64 0, i64 %217
   store float %279, ptr %280, align 4, !tbaa !25
   br label %dither_output_.exit.us
 

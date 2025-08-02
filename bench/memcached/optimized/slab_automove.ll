@@ -93,7 +93,7 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !26
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = getelementptr i8, ptr %0, i64 3112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 3112
   %20 = uitofp i64 %13 to float
   %.pre = load i32, ptr %18, align 8, !tbaa !19
   %.pre163 = load ptr, ptr %0, align 8, !tbaa !16
@@ -153,7 +153,7 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i64, ptr %52, align 8, !tbaa !33
   %.idx = mul nuw nsw i64 %indvars.iv160, 24
-  %54 = getelementptr i8, ptr %19, i64 %.idx
+  %54 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %55 = load i64, ptr %54, align 8, !tbaa !33
   %56 = icmp sgt i64 %53, %55
   br i1 %56, label %57, label %.lr.ph.i

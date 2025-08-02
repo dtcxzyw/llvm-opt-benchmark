@@ -524,7 +524,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr noundef captures(non
   %38 = load ptr, ptr %37, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %.05377, i64 16
   %40 = icmp eq ptr %38, %39
-  br i1 %40, label %41, label %65
+  br i1 %40, label %41, label %67
 
 41:                                               ; preds = %35
   %.not65 = icmp eq i32 %.05476, 0
@@ -557,41 +557,41 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr noundef captures(non
 .lr.ph83:                                         ; preds = %54
   %55 = sext i32 %.05675 to i64
   %56 = getelementptr inbounds %union._phpdbg_btree_branch, ptr %.05377, i64 %55
-  %invariant.gep = getelementptr i8, ptr %56, i64 16
   br label %57
 
 57:                                               ; preds = %.lr.ph83, %57
   %indvars.iv88 = phi i64 [ %55, %.lr.ph83 ], [ %indvars.iv.next89, %57 ]
-  %.082 = phi ptr [ %44, %.lr.ph83 ], [ %61, %57 ]
-  %.15981 = phi ptr [ %39, %.lr.ph83 ], [ %gep, %57 ]
+  %.082 = phi ptr [ %44, %.lr.ph83 ], [ %63, %57 ]
+  %.15981 = phi ptr [ %39, %.lr.ph83 ], [ %60, %57 ]
   %indvars.iv.next89 = add nsw i64 %indvars.iv88, -1
   %58 = sub nsw i64 1, %indvars.iv88
-  %gep = getelementptr %union._phpdbg_btree_branch, ptr %invariant.gep, i64 %58
-  %59 = getelementptr inbounds nuw i8, ptr %.15981, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !15
-  %61 = getelementptr inbounds nuw i8, ptr %.082, i64 16
-  %62 = icmp eq ptr %60, %61
-  %63 = zext i1 %62 to i64
-  %64 = getelementptr inbounds nuw [2 x ptr], ptr %.15981, i64 0, i64 %63
-  store ptr %gep, ptr %64, align 8, !tbaa !15
+  %59 = getelementptr inbounds %union._phpdbg_btree_branch, ptr %56, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.15981, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !15
+  %63 = getelementptr inbounds nuw i8, ptr %.082, i64 16
+  %64 = icmp eq ptr %62, %63
+  %65 = zext i1 %64 to i64
+  %66 = getelementptr inbounds nuw [2 x ptr], ptr %.15981, i64 0, i64 %65
+  store ptr %60, ptr %66, align 8, !tbaa !15
   %.not66 = icmp eq i64 %indvars.iv.next89, 0
   br i1 %.not66, label %.loopexit, label %57
 
-65:                                               ; preds = %35
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %67 = load i8, ptr %66, align 8, !tbaa !13, !range !23, !noundef !24
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %69, label %70
+67:                                               ; preds = %35
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %69 = load i8, ptr %68, align 8, !tbaa !13, !range !23, !noundef !24
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %71, label %72
 
-69:                                               ; preds = %65
+71:                                               ; preds = %67
   tail call void @free(ptr noundef %38) #12
   br label %.loopexit
 
-70:                                               ; preds = %65
+72:                                               ; preds = %67
   tail call void @_efree(ptr noundef %38) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %57, %54, %69, %70
+.loopexit:                                        ; preds = %57, %54, %71, %72
   store ptr null, ptr %37, align 8, !tbaa !15
   br label %.loopexit69
 

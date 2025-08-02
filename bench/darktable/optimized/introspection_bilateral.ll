@@ -791,7 +791,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EEC2Emmm(ptr n
 16:                                               ; preds = %._crit_edge
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %17, align 8, !tbaa !126
-  br label %49
+  br label %50
 
 18:                                               ; preds = %21
   %.not = icmp eq i64 %indvars.iv61, 0
@@ -825,7 +825,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EEC2Emmm(ptr n
   %23 = icmp samesign ult i64 %indvars.iv58, 5
   br i1 %23, label %22, label %._crit_edge, !llvm.loop !129
 
-24:                                               ; preds = %49
+24:                                               ; preds = %50
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %25, align 8, !tbaa !130
   %26 = uitofp i64 %3 to float
@@ -833,83 +833,89 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EEC2Emmm(ptr n
   %28 = fdiv reassoc nsz arcp contract afn float %26, %27
   %29 = fpext reassoc nsz arcp contract afn float %28 to double
   %30 = fcmp reassoc nsz arcp contract afn olt double %29, 1.000000e-01
-  %31 = fmul reassoc nsz arcp contract afn double %29, 2.000000e-02
-  %32 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %31)
-  %33 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.800000e+00, double %32)
-  %34 = select i1 %30, double 0x3FCA323591D23FB1, double %33
-  %35 = uitofp i64 %1 to double
-  %36 = fmul reassoc nsz arcp contract afn double %34, %35
-  %37 = fptoui double %36 to i64
-  %38 = mul i64 %1, 6
-  %39 = tail call noundef i64 @llvm.umin.i64(i64 %38, i64 %37)
-  %40 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 80)
-  %41 = extractvalue { i64, i1 } %40, 1
-  %42 = extractvalue { i64, i1 } %40, 0
-  %43 = or disjoint i64 %42, 8
-  %44 = select i1 %41, i64 -1, i64 %43
-  %45 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #25
-  store i64 %2, ptr %45, align 16
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = icmp eq i64 %2, 0
-  br i1 %47, label %.loopexit.thread, label %57
+  br i1 %30, label %_ZN20PermutohedralLatticeILi5ELi4EE20estimatedHashEntriesEmm.exit, label %31
 
-.loopexit.thread:                                 ; preds = %24
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %46, ptr %48, align 8, !tbaa !106
+31:                                               ; preds = %24
+  %32 = fmul reassoc nsz arcp contract afn double %29, 2.000000e-02
+  %33 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %32)
+  %34 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.800000e+00, double %33)
+  br label %_ZN20PermutohedralLatticeILi5ELi4EE20estimatedHashEntriesEmm.exit
+
+_ZN20PermutohedralLatticeILi5ELi4EE20estimatedHashEntriesEmm.exit: ; preds = %24, %31
+  %35 = phi double [ %34, %31 ], [ 0x3FCA323591D23FB1, %24 ]
+  %36 = uitofp i64 %1 to double
+  %37 = fmul reassoc nsz arcp contract afn double %35, %36
+  %38 = fptoui double %37 to i64
+  %39 = mul i64 %1, 6
+  %40 = tail call noundef i64 @llvm.umin.i64(i64 %39, i64 %38)
+  %41 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 80)
+  %42 = extractvalue { i64, i1 } %41, 1
+  %43 = extractvalue { i64, i1 } %41, 0
+  %44 = or disjoint i64 %43, 8
+  %45 = select i1 %42, i64 -1, i64 %44
+  %46 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %45) #25
+  store i64 %2, ptr %46, align 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = icmp eq i64 %2, 0
+  br i1 %48, label %.loopexit.thread, label %58
+
+.loopexit.thread:                                 ; preds = %_ZN20PermutohedralLatticeILi5ELi4EE20estimatedHashEntriesEmm.exit
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %47, ptr %49, align 8, !tbaa !106
   br label %._crit_edge51
 
-49:                                               ; preds = %16, %49
-  %indvars.iv67 = phi i64 [ 0, %16 ], [ %indvars.iv.next68, %49 ]
+50:                                               ; preds = %16, %50
+  %indvars.iv67 = phi i64 [ 0, %16 ], [ %indvars.iv.next68, %50 ]
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %50 = add nuw nsw i64 %indvars.iv67, 2
-  %51 = mul nuw nsw i64 %indvars.iv.next68, %50
-  %52 = trunc nuw i64 %51 to i32
-  %53 = uitofp nneg i32 %52 to float
-  %54 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %53)
-  %55 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv67
-  %56 = fdiv reassoc nsz arcp contract afn float 0x4013988E20000000, %54
-  store float %56, ptr %55, align 4, !tbaa !33
+  %51 = add nuw nsw i64 %indvars.iv67, 2
+  %52 = mul nuw nsw i64 %indvars.iv.next68, %51
+  %53 = trunc nuw i64 %52 to i32
+  %54 = uitofp nneg i32 %53 to float
+  %55 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %54)
+  %56 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv67
+  %57 = fdiv reassoc nsz arcp contract afn float 0x4013988E20000000, %55
+  store float %57, ptr %56, align 4, !tbaa !33
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 5
-  br i1 %exitcond70.not, label %24, label %49, !llvm.loop !131
+  br i1 %exitcond70.not, label %24, label %50, !llvm.loop !131
 
-57:                                               ; preds = %24
-  %58 = getelementptr inbounds %class.HashTablePermutohedral, ptr %46, i64 %2
-  br label %59
+58:                                               ; preds = %_ZN20PermutohedralLatticeILi5ELi4EE20estimatedHashEntriesEmm.exit
+  %59 = getelementptr inbounds %class.HashTablePermutohedral, ptr %47, i64 %2
+  br label %60
 
-59:                                               ; preds = %59, %57
-  %60 = phi ptr [ %46, %57 ], [ %65, %59 ]
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 56
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store i64 0, ptr %62, align 8, !tbaa !132
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
-  store i64 1, ptr %63, align 8, !tbaa !133
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %60, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 80
-  %66 = icmp eq ptr %65, %58
-  br i1 %66, label %.lr.ph50.preheader, label %59
+60:                                               ; preds = %60, %58
+  %61 = phi ptr [ %47, %58 ], [ %66, %60 ]
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  store i64 0, ptr %63, align 8, !tbaa !132
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
+  store i64 1, ptr %64, align 8, !tbaa !133
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %61, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 80
+  %67 = icmp eq ptr %66, %59
+  br i1 %67, label %.lr.ph50.preheader, label %60
 
-.lr.ph50.preheader:                               ; preds = %59
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %46, ptr %67, align 8, !tbaa !106
+.lr.ph50.preheader:                               ; preds = %60
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %47, ptr %68, align 8, !tbaa !106
   br label %.lr.ph50
 
 ._crit_edge51:                                    ; preds = %.lr.ph50, %.loopexit.thread
   ret void
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
-  %68 = phi i64 [ %73, %.lr.ph50 ], [ %2, %.lr.ph50.preheader ]
-  %.048 = phi i64 [ %72, %.lr.ph50 ], [ 0, %.lr.ph50.preheader ]
-  %69 = load ptr, ptr %67, align 8, !tbaa !106
-  %70 = getelementptr inbounds nuw %class.HashTablePermutohedral, ptr %69, i64 %.048
-  %71 = udiv i64 %39, %68
-  tail call void @_ZN22HashTablePermutohedralILi5ELi4EE7setSizeEm(ptr noundef nonnull align 8 dereferenceable(80) %70, i64 noundef %71)
-  %72 = add nuw i64 %.048, 1
-  %73 = load i64, ptr %5, align 8, !tbaa !125
-  %74 = icmp ult i64 %72, %73
-  br i1 %74, label %.lr.ph50, label %._crit_edge51, !llvm.loop !134
+  %69 = phi i64 [ %74, %.lr.ph50 ], [ %2, %.lr.ph50.preheader ]
+  %.048 = phi i64 [ %73, %.lr.ph50 ], [ 0, %.lr.ph50.preheader ]
+  %70 = load ptr, ptr %68, align 8, !tbaa !106
+  %71 = getelementptr inbounds nuw %class.HashTablePermutohedral, ptr %70, i64 %.048
+  %72 = udiv i64 %40, %69
+  tail call void @_ZN22HashTablePermutohedralILi5ELi4EE7setSizeEm(ptr noundef nonnull align 8 dereferenceable(80) %71, i64 noundef %72)
+  %73 = add nuw i64 %.048, 1
+  %74 = load i64, ptr %5, align 8, !tbaa !125
+  %75 = icmp ult i64 %73, %74
+  br i1 %75, label %.lr.ph50, label %._crit_edge51, !llvm.loop !134
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -1172,7 +1178,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi5ELi4EE5splatEPfS1
   %149 = load ptr, ptr %125, align 8, !tbaa !126
   %150 = trunc i64 %indvars.iv159 to i32
   %151 = mul i32 %150, 6
-  br label %224
+  br label %226
 
 152:                                              ; preds = %_ZN27HashTablePermutohedralValueILi4EE3addEPKff.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #18
@@ -1182,9 +1188,9 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi5ELi4EE5splatEPfS1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
   ret void
 
-.preheader126:                                    ; preds = %224, %.preheader126
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader126 ], [ 0, %224 ]
-  %.067.i = phi i32 [ %157, %.preheader126 ], [ 0, %224 ]
+.preheader126:                                    ; preds = %226, %.preheader126
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader126 ], [ 0, %226 ]
+  %.067.i = phi i32 [ %157, %.preheader126 ], [ 0, %226 ]
   %153 = getelementptr inbounds nuw [5 x i16], ptr %126, i64 0, i64 %indvars.iv.i
   %154 = load i16, ptr %153, align 2, !tbaa !145
   %155 = sext i16 %154 to i32
@@ -1306,31 +1312,33 @@ _ZN27HashTablePermutohedralValueILi4EE3addEPKff.exit: ; preds = %205
   %219 = lshr exact i64 %218, 4
   %220 = trunc i64 %219 to i32
   %221 = load ptr, ptr %122, align 8, !tbaa !110
-  %222 = getelementptr inbounds %"struct.PermutohedralLattice<5, 4>::ReplayEntry", ptr %221, i64 %3, i32 1, i64 %indvars.iv159
-  store i32 %220, ptr %222, align 4, !tbaa !116
-  %223 = getelementptr inbounds %"struct.PermutohedralLattice<5, 4>::ReplayEntry", ptr %221, i64 %3, i32 2, i64 %indvars.iv159
-  store float %204, ptr %223, align 4, !tbaa !33
+  %222 = getelementptr inbounds nuw %"struct.PermutohedralLattice<5, 4>::ReplayEntry", ptr %221, i64 %3, i32 1
+  %223 = getelementptr inbounds nuw [6 x i32], ptr %222, i64 0, i64 %indvars.iv159
+  store i32 %220, ptr %223, align 4, !tbaa !116
+  %224 = getelementptr inbounds nuw %"struct.PermutohedralLattice<5, 4>::ReplayEntry", ptr %221, i64 %3, i32 2
+  %225 = getelementptr inbounds nuw [6 x float], ptr %224, i64 0, i64 %indvars.iv159
+  store float %204, ptr %225, align 4, !tbaa !33
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next160, 6
   br i1 %exitcond162.not, label %152, label %.preheader, !llvm.loop !159
 
-224:                                              ; preds = %.preheader, %224
-  %indvars.iv155 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next156, %224 ]
-  %225 = getelementptr inbounds nuw [6 x i32], ptr %7, i64 0, i64 %indvars.iv155
-  %226 = load i32, ptr %225, align 4, !tbaa !116
-  %227 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %indvars.iv155
+226:                                              ; preds = %.preheader, %226
+  %indvars.iv155 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next156, %226 ]
+  %227 = getelementptr inbounds nuw [6 x i32], ptr %7, i64 0, i64 %indvars.iv155
   %228 = load i32, ptr %227, align 4, !tbaa !116
-  %229 = add nsw i32 %228, %151
-  %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds i32, ptr %149, i64 %230
-  %232 = load i32, ptr %231, align 4, !tbaa !116
-  %233 = add nsw i32 %232, %226
-  %234 = trunc i32 %233 to i16
-  %235 = getelementptr inbounds nuw [5 x i16], ptr %126, i64 0, i64 %indvars.iv155
-  store i16 %234, ptr %235, align 2, !tbaa !145
+  %229 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %indvars.iv155
+  %230 = load i32, ptr %229, align 4, !tbaa !116
+  %231 = add nsw i32 %230, %151
+  %232 = sext i32 %231 to i64
+  %233 = getelementptr inbounds i32, ptr %149, i64 %232
+  %234 = load i32, ptr %233, align 4, !tbaa !116
+  %235 = add nsw i32 %234, %228
+  %236 = trunc i32 %235 to i16
+  %237 = getelementptr inbounds nuw [5 x i16], ptr %126, i64 0, i64 %indvars.iv155
+  store i16 %236, ptr %237, align 2, !tbaa !145
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next156, 5
-  br i1 %exitcond158.not, label %.preheader126, label %224, !llvm.loop !160
+  br i1 %exitcond158.not, label %.preheader126, label %226, !llvm.loop !160
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1692,204 +1700,205 @@ _ZN27HashTablePermutohedralValueILi4EEC2Ei.exit:
   br label %31
 
 31:                                               ; preds = %.preheader.us, %_ZN27HashTablePermutohedralValueILi4EE3mixEPKS0_S2_S2_.exit.us
-  %.02472.us = phi i64 [ 0, %.preheader.us ], [ %121, %_ZN27HashTablePermutohedralValueILi4EE3mixEPKS0_S2_S2_.exit.us ]
+  %.02472.us = phi i64 [ 0, %.preheader.us ], [ %122, %_ZN27HashTablePermutohedralValueILi4EE3mixEPKS0_S2_S2_.exit.us ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
-  br label %32
+  %32 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<5, 4>::Key", ptr %14, i64 %.02472.us, i32 1
+  br label %33
 
-32:                                               ; preds = %32, %31
-  %indvars.iv.i.us = phi i64 [ 0, %31 ], [ %indvars.iv.next.i.us, %32 ]
-  %33 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<5, 4>::Key", ptr %14, i64 %.02472.us, i32 1, i64 %indvars.iv.i.us
-  %34 = load i16, ptr %33, align 2, !tbaa !145
-  %35 = add i16 %34, 1
-  %36 = getelementptr inbounds nuw [5 x i16], ptr %21, i64 0, i64 %indvars.iv.i.us
-  store i16 %35, ptr %36, align 2, !tbaa !145
+33:                                               ; preds = %33, %31
+  %indvars.iv.i.us = phi i64 [ 0, %31 ], [ %indvars.iv.next.i.us, %33 ]
+  %34 = getelementptr inbounds nuw [5 x i16], ptr %32, i64 0, i64 %indvars.iv.i.us
+  %35 = load i16, ptr %34, align 2, !tbaa !145
+  %36 = add i16 %35, 1
+  %37 = getelementptr inbounds nuw [5 x i16], ptr %21, i64 0, i64 %indvars.iv.i.us
+  store i16 %36, ptr %37, align 2, !tbaa !145
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i33.us = icmp eq i64 %indvars.iv.next.i.us, 5
-  br i1 %exitcond.not.i33.us, label %37, label %32, !llvm.loop !203
+  br i1 %exitcond.not.i33.us, label %38, label %33, !llvm.loop !203
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds %"struct.HashTablePermutohedral<5, 4>::Key", ptr %14, i64 %.02472.us, i32 1, i64 %indvars.iv
-  %39 = load i16, ptr %38, align 2, !tbaa !145
-  %40 = add i16 %39, -5
-  store i16 %40, ptr %29, align 2, !tbaa !145
-  br label %41
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds nuw [5 x i16], ptr %32, i64 0, i64 %indvars.iv
+  %40 = load i16, ptr %39, align 2, !tbaa !145
+  %41 = add i16 %40, -5
+  store i16 %41, ptr %29, align 2, !tbaa !145
+  br label %42
 
-41:                                               ; preds = %41, %37
-  %indvars.iv.i.i.us = phi i64 [ 0, %37 ], [ %indvars.iv.next.i.i.us, %41 ]
-  %.067.i.i.us = phi i32 [ 0, %37 ], [ %46, %41 ]
-  %42 = getelementptr inbounds nuw [5 x i16], ptr %21, i64 0, i64 %indvars.iv.i.i.us
-  %43 = load i16, ptr %42, align 2, !tbaa !145
-  %44 = sext i16 %43 to i32
-  %45 = add i32 %.067.i.i.us, %44
-  %46 = mul i32 %45, 2531011
+42:                                               ; preds = %42, %38
+  %indvars.iv.i.i.us = phi i64 [ 0, %38 ], [ %indvars.iv.next.i.i.us, %42 ]
+  %.067.i.i.us = phi i32 [ 0, %38 ], [ %47, %42 ]
+  %43 = getelementptr inbounds nuw [5 x i16], ptr %21, i64 0, i64 %indvars.iv.i.i.us
+  %44 = load i16, ptr %43, align 2, !tbaa !145
+  %45 = sext i16 %44 to i32
+  %46 = add i32 %.067.i.i.us, %45
+  %47 = mul i32 %46, 2531011
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 5
-  br i1 %exitcond.not.i.i.us, label %_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit.us, label %41, !llvm.loop !146
+  br i1 %exitcond.not.i.i.us, label %_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit.us, label %42, !llvm.loop !146
 
-_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit.us: ; preds = %41
+_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit.us: ; preds = %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
-  br label %47
+  br label %48
 
-47:                                               ; preds = %47, %_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit.us
-  %indvars.iv.i34.us = phi i64 [ 0, %_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit.us ], [ %indvars.iv.next.i35.us, %47 ]
-  %48 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<5, 4>::Key", ptr %14, i64 %.02472.us, i32 1, i64 %indvars.iv.i34.us
-  %49 = load i16, ptr %48, align 2, !tbaa !145
-  %50 = add i16 %49, -1
-  %51 = getelementptr inbounds nuw [5 x i16], ptr %22, i64 0, i64 %indvars.iv.i34.us
-  store i16 %50, ptr %51, align 2, !tbaa !145
+48:                                               ; preds = %48, %_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit.us
+  %indvars.iv.i34.us = phi i64 [ 0, %_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit.us ], [ %indvars.iv.next.i35.us, %48 ]
+  %49 = getelementptr inbounds nuw [5 x i16], ptr %32, i64 0, i64 %indvars.iv.i34.us
+  %50 = load i16, ptr %49, align 2, !tbaa !145
+  %51 = add i16 %50, -1
+  %52 = getelementptr inbounds nuw [5 x i16], ptr %22, i64 0, i64 %indvars.iv.i34.us
+  store i16 %51, ptr %52, align 2, !tbaa !145
   %indvars.iv.next.i35.us = add nuw nsw i64 %indvars.iv.i34.us, 1
   %exitcond.not.i36.us = icmp eq i64 %indvars.iv.next.i35.us, 5
-  br i1 %exitcond.not.i36.us, label %52, label %47, !llvm.loop !203
+  br i1 %exitcond.not.i36.us, label %53, label %48, !llvm.loop !203
 
-52:                                               ; preds = %47
-  %53 = add i16 %39, 5
-  store i16 %53, ptr %30, align 2, !tbaa !145
-  br label %54
+53:                                               ; preds = %48
+  %54 = add i16 %40, 5
+  store i16 %54, ptr %30, align 2, !tbaa !145
+  br label %55
 
-54:                                               ; preds = %54, %52
-  %indvars.iv.i.i37.us = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.i39.us, %54 ]
-  %.067.i.i38.us = phi i32 [ 0, %52 ], [ %59, %54 ]
-  %55 = getelementptr inbounds nuw [5 x i16], ptr %22, i64 0, i64 %indvars.iv.i.i37.us
-  %56 = load i16, ptr %55, align 2, !tbaa !145
-  %57 = sext i16 %56 to i32
-  %58 = add i32 %.067.i.i38.us, %57
-  %59 = mul i32 %58, 2531011
+55:                                               ; preds = %55, %53
+  %indvars.iv.i.i37.us = phi i64 [ 0, %53 ], [ %indvars.iv.next.i.i39.us, %55 ]
+  %.067.i.i38.us = phi i32 [ 0, %53 ], [ %60, %55 ]
+  %56 = getelementptr inbounds nuw [5 x i16], ptr %22, i64 0, i64 %indvars.iv.i.i37.us
+  %57 = load i16, ptr %56, align 2, !tbaa !145
+  %58 = sext i16 %57 to i32
+  %59 = add i32 %.067.i.i38.us, %58
+  %60 = mul i32 %59, 2531011
   %indvars.iv.next.i.i39.us = add nuw nsw i64 %indvars.iv.i.i37.us, 1
   %exitcond.not.i.i40.us = icmp eq i64 %indvars.iv.next.i.i39.us, 5
-  br i1 %exitcond.not.i.i40.us, label %_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit41.us, label %54, !llvm.loop !146
+  br i1 %exitcond.not.i.i40.us, label %_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit41.us, label %55, !llvm.loop !146
 
-_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit41.us: ; preds = %54
-  %60 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %.06674.us, i64 %.02472.us
-  %61 = zext i32 %46 to i64
-  %62 = and i64 %27, %61
-  %63 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<5, 4>::Entry", ptr %28, i64 %62
-  %.sroa.0.0.copyload22.i.i.us = load i32, ptr %63, align 4, !tbaa !116
-  %64 = icmp eq i32 %.sroa.0.0.copyload22.i.i.us, -1
-  br i1 %64, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i.us, label %.lr.ph.i.i.us
+_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit41.us: ; preds = %55
+  %61 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %.06674.us, i64 %.02472.us
+  %62 = zext i32 %47 to i64
+  %63 = and i64 %27, %62
+  %64 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<5, 4>::Entry", ptr %28, i64 %63
+  %.sroa.0.0.copyload22.i.i.us = load i32, ptr %64, align 4, !tbaa !116
+  %65 = icmp eq i32 %.sroa.0.0.copyload22.i.i.us, -1
+  br i1 %65, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i.us, label %.lr.ph.i.i.us
 
 .lr.ph.i.i.us:                                    ; preds = %_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit41.us
-  %65 = load ptr, ptr %20, align 8, !tbaa !150
-  br label %66
+  %66 = load ptr, ptr %20, align 8, !tbaa !150
+  br label %67
 
-66:                                               ; preds = %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i.us, %.lr.ph.i.i.us
+67:                                               ; preds = %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i.us, %.lr.ph.i.i.us
   %.sroa.0.0.copyload24.i.i.us = phi i32 [ %.sroa.0.0.copyload22.i.i.us, %.lr.ph.i.i.us ], [ %.sroa.0.0.copyload.i.i.us, %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i.us ]
-  %.01223.i.i.us = phi i64 [ %62, %.lr.ph.i.i.us ], [ %73, %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i.us ]
+  %.01223.i.i.us = phi i64 [ %63, %.lr.ph.i.i.us ], [ %74, %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i.us ]
   %.1.ph.i.fr.i.us = freeze i32 %.sroa.0.0.copyload24.i.i.us
-  %67 = sext i32 %.1.ph.i.fr.i.us to i64
-  %68 = getelementptr inbounds %"struct.HashTablePermutohedral<5, 4>::Key", ptr %65, i64 %67
-  %69 = load i32, ptr %68, align 4, !tbaa !147
-  %.not.i.i.i.us = icmp eq i32 %69, %46
+  %68 = sext i32 %.1.ph.i.fr.i.us to i64
+  %69 = getelementptr inbounds %"struct.HashTablePermutohedral<5, 4>::Key", ptr %66, i64 %68
+  %70 = load i32, ptr %69, align 4, !tbaa !147
+  %.not.i.i.i.us = icmp eq i32 %70, %47
   br i1 %.not.i.i.i.us, label %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.i.i.us, label %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i.us
 
-_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.i.i.us: ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %bcmp.i.i.i.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %70, ptr noundef nonnull dereferenceable(10) %21, i64 10)
-  %71 = icmp eq i32 %bcmp.i.i.i.us, 0
-  br i1 %71, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i.us, label %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i.us
+_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.i.i.us: ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %bcmp.i.i.i.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %71, ptr noundef nonnull dereferenceable(10) %21, i64 10)
+  %72 = icmp eq i32 %bcmp.i.i.i.us, 0
+  br i1 %72, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i.us, label %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i.us
 
-_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i.us: ; preds = %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.i.i.us, %66
-  %72 = add i64 %.01223.i.i.us, 1
-  %73 = and i64 %72, %27
-  %74 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<5, 4>::Entry", ptr %28, i64 %73
-  %.sroa.0.0.copyload.i.i.us = load i32, ptr %74, align 4, !tbaa !116
-  %75 = icmp eq i32 %.sroa.0.0.copyload.i.i.us, -1
-  br i1 %75, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i.us, label %66, !llvm.loop !157
+_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i.us: ; preds = %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.i.i.us, %67
+  %73 = add i64 %.01223.i.i.us, 1
+  %74 = and i64 %73, %27
+  %75 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<5, 4>::Entry", ptr %28, i64 %74
+  %.sroa.0.0.copyload.i.i.us = load i32, ptr %75, align 4, !tbaa !116
+  %76 = icmp eq i32 %.sroa.0.0.copyload.i.i.us, -1
+  br i1 %76, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i.us, label %67, !llvm.loop !157
 
 _ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i.us: ; preds = %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.i.i.us
-  %76 = icmp slt i32 %.1.ph.i.fr.i.us, 0
-  %77 = load ptr, ptr %23, align 8
-  %78 = zext nneg i32 %.1.ph.i.fr.i.us to i64
-  %79 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %77, i64 %78
-  br i1 %76, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i.us, label %_ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit.us
+  %77 = icmp slt i32 %.1.ph.i.fr.i.us, 0
+  %78 = load ptr, ptr %23, align 8
+  %79 = zext nneg i32 %.1.ph.i.fr.i.us to i64
+  %80 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %78, i64 %79
+  br i1 %77, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i.us, label %_ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit.us
 
 _ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i.us: ; preds = %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i.us, %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i.us, %_ZN22HashTablePermutohedralILi5ELi4EE3KeyC2ERKS1_ii.exit41.us
   br label %_ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit.us
 
 _ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit.us: ; preds = %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i.us, %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i.us
-  %80 = phi ptr [ null, %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i.us ], [ %79, %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i.us ]
-  %.not31.us = icmp eq ptr %80, null
-  %81 = ptrtoint ptr %80 to i64
-  %82 = sub i64 %81, %24
-  %83 = getelementptr inbounds i8, ptr %.06674.us, i64 %82
-  %84 = select i1 %.not31.us, ptr %1, ptr %83
-  %85 = zext i32 %59 to i64
-  %86 = and i64 %27, %85
-  %87 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<5, 4>::Entry", ptr %28, i64 %86
-  %.sroa.0.0.copyload22.i.i42.us = load i32, ptr %87, align 4, !tbaa !116
-  %88 = icmp eq i32 %.sroa.0.0.copyload22.i.i42.us, -1
-  br i1 %88, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i51.us, label %.lr.ph.i.i43.us
+  %81 = phi ptr [ null, %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i.us ], [ %80, %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i.us ]
+  %.not31.us = icmp eq ptr %81, null
+  %82 = ptrtoint ptr %81 to i64
+  %83 = sub i64 %82, %24
+  %84 = getelementptr inbounds i8, ptr %.06674.us, i64 %83
+  %85 = select i1 %.not31.us, ptr %1, ptr %84
+  %86 = zext i32 %60 to i64
+  %87 = and i64 %27, %86
+  %88 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<5, 4>::Entry", ptr %28, i64 %87
+  %.sroa.0.0.copyload22.i.i42.us = load i32, ptr %88, align 4, !tbaa !116
+  %89 = icmp eq i32 %.sroa.0.0.copyload22.i.i42.us, -1
+  br i1 %89, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i51.us, label %.lr.ph.i.i43.us
 
 .lr.ph.i.i43.us:                                  ; preds = %_ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit.us
-  %89 = load ptr, ptr %20, align 8, !tbaa !150
-  br label %90
+  %90 = load ptr, ptr %20, align 8, !tbaa !150
+  br label %91
 
-90:                                               ; preds = %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i47.us, %.lr.ph.i.i43.us
+91:                                               ; preds = %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i47.us, %.lr.ph.i.i43.us
   %.sroa.0.0.copyload24.i.i44.us = phi i32 [ %.sroa.0.0.copyload22.i.i42.us, %.lr.ph.i.i43.us ], [ %.sroa.0.0.copyload.i.i48.us, %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i47.us ]
-  %.01223.i.i45.us = phi i64 [ %86, %.lr.ph.i.i43.us ], [ %97, %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i47.us ]
+  %.01223.i.i45.us = phi i64 [ %87, %.lr.ph.i.i43.us ], [ %98, %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i47.us ]
   %.1.ph.i.fr.i55.us = freeze i32 %.sroa.0.0.copyload24.i.i44.us
-  %91 = sext i32 %.1.ph.i.fr.i55.us to i64
-  %92 = getelementptr inbounds %"struct.HashTablePermutohedral<5, 4>::Key", ptr %89, i64 %91
-  %93 = load i32, ptr %92, align 4, !tbaa !147
-  %.not.i.i.i46.us = icmp eq i32 %93, %59
+  %92 = sext i32 %.1.ph.i.fr.i55.us to i64
+  %93 = getelementptr inbounds %"struct.HashTablePermutohedral<5, 4>::Key", ptr %90, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !147
+  %.not.i.i.i46.us = icmp eq i32 %94, %60
   br i1 %.not.i.i.i46.us, label %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.i.i52.us, label %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i47.us
 
-_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.i.i52.us: ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %bcmp.i.i.i53.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %94, ptr noundef nonnull dereferenceable(10) %22, i64 10)
-  %95 = icmp eq i32 %bcmp.i.i.i53.us, 0
-  br i1 %95, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i54.us, label %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i47.us
+_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.i.i52.us: ; preds = %91
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %bcmp.i.i.i53.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %95, ptr noundef nonnull dereferenceable(10) %22, i64 10)
+  %96 = icmp eq i32 %bcmp.i.i.i53.us, 0
+  br i1 %96, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i54.us, label %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i47.us
 
-_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i47.us: ; preds = %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.i.i52.us, %90
-  %96 = add i64 %.01223.i.i45.us, 1
-  %97 = and i64 %96, %27
-  %98 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<5, 4>::Entry", ptr %28, i64 %97
-  %.sroa.0.0.copyload.i.i48.us = load i32, ptr %98, align 4, !tbaa !116
-  %99 = icmp eq i32 %.sroa.0.0.copyload.i.i48.us, -1
-  br i1 %99, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i51.us, label %90, !llvm.loop !157
+_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i47.us: ; preds = %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.i.i52.us, %91
+  %97 = add i64 %.01223.i.i45.us, 1
+  %98 = and i64 %97, %27
+  %99 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<5, 4>::Entry", ptr %28, i64 %98
+  %.sroa.0.0.copyload.i.i48.us = load i32, ptr %99, align 4, !tbaa !116
+  %100 = icmp eq i32 %.sroa.0.0.copyload.i.i48.us, -1
+  br i1 %100, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i51.us, label %91, !llvm.loop !157
 
 _ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i54.us: ; preds = %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.i.i52.us
-  %100 = icmp slt i32 %.1.ph.i.fr.i55.us, 0
-  %101 = load ptr, ptr %23, align 8
-  %102 = zext nneg i32 %.1.ph.i.fr.i55.us to i64
-  %103 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %101, i64 %102
-  br i1 %100, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i51.us, label %_ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit56.us
+  %101 = icmp slt i32 %.1.ph.i.fr.i55.us, 0
+  %102 = load ptr, ptr %23, align 8
+  %103 = zext nneg i32 %.1.ph.i.fr.i55.us to i64
+  %104 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %102, i64 %103
+  br i1 %101, label %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i51.us, label %_ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit56.us
 
 _ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i51.us: ; preds = %_ZNK22HashTablePermutohedralILi5ELi4EE3KeyeqERKS1_.exit.thread.i.i47.us, %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i54.us, %_ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit.us
   br label %_ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit56.us
 
 _ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit56.us: ; preds = %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i51.us, %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i54.us
-  %104 = phi ptr [ null, %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i51.us ], [ %103, %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i54.us ]
-  %.not32.us = icmp eq ptr %104, null
-  %105 = ptrtoint ptr %104 to i64
-  %106 = sub i64 %105, %24
-  %107 = getelementptr inbounds i8, ptr %.06674.us, i64 %106
-  %108 = select i1 %.not32.us, ptr %1, ptr %107
-  %109 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %.06773.us, i64 %.02472.us
-  br label %110
+  %105 = phi ptr [ null, %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.thread.i51.us ], [ %104, %_ZN22HashTablePermutohedralILi5ELi4EE12lookupOffsetERKNS0_3KeyEb.exit.i54.us ]
+  %.not32.us = icmp eq ptr %105, null
+  %106 = ptrtoint ptr %105 to i64
+  %107 = sub i64 %106, %24
+  %108 = getelementptr inbounds i8, ptr %.06674.us, i64 %107
+  %109 = select i1 %.not32.us, ptr %1, ptr %108
+  %110 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %.06773.us, i64 %.02472.us
+  br label %111
 
-110:                                              ; preds = %110, %_ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit56.us
-  %.09.i.us = phi i64 [ 0, %_ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit56.us ], [ %120, %110 ]
-  %111 = getelementptr inbounds nuw [4 x float], ptr %84, i64 0, i64 %.09.i.us
-  %112 = load float, ptr %111, align 4, !tbaa !33
-  %113 = getelementptr inbounds nuw [4 x float], ptr %60, i64 0, i64 %.09.i.us
-  %114 = load float, ptr %113, align 4, !tbaa !33
-  %115 = fmul reassoc nsz arcp contract afn float %114, 5.000000e-01
-  %116 = getelementptr inbounds nuw [4 x float], ptr %108, i64 0, i64 %.09.i.us
-  %117 = load float, ptr %116, align 4, !tbaa !33
-  %reass.add.i.us = fadd reassoc nsz arcp contract afn float %117, %112
+111:                                              ; preds = %111, %_ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit56.us
+  %.09.i.us = phi i64 [ 0, %_ZN22HashTablePermutohedralILi5ELi4EE6lookupERKNS0_3KeyEb.exit56.us ], [ %121, %111 ]
+  %112 = getelementptr inbounds nuw [4 x float], ptr %85, i64 0, i64 %.09.i.us
+  %113 = load float, ptr %112, align 4, !tbaa !33
+  %114 = getelementptr inbounds nuw [4 x float], ptr %61, i64 0, i64 %.09.i.us
+  %115 = load float, ptr %114, align 4, !tbaa !33
+  %116 = fmul reassoc nsz arcp contract afn float %115, 5.000000e-01
+  %117 = getelementptr inbounds nuw [4 x float], ptr %109, i64 0, i64 %.09.i.us
+  %118 = load float, ptr %117, align 4, !tbaa !33
+  %reass.add.i.us = fadd reassoc nsz arcp contract afn float %118, %113
   %reass.mul.i.us = fmul reassoc nsz arcp contract afn float %reass.add.i.us, 2.500000e-01
-  %118 = fadd reassoc nsz arcp contract afn float %reass.mul.i.us, %115
-  %119 = getelementptr inbounds nuw [4 x float], ptr %109, i64 0, i64 %.09.i.us
-  store float %118, ptr %119, align 4, !tbaa !33
-  %120 = add nuw nsw i64 %.09.i.us, 1
-  %exitcond.not.i57.us = icmp eq i64 %120, 4
-  br i1 %exitcond.not.i57.us, label %_ZN27HashTablePermutohedralValueILi4EE3mixEPKS0_S2_S2_.exit.us, label %110, !llvm.loop !204
+  %119 = fadd reassoc nsz arcp contract afn float %reass.mul.i.us, %116
+  %120 = getelementptr inbounds nuw [4 x float], ptr %110, i64 0, i64 %.09.i.us
+  store float %119, ptr %120, align 4, !tbaa !33
+  %121 = add nuw nsw i64 %.09.i.us, 1
+  %exitcond.not.i57.us = icmp eq i64 %121, 4
+  br i1 %exitcond.not.i57.us, label %_ZN27HashTablePermutohedralValueILi4EE3mixEPKS0_S2_S2_.exit.us, label %111, !llvm.loop !204
 
-_ZN27HashTablePermutohedralValueILi4EE3mixEPKS0_S2_S2_.exit.us: ; preds = %110
+_ZN27HashTablePermutohedralValueILi4EE3mixEPKS0_S2_S2_.exit.us: ; preds = %111
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
-  %121 = add nuw i64 %.02472.us, 1
-  %exitcond.not = icmp eq i64 %121, %19
+  %122 = add nuw i64 %.02472.us, 1
+  %exitcond.not = icmp eq i64 %122, %19
   br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !205
 
 ._crit_edge.us:                                   ; preds = %_ZN27HashTablePermutohedralValueILi4EE3mixEPKS0_S2_S2_.exit.us
@@ -1898,11 +1907,11 @@ _ZN27HashTablePermutohedralValueILi4EE3mixEPKS0_S2_S2_.exit.us: ; preds = %110
   br i1 %exitcond85.not, label %.split77.us, label %.preheader.us, !llvm.loop !206
 
 .preheader:                                       ; preds = %18, %.preheader
-  %.075 = phi i32 [ %122, %.preheader ], [ 0, %18 ]
+  %.075 = phi i32 [ %123, %.preheader ], [ 0, %18 ]
   %.06674 = phi ptr [ %.06773, %.preheader ], [ %13, %18 ]
   %.06773 = phi ptr [ %.06674, %.preheader ], [ %11, %18 ]
-  %122 = add nuw nsw i32 %.075, 1
-  %exitcond86.not = icmp eq i32 %122, 6
+  %123 = add nuw nsw i32 %.075, 1
+  %exitcond86.not = icmp eq i32 %123, 6
   br i1 %exitcond86.not, label %.split77.us.thread, label %.preheader, !llvm.loop !207
 
 .split77.us:                                      ; preds = %._crit_edge.us
@@ -1911,28 +1920,28 @@ _ZN27HashTablePermutohedralValueILi4EE3mixEPKS0_S2_S2_.exit.us: ; preds = %110
 
 .split77.us.thread:                               ; preds = %.preheader
   %.not3090 = icmp eq ptr %.06773, %13
-  br i1 %.not3090, label %125, label %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit
+  br i1 %.not3090, label %126, label %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread: ; preds = %.split77.us
   %.idx = shl nuw nsw i64 %19, 4
-  %123 = load ptr, ptr %23, align 8, !tbaa !111
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 16 %123, ptr nonnull align 16 %.06773.us, i64 %.idx, i1 false)
+  %124 = load ptr, ptr %23, align 8, !tbaa !111
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 16 %124, ptr nonnull align 16 %.06773.us, i64 %.idx, i1 false)
   br label %.sink.split
 
 _ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit: ; preds = %.split77.us.thread
-  %124 = icmp eq ptr %.06773, null
-  br i1 %124, label %127, label %.sink.split
+  %125 = icmp eq ptr %.06773, null
+  br i1 %125, label %128, label %.sink.split
 
-125:                                              ; preds = %.split77.us.thread
-  %126 = icmp eq ptr %.06674, null
-  br i1 %126, label %127, label %.sink.split
+126:                                              ; preds = %.split77.us.thread
+  %127 = icmp eq ptr %.06674, null
+  br i1 %127, label %128, label %.sink.split
 
-.sink.split:                                      ; preds = %125, %.split77.us, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread
-  %.us-phi9199.sink = phi ptr [ %.06773.us, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread ], [ %.06773, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit ], [ %.06674, %125 ], [ %.06674.us, %.split77.us ]
+.sink.split:                                      ; preds = %126, %.split77.us, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread
+  %.us-phi9199.sink = phi ptr [ %.06773.us, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread ], [ %.06773, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit ], [ %.06674, %126 ], [ %.06674.us, %.split77.us ]
   tail call void @_ZdaPv(ptr noundef nonnull %.us-phi9199.sink) #26
-  br label %127
+  br label %128
 
-127:                                              ; preds = %.sink.split, %125, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit
+128:                                              ; preds = %.sink.split, %126, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #18
   ret void
 }
@@ -2107,7 +2116,7 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
 
 30:                                               ; preds = %5
   store float 2.000000e+00, ptr %4, align 4, !tbaa !213
-  br label %84
+  br label %85
 
 31:                                               ; preds = %5
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2133,59 +2142,65 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %52 = fdiv reassoc nsz arcp contract afn float %50, %51
   %53 = fpext reassoc nsz arcp contract afn float %52 to double
   %54 = fcmp reassoc nsz arcp contract afn olt double %53, 1.000000e-01
-  %55 = fmul reassoc nsz arcp contract afn double %53, 2.000000e-02
-  %56 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %55)
-  %57 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.800000e+00, double %56)
-  %58 = select i1 %54, double 0x3FCA323591D23FB1, double %57
-  %59 = uitofp i64 %40 to double
-  %60 = fmul reassoc nsz arcp contract afn double %58, %59
-  %61 = fptoui double %60 to i64
-  %62 = mul i64 %40, 6
-  %63 = tail call noundef i64 @llvm.umin.i64(i64 %62, i64 %61)
-  %64 = shl i64 %63, 1
-  br label %65
+  br i1 %54, label %_ZN20PermutohedralLatticeILi5ELi4EE20estimatedHashEntriesEmm.exit.i, label %55
 
-65:                                               ; preds = %65, %31
-  %.0.i = phi i64 [ 1, %31 ], [ %67, %65 ]
-  %66 = icmp ult i64 %.0.i, %64
-  %67 = shl i64 %.0.i, 1
-  br i1 %66, label %65, label %_ZN20PermutohedralLatticeILi5ELi4EE14estimatedBytesEmm.exit, !llvm.loop !215
+55:                                               ; preds = %31
+  %56 = fmul reassoc nsz arcp contract afn double %53, 2.000000e-02
+  %57 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %56)
+  %58 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.800000e+00, double %57)
+  br label %_ZN20PermutohedralLatticeILi5ELi4EE20estimatedHashEntriesEmm.exit.i
 
-_ZN20PermutohedralLatticeILi5ELi4EE14estimatedBytesEmm.exit: ; preds = %65
-  %68 = shl i64 %63, 6
-  %69 = shl i64 %.0.i, 2
-  %70 = add i64 %69, %68
-  %71 = mul i64 %63, 48
-  %72 = add i64 %.0.i, %63
-  %73 = shl i64 %72, 2
-  %74 = add i64 %73, %71
-  %75 = tail call noundef i64 @llvm.umax.i64(i64 %70, i64 %74)
-  %76 = uitofp i64 %75 to float
-  %77 = fmul reassoc nsz arcp contract afn float %51, 1.600000e+01
-  %78 = fdiv reassoc nsz arcp contract afn float %76, %77
-  %79 = fadd reassoc nsz arcp contract afn float %78, 5.250000e+00
-  store float %79, ptr %4, align 4, !tbaa !213
-  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !164
-  %81 = and i32 %80, 512
-  %.not = icmp eq i32 %81, 0
-  br i1 %.not, label %84, label %82
+_ZN20PermutohedralLatticeILi5ELi4EE20estimatedHashEntriesEmm.exit.i: ; preds = %55, %31
+  %59 = phi double [ %58, %55 ], [ 0x3FCA323591D23FB1, %31 ]
+  %60 = uitofp i64 %40 to double
+  %61 = fmul reassoc nsz arcp contract afn double %59, %60
+  %62 = fptoui double %61 to i64
+  %63 = mul i64 %40, 6
+  %64 = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %62)
+  %65 = shl i64 %64, 1
+  br label %66
 
-82:                                               ; preds = %_ZN20PermutohedralLatticeILi5ELi4EE14estimatedBytesEmm.exit
-  %83 = fpext reassoc nsz arcp contract afn float %79 to double
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.9, double noundef %83, i64 noundef %40, i64 noundef %75)
-  br label %84
+66:                                               ; preds = %66, %_ZN20PermutohedralLatticeILi5ELi4EE20estimatedHashEntriesEmm.exit.i
+  %.0.i = phi i64 [ 1, %_ZN20PermutohedralLatticeILi5ELi4EE20estimatedHashEntriesEmm.exit.i ], [ %68, %66 ]
+  %67 = icmp ult i64 %.0.i, %65
+  %68 = shl i64 %.0.i, 1
+  br i1 %67, label %66, label %_ZN20PermutohedralLatticeILi5ELi4EE14estimatedBytesEmm.exit, !llvm.loop !215
 
-84:                                               ; preds = %_ZN20PermutohedralLatticeILi5ELi4EE14estimatedBytesEmm.exit, %82, %30
-  %85 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %85, align 4, !tbaa !216
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %spec.select, ptr %86, align 4, !tbaa !217
-  %87 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 1, ptr %87, align 4, !tbaa !218
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 1, ptr %88, align 4, !tbaa !219
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store float 1.000000e+00, ptr %89, align 4, !tbaa !220
+_ZN20PermutohedralLatticeILi5ELi4EE14estimatedBytesEmm.exit: ; preds = %66
+  %69 = shl i64 %64, 6
+  %70 = shl i64 %.0.i, 2
+  %71 = add i64 %70, %69
+  %72 = mul i64 %64, 48
+  %73 = add i64 %.0.i, %64
+  %74 = shl i64 %73, 2
+  %75 = add i64 %74, %72
+  %76 = tail call noundef i64 @llvm.umax.i64(i64 %71, i64 %75)
+  %77 = uitofp i64 %76 to float
+  %78 = fmul reassoc nsz arcp contract afn float %51, 1.600000e+01
+  %79 = fdiv reassoc nsz arcp contract afn float %77, %78
+  %80 = fadd reassoc nsz arcp contract afn float %79, 5.250000e+00
+  store float %80, ptr %4, align 4, !tbaa !213
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !164
+  %82 = and i32 %81, 512
+  %.not = icmp eq i32 %82, 0
+  br i1 %.not, label %85, label %83
+
+83:                                               ; preds = %_ZN20PermutohedralLatticeILi5ELi4EE14estimatedBytesEmm.exit
+  %84 = fpext reassoc nsz arcp contract afn float %80 to double
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.9, double noundef %84, i64 noundef %40, i64 noundef %76)
+  br label %85
+
+85:                                               ; preds = %_ZN20PermutohedralLatticeILi5ELi4EE14estimatedBytesEmm.exit, %83, %30
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 0, ptr %86, align 4, !tbaa !216
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 %spec.select, ptr %87, align 4, !tbaa !217
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 1, ptr %88, align 4, !tbaa !218
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 1, ptr %89, align 4, !tbaa !219
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store float 1.000000e+00, ptr %90, align 4, !tbaa !220
   ret void
 }
 

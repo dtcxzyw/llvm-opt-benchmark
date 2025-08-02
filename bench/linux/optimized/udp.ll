@@ -4685,7 +4685,7 @@ define internal fastcc range(i32 -1, -2147483647) i32 @udpv6_queue_rcv_skb(ptr n
 
 30:                                               ; preds = %25, %22, %2
   %31 = tail call fastcc i32 @udpv6_queue_rcv_one_skb(ptr noundef %0, ptr noundef %1)
-  br label %.thread4
+  br label %.critedge
 
 32:                                               ; preds = %25, %17
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 182
@@ -4726,9 +4726,9 @@ define internal fastcc range(i32 -1, -2147483647) i32 @udpv6_queue_rcv_skb(ptr n
   %61 = icmp eq ptr %60, null
   %62 = icmp ugt ptr %60, inttoptr (i64 -4096 to ptr)
   %63 = or i1 %61, %62
-  br i1 %63, label %.thread, label %82
+  br i1 %63, label %udp_rcv_segment.exit.thread, label %82
 
-.thread:                                          ; preds = %59
+udp_rcv_segment.exit.thread:                      ; preds = %59
   %64 = load ptr, ptr %3, align 8
   %65 = load i32, ptr %5, align 4
   %66 = zext i32 %65 to i64
@@ -4750,7 +4750,7 @@ define internal fastcc range(i32 -1, -2147483647) i32 @udpv6_queue_rcv_skb(ptr n
   %81 = getelementptr i8, ptr %80, i64 24
   tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %81, i64 %72, ptr elementtype(i64) %81) #14, !srcloc !68
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #14
-  br label %.thread4
+  br label %.critedge
 
 82:                                               ; preds = %59
   tail call void @consume_skb(ptr noundef %1) #14
@@ -4839,10 +4839,10 @@ udp_post_segment_fix_csum.exit:                   ; preds = %112, %120, %125
 
 134:                                              ; preds = %129, %udp_post_segment_fix_csum.exit
   %135 = icmp eq ptr %85, null
-  br i1 %135, label %.thread4, label %83, !llvm.loop !74
+  br i1 %135, label %.critedge, label %83, !llvm.loop !74
 
-.thread4:                                         ; preds = %134, %.thread, %30
-  %136 = phi i32 [ %31, %30 ], [ 0, %.thread ], [ 0, %134 ]
+.critedge:                                        ; preds = %134, %udp_rcv_segment.exit.thread, %30
+  %136 = phi i32 [ %31, %30 ], [ 0, %udp_rcv_segment.exit.thread ], [ 0, %134 ]
   ret i32 %136
 }
 

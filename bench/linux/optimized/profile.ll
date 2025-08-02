@@ -120,7 +120,7 @@ sub_1:                                            ; preds = %sub_0
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   %16 = call i32 @get_option(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %46, label %18
+  br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %.tail.thread
   %19 = load i32, ptr %3, align 4
@@ -132,48 +132,48 @@ sub_1:                                            ; preds = %sub_0
   store i32 1, ptr @prof_on, align 4
   %24 = zext i16 %23 to i32
   %25 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %24) #13
-  br label %46
+  br label %.critedge
 
 26:                                               ; preds = %.tail, %7, %6
   %.sink = phi i32 [ 3, %6 ], [ 2, %7 ], [ 4, %.tail ]
-  %.ph = phi ptr [ @profile_setup.sleepstr, %6 ], [ @profile_setup.schedstr, %7 ], [ @profile_setup.kvmstr, %.tail ]
+  %27 = phi ptr [ @profile_setup.sleepstr, %6 ], [ @profile_setup.schedstr, %7 ], [ @profile_setup.kvmstr, %.tail ]
   store i32 %.sink, ptr @prof_on, align 4
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ph) #12
-  %28 = getelementptr i8, ptr %0, i64 %27
-  %29 = load i8, ptr %28, align 1
-  %30 = icmp eq i8 %29, 44
-  br i1 %30, label %31, label %33
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #12
+  %29 = getelementptr i8, ptr %0, i64 %28
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp eq i8 %30, 44
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %26
-  %32 = getelementptr i8, ptr %28, i64 1
-  store ptr %32, ptr %2, align 8
-  br label %33
+32:                                               ; preds = %26
+  %33 = getelementptr i8, ptr %29, i64 1
+  store ptr %33, ptr %2, align 8
+  br label %34
 
-33:                                               ; preds = %31, %26
-  %34 = call i32 @get_option(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %._crit_edge, label %36
+34:                                               ; preds = %32, %26
+  %35 = call i32 @get_option(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %._crit_edge, label %37
 
-._crit_edge:                                      ; preds = %33
+._crit_edge:                                      ; preds = %34
   %.pre = load i16, ptr @prof_shift, align 2
-  br label %42
+  br label %43
 
-36:                                               ; preds = %33
-  %37 = load i32, ptr %3, align 4
-  %38 = icmp sgt i32 %37, 62
-  %39 = call i32 @llvm.smax.i32(i32 %37, i32 0)
-  %40 = trunc i32 %39 to i16
-  %41 = select i1 %38, i16 63, i16 %40
-  store i16 %41, ptr @prof_shift, align 2
-  br label %42
+37:                                               ; preds = %34
+  %38 = load i32, ptr %3, align 4
+  %39 = icmp sgt i32 %38, 62
+  %40 = call i32 @llvm.smax.i32(i32 %38, i32 0)
+  %41 = trunc i32 %40 to i16
+  %42 = select i1 %39, i16 63, i16 %41
+  store i16 %42, ptr @prof_shift, align 2
+  br label %43
 
-42:                                               ; preds = %._crit_edge, %36
-  %43 = phi i16 [ %.pre, %._crit_edge ], [ %41, %36 ]
-  %44 = zext i16 %43 to i32
-  %45 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %.ph, i32 noundef %44) #13
-  br label %46
+43:                                               ; preds = %._crit_edge, %37
+  %44 = phi i16 [ %.pre, %._crit_edge ], [ %42, %37 ]
+  %45 = zext i16 %44 to i32
+  %46 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %27, i32 noundef %45) #13
+  br label %.critedge
 
-46:                                               ; preds = %.tail.thread, %18, %42
+.critedge:                                        ; preds = %18, %.tail.thread, %43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   ret i32 1
 }

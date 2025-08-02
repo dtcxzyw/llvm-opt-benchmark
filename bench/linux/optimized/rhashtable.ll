@@ -1916,7 +1916,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
 41:                                               ; preds = %36
   %42 = load volatile i32, ptr %13, align 4
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %54, label %44
+  br i1 %43, label %55, label %44
 
 44:                                               ; preds = %41
   %45 = mul i32 %42, 3
@@ -1928,16 +1928,16 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   %51 = zext nneg i32 %50 to i64
   %52 = shl nuw i64 1, %51
   %53 = trunc i64 %52 to i32
-  br label %54
+  %54 = tail call i32 @llvm.umax.i32(i32 %53, i32 %39)
+  br label %55
 
-54:                                               ; preds = %44, %41
-  %55 = phi i32 [ %53, %44 ], [ 0, %41 ]
-  %56 = tail call i32 @llvm.umax.i32(i32 %55, i32 %39)
+55:                                               ; preds = %44, %41
+  %56 = phi i32 [ %54, %44 ], [ %39, %41 ]
   %57 = load i32, ptr %6, align 64
   %58 = icmp ugt i32 %57, %56
   br i1 %58, label %59, label %.thread
 
-59:                                               ; preds = %54
+59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %61 = load ptr, ptr %60, align 16
   %62 = icmp eq ptr %61, null
@@ -1964,8 +1964,8 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
     i32 0, label %.thread
   ]
 
-.thread:                                          ; preds = %59, %54, %65, %71, %71
-  %73 = phi i32 [ %72, %71 ], [ %72, %71 ], [ -17, %59 ], [ 0, %54 ], [ 0, %65 ]
+.thread:                                          ; preds = %59, %55, %65, %71, %71
+  %73 = phi i32 [ %72, %71 ], [ %72, %71 ], [ -17, %59 ], [ 0, %55 ], [ 0, %65 ]
   %74 = load ptr, ptr %4, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %76 = load ptr, ptr %75, align 16
@@ -2375,21 +2375,21 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
 30:                                               ; preds = %29, %.split.us
   tail call void @kvfree(ptr noundef %11) #15
   %31 = icmp eq ptr %13, null
-  br i1 %31, label %.split13.us, label %.split.us, !llvm.loop !72
+  br i1 %31, label %.split12.us, label %.split.us, !llvm.loop !72
 
 .split:                                           ; preds = %3, %141
   %32 = phi ptr [ %125, %141 ], [ %7, %3 ]
   %33 = load i32, ptr %32, align 64
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.loopexit9, label %35
+  br i1 %34, label %.loopexit8, label %35
 
 35:                                               ; preds = %.split
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 64
   br label %38
 
-38:                                               ; preds = %.thread, %35
-  %39 = phi i64 [ 0, %35 ], [ %119, %.thread ]
+38:                                               ; preds = %.critedge, %35
+  %39 = phi i64 [ 0, %35 ], [ %119, %.critedge ]
   %40 = tail call i32 @__SCT__cond_resched() #15
   %41 = load i32, ptr %36, align 4
   %42 = icmp eq i32 %41, 0
@@ -2420,12 +2420,12 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   %60 = icmp ne ptr %59, null
   %61 = icmp ugt i32 %54, 512
   %62 = select i1 %60, i1 %61, i1 false
-  br i1 %62, label %.preheader7, label %.loopexit8
+  br i1 %62, label %.preheader6, label %.loopexit7
 
-.preheader7:                                      ; preds = %47, %.preheader7
-  %63 = phi ptr [ %71, %.preheader7 ], [ %59, %47 ]
-  %64 = phi i32 [ %69, %.preheader7 ], [ %54, %47 ]
-  %65 = phi i32 [ %70, %.preheader7 ], [ %58, %47 ]
+.preheader6:                                      ; preds = %47, %.preheader6
+  %63 = phi ptr [ %71, %.preheader6 ], [ %59, %47 ]
+  %64 = phi i32 [ %69, %.preheader6 ], [ %54, %47 ]
+  %65 = phi i32 [ %70, %.preheader6 ], [ %58, %47 ]
   %66 = and i32 %65, 511
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr %union.nested_table, ptr %63, i64 %67
@@ -2435,12 +2435,12 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   %72 = icmp ne ptr %71, null
   %73 = icmp ugt i32 %64, 262655
   %74 = select i1 %72, i1 %73, i1 false
-  br i1 %74, label %.preheader7, label %.loopexit8, !llvm.loop !8
+  br i1 %74, label %.preheader6, label %.loopexit7, !llvm.loop !8
 
-.loopexit8:                                       ; preds = %.preheader7, %47
-  %75 = phi i32 [ %58, %47 ], [ %70, %.preheader7 ]
-  %76 = phi ptr [ %59, %47 ], [ %71, %.preheader7 ]
-  %77 = phi i1 [ %60, %47 ], [ %72, %.preheader7 ]
+.loopexit7:                                       ; preds = %.preheader6, %47
+  %75 = phi i32 [ %58, %47 ], [ %70, %.preheader6 ]
+  %76 = phi ptr [ %59, %47 ], [ %71, %.preheader6 ]
+  %77 = phi i1 [ %60, %47 ], [ %72, %.preheader6 ]
   %78 = zext i32 %75 to i64
   %79 = getelementptr %union.nested_table, ptr %76, i64 %78
   %80 = select i1 %77, ptr %79, ptr null
@@ -2452,8 +2452,8 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   %84 = getelementptr [0 x ptr], ptr %37, i64 0, i64 %39
   br label %85
 
-85:                                               ; preds = %83, %.loopexit8
-  %86 = phi ptr [ %82, %.loopexit8 ], [ %84, %83 ]
+85:                                               ; preds = %83, %.loopexit7
+  %86 = phi ptr [ %82, %.loopexit7 ], [ %84, %83 ]
   %87 = load ptr, ptr %86, align 8
   %88 = ptrtoint ptr %87 to i64
   %89 = and i64 %88, -2
@@ -2463,7 +2463,7 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   %93 = select i1 %90, i64 %92, i64 %89
   %94 = and i64 %93, 1
   %95 = icmp eq i64 %94, 0
-  br i1 %95, label %96, label %.thread
+  br i1 %95, label %96, label %.critedge
 
 96:                                               ; preds = %85
   %97 = inttoptr i64 %93 to ptr
@@ -2500,17 +2500,17 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   %116 = ptrtoint ptr %100 to i64
   %117 = and i64 %116, 1
   %118 = icmp eq i64 %117, 0
-  br i1 %118, label %98, label %.thread, !llvm.loop !74
+  br i1 %118, label %98, label %.critedge, !llvm.loop !74
 
-.thread:                                          ; preds = %.loopexit, %85
+.critedge:                                        ; preds = %.loopexit, %85
   %119 = add nuw nsw i64 %39, 1
   %120 = load i32, ptr %32, align 64
   %121 = zext i32 %120 to i64
   %122 = icmp samesign ult i64 %119, %121
-  br i1 %122, label %38, label %.loopexit9, !llvm.loop !75
+  br i1 %122, label %38, label %.loopexit8, !llvm.loop !75
 
-.loopexit9:                                       ; preds = %.thread, %.split
-  %123 = phi i32 [ 0, %.split ], [ %120, %.thread ]
+.loopexit8:                                       ; preds = %.critedge, %.split
+  %123 = phi i32 [ 0, %.split ], [ %120, %.critedge ]
   %124 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %125 = load ptr, ptr %124, align 16
   %126 = getelementptr inbounds nuw i8, ptr %32, i64 4
@@ -2518,7 +2518,7 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %141, label %129
 
-129:                                              ; preds = %.loopexit9
+129:                                              ; preds = %.loopexit8
   %130 = lshr i32 %123, %127
   %131 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %132 = load ptr, ptr %131, align 64
@@ -2538,12 +2538,12 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   tail call void @kfree(ptr noundef %132) #15
   br label %141
 
-141:                                              ; preds = %140, %.loopexit9
+141:                                              ; preds = %140, %.loopexit8
   tail call void @kvfree(ptr noundef %32) #15
   %142 = icmp eq ptr %125, null
-  br i1 %142, label %.split13.us, label %.split
+  br i1 %142, label %.split12.us, label %.split
 
-.split13.us:                                      ; preds = %141, %30
+.split12.us:                                      ; preds = %141, %30
   tail call void @mutex_unlock(ptr noundef nonnull %6) #15
   ret void
 }

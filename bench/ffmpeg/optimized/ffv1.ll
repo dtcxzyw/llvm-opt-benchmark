@@ -1250,26 +1250,27 @@ define void @ff_ffv1_close(ptr noundef %0) local_unnamed_addr #2 {
 .lr.ph39:                                         ; preds = %31, %.lr.ph39
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.lr.ph39 ], [ 0, %31 ]
   %35 = load ptr, ptr %29, align 8, !tbaa !65
-  %36 = getelementptr inbounds nuw %struct.FFV1SliceContext, ptr %35, i64 %indvars.iv49, i32 17, i32 0, i32 1, i64 %indvars.iv52
-  tail call void @av_freep(ptr noundef nonnull %36) #12
+  %36 = getelementptr inbounds nuw %struct.FFV1SliceContext, ptr %35, i64 %indvars.iv49, i32 17, i32 0, i32 1
+  %37 = getelementptr inbounds nuw [8 x ptr], ptr %36, i64 0, i64 %indvars.iv52
+  tail call void @av_freep(ptr noundef nonnull %37) #12
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %37 = load i32, ptr %2, align 8, !tbaa !63
-  %38 = sext i32 %37 to i64
-  %39 = icmp slt i64 %indvars.iv.next50, %38
-  br i1 %39, label %.lr.ph39, label %._crit_edge40, !llvm.loop !104
+  %38 = load i32, ptr %2, align 8, !tbaa !63
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next50, %39
+  br i1 %40, label %.lr.ph39, label %._crit_edge40, !llvm.loop !104
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %31
-  %40 = getelementptr inbounds nuw [8 x ptr], ptr %30, i64 0, i64 %indvars.iv52
-  tail call void @av_freep(ptr noundef nonnull %40) #12
+  %41 = getelementptr inbounds nuw [8 x ptr], ptr %30, i64 0, i64 %indvars.iv52
+  tail call void @av_freep(ptr noundef nonnull %41) #12
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %41 = load i32, ptr %25, align 8, !tbaa !78
-  %42 = sext i32 %41 to i64
-  %43 = icmp slt i64 %indvars.iv.next53, %42
-  br i1 %43, label %31, label %._crit_edge44, !llvm.loop !105
+  %42 = load i32, ptr %25, align 8, !tbaa !78
+  %43 = sext i32 %42 to i64
+  %44 = icmp slt i64 %indvars.iv.next53, %43
+  br i1 %44, label %31, label %._crit_edge44, !llvm.loop !105
 
 ._crit_edge44:                                    ; preds = %._crit_edge40, %._crit_edge
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 25224
-  tail call void @av_freep(ptr noundef nonnull %44) #12
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 25224
+  tail call void @av_freep(ptr noundef nonnull %45) #12
   ret void
 }
 

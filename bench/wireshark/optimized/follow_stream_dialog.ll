@@ -4479,7 +4479,7 @@ define void @_ZN18FollowStreamDialog31streamNumberSpinBoxValueChangedEi(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i8, ptr %5, align 8, !range !54, !noundef !55
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -4503,15 +4503,15 @@ define void @_ZN18FollowStreamDialog31streamNumberSpinBoxValueChangedEi(ptr noun
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 32768
-  %.not30 = icmp eq i32 %29, 0
-  br i1 %.not30, label %42, label %30
+  %.not28 = icmp eq i32 %29, 0
+  br i1 %.not28, label %42, label %30
 
 30:                                               ; preds = %8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @get_follow_sub_stream_id_func(ptr noundef %32)
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %.thread, label %34
+  br i1 %.not, label %.critedge, label %34
 
 34:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #29
@@ -4521,16 +4521,16 @@ define void @_ZN18FollowStreamDialog31streamNumberSpinBoxValueChangedEi(ptr noun
 
 36:                                               ; preds = %34
   %37 = call noundef zeroext i1 %33(i32 noundef %1, i32 noundef %17, i1 noundef zeroext false, ptr noundef nonnull %3)
-  %.pre31 = load i32, ptr %3, align 4
+  %.pre29 = load i32, ptr %3, align 4
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = call noundef zeroext i1 %33(i32 noundef %1, i32 noundef %.pre31, i1 noundef zeroext true, ptr noundef nonnull %3)
+  %39 = call noundef zeroext i1 %33(i32 noundef %1, i32 noundef %.pre29, i1 noundef zeroext true, ptr noundef nonnull %3)
   %.pre = load i32, ptr %3, align 4
   br label %40
 
-40:                                               ; preds = %34, %38, %36
-  %41 = phi i32 [ %.pre31, %36 ], [ %.pre, %38 ], [ 0, %34 ]
+40:                                               ; preds = %34, %36, %38
+  %41 = phi i32 [ %.pre29, %36 ], [ %.pre, %38 ], [ 0, %34 ]
   %.118.shrunk = phi i1 [ true, %36 ], [ %39, %38 ], [ true, %34 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #29
   br label %42
@@ -4540,7 +4540,7 @@ define void @_ZN18FollowStreamDialog31streamNumberSpinBoxValueChangedEi(ptr noun
   %.1 = phi i32 [ %41, %40 ], [ %17, %8 ]
   %43 = icmp sgt i32 %1, -1
   %or.cond = and i1 %43, %.2
-  br i1 %or.cond, label %44, label %.thread
+  br i1 %or.cond, label %44, label %.critedge
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -4583,7 +4583,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %56
 _ZN7QStringD2Ev.exit:                             ; preds = %56, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %59
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i32 %.1, ptr %61, align 8
-  br label %.thread
+  br label %.critedge
 
 62:                                               ; preds = %_ZN7QStringC2ERKS_.exit
   %63 = landingpad { ptr, i32 }
@@ -4605,7 +4605,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i25:    ; preds = %62
 _ZN7QStringD2Ev.exit27:                           ; preds = %62, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i25, %66
   resume { ptr, i32 } %63
 
-.thread:                                          ; preds = %30, %_ZN7QStringD2Ev.exit, %42, %2
+.critedge:                                        ; preds = %_ZN7QStringD2Ev.exit, %42, %30, %2
   ret void
 }
 

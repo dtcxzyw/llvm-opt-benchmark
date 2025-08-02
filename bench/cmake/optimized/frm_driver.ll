@@ -1861,7 +1861,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
   %5 = load i16, ptr %4, align 4, !tbaa !47
   %6 = sext i16 %5 to i32
   %.not = icmp eq i32 %1, %6
-  br i1 %.not, label %.loopexit, label %7
+  br i1 %.not, label %.critedge, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1905,7 +1905,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
 32:                                               ; preds = %28
   %33 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %.023, i1 noundef zeroext false)
   %.not36 = icmp eq i32 %33, 0
-  br i1 %.not36, label %34, label %.loopexit
+  br i1 %.not36, label %34, label %.critedge
 
 34:                                               ; preds = %32, %28
   %35 = getelementptr inbounds nuw i8, ptr %.023, i64 56
@@ -1915,7 +1915,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
 
 37:                                               ; preds = %34
   %.not38 = icmp eq ptr %2, null
-  br i1 %.not38, label %38, label %.loopexit.sink.split
+  br i1 %.not38, label %38, label %.critedge.sink.split
 
 38:                                               ; preds = %37
   %39 = load ptr, ptr %18, align 8, !tbaa !62
@@ -1962,15 +1962,15 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
   %77 = icmp eq i32 %76, 3
   %.not.i.i = icmp eq ptr %47, %73
   %or.cond.i.i = or i1 %.not.i.i, %77
-  br i1 %or.cond.i.i, label %.loopexit.sink.split, label %69, !llvm.loop !84
+  br i1 %or.cond.i.i, label %.critedge.sink.split, label %69, !llvm.loop !84
 
-.loopexit.sink.split:                             ; preds = %69, %37
-  %.lcssa.sink = phi ptr [ %2, %37 ], [ %73, %69 ]
-  %78 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.lcssa.sink)
-  br label %.loopexit
+.critedge.sink.split:                             ; preds = %69, %37
+  %.sink = phi ptr [ %2, %37 ], [ %73, %69 ]
+  %78 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.sink)
+  br label %.critedge
 
-.loopexit:                                        ; preds = %32, %.loopexit.sink.split, %3
-  %.1 = phi i32 [ 0, %3 ], [ %78, %.loopexit.sink.split ], [ -1, %32 ]
+.critedge:                                        ; preds = %32, %.critedge.sink.split, %3
+  %.1 = phi i32 [ 0, %3 ], [ %78, %.critedge.sink.split ], [ -1, %32 ]
   ret i32 %.1
 }
 
@@ -2759,47 +2759,47 @@ define internal fastcc i32 @Data_Entry(ptr noundef nonnull %0, i32 noundef range
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load i32, ptr %77, align 8, !tbaa !17
   %79 = icmp eq i32 %76, %78
-  br i1 %79, label %82, label %.thread55
+  br i1 %79, label %80, label %.critedge52.critedge
 
-.thread55:                                        ; preds = %73
-  %80 = load i16, ptr %0, align 8, !tbaa !45
-  %81 = or i16 %80, 16
-  store i16 %81, ptr %0, align 8, !tbaa !45
-  br label %.critedge52
+80:                                               ; preds = %73
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %82 = load i32, ptr %81, align 8, !tbaa !26
+  %83 = add nsw i32 %82, -1
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %85 = load i32, ptr %84, align 4, !tbaa !18
+  %86 = icmp eq i32 %83, %85
+  %87 = load i16, ptr %0, align 8, !tbaa !45
+  %88 = or i16 %87, 16
+  store i16 %88, ptr %0, align 8, !tbaa !45
+  br i1 %86, label %89, label %.critedge52
 
-82:                                               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %84 = load i32, ptr %83, align 8, !tbaa !26
-  %85 = add nsw i32 %84, -1
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %87 = load i32, ptr %86, align 4, !tbaa !18
-  %88 = icmp eq i32 %85, %87
-  %89 = load i16, ptr %0, align 8, !tbaa !45
-  %90 = or i16 %89, 16
-  store i16 %90, ptr %0, align 8, !tbaa !45
-  br i1 %88, label %91, label %.critedge52
+89:                                               ; preds = %80
+  %90 = load i16, ptr %4, align 8, !tbaa !34
+  %91 = and i16 %90, 8
+  %.not47 = icmp eq i16 %91, 0
+  br i1 %.not47, label %92, label %97
 
-91:                                               ; preds = %82
-  %92 = load i16, ptr %4, align 8, !tbaa !34
-  %93 = and i16 %92, 8
-  %.not47 = icmp eq i16 %93, 0
-  br i1 %.not47, label %94, label %99
+92:                                               ; preds = %89
+  %93 = load i32, ptr %5, align 8, !tbaa !19
+  %94 = and i32 %93, 64
+  %.not48 = icmp eq i32 %94, 0
+  br i1 %.not48, label %.critedge52, label %95
 
-94:                                               ; preds = %91
-  %95 = load i32, ptr %5, align 8, !tbaa !19
-  %96 = and i32 %95, 64
-  %.not48 = icmp eq i32 %96, 0
-  br i1 %.not48, label %.critedge52, label %97
-
-97:                                               ; preds = %94
-  %98 = tail call i32 @Inter_Field_Navigation(ptr noundef nonnull @FN_Next_Field, ptr noundef nonnull %0)
+95:                                               ; preds = %92
+  %96 = tail call i32 @Inter_Field_Navigation(ptr noundef nonnull @FN_Next_Field, ptr noundef nonnull %0)
   br label %IFN_Next_Character.exit
 
-99:                                               ; preds = %91
-  %100 = tail call fastcc zeroext i1 @Field_Grown(ptr noundef nonnull %4, i32 noundef 1)
-  br i1 %100, label %.critedge52, label %IFN_Next_Character.exit
+97:                                               ; preds = %89
+  %98 = tail call fastcc zeroext i1 @Field_Grown(ptr noundef nonnull %4, i32 noundef 1)
+  br i1 %98, label %.critedge52, label %IFN_Next_Character.exit
 
-.critedge52:                                      ; preds = %94, %.thread55, %82, %99
+.critedge52.critedge:                             ; preds = %73
+  %99 = load i16, ptr %0, align 8, !tbaa !45
+  %100 = or i16 %99, 16
+  store i16 %100, ptr %0, align 8, !tbaa !45
+  br label %.critedge52
+
+.critedge52:                                      ; preds = %92, %.critedge52.critedge, %80, %97
   %101 = load ptr, ptr %3, align 8, !tbaa !14
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %103 = load i32, ptr %102, align 4, !tbaa !18
@@ -2864,8 +2864,8 @@ define internal fastcc i32 @Data_Entry(ptr noundef nonnull %0, i32 noundef range
   store i32 %.sink.i, ptr %102, align 4, !tbaa !18
   br label %IFN_Next_Character.exit
 
-IFN_Next_Character.exit:                          ; preds = %65, %54, %62, %.sink.split.i, %130, %.critedge52, %2, %70, %99, %97
-  %.1 = phi i32 [ %71, %70 ], [ -12, %2 ], [ %98, %97 ], [ -1, %99 ], [ 0, %.critedge52 ], [ 0, %130 ], [ 0, %.sink.split.i ], [ -1, %65 ], [ -12, %54 ], [ -12, %62 ]
+IFN_Next_Character.exit:                          ; preds = %65, %54, %62, %.sink.split.i, %130, %.critedge52, %2, %70, %97, %95
+  %.1 = phi i32 [ %71, %70 ], [ -12, %2 ], [ %96, %95 ], [ -1, %97 ], [ 0, %.critedge52 ], [ 0, %130 ], [ 0, %.sink.split.i ], [ -1, %65 ], [ -12, %54 ], [ -12, %62 ]
   ret i32 %.1
 }
 
@@ -3096,13 +3096,13 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(address) %0, i32 noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.loopexit, label %3
+  br i1 %.not, label %.critedge185, label %3
 
 3:                                                ; preds = %2
   %4 = load i16, ptr %0, align 8, !tbaa !34
   %5 = and i16 %4, 8
   %.not164 = icmp eq i16 %5, 0
-  br i1 %.not164, label %.loopexit, label %6
+  br i1 %.not164, label %.critedge185, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -3152,11 +3152,11 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(addr
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %38 = load i32, ptr %37, align 4, !tbaa !61
   %.not169 = icmp eq i32 %38, 0
-  %.pre194 = load i32, ptr %16, align 8, !tbaa !26
-  %39 = sub nsw i32 %38, %.pre194
+  %.pre196 = load i32, ptr %16, align 8, !tbaa !26
+  %39 = sub nsw i32 %38, %.pre196
   %. = tail call i32 @llvm.smin.i32(i32 %39, i32 %36)
   %.0144 = select i1 %.not169, i32 %36, i32 %.
-  %40 = add nsw i32 %.pre194, %.0144
+  %40 = add nsw i32 %.pre196, %.0144
   store i32 %40, ptr %16, align 8, !tbaa !26
   %41 = icmp eq i32 %40, %38
   br i1 %41, label %.sink.split, label %55
@@ -3209,22 +3209,22 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(addr
 
 69:                                               ; preds = %68
   %.not172 = icmp eq i32 %17, %56
-  br i1 %.not172, label %.loopexit, label %70
+  br i1 %.not172, label %.critedge185, label %70
 
 .critedge:                                        ; preds = %68
   %.not173 = icmp eq i32 %15, %56
-  br i1 %.not173, label %.loopexit, label %70
+  br i1 %.not173, label %.critedge185, label %70
 
 70:                                               ; preds = %.critedge, %69
   %71 = load i16, ptr %0, align 8, !tbaa !34
   %72 = or i16 %71, 8
   store i16 %72, ptr %0, align 8, !tbaa !34
-  br label %.loopexit
+  br label %.critedge185
 
 73:                                               ; preds = %55
   store ptr %67, ptr %19, align 8, !tbaa !52
-  %.not174186 = icmp slt i16 %62, 0
-  br i1 %.not174186, label %._crit_edge, label %.lr.ph
+  %.not174188 = icmp slt i16 %62, 0
+  br i1 %.not174188, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %73
   %74 = add nsw i32 %18, 1
@@ -3237,26 +3237,26 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(addr
   br i1 %76, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv191 = phi i64 [ %indvars.iv.next192, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %indvars.iv193 = phi i64 [ %indvars.iv.next194, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %81 = load ptr, ptr %19, align 8, !tbaa !52
   %82 = load i32, ptr %14, align 4, !tbaa !24
   %83 = load i32, ptr %16, align 8, !tbaa !26
   %84 = mul nsw i32 %83, %82
   %85 = add nsw i32 %84, 1
   %86 = sext i32 %85 to i64
-  %87 = mul nsw i64 %indvars.iv191, %86
+  %87 = mul nsw i64 %indvars.iv193, %86
   %88 = getelementptr inbounds i8, ptr %81, i64 %87
-  %89 = mul nsw i64 %indvars.iv191, %80
+  %89 = mul nsw i64 %indvars.iv193, %80
   %90 = getelementptr inbounds i8, ptr %20, i64 %89
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr align 1 %90, i64 %75, i1 false)
   %91 = getelementptr inbounds i8, ptr %88, i64 %75
   tail call void @llvm.memset.p0.i64(ptr align 1 %91, i8 32, i64 %78, i1 false)
   %92 = getelementptr inbounds i8, ptr %88, i64 %79
   store i8 0, ptr %92, align 1, !tbaa !54
-  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
+  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %93 = load i16, ptr %61, align 4, !tbaa !102
   %94 = sext i16 %93 to i64
-  %.not174.us.not = icmp slt i64 %indvars.iv191, %94
+  %.not174.us.not = icmp slt i64 %indvars.iv193, %94
   br i1 %.not174.us.not, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !106
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -3300,21 +3300,21 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(addr
 
 115:                                              ; preds = %112
   %.not176 = icmp eq i32 %17, %114
-  br i1 %.not176, label %.thread185, label %116
+  br i1 %.not176, label %.thread187, label %116
 
 .critedge183:                                     ; preds = %112
   %.not177 = icmp eq i32 %15, %114
-  br i1 %.not177, label %.thread185, label %116
+  br i1 %.not177, label %.thread187, label %116
 
 116:                                              ; preds = %.critedge183, %115
   %117 = load i16, ptr %0, align 8, !tbaa !34
   %118 = or i16 %117, 8
   store i16 %118, ptr %0, align 8, !tbaa !34
-  br label %.thread185
+  br label %.thread187
 
-.thread185:                                       ; preds = %.critedge183, %116, %115
+.thread187:                                       ; preds = %.critedge183, %116, %115
   tail call void @free(ptr noundef nonnull %67) #13
-  br label %.loopexit
+  br label %.critedge185
 
 119:                                              ; preds = %108
   %120 = getelementptr inbounds nuw i8, ptr %22, i64 56
@@ -3345,7 +3345,7 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(addr
   %139 = load i16, ptr %138, align 2, !tbaa !58
   %140 = sext i16 %139 to i64
   %141 = icmp sgt i16 %136, -1
-  br i1 %141, label %.lr.ph.preheader.i, label %Buffer_To_Window.exit.thread199
+  br i1 %141, label %.lr.ph.preheader.i, label %Buffer_To_Window.exit.thread201
 
 .lr.ph.preheader.i:                               ; preds = %.thread.i
   %142 = load ptr, ptr %19, align 8, !tbaa !52
@@ -3390,19 +3390,19 @@ After_End_Of_Data.exit.i:                         ; preds = %147, %145
 Buffer_To_Window.exit:                            ; preds = %159
   %.pr.pre = load ptr, ptr %120, align 8, !tbaa !4
   %.not178 = icmp eq ptr %.pr.pre, null
-  br i1 %.not178, label %Buffer_To_Window.exit.thread, label %Buffer_To_Window.exit.thread199
+  br i1 %.not178, label %Buffer_To_Window.exit.thread, label %Buffer_To_Window.exit.thread201
 
-Buffer_To_Window.exit.thread199:                  ; preds = %.thread.i, %Buffer_To_Window.exit
-  %.pr202 = phi ptr [ %.pr.pre, %Buffer_To_Window.exit ], [ %134, %.thread.i ]
-  %161 = getelementptr inbounds nuw i8, ptr %.pr202, i64 4
+Buffer_To_Window.exit.thread201:                  ; preds = %.thread.i, %Buffer_To_Window.exit
+  %.pr204 = phi ptr [ %.pr.pre, %Buffer_To_Window.exit ], [ %134, %.thread.i ]
+  %161 = getelementptr inbounds nuw i8, ptr %.pr204, i64 4
   %162 = load i16, ptr %161, align 4, !tbaa !35
   %163 = sext i16 %162 to i32
   %164 = add nsw i32 %163, 1
   br label %Buffer_To_Window.exit.thread
 
-Buffer_To_Window.exit.thread:                     ; preds = %119, %Buffer_To_Window.exit.thread199, %Buffer_To_Window.exit
-  %165 = phi ptr [ %.pr202, %Buffer_To_Window.exit.thread199 ], [ null, %Buffer_To_Window.exit ], [ null, %119 ]
-  %166 = phi i32 [ %164, %Buffer_To_Window.exit.thread199 ], [ -1, %Buffer_To_Window.exit ], [ -1, %119 ]
+Buffer_To_Window.exit.thread:                     ; preds = %119, %Buffer_To_Window.exit.thread201, %Buffer_To_Window.exit
+  %165 = phi ptr [ %.pr204, %Buffer_To_Window.exit.thread201 ], [ null, %Buffer_To_Window.exit ], [ null, %119 ]
+  %166 = phi i32 [ %164, %Buffer_To_Window.exit.thread201 ], [ -1, %Buffer_To_Window.exit ], [ -1, %119 ]
   %167 = tail call i32 @wtouchln(ptr noundef %165, i32 noundef 0, i32 noundef %166, i32 noundef 0) #13
   %168 = load ptr, ptr %120, align 8, !tbaa !4
   %169 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -3417,29 +3417,29 @@ Buffer_To_Window.exit.thread:                     ; preds = %119, %Buffer_To_Win
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %176 = load ptr, ptr %175, align 8, !tbaa !65
   %.not179 = icmp eq ptr %0, %176
-  br i1 %.not179, label %.loopexit, label %.preheader.preheader
+  br i1 %.not179, label %.critedge185, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %174
-  %.pre196 = load ptr, ptr %19, align 8, !tbaa !52
-  %.pre197 = load i32, ptr %14, align 4, !tbaa !24
-  %.pre198 = load i32, ptr %16, align 8, !tbaa !26
+  %.pre198 = load ptr, ptr %19, align 8, !tbaa !52
+  %.pre199 = load i32, ptr %14, align 4, !tbaa !24
+  %.pre200 = load i32, ptr %16, align 8, !tbaa !26
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.0188 = phi ptr [ %181, %.preheader ], [ %176, %.preheader.preheader ]
-  %177 = getelementptr inbounds nuw i8, ptr %.0188, i64 104
-  store ptr %.pre196, ptr %177, align 8, !tbaa !52
-  %178 = getelementptr inbounds nuw i8, ptr %.0188, i64 12
-  store i32 %.pre197, ptr %178, align 4, !tbaa !24
-  %179 = getelementptr inbounds nuw i8, ptr %.0188, i64 16
-  store i32 %.pre198, ptr %179, align 8, !tbaa !26
-  %180 = getelementptr inbounds nuw i8, ptr %.0188, i64 72
+  %.0190 = phi ptr [ %181, %.preheader ], [ %176, %.preheader.preheader ]
+  %177 = getelementptr inbounds nuw i8, ptr %.0190, i64 104
+  store ptr %.pre198, ptr %177, align 8, !tbaa !52
+  %178 = getelementptr inbounds nuw i8, ptr %.0190, i64 12
+  store i32 %.pre199, ptr %178, align 4, !tbaa !24
+  %179 = getelementptr inbounds nuw i8, ptr %.0190, i64 16
+  store i32 %.pre200, ptr %179, align 8, !tbaa !26
+  %180 = getelementptr inbounds nuw i8, ptr %.0190, i64 72
   %181 = load ptr, ptr %180, align 8, !tbaa !65
   %.not180 = icmp eq ptr %181, %0
-  br i1 %.not180, label %.loopexit, label %.preheader, !llvm.loop !109
+  br i1 %.not180, label %.critedge185, label %.preheader, !llvm.loop !109
 
-.loopexit:                                        ; preds = %.preheader, %70, %.critedge, %174, %69, %.thread185, %2, %3
-  %.4 = phi i1 [ false, %3 ], [ false, %2 ], [ false, %70 ], [ false, %.critedge ], [ true, %174 ], [ false, %69 ], [ false, %.thread185 ], [ true, %.preheader ]
+.critedge185:                                     ; preds = %.preheader, %.thread187, %69, %70, %.critedge, %2, %3, %174
+  %.4 = phi i1 [ false, %3 ], [ false, %2 ], [ true, %174 ], [ false, %.critedge ], [ false, %70 ], [ false, %69 ], [ false, %.thread187 ], [ true, %.preheader ]
   ret i1 %.4
 }
 

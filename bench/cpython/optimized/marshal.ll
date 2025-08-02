@@ -5352,47 +5352,43 @@ define internal fastcc ptr @r_string(i64 noundef range(i64 -9223372036854775808,
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #11
   %44 = call i32 @PyBuffer_FillInfo(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %37, i64 noundef %0, i32 noundef 0, i32 noundef 9) #11
   %45 = icmp eq i32 %44, -1
-  br i1 %45, label %Py_DECREF.exit, label %46
+  br i1 %45, label %.critedge, label %46
 
 46:                                               ; preds = %43
   %47 = call ptr @PyMemoryView_FromBuffer(ptr noundef nonnull %3) #11
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %Py_DECREF.exit, label %49
+  br i1 %48, label %.critedge, label %49
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %38, align 8, !tbaa !43
   %51 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %50, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 67904), ptr noundef nonnull @.str.6, ptr noundef nonnull %47) #11
   %.not60 = icmp eq ptr %51, null
-  br i1 %.not60, label %Py_DECREF.exit.thread, label %52
+  br i1 %.not60, label %Py_DECREF.exit, label %52
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !29
   %54 = call i64 @PyNumber_AsSsize_t(ptr noundef nonnull %51, ptr noundef %53) #11
   %55 = load i32, ptr %51, align 8, !tbaa !25
   %.not.i = icmp sgt i32 %55, -1
-  br i1 %.not.i, label %56, label %Py_DECREF.exit.thread
+  br i1 %.not.i, label %56, label %Py_DECREF.exit
 
 56:                                               ; preds = %52
   %57 = add nsw i32 %55, -1
   store i32 %57, ptr %51, align 8, !tbaa !25
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %Py_DECREF.exit.thread
+  br i1 %58, label %59, label %Py_DECREF.exit
 
 59:                                               ; preds = %56
   call void @_Py_Dealloc(ptr noundef nonnull %51) #11
-  br label %Py_DECREF.exit.thread
+  br label %Py_DECREF.exit
 
-Py_DECREF.exit.thread:                            ; preds = %49, %52, %56, %59
-  %.147.ph = phi i64 [ %54, %59 ], [ %54, %56 ], [ %54, %52 ], [ -1, %49 ]
+Py_DECREF.exit:                                   ; preds = %59, %56, %52, %49
+  %.147 = phi i64 [ -1, %49 ], [ %54, %52 ], [ %54, %56 ], [ %54, %59 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #11
   br label %60
 
-Py_DECREF.exit:                                   ; preds = %46, %43
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #11
-  br label %72
-
-60:                                               ; preds = %Py_DECREF.exit.thread, %40
-  %.046 = phi i64 [ %42, %40 ], [ %.147.ph, %Py_DECREF.exit.thread ]
+60:                                               ; preds = %Py_DECREF.exit, %40
+  %.046 = phi i64 [ %.147, %Py_DECREF.exit ], [ %42, %40 ]
   %.not61 = icmp eq i64 %.046, %0
   br i1 %.not61, label %70, label %61
 
@@ -5419,8 +5415,12 @@ Py_DECREF.exit:                                   ; preds = %46, %43
   %71 = load ptr, ptr %18, align 8, !tbaa !46
   br label %72
 
-72:                                               ; preds = %Py_DECREF.exit, %.thread, %61, %68, %65, %13, %15, %70, %24
-  %.1 = phi ptr [ null, %24 ], [ %71, %70 ], [ null, %Py_DECREF.exit ], [ null, %13 ], [ %5, %15 ], [ null, %65 ], [ null, %68 ], [ null, %61 ], [ null, %.thread ]
+.critedge:                                        ; preds = %46, %43
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #11
+  br label %72
+
+72:                                               ; preds = %.thread, %61, %68, %65, %.critedge, %13, %15, %70, %24
+  %.1 = phi ptr [ null, %24 ], [ %71, %70 ], [ null, %13 ], [ %5, %15 ], [ null, %.critedge ], [ null, %65 ], [ null, %68 ], [ null, %61 ], [ null, %.thread ]
   ret ptr %.1
 }
 

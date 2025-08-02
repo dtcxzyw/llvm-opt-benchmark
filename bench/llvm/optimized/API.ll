@@ -664,14 +664,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extrac
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i64 } @_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %.loopexit, label %5
+  br i1 %4, label %.critedge.i, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !69
   %8 = zext i32 %7 to i64
-  %.not4775.not.i = icmp eq i32 %7, 0
-  br i1 %.not4775.not.i, label %.critedge.i, label %.lr.ph.i
+  %.not4764.not.i = icmp eq i32 %7, 0
+  br i1 %.not4764.not.i, label %.critedge51.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -679,40 +679,40 @@ define dso_local { ptr, i64 } @_ZN5clang10extractapi6APISet10copyStringEN4llvm9S
   br label %11
 
 11:                                               ; preds = %._crit_edge.i, %.lr.ph.i
-  %.03776.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %._crit_edge.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.03776.i
+  %.03765.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %._crit_edge.i ]
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.03765.i
   %13 = load ptr, ptr %12, align 8, !tbaa !72
   %.not.i = icmp uge ptr %1, %13
-  %.pre.i = trunc i64 %.03776.i to i32
-  %.pre88.i = lshr i32 %.pre.i, 7
-  %.pre90.i = tail call i32 @llvm.umin.i32(i32 %.pre88.i, i32 30)
-  %.pre92.i = zext nneg i32 %.pre90.i to i64
-  %.pre93.i = shl nuw nsw i64 4096, %.pre92.i
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.pre93.i
+  %.pre.i = trunc i64 %.03765.i to i32
+  %.pre77.i = lshr i32 %.pre.i, 7
+  %.pre79.i = tail call i32 @llvm.umin.i32(i32 %.pre77.i, i32 30)
+  %.pre81.i = zext nneg i32 %.pre79.i to i64
+  %.pre82.i = shl nuw nsw i64 4096, %.pre81.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.pre82.i
   %15 = icmp ult ptr %1, %14
-  %or.cond101.i = select i1 %.not.i, i1 %15, i1 false
-  br i1 %or.cond101.i, label %.loopexit, label %._crit_edge.i
+  %or.cond90.i = select i1 %.not.i, i1 %15, i1 false
+  br i1 %or.cond90.i, label %.critedge.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %11
-  %16 = add nuw nsw i64 %.03776.i, 1
+  %16 = add nuw nsw i64 %.03765.i, 1
   %exitcond.not.i = icmp eq i64 %16, %8
-  br i1 %exitcond.not.i, label %.critedge.i, label %11, !llvm.loop !73
+  br i1 %exitcond.not.i, label %.critedge51.i, label %11, !llvm.loop !73
 
-.critedge.i:                                      ; preds = %._crit_edge.i, %5
+.critedge51.i:                                    ; preds = %._crit_edge.i, %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load i32, ptr %17, align 8, !tbaa !69
   %19 = zext i32 %18 to i64
-  %.not4978.not.i = icmp eq i32 %18, 0
-  br i1 %.not4978.not.i, label %.loopexit16, label %.lr.ph81.i
+  %.not4967.not.i = icmp eq i32 %18, 0
+  br i1 %.not4967.not.i, label %.loopexit, label %.lr.ph70.i
 
-.lr.ph81.i:                                       ; preds = %.critedge.i
+.lr.ph70.i:                                       ; preds = %.critedge51.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !71
   br label %22
 
-22:                                               ; preds = %29, %.lr.ph81.i
-  %.04080.i = phi i64 [ 0, %.lr.ph81.i ], [ %30, %29 ]
-  %23 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %21, i64 %.04080.i
+22:                                               ; preds = %29, %.lr.ph70.i
+  %.04069.i = phi i64 [ 0, %.lr.ph70.i ], [ %30, %29 ]
+  %23 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %21, i64 %.04069.i
   %24 = load ptr, ptr %23, align 8, !tbaa !74
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !76
@@ -720,14 +720,14 @@ define dso_local { ptr, i64 } @_ZN5clang10extractapi6APISet10copyStringEN4llvm9S
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
   %28 = icmp ult ptr %1, %27
   %or.cond.i = select i1 %.not48.i, i1 %28, i1 false
-  br i1 %or.cond.i, label %.loopexit, label %29
+  br i1 %or.cond.i, label %.critedge.i, label %29
 
 29:                                               ; preds = %22
-  %30 = add nuw nsw i64 %.04080.i, 1
-  %exitcond87.not.i = icmp eq i64 %30, %19
-  br i1 %exitcond87.not.i, label %.loopexit16, label %22, !llvm.loop !77
+  %30 = add nuw nsw i64 %.04069.i, 1
+  %exitcond76.not.i = icmp eq i64 %30, %19
+  br i1 %exitcond76.not.i, label %.loopexit, label %22, !llvm.loop !77
 
-.loopexit16:                                      ; preds = %29, %.critedge.i
+.loopexit:                                        ; preds = %29, %.critedge51.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %32 = load i64, ptr %31, align 8, !tbaa !78
   %33 = add i64 %32, %2
@@ -743,21 +743,21 @@ define dso_local { ptr, i64 } @_ZN5clang10extractapi6APISet10copyStringEN4llvm9S
   %41 = and i1 %40, %.not.i.i
   br i1 %41, label %42, label %44, !prof !63
 
-42:                                               ; preds = %.loopexit16
+42:                                               ; preds = %.loopexit
   %43 = inttoptr i64 %36 to ptr
   store ptr %43, ptr %0, align 8, !tbaa !89
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit
 
-44:                                               ; preds = %.loopexit16
+44:                                               ; preds = %.loopexit
   %45 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %2, i64 noundef %2, i8 0)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit: ; preds = %42, %44
   %.0.i.i = phi ptr [ %34, %42 ], [ %45, %44 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i, ptr align 1 %1, i64 %2, i1 false)
-  br label %.loopexit
+  br label %.critedge.i
 
-.loopexit:                                        ; preds = %11, %22, %3, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit
+.critedge.i:                                      ; preds = %11, %22, %3, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit
   %.sroa.08.0 = phi ptr [ %.0.i.i, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit ], [ null, %3 ], [ %1, %22 ], [ %1, %11 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.08.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %2, 1
@@ -776,8 +776,8 @@ define dso_local void @_ZN5clang10extractapi6APISet21createSymbolReferenceEN4llv
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !69
   %12 = zext i32 %11 to i64
-  %.not4775.not.i.i = icmp eq i32 %11, 0
-  br i1 %.not4775.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i
+  %.not4764.not.i.i = icmp eq i32 %11, 0
+  br i1 %.not4764.not.i.i, label %.critedge51.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -785,40 +785,40 @@ define dso_local void @_ZN5clang10extractapi6APISet21createSymbolReferenceEN4llv
   br label %15
 
 15:                                               ; preds = %._crit_edge.i.i, %.lr.ph.i.i
-  %.03776.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %20, %._crit_edge.i.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %.03776.i.i
+  %.03765.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %20, %._crit_edge.i.i ]
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %.03765.i.i
   %17 = load ptr, ptr %16, align 8, !tbaa !72
   %.not.i.i = icmp uge ptr %2, %17
-  %.pre.i.i = trunc i64 %.03776.i.i to i32
-  %.pre88.i.i = lshr i32 %.pre.i.i, 7
-  %.pre90.i.i = tail call i32 @llvm.umin.i32(i32 %.pre88.i.i, i32 30)
-  %.pre92.i.i = zext nneg i32 %.pre90.i.i to i64
-  %.pre93.i.i = shl nuw nsw i64 4096, %.pre92.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.pre93.i.i
+  %.pre.i.i = trunc i64 %.03765.i.i to i32
+  %.pre77.i.i = lshr i32 %.pre.i.i, 7
+  %.pre79.i.i = tail call i32 @llvm.umin.i32(i32 %.pre77.i.i, i32 30)
+  %.pre81.i.i = zext nneg i32 %.pre79.i.i to i64
+  %.pre82.i.i = shl nuw nsw i64 4096, %.pre81.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.pre82.i.i
   %19 = icmp ult ptr %2, %18
-  %or.cond101.i.i = select i1 %.not.i.i, i1 %19, i1 false
-  br i1 %or.cond101.i.i, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit, label %._crit_edge.i.i
+  %or.cond90.i.i = select i1 %.not.i.i, i1 %19, i1 false
+  br i1 %or.cond90.i.i, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %15
-  %20 = add nuw nsw i64 %.03776.i.i, 1
+  %20 = add nuw nsw i64 %.03765.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %20, %12
-  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %15, !llvm.loop !73
+  br i1 %exitcond.not.i.i, label %.critedge51.i.i, label %15, !llvm.loop !73
 
-.critedge.i.i:                                    ; preds = %._crit_edge.i.i, %9
+.critedge51.i.i:                                  ; preds = %._crit_edge.i.i, %9
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %22 = load i32, ptr %21, align 8, !tbaa !69
   %23 = zext i32 %22 to i64
-  %.not4978.not.i.i = icmp eq i32 %22, 0
-  br i1 %.not4978.not.i.i, label %.loopexit16.i, label %.lr.ph81.i.i
+  %.not4967.not.i.i = icmp eq i32 %22, 0
+  br i1 %.not4967.not.i.i, label %.loopexit.i, label %.lr.ph70.i.i
 
-.lr.ph81.i.i:                                     ; preds = %.critedge.i.i
+.lr.ph70.i.i:                                     ; preds = %.critedge51.i.i
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = load ptr, ptr %24, align 8, !tbaa !71
   br label %26
 
-26:                                               ; preds = %33, %.lr.ph81.i.i
-  %.04080.i.i = phi i64 [ 0, %.lr.ph81.i.i ], [ %34, %33 ]
-  %27 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %25, i64 %.04080.i.i
+26:                                               ; preds = %33, %.lr.ph70.i.i
+  %.04069.i.i = phi i64 [ 0, %.lr.ph70.i.i ], [ %34, %33 ]
+  %27 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %25, i64 %.04069.i.i
   %28 = load ptr, ptr %27, align 8, !tbaa !74
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !76
@@ -829,11 +829,11 @@ define dso_local void @_ZN5clang10extractapi6APISet21createSymbolReferenceEN4llv
   br i1 %or.cond.i.i, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit, label %33
 
 33:                                               ; preds = %26
-  %34 = add nuw nsw i64 %.04080.i.i, 1
-  %exitcond87.not.i.i = icmp eq i64 %34, %23
-  br i1 %exitcond87.not.i.i, label %.loopexit16.i, label %26, !llvm.loop !77
+  %34 = add nuw nsw i64 %.04069.i.i, 1
+  %exitcond76.not.i.i = icmp eq i64 %34, %23
+  br i1 %exitcond76.not.i.i, label %.loopexit.i, label %26, !llvm.loop !77
 
-.loopexit16.i:                                    ; preds = %33, %.critedge.i.i
+.loopexit.i:                                      ; preds = %33, %.critedge51.i.i
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %36 = load i64, ptr %35, align 8, !tbaa !78
   %37 = add i64 %36, %3
@@ -849,12 +849,12 @@ define dso_local void @_ZN5clang10extractapi6APISet21createSymbolReferenceEN4llv
   %45 = and i1 %44, %.not.i.i.i
   br i1 %45, label %46, label %48, !prof !63
 
-46:                                               ; preds = %.loopexit16.i
+46:                                               ; preds = %.loopexit.i
   %47 = inttoptr i64 %40 to ptr
   store ptr %47, ptr %1, align 8, !tbaa !89
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i
 
-48:                                               ; preds = %.loopexit16.i
+48:                                               ; preds = %.loopexit.i
   %49 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(488) %1, i64 noundef %3, i64 noundef %3, i8 0)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i
 
@@ -872,8 +872,8 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit: ; preds = %15, 
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !69
   %54 = zext i32 %53 to i64
-  %.not4775.not.i.i13 = icmp eq i32 %53, 0
-  br i1 %.not4775.not.i.i13, label %.critedge.i.i25, label %.lr.ph.i.i14
+  %.not4764.not.i.i13 = icmp eq i32 %53, 0
+  br i1 %.not4764.not.i.i13, label %.critedge51.i.i25, label %.lr.ph.i.i14
 
 .lr.ph.i.i14:                                     ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -881,40 +881,40 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit: ; preds = %15, 
   br label %57
 
 57:                                               ; preds = %._crit_edge.i.i23, %.lr.ph.i.i14
-  %.03776.i.i15 = phi i64 [ 0, %.lr.ph.i.i14 ], [ %62, %._crit_edge.i.i23 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %.03776.i.i15
+  %.03765.i.i15 = phi i64 [ 0, %.lr.ph.i.i14 ], [ %62, %._crit_edge.i.i23 ]
+  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %.03765.i.i15
   %59 = load ptr, ptr %58, align 8, !tbaa !72
   %.not.i.i16 = icmp uge ptr %4, %59
-  %.pre.i.i17 = trunc i64 %.03776.i.i15 to i32
-  %.pre88.i.i18 = lshr i32 %.pre.i.i17, 7
-  %.pre90.i.i19 = tail call i32 @llvm.umin.i32(i32 %.pre88.i.i18, i32 30)
-  %.pre92.i.i20 = zext nneg i32 %.pre90.i.i19 to i64
-  %.pre93.i.i21 = shl nuw nsw i64 4096, %.pre92.i.i20
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %.pre93.i.i21
+  %.pre.i.i17 = trunc i64 %.03765.i.i15 to i32
+  %.pre77.i.i18 = lshr i32 %.pre.i.i17, 7
+  %.pre79.i.i19 = tail call i32 @llvm.umin.i32(i32 %.pre77.i.i18, i32 30)
+  %.pre81.i.i20 = zext nneg i32 %.pre79.i.i19 to i64
+  %.pre82.i.i21 = shl nuw nsw i64 4096, %.pre81.i.i20
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %.pre82.i.i21
   %61 = icmp ult ptr %4, %60
-  %or.cond101.i.i22 = select i1 %.not.i.i16, i1 %61, i1 false
-  br i1 %or.cond101.i.i22, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit39, label %._crit_edge.i.i23
+  %or.cond90.i.i22 = select i1 %.not.i.i16, i1 %61, i1 false
+  br i1 %or.cond90.i.i22, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit39, label %._crit_edge.i.i23
 
 ._crit_edge.i.i23:                                ; preds = %57
-  %62 = add nuw nsw i64 %.03776.i.i15, 1
+  %62 = add nuw nsw i64 %.03765.i.i15, 1
   %exitcond.not.i.i24 = icmp eq i64 %62, %54
-  br i1 %exitcond.not.i.i24, label %.critedge.i.i25, label %57, !llvm.loop !73
+  br i1 %exitcond.not.i.i24, label %.critedge51.i.i25, label %57, !llvm.loop !73
 
-.critedge.i.i25:                                  ; preds = %._crit_edge.i.i23, %51
+.critedge51.i.i25:                                ; preds = %._crit_edge.i.i23, %51
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = load i32, ptr %63, align 8, !tbaa !69
   %65 = zext i32 %64 to i64
-  %.not4978.not.i.i26 = icmp eq i32 %64, 0
-  br i1 %.not4978.not.i.i26, label %.loopexit16.i32, label %.lr.ph81.i.i27
+  %.not4967.not.i.i26 = icmp eq i32 %64, 0
+  br i1 %.not4967.not.i.i26, label %.loopexit.i32, label %.lr.ph70.i.i27
 
-.lr.ph81.i.i27:                                   ; preds = %.critedge.i.i25
+.lr.ph70.i.i27:                                   ; preds = %.critedge51.i.i25
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %67 = load ptr, ptr %66, align 8, !tbaa !71
   br label %68
 
-68:                                               ; preds = %75, %.lr.ph81.i.i27
-  %.04080.i.i28 = phi i64 [ 0, %.lr.ph81.i.i27 ], [ %76, %75 ]
-  %69 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %67, i64 %.04080.i.i28
+68:                                               ; preds = %75, %.lr.ph70.i.i27
+  %.04069.i.i28 = phi i64 [ 0, %.lr.ph70.i.i27 ], [ %76, %75 ]
+  %69 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %67, i64 %.04069.i.i28
   %70 = load ptr, ptr %69, align 8, !tbaa !74
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !76
@@ -925,11 +925,11 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit: ; preds = %15, 
   br i1 %or.cond.i.i30, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit39, label %75
 
 75:                                               ; preds = %68
-  %76 = add nuw nsw i64 %.04080.i.i28, 1
-  %exitcond87.not.i.i31 = icmp eq i64 %76, %65
-  br i1 %exitcond87.not.i.i31, label %.loopexit16.i32, label %68, !llvm.loop !77
+  %76 = add nuw nsw i64 %.04069.i.i28, 1
+  %exitcond76.not.i.i31 = icmp eq i64 %76, %65
+  br i1 %exitcond76.not.i.i31, label %.loopexit.i32, label %68, !llvm.loop !77
 
-.loopexit16.i32:                                  ; preds = %75, %.critedge.i.i25
+.loopexit.i32:                                    ; preds = %75, %.critedge51.i.i25
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %78 = load i64, ptr %77, align 8, !tbaa !78
   %79 = add i64 %78, %5
@@ -945,12 +945,12 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit: ; preds = %15, 
   %87 = and i1 %86, %.not.i.i.i33
   br i1 %87, label %88, label %90, !prof !63
 
-88:                                               ; preds = %.loopexit16.i32
+88:                                               ; preds = %.loopexit.i32
   %89 = inttoptr i64 %82 to ptr
   store ptr %89, ptr %1, align 8, !tbaa !89
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i34
 
-90:                                               ; preds = %.loopexit16.i32
+90:                                               ; preds = %.loopexit.i32
   %91 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(488) %1, i64 noundef %5, i64 noundef %5, i8 0)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i34
 
@@ -971,8 +971,8 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit39: ; preds = %57
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %95 = load i32, ptr %94, align 8, !tbaa !69
   %96 = zext i32 %95 to i64
-  %.not4775.not.i.i40 = icmp eq i32 %95, 0
-  br i1 %.not4775.not.i.i40, label %.critedge.i.i52, label %.lr.ph.i.i41
+  %.not4764.not.i.i40 = icmp eq i32 %95, 0
+  br i1 %.not4764.not.i.i40, label %.critedge51.i.i52, label %.lr.ph.i.i41
 
 .lr.ph.i.i41:                                     ; preds = %93
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -980,40 +980,40 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit39: ; preds = %57
   br label %99
 
 99:                                               ; preds = %._crit_edge.i.i50, %.lr.ph.i.i41
-  %.03776.i.i42 = phi i64 [ 0, %.lr.ph.i.i41 ], [ %104, %._crit_edge.i.i50 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %98, i64 %.03776.i.i42
+  %.03765.i.i42 = phi i64 [ 0, %.lr.ph.i.i41 ], [ %104, %._crit_edge.i.i50 ]
+  %100 = getelementptr inbounds nuw ptr, ptr %98, i64 %.03765.i.i42
   %101 = load ptr, ptr %100, align 8, !tbaa !72
   %.not.i.i43 = icmp uge ptr %.sroa.0.0.copyload, %101
-  %.pre.i.i44 = trunc i64 %.03776.i.i42 to i32
-  %.pre88.i.i45 = lshr i32 %.pre.i.i44, 7
-  %.pre90.i.i46 = tail call i32 @llvm.umin.i32(i32 %.pre88.i.i45, i32 30)
-  %.pre92.i.i47 = zext nneg i32 %.pre90.i.i46 to i64
-  %.pre93.i.i48 = shl nuw nsw i64 4096, %.pre92.i.i47
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %.pre93.i.i48
+  %.pre.i.i44 = trunc i64 %.03765.i.i42 to i32
+  %.pre77.i.i45 = lshr i32 %.pre.i.i44, 7
+  %.pre79.i.i46 = tail call i32 @llvm.umin.i32(i32 %.pre77.i.i45, i32 30)
+  %.pre81.i.i47 = zext nneg i32 %.pre79.i.i46 to i64
+  %.pre82.i.i48 = shl nuw nsw i64 4096, %.pre81.i.i47
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %.pre82.i.i48
   %103 = icmp ult ptr %.sroa.0.0.copyload, %102
-  %or.cond101.i.i49 = select i1 %.not.i.i43, i1 %103, i1 false
-  br i1 %or.cond101.i.i49, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit66, label %._crit_edge.i.i50
+  %or.cond90.i.i49 = select i1 %.not.i.i43, i1 %103, i1 false
+  br i1 %or.cond90.i.i49, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit66, label %._crit_edge.i.i50
 
 ._crit_edge.i.i50:                                ; preds = %99
-  %104 = add nuw nsw i64 %.03776.i.i42, 1
+  %104 = add nuw nsw i64 %.03765.i.i42, 1
   %exitcond.not.i.i51 = icmp eq i64 %104, %96
-  br i1 %exitcond.not.i.i51, label %.critedge.i.i52, label %99, !llvm.loop !73
+  br i1 %exitcond.not.i.i51, label %.critedge51.i.i52, label %99, !llvm.loop !73
 
-.critedge.i.i52:                                  ; preds = %._crit_edge.i.i50, %93
+.critedge51.i.i52:                                ; preds = %._crit_edge.i.i50, %93
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %106 = load i32, ptr %105, align 8, !tbaa !69
   %107 = zext i32 %106 to i64
-  %.not4978.not.i.i53 = icmp eq i32 %106, 0
-  br i1 %.not4978.not.i.i53, label %.loopexit16.i59, label %.lr.ph81.i.i54
+  %.not4967.not.i.i53 = icmp eq i32 %106, 0
+  br i1 %.not4967.not.i.i53, label %.loopexit.i59, label %.lr.ph70.i.i54
 
-.lr.ph81.i.i54:                                   ; preds = %.critedge.i.i52
+.lr.ph70.i.i54:                                   ; preds = %.critedge51.i.i52
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %109 = load ptr, ptr %108, align 8, !tbaa !71
   br label %110
 
-110:                                              ; preds = %117, %.lr.ph81.i.i54
-  %.04080.i.i55 = phi i64 [ 0, %.lr.ph81.i.i54 ], [ %118, %117 ]
-  %111 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %109, i64 %.04080.i.i55
+110:                                              ; preds = %117, %.lr.ph70.i.i54
+  %.04069.i.i55 = phi i64 [ 0, %.lr.ph70.i.i54 ], [ %118, %117 ]
+  %111 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %109, i64 %.04069.i.i55
   %112 = load ptr, ptr %111, align 8, !tbaa !74
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %114 = load i64, ptr %113, align 8, !tbaa !76
@@ -1024,11 +1024,11 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit39: ; preds = %57
   br i1 %or.cond.i.i57, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit66, label %117
 
 117:                                              ; preds = %110
-  %118 = add nuw nsw i64 %.04080.i.i55, 1
-  %exitcond87.not.i.i58 = icmp eq i64 %118, %107
-  br i1 %exitcond87.not.i.i58, label %.loopexit16.i59, label %110, !llvm.loop !77
+  %118 = add nuw nsw i64 %.04069.i.i55, 1
+  %exitcond76.not.i.i58 = icmp eq i64 %118, %107
+  br i1 %exitcond76.not.i.i58, label %.loopexit.i59, label %110, !llvm.loop !77
 
-.loopexit16.i59:                                  ; preds = %117, %.critedge.i.i52
+.loopexit.i59:                                    ; preds = %117, %.critedge51.i.i52
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %120 = load i64, ptr %119, align 8, !tbaa !78
   %121 = add i64 %120, %.sroa.2.0.copyload
@@ -1044,12 +1044,12 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit39: ; preds = %57
   %129 = and i1 %128, %.not.i.i.i60
   br i1 %129, label %130, label %132, !prof !63
 
-130:                                              ; preds = %.loopexit16.i59
+130:                                              ; preds = %.loopexit.i59
   %131 = inttoptr i64 %124 to ptr
   store ptr %131, ptr %1, align 8, !tbaa !89
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i61
 
-132:                                              ; preds = %.loopexit16.i59
+132:                                              ; preds = %.loopexit.i59
   %133 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(488) %1, i64 noundef %.sroa.2.0.copyload, i64 noundef %.sroa.2.0.copyload, i8 0)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i61
 

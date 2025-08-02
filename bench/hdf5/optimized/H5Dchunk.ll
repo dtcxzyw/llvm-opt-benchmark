@@ -5364,15 +5364,15 @@ define range(i32 -1, 1) i32 @H5D__chunk_lookup(ptr noundef readonly captures(non
   %23 = load i64, ptr %22, align 8, !tbaa !220
   %.not = icmp eq i64 %23, 0
   %.pre = load i8, ptr @H5_libterm_g, align 1, !range !7
-  br i1 %.not, label %..loopexit69_crit_edge, label %25
+  br i1 %.not, label %..critedge_crit_edge, label %25
 
-..loopexit69_crit_edge:                           ; preds = %14
-  %.pre73 = trunc nuw i8 %.pre to i1
-  %.pre74 = xor i1 %.pre73, true
-  %.pre76 = select i1 %9, i1 true, i1 %.pre74
+..critedge_crit_edge:                             ; preds = %14
+  %.pre71 = trunc nuw i8 %.pre to i1
+  %.pre72 = xor i1 %.pre71, true
+  %.pre74 = select i1 %9, i1 true, i1 %.pre72
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %24, align 8, !tbaa !190
-  br i1 %.pre76, label %66, label %.loopexit, !prof !9
+  br i1 %.pre74, label %66, label %.loopexit, !prof !9
 
 25:                                               ; preds = %14
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 2508
@@ -5420,11 +5420,11 @@ H5D__chunk_hash_val.exit:                         ; preds = %25, %._crit_edge.i
   %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !193
   %.not56 = icmp eq ptr %49, null
-  br i1 %.not56, label %.loopexit69, label %.preheader
+  br i1 %.not56, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %H5D__chunk_hash_val.exit
-  %.not6870.not = icmp eq i32 %27, 0
-  br i1 %.not6870.not, label %._crit_edge, label %.lr.ph
+  %.not6768.not = icmp eq i32 %27, 0
+  br i1 %.not6768.not, label %.critedge59, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -5434,7 +5434,7 @@ H5D__chunk_hash_val.exit:                         ; preds = %25, %._crit_edge.i
 51:                                               ; preds = %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !223
+  br i1 %exitcond.not, label %.critedge59, label %52, !llvm.loop !223
 
 52:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
@@ -5443,9 +5443,9 @@ H5D__chunk_hash_val.exit:                         ; preds = %25, %._crit_edge.i
   %55 = getelementptr inbounds nuw [33 x i64], ptr %50, i64 0, i64 %indvars.iv
   %56 = load i64, ptr %55, align 8, !tbaa !21
   %.not57 = icmp eq i64 %54, %56
-  br i1 %.not57, label %51, label %.loopexit69
+  br i1 %.not57, label %51, label %.critedge
 
-._crit_edge:                                      ; preds = %51, %.preheader
+.critedge59:                                      ; preds = %51, %.preheader
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %.013.i, ptr %57, align 8, !tbaa !190
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 280
@@ -5460,12 +5460,12 @@ H5D__chunk_hash_val.exit:                         ; preds = %25, %._crit_edge.i
   store i64 %63, ptr %64, align 8, !tbaa !206
   br label %131
 
-.loopexit69:                                      ; preds = %52, %H5D__chunk_hash_val.exit
+.critedge:                                        ; preds = %52, %H5D__chunk_hash_val.exit
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %65, align 8, !tbaa !190
   br i1 %30, label %66, label %.loopexit, !prof !9
 
-66:                                               ; preds = %..loopexit69_crit_edge, %.loopexit69
+66:                                               ; preds = %..critedge_crit_edge, %.critedge
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 3400
   %68 = load i8, ptr %67, align 8, !tbaa !60, !range !7, !noundef !8
   %69 = trunc nuw i8 %68 to i1
@@ -5475,23 +5475,23 @@ H5D__chunk_hash_val.exit:                         ; preds = %25, %._crit_edge.i
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %71 = load i32, ptr %70, align 8, !tbaa !202
   %.not2122.not.i = icmp eq i32 %71, 0
-  br i1 %.not2122.not.i, label %H5D__chunk_cinfo_cache_found.exit, label %.lr.ph.i58
+  br i1 %.not2122.not.i, label %H5D__chunk_cinfo_cache_found.exit, label %.lr.ph.i60
 
-.lr.ph.i58:                                       ; preds = %.preheader.i
+.lr.ph.i60:                                       ; preds = %.preheader.i
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 3408
-  %wide.trip.count.i59 = zext i32 %71 to i64
+  %wide.trip.count.i61 = zext i32 %71 to i64
   br label %74
 
 73:                                               ; preds = %74
-  %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
-  %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i59
-  br i1 %exitcond.not.i62, label %H5D__chunk_cinfo_cache_found.exit, label %74, !llvm.loop !227
+  %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
+  %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, %wide.trip.count.i61
+  br i1 %exitcond.not.i64, label %H5D__chunk_cinfo_cache_found.exit, label %74, !llvm.loop !227
 
-74:                                               ; preds = %73, %.lr.ph.i58
-  %indvars.iv.i60 = phi i64 [ 0, %.lr.ph.i58 ], [ %indvars.iv.next.i61, %73 ]
-  %75 = getelementptr inbounds nuw [33 x i64], ptr %72, i64 0, i64 %indvars.iv.i60
+74:                                               ; preds = %73, %.lr.ph.i60
+  %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i60 ], [ %indvars.iv.next.i63, %73 ]
+  %75 = getelementptr inbounds nuw [33 x i64], ptr %72, i64 0, i64 %indvars.iv.i62
   %76 = load i64, ptr %75, align 8, !tbaa !21
-  %77 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i60
+  %77 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i62
   %78 = load i64, ptr %77, align 8, !tbaa !21
   %.not.i = icmp eq i64 %76, %78
   br i1 %.not.i, label %73, label %.loopexit
@@ -5513,7 +5513,7 @@ H5D__chunk_cinfo_cache_found.exit:                ; preds = %73, %.preheader.i
   store i32 %88, ptr %20, align 8, !tbaa !208
   br label %131
 
-.loopexit:                                        ; preds = %74, %..loopexit69_crit_edge, %66, %.loopexit69
+.loopexit:                                        ; preds = %74, %..critedge_crit_edge, %66, %.critedge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
   %89 = load ptr, ptr %0, align 8, !tbaa !186
   store ptr %89, ptr %4, align 8, !tbaa !64
@@ -5580,8 +5580,8 @@ H5D__chunk_cinfo_cache_update.exit:               ; preds = %111, %104, %100
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
   br label %131
 
-131:                                              ; preds = %H5D__chunk_cinfo_cache_found.exit, %H5D__chunk_cinfo_cache_update.exit, %3, %._crit_edge
-  %.052 = phi i32 [ 0, %._crit_edge ], [ 0, %H5D__chunk_cinfo_cache_found.exit ], [ %.1, %H5D__chunk_cinfo_cache_update.exit ], [ 0, %3 ]
+131:                                              ; preds = %H5D__chunk_cinfo_cache_found.exit, %H5D__chunk_cinfo_cache_update.exit, %3, %.critedge59
+  %.052 = phi i32 [ 0, %.critedge59 ], [ 0, %H5D__chunk_cinfo_cache_found.exit ], [ %.1, %H5D__chunk_cinfo_cache_update.exit ], [ 0, %3 ]
   ret i32 %.052
 }
 

@@ -3466,8 +3466,8 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15MetaspaceShared12map_archivesEP1
 
 13:                                               ; preds = %7
   %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not60 = icmp eq ptr %14, null
-  br i1 %.not60, label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit, label %15
+  %.not59 = icmp eq ptr %14, null
+  br i1 %.not59, label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit, label %15
 
 15:                                               ; preds = %13
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.50)
@@ -3480,8 +3480,8 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15MetaspaceShared12map_archivesEP1
 
 19:                                               ; preds = %16
   %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not59 = icmp eq ptr %20, null
-  br i1 %.not59, label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit, label %21
+  %.not58 = icmp eq ptr %20, null
+  br i1 %.not58, label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit, label %21
 
 21:                                               ; preds = %19
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.51)
@@ -3494,8 +3494,8 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15MetaspaceShared12map_archivesEP1
 
 24:                                               ; preds = %22
   %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not52 = icmp eq ptr %25, null
-  br i1 %.not52, label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit, label %26
+  %.not51 = icmp eq ptr %25, null
+  br i1 %.not51, label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit, label %26
 
 26:                                               ; preds = %24
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.52)
@@ -3511,18 +3511,18 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15MetaspaceShared12map_archivesEP1
 
 29:                                               ; preds = %.thread46
   %30 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not58 = icmp eq ptr %30, null
-  br i1 %.not58, label %89, label %31
+  %.not57 = icmp eq ptr %30, null
+  br i1 %.not57, label %88, label %31
 
 31:                                               ; preds = %29
   %32 = zext i1 %2 to i32
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.53, i32 noundef %32)
-  br label %89
+  br label %88
 
 33:                                               ; preds = %.thread46
   %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not53 = icmp eq ptr %34, null
-  br i1 %.not53, label %42, label %35
+  %.not52 = icmp eq ptr %34, null
+  br i1 %.not52, label %42, label %35
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %5, align 8
@@ -3536,8 +3536,8 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15MetaspaceShared12map_archivesEP1
 
 42:                                               ; preds = %33, %35
   %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not54 = icmp eq ptr %43, null
-  br i1 %.not54, label %51, label %44
+  %.not53 = icmp eq ptr %43, null
+  br i1 %.not53, label %51, label %44
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %6, align 8
@@ -3552,154 +3552,154 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15MetaspaceShared12map_archivesEP1
 51:                                               ; preds = %44, %42
   %52 = call noundef i32 @_ZN15MetaspaceShared11map_archiveEP11FileMapInfoPc13ReservedSpace(ptr noundef %0, ptr noundef nonnull %27, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %5)
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %61
+  br i1 %53, label %54, label %.critedge
 
 54:                                               ; preds = %51
   %55 = call noundef i32 @_ZN15MetaspaceShared11map_archiveEP11FileMapInfoPc13ReservedSpace(ptr noundef %1, ptr noundef nonnull %27, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %5)
-  switch i32 %55, label %89 [
-    i32 0, label %63
+  switch i32 %55, label %88 [
+    i32 0, label %62
     i32 2, label %56
   ]
 
 56:                                               ; preds = %54
   %57 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_39ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not55 = icmp eq ptr %57, null
-  br i1 %.not55, label %63, label %58
+  %.not54 = icmp eq ptr %57, null
+  br i1 %.not54, label %62, label %58
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %60 = load ptr, ptr %59, align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_39ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.57, ptr noundef %60)
-  br label %63
+  br label %62
 
-61:                                               ; preds = %51
-  %62 = icmp eq i32 %52, 2
-  %. = select i1 %62, i32 2, i32 1
-  br label %89
+.critedge:                                        ; preds = %51
+  %61 = icmp eq i32 %52, 2
+  %. = select i1 %61, i32 2, i32 1
+  br label %88
 
-63:                                               ; preds = %54, %56, %58
-  %64 = ptrtoint ptr %27 to i64
-  store i64 %64, ptr @SharedBaseAddress, align 8
-  %65 = load i8, ptr @UseCompressedClassPointers, align 1
-  %66 = trunc i8 %65 to i1
-  br i1 %66, label %67, label %78
+62:                                               ; preds = %54, %56, %58
+  %63 = ptrtoint ptr %27 to i64
+  store i64 %63, ptr @SharedBaseAddress, align 8
+  %64 = load i8, ptr @UseCompressedClassPointers, align 1
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %77
 
-67:                                               ; preds = %63
+66:                                               ; preds = %62
   call void @_ZN9Metaspace22initialize_class_spaceE13ReservedSpace(ptr noundef nonnull byval(%class.ReservedSpace) align 8 %6) #15
-  %68 = call noundef ptr @_ZNK11FileMapInfo17first_core_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 80
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 %73
-  %75 = ptrtoint ptr %74 to i64
-  %76 = ptrtoint ptr %70 to i64
-  %77 = sub i64 %75, %76
-  call void @_ZN23CompressedKlassPointers29initialize_for_given_encodingEPhmS0_i(ptr noundef %70, i64 noundef %77, ptr noundef %70, i32 noundef 0) #15
+  %67 = call noundef ptr @_ZNK11FileMapInfo17first_core_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 80
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %6, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %72 = load i64, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %70, i64 %72
+  %74 = ptrtoint ptr %73 to i64
+  %75 = ptrtoint ptr %69 to i64
+  %76 = sub i64 %74, %75
+  call void @_ZN23CompressedKlassPointers29initialize_for_given_encodingEPhmS0_i(ptr noundef %69, i64 noundef %76, ptr noundef %69, i32 noundef 0) #15
   call void @_ZN11FileMapInfo23map_or_load_heap_regionEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
-  br label %78
+  br label %77
 
-78:                                               ; preds = %67, %63
-  %79 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not56 = icmp eq ptr %79, null
-  br i1 %.not56, label %84, label %80
+77:                                               ; preds = %66, %62
+  %78 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not55 = icmp eq ptr %78, null
+  br i1 %.not55, label %83, label %79
 
-80:                                               ; preds = %78
-  %81 = load i8, ptr @_ZN9CDSConfig35_is_using_optimized_module_handlingE, align 1
-  %82 = trunc i8 %81 to i1
-  %83 = select i1 %82, ptr @.str.59, ptr @.str.60
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.58, ptr noundef nonnull %83)
-  br label %84
+79:                                               ; preds = %77
+  %80 = load i8, ptr @_ZN9CDSConfig35_is_using_optimized_module_handlingE, align 1
+  %81 = trunc i8 %80 to i1
+  %82 = select i1 %81, ptr @.str.59, ptr @.str.60
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.58, ptr noundef nonnull %82)
+  br label %83
 
-84:                                               ; preds = %78, %80
-  %85 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not57 = icmp eq ptr %85, null
-  br i1 %.not57, label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit, label %86
+83:                                               ; preds = %77, %79
+  %84 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not56 = icmp eq ptr %84, null
+  br i1 %.not56, label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit, label %85
 
-86:                                               ; preds = %84
-  %87 = call noundef zeroext i1 @_ZN9CDSConfig26is_using_full_module_graphEv() #15
-  %88 = select i1 %87, ptr @.str.59, ptr @.str.60
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.61, ptr noundef nonnull %88)
+85:                                               ; preds = %83
+  %86 = call noundef zeroext i1 @_ZN9CDSConfig26is_using_full_module_graphEv() #15
+  %87 = select i1 %86, ptr @.str.59, ptr @.str.60
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.61, ptr noundef nonnull %87)
   br label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit
 
-89:                                               ; preds = %54, %31, %29, %61
-  %.038.ph = phi i32 [ %., %61 ], [ 1, %29 ], [ 1, %31 ], [ 1, %54 ]
+88:                                               ; preds = %54, %31, %29, %.critedge
+  %.038.ph = phi i32 [ %., %.critedge ], [ 1, %29 ], [ 1, %31 ], [ 1, %54 ]
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit, label %90
+  br i1 %.not.i, label %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit, label %89
 
-90:                                               ; preds = %89
+89:                                               ; preds = %88
   call void @_ZN11FileMapInfo13unmap_regionsEPii(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @_ZL15archive_regions, i32 noundef 2) #15
   call void @_ZN11FileMapInfo12unmap_regionEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2) #15
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 0, ptr %91, align 2
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 0, ptr %90, align 2
   br label %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit
 
-_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit: ; preds = %89, %90
+_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit: ; preds = %88, %89
   %.not.i42 = icmp eq ptr %1, null
-  br i1 %.not.i42, label %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit43, label %92
+  br i1 %.not.i42, label %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit43, label %91
 
-92:                                               ; preds = %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit
+91:                                               ; preds = %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit
   call void @_ZN11FileMapInfo13unmap_regionsEPii(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull @_ZL15archive_regions, i32 noundef 2) #15
   call void @_ZN11FileMapInfo12unmap_regionEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 2) #15
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 0, ptr %93, align 2
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 0, ptr %92, align 2
   br label %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit43
 
-_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit43: ; preds = %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit, %92
-  %94 = load ptr, ptr %4, align 8
-  %.not.i44 = icmp eq ptr %94, null
-  br i1 %.not.i44, label %97, label %95
+_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit43: ; preds = %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit, %91
+  %93 = load ptr, ptr %4, align 8
+  %.not.i44 = icmp eq ptr %93, null
+  br i1 %.not.i44, label %96, label %94
 
-95:                                               ; preds = %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit43
-  %96 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not13.i = icmp eq ptr %96, null
+94:                                               ; preds = %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit43
+  %95 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not13.i = icmp eq ptr %95, null
   br i1 %.not13.i, label %.sink.split.i, label %.sink.split.sink.split.i
 
-97:                                               ; preds = %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit43
-  %98 = load ptr, ptr %5, align 8
-  %.not9.i = icmp eq ptr %98, null
-  br i1 %.not9.i, label %104, label %99
+96:                                               ; preds = %_ZN15MetaspaceShared13unmap_archiveEP11FileMapInfo.exit43
+  %97 = load ptr, ptr %5, align 8
+  %.not9.i = icmp eq ptr %97, null
+  br i1 %.not9.i, label %103, label %98
 
-99:                                               ; preds = %97
-  %100 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not10.i = icmp eq ptr %100, null
-  br i1 %.not10.i, label %103, label %101
+98:                                               ; preds = %96
+  %99 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not10.i = icmp eq ptr %99, null
+  br i1 %.not10.i, label %102, label %100
 
-101:                                              ; preds = %99
-  %102 = ptrtoint ptr %98 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.66, i64 noundef %102)
+100:                                              ; preds = %98
+  %101 = ptrtoint ptr %97 to i64
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.66, i64 noundef %101)
+  br label %102
+
+102:                                              ; preds = %100, %98
+  call void @_ZN13ReservedSpace7releaseEv(ptr noundef nonnull align 8 dereferenceable(49) %5) #15
   br label %103
 
-103:                                              ; preds = %101, %99
-  call void @_ZN13ReservedSpace7releaseEv(ptr noundef nonnull align 8 dereferenceable(49) %5) #15
-  br label %104
+103:                                              ; preds = %102, %96
+  %104 = load ptr, ptr %6, align 8
+  %.not11.i = icmp eq ptr %104, null
+  br i1 %.not11.i, label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit, label %105
 
-104:                                              ; preds = %103, %97
-  %105 = load ptr, ptr %6, align 8
-  %.not11.i = icmp eq ptr %105, null
-  br i1 %.not11.i, label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit, label %106
-
-106:                                              ; preds = %104
-  %107 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not12.i = icmp eq ptr %107, null
+105:                                              ; preds = %103
+  %106 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not12.i = icmp eq ptr %106, null
   br i1 %.not12.i, label %.sink.split.i, label %.sink.split.sink.split.i
 
-.sink.split.sink.split.i:                         ; preds = %106, %95
-  %.sink15.i = phi ptr [ %94, %95 ], [ %105, %106 ]
-  %.str.67.sink.i = phi ptr [ @.str.65, %95 ], [ @.str.67, %106 ]
-  %.sink.ph.i = phi ptr [ %4, %95 ], [ %6, %106 ]
-  %108 = ptrtoint ptr %.sink15.i to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull %.str.67.sink.i, i64 noundef %108)
+.sink.split.sink.split.i:                         ; preds = %105, %94
+  %.sink15.i = phi ptr [ %93, %94 ], [ %104, %105 ]
+  %.str.67.sink.i = phi ptr [ @.str.65, %94 ], [ @.str.67, %105 ]
+  %.sink.ph.i = phi ptr [ %4, %94 ], [ %6, %105 ]
+  %107 = ptrtoint ptr %.sink15.i to i64
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull %.str.67.sink.i, i64 noundef %107)
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %106, %95
-  %.sink.i = phi ptr [ %4, %95 ], [ %6, %106 ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
+.sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %105, %94
+  %.sink.i = phi ptr [ %4, %94 ], [ %6, %105 ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
   call void @_ZN13ReservedSpace7releaseEv(ptr noundef nonnull align 8 dereferenceable(49) %.sink.i) #15
   br label %_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit
 
-_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit: ; preds = %.sink.split.i, %104, %84, %86, %26, %24, %21, %19, %15, %13
-  %.0 = phi i32 [ 1, %13 ], [ 1, %15 ], [ 1, %19 ], [ 1, %21 ], [ 1, %24 ], [ 1, %26 ], [ 0, %86 ], [ 0, %84 ], [ %.038.ph, %104 ], [ %.038.ph, %.sink.split.i ]
+_ZN15MetaspaceShared23release_reserved_spacesER13ReservedSpaceS1_S1_.exit: ; preds = %.sink.split.i, %103, %83, %85, %26, %24, %21, %19, %15, %13
+  %.0 = phi i32 [ 1, %13 ], [ 1, %15 ], [ 1, %19 ], [ 1, %21 ], [ 1, %24 ], [ 1, %26 ], [ 0, %85 ], [ 0, %83 ], [ %.038.ph, %103 ], [ %.038.ph, %.sink.split.i ]
   ret i32 %.0
 }
 

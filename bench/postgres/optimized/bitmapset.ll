@@ -768,13 +768,13 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly captu
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %.loopexit, label %.preheader
+  br i1 %or.cond, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not.not30 = icmp sgt i32 %6, 0
-  br i1 %.not.not30, label %.lr.ph, label %.loopexit
+  br i1 %.not.not30, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -784,8 +784,8 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly captu
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %11
 
-11:                                               ; preds = %.lr.ph, %.critedge
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
+11:                                               ; preds = %.lr.ph, %.critedge29
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge29 ]
   %12 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 8
   %14 = icmp slt i32 %13, 0
@@ -802,7 +802,7 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly captu
   %19 = lshr i32 %13, 6
   %20 = load i32, ptr %9, align 4
   %21 = icmp slt i32 %19, %20
-  br i1 %21, label %22, label %.critedge
+  br i1 %21, label %22, label %.critedge29
 
 22:                                               ; preds = %18
   %23 = and i32 %13, 63
@@ -813,15 +813,15 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly captu
   %28 = shl nuw i64 1, %27
   %29 = and i64 %26, %28
   %.not27 = icmp eq i64 %29, 0
-  br i1 %.not27, label %.critedge, label %.loopexit
+  br i1 %.not27, label %.critedge29, label %.critedge
 
-.critedge:                                        ; preds = %22, %18
+.critedge29:                                      ; preds = %22, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !16
+  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !16
 
-.loopexit:                                        ; preds = %.critedge, %22, %.preheader, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %.preheader ], [ false, %.critedge ], [ true, %22 ]
+.critedge:                                        ; preds = %.critedge29, %22, %.preheader, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %.preheader ], [ false, %.critedge29 ], [ true, %22 ]
   ret i1 %.0
 }
 
@@ -888,7 +888,7 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly captures(address
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %.loopexit, label %4
+  br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -900,7 +900,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
 
 8:                                                ; preds = %20, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %4 ]
-  %.019 = phi i32 [ %.221.ph, %20 ], [ -1, %4 ]
+  %.019 = phi i32 [ %.221, %20 ], [ -1, %4 ]
   %9 = getelementptr inbounds nuw [0 x i64], ptr %7, i64 0, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, 0
@@ -911,7 +911,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
   %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
   %.not25 = icmp samesign ult i64 %13, 2
   %or.cond = select i1 %12, i1 %.not25, i1 false
-  br i1 %or.cond, label %14, label %.loopexit
+  br i1 %or.cond, label %14, label %.critedge
 
 14:                                               ; preds = %11
   %15 = trunc nuw nsw i64 %indvars.iv to i32
@@ -922,16 +922,16 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
   br label %20
 
 20:                                               ; preds = %14, %8
-  %.221.ph = phi i32 [ %.019, %8 ], [ %19, %14 ]
+  %.221 = phi i32 [ %19, %14 ], [ %.019, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %21, label %8, !llvm.loop !18
 
 21:                                               ; preds = %20
-  store i32 %.221.ph, ptr %1, align 4
-  br label %.loopexit
+  store i32 %.221, ptr %1, align 4
+  br label %.critedge
 
-.loopexit:                                        ; preds = %11, %2, %21
+.critedge:                                        ; preds = %11, %2, %21
   %.0 = phi i1 [ true, %21 ], [ false, %2 ], [ false, %11 ]
   ret i1 %.0
 }

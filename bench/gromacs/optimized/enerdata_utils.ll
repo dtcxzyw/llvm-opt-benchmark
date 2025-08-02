@@ -855,7 +855,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %23, %21, %19, %17
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 376
   br label %26
 
 26:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %24
@@ -867,34 +866,35 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %23, %21, %19, %17
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, label %28
 
 28:                                               ; preds = %26
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i
-  %29 = load ptr, ptr %gep.i, align 8, !tbaa !70
-  %30 = ptrtoint ptr %29 to i64
-  %31 = ptrtoint ptr %27 to i64
-  %32 = sub i64 %30, %31
-  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %32) #21
+  %.ptr15.i = getelementptr inbounds i8, ptr %4, i64 %.idx.i
+  %29 = getelementptr inbounds i8, ptr %.ptr15.i, i64 -8
+  %30 = load ptr, ptr %29, align 8, !tbaa !70
+  %31 = ptrtoint ptr %30 to i64
+  %32 = ptrtoint ptr %27 to i64
+  %33 = sub i64 %31, %32
+  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %33) #21
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %28, %26
-  %33 = icmp eq i64 %.add.i, 8
-  br i1 %33, label %common.resume, label %26
+  %34 = icmp eq i64 %.add.i, 8
+  br i1 %34, label %common.resume, label %26
 
-common.resume:                                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %37
-  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %25, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i ]
+common.resume:                                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %38
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %25, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN17gmx_grppairener_tC2Ei.exit:                  ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %34, i8 0, i64 112, i1 false)
-  invoke void @_ZN18ForeignLambdaTermsC1EPKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS2_7EEE(ptr noundef nonnull align 8 dereferenceable(65) %35, ptr noundef %2)
-          to label %36 unwind label %37
-
-36:                                               ; preds = %_ZN17gmx_grppairener_tC2Ei.exit
-  ret void
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %35, i8 0, i64 112, i1 false)
+  invoke void @_ZN18ForeignLambdaTermsC1EPKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS2_7EEE(ptr noundef nonnull align 8 dereferenceable(65) %36, ptr noundef %2)
+          to label %37 unwind label %38
 
 37:                                               ; preds = %_ZN17gmx_grppairener_tC2Ei.exit
-  %38 = landingpad { ptr, i32 }
+  ret void
+
+38:                                               ; preds = %_ZN17gmx_grppairener_tC2Ei.exit
+  %39 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN17gmx_grppairener_tD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #22
   br label %common.resume
@@ -902,7 +902,6 @@ _ZN17gmx_grppairener_tC2Ei.exit:                  ; preds = %_ZNSt6vectorIfSaIfE
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17gmx_grppairener_tD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -8
   br label %2
 
 2:                                                ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %1
@@ -914,17 +913,18 @@ define linkonce_odr void @_ZN17gmx_grppairener_tD2Ev(ptr noundef nonnull align 8
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %4
 
 4:                                                ; preds = %2
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %5 = load ptr, ptr %gep, align 8, !tbaa !70
-  %6 = ptrtoint ptr %5 to i64
-  %7 = ptrtoint ptr %3 to i64
-  %8 = sub i64 %6, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %8) #21
+  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %5 = getelementptr inbounds i8, ptr %.ptr, i64 -8
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
+  %7 = ptrtoint ptr %6 to i64
+  %8 = ptrtoint ptr %3 to i64
+  %9 = sub i64 %7, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #21
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %4, %2
-  %9 = icmp eq i64 %.add, 8
-  br i1 %9, label %_ZN3gmx16EnumerationArrayI20NonBondedEnergyTermsSt6vectorIfSaIfEELS1_5EED2Ev.exit, label %2
+  %10 = icmp eq i64 %.add, 8
+  br i1 %10, label %_ZN3gmx16EnumerationArrayI20NonBondedEnergyTermsSt6vectorIfSaIfEELS1_5EED2Ev.exit, label %2
 
 _ZN3gmx16EnumerationArrayI20NonBondedEnergyTermsSt6vectorIfSaIfEELS1_5EED2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
   ret void

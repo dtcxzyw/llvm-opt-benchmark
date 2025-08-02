@@ -943,44 +943,44 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %5, label %.lr.ph.us215.preheader, label %.thread178
 
 .lr.ph.us215.preheader:                           ; preds = %.loopexit190
-  %invariant.gep = getelementptr i8, ptr %.3, i64 -1
   %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %94 = sext i32 %.5138 to i64
   %wide.trip.count272 = zext nneg i32 %smax to i64
   br label %.lr.ph.us215
 
-.lr.ph.us215:                                     ; preds = %.lr.ph.us215.preheader, %101
-  %indvars.iv274 = phi i64 [ %94, %.lr.ph.us215.preheader ], [ %indvars.iv.next275, %101 ]
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv274
-  %95 = load i8, ptr %gep.us, align 1
-  br label %97
+.lr.ph.us215:                                     ; preds = %.lr.ph.us215.preheader, %103
+  %indvars.iv274 = phi i64 [ %94, %.lr.ph.us215.preheader ], [ %indvars.iv.next275, %103 ]
+  %95 = getelementptr i8, ptr %.3, i64 %indvars.iv274
+  %96 = getelementptr i8, ptr %95, i64 -1
+  %97 = load i8, ptr %96, align 1
+  br label %99
 
-96:                                               ; preds = %97
+98:                                               ; preds = %99
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
-  br i1 %exitcond273.not, label %.thread178.loopexit, label %97, !llvm.loop !20
+  br i1 %exitcond273.not, label %.thread178.loopexit, label %99, !llvm.loop !20
 
-97:                                               ; preds = %.lr.ph.us215, %96
-  %indvars.iv269 = phi i64 [ 0, %.lr.ph.us215 ], [ %indvars.iv.next270, %96 ]
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv269
-  %99 = load i8, ptr %98, align 1
-  %100 = icmp eq i8 %95, %99
-  br i1 %100, label %101, label %96
+99:                                               ; preds = %.lr.ph.us215, %98
+  %indvars.iv269 = phi i64 [ 0, %.lr.ph.us215 ], [ %indvars.iv.next270, %98 ]
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv269
+  %101 = load i8, ptr %100, align 1
+  %102 = icmp eq i8 %97, %101
+  br i1 %102, label %103, label %98
 
-101:                                              ; preds = %97
+103:                                              ; preds = %99
   %indvars.iv.next275 = add nsw i64 %indvars.iv274, -1
   %.old11.us = icmp sgt i64 %indvars.iv274, 1
   br i1 %.old11.us, label %.lr.ph.us215, label %.thread178, !llvm.loop !21
 
-.thread178.loopexit:                              ; preds = %96
-  %102 = trunc nsw i64 %indvars.iv274 to i32
+.thread178.loopexit:                              ; preds = %98
+  %104 = trunc nsw i64 %indvars.iv274 to i32
   br label %.thread178
 
-.thread178:                                       ; preds = %91, %101, %.thread178.loopexit, %.thread165, %.loopexit190, %6
-  %.0133 = phi i32 [ %.3136, %.thread165 ], [ %.5138, %.loopexit190 ], [ %1, %6 ], [ %102, %.thread178.loopexit ], [ 0, %101 ], [ 0, %91 ]
-  %.0 = phi ptr [ %.1171, %.thread165 ], [ %.3, %.loopexit190 ], [ %0, %6 ], [ %.3, %.thread178.loopexit ], [ %.3, %101 ], [ %scevgep, %91 ]
-  %103 = tail call ptr @cstring_to_text_with_len(ptr noundef %.0, i32 noundef %.0133) #8
-  ret ptr %103
+.thread178:                                       ; preds = %91, %103, %.thread178.loopexit, %.thread165, %.loopexit190, %6
+  %.0133 = phi i32 [ %.3136, %.thread165 ], [ %.5138, %.loopexit190 ], [ %1, %6 ], [ %104, %.thread178.loopexit ], [ 0, %103 ], [ 0, %91 ]
+  %.0 = phi ptr [ %.1171, %.thread165 ], [ %.3, %.loopexit190 ], [ %0, %6 ], [ %.3, %.thread178.loopexit ], [ %.3, %103 ], [ %scevgep, %91 ]
+  %105 = tail call ptr @cstring_to_text_with_len(ptr noundef %.0, i32 noundef %.0133) #8
+  ret ptr %105
 }
 
 ; Function Attrs: nounwind uwtable

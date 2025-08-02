@@ -629,7 +629,6 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.t
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %dailyPositions, i64 24
   %10 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !39
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %dailyPositions, i64 8
-  %invariant.gep = getelementptr i8, ptr %out, i64 16
   %cmp.i.not261 = icmp eq ptr %10, %add.ptr.i.i
   br i1 %cmp.i.not261, label %for.cond.cleanup, label %for.body
 
@@ -642,8 +641,9 @@ for.body:                                         ; preds = %_ZSt4endlIcSt11char
   %vtable.i75 = load ptr, ptr %out, align 8, !tbaa !12
   %vbase.offset.ptr.i76 = getelementptr i8, ptr %vtable.i75, i64 -24
   %vbase.offset.i77 = load i64, ptr %vbase.offset.ptr.i76, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %vbase.offset.i77
-  store i64 4, ptr %gep, align 8, !tbaa !23
+  %add.ptr.i78 = getelementptr inbounds i8, ptr %out, i64 %vbase.offset.i77
+  %_M_width.i.i79 = getelementptr inbounds nuw i8, ptr %add.ptr.i78, i64 16
+  store i64 4, ptr %_M_width.i.i79, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #31
   %call52 = call i64 @_ZN8QuantLib2io8iso_dateERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
   store i64 %call52, ptr %ref.tmp, align 8

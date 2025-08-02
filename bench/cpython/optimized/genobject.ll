@@ -3381,16 +3381,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define internal fastcc range(i32 -1, 1) i32 @gen_close_iter(ptr noundef nonnull %0) unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val19 = load ptr, ptr %3, align 8, !tbaa !20
-  %.not = icmp eq ptr %.val19, @PyGen_Type
-  %.not30 = icmp eq ptr %.val19, @PyCoro_Type
-  %or.cond = or i1 %.not, %.not30
+  %.val18 = load ptr, ptr %3, align 8, !tbaa !20
+  %.not = icmp eq ptr %.val18, @PyGen_Type
+  %.not26 = icmp eq ptr %.val18, @PyCoro_Type
+  %or.cond = or i1 %.not, %.not26
   br i1 %or.cond, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = tail call ptr @gen_close(ptr noundef nonnull %0, ptr poison)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %Py_XDECREF.exit, label %.thread26
+  br i1 %6, label %Py_XDECREF.exit, label %.thread
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
@@ -3444,41 +3444,41 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
   %27 = load ptr, ptr %2, align 8, !tbaa !32
   %28 = load i32, ptr %27, align 8, !tbaa !4
   %.not.i = icmp sgt i32 %28, -1
-  br i1 %.not.i, label %29, label %33
+  br i1 %.not.i, label %29, label %Py_DECREF.exit
 
 29:                                               ; preds = %_PyObject_CallNoArgs.exit
   %30 = add nsw i32 %28, -1
   store i32 %30, ptr %27, align 8, !tbaa !4
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %33
+  br i1 %31, label %32, label %Py_DECREF.exit
 
 32:                                               ; preds = %29
   call void @_Py_Dealloc(ptr noundef nonnull %27) #8
-  br label %33
+  br label %Py_DECREF.exit
 
-33:                                               ; preds = %32, %29, %_PyObject_CallNoArgs.exit
-  %.not31 = icmp eq ptr %.0.i.i, null
+Py_DECREF.exit:                                   ; preds = %_PyObject_CallNoArgs.exit, %29, %32
+  %33 = icmp eq ptr %.0.i.i, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  br i1 %.not31, label %Py_XDECREF.exit, label %.thread26
+  br i1 %33, label %Py_XDECREF.exit, label %.thread
 
-.thread26:                                        ; preds = %33, %4
-  %.0929 = phi ptr [ %5, %4 ], [ %.0.i.i, %33 ]
-  %34 = load i32, ptr %.0929, align 8, !tbaa !4
+.thread:                                          ; preds = %Py_DECREF.exit, %4
+  %.0922 = phi ptr [ %5, %4 ], [ %.0.i.i, %Py_DECREF.exit ]
+  %34 = load i32, ptr %.0922, align 8, !tbaa !4
   %.not.i.i = icmp sgt i32 %34, -1
   br i1 %.not.i.i, label %35, label %Py_XDECREF.exit
 
-35:                                               ; preds = %.thread26
+35:                                               ; preds = %.thread
   %36 = add nsw i32 %34, -1
-  store i32 %36, ptr %.0929, align 8, !tbaa !4
+  store i32 %36, ptr %.0922, align 8, !tbaa !4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %Py_XDECREF.exit
 
 38:                                               ; preds = %35
-  call void @_Py_Dealloc(ptr noundef nonnull %.0929) #8
+  call void @_Py_Dealloc(ptr noundef nonnull %.0922) #8
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %38, %35, %.thread26, %.thread23, %4, %33
-  %.010 = phi i32 [ -1, %33 ], [ -1, %4 ], [ 0, %.thread23 ], [ 0, %.thread26 ], [ 0, %35 ], [ 0, %38 ]
+Py_XDECREF.exit:                                  ; preds = %Py_DECREF.exit, %38, %35, %.thread, %.thread23, %4
+  %.010 = phi i32 [ -1, %4 ], [ 0, %.thread23 ], [ 0, %.thread ], [ 0, %35 ], [ 0, %38 ], [ -1, %Py_DECREF.exit ]
   ret i32 %.010
 }
 
@@ -5651,7 +5651,7 @@ define internal ptr @async_gen_athrow_send(ptr noundef captures(none) %0, ptr no
 11:                                               ; preds = %2
   %12 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !32
   tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.80) #8
-  br label %.thread65
+  br label %.thread63
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 67
@@ -5663,7 +5663,7 @@ define internal ptr @async_gen_athrow_send(ptr noundef captures(none) %0, ptr no
   store i32 2, ptr %8, align 8, !tbaa !176
   %18 = load ptr, ptr @PyExc_StopIteration, align 8, !tbaa !32
   tail call void @PyErr_SetNone(ptr noundef %18) #8
-  br label %.thread65
+  br label %.thread63
 
 19:                                               ; preds = %13
   %20 = icmp eq i32 %9, 0
@@ -5685,11 +5685,11 @@ define internal ptr @async_gen_athrow_send(ptr noundef captures(none) %0, ptr no
 
 29:                                               ; preds = %24
   tail call void @PyErr_SetString(ptr noundef %28, ptr noundef nonnull @.str.81) #8
-  br label %.thread65
+  br label %.thread63
 
 30:                                               ; preds = %24
   tail call void @PyErr_SetString(ptr noundef %28, ptr noundef nonnull @.str.82) #8
-  br label %.thread65
+  br label %.thread63
 
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 65
@@ -5701,7 +5701,7 @@ define internal ptr @async_gen_athrow_send(ptr noundef captures(none) %0, ptr no
   store i32 2, ptr %8, align 8, !tbaa !176
   %35 = load ptr, ptr @PyExc_StopAsyncIteration, align 8, !tbaa !32
   tail call void @PyErr_SetNone(ptr noundef %35) #8
-  br label %.thread65
+  br label %.thread63
 
 36:                                               ; preds = %31
   %.not52 = icmp eq ptr %1, @_Py_NoneStruct
@@ -5710,7 +5710,7 @@ define internal ptr @async_gen_athrow_send(ptr noundef captures(none) %0, ptr no
 37:                                               ; preds = %36
   %38 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !32
   tail call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.21) #8
-  br label %.thread65
+  br label %.thread63
 
 39:                                               ; preds = %36
   store i32 1, ptr %8, align 8, !tbaa !176
@@ -5725,13 +5725,13 @@ define internal ptr @async_gen_athrow_send(ptr noundef captures(none) %0, ptr no
   %44 = load ptr, ptr @PyExc_GeneratorExit, align 8, !tbaa !32
   %45 = tail call fastcc ptr @_gen_throw(ptr noundef nonnull %7, i32 noundef 0, ptr noundef %44, ptr noundef null, ptr noundef null)
   %.not54 = icmp eq ptr %45, null
-  br i1 %.not54, label %.thread63, label %46
+  br i1 %.not54, label %.thread, label %46
 
 46:                                               ; preds = %43
   %47 = getelementptr i8, ptr %45, i64 8
   %.val61 = load ptr, ptr %47, align 8, !tbaa !20
-  %.not68 = icmp eq ptr %.val61, @_PyAsyncGenWrappedValue_Type
-  br i1 %.not68, label %48, label %.thread65
+  %.not66 = icmp eq ptr %.val61, @_PyAsyncGenWrappedValue_Type
+  br i1 %.not66, label %48, label %.thread63
 
 48:                                               ; preds = %46
   %49 = load i32, ptr %45, align 8, !tbaa !4
@@ -5752,13 +5752,7 @@ define internal ptr @async_gen_athrow_send(ptr noundef captures(none) %0, ptr no
   store ptr null, ptr %5, align 8, !tbaa !32
   %54 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef nonnull %41, ptr noundef nonnull @.str.65, i64 noundef 1, i64 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4) #8
   %.not53.not = icmp eq i32 %54, 0
-  br i1 %.not53.not, label %.thread, label %55
-
-.thread:                                          ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  br label %.thread65
+  br i1 %.not53.not, label %.critedge, label %55
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr %3, align 8, !tbaa !32
@@ -5771,7 +5765,7 @@ define internal ptr @async_gen_athrow_send(ptr noundef captures(none) %0, ptr no
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.thread63, label %.thread65
+  br i1 %62, label %.thread, label %.thread63
 
 63:                                               ; preds = %19
   %64 = tail call fastcc ptr @gen_send_ex(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 0, i32 noundef 0)
@@ -5783,17 +5777,17 @@ define internal ptr @async_gen_athrow_send(ptr noundef captures(none) %0, ptr no
 67:                                               ; preds = %63
   %68 = load ptr, ptr %6, align 8, !tbaa !173
   %69 = tail call fastcc ptr @async_gen_unwrap_value(ptr noundef %68, ptr noundef %64)
-  br label %.thread65
+  br label %.thread63
 
 70:                                               ; preds = %63
   %.not48 = icmp eq ptr %64, null
-  br i1 %.not48, label %.thread63, label %71
+  br i1 %.not48, label %.thread, label %71
 
 71:                                               ; preds = %70
   %72 = getelementptr i8, ptr %64, i64 8
   %.val = load ptr, ptr %72, align 8, !tbaa !20
-  %.not67 = icmp eq ptr %.val, @_PyAsyncGenWrappedValue_Type
-  br i1 %.not67, label %73, label %.thread65
+  %.not65 = icmp eq ptr %.val, @_PyAsyncGenWrappedValue_Type
+  br i1 %.not65, label %73, label %.thread63
 
 73:                                               ; preds = %71
   %74 = load i32, ptr %64, align 8, !tbaa !4
@@ -5818,9 +5812,9 @@ Py_DECREF.exit59:                                 ; preds = %Py_DECREF.exit59.si
   store i32 2, ptr %8, align 8, !tbaa !176
   %80 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !32
   tail call void @PyErr_SetString(ptr noundef %80, ptr noundef nonnull @.str.22) #8
-  br label %.thread65
+  br label %.thread63
 
-.thread63:                                        ; preds = %43, %70, %55
+.thread:                                          ; preds = %43, %70, %55
   %81 = load ptr, ptr %6, align 8, !tbaa !173
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 66
   store i8 0, ptr %82, align 2, !tbaa !170
@@ -5830,26 +5824,32 @@ Py_DECREF.exit59:                                 ; preds = %Py_DECREF.exit59.si
   %.not56 = icmp eq i32 %84, 0
   br i1 %.not56, label %85, label %88
 
-85:                                               ; preds = %.thread63
+85:                                               ; preds = %.thread
   %86 = load ptr, ptr @PyExc_GeneratorExit, align 8, !tbaa !32
   %87 = call i32 @PyErr_ExceptionMatches(ptr noundef %86) #8
   %.not57 = icmp eq i32 %87, 0
-  br i1 %.not57, label %.thread65, label %88
+  br i1 %.not57, label %.thread63, label %88
 
-88:                                               ; preds = %85, %.thread63
+88:                                               ; preds = %85, %.thread
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %90 = load ptr, ptr %89, align 8, !tbaa !175
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %92, label %.thread65
+  br i1 %91, label %92, label %.thread63
 
 92:                                               ; preds = %88
   call void @PyErr_Clear() #8
   %93 = load ptr, ptr @PyExc_StopIteration, align 8, !tbaa !32
   call void @PyErr_SetNone(ptr noundef %93) #8
-  br label %.thread65
+  br label %.thread63
 
-.thread65:                                        ; preds = %46, %.thread, %85, %92, %88, %71, %55, %29, %30, %Py_DECREF.exit59, %67, %37, %34, %17, %11
-  %.042 = phi ptr [ null, %11 ], [ null, %17 ], [ null, %34 ], [ null, %37 ], [ null, %Py_DECREF.exit59 ], [ %69, %67 ], [ null, %30 ], [ null, %29 ], [ %61, %55 ], [ %64, %71 ], [ null, %88 ], [ null, %92 ], [ null, %85 ], [ null, %.thread ], [ %45, %46 ]
+.critedge:                                        ; preds = %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  br label %.thread63
+
+.thread63:                                        ; preds = %46, %85, %92, %88, %71, %55, %.critedge, %29, %30, %Py_DECREF.exit59, %67, %37, %34, %17, %11
+  %.042 = phi ptr [ null, %11 ], [ null, %17 ], [ null, %34 ], [ null, %37 ], [ null, %Py_DECREF.exit59 ], [ %69, %67 ], [ null, %30 ], [ null, %29 ], [ null, %.critedge ], [ %61, %55 ], [ %64, %71 ], [ null, %88 ], [ null, %92 ], [ null, %85 ], [ %45, %46 ]
   ret ptr %.042
 }
 

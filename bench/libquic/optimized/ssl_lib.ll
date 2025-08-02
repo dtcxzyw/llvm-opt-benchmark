@@ -4396,39 +4396,39 @@ define hidden range(i32 0, 2) i32 @SSL_use_psk_identity_hint(ptr noundef capture
 
 4:                                                ; preds = %2
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread, label %7
+  br i1 %.not, label %.critedge, label %5
 
-.thread:                                          ; preds = %4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %6 = load ptr, ptr %5, align 8, !tbaa !110
-  tail call void @free(ptr noundef %6) #21
-  store ptr null, ptr %5, align 8, !tbaa !110
-  br label %16
+5:                                                ; preds = %4
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
+  %7 = icmp ugt i64 %6, 128
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %4
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
-  %9 = icmp ugt i64 %8, 128
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %7
+8:                                                ; preds = %5
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 136, ptr noundef nonnull @.str, i32 noundef 2118) #21
   br label %17
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %13 = load ptr, ptr %12, align 8, !tbaa !110
-  tail call void @free(ptr noundef %13) #21
-  store ptr null, ptr %12, align 8, !tbaa !110
-  %14 = tail call ptr @BUF_strdup(ptr noundef nonnull %1) #21
-  store ptr %14, ptr %12, align 8, !tbaa !110
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %17, label %16
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %11 = load ptr, ptr %10, align 8, !tbaa !110
+  tail call void @free(ptr noundef %11) #21
+  store ptr null, ptr %10, align 8, !tbaa !110
+  %12 = tail call ptr @BUF_strdup(ptr noundef nonnull %1) #21
+  store ptr %12, ptr %10, align 8, !tbaa !110
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %17, label %16
 
-16:                                               ; preds = %.thread, %11
+.critedge:                                        ; preds = %4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %15 = load ptr, ptr %14, align 8, !tbaa !110
+  tail call void @free(ptr noundef %15) #21
+  store ptr null, ptr %14, align 8, !tbaa !110
+  br label %16
+
+16:                                               ; preds = %.critedge, %9
   br label %17
 
-17:                                               ; preds = %11, %2, %16, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %16 ], [ 0, %2 ], [ 0, %11 ]
+17:                                               ; preds = %9, %2, %16, %8
+  %.0 = phi i32 [ 0, %8 ], [ 1, %16 ], [ 0, %2 ], [ 0, %9 ]
   ret i32 %.0
 }
 

@@ -24760,8 +24760,8 @@ default.unreachable34:                            ; preds = %27
   %176 = load i32, ptr %175, align 4, !alias.scope !2624, !noalias !2627, !noundef !6
   %177 = zext i32 %176 to i64
   %.idx33 = mul nuw nsw i64 %173, 24
-  %178 = getelementptr i8, ptr %165, i64 24
-  %179 = getelementptr i8, ptr %178, i64 %.idx33
+  %178 = getelementptr inbounds nuw i8, ptr %165, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx33
   %180 = load ptr, ptr %179, align 8, !alias.scope !2629, !noalias !2624, !noundef !6
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 %177
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0dcE.exit
@@ -24808,8 +24808,8 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0d
   %205 = load i32, ptr %204, align 4, !alias.scope !2632, !noalias !2635, !noundef !6
   %206 = zext i32 %205 to i64
   %.idx = mul nuw nsw i64 %202, 24
-  %207 = getelementptr i8, ptr %194, i64 24
-  %208 = getelementptr i8, ptr %207, i64 %.idx
+  %207 = getelementptr inbounds nuw i8, ptr %194, i64 24
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 %.idx
   %209 = load ptr, ptr %208, align 8, !alias.scope !2637, !noalias !2632, !noundef !6
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 %206
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15e237645f36c0dcE.exit61
@@ -31350,8 +31350,8 @@ _ZN3std4sync6poison4once4Once9call_once17he8f02f78565f3bf7E.exit10: ; preds = %3
   %104 = load i32, ptr %103, align 4, !alias.scope !3509, !noalias !3514, !noundef !6
   %105 = zext i32 %104 to i64
   %.idx.i.i.i.us.i = mul nuw nsw i64 %101, 24
-  %106 = getelementptr i8, ptr %94, i64 24
-  %107 = getelementptr i8, ptr %106, i64 %.idx.i.i.i.us.i
+  %106 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx.i.i.i.us.i
   %108 = load ptr, ptr %107, align 8, !alias.scope !3515, !noalias !3518, !noundef !6
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 %105
   %.not10.us.i = icmp eq ptr %108, null
@@ -31429,8 +31429,8 @@ _ZN3std4sync6poison4once4Once9call_once17he8f02f78565f3bf7E.exit10: ; preds = %3
   %139 = load i32, ptr %138, align 4, !alias.scope !3531, !noalias !3536, !noundef !6
   %140 = zext i32 %139 to i64
   %.idx.i.i.i.i.i = mul nuw nsw i64 %136, 24
-  %141 = getelementptr i8, ptr %129, i64 24
-  %142 = getelementptr i8, ptr %141, i64 %.idx.i.i.i.i.i
+  %141 = getelementptr inbounds nuw i8, ptr %129, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 %.idx.i.i.i.i.i
   %143 = load ptr, ptr %142, align 8, !alias.scope !3537, !noalias !3540, !noundef !6
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 %140
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17hb24b045742dfac46E.exit.i.i.i"

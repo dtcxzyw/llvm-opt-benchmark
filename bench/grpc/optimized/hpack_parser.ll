@@ -919,8 +919,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 ; Function Attrs: noreturn
 declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11HPackParser6String17ParseUncompressedEPNS0_5InputEjj(ptr dead_on_unwind noalias writable sret(%"struct.grpc_core::HPackParser::String::StringResult") align 8 initializes((0, 1), (8, 16)) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN9grpc_core11HPackParser6String17ParseUncompressedEPNS0_5InputEjj(ptr dead_on_unwind noalias writable sret(%"struct.grpc_core::HPackParser::String::StringResult") align 8 initializes((0, 1), (8, 16)) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.grpc_core::HPackParser::String", align 8
   %6 = alloca %"class.grpc_core::HPackParser::String", align 8
   %7 = alloca %"class.grpc_core::HPackParser::String", align 8
@@ -1161,7 +1161,7 @@ _ZN9grpc_core11HPackParser6StringD2Ev.exit:       ; preds = %_ZN9grpc_core11HPac
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core11HPackParser6StringD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN9grpc_core11HPackParser6StringD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8, !tbaa !3
   switch i8 %3, label %24 [
@@ -1297,7 +1297,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !54
   %39 = icmp ugt i8 %38, 63
-  br i1 %39, label %.loopexit, label %42
+  br i1 %39, label %.critedge85, label %42
 
 40:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i, %23, %180
   %41 = landingpad { ptr, i32 }
@@ -1311,7 +1311,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %46 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !54
   %48 = icmp ugt i8 %47, 63
-  br i1 %48, label %.loopexit, label %49
+  br i1 %48, label %.critedge85, label %49
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %.0101, i64 2
@@ -1320,7 +1320,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %53 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !54
   %55 = icmp ugt i8 %54, 63
-  br i1 %55, label %.loopexit, label %56
+  br i1 %55, label %.critedge85, label %56
 
 56:                                               ; preds = %49
   %57 = getelementptr inbounds nuw i8, ptr %.0101, i64 3
@@ -1329,7 +1329,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %60 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !54
   %62 = icmp ugt i8 %61, 63
-  br i1 %62, label %.loopexit, label %63
+  br i1 %62, label %.critedge85, label %63
 
 63:                                               ; preds = %56
   %64 = zext nneg i8 %38 to i32
@@ -1378,7 +1378,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %.lcssa = phi i64 [ %18, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ], [ %87, %84 ]
   switch i64 %.lcssa, label %180 [
     i64 0, label %91
-    i64 1, label %.loopexit
+    i64 1, label %.critedge85
     i64 2, label %99
     i64 3, label %132
   ]
@@ -1403,7 +1403,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %102 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !54
   %104 = icmp ugt i8 %103, 63
-  br i1 %104, label %.loopexit, label %105
+  br i1 %104, label %.critedge85, label %105
 
 105:                                              ; preds = %99
   %106 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
@@ -1412,13 +1412,13 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %109 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !54
   %111 = icmp ugt i8 %110, 63
-  br i1 %111, label %.loopexit, label %112
+  br i1 %111, label %.critedge85, label %112
 
 112:                                              ; preds = %105
   %113 = zext nneg i8 %110 to i32
   %114 = and i32 %113, 15
   %.not81 = icmp eq i32 %114, 0
-  br i1 %.not81, label %115, label %.loopexit
+  br i1 %.not81, label %115, label %.critedge85
 
 115:                                              ; preds = %112
   %116 = shl nuw nsw i32 %113, 12
@@ -1459,7 +1459,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %135 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !54
   %137 = icmp ugt i8 %136, 63
-  br i1 %137, label %.loopexit, label %138
+  br i1 %137, label %.critedge85, label %138
 
 138:                                              ; preds = %132
   %139 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
@@ -1468,7 +1468,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %142 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %141
   %143 = load i8, ptr %142, align 1, !tbaa !54
   %144 = icmp ugt i8 %143, 63
-  br i1 %144, label %.loopexit, label %145
+  br i1 %144, label %.critedge85, label %145
 
 145:                                              ; preds = %138
   %146 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
@@ -1477,7 +1477,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %149 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %148
   %150 = load i8, ptr %149, align 1, !tbaa !54
   %151 = icmp ugt i8 %150, 63
-  br i1 %151, label %.loopexit, label %152
+  br i1 %151, label %.critedge85, label %152
 
 152:                                              ; preds = %145
   %153 = zext nneg i8 %150 to i32
@@ -1487,7 +1487,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %157 = or disjoint i32 %156, %155
   %158 = and i32 %153, 3
   %.not79 = icmp eq i32 %158, 0
-  br i1 %.not79, label %159, label %.loopexit
+  br i1 %.not79, label %159, label %.critedge85
 
 159:                                              ; preds = %152
   %160 = zext nneg i8 %136 to i32
@@ -1543,14 +1543,14 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
 181:                                              ; preds = %180
   unreachable
 
-.loopexit:                                        ; preds = %56, %49, %42, %34, %152, %145, %138, %132, %112, %105, %99, %._crit_edge
+.critedge85:                                      ; preds = %56, %49, %42, %34, %152, %145, %138, %132, %112, %105, %99, %._crit_edge
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %182, align 8, !tbaa !60
   %.pr = load ptr, ptr %6, align 8, !tbaa !16
   %.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %183
 
-183:                                              ; preds = %.loopexit
+183:                                              ; preds = %.critedge85
   %184 = load ptr, ptr %25, align 8, !tbaa !48
   %185 = ptrtoint ptr %184 to i64
   %186 = ptrtoint ptr %.pr to i64
@@ -1558,15 +1558,15 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %187) #34
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %91, %122, %168, %.loopexit, %183
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %91, %122, %168, %.critedge85, %183
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
   ret void
 
 188:                                              ; preds = %176, %178, %130, %89, %40
   %.pn82 = phi { ptr, i32 } [ %90, %89 ], [ %41, %40 ], [ %131, %130 ], [ %179, %178 ], [ %177, %176 ]
   %189 = load ptr, ptr %6, align 8, !tbaa !16
-  %.not.i.i.i86 = icmp eq ptr %189, null
-  br i1 %.not.i.i.i86, label %_ZNSt6vectorIhSaIhEED2Ev.exit87, label %190
+  %.not.i.i.i88 = icmp eq ptr %189, null
+  br i1 %.not.i.i.i88, label %_ZNSt6vectorIhSaIhEED2Ev.exit89, label %190
 
 190:                                              ; preds = %188
   %191 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1575,9 +1575,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %91, %122, %168, %.l
   %194 = ptrtoint ptr %189 to i64
   %195 = sub i64 %193, %194
   call void @_ZdlPvm(ptr noundef nonnull %189, i64 noundef %195) #34
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit87
+  br label %_ZNSt6vectorIhSaIhEED2Ev.exit89
 
-_ZNSt6vectorIhSaIhEED2Ev.exit87:                  ; preds = %188, %190
+_ZNSt6vectorIhSaIhEED2Ev.exit89:                  ; preds = %188, %190
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
   resume { ptr, i32 } %.pn82
 }
@@ -2989,7 +2989,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit44:                  ; preds = %264, %266
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core11HPackParser6StringC2EOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN9grpc_core11HPackParser6StringC2EOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.grpc_slice, align 8
   %4 = alloca %"class.absl::lts_20240722::Span", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3105,7 +3105,7 @@ _ZNSt7variantIJN9grpc_core5SliceEN4absl12lts_202407224SpanIKhEESt6vectorIhSaIhEE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core11HPackParser6String12StringResultD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN9grpc_core11HPackParser6String12StringResultD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8, !tbaa !3
@@ -3281,7 +3281,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %.body.i.i, %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core11HPackParserD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11HPackParserD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i8, ptr %2, align 8, !tbaa !133
   switch i8 %3, label %4 [
@@ -4349,7 +4349,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #15
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !7
   %3 = icmp ugt ptr %2, inttoptr (i64 1 to ptr)
   br i1 %3, label %4, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -4388,14 +4388,14 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #18
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #34
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !225
   ret ptr %3
@@ -4488,7 +4488,7 @@ declare noundef i32 @_ZN9grpc_core18Histogram_65536_269BucketForEi(i32 noundef) 
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core16HpackParseResult21HpackParseResultStateD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN9grpc_core16HpackParseResult21HpackParseResultStateD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %0, align 8, !tbaa !136
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8, !tbaa !191, !range !63, !noundef !213
@@ -4540,7 +4540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core16HpackParseResult21HpackParseResultStateD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN9grpc_core16HpackParseResult21HpackParseResultStateD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 16), ptr %0, align 8, !tbaa !136
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8, !tbaa !191, !range !63, !noundef !213
@@ -4593,7 +4593,7 @@ _ZN9grpc_core16HpackParseResult21HpackParseResultStateD2Ev.exit: ; preds = %_ZNK
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !156
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
@@ -9554,7 +9554,7 @@ _ZN9grpc_core16HpackParseResultD2Ev.exit7:        ; preds = %76, %72, %69, %67
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core10HPackTable7MementoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN9grpc_core10HPackTable7MementoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8, !tbaa !257
   %4 = and i64 %3, -2
@@ -9606,7 +9606,7 @@ _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchED2Ev.exit: ; preds = %_ZN9gr
 declare noundef zeroext i8 @_ZN9grpc_core24ValidateHeaderKeyIsLegalESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN9grpc_core15metadata_detail11ParseHelperI19grpc_metadata_batchED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !7
   %3 = icmp ugt ptr %2, inttoptr (i64 1 to ptr)
   br i1 %3, label %4, label %_ZN9grpc_core5SliceD2Ev.exit
@@ -10646,7 +10646,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i8 @_ZN9grpc_core15metadata_detail16FieldFromTrivialINS_18HttpMethodMetadata9ValueTypeEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #7 comdat {
+define linkonce_odr noundef zeroext i8 @_ZN9grpc_core15metadata_detail16FieldFromTrivialINS_18HttpMethodMetadata9ValueTypeEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat {
   %.0.copyload = load i8, ptr %0, align 8
   ret i8 %.0.copyload
 }
@@ -10959,7 +10959,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN9grpc_core15metadata_detail16FieldFromTrivialIjEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #7 comdat {
+define linkonce_odr noundef i32 @_ZN9grpc_core15metadata_detail16FieldFromTrivialIjEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat {
   %.0.copyload = load i32, ptr %0, align 8
   ret i32 %.0.copyload
 }
@@ -11079,7 +11079,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN9grpc_core26SimpleIntBasedMetadataBaseIjE14DisplayMementoEj(i32 noundef %0) #7 comdat align 2 {
+define linkonce_odr noundef i32 @_ZN9grpc_core26SimpleIntBasedMetadataBaseIjE14DisplayMementoEj(i32 noundef %0) #6 comdat align 2 {
   ret i32 %0
 }
 
@@ -11245,7 +11245,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i8 @_ZN9grpc_core15metadata_detail16FieldFromTrivialINS_18HttpSchemeMetadata9ValueTypeEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #7 comdat {
+define linkonce_odr noundef zeroext i8 @_ZN9grpc_core15metadata_detail16FieldFromTrivialINS_18HttpSchemeMetadata9ValueTypeEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat {
   %.0.copyload = load i8, ptr %0, align 8
   ret i8 %.0.copyload
 }
@@ -11517,7 +11517,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i8 @_ZN9grpc_core15metadata_detail16FieldFromTrivialINS_19ContentTypeMetadata9ValueTypeEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #7 comdat {
+define linkonce_odr noundef zeroext i8 @_ZN9grpc_core15metadata_detail16FieldFromTrivialINS_19ContentTypeMetadata9ValueTypeEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat {
   %.0.copyload = load i8, ptr %0, align 8
   ret i8 %.0.copyload
 }
@@ -11789,7 +11789,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i8 @_ZN9grpc_core15metadata_detail16FieldFromTrivialINS_10TeMetadata9ValueTypeEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #7 comdat {
+define linkonce_odr noundef zeroext i8 @_ZN9grpc_core15metadata_detail16FieldFromTrivialINS_10TeMetadata9ValueTypeEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat {
   %.0.copyload = load i8, ptr %0, align 8
   ret i8 %.0.copyload
 }
@@ -12061,7 +12061,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN9grpc_core15metadata_detail16FieldFromTrivialI26grpc_compression_algorithmEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #7 comdat {
+define linkonce_odr noundef i32 @_ZN9grpc_core15metadata_detail16FieldFromTrivialI26grpc_compression_algorithmEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat {
   %.0.copyload = load i32, ptr %0, align 8
   ret i32 %.0.copyload
 }
@@ -12539,7 +12539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i8 @_ZN9grpc_core15metadata_detail16FieldFromPointerINS_23CompressionAlgorithmSetEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #7 comdat {
+define linkonce_odr i8 @_ZN9grpc_core15metadata_detail16FieldFromPointerINS_23CompressionAlgorithmSetEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat {
   %2 = load ptr, ptr %0, align 8, !tbaa !54
   %.sroa.0.0.copyload = load i8, ptr %2, align 1, !tbaa !54
   ret i8 %.sroa.0.0.copyload
@@ -12769,7 +12769,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN9grpc_core15metadata_detail16FieldFromTrivialI16grpc_status_codeEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #7 comdat {
+define linkonce_odr noundef i32 @_ZN9grpc_core15metadata_detail16FieldFromTrivialI16grpc_status_codeEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat {
   %.0.copyload = load i32, ptr %0, align 8
   ret i32 %.0.copyload
 }
@@ -13361,7 +13361,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
 declare i64 @_ZN9grpc_core19GrpcTimeoutMetadata14MementoToValueENS_8DurationE(i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i64 @_ZN9grpc_core15metadata_detail16FieldFromTrivialINS_8DurationEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #7 comdat {
+define linkonce_odr i64 @_ZN9grpc_core15metadata_detail16FieldFromTrivialINS_8DurationEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat {
   %2 = load i64, ptr %0, align 8
   ret i64 %2
 }
@@ -14945,7 +14945,7 @@ define linkonce_odr void @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN9grpc_core15metadata_detail16FieldFromTrivialIPNS_17GrpcLbClientStatsEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #7 comdat {
+define linkonce_odr noundef ptr @_ZN9grpc_core15metadata_detail16FieldFromTrivialIPNS_17GrpcLbClientStatsEEET_RKNS0_6BufferE(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat {
   %.0.copyload = load ptr, ptr %0, align 8
   ret ptr %.0.copyload
 }
@@ -15067,7 +15067,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN9grpc_core25GrpcLbClientStatsMetadata14DisplayMementoEPNS_17GrpcLbClientStatsE(ptr noundef %0) #7 comdat align 2 {
+define linkonce_odr noundef ptr @_ZN9grpc_core25GrpcLbClientStatsMetadata14DisplayMementoEPNS_17GrpcLbClientStatsE(ptr noundef %0) #6 comdat align 2 {
   ret ptr @.str.73
 }
 
@@ -28632,8 +28632,8 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

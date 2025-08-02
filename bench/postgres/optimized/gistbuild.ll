@@ -771,7 +771,7 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
   br i1 %127, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %113
-  %128 = getelementptr i8, ptr %125, i64 28
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 28
   %wide.trip.count.i = zext nneg i32 %126 to i64
   br label %129
 
@@ -779,7 +779,7 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %129 ]
   %.03848.i = phi i64 [ 8, %.lr.ph.i ], [ %.1.i, %129 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
-  %130 = getelementptr i8, ptr %128, i64 %.idx.i
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i
   %131 = load i16, ptr %130, align 4
   %132 = icmp slt i16 %131, 0
   %narrow.i = select i1 %132, i16 4, i16 %131
@@ -1529,9 +1529,9 @@ BufferGetPage.exit:                               ; preds = %36, %42
   %61 = zext i16 %.val72 to i32
   %62 = add nuw nsw i32 %61, 262120
   %63 = and i32 %62, 262140
-  %.not106117 = icmp eq i32 %63, 0
-  %.not106 = select i1 %60, i1 true, i1 %.not106117
-  br i1 %.not106, label %.loopexit, label %.lr.ph
+  %.not103114 = icmp eq i32 %63, 0
+  %.not103 = select i1 %60, i1 true, i1 %.not103114
+  br i1 %.not103, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %58
   %64 = lshr i32 %62, 2
@@ -1729,10 +1729,10 @@ BufferGetPage.exit.i74:                           ; preds = %150, %144
   %163 = freeze i16 %.0.i.i76
   %164 = icmp eq i32 %.042.i, %6
   %.not.i = icmp ne i32 %6, -1
-  %or.cond.i.not103 = and i1 %.not.i, %164
+  %or.cond.i.not100 = and i1 %.not.i, %164
   %165 = add i16 %7, -1
   %or.cond54.not.i = icmp ult i16 %165, %163
-  %or.cond = and i1 %or.cond.i.not103, %or.cond54.not.i
+  %or.cond = and i1 %or.cond.i.not100, %or.cond54.not.i
   br i1 %or.cond, label %166, label %179
 
 166:                                              ; preds = %BufferGetPage.exit.i74
@@ -1816,23 +1816,23 @@ list_length.exit:                                 ; preds = %gistBufferingFindCo
   %207 = load ptr, ptr %19, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
   %.not66 = icmp eq ptr %207, null
-  br i1 %.not66, label %._crit_edge, label %.lr.ph110
+  br i1 %.not66, label %.critedge, label %.lr.ph107
 
-.lr.ph110:                                        ; preds = %list_length.exit
+.lr.ph107:                                        ; preds = %list_length.exit
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %210 = getelementptr i8, ptr %0, i64 64
-  %.not104 = icmp eq i32 %2, 1
+  %.not101 = icmp eq i32 %2, 1
   %211 = load i32, ptr %208, align 4
   %212 = icmp sgt i32 %211, 0
-  br i1 %123, label %.lr.ph110.split.us.preheader, label %.lr.ph110.split.split
+  br i1 %123, label %.lr.ph107.split.us.preheader, label %.lr.ph107.split.split
 
-.lr.ph110.split.us.preheader:                     ; preds = %.lr.ph110
-  br i1 %212, label %.lr.ph136, label %._crit_edge
+.lr.ph107.split.us.preheader:                     ; preds = %.lr.ph107
+  br i1 %212, label %.lr.ph133, label %.critedge
 
-.lr.ph136:                                        ; preds = %.lr.ph110.split.us.preheader, %gistMemorizeAllDownlinks.exit95.us
-  %indvars.iv126135 = phi i64 [ %indvars.iv.next127, %gistMemorizeAllDownlinks.exit95.us ], [ 0, %.lr.ph110.split.us.preheader ]
+.lr.ph133:                                        ; preds = %.lr.ph107.split.us.preheader, %gistMemorizeAllDownlinks.exit95.us
+  %indvars.iv123132 = phi i64 [ %indvars.iv.next124, %gistMemorizeAllDownlinks.exit95.us ], [ 0, %.lr.ph107.split.us.preheader ]
   %213 = load ptr, ptr %209, align 8
-  %214 = getelementptr inbounds nuw %union.ListCell, ptr %213, i64 %indvars.iv126135
+  %214 = getelementptr inbounds nuw %union.ListCell, ptr %213, i64 %indvars.iv123132
   %215 = load ptr, ptr %214, align 8
   %216 = load i32, ptr %215, align 8
   %217 = call i32 @BufferGetBlockNumber(i32 noundef %216) #10
@@ -1846,9 +1846,9 @@ list_length.exit:                                 ; preds = %gistBufferingFindCo
   store i32 %218, ptr %220, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br i1 %.not104, label %gistMemorizeAllDownlinks.exit95.us, label %221
+  br i1 %.not101, label %gistMemorizeAllDownlinks.exit95.us, label %221
 
-221:                                              ; preds = %.lr.ph136
+221:                                              ; preds = %.lr.ph133
   %222 = load i32, ptr %215, align 8
   %223 = call i32 @BufferGetBlockNumber(i32 noundef %222) #10
   %224 = icmp slt i32 %222, 0
@@ -1918,51 +1918,51 @@ BufferGetPage.exit.i80.us:                        ; preds = %231, %225
   %exitcond.i93.us = icmp eq i64 %indvars.iv.next.i92.us, %wide.trip.count.i86.us
   br i1 %exitcond.i93.us, label %gistMemorizeAllDownlinks.exit95.us, label %246, !llvm.loop !20
 
-gistMemorizeAllDownlinks.exit95.us:               ; preds = %246, %BufferGetPage.exit.i80.us, %.lr.ph136
+gistMemorizeAllDownlinks.exit95.us:               ; preds = %246, %BufferGetPage.exit.i80.us, %.lr.ph133
   %259 = load i32, ptr %215, align 8
   call void @UnlockReleaseBuffer(i32 noundef %259) #10
   %260 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %261 = load ptr, ptr %260, align 8
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126135, 1
-  %262 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv126135
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123132, 1
+  %262 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv123132
   store ptr %261, ptr %262, align 8
   %263 = load i32, ptr %208, align 4
   %264 = sext i32 %263 to i64
-  %265 = icmp slt i64 %indvars.iv.next127, %264
-  br i1 %265, label %.lr.ph136, label %._crit_edge
+  %265 = icmp slt i64 %indvars.iv.next124, %264
+  br i1 %265, label %.lr.ph133, label %.critedge
 
-.lr.ph110.split.split:                            ; preds = %.lr.ph110
-  br i1 %212, label %gistMemorizeAllDownlinks.exit95, label %._crit_edge
+.lr.ph107.split.split:                            ; preds = %.lr.ph107
+  br i1 %212, label %gistMemorizeAllDownlinks.exit95, label %.critedge
 
-._crit_edge:                                      ; preds = %gistMemorizeAllDownlinks.exit95, %gistMemorizeAllDownlinks.exit95.us, %.lr.ph110.split.us.preheader, %.lr.ph110.split.split, %list_length.exit
-  %266 = add i32 %2, 1
-  %267 = call fastcc i32 @gistbufferinginserttuples(ptr noundef nonnull %0, i32 noundef %142, i32 noundef %266, ptr noundef %206, i32 noundef %203, i16 noundef zeroext %.098, i32 noundef -1, i16 noundef zeroext 0)
-  %268 = load ptr, ptr %19, align 8
-  call void @list_free_deep(ptr noundef %268) #10
-  br label %280
-
-gistMemorizeAllDownlinks.exit95:                  ; preds = %.lr.ph110.split.split, %gistMemorizeAllDownlinks.exit95
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %gistMemorizeAllDownlinks.exit95 ], [ 0, %.lr.ph110.split.split ]
-  %269 = load ptr, ptr %209, align 8
-  %270 = getelementptr inbounds nuw %union.ListCell, ptr %269, i64 %indvars.iv121
+gistMemorizeAllDownlinks.exit95:                  ; preds = %.lr.ph107.split.split, %gistMemorizeAllDownlinks.exit95
+  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %gistMemorizeAllDownlinks.exit95 ], [ 0, %.lr.ph107.split.split ]
+  %266 = load ptr, ptr %209, align 8
+  %267 = getelementptr inbounds nuw %union.ListCell, ptr %266, i64 %indvars.iv118
+  %268 = load ptr, ptr %267, align 8
+  %269 = load i32, ptr %268, align 8
+  call void @UnlockReleaseBuffer(i32 noundef %269) #10
+  %270 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %271 = load ptr, ptr %270, align 8
-  %272 = load i32, ptr %271, align 8
-  call void @UnlockReleaseBuffer(i32 noundef %272) #10
-  %273 = getelementptr inbounds nuw i8, ptr %271, i64 8
-  %274 = load ptr, ptr %273, align 8
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %275 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv121
-  store ptr %274, ptr %275, align 8
-  %276 = load i32, ptr %208, align 4
-  %277 = sext i32 %276 to i64
-  %278 = icmp slt i64 %indvars.iv.next122, %277
-  br i1 %278, label %gistMemorizeAllDownlinks.exit95, label %._crit_edge
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %272 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv118
+  store ptr %271, ptr %272, align 8
+  %273 = load i32, ptr %208, align 4
+  %274 = sext i32 %273 to i64
+  %275 = icmp slt i64 %indvars.iv.next119, %274
+  br i1 %275, label %gistMemorizeAllDownlinks.exit95, label %.critedge
+
+.critedge:                                        ; preds = %gistMemorizeAllDownlinks.exit95, %gistMemorizeAllDownlinks.exit95.us, %.lr.ph107.split.us.preheader, %.lr.ph107.split.split, %list_length.exit
+  %276 = add i32 %2, 1
+  %277 = call fastcc i32 @gistbufferinginserttuples(ptr noundef nonnull %0, i32 noundef %142, i32 noundef %276, ptr noundef %206, i32 noundef %203, i16 noundef zeroext %.098, i32 noundef -1, i16 noundef zeroext 0)
+  %278 = load ptr, ptr %19, align 8
+  call void @list_free_deep(ptr noundef %278) #10
+  br label %280
 
 279:                                              ; preds = %.loopexit
   call void @UnlockReleaseBuffer(i32 noundef %1) #10
   br label %280
 
-280:                                              ; preds = %279, %._crit_edge
+280:                                              ; preds = %279, %.critedge
   %281 = load i32, ptr %20, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #10

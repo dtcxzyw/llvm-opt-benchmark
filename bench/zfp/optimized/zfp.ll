@@ -1586,14 +1586,14 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
 .lr.ph:                                           ; preds = %4
   %.off = add i32 %2, -1
   %switch = icmp ult i32 %.off, 4
-  br i1 %switch, label %.lr.ph.split, label %.loopexit
+  br i1 %switch, label %.lr.ph.split, label %.critedge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %39
-  %.06591 = phi i64 [ %47, %39 ], [ 0, %.lr.ph ]
-  %.06690 = phi double [ %41, %39 ], [ 0.000000e+00, %.lr.ph ]
-  %.06789 = phi double [ %42, %39 ], [ 0.000000e+00, %.lr.ph ]
-  %.06988 = phi double [ %46, %39 ], [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ]
-  %.07187 = phi double [ %44, %39 ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ]
+  %.06582 = phi i64 [ %47, %39 ], [ 0, %.lr.ph ]
+  %.06681 = phi double [ %41, %39 ], [ 0.000000e+00, %.lr.ph ]
+  %.06780 = phi double [ %42, %39 ], [ 0.000000e+00, %.lr.ph ]
+  %.06979 = phi double [ %46, %39 ], [ 0xFFEFFFFFFFFFFFFF, %.lr.ph ]
+  %.07178 = phi double [ %44, %39 ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ]
   switch i32 %2, label %32 [
     i32 1, label %5
     i32 2, label %14
@@ -1601,9 +1601,9 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
   ]
 
 5:                                                ; preds = %.lr.ph.split
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %.06591
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %.06582
   %7 = load i32, ptr %6, align 4, !tbaa !10
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %.06591
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %.06582
   %9 = load i32, ptr %8, align 4, !tbaa !10
   %10 = sub nsw i32 %7, %9
   %11 = sitofp i32 %10 to double
@@ -1612,9 +1612,9 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
   br label %39
 
 14:                                               ; preds = %.lr.ph.split
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %.06591
+  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %.06582
   %16 = load i64, ptr %15, align 8, !tbaa !4
-  %17 = getelementptr inbounds nuw i64, ptr %1, i64 %.06591
+  %17 = getelementptr inbounds nuw i64, ptr %1, i64 %.06582
   %18 = load i64, ptr %17, align 8, !tbaa !4
   %19 = sub nsw i64 %16, %18
   %20 = sitofp i64 %19 to double
@@ -1623,9 +1623,9 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
   br label %39
 
 23:                                               ; preds = %.lr.ph.split
-  %24 = getelementptr inbounds nuw float, ptr %0, i64 %.06591
+  %24 = getelementptr inbounds nuw float, ptr %0, i64 %.06582
   %25 = load float, ptr %24, align 4, !tbaa !26
-  %26 = getelementptr inbounds nuw float, ptr %1, i64 %.06591
+  %26 = getelementptr inbounds nuw float, ptr %1, i64 %.06582
   %27 = load float, ptr %26, align 4, !tbaa !26
   %28 = fsub float %25, %27
   %29 = tail call float @llvm.fabs.f32(float %28)
@@ -1634,25 +1634,25 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
   br label %39
 
 32:                                               ; preds = %.lr.ph.split
-  %33 = getelementptr inbounds nuw double, ptr %0, i64 %.06591
+  %33 = getelementptr inbounds nuw double, ptr %0, i64 %.06582
   %34 = load double, ptr %33, align 8, !tbaa !8
-  %35 = getelementptr inbounds nuw double, ptr %1, i64 %.06591
+  %35 = getelementptr inbounds nuw double, ptr %1, i64 %.06582
   %36 = load double, ptr %35, align 8, !tbaa !8
   %37 = fsub double %34, %36
   %38 = tail call double @llvm.fabs.f64(double %37)
   br label %39
 
-39:                                               ; preds = %5, %14, %23, %32
+39:                                               ; preds = %32, %23, %14, %5
   %.064 = phi double [ %12, %5 ], [ %21, %14 ], [ %30, %23 ], [ %38, %32 ]
   %.063 = phi double [ %13, %5 ], [ %22, %14 ], [ %31, %23 ], [ %34, %32 ]
-  %40 = fcmp ogt double %.06690, %.064
-  %41 = select i1 %40, double %.06690, double %.064
-  %42 = tail call double @llvm.fmuladd.f64(double %.064, double %.064, double %.06789)
-  %43 = fcmp olt double %.07187, %.063
-  %44 = select i1 %43, double %.07187, double %.063
-  %45 = fcmp ogt double %.06988, %.063
-  %46 = select i1 %45, double %.06988, double %.063
-  %47 = add nuw i64 %.06591, 1
+  %40 = fcmp ogt double %.06681, %.064
+  %41 = select i1 %40, double %.06681, double %.064
+  %42 = tail call double @llvm.fmuladd.f64(double %.064, double %.064, double %.06780)
+  %43 = fcmp olt double %.07178, %.063
+  %44 = select i1 %43, double %.07178, double %.063
+  %45 = fcmp ogt double %.06979, %.063
+  %46 = select i1 %45, double %.06979, double %.063
+  %47 = add nuw i64 %.06582, 1
   %exitcond.not = icmp eq i64 %47, %3
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph.split
 
@@ -1674,9 +1674,9 @@ define internal fastcc void @print_error(ptr noundef readonly captures(none) %0,
   %57 = fmul double %56, 2.000000e+01
   %58 = load ptr, ptr @stderr, align 8, !tbaa !16
   %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.99, double noundef %52, double noundef %53, double noundef %.066.lcssa, double noundef %57) #21
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph, %._crit_edge
+.critedge:                                        ; preds = %.lr.ph, %._crit_edge
   ret void
 }
 

@@ -1747,7 +1747,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang7CodeGen13CodeGenModule3
   %6 = load i32, ptr %5, align 8, !tbaa !3
   %7 = and i32 %6, 3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %76, label %8
+  br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1780,7 +1780,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang7CodeGen13CodeGenModule3
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 256
   %.not.i = icmp eq i32 %27, 0
-  br i1 %.not.i, label %.thread, label %28
+  br i1 %.not.i, label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %11) #11
@@ -1791,7 +1791,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang7CodeGen13CodeGenModule3
   %.idx.i.i = shl nuw nsw i64 %33, 3
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %32, 0
-  br i1 %.not.i.i, label %.thread, label %.lr.ph.i.i.i.i.i
+  br i1 %.not.i.i, label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %28, %39
   %.sroa.07.1.i.i.i.i = phi ptr [ %40, %39 ], [ %30, %28 ]
@@ -1804,11 +1804,11 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang7CodeGen13CodeGenModule3
 39:                                               ; preds = %.lr.ph.i.i.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %40, %34
-  br i1 %.not.i.i.i.i.i, label %.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !696
+  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !696
 
 _ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.not5.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i, %34
-  br i1 %.not5.i.i, label %.thread, label %41
+  br i1 %.not5.i.i, label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread, label %41
 
 41:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
   %42 = load ptr, ptr %30, align 8, !tbaa !693
@@ -1835,7 +1835,7 @@ _ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit: ; pred
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 36
   %58 = load i32, ptr %57, align 4, !tbaa !709
   switch i32 %58, label %60 [
-    i32 1, label %76
+    i32 1, label %.critedge
     i32 0, label %61
     i32 3, label %59
   ]
@@ -1853,7 +1853,7 @@ _ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit: ; pred
   %63 = zext i1 %62 to i8
   %.230 = select i1 %.not42, i8 %15, i8 %63
   switch i32 %56, label %.fold.split [
-    i32 2, label %.thread
+    i32 2, label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
     i32 3, label %64
     i32 1, label %67
   ]
@@ -1861,31 +1861,31 @@ _ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit: ; pred
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %66 = load i32, ptr %65, align 8, !tbaa !710
-  br label %.thread
+  br label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
 
 67:                                               ; preds = %61
-  br label %.thread
+  br label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
 
 .fold.split:                                      ; preds = %61
-  br label %.thread
+  br label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
 
-.thread:                                          ; preds = %39, %67, %64, %.fold.split, %61, %24, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %28
-  %.357 = phi i32 [ %13, %28 ], [ %13, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %13, %24 ], [ %.2, %61 ], [ %.2, %.fold.split ], [ %.2, %64 ], [ %.2, %67 ], [ %13, %39 ]
-  %.33156 = phi i8 [ %15, %28 ], [ %15, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %15, %24 ], [ %.230, %61 ], [ %.230, %.fold.split ], [ %.230, %64 ], [ %.230, %67 ], [ %15, %39 ]
-  %.455 = phi i32 [ %.032, %28 ], [ %.032, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %.032, %24 ], [ %20, %61 ], [ %.032, %.fold.split ], [ %66, %64 ], [ 0, %67 ], [ %.032, %39 ]
-  %68 = trunc i8 %.33156 to i1
+_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread: ; preds = %39, %61, %.fold.split, %64, %67, %28, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %24
+  %.4 = phi i32 [ %.032, %24 ], [ %.032, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %.032, %28 ], [ %.032, %.fold.split ], [ %20, %61 ], [ 0, %67 ], [ %66, %64 ], [ %.032, %39 ]
+  %.331 = phi i8 [ %15, %24 ], [ %15, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %15, %28 ], [ %.230, %.fold.split ], [ %.230, %61 ], [ %.230, %67 ], [ %.230, %64 ], [ %15, %39 ]
+  %.3 = phi i32 [ %13, %24 ], [ %13, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %13, %28 ], [ %.2, %.fold.split ], [ %.2, %61 ], [ %.2, %67 ], [ %.2, %64 ], [ %13, %39 ]
+  %68 = trunc i8 %.331 to i1
   %69 = select i1 %68, i32 3, i32 1
-  %70 = shl nuw nsw i32 %.357, 6
+  %70 = shl nuw nsw i32 %.3, 6
   %71 = or disjoint i32 %69, %70
-  %72 = shl i32 %.455, 16
+  %72 = shl i32 %.4, 16
   %73 = or i32 %72, %71
   %74 = or disjoint i32 %73, 12
   %75 = zext i32 %74 to i64
-  br label %76
+  br label %.critedge
 
-76:                                               ; preds = %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit, %2, %.thread
-  %.sroa.049.0 = phi i64 [ %75, %.thread ], [ 0, %2 ], [ 0, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %.thread ], [ 0, %2 ], [ 0, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit ]
+.critedge:                                        ; preds = %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit, %2, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
+  %.sroa.049.0 = phi i64 [ %75, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread ], [ 0, %2 ], [ 0, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit ]
+  %.sroa.2.0 = phi i64 [ 4294967296, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread ], [ 0, %2 ], [ 0, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit ]
   %.sroa.049.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.049.0
   ret i64 %.sroa.049.0.insert.insert
 }
@@ -3020,19 +3020,19 @@ declare noundef ptr @_ZN4llvm8CastInst6CreateENS_11Instruction7CastOpsEPNS_5Valu
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE(ptr noundef %0) local_unnamed_addr #0 comdat align 2 {
   %2 = load i8, ptr %0, align 8, !tbaa !623
   %3 = icmp ult i8 %2, 29
-  br i1 %3, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %4
+  br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %1
   switch i8 %2, label %43 [
-    i8 41, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 43, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 45, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 47, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 50, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 53, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 74, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 75, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 83, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+    i8 41, label %.critedge
+    i8 43, label %.critedge
+    i8 45, label %.critedge
+    i8 47, label %.critedge
+    i8 50, label %.critedge
+    i8 53, label %.critedge
+    i8 74, label %.critedge
+    i8 75, label %.critedge
+    i8 83, label %.critedge
     i8 84, label %5
     i8 86, label %5
     i8 85, label %5
@@ -3065,8 +3065,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %or.cond = select i1 %17, i1 %switch.lobit, i1 false
   %18 = and i32 %16, 253
   %spec.select.i.i.i = icmp eq i32 %18, 4
-  %or.cond25 = or i1 %or.cond, %spec.select.i.i.i
-  br i1 %or.cond25, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %19
+  %or.cond24 = or i1 %or.cond, %spec.select.i.i.i
+  br i1 %or.cond24, label %.critedge, label %19
 
 19:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
   %trunc.i = trunc i32 %9 to i8
@@ -3078,11 +3078,11 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
 20:                                               ; preds = %19
   %21 = and i32 %9, 1024
   %.not27.i.i = icmp eq i32 %21, 0
-  br i1 %.not27.i.i, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %22
+  br i1 %.not27.i.i, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
-  br i1 %23, label %24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3125,21 +3125,21 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i:       ; preds = %36, %.loopexit.i.i
   %40 = phi i32 [ %.pre.i.i.i, %36 ], [ %34, %.loopexit.i.i ]
   %trunc.i.i.i.i.i = trunc i32 %40 to i8
   %41 = icmp ult i8 %trunc.i.i.i.i.i, 6
-  %switch.shifted22 = lshr i8 47, %trunc.i.i.i.i.i
-  %switch.lobit23 = trunc i8 %switch.shifted22 to i1
-  %or.cond24 = select i1 %41, i1 %switch.lobit23, i1 false
-  br i1 %or.cond24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
+  %switch.shifted21 = lshr i8 47, %trunc.i.i.i.i.i
+  %switch.lobit22 = trunc i8 %switch.shifted21 to i1
+  %or.cond23 = select i1 %41, i1 %switch.lobit22, i1 false
+  br i1 %or.cond23, label %.critedge, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
 
 _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
   %42 = and i32 %40, 253
   %spec.select.i.i21.i.i = icmp eq i32 %42, 4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br label %.critedge
 
 43:                                               ; preds = %4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br label %.critedge
 
-_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %1, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
-  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ false, %1 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
+.critedge:                                        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %1, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
+  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
   ret i1 %.1
 }
 

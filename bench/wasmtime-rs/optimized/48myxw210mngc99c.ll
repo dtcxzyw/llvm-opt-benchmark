@@ -13847,7 +13847,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br i1 %71, label %85, label %81
 
 72:                                               ; preds = %47
-  %73 = getelementptr i8, ptr %41, i64 152
+  %73 = getelementptr inbounds nuw i8, ptr %41, i64 152
   %74 = load ptr, ptr %73, align 8, !noalias !2111, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   %75 = zext nneg i16 %16 to i64
@@ -14038,7 +14038,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br i1 %131, label %._crit_edge168, label %141
 
 132:                                              ; preds = %110
-  %133 = getelementptr i8, ptr %104, i64 152
+  %133 = getelementptr inbounds nuw i8, ptr %104, i64 152
   %134 = load ptr, ptr %133, align 8, !noalias !2129, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !2121
   store ptr %104, ptr %6, align 8, !noalias !2121
@@ -14355,7 +14355,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   br i1 %68, label %83, label %78
 
 69:                                               ; preds = %46
-  %70 = getelementptr i8, ptr %40, i64 328
+  %70 = getelementptr inbounds nuw i8, ptr %40, i64 328
   %71 = load ptr, ptr %70, align 8, !noalias !2187, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   %72 = zext nneg i16 %18 to i64
@@ -14565,7 +14565,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   br i1 %128, label %._crit_edge82, label %138
 
 129:                                              ; preds = %111
-  %130 = getelementptr i8, ptr %105, i64 328
+  %130 = getelementptr inbounds nuw i8, ptr %105, i64 328
   %131 = load ptr, ptr %130, align 8, !noalias !2199, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !2191
   store ptr %105, ptr %6, align 8, !noalias !2191

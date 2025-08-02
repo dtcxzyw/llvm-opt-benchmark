@@ -389,7 +389,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %20, %.loopexit.i
   %.043.i = phi i32 [ %29, %20 ], [ %60, %.loopexit.i ]
   %61 = shl i32 %.043.i, 1
   %62 = icmp ugt i32 %61, 160
-  br i1 %62, label %.thread.sink.split, label %.preheader.preheader
+  br i1 %62, label %.critedge35.sink.split, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %get_interleaved_ue_golomb.exit
   %63 = zext nneg i32 %61 to i64
@@ -421,7 +421,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %20, %.loopexit.i
   %84 = load i8, ptr %83, align 1, !tbaa !61
   store i8 %84, ptr %.32748, align 1, !tbaa !61
   %.not = icmp eq i8 %84, 9
-  br i1 %.not, label %.thread.sink.split, label %.critedge
+  br i1 %.not, label %.critedge35.sink.split, label %.critedge
 
 .critedge:                                        ; preds = %.preheader
   %85 = getelementptr inbounds nuw i8, ptr %.32748, i64 1
@@ -437,17 +437,17 @@ get_interleaved_ue_golomb.exit:                   ; preds = %20, %.loopexit.i
   %91 = getelementptr i8, ptr %85, i64 %90
   %92 = getelementptr i8, ptr %91, i64 -4
   %exitcond.not = icmp eq i32 %88, 4
-  br i1 %exitcond.not, label %.thread, label %.preheader36, !llvm.loop !84
+  br i1 %exitcond.not, label %.critedge35, label %.preheader36, !llvm.loop !84
 
-.thread.sink.split:                               ; preds = %get_interleaved_ue_golomb.exit, %.preheader
+.critedge35.sink.split:                           ; preds = %get_interleaved_ue_golomb.exit, %.preheader
   %.str.6.sink = phi ptr [ @.str.6, %.preheader ], [ @.str.5, %get_interleaved_ue_golomb.exit ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %94 = load ptr, ptr %93, align 8, !tbaa !69
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %94, i32 noundef 16, ptr noundef nonnull %.str.6.sink) #6
-  br label %.thread
+  br label %.critedge35
 
-.thread:                                          ; preds = %87, %.thread.sink.split
-  %.5 = phi i32 [ -1, %.thread.sink.split ], [ 0, %87 ]
+.critedge35:                                      ; preds = %87, %.critedge35.sink.split
+  %.5 = phi i32 [ -1, %.critedge35.sink.split ], [ 0, %87 ]
   ret i32 %.5
 }
 

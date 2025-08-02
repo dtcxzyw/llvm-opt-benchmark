@@ -651,7 +651,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   %54 = trunc nuw nsw i64 %53 to i32
   %55 = call i32 @nla_put(ptr noundef %0, i32 noundef %54, i32 noundef 8, ptr noundef nonnull %4) #7
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %.thread
+  br i1 %56, label %57, label %.critedge
 
 57:                                               ; preds = %49
   %58 = load ptr, ptr %41, align 8
@@ -667,7 +667,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
 64:                                               ; preds = %60
   %65 = call i32 %62(ptr noundef %0, ptr noundef %41) #7
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %.thread, label %85
+  br i1 %66, label %.critedge, label %85
 
 67:                                               ; preds = %60
   %68 = load i16, ptr %51, align 2
@@ -698,11 +698,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   %84 = call i32 @nla_put_nohdr(ptr noundef %0, i32 noundef %78, ptr noundef %83) #7
   br label %85
 
-.thread:                                          ; preds = %49, %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  br label %111
-
-85:                                               ; preds = %64, %71, %76, %80
+85:                                               ; preds = %80, %76, %71, %64
   %86 = load ptr, ptr %6, align 8
   %87 = load i32, ptr %8, align 8
   %88 = zext i32 %87 to i64
@@ -744,8 +740,12 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   store i16 %110, ptr %11, align 2
   br label %111
 
-111:                                              ; preds = %.thread, %._crit_edge, %19, %16, %3
-  %112 = phi i32 [ 0, %._crit_edge ], [ -1, %19 ], [ -1, %16 ], [ -1, %3 ], [ -1, %.thread ]
+.critedge:                                        ; preds = %64, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  br label %111
+
+111:                                              ; preds = %.critedge, %._crit_edge, %19, %16, %3
+  %112 = phi i32 [ 0, %._crit_edge ], [ -1, %19 ], [ -1, %16 ], [ -1, %3 ], [ -1, %.critedge ]
   ret i32 %112
 }
 

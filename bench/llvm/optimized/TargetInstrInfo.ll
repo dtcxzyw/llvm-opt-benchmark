@@ -1768,7 +1768,6 @@ _ZNK4llvm12MachineInstr12isPredicableENS0_9QueryTypeE.exit: ; preds = %4
 18:                                               ; preds = %13, %_ZNK4llvm12MachineInstr12isPredicableENS0_9QueryTypeE.exit
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load i24, ptr %19, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.not31 = icmp eq i24 %20, 0
   br i1 %.not31, label %.loopexit, label %.lr.ph
 
@@ -1778,70 +1777,71 @@ _ZNK4llvm12MachineInstr12isPredicableENS0_9QueryTypeE.exit: ; preds = %4
   %23 = zext i24 %20 to i64
   br label %24
 
-24:                                               ; preds = %.lr.ph, %53
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
-  %.02134 = phi i1 [ false, %.lr.ph ], [ %.2, %53 ]
-  %.02332 = phi i32 [ 0, %.lr.ph ], [ %.124, %53 ]
+24:                                               ; preds = %.lr.ph, %55
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
+  %.02134 = phi i1 [ false, %.lr.ph ], [ %.2, %55 ]
+  %.02332 = phi i32 [ 0, %.lr.ph ], [ %.124, %55 ]
   %25 = load i16, ptr %6, align 8, !tbaa !60
   %26 = zext i16 %25 to i64
-  %gep = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %invariant.gep, i64 %26
-  %27 = load i16, ptr %21, align 4, !tbaa !61
-  %28 = zext i16 %27 to i64
-  %29 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %gep, i64 %28
-  %30 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %29, i64 %indvars.iv, i32 1
-  %31 = load i8, ptr %30, align 2, !tbaa !64
-  %32 = and i8 %31, 2
-  %.not30 = icmp eq i8 %32, 0
-  br i1 %.not30, label %53, label %33
+  %27 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %6, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %29 = load i16, ptr %21, align 4, !tbaa !61
+  %30 = zext i16 %29 to i64
+  %31 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %28, i64 %30
+  %32 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %31, i64 %indvars.iv, i32 1
+  %33 = load i8, ptr %32, align 2, !tbaa !64
+  %34 = and i8 %33, 2
+  %.not30 = icmp eq i8 %34, 0
+  br i1 %.not30, label %55, label %35
 
-33:                                               ; preds = %24
-  %34 = load ptr, ptr %22, align 8, !tbaa !179
-  %35 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %34, i64 %indvars.iv
-  %36 = load i32, ptr %35, align 8
-  %trunc = trunc i32 %36 to i8
-  switch i8 %trunc, label %51 [
-    i8 0, label %37
-    i8 1, label %41
-    i8 4, label %46
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %22, align 8, !tbaa !179
+  %37 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %36, i64 %indvars.iv
+  %38 = load i32, ptr %37, align 8
+  %trunc = trunc i32 %38 to i8
+  switch i8 %trunc, label %53 [
+    i8 0, label %39
+    i8 1, label %43
+    i8 4, label %48
   ]
 
-37:                                               ; preds = %33
-  %38 = zext i32 %.02332 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2, i64 %38, i32 1
-  %40 = load i32, ptr %39, align 4, !tbaa !91
-  tail call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %35, i32 %40) #27
-  br label %51
-
-41:                                               ; preds = %33
-  %42 = zext i32 %.02332 to i64
-  %43 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2, i64 %42, i32 3
-  %44 = load i64, ptr %43, align 8, !tbaa !91
-  %45 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i64 %44, ptr %45, align 8, !tbaa !91
-  br label %51
-
-46:                                               ; preds = %33
-  %47 = zext i32 %.02332 to i64
-  %48 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2, i64 %47, i32 3
-  %49 = load ptr, ptr %48, align 8, !tbaa !91
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %49, ptr %50, align 8, !tbaa !91
-  br label %51
-
-51:                                               ; preds = %33, %41, %46, %37
-  %.1 = phi i1 [ true, %37 ], [ true, %41 ], [ true, %46 ], [ %.02134, %33 ]
-  %52 = add i32 %.02332, 1
+39:                                               ; preds = %35
+  %40 = zext i32 %.02332 to i64
+  %41 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2, i64 %40, i32 1
+  %42 = load i32, ptr %41, align 4, !tbaa !91
+  tail call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %37, i32 %42) #27
   br label %53
 
-53:                                               ; preds = %24, %51
-  %.124 = phi i32 [ %52, %51 ], [ %.02332, %24 ]
-  %.2 = phi i1 [ %.1, %51 ], [ %.02134, %24 ]
+43:                                               ; preds = %35
+  %44 = zext i32 %.02332 to i64
+  %45 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2, i64 %44, i32 3
+  %46 = load i64, ptr %45, align 8, !tbaa !91
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i64 %46, ptr %47, align 8, !tbaa !91
+  br label %53
+
+48:                                               ; preds = %35
+  %49 = zext i32 %.02332 to i64
+  %50 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2, i64 %49, i32 3
+  %51 = load ptr, ptr %50, align 8, !tbaa !91
+  %52 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store ptr %51, ptr %52, align 8, !tbaa !91
+  br label %53
+
+53:                                               ; preds = %35, %43, %48, %39
+  %.1 = phi i1 [ true, %39 ], [ true, %43 ], [ true, %48 ], [ %.02134, %35 ]
+  %54 = add i32 %.02332, 1
+  br label %55
+
+55:                                               ; preds = %24, %53
+  %.124 = phi i32 [ %54, %53 ], [ %.02332, %24 ]
+  %.2 = phi i1 [ %.1, %53 ], [ %.02134, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %23
   br i1 %.not, label %.loopexit, label %24, !llvm.loop !183
 
-.loopexit:                                        ; preds = %53, %18, %13, %_ZNK4llvm12MachineInstr12isPredicableENS0_9QueryTypeE.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm12MachineInstr12isPredicableENS0_9QueryTypeE.exit ], [ false, %13 ], [ false, %18 ], [ %.2, %53 ]
+.loopexit:                                        ; preds = %55, %18, %13, %_ZNK4llvm12MachineInstr12isPredicableENS0_9QueryTypeE.exit
+  %.0 = phi i1 [ false, %_ZNK4llvm12MachineInstr12isPredicableENS0_9QueryTypeE.exit ], [ false, %13 ], [ false, %18 ], [ %.2, %55 ]
   ret i1 %.0
 }
 

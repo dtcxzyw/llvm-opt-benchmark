@@ -421,8 +421,8 @@ define noundef i32 @_ZN6icu_7715RBBIDataWrapper8hashCodeEv(ptr noundef nonnull r
   ret i32 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7715RBBIDataWrapper15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(137) %0) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6icu_7715RBBIDataWrapper15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(137) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = atomicrmw sub ptr %2, i32 1 seq_cst, align 4
   %.not = icmp eq i32 %3, 1

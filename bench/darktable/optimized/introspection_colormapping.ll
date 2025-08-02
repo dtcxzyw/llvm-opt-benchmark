@@ -156,7 +156,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %16 = load i32, ptr %15, align 4, !tbaa !40
   %17 = tail call i32 @dt_iop_have_required_input_format(i32 noundef 4, ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #20
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %284, label %18
+  br i1 %.not, label %286, label %18
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -231,7 +231,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %60 = load i32, ptr %8, align 4, !tbaa !78
   %61 = and i32 %60, 3
   %or.cond208.not = icmp eq i32 %61, 3
-  br i1 %or.cond208.not, label %62, label %279
+  br i1 %or.cond208.not, label %62, label %281
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -427,7 +427,7 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
 .thread:                                          ; preds = %178
   tail call void @free(ptr noundef %115) #20
   tail call void @free(ptr noundef %73) #20
-  br label %284
+  br label %286
 
 180:                                              ; preds = %178
   tail call void @dt_bilateral_splat(ptr noundef nonnull %179, ptr noundef %3) #20
@@ -452,14 +452,13 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
   %185 = load i32, ptr %69, align 4, !tbaa !88
   %186 = icmp sgt i32 %185, 0
   %wide.trip.count.i = zext i32 %185 to i64
-  %invariant.gep = getelementptr i8, ptr %8, i64 8212
   br label %187
 
 .critedge:                                        ; preds = %._crit_edge220, %181
   tail call void @free(ptr noundef %184) #20
   tail call void @free(ptr noundef %115) #20
   tail call void @free(ptr noundef %73) #20
-  br label %284
+  br label %286
 
 187:                                              ; preds = %.lr.ph224, %._crit_edge220
   %.0184222 = phi i64 [ 0, %.lr.ph224 ], [ %247, %._crit_edge220 ]
@@ -593,7 +592,7 @@ get_clusters.exit:                                ; preds = %205
 
 249:                                              ; preds = %.lr.ph219, %249
   %indvars.iv228 = phi i64 [ 0, %.lr.ph219 ], [ %indvars.iv.next229, %249 ]
-  %250 = phi float [ 0.000000e+00, %.lr.ph219 ], [ %278, %249 ]
+  %250 = phi float [ 0.000000e+00, %.lr.ph219 ], [ %280, %249 ]
   %251 = phi float [ 0.000000e+00, %.lr.ph219 ], [ %267, %249 ]
   %252 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv228
   %253 = load float, ptr %252, align 4, !tbaa !89
@@ -620,25 +619,26 @@ get_clusters.exit:                                ; preds = %205
   %273 = load float, ptr %272, align 4, !tbaa !89
   %274 = fmul reassoc nsz arcp contract afn float %271, %273
   %.idx206 = shl nsw i64 %262, 3
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx206
-  %275 = load float, ptr %gep, align 4, !tbaa !89
-  %276 = fadd reassoc nsz arcp contract afn float %274, %275
-  %277 = fmul reassoc nsz arcp contract afn float %276, %268
-  %278 = fadd reassoc nsz arcp contract afn float %277, %250
-  store float %278, ptr %241, align 4, !tbaa !89
+  %275 = getelementptr i8, ptr %76, i64 %.idx206
+  %276 = getelementptr i8, ptr %275, i64 4
+  %277 = load float, ptr %276, align 4, !tbaa !89
+  %278 = fadd reassoc nsz arcp contract afn float %274, %277
+  %279 = fmul reassoc nsz arcp contract afn float %278, %268
+  %280 = fadd reassoc nsz arcp contract afn float %279, %250
+  store float %280, ptr %241, align 4, !tbaa !89
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond232.not = icmp eq i64 %indvars.iv.next229, %wide.trip.count.i
   br i1 %exitcond232.not, label %._crit_edge220, label %249
 
-279:                                              ; preds = %59
-  %280 = sext i32 %12 to i64
-  %281 = sext i32 %14 to i64
-  %282 = shl nsw i64 %280, 2
-  %283 = mul i64 %282, %281
-  tail call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %283) #20
-  br label %284
+281:                                              ; preds = %59
+  %282 = sext i32 %12 to i64
+  %283 = sext i32 %14 to i64
+  %284 = shl nsw i64 %282, 2
+  %285 = mul i64 %284, %283
+  tail call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %285) #20
+  br label %286
 
-284:                                              ; preds = %.thread, %.critedge, %279, %6
+286:                                              ; preds = %.thread, %.critedge, %281, %6
   ret void
 }
 

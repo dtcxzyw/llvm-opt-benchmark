@@ -120,7 +120,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load i1, ptr @family_registered, align 4
-  br i1 %3, label %4, label %.thread16
+  br i1 %3, label %4, label %.critedge
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1880
@@ -201,12 +201,12 @@ define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unna
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %50 = load volatile ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %49
-  br i1 %51, label %.thread16, label %52
+  br i1 %51, label %.critedge, label %52
 
 52:                                               ; preds = %.thread14
   %53 = tail call ptr @__alloc_skb(i32 noundef %46, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #10
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.thread16, label %55
+  br i1 %54, label %.critedge, label %55
 
 55:                                               ; preds = %52
   %56 = tail call i32 asm sideeffect "xaddl $0, %gs:$1", "=r,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @taskstats_seqnum, i32 1, ptr nonnull elementtype(i32) @taskstats_seqnum) #10, !srcloc !8
@@ -216,7 +216,7 @@ define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unna
 
 59:                                               ; preds = %55
   tail call void @kfree_skb_reason(ptr noundef nonnull %53, i32 noundef 2) #10
-  br label %.thread16
+  br label %.critedge
 
 60:                                               ; preds = %55
   %61 = tail call i32 @__task_pid_nr_ns(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @init_pid_ns) #10
@@ -226,15 +226,15 @@ define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unna
 
 64:                                               ; preds = %60
   tail call fastcc void @fill_stats(ptr noundef nonnull @init_pid_ns, ptr noundef %0, ptr noundef nonnull %62)
-  %.not19 = icmp eq i32 %1, 0
-  br i1 %.not19, label %.thread17, label %65
+  %.not17 = icmp eq i32 %1, 0
+  br i1 %.not17, label %.thread15, label %65
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %67 = load i8, ptr %66, align 8
   %68 = or i8 %67, 32
   store i8 %68, ptr %66, align 8
-  br i1 %45, label %69, label %.thread17
+  br i1 %45, label %69, label %.thread15
 
 69:                                               ; preds = %65
   %70 = tail call i32 @__task_pid_nr_ns(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @init_pid_ns) #10
@@ -247,9 +247,9 @@ define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unna
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 984
   %76 = load ptr, ptr %75, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %71, ptr noundef align 8 dereferenceable(432) %76, i64 432, i1 false)
-  br label %.thread17
+  br label %.thread15
 
-.thread17:                                        ; preds = %64, %73, %65
+.thread15:                                        ; preds = %64, %73, %65
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 200
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %53, i64 192
@@ -268,15 +268,15 @@ define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unna
   %90 = icmp eq ptr %89, %49
   br i1 %90, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %.thread17
+.thread:                                          ; preds = %.thread15
   tail call void @up_read(ptr noundef %48) #10
   tail call void @kfree_skb_reason(ptr noundef nonnull %53, i32 noundef 2) #10
-  br label %.thread16
+  br label %.critedge
 
-.lr.ph:                                           ; preds = %.thread17, %109
-  %91 = phi ptr [ %111, %109 ], [ %89, %.thread17 ]
-  %92 = phi ptr [ %100, %109 ], [ %53, %.thread17 ]
-  %93 = phi i32 [ %110, %109 ], [ 0, %.thread17 ]
+.lr.ph:                                           ; preds = %.thread15, %109
+  %91 = phi ptr [ %111, %109 ], [ %89, %.thread15 ]
+  %92 = phi ptr [ %100, %109 ], [ %53, %.thread15 ]
+  %93 = phi i32 [ %110, %109 ], [ 0, %.thread15 ]
   %94 = load ptr, ptr %91, align 8
   %95 = icmp eq ptr %94, %49
   br i1 %95, label %99, label %96
@@ -284,7 +284,7 @@ define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unna
 96:                                               ; preds = %.lr.ph
   %97 = tail call ptr @skb_clone(ptr noundef %92, i32 noundef 3264) #10
   %98 = icmp eq ptr %97, null
-  br i1 %98, label %.thread18, label %99
+  br i1 %98, label %.thread16, label %99
 
 99:                                               ; preds = %96, %.lr.ph
   %100 = phi ptr [ null, %.lr.ph ], [ %97, %96 ]
@@ -305,22 +305,22 @@ define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unna
   %110 = phi i32 [ %108, %106 ], [ %93, %99 ]
   %111 = load ptr, ptr %91, align 8
   %112 = icmp eq ptr %111, %49
-  br i1 %112, label %.thread18, label %.lr.ph, !llvm.loop !9
+  br i1 %112, label %.thread16, label %.lr.ph, !llvm.loop !9
 
-.thread18:                                        ; preds = %109, %96
-  %.lcssa20.ph = phi i32 [ %110, %109 ], [ %93, %96 ]
+.thread16:                                        ; preds = %109, %96
+  %.lcssa18.ph = phi i32 [ %110, %109 ], [ %93, %96 ]
   %.lcssa.ph = phi ptr [ %100, %109 ], [ %92, %96 ]
-  %113 = icmp eq i32 %.lcssa20.ph, 0
+  %113 = icmp eq i32 %.lcssa18.ph, 0
   tail call void @up_read(ptr noundef %48) #10
   %114 = icmp eq ptr %.lcssa.ph, null
   br i1 %114, label %116, label %115
 
-115:                                              ; preds = %.thread18
+115:                                              ; preds = %.thread16
   tail call void @kfree_skb_reason(ptr noundef nonnull %.lcssa.ph, i32 noundef 2) #10
-  br i1 %113, label %.thread16, label %117
+  br i1 %113, label %.critedge, label %117
 
-116:                                              ; preds = %.thread18
-  br i1 %113, label %.thread16, label %117
+116:                                              ; preds = %.thread16
+  br i1 %113, label %.critedge, label %117
 
 117:                                              ; preds = %115, %116
   tail call void @down_write(ptr noundef %48) #10
@@ -353,13 +353,13 @@ define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unna
 
 .loopexit:                                        ; preds = %129, %117
   tail call void @up_write(ptr noundef %48) #10
-  br label %.thread16
+  br label %.critedge
 
 131:                                              ; preds = %69, %60
   tail call void @kfree_skb_reason(ptr noundef nonnull %53, i32 noundef 2) #10
-  br label %.thread16
+  br label %.critedge
 
-.thread16:                                        ; preds = %.thread, %115, %59, %52, %131, %.loopexit, %116, %.thread14, %2
+.critedge:                                        ; preds = %.thread, %115, %52, %59, %131, %.loopexit, %116, %.thread14, %2
   ret void
 }
 
@@ -845,7 +845,7 @@ define internal range(i32 -2147483648, 1) i32 @taskstats_user_cmd(ptr readnone c
   %144 = load i32, ptr %143, align 4
   %145 = tail call fastcc ptr @mk_reply(ptr noundef nonnull %123, i32 noundef 2, i32 noundef %144)
   %146 = icmp eq ptr %145, null
-  br i1 %146, label %234, label %147
+  br i1 %146, label %235, label %147
 
 147:                                              ; preds = %139
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
@@ -853,12 +853,12 @@ define internal range(i32 -2147483648, 1) i32 @taskstats_user_cmd(ptr readnone c
   tail call void @__rcu_read_lock() #10
   %148 = tail call ptr @find_task_by_vpid(i32 noundef %144) #10
   %149 = icmp eq ptr %148, null
-  br i1 %149, label %.thread35, label %150
+  br i1 %149, label %234, label %150
 
 150:                                              ; preds = %147
   %151 = call ptr @__lock_task_sighand(ptr noundef nonnull %148, ptr noundef nonnull %3) #10
   %152 = icmp eq ptr %151, null
-  br i1 %152, label %.thread35, label %153
+  br i1 %152, label %234, label %153
 
 153:                                              ; preds = %150
   %154 = getelementptr inbounds nuw i8, ptr %148, i64 1880
@@ -882,7 +882,7 @@ define internal range(i32 -2147483648, 1) i32 @taskstats_user_cmd(ptr readnone c
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %165 = load volatile ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, %164
-  br i1 %166, label %.loopexit, label %167
+  br i1 %166, label %.critedge, label %167
 
 167:                                              ; preds = %161
   %168 = getelementptr inbounds nuw i8, ptr %145, i64 144
@@ -940,15 +940,9 @@ define internal range(i32 -2147483648, 1) i32 @taskstats_user_cmd(ptr readnone c
   %208 = load volatile ptr, ptr %175, align 8
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %210 = icmp eq ptr %208, %209
-  br i1 %210, label %.loopexit, label %173, !llvm.loop !26
+  br i1 %210, label %.critedge, label %173, !llvm.loop !26
 
-.thread35:                                        ; preds = %150, %147
-  call void @__rcu_read_unlock() #10
-  store i16 14, ptr %145, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  br label %234
-
-.loopexit:                                        ; preds = %206, %161
+.critedge:                                        ; preds = %206, %161
   %211 = getelementptr inbounds nuw i8, ptr %148, i64 1888
   %212 = load ptr, ptr %211, align 32
   %213 = load i64, ptr %3, align 8
@@ -979,14 +973,20 @@ define internal range(i32 -2147483648, 1) i32 @taskstats_user_cmd(ptr readnone c
   %233 = call i32 @llvm.smin.i32(i32 %232, i32 0)
   br label %.thread26
 
-234:                                              ; preds = %.thread35, %139
-  %235 = phi i32 [ -22, %139 ], [ -3, %.thread35 ]
+234:                                              ; preds = %150, %147
+  call void @__rcu_read_unlock() #10
+  store i16 14, ptr %145, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  br label %235
+
+235:                                              ; preds = %234, %139
+  %236 = phi i32 [ -3, %234 ], [ -22, %139 ]
   call void @kfree_skb_reason(ptr noundef nonnull %123, i32 noundef 2) #10
   br label %.thread26
 
-.thread26:                                        ; preds = %138, %122, %73, %57, %234, %.loopexit, %118, %116, %.thread28, %.thread22, %.thread
-  %236 = phi i32 [ %29, %.thread ], [ %52, %.thread22 ], [ -22, %118 ], [ %117, %116 ], [ %115, %.thread28 ], [ %235, %234 ], [ %233, %.loopexit ], [ -22, %73 ], [ -12, %57 ], [ -22, %138 ], [ -12, %122 ]
-  ret i32 %236
+.thread26:                                        ; preds = %138, %122, %73, %57, %235, %.critedge, %118, %116, %.thread28, %.thread22, %.thread
+  %237 = phi i32 [ %29, %.thread ], [ %52, %.thread22 ], [ -22, %118 ], [ %117, %116 ], [ %115, %.thread28 ], [ %236, %235 ], [ %233, %.critedge ], [ -22, %73 ], [ -12, %57 ], [ -22, %138 ], [ -12, %122 ]
+  ret i32 %237
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

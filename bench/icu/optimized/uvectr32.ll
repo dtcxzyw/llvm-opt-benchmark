@@ -584,7 +584,6 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit: ; preds = %38, %9
   br i1 %40, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit
-  %invariant.gep = getelementptr i8, ptr %42, i64 -4
   %43 = zext nneg i32 %39 to i64
   %44 = zext nneg i32 %2 to i64
   br label %49
@@ -600,13 +599,13 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit: ; preds = %38, %9
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %50 = load i32, ptr %gep, align 4, !tbaa !18
-  %51 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
-  store i32 %50, ptr %51, align 4, !tbaa !18
+  %50 = getelementptr i32, ptr %42, i64 %indvars.iv
+  %51 = getelementptr i8, ptr %50, i64 -4
+  %52 = load i32, ptr %51, align 4, !tbaa !18
+  store i32 %52, ptr %50, align 4, !tbaa !18
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %52 = icmp samesign ugt i64 %indvars.iv.next, %44
-  br i1 %52, label %49, label %._crit_edge, !llvm.loop !22
+  %53 = icmp samesign ugt i64 %indvars.iv.next, %44
+  br i1 %53, label %49, label %._crit_edge, !llvm.loop !22
 
 _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %37, %29, %13, %24, %21, %._crit_edge, %6, %4
   ret void

@@ -4401,6 +4401,7 @@ for.cond1.preheader:                              ; preds = %for.cond.cleanup4, 
   %add.i89 = mul i32 %mul622.i, %conv5.i
   %add.i104.reass = mul i32 %sub.i, %invariant.op
   %cmp21.not114 = icmp slt i32 %add.i89, %add.i104.reass
+  %arrayidx19.split = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv120
   br i1 %cmp21.not114, label %for.cond.cleanup4, label %for.cond1.preheader.split
 
 for.cond1.preheader.split:                        ; preds = %for.cond1.preheader
@@ -4424,7 +4425,7 @@ for.body5:                                        ; preds = %for.cond.cleanup22.
   %conv16.i = ashr exact i32 %sext, 16
   %sub20.i = sub nsw i32 %conv16.i, %conv19.i
   %add21.i108 = add nsw i32 %sub20.i, %add.i104.reass
-  %arrayidx19 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv120, i64 %indvars.iv
+  %arrayidx19 = getelementptr inbounds nuw [16 x i8], ptr %arrayidx19.split, i64 0, i64 %indvars.iv
   %9 = load i8, ptr %arrayidx19, align 1, !tbaa !118, !range !99, !noundef !100
   %add21.i = add nsw i32 %sub20.i, %add.i89
   br label %for.body23
@@ -4544,7 +4545,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %9 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i, i8 %8)
   %cond.i = select i1 %bf.cast.not.i.i, i8 %bf.clear.i, i8 %9
   %cmp40 = icmp eq i8 %cond.i, 15
-  %arrayidx44 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 0
+  %arrayidx44 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv
   %frombool45 = zext i1 %cmp40 to i8
   store i8 %frombool45, ptr %arrayidx44, align 1, !tbaa !118
   %arrayidx.i.1 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
@@ -5989,6 +5990,7 @@ for.cond1.preheader.i:                            ; preds = %for.cond.cleanup4.i
 
 for.cond1.preheader.i.split:                      ; preds = %for.cond1.preheader.i
   %23 = load ptr, ptr %m_flags.i, align 8, !tbaa !164
+  %arrayidx19.i.split = getelementptr inbounds nuw [16 x i8], ptr %lights, i64 %indvars.iv120.i
   br label %for.body5.i
 
 for.cond.cleanup4.i:                              ; preds = %for.cond.cleanup22.i.loopexit, %for.cond1.preheader.i
@@ -6004,7 +6006,7 @@ for.body5.i:                                      ; preds = %for.cond.cleanup22.
   %conv16.i.i = ashr exact i32 %sext.i, 16
   %sub20.i.i = sub nsw i32 %conv16.i.i, %conv19.i.i
   %add21.i108.i = add nsw i32 %sub20.i.i, %add.i104.i.reass
-  %arrayidx19.i = getelementptr inbounds nuw [16 x i8], ptr %lights, i64 %indvars.iv120.i, i64 %indvars.iv.i
+  %arrayidx19.i = getelementptr inbounds nuw [16 x i8], ptr %arrayidx19.i.split, i64 0, i64 %indvars.iv.i
   %25 = load i8, ptr %arrayidx19.i, align 1, !tbaa !118, !range !99, !noundef !100
   %add21.i.i = add nsw i32 %sub20.i.i, %add.i89.i
   br label %for.body23.i
@@ -6079,6 +6081,7 @@ for.cond56.preheader:                             ; preds = %for.cond.cleanup59,
   %indvars.iv616 = phi i64 [ 0, %invoke.cont43 ], [ %indvars.iv.next617, %for.cond.cleanup59 ]
   %32 = trunc i64 %indvars.iv616 to i32
   %ref.tmp62.sroa.6.0.insert.shift = shl nuw i32 %32, 16
+  %arrayidx66.split = getelementptr inbounds nuw [16 x [16 x i8]], ptr %lights, i64 0, i64 %indvars.iv616
   br label %for.body60
 
 lpad34:                                           ; preds = %for.body32
@@ -6104,7 +6107,7 @@ for.body60:                                       ; preds = %invoke.cont67, %for
   %incdec.ptr.i.i557573 = phi ptr [ %_M_finish.i.promoted, %for.cond56.preheader ], [ %incdec.ptr.i.i558, %invoke.cont67 ]
   %add.ptr28.i.i563572 = phi ptr [ %_M_end_of_storage.i.promoted, %for.cond56.preheader ], [ %add.ptr28.i.i562, %invoke.cont67 ]
   %cond.i49.i.i568571 = phi ptr [ %data.promoted, %for.cond56.preheader ], [ %40, %invoke.cont67 ]
-  %arrayidx66 = getelementptr inbounds nuw [16 x [16 x i8]], ptr %lights, i64 0, i64 %indvars.iv616, i64 %indvars.iv
+  %arrayidx66 = getelementptr inbounds nuw [16 x i8], ptr %arrayidx66.split, i64 0, i64 %indvars.iv
   %cmp.not.i = icmp eq ptr %incdec.ptr.i.i557573, %add.ptr28.i.i563572
   br i1 %cmp.not.i, label %if.else.i429, label %if.then.i
 
@@ -6921,6 +6924,7 @@ entry:
 
 for.cond1.preheader:                              ; preds = %for.cond.cleanup4, %entry
   %indvars.iv83 = phi i64 [ 0, %entry ], [ %indvars.iv.next84, %for.cond.cleanup4 ]
+  %arrayidx7.split = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv83
   %.idx = shl i64 %indvars.iv83, 10
   br label %for.body5
 
@@ -6934,7 +6938,7 @@ for.cond.cleanup4:                                ; preds = %for.cond.cleanup11
 
 for.body5:                                        ; preds = %for.cond.cleanup11, %for.cond1.preheader
   %indvars.iv80 = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next81, %for.cond.cleanup11 ]
-  %arrayidx7 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv83, i64 %indvars.iv80
+  %arrayidx7 = getelementptr inbounds nuw [16 x i8], ptr %arrayidx7.split, i64 0, i64 %indvars.iv80
   %0 = load i8, ptr %arrayidx7, align 1, !tbaa !118, !range !99, !noundef !100
   br label %for.body12
 
@@ -7175,6 +7179,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
 
 for.cond1.preheader.i:                            ; preds = %for.cond.cleanup4.i, %invoke.cont22
   %indvars.iv83.i = phi i64 [ 0, %invoke.cont22 ], [ %indvars.iv.next84.i, %for.cond.cleanup4.i ]
+  %arrayidx7.i.split = getelementptr inbounds nuw [16 x i8], ptr %lights, i64 %indvars.iv83.i
   %.idx = shl i64 %indvars.iv83.i, 10
   br label %for.body5.i
 
@@ -7185,7 +7190,7 @@ for.cond.cleanup4.i:                              ; preds = %for.cond.cleanup11.
 
 for.body5.i:                                      ; preds = %for.cond.cleanup11.i, %for.cond1.preheader.i
   %indvars.iv80.i = phi i64 [ 0, %for.cond1.preheader.i ], [ %indvars.iv.next81.i, %for.cond.cleanup11.i ]
-  %arrayidx7.i = getelementptr inbounds nuw [16 x i8], ptr %lights, i64 %indvars.iv83.i, i64 %indvars.iv80.i
+  %arrayidx7.i = getelementptr inbounds nuw [16 x i8], ptr %arrayidx7.i.split, i64 0, i64 %indvars.iv80.i
   %14 = load i8, ptr %arrayidx7.i, align 1, !tbaa !118, !range !99, !noundef !100
   br label %for.body12.i
 
@@ -7286,6 +7291,7 @@ for.cond29.preheader:                             ; preds = %for.cond.cleanup32,
   %indvars.iv381 = phi i64 [ 0, %invoke.cont24 ], [ %indvars.iv.next382, %for.cond.cleanup32 ]
   %31 = trunc i64 %indvars.iv381 to i32
   %ref.tmp35.sroa.6.0.insert.shift = shl nuw i32 %31, 16
+  %arrayidx39.split = getelementptr inbounds nuw [16 x [16 x i8]], ptr %lights, i64 0, i64 %indvars.iv381
   br label %for.body33
 
 while.cond.preheader:                             ; preds = %for.cond.cleanup32
@@ -7322,7 +7328,7 @@ for.cond.cleanup32:                               ; preds = %invoke.cont40
 for.body33:                                       ; preds = %invoke.cont40, %for.cond29.preheader
   %35 = phi ptr [ %.pre, %for.cond29.preheader ], [ %44, %invoke.cont40 ]
   %indvars.iv = phi i64 [ 0, %for.cond29.preheader ], [ %indvars.iv.next, %invoke.cont40 ]
-  %arrayidx39 = getelementptr inbounds nuw [16 x [16 x i8]], ptr %lights, i64 0, i64 %indvars.iv381, i64 %indvars.iv
+  %arrayidx39 = getelementptr inbounds nuw [16 x i8], ptr %arrayidx39.split, i64 0, i64 %indvars.iv
   %36 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !202
   %cmp.not.i = icmp eq ptr %35, %36
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i230

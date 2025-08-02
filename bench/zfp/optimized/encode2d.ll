@@ -345,13 +345,16 @@ select.unfold.i.i.i:                              ; preds = %select.unfold.prehe
   %spec.select.i.i.i = add i32 %183, %.01325.i.i.i
   %spec.select20.i.i.i = select i1 %.not19.i.i.i, i64 %.127.i.i.i, i64 %181
   %.not18.i.i.i = icmp eq i64 %spec.select20.i.i.i, 0
-  br i1 %.not18.i.i.i, label %rev_precision_uint64.exit.i.i, label %select.unfold.i.i.i
+  br i1 %.not18.i.i.i, label %rev_precision_uint64.exit.loopexit.i.i, label %select.unfold.i.i.i
 
-rev_precision_uint64.exit.i.i:                    ; preds = %select.unfold.i.i.i, %select.unfold.preheader.i.i.i
-  %.013.lcssa.i.i.i = phi i32 [ 0, %select.unfold.preheader.i.i.i ], [ %spec.select.i.i.i, %select.unfold.i.i.i ]
-  %184 = tail call i32 @llvm.umin.i32(i32 %.013.lcssa.i.i.i, i32 %134)
+rev_precision_uint64.exit.loopexit.i.i:           ; preds = %select.unfold.i.i.i
+  %184 = tail call i32 @llvm.umin.i32(i32 %spec.select.i.i.i, i32 %134)
   %185 = tail call i32 @llvm.umax.i32(i32 %184, i32 1)
-  %186 = add i32 %185, -1
+  br label %rev_precision_uint64.exit.i.i
+
+rev_precision_uint64.exit.i.i:                    ; preds = %rev_precision_uint64.exit.loopexit.i.i, %select.unfold.preheader.i.i.i
+  %.013.lcssa.i.i.i = phi i32 [ 1, %select.unfold.preheader.i.i.i ], [ %185, %rev_precision_uint64.exit.loopexit.i.i ]
+  %186 = add i32 %.013.lcssa.i.i.i, -1
   %187 = zext i32 %186 to i64
   %188 = shl i64 %187, %128
   %189 = getelementptr inbounds nuw i8, ptr %129, i64 8
@@ -384,7 +387,7 @@ stream_write_bits.exit.i.i:                       ; preds = %193, %rev_precision
   store i64 %205, ptr %189, align 8, !tbaa !21
   %reass.sub = sub i32 %132, %.132.i
   %206 = add i32 %reass.sub, -6
-  %207 = call fastcc i32 @encode_ints_uint64(ptr noundef nonnull %129, i32 noundef %206, i32 noundef %185, ptr noundef %6)
+  %207 = call fastcc i32 @encode_ints_uint64(ptr noundef nonnull %129, i32 noundef %206, i32 noundef %.013.lcssa.i.i.i, ptr noundef %6)
   %208 = add i32 %207, 6
   %209 = icmp ult i32 %208, %173
   br i1 %209, label %210, label %rev_encode_block_int64_2.exit.i

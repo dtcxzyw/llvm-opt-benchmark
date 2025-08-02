@@ -1077,64 +1077,58 @@ dt_confgen_get.exit.i:                            ; preds = %17, %12
   %.v23.i = select i1 %22, double 5.000000e-01, double -5.000000e-01
   %23 = fadd reassoc nsz arcp contract afn double %.v23.i, %20
   %24 = fptosi double %23 to i32
-  %25 = select i1 %21, i32 %24, i32 -2147483648
+  %25 = tail call i32 @llvm.smax.i32(i32 %1, i32 %24)
+  %26 = select i1 %21, i32 %25, i32 %1
   br label %dt_confgen_get_int.exit
 
 dt_confgen_get_int.exit:                          ; preds = %3, %9, %dt_confgen_get.exit.i
-  %.0.i = phi i32 [ %25, %dt_confgen_get.exit.i ], [ -2147483648, %9 ], [ -2147483648, %3 ]
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 56), align 8, !tbaa !6
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4144
-  %28 = load ptr, ptr %27, align 8, !tbaa !52
-  %29 = tail call ptr @g_hash_table_lookup(ptr noundef %28, ptr noundef %0) #11
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %dt_confgen_get_int.exit33, label %31
+  %.0.i = phi i32 [ %26, %dt_confgen_get.exit.i ], [ %1, %9 ], [ %1, %3 ]
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 56), align 8, !tbaa !6
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4144
+  %29 = load ptr, ptr %28, align 8, !tbaa !52
+  %30 = tail call ptr @g_hash_table_lookup(ptr noundef %29, ptr noundef %0) #11
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %dt_confgen_get_int.exit33, label %32
 
-31:                                               ; preds = %dt_confgen_get_int.exit
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !53
-  %.not29.i26 = icmp eq ptr %33, null
-  br i1 %.not29.i26, label %dt_confgen_get_int.exit33, label %34
+32:                                               ; preds = %dt_confgen_get_int.exit
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %34 = load ptr, ptr %33, align 8, !tbaa !53
+  %.not29.i26 = icmp eq ptr %34, null
+  br i1 %.not29.i26, label %dt_confgen_get_int.exit33, label %35
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 56), align 8, !tbaa !6
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4144
-  %37 = load ptr, ptr %36, align 8, !tbaa !52
-  %38 = tail call ptr @g_hash_table_lookup(ptr noundef %37, ptr noundef %0) #11
-  %.not.i.i27 = icmp eq ptr %38, null
-  br i1 %.not.i.i27, label %dt_confgen_get.exit.i28, label %39
+35:                                               ; preds = %32
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 56), align 8, !tbaa !6
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4144
+  %38 = load ptr, ptr %37, align 8, !tbaa !52
+  %39 = tail call ptr @g_hash_table_lookup(ptr noundef %38, ptr noundef %0) #11
+  %.not.i.i27 = icmp eq ptr %39, null
+  br i1 %.not.i.i27, label %dt_confgen_get.exit.i28, label %40
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !53
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !53
   br label %dt_confgen_get.exit.i28
 
-dt_confgen_get.exit.i28:                          ; preds = %39, %34
-  %.0.i.i29 = phi ptr [ @.str.6, %34 ], [ %41, %39 ]
-  %42 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i29) #11
-  %43 = fcmp reassoc nsz arcp contract afn ord double %42, 0.000000e+00
-  %44 = fcmp reassoc nsz arcp contract afn ogt double %42, 0.000000e+00
-  %.v23.i30 = select i1 %44, double 5.000000e-01, double -5.000000e-01
-  %45 = fadd reassoc nsz arcp contract afn double %.v23.i30, %42
-  %46 = fptosi double %45 to i32
-  %47 = select i1 %43, i32 %46, i32 2147483647
+dt_confgen_get.exit.i28:                          ; preds = %40, %35
+  %.0.i.i29 = phi ptr [ @.str.6, %35 ], [ %42, %40 ]
+  %43 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i29) #11
+  %44 = fcmp reassoc nsz arcp contract afn ord double %43, 0.000000e+00
+  %45 = fcmp reassoc nsz arcp contract afn ogt double %43, 0.000000e+00
+  %.v23.i30 = select i1 %45, double 5.000000e-01, double -5.000000e-01
+  %46 = fadd reassoc nsz arcp contract afn double %.v23.i30, %43
+  %47 = fptosi double %46 to i32
+  %48 = tail call i32 @llvm.smin.i32(i32 %2, i32 %47)
+  %49 = select i1 %44, i32 %48, i32 %2
   br label %dt_confgen_get_int.exit33
 
-dt_confgen_get_int.exit33:                        ; preds = %dt_confgen_get_int.exit, %31, %dt_confgen_get.exit.i28
-  %.0.i31 = phi i32 [ %47, %dt_confgen_get.exit.i28 ], [ 2147483647, %31 ], [ 2147483647, %dt_confgen_get_int.exit ]
-  %48 = tail call fastcc i32 @_conf_get_int_fast(ptr noundef %0)
-  %49 = tail call i32 @llvm.smax.i32(i32 %1, i32 %.0.i)
-  %50 = icmp sgt i32 %48, %49
-  br i1 %50, label %51, label %53
-
-51:                                               ; preds = %dt_confgen_get_int.exit33
-  %52 = tail call i32 @llvm.smin.i32(i32 %2, i32 %.0.i31)
-  %. = tail call i32 @llvm.smin.i32(i32 %48, i32 %52)
-  br label %53
-
-53:                                               ; preds = %dt_confgen_get_int.exit33, %51
-  %54 = phi i32 [ %., %51 ], [ %49, %dt_confgen_get_int.exit33 ]
-  tail call void @dt_conf_set_int(ptr noundef %0, i32 noundef %54)
-  ret i32 %54
+dt_confgen_get_int.exit33:                        ; preds = %dt_confgen_get_int.exit, %32, %dt_confgen_get.exit.i28
+  %.0.i31 = phi i32 [ %49, %dt_confgen_get.exit.i28 ], [ %2, %32 ], [ %2, %dt_confgen_get_int.exit ]
+  %50 = tail call fastcc i32 @_conf_get_int_fast(ptr noundef %0)
+  %51 = icmp sgt i32 %50, %.0.i
+  %. = tail call i32 @llvm.smin.i32(i32 %50, i32 %.0.i31)
+  %52 = select i1 %51, i32 %., i32 %.0.i
+  tail call void @dt_conf_set_int(ptr noundef %0, i32 noundef %52)
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1173,62 +1167,56 @@ dt_confgen_get.exit.i:                            ; preds = %17, %12
   %.v21.i = select i1 %22, double 5.000000e-01, double -5.000000e-01
   %23 = fadd reassoc nsz arcp contract afn double %.v21.i, %20
   %24 = fptosi double %23 to i64
-  %25 = select i1 %21, i64 %24, i64 -9223372036854775808
+  %25 = tail call i64 @llvm.smax.i64(i64 %1, i64 %24)
+  %26 = select i1 %21, i64 %25, i64 %1
   br label %dt_confgen_get_int64.exit
 
 dt_confgen_get_int64.exit:                        ; preds = %3, %9, %dt_confgen_get.exit.i
-  %.0.i = phi i64 [ %25, %dt_confgen_get.exit.i ], [ -9223372036854775808, %9 ], [ -9223372036854775808, %3 ]
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 56), align 8, !tbaa !6
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4144
-  %28 = load ptr, ptr %27, align 8, !tbaa !52
-  %29 = tail call ptr @g_hash_table_lookup(ptr noundef %28, ptr noundef %0) #11
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %dt_confgen_get_int64.exit32, label %31
+  %.0.i = phi i64 [ %26, %dt_confgen_get.exit.i ], [ %1, %9 ], [ %1, %3 ]
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 56), align 8, !tbaa !6
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4144
+  %29 = load ptr, ptr %28, align 8, !tbaa !52
+  %30 = tail call ptr @g_hash_table_lookup(ptr noundef %29, ptr noundef %0) #11
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %dt_confgen_get_int64.exit32, label %32
 
-31:                                               ; preds = %dt_confgen_get_int64.exit
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !53
-  %.not29.i26 = icmp eq ptr %33, null
-  br i1 %.not29.i26, label %dt_confgen_get_int64.exit32, label %34
+32:                                               ; preds = %dt_confgen_get_int64.exit
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %34 = load ptr, ptr %33, align 8, !tbaa !53
+  %.not29.i26 = icmp eq ptr %34, null
+  br i1 %.not29.i26, label %dt_confgen_get_int64.exit32, label %35
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 56), align 8, !tbaa !6
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4144
-  %37 = load ptr, ptr %36, align 8, !tbaa !52
-  %38 = tail call ptr @g_hash_table_lookup(ptr noundef %37, ptr noundef %0) #11
-  %.not.i.i27 = icmp eq ptr %38, null
-  br i1 %.not.i.i27, label %dt_confgen_get.exit.i28, label %39
+35:                                               ; preds = %32
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 56), align 8, !tbaa !6
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4144
+  %38 = load ptr, ptr %37, align 8, !tbaa !52
+  %39 = tail call ptr @g_hash_table_lookup(ptr noundef %38, ptr noundef %0) #11
+  %.not.i.i27 = icmp eq ptr %39, null
+  br i1 %.not.i.i27, label %dt_confgen_get.exit.i28, label %40
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !53
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !53
   br label %dt_confgen_get.exit.i28
 
-dt_confgen_get.exit.i28:                          ; preds = %39, %34
-  %.0.i.i29 = phi ptr [ @.str.6, %34 ], [ %41, %39 ]
-  %42 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i29) #11
-  %43 = fcmp reassoc nsz arcp contract afn ogt double %42, 0.000000e+00
-  %.v.i = select i1 %43, double 5.000000e-01, double -5.000000e-01
-  %44 = fadd reassoc nsz arcp contract afn double %.v.i, %42
-  %45 = fptosi double %44 to i64
+dt_confgen_get.exit.i28:                          ; preds = %40, %35
+  %.0.i.i29 = phi ptr [ @.str.6, %35 ], [ %42, %40 ]
+  %43 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i29) #11
+  %44 = fcmp reassoc nsz arcp contract afn ogt double %43, 0.000000e+00
+  %.v.i = select i1 %44, double 5.000000e-01, double -5.000000e-01
+  %45 = fadd reassoc nsz arcp contract afn double %.v.i, %43
+  %46 = fptosi double %45 to i64
+  %47 = tail call i64 @llvm.smin.i64(i64 %2, i64 %46)
   br label %dt_confgen_get_int64.exit32
 
-dt_confgen_get_int64.exit32:                      ; preds = %dt_confgen_get_int64.exit, %31, %dt_confgen_get.exit.i28
-  %.0.i30 = phi i64 [ %45, %dt_confgen_get.exit.i28 ], [ 9223372036854775807, %31 ], [ 9223372036854775807, %dt_confgen_get_int64.exit ]
-  %46 = tail call fastcc i64 @_conf_get_int64_fast(ptr noundef %0)
-  %47 = tail call i64 @llvm.smax.i64(i64 %1, i64 %.0.i)
-  %48 = icmp sgt i64 %46, %47
-  br i1 %48, label %49, label %51
-
-49:                                               ; preds = %dt_confgen_get_int64.exit32
-  %50 = tail call i64 @llvm.smin.i64(i64 %2, i64 %.0.i30)
-  %. = tail call i64 @llvm.smin.i64(i64 %46, i64 %50)
-  br label %51
-
-51:                                               ; preds = %dt_confgen_get_int64.exit32, %49
-  %52 = phi i64 [ %., %49 ], [ %47, %dt_confgen_get_int64.exit32 ]
-  tail call void @dt_conf_set_int64(ptr noundef %0, i64 noundef %52)
-  ret i64 %52
+dt_confgen_get_int64.exit32:                      ; preds = %dt_confgen_get_int64.exit, %32, %dt_confgen_get.exit.i28
+  %.0.i30 = phi i64 [ %47, %dt_confgen_get.exit.i28 ], [ %2, %32 ], [ %2, %dt_confgen_get_int64.exit ]
+  %48 = tail call fastcc i64 @_conf_get_int64_fast(ptr noundef %0)
+  %49 = icmp sgt i64 %48, %.0.i
+  %. = tail call i64 @llvm.smin.i64(i64 %48, i64 %.0.i30)
+  %50 = select i1 %49, i64 %., i64 %.0.i
+  tail call void @dt_conf_set_int64(ptr noundef %0, i64 noundef %50)
+  ret i64 %50
 }
 
 ; Function Attrs: nounwind uwtable

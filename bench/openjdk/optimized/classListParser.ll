@@ -4096,8 +4096,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %3, %_ZN10HandleArea
   %52 = phi ptr [ %41, %.lr.ph ], [ %99, %98 ]
   %.066 = phi i1 [ false, %.lr.ph ], [ %.255, %98 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %53 = getelementptr i8, ptr %52, i64 18
-  %54 = getelementptr i8, ptr %53, i64 %.idx
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 18
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   store ptr %37, ptr %4, align 8

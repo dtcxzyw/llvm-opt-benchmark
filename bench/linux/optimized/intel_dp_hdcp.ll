@@ -486,10 +486,10 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr noundef readonly ca
   %36 = phi ptr [ %34, %32 ], [ null, %30 ]
   %37 = select i1 %1, ptr @.str.12, ptr @.str.13
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %36, ptr noundef nonnull @.str.11, ptr noundef nonnull %37, i32 noundef %28) #8
-  br label %72
+  br label %.critedge
 
 38:                                               ; preds = %23
-  switch i32 %24, label %72 [
+  switch i32 %24, label %.critedge [
     i32 0, label %42
     i32 1, label %39
     i32 2, label %40
@@ -505,71 +505,71 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr noundef readonly ca
 41:                                               ; preds = %38
   br label %42
 
-42:                                               ; preds = %41, %40, %39, %38
-  %.ph = phi i32 [ -2147483648, %38 ], [ 1073741824, %39 ], [ 536870912, %40 ], [ 268435456, %41 ]
-  %43 = getelementptr inbounds nuw i8, ptr %26, i64 7176
-  %44 = load i8, ptr %43, align 8
-  %45 = icmp ugt i8 %44, 11
-  br i1 %45, label %46, label %49
+42:                                               ; preds = %38, %39, %40, %41
+  %43 = phi i32 [ 268435456, %41 ], [ 536870912, %40 ], [ 1073741824, %39 ], [ -2147483648, %38 ]
+  %44 = getelementptr inbounds nuw i8, ptr %26, i64 7176
+  %45 = load i8, ptr %44, align 8
+  %46 = icmp ugt i8 %45, 11
+  br i1 %46, label %47, label %50
 
-46:                                               ; preds = %42
-  %47 = shl nuw nsw i32 %24, 8
-  %48 = add nuw nsw i32 %47, 418844
-  br label %54
+47:                                               ; preds = %42
+  %48 = shl nuw nsw i32 %24, 8
+  %49 = add nuw nsw i32 %48, 418844
+  br label %55
 
-49:                                               ; preds = %42
-  %50 = sext i32 %25 to i64
-  %51 = getelementptr [6 x i32], ptr @constinit, i64 0, i64 %50
-  %52 = load i32, ptr %51, align 4
-  %53 = add i32 %52, 28
-  br label %54
+50:                                               ; preds = %42
+  %51 = sext i32 %25 to i64
+  %52 = getelementptr [6 x i32], ptr @constinit, i64 0, i64 %51
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, 28
+  br label %55
 
-54:                                               ; preds = %49, %46
-  %55 = phi i32 [ %48, %46 ], [ %53, %49 ]
-  %56 = select i1 %1, i32 %.ph, i32 0
-  %57 = getelementptr inbounds nuw i8, ptr %26, i64 7368
-  %58 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %57, i32 %55, i32 noundef %.ph, i32 noundef %56, i32 noundef 2, i32 noundef 50, ptr noundef null) #7
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %72, label %60
+55:                                               ; preds = %50, %47
+  %56 = phi i32 [ %49, %47 ], [ %54, %50 ]
+  %57 = select i1 %1, i32 %43, i32 0
+  %58 = getelementptr inbounds nuw i8, ptr %26, i64 7368
+  %59 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %58, i32 %56, i32 noundef %43, i32 noundef %57, i32 noundef 2, i32 noundef 50, ptr noundef null) #7
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %.critedge, label %61
 
-60:                                               ; preds = %54
-  %61 = icmp eq ptr %26, null
-  br i1 %61, label %65, label %62
+61:                                               ; preds = %55
+  %62 = icmp eq ptr %26, null
+  br i1 %62, label %66, label %63
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %64 = load ptr, ptr %63, align 8
-  br label %65
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %65 = load ptr, ptr %64, align 8
+  br label %66
 
-65:                                               ; preds = %62, %60
-  %66 = phi ptr [ %64, %62 ], [ null, %60 ]
+66:                                               ; preds = %63, %61
+  %67 = phi ptr [ %65, %63 ], [ null, %61 ]
   switch i32 %24, label %default.unreachable [
     i32 0, label %transcoder_name.exit
-    i32 1, label %67
-    i32 2, label %68
-    i32 3, label %69
+    i32 1, label %68
+    i32 2, label %69
+    i32 3, label %70
   ]
 
-67:                                               ; preds = %65
+68:                                               ; preds = %66
   br label %transcoder_name.exit
 
-68:                                               ; preds = %65
+69:                                               ; preds = %66
   br label %transcoder_name.exit
 
-69:                                               ; preds = %65
+70:                                               ; preds = %66
   br label %transcoder_name.exit
 
-default.unreachable:                              ; preds = %65
+default.unreachable:                              ; preds = %66
   unreachable
 
-transcoder_name.exit:                             ; preds = %65, %67, %68, %69
-  %70 = phi ptr [ @.str.17, %69 ], [ @.str.16, %68 ], [ @.str.15, %67 ], [ @.str.14, %65 ]
-  %71 = select i1 %1, ptr @.str.9, ptr @.str.10
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %66, ptr noundef nonnull @.str.8, ptr noundef nonnull %70, ptr noundef nonnull %71) #8
-  br label %72
+transcoder_name.exit:                             ; preds = %66, %68, %69, %70
+  %71 = phi ptr [ @.str.17, %70 ], [ @.str.16, %69 ], [ @.str.15, %68 ], [ @.str.14, %66 ]
+  %72 = select i1 %1, ptr @.str.9, ptr @.str.10
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %67, ptr noundef nonnull @.str.8, ptr noundef nonnull %71, ptr noundef nonnull %72) #8
+  br label %.critedge
 
-72:                                               ; preds = %38, %35, %transcoder_name.exit, %54
-  %73 = phi i32 [ -110, %transcoder_name.exit ], [ %28, %35 ], [ 0, %54 ], [ -22, %38 ]
+.critedge:                                        ; preds = %35, %38, %transcoder_name.exit, %55
+  %73 = phi i32 [ -110, %transcoder_name.exit ], [ %28, %35 ], [ 0, %55 ], [ -22, %38 ]
   ret i32 %73
 }
 
@@ -1277,7 +1277,7 @@ select.unfold37:                                  ; preds = %164
 define internal range(i32 -2147483648, 1) i32 @intel_dp_hdcp2_config_stream_type(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
   %4 = alloca %struct.hdcp2_dp_errata_stream_type, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
-  br i1 %1, label %36, label %5
+  br i1 %1, label %.loopexit, label %5
 
 5:                                                ; preds = %3
   store i16 50, ptr %4, align 2, !annotation !5
@@ -1313,36 +1313,32 @@ define internal range(i32 -2147483648, 1) i32 @intel_dp_hdcp2_config_stream_type
   %18 = phi ptr [ %14, %.thread ], [ %16, %.thread2 ]
   br label %19
 
-19:                                               ; preds = %28, %17
-  %20 = phi i64 [ %29, %28 ], [ 1, %17 ]
-  %21 = phi ptr [ %30, %28 ], [ %6, %17 ]
-  %22 = phi i32 [ %32, %28 ], [ 431252, %17 ]
+19:                                               ; preds = %29, %17
+  %20 = phi i64 [ %30, %29 ], [ 1, %17 ]
+  %21 = phi ptr [ %31, %29 ], [ %6, %17 ]
+  %22 = phi i32 [ %33, %29 ], [ 431252, %17 ]
   %23 = call i64 @llvm.smin.i64(i64 %20, i64 16)
   %24 = call i64 @drm_dp_dpcd_write(ptr noundef nonnull %18, i32 noundef %22, ptr noundef %21, i64 noundef %23) #7
   %25 = icmp slt i64 %24, 0
-  br i1 %25, label %26, label %28
+  br i1 %25, label %26, label %29
 
 26:                                               ; preds = %19
   %27 = trunc i64 %24 to i32
+  %28 = call i32 @llvm.smin.i32(i32 %27, i32 0)
   br label %.loopexit
 
-28:                                               ; preds = %19
-  %29 = sub i64 %20, %24
-  %30 = getelementptr i8, ptr %21, i64 %24
-  %31 = trunc i64 %24 to i32
-  %32 = add i32 %22, %31
-  %33 = icmp eq i64 %29, 0
-  br i1 %33, label %.loopexit, label %19, !llvm.loop !10
+29:                                               ; preds = %19
+  %30 = sub i64 %20, %24
+  %31 = getelementptr i8, ptr %21, i64 %24
+  %32 = trunc i64 %24 to i32
+  %33 = add i32 %22, %32
+  %34 = icmp eq i64 %30, 0
+  br i1 %34, label %.loopexit, label %19, !llvm.loop !10
 
-.loopexit:                                        ; preds = %28, %26
-  %34 = phi i32 [ %27, %26 ], [ 2, %28 ]
-  %35 = call i32 @llvm.smin.i32(i32 %34, i32 0)
-  br label %36
-
-36:                                               ; preds = %.loopexit, %3
-  %37 = phi i32 [ %35, %.loopexit ], [ 0, %3 ]
+.loopexit:                                        ; preds = %29, %26, %3
+  %35 = phi i32 [ 0, %3 ], [ %28, %26 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
-  ret i32 %37
+  ret i32 %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

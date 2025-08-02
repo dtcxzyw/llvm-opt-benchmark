@@ -523,69 +523,61 @@ define dso_local noundef zeroext i1 @gdbserver_start(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
   store i8 1, ptr %4, align 1
   %7 = load ptr, ptr %6, align 8
-  %.not57 = icmp eq ptr %7, null
-  br i1 %.not57, label %._crit_edge.thread, label %.lr.ph
+  %.not54 = icmp eq ptr %7, null
+  br i1 %.not54, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %23
-  %8 = phi ptr [ %25, %23 ], [ %7, %2 ]
-  %.02959 = phi ptr [ %.13048, %23 ], [ null, %2 ]
-  %.03358 = phi ptr [ %24, %23 ], [ %6, %2 ]
+.lr.ph:                                           ; preds = %2, %glib_auto_cleanup_GStrv.exit
+  %8 = phi ptr [ %25, %glib_auto_cleanup_GStrv.exit ], [ %7, %2 ]
+  %.02956 = phi ptr [ %.130, %glib_auto_cleanup_GStrv.exit ], [ null, %2 ]
+  %.03355 = phi ptr [ %24, %glib_auto_cleanup_GStrv.exit ], [ %6, %2 ]
   %9 = call ptr @g_strsplit(ptr noundef nonnull %8, ptr noundef nonnull @.str.4, i32 noundef 2) #16
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @g_strcmp0(ptr noundef %10, ptr noundef nonnull @.str.5) #16
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %18
+  br i1 %12, label %13, label %21
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %glib_auto_cleanup_GStrv.exit
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef 465, ptr noundef nonnull @__func__.gdbserver_start, ptr noundef nonnull @.str.7) #16
-  br label %glib_auto_cleanup_GStrv.exit.thread
+  br label %glib_auto_cleanup_GStrv.exit43
 
-18:                                               ; preds = %.lr.ph
-  %.not38 = icmp eq ptr %.02959, null
-  %19 = load ptr, ptr %.03358, align 8
-  br i1 %.not38, label %glib_auto_cleanup_GStrv.exit.thread45, label %20
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %9, align 8
+  %20 = call zeroext i1 @qapi_bool_parse(ptr noundef %19, ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef %1) #16
+  br i1 %20, label %glib_auto_cleanup_GStrv.exit, label %glib_auto_cleanup_GStrv.exit43
 
-20:                                               ; preds = %18
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef 473, ptr noundef nonnull @__func__.gdbserver_start, ptr noundef nonnull @.str.8, ptr noundef %19) #16
-  br label %glib_auto_cleanup_GStrv.exit.thread
+21:                                               ; preds = %.lr.ph
+  %.not38 = icmp eq ptr %.02956, null
+  %22 = load ptr, ptr %.03355, align 8
+  br i1 %.not38, label %glib_auto_cleanup_GStrv.exit, label %23
 
-glib_auto_cleanup_GStrv.exit.thread45:            ; preds = %18
+23:                                               ; preds = %21
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef 473, ptr noundef nonnull @__func__.gdbserver_start, ptr noundef nonnull @.str.8, ptr noundef %22) #16
+  br label %glib_auto_cleanup_GStrv.exit43
+
+glib_auto_cleanup_GStrv.exit:                     ; preds = %21, %18
+  %.130 = phi ptr [ %.02956, %18 ], [ %22, %21 ]
   call void @g_strfreev(ptr noundef nonnull %9) #16
-  br label %23
-
-glib_auto_cleanup_GStrv.exit.thread:              ; preds = %17, %20
-  call void @g_strfreev(ptr noundef nonnull %9) #16
-  br label %glib_auto_cleanup_GStrv.exit42
-
-glib_auto_cleanup_GStrv.exit:                     ; preds = %13
-  %21 = load ptr, ptr %9, align 8
-  %22 = call zeroext i1 @qapi_bool_parse(ptr noundef %21, ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef %1) #16
-  call void @g_strfreev(ptr noundef nonnull %9) #16
-  br i1 %22, label %23, label %glib_auto_cleanup_GStrv.exit42
-
-23:                                               ; preds = %glib_auto_cleanup_GStrv.exit.thread45, %glib_auto_cleanup_GStrv.exit
-  %.13048 = phi ptr [ %19, %glib_auto_cleanup_GStrv.exit.thread45 ], [ %.02959, %glib_auto_cleanup_GStrv.exit ]
-  %24 = getelementptr inbounds nuw i8, ptr %.03358, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.03355, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %23
-  %.not37 = icmp eq ptr %.13048, null
+._crit_edge:                                      ; preds = %glib_auto_cleanup_GStrv.exit
+  %.not37 = icmp eq ptr %.130, null
   br i1 %.not37, label %._crit_edge.thread, label %26
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef 480, ptr noundef nonnull @__func__.gdbserver_start, ptr noundef nonnull @.str.9) #16
-  br label %glib_auto_cleanup_GStrv.exit42
+  br label %glib_auto_cleanup_GStrv.exit45
 
 26:                                               ; preds = %._crit_edge
-  %27 = call i64 @g_ascii_strtoull(ptr noundef nonnull %.13048, ptr noundef null, i32 noundef 10) #16
+  %27 = call i64 @g_ascii_strtoull(ptr noundef nonnull %.130, ptr noundef null, i32 noundef 10) #16
   %28 = trunc i64 %27 to i32
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %30, label %55
@@ -644,15 +636,15 @@ gdbserver_open_port.exit:                         ; preds = %34, %44, %48, %51
 
 55:                                               ; preds = %26
   %56 = call ptr @g_string_new(ptr noundef nonnull @.str.32) #16
-  %57 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.13048, ptr noundef nonnull dereferenceable(1) @.str.33) #19
-  %.not.i40 = icmp eq ptr %57, null
-  br i1 %.not.i40, label %67, label %.thread.i
+  %57 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.130, ptr noundef nonnull dereferenceable(1) @.str.33) #19
+  %.not.i41 = icmp eq ptr %57, null
+  br i1 %.not.i41, label %67, label %.thread.i
 
 .thread.i:                                        ; preds = %55
   %58 = ptrtoint ptr %57 to i64
-  %59 = ptrtoint ptr %.13048 to i64
+  %59 = ptrtoint ptr %.130 to i64
   %60 = sub i64 %58, %59
-  %61 = call ptr @g_string_append_len(ptr noundef %56, ptr noundef nonnull %.13048, i64 noundef %60) #16
+  %61 = call ptr @g_string_append_len(ptr noundef %56, ptr noundef nonnull %.130, i64 noundef %60) #16
   %62 = call i32 @qemu_get_thread_id() #16
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %56, ptr noundef nonnull @.str.33, i32 noundef %62) #16
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 2
@@ -662,7 +654,7 @@ gdbserver_open_port.exit:                         ; preds = %34, %44, %48, %51
   br label %69
 
 67:                                               ; preds = %55
-  %68 = call i32 @unix_listen(ptr noundef nonnull %.13048, ptr noundef %1) #16
+  %68 = call i32 @unix_listen(ptr noundef nonnull %.130, ptr noundef %1) #16
   %.not.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i, label %gdbserver_open_socket.exit, label %69
 
@@ -674,7 +666,7 @@ gdbserver_open_port.exit:                         ; preds = %34, %44, %48, %51
 gdbserver_open_socket.exit:                       ; preds = %69, %67, %gdbserver_open_port.exit
   %.034 = phi i32 [ %.0.i, %gdbserver_open_port.exit ], [ %68, %67 ], [ %70, %69 ]
   %72 = icmp slt i32 %.034, 0
-  br i1 %72, label %glib_auto_cleanup_GStrv.exit42, label %73
+  br i1 %72, label %glib_auto_cleanup_GStrv.exit45, label %73
 
 73:                                               ; preds = %gdbserver_open_socket.exit
   %74 = load i8, ptr %4, align 1, !range !7, !noundef !8
@@ -682,7 +674,7 @@ gdbserver_open_socket.exit:                       ; preds = %69, %67, %gdbserver
   br i1 %75, label %76, label %83
 
 76:                                               ; preds = %73
-  %77 = call fastcc zeroext i1 @gdbserver_accept(i32 noundef %28, i32 noundef %.034, ptr noundef nonnull %.13048)
+  %77 = call fastcc zeroext i1 @gdbserver_accept(i32 noundef %28, i32 noundef %.034, ptr noundef nonnull %.130)
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %76
@@ -690,25 +682,29 @@ gdbserver_open_socket.exit:                       ; preds = %69, %67, %gdbserver
   %80 = inttoptr i64 %79 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !16
   %81 = call i32 @gdb_handlesig(ptr noundef %80, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 0)
-  br label %glib_auto_cleanup_GStrv.exit42
+  br label %glib_auto_cleanup_GStrv.exit45
 
 82:                                               ; preds = %76
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef 499, ptr noundef nonnull @__func__.gdbserver_start, ptr noundef nonnull @.str.10) #16
-  br label %glib_auto_cleanup_GStrv.exit42
+  br label %glib_auto_cleanup_GStrv.exit45
 
 83:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store i64 0, ptr %5, align 8, !annotation !4
   store i32 %28, ptr @gdbserver_args, align 8
   store i32 %.034, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_args, i64 4), align 4
-  %84 = call noalias ptr @g_strdup(ptr noundef nonnull %.13048) #16
+  %84 = call noalias ptr @g_strdup(ptr noundef nonnull %.130) #16
   store ptr %84, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_args, i64 8), align 8
   call void @qemu_thread_create(ptr noundef nonnull %5, ptr noundef nonnull @.str.11, ptr noundef nonnull @gdbserver_accept_thread, ptr noundef null, i32 noundef 1) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  br label %glib_auto_cleanup_GStrv.exit42
+  br label %glib_auto_cleanup_GStrv.exit45
 
-glib_auto_cleanup_GStrv.exit42:                   ; preds = %glib_auto_cleanup_GStrv.exit, %glib_auto_cleanup_GStrv.exit.thread, %gdbserver_open_socket.exit, %83, %82, %78, %._crit_edge.thread
-  %.2 = phi i1 [ true, %78 ], [ false, %82 ], [ true, %83 ], [ false, %._crit_edge.thread ], [ false, %gdbserver_open_socket.exit ], [ false, %glib_auto_cleanup_GStrv.exit.thread ], [ false, %glib_auto_cleanup_GStrv.exit ]
+glib_auto_cleanup_GStrv.exit43:                   ; preds = %18, %23, %17
+  call void @g_strfreev(ptr noundef nonnull %9) #16
+  br label %glib_auto_cleanup_GStrv.exit45
+
+glib_auto_cleanup_GStrv.exit45:                   ; preds = %gdbserver_open_socket.exit, %glib_auto_cleanup_GStrv.exit43, %83, %82, %78, %._crit_edge.thread
+  %.2 = phi i1 [ true, %78 ], [ false, %82 ], [ true, %83 ], [ false, %._crit_edge.thread ], [ false, %glib_auto_cleanup_GStrv.exit43 ], [ false, %gdbserver_open_socket.exit ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
   call void @g_strfreev(ptr noundef nonnull %6) #16
   ret i1 %.2
@@ -827,7 +823,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 declare void @qemu_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @gdbserver_accept_thread(ptr readnone captures(none) %0) #0 {
+define internal noalias noundef ptr @gdbserver_accept_thread(ptr readnone captures(none) %0) #0 {
   %2 = load i32, ptr @gdbserver_args, align 8
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_args, i64 4), align 4
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_args, i64 8), align 8

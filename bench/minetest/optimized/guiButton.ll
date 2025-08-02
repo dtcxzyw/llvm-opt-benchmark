@@ -2044,8 +2044,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9GUIButton13setSpriteBankEPN3irr3gui14IGUISpriteBankE(ptr noundef nonnull align 8 captures(none) dereferenceable(7452) %this, ptr noundef %sprites) unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN9GUIButton13setSpriteBankEPN3irr3gui14IGUISpriteBankE(ptr noundef nonnull align 8 captures(none) dereferenceable(7452) %this, ptr noundef %sprites) unnamed_addr #7 align 2 {
 entry:
   %tobool.not = icmp eq ptr %sprites, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2125,7 +2125,7 @@ entry:
   %idxprom = zext i32 %state to i64
   %Color.idx = mul nuw nsw i64 %idxprom, 12
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 312
-  %Color = getelementptr i8, ptr %0, i64 %Color.idx
+  %Color = getelementptr inbounds nuw i8, ptr %0, i64 %Color.idx
   %retval.sroa.0.0.copyload = load i32, ptr %Color, align 4, !tbaa !62
   ret i32 %retval.sroa.0.0.copyload
 }
@@ -2136,7 +2136,7 @@ entry:
   %idxprom = zext i32 %state to i64
   %Loop.idx = mul nuw nsw i64 %idxprom, 12
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 316
-  %Loop = getelementptr i8, ptr %0, i64 %Loop.idx
+  %Loop = getelementptr inbounds nuw i8, ptr %0, i64 %Loop.idx
   %1 = load i8, ptr %Loop, align 4, !tbaa !13, !range !54, !noundef !55
   %tobool = icmp ne i8 %1, 0
   ret i1 %tobool
@@ -2148,7 +2148,7 @@ entry:
   %idxprom = zext i32 %state to i64
   %Scale.idx = mul nuw nsw i64 %idxprom, 12
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 317
-  %Scale = getelementptr i8, ptr %0, i64 %Scale.idx
+  %Scale = getelementptr inbounds nuw i8, ptr %0, i64 %Scale.idx
   %1 = load i8, ptr %Scale, align 1, !tbaa !14, !range !54, !noundef !55
   %tobool = icmp ne i8 %1, 0
   ret i1 %tobool
@@ -3580,8 +3580,8 @@ entry:
   ret i1 %tobool
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9GUIButton8setImageEN3irr3gui23EGUI_BUTTON_IMAGE_STATEEPNS0_5video8ITextureERKNS0_4core4rectIiEE(ptr noundef nonnull align 8 captures(none) dereferenceable(7452) %this, i32 noundef %state, ptr noundef %image, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %sourceRect) unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN9GUIButton8setImageEN3irr3gui23EGUI_BUTTON_IMAGE_STATEEPNS0_5video8ITextureERKNS0_4core4rectIiEE(ptr noundef nonnull align 8 captures(none) dereferenceable(7452) %this, i32 noundef %state, ptr noundef %image, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %sourceRect) unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp sgt i32 %state, 8
   br i1 %cmp, label %return, label %if.end
@@ -4695,7 +4695,7 @@ _ZNK9StyleSpec8getColorENS_8PropertyE.exit:       ; preds = %entry
   %conv11 = zext i8 %5 to i64
   %_M_string_length.i.i.i244.idx = mul nuw nsw i64 %conv11, 840
   %6 = getelementptr inbounds nuw i8, ptr %this, i64 688
-  %_M_string_length.i.i.i244 = getelementptr i8, ptr %6, i64 %_M_string_length.i.i.i244.idx
+  %_M_string_length.i.i.i244 = getelementptr inbounds nuw i8, ptr %6, i64 %_M_string_length.i.i.i244.idx
   %7 = load i64, ptr %_M_string_length.i.i.i244, align 8, !tbaa !72
   %cmp.i.i245.not = icmp eq i64 %7, 0
   br i1 %cmp.i.i245.not, label %if.then14, label %if.end86

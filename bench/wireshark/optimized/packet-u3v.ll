@@ -1704,105 +1704,106 @@ define internal fastcc void @dissect_u3v_read_mem_ack(ptr noundef %0, ptr nounde
   br label %dissect_u3v_register_bases.exit
 
 dissect_u3v_register_bases.exit:                  ; preds = %12, %16, %.sink.split26.i
-  br i1 %.not, label %26, label %22
+  br i1 %.not, label %.critedge, label %22
 
 22:                                               ; preds = %dissect_u3v_register_bases.exit
   %23 = call fastcc ptr @get_register_name_from_address(i64 noundef %.32.val, ptr noundef nonnull %6, ptr noundef %4)
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   call void @col_append_str(ptr noundef %25, i32 noundef 25, ptr noundef %23)
-  br label %26
+  %26 = load i32, ptr @hf_u3v_scd_ack_readmem_ack, align 4
+  %27 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef 12, i32 noundef %3, i32 noundef 0)
+  %28 = load i32, ptr @ett_u3v_payload_cmd, align 4
+  %29 = call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28)
+  %30 = load i32, ptr @hf_u3v_address, align 4
+  %31 = call ptr @proto_tree_add_uint64(ptr noundef %29, i32 noundef %30, ptr noundef %1, i32 noundef 0, i32 noundef 0, i64 noundef %.32.val)
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %32
 
-26:                                               ; preds = %22, %dissect_u3v_register_bases.exit
-  %27 = load i32, ptr @hf_u3v_scd_ack_readmem_ack, align 4
-  %28 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef 12, i32 noundef %3, i32 noundef 0)
-  %29 = load i32, ptr @ett_u3v_payload_cmd, align 4
-  %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29)
-  br i1 %.not, label %71, label %31
+32:                                               ; preds = %22
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %34 = load ptr, ptr %33, align 8
+  %.not5.i = icmp eq ptr %34, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %35
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr @hf_u3v_address, align 4
-  %33 = call ptr @proto_tree_add_uint64(ptr noundef %30, i32 noundef %32, ptr noundef %1, i32 noundef 0, i32 noundef 0, i64 noundef %.32.val)
-  %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %34
-
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %36 = load ptr, ptr %35, align 8
-  %.not5.i = icmp eq ptr %36, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %37
-
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 28
-  %39 = load i32, ptr %38, align 4
-  %40 = or i32 %39, 2
-  store i32 %40, ptr %38, align 4
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 28
+  %37 = load i32, ptr %36, align 4
+  %38 = or i32 %37, 2
+  store i32 %38, ptr %36, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %31, %34, %37
-  br i1 %7, label %41, label %44
+proto_item_set_generated.exit:                    ; preds = %22, %32, %35
+  br i1 %7, label %39, label %42
 
-41:                                               ; preds = %proto_item_set_generated.exit
-  %42 = trunc nuw nsw i64 %.32.val to i32
-  %43 = call ptr @try_val_to_str(i32 noundef %42, ptr noundef nonnull @bootstrap_register_names_abrm)
-  br label %44
+39:                                               ; preds = %proto_item_set_generated.exit
+  %40 = trunc nuw nsw i64 %.32.val to i32
+  %41 = call ptr @try_val_to_str(i32 noundef %40, ptr noundef nonnull @bootstrap_register_names_abrm)
+  br label %42
 
-44:                                               ; preds = %41, %proto_item_set_generated.exit
-  %.0.i = phi ptr [ %43, %41 ], [ null, %proto_item_set_generated.exit ]
-  %45 = load i64, ptr %13, align 8
-  %46 = add i64 %45, -1
-  %or.cond.not.i35 = icmp ult i64 %46, %.32.val
-  br i1 %or.cond.not.i35, label %47, label %51
+42:                                               ; preds = %39, %proto_item_set_generated.exit
+  %.0.i = phi ptr [ %41, %39 ], [ null, %proto_item_set_generated.exit ]
+  %43 = load i64, ptr %13, align 8
+  %44 = add i64 %43, -1
+  %or.cond.not.i35 = icmp ult i64 %44, %.32.val
+  br i1 %or.cond.not.i35, label %45, label %49
 
-47:                                               ; preds = %44
-  %48 = sub nuw i64 %.32.val, %45
-  %49 = trunc i64 %48 to i32
-  %50 = call ptr @try_val_to_str(i32 noundef %49, ptr noundef nonnull @bootstrap_register_names_sbrm)
-  br label %51
+45:                                               ; preds = %42
+  %46 = sub nuw i64 %.32.val, %43
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @try_val_to_str(i32 noundef %47, ptr noundef nonnull @bootstrap_register_names_sbrm)
+  br label %49
 
-51:                                               ; preds = %47, %44
-  %.1.i = phi ptr [ %50, %47 ], [ %.0.i, %44 ]
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %53 = load i64, ptr %52, align 8
-  %54 = add i64 %53, -1
-  %or.cond33.not.i = icmp ult i64 %54, %.32.val
-  br i1 %or.cond33.not.i, label %55, label %59
+49:                                               ; preds = %45, %42
+  %.1.i = phi ptr [ %48, %45 ], [ %.0.i, %42 ]
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %51 = load i64, ptr %50, align 8
+  %52 = add i64 %51, -1
+  %or.cond33.not.i = icmp ult i64 %52, %.32.val
+  br i1 %or.cond33.not.i, label %53, label %57
 
-55:                                               ; preds = %51
-  %56 = sub nuw i64 %.32.val, %53
-  %57 = trunc i64 %56 to i32
-  %58 = call ptr @try_val_to_str(i32 noundef %57, ptr noundef nonnull @bootstrap_register_names_sirm)
-  br label %59
+53:                                               ; preds = %49
+  %54 = sub nuw i64 %.32.val, %51
+  %55 = trunc i64 %54 to i32
+  %56 = call ptr @try_val_to_str(i32 noundef %55, ptr noundef nonnull @bootstrap_register_names_sirm)
+  br label %57
 
-59:                                               ; preds = %55, %51
-  %.2.i = phi ptr [ %58, %55 ], [ %.1.i, %51 ]
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %61 = load i64, ptr %60, align 8
-  %62 = add i64 %61, -1
-  %or.cond34.not.i = icmp ult i64 %62, %.32.val
-  br i1 %or.cond34.not.i, label %63, label %is_known_bootstrap_register.exit
+57:                                               ; preds = %53, %49
+  %.2.i = phi ptr [ %56, %53 ], [ %.1.i, %49 ]
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %59 = load i64, ptr %58, align 8
+  %60 = add i64 %59, -1
+  %or.cond34.not.i = icmp ult i64 %60, %.32.val
+  br i1 %or.cond34.not.i, label %61, label %is_known_bootstrap_register.exit
 
-63:                                               ; preds = %59
-  %64 = sub nuw i64 %.32.val, %61
-  %65 = trunc i64 %64 to i32
-  %66 = call ptr @try_val_to_str(i32 noundef %65, ptr noundef nonnull @bootstrap_register_names_eirm)
+61:                                               ; preds = %57
+  %62 = sub nuw i64 %.32.val, %59
+  %63 = trunc i64 %62 to i32
+  %64 = call ptr @try_val_to_str(i32 noundef %63, ptr noundef nonnull @bootstrap_register_names_eirm)
   br label %is_known_bootstrap_register.exit
 
-is_known_bootstrap_register.exit:                 ; preds = %59, %63
-  %.3.i = phi ptr [ %66, %63 ], [ %.2.i, %59 ]
+is_known_bootstrap_register.exit:                 ; preds = %57, %61
+  %.3.i = phi ptr [ %64, %61 ], [ %.2.i, %57 ]
   %.not1 = icmp eq ptr %.3.i, null
-  br i1 %.not1, label %68, label %67
+  br i1 %.not1, label %66, label %65
 
-67:                                               ; preds = %is_known_bootstrap_register.exit
-  call fastcc void @dissect_u3v_register(i64 noundef %.32.val, ptr noundef %30, ptr noundef %1, i32 noundef 12, i32 noundef %3, ptr noundef %4)
-  br label %71
+65:                                               ; preds = %is_known_bootstrap_register.exit
+  call fastcc void @dissect_u3v_register(i64 noundef %.32.val, ptr noundef %29, ptr noundef %1, i32 noundef 12, i32 noundef %3, ptr noundef %4)
+  br label %73
 
-68:                                               ; preds = %is_known_bootstrap_register.exit
-  %69 = load i32, ptr @hf_u3v_custom_memory_data, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %69, ptr noundef %1, i32 noundef 12, i32 noundef %3, i32 noundef 0)
-  br label %71
+66:                                               ; preds = %is_known_bootstrap_register.exit
+  %67 = load i32, ptr @hf_u3v_custom_memory_data, align 4
+  %68 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %67, ptr noundef %1, i32 noundef 12, i32 noundef %3, i32 noundef 0)
+  br label %73
 
-71:                                               ; preds = %67, %68, %26
+.critedge:                                        ; preds = %dissect_u3v_register_bases.exit
+  %69 = load i32, ptr @hf_u3v_scd_ack_readmem_ack, align 4
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %69, ptr noundef %1, i32 noundef 12, i32 noundef %3, i32 noundef 0)
+  %71 = load i32, ptr @ett_u3v_payload_cmd, align 4
+  %72 = tail call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %71)
+  br label %73
+
+73:                                               ; preds = %.critedge, %65, %66
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
   ret void
 }

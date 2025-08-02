@@ -5579,7 +5579,7 @@ ct_sip_header_search.exit:                        ; preds = %17, %25, %28, %.loo
   %54 = select i1 %53, ptr %7, ptr %52
   %55 = getelementptr i8, ptr %54, i64 -10
   %56 = icmp ugt ptr %55, %9
-  br i1 %56, label %57, label %.thread
+  br i1 %56, label %57, label %.critedge
 
 57:                                               ; preds = %ct_sip_header_search.exit
   %58 = ptrtoint ptr %55 to i64
@@ -5596,7 +5596,7 @@ ct_sip_header_search.exit:                        ; preds = %17, %25, %28, %.loo
 62:                                               ; preds = %59, %59
   %63 = getelementptr i8, ptr %60, i64 1
   %64 = icmp ult ptr %63, %55
-  br i1 %64, label %65, label %.thread
+  br i1 %64, label %65, label %.critedge
 
 65:                                               ; preds = %62
   %66 = icmp eq i8 %61, 13
@@ -5610,7 +5610,7 @@ ct_sip_header_search.exit:                        ; preds = %17, %25, %28, %.loo
 70:                                               ; preds = %67
   %71 = getelementptr i8, ptr %60, i64 2
   %72 = icmp ult ptr %71, %55
-  br i1 %72, label %thread-pre-split.i1, label %.thread
+  br i1 %72, label %thread-pre-split.i1, label %.critedge
 
 thread-pre-split.i1:                              ; preds = %70, %65
   %.ph.i2 = phi ptr [ %63, %65 ], [ %71, %70 ]
@@ -5621,7 +5621,7 @@ thread-pre-split.i1:                              ; preds = %70, %65
   %74 = phi i8 [ %.pr.i3, %thread-pre-split.i1 ], [ %68, %67 ]
   %75 = phi ptr [ %.ph.i2, %thread-pre-split.i1 ], [ %63, %67 ]
   %76 = ptrtoint ptr %75 to i64
-  switch i8 %74, label %.thread [
+  switch i8 %74, label %.critedge [
     i8 32, label %77
     i8 9, label %77
   ]
@@ -5651,7 +5651,7 @@ thread-pre-split.i1:                              ; preds = %70, %65
 .loopexit.i4:                                     ; preds = %85, %82, %77
   %88 = phi ptr [ %75, %77 ], [ %81, %85 ], [ %83, %82 ]
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.thread, label %93
+  br i1 %89, label %.critedge, label %93
 
 90:                                               ; preds = %59
   %91 = tail call i32 @strncasecmp(ptr noundef %60, ptr noundef nonnull @.str.50, i64 noundef 10)
@@ -5662,48 +5662,48 @@ thread-pre-split.i1:                              ; preds = %70, %65
   %94 = phi ptr [ %88, %.loopexit.i4 ], [ %60, %90 ]
   %95 = getelementptr i8, ptr %94, i64 1
   %96 = icmp ult ptr %95, %55
-  br i1 %96, label %59, label %.thread, !llvm.loop !17
+  br i1 %96, label %59, label %.critedge, !llvm.loop !17
 
 ct_sip_header_search.exit5:                       ; preds = %90
   %97 = icmp eq ptr %60, null
-  br i1 %97, label %.thread, label %98
+  br i1 %97, label %.critedge, label %ct_sip_header_search.exit10
 
-98:                                               ; preds = %ct_sip_header_search.exit5
-  %99 = getelementptr i8, ptr %60, i64 10
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %1 to i64
-  %102 = sub i64 %100, %101
-  %103 = and i64 %102, 4294967295
-  %104 = getelementptr i8, ptr %1, i64 %103
-  %105 = tail call i32 @strncasecmp(ptr noundef %104, ptr noundef nonnull @.str.51, i64 noundef 3)
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %110, label %107
+ct_sip_header_search.exit10:                      ; preds = %ct_sip_header_search.exit5
+  %98 = getelementptr i8, ptr %60, i64 10
+  %99 = ptrtoint ptr %98 to i64
+  %100 = ptrtoint ptr %1 to i64
+  %101 = sub i64 %99, %100
+  %102 = and i64 %101, 4294967295
+  %103 = getelementptr i8, ptr %1, i64 %102
+  %104 = tail call i32 @strncasecmp(ptr noundef %103, ptr noundef nonnull @.str.51, i64 noundef 3)
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %109, label %106
 
-107:                                              ; preds = %98
-  %108 = tail call i32 @strncasecmp(ptr noundef %104, ptr noundef nonnull @.str.52, i64 noundef 3)
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %118
+106:                                              ; preds = %ct_sip_header_search.exit10
+  %107 = tail call i32 @strncasecmp(ptr noundef %103, ptr noundef nonnull @.str.52, i64 noundef 3)
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %117
 
-110:                                              ; preds = %107, %98
-  %111 = phi i8 [ 6, %98 ], [ 17, %107 ]
-  store i8 %111, ptr %4, align 1
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 70
-  %113 = load i8, ptr %112, align 2
-  %114 = icmp eq i8 %111, %113
-  br i1 %114, label %117, label %118
+109:                                              ; preds = %106, %ct_sip_header_search.exit10
+  %110 = phi i8 [ 6, %ct_sip_header_search.exit10 ], [ 17, %106 ]
+  store i8 %110, ptr %4, align 1
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 70
+  %112 = load i8, ptr %111, align 2
+  %113 = icmp eq i8 %110, %112
+  br i1 %113, label %116, label %117
 
-.thread:                                          ; preds = %.loopexit.i4, %93, %62, %70, %73, %ct_sip_header_search.exit, %ct_sip_header_search.exit5
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 70
-  %116 = load i8, ptr %115, align 2
-  store i8 %116, ptr %4, align 1
+.critedge:                                        ; preds = %.loopexit.i4, %93, %62, %70, %73, %ct_sip_header_search.exit, %ct_sip_header_search.exit5
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 70
+  %115 = load i8, ptr %114, align 2
+  store i8 %115, ptr %4, align 1
+  br label %116
+
+116:                                              ; preds = %.critedge, %109
   br label %117
 
-117:                                              ; preds = %.thread, %110
-  br label %118
-
-118:                                              ; preds = %117, %110, %107
-  %119 = phi i32 [ 1, %117 ], [ 0, %107 ], [ 0, %110 ]
-  ret i32 %119
+117:                                              ; preds = %116, %109, %106
+  %118 = phi i32 [ 1, %116 ], [ 0, %106 ], [ 0, %109 ]
+  ret i32 %118
 }
 
 ; Function Attrs: null_pointer_is_valid

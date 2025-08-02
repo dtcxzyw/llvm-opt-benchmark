@@ -591,20 +591,21 @@ define internal void @cdtoons_flush(ptr noundef readonly captures(none) %0) #2 {
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 0, ptr %4, align 8, !tbaa !28
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 1064
-  br label %6
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1040
+  br label %7
 
-5:                                                ; preds = %6
+6:                                                ; preds = %7
   ret void
 
-6:                                                ; preds = %1, %6
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = shl nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %7
-  store i32 0, ptr %gep, align 8, !tbaa !37
+7:                                                ; preds = %1, %7
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
+  %8 = shl nuw nsw i64 %indvars.iv, 5
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i32 0, ptr %10, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1200
-  br i1 %exitcond.not, label %5, label %6, !llvm.loop !56
+  br i1 %exitcond.not, label %6, label %7, !llvm.loop !56
 }
 
 declare ptr @av_frame_alloc() local_unnamed_addr #3

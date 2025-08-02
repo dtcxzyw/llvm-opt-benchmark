@@ -1191,7 +1191,7 @@ define hidden void @_ZN8G1CMTask17drain_local_queueEb(ptr noundef nonnull align 
   %32 = load volatile i32, ptr %12, align 4
   %33 = sub i32 %25, %32
   %34 = and i32 %33, 131071
-  switch i32 %34, label %.lr.ph.preheader [
+  switch i32 %34, label %.lr.ph [
     i32 131071, label %35
     i32 0, label %35
   ]
@@ -1204,25 +1204,25 @@ define hidden void @_ZN8G1CMTask17drain_local_queueEb(ptr noundef nonnull align 
   %38 = and i64 %36, -4294967296
   %.sroa.3.0.insert.shift13.i.i = add i64 %38, 4294967296
   %.sroa.08.0.insert.insert11.i.i = or disjoint i64 %.sroa.3.0.insert.shift13.i.i, %29
-  br i1 %37, label %39, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit
+  br i1 %37, label %39, label %._crit_edge.i.i
 
 39:                                               ; preds = %35
   %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.08.0.insert.insert11.i.i, i64 %36, ptr nonnull %12) #22, !srcloc !11
   %41 = icmp eq i64 %40, %36
-  br i1 %41, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread23, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit
+  br i1 %41, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i, label %._crit_edge.i.i
 
-_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread23: ; preds = %39
-  %42 = load volatile i32, ptr %12, align 4
-  br label %.lr.ph.preheader
-
-_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit: ; preds = %35, %39
+._crit_edge.i.i:                                  ; preds = %39, %35
   store volatile i64 %.sroa.08.0.insert.insert11.i.i, ptr %12, align 8
-  %43 = load volatile i32, ptr %12, align 4
+  %42 = load volatile i32, ptr %12, align 4
   br label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %24, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread23
-  %.sroa.0.01630 = inttoptr i64 %31 to ptr
-  tail call void @_ZN8G1CMTask23process_grey_task_entryILb1EEEv16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr %.sroa.0.01630)
+_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i: ; preds = %39
+  %43 = load volatile i32, ptr %12, align 4
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %24, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i
+  %.sroa.0.01620 = inttoptr i64 %31 to ptr
+  tail call void @_ZN8G1CMTask23process_grey_task_entryILb1EEEv16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr %.sroa.0.01620)
   %44 = load ptr, ptr %8, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 128
   %46 = load volatile i32, ptr %45, align 4
@@ -1231,17 +1231,17 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.e
   %49 = sub i32 %46, %48
   %50 = and i32 %49, 131071
   %51 = icmp eq i32 %50, 131071
-  %.not1531 = icmp samesign ule i32 %50, %.0
-  %.not32 = select i1 %51, i1 true, i1 %.not1531
+  %.not1521 = icmp samesign ule i32 %50, %.0
+  %.not22 = select i1 %51, i1 true, i1 %.not1521
   %52 = load i8, ptr %3, align 8
   %53 = trunc i8 %52 to i1
-  %or.cond33 = select i1 %.not32, i1 true, i1 %53
-  br i1 %or.cond33, label %.loopexit, label %.lr.ph34
+  %or.cond23 = select i1 %.not22, i1 true, i1 %53
+  br i1 %or.cond23, label %.loopexit, label %.lr.ph24
 
-.lr.ph34:                                         ; preds = %.lr.ph.preheader, %.lr.ph.backedge
-  %54 = phi ptr [ %84, %.lr.ph.backedge ], [ %47, %.lr.ph.preheader ]
-  %55 = phi ptr [ %82, %.lr.ph.backedge ], [ %45, %.lr.ph.preheader ]
-  %56 = phi ptr [ %81, %.lr.ph.backedge ], [ %44, %.lr.ph.preheader ]
+.lr.ph24:                                         ; preds = %.lr.ph, %.critedge.backedge
+  %54 = phi ptr [ %75, %.critedge.backedge ], [ %47, %.lr.ph ]
+  %55 = phi ptr [ %73, %.critedge.backedge ], [ %45, %.lr.ph ]
+  %56 = phi ptr [ %72, %.critedge.backedge ], [ %44, %.lr.ph ]
   %57 = load volatile i32, ptr %55, align 4
   %58 = load volatile i32, ptr %54, align 4
   %59 = sub i32 %57, %58
@@ -1249,7 +1249,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.e
   %.not.i5.not = icmp eq i32 %60, 0
   br i1 %.not.i5.not, label %.loopexit, label %61
 
-61:                                               ; preds = %.lr.ph34
+61:                                               ; preds = %.lr.ph24
   %62 = add i32 %57, 131071
   %63 = and i32 %62, 131071
   store volatile i32 %63, ptr %55, align 4
@@ -1263,54 +1263,54 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.e
   %69 = load volatile i32, ptr %54, align 4
   %70 = sub i32 %62, %69
   %71 = and i32 %70, 131071
-  switch i32 %71, label %.lr.ph.backedge [
-    i32 131071, label %72
-    i32 0, label %72
+  switch i32 %71, label %.critedge.backedge [
+    i32 131071, label %82
+    i32 0, label %82
   ]
 
-72:                                               ; preds = %61, %61
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
-  %73 = load volatile i64, ptr %54, align 8
-  %.sroa.016.0.extract.trunc.i.i7 = trunc i64 %73 to i32
-  %74 = icmp eq i32 %63, %.sroa.016.0.extract.trunc.i.i7
-  %75 = and i64 %73, -4294967296
-  %.sroa.3.0.insert.shift13.i.i8 = add i64 %75, 4294967296
-  %.sroa.08.0.insert.insert11.i.i9 = or disjoint i64 %.sroa.3.0.insert.shift13.i.i8, %66
-  br i1 %74, label %76, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11.thread
-
-76:                                               ; preds = %72
-  %77 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.08.0.insert.insert11.i.i9, i64 %73, ptr nonnull %54) #22, !srcloc !11
-  %78 = icmp eq i64 %77, %73
-  br i1 %78, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11.thread
-
-_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11.thread: ; preds = %72, %76
-  store volatile i64 %.sroa.08.0.insert.insert11.i.i9, ptr %54, align 8
-  %79 = load volatile i32, ptr %54, align 4
-  br label %.loopexit
-
-_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11: ; preds = %76
-  %80 = load volatile i32, ptr %54, align 4
-  br label %.lr.ph.backedge
-
-.lr.ph.backedge:                                  ; preds = %61, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11
+.critedge.backedge:                               ; preds = %61, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11
   %.sroa.0.016 = inttoptr i64 %68 to ptr
   tail call void @_ZN8G1CMTask23process_grey_task_entryILb1EEEv16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr %.sroa.0.016)
-  %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 128
-  %83 = load volatile i32, ptr %82, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 256
-  %85 = load volatile i32, ptr %84, align 4
-  %86 = sub i32 %83, %85
-  %87 = and i32 %86, 131071
-  %88 = icmp eq i32 %87, 131071
-  %.not15 = icmp samesign ule i32 %87, %.0
-  %.not = select i1 %88, i1 true, i1 %.not15
-  %89 = load i8, ptr %3, align 8
-  %90 = trunc i8 %89 to i1
-  %or.cond = select i1 %.not, i1 true, i1 %90
-  br i1 %or.cond, label %.loopexit, label %.lr.ph34, !llvm.loop !12
+  %72 = load ptr, ptr %8, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 128
+  %74 = load volatile i32, ptr %73, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 256
+  %76 = load volatile i32, ptr %75, align 4
+  %77 = sub i32 %74, %76
+  %78 = and i32 %77, 131071
+  %79 = icmp eq i32 %78, 131071
+  %.not15 = icmp samesign ule i32 %78, %.0
+  %.not = select i1 %79, i1 true, i1 %.not15
+  %80 = load i8, ptr %3, align 8
+  %81 = trunc i8 %80 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %81
+  br i1 %or.cond, label %.loopexit, label %.lr.ph24, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.lr.ph.backedge, %.lr.ph34, %.lr.ph.preheader, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11.thread, %19, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit, %2, %6
+82:                                               ; preds = %61, %61
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
+  %83 = load volatile i64, ptr %54, align 8
+  %.sroa.016.0.extract.trunc.i.i7 = trunc i64 %83 to i32
+  %84 = icmp eq i32 %63, %.sroa.016.0.extract.trunc.i.i7
+  %85 = and i64 %83, -4294967296
+  %.sroa.3.0.insert.shift13.i.i8 = add i64 %85, 4294967296
+  %.sroa.08.0.insert.insert11.i.i9 = or disjoint i64 %.sroa.3.0.insert.shift13.i.i8, %66
+  br i1 %84, label %86, label %._crit_edge.i.i10
+
+86:                                               ; preds = %82
+  %87 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.08.0.insert.insert11.i.i9, i64 %83, ptr nonnull %54) #22, !srcloc !11
+  %88 = icmp eq i64 %87, %83
+  br i1 %88, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11, label %._crit_edge.i.i10
+
+._crit_edge.i.i10:                                ; preds = %86, %82
+  store volatile i64 %.sroa.08.0.insert.insert11.i.i9, ptr %54, align 8
+  %89 = load volatile i32, ptr %54, align 4
+  br label %.loopexit
+
+_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.sink.split.i11: ; preds = %86
+  %90 = load volatile i32, ptr %54, align 4
+  br label %.critedge.backedge
+
+.loopexit:                                        ; preds = %.lr.ph24, %.critedge.backedge, %.lr.ph, %._crit_edge.i.i10, %._crit_edge.i.i, %19, %2, %6
   ret void
 }
 
@@ -5890,21 +5890,21 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   store i8 1, ptr %60, align 8
   %61 = load i8, ptr @ParallelRefProcEnabled, align 1
   %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %68
+  br i1 %62, label %63, label %69
 
 63:                                               ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 128
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load i32, ptr %66, align 8
-  br label %68
+  %68 = call i32 @llvm.umax.i32(i32 %67, i32 1)
+  br label %69
 
-68:                                               ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit, %63
-  %69 = phi i32 [ %67, %63 ], [ 1, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 836
-  %71 = load i32, ptr %70, align 4
-  %72 = call noundef i32 @llvm.umax.i32(i32 %69, i32 1)
-  %73 = call noundef i32 @llvm.umin.i32(i32 %72, i32 %71)
+69:                                               ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit, %63
+  %70 = phi i32 [ %68, %63 ], [ 1, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ]
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 836
+  %72 = load i32, ptr %71, align 4
+  %73 = call noundef i32 @llvm.umin.i32(i32 %70, i32 %72)
   call void @_ZN18ReferenceProcessor20set_active_mt_degreeEj(ptr noundef nonnull align 8 dereferenceable(88) %59, i32 noundef %73) #22
   %74 = getelementptr inbounds nuw i8, ptr %59, i64 44
   %75 = load i32, ptr %74, align 4
@@ -5948,7 +5948,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   %or.cond.i.i.i = select i1 %or.cond.i.not16.i.i.i, i1 true, i1 %94
   br i1 %or.cond.i.i.i, label %95, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
-95:                                               ; preds = %68
+95:                                               ; preds = %69
   %96 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #22
   %97 = extractvalue { i64, i64 } %96, 0
   %98 = extractvalue { i64, i64 } %96, 1
@@ -5963,9 +5963,9 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   call void %102(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i.i.i8, i64 %97, i64 %98) #22
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
-_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %99, %95, %68
-  %.sroa.5.021.i.i.i = phi i64 [ %98, %95 ], [ %98, %99 ], [ 0, %68 ]
-  %.sroa.0.020.i.i.i = phi i64 [ %97, %95 ], [ %97, %99 ], [ 0, %68 ]
+_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %99, %95, %69
+  %.sroa.5.021.i.i.i = phi i64 [ %98, %95 ], [ %98, %99 ], [ 0, %69 ]
+  %.sroa.0.020.i.i.i = phi i64 [ %97, %95 ], [ %97, %99 ], [ 0, %69 ]
   %103 = load ptr, ptr %41, align 8
   %.not.i6.i.i.i = icmp eq ptr %103, null
   br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %104

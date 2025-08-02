@@ -929,7 +929,7 @@ declare i64 @uv__strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @uv_err_name(i32 noundef %err) local_unnamed_addr #0 {
+define dso_local nonnull ptr @uv_err_name(i32 noundef %err) local_unnamed_addr #0 {
 entry:
   switch i32 %err, label %sw.epilog [
     i32 -7, label %return
@@ -1277,7 +1277,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uv__unknown_err_code(i32 noundef %err) unnamed_addr #0 {
+define internal fastcc nonnull ptr @uv__unknown_err_code(i32 noundef %err) unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull @.str.84, i32 noundef %err) #26
@@ -1738,7 +1738,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @uv_strerror(i32 noundef %err) local_unnamed_addr #0 {
+define dso_local nonnull ptr @uv_strerror(i32 noundef %err) local_unnamed_addr #0 {
 entry:
   switch i32 %err, label %sw.epilog [
     i32 -7, label %return

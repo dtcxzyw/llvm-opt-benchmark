@@ -991,7 +991,7 @@ entry:
   %idxprom = zext i32 %state to i64
   %Color.idx = mul nuw nsw i64 %idxprom, 12
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 312
-  %Color = getelementptr i8, ptr %0, i64 %Color.idx
+  %Color = getelementptr inbounds nuw i8, ptr %0, i64 %Color.idx
   %retval.sroa.0.0.copyload = load i32, ptr %Color, align 4, !tbaa !62
   ret i32 %retval.sroa.0.0.copyload
 }
@@ -1002,7 +1002,7 @@ entry:
   %idxprom = zext i32 %state to i64
   %Loop.idx = mul nuw nsw i64 %idxprom, 12
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 316
-  %Loop = getelementptr i8, ptr %0, i64 %Loop.idx
+  %Loop = getelementptr inbounds nuw i8, ptr %0, i64 %Loop.idx
   %1 = load i8, ptr %Loop, align 4, !tbaa !12, !range !47, !noundef !48
   %tobool = icmp ne i8 %1, 0
   ret i1 %tobool
@@ -1014,7 +1014,7 @@ entry:
   %idxprom = zext i32 %state to i64
   %Scale.idx = mul nuw nsw i64 %idxprom, 12
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 317
-  %Scale = getelementptr i8, ptr %0, i64 %Scale.idx
+  %Scale = getelementptr inbounds nuw i8, ptr %0, i64 %Scale.idx
   %1 = load i8, ptr %Scale, align 1, !tbaa !13, !range !47, !noundef !48
   %tobool = icmp ne i8 %1, 0
   ret i1 %tobool

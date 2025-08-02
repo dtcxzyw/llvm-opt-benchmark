@@ -67,7 +67,7 @@ define dso_local void @cgroup_rstat_updated(ptr noundef %0, i32 noundef %1) #0 a
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 104
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.lr.ph, label %.thread
+  br i1 %25, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %16, %30
   %26 = phi ptr [ %43, %30 ], [ %23, %16 ]
@@ -76,11 +76,7 @@ define dso_local void @cgroup_rstat_updated(ptr noundef %0, i32 noundef %1) #0 a
   %.in = getelementptr inbounds nuw i8, ptr %28, i64 192
   %29 = load ptr, ptr %.in, align 64
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.thread1, label %30
-
-.thread1:                                         ; preds = %.lr.ph
-  store ptr %28, ptr %26, align 8
-  br label %.thread
+  br i1 %.not, label %.critedge2, label %30
 
 30:                                               ; preds = %.lr.ph
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 752
@@ -100,13 +96,17 @@ define dso_local void @cgroup_rstat_updated(ptr noundef %0, i32 noundef %1) #0 a
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 104
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.lr.ph, label %.thread
+  br i1 %45, label %.lr.ph, label %.critedge
 
-.thread:                                          ; preds = %30, %16, %.thread1
+.critedge2:                                       ; preds = %.lr.ph
+  store ptr %28, ptr %26, align 8
+  br label %.critedge
+
+.critedge:                                        ; preds = %30, %16, %.critedge2
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %17) #9
   br label %46
 
-46:                                               ; preds = %.thread, %2
+46:                                               ; preds = %.critedge, %2
   ret void
 }
 
@@ -723,7 +723,7 @@ define dso_local void @__cgroup_account_cputime(ptr noundef %0, i64 noundef %1) 
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.lr.ph.i, label %.thread.i
+  br i1 %32, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %23, %37
   %33 = phi ptr [ %50, %37 ], [ %30, %23 ]
@@ -732,11 +732,7 @@ define dso_local void @__cgroup_account_cputime(ptr noundef %0, i64 noundef %1) 
   %.in.i = getelementptr inbounds nuw i8, ptr %35, i64 192
   %36 = load ptr, ptr %.in.i, align 64
   %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %.thread1.i, label %37
-
-.thread1.i:                                       ; preds = %.lr.ph.i
-  store ptr %35, ptr %33, align 8
-  br label %.thread.i
+  br i1 %.not.i, label %.critedge2.i, label %37
 
 37:                                               ; preds = %.lr.ph.i
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 752
@@ -756,13 +752,17 @@ define dso_local void @__cgroup_account_cputime(ptr noundef %0, i64 noundef %1) 
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 104
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.lr.ph.i, label %.thread.i
+  br i1 %52, label %.lr.ph.i, label %.critedge.i
 
-.thread.i:                                        ; preds = %37, %.thread1.i, %23
+.critedge2.i:                                     ; preds = %.lr.ph.i
+  store ptr %35, ptr %33, align 8
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %37, %.critedge2.i, %23
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %15, i64 noundef %24) #9
   br label %cgroup_rstat_updated.exit
 
-cgroup_rstat_updated.exit:                        ; preds = %2, %.thread.i
+cgroup_rstat_updated.exit:                        ; preds = %2, %.critedge.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !36
   %53 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #9, !srcloc !37
   %54 = icmp ult i8 %53, 2
@@ -833,7 +833,7 @@ define dso_local void @__cgroup_account_cputime_field(ptr noundef %0, i32 nounde
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.lr.ph.i, label %.thread.i
+  br i1 %37, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %28, %42
   %38 = phi ptr [ %55, %42 ], [ %35, %28 ]
@@ -842,11 +842,7 @@ define dso_local void @__cgroup_account_cputime_field(ptr noundef %0, i32 nounde
   %.in.i = getelementptr inbounds nuw i8, ptr %40, i64 192
   %41 = load ptr, ptr %.in.i, align 64
   %.not.i = icmp eq ptr %41, null
-  br i1 %.not.i, label %.thread1.i, label %42
-
-.thread1.i:                                       ; preds = %.lr.ph.i
-  store ptr %40, ptr %38, align 8
-  br label %.thread.i
+  br i1 %.not.i, label %.critedge2.i, label %42
 
 42:                                               ; preds = %.lr.ph.i
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 752
@@ -866,13 +862,17 @@ define dso_local void @__cgroup_account_cputime_field(ptr noundef %0, i32 nounde
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 104
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.lr.ph.i, label %.thread.i
+  br i1 %57, label %.lr.ph.i, label %.critedge.i
 
-.thread.i:                                        ; preds = %42, %.thread1.i, %28
+.critedge2.i:                                     ; preds = %.lr.ph.i
+  store ptr %40, ptr %38, align 8
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %42, %.critedge2.i, %28
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %20, i64 noundef %29) #9
   br label %cgroup_rstat_updated.exit
 
-cgroup_rstat_updated.exit:                        ; preds = %14, %.thread.i
+cgroup_rstat_updated.exit:                        ; preds = %14, %.critedge.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !36
   %58 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #9, !srcloc !37
   %59 = icmp ult i8 %58, 2

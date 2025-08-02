@@ -40,21 +40,21 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr noundef writeonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %.critedge, label %5, !prof !7
+  br i1 %cond, label %.critedge.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %33
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.critedge.critedge
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -95,7 +95,7 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr noundef writeonly captur
   store i32 3, ptr %32, align 8, !tbaa !4
   br label %34
 
-33:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedge.critedge
   tail call fastcc void @ctype_fallback(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @isalnum, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %34
 
@@ -179,21 +179,21 @@ define hidden void @zif_ctype_alpha(ptr noundef %0, ptr noundef writeonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %.critedge, label %5, !prof !7
+  br i1 %cond, label %.critedge.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %33
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.critedge.critedge
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -234,7 +234,7 @@ define hidden void @zif_ctype_alpha(ptr noundef %0, ptr noundef writeonly captur
   store i32 3, ptr %32, align 8, !tbaa !4
   br label %34
 
-33:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedge.critedge
   tail call fastcc void @ctype_fallback(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @isalpha, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %34
 
@@ -250,21 +250,21 @@ define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr noundef writeonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %.critedge, label %5, !prof !7
+  br i1 %cond, label %.critedge.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %33
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.critedge.critedge
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -305,7 +305,7 @@ define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr noundef writeonly captur
   store i32 3, ptr %32, align 8, !tbaa !4
   br label %34
 
-33:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedge.critedge
   tail call fastcc void @ctype_fallback(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @iscntrl, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %34
 
@@ -321,21 +321,21 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr noundef writeonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %.critedge, label %5, !prof !7
+  br i1 %cond, label %.critedge.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %33
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.critedge.critedge
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -376,7 +376,7 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr noundef writeonly captur
   store i32 3, ptr %32, align 8, !tbaa !4
   br label %34
 
-33:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedge.critedge
   tail call fastcc void @ctype_fallback(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @isdigit, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %34
 
@@ -392,21 +392,21 @@ define hidden void @zif_ctype_lower(ptr noundef %0, ptr noundef writeonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %.critedge, label %5, !prof !7
+  br i1 %cond, label %.critedge.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %33
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.critedge.critedge
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -447,7 +447,7 @@ define hidden void @zif_ctype_lower(ptr noundef %0, ptr noundef writeonly captur
   store i32 3, ptr %32, align 8, !tbaa !4
   br label %34
 
-33:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedge.critedge
   tail call fastcc void @ctype_fallback(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @islower, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %34
 
@@ -463,21 +463,21 @@ define hidden void @zif_ctype_graph(ptr noundef %0, ptr noundef writeonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %.critedge, label %5, !prof !7
+  br i1 %cond, label %.critedge.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %33
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %32
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.critedge.critedge
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -517,7 +517,7 @@ define hidden void @zif_ctype_graph(ptr noundef %0, ptr noundef writeonly captur
   store i32 3, ptr %31, align 8, !tbaa !4
   br label %33
 
-32:                                               ; preds = %.critedge
+32:                                               ; preds = %.critedge.critedge
   tail call fastcc void @ctype_fallback(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @isgraph, i1 noundef zeroext true, i1 noundef zeroext true)
   br label %33
 
@@ -533,21 +533,21 @@ define hidden void @zif_ctype_print(ptr noundef %0, ptr noundef writeonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %.critedge, label %5, !prof !7
+  br i1 %cond, label %.critedge.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %33
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.critedge.critedge
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -588,7 +588,7 @@ define hidden void @zif_ctype_print(ptr noundef %0, ptr noundef writeonly captur
   store i32 3, ptr %32, align 8, !tbaa !4
   br label %34
 
-33:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedge.critedge
   tail call fastcc void @ctype_fallback(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @isprint, i1 noundef zeroext true, i1 noundef zeroext true)
   br label %34
 
@@ -604,21 +604,21 @@ define hidden void @zif_ctype_punct(ptr noundef %0, ptr noundef writeonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %.critedge, label %5, !prof !7
+  br i1 %cond, label %.critedge.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %33
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.critedge.critedge
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -659,7 +659,7 @@ define hidden void @zif_ctype_punct(ptr noundef %0, ptr noundef writeonly captur
   store i32 3, ptr %32, align 8, !tbaa !4
   br label %34
 
-33:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedge.critedge
   tail call fastcc void @ctype_fallback(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @ispunct, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %34
 
@@ -675,21 +675,21 @@ define hidden void @zif_ctype_space(ptr noundef %0, ptr noundef writeonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %.critedge, label %5, !prof !7
+  br i1 %cond, label %.critedge.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %33
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.critedge.critedge
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -730,7 +730,7 @@ define hidden void @zif_ctype_space(ptr noundef %0, ptr noundef writeonly captur
   store i32 3, ptr %32, align 8, !tbaa !4
   br label %34
 
-33:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedge.critedge
   tail call fastcc void @ctype_fallback(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @isspace, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %34
 
@@ -746,21 +746,21 @@ define hidden void @zif_ctype_upper(ptr noundef %0, ptr noundef writeonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %.critedge, label %5, !prof !7
+  br i1 %cond, label %.critedge.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %33
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.critedge.critedge
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -801,7 +801,7 @@ define hidden void @zif_ctype_upper(ptr noundef %0, ptr noundef writeonly captur
   store i32 3, ptr %32, align 8, !tbaa !4
   br label %34
 
-33:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedge.critedge
   tail call fastcc void @ctype_fallback(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @isupper, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %34
 
@@ -817,21 +817,21 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr noundef writeonly captu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %.critedge, label %5, !prof !7
+  br i1 %cond, label %.critedge.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
-.critedge:                                        ; preds = %2
+.critedge.critedge:                               ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %33
 
-10:                                               ; preds = %.critedge
+10:                                               ; preds = %.critedge.critedge
   %11 = load ptr, ptr %6, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -872,7 +872,7 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr noundef writeonly captu
   store i32 3, ptr %32, align 8, !tbaa !4
   br label %34
 
-33:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedge.critedge
   tail call fastcc void @ctype_fallback(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @isxdigit, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %34
 

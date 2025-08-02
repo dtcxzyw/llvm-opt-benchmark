@@ -5504,7 +5504,7 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl1
   %11 = sdiv i32 %10, 3
   %.off = add i32 %10, 2
   %12 = icmp ult i32 %.off, 5
-  br i1 %12, label %109, label %13
+  br i1 %12, label %110, label %13
 
 13:                                               ; preds = %3
   %14 = sext i32 %5 to i64
@@ -5543,7 +5543,7 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl1
   %45 = load float, ptr %44, align 4, !tbaa !41
   %46 = fsub float %2, %27
   %47 = tail call float @llvm.fmuladd.f32(float %46, float %40, float %45)
-  br label %109
+  br label %110
 
 48:                                               ; preds = %13
   %49 = fcmp ult float %2, %32
@@ -5555,9 +5555,8 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl1
   br i1 %51, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %invariant.gep = getelementptr i8, ptr %25, i64 4
   %wide.trip.count = zext nneg i32 %50 to i64
-  %invariant.gep79 = getelementptr float, ptr %invariant.gep, i64 %24
+  %invariant.gep = getelementptr float, ptr %25, i64 %24
   br label %.lr.ph
 
 52:                                               ; preds = %48
@@ -5589,54 +5588,55 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl1
   %78 = tail call float @llvm.fmuladd.f32(float %77, float %74, float %71)
   %79 = fsub float %2, %32
   %80 = tail call float @llvm.fmuladd.f32(float %79, float %76, float %78)
-  br label %109
+  br label %110
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %83
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %83 ]
-  %gep80 = getelementptr float, ptr %invariant.gep79, i64 %indvars.iv
-  %81 = load float, ptr %gep80, align 4, !tbaa !41
-  %82 = fcmp olt float %2, %81
-  br i1 %82, label %._crit_edge.loopexit.split.loop.exit, label %83
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %84
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %84 ]
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %81 = getelementptr i8, ptr %gep, i64 4
+  %82 = load float, ptr %81, align 4, !tbaa !41
+  %83 = fcmp olt float %2, %82
+  br i1 %83, label %._crit_edge.loopexit.split.loop.exit, label %84
 
-83:                                               ; preds = %.lr.ph
+84:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %84 = trunc nuw nsw i64 %indvars.iv to i32
+  %85 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %83, %._crit_edge.loopexit.split.loop.exit, %.preheader
-  %.067.lcssa = phi i32 [ 0, %.preheader ], [ %84, %._crit_edge.loopexit.split.loop.exit ], [ %50, %83 ]
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %86 = add nsw i32 %.067.lcssa, %16
-  %87 = sext i32 %86 to i64
-  %88 = load ptr, ptr %85, align 8, !tbaa !37
-  %89 = getelementptr inbounds nuw float, ptr %88, i64 %87
-  %90 = load float, ptr %89, align 4, !tbaa !41
-  %91 = add nsw i32 %16, %11
-  %92 = add nsw i32 %91, %.067.lcssa
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds nuw float, ptr %88, i64 %93
-  %95 = load float, ptr %94, align 4, !tbaa !41
-  %96 = shl nsw i32 %11, 1
-  %97 = add nsw i32 %16, %96
-  %98 = add nsw i32 %97, %.067.lcssa
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds nuw float, ptr %88, i64 %99
-  %101 = load float, ptr %100, align 4, !tbaa !41
-  %102 = add nsw i32 %.067.lcssa, %22
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds nuw float, ptr %25, i64 %103
-  %105 = load float, ptr %104, align 4, !tbaa !41
-  %106 = fsub float %2, %105
-  %107 = tail call float @llvm.fmuladd.f32(float %90, float %106, float %95)
-  %108 = tail call float @llvm.fmuladd.f32(float %107, float %106, float %101)
-  br label %109
+._crit_edge:                                      ; preds = %84, %._crit_edge.loopexit.split.loop.exit, %.preheader
+  %.067.lcssa = phi i32 [ 0, %.preheader ], [ %85, %._crit_edge.loopexit.split.loop.exit ], [ %50, %84 ]
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %87 = add nsw i32 %.067.lcssa, %16
+  %88 = sext i32 %87 to i64
+  %89 = load ptr, ptr %86, align 8, !tbaa !37
+  %90 = getelementptr inbounds nuw float, ptr %89, i64 %88
+  %91 = load float, ptr %90, align 4, !tbaa !41
+  %92 = add nsw i32 %16, %11
+  %93 = add nsw i32 %92, %.067.lcssa
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds nuw float, ptr %89, i64 %94
+  %96 = load float, ptr %95, align 4, !tbaa !41
+  %97 = shl nsw i32 %11, 1
+  %98 = add nsw i32 %16, %97
+  %99 = add nsw i32 %98, %.067.lcssa
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds nuw float, ptr %89, i64 %100
+  %102 = load float, ptr %101, align 4, !tbaa !41
+  %103 = add nsw i32 %.067.lcssa, %22
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds nuw float, ptr %25, i64 %104
+  %106 = load float, ptr %105, align 4, !tbaa !41
+  %107 = fsub float %2, %106
+  %108 = tail call float @llvm.fmuladd.f32(float %91, float %107, float %96)
+  %109 = tail call float @llvm.fmuladd.f32(float %108, float %107, float %102)
+  br label %110
 
-109:                                              ; preds = %34, %52, %._crit_edge, %3
-  %.0 = phi float [ %2, %3 ], [ %47, %34 ], [ %80, %52 ], [ %108, %._crit_edge ]
+110:                                              ; preds = %34, %52, %._crit_edge, %3
+  %.0 = phi float [ %2, %3 ], [ %47, %34 ], [ %80, %52 ], [ %109, %._crit_edge ]
   ret float %.0
 }
 
@@ -5654,7 +5654,7 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl1
   %10 = load i32, ptr %9, align 4, !tbaa !21
   %.off = add i32 %10, 2
   %11 = icmp ult i32 %.off, 5
-  br i1 %11, label %109, label %12
+  br i1 %11, label %110, label %12
 
 12:                                               ; preds = %3
   %13 = sdiv i32 %10, 3
@@ -5702,7 +5702,7 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl1
   %53 = fdiv float %52, %49
   %54 = fadd float %48, %53
   %55 = select i1 %51, float %48, float %54
-  br label %109
+  br label %110
 
 56:                                               ; preds = %12
   %57 = getelementptr i8, ptr %27, i64 -8
@@ -5725,9 +5725,8 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl1
   br i1 %70, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %invariant.gep = getelementptr i8, ptr %34, i64 4
   %wide.trip.count = zext nneg i32 %69 to i64
-  %invariant.gep102 = getelementptr float, ptr %invariant.gep, i64 %33
+  %invariant.gep = getelementptr float, ptr %34, i64 %33
   br label %.lr.ph
 
 71:                                               ; preds = %56
@@ -5735,62 +5734,63 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl1
   %73 = tail call float @llvm.fmuladd.f32(float %72, float %65, float %43)
   %74 = tail call noundef float @llvm.fabs.f32(float %73)
   %75 = fcmp olt float %74, 0x3EE4F8B580000000
-  br i1 %75, label %109, label %76
+  br i1 %75, label %110, label %76
 
 76:                                               ; preds = %71
   %77 = fsub float %2, %67
   %78 = fdiv float %77, %73
   %79 = fadd float %29, %78
-  br label %109
+  br label %110
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %82
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %82 ]
-  %gep103 = getelementptr float, ptr %invariant.gep102, i64 %indvars.iv
-  %80 = load float, ptr %gep103, align 4, !tbaa !41
-  %81 = fcmp olt float %2, %80
-  br i1 %81, label %._crit_edge.loopexit.split.loop.exit, label %82
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %83
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %83 ]
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %80 = getelementptr i8, ptr %gep, i64 4
+  %81 = load float, ptr %80, align 4, !tbaa !41
+  %82 = fcmp olt float %2, %81
+  br i1 %82, label %._crit_edge.loopexit.split.loop.exit, label %83
 
-82:                                               ; preds = %.lr.ph
+83:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %83 = trunc nuw nsw i64 %indvars.iv to i32
+  %84 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %82, %._crit_edge.loopexit.split.loop.exit, %.preheader
-  %.092.lcssa = phi i32 [ 0, %.preheader ], [ %83, %._crit_edge.loopexit.split.loop.exit ], [ %69, %82 ]
-  %84 = add nsw i32 %.092.lcssa, %16
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds nuw float, ptr %34, i64 %85
-  %87 = load float, ptr %86, align 4, !tbaa !41
-  %88 = add nsw i32 %.092.lcssa, %37
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds nuw float, ptr %34, i64 %89
-  %91 = load float, ptr %90, align 4, !tbaa !41
-  %92 = add nsw i32 %.092.lcssa, %32
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds nuw float, ptr %34, i64 %93
-  %95 = load float, ptr %94, align 4, !tbaa !41
-  %96 = add nsw i32 %.092.lcssa, %22
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds nuw float, ptr %24, i64 %97
-  %99 = load float, ptr %98, align 4, !tbaa !41
-  %100 = fsub float %95, %2
-  %101 = fmul float %87, 4.000000e+00
-  %102 = fneg float %100
-  %103 = fmul float %101, %102
-  %104 = tail call float @llvm.fmuladd.f32(float %91, float %91, float %103)
-  %sqrtf = tail call float @sqrtf(float noundef %104) #16
-  %105 = fmul float %100, 2.000000e+00
-  %106 = fadd float %91, %sqrtf
-  %107 = fdiv float %105, %106
-  %108 = fsub float %99, %107
-  br label %109
+._crit_edge:                                      ; preds = %83, %._crit_edge.loopexit.split.loop.exit, %.preheader
+  %.092.lcssa = phi i32 [ 0, %.preheader ], [ %84, %._crit_edge.loopexit.split.loop.exit ], [ %69, %83 ]
+  %85 = add nsw i32 %.092.lcssa, %16
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds nuw float, ptr %34, i64 %86
+  %88 = load float, ptr %87, align 4, !tbaa !41
+  %89 = add nsw i32 %.092.lcssa, %37
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds nuw float, ptr %34, i64 %90
+  %92 = load float, ptr %91, align 4, !tbaa !41
+  %93 = add nsw i32 %.092.lcssa, %32
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds nuw float, ptr %34, i64 %94
+  %96 = load float, ptr %95, align 4, !tbaa !41
+  %97 = add nsw i32 %.092.lcssa, %22
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds nuw float, ptr %24, i64 %98
+  %100 = load float, ptr %99, align 4, !tbaa !41
+  %101 = fsub float %96, %2
+  %102 = fmul float %88, 4.000000e+00
+  %103 = fneg float %101
+  %104 = fmul float %102, %103
+  %105 = tail call float @llvm.fmuladd.f32(float %92, float %92, float %104)
+  %sqrtf = tail call float @sqrtf(float noundef %105) #16
+  %106 = fmul float %101, 2.000000e+00
+  %107 = fadd float %92, %sqrtf
+  %108 = fdiv float %106, %107
+  %109 = fsub float %100, %108
+  br label %110
 
-109:                                              ; preds = %45, %._crit_edge, %71, %76, %3
-  %.0 = phi float [ %2, %3 ], [ %55, %45 ], [ %108, %._crit_edge ], [ %79, %76 ], [ %29, %71 ]
+110:                                              ; preds = %45, %._crit_edge, %71, %76, %3
+  %.0 = phi float [ %2, %3 ], [ %55, %45 ], [ %109, %._crit_edge ], [ %79, %76 ], [ %29, %71 ]
   ret float %.0
 }
 

@@ -923,22 +923,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6Appen
 
 _ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15Tf_HashStateAPIINS_12Tf_HashStateEE6AppendIJRKSt10shared_ptrINS_17ArResolverContext8_UntypedEEEEEvDpOT_.exit.i.i.i.i.i.i.i.i.i
   %42 = mul i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -7046029254386353067
+  %43 = tail call i64 @llvm.bswap.i64(i64 %42)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__6TfHash12_CombineImplINS_12Tf_HashStateERKNS_9TfWeakPtrINS_8SdfLayerEEEJRKNS_17ArResolverContextERKNS_28PcpExpressionVariablesSourceEEEEvRT_OT0_DpOT1_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__6TfHash12_CombineImplINS_12Tf_HashStateERKNS_9TfWeakPtrINS_8SdfLayerEEEJRKNS_17ArResolverContextERKNS_28PcpExpressionVariablesSourceEEEEvRT_OT0_DpOT1_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_9TfWeakPtrINS_8SdfLayerEEEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS7_i.exit.i
-  %.sroa.0.1.i.i.i.i.i = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_9TfWeakPtrINS_8SdfLayerEEEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS7_i.exit.i ], [ %42, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i.i.i.i ]
-  %43 = add i64 %20, %12
-  %44 = add i64 %43, 1
-  %45 = mul i64 %44, %43
-  %46 = lshr i64 %45, 1
-  %47 = add i64 %46, %20
-  %48 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.0.1.i.i.i.i.i)
-  %49 = add i64 %47, %48
+  %.sroa.0.1.i.i.i.i.i = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_9TfWeakPtrINS_8SdfLayerEEEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS7_i.exit.i ], [ %43, %_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKSt6vectorISt10shared_ptrINS_17ArResolverContext8_UntypedEESaIS6_EEEEDTcmcl12TfHashAppendfp_clsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OSB_i.exit.loopexit.i.i.i.i.i ]
+  %44 = add i64 %20, %12
+  %45 = add i64 %44, 1
+  %46 = mul i64 %45, %44
+  %47 = lshr i64 %46, 1
+  %48 = add i64 %47, %20
+  %49 = add i64 %48, %.sroa.0.1.i.i.i.i.i
   %50 = add i64 %49, 1
   %51 = mul i64 %50, %49
   %52 = lshr i64 %51, 1
   %53 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSource7GetHashEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %54 = add i64 %53, %48
+  %54 = add i64 %53, %.sroa.0.1.i.i.i.i.i
   %55 = add i64 %54, %52
   %56 = add i64 %55, 1
   %57 = mul i64 %56, %55

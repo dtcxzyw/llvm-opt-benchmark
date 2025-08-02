@@ -319,7 +319,7 @@ declare dso_local ptr @bitmap_zalloc(i32 noundef, i32 noundef) local_unnamed_add
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @acpi_os_allocate_zeroed(i64 noundef range(i64 0, 4294967296) %0) unnamed_addr #3 align 16 {
+define internal fastcc noalias ptr @acpi_os_allocate_zeroed(i64 noundef range(i64 0, 4294967296) %0) unnamed_addr #3 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
   store i64 0, ptr %2, align 8, !annotation !16

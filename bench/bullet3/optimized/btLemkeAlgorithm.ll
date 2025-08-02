@@ -505,7 +505,7 @@ _ZN9btMatrixXIfE12setSubMatrixEiiiif.exit:        ; preds = %._crit_edge19.split
   store i32 0, ptr %156, align 4, !tbaa !51
   %157 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %157, align 8, !tbaa !52
-  br i1 %20, label %.lr.ph, label %._crit_edge.thread
+  br i1 %20, label %.lr.ph, label %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread.critedge
 
 .lr.ph241:                                        ; preds = %183
   %158 = load i32, ptr %73, align 4, !tbaa !32
@@ -601,13 +601,6 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %_ZNK20btAlignedO
   %192 = landingpad { ptr, i32 }
           cleanup
   br label %443
-
-._crit_edge.thread:                               ; preds = %153
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
-  store i32 -1, ptr %9, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #15
-  store i32 %15, ptr %10, align 4, !tbaa !10
-  br label %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread
 
 ._crit_edge:                                      ; preds = %193
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
@@ -974,9 +967,16 @@ _ZN16btLemkeAlgorithm26GaussJordanEliminationStepER9btMatrixXIfEiiRK20btAlignedO
   %.not.i192 = icmp slt i32 %319, %315
   br i1 %.not.i192, label %316, label %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit
 
-_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread: ; preds = %316, %._crit_edge.thread, %._crit_edge
-  %320 = phi ptr [ %184, %._crit_edge ], [ null, %._crit_edge.thread ], [ %184, %316 ]
-  %321 = phi i32 [ %189, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %313, %316 ]
+_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread.critedge: ; preds = %153
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  store i32 -1, ptr %9, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #15
+  store i32 %15, ptr %10, align 4, !tbaa !10
+  br label %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread
+
+_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread: ; preds = %316, %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread.critedge, %._crit_edge
+  %320 = phi ptr [ null, %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread.critedge ], [ %184, %._crit_edge ], [ %184, %316 ]
+  %321 = phi i32 [ 0, %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread.critedge ], [ %189, %._crit_edge ], [ %313, %316 ]
   %322 = icmp sgt i32 %321, 0
   br i1 %322, label %.lr.ph245, label %_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit
 
@@ -987,14 +987,14 @@ _ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE.exit.thread: ; pre
   %326 = sext i32 %323 to i64
   %327 = sext i32 %140 to i64
   %wide.trip.count259 = zext nneg i32 %321 to i64
-  %invariant.gep268 = getelementptr float, ptr %324, i64 %327
+  %invariant.gep265 = getelementptr float, ptr %324, i64 %327
   br label %328
 
 328:                                              ; preds = %.lr.ph245, %328
   %indvars.iv256 = phi i64 [ 0, %.lr.ph245 ], [ %indvars.iv.next257, %328 ]
   %329 = mul nsw i64 %indvars.iv256, %326
-  %gep269 = getelementptr float, ptr %invariant.gep268, i64 %329
-  %330 = load float, ptr %gep269, align 4, !tbaa !4
+  %gep266 = getelementptr float, ptr %invariant.gep265, i64 %329
+  %330 = load float, ptr %gep266, align 4, !tbaa !4
   %331 = getelementptr inbounds nuw i32, ptr %320, i64 %indvars.iv256
   %332 = load i32, ptr %331, align 4, !tbaa !10
   %333 = sext i32 %332 to i64

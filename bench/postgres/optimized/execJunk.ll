@@ -26,7 +26,7 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
   %.0 = phi ptr [ %1, %4 ], [ %6, %5 ]
   %8 = load i32, ptr %3, align 8
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %10, label %.thread
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %7
   %11 = shl nuw i32 %8, 1
@@ -34,18 +34,18 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
   %13 = tail call ptr @palloc(i64 noundef %12) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not33 = icmp eq ptr %0, null
-  br i1 %.not33, label %.thread, label %.lr.ph
+  br i1 %.not33, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %14, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph42, label %.thread
+  br i1 %17, label %.lr.ph40, label %.critedge
 
-.lr.ph42:                                         ; preds = %.lr.ph, %31
+.lr.ph40:                                         ; preds = %.lr.ph, %31
   %18 = phi i32 [ %32, %31 ], [ %16, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
-  %.0283741 = phi i16 [ %.1, %31 ], [ 0, %.lr.ph ]
+  %.0283539 = phi i16 [ %.1, %31 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %15, align 8
   %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
@@ -54,25 +54,25 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
-25:                                               ; preds = %.lr.ph42
+25:                                               ; preds = %.lr.ph40
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load i16, ptr %26, align 8
-  %28 = sext i16 %.0283741 to i64
+  %28 = sext i16 %.0283539 to i64
   %29 = getelementptr inbounds i16, ptr %13, i64 %28
   store i16 %27, ptr %29, align 2
-  %30 = add i16 %.0283741, 1
+  %30 = add i16 %.0283539, 1
   %.pre = load i32, ptr %14, align 4
   br label %31
 
-31:                                               ; preds = %25, %.lr.ph42
-  %32 = phi i32 [ %18, %.lr.ph42 ], [ %.pre, %25 ]
-  %.1 = phi i16 [ %.0283741, %.lr.ph42 ], [ %30, %25 ]
+31:                                               ; preds = %25, %.lr.ph40
+  %32 = phi i32 [ %18, %.lr.ph40 ], [ %.pre, %25 ]
+  %.1 = phi i16 [ %.0283539, %.lr.ph40 ], [ %30, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph42, label %.thread
+  br i1 %34, label %.lr.ph40, label %.critedge
 
-.thread:                                          ; preds = %31, %10, %.lr.ph, %7
+.critedge:                                        ; preds = %31, %10, %.lr.ph, %7
   %.027 = phi ptr [ null, %7 ], [ %13, %.lr.ph ], [ %13, %10 ], [ %13, %31 ]
   %35 = tail call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 384, ptr %35, align 4
@@ -128,7 +128,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %14, %10
   %17 = phi ptr [ %16, %14 ], [ null, %10 ]
-  %18 = getelementptr i8, ptr %1, i64 33
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %19 = getelementptr i8, ptr %0, i64 4
   %20 = getelementptr i8, ptr %0, i64 16
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -138,7 +138,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.03138 = phi ptr [ %17, %.lr.ph ], [ %.1, %37 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %22 = getelementptr i8, ptr %18, i64 %.idx
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %23 = load i8, ptr %22, align 1, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %37, label %.preheader

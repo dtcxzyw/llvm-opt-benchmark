@@ -71610,7 +71610,7 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
 50:                                               ; preds = %47
   %51 = extractvalue { i128, i1 } %48, 0
   %52 = icmp eq i32 %.sroa.0.0.i5.i, 1
-  br i1 %52, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i", label %53
+  br i1 %52, label %.loopexit.loopexit.i, label %53
 
 53:                                               ; preds = %50, %.preheader.i4.i
   %.sroa.07.1.i.i = phi i128 [ %51, %50 ], [ %.sroa.07.0.i.i, %.preheader.i4.i ]
@@ -71623,10 +71623,13 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
   %58 = lshr i32 %.sroa.0.0.i5.i, 1
   br label %.preheader.i4.i
 
-"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %50, %47
-  %.sroa.015.0.off0.i = phi i128 [ 170141183460469231731687303715884105727, %47 ], [ %51, %50 ], [ 170141183460469231731687303715884105727, %53 ]
-  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %.sroa.015.0.off0.i)
-  store i128 %59, ptr %18, align 16, !noalias !8590
+.loopexit.loopexit.i:                             ; preds = %50
+  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %51)
+  br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i"
+
+"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %47, %.loopexit.loopexit.i
+  %.sroa.01.0.i = phi i128 [ %59, %.loopexit.loopexit.i ], [ -170141183460469231731687303715884105727, %47 ], [ -170141183460469231731687303715884105727, %53 ]
+  store i128 %.sroa.01.0.i, ptr %18, align 16, !noalias !8590
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !8590
   br label %.preheader.i7.i
 
@@ -71941,7 +71944,7 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
 50:                                               ; preds = %47
   %51 = extractvalue { i128, i1 } %48, 0
   %52 = icmp eq i32 %.sroa.0.0.i5.i, 1
-  br i1 %52, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i", label %53
+  br i1 %52, label %.loopexit.loopexit.i, label %53
 
 53:                                               ; preds = %50, %.preheader.i4.i
   %.sroa.07.1.i.i = phi i128 [ %51, %50 ], [ %.sroa.07.0.i.i, %.preheader.i4.i ]
@@ -71954,10 +71957,13 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
   %58 = lshr i32 %.sroa.0.0.i5.i, 1
   br label %.preheader.i4.i
 
-"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %50, %47
-  %.sroa.015.0.off0.i = phi i128 [ 170141183460469231731687303715884105727, %47 ], [ %51, %50 ], [ 170141183460469231731687303715884105727, %53 ]
-  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %.sroa.015.0.off0.i)
-  store i128 %59, ptr %18, align 16, !noalias !8622
+.loopexit.loopexit.i:                             ; preds = %50
+  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %51)
+  br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i"
+
+"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %47, %.loopexit.loopexit.i
+  %.sroa.01.0.i = phi i128 [ %59, %.loopexit.loopexit.i ], [ -170141183460469231731687303715884105727, %47 ], [ -170141183460469231731687303715884105727, %53 ]
+  store i128 %.sroa.01.0.i, ptr %18, align 16, !noalias !8622
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !8622
   br label %.preheader.i7.i
 
@@ -72272,7 +72278,7 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
 50:                                               ; preds = %47
   %51 = extractvalue { i128, i1 } %48, 0
   %52 = icmp eq i32 %.sroa.0.0.i5.i, 1
-  br i1 %52, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i", label %53
+  br i1 %52, label %.loopexit.loopexit.i, label %53
 
 53:                                               ; preds = %50, %.preheader.i4.i
   %.sroa.07.1.i.i = phi i128 [ %51, %50 ], [ %.sroa.07.0.i.i, %.preheader.i4.i ]
@@ -72285,10 +72291,13 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
   %58 = lshr i32 %.sroa.0.0.i5.i, 1
   br label %.preheader.i4.i
 
-"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %50, %47
-  %.sroa.015.0.off0.i = phi i128 [ 170141183460469231731687303715884105727, %47 ], [ %51, %50 ], [ 170141183460469231731687303715884105727, %53 ]
-  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %.sroa.015.0.off0.i)
-  store i128 %59, ptr %18, align 16, !noalias !8654
+.loopexit.loopexit.i:                             ; preds = %50
+  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %51)
+  br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i"
+
+"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %47, %.loopexit.loopexit.i
+  %.sroa.01.0.i = phi i128 [ %59, %.loopexit.loopexit.i ], [ -170141183460469231731687303715884105727, %47 ], [ -170141183460469231731687303715884105727, %53 ]
+  store i128 %.sroa.01.0.i, ptr %18, align 16, !noalias !8654
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !8654
   br label %.preheader.i7.i
 
@@ -72603,7 +72612,7 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
 50:                                               ; preds = %47
   %51 = extractvalue { i128, i1 } %48, 0
   %52 = icmp eq i32 %.sroa.0.0.i5.i, 1
-  br i1 %52, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i", label %53
+  br i1 %52, label %.loopexit.loopexit.i, label %53
 
 53:                                               ; preds = %50, %.preheader.i4.i
   %.sroa.07.1.i.i = phi i128 [ %51, %50 ], [ %.sroa.07.0.i.i, %.preheader.i4.i ]
@@ -72616,10 +72625,13 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
   %58 = lshr i32 %.sroa.0.0.i5.i, 1
   br label %.preheader.i4.i
 
-"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %50, %47
-  %.sroa.015.0.off0.i = phi i128 [ 170141183460469231731687303715884105727, %47 ], [ %51, %50 ], [ 170141183460469231731687303715884105727, %53 ]
-  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %.sroa.015.0.off0.i)
-  store i128 %59, ptr %18, align 16, !noalias !8686
+.loopexit.loopexit.i:                             ; preds = %50
+  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %51)
+  br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i"
+
+"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %47, %.loopexit.loopexit.i
+  %.sroa.01.0.i = phi i128 [ %59, %.loopexit.loopexit.i ], [ -170141183460469231731687303715884105727, %47 ], [ -170141183460469231731687303715884105727, %53 ]
+  store i128 %.sroa.01.0.i, ptr %18, align 16, !noalias !8686
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !8686
   br label %.preheader.i7.i
 
@@ -72934,7 +72946,7 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
 50:                                               ; preds = %47
   %51 = extractvalue { i128, i1 } %48, 0
   %52 = icmp eq i32 %.sroa.0.0.i5.i, 1
-  br i1 %52, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i", label %53
+  br i1 %52, label %.loopexit.loopexit.i, label %53
 
 53:                                               ; preds = %50, %.preheader.i4.i
   %.sroa.07.1.i.i = phi i128 [ %51, %50 ], [ %.sroa.07.0.i.i, %.preheader.i4.i ]
@@ -72947,10 +72959,13 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
   %58 = lshr i32 %.sroa.0.0.i5.i, 1
   br label %.preheader.i4.i
 
-"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %50, %47
-  %.sroa.015.0.off0.i = phi i128 [ 170141183460469231731687303715884105727, %47 ], [ %51, %50 ], [ 170141183460469231731687303715884105727, %53 ]
-  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %.sroa.015.0.off0.i)
-  store i128 %59, ptr %18, align 16, !noalias !8718
+.loopexit.loopexit.i:                             ; preds = %50
+  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %51)
+  br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i"
+
+"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %47, %.loopexit.loopexit.i
+  %.sroa.01.0.i = phi i128 [ %59, %.loopexit.loopexit.i ], [ -170141183460469231731687303715884105727, %47 ], [ -170141183460469231731687303715884105727, %53 ]
+  store i128 %.sroa.01.0.i, ptr %18, align 16, !noalias !8718
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !8718
   br label %.preheader.i7.i
 
@@ -73264,7 +73279,7 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
 50:                                               ; preds = %47
   %51 = extractvalue { i128, i1 } %48, 0
   %52 = icmp eq i32 %.sroa.0.0.i5.i, 1
-  br i1 %52, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i", label %53
+  br i1 %52, label %.loopexit.loopexit.i, label %53
 
 53:                                               ; preds = %50, %.preheader.i4.i
   %.sroa.07.1.i.i = phi i128 [ %51, %50 ], [ %.sroa.07.0.i.i, %.preheader.i4.i ]
@@ -73277,10 +73292,13 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
   %58 = lshr i32 %.sroa.0.0.i5.i, 1
   br label %.preheader.i4.i
 
-"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %50, %47
-  %.sroa.015.0.off0.i = phi i128 [ 170141183460469231731687303715884105727, %47 ], [ %51, %50 ], [ 170141183460469231731687303715884105727, %53 ]
-  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %.sroa.015.0.off0.i)
-  store i128 %59, ptr %18, align 16, !noalias !8750
+.loopexit.loopexit.i:                             ; preds = %50
+  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %51)
+  br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i"
+
+"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %47, %.loopexit.loopexit.i
+  %.sroa.01.0.i = phi i128 [ %59, %.loopexit.loopexit.i ], [ -170141183460469231731687303715884105727, %47 ], [ -170141183460469231731687303715884105727, %53 ]
+  store i128 %.sroa.01.0.i, ptr %18, align 16, !noalias !8750
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !8750
   br label %.preheader.i7.i
 
@@ -73595,7 +73613,7 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
 50:                                               ; preds = %47
   %51 = extractvalue { i128, i1 } %48, 0
   %52 = icmp eq i32 %.sroa.0.0.i5.i, 1
-  br i1 %52, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i", label %53
+  br i1 %52, label %.loopexit.loopexit.i, label %53
 
 53:                                               ; preds = %50, %.preheader.i4.i
   %.sroa.07.1.i.i = phi i128 [ %51, %50 ], [ %.sroa.07.0.i.i, %.preheader.i4.i ]
@@ -73608,10 +73626,13 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
   %58 = lshr i32 %.sroa.0.0.i5.i, 1
   br label %.preheader.i4.i
 
-"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %50, %47
-  %.sroa.015.0.off0.i = phi i128 [ 170141183460469231731687303715884105727, %47 ], [ %51, %50 ], [ 170141183460469231731687303715884105727, %53 ]
-  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %.sroa.015.0.off0.i)
-  store i128 %59, ptr %18, align 16, !noalias !8782
+.loopexit.loopexit.i:                             ; preds = %50
+  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %51)
+  br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i"
+
+"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %47, %.loopexit.loopexit.i
+  %.sroa.01.0.i = phi i128 [ %59, %.loopexit.loopexit.i ], [ -170141183460469231731687303715884105727, %47 ], [ -170141183460469231731687303715884105727, %53 ]
+  store i128 %.sroa.01.0.i, ptr %18, align 16, !noalias !8782
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !8782
   br label %.preheader.i7.i
 
@@ -73926,7 +73947,7 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
 50:                                               ; preds = %47
   %51 = extractvalue { i128, i1 } %48, 0
   %52 = icmp eq i32 %.sroa.0.0.i5.i, 1
-  br i1 %52, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i", label %53
+  br i1 %52, label %.loopexit.loopexit.i, label %53
 
 53:                                               ; preds = %50, %.preheader.i4.i
   %.sroa.07.1.i.i = phi i128 [ %51, %50 ], [ %.sroa.07.0.i.i, %.preheader.i4.i ]
@@ -73939,10 +73960,13 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
   %58 = lshr i32 %.sroa.0.0.i5.i, 1
   br label %.preheader.i4.i
 
-"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %50, %47
-  %.sroa.015.0.off0.i = phi i128 [ 170141183460469231731687303715884105727, %47 ], [ %51, %50 ], [ 170141183460469231731687303715884105727, %53 ]
-  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %.sroa.015.0.off0.i)
-  store i128 %59, ptr %18, align 16, !noalias !8814
+.loopexit.loopexit.i:                             ; preds = %50
+  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %51)
+  br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i"
+
+"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %47, %.loopexit.loopexit.i
+  %.sroa.01.0.i = phi i128 [ %59, %.loopexit.loopexit.i ], [ -170141183460469231731687303715884105727, %47 ], [ -170141183460469231731687303715884105727, %53 ]
+  store i128 %.sroa.01.0.i, ptr %18, align 16, !noalias !8814
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !8814
   br label %.preheader.i7.i
 
@@ -74256,7 +74280,7 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
 50:                                               ; preds = %47
   %51 = extractvalue { i128, i1 } %48, 0
   %52 = icmp eq i32 %.sroa.0.0.i5.i, 1
-  br i1 %52, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i", label %53
+  br i1 %52, label %.loopexit.loopexit.i, label %53
 
 53:                                               ; preds = %50, %.preheader.i4.i
   %.sroa.07.1.i.i = phi i128 [ %51, %50 ], [ %.sroa.07.0.i.i, %.preheader.i4.i ]
@@ -74269,10 +74293,13 @@ define hidden void @_ZN14polars_compute4cast12primitive_to22integer_to_decimal_d
   %58 = lshr i32 %.sroa.0.0.i5.i, 1
   br label %.preheader.i4.i
 
-"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %50, %47
-  %.sroa.015.0.off0.i = phi i128 [ 170141183460469231731687303715884105727, %47 ], [ %51, %50 ], [ 170141183460469231731687303715884105727, %53 ]
-  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %.sroa.015.0.off0.i)
-  store i128 %59, ptr %18, align 16, !noalias !8846
+.loopexit.loopexit.i:                             ; preds = %50
+  %59 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %51)
+  br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i"
+
+"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %53, %47, %.loopexit.loopexit.i
+  %.sroa.01.0.i = phi i128 [ %59, %.loopexit.loopexit.i ], [ -170141183460469231731687303715884105727, %47 ], [ -170141183460469231731687303715884105727, %53 ]
+  store i128 %.sroa.01.0.i, ptr %18, align 16, !noalias !8846
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !8846
   br label %.preheader.i7.i
 
@@ -74565,7 +74592,7 @@ define hidden void @_ZN14polars_compute4cast12primitive_to20float_to_decimal_dyn
 44:                                               ; preds = %41
   %45 = extractvalue { i128, i1 } %42, 0
   %46 = icmp eq i32 %.sroa.0.0.i.i, 1
-  br i1 %46, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i", label %47
+  br i1 %46, label %.loopexit.loopexit.i, label %47
 
 47:                                               ; preds = %44, %.preheader.i.i
   %.sroa.07.1.i.i = phi i128 [ %45, %44 ], [ %.sroa.07.0.i.i, %.preheader.i.i ]
@@ -74578,10 +74605,13 @@ define hidden void @_ZN14polars_compute4cast12primitive_to20float_to_decimal_dyn
   %52 = lshr i32 %.sroa.0.0.i.i, 1
   br label %.preheader.i.i
 
-"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %47, %44, %41
-  %.sroa.013.0.off0.i = phi i128 [ 170141183460469231731687303715884105727, %41 ], [ %45, %44 ], [ 170141183460469231731687303715884105727, %47 ]
-  %53 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %.sroa.013.0.off0.i)
-  store i128 %53, ptr %18, align 16, !noalias !8878
+.loopexit.loopexit.i:                             ; preds = %44
+  %53 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %45)
+  br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i"
+
+"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %47, %41, %.loopexit.loopexit.i
+  %.sroa.01.0.i = phi i128 [ %53, %.loopexit.loopexit.i ], [ -170141183460469231731687303715884105727, %41 ], [ -170141183460469231731687303715884105727, %47 ]
+  store i128 %.sroa.01.0.i, ptr %18, align 16, !noalias !8878
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !8878
   br label %.preheader.i5.i
 
@@ -74873,7 +74903,7 @@ define hidden void @_ZN14polars_compute4cast12primitive_to20float_to_decimal_dyn
 43:                                               ; preds = %40
   %44 = extractvalue { i128, i1 } %41, 0
   %45 = icmp eq i32 %.sroa.0.0.i.i, 1
-  br i1 %45, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i", label %46
+  br i1 %45, label %.loopexit.loopexit.i, label %46
 
 46:                                               ; preds = %43, %.preheader.i.i
   %.sroa.07.1.i.i = phi i128 [ %44, %43 ], [ %.sroa.07.0.i.i, %.preheader.i.i ]
@@ -74886,10 +74916,13 @@ define hidden void @_ZN14polars_compute4cast12primitive_to20float_to_decimal_dyn
   %51 = lshr i32 %.sroa.0.0.i.i, 1
   br label %.preheader.i.i
 
-"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %46, %43, %40
-  %.sroa.013.0.off0.i = phi i128 [ 170141183460469231731687303715884105727, %40 ], [ %44, %43 ], [ 170141183460469231731687303715884105727, %46 ]
-  %52 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %.sroa.013.0.off0.i)
-  store i128 %52, ptr %18, align 16, !noalias !8910
+.loopexit.loopexit.i:                             ; preds = %43
+  %52 = tail call i128 @llvm.ssub.sat.i128(i128 0, i128 %44)
+  br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i"
+
+"_ZN4core3num22_$LT$impl$u20$i128$GT$11checked_pow17hd8e8b0db50617652E.exit.i": ; preds = %46, %40, %.loopexit.loopexit.i
+  %.sroa.01.0.i = phi i128 [ %52, %.loopexit.loopexit.i ], [ -170141183460469231731687303715884105727, %40 ], [ -170141183460469231731687303715884105727, %46 ]
+  store i128 %.sroa.01.0.i, ptr %18, align 16, !noalias !8910
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !8910
   br label %.preheader.i5.i
 

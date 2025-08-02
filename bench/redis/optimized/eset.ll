@@ -59,8 +59,8 @@ define hidden i64 @je_eset_nextents_get(ptr noundef readonly captures(none) %0, 
 define hidden i64 @je_eset_nbytes_get(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = zext i32 %1 to i64
   %.idx = shl nuw nsw i64 %3, 4
-  %4 = getelementptr i8, ptr %0, i64 6440
-  %5 = getelementptr i8, ptr %4, i64 %.idx
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 6440
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %6 = load atomic i64, ptr %5 monotonic, align 8
   ret i64 %6
 }
@@ -419,7 +419,7 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   br i1 %53, label %.lr.ph.i, label %eset_first_fit.exit
 
 .lr.ph.i:                                         ; preds = %fb_ffs.exit.i
-  %54 = getelementptr i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %56
 
@@ -446,7 +446,7 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
 
 67:                                               ; preds = %65
   %.idx.i = shl nuw nsw i64 %57, 5
-  %68 = getelementptr i8, ptr %54, i64 %.idx.i
+  %68 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i
   %69 = load i64, ptr %68, align 8
   %.not.i.i = icmp eq i64 %69, %.sroa.0.043.i
   br i1 %.not.i.i, label %edata_cmp_summary_comp.exit.i, label %70

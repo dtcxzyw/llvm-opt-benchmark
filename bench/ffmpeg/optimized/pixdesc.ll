@@ -1181,7 +1181,7 @@ define i32 @av_get_bits_per_pixel(ptr noundef readonly captures(none) %0) local_
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %11 = getelementptr i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %wide.trip.count = zext i8 %10 to i64
   br label %12
 
@@ -1193,7 +1193,7 @@ define i32 @av_get_bits_per_pixel(ptr noundef readonly captures(none) %0) local_
   %or.cond = icmp ult i32 %14, 2
   %15 = select i1 %or.cond, i32 0, i32 %8
   %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %16 = getelementptr i8, ptr %11, i64 %.idx
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %17 = load i32, ptr %16, align 4, !tbaa !42
   %18 = shl i32 %17, %15
   %19 = add nsw i32 %18, %.01415
@@ -1304,7 +1304,7 @@ define noundef ptr @av_get_pix_fmt_string(ptr noundef returned writeonly capture
   br i1 %.not.i, label %av_get_bits_per_pixel.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8
-  %23 = getelementptr i8, ptr %10, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %wide.trip.count.i = zext i8 %14 to i64
   br label %24
 
@@ -1316,7 +1316,7 @@ define noundef ptr @av_get_pix_fmt_string(ptr noundef returned writeonly capture
   %or.cond.i = icmp ult i32 %26, 2
   %27 = select i1 %or.cond.i, i32 0, i32 %22
   %.idx.i = mul nuw nsw i64 %indvars.iv.i, 20
-  %28 = getelementptr i8, ptr %23, i64 %.idx.i
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
   %29 = load i32, ptr %28, align 4, !tbaa !42
   %30 = shl i32 %29, %27
   %31 = add nsw i32 %30, %.01415.i
@@ -1699,7 +1699,7 @@ get_color_type.exit223:                           ; preds = %45, %get_color_type
 
 .lr.ph.split.us:                                  ; preds = %get_color_type.exit223
   %narrow237 = tail call i8 @llvm.umin.i8(i8 %23, i8 4)
-  %49 = getelementptr i8, ptr %6, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %50 = and i32 %3, 2
   %.not182292 = icmp eq i32 %50, 0
   %51 = and i32 %3, 128
@@ -1716,7 +1716,7 @@ get_color_type.exit223:                           ; preds = %45, %get_color_type
   %.0131243.us = phi i32 [ %.1.us, %68 ], [ 2147483646, %.lr.ph.split.us ]
   %.0134241.us = phi i32 [ %.1135.us, %68 ], [ 0, %.lr.ph.split.us ]
   %.idx181.us = mul nuw nsw i64 %indvars.iv285, 20
-  %56 = getelementptr i8, ptr %49, i64 %.idx181.us
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx181.us
   %57 = load i32, ptr %56, align 4, !tbaa !42
   %58 = add i32 %57, %53
   %59 = icmp slt i32 %58, 1
@@ -1747,8 +1747,8 @@ get_color_type.exit223:                           ; preds = %45, %get_color_type
 
 .lr.ph.split:                                     ; preds = %get_color_type.exit223
   %.184 = tail call i8 @llvm.umin.i8(i8 %23, i8 %25)
-  %69 = getelementptr i8, ptr %8, i64 40
-  %70 = getelementptr i8, ptr %6, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %71 = and i32 %3, 2
   %.not182 = icmp eq i32 %71, 0
   %72 = and i32 %3, 128
@@ -1761,9 +1761,9 @@ get_color_type.exit223:                           ; preds = %45, %get_color_type
   %.0131243.us246 = phi i32 [ %.1.us253, %.lr.ph.split.split.us ], [ 2147483646, %.lr.ph.split ]
   %.0134241.us248 = phi i32 [ %.1135.us252, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
   %.idx.us = mul nuw nsw i64 %indvars.iv280, 20
-  %73 = getelementptr i8, ptr %69, i64 %.idx.us
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.us
   %74 = load i32, ptr %73, align 4, !tbaa !42
-  %75 = getelementptr i8, ptr %70, i64 %.idx.us
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.us
   %76 = load i32, ptr %75, align 4, !tbaa !42
   %77 = sub i32 %76, %74
   %78 = icmp sgt i32 %77, -1
@@ -1784,10 +1784,10 @@ get_color_type.exit223:                           ; preds = %45, %get_color_type
   %.0131243.us258 = phi i32 [ %.1.us265, %.lr.ph.split.split.split.us ], [ 2147483646, %.lr.ph.split.split ]
   %.0134241.us260 = phi i32 [ %.1135.us264, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split ]
   %.idx.us261 = mul nuw nsw i64 %indvars.iv275, 20
-  %81 = getelementptr i8, ptr %69, i64 %.idx.us261
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.us261
   %82 = load i32, ptr %81, align 4, !tbaa !42
   %83 = add nsw i32 %82, -1
-  %84 = getelementptr i8, ptr %70, i64 %.idx.us261
+  %84 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.us261
   %85 = load i32, ptr %84, align 4, !tbaa !42
   %86 = sub i32 %85, %82
   %87 = icmp slt i32 %86, 1
@@ -1805,9 +1805,9 @@ get_color_type.exit223:                           ; preds = %45, %get_color_type
   %.0131243 = phi i32 [ %.1, %107 ], [ 2147483646, %.lr.ph.split.split ]
   %.0134241 = phi i32 [ %.1135, %107 ], [ 0, %.lr.ph.split.split ]
   %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %91 = getelementptr i8, ptr %69, i64 %.idx
+  %91 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx
   %92 = load i32, ptr %91, align 4, !tbaa !42
-  %93 = getelementptr i8, ptr %70, i64 %.idx
+  %93 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx
   %94 = load i32, ptr %93, align 4, !tbaa !42
   %95 = sub i32 %94, %92
   %96 = icmp slt i32 %95, 1

@@ -8915,14 +8915,11 @@ Vec_IntAlloc.exit35:                              ; preds = %Vec_IntAlloc.exit, 
   %29 = icmp sgt i32 %.fr57, 0
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %wide.trip.count.i = zext nneg i32 %.fr57 to i64
-  br i1 %29, label %.lr.ph.split.us.preheader, label %.lr.ph.split
-
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %wide.trip.count65 = zext nneg i32 %.val25 to i64
-  br label %.lr.ph.split.us
+  br i1 %29, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.loopexit.us
-  %indvars.iv62 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next63, %.loopexit.us ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.us
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.loopexit.us ], [ 0, %.lr.ph ]
   %31 = getelementptr inbounds nuw i32, ptr %.val26, i64 %indvars.iv62
   %32 = load i32, ptr %31, align 4, !tbaa !3
   %33 = sext i32 %32 to i64
@@ -8957,31 +8954,26 @@ Vec_IntAlloc.exit35:                              ; preds = %Vec_IntAlloc.exit, 
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %.critedge2.loopexit, label %40, !llvm.loop !147
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  %invariant.gep = getelementptr i8, ptr %.val31, i64 4
-  %wide.trip.count = zext nneg i32 %.val25 to i64
-  br label %46
-
-46:                                               ; preds = %.lr.ph.split, %51
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %51 ]
-  %47 = getelementptr inbounds nuw i32, ptr %.val26, i64 %indvars.iv
-  %48 = load i32, ptr %47, align 4, !tbaa !3
-  %49 = sext i32 %48 to i64
-  %gep = getelementptr %struct.Vec_Int_t_, ptr %invariant.gep, i64 %49
-  %50 = load i32, ptr %gep, align 4, !tbaa !34
+.lr.ph.split:                                     ; preds = %.lr.ph, %51
+  %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %.lr.ph ]
+  %46 = getelementptr inbounds nuw i32, ptr %.val26, i64 %indvars.iv
+  %47 = load i32, ptr %46, align 4, !tbaa !3
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val31, i64 %48, i32 1
+  %50 = load i32, ptr %49, align 4, !tbaa !34
   %.not.i36 = icmp eq i32 %.fr57, %50
   br i1 %.not.i36, label %.critedge2.loopexit78.split.loop.exit80, label %51
 
-51:                                               ; preds = %46
+51:                                               ; preds = %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %46, !llvm.loop !148
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count65
+  br i1 %exitcond.not, label %.critedge2, label %.lr.ph.split, !llvm.loop !148
 
 .critedge2.loopexit:                              ; preds = %45
   %52 = trunc nuw nsw i64 %indvars.iv62 to i32
   br label %.critedge2
 
-.critedge2.loopexit78.split.loop.exit80:          ; preds = %46
+.critedge2.loopexit78.split.loop.exit80:          ; preds = %.lr.ph.split
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge2
 

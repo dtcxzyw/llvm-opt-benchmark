@@ -591,7 +591,7 @@ define internal fastcc range(i32 -542398533, 1) i32 @vaapi_encode_profile_entryp
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %26 = getelementptr i8, ptr %20, i64 %.idx
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %27 = load i32, ptr %26, align 4, !tbaa !102
   %.not176 = icmp eq i32 %27, %21
   br i1 %.not176, label %25, label %28

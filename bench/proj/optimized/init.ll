@@ -138,7 +138,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 29:                                               ; preds = %26
   %30 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.065.i, ptr noundef nonnull dereferenceable(6) @.str.50, i64 noundef 5) #13
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %.thread103.i
+  br i1 %31, label %32, label %.thread.i
 
 32:                                               ; preds = %29, %26
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %13) #14
@@ -168,7 +168,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 45:                                               ; preds = %43, %41, %37
   %.066.i = phi i32 [ %42, %41 ], [ %39, %37 ], [ %44, %43 ]
   %.not85.i = icmp eq i32 %.066.i, 0
-  br i1 %.not85.i, label %46, label %.thread103.sink.split.i
+  br i1 %.not85.i, label %46, label %.thread.sink.split.i
 
 46:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 71, ptr nonnull %15) #14
@@ -178,12 +178,12 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 
 47:                                               ; preds = %46
   call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %.064.i, i32 noundef 3, ptr noundef nonnull @.str.51, ptr noundef nonnull %.065.i)
-  br label %.thread99.i
+  br label %.critedge.critedge.i
 
 48:                                               ; preds = %46
   %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.065.i) #13
   %50 = icmp ugt i64 %49, 64
-  br i1 %50, label %.thread99.i, label %51
+  br i1 %50, label %.critedge.critedge.i, label %51
 
 51:                                               ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %15, ptr noundef nonnull align 1 dereferenceable(7) @.str.3, i64 7, i1 false) #14
@@ -194,7 +194,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
   %55 = call ptr @proj_create(ptr noundef %.064.i, ptr noundef nonnull %15)
   store i32 %54, ptr %53, align 8, !tbaa !37
   %.not87.i = icmp eq ptr %55, null
-  br i1 %.not87.i, label %.thread99.i, label %56
+  br i1 %.not87.i, label %.critedge.critedge.i, label %56
 
 56:                                               ; preds = %51
   %57 = call ptr @proj_as_proj_string(ptr noundef nonnull %.064.i, ptr noundef nonnull %55, i32 noundef 1, ptr noundef null)
@@ -203,27 +203,21 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 
 58:                                               ; preds = %56
   %59 = call ptr @proj_destroy(ptr noundef nonnull %55)
-  br label %.thread99.i
+  br label %.critedge.critedge.i
 
 60:                                               ; preds = %56
   %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #13
   %62 = add i64 %61, 1
   %63 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %62) #15
   %.not89.i = icmp eq ptr %63, null
-  br i1 %.not89.i, label %.thread106.i, label %_ZL15get_init_stringP6pj_ctxPKc.exit.thread109.i
+  br i1 %.not89.i, label %.thread102.i, label %_ZL15get_init_stringP6pj_ctxPKc.exit.thread105.i
 
-.thread106.i:                                     ; preds = %60
+.thread102.i:                                     ; preds = %60
   %64 = call ptr @proj_destroy(ptr noundef nonnull %55)
   call void @llvm.lifetime.end.p0(i64 71, ptr nonnull %15) #14
-  br label %.thread103.sink.split.i
+  br label %.thread.sink.split.i
 
-.thread99.i:                                      ; preds = %58, %51, %48, %47
-  call void @llvm.lifetime.end.p0(i64 71, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13) #14
-  br label %_ZL8get_initP6pj_ctxPKci.exit.thread
-
-_ZL15get_init_stringP6pj_ctxPKc.exit.thread109.i: ; preds = %60
+_ZL15get_init_stringP6pj_ctxPKc.exit.thread105.i: ; preds = %60
   %65 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %57) #14
   %66 = call ptr @proj_destroy(ptr noundef nonnull %55)
   call void @llvm.lifetime.end.p0(i64 71, ptr nonnull %15) #14
@@ -231,18 +225,18 @@ _ZL15get_init_stringP6pj_ctxPKc.exit.thread109.i: ; preds = %60
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13) #14
   br label %266
 
-.thread103.sink.split.i:                          ; preds = %.thread106.i, %45
+.thread.sink.split.i:                             ; preds = %.thread102.i, %45
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %14) #14
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13) #14
-  br label %.thread103.i
+  br label %.thread.i
 
-.thread103.i:                                     ; preds = %.thread103.sink.split.i, %29
+.thread.i:                                        ; preds = %.thread.sink.split.i, %29
   call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %.064.i, i32 noundef 3, ptr noundef nonnull @.str.52, ptr noundef nonnull %.065.i)
   %67 = call noalias dereferenceable_or_null(1077) ptr @malloc(i64 noundef 1077) #16
   %68 = icmp eq ptr %67, null
   br i1 %68, label %_ZL8get_initP6pj_ctxPKci.exit.thread, label %69
 
-69:                                               ; preds = %.thread103.i
+69:                                               ; preds = %.thread.i
   %70 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.065.i, ptr noundef nonnull dereferenceable(1) @.str.4) #13
   %71 = icmp eq ptr %70, null
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 5
@@ -798,16 +792,16 @@ _ZL15get_init_stringP6pj_ctxPKc.exit.i:           ; preds = %_ZNKSt14default_del
   %265 = icmp eq ptr %.1.i.i, null
   br i1 %265, label %_ZL8get_initP6pj_ctxPKci.exit.thread, label %266
 
-266:                                              ; preds = %_ZL15get_init_stringP6pj_ctxPKc.exit.i, %_ZL15get_init_stringP6pj_ctxPKc.exit.thread109.i
-  %.5111.i = phi ptr [ %63, %_ZL15get_init_stringP6pj_ctxPKc.exit.thread109.i ], [ %.1.i.i, %_ZL15get_init_stringP6pj_ctxPKc.exit.i ]
+266:                                              ; preds = %_ZL15get_init_stringP6pj_ctxPKc.exit.i, %_ZL15get_init_stringP6pj_ctxPKc.exit.thread105.i
+  %.5107.i = phi ptr [ %63, %_ZL15get_init_stringP6pj_ctxPKc.exit.thread105.i ], [ %.1.i.i, %_ZL15get_init_stringP6pj_ctxPKc.exit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store ptr %.5111.i, ptr %4, align 8, !tbaa !50
-  %267 = load i8, ptr %.5111.i, align 1, !tbaa !3
+  store ptr %.5107.i, ptr %4, align 8, !tbaa !50
+  %267 = load i8, ptr %.5107.i, align 1, !tbaa !3
   %.not22.i.i = icmp eq i8 %267, 0
   br i1 %.not22.i.i, label %_ZL18string_to_paralistP6pj_ctxPc.exit.thread.i, label %.lr.ph.i94.i
 
 .lr.ph.i94.i:                                     ; preds = %266, %274
-  %268 = phi ptr [ %275, %274 ], [ %.5111.i, %266 ]
+  %268 = phi ptr [ %275, %274 ], [ %.5107.i, %266 ]
   %.01224.i.i = phi ptr [ %269, %274 ], [ null, %266 ]
   %.01423.i.i = phi ptr [ %.115.i.i, %274 ], [ null, %266 ]
   %269 = call noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef nonnull %268, ptr noundef nonnull %4)
@@ -835,15 +829,15 @@ _ZL15get_init_stringP6pj_ctxPKc.exit.i:           ; preds = %_ZNKSt14default_del
 
 _ZL18string_to_paralistP6pj_ctxPc.exit.thread.i:  ; preds = %.thread.i.i, %266
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  br label %.thread117.i
+  br label %.thread112.i
 
 _ZL18string_to_paralistP6pj_ctxPc.exit.i:         ; preds = %274
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   %.not91.i = icmp eq ptr %.115.i.i, null
-  br i1 %.not91.i, label %.thread117.i, label %277
+  br i1 %.not91.i, label %.thread112.i, label %277
 
-.thread117.i:                                     ; preds = %_ZL18string_to_paralistP6pj_ctxPc.exit.i, %_ZL18string_to_paralistP6pj_ctxPc.exit.thread.i
-  call void @free(ptr noundef %.5111.i) #14
+.thread112.i:                                     ; preds = %_ZL18string_to_paralistP6pj_ctxPc.exit.i, %_ZL18string_to_paralistP6pj_ctxPc.exit.thread.i
+  call void @free(ptr noundef %.5107.i) #14
   br label %_ZL8get_initP6pj_ctxPKci.exit.thread
 
 277:                                              ; preds = %_ZL18string_to_paralistP6pj_ctxPc.exit.i
@@ -852,10 +846,16 @@ _ZL18string_to_paralistP6pj_ctxPc.exit.i:         ; preds = %274
   %.not92.i = icmp eq ptr %279, null
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 9
   %spec.select.i = select i1 %.not92.i, ptr @.str.54, ptr %280
-  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %.064.i, i32 noundef 3, ptr noundef nonnull @.str.53, ptr noundef nonnull %.5111.i, ptr noundef nonnull %278, ptr noundef nonnull %spec.select.i)
-  call void @free(ptr noundef %.5111.i) #14
+  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %.064.i, i32 noundef 3, ptr noundef nonnull @.str.53, ptr noundef nonnull %.5107.i, ptr noundef nonnull %278, ptr noundef nonnull %spec.select.i)
+  call void @free(ptr noundef %.5107.i) #14
   call void @_Z19pj_insert_initcachePKcPK8ARG_list(ptr noundef nonnull %.065.i, ptr noundef nonnull %.115.i.i)
   br label %_ZL8get_initP6pj_ctxPKci.exit
+
+.critedge.critedge.i:                             ; preds = %58, %51, %48, %47
+  call void @llvm.lifetime.end.p0(i64 71, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13) #14
+  br label %_ZL8get_initP6pj_ctxPKci.exit.thread
 
 _ZL8get_initP6pj_ctxPKci.exit:                    ; preds = %21, %277
   %.0.i = phi ptr [ %.115.i.i, %277 ], [ %25, %21 ]
@@ -871,8 +871,8 @@ _ZL8get_initP6pj_ctxPKci.exit:                    ; preds = %21, %277
   store ptr %.0.i, ptr %.012, align 8, !tbaa !51
   br label %_ZL8get_initP6pj_ctxPKci.exit.thread
 
-_ZL8get_initP6pj_ctxPKci.exit.thread:             ; preds = %.thread103.i, %80, %75, %.thread117.i, %.thread99.i, %_ZL15get_init_stringP6pj_ctxPKc.exit.i, %3, %.critedge
-  %.0 = phi ptr [ %1, %.critedge ], [ null, %3 ], [ null, %_ZL15get_init_stringP6pj_ctxPKc.exit.i ], [ null, %.thread99.i ], [ null, %.thread117.i ], [ null, %75 ], [ null, %80 ], [ null, %.thread103.i ]
+_ZL8get_initP6pj_ctxPKci.exit.thread:             ; preds = %.thread.i, %80, %75, %.thread112.i, %_ZL15get_init_stringP6pj_ctxPKc.exit.i, %.critedge.critedge.i, %3, %.critedge
+  %.0 = phi ptr [ %1, %.critedge ], [ null, %3 ], [ null, %.critedge.critedge.i ], [ null, %_ZL15get_init_stringP6pj_ctxPKc.exit.i ], [ null, %.thread112.i ], [ null, %75 ], [ null, %80 ], [ null, %.thread.i ]
   ret ptr %.0
 }
 

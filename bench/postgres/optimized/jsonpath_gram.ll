@@ -67,7 +67,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   %13 = getelementptr inbounds i8, ptr %.0354, i64 %.0351
   %14 = getelementptr inbounds i8, ptr %13, i64 -1
   %.not = icmp ugt ptr %14, %.0360
-  br i1 %.not, label %.thread552, label %15
+  br i1 %.not, label %.thread551, label %15
 
 15:                                               ; preds = %11
   %16 = ptrtoint ptr %.0360 to i64
@@ -75,7 +75,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   %18 = sub i64 %16, %17
   %19 = add i64 %18, 1
   %20 = icmp sgt i64 %.0351, 9999
-  br i1 %20, label %.loopexit562.sink.split, label %21
+  br i1 %20, label %.loopexit561.sink.split, label %21
 
 21:                                               ; preds = %15
   %22 = shl i64 %.0351, 1
@@ -84,7 +84,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   %24 = add i64 %23, 15
   %25 = call ptr @palloc(i64 noundef %24) #6
   %.not403.not = icmp eq ptr %25, null
-  br i1 %.not403.not, label %.loopexit562.sink.split, label %26
+  br i1 %.not403.not, label %.loopexit561.sink.split, label %26
 
 26:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 1 %.0354, i64 %19, i1 false)
@@ -105,18 +105,18 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   %34 = getelementptr inbounds %union.YYSTYPE, ptr %29, i64 %19
   %35 = getelementptr inbounds i8, ptr %34, i64 -16
   %.not405 = icmp sgt i64 %spec.store.select, %19
-  br i1 %.not405, label %.thread552, label %.loopexit562
+  br i1 %.not405, label %.thread551, label %.loopexit561
 
-.thread552:                                       ; preds = %32, %11
+.thread551:                                       ; preds = %32, %11
   %.2374 = phi ptr [ %.0372, %11 ], [ %35, %32 ]
   %.1369 = phi ptr [ %.0368, %11 ], [ %29, %32 ]
   %.2362 = phi ptr [ %.0360, %11 ], [ %33, %32 ]
   %.1355 = phi ptr [ %.0354, %11 ], [ %25, %32 ]
   %.1352 = phi i64 [ %.0351, %11 ], [ %spec.store.select, %32 ]
   %36 = icmp eq i32 %.0345, 5
-  br i1 %36, label %.loopexit562, label %37
+  br i1 %36, label %.loopexit561, label %37
 
-37:                                               ; preds = %.thread552
+37:                                               ; preds = %.thread551
   %38 = sext i32 %.0345 to i64
   %39 = getelementptr inbounds [180 x i16], ptr @yypact, i64 0, i64 %38
   %40 = load i16, ptr %39, align 2
@@ -139,7 +139,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
 
 49:                                               ; preds = %47
   %50 = icmp eq i32 %.4, 256
-  br i1 %50, label %.loopexit562, label %51
+  br i1 %50, label %.loopexit561, label %51
 
 51:                                               ; preds = %49
   %52 = icmp samesign ult i32 %.4, 307
@@ -189,7 +189,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
   %78 = icmp eq i8 %76, 0
-  br i1 %78, label %.loopexit562.sink.split, label %79
+  br i1 %78, label %.loopexit561.sink.split, label %79
 
 79:                                               ; preds = %74, %70
   %.0384 = phi i32 [ %77, %74 ], [ %71, %70 ]
@@ -705,7 +705,7 @@ makeItemBinary.exit433:                           ; preds = %245, %251
   %258 = call fastcc zeroext i1 @makeItemLikeRegex(ptr noundef %257, ptr noundef %.2374, ptr noundef null, ptr noundef %7, ptr noundef %1)
   %259 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  br i1 %258, label %makeItemList.exit, label %.loopexit562
+  br i1 %258, label %makeItemList.exit, label %.loopexit561
 
 260:                                              ; preds = %79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
@@ -715,7 +715,7 @@ makeItemBinary.exit433:                           ; preds = %245, %251
   %264 = call fastcc zeroext i1 @makeItemLikeRegex(ptr noundef %262, ptr noundef %263, ptr noundef nonnull %.2374, ptr noundef %8, ptr noundef %1)
   %265 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  br i1 %264, label %makeItemList.exit, label %.loopexit562
+  br i1 %264, label %makeItemList.exit, label %.loopexit561
 
 266:                                              ; preds = %79
   %267 = call ptr @palloc(i64 noundef 40) #6
@@ -849,26 +849,26 @@ makeItemType.exit441:                             ; preds = %298, %301
   %325 = getelementptr inbounds nuw i8, ptr %322, i64 4
   %326 = load i32, ptr %325, align 4
   %327 = icmp eq i32 %326, 1
-  br i1 %327, label %makeItemList.exit, label %.preheader23.i
+  br i1 %327, label %makeItemList.exit, label %.preheader21.i
 
-.preheader23.i:                                   ; preds = %321, %.preheader23.i
-  %.016.i = phi ptr [ %329, %.preheader23.i ], [ %324, %321 ]
+.preheader21.i:                                   ; preds = %321, %.preheader21.i
+  %.016.i = phi ptr [ %329, %.preheader21.i ], [ %324, %321 ]
   %328 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
   %329 = load ptr, ptr %328, align 8
   %.not.i442 = icmp eq ptr %329, null
-  br i1 %.not.i442, label %.preheader.i, label %.preheader23.i, !llvm.loop !7
+  br i1 %.not.i442, label %.preheader.i, label %.preheader21.i, !llvm.loop !7
 
-.preheader.i:                                     ; preds = %.preheader23.i
+.preheader.i:                                     ; preds = %.preheader21.i
   %330 = icmp sgt i32 %326, 1
   br i1 %330, label %.lr.ph.i, label %makeItemList.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %.preheader.i ]
-  %.125.i = phi ptr [ %333, %.lr.ph.i ], [ %.016.i, %.preheader.i ]
+  %.123.i = phi ptr [ %333, %.lr.ph.i ], [ %.016.i, %.preheader.i ]
   %331 = load ptr, ptr %323, align 8
   %332 = getelementptr inbounds nuw %union.ListCell, ptr %331, i64 %indvars.iv.i
   %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds nuw i8, ptr %.125.i, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %.123.i, i64 8
   store ptr %333, ptr %334, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %335 = load i32, ptr %325, align 4
@@ -1120,51 +1120,51 @@ makeItemType.exit.i:                              ; preds = %443, %438
   %444 = getelementptr inbounds nuw i8, ptr %441, i64 8
   store ptr null, ptr %444, align 8
   %.not.i19.i = icmp eq ptr %440, null
-  br i1 %.not.i19.i, label %list_length.exit.i, label %445
+  br i1 %.not.i19.i, label %.critedge.critedge.i, label %list_length.exit.i
 
-445:                                              ; preds = %makeItemType.exit.i
-  %446 = getelementptr inbounds nuw i8, ptr %440, i64 4
-  %447 = load i32, ptr %446, align 4
-  br label %list_length.exit.i
+list_length.exit.i:                               ; preds = %makeItemType.exit.i
+  %445 = getelementptr inbounds nuw i8, ptr %440, i64 4
+  %446 = load i32, ptr %445, align 4
+  %447 = getelementptr inbounds nuw i8, ptr %441, i64 16
+  store i32 %446, ptr %447, align 8
+  %448 = sext i32 %446 to i64
+  %449 = shl nsw i64 %448, 4
+  %450 = call ptr @palloc(i64 noundef %449) #6
+  %451 = getelementptr inbounds nuw i8, ptr %441, i64 24
+  store ptr %450, ptr %451, align 8
+  %452 = getelementptr inbounds nuw i8, ptr %440, i64 16
+  %453 = load i32, ptr %445, align 4
+  %454 = icmp sgt i32 %453, 0
+  br i1 %454, label %.lr.ph25.i, label %makeItemList.exit
 
-list_length.exit.i:                               ; preds = %445, %makeItemType.exit.i
-  %448 = phi i32 [ %447, %445 ], [ 0, %makeItemType.exit.i ]
-  %449 = getelementptr inbounds nuw i8, ptr %441, i64 16
-  store i32 %448, ptr %449, align 8
-  %450 = sext i32 %448 to i64
-  %451 = shl nsw i64 %450, 4
-  %452 = call ptr @palloc(i64 noundef %451) #6
-  %453 = getelementptr inbounds nuw i8, ptr %441, i64 24
-  store ptr %452, ptr %453, align 8
-  %454 = getelementptr inbounds nuw i8, ptr %440, i64 4
-  br i1 %.not.i19.i, label %makeItemList.exit, label %.lr.ph.i463
+.lr.ph25.i:                                       ; preds = %list_length.exit.i, %.lr.ph25.i
+  %indvars.iv.i463 = phi i64 [ %indvars.iv.next.i464, %.lr.ph25.i ], [ 0, %list_length.exit.i ]
+  %455 = load ptr, ptr %452, align 8
+  %456 = getelementptr inbounds nuw %union.ListCell, ptr %455, i64 %indvars.iv.i463
+  %457 = load ptr, ptr %456, align 8
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 16
+  %459 = load ptr, ptr %458, align 8
+  %460 = load ptr, ptr %451, align 8
+  %461 = getelementptr inbounds nuw %struct.anon.4, ptr %460, i64 %indvars.iv.i463
+  store ptr %459, ptr %461, align 8
+  %462 = getelementptr inbounds nuw i8, ptr %457, i64 24
+  %463 = load ptr, ptr %462, align 8
+  %464 = load ptr, ptr %451, align 8
+  %indvars.iv.next.i464 = add nuw nsw i64 %indvars.iv.i463, 1
+  %465 = getelementptr inbounds nuw %struct.anon.4, ptr %464, i64 %indvars.iv.i463, i32 1
+  store ptr %463, ptr %465, align 8
+  %466 = load i32, ptr %445, align 4
+  %467 = sext i32 %466 to i64
+  %468 = icmp slt i64 %indvars.iv.next.i464, %467
+  br i1 %468, label %.lr.ph25.i, label %makeItemList.exit
 
-.lr.ph.i463:                                      ; preds = %list_length.exit.i
-  %455 = getelementptr inbounds nuw i8, ptr %440, i64 16
-  %456 = load i32, ptr %454, align 4
-  %457 = icmp sgt i32 %456, 0
-  br i1 %457, label %.lr.ph27.i, label %makeItemList.exit
-
-.lr.ph27.i:                                       ; preds = %.lr.ph.i463, %.lr.ph27.i
-  %indvars.iv.i464 = phi i64 [ %indvars.iv.next.i465, %.lr.ph27.i ], [ 0, %.lr.ph.i463 ]
-  %458 = load ptr, ptr %455, align 8
-  %459 = getelementptr inbounds nuw %union.ListCell, ptr %458, i64 %indvars.iv.i464
-  %460 = load ptr, ptr %459, align 8
-  %461 = getelementptr inbounds nuw i8, ptr %460, i64 16
-  %462 = load ptr, ptr %461, align 8
-  %463 = load ptr, ptr %453, align 8
-  %464 = getelementptr inbounds nuw %struct.anon.4, ptr %463, i64 %indvars.iv.i464
-  store ptr %462, ptr %464, align 8
-  %465 = getelementptr inbounds nuw i8, ptr %460, i64 24
-  %466 = load ptr, ptr %465, align 8
-  %467 = load ptr, ptr %453, align 8
-  %indvars.iv.next.i465 = add nuw nsw i64 %indvars.iv.i464, 1
-  %468 = getelementptr inbounds nuw %struct.anon.4, ptr %467, i64 %indvars.iv.i464, i32 1
-  store ptr %466, ptr %468, align 8
-  %469 = load i32, ptr %454, align 4
-  %470 = sext i32 %469 to i64
-  %471 = icmp slt i64 %indvars.iv.next.i465, %470
-  br i1 %471, label %.lr.ph27.i, label %makeItemList.exit
+.critedge.critedge.i:                             ; preds = %makeItemType.exit.i
+  %469 = getelementptr inbounds nuw i8, ptr %441, i64 16
+  store i32 0, ptr %469, align 8
+  %470 = call ptr @palloc(i64 noundef 0) #6
+  %471 = getelementptr inbounds nuw i8, ptr %441, i64 24
+  store ptr %470, ptr %471, align 8
+  br label %makeItemList.exit
 
 472:                                              ; preds = %79
   %473 = load ptr, ptr %.2374, align 8
@@ -1185,8 +1185,8 @@ list_length.exit.i:                               ; preds = %445, %makeItemType.
 480:                                              ; preds = %79
   %481 = call ptr @palloc(i64 noundef 40) #6
   %482 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i466 = icmp eq i32 %482, 0
-  br i1 %.not.i.i466, label %makeAny.exit, label %483, !prof !6
+  %.not.i.i465 = icmp eq i32 %482, 0
+  br i1 %.not.i.i465, label %makeAny.exit, label %483, !prof !6
 
 483:                                              ; preds = %480
   call void @ProcessInterrupts() #6
@@ -1207,14 +1207,14 @@ makeAny.exit:                                     ; preds = %480, %483
   %489 = load i32, ptr %488, align 8
   %490 = call ptr @palloc(i64 noundef 40) #6
   %491 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i468 = icmp eq i32 %491, 0
-  br i1 %.not.i.i468, label %makeAny.exit470, label %492, !prof !6
+  %.not.i.i467 = icmp eq i32 %491, 0
+  br i1 %.not.i.i467, label %makeAny.exit469, label %492, !prof !6
 
 492:                                              ; preds = %487
   call void @ProcessInterrupts() #6
-  br label %makeAny.exit470
+  br label %makeAny.exit469
 
-makeAny.exit470:                                  ; preds = %487, %492
+makeAny.exit469:                                  ; preds = %487, %492
   store i32 24, ptr %490, align 8
   %493 = getelementptr inbounds nuw i8, ptr %490, i64 8
   store ptr null, ptr %493, align 8
@@ -1232,14 +1232,14 @@ makeAny.exit470:                                  ; preds = %487, %492
   %501 = load i32, ptr %500, align 8
   %502 = call ptr @palloc(i64 noundef 40) #6
   %503 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i471 = icmp eq i32 %503, 0
-  br i1 %.not.i.i471, label %makeAny.exit473, label %504, !prof !6
+  %.not.i.i470 = icmp eq i32 %503, 0
+  br i1 %.not.i.i470, label %makeAny.exit472, label %504, !prof !6
 
 504:                                              ; preds = %497
   call void @ProcessInterrupts() #6
-  br label %makeAny.exit473
+  br label %makeAny.exit472
 
-makeAny.exit473:                                  ; preds = %497, %504
+makeAny.exit472:                                  ; preds = %497, %504
   store i32 24, ptr %502, align 8
   %505 = getelementptr inbounds nuw i8, ptr %502, i64 8
   store ptr null, ptr %505, align 8
@@ -1258,14 +1258,14 @@ makeAny.exit473:                                  ; preds = %497, %504
 512:                                              ; preds = %79
   %513 = call ptr @palloc(i64 noundef 40) #6
   %514 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i474 = icmp eq i32 %514, 0
-  br i1 %.not.i474, label %makeItemType.exit475, label %515, !prof !6
+  %.not.i473 = icmp eq i32 %514, 0
+  br i1 %.not.i473, label %makeItemType.exit474, label %515, !prof !6
 
 515:                                              ; preds = %512
   call void @ProcessInterrupts() #6
-  br label %makeItemType.exit475
+  br label %makeItemType.exit474
 
-makeItemType.exit475:                             ; preds = %512, %515
+makeItemType.exit474:                             ; preds = %512, %515
   store i32 22, ptr %513, align 8
   %516 = getelementptr inbounds nuw i8, ptr %513, i64 8
   store ptr null, ptr %516, align 8
@@ -1284,14 +1284,14 @@ makeItemType.exit475:                             ; preds = %512, %515
   %523 = load i32, ptr %522, align 8
   %524 = call ptr @palloc(i64 noundef 40) #6
   %525 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i476 = icmp eq i32 %525, 0
-  br i1 %.not.i476, label %makeItemType.exit477, label %526, !prof !6
+  %.not.i475 = icmp eq i32 %525, 0
+  br i1 %.not.i475, label %makeItemType.exit476, label %526, !prof !6
 
 526:                                              ; preds = %521
   call void @ProcessInterrupts() #6
-  br label %makeItemType.exit477
+  br label %makeItemType.exit476
 
-makeItemType.exit477:                             ; preds = %521, %526
+makeItemType.exit476:                             ; preds = %521, %526
   store i32 %523, ptr %524, align 8
   %527 = getelementptr inbounds nuw i8, ptr %524, i64 8
   store ptr null, ptr %527, align 8
@@ -1302,14 +1302,14 @@ makeItemType.exit477:                             ; preds = %521, %526
   %530 = load ptr, ptr %529, align 8
   %531 = call ptr @palloc(i64 noundef 40) #6
   %532 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i15.i478 = icmp eq i32 %532, 0
-  br i1 %.not.i15.i478, label %makeItemUnary.exit481, label %533, !prof !6
+  %.not.i15.i477 = icmp eq i32 %532, 0
+  br i1 %.not.i15.i477, label %makeItemUnary.exit480, label %533, !prof !6
 
 533:                                              ; preds = %528
   call void @ProcessInterrupts() #6
-  br label %makeItemUnary.exit481
+  br label %makeItemUnary.exit480
 
-makeItemUnary.exit481:                            ; preds = %528, %533
+makeItemUnary.exit480:                            ; preds = %528, %533
   store i32 29, ptr %531, align 8
   %534 = getelementptr inbounds nuw i8, ptr %531, i64 8
   store ptr null, ptr %534, align 8
@@ -1320,8 +1320,8 @@ makeItemUnary.exit481:                            ; preds = %528, %533
 536:                                              ; preds = %79
   %537 = getelementptr inbounds i8, ptr %.2374, i64 -16
   %538 = load ptr, ptr %537, align 8
-  %.not.i482 = icmp eq ptr %538, null
-  br i1 %.not.i482, label %list_length.exit.thread, label %list_length.exit
+  %.not.i481 = icmp eq ptr %538, null
+  br i1 %.not.i481, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %536
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 4
@@ -1335,14 +1335,14 @@ list_length.exit:                                 ; preds = %536
 list_length.exit.thread:                          ; preds = %list_length.exit, %536
   %541 = call ptr @palloc(i64 noundef 40) #6
   %542 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i483 = icmp eq i32 %542, 0
-  br i1 %.not.i.i483, label %makeItemBinary.exit485, label %543, !prof !6
+  %.not.i.i482 = icmp eq i32 %542, 0
+  br i1 %.not.i.i482, label %makeItemBinary.exit484, label %543, !prof !6
 
 543:                                              ; preds = %list_length.exit.thread
   call void @ProcessInterrupts() #6
-  br label %makeItemBinary.exit485
+  br label %makeItemBinary.exit484
 
-makeItemBinary.exit485:                           ; preds = %list_length.exit.thread, %543
+makeItemBinary.exit484:                           ; preds = %list_length.exit.thread, %543
   store i32 46, ptr %541, align 8
   %544 = getelementptr inbounds nuw i8, ptr %541, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %544, i8 0, i64 24, i1 false)
@@ -1354,14 +1354,14 @@ makeItemBinary.exit485:                           ; preds = %list_length.exit.th
   %547 = load ptr, ptr %.val, align 8
   %548 = call ptr @palloc(i64 noundef 40) #6
   %549 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i488 = icmp eq i32 %549, 0
-  br i1 %.not.i.i488, label %makeItemBinary.exit490, label %550, !prof !6
+  %.not.i.i487 = icmp eq i32 %549, 0
+  br i1 %.not.i.i487, label %makeItemBinary.exit489, label %550, !prof !6
 
 550:                                              ; preds = %545
   call void @ProcessInterrupts() #6
-  br label %makeItemBinary.exit490
+  br label %makeItemBinary.exit489
 
-makeItemBinary.exit490:                           ; preds = %545, %550
+makeItemBinary.exit489:                           ; preds = %545, %550
   store i32 46, ptr %548, align 8
   %551 = getelementptr inbounds nuw i8, ptr %548, i64 8
   store ptr null, ptr %551, align 8
@@ -1379,14 +1379,14 @@ makeItemBinary.exit490:                           ; preds = %545, %550
   %558 = load ptr, ptr %557, align 8
   %559 = call ptr @palloc(i64 noundef 40) #6
   %560 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i493 = icmp eq i32 %560, 0
-  br i1 %.not.i.i493, label %makeItemBinary.exit495, label %561, !prof !6
+  %.not.i.i492 = icmp eq i32 %560, 0
+  br i1 %.not.i.i492, label %makeItemBinary.exit494, label %561, !prof !6
 
 561:                                              ; preds = %554
   call void @ProcessInterrupts() #6
-  br label %makeItemBinary.exit495
+  br label %makeItemBinary.exit494
 
-makeItemBinary.exit495:                           ; preds = %554, %561
+makeItemBinary.exit494:                           ; preds = %554, %561
   store i32 46, ptr %559, align 8
   %562 = getelementptr inbounds nuw i8, ptr %559, i64 8
   store ptr null, ptr %562, align 8
@@ -1412,14 +1412,14 @@ makeItemBinary.exit495:                           ; preds = %554, %561
   %573 = load ptr, ptr %572, align 8
   %574 = call ptr @palloc(i64 noundef 40) #6
   %575 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i15.i496 = icmp eq i32 %575, 0
-  br i1 %.not.i15.i496, label %makeItemUnary.exit499, label %576, !prof !6
+  %.not.i15.i495 = icmp eq i32 %575, 0
+  br i1 %.not.i15.i495, label %makeItemUnary.exit498, label %576, !prof !6
 
 576:                                              ; preds = %571
   call void @ProcessInterrupts() #6
-  br label %makeItemUnary.exit499
+  br label %makeItemUnary.exit498
 
-makeItemUnary.exit499:                            ; preds = %571, %576
+makeItemUnary.exit498:                            ; preds = %571, %576
   store i32 37, ptr %574, align 8
   %577 = getelementptr inbounds nuw i8, ptr %574, i64 8
   store ptr null, ptr %577, align 8
@@ -1432,14 +1432,14 @@ makeItemUnary.exit499:                            ; preds = %571, %576
   %581 = load ptr, ptr %580, align 8
   %582 = call ptr @palloc(i64 noundef 40) #6
   %583 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i15.i500 = icmp eq i32 %583, 0
-  br i1 %.not.i15.i500, label %makeItemUnary.exit503, label %584, !prof !6
+  %.not.i15.i499 = icmp eq i32 %583, 0
+  br i1 %.not.i15.i499, label %makeItemUnary.exit502, label %584, !prof !6
 
 584:                                              ; preds = %579
   call void @ProcessInterrupts() #6
-  br label %makeItemUnary.exit503
+  br label %makeItemUnary.exit502
 
-makeItemUnary.exit503:                            ; preds = %579, %584
+makeItemUnary.exit502:                            ; preds = %579, %584
   store i32 50, ptr %582, align 8
   %585 = getelementptr inbounds nuw i8, ptr %582, i64 8
   store ptr null, ptr %585, align 8
@@ -1452,14 +1452,14 @@ makeItemUnary.exit503:                            ; preds = %579, %584
   %589 = load ptr, ptr %588, align 8
   %590 = call ptr @palloc(i64 noundef 40) #6
   %591 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i15.i504 = icmp eq i32 %591, 0
-  br i1 %.not.i15.i504, label %makeItemUnary.exit507, label %592, !prof !6
+  %.not.i15.i503 = icmp eq i32 %591, 0
+  br i1 %.not.i15.i503, label %makeItemUnary.exit506, label %592, !prof !6
 
 592:                                              ; preds = %587
   call void @ProcessInterrupts() #6
-  br label %makeItemUnary.exit507
+  br label %makeItemUnary.exit506
 
-makeItemUnary.exit507:                            ; preds = %587, %592
+makeItemUnary.exit506:                            ; preds = %587, %592
   store i32 51, ptr %590, align 8
   %593 = getelementptr inbounds nuw i8, ptr %590, i64 8
   store ptr null, ptr %593, align 8
@@ -1472,14 +1472,14 @@ makeItemUnary.exit507:                            ; preds = %587, %592
   %597 = load ptr, ptr %596, align 8
   %598 = call ptr @palloc(i64 noundef 40) #6
   %599 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i15.i508 = icmp eq i32 %599, 0
-  br i1 %.not.i15.i508, label %makeItemUnary.exit511, label %600, !prof !6
+  %.not.i15.i507 = icmp eq i32 %599, 0
+  br i1 %.not.i15.i507, label %makeItemUnary.exit510, label %600, !prof !6
 
 600:                                              ; preds = %595
   call void @ProcessInterrupts() #6
-  br label %makeItemUnary.exit511
+  br label %makeItemUnary.exit510
 
-makeItemUnary.exit511:                            ; preds = %595, %600
+makeItemUnary.exit510:                            ; preds = %595, %600
   store i32 52, ptr %598, align 8
   %601 = getelementptr inbounds nuw i8, ptr %598, i64 8
   store ptr null, ptr %601, align 8
@@ -1492,14 +1492,14 @@ makeItemUnary.exit511:                            ; preds = %595, %600
   %605 = load ptr, ptr %604, align 8
   %606 = call ptr @palloc(i64 noundef 40) #6
   %607 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i15.i512 = icmp eq i32 %607, 0
-  br i1 %.not.i15.i512, label %makeItemUnary.exit515, label %608, !prof !6
+  %.not.i15.i511 = icmp eq i32 %607, 0
+  br i1 %.not.i15.i511, label %makeItemUnary.exit514, label %608, !prof !6
 
 608:                                              ; preds = %603
   call void @ProcessInterrupts() #6
-  br label %makeItemUnary.exit515
+  br label %makeItemUnary.exit514
 
-makeItemUnary.exit515:                            ; preds = %603, %608
+makeItemUnary.exit514:                            ; preds = %603, %608
   store i32 53, ptr %606, align 8
   %609 = getelementptr inbounds nuw i8, ptr %606, i64 8
   store ptr null, ptr %609, align 8
@@ -1510,14 +1510,14 @@ makeItemUnary.exit515:                            ; preds = %603, %608
 611:                                              ; preds = %79
   %612 = call ptr @palloc(i64 noundef 40) #6
   %613 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i516 = icmp eq i32 %613, 0
-  br i1 %.not.i.i516, label %makeItemNumeric.exit518, label %614, !prof !6
+  %.not.i.i515 = icmp eq i32 %613, 0
+  br i1 %.not.i.i515, label %makeItemNumeric.exit517, label %614, !prof !6
 
 614:                                              ; preds = %611
   call void @ProcessInterrupts() #6
-  br label %makeItemNumeric.exit518
+  br label %makeItemNumeric.exit517
 
-makeItemNumeric.exit518:                          ; preds = %611, %614
+makeItemNumeric.exit517:                          ; preds = %611, %614
   store i32 2, ptr %612, align 8
   %615 = getelementptr inbounds nuw i8, ptr %612, i64 8
   store ptr null, ptr %615, align 8
@@ -1533,14 +1533,14 @@ makeItemNumeric.exit518:                          ; preds = %611, %614
 622:                                              ; preds = %79
   %623 = call ptr @palloc(i64 noundef 40) #6
   %624 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i519 = icmp eq i32 %624, 0
-  br i1 %.not.i.i519, label %makeItemNumeric.exit521, label %625, !prof !6
+  %.not.i.i518 = icmp eq i32 %624, 0
+  br i1 %.not.i.i518, label %makeItemNumeric.exit520, label %625, !prof !6
 
 625:                                              ; preds = %622
   call void @ProcessInterrupts() #6
-  br label %makeItemNumeric.exit521
+  br label %makeItemNumeric.exit520
 
-makeItemNumeric.exit521:                          ; preds = %622, %625
+makeItemNumeric.exit520:                          ; preds = %622, %625
   store i32 2, ptr %623, align 8
   %626 = getelementptr inbounds nuw i8, ptr %623, i64 8
   store ptr null, ptr %626, align 8
@@ -1555,22 +1555,22 @@ makeItemNumeric.exit521:                          ; preds = %622, %625
   %634 = icmp eq i32 %633, 2
   br i1 %634, label %635, label %637
 
-635:                                              ; preds = %makeItemNumeric.exit521
+635:                                              ; preds = %makeItemNumeric.exit520
   %636 = load ptr, ptr %626, align 8
-  %.not.i525 = icmp eq ptr %636, null
-  br i1 %.not.i525, label %makeItemList.exit, label %637
+  %.not.i524 = icmp eq ptr %636, null
+  br i1 %.not.i524, label %makeItemList.exit, label %637
 
-637:                                              ; preds = %635, %makeItemNumeric.exit521
+637:                                              ; preds = %635, %makeItemNumeric.exit520
   %638 = call ptr @palloc(i64 noundef 40) #6
   %639 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i15.i522 = icmp eq i32 %639, 0
-  br i1 %.not.i15.i522, label %makeItemType.exit16.i523, label %640, !prof !6
+  %.not.i15.i521 = icmp eq i32 %639, 0
+  br i1 %.not.i15.i521, label %makeItemType.exit16.i522, label %640, !prof !6
 
 640:                                              ; preds = %637
   call void @ProcessInterrupts() #6
-  br label %makeItemType.exit16.i523
+  br label %makeItemType.exit16.i522
 
-makeItemType.exit16.i523:                         ; preds = %640, %637
+makeItemType.exit16.i522:                         ; preds = %640, %637
   store i32 19, ptr %638, align 8
   %641 = getelementptr inbounds nuw i8, ptr %638, i64 8
   store ptr null, ptr %641, align 8
@@ -1581,14 +1581,14 @@ makeItemType.exit16.i523:                         ; preds = %640, %637
 643:                                              ; preds = %79
   %644 = call ptr @palloc(i64 noundef 40) #6
   %645 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i527 = icmp eq i32 %645, 0
-  br i1 %.not.i.i527, label %makeItemNumeric.exit529, label %646, !prof !6
+  %.not.i.i526 = icmp eq i32 %645, 0
+  br i1 %.not.i.i526, label %makeItemNumeric.exit528, label %646, !prof !6
 
 646:                                              ; preds = %643
   call void @ProcessInterrupts() #6
-  br label %makeItemNumeric.exit529
+  br label %makeItemNumeric.exit528
 
-makeItemNumeric.exit529:                          ; preds = %643, %646
+makeItemNumeric.exit528:                          ; preds = %643, %646
   store i32 2, ptr %644, align 8
   %647 = getelementptr inbounds nuw i8, ptr %644, i64 8
   store ptr null, ptr %647, align 8
@@ -1624,14 +1624,14 @@ makeItemNumeric.exit529:                          ; preds = %643, %646
 666:                                              ; preds = %79
   %667 = call ptr @palloc(i64 noundef 40) #6
   %668 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i530 = icmp eq i32 %668, 0
-  br i1 %.not.i.i530, label %makeItemNumeric.exit532, label %669, !prof !6
+  %.not.i.i529 = icmp eq i32 %668, 0
+  br i1 %.not.i.i529, label %makeItemNumeric.exit531, label %669, !prof !6
 
 669:                                              ; preds = %666
   call void @ProcessInterrupts() #6
-  br label %makeItemNumeric.exit532
+  br label %makeItemNumeric.exit531
 
-makeItemNumeric.exit532:                          ; preds = %666, %669
+makeItemNumeric.exit531:                          ; preds = %666, %669
   store i32 2, ptr %667, align 8
   %670 = getelementptr inbounds nuw i8, ptr %667, i64 8
   store ptr null, ptr %670, align 8
@@ -1651,14 +1651,14 @@ makeItemNumeric.exit532:                          ; preds = %666, %669
 679:                                              ; preds = %79
   %680 = call ptr @palloc(i64 noundef 40) #6
   %681 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i533 = icmp eq i32 %681, 0
-  br i1 %.not.i.i533, label %makeItemString.exit535, label %682, !prof !6
+  %.not.i.i532 = icmp eq i32 %681, 0
+  br i1 %.not.i.i532, label %makeItemString.exit534, label %682, !prof !6
 
 682:                                              ; preds = %679
   call void @ProcessInterrupts() #6
-  br label %makeItemString.exit535
+  br label %makeItemString.exit534
 
-makeItemString.exit535:                           ; preds = %679, %682
+makeItemString.exit534:                           ; preds = %679, %682
   store i32 1, ptr %680, align 8
   %683 = getelementptr inbounds nuw i8, ptr %680, i64 8
   store ptr null, ptr %683, align 8
@@ -1790,8 +1790,8 @@ makeItemKey.exit:                                 ; preds = %691, %694
   %739 = inttoptr i64 %.sroa.048.0.insert.insert110 to ptr
   br label %makeItemList.exit
 
-makeItemList.exit:                                ; preds = %.lr.ph27.i, %.lr.ph.i, %makeItemType.exit16.i523, %635, %.lr.ph.i463, %list_length.exit.i, %makeItemType.exit16.i, %345, %.preheader.i, %321, %260, %255, %79, %makeItemBinary.exit485, %makeItemBinary.exit495, %makeItemBinary.exit490, %737, %734, %731, %728, %725, %722, %719, %716, %713, %710, %707, %704, %701, %makeItemKey.exit, %689, %makeItemString.exit535, %677, %makeItemNumeric.exit532, %665, %663, %658, %655, %makeItemNumeric.exit529, %makeItemNumeric.exit518, %makeItemUnary.exit515, %makeItemUnary.exit511, %makeItemUnary.exit507, %makeItemUnary.exit503, %makeItemUnary.exit499, %makeItemUnary.exit481, %makeItemType.exit477, %519, %517, %makeItemType.exit475, %510, %makeAny.exit473, %makeAny.exit470, %makeAny.exit, %477, %472, %makeItemType.exit461, %428, %425, %makeItemBinary.exit459, %makeItemBinary.exit457, %makeItemBinary.exit455, %makeItemBinary.exit453, %makeItemBinary.exit451, %makeItemBinary.exit449, %makeItemBinary.exit447, %354, %338, %316, %311, %306, %303, %makeItemType.exit441, %makeItemType.exit439, %makeItemType.exit, %286, %makeItemVariable.exit437, %makeItemString.exit435, %makeItemBinary.exit433, %makeItemUnary.exit431, %makeItemUnary.exit429, %makeItemBinary.exit427, %makeItemBinary.exit425, %makeItemBinary.exit, %196, %makeItemUnary.exit, %185, %182, %179, %176, %173, %170, %167, %makeItemVariable.exit, %makeItemNumeric.exit421, %makeItemNumeric.exit, %makeItemBool.exit418, %makeItemBool.exit, %makeItemString.exit415, %makeItemString.exit, %105, %102, %99, %97, %95, %94, %87
-  %.sroa.048.0 = phi ptr [ %.sroa.048.0.copyload, %79 ], [ %.sroa.048.0.copyload, %87 ], [ %.sroa.048.0.copyload, %94 ], [ %96, %95 ], [ %98, %97 ], [ %101, %99 ], [ %104, %102 ], [ %107, %105 ], [ %109, %makeItemString.exit ], [ %119, %makeItemString.exit415 ], [ %124, %makeItemBool.exit ], [ %130, %makeItemBool.exit418 ], [ %136, %makeItemNumeric.exit ], [ %147, %makeItemNumeric.exit421 ], [ %158, %makeItemVariable.exit ], [ %169, %167 ], [ %172, %170 ], [ %175, %173 ], [ %178, %176 ], [ %181, %179 ], [ %184, %182 ], [ %187, %185 ], [ %191, %makeItemUnary.exit ], [ %197, %196 ], [ %204, %makeItemBinary.exit ], [ %214, %makeItemBinary.exit425 ], [ %224, %makeItemBinary.exit427 ], [ %232, %makeItemUnary.exit429 ], [ %240, %makeItemUnary.exit431 ], [ %249, %makeItemBinary.exit433 ], [ %259, %255 ], [ %265, %260 ], [ %267, %makeItemString.exit435 ], [ %277, %makeItemVariable.exit437 ], [ %287, %286 ], [ %289, %makeItemType.exit ], [ %294, %makeItemType.exit439 ], [ %299, %makeItemType.exit441 ], [ %305, %303 ], [ %310, %306 ], [ %315, %311 ], [ %320, %316 ], [ %340, %338 ], [ %356, %354 ], [ %361, %makeItemBinary.exit447 ], [ %371, %makeItemBinary.exit449 ], [ %381, %makeItemBinary.exit451 ], [ %391, %makeItemBinary.exit453 ], [ %401, %makeItemBinary.exit455 ], [ %409, %makeItemBinary.exit457 ], [ %419, %makeItemBinary.exit459 ], [ %427, %425 ], [ %432, %428 ], [ %434, %makeItemType.exit461 ], [ %476, %472 ], [ %479, %477 ], [ %481, %makeAny.exit ], [ %490, %makeAny.exit470 ], [ %502, %makeAny.exit473 ], [ %511, %510 ], [ %513, %makeItemType.exit475 ], [ %518, %517 ], [ %520, %519 ], [ %524, %makeItemType.exit477 ], [ %531, %makeItemUnary.exit481 ], [ %541, %makeItemBinary.exit485 ], [ %548, %makeItemBinary.exit490 ], [ %559, %makeItemBinary.exit495 ], [ %574, %makeItemUnary.exit499 ], [ %582, %makeItemUnary.exit503 ], [ %590, %makeItemUnary.exit507 ], [ %598, %makeItemUnary.exit511 ], [ %606, %makeItemUnary.exit515 ], [ %612, %makeItemNumeric.exit518 ], [ %654, %makeItemNumeric.exit529 ], [ %657, %655 ], [ %662, %658 ], [ %664, %663 ], [ null, %665 ], [ %667, %makeItemNumeric.exit532 ], [ %678, %677 ], [ %680, %makeItemString.exit535 ], [ %690, %689 ], [ %692, %makeItemKey.exit ], [ %703, %701 ], [ %706, %704 ], [ %709, %707 ], [ %712, %710 ], [ %715, %713 ], [ %718, %716 ], [ %721, %719 ], [ %724, %722 ], [ %727, %725 ], [ %730, %728 ], [ %733, %731 ], [ %736, %734 ], [ %739, %737 ], [ %324, %321 ], [ %324, %.preheader.i ], [ %342, %345 ], [ %349, %makeItemType.exit16.i ], [ %441, %list_length.exit.i ], [ %441, %.lr.ph.i463 ], [ %623, %635 ], [ %638, %makeItemType.exit16.i523 ], [ %324, %.lr.ph.i ], [ %441, %.lr.ph27.i ]
+makeItemList.exit:                                ; preds = %.lr.ph25.i, %.lr.ph.i, %makeItemType.exit16.i522, %635, %.critedge.critedge.i, %list_length.exit.i, %makeItemType.exit16.i, %345, %.preheader.i, %321, %260, %255, %79, %makeItemBinary.exit484, %makeItemBinary.exit494, %makeItemBinary.exit489, %737, %734, %731, %728, %725, %722, %719, %716, %713, %710, %707, %704, %701, %makeItemKey.exit, %689, %makeItemString.exit534, %677, %makeItemNumeric.exit531, %665, %663, %658, %655, %makeItemNumeric.exit528, %makeItemNumeric.exit517, %makeItemUnary.exit514, %makeItemUnary.exit510, %makeItemUnary.exit506, %makeItemUnary.exit502, %makeItemUnary.exit498, %makeItemUnary.exit480, %makeItemType.exit476, %519, %517, %makeItemType.exit474, %510, %makeAny.exit472, %makeAny.exit469, %makeAny.exit, %477, %472, %makeItemType.exit461, %428, %425, %makeItemBinary.exit459, %makeItemBinary.exit457, %makeItemBinary.exit455, %makeItemBinary.exit453, %makeItemBinary.exit451, %makeItemBinary.exit449, %makeItemBinary.exit447, %354, %338, %316, %311, %306, %303, %makeItemType.exit441, %makeItemType.exit439, %makeItemType.exit, %286, %makeItemVariable.exit437, %makeItemString.exit435, %makeItemBinary.exit433, %makeItemUnary.exit431, %makeItemUnary.exit429, %makeItemBinary.exit427, %makeItemBinary.exit425, %makeItemBinary.exit, %196, %makeItemUnary.exit, %185, %182, %179, %176, %173, %170, %167, %makeItemVariable.exit, %makeItemNumeric.exit421, %makeItemNumeric.exit, %makeItemBool.exit418, %makeItemBool.exit, %makeItemString.exit415, %makeItemString.exit, %105, %102, %99, %97, %95, %94, %87
+  %.sroa.048.0 = phi ptr [ %.sroa.048.0.copyload, %79 ], [ %.sroa.048.0.copyload, %87 ], [ %.sroa.048.0.copyload, %94 ], [ %96, %95 ], [ %98, %97 ], [ %101, %99 ], [ %104, %102 ], [ %107, %105 ], [ %109, %makeItemString.exit ], [ %119, %makeItemString.exit415 ], [ %124, %makeItemBool.exit ], [ %130, %makeItemBool.exit418 ], [ %136, %makeItemNumeric.exit ], [ %147, %makeItemNumeric.exit421 ], [ %158, %makeItemVariable.exit ], [ %169, %167 ], [ %172, %170 ], [ %175, %173 ], [ %178, %176 ], [ %181, %179 ], [ %184, %182 ], [ %187, %185 ], [ %191, %makeItemUnary.exit ], [ %197, %196 ], [ %204, %makeItemBinary.exit ], [ %214, %makeItemBinary.exit425 ], [ %224, %makeItemBinary.exit427 ], [ %232, %makeItemUnary.exit429 ], [ %240, %makeItemUnary.exit431 ], [ %249, %makeItemBinary.exit433 ], [ %259, %255 ], [ %265, %260 ], [ %267, %makeItemString.exit435 ], [ %277, %makeItemVariable.exit437 ], [ %287, %286 ], [ %289, %makeItemType.exit ], [ %294, %makeItemType.exit439 ], [ %299, %makeItemType.exit441 ], [ %305, %303 ], [ %310, %306 ], [ %315, %311 ], [ %320, %316 ], [ %340, %338 ], [ %356, %354 ], [ %361, %makeItemBinary.exit447 ], [ %371, %makeItemBinary.exit449 ], [ %381, %makeItemBinary.exit451 ], [ %391, %makeItemBinary.exit453 ], [ %401, %makeItemBinary.exit455 ], [ %409, %makeItemBinary.exit457 ], [ %419, %makeItemBinary.exit459 ], [ %427, %425 ], [ %432, %428 ], [ %434, %makeItemType.exit461 ], [ %476, %472 ], [ %479, %477 ], [ %481, %makeAny.exit ], [ %490, %makeAny.exit469 ], [ %502, %makeAny.exit472 ], [ %511, %510 ], [ %513, %makeItemType.exit474 ], [ %518, %517 ], [ %520, %519 ], [ %524, %makeItemType.exit476 ], [ %531, %makeItemUnary.exit480 ], [ %541, %makeItemBinary.exit484 ], [ %548, %makeItemBinary.exit489 ], [ %559, %makeItemBinary.exit494 ], [ %574, %makeItemUnary.exit498 ], [ %582, %makeItemUnary.exit502 ], [ %590, %makeItemUnary.exit506 ], [ %598, %makeItemUnary.exit510 ], [ %606, %makeItemUnary.exit514 ], [ %612, %makeItemNumeric.exit517 ], [ %654, %makeItemNumeric.exit528 ], [ %657, %655 ], [ %662, %658 ], [ %664, %663 ], [ null, %665 ], [ %667, %makeItemNumeric.exit531 ], [ %678, %677 ], [ %680, %makeItemString.exit534 ], [ %690, %689 ], [ %692, %makeItemKey.exit ], [ %703, %701 ], [ %706, %704 ], [ %709, %707 ], [ %712, %710 ], [ %715, %713 ], [ %718, %716 ], [ %721, %719 ], [ %724, %722 ], [ %727, %725 ], [ %730, %728 ], [ %733, %731 ], [ %736, %734 ], [ %739, %737 ], [ %324, %321 ], [ %324, %.preheader.i ], [ %342, %345 ], [ %349, %makeItemType.exit16.i ], [ %441, %list_length.exit.i ], [ %441, %.critedge.critedge.i ], [ %623, %635 ], [ %638, %makeItemType.exit16.i522 ], [ %324, %.lr.ph.i ], [ %441, %.lr.ph25.i ]
   %740 = sext i8 %82 to i64
   %741 = sub nsw i64 0, %740
   %742 = getelementptr inbounds %union.YYSTYPE, ptr %.2374, i64 %741
@@ -1833,25 +1833,25 @@ makeItemList.exit:                                ; preds = %.lr.ph27.i, %.lr.ph
   %768 = zext i8 %767 to i32
   br label %9
 
-.loopexit562.sink.split:                          ; preds = %21, %15, %74
+.loopexit561.sink.split:                          ; preds = %21, %15, %74
   %.str.4.sink = phi ptr [ @.str.4, %74 ], [ @.str.7, %15 ], [ @.str.7, %21 ]
   %.0385.ph = phi i32 [ 1, %74 ], [ 2, %15 ], [ 2, %21 ]
   %.5359.ph = phi ptr [ %.1355, %74 ], [ %.0354, %15 ], [ %.0354, %21 ]
   call void @jsonpath_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.str.4.sink) #6
-  br label %.loopexit562
+  br label %.loopexit561
 
-.loopexit562:                                     ; preds = %.thread552, %49, %255, %260, %32, %.loopexit562.sink.split
-  %.0385 = phi i32 [ %.0385.ph, %.loopexit562.sink.split ], [ 0, %.thread552 ], [ 1, %49 ], [ 1, %255 ], [ 1, %260 ], [ 1, %32 ]
-  %.5359 = phi ptr [ %.5359.ph, %.loopexit562.sink.split ], [ %.1355, %.thread552 ], [ %.1355, %49 ], [ %.1355, %255 ], [ %.1355, %260 ], [ %25, %32 ]
+.loopexit561:                                     ; preds = %.thread551, %49, %255, %260, %32, %.loopexit561.sink.split
+  %.0385 = phi i32 [ %.0385.ph, %.loopexit561.sink.split ], [ 0, %.thread551 ], [ 1, %49 ], [ 1, %255 ], [ 1, %260 ], [ 1, %32 ]
+  %.5359 = phi ptr [ %.5359.ph, %.loopexit561.sink.split ], [ %.1355, %.thread551 ], [ %.1355, %49 ], [ %.1355, %255 ], [ %.1355, %260 ], [ %25, %32 ]
   %.not411 = icmp eq ptr %.5359, %5
   br i1 %.not411, label %770, label %769
 
-769:                                              ; preds = %.loopexit562
+769:                                              ; preds = %.loopexit561
   call void @pfree(ptr noundef %.5359) #6
   br label %770
 
-770:                                              ; preds = %.loopexit562, %769, %565, %567
-  %.0 = phi i32 [ 0, %567 ], [ 0, %565 ], [ %.0385, %769 ], [ %.0385, %.loopexit562 ]
+770:                                              ; preds = %.loopexit561, %769, %565, %567
+  %.0 = phi i32 [ 0, %567 ], [ 0, %565 ], [ %.0385, %769 ], [ %.0385, %.loopexit561 ]
   call void @llvm.lifetime.end.p0(i64 3200, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6

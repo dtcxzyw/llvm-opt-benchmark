@@ -13,17 +13,17 @@ define noalias noundef ptr @Mem_FixedStart(i32 noundef %0) local_unnamed_addr #0
   %calloc = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   store i32 %0, ptr %calloc, align 8, !tbaa !3
   %2 = icmp slt i32 %0, 64
-  br i1 %2, label %5, label %3
+  br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
   %4 = udiv i32 65536, %0
-  br label %5
+  %5 = tail call i32 @llvm.umax.i32(i32 %4, i32 8)
+  br label %6
 
-5:                                                ; preds = %1, %3
-  %.sink = phi i32 [ %4, %3 ], [ 1024, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  %7 = tail call i32 @llvm.umax.i32(i32 %.sink, i32 8)
-  store i32 %7, ptr %6, align 8
+6:                                                ; preds = %1, %3
+  %.sink = phi i32 [ %5, %3 ], [ 1024, %1 ]
+  %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
+  store i32 %.sink, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 28
   store i32 64, ptr %8, align 4, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
@@ -665,23 +665,23 @@ Mem_FixedStart.exit:                              ; preds = %Mem_FixedStart.exit
   store i32 %8, ptr %calloc.i, align 8, !tbaa !3
   %9 = icmp slt i32 %8, 64
   %10 = lshr i32 8192, %7
-  %11 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
-  %12 = tail call i32 @llvm.umax.i32(i32 %10, i32 8)
-  %13 = select i1 %9, i32 1024, i32 %12
-  store i32 %13, ptr %11, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 28
-  store i32 64, ptr %14, align 4, !tbaa !11
-  %15 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
-  store i32 0, ptr %15, align 8, !tbaa !12
-  %16 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #14
-  %17 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40
-  store ptr %16, ptr %17, align 8, !tbaa !13
-  %18 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 48
-  store i32 0, ptr %18, align 8, !tbaa !14
-  %19 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 52
-  store i32 0, ptr %19, align 4, !tbaa !15
-  %20 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  store ptr %calloc.i, ptr %20, align 8, !tbaa !43
+  %11 = tail call i32 @llvm.umax.i32(i32 %10, i32 8)
+  %.sink.i = select i1 %9, i32 1024, i32 %11
+  %12 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
+  store i32 %.sink.i, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 28
+  store i32 64, ptr %13, align 4, !tbaa !11
+  %14 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
+  store i32 0, ptr %14, align 8, !tbaa !12
+  %15 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #14
+  %16 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40
+  store ptr %15, ptr %16, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 48
+  store i32 0, ptr %17, align 8, !tbaa !14
+  %18 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 52
+  store i32 0, ptr %18, align 4, !tbaa !15
+  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  store ptr %calloc.i, ptr %19, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %Mem_FixedStart.exit, !llvm.loop !45
@@ -691,60 +691,60 @@ Mem_FixedStart.exit:                              ; preds = %Mem_FixedStart.exit
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %21 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ undef, %1 ]
-  %22 = shl i32 4, %0
-  %23 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  store i32 %22, ptr %23, align 8, !tbaa !46
-  %24 = or disjoint i32 %22, 1
-  %25 = sext i32 %24 to i64
-  %26 = shl nsw i64 %25, 3
-  %27 = tail call noalias ptr @malloc(i64 noundef %26) #14
-  %28 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  store ptr %27, ptr %28, align 8, !tbaa !47
-  store ptr null, ptr %27, align 8, !tbaa !43
-  br label %29
+  %20 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ undef, %1 ]
+  %21 = shl i32 4, %0
+  %22 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
+  store i32 %21, ptr %22, align 8, !tbaa !46
+  %23 = or disjoint i32 %21, 1
+  %24 = sext i32 %23 to i64
+  %25 = shl nsw i64 %24, 3
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #14
+  %27 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
+  store ptr %26, ptr %27, align 8, !tbaa !47
+  store ptr null, ptr %26, align 8, !tbaa !43
+  br label %28
 
-.preheader:                                       ; preds = %29
+.preheader:                                       ; preds = %28
   br i1 %6, label %.lr.ph42.preheader, label %._crit_edge43
 
 .lr.ph42.preheader:                               ; preds = %.preheader
   %wide.trip.count56 = zext nneg i32 %0 to i64
   br label %.lr.ph42
 
-29:                                               ; preds = %._crit_edge, %29
-  %indvars.iv45 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next46, %29 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv45
-  store ptr %21, ptr %30, align 8, !tbaa !43
+28:                                               ; preds = %._crit_edge, %28
+  %indvars.iv45 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next46, %28 ]
+  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv45
+  store ptr %20, ptr %29, align 8, !tbaa !43
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 5
-  br i1 %exitcond48.not, label %.preheader, label %29, !llvm.loop !48
+  br i1 %exitcond48.not, label %.preheader, label %28, !llvm.loop !48
 
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %._crit_edge40
   %indvars.iv53 = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next54, %._crit_edge40 ]
-  %31 = trunc nuw nsw i64 %indvars.iv53 to i32
-  %32 = shl i32 4, %31
-  %33 = shl i32 8, %31
-  %.not37.not = icmp slt i32 %32, %33
+  %30 = trunc nuw nsw i64 %indvars.iv53 to i32
+  %31 = shl i32 4, %30
+  %32 = shl i32 8, %30
+  %.not37.not = icmp slt i32 %31, %32
   br i1 %.not37.not, label %.lr.ph, label %._crit_edge40
 
 .lr.ph:                                           ; preds = %.lr.ph42
-  %34 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv53
-  %35 = load ptr, ptr %34, align 8, !tbaa !43
-  %36 = or disjoint i32 %32, 1
-  %37 = sext i32 %36 to i64
-  %38 = or disjoint i32 %33, 1
-  br label %39
+  %33 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv53
+  %34 = load ptr, ptr %33, align 8, !tbaa !43
+  %35 = or disjoint i32 %31, 1
+  %36 = sext i32 %35 to i64
+  %37 = or disjoint i32 %32, 1
+  br label %38
 
-39:                                               ; preds = %.lr.ph, %39
-  %indvars.iv49 = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next50, %39 ]
-  %40 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv49
-  store ptr %35, ptr %40, align 8, !tbaa !43
+38:                                               ; preds = %.lr.ph, %38
+  %indvars.iv49 = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next50, %38 ]
+  %39 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv49
+  store ptr %34, ptr %39, align 8, !tbaa !43
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next50 to i32
-  %exitcond52.not = icmp eq i32 %38, %lftr.wideiv
-  br i1 %exitcond52.not, label %._crit_edge40, label %39, !llvm.loop !49
+  %exitcond52.not = icmp eq i32 %37, %lftr.wideiv
+  br i1 %exitcond52.not, label %._crit_edge40, label %38, !llvm.loop !49
 
-._crit_edge40:                                    ; preds = %39, %.lr.ph42
+._crit_edge40:                                    ; preds = %38, %.lr.ph42
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
   br i1 %exitcond57.not, label %._crit_edge43, label %.lr.ph42, !llvm.loop !50

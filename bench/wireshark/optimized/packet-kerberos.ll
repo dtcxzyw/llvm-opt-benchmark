@@ -6197,7 +6197,7 @@ verify_krb5_pac_ticket_checksum.exit.i:           ; preds = %370, %365, %353, %3
   %379 = getelementptr inbounds nuw i8, ptr %40, i64 72
   %380 = load i32, ptr %379, align 8
   %.not53.i = icmp eq i32 %380, 0
-  br i1 %.not53.i, label %564, label %381
+  br i1 %.not53.i, label %566, label %381
 
 381:                                              ; preds = %378
   %382 = load ptr, ptr %41, align 8
@@ -6364,15 +6364,11 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %399, %392
 .critedge.i.i:                                    ; preds = %464
   %473 = call i32 @tvb_get_uint32(ptr noundef nonnull %456, i32 noundef 0, i32 noundef -2147483648)
   %.not189.i.i = icmp eq i32 %473, 0
-  br i1 %.not189.i.i, label %._crit_edge.i71.i, label %.lr.ph.preheader.i.i
+  br i1 %.not189.i.i, label %._crit_edge.i71.i, label %.lr.ph.i68.i
 
-.lr.ph.preheader.i.i:                             ; preds = %.critedge.i.i
-  %invariant.gep.i.i = getelementptr i8, ptr %444, i64 4
-  br label %.lr.ph.i68.i
-
-.lr.ph.i68.i:                                     ; preds = %.critedge180.i.i, %.lr.ph.preheader.i.i
-  %indvars.iv.i69.i = phi i64 [ 8, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i70.i, %.critedge180.i.i ]
-  %.0170187.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %533, %.critedge180.i.i ]
+.lr.ph.i68.i:                                     ; preds = %.critedge.i.i, %.critedge180.i.i
+  %indvars.iv.i69.i = phi i64 [ %indvars.iv.next.i70.i, %.critedge180.i.i ], [ 8, %.critedge.i.i ]
+  %.0170187.i.i = phi i32 [ %535, %.critedge180.i.i ], [ 0, %.critedge.i.i ]
   %exitcond.i.i = icmp eq i32 %.0170187.i.i, 134217728
   br i1 %exitcond.i.i, label %474, label %480
 
@@ -6462,424 +6458,425 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %399, %392
   ]
 
 527:                                              ; preds = %526, %526, %526
-  %528 = add nuw nsw i64 %496, 4
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %496
-  %529 = add nsw i32 %494, -4
-  %530 = zext nneg i32 %529 to i64
-  %531 = call i64 @llvm.usub.sat.i64(i64 %443, i64 %528)
-  %532 = call ptr @__memset_chk(ptr noundef %gep.i.i, i32 noundef 0, i64 noundef range(i64 1, 4294967292) %530, i64 noundef %531) #21
+  %528 = getelementptr i8, ptr %444, i64 %496
+  %529 = add nuw nsw i64 %496, 4
+  %530 = getelementptr i8, ptr %528, i64 4
+  %531 = add nsw i32 %494, -4
+  %532 = zext nneg i32 %531 to i64
+  %533 = call i64 @llvm.usub.sat.i64(i64 %443, i64 %529)
+  %534 = call ptr @__memset_chk(ptr noundef %530, i32 noundef 0, i64 noundef range(i64 1, 4294967292) %532, i64 noundef %533) #21
   br label %.critedge180.i.i
 
 .critedge180.i.i:                                 ; preds = %527, %526, %524
-  %533 = add nuw nsw i32 %.0170187.i.i, 1
-  %exitcond192.not.i.i = icmp eq i32 %533, %473
+  %535 = add nuw nsw i32 %.0170187.i.i, 1
+  %exitcond192.not.i.i = icmp eq i32 %535, %473
   br i1 %exitcond192.not.i.i, label %._crit_edge.i71.i, label %.lr.ph.i68.i, !llvm.loop !25
 
 ._crit_edge.i71.i:                                ; preds = %.critedge180.i.i, %.critedge.i.i
-  %534 = load i32, ptr %379, align 8
-  %535 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 %534, ptr %535, align 4
-  %536 = load ptr, ptr %423, align 8
-  %537 = getelementptr inbounds nuw i8, ptr %536, i64 8
-  %538 = load ptr, ptr %537, align 8
-  %539 = getelementptr i8, ptr %538, i64 4
-  %540 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %539, ptr %540, align 8
-  %541 = load i64, ptr %21, align 8
-  %542 = trunc i64 %541 to i32
-  %543 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 %542, ptr %543, align 8
-  %544 = load ptr, ptr @krb5_ctx, align 8
-  %545 = call i32 @krb5_c_verify_checksum(ptr noundef %544, ptr noundef nonnull %20, i32 noundef 17, ptr noundef nonnull %23, ptr noundef nonnull %22, ptr noundef nonnull %24)
-  %.not178.i.i = icmp eq i32 %545, 0
-  br i1 %.not178.i.i, label %552, label %546
+  %536 = load i32, ptr %379, align 8
+  %537 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  store i32 %536, ptr %537, align 4
+  %538 = load ptr, ptr %423, align 8
+  %539 = getelementptr inbounds nuw i8, ptr %538, i64 8
+  %540 = load ptr, ptr %539, align 8
+  %541 = getelementptr i8, ptr %540, i64 4
+  %542 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %541, ptr %542, align 8
+  %543 = load i64, ptr %21, align 8
+  %544 = trunc i64 %543 to i32
+  %545 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i32 %544, ptr %545, align 8
+  %546 = load ptr, ptr @krb5_ctx, align 8
+  %547 = call i32 @krb5_c_verify_checksum(ptr noundef %546, ptr noundef nonnull %20, i32 noundef 17, ptr noundef nonnull %23, ptr noundef nonnull %22, ptr noundef nonnull %24)
+  %.not178.i.i = icmp eq i32 %547, 0
+  br i1 %.not178.i.i, label %554, label %548
 
-546:                                              ; preds = %._crit_edge.i71.i
-  %547 = load ptr, ptr %431, align 8
-  %548 = load i32, ptr %379, align 8
-  %549 = load ptr, ptr %158, align 8
-  %550 = getelementptr inbounds nuw i8, ptr %549, i64 8
-  %551 = load i32, ptr %550, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %547, ptr noundef %387, ptr noundef %1, i32 noundef %548, i32 noundef %551, ptr noundef nonnull @.str.934, ptr noundef nonnull @.str.917, i32 noundef 1, i32 noundef 1)
+548:                                              ; preds = %._crit_edge.i71.i
+  %549 = load ptr, ptr %431, align 8
+  %550 = load i32, ptr %379, align 8
+  %551 = load ptr, ptr %158, align 8
+  %552 = getelementptr inbounds nuw i8, ptr %551, i64 8
+  %553 = load i32, ptr %552, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %549, ptr noundef %387, ptr noundef %1, i32 noundef %550, i32 noundef %553, ptr noundef nonnull @.str.934, ptr noundef nonnull @.str.917, i32 noundef 1, i32 noundef 1)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-552:                                              ; preds = %._crit_edge.i71.i
-  %553 = load i32, ptr %24, align 4
-  %554 = icmp eq i32 %553, 0
-  %555 = load ptr, ptr %431, align 8
-  br i1 %554, label %556, label %561
+554:                                              ; preds = %._crit_edge.i71.i
+  %555 = load i32, ptr %24, align 4
+  %556 = icmp eq i32 %555, 0
+  %557 = load ptr, ptr %431, align 8
+  br i1 %556, label %558, label %563
 
-556:                                              ; preds = %552
-  %557 = load i32, ptr %379, align 8
-  %558 = load ptr, ptr %158, align 8
-  %559 = getelementptr inbounds nuw i8, ptr %558, i64 8
-  %560 = load i32, ptr %559, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %555, ptr noundef %387, ptr noundef %1, i32 noundef %557, i32 noundef %560, ptr noundef nonnull @.str.935, ptr noundef nonnull @.str.917, i32 noundef 1, i32 noundef 1)
+558:                                              ; preds = %554
+  %559 = load i32, ptr %379, align 8
+  %560 = load ptr, ptr %158, align 8
+  %561 = getelementptr inbounds nuw i8, ptr %560, i64 8
+  %562 = load i32, ptr %561, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %557, ptr noundef %387, ptr noundef %1, i32 noundef %559, i32 noundef %562, ptr noundef nonnull @.str.935, ptr noundef nonnull @.str.917, i32 noundef 1, i32 noundef 1)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-561:                                              ; preds = %552
-  %562 = load ptr, ptr %158, align 8
-  %563 = load i32, ptr %379, align 8
-  call fastcc void @used_signing_key(ptr noundef %4, ptr noundef %555, ptr noundef %387, ptr noundef %562, ptr noundef %1, i32 noundef %563, ptr noundef nonnull @.str.936, ptr noundef nonnull @.str.917, i32 noundef 1, i32 noundef 1)
+563:                                              ; preds = %554
+  %564 = load ptr, ptr %158, align 8
+  %565 = load i32, ptr %379, align 8
+  call fastcc void @used_signing_key(ptr noundef %4, ptr noundef %557, ptr noundef %387, ptr noundef %564, ptr noundef %1, i32 noundef %565, ptr noundef nonnull @.str.936, ptr noundef nonnull @.str.917, i32 noundef 1, i32 noundef 1)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-verify_krb5_pac_full_checksum.exit.i:             ; preds = %561, %556, %546, %518, %509, %501, %484, %474, %467, %458, %447, %433, %415, %keytype_for_cksumtype.exit.i76.i
+verify_krb5_pac_full_checksum.exit.i:             ; preds = %563, %558, %548, %518, %509, %501, %484, %474, %467, %458, %447, %433, %415, %keytype_for_cksumtype.exit.i76.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #21
-  br label %564
+  br label %566
 
-564:                                              ; preds = %verify_krb5_pac_full_checksum.exit.i, %378
-  %565 = getelementptr inbounds nuw i8, ptr %40, i64 80
-  %566 = load ptr, ptr %565, align 8
-  %.not54.i = icmp eq ptr %566, null
-  br i1 %.not54.i, label %569, label %567
+566:                                              ; preds = %verify_krb5_pac_full_checksum.exit.i, %378
+  %567 = getelementptr inbounds nuw i8, ptr %40, i64 80
+  %568 = load ptr, ptr %567, align 8
+  %.not54.i = icmp eq ptr %568, null
+  br i1 %.not54.i, label %571, label %569
 
-567:                                              ; preds = %564
-  %568 = load ptr, ptr @krb5_ctx, align 8
-  call void @krb5_free_data_contents(ptr noundef %568, ptr noundef nonnull %39)
-  br label %569
-
-569:                                              ; preds = %567, %564
+569:                                              ; preds = %566
   %570 = load ptr, ptr @krb5_ctx, align 8
-  %571 = load ptr, ptr %61, align 8
-  call void @krb5_pac_free(ptr noundef %570, ptr noundef %571)
+  call void @krb5_free_data_contents(ptr noundef %570, ptr noundef nonnull %39)
+  br label %571
+
+571:                                              ; preds = %569, %566
+  %572 = load ptr, ptr @krb5_ctx, align 8
+  %573 = load ptr, ptr %61, align 8
+  call void @krb5_pac_free(ptr noundef %572, ptr noundef %573)
   br label %verify_krb5_pac.exit
 
-verify_krb5_pac.exit:                             ; preds = %kerberos_get_private_data.exit.i, %52, %63, %569
+verify_krb5_pac.exit:                             ; preds = %kerberos_get_private_data.exit.i, %52, %63, %571
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %40) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #21
-  %572 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %2)
-  %573 = load i32, ptr @hf_krb_w2k_pac_entries, align 4
-  %574 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %573, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef %572)
-  %575 = add i32 %2, 4
-  %576 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %575)
-  %577 = load i32, ptr @hf_krb_w2k_pac_version, align 4
-  %578 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %577, ptr noundef %1, i32 noundef %575, i32 noundef 4, i32 noundef %576)
-  %579 = add i32 %2, 8
-  %.not = icmp eq i32 %572, 0
+  %574 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %2)
+  %575 = load i32, ptr @hf_krb_w2k_pac_entries, align 4
+  %576 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %575, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef %574)
+  %577 = add i32 %2, 4
+  %578 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %577)
+  %579 = load i32, ptr @hf_krb_w2k_pac_version, align 4
+  %580 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %579, ptr noundef %1, i32 noundef %577, i32 noundef 4, i32 noundef %578)
+  %581 = add i32 %2, 8
+  %.not = icmp eq i32 %574, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %verify_krb5_pac.exit
-  %580 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %581 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %582 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %583 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %584 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %585 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %586 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %587 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  br label %588
+  %582 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %583 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %584 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %585 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %586 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %587 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %588 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %589 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  br label %590
 
-588:                                              ; preds = %.lr.ph, %dissect_krb5_AD_WIN2K_PAC_struct.exit
-  %.048 = phi i32 [ 0, %.lr.ph ], [ %820, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
-  %.02447 = phi i32 [ %579, %.lr.ph ], [ %819, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
-  %589 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %.02447)
-  %590 = load i32, ptr @hf_krb_w2k_pac_type, align 4
-  %591 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %590, ptr noundef %1, i32 noundef %.02447, i32 noundef 4, i32 noundef %589)
-  %592 = load i32, ptr @ett_krb_pac, align 4
-  %593 = call ptr @proto_item_add_subtree(ptr noundef %591, i32 noundef %592)
-  %594 = add i32 %.02447, 4
-  %595 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %594)
-  %596 = load i32, ptr @hf_krb_w2k_pac_size, align 4
-  %597 = call ptr @proto_tree_add_uint(ptr noundef %593, i32 noundef %596, ptr noundef %1, i32 noundef %594, i32 noundef 4, i32 noundef %595)
-  %598 = add i32 %.02447, 8
-  %599 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %598)
-  %600 = load i32, ptr @hf_krb_w2k_pac_offset, align 4
-  %601 = call ptr @proto_tree_add_uint(ptr noundef %593, i32 noundef %600, ptr noundef %1, i32 noundef %598, i32 noundef 4, i32 noundef %599)
-  %602 = call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef %599, i32 noundef %595, i32 noundef %595)
-  switch i32 %589, label %dissect_krb5_AD_WIN2K_PAC_struct.exit [
-    i32 1, label %603
-    i32 2, label %610
-    i32 6, label %631
-    i32 7, label %640
-    i32 10, label %649
-    i32 11, label %662
-    i32 12, label %669
-    i32 13, label %753
-    i32 14, label %759
-    i32 15, label %779
-    i32 16, label %785
-    i32 17, label %794
-    i32 18, label %804
-    i32 19, label %810
+590:                                              ; preds = %.lr.ph, %dissect_krb5_AD_WIN2K_PAC_struct.exit
+  %.048 = phi i32 [ 0, %.lr.ph ], [ %822, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
+  %.02447 = phi i32 [ %581, %.lr.ph ], [ %821, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
+  %591 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %.02447)
+  %592 = load i32, ptr @hf_krb_w2k_pac_type, align 4
+  %593 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %592, ptr noundef %1, i32 noundef %.02447, i32 noundef 4, i32 noundef %591)
+  %594 = load i32, ptr @ett_krb_pac, align 4
+  %595 = call ptr @proto_item_add_subtree(ptr noundef %593, i32 noundef %594)
+  %596 = add i32 %.02447, 4
+  %597 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %596)
+  %598 = load i32, ptr @hf_krb_w2k_pac_size, align 4
+  %599 = call ptr @proto_tree_add_uint(ptr noundef %595, i32 noundef %598, ptr noundef %1, i32 noundef %596, i32 noundef 4, i32 noundef %597)
+  %600 = add i32 %.02447, 8
+  %601 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %600)
+  %602 = load i32, ptr @hf_krb_w2k_pac_offset, align 4
+  %603 = call ptr @proto_tree_add_uint(ptr noundef %595, i32 noundef %602, ptr noundef %1, i32 noundef %600, i32 noundef 4, i32 noundef %601)
+  %604 = call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef %601, i32 noundef %597, i32 noundef %597)
+  switch i32 %591, label %dissect_krb5_AD_WIN2K_PAC_struct.exit [
+    i32 1, label %605
+    i32 2, label %612
+    i32 6, label %633
+    i32 7, label %642
+    i32 10, label %651
+    i32 11, label %664
+    i32 12, label %671
+    i32 13, label %755
+    i32 14, label %761
+    i32 15, label %781
+    i32 16, label %787
+    i32 17, label %796
+    i32 18, label %806
+    i32 19, label %812
   ]
 
-603:                                              ; preds = %588
+605:                                              ; preds = %590
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #21
   store i32 16, ptr %16, align 4
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %17) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %17, i8 0, i64 104, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %18) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %18, i8 0, i64 136, i1 false)
-  store i8 -1, ptr %586, align 8
-  store ptr %17, ptr %587, align 8
-  %604 = load i32, ptr @hf_krb_pac_logon_info, align 4
-  %605 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %604, ptr noundef %602, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %606 = load i32, ptr @ett_krb_pac_logon_info, align 4
-  %607 = call ptr @proto_item_add_subtree(ptr noundef %605, i32 noundef %606)
-  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %607, ptr noundef %602, ptr noundef nonnull %16)
+  store i8 -1, ptr %588, align 8
+  store ptr %17, ptr %589, align 8
+  %606 = load i32, ptr @hf_krb_pac_logon_info, align 4
+  %607 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %606, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %608 = load i32, ptr @ett_krb_pac_logon_info, align 4
+  %609 = call ptr @proto_item_add_subtree(ptr noundef %607, i32 noundef %608)
+  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %609, ptr noundef %604, ptr noundef nonnull %16)
   call void @init_ndr_pointer_list(ptr noundef nonnull %18)
-  %608 = load ptr, ptr %580, align 8
-  %609 = call i32 @dissect_ndr_pointer(ptr noundef %602, i32 noundef 16, ptr noundef %608, ptr noundef %607, ptr noundef nonnull %18, ptr noundef nonnull %16, ptr noundef nonnull @netlogon_dissect_PAC_LOGON_INFO, i32 noundef 2, ptr noundef nonnull @.str.937, i32 noundef -1)
+  %610 = load ptr, ptr %582, align 8
+  %611 = call i32 @dissect_ndr_pointer(ptr noundef %604, i32 noundef 16, ptr noundef %610, ptr noundef %609, ptr noundef nonnull %18, ptr noundef nonnull %16, ptr noundef nonnull @netlogon_dissect_PAC_LOGON_INFO, i32 noundef 2, ptr noundef nonnull @.str.937, i32 noundef -1)
   call void @free_ndr_pointer_list(ptr noundef nonnull %18)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %18) #21
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %17) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #21
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-610:                                              ; preds = %588
+612:                                              ; preds = %590
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #21
   store i32 0, ptr %15, align 4
-  %611 = load i32, ptr @hf_krb_pac_credential_info, align 4
-  %612 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %611, ptr noundef %602, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %613 = load i32, ptr @ett_krb_pac_credential_info, align 4
-  %614 = call ptr @proto_item_add_subtree(ptr noundef %612, i32 noundef %613)
-  %615 = load i32, ptr @hf_krb_pac_credential_info_version, align 4
-  %616 = call ptr @proto_tree_add_item(ptr noundef %614, i32 noundef %615, ptr noundef %602, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
-  %617 = call i32 @tvb_get_letohl(ptr noundef %602, i32 noundef 4)
-  %618 = load i32, ptr @hf_krb_pac_credential_info_etype, align 4
-  %619 = call ptr @proto_tree_add_item(ptr noundef %614, i32 noundef %618, ptr noundef %602, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648)
-  %620 = call ptr @tvb_new_subset_remaining(ptr noundef %602, i32 noundef 8)
-  %621 = call i32 @tvb_captured_length_remaining(ptr noundef %602, i32 noundef 8)
-  %622 = load ptr, ptr %580, align 8
-  %623 = call fastcc ptr @kerberos_new_private_data(ptr noundef %622)
-  %624 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %614, ptr noundef %622, ptr noundef %623, i32 noundef 16, ptr noundef %620, i32 noundef %617, ptr noundef nonnull %15)
-  %.not.i.i28 = icmp eq ptr %624, null
-  br i1 %.not.i.i28, label %dissect_krb5_PAC_CREDENTIAL_INFO.exit.i, label %625
+  %613 = load i32, ptr @hf_krb_pac_credential_info, align 4
+  %614 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %613, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %615 = load i32, ptr @ett_krb_pac_credential_info, align 4
+  %616 = call ptr @proto_item_add_subtree(ptr noundef %614, i32 noundef %615)
+  %617 = load i32, ptr @hf_krb_pac_credential_info_version, align 4
+  %618 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %617, ptr noundef %604, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  %619 = call i32 @tvb_get_letohl(ptr noundef %604, i32 noundef 4)
+  %620 = load i32, ptr @hf_krb_pac_credential_info_etype, align 4
+  %621 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %620, ptr noundef %604, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648)
+  %622 = call ptr @tvb_new_subset_remaining(ptr noundef %604, i32 noundef 8)
+  %623 = call i32 @tvb_captured_length_remaining(ptr noundef %604, i32 noundef 8)
+  %624 = load ptr, ptr %582, align 8
+  %625 = call fastcc ptr @kerberos_new_private_data(ptr noundef %624)
+  %626 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %616, ptr noundef %624, ptr noundef %625, i32 noundef 16, ptr noundef %622, i32 noundef %619, ptr noundef nonnull %15)
+  %.not.i.i28 = icmp eq ptr %626, null
+  br i1 %.not.i.i28, label %dissect_krb5_PAC_CREDENTIAL_INFO.exit.i, label %627
 
-625:                                              ; preds = %610
-  %626 = load i32, ptr %15, align 4
-  %627 = call ptr @tvb_new_child_real_data(ptr noundef %602, ptr noundef nonnull %624, i32 noundef %626, i32 noundef %626)
-  %628 = load ptr, ptr %580, align 8
-  call void @add_new_data_source(ptr noundef %628, ptr noundef %627, ptr noundef nonnull @.str.940)
-  %629 = load i32, ptr @hf_krb_pac_credential_data, align 4
-  %630 = call ptr @proto_tree_add_item(ptr noundef %614, i32 noundef %629, ptr noundef %627, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+627:                                              ; preds = %612
+  %628 = load i32, ptr %15, align 4
+  %629 = call ptr @tvb_new_child_real_data(ptr noundef %604, ptr noundef nonnull %626, i32 noundef %628, i32 noundef %628)
+  %630 = load ptr, ptr %582, align 8
+  call void @add_new_data_source(ptr noundef %630, ptr noundef %629, ptr noundef nonnull @.str.940)
+  %631 = load i32, ptr @hf_krb_pac_credential_data, align 4
+  %632 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %631, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   br label %dissect_krb5_PAC_CREDENTIAL_INFO.exit.i
 
-dissect_krb5_PAC_CREDENTIAL_INFO.exit.i:          ; preds = %625, %610
+dissect_krb5_PAC_CREDENTIAL_INFO.exit.i:          ; preds = %627, %612
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #21
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-631:                                              ; preds = %588
-  %632 = load i32, ptr @hf_krb_pac_server_checksum, align 4
-  %633 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %632, ptr noundef %602, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %634 = load i32, ptr @ett_krb_pac_server_checksum, align 4
-  %635 = call ptr @proto_item_add_subtree(ptr noundef %633, i32 noundef %634)
-  %636 = load i32, ptr @hf_krb_pac_signature_type, align 4
-  %637 = call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %636, ptr noundef %602, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
-  %638 = load i32, ptr @hf_krb_pac_signature_signature, align 4
-  %639 = call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %638, ptr noundef %602, i32 noundef 4, i32 noundef -1, i32 noundef 0)
+633:                                              ; preds = %590
+  %634 = load i32, ptr @hf_krb_pac_server_checksum, align 4
+  %635 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %634, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %636 = load i32, ptr @ett_krb_pac_server_checksum, align 4
+  %637 = call ptr @proto_item_add_subtree(ptr noundef %635, i32 noundef %636)
+  %638 = load i32, ptr @hf_krb_pac_signature_type, align 4
+  %639 = call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %638, ptr noundef %604, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  %640 = load i32, ptr @hf_krb_pac_signature_signature, align 4
+  %641 = call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %640, ptr noundef %604, i32 noundef 4, i32 noundef -1, i32 noundef 0)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-640:                                              ; preds = %588
-  %641 = load i32, ptr @hf_krb_pac_privsvr_checksum, align 4
-  %642 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %641, ptr noundef %602, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %643 = load i32, ptr @ett_krb_pac_privsvr_checksum, align 4
-  %644 = call ptr @proto_item_add_subtree(ptr noundef %642, i32 noundef %643)
-  %645 = load i32, ptr @hf_krb_pac_signature_type, align 4
-  %646 = call ptr @proto_tree_add_item(ptr noundef %644, i32 noundef %645, ptr noundef %602, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
-  %647 = load i32, ptr @hf_krb_pac_signature_signature, align 4
-  %648 = call ptr @proto_tree_add_item(ptr noundef %644, i32 noundef %647, ptr noundef %602, i32 noundef 4, i32 noundef -1, i32 noundef 0)
+642:                                              ; preds = %590
+  %643 = load i32, ptr @hf_krb_pac_privsvr_checksum, align 4
+  %644 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %643, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %645 = load i32, ptr @ett_krb_pac_privsvr_checksum, align 4
+  %646 = call ptr @proto_item_add_subtree(ptr noundef %644, i32 noundef %645)
+  %647 = load i32, ptr @hf_krb_pac_signature_type, align 4
+  %648 = call ptr @proto_tree_add_item(ptr noundef %646, i32 noundef %647, ptr noundef %604, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  %649 = load i32, ptr @hf_krb_pac_signature_signature, align 4
+  %650 = call ptr @proto_tree_add_item(ptr noundef %646, i32 noundef %649, ptr noundef %604, i32 noundef 4, i32 noundef -1, i32 noundef 0)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-649:                                              ; preds = %588
-  %650 = load i32, ptr @hf_krb_pac_client_info_type, align 4
-  %651 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %650, ptr noundef %602, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %652 = load i32, ptr @ett_krb_pac_client_info_type, align 4
-  %653 = call ptr @proto_item_add_subtree(ptr noundef %651, i32 noundef %652)
-  %654 = load i32, ptr @hf_krb_pac_clientid, align 4
-  %655 = call ptr @dissect_nttime(ptr noundef %602, ptr noundef %653, i32 noundef 0, i32 noundef %654, i32 noundef -2147483648)
-  %656 = call zeroext i16 @tvb_get_letohs(ptr noundef %602, i32 noundef 8)
-  %657 = load i32, ptr @hf_krb_pac_namelen, align 4
-  %658 = zext i16 %656 to i32
-  %659 = call ptr @proto_tree_add_uint(ptr noundef %653, i32 noundef %657, ptr noundef %602, i32 noundef 8, i32 noundef 2, i32 noundef %658)
-  %660 = load i32, ptr @hf_krb_pac_clientname, align 4
-  %661 = call ptr @proto_tree_add_item(ptr noundef %653, i32 noundef %660, ptr noundef %602, i32 noundef 10, i32 noundef %658, i32 noundef -2147483644)
+651:                                              ; preds = %590
+  %652 = load i32, ptr @hf_krb_pac_client_info_type, align 4
+  %653 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %652, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %654 = load i32, ptr @ett_krb_pac_client_info_type, align 4
+  %655 = call ptr @proto_item_add_subtree(ptr noundef %653, i32 noundef %654)
+  %656 = load i32, ptr @hf_krb_pac_clientid, align 4
+  %657 = call ptr @dissect_nttime(ptr noundef %604, ptr noundef %655, i32 noundef 0, i32 noundef %656, i32 noundef -2147483648)
+  %658 = call zeroext i16 @tvb_get_letohs(ptr noundef %604, i32 noundef 8)
+  %659 = load i32, ptr @hf_krb_pac_namelen, align 4
+  %660 = zext i16 %658 to i32
+  %661 = call ptr @proto_tree_add_uint(ptr noundef %655, i32 noundef %659, ptr noundef %604, i32 noundef 8, i32 noundef 2, i32 noundef %660)
+  %662 = load i32, ptr @hf_krb_pac_clientname, align 4
+  %663 = call ptr @proto_tree_add_item(ptr noundef %655, i32 noundef %662, ptr noundef %604, i32 noundef 10, i32 noundef %660, i32 noundef -2147483644)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-662:                                              ; preds = %588
+664:                                              ; preds = %590
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #21
   store i32 16, ptr %12, align 4
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %13) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, i8 0, i64 104, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %14) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %14, i8 0, i64 136, i1 false)
-  store i8 -1, ptr %584, align 8
-  store ptr %13, ptr %585, align 8
-  %663 = load i32, ptr @hf_krb_pac_s4u_delegation_info, align 4
-  %664 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %663, ptr noundef %602, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %665 = load i32, ptr @ett_krb_pac_s4u_delegation_info, align 4
-  %666 = call ptr @proto_item_add_subtree(ptr noundef %664, i32 noundef %665)
-  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %666, ptr noundef %602, ptr noundef nonnull %12)
+  store i8 -1, ptr %586, align 8
+  store ptr %13, ptr %587, align 8
+  %665 = load i32, ptr @hf_krb_pac_s4u_delegation_info, align 4
+  %666 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %665, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %667 = load i32, ptr @ett_krb_pac_s4u_delegation_info, align 4
+  %668 = call ptr @proto_item_add_subtree(ptr noundef %666, i32 noundef %667)
+  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %668, ptr noundef %604, ptr noundef nonnull %12)
   call void @init_ndr_pointer_list(ptr noundef nonnull %14)
-  %667 = load ptr, ptr %580, align 8
-  %668 = call i32 @dissect_ndr_pointer(ptr noundef %602, i32 noundef 16, ptr noundef %667, ptr noundef %666, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull @netlogon_dissect_PAC_S4U_DELEGATION_INFO, i32 noundef 2, ptr noundef nonnull @.str.941, i32 noundef -1)
+  %669 = load ptr, ptr %582, align 8
+  %670 = call i32 @dissect_ndr_pointer(ptr noundef %604, i32 noundef 16, ptr noundef %669, ptr noundef %668, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull @netlogon_dissect_PAC_S4U_DELEGATION_INFO, i32 noundef 2, ptr noundef nonnull @.str.941, i32 noundef -1)
   call void @free_ndr_pointer_list(ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %14) #21
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %13) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #21
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-669:                                              ; preds = %588
-  %670 = load ptr, ptr %41, align 8
-  %.not.i.i.i25 = icmp eq ptr %670, null
-  br i1 %.not.i.i.i25, label %671, label %kerberos_get_private_data.exit.i.i26
+671:                                              ; preds = %590
+  %672 = load ptr, ptr %41, align 8
+  %.not.i.i.i25 = icmp eq ptr %672, null
+  br i1 %.not.i.i.i25, label %673, label %kerberos_get_private_data.exit.i.i26
 
-671:                                              ; preds = %669
-  %672 = load ptr, ptr %580, align 8
-  %673 = call fastcc ptr @kerberos_new_private_data(ptr noundef %672)
-  store ptr %673, ptr %41, align 8
+673:                                              ; preds = %671
+  %674 = load ptr, ptr %582, align 8
+  %675 = call fastcc ptr @kerberos_new_private_data(ptr noundef %674)
+  store ptr %675, ptr %41, align 8
   br label %kerberos_get_private_data.exit.i.i26
 
-kerberos_get_private_data.exit.i.i26:             ; preds = %671, %669
-  %674 = phi ptr [ %673, %671 ], [ %670, %669 ]
+kerberos_get_private_data.exit.i.i26:             ; preds = %673, %671
+  %676 = phi ptr [ %675, %673 ], [ %672, %671 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #21
   store ptr null, ptr %11, align 8
-  %675 = load i32, ptr @hf_krb_pac_upn_dns_info, align 4
-  %676 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %675, ptr noundef %602, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %677 = load i32, ptr @ett_krb_pac_upn_dns_info, align 4
-  %678 = call ptr @proto_item_add_subtree(ptr noundef %676, i32 noundef %677)
-  %679 = call zeroext i16 @tvb_get_letohs(ptr noundef %602, i32 noundef 0)
-  %680 = load i32, ptr @hf_krb_pac_upn_upn_len, align 4
-  %681 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %680, ptr noundef %602, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %682 = call zeroext i16 @tvb_get_letohs(ptr noundef %602, i32 noundef 2)
-  %683 = load i32, ptr @hf_krb_pac_upn_upn_offset, align 4
-  %684 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %683, ptr noundef %602, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
-  %685 = call zeroext i16 @tvb_get_letohs(ptr noundef %602, i32 noundef 4)
-  %686 = load i32, ptr @hf_krb_pac_upn_dns_len, align 4
-  %687 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %686, ptr noundef %602, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
-  %688 = call zeroext i16 @tvb_get_letohs(ptr noundef %602, i32 noundef 6)
-  %689 = load i32, ptr @hf_krb_pac_upn_dns_offset, align 4
-  %690 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %689, ptr noundef %602, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
-  %691 = call i32 @tvb_get_letohl(ptr noundef %602, i32 noundef 8)
-  %692 = load i32, ptr @hf_krb_pac_upn_flags, align 4
-  %693 = load i32, ptr @ett_krb_pac_upn_dns_info_flags, align 4
-  %694 = call ptr @proto_tree_add_bitmask(ptr noundef %678, ptr noundef %602, i32 noundef 8, i32 noundef %692, i32 noundef %693, ptr noundef nonnull @hf_krb_pac_upn_flags_fields, i32 noundef -2147483648)
-  %695 = and i32 %691, 2
-  %.not.i69.i = icmp eq i32 %695, 0
-  br i1 %.not.i69.i, label %713, label %696
+  %677 = load i32, ptr @hf_krb_pac_upn_dns_info, align 4
+  %678 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %677, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %679 = load i32, ptr @ett_krb_pac_upn_dns_info, align 4
+  %680 = call ptr @proto_item_add_subtree(ptr noundef %678, i32 noundef %679)
+  %681 = call zeroext i16 @tvb_get_letohs(ptr noundef %604, i32 noundef 0)
+  %682 = load i32, ptr @hf_krb_pac_upn_upn_len, align 4
+  %683 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %682, ptr noundef %604, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %684 = call zeroext i16 @tvb_get_letohs(ptr noundef %604, i32 noundef 2)
+  %685 = load i32, ptr @hf_krb_pac_upn_upn_offset, align 4
+  %686 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %685, ptr noundef %604, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
+  %687 = call zeroext i16 @tvb_get_letohs(ptr noundef %604, i32 noundef 4)
+  %688 = load i32, ptr @hf_krb_pac_upn_dns_len, align 4
+  %689 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %688, ptr noundef %604, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
+  %690 = call zeroext i16 @tvb_get_letohs(ptr noundef %604, i32 noundef 6)
+  %691 = load i32, ptr @hf_krb_pac_upn_dns_offset, align 4
+  %692 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %691, ptr noundef %604, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+  %693 = call i32 @tvb_get_letohl(ptr noundef %604, i32 noundef 8)
+  %694 = load i32, ptr @hf_krb_pac_upn_flags, align 4
+  %695 = load i32, ptr @ett_krb_pac_upn_dns_info_flags, align 4
+  %696 = call ptr @proto_tree_add_bitmask(ptr noundef %680, ptr noundef %604, i32 noundef 8, i32 noundef %694, i32 noundef %695, ptr noundef nonnull @hf_krb_pac_upn_flags_fields, i32 noundef -2147483648)
+  %697 = and i32 %693, 2
+  %.not.i69.i = icmp eq i32 %697, 0
+  br i1 %.not.i69.i, label %715, label %698
 
-696:                                              ; preds = %kerberos_get_private_data.exit.i.i26
-  %697 = call zeroext i16 @tvb_get_letohs(ptr noundef %602, i32 noundef 12)
-  %698 = load i32, ptr @hf_krb_pac_upn_samaccountname_len, align 4
-  %699 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %698, ptr noundef %602, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
-  %700 = call zeroext i16 @tvb_get_letohs(ptr noundef %602, i32 noundef 14)
-  %701 = load i32, ptr @hf_krb_pac_upn_samaccountname_offset, align 4
-  %702 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %701, ptr noundef %602, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648)
-  %703 = call zeroext i16 @tvb_get_letohs(ptr noundef %602, i32 noundef 16)
-  %704 = load i32, ptr @hf_krb_pac_upn_objectsid_len, align 4
-  %705 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %704, ptr noundef %602, i32 noundef 16, i32 noundef 2, i32 noundef -2147483648)
-  %706 = call zeroext i16 @tvb_get_letohs(ptr noundef %602, i32 noundef 18)
-  %707 = load i32, ptr @hf_krb_pac_upn_objectsid_offset, align 4
-  %708 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %707, ptr noundef %602, i32 noundef 18, i32 noundef 2, i32 noundef -2147483648)
-  %709 = zext i16 %700 to i32
-  %710 = zext i16 %697 to i32
-  %711 = zext i16 %706 to i32
-  %712 = zext i16 %703 to i32
-  br label %713
+698:                                              ; preds = %kerberos_get_private_data.exit.i.i26
+  %699 = call zeroext i16 @tvb_get_letohs(ptr noundef %604, i32 noundef 12)
+  %700 = load i32, ptr @hf_krb_pac_upn_samaccountname_len, align 4
+  %701 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %700, ptr noundef %604, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
+  %702 = call zeroext i16 @tvb_get_letohs(ptr noundef %604, i32 noundef 14)
+  %703 = load i32, ptr @hf_krb_pac_upn_samaccountname_offset, align 4
+  %704 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %703, ptr noundef %604, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648)
+  %705 = call zeroext i16 @tvb_get_letohs(ptr noundef %604, i32 noundef 16)
+  %706 = load i32, ptr @hf_krb_pac_upn_objectsid_len, align 4
+  %707 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %706, ptr noundef %604, i32 noundef 16, i32 noundef 2, i32 noundef -2147483648)
+  %708 = call zeroext i16 @tvb_get_letohs(ptr noundef %604, i32 noundef 18)
+  %709 = load i32, ptr @hf_krb_pac_upn_objectsid_offset, align 4
+  %710 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %709, ptr noundef %604, i32 noundef 18, i32 noundef 2, i32 noundef -2147483648)
+  %711 = zext i16 %702 to i32
+  %712 = zext i16 %699 to i32
+  %713 = zext i16 %708 to i32
+  %714 = zext i16 %705 to i32
+  br label %715
 
-713:                                              ; preds = %696, %kerberos_get_private_data.exit.i.i26
-  %.0107.i.i = phi i32 [ %711, %696 ], [ 0, %kerberos_get_private_data.exit.i.i26 ]
-  %.0106.i.i = phi i32 [ %712, %696 ], [ 0, %kerberos_get_private_data.exit.i.i26 ]
-  %.0105.i.i = phi i32 [ %710, %696 ], [ 0, %kerberos_get_private_data.exit.i.i26 ]
-  %.0.i.i = phi i32 [ %709, %696 ], [ 0, %kerberos_get_private_data.exit.i.i26 ]
-  %714 = load i32, ptr @hf_krb_pac_upn_upn_name, align 4
-  %715 = zext i16 %682 to i32
-  %716 = zext i16 %679 to i32
-  %717 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %714, ptr noundef %602, i32 noundef %715, i32 noundef %716, i32 noundef -2147483644)
-  %718 = load i32, ptr @hf_krb_pac_upn_dns_name, align 4
-  %719 = zext i16 %688 to i32
-  %720 = zext i16 %685 to i32
-  %721 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %718, ptr noundef %602, i32 noundef %719, i32 noundef %720, i32 noundef -2147483644)
-  %722 = icmp ne i32 %.0.i.i, 0
-  %723 = icmp ne i32 %.0105.i.i, 0
-  %or.cond.i.i27 = select i1 %722, i1 %723, i1 false
-  br i1 %or.cond.i.i27, label %724, label %727
+715:                                              ; preds = %698, %kerberos_get_private_data.exit.i.i26
+  %.0107.i.i = phi i32 [ %713, %698 ], [ 0, %kerberos_get_private_data.exit.i.i26 ]
+  %.0106.i.i = phi i32 [ %714, %698 ], [ 0, %kerberos_get_private_data.exit.i.i26 ]
+  %.0105.i.i = phi i32 [ %712, %698 ], [ 0, %kerberos_get_private_data.exit.i.i26 ]
+  %.0.i.i = phi i32 [ %711, %698 ], [ 0, %kerberos_get_private_data.exit.i.i26 ]
+  %716 = load i32, ptr @hf_krb_pac_upn_upn_name, align 4
+  %717 = zext i16 %684 to i32
+  %718 = zext i16 %681 to i32
+  %719 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %716, ptr noundef %604, i32 noundef %717, i32 noundef %718, i32 noundef -2147483644)
+  %720 = load i32, ptr @hf_krb_pac_upn_dns_name, align 4
+  %721 = zext i16 %690 to i32
+  %722 = zext i16 %687 to i32
+  %723 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %720, ptr noundef %604, i32 noundef %721, i32 noundef %722, i32 noundef -2147483644)
+  %724 = icmp ne i32 %.0.i.i, 0
+  %725 = icmp ne i32 %.0105.i.i, 0
+  %or.cond.i.i27 = select i1 %724, i1 %725, i1 false
+  br i1 %or.cond.i.i27, label %726, label %729
 
-724:                                              ; preds = %713
-  %725 = load i32, ptr @hf_krb_pac_upn_samaccountname, align 4
-  %726 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %725, ptr noundef %602, i32 noundef %.0.i.i, i32 noundef %.0105.i.i, i32 noundef -2147483644)
-  br label %727
+726:                                              ; preds = %715
+  %727 = load i32, ptr @hf_krb_pac_upn_samaccountname, align 4
+  %728 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %727, ptr noundef %604, i32 noundef %.0.i.i, i32 noundef %.0105.i.i, i32 noundef -2147483644)
+  br label %729
 
-727:                                              ; preds = %724, %713
-  %728 = icmp ne i32 %.0107.i.i, 0
-  %729 = icmp ne i32 %.0106.i.i, 0
-  %or.cond5.i.i = select i1 %728, i1 %729, i1 false
-  br i1 %or.cond5.i.i, label %730, label %733
+729:                                              ; preds = %726, %715
+  %730 = icmp ne i32 %.0107.i.i, 0
+  %731 = icmp ne i32 %.0106.i.i, 0
+  %or.cond5.i.i = select i1 %730, i1 %731, i1 false
+  br i1 %or.cond5.i.i, label %732, label %735
 
-730:                                              ; preds = %727
-  %731 = call ptr @tvb_new_subset_length(ptr noundef %602, i32 noundef %.0107.i.i, i32 noundef %.0106.i.i)
-  %732 = call i32 @dissect_nt_sid(ptr noundef %731, i32 noundef 0, ptr noundef %678, ptr noundef nonnull @.str.942, ptr noundef nonnull %11, i32 noundef -1)
-  br label %733
+732:                                              ; preds = %729
+  %733 = call ptr @tvb_new_subset_length(ptr noundef %604, i32 noundef %.0107.i.i, i32 noundef %.0106.i.i)
+  %734 = call i32 @dissect_nt_sid(ptr noundef %733, i32 noundef 0, ptr noundef %680, ptr noundef nonnull @.str.942, ptr noundef nonnull %11, i32 noundef -1)
+  br label %735
 
-733:                                              ; preds = %730, %727
-  %734 = getelementptr inbounds nuw i8, ptr %674, i64 112
-  %735 = load ptr, ptr %734, align 8
-  %.not114.i.i = icmp eq ptr %735, null
-  br i1 %.not114.i.i, label %dissect_krb5_PAC_UPN_DNS_INFO.exit.i, label %736
+735:                                              ; preds = %732, %729
+  %736 = getelementptr inbounds nuw i8, ptr %676, i64 112
+  %737 = load ptr, ptr %736, align 8
+  %.not114.i.i = icmp eq ptr %737, null
+  br i1 %.not114.i.i, label %dissect_krb5_PAC_UPN_DNS_INFO.exit.i, label %738
 
-736:                                              ; preds = %733
-  %737 = call ptr @wmem_epan_scope()
-  br i1 %or.cond.i.i27, label %738, label %740
+738:                                              ; preds = %735
+  %739 = call ptr @wmem_epan_scope()
+  br i1 %or.cond.i.i27, label %740, label %742
 
-738:                                              ; preds = %736
-  %739 = call ptr @tvb_get_string_enc(ptr noundef %737, ptr noundef %602, i32 noundef %.0.i.i, i32 noundef %.0105.i.i, i32 noundef -2147483644)
-  br label %742
+740:                                              ; preds = %738
+  %741 = call ptr @tvb_get_string_enc(ptr noundef %739, ptr noundef %604, i32 noundef %.0.i.i, i32 noundef %.0105.i.i, i32 noundef -2147483644)
+  br label %744
 
-740:                                              ; preds = %736
-  %741 = call ptr @tvb_get_string_enc(ptr noundef %737, ptr noundef %602, i32 noundef %715, i32 noundef %716, i32 noundef -2147483644)
-  br label %742
+742:                                              ; preds = %738
+  %743 = call ptr @tvb_get_string_enc(ptr noundef %739, ptr noundef %604, i32 noundef %717, i32 noundef %718, i32 noundef -2147483644)
+  br label %744
 
-742:                                              ; preds = %740, %738
-  %.sink.i.i = phi ptr [ %739, %738 ], [ %741, %740 ]
-  %743 = getelementptr inbounds nuw i8, ptr %735, i64 368
-  store ptr %.sink.i.i, ptr %743, align 8
-  %744 = call ptr @wmem_epan_scope()
-  %745 = call ptr @tvb_get_string_enc(ptr noundef %744, ptr noundef %602, i32 noundef %719, i32 noundef %720, i32 noundef -2147483644)
-  %746 = getelementptr inbounds nuw i8, ptr %735, i64 376
-  store ptr %745, ptr %746, align 8
-  %747 = load ptr, ptr %11, align 8
-  %.not115.i.i = icmp eq ptr %747, null
-  br i1 %.not115.i.i, label %dissect_krb5_PAC_UPN_DNS_INFO.exit.i, label %748
+744:                                              ; preds = %742, %740
+  %.sink.i.i = phi ptr [ %741, %740 ], [ %743, %742 ]
+  %745 = getelementptr inbounds nuw i8, ptr %737, i64 368
+  store ptr %.sink.i.i, ptr %745, align 8
+  %746 = call ptr @wmem_epan_scope()
+  %747 = call ptr @tvb_get_string_enc(ptr noundef %746, ptr noundef %604, i32 noundef %721, i32 noundef %722, i32 noundef -2147483644)
+  %748 = getelementptr inbounds nuw i8, ptr %737, i64 376
+  store ptr %747, ptr %748, align 8
+  %749 = load ptr, ptr %11, align 8
+  %.not115.i.i = icmp eq ptr %749, null
+  br i1 %.not115.i.i, label %dissect_krb5_PAC_UPN_DNS_INFO.exit.i, label %750
 
-748:                                              ; preds = %742
-  %749 = call ptr @wmem_epan_scope()
-  %750 = load ptr, ptr %11, align 8
-  %751 = call noalias ptr @wmem_strdup(ptr noundef %749, ptr noundef %750)
-  %752 = getelementptr inbounds nuw i8, ptr %735, i64 384
-  store ptr %751, ptr %752, align 8
+750:                                              ; preds = %744
+  %751 = call ptr @wmem_epan_scope()
+  %752 = load ptr, ptr %11, align 8
+  %753 = call noalias ptr @wmem_strdup(ptr noundef %751, ptr noundef %752)
+  %754 = getelementptr inbounds nuw i8, ptr %737, i64 384
+  store ptr %753, ptr %754, align 8
   br label %dissect_krb5_PAC_UPN_DNS_INFO.exit.i
 
-dissect_krb5_PAC_UPN_DNS_INFO.exit.i:             ; preds = %748, %742, %733
+dissect_krb5_PAC_UPN_DNS_INFO.exit.i:             ; preds = %750, %744, %735
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-753:                                              ; preds = %588
-  %754 = call i32 @tvb_reported_length_remaining(ptr noundef %602, i32 noundef 0)
-  %755 = load ptr, ptr %580, align 8
-  %756 = load i32, ptr @hf_krb_pac_client_claims_info, align 4
-  %757 = load i32, ptr @ett_krb_pac_client_claims_info, align 4
-  %758 = call i32 @netlogon_dissect_CLAIMS_SET_METADATA_BLOB(ptr noundef %602, i32 noundef 0, i32 noundef %754, ptr noundef %755, ptr noundef %593, i32 noundef %756, i32 noundef %757, ptr noundef nonnull @.str.943)
+755:                                              ; preds = %590
+  %756 = call i32 @tvb_reported_length_remaining(ptr noundef %604, i32 noundef 0)
+  %757 = load ptr, ptr %582, align 8
+  %758 = load i32, ptr @hf_krb_pac_client_claims_info, align 4
+  %759 = load i32, ptr @ett_krb_pac_client_claims_info, align 4
+  %760 = call i32 @netlogon_dissect_CLAIMS_SET_METADATA_BLOB(ptr noundef %604, i32 noundef 0, i32 noundef %756, ptr noundef %757, ptr noundef %595, i32 noundef %758, i32 noundef %759, ptr noundef nonnull @.str.943)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-759:                                              ; preds = %588
-  %760 = load ptr, ptr %41, align 8
-  %.not.i.i70.i = icmp eq ptr %760, null
-  br i1 %.not.i.i70.i, label %761, label %kerberos_get_private_data.exit.i71.i
+761:                                              ; preds = %590
+  %762 = load ptr, ptr %41, align 8
+  %.not.i.i70.i = icmp eq ptr %762, null
+  br i1 %.not.i.i70.i, label %763, label %kerberos_get_private_data.exit.i71.i
 
-761:                                              ; preds = %759
-  %762 = load ptr, ptr %580, align 8
-  %763 = call fastcc ptr @kerberos_new_private_data(ptr noundef %762)
-  store ptr %763, ptr %41, align 8
+763:                                              ; preds = %761
+  %764 = load ptr, ptr %582, align 8
+  %765 = call fastcc ptr @kerberos_new_private_data(ptr noundef %764)
+  store ptr %765, ptr %41, align 8
   br label %kerberos_get_private_data.exit.i71.i
 
-kerberos_get_private_data.exit.i71.i:             ; preds = %761, %759
-  %764 = phi ptr [ %763, %761 ], [ %760, %759 ]
+kerberos_get_private_data.exit.i71.i:             ; preds = %763, %761
+  %766 = phi ptr [ %765, %763 ], [ %762, %761 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #21
@@ -6888,102 +6885,102 @@ kerberos_get_private_data.exit.i71.i:             ; preds = %761, %759
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %9, i8 0, i64 104, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %10, i8 0, i64 136, i1 false)
-  store i8 -1, ptr %581, align 8
-  store ptr %9, ptr %582, align 8
-  %765 = getelementptr inbounds nuw i8, ptr %764, i64 112
-  %766 = load ptr, ptr %765, align 8
-  %.not.i72.i = icmp eq ptr %766, null
-  br i1 %.not.i72.i, label %768, label %767
+  store i8 -1, ptr %583, align 8
+  store ptr %9, ptr %584, align 8
+  %767 = getelementptr inbounds nuw i8, ptr %766, i64 112
+  %768 = load ptr, ptr %767, align 8
+  %.not.i72.i = icmp eq ptr %768, null
+  br i1 %.not.i72.i, label %770, label %769
 
-767:                                              ; preds = %kerberos_get_private_data.exit.i71.i
-  store ptr %7, ptr %583, align 8
-  br label %768
+769:                                              ; preds = %kerberos_get_private_data.exit.i71.i
+  store ptr %7, ptr %585, align 8
+  br label %770
 
-768:                                              ; preds = %767, %kerberos_get_private_data.exit.i71.i
-  %769 = load i32, ptr @hf_krb_pac_device_info, align 4
-  %770 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %769, ptr noundef %602, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %771 = load i32, ptr @ett_krb_pac_device_info, align 4
-  %772 = call ptr @proto_item_add_subtree(ptr noundef %770, i32 noundef %771)
-  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %772, ptr noundef %602, ptr noundef nonnull %8)
+770:                                              ; preds = %769, %kerberos_get_private_data.exit.i71.i
+  %771 = load i32, ptr @hf_krb_pac_device_info, align 4
+  %772 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %771, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %773 = load i32, ptr @ett_krb_pac_device_info, align 4
+  %774 = call ptr @proto_item_add_subtree(ptr noundef %772, i32 noundef %773)
+  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %774, ptr noundef %604, ptr noundef nonnull %8)
   call void @init_ndr_pointer_list(ptr noundef nonnull %10)
-  %773 = load ptr, ptr %580, align 8
-  %774 = call i32 @dissect_ndr_pointer(ptr noundef %602, i32 noundef 16, ptr noundef %773, ptr noundef %772, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull @netlogon_dissect_PAC_DEVICE_INFO, i32 noundef 2, ptr noundef nonnull @.str.944, i32 noundef -1)
+  %775 = load ptr, ptr %582, align 8
+  %776 = call i32 @dissect_ndr_pointer(ptr noundef %604, i32 noundef 16, ptr noundef %775, ptr noundef %774, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull @netlogon_dissect_PAC_DEVICE_INFO, i32 noundef 2, ptr noundef nonnull @.str.944, i32 noundef -1)
   call void @free_ndr_pointer_list(ptr noundef nonnull %10)
-  %775 = load ptr, ptr %765, align 8
-  %.not17.i.i = icmp eq ptr %775, null
-  br i1 %.not17.i.i, label %dissect_krb5_PAC_DEVICE_INFO.exit.i, label %776
+  %777 = load ptr, ptr %767, align 8
+  %.not17.i.i = icmp eq ptr %777, null
+  br i1 %.not17.i.i, label %dissect_krb5_PAC_DEVICE_INFO.exit.i, label %778
 
-776:                                              ; preds = %768
-  %777 = load ptr, ptr %7, align 8
-  %778 = getelementptr inbounds nuw i8, ptr %775, i64 392
-  store ptr %777, ptr %778, align 8
+778:                                              ; preds = %770
+  %779 = load ptr, ptr %7, align 8
+  %780 = getelementptr inbounds nuw i8, ptr %777, i64 392
+  store ptr %779, ptr %780, align 8
   br label %dissect_krb5_PAC_DEVICE_INFO.exit.i
 
-dissect_krb5_PAC_DEVICE_INFO.exit.i:              ; preds = %776, %768
+dissect_krb5_PAC_DEVICE_INFO.exit.i:              ; preds = %778, %770
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10) #21
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-779:                                              ; preds = %588
-  %780 = call i32 @tvb_reported_length_remaining(ptr noundef %602, i32 noundef 0)
-  %781 = load ptr, ptr %580, align 8
-  %782 = load i32, ptr @hf_krb_pac_device_claims_info, align 4
-  %783 = load i32, ptr @ett_krb_pac_device_claims_info, align 4
-  %784 = call i32 @netlogon_dissect_CLAIMS_SET_METADATA_BLOB(ptr noundef %602, i32 noundef 0, i32 noundef %780, ptr noundef %781, ptr noundef %593, i32 noundef %782, i32 noundef %783, ptr noundef nonnull @.str.945)
+781:                                              ; preds = %590
+  %782 = call i32 @tvb_reported_length_remaining(ptr noundef %604, i32 noundef 0)
+  %783 = load ptr, ptr %582, align 8
+  %784 = load i32, ptr @hf_krb_pac_device_claims_info, align 4
+  %785 = load i32, ptr @ett_krb_pac_device_claims_info, align 4
+  %786 = call i32 @netlogon_dissect_CLAIMS_SET_METADATA_BLOB(ptr noundef %604, i32 noundef 0, i32 noundef %782, ptr noundef %783, ptr noundef %595, i32 noundef %784, i32 noundef %785, ptr noundef nonnull @.str.945)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-785:                                              ; preds = %588
-  %786 = load i32, ptr @hf_krb_pac_ticket_checksum, align 4
-  %787 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %786, ptr noundef %602, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %788 = load i32, ptr @ett_krb_pac_ticket_checksum, align 4
-  %789 = call ptr @proto_item_add_subtree(ptr noundef %787, i32 noundef %788)
-  %790 = load i32, ptr @hf_krb_pac_signature_type, align 4
-  %791 = call ptr @proto_tree_add_item(ptr noundef %789, i32 noundef %790, ptr noundef %602, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
-  %792 = load i32, ptr @hf_krb_pac_signature_signature, align 4
-  %793 = call ptr @proto_tree_add_item(ptr noundef %789, i32 noundef %792, ptr noundef %602, i32 noundef 4, i32 noundef -1, i32 noundef 0)
+787:                                              ; preds = %590
+  %788 = load i32, ptr @hf_krb_pac_ticket_checksum, align 4
+  %789 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %788, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %790 = load i32, ptr @ett_krb_pac_ticket_checksum, align 4
+  %791 = call ptr @proto_item_add_subtree(ptr noundef %789, i32 noundef %790)
+  %792 = load i32, ptr @hf_krb_pac_signature_type, align 4
+  %793 = call ptr @proto_tree_add_item(ptr noundef %791, i32 noundef %792, ptr noundef %604, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  %794 = load i32, ptr @hf_krb_pac_signature_signature, align 4
+  %795 = call ptr @proto_tree_add_item(ptr noundef %791, i32 noundef %794, ptr noundef %604, i32 noundef 4, i32 noundef -1, i32 noundef 0)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-794:                                              ; preds = %588
-  %795 = load i32, ptr @hf_krb_pac_attributes_info, align 4
-  %796 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %795, ptr noundef %602, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %797 = load i32, ptr @ett_krb_pac_attributes_info, align 4
-  %798 = call ptr @proto_item_add_subtree(ptr noundef %796, i32 noundef %797)
-  %799 = load i32, ptr @hf_krb_pac_attributes_info_length, align 4
-  %800 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %799, ptr noundef %602, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
-  %801 = load i32, ptr @hf_krb_pac_attributes_info_flags, align 4
-  %802 = load i32, ptr @ett_krb_pac_attributes_info_flags, align 4
-  %803 = call ptr @proto_tree_add_bitmask(ptr noundef %798, ptr noundef %602, i32 noundef 4, i32 noundef %801, i32 noundef %802, ptr noundef nonnull @hf_krb_pac_attributes_info_flags_fields, i32 noundef -2147483648)
+796:                                              ; preds = %590
+  %797 = load i32, ptr @hf_krb_pac_attributes_info, align 4
+  %798 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %797, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %799 = load i32, ptr @ett_krb_pac_attributes_info, align 4
+  %800 = call ptr @proto_item_add_subtree(ptr noundef %798, i32 noundef %799)
+  %801 = load i32, ptr @hf_krb_pac_attributes_info_length, align 4
+  %802 = call ptr @proto_tree_add_item(ptr noundef %800, i32 noundef %801, ptr noundef %604, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  %803 = load i32, ptr @hf_krb_pac_attributes_info_flags, align 4
+  %804 = load i32, ptr @ett_krb_pac_attributes_info_flags, align 4
+  %805 = call ptr @proto_tree_add_bitmask(ptr noundef %800, ptr noundef %604, i32 noundef 4, i32 noundef %803, i32 noundef %804, ptr noundef nonnull @hf_krb_pac_attributes_info_flags_fields, i32 noundef -2147483648)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-804:                                              ; preds = %588
-  %805 = load i32, ptr @hf_krb_pac_requester_sid, align 4
-  %806 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %805, ptr noundef %602, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %807 = load i32, ptr @ett_krb_pac_requester_sid, align 4
-  %808 = call ptr @proto_item_add_subtree(ptr noundef %806, i32 noundef %807)
-  %809 = call i32 @dissect_nt_sid(ptr noundef %602, i32 noundef 0, ptr noundef %808, ptr noundef nonnull @.str.946, ptr noundef null, i32 noundef -1)
+806:                                              ; preds = %590
+  %807 = load i32, ptr @hf_krb_pac_requester_sid, align 4
+  %808 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %807, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %809 = load i32, ptr @ett_krb_pac_requester_sid, align 4
+  %810 = call ptr @proto_item_add_subtree(ptr noundef %808, i32 noundef %809)
+  %811 = call i32 @dissect_nt_sid(ptr noundef %604, i32 noundef 0, ptr noundef %810, ptr noundef nonnull @.str.946, ptr noundef null, i32 noundef -1)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-810:                                              ; preds = %588
-  %811 = load i32, ptr @hf_krb_pac_full_checksum, align 4
-  %812 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %811, ptr noundef %602, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %813 = load i32, ptr @ett_krb_pac_full_checksum, align 4
-  %814 = call ptr @proto_item_add_subtree(ptr noundef %812, i32 noundef %813)
-  %815 = load i32, ptr @hf_krb_pac_signature_type, align 4
-  %816 = call ptr @proto_tree_add_item(ptr noundef %814, i32 noundef %815, ptr noundef %602, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
-  %817 = load i32, ptr @hf_krb_pac_signature_signature, align 4
-  %818 = call ptr @proto_tree_add_item(ptr noundef %814, i32 noundef %817, ptr noundef %602, i32 noundef 4, i32 noundef -1, i32 noundef 0)
+812:                                              ; preds = %590
+  %813 = load i32, ptr @hf_krb_pac_full_checksum, align 4
+  %814 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %813, ptr noundef %604, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %815 = load i32, ptr @ett_krb_pac_full_checksum, align 4
+  %816 = call ptr @proto_item_add_subtree(ptr noundef %814, i32 noundef %815)
+  %817 = load i32, ptr @hf_krb_pac_signature_type, align 4
+  %818 = call ptr @proto_tree_add_item(ptr noundef %816, i32 noundef %817, ptr noundef %604, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  %819 = load i32, ptr @hf_krb_pac_signature_signature, align 4
+  %820 = call ptr @proto_tree_add_item(ptr noundef %816, i32 noundef %819, ptr noundef %604, i32 noundef 4, i32 noundef -1, i32 noundef 0)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-dissect_krb5_AD_WIN2K_PAC_struct.exit:            ; preds = %588, %603, %dissect_krb5_PAC_CREDENTIAL_INFO.exit.i, %631, %640, %649, %662, %dissect_krb5_PAC_UPN_DNS_INFO.exit.i, %753, %dissect_krb5_PAC_DEVICE_INFO.exit.i, %779, %785, %794, %804, %810
-  %819 = add i32 %.02447, 16
-  %820 = add nuw i32 %.048, 1
-  %exitcond.not = icmp eq i32 %820, %572
-  br i1 %exitcond.not, label %._crit_edge, label %588, !llvm.loop !26
+dissect_krb5_AD_WIN2K_PAC_struct.exit:            ; preds = %590, %605, %dissect_krb5_PAC_CREDENTIAL_INFO.exit.i, %633, %642, %651, %664, %dissect_krb5_PAC_UPN_DNS_INFO.exit.i, %755, %dissect_krb5_PAC_DEVICE_INFO.exit.i, %781, %787, %796, %806, %812
+  %821 = add i32 %.02447, 16
+  %822 = add nuw i32 %.048, 1
+  %exitcond.not = icmp eq i32 %822, %574
+  br i1 %exitcond.not, label %._crit_edge, label %590, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %dissect_krb5_AD_WIN2K_PAC_struct.exit, %verify_krb5_pac.exit
-  %.024.lcssa = phi i32 [ %579, %verify_krb5_pac.exit ], [ %819, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
+  %.024.lcssa = phi i32 [ %581, %verify_krb5_pac.exit ], [ %821, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
   ret i32 %.024.lcssa
 }
 

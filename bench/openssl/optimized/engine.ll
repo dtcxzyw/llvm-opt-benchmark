@@ -912,7 +912,7 @@ define internal fastcc range(i32 0, 2) i32 @append_buf(ptr noundef captures(none
   %12 = sext i32 %11 to i64
   %13 = tail call ptr @app_malloc(i64 noundef %12, ptr noundef nonnull @.str.46) #7
   store ptr %13, ptr %0, align 8, !tbaa !4
-  br label %.thread
+  br label %38
 
 14:                                               ; preds = %3
   %15 = add i32 %5, 1
@@ -924,7 +924,7 @@ define internal fastcc range(i32 0, 2) i32 @append_buf(ptr noundef captures(none
   %.033 = add nsw i32 %15, %20
   %21 = load i32, ptr %1, align 4, !tbaa !17
   %22 = icmp sgt i32 %.033, %21
-  br i1 %22, label %23, label %31
+  br i1 %22, label %23, label %32
 
 23:                                               ; preds = %14
   %24 = add nsw i32 %.033, 255
@@ -934,38 +934,38 @@ define internal fastcc range(i32 0, 2) i32 @append_buf(ptr noundef captures(none
   %27 = sext i32 %26 to i64
   %28 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %6, i64 noundef %27, ptr noundef nonnull @.str.38, i32 noundef 72) #7
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %37, label %30
+  br i1 %29, label %.critedge, label %31
 
-30:                                               ; preds = %23
-  store ptr %28, ptr %0, align 8, !tbaa !4
-  br label %31
-
-31:                                               ; preds = %30, %14
-  %.132 = phi ptr [ %28, %30 ], [ %6, %14 ]
-  br i1 %18, label %32, label %.thread
-
-32:                                               ; preds = %31
-  %33 = and i64 %16, 2147483647
-  %34 = getelementptr inbounds nuw i8, ptr %.132, i64 %33
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  store i8 44, ptr %34, align 1, !tbaa !9
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 2
-  store i8 32, ptr %35, align 1, !tbaa !9
-  br label %.thread
-
-37:                                               ; preds = %23
-  %38 = load ptr, ptr %0, align 8, !tbaa !4
-  tail call void @CRYPTO_free(ptr noundef %38, ptr noundef nonnull @.str.38, i32 noundef 74) #7
+.critedge:                                        ; preds = %23
+  %30 = load ptr, ptr %0, align 8, !tbaa !4
+  tail call void @CRYPTO_free(ptr noundef %30, ptr noundef nonnull @.str.38, i32 noundef 74) #7
   store ptr null, ptr %0, align 8, !tbaa !4
   br label %40
 
-.thread:                                          ; preds = %31, %32, %8
-  %.031 = phi ptr [ %13, %8 ], [ %.132, %31 ], [ %36, %32 ]
+31:                                               ; preds = %23
+  store ptr %28, ptr %0, align 8, !tbaa !4
+  br label %32
+
+32:                                               ; preds = %31, %14
+  %.132 = phi ptr [ %28, %31 ], [ %6, %14 ]
+  br i1 %18, label %33, label %38
+
+33:                                               ; preds = %32
+  %34 = and i64 %16, 2147483647
+  %35 = getelementptr inbounds nuw i8, ptr %.132, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
+  store i8 44, ptr %35, align 1, !tbaa !9
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 2
+  store i8 32, ptr %36, align 1, !tbaa !9
+  br label %38
+
+38:                                               ; preds = %33, %32, %8
+  %.031 = phi ptr [ %13, %8 ], [ %37, %33 ], [ %.132, %32 ]
   %39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.031, ptr noundef nonnull dereferenceable(1) %2) #7
   br label %40
 
-40:                                               ; preds = %37, %.thread
-  %.1 = phi i32 [ 1, %.thread ], [ 0, %37 ]
+40:                                               ; preds = %.critedge, %38
+  %.1 = phi i32 [ 1, %38 ], [ 0, %.critedge ]
   ret i32 %.1
 }
 

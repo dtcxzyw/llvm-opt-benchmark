@@ -2305,7 +2305,7 @@ define linkonce_odr noundef ptr @_ZNK6icu_776number4impl21AdoptingModifierStore1
   %4 = zext i32 %2 to i64
   %.idx = mul nuw nsw i64 %4, 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = getelementptr i8, ptr %5, i64 %.idx
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !52

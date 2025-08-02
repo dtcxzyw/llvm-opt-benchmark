@@ -544,38 +544,38 @@ define hidden noundef zeroext i1 @_ZN7datalog22bitvector_table_plugin20can_handl
 _ZNK6vectorImLb0EjE4sizeEv.exit:                  ; preds = %5
   %8 = getelementptr inbounds i8, ptr %6, i64 -4
   %9 = load i32, ptr %8, align 4, !tbaa !13
-  %.not32.not40.not = icmp eq i32 %9, 0
-  br i1 %.not32.not40.not, label %.critedge, label %.lr.ph43
+  %.not32.not39.not = icmp eq i32 %9, 0
+  br i1 %.not32.not39.not, label %.critedge, label %.lr.ph42
 
 10:                                               ; preds = %._crit_edge
-  %11 = add nuw i32 %.02742, 1
+  %11 = add nuw i32 %.02741, 1
   %exitcond.not = icmp eq i32 %11, %9
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph43, !llvm.loop !62
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph42, !llvm.loop !62
 
-.lr.ph43:                                         ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit, %10
-  %.02742 = phi i32 [ %11, %10 ], [ 0, %_ZNK6vectorImLb0EjE4sizeEv.exit ]
-  %.02841 = phi i32 [ %23, %10 ], [ 0, %_ZNK6vectorImLb0EjE4sizeEv.exit ]
-  %12 = zext i32 %.02742 to i64
+.lr.ph42:                                         ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit, %10
+  %.02741 = phi i32 [ %11, %10 ], [ 0, %_ZNK6vectorImLb0EjE4sizeEv.exit ]
+  %.02840 = phi i32 [ %23, %10 ], [ 0, %_ZNK6vectorImLb0EjE4sizeEv.exit ]
+  %12 = zext i32 %.02741 to i64
   %13 = getelementptr inbounds nuw i64, ptr %6, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !63
   %15 = trunc i64 %14 to i32
   %.not30 = icmp ult i64 %14, 4294967296
   %16 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
   %17 = icmp eq i32 %16, 1
-  %or.cond36 = select i1 %.not30, i1 %17, i1 false
-  br i1 %or.cond36, label %.preheader, label %.critedge
+  %or.cond35 = select i1 %.not30, i1 %17, i1 false
+  br i1 %or.cond35, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %.lr.ph43
+.preheader:                                       ; preds = %.lr.ph42
   %18 = and i32 %15, 1
-  %.not3137 = icmp eq i32 %18, 0
-  br i1 %.not3137, label %.lr.ph, label %._crit_edge
+  %.not3136 = icmp eq i32 %18, 0
+  br i1 %.not3136, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.039 = phi i32 [ %19, %.lr.ph ], [ 1, %.preheader ]
-  %.02238 = phi i32 [ %20, %.lr.ph ], [ 1, %.preheader ]
-  %19 = shl i32 %.039, 1
-  %20 = add nuw nsw i32 %.02238, 1
-  %21 = icmp samesign ult i32 %.02238, 31
+  %.038 = phi i32 [ %19, %.lr.ph ], [ 1, %.preheader ]
+  %.02237 = phi i32 [ %20, %.lr.ph ], [ 1, %.preheader ]
+  %19 = shl i32 %.038, 1
+  %20 = add nuw nsw i32 %.02237, 1
+  %21 = icmp samesign ult i32 %.02237, 31
   %22 = and i32 %19, %15
   %.not31 = icmp eq i32 %22, 0
   %or.cond = select i1 %21, i1 %.not31, i1 false
@@ -583,12 +583,12 @@ _ZNK6vectorImLb0EjE4sizeEv.exit:                  ; preds = %5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.022.lcssa = phi i32 [ 1, %.preheader ], [ %20, %.lr.ph ]
-  %23 = add i32 %.022.lcssa, %.02841
+  %23 = add i32 %.022.lcssa, %.02840
   %24 = icmp ult i32 %23, 32
   br i1 %24, label %10, label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge, %10, %.lr.ph43, %5, %_ZNK6vectorImLb0EjE4sizeEv.exit, %2
-  %.023 = phi i1 [ false, %2 ], [ true, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ true, %5 ], [ false, %._crit_edge ], [ true, %10 ], [ false, %.lr.ph43 ]
+.critedge:                                        ; preds = %.lr.ph42, %._crit_edge, %10, %5, %_ZNK6vectorImLb0EjE4sizeEv.exit, %2
+  %.023 = phi i1 [ false, %2 ], [ true, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ true, %5 ], [ false, %.lr.ph42 ], [ false, %._crit_edge ], [ true, %10 ]
   ret i1 %.023
 }
 

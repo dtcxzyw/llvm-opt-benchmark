@@ -11816,7 +11816,7 @@ entry:
   %idxprom = zext i8 %channel to i64
   %incoming_splits.idx = shl nuw nsw i64 %idxprom, 9
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 456
-  %incoming_splits = getelementptr i8, ptr %0, i64 %incoming_splits.idx
+  %incoming_splits = getelementptr inbounds nuw i8, ptr %0, i64 %incoming_splits.idx
   tail call void @_ZN3con19IncomingSplitBuffer6insertERSt10shared_ptrINS_14BufferedPacketEEb(ptr dead_on_unwind writable sret(%class.SharedBuffer) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %incoming_splits, ptr noundef nonnull align 8 dereferenceable(16) %toadd, i1 noundef zeroext %reliable)
   ret void
 }

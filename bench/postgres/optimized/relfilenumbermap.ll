@@ -110,8 +110,8 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   %41 = call ptr @systable_beginscan(ptr noundef %36, i32 noundef 3455, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %6) #7
   store i8 0, ptr %5, align 1
   %42 = call ptr @systable_getnext(ptr noundef %41) #7
-  %.not41 = icmp eq ptr %42, null
-  br i1 %.not41, label %._crit_edge, label %.lr.ph
+  %.not40 = icmp eq ptr %42, null
+  br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35, %49
   %43 = phi ptr [ %56, %49 ], [ %42, %35 ]

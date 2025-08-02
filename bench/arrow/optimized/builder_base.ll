@@ -2229,8 +2229,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow12ArrayBuilder5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((24, 32), (56, 72), (80, 120)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5arrow12ArrayBuilder5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((24, 32), (56, 72), (80, 120)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8, !tbaa !239

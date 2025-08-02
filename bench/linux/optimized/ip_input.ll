@@ -45,7 +45,7 @@ define dso_local noundef zeroext i1 @ip_call_ra_chain(ptr noundef %0) local_unna
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 216
   %17 = load volatile ptr, ptr %14, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread, label %.lr.ph
+  br i1 %18, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %54
   %19 = phi ptr [ %56, %54 ], [ %17, %1 ]
@@ -86,7 +86,7 @@ define dso_local noundef zeroext i1 @ip_call_ra_chain(ptr noundef %0) local_unna
 44:                                               ; preds = %35
   %45 = tail call i32 @ip_defrag(ptr noundef %13, ptr noundef %0, i32 noundef 1) #6
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %.thread
+  br i1 %46, label %47, label %.critedge
 
 47:                                               ; preds = %44, %35
   %48 = icmp eq ptr %20, null
@@ -109,13 +109,13 @@ define dso_local noundef zeroext i1 @ip_call_ra_chain(ptr noundef %0) local_unna
 
 ._crit_edge:                                      ; preds = %54
   %58 = icmp eq ptr %55, null
-  br i1 %58, label %.thread, label %59
+  br i1 %58, label %.critedge, label %59
 
 59:                                               ; preds = %._crit_edge
   %60 = tail call i32 @raw_rcv(ptr noundef nonnull %55, ptr noundef %0) #6
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %44, %1, %59, %._crit_edge
+.critedge:                                        ; preds = %44, %1, %59, %._crit_edge
   %61 = phi i1 [ true, %59 ], [ false, %._crit_edge ], [ false, %1 ], [ true, %44 ]
   ret i1 %61
 }

@@ -352,7 +352,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   store i32 %100, ptr %6, align 4
   %.mask.i = and i32 %100, -256
   %101 = icmp eq i32 %.mask.i, 256
-  br i1 %101, label %.loopexit5.i, label %102
+  br i1 %101, label %.loopexit2.i, label %102
 
 102:                                              ; preds = %98
   switch i32 %100, label %105 [
@@ -362,7 +362,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
 
 103:                                              ; preds = %102
   %104 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef 1, ptr noundef %3, ptr noundef %4)
-  br i1 %104, label %.loopexit5.i, label %mpeg_read_pes_packet.exit
+  br i1 %104, label %.loopexit2.i, label %mpeg_read_pes_packet.exit
 
 105:                                              ; preds = %102
   store i32 -13, ptr %3, align 4
@@ -374,13 +374,13 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   %108 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef 2, ptr noundef %3, ptr noundef %4)
   br i1 %108, label %93, label %mpeg_read_pes_packet.exit
 
-.loopexit5.i:                                     ; preds = %98, %103
+.loopexit2.i:                                     ; preds = %98, %103
   %109 = call i64 @file_tell(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
   %110 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef 3, ptr noundef %3, ptr noundef %4)
   br i1 %110, label %111, label %168
 
-111:                                              ; preds = %.loopexit5.i
+111:                                              ; preds = %.loopexit2.i
   %112 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1, ptr noundef %3, ptr noundef %4)
   br i1 %112, label %113, label %168
 
@@ -396,11 +396,11 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #7
   %116 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 4, ptr noundef %3, ptr noundef %4)
-  br i1 %116, label %117, label %.thread.i
+  br i1 %116, label %117, label %.critedge.i
 
 117:                                              ; preds = %115
   %118 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 4, ptr noundef %3, ptr noundef %4)
-  br i1 %118, label %119, label %.thread.i
+  br i1 %118, label %119, label %.critedge.i
 
 119:                                              ; preds = %117
   %120 = load i32, ptr %8, align 4
@@ -417,11 +417,11 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
 
 128:                                              ; preds = %119
   %129 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef 1, ptr noundef %3, ptr noundef %4)
-  br i1 %129, label %130, label %.thread.i
+  br i1 %129, label %130, label %.critedge.i
 
 130:                                              ; preds = %128
   %131 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 1, ptr noundef %3, ptr noundef %4)
-  br i1 %131, label %132, label %.thread.i
+  br i1 %131, label %132, label %.critedge.i
 
 132:                                              ; preds = %130
   %133 = load i8, ptr %10, align 1
@@ -456,12 +456,6 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   store i32 %156, ptr %157, align 8
   br label %158
 
-.thread.i:                                        ; preds = %130, %128, %117, %115
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  br label %168
-
 158:                                              ; preds = %135, %132, %119
   %.184.shrunk.i = phi i8 [ %narrow.i, %132 ], [ %narrow.i, %135 ], [ 12, %119 ]
   %.184.i = zext nneg i8 %.184.shrunk.i to i32
@@ -473,9 +467,9 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
 159:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #7
   %160 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 2, ptr noundef %3, ptr noundef %4)
-  br i1 %160, label %.thread3.i, label %164
+  br i1 %160, label %.thread.i, label %164
 
-.thread3.i:                                       ; preds = %159
+.thread.i:                                        ; preds = %159
   %161 = load i16, ptr %11, align 2
   %rev.i = call i16 @llvm.bswap.i16(i16 %161)
   %162 = zext i16 %rev.i to i32
@@ -487,15 +481,21 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #7
   br label %168
 
-165:                                              ; preds = %.thread3.i, %158, %113
-  %.285.i = phi i32 [ %.184.i, %158 ], [ 4, %113 ], [ %163, %.thread3.i ]
+165:                                              ; preds = %.thread.i, %158, %113
+  %.285.i = phi i32 [ %.184.i, %158 ], [ 4, %113 ], [ %163, %.thread.i ]
   %166 = call i64 @file_seek(ptr noundef %0, i64 noundef %109, i32 noundef 0, ptr noundef %3)
   %167 = icmp eq i64 %166, -1
   %..285.i = select i1 %167, i32 0, i32 %.285.i
   br label %168
 
-168:                                              ; preds = %165, %164, %.thread.i, %111, %.loopexit5.i
-  %.1.i32 = phi i32 [ 0, %164 ], [ 0, %.loopexit5.i ], [ 0, %111 ], [ %..285.i, %165 ], [ 0, %.thread.i ]
+.critedge.i:                                      ; preds = %130, %128, %117, %115
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  br label %168
+
+168:                                              ; preds = %.critedge.i, %165, %164, %111, %.loopexit2.i
+  %.1.i32 = phi i32 [ 0, %164 ], [ 0, %.loopexit2.i ], [ 0, %111 ], [ 0, %.critedge.i ], [ %..285.i, %165 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
   br label %mpeg_read_pes_packet.exit
 

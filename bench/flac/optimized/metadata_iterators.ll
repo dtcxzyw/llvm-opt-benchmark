@@ -2689,10 +2689,10 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
   %12 = icmp ne i32 %11, 0
   %.pre = load i32, ptr %1, align 8, !tbaa !38
   %13 = icmp ne i32 %.pre, 0
-  %or.cond96.not102 = select i1 %12, i1 %13, i1 false
+  %or.cond91.not97 = select i1 %12, i1 %13, i1 false
   %.not75 = icmp eq i32 %11, %.pre
-  %or.cond97 = select i1 %or.cond96.not102, i1 true, i1 %.not75
-  br i1 %or.cond97, label %16, label %14
+  %or.cond92 = select i1 %or.cond91.not97, i1 true, i1 %.not75
+  br i1 %or.cond92, label %16, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2739,8 +2739,8 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
 37:                                               ; preds = %27
   %.not76 = icmp ne i32 %2, 0
   %.not77 = icmp eq i32 %18, 0
-  %or.cond95 = select i1 %.not76, i1 %.not77, i1 false
-  br i1 %or.cond95, label %38, label %.thread90
+  %or.cond90 = select i1 %.not76, i1 %.not77, i1 false
+  br i1 %or.cond90, label %38, label %.thread
 
 38:                                               ; preds = %37
   %39 = sub i32 %23, %21
@@ -2759,7 +2759,7 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
   %50 = zext i32 %21 to i64
   %51 = tail call i32 @fseeko64(ptr noundef %49, i64 noundef %50, i32 noundef 1)
   %.not8.i = icmp eq i32 %51, 0
-  br i1 %.not8.i, label %52, label %.thread
+  br i1 %.not8.i, label %52, label %.critedge
 
 52:                                               ; preds = %38
   %53 = load ptr, ptr %0, align 8, !tbaa !24
@@ -2800,9 +2800,9 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
 
 72:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #33
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %38, %72
+.critedge:                                        ; preds = %38, %72
   %.sink = phi i32 [ 6, %72 ], [ 7, %38 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %.sink, ptr %73, align 8, !tbaa !30
@@ -2829,13 +2829,13 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %76, %81
-  %.sink99 = phi i32 [ 0, %81 ], [ %62, %76 ]
+  %.sink94 = phi i32 [ 0, %81 ], [ %62, %76 ]
   %.265.ph = phi i32 [ %82, %81 ], [ 0, %76 ]
   %.262.ph = phi i32 [ %62, %81 ], [ 0, %76 ]
-  store i32 %.sink99, ptr %19, align 4, !tbaa !35
+  store i32 %.sink94, ptr %19, align 4, !tbaa !35
   br label %83
 
-83:                                               ; preds = %.sink.split, %75, %79
+83:                                               ; preds = %.sink.split, %79, %75
   %.not81 = phi i1 [ true, %75 ], [ true, %79 ], [ false, %.sink.split ]
   %.265 = phi i32 [ 0, %75 ], [ 0, %79 ], [ %.265.ph, %.sink.split ]
   %.262 = phi i32 [ 0, %75 ], [ 0, %79 ], [ %.262.ph, %.sink.split ]
@@ -2844,7 +2844,7 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
   br i1 %.not80.not, label %94, label %85
 
 85:                                               ; preds = %83
-  br i1 %.not81, label %.thread90, label %86
+  br i1 %.not81, label %.thread, label %86
 
 86:                                               ; preds = %85
   %87 = icmp eq i32 %.265, 0
@@ -2859,12 +2859,12 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
   %92 = call fastcc i32 @write_metadata_block_stationary_with_padding_(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %91, i32 noundef %.262)
   br label %94
 
-.thread90:                                        ; preds = %37, %85
+.thread:                                          ; preds = %37, %85
   %93 = call fastcc i32 @rewrite_whole_file_(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0)
   br label %94
 
-94:                                               ; preds = %.thread, %88, %90, %.thread90, %83, %35, %31, %25, %14, %7
-  %.0 = phi i32 [ 0, %14 ], [ %26, %25 ], [ %34, %31 ], [ %36, %35 ], [ 0, %7 ], [ %89, %88 ], [ %92, %90 ], [ %93, %.thread90 ], [ 0, %83 ], [ 0, %.thread ]
+94:                                               ; preds = %88, %90, %.thread, %83, %.critedge, %35, %31, %25, %14, %7
+  %.0 = phi i32 [ 0, %14 ], [ %26, %25 ], [ %34, %31 ], [ %36, %35 ], [ 0, %7 ], [ %89, %88 ], [ %92, %90 ], [ %93, %.thread ], [ 0, %83 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -4386,10 +4386,10 @@ define range(i32 0, 2) i32 @FLAC__metadata_simple_iterator_delete_block(ptr noun
   %26 = icmp ne i32 %25, 0
   %.pre.i = load i32, ptr %15, align 8, !tbaa !38
   %27 = icmp ne i32 %.pre.i, 0
-  %or.cond96.not102.i = select i1 %26, i1 %27, i1 false
+  %or.cond91.not97.i = select i1 %26, i1 %27, i1 false
   %.not75.i = icmp eq i32 %25, %.pre.i
-  %or.cond97.i = select i1 %or.cond96.not102.i, i1 true, i1 %.not75.i
-  br i1 %or.cond97.i, label %FLAC__metadata_simple_iterator_set_block.exit, label %FLAC__metadata_simple_iterator_set_block.exit.thread.sink.split
+  %or.cond92.i = select i1 %or.cond91.not97.i, i1 true, i1 %.not75.i
+  br i1 %or.cond92.i, label %FLAC__metadata_simple_iterator_set_block.exit, label %FLAC__metadata_simple_iterator_set_block.exit.thread.sink.split
 
 FLAC__metadata_simple_iterator_set_block.exit:    ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -6195,13 +6195,13 @@ chain_calculate_length_.exit:                     ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi i64 [ 0, %2 ], [ %8, %.lr.ph.i ]
   %9 = getelementptr inbounds nuw i8, ptr %.057.i, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !103
-  %.not123 = icmp eq ptr %10, null
-  br i1 %.not123, label %._crit_edge, label %.lr.ph
+  %.not121 = icmp eq ptr %10, null
+  br i1 %.not121, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %chain_calculate_length_.exit, %.lr.ph
   %.064 = phi ptr [ %14, %.lr.ph ], [ %10, %chain_calculate_length_.exit ]
-  %.064124 = phi ptr [ %.064, %.lr.ph ], [ %.057.i, %chain_calculate_length_.exit ]
-  %11 = load ptr, ptr %.064124, align 8, !tbaa !105
+  %.064122 = phi ptr [ %.064, %.lr.ph ], [ %.057.i, %chain_calculate_length_.exit ]
+  %11 = load ptr, ptr %.064122, align 8, !tbaa !105
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %.064, i64 16
@@ -6216,7 +6216,7 @@ chain_calculate_length_.exit:                     ; preds = %.lr.ph.i, %2
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 1, ptr %18, align 4, !tbaa !35
   %.not75 = icmp eq i32 %1, 0
-  br i1 %.not75, label %chain_calculate_length_.exit102, label %19
+  br i1 %.not75, label %chain_calculate_length_.exit91, label %19
 
 19:                                               ; preds = %._crit_edge
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -6236,7 +6236,7 @@ chain_calculate_length_.exit:                     ; preds = %.lr.ph.i, %2
   %30 = trunc i64 %27 to i32
   %31 = add i32 %29, %30
   store i32 %31, ptr %28, align 8, !tbaa !37
-  br label %chain_calculate_length_.exit102
+  br label %chain_calculate_length_.exit91
 
 32:                                               ; preds = %23, %19
   %33 = add nsw i64 %.0.lcssa.i, 4
@@ -6246,7 +6246,7 @@ chain_calculate_length_.exit:                     ; preds = %.lr.ph.i, %2
 34:                                               ; preds = %32
   %35 = tail call ptr @FLAC__metadata_object_new(i32 noundef 1) #33
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %chain_calculate_length_.exit91.sink.split, label %37
+  br i1 %36, label %.critedge.sink.split, label %37
 
 37:                                               ; preds = %34
   %38 = load i64, ptr %20, align 8, !tbaa !110
@@ -6260,7 +6260,7 @@ chain_calculate_length_.exit:                     ; preds = %.lr.ph.i, %2
 
 44:                                               ; preds = %37
   tail call void @FLAC__metadata_object_delete(ptr noundef nonnull %35) #33
-  br label %chain_calculate_length_.exit91.sink.split
+  br label %.critedge.sink.split
 
 45:                                               ; preds = %37
   store ptr %35, ptr %42, align 8, !tbaa !105
@@ -6302,7 +6302,7 @@ chain_append_node_.exit:                          ; preds = %52
   %61 = add i32 %60, 1
   store i32 %61, ptr %59, align 8, !tbaa !137
   %.not8.i83 = icmp eq ptr %.057.i82.pr, null
-  br i1 %.not8.i83, label %chain_calculate_length_.exit102, label %.lr.ph.i84.preheader
+  br i1 %.not8.i83, label %chain_calculate_length_.exit91, label %.lr.ph.i84.preheader
 
 .lr.ph.i84.preheader:                             ; preds = %chain_append_node_.exit.thread, %chain_append_node_.exit
   %.0510.i85.ph = phi ptr [ %.057.i82.pr, %chain_append_node_.exit ], [ %42, %chain_append_node_.exit.thread ]
@@ -6320,17 +6320,17 @@ chain_append_node_.exit:                          ; preds = %52
   %.05.in.i87 = getelementptr inbounds nuw i8, ptr %.0510.i85, i64 16
   %.05.i88 = load ptr, ptr %.05.in.i87, align 8, !tbaa !112
   %.not.i89 = icmp eq ptr %.05.i88, null
-  br i1 %.not.i89, label %chain_calculate_length_.exit102, label %.lr.ph.i84, !llvm.loop !113
+  br i1 %.not.i89, label %chain_calculate_length_.exit91, label %.lr.ph.i84, !llvm.loop !113
 
 68:                                               ; preds = %32
   %69 = icmp sgt i64 %.0.lcssa.i, %21
-  br i1 %69, label %70, label %chain_calculate_length_.exit102
+  br i1 %69, label %70, label %chain_calculate_length_.exit91
 
 70:                                               ; preds = %68
   %71 = sub nsw i64 %.0.lcssa.i, %21
   %72 = load i32, ptr %17, align 8, !tbaa !38
   %73 = icmp eq i32 %72, 1
-  br i1 %73, label %74, label %chain_calculate_length_.exit102
+  br i1 %73, label %74, label %chain_calculate_length_.exit91
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -6378,7 +6378,7 @@ chain_delete_node_.exit:                          ; preds = %88, %87
   tail call void @free(ptr noundef nonnull %16) #33
   %.057.i93 = load ptr, ptr %.05.in6.i, align 8, !tbaa !112
   %.not8.i94 = icmp eq ptr %.057.i93, null
-  br i1 %.not8.i94, label %chain_calculate_length_.exit91, label %.lr.ph.i95
+  br i1 %.not8.i94, label %.critedge, label %.lr.ph.i95
 
 .lr.ph.i95:                                       ; preds = %chain_delete_node_.exit, %.lr.ph.i95
   %.0510.i96 = phi ptr [ %.05.i99, %.lr.ph.i95 ], [ %.057.i93, %chain_delete_node_.exit ]
@@ -6392,34 +6392,34 @@ chain_delete_node_.exit:                          ; preds = %88, %87
   %.05.in.i98 = getelementptr inbounds nuw i8, ptr %.0510.i96, i64 16
   %.05.i99 = load ptr, ptr %.05.in.i98, align 8, !tbaa !112
   %.not.i100 = icmp eq ptr %.05.i99, null
-  br i1 %.not.i100, label %chain_calculate_length_.exit102, label %.lr.ph.i95, !llvm.loop !113
+  br i1 %.not.i100, label %chain_calculate_length_.exit91, label %.lr.ph.i95, !llvm.loop !113
 
 101:                                              ; preds = %74
   %.not77 = icmp sgt i64 %71, %77
-  br i1 %.not77, label %chain_calculate_length_.exit102, label %102
+  br i1 %.not77, label %chain_calculate_length_.exit91, label %102
 
 102:                                              ; preds = %101
   %103 = trunc i64 %71 to i32
   %104 = sub i32 %76, %103
   store i32 %104, ptr %75, align 8, !tbaa !37
-  br label %chain_calculate_length_.exit102
+  br label %chain_calculate_length_.exit91
 
-chain_calculate_length_.exit102:                  ; preds = %.lr.ph.i84, %.lr.ph.i95, %chain_append_node_.exit, %70, %101, %102, %26, %68, %._crit_edge
+chain_calculate_length_.exit91:                   ; preds = %.lr.ph.i84, %.lr.ph.i95, %chain_append_node_.exit, %70, %101, %102, %26, %68, %._crit_edge
   %.060.ph = phi i64 [ 0, %chain_append_node_.exit ], [ %.0.lcssa.i, %70 ], [ %.0.lcssa.i, %101 ], [ %21, %102 ], [ %.0.lcssa.i, %._crit_edge ], [ %.0.lcssa.i, %68 ], [ %21, %26 ], [ %100, %.lr.ph.i95 ], [ %67, %.lr.ph.i84 ]
-  %.0125.pr = load ptr, ptr %.05.in6.i, align 8, !tbaa !112
-  %.not78126 = icmp eq ptr %.0125.pr, null
-  br i1 %.not78126, label %chain_calculate_length_.exit91, label %.lr.ph129
+  %.0123.pr = load ptr, ptr %.05.in6.i, align 8, !tbaa !112
+  %.not78124 = icmp eq ptr %.0123.pr, null
+  br i1 %.not78124, label %.critedge, label %.lr.ph127
 
-.lr.ph129:                                        ; preds = %chain_calculate_length_.exit102
+.lr.ph127:                                        ; preds = %chain_calculate_length_.exit91
   %105 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !4
   %106 = shl nuw i32 1, %105
   %107 = add i32 %106, -1
   br label %108
 
-108:                                              ; preds = %.lr.ph129, %chain_calculate_length_.exit113
-  %.0128 = phi ptr [ %.0125.pr, %.lr.ph129 ], [ %.0, %chain_calculate_length_.exit113 ]
-  %.363127 = phi i64 [ %.060.ph, %.lr.ph129 ], [ %.4, %chain_calculate_length_.exit113 ]
-  %109 = load ptr, ptr %.0128, align 8, !tbaa !105
+108:                                              ; preds = %.lr.ph127, %chain_calculate_length_.exit113
+  %.0126 = phi ptr [ %.0123.pr, %.lr.ph127 ], [ %.0, %chain_calculate_length_.exit113 ]
+  %.363125 = phi i64 [ %.060.ph, %.lr.ph127 ], [ %.4, %chain_calculate_length_.exit113 ]
+  %109 = load ptr, ptr %.0126, align 8, !tbaa !105
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load i32, ptr %110, align 8, !tbaa !37
   %.not79 = icmp ult i32 %111, %106
@@ -6428,14 +6428,14 @@ chain_calculate_length_.exit102:                  ; preds = %.lr.ph.i84, %.lr.ph
 112:                                              ; preds = %108
   %113 = load i32, ptr %109, align 8, !tbaa !38
   %114 = icmp eq i32 %113, 1
-  br i1 %114, label %.lr.ph.i106.preheader, label %chain_calculate_length_.exit91.sink.split
+  br i1 %114, label %.lr.ph.i106.preheader, label %.critedge.sink.split
 
 .lr.ph.i106.preheader:                            ; preds = %112
   store i32 %107, ptr %110, align 8, !tbaa !37
   br label %.lr.ph.i106
 
 .lr.ph.i106:                                      ; preds = %.lr.ph.i106.preheader, %.lr.ph.i106
-  %.0510.i107 = phi ptr [ %.05.i110, %.lr.ph.i106 ], [ %.0125.pr, %.lr.ph.i106.preheader ]
+  %.0510.i107 = phi ptr [ %.05.i110, %.lr.ph.i106 ], [ %.0123.pr, %.lr.ph.i106.preheader ]
   %.09.i108 = phi i64 [ %120, %.lr.ph.i106 ], [ 0, %.lr.ph.i106.preheader ]
   %115 = load ptr, ptr %.0510.i107, align 8, !tbaa !105
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
@@ -6449,20 +6449,20 @@ chain_calculate_length_.exit102:                  ; preds = %.lr.ph.i84, %.lr.ph
   br i1 %.not.i111, label %chain_calculate_length_.exit113, label %.lr.ph.i106, !llvm.loop !113
 
 chain_calculate_length_.exit113:                  ; preds = %.lr.ph.i106, %108
-  %.4 = phi i64 [ %.363127, %108 ], [ %120, %.lr.ph.i106 ]
-  %121 = getelementptr inbounds nuw i8, ptr %.0128, i64 16
+  %.4 = phi i64 [ %.363125, %108 ], [ %120, %.lr.ph.i106 ]
+  %121 = getelementptr inbounds nuw i8, ptr %.0126, i64 16
   %.0 = load ptr, ptr %121, align 8, !tbaa !112
   %.not78 = icmp eq ptr %.0, null
-  br i1 %.not78, label %chain_calculate_length_.exit91, label %108, !llvm.loop !139
+  br i1 %.not78, label %.critedge, label %108, !llvm.loop !139
 
-chain_calculate_length_.exit91.sink.split:        ; preds = %112, %34, %44
+.critedge.sink.split:                             ; preds = %112, %34, %44
   %.sink = phi i32 [ 11, %44 ], [ 11, %34 ], [ 5, %112 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sink, ptr %122, align 4, !tbaa !108
-  br label %chain_calculate_length_.exit91
+  br label %.critedge
 
-chain_calculate_length_.exit91:                   ; preds = %chain_calculate_length_.exit113, %chain_calculate_length_.exit91.sink.split, %chain_delete_node_.exit, %chain_calculate_length_.exit102
-  %.2 = phi i64 [ %.060.ph, %chain_calculate_length_.exit102 ], [ 0, %chain_delete_node_.exit ], [ 0, %chain_calculate_length_.exit91.sink.split ], [ %.4, %chain_calculate_length_.exit113 ]
+.critedge:                                        ; preds = %chain_calculate_length_.exit113, %.critedge.sink.split, %chain_delete_node_.exit, %chain_calculate_length_.exit91
+  %.2 = phi i64 [ %.060.ph, %chain_calculate_length_.exit91 ], [ 0, %chain_delete_node_.exit ], [ 0, %.critedge.sink.split ], [ %.4, %chain_calculate_length_.exit113 ]
   ret i64 %.2
 }
 

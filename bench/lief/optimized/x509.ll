@@ -1511,17 +1511,17 @@ define hidden i32 @mbedtls_x509_sig_alg_gets(ptr noundef writeonly captures(none
 14:                                               ; preds = %9, %11
   %.036 = phi i32 [ %10, %9 ], [ %13, %11 ]
   %15 = icmp slt i32 %.036, 0
-  br i1 %15, label %37, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %14
   %17 = zext nneg i32 %.036 to i64
   %.not45 = icmp ugt i64 %1, %17
-  br i1 %.not45, label %18, label %37
+  br i1 %.not45, label %18, label %.critedge
 
 18:                                               ; preds = %16
   %19 = sub nuw i64 %1, %17
   %20 = icmp eq i32 %3, 6
-  br i1 %20, label %21, label %34
+  br i1 %20, label %21, label %36
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %17
@@ -1538,37 +1538,41 @@ switch.lookup:                                    ; preds = %21
 md_type_to_string.exit:                           ; preds = %21, %switch.lookup
   %.not46 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.14, %21 ]
   %25 = load i32, ptr %5, align 4, !tbaa !39
-  %switch.tableidx53 = add i32 %25, -3
-  %26 = icmp ult i32 %switch.tableidx53, 9
-  br i1 %26, label %switch.lookup52, label %md_type_to_string.exit51
+  %switch.tableidx52 = add i32 %25, -3
+  %26 = icmp ult i32 %switch.tableidx52, 9
+  br i1 %26, label %switch.lookup51, label %md_type_to_string.exit50
 
-switch.lookup52:                                  ; preds = %md_type_to_string.exit
-  %27 = zext nneg i32 %switch.tableidx53 to i64
-  %switch.gep54 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.mbedtls_x509_sig_alg_gets.3, i64 0, i64 %27
-  %switch.load55 = load ptr, ptr %switch.gep54, align 8
-  br label %md_type_to_string.exit51
+switch.lookup51:                                  ; preds = %md_type_to_string.exit
+  %27 = zext nneg i32 %switch.tableidx52 to i64
+  %switch.gep53 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.mbedtls_x509_sig_alg_gets.3, i64 0, i64 %27
+  %switch.load54 = load ptr, ptr %switch.gep53, align 8
+  br label %md_type_to_string.exit50
 
-md_type_to_string.exit51:                         ; preds = %md_type_to_string.exit, %switch.lookup52
-  %.not47 = phi ptr [ %switch.load55, %switch.lookup52 ], [ @.str.14, %md_type_to_string.exit ]
+md_type_to_string.exit50:                         ; preds = %md_type_to_string.exit, %switch.lookup51
+  %.not47 = phi ptr [ %switch.load54, %switch.lookup51 ], [ @.str.14, %md_type_to_string.exit ]
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !41
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %22, i64 noundef %19, ptr noundef nonnull @.str.15, ptr noundef nonnull %.not46, ptr noundef nonnull %.not47, i32 noundef %29) #13
-  %31 = icmp sgt i32 %30, -1
-  %32 = zext nneg i32 %30 to i64
-  %.not48 = icmp ugt i64 %19, %32
-  %33 = select i1 %31, i1 %.not48, i1 false
-  %spec.select = select i1 %33, i64 %32, i64 0
-  %.139 = sub nuw i64 %19, %spec.select
-  br i1 %33, label %34, label %37
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %.critedge, label %32
 
-34:                                               ; preds = %md_type_to_string.exit51, %18
-  %.038 = phi i64 [ %.139, %md_type_to_string.exit51 ], [ %19, %18 ]
-  %35 = sub i64 %1, %.038
-  %36 = trunc i64 %35 to i32
-  br label %37
+32:                                               ; preds = %md_type_to_string.exit50
+  %33 = zext nneg i32 %30 to i64
+  %.not48 = icmp ugt i64 %19, %33
+  br i1 %.not48, label %34, label %.critedge
 
-37:                                               ; preds = %14, %16, %md_type_to_string.exit51, %34
-  %.0 = phi i32 [ %36, %34 ], [ -10624, %md_type_to_string.exit51 ], [ -10624, %16 ], [ -10624, %14 ]
+34:                                               ; preds = %32
+  %35 = sub nuw i64 %19, %33
+  br label %36
+
+36:                                               ; preds = %34, %18
+  %.038 = phi i64 [ %35, %34 ], [ %19, %18 ]
+  %37 = sub i64 %1, %.038
+  %38 = trunc i64 %37 to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %32, %md_type_to_string.exit50, %14, %16, %36
+  %.0 = phi i32 [ %38, %36 ], [ -10624, %16 ], [ -10624, %14 ], [ -10624, %md_type_to_string.exit50 ], [ -10624, %32 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
   ret i32 %.0
 }

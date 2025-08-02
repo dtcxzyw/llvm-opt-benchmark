@@ -5086,13 +5086,13 @@ define void @"_ZN74_$LT$ty..args..Command$u20$as$u20$clap_builder..derive..FromA
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   store i64 -9223372036854775805, ptr %0, align 8
-  br label %78
+  br label %77
 
-22:                                               ; preds = %61, %79, %69, %66, %65, %62, %56, %52, %47, %43, %32, %29, %25, %12
+22:                                               ; preds = %61, %78, %69, %66, %65, %62, %56, %52, %47, %43, %32, %29, %25, %12
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$17h5dbcabeeddc9225cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8) #23
-          to label %74 unwind label %84
+          to label %73 unwind label %83
 
 24:                                               ; preds = %12
   br i1 %18, label %29, label %25
@@ -5136,9 +5136,9 @@ define void @"_ZN74_$LT$ty..args..Command$u20$as$u20$clap_builder..derive..FromA
   store i64 %.sink, ptr %0, align 8
   br label %41
 
-41:                                               ; preds = %71, %73, %59, %50, %39
+41:                                               ; preds = %71, %.critedge, %59, %50, %39
   invoke void @"_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$17h5dbcabeeddc9225cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8)
-          to label %77 unwind label %75
+          to label %76 unwind label %74
 
 42:                                               ; preds = %25
   br i1 %28, label %47, label %43
@@ -5194,12 +5194,12 @@ define void @"_ZN74_$LT$ty..args..Command$u20$as$u20$clap_builder..derive..FromA
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !591
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !591
-  %.sroa.654.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %.sroa.654.0..sroa_idx, align 8, !noalias !591
-  %.sroa.755.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %.sroa.755.0..sroa_idx, align 8, !noalias !591
+  %.sroa.656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %.sroa.656.0..sroa_idx, align 8, !noalias !591
+  %.sroa.757.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %.sroa.757.0..sroa_idx, align 8, !noalias !591
   invoke void @_ZN5alloc3fmt6format12format_inner17h9fdd91b8084950bfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
-          to label %79 unwind label %22
+          to label %78 unwind label %22
 
 62:                                               ; preds = %60
   %63 = invoke noundef zeroext i1 @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11contains_id17h0fe04c4cb9d8ed4eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %8, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
@@ -5220,7 +5220,7 @@ define void @"_ZN74_$LT$ty..args..Command$u20$as$u20$clap_builder..derive..FromA
 68:                                               ; preds = %66
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %.not45 = icmp eq i8 %67, 6
-  br i1 %.not45, label %69, label %73
+  br i1 %.not45, label %69, label %.critedge
 
 69:                                               ; preds = %68
   %70 = invoke noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$GT$3raw17h99f2c9c6a3db849cE"(i8 noundef 9, ptr noalias noundef nonnull readonly align 1 @anon.fc1605df6ee9a11e64196356eeddd5f8.104, i64 noundef 55)
@@ -5232,58 +5232,58 @@ define void @"_ZN74_$LT$ty..args..Command$u20$as$u20$clap_builder..derive..FromA
   store i64 -9223372036854775805, ptr %0, align 8
   br label %41
 
-73:                                               ; preds = %68
+.critedge:                                        ; preds = %68
   store i64 -9223372036854775806, ptr %0, align 8
   %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %67, ptr %.sroa.513.0..sroa_idx, align 8
   br label %41
 
-74:                                               ; preds = %75, %22
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %23, %22 ]
+73:                                               ; preds = %74, %22
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h997d5f36ffc42f99E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #23
-          to label %.critedge unwind label %84
+          to label %.critedge54 unwind label %83
 
-75:                                               ; preds = %81, %41
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %80, %41
+  %75 = landingpad { ptr, i32 }
           cleanup
-  br label %74
+  br label %73
 
-77:                                               ; preds = %41
+76:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h997d5f36ffc42f99E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  br label %78
+  br label %77
 
-78:                                               ; preds = %83, %19, %77
+77:                                               ; preds = %82, %19, %76
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10)
   ret void
 
-79:                                               ; preds = %61
+78:                                               ; preds = %61
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !584
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %80 = invoke noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$GT$3raw17h89443b812c5fdce4E"(i8 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
-          to label %81 unwind label %22
+  %79 = invoke noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$GT$3raw17h89443b812c5fdce4E"(i8 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
+          to label %80 unwind label %22
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %80, ptr %82, align 8
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %79, ptr %81, align 8
   store i64 -9223372036854775805, ptr %0, align 8
   invoke void @"_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$17h5dbcabeeddc9225cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %8)
-          to label %83 unwind label %75
+          to label %82 unwind label %74
 
-83:                                               ; preds = %81
+82:                                               ; preds = %80
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h997d5f36ffc42f99E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  br label %78
+  br label %77
 
-84:                                               ; preds = %74, %22
-  %85 = landingpad { ptr, i32 }
+83:                                               ; preds = %73, %22
+  %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24
   unreachable
 
-.critedge:                                        ; preds = %74
+.critedge54:                                      ; preds = %73
   resume { ptr, i32 } %.pn
 }
 

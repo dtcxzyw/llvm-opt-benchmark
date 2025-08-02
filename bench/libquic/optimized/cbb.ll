@@ -172,19 +172,19 @@ CBB_cleanup.exit:                                 ; preds = %16, %17
 define hidden range(i32 0, 2) i32 @CBB_flush(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8, !tbaa !16
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %.critedge.thread, label %4
+  br i1 %3, label %.critedge66, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.critedge.thread, label %8
+  br i1 %7, label %.critedge66, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i8, ptr %9, align 8, !tbaa !24
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %.critedge.thread, label %12
+  br i1 %11, label %.critedge66, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -193,37 +193,37 @@ define hidden range(i32 0, 2) i32 @CBB_flush(ptr noundef captures(none) %0) loca
   %16 = add i64 %14, %15
   %17 = tail call i32 @CBB_flush(ptr noundef nonnull %6)
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %.critedge.thread, label %18
+  br i1 %.not, label %.critedge66, label %18
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %5, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !25
   %22 = icmp ult i64 %16, %21
-  br i1 %22, label %.critedge.thread, label %23
+  br i1 %22, label %.critedge66, label %23
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %0, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !13
   %27 = icmp ult i64 %26, %16
-  br i1 %27, label %.critedge.thread, label %28
+  br i1 %27, label %.critedge66, label %28
 
 28:                                               ; preds = %23
   %29 = sub nuw i64 %26, %16
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 25
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %.not62 = icmp eq i8 %31, 0
-  br i1 %.not62, label %._crit_edge86, label %32
+  br i1 %.not62, label %._crit_edge85, label %32
 
-._crit_edge86:                                    ; preds = %28
-  %.phi.trans.insert87 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.pre88 = load i8, ptr %.phi.trans.insert87, align 8, !tbaa !24
+._crit_edge85:                                    ; preds = %28
+  %.phi.trans.insert86 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %.pre87 = load i8, ptr %.phi.trans.insert86, align 8, !tbaa !24
   br label %61
 
 32:                                               ; preds = %28
   %33 = icmp ugt i64 %29, 4294967294
-  br i1 %33, label %.critedge.thread, label %34
+  br i1 %33, label %.critedge66, label %34
 
 34:                                               ; preds = %32
   %35 = icmp samesign ugt i64 %29, 16777215
@@ -250,7 +250,7 @@ define hidden range(i32 0, 2) i32 @CBB_flush(ptr noundef captures(none) %0) loca
   %.049.ph = phi i8 [ -127, %40 ], [ -126, %38 ], [ -125, %36 ], [ -124, %34 ]
   %45 = tail call fastcc i32 @cbb_buffer_add(ptr noundef nonnull %24, ptr noundef null, i64 noundef %.050.ph)
   %.not64.not = icmp eq i32 %45, 0
-  br i1 %.not64.not, label %.critedge.thread, label %46
+  br i1 %.not64.not, label %.critedge66, label %46
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr %0, align 8, !tbaa !16
@@ -260,55 +260,55 @@ define hidden range(i32 0, 2) i32 @CBB_flush(ptr noundef captures(none) %0) loca
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %49, i64 %29, i1 false)
   %51 = trunc nuw nsw i64 %.050.ph to i8
   %.pre = load ptr, ptr %0, align 8, !tbaa !16
-  %.pre84 = load ptr, ptr %5, align 8, !tbaa !23
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre84, i64 16
-  %.pre85 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !25
+  %.pre83 = load ptr, ptr %5, align 8, !tbaa !23
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre83, i64 16
+  %.pre84 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !25
   br label %.critedge
 
-.critedge:                                        ; preds = %46, %42
-  %52 = phi i64 [ %.pre85, %46 ], [ %21, %42 ]
-  %53 = phi ptr [ %.pre84, %46 ], [ %19, %42 ]
+.critedge:                                        ; preds = %42, %46
+  %52 = phi i64 [ %.pre84, %46 ], [ %21, %42 ]
+  %53 = phi ptr [ %.pre83, %46 ], [ %19, %42 ]
   %54 = phi ptr [ %.pre, %46 ], [ %24, %42 ]
-  %.04975 = phi i8 [ %.049.ph, %46 ], [ %43, %42 ]
-  %.05073 = phi i8 [ %51, %46 ], [ 0, %42 ]
-  %.25571 = phi i64 [ %29, %46 ], [ 0, %42 ]
+  %.04976 = phi i8 [ %.049.ph, %46 ], [ %43, %42 ]
+  %.05074 = phi i8 [ %51, %46 ], [ 0, %42 ]
+  %.25572 = phi i64 [ %29, %46 ], [ 0, %42 ]
   %55 = load ptr, ptr %54, align 8, !tbaa !6
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %57 = add i64 %52, 1
   store i64 %57, ptr %56, align 8, !tbaa !25
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 %52
-  store i8 %.04975, ptr %58, align 1, !tbaa !27
+  store i8 %.04976, ptr %58, align 1, !tbaa !27
   %59 = load ptr, ptr %5, align 8, !tbaa !23
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i8 %.05073, ptr %60, align 8, !tbaa !24
+  store i8 %.05074, ptr %60, align 8, !tbaa !24
   br label %61
 
-61:                                               ; preds = %._crit_edge86, %.critedge
-  %62 = phi i8 [ %.05073, %.critedge ], [ %.pre88, %._crit_edge86 ]
-  %63 = phi ptr [ %59, %.critedge ], [ %19, %._crit_edge86 ]
-  %.053 = phi i64 [ %.25571, %.critedge ], [ %29, %._crit_edge86 ]
-  %.not89 = icmp eq i8 %62, 0
-  br i1 %.not89, label %._crit_edge, label %.lr.ph.preheader
+61:                                               ; preds = %._crit_edge85, %.critedge
+  %62 = phi i8 [ %.05074, %.critedge ], [ %.pre87, %._crit_edge85 ]
+  %63 = phi ptr [ %59, %.critedge ], [ %19, %._crit_edge85 ]
+  %.053 = phi i64 [ %.25572, %.critedge ], [ %29, %._crit_edge85 ]
+  %.not88 = icmp eq i8 %62, 0
+  br i1 %.not88, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %61
   %64 = zext i8 %62 to i64
-  %.05778 = add nsw i64 %64, -1
+  %.05777 = add nsw i64 %64, -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %65 = phi ptr [ %74, %.lr.ph ], [ %63, %.lr.ph.preheader ]
-  %.05780 = phi i64 [ %.057, %.lr.ph ], [ %.05778, %.lr.ph.preheader ]
-  %.35679 = phi i64 [ %73, %.lr.ph ], [ %.053, %.lr.ph.preheader ]
-  %66 = trunc i64 %.35679 to i8
+  %.05779 = phi i64 [ %.057, %.lr.ph ], [ %.05777, %.lr.ph.preheader ]
+  %.35678 = phi i64 [ %73, %.lr.ph ], [ %.053, %.lr.ph.preheader ]
+  %66 = trunc i64 %.35678 to i8
   %67 = load ptr, ptr %0, align 8, !tbaa !16
   %68 = load ptr, ptr %67, align 8, !tbaa !6
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %70 = load i64, ptr %69, align 8, !tbaa !25
   %71 = getelementptr i8, ptr %68, i64 %70
-  %72 = getelementptr i8, ptr %71, i64 %.05780
+  %72 = getelementptr i8, ptr %71, i64 %.05779
   store i8 %66, ptr %72, align 1, !tbaa !27
-  %73 = lshr i64 %.35679, 8
-  %.057 = add nsw i64 %.05780, -1
+  %73 = lshr i64 %.35678, 8
+  %.057 = add nsw i64 %.05779, -1
   %74 = load ptr, ptr %5, align 8, !tbaa !23
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load i8, ptr %75, align 8, !tbaa !24
@@ -320,15 +320,15 @@ define hidden range(i32 0, 2) i32 @CBB_flush(ptr noundef captures(none) %0) loca
   %.356.lcssa = phi i64 [ %.053, %61 ], [ %73, %.lr.ph ]
   %.lcssa = phi ptr [ %63, %61 ], [ %74, %.lr.ph ]
   %.not65 = icmp eq i64 %.356.lcssa, 0
-  br i1 %.not65, label %79, label %.critedge.thread
+  br i1 %.not65, label %79, label %.critedge66
 
 79:                                               ; preds = %._crit_edge
   store ptr null, ptr %.lcssa, align 8, !tbaa !16
   store ptr null, ptr %5, align 8, !tbaa !23
-  br label %.critedge.thread
+  br label %.critedge66
 
-.critedge.thread:                                 ; preds = %44, %32, %._crit_edge, %12, %18, %23, %4, %8, %1, %79
-  %.0 = phi i32 [ 1, %79 ], [ 0, %1 ], [ 1, %8 ], [ 1, %4 ], [ 0, %23 ], [ 0, %18 ], [ 0, %12 ], [ 0, %._crit_edge ], [ 0, %32 ], [ 0, %44 ]
+.critedge66:                                      ; preds = %32, %44, %._crit_edge, %12, %18, %23, %4, %8, %1, %79
+  %.0 = phi i32 [ 1, %79 ], [ 0, %1 ], [ 1, %8 ], [ 1, %4 ], [ 0, %23 ], [ 0, %18 ], [ 0, %12 ], [ 0, %._crit_edge ], [ 0, %44 ], [ 0, %32 ]
   ret i32 %.0
 }
 

@@ -543,14 +543,14 @@ GIP_DecodeLength.exit119.thread.i:                ; preds = %GIP_DecodeLength.ex
 
 98:                                               ; preds = %GIP_DecodeLength.exit119.thread.i
   %99 = icmp ugt i64 %48, %.0143.i
-  br i1 %99, label %100, label %.thread149.i
+  br i1 %99, label %100, label %.thread.i
 
 100:                                              ; preds = %98
   %101 = trunc nuw nsw i64 %.0143.i to i32
   call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.11, i64 noundef %48, i32 noundef %101) #10
   br label %GIP_ReceivePacket.exit
 
-.thread149.i:                                     ; preds = %98
+.thread.i:                                        ; preds = %98
   %102 = call noalias ptr @SDL_malloc_REAL(i64 noundef %.0143.i) #10
   %103 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   store ptr %102, ptr %103, align 8
@@ -657,17 +657,17 @@ GIP_FragmentFailed.exit.i:                        ; preds = %123, %112
   br label %GIP_DecodeLength.exit129.i
 
 GIP_DecodeLength.exit129.i:                       ; preds = %149, %.split.loop.exit.i128.i, %135
-  %.3.i = phi i64 [ %148, %.split.loop.exit.i128.i ], [ 0, %135 ], [ %148, %149 ]
+  %.2140.i = phi i64 [ %148, %.split.loop.exit.i128.i ], [ 0, %135 ], [ %148, %149 ]
   %.1.i121.i = phi i32 [ %151, %.split.loop.exit.i128.i ], [ 0, %135 ], [ %138, %149 ]
   %152 = add nsw i32 %.1.i121.i, %.1.i.i
   %153 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %154 = load i32, ptr %153, align 8
   %155 = zext i32 %154 to i64
-  %.not99.i = icmp eq i64 %.3.i, %155
+  %.not99.i = icmp eq i64 %.2140.i, %155
   br i1 %.not99.i, label %166, label %156
 
 156:                                              ; preds = %GIP_DecodeLength.exit129.i
-  call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.13, i64 noundef %.3.i, i32 noundef %154) #10
+  call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.13, i64 noundef %.2140.i, i32 noundef %154) #10
   %157 = load i32, ptr %153, align 8
   %158 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 22
   %159 = load i16, ptr %158, align 2
@@ -693,7 +693,7 @@ GIP_DecodeLength.exit129.i:                       ; preds = %149, %.split.loop.e
   br label %GIP_ReceivePacket.exit
 
 166:                                              ; preds = %GIP_DecodeLength.exit129.i
-  %167 = add i64 %.3.i, %48
+  %167 = add i64 %.2140.i, %48
   %168 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 22
   %169 = load i16, ptr %168, align 2
   %170 = zext i16 %169 to i64
@@ -754,12 +754,12 @@ GIP_FragmentFailed.exit:                          ; preds = %172, %182
   %193 = trunc nuw i64 %167 to i16
   %194 = sub i16 %169, %193
   %.not100.i = icmp eq i64 %48, 0
-  br i1 %.not100.i, label %201, label %.critedge.i
+  br i1 %.not100.i, label %201, label %.critedge150.i
 
-.critedge.i:                                      ; preds = %192
+.critedge150.i:                                   ; preds = %192
   %195 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %.3.i
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %.2140.i
   %198 = sext i32 %152 to i64
   %199 = getelementptr inbounds i8, ptr %8, i64 %198
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %197, ptr nonnull align 1 %199, i64 %48, i1 false)
@@ -783,7 +783,7 @@ GIP_FragmentFailed.exit:                          ; preds = %172, %182
 
 208:                                              ; preds = %207, %201
   store i8 0, ptr %66, align 4
-  %209 = trunc nuw i64 %.3.i to i32
+  %209 = trunc nuw i64 %.2140.i to i32
   store i32 %209, ptr %153, align 8
   %210 = call i64 @SDL_GetTicks_REAL() #10
   %211 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
@@ -807,23 +807,23 @@ GIP_FragmentFailed.exit:                          ; preds = %172, %182
   %221 = call fastcc zeroext i1 @GIP_HandleMessage(ptr noundef nonnull %.0.i.i, i8 %36, i8 %37, ptr noundef nonnull %220, i32 noundef %219)
   br i1 %221, label %224, label %GIP_ReceivePacket.exit
 
-.sink.split.i:                                    ; preds = %.critedge.i, %.thread149.i
-  %.2148.ph.i = phi i16 [ %194, %.critedge.i ], [ %110, %.thread149.i ]
-  %.2140147.ph.i = phi i64 [ %167, %.critedge.i ], [ %48, %.thread149.i ]
+.sink.split.i:                                    ; preds = %.critedge150.i, %.thread.i
+  %.2145.ph.i = phi i16 [ %194, %.critedge150.i ], [ %110, %.thread.i ]
+  %.1139144.ph.i = phi i64 [ %167, %.critedge150.i ], [ %48, %.thread.i ]
   %222 = call i64 @SDL_GetTicks_REAL() #10
   %223 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   store i64 %222, ptr %223, align 8
   br label %224
 
 224:                                              ; preds = %.sink.split.i, %218, %208
-  %.2148.i = phi i16 [ %194, %208 ], [ 0, %218 ], [ %.2148.ph.i, %.sink.split.i ]
-  %.2140147.i = phi i64 [ %167, %208 ], [ %48, %218 ], [ %.2140147.ph.i, %.sink.split.i ]
+  %.2145.i = phi i16 [ %194, %208 ], [ 0, %218 ], [ %.2145.ph.i, %.sink.split.i ]
+  %.1139144.i = phi i64 [ %167, %208 ], [ %48, %218 ], [ %.1139144.ph.i, %.sink.split.i ]
   %225 = and i8 %37, 16
   %.not104.i = icmp eq i8 %225, 0
   br i1 %.not104.i, label %GIP_ReceivePacket.exit, label %226
 
 226:                                              ; preds = %224
-  %227 = trunc i64 %.2140147.i to i32
+  %227 = trunc i64 %.1139144.i to i32
   %.val105.i = load ptr, ptr %10, align 8
   %228 = getelementptr i8, ptr %.val105.i, i64 128
   %.val105.val.i = load ptr, ptr %228, align 8
@@ -838,7 +838,7 @@ GIP_FragmentFailed.exit:                          ; preds = %172, %182
   store i8 %36, ptr %.sroa.4.0..sroa_idx.i130.i, align 1
   store i8 %229, ptr %.sroa.5.0..sroa_idx.i131.i, align 2
   store i32 %227, ptr %.sroa.6.0..sroa_idx.i132.i, align 1
-  store i16 %.2148.i, ptr %.sroa.10.0..sroa_idx.i133.i, align 1
+  store i16 %.2145.i, ptr %.sroa.10.0..sroa_idx.i133.i, align 1
   %231 = call i32 @SDL_hid_write_REAL(ptr noundef %.val105.val.i, ptr noundef nonnull %5, i64 noundef 13) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %5) #10
   br label %GIP_ReceivePacket.exit
@@ -2244,7 +2244,7 @@ define internal fastcc zeroext i1 @GIP_HandleMessage(ptr noundef %0, i8 %.0.val,
   %12 = alloca [2054 x i8], align 16
   %13 = and i8 %.1.val, 32
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %839, label %14
+  br i1 %.not, label %841, label %14
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2302,18 +2302,18 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   br label %GIP_HandleSystemMessage.exit
 
 43:                                               ; preds = %thread-pre-split.i
-  switch i8 %.0.val, label %838 [
+  switch i8 %.0.val, label %840 [
     i8 1, label %44
     i8 2, label %45
     i8 3, label %160
     i8 4, label %206
-    i8 6, label %630
-    i8 7, label %631
-    i8 8, label %650
-    i8 12, label %651
-    i8 11, label %718
-    i8 30, label %819
-    i8 96, label %837
+    i8 6, label %632
+    i8 7, label %633
+    i8 8, label %652
+    i8 12, label %653
+    i8 11, label %720
+    i8 30, label %821
+    i8 96, label %839
   ]
 
 44:                                               ; preds = %43
@@ -2736,1713 +2736,1706 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader175.i.i.i.i
   %298 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %wide.trip.count.i.i.i.i = zext i8 %295 to i64
-  %invariant.gep195.i.i.i.i = getelementptr inbounds nuw i8, ptr %294, i64 1
   br label %299
 
 299:                                              ; preds = %299, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %299 ]
-  %gep196.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep195.i.i.i.i, i64 %indvars.iv.i.i.i.i
-  %300 = load i8, ptr %gep196.i.i.i.i, align 1
-  %301 = zext i8 %300 to i32
-  %302 = and i32 %301, 31
-  %303 = shl nuw i32 1, %302
-  %304 = lshr i32 %301, 5
-  %305 = zext nneg i32 %304 to i64
-  %306 = getelementptr inbounds nuw [8 x i32], ptr %298, i64 0, i64 %305
-  %307 = load i32, ptr %306, align 4
-  %308 = or i32 %303, %307
-  store i32 %308, ptr %306, align 4
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %294, i64 %indvars.iv.i.i.i.i
+  %300 = getelementptr inbounds nuw i8, ptr %gep.i.i.i.i, i64 1
+  %301 = load i8, ptr %300, align 1
+  %302 = zext i8 %301 to i32
+  %303 = and i32 %302, 31
+  %304 = shl nuw i32 1, %303
+  %305 = lshr i32 %302, 5
+  %306 = zext nneg i32 %305 to i64
+  %307 = getelementptr inbounds nuw [8 x i32], ptr %298, i64 0, i64 %306
+  %308 = load i32, ptr %307, align 4
+  %309 = or i32 %304, %308
+  store i32 %309, ptr %307, align 4
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %.loopexit176.i.i.i.i, label %299, !llvm.loop !15
 
 .loopexit176.i.i.i.i:                             ; preds = %299, %.preheader175.i.i.i.i, %291
-  %309 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  %310 = load i8, ptr %309, align 1
-  %311 = zext i8 %310 to i32
-  %312 = getelementptr inbounds nuw i8, ptr %249, i64 9
-  %313 = load i8, ptr %312, align 1
-  %314 = zext i8 %313 to i32
-  %315 = shl nuw nsw i32 %314, 8
-  %316 = or disjoint i32 %315, %311
-  %.not162.i.i.i.i = icmp samesign ult i32 %316, %259
-  br i1 %.not162.i.i.i.i, label %317, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
+  %310 = getelementptr inbounds nuw i8, ptr %249, i64 8
+  %311 = load i8, ptr %310, align 1
+  %312 = zext i8 %311 to i32
+  %313 = getelementptr inbounds nuw i8, ptr %249, i64 9
+  %314 = load i8, ptr %313, align 1
+  %315 = zext i8 %314 to i32
+  %316 = shl nuw nsw i32 %315, 8
+  %317 = or disjoint i32 %316, %312
+  %.not162.i.i.i.i = icmp samesign ult i32 %317, %259
+  br i1 %.not162.i.i.i.i, label %318, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
 
-317:                                              ; preds = %.loopexit176.i.i.i.i
-  %.not163.i.i.i.i = icmp eq i32 %316, 0
-  br i1 %.not163.i.i.i.i, label %.loopexit174.i.i.i.i, label %318
+318:                                              ; preds = %.loopexit176.i.i.i.i
+  %.not163.i.i.i.i = icmp eq i32 %317, 0
+  br i1 %.not163.i.i.i.i, label %.loopexit174.i.i.i.i, label %319
 
-318:                                              ; preds = %317
-  %319 = zext nneg i32 %316 to i64
-  %320 = getelementptr inbounds nuw i8, ptr %249, i64 %319
-  %321 = load i8, ptr %320, align 1
-  %322 = zext i8 %321 to i32
-  %323 = add nuw nsw i32 %316, %322
-  %.not164.i.i.i.i = icmp samesign ult i32 %323, %259
+319:                                              ; preds = %318
+  %320 = zext nneg i32 %317 to i64
+  %321 = getelementptr inbounds nuw i8, ptr %249, i64 %320
+  %322 = load i8, ptr %321, align 1
+  %323 = zext i8 %322 to i32
+  %324 = add nuw nsw i32 %317, %323
+  %.not164.i.i.i.i = icmp samesign ult i32 %324, %259
   br i1 %.not164.i.i.i.i, label %.preheader.i.i.i.i, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %318
-  %.not184.i.i.i.i = icmp eq i8 %321, 0
+.preheader.i.i.i.i:                               ; preds = %319
+  %.not184.i.i.i.i = icmp eq i8 %322, 0
   br i1 %.not184.i.i.i.i, label %.loopexit174.i.i.i.i, label %.lr.ph179.i.i.i.i
 
 .lr.ph179.i.i.i.i:                                ; preds = %.preheader.i.i.i.i
-  %324 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  %wide.trip.count190.i.i.i.i = zext i8 %321 to i64
-  %invariant.gep198.i.i.i.i = getelementptr inbounds nuw i8, ptr %320, i64 1
-  br label %325
+  %325 = getelementptr inbounds nuw i8, ptr %9, i64 44
+  %wide.trip.count190.i.i.i.i = zext i8 %322 to i64
+  br label %326
 
-325:                                              ; preds = %325, %.lr.ph179.i.i.i.i
-  %indvars.iv187.i.i.i.i = phi i64 [ 0, %.lr.ph179.i.i.i.i ], [ %indvars.iv.next188.i.i.i.i, %325 ]
-  %gep199.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep198.i.i.i.i, i64 %indvars.iv187.i.i.i.i
-  %326 = load i8, ptr %gep199.i.i.i.i, align 1
-  %327 = zext i8 %326 to i32
-  %328 = and i32 %327, 31
-  %329 = shl nuw i32 1, %328
-  %330 = lshr i32 %327, 5
-  %331 = zext nneg i32 %330 to i64
-  %332 = getelementptr inbounds nuw [8 x i32], ptr %324, i64 0, i64 %331
-  %333 = load i32, ptr %332, align 4
-  %334 = or i32 %329, %333
-  store i32 %334, ptr %332, align 4
+326:                                              ; preds = %326, %.lr.ph179.i.i.i.i
+  %indvars.iv187.i.i.i.i = phi i64 [ 0, %.lr.ph179.i.i.i.i ], [ %indvars.iv.next188.i.i.i.i, %326 ]
+  %gep196.i.i.i.i = getelementptr inbounds nuw i8, ptr %321, i64 %indvars.iv187.i.i.i.i
+  %327 = getelementptr inbounds nuw i8, ptr %gep196.i.i.i.i, i64 1
+  %328 = load i8, ptr %327, align 1
+  %329 = zext i8 %328 to i32
+  %330 = and i32 %329, 31
+  %331 = shl nuw i32 1, %330
+  %332 = lshr i32 %329, 5
+  %333 = zext nneg i32 %332 to i64
+  %334 = getelementptr inbounds nuw [8 x i32], ptr %325, i64 0, i64 %333
+  %335 = load i32, ptr %334, align 4
+  %336 = or i32 %331, %335
+  store i32 %336, ptr %334, align 4
   %indvars.iv.next188.i.i.i.i = add nuw nsw i64 %indvars.iv187.i.i.i.i, 1
   %exitcond191.not.i.i.i.i = icmp eq i64 %indvars.iv.next188.i.i.i.i, %wide.trip.count190.i.i.i.i
-  br i1 %exitcond191.not.i.i.i.i, label %.loopexit174.i.i.i.i, label %325, !llvm.loop !16
+  br i1 %exitcond191.not.i.i.i.i, label %.loopexit174.i.i.i.i, label %326, !llvm.loop !16
 
-.loopexit174.i.i.i.i:                             ; preds = %325, %.preheader.i.i.i.i, %317
-  %335 = getelementptr inbounds nuw i8, ptr %249, i64 10
-  %336 = load i8, ptr %335, align 1
-  %337 = zext i8 %336 to i32
-  %338 = getelementptr inbounds nuw i8, ptr %249, i64 11
-  %339 = load i8, ptr %338, align 1
-  %340 = zext i8 %339 to i32
-  %341 = shl nuw nsw i32 %340, 8
-  %342 = or disjoint i32 %341, %337
-  %.not165.i.i.i.i = icmp samesign ult i32 %342, %259
-  br i1 %.not165.i.i.i.i, label %343, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
+.loopexit174.i.i.i.i:                             ; preds = %326, %.preheader.i.i.i.i, %318
+  %337 = getelementptr inbounds nuw i8, ptr %249, i64 10
+  %338 = load i8, ptr %337, align 1
+  %339 = zext i8 %338 to i32
+  %340 = getelementptr inbounds nuw i8, ptr %249, i64 11
+  %341 = load i8, ptr %340, align 1
+  %342 = zext i8 %341 to i32
+  %343 = shl nuw nsw i32 %342, 8
+  %344 = or disjoint i32 %343, %339
+  %.not165.i.i.i.i = icmp samesign ult i32 %344, %259
+  br i1 %.not165.i.i.i.i, label %345, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
 
-343:                                              ; preds = %.loopexit174.i.i.i.i
-  %.not166.i.i.i.i = icmp eq i32 %342, 0
-  br i1 %.not166.i.i.i.i, label %.loopexit.i.i.i.i, label %344
+345:                                              ; preds = %.loopexit174.i.i.i.i
+  %.not166.i.i.i.i = icmp eq i32 %344, 0
+  br i1 %.not166.i.i.i.i, label %.loopexit.i.i.i.i, label %346
 
-344:                                              ; preds = %343
-  %345 = zext nneg i32 %342 to i64
-  %346 = getelementptr inbounds nuw i8, ptr %249, i64 %345
-  %347 = load i8, ptr %346, align 1
-  %348 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  store i8 %347, ptr %348, align 1
-  %349 = zext i8 %347 to i64
-  %350 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %349, i64 noundef 8) #11
-  %351 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  store ptr %350, ptr %351, align 8
-  %.not185.i.i.i.i = icmp eq i8 %347, 0
+346:                                              ; preds = %345
+  %347 = zext nneg i32 %344 to i64
+  %348 = getelementptr inbounds nuw i8, ptr %249, i64 %347
+  %349 = load i8, ptr %348, align 1
+  %350 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  store i8 %349, ptr %350, align 1
+  %351 = zext i8 %349 to i64
+  %352 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %351, i64 noundef 8) #11
+  %353 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  store ptr %352, ptr %353, align 8
+  %.not185.i.i.i.i = icmp eq i8 %349, 0
   br i1 %.not185.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph182.preheader.i.i.i.i
 
-.lr.ph182.preheader.i.i.i.i:                      ; preds = %344
-  %352 = add nuw nsw i32 %342, 1
+.lr.ph182.preheader.i.i.i.i:                      ; preds = %346
+  %354 = add nuw nsw i32 %344, 1
   br label %.lr.ph182.i.i.i.i
 
-.lr.ph182.i.i.i.i:                                ; preds = %361, %.lr.ph182.preheader.i.i.i.i
-  %indvars.iv192.i.i.i.i = phi i64 [ 0, %.lr.ph182.preheader.i.i.i.i ], [ %indvars.iv.next193.i.i.i.i, %361 ]
-  %.0146180.i.i.i.i = phi i32 [ %352, %.lr.ph182.preheader.i.i.i.i ], [ %359, %361 ]
-  %353 = add nuw nsw i32 %.0146180.i.i.i.i, 2
-  %.not172.i.i.i.i = icmp slt i32 %353, %259
-  br i1 %.not172.i.i.i.i, label %354, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
+.lr.ph182.i.i.i.i:                                ; preds = %363, %.lr.ph182.preheader.i.i.i.i
+  %indvars.iv192.i.i.i.i = phi i64 [ 0, %.lr.ph182.preheader.i.i.i.i ], [ %indvars.iv.next193.i.i.i.i, %363 ]
+  %.0146180.i.i.i.i = phi i32 [ %354, %.lr.ph182.preheader.i.i.i.i ], [ %361, %363 ]
+  %355 = add nuw nsw i32 %.0146180.i.i.i.i, 2
+  %.not172.i.i.i.i = icmp slt i32 %355, %259
+  br i1 %.not172.i.i.i.i, label %356, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
 
-354:                                              ; preds = %.lr.ph182.i.i.i.i
-  %355 = zext nneg i32 %.0146180.i.i.i.i to i64
-  %356 = getelementptr inbounds nuw i8, ptr %249, i64 %355
-  %357 = load i8, ptr %356, align 1
-  %358 = zext i8 %357 to i32
-  %359 = add nuw nsw i32 %353, %358
-  %360 = icmp sgt i32 %359, %259
-  br i1 %360, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i, label %361
+356:                                              ; preds = %.lr.ph182.i.i.i.i
+  %357 = zext nneg i32 %.0146180.i.i.i.i to i64
+  %358 = getelementptr inbounds nuw i8, ptr %249, i64 %357
+  %359 = load i8, ptr %358, align 1
+  %360 = zext i8 %359 to i32
+  %361 = add nuw nsw i32 %355, %360
+  %362 = icmp sgt i32 %361, %259
+  br i1 %362, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i, label %363
 
-361:                                              ; preds = %354
-  %362 = add nuw nsw i32 %358, 1
-  %363 = zext nneg i32 %362 to i64
-  %364 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %363, i64 noundef 1) #11
-  %365 = getelementptr inbounds nuw ptr, ptr %350, i64 %indvars.iv192.i.i.i.i
-  store ptr %364, ptr %365, align 8
-  %366 = zext nneg i32 %353 to i64
-  %367 = getelementptr inbounds nuw i8, ptr %249, i64 %366
-  %368 = zext i8 %357 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %364, ptr nonnull readonly align 1 %367, i64 %368, i1 false)
+363:                                              ; preds = %356
+  %364 = add nuw nsw i32 %360, 1
+  %365 = zext nneg i32 %364 to i64
+  %366 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %365, i64 noundef 1) #11
+  %367 = getelementptr inbounds nuw ptr, ptr %352, i64 %indvars.iv192.i.i.i.i
+  store ptr %366, ptr %367, align 8
+  %368 = zext nneg i32 %355 to i64
+  %369 = getelementptr inbounds nuw i8, ptr %249, i64 %368
+  %370 = zext i8 %359 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %366, ptr nonnull readonly align 1 %369, i64 %370, i1 false)
   %indvars.iv.next193.i.i.i.i = add nuw nsw i64 %indvars.iv192.i.i.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next193.i.i.i.i, %349
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next193.i.i.i.i, %351
   br i1 %exitcond.not.i.i, label %.loopexit.i.i.i.i, label %.lr.ph182.i.i.i.i, !llvm.loop !17
 
-.loopexit.i.i.i.i:                                ; preds = %361, %344, %343
-  %369 = phi ptr [ %350, %344 ], [ null, %343 ], [ %350, %361 ]
-  %370 = phi i8 [ 0, %344 ], [ 0, %343 ], [ %347, %361 ]
-  %371 = getelementptr inbounds nuw i8, ptr %249, i64 12
-  %372 = load i8, ptr %371, align 1
-  %373 = zext i8 %372 to i32
-  %374 = getelementptr inbounds nuw i8, ptr %249, i64 13
-  %375 = load i8, ptr %374, align 1
-  %376 = zext i8 %375 to i32
-  %377 = shl nuw nsw i32 %376, 8
-  %378 = or disjoint i32 %377, %373
-  %.not167.i.i.i.i = icmp samesign ult i32 %378, %259
-  br i1 %.not167.i.i.i.i, label %379, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
+.loopexit.i.i.i.i:                                ; preds = %363, %346, %345
+  %371 = phi ptr [ %352, %346 ], [ null, %345 ], [ %352, %363 ]
+  %372 = phi i8 [ 0, %346 ], [ 0, %345 ], [ %349, %363 ]
+  %373 = getelementptr inbounds nuw i8, ptr %249, i64 12
+  %374 = load i8, ptr %373, align 1
+  %375 = zext i8 %374 to i32
+  %376 = getelementptr inbounds nuw i8, ptr %249, i64 13
+  %377 = load i8, ptr %376, align 1
+  %378 = zext i8 %377 to i32
+  %379 = shl nuw nsw i32 %378, 8
+  %380 = or disjoint i32 %379, %375
+  %.not167.i.i.i.i = icmp samesign ult i32 %380, %259
+  br i1 %.not167.i.i.i.i, label %381, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
 
-379:                                              ; preds = %.loopexit.i.i.i.i
-  %.not168.i.i.i.i = icmp eq i32 %378, 0
-  br i1 %.not168.i.i.i.i, label %396, label %380
+381:                                              ; preds = %.loopexit.i.i.i.i
+  %.not168.i.i.i.i = icmp eq i32 %380, 0
+  br i1 %.not168.i.i.i.i, label %398, label %382
 
-380:                                              ; preds = %379
-  %381 = zext nneg i32 %378 to i64
-  %382 = getelementptr inbounds nuw i8, ptr %249, i64 %381
-  %383 = load i8, ptr %382, align 1
-  %384 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i8 %383, ptr %384, align 2
-  %385 = add nuw nsw i32 %378, 1
-  %.tr.i.i.i.i = zext i8 %383 to i32
-  %386 = shl nuw nsw i32 %.tr.i.i.i.i, 4
-  %387 = add nuw nsw i32 %386, %385
-  %388 = icmp samesign ugt i32 %387, %259
-  br i1 %388, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i, label %389
+382:                                              ; preds = %381
+  %383 = zext nneg i32 %380 to i64
+  %384 = getelementptr inbounds nuw i8, ptr %249, i64 %383
+  %385 = load i8, ptr %384, align 1
+  %386 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  store i8 %385, ptr %386, align 2
+  %387 = add nuw nsw i32 %380, 1
+  %.tr.i.i.i.i = zext i8 %385 to i32
+  %388 = shl nuw nsw i32 %.tr.i.i.i.i, 4
+  %389 = add nuw nsw i32 %388, %387
+  %390 = icmp samesign ugt i32 %389, %259
+  br i1 %390, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i, label %391
 
-389:                                              ; preds = %380
-  %390 = zext i8 %383 to i64
-  %391 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %390, i64 noundef 16) #11
-  %392 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  store ptr %391, ptr %392, align 8
-  %393 = zext nneg i32 %385 to i64
-  %394 = getelementptr inbounds nuw i8, ptr %249, i64 %393
-  %395 = shl nuw nsw i64 %390, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %391, ptr nonnull readonly align 1 %394, i64 %395, i1 false)
-  br label %396
+391:                                              ; preds = %382
+  %392 = zext i8 %385 to i64
+  %393 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %392, i64 noundef 16) #11
+  %394 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store ptr %393, ptr %394, align 8
+  %395 = zext nneg i32 %387 to i64
+  %396 = getelementptr inbounds nuw i8, ptr %249, i64 %395
+  %397 = shl nuw nsw i64 %392, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %393, ptr nonnull readonly align 1 %396, i64 %397, i1 false)
+  br label %398
 
-396:                                              ; preds = %389, %379
-  %397 = phi ptr [ %391, %389 ], [ null, %379 ]
-  %398 = phi i8 [ %383, %389 ], [ 0, %379 ]
-  %399 = icmp ult i16 %226, 2
+398:                                              ; preds = %391, %381
+  %399 = phi ptr [ %393, %391 ], [ null, %381 ]
+  %400 = phi i8 [ %385, %391 ], [ 0, %381 ]
+  %401 = icmp ult i16 %226, 2
   %.not169.i.i.i.i = icmp eq i16 %235, 0
-  %or.cond8.i.i = select i1 %399, i1 %.not169.i.i.i.i, i1 false
-  br i1 %or.cond8.i.i, label %425, label %400
+  %or.cond8.i.i = select i1 %401, i1 %.not169.i.i.i.i, i1 false
+  br i1 %or.cond8.i.i, label %427, label %402
 
-400:                                              ; preds = %396
-  %401 = getelementptr inbounds nuw i8, ptr %249, i64 14
-  %402 = load i8, ptr %401, align 1
-  %403 = zext i8 %402 to i32
-  %404 = getelementptr inbounds nuw i8, ptr %249, i64 15
-  %405 = load i8, ptr %404, align 1
-  %406 = zext i8 %405 to i32
-  %407 = shl nuw nsw i32 %406, 8
-  %408 = or disjoint i32 %407, %403
-  %.not170.i.i.i.i = icmp samesign ult i32 %408, %259
-  br i1 %.not170.i.i.i.i, label %409, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
+402:                                              ; preds = %398
+  %403 = getelementptr inbounds nuw i8, ptr %249, i64 14
+  %404 = load i8, ptr %403, align 1
+  %405 = zext i8 %404 to i32
+  %406 = getelementptr inbounds nuw i8, ptr %249, i64 15
+  %407 = load i8, ptr %406, align 1
+  %408 = zext i8 %407 to i32
+  %409 = shl nuw nsw i32 %408, 8
+  %410 = or disjoint i32 %409, %405
+  %.not170.i.i.i.i = icmp samesign ult i32 %410, %259
+  br i1 %.not170.i.i.i.i, label %411, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
 
-409:                                              ; preds = %400
-  %.not171.i.i.i.i = icmp eq i32 %408, 0
-  br i1 %.not171.i.i.i.i, label %425, label %410
+411:                                              ; preds = %402
+  %.not171.i.i.i.i = icmp eq i32 %410, 0
+  br i1 %.not171.i.i.i.i, label %427, label %412
 
-410:                                              ; preds = %409
-  %411 = zext nneg i32 %408 to i64
-  %412 = getelementptr inbounds nuw i8, ptr %249, i64 %411
-  %413 = load i8, ptr %412, align 1
-  %414 = getelementptr inbounds nuw i8, ptr %9, i64 11
-  store i8 %413, ptr %414, align 1
-  %415 = add nuw nsw i32 %408, 1
-  %416 = zext i8 %413 to i32
-  %417 = add nuw nsw i32 %415, %416
-  %418 = icmp samesign ugt i32 %417, %259
-  br i1 %418, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i, label %419
+412:                                              ; preds = %411
+  %413 = zext nneg i32 %410 to i64
+  %414 = getelementptr inbounds nuw i8, ptr %249, i64 %413
+  %415 = load i8, ptr %414, align 1
+  %416 = getelementptr inbounds nuw i8, ptr %9, i64 11
+  store i8 %415, ptr %416, align 1
+  %417 = add nuw nsw i32 %410, 1
+  %418 = zext i8 %415 to i32
+  %419 = add nuw nsw i32 %417, %418
+  %420 = icmp samesign ugt i32 %419, %259
+  br i1 %420, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i, label %421
 
-419:                                              ; preds = %410
-  %420 = zext i8 %413 to i64
-  %421 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %420) #10
-  %422 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  store ptr %421, ptr %422, align 8
-  %423 = zext nneg i32 %415 to i64
-  %424 = getelementptr inbounds nuw i8, ptr %249, i64 %423
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %421, ptr nonnull readonly align 1 %424, i64 %420, i1 false)
-  br label %425
+421:                                              ; preds = %412
+  %422 = zext i8 %415 to i64
+  %423 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %422) #10
+  %424 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  store ptr %423, ptr %424, align 8
+  %425 = zext nneg i32 %417 to i64
+  %426 = getelementptr inbounds nuw i8, ptr %249, i64 %425
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %423, ptr nonnull readonly align 1 %426, i64 %422, i1 false)
+  br label %427
 
-425:                                              ; preds = %419, %409, %396
-  %426 = add nuw nsw i32 %259, %215
-  %.not.i.i.i = icmp slt i32 %426, %2
-  br i1 %.not.i.i.i, label %427, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
+427:                                              ; preds = %421, %411, %398
+  %428 = add nuw nsw i32 %259, %215
+  %.not.i.i.i = icmp slt i32 %428, %2
+  br i1 %.not.i.i.i, label %429, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i
 
-427:                                              ; preds = %425
-  %428 = zext nneg i32 %426 to i64
-  %429 = getelementptr inbounds nuw i8, ptr %1, i64 %428
-  %430 = load i8, ptr %429, align 1
-  %431 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  store i8 %430, ptr %431, align 8
-  %.not46.i.i.i = icmp eq i8 %430, 0
+429:                                              ; preds = %427
+  %430 = zext nneg i32 %428 to i64
+  %431 = getelementptr inbounds nuw i8, ptr %1, i64 %430
+  %432 = load i8, ptr %431, align 1
+  %433 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  store i8 %432, ptr %433, align 8
+  %.not46.i.i.i = icmp eq i8 %432, 0
   br i1 %.not46.i.i.i, label %GIP_ParseMetadata.exit.i.i, label %.lr.ph.preheader.i.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %427
-  %432 = zext i8 %430 to i64
-  %433 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %432, i64 noundef 16) #11
-  %434 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  store ptr %433, ptr %434, align 8
-  %435 = add nuw nsw i32 %426, 1
+.lr.ph.preheader.i.i.i:                           ; preds = %429
+  %434 = zext i8 %432 to i64
+  %435 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %434, i64 noundef 16) #11
+  %436 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  store ptr %435, ptr %436, align 8
+  %437 = add nuw nsw i32 %428, 1
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %451, %.lr.ph.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %451 ]
-  %.05460.i.i.i = phi i32 [ %435, %.lr.ph.preheader.i.i.i ], [ %469, %451 ]
-  %436 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %433, i64 %indvars.iv.i.i.i
-  %437 = zext nneg i32 %.05460.i.i.i to i64
-  %438 = getelementptr inbounds nuw i8, ptr %1, i64 %437
-  %439 = sub nsw i32 %2, %.05460.i.i.i
-  %440 = icmp slt i32 %439, 2
-  br i1 %440, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i, label %441
+.lr.ph.i.i.i:                                     ; preds = %453, %.lr.ph.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %453 ]
+  %.05460.i.i.i = phi i32 [ %437, %.lr.ph.preheader.i.i.i ], [ %471, %453 ]
+  %438 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %435, i64 %indvars.iv.i.i.i
+  %439 = zext nneg i32 %.05460.i.i.i to i64
+  %440 = getelementptr inbounds nuw i8, ptr %1, i64 %439
+  %441 = sub nsw i32 %2, %.05460.i.i.i
+  %442 = icmp slt i32 %441, 2
+  br i1 %442, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i, label %443
 
-441:                                              ; preds = %.lr.ph.i.i.i
-  %442 = load i8, ptr %438, align 1
-  %443 = getelementptr inbounds nuw i8, ptr %438, i64 1
-  %444 = load i8, ptr %443, align 1
-  %445 = zext i8 %444 to i32
-  %446 = shl nuw nsw i32 %445, 8
-  %447 = zext i8 %442 to i32
-  %448 = or disjoint i32 %446, %447
-  %449 = icmp samesign ult i32 %439, %448
-  %450 = icmp samesign ult i32 %448, 15
-  %or.cond.i.i.i.i = select i1 %449, i1 true, i1 %450
-  br i1 %or.cond.i.i.i.i, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i, label %451
+443:                                              ; preds = %.lr.ph.i.i.i
+  %444 = load i8, ptr %440, align 1
+  %445 = getelementptr inbounds nuw i8, ptr %440, i64 1
+  %446 = load i8, ptr %445, align 1
+  %447 = zext i8 %446 to i32
+  %448 = shl nuw nsw i32 %447, 8
+  %449 = zext i8 %444 to i32
+  %450 = or disjoint i32 %448, %449
+  %451 = icmp samesign ult i32 %441, %450
+  %452 = icmp samesign ult i32 %450, 15
+  %or.cond.i.i.i.i = select i1 %451, i1 true, i1 %452
+  br i1 %or.cond.i.i.i.i, label %GIP_ParseDeviceMetadata.exit.thread.i.i.i, label %453
 
-451:                                              ; preds = %441
-  %452 = getelementptr inbounds nuw i8, ptr %438, i64 2
-  %453 = load i8, ptr %452, align 1
-  store i8 %453, ptr %436, align 4
-  %454 = getelementptr inbounds nuw i8, ptr %438, i64 3
-  %455 = load i16, ptr %454, align 1
-  %456 = getelementptr inbounds nuw i8, ptr %436, i64 2
-  store i16 %455, ptr %456, align 2
-  %457 = getelementptr inbounds nuw i8, ptr %438, i64 5
-  %458 = load i16, ptr %457, align 1
-  %459 = getelementptr inbounds nuw i8, ptr %436, i64 4
-  store i16 %458, ptr %459, align 4
-  %460 = getelementptr inbounds nuw i8, ptr %438, i64 7
-  %461 = load i32, ptr %460, align 1
-  %462 = getelementptr inbounds nuw i8, ptr %436, i64 8
-  store i32 %461, ptr %462, align 4
-  %463 = getelementptr inbounds nuw i8, ptr %438, i64 11
-  %464 = load i16, ptr %463, align 1
-  %465 = getelementptr inbounds nuw i8, ptr %436, i64 12
-  store i16 %464, ptr %465, align 4
-  %466 = getelementptr inbounds nuw i8, ptr %438, i64 13
-  %467 = load i16, ptr %466, align 1
-  %468 = getelementptr inbounds nuw i8, ptr %436, i64 14
-  store i16 %467, ptr %468, align 2
-  %469 = add nuw nsw i32 %448, %.05460.i.i.i
+453:                                              ; preds = %443
+  %454 = getelementptr inbounds nuw i8, ptr %440, i64 2
+  %455 = load i8, ptr %454, align 1
+  store i8 %455, ptr %438, align 4
+  %456 = getelementptr inbounds nuw i8, ptr %440, i64 3
+  %457 = load i16, ptr %456, align 1
+  %458 = getelementptr inbounds nuw i8, ptr %438, i64 2
+  store i16 %457, ptr %458, align 2
+  %459 = getelementptr inbounds nuw i8, ptr %440, i64 5
+  %460 = load i16, ptr %459, align 1
+  %461 = getelementptr inbounds nuw i8, ptr %438, i64 4
+  store i16 %460, ptr %461, align 4
+  %462 = getelementptr inbounds nuw i8, ptr %440, i64 7
+  %463 = load i32, ptr %462, align 1
+  %464 = getelementptr inbounds nuw i8, ptr %438, i64 8
+  store i32 %463, ptr %464, align 4
+  %465 = getelementptr inbounds nuw i8, ptr %440, i64 11
+  %466 = load i16, ptr %465, align 1
+  %467 = getelementptr inbounds nuw i8, ptr %438, i64 12
+  store i16 %466, ptr %467, align 4
+  %468 = getelementptr inbounds nuw i8, ptr %440, i64 13
+  %469 = load i16, ptr %468, align 1
+  %470 = getelementptr inbounds nuw i8, ptr %438, i64 14
+  store i16 %469, ptr %470, align 2
+  %471 = add nuw nsw i32 %450, %.05460.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond30.not.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %432
+  %exitcond30.not.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %434
   br i1 %exitcond30.not.i.i, label %GIP_ParseMetadata.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
 
-GIP_ParseDeviceMetadata.exit.thread.i.i.i:        ; preds = %354, %.lr.ph182.i.i.i.i, %441, %.lr.ph.i.i.i, %425, %410, %400, %380, %.loopexit.i.i.i.i, %.loopexit174.i.i.i.i, %318, %.loopexit176.i.i.i.i, %292, %282, %271, %261, %252, %246
+GIP_ParseDeviceMetadata.exit.thread.i.i.i:        ; preds = %356, %.lr.ph182.i.i.i.i, %443, %.lr.ph.i.i.i, %427, %412, %402, %382, %.loopexit.i.i.i.i, %.loopexit174.i.i.i.i, %319, %.loopexit176.i.i.i.i, %292, %282, %271, %261, %252, %246
   call fastcc void @GIP_MetadataFree(ptr noundef nonnull %9)
   br label %GIP_HandleCommandMetadataRespose.exit.i
 
-GIP_ParseMetadata.exit.i.i:                       ; preds = %451, %427
-  %470 = phi ptr [ null, %427 ], [ %433, %451 ]
-  %471 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %472 = load i32, ptr %471, align 8
-  %473 = icmp eq i32 %472, 1
-  br i1 %473, label %474, label %476
+GIP_ParseMetadata.exit.i.i:                       ; preds = %453, %429
+  %472 = phi ptr [ null, %429 ], [ %435, %453 ]
+  %473 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %474 = load i32, ptr %473, align 8
+  %475 = icmp eq i32 %474, 1
+  br i1 %475, label %476, label %478
 
-474:                                              ; preds = %GIP_ParseMetadata.exit.i.i
-  %475 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call fastcc void @GIP_MetadataFree(ptr noundef nonnull %475)
-  br label %476
-
-476:                                              ; preds = %474, %GIP_ParseMetadata.exit.i.i
+476:                                              ; preds = %GIP_ParseMetadata.exit.i.i
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %477, ptr noundef nonnull align 8 dereferenceable(136) %9, i64 136, i1 false)
-  store i32 1, ptr %471, align 8
-  %478 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  store i32 0, ptr %478, align 4
-  %479 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  store i32 -1, ptr %479, align 4
-  %.not.i67.i = icmp eq i8 %370, 0
+  tail call fastcc void @GIP_MetadataFree(ptr noundef nonnull %477)
+  br label %478
+
+478:                                              ; preds = %476, %GIP_ParseMetadata.exit.i.i
+  %479 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %479, ptr noundef nonnull align 8 dereferenceable(136) %9, i64 136, i1 false)
+  store i32 1, ptr %473, align 8
+  %480 = getelementptr inbounds nuw i8, ptr %0, i64 332
+  store i32 0, ptr %480, align 4
+  %481 = getelementptr inbounds nuw i8, ptr %0, i64 324
+  store i32 -1, ptr %481, align 4
+  %.not.i67.i = icmp eq i8 %372, 0
   br i1 %.not.i67.i, label %.thread.i68.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %476
-  %wide.trip.count.i.i = zext i8 %370 to i64
-  br label %481
+.lr.ph.i.i:                                       ; preds = %478
+  %wide.trip.count.i.i = zext i8 %372 to i64
+  br label %483
 
-480:                                              ; preds = %507
+482:                                              ; preds = %509
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond32.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond32.not.i.i, label %.thread.i68.i, label %481, !llvm.loop !19
+  br i1 %exitcond32.not.i.i, label %.thread.i68.i, label %483, !llvm.loop !19
 
-481:                                              ; preds = %480, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %480 ]
-  %482 = getelementptr inbounds nuw ptr, ptr %369, i64 %indvars.iv.i.i
-  %483 = load ptr, ptr %482, align 8
-  %484 = tail call i32 @SDL_strcmp_REAL(ptr noundef %483, ptr noundef nonnull @.str.27) #10
-  %485 = icmp eq i32 %484, 0
-  br i1 %485, label %.thread.sink.split.i.i, label %486
+483:                                              ; preds = %482, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %482 ]
+  %484 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv.i.i
+  %485 = load ptr, ptr %484, align 8
+  %486 = tail call i32 @SDL_strcmp_REAL(ptr noundef %485, ptr noundef nonnull @.str.27) #10
+  %487 = icmp eq i32 %486, 0
+  br i1 %487, label %.thread.sink.split.i.i, label %488
 
-486:                                              ; preds = %481
-  %487 = tail call i32 @SDL_strcmp_REAL(ptr noundef %483, ptr noundef nonnull @.str.28) #10
-  %488 = icmp eq i32 %487, 0
-  br i1 %488, label %.thread.sink.split.i.i, label %489
+488:                                              ; preds = %483
+  %489 = tail call i32 @SDL_strcmp_REAL(ptr noundef %485, ptr noundef nonnull @.str.28) #10
+  %490 = icmp eq i32 %489, 0
+  br i1 %490, label %.thread.sink.split.i.i, label %491
 
-489:                                              ; preds = %486
-  %490 = tail call i32 @SDL_strcmp_REAL(ptr noundef %483, ptr noundef nonnull @.str.29) #10
-  %491 = icmp eq i32 %490, 0
-  br i1 %491, label %.thread.sink.split.i.i, label %492
+491:                                              ; preds = %488
+  %492 = tail call i32 @SDL_strcmp_REAL(ptr noundef %485, ptr noundef nonnull @.str.29) #10
+  %493 = icmp eq i32 %492, 0
+  br i1 %493, label %.thread.sink.split.i.i, label %494
 
-492:                                              ; preds = %489
-  %493 = tail call i32 @SDL_strcmp_REAL(ptr noundef %483, ptr noundef nonnull @.str.30) #10
-  %494 = icmp eq i32 %493, 0
-  br i1 %494, label %.thread.sink.split.i.i, label %495
+494:                                              ; preds = %491
+  %495 = tail call i32 @SDL_strcmp_REAL(ptr noundef %485, ptr noundef nonnull @.str.30) #10
+  %496 = icmp eq i32 %495, 0
+  br i1 %496, label %.thread.sink.split.i.i, label %497
 
-495:                                              ; preds = %492
-  %496 = tail call i32 @SDL_strcmp_REAL(ptr noundef %483, ptr noundef nonnull @.str.31) #10
-  %497 = icmp eq i32 %496, 0
-  br i1 %497, label %.thread.sink.split.i.i, label %498
+497:                                              ; preds = %494
+  %498 = tail call i32 @SDL_strcmp_REAL(ptr noundef %485, ptr noundef nonnull @.str.31) #10
+  %499 = icmp eq i32 %498, 0
+  br i1 %499, label %.thread.sink.split.i.i, label %500
 
-498:                                              ; preds = %495
-  %499 = tail call i32 @SDL_strcmp_REAL(ptr noundef %483, ptr noundef nonnull @.str.32) #10
-  %500 = icmp eq i32 %499, 0
-  br i1 %500, label %.thread.sink.split.i.i, label %501
+500:                                              ; preds = %497
+  %501 = tail call i32 @SDL_strcmp_REAL(ptr noundef %485, ptr noundef nonnull @.str.32) #10
+  %502 = icmp eq i32 %501, 0
+  br i1 %502, label %.thread.sink.split.i.i, label %503
 
-501:                                              ; preds = %498
-  %502 = tail call i32 @SDL_strcmp_REAL(ptr noundef %483, ptr noundef nonnull @.str.33) #10
-  %503 = icmp eq i32 %502, 0
-  br i1 %503, label %.thread.sink.split.i.i, label %504
+503:                                              ; preds = %500
+  %504 = tail call i32 @SDL_strcmp_REAL(ptr noundef %485, ptr noundef nonnull @.str.33) #10
+  %505 = icmp eq i32 %504, 0
+  br i1 %505, label %.thread.sink.split.i.i, label %506
 
-504:                                              ; preds = %501
-  %505 = tail call i32 @SDL_strcmp_REAL(ptr noundef %483, ptr noundef nonnull @.str.34) #10
-  %506 = icmp eq i32 %505, 0
-  br i1 %506, label %.thread.sink.split.i.i, label %507
+506:                                              ; preds = %503
+  %507 = tail call i32 @SDL_strcmp_REAL(ptr noundef %485, ptr noundef nonnull @.str.34) #10
+  %508 = icmp eq i32 %507, 0
+  br i1 %508, label %.thread.sink.split.i.i, label %509
 
-507:                                              ; preds = %504
-  %508 = tail call i32 @SDL_strcmp_REAL(ptr noundef %483, ptr noundef nonnull @.str.35) #10
-  %509 = icmp eq i32 %508, 0
-  br i1 %509, label %.thread.sink.split.i.i, label %480
+509:                                              ; preds = %506
+  %510 = tail call i32 @SDL_strcmp_REAL(ptr noundef %485, ptr noundef nonnull @.str.35) #10
+  %511 = icmp eq i32 %510, 0
+  br i1 %511, label %.thread.sink.split.i.i, label %482
 
-.thread.sink.split.i.i:                           ; preds = %507, %504, %501, %498, %495, %492, %489, %486, %481
-  %.sink.i.i = phi i32 [ 0, %481 ], [ 1, %486 ], [ 1, %489 ], [ 3, %492 ], [ 3, %495 ], [ 2, %498 ], [ 2, %501 ], [ 4, %504 ], [ 5, %507 ]
-  %.not73.ph.i.i = phi i1 [ false, %481 ], [ false, %486 ], [ false, %489 ], [ false, %492 ], [ false, %495 ], [ false, %498 ], [ false, %501 ], [ false, %504 ], [ true, %507 ]
-  %.1.ph.i.i = phi ptr [ @GUID_IGamepad, %481 ], [ @GUID_ArcadeStick, %486 ], [ @GUID_ArcadeStick, %489 ], [ @GUID_FlightStick, %492 ], [ @GUID_FlightStick, %495 ], [ @GUID_Wheel, %498 ], [ @GUID_Wheel, %501 ], [ @GUID_NavigationController, %504 ], [ null, %507 ]
-  store i32 %.sink.i.i, ptr %479, align 4
+.thread.sink.split.i.i:                           ; preds = %509, %506, %503, %500, %497, %494, %491, %488, %483
+  %.sink.i.i = phi i32 [ 0, %483 ], [ 1, %488 ], [ 1, %491 ], [ 3, %494 ], [ 3, %497 ], [ 2, %500 ], [ 2, %503 ], [ 4, %506 ], [ 5, %509 ]
+  %.not73.ph.i.i = phi i1 [ false, %483 ], [ false, %488 ], [ false, %491 ], [ false, %494 ], [ false, %497 ], [ false, %500 ], [ false, %503 ], [ false, %506 ], [ true, %509 ]
+  %.1.ph.i.i = phi ptr [ @GUID_IGamepad, %483 ], [ @GUID_ArcadeStick, %488 ], [ @GUID_ArcadeStick, %491 ], [ @GUID_FlightStick, %494 ], [ @GUID_FlightStick, %497 ], [ @GUID_Wheel, %500 ], [ @GUID_Wheel, %503 ], [ @GUID_NavigationController, %506 ], [ null, %509 ]
+  store i32 %.sink.i.i, ptr %481, align 4
   br label %.thread.i68.i
 
-.thread.i68.i:                                    ; preds = %480, %.thread.sink.split.i.i, %476
-  %.not73.i.i = phi i1 [ true, %476 ], [ %.not73.ph.i.i, %.thread.sink.split.i.i ], [ true, %480 ]
-  %.1.i.i = phi ptr [ null, %476 ], [ %.1.ph.i.i, %.thread.sink.split.i.i ], [ null, %480 ]
-  %.not24.i.i = icmp eq i8 %398, 0
+.thread.i68.i:                                    ; preds = %482, %.thread.sink.split.i.i, %478
+  %.not73.i.i = phi i1 [ true, %478 ], [ %.not73.ph.i.i, %.thread.sink.split.i.i ], [ true, %482 ]
+  %.1.i.i = phi ptr [ null, %478 ], [ %.1.ph.i.i, %.thread.sink.split.i.i ], [ null, %482 ]
+  %.not24.i.i = icmp eq i8 %400, 0
   br i1 %.not24.i.i, label %.preheader.i.i, label %.lr.ph20.i.i
 
 .lr.ph20.i.i:                                     ; preds = %.thread.i68.i
-  %wide.trip.count35.i.i = zext i8 %398 to i64
-  br label %510
+  %wide.trip.count35.i.i = zext i8 %400 to i64
+  br label %512
 
-.preheader.i.i:                                   ; preds = %535, %.thread.i68.i
-  %.071.lcssa.i.i = phi i1 [ false, %.thread.i68.i ], [ %.172.i.i, %535 ]
-  %.065.lcssa.i.i = phi i1 [ %.not73.i.i, %.thread.i68.i ], [ %.166.i.i, %535 ]
+.preheader.i.i:                                   ; preds = %537, %.thread.i68.i
+  %.071.lcssa.i.i = phi i1 [ false, %.thread.i68.i ], [ %.172.i.i, %537 ]
+  %.065.lcssa.i.i = phi i1 [ %.not73.i.i, %.thread.i68.i ], [ %.166.i.i, %537 ]
   br i1 %.not46.i.i.i, label %._crit_edge.i.i, label %.lr.ph23.i.i
 
 .lr.ph23.i.i:                                     ; preds = %.preheader.i.i
-  %wide.trip.count40.i.i = zext i8 %430 to i64
-  br label %536
+  %wide.trip.count40.i.i = zext i8 %432 to i64
+  br label %538
 
-510:                                              ; preds = %535, %.lr.ph20.i.i
-  %indvars.iv33.i.i = phi i64 [ 0, %.lr.ph20.i.i ], [ %indvars.iv.next34.i.i, %535 ]
-  %.06519.i.i = phi i1 [ %.not73.i.i, %.lr.ph20.i.i ], [ %.166.i.i, %535 ]
-  %.07117.i.i = phi i1 [ false, %.lr.ph20.i.i ], [ %.172.i.i, %535 ]
-  %511 = getelementptr inbounds nuw %struct.GUID, ptr %397, i64 %indvars.iv33.i.i
-  br i1 %.not73.i.i, label %515, label %512
+512:                                              ; preds = %537, %.lr.ph20.i.i
+  %indvars.iv33.i.i = phi i64 [ 0, %.lr.ph20.i.i ], [ %indvars.iv.next34.i.i, %537 ]
+  %.06519.i.i = phi i1 [ %.not73.i.i, %.lr.ph20.i.i ], [ %.166.i.i, %537 ]
+  %.07117.i.i = phi i1 [ false, %.lr.ph20.i.i ], [ %.172.i.i, %537 ]
+  %513 = getelementptr inbounds nuw %struct.GUID, ptr %399, i64 %indvars.iv33.i.i
+  br i1 %.not73.i.i, label %517, label %514
 
-512:                                              ; preds = %510
-  %513 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.1.i.i, ptr noundef %511, i64 noundef 16) #10
-  %514 = icmp eq i32 %513, 0
-  %spec.select.i.i = select i1 %514, i1 true, i1 %.06519.i.i
-  br label %515
+514:                                              ; preds = %512
+  %515 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.1.i.i, ptr noundef %513, i64 noundef 16) #10
+  %516 = icmp eq i32 %515, 0
+  %spec.select.i.i = select i1 %516, i1 true, i1 %.06519.i.i
+  br label %517
 
-515:                                              ; preds = %512, %510
-  %.166.i.i = phi i1 [ %.06519.i.i, %510 ], [ %spec.select.i.i, %512 ]
-  %516 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_IController, ptr noundef %511, i64 noundef 16) #10
-  %517 = icmp eq i32 %516, 0
-  br i1 %517, label %535, label %518
+517:                                              ; preds = %514, %512
+  %.166.i.i = phi i1 [ %.06519.i.i, %512 ], [ %spec.select.i.i, %514 ]
+  %518 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_IController, ptr noundef %513, i64 noundef 16) #10
+  %519 = icmp eq i32 %518, 0
+  br i1 %519, label %537, label %520
 
-518:                                              ; preds = %515
-  %519 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_IDevAuthPCOptOut, ptr noundef %511, i64 noundef 16) #10
-  %520 = icmp eq i32 %519, 0
-  br i1 %520, label %.sink.split.i.i, label %521
+520:                                              ; preds = %517
+  %521 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_IDevAuthPCOptOut, ptr noundef %513, i64 noundef 16) #10
+  %522 = icmp eq i32 %521, 0
+  br i1 %522, label %.sink.split.i.i, label %523
 
-521:                                              ; preds = %518
-  %522 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_IConsoleFunctionMap_InputReport, ptr noundef %511, i64 noundef 16) #10
-  %523 = icmp eq i32 %522, 0
-  br i1 %523, label %.sink.split.i.i, label %524
+523:                                              ; preds = %520
+  %524 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_IConsoleFunctionMap_InputReport, ptr noundef %513, i64 noundef 16) #10
+  %525 = icmp eq i32 %524, 0
+  br i1 %525, label %.sink.split.i.i, label %526
 
-524:                                              ; preds = %521
-  %525 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_IConsoleFunctionMap_OverflowInputReport, ptr noundef %511, i64 noundef 16) #10
-  %526 = icmp eq i32 %525, 0
-  br i1 %526, label %.sink.split.i.i, label %527
+526:                                              ; preds = %523
+  %527 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_IConsoleFunctionMap_OverflowInputReport, ptr noundef %513, i64 noundef 16) #10
+  %528 = icmp eq i32 %527, 0
+  br i1 %528, label %.sink.split.i.i, label %529
 
-527:                                              ; preds = %524
-  %528 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_IEliteButtons, ptr noundef %511, i64 noundef 16) #10
-  %529 = icmp eq i32 %528, 0
-  br i1 %529, label %.sink.split.i.i, label %530
+529:                                              ; preds = %526
+  %530 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_IEliteButtons, ptr noundef %513, i64 noundef 16) #10
+  %531 = icmp eq i32 %530, 0
+  br i1 %531, label %.sink.split.i.i, label %532
 
-530:                                              ; preds = %527
-  %531 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_DynamicLatencyInput, ptr noundef %511, i64 noundef 16) #10
-  %532 = icmp eq i32 %531, 0
-  br i1 %532, label %.sink.split.i.i, label %535
+532:                                              ; preds = %529
+  %533 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull @GUID_DynamicLatencyInput, ptr noundef %513, i64 noundef 16) #10
+  %534 = icmp eq i32 %533, 0
+  br i1 %534, label %.sink.split.i.i, label %537
 
-.sink.split.i.i:                                  ; preds = %530, %527, %524, %521, %518
-  %.sink48.i.i = phi i32 [ 16, %518 ], [ 1, %521 ], [ 2, %524 ], [ 4, %527 ], [ 8, %530 ]
-  %533 = load i32, ptr %478, align 4
-  %534 = or i32 %533, %.sink48.i.i
-  store i32 %534, ptr %478, align 4
-  br label %535
+.sink.split.i.i:                                  ; preds = %532, %529, %526, %523, %520
+  %.sink48.i.i = phi i32 [ 16, %520 ], [ 1, %523 ], [ 2, %526 ], [ 4, %529 ], [ 8, %532 ]
+  %535 = load i32, ptr %480, align 4
+  %536 = or i32 %535, %.sink48.i.i
+  store i32 %536, ptr %480, align 4
+  br label %537
 
-535:                                              ; preds = %.sink.split.i.i, %530, %515
-  %.172.i.i = phi i1 [ true, %515 ], [ %.07117.i.i, %530 ], [ %.07117.i.i, %.sink.split.i.i ]
+537:                                              ; preds = %.sink.split.i.i, %532, %517
+  %.172.i.i = phi i1 [ true, %517 ], [ %.07117.i.i, %532 ], [ %.07117.i.i, %.sink.split.i.i ]
   %indvars.iv.next34.i.i = add nuw nsw i64 %indvars.iv33.i.i, 1
   %exitcond36.not.i.i = icmp eq i64 %indvars.iv.next34.i.i, %wide.trip.count35.i.i
-  br i1 %exitcond36.not.i.i, label %.preheader.i.i, label %510, !llvm.loop !20
+  br i1 %exitcond36.not.i.i, label %.preheader.i.i, label %512, !llvm.loop !20
 
-536:                                              ; preds = %551, %.lr.ph23.i.i
-  %indvars.iv37.i.i = phi i64 [ 0, %.lr.ph23.i.i ], [ %indvars.iv.next38.i.i, %551 ]
-  %537 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %470, i64 %indvars.iv37.i.i
-  %538 = load i8, ptr %537, align 4
-  %539 = icmp eq i8 %538, 9
-  br i1 %539, label %540, label %551
+538:                                              ; preds = %553, %.lr.ph23.i.i
+  %indvars.iv37.i.i = phi i64 [ 0, %.lr.ph23.i.i ], [ %indvars.iv.next38.i.i, %553 ]
+  %539 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %472, i64 %indvars.iv37.i.i
+  %540 = load i8, ptr %539, align 4
+  %541 = icmp eq i8 %540, 9
+  br i1 %541, label %542, label %553
 
-540:                                              ; preds = %536
-  %541 = getelementptr inbounds nuw i8, ptr %537, i64 2
-  %542 = load i16, ptr %541, align 2
-  %543 = icmp ugt i16 %542, 8
-  br i1 %543, label %544, label %551
+542:                                              ; preds = %538
+  %543 = getelementptr inbounds nuw i8, ptr %539, i64 2
+  %544 = load i16, ptr %543, align 2
+  %545 = icmp ugt i16 %544, 8
+  br i1 %545, label %546, label %553
 
-544:                                              ; preds = %540
-  %545 = getelementptr inbounds nuw i8, ptr %537, i64 8
-  %546 = load i32, ptr %545, align 4
-  %547 = and i32 %546, 8
-  %.not75.i.i = icmp eq i32 %547, 0
-  br i1 %.not75.i.i, label %551, label %548
+546:                                              ; preds = %542
+  %547 = getelementptr inbounds nuw i8, ptr %539, i64 8
+  %548 = load i32, ptr %547, align 4
+  %549 = and i32 %548, 8
+  %.not75.i.i = icmp eq i32 %549, 0
+  br i1 %.not75.i.i, label %553, label %550
 
-548:                                              ; preds = %544
-  %549 = load i32, ptr %478, align 4
-  %550 = or i32 %549, 32
-  store i32 %550, ptr %478, align 4
-  br label %551
+550:                                              ; preds = %546
+  %551 = load i32, ptr %480, align 4
+  %552 = or i32 %551, 32
+  store i32 %552, ptr %480, align 4
+  br label %553
 
-551:                                              ; preds = %548, %544, %540, %536
+553:                                              ; preds = %550, %546, %542, %538
   %indvars.iv.next38.i.i = add nuw nsw i64 %indvars.iv37.i.i, 1
   %exitcond41.not.i.i = icmp eq i64 %indvars.iv.next38.i.i, %wide.trip.count40.i.i
-  br i1 %exitcond41.not.i.i, label %._crit_edge.i.i, label %536, !llvm.loop !21
+  br i1 %exitcond41.not.i.i, label %._crit_edge.i.i, label %538, !llvm.loop !21
 
-._crit_edge.i.i:                                  ; preds = %551, %.preheader.i.i
-  br i1 %.065.lcssa.i.i, label %552, label %553
+._crit_edge.i.i:                                  ; preds = %553, %.preheader.i.i
+  br i1 %.065.lcssa.i.i, label %554, label %555
 
-552:                                              ; preds = %._crit_edge.i.i
-  %.val.i.i = load i32, ptr %479, align 4
+554:                                              ; preds = %._crit_edge.i.i
+  %.val.i.i = load i32, ptr %481, align 4
   %.not11.i.i = icmp eq i32 %.val.i.i, 5
   %or.cond.i69.i = select i1 %.not11.i.i, i1 true, i1 %.071.lcssa.i.i
-  br i1 %or.cond.i69.i, label %554, label %553
+  br i1 %or.cond.i69.i, label %556, label %555
 
-553:                                              ; preds = %552, %._crit_edge.i.i
+555:                                              ; preds = %554, %._crit_edge.i.i
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.36) #10
-  br label %554
+  br label %556
 
-554:                                              ; preds = %553, %552
-  %555 = load i32, ptr %478, align 4
-  %556 = and i32 %555, 14
-  %.not74.i.i = icmp eq i32 %556, 0
-  br i1 %.not74.i.i, label %GIP_SupportsVendorMessage.exit.thread6.i.i, label %557
+556:                                              ; preds = %555, %554
+  %557 = load i32, ptr %480, align 4
+  %558 = and i32 %557, 14
+  %.not74.i.i = icmp eq i32 %558, 0
+  br i1 %.not74.i.i, label %GIP_SupportsVendorMessage.exit.thread6.i.i, label %559
 
-557:                                              ; preds = %554
-  %558 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %559 = load i8, ptr %558, align 8
-  %560 = zext i8 %559 to i64
-  %.not.i76.i.i = icmp eq i8 %559, 0
+559:                                              ; preds = %556
+  %560 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %561 = load i8, ptr %560, align 8
+  %562 = zext i8 %561 to i64
+  %.not.i76.i.i = icmp eq i8 %561, 0
   br i1 %.not.i76.i.i, label %GIP_SupportsVendorMessage.exit.thread.i.i, label %.lr.ph.i77.i.i
 
-.lr.ph.i77.i.i:                                   ; preds = %557
-  %561 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %562 = load ptr, ptr %561, align 8
-  br label %565
+.lr.ph.i77.i.i:                                   ; preds = %559
+  %563 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %564 = load ptr, ptr %563, align 8
+  br label %567
 
-563:                                              ; preds = %565
-  %564 = add nuw nsw i64 %.01316.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %564, %560
-  br i1 %exitcond.not.i.i.i, label %GIP_SupportsVendorMessage.exit.thread.i.i, label %565, !llvm.loop !14
+565:                                              ; preds = %567
+  %566 = add nuw nsw i64 %.01316.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %566, %562
+  br i1 %exitcond.not.i.i.i, label %GIP_SupportsVendorMessage.exit.thread.i.i, label %567, !llvm.loop !14
 
-565:                                              ; preds = %563, %.lr.ph.i77.i.i
-  %.01316.i.i.i = phi i64 [ 0, %.lr.ph.i77.i.i ], [ %564, %563 ]
-  %566 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %562, i64 %.01316.i.i.i
-  %567 = load i8, ptr %566, align 4
-  %.not.not.i.i.i = icmp eq i8 %567, 14
-  br i1 %.not.not.i.i.i, label %568, label %563
+567:                                              ; preds = %565, %.lr.ph.i77.i.i
+  %.01316.i.i.i = phi i64 [ 0, %.lr.ph.i77.i.i ], [ %566, %565 ]
+  %568 = getelementptr inbounds nuw %struct.GIP_MessageMetadata, ptr %564, i64 %.01316.i.i.i
+  %569 = load i8, ptr %568, align 4
+  %.not.not.i.i.i = icmp eq i8 %569, 14
+  br i1 %.not.not.i.i.i, label %570, label %565
 
-568:                                              ; preds = %565
-  %569 = getelementptr inbounds nuw i8, ptr %566, i64 8
-  %570 = load i32, ptr %569, align 4
-  %571 = and i32 %570, 40
-  %or.cond10.not.i.i = icmp eq i32 %571, 0
+570:                                              ; preds = %567
+  %571 = getelementptr inbounds nuw i8, ptr %568, i64 8
+  %572 = load i32, ptr %571, align 4
+  %573 = and i32 %572, 40
+  %or.cond10.not.i.i = icmp eq i32 %573, 0
   br i1 %or.cond10.not.i.i, label %GIP_SupportsVendorMessage.exit.thread.i.i, label %GIP_SupportsVendorMessage.exit.thread6.i.i
 
-GIP_SupportsVendorMessage.exit.thread.i.i:        ; preds = %563, %568, %557
-  %572 = and i32 %555, -15
-  store i32 %572, ptr %478, align 4
+GIP_SupportsVendorMessage.exit.thread.i.i:        ; preds = %565, %570, %559
+  %574 = and i32 %557, -15
+  store i32 %574, ptr %480, align 4
   br label %GIP_SupportsVendorMessage.exit.thread6.i.i
 
-GIP_SupportsVendorMessage.exit.thread6.i.i:       ; preds = %GIP_SupportsVendorMessage.exit.thread.i.i, %568, %554
-  %573 = phi i32 [ %555, %568 ], [ %572, %GIP_SupportsVendorMessage.exit.thread.i.i ], [ %555, %554 ]
-  %574 = load ptr, ptr %0, align 8
-  %575 = load ptr, ptr %574, align 8
-  %576 = getelementptr inbounds nuw i8, ptr %575, i64 32
-  %577 = load i16, ptr %576, align 8
-  %578 = getelementptr inbounds nuw i8, ptr %575, i64 34
-  br label %579
+GIP_SupportsVendorMessage.exit.thread6.i.i:       ; preds = %GIP_SupportsVendorMessage.exit.thread.i.i, %570, %556
+  %575 = phi i32 [ %557, %570 ], [ %574, %GIP_SupportsVendorMessage.exit.thread.i.i ], [ %557, %556 ]
+  %576 = load ptr, ptr %0, align 8
+  %577 = load ptr, ptr %576, align 8
+  %578 = getelementptr inbounds nuw i8, ptr %577, i64 32
+  %579 = load i16, ptr %578, align 8
+  %580 = getelementptr inbounds nuw i8, ptr %577, i64 34
+  br label %581
 
-579:                                              ; preds = %625, %GIP_SupportsVendorMessage.exit.thread6.i.i
-  %580 = phi i16 [ 1118, %GIP_SupportsVendorMessage.exit.thread6.i.i ], [ %628, %625 ]
-  %581 = phi ptr [ @quirks, %GIP_SupportsVendorMessage.exit.thread6.i.i ], [ %627, %625 ]
-  %.02935.i.i.i = phi i64 [ 0, %GIP_SupportsVendorMessage.exit.thread6.i.i ], [ %626, %625 ]
-  %.not31.i.i.i = icmp eq i16 %580, %577
-  br i1 %.not31.i.i.i, label %582, label %625
+581:                                              ; preds = %627, %GIP_SupportsVendorMessage.exit.thread6.i.i
+  %582 = phi i16 [ 1118, %GIP_SupportsVendorMessage.exit.thread6.i.i ], [ %630, %627 ]
+  %583 = phi ptr [ @quirks, %GIP_SupportsVendorMessage.exit.thread6.i.i ], [ %629, %627 ]
+  %.02935.i.i.i = phi i64 [ 0, %GIP_SupportsVendorMessage.exit.thread6.i.i ], [ %628, %627 ]
+  %.not31.i.i.i = icmp eq i16 %582, %579
+  br i1 %.not31.i.i.i, label %584, label %627
 
-582:                                              ; preds = %579
-  %583 = getelementptr inbounds nuw i8, ptr %581, i64 2
-  %584 = load i16, ptr %583, align 2
-  %585 = load i16, ptr %578, align 2
-  %.not32.i.i.i = icmp eq i16 %584, %585
-  br i1 %.not32.i.i.i, label %586, label %625
+584:                                              ; preds = %581
+  %585 = getelementptr inbounds nuw i8, ptr %583, i64 2
+  %586 = load i16, ptr %585, align 2
+  %587 = load i16, ptr %580, align 2
+  %.not32.i.i.i = icmp eq i16 %586, %587
+  br i1 %.not32.i.i.i, label %588, label %627
 
-586:                                              ; preds = %582
-  %587 = load i8, ptr %15, align 8
-  %.not33.i.i.i = icmp eq i8 %587, 0
-  br i1 %.not33.i.i.i, label %588, label %625
+588:                                              ; preds = %584
+  %589 = load i8, ptr %15, align 8
+  %.not33.i.i.i = icmp eq i8 %589, 0
+  br i1 %.not33.i.i.i, label %590, label %627
 
-588:                                              ; preds = %586
-  %589 = getelementptr inbounds nuw i8, ptr %581, i64 8
-  %590 = load i32, ptr %589, align 4
-  %591 = or i32 %590, %573
-  %592 = getelementptr inbounds nuw i8, ptr %581, i64 12
-  %593 = load i32, ptr %592, align 4
-  %594 = xor i32 %593, -1
-  %595 = and i32 %591, %594
-  store i32 %595, ptr %478, align 4
-  %596 = getelementptr inbounds nuw i8, ptr %581, i64 16
-  %597 = load i32, ptr %596, align 4
-  %598 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store i32 %597, ptr %598, align 8
-  %599 = getelementptr inbounds nuw i8, ptr %581, i64 84
-  %600 = load i32, ptr %599, align 4
-  store i32 %600, ptr %479, align 4
-  %601 = getelementptr inbounds nuw i8, ptr %581, i64 20
-  %602 = getelementptr inbounds nuw i8, ptr %581, i64 52
-  %603 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  br label %604
+590:                                              ; preds = %588
+  %591 = getelementptr inbounds nuw i8, ptr %583, i64 8
+  %592 = load i32, ptr %591, align 4
+  %593 = or i32 %592, %575
+  %594 = getelementptr inbounds nuw i8, ptr %583, i64 12
+  %595 = load i32, ptr %594, align 4
+  %596 = xor i32 %595, -1
+  %597 = and i32 %593, %596
+  store i32 %597, ptr %480, align 4
+  %598 = getelementptr inbounds nuw i8, ptr %583, i64 16
+  %599 = load i32, ptr %598, align 4
+  %600 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  store i32 %599, ptr %600, align 8
+  %601 = getelementptr inbounds nuw i8, ptr %583, i64 84
+  %602 = load i32, ptr %601, align 4
+  store i32 %602, ptr %481, align 4
+  %603 = getelementptr inbounds nuw i8, ptr %583, i64 20
+  %604 = getelementptr inbounds nuw i8, ptr %583, i64 52
+  %605 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  br label %606
 
-604:                                              ; preds = %604, %588
-  %.036.i.i.i = phi i64 [ 0, %588 ], [ %615, %604 ]
-  %605 = getelementptr inbounds nuw [8 x i32], ptr %601, i64 0, i64 %.036.i.i.i
-  %606 = load i32, ptr %605, align 4
-  %607 = getelementptr inbounds nuw [8 x i32], ptr %38, i64 0, i64 %.036.i.i.i
+606:                                              ; preds = %606, %590
+  %.036.i.i.i = phi i64 [ 0, %590 ], [ %617, %606 ]
+  %607 = getelementptr inbounds nuw [8 x i32], ptr %603, i64 0, i64 %.036.i.i.i
   %608 = load i32, ptr %607, align 4
-  %609 = or i32 %608, %606
-  store i32 %609, ptr %607, align 4
-  %610 = getelementptr inbounds nuw [8 x i32], ptr %602, i64 0, i64 %.036.i.i.i
-  %611 = load i32, ptr %610, align 4
-  %612 = getelementptr inbounds nuw [8 x i32], ptr %603, i64 0, i64 %.036.i.i.i
+  %609 = getelementptr inbounds nuw [8 x i32], ptr %38, i64 0, i64 %.036.i.i.i
+  %610 = load i32, ptr %609, align 4
+  %611 = or i32 %610, %608
+  store i32 %611, ptr %609, align 4
+  %612 = getelementptr inbounds nuw [8 x i32], ptr %604, i64 0, i64 %.036.i.i.i
   %613 = load i32, ptr %612, align 4
-  %614 = or i32 %613, %611
-  store i32 %614, ptr %612, align 4
-  %615 = add nuw nsw i64 %.036.i.i.i, 1
-  %exitcond38.not.i.i.i = icmp eq i64 %615, 8
-  br i1 %exitcond38.not.i.i.i, label %616, label %604, !llvm.loop !5
+  %614 = getelementptr inbounds nuw [8 x i32], ptr %605, i64 0, i64 %.036.i.i.i
+  %615 = load i32, ptr %614, align 4
+  %616 = or i32 %615, %613
+  store i32 %616, ptr %614, align 4
+  %617 = add nuw nsw i64 %.036.i.i.i, 1
+  %exitcond38.not.i.i.i = icmp eq i64 %617, 8
+  br i1 %exitcond38.not.i.i.i, label %618, label %606, !llvm.loop !5
 
-616:                                              ; preds = %604
-  %617 = getelementptr inbounds nuw i8, ptr %581, i64 88
-  %618 = load i8, ptr %617, align 4
-  %619 = zext i8 %618 to i32
-  %620 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store i32 %619, ptr %620, align 8
-  %621 = getelementptr inbounds nuw i8, ptr %581, i64 89
-  %622 = load i8, ptr %621, align 1
-  %623 = zext i8 %622 to i32
-  %624 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  store i32 %623, ptr %624, align 4
+618:                                              ; preds = %606
+  %619 = getelementptr inbounds nuw i8, ptr %583, i64 88
+  %620 = load i8, ptr %619, align 4
+  %621 = zext i8 %620 to i32
+  %622 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  store i32 %621, ptr %622, align 8
+  %623 = getelementptr inbounds nuw i8, ptr %583, i64 89
+  %624 = load i8, ptr %623, align 1
+  %625 = zext i8 %624 to i32
+  %626 = getelementptr inbounds nuw i8, ptr %0, i64 356
+  store i32 %625, ptr %626, align 4
   br label %GIP_HandleQuirks.exit.i.i
 
-625:                                              ; preds = %586, %582, %579
-  %626 = add nuw nsw i64 %.02935.i.i.i, 1
-  %627 = getelementptr inbounds nuw [10 x %struct.GIP_Quirks], ptr @quirks, i64 0, i64 %626
-  %628 = load i16, ptr %627, align 4
-  %exitcond.i.i.i = icmp eq i64 %626, 9
-  br i1 %exitcond.i.i.i, label %GIP_HandleQuirks.exit.i.i, label %579, !llvm.loop !7
+627:                                              ; preds = %588, %584, %581
+  %628 = add nuw nsw i64 %.02935.i.i.i, 1
+  %629 = getelementptr inbounds nuw [10 x %struct.GIP_Quirks], ptr @quirks, i64 0, i64 %628
+  %630 = load i16, ptr %629, align 4
+  %exitcond.i.i.i = icmp eq i64 %628, 9
+  br i1 %exitcond.i.i.i, label %GIP_HandleQuirks.exit.i.i, label %581, !llvm.loop !7
 
-GIP_HandleQuirks.exit.i.i:                        ; preds = %625, %616
-  %629 = tail call fastcc zeroext i1 @GIP_SendInitSequence(ptr noundef nonnull %0)
+GIP_HandleQuirks.exit.i.i:                        ; preds = %627, %618
+  %631 = tail call fastcc zeroext i1 @GIP_SendInitSequence(ptr noundef nonnull %0)
   br label %GIP_HandleCommandMetadataRespose.exit.i
 
 GIP_HandleCommandMetadataRespose.exit.i:          ; preds = %GIP_HandleQuirks.exit.i.i, %GIP_ParseDeviceMetadata.exit.thread.i.i.i, %218, %208, %206
-  %.0.i66.i = phi i1 [ %629, %GIP_HandleQuirks.exit.i.i ], [ false, %GIP_ParseDeviceMetadata.exit.thread.i.i.i ], [ false, %206 ], [ false, %208 ], [ false, %218 ]
+  %.0.i66.i = phi i1 [ %631, %GIP_HandleQuirks.exit.i.i ], [ false, %GIP_ParseDeviceMetadata.exit.thread.i.i.i ], [ false, %206 ], [ false, %208 ], [ false, %218 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9) #10
   br label %GIP_HandleSystemMessage.exit
 
-630:                                              ; preds = %43
+632:                                              ; preds = %43
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.37) #10
   br label %GIP_HandleSystemMessage.exit
 
-631:                                              ; preds = %43
-  %632 = tail call i64 @SDL_GetTicksNS_REAL() #10
-  %633 = load ptr, ptr %0, align 8
-  %634 = load ptr, ptr %633, align 8
-  %635 = getelementptr inbounds nuw i8, ptr %634, i64 140
-  %636 = load i32, ptr %635, align 4
-  %637 = icmp slt i32 %636, 1
-  br i1 %637, label %GIP_HandleSystemMessage.exit, label %638
+633:                                              ; preds = %43
+  %634 = tail call i64 @SDL_GetTicksNS_REAL() #10
+  %635 = load ptr, ptr %0, align 8
+  %636 = load ptr, ptr %635, align 8
+  %637 = getelementptr inbounds nuw i8, ptr %636, i64 140
+  %638 = load i32, ptr %637, align 4
+  %639 = icmp slt i32 %638, 1
+  br i1 %639, label %GIP_HandleSystemMessage.exit, label %640
 
-638:                                              ; preds = %631
-  %639 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %640 = load i32, ptr %639, align 4
-  %641 = tail call ptr @SDL_GetJoystickFromID_REAL(i32 noundef %640) #10
-  %.not.i70.i = icmp eq ptr %641, null
-  br i1 %.not.i70.i, label %GIP_HandleSystemMessage.exit, label %642
+640:                                              ; preds = %633
+  %641 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %642 = load i32, ptr %641, align 4
+  %643 = tail call ptr @SDL_GetJoystickFromID_REAL(i32 noundef %642) #10
+  %.not.i70.i = icmp eq ptr %643, null
+  br i1 %.not.i70.i, label %GIP_HandleSystemMessage.exit, label %644
 
-642:                                              ; preds = %638
-  %643 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %644 = load i8, ptr %643, align 1
-  %645 = icmp eq i8 %644, 91
-  br i1 %645, label %646, label %GIP_HandleSystemMessage.exit
+644:                                              ; preds = %640
+  %645 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %646 = load i8, ptr %645, align 1
+  %647 = icmp eq i8 %646, 91
+  br i1 %647, label %648, label %GIP_HandleSystemMessage.exit
 
-646:                                              ; preds = %642
-  %647 = load i8, ptr %1, align 1
-  %648 = and i8 %647, 1
-  %649 = icmp ne i8 %648, 0
-  tail call void @SDL_SendJoystickButton(i64 noundef %632, ptr noundef nonnull %641, i8 noundef zeroext 5, i1 noundef zeroext %649) #10
+648:                                              ; preds = %644
+  %649 = load i8, ptr %1, align 1
+  %650 = and i8 %649, 1
+  %651 = icmp ne i8 %650, 0
+  tail call void @SDL_SendJoystickButton(i64 noundef %634, ptr noundef nonnull %643, i8 noundef zeroext 5, i1 noundef zeroext %651) #10
   br label %GIP_HandleSystemMessage.exit
 
-650:                                              ; preds = %43
+652:                                              ; preds = %43
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.38) #10
   br label %GIP_HandleSystemMessage.exit
 
-651:                                              ; preds = %43
-  %652 = icmp slt i32 %2, 1
-  br i1 %652, label %GIP_HandleSystemMessage.exit, label %653
+653:                                              ; preds = %43
+  %654 = icmp slt i32 %2, 1
+  br i1 %654, label %GIP_HandleSystemMessage.exit, label %655
 
-653:                                              ; preds = %651
-  %654 = load i8, ptr %1, align 1
-  %655 = icmp eq i8 %654, 1
-  br i1 %655, label %656, label %717
+655:                                              ; preds = %653
+  %656 = load i8, ptr %1, align 1
+  %657 = icmp eq i8 %656, 1
+  br i1 %657, label %658, label %719
 
-656:                                              ; preds = %653
-  %657 = icmp samesign ult i32 %2, 14
-  br i1 %657, label %658, label %659
+658:                                              ; preds = %655
+  %659 = icmp samesign ult i32 %2, 14
+  br i1 %659, label %660, label %661
 
-658:                                              ; preds = %656
+660:                                              ; preds = %658
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.39) #10
   br label %GIP_HandleSystemMessage.exit
 
-659:                                              ; preds = %656
-  %660 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %661 = load i8, ptr %660, align 1
-  %662 = getelementptr inbounds nuw i8, ptr %1, i64 7
+661:                                              ; preds = %658
+  %662 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %663 = load i8, ptr %662, align 1
-  %664 = zext i8 %663 to i16
-  %665 = shl nuw i16 %664, 8
-  %666 = zext i8 %661 to i16
-  %667 = or disjoint i16 %665, %666
-  %668 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %669 = load i8, ptr %668, align 1
-  %670 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %664 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  %665 = load i8, ptr %664, align 1
+  %666 = zext i8 %665 to i16
+  %667 = shl nuw i16 %666, 8
+  %668 = zext i8 %663 to i16
+  %669 = or disjoint i16 %667, %668
+  %670 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %671 = load i8, ptr %670, align 1
-  %672 = zext i8 %671 to i16
-  %673 = shl nuw i16 %672, 8
-  %674 = zext i8 %669 to i16
-  %675 = or disjoint i16 %673, %674
-  %676 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %677 = load i16, ptr %676, align 1
-  %678 = zext i16 %677 to i32
-  %679 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %680 = load i16, ptr %679, align 1
-  %681 = zext i16 %680 to i32
-  %682 = zext i16 %667 to i32
-  %683 = zext i16 %675 to i32
-  tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.40, i32 noundef %682, i32 noundef %683, i32 noundef %678, i32 noundef %681) #10
-  %684 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i16 %667, ptr %684, align 4
-  %685 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  store i16 %675, ptr %685, align 2
-  %686 = load ptr, ptr %0, align 8
-  %687 = load ptr, ptr %686, align 8
-  %688 = getelementptr inbounds nuw i8, ptr %687, i64 32
-  %689 = load i16, ptr %688, align 8
-  %690 = icmp eq i16 %689, 1118
-  br i1 %690, label %691, label %700
+  %672 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %673 = load i8, ptr %672, align 1
+  %674 = zext i8 %673 to i16
+  %675 = shl nuw i16 %674, 8
+  %676 = zext i8 %671 to i16
+  %677 = or disjoint i16 %675, %676
+  %678 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %679 = load i16, ptr %678, align 1
+  %680 = zext i16 %679 to i32
+  %681 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %682 = load i16, ptr %681, align 1
+  %683 = zext i16 %682 to i32
+  %684 = zext i16 %669 to i32
+  %685 = zext i16 %677 to i32
+  tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.40, i32 noundef %684, i32 noundef %685, i32 noundef %680, i32 noundef %683) #10
+  %686 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i16 %669, ptr %686, align 4
+  %687 = getelementptr inbounds nuw i8, ptr %0, i64 54
+  store i16 %677, ptr %687, align 2
+  %688 = load ptr, ptr %0, align 8
+  %689 = load ptr, ptr %688, align 8
+  %690 = getelementptr inbounds nuw i8, ptr %689, i64 32
+  %691 = load i16, ptr %690, align 8
+  %692 = icmp eq i16 %691, 1118
+  br i1 %692, label %693, label %702
 
-691:                                              ; preds = %659
-  %692 = getelementptr inbounds nuw i8, ptr %687, i64 34
-  %693 = load i16, ptr %692, align 2
-  %694 = icmp eq i16 %693, 2816
-  br i1 %694, label %695, label %700
+693:                                              ; preds = %661
+  %694 = getelementptr inbounds nuw i8, ptr %689, i64 34
+  %695 = load i16, ptr %694, align 2
+  %696 = icmp eq i16 %695, 2816
+  br i1 %696, label %697, label %702
 
-695:                                              ; preds = %691
-  %696 = icmp eq i16 %667, 5
-  %697 = icmp ult i16 %675, 17
-  %or.cond.i74.i = and i1 %696, %697
-  %698 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  br i1 %or.cond.i74.i, label %.thread.i75.i, label %699
+697:                                              ; preds = %693
+  %698 = icmp eq i16 %669, 5
+  %699 = icmp ult i16 %677, 17
+  %or.cond.i74.i = and i1 %698, %699
+  %700 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  br i1 %or.cond.i74.i, label %.thread.i75.i, label %701
 
-699:                                              ; preds = %695
-  store i32 3, ptr %698, align 8
-  br label %700
+701:                                              ; preds = %697
+  store i32 3, ptr %700, align 8
+  br label %702
 
-700:                                              ; preds = %699, %691, %659
-  %701 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %702 = load i32, ptr %701, align 8
-  %703 = icmp eq i32 %702, 2
-  br i1 %703, label %.thread3.i.i, label %704
+702:                                              ; preds = %701, %693, %661
+  %703 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %704 = load i32, ptr %703, align 8
+  %705 = icmp eq i32 %704, 2
+  br i1 %705, label %.thread3.i.i, label %706
 
-.thread.i75.i:                                    ; preds = %695
-  store i32 2, ptr %698, align 8
+.thread.i75.i:                                    ; preds = %697
+  store i32 2, ptr %700, align 8
   br label %.thread3.i.i
 
-704:                                              ; preds = %700
-  %.not.i.i73.i = icmp ne i16 %667, 4
-  %705 = icmp ult i16 %675, 17
-  %or.cond4.i.i = and i1 %.not.i.i73.i, %705
-  br i1 %or.cond4.i.i, label %.thread3.i.i, label %716
+706:                                              ; preds = %702
+  %.not.i.i73.i = icmp ne i16 %669, 4
+  %707 = icmp ult i16 %677, 17
+  %or.cond4.i.i = and i1 %.not.i.i73.i, %707
+  br i1 %or.cond4.i.i, label %.thread3.i.i, label %718
 
-.thread3.i.i:                                     ; preds = %704, %.thread.i75.i, %700
-  %706 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %707 = load i8, ptr %706, align 4
-  %708 = add i8 %707, 1
-  %.not.i.i.i.i.i = icmp eq i8 %707, 0
-  %spec.store.select32.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i8 2, i8 %708
-  store i8 %spec.store.select32.i.i.i.i.i, ptr %706, align 4
-  %spec.select33.i.i.i.i.i = tail call i8 @llvm.umax.i8(i8 %707, i8 1)
+.thread3.i.i:                                     ; preds = %706, %.thread.i75.i, %702
+  %708 = getelementptr inbounds nuw i8, ptr %0, i64 220
+  %709 = load i8, ptr %708, align 4
+  %710 = add i8 %709, 1
+  %.not.i.i.i.i.i = icmp eq i8 %709, 0
+  %spec.store.select32.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i8 2, i8 %710
+  store i8 %spec.store.select32.i.i.i.i.i, ptr %708, align 4
+  %spec.select33.i.i.i.i.i = tail call i8 @llvm.umax.i8(i8 %709, i8 1)
   call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %8) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %8, i8 0, i64 2054, i1 false)
   store i8 77, ptr %8, align 16
-  %709 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %spec.select33.i.i.i.i.i, ptr %709, align 2
-  %710 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 2, ptr %710, align 1
-  %711 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i16 7, ptr %711, align 4
-  %712 = tail call zeroext i1 @SDL_HIDAPI_LockRumble() #10
-  br i1 %712, label %GIP_SendVendorMessage.exit.i.i.i, label %GIP_SendVendorMessage.exit.thread.i.i.i
+  %711 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 %spec.select33.i.i.i.i.i, ptr %711, align 2
+  %712 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 2, ptr %712, align 1
+  %713 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i16 7, ptr %713, align 4
+  %714 = tail call zeroext i1 @SDL_HIDAPI_LockRumble() #10
+  br i1 %714, label %GIP_SendVendorMessage.exit.i.i.i, label %GIP_SendVendorMessage.exit.thread.i.i.i
 
 GIP_SendVendorMessage.exit.thread.i.i.i:          ; preds = %.thread3.i.i
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %8) #10
   br label %GIP_HandleSystemMessage.exit
 
 GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
-  %713 = load ptr, ptr %686, align 8
-  %714 = call i32 @SDL_HIDAPI_SendRumbleWithCallbackAndUnlock(ptr noundef %713, ptr noundef nonnull %8, i32 noundef 6, ptr noundef null, ptr noundef null) #10
-  %715 = icmp eq i32 %714, 6
+  %715 = load ptr, ptr %688, align 8
+  %716 = call i32 @SDL_HIDAPI_SendRumbleWithCallbackAndUnlock(ptr noundef %715, ptr noundef nonnull %8, i32 noundef 6, ptr noundef null, ptr noundef null) #10
+  %717 = icmp eq i32 %716, 6
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %8) #10
-  br i1 %715, label %716, label %GIP_HandleSystemMessage.exit
+  br i1 %717, label %718, label %GIP_HandleSystemMessage.exit
 
-716:                                              ; preds = %GIP_SendVendorMessage.exit.i.i.i, %704
+718:                                              ; preds = %GIP_SendVendorMessage.exit.i.i.i, %706
   br label %GIP_HandleSystemMessage.exit
 
-717:                                              ; preds = %653
+719:                                              ; preds = %655
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.41) #10
   br label %GIP_HandleSystemMessage.exit
 
-718:                                              ; preds = %43
-  %719 = tail call i64 @SDL_GetTicksNS_REAL() #10
-  %720 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  %721 = load i32, ptr %720, align 4
-  %.not.i76.i = icmp eq i32 %721, 5
-  br i1 %.not.i76.i, label %722, label %727
+720:                                              ; preds = %43
+  %721 = tail call i64 @SDL_GetTicksNS_REAL() #10
+  %722 = getelementptr inbounds nuw i8, ptr %0, i64 324
+  %723 = load i32, ptr %722, align 4
+  %.not.i76.i = icmp eq i32 %723, 5
+  br i1 %.not.i76.i, label %724, label %729
 
-722:                                              ; preds = %718
-  %723 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %724 = load i32, ptr %723, align 8
-  %725 = icmp eq i32 %724, 0
-  %726 = icmp ne i32 %2, 8
-  %or.cond.i78.i = or i1 %726, %725
-  br i1 %or.cond.i78.i, label %727, label %728
+724:                                              ; preds = %720
+  %725 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %726 = load i32, ptr %725, align 8
+  %727 = icmp eq i32 %726, 0
+  %728 = icmp ne i32 %2, 8
+  %or.cond.i78.i = or i1 %728, %727
+  br i1 %or.cond.i78.i, label %729, label %730
 
-727:                                              ; preds = %722, %718
+729:                                              ; preds = %724, %720
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.42) #10
   br label %GIP_HandleSystemMessage.exit
 
-728:                                              ; preds = %722
-  %729 = load i8, ptr %1, align 1
-  %730 = zext i8 %729 to i32
-  %731 = getelementptr inbounds nuw i8, ptr %0, i64 309
-  %732 = load i8, ptr %731, align 1
-  %733 = xor i8 %732, %729
-  %734 = zext i8 %733 to i32
-  %735 = and i32 %734, 2
-  %.not68.i.i = icmp eq i32 %735, 0
-  br i1 %.not68.i.i, label %738, label %.sink.split.i79.i
+730:                                              ; preds = %724
+  %731 = load i8, ptr %1, align 1
+  %732 = zext i8 %731 to i32
+  %733 = getelementptr inbounds nuw i8, ptr %0, i64 309
+  %734 = load i8, ptr %733, align 1
+  %735 = xor i8 %734, %731
+  %736 = zext i8 %735 to i32
+  %737 = and i32 %736, 2
+  %.not68.i.i = icmp eq i32 %737, 0
+  br i1 %.not68.i.i, label %740, label %.sink.split.i79.i
 
-.sink.split.i79.i:                                ; preds = %728
-  %736 = and i32 %730, 2
-  %.not69.i.i = icmp ne i32 %736, 0
-  %737 = tail call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %719, i32 noundef %724, i32 noundef 0, i32 noundef 225, i1 noundef zeroext %.not69.i.i) #10
-  br label %738
+.sink.split.i79.i:                                ; preds = %730
+  %738 = and i32 %732, 2
+  %.not69.i.i = icmp ne i32 %738, 0
+  %739 = tail call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %721, i32 noundef %726, i32 noundef 0, i32 noundef 225, i1 noundef zeroext %.not69.i.i) #10
+  br label %740
 
-738:                                              ; preds = %.sink.split.i79.i, %728
-  %739 = and i32 %734, 4
-  %.not70.i.i = icmp eq i32 %739, 0
-  br i1 %.not70.i.i, label %763, label %740
+740:                                              ; preds = %.sink.split.i79.i, %730
+  %741 = and i32 %736, 4
+  %.not70.i.i = icmp eq i32 %741, 0
+  br i1 %.not70.i.i, label %765, label %742
 
-740:                                              ; preds = %738
-  %741 = and i32 %730, 4
-  %.not71.i.i = icmp eq i32 %741, 0
-  %742 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  br i1 %.not71.i.i, label %745, label %743
+742:                                              ; preds = %740
+  %743 = and i32 %732, 4
+  %.not71.i.i = icmp eq i32 %743, 0
+  %744 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  br i1 %.not71.i.i, label %747, label %745
 
-743:                                              ; preds = %740
-  store i32 0, ptr %742, align 8
-  %744 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  store i32 0, ptr %744, align 4
-  br label %763
+745:                                              ; preds = %742
+  store i32 0, ptr %744, align 8
+  %746 = getelementptr inbounds nuw i8, ptr %0, i64 316
+  store i32 0, ptr %746, align 4
+  br label %765
 
-745:                                              ; preds = %740
-  %746 = load i32, ptr %742, align 8
-  %747 = icmp eq i32 %746, 4
-  br i1 %747, label %748, label %758
+747:                                              ; preds = %742
+  %748 = load i32, ptr %744, align 8
+  %749 = icmp eq i32 %748, 4
+  br i1 %749, label %750, label %760
 
-748:                                              ; preds = %745
+750:                                              ; preds = %747
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   store i32 0, ptr %6, align 4
-  %749 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %750 = load i32, ptr %749, align 4
-  switch i32 %750, label %755 [
-    i32 128, label %756
-    i32 138, label %751
-    i32 140, label %752
-    i32 154, label %753
-    i32 156, label %754
+  %751 = getelementptr inbounds nuw i8, ptr %0, i64 316
+  %752 = load i32, ptr %751, align 4
+  switch i32 %752, label %757 [
+    i32 128, label %758
+    i32 138, label %753
+    i32 140, label %754
+    i32 154, label %755
+    i32 156, label %756
   ]
 
-751:                                              ; preds = %748
-  br label %756
-
-752:                                              ; preds = %748
-  br label %756
-
-753:                                              ; preds = %748
-  br label %756
-
-754:                                              ; preds = %748
-  br label %756
-
-755:                                              ; preds = %748
-  br label %756
-
-756:                                              ; preds = %755, %754, %753, %752, %751, %748
-  %.sink1.i.i = phi i32 [ %750, %755 ], [ 339, %754 ], [ 353, %753 ], [ 338, %752 ], [ 352, %751 ], [ 8364, %748 ]
-  %757 = call ptr @SDL_UCS4ToUTF8_REAL(i32 noundef %.sink1.i.i, ptr noundef nonnull %6) #10
-  call void @SDL_SendKeyboardText(ptr noundef nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+753:                                              ; preds = %750
   br label %758
 
-758:                                              ; preds = %756, %745
-  store i32 -1, ptr %742, align 8
-  %759 = load i32, ptr %723, align 8
-  %760 = call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %719, i32 noundef %759, i32 noundef 0, i32 noundef 83, i1 noundef zeroext true) #10
-  %761 = load i32, ptr %723, align 8
-  %762 = call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %719, i32 noundef %761, i32 noundef 0, i32 noundef 83, i1 noundef zeroext false) #10
-  br label %763
+754:                                              ; preds = %750
+  br label %758
 
-763:                                              ; preds = %758, %743, %738
-  %764 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %765 = load i8, ptr %764, align 1
-  %.not72.i.i = icmp eq i8 %765, 0
-  br i1 %.not72.i.i, label %766, label %792
+755:                                              ; preds = %750
+  br label %758
 
-766:                                              ; preds = %763
-  %767 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %768 = load i32, ptr %767, align 8
-  switch i32 %768, label %773 [
-    i32 0, label %792
-    i32 57, label %769
+756:                                              ; preds = %750
+  br label %758
+
+757:                                              ; preds = %750
+  br label %758
+
+758:                                              ; preds = %757, %756, %755, %754, %753, %750
+  %.sink1.i.i = phi i32 [ %752, %757 ], [ 339, %756 ], [ 353, %755 ], [ 338, %754 ], [ 352, %753 ], [ 8364, %750 ]
+  %759 = call ptr @SDL_UCS4ToUTF8_REAL(i32 noundef %.sink1.i.i, ptr noundef nonnull %6) #10
+  call void @SDL_SendKeyboardText(ptr noundef nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  br label %760
+
+760:                                              ; preds = %758, %747
+  store i32 -1, ptr %744, align 8
+  %761 = load i32, ptr %725, align 8
+  %762 = call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %721, i32 noundef %761, i32 noundef 0, i32 noundef 83, i1 noundef zeroext true) #10
+  %763 = load i32, ptr %725, align 8
+  %764 = call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %721, i32 noundef %763, i32 noundef 0, i32 noundef 83, i1 noundef zeroext false) #10
+  br label %765
+
+765:                                              ; preds = %760, %745, %740
+  %766 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %767 = load i8, ptr %766, align 1
+  %.not72.i.i = icmp eq i8 %767, 0
+  br i1 %.not72.i.i, label %768, label %794
+
+768:                                              ; preds = %765
+  %769 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %770 = load i32, ptr %769, align 8
+  switch i32 %770, label %775 [
+    i32 0, label %794
+    i32 57, label %771
   ]
 
-769:                                              ; preds = %766
-  %770 = getelementptr inbounds nuw i8, ptr %0, i64 310
-  %771 = load i8, ptr %770, align 2, !range !3, !noundef !4
-  %772 = xor i8 %771, 1
-  store i8 %772, ptr %770, align 2
-  br label %773
+771:                                              ; preds = %768
+  %772 = getelementptr inbounds nuw i8, ptr %0, i64 310
+  %773 = load i8, ptr %772, align 2, !range !3, !noundef !4
+  %774 = xor i8 %773, 1
+  store i8 %774, ptr %772, align 2
+  br label %775
 
-773:                                              ; preds = %769, %766
-  %774 = load i32, ptr %723, align 8
-  %775 = call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %719, i32 noundef %774, i32 noundef 0, i32 noundef %768, i1 noundef zeroext false) #10
-  %776 = load i8, ptr %731, align 1
-  %777 = and i8 %776, -3
-  %.not74.i80.i = icmp eq i8 %777, 0
-  br i1 %.not74.i80.i, label %778, label %791
+775:                                              ; preds = %771, %768
+  %776 = load i32, ptr %725, align 8
+  %777 = call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %721, i32 noundef %776, i32 noundef 0, i32 noundef %770, i1 noundef zeroext false) #10
+  %778 = load i8, ptr %733, align 1
+  %779 = and i8 %778, -3
+  %.not74.i80.i = icmp eq i8 %779, 0
+  br i1 %.not74.i80.i, label %780, label %793
 
-778:                                              ; preds = %773
-  %779 = load i32, ptr %767, align 8
-  %.not75.i81.i = icmp eq i8 %776, 0
-  br i1 %.not75.i81.i, label %780, label %785
+780:                                              ; preds = %775
+  %781 = load i32, ptr %769, align 8
+  %.not75.i81.i = icmp eq i8 %778, 0
+  br i1 %.not75.i81.i, label %782, label %787
 
-780:                                              ; preds = %778
-  %781 = getelementptr inbounds nuw i8, ptr %0, i64 310
-  %782 = load i8, ptr %781, align 2, !range !3, !noundef !4
-  %783 = trunc nuw i8 %782 to i1
-  %784 = select i1 %783, i16 3, i16 0
-  br label %785
+782:                                              ; preds = %780
+  %783 = getelementptr inbounds nuw i8, ptr %0, i64 310
+  %784 = load i8, ptr %783, align 2, !range !3, !noundef !4
+  %785 = trunc nuw i8 %784 to i1
+  %786 = select i1 %785, i16 3, i16 0
+  br label %787
 
-785:                                              ; preds = %780, %778
-  %786 = phi i16 [ 3, %778 ], [ %784, %780 ]
-  %787 = call i32 @SDL_GetKeymapKeycode(ptr noundef null, i32 noundef %779, i16 noundef zeroext %786) #10
-  %788 = add i32 %787, -1
-  %or.cond3.i.i = icmp ult i32 %788, 127
-  br i1 %or.cond3.i.i, label %789, label %791
+787:                                              ; preds = %782, %780
+  %788 = phi i16 [ 3, %780 ], [ %786, %782 ]
+  %789 = call i32 @SDL_GetKeymapKeycode(ptr noundef null, i32 noundef %781, i16 noundef zeroext %788) #10
+  %790 = add i32 %789, -1
+  %or.cond3.i.i = icmp ult i32 %790, 127
+  br i1 %or.cond3.i.i, label %791, label %793
 
-789:                                              ; preds = %785
+791:                                              ; preds = %787
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #10
-  %790 = trunc nuw nsw i32 %787 to i8
-  store i8 %790, ptr %7, align 1
+  %792 = trunc nuw nsw i32 %789 to i8
+  store i8 %792, ptr %7, align 1
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 0, ptr %.ptr.i.i, align 1
   call void @SDL_SendKeyboardText(ptr noundef nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #10
-  br label %791
+  br label %793
 
-791:                                              ; preds = %789, %785, %773
-  store i32 0, ptr %767, align 8
-  br label %818
+793:                                              ; preds = %791, %787, %775
+  store i32 0, ptr %769, align 8
+  br label %820
 
-792:                                              ; preds = %766, %763
-  %793 = load i32, ptr %723, align 8
-  %794 = zext i8 %765 to i32
-  %795 = call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %719, i32 noundef %793, i32 noundef 0, i32 noundef %794, i1 noundef zeroext true) #10
-  %796 = load i8, ptr %764, align 1
-  %797 = zext i8 %796 to i32
-  %798 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 %797, ptr %798, align 8
-  %799 = and i32 %730, 4
-  %.not78.i.i = icmp eq i32 %799, 0
-  br i1 %.not78.i.i, label %818, label %800
+794:                                              ; preds = %768, %765
+  %795 = load i32, ptr %725, align 8
+  %796 = zext i8 %767 to i32
+  %797 = call zeroext i1 @SDL_SendKeyboardKey(i64 noundef %721, i32 noundef %795, i32 noundef 0, i32 noundef %796, i1 noundef zeroext true) #10
+  %798 = load i8, ptr %766, align 1
+  %799 = zext i8 %798 to i32
+  %800 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store i32 %799, ptr %800, align 8
+  %801 = and i32 %732, 4
+  %.not78.i.i = icmp eq i32 %801, 0
+  br i1 %.not78.i.i, label %820, label %802
 
-800:                                              ; preds = %792
-  %801 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %802 = load i32, ptr %801, align 8
-  %803 = icmp sgt i32 %802, -1
-  br i1 %803, label %804, label %818
+802:                                              ; preds = %794
+  %803 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %804 = load i32, ptr %803, align 8
+  %805 = icmp sgt i32 %804, -1
+  br i1 %805, label %806, label %820
 
-804:                                              ; preds = %800
-  %805 = load i8, ptr %764, align 1
-  %806 = zext i8 %805 to i32
-  %807 = add nsw i32 %806, -88
-  %808 = add i8 %805, -99
-  %or.cond5.i.i = icmp ult i8 %808, -10
-  br i1 %or.cond5.i.i, label %809, label %810
+806:                                              ; preds = %802
+  %807 = load i8, ptr %766, align 1
+  %808 = zext i8 %807 to i32
+  %809 = add nsw i32 %808, -88
+  %810 = add i8 %807, -99
+  %or.cond5.i.i = icmp ult i8 %810, -10
+  br i1 %or.cond5.i.i, label %811, label %812
 
-809:                                              ; preds = %804
-  store i32 -1, ptr %801, align 8
-  br label %818
+811:                                              ; preds = %806
+  store i32 -1, ptr %803, align 8
+  br label %820
 
-810:                                              ; preds = %804
-  %811 = add nuw nsw i32 %802, 1
-  store i32 %811, ptr %801, align 8
-  %812 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %813 = load i32, ptr %812, align 4
-  %814 = mul i32 %813, 10
-  store i32 %814, ptr %812, align 4
-  %815 = icmp samesign ult i8 %805, 98
-  br i1 %815, label %816, label %818
+812:                                              ; preds = %806
+  %813 = add nuw nsw i32 %804, 1
+  store i32 %813, ptr %803, align 8
+  %814 = getelementptr inbounds nuw i8, ptr %0, i64 316
+  %815 = load i32, ptr %814, align 4
+  %816 = mul i32 %815, 10
+  store i32 %816, ptr %814, align 4
+  %817 = icmp samesign ult i8 %807, 98
+  br i1 %817, label %818, label %820
 
-816:                                              ; preds = %810
-  %817 = add i32 %807, %814
-  store i32 %817, ptr %812, align 4
-  br label %818
+818:                                              ; preds = %812
+  %819 = add i32 %809, %816
+  store i32 %819, ptr %814, align 4
+  br label %820
 
-818:                                              ; preds = %816, %810, %809, %800, %792, %791
-  store i8 %729, ptr %731, align 1
+820:                                              ; preds = %818, %812, %811, %802, %794, %793
+  store i8 %731, ptr %733, align 1
   br label %GIP_HandleSystemMessage.exit
 
-819:                                              ; preds = %43
+821:                                              ; preds = %43
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %5, i8 0, i64 33, i1 false)
-  %820 = icmp slt i32 %2, 2
-  br i1 %820, label %GIP_HandleCommandExtended.exit.i, label %821
-
-821:                                              ; preds = %819
-  %822 = load i8, ptr %1, align 1
-  %cond.i.i = icmp eq i8 %822, 4
-  br i1 %cond.i.i, label %823, label %835
+  %822 = icmp slt i32 %2, 2
+  br i1 %822, label %GIP_HandleCommandExtended.exit.i, label %823
 
 823:                                              ; preds = %821
-  %824 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %825 = load i8, ptr %824, align 1
-  %826 = and i8 %.1.val, 7
-  %827 = or i8 %825, %826
-  %or.cond = icmp eq i8 %827, 0
-  br i1 %or.cond, label %828, label %GIP_HandleCommandExtended.exit.i
+  %824 = load i8, ptr %1, align 1
+  %cond.i.i = icmp eq i8 %824, 4
+  br i1 %cond.i.i, label %825, label %837
 
-828:                                              ; preds = %823
-  %829 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %830 = add nsw i32 %2, -2
-  %831 = tail call i32 @llvm.umin.i32(i32 %830, i32 32)
-  %832 = zext nneg i32 %831 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 1 %829, i64 %832, i1 false)
-  %833 = load ptr, ptr %0, align 8
-  %834 = load ptr, ptr %833, align 8
-  call void @HIDAPI_SetDeviceSerial(ptr noundef %834, ptr noundef nonnull %5) #10
+825:                                              ; preds = %823
+  %826 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %827 = load i8, ptr %826, align 1
+  %828 = and i8 %.1.val, 7
+  %829 = or i8 %827, %828
+  %or.cond = icmp eq i8 %829, 0
+  br i1 %or.cond, label %830, label %GIP_HandleCommandExtended.exit.i
+
+830:                                              ; preds = %825
+  %831 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %832 = add nsw i32 %2, -2
+  %833 = tail call i32 @llvm.umin.i32(i32 %832, i32 32)
+  %834 = zext nneg i32 %833 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 1 %831, i64 %834, i1 false)
+  %835 = load ptr, ptr %0, align 8
+  %836 = load ptr, ptr %835, align 8
+  call void @HIDAPI_SetDeviceSerial(ptr noundef %836, ptr noundef nonnull %5) #10
   br label %GIP_HandleCommandExtended.exit.i
 
-835:                                              ; preds = %821
-  %836 = zext i8 %822 to i32
-  tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.43, i32 noundef %836) #10
+837:                                              ; preds = %823
+  %838 = zext i8 %824 to i32
+  tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.43, i32 noundef %838) #10
   br label %GIP_HandleCommandExtended.exit.i
 
-GIP_HandleCommandExtended.exit.i:                 ; preds = %835, %828, %823, %819
-  %.0.i82.i = phi i1 [ true, %828 ], [ false, %835 ], [ false, %819 ], [ true, %823 ]
+GIP_HandleCommandExtended.exit.i:                 ; preds = %837, %830, %825, %821
+  %.0.i82.i = phi i1 [ true, %830 ], [ false, %837 ], [ false, %821 ], [ true, %825 ]
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %5) #10
   br label %GIP_HandleSystemMessage.exit
 
-837:                                              ; preds = %43
+839:                                              ; preds = %43
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.44) #10
   br label %GIP_HandleSystemMessage.exit
 
-838:                                              ; preds = %43
+840:                                              ; preds = %43
   tail call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.19, i32 noundef %34) #10
   br label %GIP_HandleSystemMessage.exit
 
-839:                                              ; preds = %3
-  switch i8 %.0.val, label %1219 [
-    i8 12, label %840
-    i8 32, label %900
-    i8 33, label %1216
-    i8 34, label %1217
-    i8 38, label %1218
+841:                                              ; preds = %3
+  switch i8 %.0.val, label %1220 [
+    i8 12, label %842
+    i8 32, label %902
+    i8 33, label %1217
+    i8 34, label %1218
+    i8 38, label %1219
   ]
 
-840:                                              ; preds = %839
-  %841 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  %842 = load i32, ptr %841, align 4
-  %843 = and i32 %842, 4
-  %.not28 = icmp eq i32 %843, 0
-  br i1 %.not28, label %1219, label %844
+842:                                              ; preds = %841
+  %843 = getelementptr inbounds nuw i8, ptr %0, i64 332
+  %844 = load i32, ptr %843, align 4
+  %845 = and i32 %844, 4
+  %.not28 = icmp eq i32 %845, 0
+  br i1 %.not28, label %1220, label %846
 
-844:                                              ; preds = %840
-  %845 = tail call i64 @SDL_GetTicksNS_REAL() #10
-  %846 = load ptr, ptr %0, align 8
-  %847 = load ptr, ptr %846, align 8
-  %848 = getelementptr inbounds nuw i8, ptr %847, i64 140
-  %849 = load i32, ptr %848, align 4
-  %850 = icmp slt i32 %849, 1
-  br i1 %850, label %GIP_HandleSystemMessage.exit, label %851
+846:                                              ; preds = %842
+  %847 = tail call i64 @SDL_GetTicksNS_REAL() #10
+  %848 = load ptr, ptr %0, align 8
+  %849 = load ptr, ptr %848, align 8
+  %850 = getelementptr inbounds nuw i8, ptr %849, i64 140
+  %851 = load i32, ptr %850, align 4
+  %852 = icmp slt i32 %851, 1
+  br i1 %852, label %GIP_HandleSystemMessage.exit, label %853
 
-851:                                              ; preds = %844
-  %852 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %853 = load i32, ptr %852, align 4
-  %854 = tail call ptr @SDL_GetJoystickFromID_REAL(i32 noundef %853) #10
-  %.not.i29 = icmp eq ptr %854, null
-  br i1 %.not.i29, label %GIP_HandleSystemMessage.exit, label %855
+853:                                              ; preds = %846
+  %854 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %855 = load i32, ptr %854, align 4
+  %856 = tail call ptr @SDL_GetJoystickFromID_REAL(i32 noundef %855) #10
+  %.not.i29 = icmp eq ptr %856, null
+  br i1 %.not.i29, label %GIP_HandleSystemMessage.exit, label %857
 
-855:                                              ; preds = %851
-  %856 = icmp slt i32 %2, 17
-  br i1 %856, label %860, label %857
+857:                                              ; preds = %853
+  %858 = icmp slt i32 %2, 17
+  br i1 %858, label %862, label %859
 
-857:                                              ; preds = %855
-  %858 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %859 = load i32, ptr %858, align 8
-  %.not31.i = icmp sgt i32 %2, %859
-  br i1 %.not31.i, label %861, label %860
+859:                                              ; preds = %857
+  %860 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %861 = load i32, ptr %860, align 8
+  %.not31.i = icmp sgt i32 %2, %861
+  br i1 %.not31.i, label %863, label %862
 
-860:                                              ; preds = %857, %855
+862:                                              ; preds = %859, %857
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.45) #10
   br label %GIP_HandleSystemMessage.exit
 
-861:                                              ; preds = %857
-  %862 = load i32, ptr %841, align 4
-  %863 = and i32 %862, 4
-  %.not32.i = icmp eq i32 %863, 0
-  br i1 %.not32.i, label %GIP_HandleSystemMessage.exit, label %864
+863:                                              ; preds = %859
+  %864 = load i32, ptr %843, align 4
+  %865 = and i32 %864, 4
+  %.not32.i = icmp eq i32 %865, 0
+  br i1 %.not32.i, label %GIP_HandleSystemMessage.exit, label %866
 
-864:                                              ; preds = %861
-  %865 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %866 = load i32, ptr %865, align 8
-  %867 = icmp eq i32 %866, 2
-  br i1 %867, label %868, label %GIP_HandleSystemMessage.exit
+866:                                              ; preds = %863
+  %867 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %868 = load i32, ptr %867, align 8
+  %869 = icmp eq i32 %868, 2
+  br i1 %869, label %870, label %GIP_HandleSystemMessage.exit
 
-868:                                              ; preds = %864
-  %869 = getelementptr inbounds nuw i8, ptr %0, i64 341
-  %870 = load i8, ptr %869, align 1
-  %871 = sext i32 %859 to i64
-  %872 = getelementptr inbounds i8, ptr %1, i64 %871
-  %873 = load i8, ptr %872, align 1
-  %874 = and i8 %873, 1
-  %875 = icmp ne i8 %874, 0
-  tail call void @SDL_SendJoystickButton(i64 noundef %845, ptr noundef nonnull %854, i8 noundef zeroext %870, i1 noundef zeroext %875) #10
-  %876 = load i8, ptr %869, align 1
-  %877 = add i8 %876, 1
-  %878 = load i32, ptr %858, align 8
-  %879 = sext i32 %878 to i64
-  %880 = getelementptr inbounds i8, ptr %1, i64 %879
-  %881 = load i8, ptr %880, align 1
-  %882 = and i8 %881, 2
-  %883 = icmp ne i8 %882, 0
-  tail call void @SDL_SendJoystickButton(i64 noundef %845, ptr noundef nonnull %854, i8 noundef zeroext %877, i1 noundef zeroext %883) #10
-  %884 = load i8, ptr %869, align 1
-  %885 = add i8 %884, 2
-  %886 = load i32, ptr %858, align 8
-  %887 = sext i32 %886 to i64
-  %888 = getelementptr inbounds i8, ptr %1, i64 %887
-  %889 = load i8, ptr %888, align 1
-  %890 = and i8 %889, 4
-  %891 = icmp ne i8 %890, 0
-  tail call void @SDL_SendJoystickButton(i64 noundef %845, ptr noundef nonnull %854, i8 noundef zeroext %885, i1 noundef zeroext %891) #10
-  %892 = load i8, ptr %869, align 1
-  %893 = add i8 %892, 3
-  %894 = load i32, ptr %858, align 8
-  %895 = sext i32 %894 to i64
-  %896 = getelementptr inbounds i8, ptr %1, i64 %895
-  %897 = load i8, ptr %896, align 1
-  %898 = and i8 %897, 8
-  %899 = icmp ne i8 %898, 0
-  tail call void @SDL_SendJoystickButton(i64 noundef %845, ptr noundef nonnull %854, i8 noundef zeroext %893, i1 noundef zeroext %899) #10
+870:                                              ; preds = %866
+  %871 = getelementptr inbounds nuw i8, ptr %0, i64 341
+  %872 = load i8, ptr %871, align 1
+  %873 = sext i32 %861 to i64
+  %874 = getelementptr inbounds i8, ptr %1, i64 %873
+  %875 = load i8, ptr %874, align 1
+  %876 = and i8 %875, 1
+  %877 = icmp ne i8 %876, 0
+  tail call void @SDL_SendJoystickButton(i64 noundef %847, ptr noundef nonnull %856, i8 noundef zeroext %872, i1 noundef zeroext %877) #10
+  %878 = load i8, ptr %871, align 1
+  %879 = add i8 %878, 1
+  %880 = load i32, ptr %860, align 8
+  %881 = sext i32 %880 to i64
+  %882 = getelementptr inbounds i8, ptr %1, i64 %881
+  %883 = load i8, ptr %882, align 1
+  %884 = and i8 %883, 2
+  %885 = icmp ne i8 %884, 0
+  tail call void @SDL_SendJoystickButton(i64 noundef %847, ptr noundef nonnull %856, i8 noundef zeroext %879, i1 noundef zeroext %885) #10
+  %886 = load i8, ptr %871, align 1
+  %887 = add i8 %886, 2
+  %888 = load i32, ptr %860, align 8
+  %889 = sext i32 %888 to i64
+  %890 = getelementptr inbounds i8, ptr %1, i64 %889
+  %891 = load i8, ptr %890, align 1
+  %892 = and i8 %891, 4
+  %893 = icmp ne i8 %892, 0
+  tail call void @SDL_SendJoystickButton(i64 noundef %847, ptr noundef nonnull %856, i8 noundef zeroext %887, i1 noundef zeroext %893) #10
+  %894 = load i8, ptr %871, align 1
+  %895 = add i8 %894, 3
+  %896 = load i32, ptr %860, align 8
+  %897 = sext i32 %896 to i64
+  %898 = getelementptr inbounds i8, ptr %1, i64 %897
+  %899 = load i8, ptr %898, align 1
+  %900 = and i8 %899, 8
+  %901 = icmp ne i8 %900, 0
+  tail call void @SDL_SendJoystickButton(i64 noundef %847, ptr noundef nonnull %856, i8 noundef zeroext %895, i1 noundef zeroext %901) #10
   br label %GIP_HandleSystemMessage.exit
 
-900:                                              ; preds = %839
-  %901 = tail call i64 @SDL_GetTicksNS_REAL() #10
-  %902 = load ptr, ptr %0, align 8
-  %903 = load ptr, ptr %902, align 8
-  %904 = getelementptr inbounds nuw i8, ptr %903, i64 140
-  %905 = load i32, ptr %904, align 4
-  %906 = icmp slt i32 %905, 1
-  br i1 %906, label %907, label %935
+902:                                              ; preds = %841
+  %903 = tail call i64 @SDL_GetTicksNS_REAL() #10
+  %904 = load ptr, ptr %0, align 8
+  %905 = load ptr, ptr %904, align 8
+  %906 = getelementptr inbounds nuw i8, ptr %905, i64 140
+  %907 = load i32, ptr %906, align 4
+  %908 = icmp slt i32 %907, 1
+  br i1 %908, label %909, label %937
 
-907:                                              ; preds = %900
-  %908 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %909 = load i32, ptr %908, align 8
-  %cond.i.i41 = icmp eq i32 %909, 0
-  br i1 %cond.i.i41, label %910, label %GIP_EnsureMetadata.exit.i
+909:                                              ; preds = %902
+  %910 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %911 = load i32, ptr %910, align 8
+  %cond.i.i41 = icmp eq i32 %911, 0
+  br i1 %cond.i.i41, label %912, label %GIP_EnsureMetadata.exit.i
 
-910:                                              ; preds = %907
-  %911 = getelementptr inbounds nuw i8, ptr %902, i64 16
-  %912 = load i8, ptr %911, align 8, !range !3, !noundef !4
-  %913 = trunc nuw i8 %912 to i1
-  br i1 %913, label %914, label %933
+912:                                              ; preds = %909
+  %913 = getelementptr inbounds nuw i8, ptr %904, i64 16
+  %914 = load i8, ptr %913, align 8, !range !3, !noundef !4
+  %915 = trunc nuw i8 %914 to i1
+  br i1 %915, label %916, label %935
 
-914:                                              ; preds = %910
-  %915 = getelementptr inbounds nuw i8, ptr %902, i64 20
-  store i32 10, ptr %915, align 4
-  store i32 3, ptr %908, align 8
-  %916 = tail call i64 @SDL_GetTicks_REAL() #10
-  %917 = add i64 %916, 500
-  %918 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %917, ptr %918, align 8
-  %919 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %919, align 8
-  %920 = load ptr, ptr %0, align 8
-  %921 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %922 = load i8, ptr %921, align 8
-  %923 = or i8 %922, 32
-  %924 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %925 = load i8, ptr %924, align 8
-  %926 = add i8 %925, 1
-  %.not27.i.i.i.i42 = icmp eq i8 %925, 0
-  %spec.store.select30.i.i.i.i43 = select i1 %.not27.i.i.i.i42, i8 2, i8 %926
-  store i8 %spec.store.select30.i.i.i.i43, ptr %924, align 8
-  %spec.select.i.i.i.i44 = tail call i8 @llvm.umax.i8(i8 %925, i8 1)
+916:                                              ; preds = %912
+  %917 = getelementptr inbounds nuw i8, ptr %904, i64 20
+  store i32 10, ptr %917, align 4
+  store i32 3, ptr %910, align 8
+  %918 = tail call i64 @SDL_GetTicks_REAL() #10
+  %919 = add i64 %918, 500
+  %920 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %919, ptr %920, align 8
+  %921 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 0, ptr %921, align 8
+  %922 = load ptr, ptr %0, align 8
+  %923 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %924 = load i8, ptr %923, align 8
+  %925 = or i8 %924, 32
+  %926 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %927 = load i8, ptr %926, align 8
+  %928 = add i8 %927, 1
+  %.not27.i.i.i.i42 = icmp eq i8 %927, 0
+  %spec.store.select30.i.i.i.i43 = select i1 %.not27.i.i.i.i42, i8 2, i8 %928
+  store i8 %spec.store.select30.i.i.i.i43, ptr %926, align 8
+  %spec.select.i.i.i.i44 = tail call i8 @llvm.umax.i8(i8 %927, i8 1)
   call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %4, i8 0, i64 2054, i1 false)
   store i8 4, ptr %4, align 16
-  %927 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %923, ptr %927, align 1
-  %928 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %spec.select.i.i.i.i44, ptr %928, align 2
-  %929 = load ptr, ptr %920, align 8
-  %930 = getelementptr inbounds nuw i8, ptr %929, i64 128
-  %931 = load ptr, ptr %930, align 8
-  %932 = call i32 @SDL_hid_write_REAL(ptr noundef %931, ptr noundef nonnull %4, i64 noundef 4) #10
+  %929 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 %925, ptr %929, align 1
+  %930 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store i8 %spec.select.i.i.i.i44, ptr %930, align 2
+  %931 = load ptr, ptr %922, align 8
+  %932 = getelementptr inbounds nuw i8, ptr %931, i64 128
+  %933 = load ptr, ptr %932, align 8
+  %934 = call i32 @SDL_hid_write_REAL(ptr noundef %933, ptr noundef nonnull %4, i64 noundef 4) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %4) #10
   br label %GIP_EnsureMetadata.exit.i
 
-933:                                              ; preds = %910
+935:                                              ; preds = %912
   tail call fastcc void @GIP_SetMetadataDefaults(ptr noundef nonnull %0)
   br label %GIP_EnsureMetadata.exit.i
 
-GIP_EnsureMetadata.exit.i:                        ; preds = %933, %914, %907
-  %934 = load i32, ptr %908, align 8
-  %.off.i = add i32 %934, -1
+GIP_EnsureMetadata.exit.i:                        ; preds = %935, %916, %909
+  %936 = load i32, ptr %910, align 8
+  %.off.i = add i32 %936, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %935, label %GIP_HandleSystemMessage.exit
+  br i1 %switch.i, label %937, label %GIP_HandleSystemMessage.exit
 
-935:                                              ; preds = %GIP_EnsureMetadata.exit.i, %900
-  %936 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %937 = load i32, ptr %936, align 4
-  %938 = call ptr @SDL_GetJoystickFromID_REAL(i32 noundef %937) #10
-  %.not111.i = icmp eq ptr %938, null
-  br i1 %.not111.i, label %GIP_HandleSystemMessage.exit, label %939
+937:                                              ; preds = %GIP_EnsureMetadata.exit.i, %902
+  %938 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %939 = load i32, ptr %938, align 4
+  %940 = call ptr @SDL_GetJoystickFromID_REAL(i32 noundef %939) #10
+  %.not111.i = icmp eq ptr %940, null
+  br i1 %.not111.i, label %GIP_HandleSystemMessage.exit, label %941
 
-939:                                              ; preds = %935
-  %940 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %941 = load i32, ptr %940, align 8
-  %.not112.i = icmp eq i32 %941, 0
-  br i1 %.not112.i, label %943, label %942
+941:                                              ; preds = %937
+  %942 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %943 = load i32, ptr %942, align 8
+  %.not112.i = icmp eq i32 %943, 0
+  br i1 %.not112.i, label %945, label %944
 
-942:                                              ; preds = %939
+944:                                              ; preds = %941
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.46) #10
-  store i32 0, ptr %940, align 8
+  store i32 0, ptr %942, align 8
   br label %GIP_HandleSystemMessage.exit
 
-943:                                              ; preds = %939
-  %944 = icmp slt i32 %2, 14
-  br i1 %944, label %945, label %946
+945:                                              ; preds = %941
+  %946 = icmp slt i32 %2, 14
+  br i1 %946, label %947, label %948
 
-945:                                              ; preds = %943
+947:                                              ; preds = %945
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.47) #10
   br label %GIP_HandleSystemMessage.exit
 
-946:                                              ; preds = %943
-  %947 = getelementptr inbounds nuw i8, ptr %0, i64 245
-  %948 = load i8, ptr %947, align 1
-  %949 = load i8, ptr %1, align 1
-  %.not.i.i31 = icmp eq i8 %948, %949
-  br i1 %.not.i.i31, label %967, label %950
+948:                                              ; preds = %945
+  %949 = getelementptr inbounds nuw i8, ptr %0, i64 245
+  %950 = load i8, ptr %949, align 1
+  %951 = load i8, ptr %1, align 1
+  %.not.i.i31 = icmp eq i8 %950, %951
+  br i1 %.not.i.i31, label %969, label %952
 
-950:                                              ; preds = %946
-  %951 = and i8 %949, 4
-  %952 = icmp ne i8 %951, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 6, i1 noundef zeroext %952) #10
-  %953 = load i8, ptr %1, align 1
-  %954 = and i8 %953, 8
-  %955 = icmp ne i8 %954, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 4, i1 noundef zeroext %955) #10
-  %956 = load i8, ptr %1, align 1
-  %957 = and i8 %956, 16
-  %958 = icmp ne i8 %957, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 0, i1 noundef zeroext %958) #10
-  %959 = load i8, ptr %1, align 1
-  %960 = and i8 %959, 32
-  %961 = icmp ne i8 %960, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 1, i1 noundef zeroext %961) #10
-  %962 = load i8, ptr %1, align 1
-  %963 = and i8 %962, 64
-  %964 = icmp ne i8 %963, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 2, i1 noundef zeroext %964) #10
-  %965 = load i8, ptr %1, align 1
-  %966 = icmp slt i8 %965, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 3, i1 noundef zeroext %966) #10
-  br label %967
+952:                                              ; preds = %948
+  %953 = and i8 %951, 4
+  %954 = icmp ne i8 %953, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 6, i1 noundef zeroext %954) #10
+  %955 = load i8, ptr %1, align 1
+  %956 = and i8 %955, 8
+  %957 = icmp ne i8 %956, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 4, i1 noundef zeroext %957) #10
+  %958 = load i8, ptr %1, align 1
+  %959 = and i8 %958, 16
+  %960 = icmp ne i8 %959, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 0, i1 noundef zeroext %960) #10
+  %961 = load i8, ptr %1, align 1
+  %962 = and i8 %961, 32
+  %963 = icmp ne i8 %962, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 1, i1 noundef zeroext %963) #10
+  %964 = load i8, ptr %1, align 1
+  %965 = and i8 %964, 64
+  %966 = icmp ne i8 %965, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 2, i1 noundef zeroext %966) #10
+  %967 = load i8, ptr %1, align 1
+  %968 = icmp slt i8 %967, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 3, i1 noundef zeroext %968) #10
+  br label %969
 
-967:                                              ; preds = %950, %946
-  %968 = getelementptr inbounds nuw i8, ptr %0, i64 246
-  %969 = load i8, ptr %968, align 1
-  %970 = getelementptr inbounds nuw i8, ptr %1, i64 1
+969:                                              ; preds = %952, %948
+  %970 = getelementptr inbounds nuw i8, ptr %0, i64 246
   %971 = load i8, ptr %970, align 1
-  %.not53.i.i = icmp eq i8 %969, %971
-  br i1 %.not53.i.i, label %GIP_HandleNavigationReport.exit.i, label %972
+  %972 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %973 = load i8, ptr %972, align 1
+  %.not53.i.i = icmp eq i8 %971, %973
+  br i1 %.not53.i.i, label %GIP_HandleNavigationReport.exit.i, label %974
 
-972:                                              ; preds = %967
-  %973 = and i8 %971, 1
-  %974 = shl i8 %971, 1
-  %975 = and i8 %974, 12
-  %.2.i.i = or disjoint i8 %975, %973
-  %976 = lshr i8 %971, 2
-  %977 = and i8 %976, 2
-  %.3.i.i = or disjoint i8 %.2.i.i, %977
-  call void @SDL_SendJoystickHat(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 0, i8 noundef zeroext %.3.i.i) #10
-  %978 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  %979 = load i32, ptr %978, align 4
-  %980 = icmp eq i32 %979, 1
-  %981 = load i8, ptr %970, align 1
-  %982 = and i8 %981, 16
-  %983 = icmp ne i8 %982, 0
-  br i1 %980, label %984, label %988
+974:                                              ; preds = %969
+  %975 = and i8 %973, 1
+  %976 = shl i8 %973, 1
+  %977 = and i8 %976, 12
+  %.2.i.i = or disjoint i8 %977, %975
+  %978 = lshr i8 %973, 2
+  %979 = and i8 %978, 2
+  %.3.i.i = or disjoint i8 %.2.i.i, %979
+  call void @SDL_SendJoystickHat(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 0, i8 noundef zeroext %.3.i.i) #10
+  %980 = getelementptr inbounds nuw i8, ptr %0, i64 324
+  %981 = load i32, ptr %980, align 4
+  %982 = icmp eq i32 %981, 1
+  %983 = load i8, ptr %972, align 1
+  %984 = and i8 %983, 16
+  %985 = icmp ne i8 %984, 0
+  br i1 %982, label %986, label %990
 
-984:                                              ; preds = %972
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 10, i1 noundef zeroext %983) #10
-  %985 = load i8, ptr %970, align 1
-  %986 = and i8 %985, 32
-  %987 = icmp ne i8 %986, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 9, i1 noundef zeroext %987) #10
+986:                                              ; preds = %974
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 10, i1 noundef zeroext %985) #10
+  %987 = load i8, ptr %972, align 1
+  %988 = and i8 %987, 32
+  %989 = icmp ne i8 %988, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 9, i1 noundef zeroext %989) #10
   br label %GIP_HandleNavigationReport.exit.i
 
-988:                                              ; preds = %972
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 9, i1 noundef zeroext %983) #10
-  %989 = load i8, ptr %970, align 1
-  %990 = and i8 %989, 32
-  %991 = icmp ne i8 %990, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 10, i1 noundef zeroext %991) #10
-  %992 = load i8, ptr %970, align 1
-  %993 = and i8 %992, 64
-  %994 = icmp ne i8 %993, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 7, i1 noundef zeroext %994) #10
-  %995 = load i8, ptr %970, align 1
-  %996 = icmp slt i8 %995, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 8, i1 noundef zeroext %996) #10
+990:                                              ; preds = %974
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 9, i1 noundef zeroext %985) #10
+  %991 = load i8, ptr %972, align 1
+  %992 = and i8 %991, 32
+  %993 = icmp ne i8 %992, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 10, i1 noundef zeroext %993) #10
+  %994 = load i8, ptr %972, align 1
+  %995 = and i8 %994, 64
+  %996 = icmp ne i8 %995, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 7, i1 noundef zeroext %996) #10
+  %997 = load i8, ptr %972, align 1
+  %998 = icmp slt i8 %997, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 8, i1 noundef zeroext %998) #10
   br label %GIP_HandleNavigationReport.exit.i
 
-GIP_HandleNavigationReport.exit.i:                ; preds = %988, %984, %967
-  %997 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  %998 = load i32, ptr %997, align 4
-  switch i32 %998, label %999 [
-    i32 3, label %1071
-    i32 1, label %1036
+GIP_HandleNavigationReport.exit.i:                ; preds = %990, %986, %969
+  %999 = getelementptr inbounds nuw i8, ptr %0, i64 324
+  %1000 = load i32, ptr %999, align 4
+  switch i32 %1000, label %1001 [
+    i32 3, label %1073
+    i32 1, label %1038
   ]
 
-999:                                              ; preds = %GIP_HandleNavigationReport.exit.i
-  %1000 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %1001 = load i8, ptr %1000, align 1
-  %1002 = getelementptr inbounds nuw i8, ptr %1, i64 3
+1001:                                             ; preds = %GIP_HandleNavigationReport.exit.i
+  %1002 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %1003 = load i8, ptr %1002, align 1
-  %1004 = zext i8 %1003 to i16
-  %1005 = shl nuw i16 %1004, 8
-  %1006 = zext i8 %1001 to i16
-  %1007 = or disjoint i16 %1005, %1006
-  %1008 = call i16 @llvm.smax.i16(i16 %1007, i16 0)
-  %1009 = call i16 @llvm.umin.i16(i16 %1008, i16 1023)
-  %1010 = shl nuw i16 %1009, 6
-  %1011 = xor i16 %1010, -32768
-  %1012 = icmp sgt i16 %1007, 1022
-  %spec.store.select.i.i = select i1 %1012, i16 32767, i16 %1011
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 4, i16 noundef signext %spec.store.select.i.i) #10
-  %1013 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1014 = load i8, ptr %1013, align 1
-  %1015 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %1004 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %1005 = load i8, ptr %1004, align 1
+  %1006 = zext i8 %1005 to i16
+  %1007 = shl nuw i16 %1006, 8
+  %1008 = zext i8 %1003 to i16
+  %1009 = or disjoint i16 %1007, %1008
+  %1010 = call i16 @llvm.smax.i16(i16 %1009, i16 0)
+  %1011 = call i16 @llvm.umin.i16(i16 %1010, i16 1023)
+  %1012 = shl nuw i16 %1011, 6
+  %1013 = xor i16 %1012, -32768
+  %1014 = icmp sgt i16 %1009, 1022
+  %spec.store.select.i.i = select i1 %1014, i16 32767, i16 %1013
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 4, i16 noundef signext %spec.store.select.i.i) #10
+  %1015 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1016 = load i8, ptr %1015, align 1
-  %1017 = zext i8 %1016 to i16
-  %1018 = shl nuw i16 %1017, 8
-  %1019 = zext i8 %1014 to i16
-  %1020 = or disjoint i16 %1018, %1019
-  %1021 = call i16 @llvm.smax.i16(i16 %1020, i16 0)
-  %1022 = call i16 @llvm.umin.i16(i16 %1021, i16 1023)
-  %1023 = shl nuw i16 %1022, 6
-  %1024 = xor i16 %1023, -32768
-  %1025 = icmp sgt i16 %1020, 1022
-  %spec.store.select1.i.i = select i1 %1025, i16 32767, i16 %1024
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 5, i16 noundef signext %spec.store.select1.i.i) #10
-  %1026 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %1027 = load i16, ptr %1026, align 1
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 0, i16 noundef signext %1027) #10
-  %1028 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1017 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %1018 = load i8, ptr %1017, align 1
+  %1019 = zext i8 %1018 to i16
+  %1020 = shl nuw i16 %1019, 8
+  %1021 = zext i8 %1016 to i16
+  %1022 = or disjoint i16 %1020, %1021
+  %1023 = call i16 @llvm.smax.i16(i16 %1022, i16 0)
+  %1024 = call i16 @llvm.umin.i16(i16 %1023, i16 1023)
+  %1025 = shl nuw i16 %1024, 6
+  %1026 = xor i16 %1025, -32768
+  %1027 = icmp sgt i16 %1022, 1022
+  %spec.store.select1.i.i = select i1 %1027, i16 32767, i16 %1026
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 5, i16 noundef signext %spec.store.select1.i.i) #10
+  %1028 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %1029 = load i16, ptr %1028, align 1
-  %1030 = xor i16 %1029, -1
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 1, i16 noundef signext %1030) #10
-  %1031 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %1032 = load i16, ptr %1031, align 1
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 2, i16 noundef signext %1032) #10
-  %1033 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 0, i16 noundef signext %1029) #10
+  %1030 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1031 = load i16, ptr %1030, align 1
+  %1032 = xor i16 %1031, -1
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 1, i16 noundef signext %1032) #10
+  %1033 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %1034 = load i16, ptr %1033, align 1
-  %1035 = xor i16 %1034, -1
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 3, i16 noundef signext %1035) #10
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 2, i16 noundef signext %1034) #10
+  %1035 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %1036 = load i16, ptr %1035, align 1
+  %1037 = xor i16 %1036, -1
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 3, i16 noundef signext %1037) #10
   br label %GIP_HandleArcadeStickReport.exit.i
 
-1036:                                             ; preds = %GIP_HandleNavigationReport.exit.i
-  %1037 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %1038 = load i8, ptr %1037, align 1
-  %1039 = getelementptr inbounds nuw i8, ptr %1, i64 3
+1038:                                             ; preds = %GIP_HandleNavigationReport.exit.i
+  %1039 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %1040 = load i8, ptr %1039, align 1
-  %1041 = zext i8 %1040 to i16
-  %1042 = shl nuw i16 %1041, 8
-  %1043 = zext i8 %1038 to i16
-  %1044 = or disjoint i16 %1042, %1043
-  %1045 = call i16 @llvm.smax.i16(i16 %1044, i16 0)
-  %1046 = call i16 @llvm.umin.i16(i16 %1045, i16 1023)
-  %1047 = shl nuw i16 %1046, 6
-  %1048 = xor i16 %1047, -32768
-  %1049 = icmp sgt i16 %1044, 1022
-  %spec.store.select.i118.i = select i1 %1049, i16 32767, i16 %1048
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 4, i16 noundef signext %spec.store.select.i118.i) #10
-  %1050 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1051 = load i8, ptr %1050, align 1
-  %1052 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %1041 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %1042 = load i8, ptr %1041, align 1
+  %1043 = zext i8 %1042 to i16
+  %1044 = shl nuw i16 %1043, 8
+  %1045 = zext i8 %1040 to i16
+  %1046 = or disjoint i16 %1044, %1045
+  %1047 = call i16 @llvm.smax.i16(i16 %1046, i16 0)
+  %1048 = call i16 @llvm.umin.i16(i16 %1047, i16 1023)
+  %1049 = shl nuw i16 %1048, 6
+  %1050 = xor i16 %1049, -32768
+  %1051 = icmp sgt i16 %1046, 1022
+  %spec.store.select.i118.i = select i1 %1051, i16 32767, i16 %1050
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 4, i16 noundef signext %spec.store.select.i118.i) #10
+  %1052 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1053 = load i8, ptr %1052, align 1
-  %1054 = zext i8 %1053 to i16
-  %1055 = shl nuw i16 %1054, 8
-  %1056 = zext i8 %1051 to i16
-  %1057 = or disjoint i16 %1055, %1056
-  %1058 = call i16 @llvm.smax.i16(i16 %1057, i16 0)
-  %1059 = call i16 @llvm.umin.i16(i16 %1058, i16 1023)
-  %1060 = shl nuw i16 %1059, 6
-  %1061 = xor i16 %1060, -32768
-  %1062 = icmp sgt i16 %1057, 1022
-  %spec.store.select1.i119.i = select i1 %1062, i16 32767, i16 %1061
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 5, i16 noundef signext %spec.store.select1.i119.i) #10
-  %1063 = icmp samesign ugt i32 %2, 18
-  br i1 %1063, label %1064, label %GIP_HandleArcadeStickReport.exit.i
+  %1054 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %1055 = load i8, ptr %1054, align 1
+  %1056 = zext i8 %1055 to i16
+  %1057 = shl nuw i16 %1056, 8
+  %1058 = zext i8 %1053 to i16
+  %1059 = or disjoint i16 %1057, %1058
+  %1060 = call i16 @llvm.smax.i16(i16 %1059, i16 0)
+  %1061 = call i16 @llvm.umin.i16(i16 %1060, i16 1023)
+  %1062 = shl nuw i16 %1061, 6
+  %1063 = xor i16 %1062, -32768
+  %1064 = icmp sgt i16 %1059, 1022
+  %spec.store.select1.i119.i = select i1 %1064, i16 32767, i16 %1063
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 5, i16 noundef signext %spec.store.select1.i119.i) #10
+  %1065 = icmp samesign ugt i32 %2, 18
+  br i1 %1065, label %1066, label %GIP_HandleArcadeStickReport.exit.i
 
-1064:                                             ; preds = %1036
-  %1065 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %1066 = load i8, ptr %1065, align 1
-  %1067 = and i8 %1066, 64
-  %.not.i120.i = icmp eq i8 %1067, 0
-  %1068 = select i1 %.not.i120.i, i16 -32768, i16 32767
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 5, i16 noundef signext %1068) #10
-  %1069 = load i8, ptr %1065, align 1
-  %.not30.i.i = icmp sgt i8 %1069, -1
-  %1070 = select i1 %.not30.i.i, i16 -32768, i16 32767
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 4, i16 noundef signext %1070) #10
+1066:                                             ; preds = %1038
+  %1067 = getelementptr inbounds nuw i8, ptr %1, i64 18
+  %1068 = load i8, ptr %1067, align 1
+  %1069 = and i8 %1068, 64
+  %.not.i120.i = icmp eq i8 %1069, 0
+  %1070 = select i1 %.not.i120.i, i16 -32768, i16 32767
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 5, i16 noundef signext %1070) #10
+  %1071 = load i8, ptr %1067, align 1
+  %.not30.i.i = icmp sgt i8 %1071, -1
+  %1072 = select i1 %.not30.i.i, i16 -32768, i16 32767
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 4, i16 noundef signext %1072) #10
   br label %GIP_HandleArcadeStickReport.exit.i
 
-1071:                                             ; preds = %GIP_HandleNavigationReport.exit.i
-  %1072 = icmp samesign ult i32 %2, 19
-  br i1 %1072, label %GIP_HandleArcadeStickReport.exit.i, label %1073
+1073:                                             ; preds = %GIP_HandleNavigationReport.exit.i
+  %1074 = icmp samesign ult i32 %2, 19
+  br i1 %1074, label %GIP_HandleArcadeStickReport.exit.i, label %1075
 
-1073:                                             ; preds = %1071
-  %1074 = getelementptr inbounds nuw i8, ptr %0, i64 247
-  %1075 = load i8, ptr %1074, align 1
-  %1076 = getelementptr inbounds nuw i8, ptr %1, i64 2
+1075:                                             ; preds = %1073
+  %1076 = getelementptr inbounds nuw i8, ptr %0, i64 247
   %1077 = load i8, ptr %1076, align 1
-  %.not.i121.i = icmp eq i8 %1075, %1077
-  br i1 %.not.i121.i, label %1084, label %1078
+  %1078 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %1079 = load i8, ptr %1078, align 1
+  %.not.i121.i = icmp eq i8 %1077, %1079
+  br i1 %.not.i121.i, label %1086, label %1080
 
-1078:                                             ; preds = %1073
-  %1079 = and i8 %1077, 1
-  %1080 = icmp ne i8 %1079, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 7, i1 noundef zeroext %1080) #10
-  %1081 = load i8, ptr %1076, align 1
-  %1082 = and i8 %1081, 2
-  %1083 = icmp ne i8 %1082, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 8, i1 noundef zeroext %1083) #10
-  br label %1084
+1080:                                             ; preds = %1075
+  %1081 = and i8 %1079, 1
+  %1082 = icmp ne i8 %1081, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 7, i1 noundef zeroext %1082) #10
+  %1083 = load i8, ptr %1078, align 1
+  %1084 = and i8 %1083, 2
+  %1085 = icmp ne i8 %1084, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 8, i1 noundef zeroext %1085) #10
+  br label %1086
 
-1084:                                             ; preds = %1078, %1073
-  %1085 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %1086 = load i32, ptr %1085, align 8
-  %1087 = icmp sgt i32 %1086, 0
-  br i1 %1087, label %.lr.ph71.i.i, label %._crit_edge.i.i34
+1086:                                             ; preds = %1080, %1075
+  %1087 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %1088 = load i32, ptr %1087, align 8
+  %1089 = icmp sgt i32 %1088, 0
+  br i1 %1089, label %.lr.ph71.i.i, label %._crit_edge.i.i34
 
-.lr.ph71.i.i:                                     ; preds = %1084
-  %invariant.gep.i.i = getelementptr i8, ptr %1, i64 3
-  %1088 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  br label %1089
+.lr.ph71.i.i:                                     ; preds = %1086
+  %1090 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  br label %1091
 
-1089:                                             ; preds = %.loopexit68.i.i, %.lr.ph71.i.i
-  %1090 = phi i32 [ %1086, %.lr.ph71.i.i ], [ %1114, %.loopexit68.i.i ]
+1091:                                             ; preds = %.loopexit68.i.i, %.lr.ph71.i.i
+  %1092 = phi i32 [ %1088, %.lr.ph71.i.i ], [ %1118, %.loopexit68.i.i ]
   %.070.i.i = phi i32 [ 0, %.lr.ph71.i.i ], [ %.2.i122.i, %.loopexit68.i.i ]
-  %1091 = sdiv i32 %.070.i.i, 8
-  %1092 = add nsw i32 %1091, 3
-  %1093 = sext i32 %1092 to i64
-  %1094 = getelementptr inbounds [64 x i8], ptr %947, i64 0, i64 %1093
-  %1095 = load i8, ptr %1094, align 1
-  %1096 = getelementptr inbounds i8, ptr %1, i64 %1093
+  %1093 = sdiv i32 %.070.i.i, 8
+  %1094 = add nsw i32 %1093, 3
+  %1095 = sext i32 %1094 to i64
+  %1096 = getelementptr inbounds [64 x i8], ptr %949, i64 0, i64 %1095
   %1097 = load i8, ptr %1096, align 1
-  %.not67.i.i = icmp eq i8 %1095, %1097
-  br i1 %.not67.i.i, label %1112, label %.preheader.i.i39
+  %1098 = getelementptr inbounds i8, ptr %1, i64 %1095
+  %1099 = load i8, ptr %1098, align 1
+  %.not67.i.i = icmp eq i8 %1097, %1099
+  br i1 %.not67.i.i, label %1116, label %.preheader.i.i39
 
-.preheader.i.i39:                                 ; preds = %1089
-  %1098 = icmp slt i32 %.070.i.i, %1090
-  br i1 %1098, label %.lr.ph.i.i40, label %.loopexit68.i.i
+.preheader.i.i39:                                 ; preds = %1091
+  %1100 = icmp slt i32 %.070.i.i, %1092
+  br i1 %1100, label %.lr.ph.i.i40, label %.loopexit68.i.i
 
 .lr.ph.i.i40:                                     ; preds = %.preheader.i.i39, %.lr.ph.i.i40
-  %.169.i.i = phi i32 [ %1109, %.lr.ph.i.i40 ], [ %.070.i.i, %.preheader.i.i39 ]
-  %1099 = load i8, ptr %1088, align 4
-  %1100 = trunc i32 %.169.i.i to i8
-  %1101 = add i8 %1099, %1100
-  %1102 = sdiv i32 %.169.i.i, 8
-  %1103 = sext i32 %1102 to i64
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %1103
-  %1104 = load i8, ptr %gep.i.i, align 1
-  %1105 = zext i8 %1104 to i32
-  %1106 = shl nuw i32 1, %.169.i.i
-  %1107 = and i32 %1106, %1105
-  %1108 = icmp ne i32 %1107, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext %1101, i1 noundef zeroext %1108) #10
-  %1109 = add nsw i32 %.169.i.i, 1
-  %1110 = load i32, ptr %1085, align 8
-  %1111 = icmp slt i32 %1109, %1110
-  br i1 %1111, label %.lr.ph.i.i40, label %.loopexit68.i.i, !llvm.loop !22
+  %.169.i.i = phi i32 [ %1113, %.lr.ph.i.i40 ], [ %.070.i.i, %.preheader.i.i39 ]
+  %1101 = load i8, ptr %1090, align 4
+  %1102 = trunc i32 %.169.i.i to i8
+  %1103 = add i8 %1101, %1102
+  %1104 = sdiv i32 %.169.i.i, 8
+  %1105 = sext i32 %1104 to i64
+  %1106 = getelementptr i8, ptr %1, i64 %1105
+  %1107 = getelementptr i8, ptr %1106, i64 3
+  %1108 = load i8, ptr %1107, align 1
+  %1109 = zext i8 %1108 to i32
+  %1110 = shl nuw i32 1, %.169.i.i
+  %1111 = and i32 %1110, %1109
+  %1112 = icmp ne i32 %1111, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext %1103, i1 noundef zeroext %1112) #10
+  %1113 = add nsw i32 %.169.i.i, 1
+  %1114 = load i32, ptr %1087, align 8
+  %1115 = icmp slt i32 %1113, %1114
+  br i1 %1115, label %.lr.ph.i.i40, label %.loopexit68.i.i, !llvm.loop !22
 
-1112:                                             ; preds = %1089
-  %1113 = add nsw i32 %.070.i.i, 8
+1116:                                             ; preds = %1091
+  %1117 = add nsw i32 %.070.i.i, 8
   br label %.loopexit68.i.i
 
-.loopexit68.i.i:                                  ; preds = %.lr.ph.i.i40, %1112, %.preheader.i.i39
-  %1114 = phi i32 [ %1090, %1112 ], [ %1090, %.preheader.i.i39 ], [ %1110, %.lr.ph.i.i40 ]
-  %.2.i122.i = phi i32 [ %1113, %1112 ], [ %.070.i.i, %.preheader.i.i39 ], [ %1109, %.lr.ph.i.i40 ]
-  %1115 = icmp slt i32 %.2.i122.i, %1114
-  br i1 %1115, label %1089, label %._crit_edge.i.i34, !llvm.loop !23
+.loopexit68.i.i:                                  ; preds = %.lr.ph.i.i40, %1116, %.preheader.i.i39
+  %1118 = phi i32 [ %1092, %1116 ], [ %1092, %.preheader.i.i39 ], [ %1114, %.lr.ph.i.i40 ]
+  %.2.i122.i = phi i32 [ %1117, %1116 ], [ %.070.i.i, %.preheader.i.i39 ], [ %1113, %.lr.ph.i.i40 ]
+  %1119 = icmp slt i32 %.2.i122.i, %1118
+  br i1 %1119, label %1091, label %._crit_edge.i.i34, !llvm.loop !23
 
-._crit_edge.i.i34:                                ; preds = %.loopexit68.i.i, %1084
-  %1116 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %1117 = load i16, ptr %1116, align 1
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 0, i16 noundef signext %1117) #10
-  %1118 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  %1119 = load i16, ptr %1118, align 1
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 1, i16 noundef signext %1119) #10
-  %1120 = getelementptr inbounds nuw i8, ptr %1, i64 15
+._crit_edge.i.i34:                                ; preds = %.loopexit68.i.i, %1086
+  %1120 = getelementptr inbounds nuw i8, ptr %1, i64 11
   %1121 = load i16, ptr %1120, align 1
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 2, i16 noundef signext %1121) #10
-  %1122 = getelementptr i8, ptr %1, i64 17
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 0, i16 noundef signext %1121) #10
+  %1122 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %1123 = load i16, ptr %1122, align 1
-  %1124 = xor i16 %1123, -32768
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext 4, i16 noundef signext %1124) #10
-  %1125 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  %invariant.gep72.i.i = getelementptr inbounds nuw i8, ptr %1, i64 19
-  %1126 = load i32, ptr %1125, align 4
-  %1127 = icmp sgt i32 %1126, 0
-  br i1 %1127, label %.lr.ph76.preheader.i.i, label %GIP_HandleArcadeStickReport.exit.i
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 1, i16 noundef signext %1123) #10
+  %1124 = getelementptr inbounds nuw i8, ptr %1, i64 15
+  %1125 = load i16, ptr %1124, align 1
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 2, i16 noundef signext %1125) #10
+  %1126 = getelementptr i8, ptr %1, i64 17
+  %1127 = load i16, ptr %1126, align 1
+  %1128 = xor i16 %1127, -32768
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext 4, i16 noundef signext %1128) #10
+  %1129 = getelementptr inbounds nuw i8, ptr %0, i64 356
+  %1130 = load i32, ptr %1129, align 4
+  %1131 = icmp sgt i32 %1130, 0
+  br i1 %1131, label %.lr.ph74.preheader.i.i, label %GIP_HandleArcadeStickReport.exit.i
 
-.lr.ph76.preheader.i.i:                           ; preds = %._crit_edge.i.i34
+.lr.ph74.preheader.i.i:                           ; preds = %._crit_edge.i.i34
   %umax.i.i = call i32 @llvm.umax.i32(i32 range(i32 14, -2147483648) %2, i32 20)
-  %1128 = add nsw i32 %umax.i.i, -19
-  %1129 = lshr i32 %1128, 1
-  %wide.trip.count.i.i35 = zext nneg i32 %1129 to i64
-  %invariant.gep80.i.i = getelementptr inbounds nuw i8, ptr %1, i64 20
-  br label %.lr.ph76.i.i
+  %1132 = add nsw i32 %umax.i.i, -19
+  %1133 = lshr i32 %1132, 1
+  %wide.trip.count.i.i35 = zext nneg i32 %1133 to i64
+  br label %.lr.ph74.i.i
 
-.lr.ph76.i.i:                                     ; preds = %1130, %.lr.ph76.preheader.i.i
-  %indvars.iv.i.i36 = phi i64 [ 0, %.lr.ph76.preheader.i.i ], [ %indvars.iv.next.i.i38, %1130 ]
+.lr.ph74.i.i:                                     ; preds = %1134, %.lr.ph74.preheader.i.i
+  %indvars.iv.i.i36 = phi i64 [ 0, %.lr.ph74.preheader.i.i ], [ %indvars.iv.next.i.i38, %1134 ]
   %exitcond.not.i.i37 = icmp eq i64 %indvars.iv.i.i36, %wide.trip.count.i.i35
-  br i1 %exitcond.not.i.i37, label %GIP_HandleArcadeStickReport.exit.i, label %1130
+  br i1 %exitcond.not.i.i37, label %GIP_HandleArcadeStickReport.exit.i, label %1134
 
-1130:                                             ; preds = %.lr.ph76.i.i
-  %1131 = shl nuw nsw i64 %indvars.iv.i.i36, 1
-  %gep81.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep80.i.i, i64 %1131
-  %1132 = load i8, ptr %gep81.i.i, align 1
-  %1133 = zext i8 %1132 to i16
-  %1134 = shl nuw i16 %1133, 8
-  %gep73.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep72.i.i, i64 %1131
-  %1135 = load i8, ptr %gep73.i.i, align 1
-  %1136 = zext i8 %1135 to i16
-  %1137 = or disjoint i16 %1134, %1136
-  %1138 = xor i16 %1137, -32768
-  %1139 = trunc i64 %indvars.iv.i.i36 to i8
-  %1140 = add i8 %1139, 5
-  call void @SDL_SendJoystickAxis(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext %1140, i16 noundef signext %1138) #10
+1134:                                             ; preds = %.lr.ph74.i.i
+  %1135 = shl nuw nsw i64 %indvars.iv.i.i36, 1
+  %1136 = getelementptr inbounds nuw i8, ptr %1, i64 %1135
+  %1137 = getelementptr i8, ptr %1136, i64 19
+  %1138 = load i16, ptr %1137, align 1
+  %1139 = xor i16 %1138, -32768
+  %1140 = trunc i64 %indvars.iv.i.i36 to i8
+  %1141 = add i8 %1140, 5
+  call void @SDL_SendJoystickAxis(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext %1141, i16 noundef signext %1139) #10
   %indvars.iv.next.i.i38 = add nuw nsw i64 %indvars.iv.i.i36, 1
-  %1141 = load i32, ptr %1125, align 4
-  %1142 = sext i32 %1141 to i64
-  %1143 = icmp slt i64 %indvars.iv.next.i.i38, %1142
-  br i1 %1143, label %.lr.ph76.i.i, label %GIP_HandleArcadeStickReport.exit.i, !llvm.loop !24
+  %1142 = load i32, ptr %1129, align 4
+  %1143 = sext i32 %1142 to i64
+  %1144 = icmp slt i64 %indvars.iv.next.i.i38, %1143
+  br i1 %1144, label %.lr.ph74.i.i, label %GIP_HandleArcadeStickReport.exit.i, !llvm.loop !24
 
-GIP_HandleArcadeStickReport.exit.i:               ; preds = %1130, %.lr.ph76.i.i, %._crit_edge.i.i34, %1071, %1064, %1036, %999
-  %1144 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  %1145 = load i32, ptr %1144, align 4
-  %1146 = and i32 %1145, 4
-  %.not113.i = icmp eq i32 %1146, 0
-  br i1 %.not113.i, label %1191, label %1147
+GIP_HandleArcadeStickReport.exit.i:               ; preds = %1134, %.lr.ph74.i.i, %._crit_edge.i.i34, %1073, %1066, %1038, %1001
+  %1145 = getelementptr inbounds nuw i8, ptr %0, i64 332
+  %1146 = load i32, ptr %1145, align 4
+  %1147 = and i32 %1146, 4
+  %.not113.i = icmp eq i32 %1147, 0
+  br i1 %.not113.i, label %1192, label %1148
 
-1147:                                             ; preds = %GIP_HandleArcadeStickReport.exit.i
-  %1148 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %1149 = load i32, ptr %1148, align 8
-  %1150 = icmp sgt i32 %2, %1149
-  br i1 %1150, label %1151, label %1191
+1148:                                             ; preds = %GIP_HandleArcadeStickReport.exit.i
+  %1149 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %1150 = load i32, ptr %1149, align 8
+  %1151 = icmp sgt i32 %2, %1150
+  br i1 %1151, label %1152, label %1192
 
-1151:                                             ; preds = %1147
-  %1152 = sext i32 %1149 to i64
-  %1153 = getelementptr inbounds [64 x i8], ptr %947, i64 0, i64 %1152
-  %1154 = load i8, ptr %1153, align 1
-  %1155 = getelementptr inbounds i8, ptr %1, i64 %1152
-  %1156 = load i8, ptr %1155, align 1
-  %1157 = zext i8 %1156 to i32
-  %.not114.i = icmp eq i8 %1154, %1156
-  br i1 %.not114.i, label %1191, label %1158
+1152:                                             ; preds = %1148
+  %1153 = sext i32 %1150 to i64
+  %1154 = getelementptr inbounds [64 x i8], ptr %949, i64 0, i64 %1153
+  %1155 = load i8, ptr %1154, align 1
+  %1156 = getelementptr inbounds i8, ptr %1, i64 %1153
+  %1157 = load i8, ptr %1156, align 1
+  %1158 = zext i8 %1157 to i32
+  %.not114.i = icmp eq i8 %1155, %1157
+  br i1 %.not114.i, label %1192, label %1159
 
-1158:                                             ; preds = %1151
-  %1159 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %1160 = load i32, ptr %1159, align 8
-  switch i32 %1160, label %1191 [
-    i32 1, label %1161
+1159:                                             ; preds = %1152
+  %1160 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %1161 = load i32, ptr %1160, align 8
+  switch i32 %1161, label %1192 [
+    i32 1, label %1162
     i32 3, label %.sink.split.i
   ]
 
-1161:                                             ; preds = %1158
-  %1162 = and i32 %1157, 16
-  %.not115.i = icmp eq i32 %1162, 0
-  br i1 %.not115.i, label %1191, label %.sink.split.i
+1162:                                             ; preds = %1159
+  %1163 = and i32 %1158, 16
+  %.not115.i = icmp eq i32 %1163, 0
+  br i1 %.not115.i, label %1192, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %1161, %1158
-  %.sink35.i = phi i32 [ 2, %1161 ], [ 1, %1158 ]
-  %.sink26.i = phi i8 [ 8, %1161 ], [ 2, %1158 ]
-  %.sink16.i = phi i8 [ 1, %1161 ], [ 4, %1158 ]
-  %.sink7.i = phi i8 [ 4, %1161 ], [ 8, %1158 ]
-  %1163 = getelementptr inbounds nuw i8, ptr %0, i64 341
-  %1164 = load i8, ptr %1163, align 1
-  %1165 = and i32 %.sink35.i, %1157
-  %1166 = icmp ne i32 %1165, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext %1164, i1 noundef zeroext %1166) #10
-  %1167 = load i8, ptr %1163, align 1
-  %1168 = add i8 %1167, 1
-  %1169 = load i32, ptr %1148, align 8
-  %1170 = sext i32 %1169 to i64
-  %1171 = getelementptr inbounds i8, ptr %1, i64 %1170
-  %1172 = load i8, ptr %1171, align 1
-  %1173 = and i8 %1172, %.sink26.i
-  %1174 = icmp ne i8 %1173, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext %1168, i1 noundef zeroext %1174) #10
-  %1175 = load i8, ptr %1163, align 1
-  %1176 = add i8 %1175, 2
-  %1177 = load i32, ptr %1148, align 8
-  %1178 = sext i32 %1177 to i64
-  %1179 = getelementptr inbounds i8, ptr %1, i64 %1178
-  %1180 = load i8, ptr %1179, align 1
-  %1181 = and i8 %1180, %.sink16.i
-  %1182 = icmp ne i8 %1181, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext %1176, i1 noundef zeroext %1182) #10
-  %1183 = load i8, ptr %1163, align 1
-  %1184 = add i8 %1183, 3
-  %1185 = load i32, ptr %1148, align 8
-  %1186 = sext i32 %1185 to i64
-  %1187 = getelementptr inbounds i8, ptr %1, i64 %1186
-  %1188 = load i8, ptr %1187, align 1
-  %1189 = and i8 %1188, %.sink7.i
-  %1190 = icmp ne i8 %1189, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext %1184, i1 noundef zeroext %1190) #10
-  %.pre = load i32, ptr %1144, align 4
-  br label %1191
+.sink.split.i:                                    ; preds = %1162, %1159
+  %.sink35.i = phi i32 [ 2, %1162 ], [ 1, %1159 ]
+  %.sink26.i = phi i8 [ 8, %1162 ], [ 2, %1159 ]
+  %.sink16.i = phi i8 [ 1, %1162 ], [ 4, %1159 ]
+  %.sink7.i = phi i8 [ 4, %1162 ], [ 8, %1159 ]
+  %1164 = getelementptr inbounds nuw i8, ptr %0, i64 341
+  %1165 = load i8, ptr %1164, align 1
+  %1166 = and i32 %.sink35.i, %1158
+  %1167 = icmp ne i32 %1166, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext %1165, i1 noundef zeroext %1167) #10
+  %1168 = load i8, ptr %1164, align 1
+  %1169 = add i8 %1168, 1
+  %1170 = load i32, ptr %1149, align 8
+  %1171 = sext i32 %1170 to i64
+  %1172 = getelementptr inbounds i8, ptr %1, i64 %1171
+  %1173 = load i8, ptr %1172, align 1
+  %1174 = and i8 %1173, %.sink26.i
+  %1175 = icmp ne i8 %1174, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext %1169, i1 noundef zeroext %1175) #10
+  %1176 = load i8, ptr %1164, align 1
+  %1177 = add i8 %1176, 2
+  %1178 = load i32, ptr %1149, align 8
+  %1179 = sext i32 %1178 to i64
+  %1180 = getelementptr inbounds i8, ptr %1, i64 %1179
+  %1181 = load i8, ptr %1180, align 1
+  %1182 = and i8 %1181, %.sink16.i
+  %1183 = icmp ne i8 %1182, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext %1177, i1 noundef zeroext %1183) #10
+  %1184 = load i8, ptr %1164, align 1
+  %1185 = add i8 %1184, 3
+  %1186 = load i32, ptr %1149, align 8
+  %1187 = sext i32 %1186 to i64
+  %1188 = getelementptr inbounds i8, ptr %1, i64 %1187
+  %1189 = load i8, ptr %1188, align 1
+  %1190 = and i8 %1189, %.sink7.i
+  %1191 = icmp ne i8 %1190, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext %1185, i1 noundef zeroext %1191) #10
+  %.pre = load i32, ptr %1145, align 4
+  br label %1192
 
-1191:                                             ; preds = %.sink.split.i, %1161, %1158, %1151, %1147, %GIP_HandleArcadeStickReport.exit.i
-  %1192 = phi i32 [ %.pre, %.sink.split.i ], [ %1145, %1161 ], [ %1145, %1158 ], [ %1145, %1151 ], [ %1145, %1147 ], [ %1145, %GIP_HandleArcadeStickReport.exit.i ]
-  %1193 = and i32 %1192, 1
-  %1194 = icmp ne i32 %1193, 0
-  %1195 = icmp sgt i32 %2, 31
-  %or.cond.i32 = and i1 %1195, %1194
-  br i1 %or.cond.i32, label %1196, label %1213
+1192:                                             ; preds = %.sink.split.i, %1162, %1159, %1152, %1148, %GIP_HandleArcadeStickReport.exit.i
+  %1193 = phi i32 [ %.pre, %.sink.split.i ], [ %1146, %1162 ], [ %1146, %1159 ], [ %1146, %1152 ], [ %1146, %1148 ], [ %1146, %GIP_HandleArcadeStickReport.exit.i ]
+  %1194 = and i32 %1193, 1
+  %1195 = icmp ne i32 %1194, 0
+  %1196 = icmp sgt i32 %2, 31
+  %or.cond.i32 = and i1 %1196, %1195
+  br i1 %or.cond.i32, label %1197, label %1214
 
-1196:                                             ; preds = %1191
-  %1197 = and i32 %1192, 8
-  %.not116.i = icmp eq i32 %1197, 0
-  %1198 = add nsw i32 %2, -18
-  %1199 = icmp samesign ugt i32 %2, 39
-  %1200 = add nsw i32 %2, -26
-  %spec.select.i = select i1 %1199, i32 %1200, i32 -1
-  %.0.i33 = select i1 %.not116.i, i32 %1198, i32 %spec.select.i
-  %1201 = icmp sgt i32 %.0.i33, 13
-  br i1 %1201, label %1202, label %1213
+1197:                                             ; preds = %1192
+  %1198 = and i32 %1193, 8
+  %.not116.i = icmp eq i32 %1198, 0
+  %1199 = add nsw i32 %2, -18
+  %1200 = icmp samesign ugt i32 %2, 39
+  %1201 = add nsw i32 %2, -26
+  %spec.select.i = select i1 %1200, i32 %1201, i32 -1
+  %.0.i33 = select i1 %.not116.i, i32 %1199, i32 %spec.select.i
+  %1202 = icmp sgt i32 %.0.i33, 13
+  br i1 %1202, label %1203, label %1214
 
-1202:                                             ; preds = %1196
-  %1203 = zext nneg i32 %.0.i33 to i64
-  %1204 = getelementptr inbounds nuw [64 x i8], ptr %947, i64 0, i64 %1203
-  %1205 = load i8, ptr %1204, align 1
-  %1206 = getelementptr inbounds nuw i8, ptr %1, i64 %1203
-  %1207 = load i8, ptr %1206, align 1
-  %.not117.i = icmp eq i8 %1205, %1207
-  br i1 %.not117.i, label %1213, label %1208
+1203:                                             ; preds = %1197
+  %1204 = zext nneg i32 %.0.i33 to i64
+  %1205 = getelementptr inbounds nuw [64 x i8], ptr %949, i64 0, i64 %1204
+  %1206 = load i8, ptr %1205, align 1
+  %1207 = getelementptr inbounds nuw i8, ptr %1, i64 %1204
+  %1208 = load i8, ptr %1207, align 1
+  %.not117.i = icmp eq i8 %1206, %1208
+  br i1 %.not117.i, label %1214, label %1209
 
-1208:                                             ; preds = %1202
-  %1209 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %1210 = load i8, ptr %1209, align 4
-  %1211 = and i8 %1207, 1
-  %1212 = icmp ne i8 %1211, 0
-  call void @SDL_SendJoystickButton(i64 noundef %901, ptr noundef nonnull %938, i8 noundef zeroext %1210, i1 noundef zeroext %1212) #10
-  br label %1213
+1209:                                             ; preds = %1203
+  %1210 = getelementptr inbounds nuw i8, ptr %0, i64 340
+  %1211 = load i8, ptr %1210, align 4
+  %1212 = and i8 %1208, 1
+  %1213 = icmp ne i8 %1212, 0
+  call void @SDL_SendJoystickButton(i64 noundef %903, ptr noundef nonnull %940, i8 noundef zeroext %1211, i1 noundef zeroext %1213) #10
+  br label %1214
 
-1213:                                             ; preds = %1208, %1202, %1196, %1191
-  %1214 = call i32 @llvm.umin.i32(i32 range(i32 -2147483642, -2147483648) %2, i32 64)
-  %1215 = zext nneg i32 %1214 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %947, ptr nonnull readonly align 1 %1, i64 %1215, i1 false)
+1214:                                             ; preds = %1209, %1203, %1197, %1192
+  %1215 = call i32 @llvm.umin.i32(i32 range(i32 -2147483642, -2147483648) %2, i32 64)
+  %1216 = zext nneg i32 %1215 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %949, ptr nonnull readonly align 1 %1, i64 %1216, i1 false)
   br label %GIP_HandleSystemMessage.exit
 
-1216:                                             ; preds = %839
+1217:                                             ; preds = %841
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.48) #10
   br label %GIP_HandleSystemMessage.exit
 
-1217:                                             ; preds = %839
+1218:                                             ; preds = %841
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.49) #10
   br label %GIP_HandleSystemMessage.exit
 
-1218:                                             ; preds = %839
+1219:                                             ; preds = %841
   tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 7, ptr noundef nonnull @.str.50) #10
   br label %GIP_HandleSystemMessage.exit
 
-1219:                                             ; preds = %839, %840
-  %1220 = zext i8 %.0.val to i32
-  tail call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.16, i32 noundef %1220) #10
+1220:                                             ; preds = %841, %842
+  %1221 = zext i8 %.0.val to i32
+  tail call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.16, i32 noundef %1221) #10
   br label %GIP_HandleSystemMessage.exit
 
-GIP_HandleSystemMessage.exit:                     ; preds = %1213, %945, %942, %935, %GIP_EnsureMetadata.exit.i, %868, %864, %861, %860, %851, %844, %838, %837, %GIP_HandleCommandExtended.exit.i, %818, %727, %717, %716, %GIP_SendVendorMessage.exit.i.i.i, %GIP_SendVendorMessage.exit.thread.i.i.i, %658, %651, %650, %646, %642, %638, %631, %630, %GIP_HandleCommandMetadataRespose.exit.i, %205, %187, %.loopexit.i.i, %176, %175, %168, %160, %159, %141, %133, %109, %45, %44, %42, %1219, %1218, %1217, %1216
-  %.0 = phi i1 [ false, %1219 ], [ false, %1216 ], [ false, %1217 ], [ false, %1218 ], [ false, %838 ], [ false, %44 ], [ %.0.i66.i, %GIP_HandleCommandMetadataRespose.exit.i ], [ false, %630 ], [ false, %650 ], [ %.0.i82.i, %GIP_HandleCommandExtended.exit.i ], [ false, %837 ], [ false, %42 ], [ %122, %109 ], [ false, %45 ], [ true, %141 ], [ true, %159 ], [ true, %133 ], [ false, %175 ], [ false, %160 ], [ false, %168 ], [ false, %176 ], [ true, %.loopexit.i.i ], [ true, %187 ], [ true, %205 ], [ true, %631 ], [ false, %638 ], [ true, %646 ], [ true, %642 ], [ false, %717 ], [ false, %651 ], [ false, %658 ], [ true, %716 ], [ false, %GIP_SendVendorMessage.exit.i.i.i ], [ false, %GIP_SendVendorMessage.exit.thread.i.i.i ], [ false, %727 ], [ true, %818 ], [ false, %860 ], [ true, %844 ], [ true, %851 ], [ true, %868 ], [ true, %864 ], [ true, %861 ], [ true, %942 ], [ false, %945 ], [ true, %1213 ], [ true, %GIP_EnsureMetadata.exit.i ], [ false, %935 ]
+GIP_HandleSystemMessage.exit:                     ; preds = %1214, %947, %944, %937, %GIP_EnsureMetadata.exit.i, %870, %866, %863, %862, %853, %846, %840, %839, %GIP_HandleCommandExtended.exit.i, %820, %729, %719, %718, %GIP_SendVendorMessage.exit.i.i.i, %GIP_SendVendorMessage.exit.thread.i.i.i, %660, %653, %652, %648, %644, %640, %633, %632, %GIP_HandleCommandMetadataRespose.exit.i, %205, %187, %.loopexit.i.i, %176, %175, %168, %160, %159, %141, %133, %109, %45, %44, %42, %1220, %1219, %1218, %1217
+  %.0 = phi i1 [ false, %1220 ], [ false, %1217 ], [ false, %1218 ], [ false, %1219 ], [ false, %840 ], [ false, %44 ], [ %.0.i66.i, %GIP_HandleCommandMetadataRespose.exit.i ], [ false, %632 ], [ false, %652 ], [ %.0.i82.i, %GIP_HandleCommandExtended.exit.i ], [ false, %839 ], [ false, %42 ], [ %122, %109 ], [ false, %45 ], [ true, %141 ], [ true, %159 ], [ true, %133 ], [ false, %175 ], [ false, %160 ], [ false, %168 ], [ false, %176 ], [ true, %.loopexit.i.i ], [ true, %187 ], [ true, %205 ], [ true, %633 ], [ false, %640 ], [ true, %648 ], [ true, %644 ], [ false, %719 ], [ false, %653 ], [ false, %660 ], [ true, %718 ], [ false, %GIP_SendVendorMessage.exit.i.i.i ], [ false, %GIP_SendVendorMessage.exit.thread.i.i.i ], [ false, %729 ], [ true, %820 ], [ false, %862 ], [ true, %846 ], [ true, %853 ], [ true, %870 ], [ true, %866 ], [ true, %863 ], [ true, %944 ], [ false, %947 ], [ true, %1214 ], [ true, %GIP_EnsureMetadata.exit.i ], [ false, %937 ]
   ret i1 %.0
 }
 

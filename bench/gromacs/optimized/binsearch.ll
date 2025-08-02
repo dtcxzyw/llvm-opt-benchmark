@@ -128,7 +128,6 @@ define noundef i32 @_Z12BinarySearchPKfiifi(ptr noundef readonly captures(none) 
   %6 = add nsw i32 %2, 2
   %7 = add nsw i32 %1, 1
   %8 = icmp sgt i32 %4, -1
-  %invariant.gep31 = getelementptr i8, ptr %0, i64 -4
   %9 = sub nsw i32 %6, %7
   %10 = icmp sgt i32 %9, 1
   br i1 %8, label %.preheader, label %.preheader28
@@ -137,44 +136,46 @@ define noundef i32 @_Z12BinarySearchPKfiifi(ptr noundef readonly captures(none) 
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .preheader:                                       ; preds = %5
-  br i1 %10, label %.lr.ph35, label %.loopexit
+  br i1 %10, label %.lr.ph33, label %.loopexit
 
-.lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
-  %.034 = phi i32 [ %.0., %.lr.ph35 ], [ %7, %.preheader ]
-  %.02333 = phi i32 [ %..023, %.lr.ph35 ], [ %6, %.preheader ]
-  %11 = add nsw i32 %.034, %.02333
+.lr.ph33:                                         ; preds = %.preheader, %.lr.ph33
+  %.032 = phi i32 [ %.0., %.lr.ph33 ], [ %7, %.preheader ]
+  %.02331 = phi i32 [ %..023, %.lr.ph33 ], [ %6, %.preheader ]
+  %11 = add nsw i32 %.032, %.02331
   %12 = ashr i32 %11, 1
   %13 = sext i32 %12 to i64
-  %gep32 = getelementptr float, ptr %invariant.gep31, i64 %13
-  %14 = load float, ptr %gep32, align 4, !tbaa !10
-  %15 = fcmp olt float %3, %14
-  %..023 = select i1 %15, i32 %12, i32 %.02333
-  %.0. = select i1 %15, i32 %.034, i32 %12
-  %16 = sub nsw i32 %..023, %.0.
-  %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %.lr.ph35, label %.loopexit, !llvm.loop !16
+  %14 = getelementptr float, ptr %0, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 -4
+  %16 = load float, ptr %15, align 4, !tbaa !10
+  %17 = fcmp olt float %3, %16
+  %..023 = select i1 %17, i32 %12, i32 %.02331
+  %.0. = select i1 %17, i32 %.032, i32 %12
+  %18 = sub nsw i32 %..023, %.0.
+  %19 = icmp sgt i32 %18, 1
+  br i1 %19, label %.lr.ph33, label %.loopexit, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %.preheader28, %.lr.ph
   %.230 = phi i32 [ %.2., %.lr.ph ], [ %7, %.preheader28 ]
   %.22529 = phi i32 [ %..225, %.lr.ph ], [ %6, %.preheader28 ]
-  %18 = add nsw i32 %.230, %.22529
-  %19 = ashr i32 %18, 1
-  %20 = sext i32 %19 to i64
-  %gep = getelementptr float, ptr %invariant.gep31, i64 %20
-  %21 = load float, ptr %gep, align 4, !tbaa !10
-  %22 = fcmp ogt float %3, %21
-  %..225 = select i1 %22, i32 %19, i32 %.22529
-  %.2. = select i1 %22, i32 %.230, i32 %19
-  %23 = sub nsw i32 %..225, %.2.
-  %24 = icmp sgt i32 %23, 1
-  br i1 %24, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
+  %20 = add nsw i32 %.230, %.22529
+  %21 = ashr i32 %20, 1
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr float, ptr %0, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 -4
+  %25 = load float, ptr %24, align 4, !tbaa !10
+  %26 = fcmp ogt float %3, %25
+  %..225 = select i1 %26, i32 %21, i32 %.22529
+  %.2. = select i1 %26, i32 %.230, i32 %21
+  %27 = sub nsw i32 %..225, %.2.
+  %28 = icmp sgt i32 %27, 1
+  br i1 %28, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %25 = add nsw i32 %.2., -1
+  %29 = add nsw i32 %.2., -1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph35, %.preheader28, %._crit_edge.loopexit, %.preheader
-  %.027 = phi i32 [ %7, %.preheader ], [ %1, %.preheader28 ], [ %25, %._crit_edge.loopexit ], [ %.0., %.lr.ph35 ]
+.loopexit:                                        ; preds = %.lr.ph33, %.preheader28, %._crit_edge.loopexit, %.preheader
+  %.027 = phi i32 [ %7, %.preheader ], [ %1, %.preheader28 ], [ %29, %._crit_edge.loopexit ], [ %.0., %.lr.ph33 ]
   ret i32 %.027
 }
 
@@ -277,7 +278,6 @@ define noundef i32 @_Z15start_binsearchPfPiiifi(ptr noundef captures(none) %0, p
 _Z13insertionSortPfPiiii.exit:                    ; preds = %.critedge2.i, %.loopexit49.i
   %35 = add nsw i32 %3, 2
   %36 = add nsw i32 %2, 1
-  %invariant.gep31.i = getelementptr i8, ptr %0, i64 -4
   %37 = sub nsw i32 %35, %36
   %38 = icmp sgt i32 %37, 1
   br i1 %21, label %.preheader.i10, label %.preheader28.i
@@ -286,44 +286,46 @@ _Z13insertionSortPfPiiii.exit:                    ; preds = %.critedge2.i, %.loo
   br i1 %38, label %.lr.ph.i9, label %_Z12BinarySearchPKfiifi.exit
 
 .preheader.i10:                                   ; preds = %_Z13insertionSortPfPiiii.exit
-  br i1 %38, label %.lr.ph35.i, label %_Z12BinarySearchPKfiifi.exit
+  br i1 %38, label %.lr.ph33.i, label %_Z12BinarySearchPKfiifi.exit
 
-.lr.ph35.i:                                       ; preds = %.preheader.i10, %.lr.ph35.i
-  %.034.i = phi i32 [ %.0..i, %.lr.ph35.i ], [ %36, %.preheader.i10 ]
-  %.02333.i = phi i32 [ %..023.i, %.lr.ph35.i ], [ %35, %.preheader.i10 ]
-  %39 = add nsw i32 %.02333.i, %.034.i
+.lr.ph33.i:                                       ; preds = %.preheader.i10, %.lr.ph33.i
+  %.032.i = phi i32 [ %.0..i, %.lr.ph33.i ], [ %36, %.preheader.i10 ]
+  %.02331.i = phi i32 [ %..023.i, %.lr.ph33.i ], [ %35, %.preheader.i10 ]
+  %39 = add nsw i32 %.02331.i, %.032.i
   %40 = ashr i32 %39, 1
   %41 = sext i32 %40 to i64
-  %gep32.i = getelementptr float, ptr %invariant.gep31.i, i64 %41
-  %42 = load float, ptr %gep32.i, align 4, !tbaa !10
-  %43 = fcmp olt float %4, %42
-  %..023.i = select i1 %43, i32 %40, i32 %.02333.i
-  %.0..i = select i1 %43, i32 %.034.i, i32 %40
-  %44 = sub nsw i32 %..023.i, %.0..i
-  %45 = icmp sgt i32 %44, 1
-  br i1 %45, label %.lr.ph35.i, label %_Z12BinarySearchPKfiifi.exit, !llvm.loop !16
+  %42 = getelementptr float, ptr %0, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 -4
+  %44 = load float, ptr %43, align 4, !tbaa !10
+  %45 = fcmp olt float %4, %44
+  %..023.i = select i1 %45, i32 %40, i32 %.02331.i
+  %.0..i = select i1 %45, i32 %.032.i, i32 %40
+  %46 = sub nsw i32 %..023.i, %.0..i
+  %47 = icmp sgt i32 %46, 1
+  br i1 %47, label %.lr.ph33.i, label %_Z12BinarySearchPKfiifi.exit, !llvm.loop !16
 
 .lr.ph.i9:                                        ; preds = %.preheader28.i, %.lr.ph.i9
   %.230.i = phi i32 [ %.2..i, %.lr.ph.i9 ], [ %36, %.preheader28.i ]
   %.22529.i = phi i32 [ %..225.i, %.lr.ph.i9 ], [ %35, %.preheader28.i ]
-  %46 = add nsw i32 %.22529.i, %.230.i
-  %47 = ashr i32 %46, 1
-  %48 = sext i32 %47 to i64
-  %gep.i = getelementptr float, ptr %invariant.gep31.i, i64 %48
-  %49 = load float, ptr %gep.i, align 4, !tbaa !10
-  %50 = fcmp ogt float %4, %49
-  %..225.i = select i1 %50, i32 %47, i32 %.22529.i
-  %.2..i = select i1 %50, i32 %.230.i, i32 %47
-  %51 = sub nsw i32 %..225.i, %.2..i
-  %52 = icmp sgt i32 %51, 1
-  br i1 %52, label %.lr.ph.i9, label %._crit_edge.loopexit.i, !llvm.loop !17
+  %48 = add nsw i32 %.22529.i, %.230.i
+  %49 = ashr i32 %48, 1
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr float, ptr %0, i64 %50
+  %52 = getelementptr i8, ptr %51, i64 -4
+  %53 = load float, ptr %52, align 4, !tbaa !10
+  %54 = fcmp ogt float %4, %53
+  %..225.i = select i1 %54, i32 %49, i32 %.22529.i
+  %.2..i = select i1 %54, i32 %.230.i, i32 %49
+  %55 = sub nsw i32 %..225.i, %.2..i
+  %56 = icmp sgt i32 %55, 1
+  br i1 %56, label %.lr.ph.i9, label %._crit_edge.loopexit.i, !llvm.loop !17
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i9
-  %53 = add nsw i32 %.2..i, -1
+  %57 = add nsw i32 %.2..i, -1
   br label %_Z12BinarySearchPKfiifi.exit
 
-_Z12BinarySearchPKfiifi.exit:                     ; preds = %.lr.ph35.i, %.preheader28.i, %.preheader.i10, %._crit_edge.loopexit.i
-  %.027.i = phi i32 [ %36, %.preheader.i10 ], [ %2, %.preheader28.i ], [ %53, %._crit_edge.loopexit.i ], [ %.0..i, %.lr.ph35.i ]
+_Z12BinarySearchPKfiifi.exit:                     ; preds = %.lr.ph33.i, %.preheader28.i, %.preheader.i10, %._crit_edge.loopexit.i
+  %.027.i = phi i32 [ %36, %.preheader.i10 ], [ %2, %.preheader28.i ], [ %57, %._crit_edge.loopexit.i ], [ %.0..i, %.lr.ph33.i ]
   ret i32 %.027.i
 }
 

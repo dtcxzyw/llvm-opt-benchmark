@@ -878,56 +878,59 @@ define noundef i32 @_Z23tMPI_Get_processor_namePcPi(ptr noundef captures(none) %
   %11 = udiv i32 %.02933, 10
   %12 = add i32 %.034, 1
   %.not37 = icmp samesign ult i32 %.02933, 10
-  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !92
+  br i1 %.not37, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !92
 
-._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %12, %.lr.ph ]
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.0.lcssa, i32 1)
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %13 = tail call i32 @llvm.umax.i32(i32 %12, i32 1)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
+  %.0.lcssa = phi i32 [ 1, %2 ], [ %13, %._crit_edge.loopexit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(9) @.str.4, i64 9, i1 false) #18
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
-  %wide.trip.count = zext i32 %spec.store.select to i64
-  br label %14
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %wide.trip.count = zext i32 %.0.lcssa to i64
+  br label %15
 
-14:                                               ; preds = %._crit_edge, %27
-  %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %27 ]
-  %.02736 = phi i32 [ %9, %._crit_edge ], [ %21, %27 ]
-  %15 = trunc nuw i64 %indvars.iv to i32
-  %16 = xor i32 %15, -1
-  %17 = add i32 %spec.store.select, %16
-  %18 = zext i32 %17 to i64
-  %19 = add i64 %13, %18
-  %20 = icmp ult i64 %19, 127
-  %21 = udiv i32 %.02736, 10
-  %22 = urem i32 %.02736, 10
-  br i1 %20, label %23, label %27
+15:                                               ; preds = %._crit_edge, %28
+  %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %28 ]
+  %.02736 = phi i32 [ %9, %._crit_edge ], [ %22, %28 ]
+  %16 = trunc nuw i64 %indvars.iv to i32
+  %17 = xor i32 %16, -1
+  %18 = add i32 %.0.lcssa, %17
+  %19 = zext i32 %18 to i64
+  %20 = add i64 %14, %19
+  %21 = icmp ult i64 %20, 127
+  %22 = udiv i32 %.02736, 10
+  %23 = urem i32 %.02736, 10
+  br i1 %21, label %24, label %28
 
-23:                                               ; preds = %14
-  %24 = trunc nuw nsw i32 %22 to i8
-  %25 = or disjoint i8 %24, 48
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %19
-  store i8 %25, ptr %26, align 1, !tbaa !52
-  br label %27
+24:                                               ; preds = %15
+  %25 = trunc nuw nsw i32 %23 to i8
+  %26 = or disjoint i8 %25, 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %20
+  store i8 %26, ptr %27, align 1, !tbaa !52
+  br label %28
 
-27:                                               ; preds = %23, %14
+28:                                               ; preds = %24, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %28, label %14, !llvm.loop !93
+  br i1 %exitcond.not, label %29, label %15, !llvm.loop !93
 
-28:                                               ; preds = %27
-  %29 = add i64 %13, %wide.trip.count
-  %. = tail call i64 @llvm.umin.i64(i64 %29, i64 128)
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  store i8 0, ptr %30, align 1, !tbaa !52
+29:                                               ; preds = %28
+  %30 = add i64 %14, %wide.trip.count
+  %. = tail call i64 @llvm.umin.i64(i64 %30, i64 128)
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  store i8 0, ptr %31, align 1, !tbaa !52
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %34, label %31
+  br i1 %.not, label %35, label %32
 
-31:                                               ; preds = %28
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
-  %33 = trunc i64 %32 to i32
-  store i32 %33, ptr %1, align 4, !tbaa !46
-  br label %34
+32:                                               ; preds = %29
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %34 = trunc i64 %33 to i32
+  store i32 %34, ptr %1, align 4, !tbaa !46
+  br label %35
 
-34:                                               ; preds = %31, %28
+35:                                               ; preds = %32, %29
   ret i32 0
 }
 
@@ -1010,7 +1013,7 @@ declare noundef i32 @_Z30tMPI_Thread_setaffinity_singleP11tMPI_Threadj(ptr nound
 declare noundef i32 @_Z18tMPI_Thread_createPP11tMPI_ThreadPFPvS2_ES2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL17tMPI_Thread_startPv(ptr noundef %0) #0 {
+define internal noalias noundef ptr @_ZL17tMPI_Thread_startPv(ptr noundef %0) #0 {
   %2 = tail call fastcc noundef i32 @_ZL16tMPI_Thread_initP11tmpi_thread(ptr noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %19

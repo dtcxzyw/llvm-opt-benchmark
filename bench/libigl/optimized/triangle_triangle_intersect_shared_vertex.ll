@@ -264,14 +264,14 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   br label %179
 
 179:                                              ; preds = %178, %176, %175, %173, %167
-  %.162.i.i.i = phi double [ %165, %175 ], [ %165, %178 ], [ 0.000000e+00, %176 ], [ 0x4000000000000, %167 ], [ %165, %173 ]
-  %.159.i.i.i = phi double [ %171, %175 ], [ 1.000000e+00, %178 ], [ 1.000000e+00, %176 ], [ 0x7FEFFFFFFFFFFFFF, %167 ], [ 1.000000e+00, %173 ]
+  %.158.i.i.i = phi double [ %165, %175 ], [ %165, %178 ], [ 0.000000e+00, %176 ], [ 0x4000000000000, %167 ], [ %165, %173 ]
+  %.155.i.i.i = phi double [ %171, %175 ], [ 1.000000e+00, %178 ], [ 1.000000e+00, %176 ], [ 0x7FEFFFFFFFFFFFFF, %167 ], [ 1.000000e+00, %173 ]
   %.1.i.i.i = phi double [ %170, %175 ], [ 0.000000e+00, %178 ], [ 0.000000e+00, %176 ], [ %170, %167 ], [ %170, %173 ]
-  %180 = fcmp ogt double %.162.i.i.i, 0.000000e+00
+  %180 = fcmp ogt double %.158.i.i.i, 0.000000e+00
   br i1 %180, label %.lr.ph85.i.i.i.i32.i.i.i.i.preheader, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit
 
 .lr.ph85.i.i.i.i32.i.i.i.i.preheader:             ; preds = %179
-  %.sroa.6.40.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %.159.i.i.i, i64 0
+  %.sroa.6.40.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %.155.i.i.i, i64 0
   %181 = shufflevector <2 x double> %.sroa.6.40.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %182 = fmul <2 x double> %156, %181
   %183 = fmul <2 x double> %182, %182
@@ -285,7 +285,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %.182.i.i.i.i34.i.i.i.i = phi double [ %190, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ %185, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
   %186 = getelementptr inbounds nuw double, ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
   %187 = load double, ptr %186, align 8, !tbaa !20
-  %188 = fmul double %.159.i.i.i, %187
+  %188 = fmul double %.155.i.i.i, %187
   %189 = fmul double %188, %188
   %190 = fadd double %.182.i.i.i.i34.i.i.i.i, %189
   %191 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i, 1
@@ -308,7 +308,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %199 = fadd double %198, %196
   %200 = call noundef double @llvm.fabs.f64(double %199)
   %201 = call double @sqrt(double noundef %.2.i.i.i) #7, !tbaa !11
-  %202 = fmul double %.162.i.i.i, %201
+  %202 = fmul double %.158.i.i.i, %201
   %203 = fmul double %8, %202
   %204 = fcmp olt double %200, %203
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
@@ -690,14 +690,14 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   br label %477
 
 477:                                              ; preds = %476, %474, %473, %471, %465
-  %.162.i.i.i73 = phi double [ %463, %473 ], [ %463, %476 ], [ 0.000000e+00, %474 ], [ 0x4000000000000, %465 ], [ %463, %471 ]
-  %.159.i.i.i74 = phi double [ %469, %473 ], [ 1.000000e+00, %476 ], [ 1.000000e+00, %474 ], [ 0x7FEFFFFFFFFFFFFF, %465 ], [ 1.000000e+00, %471 ]
+  %.158.i.i.i73 = phi double [ %463, %473 ], [ %463, %476 ], [ 0.000000e+00, %474 ], [ 0x4000000000000, %465 ], [ %463, %471 ]
+  %.155.i.i.i74 = phi double [ %469, %473 ], [ 1.000000e+00, %476 ], [ 1.000000e+00, %474 ], [ 0x7FEFFFFFFFFFFFFF, %465 ], [ 1.000000e+00, %471 ]
   %.1.i.i.i75 = phi double [ %468, %473 ], [ 0.000000e+00, %476 ], [ 0.000000e+00, %474 ], [ %468, %465 ], [ %468, %471 ]
-  %478 = fcmp ogt double %.162.i.i.i73, 0.000000e+00
+  %478 = fcmp ogt double %.158.i.i.i73, 0.000000e+00
   br i1 %478, label %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESO_SO_SO_E_clESO_SO_SO_SO_.exit88
 
 .lr.ph85.i.i.i.i32.i.i.i.i80.preheader:           ; preds = %477
-  %.sroa.6.40.vec.insert.i.i.i.i.i.i.i77 = insertelement <2 x double> poison, double %.159.i.i.i74, i64 0
+  %.sroa.6.40.vec.insert.i.i.i.i.i.i.i77 = insertelement <2 x double> poison, double %.155.i.i.i74, i64 0
   %479 = shufflevector <2 x double> %.sroa.6.40.vec.insert.i.i.i.i.i.i.i77, <2 x double> poison, <2 x i32> zeroinitializer
   %480 = fmul <2 x double> %454, %479
   %481 = fmul <2 x double> %480, %480
@@ -711,7 +711,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %.182.i.i.i.i34.i.i.i.i82 = phi double [ %488, %.lr.ph85.i.i.i.i32.i.i.i.i80 ], [ %483, %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader ]
   %484 = getelementptr inbounds nuw double, ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i81
   %485 = load double, ptr %484, align 8, !tbaa !20
-  %486 = fmul double %.159.i.i.i74, %485
+  %486 = fmul double %.155.i.i.i74, %485
   %487 = fmul double %486, %486
   %488 = fadd double %.182.i.i.i.i34.i.i.i.i82, %487
   %489 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i81, 1
@@ -734,7 +734,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %497 = fadd double %496, %494
   %498 = call noundef double @llvm.fabs.f64(double %497)
   %499 = call double @sqrt(double noundef %.2.i.i.i76) #7, !tbaa !11
-  %500 = fmul double %.162.i.i.i73, %499
+  %500 = fmul double %.158.i.i.i73, %499
   %501 = fmul double %8, %500
   %502 = fcmp olt double %498, %501
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
@@ -1169,14 +1169,14 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   br label %166
 
 166:                                              ; preds = %165, %163, %162, %160, %154
-  %.162.i.i.i = phi double [ %152, %162 ], [ %152, %165 ], [ 0.000000e+00, %163 ], [ 0x4000000000000, %154 ], [ %152, %160 ]
-  %.159.i.i.i = phi double [ %158, %162 ], [ 1.000000e+00, %165 ], [ 1.000000e+00, %163 ], [ 0x7FEFFFFFFFFFFFFF, %154 ], [ 1.000000e+00, %160 ]
+  %.158.i.i.i = phi double [ %152, %162 ], [ %152, %165 ], [ 0.000000e+00, %163 ], [ 0x4000000000000, %154 ], [ %152, %160 ]
+  %.155.i.i.i = phi double [ %158, %162 ], [ 1.000000e+00, %165 ], [ 1.000000e+00, %163 ], [ 0x7FEFFFFFFFFFFFFF, %154 ], [ 1.000000e+00, %160 ]
   %.1.i.i.i = phi double [ %157, %162 ], [ 0.000000e+00, %165 ], [ 0.000000e+00, %163 ], [ %157, %154 ], [ %157, %160 ]
-  %167 = fcmp ogt double %.162.i.i.i, 0.000000e+00
+  %167 = fcmp ogt double %.158.i.i.i, 0.000000e+00
   br i1 %167, label %.lr.ph85.i.i.i.i32.i.i.i.i.preheader, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit
 
 .lr.ph85.i.i.i.i32.i.i.i.i.preheader:             ; preds = %166
-  %.sroa.6.40.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %.159.i.i.i, i64 0
+  %.sroa.6.40.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %.155.i.i.i, i64 0
   %168 = shufflevector <2 x double> %.sroa.6.40.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %169 = fmul <2 x double> %143, %168
   %170 = fmul <2 x double> %169, %169
@@ -1190,7 +1190,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %.182.i.i.i.i34.i.i.i.i = phi double [ %177, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ %172, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
   %173 = getelementptr inbounds nuw double, ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
   %174 = load double, ptr %173, align 8, !tbaa !20
-  %175 = fmul double %.159.i.i.i, %174
+  %175 = fmul double %.155.i.i.i, %174
   %176 = fmul double %175, %175
   %177 = fadd double %.182.i.i.i.i34.i.i.i.i, %176
   %178 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i, 1
@@ -1213,7 +1213,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %186 = fadd double %185, %183
   %187 = call noundef double @llvm.fabs.f64(double %186)
   %188 = call double @sqrt(double noundef %.2.i.i.i) #7, !tbaa !11
-  %189 = fmul double %.162.i.i.i, %188
+  %189 = fmul double %.158.i.i.i, %188
   %190 = fmul double %8, %189
   %191 = fcmp olt double %187, %190
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
@@ -1586,14 +1586,14 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   br label %457
 
 457:                                              ; preds = %456, %454, %453, %451, %445
-  %.162.i.i.i70 = phi double [ %443, %453 ], [ %443, %456 ], [ 0.000000e+00, %454 ], [ 0x4000000000000, %445 ], [ %443, %451 ]
-  %.159.i.i.i71 = phi double [ %449, %453 ], [ 1.000000e+00, %456 ], [ 1.000000e+00, %454 ], [ 0x7FEFFFFFFFFFFFFF, %445 ], [ 1.000000e+00, %451 ]
+  %.158.i.i.i70 = phi double [ %443, %453 ], [ %443, %456 ], [ 0.000000e+00, %454 ], [ 0x4000000000000, %445 ], [ %443, %451 ]
+  %.155.i.i.i71 = phi double [ %449, %453 ], [ 1.000000e+00, %456 ], [ 1.000000e+00, %454 ], [ 0x7FEFFFFFFFFFFFFF, %445 ], [ 1.000000e+00, %451 ]
   %.1.i.i.i72 = phi double [ %448, %453 ], [ 0.000000e+00, %456 ], [ 0.000000e+00, %454 ], [ %448, %445 ], [ %448, %451 ]
-  %458 = fcmp ogt double %.162.i.i.i70, 0.000000e+00
+  %458 = fcmp ogt double %.158.i.i.i70, 0.000000e+00
   br i1 %458, label %.lr.ph85.i.i.i.i32.i.i.i.i77.preheader, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EEiiiRKNS6_IT1_EEiiNS7_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESM_SM_SM_E_clESM_SM_SM_SM_.exit85
 
 .lr.ph85.i.i.i.i32.i.i.i.i77.preheader:           ; preds = %457
-  %.sroa.6.40.vec.insert.i.i.i.i.i.i.i74 = insertelement <2 x double> poison, double %.159.i.i.i71, i64 0
+  %.sroa.6.40.vec.insert.i.i.i.i.i.i.i74 = insertelement <2 x double> poison, double %.155.i.i.i71, i64 0
   %459 = shufflevector <2 x double> %.sroa.6.40.vec.insert.i.i.i.i.i.i.i74, <2 x double> poison, <2 x i32> zeroinitializer
   %460 = fmul <2 x double> %434, %459
   %461 = fmul <2 x double> %460, %460
@@ -1607,7 +1607,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %.182.i.i.i.i34.i.i.i.i79 = phi double [ %468, %.lr.ph85.i.i.i.i32.i.i.i.i77 ], [ %463, %.lr.ph85.i.i.i.i32.i.i.i.i77.preheader ]
   %464 = getelementptr inbounds nuw double, ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i78
   %465 = load double, ptr %464, align 8, !tbaa !20
-  %466 = fmul double %.159.i.i.i71, %465
+  %466 = fmul double %.155.i.i.i71, %465
   %467 = fmul double %466, %466
   %468 = fadd double %.182.i.i.i.i34.i.i.i.i79, %467
   %469 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i78, 1
@@ -1630,7 +1630,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %477 = fadd double %476, %474
   %478 = call noundef double @llvm.fabs.f64(double %477)
   %479 = call double @sqrt(double noundef %.2.i.i.i73) #7, !tbaa !11
-  %480 = fmul double %.162.i.i.i70, %479
+  %480 = fmul double %.158.i.i.i70, %479
   %481 = fmul double %8, %480
   %482 = fcmp olt double %478, %481
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
@@ -2075,14 +2075,14 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   br label %179
 
 179:                                              ; preds = %178, %176, %175, %173, %167
-  %.162.i.i.i = phi double [ %165, %175 ], [ %165, %178 ], [ 0.000000e+00, %176 ], [ 0x4000000000000, %167 ], [ %165, %173 ]
-  %.159.i.i.i = phi double [ %171, %175 ], [ 1.000000e+00, %178 ], [ 1.000000e+00, %176 ], [ 0x7FEFFFFFFFFFFFFF, %167 ], [ 1.000000e+00, %173 ]
+  %.158.i.i.i = phi double [ %165, %175 ], [ %165, %178 ], [ 0.000000e+00, %176 ], [ 0x4000000000000, %167 ], [ %165, %173 ]
+  %.155.i.i.i = phi double [ %171, %175 ], [ 1.000000e+00, %178 ], [ 1.000000e+00, %176 ], [ 0x7FEFFFFFFFFFFFFF, %167 ], [ 1.000000e+00, %173 ]
   %.1.i.i.i = phi double [ %170, %175 ], [ 0.000000e+00, %178 ], [ 0.000000e+00, %176 ], [ %170, %167 ], [ %170, %173 ]
-  %180 = fcmp ogt double %.162.i.i.i, 0.000000e+00
+  %180 = fcmp ogt double %.158.i.i.i, 0.000000e+00
   br i1 %180, label %.lr.ph85.i.i.i.i32.i.i.i.i.preheader, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit
 
 .lr.ph85.i.i.i.i32.i.i.i.i.preheader:             ; preds = %179
-  %.sroa.6.40.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %.159.i.i.i, i64 0
+  %.sroa.6.40.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %.155.i.i.i, i64 0
   %181 = shufflevector <2 x double> %.sroa.6.40.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %182 = fmul <2 x double> %156, %181
   %183 = fmul <2 x double> %182, %182
@@ -2096,7 +2096,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl41triangle_triangle_interse
   %.182.i.i.i.i34.i.i.i.i = phi double [ %190, %.lr.ph85.i.i.i.i32.i.i.i.i ], [ %185, %.lr.ph85.i.i.i.i32.i.i.i.i.preheader ]
   %186 = getelementptr inbounds nuw double, ptr %11, i64 %.05283.i.i.i.i33.i.i.i.i
   %187 = load double, ptr %186, align 8, !tbaa !20
-  %188 = fmul double %.159.i.i.i, %187
+  %188 = fmul double %.155.i.i.i, %187
   %189 = fmul double %188, %188
   %190 = fadd double %.182.i.i.i.i34.i.i.i.i, %189
   %191 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i, 1
@@ -2119,7 +2119,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %199 = fadd double %198, %196
   %200 = call noundef double @llvm.fabs.f64(double %199)
   %201 = call double @sqrt(double noundef %.2.i.i.i) #7, !tbaa !11
-  %202 = fmul double %.162.i.i.i, %201
+  %202 = fmul double %.158.i.i.i, %201
   %203 = fmul double %8, %202
   %204 = fcmp olt double %200, %203
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
@@ -2501,14 +2501,14 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   br label %477
 
 477:                                              ; preds = %476, %474, %473, %471, %465
-  %.162.i.i.i73 = phi double [ %463, %473 ], [ %463, %476 ], [ 0.000000e+00, %474 ], [ 0x4000000000000, %465 ], [ %463, %471 ]
-  %.159.i.i.i74 = phi double [ %469, %473 ], [ 1.000000e+00, %476 ], [ 1.000000e+00, %474 ], [ 0x7FEFFFFFFFFFFFFF, %465 ], [ 1.000000e+00, %471 ]
+  %.158.i.i.i73 = phi double [ %463, %473 ], [ %463, %476 ], [ 0.000000e+00, %474 ], [ 0x4000000000000, %465 ], [ %463, %471 ]
+  %.155.i.i.i74 = phi double [ %469, %473 ], [ 1.000000e+00, %476 ], [ 1.000000e+00, %474 ], [ 0x7FEFFFFFFFFFFFFF, %465 ], [ 1.000000e+00, %471 ]
   %.1.i.i.i75 = phi double [ %468, %473 ], [ 0.000000e+00, %476 ], [ 0.000000e+00, %474 ], [ %468, %465 ], [ %468, %471 ]
-  %478 = fcmp ogt double %.162.i.i.i73, 0.000000e+00
+  %478 = fcmp ogt double %.158.i.i.i73, 0.000000e+00
   br i1 %478, label %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader, label %_ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EEiiiRKNS7_IT1_EEiiNS8_6ScalarEENKUlRKNS2_IdLi1ELi3ELi1ELi1ELi3EEESN_SN_SN_E_clESN_SN_SN_SN_.exit88
 
 .lr.ph85.i.i.i.i32.i.i.i.i80.preheader:           ; preds = %477
-  %.sroa.6.40.vec.insert.i.i.i.i.i.i.i77 = insertelement <2 x double> poison, double %.159.i.i.i74, i64 0
+  %.sroa.6.40.vec.insert.i.i.i.i.i.i.i77 = insertelement <2 x double> poison, double %.155.i.i.i74, i64 0
   %479 = shufflevector <2 x double> %.sroa.6.40.vec.insert.i.i.i.i.i.i.i77, <2 x double> poison, <2 x i32> zeroinitializer
   %480 = fmul <2 x double> %454, %479
   %481 = fmul <2 x double> %480, %480
@@ -2522,7 +2522,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %.182.i.i.i.i34.i.i.i.i82 = phi double [ %488, %.lr.ph85.i.i.i.i32.i.i.i.i80 ], [ %483, %.lr.ph85.i.i.i.i32.i.i.i.i80.preheader ]
   %484 = getelementptr inbounds nuw double, ptr %10, i64 %.05283.i.i.i.i33.i.i.i.i81
   %485 = load double, ptr %484, align 8, !tbaa !20
-  %486 = fmul double %.159.i.i.i74, %485
+  %486 = fmul double %.155.i.i.i74, %485
   %487 = fmul double %486, %486
   %488 = fadd double %.182.i.i.i.i34.i.i.i.i82, %487
   %489 = add nuw nsw i64 %.05283.i.i.i.i33.i.i.i.i81, 1
@@ -2545,7 +2545,7 @@ _ZZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi
   %497 = fadd double %496, %494
   %498 = call noundef double @llvm.fabs.f64(double %497)
   %499 = call double @sqrt(double noundef %.2.i.i.i76) #7, !tbaa !11
-  %500 = fmul double %.162.i.i.i73, %499
+  %500 = fmul double %.158.i.i.i73, %499
   %501 = fmul double %8, %500
   %502 = fcmp olt double %498, %501
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7

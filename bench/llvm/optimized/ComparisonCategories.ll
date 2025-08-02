@@ -1049,10 +1049,10 @@ switch.lookup:                                    ; preds = %.preheader, %_ZN4ll
   %46 = zext nneg i32 %.mask to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 0, i64 %46
   %switch.load = load i64, ptr %switch.gep, align 8
-  %.mask65 = and i32 %.02650, 255
-  %47 = zext nneg i32 %.mask65 to i64
-  %switch.gep63 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 0, i64 %47
-  %switch.load64 = load ptr, ptr %switch.gep63, align 8
+  %.mask63 = and i32 %.02650, 255
+  %47 = zext nneg i32 %.mask63 to i64
+  %switch.gep61 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 0, i64 %47
+  %switch.load62 = load ptr, ptr %switch.gep61, align 8
   %48 = load i64, ptr %44, align 8, !tbaa !461
   %49 = and i64 %48, 7
   %50 = icmp ne i64 %49, 0
@@ -1072,7 +1072,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %switch.lookup
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %switch.load64, ptr noundef nonnull dereferenceable(1) %58, i64 %switch.load)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %switch.load62, ptr noundef nonnull dereferenceable(1) %58, i64 %switch.load)
   %59 = icmp eq i32 %bcmp.i, 0
   br i1 %59, label %60, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 

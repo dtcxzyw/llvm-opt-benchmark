@@ -1015,34 +1015,34 @@ define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124
   %11 = icmp uge ptr %2, %.val.pre4.i
   %12 = icmp ult ptr %2, %10
   %spec.select.i.i.i.i.i = and i1 %11, %12
-  br i1 %spec.select.i.i.i.i.i, label %15, label %13, !prof !437
+  br i1 %spec.select.i.i.i.i.i, label %13, label %.critedge.i.i.i, !prof !437
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %14, i64 noundef %6, i64 noundef 96) #10
+  %14 = ptrtoint ptr %2 to i64
+  %15 = ptrtoint ptr %.val.pre4.i to i64
+  %16 = sub i64 %14, %15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %17, i64 noundef %6, i64 noundef 96) #10
+  %.val20.i.i.i = load ptr, ptr %0, align 8, !tbaa !22
+  %18 = getelementptr inbounds i8, ptr %.val20.i.i.i, i64 %16
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataELb1EE9push_backERKS3_.exit
+
+.critedge.i.i.i:                                  ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %19, i64 noundef %6, i64 noundef 96) #10
   %.val.pre.i = load ptr, ptr %0, align 8, !tbaa !22
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataELb1EE9push_backERKS3_.exit
 
-15:                                               ; preds = %9
-  %16 = ptrtoint ptr %2 to i64
-  %17 = ptrtoint ptr %.val.pre4.i to i64
-  %18 = sub i64 %16, %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %19, i64 noundef %6, i64 noundef 96) #10
-  %.val20.i.i.i = load ptr, ptr %0, align 8, !tbaa !22
-  %20 = getelementptr inbounds i8, ptr %.val20.i.i.i, i64 %18
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataELb1EE9push_backERKS3_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataELb1EE9push_backERKS3_.exit: ; preds = %1, %13, %15
-  %.val.i = phi ptr [ %.val.pre4.i, %1 ], [ %.val20.i.i.i, %15 ], [ %.val.pre.i, %13 ]
-  %.016.i.i.i = phi ptr [ %2, %1 ], [ %20, %15 ], [ %2, %13 ]
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataELb1EE9push_backERKS3_.exit: ; preds = %1, %13, %.critedge.i.i.i
+  %.val.i = phi ptr [ %.val.pre4.i, %1 ], [ %.val20.i.i.i, %13 ], [ %.val.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %2, %1 ], [ %18, %13 ], [ %2, %.critedge.i.i.i ]
   %.val3.i = load i32, ptr %3, align 8, !tbaa !24
-  %21 = zext i32 %.val3.i to i64
-  %22 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val.i, i64 %21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(96) %.016.i.i.i, i64 96, i1 false)
-  %23 = load i32, ptr %3, align 8, !tbaa !24
-  %24 = add i32 %23, 1
-  store i32 %24, ptr %3, align 8, !tbaa !24
+  %20 = zext i32 %.val3.i to i64
+  %21 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val.i, i64 %20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %.016.i.i.i, i64 96, i1 false)
+  %22 = load i32, ptr %3, align 8, !tbaa !24
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %3, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #10
   ret void
 }
@@ -1083,40 +1083,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   %22 = icmp uge ptr %7, %.pre3.i
   %23 = icmp ult ptr %7, %21
   %spec.select.i.i.i.i.i = and i1 %22, %23
-  br i1 %spec.select.i.i.i.i.i, label %26, label %24, !prof !437
+  br i1 %spec.select.i.i.i.i.i, label %24, label %.critedge.i.i.i, !prof !437
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %25, i64 noundef %17, i64 noundef 56) #10
+  %25 = ptrtoint ptr %7 to i64
+  %26 = ptrtoint ptr %.pre3.i to i64
+  %27 = sub i64 %25, %26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %28, i64 noundef %17, i64 noundef 56) #10
+  %29 = load ptr, ptr %0, align 8, !tbaa !22
+  %30 = getelementptr inbounds i8, ptr %29, i64 %27
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
+
+.critedge.i.i.i:                                  ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %31, i64 noundef %17, i64 noundef 56) #10
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !22
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
 
-26:                                               ; preds = %20
-  %27 = ptrtoint ptr %7 to i64
-  %28 = ptrtoint ptr %.pre3.i to i64
-  %29 = sub i64 %27, %28
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %30, i64 noundef %17, i64 noundef 56) #10
-  %31 = load ptr, ptr %0, align 8, !tbaa !22
-  %32 = getelementptr inbounds i8, ptr %31, i64 %29
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit: ; preds = %6, %24, %26
-  %33 = phi ptr [ %.pre3.i, %6 ], [ %31, %26 ], [ %.pre.i, %24 ]
-  %.016.i.i.i = phi ptr [ %7, %6 ], [ %32, %26 ], [ %7, %24 ]
-  %34 = load i32, ptr %14, align 8, !tbaa !24
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %33, i64 %35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
-  %37 = load i32, ptr %14, align 8, !tbaa !24
-  %38 = add i32 %37, 1
-  store i32 %38, ptr %14, align 8, !tbaa !24
+_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit: ; preds = %6, %24, %.critedge.i.i.i
+  %32 = phi ptr [ %.pre3.i, %6 ], [ %29, %24 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %7, %6 ], [ %30, %24 ], [ %7, %.critedge.i.i.i ]
+  %33 = load i32, ptr %14, align 8, !tbaa !24
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %32, i64 %34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
+  %36 = load i32, ptr %14, align 8, !tbaa !24
+  %37 = add i32 %36, 1
+  store i32 %37, ptr %14, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #10
-  %39 = load ptr, ptr %0, align 8, !tbaa !22
-  %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %39, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 -56
-  ret ptr %42
+  %38 = load ptr, ptr %0, align 8, !tbaa !22
+  %39 = zext i32 %37 to i64
+  %40 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %38, i64 %39
+  %41 = getelementptr inbounds i8, ptr %40, i64 -56
+  ret ptr %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1153,40 +1153,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   %23 = icmp uge ptr %6, %.pre3.i
   %24 = icmp ult ptr %6, %22
   %spec.select.i.i.i.i.i = and i1 %23, %24
-  br i1 %spec.select.i.i.i.i.i, label %27, label %25, !prof !437
+  br i1 %spec.select.i.i.i.i.i, label %25, label %.critedge.i.i.i, !prof !437
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %26, i64 noundef %18, i64 noundef 56) #10
+  %26 = ptrtoint ptr %6 to i64
+  %27 = ptrtoint ptr %.pre3.i to i64
+  %28 = sub i64 %26, %27
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %29, i64 noundef %18, i64 noundef 56) #10
+  %30 = load ptr, ptr %0, align 8, !tbaa !22
+  %31 = getelementptr inbounds i8, ptr %30, i64 %28
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
+
+.critedge.i.i.i:                                  ; preds = %21
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %32, i64 noundef %18, i64 noundef 56) #10
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !22
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
 
-27:                                               ; preds = %21
-  %28 = ptrtoint ptr %6 to i64
-  %29 = ptrtoint ptr %.pre3.i to i64
-  %30 = sub i64 %28, %29
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %31, i64 noundef %18, i64 noundef 56) #10
-  %32 = load ptr, ptr %0, align 8, !tbaa !22
-  %33 = getelementptr inbounds i8, ptr %32, i64 %30
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit: ; preds = %5, %25, %27
-  %34 = phi ptr [ %.pre3.i, %5 ], [ %32, %27 ], [ %.pre.i, %25 ]
-  %.016.i.i.i = phi ptr [ %6, %5 ], [ %33, %27 ], [ %6, %25 ]
-  %35 = load i32, ptr %15, align 8, !tbaa !24
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %34, i64 %36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
-  %38 = load i32, ptr %15, align 8, !tbaa !24
-  %39 = add i32 %38, 1
-  store i32 %39, ptr %15, align 8, !tbaa !24
+_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit: ; preds = %5, %25, %.critedge.i.i.i
+  %33 = phi ptr [ %.pre3.i, %5 ], [ %30, %25 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %6, %5 ], [ %31, %25 ], [ %6, %.critedge.i.i.i ]
+  %34 = load i32, ptr %15, align 8, !tbaa !24
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %33, i64 %35
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
+  %37 = load i32, ptr %15, align 8, !tbaa !24
+  %38 = add i32 %37, 1
+  store i32 %38, ptr %15, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
-  %40 = load ptr, ptr %0, align 8, !tbaa !22
-  %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %40, i64 %41
-  %43 = getelementptr inbounds i8, ptr %42, i64 -56
-  ret ptr %43
+  %39 = load ptr, ptr %0, align 8, !tbaa !22
+  %40 = zext i32 %38 to i64
+  %41 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %39, i64 %40
+  %42 = getelementptr inbounds i8, ptr %41, i64 -56
+  ret ptr %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1225,40 +1225,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   %23 = icmp uge ptr %5, %.pre3.i
   %24 = icmp ult ptr %5, %22
   %spec.select.i.i.i.i.i = and i1 %23, %24
-  br i1 %spec.select.i.i.i.i.i, label %27, label %25, !prof !437
+  br i1 %spec.select.i.i.i.i.i, label %25, label %.critedge.i.i.i, !prof !437
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %26, i64 noundef %18, i64 noundef 56) #10
+  %26 = ptrtoint ptr %5 to i64
+  %27 = ptrtoint ptr %.pre3.i to i64
+  %28 = sub i64 %26, %27
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %29, i64 noundef %18, i64 noundef 56) #10
+  %30 = load ptr, ptr %0, align 8, !tbaa !22
+  %31 = getelementptr inbounds i8, ptr %30, i64 %28
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
+
+.critedge.i.i.i:                                  ; preds = %21
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %32, i64 noundef %18, i64 noundef 56) #10
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !22
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
 
-27:                                               ; preds = %21
-  %28 = ptrtoint ptr %5 to i64
-  %29 = ptrtoint ptr %.pre3.i to i64
-  %30 = sub i64 %28, %29
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %31, i64 noundef %18, i64 noundef 56) #10
-  %32 = load ptr, ptr %0, align 8, !tbaa !22
-  %33 = getelementptr inbounds i8, ptr %32, i64 %30
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit: ; preds = %4, %25, %27
-  %34 = phi ptr [ %.pre3.i, %4 ], [ %32, %27 ], [ %.pre.i, %25 ]
-  %.016.i.i.i = phi ptr [ %5, %4 ], [ %33, %27 ], [ %5, %25 ]
-  %35 = load i32, ptr %15, align 8, !tbaa !24
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %34, i64 %36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
-  %38 = load i32, ptr %15, align 8, !tbaa !24
-  %39 = add i32 %38, 1
-  store i32 %39, ptr %15, align 8, !tbaa !24
+_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit: ; preds = %4, %25, %.critedge.i.i.i
+  %33 = phi ptr [ %.pre3.i, %4 ], [ %30, %25 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %5, %4 ], [ %31, %25 ], [ %5, %.critedge.i.i.i ]
+  %34 = load i32, ptr %15, align 8, !tbaa !24
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %33, i64 %35
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
+  %37 = load i32, ptr %15, align 8, !tbaa !24
+  %38 = add i32 %37, 1
+  store i32 %38, ptr %15, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #10
-  %40 = load ptr, ptr %0, align 8, !tbaa !22
-  %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %40, i64 %41
-  %43 = getelementptr inbounds i8, ptr %42, i64 -56
-  ret ptr %43
+  %39 = load ptr, ptr %0, align 8, !tbaa !22
+  %40 = zext i32 %38 to i64
+  %41 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %39, i64 %40
+  %42 = getelementptr inbounds i8, ptr %41, i64 -56
+  ret ptr %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1296,40 +1296,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   %24 = icmp uge ptr %6, %.pre3.i
   %25 = icmp ult ptr %6, %23
   %spec.select.i.i.i.i.i = and i1 %24, %25
-  br i1 %spec.select.i.i.i.i.i, label %28, label %26, !prof !437
+  br i1 %spec.select.i.i.i.i.i, label %26, label %.critedge.i.i.i, !prof !437
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %27, i64 noundef %19, i64 noundef 56) #10
+  %27 = ptrtoint ptr %6 to i64
+  %28 = ptrtoint ptr %.pre3.i to i64
+  %29 = sub i64 %27, %28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %30, i64 noundef %19, i64 noundef 56) #10
+  %31 = load ptr, ptr %0, align 8, !tbaa !22
+  %32 = getelementptr inbounds i8, ptr %31, i64 %29
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
+
+.critedge.i.i.i:                                  ; preds = %22
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %33, i64 noundef %19, i64 noundef 56) #10
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !22
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
 
-28:                                               ; preds = %22
-  %29 = ptrtoint ptr %6 to i64
-  %30 = ptrtoint ptr %.pre3.i to i64
-  %31 = sub i64 %29, %30
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %32, i64 noundef %19, i64 noundef 56) #10
-  %33 = load ptr, ptr %0, align 8, !tbaa !22
-  %34 = getelementptr inbounds i8, ptr %33, i64 %31
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit: ; preds = %5, %26, %28
-  %35 = phi ptr [ %.pre3.i, %5 ], [ %33, %28 ], [ %.pre.i, %26 ]
-  %.016.i.i.i = phi ptr [ %6, %5 ], [ %34, %28 ], [ %6, %26 ]
-  %36 = load i32, ptr %16, align 8, !tbaa !24
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %35, i64 %37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
-  %39 = load i32, ptr %16, align 8, !tbaa !24
-  %40 = add i32 %39, 1
-  store i32 %40, ptr %16, align 8, !tbaa !24
+_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit: ; preds = %5, %26, %.critedge.i.i.i
+  %34 = phi ptr [ %.pre3.i, %5 ], [ %31, %26 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %6, %5 ], [ %32, %26 ], [ %6, %.critedge.i.i.i ]
+  %35 = load i32, ptr %16, align 8, !tbaa !24
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %34, i64 %36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
+  %38 = load i32, ptr %16, align 8, !tbaa !24
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %16, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
-  %41 = load ptr, ptr %0, align 8, !tbaa !22
-  %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %41, i64 %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 -56
-  ret ptr %44
+  %40 = load ptr, ptr %0, align 8, !tbaa !22
+  %41 = zext i32 %39 to i64
+  %42 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %40, i64 %41
+  %43 = getelementptr inbounds i8, ptr %42, i64 -56
+  ret ptr %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1367,40 +1367,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   %24 = icmp uge ptr %6, %.pre3.i
   %25 = icmp ult ptr %6, %23
   %spec.select.i.i.i.i.i = and i1 %24, %25
-  br i1 %spec.select.i.i.i.i.i, label %28, label %26, !prof !437
+  br i1 %spec.select.i.i.i.i.i, label %26, label %.critedge.i.i.i, !prof !437
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %27, i64 noundef %19, i64 noundef 56) #10
+  %27 = ptrtoint ptr %6 to i64
+  %28 = ptrtoint ptr %.pre3.i to i64
+  %29 = sub i64 %27, %28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %30, i64 noundef %19, i64 noundef 56) #10
+  %31 = load ptr, ptr %0, align 8, !tbaa !22
+  %32 = getelementptr inbounds i8, ptr %31, i64 %29
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
+
+.critedge.i.i.i:                                  ; preds = %22
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %33, i64 noundef %19, i64 noundef 56) #10
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !22
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
 
-28:                                               ; preds = %22
-  %29 = ptrtoint ptr %6 to i64
-  %30 = ptrtoint ptr %.pre3.i to i64
-  %31 = sub i64 %29, %30
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %32, i64 noundef %19, i64 noundef 56) #10
-  %33 = load ptr, ptr %0, align 8, !tbaa !22
-  %34 = getelementptr inbounds i8, ptr %33, i64 %31
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit: ; preds = %5, %26, %28
-  %35 = phi ptr [ %.pre3.i, %5 ], [ %33, %28 ], [ %.pre.i, %26 ]
-  %.016.i.i.i = phi ptr [ %6, %5 ], [ %34, %28 ], [ %6, %26 ]
-  %36 = load i32, ptr %16, align 8, !tbaa !24
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %35, i64 %37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
-  %39 = load i32, ptr %16, align 8, !tbaa !24
-  %40 = add i32 %39, 1
-  store i32 %40, ptr %16, align 8, !tbaa !24
+_ZN4llvm23SmallVectorTemplateBaseIN5clang14analyze_os_log15OSLogBufferItemELb1EE9push_backERKS3_.exit: ; preds = %5, %26, %.critedge.i.i.i
+  %34 = phi ptr [ %.pre3.i, %5 ], [ %31, %26 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %6, %5 ], [ %32, %26 ], [ %6, %.critedge.i.i.i ]
+  %35 = load i32, ptr %16, align 8, !tbaa !24
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %34, i64 %36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
+  %38 = load i32, ptr %16, align 8, !tbaa !24
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %16, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
-  %41 = load ptr, ptr %0, align 8, !tbaa !22
-  %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %41, i64 %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 -56
-  ret ptr %44
+  %40 = load ptr, ptr %0, align 8, !tbaa !22
+  %41 = zext i32 %39 to i64
+  %42 = getelementptr inbounds nuw %"class.clang::analyze_os_log::OSLogBufferItem", ptr %40, i64 %41
+  %43 = getelementptr inbounds i8, ptr %42, i64 -56
+  ret ptr %43
 }
 
 ; Function Attrs: nounwind

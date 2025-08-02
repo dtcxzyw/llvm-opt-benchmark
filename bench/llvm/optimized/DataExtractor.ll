@@ -1325,7 +1325,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i:          ; preds = %_ZL7isErrorPN4llvm5
 
 20:                                               ; preds = %15
   %21 = icmp eq i32 %.046.i.i, 63
-  br i1 %21, label %switch.early.test.i.i, label %.critedge.i.i
+  br i1 %21, label %switch.early.test.i.i, label %.critedge65.i.i
 
 switch.early.test.i.i:                            ; preds = %20
   switch i8 %16, label %31 [
@@ -1335,13 +1335,13 @@ switch.early.test.i.i:                            ; preds = %20
     i8 0, label %24
   ]
 
-.critedge.i.i:                                    ; preds = %20
+.critedge65.i.i:                                  ; preds = %20
   %22 = icmp slt i64 %.048.i.i, 0
   %23 = select i1 %22, i64 127, i64 0
   %.not57.i.i = icmp eq i64 %23, %18
   br i1 %.not57.i.i, label %24, label %31
 
-24:                                               ; preds = %.critedge.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %15
+24:                                               ; preds = %.critedge65.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %15
   %25 = zext nneg i32 %.046.i.i to i64
   %26 = shl i64 %18, %25
   %27 = or i64 %26, %.048.i.i
@@ -1350,8 +1350,8 @@ switch.early.test.i.i:                            ; preds = %20
   %30 = icmp slt i8 %16, 0
   br i1 %30, label %13, label %55, !llvm.loop !107
 
-31:                                               ; preds = %.critedge.i.i, %switch.early.test.i.i, %13
-  %.07.ph.i = phi ptr [ @.str.6, %switch.early.test.i.i ], [ @.str.6, %.critedge.i.i ], [ @.str.5, %13 ]
+31:                                               ; preds = %.critedge65.i.i, %switch.early.test.i.i, %13
+  %.07.ph.i = phi ptr [ @.str.6, %switch.early.test.i.i ], [ @.str.6, %.critedge65.i.i ], [ @.str.5, %13 ]
   br i1 %.not.i.i, label %_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit, label %32
 
 32:                                               ; preds = %31
@@ -1428,8 +1428,8 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZNKSt7__cxx1112bas
   %59 = select i1 %or.cond.i.i, i64 0, i64 %58
   %.250.i.i = or i64 %27, %59
   %.pn.i.i = ptrtoint ptr %29 to i64
-  %.sink86.i.i = sub i64 %.pn.i.i, %12
-  %60 = and i64 %.sink86.i.i, 4294967295
+  %.sink84.i.i = sub i64 %.pn.i.i, %12
+  %60 = and i64 %.sink84.i.i, 4294967295
   %61 = add i64 %60, %9
   store i64 %61, ptr %1, align 8, !tbaa !62
   br label %_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit

@@ -238,14 +238,14 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
 
 16:                                               ; preds = %1
   tail call void @ff_inlink_set_status(ptr noundef %9, i32 noundef %15) #12
-  br label %172
+  br label %171
 
 .critedge:                                        ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %18 = load i32, ptr %17, align 8, !tbaa !46
   %19 = call i32 @ff_inlink_consume_samples(ptr noundef %9, i32 noundef %18, i32 noundef %18, ptr noundef nonnull %4) #12
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %172, label %21
+  br i1 %20, label %171, label %21
 
 21:                                               ; preds = %.critedge
   %.not26 = icmp eq i32 %19, 0
@@ -413,7 +413,13 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %136 = load i32, ptr %135, align 8, !tbaa !46
   %137 = call ptr @ff_get_audio_buffer(ptr noundef %28, i32 noundef %136) #12
   %.not.i = icmp eq ptr %137, null
-  br i1 %.not.i, label %163, label %138
+  br i1 %.not.i, label %.thread30, label %138
+
+.thread30:                                        ; preds = %._crit_edge78.i
+  call void @av_frame_free(ptr noundef nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  br label %171
 
 138:                                              ; preds = %._crit_edge78.i
   %139 = call i32 @av_frame_copy_props(ptr noundef nonnull %137, ptr noundef nonnull %23) #12
@@ -423,7 +429,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   store i32 %141, ptr %142, align 8, !tbaa !69
   %143 = load i32, ptr %35, align 4, !tbaa !58
   %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %144, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %138
   %145 = getelementptr inbounds nuw i8, ptr %137, i64 96
@@ -448,42 +454,38 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %159 = load i32, ptr %35, align 4, !tbaa !58
   %160 = sext i32 %159 to i64
   %161 = icmp slt i64 %indvars.iv.next91.i, %160
-  br i1 %161, label %147, label %._crit_edge.i, !llvm.loop !83
+  br i1 %161, label %147, label %.loopexit, !llvm.loop !83
 
-._crit_edge.i:                                    ; preds = %147, %138
+.loopexit:                                        ; preds = %147, %138
   %162 = call i32 @ff_filter_frame(ptr noundef %28, ptr noundef nonnull %137) #12
-  br label %163
-
-163:                                              ; preds = %._crit_edge.i, %._crit_edge78.i
-  %.067.i = phi i32 [ %162, %._crit_edge.i ], [ -12, %._crit_edge78.i ]
   call void @av_frame_free(ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %164 = icmp slt i32 %.067.i, 0
-  br i1 %164, label %172, label %.thread
+  %163 = icmp slt i32 %162, 0
+  br i1 %163, label %171, label %.thread
 
-.thread:                                          ; preds = %21, %163
-  %165 = call i32 @ff_inlink_acknowledge_status(ptr noundef %9, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
-  %.not27 = icmp eq i32 %165, 0
-  br i1 %.not27, label %169, label %166
+.thread:                                          ; preds = %21, %.loopexit
+  %164 = call i32 @ff_inlink_acknowledge_status(ptr noundef %9, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
+  %.not27 = icmp eq i32 %164, 0
+  br i1 %.not27, label %168, label %165
 
-166:                                              ; preds = %.thread
-  %167 = load i32, ptr %5, align 4, !tbaa !84
-  %168 = load i64, ptr %6, align 8, !tbaa !85
-  call void @ff_avfilter_link_set_in_status(ptr noundef %12, i32 noundef %167, i64 noundef %168) #12
-  br label %172
+165:                                              ; preds = %.thread
+  %166 = load i32, ptr %5, align 4, !tbaa !84
+  %167 = load i64, ptr %6, align 8, !tbaa !85
+  call void @ff_avfilter_link_set_in_status(ptr noundef %12, i32 noundef %166, i64 noundef %167) #12
+  br label %171
 
-169:                                              ; preds = %.thread
-  %170 = call i32 @ff_outlink_frame_wanted(ptr noundef %12) #12
-  %.not28 = icmp eq i32 %170, 0
-  br i1 %.not28, label %172, label %171
+168:                                              ; preds = %.thread
+  %169 = call i32 @ff_outlink_frame_wanted(ptr noundef %12) #12
+  %.not28 = icmp eq i32 %169, 0
+  br i1 %.not28, label %171, label %170
 
-171:                                              ; preds = %169
+170:                                              ; preds = %168
   call void @ff_inlink_request_frame(ptr noundef %9) #12
-  br label %172
+  br label %171
 
-172:                                              ; preds = %16, %169, %163, %.critedge, %171, %166
-  %.1 = phi i32 [ 0, %166 ], [ 0, %171 ], [ 0, %16 ], [ %19, %.critedge ], [ %.067.i, %163 ], [ -1497649742, %169 ]
+171:                                              ; preds = %.thread30, %16, %168, %.loopexit, %.critedge, %170, %165
+  %.1 = phi i32 [ 0, %165 ], [ 0, %170 ], [ 0, %16 ], [ %19, %.critedge ], [ %162, %.loopexit ], [ -1497649742, %168 ], [ -12, %.thread30 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12

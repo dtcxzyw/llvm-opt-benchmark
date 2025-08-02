@@ -40597,13 +40597,12 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit33: ; preds = 
   %41 = zext i8 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext i32 %20 to i64
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %43
 
-43:                                               ; preds = %.lr.ph, %73
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %73 ]
-  %.02249 = phi i32 [ %41, %.lr.ph ], [ %.1, %73 ]
-  %.02348 = phi i32 [ 0, %.lr.ph ], [ %.124, %73 ]
+43:                                               ; preds = %.lr.ph, %75
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %75 ]
+  %.02249 = phi i32 [ %41, %.lr.ph ], [ %.1, %75 ]
+  %.02348 = phi i32 [ 0, %.lr.ph ], [ %.124, %75 ]
   %44 = load i8, ptr %3, align 1
   %45 = zext i8 %44 to i64
   %46 = shl nuw nsw i64 %45, 24
@@ -40638,72 +40637,74 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37: ; preds = 
   %.pre71 = zext i8 %.pre55 to i64
   %.pre73 = or disjoint i64 %.pre69, %.pre71
   %58 = icmp samesign ult i64 %indvars.iv, %.pre73
-  %gep = getelementptr inbounds nuw [1 x %"struct.OT::BitmapSizeTable"], ptr %invariant.gep, i64 0, i64 %indvars.iv
-  br i1 %58, label %59, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40
+  %.idx = mul nuw nsw i64 %indvars.iv, 48
+  %59 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 44
+  br i1 %58, label %61, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40
 
-59:                                               ; preds = %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37
+61:                                               ; preds = %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !18
-  %60 = getelementptr inbounds nuw [1 x %"struct.OT::BitmapSizeTable"], ptr %42, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [1 x %"struct.OT::BitmapSizeTable"], ptr %42, i64 0, i64 %indvars.iv
   br label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40
 
-_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40: ; preds = %43, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37, %59
-  %61 = phi ptr [ %gep, %59 ], [ %gep, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37 ], [ getelementptr inbounds nuw (i8, ptr @_hb_NullPool, i64 44), %43 ]
-  %.0.i39 = phi ptr [ %60, %59 ], [ @_hb_NullPool, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37 ], [ @_hb_NullPool, %43 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.0.i39, i64 45
-  %63 = load i8, ptr %61, align 1
-  %64 = load i8, ptr %62, align 1
-  %65 = tail call i8 @llvm.umax.i8(i8 %63, i8 %64)
-  %66 = zext i8 %65 to i32
-  %.not28 = icmp ule i32 %spec.store.select, %66
-  %67 = icmp samesign ugt i32 %.02249, %66
-  %or.cond = select i1 %.not28, i1 %67, i1 false
-  br i1 %or.cond, label %71, label %68
+_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40: ; preds = %43, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37, %61
+  %63 = phi ptr [ %60, %61 ], [ %60, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37 ], [ getelementptr inbounds nuw (i8, ptr @_hb_NullPool, i64 44), %43 ]
+  %.0.i39 = phi ptr [ %62, %61 ], [ @_hb_NullPool, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37 ], [ @_hb_NullPool, %43 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i39, i64 45
+  %65 = load i8, ptr %63, align 1
+  %66 = load i8, ptr %64, align 1
+  %67 = tail call i8 @llvm.umax.i8(i8 %65, i8 %66)
+  %68 = zext i8 %67 to i32
+  %.not28 = icmp ule i32 %spec.store.select, %68
+  %69 = icmp samesign ugt i32 %.02249, %68
+  %or.cond = select i1 %.not28, i1 %69, i1 false
+  br i1 %or.cond, label %73, label %70
 
-68:                                               ; preds = %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40
-  %69 = icmp ugt i32 %spec.store.select, %.02249
-  %70 = icmp samesign ult i32 %.02249, %66
-  %or.cond29 = and i1 %69, %70
-  br i1 %or.cond29, label %71, label %73
+70:                                               ; preds = %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40
+  %71 = icmp ugt i32 %spec.store.select, %.02249
+  %72 = icmp samesign ult i32 %.02249, %68
+  %or.cond29 = and i1 %71, %72
+  br i1 %or.cond29, label %73, label %75
 
-71:                                               ; preds = %68, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40
-  %72 = trunc nuw i64 %indvars.iv to i32
-  br label %73
+73:                                               ; preds = %70, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40
+  %74 = trunc nuw i64 %indvars.iv to i32
+  br label %75
 
-73:                                               ; preds = %68, %71
-  %.124 = phi i32 [ %72, %71 ], [ %.02348, %68 ]
-  %.1 = phi i32 [ %66, %71 ], [ %.02249, %68 ]
+75:                                               ; preds = %70, %73
+  %.124 = phi i32 [ %74, %73 ], [ %.02348, %70 ]
+  %.1 = phi i32 [ %68, %73 ], [ %.02249, %70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !145
 
-._crit_edge:                                      ; preds = %73, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit33
-  %.023.lcssa = phi i32 [ 0, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit33 ], [ %.124, %73 ]
-  %74 = load i8, ptr %3, align 1
-  %75 = zext i8 %74 to i32
-  %76 = shl nuw i32 %75, 24
-  %77 = load i8, ptr %7, align 1
-  %78 = zext i8 %77 to i32
-  %79 = shl nuw nsw i32 %78, 16
-  %80 = or disjoint i32 %79, %76
-  %81 = load i8, ptr %12, align 1
-  %82 = zext i8 %81 to i32
-  %83 = shl nuw nsw i32 %82, 8
-  %84 = or disjoint i32 %80, %83
-  %85 = load i8, ptr %17, align 1
-  %86 = zext i8 %85 to i32
-  %87 = or disjoint i32 %84, %86
-  %.not.i42 = icmp ult i32 %.023.lcssa, %87
-  br i1 %.not.i42, label %88, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit44
+._crit_edge:                                      ; preds = %75, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit33
+  %.023.lcssa = phi i32 [ 0, %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit33 ], [ %.124, %75 ]
+  %76 = load i8, ptr %3, align 1
+  %77 = zext i8 %76 to i32
+  %78 = shl nuw i32 %77, 24
+  %79 = load i8, ptr %7, align 1
+  %80 = zext i8 %79 to i32
+  %81 = shl nuw nsw i32 %80, 16
+  %82 = or disjoint i32 %81, %78
+  %83 = load i8, ptr %12, align 1
+  %84 = zext i8 %83 to i32
+  %85 = shl nuw nsw i32 %84, 8
+  %86 = or disjoint i32 %82, %85
+  %87 = load i8, ptr %17, align 1
+  %88 = zext i8 %87 to i32
+  %89 = or disjoint i32 %86, %88
+  %.not.i42 = icmp ult i32 %.023.lcssa, %89
+  br i1 %.not.i42, label %90, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit44
 
-88:                                               ; preds = %._crit_edge
+90:                                               ; preds = %._crit_edge
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !18
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %90 = zext i32 %.023.lcssa to i64
-  %91 = getelementptr inbounds nuw [1 x %"struct.OT::BitmapSizeTable"], ptr %89, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %92 = zext i32 %.023.lcssa to i64
+  %93 = getelementptr inbounds nuw [1 x %"struct.OT::BitmapSizeTable"], ptr %91, i64 0, i64 %92
   br label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit44
 
-_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit44: ; preds = %88, %._crit_edge, %2
-  %.0 = phi ptr [ @_hb_NullPool, %2 ], [ %91, %88 ], [ @_hb_NullPool, %._crit_edge ]
+_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit44: ; preds = %90, %._crit_edge, %2
+  %.0 = phi ptr [ @_hb_NullPool, %2 ], [ %93, %90 ], [ @_hb_NullPool, %._crit_edge ]
   ret ptr %.0
 }
 

@@ -1603,7 +1603,7 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
   %27 = lshr i32 %26, %19
   %28 = and i32 %27, %25
   %29 = zext nneg i32 %28 to i64
-  br label %51
+  br label %50
 
 30:                                               ; preds = %9
   %31 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_info, i64 1)) #9, !srcloc !32
@@ -1618,7 +1618,7 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
 
 37:                                               ; preds = %33, %30
   %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20) #12
-  br label %50
+  br label %.critedge
 
 39:                                               ; preds = %33
   %40 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 410) #9, !srcloc !34
@@ -1629,34 +1629,30 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
 
 ._crit_edge:                                      ; preds = %39
   %.pre = shl i64 %42, 32
-  %.pre9 = or i64 %.pre, %41
-  br label %51
+  %.pre7 = or i64 %.pre, %41
+  br label %50
 
 43:                                               ; preds = %39
   %44 = extractvalue { i32, i64, i64 } %40, 0
   %45 = shl i64 %42, 32
   %46 = or i64 %45, %41
   tail call void @do_trace_read_msr(i32 noundef 410, i64 noundef %46, i32 noundef %44) #9
-  br label %51
+  br label %50
 
 47:                                               ; preds = %9
   %48 = zext i8 %12 to i32
   %49 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, i32 noundef %48) #12
-  br label %50
+  br label %.critedge
 
-50:                                               ; preds = %47, %37
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
-  br label %73
-
-51:                                               ; preds = %43, %._crit_edge, %13
-  %.ph = phi i64 [ %29, %13 ], [ %.pre9, %._crit_edge ], [ %46, %43 ]
+50:                                               ; preds = %43, %._crit_edge, %13
+  %51 = phi i64 [ %29, %13 ], [ %.pre7, %._crit_edge ], [ %46, %43 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %.thread6, label %55
+  br i1 %54, label %.thread, label %55
 
-55:                                               ; preds = %51
+55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %57 = load ptr, ptr %56, align 8
   br label %61
@@ -1664,32 +1660,36 @@ define internal i32 @acpi_processor_get_throttling_ptc(ptr noundef %0) #0 align 
 58:                                               ; preds = %61
   %59 = add nuw i32 %62, 1
   %60 = icmp eq i32 %59, %53
-  br i1 %60, label %.thread6, label %61, !llvm.loop !36
+  br i1 %60, label %.thread, label %61, !llvm.loop !36
 
 61:                                               ; preds = %58, %55
   %62 = phi i32 [ 0, %55 ], [ %59, %58 ]
   %63 = sext i32 %62 to i64
   %64 = getelementptr %struct.acpi_processor_tx_tss, ptr %57, i64 %63, i32 3
   %65 = load i64, ptr %64, align 8
-  %66 = icmp eq i64 %65, %.ph
+  %66 = icmp eq i64 %65, %51
   br i1 %66, label %67, label %58
 
 67:                                               ; preds = %61
   %68 = icmp eq i32 %62, -1
-  br i1 %68, label %.thread6, label %71
+  br i1 %68, label %.thread, label %71
 
-.thread6:                                         ; preds = %58, %51, %67
+.thread:                                          ; preds = %58, %50, %67
   %69 = call fastcc i32 @__acpi_processor_set_throttling(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext true)
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %73
 
-71:                                               ; preds = %.thread6, %67
-  %72 = phi i32 [ 0, %.thread6 ], [ %62, %67 ]
+71:                                               ; preds = %.thread, %67
+  %72 = phi i32 [ 0, %.thread ], [ %62, %67 ]
   store i32 %72, ptr %10, align 8
   br label %73
 
-73:                                               ; preds = %50, %71, %.thread6, %4, %1
-  %74 = phi i32 [ -22, %1 ], [ -19, %4 ], [ %69, %.thread6 ], [ 0, %71 ], [ 0, %50 ]
+.critedge:                                        ; preds = %37, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  br label %73
+
+73:                                               ; preds = %.critedge, %71, %.thread, %4, %1
+  %74 = phi i32 [ -22, %1 ], [ -19, %4 ], [ %69, %.thread ], [ 0, %71 ], [ 0, %.critedge ]
   ret i32 %74
 }
 
@@ -1698,7 +1698,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc
   %4 = icmp eq ptr %0, null
   %5 = icmp slt i32 %1, 0
   %6 = or i1 %4, %5
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 640
@@ -1706,14 +1706,14 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, -1
   %12 = icmp ult i32 %11, %1
-  br i1 %12, label %.thread, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 4
   %17 = icmp eq i16 %16, 0
-  br i1 %17, label %.thread, label %18
+  br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %13
   br i1 %2, label %22, label %19
@@ -1721,17 +1721,17 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc
 19:                                               ; preds = %18
   %20 = load i32, ptr %8, align 8
   %21 = icmp eq i32 %20, %1
-  br i1 %21, label %.thread, label %22
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %19, %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, %1
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %22
   %27 = icmp ult i32 %10, %1
-  br i1 %27, label %.thread, label %28
+  br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 688
@@ -1800,9 +1800,9 @@ define internal noundef range(i32 -22, 1) i32 @acpi_processor_set_throttling_ptc
 
 72:                                               ; preds = %69, %68, %63, %61, %36
   store i32 %1, ptr %8, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %26, %72, %22, %19, %13, %7, %3
+.critedge:                                        ; preds = %26, %72, %22, %19, %13, %7, %3
   %73 = phi i32 [ -22, %3 ], [ -22, %7 ], [ -19, %13 ], [ 0, %19 ], [ -1, %22 ], [ 0, %72 ], [ 0, %26 ]
   ret i32 %73
 }

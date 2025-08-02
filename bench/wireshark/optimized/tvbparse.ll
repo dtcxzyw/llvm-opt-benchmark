@@ -1076,19 +1076,19 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
-  %.not59 = icmp eq i32 %18, 0
-  br i1 %.not59, label %._crit_edge, label %.lr.ph
+  %.not56 = icmp eq i32 %18, 0
+  br i1 %.not56, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %21
 
-21:                                               ; preds = %.lr.ph, %.loopexit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %22 = phi ptr [ %16, %.lr.ph ], [ %92, %.loopexit ]
-  %.04057 = phi ptr [ null, %.lr.ph ], [ %.242, %.loopexit ]
-  %.04356 = phi i32 [ %1, %.lr.ph ], [ %91, %.loopexit ]
+21:                                               ; preds = %.lr.ph, %ignore_fcn.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ignore_fcn.exit ]
+  %22 = phi ptr [ %16, %.lr.ph ], [ %92, %ignore_fcn.exit ]
+  %.04054 = phi ptr [ null, %.lr.ph ], [ %.242, %ignore_fcn.exit ]
+  %.04353 = phi i32 [ %1, %.lr.ph ], [ %91, %ignore_fcn.exit ]
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
@@ -1096,20 +1096,20 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   store ptr null, ptr %6, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load i32, ptr %26, align 8
-  %28 = add i32 %27, %.04356
+  %28 = add i32 %27, %.04353
   %29 = load i32, ptr %7, align 4
   %30 = icmp sgt i32 %28, %29
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = call i32 %33(ptr noundef %0, i32 noundef %.04356, ptr noundef %25, ptr noundef nonnull %6)
+  %34 = call i32 %33(ptr noundef %0, i32 noundef %.04353, ptr noundef %25, ptr noundef nonnull %6)
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %36, label %.thread
+  br i1 %35, label %36, label %.critedge
 
 36:                                               ; preds = %31
-  %.not = icmp eq ptr %.04057, null
+  %.not = icmp eq ptr %.04054, null
   br i1 %.not, label %56, label %37
 
 37:                                               ; preds = %36
@@ -1122,16 +1122,16 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %.04057, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.04054, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = add i32 %43, %40
   %47 = sub i32 %46, %45
-  %48 = getelementptr inbounds nuw i8, ptr %.04057, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %.04054, i64 28
   store i32 %47, ptr %48, align 4
   br label %49
 
 49:                                               ; preds = %41, %37
-  %50 = getelementptr inbounds nuw i8, ptr %.04057, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %.04054, i64 40
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %53 = load ptr, ptr %52, align 8
@@ -1171,24 +1171,24 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br label %75
 
 75:                                               ; preds = %49, %56
-  %.sink64 = phi ptr [ %55, %49 ], [ %73, %56 ]
+  %.sink61 = phi ptr [ %55, %49 ], [ %73, %56 ]
   %.sink = phi ptr [ %38, %49 ], [ %73, %56 ]
-  %.242 = phi ptr [ %.04057, %49 ], [ %64, %56 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sink64, i64 56
+  %.242 = phi ptr [ %.04054, %49 ], [ %64, %56 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.sink61, i64 56
   store ptr %.sink, ptr %76, align 8
-  %77 = add i32 %34, %.04356
+  %77 = add i32 %34, %.04353
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   store ptr null, ptr %5, align 8
   %78 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %78, null
-  br i1 %.not.i, label %.loopexit, label %.preheader.i
+  br i1 %.not.i, label %ignore_fcn.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = call i32 %80(ptr noundef %0, i32 noundef %77, ptr noundef nonnull %78, ptr noundef nonnull %5)
   %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %.lr.ph.i, label %.loopexit
+  br i1 %82, label %.lr.ph.i, label %ignore_fcn.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %83 = phi i32 [ %89, %.lr.ph.i ], [ %81, %.preheader.i ]
@@ -1201,16 +1201,9 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %88 = load ptr, ptr %87, align 8
   %89 = call i32 %88(ptr noundef %0, i32 noundef %85, ptr noundef %86, ptr noundef nonnull %5)
   %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %.lr.ph.i, label %.loopexit, !llvm.loop !16
+  br i1 %90, label %.lr.ph.i, label %ignore_fcn.exit, !llvm.loop !16
 
-.thread:                                          ; preds = %31, %21
-  %storemerge.in = load i32, ptr %11, align 8
-  %storemerge = add i32 %storemerge.in, -1
-  store i32 %storemerge, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  br label %100
-
-.loopexit:                                        ; preds = %.lr.ph.i, %75, %.preheader.i
+ignore_fcn.exit:                                  ; preds = %.lr.ph.i, %75, %.preheader.i
   %.0.i = phi i32 [ 0, %75 ], [ 0, %.preheader.i ], [ %84, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   %91 = add i32 %.0.i, %77
@@ -1223,7 +1216,7 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %96 = icmp samesign ult i64 %indvars.iv.next, %95
   br i1 %96, label %21, label %._crit_edge.loopexit, !llvm.loop !17
 
-._crit_edge.loopexit:                             ; preds = %.loopexit
+._crit_edge.loopexit:                             ; preds = %ignore_fcn.exit
   %.pre = load i32, ptr %11, align 8
   %97 = add i32 %.pre, -1
   br label %._crit_edge
@@ -1237,8 +1230,15 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %99 = sub i32 %.043.lcssa, %1
   br label %100
 
-100:                                              ; preds = %.thread, %10, %4, %._crit_edge
-  %.0 = phi i32 [ %99, %._crit_edge ], [ -1, %4 ], [ -1, %10 ], [ -1, %.thread ]
+.critedge:                                        ; preds = %31, %21
+  %storemerge.in = load i32, ptr %11, align 8
+  %storemerge = add i32 %storemerge.in, -1
+  store i32 %storemerge, ptr %11, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  br label %100
+
+100:                                              ; preds = %.critedge, %10, %4, %._crit_edge
+  %.0 = phi i32 [ %99, %._crit_edge ], [ -1, %4 ], [ -1, %10 ], [ -1, %.critedge ]
   ret i32 %.0
 }
 

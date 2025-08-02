@@ -2659,19 +2659,19 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %37 = icmp ult i8 %36, 2
   tail call void @llvm.assume(i1 %37)
   %38 = icmp eq i8 %36, 0
-  br i1 %38, label %39, label %.thread19
+  br i1 %38, label %39, label %.critedge.thread
 
 39:                                               ; preds = %24
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %41 = tail call i32 @__pm_runtime_resume(ptr noundef nonnull %40, i32 noundef 4) #19
   %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %.thread19
+  br i1 %42, label %43, label %.critedge.thread
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 440
   %45 = load volatile i32, ptr %44, align 4
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.thread, label %.lr.ph, !prof !23
+  br i1 %46, label %.critedge, label %.lr.ph, !prof !23
 
 .lr.ph:                                           ; preds = %43, %53
   %47 = phi i32 [ %54, %53 ], [ %45, %43 ]
@@ -2681,28 +2681,28 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %51 = icmp ult i8 %50, 2
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i8 %50, 0
-  br i1 %52, label %53, label %.thread, !prof !10
+  br i1 %52, label %53, label %.critedge, !prof !10
 
 53:                                               ; preds = %.lr.ph
   %54 = extractvalue { i8, i32 } %49, 1
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.thread, label %.lr.ph, !prof !25, !llvm.loop !26
+  br i1 %55, label %.critedge, label %.lr.ph, !prof !25, !llvm.loop !26
 
-.thread19:                                        ; preds = %39, %24
+.critedge.thread:                                 ; preds = %39, %24
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 792
   tail call void @mutex_lock(ptr noundef nonnull %56) #19
   %57 = call fastcc i32 @hub_ext_port_status(ptr noundef %25, i32 noundef %30, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef null), !range !5
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %.thread19._crit_edge
+  br i1 %58, label %59, label %.critedge.thread._crit_edge
 
-.thread19._crit_edge:                             ; preds = %.thread19
+.critedge.thread._crit_edge:                      ; preds = %.critedge.thread
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert45 = getelementptr inbounds nuw i8, ptr %.pre, i64 902
-  %.pre46 = load i8, ptr %.phi.trans.insert45, align 2
+  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %.pre, i64 902
+  %.pre44 = load i8, ptr %.phi.trans.insert43, align 2
   br label %78
 
-59:                                               ; preds = %.thread19
+59:                                               ; preds = %.critedge.thread
   %60 = load i16, ptr %7, align 2
   %61 = zext i16 %60 to i32
   %62 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -2721,16 +2721,16 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %73 = load i16, ptr %6, align 2
   %74 = and i16 %73, 4
   %75 = icmp eq i16 %74, 0
-  br i1 %75, label %.thread20, label %76
+  br i1 %75, label %.thread, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @pm_wakeup_dev_event(ptr noundef nonnull %77, i32 noundef 0, i1 noundef zeroext false) #19
-  br label %.thread20
+  br label %.thread
 
-78:                                               ; preds = %.thread19._crit_edge, %59
-  %79 = phi i8 [ %.pre46, %.thread19._crit_edge ], [ %65, %59 ]
-  %80 = phi ptr [ %.pre, %.thread19._crit_edge ], [ %63, %59 ]
+78:                                               ; preds = %.critedge.thread._crit_edge, %59
+  %79 = phi i8 [ %.pre44, %.critedge.thread._crit_edge ], [ %65, %59 ]
+  %80 = phi ptr [ %.pre, %.critedge.thread._crit_edge ], [ %63, %59 ]
   %81 = icmp eq i8 %79, 3
   %82 = load i32, ptr %80, align 8
   %83 = shl i32 %82, 8
@@ -2749,20 +2749,20 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
 90:                                               ; preds = %88, %86
   %91 = phi i32 [ %87, %86 ], [ %89, %88 ]
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %.thread21
+  br i1 %92, label %93, label %.thread19
 
 93:                                               ; preds = %90
   tail call void @msleep(i32 noundef 40) #19
   %94 = call fastcc i32 @hub_ext_port_status(ptr noundef %25, i32 noundef %30, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef null), !range !5
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %..thread20_crit_edge, label %.thread21
+  br i1 %95, label %..thread_crit_edge, label %.thread19
 
-..thread20_crit_edge:                             ; preds = %93
-  %.pre47 = load i16, ptr %6, align 2
-  br label %.thread20
+..thread_crit_edge:                               ; preds = %93
+  %.pre45 = load i16, ptr %6, align 2
+  br label %.thread
 
-.thread20:                                        ; preds = %..thread20_crit_edge, %72, %76
-  %96 = phi i16 [ %.pre47, %..thread20_crit_edge ], [ %73, %72 ], [ %73, %76 ]
+.thread:                                          ; preds = %..thread_crit_edge, %72, %76
+  %96 = phi i16 [ %.pre45, %..thread_crit_edge ], [ %73, %72 ], [ %73, %76 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %98 = load i8, ptr %97, align 8
   %99 = and i8 %98, -5
@@ -2774,12 +2774,12 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %104 = icmp eq i8 %103, 3
   br i1 %104, label %105, label %108
 
-105:                                              ; preds = %.thread20
+105:                                              ; preds = %.thread
   %106 = and i16 %96, 64
   %107 = icmp eq i16 %106, 0
   br i1 %107, label %118, label %111
 
-108:                                              ; preds = %.thread20
+108:                                              ; preds = %.thread
   %109 = and i16 %96, 4
   %110 = icmp eq i16 %109, 0
   br i1 %110, label %118, label %111
@@ -2795,17 +2795,17 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
 
 118:                                              ; preds = %111, %108, %105
   tail call void @msleep(i32 noundef 10) #19
-  br label %.thread21
+  br label %.thread19
 
-.thread21:                                        ; preds = %90, %118, %93
+.thread19:                                        ; preds = %90, %118, %93
   %119 = phi i32 [ 0, %118 ], [ %94, %93 ], [ %91, %90 ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 1213
   %121 = load i16, ptr %120, align 1
   %122 = and i16 %121, 2
   %123 = icmp eq i16 %122, 0
-  br i1 %123, label %.loopexit35, label %124
+  br i1 %123, label %.loopexit33, label %124
 
-124:                                              ; preds = %.thread21
+124:                                              ; preds = %.thread19
   %125 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %126
 
@@ -2815,9 +2815,9 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %129 = zext i16 %128 to i32
   %130 = and i32 %129, 1
   %131 = icmp eq i32 %130, 0
-  br i1 %131, label %133, label %.thread22
+  br i1 %131, label %133, label %.thread20
 
-.thread22:                                        ; preds = %126
+.thread20:                                        ; preds = %126
   %132 = load i16, ptr %6, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
@@ -2833,12 +2833,12 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %138 = select i1 %137, i32 512, i32 256
   %139 = and i32 %138, %129
   %140 = icmp eq i32 %139, 0
-  br i1 %140, label %.thread27, label %141
+  br i1 %140, label %.thread25, label %141
 
-.thread27:                                        ; preds = %133
+.thread25:                                        ; preds = %133
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  br label %.thread53
+  br label %.thread51
 
 141:                                              ; preds = %133
   tail call void @msleep(i32 noundef 20) #19
@@ -2847,10 +2847,10 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %144 = icmp samesign ugt i32 %127, 1979
   %145 = icmp ne i32 %143, 0
   %146 = select i1 %144, i1 true, i1 %145
-  br i1 %146, label %.loopexit35, label %126, !llvm.loop !27
+  br i1 %146, label %.loopexit33, label %126, !llvm.loop !27
 
-.loopexit35:                                      ; preds = %141, %.thread21
-  %147 = phi i32 [ %119, %.thread21 ], [ %143, %141 ]
+.loopexit33:                                      ; preds = %141, %.thread19
+  %147 = phi i32 [ %119, %.thread19 ], [ %143, %141 ]
   %148 = load i16, ptr %6, align 2
   %149 = load i16, ptr %7, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
@@ -2858,9 +2858,9 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   store i16 %148, ptr %4, align 2
   store i16 %149, ptr %5, align 2
   %150 = icmp eq i32 %147, 0
-  br i1 %150, label %151, label %.loopexit34
+  br i1 %150, label %151, label %.loopexit32
 
-151:                                              ; preds = %.thread22, %.loopexit35
+151:                                              ; preds = %.thread20, %.loopexit33
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %153 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %154 = getelementptr inbounds nuw i8, ptr %25, i64 136
@@ -2871,12 +2871,12 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %157 = load i8, ptr %152, align 8
   %158 = and i8 %157, 2
   %159 = icmp eq i8 %158, 0
-  %.pre48 = load i16, ptr %5, align 2
-  %.pre50 = load ptr, ptr %153, align 8
+  %.pre46 = load i16, ptr %5, align 2
+  %.pre48 = load ptr, ptr %153, align 8
   br i1 %159, label %170, label %160
 
 160:                                              ; preds = %155
-  %161 = getelementptr inbounds nuw i8, ptr %.pre50, i64 902
+  %161 = getelementptr inbounds nuw i8, ptr %.pre48, i64 902
   %162 = load i8, ptr %161, align 2
   %163 = icmp eq i8 %162, 3
   br i1 %163, label %164, label %170
@@ -2889,19 +2889,19 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   br i1 %167, label %168, label %.loopexit.loopexit
 
 168:                                              ; preds = %164
-  %169 = and i16 %.pre48, 480
+  %169 = and i16 %.pre46, 480
   switch i16 %169, label %._crit_edge [
     i16 320, label %.loopexit.loopexit
     i16 192, label %.loopexit.loopexit
   ]
 
 ._crit_edge:                                      ; preds = %168
-  %.pre49 = load ptr, ptr %153, align 8
+  %.pre47 = load ptr, ptr %153, align 8
   br label %170
 
 170:                                              ; preds = %._crit_edge, %160, %155
-  %171 = phi ptr [ %.pre49, %._crit_edge ], [ %.pre50, %160 ], [ %.pre50, %155 ]
-  %172 = zext i16 %.pre48 to i32
+  %171 = phi ptr [ %.pre47, %._crit_edge ], [ %.pre48, %160 ], [ %.pre48, %155 ]
+  %172 = zext i16 %.pre46 to i32
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 902
   %174 = load i8, ptr %173, align 2
   %175 = icmp eq i8 %174, 3
@@ -2910,22 +2910,22 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %178 = and i32 %172, 4
   %179 = icmp eq i32 %178, 0
   %180 = select i1 %175, i1 %177, i1 %179
-  br i1 %180, label %181, label %.thread25
+  br i1 %180, label %181, label %.thread23
 
 181:                                              ; preds = %170
   %182 = select i1 %175, i32 512, i32 256
   %183 = and i32 %182, %172
   %184 = icmp eq i32 %183, 0
-  br i1 %184, label %.thread25, label %187
+  br i1 %184, label %.thread23, label %187
 
-.loopexit34:                                      ; preds = %192, %.loopexit35
-  %185 = phi i32 [ %147, %.loopexit35 ], [ %194, %192 ]
+.loopexit32:                                      ; preds = %192, %.loopexit33
+  %185 = phi i32 [ %147, %.loopexit33 ], [ %194, %192 ]
   %.fr = freeze i32 %185
   %186 = icmp sgt i32 %.fr, -1
-  br i1 %186, label %.thread25, label %.thread53
+  br i1 %186, label %.thread23, label %.thread51
 
-.thread25:                                        ; preds = %181, %170, %.loopexit34
-  br label %.thread53
+.thread23:                                        ; preds = %181, %170, %.loopexit32
+  br label %.thread51
 
 187:                                              ; preds = %181
   %188 = and i32 %172, 1
@@ -2934,20 +2934,20 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
 
 190:                                              ; preds = %187
   %191 = icmp eq i32 %156, 0
-  br i1 %191, label %.thread53, label %192
+  br i1 %191, label %.thread51, label %192
 
 192:                                              ; preds = %190
   %193 = add nsw i32 %156, -1
   tail call void @usleep_range_state(i64 noundef 200, i64 noundef 300, i32 noundef 2) #19
   %194 = call fastcc i32 @hub_ext_port_status(ptr noundef %25, i32 noundef %30, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef null), !range !5
   %195 = icmp eq i32 %194, 0
-  br i1 %195, label %155, label %.loopexit34
+  br i1 %195, label %155, label %.loopexit32
 
 196:                                              ; preds = %187
   %197 = and i32 %172, 2
   %198 = icmp eq i32 %197, 0
-  %.pre52 = load i8, ptr %152, align 8
-  %199 = and i8 %.pre52, 2
+  %.pre50 = load i8, ptr %152, align 8
+  %199 = and i8 %.pre50, 2
   %200 = icmp eq i8 %199, 0
   %or.cond = select i1 %198, i1 %200, i1 false
   br i1 %or.cond, label %201, label %.loopexit
@@ -2956,19 +2956,19 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %202 = load i16, ptr %120, align 1
   %203 = and i16 %202, 2
   %204 = icmp eq i16 %203, 0
-  br i1 %204, label %.thread53, label %205
+  br i1 %204, label %.thread51, label %205
 
 205:                                              ; preds = %201
-  %206 = or disjoint i8 %.pre52, 2
+  %206 = or disjoint i8 %.pre50, 2
   store i8 %206, ptr %152, align 8
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %164, %168, %168
-  %.pre51 = load i8, ptr %152, align 8
+  %.pre49 = load i8, ptr %152, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %196, %205
-  %207 = phi i8 [ %.pre51, %.loopexit.loopexit ], [ %.pre52, %196 ], [ %206, %205 ]
+  %207 = phi i8 [ %.pre49, %.loopexit.loopexit ], [ %.pre50, %196 ], [ %206, %205 ]
   %208 = and i8 %207, 2
   %209 = icmp eq i8 %208, 0
   br i1 %209, label %233, label %210
@@ -3036,9 +3036,9 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
 248:                                              ; preds = %246, %241, %233
   %249 = phi i32 [ %247, %246 ], [ 0, %233 ], [ -19, %241 ]
   %250 = icmp eq i32 %249, 0
-  br i1 %250, label %251, label %.thread55
+  br i1 %250, label %251, label %.thread53
 
-.thread55:                                        ; preds = %248
+.thread53:                                        ; preds = %248
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #19
   br label %295
 
@@ -3068,13 +3068,13 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
 264:                                              ; preds = %251
   %265 = load ptr, ptr %234, align 8
   %266 = icmp eq ptr %265, null
-  br i1 %266, label %.thread54, label %267
+  br i1 %266, label %.thread52, label %267
 
 267:                                              ; preds = %264
   %268 = load i8, ptr %152, align 8
   %269 = and i8 %268, 2
   %270 = icmp eq i8 %269, 0
-  br i1 %270, label %271, label %.thread54
+  br i1 %270, label %271, label %.thread52
 
 271:                                              ; preds = %267
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -3086,37 +3086,37 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %276 = load i16, ptr %3, align 2
   %277 = and i16 %276, 2
   %278 = icmp eq i16 %277, 0
-  br i1 %278, label %.thread54, label %279
+  br i1 %278, label %.thread52, label %279
 
 279:                                              ; preds = %275
   %280 = load i32, ptr %0, align 8
   %281 = shl i32 %280, 8
   %282 = or i32 %281, -2147483648
   %283 = call i32 @usb_control_msg(ptr noundef %0, i32 noundef %282, i8 noundef zeroext 1, i8 noundef zeroext 0, i16 noundef zeroext 1, i16 noundef zeroext 0, ptr noundef null, i16 noundef zeroext 0, i32 noundef 5000) #19
-  br label %.thread54
+  br label %.thread52
 
 284:                                              ; preds = %271
   %285 = call i32 @usb_get_status(ptr noundef %0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %3) #19
   %286 = icmp eq i32 %285, 0
-  br i1 %286, label %287, label %.thread54
+  br i1 %286, label %287, label %.thread52
 
 287:                                              ; preds = %284
   %288 = load i16, ptr %3, align 2
   %289 = and i16 %288, 3
   %290 = icmp eq i16 %289, 0
-  br i1 %290, label %.thread54, label %291
+  br i1 %290, label %.thread52, label %291
 
 291:                                              ; preds = %287
   call fastcc void @usb_disable_remote_wakeup(ptr noundef %0)
-  br label %.thread54
+  br label %.thread52
 
-.thread53:                                        ; preds = %190, %.thread25, %.loopexit34, %.thread27, %201
-  %292 = phi i32 [ -19, %201 ], [ -19, %.thread25 ], [ %.fr, %.loopexit34 ], [ -19, %.thread27 ], [ -19, %190 ]
+.thread51:                                        ; preds = %190, %.thread23, %.loopexit32, %.thread25, %201
+  %292 = phi i32 [ -19, %201 ], [ -19, %.thread23 ], [ %.fr, %.loopexit32 ], [ -19, %.thread25 ], [ -19, %190 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   br label %295
 
-.thread54:                                        ; preds = %267, %264, %284, %287, %291, %275, %279
+.thread52:                                        ; preds = %267, %264, %284, %287, %291, %275, %279
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #19
   br label %299
 
@@ -3125,16 +3125,16 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   %294 = icmp slt i32 %252, 0
   br i1 %294, label %295, label %299
 
-295:                                              ; preds = %.thread55, %.thread53, %293
-  %296 = phi i32 [ %292, %.thread53 ], [ %252, %293 ], [ %249, %.thread55 ]
+295:                                              ; preds = %.thread53, %.thread51, %293
+  %296 = phi i32 [ %292, %.thread51 ], [ %252, %293 ], [ %249, %.thread53 ]
   %297 = call fastcc i32 @hub_port_disable(ptr noundef %25, i32 noundef %30, i32 noundef 1)
   %298 = getelementptr inbounds nuw i8, ptr %25, i64 96
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %298, i64 %31) #19, !srcloc !14
   call fastcc void @kick_hub_wq(ptr noundef %25)
   br label %348
 
-299:                                              ; preds = %.thread54, %293
-  %300 = phi i32 [ 0, %.thread54 ], [ %252, %293 ]
+299:                                              ; preds = %.thread52, %293
+  %300 = phi i32 [ 0, %.thread52 ], [ %252, %293 ]
   %301 = call i32 @usb_enable_usb2_hardware_lpm(ptr noundef %0) #19
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %303 = load ptr, ptr %302, align 8
@@ -3205,9 +3205,9 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
 348:                                              ; preds = %343, %339, %334, %330, %326, %322, %317, %313, %309, %299, %295
   %349 = phi i32 [ %300, %343 ], [ %300, %339 ], [ %300, %334 ], [ %300, %330 ], [ %300, %326 ], [ %300, %322 ], [ %300, %317 ], [ %300, %313 ], [ %300, %309 ], [ %300, %299 ], [ %296, %295 ]
   call void @mutex_unlock(ptr noundef nonnull %56) #19
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph, %53, %43, %348
+.critedge:                                        ; preds = %.lr.ph, %53, %43, %348
   %350 = phi i32 [ %349, %348 ], [ %41, %43 ], [ %41, %53 ], [ %41, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #19
@@ -5621,40 +5621,40 @@ default.unreachable58:                            ; preds = %234
   %316 = getelementptr ptr, ptr %312, i64 %315
   %317 = load ptr, ptr %316, align 8
   %318 = icmp eq ptr %317, null
-  br i1 %318, label %323, label %319
+  br i1 %318, label %325, label %319
 
 319:                                              ; preds = %303
   %320 = getelementptr inbounds nuw i8, ptr %317, i64 4
   %321 = load i16, ptr %320, align 1
   %322 = and i16 %321, 2047
-  br label %323
+  %323 = call i16 @llvm.umin.i16(i16 %322, i16 8)
+  %324 = zext nneg i16 %323 to i32
+  br label %325
 
-323:                                              ; preds = %319, %303
-  %324 = phi i16 [ %322, %319 ], [ 0, %303 ]
-  %325 = call ptr @usb_alloc_urb(i32 noundef 0, i32 noundef 3264) #19
-  %326 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  store ptr %325, ptr %326, align 8
-  %327 = icmp eq ptr %325, null
-  br i1 %327, label %.thread28, label %328
+325:                                              ; preds = %319, %303
+  %326 = phi i32 [ %324, %319 ], [ 0, %303 ]
+  %327 = call ptr @usb_alloc_urb(i32 noundef 0, i32 noundef 3264) #19
+  %328 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  store ptr %327, ptr %328, align 8
+  %329 = icmp eq ptr %327, null
+  br i1 %329, label %.thread28, label %330
 
-328:                                              ; preds = %323
-  %329 = call i16 @llvm.umin.i16(i16 %324, i16 8)
-  %330 = zext nneg i16 %329 to i32
+330:                                              ; preds = %325
   %331 = load ptr, ptr %131, align 8
   %332 = getelementptr inbounds nuw i8, ptr %126, i64 6
   %333 = load i8, ptr %332, align 1
   %334 = zext i8 %333 to i32
-  %335 = getelementptr inbounds nuw i8, ptr %325, i64 64
+  %335 = getelementptr inbounds nuw i8, ptr %327, i64 64
   store ptr %127, ptr %335, align 8
-  %336 = getelementptr inbounds nuw i8, ptr %325, i64 80
+  %336 = getelementptr inbounds nuw i8, ptr %327, i64 80
   store i32 %311, ptr %336, align 8
-  %337 = getelementptr inbounds nuw i8, ptr %325, i64 96
+  %337 = getelementptr inbounds nuw i8, ptr %327, i64 96
   store ptr %331, ptr %337, align 8
-  %338 = getelementptr inbounds nuw i8, ptr %325, i64 128
-  store i32 %330, ptr %338, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %325, i64 176
+  %338 = getelementptr inbounds nuw i8, ptr %327, i64 128
+  store i32 %326, ptr %338, align 8
+  %339 = getelementptr inbounds nuw i8, ptr %327, i64 176
   store ptr @hub_irq, ptr %339, align 8
-  %340 = getelementptr inbounds nuw i8, ptr %325, i64 168
+  %340 = getelementptr inbounds nuw i8, ptr %327, i64 168
   store ptr %61, ptr %340, align 8
   %341 = getelementptr inbounds nuw i8, ptr %127, i64 28
   %342 = load i32, ptr %341, align 4
@@ -5663,18 +5663,18 @@ default.unreachable58:                            ; preds = %234
   %345 = or i1 %343, %344
   br i1 %345, label %346, label %351
 
-346:                                              ; preds = %328
+346:                                              ; preds = %330
   %347 = icmp ugt i8 %333, 15
   %348 = call i32 @llvm.usub.sat.i32(i32 %334, i32 1)
   %349 = shl nuw nsw i32 1, %348
   %350 = select i1 %347, i32 32768, i32 %349
   br label %351
 
-351:                                              ; preds = %346, %328
-  %352 = phi i32 [ %350, %346 ], [ %334, %328 ]
-  %353 = getelementptr inbounds nuw i8, ptr %325, i64 160
+351:                                              ; preds = %346, %330
+  %352 = phi i32 [ %350, %346 ], [ %334, %330 ]
+  %353 = getelementptr inbounds nuw i8, ptr %327, i64 160
   store i32 %352, ptr %353, align 8
-  %354 = getelementptr inbounds nuw i8, ptr %325, i64 152
+  %354 = getelementptr inbounds nuw i8, ptr %327, i64 152
   store i32 -1, ptr %354, align 8
   %355 = getelementptr inbounds nuw i8, ptr %61, i64 240
   %356 = load i8, ptr %355, align 8
@@ -5762,9 +5762,9 @@ default.unreachable58:                            ; preds = %234
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #19
   br label %402
 
-.thread28:                                        ; preds = %170, %.loopexit, %125, %133, %138, %.thread22, %179, %200, %300, %323, %394, %163
-  %.ph26 = phi ptr [ @.str.101, %394 ], [ @.str.89, %323 ], [ @.str.98, %300 ], [ @.str.89, %200 ], [ @.str.93, %179 ], [ @.str.92, %.thread22 ], [ @.str.89, %138 ], [ @.str.89, %133 ], [ @.str.89, %125 ], [ @.str.89, %.loopexit ], [ @.str.91, %163 ], [ @.str.91, %170 ]
-  %.ph27 = phi i32 [ %395, %394 ], [ -12, %323 ], [ %301, %300 ], [ -12, %200 ], [ -19, %179 ], [ -19, %.thread22 ], [ -12, %138 ], [ -12, %133 ], [ -12, %125 ], [ %371, %.loopexit ], [ -90, %163 ], [ -22, %170 ]
+.thread28:                                        ; preds = %170, %.loopexit, %125, %133, %138, %.thread22, %179, %200, %300, %325, %394, %163
+  %.ph26 = phi ptr [ @.str.101, %394 ], [ @.str.89, %325 ], [ @.str.98, %300 ], [ @.str.89, %200 ], [ @.str.93, %179 ], [ @.str.92, %.thread22 ], [ @.str.89, %138 ], [ @.str.89, %133 ], [ @.str.89, %125 ], [ @.str.89, %.loopexit ], [ @.str.91, %163 ], [ @.str.91, %170 ]
+  %.ph27 = phi i32 [ %395, %394 ], [ -12, %325 ], [ %301, %300 ], [ -12, %200 ], [ -19, %179 ], [ -19, %.thread22 ], [ -12, %138 ], [ -12, %133 ], [ -12, %125 ], [ %371, %.loopexit ], [ -90, %163 ], [ -22, %170 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %128, ptr noundef nonnull @.str.102, ptr noundef nonnull %.ph26, i32 noundef %.ph27) #18
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #19
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #19

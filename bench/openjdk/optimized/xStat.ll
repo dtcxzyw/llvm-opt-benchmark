@@ -4464,218 +4464,218 @@ define linkonce_odr hidden void @_ZN19XStatSamplerHistory3addERK16XStatSamplerDa
 
 37:                                               ; preds = %35
   store i64 0, ptr %30, align 8
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %38
 
-38:                                               ; preds = %43, %37
-  %.017.i = phi i64 [ 0, %37 ], [ %45, %43 ]
-  %39 = phi i64 [ 0, %37 ], [ %44, %43 ]
+38:                                               ; preds = %45, %37
+  %.017.i = phi i64 [ 0, %37 ], [ %47, %45 ]
+  %39 = phi i64 [ 0, %37 ], [ %46, %45 ]
   %.idx.i = mul nuw nsw i64 %.017.i, 24
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
-  %40 = load i64, ptr %gep.i, align 8
-  %41 = icmp ult i64 %39, %40
-  br i1 %41, label %42, label %43
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = icmp ult i64 %39, %42
+  br i1 %43, label %44, label %45
 
-42:                                               ; preds = %38
-  store i64 %40, ptr %30, align 8
-  br label %43
+44:                                               ; preds = %38
+  store i64 %42, ptr %30, align 8
+  br label %45
 
-43:                                               ; preds = %42, %38
-  %44 = phi i64 [ %39, %38 ], [ %40, %42 ]
-  %45 = add nuw nsw i64 %.017.i, 1
-  %exitcond.not.i = icmp eq i64 %45, 10
+45:                                               ; preds = %44, %38
+  %46 = phi i64 [ %39, %38 ], [ %42, %44 ]
+  %47 = add nuw nsw i64 %.017.i, 1
+  %exitcond.not.i = icmp eq i64 %47, 10
   br i1 %exitcond.not.i, label %.loopexit.i, label %38, !llvm.loop !47
 
-.loopexit.i:                                      ; preds = %43, %35, %34
-  %46 = load i64, ptr %0, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %0, align 8
-  %48 = icmp eq i64 %47, 10
-  br i1 %48, label %49, label %_ZN27XStatSamplerHistoryIntervalILm10EE3addERK16XStatSamplerData.exit
+.loopexit.i:                                      ; preds = %45, %35, %34
+  %48 = load i64, ptr %0, align 8
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %0, align 8
+  %50 = icmp eq i64 %49, 10
+  br i1 %50, label %51, label %_ZN27XStatSamplerHistoryIntervalILm10EE3addERK16XStatSamplerData.exit
 
-49:                                               ; preds = %.loopexit.i
+51:                                               ; preds = %.loopexit.i
   store i64 0, ptr %0, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %52 = load i64, ptr %50, align 8
-  %53 = getelementptr inbounds [60 x %struct.XStatSamplerData], ptr %51, i64 0, i64 %52
-  %.sroa.0.0.copyload.i2 = load i64, ptr %53, align 8
-  %.sroa.2.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %54 = load i64, ptr %52, align 8
+  %55 = getelementptr inbounds [60 x %struct.XStatSamplerData], ptr %53, i64 0, i64 %54
+  %.sroa.0.0.copyload.i2 = load i64, ptr %55, align 8
+  %.sroa.2.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.sroa.2.0.copyload.i4 = load i64, ptr %.sroa.2.0..sroa_idx.i3, align 8
-  %.sroa.3.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %.sroa.3.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %.sroa.3.0.copyload.i6 = load i64, ptr %.sroa.3.0..sroa_idx.i5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
-  %54 = load i64, ptr %20, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %56 = load i64, ptr %55, align 8
-  %57 = add i64 %56, %54
-  store i64 %57, ptr %55, align 8
-  %58 = load i64, ptr %23, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1752
-  %60 = load i64, ptr %59, align 8
-  %61 = add i64 %60, %58
-  store i64 %61, ptr %59, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1760
-  %63 = load i64, ptr %62, align 8
-  %64 = load i64, ptr %30, align 8
-  %65 = tail call noundef i64 @llvm.umax.i64(i64 %63, i64 %64)
-  store i64 %65, ptr %62, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  %67 = load i64, ptr %66, align 8
-  %68 = sub i64 %67, %.sroa.0.0.copyload.i2
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1776
-  %70 = load i64, ptr %69, align 8
-  %71 = sub i64 %70, %.sroa.2.0.copyload.i4
-  %72 = add i64 %68, %54
-  store i64 %72, ptr %66, align 8
-  %73 = add i64 %71, %58
-  store i64 %73, ptr %69, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1784
-  %75 = load i64, ptr %74, align 8
-  %76 = icmp ult i64 %75, %64
-  br i1 %76, label %77, label %78
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
+  %56 = load i64, ptr %20, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1744
+  %58 = load i64, ptr %57, align 8
+  %59 = add i64 %58, %56
+  store i64 %59, ptr %57, align 8
+  %60 = load i64, ptr %23, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1752
+  %62 = load i64, ptr %61, align 8
+  %63 = add i64 %62, %60
+  store i64 %63, ptr %61, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1760
+  %65 = load i64, ptr %64, align 8
+  %66 = load i64, ptr %30, align 8
+  %67 = tail call noundef i64 @llvm.umax.i64(i64 %65, i64 %66)
+  store i64 %67, ptr %64, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %69 = load i64, ptr %68, align 8
+  %70 = sub i64 %69, %.sroa.0.0.copyload.i2
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1776
+  %72 = load i64, ptr %71, align 8
+  %73 = sub i64 %72, %.sroa.2.0.copyload.i4
+  %74 = add i64 %70, %56
+  store i64 %74, ptr %68, align 8
+  %75 = add i64 %73, %60
+  store i64 %75, ptr %71, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1784
+  %77 = load i64, ptr %76, align 8
+  %78 = icmp ult i64 %77, %66
+  br i1 %78, label %79, label %80
 
-77:                                               ; preds = %49
-  store i64 %64, ptr %74, align 8
+79:                                               ; preds = %51
+  store i64 %66, ptr %76, align 8
   br label %.loopexit.i7
 
-78:                                               ; preds = %49
-  %79 = icmp eq i64 %75, %.sroa.3.0.copyload.i6
-  br i1 %79, label %80, label %.loopexit.i7
+80:                                               ; preds = %51
+  %81 = icmp eq i64 %77, %.sroa.3.0.copyload.i6
+  br i1 %81, label %82, label %.loopexit.i7
 
-80:                                               ; preds = %78
-  store i64 0, ptr %74, align 8
-  %invariant.gep.i8 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  br label %81
+82:                                               ; preds = %80
+  store i64 0, ptr %76, align 8
+  br label %83
 
-81:                                               ; preds = %86, %80
-  %.017.i9 = phi i64 [ 0, %80 ], [ %88, %86 ]
-  %82 = phi i64 [ 0, %80 ], [ %87, %86 ]
-  %.idx.i10 = mul nuw nsw i64 %.017.i9, 24
-  %gep.i11 = getelementptr inbounds nuw i8, ptr %invariant.gep.i8, i64 %.idx.i10
-  %83 = load i64, ptr %gep.i11, align 8
-  %84 = icmp ult i64 %82, %83
-  br i1 %84, label %85, label %86
+83:                                               ; preds = %90, %82
+  %.017.i8 = phi i64 [ 0, %82 ], [ %92, %90 ]
+  %84 = phi i64 [ 0, %82 ], [ %91, %90 ]
+  %.idx.i9 = mul nuw nsw i64 %.017.i8, 24
+  %85 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i9
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %87 = load i64, ptr %86, align 8
+  %88 = icmp ult i64 %84, %87
+  br i1 %88, label %89, label %90
 
-85:                                               ; preds = %81
-  store i64 %83, ptr %74, align 8
-  br label %86
+89:                                               ; preds = %83
+  store i64 %87, ptr %76, align 8
+  br label %90
 
-86:                                               ; preds = %85, %81
-  %87 = phi i64 [ %82, %81 ], [ %83, %85 ]
-  %88 = add nuw nsw i64 %.017.i9, 1
-  %exitcond.not.i12 = icmp eq i64 %88, 60
-  br i1 %exitcond.not.i12, label %.loopexit.i7, label %81, !llvm.loop !48
+90:                                               ; preds = %89, %83
+  %91 = phi i64 [ %84, %83 ], [ %87, %89 ]
+  %92 = add nuw nsw i64 %.017.i8, 1
+  %exitcond.not.i10 = icmp eq i64 %92, 60
+  br i1 %exitcond.not.i10, label %.loopexit.i7, label %83, !llvm.loop !48
 
-.loopexit.i7:                                     ; preds = %86, %78, %77
-  %89 = load i64, ptr %50, align 8
-  %90 = add i64 %89, 1
-  store i64 %90, ptr %50, align 8
-  %91 = icmp eq i64 %90, 60
-  br i1 %91, label %92, label %_ZN27XStatSamplerHistoryIntervalILm10EE3addERK16XStatSamplerData.exit
+.loopexit.i7:                                     ; preds = %90, %80, %79
+  %93 = load i64, ptr %52, align 8
+  %94 = add i64 %93, 1
+  store i64 %94, ptr %52, align 8
+  %95 = icmp eq i64 %94, 60
+  br i1 %95, label %96, label %_ZN27XStatSamplerHistoryIntervalILm10EE3addERK16XStatSamplerData.exit
 
-92:                                               ; preds = %.loopexit.i7
-  store i64 0, ptr %50, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 1800
-  %95 = load i64, ptr %93, align 8
-  %96 = getelementptr inbounds [60 x %struct.XStatSamplerData], ptr %94, i64 0, i64 %95
-  %.sroa.0.0.copyload.i13 = load i64, ptr %96, align 8
-  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %.sroa.2.0.copyload.i15 = load i64, ptr %.sroa.2.0..sroa_idx.i14, align 8
-  %.sroa.3.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %.sroa.3.0.copyload.i17 = load i64, ptr %.sroa.3.0..sroa_idx.i16, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false)
-  %97 = load i64, ptr %66, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 3240
-  %99 = load i64, ptr %98, align 8
-  %100 = add i64 %99, %97
-  store i64 %100, ptr %98, align 8
-  %101 = load i64, ptr %69, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 3248
+96:                                               ; preds = %.loopexit.i7
+  store i64 0, ptr %52, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 1792
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %99 = load i64, ptr %97, align 8
+  %100 = getelementptr inbounds [60 x %struct.XStatSamplerData], ptr %98, i64 0, i64 %99
+  %.sroa.0.0.copyload.i11 = load i64, ptr %100, align 8
+  %.sroa.2.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %.sroa.2.0.copyload.i13 = load i64, ptr %.sroa.2.0..sroa_idx.i12, align 8
+  %.sroa.3.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %.sroa.3.0.copyload.i15 = load i64, ptr %.sroa.3.0..sroa_idx.i14, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef nonnull align 8 dereferenceable(24) %68, i64 24, i1 false)
+  %101 = load i64, ptr %68, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 3240
   %103 = load i64, ptr %102, align 8
   %104 = add i64 %103, %101
   store i64 %104, ptr %102, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 3256
-  %106 = load i64, ptr %105, align 8
-  %107 = load i64, ptr %74, align 8
-  %108 = tail call noundef i64 @llvm.umax.i64(i64 %106, i64 %107)
-  store i64 %108, ptr %105, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 3264
+  %105 = load i64, ptr %71, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 3248
+  %107 = load i64, ptr %106, align 8
+  %108 = add i64 %107, %105
+  store i64 %108, ptr %106, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 3256
   %110 = load i64, ptr %109, align 8
-  %111 = sub i64 %110, %.sroa.0.0.copyload.i13
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 3272
-  %113 = load i64, ptr %112, align 8
-  %114 = sub i64 %113, %.sroa.2.0.copyload.i15
-  %115 = add i64 %111, %97
-  store i64 %115, ptr %109, align 8
-  %116 = add i64 %114, %101
-  store i64 %116, ptr %112, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 3280
-  %118 = load i64, ptr %117, align 8
-  %119 = icmp ult i64 %118, %107
-  br i1 %119, label %120, label %121
+  %111 = load i64, ptr %76, align 8
+  %112 = tail call noundef i64 @llvm.umax.i64(i64 %110, i64 %111)
+  store i64 %112, ptr %109, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 3264
+  %114 = load i64, ptr %113, align 8
+  %115 = sub i64 %114, %.sroa.0.0.copyload.i11
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 3272
+  %117 = load i64, ptr %116, align 8
+  %118 = sub i64 %117, %.sroa.2.0.copyload.i13
+  %119 = add i64 %115, %101
+  store i64 %119, ptr %113, align 8
+  %120 = add i64 %118, %105
+  store i64 %120, ptr %116, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3280
+  %122 = load i64, ptr %121, align 8
+  %123 = icmp ult i64 %122, %111
+  br i1 %123, label %124, label %125
 
-120:                                              ; preds = %92
-  store i64 %107, ptr %117, align 8
-  br label %.loopexit.i18
+124:                                              ; preds = %96
+  store i64 %111, ptr %121, align 8
+  br label %.loopexit.i16
 
-121:                                              ; preds = %92
-  %122 = icmp eq i64 %118, %.sroa.3.0.copyload.i17
-  br i1 %122, label %123, label %.loopexit.i18
+125:                                              ; preds = %96
+  %126 = icmp eq i64 %122, %.sroa.3.0.copyload.i15
+  br i1 %126, label %127, label %.loopexit.i16
 
-123:                                              ; preds = %121
-  store i64 0, ptr %117, align 8
-  %invariant.gep.i19 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  br label %124
+127:                                              ; preds = %125
+  store i64 0, ptr %121, align 8
+  br label %128
 
-124:                                              ; preds = %129, %123
-  %.017.i20 = phi i64 [ 0, %123 ], [ %131, %129 ]
-  %125 = phi i64 [ 0, %123 ], [ %130, %129 ]
-  %.idx.i21 = mul nuw nsw i64 %.017.i20, 24
-  %gep.i22 = getelementptr inbounds nuw i8, ptr %invariant.gep.i19, i64 %.idx.i21
-  %126 = load i64, ptr %gep.i22, align 8
-  %127 = icmp ult i64 %125, %126
-  br i1 %127, label %128, label %129
+128:                                              ; preds = %135, %127
+  %.017.i17 = phi i64 [ 0, %127 ], [ %137, %135 ]
+  %129 = phi i64 [ 0, %127 ], [ %136, %135 ]
+  %.idx.i18 = mul nuw nsw i64 %.017.i17, 24
+  %130 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx.i18
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %132 = load i64, ptr %131, align 8
+  %133 = icmp ult i64 %129, %132
+  br i1 %133, label %134, label %135
 
-128:                                              ; preds = %124
-  store i64 %126, ptr %117, align 8
-  br label %129
+134:                                              ; preds = %128
+  store i64 %132, ptr %121, align 8
+  br label %135
 
-129:                                              ; preds = %128, %124
-  %130 = phi i64 [ %125, %124 ], [ %126, %128 ]
-  %131 = add nuw nsw i64 %.017.i20, 1
-  %exitcond.not.i23 = icmp eq i64 %131, 60
-  br i1 %exitcond.not.i23, label %.loopexit.i18, label %124, !llvm.loop !48
+135:                                              ; preds = %134, %128
+  %136 = phi i64 [ %129, %128 ], [ %132, %134 ]
+  %137 = add nuw nsw i64 %.017.i17, 1
+  %exitcond.not.i19 = icmp eq i64 %137, 60
+  br i1 %exitcond.not.i19, label %.loopexit.i16, label %128, !llvm.loop !48
 
-.loopexit.i18:                                    ; preds = %129, %121, %120
-  %132 = phi i64 [ %118, %121 ], [ %107, %120 ], [ %130, %129 ]
-  %133 = load i64, ptr %93, align 8
-  %134 = add i64 %133, 1
-  store i64 %134, ptr %93, align 8
-  %135 = icmp eq i64 %134, 60
-  br i1 %135, label %136, label %_ZN27XStatSamplerHistoryIntervalILm10EE3addERK16XStatSamplerData.exit
+.loopexit.i16:                                    ; preds = %135, %125, %124
+  %138 = phi i64 [ %122, %125 ], [ %111, %124 ], [ %136, %135 ]
+  %139 = load i64, ptr %97, align 8
+  %140 = add i64 %139, 1
+  store i64 %140, ptr %97, align 8
+  %141 = icmp eq i64 %140, 60
+  br i1 %141, label %142, label %_ZN27XStatSamplerHistoryIntervalILm10EE3addERK16XStatSamplerData.exit
 
-136:                                              ; preds = %.loopexit.i18
-  store i64 0, ptr %93, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 3288
-  %138 = load i64, ptr %137, align 8
-  %139 = add i64 %138, %115
-  store i64 %139, ptr %137, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 3296
-  %141 = load i64, ptr %140, align 8
-  %142 = add i64 %141, %116
-  store i64 %142, ptr %140, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 3304
+142:                                              ; preds = %.loopexit.i16
+  store i64 0, ptr %97, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false)
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 3288
   %144 = load i64, ptr %143, align 8
-  %145 = tail call noundef i64 @llvm.umax.i64(i64 %144, i64 %132)
+  %145 = add i64 %144, %119
   store i64 %145, ptr %143, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 3296
+  %147 = load i64, ptr %146, align 8
+  %148 = add i64 %147, %120
+  store i64 %148, ptr %146, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 3304
+  %150 = load i64, ptr %149, align 8
+  %151 = tail call noundef i64 @llvm.umax.i64(i64 %150, i64 %138)
+  store i64 %151, ptr %149, align 8
   br label %_ZN27XStatSamplerHistoryIntervalILm10EE3addERK16XStatSamplerData.exit
 
-_ZN27XStatSamplerHistoryIntervalILm10EE3addERK16XStatSamplerData.exit: ; preds = %.loopexit.i18, %.loopexit.i7, %.loopexit.i, %136
+_ZN27XStatSamplerHistoryIntervalILm10EE3addERK16XStatSamplerData.exit: ; preds = %.loopexit.i16, %.loopexit.i7, %.loopexit.i, %142
   ret void
 }
 

@@ -323,7 +323,7 @@ define i32 @ff_vvc_get_top_available(ptr noundef readonly captures(none) %0, i32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %34 = load i8, ptr %33, align 1, !tbaa !67
   %.not81 = icmp eq i8 %34, 0
-  br i1 %.not81, label %86, label %35
+  br i1 %.not81, label %87, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -339,7 +339,7 @@ define i32 @ff_vvc_get_top_available(ptr noundef readonly captures(none) %0, i32
   %44 = sub nsw i32 %43, %1
   %..84 = tail call i32 @llvm.smin.i32(i32 %.84, i32 %44)
   %.071 = select i1 %.not82, i32 %.84, i32 %..84
-  br label %86
+  br label %87
 
 45:                                               ; preds = %5
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 1936
@@ -361,61 +361,62 @@ define i32 @ff_vvc_get_top_available(ptr noundef readonly captures(none) %0, i32
   %57 = getelementptr inbounds nuw [2 x i32], ptr %55, i64 0, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !7
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4547744
-  %60 = zext i32 %58 to i64
-  br label %61
-
-61:                                               ; preds = %.lr.ph, %get_reconstructed_area.exit
-  %.07090 = phi i32 [ %1, %.lr.ph ], [ %82, %get_reconstructed_area.exit ]
-  %.189 = phi i32 [ %53, %.lr.ph ], [ %83, %get_reconstructed_area.exit ]
+  %60 = getelementptr inbounds nuw [2 x [1024 x %struct.ReconstructedArea]], ptr %59, i64 0, i64 %56
+  %61 = zext i32 %58 to i64
   br label %62
 
-62:                                               ; preds = %79, %61
-  %indvars.iv.i = phi i64 [ %63, %79 ], [ %60, %61 ]
-  %63 = add nsw i64 %indvars.iv.i, -1
-  %64 = trunc nuw i64 %indvars.iv.i to i32
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %66, label %.critedge
+62:                                               ; preds = %.lr.ph, %get_reconstructed_area.exit
+  %.07090 = phi i32 [ %1, %.lr.ph ], [ %83, %get_reconstructed_area.exit ]
+  %.189 = phi i32 [ %53, %.lr.ph ], [ %84, %get_reconstructed_area.exit ]
+  br label %63
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw [2 x [1024 x %struct.ReconstructedArea]], ptr %59, i64 0, i64 %56, i64 %63
-  %68 = load i32, ptr %67, align 4, !tbaa !86
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %70 = load i32, ptr %69, align 4, !tbaa !88
-  %71 = add nsw i32 %70, %68
-  %72 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %73 = load i32, ptr %72, align 4, !tbaa !89
-  %74 = getelementptr inbounds nuw i8, ptr %67, i64 12
-  %75 = load i32, ptr %74, align 4, !tbaa !90
-  %76 = add nsw i32 %75, %73
-  %.not.i = icmp sle i32 %68, %.07090
-  %77 = icmp slt i32 %.07090, %71
-  %or.cond.i = select i1 %.not.i, i1 %77, i1 false
-  %.not33.i = icmp slt i32 %73, %2
+63:                                               ; preds = %80, %62
+  %indvars.iv.i = phi i64 [ %64, %80 ], [ %61, %62 ]
+  %64 = add nsw i64 %indvars.iv.i, -1
+  %65 = trunc nuw i64 %indvars.iv.i to i32
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %67, label %.critedge
+
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw [1024 x %struct.ReconstructedArea], ptr %60, i64 0, i64 %64
+  %69 = load i32, ptr %68, align 4, !tbaa !86
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %71 = load i32, ptr %70, align 4, !tbaa !88
+  %72 = add nsw i32 %71, %69
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %74 = load i32, ptr %73, align 4, !tbaa !89
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  %76 = load i32, ptr %75, align 4, !tbaa !90
+  %77 = add nsw i32 %76, %74
+  %.not.i = icmp sle i32 %69, %.07090
+  %78 = icmp slt i32 %.07090, %72
+  %or.cond.i = select i1 %.not.i, i1 %78, i1 false
+  %.not33.i = icmp slt i32 %74, %2
   %or.cond36.not52.i = select i1 %or.cond.i, i1 %.not33.i, i1 false
-  %78 = icmp sle i32 %2, %76
-  %or.cond37.i = select i1 %or.cond36.not52.i, i1 %78, i1 false
-  br i1 %or.cond37.i, label %get_reconstructed_area.exit, label %79
+  %79 = icmp sle i32 %2, %77
+  %or.cond37.i = select i1 %or.cond36.not52.i, i1 %79, i1 false
+  br i1 %or.cond37.i, label %get_reconstructed_area.exit, label %80
 
-79:                                               ; preds = %66
-  %or.cond38.i = select i1 %77, i1 true, i1 %78
-  br i1 %or.cond38.i, label %62, label %.critedge, !llvm.loop !91
+80:                                               ; preds = %67
+  %or.cond38.i = select i1 %78, i1 true, i1 %79
+  br i1 %or.cond38.i, label %63, label %.critedge, !llvm.loop !91
 
-get_reconstructed_area.exit:                      ; preds = %66
-  %80 = sub i32 %68, %.07090
-  %81 = add i32 %80, %70
-  %..1 = tail call i32 @llvm.smin.i32(i32 %.189, i32 %81)
-  %82 = add nsw i32 %..1, %.07090
-  %83 = sub nsw i32 %.189, %..1
-  %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %61, label %.critedge, !llvm.loop !93
+get_reconstructed_area.exit:                      ; preds = %67
+  %81 = sub i32 %69, %.07090
+  %82 = add i32 %81, %71
+  %..1 = tail call i32 @llvm.smin.i32(i32 %.189, i32 %82)
+  %83 = add nsw i32 %..1, %.07090
+  %84 = sub nsw i32 %.189, %..1
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %62, label %.critedge, !llvm.loop !93
 
-.critedge:                                        ; preds = %get_reconstructed_area.exit, %62, %79, %45
-  %.07088 = phi i32 [ %1, %45 ], [ %.07090, %79 ], [ %.07090, %62 ], [ %82, %get_reconstructed_area.exit ]
-  %85 = sub nsw i32 %.07088, %1
-  br label %86
+.critedge:                                        ; preds = %get_reconstructed_area.exit, %63, %80, %45
+  %.07088 = phi i32 [ %1, %45 ], [ %.07090, %80 ], [ %.07090, %63 ], [ %83, %get_reconstructed_area.exit ]
+  %86 = sub nsw i32 %.07088, %1
+  br label %87
 
-86:                                               ; preds = %32, %.critedge, %35
-  %.0 = phi i32 [ %85, %.critedge ], [ %.071, %35 ], [ 0, %32 ]
+87:                                               ; preds = %32, %.critedge, %35
+  %.0 = phi i32 [ %86, %.critedge ], [ %.071, %35 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -461,13 +462,13 @@ define i32 @ff_vvc_get_left_available(ptr noundef readonly captures(none) %0, i3
 38:                                               ; preds = %5
   %39 = load i8, ptr %0, align 16, !tbaa !96
   %.not61 = icmp eq i8 %39, 0
-  br i1 %.not61, label %77, label %.thread
+  br i1 %.not61, label %78, label %.thread
 
 .thread:                                          ; preds = %38
   %40 = sub nsw i32 %37, %2
   %41 = tail call i32 @llvm.smin.i32(i32 %3, i32 %40)
   %spec.select63 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
-  br label %77
+  br label %78
 
 42:                                               ; preds = %5
   %43 = sub nsw i32 %37, %2
@@ -482,61 +483,62 @@ define i32 @ff_vvc_get_left_available(ptr noundef readonly captures(none) %0, i3
   %48 = getelementptr inbounds nuw [2 x i32], ptr %46, i64 0, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !7
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4547744
-  %51 = zext i32 %49 to i64
-  br label %52
-
-52:                                               ; preds = %.lr.ph, %get_reconstructed_area.exit
-  %.05469 = phi i32 [ %2, %.lr.ph ], [ %73, %get_reconstructed_area.exit ]
-  %.05568 = phi i32 [ %44, %.lr.ph ], [ %74, %get_reconstructed_area.exit ]
+  %51 = getelementptr inbounds nuw [2 x [1024 x %struct.ReconstructedArea]], ptr %50, i64 0, i64 %47
+  %52 = zext i32 %49 to i64
   br label %53
 
-53:                                               ; preds = %70, %52
-  %indvars.iv.i = phi i64 [ %54, %70 ], [ %51, %52 ]
-  %54 = add nsw i64 %indvars.iv.i, -1
-  %55 = trunc nuw i64 %indvars.iv.i to i32
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %57, label %.critedge
+53:                                               ; preds = %.lr.ph, %get_reconstructed_area.exit
+  %.05469 = phi i32 [ %2, %.lr.ph ], [ %74, %get_reconstructed_area.exit ]
+  %.05568 = phi i32 [ %44, %.lr.ph ], [ %75, %get_reconstructed_area.exit ]
+  br label %54
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw [2 x [1024 x %struct.ReconstructedArea]], ptr %50, i64 0, i64 %47, i64 %54
-  %59 = load i32, ptr %58, align 4, !tbaa !86
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %61 = load i32, ptr %60, align 4, !tbaa !88
-  %62 = add nsw i32 %61, %59
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !89
-  %65 = getelementptr inbounds nuw i8, ptr %58, i64 12
-  %66 = load i32, ptr %65, align 4, !tbaa !90
-  %67 = add nsw i32 %66, %64
-  %.not.i = icmp slt i32 %59, %1
-  %68 = icmp sle i32 %1, %62
-  %or.cond.i = select i1 %.not.i, i1 %68, i1 false
-  %.not33.i = icmp sle i32 %64, %.05469
+54:                                               ; preds = %71, %53
+  %indvars.iv.i = phi i64 [ %55, %71 ], [ %52, %53 ]
+  %55 = add nsw i64 %indvars.iv.i, -1
+  %56 = trunc nuw i64 %indvars.iv.i to i32
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %58, label %.critedge
+
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw [1024 x %struct.ReconstructedArea], ptr %51, i64 0, i64 %55
+  %60 = load i32, ptr %59, align 4, !tbaa !86
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %62 = load i32, ptr %61, align 4, !tbaa !88
+  %63 = add nsw i32 %62, %60
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %65 = load i32, ptr %64, align 4, !tbaa !89
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 12
+  %67 = load i32, ptr %66, align 4, !tbaa !90
+  %68 = add nsw i32 %67, %65
+  %.not.i = icmp slt i32 %60, %1
+  %69 = icmp sle i32 %1, %63
+  %or.cond.i = select i1 %.not.i, i1 %69, i1 false
+  %.not33.i = icmp sle i32 %65, %.05469
   %or.cond36.not52.i = select i1 %or.cond.i, i1 %.not33.i, i1 false
-  %69 = icmp slt i32 %.05469, %67
-  %or.cond37.i = select i1 %or.cond36.not52.i, i1 %69, i1 false
-  br i1 %or.cond37.i, label %get_reconstructed_area.exit, label %70
+  %70 = icmp slt i32 %.05469, %68
+  %or.cond37.i = select i1 %or.cond36.not52.i, i1 %70, i1 false
+  br i1 %or.cond37.i, label %get_reconstructed_area.exit, label %71
 
-70:                                               ; preds = %57
-  %or.cond38.i = select i1 %68, i1 true, i1 %69
-  br i1 %or.cond38.i, label %53, label %.critedge, !llvm.loop !91
+71:                                               ; preds = %58
+  %or.cond38.i = select i1 %69, i1 true, i1 %70
+  br i1 %or.cond38.i, label %54, label %.critedge, !llvm.loop !91
 
-get_reconstructed_area.exit:                      ; preds = %57
-  %71 = sub i32 %64, %.05469
-  %72 = add i32 %71, %66
-  %..055 = tail call i32 @llvm.smin.i32(i32 %.05568, i32 %72)
-  %73 = add nsw i32 %..055, %.05469
-  %74 = sub nsw i32 %.05568, %..055
-  %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %52, label %.critedge, !llvm.loop !97
+get_reconstructed_area.exit:                      ; preds = %58
+  %72 = sub i32 %65, %.05469
+  %73 = add i32 %72, %67
+  %..055 = tail call i32 @llvm.smin.i32(i32 %.05568, i32 %73)
+  %74 = add nsw i32 %..055, %.05469
+  %75 = sub nsw i32 %.05568, %..055
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %53, label %.critedge, !llvm.loop !97
 
-.critedge:                                        ; preds = %get_reconstructed_area.exit, %53, %70, %42
-  %.05467 = phi i32 [ %2, %42 ], [ %.05469, %70 ], [ %.05469, %53 ], [ %73, %get_reconstructed_area.exit ]
-  %76 = sub nsw i32 %.05467, %2
-  br label %77
+.critedge:                                        ; preds = %get_reconstructed_area.exit, %54, %71, %42
+  %.05467 = phi i32 [ %2, %42 ], [ %.05469, %71 ], [ %.05469, %54 ], [ %74, %get_reconstructed_area.exit ]
+  %77 = sub nsw i32 %.05467, %2
+  br label %78
 
-77:                                               ; preds = %.thread, %38, %.critedge
-  %.0 = phi i32 [ %76, %.critedge ], [ 0, %38 ], [ %spec.select63, %.thread ]
+78:                                               ; preds = %.thread, %38, %.critedge
+  %.0 = phi i32 [ %77, %.critedge ], [ 0, %38 ], [ %spec.select63, %.thread ]
   ret i32 %.0
 }
 

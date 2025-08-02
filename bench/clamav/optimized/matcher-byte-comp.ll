@@ -1649,7 +1649,6 @@ sub_0.i127:                                       ; preds = %61
   br label %cli_bcomp_chk_hex.exit135.thread
 
 cli_bcomp_chk_hex.exit135.thread:                 ; preds = %sub_0.i127, %.tail.i133, %61, %67, %54, %cli_bcomp_chk_hex.exit.thread
-  %invariant.gep = getelementptr i8, ptr %41, i64 -2
   %.not155 = icmp eq i32 %34, 0
   br i1 %.not155, label %.loopexit, label %.lr.ph153.preheader
 
@@ -1657,8 +1656,8 @@ cli_bcomp_chk_hex.exit135.thread:                 ; preds = %sub_0.i127, %.tail.
   %68 = tail call ptr @__ctype_b_loc() #16
   br label %.lr.ph153
 
-.lr.ph153:                                        ; preds = %.lr.ph153.preheader, %109
-  %.1105152 = phi i32 [ %110, %109 ], [ 0, %.lr.ph153.preheader ]
+.lr.ph153:                                        ; preds = %.lr.ph153.preheader, %111
+  %.1105152 = phi i32 [ %112, %111 ], [ 0, %.lr.ph153.preheader ]
   %69 = sub nuw nsw i32 %34, %.1105152
   %70 = icmp sgt i32 %69, 1
   br i1 %70, label %71, label %.lr.ph153._crit_edge
@@ -1666,74 +1665,75 @@ cli_bcomp_chk_hex.exit135.thread:                 ; preds = %sub_0.i127, %.tail.
 71:                                               ; preds = %.lr.ph153
   %72 = load ptr, ptr %68, align 8, !tbaa !37
   %73 = zext nneg i32 %69 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %73
-  %74 = load i8, ptr %gep, align 1, !tbaa !8
-  %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw i16, ptr %72, i64 %75
-  %77 = load i16, ptr %76, align 2, !tbaa !39
-  %78 = and i16 %77, 4096
-  %.not122 = icmp eq i16 %78, 0
-  br i1 %.not122, label %79, label %85
+  %74 = getelementptr i8, ptr %41, i64 %73
+  %75 = getelementptr i8, ptr %74, i64 -2
+  %76 = load i8, ptr %75, align 1, !tbaa !8
+  %77 = zext i8 %76 to i64
+  %78 = getelementptr inbounds nuw i16, ptr %72, i64 %77
+  %79 = load i16, ptr %78, align 2, !tbaa !39
+  %80 = and i16 %79, 4096
+  %.not122 = icmp eq i16 %80, 0
+  br i1 %.not122, label %81, label %87
 
-79:                                               ; preds = %71
-  %80 = tail call ptr @__ctype_toupper_loc() #16
-  %81 = load ptr, ptr %80, align 8, !tbaa !57
-  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %75
-  %83 = load i32, ptr %82, align 4, !tbaa !28
-  %84 = icmp eq i32 %83, 88
-  br i1 %84, label %85, label %88
+81:                                               ; preds = %71
+  %82 = tail call ptr @__ctype_toupper_loc() #16
+  %83 = load ptr, ptr %82, align 8, !tbaa !57
+  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %77
+  %85 = load i32, ptr %84, align 4, !tbaa !28
+  %86 = icmp eq i32 %85, 88
+  br i1 %86, label %87, label %90
 
-85:                                               ; preds = %79, %71
-  %86 = zext i32 %.1105152 to i64
-  %87 = getelementptr inbounds nuw i8, ptr %37, i64 %86
-  store i8 %74, ptr %87, align 1, !tbaa !8
+87:                                               ; preds = %81, %71
+  %88 = zext i32 %.1105152 to i64
+  %89 = getelementptr inbounds nuw i8, ptr %37, i64 %88
+  store i8 %76, ptr %89, align 1, !tbaa !8
   br label %.lr.ph153._crit_edge
 
-88:                                               ; preds = %79
+90:                                               ; preds = %81
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %37, i8 48, i64 %36, i1 false)
-  br label %109
+  br label %111
 
-.lr.ph153._crit_edge:                             ; preds = %.lr.ph153, %85
-  %89 = load ptr, ptr %68, align 8, !tbaa !37
-  %90 = add i32 %69, -1
-  %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw i8, ptr %41, i64 %91
-  %93 = load i8, ptr %92, align 1, !tbaa !8
-  %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds nuw i16, ptr %89, i64 %94
-  %96 = load i16, ptr %95, align 2, !tbaa !39
-  %97 = and i16 %96, 4096
-  %.not123 = icmp eq i16 %97, 0
-  br i1 %.not123, label %98, label %104
+.lr.ph153._crit_edge:                             ; preds = %.lr.ph153, %87
+  %91 = load ptr, ptr %68, align 8, !tbaa !37
+  %92 = add i32 %69, -1
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr inbounds nuw i8, ptr %41, i64 %93
+  %95 = load i8, ptr %94, align 1, !tbaa !8
+  %96 = zext i8 %95 to i64
+  %97 = getelementptr inbounds nuw i16, ptr %91, i64 %96
+  %98 = load i16, ptr %97, align 2, !tbaa !39
+  %99 = and i16 %98, 4096
+  %.not123 = icmp eq i16 %99, 0
+  br i1 %.not123, label %100, label %106
 
-98:                                               ; preds = %.lr.ph153._crit_edge
-  %99 = tail call ptr @__ctype_toupper_loc() #16
-  %100 = load ptr, ptr %99, align 8, !tbaa !57
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %94
-  %102 = load i32, ptr %101, align 4, !tbaa !28
-  %103 = icmp eq i32 %102, 88
-  br i1 %103, label %104, label %108
+100:                                              ; preds = %.lr.ph153._crit_edge
+  %101 = tail call ptr @__ctype_toupper_loc() #16
+  %102 = load ptr, ptr %101, align 8, !tbaa !57
+  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %96
+  %104 = load i32, ptr %103, align 4, !tbaa !28
+  %105 = icmp eq i32 %104, 88
+  br i1 %105, label %106, label %110
 
-104:                                              ; preds = %98, %.lr.ph153._crit_edge
-  %105 = or disjoint i32 %.1105152, 1
-  %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw i8, ptr %37, i64 %106
-  store i8 %93, ptr %107, align 1, !tbaa !8
-  br label %109
+106:                                              ; preds = %100, %.lr.ph153._crit_edge
+  %107 = or disjoint i32 %.1105152, 1
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds nuw i8, ptr %37, i64 %108
+  store i8 %95, ptr %109, align 1, !tbaa !8
+  br label %111
 
-108:                                              ; preds = %98
+110:                                              ; preds = %100
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %37, i8 48, i64 %36, i1 false)
-  br label %109
+  br label %111
 
-109:                                              ; preds = %104, %108, %88
-  %110 = add i32 %.1105152, 2
-  %111 = icmp ult i32 %110, %34
-  br i1 %111, label %.lr.ph153, label %.loopexit
+111:                                              ; preds = %106, %110, %90
+  %112 = add i32 %.1105152, 2
+  %113 = icmp ult i32 %112, %34
+  br i1 %113, label %.lr.ph153, label %.loopexit
 
-.loopexit:                                        ; preds = %109, %cli_bcomp_chk_hex.exit135.thread, %46
-  %112 = zext i32 %34 to i64
-  %113 = getelementptr inbounds nuw i8, ptr %37, i64 %112
-  store i8 0, ptr %113, align 1, !tbaa !8
+.loopexit:                                        ; preds = %111, %cli_bcomp_chk_hex.exit135.thread, %46
+  %114 = zext i32 %34 to i64
+  %115 = getelementptr inbounds nuw i8, ptr %37, i64 %114
+  store i8 0, ptr %115, align 1, !tbaa !8
   tail call void @free(ptr noundef nonnull %41) #14
   br label %.critedge
 

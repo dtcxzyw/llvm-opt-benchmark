@@ -82,70 +82,70 @@ define dso_local ptr @type_abi_find_single_struct_element(ptr noundef %0) local_
   br i1 %.not63, label %.loopexit54, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %20
-  %wide.trip.count = zext i32 %22 to i64
-  br label %.lr.ph
+  %23 = load ptr, ptr %19, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call fastcc ptr @type_lowering(ptr noundef %25)
+  br label %.preheader
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread52
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread52 ]
-  %.03861 = phi i1 [ true, %.lr.ph.preheader ], [ false, %.thread52 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call fastcc ptr @type_lowering(ptr noundef %26)
-  br i1 %.03861, label %.preheader, label %.loopexit54
-
-.preheader:                                       ; preds = %.lr.ph, %32
-  %.0 = phi ptr [ %34, %32 ], [ %27, %.lr.ph ]
-  %28 = load i32, ptr %.0, align 8
-  switch i32 %28, label %.loopexit [
-    i32 33, label %29
-    i32 31, label %35
+.preheader:                                       ; preds = %.lr.ph.preheader, %31
+  %.0 = phi ptr [ %33, %31 ], [ %26, %.lr.ph.preheader ]
+  %27 = load i32, ptr %.0, align 8
+  switch i32 %27, label %.loopexit [
+    i32 33, label %28
+    i32 31, label %34
   ]
 
-29:                                               ; preds = %.preheader
-  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 64
-  %31 = load i32, ptr %30, align 8
-  %.not50 = icmp eq i32 %31, 1
-  br i1 %.not50, label %32, label %.thread52
+28:                                               ; preds = %.preheader
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %30 = load i32, ptr %29, align 8
+  %.not50 = icmp eq i32 %30, 1
+  br i1 %.not50, label %31, label %.thread52
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 56
-  %34 = load ptr, ptr %33, align 8
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 56
+  %33 = load ptr, ptr %32, align 8
   br label %.preheader, !llvm.loop !7
 
-35:                                               ; preds = %.preheader
-  %36 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %37, align 8
+34:                                               ; preds = %.preheader
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = load i32, ptr %36, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %35
-  %.040 = phi i32 [ %38, %35 ], [ %28, %.preheader ]
-  %39 = and i32 %.040, -2
-  %40 = icmp eq i32 %39, 26
-  br i1 %40, label %41, label %.thread52
+.loopexit:                                        ; preds = %.preheader, %34
+  %.040 = phi i32 [ %37, %34 ], [ %27, %.preheader ]
+  %38 = and i32 %.040, -2
+  %39 = icmp eq i32 %38, 26
+  br i1 %39, label %40, label %.thread52
 
-41:                                               ; preds = %.loopexit
-  %42 = tail call ptr @type_abi_find_single_struct_element(ptr noundef nonnull %.0)
-  %.not51 = icmp eq ptr %42, null
+40:                                               ; preds = %.loopexit
+  %41 = tail call ptr @type_abi_find_single_struct_element(ptr noundef nonnull %.0)
+  %.not51 = icmp eq ptr %41, null
   br i1 %.not51, label %.loopexit54, label %.thread52
 
-.thread52:                                        ; preds = %29, %41, %.loopexit
-  %.1 = phi ptr [ %42, %41 ], [ %.0, %.loopexit ], [ %.0, %29 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+.thread52:                                        ; preds = %28, %40, %.loopexit
+  %.1 = phi ptr [ %41, %40 ], [ %.0, %.loopexit ], [ %.0, %28 ]
+  %exitcond.not = icmp eq i32 %22, 1
+  br i1 %exitcond.not, label %._crit_edge, label %.loopexit54.loopexit.critedge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.thread52
-  %43 = tail call i32 @type_size(ptr noundef nonnull %0) #4
-  %44 = tail call i32 @type_size(ptr noundef nonnull %.1) #4
-  %.not48 = icmp eq i32 %43, %44
+  %42 = tail call i32 @type_size(ptr noundef nonnull %0) #4
+  %43 = tail call i32 @type_size(ptr noundef nonnull %.1) #4
+  %.not48 = icmp eq i32 %42, %43
   %spec.select = select i1 %.not48, ptr %.1, ptr null
   br label %.loopexit54
 
-.loopexit54:                                      ; preds = %41, %.lr.ph, %17, %20, %._crit_edge, %11, %8
-  %.041 = phi ptr [ null, %8 ], [ null, %11 ], [ %spec.select, %._crit_edge ], [ null, %20 ], [ null, %17 ], [ null, %.lr.ph ], [ null, %41 ]
+.loopexit54.loopexit.critedge:                    ; preds = %.thread52
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 72
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call fastcc ptr @type_lowering(ptr noundef %47)
+  br label %.loopexit54
+
+.loopexit54:                                      ; preds = %40, %.loopexit54.loopexit.critedge, %17, %20, %._crit_edge, %11, %8
+  %.041 = phi ptr [ null, %8 ], [ null, %11 ], [ %spec.select, %._crit_edge ], [ null, %20 ], [ null, %17 ], [ null, %.loopexit54.loopexit.critedge ], [ null, %40 ]
   ret ptr %.041
 }
 

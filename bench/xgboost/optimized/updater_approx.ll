@@ -41669,132 +41669,132 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !562
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !164
-  %invariant.gep = getelementptr i8, ptr %40, i64 -88
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !933
   %45 = icmp ugt i64 %1, %44
-  br i1 %45, label %66, label %106
+  br i1 %45, label %68, label %108
 
 46:                                               ; preds = %.lr.ph, %46
-  %47 = phi i64 [ 0, %.lr.ph ], [ %63, %46 ]
-  %.014 = phi i64 [ 1, %.lr.ph ], [ %65, %46 ]
-  %gep = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %invariant.gep, i64 %.014
-  %48 = load i32, ptr %gep, align 8, !tbaa !535
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !919
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = lshr i64 %57, 11
-  %59 = and i64 %56, 16376
-  %60 = icmp ne i64 %59, 0
-  %61 = zext i1 %60 to i64
-  %62 = add i64 %58, %47
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
-  store i64 %63, ptr %64, align 8, !tbaa !44
-  %65 = add nuw i64 %.014, 1
+  %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
+  %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
+  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %49 = getelementptr i8, ptr %48, i64 -88
+  %50 = load i32, ptr %49, align 8, !tbaa !535
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !917
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !919
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %60 = lshr i64 %59, 11
+  %61 = and i64 %58, 16376
+  %62 = icmp ne i64 %61, 0
+  %63 = zext i1 %62 to i64
+  %64 = add i64 %60, %47
+  %65 = add i64 %64, %63
+  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  store i64 %65, ptr %66, align 8, !tbaa !44
+  %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !1354
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !175
-  %70 = load ptr, ptr %67, align 8, !tbaa !172
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 4
-  %75 = icmp ugt i64 %1, %74
-  br i1 %75, label %76, label %78
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !175
+  %72 = load ptr, ptr %69, align 8, !tbaa !172
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp ugt i64 %1, %76
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %66
-  %77 = sub nuw i64 %1, %74
-  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %77)
+78:                                               ; preds = %68
+  %79 = sub nuw i64 %1, %76
+  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-78:                                               ; preds = %66
-  %79 = icmp ult i64 %1, %74
-  br i1 %79, label %80, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
+80:                                               ; preds = %68
+  %81 = icmp ult i64 %1, %76
+  br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %70, i64 %1
-  %.not.i.i13 = icmp eq ptr %69, %81
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %105, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i:                                 ; preds = %82, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %83, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load atomic i64, ptr %85 acquire, align 8
-  %87 = icmp eq i64 %86, 4294967297
-  %88 = trunc i64 %86 to i32
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load atomic i64, ptr %87 acquire, align 8
+  %89 = icmp eq i64 %88, 4294967297
+  %90 = trunc i64 %88 to i32
+  br i1 %89, label %91, label %99
 
-89:                                               ; preds = %84
-  store i32 0, ptr %85, align 8, !tbaa !95
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %90, align 4, !tbaa !98
-  %91 = load ptr, ptr %83, align 8, !tbaa !57
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
-  %94 = load ptr, ptr %83, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+91:                                               ; preds = %86
+  store i32 0, ptr %87, align 8, !tbaa !95
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 0, ptr %92, align 4, !tbaa !98
+  %93 = load ptr, ptr %85, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
+  %96 = load ptr, ptr %85, align 8, !tbaa !57
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-97:                                               ; preds = %84
-  %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %101, label %99
+99:                                               ; preds = %86
+  %100 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %88, -1
-  store i32 %100, ptr %85, align 4, !tbaa !99
+101:                                              ; preds = %99
+  %102 = add nsw i32 %90, -1
+  store i32 %102, ptr %87, align 4, !tbaa !99
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-101:                                              ; preds = %97
-  %102 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+103:                                              ; preds = %99
+  %104 = atomicrmw volatile add ptr %87, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %101, %99
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
-  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %103, %101
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %101 ], [ %104, %103 ]
+  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %105, label %106, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
 
-104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %89, %.lr.ph.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %69
+_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %91, %.lr.ph.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %107, %71
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
 _ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  store ptr %81, ptr %68, align 8, !tbaa !175
+  store ptr %83, ptr %70, align 8, !tbaa !175
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %76, %78, %80, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %78, %80, %82, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
   store i64 %1, ptr %43, align 8, !tbaa !933
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
+108:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
   ret void
 }
 
@@ -49109,132 +49109,132 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !562
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !164
-  %invariant.gep = getelementptr i8, ptr %40, i64 -88
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !933
   %45 = icmp ugt i64 %1, %44
-  br i1 %45, label %66, label %106
+  br i1 %45, label %68, label %108
 
 46:                                               ; preds = %.lr.ph, %46
-  %47 = phi i64 [ 0, %.lr.ph ], [ %63, %46 ]
-  %.014 = phi i64 [ 1, %.lr.ph ], [ %65, %46 ]
-  %gep = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %invariant.gep, i64 %.014
-  %48 = load i32, ptr %gep, align 8, !tbaa !535
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !919
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = lshr i64 %57, 11
-  %59 = and i64 %56, 16376
-  %60 = icmp ne i64 %59, 0
-  %61 = zext i1 %60 to i64
-  %62 = add i64 %58, %47
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
-  store i64 %63, ptr %64, align 8, !tbaa !44
-  %65 = add nuw i64 %.014, 1
+  %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
+  %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
+  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %49 = getelementptr i8, ptr %48, i64 -88
+  %50 = load i32, ptr %49, align 8, !tbaa !535
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !917
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !919
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %60 = lshr i64 %59, 11
+  %61 = and i64 %58, 16376
+  %62 = icmp ne i64 %61, 0
+  %63 = zext i1 %62 to i64
+  %64 = add i64 %60, %47
+  %65 = add i64 %64, %63
+  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  store i64 %65, ptr %66, align 8, !tbaa !44
+  %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !1593
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !175
-  %70 = load ptr, ptr %67, align 8, !tbaa !172
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 4
-  %75 = icmp ugt i64 %1, %74
-  br i1 %75, label %76, label %78
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !175
+  %72 = load ptr, ptr %69, align 8, !tbaa !172
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp ugt i64 %1, %76
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %66
-  %77 = sub nuw i64 %1, %74
-  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %77)
+78:                                               ; preds = %68
+  %79 = sub nuw i64 %1, %76
+  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-78:                                               ; preds = %66
-  %79 = icmp ult i64 %1, %74
-  br i1 %79, label %80, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
+80:                                               ; preds = %68
+  %81 = icmp ult i64 %1, %76
+  br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %70, i64 %1
-  %.not.i.i13 = icmp eq ptr %69, %81
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %105, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i:                                 ; preds = %82, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %83, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load atomic i64, ptr %85 acquire, align 8
-  %87 = icmp eq i64 %86, 4294967297
-  %88 = trunc i64 %86 to i32
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load atomic i64, ptr %87 acquire, align 8
+  %89 = icmp eq i64 %88, 4294967297
+  %90 = trunc i64 %88 to i32
+  br i1 %89, label %91, label %99
 
-89:                                               ; preds = %84
-  store i32 0, ptr %85, align 8, !tbaa !95
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %90, align 4, !tbaa !98
-  %91 = load ptr, ptr %83, align 8, !tbaa !57
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
-  %94 = load ptr, ptr %83, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+91:                                               ; preds = %86
+  store i32 0, ptr %87, align 8, !tbaa !95
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 0, ptr %92, align 4, !tbaa !98
+  %93 = load ptr, ptr %85, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
+  %96 = load ptr, ptr %85, align 8, !tbaa !57
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-97:                                               ; preds = %84
-  %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %101, label %99
+99:                                               ; preds = %86
+  %100 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %88, -1
-  store i32 %100, ptr %85, align 4, !tbaa !99
+101:                                              ; preds = %99
+  %102 = add nsw i32 %90, -1
+  store i32 %102, ptr %87, align 4, !tbaa !99
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-101:                                              ; preds = %97
-  %102 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+103:                                              ; preds = %99
+  %104 = atomicrmw volatile add ptr %87, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %101, %99
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
-  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %103, %101
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %101 ], [ %104, %103 ]
+  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %105, label %106, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
 
-104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %89, %.lr.ph.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %69
+_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %91, %.lr.ph.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %107, %71
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
 _ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  store ptr %81, ptr %68, align 8, !tbaa !175
+  store ptr %83, ptr %70, align 8, !tbaa !175
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %76, %78, %80, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %78, %80, %82, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
   store i64 %1, ptr %43, align 8, !tbaa !933
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
+108:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
   ret void
 }
 
@@ -54349,132 +54349,132 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !562
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !164
-  %invariant.gep = getelementptr i8, ptr %40, i64 -88
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !933
   %45 = icmp ugt i64 %1, %44
-  br i1 %45, label %66, label %106
+  br i1 %45, label %68, label %108
 
 46:                                               ; preds = %.lr.ph, %46
-  %47 = phi i64 [ 0, %.lr.ph ], [ %63, %46 ]
-  %.014 = phi i64 [ 1, %.lr.ph ], [ %65, %46 ]
-  %gep = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %invariant.gep, i64 %.014
-  %48 = load i32, ptr %gep, align 8, !tbaa !535
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !919
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = lshr i64 %57, 11
-  %59 = and i64 %56, 16376
-  %60 = icmp ne i64 %59, 0
-  %61 = zext i1 %60 to i64
-  %62 = add i64 %58, %47
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
-  store i64 %63, ptr %64, align 8, !tbaa !44
-  %65 = add nuw i64 %.014, 1
+  %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
+  %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
+  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %49 = getelementptr i8, ptr %48, i64 -88
+  %50 = load i32, ptr %49, align 8, !tbaa !535
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !917
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !919
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %60 = lshr i64 %59, 11
+  %61 = and i64 %58, 16376
+  %62 = icmp ne i64 %61, 0
+  %63 = zext i1 %62 to i64
+  %64 = add i64 %60, %47
+  %65 = add i64 %64, %63
+  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  store i64 %65, ptr %66, align 8, !tbaa !44
+  %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !1751
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !175
-  %70 = load ptr, ptr %67, align 8, !tbaa !172
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 4
-  %75 = icmp ugt i64 %1, %74
-  br i1 %75, label %76, label %78
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !175
+  %72 = load ptr, ptr %69, align 8, !tbaa !172
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp ugt i64 %1, %76
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %66
-  %77 = sub nuw i64 %1, %74
-  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %77)
+78:                                               ; preds = %68
+  %79 = sub nuw i64 %1, %76
+  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-78:                                               ; preds = %66
-  %79 = icmp ult i64 %1, %74
-  br i1 %79, label %80, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
+80:                                               ; preds = %68
+  %81 = icmp ult i64 %1, %76
+  br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %70, i64 %1
-  %.not.i.i13 = icmp eq ptr %69, %81
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %105, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i:                                 ; preds = %82, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %83, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load atomic i64, ptr %85 acquire, align 8
-  %87 = icmp eq i64 %86, 4294967297
-  %88 = trunc i64 %86 to i32
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load atomic i64, ptr %87 acquire, align 8
+  %89 = icmp eq i64 %88, 4294967297
+  %90 = trunc i64 %88 to i32
+  br i1 %89, label %91, label %99
 
-89:                                               ; preds = %84
-  store i32 0, ptr %85, align 8, !tbaa !95
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %90, align 4, !tbaa !98
-  %91 = load ptr, ptr %83, align 8, !tbaa !57
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
-  %94 = load ptr, ptr %83, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+91:                                               ; preds = %86
+  store i32 0, ptr %87, align 8, !tbaa !95
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 0, ptr %92, align 4, !tbaa !98
+  %93 = load ptr, ptr %85, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
+  %96 = load ptr, ptr %85, align 8, !tbaa !57
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-97:                                               ; preds = %84
-  %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %101, label %99
+99:                                               ; preds = %86
+  %100 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %88, -1
-  store i32 %100, ptr %85, align 4, !tbaa !99
+101:                                              ; preds = %99
+  %102 = add nsw i32 %90, -1
+  store i32 %102, ptr %87, align 4, !tbaa !99
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-101:                                              ; preds = %97
-  %102 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+103:                                              ; preds = %99
+  %104 = atomicrmw volatile add ptr %87, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %101, %99
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
-  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %103, %101
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %101 ], [ %104, %103 ]
+  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %105, label %106, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
 
-104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %89, %.lr.ph.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %69
+_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %91, %.lr.ph.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %107, %71
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
 _ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  store ptr %81, ptr %68, align 8, !tbaa !175
+  store ptr %83, ptr %70, align 8, !tbaa !175
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %76, %78, %80, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %78, %80, %82, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
   store i64 %1, ptr %43, align 8, !tbaa !933
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
+108:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
   ret void
 }
 
@@ -59729,132 +59729,132 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !562
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !164
-  %invariant.gep = getelementptr i8, ptr %40, i64 -88
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !933
   %45 = icmp ugt i64 %1, %44
-  br i1 %45, label %66, label %106
+  br i1 %45, label %68, label %108
 
 46:                                               ; preds = %.lr.ph, %46
-  %47 = phi i64 [ 0, %.lr.ph ], [ %63, %46 ]
-  %.014 = phi i64 [ 1, %.lr.ph ], [ %65, %46 ]
-  %gep = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %invariant.gep, i64 %.014
-  %48 = load i32, ptr %gep, align 8, !tbaa !535
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !919
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = lshr i64 %57, 11
-  %59 = and i64 %56, 16376
-  %60 = icmp ne i64 %59, 0
-  %61 = zext i1 %60 to i64
-  %62 = add i64 %58, %47
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
-  store i64 %63, ptr %64, align 8, !tbaa !44
-  %65 = add nuw i64 %.014, 1
+  %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
+  %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
+  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %49 = getelementptr i8, ptr %48, i64 -88
+  %50 = load i32, ptr %49, align 8, !tbaa !535
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !917
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !919
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %60 = lshr i64 %59, 11
+  %61 = and i64 %58, 16376
+  %62 = icmp ne i64 %61, 0
+  %63 = zext i1 %62 to i64
+  %64 = add i64 %60, %47
+  %65 = add i64 %64, %63
+  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  store i64 %65, ptr %66, align 8, !tbaa !44
+  %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !1905
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !175
-  %70 = load ptr, ptr %67, align 8, !tbaa !172
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 4
-  %75 = icmp ugt i64 %1, %74
-  br i1 %75, label %76, label %78
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !175
+  %72 = load ptr, ptr %69, align 8, !tbaa !172
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp ugt i64 %1, %76
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %66
-  %77 = sub nuw i64 %1, %74
-  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %77)
+78:                                               ; preds = %68
+  %79 = sub nuw i64 %1, %76
+  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-78:                                               ; preds = %66
-  %79 = icmp ult i64 %1, %74
-  br i1 %79, label %80, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
+80:                                               ; preds = %68
+  %81 = icmp ult i64 %1, %76
+  br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %70, i64 %1
-  %.not.i.i13 = icmp eq ptr %69, %81
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %105, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i:                                 ; preds = %82, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %83, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load atomic i64, ptr %85 acquire, align 8
-  %87 = icmp eq i64 %86, 4294967297
-  %88 = trunc i64 %86 to i32
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load atomic i64, ptr %87 acquire, align 8
+  %89 = icmp eq i64 %88, 4294967297
+  %90 = trunc i64 %88 to i32
+  br i1 %89, label %91, label %99
 
-89:                                               ; preds = %84
-  store i32 0, ptr %85, align 8, !tbaa !95
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %90, align 4, !tbaa !98
-  %91 = load ptr, ptr %83, align 8, !tbaa !57
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
-  %94 = load ptr, ptr %83, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+91:                                               ; preds = %86
+  store i32 0, ptr %87, align 8, !tbaa !95
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 0, ptr %92, align 4, !tbaa !98
+  %93 = load ptr, ptr %85, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
+  %96 = load ptr, ptr %85, align 8, !tbaa !57
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-97:                                               ; preds = %84
-  %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %101, label %99
+99:                                               ; preds = %86
+  %100 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %88, -1
-  store i32 %100, ptr %85, align 4, !tbaa !99
+101:                                              ; preds = %99
+  %102 = add nsw i32 %90, -1
+  store i32 %102, ptr %87, align 4, !tbaa !99
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-101:                                              ; preds = %97
-  %102 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+103:                                              ; preds = %99
+  %104 = atomicrmw volatile add ptr %87, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %101, %99
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
-  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %103, %101
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %101 ], [ %104, %103 ]
+  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %105, label %106, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
 
-104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %89, %.lr.ph.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %69
+_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %91, %.lr.ph.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %107, %71
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
 _ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  store ptr %81, ptr %68, align 8, !tbaa !175
+  store ptr %83, ptr %70, align 8, !tbaa !175
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %76, %78, %80, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %78, %80, %82, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
   store i64 %1, ptr %43, align 8, !tbaa !933
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
+108:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
   ret void
 }
 
@@ -65108,132 +65108,132 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !562
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !164
-  %invariant.gep = getelementptr i8, ptr %40, i64 -88
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !933
   %45 = icmp ugt i64 %1, %44
-  br i1 %45, label %66, label %106
+  br i1 %45, label %68, label %108
 
 46:                                               ; preds = %.lr.ph, %46
-  %47 = phi i64 [ 0, %.lr.ph ], [ %63, %46 ]
-  %.014 = phi i64 [ 1, %.lr.ph ], [ %65, %46 ]
-  %gep = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %invariant.gep, i64 %.014
-  %48 = load i32, ptr %gep, align 8, !tbaa !535
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !919
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = lshr i64 %57, 11
-  %59 = and i64 %56, 16376
-  %60 = icmp ne i64 %59, 0
-  %61 = zext i1 %60 to i64
-  %62 = add i64 %58, %47
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
-  store i64 %63, ptr %64, align 8, !tbaa !44
-  %65 = add nuw i64 %.014, 1
+  %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
+  %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
+  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %49 = getelementptr i8, ptr %48, i64 -88
+  %50 = load i32, ptr %49, align 8, !tbaa !535
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !917
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !919
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %60 = lshr i64 %59, 11
+  %61 = and i64 %58, 16376
+  %62 = icmp ne i64 %61, 0
+  %63 = zext i1 %62 to i64
+  %64 = add i64 %60, %47
+  %65 = add i64 %64, %63
+  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  store i64 %65, ptr %66, align 8, !tbaa !44
+  %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !2054
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !175
-  %70 = load ptr, ptr %67, align 8, !tbaa !172
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 4
-  %75 = icmp ugt i64 %1, %74
-  br i1 %75, label %76, label %78
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !175
+  %72 = load ptr, ptr %69, align 8, !tbaa !172
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp ugt i64 %1, %76
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %66
-  %77 = sub nuw i64 %1, %74
-  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %77)
+78:                                               ; preds = %68
+  %79 = sub nuw i64 %1, %76
+  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-78:                                               ; preds = %66
-  %79 = icmp ult i64 %1, %74
-  br i1 %79, label %80, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
+80:                                               ; preds = %68
+  %81 = icmp ult i64 %1, %76
+  br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %70, i64 %1
-  %.not.i.i13 = icmp eq ptr %69, %81
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %105, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i:                                 ; preds = %82, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %83, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load atomic i64, ptr %85 acquire, align 8
-  %87 = icmp eq i64 %86, 4294967297
-  %88 = trunc i64 %86 to i32
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load atomic i64, ptr %87 acquire, align 8
+  %89 = icmp eq i64 %88, 4294967297
+  %90 = trunc i64 %88 to i32
+  br i1 %89, label %91, label %99
 
-89:                                               ; preds = %84
-  store i32 0, ptr %85, align 8, !tbaa !95
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %90, align 4, !tbaa !98
-  %91 = load ptr, ptr %83, align 8, !tbaa !57
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
-  %94 = load ptr, ptr %83, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+91:                                               ; preds = %86
+  store i32 0, ptr %87, align 8, !tbaa !95
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 0, ptr %92, align 4, !tbaa !98
+  %93 = load ptr, ptr %85, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
+  %96 = load ptr, ptr %85, align 8, !tbaa !57
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-97:                                               ; preds = %84
-  %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %101, label %99
+99:                                               ; preds = %86
+  %100 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %88, -1
-  store i32 %100, ptr %85, align 4, !tbaa !99
+101:                                              ; preds = %99
+  %102 = add nsw i32 %90, -1
+  store i32 %102, ptr %87, align 4, !tbaa !99
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-101:                                              ; preds = %97
-  %102 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+103:                                              ; preds = %99
+  %104 = atomicrmw volatile add ptr %87, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %101, %99
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
-  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %103, %101
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %101 ], [ %104, %103 ]
+  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %105, label %106, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
 
-104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %89, %.lr.ph.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %69
+_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %91, %.lr.ph.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %107, %71
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
 _ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  store ptr %81, ptr %68, align 8, !tbaa !175
+  store ptr %83, ptr %70, align 8, !tbaa !175
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %76, %78, %80, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %78, %80, %82, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
   store i64 %1, ptr %43, align 8, !tbaa !933
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
+108:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
   ret void
 }
 
@@ -70590,132 +70590,132 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !562
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !164
-  %invariant.gep = getelementptr i8, ptr %40, i64 -88
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !933
   %45 = icmp ugt i64 %1, %44
-  br i1 %45, label %66, label %106
+  br i1 %45, label %68, label %108
 
 46:                                               ; preds = %.lr.ph, %46
-  %47 = phi i64 [ 0, %.lr.ph ], [ %63, %46 ]
-  %.014 = phi i64 [ 1, %.lr.ph ], [ %65, %46 ]
-  %gep = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %invariant.gep, i64 %.014
-  %48 = load i32, ptr %gep, align 8, !tbaa !535
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !919
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = lshr i64 %57, 11
-  %59 = and i64 %56, 16376
-  %60 = icmp ne i64 %59, 0
-  %61 = zext i1 %60 to i64
-  %62 = add i64 %58, %47
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
-  store i64 %63, ptr %64, align 8, !tbaa !44
-  %65 = add nuw i64 %.014, 1
+  %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
+  %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
+  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %49 = getelementptr i8, ptr %48, i64 -88
+  %50 = load i32, ptr %49, align 8, !tbaa !535
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !917
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !919
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %60 = lshr i64 %59, 11
+  %61 = and i64 %58, 16376
+  %62 = icmp ne i64 %61, 0
+  %63 = zext i1 %62 to i64
+  %64 = add i64 %60, %47
+  %65 = add i64 %64, %63
+  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  store i64 %65, ptr %66, align 8, !tbaa !44
+  %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !2208
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !175
-  %70 = load ptr, ptr %67, align 8, !tbaa !172
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 4
-  %75 = icmp ugt i64 %1, %74
-  br i1 %75, label %76, label %78
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !175
+  %72 = load ptr, ptr %69, align 8, !tbaa !172
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp ugt i64 %1, %76
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %66
-  %77 = sub nuw i64 %1, %74
-  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %77)
+78:                                               ; preds = %68
+  %79 = sub nuw i64 %1, %76
+  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-78:                                               ; preds = %66
-  %79 = icmp ult i64 %1, %74
-  br i1 %79, label %80, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
+80:                                               ; preds = %68
+  %81 = icmp ult i64 %1, %76
+  br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %70, i64 %1
-  %.not.i.i13 = icmp eq ptr %69, %81
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %105, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i:                                 ; preds = %82, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %83, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load atomic i64, ptr %85 acquire, align 8
-  %87 = icmp eq i64 %86, 4294967297
-  %88 = trunc i64 %86 to i32
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load atomic i64, ptr %87 acquire, align 8
+  %89 = icmp eq i64 %88, 4294967297
+  %90 = trunc i64 %88 to i32
+  br i1 %89, label %91, label %99
 
-89:                                               ; preds = %84
-  store i32 0, ptr %85, align 8, !tbaa !95
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %90, align 4, !tbaa !98
-  %91 = load ptr, ptr %83, align 8, !tbaa !57
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
-  %94 = load ptr, ptr %83, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+91:                                               ; preds = %86
+  store i32 0, ptr %87, align 8, !tbaa !95
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 0, ptr %92, align 4, !tbaa !98
+  %93 = load ptr, ptr %85, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
+  %96 = load ptr, ptr %85, align 8, !tbaa !57
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-97:                                               ; preds = %84
-  %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %101, label %99
+99:                                               ; preds = %86
+  %100 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %88, -1
-  store i32 %100, ptr %85, align 4, !tbaa !99
+101:                                              ; preds = %99
+  %102 = add nsw i32 %90, -1
+  store i32 %102, ptr %87, align 4, !tbaa !99
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-101:                                              ; preds = %97
-  %102 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+103:                                              ; preds = %99
+  %104 = atomicrmw volatile add ptr %87, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %101, %99
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
-  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %103, %101
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %101 ], [ %104, %103 ]
+  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %105, label %106, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
 
-104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %89, %.lr.ph.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %69
+_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %91, %.lr.ph.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %107, %71
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
 _ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  store ptr %81, ptr %68, align 8, !tbaa !175
+  store ptr %83, ptr %70, align 8, !tbaa !175
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %76, %78, %80, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %78, %80, %82, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
   store i64 %1, ptr %43, align 8, !tbaa !933
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
+108:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
   ret void
 }
 
@@ -75126,132 +75126,132 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !562
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !164
-  %invariant.gep = getelementptr i8, ptr %40, i64 -88
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !933
   %45 = icmp ugt i64 %1, %44
-  br i1 %45, label %66, label %106
+  br i1 %45, label %68, label %108
 
 46:                                               ; preds = %.lr.ph, %46
-  %47 = phi i64 [ 0, %.lr.ph ], [ %63, %46 ]
-  %.014 = phi i64 [ 1, %.lr.ph ], [ %65, %46 ]
-  %gep = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %invariant.gep, i64 %.014
-  %48 = load i32, ptr %gep, align 8, !tbaa !535
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !919
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = lshr i64 %57, 11
-  %59 = and i64 %56, 16376
-  %60 = icmp ne i64 %59, 0
-  %61 = zext i1 %60 to i64
-  %62 = add i64 %58, %47
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
-  store i64 %63, ptr %64, align 8, !tbaa !44
-  %65 = add nuw i64 %.014, 1
+  %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
+  %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
+  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %49 = getelementptr i8, ptr %48, i64 -88
+  %50 = load i32, ptr %49, align 8, !tbaa !535
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !917
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !919
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %60 = lshr i64 %59, 11
+  %61 = and i64 %58, 16376
+  %62 = icmp ne i64 %61, 0
+  %63 = zext i1 %62 to i64
+  %64 = add i64 %60, %47
+  %65 = add i64 %64, %63
+  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  store i64 %65, ptr %66, align 8, !tbaa !44
+  %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !2335
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !175
-  %70 = load ptr, ptr %67, align 8, !tbaa !172
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 4
-  %75 = icmp ugt i64 %1, %74
-  br i1 %75, label %76, label %78
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !175
+  %72 = load ptr, ptr %69, align 8, !tbaa !172
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp ugt i64 %1, %76
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %66
-  %77 = sub nuw i64 %1, %74
-  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %77)
+78:                                               ; preds = %68
+  %79 = sub nuw i64 %1, %76
+  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-78:                                               ; preds = %66
-  %79 = icmp ult i64 %1, %74
-  br i1 %79, label %80, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
+80:                                               ; preds = %68
+  %81 = icmp ult i64 %1, %76
+  br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %70, i64 %1
-  %.not.i.i13 = icmp eq ptr %69, %81
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %105, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i:                                 ; preds = %82, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %83, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load atomic i64, ptr %85 acquire, align 8
-  %87 = icmp eq i64 %86, 4294967297
-  %88 = trunc i64 %86 to i32
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load atomic i64, ptr %87 acquire, align 8
+  %89 = icmp eq i64 %88, 4294967297
+  %90 = trunc i64 %88 to i32
+  br i1 %89, label %91, label %99
 
-89:                                               ; preds = %84
-  store i32 0, ptr %85, align 8, !tbaa !95
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %90, align 4, !tbaa !98
-  %91 = load ptr, ptr %83, align 8, !tbaa !57
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
-  %94 = load ptr, ptr %83, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+91:                                               ; preds = %86
+  store i32 0, ptr %87, align 8, !tbaa !95
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 0, ptr %92, align 4, !tbaa !98
+  %93 = load ptr, ptr %85, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
+  %96 = load ptr, ptr %85, align 8, !tbaa !57
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-97:                                               ; preds = %84
-  %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %101, label %99
+99:                                               ; preds = %86
+  %100 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %88, -1
-  store i32 %100, ptr %85, align 4, !tbaa !99
+101:                                              ; preds = %99
+  %102 = add nsw i32 %90, -1
+  store i32 %102, ptr %87, align 4, !tbaa !99
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-101:                                              ; preds = %97
-  %102 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+103:                                              ; preds = %99
+  %104 = atomicrmw volatile add ptr %87, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %101, %99
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
-  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %103, %101
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %101 ], [ %104, %103 ]
+  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %105, label %106, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
 
-104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %89, %.lr.ph.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %69
+_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %91, %.lr.ph.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %107, %71
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
 _ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  store ptr %81, ptr %68, align 8, !tbaa !175
+  store ptr %83, ptr %70, align 8, !tbaa !175
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %76, %78, %80, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %78, %80, %82, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
   store i64 %1, ptr %43, align 8, !tbaa !933
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
+108:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
   ret void
 }
 
@@ -79657,132 +79657,132 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !562
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !164
-  %invariant.gep = getelementptr i8, ptr %40, i64 -88
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !933
   %45 = icmp ugt i64 %1, %44
-  br i1 %45, label %66, label %106
+  br i1 %45, label %68, label %108
 
 46:                                               ; preds = %.lr.ph, %46
-  %47 = phi i64 [ 0, %.lr.ph ], [ %63, %46 ]
-  %.014 = phi i64 [ 1, %.lr.ph ], [ %65, %46 ]
-  %gep = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %invariant.gep, i64 %.014
-  %48 = load i32, ptr %gep, align 8, !tbaa !535
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !919
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = lshr i64 %57, 11
-  %59 = and i64 %56, 16376
-  %60 = icmp ne i64 %59, 0
-  %61 = zext i1 %60 to i64
-  %62 = add i64 %58, %47
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
-  store i64 %63, ptr %64, align 8, !tbaa !44
-  %65 = add nuw i64 %.014, 1
+  %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
+  %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
+  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %49 = getelementptr i8, ptr %48, i64 -88
+  %50 = load i32, ptr %49, align 8, !tbaa !535
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !917
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !919
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %60 = lshr i64 %59, 11
+  %61 = and i64 %58, 16376
+  %62 = icmp ne i64 %61, 0
+  %63 = zext i1 %62 to i64
+  %64 = add i64 %60, %47
+  %65 = add i64 %64, %63
+  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  store i64 %65, ptr %66, align 8, !tbaa !44
+  %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !2462
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !175
-  %70 = load ptr, ptr %67, align 8, !tbaa !172
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 4
-  %75 = icmp ugt i64 %1, %74
-  br i1 %75, label %76, label %78
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !175
+  %72 = load ptr, ptr %69, align 8, !tbaa !172
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp ugt i64 %1, %76
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %66
-  %77 = sub nuw i64 %1, %74
-  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %77)
+78:                                               ; preds = %68
+  %79 = sub nuw i64 %1, %76
+  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-78:                                               ; preds = %66
-  %79 = icmp ult i64 %1, %74
-  br i1 %79, label %80, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
+80:                                               ; preds = %68
+  %81 = icmp ult i64 %1, %76
+  br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %70, i64 %1
-  %.not.i.i13 = icmp eq ptr %69, %81
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %105, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i:                                 ; preds = %82, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %83, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load atomic i64, ptr %85 acquire, align 8
-  %87 = icmp eq i64 %86, 4294967297
-  %88 = trunc i64 %86 to i32
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load atomic i64, ptr %87 acquire, align 8
+  %89 = icmp eq i64 %88, 4294967297
+  %90 = trunc i64 %88 to i32
+  br i1 %89, label %91, label %99
 
-89:                                               ; preds = %84
-  store i32 0, ptr %85, align 8, !tbaa !95
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %90, align 4, !tbaa !98
-  %91 = load ptr, ptr %83, align 8, !tbaa !57
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
-  %94 = load ptr, ptr %83, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+91:                                               ; preds = %86
+  store i32 0, ptr %87, align 8, !tbaa !95
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 0, ptr %92, align 4, !tbaa !98
+  %93 = load ptr, ptr %85, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
+  %96 = load ptr, ptr %85, align 8, !tbaa !57
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-97:                                               ; preds = %84
-  %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %101, label %99
+99:                                               ; preds = %86
+  %100 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %88, -1
-  store i32 %100, ptr %85, align 4, !tbaa !99
+101:                                              ; preds = %99
+  %102 = add nsw i32 %90, -1
+  store i32 %102, ptr %87, align 4, !tbaa !99
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-101:                                              ; preds = %97
-  %102 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+103:                                              ; preds = %99
+  %104 = atomicrmw volatile add ptr %87, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %101, %99
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
-  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %103, %101
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %101 ], [ %104, %103 ]
+  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %105, label %106, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
 
-104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %89, %.lr.ph.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %69
+_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %91, %.lr.ph.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %107, %71
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
 _ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  store ptr %81, ptr %68, align 8, !tbaa !175
+  store ptr %83, ptr %70, align 8, !tbaa !175
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %76, %78, %80, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %78, %80, %82, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
   store i64 %1, ptr %43, align 8, !tbaa !933
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
+108:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
   ret void
 }
 
@@ -84293,132 +84293,132 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !562
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !164
-  %invariant.gep = getelementptr i8, ptr %40, i64 -88
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !933
   %45 = icmp ugt i64 %1, %44
-  br i1 %45, label %66, label %106
+  br i1 %45, label %68, label %108
 
 46:                                               ; preds = %.lr.ph, %46
-  %47 = phi i64 [ 0, %.lr.ph ], [ %63, %46 ]
-  %.014 = phi i64 [ 1, %.lr.ph ], [ %65, %46 ]
-  %gep = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %invariant.gep, i64 %.014
-  %48 = load i32, ptr %gep, align 8, !tbaa !535
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !919
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = lshr i64 %57, 11
-  %59 = and i64 %56, 16376
-  %60 = icmp ne i64 %59, 0
-  %61 = zext i1 %60 to i64
-  %62 = add i64 %58, %47
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
-  store i64 %63, ptr %64, align 8, !tbaa !44
-  %65 = add nuw i64 %.014, 1
+  %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
+  %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
+  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %49 = getelementptr i8, ptr %48, i64 -88
+  %50 = load i32, ptr %49, align 8, !tbaa !535
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !917
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !919
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %60 = lshr i64 %59, 11
+  %61 = and i64 %58, 16376
+  %62 = icmp ne i64 %61, 0
+  %63 = zext i1 %62 to i64
+  %64 = add i64 %60, %47
+  %65 = add i64 %64, %63
+  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  store i64 %65, ptr %66, align 8, !tbaa !44
+  %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !2594
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !175
-  %70 = load ptr, ptr %67, align 8, !tbaa !172
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 4
-  %75 = icmp ugt i64 %1, %74
-  br i1 %75, label %76, label %78
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !175
+  %72 = load ptr, ptr %69, align 8, !tbaa !172
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp ugt i64 %1, %76
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %66
-  %77 = sub nuw i64 %1, %74
-  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %77)
+78:                                               ; preds = %68
+  %79 = sub nuw i64 %1, %76
+  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-78:                                               ; preds = %66
-  %79 = icmp ult i64 %1, %74
-  br i1 %79, label %80, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
+80:                                               ; preds = %68
+  %81 = icmp ult i64 %1, %76
+  br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %70, i64 %1
-  %.not.i.i13 = icmp eq ptr %69, %81
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %105, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i:                                 ; preds = %82, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %83, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load atomic i64, ptr %85 acquire, align 8
-  %87 = icmp eq i64 %86, 4294967297
-  %88 = trunc i64 %86 to i32
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load atomic i64, ptr %87 acquire, align 8
+  %89 = icmp eq i64 %88, 4294967297
+  %90 = trunc i64 %88 to i32
+  br i1 %89, label %91, label %99
 
-89:                                               ; preds = %84
-  store i32 0, ptr %85, align 8, !tbaa !95
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %90, align 4, !tbaa !98
-  %91 = load ptr, ptr %83, align 8, !tbaa !57
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
-  %94 = load ptr, ptr %83, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+91:                                               ; preds = %86
+  store i32 0, ptr %87, align 8, !tbaa !95
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 0, ptr %92, align 4, !tbaa !98
+  %93 = load ptr, ptr %85, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
+  %96 = load ptr, ptr %85, align 8, !tbaa !57
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-97:                                               ; preds = %84
-  %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %101, label %99
+99:                                               ; preds = %86
+  %100 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %88, -1
-  store i32 %100, ptr %85, align 4, !tbaa !99
+101:                                              ; preds = %99
+  %102 = add nsw i32 %90, -1
+  store i32 %102, ptr %87, align 4, !tbaa !99
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-101:                                              ; preds = %97
-  %102 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+103:                                              ; preds = %99
+  %104 = atomicrmw volatile add ptr %87, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %101, %99
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
-  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %103, %101
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %101 ], [ %104, %103 ]
+  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %105, label %106, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
 
-104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %89, %.lr.ph.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %69
+_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %91, %.lr.ph.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %107, %71
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
 _ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  store ptr %81, ptr %68, align 8, !tbaa !175
+  store ptr %83, ptr %70, align 8, !tbaa !175
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %76, %78, %80, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %78, %80, %82, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
   store i64 %1, ptr %43, align 8, !tbaa !933
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
+108:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
   ret void
 }
 
@@ -88958,132 +88958,132 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !562
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !164
-  %invariant.gep = getelementptr i8, ptr %40, i64 -88
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !933
   %45 = icmp ugt i64 %1, %44
-  br i1 %45, label %66, label %106
+  br i1 %45, label %68, label %108
 
 46:                                               ; preds = %.lr.ph, %46
-  %47 = phi i64 [ 0, %.lr.ph ], [ %63, %46 ]
-  %.014 = phi i64 [ 1, %.lr.ph ], [ %65, %46 ]
-  %gep = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %invariant.gep, i64 %.014
-  %48 = load i32, ptr %gep, align 8, !tbaa !535
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !919
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = lshr i64 %57, 11
-  %59 = and i64 %56, 16376
-  %60 = icmp ne i64 %59, 0
-  %61 = zext i1 %60 to i64
-  %62 = add i64 %58, %47
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
-  store i64 %63, ptr %64, align 8, !tbaa !44
-  %65 = add nuw i64 %.014, 1
+  %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
+  %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
+  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %49 = getelementptr i8, ptr %48, i64 -88
+  %50 = load i32, ptr %49, align 8, !tbaa !535
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !917
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !919
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %60 = lshr i64 %59, 11
+  %61 = and i64 %58, 16376
+  %62 = icmp ne i64 %61, 0
+  %63 = zext i1 %62 to i64
+  %64 = add i64 %60, %47
+  %65 = add i64 %64, %63
+  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  store i64 %65, ptr %66, align 8, !tbaa !44
+  %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !2721
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !175
-  %70 = load ptr, ptr %67, align 8, !tbaa !172
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 4
-  %75 = icmp ugt i64 %1, %74
-  br i1 %75, label %76, label %78
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !175
+  %72 = load ptr, ptr %69, align 8, !tbaa !172
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp ugt i64 %1, %76
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %66
-  %77 = sub nuw i64 %1, %74
-  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %77)
+78:                                               ; preds = %68
+  %79 = sub nuw i64 %1, %76
+  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-78:                                               ; preds = %66
-  %79 = icmp ult i64 %1, %74
-  br i1 %79, label %80, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
+80:                                               ; preds = %68
+  %81 = icmp ult i64 %1, %76
+  br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %70, i64 %1
-  %.not.i.i13 = icmp eq ptr %69, %81
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %105, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i:                                 ; preds = %82, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %83, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load atomic i64, ptr %85 acquire, align 8
-  %87 = icmp eq i64 %86, 4294967297
-  %88 = trunc i64 %86 to i32
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load atomic i64, ptr %87 acquire, align 8
+  %89 = icmp eq i64 %88, 4294967297
+  %90 = trunc i64 %88 to i32
+  br i1 %89, label %91, label %99
 
-89:                                               ; preds = %84
-  store i32 0, ptr %85, align 8, !tbaa !95
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %90, align 4, !tbaa !98
-  %91 = load ptr, ptr %83, align 8, !tbaa !57
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
-  %94 = load ptr, ptr %83, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+91:                                               ; preds = %86
+  store i32 0, ptr %87, align 8, !tbaa !95
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 0, ptr %92, align 4, !tbaa !98
+  %93 = load ptr, ptr %85, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
+  %96 = load ptr, ptr %85, align 8, !tbaa !57
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-97:                                               ; preds = %84
-  %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %101, label %99
+99:                                               ; preds = %86
+  %100 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %88, -1
-  store i32 %100, ptr %85, align 4, !tbaa !99
+101:                                              ; preds = %99
+  %102 = add nsw i32 %90, -1
+  store i32 %102, ptr %87, align 4, !tbaa !99
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-101:                                              ; preds = %97
-  %102 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+103:                                              ; preds = %99
+  %104 = atomicrmw volatile add ptr %87, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %101, %99
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
-  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %103, %101
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %101 ], [ %104, %103 ]
+  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %105, label %106, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
 
-104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %89, %.lr.ph.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %69
+_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %91, %.lr.ph.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %107, %71
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
 _ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  store ptr %81, ptr %68, align 8, !tbaa !175
+  store ptr %83, ptr %70, align 8, !tbaa !175
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %76, %78, %80, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %78, %80, %82, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
   store i64 %1, ptr %43, align 8, !tbaa !933
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
+108:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
   ret void
 }
 
@@ -93623,132 +93623,132 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !562
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !164
-  %invariant.gep = getelementptr i8, ptr %40, i64 -88
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !933
   %45 = icmp ugt i64 %1, %44
-  br i1 %45, label %66, label %106
+  br i1 %45, label %68, label %108
 
 46:                                               ; preds = %.lr.ph, %46
-  %47 = phi i64 [ 0, %.lr.ph ], [ %63, %46 ]
-  %.014 = phi i64 [ 1, %.lr.ph ], [ %65, %46 ]
-  %gep = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %invariant.gep, i64 %.014
-  %48 = load i32, ptr %gep, align 8, !tbaa !535
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !919
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = lshr i64 %57, 11
-  %59 = and i64 %56, 16376
-  %60 = icmp ne i64 %59, 0
-  %61 = zext i1 %60 to i64
-  %62 = add i64 %58, %47
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
-  store i64 %63, ptr %64, align 8, !tbaa !44
-  %65 = add nuw i64 %.014, 1
+  %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
+  %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
+  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %49 = getelementptr i8, ptr %48, i64 -88
+  %50 = load i32, ptr %49, align 8, !tbaa !535
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !917
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !919
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %60 = lshr i64 %59, 11
+  %61 = and i64 %58, 16376
+  %62 = icmp ne i64 %61, 0
+  %63 = zext i1 %62 to i64
+  %64 = add i64 %60, %47
+  %65 = add i64 %64, %63
+  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  store i64 %65, ptr %66, align 8, !tbaa !44
+  %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !2848
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !175
-  %70 = load ptr, ptr %67, align 8, !tbaa !172
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 4
-  %75 = icmp ugt i64 %1, %74
-  br i1 %75, label %76, label %78
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !175
+  %72 = load ptr, ptr %69, align 8, !tbaa !172
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp ugt i64 %1, %76
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %66
-  %77 = sub nuw i64 %1, %74
-  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %77)
+78:                                               ; preds = %68
+  %79 = sub nuw i64 %1, %76
+  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-78:                                               ; preds = %66
-  %79 = icmp ult i64 %1, %74
-  br i1 %79, label %80, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
+80:                                               ; preds = %68
+  %81 = icmp ult i64 %1, %76
+  br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %70, i64 %1
-  %.not.i.i13 = icmp eq ptr %69, %81
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %105, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i:                                 ; preds = %82, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %83, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load atomic i64, ptr %85 acquire, align 8
-  %87 = icmp eq i64 %86, 4294967297
-  %88 = trunc i64 %86 to i32
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load atomic i64, ptr %87 acquire, align 8
+  %89 = icmp eq i64 %88, 4294967297
+  %90 = trunc i64 %88 to i32
+  br i1 %89, label %91, label %99
 
-89:                                               ; preds = %84
-  store i32 0, ptr %85, align 8, !tbaa !95
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %90, align 4, !tbaa !98
-  %91 = load ptr, ptr %83, align 8, !tbaa !57
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
-  %94 = load ptr, ptr %83, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+91:                                               ; preds = %86
+  store i32 0, ptr %87, align 8, !tbaa !95
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 0, ptr %92, align 4, !tbaa !98
+  %93 = load ptr, ptr %85, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
+  %96 = load ptr, ptr %85, align 8, !tbaa !57
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-97:                                               ; preds = %84
-  %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %101, label %99
+99:                                               ; preds = %86
+  %100 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %88, -1
-  store i32 %100, ptr %85, align 4, !tbaa !99
+101:                                              ; preds = %99
+  %102 = add nsw i32 %90, -1
+  store i32 %102, ptr %87, align 4, !tbaa !99
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-101:                                              ; preds = %97
-  %102 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+103:                                              ; preds = %99
+  %104 = atomicrmw volatile add ptr %87, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %101, %99
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
-  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %103, %101
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %101 ], [ %104, %103 ]
+  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %105, label %106, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
 
-104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %89, %.lr.ph.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %69
+_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %91, %.lr.ph.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %107, %71
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
 _ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  store ptr %81, ptr %68, align 8, !tbaa !175
+  store ptr %83, ptr %70, align 8, !tbaa !175
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %76, %78, %80, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %78, %80, %82, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
   store i64 %1, ptr %43, align 8, !tbaa !933
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
+108:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
   ret void
 }
 
@@ -97836,132 +97836,132 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !562
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %42 = load ptr, ptr %41, align 8, !tbaa !164
-  %invariant.gep = getelementptr i8, ptr %40, i64 -88
   br label %46
 
 ._crit_edge:                                      ; preds = %46, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8, !tbaa !933
   %45 = icmp ugt i64 %1, %44
-  br i1 %45, label %66, label %106
+  br i1 %45, label %68, label %108
 
 46:                                               ; preds = %.lr.ph, %46
-  %47 = phi i64 [ 0, %.lr.ph ], [ %63, %46 ]
-  %.014 = phi i64 [ 1, %.lr.ph ], [ %65, %46 ]
-  %gep = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %invariant.gep, i64 %.014
-  %48 = load i32, ptr %gep, align 8, !tbaa !535
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !917
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !919
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
-  %58 = lshr i64 %57, 11
-  %59 = and i64 %56, 16376
-  %60 = icmp ne i64 %59, 0
-  %61 = zext i1 %60 to i64
-  %62 = add i64 %58, %47
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
-  store i64 %63, ptr %64, align 8, !tbaa !44
-  %65 = add nuw i64 %.014, 1
+  %47 = phi i64 [ 0, %.lr.ph ], [ %65, %46 ]
+  %.014 = phi i64 [ 1, %.lr.ph ], [ %67, %46 ]
+  %48 = getelementptr %"struct.xgboost::tree::CPUExpandEntry", ptr %40, i64 %.014
+  %49 = getelementptr i8, ptr %48, i64 -88
+  %50 = load i32, ptr %49, align 8, !tbaa !535
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.xgboost::common::RowSetCollection::Elem", ptr %42, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !917
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !919
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %60 = lshr i64 %59, 11
+  %61 = and i64 %58, 16376
+  %62 = icmp ne i64 %61, 0
+  %63 = zext i1 %62 to i64
+  %64 = add i64 %60, %47
+  %65 = add i64 %64, %63
+  %66 = getelementptr inbounds nuw i64, ptr %38, i64 %.014
+  store i64 %65, ptr %66, align 8, !tbaa !44
+  %67 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %2
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !2966
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !175
-  %70 = load ptr, ptr %67, align 8, !tbaa !172
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = ashr exact i64 %73, 4
-  %75 = icmp ugt i64 %1, %74
-  br i1 %75, label %76, label %78
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !175
+  %72 = load ptr, ptr %69, align 8, !tbaa !172
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp ugt i64 %1, %76
+  br i1 %77, label %78, label %80
 
-76:                                               ; preds = %66
-  %77 = sub nuw i64 %1, %74
-  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %67, i64 noundef %77)
+78:                                               ; preds = %68
+  %79 = sub nuw i64 %1, %76
+  tail call void @_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef %79)
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-78:                                               ; preds = %66
-  %79 = icmp ult i64 %1, %74
-  br i1 %79, label %80, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
+80:                                               ; preds = %68
+  %81 = icmp ult i64 %1, %76
+  br i1 %81, label %82, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %70, i64 %1
-  %.not.i.i13 = icmp eq ptr %69, %81
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %"class.std::shared_ptr.85", ptr %72, i64 %1
+  %.not.i.i13 = icmp eq ptr %71, %83
   br i1 %.not.i.i13, label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %80, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %105, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !94
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %84
+.lr.ph.i.i.i.i.i:                                 ; preds = %82, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i ], [ %83, %82 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !94
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load atomic i64, ptr %85 acquire, align 8
-  %87 = icmp eq i64 %86, 4294967297
-  %88 = trunc i64 %86 to i32
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load atomic i64, ptr %87 acquire, align 8
+  %89 = icmp eq i64 %88, 4294967297
+  %90 = trunc i64 %88 to i32
+  br i1 %89, label %91, label %99
 
-89:                                               ; preds = %84
-  store i32 0, ptr %85, align 8, !tbaa !95
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %90, align 4, !tbaa !98
-  %91 = load ptr, ptr %83, align 8, !tbaa !57
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
-  %94 = load ptr, ptr %83, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+91:                                               ; preds = %86
+  store i32 0, ptr %87, align 8, !tbaa !95
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store i32 0, ptr %92, align 4, !tbaa !98
+  %93 = load ptr, ptr %85, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
+  %96 = load ptr, ptr %85, align 8, !tbaa !57
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-97:                                               ; preds = %84
-  %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %101, label %99
+99:                                               ; preds = %86
+  %100 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = add nsw i32 %88, -1
-  store i32 %100, ptr %85, align 4, !tbaa !99
+101:                                              ; preds = %99
+  %102 = add nsw i32 %90, -1
+  store i32 %102, ptr %87, align 4, !tbaa !99
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-101:                                              ; preds = %97
-  %102 = atomicrmw volatile add ptr %85, i32 -1 acq_rel, align 4
+103:                                              ; preds = %99
+  %104 = atomicrmw volatile add ptr %87, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %101, %99
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
-  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %103, %101
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %101 ], [ %104, %103 ]
+  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %105, label %106, label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i, !prof !100
 
-104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #23
+106:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #23
   br label %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %89, %.lr.ph.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %69
+_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i: ; preds = %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %91, %.lr.ph.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %107, %71
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
 _ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEEEvPT_.exit.i.i.i.i.i
-  store ptr %81, ptr %68, align 8, !tbaa !175
+  store ptr %83, ptr %70, align 8, !tbaa !175
   br label %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit
 
-_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %76, %78, %80, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
+_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit: ; preds = %78, %80, %82, %_ZSt8_DestroyIPSt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEES6_EvT_S8_RSaIT0_E.exit.i.i
   store i64 %1, ptr %43, align 8, !tbaa !933
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
+108:                                              ; preds = %_ZNSt6vectorISt10shared_ptrIN7xgboost6common16PartitionBuilderILm2048EE9BlockInfoEESaIS6_EE6resizeEm.exit, %._crit_edge
   ret void
 }
 

@@ -543,10 +543,10 @@ define { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagE
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %79
-  %.074304 = phi i32 [ %.1, %79 ], [ %.sroa.0.0.extract.trunc, %4 ]
-  %.075303 = phi i32 [ %.176, %79 ], [ %.sroa.273.8.extract.trunc, %4 ]
-  %14 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %.074304)
-  switch i32 %.075303, label %78 [
+  %.074298 = phi i32 [ %.1, %79 ], [ %.sroa.0.0.extract.trunc, %4 ]
+  %.075297 = phi i32 [ %.176, %79 ], [ %.sroa.273.8.extract.trunc, %4 ]
+  %14 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %.074298)
+  switch i32 %.075297, label %78 [
     i32 0, label %15
     i32 1, label %34
     i32 2, label %42
@@ -571,121 +571,121 @@ define { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagE
   ]
 
 16:                                               ; preds = %15
-  %17 = add nsw i32 %.074304, 1
+  %17 = add nsw i32 %.074298, 1
   br label %79
 
 18:                                               ; preds = %15
-  %19 = add nsw i32 %.074304, 1
-  br label %.thread
+  %19 = add nsw i32 %.074298, 1
+  br label %.critedge
 
 20:                                               ; preds = %15
-  %21 = add nsw i32 %.074304, 1
-  br label %.thread
+  %21 = add nsw i32 %.074298, 1
+  br label %.critedge
 
 22:                                               ; preds = %15
-  %23 = add nsw i32 %.074304, 1
-  br label %.thread
+  %23 = add nsw i32 %.074298, 1
+  br label %.critedge
 
 24:                                               ; preds = %15
-  %25 = add nsw i32 %.074304, 1
-  br label %.thread
+  %25 = add nsw i32 %.074298, 1
+  br label %.critedge
 
 26:                                               ; preds = %15
-  %27 = add nsw i32 %.074304, 1
-  br label %.thread
+  %27 = add nsw i32 %.074298, 1
+  br label %.critedge
 
 28:                                               ; preds = %15
-  %29 = add nsw i32 %.074304, 1
+  %29 = add nsw i32 %.074298, 1
   br label %79
 
 30:                                               ; preds = %15
   %31 = icmp ult i32 %14, 65536
   %32 = select i1 %31, i32 1, i32 2
-  %33 = add nsw i32 %32, %.074304
-  br label %.thread
+  %33 = add nsw i32 %32, %.074298
+  br label %.critedge
 
 34:                                               ; preds = %.lr.ph
   %35 = icmp eq i32 %14, 39
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %34
-  %37 = add nsw i32 %.074304, 1
-  br label %.thread
+  %37 = add nsw i32 %.074298, 1
+  br label %.critedge
 
 38:                                               ; preds = %34
   %39 = icmp ult i32 %14, 65536
   %40 = select i1 %39, i32 1, i32 2
-  %41 = add nsw i32 %40, %.074304
-  br label %.thread
+  %41 = add nsw i32 %40, %.074298
+  br label %.critedge
 
 42:                                               ; preds = %.lr.ph
   %43 = icmp eq i32 %14, 39
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = add nsw i32 %.074304, 1
+  %45 = add nsw i32 %.074298, 1
   br label %79
 
 46:                                               ; preds = %42
   %47 = icmp ult i32 %14, 65536
   %48 = select i1 %47, i32 1, i32 2
-  %49 = add nsw i32 %48, %.074304
-  br label %.thread
+  %49 = add nsw i32 %48, %.074298
+  br label %.critedge
 
 50:                                               ; preds = %.lr.ph
   %51 = icmp eq i32 %14, 39
   br i1 %51, label %52, label %79
 
 52:                                               ; preds = %50
-  %53 = add nsw i32 %.074304, 1
-  br label %.thread
+  %53 = add nsw i32 %.074298, 1
+  br label %.critedge
 
 54:                                               ; preds = %.lr.ph
   %55 = icmp eq i32 %14, 164
-  br i1 %55, label %56, label %.thread
+  br i1 %55, label %56, label %.critedge
 
 56:                                               ; preds = %54
-  %57 = add nsw i32 %.074304, 1
+  %57 = add nsw i32 %.074298, 1
   br label %79
 
 58:                                               ; preds = %.lr.ph
   %59 = icmp eq i32 %14, 164
-  br i1 %59, label %60, label %.thread
+  br i1 %59, label %60, label %.critedge
 
 60:                                               ; preds = %58
-  %61 = add nsw i32 %.074304, 1
+  %61 = add nsw i32 %.074298, 1
   br label %79
 
 62:                                               ; preds = %.lr.ph
   %63 = icmp eq i32 %14, 164
-  br i1 %63, label %64, label %.thread
+  br i1 %63, label %64, label %.critedge
 
 64:                                               ; preds = %62
-  %65 = add nsw i32 %.074304, 1
+  %65 = add nsw i32 %.074298, 1
   br label %79
 
 66:                                               ; preds = %.lr.ph
   %67 = icmp eq i32 %14, 164
-  br i1 %67, label %68, label %.thread
+  br i1 %67, label %68, label %.critedge
 
 68:                                               ; preds = %66
-  %69 = add nsw i32 %.074304, 1
+  %69 = add nsw i32 %.074298, 1
   br label %79
 
 70:                                               ; preds = %.lr.ph
   %71 = icmp eq i32 %14, 164
-  br i1 %71, label %72, label %.thread
+  br i1 %71, label %72, label %.critedge
 
 72:                                               ; preds = %70
-  %73 = add nsw i32 %.074304, 1
+  %73 = add nsw i32 %.074298, 1
   br label %79
 
 74:                                               ; preds = %.lr.ph
   %75 = icmp eq i32 %14, 164
-  br i1 %75, label %76, label %.thread
+  br i1 %75, label %76, label %.critedge
 
 76:                                               ; preds = %74
-  %77 = add nsw i32 %.074304, 1
+  %77 = add nsw i32 %.074298, 1
   br label %79
 
 78:                                               ; preds = %.lr.ph
@@ -694,7 +694,7 @@ define { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagE
 
 79:                                               ; preds = %44, %56, %60, %64, %68, %72, %76, %28, %16, %50
   %.176 = phi i32 [ 1, %16 ], [ 4, %28 ], [ 3, %44 ], [ 5, %56 ], [ 6, %60 ], [ 7, %64 ], [ 8, %68 ], [ 9, %72 ], [ 9, %76 ], [ 0, %50 ]
-  %.1 = phi i32 [ %17, %16 ], [ %29, %28 ], [ %45, %44 ], [ %57, %56 ], [ %61, %60 ], [ %65, %64 ], [ %69, %68 ], [ %73, %72 ], [ %77, %76 ], [ %.074304, %50 ]
+  %.1 = phi i32 [ %17, %16 ], [ %29, %28 ], [ %45, %44 ], [ %57, %56 ], [ %61, %60 ], [ %65, %64 ], [ %69, %68 ], [ %73, %72 ], [ %77, %76 ], [ %.074298, %50 ]
   %80 = load i16, ptr %5, align 8, !tbaa !3
   %81 = icmp slt i16 %80, 0
   %82 = ashr i16 %80, 5
@@ -708,10 +708,10 @@ define { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagE
   %.075.lcssa = phi i32 [ %.sroa.273.8.extract.trunc, %4 ], [ %.176, %79 ]
   %.074.lcssa = phi i32 [ %.sroa.0.0.extract.trunc, %4 ], [ %.1, %79 ]
   switch i32 %.075.lcssa, label %94 [
-    i32 0, label %.thread
+    i32 0, label %.critedge
     i32 1, label %87
     i32 2, label %87
-    i32 3, label %.thread
+    i32 3, label %.critedge
     i32 4, label %88
     i32 5, label %89
     i32 6, label %90
@@ -722,40 +722,40 @@ define { i64, i64 } @_ZN6icu_776number4impl10AffixUtils9nextTokenENS1_8AffixTagE
 
 87:                                               ; preds = %._crit_edge, %._crit_edge
   store i32 1, ptr %3, align 4, !tbaa !8
-  br label %.thread
+  br label %.critedge
 
 88:                                               ; preds = %._crit_edge
-  br label %.thread
+  br label %.critedge
 
 89:                                               ; preds = %._crit_edge
-  br label %.thread
+  br label %.critedge
 
 90:                                               ; preds = %._crit_edge
-  br label %.thread
+  br label %.critedge
 
 91:                                               ; preds = %._crit_edge
-  br label %.thread
+  br label %.critedge
 
 92:                                               ; preds = %._crit_edge
-  br label %.thread
+  br label %.critedge
 
 93:                                               ; preds = %._crit_edge
-  br label %.thread
+  br label %.critedge
 
 94:                                               ; preds = %._crit_edge
   tail call void @abort() #10
   unreachable
 
-.thread:                                          ; preds = %74, %70, %66, %62, %58, %54, %52, %46, %38, %36, %26, %24, %22, %20, %18, %30, %._crit_edge, %._crit_edge, %93, %92, %91, %90, %89, %88, %87
-  %.sroa.26.sroa.23.2 = phi i64 [ undef, %87 ], [ -25769803776, %88 ], [ -30064771072, %89 ], [ -34359738368, %90 ], [ -38654705664, %91 ], [ -42949672960, %92 ], [ -64424509440, %93 ], [ undef, %._crit_edge ], [ undef, %._crit_edge ], [ 2, %52 ], [ 2, %46 ], [ 2, %38 ], [ 0, %36 ], [ -21474836480, %26 ], [ -17179869184, %24 ], [ -12884901888, %22 ], [ -8589934592, %20 ], [ -4294967296, %18 ], [ 0, %30 ], [ -64424509440, %74 ], [ -42949672960, %70 ], [ -38654705664, %66 ], [ -34359738368, %62 ], [ -30064771072, %58 ], [ -25769803776, %54 ]
-  %.sroa.26.sroa.0.2 = phi i32 [ undef, %87 ], [ 0, %88 ], [ 0, %89 ], [ 0, %90 ], [ 0, %91 ], [ 0, %92 ], [ 0, %93 ], [ undef, %._crit_edge ], [ undef, %._crit_edge ], [ 39, %52 ], [ %14, %46 ], [ %14, %38 ], [ 39, %36 ], [ 0, %26 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %18 ], [ %14, %30 ], [ 0, %54 ], [ 0, %58 ], [ 0, %62 ], [ 0, %66 ], [ 0, %70 ], [ 0, %74 ]
-  %.sroa.0.2 = phi i32 [ -1, %87 ], [ %.074.lcssa, %88 ], [ %.074.lcssa, %89 ], [ %.074.lcssa, %90 ], [ %.074.lcssa, %91 ], [ %.074.lcssa, %92 ], [ %.074.lcssa, %93 ], [ -1, %._crit_edge ], [ -1, %._crit_edge ], [ %53, %52 ], [ %49, %46 ], [ %41, %38 ], [ %37, %36 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %33, %30 ], [ %.074304, %54 ], [ %.074304, %58 ], [ %.074304, %62 ], [ %.074304, %66 ], [ %.074304, %70 ], [ %.074304, %74 ]
-  %.sroa.26.0.insert.ext = zext i32 %.sroa.26.sroa.0.2 to i64
+.critedge:                                        ; preds = %74, %70, %66, %62, %58, %54, %._crit_edge, %._crit_edge, %30, %18, %20, %22, %24, %26, %36, %38, %46, %52, %93, %92, %91, %90, %89, %88, %87
+  %.sroa.26.sroa.23.0 = phi i64 [ 0, %30 ], [ -4294967296, %18 ], [ -8589934592, %20 ], [ -12884901888, %22 ], [ -17179869184, %24 ], [ -21474836480, %26 ], [ 0, %36 ], [ 2, %38 ], [ 2, %46 ], [ 2, %52 ], [ undef, %87 ], [ -25769803776, %88 ], [ -30064771072, %89 ], [ -34359738368, %90 ], [ -38654705664, %91 ], [ -42949672960, %92 ], [ -64424509440, %93 ], [ undef, %._crit_edge ], [ undef, %._crit_edge ], [ -64424509440, %74 ], [ -42949672960, %70 ], [ -38654705664, %66 ], [ -34359738368, %62 ], [ -30064771072, %58 ], [ -25769803776, %54 ]
+  %.sroa.26.sroa.0.0 = phi i32 [ %14, %30 ], [ 0, %18 ], [ 0, %20 ], [ 0, %22 ], [ 0, %24 ], [ 0, %26 ], [ 39, %36 ], [ %14, %38 ], [ %14, %46 ], [ 39, %52 ], [ undef, %87 ], [ 0, %88 ], [ 0, %89 ], [ 0, %90 ], [ 0, %91 ], [ 0, %92 ], [ 0, %93 ], [ undef, %._crit_edge ], [ undef, %._crit_edge ], [ 0, %54 ], [ 0, %58 ], [ 0, %62 ], [ 0, %66 ], [ 0, %70 ], [ 0, %74 ]
+  %.sroa.0.0 = phi i32 [ %33, %30 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %37, %36 ], [ %41, %38 ], [ %49, %46 ], [ %53, %52 ], [ -1, %87 ], [ %.074.lcssa, %88 ], [ %.074.lcssa, %89 ], [ %.074.lcssa, %90 ], [ %.074.lcssa, %91 ], [ %.074.lcssa, %92 ], [ %.074.lcssa, %93 ], [ -1, %._crit_edge ], [ -1, %._crit_edge ], [ %.074298, %54 ], [ %.074298, %58 ], [ %.074298, %62 ], [ %.074298, %66 ], [ %.074298, %70 ], [ %.074298, %74 ]
+  %.sroa.26.0.insert.ext = zext i32 %.sroa.26.sroa.0.0 to i64
   %.sroa.26.0.insert.shift = shl nuw i64 %.sroa.26.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %.sroa.0.2 to i64
+  %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.26.0.insert.shift, %.sroa.0.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.26.sroa.23.2, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.26.sroa.23.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

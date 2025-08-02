@@ -77,7 +77,7 @@ define internal i32 @process_command(ptr noundef %0, ptr noundef readonly captur
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.10) #11
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %21, label %94
+  br i1 %.not, label %21, label %93
 
 21:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
@@ -89,7 +89,7 @@ define internal i32 @process_command(ptr noundef %0, ptr noundef readonly captur
   %22 = tail call noalias ptr @av_strdup(ptr noundef %2) #10
   store ptr %22, ptr %14, align 8, !tbaa !31
   %.not57 = icmp eq ptr %22, null
-  br i1 %.not57, label %93, label %23
+  br i1 %.not57, label %.sink.split, label %23
 
 23:                                               ; preds = %21
   %24 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.15, i64 noundef 4) #11
@@ -271,18 +271,18 @@ parse_delays.exit66:                              ; preds = %79
 .thread:                                          ; preds = %parse_delays.exit.thread69, %.fold.split, %.thread77
   %.347 = phi i32 [ %.5, %.thread77 ], [ -22, %.fold.split ], [ -22, %parse_delays.exit.thread69 ]
   call void @av_freep(ptr noundef nonnull %14) #10
-  br label %93
+  br label %.sink.split
 
-93:                                               ; preds = %21, %.thread
-  %spec.select = phi i32 [ %.347, %.thread ], [ -12, %21 ]
+.sink.split:                                      ; preds = %21, %.thread
+  %.1.ph = phi i32 [ %.347, %.thread ], [ -12, %21 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
-  br label %94
+  br label %93
 
-94:                                               ; preds = %93, %6
-  %.1 = phi i32 [ -38, %6 ], [ %spec.select, %93 ]
+93:                                               ; preds = %.sink.split, %6
+  %.1 = phi i32 [ -38, %6 ], [ %.1.ph, %.sink.split ]
   ret i32 %.1
 }
 

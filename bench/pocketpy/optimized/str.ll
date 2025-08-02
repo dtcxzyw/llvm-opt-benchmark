@@ -2471,7 +2471,7 @@ define void @_ZNK4pkpy3Str5stripEbb(ptr dead_on_unwind noalias writable sret(%"s
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %37
+  br i1 %8, label %9, label %39
 
 9:                                                ; preds = %4
   %10 = load i32, ptr %1, align 8
@@ -2514,16 +2514,16 @@ define void @_ZNK4pkpy3Str5stripEbb(ptr dead_on_unwind noalias writable sret(%"s
 .lr.ph38:                                         ; preds = %.critedge
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
-  %invariant.gep = getelementptr i8, ptr %20, i64 -1
   %21 = sext i32 %10 to i64
   %22 = sext i32 %.0 to i64
   br label %23
 
 23:                                               ; preds = %.lr.ph38, %.critedge6
   %indvars.iv44 = phi i64 [ %21, %.lr.ph38 ], [ %indvars.iv.next45, %.critedge6 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv44
-  %24 = load i8, ptr %gep, align 1
-  switch i8 %24, label %.critedge4.loopexit.split.loop.exit [
+  %24 = getelementptr i8, ptr %20, i64 %indvars.iv44
+  %25 = getelementptr i8, ptr %24, i64 -1
+  %26 = load i8, ptr %25, align 1
+  switch i8 %26, label %.critedge4.loopexit.split.loop.exit [
     i8 32, label %.critedge6
     i8 9, label %.critedge6
     i8 10, label %.critedge6
@@ -2532,48 +2532,48 @@ define void @_ZNK4pkpy3Str5stripEbb(ptr dead_on_unwind noalias writable sret(%"s
 
 .critedge6:                                       ; preds = %23, %23, %23, %23
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, -1
-  %25 = icmp sgt i64 %indvars.iv.next45, %22
-  br i1 %25, label %23, label %.critedge4, !llvm.loop !57
+  %27 = icmp sgt i64 %indvars.iv.next45, %22
+  br i1 %27, label %23, label %.critedge4, !llvm.loop !57
 
 .critedge4.loopexit.split.loop.exit:              ; preds = %23
-  %26 = trunc nsw i64 %indvars.iv44 to i32
+  %28 = trunc nsw i64 %indvars.iv44 to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge6, %.critedge4.loopexit.split.loop.exit, %.critedge
   %.049 = phi i32 [ %.0, %.critedge ], [ %.0, %.critedge4.loopexit.split.loop.exit ], [ %.0, %.critedge6 ], [ %10, %.critedge2 ]
-  %.029 = phi i32 [ %10, %.critedge ], [ %26, %.critedge4.loopexit.split.loop.exit ], [ %.0, %.critedge6 ], [ %10, %.critedge2 ]
-  %27 = sub nsw i32 %.029, %.049
+  %.029 = phi i32 [ %10, %.critedge ], [ %28, %.critedge4.loopexit.split.loop.exit ], [ %.0, %.critedge6 ], [ %10, %.critedge2 ]
+  %29 = sub nsw i32 %.029, %.049
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  tail call void @_ZN4pkpy3StrC1Eib(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %27, i1 noundef zeroext true)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !alias.scope !58
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load ptr, ptr %30, align 8, !noalias !58
-  %32 = zext nneg i32 %.049 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
-  %34 = sext i32 %27 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %33, i64 %34, i1 false)
-  %35 = load ptr, ptr %28, align 8, !alias.scope !58
-  %36 = getelementptr inbounds i8, ptr %35, i64 %34
-  store i8 0, ptr %36, align 1
-  br label %41
+  tail call void @_ZN4pkpy3StrC1Eib(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %29, i1 noundef zeroext true)
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !alias.scope !58
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %33 = load ptr, ptr %32, align 8, !noalias !58
+  %34 = zext nneg i32 %.049 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
+  %36 = sext i32 %29 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %35, i64 %36, i1 false)
+  %37 = load ptr, ptr %30, align 8, !alias.scope !58
+  %38 = getelementptr inbounds i8, ptr %37, i64 %36
+  store i8 0, ptr %38, align 1
+  br label %43
 
-37:                                               ; preds = %4
+39:                                               ; preds = %4
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.4)
   invoke void @_ZNK4pkpy3Str5stripEbbRKS0_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %38 unwind label %39
+          to label %40 unwind label %41
 
-38:                                               ; preds = %37
+40:                                               ; preds = %39
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  br label %41
+  br label %43
 
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
+41:                                               ; preds = %39
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  resume { ptr, i32 } %40
+  resume { ptr, i32 } %42
 
-41:                                               ; preds = %38, %.critedge4
+43:                                               ; preds = %40, %.critedge4
   ret void
 }
 

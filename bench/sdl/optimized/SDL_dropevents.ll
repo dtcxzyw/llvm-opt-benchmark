@@ -29,9 +29,9 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %12 = load i8, ptr %11, align 8, !range !3, !noundef !4
-  %.not45 = icmp eq i8 %12, 0
+  %.not42 = icmp eq i8 %12, 0
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #4
-  br i1 %.not45, label %.thread40, label %21
+  br i1 %.not42, label %.thread40, label %21
 
 13:                                               ; preds = %9
   %.b34 = load i1, ptr @SDL_SendDrop.app_is_dropping, align 1
@@ -103,7 +103,7 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
 
 ._crit_edge:                                      ; preds = %32
   %.pre = load float, ptr @SDL_SendDrop.last_drop_x, align 4
-  %.pre46 = load float, ptr @SDL_SendDrop.last_drop_y, align 4
+  %.pre43 = load float, ptr @SDL_SendDrop.last_drop_y, align 4
   br label %37
 
 36:                                               ; preds = %32
@@ -112,7 +112,7 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
   br label %37
 
 37:                                               ; preds = %._crit_edge, %36
-  %38 = phi float [ %.pre46, %._crit_edge ], [ %5, %36 ]
+  %38 = phi float [ %.pre43, %._crit_edge ], [ %5, %36 ]
   %39 = phi float [ %.pre, %._crit_edge ], [ %4, %36 ]
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store float %39, ptr %40, align 4
@@ -140,8 +140,8 @@ define internal fastcc zeroext i1 @SDL_SendDrop(ptr noundef captures(address_is_
   store float 0.000000e+00, ptr @SDL_SendDrop.last_drop_y, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %48, %37, %.thread40, %26, %22, %14
-  %.1.ph = phi i1 [ false, %14 ], [ false, %22 ], [ false, %26 ], [ false, %.thread40 ], [ %42, %37 ], [ %42, %48 ]
+.sink.split:                                      ; preds = %14, %22, %26, %.thread40, %48, %37
+  %.1.ph = phi i1 [ %42, %37 ], [ %42, %48 ], [ false, %.thread40 ], [ false, %26 ], [ false, %22 ], [ false, %14 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #4
   br label %49
 
@@ -163,9 +163,9 @@ define hidden zeroext i1 @SDL_SendDropPosition(ptr noundef captures(address_is_n
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %9 = load i8, ptr %8, align 8, !range !3, !noundef !4
-  %.not45.i = icmp eq i8 %9, 0
+  %.not42.i = icmp eq i8 %9, 0
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #4
-  br i1 %.not45.i, label %.thread40.i, label %17
+  br i1 %.not42.i, label %.thread40.i, label %17
 
 10:                                               ; preds = %6
   %.b34.i = load i1, ptr @SDL_SendDrop.app_is_dropping, align 1
@@ -220,7 +220,7 @@ define hidden zeroext i1 @SDL_SendDropPosition(ptr noundef captures(address_is_n
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %19, %.thread40.i, %11
-  %.1.ph.i = phi i1 [ false, %11 ], [ false, %.thread40.i ], [ %24, %19 ]
+  %.1.ph.i = phi i1 [ %24, %19 ], [ false, %.thread40.i ], [ false, %11 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #4
   br label %SDL_SendDrop.exit
 

@@ -20440,7 +20440,6 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
   %10 = alloca %"struct.std::pair.886", align 8
   %11 = add nsw i64 %2, -1
   %12 = sdiv i64 %11, 2
-  %invariant.gep = getelementptr i8, ptr %0, i64 4
   %13 = icmp slt i64 %1, %12
   br i1 %13, label %.lr.ph, label %._crit_edge
 
@@ -20455,121 +20454,122 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
   %18 = shl i64 %.030, 1
   %19 = add i64 %18, 2
   %20 = getelementptr inbounds i32, ptr %0, i64 %19
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %18
-  %21 = load i32, ptr %20, align 4, !tbaa !194
-  %22 = load i32, ptr %gep, align 4, !tbaa !194
+  %21 = getelementptr i32, ptr %0, i64 %18
+  %22 = getelementptr i8, ptr %21, i64 4
+  %23 = load i32, ptr %20, align 4, !tbaa !194
+  %24 = load i32, ptr %22, align 4, !tbaa !194
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !1480)
-  %23 = load ptr, ptr %4, align 8, !tbaa !166, !noalias !1480
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !25, !noalias !1483
-  %26 = lshr i32 %21, 1
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %25, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load i64, ptr %29, align 8, !tbaa !203, !noalias !1483
-  store i64 %30, ptr %14, align 8, !tbaa !1349, !alias.scope !1486
+  %25 = load ptr, ptr %4, align 8, !tbaa !166, !noalias !1480
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !25, !noalias !1483
+  %28 = lshr i32 %23, 1
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %27, i64 %29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load i64, ptr %31, align 8, !tbaa !203, !noalias !1483
+  store i64 %32, ptr %14, align 8, !tbaa !1349, !alias.scope !1486
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !1489)
-  %31 = lshr i32 %22, 1
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %25, i64 %32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !203, !noalias !1492
-  store i64 %35, ptr %15, align 8, !tbaa !1349, !alias.scope !1495
-  %36 = load ptr, ptr %5, align 8, !tbaa !1362
-  %37 = load i64, ptr %16, align 8, !tbaa !1364
-  %38 = call noundef zeroext i1 %36(i64 noundef %37, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10) #29
+  %33 = lshr i32 %24, 1
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %27, i64 %34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load i64, ptr %36, align 8, !tbaa !203, !noalias !1492
+  store i64 %37, ptr %15, align 8, !tbaa !1349, !alias.scope !1495
+  %38 = load ptr, ptr %5, align 8, !tbaa !1362
+  %39 = load i64, ptr %16, align 8, !tbaa !1364
+  %40 = call noundef zeroext i1 %38(i64 noundef %39, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #29
-  %39 = or disjoint i64 %18, 1
-  %spec.select = select i1 %38, i64 %39, i64 %19
-  %40 = getelementptr inbounds i32, ptr %0, i64 %spec.select
-  %41 = load i32, ptr %40, align 4, !tbaa !194
-  %42 = getelementptr inbounds i32, ptr %0, i64 %.030
-  store i32 %41, ptr %42, align 4, !tbaa !194
-  %43 = icmp slt i64 %spec.select, %12
-  br i1 %43, label %17, label %._crit_edge, !llvm.loop !1498
+  %41 = or disjoint i64 %18, 1
+  %spec.select = select i1 %40, i64 %41, i64 %19
+  %42 = getelementptr inbounds i32, ptr %0, i64 %spec.select
+  %43 = load i32, ptr %42, align 4, !tbaa !194
+  %44 = getelementptr inbounds i32, ptr %0, i64 %.030
+  store i32 %43, ptr %44, align 4, !tbaa !194
+  %45 = icmp slt i64 %spec.select, %12
+  br i1 %45, label %17, label %._crit_edge, !llvm.loop !1498
 
 ._crit_edge:                                      ; preds = %17, %6
   %.0.lcssa = phi i64 [ %1, %6 ], [ %spec.select, %17 ]
-  %44 = and i64 %2, 1
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %46, label %56
+  %46 = and i64 %2, 1
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %48, label %58
 
-46:                                               ; preds = %._crit_edge
-  %47 = add nsw i64 %2, -2
-  %48 = ashr exact i64 %47, 1
-  %49 = icmp eq i64 %.0.lcssa, %48
-  br i1 %49, label %50, label %56
+48:                                               ; preds = %._crit_edge
+  %49 = add nsw i64 %2, -2
+  %50 = ashr exact i64 %49, 1
+  %51 = icmp eq i64 %.0.lcssa, %50
+  br i1 %51, label %52, label %58
 
-50:                                               ; preds = %46
-  %51 = shl nsw i64 %.0.lcssa, 1
-  %52 = or disjoint i64 %51, 1
-  %53 = getelementptr inbounds i32, ptr %0, i64 %52
-  %54 = load i32, ptr %53, align 4, !tbaa !194
-  %55 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa
-  store i32 %54, ptr %55, align 4, !tbaa !194
-  br label %56
+52:                                               ; preds = %48
+  %53 = shl nsw i64 %.0.lcssa, 1
+  %54 = or disjoint i64 %53, 1
+  %55 = getelementptr inbounds i32, ptr %0, i64 %54
+  %56 = load i32, ptr %55, align 4, !tbaa !194
+  %57 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa
+  store i32 %56, ptr %57, align 4, !tbaa !194
+  br label %58
 
-56:                                               ; preds = %50, %46, %._crit_edge
-  %.128 = phi i64 [ %52, %50 ], [ %.0.lcssa, %46 ], [ %.0.lcssa, %._crit_edge ]
-  %57 = icmp sgt i64 %.128, %1
-  br i1 %57, label %.lr.ph.i, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit
+58:                                               ; preds = %52, %48, %._crit_edge
+  %.128 = phi i64 [ %54, %52 ], [ %.0.lcssa, %48 ], [ %.0.lcssa, %._crit_edge ]
+  %59 = icmp sgt i64 %.128, %1
+  br i1 %59, label %.lr.ph.i, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %59 = lshr i32 %3, 1
-  %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %63
+.lr.ph.i:                                         ; preds = %58
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %61 = lshr i32 %3, 1
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %65
 
-63:                                               ; preds = %80, %.lr.ph.i
-  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.018.i, %80 ]
+65:                                               ; preds = %82, %.lr.ph.i
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.018.i, %82 ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %64 = getelementptr inbounds i32, ptr %0, i64 %.018.i
-  %65 = load i32, ptr %64, align 4, !tbaa !194
+  %66 = getelementptr inbounds i32, ptr %0, i64 %.018.i
+  %67 = load i32, ptr %66, align 4, !tbaa !194
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !1499)
-  %66 = load ptr, ptr %4, align 8, !tbaa !166, !noalias !1499
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !25, !noalias !1502
-  %69 = lshr i32 %65, 1
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %68, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %73 = load i64, ptr %72, align 8, !tbaa !203, !noalias !1502
-  store i64 %73, ptr %58, align 8, !tbaa !1349, !alias.scope !1505
+  %68 = load ptr, ptr %4, align 8, !tbaa !166, !noalias !1499
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %70 = load ptr, ptr %69, align 8, !tbaa !25, !noalias !1502
+  %71 = lshr i32 %67, 1
+  %72 = zext nneg i32 %71 to i64
+  %73 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %70, i64 %72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false)
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load i64, ptr %74, align 8, !tbaa !203, !noalias !1502
+  store i64 %75, ptr %60, align 8, !tbaa !1349, !alias.scope !1505
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !1508)
-  %74 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %68, i64 %60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false)
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load i64, ptr %75, align 8, !tbaa !203, !noalias !1511
-  store i64 %76, ptr %61, align 8, !tbaa !1349, !alias.scope !1514
-  %77 = load ptr, ptr %5, align 8, !tbaa !1362
-  %78 = load i64, ptr %62, align 8, !tbaa !1364
-  %79 = call noundef zeroext i1 %77(i64 noundef %78, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) #29
+  %76 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %70, i64 %62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %78 = load i64, ptr %77, align 8, !tbaa !203, !noalias !1511
+  store i64 %78, ptr %63, align 8, !tbaa !1349, !alias.scope !1514
+  %79 = load ptr, ptr %5, align 8, !tbaa !1362
+  %80 = load i64, ptr %64, align 8, !tbaa !1364
+  %81 = call noundef zeroext i1 %79(i64 noundef %80, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #29
-  br i1 %79, label %80, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit
+  br i1 %81, label %82, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit
 
-80:                                               ; preds = %63
-  %81 = load i32, ptr %64, align 4, !tbaa !194
-  %82 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
-  store i32 %81, ptr %82, align 4, !tbaa !194
-  %83 = icmp sgt i64 %.018.i, %1
-  br i1 %83, label %63, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit, !llvm.loop !1517
+82:                                               ; preds = %65
+  %83 = load i32, ptr %66, align 4, !tbaa !194
+  %84 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
+  store i32 %83, ptr %84, align 4, !tbaa !194
+  %85 = icmp sgt i64 %.018.i, %1
+  br i1 %85, label %65, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit, !llvm.loop !1517
 
-_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit: ; preds = %63, %80, %56
-  %.013.lcssa.i = phi i64 [ %.128, %56 ], [ %.01317.i, %63 ], [ %.018.i, %80 ]
-  %84 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
-  store i32 %3, ptr %84, align 4, !tbaa !194
+_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit: ; preds = %65, %82, %58
+  %.013.lcssa.i = phi i64 [ %.128, %58 ], [ %.01317.i, %65 ], [ %.018.i, %82 ]
+  %86 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
+  store i32 %3, ptr %86, align 4, !tbaa !194
   ret void
 }
 
@@ -29145,40 +29145,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4
   %19 = icmp uge ptr %5, %.pre3.i
   %20 = icmp ult ptr %5, %18
   %spec.select.i.i.i.i.i = and i1 %19, %20
-  br i1 %spec.select.i.i.i.i.i, label %23, label %21, !prof !550
+  br i1 %spec.select.i.i.i.i.i, label %21, label %.critedge.i.i.i, !prof !550
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %22, i64 noundef %14, i64 noundef 80) #29
+  %22 = ptrtoint ptr %5 to i64
+  %23 = ptrtoint ptr %.pre3.i to i64
+  %24 = sub i64 %22, %23
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %25, i64 noundef %14, i64 noundef 80) #29
+  %26 = load ptr, ptr %0, align 8, !tbaa !25
+  %27 = getelementptr inbounds i8, ptr %26, i64 %24
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefENS_13BitcodeModuleEELb1EE9push_backERKS4_.exit
+
+.critedge.i.i.i:                                  ; preds = %17
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %28, i64 noundef %14, i64 noundef 80) #29
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefENS_13BitcodeModuleEELb1EE9push_backERKS4_.exit
 
-23:                                               ; preds = %17
-  %24 = ptrtoint ptr %5 to i64
-  %25 = ptrtoint ptr %.pre3.i to i64
-  %26 = sub i64 %24, %25
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %27, i64 noundef %14, i64 noundef 80) #29
-  %28 = load ptr, ptr %0, align 8, !tbaa !25
-  %29 = getelementptr inbounds i8, ptr %28, i64 %26
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefENS_13BitcodeModuleEELb1EE9push_backERKS4_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefENS_13BitcodeModuleEELb1EE9push_backERKS4_.exit: ; preds = %4, %21, %23
-  %30 = phi ptr [ %.pre3.i, %4 ], [ %28, %23 ], [ %.pre.i, %21 ]
-  %.016.i.i.i = phi ptr [ %5, %4 ], [ %29, %23 ], [ %5, %21 ]
-  %31 = load i32, ptr %11, align 8, !tbaa !26
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %30, i64 %32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %33, ptr noundef nonnull align 8 dereferenceable(80) %.016.i.i.i, i64 80, i1 false)
-  %34 = load i32, ptr %11, align 8, !tbaa !26
-  %35 = add i32 %34, 1
-  store i32 %35, ptr %11, align 8, !tbaa !26
+_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefENS_13BitcodeModuleEELb1EE9push_backERKS4_.exit: ; preds = %4, %21, %.critedge.i.i.i
+  %29 = phi ptr [ %.pre3.i, %4 ], [ %26, %21 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %5, %4 ], [ %27, %21 ], [ %5, %.critedge.i.i.i ]
+  %30 = load i32, ptr %11, align 8, !tbaa !26
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %29, i64 %31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %32, ptr noundef nonnull align 8 dereferenceable(80) %.016.i.i.i, i64 80, i1 false)
+  %33 = load i32, ptr %11, align 8, !tbaa !26
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %11, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #29
-  %36 = load ptr, ptr %0, align 8, !tbaa !25
-  %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %36, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 -80
-  ret ptr %39
+  %35 = load ptr, ptr %0, align 8, !tbaa !25
+  %36 = zext i32 %34 to i64
+  %37 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %35, i64 %36
+  %38 = getelementptr inbounds i8, ptr %37, i64 -80
+  ret ptr %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

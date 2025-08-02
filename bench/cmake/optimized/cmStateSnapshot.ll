@@ -378,16 +378,16 @@ define dso_local void @_ZNK15cmStateSnapshot18GetCallStackParentEv(ptr dead_on_u
   %.sroa.06.0.copyload = load ptr, ptr %4, align 8, !tbaa !33
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %.sroa.06.0.copyload, align 8, !tbaa !15
-  %invariant.gep = getelementptr i8, ptr %5, i64 -128
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload, i64 24
   br label %7
 
 7:                                                ; preds = %.critedge, %2
-  %.sroa.13.0.in = phi ptr [ %.sroa.13.0..sroa_idx, %2 ], [ %11, %.critedge ]
+  %.sroa.13.0.in = phi ptr [ %.sroa.13.0..sroa_idx, %2 ], [ %13, %.critedge ]
   %.sroa.13.0 = load i64, ptr %.sroa.13.0.in, align 8, !tbaa !34
-  %gep = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %invariant.gep, i64 %.sroa.13.0
-  %8 = load i32, ptr %gep, align 8, !tbaa !37
-  switch i32 %8, label %12 [
+  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %5, i64 %.sroa.13.0
+  %9 = getelementptr i8, ptr %8, i64 -128
+  %10 = load i32, ptr %9, align 8, !tbaa !37
+  switch i32 %10, label %14 [
     i32 7, label %.critedge
     i32 8, label %.critedge
     i32 1, label %.loopexit
@@ -395,39 +395,40 @@ define dso_local void @_ZNK15cmStateSnapshot18GetCallStackParentEv(ptr dead_on_u
   ]
 
 .critedge:                                        ; preds = %7, %7
-  %9 = load ptr, ptr %6, align 8, !tbaa !53
-  %10 = getelementptr i64, ptr %9, i64 %.sroa.13.0
-  %11 = getelementptr i8, ptr %10, i64 -8
+  %11 = load ptr, ptr %6, align 8, !tbaa !53
+  %12 = getelementptr i64, ptr %11, i64 %.sroa.13.0
+  %13 = getelementptr i8, ptr %12, i64 -8
   br label %7, !llvm.loop !56
 
-12:                                               ; preds = %7
-  %13 = load ptr, ptr %6, align 8, !tbaa !53
-  %invariant.gep27 = getelementptr i8, ptr %13, i64 -8
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %6, align 8, !tbaa !53
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge2, %12
-  %.sroa.13.0.pn = phi i64 [ %.sroa.13.0, %12 ], [ %.sroa.13.1, %.critedge2 ]
-  %gep28 = getelementptr i64, ptr %invariant.gep27, i64 %.sroa.13.0.pn
-  %.sroa.13.1 = load i64, ptr %gep28, align 8, !tbaa !34
-  %gep30 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %invariant.gep, i64 %.sroa.13.1
-  %14 = load i32, ptr %gep30, align 8, !tbaa !37
-  %.off = add i32 %14, -7
+.critedge2:                                       ; preds = %.critedge2, %14
+  %.sroa.13.0.pn = phi i64 [ %.sroa.13.0, %14 ], [ %.sroa.13.1, %.critedge2 ]
+  %.pn = getelementptr i64, ptr %15, i64 %.sroa.13.0.pn
+  %.sroa.13.1.in = getelementptr i8, ptr %.pn, i64 -8
+  %.sroa.13.1 = load i64, ptr %.sroa.13.1.in, align 8, !tbaa !34
+  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %5, i64 %.sroa.13.1
+  %17 = getelementptr i8, ptr %16, i64 -128
+  %18 = load i32, ptr %17, align 8, !tbaa !37
+  %.off = add i32 %18, -7
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %.critedge2, label %15, !llvm.loop !57
+  br i1 %switch, label %.critedge2, label %19, !llvm.loop !57
 
-15:                                               ; preds = %.critedge2
-  %16 = icmp eq i64 %.sroa.13.1, 0
-  br i1 %16, label %.loopexit, label %17
+19:                                               ; preds = %.critedge2
+  %20 = icmp eq i64 %.sroa.13.1, 0
+  br i1 %20, label %.loopexit, label %21
 
-17:                                               ; preds = %15
-  %18 = load ptr, ptr %1, align 8, !tbaa !4
-  store ptr %18, ptr %0, align 8, !tbaa !32
+21:                                               ; preds = %19
+  %22 = load ptr, ptr %1, align 8, !tbaa !4
+  store ptr %22, ptr %0, align 8, !tbaa !32
   store ptr %.sroa.06.0.copyload, ptr %3, align 8, !tbaa !33
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.13.1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !34
   br label %.loopexit
 
-.loopexit:                                        ; preds = %7, %7, %15, %17
+.loopexit:                                        ; preds = %7, %7, %19, %21
   ret void
 }
 
@@ -437,38 +438,39 @@ define dso_local void @_ZNK15cmStateSnapshot18GetCallStackBottomEv(ptr dead_on_u
   %.sroa.0.0.copyload6 = load ptr, ptr %3, align 8, !tbaa !33
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %.sroa.0.0.copyload6, align 8, !tbaa !15
-  %invariant.gep = getelementptr i8, ptr %4, i64 -128
   %.sroa.7.011 = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !34
-  %gep12 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %invariant.gep, i64 %.sroa.7.011
-  %5 = load i32, ptr %gep12, align 8, !tbaa !37
-  %switch13 = icmp ult i32 %5, 2
-  %.not14 = icmp eq i64 %.sroa.7.011, 0
-  %or.cond15 = or i1 %.not14, %switch13
-  br i1 %or.cond15, label %.critedge, label %.lr.ph
+  %5 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %4, i64 %.sroa.7.011
+  %6 = getelementptr i8, ptr %5, i64 -128
+  %7 = load i32, ptr %6, align 8, !tbaa !37
+  %switch12 = icmp ult i32 %7, 2
+  %.not13 = icmp eq i64 %.sroa.7.011, 0
+  %or.cond14 = or i1 %.not13, %switch12
+  br i1 %or.cond14, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload6, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !53
-  %invariant.gep17 = getelementptr i8, ptr %7, i64 -8
-  br label %8
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload6, i64 24
+  %9 = load ptr, ptr %8, align 8, !tbaa !53
+  br label %10
 
-8:                                                ; preds = %.lr.ph, %8
-  %.sroa.7.016 = phi i64 [ %.sroa.7.011, %.lr.ph ], [ %.sroa.7.0, %8 ]
-  %gep18 = getelementptr i64, ptr %invariant.gep17, i64 %.sroa.7.016
-  %.sroa.7.0 = load i64, ptr %gep18, align 8, !tbaa !34
-  %gep = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %invariant.gep, i64 %.sroa.7.0
-  %9 = load i32, ptr %gep, align 8, !tbaa !37
-  %switch = icmp ult i32 %9, 2
+10:                                               ; preds = %.lr.ph, %10
+  %.sroa.7.015 = phi i64 [ %.sroa.7.011, %.lr.ph ], [ %.sroa.7.0, %10 ]
+  %11 = getelementptr i64, ptr %9, i64 %.sroa.7.015
+  %12 = getelementptr i8, ptr %11, i64 -8
+  %.sroa.7.0 = load i64, ptr %12, align 8, !tbaa !34
+  %13 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %4, i64 %.sroa.7.0
+  %14 = getelementptr i8, ptr %13, i64 -128
+  %15 = load i32, ptr %14, align 8, !tbaa !37
+  %switch = icmp ult i32 %15, 2
   %.not = icmp eq i64 %.sroa.7.0, 0
   %or.cond = or i1 %.not, %switch
-  br i1 %or.cond, label %.critedge, label %8, !llvm.loop !58
+  br i1 %or.cond, label %.critedge, label %10, !llvm.loop !58
 
-.critedge:                                        ; preds = %8, %2
-  %.sroa.7.0.lcssa = phi i64 [ %.sroa.7.011, %2 ], [ %.sroa.7.0, %8 ]
-  %10 = load ptr, ptr %1, align 8, !tbaa !4
-  store ptr %10, ptr %0, align 8, !tbaa !4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.0.copyload6, ptr %11, align 8, !tbaa !33
+.critedge:                                        ; preds = %10, %2
+  %.sroa.7.0.lcssa = phi i64 [ %.sroa.7.011, %2 ], [ %.sroa.7.0, %10 ]
+  %16 = load ptr, ptr %1, align 8, !tbaa !4
+  store ptr %16, ptr %0, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.0.0.copyload6, ptr %17, align 8, !tbaa !33
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.7.0.lcssa, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !34
   ret void

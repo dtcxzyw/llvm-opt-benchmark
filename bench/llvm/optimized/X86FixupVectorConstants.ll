@@ -4709,9 +4709,9 @@ _ZL19extractConstantBitsPKN4llvm8ConstantEj.exit: ; preds = %25
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %46
-  %.neg.i.i = add nsw i32 %32, -64
   %50 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %33, i1 false)
   %51 = trunc nuw nsw i64 %50 to i32
+  %.neg.i.i = add nsw i32 %32, -64
   %52 = add nsw i32 %.neg.i.i, %51
   br label %_ZNK4llvm5APInt17countLeadingZerosEv.exit
 

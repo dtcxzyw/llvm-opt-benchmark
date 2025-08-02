@@ -1047,7 +1047,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i20: ; pred
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %"_ZN15crossbeam_deque5deque13Slot$LT$T$GT$10wait_write17hf0de3e7d241e307cE.exit", %71
-  %72 = getelementptr i8, ptr %.0.i.le, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.le, i64 24
   br label %73
 
 ._crit_edge.i:                                    ; preds = %84, %71
@@ -1060,7 +1060,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.exit.i20: ; pred
   %75 = icmp ult i64 %.sroa.5.010.i, 64
   tail call void @llvm.assume(i1 %75)
   %.idx.i = mul nuw nsw i64 %74, 24
-  %76 = getelementptr i8, ptr %72, i64 %.idx.i
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i
   %77 = load atomic i64, ptr %76 acquire, align 8
   %78 = and i64 %77, 2
   %79 = icmp eq i64 %78, 0

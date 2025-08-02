@@ -436,177 +436,178 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   %28 = and i64 %3, 65535
   %29 = xor i64 %28, -1
   %30 = getelementptr inbounds %"class.tbb::detail::r1::mail_outbox", ptr %1, i64 %29, i32 0, i32 0, i32 0, i32 2
-  %invariant.gep105 = getelementptr i8, ptr %.0.i.i.i, i64 -8
   br i1 %27, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %53
-  %31 = phi i64 [ %55, %53 ], [ %24, %.lr.ph ]
-  %.03366.us = phi i8 [ %.3.us, %53 ], [ 0, %.lr.ph ]
-  %.03465.us = phi i64 [ %.236.us, %53 ], [ %21, %.lr.ph ]
-  %gep106 = getelementptr ptr, ptr %invariant.gep105, i64 %31
-  %32 = load ptr, ptr %gep106, align 8, !tbaa !14
-  %.not47.us = icmp eq ptr %32, null
-  br i1 %.not47.us, label %51, label %33
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %55
+  %31 = phi i64 [ %57, %55 ], [ %24, %.lr.ph ]
+  %.03366.us = phi i8 [ %.3.us, %55 ], [ 0, %.lr.ph ]
+  %.03465.us = phi i64 [ %.236.us, %55 ], [ %21, %.lr.ph ]
+  %32 = getelementptr ptr, ptr %.0.i.i.i, i64 %31
+  %33 = getelementptr i8, ptr %32, i64 -8
+  %34 = load ptr, ptr %33, align 8, !tbaa !14
+  %.not47.us = icmp eq ptr %34, null
+  br i1 %.not47.us, label %53, label %35
 
-33:                                               ; preds = %.lr.ph.split.us
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !17
-  %36 = and i64 %35, 1
-  %.not58.us = icmp eq i64 %36, 0
-  br i1 %.not58.us, label %.thread, label %37
+35:                                               ; preds = %.lr.ph.split.us
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !17
+  %38 = and i64 %37, 1
+  %.not58.us = icmp eq i64 %38, 0
+  br i1 %.not58.us, label %.thread, label %39
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  %39 = load atomic i64, ptr %38 seq_cst, align 8
-  %40 = and i64 %39, 3
-  %41 = icmp eq i64 %40, 3
-  br i1 %41, label %42, label %.thread
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %41 = load atomic i64, ptr %40 seq_cst, align 8
+  %42 = and i64 %41, 3
+  %43 = icmp eq i64 %42, 3
+  br i1 %43, label %44, label %.thread
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %32, i64 80
-  %44 = load ptr, ptr %43, align 16, !tbaa !119
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = load atomic i8, ptr %45 monotonic, align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %.thread
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 80
+  %46 = load ptr, ptr %45, align 16, !tbaa !119
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = load atomic i8, ptr %47 monotonic, align 1
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %.thread
 
-48:                                               ; preds = %42
-  %49 = load atomic i8, ptr %30 monotonic, align 16
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %.thread, label %53
+50:                                               ; preds = %44
+  %51 = load atomic i8, ptr %30 monotonic, align 16
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %.thread, label %55
 
-51:                                               ; preds = %.lr.ph.split.us
-  %52 = trunc nuw i8 %.03366.us to i1
-  %spec.select.us = select i1 %52, i64 %.03465.us, i64 %31
-  br label %53
+53:                                               ; preds = %.lr.ph.split.us
+  %54 = trunc nuw i8 %.03366.us to i1
+  %spec.select.us = select i1 %54, i64 %.03465.us, i64 %31
+  br label %55
 
-53:                                               ; preds = %51, %48
-  %.236.us = phi i64 [ %.03465.us, %48 ], [ %spec.select.us, %51 ]
-  %.3.us = phi i8 [ 1, %48 ], [ %.03366.us, %51 ]
-  %54 = atomicrmw add ptr %20, i64 1 seq_cst, align 8
-  %55 = add i64 %54, 1
-  %56 = load atomic i64, ptr %22 acquire, align 16
-  %57 = icmp sgt i64 %55, %56
-  br i1 %57, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !120
+55:                                               ; preds = %53, %50
+  %.236.us = phi i64 [ %.03465.us, %50 ], [ %spec.select.us, %53 ]
+  %.3.us = phi i8 [ 1, %50 ], [ %.03366.us, %53 ]
+  %56 = atomicrmw add ptr %20, i64 1 seq_cst, align 8
+  %57 = add i64 %56, 1
+  %58 = load atomic i64, ptr %22 acquire, align 16
+  %59 = icmp sgt i64 %57, %58
+  br i1 %59, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !120
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %84
-  %58 = phi i64 [ %86, %84 ], [ %24, %.lr.ph ]
-  %.03366 = phi i8 [ %.3, %84 ], [ 0, %.lr.ph ]
-  %.03465 = phi i64 [ %.236, %84 ], [ %21, %.lr.ph ]
-  %gep = getelementptr ptr, ptr %invariant.gep105, i64 %58
-  %59 = load ptr, ptr %gep, align 8, !tbaa !14
-  %.not47 = icmp eq ptr %59, null
-  br i1 %.not47, label %82, label %60
+.lr.ph.split:                                     ; preds = %.lr.ph, %88
+  %60 = phi i64 [ %90, %88 ], [ %24, %.lr.ph ]
+  %.03366 = phi i8 [ %.3, %88 ], [ 0, %.lr.ph ]
+  %.03465 = phi i64 [ %.236, %88 ], [ %21, %.lr.ph ]
+  %61 = getelementptr ptr, ptr %.0.i.i.i, i64 %60
+  %62 = getelementptr i8, ptr %61, i64 -8
+  %63 = load ptr, ptr %62, align 8, !tbaa !14
+  %.not47 = icmp eq ptr %63, null
+  br i1 %.not47, label %86, label %64
 
-60:                                               ; preds = %.lr.ph.split
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %62 = load i64, ptr %61, align 8, !tbaa !16
-  %63 = icmp eq i64 %2, %62
-  br i1 %63, label %64, label %84
-
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %66 = load i64, ptr %65, align 8, !tbaa !17
-  %67 = and i64 %66, 1
-  %.not58 = icmp eq i64 %67, 0
-  br i1 %.not58, label %.thread, label %68
+64:                                               ; preds = %.lr.ph.split
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %66 = load i64, ptr %65, align 8, !tbaa !16
+  %67 = icmp eq i64 %2, %66
+  br i1 %67, label %68, label %88
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %59, i64 64
-  %70 = load atomic i64, ptr %69 seq_cst, align 8
-  %71 = and i64 %70, 3
-  %72 = icmp eq i64 %71, 3
-  br i1 %72, label %73, label %.thread
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %70 = load i64, ptr %69, align 8, !tbaa !17
+  %71 = and i64 %70, 1
+  %.not58 = icmp eq i64 %71, 0
+  br i1 %.not58, label %.thread, label %72
 
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %59, i64 80
-  %75 = load ptr, ptr %74, align 16, !tbaa !119
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load atomic i8, ptr %76 monotonic, align 1
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %79, label %.thread
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 64
+  %74 = load atomic i64, ptr %73 seq_cst, align 8
+  %75 = and i64 %74, 3
+  %76 = icmp eq i64 %75, 3
+  br i1 %76, label %77, label %.thread
 
-79:                                               ; preds = %73
-  %80 = load atomic i8, ptr %30 monotonic, align 16
-  %81 = trunc i8 %80 to i1
-  br i1 %81, label %.thread, label %84
+77:                                               ; preds = %72
+  %78 = getelementptr inbounds nuw i8, ptr %63, i64 80
+  %79 = load ptr, ptr %78, align 16, !tbaa !119
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %81 = load atomic i8, ptr %80 monotonic, align 1
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %.thread
 
-82:                                               ; preds = %.lr.ph.split
-  %83 = trunc nuw i8 %.03366 to i1
-  %spec.select = select i1 %83, i64 %.03465, i64 %58
-  br label %84
+83:                                               ; preds = %77
+  %84 = load atomic i8, ptr %30 monotonic, align 16
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %.thread, label %88
 
-84:                                               ; preds = %82, %79, %60
-  %.236 = phi i64 [ %.03465, %60 ], [ %.03465, %79 ], [ %spec.select, %82 ]
-  %.3 = phi i8 [ 1, %60 ], [ 1, %79 ], [ %.03366, %82 ]
-  %85 = atomicrmw add ptr %20, i64 1 seq_cst, align 8
-  %86 = add i64 %85, 1
-  %87 = load atomic i64, ptr %22 acquire, align 16
-  %88 = icmp sgt i64 %86, %87
-  br i1 %88, label %._crit_edge, label %.lr.ph.split
+86:                                               ; preds = %.lr.ph.split
+  %87 = trunc nuw i8 %.03366 to i1
+  %spec.select = select i1 %87, i64 %.03465, i64 %60
+  br label %88
 
-.thread:                                          ; preds = %64, %73, %68, %79, %33, %37, %42, %48
-  %89 = phi i64 [ %31, %48 ], [ %31, %42 ], [ %31, %37 ], [ %31, %33 ], [ %58, %79 ], [ %58, %68 ], [ %58, %73 ], [ %58, %64 ]
-  %.us-phi68 = phi ptr [ %32, %48 ], [ %32, %42 ], [ %32, %37 ], [ %32, %33 ], [ %59, %79 ], [ %59, %68 ], [ %59, %73 ], [ %59, %64 ]
-  %.us-phi69 = phi i64 [ %.03465.us, %48 ], [ %.03465.us, %42 ], [ %.03465.us, %37 ], [ %.03465.us, %33 ], [ %.03465, %79 ], [ %.03465, %68 ], [ %.03465, %73 ], [ %.03465, %64 ]
-  %.us-phi70 = phi i8 [ %.03366.us, %48 ], [ %.03366.us, %42 ], [ %.03366.us, %37 ], [ %.03366.us, %33 ], [ %.03366, %79 ], [ %.03366, %68 ], [ %.03366, %73 ], [ %.03366, %64 ]
-  %90 = trunc nuw i8 %.us-phi70 to i1
-  br i1 %90, label %.thread52, label %.thread55
+88:                                               ; preds = %86, %83, %64
+  %.236 = phi i64 [ %.03465, %64 ], [ %.03465, %83 ], [ %spec.select, %86 ]
+  %.3 = phi i8 [ 1, %64 ], [ 1, %83 ], [ %.03366, %86 ]
+  %89 = atomicrmw add ptr %20, i64 1 seq_cst, align 8
+  %90 = add i64 %89, 1
+  %91 = load atomic i64, ptr %22 acquire, align 16
+  %92 = icmp sgt i64 %90, %91
+  br i1 %92, label %._crit_edge, label %.lr.ph.split
+
+.thread:                                          ; preds = %68, %77, %72, %83, %35, %39, %44, %50
+  %93 = phi i64 [ %31, %50 ], [ %31, %44 ], [ %31, %39 ], [ %31, %35 ], [ %60, %83 ], [ %60, %72 ], [ %60, %77 ], [ %60, %68 ]
+  %.us-phi68 = phi ptr [ %34, %50 ], [ %34, %44 ], [ %34, %39 ], [ %34, %35 ], [ %63, %83 ], [ %63, %72 ], [ %63, %77 ], [ %63, %68 ]
+  %.us-phi69 = phi i64 [ %.03465.us, %50 ], [ %.03465.us, %44 ], [ %.03465.us, %39 ], [ %.03465.us, %35 ], [ %.03465, %83 ], [ %.03465, %72 ], [ %.03465, %77 ], [ %.03465, %68 ]
+  %.us-phi70 = phi i8 [ %.03366.us, %50 ], [ %.03366.us, %44 ], [ %.03366.us, %39 ], [ %.03366.us, %35 ], [ %.03366, %83 ], [ %.03366, %72 ], [ %.03366, %77 ], [ %.03366, %68 ]
+  %94 = trunc nuw i8 %.us-phi70 to i1
+  br i1 %94, label %.thread52, label %.thread55
 
 .thread55:                                        ; preds = %.thread
   store atomic i64 %8, ptr %6 release, align 8
   br label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
 .thread52:                                        ; preds = %.thread
-  %91 = getelementptr ptr, ptr %.0.i.i.i, i64 %89
-  %92 = getelementptr i8, ptr %91, i64 -8
-  store ptr null, ptr %92, align 8, !tbaa !14
+  %95 = getelementptr ptr, ptr %.0.i.i.i, i64 %93
+  %96 = getelementptr i8, ptr %95, i64 -8
+  store ptr null, ptr %96, align 8, !tbaa !14
   store atomic i64 %.us-phi69, ptr %20 release, align 16
   store atomic i64 %8, ptr %6 release, align 8
-  br label %94
+  br label %98
 
-._crit_edge:                                      ; preds = %84, %53
-  %.034.lcssa = phi i64 [ %.236.us, %53 ], [ %.236, %84 ]
-  %.033.lcssa = phi i8 [ %.3.us, %53 ], [ %.3, %84 ]
+._crit_edge:                                      ; preds = %88, %55
+  %.034.lcssa = phi i64 [ %.236.us, %55 ], [ %.236, %88 ]
+  %.033.lcssa = phi i8 [ %.3.us, %55 ], [ %.3, %88 ]
   store atomic i64 %.034.lcssa, ptr %20 monotonic, align 16
   store atomic i64 %8, ptr %6 release, align 8
-  %93 = trunc nuw i8 %.033.lcssa to i1
-  br i1 %93, label %94, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
+  %97 = trunc nuw i8 %.033.lcssa to i1
+  br i1 %97, label %98, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
-94:                                               ; preds = %.thread52, %._crit_edge
+98:                                               ; preds = %.thread52, %._crit_edge
   %.13854 = phi ptr [ %.us-phi68, %.thread52 ], [ null, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #2
   store i8 0, ptr %5, align 1, !tbaa !87
   call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, ptr nonnull elementtype(i8) %5) #2, !srcloc !88
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #2
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %96 = load atomic i64, ptr %95 acquire, align 8
-  switch i64 %96, label %97 [
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %100 = load atomic i64, ptr %99 acquire, align 8
+  switch i64 %100, label %101 [
     i64 1, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
     i64 0, label %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i
   ]
 
-97:                                               ; preds = %94
-  %98 = cmpxchg ptr %95, i64 %96, i64 1 seq_cst seq_cst, align 8
-  %99 = extractvalue { i64, i1 } %98, 1
-  %100 = extractvalue { i64, i1 } %98, 0
-  %.not.i.i = icmp ne i64 %100, 0
-  %or.cond.not.i.i = select i1 %99, i1 true, i1 %.not.i.i
+101:                                              ; preds = %98
+  %102 = cmpxchg ptr %99, i64 %100, i64 1 seq_cst seq_cst, align 8
+  %103 = extractvalue { i64, i1 } %102, 1
+  %104 = extractvalue { i64, i1 } %102, 0
+  %.not.i.i = icmp ne i64 %104, 0
+  %or.cond.not.i.i = select i1 %103, i1 true, i1 %.not.i.i
   br i1 %or.cond.not.i.i, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit, label %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i
 
-_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i: ; preds = %97, %94
-  %101 = cmpxchg ptr %95, i64 0, i64 1 seq_cst seq_cst, align 8
-  %102 = extractvalue { i64, i1 } %101, 1
-  br i1 %102, label %103, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
+_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i: ; preds = %101, %98
+  %105 = cmpxchg ptr %99, i64 0, i64 1 seq_cst seq_cst, align 8
+  %106 = extractvalue { i64, i1 } %105, 1
+  br i1 %106, label %107, label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
-103:                                              ; preds = %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 380
-  %105 = load i32, ptr %104, align 4, !tbaa !89
-  call void @_ZN3tbb6detail2r15arena15request_workersEiib(ptr noundef nonnull align 128 dereferenceable(768) %1, i32 noundef 0, i32 noundef %105, i1 noundef zeroext true)
+107:                                              ; preds = %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 380
+  %109 = load i32, ptr %108, align 4, !tbaa !89
+  call void @_ZN3tbb6detail2r15arena15request_workersEiib(ptr noundef nonnull align 128 dereferenceable(768) %1, i32 noundef 0, i32 noundef %109, i1 noundef zeroext true)
   br label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
-_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %._crit_edge.thread, %103, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i, %97, %94, %.thread55, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %.us-phi68, %.thread55 ], [ %.13854, %94 ], [ %.13854, %97 ], [ %.13854, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i ], [ %.13854, %103 ], [ null, %._crit_edge.thread ], [ null, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i ]
+_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %._crit_edge.thread, %107, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i, %101, %98, %.thread55, %._crit_edge
+  %.0 = phi ptr [ null, %._crit_edge ], [ %.us-phi68, %.thread55 ], [ %.13854, %98 ], [ %.13854, %101 ], [ %.13854, %_ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i ], [ %.13854, %107 ], [ null, %._crit_edge.thread ], [ null, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i ]
   ret ptr %.0
 }
 

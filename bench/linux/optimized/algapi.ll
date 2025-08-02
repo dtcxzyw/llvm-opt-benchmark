@@ -1518,7 +1518,7 @@ define dso_local noundef i32 @crypto_register_instance(ptr noundef %0, ptr nound
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 44
   %54 = load i8, ptr %53, align 4, !range !8, !noundef !9
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %56, label %.thread11
+  br i1 %55, label %56, label %.critedge.thread
 
 56:                                               ; preds = %.lr.ph
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 24
@@ -1546,7 +1546,7 @@ define dso_local noundef i32 @crypto_register_instance(ptr noundef %0, ptr nound
   store i32 %68, ptr %45, align 8
   %69 = call fastcc ptr @__crypto_register_alg(ptr noundef %1, ptr noundef nonnull %3)
   %70 = icmp ugt ptr %69, inttoptr (i64 -4096 to ptr)
-  br i1 %70, label %.thread11, label %71
+  br i1 %70, label %.critedge.thread, label %71
 
 71:                                               ; preds = %._crit_edge
   %72 = icmp eq ptr %69, null
@@ -1569,7 +1569,7 @@ define dso_local noundef i32 @crypto_register_instance(ptr noundef %0, ptr nound
   store volatile ptr %48, ptr %80, align 8
   br label %84
 
-.thread11:                                        ; preds = %.lr.ph, %._crit_edge
+.critedge.thread:                                 ; preds = %.lr.ph, %._crit_edge
   %81 = phi ptr [ %69, %._crit_edge ], [ inttoptr (i64 -11 to ptr), %.lr.ph ]
   call void @up_write(ptr noundef nonnull @crypto_alg_sem) #16
   %82 = ptrtoint ptr %81 to i64
@@ -1595,8 +1595,8 @@ define dso_local noundef i32 @crypto_register_instance(ptr noundef %0, ptr nound
   %91 = icmp eq ptr %90, %3
   br i1 %91, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %89, %.thread13
-  %92 = phi ptr [ %93, %.thread13 ], [ %90, %89 ]
+.preheader:                                       ; preds = %89, %.thread11
+  %92 = phi ptr [ %93, %.thread11 ], [ %90, %89 ]
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %95 = load ptr, ptr %94, align 8
@@ -1612,29 +1612,29 @@ define dso_local noundef i32 @crypto_register_instance(ptr noundef %0, ptr nound
 
 100:                                              ; preds = %.preheader
   %101 = icmp sgt i32 %98, 0
-  br i1 %101, label %.thread13, label %102, !prof !14
+  br i1 %101, label %.thread11, label %102, !prof !14
 
 102:                                              ; preds = %100
   call void @refcount_warn_saturate(ptr noundef nonnull %97, i32 noundef 3) #16
-  br label %.thread13
+  br label %.thread11
 
 103:                                              ; preds = %.preheader
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !21
   %104 = getelementptr inbounds nuw i8, ptr %92, i64 368
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %.thread13, label %107
+  br i1 %106, label %.thread11, label %107
 
 107:                                              ; preds = %103
   call void %105(ptr noundef %92) #16
-  br label %.thread13
+  br label %.thread11
 
-.thread13:                                        ; preds = %100, %102, %107, %103
+.thread11:                                        ; preds = %100, %102, %107, %103
   %108 = icmp eq ptr %93, %3
   br i1 %108, label %.thread, label %.preheader, !llvm.loop !22
 
-.thread:                                          ; preds = %.thread13, %36, %32, %19, %12, %2, %8, %89, %.thread11
-  %109 = phi i32 [ %83, %.thread11 ], [ 0, %89 ], [ -22, %8 ], [ -22, %2 ], [ -22, %12 ], [ -22, %19 ], [ -22, %32 ], [ -22, %36 ], [ 0, %.thread13 ]
+.thread:                                          ; preds = %.thread11, %36, %32, %19, %12, %2, %8, %89, %.critedge.thread
+  %109 = phi i32 [ %83, %.critedge.thread ], [ 0, %89 ], [ -22, %8 ], [ -22, %2 ], [ -22, %12 ], [ -22, %19 ], [ -22, %32 ], [ -22, %36 ], [ 0, %.thread11 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   ret i32 %109
 }

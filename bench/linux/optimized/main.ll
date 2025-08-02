@@ -2029,7 +2029,7 @@ define dso_local i32 @do_one_initcall(ptr noundef %0) local_unnamed_addr #1 alig
   %67 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #27, !srcloc !47
   %68 = and i32 %67, 2147483647
   %69 = icmp eq i32 %68, %6
-  br i1 %69, label %.thread, label %70
+  br i1 %69, label %.critedge, label %70
 
 70:                                               ; preds = %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %4, ptr noundef nonnull align 1 dereferenceable(22) @.str.14, i64 22, i1 false)
@@ -2041,7 +2041,7 @@ define dso_local i32 @do_one_initcall(ptr noundef %0) local_unnamed_addr #1 alig
   %76 = icmp ult i8 %75, 2
   call void @llvm.assume(i1 %76)
   %77 = icmp eq i8 %75, 0
-  br i1 %77, label %.lr.ph, label %.thread, !prof !63
+  br i1 %77, label %.lr.ph, label %.critedge, !prof !63
 
 .lr.ph:                                           ; preds = %70, %.lr.ph
   %78 = phi { i8, i32 } [ %82, %.lr.ph ], [ %74, %70 ]
@@ -2053,9 +2053,9 @@ define dso_local i32 @do_one_initcall(ptr noundef %0) local_unnamed_addr #1 alig
   %84 = icmp ult i8 %83, 2
   call void @llvm.assume(i1 %84)
   %85 = icmp eq i8 %83, 0
-  br i1 %85, label %.lr.ph, label %.thread, !prof !64, !llvm.loop !65
+  br i1 %85, label %.lr.ph, label %.critedge, !prof !64, !llvm.loop !65
 
-.thread:                                          ; preds = %.lr.ph, %70, %66
+.critedge:                                        ; preds = %.lr.ph, %70, %66
   %86 = phi i8 [ 112, %70 ], [ 0, %66 ], [ 112, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
   store i64 0, ptr %3, align 8, !annotation !13
@@ -2066,14 +2066,14 @@ define dso_local i32 @do_one_initcall(ptr noundef %0) local_unnamed_addr #1 alig
   %89 = icmp eq i64 %88, 0
   br i1 %89, label %90, label %92
 
-90:                                               ; preds = %.thread
+90:                                               ; preds = %.critedge
   %91 = call i64 @strlcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, i64 noundef 64) #26
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !33
   %.pre = load i8, ptr %4, align 16
   br label %92
 
-92:                                               ; preds = %90, %.thread
-  %93 = phi i8 [ %.pre, %90 ], [ %86, %.thread ]
+92:                                               ; preds = %90, %.critedge
+  %93 = phi i8 [ %.pre, %90 ], [ %86, %.critedge ]
   %94 = icmp eq i8 %93, 0
   br i1 %94, label %96, label %95, !prof !11
 
@@ -2472,13 +2472,13 @@ define internal fastcc zeroext i1 @obsolete_checksetup(ptr noundef %0) unnamed_a
 
 22:                                               ; preds = %18
   %23 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.42, ptr noundef %5) #28
-  br label %.thread
+  br label %.critedge
 
 24:                                               ; preds = %18
   %25 = getelementptr i8, ptr %0, i64 %8
   %26 = tail call i32 %20(ptr noundef %25) #26
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %.thread
+  br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %24, %17, %14, %2
   %29 = phi i8 [ 1, %17 ], [ %4, %24 ], [ %4, %2 ], [ %4, %14 ]
@@ -2488,9 +2488,9 @@ define internal fastcc zeroext i1 @obsolete_checksetup(ptr noundef %0) unnamed_a
 
 32:                                               ; preds = %28
   %33 = icmp ne i8 %29, 0
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %24, %22, %32
+.critedge:                                        ; preds = %24, %22, %32
   %34 = phi i1 [ %33, %32 ], [ true, %22 ], [ true, %24 ]
   ret i1 %34
 }

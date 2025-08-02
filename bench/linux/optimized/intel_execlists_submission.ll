@@ -613,20 +613,20 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %119 = getelementptr inbounds nuw i8, ptr %97, i64 144
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %125, label %122
+  br i1 %121, label %126, label %122
 
 122:                                              ; preds = %117
   %123 = getelementptr i8, ptr %120, i64 24
   %124 = load i32, ptr %123, align 8
-  br label %125
+  %125 = call i32 @llvm.smax.i32(i32 %118, i32 %124)
+  br label %126
 
-125:                                              ; preds = %122, %117
-  %126 = phi i32 [ %124, %122 ], [ -2147483648, %117 ]
-  %127 = call i32 @llvm.smax.i32(i32 %118, i32 %126)
+126:                                              ; preds = %122, %117
+  %127 = phi i32 [ %125, %122 ], [ %118, %117 ]
   %128 = icmp sgt i32 %127, %96
   br i1 %128, label %129, label %134
 
-129:                                              ; preds = %125, %106
+129:                                              ; preds = %126, %106
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 608
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr i8, ptr %131, i64 200
@@ -635,7 +635,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %133 = call fastcc ptr @__unwind_incomplete_requests(ptr noundef %6)
   br label %.loopexit82
 
-134:                                              ; preds = %125, %89, %83
+134:                                              ; preds = %126, %89, %83
   %135 = load volatile i64, ptr %84, align 8
   %136 = and i64 %135, 256
   %137 = icmp eq i64 %136, 0
@@ -5012,7 +5012,7 @@ declare dso_local void @lrc_reset(ptr noundef) #2
 declare dso_local void @lrc_destroy(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @execlists_create_virtual(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 %2) #0 align 16 {
+define internal noundef nonnull ptr @execlists_create_virtual(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64

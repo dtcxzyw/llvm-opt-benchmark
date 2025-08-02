@@ -255,22 +255,22 @@ define dso_local zeroext i1 @datumIsEqual(i64 noundef %0, i64 noundef %1, i1 nou
 
 5:                                                ; preds = %4
   %6 = icmp eq i64 %0, %1
-  br label %14
+  br label %.critedge
 
 7:                                                ; preds = %4
   %8 = tail call i64 @datumGetSize(i64 noundef %0, i1 noundef zeroext false, i32 noundef %3)
   %9 = tail call i64 @datumGetSize(i64 noundef %1, i1 noundef zeroext false, i32 noundef %3)
   %.not = icmp eq i64 %8, %9
-  br i1 %.not, label %10, label %14
+  br i1 %.not, label %10, label %.critedge
 
 10:                                               ; preds = %7
   %11 = inttoptr i64 %0 to ptr
   %12 = inttoptr i64 %1 to ptr
   %bcmp = tail call i32 @bcmp(ptr %11, ptr %12, i64 %8)
   %13 = icmp eq i32 %bcmp, 0
-  br label %14
+  br label %.critedge
 
-14:                                               ; preds = %10, %7, %5
+.critedge:                                        ; preds = %7, %5, %10
   %.1 = phi i1 [ %6, %5 ], [ %13, %10 ], [ false, %7 ]
   ret i1 %.1
 }
@@ -281,7 +281,7 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
 
 5:                                                ; preds = %4
   %6 = icmp eq i64 %0, %1
-  br label %45
+  br label %.critedge
 
 7:                                                ; preds = %4
   %8 = icmp sgt i32 %3, 0
@@ -293,7 +293,7 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
   %12 = zext nneg i32 %3 to i64
   %bcmp56 = tail call i32 @bcmp(ptr %10, ptr %11, i64 %12)
   %13 = icmp eq i32 %bcmp56, 0
-  br label %45
+  br label %.critedge
 
 14:                                               ; preds = %7
   switch i32 %3, label %42 [
@@ -305,7 +305,7 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
   %16 = tail call i64 @toast_raw_datum_size(i64 noundef %0) #9
   %17 = tail call i64 @toast_raw_datum_size(i64 noundef %1) #9
   %.not49 = icmp eq i64 %16, %17
-  br i1 %.not49, label %18, label %45
+  br i1 %.not49, label %18, label %.critedge
 
 18:                                               ; preds = %15
   %19 = inttoptr i64 %0 to ptr
@@ -334,11 +334,11 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
 
 32:                                               ; preds = %31, %18
   %.not55 = icmp eq ptr %22, %21
-  br i1 %.not55, label %45, label %33
+  br i1 %.not55, label %.critedge, label %33
 
 33:                                               ; preds = %32
   tail call void @pfree(ptr noundef nonnull %22) #9
-  br label %45
+  br label %.critedge
 
 34:                                               ; preds = %14
   %35 = inttoptr i64 %0 to ptr
@@ -346,13 +346,13 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #10
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #10
   %.not = icmp eq i64 %37, %38
-  br i1 %.not, label %39, label %45
+  br i1 %.not, label %39, label %.critedge
 
 39:                                               ; preds = %34
   %40 = add i64 %37, 1
   %bcmp = tail call i32 @bcmp(ptr nonnull %35, ptr nonnull %36, i64 %40)
   %41 = icmp eq i32 %bcmp, 0
-  br label %45
+  br label %.critedge
 
 42:                                               ; preds = %14
   %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -361,7 +361,7 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 323, ptr noundef nonnull @__func__.datum_image_eq) #9
   unreachable
 
-45:                                               ; preds = %39, %34, %5, %9, %15, %33, %32
+.critedge:                                        ; preds = %34, %5, %9, %15, %33, %32, %39
   %.1 = phi i1 [ %6, %5 ], [ %13, %9 ], [ false, %15 ], [ %30, %33 ], [ %30, %32 ], [ %41, %39 ], [ false, %34 ]
   ret i1 %.1
 }
@@ -484,84 +484,95 @@ define dso_local i64 @datumEstimateSpace(i64 noundef %0, i1 noundef zeroext %1, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @datumSerialize(i64 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
-  %brmerge = or i1 %1, %2
-  %.mux = select i1 %1, i32 -2, i32 -1
-  br i1 %brmerge, label %24, label %6
+  br i1 %1, label %.critedge, label %6
 
 6:                                                ; preds = %5
-  %7 = icmp eq i32 %3, -1
-  br i1 %7, label %8, label %21
+  br i1 %2, label %23, label %7
 
-8:                                                ; preds = %6
+7:                                                ; preds = %6
+  %8 = icmp eq i32 %3, -1
   %9 = inttoptr i64 %0 to ptr
-  %10 = load i8, ptr %9, align 1
-  %11 = icmp eq i8 %10, 1
-  br i1 %11, label %12, label %21
+  br i1 %8, label %10, label %.thread38
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, -2
-  %16 = icmp eq i8 %15, 2
-  br i1 %16, label %17, label %21
+10:                                               ; preds = %7
+  %11 = load i8, ptr %9, align 1
+  %12 = icmp eq i8 %11, 1
+  br i1 %12, label %13, label %.thread38
 
-17:                                               ; preds = %12
-  %18 = tail call ptr @DatumGetEOHP(i64 noundef %0) #9
-  %19 = tail call i64 @EOH_get_flat_size(ptr noundef %18) #9
-  %20 = trunc i64 %19 to i32
-  br label %24
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = and i8 %15, -2
+  %17 = icmp eq i8 %16, 2
+  br i1 %17, label %29, label %.thread38
 
-21:                                               ; preds = %12, %8, %6
-  %22 = tail call i64 @datumGetSize(i64 noundef %0, i1 noundef zeroext false, i32 noundef %3)
-  %23 = trunc i64 %22 to i32
-  br label %24
+.thread38:                                        ; preds = %7, %10, %13
+  %18 = tail call i64 @datumGetSize(i64 noundef %0, i1 noundef zeroext false, i32 noundef %3)
+  %19 = trunc i64 %18 to i32
+  %20 = load ptr, ptr %4, align 8
+  store i32 %19, ptr %20, align 1
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store ptr %22, ptr %4, align 8
+  br label %42
 
-24:                                               ; preds = %5, %21, %17
-  %.032 = phi i32 [ %20, %17 ], [ %23, %21 ], [ %.mux, %5 ]
-  %.0 = phi ptr [ %18, %17 ], [ null, %21 ], [ null, %5 ]
+23:                                               ; preds = %6
+  %24 = load ptr, ptr %4, align 8
+  store i32 -1, ptr %24, align 1
   %25 = load ptr, ptr %4, align 8
-  store i32 %.032, ptr %25, align 1
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store ptr %27, ptr %4, align 8
-  br i1 %1, label %44, label %28
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store ptr %26, ptr %4, align 8
+  store i64 %0, ptr %26, align 1
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %28, ptr %4, align 8
+  br label %50
 
-28:                                               ; preds = %24
-  br i1 %2, label %29, label %32
+29:                                               ; preds = %13
+  %30 = tail call ptr @DatumGetEOHP(i64 noundef %0) #9
+  %31 = tail call i64 @EOH_get_flat_size(ptr noundef %30) #9
+  %32 = trunc i64 %31 to i32
+  %33 = load ptr, ptr %4, align 8
+  store i32 %32, ptr %33, align 1
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store ptr %35, ptr %4, align 8
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %42, label %36
 
-29:                                               ; preds = %28
-  store i64 %0, ptr %27, align 1
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %31, ptr %4, align 8
-  br label %44
+36:                                               ; preds = %29
+  %sext = shl i64 %31, 32
+  %37 = ashr exact i64 %sext, 32
+  %38 = tail call ptr @palloc(i64 noundef %37) #9
+  tail call void @EOH_flatten_into(ptr noundef nonnull %30, ptr noundef %38, i64 noundef %37) #9
+  %39 = load ptr, ptr %4, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %38, i64 %37, i1 false)
+  %40 = load ptr, ptr %4, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 %37
+  store ptr %41, ptr %4, align 8
+  tail call void @pfree(ptr noundef %38) #9
+  br label %50
 
-32:                                               ; preds = %28
-  %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %39, label %33
+42:                                               ; preds = %.thread38, %29
+  %43 = phi ptr [ %22, %.thread38 ], [ %35, %29 ]
+  %.032.ph42 = phi i64 [ %18, %.thread38 ], [ %31, %29 ]
+  %sext43 = shl i64 %.032.ph42, 32
+  %44 = ashr exact i64 %sext43, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %9, i64 %44, i1 false)
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 %44
+  store ptr %46, ptr %4, align 8
+  br label %50
 
-33:                                               ; preds = %32
-  %34 = sext i32 %.032 to i64
-  %35 = tail call ptr @palloc(i64 noundef %34) #9
-  tail call void @EOH_flatten_into(ptr noundef nonnull %.0, ptr noundef %35, i64 noundef %34) #9
-  %36 = load ptr, ptr %4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %35, i64 %34, i1 false)
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 %34
-  store ptr %38, ptr %4, align 8
-  tail call void @pfree(ptr noundef %35) #9
-  br label %44
+.critedge:                                        ; preds = %5
+  %47 = load ptr, ptr %4, align 8
+  store i32 -2, ptr %47, align 1
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store ptr %49, ptr %4, align 8
+  br label %50
 
-39:                                               ; preds = %32
-  %40 = inttoptr i64 %0 to ptr
-  %41 = sext i32 %.032 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %40, i64 %41, i1 false)
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 %41
-  store ptr %43, ptr %4, align 8
-  br label %44
-
-44:                                               ; preds = %29, %39, %33, %24
+50:                                               ; preds = %.critedge, %23, %42, %36
   ret void
 }
 

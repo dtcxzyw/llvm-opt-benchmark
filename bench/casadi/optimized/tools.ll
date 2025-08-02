@@ -3507,7 +3507,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @external_transform_test_fail__f(i8 noundef signext %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define noalias noundef ptr @external_transform_test_fail__f(i8 noundef signext %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
   tail call void %3(ptr noundef nonnull @.str.17)
   tail call void %4(ptr noundef nonnull @.str.18)
   ret ptr null

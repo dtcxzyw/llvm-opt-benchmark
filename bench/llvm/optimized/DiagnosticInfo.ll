@@ -4814,96 +4814,96 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_30Diagnost
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
-  br i1 %spec.select.i.i.i.i, label %14, label %13, !prof !200
+  br i1 %spec.select.i.i.i.i, label %13, label %.critedge.i.i, !prof !200
 
 13:                                               ; preds = %9
+  %14 = ptrtoint ptr %1 to i64
+  %15 = ptrtoint ptr %.pre3 to i64
+  %16 = sub i64 %14, %15
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
+  %17 = load ptr, ptr %0, align 8, !tbaa !21
+  %18 = getelementptr inbounds i8, ptr %17, i64 %16
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE28reserveForParamAndGetAddressERS2_m.exit
+
+.critedge.i.i:                                    ; preds = %9
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
   %.pre = load ptr, ptr %0, align 8, !tbaa !21
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE28reserveForParamAndGetAddressERS2_m.exit
 
-14:                                               ; preds = %9
-  %15 = ptrtoint ptr %1 to i64
-  %16 = ptrtoint ptr %.pre3 to i64
-  %17 = sub i64 %15, %16
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
-  %18 = load ptr, ptr %0, align 8, !tbaa !21
-  %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE28reserveForParamAndGetAddressERS2_m.exit
+_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE28reserveForParamAndGetAddressERS2_m.exit: ; preds = %2, %13, %.critedge.i.i
+  %19 = phi ptr [ %.pre3, %2 ], [ %17, %13 ], [ %.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
+  %20 = load i32, ptr %3, align 8, !tbaa !87
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %19, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %23, ptr %22, align 8, !tbaa !191
+  %24 = load ptr, ptr %.016.i.i, align 8, !tbaa !55
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
+  %26 = icmp eq ptr %24, %25
+  br i1 %26, label %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE28reserveForParamAndGetAddressERS2_m.exit: ; preds = %2, %13, %14
-  %20 = phi ptr [ %.pre3, %2 ], [ %18, %14 ], [ %.pre, %13 ]
-  %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %13 ]
-  %21 = load i32, ptr %3, align 8, !tbaa !87
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %20, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %24, ptr %23, align 8, !tbaa !191
-  %25 = load ptr, ptr %.016.i.i, align 8, !tbaa !55
-  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
-  %27 = icmp eq ptr %25, %26
-  br i1 %27, label %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-28:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE28reserveForParamAndGetAddressERS2_m.exit
-  %29 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !60
-  %31 = icmp ult i64 %30, 16
-  tail call void @llvm.assume(i1 %31)
-  %32 = add nuw nsw i64 %30, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(1) %26, i64 %32, i1 false)
+27:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE28reserveForParamAndGetAddressERS2_m.exit
+  %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
+  %29 = load i64, ptr %28, align 8, !tbaa !60
+  %30 = icmp ult i64 %29, 16
+  tail call void @llvm.assume(i1 %30)
+  %31 = add nuw nsw i64 %29, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(1) %25, i64 %31, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE28reserveForParamAndGetAddressERS2_m.exit
-  store ptr %25, ptr %23, align 8, !tbaa !55
-  %33 = load i64, ptr %26, align 8, !tbaa !35
-  store i64 %33, ptr %24, align 8, !tbaa !35
+  store ptr %24, ptr %22, align 8, !tbaa !55
+  %32 = load i64, ptr %25, align 8, !tbaa !35
+  store i64 %32, ptr %23, align 8, !tbaa !35
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %28
-  %34 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !60
-  %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i64 %35, ptr %36, align 8, !tbaa !60
-  store ptr %26, ptr %.016.i.i, align 8, !tbaa !55
-  store i64 0, ptr %34, align 8, !tbaa !60
-  store i8 0, ptr %26, align 1, !tbaa !35
-  %37 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %38 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
-  %39 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store ptr %39, ptr %37, align 8, !tbaa !191
-  %40 = load ptr, ptr %38, align 8, !tbaa !55
-  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 48
-  %42 = icmp eq ptr %40, %41
-  br i1 %42, label %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %27
+  %33 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
+  %34 = load i64, ptr %33, align 8, !tbaa !60
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i64 %34, ptr %35, align 8, !tbaa !60
+  store ptr %25, ptr %.016.i.i, align 8, !tbaa !55
+  store i64 0, ptr %33, align 8, !tbaa !60
+  store i8 0, ptr %25, align 1, !tbaa !35
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  store ptr %38, ptr %36, align 8, !tbaa !191
+  %39 = load ptr, ptr %37, align 8, !tbaa !55
+  %40 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 48
+  %41 = icmp eq ptr %39, %40
+  br i1 %41, label %42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i
 
-43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 40
-  %45 = load i64, ptr %44, align 8, !tbaa !60
-  %46 = icmp ult i64 %45, 16
-  tail call void @llvm.assume(i1 %46)
-  %47 = add nuw nsw i64 %45, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %39, ptr noundef nonnull align 8 dereferenceable(1) %41, i64 %47, i1 false)
+42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
+  %43 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 40
+  %44 = load i64, ptr %43, align 8, !tbaa !60
+  %45 = icmp ult i64 %44, 16
+  tail call void @llvm.assume(i1 %45)
+  %46 = add nuw nsw i64 %44, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(1) %40, i64 %46, i1 false)
   br label %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2EOS1_.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
-  store ptr %40, ptr %37, align 8, !tbaa !55
-  %48 = load i64, ptr %41, align 8, !tbaa !35
-  store i64 %48, ptr %39, align 8, !tbaa !35
+  store ptr %39, ptr %36, align 8, !tbaa !55
+  %47 = load i64, ptr %40, align 8, !tbaa !35
+  store i64 %47, ptr %38, align 8, !tbaa !35
   br label %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2EOS1_.exit
 
-_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2EOS1_.exit: ; preds = %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i
-  %49 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 40
-  %50 = load i64, ptr %49, align 8, !tbaa !60
-  %51 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store i64 %50, ptr %51, align 8, !tbaa !60
-  store ptr %41, ptr %38, align 8, !tbaa !55
-  store i64 0, ptr %49, align 8, !tbaa !60
-  store i8 0, ptr %41, align 1, !tbaa !35
-  %52 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %53 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !105
-  %54 = load i32, ptr %3, align 8, !tbaa !87
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %3, align 8, !tbaa !87
+_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2EOS1_.exit: ; preds = %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i
+  %48 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 40
+  %49 = load i64, ptr %48, align 8, !tbaa !60
+  %50 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  store i64 %49, ptr %50, align 8, !tbaa !60
+  store ptr %40, ptr %37, align 8, !tbaa !55
+  store i64 0, ptr %48, align 8, !tbaa !60
+  store i8 0, ptr %40, align 1, !tbaa !35
+  %51 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !105
+  %53 = load i32, ptr %3, align 8, !tbaa !87
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %3, align 8, !tbaa !87
   ret void
 }
 

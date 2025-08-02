@@ -862,7 +862,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 39:                                               ; preds = %37
   %40 = call ptr @memchr(ptr noundef %32, i32 noundef 60, i64 noundef %35) #7
   %.not40.i = icmp eq ptr %40, null
-  br i1 %.not40.i, label %.thread.i, label %41
+  br i1 %.not40.i, label %.critedge.i, label %41
 
 41:                                               ; preds = %39
   %42 = ptrtoint ptr %40 to i64
@@ -871,7 +871,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   %44 = sub i64 %.neg.i, %42
   %45 = call ptr @memchr(ptr noundef nonnull %40, i32 noundef 62, i64 noundef %44) #7
   %.not41.i = icmp eq ptr %45, null
-  br i1 %.not41.i, label %.thread.i, label %46
+  br i1 %.not41.i, label %.critedge.i, label %46
 
 46:                                               ; preds = %41
   %47 = ptrtoint ptr %45 to i64
@@ -879,7 +879,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   %49 = add nsw i64 %48, 1
   %50 = call ptr @memchr(ptr noundef nonnull %40, i32 noundef 64, i64 noundef %49) #7
   %.not42.i = icmp eq ptr %50, null
-  br i1 %.not42.i, label %.thread.i, label %51
+  br i1 %.not42.i, label %.critedge.i, label %51
 
 51:                                               ; preds = %46
   %52 = call ptr @Curl_memdup0(ptr noundef nonnull %40, i64 noundef %49) #6
@@ -893,9 +893,9 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   %56 = load i8, ptr %55, align 8, !tbaa !126
   %57 = or i8 %56, 2
   store i8 %57, ptr %55, align 8, !tbaa !126
-  br label %.thread.i
+  br label %.critedge.i
 
-.thread.i:                                        ; preds = %54, %46, %41, %39
+.critedge.i:                                      ; preds = %54, %46, %41, %39
   %58 = getelementptr inbounds nuw i8, ptr %30, i64 1088
   %59 = getelementptr inbounds nuw i8, ptr %30, i64 1296
   store i16 0, ptr %59, align 8, !tbaa !127
@@ -909,7 +909,7 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   %.not.i.i = icmp eq i32 %64, 0
   br i1 %.not.i.i, label %65, label %.critedge
 
-65:                                               ; preds = %.thread.i
+65:                                               ; preds = %.critedge.i
   %.val.i.i = load ptr, ptr %16, align 8, !tbaa !83
   %66 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 1248
   store i32 2, ptr %66, align 8, !tbaa !86
@@ -1005,24 +1005,24 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   %.16899.i.be = phi ptr [ %95, %.critedge2.i ], [ %106, %.critedge90.i ]
   br label %.lr.ph.i, !llvm.loop !128
 
-.critedge.preheader.i:                            ; preds = %.lr.ph.i, %.critedge.i
-  %.065102.i = phi i64 [ %99, %.critedge.i ], [ 0, %.lr.ph.i ]
+.critedge.preheader.i:                            ; preds = %.lr.ph.i, %.critedge.i50
+  %.065102.i = phi i64 [ %99, %.critedge.i50 ], [ 0, %.lr.ph.i ]
   %97 = getelementptr inbounds nuw i8, ptr %.16899.i, i64 %.065102.i
   %98 = load i8, ptr %97, align 1, !tbaa !7
-  switch i8 %98, label %.critedge.i [
+  switch i8 %98, label %.critedge.i50 [
     i8 32, label %.critedge4.i
     i8 9, label %.critedge4.i
     i8 13, label %.critedge4.i
     i8 10, label %.critedge4.i
   ]
 
-.critedge.i:                                      ; preds = %.critedge.preheader.i
+.critedge.i50:                                    ; preds = %.critedge.preheader.i
   %99 = add nuw i64 %.065102.i, 1
   %exitcond.not.i = icmp eq i64 %99, %.1100.i
   br i1 %exitcond.not.i, label %.critedge4.i, label %.critedge.preheader.i, !llvm.loop !129
 
-.critedge4.i:                                     ; preds = %.critedge.i, %.critedge.preheader.i, %.critedge.preheader.i, %.critedge.preheader.i, %.critedge.preheader.i
-  %.065.lcssa.i = phi i64 [ %.065102.i, %.critedge.preheader.i ], [ %.065102.i, %.critedge.preheader.i ], [ %.065102.i, %.critedge.preheader.i ], [ %.065102.i, %.critedge.preheader.i ], [ %.1100.i, %.critedge.i ]
+.critedge4.i:                                     ; preds = %.critedge.i50, %.critedge.preheader.i, %.critedge.preheader.i, %.critedge.preheader.i, %.critedge.preheader.i
+  %.065.lcssa.i = phi i64 [ %.065102.i, %.critedge.preheader.i ], [ %.065102.i, %.critedge.preheader.i ], [ %.065102.i, %.critedge.preheader.i ], [ %.065102.i, %.critedge.preheader.i ], [ %.1100.i, %.critedge.i50 ]
   %100 = call zeroext i16 @Curl_sasl_decode_mech(ptr noundef nonnull %.16899.i, i64 noundef %.065.lcssa.i, ptr noundef nonnull %4) #6
   %.not87.i = icmp ne i16 %100, 0
   %101 = load i64, ptr %4, align 8
@@ -1104,8 +1104,8 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   %136 = load ptr, ptr %16, align 8, !tbaa !83
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 1216
   %138 = load i64, ptr %137, align 8, !tbaa !7
-  %.not.i50 = icmp eq i64 %138, 0
-  br i1 %.not.i50, label %139, label %.critedge
+  %.not.i51 = icmp eq i64 %138, 0
+  br i1 %.not.i51, label %139, label %.critedge
 
 139:                                              ; preds = %135
   %.not10.i = icmp eq i32 %26, 43
@@ -1133,8 +1133,8 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 1272
   %150 = call i32 @Curl_sasl_continue(ptr noundef nonnull %149, ptr noundef %0, i32 noundef range(i32 1, 0) %26, ptr noundef nonnull %3) #6
-  %.not.i51 = icmp eq i32 %150, 0
-  br i1 %.not.i51, label %151, label %pop3_state_auth_resp.exit
+  %.not.i52 = icmp eq i32 %150, 0
+  br i1 %.not.i52, label %151, label %pop3_state_auth_resp.exit
 
 151:                                              ; preds = %147
   %152 = load i32, ptr %3, align 4, !tbaa !125
@@ -1171,8 +1171,8 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 
 167:                                              ; preds = %165
   %168 = load ptr, ptr %19, align 8, !tbaa !131
-  %.not.i.i52 = icmp eq ptr %168, null
-  br i1 %.not.i.i52, label %.sink.split.i.i, label %169
+  %.not.i.i53 = icmp eq ptr %168, null
+  br i1 %.not.i.i53, label %.sink.split.i.i, label %169
 
 169:                                              ; preds = %167
   %170 = getelementptr inbounds nuw i8, ptr %148, i64 1088
@@ -1186,8 +1186,8 @@ define internal i32 @pop3_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 
 .sink.split.i.i:                                  ; preds = %169, %167
   %.sink.i.i = phi i32 [ 0, %167 ], [ 7, %169 ]
-  %.val.i.i53 = load ptr, ptr %16, align 8, !tbaa !83
-  %174 = getelementptr inbounds nuw i8, ptr %.val.i.i53, i64 1248
+  %.val.i.i54 = load ptr, ptr %16, align 8, !tbaa !83
+  %174 = getelementptr inbounds nuw i8, ptr %.val.i.i54, i64 1248
   store i32 %.sink.i.i, ptr %174, align 8, !tbaa !86
   br label %pop3_state_auth_resp.exit
 
@@ -1201,24 +1201,24 @@ pop3_state_auth_resp.exit:                        ; preds = %147, %151, %153, %1
   br label %pop3_state_servergreet_resp.exit
 
 176:                                              ; preds = %27
-  %.not.i54 = icmp eq i32 %26, 43
-  br i1 %.not.i54, label %178, label %177
+  %.not.i55 = icmp eq i32 %26, 43
+  br i1 %.not.i55, label %178, label %177
 
 177:                                              ; preds = %176
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef range(i32 1, 0) %26) #6
   br label %.critedge
 
 178:                                              ; preds = %176
-  %.val.i56 = load ptr, ptr %16, align 8, !tbaa !83
-  %179 = getelementptr inbounds nuw i8, ptr %.val.i56, i64 1248
+  %.val.i57 = load ptr, ptr %16, align 8, !tbaa !83
+  %179 = getelementptr inbounds nuw i8, ptr %.val.i57, i64 1248
   store i32 0, ptr %179, align 8, !tbaa !86
   br label %pop3_state_servergreet_resp.exit.thread
 
 180:                                              ; preds = %27
-  %.not.i57 = icmp eq i32 %26, 43
-  br i1 %.not.i57, label %181, label %.thread.i58
+  %.not.i58 = icmp eq i32 %26, 43
+  br i1 %.not.i58, label %181, label %.thread.i
 
-.thread.i58:                                      ; preds = %180
+.thread.i:                                        ; preds = %180
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef range(i32 1, 0) %26) #6
   br label %.critedge
 
@@ -1339,8 +1339,8 @@ pop3_state_servergreet_resp.exit.thread:          ; preds = %191, %187, %178, %7
   %225 = call zeroext i1 @Curl_pp_moredata(ptr noundef nonnull %7) #6
   br i1 %225, label %23, label %.critedge, !llvm.loop !136
 
-.critedge:                                        ; preds = %210, %181, %135, %124, %.thread.i, %51, %224, %25, %pop3_state_servergreet_resp.exit, %pop3_state_servergreet_resp.exit.thread, %23, %190, %.thread.i58, %177, %142, %134, %36, %21, %11
-  %.0 = phi i32 [ %12, %11 ], [ %22, %21 ], [ 67, %190 ], [ 67, %.thread.i58 ], [ 67, %177 ], [ 64, %142 ], [ 64, %134 ], [ 8, %36 ], [ 27, %51 ], [ %64, %.thread.i ], [ %126, %124 ], [ 8, %135 ], [ %186, %181 ], [ %213, %210 ], [ 0, %25 ], [ 0, %pop3_state_servergreet_resp.exit.thread ], [ 0, %224 ], [ %.1, %pop3_state_servergreet_resp.exit ], [ %24, %23 ]
+.critedge:                                        ; preds = %210, %181, %135, %124, %.critedge.i, %51, %224, %25, %pop3_state_servergreet_resp.exit, %pop3_state_servergreet_resp.exit.thread, %23, %190, %.thread.i, %177, %142, %134, %36, %21, %11
+  %.0 = phi i32 [ %12, %11 ], [ %22, %21 ], [ 67, %190 ], [ 67, %.thread.i ], [ 67, %177 ], [ 64, %142 ], [ 64, %134 ], [ 8, %36 ], [ 27, %51 ], [ %64, %.critedge.i ], [ %126, %124 ], [ 8, %135 ], [ %186, %181 ], [ %213, %210 ], [ 0, %25 ], [ 0, %pop3_state_servergreet_resp.exit.thread ], [ 0, %224 ], [ %.1, %pop3_state_servergreet_resp.exit ], [ %24, %23 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   ret i32 %.0

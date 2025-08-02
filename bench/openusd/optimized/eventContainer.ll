@@ -108,8 +108,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_Node11DestroyListEPS
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_Node11DestroyListEPS1_(ptr noundef %0) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_Node11DestroyListEPS1_(ptr noundef %0) local_unnamed_addr #1 align 2 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 

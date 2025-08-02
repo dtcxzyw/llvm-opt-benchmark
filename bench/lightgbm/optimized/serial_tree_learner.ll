@@ -280167,7 +280167,7 @@ define linkonce_odr noundef i64 @_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitIn
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !376
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread, label %.preheader.i
+  br i1 %.not.i, label %.critedge, label %.preheader.i
 
 .preheader.i:                                     ; preds = %5
   %8 = load i32, ptr %1, align 4, !tbaa !159
@@ -280183,22 +280183,22 @@ define linkonce_odr noundef i64 @_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitIn
   br i1 %15, label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit, label %.lr.ph, !llvm.loop !1928
 
 .lr.ph:                                           ; preds = %.preheader.i, %12
-  %.016.i41 = phi ptr [ %16, %12 ], [ %7, %.preheader.i ]
-  %16 = load ptr, ptr %.016.i41, align 8, !tbaa !376
+  %.016.i36 = phi ptr [ %16, %12 ], [ %7, %.preheader.i ]
+  %16 = load ptr, ptr %.016.i36, align 8, !tbaa !376
   %.not14.i = icmp eq ptr %16, null
-  br i1 %.not14.i, label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread, label %12, !llvm.loop !1928
+  br i1 %.not14.i, label %.critedge, label %12, !llvm.loop !1928
 
 _ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit: ; preds = %12, %.preheader.i
   %17 = phi ptr [ %7, %.preheader.i ], [ %16, %12 ]
-  %.01115.i.lcssa = phi ptr [ %6, %.preheader.i ], [ %.016.i41, %12 ]
+  %.01115.i.lcssa = phi ptr [ %6, %.preheader.i ], [ %.016.i36, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !1793
   %20 = sext i32 %8 to i64
   %21 = urem i64 %20, %19
   %.pre = load ptr, ptr %0, align 8, !tbaa !1791
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %21
-  %.pre46 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !394
-  br label %.loopexit
+  %.pre41 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !394
+  br label %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit
 
 22:                                               ; preds = %2
   %23 = load i32, ptr %1, align 4, !tbaa !159
@@ -280210,30 +280210,30 @@ _ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !394
   %.not.i25 = icmp eq ptr %30, null
-  br i1 %.not.i25, label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread, label %31
+  br i1 %.not.i25, label %.critedge, label %31
 
 31:                                               ; preds = %22
   %32 = load ptr, ptr %30, align 8, !tbaa !376
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 4, !tbaa !159
   %35 = icmp eq i32 %23, %34
-  br i1 %35, label %.loopexit.thread, label %.lr.ph.i
+  br i1 %35, label %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread, label %.lr.ph.i
 
-.loopexit.thread:                                 ; preds = %31
+_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread: ; preds = %31
   %36 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
   %37 = load ptr, ptr %32, align 8, !tbaa !376
-  %.not18.i2750 = icmp eq ptr %37, null
-  br i1 %.not18.i2750, label %._crit_edge.i.i, label %53
+  %.not18.i2745 = icmp eq ptr %37, null
+  br i1 %.not18.i2745, label %._crit_edge.i.i, label %53
 
 38:                                               ; preds = %41
   %39 = icmp eq i32 %23, %43
-  br i1 %39, label %.loopexit, label %.lr.ph.i, !llvm.loop !1816
+  br i1 %39, label %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit, label %.lr.ph.i, !llvm.loop !1816
 
 .lr.ph.i:                                         ; preds = %31, %38
   %.020.i = phi ptr [ %40, %38 ], [ %32, %31 ]
   %40 = load ptr, ptr %.020.i, align 8, !tbaa !376
   %.not18.i = icmp eq ptr %40, null
-  br i1 %.not18.i, label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread, label %41
+  br i1 %.not18.i, label %.critedge, label %41
 
 41:                                               ; preds = %.lr.ph.i
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -280244,11 +280244,11 @@ _ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1
   br i1 %.not19.i, label %38, label %..loopexit_crit_edge21.i, !llvm.loop !1816
 
 ..loopexit_crit_edge21.i:                         ; preds = %41
-  br label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread, !llvm.loop !1816
+  br label %.critedge, !llvm.loop !1816
 
-.loopexit:                                        ; preds = %38, %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit
+_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit: ; preds = %38, %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit
   %46 = phi i64 [ %19, %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %26, %38 ]
-  %47 = phi ptr [ %.pre46, %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %30, %38 ]
+  %47 = phi ptr [ %.pre41, %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %30, %38 ]
   %48 = phi ptr [ %.pre, %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %28, %38 ]
   %.019 = phi ptr [ %17, %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %40, %38 ]
   %.018 = phi i64 [ %21, %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit ], [ %27, %38 ]
@@ -280258,24 +280258,24 @@ _ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1
   %.not18.i27 = icmp eq ptr %50, null
   br i1 %49, label %51, label %72
 
-51:                                               ; preds = %.loopexit
+51:                                               ; preds = %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit
   %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %.018
   br i1 %.not18.i27, label %._crit_edge.i.i, label %53
 
-53:                                               ; preds = %.loopexit.thread, %51
-  %54 = phi i64 [ %26, %.loopexit.thread ], [ %46, %51 ]
-  %55 = phi ptr [ %30, %.loopexit.thread ], [ %47, %51 ]
-  %56 = phi ptr [ %28, %.loopexit.thread ], [ %48, %51 ]
-  %.0195260 = phi ptr [ %32, %.loopexit.thread ], [ %.019, %51 ]
-  %.0185359 = phi i64 [ %27, %.loopexit.thread ], [ %.018, %51 ]
-  %.0165557 = phi ptr [ %30, %.loopexit.thread ], [ %.016, %51 ]
-  %57 = phi ptr [ %36, %.loopexit.thread ], [ %52, %51 ]
-  %58 = phi ptr [ %37, %.loopexit.thread ], [ %50, %51 ]
+53:                                               ; preds = %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread, %51
+  %54 = phi i64 [ %26, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %46, %51 ]
+  %55 = phi ptr [ %30, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %47, %51 ]
+  %56 = phi ptr [ %28, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %48, %51 ]
+  %.0194755 = phi ptr [ %32, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %.019, %51 ]
+  %.0184854 = phi i64 [ %27, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %.018, %51 ]
+  %.0165052 = phi ptr [ %30, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %.016, %51 ]
+  %57 = phi ptr [ %36, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %52, %51 ]
+  %58 = phi ptr [ %37, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %50, %51 ]
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 4, !tbaa !159
   %61 = sext i32 %60 to i64
   %62 = urem i64 %61, %54
-  %.not9.i.i = icmp eq i64 %62, %.0185359
+  %.not9.i.i = icmp eq i64 %62, %.0184854
   br i1 %.not9.i.i, label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS6_10_Hash_nodeIS4_Lb0EEEm.exit.i, label %63
 
 63:                                               ; preds = %53
@@ -280283,12 +280283,12 @@ _ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1
   store ptr %55, ptr %64, align 8, !tbaa !394
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.loopexit.thread, %63, %51
-  %65 = phi ptr [ %30, %.loopexit.thread ], [ %55, %63 ], [ %47, %51 ]
-  %.0195261 = phi ptr [ %32, %.loopexit.thread ], [ %.0195260, %63 ], [ %.019, %51 ]
-  %.0165558 = phi ptr [ %30, %.loopexit.thread ], [ %.0165557, %63 ], [ %.016, %51 ]
-  %66 = phi ptr [ %36, %.loopexit.thread ], [ %57, %63 ], [ %52, %51 ]
-  %67 = phi ptr [ null, %.loopexit.thread ], [ %58, %63 ], [ null, %51 ]
+._crit_edge.i.i:                                  ; preds = %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread, %63, %51
+  %65 = phi ptr [ %30, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %55, %63 ], [ %47, %51 ]
+  %.0194756 = phi ptr [ %32, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %.0194755, %63 ], [ %.019, %51 ]
+  %.0165053 = phi ptr [ %30, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %.0165052, %63 ], [ %.016, %51 ]
+  %66 = phi ptr [ %36, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %57, %63 ], [ %52, %51 ]
+  %67 = phi ptr [ null, %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread ], [ %58, %63 ], [ null, %51 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = icmp eq ptr %68, %65
   br i1 %69, label %70, label %71
@@ -280301,7 +280301,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1
   store ptr null, ptr %66, align 8, !tbaa !394
   br label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS6_10_Hash_nodeIS4_Lb0EEEm.exit.i
 
-72:                                               ; preds = %.loopexit
+72:                                               ; preds = %_ZNKSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit
   br i1 %.not18.i27, label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS6_10_Hash_nodeIS4_Lb0EEEm.exit.i, label %73
 
 73:                                               ; preds = %72
@@ -280318,11 +280318,11 @@ _ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1
   br label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS6_10_Hash_nodeIS4_Lb0EEEm.exit.i
 
 _ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS6_10_Hash_nodeIS4_Lb0EEEm.exit.i: ; preds = %78, %73, %72, %71, %53
-  %.01654 = phi ptr [ %.016, %78 ], [ %.016, %73 ], [ %.016, %72 ], [ %.0165558, %71 ], [ %.0165557, %53 ]
-  %.01951 = phi ptr [ %.019, %78 ], [ %.019, %73 ], [ %.019, %72 ], [ %.0195261, %71 ], [ %.0195260, %53 ]
-  %80 = load ptr, ptr %.01951, align 8, !tbaa !376
-  store ptr %80, ptr %.01654, align 8, !tbaa !376
-  %81 = getelementptr inbounds nuw i8, ptr %.01951, i64 112
+  %.01649 = phi ptr [ %.016, %78 ], [ %.016, %73 ], [ %.016, %72 ], [ %.0165053, %71 ], [ %.0165052, %53 ]
+  %.01946 = phi ptr [ %.019, %78 ], [ %.019, %73 ], [ %.019, %72 ], [ %.0194756, %71 ], [ %.0194755, %53 ]
+  %80 = load ptr, ptr %.01946, align 8, !tbaa !376
+  store ptr %80, ptr %.01649, align 8, !tbaa !376
+  %81 = getelementptr inbounds nuw i8, ptr %.01946, i64 112
   %82 = load ptr, ptr %81, align 8, !tbaa !183
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %82, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit, label %83
@@ -280332,14 +280332,14 @@ _ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1
   br label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit
 
 _ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS6_10_Hash_nodeIS4_Lb0EEEm.exit.i, %83
-  tail call void @_ZdlPv(ptr noundef nonnull %.01951) #40
+  tail call void @_ZdlPv(ptr noundef nonnull %.01946) #40
   %84 = load i64, ptr %3, align 8, !tbaa !1814
   %85 = add i64 %84, -1
   store i64 %85, ptr %3, align 8, !tbaa !1814
-  br label %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread
+  br label %.critedge
 
-_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_.exit.thread: ; preds = %.lr.ph.i, %.lr.ph, %22, %..loopexit_crit_edge21.i, %5, %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit ], [ 0, %5 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %22 ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
+.critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %22, %5, %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiN8LightGBM9SplitInfoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -280572,266 +280572,266 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIN24json11_internal_lightgbm4JsonEi
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %9 = phi ptr [ %5, %3 ], [ %.pre, %._crit_edge.loopexit ]
-  %.lcssa = phi ptr [ %7, %3 ], [ %34, %._crit_edge.loopexit ]
+  %.lcssa = phi ptr [ %7, %3 ], [ %35, %._crit_edge.loopexit ]
   %.not = icmp eq ptr %9, %.lcssa
   %10 = load ptr, ptr %1, align 8, !tbaa !1810
-  br i1 %.not, label %90, label %36
+  br i1 %.not, label %91, label %37
 
 .lr.ph:                                           ; preds = %3, %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit
   %.037 = phi ptr [ %.0, %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit ], [ %.036, %3 ]
   %11 = load ptr, ptr %.037, align 8, !tbaa !1899
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i
   %.05.i.i.i.idx = phi i64 [ %.05.i.i.i.add, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i ], [ 0, %.lr.ph ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.05.i.i.i.idx
-  %12 = load ptr, ptr %gep, align 8, !tbaa !1790
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i, label %13
+  %.05.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %11, i64 %.05.i.i.i.idx
+  %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.ptr, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !1790
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i, label %14
 
-13:                                               ; preds = %.lr.ph.i.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load atomic i64, ptr %14 acquire, align 8
-  %16 = icmp eq i64 %15, 4294967297
-  %17 = trunc i64 %15 to i32
-  br i1 %16, label %18, label %26
+14:                                               ; preds = %.lr.ph.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load atomic i64, ptr %15 acquire, align 8
+  %17 = icmp eq i64 %16, 4294967297
+  %18 = trunc i64 %16 to i32
+  br i1 %17, label %19, label %27
 
-18:                                               ; preds = %13
-  store i32 0, ptr %14, align 8, !tbaa !1807
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 0, ptr %19, align 4, !tbaa !1809
-  %20 = load ptr, ptr %12, align 8, !tbaa !187
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
-  %23 = load ptr, ptr %12, align 8, !tbaa !187
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
+19:                                               ; preds = %14
+  store i32 0, ptr %15, align 8, !tbaa !1807
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store i32 0, ptr %20, align 4, !tbaa !1809
+  %21 = load ptr, ptr %13, align 8, !tbaa !187
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load ptr, ptr %22, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
+  %24 = load ptr, ptr %13, align 8, !tbaa !187
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   br label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i
 
-26:                                               ; preds = %13
-  %27 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %30, label %28
+27:                                               ; preds = %14
+  %28 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %31, label %29
 
-28:                                               ; preds = %26
-  %29 = add nsw i32 %17, -1
-  store i32 %29, ptr %14, align 4, !tbaa !159
+29:                                               ; preds = %27
+  %30 = add nsw i32 %18, -1
+  store i32 %30, ptr %15, align 4, !tbaa !159
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-30:                                               ; preds = %26
-  %31 = atomicrmw volatile add ptr %14, i32 -1 acq_rel, align 4
+31:                                               ; preds = %27
+  %32 = atomicrmw volatile add ptr %15, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %30, %28
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %17, %28 ], [ %31, %30 ]
-  %32 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %32, label %33, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i, !prof !370
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %31, %29
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %18, %29 ], [ %32, %31 ]
+  %33 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %33, label %34, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i, !prof !370
 
-33:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
+34:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   br label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i: ; preds = %33, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %18, %.lr.ph.i.i.i
+_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i: ; preds = %34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %19, %.lr.ph.i.i.i
   %.05.i.i.i.add = add nuw nsw i64 %.05.i.i.i.idx, 24
   %.not.i.i.i = icmp eq i64 %.05.i.i.i.add, 504
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !1937
 
 _ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i
   %.0 = getelementptr inbounds nuw i8, ptr %.037, i64 8
-  %34 = load ptr, ptr %6, align 8, !tbaa !1902
-  %35 = icmp ult ptr %.0, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !1938
+  %35 = load ptr, ptr %6, align 8, !tbaa !1902
+  %36 = icmp ult ptr %.0, %35
+  br i1 %36, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !1938
 
-36:                                               ; preds = %._crit_edge
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !1904
-  %.not4.i.i.i = icmp eq ptr %10, %38
+37:                                               ; preds = %._crit_edge
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !1904
+  %.not4.i.i.i = icmp eq ptr %10, %39
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit14, label %.lr.ph.i.i.i6
 
-.lr.ph.i.i.i6:                                    ; preds = %36, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12
-  %.05.i.i.i7 = phi ptr [ %62, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12 ], [ %10, %36 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.05.i.i.i7, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !1790
-  %.not.i.i.i.i.i.i.i.i8 = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i.i.i.i.i8, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12, label %41
+.lr.ph.i.i.i6:                                    ; preds = %37, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12
+  %.05.i.i.i7 = phi ptr [ %63, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12 ], [ %10, %37 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.05.i.i.i7, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !1790
+  %.not.i.i.i.i.i.i.i.i8 = icmp eq ptr %41, null
+  br i1 %.not.i.i.i.i.i.i.i.i8, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12, label %42
 
-41:                                               ; preds = %.lr.ph.i.i.i6
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %43 = load atomic i64, ptr %42 acquire, align 8
-  %44 = icmp eq i64 %43, 4294967297
-  %45 = trunc i64 %43 to i32
-  br i1 %44, label %46, label %54
+42:                                               ; preds = %.lr.ph.i.i.i6
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load atomic i64, ptr %43 acquire, align 8
+  %45 = icmp eq i64 %44, 4294967297
+  %46 = trunc i64 %44 to i32
+  br i1 %45, label %47, label %55
 
-46:                                               ; preds = %41
-  store i32 0, ptr %42, align 8, !tbaa !1807
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  store i32 0, ptr %47, align 4, !tbaa !1809
-  %48 = load ptr, ptr %40, align 8, !tbaa !187
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %40) #20
-  %51 = load ptr, ptr %40, align 8, !tbaa !187
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef nonnull align 8 dereferenceable(16) %40) #20
+47:                                               ; preds = %42
+  store i32 0, ptr %43, align 8, !tbaa !1807
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  store i32 0, ptr %48, align 4, !tbaa !1809
+  %49 = load ptr, ptr %41, align 8, !tbaa !187
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  tail call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #20
+  %52 = load ptr, ptr %41, align 8, !tbaa !187
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %54 = load ptr, ptr %53, align 8
+  tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %41) #20
   br label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12
 
-54:                                               ; preds = %41
-  %55 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
-  %.not.i.i.i.i.i.i.i.i.i9 = icmp eq i8 %55, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i9, label %58, label %56
+55:                                               ; preds = %42
+  %56 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
+  %.not.i.i.i.i.i.i.i.i.i9 = icmp eq i8 %56, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i9, label %59, label %57
 
-56:                                               ; preds = %54
-  %57 = add nsw i32 %45, -1
-  store i32 %57, ptr %42, align 4, !tbaa !159
+57:                                               ; preds = %55
+  %58 = add nsw i32 %46, -1
+  store i32 %58, ptr %43, align 4, !tbaa !159
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i10
 
-58:                                               ; preds = %54
-  %59 = atomicrmw volatile add ptr %42, i32 -1 acq_rel, align 4
+59:                                               ; preds = %55
+  %60 = atomicrmw volatile add ptr %43, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i10
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i10: ; preds = %58, %56
-  %.0.i.i.i.i.i.i.i.i.i.i11 = phi i32 [ %45, %56 ], [ %59, %58 ]
-  %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i11, 1
-  br i1 %60, label %61, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12, !prof !370
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i10: ; preds = %59, %57
+  %.0.i.i.i.i.i.i.i.i.i.i11 = phi i32 [ %46, %57 ], [ %60, %59 ]
+  %61 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i11, 1
+  br i1 %61, label %62, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12, !prof !370
 
-61:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i10
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #20
+62:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i10
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #20
   br label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12
 
-_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12: ; preds = %61, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i10, %46, %.lr.ph.i.i.i6
-  %62 = getelementptr inbounds nuw i8, ptr %.05.i.i.i7, i64 24
-  %.not.i.i.i13 = icmp eq ptr %62, %38
+_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12: ; preds = %62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i10, %47, %.lr.ph.i.i.i6
+  %63 = getelementptr inbounds nuw i8, ptr %.05.i.i.i7, i64 24
+  %.not.i.i.i13 = icmp eq ptr %63, %39
   br i1 %.not.i.i.i13, label %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit14, label %.lr.ph.i.i.i6, !llvm.loop !1937
 
-_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit14: ; preds = %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12, %36
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !1903
-  %65 = load ptr, ptr %2, align 8, !tbaa !1810
-  %.not4.i.i.i15 = icmp eq ptr %64, %65
+_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit14: ; preds = %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i12, %37
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !1903
+  %66 = load ptr, ptr %2, align 8, !tbaa !1810
+  %.not4.i.i.i15 = icmp eq ptr %65, %66
   br i1 %.not4.i.i.i15, label %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit24, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit14, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22
-  %.05.i.i.i17 = phi ptr [ %89, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22 ], [ %64, %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit14 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.05.i.i.i17, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !1790
-  %.not.i.i.i.i.i.i.i.i18 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i.i.i.i.i18, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22, label %68
+  %.05.i.i.i17 = phi ptr [ %90, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22 ], [ %65, %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit14 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.05.i.i.i17, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !1790
+  %.not.i.i.i.i.i.i.i.i18 = icmp eq ptr %68, null
+  br i1 %.not.i.i.i.i.i.i.i.i18, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22, label %69
 
-68:                                               ; preds = %.lr.ph.i.i.i16
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %70 = load atomic i64, ptr %69 acquire, align 8
-  %71 = icmp eq i64 %70, 4294967297
-  %72 = trunc i64 %70 to i32
-  br i1 %71, label %73, label %81
+69:                                               ; preds = %.lr.ph.i.i.i16
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %71 = load atomic i64, ptr %70 acquire, align 8
+  %72 = icmp eq i64 %71, 4294967297
+  %73 = trunc i64 %71 to i32
+  br i1 %72, label %74, label %82
 
-73:                                               ; preds = %68
-  store i32 0, ptr %69, align 8, !tbaa !1807
-  %74 = getelementptr inbounds nuw i8, ptr %67, i64 12
-  store i32 0, ptr %74, align 4, !tbaa !1809
-  %75 = load ptr, ptr %67, align 8, !tbaa !187
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
-  tail call void %77(ptr noundef nonnull align 8 dereferenceable(16) %67) #20
-  %78 = load ptr, ptr %67, align 8, !tbaa !187
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  %80 = load ptr, ptr %79, align 8
-  tail call void %80(ptr noundef nonnull align 8 dereferenceable(16) %67) #20
+74:                                               ; preds = %69
+  store i32 0, ptr %70, align 8, !tbaa !1807
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  store i32 0, ptr %75, align 4, !tbaa !1809
+  %76 = load ptr, ptr %68, align 8, !tbaa !187
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %78 = load ptr, ptr %77, align 8
+  tail call void %78(ptr noundef nonnull align 8 dereferenceable(16) %68) #20
+  %79 = load ptr, ptr %68, align 8, !tbaa !187
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %81 = load ptr, ptr %80, align 8
+  tail call void %81(ptr noundef nonnull align 8 dereferenceable(16) %68) #20
   br label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22
 
-81:                                               ; preds = %68
-  %82 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
-  %.not.i.i.i.i.i.i.i.i.i19 = icmp eq i8 %82, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i19, label %85, label %83
+82:                                               ; preds = %69
+  %83 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
+  %.not.i.i.i.i.i.i.i.i.i19 = icmp eq i8 %83, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i19, label %86, label %84
 
-83:                                               ; preds = %81
-  %84 = add nsw i32 %72, -1
-  store i32 %84, ptr %69, align 4, !tbaa !159
+84:                                               ; preds = %82
+  %85 = add nsw i32 %73, -1
+  store i32 %85, ptr %70, align 4, !tbaa !159
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i20
 
-85:                                               ; preds = %81
-  %86 = atomicrmw volatile add ptr %69, i32 -1 acq_rel, align 4
+86:                                               ; preds = %82
+  %87 = atomicrmw volatile add ptr %70, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i20
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i20: ; preds = %85, %83
-  %.0.i.i.i.i.i.i.i.i.i.i21 = phi i32 [ %72, %83 ], [ %86, %85 ]
-  %87 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i21, 1
-  br i1 %87, label %88, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22, !prof !370
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i20: ; preds = %86, %84
+  %.0.i.i.i.i.i.i.i.i.i.i21 = phi i32 [ %73, %84 ], [ %87, %86 ]
+  %88 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i21, 1
+  br i1 %88, label %89, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22, !prof !370
 
-88:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i20
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #20
+89:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i20
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #20
   br label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22
 
-_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22: ; preds = %88, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i20, %73, %.lr.ph.i.i.i16
-  %89 = getelementptr inbounds nuw i8, ptr %.05.i.i.i17, i64 24
-  %.not.i.i.i23 = icmp eq ptr %89, %65
+_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22: ; preds = %89, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i20, %74, %.lr.ph.i.i.i16
+  %90 = getelementptr inbounds nuw i8, ptr %.05.i.i.i17, i64 24
+  %.not.i.i.i23 = icmp eq ptr %90, %66
   br i1 %.not.i.i.i23, label %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit24, label %.lr.ph.i.i.i16, !llvm.loop !1937
 
-90:                                               ; preds = %._crit_edge
-  %91 = load ptr, ptr %2, align 8, !tbaa !1810
-  %.not4.i.i.i25 = icmp eq ptr %10, %91
+91:                                               ; preds = %._crit_edge
+  %92 = load ptr, ptr %2, align 8, !tbaa !1810
+  %.not4.i.i.i25 = icmp eq ptr %10, %92
   br i1 %.not4.i.i.i25, label %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit24, label %.lr.ph.i.i.i26
 
-.lr.ph.i.i.i26:                                   ; preds = %90, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32
-  %.05.i.i.i27 = phi ptr [ %115, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32 ], [ %10, %90 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.05.i.i.i27, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !1790
-  %.not.i.i.i.i.i.i.i.i28 = icmp eq ptr %93, null
-  br i1 %.not.i.i.i.i.i.i.i.i28, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32, label %94
+.lr.ph.i.i.i26:                                   ; preds = %91, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32
+  %.05.i.i.i27 = phi ptr [ %116, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32 ], [ %10, %91 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.05.i.i.i27, i64 8
+  %94 = load ptr, ptr %93, align 8, !tbaa !1790
+  %.not.i.i.i.i.i.i.i.i28 = icmp eq ptr %94, null
+  br i1 %.not.i.i.i.i.i.i.i.i28, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32, label %95
 
-94:                                               ; preds = %.lr.ph.i.i.i26
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %96 = load atomic i64, ptr %95 acquire, align 8
-  %97 = icmp eq i64 %96, 4294967297
-  %98 = trunc i64 %96 to i32
-  br i1 %97, label %99, label %107
+95:                                               ; preds = %.lr.ph.i.i.i26
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %97 = load atomic i64, ptr %96 acquire, align 8
+  %98 = icmp eq i64 %97, 4294967297
+  %99 = trunc i64 %97 to i32
+  br i1 %98, label %100, label %108
 
-99:                                               ; preds = %94
-  store i32 0, ptr %95, align 8, !tbaa !1807
-  %100 = getelementptr inbounds nuw i8, ptr %93, i64 12
-  store i32 0, ptr %100, align 4, !tbaa !1809
-  %101 = load ptr, ptr %93, align 8, !tbaa !187
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %103 = load ptr, ptr %102, align 8
-  tail call void %103(ptr noundef nonnull align 8 dereferenceable(16) %93) #20
-  %104 = load ptr, ptr %93, align 8, !tbaa !187
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %106 = load ptr, ptr %105, align 8
-  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %93) #20
+100:                                              ; preds = %95
+  store i32 0, ptr %96, align 8, !tbaa !1807
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 12
+  store i32 0, ptr %101, align 4, !tbaa !1809
+  %102 = load ptr, ptr %94, align 8, !tbaa !187
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %104 = load ptr, ptr %103, align 8
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %94) #20
+  %105 = load ptr, ptr %94, align 8, !tbaa !187
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
+  %107 = load ptr, ptr %106, align 8
+  tail call void %107(ptr noundef nonnull align 8 dereferenceable(16) %94) #20
   br label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32
 
-107:                                              ; preds = %94
-  %108 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
-  %.not.i.i.i.i.i.i.i.i.i29 = icmp eq i8 %108, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i29, label %111, label %109
+108:                                              ; preds = %95
+  %109 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
+  %.not.i.i.i.i.i.i.i.i.i29 = icmp eq i8 %109, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i29, label %112, label %110
 
-109:                                              ; preds = %107
-  %110 = add nsw i32 %98, -1
-  store i32 %110, ptr %95, align 4, !tbaa !159
+110:                                              ; preds = %108
+  %111 = add nsw i32 %99, -1
+  store i32 %111, ptr %96, align 4, !tbaa !159
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i30
 
-111:                                              ; preds = %107
-  %112 = atomicrmw volatile add ptr %95, i32 -1 acq_rel, align 4
+112:                                              ; preds = %108
+  %113 = atomicrmw volatile add ptr %96, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i30
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i30: ; preds = %111, %109
-  %.0.i.i.i.i.i.i.i.i.i.i31 = phi i32 [ %98, %109 ], [ %112, %111 ]
-  %113 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i31, 1
-  br i1 %113, label %114, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32, !prof !370
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i30: ; preds = %112, %110
+  %.0.i.i.i.i.i.i.i.i.i.i31 = phi i32 [ %99, %110 ], [ %113, %112 ]
+  %114 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i31, 1
+  br i1 %114, label %115, label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32, !prof !370
 
-114:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i30
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %93) #20
+115:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i30
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %94) #20
   br label %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32
 
-_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32: ; preds = %114, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i30, %99, %.lr.ph.i.i.i26
-  %115 = getelementptr inbounds nuw i8, ptr %.05.i.i.i27, i64 24
-  %.not.i.i.i33 = icmp eq ptr %115, %91
+_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32: ; preds = %115, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i30, %100, %.lr.ph.i.i.i26
+  %116 = getelementptr inbounds nuw i8, ptr %.05.i.i.i27, i64 24
+  %.not.i.i.i33 = icmp eq ptr %116, %92
   br i1 %.not.i.i.i33, label %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit24, label %.lr.ph.i.i.i26, !llvm.loop !1937
 
-_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit24: ; preds = %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32, %90, %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit14
+_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit24: ; preds = %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i22, %_ZSt8_DestroyISt4pairIN24json11_internal_lightgbm4JsonEiEEvPT_.exit.i.i.i32, %91, %_ZSt8_DestroyIPSt4pairIN24json11_internal_lightgbm4JsonEiES3_EvT_S5_RSaIT0_E.exit14
   ret void
 }
 
@@ -281404,266 +281404,266 @@ define linkonce_odr void @_ZNSt5dequeIN24json11_internal_lightgbm4JsonESaIS1_EE1
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %9 = phi ptr [ %5, %3 ], [ %.pre, %._crit_edge.loopexit ]
-  %.lcssa = phi ptr [ %7, %3 ], [ %34, %._crit_edge.loopexit ]
+  %.lcssa = phi ptr [ %7, %3 ], [ %35, %._crit_edge.loopexit ]
   %.not = icmp eq ptr %9, %.lcssa
   %10 = load ptr, ptr %1, align 8, !tbaa !1895
-  br i1 %.not, label %90, label %36
+  br i1 %.not, label %91, label %37
 
 .lr.ph:                                           ; preds = %3, %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit
   %.037 = phi ptr [ %.0, %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit ], [ %.036, %3 ]
   %11 = load ptr, ptr %.037, align 8, !tbaa !1941
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i
   %.05.i.i.i.idx = phi i64 [ %.05.i.i.i.add, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i ], [ 0, %.lr.ph ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.05.i.i.i.idx
-  %12 = load ptr, ptr %gep, align 8, !tbaa !1790
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i, label %13
+  %.05.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %11, i64 %.05.i.i.i.idx
+  %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.ptr, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !1790
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i, label %14
 
-13:                                               ; preds = %.lr.ph.i.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load atomic i64, ptr %14 acquire, align 8
-  %16 = icmp eq i64 %15, 4294967297
-  %17 = trunc i64 %15 to i32
-  br i1 %16, label %18, label %26
+14:                                               ; preds = %.lr.ph.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load atomic i64, ptr %15 acquire, align 8
+  %17 = icmp eq i64 %16, 4294967297
+  %18 = trunc i64 %16 to i32
+  br i1 %17, label %19, label %27
 
-18:                                               ; preds = %13
-  store i32 0, ptr %14, align 8, !tbaa !1807
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 0, ptr %19, align 4, !tbaa !1809
-  %20 = load ptr, ptr %12, align 8, !tbaa !187
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
-  %23 = load ptr, ptr %12, align 8, !tbaa !187
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
+19:                                               ; preds = %14
+  store i32 0, ptr %15, align 8, !tbaa !1807
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store i32 0, ptr %20, align 4, !tbaa !1809
+  %21 = load ptr, ptr %13, align 8, !tbaa !187
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load ptr, ptr %22, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
+  %24 = load ptr, ptr %13, align 8, !tbaa !187
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   br label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i
 
-26:                                               ; preds = %13
-  %27 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %30, label %28
+27:                                               ; preds = %14
+  %28 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %31, label %29
 
-28:                                               ; preds = %26
-  %29 = add nsw i32 %17, -1
-  store i32 %29, ptr %14, align 4, !tbaa !159
+29:                                               ; preds = %27
+  %30 = add nsw i32 %18, -1
+  store i32 %30, ptr %15, align 4, !tbaa !159
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
-30:                                               ; preds = %26
-  %31 = atomicrmw volatile add ptr %14, i32 -1 acq_rel, align 4
+31:                                               ; preds = %27
+  %32 = atomicrmw volatile add ptr %15, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %30, %28
-  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %17, %28 ], [ %31, %30 ]
-  %32 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %32, label %33, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i, !prof !370
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %31, %29
+  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %18, %29 ], [ %32, %31 ]
+  %33 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
+  br i1 %33, label %34, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i, !prof !370
 
-33:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
+34:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   br label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i: ; preds = %33, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %18, %.lr.ph.i.i.i
+_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i: ; preds = %34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %19, %.lr.ph.i.i.i
   %.05.i.i.i.add = add nuw nsw i64 %.05.i.i.i.idx, 16
   %.not.i.i.i = icmp eq i64 %.05.i.i.i.add, 512
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !1958
 
 _ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i
   %.0 = getelementptr inbounds nuw i8, ptr %.037, i64 8
-  %34 = load ptr, ptr %6, align 8, !tbaa !1944
-  %35 = icmp ult ptr %.0, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !1959
+  %35 = load ptr, ptr %6, align 8, !tbaa !1944
+  %36 = icmp ult ptr %.0, %35
+  br i1 %36, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !1959
 
-36:                                               ; preds = %._crit_edge
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !1946
-  %.not4.i.i.i = icmp eq ptr %10, %38
+37:                                               ; preds = %._crit_edge
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !1946
+  %.not4.i.i.i = icmp eq ptr %10, %39
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit14, label %.lr.ph.i.i.i6
 
-.lr.ph.i.i.i6:                                    ; preds = %36, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12
-  %.05.i.i.i7 = phi ptr [ %62, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12 ], [ %10, %36 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.05.i.i.i7, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !1790
-  %.not.i.i.i.i.i.i.i8 = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i.i.i.i8, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12, label %41
+.lr.ph.i.i.i6:                                    ; preds = %37, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12
+  %.05.i.i.i7 = phi ptr [ %63, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12 ], [ %10, %37 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.05.i.i.i7, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !1790
+  %.not.i.i.i.i.i.i.i8 = icmp eq ptr %41, null
+  br i1 %.not.i.i.i.i.i.i.i8, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12, label %42
 
-41:                                               ; preds = %.lr.ph.i.i.i6
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %43 = load atomic i64, ptr %42 acquire, align 8
-  %44 = icmp eq i64 %43, 4294967297
-  %45 = trunc i64 %43 to i32
-  br i1 %44, label %46, label %54
+42:                                               ; preds = %.lr.ph.i.i.i6
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load atomic i64, ptr %43 acquire, align 8
+  %45 = icmp eq i64 %44, 4294967297
+  %46 = trunc i64 %44 to i32
+  br i1 %45, label %47, label %55
 
-46:                                               ; preds = %41
-  store i32 0, ptr %42, align 8, !tbaa !1807
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  store i32 0, ptr %47, align 4, !tbaa !1809
-  %48 = load ptr, ptr %40, align 8, !tbaa !187
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %40) #20
-  %51 = load ptr, ptr %40, align 8, !tbaa !187
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef nonnull align 8 dereferenceable(16) %40) #20
+47:                                               ; preds = %42
+  store i32 0, ptr %43, align 8, !tbaa !1807
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  store i32 0, ptr %48, align 4, !tbaa !1809
+  %49 = load ptr, ptr %41, align 8, !tbaa !187
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  tail call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #20
+  %52 = load ptr, ptr %41, align 8, !tbaa !187
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %54 = load ptr, ptr %53, align 8
+  tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %41) #20
   br label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12
 
-54:                                               ; preds = %41
-  %55 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
-  %.not.i.i.i.i.i.i.i.i9 = icmp eq i8 %55, 0
-  br i1 %.not.i.i.i.i.i.i.i.i9, label %58, label %56
+55:                                               ; preds = %42
+  %56 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
+  %.not.i.i.i.i.i.i.i.i9 = icmp eq i8 %56, 0
+  br i1 %.not.i.i.i.i.i.i.i.i9, label %59, label %57
 
-56:                                               ; preds = %54
-  %57 = add nsw i32 %45, -1
-  store i32 %57, ptr %42, align 4, !tbaa !159
+57:                                               ; preds = %55
+  %58 = add nsw i32 %46, -1
+  store i32 %58, ptr %43, align 4, !tbaa !159
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i10
 
-58:                                               ; preds = %54
-  %59 = atomicrmw volatile add ptr %42, i32 -1 acq_rel, align 4
+59:                                               ; preds = %55
+  %60 = atomicrmw volatile add ptr %43, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i10
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i10: ; preds = %58, %56
-  %.0.i.i.i.i.i.i.i.i.i11 = phi i32 [ %45, %56 ], [ %59, %58 ]
-  %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i11, 1
-  br i1 %60, label %61, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12, !prof !370
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i10: ; preds = %59, %57
+  %.0.i.i.i.i.i.i.i.i.i11 = phi i32 [ %46, %57 ], [ %60, %59 ]
+  %61 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i11, 1
+  br i1 %61, label %62, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12, !prof !370
 
-61:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i10
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #20
+62:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i10
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #20
   br label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12
 
-_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12: ; preds = %61, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i10, %46, %.lr.ph.i.i.i6
-  %62 = getelementptr inbounds nuw i8, ptr %.05.i.i.i7, i64 16
-  %.not.i.i.i13 = icmp eq ptr %62, %38
+_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12: ; preds = %62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i10, %47, %.lr.ph.i.i.i6
+  %63 = getelementptr inbounds nuw i8, ptr %.05.i.i.i7, i64 16
+  %.not.i.i.i13 = icmp eq ptr %63, %39
   br i1 %.not.i.i.i13, label %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit14, label %.lr.ph.i.i.i6, !llvm.loop !1958
 
-_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit14: ; preds = %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12, %36
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !1945
-  %65 = load ptr, ptr %2, align 8, !tbaa !1895
-  %.not4.i.i.i15 = icmp eq ptr %64, %65
+_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit14: ; preds = %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i12, %37
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !1945
+  %66 = load ptr, ptr %2, align 8, !tbaa !1895
+  %.not4.i.i.i15 = icmp eq ptr %65, %66
   br i1 %.not4.i.i.i15, label %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit24, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit14, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22
-  %.05.i.i.i17 = phi ptr [ %89, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22 ], [ %64, %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit14 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.05.i.i.i17, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !1790
-  %.not.i.i.i.i.i.i.i18 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i.i.i.i18, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22, label %68
+  %.05.i.i.i17 = phi ptr [ %90, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22 ], [ %65, %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit14 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.05.i.i.i17, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !1790
+  %.not.i.i.i.i.i.i.i18 = icmp eq ptr %68, null
+  br i1 %.not.i.i.i.i.i.i.i18, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22, label %69
 
-68:                                               ; preds = %.lr.ph.i.i.i16
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %70 = load atomic i64, ptr %69 acquire, align 8
-  %71 = icmp eq i64 %70, 4294967297
-  %72 = trunc i64 %70 to i32
-  br i1 %71, label %73, label %81
+69:                                               ; preds = %.lr.ph.i.i.i16
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %71 = load atomic i64, ptr %70 acquire, align 8
+  %72 = icmp eq i64 %71, 4294967297
+  %73 = trunc i64 %71 to i32
+  br i1 %72, label %74, label %82
 
-73:                                               ; preds = %68
-  store i32 0, ptr %69, align 8, !tbaa !1807
-  %74 = getelementptr inbounds nuw i8, ptr %67, i64 12
-  store i32 0, ptr %74, align 4, !tbaa !1809
-  %75 = load ptr, ptr %67, align 8, !tbaa !187
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
-  tail call void %77(ptr noundef nonnull align 8 dereferenceable(16) %67) #20
-  %78 = load ptr, ptr %67, align 8, !tbaa !187
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  %80 = load ptr, ptr %79, align 8
-  tail call void %80(ptr noundef nonnull align 8 dereferenceable(16) %67) #20
+74:                                               ; preds = %69
+  store i32 0, ptr %70, align 8, !tbaa !1807
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  store i32 0, ptr %75, align 4, !tbaa !1809
+  %76 = load ptr, ptr %68, align 8, !tbaa !187
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %78 = load ptr, ptr %77, align 8
+  tail call void %78(ptr noundef nonnull align 8 dereferenceable(16) %68) #20
+  %79 = load ptr, ptr %68, align 8, !tbaa !187
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %81 = load ptr, ptr %80, align 8
+  tail call void %81(ptr noundef nonnull align 8 dereferenceable(16) %68) #20
   br label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22
 
-81:                                               ; preds = %68
-  %82 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
-  %.not.i.i.i.i.i.i.i.i19 = icmp eq i8 %82, 0
-  br i1 %.not.i.i.i.i.i.i.i.i19, label %85, label %83
+82:                                               ; preds = %69
+  %83 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
+  %.not.i.i.i.i.i.i.i.i19 = icmp eq i8 %83, 0
+  br i1 %.not.i.i.i.i.i.i.i.i19, label %86, label %84
 
-83:                                               ; preds = %81
-  %84 = add nsw i32 %72, -1
-  store i32 %84, ptr %69, align 4, !tbaa !159
+84:                                               ; preds = %82
+  %85 = add nsw i32 %73, -1
+  store i32 %85, ptr %70, align 4, !tbaa !159
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i20
 
-85:                                               ; preds = %81
-  %86 = atomicrmw volatile add ptr %69, i32 -1 acq_rel, align 4
+86:                                               ; preds = %82
+  %87 = atomicrmw volatile add ptr %70, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i20
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i20: ; preds = %85, %83
-  %.0.i.i.i.i.i.i.i.i.i21 = phi i32 [ %72, %83 ], [ %86, %85 ]
-  %87 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i21, 1
-  br i1 %87, label %88, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22, !prof !370
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i20: ; preds = %86, %84
+  %.0.i.i.i.i.i.i.i.i.i21 = phi i32 [ %73, %84 ], [ %87, %86 ]
+  %88 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i21, 1
+  br i1 %88, label %89, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22, !prof !370
 
-88:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i20
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #20
+89:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i20
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #20
   br label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22
 
-_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22: ; preds = %88, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i20, %73, %.lr.ph.i.i.i16
-  %89 = getelementptr inbounds nuw i8, ptr %.05.i.i.i17, i64 16
-  %.not.i.i.i23 = icmp eq ptr %89, %65
+_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22: ; preds = %89, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i20, %74, %.lr.ph.i.i.i16
+  %90 = getelementptr inbounds nuw i8, ptr %.05.i.i.i17, i64 16
+  %.not.i.i.i23 = icmp eq ptr %90, %66
   br i1 %.not.i.i.i23, label %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit24, label %.lr.ph.i.i.i16, !llvm.loop !1958
 
-90:                                               ; preds = %._crit_edge
-  %91 = load ptr, ptr %2, align 8, !tbaa !1895
-  %.not4.i.i.i25 = icmp eq ptr %10, %91
+91:                                               ; preds = %._crit_edge
+  %92 = load ptr, ptr %2, align 8, !tbaa !1895
+  %.not4.i.i.i25 = icmp eq ptr %10, %92
   br i1 %.not4.i.i.i25, label %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit24, label %.lr.ph.i.i.i26
 
-.lr.ph.i.i.i26:                                   ; preds = %90, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32
-  %.05.i.i.i27 = phi ptr [ %115, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32 ], [ %10, %90 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.05.i.i.i27, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !1790
-  %.not.i.i.i.i.i.i.i28 = icmp eq ptr %93, null
-  br i1 %.not.i.i.i.i.i.i.i28, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32, label %94
+.lr.ph.i.i.i26:                                   ; preds = %91, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32
+  %.05.i.i.i27 = phi ptr [ %116, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32 ], [ %10, %91 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.05.i.i.i27, i64 8
+  %94 = load ptr, ptr %93, align 8, !tbaa !1790
+  %.not.i.i.i.i.i.i.i28 = icmp eq ptr %94, null
+  br i1 %.not.i.i.i.i.i.i.i28, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32, label %95
 
-94:                                               ; preds = %.lr.ph.i.i.i26
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %96 = load atomic i64, ptr %95 acquire, align 8
-  %97 = icmp eq i64 %96, 4294967297
-  %98 = trunc i64 %96 to i32
-  br i1 %97, label %99, label %107
+95:                                               ; preds = %.lr.ph.i.i.i26
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %97 = load atomic i64, ptr %96 acquire, align 8
+  %98 = icmp eq i64 %97, 4294967297
+  %99 = trunc i64 %97 to i32
+  br i1 %98, label %100, label %108
 
-99:                                               ; preds = %94
-  store i32 0, ptr %95, align 8, !tbaa !1807
-  %100 = getelementptr inbounds nuw i8, ptr %93, i64 12
-  store i32 0, ptr %100, align 4, !tbaa !1809
-  %101 = load ptr, ptr %93, align 8, !tbaa !187
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %103 = load ptr, ptr %102, align 8
-  tail call void %103(ptr noundef nonnull align 8 dereferenceable(16) %93) #20
-  %104 = load ptr, ptr %93, align 8, !tbaa !187
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %106 = load ptr, ptr %105, align 8
-  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %93) #20
+100:                                              ; preds = %95
+  store i32 0, ptr %96, align 8, !tbaa !1807
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 12
+  store i32 0, ptr %101, align 4, !tbaa !1809
+  %102 = load ptr, ptr %94, align 8, !tbaa !187
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %104 = load ptr, ptr %103, align 8
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %94) #20
+  %105 = load ptr, ptr %94, align 8, !tbaa !187
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
+  %107 = load ptr, ptr %106, align 8
+  tail call void %107(ptr noundef nonnull align 8 dereferenceable(16) %94) #20
   br label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32
 
-107:                                              ; preds = %94
-  %108 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
-  %.not.i.i.i.i.i.i.i.i29 = icmp eq i8 %108, 0
-  br i1 %.not.i.i.i.i.i.i.i.i29, label %111, label %109
+108:                                              ; preds = %95
+  %109 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !268
+  %.not.i.i.i.i.i.i.i.i29 = icmp eq i8 %109, 0
+  br i1 %.not.i.i.i.i.i.i.i.i29, label %112, label %110
 
-109:                                              ; preds = %107
-  %110 = add nsw i32 %98, -1
-  store i32 %110, ptr %95, align 4, !tbaa !159
+110:                                              ; preds = %108
+  %111 = add nsw i32 %99, -1
+  store i32 %111, ptr %96, align 4, !tbaa !159
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i30
 
-111:                                              ; preds = %107
-  %112 = atomicrmw volatile add ptr %95, i32 -1 acq_rel, align 4
+112:                                              ; preds = %108
+  %113 = atomicrmw volatile add ptr %96, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i30
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i30: ; preds = %111, %109
-  %.0.i.i.i.i.i.i.i.i.i31 = phi i32 [ %98, %109 ], [ %112, %111 ]
-  %113 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i31, 1
-  br i1 %113, label %114, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32, !prof !370
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i30: ; preds = %112, %110
+  %.0.i.i.i.i.i.i.i.i.i31 = phi i32 [ %99, %110 ], [ %113, %112 ]
+  %114 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i31, 1
+  br i1 %114, label %115, label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32, !prof !370
 
-114:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i30
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %93) #20
+115:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i30
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %94) #20
   br label %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32
 
-_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32: ; preds = %114, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i30, %99, %.lr.ph.i.i.i26
-  %115 = getelementptr inbounds nuw i8, ptr %.05.i.i.i27, i64 16
-  %.not.i.i.i33 = icmp eq ptr %115, %91
+_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32: ; preds = %115, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i30, %100, %.lr.ph.i.i.i26
+  %116 = getelementptr inbounds nuw i8, ptr %.05.i.i.i27, i64 16
+  %.not.i.i.i33 = icmp eq ptr %116, %92
   br i1 %.not.i.i.i33, label %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit24, label %.lr.ph.i.i.i26, !llvm.loop !1958
 
-_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit24: ; preds = %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32, %90, %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit14
+_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit24: ; preds = %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i22, %_ZSt8_DestroyIN24json11_internal_lightgbm4JsonEEvPT_.exit.i.i.i32, %91, %_ZSt8_DestroyIPN24json11_internal_lightgbm4JsonES1_EvT_S3_RSaIT0_E.exit14
   ret void
 }
 

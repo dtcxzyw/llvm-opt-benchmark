@@ -950,7 +950,6 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc13, %_ZNSt6ve
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 1
   br label %21
 
 ._crit_edge:                                      ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit, %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit
@@ -958,22 +957,22 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc13, %_ZNSt6ve
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %18 = load ptr, ptr %17, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef 1, ptr noundef %.sroa.021.0, ptr noundef %2)
-          to label %60 unwind label %19
+          to label %62 unwind label %19
 
 19:                                               ; preds = %._crit_edge
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %64
+  br label %66
 
 21:                                               ; preds = %.lr.ph, %_ZN5faiss15BitstringWriter5writeEmi.exit
-  %.0831 = phi i64 [ 0, %.lr.ph ], [ %55, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.0831 = phi i64 [ 0, %.lr.ph ], [ %57, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.030 = phi i64 [ 0, %.lr.ph ], [ %.sroa.8.1, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %22 = load ptr, ptr %12, align 8, !tbaa !7
   %23 = load i32, ptr %13, align 4, !tbaa !37
   %24 = sext i32 %23 to i64
   %25 = load i64, ptr %14, align 8, !tbaa !39
   %26 = invoke noundef zeroext i8 @_ZN5faiss22pq4_get_packed_elementEPKhmmmm(ptr noundef %22, i64 noundef %24, i64 noundef %25, i64 noundef %1, i64 noundef %.0831)
-          to label %27 unwind label %58
+          to label %27 unwind label %60
 
 27:                                               ; preds = %21
   %28 = zext i8 %26 to i64
@@ -1012,51 +1011,52 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc13, %_ZNSt6ve
   br i1 %.not1617.i, label %_ZN5faiss15BitstringWriter5writeEmi.exit, label %_ZN5faiss15BitstringWriter5writeEmi.exit.loopexit
 
 _ZN5faiss15BitstringWriter5writeEmi.exit.loopexit: ; preds = %42
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %43
-  %52 = load i8, ptr %gep, align 1, !tbaa !25
-  %53 = trunc nuw nsw i64 %51 to i8
-  %54 = or i8 %52, %53
-  store i8 %54, ptr %gep, align 1, !tbaa !25
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 %43
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  %54 = load i8, ptr %53, align 1, !tbaa !25
+  %55 = trunc nuw nsw i64 %51 to i8
+  %56 = or i8 %54, %55
+  store i8 %56, ptr %53, align 1, !tbaa !25
   br label %_ZN5faiss15BitstringWriter5writeEmi.exit
 
 _ZN5faiss15BitstringWriter5writeEmi.exit:         ; preds = %_ZN5faiss15BitstringWriter5writeEmi.exit.loopexit, %34, %42
   %.pn29 = phi i64 [ %49, %42 ], [ %41, %34 ], [ %49, %_ZN5faiss15BitstringWriter5writeEmi.exit.loopexit ]
   %.sroa.8.1 = add i64 %.pn29, %.sroa.8.030
-  %55 = add nuw i64 %.0831, 1
-  %56 = load i64, ptr %10, align 8, !tbaa !41
-  %57 = icmp ult i64 %55, %56
-  br i1 %57, label %21, label %._crit_edge, !llvm.loop !46
+  %57 = add nuw i64 %.0831, 1
+  %58 = load i64, ptr %10, align 8, !tbaa !41
+  %59 = icmp ult i64 %57, %58
+  br i1 %59, label %21, label %._crit_edge, !llvm.loop !46
 
-58:                                               ; preds = %21
-  %59 = landingpad { ptr, i32 }
+60:                                               ; preds = %21
+  %61 = landingpad { ptr, i32 }
           cleanup
-  br label %64
+  br label %66
 
-60:                                               ; preds = %._crit_edge
+62:                                               ; preds = %._crit_edge
   %.not.i.i.i = icmp eq ptr %.sroa.021.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %61
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %63
 
-61:                                               ; preds = %60
-  %62 = ptrtoint ptr %.sroa.021.0 to i64
-  %63 = sub i64 %.sroa.13.0, %62
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.021.0, i64 noundef %63) #32
+63:                                               ; preds = %62
+  %64 = ptrtoint ptr %.sroa.021.0 to i64
+  %65 = sub i64 %.sroa.13.0, %64
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.021.0, i64 noundef %65) #32
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %60, %61
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %62, %63
   ret void
 
-64:                                               ; preds = %58, %19
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %20, %19 ]
+66:                                               ; preds = %60, %19
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %20, %19 ]
   %.not.i.i.i14 = icmp eq ptr %.sroa.021.0, null
-  br i1 %.not.i.i.i14, label %_ZNSt6vectorIhSaIhEED2Ev.exit15, label %65
+  br i1 %.not.i.i.i14, label %_ZNSt6vectorIhSaIhEED2Ev.exit15, label %67
 
-65:                                               ; preds = %64
-  %66 = ptrtoint ptr %.sroa.021.0 to i64
-  %67 = sub i64 %.sroa.13.0, %66
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.021.0, i64 noundef %67) #32
+67:                                               ; preds = %66
+  %68 = ptrtoint ptr %.sroa.021.0 to i64
+  %69 = sub i64 %.sroa.13.0, %68
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.021.0, i64 noundef %69) #32
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit15
 
-_ZNSt6vectorIhSaIhEED2Ev.exit15:                  ; preds = %65, %64
+_ZNSt6vectorIhSaIhEED2Ev.exit15:                  ; preds = %67, %66
   resume { ptr, i32 } %.pn
 }
 

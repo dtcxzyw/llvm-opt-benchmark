@@ -470,7 +470,6 @@ define internal fastcc void @CleanupPriorWALFiles() unnamed_addr #4 {
 
 .preheader:                                       ; preds = %0
   %6 = tail call ptr @__errno_location() #16
-  %invariant.gep = getelementptr i8, ptr %1, i64 -7
   store i32 0, ptr %6, align 4
   %7 = tail call ptr @readdir(ptr noundef nonnull %4) #12
   %.not20 = icmp eq ptr %7, null
@@ -488,7 +487,7 @@ define internal fastcc void @CleanupPriorWALFiles() unnamed_addr #4 {
   unreachable
 
 12:                                               ; preds = %.lr.ph, %IsBackupHistoryFileName.exit.thread
-  %13 = phi ptr [ %7, %.lr.ph ], [ %66, %IsBackupHistoryFileName.exit.thread ]
+  %13 = phi ptr [ %7, %.lr.ph ], [ %68, %IsBackupHistoryFileName.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %2) #12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 19
   %15 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %14, i64 noundef 1024) #12
@@ -534,7 +533,7 @@ TrimExtension.exit:                               ; preds = %12, %18, %24, %32
 IsXLogFileName.exit:                              ; preds = %TrimExtension.exit
   %37 = call i64 @strspn(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.37) #13
   %38 = icmp eq i64 %37, 24
-  br i1 %38, label %48, label %IsBackupHistoryFileName.exit.thread, !llvm.loop !7
+  br i1 %38, label %50, label %IsBackupHistoryFileName.exit.thread, !llvm.loop !7
 
 39:                                               ; preds = %TrimExtension.exit
   %40 = call i64 @strspn(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.37) #13
@@ -544,7 +543,7 @@ IsXLogFileName.exit:                              ; preds = %TrimExtension.exit
 IsPartialXLogFileName.exit:                       ; preds = %39
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %8, ptr noundef nonnull dereferenceable(9) @.str.38, i64 9)
   %42 = icmp eq i32 %bcmp, 0
-  br i1 %42, label %48, label %.thread11
+  br i1 %42, label %50, label %.thread11
 
 IsPartialXLogFileName.exit.thread:                ; preds = %TrimExtension.exit
   %.b8 = load i1, ptr @cleanBackupHistory, align 1
@@ -566,81 +565,82 @@ IsPartialXLogFileName.exit.thread.thread16:       ; preds = %39
   br i1 %45, label %IsBackupHistoryFileName.exit, label %IsBackupHistoryFileName.exit.thread
 
 IsBackupHistoryFileName.exit:                     ; preds = %.thread13
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %36
-  %46 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %gep, ptr noundef nonnull dereferenceable(8) @.str.40) #13
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %IsBackupHistoryFileName.exit.thread, !llvm.loop !7
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 %36
+  %47 = getelementptr inbounds i8, ptr %46, i64 -7
+  %48 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %47, ptr noundef nonnull dereferenceable(8) @.str.40) #13
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %IsBackupHistoryFileName.exit.thread, !llvm.loop !7
 
-48:                                               ; preds = %IsBackupHistoryFileName.exit, %IsPartialXLogFileName.exit, %IsXLogFileName.exit
-  %49 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @exclusiveCleanupFileName, i64 8)) #13
-  %50 = icmp sgt i32 %49, -1
-  br i1 %50, label %IsBackupHistoryFileName.exit.thread, label %51, !llvm.loop !7
+50:                                               ; preds = %IsBackupHistoryFileName.exit, %IsPartialXLogFileName.exit, %IsXLogFileName.exit
+  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @exclusiveCleanupFileName, i64 8)) #13
+  %52 = icmp sgt i32 %51, -1
+  br i1 %52, label %IsBackupHistoryFileName.exit.thread, label %53, !llvm.loop !7
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr @archiveLocation, align 8
-  %53 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 2048, ptr noundef nonnull @.str.42, ptr noundef %52, ptr noundef nonnull %14) #12
+53:                                               ; preds = %50
+  %54 = load ptr, ptr @archiveLocation, align 8
+  %55 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 2048, ptr noundef nonnull @.str.42, ptr noundef %54, ptr noundef nonnull %14) #12
   %.b59 = load i1, ptr @dryrun, align 1
-  br i1 %.b59, label %54, label %59
+  br i1 %.b59, label %56, label %61
 
-54:                                               ; preds = %51
-  %55 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.43, ptr noundef nonnull %2) #12
-  %56 = load i32, ptr @__pg_log_level, align 4
-  %57 = icmp ult i32 %56, 2
-  br i1 %57, label %58, label %IsBackupHistoryFileName.exit.thread, !prof !6, !llvm.loop !7
+56:                                               ; preds = %53
+  %57 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.43, ptr noundef nonnull %2) #12
+  %58 = load i32, ptr @__pg_log_level, align 4
+  %59 = icmp ult i32 %58, 2
+  br i1 %59, label %60, label %IsBackupHistoryFileName.exit.thread, !prof !6, !llvm.loop !7
 
-58:                                               ; preds = %54
+60:                                               ; preds = %56
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.44, ptr noundef nonnull %2) #12
   br label %IsBackupHistoryFileName.exit.thread, !llvm.loop !7
 
-59:                                               ; preds = %51
-  %60 = load i32, ptr @__pg_log_level, align 4
-  %61 = icmp ult i32 %60, 2
-  br i1 %61, label %62, label %63, !prof !6
+61:                                               ; preds = %53
+  %62 = load i32, ptr @__pg_log_level, align 4
+  %63 = icmp ult i32 %62, 2
+  br i1 %63, label %64, label %65, !prof !6
 
-62:                                               ; preds = %59
+64:                                               ; preds = %61
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull %2) #12
-  br label %63
+  br label %65
 
-63:                                               ; preds = %62, %59
-  %64 = call i32 @unlink(ptr noundef nonnull %2) #12
-  %.not10 = icmp eq i32 %64, 0
-  br i1 %.not10, label %IsBackupHistoryFileName.exit.thread, label %65
+65:                                               ; preds = %64, %61
+  %66 = call i32 @unlink(ptr noundef nonnull %2) #12
+  %.not10 = icmp eq i32 %66, 0
+  br i1 %.not10, label %IsBackupHistoryFileName.exit.thread, label %67
 
-65:                                               ; preds = %63
+67:                                               ; preds = %65
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.46, ptr noundef nonnull %2) #12
   call void @exit(i32 noundef 1) #15
   unreachable
 
-IsBackupHistoryFileName.exit.thread:              ; preds = %IsXLogFileName.exit, %.thread13, %IsPartialXLogFileName.exit.thread.thread16, %.thread11, %63, %54, %58, %48, %IsPartialXLogFileName.exit.thread, %IsBackupHistoryFileName.exit
+IsBackupHistoryFileName.exit.thread:              ; preds = %IsXLogFileName.exit, %.thread13, %IsPartialXLogFileName.exit.thread.thread16, %.thread11, %65, %56, %60, %50, %IsPartialXLogFileName.exit.thread, %IsBackupHistoryFileName.exit
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %2) #12
   store i32 0, ptr %6, align 4
-  %66 = call ptr @readdir(ptr noundef nonnull %4) #12
-  %.not = icmp eq ptr %66, null
+  %68 = call ptr @readdir(ptr noundef nonnull %4) #12
+  %.not = icmp eq ptr %68, null
   br i1 %.not, label %._crit_edge, label %12
 
 ._crit_edge:                                      ; preds = %IsBackupHistoryFileName.exit.thread, %.preheader
-  %67 = load i32, ptr %6, align 4
-  %.not6 = icmp eq i32 %67, 0
-  br i1 %.not6, label %70, label %68
-
-68:                                               ; preds = %._crit_edge
-  %69 = load ptr, ptr @archiveLocation, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.47, ptr noundef %69) #12
-  call void @exit(i32 noundef 1) #15
-  unreachable
+  %69 = load i32, ptr %6, align 4
+  %.not6 = icmp eq i32 %69, 0
+  br i1 %.not6, label %72, label %70
 
 70:                                               ; preds = %._crit_edge
-  %71 = call i32 @closedir(ptr noundef nonnull %4)
-  %.not7 = icmp eq i32 %71, 0
-  br i1 %.not7, label %74, label %72
-
-72:                                               ; preds = %70
-  %73 = load ptr, ptr @archiveLocation, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.48, ptr noundef %73) #12
+  %71 = load ptr, ptr @archiveLocation, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.47, ptr noundef %71) #12
   call void @exit(i32 noundef 1) #15
   unreachable
 
-74:                                               ; preds = %70
+72:                                               ; preds = %._crit_edge
+  %73 = call i32 @closedir(ptr noundef nonnull %4)
+  %.not7 = icmp eq i32 %73, 0
+  br i1 %.not7, label %76, label %74
+
+74:                                               ; preds = %72
+  %75 = load ptr, ptr @archiveLocation, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.48, ptr noundef %75) #12
+  call void @exit(i32 noundef 1) #15
+  unreachable
+
+76:                                               ; preds = %72
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #12
   ret void
 }

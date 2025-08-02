@@ -379,8 +379,8 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   %30 = zext i32 %6 to i64
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 96
   store i64 %30, ptr %31, align 8, !tbaa !23
-  %.not158168 = icmp eq ptr %0, null
-  br i1 %.not158168, label %._crit_edge.thread, label %.lr.ph
+  %.not158166 = icmp eq ptr %0, null
+  br i1 %.not158166, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -388,12 +388,12 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   br label %34
 
 34:                                               ; preds = %.lr.ph, %48
-  %.0144170 = phi ptr [ %0, %.lr.ph ], [ %54, %48 ]
-  %.0148169 = phi i64 [ 0, %.lr.ph ], [ %51, %48 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.0144170, i64 8
+  %.0144168 = phi ptr [ %0, %.lr.ph ], [ %54, %48 ]
+  %.0148167 = phi i64 [ 0, %.lr.ph ], [ %51, %48 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.0144168, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !72
   %37 = call i32 (ptr, i32, ...) @open(ptr noundef %36, i32 noundef 66, i32 noundef 420) #13
-  %38 = getelementptr inbounds nuw i8, ptr %.0144170, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.0144168, i64 16
   store i32 %37, ptr %38, align 8, !tbaa !76
   %39 = icmp slt i32 %37, 0
   br i1 %39, label %40, label %41
@@ -410,28 +410,22 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %42 = call i32 (i32, i32, ...) @fcntl(i32 noundef %37, i32 noundef 6, ptr noundef nonnull %5) #13
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %.thread, label %44
+  br i1 %43, label %.critedge, label %44
 
 44:                                               ; preds = %41
   %45 = load i32, ptr %38, align 8, !tbaa !76
   %46 = call i32 @ftruncate(i32 noundef %45, i64 noundef 0) #13
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %.thread, label %48
-
-.thread:                                          ; preds = %44, %41
-  store i32 7, ptr %2, align 4, !tbaa !69
-  call void @free(ptr noundef %26) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  br label %173
+  br i1 %47, label %.critedge, label %48
 
 48:                                               ; preds = %44
-  %49 = load i32, ptr %.0144170, align 8, !tbaa !80
+  %49 = load i32, ptr %.0144168, align 8, !tbaa !80
   %50 = zext i32 %49 to i64
-  %51 = add i64 %.0148169, %50
-  %52 = getelementptr inbounds nuw i8, ptr %.0144170, i64 24
+  %51 = add i64 %.0148167, %50
+  %52 = getelementptr inbounds nuw i8, ptr %.0144168, i64 24
   store i64 0, ptr %52, align 8, !tbaa !81
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  %53 = getelementptr inbounds nuw i8, ptr %.0144170, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %.0144168, i64 40
   %54 = load ptr, ptr %53, align 8, !tbaa !82
   %.not158 = icmp eq ptr %54, null
   br i1 %.not158, label %._crit_edge, label %34, !llvm.loop !83
@@ -446,32 +440,32 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   br label %173
 
 ._crit_edge.thread:                               ; preds = %29, %._crit_edge
-  %.0148.lcssa208 = phi i64 [ %51, %._crit_edge ], [ 0, %29 ]
-  %57 = trunc nuw nsw i64 %.0148.lcssa208 to i32
+  %.0148.lcssa206 = phi i64 [ %51, %._crit_edge ], [ 0, %29 ]
+  %57 = trunc nuw nsw i64 %.0148.lcssa206 to i32
   %58 = getelementptr inbounds nuw i8, ptr %26, i64 116
   store i32 %57, ptr %58, align 4, !tbaa !19
-  %59 = call noalias ptr @calloc(i64 noundef %.0148.lcssa208, i64 noundef 120) #14
+  %59 = call noalias ptr @calloc(i64 noundef %.0148.lcssa206, i64 noundef 120) #14
   %60 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %59, ptr %60, align 8, !tbaa !33
   %61 = icmp eq ptr %59, null
-  br i1 %61, label %62, label %.preheader162
+  br i1 %61, label %62, label %.preheader160
 
-.preheader162:                                    ; preds = %._crit_edge.thread
-  %.not191 = icmp eq i64 %.0148.lcssa208, 0
-  br i1 %.not191, label %._crit_edge173, label %.preheader
+.preheader160:                                    ; preds = %._crit_edge.thread
+  %.not189 = icmp eq i64 %.0148.lcssa206, 0
+  br i1 %.not189, label %._crit_edge171, label %.preheader
 
 62:                                               ; preds = %._crit_edge.thread
   store i32 6, ptr %2, align 4, !tbaa !69
   call void @free(ptr noundef nonnull %26) #13
   br label %173
 
-.preheader:                                       ; preds = %.preheader162, %71
-  %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.preheader162 ]
-  %.1145171 = phi ptr [ %.3147, %71 ], [ null, %.preheader162 ]
+.preheader:                                       ; preds = %.preheader160, %71
+  %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.preheader160 ]
+  %.1145169 = phi ptr [ %.3147, %71 ], [ null, %.preheader160 ]
   br label %63
 
 63:                                               ; preds = %.preheader, %69
-  %.2146 = phi ptr [ %.3147, %69 ], [ %.1145171, %.preheader ]
+  %.2146 = phi ptr [ %.3147, %69 ], [ %.1145169, %.preheader ]
   %64 = icmp eq ptr %.2146, null
   br i1 %64, label %69, label %65
 
@@ -513,11 +507,11 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   %87 = add i64 %84, %30
   store i64 %87, ptr %83, align 8, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = icmp samesign ult i64 %indvars.iv.next, %.0148.lcssa208
-  br i1 %88, label %.preheader, label %._crit_edge173, !llvm.loop !87
+  %88 = icmp samesign ult i64 %indvars.iv.next, %.0148.lcssa206
+  br i1 %88, label %.preheader, label %._crit_edge171, !llvm.loop !87
 
-._crit_edge173:                                   ; preds = %71, %.preheader162
-  %.lcssa164 = phi i32 [ 0, %.preheader162 ], [ %57, %71 ]
+._crit_edge171:                                   ; preds = %71, %.preheader160
+  %.lcssa162 = phi i32 [ 0, %.preheader160 ], [ %57, %71 ]
   %89 = load i32, ptr %12, align 4, !tbaa !70
   %90 = zext i32 %89 to i64
   %91 = call noalias ptr @calloc(i64 noundef %90, i64 noundef 8) #14
@@ -526,18 +520,18 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   %93 = getelementptr inbounds nuw i8, ptr %26, i64 128
   store i32 %89, ptr %93, align 8, !tbaa !88
   %94 = getelementptr inbounds nuw i8, ptr %26, i64 120
-  store i32 %.lcssa164, ptr %94, align 8, !tbaa !4
-  %.1141175 = add i32 %.lcssa164, -1
-  %95 = icmp sgt i32 %.1141175, -1
-  br i1 %95, label %.lr.ph178, label %._crit_edge179
+  store i32 %.lcssa162, ptr %94, align 8, !tbaa !4
+  %.1141173 = add i32 %.lcssa162, -1
+  %95 = icmp sgt i32 %.1141173, -1
+  br i1 %95, label %.lr.ph176, label %._crit_edge177
 
-.lr.ph178:                                        ; preds = %._crit_edge173
-  %96 = zext nneg i32 %.1141175 to i64
+.lr.ph176:                                        ; preds = %._crit_edge171
+  %96 = zext nneg i32 %.1141173 to i64
   br label %97
 
-97:                                               ; preds = %.lr.ph178, %97
-  %indvars.iv201 = phi i64 [ %96, %.lr.ph178 ], [ %indvars.iv.next202, %97 ]
-  %98 = getelementptr inbounds nuw %struct._store_page, ptr %59, i64 %indvars.iv201
+97:                                               ; preds = %.lr.ph176, %97
+  %indvars.iv199 = phi i64 [ %96, %.lr.ph176 ], [ %indvars.iv.next200, %97 ]
+  %98 = getelementptr inbounds nuw %struct._store_page, ptr %59, i64 %indvars.iv199
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 84
   %100 = load i32, ptr %99, align 4, !tbaa !34
   %101 = sext i32 %100 to i64
@@ -546,14 +540,14 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 112
   store ptr %103, ptr %104, align 8, !tbaa !62
   store ptr %98, ptr %102, align 8, !tbaa !60
-  %indvars.iv.next202 = add nsw i64 %indvars.iv201, -1
-  %.not214 = icmp eq i64 %indvars.iv201, 0
-  br i1 %.not214, label %._crit_edge179, label %97, !llvm.loop !89
+  %indvars.iv.next200 = add nsw i64 %indvars.iv199, -1
+  %.not212 = icmp eq i64 %indvars.iv199, 0
+  br i1 %.not212, label %._crit_edge177, label %97, !llvm.loop !89
 
-._crit_edge179:                                   ; preds = %97, %._crit_edge173
+._crit_edge177:                                   ; preds = %97, %._crit_edge171
   %105 = getelementptr inbounds nuw i8, ptr %26, i64 104
   store i32 1, ptr %105, align 8, !tbaa !90
-  %106 = zext i32 %.lcssa164 to i64
+  %106 = zext i32 %.lcssa162 to i64
   %107 = call noalias ptr @calloc(i64 noundef %106, i64 noundef 32) #14
   %108 = getelementptr inbounds nuw i8, ptr %26, i64 312
   store ptr %107, ptr %108, align 8, !tbaa !91
@@ -567,20 +561,20 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
   %113 = getelementptr inbounds nuw i8, ptr %26, i64 124
   store i32 %89, ptr %113, align 4, !tbaa !94
   %114 = load i32, ptr %14, align 4, !tbaa !71
-  %.not192 = icmp eq i32 %114, 0
-  br i1 %.not192, label %132, label %.lr.ph182
+  %.not190 = icmp eq i32 %114, 0
+  br i1 %.not190, label %132, label %.lr.ph180
 
-.lr.ph182:                                        ; preds = %._crit_edge179
+.lr.ph180:                                        ; preds = %._crit_edge177
   %115 = load i32, ptr %7, align 4, !tbaa !68
   %116 = zext i32 %115 to i64
   %117 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %118 = getelementptr inbounds nuw i8, ptr %26, i64 56
   br label %wbuf_new.exit
 
-wbuf_new.exit:                                    ; preds = %.lr.ph182, %wbuf_new.exit
-  %119 = phi ptr [ null, %.lr.ph182 ], [ %129, %wbuf_new.exit ]
-  %120 = phi ptr [ null, %.lr.ph182 ], [ %121, %wbuf_new.exit ]
-  %.2142180 = phi i32 [ 0, %.lr.ph182 ], [ %131, %wbuf_new.exit ]
+wbuf_new.exit:                                    ; preds = %.lr.ph180, %wbuf_new.exit
+  %119 = phi ptr [ null, %.lr.ph180 ], [ %129, %wbuf_new.exit ]
+  %120 = phi ptr [ null, %.lr.ph180 ], [ %121, %wbuf_new.exit ]
+  %.2142178 = phi i32 [ 0, %.lr.ph180 ], [ %131, %wbuf_new.exit ]
   %121 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #14
   %122 = icmp ne ptr %121, null
   call void @llvm.assume(i1 %122)
@@ -599,16 +593,16 @@ wbuf_new.exit:                                    ; preds = %.lr.ph182, %wbuf_ne
   store ptr %120, ptr %121, align 8, !tbaa !100
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store ptr %119, ptr %130, align 8, !tbaa !101
-  %131 = add nuw nsw i32 %.2142180, 1
+  %131 = add nuw nsw i32 %.2142178, 1
   %exitcond.not = icmp eq i32 %131, %114
-  br i1 %exitcond.not, label %._crit_edge183, label %wbuf_new.exit, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge181, label %wbuf_new.exit, !llvm.loop !104
 
-._crit_edge183:                                   ; preds = %wbuf_new.exit
+._crit_edge181:                                   ; preds = %wbuf_new.exit
   store ptr %121, ptr %117, align 8, !tbaa !105
   store ptr %129, ptr %118, align 8, !tbaa !106
   br label %132
 
-132:                                              ; preds = %._crit_edge183, %._crit_edge179
+132:                                              ; preds = %._crit_edge181, %._crit_edge177
   %133 = call i32 @pthread_mutex_init(ptr noundef nonnull %26, ptr noundef null) #13
   %134 = getelementptr inbounds nuw i8, ptr %26, i64 136
   %135 = call i32 @pthread_mutex_init(ptr noundef nonnull %134, ptr noundef null) #13
@@ -624,32 +618,32 @@ wbuf_new.exit:                                    ; preds = %.lr.ph182, %wbuf_ne
   %144 = call noalias ptr @calloc(i64 noundef %143, i64 noundef 120) #14
   %145 = getelementptr inbounds nuw i8, ptr %26, i64 64
   store ptr %144, ptr %145, align 8, !tbaa !26
-  %.not193 = icmp eq i32 %142, 0
-  br i1 %.not193, label %._crit_edge189, label %.lr.ph188
+  %.not191 = icmp eq i32 %142, 0
+  br i1 %.not191, label %._crit_edge187, label %.lr.ph186
 
-.lr.ph188:                                        ; preds = %132, %.lr.ph188
-  %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.lr.ph188 ], [ 0, %132 ]
+.lr.ph186:                                        ; preds = %132, %.lr.ph186
+  %indvars.iv202 = phi i64 [ %indvars.iv.next203, %.lr.ph186 ], [ 0, %132 ]
   %146 = load ptr, ptr %145, align 8, !tbaa !26
-  %147 = getelementptr inbounds nuw %struct.store_io_thread, ptr %146, i64 %indvars.iv204
+  %147 = getelementptr inbounds nuw %struct.store_io_thread, ptr %146, i64 %indvars.iv202
   %148 = call i32 @pthread_mutex_init(ptr noundef %147, ptr noundef null) #13
   %149 = load ptr, ptr %145, align 8, !tbaa !26
-  %150 = getelementptr inbounds nuw %struct.store_io_thread, ptr %149, i64 %indvars.iv204, i32 1
+  %150 = getelementptr inbounds nuw %struct.store_io_thread, ptr %149, i64 %indvars.iv202, i32 1
   %151 = call i32 @pthread_cond_init(ptr noundef nonnull %150, ptr noundef null) #13
   %152 = load ptr, ptr %145, align 8, !tbaa !26
-  %153 = getelementptr inbounds nuw %struct.store_io_thread, ptr %152, i64 %indvars.iv204, i32 4
+  %153 = getelementptr inbounds nuw %struct.store_io_thread, ptr %152, i64 %indvars.iv202, i32 4
   store ptr %26, ptr %153, align 8, !tbaa !110
-  %154 = getelementptr inbounds nuw %struct.store_io_thread, ptr %152, i64 %indvars.iv204
+  %154 = getelementptr inbounds nuw %struct.store_io_thread, ptr %152, i64 %indvars.iv202
   %155 = call i32 @pthread_create(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull @extstore_io_thread, ptr noundef %154) #13
   %156 = load i64, ptr %4, align 8, !tbaa !111
   %157 = call i32 @pthread_setname_np(i64 noundef %156, ptr noundef nonnull @.str.8) #13
-  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
+  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %158 = load i32, ptr %141, align 4, !tbaa !109
   %159 = zext i32 %158 to i64
-  %160 = icmp samesign ult i64 %indvars.iv.next205, %159
-  br i1 %160, label %.lr.ph188, label %._crit_edge189, !llvm.loop !112
+  %160 = icmp samesign ult i64 %indvars.iv.next203, %159
+  br i1 %160, label %.lr.ph186, label %._crit_edge187, !llvm.loop !112
 
-._crit_edge189:                                   ; preds = %.lr.ph188, %132
-  %.lcssa = phi i32 [ 0, %132 ], [ %158, %.lr.ph188 ]
+._crit_edge187:                                   ; preds = %.lr.ph186, %132
+  %.lcssa = phi i32 [ 0, %132 ], [ %158, %.lr.ph186 ]
   %161 = getelementptr inbounds nuw i8, ptr %26, i64 112
   store i32 %.lcssa, ptr %161, align 8, !tbaa !22
   %162 = call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #14
@@ -667,8 +661,14 @@ wbuf_new.exit:                                    ; preds = %.lr.ph182, %wbuf_ne
   %172 = call i32 @pthread_setname_np(i64 noundef %171, ptr noundef nonnull @.str.9) #13
   br label %173
 
-173:                                              ; preds = %.thread, %28, %._crit_edge189, %62, %56, %40, %24, %20, %17, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %17 ], [ null, %20 ], [ null, %24 ], [ null, %28 ], [ null, %40 ], [ null, %56 ], [ null, %62 ], [ %26, %._crit_edge189 ], [ null, %.thread ]
+.critedge:                                        ; preds = %44, %41
+  store i32 7, ptr %2, align 4, !tbaa !69
+  call void @free(ptr noundef %26) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  br label %173
+
+173:                                              ; preds = %28, %.critedge, %._crit_edge187, %62, %56, %40, %24, %20, %17, %10
+  %.0 = phi ptr [ null, %10 ], [ null, %17 ], [ null, %20 ], [ null, %24 ], [ null, %28 ], [ null, %40 ], [ null, %56 ], [ null, %62 ], [ %26, %._crit_edge187 ], [ null, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   ret ptr %.0
 }
@@ -697,7 +697,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef ptr @extstore_io_thread(ptr noundef %0) #9 {
+define internal noalias noundef nonnull ptr @extstore_io_thread(ptr noundef %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !110
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88

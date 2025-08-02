@@ -1501,8 +1501,8 @@ define noundef i32 @_ZNK11OpenImageIO6v3_1_011thread_pool4idleEv(ptr noundef non
   ret i32 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK11OpenImageIO6v3_1_011thread_pool13jobs_in_queueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i64 @_ZNK11OpenImageIO6v3_1_011thread_pool13jobs_in_queueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i8, align 1
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -2492,8 +2492,8 @@ _ZNK11OpenImageIO6v3_1_011thread_pool4Impl9is_workerENSt6thread2idE.exit: ; pred
   ret i1 %30
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_011thread_pool9very_busyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_011thread_pool9very_busyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i8, align 1
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128

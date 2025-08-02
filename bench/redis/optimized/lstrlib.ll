@@ -115,16 +115,16 @@ define internal i32 @str_byte(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %26
   %28 = getelementptr i8, ptr %3, i64 %16
-  %invariant.gep = getelementptr i8, ptr %28, i64 -1
   %wide.trip.count = zext nneg i32 %21 to i64
   br label %29
 
 29:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %30 = load i8, ptr %gep, align 1, !tbaa !8
-  %31 = zext i8 %30 to i64
-  call void @lua_pushinteger(ptr noundef %0, i64 noundef %31) #10
+  %30 = getelementptr i8, ptr %28, i64 %indvars.iv
+  %31 = getelementptr i8, ptr %30, i64 -1
+  %32 = load i8, ptr %31, align 1, !tbaa !8
+  %33 = zext i8 %32 to i64
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %33) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !9
@@ -1518,7 +1518,7 @@ define internal fastcc ptr @match(ptr noundef nonnull %0, ptr noundef %1, ptr no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = getelementptr i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.outer.outer
 
@@ -1622,7 +1622,7 @@ define internal fastcc ptr @match(ptr noundef nonnull %0, ptr noundef %1, ptr no
 57:                                               ; preds = %54
   %58 = add nsw i64 %indvars.iv.i, -1
   %.idx.i = shl nuw nsw i64 %58, 4
-  %59 = getelementptr i8, ptr %7, i64 %.idx.i
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   %60 = load i64, ptr %59, align 8, !tbaa !32
   %61 = icmp eq i64 %60, -1
   br i1 %61, label %.loopexit.loopexit.i, label %54, !llvm.loop !44
@@ -1964,7 +1964,7 @@ matchbracketclass.exit113:                        ; preds = %195, %204, %206, %2
 226:                                              ; preds = %224
   %227 = zext nneg i32 %222 to i64
   %.idx.i.i = shl nuw nsw i64 %227, 4
-  %228 = getelementptr i8, ptr %7, i64 %.idx.i.i
+  %228 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i
   %229 = load i64, ptr %228, align 8, !tbaa !32
   %230 = icmp eq i64 %229, -1
   br i1 %230, label %231, label %check_capture.exit.i

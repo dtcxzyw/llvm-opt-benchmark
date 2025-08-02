@@ -13906,7 +13906,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117B
   %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %54 = load ptr, ptr %.0.i, align 8, !tbaa !592
   %.not = icmp eq ptr %54, null
-  br i1 %.not, label %55, label %217
+  br i1 %.not, label %55, label %.critedge
 
 55:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117BaseSubobjectInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixERKS5_.exit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 752
@@ -13931,13 +13931,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117B
   %71 = inttoptr i64 %64 to ptr
   store ptr %71, ptr %56, align 8, !tbaa !536
   %72 = inttoptr i64 %63 to ptr
-  br label %.thread
+  br label %_ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_117BaseSubobjectInfoEE8AllocateEm.exit
 
 73:                                               ; preds = %55
   %74 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %56, i64 noundef 80, i64 noundef 80, i8 3)
-  br label %.thread
+  br label %_ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_117BaseSubobjectInfoEE8AllocateEm.exit
 
-.thread:                                          ; preds = %73, %70
+_ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_117BaseSubobjectInfoEE8AllocateEm.exit: ; preds = %70, %73
   %.0.i.i.i.i.i = phi ptr [ %72, %70 ], [ %74, %73 ]
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 32
@@ -13989,8 +13989,8 @@ _ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_117BaseSubobjectInfoEE8Allocate
   store i32 4, ptr %102, align 4, !tbaa !415
   br label %103
 
-103:                                              ; preds = %.thread, %_ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_117BaseSubobjectInfoEE8AllocateEm.exit61
-  %.143 = phi ptr [ %.0.i.i.i.i.i60, %_ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_117BaseSubobjectInfoEE8AllocateEm.exit61 ], [ %.0.i.i.i.i.i, %.thread ]
+103:                                              ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_117BaseSubobjectInfoEE8AllocateEm.exit, %_ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_117BaseSubobjectInfoEE8AllocateEm.exit61
+  %.143 = phi ptr [ %.0.i.i.i.i.i, %_ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_117BaseSubobjectInfoEE8AllocateEm.exit ], [ %.0.i.i.i.i.i60, %_ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_117BaseSubobjectInfoEE8AllocateEm.exit61 ]
   store ptr %1, ptr %.143, align 8, !tbaa !846
   %104 = getelementptr inbounds nuw i8, ptr %.143, i64 8
   store i8 %5, ptr %104, align 8, !tbaa !847
@@ -14015,8 +14015,8 @@ _ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_117BaseSubobjectInfoEE8Allocate
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 48
   %.0.copyload.i.i.i.i = load i64, ptr %119, align 8
   %120 = and i64 %.0.copyload.i.i.i.i, 4
-  %.not7 = icmp eq i64 %120, 0
-  br i1 %.not7, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117BaseSubobjectInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit.thread, label %121
+  %.not6 = icmp eq i64 %120, 0
+  br i1 %.not6, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117BaseSubobjectInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit.thread, label %121
 
 121:                                              ; preds = %114
   %122 = and i64 %.0.copyload.i.i.i.i, -8
@@ -14082,8 +14082,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117
   %153 = tail call { ptr, ptr } @_ZNK5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %1)
   %154 = extractvalue { ptr, ptr } %153, 0
   %155 = extractvalue { ptr, ptr } %153, 1
-  %.not5413 = icmp eq ptr %154, %155
-  br i1 %.not5413, label %._crit_edge, label %.lr.ph
+  %.not5412 = icmp eq ptr %154, %155
+  br i1 %.not5412, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117BaseSubobjectInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit.thread
   %156 = getelementptr inbounds nuw i8, ptr %.143, i64 16
@@ -14095,15 +14095,15 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_117BaseSubobjectInfoELb1EE9push_backES3_.exit, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117BaseSubobjectInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6lookupES5_.exit.thread
   %160 = icmp eq ptr %.045, null
   %or.cond = or i1 %.048, %160
-  br i1 %or.cond, label %217, label %191
+  br i1 %or.cond, label %.critedge, label %191
 
 161:                                              ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_117BaseSubobjectInfoELb1EE9push_backES3_.exit
-  %.04714 = phi ptr [ %154, %.lr.ph ], [ %190, %_ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_117BaseSubobjectInfoELb1EE9push_backES3_.exit ]
-  %162 = getelementptr inbounds nuw i8, ptr %.04714, i64 12
+  %.04713 = phi ptr [ %154, %.lr.ph ], [ %190, %_ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_117BaseSubobjectInfoELb1EE9push_backES3_.exit ]
+  %162 = getelementptr inbounds nuw i8, ptr %.04713, i64 12
   %163 = load i8, ptr %162, align 4
   %164 = and i8 %163, 1
   %165 = icmp ne i8 %164, 0
-  %166 = getelementptr inbounds nuw i8, ptr %.04714, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %.04713, i64 16
   %167 = load ptr, ptr %166, align 8, !tbaa !459
   %.sroa.0.0.copyload.i.i = load i64, ptr %167, align 8, !tbaa !386
   %168 = and i64 %.sroa.0.0.copyload.i.i, -16
@@ -14150,7 +14150,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_117BaseSubobjectInfoELb1EE9push
   %188 = load i32, ptr %157, align 8, !tbaa !414
   %189 = add i32 %188, 1
   store i32 %189, ptr %157, align 8, !tbaa !414
-  %190 = getelementptr inbounds nuw i8, ptr %.04714, i64 24
+  %190 = getelementptr inbounds nuw i8, ptr %.04713, i64 24
   %.not54 = icmp eq ptr %190, %155
   br i1 %.not54, label %._crit_edge, label %161
 
@@ -14196,9 +14196,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117
   store ptr %215, ptr %105, align 8, !tbaa !848
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 72
   store ptr %.143, ptr %216, align 8, !tbaa !595
-  br label %217
+  br label %.critedge
 
-217:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117BaseSubobjectInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixERKS5_.exit, %._crit_edge, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117BaseSubobjectInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6doFindIS5_EEPKSD_RKT_.exit.i70
+.critedge:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117BaseSubobjectInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixERKS5_.exit, %._crit_edge, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117BaseSubobjectInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6doFindIS5_EEPKSD_RKT_.exit.i70
   %.1 = phi ptr [ %.143, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117BaseSubobjectInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6doFindIS5_EEPKSD_RKT_.exit.i70 ], [ %.143, %._crit_edge ], [ %54, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEPN12_GLOBAL__N_117BaseSubobjectInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixERKS5_.exit ]
   ret ptr %.1
 }

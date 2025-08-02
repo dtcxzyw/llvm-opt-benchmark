@@ -349,21 +349,21 @@ define ptr @json_get_string(ptr noundef %0, ptr noundef readonly %1, ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
-  %.not118 = icmp eq i8 %2, 0
-  br i1 %.not118, label %._crit_edge, label %.lr.ph
+  %.not112 = icmp eq i8 %2, 0
+  br i1 %.not112, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %64
   %3 = phi i8 [ %65, %64 ], [ %2, %1 ]
-  %.072120 = phi ptr [ %.274, %64 ], [ %0, %1 ]
-  %.076119 = phi ptr [ %.682, %64 ], [ %0, %1 ]
-  %4 = getelementptr i8, ptr %.076119, i64 1
+  %.072114 = phi ptr [ %.274, %64 ], [ %0, %1 ]
+  %.076113 = phi ptr [ %.682, %64 ], [ %0, %1 ]
+  %4 = getelementptr i8, ptr %.076113, i64 1
   %5 = icmp eq i8 %3, 92
   br i1 %5, label %6, label %62
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr i8, ptr %.076119, i64 2
+  %7 = getelementptr i8, ptr %.076113, i64 2
   %8 = load i8, ptr %4, align 1
-  switch i8 %8, label %.thread95 [
+  switch i8 %8, label %.critedge [
     i8 34, label %9
     i8 92, label %9
     i8 47, label %9
@@ -376,49 +376,49 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
   ]
 
 9:                                                ; preds = %6, %6, %6
-  %10 = getelementptr i8, ptr %.072120, i64 1
-  store i8 %8, ptr %.072120, align 1
+  %10 = getelementptr i8, ptr %.072114, i64 1
+  store i8 %8, ptr %.072114, align 1
   br label %64
 
 11:                                               ; preds = %6
-  %12 = getelementptr i8, ptr %.072120, i64 1
-  store i8 8, ptr %.072120, align 1
+  %12 = getelementptr i8, ptr %.072114, i64 1
+  store i8 8, ptr %.072114, align 1
   br label %64
 
 13:                                               ; preds = %6
-  %14 = getelementptr i8, ptr %.072120, i64 1
-  store i8 12, ptr %.072120, align 1
+  %14 = getelementptr i8, ptr %.072114, i64 1
+  store i8 12, ptr %.072114, align 1
   br label %64
 
 15:                                               ; preds = %6
-  %16 = getelementptr i8, ptr %.072120, i64 1
-  store i8 10, ptr %.072120, align 1
+  %16 = getelementptr i8, ptr %.072114, i64 1
+  store i8 10, ptr %.072114, align 1
   br label %64
 
 17:                                               ; preds = %6
-  %18 = getelementptr i8, ptr %.072120, i64 1
-  store i8 13, ptr %.072120, align 1
+  %18 = getelementptr i8, ptr %.072114, i64 1
+  store i8 13, ptr %.072114, align 1
   br label %64
 
 19:                                               ; preds = %6
-  %20 = getelementptr i8, ptr %.072120, i64 1
-  store i8 9, ptr %.072120, align 1
+  %20 = getelementptr i8, ptr %.072114, i64 1
+  store i8 9, ptr %.072114, align 1
   br label %64
 
 .preheader:                                       ; preds = %6, %24
-  %.067114 = phi i32 [ %28, %24 ], [ 0, %6 ]
-  %.069113 = phi i32 [ %27, %24 ], [ 0, %6 ]
-  %.177112 = phi ptr [ %25, %24 ], [ %7, %6 ]
-  %21 = load i8, ptr %.177112, align 1
+  %.067108 = phi i32 [ %28, %24 ], [ 0, %6 ]
+  %.069107 = phi i32 [ %27, %24 ], [ 0, %6 ]
+  %.177106 = phi ptr [ %25, %24 ], [ %7, %6 ]
+  %21 = load i8, ptr %.177106, align 1
   %22 = tail call i32 @ws_xton(i8 noundef signext %21)
   %23 = icmp eq i32 %22, -1
-  br i1 %23, label %.thread95, label %24
+  br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %.preheader
-  %25 = getelementptr i8, ptr %.177112, i64 1
-  %26 = shl i32 %.069113, 4
+  %25 = getelementptr i8, ptr %.177106, i64 1
+  %26 = shl i32 %.069107, 4
   %27 = or i32 %22, %26
-  %28 = add nuw nsw i32 %.067114, 1
+  %28 = add nuw nsw i32 %.067108, 1
   %exitcond.not = icmp eq i32 %28, 4
   br i1 %exitcond.not, label %29, label %.preheader, !llvm.loop !12
 
@@ -426,46 +426,46 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
   %30 = and i32 %27, -1024
   switch i32 %30, label %55 [
     i32 55296, label %31
-    i32 56320, label %.thread95
+    i32 56320, label %.critedge
   ]
 
 31:                                               ; preds = %29
   %32 = load i8, ptr %25, align 1
   %.not87 = icmp eq i8 %32, 92
-  br i1 %.not87, label %33, label %.thread95
+  br i1 %.not87, label %33, label %.critedge
 
 33:                                               ; preds = %31
-  %34 = getelementptr i8, ptr %.177112, i64 2
+  %34 = getelementptr i8, ptr %.177106, i64 2
   %35 = load i8, ptr %34, align 1
   %.not88 = icmp eq i8 %35, 117
-  br i1 %.not88, label %36, label %.thread95
+  br i1 %.not88, label %36, label %.critedge
 
 36:                                               ; preds = %33
-  %37 = getelementptr i8, ptr %.177112, i64 3
+  %37 = getelementptr i8, ptr %.177106, i64 3
   br label %38
 
 38:                                               ; preds = %36, %42
-  %.0117 = phi i16 [ 0, %36 ], [ %46, %42 ]
-  %.168116 = phi i32 [ 0, %36 ], [ %47, %42 ]
-  %.480115 = phi ptr [ %37, %36 ], [ %43, %42 ]
-  %39 = load i8, ptr %.480115, align 1
+  %.0111 = phi i16 [ 0, %36 ], [ %46, %42 ]
+  %.168110 = phi i32 [ 0, %36 ], [ %47, %42 ]
+  %.480109 = phi ptr [ %37, %36 ], [ %43, %42 ]
+  %39 = load i8, ptr %.480109, align 1
   %40 = tail call i32 @ws_xton(i8 noundef signext %39)
   %41 = icmp eq i32 %40, -1
-  br i1 %41, label %.thread95, label %42
+  br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr i8, ptr %.480115, i64 1
-  %44 = shl i16 %.0117, 4
+  %43 = getelementptr i8, ptr %.480109, i64 1
+  %44 = shl i16 %.0111, 4
   %45 = trunc i32 %40 to i16
   %46 = or i16 %44, %45
-  %47 = add nuw nsw i32 %.168116, 1
-  %exitcond129.not = icmp eq i32 %47, 4
-  br i1 %exitcond129.not, label %48, label %38, !llvm.loop !13
+  %47 = add nuw nsw i32 %.168110, 1
+  %exitcond123.not = icmp eq i32 %47, 4
+  br i1 %exitcond123.not, label %48, label %38, !llvm.loop !13
 
 48:                                               ; preds = %42
   %49 = and i16 %46, -1024
   %or.cond6 = icmp eq i16 %49, -9216
-  br i1 %or.cond6, label %50, label %.thread95
+  br i1 %or.cond6, label %50, label %.critedge
 
 50:                                               ; preds = %48
   %51 = zext i16 %46 to i32
@@ -481,20 +481,20 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
   %.not89 = icmp eq i32 %56, 0
   %57 = icmp eq i32 %.271, 0
   %or.cond90 = or i1 %57, %.not89
-  br i1 %or.cond90, label %.thread95, label %58
+  br i1 %or.cond90, label %.critedge, label %58
 
 58:                                               ; preds = %55
-  %59 = tail call i32 @g_unichar_to_utf8(i32 noundef %.271, ptr noundef %.072120)
+  %59 = tail call i32 @g_unichar_to_utf8(i32 noundef %.271, ptr noundef %.072114)
   %60 = sext i32 %59 to i64
-  %61 = getelementptr i8, ptr %.072120, i64 %60
+  %61 = getelementptr i8, ptr %.072114, i64 %60
   br label %64
 
 62:                                               ; preds = %.lr.ph
-  store i8 %3, ptr %.072120, align 1
-  %63 = getelementptr i8, ptr %.072120, i64 1
+  store i8 %3, ptr %.072114, align 1
+  %63 = getelementptr i8, ptr %.072114, i64 1
   br label %64
 
-64:                                               ; preds = %58, %62, %19, %17, %15, %13, %11, %9
+64:                                               ; preds = %62, %19, %17, %15, %13, %11, %9, %58
   %.682 = phi ptr [ %7, %9 ], [ %7, %11 ], [ %7, %13 ], [ %7, %15 ], [ %7, %17 ], [ %7, %19 ], [ %4, %62 ], [ %.581, %58 ]
   %.274 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %63, %62 ], [ %61, %58 ]
   %65 = load i8, ptr %.682, align 1
@@ -504,11 +504,11 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
 ._crit_edge:                                      ; preds = %64, %1
   %.072.lcssa = phi ptr [ %0, %1 ], [ %.274, %64 ]
   store i8 0, ptr %.072.lcssa, align 1
-  br label %.thread95
+  br label %.critedge
 
-.thread95:                                        ; preds = %29, %48, %31, %33, %55, %6, %.preheader, %38, %._crit_edge
-  %.not108 = phi i1 [ true, %._crit_edge ], [ false, %38 ], [ false, %.preheader ], [ false, %6 ], [ false, %55 ], [ false, %33 ], [ false, %31 ], [ false, %48 ], [ false, %29 ]
-  ret i1 %.not108
+.critedge:                                        ; preds = %29, %33, %31, %48, %55, %6, %.preheader, %38, %._crit_edge
+  %.not102 = phi i1 [ true, %._crit_edge ], [ false, %38 ], [ false, %.preheader ], [ false, %6 ], [ false, %55 ], [ false, %48 ], [ false, %31 ], [ false, %33 ], [ false, %29 ]
+  ret i1 %.not102
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

@@ -1453,12 +1453,11 @@ for.body:                                         ; preds = %for.body.outer, %cl
   %retval.sroa.3.0.insert.ext.i248 = zext i16 %add13.i247 to i48
   %retval.sroa.3.0.insert.shift.i249 = shl nuw i48 %retval.sroa.3.0.insert.ext.i248, 32
   %31 = extractelement <2 x i16> %29, i64 1
-  %retval.sroa.2.0.insert.ext.i250 = zext i16 %31 to i48
-  %retval.sroa.2.0.insert.shift.i251 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i250, 16
   %32 = extractelement <2 x i16> %29, i64 0
   %retval.sroa.0.0.insert.ext.i253 = zext i16 %32 to i48
-  %33 = or disjoint i48 %retval.sroa.2.0.insert.shift.i251, %retval.sroa.0.0.insert.ext.i253
-  %retval.sroa.0.0.insert.insert.i254 = or disjoint i48 %33, %retval.sroa.3.0.insert.shift.i249
+  %.v = shufflevector <2 x i16> %29, <2 x i16> <i16 0, i16 poison>, <3 x i32> <i32 0, i32 1, i32 2>
+  %33 = bitcast <3 x i16> %.v to i48
+  %retval.sroa.0.0.insert.insert.i254 = or disjoint i48 %retval.sroa.3.0.insert.shift.i249, %33
   %call25 = call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %retval.sroa.0.0.insert.insert.i254, ptr noundef nonnull %is_valid_position)
   store i32 %call25, ptr %node, align 4, !tbaa.struct !79
   %34 = load i8, ptr %is_valid_position, align 1, !tbaa !81, !range !74, !noundef !75

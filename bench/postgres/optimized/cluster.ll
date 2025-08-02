@@ -90,61 +90,61 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %8, align 4
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph97, label %._crit_edge
+  br i1 %11, label %.lr.ph94, label %.critedge
 
-._crit_edge.loopexit:                             ; preds = %22
-  %12 = zext i1 %23 to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %3
-  %.049.lcssa = phi i32 [ 0, %3 ], [ 0, %.lr.ph ], [ %12, %._crit_edge.loopexit ]
-  store i32 %.049.lcssa, ptr %5, align 4
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %.not60 = icmp eq ptr %14, null
-  br i1 %.not60, label %.critedge, label %35
-
-.lr.ph97:                                         ; preds = %.lr.ph, %22
+.lr.ph94:                                         ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.lr.ph ]
-  %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(8) @.str) #8
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %.split
+  %12 = load ptr, ptr %9, align 8
+  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(8) @.str) #8
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %22, label %.split
 
-22:                                               ; preds = %.lr.ph97
-  %23 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %17) #7
+.critedge.loopexit:                               ; preds = %22
+  %19 = zext i1 %23 to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %3
+  %.049.lcssa = phi i32 [ 0, %3 ], [ 0, %.lr.ph ], [ %19, %.critedge.loopexit ]
+  store i32 %.049.lcssa, ptr %5, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %.not60 = icmp eq ptr %21, null
+  br i1 %.not60, label %.critedge70, label %35
+
+22:                                               ; preds = %.lr.ph94
+  %23 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %14) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %8, align 4
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph97, label %._crit_edge.loopexit
+  br i1 %26, label %.lr.ph94, label %.critedge.loopexit
 
-.split:                                           ; preds = %.lr.ph97
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 16
+.split:                                           ; preds = %.lr.ph94
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %28)
   %29 = tail call i32 @errcode(i32 noundef 16801924) #7
   %30 = load ptr, ptr %27, align 8
   %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef %30) #7
-  %32 = getelementptr inbounds nuw i8, ptr %17, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %33 = load i32, ptr %32, align 4
   %34 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %33) #7
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 129, ptr noundef nonnull @__func__.cluster) #7
   unreachable
 
-35:                                               ; preds = %._crit_edge
-  %36 = tail call i32 @RangeVarGetRelidExtended(ptr noundef nonnull %14, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackMaintainsTable, ptr noundef null) #7
+35:                                               ; preds = %.critedge
+  %36 = tail call i32 @RangeVarGetRelidExtended(ptr noundef nonnull %21, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackMaintainsTable, ptr noundef null) #7
   %37 = tail call ptr @table_open(i32 noundef %36, i32 noundef 0) #7
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
@@ -176,39 +176,39 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
 55:                                               ; preds = %51
   %56 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %37) #7
   %.not62 = icmp eq ptr %56, null
-  br i1 %.not62, label %.thread82, label %.lr.ph101
+  br i1 %.not62, label %.critedge68.thread, label %.lr.ph96
 
-.lr.ph101:                                        ; preds = %55
+.lr.ph96:                                         ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %59 = load i32, ptr %57, align 4
   %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph107, label %.thread82
+  br i1 %60, label %.lr.ph100, label %.critedge68.thread
 
-61:                                               ; preds = %.lr.ph107
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+61:                                               ; preds = %.lr.ph100
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %62 = load i32, ptr %57, align 4
   %63 = sext i32 %62 to i64
-  %64 = icmp slt i64 %indvars.iv.next114, %63
-  br i1 %64, label %.lr.ph107, label %.thread82
+  %64 = icmp slt i64 %indvars.iv.next107, %63
+  br i1 %64, label %.lr.ph100, label %.critedge68.thread
 
-.lr.ph107:                                        ; preds = %.lr.ph101, %61
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %61 ], [ 0, %.lr.ph101 ]
+.lr.ph100:                                        ; preds = %.lr.ph96, %61
+  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %61 ], [ 0, %.lr.ph96 ]
   %65 = load ptr, ptr %58, align 8
-  %66 = getelementptr inbounds nuw %union.ListCell, ptr %65, i64 %indvars.iv113
+  %66 = getelementptr inbounds nuw %union.ListCell, ptr %65, i64 %indvars.iv106
   %67 = load i32, ptr %66, align 8
   %68 = tail call zeroext i1 @get_index_isclustered(i32 noundef %67) #7
-  br i1 %68, label %.split104, label %61
+  br i1 %68, label %.critedge68, label %61
 
-.split104:                                        ; preds = %.lr.ph107
+.critedge68:                                      ; preds = %.lr.ph100
   %.not64 = icmp eq i32 %67, 0
-  br i1 %.not64, label %.thread82, label %87
+  br i1 %.not64, label %.critedge68.thread, label %87
 
-.thread82:                                        ; preds = %61, %55, %.lr.ph101, %.split104
+.critedge68.thread:                               ; preds = %61, %55, %.lr.ph96, %.critedge68
   %69 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %69)
   %70 = tail call i32 @errcode(i32 noundef 67137668) #7
-  %71 = load ptr, ptr %13, align 8
+  %71 = load ptr, ptr %20, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %73) #7
@@ -227,28 +227,28 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   tail call void @llvm.assume(i1 %80)
   %81 = tail call i32 @errcode(i32 noundef 67137668) #7
   %82 = load ptr, ptr %52, align 8
-  %83 = load ptr, ptr %13, align 8
+  %83 = load ptr, ptr %20, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %82, ptr noundef %85) #7
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 191, ptr noundef nonnull @__func__.cluster) #7
   unreachable
 
-87:                                               ; preds = %.split104, %75
-  %.3 = phi i32 [ %78, %75 ], [ %67, %.split104 ]
+87:                                               ; preds = %.critedge68, %75
+  %.3 = phi i32 [ %78, %75 ], [ %67, %.critedge68 ]
   %88 = load ptr, ptr %38, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 115
   %90 = load i8, ptr %89, align 1
   %.not65 = icmp eq i8 %90, 112
-  br i1 %.not65, label %.critedge, label %91
+  br i1 %.not65, label %.critedge70, label %91
 
 91:                                               ; preds = %87
   call void @cluster_rel(ptr noundef nonnull %37, i32 noundef %.3, ptr noundef nonnull %5)
   br label %171
 
-.critedge:                                        ; preds = %87, %._crit_edge
-  %.052 = phi i32 [ 0, %._crit_edge ], [ %.3, %87 ]
-  %.050 = phi ptr [ null, %._crit_edge ], [ %37, %87 ]
+.critedge70:                                      ; preds = %87, %.critedge
+  %.052 = phi i32 [ 0, %.critedge ], [ %.3, %87 ]
+  %.050 = phi ptr [ null, %.critedge ], [ %37, %87 ]
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull @.str.6) #7
   %92 = load ptr, ptr @PortalContext, align 8
   %93 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %92, ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
@@ -257,7 +257,7 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   %.not66 = icmp eq ptr %.050, null
   br i1 %.not66, label %122, label %95
 
-95:                                               ; preds = %.critedge
+95:                                               ; preds = %.critedge70
   tail call void @check_index_is_clusterable(ptr noundef nonnull %.050, i32 noundef %.052, i32 noundef 1)
   %96 = tail call ptr @find_all_inheritors(i32 noundef %.052, i32 noundef 0, ptr noundef null) #7
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
@@ -268,11 +268,11 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %99 = load i32, ptr %97, align 4
   %100 = icmp sgt i32 %99, 0
-  br i1 %100, label %.lr.ph31.i, label %get_tables_to_cluster_partitioned.exit
+  br i1 %100, label %.lr.ph29.i, label %get_tables_to_cluster_partitioned.exit
 
-.lr.ph31.i:                                       ; preds = %.lr.ph.i, %cluster_is_permitted_for_relation.exit.thread.i
+.lr.ph29.i:                                       ; preds = %.lr.ph.i, %cluster_is_permitted_for_relation.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %cluster_is_permitted_for_relation.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.0182529.i = phi ptr [ %.1.i, %cluster_is_permitted_for_relation.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.0182327.i = phi ptr [ %.1.i, %cluster_is_permitted_for_relation.exit.thread.i ], [ null, %.lr.ph.i ]
   %101 = load ptr, ptr %98, align 8
   %102 = getelementptr inbounds nuw %union.ListCell, ptr %101, i64 %indvars.iv.i
   %103 = load i32, ptr %102, align 8
@@ -281,7 +281,7 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   %.not21.i = icmp eq i8 %105, 105
   br i1 %.not21.i, label %106, label %cluster_is_permitted_for_relation.exit.thread.i
 
-106:                                              ; preds = %.lr.ph31.i
+106:                                              ; preds = %.lr.ph29.i
   %107 = tail call i32 @GetUserId() #7
   %108 = tail call i32 @pg_class_aclcheck(i32 noundef %104, i32 noundef %107, i64 noundef 16384) #7
   %109 = icmp eq i32 %108, 0
@@ -304,35 +304,35 @@ cluster_is_permitted_for_relation.exit.i:         ; preds = %106
   store i32 %104, ptr %116, align 4
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 %103, ptr %117, align 4
-  %118 = tail call ptr @lappend(ptr noundef %.0182529.i, ptr noundef nonnull %116) #7
+  %118 = tail call ptr @lappend(ptr noundef %.0182327.i, ptr noundef nonnull %116) #7
   store ptr %115, ptr @CurrentMemoryContext, align 8
   br label %cluster_is_permitted_for_relation.exit.thread.i
 
-cluster_is_permitted_for_relation.exit.thread.i:  ; preds = %cluster_is_permitted_for_relation.exit.i, %112, %110, %.lr.ph31.i
-  %.1.i = phi ptr [ %118, %cluster_is_permitted_for_relation.exit.i ], [ %.0182529.i, %.lr.ph31.i ], [ %.0182529.i, %110 ], [ %.0182529.i, %112 ]
+cluster_is_permitted_for_relation.exit.thread.i:  ; preds = %cluster_is_permitted_for_relation.exit.i, %112, %110, %.lr.ph29.i
+  %.1.i = phi ptr [ %118, %cluster_is_permitted_for_relation.exit.i ], [ %.0182327.i, %.lr.ph29.i ], [ %.0182327.i, %110 ], [ %.0182327.i, %112 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %119 = load i32, ptr %97, align 4
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next.i, %120
-  br i1 %121, label %.lr.ph31.i, label %get_tables_to_cluster_partitioned.exit
+  br i1 %121, label %.lr.ph29.i, label %get_tables_to_cluster_partitioned.exit
 
 get_tables_to_cluster_partitioned.exit:           ; preds = %cluster_is_permitted_for_relation.exit.thread.i, %95, %.lr.ph.i
   %.018.lcssa.i = phi ptr [ null, %95 ], [ null, %.lr.ph.i ], [ %.1.i, %cluster_is_permitted_for_relation.exit.thread.i ]
   tail call void @table_close(ptr noundef nonnull %.050, i32 noundef 8) #7
   br label %155
 
-122:                                              ; preds = %.critedge
+122:                                              ; preds = %.critedge70
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #7
   %123 = tail call ptr @table_open(i32 noundef 2610, i32 noundef 1) #7
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 10, i16 noundef zeroext 3, i32 noundef 60, i64 noundef 1) #7
   %124 = call ptr @table_beginscan_catalog(ptr noundef %123, i32 noundef 1, ptr noundef nonnull %4) #7
   %125 = call ptr @heap_getnext(ptr noundef %124, i32 noundef 1) #7
   %.not16.i = icmp eq ptr %125, null
-  br i1 %.not16.i, label %get_tables_to_cluster.exit, label %.lr.ph.i67
+  br i1 %.not16.i, label %get_tables_to_cluster.exit, label %.lr.ph.i71
 
-.lr.ph.i67:                                       ; preds = %122, %cluster_is_permitted_for_relation.exit.thread.i68
-  %126 = phi ptr [ %148, %cluster_is_permitted_for_relation.exit.thread.i68 ], [ %125, %122 ]
-  %.017.i = phi ptr [ %.1.i69, %cluster_is_permitted_for_relation.exit.thread.i68 ], [ null, %122 ]
+.lr.ph.i71:                                       ; preds = %122, %cluster_is_permitted_for_relation.exit.thread.i72
+  %126 = phi ptr [ %148, %cluster_is_permitted_for_relation.exit.thread.i72 ], [ %125, %122 ]
+  %.017.i = phi ptr [ %.1.i73, %cluster_is_permitted_for_relation.exit.thread.i72 ], [ null, %122 ]
   %127 = getelementptr i8, ptr %126, i64 16
   %.val.i = load ptr, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
@@ -344,19 +344,19 @@ get_tables_to_cluster_partitioned.exit:           ; preds = %cluster_is_permitte
   %134 = call i32 @GetUserId() #7
   %135 = call i32 @pg_class_aclcheck(i32 noundef %133, i32 noundef %134, i64 noundef 16384) #7
   %136 = icmp eq i32 %135, 0
-  br i1 %136, label %cluster_is_permitted_for_relation.exit.i71, label %137
+  br i1 %136, label %cluster_is_permitted_for_relation.exit.i75, label %137
 
-137:                                              ; preds = %.lr.ph.i67
+137:                                              ; preds = %.lr.ph.i71
   %138 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
-  br i1 %138, label %139, label %cluster_is_permitted_for_relation.exit.thread.i68
+  br i1 %138, label %139, label %cluster_is_permitted_for_relation.exit.thread.i72
 
 139:                                              ; preds = %137
   %140 = call ptr @get_rel_name(i32 noundef %133) #7
   %141 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %140) #7
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1747, ptr noundef nonnull @__func__.cluster_is_permitted_for_relation) #7
-  br label %cluster_is_permitted_for_relation.exit.thread.i68
+  br label %cluster_is_permitted_for_relation.exit.thread.i72
 
-cluster_is_permitted_for_relation.exit.i71:       ; preds = %.lr.ph.i67
+cluster_is_permitted_for_relation.exit.i75:       ; preds = %.lr.ph.i71
   %142 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %93, ptr @CurrentMemoryContext, align 8
   %143 = call ptr @palloc(i64 noundef 8) #7
@@ -367,16 +367,16 @@ cluster_is_permitted_for_relation.exit.i71:       ; preds = %.lr.ph.i67
   store i32 %145, ptr %146, align 4
   %147 = call ptr @lappend(ptr noundef %.017.i, ptr noundef nonnull %143) #7
   store ptr %142, ptr @CurrentMemoryContext, align 8
-  br label %cluster_is_permitted_for_relation.exit.thread.i68
+  br label %cluster_is_permitted_for_relation.exit.thread.i72
 
-cluster_is_permitted_for_relation.exit.thread.i68: ; preds = %cluster_is_permitted_for_relation.exit.i71, %139, %137
-  %.1.i69 = phi ptr [ %147, %cluster_is_permitted_for_relation.exit.i71 ], [ %.017.i, %137 ], [ %.017.i, %139 ]
+cluster_is_permitted_for_relation.exit.thread.i72: ; preds = %cluster_is_permitted_for_relation.exit.i75, %139, %137
+  %.1.i73 = phi ptr [ %147, %cluster_is_permitted_for_relation.exit.i75 ], [ %.017.i, %137 ], [ %.017.i, %139 ]
   %148 = call ptr @heap_getnext(ptr noundef %124, i32 noundef 1) #7
-  %.not.i70 = icmp eq ptr %148, null
-  br i1 %.not.i70, label %get_tables_to_cluster.exit, label %.lr.ph.i67
+  %.not.i74 = icmp eq ptr %148, null
+  br i1 %.not.i74, label %get_tables_to_cluster.exit, label %.lr.ph.i71
 
-get_tables_to_cluster.exit:                       ; preds = %cluster_is_permitted_for_relation.exit.thread.i68, %122
-  %.0.lcssa.i = phi ptr [ null, %122 ], [ %.1.i69, %cluster_is_permitted_for_relation.exit.thread.i68 ]
+get_tables_to_cluster.exit:                       ; preds = %cluster_is_permitted_for_relation.exit.thread.i72, %122
+  %.0.lcssa.i = phi ptr [ null, %122 ], [ %.1.i73, %cluster_is_permitted_for_relation.exit.thread.i72 ]
   %149 = load ptr, ptr %124, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 320
   %151 = load ptr, ptr %150, align 8
@@ -394,19 +394,19 @@ get_tables_to_cluster.exit:                       ; preds = %cluster_is_permitte
   call void @PopActiveSnapshot() #7
   call void @CommitTransactionCommand() #7
   %156 = getelementptr inbounds nuw i8, ptr %.053, i64 4
-  %.not.i72 = icmp eq ptr %.053, null
-  br i1 %.not.i72, label %cluster_multiple_rels.exit, label %.lr.ph.i73
+  %.not.i76 = icmp eq ptr %.053, null
+  br i1 %.not.i76, label %cluster_multiple_rels.exit, label %.lr.ph.i77
 
-.lr.ph.i73:                                       ; preds = %155
+.lr.ph.i77:                                       ; preds = %155
   %157 = getelementptr inbounds nuw i8, ptr %.053, i64 16
   %158 = load i32, ptr %156, align 4
   %159 = icmp sgt i32 %158, 0
-  br i1 %159, label %.lr.ph17.i, label %cluster_multiple_rels.exit
+  br i1 %159, label %.lr.ph15.i, label %cluster_multiple_rels.exit
 
-.lr.ph17.i:                                       ; preds = %.lr.ph.i73, %.lr.ph17.i
-  %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i75, %.lr.ph17.i ], [ 0, %.lr.ph.i73 ]
+.lr.ph15.i:                                       ; preds = %.lr.ph.i77, %.lr.ph15.i
+  %indvars.iv.i78 = phi i64 [ %indvars.iv.next.i79, %.lr.ph15.i ], [ 0, %.lr.ph.i77 ]
   %160 = load ptr, ptr %157, align 8
-  %161 = getelementptr inbounds nuw %union.ListCell, ptr %160, i64 %indvars.iv.i74
+  %161 = getelementptr inbounds nuw %union.ListCell, ptr %160, i64 %indvars.iv.i78
   %162 = load ptr, ptr %161, align 8
   call void @StartTransactionCommand() #7
   %163 = call ptr @GetTransactionSnapshot() #7
@@ -418,13 +418,13 @@ get_tables_to_cluster.exit:                       ; preds = %cluster_is_permitte
   call void @cluster_rel(ptr noundef %165, i32 noundef %167, ptr noundef nonnull readonly %5)
   call void @PopActiveSnapshot() #7
   call void @CommitTransactionCommand() #7
-  %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
+  %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
   %168 = load i32, ptr %156, align 4
   %169 = sext i32 %168 to i64
-  %170 = icmp slt i64 %indvars.iv.next.i75, %169
-  br i1 %170, label %.lr.ph17.i, label %cluster_multiple_rels.exit
+  %170 = icmp slt i64 %indvars.iv.next.i79, %169
+  br i1 %170, label %.lr.ph15.i, label %cluster_multiple_rels.exit
 
-cluster_multiple_rels.exit:                       ; preds = %.lr.ph17.i, %155, %.lr.ph.i73
+cluster_multiple_rels.exit:                       ; preds = %.lr.ph15.i, %155, %.lr.ph.i77
   call void @StartTransactionCommand() #7
   call void @MemoryContextDelete(ptr noundef %93) #7
   br label %171
@@ -1087,20 +1087,16 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
   %17 = tail call ptr @table_open(i32 noundef 2610, i32 noundef 3) #7
   %18 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %0) #7
   %.not32 = icmp eq ptr %18, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph
+  br i1 %.not32, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load i32, ptr %19, align 4
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph44, label %._crit_edge
+  br i1 %22, label %.lr.ph42, label %.critedge
 
-._crit_edge:                                      ; preds = %51, %.lr.ph, %16
-  tail call void @table_close(ptr noundef %17, i32 noundef 3) #7
-  br label %55
-
-.lr.ph44:                                         ; preds = %.lr.ph, %51
+.lr.ph42:                                         ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %.lr.ph ]
   %23 = load ptr, ptr %20, align 8
   %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
@@ -1110,14 +1106,18 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
   %.not34 = icmp eq ptr %27, null
   br i1 %.not34, label %.split, label %30
 
-.split:                                           ; preds = %.lr.ph44
+.critedge:                                        ; preds = %51, %.lr.ph, %16
+  tail call void @table_close(ptr noundef %17, i32 noundef 3) #7
+  br label %55
+
+.split:                                           ; preds = %.lr.ph42
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %28)
   %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %25) #7
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 588, ptr noundef nonnull @__func__.mark_index_clustered) #7
   unreachable
 
-30:                                               ; preds = %.lr.ph44
+30:                                               ; preds = %.lr.ph42
   %31 = getelementptr i8, ptr %27, i64 16
   %.val = load ptr, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -1137,9 +1137,9 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 18
   %43 = load i8, ptr %42, align 2, !range !4, !noundef !5
   %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %.sink.split, label %.split42
+  br i1 %44, label %.sink.split, label %.split40
 
-.split42:                                         ; preds = %41
+.split40:                                         ; preds = %41
   %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %45)
   %46 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %1) #7
@@ -1168,9 +1168,9 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
   %52 = load i32, ptr %19, align 4
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph44, label %._crit_edge
+  br i1 %54, label %.lr.ph42, label %.critedge
 
-55:                                               ; preds = %14, %._crit_edge
+55:                                               ; preds = %14, %.critedge
   ret void
 }
 

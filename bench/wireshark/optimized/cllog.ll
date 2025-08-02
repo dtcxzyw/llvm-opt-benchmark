@@ -1472,36 +1472,36 @@ define internal fastcc noundef zeroext i1 @cllog_read_common(ptr %.96.val, ptr n
 
 14:                                               ; preds = %26, %11
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %26 ]
-  %.02748.i = phi ptr [ %5, %11 ], [ %27, %26 ]
+  %.02745.i = phi ptr [ %5, %11 ], [ %27, %26 ]
   %15 = load i8, ptr %12, align 4
   %16 = sext i8 %15 to i32
-  %17 = call ptr @strchr(ptr noundef %.02748.i, i32 noundef %16) #12
+  %17 = call ptr @strchr(ptr noundef %.02745.i, i32 noundef %16) #12
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %.thread.i
 
 19:                                               ; preds = %14
-  %20 = call ptr @strchr(ptr noundef %.02748.i, i32 noundef 10) #12
+  %20 = call ptr @strchr(ptr noundef %.02745.i, i32 noundef 10) #12
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %21, label %.thread.i
 
 .thread.i:                                        ; preds = %19, %14
-  %.042.i = phi ptr [ %20, %19 ], [ %17, %14 ]
-  store i8 0, ptr %.042.i, align 1
+  %.043.i = phi ptr [ %20, %19 ], [ %17, %14 ]
+  store i8 0, ptr %.043.i, align 1
   br label %21
 
 21:                                               ; preds = %.thread.i, %19
-  %.043.i = phi ptr [ %.042.i, %.thread.i ], [ null, %19 ]
+  %.044.i = phi ptr [ %.043.i, %.thread.i ], [ null, %19 ]
   %22 = getelementptr [7 x ptr], ptr %13, i64 0, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %.not33.i = icmp eq ptr %23, null
   br i1 %.not33.i, label %26, label %24
 
 24:                                               ; preds = %21
-  %25 = call zeroext i1 %23(ptr noundef %.96.val, ptr noundef %.02748.i, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3)
+  %25 = call zeroext i1 %23(ptr noundef %.96.val, ptr noundef %.02745.i, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3)
   br i1 %25, label %26, label %parseLogLine.exit
 
 26:                                               ; preds = %24, %21
-  %27 = getelementptr i8, ptr %.043.i, i64 1
+  %27 = getelementptr i8, ptr %.044.i, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = icmp samesign ugt i64 %indvars.iv.i, 5
   %.not36.i = or i1 %28, %18

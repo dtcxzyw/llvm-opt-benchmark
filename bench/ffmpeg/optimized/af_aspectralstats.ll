@@ -2279,25 +2279,28 @@ spectral_crest.exit:                              ; preds = %.lr.ph.i217, %262
   %wide.trip.count.i224 = zext nneg i32 %85 to i64
   br label %.lr.ph.i225
 
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i225
+  %275 = tail call nsz float @llvm.sqrt.f32(float %282)
+  br label %spectral_flux.exit
+
 .lr.ph.i225:                                      ; preds = %.lr.ph.i225, %.lr.ph.preheader.i223
   %indvars.iv.i226 = phi i64 [ 0, %.lr.ph.preheader.i223 ], [ %indvars.iv.next.i227, %.lr.ph.i225 ]
-  %.089.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i223 ], [ %281, %.lr.ph.i225 ]
-  %275 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv.i226
-  %276 = load float, ptr %275, align 4, !tbaa !78
-  %277 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i226
-  %278 = load float, ptr %277, align 4, !tbaa !78
-  %279 = fsub nsz float %276, %278
-  %280 = fmul nsz float %279, %279
-  %281 = fadd nsz float %.089.i, %280
+  %.089.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i223 ], [ %282, %.lr.ph.i225 ]
+  %276 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv.i226
+  %277 = load float, ptr %276, align 4, !tbaa !78
+  %278 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i226
+  %279 = load float, ptr %278, align 4, !tbaa !78
+  %280 = fsub nsz float %277, %279
+  %281 = fmul nsz float %280, %280
+  %282 = fadd nsz float %.089.i, %281
   %indvars.iv.next.i227 = add nuw nsw i64 %indvars.iv.i226, 1
   %exitcond.not.i228 = icmp eq i64 %indvars.iv.next.i227, %wide.trip.count.i224
-  br i1 %exitcond.not.i228, label %spectral_flux.exit, label %.lr.ph.i225, !llvm.loop !131
+  br i1 %exitcond.not.i228, label %._crit_edge.loopexit.i, label %.lr.ph.i225, !llvm.loop !131
 
-spectral_flux.exit:                               ; preds = %.lr.ph.i225, %274
-  %.08.lcssa.i222 = phi float [ 0.000000e+00, %274 ], [ %281, %.lr.ph.i225 ]
-  %282 = tail call nsz float @llvm.sqrt.f32(float %.08.lcssa.i222)
+spectral_flux.exit:                               ; preds = %274, %._crit_edge.loopexit.i
+  %.08.lcssa.i222 = phi float [ 0.000000e+00, %274 ], [ %275, %._crit_edge.loopexit.i ]
   %283 = getelementptr inbounds nuw i8, ptr %44, i64 36
-  store float %282, ptr %283, align 4, !tbaa !70
+  store float %.08.lcssa.i222, ptr %283, align 4, !tbaa !70
   br label %284
 
 284:                                              ; preds = %spectral_flux.exit, %272

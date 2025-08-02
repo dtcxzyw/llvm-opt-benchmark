@@ -1269,14 +1269,14 @@ define internal fastcc void @i801_probe_optional_slaves(ptr noundef nonnull %0) 
 37:                                               ; preds = %31
   %38 = add nuw nsw i64 %32, 1
   %39 = icmp eq i64 %38, 11
-  br i1 %39, label %.thread, label %31, !llvm.loop !18
+  br i1 %39, label %.critedge, label %31, !llvm.loop !18
 
 40:                                               ; preds = %31
   %41 = and i64 %32, 4294967295
   %42 = icmp eq i64 %41, 11
-  br i1 %42, label %.thread, label %46
+  br i1 %42, label %.critedge, label %46
 
-.thread:                                          ; preds = %37, %40
+.critedge:                                        ; preds = %37, %40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 184
@@ -1293,7 +1293,7 @@ define internal fastcc void @i801_probe_optional_slaves(ptr noundef nonnull %0) 
   %51 = call ptr @i2c_new_client_device(ptr noundef nonnull %0, ptr noundef nonnull %2) #15
   br label %52
 
-52:                                               ; preds = %46, %.thread
+52:                                               ; preds = %46, %.critedge
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #15
   br label %54
 

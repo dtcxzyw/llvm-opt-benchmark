@@ -2440,7 +2440,7 @@ define noalias noundef ptr @Ssw_ClassesPreparePairsSimple(ptr noundef %0, ptr no
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %7, ptr %8, align 8, !tbaa !38
   %9 = icmp sgt i32 %.val29, 0
-  br i1 %9, label %Aig_ManObj.exit36.lr.ph, label %44
+  br i1 %9, label %Aig_ManObj.exit36.lr.ph, label %45
 
 Aig_ManObj.exit36.lr.ph:                          ; preds = %2
   %10 = getelementptr i8, ptr %1, i64 8
@@ -2449,7 +2449,6 @@ Aig_ManObj.exit36.lr.ph:                          ; preds = %2
   %.val33 = load ptr, ptr %11, align 8, !tbaa !14, !nonnull !96, !noundef !96
   %12 = getelementptr i8, ptr %.val33, i64 8
   %.val.i = load ptr, ptr %12, align 8, !tbaa !29
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.val31, i64 4
   %13 = getelementptr i8, ptr %0, i64 256
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !26
@@ -2463,51 +2462,51 @@ Aig_ManObj.exit36.lr.ph:                          ; preds = %2
 
 Aig_ManObj.exit36:                                ; preds = %Aig_ManObj.exit36.lr.ph, %Aig_ManObj.exit36
   %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit36.lr.ph ], [ %indvars.iv.next, %Aig_ManObj.exit36 ]
-  %20 = phi i32 [ %.promoted39, %Aig_ManObj.exit36.lr.ph ], [ %41, %Aig_ManObj.exit36 ]
-  %21 = phi i32 [ %.promoted, %Aig_ManObj.exit36.lr.ph ], [ %40, %Aig_ManObj.exit36 ]
+  %20 = phi i32 [ %.promoted39, %Aig_ManObj.exit36.lr.ph ], [ %42, %Aig_ManObj.exit36 ]
+  %21 = phi i32 [ %.promoted, %Aig_ManObj.exit36.lr.ph ], [ %41, %Aig_ManObj.exit36 ]
   %22 = getelementptr inbounds nuw i32, ptr %.val31, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !44
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds ptr, ptr %.val.i, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !46
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %27 = load i32, ptr %gep, align 4, !tbaa !44
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %.val.i, i64 %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !46
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !44
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds ptr, ptr %.val.i, i64 %29
+  %31 = load ptr, ptr %30, align 8, !tbaa !46
   %.val = load ptr, ptr %13, align 8, !tbaa !33
-  %31 = getelementptr i8, ptr %30, i64 36
-  %.val26 = load i32, ptr %31, align 4, !tbaa !42
-  %32 = sext i32 %.val26 to i64
-  %33 = getelementptr inbounds ptr, ptr %.val, i64 %32
-  store ptr %26, ptr %33, align 8, !tbaa !45
-  %34 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %32 = getelementptr i8, ptr %31, i64 36
+  %.val26 = load i32, ptr %32, align 4, !tbaa !42
+  %33 = sext i32 %.val26 to i64
+  %34 = getelementptr inbounds ptr, ptr %.val, i64 %33
   store ptr %26, ptr %34, align 8, !tbaa !45
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %30, ptr %35, align 8, !tbaa !45
-  %36 = getelementptr i8, ptr %26, i64 36
-  %.val27 = load i32, ptr %36, align 4, !tbaa !42
-  %37 = sext i32 %.val27 to i64
-  %38 = getelementptr inbounds ptr, ptr %15, i64 %37
-  store ptr %34, ptr %38, align 8, !tbaa !43
-  %39 = getelementptr inbounds i32, ptr %17, i64 %37
-  store i32 2, ptr %39, align 4, !tbaa !44
-  %40 = add nsw i32 %21, 1
-  %41 = add nsw i32 %20, 1
+  %35 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  store ptr %26, ptr %35, align 8, !tbaa !45
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store ptr %31, ptr %36, align 8, !tbaa !45
+  %37 = getelementptr i8, ptr %26, i64 36
+  %.val27 = load i32, ptr %37, align 4, !tbaa !42
+  %38 = sext i32 %.val27 to i64
+  %39 = getelementptr inbounds ptr, ptr %15, i64 %38
+  store ptr %35, ptr %39, align 8, !tbaa !43
+  %40 = getelementptr inbounds i32, ptr %17, i64 %38
+  store i32 2, ptr %40, align 4, !tbaa !44
+  %41 = add nsw i32 %21, 1
+  %42 = add nsw i32 %20, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val28 = load i32, ptr %4, align 4, !tbaa !89
-  %42 = sext i32 %.val28 to i64
-  %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %Aig_ManObj.exit36, label %._crit_edge, !llvm.loop !97
+  %43 = sext i32 %.val28 to i64
+  %44 = icmp slt i64 %indvars.iv.next, %43
+  br i1 %44, label %Aig_ManObj.exit36, label %._crit_edge, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %Aig_ManObj.exit36
-  store i32 %40, ptr %18, align 4, !tbaa !40
-  store i32 %41, ptr %19, align 4, !tbaa !41
-  br label %44
+  store i32 %41, ptr %18, align 4, !tbaa !40
+  store i32 %42, ptr %19, align 4, !tbaa !41
+  br label %45
 
-44:                                               ; preds = %._crit_edge, %2
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr null, ptr %45, align 8, !tbaa !62
+45:                                               ; preds = %._crit_edge, %2
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store ptr null, ptr %46, align 8, !tbaa !62
   ret ptr %3
 }
 

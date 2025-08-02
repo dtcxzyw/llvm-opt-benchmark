@@ -274,30 +274,30 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 6120, ptr nonnull %3) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(6120) %3, i8 0, i64 6120, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %.078116.i = load ptr, ptr %5, align 8, !tbaa !65
-  %.not117.i = icmp eq ptr %.078116.i, null
-  br i1 %.not117.i, label %.loopexit.sink.split, label %.lr.ph.i
+  %.078111.i = load ptr, ptr %5, align 8, !tbaa !65
+  %.not112.i = icmp eq ptr %.078111.i, null
+  br i1 %.not112.i, label %.loopexit.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %51
-  %.078122.i = phi ptr [ %.078.i, %51 ], [ %.078116.i, %2 ]
-  %.067121.i = phi i32 [ %.370.i, %51 ], [ 0, %2 ]
-  %.071120.i = phi i32 [ %.273.i, %51 ], [ 0, %2 ]
-  %.074119.i = phi i32 [ %.377.i, %51 ], [ 0, %2 ]
-  %.079118.i = phi i64 [ %.281.i, %51 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.078122.i, i64 8
+  %.078117.i = phi ptr [ %.078.i, %51 ], [ %.078111.i, %2 ]
+  %.067116.i = phi i32 [ %.370.i, %51 ], [ 0, %2 ]
+  %.071115.i = phi i32 [ %.273.i, %51 ], [ 0, %2 ]
+  %.074114.i = phi i32 [ %.377.i, %51 ], [ 0, %2 ]
+  %.079113.i = phi i64 [ %.281.i, %51 ], [ 0, %2 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.078117.i, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !66
   %8 = icmp eq i8 %7, -30
   br i1 %8, label %9, label %51
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds nuw i8, ptr %.078122.i, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.078117.i, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !68
   %12 = zext i32 %11 to i64
   %13 = icmp ugt i32 %11, 14
   br i1 %13, label %14, label %51
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw i8, ptr %.078122.i, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.078117.i, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !69
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %16, ptr noundef nonnull dereferenceable(12) @StoreICCP.kICCPSignature, i64 12)
   %.not88.i = icmp eq i32 %bcmp.i, 0
@@ -323,20 +323,20 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   br label %.loopexit.sink.split
 
 31:                                               ; preds = %17
-  %32 = icmp eq i32 %.067121.i, 0
+  %32 = icmp eq i32 %.067116.i, 0
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %31
-  %.not89.i = icmp eq i32 %.067121.i, %23
+  %.not89.i = icmp eq i32 %.067116.i, %23
   br i1 %.not89.i, label %37, label %34
 
 34:                                               ; preds = %33
   %35 = load ptr, ptr @stderr, align 8, !tbaa !55
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.7, i32 noundef %.067121.i, i32 noundef %23) #23
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.7, i32 noundef %.067116.i, i32 noundef %23) #23
   br label %.loopexit.sink.split
 
 37:                                               ; preds = %33, %31
-  %.269.i = phi i32 [ %.067121.i, %33 ], [ %23, %31 ]
+  %.269.i = phi i32 [ %.067116.i, %33 ], [ %23, %31 ]
   %38 = zext i8 %19 to i64
   %39 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %3, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 -16
@@ -356,17 +356,17 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   store i64 %24, ptr %40, align 8, !tbaa !71
   %48 = getelementptr inbounds i8, ptr %39, i64 -8
   store i32 %20, ptr %48, align 8, !tbaa !74
-  %49 = add i64 %24, %.079118.i
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.074119.i, i32 %20)
-  %50 = add nsw i32 %.071120.i, 1
+  %49 = add i64 %24, %.079113.i
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.074114.i, i32 %20)
+  %50 = add nsw i32 %.071115.i, 1
   br label %51
 
 51:                                               ; preds = %45, %14, %9, %.lr.ph.i
-  %.281.i = phi i64 [ %.079118.i, %14 ], [ %49, %45 ], [ %.079118.i, %9 ], [ %.079118.i, %.lr.ph.i ]
-  %.377.i = phi i32 [ %.074119.i, %14 ], [ %spec.select.i, %45 ], [ %.074119.i, %9 ], [ %.074119.i, %.lr.ph.i ]
-  %.273.i = phi i32 [ %.071120.i, %14 ], [ %50, %45 ], [ %.071120.i, %9 ], [ %.071120.i, %.lr.ph.i ]
-  %.370.i = phi i32 [ %.067121.i, %14 ], [ %.269.i, %45 ], [ %.067121.i, %9 ], [ %.067121.i, %.lr.ph.i ]
-  %.078.i = load ptr, ptr %.078122.i, align 8, !tbaa !65
+  %.281.i = phi i64 [ %.079113.i, %14 ], [ %49, %45 ], [ %.079113.i, %9 ], [ %.079113.i, %.lr.ph.i ]
+  %.377.i = phi i32 [ %.074114.i, %14 ], [ %spec.select.i, %45 ], [ %.074114.i, %9 ], [ %.074114.i, %.lr.ph.i ]
+  %.273.i = phi i32 [ %.071115.i, %14 ], [ %50, %45 ], [ %.071115.i, %9 ], [ %.071115.i, %.lr.ph.i ]
+  %.370.i = phi i32 [ %.067116.i, %14 ], [ %.269.i, %45 ], [ %.067116.i, %9 ], [ %.067116.i, %.lr.ph.i ]
+  %.078.i = load ptr, ptr %.078117.i, align 8, !tbaa !65
   %.not.i = icmp eq ptr %.078.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !75
 
@@ -404,25 +404,25 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %.281.i, ptr %66, align 8, !tbaa !78
   %67 = icmp sgt i32 %.377.i, 0
-  br i1 %67, label %.lr.ph129.i, label %.loopexit47
+  br i1 %67, label %.lr.ph124.i, label %.loopexit47
 
-.lr.ph129.i:                                      ; preds = %65, %.lr.ph129.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph129.i ], [ 0, %65 ]
-  %.0127.i = phi i64 [ %75, %.lr.ph129.i ], [ 0, %65 ]
+.lr.ph124.i:                                      ; preds = %65, %.lr.ph124.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph124.i ], [ 0, %65 ]
+  %.0122.i = phi i64 [ %75, %.lr.ph124.i ], [ 0, %65 ]
   %68 = load ptr, ptr %4, align 8, !tbaa !76
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.0127.i
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.0122.i
   %70 = getelementptr inbounds nuw [255 x %struct.ICCPSegment], ptr %3, i64 0, i64 %indvars.iv.i
   %71 = load ptr, ptr %70, align 8, !tbaa !73
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !71
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %71, i64 %73, i1 false)
   %74 = load i64, ptr %72, align 8, !tbaa !71
-  %75 = add i64 %74, %.0127.i
+  %75 = add i64 %74, %.0122.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %62
-  br i1 %exitcond.not.i, label %.loopexit47, label %.lr.ph129.i, !llvm.loop !79
+  br i1 %exitcond.not.i, label %.loopexit47, label %.lr.ph124.i, !llvm.loop !79
 
-.loopexit47:                                      ; preds = %.lr.ph129.i, %65, %._crit_edge.i
+.loopexit47:                                      ; preds = %.lr.ph124.i, %65, %._crit_edge.i
   %.03060.pr = load ptr, ptr %5, align 8, !tbaa !65
   call void @llvm.lifetime.end.p0(i64 6120, ptr nonnull %3) #18
   %.not3861 = icmp eq ptr %.03060.pr, null
@@ -492,8 +492,8 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   %exitcond = icmp eq i64 %indvars.iv.next, 2
   br i1 %exitcond, label %.critedge43.loopexit, label %79, !llvm.loop !86
 
-.loopexit.sink.split:                             ; preds = %34, %42, %27, %61, %58, %54, %2
-  %.0.ph = phi i32 [ 1, %2 ], [ 0, %54 ], [ 0, %58 ], [ 0, %61 ], [ 0, %27 ], [ 0, %42 ], [ 0, %34 ]
+.loopexit.sink.split:                             ; preds = %27, %42, %34, %61, %58, %54, %2
+  %.0.ph = phi i32 [ 1, %2 ], [ 0, %54 ], [ 0, %58 ], [ 0, %61 ], [ 0, %34 ], [ 0, %42 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(i64 6120, ptr nonnull %3) #18
   br label %.loopexit
 

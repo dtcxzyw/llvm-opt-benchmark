@@ -254,7 +254,7 @@ define range(i32 -22, 1) i32 @ff_tx_gen_compound_mapping(ptr noundef writeonly c
   %8 = sext i32 %4 to i64
   %9 = tail call i64 @av_gcd(i64 noundef %7, i64 noundef %8) #14
   %.not = icmp eq i64 %9, 1
-  br i1 %.not, label %10, label %87
+  br i1 %.not, label %10, label %91
 
 10:                                               ; preds = %5
   %11 = srem i32 %4, %3
@@ -292,8 +292,8 @@ mulinv.exit:                                      ; preds = %.lr.ph
 
 23:                                               ; preds = %.lr.ph127
   %24 = add nuw nsw i32 %.011.i106126, 1
-  %exitcond151.not = icmp eq i32 %24, %4
-  br i1 %exitcond151.not, label %._crit_edge128, label %.lr.ph127, !llvm.loop !30
+  %exitcond149.not = icmp eq i32 %24, %4
+  br i1 %exitcond149.not, label %._crit_edge128, label %.lr.ph127, !llvm.loop !30
 
 ._crit_edge128:                                   ; preds = %23, %mulinv.exit
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.2, i32 noundef 40) #13
@@ -308,7 +308,7 @@ mulinv.exit110:                                   ; preds = %.lr.ph127
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8, !tbaa !16
   %.not103 = icmp eq ptr %28, null
-  br i1 %.not103, label %87, label %30
+  br i1 %.not103, label %91, label %30
 
 30:                                               ; preds = %mulinv.exit110
   %31 = zext nneg i32 %6 to i64
@@ -344,13 +344,13 @@ mulinv.exit110:                                   ; preds = %.lr.ph127
   %50 = getelementptr inbounds nuw i32, ptr %32, i64 %49
   store i32 %45, ptr %50, align 4, !tbaa !20
   %51 = add nuw nsw i32 %.095129.us, 1
-  %exitcond152.not = icmp eq i32 %51, %3
-  br i1 %exitcond152.not, label %._crit_edge131.us, label %38, !llvm.loop !31
+  %exitcond150.not = icmp eq i32 %51, %3
+  br i1 %exitcond150.not, label %._crit_edge131.us, label %38, !llvm.loop !31
 
 ._crit_edge131.us:                                ; preds = %38
   %52 = add nuw nsw i32 %.096132.us, 1
-  %exitcond153.not = icmp eq i32 %52, %4
-  br i1 %exitcond153.not, label %.loopexit119, label %.preheader120.us, !llvm.loop !32
+  %exitcond151.not = icmp eq i32 %52, %4
+  br i1 %exitcond151.not, label %.loopexit119, label %.preheader120.us, !llvm.loop !32
 
 .preheader118.us.preheader:                       ; preds = %33, %30
   %53 = zext nneg i32 %4 to i64
@@ -358,14 +358,14 @@ mulinv.exit110:                                   ; preds = %.lr.ph127
   %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %55 = zext nneg i32 %3 to i64
   %56 = zext nneg i32 %.011.i106126 to i64
-  %smax159 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count160 = zext nneg i32 %smax159 to i64
+  %smax157 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
+  %wide.trip.count158 = zext nneg i32 %smax157 to i64
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.preheader118.us
 
 .preheader118.us:                                 ; preds = %.preheader118.us.preheader, %._crit_edge135.us
-  %indvars.iv156 = phi i64 [ 0, %.preheader118.us.preheader ], [ %indvars.iv.next157, %._crit_edge135.us ]
-  %57 = mul nuw nsw i64 %indvars.iv156, %55
+  %indvars.iv154 = phi i64 [ 0, %.preheader118.us.preheader ], [ %indvars.iv.next155, %._crit_edge135.us ]
+  %57 = mul nuw nsw i64 %indvars.iv154, %55
   %58 = mul nuw nsw i64 %57, %56
   %invariant.gep = getelementptr inbounds nuw i32, ptr %28, i64 %57
   br label %59
@@ -378,7 +378,7 @@ mulinv.exit110:                                   ; preds = %.lr.ph127
   %63 = urem i32 %62, %6
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   store i32 %63, ptr %gep, align 4, !tbaa !20
-  %64 = add nuw nsw i64 %60, %indvars.iv156
+  %64 = add nuw nsw i64 %60, %indvars.iv154
   %65 = mul nuw nsw i64 %60, %54
   %66 = add nuw nsw i64 %65, %58
   %67 = trunc nuw i64 %66 to i32
@@ -388,72 +388,72 @@ mulinv.exit110:                                   ; preds = %.lr.ph127
   %71 = trunc nuw i64 %64 to i32
   store i32 %71, ptr %70, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond155.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond155.not, label %._crit_edge135.us, label %59, !llvm.loop !33
+  %exitcond153.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond153.not, label %._crit_edge135.us, label %59, !llvm.loop !33
 
 ._crit_edge135.us:                                ; preds = %59
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %exitcond161.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count160
-  br i1 %exitcond161.not, label %.loopexit119, label %.preheader118.us, !llvm.loop !34
+  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
+  %exitcond159.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count158
+  br i1 %exitcond159.not, label %.loopexit119, label %.preheader118.us, !llvm.loop !34
 
 .loopexit119:                                     ; preds = %._crit_edge131.us, %._crit_edge135.us
-  %.not105 = icmp eq i32 %2, 0
-  br i1 %.not105, label %.loopexit, label %.lr.ph144
+  %.not105.not = icmp eq i32 %2, 0
+  br i1 %.not105.not, label %.loopexit, label %.lr.ph142
 
-.lr.ph144:                                        ; preds = %.loopexit119
-  %invariant.gep141 = getelementptr i8, ptr %28, i64 4
+.lr.ph142:                                        ; preds = %.loopexit119
   %72 = add nsw i32 %3, -1
   %73 = ashr i32 %72, 1
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.lr.ph139.us.preheader, label %.loopexit
 
-.lr.ph139.us.preheader:                           ; preds = %.lr.ph144
+.lr.ph139.us.preheader:                           ; preds = %.lr.ph142
   %75 = zext nneg i32 %3 to i64
-  %smax170 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count171 = zext nneg i32 %smax170 to i64
-  %wide.trip.count165 = zext nneg i32 %73 to i64
+  %smax168 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
+  %wide.trip.count169 = zext nneg i32 %smax168 to i64
+  %wide.trip.count163 = zext nneg i32 %73 to i64
   br label %.lr.ph139.us
 
 .lr.ph139.us:                                     ; preds = %.lr.ph139.us.preheader, %._crit_edge140.us
-  %indvars.iv167 = phi i64 [ 0, %.lr.ph139.us.preheader ], [ %indvars.iv.next168, %._crit_edge140.us ]
-  %76 = mul nuw nsw i64 %indvars.iv167, %75
-  %gep142.us = getelementptr i32, ptr %invariant.gep141, i64 %76
-  %invariant.gep.us = getelementptr i8, ptr %gep142.us, i64 -8
-  br label %77
+  %indvars.iv165 = phi i64 [ 0, %.lr.ph139.us.preheader ], [ %indvars.iv.next166, %._crit_edge140.us ]
+  %76 = mul nuw nsw i64 %indvars.iv165, %75
+  %77 = getelementptr i32, ptr %28, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 4
+  br label %79
 
-77:                                               ; preds = %.lr.ph139.us, %77
-  %indvars.iv162 = phi i64 [ 0, %.lr.ph139.us ], [ %indvars.iv.next163, %77 ]
-  %78 = sub nsw i64 %7, %indvars.iv162
-  %gep.us = getelementptr i32, ptr %invariant.gep.us, i64 %78
-  %79 = load i32, ptr %gep.us, align 4, !tbaa !20
-  %80 = getelementptr inbounds nuw i32, ptr %gep142.us, i64 %indvars.iv162
-  %81 = load i32, ptr %80, align 4, !tbaa !20
-  store i32 %81, ptr %gep.us, align 4, !tbaa !20
-  store i32 %79, ptr %80, align 4, !tbaa !20
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %._crit_edge140.us, label %77, !llvm.loop !35
+79:                                               ; preds = %.lr.ph139.us, %79
+  %indvars.iv160 = phi i64 [ 0, %.lr.ph139.us ], [ %indvars.iv.next161, %79 ]
+  %80 = sub nsw i64 %7, %indvars.iv160
+  %81 = getelementptr i32, ptr %78, i64 %80
+  %82 = getelementptr i8, ptr %81, i64 -8
+  %83 = load i32, ptr %82, align 4, !tbaa !20
+  %84 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv160
+  %85 = load i32, ptr %84, align 4, !tbaa !20
+  store i32 %85, ptr %82, align 4, !tbaa !20
+  store i32 %83, ptr %84, align 4, !tbaa !20
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
+  br i1 %exitcond164.not, label %._crit_edge140.us, label %79, !llvm.loop !35
 
-._crit_edge140.us:                                ; preds = %77
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond172.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count171
-  br i1 %exitcond172.not, label %.loopexit, label %.lr.ph139.us, !llvm.loop !36
+._crit_edge140.us:                                ; preds = %79
+  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %exitcond170.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count169
+  br i1 %exitcond170.not, label %.loopexit, label %.lr.ph139.us, !llvm.loop !36
 
-.loopexit:                                        ; preds = %._crit_edge140.us, %.lr.ph144, %.loopexit119
-  br i1 %.not104, label %84, label %82
+.loopexit:                                        ; preds = %._crit_edge140.us, %.lr.ph142, %.loopexit119
+  br i1 %.not104, label %88, label %86
 
-82:                                               ; preds = %.loopexit
-  %83 = load i32, ptr %1, align 4, !tbaa !18
-  br label %84
+86:                                               ; preds = %.loopexit
+  %87 = load i32, ptr %1, align 4, !tbaa !18
+  br label %88
 
-84:                                               ; preds = %.loopexit, %82
-  %85 = phi i32 [ %83, %82 ], [ 1, %.loopexit ]
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %85, ptr %86, align 8, !tbaa !29
-  br label %87
+88:                                               ; preds = %.loopexit, %86
+  %89 = phi i32 [ %87, %86 ], [ 1, %.loopexit ]
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 %89, ptr %90, align 8, !tbaa !29
+  br label %91
 
-87:                                               ; preds = %mulinv.exit110, %5, %84
-  %.0 = phi i32 [ 0, %84 ], [ -22, %5 ], [ -12, %mulinv.exit110 ]
+91:                                               ; preds = %mulinv.exit110, %5, %88
+  %.0 = phi i32 [ 0, %88 ], [ -22, %5 ], [ -12, %mulinv.exit110 ]
   ret i32 %.0
 }
 

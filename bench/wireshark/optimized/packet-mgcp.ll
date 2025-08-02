@@ -2485,8 +2485,8 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   br label %68
 
 68:                                               ; preds = %75, %.lr.ph.i
-  %.0222273.i = phi i32 [ 0, %.lr.ph.i ], [ %76, %75 ]
-  %69 = add i32 %.0222273.i, %65
+  %.0222272.i = phi i32 [ 0, %.lr.ph.i ], [ %76, %75 ]
+  %69 = add i32 %.0222272.i, %65
   %70 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %69)
   %71 = zext i8 %70 to i64
   %72 = getelementptr i16, ptr %13, i64 %71
@@ -2496,12 +2496,12 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond.i, label %._crit_edge.i, label %75
 
 75:                                               ; preds = %68
-  %76 = add nuw nsw i32 %.0222273.i, 1
+  %76 = add nuw nsw i32 %.0222272.i, 1
   %exitcond.not.i = icmp eq i32 %76, %67
   br i1 %exitcond.not.i, label %._crit_edge.i, label %68, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %75, %68
-  %.0222.lcssa.ph.i = phi i32 [ %67, %75 ], [ %.0222273.i, %68 ]
+  %.0222.lcssa.ph.i = phi i32 [ %67, %75 ], [ %.0222272.i, %68 ]
   %77 = icmp eq i8 %70, 58
   br i1 %77, label %78, label %tvb_parse_param.exit
 

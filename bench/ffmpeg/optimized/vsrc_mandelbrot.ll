@@ -571,9 +571,9 @@ fill_from_cache.exit433.i:                        ; preds = %fill_from_cache.exi
   br label %249
 
 249:                                              ; preds = %271, %248
-  %.0151184.i.i = phi i32 [ 0, %248 ], [ %277, %271 ]
-  %.0152183.i.i = phi i32 [ -16777216, %248 ], [ %276, %271 ]
-  %250 = shl nuw nsw i32 %.0151184.i.i, 3
+  %.0151182.i.i = phi i32 [ 0, %248 ], [ %277, %271 ]
+  %.0152181.i.i = phi i32 [ -16777216, %248 ], [ %276, %271 ]
+  %250 = shl nuw nsw i32 %.0151182.i.i, 3
   %251 = lshr i32 %.0147.i.i, %250
   %252 = lshr i32 %.0148.i.i, %250
   %253 = lshr i32 %.0149.i.i, %250
@@ -603,8 +603,8 @@ fill_from_cache.exit433.i:                        ; preds = %fill_from_cache.exi
   %273 = add nuw nsw i32 %272, %257
   %274 = lshr i32 %273, 2
   %275 = shl nuw nsw i32 %274, %250
-  %276 = or i32 %275, %.0152183.i.i
-  %277 = add nuw nsw i32 %.0151184.i.i, 1
+  %276 = or i32 %275, %.0152181.i.i
+  %277 = add nuw nsw i32 %.0151182.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %277, 3
   br i1 %exitcond.not.i.i, label %278, label %249, !llvm.loop !67
 
@@ -1072,23 +1072,23 @@ interpol.exit.thread.i:                           ; preds = %264, %249, %281, %2
   br i1 %576, label %567, label %._crit_edge.loopexit.i, !llvm.loop !75
 
 ._crit_edge.loopexit.i:                           ; preds = %567
-  %577 = zext nneg i32 %.1.i to i64
+  %577 = tail call nsz double @llvm.sqrt.f64(double %.1377.i)
+  %578 = zext nneg i32 %.1.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader489.i
-  %.0376.lcssa.i = phi double [ 9.999000e+03, %.preheader489.i ], [ %.1377.i, %._crit_edge.loopexit.i ]
-  %.0375.lcssa.i = phi i64 [ 0, %.preheader489.i ], [ %577, %._crit_edge.loopexit.i ]
-  %578 = tail call nsz double @llvm.sqrt.f64(double %.0376.lcssa.i)
+  %.0376.lcssa.i = phi double [ 0x4058FFAE13F4A7D3, %.preheader489.i ], [ %577, %._crit_edge.loopexit.i ]
+  %.0375.lcssa.i = phi i64 [ 0, %.preheader489.i ], [ %578, %._crit_edge.loopexit.i ]
   %579 = getelementptr inbounds nuw [2 x double], ptr %.pre621.i, i64 %.0375.lcssa.i
   %580 = load double, ptr %579, align 8, !tbaa !56
-  %581 = fdiv nsz double %580, %578
+  %581 = fdiv nsz double %580, %.0376.lcssa.i
   %582 = fadd nsz double %581, 1.000000e+00
   %583 = tail call nsz double @llvm.fmuladd.f64(double %582, double 1.270000e+02, double %192)
   %584 = fptrunc nsz double %583 to float
   %585 = tail call i64 @llvm.lrint.i64.f32(float %584)
   %586 = getelementptr inbounds nuw i8, ptr %579, i64 8
   %587 = load double, ptr %586, align 8, !tbaa !56
-  %588 = fdiv nsz double %587, %578
+  %588 = fdiv nsz double %587, %.0376.lcssa.i
   %589 = fadd nsz double %588, 1.000000e+00
   %590 = tail call nsz double @llvm.fmuladd.f64(double %589, double 1.270000e+02, double %192)
   %591 = fptrunc nsz double %590 to float

@@ -5361,12 +5361,7 @@ invoke.cont43:                                    ; preds = %invoke.cont11
   %conv5.i.i = sext i16 %37 to i32
   %mul6.i.i = mul nsw i32 %mul.i.i, %conv5.i.i
   %cmp.i = icmp eq i32 %mul6.i.i, 0
-  br i1 %cmp.i, label %if.then.i159, label %invoke.cont43.invoke.cont44_crit_edge
-
-invoke.cont43.invoke.cont44_crit_edge:            ; preds = %invoke.cont43
-  %.pre15 = extractelement <2 x i16> %29, i64 1
-  %.pre16 = extractelement <2 x i16> %29, i64 0
-  br label %invoke.cont44
+  br i1 %cmp.i, label %if.then.i159, label %invoke.cont44
 
 if.then.i159:                                     ; preds = %invoke.cont43
   %m_ignore_map_edit_events_area = getelementptr inbounds nuw i8, ptr %34, i64 1232
@@ -5398,21 +5393,17 @@ if.then.i159:                                     ; preds = %invoke.cont43
   %.pre = load ptr, ptr %m_server, align 8, !tbaa !207
   br label %invoke.cont44
 
-invoke.cont44:                                    ; preds = %invoke.cont43.invoke.cont44_crit_edge, %if.then.i159
-  %.pre-phi17 = phi i16 [ %.pre16, %invoke.cont43.invoke.cont44_crit_edge ], [ %39, %if.then.i159 ]
-  %.pre-phi = phi i16 [ %.pre15, %invoke.cont43.invoke.cont44_crit_edge ], [ %38, %if.then.i159 ]
-  %40 = phi ptr [ %34, %invoke.cont43.invoke.cont44_crit_edge ], [ %.pre, %if.then.i159 ]
-  %ign.sroa.0.0 = phi ptr [ null, %invoke.cont43.invoke.cont44_crit_edge ], [ %m_ignore_map_edit_events_area, %if.then.i159 ]
+invoke.cont44:                                    ; preds = %if.then.i159, %invoke.cont43
+  %40 = phi ptr [ %.pre, %if.then.i159 ], [ %34, %invoke.cont43 ]
+  %ign.sroa.0.0 = phi ptr [ %m_ignore_map_edit_events_area, %if.then.i159 ], [ null, %invoke.cont43 ]
   %m_script.i = getelementptr inbounds nuw i8, ptr %40, i64 144
   %41 = load ptr, ptr %m_script.i, align 8, !tbaa !103
   %add.ptr = getelementptr inbounds nuw i8, ptr %41, i64 72
   %minp.sroa.7.0.insert.ext = zext i16 %mul10.i to i48
   %minp.sroa.7.0.insert.shift = shl nuw i48 %minp.sroa.7.0.insert.ext, 32
-  %minp.sroa.6.0.insert.ext = zext i16 %.pre-phi to i48
-  %minp.sroa.6.0.insert.shift = shl nuw nsw i48 %minp.sroa.6.0.insert.ext, 16
-  %minp.sroa.0.0.insert.ext = zext i16 %.pre-phi17 to i48
-  %minp.sroa.6.0.insert.insert = or disjoint i48 %minp.sroa.6.0.insert.shift, %minp.sroa.0.0.insert.ext
-  %minp.sroa.0.0.insert.insert = or disjoint i48 %minp.sroa.6.0.insert.insert, %minp.sroa.7.0.insert.shift
+  %minp.sroa.6.0.insert.insert.v = shufflevector <2 x i16> %29, <2 x i16> <i16 0, i16 poison>, <3 x i32> <i32 0, i32 1, i32 2>
+  %minp.sroa.6.0.insert.insert = bitcast <3 x i16> %minp.sroa.6.0.insert.insert.v to i48
+  %minp.sroa.0.0.insert.insert = or disjoint i48 %minp.sroa.7.0.insert.shift, %minp.sroa.6.0.insert.insert
   %maxp.sroa.7.0.insert.ext = zext i16 %add13.i to i48
   %maxp.sroa.7.0.insert.shift = shl nuw i48 %maxp.sroa.7.0.insert.ext, 32
   %maxp.sroa.6.0.insert.ext = zext i16 %add8.i to i48
@@ -6611,7 +6602,7 @@ _ZN11StreamProxylsIRA53_KcEERS_OT_.exit:          ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef ptr @_ZN12EmergeThread3runEv(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef ptr @_ZN12EmergeThread3runEv(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<irr::core::vector3d<short>, std::pair<const irr::core::vector3d<short>, MapBlock *>, std::_Select1st<std::pair<const irr::core::vector3d<short>, MapBlock *>>, std::less<irr::core::vector3d<short>>>::_Alloc_node", align 8
   %ref.tmp9.i = alloca %"class.std::tuple.577", align 8

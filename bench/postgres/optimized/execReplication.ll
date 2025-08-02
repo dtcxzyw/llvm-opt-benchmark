@@ -54,8 +54,8 @@ define dso_local noundef zeroext i1 @RelationFindReplTupleByIndex(ptr noundef %0
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #5
   %9 = tail call ptr @index_open(i32 noundef %1, i32 noundef 3) #5
   %10 = tail call i32 @GetRelationIdentityOrPK(ptr noundef %0) #5
-  %.fr48 = freeze i32 %10
-  %11 = icmp eq i32 %.fr48, %1
+  %.fr46 = freeze i32 %10
+  %11 = icmp eq i32 %.fr46, %1
   store i32 4, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 328
   %13 = load ptr, ptr %12, align 8
@@ -167,13 +167,13 @@ build_replindex_scan_key.exit:                    ; preds = %71, %5
 build_replindex_scan_key.exit.split.us:           ; preds = %build_replindex_scan_key.exit
   call void @index_rescan(ptr noundef %77, ptr noundef nonnull %6, i32 noundef %.042.lcssa.i, ptr noundef null, i32 noundef 0) #5
   %84 = call zeroext i1 @index_getnext_slot(ptr noundef %77, i32 noundef 1, ptr noundef %4) #5
-  br i1 %84, label %.split43.us.us, label %.loopexit
+  br i1 %84, label %.split41.us.us, label %.critedge
 
-85:                                               ; preds = %.split43.us.us
+85:                                               ; preds = %.split41.us.us
   call void @XactLockTableWait(i32 noundef %101, ptr noundef null, ptr noundef null, i32 noundef 0) #5
   br label %.backedge.us
 
-86:                                               ; preds = %.split43.us.us
+86:                                               ; preds = %.split41.us.us
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #5
   %87 = call ptr @GetLatestSnapshot() #5
   call void @PushActiveSnapshot(ptr noundef %87) #5
@@ -186,14 +186,14 @@ build_replindex_scan_key.exit.split.us:           ; preds = %build_replindex_sca
   call void @PopActiveSnapshot() #5
   %94 = call fastcc zeroext i1 @should_refetch_tuple(i32 noundef %93, ptr noundef %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #5
-  br i1 %94, label %.backedge.us, label %.loopexit
+  br i1 %94, label %.backedge.us, label %.critedge
 
 .backedge.us:                                     ; preds = %86, %85
   call void @index_rescan(ptr noundef %77, ptr noundef nonnull %6, i32 noundef %.042.lcssa.i, ptr noundef null, i32 noundef 0) #5
   %95 = call zeroext i1 @index_getnext_slot(ptr noundef %77, i32 noundef 1, ptr noundef nonnull %4) #5
-  br i1 %95, label %.split43.us.us, label %.loopexit, !llvm.loop !8
+  br i1 %95, label %.split41.us.us, label %.critedge, !llvm.loop !8
 
-.split43.us.us:                                   ; preds = %build_replindex_scan_key.exit.split.us, %.backedge.us
+.split41.us.us:                                   ; preds = %build_replindex_scan_key.exit.split.us, %.backedge.us
   %96 = load ptr, ptr %79, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 56
   %98 = load ptr, ptr %97, align 8
@@ -213,7 +213,7 @@ build_replindex_scan_key.exit.split.us:           ; preds = %build_replindex_sca
 102:                                              ; preds = %112, %.split
   %.1 = phi ptr [ %.032, %.split ], [ %.4, %112 ]
   %103 = call zeroext i1 @index_getnext_slot(ptr noundef %77, i32 noundef 1, ptr noundef %4) #5
-  br i1 %103, label %104, label %.loopexit
+  br i1 %103, label %104, label %.critedge
 
 104:                                              ; preds = %102
   %105 = icmp eq ptr %.1, null
@@ -230,9 +230,9 @@ build_replindex_scan_key.exit.split.us:           ; preds = %build_replindex_sca
 112:                                              ; preds = %106, %104
   %.4 = phi ptr [ %111, %106 ], [ %.1, %104 ]
   %113 = call fastcc zeroext i1 @tuples_equal(ptr noundef %4, ptr noundef %3, ptr noundef %.4)
-  br i1 %113, label %.split43, label %102, !llvm.loop !10
+  br i1 %113, label %.split41, label %102, !llvm.loop !10
 
-.split43:                                         ; preds = %112
+.split41:                                         ; preds = %112
   %114 = load ptr, ptr %79, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
   %116 = load ptr, ptr %115, align 8
@@ -244,14 +244,14 @@ build_replindex_scan_key.exit.split.us:           ; preds = %build_replindex_sca
   %.not34 = icmp eq i32 %119, 0
   br i1 %.not34, label %121, label %120
 
-120:                                              ; preds = %.split43
+120:                                              ; preds = %.split41
   call void @XactLockTableWait(i32 noundef %119, ptr noundef null, ptr noundef null, i32 noundef 0) #5
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %120, %121
   br label %.split
 
-121:                                              ; preds = %.split43
+121:                                              ; preds = %.split41
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #5
   %122 = call ptr @GetLatestSnapshot() #5
   call void @PushActiveSnapshot(ptr noundef %122) #5
@@ -264,9 +264,9 @@ build_replindex_scan_key.exit.split.us:           ; preds = %build_replindex_sca
   call void @PopActiveSnapshot() #5
   %129 = call fastcc zeroext i1 @should_refetch_tuple(i32 noundef %128, ptr noundef %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #5
-  br i1 %129, label %.split.backedge, label %.loopexit
+  br i1 %129, label %.split.backedge, label %.critedge
 
-.loopexit:                                        ; preds = %121, %102, %86, %.backedge.us, %build_replindex_scan_key.exit.split.us
+.critedge:                                        ; preds = %121, %102, %86, %.backedge.us, %build_replindex_scan_key.exit.split.us
   %130 = phi i1 [ false, %build_replindex_scan_key.exit.split.us ], [ false, %.backedge.us ], [ true, %86 ], [ false, %102 ], [ true, %121 ]
   call void @index_endscan(ptr noundef %77) #5
   call void @index_close(ptr noundef %9, i32 noundef 0) #5

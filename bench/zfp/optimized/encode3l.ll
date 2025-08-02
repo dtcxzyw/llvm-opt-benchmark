@@ -177,13 +177,16 @@ select.unfold.i.i:                                ; preds = %select.unfold.prehe
   %spec.select.i.i = add i32 %80, %.01325.i.i
   %spec.select20.i.i = select i1 %.not19.i.i, i64 %.127.i.i, i64 %78
   %.not18.i.i = icmp eq i64 %spec.select20.i.i, 0
-  br i1 %.not18.i.i, label %rev_precision_uint64.exit.i, label %select.unfold.i.i
+  br i1 %.not18.i.i, label %rev_precision_uint64.exit.loopexit.i, label %select.unfold.i.i
 
-rev_precision_uint64.exit.i:                      ; preds = %select.unfold.i.i, %select.unfold.preheader.i.i
-  %.013.lcssa.i.i = phi i32 [ 0, %select.unfold.preheader.i.i ], [ %spec.select.i.i, %select.unfold.i.i ]
-  %81 = tail call i32 @llvm.umin.i32(i32 %.013.lcssa.i.i, i32 %15)
+rev_precision_uint64.exit.loopexit.i:             ; preds = %select.unfold.i.i
+  %81 = tail call i32 @llvm.umin.i32(i32 %spec.select.i.i, i32 %15)
   %82 = tail call i32 @llvm.umax.i32(i32 %81, i32 1)
-  %83 = add i32 %82, -1
+  br label %rev_precision_uint64.exit.i
+
+rev_precision_uint64.exit.i:                      ; preds = %rev_precision_uint64.exit.loopexit.i, %select.unfold.preheader.i.i
+  %.013.lcssa.i.i = phi i32 [ 1, %select.unfold.preheader.i.i ], [ %82, %rev_precision_uint64.exit.loopexit.i ]
+  %83 = add i32 %.013.lcssa.i.i, -1
   %84 = zext i32 %83 to i64
   %85 = load i64, ptr %10, align 8, !tbaa !19
   %86 = shl i64 %84, %85
@@ -217,7 +220,7 @@ stream_write_bits.exit.i:                         ; preds = %92, %rev_precision_
   %104 = and i64 %101, %103
   store i64 %104, ptr %87, align 8, !tbaa !22
   %105 = add i32 %13, -6
-  %106 = call fastcc i32 @encode_ints_uint64(ptr noundef nonnull %10, i32 noundef %105, i32 noundef %82, ptr noundef %4)
+  %106 = call fastcc i32 @encode_ints_uint64(ptr noundef nonnull %10, i32 noundef %105, i32 noundef %.013.lcssa.i.i, ptr noundef %4)
   %107 = add i32 %106, 6
   %108 = icmp ult i32 %107, %11
   br i1 %108, label %109, label %rev_encode_block_int64_3.exit
@@ -894,7 +897,11 @@ define range(i64 0, 4294967296) i64 @zfp_encode_partial_block_strided_int64_3(pt
   %9 = alloca [64 x i64], align 256
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #7
   %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader.us.preheader.i, label %.preheader70.lr.ph.i
+  br i1 %.not.i, label %.preheader.us.i.preheader, label %.preheader70.lr.ph.i
+
+.preheader.us.i.preheader:                        ; preds = %8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 256 dereferenceable(512) %9, i8 0, i64 512, i1 false)
+  br label %gather_partial_int64_3.exit
 
 .preheader70.lr.ph.i:                             ; preds = %8
   %.not129.i = icmp eq i64 %3, 0
@@ -1050,10 +1057,6 @@ pad_block_int64.exit.us.us.i:                     ; preds = %._crit_edge.us.us.i
     i64 2, label %.preheader.us116.i
   ]
 
-.preheader.us.preheader.i:                        ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 256 dereferenceable(512) %9, i8 0, i64 512, i1 false)
-  br label %gather_partial_int64_3.exit
-
 .preheader.us109.i:                               ; preds = %.preheader67.i, %.split.split.us.us.i
   %.1102.us110.i = phi i64 [ %59, %.split.split.us.us.i ], [ 0, %.preheader67.i ]
   %.idx.us111.i = shl nuw nsw i64 %.1102.us110.i, 5
@@ -1125,7 +1128,7 @@ pad_block_int64.exit66.us101.us.i:                ; preds = %pad_block_int64.exi
   %exitcond145.not.i = icmp eq i64 %72, 4
   br i1 %exitcond145.not.i, label %gather_partial_int64_3.exit, label %.preheader.us123.i, !llvm.loop !46
 
-gather_partial_int64_3.exit:                      ; preds = %.split.split.split.us.us.i, %.split.split.us.us.i, %.split.split.split.split.us.us.i, %.preheader.us.preheader.i, %.preheader67.i
+gather_partial_int64_3.exit:                      ; preds = %.split.split.split.us.us.i, %.split.split.us.us.i, %.split.split.split.split.us.us.i, %.preheader.us.i.preheader, %.preheader67.i
   %73 = call i64 @zfp_encode_block_int64_3(ptr noundef %0, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #7
   ret i64 %73

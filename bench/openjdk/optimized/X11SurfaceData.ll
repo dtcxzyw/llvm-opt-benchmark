@@ -2283,9 +2283,9 @@ define void @Java_sun_java2d_x11_XSurfaceData_setInvalid(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %9, label %.thread167
+  br i1 %.not, label %9, label %.thread
 
-.thread167:                                       ; preds = %6
+.thread:                                          ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i64 %5, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 73
@@ -2298,7 +2298,7 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
   %12 = add i32 %4, -1
   %13 = icmp ult i32 %12, 32767
   %or.cond5.not = and i1 %11, %13
-  br i1 %or.cond5.not, label %14, label %.thread
+  br i1 %or.cond5.not, label %14, label %.critedge
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %0, align 8
@@ -2420,9 +2420,9 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
   %91 = zext nneg i32 %4 to i64
   %92 = mul nsw i64 %.1, %91
   %93 = icmp sgt i64 %92, 2147483647
-  br i1 %93, label %.thread, label %94
+  br i1 %93, label %.critedge, label %94
 
-.thread:                                          ; preds = %9, %90
+.critedge:                                        ; preds = %9, %90
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.12) #18
   br label %243
 
@@ -2668,8 +2668,8 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #18
   br label %243
 
-243:                                              ; preds = %.thread167, %237, %232, %159, %85, %242, %166, %.thread
-  %.0 = phi i8 [ 0, %242 ], [ 0, %.thread ], [ 1, %166 ], [ 0, %85 ], [ 0, %159 ], [ 0, %232 ], [ 1, %237 ], [ 1, %.thread167 ]
+243:                                              ; preds = %.thread, %237, %232, %159, %85, %242, %166, %.critedge
+  %.0 = phi i8 [ 0, %242 ], [ 0, %.critedge ], [ 1, %166 ], [ 0, %85 ], [ 0, %159 ], [ 0, %232 ], [ 1, %237 ], [ 1, %.thread ]
   ret i8 %.0
 }
 

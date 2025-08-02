@@ -1805,72 +1805,72 @@ _ZN22ShenandoahBarrierSetC122load_reference_barrierEP12LIRGenerator7LIR_OprS2_m.
 25:                                               ; preds = %23
   %26 = and i64 %11, 131072
   %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %.thread, label %29
+  br i1 %.not, label %.critedge, label %27
 
-.thread:                                          ; preds = %25
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %28 = load ptr, ptr %27, align 8
-  %.sroa.01.0.copyload44 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
-  tail call void @_ZN22ShenandoahBarrierSetC111pre_barrierEP12LIRGeneratorP12CodeEmitInfom7LIR_OprS4_(ptr nonnull align 8 poison, ptr noundef %9, ptr noundef %28, i64 noundef %11, i64 %.sroa.01.0.copyload44, i64 %2)
-  br label %61
-
-29:                                               ; preds = %25
-  %30 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+27:                                               ; preds = %25
+  %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1808
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1808
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 128
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 128
-  %35 = load ptr, ptr %34, align 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %40 = load ptr, ptr %39, align 8
-  %41 = ptrtoint ptr %38 to i64
-  %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %41, %42
-  %.not.i.i.i = icmp ult i64 %43, 40
-  br i1 %.not.i.i.i, label %46, label %44
+  %39 = ptrtoint ptr %36 to i64
+  %40 = ptrtoint ptr %38 to i64
+  %41 = sub i64 %39, %40
+  %.not.i.i.i = icmp ult i64 %41, 40
+  br i1 %.not.i.i.i, label %44, label %42
 
-44:                                               ; preds = %29
-  %45 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  store ptr %45, ptr %39, align 8
+42:                                               ; preds = %27
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  store ptr %43, ptr %37, align 8
   br label %_ZN22CompilationResourceObjnwEm.exit
 
-46:                                               ; preds = %29
-  %47 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %36, i64 noundef 40, i32 noundef 0) #8
+44:                                               ; preds = %27
+  %45 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef 40, i32 noundef 0) #8
   br label %_ZN22CompilationResourceObjnwEm.exit
 
-_ZN22CompilationResourceObjnwEm.exit:             ; preds = %44, %46
-  %.0.i.i.i = phi ptr [ %40, %44 ], [ %47, %46 ]
-  %48 = icmp eq ptr %.0.i.i.i, null
-  br i1 %48, label %53, label %49
+_ZN22CompilationResourceObjnwEm.exit:             ; preds = %42, %44
+  %.0.i.i.i = phi ptr [ %38, %42 ], [ %45, %44 ]
+  %46 = icmp eq ptr %.0.i.i.i, null
+  br i1 %46, label %51, label %47
 
-49:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
+47:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
   store i32 -1, ptr %.0.i.i.i, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
-  store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  store ptr null, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  store i8 0, ptr %52, align 8
-  br label %53
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
+  store i32 0, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
+  store ptr null, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
+  store i8 0, ptr %50, align 8
+  br label %51
 
-53:                                               ; preds = %49, %_ZN22CompilationResourceObjnwEm.exit
-  %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+51:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit, %47
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = load ptr, ptr %53, align 8
+  tail call void %54(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %.0.i.i.i) #8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %.0.i.i.i) #8
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %58 = load ptr, ptr %57, align 8
   %.sroa.01.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
-  tail call void @_ZN22ShenandoahBarrierSetC111pre_barrierEP12LIRGeneratorP12CodeEmitInfom7LIR_OprS4_(ptr nonnull align 8 poison, ptr noundef %9, ptr noundef %58, i64 noundef %11, i64 %.sroa.01.0.copyload, i64 %2)
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  %60 = load ptr, ptr %59, align 8
-  tail call void @_ZN8LIR_List18branch_destinationEP5Label(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef %.0.i.i.i)
+  tail call void @_ZN22ShenandoahBarrierSetC111pre_barrierEP12LIRGeneratorP12CodeEmitInfom7LIR_OprS4_(ptr nonnull align 8 poison, ptr noundef %9, ptr noundef %56, i64 noundef %11, i64 %.sroa.01.0.copyload, i64 %2)
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 144
+  %58 = load ptr, ptr %57, align 8
+  tail call void @_ZN8LIR_List18branch_destinationEP5Label(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef %.0.i.i.i)
   br label %61
 
-61:                                               ; preds = %.thread, %53, %23, %7
+.critedge:                                        ; preds = %25
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %60 = load ptr, ptr %59, align 8
+  %.sroa.01.0.copyload.c = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  tail call void @_ZN22ShenandoahBarrierSetC111pre_barrierEP12LIRGeneratorP12CodeEmitInfom7LIR_OprS4_(ptr nonnull align 8 poison, ptr noundef %9, ptr noundef %60, i64 noundef %11, i64 %.sroa.01.0.copyload.c, i64 %2)
+  br label %61
+
+61:                                               ; preds = %.critedge, %51, %23, %7
   ret void
 }
 
@@ -1955,7 +1955,7 @@ define linkonce_odr hidden void @_ZN24ShenandoahPreBarrierStub5visitEP16LIR_OpVi
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %84
+  br i1 %5, label %6, label %78
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -2013,7 +2013,7 @@ define linkonce_odr hidden void @_ZN24ShenandoahPreBarrierStub5visitEP16LIR_OpVi
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %36, align 4
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds [3 x [21 x ptr]], ptr %35, i64 0, i64 0, i64 %39
+  %40 = getelementptr inbounds [21 x ptr], ptr %35, i64 0, i64 %39
   store ptr %31, ptr %40, align 8
   br label %41
 
@@ -2032,7 +2032,7 @@ define linkonce_odr hidden void @_ZN24ShenandoahPreBarrierStub5visitEP16LIR_OpVi
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %46, align 4
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds [3 x [21 x ptr]], ptr %45, i64 0, i64 0, i64 %49
+  %50 = getelementptr inbounds [21 x ptr], ptr %45, i64 0, i64 %49
   store ptr %.sink.i.i, ptr %50, align 8
   br label %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit
 
@@ -2041,8 +2041,8 @@ _ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit:    ; preds = %21, %24, %41, %.sin
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, 7
   switch i64 %53, label %54 [
-    i64 5, label %.sink.split.i.i7
-    i64 3, label %.sink.split.i.i7
+    i64 5, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split
+    i64 3, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split
   ]
 
 54:                                               ; preds = %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit
@@ -2067,14 +2067,13 @@ _ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit:    ; preds = %21, %24, %41, %.sin
   br i1 %.not16.i.i10, label %74, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %69 = load i32, ptr %68, align 4
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %68, align 4
-  %71 = sext i32 %69 to i64
-  %.idx.i = shl nsw i64 %71, 3
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %73 = getelementptr i8, ptr %72, i64 %.idx.i
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %70 = load i32, ptr %69, align 4
+  %71 = add nsw i32 %70, 1
+  store i32 %71, ptr %69, align 4
+  %72 = sext i32 %70 to i64
+  %73 = getelementptr inbounds [21 x ptr], ptr %68, i64 0, i64 %72
   store ptr %64, ptr %73, align 8
   br label %74
 
@@ -2083,84 +2082,73 @@ _ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit:    ; preds = %21, %24, %41, %.sin
   %76 = load i64, ptr %75, align 8
   %77 = and i64 %76, 7
   %.not17.i.i11 = icmp eq i64 %77, 7
-  br i1 %.not17.i.i11, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, label %.sink.split.i.i7
+  br i1 %.not17.i.i11, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split
 
-.sink.split.i.i7:                                 ; preds = %74, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit
-  %.sink.i.i8 = phi ptr [ %51, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ %51, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ %75, %74 ]
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %79 = load i32, ptr %78, align 4
-  %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %78, align 4
-  %81 = sext i32 %79 to i64
-  %.idx2.i = shl nsw i64 %81, 3
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %83 = getelementptr i8, ptr %82, i64 %.idx2.i
-  store ptr %.sink.i.i8, ptr %83, align 8
-  br label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit
-
-84:                                               ; preds = %2
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 569
-  store i8 1, ptr %85, align 1
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %87 = load i64, ptr %86, align 8
-  %88 = and i64 %87, 7
-  switch i64 %88, label %89 [
-    i64 5, label %.sink.split.i.i12
-    i64 3, label %.sink.split.i.i12
+78:                                               ; preds = %2
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 569
+  store i8 1, ptr %79, align 1
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %81 = load i64, ptr %80, align 8
+  %82 = and i64 %81, 7
+  switch i64 %82, label %83 [
+    i64 5, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split
+    i64 3, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split
   ]
 
-89:                                               ; preds = %84
-  %90 = and i64 %87, 1
-  %91 = icmp eq i64 %90, 0
-  br i1 %91, label %92, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit
+83:                                               ; preds = %78
+  %84 = and i64 %81, 1
+  %85 = icmp eq i64 %84, 0
+  br i1 %85, label %86, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit
 
-92:                                               ; preds = %89
-  %93 = inttoptr i64 %87 to ptr
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call noundef ptr %96(ptr noundef nonnull align 8 dereferenceable(8) %93) #8
-  %.not.i.i14 = icmp eq ptr %97, null
-  br i1 %.not.i.i14, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, label %98
+86:                                               ; preds = %83
+  %87 = inttoptr i64 %81 to ptr
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call noundef ptr %90(ptr noundef nonnull align 8 dereferenceable(8) %87) #8
+  %.not.i.i14 = icmp eq ptr %91, null
+  br i1 %.not.i.i14, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, label %92
 
-98:                                               ; preds = %92
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %100 = load i64, ptr %99, align 8
-  %101 = and i64 %100, 7
-  %.not16.i.i15 = icmp eq i64 %101, 7
-  br i1 %.not16.i.i15, label %109, label %102
+92:                                               ; preds = %86
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %94 = load i64, ptr %93, align 8
+  %95 = and i64 %94, 7
+  %.not16.i.i15 = icmp eq i64 %95, 7
+  br i1 %.not16.i.i15, label %103, label %96
 
-102:                                              ; preds = %98
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %105 = load i32, ptr %104, align 4
-  %106 = add nsw i32 %105, 1
-  store i32 %106, ptr %104, align 4
-  %107 = sext i32 %105 to i64
-  %108 = getelementptr inbounds [3 x [21 x ptr]], ptr %103, i64 0, i64 0, i64 %107
-  store ptr %99, ptr %108, align 8
-  br label %109
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %99 = load i32, ptr %98, align 4
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %98, align 4
+  %101 = sext i32 %99 to i64
+  %102 = getelementptr inbounds [21 x ptr], ptr %97, i64 0, i64 %101
+  store ptr %93, ptr %102, align 8
+  br label %103
 
-109:                                              ; preds = %102, %98
-  %110 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %111 = load i64, ptr %110, align 8
-  %112 = and i64 %111, 7
-  %.not17.i.i16 = icmp eq i64 %112, 7
-  br i1 %.not17.i.i16, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, label %.sink.split.i.i12
+103:                                              ; preds = %96, %92
+  %104 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %105 = load i64, ptr %104, align 8
+  %106 = and i64 %105, 7
+  %.not17.i.i16 = icmp eq i64 %106, 7
+  br i1 %.not17.i.i16, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split
 
-.sink.split.i.i12:                                ; preds = %109, %84, %84
-  %.sink.i.i13 = phi ptr [ %86, %84 ], [ %86, %84 ], [ %110, %109 ]
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %115 = load i32, ptr %114, align 4
-  %116 = add nsw i32 %115, 1
-  store i32 %116, ptr %114, align 4
-  %117 = sext i32 %115 to i64
-  %118 = getelementptr inbounds [3 x [21 x ptr]], ptr %113, i64 0, i64 0, i64 %117
-  store ptr %.sink.i.i13, ptr %118, align 8
+_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split: ; preds = %78, %78, %103, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit, %74
+  %.sink24 = phi i64 [ 192, %74 ], [ 192, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 192, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 24, %103 ], [ 24, %78 ], [ 24, %78 ]
+  %.sink = phi i64 [ 12, %74 ], [ 12, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 12, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 8, %103 ], [ 8, %78 ], [ 8, %78 ]
+  %.sink.i.i13.sink = phi ptr [ %75, %74 ], [ %51, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ %51, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ %104, %103 ], [ %80, %78 ], [ %80, %78 ]
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink24
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
+  %109 = load i32, ptr %108, align 4
+  %110 = add nsw i32 %109, 1
+  store i32 %110, ptr %108, align 4
+  %111 = sext i32 %109 to i64
+  %112 = getelementptr inbounds [21 x ptr], ptr %107, i64 0, i64 %111
+  store ptr %.sink.i.i13.sink, ptr %112, align 8
   br label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit
 
-_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit:     ; preds = %.sink.split.i.i12, %109, %92, %89, %.sink.split.i.i7, %74, %57, %54
+_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit:     ; preds = %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split, %103, %86, %83, %74, %57, %54
   ret void
 }
 
@@ -2209,7 +2197,7 @@ define linkonce_odr hidden void @_ZN34ShenandoahLoadReferenceBarrierStub5visitEP
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds [3 x [21 x ptr]], ptr %21, i64 0, i64 0, i64 %25
+  %26 = getelementptr inbounds [21 x ptr], ptr %21, i64 0, i64 %25
   store ptr %17, ptr %26, align 8
   br label %27
 
@@ -2228,7 +2216,7 @@ define linkonce_odr hidden void @_ZN34ShenandoahLoadReferenceBarrierStub5visitEP
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %32, align 4
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds [3 x [21 x ptr]], ptr %31, i64 0, i64 0, i64 %35
+  %36 = getelementptr inbounds [21 x ptr], ptr %31, i64 0, i64 %35
   store ptr %.sink.i.i, ptr %36, align 8
   br label %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit
 
@@ -2262,14 +2250,13 @@ _ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit:    ; preds = %7, %10, %27, %.sink
   br i1 %.not16.i.i12, label %59, label %52
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %54 = load i32, ptr %53, align 4
-  %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %53, align 4
-  %56 = sext i32 %54 to i64
-  %.idx.i = shl nsw i64 %56, 3
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %58 = getelementptr i8, ptr %57, i64 %.idx.i
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %55 = load i32, ptr %54, align 4
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %54, align 4
+  %57 = sext i32 %55 to i64
+  %58 = getelementptr inbounds [21 x ptr], ptr %53, i64 0, i64 %57
   store ptr %49, ptr %58, align 8
   br label %59
 
@@ -2282,14 +2269,13 @@ _ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit:    ; preds = %7, %10, %27, %.sink
 
 .sink.split.i.i9:                                 ; preds = %59, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit
   %.sink.i.i10 = phi ptr [ %4, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ %4, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ %60, %59 ]
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %64 = load i32, ptr %63, align 4
-  %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %63, align 4
-  %66 = sext i32 %64 to i64
-  %.idx2.i = shl nsw i64 %66, 3
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %68 = getelementptr i8, ptr %67, i64 %.idx2.i
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %65 = load i32, ptr %64, align 4
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %64, align 4
+  %67 = sext i32 %65 to i64
+  %68 = getelementptr inbounds [21 x ptr], ptr %63, i64 0, i64 %67
   store ptr %.sink.i.i10, ptr %68, align 8
   br label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit
 
@@ -2330,7 +2316,7 @@ _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit:     ; preds = %39, %42, %59, %.sin
   %89 = add nsw i32 %88, 1
   store i32 %89, ptr %87, align 4
   %90 = sext i32 %88 to i64
-  %91 = getelementptr inbounds [3 x [21 x ptr]], ptr %86, i64 0, i64 0, i64 %90
+  %91 = getelementptr inbounds [21 x ptr], ptr %86, i64 0, i64 %90
   store ptr %82, ptr %91, align 8
   br label %92
 
@@ -2349,7 +2335,7 @@ _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit:     ; preds = %39, %42, %59, %.sin
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %97, align 4
   %100 = sext i32 %98 to i64
-  %101 = getelementptr inbounds [3 x [21 x ptr]], ptr %96, i64 0, i64 0, i64 %100
+  %101 = getelementptr inbounds [21 x ptr], ptr %96, i64 0, i64 %100
   store ptr %.sink.i.i15, ptr %101, align 8
   br label %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit19
 
@@ -2364,7 +2350,7 @@ _ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit19:  ; preds = %72, %75, %92, %.sin
 104:                                              ; preds = %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit19
   %105 = and i64 %102, 1
   %106 = icmp eq i64 %105, 0
-  br i1 %106, label %107, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit27
+  br i1 %106, label %107, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit25
 
 107:                                              ; preds = %104
   %108 = inttoptr i64 %102 to ptr
@@ -2372,25 +2358,24 @@ _ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit19:  ; preds = %72, %75, %92, %.sin
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = tail call noundef ptr %111(ptr noundef nonnull align 8 dereferenceable(8) %108) #8
-  %.not.i.i23 = icmp eq ptr %112, null
-  br i1 %.not.i.i23, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit27, label %113
+  %.not.i.i22 = icmp eq ptr %112, null
+  br i1 %.not.i.i22, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit25, label %113
 
 113:                                              ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %115 = load i64, ptr %114, align 8
   %116 = and i64 %115, 7
-  %.not16.i.i24 = icmp eq i64 %116, 7
-  br i1 %.not16.i.i24, label %124, label %117
+  %.not16.i.i23 = icmp eq i64 %116, 7
+  br i1 %.not16.i.i23, label %124, label %117
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %119 = load i32, ptr %118, align 4
-  %120 = add nsw i32 %119, 1
-  store i32 %120, ptr %118, align 4
-  %121 = sext i32 %119 to i64
-  %.idx.i25 = shl nsw i64 %121, 3
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %123 = getelementptr i8, ptr %122, i64 %.idx.i25
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %120 = load i32, ptr %119, align 4
+  %121 = add nsw i32 %120, 1
+  store i32 %121, ptr %119, align 4
+  %122 = sext i32 %120 to i64
+  %123 = getelementptr inbounds [21 x ptr], ptr %118, i64 0, i64 %122
   store ptr %114, ptr %123, align 8
   br label %124
 
@@ -2398,35 +2383,34 @@ _ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit19:  ; preds = %72, %75, %92, %.sin
   %125 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %126 = load i64, ptr %125, align 8
   %127 = and i64 %126, 7
-  %.not17.i.i26 = icmp eq i64 %127, 7
-  br i1 %.not17.i.i26, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit27, label %.sink.split.i.i20
+  %.not17.i.i24 = icmp eq i64 %127, 7
+  br i1 %.not17.i.i24, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit25, label %.sink.split.i.i20
 
 .sink.split.i.i20:                                ; preds = %124, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit19, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit19
   %.sink.i.i21 = phi ptr [ %69, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit19 ], [ %69, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit19 ], [ %125, %124 ]
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %129 = load i32, ptr %128, align 4
-  %130 = add nsw i32 %129, 1
-  store i32 %130, ptr %128, align 4
-  %131 = sext i32 %129 to i64
-  %.idx2.i22 = shl nsw i64 %131, 3
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %133 = getelementptr i8, ptr %132, i64 %.idx2.i22
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %130 = load i32, ptr %129, align 4
+  %131 = add nsw i32 %130, 1
+  store i32 %131, ptr %129, align 4
+  %132 = sext i32 %130 to i64
+  %133 = getelementptr inbounds [21 x ptr], ptr %128, i64 0, i64 %132
   store ptr %.sink.i.i21, ptr %133, align 8
-  br label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit27
+  br label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit25
 
-_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit27:   ; preds = %104, %107, %124, %.sink.split.i.i20
+_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit25:   ; preds = %104, %107, %124, %.sink.split.i.i20
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %135 = load i64, ptr %134, align 8
   %136 = and i64 %135, 7
   switch i64 %136, label %137 [
-    i64 5, label %.sink.split.i.i28
-    i64 3, label %.sink.split.i.i28
+    i64 5, label %.sink.split.i.i26
+    i64 3, label %.sink.split.i.i26
   ]
 
-137:                                              ; preds = %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit27
+137:                                              ; preds = %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit25
   %138 = and i64 %135, 1
   %139 = icmp eq i64 %138, 0
-  br i1 %139, label %140, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit35
+  br i1 %139, label %140, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit31
 
 140:                                              ; preds = %137
   %141 = inttoptr i64 %135 to ptr
@@ -2434,25 +2418,24 @@ _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit27:   ; preds = %104, %107, %124, %.
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = tail call noundef ptr %144(ptr noundef nonnull align 8 dereferenceable(8) %141) #8
-  %.not.i.i31 = icmp eq ptr %145, null
-  br i1 %.not.i.i31, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit35, label %146
+  %.not.i.i28 = icmp eq ptr %145, null
+  br i1 %.not.i.i28, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit31, label %146
 
 146:                                              ; preds = %140
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %148 = load i64, ptr %147, align 8
   %149 = and i64 %148, 7
-  %.not16.i.i32 = icmp eq i64 %149, 7
-  br i1 %.not16.i.i32, label %157, label %150
+  %.not16.i.i29 = icmp eq i64 %149, 7
+  br i1 %.not16.i.i29, label %157, label %150
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %152 = load i32, ptr %151, align 4
-  %153 = add nsw i32 %152, 1
-  store i32 %153, ptr %151, align 4
-  %154 = sext i32 %152 to i64
-  %.idx.i33 = shl nsw i64 %154, 3
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %156 = getelementptr i8, ptr %155, i64 %.idx.i33
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %153 = load i32, ptr %152, align 4
+  %154 = add nsw i32 %153, 1
+  store i32 %154, ptr %152, align 4
+  %155 = sext i32 %153 to i64
+  %156 = getelementptr inbounds [21 x ptr], ptr %151, i64 0, i64 %155
   store ptr %147, ptr %156, align 8
   br label %157
 
@@ -2460,35 +2443,34 @@ _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit27:   ; preds = %104, %107, %124, %.
   %158 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %159 = load i64, ptr %158, align 8
   %160 = and i64 %159, 7
-  %.not17.i.i34 = icmp eq i64 %160, 7
-  br i1 %.not17.i.i34, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit35, label %.sink.split.i.i28
+  %.not17.i.i30 = icmp eq i64 %160, 7
+  br i1 %.not17.i.i30, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit31, label %.sink.split.i.i26
 
-.sink.split.i.i28:                                ; preds = %157, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit27, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit27
-  %.sink.i.i29 = phi ptr [ %134, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit27 ], [ %134, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit27 ], [ %158, %157 ]
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %162 = load i32, ptr %161, align 4
-  %163 = add nsw i32 %162, 1
-  store i32 %163, ptr %161, align 4
-  %164 = sext i32 %162 to i64
-  %.idx2.i30 = shl nsw i64 %164, 3
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %166 = getelementptr i8, ptr %165, i64 %.idx2.i30
-  store ptr %.sink.i.i29, ptr %166, align 8
-  br label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit35
+.sink.split.i.i26:                                ; preds = %157, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit25, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit25
+  %.sink.i.i27 = phi ptr [ %134, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit25 ], [ %134, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit25 ], [ %158, %157 ]
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %163 = load i32, ptr %162, align 4
+  %164 = add nsw i32 %163, 1
+  store i32 %164, ptr %162, align 4
+  %165 = sext i32 %163 to i64
+  %166 = getelementptr inbounds [21 x ptr], ptr %161, i64 0, i64 %165
+  store ptr %.sink.i.i27, ptr %166, align 8
+  br label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit31
 
-_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit35:   ; preds = %137, %140, %157, %.sink.split.i.i28
+_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit31:   ; preds = %137, %140, %157, %.sink.split.i.i26
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %168 = load i64, ptr %167, align 8
   %169 = and i64 %168, 7
   switch i64 %169, label %170 [
-    i64 5, label %.sink.split.i.i36
-    i64 3, label %.sink.split.i.i36
+    i64 5, label %.sink.split.i.i32
+    i64 3, label %.sink.split.i.i32
   ]
 
-170:                                              ; preds = %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit35
+170:                                              ; preds = %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit31
   %171 = and i64 %168, 1
   %172 = icmp eq i64 %171, 0
-  br i1 %172, label %173, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43
+  br i1 %172, label %173, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit37
 
 173:                                              ; preds = %170
   %174 = inttoptr i64 %168 to ptr
@@ -2496,25 +2478,24 @@ _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit35:   ; preds = %137, %140, %157, %.
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load ptr, ptr %176, align 8
   %178 = tail call noundef ptr %177(ptr noundef nonnull align 8 dereferenceable(8) %174) #8
-  %.not.i.i39 = icmp eq ptr %178, null
-  br i1 %.not.i.i39, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43, label %179
+  %.not.i.i34 = icmp eq ptr %178, null
+  br i1 %.not.i.i34, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit37, label %179
 
 179:                                              ; preds = %173
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %181 = load i64, ptr %180, align 8
   %182 = and i64 %181, 7
-  %.not16.i.i40 = icmp eq i64 %182, 7
-  br i1 %.not16.i.i40, label %190, label %183
+  %.not16.i.i35 = icmp eq i64 %182, 7
+  br i1 %.not16.i.i35, label %190, label %183
 
 183:                                              ; preds = %179
-  %184 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %185 = load i32, ptr %184, align 4
-  %186 = add nsw i32 %185, 1
-  store i32 %186, ptr %184, align 4
-  %187 = sext i32 %185 to i64
-  %.idx.i41 = shl nsw i64 %187, 3
-  %188 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %189 = getelementptr i8, ptr %188, i64 %.idx.i41
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %186 = load i32, ptr %185, align 4
+  %187 = add nsw i32 %186, 1
+  store i32 %187, ptr %185, align 4
+  %188 = sext i32 %186 to i64
+  %189 = getelementptr inbounds [21 x ptr], ptr %184, i64 0, i64 %188
   store ptr %180, ptr %189, align 8
   br label %190
 
@@ -2522,35 +2503,34 @@ _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit35:   ; preds = %137, %140, %157, %.
   %191 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %192 = load i64, ptr %191, align 8
   %193 = and i64 %192, 7
-  %.not17.i.i42 = icmp eq i64 %193, 7
-  br i1 %.not17.i.i42, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43, label %.sink.split.i.i36
+  %.not17.i.i36 = icmp eq i64 %193, 7
+  br i1 %.not17.i.i36, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit37, label %.sink.split.i.i32
 
-.sink.split.i.i36:                                ; preds = %190, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit35, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit35
-  %.sink.i.i37 = phi ptr [ %167, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit35 ], [ %167, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit35 ], [ %191, %190 ]
-  %194 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %195 = load i32, ptr %194, align 4
-  %196 = add nsw i32 %195, 1
-  store i32 %196, ptr %194, align 4
-  %197 = sext i32 %195 to i64
-  %.idx2.i38 = shl nsw i64 %197, 3
-  %198 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %199 = getelementptr i8, ptr %198, i64 %.idx2.i38
-  store ptr %.sink.i.i37, ptr %199, align 8
-  br label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43
+.sink.split.i.i32:                                ; preds = %190, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit31, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit31
+  %.sink.i.i33 = phi ptr [ %167, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit31 ], [ %167, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit31 ], [ %191, %190 ]
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %196 = load i32, ptr %195, align 4
+  %197 = add nsw i32 %196, 1
+  store i32 %197, ptr %195, align 4
+  %198 = sext i32 %196 to i64
+  %199 = getelementptr inbounds [21 x ptr], ptr %194, i64 0, i64 %198
+  store ptr %.sink.i.i33, ptr %199, align 8
+  br label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit37
 
-_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43:   ; preds = %170, %173, %190, %.sink.split.i.i36
+_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit37:   ; preds = %170, %173, %190, %.sink.split.i.i32
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %201 = load i64, ptr %200, align 8
   %202 = and i64 %201, 7
   switch i64 %202, label %203 [
-    i64 5, label %.sink.split.i.i44
-    i64 3, label %.sink.split.i.i44
+    i64 5, label %.sink.split.i.i38
+    i64 3, label %.sink.split.i.i38
   ]
 
-203:                                              ; preds = %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43
+203:                                              ; preds = %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit37
   %204 = and i64 %201, 1
   %205 = icmp eq i64 %204, 0
-  br i1 %205, label %206, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51
+  br i1 %205, label %206, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43
 
 206:                                              ; preds = %203
   %207 = inttoptr i64 %201 to ptr
@@ -2558,25 +2538,24 @@ _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43:   ; preds = %170, %173, %190, %.
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %210 = load ptr, ptr %209, align 8
   %211 = tail call noundef ptr %210(ptr noundef nonnull align 8 dereferenceable(8) %207) #8
-  %.not.i.i47 = icmp eq ptr %211, null
-  br i1 %.not.i.i47, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51, label %212
+  %.not.i.i40 = icmp eq ptr %211, null
+  br i1 %.not.i.i40, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43, label %212
 
 212:                                              ; preds = %206
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %214 = load i64, ptr %213, align 8
   %215 = and i64 %214, 7
-  %.not16.i.i48 = icmp eq i64 %215, 7
-  br i1 %.not16.i.i48, label %223, label %216
+  %.not16.i.i41 = icmp eq i64 %215, 7
+  br i1 %.not16.i.i41, label %223, label %216
 
 216:                                              ; preds = %212
-  %217 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %218 = load i32, ptr %217, align 4
-  %219 = add nsw i32 %218, 1
-  store i32 %219, ptr %217, align 4
-  %220 = sext i32 %218 to i64
-  %.idx.i49 = shl nsw i64 %220, 3
-  %221 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %222 = getelementptr i8, ptr %221, i64 %.idx.i49
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %219 = load i32, ptr %218, align 4
+  %220 = add nsw i32 %219, 1
+  store i32 %220, ptr %218, align 4
+  %221 = sext i32 %219 to i64
+  %222 = getelementptr inbounds [21 x ptr], ptr %217, i64 0, i64 %221
   store ptr %213, ptr %222, align 8
   br label %223
 
@@ -2584,23 +2563,22 @@ _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43:   ; preds = %170, %173, %190, %.
   %224 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %225 = load i64, ptr %224, align 8
   %226 = and i64 %225, 7
-  %.not17.i.i50 = icmp eq i64 %226, 7
-  br i1 %.not17.i.i50, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51, label %.sink.split.i.i44
+  %.not17.i.i42 = icmp eq i64 %226, 7
+  br i1 %.not17.i.i42, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43, label %.sink.split.i.i38
 
-.sink.split.i.i44:                                ; preds = %223, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43
-  %.sink.i.i45 = phi ptr [ %200, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43 ], [ %200, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43 ], [ %224, %223 ]
-  %227 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %228 = load i32, ptr %227, align 4
-  %229 = add nsw i32 %228, 1
-  store i32 %229, ptr %227, align 4
-  %230 = sext i32 %228 to i64
-  %.idx2.i46 = shl nsw i64 %230, 3
-  %231 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %232 = getelementptr i8, ptr %231, i64 %.idx2.i46
-  store ptr %.sink.i.i45, ptr %232, align 8
-  br label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51
+.sink.split.i.i38:                                ; preds = %223, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit37, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit37
+  %.sink.i.i39 = phi ptr [ %200, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit37 ], [ %200, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit37 ], [ %224, %223 ]
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %229 = load i32, ptr %228, align 4
+  %230 = add nsw i32 %229, 1
+  store i32 %230, ptr %228, align 4
+  %231 = sext i32 %229 to i64
+  %232 = getelementptr inbounds [21 x ptr], ptr %227, i64 0, i64 %231
+  store ptr %.sink.i.i39, ptr %232, align 8
+  br label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43
 
-_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51:   ; preds = %203, %206, %223, %.sink.split.i.i44
+_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit43:   ; preds = %203, %206, %223, %.sink.split.i.i38
   ret void
 }
 

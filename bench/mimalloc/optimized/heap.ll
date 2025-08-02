@@ -878,8 +878,8 @@ define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(a
   %21 = load i64, ptr %20, align 16, !tbaa !61
   %22 = lshr i64 %19, %21
   %.idx.i = mul nuw nsw i64 %22, 80
-  %23 = getelementptr i8, ptr %12, i64 216
-  %24 = getelementptr i8, ptr %23, i64 %.idx.i
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
   %25 = load atomic i64, ptr %24 monotonic, align 8
   %26 = inttoptr i64 %25 to ptr
   %27 = icmp eq ptr %0, %26

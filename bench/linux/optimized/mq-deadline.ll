@@ -356,7 +356,8 @@ define internal noundef range(i32 0, 4) i32 @dd_request_merge(ptr noundef readon
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr [3 x %struct.dd_per_prio], ptr %7, i64 0, i64 %25, i32 1, i64 %29
+  %.split = getelementptr [3 x %struct.dd_per_prio], ptr %7, i64 0, i64 %25, i32 1
+  %30 = getelementptr [2 x %struct.rb_root], ptr %.split, i64 0, i64 %29
   %31 = tail call ptr @elv_rb_find(ptr noundef %30, i64 noundef %14) #12
   %32 = icmp eq ptr %31, null
   br i1 %32, label %51, label %33
@@ -420,12 +421,13 @@ define internal void @dd_request_merged(ptr noundef readonly captures(none) %0, 
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr [3 x %struct.dd_per_prio], ptr %13, i64 0, i64 %16, i32 1, i64 %20
+  %.split = getelementptr [3 x %struct.dd_per_prio], ptr %13, i64 0, i64 %16, i32 1
+  %21 = getelementptr [2 x %struct.rb_root], ptr %.split, i64 0, i64 %20
   tail call void @elv_rb_del(ptr noundef %21, ptr noundef %1) #12
   %22 = load i32, ptr %17, align 8
   %23 = and i32 %22, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr [3 x %struct.dd_per_prio], ptr %13, i64 0, i64 %16, i32 1, i64 %24
+  %25 = getelementptr [2 x %struct.rb_root], ptr %.split, i64 0, i64 %24
   tail call void @elv_rb_add(ptr noundef %25, ptr noundef %1) #12
   br label %26
 

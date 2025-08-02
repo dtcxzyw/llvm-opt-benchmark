@@ -576,13 +576,13 @@ define hidden noundef ptr @mlib_ImageSetSubimage(ptr noundef captures(address, r
 ; Function Attrs: nounwind uwtable
 define hidden ptr @mlib_ImageCreateRowTable(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %25, label %3
+  br i1 %2, label %28, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %25
+  br i1 %.not, label %6, label %28
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %0, i64 12
@@ -592,14 +592,14 @@ define hidden ptr @mlib_ImageCreateRowTable(ptr noundef captures(address_is_null
   %9 = getelementptr i8, ptr %0, i64 24
   %.val33 = load ptr, ptr %9, align 8
   %10 = icmp eq ptr %.val33, null
-  br i1 %10, label %25, label %11
+  br i1 %10, label %28, label %11
 
 11:                                               ; preds = %6
   %12 = shl i32 %.val, 3
   %13 = add i32 %12, 24
   %14 = tail call ptr @mlib_malloc(i32 noundef %13) #7
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %25, label %16
+  br i1 %15, label %28, label %16
 
 16:                                               ; preds = %11
   store ptr null, ptr %14, align 8
@@ -609,7 +609,6 @@ define hidden ptr @mlib_ImageCreateRowTable(ptr noundef captures(address_is_null
   %19 = getelementptr ptr, ptr %14, i64 %18
   %20 = getelementptr i8, ptr %19, i64 16
   store ptr %17, ptr %20, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %14, i64 16
   %21 = icmp sgt i32 %.val, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
@@ -620,20 +619,22 @@ define hidden ptr @mlib_ImageCreateRowTable(ptr noundef captures(address_is_null
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %.02635 = phi ptr [ %.val33, %.lr.ph ], [ %24, %23 ]
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv
-  store ptr %.02635, ptr %gep, align 8
-  %24 = getelementptr inbounds i8, ptr %.02635, i64 %22
+  %.02635 = phi ptr [ %.val33, %.lr.ph ], [ %26, %23 ]
+  %24 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store ptr %.02635, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %.02635, i64 %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %23, %16
-  store ptr %invariant.gep, ptr %4, align 8
-  br label %25
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr %27, ptr %4, align 8
+  br label %28
 
-25:                                               ; preds = %11, %6, %3, %1, %._crit_edge
-  %.0 = phi ptr [ %invariant.gep, %._crit_edge ], [ null, %1 ], [ %5, %3 ], [ null, %6 ], [ null, %11 ]
+28:                                               ; preds = %11, %6, %3, %1, %._crit_edge
+  %.0 = phi ptr [ %27, %._crit_edge ], [ null, %1 ], [ %5, %3 ], [ null, %6 ], [ null, %11 ]
   ret ptr %.0
 }
 

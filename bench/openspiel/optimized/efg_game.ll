@@ -9502,60 +9502,60 @@ _ZNSt6vectorIPN10open_spiel8efg_game4NodeESaIS3_EE9push_backEOS3_.exit: ; preds 
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIPN10open_spiel8efg_game4NodeESaIS3_EE9push_backEOS3_.exit
   %346 = fadd double %251, -1.000000e+00
+  %347 = call double @llvm.fabs.f64(double %346)
+  %348 = fcmp ugt double %347, 0x3EB0C6F7A0000000
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.037.lcssa = phi double [ -1.000000e+00, %.preheader ], [ %346, %._crit_edge.loopexit ]
-  %347 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %348 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %349 = load ptr, ptr %348, align 8
-  %350 = load ptr, ptr %347, align 8
-  %351 = ptrtoint ptr %349 to i64
-  %352 = ptrtoint ptr %350 to i64
-  %353 = sub i64 %351, %352
-  %354 = ashr exact i64 %353, 5
-  store i64 %354, ptr %46, align 8
+  %.037.lcssa = phi i1 [ true, %.preheader ], [ %348, %._crit_edge.loopexit ]
+  %349 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %350 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %351 = load ptr, ptr %350, align 8
+  %352 = load ptr, ptr %349, align 8
+  %353 = ptrtoint ptr %351 to i64
+  %354 = ptrtoint ptr %352 to i64
+  %355 = sub i64 %353, %354
+  %356 = ashr exact i64 %355, 5
+  store i64 %356, ptr %46, align 8
   store i32 0, ptr %47, align 4
-  %.not = icmp eq ptr %349, %350
-  br i1 %.not, label %355, label %364
+  %.not = icmp eq ptr %351, %352
+  br i1 %.not, label %357, label %366
 
-355:                                              ; preds = %._crit_edge
+357:                                              ; preds = %._crit_edge
   store i32 577, ptr %49, align 4
-  %356 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  %357 = load i32, ptr %356, align 4
-  call void @_ZNK10open_spiel8efg_game7EFGGame7GetLineB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %50, ptr noundef nonnull align 8 dereferenceable(720) %0, i32 noundef %357)
-  invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA136_KcRA2_S2_iS6_RA26_S2_RA23_S2_RA4_S2_RmRA7_S2_RiS6_RA22_S2_SG_RA3_S2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESQ_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %48, ptr noundef nonnull align 1 dereferenceable(136) @.str.6, ptr noundef nonnull align 1 dereferenceable(2) @.str.7, ptr noundef nonnull align 4 dereferenceable(4) %49, ptr noundef nonnull align 1 dereferenceable(2) @.str.8, ptr noundef nonnull align 1 dereferenceable(26) @.str.88, ptr noundef nonnull align 1 dereferenceable(23) @.str.89, ptr noundef nonnull align 1 dereferenceable(4) @.str.11, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 1 dereferenceable(7) @.str.17, ptr noundef nonnull align 4 dereferenceable(4) %47, ptr noundef nonnull align 1 dereferenceable(2) @.str.55, ptr noundef nonnull align 1 dereferenceable(22) @.str.56, ptr noundef nonnull align 4 dereferenceable(4) %356, ptr noundef nonnull align 1 dereferenceable(3) @.str.57, ptr noundef nonnull align 8 dereferenceable(32) %50)
-          to label %358 unwind label %360
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  %359 = load i32, ptr %358, align 4
+  call void @_ZNK10open_spiel8efg_game7EFGGame7GetLineB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %50, ptr noundef nonnull align 8 dereferenceable(720) %0, i32 noundef %359)
+  invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA136_KcRA2_S2_iS6_RA26_S2_RA23_S2_RA4_S2_RmRA7_S2_RiS6_RA22_S2_SG_RA3_S2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESQ_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %48, ptr noundef nonnull align 1 dereferenceable(136) @.str.6, ptr noundef nonnull align 1 dereferenceable(2) @.str.7, ptr noundef nonnull align 4 dereferenceable(4) %49, ptr noundef nonnull align 1 dereferenceable(2) @.str.8, ptr noundef nonnull align 1 dereferenceable(26) @.str.88, ptr noundef nonnull align 1 dereferenceable(23) @.str.89, ptr noundef nonnull align 1 dereferenceable(4) @.str.11, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 1 dereferenceable(7) @.str.17, ptr noundef nonnull align 4 dereferenceable(4) %47, ptr noundef nonnull align 1 dereferenceable(2) @.str.55, ptr noundef nonnull align 1 dereferenceable(22) @.str.56, ptr noundef nonnull align 4 dereferenceable(4) %358, ptr noundef nonnull align 1 dereferenceable(3) @.str.57, ptr noundef nonnull align 8 dereferenceable(32) %50)
+          to label %360 unwind label %362
 
-358:                                              ; preds = %355
+360:                                              ; preds = %357
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %48) #28
-          to label %359 unwind label %362
+          to label %361 unwind label %364
 
-359:                                              ; preds = %358
+361:                                              ; preds = %360
   unreachable
 
-360:                                              ; preds = %355
-  %361 = landingpad { ptr, i32 }
+362:                                              ; preds = %357
+  %363 = landingpad { ptr, i32 }
           cleanup
   br label %421
 
-362:                                              ; preds = %358
-  %363 = landingpad { ptr, i32 }
+364:                                              ; preds = %360
+  %365 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #29
   br label %421
 
-364:                                              ; preds = %._crit_edge
-  %365 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds nuw i8, ptr %2, i64 160
+366:                                              ; preds = %._crit_edge
+  %367 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %368 = load ptr, ptr %367, align 8
-  call void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %366, ptr %368)
-  %369 = call double @llvm.fabs.f64(double %.037.lcssa)
-  %370 = fcmp ugt double %369, 0x3EB0C6F7A0000000
-  br i1 %370, label %371, label %380
+  %369 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %370 = load ptr, ptr %369, align 8
+  call void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %368, ptr %370)
+  br i1 %.037.lcssa, label %371, label %380
 
-371:                                              ; preds = %364
+371:                                              ; preds = %366
   store i32 579, ptr %52, align 4
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %373 = load i32, ptr %372, align 4
@@ -9581,7 +9581,7 @@ _ZNSt6vectorIPN10open_spiel8efg_game4NodeESaIS3_EE9push_backEOS3_.exit: ; preds 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #29
   br label %421
 
-380:                                              ; preds = %364
+380:                                              ; preds = %366
   call void @_ZN10open_spiel8efg_game7EFGGame9NextTokenB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %54, ptr noundef nonnull align 8 dereferenceable(720) %0)
   %381 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull @.str.76) #29
   %382 = icmp eq i32 %381, 0
@@ -9692,9 +9692,9 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 ._crit_edge122:                                   ; preds = %418, %412
   ret void
 
-421:                                              ; preds = %408, %410, %388, %390, %376, %378, %360, %362, %216, %222, %236, %249, %345, %.loopexit.split-lp, %.loopexit, %170, %172, %129, %131, %109, %111, %92, %94, %69, %71, %406, %127
-  %.sink = phi ptr [ %58, %406 ], [ %20, %127 ], [ %10, %71 ], [ %10, %69 ], [ %15, %94 ], [ %15, %92 ], [ %19, %111 ], [ %19, %109 ], [ %23, %131 ], [ %23, %129 ], [ %28, %172 ], [ %28, %170 ], [ %29, %.loopexit ], [ %29, %.loopexit.split-lp ], [ %29, %345 ], [ %29, %249 ], [ %29, %236 ], [ %29, %222 ], [ %29, %216 ], [ %50, %362 ], [ %50, %360 ], [ %53, %378 ], [ %53, %376 ], [ %57, %390 ], [ %57, %388 ], [ %61, %410 ], [ %61, %408 ]
-  %.pn61.pn = phi { ptr, i32 } [ %407, %406 ], [ %128, %127 ], [ %72, %71 ], [ %70, %69 ], [ %95, %94 ], [ %93, %92 ], [ %112, %111 ], [ %110, %109 ], [ %132, %131 ], [ %130, %129 ], [ %173, %172 ], [ %171, %170 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.phi106, %345 ], [ %.pn50, %249 ], [ %.pn48, %236 ], [ %.pn52, %222 ], [ %217, %216 ], [ %363, %362 ], [ %361, %360 ], [ %379, %378 ], [ %377, %376 ], [ %391, %390 ], [ %389, %388 ], [ %411, %410 ], [ %409, %408 ]
+421:                                              ; preds = %408, %410, %388, %390, %376, %378, %362, %364, %216, %222, %236, %249, %345, %.loopexit.split-lp, %.loopexit, %170, %172, %129, %131, %109, %111, %92, %94, %69, %71, %406, %127
+  %.sink = phi ptr [ %58, %406 ], [ %20, %127 ], [ %10, %71 ], [ %10, %69 ], [ %15, %94 ], [ %15, %92 ], [ %19, %111 ], [ %19, %109 ], [ %23, %131 ], [ %23, %129 ], [ %28, %172 ], [ %28, %170 ], [ %29, %.loopexit ], [ %29, %.loopexit.split-lp ], [ %29, %345 ], [ %29, %249 ], [ %29, %236 ], [ %29, %222 ], [ %29, %216 ], [ %50, %364 ], [ %50, %362 ], [ %53, %378 ], [ %53, %376 ], [ %57, %390 ], [ %57, %388 ], [ %61, %410 ], [ %61, %408 ]
+  %.pn61.pn = phi { ptr, i32 } [ %407, %406 ], [ %128, %127 ], [ %72, %71 ], [ %70, %69 ], [ %95, %94 ], [ %93, %92 ], [ %112, %111 ], [ %110, %109 ], [ %132, %131 ], [ %130, %129 ], [ %173, %172 ], [ %171, %170 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.phi106, %345 ], [ %.pn50, %249 ], [ %.pn48, %236 ], [ %.pn52, %222 ], [ %217, %216 ], [ %365, %364 ], [ %363, %362 ], [ %379, %378 ], [ %377, %376 ], [ %391, %390 ], [ %389, %388 ], [ %411, %410 ], [ %409, %408 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #29
   resume { ptr, i32 } %.pn61.pn
 }

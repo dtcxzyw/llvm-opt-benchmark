@@ -1411,7 +1411,7 @@ define void @Extra_FileLineNumAdd(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 6:                                                ; preds = %2
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %0)
-  br label %23
+  br label %25
 
 8:                                                ; preds = %2
   %9 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.15)
@@ -1419,7 +1419,6 @@ define void @Extra_FileLineNumAdd(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %10, label %12, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %invariant.gep = getelementptr i8, ptr %3, i64 -2
   %11 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1000, ptr noundef nonnull %4)
   %.not15 = icmp eq ptr %11, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph
@@ -1427,26 +1426,27 @@ define void @Extra_FileLineNumAdd(ptr noundef %0, ptr noundef %1) local_unnamed_
 12:                                               ; preds = %8
   %13 = tail call i32 @fclose(ptr noundef nonnull %4)
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %1)
-  br label %23
+  br label %25
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.016 = phi i32 [ %18, %.lr.ph ], [ 0, %.preheader ]
+  %.016 = phi i32 [ %20, %.lr.ph ], [ 0, %.preheader ]
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #23
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %15
-  %16 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %gep, ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %.016, i32 noundef 0) #22
-  %17 = call i32 @fputs(ptr noundef nonnull %3, ptr noundef nonnull %9)
-  %18 = add nuw nsw i32 %.016, 1
-  %19 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1000, ptr noundef nonnull %4)
-  %.not = icmp eq ptr %19, null
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %15
+  %17 = getelementptr inbounds i8, ptr %16, i64 -2
+  %18 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %.016, i32 noundef 0) #22
+  %19 = call i32 @fputs(ptr noundef nonnull %3, ptr noundef nonnull %9)
+  %20 = add nuw nsw i32 %.016, 1
+  %21 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1000, ptr noundef nonnull %4)
+  %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %20 = call i32 @fclose(ptr noundef nonnull %4)
-  %21 = call i32 @fclose(ptr noundef nonnull %9)
-  %22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %1)
-  br label %23
+  %22 = call i32 @fclose(ptr noundef nonnull %4)
+  %23 = call i32 @fclose(ptr noundef nonnull %9)
+  %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %1)
+  br label %25
 
-23:                                               ; preds = %._crit_edge, %12, %6
+25:                                               ; preds = %._crit_edge, %12, %6
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %3) #22
   ret void
 }

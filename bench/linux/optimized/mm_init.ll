@@ -463,27 +463,23 @@ define dso_local range(i32 0, -2147483648) i32 @early_pfn_to_nid(i64 noundef %0)
   tail call void @_raw_spin_lock(ptr noundef nonnull @early_pfn_to_nid.early_pfn_lock) #22
   %2 = tail call fastcc i32 @__early_pfn_to_nid(i64 noundef %0) #24
   %3 = icmp slt i32 %2, 0
-  br i1 %3, label %4, label %13
+  br i1 %3, label %4, label %11
 
 4:                                                ; preds = %1
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %10, label %7
+  br i1 %6, label %11, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %5) #20, !srcloc !6
   %9 = trunc i64 %8 to i32
-  br label %10
+  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 64)
+  br label %11
 
-10:                                               ; preds = %7, %4
-  %11 = phi i32 [ %9, %7 ], [ 64, %4 ]
-  %12 = tail call i32 @llvm.umin.i32(i32 %11, i32 64)
-  br label %13
-
-13:                                               ; preds = %10, %1
-  %14 = phi i32 [ %12, %10 ], [ %2, %1 ]
+11:                                               ; preds = %4, %7, %1
+  %12 = phi i32 [ %2, %1 ], [ %10, %7 ], [ 64, %4 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @early_pfn_to_nid.early_pfn_lock) #22
-  ret i32 %14
+  ret i32 %12
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

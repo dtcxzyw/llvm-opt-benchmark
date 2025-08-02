@@ -1533,7 +1533,7 @@ define dso_local void @snd_interval_muldivk(ptr noundef readonly captures(none) 
   %37 = and i8 %20, -10
   %38 = or disjoint i8 %37, 1
   store i8 %38, ptr %19, align 4
-  br label %52
+  br label %51
 
 39:                                               ; preds = %18
   store i32 -1, ptr %3, align 4
@@ -1555,46 +1555,46 @@ define dso_local void @snd_interval_muldivk(ptr noundef readonly captures(none) 
   %49 = and i8 %20, -10
   %50 = or disjoint i8 %48, %49
   store i8 %50, ptr %19, align 4
-  br i1 %22, label %.thread1, label %._crit_edge
+  br i1 %22, label %.critedge, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %47
   %.pre = zext i32 %2 to i64
-  br label %52
+  br label %51
 
-.thread1:                                         ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 -1, ptr %51, align 4
-  br label %72
-
-52:                                               ; preds = %._crit_edge, %.thread
+51:                                               ; preds = %._crit_edge, %.thread
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %29, %.thread ]
-  %53 = phi i8 [ %50, %._crit_edge ], [ %38, %.thread ]
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %57 = load i32, ptr %56, align 4
-  %58 = zext i32 %57 to i64
-  %59 = zext i32 %55 to i64
-  %60 = mul nuw i64 %58, %59
-  %61 = urem i64 %60, %.pre-phi
-  %62 = udiv i64 %60, %.pre-phi
-  %63 = icmp ugt i64 %62, 4294967294
-  %64 = trunc i64 %62 to i32
-  %65 = select i1 %63, i32 -1, i32 %64
-  %66 = icmp eq i64 %61, 0
-  %67 = or i1 %66, %63
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %65, ptr %68, align 4
-  br i1 %67, label %72, label %69
+  %52 = phi i8 [ %50, %._crit_edge ], [ %38, %.thread ]
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %54 = load i32, ptr %53, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %56 = load i32, ptr %55, align 4
+  %57 = zext i32 %56 to i64
+  %58 = zext i32 %54 to i64
+  %59 = mul nuw i64 %57, %58
+  %60 = urem i64 %59, %.pre-phi
+  %61 = udiv i64 %59, %.pre-phi
+  %62 = icmp ugt i64 %61, 4294967294
+  %63 = trunc i64 %61 to i32
+  %64 = select i1 %62, i32 -1, i32 %63
+  %65 = icmp eq i64 %60, 0
+  %66 = or i1 %65, %62
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %64, ptr %67, align 4
+  br i1 %66, label %72, label %68
 
-69:                                               ; preds = %52
-  %70 = add i32 %64, 1
-  store i32 %70, ptr %68, align 4
-  %71 = or i8 %53, 2
+68:                                               ; preds = %51
+  %69 = add i32 %63, 1
+  store i32 %69, ptr %67, align 4
+  %70 = or i8 %52, 2
   br label %84
 
-72:                                               ; preds = %.thread1, %52
-  %73 = phi i8 [ %50, %.thread1 ], [ %53, %52 ]
+.critedge:                                        ; preds = %47
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 -1, ptr %71, align 4
+  br label %72
+
+72:                                               ; preds = %.critedge, %51
+  %73 = phi i8 [ %50, %.critedge ], [ %52, %51 ]
   %74 = load i8, ptr %5, align 4
   %75 = and i8 %74, 2
   %76 = icmp eq i8 %75, 0
@@ -1611,8 +1611,8 @@ define dso_local void @snd_interval_muldivk(ptr noundef readonly captures(none) 
   %83 = or disjoint i8 %81, %82
   br label %84
 
-84:                                               ; preds = %80, %69
-  %85 = phi i8 [ %83, %80 ], [ %71, %69 ]
+84:                                               ; preds = %80, %68
+  %85 = phi i8 [ %83, %80 ], [ %70, %68 ]
   %86 = and i8 %85, -5
   store i8 %86, ptr %19, align 4
   br label %87

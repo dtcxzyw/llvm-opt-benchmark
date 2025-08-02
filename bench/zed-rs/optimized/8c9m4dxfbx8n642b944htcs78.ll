@@ -3005,7 +3005,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc:                                           ; preds = %2
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit32, label %.lr.ph.i.i
+  br i1 %11, label %.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %.noexc9
   %12 = phi ptr [ %20, %.noexc9 ], [ %10, %.noexc ]
@@ -3043,7 +3043,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc9:                                          ; preds = %.backedge.i.i.i
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.loopexit32, label %.lr.ph.i.i
+  br i1 %21, label %.critedge, label %.lr.ph.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h4d374a839e44b9adE.exit.i.i.i": ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !758
@@ -3059,7 +3059,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
           cleanup
   br label %73
 
-.loopexit32:                                      ; preds = %.noexc9, %.noexc
+.critedge:                                        ; preds = %.noexc9, %.noexc
   store i64 0, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %22, align 8
@@ -3071,11 +3071,11 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.not.i.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr258drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$sum_tree..cursor..Iter$LT$channel..channel_chat..ChannelMessage$GT$$C$channel..channel_chat..ChannelChat..handle_loaded_messages..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6911deef6c015d68E.exit", label %26
 
-26:                                               ; preds = %.loopexit32
+26:                                               ; preds = %.critedge
   store i32 0, ptr %24, align 8, !alias.scope !787
   br label %"_ZN4core3ptr258drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$sum_tree..cursor..Iter$LT$channel..channel_chat..ChannelMessage$GT$$C$channel..channel_chat..ChannelChat..handle_loaded_messages..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6911deef6c015d68E.exit"
 
-"_ZN4core3ptr258drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$sum_tree..cursor..Iter$LT$channel..channel_chat..ChannelMessage$GT$$C$channel..channel_chat..ChannelChat..handle_loaded_messages..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6911deef6c015d68E.exit": ; preds = %26, %.loopexit32, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.i.i.i.i
+"_ZN4core3ptr258drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$sum_tree..cursor..Iter$LT$channel..channel_chat..ChannelMessage$GT$$C$channel..channel_chat..ChannelChat..handle_loaded_messages..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6911deef6c015d68E.exit": ; preds = %26, %.critedge, %.critedge.i.i
   ret void
 
 27:                                               ; preds = %65, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.i.i
@@ -3123,7 +3123,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.
 
 .noexc.i.i:                                       ; preds = %37
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %40, label %.critedge.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc.i.i, %.noexc7.i.i
   %41 = phi ptr [ %49, %.noexc7.i.i ], [ %39, %.noexc.i.i ]
@@ -3143,7 +3143,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h4d374a839e44b9adE.exit.thread.i.i.i.i.i": ; preds = %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !819
-  br label %.loopexit15.i.i
+  br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.i.i.i.i
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7a4973d2cd814283E.exit.i.i.i.i.i.i": ; preds = %44
   %47 = mul i64 %.val7.i.i.i.i.i, 5871781006564002453
@@ -3153,7 +3153,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.
 .noexc6.i.i:                                      ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7a4973d2cd814283E.exit.i.i.i.i.i.i"
   %.not.i.i.i.i.i = icmp eq ptr %48, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !819
-  br i1 %.not.i.i.i.i.i, label %.loopexit15.i.i, label %.backedge.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.i.i.i.i, label %.backedge.i.i.i.i.i
 
 .backedge.i.i.i.i.i:                              ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h4d374a839e44b9adE.exit.i.i.i.i.i", %.noexc6.i.i
   %49 = invoke noundef align 16 dereferenceable_or_null(144) ptr @"_ZN90_$LT$sum_tree..cursor..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f8bed8536b52ff4E"(ptr noalias noundef nonnull align 8 dereferenceable(280) %6)
@@ -3161,7 +3161,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.
 
 .noexc7.i.i:                                      ; preds = %.backedge.i.i.i.i.i
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %50, label %.critedge.i.i, label %.lr.ph.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h4d374a839e44b9adE.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !819
@@ -3188,13 +3188,13 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.
           cleanup
   br label %51
 
-.loopexit15.i.i:                                  ; preds = %.noexc6.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h4d374a839e44b9adE.exit.thread.i.i.i.i.i"
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.i.i.i.i: ; preds = %.noexc6.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h4d374a839e44b9adE.exit.thread.i.i.i.i.i"
   %55 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !848, !noalias !852, !noundef !12
   %56 = load i64, ptr %7, align 8, !alias.scope !848, !noalias !852, !noundef !12
   %57 = icmp eq i64 %55, %56
   br i1 %57, label %64, label %58
 
-58:                                               ; preds = %64, %.loopexit15.i.i
+58:                                               ; preds = %64, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.i.i.i.i
   %59 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !848, !noalias !852, !nonnull !12, !noundef !12
   %60 = getelementptr inbounds i64, ptr %59, i64 %55
   store i64 %.val7.i.i.i.i.i, ptr %60, align 8
@@ -3207,11 +3207,11 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.
           cleanup
   br label %51
 
-64:                                               ; preds = %.loopexit15.i.i
+64:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.i.i.i.i
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hc3ff49bb64f88ff3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %55, i64 noundef 1)
           to label %58 unwind label %62
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b780dc5bb271402E.exit.thread.i.i.i.i: ; preds = %.noexc.i.i, %.noexc7.i.i
+.critedge.i.i:                                    ; preds = %.noexc.i.i, %.noexc7.i.i
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)

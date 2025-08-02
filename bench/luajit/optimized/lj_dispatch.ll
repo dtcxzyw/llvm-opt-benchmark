@@ -1166,7 +1166,7 @@ declare hidden void @lj_trace_ins(ptr noundef, ptr noundef) local_unnamed_addr #
 declare hidden i32 @lj_debug_line(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_dispatch_call(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden nonnull ptr @lj_dispatch_call(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.lua_Debug, align 8
   %4 = tail call ptr @__errno_location() #13
   %5 = load i32, ptr %4, align 4, !tbaa !44

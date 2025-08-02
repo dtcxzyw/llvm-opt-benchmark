@@ -1707,34 +1707,34 @@ define internal noundef i32 @_foreach_restricted_gpu(ptr noundef readonly captur
   store ptr %37, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %42 = load i16, ptr %41, align 8
-  %.not71.i = icmp eq i16 %42, 0
-  br i1 %.not71.i, label %_pick_restricted_cores.exit, label %.lr.ph.i
+  %.not70.i = icmp eq i16 %42, 0
+  br i1 %.not70.i, label %_pick_restricted_cores.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 120
-  %.not74.i = icmp eq i16 %21, 0
+  %.not73.i = icmp eq i16 %21, 0
   %46 = zext i16 %23 to i32
-  %.not72.i = icmp eq i16 %23, 0
+  %.not71.i = icmp eq i16 %23, 0
   %47 = and i32 %9, 65535
-  %.not73.i = icmp eq i32 %47, 0
+  %.not72.i = icmp eq i32 %47, 0
   %48 = zext nneg i32 %47 to i64
-  br i1 %.not74.i, label %_pick_restricted_cores.exit, label %.lr.ph.split.us.preheader.i
+  br i1 %.not73.i, label %_pick_restricted_cores.exit, label %.lr.ph.split.us.preheader.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.i
   %49 = add i32 %9, -1
   %50 = zext i32 %49 to i64
   %51 = zext i16 %23 to i64
-  %wide.trip.count93.i = zext i16 %21 to i64
+  %wide.trip.count92.i = zext i16 %21 to i64
   %52 = getelementptr inbounds nuw i32, ptr %27, i64 %50
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.split.us.preheader.i
   %53 = phi i16 [ %42, %.lr.ph.split.us.preheader.i ], [ %64, %..loopexit_crit_edge.us.i ]
-  %indvars.iv95.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next96.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv94.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next95.i, %..loopexit_crit_edge.us.i ]
   %54 = load ptr, ptr %43, align 8
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv95.i
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv94.i
   %56 = load ptr, ptr %55, align 8
   %.not51.us.i = icmp eq ptr %56, null
   br i1 %.not51.us.i, label %..loopexit_crit_edge.us.i, label %57
@@ -1742,59 +1742,59 @@ define internal noundef i32 @_foreach_restricted_gpu(ptr noundef readonly captur
 57:                                               ; preds = %.lr.ph.split.us.i
   %58 = load ptr, ptr %44, align 8
   %.not52.us.i = icmp eq ptr %58, null
-  br i1 %.not52.us.i, label %.lr.ph60.us.i, label %59
+  br i1 %.not52.us.i, label %.lr.ph59.us.i, label %59
 
 59:                                               ; preds = %57
   %60 = load i32, ptr %12, align 8
   %61 = load ptr, ptr %45, align 8
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv95.i
+  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv94.i
   %63 = load i32, ptr %62, align 4
   %.not53.us.i = icmp ne i32 %60, %63
-  %brmerge.i = or i1 %.not72.i, %.not53.us.i
+  %brmerge.i = or i1 %.not71.i, %.not53.us.i
   br i1 %brmerge.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.us.us.i.preheader
 
-.lr.ph.us.us.i.preheader:                         ; preds = %.lr.ph60.us.i, %59
+.lr.ph.us.us.i.preheader:                         ; preds = %.lr.ph59.us.i, %59
   br label %.lr.ph.us.us.i
 
-.lr.ph60.us.i:                                    ; preds = %57
-  br i1 %.not72.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.us.us.i.preheader
+.lr.ph59.us.i:                                    ; preds = %57
+  br i1 %.not71.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.us.us.i.preheader
 
-..loopexit_crit_edge.us.loopexit76.i:             ; preds = %.thread.us.us.i
+..loopexit_crit_edge.us.loopexit75.i:             ; preds = %.critedge.us.us.i
   %.pre.i = load i16, ptr %41, align 8
   br label %..loopexit_crit_edge.us.i
 
-..loopexit_crit_edge.us.i:                        ; preds = %..loopexit_crit_edge.us.loopexit76.i, %.lr.ph60.us.i, %59, %.lr.ph.split.us.i
-  %64 = phi i16 [ %.pre.i, %..loopexit_crit_edge.us.loopexit76.i ], [ %53, %59 ], [ %53, %.lr.ph.split.us.i ], [ %53, %.lr.ph60.us.i ]
-  %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
+..loopexit_crit_edge.us.i:                        ; preds = %..loopexit_crit_edge.us.loopexit75.i, %.lr.ph59.us.i, %59, %.lr.ph.split.us.i
+  %64 = phi i16 [ %.pre.i, %..loopexit_crit_edge.us.loopexit75.i ], [ %53, %59 ], [ %53, %.lr.ph.split.us.i ], [ %53, %.lr.ph59.us.i ]
+  %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
   %65 = zext i16 %64 to i64
-  %66 = icmp samesign ult i64 %indvars.iv.next96.i, %65
+  %66 = icmp samesign ult i64 %indvars.iv.next95.i, %65
   br i1 %66, label %.lr.ph.split.us.i, label %_pick_restricted_cores.exit, !llvm.loop !31
 
-.lr.ph.us.us.i:                                   ; preds = %.lr.ph.us.us.i.preheader, %.thread.us.us.i
-  %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %.thread.us.us.i ], [ 0, %.lr.ph.us.us.i.preheader ]
-  %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
-  %67 = mul nuw nsw i64 %indvars.iv.next90.i, %51
-  %68 = mul nuw nsw i64 %indvars.iv89.i, %51
+.lr.ph.us.us.i:                                   ; preds = %.lr.ph.us.us.i.preheader, %.critedge.us.us.i
+  %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.critedge.us.us.i ], [ 0, %.lr.ph.us.us.i.preheader ]
+  %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
+  %67 = mul nuw nsw i64 %indvars.iv.next89.i, %51
+  %68 = mul nuw nsw i64 %indvars.iv88.i, %51
   %69 = trunc nuw i64 %68 to i32
   %70 = sub nsw i32 1, %69
-  br i1 %.not73.i, label %_pick_core_group.exit.us.us.us.i, label %.lr.ph.split.us65.us.preheader.i
+  br i1 %.not72.i, label %_pick_core_group.exit.us.us.us.i, label %.lr.ph.split.us64.us.preheader.i
 
-.lr.ph.split.us65.us.preheader.i:                 ; preds = %.lr.ph.us.us.i
+.lr.ph.split.us64.us.preheader.i:                 ; preds = %.lr.ph.us.us.i
   %71 = trunc nuw i64 %67 to i32
-  br label %.lr.ph.split.us65.us.i
+  br label %.lr.ph.split.us64.us.i
 
-.lr.ph.split.us65.us.i:                           ; preds = %93, %.lr.ph.split.us65.us.preheader.i
-  %.04758.us.us.i = phi i32 [ %94, %93 ], [ 0, %.lr.ph.split.us65.us.preheader.i ]
-  %72 = add nsw i32 %.04758.us.us.i, %69
+.lr.ph.split.us64.us.i:                           ; preds = %93, %.lr.ph.split.us64.us.preheader.i
+  %.04757.us.us.i = phi i32 [ %94, %93 ], [ 0, %.lr.ph.split.us64.us.preheader.i ]
+  %72 = add nsw i32 %.04757.us.us.i, %69
   %73 = load ptr, ptr %43, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv95.i
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv94.i
   %75 = load ptr, ptr %74, align 8
   %76 = icmp slt i32 %72, %71
-  br i1 %76, label %.lr.ph.split.preheader.i.us.us.i, label %_pick_core_group.exit.us61.us.i
+  br i1 %76, label %.lr.ph.split.preheader.i.us.us.i, label %_pick_core_group.exit.us60.us.i
 
-.lr.ph.split.preheader.i.us.us.i:                 ; preds = %.lr.ph.split.us65.us.i, %.outer.i.us.us.i
-  %indvars.iv23.i.us.us.i = phi i64 [ %indvars.iv.next24.i.us.us.i, %.outer.i.us.us.i ], [ 0, %.lr.ph.split.us65.us.i ]
-  %.015.ph15.i.us.us.i = phi i32 [ %83, %.outer.i.us.us.i ], [ %72, %.lr.ph.split.us65.us.i ]
+.lr.ph.split.preheader.i.us.us.i:                 ; preds = %.lr.ph.split.us64.us.i, %.outer.i.us.us.i
+  %indvars.iv23.i.us.us.i = phi i64 [ %indvars.iv.next24.i.us.us.i, %.outer.i.us.us.i ], [ 0, %.lr.ph.split.us64.us.i ]
+  %.015.ph15.i.us.us.i = phi i32 [ %83, %.outer.i.us.us.i ], [ %72, %.lr.ph.split.us64.us.i ]
   %77 = sext i32 %.015.ph15.i.us.us.i to i64
   br label %.lr.ph.split.i.us.us.i
 
@@ -1818,7 +1818,7 @@ define internal noundef i32 @_foreach_restricted_gpu(ptr noundef readonly captur
   %84 = icmp ne i64 %indvars.iv.next24.i.us.us.i, %48
   %85 = icmp slt i32 %83, %71
   %86 = select i1 %84, i1 %85, i1 false
-  br i1 %86, label %.lr.ph.split.preheader.i.us.us.i, label %_pick_core_group.exit.us61.us.loopexit.i, !llvm.loop !32
+  br i1 %86, label %.lr.ph.split.preheader.i.us.us.i, label %_pick_core_group.exit.us60.us.loopexit.i, !llvm.loop !32
 
 87:                                               ; preds = %79, %.lr.ph.split.i.us.us.i
   %indvars.iv.next.i.us.us.i = add nsw i64 %indvars.iv.i.us.us.i, 1
@@ -1827,29 +1827,29 @@ define internal noundef i32 @_foreach_restricted_gpu(ptr noundef readonly captur
 
 .outer._crit_edge.loopexit.i.us.us.i:             ; preds = %87
   %89 = trunc nuw nsw i64 %indvars.iv23.i.us.us.i to i32
-  br label %_pick_core_group.exit.us61.us.i
+  br label %_pick_core_group.exit.us60.us.i
 
-_pick_core_group.exit.us61.us.loopexit.i:         ; preds = %.outer.i.us.us.i
+_pick_core_group.exit.us60.us.loopexit.i:         ; preds = %.outer.i.us.us.i
   %indvars.i = trunc i64 %indvars.iv.next24.i.us.us.i to i32
-  br label %_pick_core_group.exit.us61.us.i
+  br label %_pick_core_group.exit.us60.us.i
 
-_pick_core_group.exit.us61.us.i:                  ; preds = %_pick_core_group.exit.us61.us.loopexit.i, %.outer._crit_edge.loopexit.i.us.us.i, %.lr.ph.split.us65.us.i
-  %.0.ph.lcssa.i.us.us.i = phi i32 [ 0, %.lr.ph.split.us65.us.i ], [ %89, %.outer._crit_edge.loopexit.i.us.us.i ], [ %indvars.i, %_pick_core_group.exit.us61.us.loopexit.i ]
+_pick_core_group.exit.us60.us.i:                  ; preds = %_pick_core_group.exit.us60.us.loopexit.i, %.outer._crit_edge.loopexit.i.us.us.i, %.lr.ph.split.us64.us.i
+  %.0.ph.lcssa.i.us.us.i = phi i32 [ 0, %.lr.ph.split.us64.us.i ], [ %89, %.outer._crit_edge.loopexit.i.us.us.i ], [ %indvars.i, %_pick_core_group.exit.us60.us.loopexit.i ]
   %90 = icmp eq i32 %.0.ph.lcssa.i.us.us.i, %47
-  br i1 %90, label %91, label %.thread.us.us.i
+  br i1 %90, label %91, label %.critedge.us.us.i
 
-.thread.us.us.i:                                  ; preds = %93, %_pick_core_group.exit.us61.us.i, %106
-  %exitcond94.not.i = icmp eq i64 %indvars.iv.next90.i, %wide.trip.count93.i
-  br i1 %exitcond94.not.i, label %..loopexit_crit_edge.us.loopexit76.i, label %.lr.ph.us.us.i, !llvm.loop !33
+.critedge.us.us.i:                                ; preds = %93, %_pick_core_group.exit.us60.us.i, %106
+  %exitcond93.not.i = icmp eq i64 %indvars.iv.next89.i, %wide.trip.count92.i
+  br i1 %exitcond93.not.i, label %..loopexit_crit_edge.us.loopexit75.i, label %.lr.ph.us.us.i, !llvm.loop !33
 
-91:                                               ; preds = %_pick_core_group.exit.us61.us.i
+91:                                               ; preds = %_pick_core_group.exit.us60.us.i
   %92 = load i32, ptr %52, align 4
   br label %96
 
 93:                                               ; preds = %96
   %94 = add i32 %92, %70
   %95 = icmp slt i32 %94, %46
-  br i1 %95, label %.lr.ph.split.us65.us.i, label %.thread.us.us.i, !llvm.loop !34
+  br i1 %95, label %.lr.ph.split.us64.us.i, label %.critedge.us.us.i, !llvm.loop !34
 
 96:                                               ; preds = %96, %91
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %96 ], [ 0, %91 ]
@@ -1874,11 +1874,11 @@ _pick_core_group.exit.us.us.us.i:                 ; preds = %.lr.ph.us.us.i, %10
 106:                                              ; preds = %109
   %107 = add i32 %105, %70
   %108 = icmp slt i32 %107, %46
-  br i1 %108, label %_pick_core_group.exit.us.us.us.i, label %.thread.us.us.i, !llvm.loop !36
+  br i1 %108, label %_pick_core_group.exit.us.us.us.i, label %.critedge.us.us.i, !llvm.loop !36
 
 109:                                              ; preds = %109, %_pick_core_group.exit.us.us.us.i
-  %indvars.iv83.i = phi i64 [ %indvars.iv.next84.i, %109 ], [ 0, %_pick_core_group.exit.us.us.us.i ]
-  %110 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv83.i
+  %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %109 ], [ 0, %_pick_core_group.exit.us.us.us.i ]
+  %110 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv82.i
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %111 to i64
   tail call void @slurm_bit_set(ptr noundef %15, i64 noundef %112) #5
@@ -1888,9 +1888,9 @@ _pick_core_group.exit.us.us.us.i:                 ; preds = %.lr.ph.us.us.i, %10
   %116 = load i32, ptr %110, align 4
   %117 = sext i32 %116 to i64
   tail call void @slurm_bit_set(ptr noundef %115, i64 noundef %117) #5
-  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
-  %exitcond88.not.i = icmp eq i64 %indvars.iv.next84.i, %26
-  br i1 %exitcond88.not.i, label %106, label %109, !llvm.loop !35
+  %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
+  %exitcond87.not.i = icmp eq i64 %indvars.iv.next83.i, %26
+  br i1 %exitcond87.not.i, label %106, label %109, !llvm.loop !35
 
 _pick_restricted_cores.exit:                      ; preds = %..loopexit_crit_edge.us.i, %35, %.lr.ph.i
   call void @slurm_xfree(ptr noundef nonnull %3) #5

@@ -4266,10 +4266,10 @@ entry:
   %cmp18.not = icmp eq i64 %0, 0
   %inputs_6.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 24
   %.pre = load ptr, ptr %inputs_6.phi.trans.insert, align 8
-  %add.ptr.i928 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   br i1 %cmp18.not, label %for.end.thread, label %for.body
 
 for.end.thread:                                   ; preds = %entry
+  %add.ptr.i928 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %1 = load ptr, ptr %add.ptr.i928, align 8
   %distinctFields_.i29 = getelementptr inbounds nuw i8, ptr %1, i64 168
   br label %for.end37
@@ -4281,62 +4281,63 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %entry ]
-  %gep = getelementptr inbounds nuw %"class.std::shared_ptr.76", ptr %add.ptr.i928, i64 %indvars.iv
-  %2 = load ptr, ptr %gep, align 8
-  %propagatesNulls_.i = getelementptr inbounds nuw i8, ptr %2, i64 248
-  %3 = load i8, ptr %propagatesNulls_.i, align 8
-  %tobool.i = trunc i8 %3 to i1
+  %2 = getelementptr inbounds nuw %"class.std::shared_ptr.76", ptr %.pre, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %3 = load ptr, ptr %add.ptr.i, align 8
+  %propagatesNulls_.i = getelementptr inbounds nuw i8, ptr %3, i64 248
+  %4 = load i8, ptr %propagatesNulls_.i, align 8
+  %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %for.cond, label %return
 
 for.body15.preheader:                             ; preds = %for.cond
   %inputs_6 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %add.ptr.i9 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %4 = load ptr, ptr %add.ptr.i9, align 8
-  %distinctFields_.i = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %5 = load ptr, ptr %add.ptr.i9, align 8
+  %distinctFields_.i = getelementptr inbounds nuw i8, ptr %5, i64 168
   br label %for.body15
 
 for.cond11:                                       ; preds = %if.end29
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %5 = load i64, ptr %numCases_, align 8
-  %cmp14 = icmp ugt i64 %5, %indvars.iv.next24
+  %6 = load i64, ptr %numCases_, align 8
+  %cmp14 = icmp ugt i64 %6, %indvars.iv.next24
   br i1 %cmp14, label %for.body15, label %for.end37, !llvm.loop !67
 
 for.body15:                                       ; preds = %for.body15.preheader, %for.cond11
   %indvars.iv23 = phi i64 [ 0, %for.body15.preheader ], [ %indvars.iv.next24, %for.cond11 ]
-  %6 = load ptr, ptr %inputs_6, align 8
+  %7 = load ptr, ptr %inputs_6, align 8
   %.idx = shl nuw nsw i64 %indvars.iv23, 5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
-  %add.ptr.i11 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %8 = load ptr, ptr %add.ptr.i11, align 8
-  %distinctFields_.i12 = getelementptr inbounds nuw i8, ptr %8, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  %add.ptr.i11 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %9 = load ptr, ptr %add.ptr.i11, align 8
+  %distinctFields_.i12 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %call26 = tail call noundef zeroext i1 @_ZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS1_14FieldReferenceESaIS5_EES9_(ptr noundef nonnull align 8 dereferenceable(24) %distinctFields_.i, ptr noundef nonnull align 8 dereferenceable(24) %distinctFields_.i12)
   br i1 %call26, label %if.end29, label %return
 
 if.end29:                                         ; preds = %for.body15
-  %9 = load ptr, ptr %7, align 8
-  %distinctFields_.i13 = getelementptr inbounds nuw i8, ptr %9, i64 168
+  %10 = load ptr, ptr %8, align 8
+  %distinctFields_.i13 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %call32 = tail call noundef zeroext i1 @_ZN8facebook5velox4exec4Expr16isSubsetOfFieldsERKSt6vectorIPNS1_14FieldReferenceESaIS5_EES9_(ptr noundef nonnull align 8 dereferenceable(24) %distinctFields_.i13, ptr noundef nonnull align 8 dereferenceable(24) %distinctFields_.i)
   br i1 %call32, label %for.cond11, label %return
 
 for.end37:                                        ; preds = %for.cond11, %for.end.thread
   %distinctFields_.i30 = phi ptr [ %distinctFields_.i29, %for.end.thread ], [ %distinctFields_.i, %for.cond11 ]
   %hasElseClause_ = getelementptr inbounds nuw i8, ptr %this, i64 456
-  %10 = load i8, ptr %hasElseClause_, align 8
-  %tobool = trunc i8 %10 to i1
+  %11 = load i8, ptr %hasElseClause_, align 8
+  %tobool = trunc i8 %11 to i1
   br i1 %tobool, label %if.then38, label %if.end52
 
 if.then38:                                        ; preds = %for.end37
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %11 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 -16
-  %12 = load ptr, ptr %add.ptr.i.i, align 8
-  %propagatesNulls_.i14 = getelementptr inbounds nuw i8, ptr %12, i64 248
-  %13 = load i8, ptr %propagatesNulls_.i14, align 8
-  %tobool.i15 = trunc i8 %13 to i1
+  %12 = load ptr, ptr %_M_finish.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 -16
+  %13 = load ptr, ptr %add.ptr.i.i, align 8
+  %propagatesNulls_.i14 = getelementptr inbounds nuw i8, ptr %13, i64 248
+  %14 = load i8, ptr %propagatesNulls_.i14, align 8
+  %tobool.i15 = trunc i8 %14 to i1
   br i1 %tobool.i15, label %if.end45, label %return
 
 if.end45:                                         ; preds = %if.then38
-  %distinctFields_.i16 = getelementptr inbounds nuw i8, ptr %12, i64 168
+  %distinctFields_.i16 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %call48 = tail call noundef zeroext i1 @_ZN8facebook5velox4exec4Expr12isSameFieldsERKSt6vectorIPNS1_14FieldReferenceESaIS5_EES9_(ptr noundef nonnull align 8 dereferenceable(24) %distinctFields_.i30, ptr noundef nonnull align 8 dereferenceable(24) %distinctFields_.i16)
   br i1 %call48, label %if.end52, label %return
 

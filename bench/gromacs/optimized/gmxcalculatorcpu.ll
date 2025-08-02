@@ -1109,7 +1109,7 @@ _ZN14gmx_enerdata_taSEOS_.exit:                   ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EED2Ev.exit.i.i: ; preds = %_ZN14gmx_enerdata_taSEOS_.exit.thread, %126, %_ZN14gmx_enerdata_taSEOS_.exit
   %131 = load ptr, ptr %92, align 8, !tbaa !221
   %.not.i.i.i1.i.i = icmp eq ptr %131, null
-  br i1 %.not.i.i.i1.i.i, label %_ZN18ForeignLambdaTermsD2Ev.exit.i, label %132
+  br i1 %.not.i.i.i1.i.i, label %_ZN18ForeignLambdaTermsD2Ev.exit.i.preheader, label %132
 
 132:                                              ; preds = %_ZNSt6vectorIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EED2Ev.exit.i.i
   %133 = load ptr, ptr %100, align 8, !tbaa !222
@@ -1117,32 +1117,32 @@ _ZNSt6vectorIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7E
   %135 = ptrtoint ptr %131 to i64
   %136 = sub i64 %134, %135
   call void @_ZdlPvm(ptr noundef nonnull %131, i64 noundef %136) #22
+  br label %_ZN18ForeignLambdaTermsD2Ev.exit.i.preheader
+
+_ZN18ForeignLambdaTermsD2Ev.exit.i.preheader:     ; preds = %132, %_ZNSt6vectorIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EED2Ev.exit.i.i
   br label %_ZN18ForeignLambdaTermsD2Ev.exit.i
 
-_ZN18ForeignLambdaTermsD2Ev.exit.i:               ; preds = %132, %_ZNSt6vectorIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EED2Ev.exit.i.i
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %9, i64 376
-  br label %137
-
-137:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i, %_ZN18ForeignLambdaTermsD2Ev.exit.i
-  %.idx.i.i = phi i64 [ 128, %_ZN18ForeignLambdaTermsD2Ev.exit.i ], [ %.add.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i ]
+_ZN18ForeignLambdaTermsD2Ev.exit.i:               ; preds = %_ZN18ForeignLambdaTermsD2Ev.exit.i.preheader, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i
+  %.idx.i.i = phi i64 [ %.add.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i ], [ 128, %_ZN18ForeignLambdaTermsD2Ev.exit.i.preheader ]
   %.add.i.i = add nsw i64 %.idx.i.i, -24
   %.ptr1.i.i = getelementptr inbounds i8, ptr %66, i64 %.add.i.i
-  %138 = load ptr, ptr %.ptr1.i.i, align 8, !tbaa !175
-  %.not.i.i.i.i.i.i = icmp eq ptr %138, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i, label %139
+  %137 = load ptr, ptr %.ptr1.i.i, align 8, !tbaa !175
+  %.not.i.i.i.i.i.i = icmp eq ptr %137, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i, label %138
 
-139:                                              ; preds = %137
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %.idx.i.i
-  %140 = load ptr, ptr %gep.i.i, align 8, !tbaa !194
+138:                                              ; preds = %_ZN18ForeignLambdaTermsD2Ev.exit.i
+  %.ptr.i.i = getelementptr inbounds i8, ptr %66, i64 %.idx.i.i
+  %139 = getelementptr inbounds i8, ptr %.ptr.i.i, i64 -8
+  %140 = load ptr, ptr %139, align 8, !tbaa !194
   %141 = ptrtoint ptr %140 to i64
-  %142 = ptrtoint ptr %138 to i64
+  %142 = ptrtoint ptr %137 to i64
   %143 = sub i64 %141, %142
-  call void @_ZdlPvm(ptr noundef nonnull %138, i64 noundef %143) #22
+  call void @_ZdlPvm(ptr noundef nonnull %137, i64 noundef %143) #22
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i
 
-_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i:              ; preds = %139, %137
+_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i:              ; preds = %138, %_ZN18ForeignLambdaTermsD2Ev.exit.i
   %144 = icmp eq i64 %.add.i.i, 8
-  br i1 %144, label %_ZN14gmx_enerdata_tD2Ev.exit, label %137
+  br i1 %144, label %_ZN14gmx_enerdata_tD2Ev.exit, label %_ZN18ForeignLambdaTermsD2Ev.exit.i
 
 _ZN14gmx_enerdata_tD2Ev.exit:                     ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 696, ptr nonnull %9) #21
@@ -1496,7 +1496,6 @@ _ZNSt6vectorIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7E
 
 _ZN18ForeignLambdaTermsD2Ev.exit.i:               ; preds = %12, %_ZNSt6vectorIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EED2Ev.exit.i.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1208
   br label %19
 
 19:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i, %_ZN18ForeignLambdaTermsD2Ev.exit.i
@@ -1508,95 +1507,96 @@ _ZN18ForeignLambdaTermsD2Ev.exit.i:               ; preds = %12, %_ZNSt6vectorIN
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i, label %21
 
 21:                                               ; preds = %19
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %.idx.i.i
-  %22 = load ptr, ptr %gep.i.i, align 8, !tbaa !194
-  %23 = ptrtoint ptr %22 to i64
-  %24 = ptrtoint ptr %20 to i64
-  %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %25) #22
+  %.ptr.i.i = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
+  %22 = getelementptr inbounds i8, ptr %.ptr.i.i, i64 -8
+  %23 = load ptr, ptr %22, align 8, !tbaa !194
+  %24 = ptrtoint ptr %23 to i64
+  %25 = ptrtoint ptr %20 to i64
+  %26 = sub i64 %24, %25
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %26) #22
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i:              ; preds = %21, %19
-  %26 = icmp eq i64 %.add.i.i, 8
-  br i1 %26, label %_ZN14gmx_enerdata_tD2Ev.exit, label %19
+  %27 = icmp eq i64 %.add.i.i, 8
+  br i1 %27, label %_ZN14gmx_enerdata_tD2Ev.exit, label %19
 
 _ZN14gmx_enerdata_tD2Ev.exit:                     ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %28 = load ptr, ptr %27, align 8, !tbaa !215
-  %.not.i.i = icmp eq ptr %28, null
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %29 = load ptr, ptr %28, align 8, !tbaa !215
+  %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN19interaction_const_t18SoftCoreParametersEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN19interaction_const_t18SoftCoreParametersEEclEPS1_.exit.i.i: ; preds = %_ZN14gmx_enerdata_tD2Ev.exit
-  tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef 36) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef 36) #22
   br label %_ZNSt10unique_ptrIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN19interaction_const_t18SoftCoreParametersEEclEPS1_.exit.i.i, %_ZN14gmx_enerdata_tD2Ev.exit
-  store ptr null, ptr %27, align 8, !tbaa !215
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %30 = load ptr, ptr %29, align 8, !tbaa !214
-  %.not.i1.i = icmp eq ptr %30, null
-  br i1 %.not.i1.i, label %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit.i, label %31
+  store ptr null, ptr %28, align 8, !tbaa !215
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %31 = load ptr, ptr %30, align 8, !tbaa !214
+  %.not.i1.i = icmp eq ptr %31, null
+  br i1 %.not.i1.i, label %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit.i, label %32
 
-31:                                               ; preds = %_ZNSt10unique_ptrIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EED2Ev.exit.i
-  tail call void @_ZNKSt14default_deleteI21EwaldCorrectionTablesEclEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %30)
+32:                                               ; preds = %_ZNSt10unique_ptrIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EED2Ev.exit.i
+  tail call void @_ZNKSt14default_deleteI21EwaldCorrectionTablesEclEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %31)
   br label %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit.i
 
-_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %31, %_ZNSt10unique_ptrIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EED2Ev.exit.i
-  store ptr null, ptr %29, align 8, !tbaa !214
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %33 = load ptr, ptr %32, align 8, !tbaa !214
-  %.not.i2.i = icmp eq ptr %33, null
-  br i1 %.not.i2.i, label %_ZN19interaction_const_tD2Ev.exit, label %34
+_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %32, %_ZNSt10unique_ptrIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EED2Ev.exit.i
+  store ptr null, ptr %30, align 8, !tbaa !214
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %34 = load ptr, ptr %33, align 8, !tbaa !214
+  %.not.i2.i = icmp eq ptr %34, null
+  br i1 %.not.i2.i, label %_ZN19interaction_const_tD2Ev.exit, label %35
 
-34:                                               ; preds = %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit.i
-  tail call void @_ZNKSt14default_deleteI21EwaldCorrectionTablesEclEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull %33)
+35:                                               ; preds = %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit.i
+  tail call void @_ZNKSt14default_deleteI21EwaldCorrectionTablesEclEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %34)
   br label %_ZN19interaction_const_tD2Ev.exit
 
-_ZN19interaction_const_tD2Ev.exit:                ; preds = %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit.i, %34
-  store ptr null, ptr %32, align 8, !tbaa !214
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZN10t_forcerecD1Ev(ptr noundef nonnull align 8 dereferenceable(576) %35) #21
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load ptr, ptr %36, align 8, !tbaa !177
-  %.not.i = icmp eq ptr %37, null
+_ZN19interaction_const_tD2Ev.exit:                ; preds = %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit.i, %35
+  store ptr null, ptr %33, align 8, !tbaa !214
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZN10t_forcerecD1Ev(ptr noundef nonnull align 8 dereferenceable(576) %36) #21
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load ptr, ptr %37, align 8, !tbaa !177
+  %.not.i = icmp eq ptr %38, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx18nonbonded_verlet_tESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3gmx18nonbonded_verlet_tEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN3gmx18nonbonded_verlet_tEEclEPS1_.exit.i: ; preds = %_ZN19interaction_const_tD2Ev.exit
-  tail call void @_ZN3gmx18nonbonded_verlet_tD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %37) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 64) #22
+  tail call void @_ZN3gmx18nonbonded_verlet_tD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %38) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef 64) #22
   br label %_ZNSt10unique_ptrIN3gmx18nonbonded_verlet_tESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx18nonbonded_verlet_tESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN19interaction_const_tD2Ev.exit, %_ZNKSt14default_deleteIN3gmx18nonbonded_verlet_tEEclEPS1_.exit.i
-  store ptr null, ptr %36, align 8, !tbaa !177
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !190
-  %.not.i.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %40
+  store ptr null, ptr %37, align 8, !tbaa !177
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %40 = load ptr, ptr %39, align 8, !tbaa !190
+  %.not.i.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %41
 
-40:                                               ; preds = %_ZNSt10unique_ptrIN3gmx18nonbonded_verlet_tESt14default_deleteIS1_EED2Ev.exit
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %42 = load ptr, ptr %41, align 8, !tbaa !191
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %39 to i64
-  %45 = sub i64 %43, %44
-  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %45) #22
+41:                                               ; preds = %_ZNSt10unique_ptrIN3gmx18nonbonded_verlet_tESt14default_deleteIS1_EED2Ev.exit
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %43 = load ptr, ptr %42, align 8, !tbaa !191
+  %44 = ptrtoint ptr %43 to i64
+  %45 = ptrtoint ptr %40 to i64
+  %46 = sub i64 %44, %45
+  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %46) #22
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
-_ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %40, %_ZNSt10unique_ptrIN3gmx18nonbonded_verlet_tESt14default_deleteIS1_EED2Ev.exit
-  %46 = load ptr, ptr %0, align 8, !tbaa !190
-  %.not.i.i.i1.i = icmp eq ptr %46, null
-  br i1 %.not.i.i.i1.i, label %_ZN3gmx11ListOfListsIiED2Ev.exit, label %47
+_ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %41, %_ZNSt10unique_ptrIN3gmx18nonbonded_verlet_tESt14default_deleteIS1_EED2Ev.exit
+  %47 = load ptr, ptr %0, align 8, !tbaa !190
+  %.not.i.i.i1.i = icmp eq ptr %47, null
+  br i1 %.not.i.i.i1.i, label %_ZN3gmx11ListOfListsIiED2Ev.exit, label %48
 
-47:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !191
-  %50 = ptrtoint ptr %49 to i64
-  %51 = ptrtoint ptr %46 to i64
-  %52 = sub i64 %50, %51
-  tail call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %52) #22
+48:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %50 = load ptr, ptr %49, align 8, !tbaa !191
+  %51 = ptrtoint ptr %50 to i64
+  %52 = ptrtoint ptr %47 to i64
+  %53 = sub i64 %51, %52
+  tail call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef %53) #22
   br label %_ZN3gmx11ListOfListsIiED2Ev.exit
 
-_ZN3gmx11ListOfListsIiED2Ev.exit:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %47
+_ZN3gmx11ListOfListsIiED2Ev.exit:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %48
   ret void
 }
 
@@ -2027,7 +2027,6 @@ _ZNSt6vectorIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7E
 
 _ZN18ForeignLambdaTermsD2Ev.exit:                 ; preds = %_ZNSt6vectorIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EED2Ev.exit.i, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 376
   br label %19
 
 19:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %_ZN18ForeignLambdaTermsD2Ev.exit
@@ -2039,17 +2038,18 @@ _ZN18ForeignLambdaTermsD2Ev.exit:                 ; preds = %_ZNSt6vectorIN3gmx1
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, label %21
 
 21:                                               ; preds = %19
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i
-  %22 = load ptr, ptr %gep.i, align 8, !tbaa !194
-  %23 = ptrtoint ptr %22 to i64
-  %24 = ptrtoint ptr %20 to i64
-  %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %25) #22
+  %.ptr.i = getelementptr inbounds i8, ptr %18, i64 %.idx.i
+  %22 = getelementptr inbounds i8, ptr %.ptr.i, i64 -8
+  %23 = load ptr, ptr %22, align 8, !tbaa !194
+  %24 = ptrtoint ptr %23 to i64
+  %25 = ptrtoint ptr %20 to i64
+  %26 = sub i64 %24, %25
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %26) #22
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %21, %19
-  %26 = icmp eq i64 %.add.i, 8
-  br i1 %26, label %_ZN17gmx_grppairener_tD2Ev.exit, label %19
+  %27 = icmp eq i64 %.add.i, 8
+  br i1 %27, label %_ZN17gmx_grppairener_tD2Ev.exit, label %19
 
 _ZN17gmx_grppairener_tD2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i
   ret void

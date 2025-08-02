@@ -247,7 +247,7 @@ define noalias ptr @simple_dialog_format_message(ptr noundef %0) local_unnamed_a
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef ptr @simple_dialog(i32 noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @simple_dialog(i32 noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca %class.SimpleDialog, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
@@ -385,7 +385,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef ptr @simple_dialog_async(i32 noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @simple_dialog_async(i32 noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca %class.SimpleDialog, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25

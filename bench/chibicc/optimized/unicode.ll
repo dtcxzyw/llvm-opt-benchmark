@@ -160,27 +160,28 @@ define dso_local noundef zeroext i1 @is_ident1(i32 noundef %0) local_unnamed_add
 .lr.ph.i.preheader:
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %4
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %4 ], [ 0, %.lr.ph.i.preheader ]
-  %1 = phi i32 [ %6, %4 ], [ 95, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %6
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %6 ], [ 0, %.lr.ph.i.preheader ]
+  %1 = phi i32 [ %8, %6 ], [ 95, %.lr.ph.i.preheader ]
   %.not14.i = icmp ugt i32 %1, %0
-  br i1 %.not14.i, label %4, label %2
+  br i1 %.not14.i, label %6, label %2
 
 2:                                                ; preds = %.lr.ph.i
-  %gep.i = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @is_ident1.range, i64 4), i64 %indvars.iv.i
-  %3 = load i32, ptr %gep.i, align 4, !tbaa !15
-  %.not15.i = icmp ugt i32 %0, %3
-  br i1 %.not15.i, label %4, label %in_range.exit
+  %3 = getelementptr inbounds nuw i32, ptr @is_ident1.range, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %5 = load i32, ptr %4, align 4, !tbaa !15
+  %.not15.i = icmp ugt i32 %0, %5
+  br i1 %.not15.i, label %6, label %in_range.exit
 
-4:                                                ; preds = %2, %.lr.ph.i
+6:                                                ; preds = %2, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %5 = getelementptr inbounds nuw i32, ptr @is_ident1.range, i64 %indvars.iv.next.i
-  %6 = load i32, ptr %5, align 8, !tbaa !15
-  %.not.not.i = icmp eq i32 %6, -1
+  %7 = getelementptr inbounds nuw i32, ptr @is_ident1.range, i64 %indvars.iv.next.i
+  %8 = load i32, ptr %7, align 8, !tbaa !15
+  %.not.not.i = icmp eq i32 %8, -1
   br i1 %.not.not.i, label %in_range.exit, label %.lr.ph.i, !llvm.loop !17
 
-in_range.exit:                                    ; preds = %2, %4
-  %.not.lcssa.i.ph = phi i1 [ true, %2 ], [ false, %4 ]
+in_range.exit:                                    ; preds = %2, %6
+  %.not.lcssa.i.ph = phi i1 [ true, %2 ], [ false, %6 ]
   ret i1 %.not.lcssa.i.ph
 }
 
@@ -189,47 +190,49 @@ define dso_local noundef zeroext i1 @is_ident2(i32 noundef %0) local_unnamed_add
 .lr.ph.i.i.preheader:
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %4
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %4 ], [ 0, %.lr.ph.i.i.preheader ]
-  %1 = phi i32 [ %6, %4 ], [ 95, %.lr.ph.i.i.preheader ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %6
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %6 ], [ 0, %.lr.ph.i.i.preheader ]
+  %1 = phi i32 [ %8, %6 ], [ 95, %.lr.ph.i.i.preheader ]
   %.not14.i.i = icmp ugt i32 %1, %0
-  br i1 %.not14.i.i, label %4, label %2
+  br i1 %.not14.i.i, label %6, label %2
 
 2:                                                ; preds = %.lr.ph.i.i
-  %gep.i.i = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @is_ident1.range, i64 4), i64 %indvars.iv.i.i
-  %3 = load i32, ptr %gep.i.i, align 4, !tbaa !15
-  %.not15.i.i = icmp ugt i32 %0, %3
-  br i1 %.not15.i.i, label %4, label %is_ident1.exit
+  %3 = getelementptr inbounds nuw i32, ptr @is_ident1.range, i64 %indvars.iv.i.i
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %5 = load i32, ptr %4, align 4, !tbaa !15
+  %.not15.i.i = icmp ugt i32 %0, %5
+  br i1 %.not15.i.i, label %6, label %is_ident1.exit
 
-4:                                                ; preds = %2, %.lr.ph.i.i
+6:                                                ; preds = %2, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
-  %5 = getelementptr inbounds nuw i32, ptr @is_ident1.range, i64 %indvars.iv.next.i.i
-  %6 = load i32, ptr %5, align 8, !tbaa !15
-  %.not.not.i.i = icmp eq i32 %6, -1
+  %7 = getelementptr inbounds nuw i32, ptr @is_ident1.range, i64 %indvars.iv.next.i.i
+  %8 = load i32, ptr %7, align 8, !tbaa !15
+  %.not.not.i.i = icmp eq i32 %8, -1
   br i1 %.not.not.i.i, label %.lr.ph.i, label %.lr.ph.i.i, !llvm.loop !17
 
-.lr.ph.i:                                         ; preds = %4, %10
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %10 ], [ 0, %4 ]
-  %7 = phi i32 [ %12, %10 ], [ 48, %4 ]
-  %.not14.i = icmp ugt i32 %7, %0
-  br i1 %.not14.i, label %10, label %8
+.lr.ph.i:                                         ; preds = %6, %14
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %6 ]
+  %9 = phi i32 [ %16, %14 ], [ 48, %6 ]
+  %.not14.i = icmp ugt i32 %9, %0
+  br i1 %.not14.i, label %14, label %10
 
-8:                                                ; preds = %.lr.ph.i
-  %gep.i = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @is_ident2.range, i64 4), i64 %indvars.iv.i
-  %9 = load i32, ptr %gep.i, align 4, !tbaa !15
-  %.not15.i = icmp ugt i32 %0, %9
-  br i1 %.not15.i, label %10, label %is_ident1.exit
+10:                                               ; preds = %.lr.ph.i
+  %11 = getelementptr inbounds nuw i32, ptr @is_ident2.range, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %13 = load i32, ptr %12, align 4, !tbaa !15
+  %.not15.i = icmp ugt i32 %0, %13
+  br i1 %.not15.i, label %14, label %is_ident1.exit
 
-10:                                               ; preds = %8, %.lr.ph.i
+14:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %11 = getelementptr inbounds nuw i32, ptr @is_ident2.range, i64 %indvars.iv.next.i
-  %12 = load i32, ptr %11, align 8, !tbaa !15
-  %.not.not.i = icmp eq i32 %12, -1
+  %15 = getelementptr inbounds nuw i32, ptr @is_ident2.range, i64 %indvars.iv.next.i
+  %16 = load i32, ptr %15, align 8, !tbaa !15
+  %.not.not.i = icmp eq i32 %16, -1
   br i1 %.not.not.i, label %is_ident1.exit, label %.lr.ph.i, !llvm.loop !17
 
-is_ident1.exit:                                   ; preds = %2, %10, %8
-  %13 = phi i1 [ false, %10 ], [ true, %8 ], [ true, %2 ]
-  ret i1 %13
+is_ident1.exit:                                   ; preds = %2, %14, %10
+  %17 = phi i1 [ false, %14 ], [ true, %10 ], [ true, %2 ]
+  ret i1 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -240,7 +243,7 @@ define dso_local i32 @display_width(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %5, label %.lr.ph.split.split, label %._crit_edge
 
 .lr.ph.split.split:                               ; preds = %2, %char_width.exit
-  %.011 = phi i32 [ %41, %char_width.exit ], [ 0, %2 ]
+  %.011 = phi i32 [ %45, %char_width.exit ], [ 0, %2 ]
   %.0410 = phi ptr [ %.1, %char_width.exit ], [ %0, %2 ]
   %6 = load i8, ptr %.0410, align 1, !tbaa !7
   %7 = icmp sgt i8 %6, -1
@@ -304,54 +307,56 @@ decode_utf8.exit:                                 ; preds = %8, %19
   %.027.i = phi i32 [ %10, %8 ], [ %28, %19 ]
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %decode_utf8.exit, %32
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %32 ], [ 0, %decode_utf8.exit ]
-  %29 = phi i32 [ %34, %32 ], [ 0, %decode_utf8.exit ]
+.lr.ph.i.i:                                       ; preds = %decode_utf8.exit, %34
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %34 ], [ 0, %decode_utf8.exit ]
+  %29 = phi i32 [ %36, %34 ], [ 0, %decode_utf8.exit ]
   %.not14.i.i = icmp ugt i32 %29, %.027.i
-  br i1 %.not14.i.i, label %32, label %30
+  br i1 %.not14.i.i, label %34, label %30
 
 30:                                               ; preds = %.lr.ph.i.i
-  %gep.i.i = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @char_width.range1, i64 4), i64 %indvars.iv.i.i
-  %31 = load i32, ptr %gep.i.i, align 4, !tbaa !15
-  %.not15.i.i = icmp ugt i32 %.027.i, %31
-  br i1 %.not15.i.i, label %32, label %char_width.exit
+  %31 = getelementptr inbounds nuw i32, ptr @char_width.range1, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !15
+  %.not15.i.i = icmp ugt i32 %.027.i, %33
+  br i1 %.not15.i.i, label %34, label %char_width.exit
 
-32:                                               ; preds = %30, %.lr.ph.i.i
+34:                                               ; preds = %30, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
-  %33 = getelementptr inbounds nuw i32, ptr @char_width.range1, i64 %indvars.iv.next.i.i
-  %34 = load i32, ptr %33, align 8, !tbaa !15
-  %.not.not.i.i = icmp eq i32 %34, -1
-  br i1 %.not.not.i.i, label %.lr.ph.i5.i, label %.lr.ph.i.i, !llvm.loop !17
+  %35 = getelementptr inbounds nuw i32, ptr @char_width.range1, i64 %indvars.iv.next.i.i
+  %36 = load i32, ptr %35, align 8, !tbaa !15
+  %.not.not.i.i = icmp eq i32 %36, -1
+  br i1 %.not.not.i.i, label %.lr.ph.i4.i, label %.lr.ph.i.i, !llvm.loop !17
 
-.lr.ph.i5.i:                                      ; preds = %32, %38
-  %indvars.iv.i6.i = phi i64 [ %indvars.iv.next.i11.i, %38 ], [ 0, %32 ]
-  %35 = phi i32 [ %40, %38 ], [ 4352, %32 ]
-  %.not14.i7.i = icmp ugt i32 %35, %.027.i
-  br i1 %.not14.i7.i, label %38, label %36
+.lr.ph.i4.i:                                      ; preds = %34, %42
+  %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i9.i, %42 ], [ 0, %34 ]
+  %37 = phi i32 [ %44, %42 ], [ 4352, %34 ]
+  %.not14.i6.i = icmp ugt i32 %37, %.027.i
+  br i1 %.not14.i6.i, label %42, label %38
 
-36:                                               ; preds = %.lr.ph.i5.i
-  %gep.i8.i = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @char_width.range2, i64 4), i64 %indvars.iv.i6.i
-  %37 = load i32, ptr %gep.i8.i, align 4, !tbaa !15
-  %.not15.i9.i = icmp ugt i32 %.027.i, %37
-  br i1 %.not15.i9.i, label %38, label %char_width.exit
+38:                                               ; preds = %.lr.ph.i4.i
+  %39 = getelementptr inbounds nuw i32, ptr @char_width.range2, i64 %indvars.iv.i5.i
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %41 = load i32, ptr %40, align 4, !tbaa !15
+  %.not15.i7.i = icmp ugt i32 %.027.i, %41
+  br i1 %.not15.i7.i, label %42, label %char_width.exit
 
-38:                                               ; preds = %36, %.lr.ph.i5.i
-  %indvars.iv.next.i11.i = add nuw nsw i64 %indvars.iv.i6.i, 2
-  %39 = getelementptr inbounds nuw i32, ptr @char_width.range2, i64 %indvars.iv.next.i11.i
-  %40 = load i32, ptr %39, align 8, !tbaa !15
-  %.not.not.i12.i = icmp eq i32 %40, -1
-  br i1 %.not.not.i12.i, label %char_width.exit, label %.lr.ph.i5.i, !llvm.loop !17
+42:                                               ; preds = %38, %.lr.ph.i4.i
+  %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i5.i, 2
+  %43 = getelementptr inbounds nuw i32, ptr @char_width.range2, i64 %indvars.iv.next.i9.i
+  %44 = load i32, ptr %43, align 8, !tbaa !15
+  %.not.not.i10.i = icmp eq i32 %44, -1
+  br i1 %.not.not.i10.i, label %char_width.exit, label %.lr.ph.i4.i, !llvm.loop !17
 
-char_width.exit:                                  ; preds = %30, %36, %38
-  %.0.i = phi i32 [ 2, %36 ], [ 1, %38 ], [ 0, %30 ]
-  %41 = add nuw nsw i32 %.0.i, %.011
-  %42 = ptrtoint ptr %.1 to i64
-  %43 = sub i64 %42, %3
-  %44 = icmp slt i64 %43, %4
-  br i1 %44, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !18
+char_width.exit:                                  ; preds = %30, %38, %42
+  %.0.i = phi i32 [ 2, %38 ], [ 1, %42 ], [ 0, %30 ]
+  %45 = add nuw nsw i32 %.0.i, %.011
+  %46 = ptrtoint ptr %.1 to i64
+  %47 = sub i64 %46, %3
+  %48 = icmp slt i64 %47, %4
+  br i1 %48, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %char_width.exit, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %41, %char_width.exit ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %45, %char_width.exit ]
   ret i32 %.0.lcssa
 }
 

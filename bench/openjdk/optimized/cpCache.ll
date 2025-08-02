@@ -382,11 +382,11 @@ define hidden void @_ZN17ConstantPoolCache25set_direct_or_vtable_callEN9Bytecode
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %10, i64 %11
-  switch i32 %1, label %100 [
+  switch i32 %1, label %106 [
     i32 185, label %13
     i32 182, label %45
-    i32 183, label %87
-    i32 184, label %87
+    i32 183, label %.critedge
+    i32 184, label %.critedge
   ]
 
 13:                                               ; preds = %6
@@ -404,8 +404,8 @@ define hidden void @_ZN17ConstantPoolCache25set_direct_or_vtable_callEN9Bytecode
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 164
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 512
-  %.not85 = icmp eq i32 %25, 0
-  br i1 %.not85, label %.thread, label %26
+  %.not81 = icmp eq i32 %25, 0
+  br i1 %.not81, label %.thread, label %26
 
 26:                                               ; preds = %22
   %27 = tail call noundef zeroext i1 @_ZNK6Method15is_final_methodEv(ptr noundef nonnull align 8 dereferenceable(88) %14) #12
@@ -442,7 +442,7 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %26, %switch.lookup
   store volatile ptr %43, ptr %12, align 8
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %20, ptr %44, align 8
-  br label %125
+  br label %123
 
 45:                                               ; preds = %13, %6
   %.060 = phi i8 [ 0, %6 ], [ 1, %13 ]
@@ -468,18 +468,18 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %26, %switch.lookup
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = load i8, ptr %57, align 8
-  %switch.tableidx87 = add i8 %58, -4
-  %59 = icmp ult i8 %switch.tableidx87, 11
-  br i1 %59, label %switch.lookup86, label %_Z11as_TosState9BasicType.exit66
+  %switch.tableidx83 = add i8 %58, -4
+  %59 = icmp ult i8 %switch.tableidx83, 11
+  br i1 %59, label %switch.lookup82, label %_Z11as_TosState9BasicType.exit66
 
-switch.lookup86:                                  ; preds = %.thread
-  %60 = zext nneg i8 %switch.tableidx87 to i64
-  %switch.gep88 = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %60
-  %switch.load89 = load i8, ptr %switch.gep88, align 1
+switch.lookup82:                                  ; preds = %.thread
+  %60 = zext nneg i8 %switch.tableidx83 to i64
+  %switch.gep84 = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %60
+  %switch.load85 = load i8, ptr %switch.gep84, align 1
   br label %_Z11as_TosState9BasicType.exit66
 
-_Z11as_TosState9BasicType.exit66:                 ; preds = %.thread, %switch.lookup86
-  %.0.i65 = phi i8 [ %switch.load89, %switch.lookup86 ], [ 11, %.thread ]
+_Z11as_TosState9BasicType.exit66:                 ; preds = %.thread, %switch.lookup82
+  %.0.i65 = phi i8 [ %switch.load85, %switch.lookup82 ], [ 11, %.thread ]
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 46
   %62 = load i16, ptr %61, align 2
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -502,18 +502,18 @@ _Z11as_TosState9BasicType.exit66:                 ; preds = %.thread, %switch.lo
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load i8, ptr %74, align 8
-  %switch.tableidx91 = add i8 %75, -4
-  %76 = icmp ult i8 %switch.tableidx91, 11
-  br i1 %76, label %switch.lookup90, label %_Z11as_TosState9BasicType.exit68
+  %switch.tableidx87 = add i8 %75, -4
+  %76 = icmp ult i8 %switch.tableidx87, 11
+  br i1 %76, label %switch.lookup86, label %_Z11as_TosState9BasicType.exit68
 
-switch.lookup90:                                  ; preds = %66
-  %77 = zext nneg i8 %switch.tableidx91 to i64
-  %switch.gep92 = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %77
-  %switch.load93 = load i8, ptr %switch.gep92, align 1
+switch.lookup86:                                  ; preds = %66
+  %77 = zext nneg i8 %switch.tableidx87 to i64
+  %switch.gep88 = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %77
+  %switch.load89 = load i8, ptr %switch.gep88, align 1
   br label %_Z11as_TosState9BasicType.exit68
 
-_Z11as_TosState9BasicType.exit68:                 ; preds = %66, %switch.lookup90
-  %.0.i67 = phi i8 [ %switch.load93, %switch.lookup90 ], [ 11, %66 ]
+_Z11as_TosState9BasicType.exit68:                 ; preds = %66, %switch.lookup86
+  %.0.i67 = phi i8 [ %switch.load89, %switch.lookup86 ], [ 11, %66 ]
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 46
   %79 = load i16, ptr %78, align 2
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -529,102 +529,102 @@ _Z11as_TosState9BasicType.exit68:                 ; preds = %66, %switch.lookup9
   %.06074 = phi i8 [ %.060, %_Z11as_TosState9BasicType.exit68 ], [ %.06073, %_Z11as_TosState9BasicType.exit66 ]
   %85 = trunc nuw i8 %.06074 to i1
   %86 = xor i1 %85, true
-  br label %125
+  br label %123
 
-87:                                               ; preds = %6, %6
-  %88 = getelementptr inbounds nuw i8, ptr %12, i64 21
-  %89 = load ptr, ptr %3, align 8
-  %90 = tail call noundef zeroext i1 @_ZNK6Method15is_final_methodEv(ptr noundef nonnull align 8 dereferenceable(88) %89) #12
-  %91 = select i1 %90, i8 2, i8 0
-  %92 = load i8, ptr %88, align 1
-  %93 = or i8 %92, %91
-  store i8 %93, ptr %88, align 1
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
-  %98 = load i8, ptr %97, align 8
-  %switch.tableidx95 = add i8 %98, -4
-  %99 = icmp ult i8 %switch.tableidx95, 11
-  br i1 %99, label %switch.lookup94, label %103
+.critedge:                                        ; preds = %6, %6
+  %87 = getelementptr inbounds nuw i8, ptr %12, i64 21
+  %88 = load ptr, ptr %3, align 8
+  %89 = tail call noundef zeroext i1 @_ZNK6Method15is_final_methodEv(ptr noundef nonnull align 8 dereferenceable(88) %88) #12
+  %90 = select i1 %89, i8 2, i8 0
+  %91 = load i8, ptr %87, align 1
+  %92 = or i8 %91, %90
+  store i8 %92, ptr %87, align 1
+  %93 = load ptr, ptr %3, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  %97 = load i8, ptr %96, align 8
+  %switch.tableidx91 = add i8 %97, -4
+  %98 = icmp ult i8 %switch.tableidx91, 11
+  br i1 %98, label %switch.lookup90, label %_Z11as_TosState9BasicType.exit70
 
-100:                                              ; preds = %6
-  %101 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %101, align 1
+switch.lookup90:                                  ; preds = %.critedge
+  %99 = zext nneg i8 %switch.tableidx91 to i64
+  %switch.gep92 = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %99
+  %switch.load93 = load i8, ptr %switch.gep92, align 1
+  br label %_Z11as_TosState9BasicType.exit70
+
+_Z11as_TosState9BasicType.exit70:                 ; preds = %.critedge, %switch.lookup90
+  %.0.i69 = phi i8 [ %switch.load93, %switch.lookup90 ], [ 11, %.critedge ]
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 46
+  %101 = load i16, ptr %100, align 2
+  %102 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  store i8 %.0.i69, ptr %102, align 4
+  %103 = getelementptr inbounds nuw i8, ptr %12, i64 18
+  store i16 %101, ptr %103, align 2
+  %104 = load ptr, ptr %3, align 8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
+  store volatile ptr %104, ptr %12, align 8
+  %105 = icmp eq i32 %1, 183
+  %or.cond = and i1 %105, %5
+  br i1 %or.cond, label %108, label %.thread77
+
+106:                                              ; preds = %6
+  %107 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %107, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 161) #13
   unreachable
 
-switch.lookup94:                                  ; preds = %87
-  %102 = zext nneg i8 %switch.tableidx95 to i64
-  %switch.gep96 = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi, i64 0, i64 %102
-  %switch.load97 = load i8, ptr %switch.gep96, align 1
-  br label %103
-
-103:                                              ; preds = %87, %switch.lookup94
-  %.0.i69 = phi i8 [ %switch.load97, %switch.lookup94 ], [ 11, %87 ]
-  %104 = getelementptr inbounds nuw i8, ptr %96, i64 46
-  %105 = load i16, ptr %104, align 2
-  %106 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i8 %.0.i69, ptr %106, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %12, i64 18
-  store i16 %105, ptr %107, align 2
-  %108 = load ptr, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  store volatile ptr %108, ptr %12, align 8
-  %109 = icmp eq i32 %1, 183
-  %or.cond = and i1 %109, %5
-  br i1 %or.cond, label %110, label %.thread81
-
-110:                                              ; preds = %103
-  %111 = load ptr, ptr %3, align 8
+108:                                              ; preds = %_Z11as_TosState9BasicType.exit70
+  %109 = load ptr, ptr %3, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 36
-  %117 = load i16, ptr %116, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 72
-  %119 = zext i16 %117 to i64
-  %120 = getelementptr inbounds nuw i64, ptr %118, i64 %119
-  %121 = load ptr, ptr %120, align 8
-  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
-  %.not = icmp eq ptr %121, %122
-  br i1 %.not, label %.thread81, label %135
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 36
+  %115 = load i16, ptr %114, align 4
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 72
+  %117 = zext i16 %115 to i64
+  %118 = getelementptr inbounds nuw i64, ptr %116, i64 %117
+  %119 = load ptr, ptr %118, align 8
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %.not = icmp eq ptr %119, %120
+  br i1 %.not, label %.thread77, label %133
 
-.thread81:                                        ; preds = %103, %110
-  %123 = trunc nuw i32 %1 to i8
-  %124 = getelementptr inbounds nuw i8, ptr %12, i64 22
+.thread77:                                        ; preds = %_Z11as_TosState9BasicType.exit70, %108
+  %121 = trunc nuw i32 %1 to i8
+  %122 = getelementptr inbounds nuw i8, ptr %12, i64 22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  store volatile i8 %123, ptr %124, align 1
-  br label %135
-
-125:                                              ; preds = %_Z11as_TosState9BasicType.exit, %84
-  %.161.ph = phi i1 [ %86, %84 ], [ true, %_Z11as_TosState9BasicType.exit ]
-  %126 = icmp eq i32 %1, 185
-  %or.cond3 = and i1 %126, %.161.ph
-  br i1 %or.cond3, label %127, label %133
-
-127:                                              ; preds = %125
-  %128 = load ptr, ptr %3, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 40
-  %.sroa.0.0.copyload.i.i = load i32, ptr %129, align 8
-  %130 = and i32 %.sroa.0.0.copyload.i.i, 18
-  %or.cond84.not = icmp eq i32 %130, 0
-  br i1 %or.cond84.not, label %133, label %131
-
-131:                                              ; preds = %127
-  %132 = getelementptr inbounds nuw i8, ptr %12, i64 22
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  store volatile i8 -71, ptr %132, align 1
+  store volatile i8 %121, ptr %122, align 1
   br label %133
 
-133:                                              ; preds = %127, %131, %125
-  %134 = getelementptr inbounds nuw i8, ptr %12, i64 23
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  store volatile i8 -74, ptr %134, align 1
-  br label %135
+123:                                              ; preds = %84, %_Z11as_TosState9BasicType.exit
+  %.161 = phi i1 [ true, %_Z11as_TosState9BasicType.exit ], [ %86, %84 ]
+  %124 = icmp eq i32 %1, 185
+  %or.cond3 = and i1 %124, %.161
+  br i1 %or.cond3, label %125, label %131
 
-135:                                              ; preds = %110, %.thread81, %133
+125:                                              ; preds = %123
+  %126 = load ptr, ptr %3, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %.sroa.0.0.copyload.i.i = load i32, ptr %127, align 8
+  %128 = and i32 %.sroa.0.0.copyload.i.i, 18
+  %or.cond80.not = icmp eq i32 %128, 0
+  br i1 %or.cond80.not, label %131, label %129
+
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds nuw i8, ptr %12, i64 22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
+  store volatile i8 -71, ptr %130, align 1
+  br label %131
+
+131:                                              ; preds = %125, %129, %123
+  %132 = getelementptr inbounds nuw i8, ptr %12, i64 23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
+  store volatile i8 -74, ptr %132, align 1
+  br label %133
+
+133:                                              ; preds = %108, %.thread77, %131
   ret void
 }
 
@@ -687,7 +687,7 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %6, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN17ConstantPoolCache17set_method_handleEiRK8CallInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17ConstantPoolCache17set_method_handleEiRK8CallInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.ObjectLocker, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8

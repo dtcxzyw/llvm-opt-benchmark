@@ -1661,16 +1661,16 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
   store ptr %1, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %10, align 8
-  %.not9.not = icmp eq i64 %9, 0
-  br i1 %.not9.not, label %._crit_edge, label %.lr.ph
+  %.not7.not = icmp eq i64 %9, 0
+  br i1 %.not7.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %12
 
 12:                                               ; preds = %.lr.ph, %17
-  %.sroa.01.010 = phi i64 [ 0, %.lr.ph ], [ %13, %17 ]
-  %13 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %.sroa.01.010, i64 1)
+  %.sroa.01.08 = phi i64 [ 0, %.lr.ph ], [ %13, %17 ]
+  %13 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %.sroa.01.08, i64 1)
           to label %16 unwind label %14
 
 14:                                               ; preds = %.noexc, %16, %12
@@ -1679,13 +1679,13 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$cranelift_isle..error..Span$GT$$GT$17h67487c355cf38041E"(ptr nonnull align 8 %8) #7
           to label %22 unwind label %20
 
-._crit_edge:                                      ; preds = %17, %3
+.critedge:                                        ; preds = %17, %3
   ret i64 %9
 
 16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  invoke void @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17h700d18f2d759947bE"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %4, ptr align 8 %0, i64 %.sroa.01.010)
+  invoke void @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17h700d18f2d759947bE"(ptr nonnull sret({ i64, i64, i64, i64 }) align 8 %4, ptr align 8 %0, i64 %.sroa.01.08)
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %16
@@ -1696,12 +1696,12 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
 17:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %18 = getelementptr inbounds { { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }, ptr %1, i64 %.sroa.01.010
+  %18 = getelementptr inbounds { { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }, ptr %1, i64 %.sroa.01.08
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr %19, ptr %10, align 8
   %.not = icmp ult i64 %13, %9
-  br i1 %.not, label %12, label %._crit_edge
+  br i1 %.not, label %12, label %.critedge
 
 20:                                               ; preds = %14
   %21 = landingpad { ptr, i32 }
@@ -1724,16 +1724,16 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
   store ptr %1, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %7, align 8
-  %.not9.not = icmp eq i64 %6, 0
-  br i1 %.not9.not, label %._crit_edge, label %.lr.ph
+  %.not7.not = icmp eq i64 %6, 0
+  br i1 %.not7.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %9
 
 9:                                                ; preds = %.lr.ph, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h11b95a917a1cb909E.exit"
-  %.sroa.01.010 = phi i64 [ 0, %.lr.ph ], [ %10, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h11b95a917a1cb909E.exit" ]
-  %10 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %.sroa.01.010, i64 1)
+  %.sroa.01.08 = phi i64 [ 0, %.lr.ph ], [ %10, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h11b95a917a1cb909E.exit" ]
+  %10 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %.sroa.01.08, i64 1)
           to label %13 unwind label %11
 
 11:                                               ; preds = %.noexc, %13, %9
@@ -1742,11 +1742,11 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
   invoke void @"_ZN4core3ptr104drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17hd699623294449468E"(ptr nonnull align 8 %5) #7
           to label %22 unwind label %20
 
-._crit_edge:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h11b95a917a1cb909E.exit", %3
+.critedge:                                        ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h11b95a917a1cb909E.exit", %3
   ret i64 %6
 
 13:                                               ; preds = %9
-  %14 = invoke { i16, i64 } @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17hb34cbc6c3370fa8fE"(ptr align 8 %0, i64 %.sroa.01.010)
+  %14 = invoke { i16, i64 } @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17hb34cbc6c3370fa8fE"(ptr align 8 %0, i64 %.sroa.01.08)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %13
@@ -1756,12 +1756,12 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
           to label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h11b95a917a1cb909E.exit" unwind label %11
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h11b95a917a1cb909E.exit": ; preds = %.noexc
-  %18 = getelementptr inbounds i16, ptr %1, i64 %.sroa.01.010
+  %18 = getelementptr inbounds i16, ptr %1, i64 %.sroa.01.08
   store i16 %17, ptr %18, align 2
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store ptr %19, ptr %7, align 8
   %.not = icmp ult i64 %10, %6
-  br i1 %.not, label %9, label %._crit_edge
+  br i1 %.not, label %9, label %.critedge
 
 20:                                               ; preds = %11
   %21 = landingpad { ptr, i32 }
@@ -1796,16 +1796,16 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
   store ptr %1, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %7, align 8
-  %.not9.not = icmp eq i64 %6, 0
-  br i1 %.not9.not, label %._crit_edge, label %.lr.ph
+  %.not7.not = icmp eq i64 %6, 0
+  br i1 %.not7.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %9
 
 9:                                                ; preds = %.lr.ph, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h75a641ceaf973419E.exit"
-  %.sroa.01.010 = phi i64 [ 0, %.lr.ph ], [ %10, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h75a641ceaf973419E.exit" ]
-  %10 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %.sroa.01.010, i64 1)
+  %.sroa.01.08 = phi i64 [ 0, %.lr.ph ], [ %10, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h75a641ceaf973419E.exit" ]
+  %10 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %.sroa.01.08, i64 1)
           to label %13 unwind label %11
 
 11:                                               ; preds = %.noexc, %13, %9
@@ -1814,11 +1814,11 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
   invoke void @"_ZN4core3ptr104drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17hd699623294449468E"(ptr nonnull align 8 %5) #7
           to label %22 unwind label %20
 
-._crit_edge:                                      ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h75a641ceaf973419E.exit", %3
+.critedge:                                        ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h75a641ceaf973419E.exit", %3
   ret i64 %6
 
 13:                                               ; preds = %9
-  %14 = invoke { i16, i64 } @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17hb34cbc6c3370fa8fE"(ptr align 8 %0, i64 %.sroa.01.010)
+  %14 = invoke { i16, i64 } @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17hb34cbc6c3370fa8fE"(ptr align 8 %0, i64 %.sroa.01.08)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %13
@@ -1828,12 +1828,12 @@ define noundef i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecIn
           to label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h75a641ceaf973419E.exit" unwind label %11
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h75a641ceaf973419E.exit": ; preds = %.noexc
-  %18 = getelementptr inbounds i16, ptr %1, i64 %.sroa.01.010
+  %18 = getelementptr inbounds i16, ptr %1, i64 %.sroa.01.08
   store i16 %17, ptr %18, align 2
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store ptr %19, ptr %7, align 8
   %.not = icmp ult i64 %10, %6
-  br i1 %.not, label %9, label %._crit_edge
+  br i1 %.not, label %9, label %.critedge
 
 20:                                               ; preds = %11
   %21 = landingpad { ptr, i32 }

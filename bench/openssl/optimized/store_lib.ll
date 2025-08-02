@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [11 x i8] c"properties\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_STORE_open_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define noalias ptr @OSSL_STORE_open_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca [2 x %struct.ossl_param_st], align 16
   %10 = alloca %struct.ossl_param_st, align 8
   %11 = alloca %struct.ossl_passphrase_data_st, align 8
@@ -407,7 +407,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_STORE_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noalias ptr @OSSL_STORE_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @OSSL_STORE_open_ex(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef %3, ptr noundef %4)
   ret ptr %6
 }
@@ -701,12 +701,12 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %15 = load ptr, ptr %14, align 8, !tbaa !18
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread64, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %13
   %18 = tail call ptr @OSSL_PARAM_BLD_new() #9
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.thread64, label %20
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %1, align 8, !tbaa !47
@@ -784,7 +784,7 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
   br i1 %.not47, label %.thread, label %63
 
 63:                                               ; preds = %51, %44, %27, %57
-  %.062 = phi ptr [ null, %27 ], [ null, %57 ], [ %39, %44 ], [ null, %51 ]
+  %.061 = phi ptr [ null, %27 ], [ null, %57 ], [ %39, %44 ], [ null, %51 ]
   %64 = call ptr @OSSL_PARAM_BLD_to_param(ptr noundef nonnull %18) #9
   %65 = load ptr, ptr %11, align 8, !tbaa !33
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 160
@@ -795,22 +795,13 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
   call void @OSSL_PARAM_free(ptr noundef %64) #9
   br label %.thread
 
-.thread64:                                        ; preds = %17, %13
-  %.sink67 = phi i32 [ 348, %13 ], [ 353, %17 ]
-  %.sink = phi i32 [ 118, %13 ], [ 524303, %17 ]
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink67, ptr noundef nonnull @__func__.OSSL_STORE_find) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 44, i32 noundef %.sink, ptr noundef null) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  br label %82
-
 .thread:                                          ; preds = %46, %31, %36, %40, %22, %20, %51, %44, %27, %63, %57
-  %.061 = phi ptr [ %.062, %63 ], [ null, %57 ], [ null, %27 ], [ %39, %44 ], [ null, %51 ], [ null, %46 ], [ null, %31 ], [ null, %36 ], [ %39, %40 ], [ null, %22 ], [ null, %20 ]
+  %.060 = phi ptr [ %.061, %63 ], [ null, %57 ], [ null, %27 ], [ %39, %44 ], [ null, %51 ], [ null, %46 ], [ null, %31 ], [ null, %36 ], [ %39, %40 ], [ null, %22 ], [ null, %20 ]
   %.2 = phi i32 [ %70, %63 ], [ 0, %57 ], [ 0, %27 ], [ 0, %44 ], [ 0, %51 ], [ 0, %46 ], [ 0, %31 ], [ 0, %36 ], [ 0, %40 ], [ 0, %22 ], [ 0, %20 ]
   call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %18) #9
   %71 = load ptr, ptr %3, align 8, !tbaa !21
   call void @CRYPTO_free(ptr noundef %71, ptr noundef nonnull @.str.2, i32 noundef 403) #9
-  call void @BN_free(ptr noundef %.061) #9
+  call void @BN_free(ptr noundef %.060) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   br label %82
 
@@ -833,8 +824,17 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
   %81 = tail call i32 %75(ptr noundef %80, ptr noundef nonnull %1) #9
   br label %82
 
-82:                                               ; preds = %.thread, %.thread64, %78, %77, %9, %6
-  %.036 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 0, %77 ], [ %81, %78 ], [ %.2, %.thread ], [ 0, %.thread64 ]
+.critedge:                                        ; preds = %17, %13
+  %.sink62 = phi i32 [ 348, %13 ], [ 353, %17 ]
+  %.sink = phi i32 [ 118, %13 ], [ 524303, %17 ]
+  tail call void @ERR_new() #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink62, ptr noundef nonnull @__func__.OSSL_STORE_find) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 44, i32 noundef %.sink, ptr noundef null) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  br label %82
+
+82:                                               ; preds = %78, %.thread, %.critedge, %77, %9, %6
+  %.036 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 0, %77 ], [ 0, %.critedge ], [ %.2, %.thread ], [ %81, %78 ]
   ret i32 %.036
 }
 
@@ -1749,7 +1749,7 @@ define i32 @OSSL_STORE_supports_search(ptr noundef readonly captures(none) %0, i
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %.thread35, label %6
+  br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %2
   %7 = tail call ptr @OSSL_STORE_LOADER_get0_provider(ptr noundef nonnull %5) #9
@@ -1758,7 +1758,7 @@ define i32 @OSSL_STORE_supports_search(ptr noundef readonly captures(none) %0, i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %11 = load ptr, ptr %10, align 8, !tbaa !72
   %.not32 = icmp eq ptr %11, null
-  br i1 %.not32, label %.thread, label %12
+  br i1 %.not32, label %.critedge, label %12
 
 12:                                               ; preds = %6
   %13 = tail call ptr %11(ptr noundef %8) #9
@@ -1792,33 +1792,33 @@ define i32 @OSSL_STORE_supports_search(ptr noundef readonly captures(none) %0, i
   %28 = icmp ne ptr %18, null
   br label %29
 
-29:                                               ; preds = %27, %25, %21, %19, %12
+29:                                               ; preds = %12, %19, %21, %25, %27
   %.228.shrunk = phi i1 [ false, %12 ], [ %20, %19 ], [ %24, %21 ], [ %26, %25 ], [ %28, %27 ]
   %.228 = zext i1 %.228.shrunk to i32
   %.pr = load ptr, ptr %4, align 8, !tbaa !33
   %30 = icmp eq ptr %.pr, null
-  br i1 %30, label %.thread35, label %.thread
+  br i1 %30, label %.thread, label %.critedge
 
-.thread35:                                        ; preds = %2, %29
+.thread:                                          ; preds = %2, %29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #9
   %31 = load ptr, ptr %0, align 8, !tbaa !34
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8, !tbaa !57
   %.not33 = icmp eq ptr %33, null
-  br i1 %.not33, label %36, label %34
+  br i1 %.not33, label %.critedge.sink.split, label %34
 
-34:                                               ; preds = %.thread35
+34:                                               ; preds = %.thread
   store i32 %1, ptr %3, align 8, !tbaa !47
   %35 = call i32 %33(ptr noundef null, ptr noundef nonnull %3) #9
-  br label %36
+  br label %.critedge.sink.split
 
-36:                                               ; preds = %.thread35, %34
-  %spec.select = phi i32 [ %35, %34 ], [ 0, %.thread35 ]
+.critedge.sink.split:                             ; preds = %.thread, %34
+  %.2.ph = phi i32 [ %35, %34 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #9
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %6, %36, %29
-  %.2 = phi i32 [ %.228, %29 ], [ %spec.select, %36 ], [ 0, %6 ]
+.critedge:                                        ; preds = %.critedge.sink.split, %6, %29
+  %.2 = phi i32 [ %.228, %29 ], [ 0, %6 ], [ %.2.ph, %.critedge.sink.split ]
   ret i32 %.2
 }
 

@@ -1499,7 +1499,7 @@ _ZNK5QHashIP7QObjectP12_funnel_bt_tE7isEmptyEv.exit.thread: ; preds = %2, %61, %
 declare void @_ZN7QObject11deleteLaterEv(ptr noundef align 8 dereferenceable_or_null(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef ptr @_ZN16FunnelTextDialog13textWindowNewEP7QWidget7QString(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN16FunnelTextDialog13textWindowNewEP7QWidget7QString(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef dereferenceable_or_null(104) ptr @_Znwm(i64 noundef 104) #26
   invoke void @_ZN16FunnelTextDialogC1EP7QWidgetRK7QString(ptr noundef align 8 dereferenceable_or_null(104) %3, ptr noundef %0, ptr noundef align 8 dereferenceable(24) %1)
           to label %4 unwind label %6

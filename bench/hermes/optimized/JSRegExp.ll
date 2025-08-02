@@ -514,7 +514,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %__begin2.029.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %1, %entry ]
   %ret.sroa.0.028.i = phi i8 [ %bf.set.i, %for.inc.i ], [ 0, %entry ]
   %3 = load i16, ptr %__begin2.029.i, align 2
-  switch i16 %3, label %if.then [
+  switch i16 %3, label %if.then.critedge [
     i16 105, label %sw.bb.i
     i16 109, label %sw.bb4.i
     i16 103, label %sw.bb13.i
@@ -527,37 +527,37 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 sw.bb.i:                                          ; preds = %for.body.i
   %bf.clear.i = and i8 %ret.sroa.0.028.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear.i, 0
-  br i1 %tobool.not.i, label %for.inc.i, label %if.then
+  br i1 %tobool.not.i, label %for.inc.i, label %if.then.critedge
 
 sw.bb4.i:                                         ; preds = %for.body.i
   %4 = and i8 %ret.sroa.0.028.i, 4
   %tobool7.not.i = icmp eq i8 %4, 0
-  br i1 %tobool7.not.i, label %for.inc.i, label %if.then
+  br i1 %tobool7.not.i, label %for.inc.i, label %if.then.critedge
 
 sw.bb13.i:                                        ; preds = %for.body.i
   %5 = and i8 %ret.sroa.0.028.i, 2
   %tobool17.not.i = icmp eq i8 %5, 0
-  br i1 %tobool17.not.i, label %for.inc.i, label %if.then
+  br i1 %tobool17.not.i, label %for.inc.i, label %if.then.critedge
 
 sw.bb23.i:                                        ; preds = %for.body.i
   %6 = and i8 %ret.sroa.0.028.i, 8
   %tobool27.not.i = icmp eq i8 %6, 0
-  br i1 %tobool27.not.i, label %for.inc.i, label %if.then
+  br i1 %tobool27.not.i, label %for.inc.i, label %if.then.critedge
 
 sw.bb33.i:                                        ; preds = %for.body.i
   %7 = and i8 %ret.sroa.0.028.i, 32
   %tobool37.not.i = icmp eq i8 %7, 0
-  br i1 %tobool37.not.i, label %for.inc.i, label %if.then
+  br i1 %tobool37.not.i, label %for.inc.i, label %if.then.critedge
 
 sw.bb43.i:                                        ; preds = %for.body.i
   %8 = and i8 %ret.sroa.0.028.i, 16
   %tobool47.not.i = icmp eq i8 %8, 0
-  br i1 %tobool47.not.i, label %for.inc.i, label %if.then
+  br i1 %tobool47.not.i, label %for.inc.i, label %if.then.critedge
 
 sw.bb53.i:                                        ; preds = %for.body.i
   %9 = and i8 %ret.sroa.0.028.i, 64
   %tobool57.not.i = icmp eq i8 %9, 0
-  br i1 %tobool57.not.i, label %for.inc.i, label %if.then
+  br i1 %tobool57.not.i, label %for.inc.i, label %if.then.critedge
 
 for.inc.i:                                        ; preds = %sw.bb53.i, %sw.bb43.i, %sw.bb33.i, %sw.bb23.i, %sw.bb13.i, %sw.bb4.i, %sw.bb.i
   %.sink.i = phi i8 [ 1, %sw.bb.i ], [ 4, %sw.bb4.i ], [ 2, %sw.bb13.i ], [ 8, %sw.bb23.i ], [ 32, %sw.bb33.i ], [ 16, %sw.bb43.i ], [ 64, %sw.bb53.i ]
@@ -566,7 +566,7 @@ for.inc.i:                                        ; preds = %sw.bb53.i, %sw.bb43
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %if.end, label %for.body.i
 
-if.then:                                          ; preds = %sw.bb.i, %sw.bb4.i, %sw.bb13.i, %sw.bb23.i, %sw.bb33.i, %sw.bb43.i, %sw.bb53.i, %for.body.i
+if.then.critedge:                                 ; preds = %for.body.i, %sw.bb53.i, %sw.bb43.i, %sw.bb33.i, %sw.bb23.i, %sw.bb13.i, %sw.bb4.i, %sw.bb.i
   %rightKind_.i3.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   store i32 1, ptr %rightKind_.i3.i, align 8
   %leftSize_.i4.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
@@ -676,8 +676,8 @@ if.end40:                                         ; preds = %_ZN6hermes2vm15Hand
   %call50 = call noundef i32 @_ZN6hermes2vm8JSRegExp10initializeENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15StringPrimitiveEEES7_(ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i, ptr nonnull %flags.coerce)
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end40, %_ZN6hermes2vm8JSRegExp10initializeENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15StringPrimitiveEEES7_N4llvh8ArrayRefIhEE.exit, %if.then
-  %retval.0 = phi i32 [ 1, %_ZN6hermes2vm8JSRegExp10initializeENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15StringPrimitiveEEES7_N4llvh8ArrayRefIhEE.exit ], [ %call50, %if.end40 ], [ %call9, %if.then ]
+cleanup:                                          ; preds = %if.end40, %_ZN6hermes2vm8JSRegExp10initializeENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15StringPrimitiveEEES7_N4llvh8ArrayRefIhEE.exit, %if.then.critedge
+  %retval.0 = phi i32 [ 1, %_ZN6hermes2vm8JSRegExp10initializeENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15StringPrimitiveEEES7_N4llvh8ArrayRefIhEE.exit ], [ %call50, %if.end40 ], [ %call9, %if.then.critedge ]
   %29 = load ptr, ptr %flagsText16, align 8
   %cmp.i.i.i = icmp eq ptr %29, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIDsLj16EED2Ev.exit, label %if.then.i.i
@@ -1076,8 +1076,8 @@ if.end:                                           ; preds = %for.inc.i, %_ZN6her
   %call26 = tail call noundef i32 @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE5parseIPKDsEENS0_9constants9ErrorTypeET_S9_(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %pattern.coerce0, ptr noundef %add.ptr.i)
   br label %return
 
-return:                                           ; preds = %for.body.i, %sw.bb53.i, %sw.bb43.i, %sw.bb33.i, %sw.bb23.i, %sw.bb13.i, %sw.bb4.i, %sw.bb.i, %if.end
-  %storemerge = phi i32 [ %call26, %if.end ], [ 11, %sw.bb.i ], [ 11, %sw.bb4.i ], [ 11, %sw.bb13.i ], [ 11, %sw.bb23.i ], [ 11, %sw.bb33.i ], [ 11, %sw.bb43.i ], [ 11, %sw.bb53.i ], [ 11, %for.body.i ]
+return:                                           ; preds = %sw.bb.i, %sw.bb4.i, %sw.bb13.i, %sw.bb23.i, %sw.bb33.i, %sw.bb43.i, %sw.bb53.i, %for.body.i, %if.end
+  %storemerge = phi i32 [ %call26, %if.end ], [ 11, %for.body.i ], [ 11, %sw.bb53.i ], [ 11, %sw.bb43.i ], [ 11, %sw.bb33.i ], [ 11, %sw.bb23.i ], [ 11, %sw.bb13.i ], [ 11, %sw.bb4.i ], [ 11, %sw.bb.i ]
   %error_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i32 %storemerge, ptr %error_, align 8
   ret void

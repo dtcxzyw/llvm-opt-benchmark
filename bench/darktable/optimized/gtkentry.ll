@@ -261,7 +261,6 @@ define internal noundef i32 @on_match_select(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @gtk_tree_model_get_value(ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %6) #12
   %10 = call ptr @g_value_get_string(ptr noundef nonnull %6) #12
-  %invariant.gep = getelementptr i8, ptr %8, i64 -2
   store i32 %9, ptr %5, align 4, !tbaa !13
   %11 = icmp sgt i32 %9, 2
   br i1 %11, label %sub_0.preheader, label %.tail._crit_edge
@@ -280,29 +279,30 @@ sub_0.preheader:                                  ; preds = %4
 sub_0:                                            ; preds = %sub_0.preheader, %.tail.thread
   %15 = phi i32 [ %9, %sub_0.preheader ], [ %13, %.tail.thread ]
   %indvars.iv = phi i64 [ %12, %sub_0.preheader ], [ %indvars.iv.next, %.tail.thread ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %16 = load i8, ptr %gep, align 1
-  %.not = icmp eq i8 %16, 36
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds i8, ptr %16, i64 -2
+  %18 = load i8, ptr %17, align 1
+  %.not = icmp eq i8 %18, 36
   br i1 %.not, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %17 = getelementptr inbounds nuw i8, ptr %gep, i64 1
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, 40
-  br i1 %19, label %.tail._crit_edge, label %.tail.thread
+  %19 = getelementptr inbounds i8, ptr %16, i64 -1
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 40
+  br i1 %21, label %.tail._crit_edge, label %.tail.thread
 
 .tail._crit_edge:                                 ; preds = %.tail.thread, %.tail, %4
-  %20 = phi i32 [ %9, %4 ], [ %13, %.tail.thread ], [ %15, %.tail ]
-  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #14
-  %22 = add i64 %21, 2
-  %23 = call noalias ptr @g_malloc(i64 noundef %22) #15
-  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %23, i64 noundef %22, ptr noundef nonnull @.str.183, ptr noundef nonnull %10) #12
-  call void @gtk_editable_delete_text(ptr noundef %7, i32 noundef %20, i32 noundef %9) #12
-  call void @gtk_editable_insert_text(ptr noundef %7, ptr noundef %23, i32 noundef -1, ptr noundef nonnull %5) #12
-  %25 = load i32, ptr %5, align 4, !tbaa !13
-  call void @gtk_editable_set_position(ptr noundef %7, i32 noundef %25) #12
+  %22 = phi i32 [ %9, %4 ], [ %13, %.tail.thread ], [ %15, %.tail ]
+  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #14
+  %24 = add i64 %23, 2
+  %25 = call noalias ptr @g_malloc(i64 noundef %24) #15
+  %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %25, i64 noundef %24, ptr noundef nonnull @.str.183, ptr noundef nonnull %10) #12
+  call void @gtk_editable_delete_text(ptr noundef %7, i32 noundef %22, i32 noundef %9) #12
+  call void @gtk_editable_insert_text(ptr noundef %7, ptr noundef %25, i32 noundef -1, ptr noundef nonnull %5) #12
+  %27 = load i32, ptr %5, align 4, !tbaa !13
+  call void @gtk_editable_set_position(ptr noundef %7, i32 noundef %27) #12
   call void @g_value_unset(ptr noundef nonnull %6) #12
-  call void @g_free(ptr noundef %23) #12
+  call void @g_free(ptr noundef %25) #12
   call void @g_free(ptr noundef %8) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12

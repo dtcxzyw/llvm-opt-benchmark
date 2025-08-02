@@ -28,7 +28,7 @@ define dso_local noundef i64 @pg_available_wal_summaries(ptr noundef %0) local_u
   %6 = tail call ptr @GetWalSummaries(i32 noundef 0, i64 noundef 0, i64 noundef 0) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -38,14 +38,9 @@ define dso_local noundef i64 @pg_available_wal_summaries(ptr noundef %0) local_u
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %13 = load i32, ptr %7, align 4
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph22, label %._crit_edge
+  br i1 %14, label %.lr.ph20, label %.critedge
 
-._crit_edge:                                      ; preds = %20, %.lr.ph, %1
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #6
-  ret i64 0
-
-.lr.ph22:                                         ; preds = %.lr.ph, %20
+.lr.ph20:                                         ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.lr.ph ]
   %15 = load ptr, ptr %8, align 8
   %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv
@@ -54,11 +49,16 @@ define dso_local noundef i64 @pg_available_wal_summaries(ptr noundef %0) local_u
   %.not16 = icmp eq i32 %18, 0
   br i1 %.not16, label %20, label %19, !prof !4
 
-19:                                               ; preds = %.lr.ph22
+.critedge:                                        ; preds = %20, %.lr.ph, %1
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #6
+  ret i64 0
+
+19:                                               ; preds = %.lr.ph20
   call void @ProcessInterrupts() #6
   br label %20
 
-20:                                               ; preds = %19, %.lr.ph22
+20:                                               ; preds = %19, %.lr.ph20
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
@@ -76,7 +76,7 @@ define dso_local noundef i64 @pg_available_wal_summaries(ptr noundef %0) local_u
   %30 = load i32, ptr %7, align 4
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph22, label %._crit_edge
+  br i1 %32, label %.lr.ph20, label %.critedge
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -733,7 +733,7 @@ define dso_local void @load_command_list(ptr noundef %0, ptr noundef %1, ptr nou
   %5 = tail call ptr @git_exec_path() #22
   tail call void @load_builtin_commands(ptr noundef %0, ptr noundef %1) #22
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %uniq.exit.thread60, label %6
+  br i1 %.not, label %uniq.exit.thread59, label %6
 
 6:                                                ; preds = %3
   tail call fastcc void @list_commands_in_dir(ptr noundef %1, ptr noundef nonnull %5, ptr noundef %0)
@@ -757,7 +757,7 @@ sane_qsort.exit:                                  ; preds = %6, %11
 
 .preheader.i:                                     ; preds = %sane_qsort.exit
   %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %.lr.ph.i, label %uniq.exit.thread67
+  br i1 %15, label %.lr.ph.i, label %uniq.exit.thread65
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %30
   %16 = phi i32 [ %31, %30 ], [ %14, %.preheader.i ]
@@ -799,43 +799,48 @@ uniq.exit:                                        ; preds = %30
   %.not31 = icmp eq ptr %4, null
   br i1 %.not31, label %uniq.exit.uniq.exit46_crit_edge, label %.split.preheader
 
-uniq.exit.thread67:                               ; preds = %.preheader.i
+uniq.exit.thread65:                               ; preds = %.preheader.i
   store i32 1, ptr %8, align 4, !tbaa !8
-  %.not3169 = icmp eq ptr %4, null
-  br i1 %.not3169, label %uniq.exit.uniq.exit46_crit_edge, label %.split.preheader
+  %.not3167 = icmp eq ptr %4, null
+  br i1 %.not3167, label %uniq.exit.uniq.exit46_crit_edge, label %.split.preheader
 
-uniq.exit.thread60:                               ; preds = %3
-  %.not3161 = icmp eq ptr %4, null
-  br i1 %.not3161, label %uniq.exit.uniq.exit46_crit_edge, label %.thread62
+uniq.exit.thread59:                               ; preds = %3
+  %.not3160 = icmp eq ptr %4, null
+  br i1 %.not3160, label %uniq.exit.uniq.exit46_crit_edge, label %.thread61
 
-.thread62:                                        ; preds = %uniq.exit.thread60
+.thread61:                                        ; preds = %uniq.exit.thread59
   %34 = tail call ptr @xstrdup(ptr noundef nonnull %4) #22
   %35 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %34, i32 noundef 58) #23
-  %.not32.us73 = icmp eq ptr %35, null
-  br i1 %.not32.us73, label %.split56.us.loopexit, label %.split.us
+  %.not32.us69 = icmp eq ptr %35, null
+  br i1 %.not32.us69, label %.split56.us.critedge, label %.split.us
 
 uniq.exit.thread:                                 ; preds = %sane_qsort.exit
-  %.not3159 = icmp eq ptr %4, null
-  br i1 %.not3159, label %uniq.exit.uniq.exit46_crit_edge, label %.split.preheader
+  %.not3158 = icmp eq ptr %4, null
+  br i1 %.not3158, label %uniq.exit.uniq.exit46_crit_edge, label %.split.preheader
 
-uniq.exit.uniq.exit46_crit_edge:                  ; preds = %uniq.exit.thread67, %uniq.exit.thread60, %uniq.exit.thread, %uniq.exit
+uniq.exit.uniq.exit46_crit_edge:                  ; preds = %uniq.exit.thread65, %uniq.exit.thread59, %uniq.exit.thread, %uniq.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !8
   br label %uniq.exit46
 
-.split.preheader:                                 ; preds = %uniq.exit.thread67, %uniq.exit.thread, %uniq.exit
+.split.preheader:                                 ; preds = %uniq.exit.thread65, %uniq.exit.thread, %uniq.exit
   %36 = tail call ptr @xstrdup(ptr noundef nonnull %4) #22
   br label %.split
 
-.split.us:                                        ; preds = %.thread62, %.split.us
-  %37 = phi ptr [ %39, %.split.us ], [ %35, %.thread62 ]
-  %.0.us74 = phi ptr [ %38, %.split.us ], [ %34, %.thread62 ]
+.split.us:                                        ; preds = %.thread61, %.split.us
+  %37 = phi ptr [ %39, %.split.us ], [ %35, %.thread61 ]
+  %.0.us70 = phi ptr [ %38, %.split.us ], [ %34, %.thread61 ]
   store i8 0, ptr %37, align 1, !tbaa !22
-  tail call fastcc void @list_commands_in_dir(ptr noundef %2, ptr noundef nonnull %.0.us74, ptr noundef %0)
+  tail call fastcc void @list_commands_in_dir(ptr noundef %2, ptr noundef nonnull %.0.us70, ptr noundef %0)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %39 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %38, i32 noundef 58) #23
   %.not32.us = icmp eq ptr %39, null
-  br i1 %.not32.us, label %.split56.us.loopexit, label %.split.us, !llvm.loop !23
+  br i1 %.not32.us, label %.split56.us.critedge, label %.split.us, !llvm.loop !23
+
+.split56.us.critedge:                             ; preds = %.split.us, %.thread61
+  %.0.us.lcssa = phi ptr [ %34, %.thread61 ], [ %38, %.split.us ]
+  tail call fastcc void @list_commands_in_dir(ptr noundef %2, ptr noundef nonnull %.0.us.lcssa, ptr noundef %0)
+  br label %.split56.us
 
 .split:                                           ; preds = %.split.preheader, %45
   %.0 = phi ptr [ %46, %45 ], [ %36, %.split.preheader ]
@@ -860,13 +865,8 @@ uniq.exit.uniq.exit46_crit_edge:                  ; preds = %uniq.exit.thread67,
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 1
   br i1 %.not32, label %.split56.us, label %.split
 
-.split56.us.loopexit:                             ; preds = %.split.us, %.thread62
-  %.0.us.lcssa = phi ptr [ %34, %.thread62 ], [ %38, %.split.us ]
-  tail call fastcc void @list_commands_in_dir(ptr noundef %2, ptr noundef nonnull %.0.us.lcssa, ptr noundef %0)
-  br label %.split56.us
-
-.split56.us:                                      ; preds = %45, %.split56.us.loopexit
-  %47 = phi ptr [ %34, %.split56.us.loopexit ], [ %36, %45 ]
+.split56.us:                                      ; preds = %45, %.split56.us.critedge
+  %47 = phi ptr [ %34, %.split56.us.critedge ], [ %36, %45 ]
   tail call void @free(ptr noundef %47) #22
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 4

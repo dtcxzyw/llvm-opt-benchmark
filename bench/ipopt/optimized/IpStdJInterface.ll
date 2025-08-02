@@ -1694,8 +1694,8 @@ define zeroext range(i8 0, 2) i8 @Java_org_coinor_Ipopt_GetCurrViolations(ptr no
 
 declare noundef zeroext i1 @_ZNK5Ipopt4TNLP19get_curr_violationsEPKNS_9IpoptDataEPNS_25IpoptCalculatedQuantitiesEbiPdS6_S6_S6_S6_iS6_S6_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define void @Java_org_coinor_Ipopt_FreeIpoptProblem(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @Java_org_coinor_Ipopt_FreeIpoptProblem(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = inttoptr i64 %2 to ptr
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %28, label %5

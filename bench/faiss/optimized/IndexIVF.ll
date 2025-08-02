@@ -9076,7 +9076,7 @@ _ZNKSt14default_deleteIN5faiss13InvertedLists9ScopedIdsEEclEPS2_.exit.i.i.i.i: ;
   tail call void @_ZdlPvm(ptr noundef nonnull %131, i64 noundef 24) #44
   %.pre = load ptr, ptr %9, align 8, !tbaa !231
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre106 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !229
+  %.pre104 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !229
   br label %_ZNSt10unique_ptrIN5faiss13InvertedLists9ScopedIdsESt14default_deleteIS2_EED2Ev.exit
 
 144:                                              ; preds = %107
@@ -9098,7 +9098,7 @@ _ZNKSt14default_deleteIN5faiss13InvertedLists9ScopedIdsEEclEPS2_.exit.i.i.i.i: ;
   br label %.body
 
 _ZNSt10unique_ptrIN5faiss13InvertedLists9ScopedIdsESt14default_deleteIS2_EED2Ev.exit: ; preds = %128, %_ZNKSt14default_deleteIN5faiss13InvertedLists9ScopedIdsEEclEPS2_.exit.i.i.i.i, %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit
-  %.027 = phi ptr [ null, %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit ], [ %.pre106, %_ZNKSt14default_deleteIN5faiss13InvertedLists9ScopedIdsEEclEPS2_.exit.i.i.i.i ], [ %125, %128 ]
+  %.027 = phi ptr [ null, %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit ], [ %.pre104, %_ZNKSt14default_deleteIN5faiss13InvertedLists9ScopedIdsEEclEPS2_.exit.i.i.i.i ], [ %125, %128 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %151 = load ptr, ptr %150, align 8, !tbaa !232
   %152 = load ptr, ptr %151, align 8, !tbaa !124
@@ -9116,12 +9116,7 @@ _ZNSt10unique_ptrIN5faiss13InvertedLists9ScopedIdsESt14default_deleteIS2_EED2Ev.
   %156 = load i64, ptr %10, align 8, !tbaa !19
   %157 = sub i64 %155, %156
   %.not51 = icmp eq i64 %157, 0
-  br i1 %.not51, label %.thread, label %160
-
-.thread:                                          ; preds = %154
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #27
-  br label %181
+  br i1 %.not51, label %.critedge, label %160
 
 158:                                              ; preds = %153
   %159 = landingpad { ptr, i32 }
@@ -9164,8 +9159,13 @@ _ZNSt10unique_ptrIN5faiss13InvertedLists9ScopedIdsESt14default_deleteIS2_EED2Ev.
   store i64 %180, ptr %178, align 8, !tbaa !19
   br label %181
 
-181:                                              ; preds = %.thread, %176
-  %.2 = phi i64 [ %.133, %176 ], [ 0, %.thread ]
+.critedge:                                        ; preds = %154
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #27
+  br label %181
+
+181:                                              ; preds = %.critedge, %176
+  %.2 = phi i64 [ %.133, %176 ], [ 0, %.critedge ]
   %182 = load ptr, ptr %9, align 8, !tbaa !231
   %.not.i67 = icmp eq ptr %182, null
   br i1 %.not.i67, label %_ZNSt10unique_ptrIN5faiss13InvertedLists9ScopedIdsESt14default_deleteIS2_EED2Ev.exit69, label %183

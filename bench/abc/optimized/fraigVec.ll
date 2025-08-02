@@ -385,30 +385,27 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %34 = icmp sgt i32 %30, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %Fraig_NodeVecPush.exit
-  %invariant.gep = getelementptr i8, ptr %29, i64 -16
-  br label %35
+.lr.ph:                                           ; preds = %Fraig_NodeVecPush.exit, %42
+  %.019 = phi i32 [ %.0, %42 ], [ %30, %Fraig_NodeVecPush.exit ]
+  %.0.in18 = phi i32 [ %.019, %42 ], [ %31, %Fraig_NodeVecPush.exit ]
+  %35 = zext nneg i32 %.019 to i64
+  %36 = getelementptr inbounds nuw ptr, ptr %29, i64 %35
+  %37 = load ptr, ptr %36, align 8, !tbaa !12
+  %38 = zext nneg i32 %.0.in18 to i64
+  %39 = getelementptr ptr, ptr %29, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 -16
+  %41 = load ptr, ptr %40, align 8, !tbaa !12
+  %.not = icmp ult ptr %37, %41
+  br i1 %.not, label %42, label %._crit_edge
 
-35:                                               ; preds = %.lr.ph, %41
-  %.019 = phi i32 [ %30, %.lr.ph ], [ %.0, %41 ]
-  %.0.in18 = phi i32 [ %31, %.lr.ph ], [ %.019, %41 ]
-  %36 = zext nneg i32 %.019 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %29, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !12
-  %39 = zext nneg i32 %.0.in18 to i64
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %39
-  %40 = load ptr, ptr %gep, align 8, !tbaa !12
-  %.not = icmp ult ptr %38, %40
-  br i1 %.not, label %41, label %._crit_edge
-
-41:                                               ; preds = %35
-  store ptr %40, ptr %37, align 8, !tbaa !12
-  store ptr %38, ptr %gep, align 8, !tbaa !12
+42:                                               ; preds = %.lr.ph
+  store ptr %41, ptr %36, align 8, !tbaa !12
+  store ptr %37, ptr %40, align 8, !tbaa !12
   %.0 = add nsw i32 %.019, -1
-  %42 = icmp sgt i32 %.019, 1
-  br i1 %42, label %35, label %._crit_edge, !llvm.loop !16
+  %43 = icmp sgt i32 %.019, 1
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %41, %35, %Fraig_NodeVecPush.exit
+._crit_edge:                                      ; preds = %42, %.lr.ph, %Fraig_NodeVecPush.exit
   ret void
 }
 
@@ -517,40 +514,37 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %34 = icmp sgt i32 %30, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %Fraig_NodeVecPush.exit
-  %invariant.gep = getelementptr i8, ptr %29, i64 -16
-  br label %35
+.lr.ph:                                           ; preds = %Fraig_NodeVecPush.exit, %52
+  %.017 = phi i32 [ %.0, %52 ], [ %30, %Fraig_NodeVecPush.exit ]
+  %.0.in16 = phi i32 [ %.017, %52 ], [ %31, %Fraig_NodeVecPush.exit ]
+  %35 = zext nneg i32 %.017 to i64
+  %36 = getelementptr inbounds nuw ptr, ptr %29, i64 %35
+  %37 = load ptr, ptr %36, align 8, !tbaa !12
+  %38 = zext nneg i32 %.0.in16 to i64
+  %39 = getelementptr ptr, ptr %29, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 -16
+  %41 = load ptr, ptr %40, align 8, !tbaa !12
+  %42 = ptrtoint ptr %37 to i64
+  %43 = and i64 %42, -2
+  %44 = inttoptr i64 %43 to ptr
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i32, ptr %45, align 8, !tbaa !18
+  %47 = ptrtoint ptr %41 to i64
+  %48 = and i64 %47, -2
+  %49 = inttoptr i64 %48 to ptr
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i32, ptr %50, align 8, !tbaa !18
+  %.not = icmp sgt i32 %46, %51
+  br i1 %.not, label %52, label %._crit_edge
 
-35:                                               ; preds = %.lr.ph, %51
-  %.017 = phi i32 [ %30, %.lr.ph ], [ %.0, %51 ]
-  %.0.in16 = phi i32 [ %31, %.lr.ph ], [ %.017, %51 ]
-  %36 = zext nneg i32 %.017 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %29, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !12
-  %39 = zext nneg i32 %.0.in16 to i64
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %39
-  %40 = load ptr, ptr %gep, align 8, !tbaa !12
-  %41 = ptrtoint ptr %38 to i64
-  %42 = and i64 %41, -2
-  %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i32, ptr %44, align 8, !tbaa !18
-  %46 = ptrtoint ptr %40 to i64
-  %47 = and i64 %46, -2
-  %48 = inttoptr i64 %47 to ptr
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !18
-  %.not = icmp sgt i32 %45, %50
-  br i1 %.not, label %51, label %._crit_edge
-
-51:                                               ; preds = %35
-  store ptr %40, ptr %37, align 8, !tbaa !12
-  store ptr %38, ptr %gep, align 8, !tbaa !12
+52:                                               ; preds = %.lr.ph
+  store ptr %41, ptr %36, align 8, !tbaa !12
+  store ptr %37, ptr %40, align 8, !tbaa !12
   %.0 = add nsw i32 %.017, -1
-  %52 = icmp sgt i32 %.017, 1
-  br i1 %52, label %35, label %._crit_edge, !llvm.loop !22
+  %53 = icmp sgt i32 %.017, 1
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %51, %35, %Fraig_NodeVecPush.exit
+._crit_edge:                                      ; preds = %52, %.lr.ph, %Fraig_NodeVecPush.exit
   ret void
 }
 

@@ -4053,8 +4053,8 @@ define dso_local void @_ZNK5clang24ASTTemplateKWAndArgsInfo8copyIntoEPKNS_19Temp
   ret void
 
 12:                                               ; preds = %.lr.ph, %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit
-  %13 = phi i32 [ %.pre, %.lr.ph ], [ %35, %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit ]
-  %.09 = phi i32 [ 0, %.lr.ph ], [ %36, %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit ]
+  %13 = phi i32 [ %.pre, %.lr.ph ], [ %34, %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit ]
+  %.09 = phi i32 [ 0, %.lr.ph ], [ %35, %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit ]
   %14 = zext i32 %.09 to i64
   %15 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %1, i64 %14
   %16 = zext i32 %13 to i64
@@ -4069,35 +4069,35 @@ define dso_local void @_ZNK5clang24ASTTemplateKWAndArgsInfo8copyIntoEPKNS_19Temp
   %21 = icmp uge ptr %15, %.pre3.i.i
   %22 = icmp ult ptr %15, %20
   %spec.select.i.i.i.i.i.i = and i1 %21, %22
-  br i1 %spec.select.i.i.i.i.i.i, label %24, label %23, !prof !170
+  br i1 %spec.select.i.i.i.i.i.i, label %23, label %.critedge.i.i.i.i, !prof !170
 
 23:                                               ; preds = %19
+  %24 = ptrtoint ptr %15 to i64
+  %25 = ptrtoint ptr %.pre3.i.i to i64
+  %26 = sub i64 %24, %25
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(280) %2, ptr noundef nonnull %11, i64 noundef %17, i64 noundef 32) #23
+  %27 = load ptr, ptr %2, align 8, !tbaa !53
+  %28 = getelementptr inbounds i8, ptr %27, i64 %26
+  br label %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit
+
+.critedge.i.i.i.i:                                ; preds = %19
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(280) %2, ptr noundef nonnull %11, i64 noundef %17, i64 noundef 32) #23
   %.pre.i.i = load ptr, ptr %2, align 8, !tbaa !53
   br label %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit
 
-24:                                               ; preds = %19
-  %25 = ptrtoint ptr %15 to i64
-  %26 = ptrtoint ptr %.pre3.i.i to i64
-  %27 = sub i64 %25, %26
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(280) %2, ptr noundef nonnull %11, i64 noundef %17, i64 noundef 32) #23
-  %28 = load ptr, ptr %2, align 8, !tbaa !53
-  %29 = getelementptr inbounds i8, ptr %28, i64 %27
-  br label %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit
-
-_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit: ; preds = %12, %23, %24
-  %30 = phi ptr [ %.pre3.i.i, %12 ], [ %28, %24 ], [ %.pre.i.i, %23 ]
-  %.016.i.i.i.i = phi ptr [ %15, %12 ], [ %29, %24 ], [ %15, %23 ]
-  %31 = load i32, ptr %9, align 8, !tbaa !51
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %30, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i, i64 32, i1 false)
-  %34 = load i32, ptr %9, align 8, !tbaa !51
-  %35 = add i32 %34, 1
-  store i32 %35, ptr %9, align 8, !tbaa !51
-  %36 = add i32 %.09, 1
-  %37 = load i32, ptr %7, align 4, !tbaa !164
-  %.not = icmp eq i32 %36, %37
+_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit: ; preds = %12, %23, %.critedge.i.i.i.i
+  %29 = phi ptr [ %.pre3.i.i, %12 ], [ %27, %23 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %15, %12 ], [ %28, %23 ], [ %15, %.critedge.i.i.i.i ]
+  %30 = load i32, ptr %9, align 8, !tbaa !51
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %29, i64 %31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i, i64 32, i1 false)
+  %33 = load i32, ptr %9, align 8, !tbaa !51
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %9, align 8, !tbaa !51
+  %35 = add i32 %.09, 1
+  %36 = load i32, ptr %7, align 4, !tbaa !164
+  %.not = icmp eq i32 %35, %36
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !171
 }
 

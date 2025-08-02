@@ -3358,36 +3358,36 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %14
   store ptr %24, ptr %25, align 8, !tbaa !88
   %26 = add i64 %10, -1
   %27 = call ptr @PMIx_Info_create(i64 noundef %26) #18
-  %invariant.gep = getelementptr i8, ptr %27, i64 -552
   %28 = icmp ugt i64 %10, 1
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %pmix_obj_run_constructors.exit, %.lr.ph
-  %.026 = phi i64 [ %31, %.lr.ph ], [ 1, %pmix_obj_run_constructors.exit ]
-  %gep = getelementptr %struct.pmix_info, ptr %invariant.gep, i64 %.026
-  call void @PMIx_Info_qualifier(ptr noundef %gep) #18
-  %29 = getelementptr inbounds nuw %struct.pmix_info, ptr %8, i64 %.026
-  %30 = call i32 @PMIx_Info_xfer(ptr noundef %gep, ptr noundef nonnull %29) #18
-  %31 = add nuw i64 %.026, 1
-  %exitcond.not = icmp eq i64 %31, %10
+  %.026 = phi i64 [ %33, %.lr.ph ], [ 1, %pmix_obj_run_constructors.exit ]
+  %29 = getelementptr %struct.pmix_info, ptr %27, i64 %.026
+  %30 = getelementptr i8, ptr %29, i64 -552
+  call void @PMIx_Info_qualifier(ptr noundef %30) #18
+  %31 = getelementptr inbounds nuw %struct.pmix_info, ptr %8, i64 %.026
+  %32 = call i32 @PMIx_Info_xfer(ptr noundef %30, ptr noundef nonnull %31) #18
+  %33 = add nuw i64 %.026, 1
+  %exitcond.not = icmp eq i64 %33, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %.lr.ph, %pmix_obj_run_constructors.exit
-  %32 = call i32 @pmix_hash_store(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef %27, i64 noundef %26, ptr noundef null) #18
-  switch i32 %32, label %33 [
-    i32 -2, label %35
-    i32 0, label %35
+  %34 = call i32 @pmix_hash_store(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef %27, i64 noundef %26, ptr noundef null) #18
+  switch i32 %34, label %35 [
+    i32 -2, label %37
+    i32 0, label %37
   ]
 
-33:                                               ; preds = %._crit_edge
-  %34 = call ptr @PMIx_Error_string(i32 noundef %32) #18
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %34, ptr noundef nonnull @.str.1, i32 noundef 598) #18
-  br label %35
+35:                                               ; preds = %._crit_edge
+  %36 = call ptr @PMIx_Error_string(i32 noundef %34) #18
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %36, ptr noundef nonnull @.str.1, i32 noundef 598) #18
+  br label %37
 
-35:                                               ; preds = %._crit_edge, %._crit_edge, %33
+37:                                               ; preds = %._crit_edge, %._crit_edge, %35
   call void @PMIx_Info_free(ptr noundef %27, i64 noundef %26) #18
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #18
-  ret i32 %32
+  ret i32 %34
 }
 
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #8

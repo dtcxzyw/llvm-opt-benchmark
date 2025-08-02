@@ -297,7 +297,7 @@ define dso_local void @arch_uninstall_hw_breakpoint(ptr noundef readonly capture
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local noundef range(i32 -22, 1) i32 @arch_bp_generic_fields(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 align 16 {
-  switch i32 %1, label %17 [
+  switch i32 %1, label %.critedge [
     i32 128, label %5
     i32 129, label %9
     i32 131, label %8
@@ -305,11 +305,11 @@ define dso_local noundef range(i32 -22, 1) i32 @arch_bp_generic_fields(i32 nound
 
 5:                                                ; preds = %4
   %6 = icmp eq i32 %0, 64
-  br i1 %6, label %7, label %17
+  br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %5
   store i32 4, ptr %3, align 4
-  br label %.thread
+  br label %16
 
 8:                                                ; preds = %4
   br label %9
@@ -319,29 +319,29 @@ define dso_local noundef range(i32 -22, 1) i32 @arch_bp_generic_fields(i32 nound
   store i32 %10, ptr %3, align 4
   %11 = add i32 %0, -64
   %12 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 30)
-  switch i32 %12, label %17 [
-    i32 0, label %.thread
+  switch i32 %12, label %.critedge [
+    i32 0, label %16
     i32 1, label %13
     i32 3, label %14
     i32 2, label %15
   ]
 
 13:                                               ; preds = %9
-  br label %.thread
+  br label %16
 
 14:                                               ; preds = %9
-  br label %.thread
+  br label %16
 
 15:                                               ; preds = %9
-  br label %.thread
+  br label %16
 
-.thread:                                          ; preds = %9, %13, %14, %15, %7
-  %16 = phi i32 [ 8, %7 ], [ 1, %9 ], [ 2, %13 ], [ 4, %14 ], [ 8, %15 ]
-  store i32 %16, ptr %2, align 4
-  br label %17
+16:                                               ; preds = %9, %13, %14, %15, %7
+  %17 = phi i32 [ 8, %7 ], [ 8, %15 ], [ 4, %14 ], [ 2, %13 ], [ 1, %9 ]
+  store i32 %17, ptr %2, align 4
+  br label %.critedge
 
-17:                                               ; preds = %9, %.thread, %5, %4
-  %18 = phi i32 [ -22, %5 ], [ -22, %4 ], [ 0, %.thread ], [ -22, %9 ]
+.critedge:                                        ; preds = %9, %16, %5, %4
+  %18 = phi i32 [ -22, %5 ], [ -22, %4 ], [ 0, %16 ], [ -22, %9 ]
   ret i32 %18
 }
 

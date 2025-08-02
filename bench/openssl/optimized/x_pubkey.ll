@@ -736,7 +736,7 @@ d2i_PUBKEY_int.exit:                              ; preds = %3, %8, %11, %13
 define i32 @i2d_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %51, label %5
+  br i1 %4, label %.critedge, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -747,7 +747,7 @@ define i32 @i2d_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 8:                                                ; preds = %5
   %9 = tail call ptr @ASN1_item_new(ptr noundef nonnull @X509_PUBKEY_it.local_it) #9
   %.not45 = icmp eq ptr %9, null
-  br i1 %.not45, label %51, label %10
+  br i1 %.not45, label %.critedge, label %10
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr %6, align 8, !tbaa !30
@@ -771,13 +771,13 @@ define i32 @i2d_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 19:                                               ; preds = %16, %14, %10
   %.132 = phi i32 [ %18, %16 ], [ -1, %14 ], [ -1, %10 ]
   tail call void @ASN1_item_free(ptr noundef nonnull %9, ptr noundef nonnull @X509_PUBKEY_it.local_it) #9
-  br label %51
+  br label %.critedge
 
 20:                                               ; preds = %5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = load ptr, ptr %21, align 8, !tbaa !45
   %.not40 = icmp eq ptr %22, null
-  br i1 %.not40, label %51, label %23
+  br i1 %.not40, label %.critedge, label %23
 
 23:                                               ; preds = %20
   %24 = tail call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef nonnull %0, i32 noundef 134, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef null) #9
@@ -834,10 +834,10 @@ define i32 @i2d_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %50 = call i32 @BIO_free(ptr noundef %26) #9
   call void @OSSL_ENCODER_CTX_free(ptr noundef %24) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  br label %51
+  br label %.critedge
 
-51:                                               ; preds = %19, %8, %49, %20, %2
-  %.0 = phi i32 [ 0, %2 ], [ %.3, %49 ], [ -1, %20 ], [ %.132, %19 ], [ -1, %8 ]
+.critedge:                                        ; preds = %19, %8, %49, %20, %2
+  %.0 = phi i32 [ 0, %2 ], [ %.3, %49 ], [ -1, %20 ], [ -1, %8 ], [ %.132, %19 ]
   ret i32 %.0
 }
 

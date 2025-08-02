@@ -548,11 +548,11 @@ define dso_local void @_ZN4pbrt26ComputeBeamDiffusionBSSRDFEffPNS_11BSSRDFTableE
   br label %46
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %store_forwarded = phi float [ %load_initial, %.lr.ph.preheader ], [ %21, %.lr.ph ]
+  %store_forwarded = phi float [ %load_initial, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %21 = fmul float %store_forwarded, 0x3FF3333340000000
-  %22 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
-  store float %21, ptr %22, align 4, !tbaa !35
+  %21 = getelementptr float, ptr %10, i64 %indvars.iv
+  %22 = fmul float %store_forwarded, 0x3FF3333340000000
+  store float %22, ptr %21, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %13
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !43

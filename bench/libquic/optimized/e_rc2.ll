@@ -100,15 +100,15 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
 
 .lr.ph65.preheader.i:                             ; preds = %._crit_edge60.i
   %43 = zext nneg i32 %30 to i64
-  %invariant.gep81.i = getelementptr i8, ptr %7, i64 %43
+  %invariant.gep.i = getelementptr i8, ptr %7, i64 %43
   br label %.lr.ph65.i
 
 .lr.ph65.i:                                       ; preds = %.lr.ph65.i, %.lr.ph65.preheader.i
   %indvars.iv76.i = phi i64 [ %35, %.lr.ph65.preheader.i ], [ %indvars.iv.next77.i, %.lr.ph65.i ]
   %.1.in63.i = phi i8 [ %42, %.lr.ph65.preheader.i ], [ %48, %.lr.ph65.i ]
   %indvars.iv.next77.i = add nsw i64 %indvars.iv76.i, -1
-  %gep82.i = getelementptr i8, ptr %invariant.gep81.i, i64 %indvars.iv.next77.i
-  %44 = load i8, ptr %gep82.i, align 1, !tbaa !16
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.next77.i
+  %44 = load i8, ptr %gep.i, align 1, !tbaa !16
   %45 = xor i8 %44, %.1.in63.i
   %46 = zext i8 %45 to i64
   %47 = getelementptr inbounds nuw [256 x i8], ptr @key_table, i64 0, i64 %46
@@ -120,19 +120,19 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
 
 ._crit_edge66.i:                                  ; preds = %.lr.ph65.i, %._crit_edge60.i
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 130
-  %invariant.gep.i = getelementptr i8, ptr %6, i64 3
   br label %52
 
 52:                                               ; preds = %52, %._crit_edge66.i
   %indvars.iv78.i = phi i64 [ 127, %._crit_edge66.i ], [ %indvars.iv.next79.i, %52 ]
-  %.05068.i = phi ptr [ %51, %._crit_edge66.i ], [ %54, %52 ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv78.i
-  %53 = load i16, ptr %gep.i, align 1
-  %54 = getelementptr inbounds i8, ptr %.05068.i, i64 -2
-  store i16 %53, ptr %.05068.i, align 2, !tbaa !21
+  %.05068.i = phi ptr [ %51, %._crit_edge66.i ], [ %56, %52 ]
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv78.i
+  %54 = getelementptr i8, ptr %53, i64 -1
+  %55 = load i16, ptr %54, align 1
+  %56 = getelementptr inbounds i8, ptr %.05068.i, i64 -2
+  store i16 %55, ptr %.05068.i, align 2, !tbaa !21
   %indvars.iv.next79.i = add nsw i64 %indvars.iv78.i, -2
-  %55 = icmp samesign ugt i64 %indvars.iv78.i, 1
-  br i1 %55, label %52, label %RC2_set_key.exit, !llvm.loop !23
+  %57 = icmp samesign ugt i64 %indvars.iv78.i, 1
+  br i1 %57, label %52, label %RC2_set_key.exit, !llvm.loop !23
 
 RC2_set_key.exit:                                 ; preds = %52
   ret i32 1

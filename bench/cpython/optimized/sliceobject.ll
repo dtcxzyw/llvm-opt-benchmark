@@ -2211,21 +2211,21 @@ define internal i64 @slicehash(ptr noundef readonly captures(none) %0) #0 {
   %3 = load ptr, ptr %2, align 8, !tbaa !35
   %4 = tail call i64 @PyObject_Hash(ptr noundef %3) #6
   %.not = icmp eq i64 %4, -1
-  br i1 %.not, label %.thread, label %5
+  br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !37
   %8 = tail call i64 @PyObject_Hash(ptr noundef %7) #6
   %.not36 = icmp eq i64 %8, -1
-  br i1 %.not36, label %.thread, label %9
+  br i1 %.not36, label %.critedge, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = tail call i64 @PyObject_Hash(ptr noundef %11) #6
   %.not37 = icmp eq i64 %12, -1
-  br i1 %.not37, label %.thread, label %13
+  br i1 %.not37, label %.critedge, label %13
 
 13:                                               ; preds = %9
   %14 = mul i64 %4, -4417276706812531889
@@ -2242,9 +2242,9 @@ define internal i64 @slicehash(ptr noundef readonly captures(none) %0) #0 {
   %25 = mul i64 %24, -7046029288634856825
   %26 = icmp eq i64 %25, -1
   %..230 = select i1 %26, i64 1546275796, i64 %25
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %9, %5, %1, %13
+.critedge:                                        ; preds = %9, %5, %1, %13
   %.1 = phi i64 [ %..230, %13 ], [ -1, %1 ], [ -1, %5 ], [ -1, %9 ]
   ret i64 %.1
 }

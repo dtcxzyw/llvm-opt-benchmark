@@ -3150,68 +3150,68 @@ define noundef nonnull ptr @_ZN11wasi_common19maybe_exit_on_error17h5b22ac58397d
   %8 = invoke noundef align 4 dereferenceable_or_null(4) ptr %7(ptr noundef nonnull %0, i128 noundef -41040870126315931721669440278704130910)
           to label %"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12downcast_ref17h0fe7af477764bf5fE.exit" unwind label %9
 
-9:                                                ; preds = %.invoke, %13, %1, %20
+9:                                                ; preds = %.invoke, %.critedge, %1, %19
   %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17h46ef38ad7866ea91E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h73708a1ebf25bfc0E.exit" unwind label %28
+          to label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h73708a1ebf25bfc0E.exit" unwind label %27
 
 "_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12downcast_ref17h0fe7af477764bf5fE.exit": ; preds = %1
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %13, label %11
+  br i1 %.not, label %.critedge, label %11
 
 11:                                               ; preds = %"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12downcast_ref17h0fe7af477764bf5fE.exit"
   %12 = load i32, ptr %8, align 4, !noundef !4
   br label %.invoke
 
-13:                                               ; preds = %"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12downcast_ref17h0fe7af477764bf5fE.exit"
-  %14 = load ptr, ptr %0, align 8, !noalias !335, !nonnull !4, !align !22, !noundef !4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = load ptr, ptr %15, align 8, !noalias !335, !nonnull !4, !noundef !4
-  %17 = invoke noundef align 1 dereferenceable_or_null(1) ptr %16(ptr noundef nonnull %0, i128 noundef -94692601282486117404286932976376074822)
+.critedge:                                        ; preds = %"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12downcast_ref17h0fe7af477764bf5fE.exit"
+  %13 = load ptr, ptr %0, align 8, !noalias !335, !nonnull !4, !align !22, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %15 = load ptr, ptr %14, align 8, !noalias !335, !nonnull !4, !noundef !4
+  %16 = invoke noundef align 1 dereferenceable_or_null(1) ptr %15(ptr noundef nonnull %0, i128 noundef -94692601282486117404286932976376074822)
           to label %"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12downcast_ref17hd799d51cd8ef9db9E.exit" unwind label %9
 
-"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12downcast_ref17hd799d51cd8ef9db9E.exit": ; preds = %13
-  %.not6 = icmp eq ptr %17, null
-  br i1 %.not6, label %18, label %20
+"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12downcast_ref17hd799d51cd8ef9db9E.exit": ; preds = %.critedge
+  %.not6 = icmp eq ptr %16, null
+  br i1 %.not6, label %17, label %19
 
-18:                                               ; preds = %"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12downcast_ref17hd799d51cd8ef9db9E.exit"
-  %19 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  ret ptr %19
+17:                                               ; preds = %"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12downcast_ref17hd799d51cd8ef9db9E.exit"
+  %18 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
+  ret ptr %18
 
-20:                                               ; preds = %"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12downcast_ref17hd799d51cd8ef9db9E.exit"
+19:                                               ; preds = %"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$12downcast_ref17hd799d51cd8ef9db9E.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %4, ptr %2, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @"_ZN6anyhow5error60_$LT$impl$u20$core..fmt..Debug$u20$for$u20$anyhow..Error$GT$3fmt17h869afeb0af07c7afE", ptr %21, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @"_ZN6anyhow5error60_$LT$impl$u20$core..fmt..Debug$u20$for$u20$anyhow..Error$GT$3fmt17h869afeb0af07c7afE", ptr %20, align 8
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.116, ptr %3, align 8, !alias.scope !338, !noalias !341
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 2, ptr %22, align 8, !alias.scope !338, !noalias !341
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %23, align 8, !alias.scope !338, !noalias !341
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %24, align 8, !alias.scope !338, !noalias !341
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %25, align 8, !alias.scope !338, !noalias !341
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 2, ptr %21, align 8, !alias.scope !338, !noalias !341
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %22, align 8, !alias.scope !338, !noalias !341
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %23, align 8, !alias.scope !338, !noalias !341
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %24, align 8, !alias.scope !338, !noalias !341
   invoke void @_ZN3std2io5stdio7_eprint17h891330c3789cc56fE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
-          to label %26 unwind label %9
+          to label %25 unwind label %9
 
-26:                                               ; preds = %20
+25:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %.invoke
 
-.invoke:                                          ; preds = %11, %26
-  %27 = phi i32 [ 134, %26 ], [ %12, %11 ]
-  invoke void @_ZN3std7process4exit17h3954ed0e43b1180dE(i32 noundef %27) #33
+.invoke:                                          ; preds = %11, %25
+  %26 = phi i32 [ 134, %25 ], [ %12, %11 ]
+  invoke void @_ZN3std7process4exit17h3954ed0e43b1180dE(i32 noundef %26) #33
           to label %.cont unwind label %9
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-28:                                               ; preds = %9
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %9
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable

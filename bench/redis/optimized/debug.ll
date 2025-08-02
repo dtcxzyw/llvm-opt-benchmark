@@ -2270,8 +2270,8 @@ define dso_local void @mallctl_int(ptr noundef %0, ptr noundef readonly captures
   %.not28.us = icmp samesign ult i64 %.033.us, 2
   br i1 %.not28.us, label %.split39.us, label %.split.us, !llvm.loop !95
 
-.split:                                           ; preds = %.split.preheader, %35
-  %.033 = phi i64 [ %36, %35 ], [ 8, %.split.preheader ]
+.split:                                           ; preds = %.split.preheader, %33
+  %.033 = phi i64 [ %34, %33 ], [ 8, %.split.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
   store i64 %.033, ptr %7, align 8, !tbaa !17
   %20 = load ptr, ptr %1, align 8, !tbaa !94
@@ -2294,44 +2294,44 @@ define dso_local void @mallctl_int(ptr noundef %0, ptr noundef readonly captures
 29:                                               ; preds = %24
   %30 = load ptr, ptr @shared, align 8, !tbaa !97
   call void @addReply(ptr noundef %0, ptr noundef %30) #26
-  br label %.thread
+  br label %.critedge32
 
 31:                                               ; preds = %.split, %24
   %.025 = phi i32 [ %28, %24 ], [ %23, %.split ]
   %32 = icmp eq i32 %.025, 22
-  br i1 %32, label %35, label %.split37.us
+  br i1 %32, label %33, label %.split37.us
 
-.split37.us:                                      ; preds = %.split.us, %31
-  %.us-phi = phi i32 [ %.025, %31 ], [ %17, %.split.us ]
-  %33 = call ptr @strerror(i32 noundef %.us-phi) #26
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %33) #26
-  br label %.thread
-
-.split35.us:                                      ; preds = %.split.us, %.split
-  %34 = load i64, ptr %4, align 8, !tbaa !17
-  call void @addReplyLongLong(ptr noundef %0, i64 noundef %34) #26
-  br label %.thread
-
-.thread:                                          ; preds = %.split37.us, %29, %.split35.us
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
-  br label %38
-
-35:                                               ; preds = %31
-  %36 = lshr i64 %.033, 1
+33:                                               ; preds = %31
+  %34 = lshr i64 %.033, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
   %.not28 = icmp samesign ult i64 %.033, 2
   br i1 %.not28, label %.split39.us, label %.split
 
-.split39.us:                                      ; preds = %18, %35
+.split37.us:                                      ; preds = %.split.us, %31
+  %.us-phi = phi i32 [ %.025, %31 ], [ %17, %.split.us ]
+  %35 = call ptr @strerror(i32 noundef %.us-phi) #26
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %35) #26
+  br label %.critedge32
+
+.split35.us:                                      ; preds = %.split.us, %.split
+  %36 = load i64, ptr %4, align 8, !tbaa !17
+  call void @addReplyLongLong(ptr noundef %0, i64 noundef %36) #26
+  br label %.critedge32
+
+.split39.us:                                      ; preds = %18, %33
   %37 = call ptr @strerror(i32 noundef 22) #26
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %37) #26
+  br label %38
+
+.critedge32:                                      ; preds = %.split35.us, %29, %.split37.us
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
   br label %38
 
 .critedge:                                        ; preds = %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
   br label %38
 
-38:                                               ; preds = %.thread, %.split39.us, %.critedge
+38:                                               ; preds = %.split39.us, %.critedge32, %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
   ret void

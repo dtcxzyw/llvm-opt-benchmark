@@ -17408,13 +17408,13 @@ entry:
 for.body:                                         ; preds = %entry, %_ZSt8_DestroyIPSt10shared_ptrIN4node6worker7MessageEES4_EvT_S6_RSaIT0_E.exit
   %__node.0120 = phi ptr [ %__node.0, %_ZSt8_DestroyIPSt10shared_ptrIN4node6worker7MessageEES4_EvT_S6_RSaIT0_E.exit ], [ %__node.0118, %entry ]
   %2 = load ptr, ptr %__node.0120, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body, %_ZSt8_DestroyISt10shared_ptrIN4node6worker7MessageEEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.add, %_ZSt8_DestroyISt10shared_ptrIN4node6worker7MessageEEEvPT_.exit.i.i.i ], [ 0, %for.body ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %__first.addr.04.i.i.i.idx
-  %3 = load ptr, ptr %gep, align 8
+  %__first.addr.04.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %__first.addr.04.i.i.i.idx
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.ptr, i64 8
+  %3 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN4node6worker7MessageEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 

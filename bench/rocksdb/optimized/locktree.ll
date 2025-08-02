@@ -969,14 +969,13 @@ _ZN4tokuL28determine_conflicting_txnidsERKNS_13GrowableArrayINS_8row_lockEEERKmP
 
 .lr.ph11.split.us.i:                              ; preds = %.lr.ph11.i
   %50 = load ptr, ptr %11, align 8, !tbaa !112, !noalias !113
-  %invariant.gep.i = getelementptr i8, ptr %50, i64 88
   br label %51
 
 51:                                               ; preds = %51, %.lr.ph11.split.us.i
   %.010.us.i = phi i1 [ false, %.lr.ph11.split.us.i ], [ %spec.select.i, %51 ]
   %.0189.us.i = phi i64 [ 0, %.lr.ph11.split.us.i ], [ %52, %51 ]
-  %gep.i = getelementptr %"struct.toku::row_lock", ptr %invariant.gep.i, i64 %.0189.us.i
-  %.sroa.3.0.copyload.us.i = load i64, ptr %gep.i, align 8, !tbaa !38
+  %.sroa.3.0..sroa_idx.us.i = getelementptr inbounds nuw %"struct.toku::row_lock", ptr %50, i64 %.0189.us.i, i32 1
+  %.sroa.3.0.copyload.us.i = load i64, ptr %.sroa.3.0..sroa_idx.us.i, align 8, !tbaa !38
   %.not.us.i = icmp ne i64 %.sroa.3.0.copyload.us.i, %2
   %spec.select.i = select i1 %.not.us.i, i1 true, i1 %.010.us.i
   %52 = add nuw i64 %.0189.us.i, 1

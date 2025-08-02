@@ -967,12 +967,12 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %13 = load i32, ptr @quiet_flag, align 4
   %14 = icmp eq i32 %13, -1
-  br i1 %14, label %15, label %_create_it.exit
+  br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 8, i64 1, ptr %16) #19
-  br label %_create_it.exit
+  br label %.critedge
 
 18:                                               ; preds = %2
   %.not = icmp eq ptr %10, null
@@ -990,16 +990,16 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 25:                                               ; preds = %18
   %26 = load i32, ptr @quiet_flag, align 4
   %27 = icmp eq i32 %26, -1
-  br i1 %27, label %28, label %_create_it.exit
+  br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @stderr, align 8
   %30 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 13, i64 1, ptr %29) #19
-  br label %_create_it.exit
+  br label %.critedge
 
 31:                                               ; preds = %19
   store i32 1, ptr @all_flag, align 4
-  br label %_create_it.exit
+  br label %.critedge
 
 32:                                               ; preds = %19
   %33 = tail call i32 @llvm.smax.i32(i32 %21, i32 3)
@@ -1016,7 +1016,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %39 = load ptr, ptr @stderr, align 8
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 41:                                               ; preds = %36
   %42 = icmp eq i32 %0, 1
@@ -1026,13 +1026,13 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %44 = load ptr, ptr @stderr, align 8
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.69, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 @scontrol_cancel_reboot(ptr noundef %48) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 50:                                               ; preds = %32
   %51 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.70, i64 noundef %23) #18
@@ -1047,11 +1047,11 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %54 = load ptr, ptr @stderr, align 8
   %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 56:                                               ; preds = %52
   tail call void @scontrol_print_completing() #18
-  br label %_create_it.exit
+  br label %.critedge
 
 57:                                               ; preds = %50
   %58 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.2, i64 noundef %23) #18
@@ -1123,7 +1123,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %85 = load ptr, ptr @old_slurm_ctl_conf_ptr, align 8
   tail call void @slurm_free_ctl_conf(ptr noundef %85) #18
   store ptr null, ptr @old_slurm_ctl_conf_ptr, align 8
-  br label %_create_it.exit
+  br label %.critedge
 
 86:                                               ; preds = %57
   %87 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.71, i64 noundef %23) #18
@@ -1138,7 +1138,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %91 = load ptr, ptr @stderr, align 8
   %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.72, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 93:                                               ; preds = %88
   %94 = add nsw i32 %0, -1
@@ -1204,16 +1204,16 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %122 = load ptr, ptr %95, align 8
   %123 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.148, ptr noundef %122) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 124:                                              ; preds = %119, %115, %111
   %.2.ph.i = phi i32 [ %112, %111 ], [ %116, %115 ], [ %120, %119 ]
   %.not41.i = icmp eq i32 %.2.ph.i, 0
-  br i1 %.not41.i, label %_create_it.exit, label %125
+  br i1 %.not41.i, label %.critedge, label %125
 
 125:                                              ; preds = %124
   store i32 1, ptr @exit_code, align 4
-  br label %_create_it.exit
+  br label %.critedge
 
 126:                                              ; preds = %86
   %127 = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
@@ -1230,11 +1230,11 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %132 = load ptr, ptr @stderr, align 8
   %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 134:                                              ; preds = %130
   store i32 1, ptr @detail_flag, align 4
-  br label %_create_it.exit
+  br label %.critedge
 
 135:                                              ; preds = %126
   %136 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.73, i64 noundef %23) #18
@@ -1254,7 +1254,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %141 = load ptr, ptr @stderr, align 8
   %142 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.75, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 143:                                              ; preds = %139
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
@@ -1280,7 +1280,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 156:                                              ; preds = %153, %150
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 157:                                              ; preds = %137
   %158 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.78, i64 noundef %23) #18
@@ -1299,7 +1299,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 163:                                              ; preds = %160, %159
   store i32 1, ptr @exit_flag, align 4
-  br label %_create_it.exit
+  br label %.critedge
 
 164:                                              ; preds = %157
   %165 = tail call i32 @llvm.smax.i32(i32 %21, i32 8)
@@ -1316,13 +1316,13 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %172 = load ptr, ptr %171, align 8
   tail call void @scontrol_getaddrs(ptr noundef %172) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 173:                                              ; preds = %168
   store i32 1, ptr @exit_code, align 4
   %174 = load ptr, ptr @stderr, align 8
   %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %174, ptr noundef nonnull @.str.80, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 176:                                              ; preds = %164
   %177 = tail call i32 @llvm.smax.i32(i32 %21, i32 7)
@@ -1341,13 +1341,13 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %186 = load ptr, ptr %185, align 8
   tail call void @scontrol_gethost(ptr noundef %184, ptr noundef %186) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 187:                                              ; preds = %180
   store i32 1, ptr @exit_code, align 4
   %188 = load ptr, ptr @stderr, align 8
   %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %188, ptr noundef nonnull @.str.82, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 190:                                              ; preds = %176
   %191 = tail call i32 @llvm.smax.i32(i32 %21, i32 15)
@@ -1364,7 +1364,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %197 = load ptr, ptr @stderr, align 8
   %198 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 199:                                              ; preds = %194
   %200 = icmp eq i32 %0, 1
@@ -1374,7 +1374,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %202 = load ptr, ptr @stderr, align 8
   %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %202, ptr noundef nonnull @.str.69, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 204:                                              ; preds = %199
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4) #18
@@ -1412,31 +1412,31 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %224 = call i32 @hash_g_compute(ptr noundef %221, i32 noundef %223, ptr noundef null, i32 noundef 0, ptr noundef nonnull %4) #18
   call void @free_buf(ptr noundef nonnull %214) #18
   %225 = icmp sgt i32 %224, 0
-  br i1 %225, label %.lr.ph598, label %._crit_edge599
+  br i1 %225, label %.lr.ph594, label %._crit_edge595
 
-.lr.ph598:                                        ; preds = %219
+.lr.ph594:                                        ; preds = %219
   %226 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %wide.trip.count642 = zext nneg i32 %224 to i64
+  %wide.trip.count638 = zext nneg i32 %224 to i64
   br label %229
 
-._crit_edge599:                                   ; preds = %229, %219
+._crit_edge595:                                   ; preds = %229, %219
   %227 = load ptr, ptr @stdout, align 8
   %228 = call noundef i32 @putc(i32 noundef 10, ptr noundef %227)
   br label %234
 
-229:                                              ; preds = %.lr.ph598, %229
-  %indvars.iv639 = phi i64 [ 0, %.lr.ph598 ], [ %indvars.iv.next640, %229 ]
-  %230 = getelementptr inbounds nuw [32 x i8], ptr %226, i64 0, i64 %indvars.iv639
+229:                                              ; preds = %.lr.ph594, %229
+  %indvars.iv635 = phi i64 [ 0, %.lr.ph594 ], [ %indvars.iv.next636, %229 ]
+  %230 = getelementptr inbounds nuw [32 x i8], ptr %226, i64 0, i64 %indvars.iv635
   %231 = load i8, ptr %230, align 1
   %232 = zext i8 %231 to i32
   %233 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.85, i32 noundef %232)
-  %indvars.iv.next640 = add nuw nsw i64 %indvars.iv639, 1
-  %exitcond643.not = icmp eq i64 %indvars.iv.next640, %wide.trip.count642
-  br i1 %exitcond643.not, label %._crit_edge599, label %229, !llvm.loop !15
+  %indvars.iv.next636 = add nuw nsw i64 %indvars.iv635, 1
+  %exitcond639.not = icmp eq i64 %indvars.iv.next636, %wide.trip.count638
+  br i1 %exitcond639.not, label %._crit_edge595, label %229, !llvm.loop !15
 
-234:                                              ; preds = %._crit_edge599, %215
+234:                                              ; preds = %._crit_edge595, %215
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 235:                                              ; preds = %190
   %236 = tail call i32 @llvm.smax.i32(i32 %21, i32 9)
@@ -1453,7 +1453,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %242 = load ptr, ptr @stderr, align 8
   %243 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %242, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 244:                                              ; preds = %239
   %245 = icmp eq i32 %0, 1
@@ -1463,7 +1463,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %247 = load ptr, ptr @stderr, align 8
   %248 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %247, ptr noundef nonnull @.str.69, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 249:                                              ; preds = %244
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %5) #18
@@ -1486,28 +1486,28 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %260 = trunc i64 %259 to i32
   %261 = call i32 @hash_g_compute(ptr noundef nonnull %258, i32 noundef %260, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5) #18
   %262 = icmp sgt i32 %261, 0
-  br i1 %262, label %.lr.ph594, label %._crit_edge595
+  br i1 %262, label %.lr.ph590, label %._crit_edge591
 
-.lr.ph594:                                        ; preds = %256
+.lr.ph590:                                        ; preds = %256
   %263 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %wide.trip.count637 = zext nneg i32 %261 to i64
+  %wide.trip.count633 = zext nneg i32 %261 to i64
   br label %266
 
-._crit_edge595:                                   ; preds = %266, %256
+._crit_edge591:                                   ; preds = %266, %256
   %264 = load ptr, ptr @stdout, align 8
   %265 = call noundef i32 @putc(i32 noundef 10, ptr noundef %264)
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %5) #18
-  br label %_create_it.exit
+  br label %.critedge
 
-266:                                              ; preds = %.lr.ph594, %266
-  %indvars.iv634 = phi i64 [ 0, %.lr.ph594 ], [ %indvars.iv.next635, %266 ]
-  %267 = getelementptr inbounds nuw [32 x i8], ptr %263, i64 0, i64 %indvars.iv634
+266:                                              ; preds = %.lr.ph590, %266
+  %indvars.iv630 = phi i64 [ 0, %.lr.ph590 ], [ %indvars.iv.next631, %266 ]
+  %267 = getelementptr inbounds nuw [32 x i8], ptr %263, i64 0, i64 %indvars.iv630
   %268 = load i8, ptr %267, align 1
   %269 = zext i8 %268 to i32
   %270 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.85, i32 noundef %269)
-  %indvars.iv.next635 = add nuw nsw i64 %indvars.iv634, 1
-  %exitcond638.not = icmp eq i64 %indvars.iv.next635, %wide.trip.count637
-  br i1 %exitcond638.not, label %._crit_edge595, label %266, !llvm.loop !16
+  %indvars.iv.next631 = add nuw nsw i64 %indvars.iv630, 1
+  %exitcond634.not = icmp eq i64 %indvars.iv.next631, %wide.trip.count633
+  br i1 %exitcond634.not, label %._crit_edge591, label %266, !llvm.loop !16
 
 271:                                              ; preds = %235
   %272 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.7, i64 noundef %23) #18
@@ -1526,7 +1526,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 277:                                              ; preds = %274, %273
   tail call fastcc void @_usage()
-  br label %_create_it.exit
+  br label %.critedge
 
 278:                                              ; preds = %271
   %279 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.8, i64 noundef %23) #18
@@ -1536,7 +1536,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 280:                                              ; preds = %278
   store i32 0, ptr @all_flag, align 4
   store i32 0, ptr @detail_flag, align 4
-  br label %_create_it.exit
+  br label %.critedge
 
 281:                                              ; preds = %278
   %282 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.11, i64 noundef %128) #18
@@ -1555,7 +1555,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 287:                                              ; preds = %284, %283
   store i32 1, ptr @one_liner, align 4
-  br label %_create_it.exit
+  br label %.critedge
 
 288:                                              ; preds = %281
   %289 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.88, i64 noundef %34) #18
@@ -1570,7 +1570,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %293 = load ptr, ptr @stderr, align 8
   %294 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %293, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 295:                                              ; preds = %290
   %296 = icmp eq i32 %0, 1
@@ -1580,7 +1580,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %298 = load ptr, ptr @stderr, align 8
   %299 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %298, ptr noundef nonnull @.str.69, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 300:                                              ; preds = %295
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1588,7 +1588,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %303 = tail call i64 @strtol(ptr noundef nonnull captures(none) %302, ptr noundef null, i32 noundef 10) #18
   %304 = trunc i64 %303 to i32
   tail call void @scontrol_pid_info(i32 noundef %304) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 305:                                              ; preds = %288
   %306 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.89, i64 noundef %34) #18
@@ -1603,11 +1603,11 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %309 = load ptr, ptr @stderr, align 8
   %310 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %309, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 311:                                              ; preds = %307
   tail call fastcc void @_print_ping(i32 noundef 1, ptr noundef nonnull %1)
-  br label %_create_it.exit
+  br label %.critedge
 
 312:                                              ; preds = %305
   %313 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.90, i64 noundef %23) #18
@@ -1616,7 +1616,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 314:                                              ; preds = %312
   tail call void @_process_power_command(ptr nonnull poison, i32 noundef %0, ptr noundef nonnull %1)
-  br label %_create_it.exit
+  br label %.critedge
 
 315:                                              ; preds = %312
   %316 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.91, i64 noundef 2) #18
@@ -1642,7 +1642,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 325:                                              ; preds = %322, %321
   store i32 1, ptr @quiet_flag, align 4
-  br label %_create_it.exit
+  br label %.critedge
 
 326:                                              ; preds = %317
   %327 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.92, i64 noundef %319) #18
@@ -1661,7 +1661,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 332:                                              ; preds = %329, %328
   store i32 1, ptr @exit_flag, align 4
-  br label %_create_it.exit
+  br label %.critedge
 
 333:                                              ; preds = %326
   %334 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.93, i64 noundef %34) #18
@@ -1670,7 +1670,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 335:                                              ; preds = %333
   tail call void @_process_reboot_command(ptr noundef nonnull %10, i32 noundef %0, ptr noundef nonnull %1)
-  br label %_create_it.exit
+  br label %.critedge
 
 336:                                              ; preds = %333
   %337 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.94, i64 noundef %34) #18
@@ -1690,17 +1690,17 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 343:                                              ; preds = %340, %338
   %344 = tail call i32 @slurm_reconfigure() #18
   %.not474 = icmp eq i32 %344, 0
-  br i1 %.not474, label %_create_it.exit, label %345
+  br i1 %.not474, label %.critedge, label %345
 
 345:                                              ; preds = %343
   store i32 1, ptr @exit_code, align 4
   %346 = load i32, ptr @quiet_flag, align 4
   %.not475 = icmp eq i32 %346, 1
-  br i1 %.not475, label %_create_it.exit, label %347
+  br i1 %.not475, label %.critedge, label %347
 
 347:                                              ; preds = %345
   tail call void @slurm_perror(ptr noundef nonnull @.str.95) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 348:                                              ; preds = %336
   %349 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.96, i64 noundef %34) #18
@@ -1709,61 +1709,61 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 350:                                              ; preds = %348
   %351 = icmp eq i32 %0, 1
-  br i1 %351, label %352, label %.lr.ph583.preheader
+  br i1 %351, label %352, label %.lr.ph579.preheader
 
 352:                                              ; preds = %350
   store i32 1, ptr @exit_code, align 4
   %353 = load i32, ptr @quiet_flag, align 4
   %.not478 = icmp eq i32 %353, 1
-  br i1 %.not478, label %_create_it.exit, label %354
+  br i1 %.not478, label %.critedge, label %354
 
 354:                                              ; preds = %352
   %355 = load ptr, ptr @stderr, align 8
   %356 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %355, ptr noundef nonnull @.str.60, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
-.lr.ph583.preheader:                              ; preds = %350
+.lr.ph579.preheader:                              ; preds = %350
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
   store i32 0, ptr %6, align 4
-  %wide.trip.count627 = zext nneg i32 %0 to i64
-  br label %.lr.ph583
+  %wide.trip.count623 = zext nneg i32 %0 to i64
+  br label %.lr.ph579
 
-.lr.ph583:                                        ; preds = %.lr.ph583.preheader, %360
-  %indvars.iv622 = phi i64 [ 1, %.lr.ph583.preheader ], [ %indvars.iv.next623, %360 ]
-  %357 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv622
+.lr.ph579:                                        ; preds = %.lr.ph579.preheader, %360
+  %indvars.iv618 = phi i64 [ 1, %.lr.ph579.preheader ], [ %indvars.iv.next619, %360 ]
+  %357 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv618
   %358 = load ptr, ptr %357, align 8
   %359 = call i32 @parse_requeue_flags(ptr noundef %358, ptr noundef nonnull %6) #18
   %.not477 = icmp eq i32 %359, 0
-  br i1 %.not477, label %360, label %._crit_edge584
+  br i1 %.not477, label %360, label %._crit_edge580
 
-360:                                              ; preds = %.lr.ph583
-  %indvars.iv.next623 = add nuw nsw i64 %indvars.iv622, 1
-  %exitcond628.not = icmp eq i64 %indvars.iv.next623, %wide.trip.count627
-  br i1 %exitcond628.not, label %._crit_edge591, label %.lr.ph583, !llvm.loop !17
+360:                                              ; preds = %.lr.ph579
+  %indvars.iv.next619 = add nuw nsw i64 %indvars.iv618, 1
+  %exitcond624.not = icmp eq i64 %indvars.iv.next619, %wide.trip.count623
+  br i1 %exitcond624.not, label %._crit_edge587, label %.lr.ph579, !llvm.loop !17
 
-._crit_edge584:                                   ; preds = %.lr.ph583
-  %indvars624.le = trunc i64 %indvars.iv622 to i32
-  %361 = icmp ugt i32 %0, %indvars624.le
-  br i1 %361, label %.lr.ph590.preheader, label %._crit_edge591
+._crit_edge580:                                   ; preds = %.lr.ph579
+  %indvars620.le = trunc i64 %indvars.iv618 to i32
+  %361 = icmp ugt i32 %0, %indvars620.le
+  br i1 %361, label %.lr.ph586.preheader, label %._crit_edge587
 
-.lr.ph590.preheader:                              ; preds = %._crit_edge584
-  %362 = and i64 %indvars.iv622, 4294967295
-  br label %.lr.ph590
+.lr.ph586.preheader:                              ; preds = %._crit_edge580
+  %362 = and i64 %indvars.iv618, 4294967295
+  br label %.lr.ph586
 
-.lr.ph590:                                        ; preds = %.lr.ph590.preheader, %.lr.ph590
-  %indvars.iv629 = phi i64 [ %362, %.lr.ph590.preheader ], [ %indvars.iv.next630, %.lr.ph590 ]
+.lr.ph586:                                        ; preds = %.lr.ph586.preheader, %.lr.ph586
+  %indvars.iv625 = phi i64 [ %362, %.lr.ph586.preheader ], [ %indvars.iv.next626, %.lr.ph586 ]
   %363 = load i32, ptr %6, align 4
-  %364 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv629
+  %364 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv625
   %365 = load ptr, ptr %364, align 8
   call void @scontrol_requeue(i32 noundef %363, ptr noundef %365) #18
-  %indvars.iv.next630 = add nuw nsw i64 %indvars.iv629, 1
-  %lftr.wideiv632 = trunc i64 %indvars.iv.next630 to i32
-  %exitcond633.not = icmp eq i32 %0, %lftr.wideiv632
-  br i1 %exitcond633.not, label %._crit_edge591, label %.lr.ph590, !llvm.loop !18
+  %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
+  %lftr.wideiv628 = trunc i64 %indvars.iv.next626 to i32
+  %exitcond629.not = icmp eq i32 %0, %lftr.wideiv628
+  br i1 %exitcond629.not, label %._crit_edge587, label %.lr.ph586, !llvm.loop !18
 
-._crit_edge591:                                   ; preds = %360, %.lr.ph590, %._crit_edge584
+._crit_edge587:                                   ; preds = %360, %.lr.ph586, %._crit_edge580
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 366:                                              ; preds = %348
   %367 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.97, i64 noundef 11) #18
@@ -1772,61 +1772,61 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 368:                                              ; preds = %366
   %369 = icmp eq i32 %0, 1
-  br i1 %369, label %370, label %.lr.ph572.preheader
+  br i1 %369, label %370, label %.lr.ph568.preheader
 
 370:                                              ; preds = %368
   store i32 1, ptr @exit_code, align 4
   %371 = load i32, ptr @quiet_flag, align 4
   %.not481 = icmp eq i32 %371, 1
-  br i1 %.not481, label %_create_it.exit, label %372
+  br i1 %.not481, label %.critedge, label %372
 
 372:                                              ; preds = %370
   %373 = load ptr, ptr @stderr, align 8
   %374 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %373, ptr noundef nonnull @.str.60, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
-.lr.ph572.preheader:                              ; preds = %368
+.lr.ph568.preheader:                              ; preds = %368
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
   store i32 0, ptr %7, align 4
-  %wide.trip.count616 = zext nneg i32 %0 to i64
-  br label %.lr.ph572
+  %wide.trip.count612 = zext nneg i32 %0 to i64
+  br label %.lr.ph568
 
-.lr.ph572:                                        ; preds = %.lr.ph572.preheader, %378
-  %indvars.iv611 = phi i64 [ 1, %.lr.ph572.preheader ], [ %indvars.iv.next612, %378 ]
-  %375 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv611
+.lr.ph568:                                        ; preds = %.lr.ph568.preheader, %378
+  %indvars.iv607 = phi i64 [ 1, %.lr.ph568.preheader ], [ %indvars.iv.next608, %378 ]
+  %375 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv607
   %376 = load ptr, ptr %375, align 8
   %377 = call i32 @parse_requeue_flags(ptr noundef %376, ptr noundef nonnull %7) #18
   %.not480 = icmp eq i32 %377, 0
-  br i1 %.not480, label %378, label %._crit_edge573
+  br i1 %.not480, label %378, label %._crit_edge569
 
-378:                                              ; preds = %.lr.ph572
-  %indvars.iv.next612 = add nuw nsw i64 %indvars.iv611, 1
-  %exitcond617.not = icmp eq i64 %indvars.iv.next612, %wide.trip.count616
-  br i1 %exitcond617.not, label %._crit_edge579, label %.lr.ph572, !llvm.loop !19
+378:                                              ; preds = %.lr.ph568
+  %indvars.iv.next608 = add nuw nsw i64 %indvars.iv607, 1
+  %exitcond613.not = icmp eq i64 %indvars.iv.next608, %wide.trip.count612
+  br i1 %exitcond613.not, label %._crit_edge575, label %.lr.ph568, !llvm.loop !19
 
-._crit_edge573:                                   ; preds = %.lr.ph572
-  %indvars613.le = trunc i64 %indvars.iv611 to i32
-  %379 = icmp ugt i32 %0, %indvars613.le
-  br i1 %379, label %.lr.ph578.preheader, label %._crit_edge579
+._crit_edge569:                                   ; preds = %.lr.ph568
+  %indvars609.le = trunc i64 %indvars.iv607 to i32
+  %379 = icmp ugt i32 %0, %indvars609.le
+  br i1 %379, label %.lr.ph574.preheader, label %._crit_edge575
 
-.lr.ph578.preheader:                              ; preds = %._crit_edge573
-  %380 = and i64 %indvars.iv611, 4294967295
-  br label %.lr.ph578
+.lr.ph574.preheader:                              ; preds = %._crit_edge569
+  %380 = and i64 %indvars.iv607, 4294967295
+  br label %.lr.ph574
 
-.lr.ph578:                                        ; preds = %.lr.ph578.preheader, %.lr.ph578
-  %indvars.iv618 = phi i64 [ %380, %.lr.ph578.preheader ], [ %indvars.iv.next619, %.lr.ph578 ]
+.lr.ph574:                                        ; preds = %.lr.ph574.preheader, %.lr.ph574
+  %indvars.iv614 = phi i64 [ %380, %.lr.ph574.preheader ], [ %indvars.iv.next615, %.lr.ph574 ]
   %381 = load i32, ptr %7, align 4
-  %382 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv618
+  %382 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv614
   %383 = load ptr, ptr %382, align 8
   call void @scontrol_requeue_hold(i32 noundef %381, ptr noundef %383) #18
-  %indvars.iv.next619 = add nuw nsw i64 %indvars.iv618, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next619 to i32
-  %exitcond621.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond621.not, label %._crit_edge579, label %.lr.ph578, !llvm.loop !20
+  %indvars.iv.next615 = add nuw nsw i64 %indvars.iv614, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next615 to i32
+  %exitcond617.not = icmp eq i32 %0, %lftr.wideiv
+  br i1 %exitcond617.not, label %._crit_edge575, label %.lr.ph574, !llvm.loop !20
 
-._crit_edge579:                                   ; preds = %378, %.lr.ph578, %._crit_edge573
+._crit_edge575:                                   ; preds = %378, %.lr.ph574, %._crit_edge569
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 384:                                              ; preds = %366
   %385 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.98, i64 noundef 4) #18
@@ -1850,33 +1850,33 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 392:                                              ; preds = %390, %388, %386, %384
   %393 = icmp eq i32 %0, 1
-  br i1 %393, label %394, label %.lr.ph568.preheader
+  br i1 %393, label %394, label %.lr.ph564.preheader
 
-.lr.ph568.preheader:                              ; preds = %392
-  %wide.trip.count609 = zext nneg i32 %0 to i64
-  br label %.lr.ph568
+.lr.ph564.preheader:                              ; preds = %392
+  %wide.trip.count605 = zext nneg i32 %0 to i64
+  br label %.lr.ph564
 
 394:                                              ; preds = %392
   store i32 1, ptr @exit_code, align 4
   %395 = load i32, ptr @quiet_flag, align 4
   %.not488 = icmp eq i32 %395, 1
-  br i1 %.not488, label %_create_it.exit, label %396
+  br i1 %.not488, label %.critedge, label %396
 
 396:                                              ; preds = %394
   %397 = load ptr, ptr @stderr, align 8
   %398 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %397, ptr noundef nonnull @.str.60, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
-.lr.ph568:                                        ; preds = %.lr.ph568.preheader, %406
-  %indvars.iv605 = phi i64 [ 1, %.lr.ph568.preheader ], [ %indvars.iv.next606, %406 ]
+.lr.ph564:                                        ; preds = %.lr.ph564.preheader, %406
+  %indvars.iv601 = phi i64 [ 1, %.lr.ph564.preheader ], [ %indvars.iv.next602, %406 ]
   %399 = load ptr, ptr %1, align 8
-  %400 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv605
+  %400 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv601
   %401 = load ptr, ptr %400, align 8
   %402 = tail call i32 @scontrol_hold(ptr noundef %399, ptr noundef %401) #18
   %.not486 = icmp eq i32 %402, 0
   br i1 %.not486, label %406, label %403
 
-403:                                              ; preds = %.lr.ph568
+403:                                              ; preds = %.lr.ph564
   store i32 1, ptr @exit_code, align 4
   %404 = load i32, ptr @quiet_flag, align 4
   %.not487 = icmp eq i32 %404, 1
@@ -1886,15 +1886,15 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   tail call void @slurm_perror(ptr noundef nonnull @.str.102) #18
   br label %406
 
-406:                                              ; preds = %.lr.ph568, %405, %403
-  %indvars.iv.next606 = add nuw nsw i64 %indvars.iv605, 1
-  %exitcond610.not = icmp eq i64 %indvars.iv.next606, %wide.trip.count609
-  br i1 %exitcond610.not, label %._crit_edge, label %.lr.ph568, !llvm.loop !21
+406:                                              ; preds = %.lr.ph564, %405, %403
+  %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
+  %exitcond606.not = icmp eq i64 %indvars.iv.next602, %wide.trip.count605
+  br i1 %exitcond606.not, label %._crit_edge, label %.lr.ph564, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %406
   %407 = load ptr, ptr %1, align 8
   %408 = tail call i32 @scontrol_hold(ptr noundef %407, ptr noundef null) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 409:                                              ; preds = %390
   %410 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.103, i64 noundef %23) #18
@@ -1918,22 +1918,22 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %416 = load i32, ptr @quiet_flag, align 4
   %.not491 = icmp eq i32 %416, 1
-  br i1 %.not491, label %_create_it.exit, label %417
+  br i1 %.not491, label %.critedge, label %417
 
 417:                                              ; preds = %415
   %418 = load ptr, ptr @stderr, align 8
   %419 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %418, ptr noundef nonnull @.str.60, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv602 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next603, %.lr.ph ]
+  %indvars.iv598 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next599, %.lr.ph ]
   %420 = load ptr, ptr %1, align 8
-  %421 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv602
+  %421 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv598
   %422 = load ptr, ptr %421, align 8
   tail call void @scontrol_suspend(ptr noundef %420, ptr noundef %422) #18
-  %indvars.iv.next603 = add nuw nsw i64 %indvars.iv602, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next603, %wide.trip.count
-  br i1 %exitcond.not, label %_create_it.exit, label %.lr.ph, !llvm.loop !22
+  %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next599, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !22
 
 423:                                              ; preds = %411
   %424 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.105, i64 noundef %34) #18
@@ -1948,12 +1948,12 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %428 = load i32, ptr @quiet_flag, align 4
   %.not494 = icmp eq i32 %428, 1
-  br i1 %.not494, label %_create_it.exit, label %429
+  br i1 %.not494, label %.critedge, label %429
 
 429:                                              ; preds = %427
   %430 = load ptr, ptr @stderr, align 8
   %431 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %430, ptr noundef nonnull @.str.60, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 432:                                              ; preds = %425
   %433 = icmp samesign ugt i32 %0, 2
@@ -1963,18 +1963,18 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %435 = load i32, ptr @quiet_flag, align 4
   %.not493 = icmp eq i32 %435, 1
-  br i1 %.not493, label %_create_it.exit, label %436
+  br i1 %.not493, label %.critedge, label %436
 
 436:                                              ; preds = %434
   %437 = load ptr, ptr @stderr, align 8
   %438 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %437, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 439:                                              ; preds = %432
   %440 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %441 = load ptr, ptr %440, align 8
   tail call void @scontrol_top_job(ptr noundef %441) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 442:                                              ; preds = %423
   %443 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.106, i64 noundef %34) #18
@@ -1983,7 +1983,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 444:                                              ; preds = %442
   tail call fastcc void @_fetch_token(i32 noundef %0, ptr noundef nonnull %1)
-  br label %_create_it.exit
+  br label %.critedge
 
 445:                                              ; preds = %442
   %446 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.107, i64 noundef %23) #18
@@ -1998,12 +1998,12 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %450 = load i32, ptr @quiet_flag, align 4
   %.not499 = icmp eq i32 %450, 1
-  br i1 %.not499, label %_create_it.exit, label %451
+  br i1 %.not499, label %.critedge, label %451
 
 451:                                              ; preds = %449
   %452 = load ptr, ptr @stderr, align 8
   %453 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %452, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 454:                                              ; preds = %447
   %455 = icmp eq i32 %0, 1
@@ -2013,23 +2013,23 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %457 = load i32, ptr @quiet_flag, align 4
   %.not498 = icmp eq i32 %457, 1
-  br i1 %.not498, label %_create_it.exit, label %458
+  br i1 %.not498, label %.critedge, label %458
 
 458:                                              ; preds = %456
   %459 = load ptr, ptr @stderr, align 8
   %460 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %459, ptr noundef nonnull @.str.60, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 461:                                              ; preds = %454
   %462 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %463 = load ptr, ptr %462, align 8
   %464 = tail call i32 @scontrol_job_ready(ptr noundef %463) #18
   %.not497 = icmp eq i32 %464, 0
-  br i1 %.not497, label %_create_it.exit, label %465
+  br i1 %.not497, label %.critedge, label %465
 
 465:                                              ; preds = %461
   store i32 1, ptr @exit_code, align 4
-  br label %_create_it.exit
+  br label %.critedge
 
 466:                                              ; preds = %445
   %467 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.28, i64 noundef %237) #18
@@ -2038,7 +2038,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 468:                                              ; preds = %466
   tail call fastcc void @_setdebugflags(i32 noundef %0, ptr noundef nonnull %1)
-  br label %_create_it.exit
+  br label %.critedge
 
 469:                                              ; preds = %466
   %470 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.108, i64 noundef %34) #18
@@ -2058,12 +2058,12 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %476 = load i32, ptr @quiet_flag, align 4
   %.not507 = icmp eq i32 %476, 1
-  br i1 %.not507, label %_create_it.exit, label %477
+  br i1 %.not507, label %.critedge, label %477
 
 477:                                              ; preds = %475
   %478 = load ptr, ptr @stderr, align 8
   %479 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %478, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 480:                                              ; preds = %473
   %481 = icmp eq i32 %0, 1
@@ -2073,12 +2073,12 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %483 = load i32, ptr @quiet_flag, align 4
   %.not506 = icmp eq i32 %483, 1
-  br i1 %.not506, label %_create_it.exit, label %484
+  br i1 %.not506, label %.critedge, label %484
 
 484:                                              ; preds = %482
   %485 = load ptr, ptr @stderr, align 8
   %486 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %485, ptr noundef nonnull @.str.60, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 487:                                              ; preds = %480
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
@@ -2122,7 +2122,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 508:                                              ; preds = %502, %507, %505, %496, %498
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 509:                                              ; preds = %471
   %510 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.112, i64 noundef %23) #18
@@ -2131,7 +2131,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 511:                                              ; preds = %509
   tail call fastcc void @_setdebug(i32 noundef %0, ptr noundef nonnull %1)
-  br label %_create_it.exit
+  br label %.critedge
 
 512:                                              ; preds = %509
   %513 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.113, i64 noundef %34) #18
@@ -2146,12 +2146,12 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %517 = load i32, ptr @quiet_flag, align 4
   %.not516 = icmp eq i32 %517, 1
-  br i1 %.not516, label %_create_it.exit, label %518
+  br i1 %.not516, label %.critedge, label %518
 
 518:                                              ; preds = %516
   %519 = load ptr, ptr @stderr, align 8
   %520 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %519, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 521:                                              ; preds = %514
   %522 = icmp eq i32 %0, 1
@@ -2161,12 +2161,12 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %524 = load i32, ptr @quiet_flag, align 4
   %.not515 = icmp eq i32 %524, 1
-  br i1 %.not515, label %_create_it.exit, label %525
+  br i1 %.not515, label %.critedge, label %525
 
 525:                                              ; preds = %523
   %526 = load ptr, ptr @stderr, align 8
   %527 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %526, ptr noundef nonnull @.str.60, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 528:                                              ; preds = %521
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #18
@@ -2236,7 +2236,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 .thread548:                                       ; preds = %545, %547, %.thread551, %556, %554, %551
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 557:                                              ; preds = %512
   %558 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.118, i64 noundef %34) #18
@@ -2245,7 +2245,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 559:                                              ; preds = %557
   tail call fastcc void @_show_it(i32 noundef %0, ptr noundef nonnull %1)
-  br label %_create_it.exit
+  br label %.critedge
 
 560:                                              ; preds = %557
   %561 = tail call i32 @llvm.smax.i32(i32 %21, i32 5)
@@ -2262,7 +2262,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %567 = load ptr, ptr @stderr, align 8
   %568 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %567, ptr noundef nonnull @.str.60, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 569:                                              ; preds = %564
   %570 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2281,13 +2281,13 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %577 = load ptr, ptr @stderr, align 8
   %578 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %577, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 579:                                              ; preds = %574
   %580 = add nsw i32 %0, -2
   %581 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %582 = tail call i32 @scontrol_batch_script(i32 noundef %580, ptr noundef nonnull %581) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 583:                                              ; preds = %569
   %584 = load ptr, ptr %570, align 8
@@ -2305,20 +2305,20 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %590 = load ptr, ptr @stderr, align 8
   %591 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %590, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 592:                                              ; preds = %587
   %593 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %594 = load ptr, ptr %593, align 8
   tail call fastcc void @_write_config(ptr noundef %594)
-  br label %_create_it.exit
+  br label %.critedge
 
 595:                                              ; preds = %583
   store i32 1, ptr @exit_code, align 4
   %596 = load ptr, ptr @stderr, align 8
   %597 = load ptr, ptr %570, align 8
   %598 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %596, ptr noundef nonnull @.str.122, ptr noundef %597) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 599:                                              ; preds = %560
   %600 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.123, i64 noundef %166) #18
@@ -2337,7 +2337,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %607 = load ptr, ptr @stderr, align 8
   %608 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %607, ptr noundef nonnull @.str.124, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 609:                                              ; preds = %601
   %610 = icmp eq i32 %0, 2
@@ -2357,7 +2357,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %618 = load ptr, ptr @stderr, align 8
   %619 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %618, ptr noundef nonnull @.str.125, ptr noundef nonnull %10, i32 noundef %615) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 620:                                              ; preds = %609
   %621 = icmp slt i32 %604, 1
@@ -2367,23 +2367,23 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %623 = load ptr, ptr @stderr, align 8
   %624 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %623, ptr noundef nonnull @.str.126, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 625:                                              ; preds = %620, %611
   %.0413 = phi i32 [ 1, %620 ], [ %615, %611 ]
   %626 = tail call i32 @slurm_takeover(i32 noundef %.0413) #18
   %.not524 = icmp eq i32 %626, 0
-  br i1 %.not524, label %_create_it.exit, label %627
+  br i1 %.not524, label %.critedge, label %627
 
 627:                                              ; preds = %625
   store i32 1, ptr @exit_code, align 4
   %628 = load i32, ptr @quiet_flag, align 4
   %.not525 = icmp eq i32 %628, 1
-  br i1 %.not525, label %_create_it.exit, label %629
+  br i1 %.not525, label %.critedge, label %629
 
 629:                                              ; preds = %627
   tail call void @slurm_perror(ptr noundef nonnull @.str.127) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 630:                                              ; preds = %599
   %631 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.128, i64 noundef %166) #18
@@ -2412,7 +2412,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %642 = load ptr, ptr @stderr, align 8
   %643 = load ptr, ptr %635, align 8
   %644 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %642, ptr noundef nonnull @.str.131, ptr noundef %643) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 645:                                              ; preds = %632
   %646 = icmp samesign ugt i32 %0, 2
@@ -2422,23 +2422,23 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %648 = load ptr, ptr @stderr, align 8
   %649 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %648, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 650:                                              ; preds = %645, %638, %634
-  %.0.ph = phi i16 [ 2, %634 ], [ 2, %638 ], [ 0, %645 ]
-  %651 = tail call i32 @slurm_shutdown(i16 noundef zeroext %.0.ph) #18
+  %.0 = phi i16 [ 0, %645 ], [ 2, %638 ], [ 2, %634 ]
+  %651 = tail call i32 @slurm_shutdown(i16 noundef zeroext %.0) #18
   %.not529 = icmp eq i32 %651, 0
-  br i1 %.not529, label %_create_it.exit, label %652
+  br i1 %.not529, label %.critedge, label %652
 
 652:                                              ; preds = %650
   store i32 1, ptr @exit_code, align 4
   %653 = load i32, ptr @quiet_flag, align 4
   %.not530 = icmp eq i32 %653, 1
-  br i1 %.not530, label %_create_it.exit, label %654
+  br i1 %.not530, label %.critedge, label %654
 
 654:                                              ; preds = %652
   tail call void @slurm_perror(ptr noundef nonnull @.str.132) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 655:                                              ; preds = %630
   %656 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.133, i64 noundef %128) #18
@@ -2453,13 +2453,13 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %660 = load ptr, ptr @stderr, align 8
   %661 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %660, ptr noundef nonnull @.str.72, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 662:                                              ; preds = %657
   %663 = add nsw i32 %0, -1
   %664 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call fastcc void @_update_it(i32 noundef %663, ptr noundef nonnull %664)
-  br label %_create_it.exit
+  br label %.critedge
 
 665:                                              ; preds = %655
   %666 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.134, i64 noundef %128) #18
@@ -2474,13 +2474,13 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %670 = load ptr, ptr @stderr, align 8
   %671 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %670, ptr noundef nonnull @.str.72, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 672:                                              ; preds = %667
   %673 = add nsw i32 %0, -1
   %674 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call fastcc void @_delete_it(i32 noundef %673, ptr noundef nonnull %674)
-  br label %_create_it.exit
+  br label %.critedge
 
 675:                                              ; preds = %665
   %676 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.16, i64 noundef %319) #18
@@ -2499,7 +2499,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 681:                                              ; preds = %678, %677
   store i32 -1, ptr @quiet_flag, align 4
-  br label %_create_it.exit
+  br label %.critedge
 
 682:                                              ; preds = %675
   %683 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.17, i64 noundef %319) #18
@@ -2518,7 +2518,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 688:                                              ; preds = %685, %684
   tail call fastcc void @_print_version()
-  br label %_create_it.exit
+  br label %.critedge
 
 689:                                              ; preds = %682
   %690 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.136, i64 noundef %128) #18
@@ -2533,11 +2533,11 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %694 = load ptr, ptr @stderr, align 8
   %695 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %694, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 696:                                              ; preds = %691
   tail call void @scontrol_list_pids(i32 noundef %0, ptr noundef nonnull %1) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 697:                                              ; preds = %689
   %698 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.137, i64 noundef %128) #18
@@ -2552,11 +2552,11 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %702 = load ptr, ptr @stderr, align 8
   %703 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %702, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 704:                                              ; preds = %699
   tail call void @scontrol_list_jobs(i32 noundef %0, ptr noundef nonnull %1) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 705:                                              ; preds = %697
   %706 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.138, i64 noundef %128) #18
@@ -2571,11 +2571,11 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %710 = load ptr, ptr @stderr, align 8
   %711 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %710, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 712:                                              ; preds = %707
   tail call void @scontrol_list_steps(i32 noundef %0, ptr noundef nonnull %1) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 713:                                              ; preds = %705
   %714 = tail call i32 @llvm.smax.i32(i32 %21, i32 6)
@@ -2596,7 +2596,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 722:                                              ; preds = %717, %719
   %723 = phi ptr [ %721, %719 ], [ null, %717 ]
   tail call void @scontrol_getent(ptr noundef %723) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 724:                                              ; preds = %713
   %725 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.140, i64 noundef %128) #18
@@ -2611,19 +2611,19 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %729 = load ptr, ptr @stderr, align 8
   %730 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %729, ptr noundef nonnull @.str.60, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 731:                                              ; preds = %726
   %732 = add nsw i32 %0, -1
   %733 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %734 = tail call i32 @scontrol_job_notify(i32 noundef %732, ptr noundef nonnull %733) #18
   %.not542 = icmp eq i32 %734, 0
-  br i1 %.not542, label %_create_it.exit, label %735
+  br i1 %.not542, label %.critedge, label %735
 
 735:                                              ; preds = %731
   store i32 1, ptr @exit_code, align 4
   tail call void @slurm_perror(ptr noundef nonnull @.str.141) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 736:                                              ; preds = %724
   %737 = tail call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.142, i64 noundef %34) #18
@@ -2638,7 +2638,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %741 = load ptr, ptr @stderr, align 8
   %742 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %741, ptr noundef nonnull @.str.60, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 743:                                              ; preds = %738
   %744 = icmp samesign ugt i32 %0, 6
@@ -2648,27 +2648,27 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %746 = load ptr, ptr @stderr, align 8
   %747 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %746, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
 748:                                              ; preds = %743
   %749 = add nsw i32 %0, -1
   %750 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %751 = tail call i32 @scontrol_callerid(i32 noundef %749, ptr noundef nonnull %750) #18
   %.not544 = icmp eq i32 %751, 0
-  br i1 %.not544, label %_create_it.exit, label %752
+  br i1 %.not544, label %.critedge, label %752
 
 752:                                              ; preds = %748
   store i32 1, ptr @exit_code, align 4
   tail call void @slurm_perror(ptr noundef nonnull @.str.143) #18
-  br label %_create_it.exit
+  br label %.critedge
 
 753:                                              ; preds = %736
   store i32 1, ptr @exit_code, align 4
   %754 = load ptr, ptr @stderr, align 8
   %755 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %754, ptr noundef nonnull @.str.144, ptr noundef nonnull %10) #22
-  br label %_create_it.exit
+  br label %.critedge
 
-_create_it.exit:                                  ; preds = %.lr.ph, %622, %617, %606, %641, %647, %125, %124, %121, %31, %56, %53, %156, %140, %173, %170, %201, %234, %196, %277, %287, %311, %308, %325, %335, %352, %354, %._crit_edge591, %394, %396, %._crit_edge, %439, %436, %434, %427, %429, %458, %456, %465, %461, %449, %451, %508, %484, %482, %475, %477, %.thread548, %525, %523, %516, %518, %579, %576, %589, %592, %595, %566, %672, %688, %704, %701, %722, %753, %745, %752, %748, %740, %728, %735, %731, %709, %712, %693, %696, %681, %662, %559, %511, %468, %444, %417, %415, %._crit_edge579, %372, %370, %343, %347, %345, %332, %314, %292, %300, %297, %280, %241, %._crit_edge595, %246, %182, %187, %163, %134, %78, %38, %46, %43, %625, %629, %627, %650, %654, %652, %25, %28, %12, %15, %669, %659, %131, %90
+.critedge:                                        ; preds = %.lr.ph, %622, %617, %606, %125, %124, %121, %31, %56, %53, %156, %140, %173, %170, %201, %234, %196, %277, %287, %311, %308, %325, %335, %352, %354, %._crit_edge587, %394, %396, %._crit_edge, %439, %436, %434, %427, %429, %458, %456, %465, %461, %449, %451, %508, %484, %482, %475, %477, %.thread548, %525, %523, %516, %518, %579, %576, %589, %592, %595, %566, %672, %688, %704, %701, %722, %753, %745, %752, %748, %740, %728, %735, %731, %709, %712, %693, %696, %681, %662, %559, %511, %468, %444, %417, %415, %._crit_edge575, %372, %370, %343, %347, %345, %332, %314, %292, %300, %297, %280, %241, %._crit_edge591, %246, %182, %187, %163, %134, %78, %38, %46, %43, %625, %629, %627, %641, %647, %650, %654, %652, %25, %28, %12, %15, %669, %659, %131, %90
   ret void
 }
 

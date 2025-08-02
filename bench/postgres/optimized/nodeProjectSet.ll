@@ -58,58 +58,58 @@ list_length.exit:                                 ; preds = %3, %15
   %29 = load ptr, ptr %13, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %33 = load i32, ptr %30, align 4
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph53, label %._crit_edge
+  br i1 %34, label %.lr.ph50, label %.critedge
 
-._crit_edge:                                      ; preds = %56, %.lr.ph, %list_length.exit
-  %35 = load ptr, ptr @CurrentMemoryContext, align 8
-  %36 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %35, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #2
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  store ptr %36, ptr %37, align 8
-  ret ptr %4
-
-.lr.ph53:                                         ; preds = %.lr.ph, %56
+.lr.ph50:                                         ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph ]
-  %38 = load ptr, ptr %31, align 8
-  %39 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = load i32, ptr %42, align 4
-  switch i32 %43, label %.thread46 [
+  %35 = load ptr, ptr %31, align 8
+  %36 = getelementptr inbounds nuw %union.ListCell, ptr %35, i64 %indvars.iv
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i32, ptr %39, align 4
+  switch i32 %40, label %.thread [
     i32 15, label %44
     i32 17, label %48
   ]
 
-44:                                               ; preds = %.lr.ph53
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 12
+.critedge:                                        ; preds = %56, %.lr.ph, %list_length.exit
+  %41 = load ptr, ptr @CurrentMemoryContext, align 8
+  %42 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %41, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #2
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 224
+  store ptr %42, ptr %43, align 8
+  ret ptr %4
+
+44:                                               ; preds = %.lr.ph50
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %46 = load i8, ptr %45, align 4, !range !4, !noundef !5
   %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %52, label %.thread46
+  br i1 %47, label %52, label %.thread
 
-48:                                               ; preds = %.lr.ph53
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 16
+48:                                               ; preds = %.lr.ph50
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %50 = load i8, ptr %49, align 8, !range !4, !noundef !5
   %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %52, label %.thread46
+  br i1 %51, label %52, label %.thread
 
 52:                                               ; preds = %48, %44
   %53 = load ptr, ptr %32, align 8
-  %54 = tail call ptr @ExecInitFunctionResultSet(ptr noundef nonnull %42, ptr noundef %53, ptr noundef nonnull %4) #2
+  %54 = tail call ptr @ExecInitFunctionResultSet(ptr noundef nonnull %39, ptr noundef %53, ptr noundef nonnull %4) #2
   br label %56
 
-.thread46:                                        ; preds = %.lr.ph53, %44, %48
-  %55 = tail call ptr @ExecInitExpr(ptr noundef nonnull %42, ptr noundef nonnull %4) #2
+.thread:                                          ; preds = %.lr.ph50, %44, %48
+  %55 = tail call ptr @ExecInitExpr(ptr noundef nonnull %39, ptr noundef nonnull %4) #2
   br label %56
 
-56:                                               ; preds = %.thread46, %52
-  %.sink = phi ptr [ %55, %.thread46 ], [ %54, %52 ]
+56:                                               ; preds = %.thread, %52
+  %.sink = phi ptr [ %55, %.thread ], [ %54, %52 ]
   %57 = load ptr, ptr %23, align 8
   %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
   store ptr %.sink, ptr %58, align 8
@@ -117,7 +117,7 @@ list_length.exit:                                 ; preds = %3, %15
   %59 = load i32, ptr %30, align 4
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph53, label %._crit_edge
+  br i1 %61, label %.lr.ph50, label %.critedge
 }
 
 ; Function Attrs: nounwind uwtable

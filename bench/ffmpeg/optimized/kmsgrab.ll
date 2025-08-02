@@ -713,7 +713,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @kmsgrab_read_packet(ptr
   %97 = getelementptr inbounds nuw i8, ptr %57, i64 44
   %98 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %99 = getelementptr inbounds nuw i8, ptr %45, i64 120
-  %100 = getelementptr i8, ptr %45, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %45, i64 16
   br label %101
 
 101:                                              ; preds = %.thread.i, %95
@@ -752,7 +752,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @kmsgrab_read_packet(ptr
   %118 = getelementptr inbounds nuw [4 x %struct.AVDRMPlaneDescriptor], ptr %99, i64 0, i64 %indvars.iv.i
   %119 = load i32, ptr %118, align 8, !tbaa !109
   %.idx.i = mul nuw nsw i64 %indvars.iv.i, 24
-  %120 = getelementptr i8, ptr %100, i64 %.idx.i
+  %120 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx.i
   %121 = load i64, ptr %120, align 8, !tbaa !111
   %122 = icmp ult i64 %121, %112
   br i1 %122, label %123, label %124

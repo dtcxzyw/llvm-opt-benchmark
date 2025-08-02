@@ -376,7 +376,7 @@ define dso_local noundef range(i32 -22, 1) i32 @setup_APIC_eilvt(i8 noundef zero
   %15 = or i32 %.fr, %14
   %16 = tail call i32 @__SCT__apic_call_read(i32 noundef %7) #17
   %17 = icmp ugt i8 %0, 3
-  br i1 %17, label %.thread6, label %18
+  br i1 %17, label %.thread5, label %18
 
 18:                                               ; preds = %4
   %19 = zext nneg i8 %0 to i64
@@ -400,17 +400,17 @@ define dso_local noundef range(i32 -22, 1) i32 @setup_APIC_eilvt(i8 noundef zero
   %31 = icmp ult i8 %30, 2
   tail call void @llvm.assume(i1 %31)
   %32 = icmp eq i8 %30, 0
-  br i1 %32, label %.lr.ph12, label %.thread5.thread, !prof !11
+  br i1 %32, label %.lr.ph11, label %.thread.thread, !prof !11
 
-.lr.ph12:                                         ; preds = %.lr.ph.split.us, %.lr.ph12
-  %33 = phi { i8, i32 } [ %35, %.lr.ph12 ], [ %29, %.lr.ph.split.us ]
+.lr.ph11:                                         ; preds = %.lr.ph.split.us, %.lr.ph11
+  %33 = phi { i8, i32 } [ %35, %.lr.ph11 ], [ %29, %.lr.ph.split.us ]
   %34 = extractvalue { i8, i32 } %33, 1
   %35 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 65536, ptr elementtype(i32) %20, i32 %34) #17, !srcloc !10
   %36 = extractvalue { i8, i32 } %35, 0
   %37 = icmp ult i8 %36, 2
   tail call void @llvm.assume(i1 %37)
   %38 = icmp eq i8 %36, 0
-  br i1 %38, label %.lr.ph12, label %.thread5.thread, !prof !12, !llvm.loop !13
+  br i1 %38, label %.lr.ph11, label %.thread.thread, !prof !12, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %39 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 %15, ptr elementtype(i32) %20, i32 %21) #17, !srcloc !10
@@ -418,17 +418,17 @@ define dso_local noundef range(i32 -22, 1) i32 @setup_APIC_eilvt(i8 noundef zero
   %41 = icmp ult i8 %40, 2
   tail call void @llvm.assume(i1 %41)
   %42 = icmp eq i8 %40, 0
-  br i1 %42, label %.lr.ph10, label %.split.us, !prof !11
+  br i1 %42, label %.lr.ph9, label %.critedge, !prof !11
 
-43:                                               ; preds = %.lr.ph10
+43:                                               ; preds = %.lr.ph9
   %44 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 %15, ptr elementtype(i32) %20, i32 %49) #17, !srcloc !10
   %45 = extractvalue { i8, i32 } %44, 0
   %46 = icmp ult i8 %45, 2
   tail call void @llvm.assume(i1 %46)
   %47 = icmp eq i8 %45, 0
-  br i1 %47, label %.lr.ph10, label %.split.us, !prof !12, !llvm.loop !15
+  br i1 %47, label %.lr.ph9, label %.critedge, !prof !12, !llvm.loop !15
 
-.lr.ph10:                                         ; preds = %.lr.ph.split, %43
+.lr.ph9:                                          ; preds = %.lr.ph.split, %43
   %48 = phi { i8, i32 } [ %44, %43 ], [ %39, %.lr.ph.split ]
   %49 = extractvalue { i8, i32 } %48, 1
   %50 = and i32 %49, -65537
@@ -437,48 +437,48 @@ define dso_local noundef range(i32 -22, 1) i32 @setup_APIC_eilvt(i8 noundef zero
   %53 = and i1 %51, %52
   br i1 %53, label %._crit_edge, label %43, !llvm.loop !15
 
-.split.us:                                        ; preds = %43, %.lr.ph.split
+.critedge:                                        ; preds = %43, %.lr.ph.split
   %.us-phi = phi i32 [ %24, %.lr.ph.split ], [ %50, %43 ]
   %54 = icmp eq i32 %23, 0
   %55 = icmp eq i32 %23, %.us-phi
   %56 = or i1 %54, %55
-  br i1 %56, label %.thread5, label %57
+  br i1 %56, label %.thread, label %57
 
-57:                                               ; preds = %.split.us
+57:                                               ; preds = %.critedge
   %58 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %5, i32 noundef %23) #18
-  br label %.thread5
+  br label %.thread
 
-._crit_edge:                                      ; preds = %.lr.ph10, %18
-  %.lcssa8 = phi i32 [ %21, %18 ], [ %49, %.lr.ph10 ]
-  %59 = icmp eq i32 %.lcssa8, %15
-  br i1 %59, label %.thread5, label %.thread6
+._crit_edge:                                      ; preds = %.lr.ph9, %18
+  %.lcssa7 = phi i32 [ %21, %18 ], [ %49, %.lr.ph9 ]
+  %59 = icmp eq i32 %.lcssa7, %15
+  br i1 %59, label %.thread, label %.thread5
 
-.thread6:                                         ; preds = %4, %._crit_edge
-  %60 = phi i32 [ %.lcssa8, %._crit_edge ], [ -1, %4 ]
+.thread5:                                         ; preds = %4, %._crit_edge
+  %60 = phi i32 [ %.lcssa7, %._crit_edge ], [ -1, %4 ]
   %61 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !18
   %62 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %61, i64 noundef %8, i32 noundef %5, i32 noundef %15, i32 noundef %60) #18
   br label %72
 
-.thread5:                                         ; preds = %.split.us, %57, %._crit_edge
+.thread:                                          ; preds = %.critedge, %57, %._crit_edge
   %63 = and i32 %16, 65536
   %64 = icmp ne i32 %63, 0
   %65 = icmp eq i32 %15, 65536
   %66 = or i1 %65, %64
   %67 = icmp eq i32 %23, %16
   %68 = or i1 %67, %66
-  br i1 %68, label %.thread5.thread, label %69
+  br i1 %68, label %.thread.thread, label %69
 
-69:                                               ; preds = %.thread5
+69:                                               ; preds = %.thread
   %70 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !19
   %71 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %70, i64 noundef %8, i32 noundef %5, i32 noundef %15, i32 noundef %16) #18
   br label %72
 
-.thread5.thread:                                  ; preds = %.lr.ph12, %.lr.ph.split.us, %.thread5
+.thread.thread:                                   ; preds = %.lr.ph11, %.lr.ph.split.us, %.thread
   tail call void @__SCT__apic_call_write(i32 noundef %7, i32 noundef %15) #17
   br label %72
 
-72:                                               ; preds = %.thread5.thread, %69, %.thread6
-  %73 = phi i32 [ -22, %.thread6 ], [ 0, %.thread5.thread ], [ -16, %69 ]
+72:                                               ; preds = %.thread.thread, %69, %.thread5
+  %73 = phi i32 [ -22, %.thread5 ], [ 0, %.thread.thread ], [ -16, %69 ]
   ret i32 %73
 }
 

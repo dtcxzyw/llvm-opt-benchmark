@@ -1706,14 +1706,14 @@ jv_copy.exit:                                     ; preds = %jv_copy.exit202, %4
   br i1 %61, label %.lr.ph.i, label %jvp_object_length.exit
 
 .lr.ph.i:                                         ; preds = %60
-  %62 = getelementptr i8, ptr %3, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %63 ]
   %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i227, %63 ]
   %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %64 = getelementptr i8, ptr %62, i64 %.idx.i
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx.i
   %65 = load i64, ptr %64, align 8
   %66 = and i64 %65, 15
   %.not.i226 = icmp ne i64 %66, 1
@@ -3644,14 +3644,14 @@ define dso_local i32 @jv_object_length(i64 %0, ptr %1) local_unnamed_addr #2 {
   br i1 %3, label %.lr.ph.i, label %jvp_object_length.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %4 = getelementptr i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %5
 
 5:                                                ; preds = %5, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %5 ]
   %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %5 ]
   %.idx.i = mul nuw nsw i64 %indvars.iv.i, 40
-  %6 = getelementptr i8, ptr %4, i64 %.idx.i
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 15
   %.not.i = icmp ne i64 %8, 1

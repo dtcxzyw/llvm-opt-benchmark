@@ -1134,16 +1134,16 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h95524a7d07786cb
 
 "_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h7c63dc76b41b816bE.llvm.12501931995097931548.exit.loopexit.i.i": ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !316, !noalias !321
+  %13 = call i64 @llvm.fshl.i64(i64 %.pre.i.i, i64 %.pre.i.i, i64 5)
   br label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hec4f59fbba4f0ce4E.llvm.12501931995097931548.exit"
 
 "_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hec4f59fbba4f0ce4E.llvm.12501931995097931548.exit": ; preds = %2, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h7c63dc76b41b816bE.llvm.12501931995097931548.exit.loopexit.i.i"
-  %13 = phi i64 [ %.pre.i.i, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h7c63dc76b41b816bE.llvm.12501931995097931548.exit.loopexit.i.i" ], [ 0, %2 ]
+  %14 = phi i64 [ %13, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h7c63dc76b41b816bE.llvm.12501931995097931548.exit.loopexit.i.i" ], [ 0, %2 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !323)
   call void @llvm.experimental.noalias.scope.decl(metadata !324)
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1040
-  %15 = load i64, ptr %14, align 8, !alias.scope !325, !noalias !326, !noundef !15
-  %16 = call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 5)
-  %17 = xor i64 %15, %16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1040
+  %16 = load i64, ptr %15, align 8, !alias.scope !325, !noalias !326, !noundef !15
+  %17 = xor i64 %16, %14
   %18 = mul i64 %17, 5871781006564002453
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %18
@@ -6035,13 +6035,13 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN78_$LT$util..LogErrorFuture$LT$F$GT
   %11 = load ptr, ptr %9, align 8, !alias.scope !2069, !noalias !2072
   store i64 0, ptr %0, align 8, !alias.scope !2069, !noalias !2072
   %switch.i = icmp eq i64 %7, 0
-  br i1 %switch.i, label %19, label %20
+  br i1 %switch.i, label %19, label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd47db067cb8c3f0aE.exit"
 
 12:                                               ; preds = %2
   %13 = tail call { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h7af3b28830e1be68E.llvm.5684779234564171080"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %14 = extractvalue { i64, ptr } %13, 0
   switch i64 %14, label %15 [
-    i64 2, label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd47db067cb8c3f0aE.exit"
+    i64 2, label %.critedge
     i64 0, label %16
     i64 1, label %17
   ]
@@ -6055,27 +6055,27 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN78_$LT$util..LogErrorFuture$LT$F$GT
 
 17:                                               ; preds = %12
   %18 = extractvalue { i64, ptr } %13, 1
-  br label %20
+  br label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd47db067cb8c3f0aE.exit"
 
 19:                                               ; preds = %10
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.47d61a7434a2de9ce1f903dfc78c3c25.95.llvm.1773812968689397802) #40, !noalias !2074
   unreachable
 
-20:                                               ; preds = %10, %17
-  %.sroa.3.0.i.pn.i.ph = phi ptr [ %18, %17 ], [ %11, %10 ]
-  %21 = icmp eq ptr %.sroa.3.0.i.pn.i.ph, null
-  br i1 %21, label %23, label %22
+"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd47db067cb8c3f0aE.exit": ; preds = %10, %17
+  %.sroa.3.0.i.pn.i = phi ptr [ %11, %10 ], [ %18, %17 ]
+  %20 = icmp eq ptr %.sroa.3.0.i.pn.i, null
+  br i1 %20, label %22, label %21
 
-22:                                               ; preds = %20
-  call void @_ZN4util21log_error_with_caller17he883b69f73ae35e8E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i.pn.i.ph, i64 noundef %5)
-  br label %23
+21:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd47db067cb8c3f0aE.exit"
+  call void @_ZN4util21log_error_with_caller17he883b69f73ae35e8E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i.pn.i, i64 noundef %5)
+  br label %22
 
-23:                                               ; preds = %20, %22
-  %24 = zext i1 %21 to i8
-  br label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd47db067cb8c3f0aE.exit"
+22:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd47db067cb8c3f0aE.exit", %21
+  %23 = zext i1 %20 to i8
+  br label %.critedge
 
-"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd47db067cb8c3f0aE.exit": ; preds = %12, %23
-  %.sroa.0.0 = phi i8 [ %24, %23 ], [ 2, %12 ]
+.critedge:                                        ; preds = %12, %22
+  %.sroa.0.0 = phi i8 [ %23, %22 ], [ 2, %12 ]
   ret i8 %.sroa.0.0
 }
 

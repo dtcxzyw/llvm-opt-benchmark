@@ -11619,13 +11619,13 @@ define linkonce_odr void @_ZN7xgboost10collective9TCPSocket7RecvAllEPvmPm(ptr de
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.01930 = phi ptr [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %2, %5 ]
-  %storemerge29 = phi i64 [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %5 ]
+.lr.ph:                                           ; preds = %5, %33
+  %.01928 = phi ptr [ %34, %33 ], [ %2, %5 ]
+  %storemerge27 = phi i64 [ %36, %33 ], [ 0, %5 ]
   %7 = load i32, ptr %1, align 4, !tbaa !77
-  %8 = sub nuw i64 %3, %storemerge29
-  %9 = tail call i64 @recv(i32 noundef %7, ptr noundef %.01930, i64 noundef %8, i32 noundef 256)
-  switch i64 %9, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit [
+  %8 = sub nuw i64 %3, %storemerge27
+  %9 = tail call i64 @recv(i32 noundef %7, ptr noundef %.01928, i64 noundef %8, i32 noundef 256)
+  switch i64 %9, label %33 [
     i64 -1, label %10
     i64 0, label %32
   ]
@@ -11640,7 +11640,7 @@ define linkonce_odr void @_ZN7xgboost10collective9TCPSocket7RecvAllEPvmPm(ptr de
 
 13:                                               ; preds = %10, %10
   store ptr null, ptr %0, align 8, !tbaa !61, !alias.scope !510
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
+  br label %.critedge
 
 ._crit_edge.i.i:                                  ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -11662,13 +11662,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %20 = load i64, ptr %15, align 8, !tbaa !46
   %21 = icmp ult i64 %20, 16
   call void @llvm.assume(i1 %21)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
+  br label %.critedge
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %17
   %22 = load i64, ptr %14, align 8, !tbaa !32
   %23 = add i64 %22, 1
   call void @_ZdlPvm(ptr noundef %18, i64 noundef %23) #39
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
+  br label %.critedge
 
 24:                                               ; preds = %._crit_edge.i.i
   %25 = landingpad { ptr, i32 }
@@ -11694,21 +11694,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
 
 32:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8, !tbaa !61, !alias.scope !513
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
+  br label %.critedge
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.lr.ph
-  %33 = getelementptr inbounds i8, ptr %.01930, i64 %9
-  %34 = load i64, ptr %4, align 8, !tbaa !20
-  %35 = add i64 %34, %9
-  store i64 %35, ptr %4, align 8, !tbaa !20
-  %36 = icmp ult i64 %35, %3
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !516
+33:                                               ; preds = %.lr.ph
+  %34 = getelementptr inbounds i8, ptr %.01928, i64 %9
+  %35 = load i64, ptr %4, align 8, !tbaa !20
+  %36 = add i64 %35, %9
+  store i64 %36, ptr %4, align 8, !tbaa !20
+  %37 = icmp ult i64 %36, %3
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !516
 
-._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %5
+._crit_edge:                                      ; preds = %33, %5
   store ptr null, ptr %0, align 8, !tbaa !61, !alias.scope !517
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
+  br label %.critedge
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %32, %13, %._crit_edge
+.critedge:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %13, %32, %._crit_edge
   ret void
 }
 

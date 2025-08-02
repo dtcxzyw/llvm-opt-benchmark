@@ -1470,9 +1470,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %164
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #22
   %165 = icmp sgt i32 %37, 0
-  br i1 %165, label %.lr.ph429, label %._crit_edge
+  br i1 %165, label %.lr.ph427, label %._crit_edge
 
-.lr.ph429:                                        ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
+.lr.ph427:                                        ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   %166 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %167 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %168 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1578,8 +1578,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3d
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #22
   br label %618
 
-218:                                              ; preds = %.lr.ph429, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154
-  %indvars.iv511 = phi i64 [ 0, %.lr.ph429 ], [ %indvars.iv.next512, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154 ]
+218:                                              ; preds = %.lr.ph427, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154
+  %indvars.iv509 = phi i64 [ 0, %.lr.ph427 ], [ %indvars.iv.next510, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154 ]
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %22) #22
   %219 = load ptr, ptr %30, align 8, !tbaa !88, !noalias !120
   %220 = load ptr, ptr %29, align 8, !tbaa !89, !noalias !120
@@ -1587,18 +1587,18 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3d
   %222 = ptrtoint ptr %220 to i64
   %223 = sub i64 %221, %222
   %224 = sdiv exact i64 %223, 224
-  %.not.i.i.i99 = icmp ugt i64 %224, %indvars.iv511
+  %.not.i.i.i99 = icmp ugt i64 %224, %indvars.iv509
   br i1 %.not.i.i.i99, label %_ZNKSt6vectorIN2cv3dnn7darknet14LayerParameterESaIS3_EE2atEm.exit.i, label %225
 
 225:                                              ; preds = %218
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.11, i64 noundef %indvars.iv511, i64 noundef %224) #24
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.11, i64 noundef %indvars.iv509, i64 noundef %224) #24
           to label %.noexc100 unwind label %.loopexit.split-lp199
 
 .noexc100:                                        ; preds = %225
   unreachable
 
 _ZNKSt6vectorIN2cv3dnn7darknet14LayerParameterESaIS3_EE2atEm.exit.i: ; preds = %218
-  %226 = getelementptr inbounds nuw %"class.cv::dnn::darknet::LayerParameter", ptr %220, i64 %indvars.iv511
+  %226 = getelementptr inbounds nuw %"class.cv::dnn::darknet::LayerParameter", ptr %220, i64 %indvars.iv509
   invoke void @_ZN2cv3dnn7darknet14LayerParameterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(224) %22, ptr noundef nonnull align 8 dereferenceable(224) %226)
           to label %_ZNK2cv3dnn7darknet12NetParameter5layerEi.exit unwind label %.loopexit198
 
@@ -1948,27 +1948,23 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
 
 .lr.ph.i:                                         ; preds = %325
   %335 = load i64, ptr %179, align 8, !tbaa !11
-  %.fr430 = freeze i64 %335
+  %.fr428 = freeze i64 %335
   %336 = load ptr, ptr %27, align 8
   %337 = and i64 %332, 2147483647
-  %338 = icmp eq i64 %.fr430, 0
+  %338 = icmp eq i64 %.fr428, 0
   br i1 %338, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
-.lr.ph.i.split.us:                                ; preds = %.lr.ph.i
-  %invariant.gep = getelementptr i8, ptr %.val, i64 8
-  br label %339
-
-339:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us, %.lr.ph.i.split.us
-  %indvars.iv.i.us = phi i64 [ %337, %.lr.ph.i.split.us ], [ %indvars.iv.next.i.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us ]
+.lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us
+  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us ], [ %337, %.lr.ph.i ]
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, -1
-  %gep = getelementptr %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %invariant.gep, i64 %indvars.iv.next.i.us
-  %340 = load i64, ptr %gep, align 8, !tbaa !11
+  %339 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %.val, i64 %indvars.iv.next.i.us, i32 0, i32 1
+  %340 = load i64, ptr %339, align 8, !tbaa !11
   %341 = icmp eq i64 %340, 0
   br i1 %341, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us: ; preds = %339
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us: ; preds = %.lr.ph.i.split.us
   %342 = icmp samesign ugt i64 %indvars.iv.i.us, 1
-  br i1 %342, label %339, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit._crit_edge.i, !llvm.loop !136
+  br i1 %342, label %.lr.ph.i.split.us, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit._crit_edge.i, !llvm.loop !136
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i ], [ %337, %.lr.ph.i ]
@@ -1976,12 +1972,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %343 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %.val, i64 %indvars.iv.next.i
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 8
   %345 = load i64, ptr %344, align 8, !tbaa !11
-  %346 = icmp eq i64 %345, %.fr430
+  %346 = icmp eq i64 %345, %.fr428
   br i1 %346, label %347, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i
 
 347:                                              ; preds = %.lr.ph.i.split
   %348 = load ptr, ptr %343, align 8, !tbaa !3
-  %bcmp.i.i = call i32 @bcmp(ptr %348, ptr %336, i64 %.fr430)
+  %bcmp.i.i = call i32 @bcmp(ptr %348, ptr %336, i64 %.fr428)
   %349 = icmp eq i32 %bcmp.i.i, 0
   br i1 %349, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i
 
@@ -2053,8 +2049,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22.i: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #22
   br label %.body
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %347, %339
-  %.us-phi = phi i64 [ %indvars.iv.next.i.us, %339 ], [ %indvars.iv.next.i, %347 ]
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %347, %.lr.ph.i.split.us
+  %.us-phi = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i.split.us ], [ %indvars.iv.next.i, %347 ]
   %369 = and i64 %.us-phi, 4294967295
   %370 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %.val, i64 %369
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 32
@@ -2103,8 +2099,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   %386 = ptrtoint ptr %384 to i64
   %387 = ptrtoint ptr %385 to i64
   %388 = sub i64 %386, %387
-  %sext516 = shl i64 %388, 27
-  %389 = ashr i64 %sext516, 32
+  %sext514 = shl i64 %388, 27
+  %389 = ashr i64 %sext514, 32
   %390 = icmp slt i64 %indvars.iv.next, %389
   br i1 %390, label %.lr.ph, label %.preheader, !llvm.loop !139
 
@@ -2269,8 +2265,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #22
   call void @_ZN2cv3dnn7darknet14LayerParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %22) #22
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %22) #22
-  %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next512, %wide.trip.count
+  %indvars.iv.next510 = add nuw nsw i64 %indvars.iv509, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next510, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %218, !llvm.loop !145
 
 424:                                              ; preds = %.noexc.i.i.i
@@ -2340,21 +2336,17 @@ _ZNK2cv3dnn7darknet14LayerParameter3topB5cxx11Ei.exit.i: ; preds = %434, %432, %
   %445 = icmp eq i64 %.pre66.i.fr, 0
   br i1 %445, label %.lr.ph.i156.split.us, label %.lr.ph.i156.split
 
-.lr.ph.i156.split.us:                             ; preds = %.lr.ph.i156
-  %invariant.gep424 = getelementptr i8, ptr %.val.i155, i64 8
-  br label %446
-
-446:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i159.us, %.lr.ph.i156.split.us
-  %indvars.iv.i157.us = phi i64 [ %444, %.lr.ph.i156.split.us ], [ %indvars.iv.next.i158.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i159.us ]
+.lr.ph.i156.split.us:                             ; preds = %.lr.ph.i156, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i159.us
+  %indvars.iv.i157.us = phi i64 [ %indvars.iv.next.i158.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i159.us ], [ %444, %.lr.ph.i156 ]
   %indvars.iv.next.i158.us = add nsw i64 %indvars.iv.i157.us, -1
-  %gep425 = getelementptr %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %invariant.gep424, i64 %indvars.iv.next.i158.us
-  %447 = load i64, ptr %gep425, align 8, !tbaa !11
+  %446 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %.val.i155, i64 %indvars.iv.next.i158.us, i32 0, i32 1
+  %447 = load i64, ptr %446, align 8, !tbaa !11
   %448 = icmp eq i64 %447, 0
   br i1 %448, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i161, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i159.us
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i159.us: ; preds = %446
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i159.us: ; preds = %.lr.ph.i156.split.us
   %449 = icmp samesign ugt i64 %indvars.iv.i157.us, 1
-  br i1 %449, label %446, label %._crit_edge.i.i.i47.i.thread, !llvm.loop !149
+  br i1 %449, label %.lr.ph.i156.split.us, label %._crit_edge.i.i.i47.i.thread, !llvm.loop !149
 
 ._crit_edge.i.i.i47.i.thread:                     ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i159.us
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #22
@@ -2382,7 +2374,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %457 = icmp samesign ugt i64 %indvars.iv.i157, 1
   br i1 %457, label %.lr.ph.i156.split, label %.critedge.i, !llvm.loop !150
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i161: ; preds = %454, %446
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i161: ; preds = %454, %.lr.ph.i156.split.us
   %458 = load ptr, ptr %177, align 8, !tbaa !108
   %459 = load ptr, ptr %176, align 8, !tbaa !104
   %460 = ptrtoint ptr %458 to i64
@@ -2766,8 +2758,8 @@ _ZNSt6vectorIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteESa
   store ptr %584, ptr %50, align 8, !tbaa !93
   %586 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::DarknetImporter::BlobNote", ptr %552, i64 %548
   store ptr %586, ptr %64, align 8, !tbaa !96
-  %.pre515 = load ptr, ptr %10, align 8, !tbaa !3
-  %587 = icmp eq ptr %.pre515, %186
+  %.pre513 = load ptr, ptr %10, align 8, !tbaa !3
+  %587 = icmp eq ptr %.pre513, %186
   br i1 %587, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZNSt6vectorIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteESaIS5_EE9push_backEOS5_.exit.thread, %_ZNSt6vectorIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteESaIS5_EE9push_backEOS5_.exit
@@ -2777,7 +2769,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteD2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZNSt6vectorIN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteESaIS5_EE9push_backEOS5_.exit
-  call void @_ZdlPv(ptr noundef %.pre515) #25
+  call void @_ZdlPv(ptr noundef %.pre513) #25
   br label %_ZN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteD2Ev.exit.i
 
 _ZN2cv3dnn14dnn4_v2024122312_GLOBAL__N_115DarknetImporter8BlobNoteD2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i

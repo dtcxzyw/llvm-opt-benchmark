@@ -108,18 +108,18 @@ define internal fastcc range(i32 -1, 1) i32 @unix_sockaddr_init(ptr noundef nonn
   %8 = add i32 %7, 1
   store ptr null, ptr %2, align 8, !tbaa !8
   %9 = icmp ugt i32 %8, 108
-  br i1 %9, label %10, label %31
+  br i1 %9, label %10, label %30
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.unix_sockaddr_init.cwd, i64 24, i1 false)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %11, label %.thread.sink.split
+  br i1 %.not, label %11, label %.critedge.sink.split
 
 11:                                               ; preds = %10
   %12 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1, i32 noundef 47) #14
   %.not26 = icmp eq ptr %12, null
-  br i1 %.not26, label %.thread.sink.split, label %13
+  br i1 %.not26, label %.critedge.sink.split, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
@@ -127,50 +127,50 @@ define internal fastcc range(i32 -1, 1) i32 @unix_sockaddr_init(ptr noundef nonn
   %16 = trunc i64 %15 to i32
   %17 = add i32 %16, 1
   %18 = icmp ugt i32 %17, 108
-  br i1 %18, label %.thread.sink.split, label %19
+  br i1 %18, label %.critedge.sink.split, label %19
 
 19:                                               ; preds = %13
   %20 = call i32 @strbuf_getcwd(ptr noundef nonnull %5) #11
   %.not27 = icmp eq i32 %20, 0
-  br i1 %.not27, label %22, label %.thread
+  br i1 %.not27, label %21, label %.critedge
 
-.thread.sink.split:                               ; preds = %13, %11, %10
-  %21 = tail call ptr @__errno_location() #12
-  store i32 36, ptr %21, align 4, !tbaa !4
-  br label %.thread
-
-.thread:                                          ; preds = %.thread.sink.split, %19
+21:                                               ; preds = %19
+  %22 = call ptr @strbuf_detach(ptr noundef nonnull %5, ptr noundef null) #11
+  store ptr %22, ptr %2, align 8, !tbaa !8
+  %23 = ptrtoint ptr %12 to i64
+  %24 = ptrtoint ptr %1 to i64
+  %25 = sub i64 %23, %24
+  %sext = shl i64 %25, 32
+  %26 = ashr exact i64 %sext, 32
+  %27 = call ptr @xmemdupz(ptr noundef nonnull %1, i64 noundef %26) #11
+  %28 = call i32 @chdir(ptr noundef %27) #11
+  call void @free(ptr noundef %27) #11
+  %29 = icmp sgt i32 %28, -1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  br label %35
+  br i1 %29, label %30, label %35
 
-22:                                               ; preds = %19
-  %23 = call ptr @strbuf_detach(ptr noundef nonnull %5, ptr noundef null) #11
-  store ptr %23, ptr %2, align 8, !tbaa !8
-  %24 = ptrtoint ptr %12 to i64
-  %25 = ptrtoint ptr %1 to i64
-  %26 = sub i64 %24, %25
-  %sext = shl i64 %26, 32
-  %27 = ashr exact i64 %sext, 32
-  %28 = call ptr @xmemdupz(ptr noundef nonnull %1, i64 noundef %27) #11
-  %29 = call i32 @chdir(ptr noundef %28) #11
-  call void @free(ptr noundef %28) #11
-  %30 = icmp sgt i32 %29, -1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  br i1 %30, label %31, label %35
-
-31:                                               ; preds = %22, %4
-  %.023 = phi i32 [ %17, %22 ], [ %8, %4 ]
-  %.021 = phi ptr [ %14, %22 ], [ %1, %4 ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %32, i8 0, i64 108, i1 false)
+30:                                               ; preds = %21, %4
+  %.023 = phi i32 [ %17, %21 ], [ %8, %4 ]
+  %.021 = phi ptr [ %14, %21 ], [ %1, %4 ]
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %31, i8 0, i64 108, i1 false)
   store i16 1, ptr %0, align 2, !tbaa !12
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %34 = zext nneg i32 %.023 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %33, ptr nonnull align 1 %.021, i64 %34, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %33 = zext nneg i32 %.023 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %32, ptr nonnull align 1 %.021, i64 %33, i1 false)
   br label %35
 
-35:                                               ; preds = %.thread, %22, %31
-  %.1 = phi i32 [ 0, %31 ], [ -1, %22 ], [ -1, %.thread ]
+.critedge.sink.split:                             ; preds = %13, %11, %10
+  %34 = tail call ptr @__errno_location() #12
+  store i32 36, ptr %34, align 4, !tbaa !4
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.sink.split, %19
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  br label %35
+
+35:                                               ; preds = %.critedge, %21, %30
+  %.1 = phi i32 [ 0, %30 ], [ -1, %21 ], [ -1, %.critedge ]
   ret i32 %.1
 }
 

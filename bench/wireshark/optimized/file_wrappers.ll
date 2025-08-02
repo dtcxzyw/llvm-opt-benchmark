@@ -3799,7 +3799,7 @@ define hidden noundef i64 @lz4wfile_write(ptr noundef %0, ptr noundef %1, i64 no
   %.not = icmp ne i32 %5, 0
   %6 = icmp eq i64 %2, 0
   %or.cond = or i1 %6, %.not
-  br i1 %or.cond, label %lz4_init.exit.thread, label %7
+  br i1 %or.cond, label %.critedge, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3819,7 +3819,7 @@ define hidden noundef i64 @lz4wfile_write(ptr noundef %0, ptr noundef %1, i64 no
   %16 = tail call ptr @LZ4F_getErrorName(i64 noundef %13)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %16, ptr %17, align 8
-  br label %lz4_init.exit.thread
+  br label %.critedge
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3835,7 +3835,7 @@ define hidden noundef i64 @lz4wfile_write(ptr noundef %0, ptr noundef %1, i64 no
   %25 = load ptr, ptr %12, align 8
   %26 = tail call i64 @LZ4F_freeCompressionContext(ptr noundef %25)
   store i32 12, ptr %4, align 8
-  br label %lz4_init.exit.thread
+  br label %.critedge
 
 27:                                               ; preds = %18
   %28 = load ptr, ptr %12, align 8
@@ -3851,7 +3851,7 @@ define hidden noundef i64 @lz4wfile_write(ptr noundef %0, ptr noundef %1, i64 no
   %34 = tail call ptr @LZ4F_getErrorName(i64 noundef %31)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %34, ptr %35, align 8
-  br label %lz4_init.exit.thread
+  br label %.critedge
 
 36:                                               ; preds = %27
   %.not.i.i = icmp eq i64 %31, 0
@@ -3869,7 +3869,7 @@ define hidden noundef i64 @lz4wfile_write(ptr noundef %0, ptr noundef %1, i64 no
   %44 = tail call ptr @__errno_location() #23
   %45 = load i32, ptr %44, align 4
   store i32 %45, ptr %4, align 8
-  br label %lz4_init.exit.thread
+  br label %.critedge
 
 46:                                               ; preds = %37
   %47 = and i64 %41, 4294967295
@@ -3878,7 +3878,7 @@ define hidden noundef i64 @lz4wfile_write(ptr noundef %0, ptr noundef %1, i64 no
 
 48:                                               ; preds = %46
   store i32 -14, ptr %4, align 8
-  br label %lz4_init.exit.thread
+  br label %.critedge
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3917,7 +3917,7 @@ lz4_init.exit:                                    ; preds = %36, %49
   %68 = tail call ptr @LZ4F_getErrorName(i64 noundef %65)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %68, ptr %69, align 8
-  br label %lz4_init.exit.thread
+  br label %.critedge
 
 70:                                               ; preds = %60
   %.not.i34 = icmp eq i64 %65, 0
@@ -3935,7 +3935,7 @@ lz4_init.exit:                                    ; preds = %36, %49
   %78 = tail call ptr @__errno_location() #23
   %79 = load i32, ptr %78, align 4
   store i32 %79, ptr %4, align 8
-  br label %lz4_init.exit.thread
+  br label %.critedge
 
 80:                                               ; preds = %71
   %81 = and i64 %75, 4294967295
@@ -3944,7 +3944,7 @@ lz4_init.exit:                                    ; preds = %36, %49
 
 82:                                               ; preds = %80
   store i32 -14, ptr %4, align 8
-  br label %lz4_init.exit.thread
+  br label %.critedge
 
 83:                                               ; preds = %80
   %84 = load i64, ptr %58, align 8
@@ -3958,10 +3958,10 @@ lz4_init.exit:                                    ; preds = %36, %49
   store i64 %88, ptr %59, align 8
   %89 = sub i64 %.028, %.028.
   %.not33 = icmp eq i64 %89, 0
-  br i1 %.not33, label %lz4_init.exit.thread, label %60, !llvm.loop !45
+  br i1 %.not33, label %.critedge, label %60, !llvm.loop !45
 
-lz4_init.exit.thread:                             ; preds = %86, %82, %77, %67, %48, %43, %33, %24, %15, %3
-  %.0 = phi i64 [ 0, %3 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %43 ], [ 0, %48 ], [ 0, %67 ], [ 0, %77 ], [ 0, %82 ], [ %2, %86 ]
+.critedge:                                        ; preds = %86, %48, %43, %33, %24, %15, %82, %77, %67, %3
+  %.0 = phi i64 [ 0, %3 ], [ 0, %67 ], [ 0, %77 ], [ 0, %82 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %43 ], [ 0, %48 ], [ %2, %86 ]
   ret i64 %.0
 }
 

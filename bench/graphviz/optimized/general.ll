@@ -44,7 +44,6 @@ define noalias noundef ptr @random_permutation(i32 noundef %0) local_unnamed_add
   unreachable
 
 .preheader:                                       ; preds = %gv_calloc.exit
-  %invariant.gep = getelementptr i8, ptr %5, i64 -4
   %.not = icmp eq i32 %0, 1
   br i1 %.not, label %.loopexit, label %.lr.ph28
 
@@ -62,16 +61,17 @@ gv_calloc.exit:                                   ; preds = %3, %gv_calloc.exit
   %13 = tail call i32 @rand() #18
   %14 = trunc nuw i64 %indvars.iv31 to i32
   %15 = srem i32 %13, %14
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv31
-  %16 = load i32, ptr %gep, align 4, !tbaa !8
-  %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds i32, ptr %5, i64 %17
-  %19 = load i32, ptr %18, align 4, !tbaa !8
-  store i32 %19, ptr %gep, align 4, !tbaa !8
-  store i32 %16, ptr %18, align 4, !tbaa !8
+  %16 = getelementptr i32, ptr %5, i64 %indvars.iv31
+  %17 = getelementptr i8, ptr %16, i64 -4
+  %18 = load i32, ptr %17, align 4, !tbaa !8
+  %19 = sext i32 %15 to i64
+  %20 = getelementptr inbounds i32, ptr %5, i64 %19
+  %21 = load i32, ptr %20, align 4, !tbaa !8
+  store i32 %21, ptr %17, align 4, !tbaa !8
+  store i32 %18, ptr %20, align 4, !tbaa !8
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
-  %20 = icmp sgt i32 %14, 2
-  br i1 %20, label %.lr.ph28, label %.loopexit, !llvm.loop !12
+  %22 = icmp sgt i32 %14, 2
+  br i1 %22, label %.lr.ph28, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph28, %.preheader, %1
   %.0 = phi ptr [ null, %1 ], [ %5, %.preheader ], [ %5, %.lr.ph28 ]
@@ -348,26 +348,26 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %12
 ._crit_edge:                                      ; preds = %.lr.ph
   %42 = zext nneg i32 %0 to i64
   tail call void @qsort(ptr noundef nonnull %28, i64 noundef %42, i64 noundef 16, ptr noundef nonnull @comp_ascend) #18
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %28, i64 8
   %43 = load ptr, ptr %2, align 8, !tbaa !24
   %wide.trip.count38 = zext nneg i32 %0 to i64
   br label %44
 
 44:                                               ; preds = %._crit_edge, %44
   %indvars.iv35 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next36, %44 ]
-  %gep.idx = shl nuw nsw i64 %indvars.iv35, 4
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
-  %45 = load double, ptr %gep, align 8, !tbaa !13
-  %46 = fptosi double %45 to i32
-  %47 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv35
-  store i32 %46, ptr %47, align 4, !tbaa !8
+  %.idx40 = shl nuw nsw i64 %indvars.iv35, 4
+  %45 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx40
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load double, ptr %46, align 8, !tbaa !13
+  %48 = fptosi double %47 to i32
+  %49 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv35
+  store i32 %48, ptr %49, align 4, !tbaa !8
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
   br i1 %exitcond39.not, label %._crit_edge33, label %44, !llvm.loop !27
 
 ._crit_edge33:                                    ; preds = %44, %._crit_edge.thread
-  %48 = phi ptr [ %34, %._crit_edge.thread ], [ %28, %44 ]
-  tail call void @free(ptr noundef %48) #18
+  %50 = phi ptr [ %34, %._crit_edge.thread ], [ %28, %44 ]
+  tail call void @free(ptr noundef %50) #18
   ret void
 }
 

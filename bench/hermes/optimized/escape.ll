@@ -666,7 +666,6 @@ while.body.lr.ph:                                 ; preds = %_ZN4llvh15SmallVect
   %add.ptr10.i.i79913 = getelementptr inbounds nuw i8, ptr %9, i64 %bf.clear8.i16.i
   %add.ptr10.i.i120 = getelementptr inbounds nuw i8, ptr %9, i64 %bf.clear8.i16.i
   %tobool.not.i925 = icmp eq ptr %9, null
-  %invariant.gep = getelementptr inbounds i8, ptr %add.ptr10.i17.i, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit
@@ -1035,7 +1034,8 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i190: ; preds = %if.then.i176, 
 
 if.end.i147:                                      ; preds = %_ZNK6hermes2vm10StringViewixEj.exit94.thread.thread
   %conv30 = zext i32 %k.0891 to i64
-  %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %conv30
+  %retval.sroa.3.0.i132 = getelementptr inbounds nuw i16, ptr %add.ptr10.i17.i, i64 %conv30
+  %retval.sroa.3.0.i140 = getelementptr inbounds nuw i8, ptr %retval.sroa.3.0.i132, i64 4
   br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i158
 
 if.end.i5.i149:                                   ; preds = %if.else13.i.i20.i, %if.then10.i.i12.i, %if.then5.i.i18.i, %if.then.i.i25.i
@@ -1081,7 +1081,7 @@ if.else13.i.i20.i169:                             ; preds = %if.else.i.i10.i154
   br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i158
 
 _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i158: ; preds = %if.end.i147, %if.else13.i.i20.i169, %if.then10.i.i12.i156, %if.then5.i.i18.i167, %if.then.i.i25.i174
-  %retval.sroa.3.0.i140976 = phi ptr [ %gep, %if.end.i147 ], [ %retval.sroa.3.0.i140971, %if.then.i.i25.i174 ], [ %retval.sroa.3.0.i140971, %if.then5.i.i18.i167 ], [ %retval.sroa.3.0.i140971, %if.then10.i.i12.i156 ], [ %retval.sroa.3.0.i140971, %if.else13.i.i20.i169 ]
+  %retval.sroa.3.0.i140976 = phi ptr [ %retval.sroa.3.0.i140, %if.end.i147 ], [ %retval.sroa.3.0.i140971, %if.then.i.i25.i174 ], [ %retval.sroa.3.0.i140971, %if.then5.i.i18.i167 ], [ %retval.sroa.3.0.i140971, %if.then10.i.i12.i156 ], [ %retval.sroa.3.0.i140971, %if.else13.i.i20.i169 ]
   %conv30974 = phi i64 [ %conv30, %if.end.i147 ], [ %conv30962, %if.then.i.i25.i174 ], [ %conv30962, %if.then5.i.i18.i167 ], [ %conv30962, %if.then10.i.i12.i156 ], [ %conv30962, %if.else13.i.i20.i169 ]
   %retval.0.i.sink.i14.i159 = phi ptr [ %9, %if.end.i147 ], [ %39, %if.then.i.i25.i174 ], [ %add.ptr.i.i.i.i.i19.i168, %if.then5.i.i18.i167 ], [ %add.ptr.i.i.i4.i.i13.i157, %if.then10.i.i12.i156 ], [ %41, %if.else13.i.i20.i169 ]
   %add.ptr10.i17.i162 = getelementptr inbounds nuw i16, ptr %retval.0.i.sink.i14.i159, i64 %bf.clear8.i16.i
@@ -2959,21 +2959,24 @@ for.body.i.i.i.i:                                 ; preds = %if.end11.i.i.i.i, %
   br i1 %cmp.i.i.i.i.i, label %lor.end, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
-  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @.str.3, i64 2), i64 %__first.addr.049.i.i.i.i.idx
-  %1 = load i16, ptr %gep, align 2
-  %cmp.i26.i.i.i.i = icmp eq i16 %1, %c
+  %1 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %__first.addr.049.i.i.i.i.idx
+  %incdec.ptr.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %2 = load i16, ptr %incdec.ptr.i.i.i.i.ptr, align 2
+  %cmp.i26.i.i.i.i = icmp eq i16 %2, %c
   br i1 %cmp.i26.i.i.i.i, label %lor.end, label %if.end3.i.i.i.i
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %gep46 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @.str.3, i64 4), i64 %__first.addr.049.i.i.i.i.idx
-  %2 = load i16, ptr %gep46, align 2
-  %cmp.i27.i.i.i.i = icmp eq i16 %2, %c
+  %3 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %__first.addr.049.i.i.i.i.idx
+  %incdec.ptr4.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %4 = load i16, ptr %incdec.ptr4.i.i.i.i.ptr, align 2
+  %cmp.i27.i.i.i.i = icmp eq i16 %4, %c
   br i1 %cmp.i27.i.i.i.i, label %_ZN6hermes2vmL11uriReservedEDs.exit, label %if.end7.i.i.i.i
 
 if.end7.i.i.i.i:                                  ; preds = %if.end3.i.i.i.i
-  %gep47 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @.str.3, i64 6), i64 %__first.addr.049.i.i.i.i.idx
-  %3 = load i16, ptr %gep47, align 2
-  %cmp.i28.i.i.i.i = icmp eq i16 %3, %c
+  %5 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %__first.addr.049.i.i.i.i.idx
+  %incdec.ptr8.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %6 = load i16, ptr %incdec.ptr8.i.i.i.i.ptr, align 2
+  %cmp.i28.i.i.i.i = icmp eq i16 %6, %c
   br i1 %cmp.i28.i.i.i.i, label %lor.end, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %if.end7.i.i.i.i
@@ -2999,26 +3002,26 @@ for.body.i.i.i.i3:                                ; preds = %for.body.i.i.i.i3.p
   %__trip_count.050.i.i.i.i4 = phi i64 [ %dec.i.i.i.i13, %if.end11.i.i.i.i12 ], [ 2, %for.body.i.i.i.i3.preheader ]
   %__first.addr.049.i.i.i.idx.i = phi i64 [ %__first.addr.049.i.i.i.add18.i, %if.end11.i.i.i.i12 ], [ 0, %for.body.i.i.i.i3.preheader ]
   %__first.addr.049.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.4, i64 %__first.addr.049.i.i.i.idx.i
-  %4 = load i16, ptr %__first.addr.049.i.i.i.ptr.i, align 2
-  %cmp.i.i.i.i.i5 = icmp eq i16 %4, %c
+  %7 = load i16, ptr %__first.addr.049.i.i.i.ptr.i, align 2
+  %cmp.i.i.i.i.i5 = icmp eq i16 %7, %c
   br i1 %cmp.i.i.i.i.i5, label %_ZN6hermes2vmL12uriUnescapedEDs.exit, label %if.end.i.i.i.i6
 
 if.end.i.i.i.i6:                                  ; preds = %for.body.i.i.i.i3
   %incdec.ptr.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.ptr.i, i64 2
-  %5 = load i16, ptr %incdec.ptr.i.i.i.ptr.i, align 2
-  %cmp.i26.i.i.i.i7 = icmp eq i16 %5, %c
+  %8 = load i16, ptr %incdec.ptr.i.i.i.ptr.i, align 2
+  %cmp.i26.i.i.i.i7 = icmp eq i16 %8, %c
   br i1 %cmp.i26.i.i.i.i7, label %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit.i, label %if.end3.i.i.i.i8
 
 if.end3.i.i.i.i8:                                 ; preds = %if.end.i.i.i.i6
   %incdec.ptr4.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.ptr.i, i64 4
-  %6 = load i16, ptr %incdec.ptr4.i.i.i.ptr.i, align 2
-  %cmp.i27.i.i.i.i9 = icmp eq i16 %6, %c
+  %9 = load i16, ptr %incdec.ptr4.i.i.i.ptr.i, align 2
+  %cmp.i27.i.i.i.i9 = icmp eq i16 %9, %c
   br i1 %cmp.i27.i.i.i.i9, label %_ZN6hermes2vmL12uriUnescapedEDs.exit, label %if.end7.i.i.i.i10
 
 if.end7.i.i.i.i10:                                ; preds = %if.end3.i.i.i.i8
   %incdec.ptr8.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.ptr.i, i64 6
-  %7 = load i16, ptr %incdec.ptr8.i.i.i.ptr.i, align 2
-  %cmp.i28.i.i.i.i11 = icmp eq i16 %7, %c
+  %10 = load i16, ptr %incdec.ptr8.i.i.i.ptr.i, align 2
+  %cmp.i28.i.i.i.i11 = icmp eq i16 %10, %c
   br i1 %cmp.i28.i.i.i.i11, label %_ZN6hermes2vmL12uriUnescapedEDs.exit, label %if.end11.i.i.i.i12
 
 if.end11.i.i.i.i12:                               ; preds = %if.end7.i.i.i.i10
@@ -3036,25 +3039,25 @@ _ZSt4findIPKDsDsET_S2_S2_RKT0_.exit.i:            ; preds = %if.end.i.i.i.i6
   br i1 %cmp.not.i, label %if.end.i, label %_ZN6hermes2vmL12uriUnescapedEDs.exit
 
 if.end.i:                                         ; preds = %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit.i, %sw.bb26.i.i.i.i15
-  %8 = add i16 %c, -48
-  %or.cond.i = icmp ult i16 %8, 10
+  %11 = add i16 %c, -48
+  %or.cond.i = icmp ult i16 %11, 10
   br i1 %or.cond.i, label %_ZN6hermes2vmL12uriUnescapedEDs.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i
-  %9 = or i16 %c, 32
-  %10 = add i16 %9, -97
-  %11 = icmp ult i16 %10, 26
+  %12 = or i16 %c, 32
+  %13 = add i16 %12, -97
+  %14 = icmp ult i16 %13, 26
   br label %_ZN6hermes2vmL12uriUnescapedEDs.exit
 
 _ZN6hermes2vmL12uriUnescapedEDs.exit:             ; preds = %for.body.i.i.i.i3, %if.end3.i.i.i.i8, %if.end7.i.i.i.i10, %sw.bb26.i.i.i.i15, %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit.i, %if.end.i, %if.end9.i
-  %retval.0.i = phi i1 [ %11, %if.end9.i ], [ true, %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit.i ], [ true, %if.end.i ], [ true, %sw.bb26.i.i.i.i15 ], [ true, %if.end7.i.i.i.i10 ], [ true, %if.end3.i.i.i.i8 ], [ true, %for.body.i.i.i.i3 ]
+  %retval.0.i = phi i1 [ %14, %if.end9.i ], [ true, %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit.i ], [ true, %if.end.i ], [ true, %sw.bb26.i.i.i.i15 ], [ true, %if.end7.i.i.i.i10 ], [ true, %if.end3.i.i.i.i8 ], [ true, %for.body.i.i.i.i3 ]
   %cmp = icmp eq i16 %c, 35
   %spec.select = or i1 %cmp, %retval.0.i
   br label %lor.end
 
 lor.end:                                          ; preds = %if.end7.i.i.i.i, %if.end.i.i.i.i, %for.body.i.i.i.i, %sw.bb21.i.i.i.i, %sw.bb21.i.i.i.i, %_ZN6hermes2vmL12uriUnescapedEDs.exit, %_ZN6hermes2vmL11uriReservedEDs.exit
-  %12 = phi i1 [ true, %_ZN6hermes2vmL11uriReservedEDs.exit ], [ %spec.select, %_ZN6hermes2vmL12uriUnescapedEDs.exit ], [ true, %sw.bb21.i.i.i.i ], [ true, %sw.bb21.i.i.i.i ], [ true, %for.body.i.i.i.i ], [ true, %if.end.i.i.i.i ], [ true, %if.end7.i.i.i.i ]
-  ret i1 %12
+  %15 = phi i1 [ true, %_ZN6hermes2vmL11uriReservedEDs.exit ], [ %spec.select, %_ZN6hermes2vmL12uriUnescapedEDs.exit ], [ true, %sw.bb21.i.i.i.i ], [ true, %sw.bb21.i.i.i.i ], [ true, %for.body.i.i.i.i ], [ true, %if.end.i.i.i.i ], [ true, %if.end7.i.i.i.i ]
+  ret i1 %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3124,21 +3127,24 @@ for.body.i.i.i:                                   ; preds = %if.end11.i.i.i, %fo
   br i1 %cmp.i.i.i.i, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
-  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @.str.4, i64 2), i64 %__first.addr.049.i.i.i.idx
-  %1 = load i16, ptr %gep, align 2
-  %cmp.i26.i.i.i = icmp eq i16 %1, %c
+  %1 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %__first.addr.049.i.i.i.idx
+  %incdec.ptr.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %2 = load i16, ptr %incdec.ptr.i.i.i.ptr, align 2
+  %cmp.i26.i.i.i = icmp eq i16 %2, %c
   br i1 %cmp.i26.i.i.i, label %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit, label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
-  %gep28 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @.str.4, i64 4), i64 %__first.addr.049.i.i.i.idx
-  %2 = load i16, ptr %gep28, align 2
-  %cmp.i27.i.i.i = icmp eq i16 %2, %c
+  %3 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %__first.addr.049.i.i.i.idx
+  %incdec.ptr4.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %4 = load i16, ptr %incdec.ptr4.i.i.i.ptr, align 2
+  %cmp.i27.i.i.i = icmp eq i16 %4, %c
   br i1 %cmp.i27.i.i.i, label %return, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.end3.i.i.i
-  %gep29 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @.str.4, i64 6), i64 %__first.addr.049.i.i.i.idx
-  %3 = load i16, ptr %gep29, align 2
-  %cmp.i28.i.i.i = icmp eq i16 %3, %c
+  %5 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %__first.addr.049.i.i.i.idx
+  %incdec.ptr8.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %6 = load i16, ptr %incdec.ptr8.i.i.i.ptr, align 2
+  %cmp.i28.i.i.i = icmp eq i16 %6, %c
   br i1 %cmp.i28.i.i.i, label %return, label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %if.end7.i.i.i
@@ -3156,18 +3162,18 @@ _ZSt4findIPKDsDsET_S2_S2_RKT0_.exit:              ; preds = %if.end.i.i.i
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %sw.bb26.i.i.i, %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit
-  %4 = add i16 %c, -48
-  %or.cond = icmp ult i16 %4, 10
+  %7 = add i16 %c, -48
+  %or.cond = icmp ult i16 %7, 10
   br i1 %or.cond, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %5 = or i16 %c, 32
-  %6 = add i16 %5, -97
-  %7 = icmp ult i16 %6, 26
+  %8 = or i16 %c, 32
+  %9 = add i16 %8, -97
+  %10 = icmp ult i16 %9, 26
   br label %return
 
 return:                                           ; preds = %if.end7.i.i.i, %if.end3.i.i.i, %for.body.i.i.i, %sw.bb26.i.i.i, %if.end, %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit, %if.end9
-  %retval.0 = phi i1 [ %7, %if.end9 ], [ true, %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit ], [ true, %if.end ], [ true, %sw.bb26.i.i.i ], [ true, %for.body.i.i.i ], [ true, %if.end3.i.i.i ], [ true, %if.end7.i.i.i ]
+  %retval.0 = phi i1 [ %10, %if.end9 ], [ true, %_ZSt4findIPKDsDsET_S2_S2_RKT0_.exit ], [ true, %if.end ], [ true, %sw.bb26.i.i.i ], [ true, %for.body.i.i.i ], [ true, %if.end3.i.i.i ], [ true, %if.end7.i.i.i ]
   ret i1 %retval.0
 }
 

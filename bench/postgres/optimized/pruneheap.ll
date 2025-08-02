@@ -76,7 +76,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %27 = load ptr, ptr %26, align 8
   %.not24 = icmp eq ptr %27, null
-  br i1 %.not24, label %35, label %28
+  br i1 %.not24, label %36, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -84,24 +84,24 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %31 = shl i32 %30, 13
   %32 = sub i32 819200, %31
   %33 = sdiv i32 %32, 100
-  %34 = sext i32 %33 to i64
-  br label %35
+  %34 = tail call i32 @llvm.umax.i32(i32 %33, i32 819)
+  %35 = sext i32 %34 to i64
+  br label %36
 
-35:                                               ; preds = %25, %28
-  %36 = phi i64 [ %34, %28 ], [ 0, %25 ]
-  %37 = tail call i64 @llvm.umax.i64(i64 %36, i64 819)
+36:                                               ; preds = %25, %28
+  %37 = phi i64 [ %35, %28 ], [ 819, %25 ]
   %38 = getelementptr i8, ptr %.0.i.i, i64 10
   %.val = load i16, ptr %38, align 2
   %39 = and i16 %.val, 2
   %.not26 = icmp eq i16 %39, 0
   br i1 %.not26, label %40, label %43
 
-40:                                               ; preds = %35
+40:                                               ; preds = %36
   %41 = tail call i64 @PageGetHeapFreeSpace(ptr noundef nonnull %.0.i.i) #8
   %42 = icmp ult i64 %41, %37
   br i1 %42, label %43, label %59
 
-43:                                               ; preds = %40, %35
+43:                                               ; preds = %40, %36
   %44 = tail call zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef %1) #8
   br i1 %44, label %45, label %59
 
@@ -2009,18 +2009,17 @@ define dso_local void @heap_get_root_tuples(ptr noundef %0, ptr noundef writeonl
   %6 = add nuw nsw i32 %5, 262120
   %7 = lshr i32 %6, 2
   %8 = trunc i32 %7 to i16
-  %invariant.gep80 = getelementptr i8, ptr %1, i64 -2
-  %.not8285 = icmp eq i16 %8, 0
-  %.not82 = select i1 %4, i1 true, i1 %.not8285
-  br i1 %.not82, label %._crit_edge, label %.lr.ph84
+  %.not8083 = icmp eq i16 %8, 0
+  %.not80 = select i1 %4, i1 true, i1 %.not8083
+  br i1 %.not80, label %._crit_edge, label %.lr.ph82
 
-.lr.ph84:                                         ; preds = %2
+.lr.ph82:                                         ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %10
 
-10:                                               ; preds = %.lr.ph84, %HeapTupleHeaderIsHotUpdated.exit.thread
-  %.05483 = phi i16 [ 1, %.lr.ph84 ], [ %85, %HeapTupleHeaderIsHotUpdated.exit.thread ]
-  %11 = zext i16 %.05483 to i64
+10:                                               ; preds = %.lr.ph82, %HeapTupleHeaderIsHotUpdated.exit.thread
+  %.05481 = phi i16 [ 1, %.lr.ph82 ], [ %89, %HeapTupleHeaderIsHotUpdated.exit.thread ]
+  %11 = zext i16 %.05481 to i64
   %12 = add nsw i64 %11, -1
   %13 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %9, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
@@ -2030,7 +2029,7 @@ define dso_local void @heap_get_root_tuples(ptr noundef %0, ptr noundef writeonl
     i32 0, label %HeapTupleHeaderIsHotUpdated.exit.thread
     i32 3, label %HeapTupleHeaderIsHotUpdated.exit.thread
     i32 1, label %17
-    i32 2, label %40
+    i32 2, label %42
   ]
 
 17:                                               ; preds = %10
@@ -2043,132 +2042,134 @@ define dso_local void @heap_get_root_tuples(ptr noundef %0, ptr noundef writeonl
   br i1 %22, label %HeapTupleHeaderIsHotUpdated.exit.thread, label %23
 
 23:                                               ; preds = %17
-  %gep81 = getelementptr i16, ptr %invariant.gep80, i64 %11
-  store i16 %.05483, ptr %gep81, align 2
-  %24 = load i16, ptr %21, align 2
-  %25 = and i16 %24, 16384
-  %.not.i = icmp eq i16 %25, 0
-  br i1 %.not.i, label %HeapTupleHeaderIsHotUpdated.exit.thread, label %26
+  %24 = getelementptr i16, ptr %1, i64 %11
+  %25 = getelementptr i8, ptr %24, i64 -2
+  store i16 %.05481, ptr %25, align 2
+  %26 = load i16, ptr %21, align 2
+  %27 = and i16 %26, 16384
+  %.not.i = icmp eq i16 %27, 0
+  br i1 %.not.i, label %HeapTupleHeaderIsHotUpdated.exit.thread, label %28
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 20
-  %28 = load i16, ptr %27, align 4
-  %29 = and i16 %28, 2048
-  %30 = icmp eq i16 %29, 0
-  %31 = and i16 %28, 768
-  %32 = icmp ne i16 %31, 512
-  %or.cond = and i1 %30, %32
-  br i1 %or.cond, label %33, label %HeapTupleHeaderIsHotUpdated.exit.thread
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  %30 = load i16, ptr %29, align 4
+  %31 = and i16 %30, 2048
+  %32 = icmp eq i16 %31, 0
+  %33 = and i16 %30, 768
+  %34 = icmp ne i16 %33, 512
+  %or.cond = and i1 %32, %34
+  br i1 %or.cond, label %35, label %HeapTupleHeaderIsHotUpdated.exit.thread
 
-33:                                               ; preds = %26
-  %34 = getelementptr i8, ptr %20, i64 16
-  %.val64 = load i16, ptr %34, align 2
-  %35 = and i16 %28, 4224
-  %or.cond7.i = icmp eq i16 %35, 4096
-  br i1 %or.cond7.i, label %36, label %38
+35:                                               ; preds = %28
+  %36 = getelementptr i8, ptr %20, i64 16
+  %.val64 = load i16, ptr %36, align 2
+  %37 = and i16 %30, 4224
+  %or.cond7.i = icmp eq i16 %37, 4096
+  br i1 %or.cond7.i, label %38, label %40
 
-36:                                               ; preds = %33
-  %37 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %20) #8
+38:                                               ; preds = %35
+  %39 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %20) #8
   br label %HeapTupleHeaderGetUpdateXid.exit
 
-38:                                               ; preds = %33
-  %39 = getelementptr i8, ptr %20, i64 4
-  %.val.i = load i32, ptr %39, align 4
+40:                                               ; preds = %35
+  %41 = getelementptr i8, ptr %20, i64 4
+  %.val.i = load i32, ptr %41, align 4
   br label %HeapTupleHeaderGetUpdateXid.exit
 
 default.unreachable:                              ; preds = %10
   unreachable
 
-40:                                               ; preds = %10
-  %41 = trunc i32 %14 to i16
-  %42 = and i16 %41, 32767
+42:                                               ; preds = %10
+  %43 = trunc i32 %14 to i16
+  %44 = and i16 %43, 32767
   br label %HeapTupleHeaderGetUpdateXid.exit
 
-HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %38, %36, %40
-  %.052 = phi i16 [ %42, %40 ], [ %.val64, %36 ], [ %.val64, %38 ]
-  %.0 = phi i32 [ 0, %40 ], [ %37, %36 ], [ %.val.i, %38 ]
-  %43 = zext i16 %.052 to i64
-  %44 = add nsw i64 %43, -1
-  %45 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %9, i64 0, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %47 = and i32 %46, 98304
-  %48 = icmp eq i32 %47, 32768
-  br i1 %48, label %.lr.ph, label %HeapTupleHeaderIsHotUpdated.exit.thread
+HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %40, %38, %42
+  %.052 = phi i16 [ %44, %42 ], [ %.val64, %38 ], [ %.val64, %40 ]
+  %.0 = phi i32 [ 0, %42 ], [ %39, %38 ], [ %.val.i, %40 ]
+  %45 = zext i16 %.052 to i64
+  %46 = add nsw i64 %45, -1
+  %47 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %9, i64 0, i64 %46
+  %48 = load i32, ptr %47, align 4
+  %49 = and i32 %48, 98304
+  %50 = icmp eq i32 %49, 32768
+  br i1 %50, label %.lr.ph, label %HeapTupleHeaderIsHotUpdated.exit.thread
 
 .lr.ph:                                           ; preds = %HeapTupleHeaderGetUpdateXid.exit, %HeapTupleHeaderGetUpdateXid.exit73
-  %49 = phi i32 [ %82, %HeapTupleHeaderGetUpdateXid.exit73 ], [ %46, %HeapTupleHeaderGetUpdateXid.exit ]
-  %50 = phi i64 [ %79, %HeapTupleHeaderGetUpdateXid.exit73 ], [ %43, %HeapTupleHeaderGetUpdateXid.exit ]
+  %51 = phi i32 [ %86, %HeapTupleHeaderGetUpdateXid.exit73 ], [ %48, %HeapTupleHeaderGetUpdateXid.exit ]
+  %52 = phi i64 [ %83, %HeapTupleHeaderGetUpdateXid.exit73 ], [ %45, %HeapTupleHeaderGetUpdateXid.exit ]
   %.177 = phi i32 [ %.0.i72, %HeapTupleHeaderGetUpdateXid.exit73 ], [ %.0, %HeapTupleHeaderGetUpdateXid.exit ]
-  %51 = and i32 %49, 32767
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 %52
+  %53 = and i32 %51, 32767
+  %54 = zext nneg i32 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %54
   %.not60 = icmp eq i32 %.177, 0
-  br i1 %.not60, label %61, label %54
+  br i1 %.not60, label %63, label %56
 
-54:                                               ; preds = %.lr.ph
-  %55 = getelementptr i8, ptr %53, i64 20
-  %.val.i67 = load i16, ptr %55, align 4
-  %56 = and i16 %.val.i67, 768
-  %57 = icmp eq i16 %56, 768
-  br i1 %57, label %HeapTupleHeaderGetXmin.exit, label %58
+56:                                               ; preds = %.lr.ph
+  %57 = getelementptr i8, ptr %55, i64 20
+  %.val.i67 = load i16, ptr %57, align 4
+  %58 = and i16 %.val.i67, 768
+  %59 = icmp eq i16 %58, 768
+  br i1 %59, label %HeapTupleHeaderGetXmin.exit, label %60
 
-58:                                               ; preds = %54
-  %.val2.i = load i32, ptr %53, align 4
+60:                                               ; preds = %56
+  %.val2.i = load i32, ptr %55, align 4
   br label %HeapTupleHeaderGetXmin.exit
 
-HeapTupleHeaderGetXmin.exit:                      ; preds = %54, %58
-  %59 = phi i32 [ %.val2.i, %58 ], [ 2, %54 ]
-  %60 = icmp eq i32 %.177, %59
-  br i1 %60, label %61, label %HeapTupleHeaderIsHotUpdated.exit.thread
+HeapTupleHeaderGetXmin.exit:                      ; preds = %56, %60
+  %61 = phi i32 [ %.val2.i, %60 ], [ 2, %56 ]
+  %62 = icmp eq i32 %.177, %61
+  br i1 %62, label %63, label %HeapTupleHeaderIsHotUpdated.exit.thread
 
-61:                                               ; preds = %HeapTupleHeaderGetXmin.exit, %.lr.ph
-  %gep = getelementptr i16, ptr %invariant.gep80, i64 %50
-  store i16 %.05483, ptr %gep, align 2
-  %62 = getelementptr inbounds nuw i8, ptr %53, i64 18
-  %63 = load i16, ptr %62, align 2
-  %64 = and i16 %63, 16384
-  %.not.i68 = icmp eq i16 %64, 0
-  br i1 %.not.i68, label %HeapTupleHeaderIsHotUpdated.exit.thread, label %65
+63:                                               ; preds = %HeapTupleHeaderGetXmin.exit, %.lr.ph
+  %64 = getelementptr i16, ptr %1, i64 %52
+  %65 = getelementptr i8, ptr %64, i64 -2
+  store i16 %.05481, ptr %65, align 2
+  %66 = getelementptr inbounds nuw i8, ptr %55, i64 18
+  %67 = load i16, ptr %66, align 2
+  %68 = and i16 %67, 16384
+  %.not.i68 = icmp eq i16 %68, 0
+  br i1 %.not.i68, label %HeapTupleHeaderIsHotUpdated.exit.thread, label %69
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %53, i64 20
-  %67 = load i16, ptr %66, align 4
-  %68 = and i16 %67, 2048
-  %69 = icmp eq i16 %68, 0
-  %70 = and i16 %67, 768
-  %71 = icmp ne i16 %70, 512
-  %or.cond76 = and i1 %69, %71
-  br i1 %or.cond76, label %72, label %HeapTupleHeaderIsHotUpdated.exit.thread
+69:                                               ; preds = %63
+  %70 = getelementptr inbounds nuw i8, ptr %55, i64 20
+  %71 = load i16, ptr %70, align 4
+  %72 = and i16 %71, 2048
+  %73 = icmp eq i16 %72, 0
+  %74 = and i16 %71, 768
+  %75 = icmp ne i16 %74, 512
+  %or.cond76 = and i1 %73, %75
+  br i1 %or.cond76, label %76, label %HeapTupleHeaderIsHotUpdated.exit.thread
 
-72:                                               ; preds = %65
-  %73 = getelementptr i8, ptr %53, i64 16
-  %.val65 = load i16, ptr %73, align 2
-  %74 = and i16 %67, 4224
-  %or.cond7.i70 = icmp eq i16 %74, 4096
-  br i1 %or.cond7.i70, label %75, label %77
+76:                                               ; preds = %69
+  %77 = getelementptr i8, ptr %55, i64 16
+  %.val65 = load i16, ptr %77, align 2
+  %78 = and i16 %71, 4224
+  %or.cond7.i70 = icmp eq i16 %78, 4096
+  br i1 %or.cond7.i70, label %79, label %81
 
-75:                                               ; preds = %72
-  %76 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %53) #8
+79:                                               ; preds = %76
+  %80 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %55) #8
   br label %HeapTupleHeaderGetUpdateXid.exit73
 
-77:                                               ; preds = %72
-  %78 = getelementptr i8, ptr %53, i64 4
-  %.val.i71 = load i32, ptr %78, align 4
+81:                                               ; preds = %76
+  %82 = getelementptr i8, ptr %55, i64 4
+  %.val.i71 = load i32, ptr %82, align 4
   br label %HeapTupleHeaderGetUpdateXid.exit73
 
-HeapTupleHeaderGetUpdateXid.exit73:               ; preds = %75, %77
-  %.0.i72 = phi i32 [ %.val.i71, %77 ], [ %76, %75 ]
-  %79 = zext i16 %.val65 to i64
-  %80 = add nsw i64 %79, -1
-  %81 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %9, i64 0, i64 %80
-  %82 = load i32, ptr %81, align 4
-  %83 = and i32 %82, 98304
-  %84 = icmp eq i32 %83, 32768
-  br i1 %84, label %.lr.ph, label %HeapTupleHeaderIsHotUpdated.exit.thread
+HeapTupleHeaderGetUpdateXid.exit73:               ; preds = %79, %81
+  %.0.i72 = phi i32 [ %.val.i71, %81 ], [ %80, %79 ]
+  %83 = zext i16 %.val65 to i64
+  %84 = add nsw i64 %83, -1
+  %85 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %9, i64 0, i64 %84
+  %86 = load i32, ptr %85, align 4
+  %87 = and i32 %86, 98304
+  %88 = icmp eq i32 %87, 32768
+  br i1 %88, label %.lr.ph, label %HeapTupleHeaderIsHotUpdated.exit.thread
 
-HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %HeapTupleHeaderGetXmin.exit, %HeapTupleHeaderGetUpdateXid.exit73, %65, %61, %HeapTupleHeaderGetUpdateXid.exit, %23, %26, %10, %10, %17
-  %85 = add i16 %.05483, 1
-  %.not = icmp ugt i16 %85, %8
+HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %HeapTupleHeaderGetXmin.exit, %HeapTupleHeaderGetUpdateXid.exit73, %69, %63, %HeapTupleHeaderGetUpdateXid.exit, %23, %28, %10, %10, %17
+  %89 = add i16 %.05481, 1
+  %.not = icmp ugt i16 %89, %8
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %HeapTupleHeaderIsHotUpdated.exit.thread, %2
@@ -2269,7 +2270,7 @@ define internal range(i32 -1, 2) i32 @heap_log_freeze_cmp(ptr noundef readonly c
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #7
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

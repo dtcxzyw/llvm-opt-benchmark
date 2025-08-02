@@ -795,15 +795,15 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %22 = load double, ptr %21, align 8, !tbaa !69
   %23 = fmul double %22, %20
   %24 = fcmp ugt double %23, 0.000000e+00
-  br i1 %24, label %25, label %27
+  br i1 %24, label %25, label %28
 
 25:                                               ; preds = %16
   %26 = tail call double @sqrt(double noundef %23) #13, !tbaa !66
-  br label %27
+  %27 = tail call double @llvm.ceil.f64(double %26)
+  br label %28
 
-27:                                               ; preds = %16, %25
-  %28 = phi double [ %26, %25 ], [ 0.000000e+00, %16 ]
-  %29 = tail call double @llvm.ceil.f64(double %28)
+28:                                               ; preds = %16, %25
+  %29 = phi double [ %27, %25 ], [ 0.000000e+00, %16 ]
   %30 = fcmp ogt double %29, 2.000000e+00
   %31 = select i1 %30, double %29, double 2.000000e+00
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 52
@@ -812,7 +812,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %35 = fcmp ult double %31, %34
   br i1 %35, label %55, label %36
 
-36:                                               ; preds = %27
+36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %38 = load i32, ptr %37, align 8, !tbaa !56
   %.not253 = icmp eq i32 %38, 0
@@ -842,7 +842,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -50, i32 noundef 548, ptr noundef nonnull @__func__.lsrkStep_TakeStepRKC, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13) #13
   br label %.thread
 
-55:                                               ; preds = %27
+55:                                               ; preds = %28
   %56 = fptosi double %31 to i32
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %56, ptr %57, align 8, !tbaa !76
@@ -1588,17 +1588,17 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %22 = load double, ptr %21, align 8, !tbaa !69
   %23 = tail call double @llvm.fmuladd.f64(double %20, double %22, double 9.000000e+00)
   %24 = fcmp ugt double %23, 0.000000e+00
-  br i1 %24, label %25, label %29
+  br i1 %24, label %25, label %30
 
 25:                                               ; preds = %16
   %26 = tail call double @sqrt(double noundef %23) #13, !tbaa !66
   %27 = fadd double %26, -1.000000e+00
   %28 = fmul double %27, 5.000000e-01
-  br label %29
+  %29 = tail call double @llvm.ceil.f64(double %28)
+  br label %30
 
-29:                                               ; preds = %16, %25
-  %30 = phi double [ %28, %25 ], [ -5.000000e-01, %16 ]
-  %31 = tail call double @llvm.ceil.f64(double %30)
+30:                                               ; preds = %16, %25
+  %31 = phi double [ %29, %25 ], [ -0.000000e+00, %16 ]
   %32 = fcmp ogt double %31, 2.000000e+00
   %33 = select i1 %32, double %31, double 2.000000e+00
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 52
@@ -1607,7 +1607,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %37 = fcmp ult double %33, %36
   br i1 %37, label %59, label %38
 
-38:                                               ; preds = %29
+38:                                               ; preds = %30
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %40 = load i32, ptr %39, align 8, !tbaa !56
   %.not204 = icmp eq i32 %40, 0
@@ -1639,7 +1639,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -50, i32 noundef 863, ptr noundef nonnull @__func__.lsrkStep_TakeStepRKL, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13) #13
   br label %.thread
 
-59:                                               ; preds = %29
+59:                                               ; preds = %30
   %60 = fptosi double %33 to i32
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %60, ptr %61, align 8, !tbaa !76

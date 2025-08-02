@@ -166,19 +166,19 @@ define range(i32 -1094995529, 2) i32 @ff_get_packet_palette(ptr noundef %0, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %invariant.gep = getelementptr i8, ptr %14, i64 -1024
   br label %16
 
 16:                                               ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
   %17 = load i32, ptr %15, align 8, !tbaa !18
   %18 = sext i32 %17 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %18
-  %19 = shl nuw nsw i64 %indvars.iv, 2
-  %20 = getelementptr inbounds nuw i8, ptr %gep, i64 %19
-  %21 = load i32, ptr %20, align 1, !tbaa !26
-  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %21, ptr %22, align 4, !tbaa !27
+  %19 = getelementptr inbounds i8, ptr %14, i64 %18
+  %20 = getelementptr inbounds i8, ptr %19, i64 -1024
+  %21 = shl nuw nsw i64 %indvars.iv, 2
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  %23 = load i32, ptr %22, align 1, !tbaa !26
+  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  store i32 %23, ptr %24, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !28

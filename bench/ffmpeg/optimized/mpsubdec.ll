@@ -146,11 +146,11 @@ define internal i32 @mpsub_read_header(ptr noundef %0) #1 {
 
 31:                                               ; preds = %73, %30
   %32 = phi i1 [ true, %30 ], [ false, %73 ]
-  %.01537.i = phi ptr [ %7, %30 ], [ %.217.i, %73 ]
-  %.01836.i = phi ptr [ %8, %30 ], [ %9, %73 ]
+  %.01534.i = phi ptr [ %7, %30 ], [ %.217.i, %73 ]
+  %.01833.i = phi ptr [ %8, %30 ], [ %9, %73 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  %33 = call i32 (ptr, ptr, ...) @av_sscanf(ptr noundef %.01537.i, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %3) #10
+  %33 = call i32 (ptr, ptr, ...) @av_sscanf(ptr noundef %.01534.i, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %3) #10
   %34 = icmp slt i32 %33, 1
   %35 = load i64, ptr %4, align 8
   %36 = add i64 %35, -922337203686
@@ -161,48 +161,48 @@ define internal i32 @mpsub_read_header(ptr noundef %0) #1 {
 38:                                               ; preds = %31
   %39 = mul nsw i64 %35, 10000000
   %40 = icmp eq i32 %33, 2
-  br i1 %40, label %41, label %._crit_edge44.i
+  br i1 %40, label %41, label %._crit_edge41.i
 
-._crit_edge44.i:                                  ; preds = %38
+._crit_edge41.i:                                  ; preds = %38
   %.pn.in.pre.i = load i32, ptr %2, align 4, !tbaa !31
   br label %73
 
 41:                                               ; preds = %38
   %42 = load i64, ptr %5, align 8, !tbaa !32
   %43 = icmp slt i64 %42, 0
-  br i1 %43, label %parse_line.exit, label %.preheader27.i
+  br i1 %43, label %parse_line.exit, label %.preheader24.i
 
-.preheader27.i:                                   ; preds = %41
+.preheader24.i:                                   ; preds = %41
   %44 = load i32, ptr %3, align 4, !tbaa !31
   %.promoted.i = load i32, ptr %2, align 4, !tbaa !31
   %45 = sub nsw i32 %44, %.promoted.i
   %46 = icmp slt i32 %45, 8
   br i1 %46, label %.lr.ph.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader27.i
+.preheader.i:                                     ; preds = %.preheader24.i
   %.not.i = icmp eq i32 %45, 8
-  br i1 %.not.i, label %60, label %.lr.ph33.i
+  br i1 %.not.i, label %60, label %.lr.ph30.i
 
-.lr.ph.i:                                         ; preds = %.preheader27.i, %.lr.ph.i
-  %47 = phi i32 [ %50, %.lr.ph.i ], [ %.promoted.i, %.preheader27.i ]
-  %48 = phi i64 [ %49, %.lr.ph.i ], [ %42, %.preheader27.i ]
+.lr.ph.i:                                         ; preds = %.preheader24.i, %.lr.ph.i
+  %47 = phi i32 [ %50, %.lr.ph.i ], [ %.promoted.i, %.preheader24.i ]
+  %48 = phi i64 [ %49, %.lr.ph.i ], [ %42, %.preheader24.i ]
   %49 = mul nuw nsw i64 %48, 10
   %50 = add nsw i32 %47, -1
   %51 = sub nsw i32 %44, %50
   %52 = icmp slt i32 %51, 8
   br i1 %52, label %.lr.ph.i, label %.sink.split.i, !llvm.loop !34
 
-.lr.ph33.i:                                       ; preds = %.preheader.i, %.lr.ph33.i
-  %53 = phi i32 [ %56, %.lr.ph33.i ], [ %.promoted.i, %.preheader.i ]
-  %54 = phi i64 [ %55, %.lr.ph33.i ], [ %42, %.preheader.i ]
+.lr.ph30.i:                                       ; preds = %.preheader.i, %.lr.ph30.i
+  %53 = phi i32 [ %56, %.lr.ph30.i ], [ %.promoted.i, %.preheader.i ]
+  %54 = phi i64 [ %55, %.lr.ph30.i ], [ %42, %.preheader.i ]
   %55 = sdiv i64 %54, 10
   %56 = add nsw i32 %53, 1
   %57 = sub nsw i32 %44, %56
   %58 = icmp sgt i32 %57, 8
-  br i1 %58, label %.lr.ph33.i, label %.sink.split.i, !llvm.loop !35
+  br i1 %58, label %.lr.ph30.i, label %.sink.split.i, !llvm.loop !35
 
-.sink.split.i:                                    ; preds = %.lr.ph33.i, %.lr.ph.i
-  %.ph.i = phi i64 [ %49, %.lr.ph.i ], [ %55, %.lr.ph33.i ]
+.sink.split.i:                                    ; preds = %.lr.ph30.i, %.lr.ph.i
+  %.ph.i = phi i64 [ %49, %.lr.ph.i ], [ %55, %.lr.ph30.i ]
   %59 = add i32 %44, -8
   store i32 %59, ptr %2, align 4, !tbaa !31
   br label %60
@@ -221,20 +221,20 @@ define internal i32 @mpsub_read_header(ptr noundef %0) #1 {
   br label %67
 
 67:                                               ; preds = %65, %63
-  %.sink55.i = phi { i64, i1 } [ %66, %65 ], [ %64, %63 ]
-  %68 = extractvalue { i64, i1 } %.sink55.i, 1
-  %69 = extractvalue { i64, i1 } %.sink55.i, 0
+  %.sink52.i = phi { i64, i1 } [ %66, %65 ], [ %64, %63 ]
+  %68 = extractvalue { i64, i1 } %.sink52.i, 1
+  %69 = extractvalue { i64, i1 } %.sink52.i, 0
   %70 = icmp slt i64 %69, 0
   %71 = select i1 %70, i64 9223372036854775807, i64 -9223372036854775808
   %72 = select i1 %68, i64 %71, i64 %69
   br label %73
 
-73:                                               ; preds = %67, %._crit_edge44.i
-  %74 = phi i64 [ %72, %67 ], [ %39, %._crit_edge44.i ]
-  %.pn.in.i = phi i32 [ %44, %67 ], [ %.pn.in.pre.i, %._crit_edge44.i ]
+73:                                               ; preds = %67, %._crit_edge41.i
+  %74 = phi i64 [ %72, %67 ], [ %39, %._crit_edge41.i ]
+  %.pn.in.i = phi i32 [ %44, %67 ], [ %.pn.in.pre.i, %._crit_edge41.i ]
   %.pn.i = sext i32 %.pn.in.i to i64
-  %.217.i = getelementptr inbounds i8, ptr %.01537.i, i64 %.pn.i
-  store i64 %74, ptr %.01836.i, align 8, !tbaa !36
+  %.217.i = getelementptr inbounds i8, ptr %.01534.i, i64 %.pn.i
+  store i64 %74, ptr %.01833.i, align 8, !tbaa !36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   br i1 %32, label %31, label %75, !llvm.loop !37

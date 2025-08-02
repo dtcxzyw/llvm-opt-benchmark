@@ -2219,8 +2219,8 @@ define internal fastcc void @_ZL6rehashP9lua_StateP8LuaTablePK10lua_TValue(ptr n
 8:                                                ; preds = %._crit_edge.i, %3
   %indvars.iv46.i = phi i64 [ 0, %3 ], [ %indvars.iv.next47.i, %._crit_edge.i ]
   %.02344.i = phi i32 [ 1, %3 ], [ %.2.lcssa.i, %._crit_edge.i ]
-  %.02543.i = phi i32 [ 0, %3 ], [ %24, %._crit_edge.i ]
-  %.02842.i = phi i32 [ 1, %3 ], [ %25, %._crit_edge.i ]
+  %.02543.i = phi i32 [ 0, %3 ], [ %26, %._crit_edge.i ]
+  %.02842.i = phi i32 [ 1, %3 ], [ %27, %._crit_edge.i ]
   %9 = icmp sgt i32 %.02842.i, %7
   br i1 %9, label %10, label %12
 
@@ -2235,7 +2235,6 @@ define internal fastcc void @_ZL6rehashP9lua_StateP8LuaTablePK10lua_TValue(ptr n
 
 .lr.ph.i:                                         ; preds = %12
   %13 = load ptr, ptr %6, align 8, !tbaa !20
-  %invariant.gep.i = getelementptr i8, ptr %13, i64 -4
   %14 = sext i32 %.02344.i to i64
   %15 = sext i32 %.021.i to i64
   br label %16
@@ -2243,182 +2242,183 @@ define internal fastcc void @_ZL6rehashP9lua_StateP8LuaTablePK10lua_TValue(ptr n
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %14, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
   %.02239.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %16 ]
-  %gep.i = getelementptr %struct.lua_TValue, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %17 = load i32, ptr %gep.i, align 4, !tbaa !4
-  %18 = icmp ne i32 %17, 0
-  %19 = zext i1 %18 to i32
-  %spec.select.i = add nuw nsw i32 %.02239.i, %19
+  %17 = getelementptr %struct.lua_TValue, ptr %13, i64 %indvars.iv.i
+  %18 = getelementptr i8, ptr %17, i64 -4
+  %19 = load i32, ptr %18, align 4, !tbaa !4
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %spec.select.i = add nuw nsw i32 %.02239.i, %21
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %.not.not.i = icmp slt i64 %indvars.iv.i, %15
   br i1 %.not.not.i, label %16, label %._crit_edge.loopexit.i, !llvm.loop !76
 
 ._crit_edge.loopexit.i:                           ; preds = %16
-  %20 = add nsw i32 %.021.i, 1
+  %22 = add nsw i32 %.021.i, 1
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %12
-  %.2.lcssa.i = phi i32 [ %.02344.i, %12 ], [ %20, %._crit_edge.loopexit.i ]
+  %.2.lcssa.i = phi i32 [ %.02344.i, %12 ], [ %22, %._crit_edge.loopexit.i ]
   %.022.lcssa.i = phi i32 [ 0, %12 ], [ %spec.select.i, %._crit_edge.loopexit.i ]
-  %21 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv46.i
-  %22 = load i32, ptr %21, align 4, !tbaa !36
-  %23 = add nsw i32 %22, %.022.lcssa.i
-  store i32 %23, ptr %21, align 4, !tbaa !36
-  %24 = add nuw nsw i32 %.022.lcssa.i, %.02543.i
+  %23 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv46.i
+  %24 = load i32, ptr %23, align 4, !tbaa !36
+  %25 = add nsw i32 %24, %.022.lcssa.i
+  store i32 %25, ptr %23, align 4, !tbaa !36
+  %26 = add nuw nsw i32 %.022.lcssa.i, %.02543.i
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
-  %25 = shl nsw i32 %.02842.i, 1
+  %27 = shl nsw i32 %.02842.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next47.i, 27
   br i1 %exitcond.not.i, label %_ZL11numusearrayPK8LuaTablePi.exit, label %8, !llvm.loop !77
 
 _ZL11numusearrayPK8LuaTablePi.exit:               ; preds = %10, %._crit_edge.i
-  %.025.lcssa.i = phi i32 [ %.02543.i, %10 ], [ %24, %._crit_edge.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %27 = load i8, ptr %26, align 2, !tbaa !22
-  %28 = zext nneg i8 %27 to i32
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %invariant.gep.i25 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %notmask.i = shl nsw i32 -1, %28
-  %30 = xor i32 %notmask.i, -1
-  %31 = zext nneg i32 %30 to i64
-  br label %32
+  %.025.lcssa.i = phi i32 [ %.02543.i, %10 ], [ %26, %._crit_edge.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %29 = load i8, ptr %28, align 2, !tbaa !22
+  %30 = zext nneg i8 %29 to i32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %notmask.i = shl nsw i32 -1, %30
+  %32 = xor i32 %notmask.i, -1
+  %33 = zext nneg i32 %32 to i64
+  br label %34
 
-32:                                               ; preds = %59, %_ZL11numusearrayPK8LuaTablePi.exit
-  %indvars.iv.i26 = phi i64 [ %31, %_ZL11numusearrayPK8LuaTablePi.exit ], [ %indvars.iv.next.i27, %59 ]
-  %.016.i = phi i32 [ 0, %_ZL11numusearrayPK8LuaTablePi.exit ], [ %.1.i, %59 ]
-  %.01315.i = phi i32 [ 0, %_ZL11numusearrayPK8LuaTablePi.exit ], [ %.114.i, %59 ]
-  %33 = load ptr, ptr %29, align 8, !tbaa !17
-  %34 = getelementptr inbounds %struct.LuaNode, ptr %33, i64 %indvars.iv.i26
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  %36 = load i32, ptr %35, align 4, !tbaa !24
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %59, label %38
+34:                                               ; preds = %63, %_ZL11numusearrayPK8LuaTablePi.exit
+  %indvars.iv.i25 = phi i64 [ %33, %_ZL11numusearrayPK8LuaTablePi.exit ], [ %indvars.iv.next.i26, %63 ]
+  %.016.i = phi i32 [ 0, %_ZL11numusearrayPK8LuaTablePi.exit ], [ %.1.i, %63 ]
+  %.01315.i = phi i32 [ 0, %_ZL11numusearrayPK8LuaTablePi.exit ], [ %.114.i, %63 ]
+  %35 = load ptr, ptr %31, align 8, !tbaa !17
+  %36 = getelementptr inbounds %struct.LuaNode, ptr %35, i64 %indvars.iv.i25
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %38 = load i32, ptr %37, align 4, !tbaa !24
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %63, label %40
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 28
-  %40 = load i32, ptr %39, align 4
-  %41 = and i32 %40, 15
-  %42 = icmp eq i32 %41, 3
-  br i1 %42, label %43, label %57
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 28
+  %42 = load i32, ptr %41, align 4
+  %43 = and i32 %42, 15
+  %44 = icmp eq i32 %43, 3
+  br i1 %44, label %45, label %61
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %45 = load double, ptr %44, align 8, !tbaa !16
-  %46 = fptosi double %45 to i32
-  %47 = sitofp i32 %46 to double
-  %48 = fcmp oeq double %45, %47
-  %49 = add i32 %46, -1
-  %50 = select i1 %48, i32 %49, i32 -2
-  %or.cond.i.i = icmp ult i32 %50, 67108864
-  br i1 %or.cond.i.i, label %51, label %_ZL8countintdPi.exit.i
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %47 = load double, ptr %46, align 8, !tbaa !16
+  %48 = fptosi double %47 to i32
+  %49 = sitofp i32 %48 to double
+  %50 = fcmp oeq double %47, %49
+  %51 = add i32 %48, -1
+  %52 = select i1 %50, i32 %51, i32 -2
+  %or.cond.i.i = icmp ult i32 %52, 67108864
+  br i1 %or.cond.i.i, label %53, label %_ZL8countintdPi.exit.i
 
-51:                                               ; preds = %43
-  %52 = tail call noundef i32 @_Z9luaO_log2j(i32 noundef %50)
-  %53 = sext i32 %52 to i64
-  %gep.i28 = getelementptr i32, ptr %invariant.gep.i25, i64 %53
-  %54 = load i32, ptr %gep.i28, align 4, !tbaa !36
-  %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %gep.i28, align 4, !tbaa !36
+53:                                               ; preds = %45
+  %54 = tail call noundef i32 @_Z9luaO_log2j(i32 noundef %52)
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr i32, ptr %4, i64 %55
+  %57 = getelementptr i8, ptr %56, i64 4
+  %58 = load i32, ptr %57, align 4, !tbaa !36
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %57, align 4, !tbaa !36
   br label %_ZL8countintdPi.exit.i
 
-_ZL8countintdPi.exit.i:                           ; preds = %51, %43
-  %.0.i.i = phi i32 [ 1, %51 ], [ 0, %43 ]
-  %56 = add nsw i32 %.0.i.i, %.01315.i
-  br label %57
+_ZL8countintdPi.exit.i:                           ; preds = %53, %45
+  %.0.i.i = phi i32 [ 1, %53 ], [ 0, %45 ]
+  %60 = add nsw i32 %.0.i.i, %.01315.i
+  br label %61
 
-57:                                               ; preds = %_ZL8countintdPi.exit.i, %38
-  %.2.i = phi i32 [ %56, %_ZL8countintdPi.exit.i ], [ %.01315.i, %38 ]
-  %58 = add nsw i32 %.016.i, 1
-  br label %59
+61:                                               ; preds = %_ZL8countintdPi.exit.i, %40
+  %.2.i = phi i32 [ %60, %_ZL8countintdPi.exit.i ], [ %.01315.i, %40 ]
+  %62 = add nsw i32 %.016.i, 1
+  br label %63
 
-59:                                               ; preds = %57, %32
-  %.114.i = phi i32 [ %.01315.i, %32 ], [ %.2.i, %57 ]
-  %.1.i = phi i32 [ %.016.i, %32 ], [ %58, %57 ]
-  %indvars.iv.next.i27 = add nsw i64 %indvars.iv.i26, -1
-  %60 = icmp eq i64 %indvars.iv.i26, 0
-  br i1 %60, label %_ZL10numusehashPK8LuaTablePiS2_.exit, label %32, !llvm.loop !78
+63:                                               ; preds = %61, %34
+  %.114.i = phi i32 [ %.01315.i, %34 ], [ %.2.i, %61 ]
+  %.1.i = phi i32 [ %.016.i, %34 ], [ %62, %61 ]
+  %indvars.iv.next.i26 = add nsw i64 %indvars.iv.i25, -1
+  %64 = icmp eq i64 %indvars.iv.i25, 0
+  br i1 %64, label %_ZL10numusehashPK8LuaTablePiS2_.exit, label %34, !llvm.loop !78
 
-_ZL10numusehashPK8LuaTablePiS2_.exit:             ; preds = %59
-  %61 = add nsw i32 %.114.i, %.025.lcssa.i
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %63 = load i32, ptr %62, align 4, !tbaa !4
-  %64 = icmp eq i32 %63, 3
-  br i1 %64, label %65, label %80
+_ZL10numusehashPK8LuaTablePiS2_.exit:             ; preds = %63
+  %65 = add nsw i32 %.114.i, %.025.lcssa.i
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %67 = load i32, ptr %66, align 4, !tbaa !4
+  %68 = icmp eq i32 %67, 3
+  br i1 %68, label %69, label %84
 
-65:                                               ; preds = %_ZL10numusehashPK8LuaTablePiS2_.exit
-  %66 = load double, ptr %2, align 8, !tbaa !16
-  %67 = fptosi double %66 to i32
-  %68 = sitofp i32 %67 to double
-  %69 = fcmp oeq double %66, %68
-  %70 = add i32 %67, -1
-  %71 = select i1 %69, i32 %70, i32 -2
-  %or.cond.i = icmp ult i32 %71, 67108864
-  br i1 %or.cond.i, label %72, label %_ZL8countintdPi.exit
+69:                                               ; preds = %_ZL10numusehashPK8LuaTablePiS2_.exit
+  %70 = load double, ptr %2, align 8, !tbaa !16
+  %71 = fptosi double %70 to i32
+  %72 = sitofp i32 %71 to double
+  %73 = fcmp oeq double %70, %72
+  %74 = add i32 %71, -1
+  %75 = select i1 %73, i32 %74, i32 -2
+  %or.cond.i = icmp ult i32 %75, 67108864
+  br i1 %or.cond.i, label %76, label %_ZL8countintdPi.exit
 
-72:                                               ; preds = %65
-  %73 = tail call noundef i32 @_Z9luaO_log2j(i32 noundef %71)
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr i32, ptr %4, i64 %74
-  %76 = getelementptr i8, ptr %75, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !36
-  %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %76, align 4, !tbaa !36
+76:                                               ; preds = %69
+  %77 = tail call noundef i32 @_Z9luaO_log2j(i32 noundef %75)
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr i32, ptr %4, i64 %78
+  %80 = getelementptr i8, ptr %79, i64 4
+  %81 = load i32, ptr %80, align 4, !tbaa !36
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %80, align 4, !tbaa !36
   br label %_ZL8countintdPi.exit
 
-_ZL8countintdPi.exit:                             ; preds = %65, %72
-  %.0.i = phi i32 [ 1, %72 ], [ 0, %65 ]
-  %79 = add nsw i32 %.0.i, %61
-  br label %80
+_ZL8countintdPi.exit:                             ; preds = %69, %76
+  %.0.i = phi i32 [ 1, %76 ], [ 0, %69 ]
+  %83 = add nsw i32 %.0.i, %65
+  br label %84
 
-80:                                               ; preds = %_ZL8countintdPi.exit, %_ZL10numusehashPK8LuaTablePiS2_.exit
-  %.040 = phi i32 [ %79, %_ZL8countintdPi.exit ], [ %61, %_ZL10numusehashPK8LuaTablePiS2_.exit ]
-  %81 = icmp sgt i32 %.040, 0
-  br i1 %81, label %.lr.ph.i31, label %_ZL12computesizesPiS_.exit
+84:                                               ; preds = %_ZL8countintdPi.exit, %_ZL10numusehashPK8LuaTablePiS2_.exit
+  %.038 = phi i32 [ %83, %_ZL8countintdPi.exit ], [ %65, %_ZL10numusehashPK8LuaTablePiS2_.exit ]
+  %85 = icmp sgt i32 %.038, 0
+  br i1 %85, label %.lr.ph.i29, label %_ZL12computesizesPiS_.exit
 
-.lr.ph.i31:                                       ; preds = %80, %90
-  %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i34, %90 ], [ 0, %80 ]
-  %82 = phi i32 [ %92, %90 ], [ 0, %80 ]
-  %.033.i = phi i32 [ %.2.i33, %90 ], [ 0, %80 ]
-  %.01732.i = phi i32 [ %.219.i, %90 ], [ 0, %80 ]
-  %.02031.i = phi i32 [ %.121.i, %90 ], [ 0, %80 ]
-  %.02230.i = phi i32 [ %91, %90 ], [ 1, %80 ]
-  %83 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i32
-  %84 = load i32, ptr %83, align 4, !tbaa !36
-  %85 = icmp sgt i32 %84, 0
-  %86 = add nuw nsw i32 %84, %.02031.i
-  %87 = icmp sgt i32 %86, %82
-  %.121.i = select i1 %85, i32 %86, i32 %.02031.i
-  %88 = select i1 %85, i1 %87, i1 false
-  %.219.i = select i1 %88, i32 %86, i32 %.01732.i
-  %.2.i33 = select i1 %88, i32 %.02230.i, i32 %.033.i
-  %89 = icmp eq i32 %.121.i, %.040
-  br i1 %89, label %_ZL12computesizesPiS_.exit, label %90
+.lr.ph.i29:                                       ; preds = %84, %94
+  %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i32, %94 ], [ 0, %84 ]
+  %86 = phi i32 [ %96, %94 ], [ 0, %84 ]
+  %.033.i = phi i32 [ %.2.i31, %94 ], [ 0, %84 ]
+  %.01732.i = phi i32 [ %.219.i, %94 ], [ 0, %84 ]
+  %.02031.i = phi i32 [ %.121.i, %94 ], [ 0, %84 ]
+  %.02230.i = phi i32 [ %95, %94 ], [ 1, %84 ]
+  %87 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i30
+  %88 = load i32, ptr %87, align 4, !tbaa !36
+  %89 = icmp sgt i32 %88, 0
+  %90 = add nuw nsw i32 %88, %.02031.i
+  %91 = icmp sgt i32 %90, %86
+  %.121.i = select i1 %89, i32 %90, i32 %.02031.i
+  %92 = select i1 %89, i1 %91, i1 false
+  %.219.i = select i1 %92, i32 %90, i32 %.01732.i
+  %.2.i31 = select i1 %92, i32 %.02230.i, i32 %.033.i
+  %93 = icmp eq i32 %.121.i, %.038
+  br i1 %93, label %_ZL12computesizesPiS_.exit, label %94
 
-90:                                               ; preds = %.lr.ph.i31
-  %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i32, 1
-  %91 = shl nsw i32 %.02230.i, 1
-  %92 = and i32 %.02230.i, 2147483647
-  %93 = icmp samesign ult i32 %92, %.040
-  br i1 %93, label %.lr.ph.i31, label %_ZL12computesizesPiS_.exit, !llvm.loop !79
+94:                                               ; preds = %.lr.ph.i29
+  %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i30, 1
+  %95 = shl nsw i32 %.02230.i, 1
+  %96 = and i32 %.02230.i, 2147483647
+  %97 = icmp samesign ult i32 %96, %.038
+  br i1 %97, label %.lr.ph.i29, label %_ZL12computesizesPiS_.exit, !llvm.loop !79
 
-_ZL12computesizesPiS_.exit:                       ; preds = %.lr.ph.i31, %90, %80
-  %.118.i = phi i32 [ 0, %80 ], [ %.219.i, %90 ], [ %.219.i, %.lr.ph.i31 ]
-  %.1.i30 = phi i32 [ 0, %80 ], [ %.2.i33, %90 ], [ %.2.i33, %.lr.ph.i31 ]
-  %94 = add i32 %.025.lcssa.i, 1
-  %95 = add i32 %94, %.1.i
-  %96 = sub i32 %95, %.118.i
-  %97 = tail call fastcc noundef i32 @_ZL11adjustasizeP8LuaTableiPK10lua_TValue(ptr noundef %1, i32 noundef %.1.i30, ptr noundef %2)
-  %.not = icmp eq i32 %97, %.1.i30
-  br i1 %.not, label %103, label %98
+_ZL12computesizesPiS_.exit:                       ; preds = %.lr.ph.i29, %94, %84
+  %.118.i = phi i32 [ 0, %84 ], [ %.219.i, %94 ], [ %.219.i, %.lr.ph.i29 ]
+  %.1.i28 = phi i32 [ 0, %84 ], [ %.2.i31, %94 ], [ %.2.i31, %.lr.ph.i29 ]
+  %98 = add i32 %.025.lcssa.i, 1
+  %99 = add i32 %98, %.1.i
+  %100 = sub i32 %99, %.118.i
+  %101 = tail call fastcc noundef i32 @_ZL11adjustasizeP8LuaTableiPK10lua_TValue(ptr noundef %1, i32 noundef %.1.i28, ptr noundef %2)
+  %.not = icmp eq i32 %101, %.1.i28
+  br i1 %.not, label %107, label %102
 
-98:                                               ; preds = %_ZL12computesizesPiS_.exit
-  %99 = sub nsw i32 %97, %.1.i30
-  %100 = sub nsw i32 %96, %99
-  %101 = add nsw i32 %99, %97
-  %102 = tail call fastcc noundef i32 @_ZL11adjustasizeP8LuaTableiPK10lua_TValue(ptr noundef %1, i32 noundef %101, ptr noundef %2)
-  br label %103
+102:                                              ; preds = %_ZL12computesizesPiS_.exit
+  %103 = sub nsw i32 %101, %.1.i28
+  %104 = sub nsw i32 %100, %103
+  %105 = add nsw i32 %103, %101
+  %106 = tail call fastcc noundef i32 @_ZL11adjustasizeP8LuaTableiPK10lua_TValue(ptr noundef %1, i32 noundef %105, ptr noundef %2)
+  br label %107
 
-103:                                              ; preds = %98, %_ZL12computesizesPiS_.exit
-  %.1 = phi i32 [ %.1.i30, %_ZL12computesizesPiS_.exit ], [ %102, %98 ]
-  %.023 = phi i32 [ %96, %_ZL12computesizesPiS_.exit ], [ %100, %98 ]
+107:                                              ; preds = %102, %_ZL12computesizesPiS_.exit
+  %.1 = phi i32 [ %.1.i28, %_ZL12computesizesPiS_.exit ], [ %106, %102 ]
+  %.023 = phi i32 [ %100, %_ZL12computesizesPiS_.exit ], [ %104, %102 ]
   tail call fastcc void @_ZL6resizeP9lua_StateP8LuaTableii(ptr noundef %0, ptr noundef %1, i32 noundef %.1, i32 noundef %.023)
   call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %4) #11
   ret void

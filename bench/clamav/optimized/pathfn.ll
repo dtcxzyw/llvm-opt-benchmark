@@ -2279,7 +2279,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %88
 
 209:                                              ; preds = %205
   %210 = zext nneg i32 %190 to i64
-  %211 = getelementptr inbounds [10 x [11 x i8]], ptr %9, i64 0, i64 %183, i64 %210
+  %211 = getelementptr inbounds nuw [11 x i8], ptr %184, i64 0, i64 %210
   %212 = load i8, ptr %211, align 1, !tbaa !26
   %213 = sext i8 %212 to i32
   br label %.thread158

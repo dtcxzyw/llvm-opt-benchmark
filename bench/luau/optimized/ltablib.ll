@@ -885,7 +885,7 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !20
   %21 = icmp ult i32 %18, %20
-  br i1 %21, label %22, label %49
+  br i1 %21, label %22, label %53
 
 22:                                               ; preds = %16
   %23 = add nsw i32 %4, -1
@@ -897,7 +897,7 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   %27 = add i32 %4, %17
   %.not95 = icmp ugt i32 %27, %25
   %or.cond104 = or i1 %or.cond, %.not95
-  br i1 %or.cond104, label %49, label %28
+  br i1 %or.cond104, label %53, label %28
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -917,106 +917,106 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
 
 .preheader111:                                    ; preds = %34
   %35 = icmp sgt i32 %17, -1
-  br i1 %35, label %.lr.ph123.preheader, label %.loopexit112
+  br i1 %35, label %.lr.ph117.preheader, label %.loopexit112
 
-.lr.ph123.preheader:                              ; preds = %.preheader111
-  %invariant.gep120 = getelementptr i8, ptr %32, i64 -16
-  %invariant.gep118 = getelementptr i8, ptr %30, i64 -16
+.lr.ph117.preheader:                              ; preds = %.preheader111
   %36 = zext nneg i32 %17 to i64
   %37 = sext i32 %2 to i64
   %38 = sext i32 %4 to i64
-  %invariant.gep143 = getelementptr %struct.lua_TValue, ptr %invariant.gep118, i64 %37
-  %invariant.gep145 = getelementptr %struct.lua_TValue, ptr %invariant.gep120, i64 %38
-  br label %.lr.ph123
+  %invariant.gep136 = getelementptr %struct.lua_TValue, ptr %30, i64 %37
+  %invariant.gep138 = getelementptr %struct.lua_TValue, ptr %32, i64 %38
+  br label %.lr.ph117
 
 39:                                               ; preds = %34, %28
-  %.not102116 = icmp slt i32 %17, 0
-  br i1 %.not102116, label %.loopexit112, label %.lr.ph.preheader
+  %.not102114 = icmp slt i32 %17, 0
+  br i1 %.not102114, label %.loopexit112, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %39
-  %invariant.gep114 = getelementptr i8, ptr %32, i64 -16
-  %invariant.gep = getelementptr i8, ptr %30, i64 -16
   %40 = sext i32 %2 to i64
   %41 = sext i32 %4 to i64
   %42 = add i32 %3, 1
   %43 = sub i32 %42, %2
   %wide.trip.count = zext i32 %43 to i64
-  %invariant.gep140 = getelementptr %struct.lua_TValue, ptr %invariant.gep, i64 %40
-  %invariant.gep142 = getelementptr %struct.lua_TValue, ptr %invariant.gep114, i64 %41
+  %invariant.gep = getelementptr %struct.lua_TValue, ptr %30, i64 %40
+  %invariant.gep134 = getelementptr %struct.lua_TValue, ptr %32, i64 %41
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep141 = getelementptr %struct.lua_TValue, ptr %invariant.gep140, i64 %indvars.iv
-  %gep = getelementptr %struct.lua_TValue, ptr %invariant.gep142, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep, ptr noundef nonnull align 8 dereferenceable(16) %gep141, i64 16, i1 false), !tbaa.struct !25
+  %gep = getelementptr %struct.lua_TValue, ptr %invariant.gep, i64 %indvars.iv
+  %44 = getelementptr i8, ptr %gep, i64 -16
+  %gep135 = getelementptr %struct.lua_TValue, ptr %invariant.gep134, i64 %indvars.iv
+  %45 = getelementptr i8, ptr %gep135, i64 -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit112, label %.lr.ph, !llvm.loop !50
 
-.lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.lr.ph123
-  %indvars.iv134 = phi i64 [ %36, %.lr.ph123.preheader ], [ %indvars.iv.next135, %.lr.ph123 ]
-  %gep144 = getelementptr %struct.lua_TValue, ptr %invariant.gep143, i64 %indvars.iv134
-  %gep146 = getelementptr %struct.lua_TValue, ptr %invariant.gep145, i64 %indvars.iv134
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep146, ptr noundef nonnull align 8 dereferenceable(16) %gep144, i64 16, i1 false), !tbaa.struct !25
-  %indvars.iv.next135 = add nsw i64 %indvars.iv134, -1
-  %.not147 = icmp eq i64 %indvars.iv134, 0
-  br i1 %.not147, label %.loopexit112, label %.lr.ph123, !llvm.loop !51
+.lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
+  %indvars.iv128 = phi i64 [ %36, %.lr.ph117.preheader ], [ %indvars.iv.next129, %.lr.ph117 ]
+  %gep137 = getelementptr %struct.lua_TValue, ptr %invariant.gep136, i64 %indvars.iv128
+  %46 = getelementptr i8, ptr %gep137, i64 -16
+  %gep139 = getelementptr %struct.lua_TValue, ptr %invariant.gep138, i64 %indvars.iv128
+  %47 = getelementptr i8, ptr %gep139, i64 -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !25
+  %indvars.iv.next129 = add nsw i64 %indvars.iv128, -1
+  %.not140 = icmp eq i64 %indvars.iv128, 0
+  br i1 %.not140, label %.loopexit112, label %.lr.ph117, !llvm.loop !51
 
-.loopexit112:                                     ; preds = %.lr.ph, %.lr.ph123, %39, %.preheader111
-  %44 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %45 = load i8, ptr %44, align 1, !tbaa !19
-  %46 = and i8 %45, 4
-  %.not103 = icmp eq i8 %46, 0
-  br i1 %.not103, label %.loopexit, label %47
+.loopexit112:                                     ; preds = %.lr.ph, %.lr.ph117, %39, %.preheader111
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %49 = load i8, ptr %48, align 1, !tbaa !19
+  %50 = and i8 %49, 4
+  %.not103 = icmp eq i8 %50, 0
+  br i1 %.not103, label %.loopexit, label %51
 
-47:                                               ; preds = %.loopexit112
-  %48 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  tail call void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %48)
+51:                                               ; preds = %.loopexit112
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  tail call void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %52)
   br label %.loopexit
 
-49:                                               ; preds = %22, %16
-  %50 = icmp sle i32 %4, %3
+53:                                               ; preds = %22, %16
+  %54 = icmp sle i32 %4, %3
   %.not96 = icmp sgt i32 %4, %2
-  %or.cond107 = and i1 %50, %.not96
+  %or.cond107 = and i1 %54, %.not96
   %.not97 = icmp eq ptr %12, %8
   %or.cond108 = select i1 %or.cond107, i1 %.not97, i1 false
   br i1 %or.cond108, label %.preheader, label %.preheader109
 
-.preheader109:                                    ; preds = %49
-  %.not98124 = icmp slt i32 %17, 0
-  br i1 %.not98124, label %.loopexit, label %.lr.ph126.preheader
+.preheader109:                                    ; preds = %53
+  %.not98118 = icmp slt i32 %17, 0
+  br i1 %.not98118, label %.loopexit, label %.lr.ph120.preheader
 
-.lr.ph126.preheader:                              ; preds = %.preheader109
-  %51 = add i32 %3, 1
-  %52 = sub i32 %51, %2
-  br label %.lr.ph126
+.lr.ph120.preheader:                              ; preds = %.preheader109
+  %55 = add i32 %3, 1
+  %56 = sub i32 %55, %2
+  br label %.lr.ph120
 
-.preheader:                                       ; preds = %49
-  %53 = icmp sgt i32 %17, -1
-  br i1 %53, label %.lr.ph128, label %.loopexit
+.preheader:                                       ; preds = %53
+  %57 = icmp sgt i32 %17, -1
+  br i1 %57, label %.lr.ph122, label %.loopexit
 
-.lr.ph126:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
-  %.085125 = phi i32 [ %57, %.lr.ph126 ], [ 0, %.lr.ph126.preheader ]
-  %54 = add nsw i32 %.085125, %2
-  %55 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %54)
-  %56 = add nsw i32 %.085125, %4
-  tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %56)
-  %57 = add nuw i32 %.085125, 1
-  %exitcond137.not = icmp eq i32 %57, %52
-  br i1 %exitcond137.not, label %.loopexit, label %.lr.ph126, !llvm.loop !52
-
-.lr.ph128:                                        ; preds = %.preheader, %.lr.ph128
-  %.0127 = phi i32 [ %61, %.lr.ph128 ], [ %17, %.preheader ]
-  %58 = add nsw i32 %.0127, %2
+.lr.ph120:                                        ; preds = %.lr.ph120.preheader, %.lr.ph120
+  %.085119 = phi i32 [ %61, %.lr.ph120 ], [ 0, %.lr.ph120.preheader ]
+  %58 = add nsw i32 %.085119, %2
   %59 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %58)
-  %60 = add nsw i32 %.0127, %4
+  %60 = add nsw i32 %.085119, %4
   tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %60)
-  %61 = add nsw i32 %.0127, -1
-  %.not148 = icmp eq i32 %.0127, 0
-  br i1 %.not148, label %.loopexit, label %.lr.ph128, !llvm.loop !53
+  %61 = add nuw i32 %.085119, 1
+  %exitcond131.not = icmp eq i32 %61, %56
+  br i1 %exitcond131.not, label %.loopexit, label %.lr.ph120, !llvm.loop !52
 
-.loopexit:                                        ; preds = %.lr.ph126, %.lr.ph128, %.preheader109, %.preheader, %.loopexit112, %47
+.lr.ph122:                                        ; preds = %.preheader, %.lr.ph122
+  %.0121 = phi i32 [ %65, %.lr.ph122 ], [ %17, %.preheader ]
+  %62 = add nsw i32 %.0121, %2
+  %63 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %62)
+  %64 = add nsw i32 %.0121, %4
+  tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %64)
+  %65 = add nsw i32 %.0121, -1
+  %.not141 = icmp eq i32 %.0121, 0
+  br i1 %.not141, label %.loopexit, label %.lr.ph122, !llvm.loop !53
+
+.loopexit:                                        ; preds = %.lr.ph120, %.lr.ph122, %.preheader109, %.preheader, %.loopexit112, %51
   ret void
 }
 

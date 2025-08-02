@@ -4158,11 +4158,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 .noexc93:                                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i.i.i.i
   %243 = ptrtoint ptr %242 to i64
   %244 = mul i64 %243, -7046029254386353067
+  %245 = call i64 @llvm.bswap.i64(i64 %244)
   br label %_ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8SdfLayerEEES4_NS_9_IdentityENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit.i
 
 _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8SdfLayerEEES4_NS_9_IdentityENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit.i: ; preds = %.noexc93, %.loopexit.i
-  %245 = phi i64 [ %244, %.noexc93 ], [ 0, %.loopexit.i ]
-  %246 = call noundef i64 @llvm.bswap.i64(i64 %245)
+  %246 = phi i64 [ %245, %.noexc93 ], [ 0, %.loopexit.i ]
   %247 = load i64, ptr %189, align 8
   %248 = urem i64 %246, %247
   %249 = load i64, ptr %195, align 8

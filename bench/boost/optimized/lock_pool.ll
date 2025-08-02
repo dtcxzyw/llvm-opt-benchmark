@@ -28,17 +28,21 @@ define hidden noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPK
   %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0912
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = icmp eq ptr %5, %0
-  br i1 %6, label %._crit_edge, label %7
+  br i1 %6, label %._crit_edge.loopexit, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = add nuw i64 %.0912, 1
   %exitcond.not = icmp eq i64 %8, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %7, %.lr.ph, %3
-  %.09.lcssa = phi i64 [ 0, %3 ], [ %.0912, %.lr.ph ], [ %2, %7 ]
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.09.lcssa, i64 %2)
-  ret i64 %spec.select
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %7
+  %.09.lcssa.ph = phi i64 [ %2, %7 ], [ %.0912, %.lr.ph ]
+  %9 = tail call i64 @llvm.umin.i64(i64 %.09.lcssa.ph, i64 %2)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
+  %.09.lcssa = phi i64 [ 0, %3 ], [ %9, %._crit_edge.loopexit ]
+  ret i64 %.09.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -48,7 +52,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN5boost7atomics6detail9lock_pool10short_lockEm(i64 noundef %0) local_unnamed_addr #2 {
+define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool10short_lockEm(i64 noundef %0) local_unnamed_addr #2 {
   %2 = and i64 %0, 255
   %3 = getelementptr inbounds nuw [256 x %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state"], ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 0, i64 %2
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
@@ -116,7 +120,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state10short_lockEv.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN5boost7atomics6detail9lock_pool9long_lockEm(i64 noundef %0) local_unnamed_addr #2 {
+define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool9long_lockEm(i64 noundef %0) local_unnamed_addr #2 {
   %2 = and i64 %0, 255
   %3 = getelementptr inbounds nuw [256 x %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state"], ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 0, i64 %2
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i

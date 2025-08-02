@@ -371,31 +371,31 @@ define noundef zeroext i1 @_ZN13sentencepiece11string_util19IsStructurallyValidE
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   %5 = icmp eq i64 %0, 0
-  br i1 %5, label %.thread, label %.lr.ph
+  br i1 %5, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %15
-  %.01016 = phi ptr [ %16, %15 ], [ %1, %2 ]
-  %6 = call noundef i32 @_ZN13sentencepiece11string_util10DecodeUTF8EPKcS2_Pm(ptr noundef %.01016, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  %.01014 = phi ptr [ %16, %15 ], [ %1, %2 ]
+  %6 = call noundef i32 @_ZN13sentencepiece11string_util10DecodeUTF8EPKcS2_Pm(ptr noundef %.01014, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %7 = icmp eq i32 %6, 65533
   %8 = load i64, ptr %3, align 8
   %9 = icmp ne i64 %8, 3
   %or.cond = select i1 %7, i1 %9, i1 false
-  br i1 %or.cond, label %.thread, label %10
+  br i1 %or.cond, label %.critedge, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = icmp samesign ult i32 %6, 55296
   %12 = add nsw i32 %6, -57344
   %13 = icmp ult i32 %12, 1056768
   %14 = or i1 %11, %13
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw i8, ptr %.01016, i64 %8
+  %16 = getelementptr inbounds nuw i8, ptr %.01014, i64 %8
   %.not = icmp ult ptr %16, %4
-  br i1 %.not, label %.lr.ph, label %.thread, !llvm.loop !15
+  br i1 %.not, label %.lr.ph, label %.critedge, !llvm.loop !15
 
-.thread:                                          ; preds = %15, %.lr.ph, %10, %2
-  %.lcssa = phi i1 [ true, %2 ], [ false, %10 ], [ false, %.lr.ph ], [ true, %15 ]
+.critedge:                                        ; preds = %15, %10, %.lr.ph, %2
+  %.lcssa = phi i1 [ true, %2 ], [ false, %.lr.ph ], [ false, %10 ], [ true, %15 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   ret i1 %.lcssa
 }

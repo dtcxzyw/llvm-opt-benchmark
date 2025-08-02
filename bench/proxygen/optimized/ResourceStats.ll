@@ -1648,11 +1648,11 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   br i1 %or.cond, label %if.then48, label %return
 
 for.end.thread:                                   ; preds = %entry
-  br i1 %or.cond, label %if.else60.thread, label %return
+  br i1 %or.cond, label %if.end67, label %return
 
 if.then48:                                        ; preds = %for.end
   %cmp49 = icmp eq i32 %tries.0.lcssa, 0
-  br i1 %cmp49, label %if.else60.thread, label %cond.end56
+  br i1 %cmp49, label %if.end67, label %cond.end56
 
 cond.end56:                                       ; preds = %if.then48
   %15 = call noundef i64 @llvm.x86.rdtsc()
@@ -1664,15 +1664,11 @@ if.else60:                                        ; preds = %cond.end56
   %16 = trunc i64 %sub55 to i32
   %17 = shl i32 %16, 1
   %.pre = call i32 @llvm.umax.i32(i32 %17, i32 200)
-  br label %if.else60.thread
-
-if.else60.thread:                                 ; preds = %for.end.thread, %if.then48, %if.else60
-  %18 = phi i32 [ %.pre, %if.else60 ], [ 200, %if.then48 ], [ 200, %for.end.thread ]
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %18, i32 20000)
+  %18 = call i32 @llvm.umin.i32(i32 %.pre, i32 20000)
   br label %if.end67
 
-if.end67:                                         ; preds = %cond.end56, %if.else60.thread
-  %target.0 = phi i32 [ %.sroa.speculated, %if.else60.thread ], [ 200, %cond.end56 ]
+if.end67:                                         ; preds = %for.end.thread, %if.else60, %if.then48, %cond.end56
+  %target.0 = phi i32 [ 200, %cond.end56 ], [ %18, %if.else60 ], [ 200, %if.then48 ], [ 200, %for.end.thread ]
   br i1 %cmp, label %if.then69, label %seqcst_fail50.i122
 
 if.then69:                                        ; preds = %if.end67

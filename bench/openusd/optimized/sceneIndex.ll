@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"struct.pxrInternal_v0_24__pxrReserved__::Tf_SingletonPyGILDropper" = type { i8 }
 %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", i32, [4 x i8] }
-%"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexBase::_NotifyScope" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr" = type { ptr, %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr" }
 %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr" = type { ptr }
 %"class.std::vector.30" = type { %"struct.std::_Vector_base.31" }
@@ -51,8 +50,6 @@ $_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_24HdSceneIndexNameRegistr
 $_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev = comdat any
 
 $_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7TfTokenENS_6TfHashESt8equal_toIS1_ELj8EED2Ev = comdat any
-
-$_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev = comdat any
 
 $_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev = comdat any
 
@@ -964,8 +961,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_20HdSceneIndexObs
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -1248,431 +1245,413 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_20HdSceneIndexObs
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase15_SendPrimsAddedERKNS_13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(264) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexBase::_NotifyScope", align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %5 = load i32, ptr %4, align 8
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit, label %7
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %4 = load i32, ptr %3, align 8
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12, label %6
 
-7:                                                ; preds = %2
-  store ptr %0, ptr %3, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i32, ptr %8, align 8
-  %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %13, %14
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = load i32, ptr %7, align 8
+  %9 = add nsw i32 %8, 1
+  store i32 %9, ptr %7, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %10, align 8
+  %.not = icmp eq ptr %12, %13
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7
+.lr.ph:                                           ; preds = %6
+  %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
-  %16 = ptrtoint ptr %14 to i64
-  %17 = sub i64 %15, %16
-  %18 = ashr exact i64 %17, 4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  br label %20
+  %16 = sub i64 %14, %15
+  %17 = ashr exact i64 %16, 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %34
-  %.012 = phi i64 [ 0, %.lr.ph ], [ %35, %34 ]
-  %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", ptr %21, i64 %.012
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %24, null
+19:                                               ; preds = %.lr.ph, %37
+  %.021 = phi i64 [ 0, %.lr.ph ], [ %38, %37 ]
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", ptr %20, i64 %.021
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i, label %.critedge, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i: ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 14
-  %26 = load i8, ptr %25, align 2
-  %27 = trunc i8 %26 to i1
-  %28 = load ptr, ptr %22, align 8
-  %29 = icmp ne ptr %28, null
-  %.not1.i.not = select i1 %27, i1 %29, i1 false
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i: ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 14
+  %25 = load i8, ptr %24, align 2
+  %26 = trunc i8 %25 to i1
+  %27 = load ptr, ptr %21, align 8
+  %28 = icmp ne ptr %27, null
+  %.not1.i.not = select i1 %26, i1 %28, i1 false
   br i1 %.not1.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11, label %.critedge
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(264) %1)
-          to label %34 unwind label %33
+  %29 = load ptr, ptr %27, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load ptr, ptr %30, align 8
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(264) %1)
+          to label %37 unwind label %32
 
-33:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
+32:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
+  %.pre23 = load i8, ptr %18, align 4
+  %.pre = load i32, ptr %7, align 8
+  %33 = add nsw i32 %.pre, -1
+  store i32 %33, ptr %7, align 8
+  %34 = icmp eq i32 %33, 0
+  %35 = trunc i8 %.pre23 to i1
+  %or.cond = select i1 %34, i1 %35, i1 false
+  br i1 %or.cond, label %36, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+
+36:                                               ; preds = %32
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %32, %36
   resume { ptr, i32 } %lpad.loopexit
 
-.critedge:                                        ; preds = %20, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  store i8 1, ptr %19, align 4
-  br label %34
+.critedge:                                        ; preds = %19, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
+  store i8 1, ptr %18, align 4
+  br label %37
 
-34:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
-  %35 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %35, %18
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !14
+37:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
+  %38 = add nuw i64 %.021, 1
+  %exitcond.not = icmp eq i64 %38, %17
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %19, !llvm.loop !14
 
-._crit_edge.loopexit:                             ; preds = %34
-  %.pre = load i32, ptr %8, align 8
-  %36 = add nsw i32 %.pre, -1
+._crit_edge.loopexit:                             ; preds = %37
+  %.pre24 = load i32, ptr %7, align 8
+  %39 = add nsw i32 %.pre24, -1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
-  %37 = phi i32 [ %36, %._crit_edge.loopexit ], [ %9, %7 ]
-  store i32 %37, ptr %8, align 8
-  %38 = icmp eq i32 %37, 0
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %40 = load i8, ptr %39, align 4
-  %41 = trunc i8 %40 to i1
-  %or.cond = select i1 %38, i1 %41, i1 false
-  br i1 %or.cond, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
+  %40 = phi i32 [ %39, %._crit_edge.loopexit ], [ %8, %6 ]
+  store i32 %40, ptr %7, align 8
+  %41 = icmp eq i32 %40, 0
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %43 = load i8, ptr %42, align 4
+  %44 = trunc i8 %43 to i1
+  %or.cond20 = select i1 %41, i1 %44, i1 false
+  br i1 %or.cond20, label %45, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12
 
-42:                                               ; preds = %._crit_edge
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit unwind label %43
+45:                                               ; preds = %._crit_edge
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12
 
-43:                                               ; preds = %42
-  %44 = landingpad { ptr, i32 }
-          catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #24
-  unreachable
-
-_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %42, %._crit_edge, %2
+_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12: ; preds = %45, %._crit_edge, %2
   ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %4 = load i32, ptr %3, align 8
-  %5 = add nsw i32 %4, -1
-  store i32 %5, ptr %3, align 8
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %15
-
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %12 = load i8, ptr %11, align 4
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %10
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %6)
-          to label %15 unwind label %16
-
-15:                                               ; preds = %14, %10, %1
-  ret void
-
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
-          catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #24
-  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase17_SendPrimsRemovedERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16RemovedPrimEntryELj16EEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexBase::_NotifyScope", align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %5 = load i32, ptr %4, align 8
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit, label %7
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %4 = load i32, ptr %3, align 8
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12, label %6
 
-7:                                                ; preds = %2
-  store ptr %0, ptr %3, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i32, ptr %8, align 8
-  %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %13, %14
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = load i32, ptr %7, align 8
+  %9 = add nsw i32 %8, 1
+  store i32 %9, ptr %7, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %10, align 8
+  %.not = icmp eq ptr %12, %13
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7
+.lr.ph:                                           ; preds = %6
+  %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
-  %16 = ptrtoint ptr %14 to i64
-  %17 = sub i64 %15, %16
-  %18 = ashr exact i64 %17, 4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  br label %20
+  %16 = sub i64 %14, %15
+  %17 = ashr exact i64 %16, 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %34
-  %.012 = phi i64 [ 0, %.lr.ph ], [ %35, %34 ]
-  %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", ptr %21, i64 %.012
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %24, null
+19:                                               ; preds = %.lr.ph, %37
+  %.021 = phi i64 [ 0, %.lr.ph ], [ %38, %37 ]
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", ptr %20, i64 %.021
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i, label %.critedge, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i: ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 14
-  %26 = load i8, ptr %25, align 2
-  %27 = trunc i8 %26 to i1
-  %28 = load ptr, ptr %22, align 8
-  %29 = icmp ne ptr %28, null
-  %.not1.i.not = select i1 %27, i1 %29, i1 false
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i: ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 14
+  %25 = load i8, ptr %24, align 2
+  %26 = trunc i8 %25 to i1
+  %27 = load ptr, ptr %21, align 8
+  %28 = icmp ne ptr %27, null
+  %.not1.i.not = select i1 %26, i1 %28, i1 false
   br i1 %.not1.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11, label %.critedge
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load ptr, ptr %31, align 8
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(136) %1)
-          to label %34 unwind label %33
+  %29 = load ptr, ptr %27, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %31 = load ptr, ptr %30, align 8
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(136) %1)
+          to label %37 unwind label %32
 
-33:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
+32:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
+  %.pre23 = load i8, ptr %18, align 4
+  %.pre = load i32, ptr %7, align 8
+  %33 = add nsw i32 %.pre, -1
+  store i32 %33, ptr %7, align 8
+  %34 = icmp eq i32 %33, 0
+  %35 = trunc i8 %.pre23 to i1
+  %or.cond = select i1 %34, i1 %35, i1 false
+  br i1 %or.cond, label %36, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+
+36:                                               ; preds = %32
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %32, %36
   resume { ptr, i32 } %lpad.loopexit
 
-.critedge:                                        ; preds = %20, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  store i8 1, ptr %19, align 4
-  br label %34
+.critedge:                                        ; preds = %19, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
+  store i8 1, ptr %18, align 4
+  br label %37
 
-34:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
-  %35 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %35, %18
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !15
+37:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
+  %38 = add nuw i64 %.021, 1
+  %exitcond.not = icmp eq i64 %38, %17
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %19, !llvm.loop !15
 
-._crit_edge.loopexit:                             ; preds = %34
-  %.pre = load i32, ptr %8, align 8
-  %36 = add nsw i32 %.pre, -1
+._crit_edge.loopexit:                             ; preds = %37
+  %.pre24 = load i32, ptr %7, align 8
+  %39 = add nsw i32 %.pre24, -1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
-  %37 = phi i32 [ %36, %._crit_edge.loopexit ], [ %9, %7 ]
-  store i32 %37, ptr %8, align 8
-  %38 = icmp eq i32 %37, 0
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %40 = load i8, ptr %39, align 4
-  %41 = trunc i8 %40 to i1
-  %or.cond = select i1 %38, i1 %41, i1 false
-  br i1 %or.cond, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
+  %40 = phi i32 [ %39, %._crit_edge.loopexit ], [ %8, %6 ]
+  store i32 %40, ptr %7, align 8
+  %41 = icmp eq i32 %40, 0
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %43 = load i8, ptr %42, align 4
+  %44 = trunc i8 %43 to i1
+  %or.cond20 = select i1 %41, i1 %44, i1 false
+  br i1 %or.cond20, label %45, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12
 
-42:                                               ; preds = %._crit_edge
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit unwind label %43
+45:                                               ; preds = %._crit_edge
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12
 
-43:                                               ; preds = %42
-  %44 = landingpad { ptr, i32 }
-          catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #24
-  unreachable
-
-_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %42, %._crit_edge, %2
+_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12: ; preds = %45, %._crit_edge, %2
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase17_SendPrimsDirtiedERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(7432) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexBase::_NotifyScope", align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 7424
-  %5 = load i32, ptr %4, align 8
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit, label %7
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 7424
+  %4 = load i32, ptr %3, align 8
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12, label %6
 
-7:                                                ; preds = %2
-  store ptr %0, ptr %3, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i32, ptr %8, align 8
-  %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %13, %14
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = load i32, ptr %7, align 8
+  %9 = add nsw i32 %8, 1
+  store i32 %9, ptr %7, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %10, align 8
+  %.not = icmp eq ptr %12, %13
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7
+.lr.ph:                                           ; preds = %6
+  %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
-  %16 = ptrtoint ptr %14 to i64
-  %17 = sub i64 %15, %16
-  %18 = ashr exact i64 %17, 4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  br label %20
+  %16 = sub i64 %14, %15
+  %17 = ashr exact i64 %16, 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %34
-  %.012 = phi i64 [ 0, %.lr.ph ], [ %35, %34 ]
-  %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", ptr %21, i64 %.012
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %24, null
+19:                                               ; preds = %.lr.ph, %37
+  %.021 = phi i64 [ 0, %.lr.ph ], [ %38, %37 ]
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", ptr %20, i64 %.021
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i, label %.critedge, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i: ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 14
-  %26 = load i8, ptr %25, align 2
-  %27 = trunc i8 %26 to i1
-  %28 = load ptr, ptr %22, align 8
-  %29 = icmp ne ptr %28, null
-  %.not1.i.not = select i1 %27, i1 %29, i1 false
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i: ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 14
+  %25 = load i8, ptr %24, align 2
+  %26 = trunc i8 %25 to i1
+  %27 = load ptr, ptr %21, align 8
+  %28 = icmp ne ptr %27, null
+  %.not1.i.not = select i1 %26, i1 %28, i1 false
   br i1 %.not1.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11, label %.critedge
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load ptr, ptr %31, align 8
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(7432) %1)
-          to label %34 unwind label %33
+  %29 = load ptr, ptr %27, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %31 = load ptr, ptr %30, align 8
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(7432) %1)
+          to label %37 unwind label %32
 
-33:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
+32:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
+  %.pre23 = load i8, ptr %18, align 4
+  %.pre = load i32, ptr %7, align 8
+  %33 = add nsw i32 %.pre, -1
+  store i32 %33, ptr %7, align 8
+  %34 = icmp eq i32 %33, 0
+  %35 = trunc i8 %.pre23 to i1
+  %or.cond = select i1 %34, i1 %35, i1 false
+  br i1 %or.cond, label %36, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+
+36:                                               ; preds = %32
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %32, %36
   resume { ptr, i32 } %lpad.loopexit
 
-.critedge:                                        ; preds = %20, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  store i8 1, ptr %19, align 4
-  br label %34
+.critedge:                                        ; preds = %19, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
+  store i8 1, ptr %18, align 4
+  br label %37
 
-34:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
-  %35 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %35, %18
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !16
+37:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
+  %38 = add nuw i64 %.021, 1
+  %exitcond.not = icmp eq i64 %38, %17
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %19, !llvm.loop !16
 
-._crit_edge.loopexit:                             ; preds = %34
-  %.pre = load i32, ptr %8, align 8
-  %36 = add nsw i32 %.pre, -1
+._crit_edge.loopexit:                             ; preds = %37
+  %.pre24 = load i32, ptr %7, align 8
+  %39 = add nsw i32 %.pre24, -1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
-  %37 = phi i32 [ %36, %._crit_edge.loopexit ], [ %9, %7 ]
-  store i32 %37, ptr %8, align 8
-  %38 = icmp eq i32 %37, 0
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %40 = load i8, ptr %39, align 4
-  %41 = trunc i8 %40 to i1
-  %or.cond = select i1 %38, i1 %41, i1 false
-  br i1 %or.cond, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
+  %40 = phi i32 [ %39, %._crit_edge.loopexit ], [ %8, %6 ]
+  store i32 %40, ptr %7, align 8
+  %41 = icmp eq i32 %40, 0
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %43 = load i8, ptr %42, align 4
+  %44 = trunc i8 %43 to i1
+  %or.cond20 = select i1 %41, i1 %44, i1 false
+  br i1 %or.cond20, label %45, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12
 
-42:                                               ; preds = %._crit_edge
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit unwind label %43
+45:                                               ; preds = %._crit_edge
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12
 
-43:                                               ; preds = %42
-  %44 = landingpad { ptr, i32 }
-          catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #24
-  unreachable
-
-_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %42, %._crit_edge, %2
+_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12: ; preds = %45, %._crit_edge, %2
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase17_SendPrimsRenamedERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16RenamedPrimEntryELj16EEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(264) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexBase::_NotifyScope", align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %5 = load i32, ptr %4, align 8
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit, label %7
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %4 = load i32, ptr %3, align 8
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12, label %6
 
-7:                                                ; preds = %2
-  store ptr %0, ptr %3, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i32, ptr %8, align 8
-  %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %13, %14
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = load i32, ptr %7, align 8
+  %9 = add nsw i32 %8, 1
+  store i32 %9, ptr %7, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %10, align 8
+  %.not = icmp eq ptr %12, %13
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7
+.lr.ph:                                           ; preds = %6
+  %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
-  %16 = ptrtoint ptr %14 to i64
-  %17 = sub i64 %15, %16
-  %18 = ashr exact i64 %17, 4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  br label %20
+  %16 = sub i64 %14, %15
+  %17 = ashr exact i64 %16, 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %34
-  %.012 = phi i64 [ 0, %.lr.ph ], [ %35, %34 ]
-  %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", ptr %21, i64 %.012
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %24, null
+19:                                               ; preds = %.lr.ph, %37
+  %.021 = phi i64 [ 0, %.lr.ph ], [ %38, %37 ]
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", ptr %20, i64 %.021
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i, label %.critedge, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i: ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 14
-  %26 = load i8, ptr %25, align 2
-  %27 = trunc i8 %26 to i1
-  %28 = load ptr, ptr %22, align 8
-  %29 = icmp ne ptr %28, null
-  %.not1.i.not = select i1 %27, i1 %29, i1 false
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i: ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 14
+  %25 = load i8, ptr %24, align 2
+  %26 = trunc i8 %25 to i1
+  %27 = load ptr, ptr %21, align 8
+  %28 = icmp ne ptr %27, null
+  %.not1.i.not = select i1 %26, i1 %28, i1 false
   br i1 %.not1.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11, label %.critedge
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %32 = load ptr, ptr %31, align 8
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(264) %1)
-          to label %34 unwind label %33
+  %29 = load ptr, ptr %27, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  %31 = load ptr, ptr %30, align 8
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(264) %1)
+          to label %37 unwind label %32
 
-33:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
+32:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
+  %.pre23 = load i8, ptr %18, align 4
+  %.pre = load i32, ptr %7, align 8
+  %33 = add nsw i32 %.pre, -1
+  store i32 %33, ptr %7, align 8
+  %34 = icmp eq i32 %33, 0
+  %35 = trunc i8 %.pre23 to i1
+  %or.cond = select i1 %34, i1 %35, i1 false
+  br i1 %or.cond, label %36, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+
+36:                                               ; preds = %32
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %32, %36
   resume { ptr, i32 } %lpad.loopexit
 
-.critedge:                                        ; preds = %20, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
-  store i8 1, ptr %19, align 4
-  br label %34
+.critedge:                                        ; preds = %19, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i
+  store i8 1, ptr %18, align 4
+  br label %37
 
-34:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
-  %35 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %35, %18
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !17
+37:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i11
+  %38 = add nuw i64 %.021, 1
+  %exitcond.not = icmp eq i64 %38, %17
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %19, !llvm.loop !17
 
-._crit_edge.loopexit:                             ; preds = %34
-  %.pre = load i32, ptr %8, align 8
-  %36 = add nsw i32 %.pre, -1
+._crit_edge.loopexit:                             ; preds = %37
+  %.pre24 = load i32, ptr %7, align 8
+  %39 = add nsw i32 %.pre24, -1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
-  %37 = phi i32 [ %36, %._crit_edge.loopexit ], [ %9, %7 ]
-  store i32 %37, ptr %8, align 8
-  %38 = icmp eq i32 %37, 0
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %40 = load i8, ptr %39, align 4
-  %41 = trunc i8 %40 to i1
-  %or.cond = select i1 %38, i1 %41, i1 false
-  br i1 %or.cond, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
+  %40 = phi i32 [ %39, %._crit_edge.loopexit ], [ %8, %6 ]
+  store i32 %40, ptr %7, align 8
+  %41 = icmp eq i32 %40, 0
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %43 = load i8, ptr %42, align 4
+  %44 = trunc i8 %43 to i1
+  %or.cond20 = select i1 %41, i1 %44, i1 false
+  br i1 %or.cond20, label %45, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12
 
-42:                                               ; preds = %._crit_edge
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit unwind label %43
+45:                                               ; preds = %._crit_edge
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12
 
-43:                                               ; preds = %42
-  %44 = landingpad { ptr, i32 }
-          catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #24
-  unreachable
-
-_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %42, %._crit_edge, %2
+_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit12: ; preds = %45, %._crit_edge, %2
   ret void
 }
 

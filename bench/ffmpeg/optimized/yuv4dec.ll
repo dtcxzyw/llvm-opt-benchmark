@@ -38,12 +38,12 @@ define internal i32 @yuv4_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 
 20:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #3
-  br label %87
+  br label %89
 
 21:                                               ; preds = %4
   %22 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #3
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %87, label %24
+  br i1 %23, label %89, label %24
 
 24:                                               ; preds = %21
   %25 = load i32, ptr %14, align 4, !tbaa !31
@@ -63,14 +63,13 @@ define internal i32 @yuv4_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %35 = phi i32 [ %25, %.preheader.lr.ph ], [ %70, %._crit_edge ]
-  %36 = phi i32 [ %.pre, %.preheader.lr.ph ], [ %71, %._crit_edge ]
-  %.04658 = phi i32 [ 0, %.preheader.lr.ph ], [ %82, %._crit_edge ]
-  %.04757 = phi ptr [ %28, %.preheader.lr.ph ], [ %81, %._crit_edge ]
-  %.04856 = phi ptr [ %30, %.preheader.lr.ph ], [ %78, %._crit_edge ]
-  %.04955 = phi ptr [ %31, %.preheader.lr.ph ], [ %75, %._crit_edge ]
+  %35 = phi i32 [ %25, %.preheader.lr.ph ], [ %72, %._crit_edge ]
+  %36 = phi i32 [ %.pre, %.preheader.lr.ph ], [ %73, %._crit_edge ]
+  %.04658 = phi i32 [ 0, %.preheader.lr.ph ], [ %84, %._crit_edge ]
+  %.04757 = phi ptr [ %28, %.preheader.lr.ph ], [ %83, %._crit_edge ]
+  %.04856 = phi ptr [ %30, %.preheader.lr.ph ], [ %80, %._crit_edge ]
+  %.04955 = phi ptr [ %31, %.preheader.lr.ph ], [ %77, %._crit_edge ]
   %.05054 = phi ptr [ %6, %.preheader.lr.ph ], [ %.1.lcssa, %._crit_edge ]
-  %invariant.gep = getelementptr i8, ptr %.04955, i64 1
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
 
@@ -109,47 +108,48 @@ define internal i32 @yuv4_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %62 = load i32, ptr %32, align 8, !tbaa !34
   %63 = add nsw i32 %62, %56
   %64 = sext i32 %63 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %64
-  store i8 %61, ptr %gep, align 1, !tbaa !33
+  %65 = getelementptr i8, ptr %.04955, i64 %64
+  %66 = getelementptr i8, ptr %65, i64 1
+  store i8 %61, ptr %66, align 1, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = load i32, ptr %9, align 8, !tbaa !30
-  %66 = add nsw i32 %65, 1
-  %67 = ashr i32 %66, 1
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
+  %67 = load i32, ptr %9, align 8, !tbaa !30
+  %68 = add nsw i32 %67, 1
+  %69 = ashr i32 %68, 1
+  %70 = sext i32 %69 to i64
+  %71 = icmp slt i64 %indvars.iv.next, %70
+  br i1 %71, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre61 = load i32, ptr %14, align 4, !tbaa !31
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %70 = phi i32 [ %35, %.preheader ], [ %.pre61, %._crit_edge.loopexit ]
-  %71 = phi i32 [ %36, %.preheader ], [ %65, %._crit_edge.loopexit ]
+  %72 = phi i32 [ %35, %.preheader ], [ %.pre61, %._crit_edge.loopexit ]
+  %73 = phi i32 [ %36, %.preheader ], [ %67, %._crit_edge.loopexit ]
   %.1.lcssa = phi ptr [ %.05054, %.preheader ], [ %60, %._crit_edge.loopexit ]
-  %72 = load i32, ptr %32, align 8, !tbaa !34
-  %73 = shl nsw i32 %72, 1
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %.04955, i64 %74
-  %76 = load i32, ptr %33, align 4, !tbaa !34
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %.04856, i64 %77
-  %79 = load i32, ptr %34, align 8, !tbaa !34
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %.04757, i64 %80
-  %82 = add nuw nsw i32 %.04658, 1
-  %83 = add nsw i32 %70, 1
-  %84 = ashr i32 %83, 1
-  %85 = icmp slt i32 %82, %84
-  br i1 %85, label %.preheader, label %._crit_edge59, !llvm.loop !37
+  %74 = load i32, ptr %32, align 8, !tbaa !34
+  %75 = shl nsw i32 %74, 1
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds i8, ptr %.04955, i64 %76
+  %78 = load i32, ptr %33, align 4, !tbaa !34
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i8, ptr %.04856, i64 %79
+  %81 = load i32, ptr %34, align 8, !tbaa !34
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i8, ptr %.04757, i64 %82
+  %84 = add nuw nsw i32 %.04658, 1
+  %85 = add nsw i32 %72, 1
+  %86 = ashr i32 %85, 1
+  %87 = icmp slt i32 %84, %86
+  br i1 %87, label %.preheader, label %._crit_edge59, !llvm.loop !37
 
 ._crit_edge59:                                    ; preds = %._crit_edge, %24
   store i32 1, ptr %2, align 4, !tbaa !34
-  %86 = load i32, ptr %7, align 8, !tbaa !29
-  br label %87
+  %88 = load i32, ptr %7, align 8, !tbaa !29
+  br label %89
 
-87:                                               ; preds = %21, %._crit_edge59, %20
-  %.0 = phi i32 [ -22, %20 ], [ %86, %._crit_edge59 ], [ %22, %21 ]
+89:                                               ; preds = %21, %._crit_edge59, %20
+  %.0 = phi i32 [ -22, %20 ], [ %88, %._crit_edge59 ], [ %22, %21 ]
   ret i32 %.0
 }
 

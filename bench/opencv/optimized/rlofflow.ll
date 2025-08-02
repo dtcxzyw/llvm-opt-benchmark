@@ -2473,172 +2473,173 @@ _ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2E
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7optflow24DenseOpticalFlowRLOFImplD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 288) (i8, ptr @_ZTVN2cv7optflow24DenseOpticalFlowRLOFImplE, i64 16), ptr %0, align 8, !tbaa !35
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %2
 
 2:                                                ; preds = %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %1
   %.idx = phi i64 [ 96, %1 ], [ %.add, %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %.add = add nsw i64 %.idx, -16
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.add
-  %3 = load ptr, ptr %gep, align 8, !tbaa !31
-  %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
+  %.ptr1 = getelementptr inbounds i8, ptr %0, i64 %.add
+  %3 = getelementptr inbounds nuw i8, ptr %.ptr1, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %.not.i.i = icmp eq ptr %4, null
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %5
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load atomic i64, ptr %5 acquire, align 8
-  %7 = icmp eq i64 %6, 4294967297
-  %8 = trunc i64 %6 to i32
-  br i1 %7, label %9, label %17
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = load atomic i64, ptr %6 acquire, align 8
+  %8 = icmp eq i64 %7, 4294967297
+  %9 = trunc i64 %7 to i32
+  br i1 %8, label %10, label %18
 
-9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !32
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !34
-  %11 = load ptr, ptr %3, align 8, !tbaa !35
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
-  %14 = load ptr, ptr %3, align 8, !tbaa !35
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+10:                                               ; preds = %5
+  store i32 0, ptr %6, align 8, !tbaa !32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i32 0, ptr %11, align 4, !tbaa !34
+  %12 = load ptr, ptr %4, align 8, !tbaa !35
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %15 = load ptr, ptr %4, align 8, !tbaa !35
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   br label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-17:                                               ; preds = %4
-  %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
-  %.not.i.i.i = icmp eq i8 %18, 0
-  br i1 %.not.i.i.i, label %21, label %19
+18:                                               ; preds = %5
+  %19 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
+  %.not.i.i.i = icmp eq i8 %19, 0
+  br i1 %.not.i.i.i, label %22, label %20
 
-19:                                               ; preds = %17
-  %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !50
+20:                                               ; preds = %18
+  %21 = add nsw i32 %9, -1
+  store i32 %21, ptr %6, align 4, !tbaa !50
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-21:                                               ; preds = %17
-  %22 = atomicrmw volatile add ptr %5, i32 -1 acq_rel, align 4
+22:                                               ; preds = %18
+  %23 = atomicrmw volatile add ptr %6, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
-  %.0.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
-  %23 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !51
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %22, %20
+  %.0.i.i.i.i = phi i32 [ %9, %20 ], [ %23, %22 ]
+  %24 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %24, label %25, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !51
 
-24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+25:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   br label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %24
-  %25 = icmp eq i64 %.add, 64
-  br i1 %25, label %.preheader, label %2
+_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %25
+  %26 = icmp eq i64 %.add, 64
+  br i1 %26, label %.preheader, label %2
 
 .preheader:                                       ; preds = %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11
   %.idx3 = phi i64 [ %.add4, %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11 ], [ 64, %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %.add4 = add nsw i64 %.idx3, -16
-  %gep17 = getelementptr i8, ptr %invariant.gep, i64 %.add4
-  %26 = load ptr, ptr %gep17, align 8, !tbaa !31
-  %.not.i.i7 = icmp eq ptr %26, null
-  br i1 %.not.i.i7, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11, label %27
+  %.ptr5 = getelementptr inbounds i8, ptr %0, i64 %.add4
+  %27 = getelementptr inbounds nuw i8, ptr %.ptr5, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !31
+  %.not.i.i7 = icmp eq ptr %28, null
+  br i1 %.not.i.i7, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11, label %29
 
-27:                                               ; preds = %.preheader
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load atomic i64, ptr %28 acquire, align 8
-  %30 = icmp eq i64 %29, 4294967297
-  %31 = trunc i64 %29 to i32
-  br i1 %30, label %32, label %40
+29:                                               ; preds = %.preheader
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %31 = load atomic i64, ptr %30 acquire, align 8
+  %32 = icmp eq i64 %31, 4294967297
+  %33 = trunc i64 %31 to i32
+  br i1 %32, label %34, label %42
 
-32:                                               ; preds = %27
-  store i32 0, ptr %28, align 8, !tbaa !32
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  store i32 0, ptr %33, align 4, !tbaa !34
-  %34 = load ptr, ptr %26, align 8, !tbaa !35
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #27
-  %37 = load ptr, ptr %26, align 8, !tbaa !35
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %26) #27
+34:                                               ; preds = %29
+  store i32 0, ptr %30, align 8, !tbaa !32
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !34
+  %36 = load ptr, ptr %28, align 8, !tbaa !35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #27
+  %39 = load ptr, ptr %28, align 8, !tbaa !35
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %28) #27
   br label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11
 
-40:                                               ; preds = %27
-  %41 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
-  %.not.i.i.i8 = icmp eq i8 %41, 0
-  br i1 %.not.i.i.i8, label %44, label %42
+42:                                               ; preds = %29
+  %43 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
+  %.not.i.i.i8 = icmp eq i8 %43, 0
+  br i1 %.not.i.i.i8, label %46, label %44
 
-42:                                               ; preds = %40
-  %43 = add nsw i32 %31, -1
-  store i32 %43, ptr %28, align 4, !tbaa !50
+44:                                               ; preds = %42
+  %45 = add nsw i32 %33, -1
+  store i32 %45, ptr %30, align 4, !tbaa !50
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9
 
-44:                                               ; preds = %40
-  %45 = atomicrmw volatile add ptr %28, i32 -1 acq_rel, align 4
+46:                                               ; preds = %42
+  %47 = atomicrmw volatile add ptr %30, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9: ; preds = %44, %42
-  %.0.i.i.i.i10 = phi i32 [ %31, %42 ], [ %45, %44 ]
-  %46 = icmp eq i32 %.0.i.i.i.i10, 1
-  br i1 %46, label %47, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11, !prof !51
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9: ; preds = %46, %44
+  %.0.i.i.i.i10 = phi i32 [ %33, %44 ], [ %47, %46 ]
+  %48 = icmp eq i32 %.0.i.i.i.i10, 1
+  br i1 %48, label %49, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11, !prof !51
 
-47:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #27
+49:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #27
   br label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11
 
-_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11: ; preds = %.preheader, %32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9, %47
-  %48 = icmp eq i64 %.add4, 32
-  br i1 %48, label %49, label %.preheader
+_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11: ; preds = %.preheader, %34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9, %49
+  %50 = icmp eq i64 %.add4, 32
+  br i1 %50, label %51, label %.preheader
 
-49:                                               ; preds = %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !31
-  %.not.i.i12 = icmp eq ptr %51, null
-  br i1 %.not.i.i12, label %_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %52
+51:                                               ; preds = %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %53 = load ptr, ptr %52, align 8, !tbaa !31
+  %.not.i.i12 = icmp eq ptr %53, null
+  br i1 %.not.i.i12, label %_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %54
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %54 = load atomic i64, ptr %53 acquire, align 8
-  %55 = icmp eq i64 %54, 4294967297
-  %56 = trunc i64 %54 to i32
-  br i1 %55, label %57, label %65
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %56 = load atomic i64, ptr %55 acquire, align 8
+  %57 = icmp eq i64 %56, 4294967297
+  %58 = trunc i64 %56 to i32
+  br i1 %57, label %59, label %67
 
-57:                                               ; preds = %52
-  store i32 0, ptr %53, align 8, !tbaa !32
-  %58 = getelementptr inbounds nuw i8, ptr %51, i64 12
-  store i32 0, ptr %58, align 4, !tbaa !34
-  %59 = load ptr, ptr %51, align 8, !tbaa !35
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull align 8 dereferenceable(16) %51) #27
-  %62 = load ptr, ptr %51, align 8, !tbaa !35
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %51) #27
+59:                                               ; preds = %54
+  store i32 0, ptr %55, align 8, !tbaa !32
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 12
+  store i32 0, ptr %60, align 4, !tbaa !34
+  %61 = load ptr, ptr %53, align 8, !tbaa !35
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %53) #27
+  %64 = load ptr, ptr %53, align 8, !tbaa !35
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %66 = load ptr, ptr %65, align 8
+  tail call void %66(ptr noundef nonnull align 8 dereferenceable(16) %53) #27
   br label %_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-65:                                               ; preds = %52
-  %66 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
-  %.not.i.i.i13 = icmp eq i8 %66, 0
-  br i1 %.not.i.i.i13, label %69, label %67
+67:                                               ; preds = %54
+  %68 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
+  %.not.i.i.i13 = icmp eq i8 %68, 0
+  br i1 %.not.i.i.i13, label %71, label %69
 
-67:                                               ; preds = %65
-  %68 = add nsw i32 %56, -1
-  store i32 %68, ptr %53, align 4, !tbaa !50
+69:                                               ; preds = %67
+  %70 = add nsw i32 %58, -1
+  store i32 %70, ptr %55, align 4, !tbaa !50
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14
 
-69:                                               ; preds = %65
-  %70 = atomicrmw volatile add ptr %53, i32 -1 acq_rel, align 4
+71:                                               ; preds = %67
+  %72 = atomicrmw volatile add ptr %55, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14: ; preds = %69, %67
-  %.0.i.i.i.i15 = phi i32 [ %56, %67 ], [ %70, %69 ]
-  %71 = icmp eq i32 %.0.i.i.i.i15, 1
-  br i1 %71, label %72, label %_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !51
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14: ; preds = %71, %69
+  %.0.i.i.i.i15 = phi i32 [ %58, %69 ], [ %72, %71 ]
+  %73 = icmp eq i32 %.0.i.i.i.i15, 1
+  br i1 %73, label %74, label %_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !51
 
-72:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #27
+74:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #27
   br label %_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %49, %57, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14, %72
+_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %51, %59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14, %74
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   ret void
 }
@@ -7081,172 +7082,173 @@ _ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2E
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7optflow25SparseRLOFOpticalFlowImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv7optflow25SparseRLOFOpticalFlowImplE, i64 16), ptr %0, align 8, !tbaa !35
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %2
 
 2:                                                ; preds = %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %1
   %.idx = phi i64 [ 96, %1 ], [ %.add, %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %.add = add nsw i64 %.idx, -16
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.add
-  %3 = load ptr, ptr %gep, align 8, !tbaa !31
-  %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
+  %.ptr1 = getelementptr inbounds i8, ptr %0, i64 %.add
+  %3 = getelementptr inbounds nuw i8, ptr %.ptr1, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %.not.i.i = icmp eq ptr %4, null
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %5
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load atomic i64, ptr %5 acquire, align 8
-  %7 = icmp eq i64 %6, 4294967297
-  %8 = trunc i64 %6 to i32
-  br i1 %7, label %9, label %17
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = load atomic i64, ptr %6 acquire, align 8
+  %8 = icmp eq i64 %7, 4294967297
+  %9 = trunc i64 %7 to i32
+  br i1 %8, label %10, label %18
 
-9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !32
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !34
-  %11 = load ptr, ptr %3, align 8, !tbaa !35
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
-  %14 = load ptr, ptr %3, align 8, !tbaa !35
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+10:                                               ; preds = %5
+  store i32 0, ptr %6, align 8, !tbaa !32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i32 0, ptr %11, align 4, !tbaa !34
+  %12 = load ptr, ptr %4, align 8, !tbaa !35
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  %15 = load ptr, ptr %4, align 8, !tbaa !35
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   br label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-17:                                               ; preds = %4
-  %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
-  %.not.i.i.i = icmp eq i8 %18, 0
-  br i1 %.not.i.i.i, label %21, label %19
+18:                                               ; preds = %5
+  %19 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
+  %.not.i.i.i = icmp eq i8 %19, 0
+  br i1 %.not.i.i.i, label %22, label %20
 
-19:                                               ; preds = %17
-  %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !50
+20:                                               ; preds = %18
+  %21 = add nsw i32 %9, -1
+  store i32 %21, ptr %6, align 4, !tbaa !50
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-21:                                               ; preds = %17
-  %22 = atomicrmw volatile add ptr %5, i32 -1 acq_rel, align 4
+22:                                               ; preds = %18
+  %23 = atomicrmw volatile add ptr %6, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
-  %.0.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
-  %23 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !51
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %22, %20
+  %.0.i.i.i.i = phi i32 [ %9, %20 ], [ %23, %22 ]
+  %24 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %24, label %25, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !51
 
-24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
+25:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   br label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %24
-  %25 = icmp eq i64 %.add, 64
-  br i1 %25, label %.preheader, label %2
+_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %25
+  %26 = icmp eq i64 %.add, 64
+  br i1 %26, label %.preheader, label %2
 
 .preheader:                                       ; preds = %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11
   %.idx3 = phi i64 [ %.add4, %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11 ], [ 64, %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %.add4 = add nsw i64 %.idx3, -16
-  %gep17 = getelementptr i8, ptr %invariant.gep, i64 %.add4
-  %26 = load ptr, ptr %gep17, align 8, !tbaa !31
-  %.not.i.i7 = icmp eq ptr %26, null
-  br i1 %.not.i.i7, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11, label %27
+  %.ptr5 = getelementptr inbounds i8, ptr %0, i64 %.add4
+  %27 = getelementptr inbounds nuw i8, ptr %.ptr5, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !31
+  %.not.i.i7 = icmp eq ptr %28, null
+  br i1 %.not.i.i7, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11, label %29
 
-27:                                               ; preds = %.preheader
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load atomic i64, ptr %28 acquire, align 8
-  %30 = icmp eq i64 %29, 4294967297
-  %31 = trunc i64 %29 to i32
-  br i1 %30, label %32, label %40
+29:                                               ; preds = %.preheader
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %31 = load atomic i64, ptr %30 acquire, align 8
+  %32 = icmp eq i64 %31, 4294967297
+  %33 = trunc i64 %31 to i32
+  br i1 %32, label %34, label %42
 
-32:                                               ; preds = %27
-  store i32 0, ptr %28, align 8, !tbaa !32
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  store i32 0, ptr %33, align 4, !tbaa !34
-  %34 = load ptr, ptr %26, align 8, !tbaa !35
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #27
-  %37 = load ptr, ptr %26, align 8, !tbaa !35
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %26) #27
+34:                                               ; preds = %29
+  store i32 0, ptr %30, align 8, !tbaa !32
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  store i32 0, ptr %35, align 4, !tbaa !34
+  %36 = load ptr, ptr %28, align 8, !tbaa !35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #27
+  %39 = load ptr, ptr %28, align 8, !tbaa !35
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %28) #27
   br label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11
 
-40:                                               ; preds = %27
-  %41 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
-  %.not.i.i.i8 = icmp eq i8 %41, 0
-  br i1 %.not.i.i.i8, label %44, label %42
+42:                                               ; preds = %29
+  %43 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
+  %.not.i.i.i8 = icmp eq i8 %43, 0
+  br i1 %.not.i.i.i8, label %46, label %44
 
-42:                                               ; preds = %40
-  %43 = add nsw i32 %31, -1
-  store i32 %43, ptr %28, align 4, !tbaa !50
+44:                                               ; preds = %42
+  %45 = add nsw i32 %33, -1
+  store i32 %45, ptr %30, align 4, !tbaa !50
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9
 
-44:                                               ; preds = %40
-  %45 = atomicrmw volatile add ptr %28, i32 -1 acq_rel, align 4
+46:                                               ; preds = %42
+  %47 = atomicrmw volatile add ptr %30, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9: ; preds = %44, %42
-  %.0.i.i.i.i10 = phi i32 [ %31, %42 ], [ %45, %44 ]
-  %46 = icmp eq i32 %.0.i.i.i.i10, 1
-  br i1 %46, label %47, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11, !prof !51
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9: ; preds = %46, %44
+  %.0.i.i.i.i10 = phi i32 [ %33, %44 ], [ %47, %46 ]
+  %48 = icmp eq i32 %.0.i.i.i.i10, 1
+  br i1 %48, label %49, label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11, !prof !51
 
-47:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #27
+49:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #27
   br label %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11
 
-_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11: ; preds = %.preheader, %32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9, %47
-  %48 = icmp eq i64 %.add4, 32
-  br i1 %48, label %49, label %.preheader
+_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11: ; preds = %.preheader, %34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9, %49
+  %50 = icmp eq i64 %.add4, 32
+  br i1 %50, label %51, label %.preheader
 
-49:                                               ; preds = %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !31
-  %.not.i.i12 = icmp eq ptr %51, null
-  br i1 %.not.i.i12, label %_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %52
+51:                                               ; preds = %_ZNSt12__shared_ptrIN2cv7optflow12CImageBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit11
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %53 = load ptr, ptr %52, align 8, !tbaa !31
+  %.not.i.i12 = icmp eq ptr %53, null
+  br i1 %.not.i.i12, label %_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %54
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %54 = load atomic i64, ptr %53 acquire, align 8
-  %55 = icmp eq i64 %54, 4294967297
-  %56 = trunc i64 %54 to i32
-  br i1 %55, label %57, label %65
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %56 = load atomic i64, ptr %55 acquire, align 8
+  %57 = icmp eq i64 %56, 4294967297
+  %58 = trunc i64 %56 to i32
+  br i1 %57, label %59, label %67
 
-57:                                               ; preds = %52
-  store i32 0, ptr %53, align 8, !tbaa !32
-  %58 = getelementptr inbounds nuw i8, ptr %51, i64 12
-  store i32 0, ptr %58, align 4, !tbaa !34
-  %59 = load ptr, ptr %51, align 8, !tbaa !35
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull align 8 dereferenceable(16) %51) #27
-  %62 = load ptr, ptr %51, align 8, !tbaa !35
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %51) #27
+59:                                               ; preds = %54
+  store i32 0, ptr %55, align 8, !tbaa !32
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 12
+  store i32 0, ptr %60, align 4, !tbaa !34
+  %61 = load ptr, ptr %53, align 8, !tbaa !35
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %53) #27
+  %64 = load ptr, ptr %53, align 8, !tbaa !35
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %66 = load ptr, ptr %65, align 8
+  tail call void %66(ptr noundef nonnull align 8 dereferenceable(16) %53) #27
   br label %_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-65:                                               ; preds = %52
-  %66 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
-  %.not.i.i.i13 = icmp eq i8 %66, 0
-  br i1 %.not.i.i.i13, label %69, label %67
+67:                                               ; preds = %54
+  %68 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
+  %.not.i.i.i13 = icmp eq i8 %68, 0
+  br i1 %.not.i.i.i13, label %71, label %69
 
-67:                                               ; preds = %65
-  %68 = add nsw i32 %56, -1
-  store i32 %68, ptr %53, align 4, !tbaa !50
+69:                                               ; preds = %67
+  %70 = add nsw i32 %58, -1
+  store i32 %70, ptr %55, align 4, !tbaa !50
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14
 
-69:                                               ; preds = %65
-  %70 = atomicrmw volatile add ptr %53, i32 -1 acq_rel, align 4
+71:                                               ; preds = %67
+  %72 = atomicrmw volatile add ptr %55, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14: ; preds = %69, %67
-  %.0.i.i.i.i15 = phi i32 [ %56, %67 ], [ %70, %69 ]
-  %71 = icmp eq i32 %.0.i.i.i.i15, 1
-  br i1 %71, label %72, label %_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !51
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14: ; preds = %71, %69
+  %.0.i.i.i.i15 = phi i32 [ %58, %69 ], [ %72, %71 ]
+  %73 = icmp eq i32 %.0.i.i.i.i15, 1
+  br i1 %73, label %74, label %_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !51
 
-72:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #27
+74:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #27
   br label %_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %49, %57, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14, %72
+_ZNSt12__shared_ptrIN2cv7optflow24RLOFOpticalFlowParameterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %51, %59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i14, %74
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   ret void
 }

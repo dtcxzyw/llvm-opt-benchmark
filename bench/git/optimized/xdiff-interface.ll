@@ -814,35 +814,35 @@ define internal range(i64 -2147483648, 2147483648) i64 @ff_regexp(ptr noundef %0
   %48 = sext i32 %47 to i64
   %spec.select53 = call i64 @llvm.smin.i64(i64 %3, i64 %48)
   %spec.select = trunc i64 %spec.select53 to i32
-  %invariant.gep = getelementptr i8, ptr %45, i64 -1
   %49 = icmp sgt i32 %spec.select, 0
   br i1 %49, label %.lr.ph58, label %.critedge
 
-.lr.ph58:                                         ; preds = %39, %56
-  %.13857 = phi i32 [ %57, %56 ], [ %spec.select, %39 ]
+.lr.ph58:                                         ; preds = %39, %58
+  %.13857 = phi i32 [ %59, %58 ], [ %spec.select, %39 ]
   %50 = zext nneg i32 %.13857 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %50
-  %51 = load i8, ptr %gep, align 1, !tbaa !20
-  %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !20
-  %55 = and i8 %54, 1
-  %.not47 = icmp eq i8 %55, 0
-  br i1 %.not47, label %.critedge, label %56
+  %51 = getelementptr i8, ptr %45, i64 %50
+  %52 = getelementptr i8, ptr %51, i64 -1
+  %53 = load i8, ptr %52, align 1, !tbaa !20
+  %54 = zext i8 %53 to i64
+  %55 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %54
+  %56 = load i8, ptr %55, align 1, !tbaa !20
+  %57 = and i8 %56, 1
+  %.not47 = icmp eq i8 %57, 0
+  br i1 %.not47, label %.critedge, label %58
 
-56:                                               ; preds = %.lr.ph58
-  %57 = add nsw i32 %.13857, -1
-  %58 = icmp sgt i32 %.13857, 1
-  br i1 %58, label %.lr.ph58, label %.critedge, !llvm.loop !62
+58:                                               ; preds = %.lr.ph58
+  %59 = add nsw i32 %.13857, -1
+  %60 = icmp sgt i32 %.13857, 1
+  br i1 %60, label %.lr.ph58, label %.critedge, !llvm.loop !62
 
-.critedge:                                        ; preds = %.lr.ph58, %56, %39
-  %.138.lcssa = phi i32 [ %spec.select, %39 ], [ 0, %56 ], [ %.13857, %.lr.ph58 ]
-  %59 = sext i32 %.138.lcssa to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %45, i64 %59, i1 false)
+.critedge:                                        ; preds = %.lr.ph58, %58, %39
+  %.138.lcssa = phi i32 [ %spec.select, %39 ], [ 0, %58 ], [ %.13857, %.lr.ph58 ]
+  %61 = sext i32 %.138.lcssa to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %45, i64 %61, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %21, %31, %.loopexit, %.critedge
-  %.2 = phi i64 [ %59, %.critedge ], [ -1, %.loopexit ], [ -1, %31 ], [ -1, %21 ]
+  %.2 = phi i64 [ %61, %.critedge ], [ -1, %.loopexit ], [ -1, %31 ], [ -1, %21 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
   ret i64 %.2
 }

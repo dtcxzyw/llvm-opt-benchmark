@@ -26550,14 +26550,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17ha
   br i1 %66, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hfe736ed74dc7b208E.exit", label %80
 
 67:                                               ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h0a0d84a98ee3a95eE.exit"
-  %68 = getelementptr i8, ptr %.sroa.012.0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.012.0, i64 40
   br label %69
 
 69:                                               ; preds = %79, %67
   %.sroa.0.04.i = phi i64 [ 0, %67 ], [ %70, %79 ]
   %70 = add nuw nsw i64 %.sroa.0.04.i, 1
   %.idx.i = mul nuw nsw i64 %.sroa.0.04.i, 40
-  %71 = getelementptr i8, ptr %68, i64 %.idx.i
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i
   %72 = load atomic i64, ptr %71 acquire, align 8
   %73 = and i64 %72, 2
   %74 = icmp eq i64 %73, 0
@@ -26578,14 +26578,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17ha
   br i1 %81, label %.lr.ph.i26, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hfe736ed74dc7b208E.exit.sink.split"
 
 .lr.ph.i26:                                       ; preds = %80
-  %82 = getelementptr i8, ptr %.sroa.012.0, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.012.0, i64 40
   br label %83
 
 83:                                               ; preds = %93, %.lr.ph.i26
   %.sroa.0.04.i27 = phi i64 [ %41, %.lr.ph.i26 ], [ %84, %93 ]
   %84 = add nuw nsw i64 %.sroa.0.04.i27, 1
   %.idx.i28 = mul nuw nsw i64 %.sroa.0.04.i27, 40
-  %85 = getelementptr i8, ptr %82, i64 %.idx.i28
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx.i28
   %86 = load atomic i64, ptr %85 acquire, align 8
   %87 = and i64 %86, 2
   %88 = icmp eq i64 %87, 0
@@ -35876,7 +35876,7 @@ define hidden void @_ZN21polars_parquet_format14parquet_format12FileMetaData21wr
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %836, %821, %811, %809, %808, %800, %799, %789, %783, %781, %780, %769, %._crit_edge1135, %738, %737, %731, %730, %720, %710, %700, %698, %697, %686, %._crit_edge1128, %651, %650, %643, %642, %631, %._crit_edge1119, %606, %605, %598, %597, %588, %581, %573, %571, %570, %561, %._crit_edge, %164, %163, %156, %155, %133, %125, %123, %122, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h21c4dfd7a655b278E.exit"
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %836, %821, %811, %809, %808, %800, %799, %789, %783, %781, %780, %769, %._crit_edge1133, %738, %737, %731, %730, %720, %710, %700, %698, %697, %686, %._crit_edge1128, %651, %650, %643, %642, %631, %._crit_edge1119, %606, %605, %598, %597, %588, %581, %573, %571, %570, %561, %._crit_edge, %164, %163, %156, %155, %133, %125, %123, %122, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h21c4dfd7a655b278E.exit"
   %lpad.loopexit.split-lp1080 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -37422,8 +37422,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format12FileMetaData21wr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80)
   %616 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %617 = load ptr, ptr %616, align 8, !nonnull !3, !noundef !3
-  %.idx1137 = mul nuw nsw i64 %602, 104
-  %618 = getelementptr inbounds nuw i8, ptr %617, i64 %.idx1137
+  %.idx1135 = mul nuw nsw i64 %602, 104
+  %618 = getelementptr inbounds nuw i8, ptr %617, i64 %.idx1135
   %619 = icmp eq i64 %602, 0
   br i1 %619, label %._crit_edge1119, label %.lr.ph1118
 
@@ -37565,8 +37565,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format12FileMetaData21wr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
   %661 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %662 = load ptr, ptr %661, align 8, !nonnull !3, !noundef !3
-  %.idx1138 = mul nuw nsw i64 %647, 48
-  %663 = getelementptr inbounds nuw i8, ptr %662, i64 %.idx1138
+  %.idx1136 = mul nuw nsw i64 %647, 48
+  %663 = getelementptr inbounds nuw i8, ptr %662, i64 %.idx1136
   %664 = icmp eq i64 %647, 0
   br i1 %664, label %._crit_edge1128, label %.lr.ph1127
 
@@ -37768,8 +37768,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format12FileMetaData21wr
   invoke fastcc void @_ZN21polars_parquet_format6thrift8protocol16TFieldIdentifier3new17hef40e1f572d59c0dE(ptr noalias noundef align 8 captures(none) dereferenceable(32) %66, ptr noalias noundef nonnull readonly align 1 @anon.8d4d05d48f1984be0c820ace9dd61f64.228, i64 noundef 13, i8 noundef 13, i16 noundef 7)
           to label %723 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-721:                                              ; preds = %756, %687
-  %.sroa.0398.5 = phi i64 [ %757, %756 ], [ %.sroa.0398.3, %687 ]
+721:                                              ; preds = %757, %687
+  %.sroa.0398.5 = phi i64 [ %758, %757 ], [ %.sroa.0398.3, %687 ]
   %722 = load i64, ptr %1, align 8, !range !316, !noundef !3
   %.not845 = icmp eq i64 %722, 2
   br i1 %.not845, label %770, label %769
@@ -37852,70 +37852,69 @@ define hidden void @_ZN21polars_parquet_format14parquet_format12FileMetaData21wr
   %747 = add i64 %732, %744
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
   %748 = icmp eq i64 %735, 0
-  br i1 %748, label %._crit_edge1135, label %.lr.ph1134
+  br i1 %748, label %._crit_edge1133, label %.lr.ph1132
 
-.lr.ph1134:                                       ; preds = %746
+.lr.ph1132:                                       ; preds = %746
   %749 = getelementptr inbounds nuw i8, ptr %63, i64 8
   br label %750
 
-750:                                              ; preds = %.lr.ph1134, %762
-  %.pn1139 = phi i64 [ %735, %.lr.ph1134 ], [ %765, %762 ]
-  %.sroa.0398.71131 = phi i64 [ %747, %.lr.ph1134 ], [ %763, %762 ]
-  %gep1132 = getelementptr i8, ptr inttoptr (i64 -1 to ptr), i64 %.pn1139
+750:                                              ; preds = %.lr.ph1132, %763
+  %.pn1138 = phi i64 [ %735, %.lr.ph1132 ], [ %751, %763 ]
+  %.sroa.0398.71130 = phi i64 [ %747, %.lr.ph1132 ], [ %764, %763 ]
+  %751 = add i64 %.pn1138, -1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %63)
   invoke fastcc void @_ZN21polars_parquet_format14parquet_format11ColumnOrder21write_to_out_protocol17hc77dfc918c881a45E(ptr noalias noundef align 8 captures(none) dereferenceable(40) %63, ptr noalias noundef align 8 dereferenceable(72) %2)
-          to label %758 unwind label %.loopexit
+          to label %759 unwind label %.loopexit
 
-._crit_edge1135:                                  ; preds = %762, %746
-  %.sroa.0398.7.lcssa = phi i64 [ %747, %746 ], [ %763, %762 ]
+._crit_edge1133:                                  ; preds = %763, %746
+  %.sroa.0398.7.lcssa = phi i64 [ %747, %746 ], [ %764, %763 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %62)
   invoke void @"_ZN164_$LT$polars_parquet_format..thrift..protocol..compact_write..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$polars_parquet_format..thrift..protocol..TOutputProtocol$GT$15write_field_end17h1ecae81700c65462E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %62, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
-          to label %751 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %752 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-751:                                              ; preds = %._crit_edge1135
-  %752 = load i64, ptr %62, align 8, !range !9, !noundef !3
-  %.not843 = icmp eq i64 %752, 3
-  %753 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %754 = load i64, ptr %753, align 8
-  br i1 %.not843, label %756, label %755
+752:                                              ; preds = %._crit_edge1133
+  %753 = load i64, ptr %62, align 8, !range !9, !noundef !3
+  %.not843 = icmp eq i64 %753, 3
+  %754 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %755 = load i64, ptr %754, align 8
+  br i1 %.not843, label %757, label %756
 
-755:                                              ; preds = %751
+756:                                              ; preds = %752
   %.sroa.5702.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 16
   %.sroa.3705.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3705.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5702.0..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %62)
-  store i64 %752, ptr %0, align 8
+  store i64 %753, ptr %0, align 8
   %.sroa.2704.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %754, ptr %.sroa.2704.0..sroa_idx, align 8
+  store i64 %755, ptr %.sroa.2704.0..sroa_idx, align 8
   br label %846
 
-756:                                              ; preds = %751
+757:                                              ; preds = %752
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %62)
-  %757 = add i64 %754, %.sroa.0398.7.lcssa
+  %758 = add i64 %755, %.sroa.0398.7.lcssa
   br label %721
 
-758:                                              ; preds = %750
-  %759 = load i64, ptr %63, align 8, !range !9, !noundef !3
-  %.not863 = icmp eq i64 %759, 3
-  %760 = load i64, ptr %749, align 8
-  br i1 %.not863, label %762, label %761
+759:                                              ; preds = %750
+  %760 = load i64, ptr %63, align 8, !range !9, !noundef !3
+  %.not863 = icmp eq i64 %760, 3
+  %761 = load i64, ptr %749, align 8
+  br i1 %.not863, label %763, label %762
 
-761:                                              ; preds = %758
+762:                                              ; preds = %759
   %.sroa.5684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 16
   %.sroa.3687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3687.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5684.0..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63)
-  store i64 %759, ptr %0, align 8
+  store i64 %760, ptr %0, align 8
   %.sroa.2686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %760, ptr %.sroa.2686.0..sroa_idx, align 8
+  store i64 %761, ptr %.sroa.2686.0..sroa_idx, align 8
   br label %846
 
-762:                                              ; preds = %758
+763:                                              ; preds = %759
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63)
-  %763 = add i64 %760, %.sroa.0398.71131
-  %764 = icmp eq ptr %gep1132, null
-  %765 = ptrtoint ptr %gep1132 to i64
-  br i1 %764, label %._crit_edge1135, label %750
+  %764 = add i64 %761, %.sroa.0398.71130
+  %765 = icmp eq i64 %751, 0
+  br i1 %765, label %._crit_edge1133, label %750
 
 766:                                              ; preds = %767, %745
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
@@ -38189,7 +38188,7 @@ define hidden void @_ZN21polars_parquet_format14parquet_format12FileMetaData21wr
   store i64 3, ptr %0, align 8
   br label %846
 
-846:                                              ; preds = %107, %132, %139, %560, %580, %587, %626, %788, %795, %798, %835, %842, %850, %854, %856, %857, %859, %863, %865, %866, %683, %681, %677, %671, %719, %716, %709, %768, %766, %761, %755, %830, %827, %820, %843
+846:                                              ; preds = %107, %132, %139, %560, %580, %587, %626, %788, %795, %798, %835, %842, %850, %854, %856, %857, %859, %863, %865, %866, %683, %681, %677, %671, %719, %716, %709, %768, %766, %762, %756, %830, %827, %820, %843
   call void @"_ZN4core3ptr79drop_in_place$LT$polars_parquet_format..thrift..protocol..TStructIdentifier$GT$17h25a05efa4b53a50eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %98)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %98)
   ret void

@@ -7506,69 +7506,69 @@ define void @_ZN5arrow10Decimal25613FromBigEndianEPKhi(ptr dead_on_unwind noalia
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %10, %12, %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  br label %48
+  br label %50
 
 17:                                               ; preds = %3
   %18 = load i8, ptr %1, align 1, !tbaa !103
-  %invariant.gep = getelementptr i8, ptr %1, i64 -8
   %19 = ashr i8 %18, 7
   %20 = sext i8 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %24
 
-22:                                               ; preds = %45
+22:                                               ; preds = %47
   store ptr null, ptr %0, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  br label %48
+  br label %50
 
-24:                                               ; preds = %17, %45
-  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %45 ]
-  %25 = phi i32 [ %2, %17 ], [ %47, %45 ]
+24:                                               ; preds = %17, %47
+  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %47 ]
+  %25 = phi i32 [ %2, %17 ], [ %49, %47 ]
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %25, i32 8)
   %26 = icmp sgt i32 %25, 7
-  br i1 %26, label %27, label %30
+  br i1 %26, label %27, label %32
 
 27:                                               ; preds = %24
   %28 = zext nneg i32 %25 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %28
-  %.0.copyload = load i64, ptr %gep, align 1
-  %29 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload)
-  br label %45
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %28
+  %30 = getelementptr inbounds i8, ptr %29, i64 -8
+  %.0.copyload = load i64, ptr %30, align 1
+  %31 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload)
+  br label %47
 
-30:                                               ; preds = %24
-  %31 = icmp sgt i32 %25, 0
-  br i1 %31, label %32, label %45
+32:                                               ; preds = %24
+  %33 = icmp sgt i32 %25, 0
+  br i1 %33, label %34, label %47
 
-32:                                               ; preds = %30
-  %33 = shl nuw nsw i32 %.sroa.speculated, 3
-  %34 = zext nneg i32 %33 to i64
-  %35 = shl nsw i64 %20, %34
-  %36 = zext nneg i32 %25 to i64
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %36
-  %38 = zext nneg i32 %.sroa.speculated to i64
-  %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds i8, ptr %37, i64 %39
+34:                                               ; preds = %32
+  %35 = shl nuw nsw i32 %.sroa.speculated, 3
+  %36 = zext nneg i32 %35 to i64
+  %37 = shl nsw i64 %20, %36
+  %38 = zext nneg i32 %25 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 %38
+  %40 = zext nneg i32 %.sroa.speculated to i64
+  %41 = sub nsw i64 0, %40
+  %42 = getelementptr inbounds i8, ptr %39, i64 %41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
   store i64 0, ptr %4, align 8, !tbaa !155
-  %41 = getelementptr inbounds i8, ptr %21, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %40, i64 %38, i1 false)
-  %42 = load i64, ptr %4, align 8, !tbaa !155
-  %43 = tail call noundef i64 @llvm.bswap.i64(i64 %42)
+  %43 = getelementptr inbounds i8, ptr %21, i64 %41
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull readonly align 1 %42, i64 %40, i1 false)
+  %44 = load i64, ptr %4, align 8, !tbaa !155
+  %45 = tail call noundef i64 @llvm.bswap.i64(i64 %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
-  %44 = or i64 %43, %35
-  br label %45
+  %46 = or i64 %45, %37
+  br label %47
 
-45:                                               ; preds = %30, %32, %27
-  %.0.sink = phi i64 [ %29, %27 ], [ %44, %32 ], [ %20, %30 ]
-  %46 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv
-  store i64 %.0.sink, ptr %46, align 8
-  %47 = sub nsw i32 %25, %.sroa.speculated
+47:                                               ; preds = %32, %34, %27
+  %.0.sink = phi i64 [ %31, %27 ], [ %46, %34 ], [ %20, %32 ]
+  %48 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv
+  store i64 %.0.sink, ptr %48, align 8
+  %49 = sub nsw i32 %25, %.sroa.speculated
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %22, label %24, !llvm.loop !333
 
-48:                                               ; preds = %22, %_ZN5arrow6StatusD2Ev.exit
+50:                                               ; preds = %22, %_ZN5arrow6StatusD2Ev.exit
   ret void
 }
 
@@ -11201,7 +11201,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %7 = add i8 %6, -48
   %8 = icmp ult i8 %7, 10
   %9 = zext i8 %7 to i32
-  br i1 %8, label %10, label %.thread
+  br i1 %8, label %10, label %.critedge
 
 10:                                               ; preds = %4
   %.not136 = icmp eq i64 %1, 1
@@ -11215,7 +11215,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %16 = icmp ult i8 %14, 10
   %17 = zext i8 %14 to i32
   %18 = add nuw nsw i32 %15, %17
-  br i1 %16, label %19, label %.thread
+  br i1 %16, label %19, label %.critedge
 
 19:                                               ; preds = %11
   %.not137 = icmp eq i64 %1, 2
@@ -11229,7 +11229,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %25 = icmp ult i8 %23, 10
   %26 = zext i8 %23 to i32
   %27 = add nuw nsw i32 %24, %26
-  br i1 %25, label %28, label %.thread
+  br i1 %25, label %28, label %.critedge
 
 28:                                               ; preds = %20
   %.not138 = icmp eq i64 %1, 3
@@ -11243,7 +11243,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %34 = icmp ult i8 %32, 10
   %35 = zext i8 %32 to i32
   %36 = add nuw nsw i32 %33, %35
-  br i1 %34, label %37, label %.thread
+  br i1 %34, label %37, label %.critedge
 
 37:                                               ; preds = %29
   %.not139 = icmp eq i64 %1, 4
@@ -11257,7 +11257,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %43 = icmp ult i8 %41, 10
   %44 = zext i8 %41 to i32
   %45 = add nuw nsw i32 %42, %44
-  br i1 %43, label %46, label %.thread
+  br i1 %43, label %46, label %.critedge
 
 46:                                               ; preds = %38
   %.not140 = icmp eq i64 %1, 5
@@ -11271,7 +11271,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %52 = icmp ult i8 %50, 10
   %53 = zext i8 %50 to i32
   %54 = add nuw nsw i32 %51, %53
-  br i1 %52, label %55, label %.thread
+  br i1 %52, label %55, label %.critedge
 
 55:                                               ; preds = %47
   %.not141 = icmp eq i64 %1, 6
@@ -11285,7 +11285,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %61 = icmp ult i8 %59, 10
   %62 = zext i8 %59 to i32
   %63 = add nuw nsw i32 %60, %62
-  br i1 %61, label %64, label %.thread
+  br i1 %61, label %64, label %.critedge
 
 64:                                               ; preds = %56
   %.not142 = icmp eq i64 %1, 7
@@ -11299,7 +11299,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %70 = icmp ult i8 %68, 10
   %71 = zext i8 %68 to i32
   %72 = add nuw nsw i32 %69, %71
-  br i1 %70, label %73, label %.thread
+  br i1 %70, label %73, label %.critedge
 
 73:                                               ; preds = %65
   %.not143 = icmp eq i64 %1, 8
@@ -11313,7 +11313,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %79 = icmp ult i8 %77, 10
   %80 = zext i8 %77 to i32
   %81 = add nuw nsw i32 %78, %80
-  br i1 %79, label %82, label %.thread
+  br i1 %79, label %82, label %.critedge
 
 82:                                               ; preds = %74
   %.not144 = icmp eq i64 %1, 9
@@ -11321,7 +11321,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 83:                                               ; preds = %82
   %84 = icmp samesign ugt i32 %81, 429496729
-  br i1 %84, label %.thread, label %85, !prof !167
+  br i1 %84, label %.critedge, label %85, !prof !167
 
 85:                                               ; preds = %83
   %86 = load i8, ptr %75, align 1, !tbaa !103
@@ -11329,22 +11329,22 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %.not145 = icmp ne i64 %1, 10
   %88 = icmp ugt i8 %87, 9
   %or.cond = or i1 %.not145, %88
-  br i1 %or.cond, label %.thread, label %89, !prof !458
+  br i1 %or.cond, label %.critedge, label %89, !prof !458
 
 89:                                               ; preds = %85
   %90 = mul nuw i32 %81, 10
   %91 = zext nneg i8 %87 to i32
   %92 = add i32 %90, %91
-  %.not149 = icmp ult i32 %92, %90
+  %.not147 = icmp ult i32 %92, %90
   %.146 = tail call i32 @llvm.umax.i32(i32 %92, i32 %90)
-  br i1 %.not149, label %.thread, label %93
+  br i1 %.not147, label %.critedge, label %93
 
 93:                                               ; preds = %89, %82, %73, %64, %55, %46, %37, %28, %19, %10, %3
   %.196 = phi i32 [ %.146, %89 ], [ %81, %82 ], [ %72, %73 ], [ %63, %64 ], [ %54, %55 ], [ %45, %46 ], [ %36, %37 ], [ %27, %28 ], [ %18, %19 ], [ %9, %10 ], [ 0, %3 ]
   store i32 %.196, ptr %2, align 4, !tbaa !63
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %85, %83, %89, %74, %65, %56, %47, %38, %29, %20, %11, %4, %93
+.critedge:                                        ; preds = %85, %83, %89, %74, %65, %56, %47, %38, %29, %20, %11, %4, %93
   %.1 = phi i1 [ true, %93 ], [ false, %89 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %4 ], [ false, %83 ], [ false, %85 ]
   ret i1 %.1
 }

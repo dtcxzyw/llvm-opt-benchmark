@@ -362,7 +362,7 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr noundef nonnull write
 
 18:                                               ; preds = %16
   invoke void @__cxa_throw(ptr %14, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #21
-          to label %49 unwind label %21
+          to label %50 unwind label %21
 
 .thread:                                          ; preds = %13
   %19 = landingpad { ptr, i32 }
@@ -384,7 +384,7 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr noundef nonnull write
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #20
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #20
-  br i1 %.019, label %.sink.split66, label %48
+  br i1 %.019, label %.sink.split66, label %49
 
 .sink.split:                                      ; preds = %.thread, %.thread46
   %.pn.pn45.ph = phi { ptr, i32 } [ %20, %.thread46 ], [ %19, %.thread ]
@@ -422,7 +422,7 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr noundef nonnull write
 
 32:                                               ; preds = %30
   invoke void @__cxa_throw(ptr %28, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #21
-          to label %49 unwind label %35
+          to label %50 unwind label %35
 
 .thread49:                                        ; preds = %27
   %33 = landingpad { ptr, i32 }
@@ -444,7 +444,7 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr noundef nonnull write
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #20
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #20
-  br i1 %.018, label %.sink.split66, label %48
+  br i1 %.018, label %.sink.split66, label %49
 
 .sink.split65:                                    ; preds = %.thread49, %.thread53
   %.pn34.pn52.ph = phi { ptr, i32 } [ %34, %.thread53 ], [ %33, %.thread49 ]
@@ -461,40 +461,41 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr noundef nonnull write
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 116
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader56, %43
-  %indvars.iv61 = phi i64 [ 0, %.preheader56 ], [ %indvars.iv.next62, %43 ]
-  %42 = getelementptr inbounds nuw [3 x %"struct.std::array.0"], ptr %9, i64 0, i64 %indvars.iv61
-  br label %44
+.preheader:                                       ; preds = %.preheader56, %44
+  %indvars.iv61 = phi i64 [ 0, %.preheader56 ], [ %indvars.iv.next62, %44 ]
+  %42 = getelementptr inbounds nuw [3 x [3 x float]], ptr %41, i64 0, i64 %indvars.iv61
+  %43 = getelementptr inbounds nuw [3 x %"struct.std::array.0"], ptr %9, i64 0, i64 %indvars.iv61
+  br label %45
 
-43:                                               ; preds = %44
+44:                                               ; preds = %45
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 3
   br i1 %exitcond64.not, label %.loopexit, label %.preheader, !llvm.loop !44
 
-44:                                               ; preds = %.preheader, %44
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw [3 x [3 x float]], ptr %41, i64 0, i64 %indvars.iv61, i64 %indvars.iv
-  %46 = load float, ptr %45, align 4, !tbaa !46
-  %47 = getelementptr inbounds nuw [3 x float], ptr %42, i64 0, i64 %indvars.iv
-  store float %46, ptr %47, align 4, !tbaa !46
+45:                                               ; preds = %.preheader, %45
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %45 ]
+  %46 = getelementptr inbounds nuw [3 x float], ptr %42, i64 0, i64 %indvars.iv
+  %47 = load float, ptr %46, align 4, !tbaa !46
+  %48 = getelementptr inbounds nuw [3 x float], ptr %43, i64 0, i64 %indvars.iv
+  store float %47, ptr %48, align 4, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %43, label %44, !llvm.loop !47
+  br i1 %exitcond.not, label %44, label %45, !llvm.loop !47
 
-.loopexit:                                        ; preds = %43, %37
+.loopexit:                                        ; preds = %44, %37
   ret void
 
 .sink.split66:                                    ; preds = %35, %.sink.split65, %21, %.sink.split
   %.sink = phi ptr [ %14, %.sink.split ], [ %14, %21 ], [ %28, %.sink.split65 ], [ %28, %35 ]
   %.pn34.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn45.ph, %.sink.split ], [ %22, %21 ], [ %.pn34.pn52.ph, %.sink.split65 ], [ %36, %35 ]
   call void @__cxa_free_exception(ptr %.sink) #20
-  br label %48
+  br label %49
 
-48:                                               ; preds = %.sink.split66, %35, %21
+49:                                               ; preds = %.sink.split66, %35, %21
   %.pn34.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %22, %21 ], [ %.pn34.pn.pn.ph, %.sink.split66 ]
   resume { ptr, i32 } %.pn34.pn.pn
 
-49:                                               ; preds = %32, %18
+50:                                               ; preds = %32, %18
   unreachable
 }
 

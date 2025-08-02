@@ -346,10 +346,8 @@ define internal noundef i32 @pre_calculate_col(ptr noundef readonly captures(non
   %17 = load i32, ptr %16, align 8, !tbaa !62
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %19 = load ptr, ptr %18, align 8, !tbaa !63
-  %invariant.gep = getelementptr i8, ptr %19, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %21 = load ptr, ptr %20, align 8, !tbaa !64
-  %invariant.gep41 = getelementptr i8, ptr %21, i64 8
   %22 = icmp sgt i32 %7, 0
   %23 = sext i32 %17 to i64
   br i1 %22, label %.lr.ph.us.preheader, label %._crit_edge40
@@ -361,32 +359,34 @@ define internal noundef i32 @pre_calculate_col(ptr noundef readonly captures(non
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ %24, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %gep.us = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
-  %gep42.us = getelementptr i64, ptr %invariant.gep41, i64 %indvars.iv
-  br label %25
+  %25 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  br label %29
 
-25:                                               ; preds = %.lr.ph.us, %25
-  %.036.us = phi i32 [ 0, %.lr.ph.us ], [ %34, %25 ]
-  %.03235.us = phi ptr [ %gep42.us, %.lr.ph.us ], [ %31, %25 ]
-  %.03334.us = phi ptr [ %gep.us, %.lr.ph.us ], [ %27, %25 ]
-  %26 = load i64, ptr %.03334.us, align 8, !tbaa !65
-  %27 = getelementptr inbounds i64, ptr %.03334.us, i64 %23
-  %28 = load i64, ptr %27, align 8, !tbaa !65
-  %29 = add i64 %28, %26
-  store i64 %29, ptr %27, align 8, !tbaa !65
-  %30 = load i64, ptr %.03235.us, align 8, !tbaa !65
-  %31 = getelementptr inbounds i64, ptr %.03235.us, i64 %23
+29:                                               ; preds = %.lr.ph.us, %29
+  %.036.us = phi i32 [ 0, %.lr.ph.us ], [ %38, %29 ]
+  %.03235.us = phi ptr [ %28, %.lr.ph.us ], [ %35, %29 ]
+  %.03334.us = phi ptr [ %26, %.lr.ph.us ], [ %31, %29 ]
+  %30 = load i64, ptr %.03334.us, align 8, !tbaa !65
+  %31 = getelementptr inbounds i64, ptr %.03334.us, i64 %23
   %32 = load i64, ptr %31, align 8, !tbaa !65
   %33 = add i64 %32, %30
   store i64 %33, ptr %31, align 8, !tbaa !65
-  %34 = add nuw nsw i32 %.036.us, 1
-  %exitcond.not = icmp eq i32 %34, %7
-  br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !66
+  %34 = load i64, ptr %.03235.us, align 8, !tbaa !65
+  %35 = getelementptr inbounds i64, ptr %.03235.us, i64 %23
+  %36 = load i64, ptr %35, align 8, !tbaa !65
+  %37 = add i64 %36, %34
+  store i64 %37, ptr %35, align 8, !tbaa !65
+  %38 = add nuw nsw i32 %.036.us, 1
+  %exitcond.not = icmp eq i32 %38, %7
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !66
 
-._crit_edge.us:                                   ; preds = %25
+._crit_edge.us:                                   ; preds = %29
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond45.not, label %._crit_edge40, label %.lr.ph.us, !llvm.loop !67
+  %exitcond43.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond43.not, label %._crit_edge40, label %.lr.ph.us, !llvm.loop !67
 
 ._crit_edge40:                                    ; preds = %._crit_edge.us, %.lr.ph39, %4
   ret i32 0

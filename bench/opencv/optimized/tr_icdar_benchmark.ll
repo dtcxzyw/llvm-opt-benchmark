@@ -291,14 +291,13 @@ _ZNSt6vectorImSaImEED2Ev.exit58:                  ; preds = %37, %.body
 
 .preheader.lr.ph:                                 ; preds = %.preheader64
   %.not4968 = icmp eq i64 %7, 0
-  %42 = load ptr, ptr %1, align 8
+  %42 = load ptr, ptr %0, align 8
+  %43 = load ptr, ptr %1, align 8
   br i1 %.not4968, label %._crit_edge72, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
-  %43 = load ptr, ptr %0, align 8
   %umax76 = call i64 @llvm.umax.i64(i64 %8, i64 2)
   %umax78 = call i64 @llvm.umax.i64(i64 %20, i64 2)
-  %invariant.gep = getelementptr i8, ptr %43, i64 -1
   br label %.preheader
 
 44:                                               ; preds = %.preheader65, %44
@@ -311,70 +310,71 @@ _ZNSt6vectorImSaImEED2Ev.exit58:                  ; preds = %37, %.body
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %47 = phi ptr [ %49, %._crit_edge ], [ %33, %.preheader.preheader ]
-  %.04271 = phi i64 [ %59, %._crit_edge ], [ 1, %.preheader.preheader ]
+  %.04271 = phi i64 [ %61, %._crit_edge ], [ 1, %.preheader.preheader ]
   %48 = getelementptr inbounds nuw %"class.std::vector.3", ptr %25, i64 %.04271
   %49 = load ptr, ptr %48, align 8, !tbaa !12
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.04271
+  %50 = getelementptr i8, ptr %42, i64 %.04271
+  %51 = getelementptr i8, ptr %50, i64 -1
   %.pre = load i64, ptr %49, align 8, !tbaa !16
-  br label %60
+  br label %62
 
 ._crit_edge72:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %.preheader64
-  %50 = load i64, ptr %4, align 8, !tbaa !4
-  %51 = getelementptr inbounds nuw %"class.std::vector.3", ptr %25, i64 %50
-  %52 = load i64, ptr %6, align 8, !tbaa !4
-  %53 = load ptr, ptr %51, align 8, !tbaa !12
-  %54 = getelementptr inbounds nuw i64, ptr %53, i64 %52
-  %55 = load i64, ptr %54, align 8, !tbaa !16
+  %52 = load i64, ptr %4, align 8, !tbaa !4
+  %53 = getelementptr inbounds nuw %"class.std::vector.3", ptr %25, i64 %52
+  %54 = load i64, ptr %6, align 8, !tbaa !4
+  %55 = load ptr, ptr %53, align 8, !tbaa !12
+  %56 = getelementptr inbounds nuw i64, ptr %55, i64 %54
+  %57 = load i64, ptr %56, align 8, !tbaa !16
   %.not4.i.i.i.i = icmp eq ptr %25, %26
   br i1 %.not4.i.i.i.i, label %_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge72, %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %58, %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i ], [ %25, %._crit_edge72 ]
-  %56 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !12
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %56, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i, label %57
+  %.05.i.i.i.i = phi ptr [ %60, %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i ], [ %25, %._crit_edge72 ]
+  %58 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !12
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %58, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i, label %59
 
-57:                                               ; preds = %.lr.ph.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %56) #30
+59:                                               ; preds = %.lr.ph.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %58) #30
   br label %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i: ; preds = %57, %.lr.ph.i.i.i.i
-  %58 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i59 = icmp eq ptr %58, %26
+_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i: ; preds = %59, %.lr.ph.i.i.i.i
+  %60 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
+  %.not.i.i.i.i59 = icmp eq ptr %60, %26
   br i1 %.not.i.i.i.i59, label %_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev.exit, label %.lr.ph.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i, %._crit_edge72
   call void @_ZdlPv(ptr noundef nonnull %25) #30
-  ret i64 %55
+  ret i64 %57
 
-._crit_edge:                                      ; preds = %60
-  %59 = add nuw i64 %.04271, 1
-  %exitcond79 = icmp eq i64 %59, %umax78
+._crit_edge:                                      ; preds = %62
+  %61 = add nuw i64 %.04271, 1
+  %exitcond79 = icmp eq i64 %61, %umax78
   br i1 %exitcond79, label %._crit_edge72, label %.preheader, !llvm.loop !22
 
-60:                                               ; preds = %.preheader, %60
-  %61 = phi i64 [ %.pre, %.preheader ], [ %75, %60 ]
-  %.04169 = phi i64 [ 1, %.preheader ], [ %77, %60 ]
-  %62 = getelementptr inbounds nuw i64, ptr %47, i64 %.04169
-  %63 = load i64, ptr %62, align 8, !tbaa !16
-  %64 = add i64 %63, 1
-  %65 = add i64 %.04169, -1
-  %66 = add i64 %61, 1
-  %67 = getelementptr inbounds nuw i64, ptr %47, i64 %65
-  %68 = load i64, ptr %67, align 8, !tbaa !16
-  %69 = load i8, ptr %gep, align 1, !tbaa !23
-  %70 = getelementptr inbounds nuw i8, ptr %42, i64 %65
-  %71 = load i8, ptr %70, align 1, !tbaa !23
-  %72 = icmp ne i8 %69, %71
-  %73 = zext i1 %72 to i64
-  %74 = add i64 %68, %73
-  %minmaxop.i = call i64 @llvm.umin.i64(i64 %64, i64 %66)
-  %75 = call noundef i64 @llvm.umin.i64(i64 %minmaxop.i, i64 %74)
-  %76 = getelementptr inbounds nuw i64, ptr %49, i64 %.04169
-  store i64 %75, ptr %76, align 8, !tbaa !16
-  %77 = add nuw i64 %.04169, 1
-  %exitcond77 = icmp eq i64 %77, %umax76
-  br i1 %exitcond77, label %._crit_edge, label %60, !llvm.loop !24
+62:                                               ; preds = %.preheader, %62
+  %63 = phi i64 [ %.pre, %.preheader ], [ %77, %62 ]
+  %.04169 = phi i64 [ 1, %.preheader ], [ %79, %62 ]
+  %64 = getelementptr inbounds nuw i64, ptr %47, i64 %.04169
+  %65 = load i64, ptr %64, align 8, !tbaa !16
+  %66 = add i64 %65, 1
+  %67 = add i64 %.04169, -1
+  %68 = add i64 %63, 1
+  %69 = getelementptr inbounds nuw i64, ptr %47, i64 %67
+  %70 = load i64, ptr %69, align 8, !tbaa !16
+  %71 = load i8, ptr %51, align 1, !tbaa !23
+  %72 = getelementptr inbounds nuw i8, ptr %43, i64 %67
+  %73 = load i8, ptr %72, align 1, !tbaa !23
+  %74 = icmp ne i8 %71, %73
+  %75 = zext i1 %74 to i64
+  %76 = add i64 %70, %75
+  %minmaxop.i = call i64 @llvm.umin.i64(i64 %66, i64 %68)
+  %77 = call noundef i64 @llvm.umin.i64(i64 %minmaxop.i, i64 %76)
+  %78 = getelementptr inbounds nuw i64, ptr %49, i64 %.04169
+  store i64 %77, ptr %78, align 8, !tbaa !16
+  %79 = add nuw i64 %.04169, 1
+  %exitcond77 = icmp eq i64 %79, %umax76
+  br i1 %exitcond77, label %._crit_edge, label %62, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

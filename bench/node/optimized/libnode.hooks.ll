@@ -663,7 +663,7 @@ do.end4:                                          ; preds = %_ZN4node11Environme
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @_ZN4node33AddEnvironmentCleanupHookInternalEPN2v87IsolateEPFvPvPFvS3_ES3_ES3_(ptr noundef nonnull %isolate, ptr noundef %fun, ptr noundef %arg) local_unnamed_addr #3 {
+define dso_local noalias noundef nonnull ptr @_ZN4node33AddEnvironmentCleanupHookInternalEPN2v87IsolateEPFvPvPFvS3_ES3_ES3_(ptr noundef nonnull %isolate, ptr noundef %fun, ptr noundef %arg) local_unnamed_addr #3 {
 entry:
   %cb.addr.i.i = alloca ptr, align 8
   %arg.addr.i.i = alloca ptr, align 8

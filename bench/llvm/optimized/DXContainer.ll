@@ -1113,8 +1113,8 @@ define dso_local void @_ZN4llvm6object11DXContainer16parsePartOffsetsEv(ptr dead
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #16
   store i32 0, ptr %12, align 4, !tbaa !255
-  %.not80170.not = icmp eq i32 %24, 0
-  br i1 %.not80170.not, label %._crit_edge, label %.lr.ph
+  %.not80162.not = icmp eq i32 %24, 0
+  br i1 %.not80162.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 32
@@ -1133,24 +1133,24 @@ define dso_local void @_ZN4llvm6object11DXContainer16parsePartOffsetsEv(ptr dead
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 704
   br label %39
 
-39:                                               ; preds = %.lr.ph, %_ZN4llvm5ErrorD2Ev.exit134
-  %40 = phi i32 [ 0, %.lr.ph ], [ %154, %_ZN4llvm5ErrorD2Ev.exit134 ]
-  %.063172 = phi i32 [ %27, %.lr.ph ], [ %139, %_ZN4llvm5ErrorD2Ev.exit134 ]
-  %.064171 = phi ptr [ %25, %.lr.ph ], [ %82, %_ZN4llvm5ErrorD2Ev.exit134 ]
+39:                                               ; preds = %.lr.ph, %.critedge84
+  %40 = phi i32 [ 0, %.lr.ph ], [ %154, %.critedge84 ]
+  %.063164 = phi i32 [ %27, %.lr.ph ], [ %139, %.critedge84 ]
+  %.064163 = phi ptr [ %25, %.lr.ph ], [ %82, %.critedge84 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #16
   %.sroa.0.0.copyload.i101 = load ptr, ptr %1, align 8, !tbaa !4
   %.sroa.2.0.copyload.i103 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !9
   store i8 1, ptr %29, align 1, !tbaa !31
   store ptr @.str.2, ptr %14, align 8, !tbaa !34
   store i8 3, ptr %28, align 8, !tbaa !35
-  call fastcc void @_ZL11readIntegerIjEN4llvm5ErrorENS0_9StringRefEPKcRT_NS0_5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.sroa.0.0.copyload.i101, i64 %.sroa.2.0.copyload.i103, ptr noundef nonnull %.064171, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %14)
+  call fastcc void @_ZL11readIntegerIjEN4llvm5ErrorENS0_9StringRefEPKcRT_NS0_5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.sroa.0.0.copyload.i101, i64 %.sroa.2.0.copyload.i103, ptr noundef nonnull %.064163, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %14)
   %41 = load ptr, ptr %0, align 8, !tbaa !46
-  %.not161 = icmp eq ptr %41, null
-  br i1 %.not161, label %_ZN4llvm5ErrorD2Ev.exit, label %.critedge.thread
+  %.not153 = icmp eq ptr %41, null
+  br i1 %.not153, label %_ZN4llvm5ErrorD2Ev.exit, label %.critedge97
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %39
   %42 = load i32, ptr %13, align 4, !tbaa !255
-  %43 = icmp ult i32 %42, %.063172
+  %43 = icmp ult i32 %42, %.063164
   br i1 %43, label %44, label %81
 
 44:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
@@ -1264,10 +1264,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #16
-  br label %.critedge.thread
+  br label %.critedge97
 
 81:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %82 = getelementptr inbounds nuw i8, ptr %.064171, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.064163, i64 4
   %83 = zext i32 %42 to i64
   %84 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !294
   %.not = icmp ugt i64 %84, %83
@@ -1315,7 +1315,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZL11parseFailedRKN4llvm5TwineE.exit108:          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i107, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i106
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #16, !noalias !295
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #16
-  br label %.critedge.thread
+  br label %.critedge97
 
 99:                                               ; preds = %81
   %100 = add i64 %84, -4
@@ -1364,7 +1364,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZL11parseFailedRKN4llvm5TwineE.exit111:          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i110, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i109
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #16, !noalias !305
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #16
-  br label %.critedge.thread
+  br label %.critedge97
 
 115:                                              ; preds = %99
   %116 = load i32, ptr %31, align 8, !tbaa !14
@@ -1405,8 +1405,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %115, %118
   store i8 3, ptr %34, align 8, !tbaa !35
   call fastcc void @_ZL11readIntegerIjEN4llvm5ErrorENS0_9StringRefEPKcRT_NS0_5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.sroa.0.0.copyload.i119, i64 %.sroa.2.0.copyload.i121, ptr noundef nonnull %131, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %21)
   %132 = load ptr, ptr %0, align 8, !tbaa !46
-  %.not162 = icmp eq ptr %132, null
-  br i1 %.not162, label %_ZN4llvm5ErrorD2Ev.exit124, label %.critedge
+  %.not154 = icmp eq ptr %132, null
+  br i1 %.not154, label %_ZN4llvm5ErrorD2Ev.exit124, label %.critedge100
 
 _ZN4llvm5ErrorD2Ev.exit124:                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
   %133 = add i32 %42, 8
@@ -1420,7 +1420,7 @@ _ZN4llvm5ErrorD2Ev.exit124:                       ; preds = %_ZN4llvm23SmallVect
   %138 = sub i64 %.sroa.2.0.copyload.i127, %.sroa.speculated4.i130
   %.sroa.speculated.i131 = tail call i64 @llvm.umin.i64(i64 %138, i64 %136)
   %139 = add i32 %135, %42
-  switch i32 %129, label %_ZN4llvm5ErrorD2Ev.exit134 [
+  switch i32 %129, label %.critedge84 [
     i32 1, label %140
     i32 2, label %142
     i32 3, label %144
@@ -1433,50 +1433,46 @@ _ZN4llvm5ErrorD2Ev.exit124:                       ; preds = %_ZN4llvm23SmallVect
 140:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit124
   tail call void @_ZN4llvm6object11DXContainer15parseDXILHeaderENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr %137, i64 %.sroa.speculated.i131)
   %141 = load ptr, ptr %0, align 8, !tbaa !46
-  %.not169 = icmp eq ptr %141, null
-  br i1 %.not169, label %_ZN4llvm5ErrorD2Ev.exit134, label %.critedge
+  %.not161 = icmp eq ptr %141, null
+  br i1 %.not161, label %.critedge84, label %.critedge100
 
 142:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit124
   tail call void @_ZN4llvm6object11DXContainer23parseShaderFeatureFlagsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr %137, i64 %.sroa.speculated.i131)
   %143 = load ptr, ptr %0, align 8, !tbaa !46
-  %.not168 = icmp eq ptr %143, null
-  br i1 %.not168, label %_ZN4llvm5ErrorD2Ev.exit134, label %.critedge
+  %.not160 = icmp eq ptr %143, null
+  br i1 %.not160, label %.critedge84, label %.critedge100
 
 144:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit124
   tail call void @_ZN4llvm6object11DXContainer9parseHashENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr %137, i64 %.sroa.speculated.i131)
   %145 = load ptr, ptr %0, align 8, !tbaa !46
-  %.not167 = icmp eq ptr %145, null
-  br i1 %.not167, label %_ZN4llvm5ErrorD2Ev.exit134, label %.critedge
+  %.not159 = icmp eq ptr %145, null
+  br i1 %.not159, label %.critedge84, label %.critedge100
 
 146:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit124
   tail call void @_ZN4llvm6object11DXContainer12parsePSVInfoENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr %137, i64 %.sroa.speculated.i131)
   %147 = load ptr, ptr %0, align 8, !tbaa !46
-  %.not166 = icmp eq ptr %147, null
-  br i1 %.not166, label %_ZN4llvm5ErrorD2Ev.exit134, label %.critedge
+  %.not158 = icmp eq ptr %147, null
+  br i1 %.not158, label %.critedge84, label %.critedge100
 
 148:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit124
   tail call void @_ZN4llvm6object7DirectX9Signature10initializeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %38, ptr %137, i64 %.sroa.speculated.i131)
   %149 = load ptr, ptr %0, align 8, !tbaa !46
-  %.not165 = icmp eq ptr %149, null
-  br i1 %.not165, label %_ZN4llvm5ErrorD2Ev.exit134, label %.critedge
+  %.not157 = icmp eq ptr %149, null
+  br i1 %.not157, label %.critedge84, label %.critedge100
 
 150:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit124
   tail call void @_ZN4llvm6object7DirectX9Signature10initializeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %37, ptr %137, i64 %.sroa.speculated.i131)
   %151 = load ptr, ptr %0, align 8, !tbaa !46
-  %.not164 = icmp eq ptr %151, null
-  br i1 %.not164, label %_ZN4llvm5ErrorD2Ev.exit134, label %.critedge
+  %.not156 = icmp eq ptr %151, null
+  br i1 %.not156, label %.critedge84, label %.critedge100
 
 152:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit124
   tail call void @_ZN4llvm6object7DirectX9Signature10initializeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %36, ptr %137, i64 %.sroa.speculated.i131)
   %153 = load ptr, ptr %0, align 8, !tbaa !46
-  %.not163 = icmp eq ptr %153, null
-  br i1 %.not163, label %_ZN4llvm5ErrorD2Ev.exit134, label %.critedge
+  %.not155 = icmp eq ptr %153, null
+  br i1 %.not155, label %.critedge84, label %.critedge100
 
-.critedge:                                        ; preds = %152, %150, %148, %146, %144, %142, %140, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #16
-  br label %.critedge.thread
-
-_ZN4llvm5ErrorD2Ev.exit134:                       ; preds = %152, %150, %148, %146, %144, %142, %140, %_ZN4llvm5ErrorD2Ev.exit124
+.critedge84:                                      ; preds = %152, %150, %148, %146, %144, %142, %140, %_ZN4llvm5ErrorD2Ev.exit124
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #16
   %154 = add nuw i32 %40, 1
@@ -1485,12 +1481,16 @@ _ZN4llvm5ErrorD2Ev.exit134:                       ; preds = %152, %150, %148, %1
   %.not80 = icmp ult i32 %154, %155
   br i1 %.not80, label %39, label %._crit_edge, !llvm.loop !316
 
-.critedge.thread:                                 ; preds = %39, %_ZL11parseFailedRKN4llvm5TwineE.exit111, %_ZL11parseFailedRKN4llvm5TwineE.exit108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.critedge
+.critedge100:                                     ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, %152, %150, %148, %146, %144, %142, %140
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #16
+  br label %.critedge97
+
+.critedge97:                                      ; preds = %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZL11parseFailedRKN4llvm5TwineE.exit108, %_ZL11parseFailedRKN4llvm5TwineE.exit111, %.critedge100
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #16
-  br label %.critedge100
+  br label %.critedge99
 
-._crit_edge:                                      ; preds = %_ZN4llvm5ErrorD2Ev.exit134, %2
+._crit_edge:                                      ; preds = %.critedge84, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #16
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 696
@@ -1546,21 +1546,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZL11parseFailedRKN4llvm5TwineE.exit143:          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i142, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i141
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16, !noalias !318
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #16
-  br label %.critedge100
+  br label %.critedge99
 
 178:                                              ; preds = %160
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 98
   %180 = load i16, ptr %179, align 2, !tbaa !328
   tail call void @_ZN4llvm6object7DirectX14PSVRuntimeInfo5parseEt(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(520) %156, i16 noundef zeroext %180)
   %181 = load ptr, ptr %0, align 8, !tbaa !46
-  %.not160 = icmp eq ptr %181, null
-  br i1 %.not160, label %_ZN4llvm5ErrorD2Ev.exit145, label %.critedge100
+  %.not152 = icmp eq ptr %181, null
+  br i1 %.not152, label %_ZN4llvm5ErrorD2Ev.exit145, label %.critedge99
 
 _ZN4llvm5ErrorD2Ev.exit145:                       ; preds = %._crit_edge, %178
   store ptr null, ptr %0, align 8, !tbaa !46
-  br label %.critedge100
+  br label %.critedge99
 
-.critedge100:                                     ; preds = %.critedge.thread, %178, %_ZN4llvm5ErrorD2Ev.exit145, %_ZL11parseFailedRKN4llvm5TwineE.exit143
+.critedge99:                                      ; preds = %.critedge97, %178, %_ZN4llvm5ErrorD2Ev.exit145, %_ZL11parseFailedRKN4llvm5TwineE.exit143
   ret void
 }
 

@@ -75,9 +75,9 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
   br label %.thread
 
 .thread:                                          ; preds = %39, %42, %40
-  %.08041373 = phi ptr [ %7, %42 ], [ %7, %40 ], [ @.str, %39 ]
+  %.08041375 = phi ptr [ %7, %42 ], [ %7, %40 ], [ @.str, %39 ]
   %.0805 = phi i64 [ %43, %42 ], [ %8, %40 ], [ 0, %39 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.08041373, i64 %.0805
+  %44 = getelementptr inbounds nuw i8, ptr %.08041375, i64 %.0805
   %45 = and i32 %4, 65536
   %.not1264 = icmp eq i32 %45, 0
   %46 = and i32 %4, 131072
@@ -87,9 +87,9 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
 
 48:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #7
-  br i1 %.not1264, label %49, label %.thread1374
+  br i1 %.not1264, label %49, label %.thread1376
 
-.thread1374:                                      ; preds = %48
+.thread1376:                                      ; preds = %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #7
   br label %.loopexit
 
@@ -115,11 +115,7 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
   %57 = zext i16 %56 to i32
   %58 = call ptr @php_pcre2_match_data_create(i32 noundef %57, ptr noundef nonnull %16) #7
   %.not1266 = icmp eq ptr %58, null
-  br i1 %.not1266, label %.thread1378, label %59
-
-.thread1378:                                      ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #7
-  br label %.loopexit
+  br i1 %.not1266, label %.critedge1339, label %59
 
 59:                                               ; preds = %52
   %60 = zext i16 %54 to i32
@@ -166,12 +162,12 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
   %.0794 = phi i64 [ %76, %75 ], [ %2, %73 ], [ 0, %72 ]
   %77 = and i32 %4, 1073741824
   %78 = icmp eq i32 %77, 0
-  %or.cond1339 = and i1 %78, %28
-  br i1 %or.cond1339, label %79, label %84
+  %or.cond1341 = and i1 %78, %28
+  br i1 %or.cond1341, label %79, label %84
 
 79:                                               ; preds = %.thread1380
   %80 = getelementptr inbounds nuw i8, ptr %.1802, i64 88
-  %81 = call i32 @_pcre2_valid_utf_8(ptr noundef nonnull %.08041373, i64 noundef %.0805, ptr noundef nonnull %80) #7
+  %81 = call i32 @_pcre2_valid_utf_8(ptr noundef nonnull %.08041375, i64 noundef %.0805, ptr noundef nonnull %80) #7
   %.not1268 = icmp eq i32 %81, 0
   br i1 %.not1268, label %84, label %82
 
@@ -278,8 +274,8 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
 124:                                              ; preds = %123
   %125 = icmp ne i32 %.0813, 0
   %.not1327 = icmp ult i64 %.0795, %.0794
-  %or.cond1340 = select i1 %125, i1 %.not1327, i1 false
-  br i1 %or.cond1340, label %126, label %.thread1801
+  %or.cond1342 = select i1 %125, i1 %.not1327, i1 false
+  br i1 %or.cond1342, label %126, label %.thread1801
 
 .thread1801:                                      ; preds = %124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #7
@@ -296,10 +292,10 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
 131:                                              ; preds = %126
   %132 = load i16, ptr %114, align 2, !tbaa !32
   %.off = add i16 %132, -3
-  %switch1353 = icmp ult i16 %.off, 3
+  %switch1355 = icmp ult i16 %.off, 3
   %133 = icmp ult i64 %127, %.0794
-  %or.cond1354 = select i1 %switch1353, i1 %133, i1 false
-  br i1 %or.cond1354, label %134, label %140
+  %or.cond1356 = select i1 %switch1355, i1 %133, i1 false
+  br i1 %or.cond1356, label %134, label %140
 
 134:                                              ; preds = %131
   %135 = getelementptr inbounds nuw i8, ptr %.07931382, i64 %127
@@ -374,20 +370,20 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
   %169 = load i64, ptr %66, align 8, !tbaa !14
   %170 = icmp ult i64 %168, %169
   %171 = icmp ult i64 %169, %.0795
-  %or.cond1341 = select i1 %170, i1 true, i1 %171
-  br i1 %or.cond1341, label %.thread1728, label %172
+  %or.cond1343 = select i1 %170, i1 true, i1 %171
+  br i1 %or.cond1343, label %.thread1728, label %172
 
 172:                                              ; preds = %167
   %173 = icmp eq i64 %.sroa.0335.0, %169
   %174 = icmp eq i64 %.sroa.5.0, %168
-  %or.cond1342 = select i1 %173, i1 %174, i1 false
-  br i1 %or.cond1342, label %175, label %177
+  %or.cond1344 = select i1 %173, i1 %174, i1 false
+  br i1 %or.cond1344, label %175, label %177
 
 175:                                              ; preds = %172
   %176 = icmp ne i64 %.sroa.0335.0, %.sroa.5.0
   %.not1325 = icmp eq i64 %.sroa.8.0, %.0795
-  %or.cond1343 = select i1 %176, i1 true, i1 %.not1325
-  br i1 %or.cond1343, label %.thread1728, label %.thread1685
+  %or.cond1345 = select i1 %176, i1 true, i1 %.not1325
+  br i1 %or.cond1345, label %.thread1728, label %.thread1685
 
 177:                                              ; preds = %172
   %178 = icmp eq i32 %.0811, 2147483647
@@ -396,7 +392,7 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
 179:                                              ; preds = %177
   %180 = add nsw i32 %.0811, 1
   %181 = icmp eq i32 %.1807, 0
-  %spec.select1344 = select i1 %181, i32 %67, i32 %.1807
+  %spec.select1346 = select i1 %181, i32 %67, i32 %.1807
   %182 = sub i64 %169, %.0795
   br i1 %.not1265, label %183, label %.thread1423
 
@@ -425,8 +421,8 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
 .thread1423:                                      ; preds = %187, %179
   %.9866 = phi i64 [ %.3860, %179 ], [ %188, %187 ]
   store i64 %.3920, ptr %102, align 8, !tbaa !14
-  store i32 %spec.select1344, ptr %103, align 8, !tbaa !33
-  store ptr %.08041373, ptr %13, align 8, !tbaa !34
+  store i32 %spec.select1346, ptr %103, align 8, !tbaa !33
+  store ptr %.08041375, ptr %13, align 8, !tbaa !34
   %194 = and i32 %.0816, 32768
   %.not1271 = icmp eq i32 %194, 0
   br i1 %.not1271, label %.thread1423..preheader1948_crit_edge, label %207
@@ -438,8 +434,8 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
   %197 = add i64 %182, %.3920
   %198 = sub nuw i64 %.3980, %182
   store i64 %197, ptr %102, align 8, !tbaa !14
-  store i32 %spec.select1344, ptr %103, align 8, !tbaa !33
-  store ptr %.08041373, ptr %13, align 8, !tbaa !34
+  store i32 %spec.select1346, ptr %103, align 8, !tbaa !33
+  store ptr %.08041375, ptr %13, align 8, !tbaa !34
   %199 = and i32 %.0816, 32768
   %.not12712309 = icmp eq i32 %199, 0
   br i1 %.not12712309, label %.thread1423..preheader1948_crit_edge, label %.thread2318
@@ -456,8 +452,8 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
 .thread1423.thread:                               ; preds = %191
   %201 = sub i64 %182, %.3980
   store i64 %.3920, ptr %102, align 8, !tbaa !14
-  store i32 %spec.select1344, ptr %103, align 8, !tbaa !33
-  store ptr %.08041373, ptr %13, align 8, !tbaa !34
+  store i32 %spec.select1346, ptr %103, align 8, !tbaa !33
+  store ptr %.08041375, ptr %13, align 8, !tbaa !34
   %202 = and i32 %.0816, 32768
   %.not12711858 = icmp eq i32 %202, 0
   br i1 %.not12711858, label %.preheader1948, label %.thread1865
@@ -473,7 +469,7 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
   %204 = and i32 %.0816, 2048
   %.not1293 = icmp eq i32 %204, 0
   %205 = icmp eq i32 %203, 0
-  %spec.select1349 = select i1 %.not1293, i32 -49, i32 -55
+  %spec.select1351 = select i1 %.not1293, i32 -49, i32 -55
   %206 = and i32 %.0816, 1024
   %.not1313 = icmp eq i32 %206, 0
   br label %222
@@ -511,13 +507,13 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
 
 218:                                              ; preds = %.thread2318
   %219 = getelementptr inbounds nuw i8, ptr %9, i64 %.992623122325
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %219, ptr nonnull align 1 %.08041373, i64 %.0805, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %219, ptr nonnull align 1 %.08041375, i64 %.0805, i1 false)
   %220 = add i64 %.992623122325, %.0805
   %221 = sub nuw i64 %.998623102326, %.0805
   br label %.thread1431
 
 222:                                              ; preds = %.backedge, %.preheader1948
-  %223 = phi ptr [ %.08041373, %.preheader1948 ], [ %.pre, %.backedge ]
+  %223 = phi ptr [ %.08041375, %.preheader1948 ], [ %.pre, %.backedge ]
   %.11082 = phi i64 [ 0, %.preheader1948 ], [ %.210832344, %.backedge ]
   %.11075 = phi i64 [ 0, %.preheader1948 ], [ %.210762345, %.backedge ]
   %.01072 = phi i32 [ 0, %.preheader1948 ], [ %.110732346, %.backedge ]
@@ -527,7 +523,7 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
   %.3854 = phi ptr [ %.0851, %.preheader1948 ], [ %.48552350, %.backedge ]
   %.15847 = phi i32 [ %.15847.ph, %.preheader1948 ], [ %.168482351, %.backedge ]
   %.3826 = phi i32 [ %.0823, %.preheader1948 ], [ %.48272352, %.backedge ]
-  %.5 = phi i32 [ %spec.select1344, %.preheader1948 ], [ %.62353, %.backedge ]
+  %.5 = phi i32 [ %spec.select1346, %.preheader1948 ], [ %.62353, %.backedge ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #7
   call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %20) #7
   %.not1272 = icmp ult ptr %223, %.3854
@@ -563,8 +559,8 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
   %238 = icmp eq i8 %236, 92
   %239 = getelementptr inbounds i8, ptr %.3854, i64 -1
   %240 = icmp ult ptr %223, %239
-  %or.cond1346 = select i1 %238, i1 %240, i1 false
-  br i1 %or.cond1346, label %241, label %647
+  %or.cond1348 = select i1 %238, i1 %240, i1 false
+  br i1 %or.cond1348, label %241, label %647
 
 241:                                              ; preds = %237
   %242 = getelementptr inbounds nuw i8, ptr %223, i64 1
@@ -939,8 +935,8 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #7
   %409 = call i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %23) #7
   %410 = icmp ne i32 %409, -49
-  %or.cond1347 = or i1 %.not1293, %410
-  br i1 %or.cond1347, label %415, label %411
+  %or.cond1349 = or i1 %.not1293, %410
+  br i1 %or.cond1349, label %415, label %411
 
 411:                                              ; preds = %408
   %412 = load i16, ptr %105, align 8, !tbaa !18
@@ -977,7 +973,7 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
 
 430:                                              ; preds = %421
   %431 = icmp slt i32 %.1211022124, 0
-  %spec.select1348 = select i1 %431, i32 %428, i32 %.1211022124
+  %spec.select1350 = select i1 %431, i32 %428, i32 %.1211022124
   %432 = shl nuw nsw i32 %428, 1
   %433 = zext nneg i32 %432 to i64
   %434 = getelementptr inbounds nuw i64, ptr %66, i64 %433
@@ -986,7 +982,7 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not1307, label %select.unfold1501, label %.thread1511
 
 select.unfold1501:                                ; preds = %430, %421
-  %.161106.ph = phi i32 [ %.1211022124, %421 ], [ %spec.select1348, %430 ]
+  %.161106.ph = phi i32 [ %.1211022124, %421 ], [ %spec.select1350, %430 ]
   %436 = getelementptr inbounds nuw i8, ptr %.010892125, i64 %420
   %.not1306 = icmp ugt ptr %436, %419
   br i1 %.not1306, label %._crit_edge, label %421
@@ -1029,7 +1025,7 @@ select.unfold1501:                                ; preds = %430, %421
 
 449:                                              ; preds = %446
   %450 = icmp eq i32 %447, -49
-  %.11 = select i1 %450, i32 %spec.select1349, i32 %447
+  %.11 = select i1 %450, i32 %spec.select1351, i32 %447
   %.not1309 = icmp eq i32 %.11, -55
   br i1 %.not1309, label %451, label %.thread1655
 
@@ -1158,8 +1154,8 @@ select.unfold1501:                                ; preds = %430, %421
 
 514:                                              ; preds = %247
   %515 = icmp eq i8 %236, 92
-  %or.cond1351 = and i1 %.not1274, %515
-  br i1 %or.cond1351, label %516, label %647
+  %or.cond1353 = and i1 %.not1274, %515
+  br i1 %or.cond1353, label %516, label %647
 
 516:                                              ; preds = %514
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #7
@@ -1804,7 +1800,7 @@ select.unfold1501:                                ; preds = %430, %421
   %.51 = phi i32 [ 0, %814 ], [ 0, %830 ], [ 1, %828 ]
   %835 = icmp slt i32 %813, 0
   %836 = and i32 %.0816, -257
-  %spec.select1352 = select i1 %835, i32 %836, i32 %.0816
+  %spec.select1354 = select i1 %835, i32 %836, i32 %.0816
   br label %.thread1680
 
 837:                                              ; preds = %810
@@ -1830,7 +1826,7 @@ select.unfold1501:                                ; preds = %430, %421
   %.50967 = phi i64 [ %.45962, %811 ], [ %.45962, %808 ], [ %.45962, %.thread1647 ], [ %.51968, %.thread1670 ], [ %.45962, %837 ], [ %.45962, %846 ]
   %.52909 = phi i64 [ %.46903, %811 ], [ %.46903, %808 ], [ %.46903, %.thread1647 ], [ %.53910, %.thread1670 ], [ %.46903, %837 ], [ %849, %846 ]
   %.50 = phi i32 [ 0, %811 ], [ %.45, %808 ], [ %.45, %.thread1647 ], [ %.51, %.thread1670 ], [ %.45, %837 ], [ %.45, %846 ]
-  %.2818 = phi i32 [ %.0816, %811 ], [ %.0816, %808 ], [ %.0816, %.thread1647 ], [ %spec.select1352, %.thread1670 ], [ %.0816, %837 ], [ %.0816, %846 ]
+  %.2818 = phi i32 [ %.0816, %811 ], [ %.0816, %808 ], [ %.0816, %.thread1647 ], [ %spec.select1354, %.thread1670 ], [ %.0816, %837 ], [ %.0816, %846 ]
   %850 = load i64, ptr %66, align 8, !tbaa !14
   %851 = load i64, ptr %101, align 8, !tbaa !14
   %.not1324 = icmp eq i64 %850, %851
@@ -2040,13 +2036,17 @@ select.unfold1501:                                ; preds = %430, %421
   %.16 = phi i32 [ %.2808, %.loopexit1953.loopexit ], [ -35, %.loopexit1953.loopexit2675 ], [ -57, %.thread1655 ]
   %892 = load ptr, ptr %13, align 8, !tbaa !34
   %893 = ptrtoint ptr %892 to i64
-  %894 = ptrtoint ptr %.08041373 to i64
+  %894 = ptrtoint ptr %.08041375 to i64
   %895 = sub i64 %893, %894
   store i64 %895, ptr %10, align 8, !tbaa !14
   br label %.loopexit1950
 
-.loopexit:                                        ; preds = %.thread1655, %.thread1378, %.thread1374, %889, %890, %72, %39, %35, %49
-  %.0 = phi i32 [ -48, %49 ], [ -34, %35 ], [ -51, %39 ], [ -51, %72 ], [ %.0806, %890 ], [ %.0806, %889 ], [ -51, %.thread1374 ], [ -48, %.thread1378 ], [ -48, %.thread1655 ]
+.critedge1339:                                    ; preds = %52
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #7
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.thread1655, %.thread1376, %889, %890, %72, %.critedge1339, %39, %35, %49
+  %.0 = phi i32 [ -48, %49 ], [ -34, %35 ], [ -51, %39 ], [ -48, %.critedge1339 ], [ -51, %72 ], [ %.0806, %890 ], [ %.0806, %889 ], [ -51, %.thread1376 ], [ -48, %.thread1655 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %12) #7
@@ -2759,7 +2759,7 @@ define internal fastcc i64 @do_case_copy(ptr noundef %0, i64 noundef range(i64 1
   %9 = alloca [1 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %8) #7
   %10 = load i32, ptr %3, align 4, !tbaa !36
-  switch i32 %10, label %.thread [
+  switch i32 %10, label %.critedge [
     i32 1, label %11
     i32 2, label %11
     i32 3, label %11
@@ -2776,11 +2776,11 @@ define internal fastcc i64 @do_case_copy(ptr noundef %0, i64 noundef range(i64 1
   %16 = tail call i64 %5(ptr noundef %0, i64 noundef %1, ptr noundef %0, i64 noundef %2, i32 noundef %10, ptr noundef %6) #7
   %17 = load i32, ptr %3, align 4, !tbaa !36
   %18 = icmp eq i32 %17, 3
-  br i1 %18, label %19, label %.thread
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %15
   store i32 1, ptr %3, align 4, !tbaa !36
-  br label %.thread
+  br label %.critedge
 
 20:                                               ; preds = %11, %7
   %.0126 = phi i32 [ 1, %7 ], [ %10, %11 ]
@@ -2843,8 +2843,8 @@ define internal fastcc i64 @do_case_copy(ptr noundef %0, i64 noundef range(i64 1
   %53 = sub i64 %1, %52
   %54 = sub i64 %2, %53
   %55 = call i64 %5(ptr noundef nonnull %8, i64 noundef %52, ptr noundef nonnull %0, i64 noundef %52, i32 noundef %.0126, ptr noundef %6) #7
-  %.not131145 = icmp eq i64 %55, -1
-  br i1 %.not131145, label %.thread, label %.lr.ph.preheader
+  %.not131143 = icmp eq i64 %55, -1
+  br i1 %.not131143, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %49
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 %52
@@ -2852,19 +2852,19 @@ define internal fastcc i64 @do_case_copy(ptr noundef %0, i64 noundef range(i64 1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %57 = phi i64 [ %62, %59 ], [ %55, %.lr.ph.preheader ]
-  %.0115147 = phi i64 [ %57, %59 ], [ %52, %.lr.ph.preheader ]
-  %.0121146 = phi ptr [ %60, %59 ], [ %56, %.lr.ph.preheader ]
-  %.not = icmp ule i64 %57, %.0115147
+  %.0115145 = phi i64 [ %57, %59 ], [ %52, %.lr.ph.preheader ]
+  %.0121144 = phi ptr [ %60, %59 ], [ %56, %.lr.ph.preheader ]
+  %.not = icmp ule i64 %57, %.0115145
   %58 = icmp ugt i64 %57, %54
   %or.cond137 = or i1 %.not, %58
   br i1 %or.cond137, label %63, label %59
 
 59:                                               ; preds = %.lr.ph
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 %57
-  %61 = call ptr @_pcre2_memmove8(ptr noundef nonnull %60, ptr noundef %.0121146, i64 noundef %53) #7
+  %61 = call ptr @_pcre2_memmove8(ptr noundef nonnull %60, ptr noundef %.0121144, i64 noundef %53) #7
   %62 = call i64 %5(ptr noundef nonnull %8, i64 noundef %52, ptr noundef nonnull %0, i64 noundef %57, i32 noundef %.0126, ptr noundef %6) #7
   %.not131 = icmp eq i64 %62, -1
-  br i1 %.not131, label %.thread, label %.lr.ph
+  br i1 %.not131, label %.critedge, label %.lr.ph
 
 63:                                               ; preds = %.lr.ph
   br i1 %21, label %64, label %69
@@ -2874,7 +2874,7 @@ define internal fastcc i64 @do_case_copy(ptr noundef %0, i64 noundef range(i64 1
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 %57
-  %67 = call ptr @_pcre2_memmove8(ptr noundef nonnull %66, ptr noundef %.0121146, i64 noundef %53) #7
+  %67 = call ptr @_pcre2_memmove8(ptr noundef nonnull %66, ptr noundef %.0121144, i64 noundef %53) #7
   br label %68
 
 68:                                               ; preds = %65, %64
@@ -2887,13 +2887,13 @@ define internal fastcc i64 @do_case_copy(ptr noundef %0, i64 noundef range(i64 1
   %71 = select i1 %.not, ptr %70, ptr %9
   %72 = sub i64 %2, %57
   %73 = select i1 %.not, i64 %72, i64 0
-  %74 = call i64 %5(ptr noundef %.0121146, i64 noundef %53, ptr noundef nonnull %71, i64 noundef %73, i32 noundef %.0125, ptr noundef %6) #7
+  %74 = call i64 %5(ptr noundef %.0121144, i64 noundef %53, ptr noundef nonnull %71, i64 noundef %73, i32 noundef %.0125, ptr noundef %6) #7
   %.not133 = icmp eq i64 %74, -1
-  br i1 %.not133, label %.thread139, label %75
+  br i1 %.not133, label %.thread, label %75
 
-.thread139:                                       ; preds = %69
+.thread:                                          ; preds = %69
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #7
-  br label %.thread
+  br label %.critedge
 
 75:                                               ; preds = %69
   %76 = call i64 @llvm.umax.i64(i64 %74, i64 %53)
@@ -2905,10 +2905,10 @@ define internal fastcc i64 @do_case_copy(ptr noundef %0, i64 noundef range(i64 1
 77:                                               ; preds = %75, %68
   %.0122 = phi i64 [ %53, %68 ], [ %.2124, %75 ]
   %spec.select = call i64 @llvm.uadd.sat.i64(i64 %57, i64 %.0122)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %59, %49, %.thread139, %77, %15, %19, %7
-  %.0 = phi i64 [ 0, %7 ], [ %16, %19 ], [ %16, %15 ], [ %spec.select, %77 ], [ -1, %.thread139 ], [ -1, %49 ], [ -1, %59 ]
+.critedge:                                        ; preds = %59, %49, %.thread, %77, %15, %19, %7
+  %.0 = phi i64 [ 0, %7 ], [ %16, %19 ], [ %16, %15 ], [ %spec.select, %77 ], [ -1, %.thread ], [ -1, %49 ], [ -1, %59 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8) #7
   ret i64 %.0
 }

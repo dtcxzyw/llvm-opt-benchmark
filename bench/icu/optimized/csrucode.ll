@@ -102,25 +102,25 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_UTF_16_BE5ma
 
 21:                                               ; preds = %.lr.ph
   %22 = icmp eq i16 %18, 0
-  br i1 %22, label %23, label %25
+  br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
-  %24 = add nsw i32 %.036, -10
+  %24 = tail call i32 @llvm.smax.i32(i32 %.036, i32 10)
+  %25 = add nsw i32 %24, -10
   br label %_ZN6icu_77L16adjustConfidenceEDsi.exit
 
-25:                                               ; preds = %21
-  %26 = add i16 %18, -32
-  %or.cond.i = icmp ult i16 %26, 224
-  %27 = icmp eq i16 %18, 10
-  %or.cond5.i = or i1 %27, %or.cond.i
-  %28 = add nuw nsw i32 %.036, 10
-  %spec.select.i = select i1 %or.cond5.i, i32 %28, i32 %.036
+26:                                               ; preds = %21
+  %27 = add i16 %18, -32
+  %or.cond.i = icmp ult i16 %27, 224
+  %28 = icmp eq i16 %18, 10
+  %or.cond5.i = or i1 %28, %or.cond.i
+  %29 = add nuw nsw i32 %.036, 10
+  %spec.select.i = select i1 %or.cond5.i, i32 %29, i32 %.036
   br label %_ZN6icu_77L16adjustConfidenceEDsi.exit
 
-_ZN6icu_77L16adjustConfidenceEDsi.exit:           ; preds = %23, %25
-  %.0.i = phi i32 [ %24, %23 ], [ %spec.select.i, %25 ]
-  %29 = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 0)
-  %30 = tail call noundef range(i32 0, 101) i32 @llvm.umin.i32(i32 %29, i32 100)
+_ZN6icu_77L16adjustConfidenceEDsi.exit:           ; preds = %23, %26
+  %.0.i = phi i32 [ %25, %23 ], [ %spec.select.i, %26 ]
+  %30 = tail call noundef range(i32 0, 101) i32 @llvm.umin.i32(i32 %.0.i, i32 100)
   switch i32 %30, label %31 [
     i32 100, label %.thread
     i32 0, label %.thread
@@ -204,25 +204,25 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_UTF_16_LE5ma
 
 31:                                               ; preds = %.lr.ph
   %32 = icmp eq i16 %18, 0
-  br i1 %32, label %33, label %35
+  br i1 %32, label %33, label %36
 
 33:                                               ; preds = %31
-  %34 = add nsw i32 %.039, -10
+  %34 = tail call i32 @llvm.smax.i32(i32 %.039, i32 10)
+  %35 = add nsw i32 %34, -10
   br label %_ZN6icu_77L16adjustConfidenceEDsi.exit
 
-35:                                               ; preds = %31
-  %36 = add i16 %18, -32
-  %or.cond.i = icmp ult i16 %36, 224
-  %37 = icmp eq i16 %18, 10
-  %or.cond5.i = or i1 %37, %or.cond.i
-  %38 = add nuw nsw i32 %.039, 10
-  %spec.select.i = select i1 %or.cond5.i, i32 %38, i32 %.039
+36:                                               ; preds = %31
+  %37 = add i16 %18, -32
+  %or.cond.i = icmp ult i16 %37, 224
+  %38 = icmp eq i16 %18, 10
+  %or.cond5.i = or i1 %38, %or.cond.i
+  %39 = add nuw nsw i32 %.039, 10
+  %spec.select.i = select i1 %or.cond5.i, i32 %39, i32 %.039
   br label %_ZN6icu_77L16adjustConfidenceEDsi.exit
 
-_ZN6icu_77L16adjustConfidenceEDsi.exit:           ; preds = %33, %35
-  %.0.i = phi i32 [ %34, %33 ], [ %spec.select.i, %35 ]
-  %39 = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 0)
-  %40 = tail call noundef range(i32 0, 101) i32 @llvm.umin.i32(i32 %39, i32 100)
+_ZN6icu_77L16adjustConfidenceEDsi.exit:           ; preds = %33, %36
+  %.0.i = phi i32 [ %35, %33 ], [ %spec.select.i, %36 ]
+  %40 = tail call noundef range(i32 0, 101) i32 @llvm.umin.i32(i32 %.0.i, i32 100)
   switch i32 %40, label %41 [
     i32 100, label %.thread
     i32 0, label %.thread

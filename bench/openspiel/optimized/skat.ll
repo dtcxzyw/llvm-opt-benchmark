@@ -2216,12 +2216,11 @@ _ZNSt5arrayIN10open_spiel4skat12CardLocationELm32EE4fillERKS2_.exit: ; preds = %
   %70 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
-  br label %81
+  br label %82
 
 71:                                               ; preds = %61
   %72 = landingpad { ptr, i32 }
           cleanup
-  %invariant.gep = getelementptr i8, ptr %0, i64 -16
   br label %73
 
 73:                                               ; preds = %_ZN10open_spiel4skat5TrickD2Ev.exit.i, %71
@@ -2233,23 +2232,24 @@ _ZNSt5arrayIN10open_spiel4skat12CardLocationELm32EE4fillERKS2_.exit: ; preds = %
   br i1 %.not.i.i.i.i.i26, label %_ZN10open_spiel4skat5TrickD2Ev.exit.i, label %75
 
 75:                                               ; preds = %73
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx28
-  %76 = load ptr, ptr %gep, align 8
-  %77 = ptrtoint ptr %76 to i64
-  %78 = ptrtoint ptr %74 to i64
-  %79 = sub i64 %77, %78
-  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %79) #31
+  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx28
+  %76 = getelementptr inbounds i8, ptr %.ptr, i64 -16
+  %77 = load ptr, ptr %76, align 8
+  %78 = ptrtoint ptr %77 to i64
+  %79 = ptrtoint ptr %74 to i64
+  %80 = sub i64 %78, %79
+  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %80) #31
   br label %_ZN10open_spiel4skat5TrickD2Ev.exit.i
 
 _ZN10open_spiel4skat5TrickD2Ev.exit.i:            ; preds = %75, %73
-  %80 = icmp eq i64 %.add29, 224
-  br i1 %80, label %_ZNSt5arrayIN10open_spiel4skat5TrickELm10EED2Ev.exit, label %73
+  %81 = icmp eq i64 %.add29, 224
+  br i1 %81, label %_ZNSt5arrayIN10open_spiel4skat5TrickELm10EED2Ev.exit, label %73
 
 _ZNSt5arrayIN10open_spiel4skat5TrickELm10EED2Ev.exit: ; preds = %_ZN10open_spiel4skat5TrickD2Ev.exit.i
   call void @_ZN10open_spiel5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #28
-  br label %81
+  br label %82
 
-81:                                               ; preds = %_ZNSt5arrayIN10open_spiel4skat5TrickELm10EED2Ev.exit, %69
+82:                                               ; preds = %_ZNSt5arrayIN10open_spiel4skat5TrickELm10EED2Ev.exit, %69
   %.pn.pn.pn = phi { ptr, i32 } [ %72, %_ZNSt5arrayIN10open_spiel4skat5TrickELm10EED2Ev.exit ], [ %70, %69 ]
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -8168,7 +8168,7 @@ define linkonce_odr void @_ZN10open_spiel4skat9SkatStateD2Ev(ptr noundef nonnull
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %4
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.preheader, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -8177,32 +8177,32 @@ define linkonce_odr void @_ZN10open_spiel4skat9SkatStateD2Ev(ptr noundef nonnull
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #31
+  br label %_ZNSt6vectorIdSaIdEED2Ev.exit.preheader
+
+_ZNSt6vectorIdSaIdEED2Ev.exit.preheader:          ; preds = %1, %4
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
-  %invariant.gep = getelementptr i8, ptr %0, i64 -16
-  br label %10
-
-10:                                               ; preds = %_ZN10open_spiel4skat5TrickD2Ev.exit.i, %_ZNSt6vectorIdSaIdEED2Ev.exit
-  %.idx = phi i64 [ 544, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %.add, %_ZN10open_spiel4skat5TrickD2Ev.exit.i ]
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.preheader, %_ZN10open_spiel4skat5TrickD2Ev.exit.i
+  %.idx = phi i64 [ %.add, %_ZN10open_spiel4skat5TrickD2Ev.exit.i ], [ 544, %_ZNSt6vectorIdSaIdEED2Ev.exit.preheader ]
   %.add = add nsw i64 %.idx, -32
   %.ptr2 = getelementptr inbounds i8, ptr %0, i64 %.add
-  %11 = load ptr, ptr %.ptr2, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i.i.i, label %_ZN10open_spiel4skat5TrickD2Ev.exit.i, label %12
+  %10 = load ptr, ptr %.ptr2, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i.i.i.i, label %_ZN10open_spiel4skat5TrickD2Ev.exit.i, label %11
 
-12:                                               ; preds = %10
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %13 = load ptr, ptr %gep, align 8
+11:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
+  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %12 = getelementptr inbounds i8, ptr %.ptr, i64 -16
+  %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
-  %15 = ptrtoint ptr %11 to i64
+  %15 = ptrtoint ptr %10 to i64
   %16 = sub i64 %14, %15
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %16) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %16) #31
   br label %_ZN10open_spiel4skat5TrickD2Ev.exit.i
 
-_ZN10open_spiel4skat5TrickD2Ev.exit.i:            ; preds = %12, %10
+_ZN10open_spiel4skat5TrickD2Ev.exit.i:            ; preds = %11, %_ZNSt6vectorIdSaIdEED2Ev.exit
   %17 = icmp eq i64 %.add, 224
-  br i1 %17, label %_ZNSt5arrayIN10open_spiel4skat5TrickELm10EED2Ev.exit, label %10
+  br i1 %17, label %_ZNSt5arrayIN10open_spiel4skat5TrickELm10EED2Ev.exit, label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt5arrayIN10open_spiel4skat5TrickELm10EED2Ev.exit: ; preds = %_ZN10open_spiel4skat5TrickD2Ev.exit.i
   store ptr getelementptr inbounds nuw inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel5StateE, i64 16), ptr %0, align 8
@@ -10797,7 +10797,6 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %19
 36:                                               ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, %.noexc.i.i
   %37 = landingpad { ptr, i32 }
           cleanup
-  %invariant.gep = getelementptr i8, ptr %0, i64 -16
   br label %38
 
 38:                                               ; preds = %_ZN10open_spiel4skat5TrickD2Ev.exit.i, %36
@@ -10809,17 +10808,18 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %19
   br i1 %.not.i.i.i.i.i, label %_ZN10open_spiel4skat5TrickD2Ev.exit.i, label %40
 
 40:                                               ; preds = %38
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %41 = load ptr, ptr %gep, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %43 = ptrtoint ptr %39 to i64
-  %44 = sub i64 %42, %43
-  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %44) #31
+  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %41 = getelementptr inbounds i8, ptr %.ptr, i64 -16
+  %42 = load ptr, ptr %41, align 8
+  %43 = ptrtoint ptr %42 to i64
+  %44 = ptrtoint ptr %39 to i64
+  %45 = sub i64 %43, %44
+  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %45) #31
   br label %_ZN10open_spiel4skat5TrickD2Ev.exit.i
 
 _ZN10open_spiel4skat5TrickD2Ev.exit.i:            ; preds = %40, %38
-  %45 = icmp eq i64 %.add, 224
-  br i1 %45, label %_ZNSt5arrayIN10open_spiel4skat5TrickELm10EED2Ev.exit, label %38
+  %46 = icmp eq i64 %.add, 224
+  br i1 %46, label %_ZNSt5arrayIN10open_spiel4skat5TrickELm10EED2Ev.exit, label %38
 
 _ZNSt5arrayIN10open_spiel4skat5TrickELm10EED2Ev.exit: ; preds = %_ZN10open_spiel4skat5TrickD2Ev.exit.i, %34
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %_ZN10open_spiel4skat5TrickD2Ev.exit.i ]

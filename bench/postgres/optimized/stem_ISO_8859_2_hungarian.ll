@@ -640,8 +640,8 @@ r_factive.exit.thread:                            ; preds = %193, %189, %186, %1
   store i32 %196, ptr %2, align 8
   store i32 %196, ptr %42, align 8
   %197 = load i32, ptr %40, align 8
-  %.not.i180 = icmp sgt i32 %196, %197
-  br i1 %.not.i180, label %198, label %219
+  %.not.i179 = icmp sgt i32 %196, %197
+  br i1 %.not.i179, label %198, label %219
 
 198:                                              ; preds = %r_factive.exit.thread
   %199 = load ptr, ptr %0, align 8
@@ -665,8 +665,8 @@ r_factive.exit.thread:                            ; preds = %193, %189, %186, %1
   store i32 %207, ptr %208, align 4
   %.val48.i = load ptr, ptr %6, align 8
   %.val48.val.i = load i32, ptr %.val48.i, align 4
-  %.not.i.not.i182 = icmp sgt i32 %.val48.val.i, %207
-  br i1 %.not.i.not.i182, label %219, label %209
+  %.not.i.not.i181 = icmp sgt i32 %.val48.val.i, %207
+  br i1 %.not.i.not.i181, label %219, label %209
 
 209:                                              ; preds = %206
   switch i32 %205, label %219 [
@@ -716,8 +716,8 @@ r_factive.exit.thread:                            ; preds = %193, %189, %186, %1
   store i32 %232, ptr %2, align 8
   br label %.thread
 
-.thread:                                          ; preds = %193, %210, %213, %216, %142, %145, %148, %120, %123, %82, %99, %102, %181, %70, %r_instrum.exit, %227, %223, %219, %231
-  %.1 = phi i32 [ 1, %231 ], [ %221, %219 ], [ %225, %223 ], [ %229, %227 ], [ %75, %r_instrum.exit ], [ %73, %70 ], [ %184, %181 ], [ %83, %82 ], [ %100, %99 ], [ %103, %102 ], [ %121, %120 ], [ %124, %123 ], [ %143, %142 ], [ %146, %145 ], [ %149, %148 ], [ %211, %210 ], [ %214, %213 ], [ %217, %216 ], [ %194, %193 ]
+.thread:                                          ; preds = %210, %213, %216, %193, %142, %145, %148, %120, %123, %82, %99, %102, %181, %70, %r_instrum.exit, %227, %223, %219, %231
+  %.1 = phi i32 [ 1, %231 ], [ %221, %219 ], [ %225, %223 ], [ %229, %227 ], [ %75, %r_instrum.exit ], [ %73, %70 ], [ %184, %181 ], [ %83, %82 ], [ %100, %99 ], [ %103, %102 ], [ %121, %120 ], [ %124, %123 ], [ %143, %142 ], [ %146, %145 ], [ %149, %148 ], [ %194, %193 ], [ %211, %210 ], [ %214, %213 ], [ %217, %216 ]
   ret i32 %.1
 }
 

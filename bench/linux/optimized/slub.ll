@@ -1933,7 +1933,8 @@ define dso_local noalias ptr @__kmalloc_node(i64 noundef %0, i32 noundef %1, i32
 39:                                               ; preds = %35, %31
   %40 = phi i64 [ 0, %31 ], [ %38, %35 ]
   %41 = zext i32 %32 to i64
-  %42 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %40, i64 %41
+  %.split = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %40
+  %42 = getelementptr [14 x ptr], ptr %.split, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr @gfp_allowed_mask, align 4
   %45 = and i32 %1, 1024
@@ -1952,9 +1953,9 @@ define dso_local noalias ptr @__kmalloc_node(i64 noundef %0, i32 noundef %1, i32
 52:                                               ; preds = %50
   %53 = icmp eq i32 %2, -1
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  br i1 %53, label %.split.us, label %.split
+  br i1 %53, label %.split10.us, label %.split10
 
-.split.us:                                        ; preds = %52, %66
+.split10.us:                                      ; preds = %52, %66
   %55 = load ptr, ptr %43, align 8
   %56 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %55) #29, !srcloc !16
   %57 = inttoptr i64 %56 to ptr
@@ -1967,9 +1968,9 @@ define dso_local noalias ptr @__kmalloc_node(i64 noundef %0, i32 noundef %1, i32
   %63 = icmp ne ptr %60, null
   %64 = icmp ne ptr %62, null
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %66, label %.split11.us, !prof !18
+  br i1 %65, label %66, label %.split12.us, !prof !18
 
-66:                                               ; preds = %.split.us
+66:                                               ; preds = %.split10.us
   %67 = ptrtoint ptr %60 to i64
   %68 = load i32, ptr %54, align 8
   %69 = zext i32 %68 to i64
@@ -1983,9 +1984,9 @@ define dso_local noalias ptr @__kmalloc_node(i64 noundef %0, i32 noundef %1, i32
   %77 = icmp ult i8 %76, 2
   tail call void @llvm.assume(i1 %77)
   %78 = icmp eq i8 %76, 0
-  br i1 %78, label %.split.us, label %.split13.us, !prof !15, !llvm.loop !42
+  br i1 %78, label %.split10.us, label %.split14.us, !prof !15, !llvm.loop !42
 
-.split:                                           ; preds = %52, %95
+.split10:                                         ; preds = %52, %95
   %79 = load ptr, ptr %43, align 8
   %80 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %79) #29, !srcloc !16
   %81 = inttoptr i64 %80 to ptr
@@ -1998,14 +1999,14 @@ define dso_local noalias ptr @__kmalloc_node(i64 noundef %0, i32 noundef %1, i32
   %87 = icmp ne ptr %84, null
   %88 = icmp ne ptr %86, null
   %89 = select i1 %87, i1 %88, i1 false
-  br i1 %89, label %90, label %.split11.us, !prof !18
+  br i1 %89, label %90, label %.split12.us, !prof !18
 
-90:                                               ; preds = %.split
+90:                                               ; preds = %.split10
   %91 = load i64, ptr %86, align 16
   %92 = lshr i64 %91, 58
   %93 = trunc nuw nsw i64 %92 to i32
   %94 = icmp eq i32 %2, %93
-  br i1 %94, label %95, label %.split11.us
+  br i1 %94, label %95, label %.split12.us
 
 95:                                               ; preds = %90
   %96 = ptrtoint ptr %84 to i64
@@ -2021,9 +2022,9 @@ define dso_local noalias ptr @__kmalloc_node(i64 noundef %0, i32 noundef %1, i32
   %106 = icmp ult i8 %105, 2
   tail call void @llvm.assume(i1 %106)
   %107 = icmp eq i8 %105, 0
-  br i1 %107, label %.split, label %.split13.us, !prof !15
+  br i1 %107, label %.split10, label %.split14.us, !prof !15
 
-.split11.us:                                      ; preds = %.split, %90, %.split.us
+.split12.us:                                      ; preds = %.split10, %90, %.split10.us
   %108 = trunc nuw nsw i64 %0 to i32
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #27, !srcloc !19
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !20
@@ -2038,15 +2039,15 @@ define dso_local noalias ptr @__kmalloc_node(i64 noundef %0, i32 noundef %1, i32
   %115 = icmp eq i8 %113, 0
   br i1 %115, label %123, label %116, !prof !24
 
-116:                                              ; preds = %.split11.us
+116:                                              ; preds = %.split12.us
   %117 = tail call i64 @llvm.read_register.i64(metadata !0)
   %118 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %117) #27, !srcloc !25
   tail call void @llvm.write_register.i64(metadata !0, i64 %118)
   br label %123
 
-.split13.us:                                      ; preds = %95, %66
+.split14.us:                                      ; preds = %95, %66
   %.us-phi = phi i64 [ %72, %66 ], [ %101, %95 ]
-  %.us-phi14 = phi ptr [ %60, %66 ], [ %84, %95 ]
+  %.us-phi15 = phi ptr [ %60, %66 ], [ %84, %95 ]
   %119 = inttoptr i64 %.us-phi to ptr
   %120 = load i32, ptr %54, align 8
   %121 = zext i32 %120 to i64
@@ -2054,8 +2055,8 @@ define dso_local noalias ptr @__kmalloc_node(i64 noundef %0, i32 noundef %1, i32
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09prefetcht0 ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 6*32+ 8)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09prefetchw ${1:P}\0A6651:\0A.popsection\0A", "i,*m,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i8) %122) #27, !srcloc !27
   br label %123
 
-123:                                              ; preds = %.split13.us, %116, %.split11.us
-  %124 = phi ptr [ %.us-phi14, %.split13.us ], [ %112, %.split11.us ], [ %112, %116 ]
+123:                                              ; preds = %.split14.us, %116, %.split12.us
+  %124 = phi ptr [ %.us-phi15, %.split14.us ], [ %112, %.split12.us ], [ %112, %116 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_free, i32 2) #27
           to label %140 [label %125], !srcloc !6
 
@@ -2252,7 +2253,8 @@ define dso_local noalias ptr @__kmalloc(i64 noundef %0, i32 noundef %1) #7 align
 38:                                               ; preds = %34, %30
   %39 = phi i64 [ 0, %30 ], [ %37, %34 ]
   %40 = zext i32 %31 to i64
-  %41 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %39, i64 %40
+  %.split = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %39
+  %41 = getelementptr [14 x ptr], ptr %.split, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr @gfp_allowed_mask, align 4
   %44 = and i32 %1, 1024
@@ -2528,7 +2530,8 @@ define dso_local noalias ptr @__kmalloc_node_track_caller(i64 noundef %0, i32 no
 38:                                               ; preds = %34, %30
   %39 = phi i64 [ 0, %30 ], [ %37, %34 ]
   %40 = zext i32 %31 to i64
-  %41 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %39, i64 %40
+  %.split = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %39
+  %41 = getelementptr [14 x ptr], ptr %.split, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr @gfp_allowed_mask, align 4
   %44 = and i32 %1, 1024
@@ -2547,9 +2550,9 @@ define dso_local noalias ptr @__kmalloc_node_track_caller(i64 noundef %0, i32 no
 51:                                               ; preds = %49
   %52 = icmp eq i32 %2, -1
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  br i1 %52, label %.split.us, label %.split
+  br i1 %52, label %.split10.us, label %.split10
 
-.split.us:                                        ; preds = %51, %65
+.split10.us:                                      ; preds = %51, %65
   %54 = load ptr, ptr %42, align 8
   %55 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %54) #29, !srcloc !16
   %56 = inttoptr i64 %55 to ptr
@@ -2562,9 +2565,9 @@ define dso_local noalias ptr @__kmalloc_node_track_caller(i64 noundef %0, i32 no
   %62 = icmp ne ptr %59, null
   %63 = icmp ne ptr %61, null
   %64 = select i1 %62, i1 %63, i1 false
-  br i1 %64, label %65, label %.split11.us, !prof !18
+  br i1 %64, label %65, label %.split12.us, !prof !18
 
-65:                                               ; preds = %.split.us
+65:                                               ; preds = %.split10.us
   %66 = ptrtoint ptr %59 to i64
   %67 = load i32, ptr %53, align 8
   %68 = zext i32 %67 to i64
@@ -2578,9 +2581,9 @@ define dso_local noalias ptr @__kmalloc_node_track_caller(i64 noundef %0, i32 no
   %76 = icmp ult i8 %75, 2
   tail call void @llvm.assume(i1 %76)
   %77 = icmp eq i8 %75, 0
-  br i1 %77, label %.split.us, label %.split13.us, !prof !15, !llvm.loop !43
+  br i1 %77, label %.split10.us, label %.split14.us, !prof !15, !llvm.loop !43
 
-.split:                                           ; preds = %51, %94
+.split10:                                         ; preds = %51, %94
   %78 = load ptr, ptr %42, align 8
   %79 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %78) #29, !srcloc !16
   %80 = inttoptr i64 %79 to ptr
@@ -2593,14 +2596,14 @@ define dso_local noalias ptr @__kmalloc_node_track_caller(i64 noundef %0, i32 no
   %86 = icmp ne ptr %83, null
   %87 = icmp ne ptr %85, null
   %88 = select i1 %86, i1 %87, i1 false
-  br i1 %88, label %89, label %.split11.us, !prof !18
+  br i1 %88, label %89, label %.split12.us, !prof !18
 
-89:                                               ; preds = %.split
+89:                                               ; preds = %.split10
   %90 = load i64, ptr %85, align 16
   %91 = lshr i64 %90, 58
   %92 = trunc nuw nsw i64 %91 to i32
   %93 = icmp eq i32 %2, %92
-  br i1 %93, label %94, label %.split11.us
+  br i1 %93, label %94, label %.split12.us
 
 94:                                               ; preds = %89
   %95 = ptrtoint ptr %83 to i64
@@ -2616,9 +2619,9 @@ define dso_local noalias ptr @__kmalloc_node_track_caller(i64 noundef %0, i32 no
   %105 = icmp ult i8 %104, 2
   tail call void @llvm.assume(i1 %105)
   %106 = icmp eq i8 %104, 0
-  br i1 %106, label %.split, label %.split13.us, !prof !15
+  br i1 %106, label %.split10, label %.split14.us, !prof !15
 
-.split11.us:                                      ; preds = %.split, %89, %.split.us
+.split12.us:                                      ; preds = %.split10, %89, %.split10.us
   %107 = trunc nuw nsw i64 %0 to i32
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #27, !srcloc !19
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !20
@@ -2633,15 +2636,15 @@ define dso_local noalias ptr @__kmalloc_node_track_caller(i64 noundef %0, i32 no
   %114 = icmp eq i8 %112, 0
   br i1 %114, label %122, label %115, !prof !24
 
-115:                                              ; preds = %.split11.us
+115:                                              ; preds = %.split12.us
   %116 = tail call i64 @llvm.read_register.i64(metadata !0)
   %117 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %116) #27, !srcloc !25
   tail call void @llvm.write_register.i64(metadata !0, i64 %117)
   br label %122
 
-.split13.us:                                      ; preds = %94, %65
+.split14.us:                                      ; preds = %94, %65
   %.us-phi = phi i64 [ %71, %65 ], [ %100, %94 ]
-  %.us-phi14 = phi ptr [ %59, %65 ], [ %83, %94 ]
+  %.us-phi15 = phi ptr [ %59, %65 ], [ %83, %94 ]
   %118 = inttoptr i64 %.us-phi to ptr
   %119 = load i32, ptr %53, align 8
   %120 = zext i32 %119 to i64
@@ -2649,8 +2652,8 @@ define dso_local noalias ptr @__kmalloc_node_track_caller(i64 noundef %0, i32 no
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09prefetcht0 ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 6*32+ 8)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09prefetchw ${1:P}\0A6651:\0A.popsection\0A", "i,*m,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i8) %121) #27, !srcloc !27
   br label %122
 
-122:                                              ; preds = %.split13.us, %115, %.split11.us
-  %123 = phi ptr [ %.us-phi14, %.split13.us ], [ %111, %.split11.us ], [ %111, %115 ]
+122:                                              ; preds = %.split14.us, %115, %.split12.us
+  %123 = phi ptr [ %.us-phi15, %.split14.us ], [ %111, %.split12.us ], [ %111, %115 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_free, i32 2) #27
           to label %139 [label %124], !srcloc !6
 

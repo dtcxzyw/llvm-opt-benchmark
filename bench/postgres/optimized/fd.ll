@@ -3847,53 +3847,52 @@ define dso_local void @AtEOSubXact_Files(i1 noundef zeroext %0, i32 noundef %1, 
   br i1 %0, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 4
   %wide.trip.count = zext i32 %4 to i64
   br label %6
 
-6:                                                ; preds = %10, %.lr.ph.split.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.lr.ph.split.us ]
-  %gep = getelementptr inbounds nuw %struct.AllocateDesc, ptr %invariant.gep, i64 %indvars.iv
-  %7 = load i32, ptr %gep, align 4
-  %8 = icmp eq i32 %7, %1
-  br i1 %8, label %9, label %10
+6:                                                ; preds = %11, %.lr.ph.split.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.lr.ph.split.us ]
+  %7 = getelementptr inbounds nuw %struct.AllocateDesc, ptr %5, i64 %indvars.iv, i32 1
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %8, %1
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %6
-  store i32 %2, ptr %gep, align 4
-  br label %10
+10:                                               ; preds = %6
+  store i32 %2, ptr %7, align 4
+  br label %11
 
-10:                                               ; preds = %9, %6
+11:                                               ; preds = %10, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !26
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %21
-  %11 = phi i32 [ %22, %21 ], [ %4, %.lr.ph ]
-  %12 = phi ptr [ %23, %21 ], [ %5, %.lr.ph ]
-  %.08 = phi i32 [ %24, %21 ], [ 0, %.lr.ph ]
-  %13 = zext i32 %.08 to i64
-  %14 = getelementptr inbounds nuw %struct.AllocateDesc, ptr %12, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %16, %1
-  br i1 %17, label %18, label %21
+.lr.ph.split:                                     ; preds = %.lr.ph, %22
+  %12 = phi i32 [ %23, %22 ], [ %4, %.lr.ph ]
+  %13 = phi ptr [ %24, %22 ], [ %5, %.lr.ph ]
+  %.08 = phi i32 [ %25, %22 ], [ 0, %.lr.ph ]
+  %14 = zext i32 %.08 to i64
+  %15 = getelementptr inbounds nuw %struct.AllocateDesc, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp eq i32 %17, %1
+  br i1 %18, label %19, label %22
 
-18:                                               ; preds = %.lr.ph.split
-  %19 = add i32 %.08, -1
-  %20 = tail call fastcc i32 @FreeDesc(ptr noundef nonnull %14)
+19:                                               ; preds = %.lr.ph.split
+  %20 = add i32 %.08, -1
+  %21 = tail call fastcc i32 @FreeDesc(ptr noundef nonnull %15)
   %.pre = load ptr, ptr @allocatedDescs, align 8
   %.pre12 = load i32, ptr @numAllocatedDescs, align 4
-  br label %21
+  br label %22
 
-21:                                               ; preds = %.lr.ph.split, %18
-  %22 = phi i32 [ %.pre12, %18 ], [ %11, %.lr.ph.split ]
-  %23 = phi ptr [ %.pre, %18 ], [ %12, %.lr.ph.split ]
-  %.1 = phi i32 [ %19, %18 ], [ %.08, %.lr.ph.split ]
-  %24 = add i32 %.1, 1
-  %25 = icmp ult i32 %24, %22
-  br i1 %25, label %.lr.ph.split, label %._crit_edge, !llvm.loop !27
+22:                                               ; preds = %.lr.ph.split, %19
+  %23 = phi i32 [ %.pre12, %19 ], [ %12, %.lr.ph.split ]
+  %24 = phi ptr [ %.pre, %19 ], [ %13, %.lr.ph.split ]
+  %.1 = phi i32 [ %20, %19 ], [ %.08, %.lr.ph.split ]
+  %25 = add i32 %.1, 1
+  %26 = icmp ult i32 %25, %23
+  br i1 %26, label %.lr.ph.split, label %._crit_edge, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %21, %10, %3
+._crit_edge:                                      ; preds = %22, %11, %3
   ret void
 }
 
@@ -5102,18 +5101,18 @@ define dso_local noundef zeroext i1 @check_debug_io_direct(ptr noundef readonly 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i32, ptr %15, align 4
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph49, label %.thread
+  br i1 %18, label %.lr.ph46, label %.critedge
 
-.lr.ph49:                                         ; preds = %.lr.ph, %34
+.lr.ph46:                                         ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.lr.ph ]
-  %.0244148 = phi i32 [ %35, %34 ], [ 0, %.lr.ph ]
+  %.0243845 = phi i32 [ %35, %34 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
@@ -5121,7 +5120,7 @@ define dso_local noundef zeroext i1 @check_debug_io_direct(ptr noundef readonly 
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %34, label %24
 
-24:                                               ; preds = %.lr.ph49
+24:                                               ; preds = %.lr.ph46
   %25 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.47) #25
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %34, label %27
@@ -5129,9 +5128,9 @@ define dso_local noundef zeroext i1 @check_debug_io_direct(ptr noundef readonly 
 27:                                               ; preds = %24
   %28 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.48) #25
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %34, label %.critedge
+  br i1 %29, label %34, label %.critedge36
 
-.critedge:                                        ; preds = %27
+.critedge36:                                      ; preds = %27
   %30 = tail call ptr @__errno_location() #26
   %31 = load i32, ptr %30, align 4
   call void @pre_format_elog_string(i32 noundef %31, ptr noundef null) #25
@@ -5142,16 +5141,16 @@ define dso_local noundef zeroext i1 @check_debug_io_direct(ptr noundef readonly 
   call void @list_free(ptr noundef %33) #25
   br label %41
 
-34:                                               ; preds = %27, %24, %.lr.ph49
-  %.sink = phi i32 [ 1, %.lr.ph49 ], [ 2, %24 ], [ 4, %27 ]
-  %35 = or i32 %.0244148, %.sink
+34:                                               ; preds = %27, %24, %.lr.ph46
+  %.sink = phi i32 [ 1, %.lr.ph46 ], [ 2, %24 ], [ 4, %27 ]
+  %35 = or i32 %.0243845, %.sink
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %15, align 4
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph49, label %.thread
+  br i1 %38, label %.lr.ph46, label %.critedge
 
-.thread:                                          ; preds = %34, %.lr.ph, %13
+.critedge:                                        ; preds = %34, %.lr.ph, %13
   %.024.lcssa = phi i32 [ 0, %13 ], [ 0, %.lr.ph ], [ %35, %34 ]
   call void @pfree(ptr noundef %6) #25
   %39 = load ptr, ptr %4, align 8
@@ -5161,8 +5160,8 @@ define dso_local noundef zeroext i1 @check_debug_io_direct(ptr noundef readonly 
   store i32 %.024.lcssa, ptr %40, align 4
   br label %41
 
-41:                                               ; preds = %.critedge, %.thread, %8
-  %.0 = phi i1 [ true, %.thread ], [ false, %8 ], [ false, %.critedge ]
+41:                                               ; preds = %.critedge36, %.critedge, %8
+  %.0 = phi i1 [ true, %.critedge ], [ false, %8 ], [ false, %.critedge36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
   ret i1 %.0
 }

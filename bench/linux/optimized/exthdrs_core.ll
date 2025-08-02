@@ -307,30 +307,26 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noun
 
 37:                                               ; preds = %29
   %38 = icmp eq ptr %0, null
-  br i1 %38, label %.thread15, label %39
+  br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %37
   %40 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %27, ptr noundef nonnull %6, i32 noundef 40) #7
   %41 = icmp slt i32 %40, 0
-  br i1 %41, label %.thread15, label %.thread13, !prof !6
+  br i1 %41, label %.critedge, label %.thread13, !prof !6
 
 42:                                               ; preds = %29
   %43 = load ptr, ptr %16, align 8
   %44 = sext i32 %27 to i64
   %45 = getelementptr i8, ptr %43, i64 %44
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread15, label %.thread13
+  br i1 %46, label %.critedge, label %.thread13
 
 .thread13:                                        ; preds = %39, %42
   %47 = phi ptr [ %45, %42 ], [ %6, %39 ]
   %48 = load i8, ptr %47, align 4
   %49 = and i8 %48, -16
   %50 = icmp eq i8 %49, 96
-  br i1 %50, label %51, label %.thread15
-
-.thread15:                                        ; preds = %.thread13, %42, %37, %39
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7
-  br label %175
+  br i1 %50, label %51, label %.critedge
 
 51:                                               ; preds = %.thread13
   %52 = load i32, ptr %1, align 4
@@ -358,7 +354,7 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noun
   %66 = zext i8 %65 to i32
   %67 = icmp eq i32 %2, %66
   %68 = zext i1 %67 to i8
-  switch i8 %65, label %.thread16 [
+  switch i8 %65, label %.thread14 [
     i8 60, label %70
     i8 0, label %70
     i8 43, label %70
@@ -366,9 +362,9 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noun
     i8 51, label %70
   ]
 
-.thread16:                                        ; preds = %63
+.thread14:                                        ; preds = %63
   %69 = or i1 %58, %67
-  br i1 %69, label %.thread52, label %.thread39
+  br i1 %69, label %.thread50, label %.thread37
 
 70:                                               ; preds = %63, %63, %63, %63, %63
   %71 = load i32, ptr %59, align 8
@@ -379,29 +375,29 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noun
   br i1 %75, label %76, label %80, !prof !6
 
 76:                                               ; preds = %70
-  br i1 %61, label %.thread39, label %77
+  br i1 %61, label %.thread37, label %77
 
 77:                                               ; preds = %76
   %78 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %64, ptr noundef nonnull %7, i32 noundef 2) #7
   %79 = icmp slt i32 %78, 0
-  br i1 %79, label %.thread39, label %.thread20, !prof !6
+  br i1 %79, label %.thread37, label %.thread18, !prof !6
 
 80:                                               ; preds = %70
   %81 = load ptr, ptr %16, align 8
   %82 = sext i32 %64 to i64
   %83 = getelementptr i8, ptr %81, i64 %82
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %.thread39, label %.thread20
+  br i1 %84, label %.thread37, label %.thread18
 
-.thread20:                                        ; preds = %77, %80
+.thread18:                                        ; preds = %77, %80
   %85 = phi ptr [ %83, %80 ], [ %7, %77 ]
-  switch i8 %65, label %.thread25 [
+  switch i8 %65, label %.thread23 [
     i8 43, label %86
     i8 44, label %115
     i8 51, label %153
   ]
 
-86:                                               ; preds = %.thread20
+86:                                               ; preds = %.thread18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
   store i32 0, ptr %8, align 4, !annotation !5
   %87 = load i32, ptr %59, align 8
@@ -418,11 +414,11 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noun
   br label %101
 
 96:                                               ; preds = %86
-  br i1 %61, label %.thread22, label %97
+  br i1 %61, label %.thread20, label %97
 
-.thread22:                                        ; preds = %96
+.thread20:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  br label %.thread39
+  br label %.thread37
 
 97:                                               ; preds = %96
   %98 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %64, ptr noundef nonnull %8, i32 noundef 4) #7
@@ -440,20 +436,20 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noun
   %106 = load i32, ptr %4, align 4
   %107 = and i32 %106, 4
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %.thread25.sink.split, label %109
+  br i1 %108, label %.thread23.sink.split, label %109
 
 109:                                              ; preds = %105
   %110 = getelementptr inbounds nuw i8, ptr %102, i64 3
   %111 = load i8, ptr %110, align 1
   %112 = icmp eq i8 %111, 0
   %113 = select i1 %112, i8 0, i8 %68
-  br label %.thread25.sink.split
+  br label %.thread23.sink.split
 
 114:                                              ; preds = %101
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  br i1 %103, label %.thread39, label %.thread25
+  br i1 %103, label %.thread37, label %.thread23
 
-115:                                              ; preds = %.thread20
+115:                                              ; preds = %.thread18
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #7
   store i16 0, ptr %9, align 2, !annotation !5
   br i1 %62, label %119, label %116
@@ -475,21 +471,21 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noun
   br i1 %126, label %127, label %131, !prof !6
 
 127:                                              ; preds = %119
-  br i1 %61, label %.thread49, label %128
+  br i1 %61, label %.thread47, label %128
 
 128:                                              ; preds = %127
   %129 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %120, ptr noundef nonnull %9, i32 noundef 2) #7
   %130 = icmp slt i32 %129, 0
-  br i1 %130, label %.thread49, label %.thread29, !prof !6
+  br i1 %130, label %.thread47, label %.thread27, !prof !6
 
 131:                                              ; preds = %119
   %132 = load ptr, ptr %16, align 8
   %133 = sext i32 %120 to i64
   %134 = getelementptr i8, ptr %132, i64 %133
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %.thread49, label %.thread29
+  br i1 %135, label %.thread47, label %.thread27
 
-.thread29:                                        ; preds = %128, %131
+.thread27:                                        ; preds = %128, %131
   %136 = phi ptr [ %134, %131 ], [ %9, %128 ]
   %137 = load i16, ptr %136, align 2
   %138 = and i16 %137, -1793
@@ -498,7 +494,7 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noun
   %140 = icmp eq i16 %138, 0
   br i1 %140, label %152, label %141
 
-141:                                              ; preds = %.thread29
+141:                                              ; preds = %.thread27
   br i1 %58, label %142, label %149
 
 142:                                              ; preds = %141
@@ -522,10 +518,10 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noun
 146:                                              ; preds = %145, %144
   %147 = phi i8 [ %.pre, %145 ], [ %143, %144 ]
   %148 = zext i8 %147 to i32
-  br label %.thread49
+  br label %.thread47
 
 149:                                              ; preds = %142, %142, %142, %142, %142, %141
-  br i1 %67, label %150, label %.thread49
+  br i1 %67, label %150, label %.thread47
 
 150:                                              ; preds = %149
   br i1 %24, label %170, label %151
@@ -534,28 +530,28 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noun
   store i16 %139, ptr %3, align 2
   br label %170
 
-152:                                              ; preds = %.thread29
+152:                                              ; preds = %.thread27
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #7
   br label %166
 
-153:                                              ; preds = %.thread20
-  br i1 %62, label %.thread25, label %154
+153:                                              ; preds = %.thread18
+  br i1 %62, label %.thread23, label %154
 
 154:                                              ; preds = %153
   %155 = load i32, ptr %4, align 4
   %156 = and i32 %155, 2
   %157 = icmp ne i32 %156, 0
   %158 = and i1 %58, %157
-  br i1 %158, label %.thread52, label %.thread25
+  br i1 %158, label %.thread50, label %.thread23
 
-.thread25.sink.split:                             ; preds = %105, %109
+.thread23.sink.split:                             ; preds = %105, %109
   %.ph = phi i8 [ %113, %109 ], [ %68, %105 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  br label %.thread25
+  br label %.thread23
 
-.thread25:                                        ; preds = %.thread25.sink.split, %.thread20, %114, %154, %153
-  %159 = phi i8 [ %68, %154 ], [ %68, %153 ], [ %68, %114 ], [ %68, %.thread20 ], [ %.ph, %.thread25.sink.split ]
-  %160 = phi i32 [ 2, %154 ], [ 2, %153 ], [ 3, %114 ], [ 3, %.thread20 ], [ 3, %.thread25.sink.split ]
+.thread23:                                        ; preds = %.thread23.sink.split, %.thread18, %114, %154, %153
+  %159 = phi i8 [ %68, %154 ], [ %68, %153 ], [ %68, %114 ], [ %68, %.thread18 ], [ %.ph, %.thread23.sink.split ]
+  %160 = phi i32 [ 2, %154 ], [ 2, %153 ], [ 3, %114 ], [ 3, %.thread18 ], [ 3, %.thread23.sink.split ]
   %161 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i32
@@ -563,26 +559,26 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noun
   %165 = add nuw nsw i32 %164, 8
   br label %166
 
-166:                                              ; preds = %152, %.thread25
-  %167 = phi i8 [ %68, %152 ], [ %159, %.thread25 ]
-  %168 = phi i32 [ 8, %152 ], [ %165, %.thread25 ]
+166:                                              ; preds = %152, %.thread23
+  %167 = phi i8 [ %68, %152 ], [ %159, %.thread23 ]
+  %168 = phi i32 [ 8, %152 ], [ %165, %.thread23 ]
   %169 = icmp eq i8 %167, 0
-  br i1 %169, label %171, label %.thread52
+  br i1 %169, label %171, label %.thread50
 
-.thread39:                                        ; preds = %114, %80, %76, %77, %.thread16, %.thread22
-  %.ph36 = phi i32 [ -74, %.thread22 ], [ -2, %.thread16 ], [ -74, %77 ], [ -74, %76 ], [ -74, %80 ], [ -74, %114 ]
+.thread37:                                        ; preds = %114, %80, %76, %77, %.thread14, %.thread20
+  %.ph34 = phi i32 [ -74, %.thread20 ], [ -2, %.thread14 ], [ -74, %77 ], [ -74, %76 ], [ -74, %80 ], [ -74, %114 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #7
   br label %175
 
-.thread49:                                        ; preds = %131, %127, %128, %149, %146
-  %.ph31.ph = phi i32 [ %148, %146 ], [ -2, %149 ], [ -74, %128 ], [ -74, %127 ], [ -74, %131 ]
+.thread47:                                        ; preds = %131, %127, %128, %149, %146
+  %.ph29.ph = phi i32 [ %148, %146 ], [ -2, %149 ], [ -74, %128 ], [ -74, %127 ], [ -74, %131 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #7
   br label %175
 
 170:                                              ; preds = %151, %150
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #7
-  br label %.thread52
+  br label %.thread50
 
 171:                                              ; preds = %166
   %172 = load i8, ptr %85, align 1
@@ -590,14 +586,18 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noun
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #7
   br label %63, !llvm.loop !7
 
-.thread52:                                        ; preds = %154, %166, %.thread16, %170
+.thread50:                                        ; preds = %154, %166, %.thread14, %170
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #7
   store i32 %64, ptr %1, align 4
   %174 = zext i8 %65 to i32
   br label %175
 
-175:                                              ; preds = %.thread49, %.thread39, %.thread15, %.thread52
-  %176 = phi i32 [ %174, %.thread52 ], [ -74, %.thread15 ], [ %.ph36, %.thread39 ], [ %.ph31.ph, %.thread49 ]
+.critedge:                                        ; preds = %39, %37, %42, %.thread13
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7
+  br label %175
+
+175:                                              ; preds = %.thread47, %.thread37, %.critedge, %.thread50
+  %176 = phi i32 [ %174, %.thread50 ], [ -74, %.critedge ], [ %.ph34, %.thread37 ], [ %.ph29.ph, %.thread47 ]
   ret i32 %176
 }
 

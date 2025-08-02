@@ -787,7 +787,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %229
 298:                                              ; preds = %296
   store i32 -13, ptr %5, align 4
   %299 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 2147483647)
-  br label %.thread.sink.split.i
+  br label %.critedge.sink.split.i
 
 300:                                              ; preds = %296
   %301 = add nuw nsw i32 %.188.i, 8
@@ -797,11 +797,11 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %229
 303:                                              ; preds = %300
   store i32 -13, ptr %5, align 4
   %304 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %3)
-  br label %.thread.sink.split.i
+  br label %.critedge.sink.split.i
 
 305:                                              ; preds = %300
   %306 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 8, ptr noundef %5, ptr noundef %6)
-  br i1 %306, label %307, label %.thread.i
+  br i1 %306, label %307, label %.critedge.i
 
 307:                                              ; preds = %305
   %308 = load i8, ptr %11, align 1
@@ -847,22 +847,13 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %229
   %.not98.i = icmp sgt i8 %308, -1
   br i1 %.not98.i, label %342, label %296, !llvm.loop !10
 
-.thread.sink.split.i:                             ; preds = %303, %298
-  %.sink.i123 = phi ptr [ %299, %298 ], [ %304, %303 ]
-  store ptr %.sink.i123, ptr %6, align 8
-  br label %.thread.i
-
-.thread.i:                                        ; preds = %305, %.thread.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  br label %pcap_read_erf_pseudoheader.exit.thread
-
 342:                                              ; preds = %341
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  %.pre111.i = load i8, ptr %245, align 8
+  %.pre109.i = load i8, ptr %245, align 8
   br label %343
 
 343:                                              ; preds = %342, %286
-  %344 = phi i8 [ %.pre111.i, %342 ], [ %244, %286 ]
+  %344 = phi i8 [ %.pre109.i, %342 ], [ %244, %286 ]
   %.087.i = phi i32 [ %301, %342 ], [ 16, %286 ]
   %345 = and i8 %344, 127
   switch i8 %345, label %pcap_read_erf_pseudoheader.exit.thread137 [
@@ -1010,7 +1001,16 @@ pcap_read_erf_pseudoheader.exit.thread137:        ; preds = %343
   store i16 %419, ptr %418, align 1
   br label %pcap_read_erf_pseudoheader.exit
 
-pcap_read_erf_pseudoheader.exit.thread:           ; preds = %237, %348, %353, %378, %383, %408, %413, %239, %355, %385, %415, %.thread.i
+.critedge.sink.split.i:                           ; preds = %303, %298
+  %.sink.i123 = phi ptr [ %304, %303 ], [ %299, %298 ]
+  store ptr %.sink.i123, ptr %6, align 8
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %305, %.critedge.sink.split.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  br label %pcap_read_erf_pseudoheader.exit.thread
+
+pcap_read_erf_pseudoheader.exit.thread:           ; preds = %237, %348, %353, %378, %383, %408, %413, %239, %.critedge.i, %355, %385, %415
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
   br label %449

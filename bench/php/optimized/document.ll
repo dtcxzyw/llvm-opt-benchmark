@@ -976,18 +976,18 @@ define hidden void @zim_DOMDocument_createElement(ptr noundef %0, ptr noundef %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8, !tbaa !19
   %14 = icmp eq i8 %13, 6
-  br i1 %14, label %zend_parse_arg_str_ex.exit68.thread, label %zend_parse_arg_str_ex.exit68, !prof !59
+  br i1 %14, label %zend_parse_arg_str_ex.exit69.thread, label %zend_parse_arg_str_ex.exit69, !prof !59
 
-zend_parse_arg_str_ex.exit68.thread:              ; preds = %10
+zend_parse_arg_str_ex.exit69.thread:              ; preds = %10
   %15 = load ptr, ptr %11, align 8, !tbaa !19
   store ptr %15, ptr %4, align 8, !tbaa !78
   br label %17
 
-zend_parse_arg_str_ex.exit68:                     ; preds = %10
+zend_parse_arg_str_ex.exit69:                     ; preds = %10
   %16 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef 1) #10
   br i1 %16, label %17, label %.thread, !prof !79
 
-17:                                               ; preds = %zend_parse_arg_str_ex.exit68.thread, %zend_parse_arg_str_ex.exit68
+17:                                               ; preds = %zend_parse_arg_str_ex.exit69.thread, %zend_parse_arg_str_ex.exit69
   %18 = icmp eq i32 %7, 1
   br i1 %18, label %.critedge, label %19, !prof !4
 
@@ -997,13 +997,13 @@ zend_parse_arg_str_ex.exit68:                     ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i8, ptr %21, align 8, !tbaa !19
   %23 = icmp eq i8 %22, 6
-  br i1 %23, label %.thread92, label %zend_parse_arg_str_ex.exit, !prof !59
+  br i1 %23, label %.thread85, label %zend_parse_arg_str_ex.exit, !prof !59
 
 zend_parse_arg_str_ex.exit:                       ; preds = %19
   %24 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %20, ptr noundef nonnull %3, i32 noundef 2) #10
-  br i1 %24, label %.thread92, label %27
+  br i1 %24, label %.thread85, label %27
 
-.thread92:                                        ; preds = %zend_parse_arg_str_ex.exit, %19
+.thread85:                                        ; preds = %zend_parse_arg_str_ex.exit, %19
   %.in = phi ptr [ %20, %19 ], [ %3, %zend_parse_arg_str_ex.exit ]
   %25 = load ptr, ptr %.in, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -1014,16 +1014,16 @@ zend_parse_arg_str_ex.exit:                       ; preds = %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   br label %.thread
 
-.thread:                                          ; preds = %zend_parse_arg_str_ex.exit68, %9, %27
-  %.083 = phi i32 [ 2, %27 ], [ 1, %zend_parse_arg_str_ex.exit68 ], [ 0, %9 ]
-  %.05782 = phi i32 [ 9, %27 ], [ 9, %zend_parse_arg_str_ex.exit68 ], [ 1, %9 ]
-  %.05881 = phi ptr [ %20, %27 ], [ %11, %zend_parse_arg_str_ex.exit68 ], [ null, %9 ]
-  %.05980 = phi i32 [ 4, %27 ], [ 4, %zend_parse_arg_str_ex.exit68 ], [ 0, %9 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05782, i32 noundef %.083, ptr noundef null, i32 noundef %.05980, ptr noundef %.05881) #10
+.thread:                                          ; preds = %zend_parse_arg_str_ex.exit69, %9, %27
+  %.084 = phi i32 [ 2, %27 ], [ 1, %zend_parse_arg_str_ex.exit69 ], [ 0, %9 ]
+  %.05783 = phi i32 [ 9, %27 ], [ 9, %zend_parse_arg_str_ex.exit69 ], [ 1, %9 ]
+  %.05882 = phi ptr [ %20, %27 ], [ %11, %zend_parse_arg_str_ex.exit69 ], [ null, %9 ]
+  %.05981 = phi i32 [ 4, %27 ], [ 4, %zend_parse_arg_str_ex.exit69 ], [ 0, %9 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05783, i32 noundef %.084, ptr noundef null, i32 noundef %.05981, ptr noundef %.05882) #10
   br label %59
 
-.critedge:                                        ; preds = %17, %.thread92
-  %.06991 = phi ptr [ %26, %.thread92 ], [ null, %17 ]
+.critedge:                                        ; preds = %.thread85, %17
+  %.1 = phi ptr [ null, %17 ], [ %26, %.thread85 ]
   %28 = load ptr, ptr %5, align 8, !tbaa !19
   %29 = getelementptr inbounds i8, ptr %28, i64 -24
   %30 = load ptr, ptr %29, align 8, !tbaa !80
@@ -1062,7 +1062,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %19
 50:                                               ; preds = %40
   %51 = load ptr, ptr %4, align 8, !tbaa !78
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %53 = call ptr @xmlNewDocNode(ptr noundef %41, ptr noundef null, ptr noundef nonnull %52, ptr noundef %.06991) #10
+  %53 = call ptr @xmlNewDocNode(ptr noundef %41, ptr noundef null, ptr noundef nonnull %52, ptr noundef %.1) #10
   %.not64 = icmp eq ptr %53, null
   br i1 %.not64, label %54, label %57
 

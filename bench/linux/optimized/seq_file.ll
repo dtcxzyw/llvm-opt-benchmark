@@ -1187,23 +1187,23 @@ define dso_local range(i32 -2147483648, 2) i32 @seq_path_root(ptr noundef captur
 16:                                               ; preds = %13, %11
   %17 = phi ptr [ %15, %13 ], [ null, %11 ]
   %18 = icmp eq i64 %8, %6
-  br i1 %18, label %.thread12.thread, label %19
+  br i1 %18, label %.thread10, label %19
 
 19:                                               ; preds = %16
   %20 = sub i64 %8, %6
   %21 = trunc i64 %20 to i32
   %22 = tail call ptr @__d_path(ptr noundef %1, ptr noundef %2, ptr noundef %17, i32 noundef %21) #28
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread10, label %24
+  br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %19
   %25 = ptrtoint ptr %22 to i64
   %26 = icmp ugt ptr %22, inttoptr (i64 -4096 to ptr)
-  br i1 %26, label %.thread11, label %.preheader
+  br i1 %26, label %60, label %.preheader
 
 .preheader:                                       ; preds = %24
   %27 = icmp ugt ptr %17, %22
-  br i1 %27, label %.thread11.thread, label %.lr.ph
+  br i1 %27, label %.thread10, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %53
   %28 = phi ptr [ %30, %53 ], [ %22, %.preheader ]
@@ -1227,7 +1227,7 @@ define dso_local range(i32 -2147483648, 2) i32 @seq_path_root(ptr noundef captur
 39:                                               ; preds = %33
   %40 = getelementptr i8, ptr %29, i64 4
   %41 = icmp ugt ptr %40, %30
-  br i1 %41, label %.thread11.thread, label %42
+  br i1 %41, label %.thread10, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr i8, ptr %29, i64 1
@@ -1249,59 +1249,51 @@ define dso_local range(i32 -2147483648, 2) i32 @seq_path_root(ptr noundef captur
 53:                                               ; preds = %42, %37
   %54 = phi ptr [ %40, %42 ], [ %38, %37 ]
   %55 = icmp ugt ptr %54, %30
-  br i1 %55, label %.thread11.thread, label %.lr.ph
+  br i1 %55, label %.thread10, label %.lr.ph
 
 .thread:                                          ; preds = %.lr.ph
   %56 = icmp eq ptr %29, null
   %57 = ptrtoint ptr %29 to i64
   %58 = ptrtoint ptr %17 to i64
   %59 = sub i64 %57, %58
-  br i1 %56, label %.thread11.thread, label %.thread11
+  br i1 %56, label %.thread10, label %60
 
-.thread11.thread:                                 ; preds = %39, %53, %.preheader, %.thread
-  %.pre17 = load i64, ptr %7, align 8
-  br label %.thread12.thread
+60:                                               ; preds = %.thread, %24
+  %.in = phi i64 [ %25, %24 ], [ %59, %.thread ]
+  %61 = trunc i64 %.in to i32
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %.thread10, label %65
 
-.thread11:                                        ; preds = %.thread, %24
-  %.in = phi i64 [ %59, %.thread ], [ %25, %24 ]
-  %.in.fr = freeze i64 %.in
-  %60 = trunc i64 %.in.fr to i32
-  %61 = icmp slt i32 %60, 0
-  %.pre = load i64, ptr %7, align 8
-  br i1 %61, label %.thread12, label %62
+.thread10:                                        ; preds = %53, %39, %.preheader, %.thread, %16, %60
+  %63 = phi i32 [ %61, %60 ], [ -36, %16 ], [ -36, %.thread ], [ -36, %.preheader ], [ -36, %39 ], [ -36, %53 ]
+  %64 = load i64, ptr %7, align 8
+  br label %72
 
-62:                                               ; preds = %.thread11
-  %63 = load i64, ptr %5, align 8
-  %64 = and i64 %.in.fr, 2147483647
-  %65 = add i64 %63, %64
-  %66 = icmp ugt i64 %65, %.pre
-  br i1 %66, label %67, label %.thread12.thread19, !prof !11
+65:                                               ; preds = %60
+  %66 = load i64, ptr %5, align 8
+  %67 = and i64 %.in, 2147483647
+  %68 = add i64 %66, %67
+  %69 = load i64, ptr %7, align 8
+  %70 = icmp ugt i64 %68, %69
+  br i1 %70, label %71, label %72, !prof !11
 
-.thread12.thread19:                               ; preds = %62
-  store i64 %65, ptr %5, align 8
-  br label %.thread10
-
-67:                                               ; preds = %62
+71:                                               ; preds = %65
   tail call void asm sideeffect "288: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 288b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 288) #28, !srcloc !22
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 89, i32 0, i64 12) #28, !srcloc !23
   unreachable
 
-.thread12.thread:                                 ; preds = %16, %.thread11.thread
-  %.ph = phi i64 [ %.pre17, %.thread11.thread ], [ %6, %16 ]
-  store i64 %.ph, ptr %5, align 8
-  br label %69
+72:                                               ; preds = %65, %.thread10
+  %73 = phi i32 [ %63, %.thread10 ], [ %61, %65 ]
+  %74 = phi i64 [ %64, %.thread10 ], [ %68, %65 ]
+  store i64 %74, ptr %5, align 8
+  %75 = icmp eq i32 %73, -36
+  %76 = tail call i32 @llvm.smin.i32(i32 %73, i32 0)
+  %77 = select i1 %75, i32 0, i32 %76
+  br label %.critedge
 
-.thread12:                                        ; preds = %.thread11
-  store i64 %.pre, ptr %5, align 8
-  %68 = icmp eq i32 %60, -36
-  br i1 %68, label %69, label %.thread10
-
-69:                                               ; preds = %.thread12.thread, %.thread12
-  br label %.thread10
-
-.thread10:                                        ; preds = %69, %.thread12, %.thread12.thread19, %19
-  %70 = phi i32 [ 1, %19 ], [ 0, %69 ], [ %60, %.thread12 ], [ 0, %.thread12.thread19 ]
-  ret i32 %70
+.critedge:                                        ; preds = %19, %72
+  %78 = phi i32 [ %77, %72 ], [ 1, %19 ]
+  ret i32 %78
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -104,7 +104,7 @@ define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %0, ptr noundef rea
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #4
   %9 = tail call ptr @bn_wexpand(ptr noundef %0, i32 noundef %7) #4
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %74, label %11
+  br i1 %10, label %77, label %11
 
 11:                                               ; preds = %4
   %12 = icmp ugt i32 %7, 16
@@ -114,7 +114,7 @@ define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %0, ptr noundef rea
   %14 = shl nsw i64 %8, 3
   %15 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %14, ptr noundef nonnull @.str, i32 noundef 66) #4
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %74, label %17
+  br i1 %16, label %77, label %17
 
 17:                                               ; preds = %13, %11
   %.067 = phi ptr [ %15, %13 ], [ %5, %11 ]
@@ -125,7 +125,7 @@ define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %0, ptr noundef rea
   %.not76 = icmp eq ptr %19, null
   %20 = select i1 %.not76, ptr %.067, ptr %19
   %.not87 = icmp eq i32 %7, 0
-  br i1 %.not87, label %._crit_edge, label %.lr.ph
+  br i1 %.not87, label %._crit_edge86.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -176,20 +176,16 @@ define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %0, ptr noundef rea
   %exitcond.not = icmp eq i64 %50, %8
   br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %33, %17
-  %.070.lcssa = phi i64 [ 0, %17 ], [ %49, %33 ]
+._crit_edge:                                      ; preds = %33
   %57 = load ptr, ptr %0, align 8, !tbaa !12
   %58 = load ptr, ptr %3, align 8, !tbaa !12
   %59 = call i64 @bn_sub_words(ptr noundef %57, ptr noundef nonnull %.067, ptr noundef %58, i32 noundef %7) #4
-  %60 = sub i64 %.070.lcssa, %59
-  br i1 %.not87, label %._crit_edge86, label %.lr.ph85
-
-.lr.ph85:                                         ; preds = %._crit_edge
+  %60 = sub i64 %49, %59
   %61 = xor i64 %60, -1
   br label %62
 
-62:                                               ; preds = %.lr.ph85, %62
-  %.183 = phi i64 [ 0, %.lr.ph85 ], [ %70, %62 ]
+62:                                               ; preds = %._crit_edge, %62
+  %.183 = phi i64 [ 0, %._crit_edge ], [ %70, %62 ]
   %63 = getelementptr inbounds nuw i64, ptr %.067, i64 %.183
   %64 = load i64, ptr %63, align 8, !tbaa !14
   %65 = and i64 %64, %60
@@ -203,20 +199,26 @@ define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %0, ptr noundef rea
   %exitcond89.not = icmp eq i64 %70, %8
   br i1 %exitcond89.not, label %._crit_edge86, label %62, !llvm.loop !18
 
-._crit_edge86:                                    ; preds = %62, %._crit_edge
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %7, ptr %71, align 8, !tbaa !11
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %72, align 8, !tbaa !3
+._crit_edge86.critedge:                           ; preds = %17
+  %71 = load ptr, ptr %0, align 8, !tbaa !12
+  %72 = load ptr, ptr %3, align 8, !tbaa !12
+  %73 = call i64 @bn_sub_words(ptr noundef %71, ptr noundef nonnull %.067, ptr noundef %72, i32 noundef %7) #4
+  br label %._crit_edge86
+
+._crit_edge86:                                    ; preds = %62, %._crit_edge86.critedge
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %7, ptr %74, align 8, !tbaa !11
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %75, align 8, !tbaa !3
   %.not77 = icmp eq ptr %.067, %5
-  br i1 %.not77, label %74, label %73
+  br i1 %.not77, label %77, label %76
 
-73:                                               ; preds = %._crit_edge86
+76:                                               ; preds = %._crit_edge86
   call void @CRYPTO_free(ptr noundef nonnull %.067, ptr noundef nonnull @.str, i32 noundef 98) #4
-  br label %74
+  br label %77
 
-74:                                               ; preds = %._crit_edge86, %73, %13, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 1, %73 ], [ 1, %._crit_edge86 ]
+77:                                               ; preds = %._crit_edge86, %76, %13, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 1, %76 ], [ 1, %._crit_edge86 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #4
   ret i32 %.0
 }

@@ -349,10 +349,10 @@ _ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i: ; preds = %29
   br i1 %.not11.i.i.i, label %.sink.split.i.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i, %29
-  %.pre-phi.i.i28.i = phi i64 [ %.pre13.i.i.i, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i ], [ 0, %29 ]
+  %.pre-phi.i.i30.i = phi i64 [ %.pre13.i.i.i, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i ], [ 0, %29 ]
   %35 = load ptr, ptr %16, align 8, !tbaa !28
-  %36 = getelementptr i32, ptr %35, i64 %.pre-phi.i.i28.i
-  %37 = sub nsw i64 %27, %.pre-phi.i.i28.i
+  %36 = getelementptr i32, ptr %35, i64 %.pre-phi.i.i30.i
+  %37 = sub nsw i64 %27, %.pre-phi.i.i30.i
   %38 = shl nsw i64 %37, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %36, i8 0, i64 %38, i1 false), !tbaa !302
   br label %.sink.split.i.i.i
@@ -366,14 +366,14 @@ _ZN4llvm15SmallVectorImplIiE6resizeEm.exit.i:     ; preds = %.sink.split.i.i.i, 
   %39 = phi ptr [ %15, %14 ], [ %.pre.i, %.sink.split.i.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 328
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 320
-  %.sroa.023.037.i = load ptr, ptr %40, align 8, !tbaa !303
-  %.not38.i = icmp eq ptr %.sroa.023.037.i, %41
-  br i1 %.not38.i, label %.loopexit, label %.lr.ph.i
+  %.sroa.025.042.i = load ptr, ptr %40, align 8, !tbaa !303
+  %.not43.i = icmp eq ptr %.sroa.025.042.i, %41
+  br i1 %.not43.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm15SmallVectorImplIiE6resizeEm.exit.i, %_ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineBasicBlockE.exit.thread.i
-  %.sroa.023.040.i = phi ptr [ %.sroa.023.0.i, %_ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineBasicBlockE.exit.thread.i ], [ %.sroa.023.037.i, %_ZN4llvm15SmallVectorImplIiE6resizeEm.exit.i ]
-  %.01639.i = phi i32 [ %76, %_ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineBasicBlockE.exit.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplIiE6resizeEm.exit.i ]
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.023.040.i, i64 208
+  %.sroa.025.045.i = phi ptr [ %.sroa.025.0.i, %_ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineBasicBlockE.exit.thread.i ], [ %.sroa.025.042.i, %_ZN4llvm15SmallVectorImplIiE6resizeEm.exit.i ]
+  %.01644.i = phi i32 [ %76, %_ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineBasicBlockE.exit.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplIiE6resizeEm.exit.i ]
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.025.045.i, i64 208
   %.sroa.0.0.copyload.i.i = load i8, ptr %42, align 8, !tbaa !304
   %43 = icmp ugt i8 %.sroa.0.0.copyload.i.i, 2
   %44 = zext nneg i8 %.sroa.0.0.copyload.i.i to i64
@@ -381,15 +381,15 @@ _ZN4llvm15SmallVectorImplIiE6resizeEm.exit.i:     ; preds = %.sink.split.i.i.i, 
   %46 = trunc i64 %45 to i32
   %47 = add i32 %46, -4
   %48 = select i1 %43, i32 %47, i32 0
-  %.015.i = add i32 %48, %.01639.i
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.023.040.i, i64 24
+  %.015.i = add i32 %48, %.01644.i
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.025.045.i, i64 24
   %50 = load i32, ptr %49, align 8, !tbaa !305
   %51 = sext i32 %50 to i64
   %52 = load ptr, ptr %16, align 8, !tbaa !28
   %53 = getelementptr inbounds nuw i32, ptr %52, i64 %51
   store i32 %.015.i, ptr %53, align 4, !tbaa !302
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.023.040.i, i64 56
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.023.040.i, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.025.045.i, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.025.045.i, i64 48
   %.sroa.011.015.i.i = load ptr, ptr %54, align 8, !tbaa !350
   %.not16.i.i = icmp eq ptr %.sroa.011.015.i.i, %55
   br i1 %.not16.i.i, label %_ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineBasicBlockE.exit.thread.i, label %.lr.ph.i.i
@@ -440,11 +440,11 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i: ; pre
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineBasicBlockE.exit.thread.i, label %.lr.ph.i.i
 
 _ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineBasicBlockE.exit.thread.i: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i, %.lr.ph.i
-  %.sroa.0.0.extract.trunc34.i = phi i32 [ 0, %.lr.ph.i ], [ %65, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i ]
-  %76 = add i32 %.sroa.0.0.extract.trunc34.i, %.015.i
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.023.040.i, i64 8
-  %.sroa.023.0.i = load ptr, ptr %77, align 8, !tbaa !303
-  %.not.i = icmp eq ptr %.sroa.023.0.i, %41
+  %.sroa.0.0.extract.trunc36.i = phi i32 [ 0, %.lr.ph.i ], [ %65, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i ]
+  %76 = add i32 %.sroa.0.0.extract.trunc36.i, %.015.i
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.025.045.i, i64 8
+  %.sroa.025.0.i = load ptr, ptr %77, align 8, !tbaa !303
+  %.not.i = icmp eq ptr %.sroa.025.0.i, %41
   br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i
 
 .loopexit.loopexit:                               ; preds = %_ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineBasicBlockE.exit.thread.i
@@ -454,7 +454,7 @@ _ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineB
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN4llvm15SmallVectorImplIiE6resizeEm.exit.i
-  %.sroa.024.037 = phi ptr [ %.sroa.024.037.pre, %.loopexit.loopexit ], [ %.sroa.023.037.i, %_ZN4llvm15SmallVectorImplIiE6resizeEm.exit.i ]
+  %.sroa.024.037 = phi ptr [ %.sroa.024.037.pre, %.loopexit.loopexit ], [ %.sroa.025.042.i, %_ZN4llvm15SmallVectorImplIiE6resizeEm.exit.i ]
   %78 = phi ptr [ %.pre49, %.loopexit.loopexit ], [ %39, %_ZN4llvm15SmallVectorImplIiE6resizeEm.exit.i ]
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 320
   %.not38 = icmp eq ptr %.sroa.024.037, %79

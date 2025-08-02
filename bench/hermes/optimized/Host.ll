@@ -430,7 +430,7 @@ land.rhs41:                                       ; preds = %while.cond39.prehea
 
 while.cond54.preheader:                           ; preds = %land.rhs41
   %cmp55450 = icmp ult ptr %CIP.4448, %add.ptr.i
-  br i1 %cmp55450, label %land.rhs56, label %while.end90.thread485
+  br i1 %cmp55450, label %land.rhs56, label %while.end90.thread
 
 while.body49:                                     ; preds = %land.rhs41, %land.rhs41
   %CIP.4 = getelementptr inbounds nuw i8, ptr %CIP.4448, i64 1
@@ -445,18 +445,18 @@ land.rhs56:                                       ; preds = %while.cond54.prehea
   %6 = phi i8 [ %.pr, %land.rhs56thread-pre-split ], [ %5, %while.cond54.preheader ]
   %CIP.5451 = phi ptr [ %incdec.ptr71, %land.rhs56thread-pre-split ], [ %CIP.4448, %while.cond54.preheader ]
   switch i8 %6, label %while.body70 [
-    i8 32, label %while.end90.thread485
-    i8 9, label %while.end90.thread485
-    i8 44, label %while.end90.thread485
-    i8 10, label %while.end90.thread485
+    i8 32, label %while.end90.thread
+    i8 9, label %while.end90.thread
+    i8 44, label %while.end90.thread
+    i8 10, label %while.end90.thread
   ]
 
 while.body70:                                     ; preds = %land.rhs56
   %incdec.ptr71 = getelementptr inbounds nuw i8, ptr %CIP.5451, i64 1
   %cmp55 = icmp ult ptr %incdec.ptr71, %add.ptr.i
-  br i1 %cmp55, label %land.rhs56thread-pre-split, label %while.end90.thread485, !llvm.loop !7
+  br i1 %cmp55, label %land.rhs56thread-pre-split, label %while.end90.thread, !llvm.loop !7
 
-while.end90.thread485:                            ; preds = %land.rhs56, %land.rhs56, %land.rhs56, %land.rhs56, %while.body70, %while.cond54.preheader
+while.end90.thread:                               ; preds = %land.rhs56, %land.rhs56, %land.rhs56, %land.rhs56, %while.body70, %while.cond54.preheader
   %CIP.5.lcssa = phi ptr [ %CIP.4448, %while.cond54.preheader ], [ %incdec.ptr71, %while.body70 ], [ %CIP.5451, %land.rhs56 ], [ %CIP.5451, %land.rhs56 ], [ %CIP.5451, %land.rhs56 ], [ %CIP.5451, %land.rhs56 ]
   %sub.ptr.lhs.cast = ptrtoint ptr %CIP.5.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %CIP.4448 to i64
@@ -492,12 +492,12 @@ if.end89:                                         ; preds = %while.body86, %land
   %cmp = icmp ult ptr %CIP.6, %add.ptr.i
   br i1 %cmp, label %land.lhs.true, label %return, !llvm.loop !9
 
-if.end.i.i826:                                    ; preds = %while.end90.thread485
+if.end.i.i826:                                    ; preds = %while.end90.thread
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %CIP.4448, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
   %8 = icmp eq i32 %bcmp, 0
   br i1 %8, label %cond.true.i140, label %if.end.i.i788
 
-if.end.i.i807:                                    ; preds = %while.end90.thread485
+if.end.i.i807:                                    ; preds = %while.end90.thread
   %bcmp111 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %CIP.4448, ptr noundef nonnull dereferenceable(3) @.str.3, i64 3)
   %9 = icmp eq i32 %bcmp111, 0
   br i1 %9, label %cond.true.i140, label %_ZN4llvh12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit.thread
@@ -522,17 +522,17 @@ if.end.i.i731:                                    ; preds = %if.end.i.i750
   %13 = icmp eq i32 %bcmp115, 0
   br i1 %13, label %cond.true.i140, label %_ZN4llvh12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit.thread
 
-if.end.i.i712:                                    ; preds = %while.end90.thread485
+if.end.i.i712:                                    ; preds = %while.end90.thread
   %bcmp116 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %CIP.4448, ptr noundef nonnull dereferenceable(2) @.str.9, i64 2)
   %14 = icmp eq i32 %bcmp116, 0
   br i1 %14, label %cond.true.i140, label %if.end.i.i636
 
-if.end.i.i693:                                    ; preds = %while.end90.thread485
+if.end.i.i693:                                    ; preds = %while.end90.thread
   %bcmp117 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %CIP.4448, ptr noundef nonnull dereferenceable(6) @.str.11, i64 6)
   %15 = icmp eq i32 %bcmp117, 0
   br i1 %15, label %cond.true.i140, label %if.end.i.i617
 
-if.end.i.i674:                                    ; preds = %while.end90.thread485
+if.end.i.i674:                                    ; preds = %while.end90.thread
   %bcmp118 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %CIP.4448, ptr noundef nonnull dereferenceable(8) @.str.13, i64 8)
   %16 = icmp eq i32 %bcmp118, 0
   br i1 %16, label %cond.true.i140, label %if.end.i.i655
@@ -572,12 +572,12 @@ if.end.i.i541:                                    ; preds = %if.end.i.i560
   %23 = icmp eq i32 %bcmp125, 0
   br i1 %23, label %cond.true.i140, label %if.end.i.i
 
-if.end.i.i522:                                    ; preds = %while.end90.thread485
+if.end.i.i522:                                    ; preds = %while.end90.thread
   %bcmp126 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %CIP.4448, ptr noundef nonnull dereferenceable(7) @.str.26, i64 7)
   %24 = icmp eq i32 %bcmp126, 0
   br i1 %24, label %cond.true.i140, label %_ZN4llvh12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit.thread
 
-if.end.i.i503:                                    ; preds = %while.end90.thread485
+if.end.i.i503:                                    ; preds = %while.end90.thread
   %bcmp127 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %CIP.4448, ptr noundef nonnull dereferenceable(9) @.str.27, i64 9)
   %25 = icmp eq i32 %bcmp127, 0
   br i1 %25, label %cond.true.i140, label %_ZN4llvh12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit.thread
@@ -587,7 +587,7 @@ if.end.i.i:                                       ; preds = %if.end.i.i541
   %26 = icmp eq i32 %bcmp128, 0
   br i1 %26, label %cond.true.i140, label %_ZN4llvh12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit.thread
 
-_ZN4llvh12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit.thread: ; preds = %while.end90.thread485, %if.end.i.i655, %if.end.i.i598, %if.end.i.i731, %if.end.i.i807, %if.end.i.i, %if.end.i.i522, %if.end.i.i503
+_ZN4llvh12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit.thread: ; preds = %while.end90.thread, %if.end.i.i655, %if.end.i.i598, %if.end.i.i731, %if.end.i.i807, %if.end.i.i, %if.end.i.i522, %if.end.i.i503
   br label %cond.true.i140
 
 cond.true.i140:                                   ; preds = %if.end.i.i503, %if.end.i.i522, %if.end.i.i, %_ZN4llvh12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit.thread, %if.end.i.i541, %if.end.i.i560, %if.end.i.i579, %if.end.i.i598, %if.end.i.i617, %if.end.i.i636, %if.end.i.i655, %if.end.i.i674, %if.end.i.i693, %if.end.i.i712, %if.end.i.i731, %if.end.i.i750, %if.end.i.i769, %if.end.i.i788, %if.end.i.i807, %if.end.i.i826

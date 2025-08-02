@@ -1989,7 +1989,7 @@ define internal fastcc void @key_ref_put(ptr noundef nonnull %0) unnamed_addr #1
 declare dso_local i32 @wait_for_key_construction(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @__key_update(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #11 align 16 {
+define internal fastcc nonnull ptr @__key_update(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #11 align 16 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr

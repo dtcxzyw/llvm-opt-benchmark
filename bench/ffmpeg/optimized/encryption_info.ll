@@ -614,23 +614,26 @@ define noalias ptr @av_encryption_init_info_add_side_data(ptr noundef readonly c
   %27 = getelementptr inbounds nuw i8, ptr %.06075, i64 48
   %28 = load ptr, ptr %27, align 8, !tbaa !43
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !46
 
-._crit_edge:                                      ; preds = %26, %2
-  %.055.lcssa = phi i32 [ 0, %2 ], [ %15, %26 ]
-  %.0.lcssa = phi i64 [ 4, %2 ], [ %.1, %26 ]
+._crit_edge.loopexit:                             ; preds = %26
+  %29 = tail call i32 @llvm.bswap.i32(i32 %15)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
+  %.055.lcssa = phi i32 [ 0, %2 ], [ %29, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 4, %2 ], [ %.1, %._crit_edge.loopexit ]
   store i64 %.0.lcssa, ptr %1, align 8, !tbaa !26
-  %29 = tail call noalias ptr @av_malloc(i64 noundef %.0.lcssa) #4
-  %.not67 = icmp eq ptr %29, null
-  br i1 %.not67, label %.loopexit, label %30
+  %30 = tail call noalias ptr @av_malloc(i64 noundef %.0.lcssa) #4
+  %.not67 = icmp eq ptr %30, null
+  br i1 %.not67, label %.loopexit, label %31
 
-30:                                               ; preds = %._crit_edge
-  %31 = tail call i32 @llvm.bswap.i32(i32 %.055.lcssa)
-  store i32 %31, ptr %29, align 1, !tbaa !20
+31:                                               ; preds = %._crit_edge
+  store i32 %.055.lcssa, ptr %30, align 1, !tbaa !20
   br i1 %.not74, label %.loopexit, label %.lr.ph89.preheader
 
-.lr.ph89.preheader:                               ; preds = %30
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 4
+.lr.ph89.preheader:                               ; preds = %31
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   br label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %77
@@ -713,8 +716,8 @@ define noalias ptr @av_encryption_init_info_add_side_data(ptr noundef readonly c
   %.not68 = icmp eq ptr %79, null
   br i1 %.not68, label %.loopexit, label %.lr.ph89, !llvm.loop !48
 
-.loopexit:                                        ; preds = %18, %.lr.ph, %77, %30, %._crit_edge
-  %.059 = phi ptr [ null, %._crit_edge ], [ %29, %30 ], [ %29, %77 ], [ null, %.lr.ph ], [ null, %18 ]
+.loopexit:                                        ; preds = %18, %.lr.ph, %77, %31, %._crit_edge
+  %.059 = phi ptr [ null, %._crit_edge ], [ %30, %31 ], [ %30, %77 ], [ null, %.lr.ph ], [ null, %18 ]
   ret ptr %.059
 }
 

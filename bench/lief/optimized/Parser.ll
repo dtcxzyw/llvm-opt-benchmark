@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @macho_parse(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noalias noundef ptr @macho_parse(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

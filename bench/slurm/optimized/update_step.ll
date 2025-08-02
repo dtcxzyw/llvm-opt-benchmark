@@ -65,7 +65,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr noundef readonly 
   %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str, ptr noundef %26) #11
   %28 = load ptr, ptr @stderr, align 8
   %29 = call i64 @fwrite(ptr nonnull @.str.1, i64 16, i64 1, ptr %28) #12
-  br label %.thread
+  br label %.critedge69
 
 30:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
@@ -95,7 +95,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr noundef readonly 
   %43 = load ptr, ptr @stderr, align 8
   %44 = call i64 @fwrite(ptr nonnull @.str.1, i64 16, i64 1, ptr %43) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %.thread
+  br label %.critedge69
 
 45:                                               ; preds = %35, %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
@@ -129,7 +129,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr noundef readonly 
 58:                                               ; preds = %55
   %59 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5) #9
   store i32 1, ptr @exit_code, align 4
-  br label %.thread
+  br label %.critedge69
 
 60:                                               ; preds = %55
   switch i8 %51, label %92 [
@@ -150,7 +150,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr noundef readonly 
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8
   %.not18.i = icmp eq i32 %68, 0
-  br i1 %.not18.i, label %_get_step_time.exit.thread69, label %.lr.ph.i
+  br i1 %.not18.i, label %_get_step_time.exit.thread71, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -175,13 +175,13 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr noundef readonly 
 78:                                               ; preds = %75, %71
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_get_step_time.exit.thread69, label %71, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_get_step_time.exit.thread71, label %71, !llvm.loop !8
 
 _get_step_time.exit.thread:                       ; preds = %61
   %79 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %62, i32 noundef %63) #9
   br label %.loopexit.sink.split
 
-_get_step_time.exit.thread69:                     ; preds = %.preheader.i, %78
+_get_step_time.exit.thread71:                     ; preds = %.preheader.i, %78
   call void @slurm_free_job_step_info_response_msg(ptr noundef nonnull %66) #9
   br label %.loopexit.sink.split
 
@@ -193,13 +193,13 @@ _get_step_time.exit:                              ; preds = %75
   %82 = icmp eq i32 %81, -2
   br i1 %82, label %.loopexit, label %83
 
-.loopexit.sink.split:                             ; preds = %_get_step_time.exit.thread, %_get_step_time.exit.thread69
+.loopexit.sink.split:                             ; preds = %_get_step_time.exit.thread, %_get_step_time.exit.thread71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_get_step_time.exit, %.loopexit.sink.split
   store i32 1, ptr @exit_code, align 4
-  br label %.thread
+  br label %.critedge69
 
 83:                                               ; preds = %_get_step_time.exit
   br i1 %52, label %84, label %86
@@ -215,13 +215,13 @@ _get_step_time.exit:                              ; preds = %75
 88:                                               ; preds = %86
   %89 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, i32 noundef %56, i32 noundef %81) #9
   store i32 1, ptr @exit_code, align 4
-  br label %.thread
+  br label %.critedge69
 
 90:                                               ; preds = %86
   %91 = sub nuw i32 %81, %56
   br label %92
 
-92:                                               ; preds = %90, %84, %60
+92:                                               ; preds = %60, %84, %90
   %.0 = phi i32 [ %85, %84 ], [ %91, %90 ], [ %56, %60 ]
   store i32 %.0, ptr %8, align 4
   %93 = add nsw i32 %.055118, 1
@@ -235,7 +235,7 @@ _get_step_time.exit:                              ; preds = %75
   %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.7, ptr noundef %97) #11
   %99 = load ptr, ptr @stderr, align 8
   %100 = call i64 @fwrite(ptr nonnull @.str.1, i64 16, i64 1, ptr %99) #12
-  br label %.thread
+  br label %.critedge69
 
 101:                                              ; preds = %92, %45
   %.257 = phi i32 [ %.055118, %45 ], [ %93, %92 ]
@@ -251,20 +251,20 @@ _get_step_time.exit:                              ; preds = %75
   store i32 1, ptr @exit_code, align 4
   %103 = load ptr, ptr @stderr, align 8
   %104 = call i64 @fwrite(ptr nonnull @.str.8, i64 21, i64 1, ptr %103) #12
-  br label %.thread
+  br label %.critedge69
 
 105:                                              ; preds = %._crit_edge
   %106 = call i32 @slurm_update_step(ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %.thread, label %107
+  br i1 %.not, label %.critedge69, label %107
 
 107:                                              ; preds = %105
   %108 = tail call ptr @__errno_location() #13
   %109 = load i32, ptr %108, align 4
-  br label %.thread
+  br label %.critedge69
 
-.thread:                                          ; preds = %88, %.loopexit, %58, %105, %.critedge, %107, %._crit_edge.thread, %94, %23
-  %.1 = phi i32 [ 0, %94 ], [ -1, %23 ], [ 0, %._crit_edge.thread ], [ %109, %107 ], [ 0, %.critedge ], [ 0, %105 ], [ 0, %58 ], [ 0, %.loopexit ], [ 0, %88 ]
+.critedge69:                                      ; preds = %58, %.loopexit, %88, %105, %.critedge, %107, %._crit_edge.thread, %94, %23
+  %.1 = phi i32 [ 0, %94 ], [ -1, %23 ], [ 0, %._crit_edge.thread ], [ %109, %107 ], [ 0, %.critedge ], [ 0, %105 ], [ 0, %88 ], [ 0, %.loopexit ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #9
   ret i32 %.1
 }

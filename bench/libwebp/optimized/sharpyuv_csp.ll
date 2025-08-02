@@ -27,7 +27,7 @@ define void @SharpYuvComputeConversionMatrix(ptr noundef readonly captures(none)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !11
   %15 = icmp eq i32 %14, 1
-  br i1 %15, label %16, label %29
+  br i1 %15, label %16, label %32
 
 16:                                               ; preds = %2
   %notmask = shl nsw i32 -1, %11
@@ -43,38 +43,38 @@ define void @SharpYuvComputeConversionMatrix(ptr noundef readonly captures(none)
   %26 = fmul float %9, %24
   %27 = shl i32 16, %12
   %28 = sitofp i32 %27 to float
-  br label %29
+  %29 = tail call float @llvm.fmuladd.f32(float %28, float 6.553600e+04, float 5.000000e-01)
+  %30 = tail call float @llvm.floor.f32(float %29)
+  %31 = fptosi float %30 to i32
+  br label %32
 
-29:                                               ; preds = %16, %2
-  %.056 = phi float [ %28, %16 ], [ 0.000000e+00, %2 ]
+32:                                               ; preds = %16, %2
+  %.056 = phi i32 [ %31, %16 ], [ 0, %2 ]
   %.055 = phi float [ %25, %16 ], [ %8, %2 ]
   %.054 = phi float [ %26, %16 ], [ %9, %2 ]
   %.0 = phi float [ %21, %16 ], [ 1.000000e+00, %2 ]
-  %30 = shl i32 128, %12
-  %31 = sitofp i32 %30 to float
-  %32 = fsub float %6, %5
-  %33 = fmul float %3, %.0
-  %34 = tail call float @llvm.fmuladd.f32(float %33, float 6.553600e+04, float 5.000000e-01)
-  %35 = tail call float @llvm.floor.f32(float %34)
-  %36 = fptosi float %35 to i32
-  store i32 %36, ptr %1, align 4, !tbaa !12
-  %37 = fmul float %32, %.0
-  %38 = tail call float @llvm.fmuladd.f32(float %37, float 6.553600e+04, float 5.000000e-01)
-  %39 = tail call float @llvm.floor.f32(float %38)
-  %40 = fptosi float %39 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %40, ptr %41, align 4, !tbaa !12
-  %42 = fmul float %5, %.0
-  %43 = tail call float @llvm.fmuladd.f32(float %42, float 6.553600e+04, float 5.000000e-01)
-  %44 = tail call float @llvm.floor.f32(float %43)
-  %45 = fptosi float %44 to i32
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %45, ptr %46, align 4, !tbaa !12
-  %47 = tail call float @llvm.fmuladd.f32(float %.056, float 6.553600e+04, float 5.000000e-01)
-  %48 = tail call float @llvm.floor.f32(float %47)
-  %49 = fptosi float %48 to i32
+  %33 = shl i32 128, %12
+  %34 = sitofp i32 %33 to float
+  %35 = fsub float %6, %5
+  %36 = fmul float %3, %.0
+  %37 = tail call float @llvm.fmuladd.f32(float %36, float 6.553600e+04, float 5.000000e-01)
+  %38 = tail call float @llvm.floor.f32(float %37)
+  %39 = fptosi float %38 to i32
+  store i32 %39, ptr %1, align 4, !tbaa !12
+  %40 = fmul float %35, %.0
+  %41 = tail call float @llvm.fmuladd.f32(float %40, float 6.553600e+04, float 5.000000e-01)
+  %42 = tail call float @llvm.floor.f32(float %41)
+  %43 = fptosi float %42 to i32
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %43, ptr %44, align 4, !tbaa !12
+  %45 = fmul float %5, %.0
+  %46 = tail call float @llvm.fmuladd.f32(float %45, float 6.553600e+04, float 5.000000e-01)
+  %47 = tail call float @llvm.floor.f32(float %46)
+  %48 = fptosi float %47 to i32
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %48, ptr %49, align 4, !tbaa !12
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %49, ptr %50, align 4, !tbaa !12
+  store i32 %.056, ptr %50, align 4, !tbaa !12
   %51 = fneg float %3
   %52 = fmul float %.055, %51
   %53 = tail call float @llvm.fmuladd.f32(float %52, float 6.553600e+04, float 5.000000e-01)
@@ -82,7 +82,7 @@ define void @SharpYuvComputeConversionMatrix(ptr noundef readonly captures(none)
   %55 = fptosi float %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %55, ptr %56, align 4, !tbaa !12
-  %57 = fneg float %32
+  %57 = fneg float %35
   %58 = fmul float %.055, %57
   %59 = tail call float @llvm.fmuladd.f32(float %58, float 6.553600e+04, float 5.000000e-01)
   %60 = tail call float @llvm.floor.f32(float %59)
@@ -95,7 +95,7 @@ define void @SharpYuvComputeConversionMatrix(ptr noundef readonly captures(none)
   %66 = fptosi float %65 to i32
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %66, ptr %67, align 4, !tbaa !12
-  %68 = tail call float @llvm.fmuladd.f32(float %31, float 6.553600e+04, float 5.000000e-01)
+  %68 = tail call float @llvm.fmuladd.f32(float %34, float 6.553600e+04, float 5.000000e-01)
   %69 = tail call float @llvm.floor.f32(float %68)
   %70 = fptosi float %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 28

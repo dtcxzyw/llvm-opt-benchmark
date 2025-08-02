@@ -1306,7 +1306,7 @@ read_token.exit.i38:                              ; preds = %skipWhiteSpace.exit
   %.058.i = phi i1 [ %.2.i, %.thread75.i ], [ false, %.preheader.i ]
   %240 = add i32 %.162.i, 1
   switch i8 %239, label %241 [
-    i8 0, label %413
+    i8 0, label %417
     i8 34, label %.thread.i
   ]
 
@@ -1392,7 +1392,7 @@ read_token.exit.i38:                              ; preds = %skipWhiteSpace.exit
 276:                                              ; preds = %269
   %lhsv74.i.i = load i64, ptr @process_rule_option.name, align 16
   %.not76.i.i = icmp eq i64 %lhsv74.i.i, 32772479322582883
-  br i1 %.not76.i.i, label %277, label %299
+  br i1 %.not76.i.i, label %277, label %301
 
 277:                                              ; preds = %276
   %278 = icmp slt i32 %.0.i.i, 3
@@ -1420,325 +1420,327 @@ read_token.exit.i38:                              ; preds = %skipWhiteSpace.exit
   br i1 %290, label %291, label %process_rule_option.exit.i
 
 291:                                              ; preds = %.critedge.i.i
-  %gep85.i = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @process_rule_option.value, i64 1), i64 %.061.i.i
-  %292 = zext i1 %281 to i8
-  %293 = add nuw nsw i32 %289, 1
-  store i32 %293, ptr %236, align 8
-  %294 = zext nneg i32 %289 to i64
-  %295 = getelementptr [30 x %struct.content_t], ptr %237, i64 0, i64 %294
-  %296 = call noalias ptr @g_strdup(ptr noundef %gep85.i)
-  %297 = getelementptr inbounds nuw i8, ptr %295, i64 8
-  store ptr %296, ptr %297, align 8
-  %298 = getelementptr inbounds nuw i8, ptr %295, i64 16
-  store i8 %292, ptr %298, align 8
-  store ptr %295, ptr %235, align 8
+  %292 = getelementptr i8, ptr @process_rule_option.value, i64 %.061.i.i
+  %293 = getelementptr i8, ptr %292, i64 1
+  %294 = zext i1 %281 to i8
+  %295 = add nuw nsw i32 %289, 1
+  store i32 %295, ptr %236, align 8
+  %296 = zext nneg i32 %289 to i64
+  %297 = getelementptr [30 x %struct.content_t], ptr %237, i64 0, i64 %296
+  %298 = call noalias ptr @g_strdup(ptr noundef %293)
+  %299 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  store ptr %298, ptr %299, align 8
+  %300 = getelementptr inbounds nuw i8, ptr %297, i64 16
+  store i8 %294, ptr %300, align 8
+  store ptr %297, ptr %235, align 8
   br label %process_rule_option.exit.i
 
-299:                                              ; preds = %276
+301:                                              ; preds = %276
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) @process_rule_option.name, ptr noundef nonnull dereferenceable(11) @.str.18, i64 11)
-  %300 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %300, label %301, label %313
-
-301:                                              ; preds = %299
-  %302 = icmp slt i32 %.0.i.i, 3
-  br i1 %302, label %process_rule_option.exit.i, label %303
+  %302 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %302, label %303, label %317
 
 303:                                              ; preds = %301
-  %304 = load i8, ptr @process_rule_option.value, align 16
-  %305 = icmp eq i8 %304, 33
-  br i1 %305, label %306, label %.critedge93.i.i
+  %304 = icmp slt i32 %.0.i.i, 3
+  br i1 %304, label %process_rule_option.exit.i, label %305
 
-306:                                              ; preds = %303
-  %307 = icmp eq i32 %.0.i.i, 3
-  br i1 %307, label %process_rule_option.exit.i, label %.critedge93.i.i
+305:                                              ; preds = %303
+  %306 = load i8, ptr @process_rule_option.value, align 16
+  %307 = icmp eq i8 %306, 33
+  br i1 %307, label %308, label %.critedge93.i.i
 
-.critedge93.i.i:                                  ; preds = %306, %303
-  %.060.i.i = phi i64 [ 1, %306 ], [ 0, %303 ]
-  %308 = xor i32 %.064.i, -1
-  %309 = add i32 %.162.i, %308
-  %310 = add i32 %309, %.164.neg121.i.i
-  %311 = sext i32 %310 to i64
-  %312 = getelementptr [1024 x i8], ptr @process_rule_option.value, i64 0, i64 %311
-  store i8 0, ptr %312, align 1
-  %gep.i = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @process_rule_option.value, i64 1), i64 %.060.i.i
-  call fastcc void @rule_add_uricontent(ptr noundef %195, ptr noundef %gep.i, i1 noundef zeroext %305)
+308:                                              ; preds = %305
+  %309 = icmp eq i32 %.0.i.i, 3
+  br i1 %309, label %process_rule_option.exit.i, label %.critedge93.i.i
+
+.critedge93.i.i:                                  ; preds = %308, %305
+  %.060.i.i = phi i64 [ 1, %308 ], [ 0, %305 ]
+  %310 = xor i32 %.064.i, -1
+  %311 = add i32 %.162.i, %310
+  %312 = add i32 %311, %.164.neg121.i.i
+  %313 = sext i32 %312 to i64
+  %314 = getelementptr [1024 x i8], ptr @process_rule_option.value, i64 0, i64 %313
+  store i8 0, ptr %314, align 1
+  %315 = getelementptr i8, ptr @process_rule_option.value, i64 %.060.i.i
+  %316 = getelementptr i8, ptr %315, i64 1
+  call fastcc void @rule_add_uricontent(ptr noundef %195, ptr noundef %316, i1 noundef zeroext %307)
   br label %process_rule_option.exit.i
 
-313:                                              ; preds = %299
+317:                                              ; preds = %301
   %bcmp77.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @process_rule_option.name, ptr noundef nonnull dereferenceable(9) @.str.19, i64 9)
-  %314 = icmp eq i32 %bcmp77.i.i, 0
-  br i1 %314, label %315, label %317
+  %318 = icmp eq i32 %bcmp77.i.i, 0
+  br i1 %318, label %319, label %321
 
-315:                                              ; preds = %313
+319:                                              ; preds = %317
   %.val.i.i = load ptr, ptr %235, align 8
   %.not.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i, label %process_rule_option.exit.i, label %316
+  br i1 %.not.i.i.i, label %process_rule_option.exit.i, label %320
 
-316:                                              ; preds = %315
+320:                                              ; preds = %319
   store i32 1, ptr %.val.i.i, align 8
   br label %process_rule_option.exit.i
 
-317:                                              ; preds = %313
+321:                                              ; preds = %317
   %bcmp78.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @process_rule_option.name, ptr noundef nonnull dereferenceable(5) @.str.20, i64 5)
-  %318 = icmp eq i32 %bcmp78.i.i, 0
-  br i1 %318, label %319, label %327
+  %322 = icmp eq i32 %bcmp78.i.i, 0
+  br i1 %322, label %323, label %331
 
-319:                                              ; preds = %317
-  %320 = icmp sgt i32 %.0.i.i, 2
-  br i1 %320, label %321, label %process_rule_option.exit.i
+323:                                              ; preds = %321
+  %324 = icmp sgt i32 %.0.i.i, 2
+  br i1 %324, label %325, label %process_rule_option.exit.i
 
-321:                                              ; preds = %319
-  %322 = xor i32 %.064.i, -1
-  %323 = add i32 %.162.i, %322
-  %324 = add i32 %323, %.164.neg121.i.i
-  %325 = sext i32 %324 to i64
-  %326 = getelementptr [1024 x i8], ptr @process_rule_option.value, i64 0, i64 %325
-  store i8 0, ptr %326, align 1
+325:                                              ; preds = %323
+  %326 = xor i32 %.064.i, -1
+  %327 = add i32 %.162.i, %326
+  %328 = add i32 %327, %.164.neg121.i.i
+  %329 = sext i32 %328 to i64
+  %330 = getelementptr [1024 x i8], ptr @process_rule_option.value, i64 0, i64 %329
+  store i8 0, ptr %330, align 1
   call fastcc void @rule_add_pcre(ptr noundef %195)
   br label %process_rule_option.exit.i
 
-327:                                              ; preds = %317
+331:                                              ; preds = %321
   %bcmp79.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @process_rule_option.name, ptr noundef nonnull dereferenceable(7) @.str.21, i64 7)
-  %328 = icmp eq i32 %bcmp79.i.i, 0
-  br i1 %328, label %329, label %332
+  %332 = icmp eq i32 %bcmp79.i.i, 0
+  br i1 %332, label %333, label %336
 
-329:                                              ; preds = %327
+333:                                              ; preds = %331
   %.val96.i.i = load ptr, ptr %235, align 8
   %.not.i105.i.i = icmp eq ptr %.val96.i.i, null
-  br i1 %.not.i105.i.i, label %process_rule_option.exit.i, label %330
+  br i1 %.not.i105.i.i, label %process_rule_option.exit.i, label %334
 
-330:                                              ; preds = %329
-  %331 = getelementptr inbounds nuw i8, ptr %.val96.i.i, i64 17
-  store i8 1, ptr %331, align 1
+334:                                              ; preds = %333
+  %335 = getelementptr inbounds nuw i8, ptr %.val96.i.i, i64 17
+  store i8 1, ptr %335, align 1
   br label %process_rule_option.exit.i
 
-332:                                              ; preds = %327
+336:                                              ; preds = %331
   %bcmp80.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @process_rule_option.name, ptr noundef nonnull dereferenceable(7) @.str.22, i64 7)
-  %333 = icmp eq i32 %bcmp80.i.i, 0
-  br i1 %333, label %334, label %341
+  %337 = icmp eq i32 %bcmp80.i.i, 0
+  br i1 %337, label %338, label %345
 
-334:                                              ; preds = %332
-  %335 = load ptr, ptr %235, align 8
-  %.not.i106.i.i = icmp eq ptr %335, null
-  br i1 %.not.i106.i.i, label %process_rule_option.exit.i, label %336
-
-336:                                              ; preds = %334
-  %337 = load i32, ptr %6, align 4
-  %338 = getelementptr inbounds nuw i8, ptr %335, i64 20
-  store i32 %337, ptr %338, align 4
+338:                                              ; preds = %336
   %339 = load ptr, ptr %235, align 8
-  %340 = getelementptr inbounds nuw i8, ptr %339, i64 18
-  store i8 1, ptr %340, align 2
+  %.not.i106.i.i = icmp eq ptr %339, null
+  br i1 %.not.i106.i.i, label %process_rule_option.exit.i, label %340
+
+340:                                              ; preds = %338
+  %341 = load i32, ptr %6, align 4
+  %342 = getelementptr inbounds nuw i8, ptr %339, i64 20
+  store i32 %341, ptr %342, align 4
+  %343 = load ptr, ptr %235, align 8
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 18
+  store i8 1, ptr %344, align 2
   br label %process_rule_option.exit.i
 
-341:                                              ; preds = %332
+345:                                              ; preds = %336
   %bcmp81.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @process_rule_option.name, ptr noundef nonnull dereferenceable(6) @.str.23, i64 6)
-  %342 = icmp eq i32 %bcmp81.i.i, 0
-  br i1 %342, label %343, label %347
+  %346 = icmp eq i32 %bcmp81.i.i, 0
+  br i1 %346, label %347, label %351
 
-343:                                              ; preds = %341
+347:                                              ; preds = %345
   %.val97.i.i = load ptr, ptr %235, align 8
   %.not.i107.i.i = icmp eq ptr %.val97.i.i, null
-  br i1 %.not.i107.i.i, label %process_rule_option.exit.i, label %344
+  br i1 %.not.i107.i.i, label %process_rule_option.exit.i, label %348
 
-344:                                              ; preds = %343
-  %345 = load i32, ptr %6, align 4
-  %346 = getelementptr inbounds nuw i8, ptr %.val97.i.i, i64 24
-  store i32 %345, ptr %346, align 8
+348:                                              ; preds = %347
+  %349 = load i32, ptr %6, align 4
+  %350 = getelementptr inbounds nuw i8, ptr %.val97.i.i, i64 24
+  store i32 %349, ptr %350, align 8
   br label %process_rule_option.exit.i
 
-347:                                              ; preds = %341
+351:                                              ; preds = %345
   %bcmp82.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @process_rule_option.name, ptr noundef nonnull dereferenceable(7) @.str.24, i64 7)
-  %348 = icmp eq i32 %bcmp82.i.i, 0
-  br i1 %348, label %349, label %353
+  %352 = icmp eq i32 %bcmp82.i.i, 0
+  br i1 %352, label %353, label %357
 
-349:                                              ; preds = %347
+353:                                              ; preds = %351
   %.val98.i.i = load ptr, ptr %235, align 8
   %.not.i108.i.i = icmp eq ptr %.val98.i.i, null
-  br i1 %.not.i108.i.i, label %process_rule_option.exit.i, label %350
+  br i1 %.not.i108.i.i, label %process_rule_option.exit.i, label %354
 
-350:                                              ; preds = %349
-  %351 = load i32, ptr %6, align 4
-  %352 = getelementptr inbounds nuw i8, ptr %.val98.i.i, i64 36
-  store i32 %351, ptr %352, align 4
+354:                                              ; preds = %353
+  %355 = load i32, ptr %6, align 4
+  %356 = getelementptr inbounds nuw i8, ptr %.val98.i.i, i64 36
+  store i32 %355, ptr %356, align 4
   br label %process_rule_option.exit.i
 
-353:                                              ; preds = %347
+357:                                              ; preds = %351
   %bcmp83.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @process_rule_option.name, ptr noundef nonnull dereferenceable(9) @.str.25, i64 9)
-  %354 = icmp eq i32 %bcmp83.i.i, 0
-  br i1 %354, label %355, label %362
+  %358 = icmp eq i32 %bcmp83.i.i, 0
+  br i1 %358, label %359, label %366
 
-355:                                              ; preds = %353
-  %356 = load ptr, ptr %235, align 8
-  %.not.i109.i.i = icmp eq ptr %356, null
-  br i1 %.not.i109.i.i, label %process_rule_option.exit.i, label %357
-
-357:                                              ; preds = %355
-  %358 = load i32, ptr %6, align 4
-  %359 = getelementptr inbounds nuw i8, ptr %356, i64 32
-  store i32 %358, ptr %359, align 8
+359:                                              ; preds = %357
   %360 = load ptr, ptr %235, align 8
-  %361 = getelementptr inbounds nuw i8, ptr %360, i64 28
-  store i8 1, ptr %361, align 4
+  %.not.i109.i.i = icmp eq ptr %360, null
+  br i1 %.not.i109.i.i, label %process_rule_option.exit.i, label %361
+
+361:                                              ; preds = %359
+  %362 = load i32, ptr %6, align 4
+  %363 = getelementptr inbounds nuw i8, ptr %360, i64 32
+  store i32 %362, ptr %363, align 8
+  %364 = load ptr, ptr %235, align 8
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 28
+  store i8 1, ptr %365, align 4
   br label %process_rule_option.exit.i
 
-362:                                              ; preds = %353
+366:                                              ; preds = %357
   %bcmp84.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) @process_rule_option.name, ptr noundef nonnull dereferenceable(13) @.str.26, i64 13)
-  %363 = icmp eq i32 %bcmp84.i.i, 0
-  br i1 %363, label %364, label %367
+  %367 = icmp eq i32 %bcmp84.i.i, 0
+  br i1 %367, label %368, label %371
 
-364:                                              ; preds = %362
+368:                                              ; preds = %366
   %.val99.i.i = load ptr, ptr %235, align 8
   %.not.i110.i.i = icmp eq ptr %.val99.i.i, null
-  br i1 %.not.i110.i.i, label %process_rule_option.exit.i, label %365
+  br i1 %.not.i110.i.i, label %process_rule_option.exit.i, label %369
 
-365:                                              ; preds = %364
-  %366 = getelementptr inbounds nuw i8, ptr %.val99.i.i, i64 40
-  store i8 1, ptr %366, align 8
+369:                                              ; preds = %368
+  %370 = getelementptr inbounds nuw i8, ptr %.val99.i.i, i64 40
+  store i8 1, ptr %370, align 8
   br label %process_rule_option.exit.i
 
-367:                                              ; preds = %362
+371:                                              ; preds = %366
   %bcmp85.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @process_rule_option.name, ptr noundef nonnull dereferenceable(12) @.str.27, i64 12)
-  %368 = icmp eq i32 %bcmp85.i.i, 0
-  br i1 %368, label %369, label %372
+  %372 = icmp eq i32 %bcmp85.i.i, 0
+  br i1 %372, label %373, label %376
 
-369:                                              ; preds = %367
+373:                                              ; preds = %371
   %.val100.i.i = load ptr, ptr %235, align 8
   %.not.i111.i.i = icmp eq ptr %.val100.i.i, null
-  br i1 %.not.i111.i.i, label %process_rule_option.exit.i, label %370
+  br i1 %.not.i111.i.i, label %process_rule_option.exit.i, label %374
 
-370:                                              ; preds = %369
-  %371 = getelementptr inbounds nuw i8, ptr %.val100.i.i, i64 42
-  store i8 1, ptr %371, align 2
+374:                                              ; preds = %373
+  %375 = getelementptr inbounds nuw i8, ptr %.val100.i.i, i64 42
+  store i8 1, ptr %375, align 2
   br label %process_rule_option.exit.i
 
-372:                                              ; preds = %367
+376:                                              ; preds = %371
   %bcmp86.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) @process_rule_option.name, ptr noundef nonnull dereferenceable(17) @.str.28, i64 17)
-  %373 = icmp eq i32 %bcmp86.i.i, 0
-  br i1 %373, label %374, label %377
+  %377 = icmp eq i32 %bcmp86.i.i, 0
+  br i1 %377, label %378, label %381
 
-374:                                              ; preds = %372
+378:                                              ; preds = %376
   %.val101.i.i = load ptr, ptr %235, align 8
   %.not.i112.i.i = icmp eq ptr %.val101.i.i, null
-  br i1 %.not.i112.i.i, label %process_rule_option.exit.i, label %375
+  br i1 %.not.i112.i.i, label %process_rule_option.exit.i, label %379
 
-375:                                              ; preds = %374
-  %376 = getelementptr inbounds nuw i8, ptr %.val101.i.i, i64 43
-  store i8 1, ptr %376, align 1
+379:                                              ; preds = %378
+  %380 = getelementptr inbounds nuw i8, ptr %.val101.i.i, i64 43
+  store i8 1, ptr %380, align 1
   br label %process_rule_option.exit.i
 
-377:                                              ; preds = %372
+381:                                              ; preds = %376
   %bcmp87.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) @process_rule_option.name, ptr noundef nonnull dereferenceable(12) @.str.29, i64 12)
-  %378 = icmp eq i32 %bcmp87.i.i, 0
-  br i1 %378, label %379, label %382
+  %382 = icmp eq i32 %bcmp87.i.i, 0
+  br i1 %382, label %383, label %386
 
-379:                                              ; preds = %377
+383:                                              ; preds = %381
   %.val102.i.i = load ptr, ptr %235, align 8
   %.not.i113.i.i = icmp eq ptr %.val102.i.i, null
-  br i1 %.not.i113.i.i, label %process_rule_option.exit.i, label %380
+  br i1 %.not.i113.i.i, label %process_rule_option.exit.i, label %384
 
-380:                                              ; preds = %379
-  %381 = getelementptr inbounds nuw i8, ptr %.val102.i.i, i64 44
-  store i8 1, ptr %381, align 4
+384:                                              ; preds = %383
+  %385 = getelementptr inbounds nuw i8, ptr %.val102.i.i, i64 44
+  store i8 1, ptr %385, align 4
   br label %process_rule_option.exit.i
 
-382:                                              ; preds = %377
+386:                                              ; preds = %381
   %bcmp88.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @process_rule_option.name, ptr noundef nonnull dereferenceable(16) @.str.30, i64 16)
-  %383 = icmp eq i32 %bcmp88.i.i, 0
-  br i1 %383, label %384, label %387
+  %387 = icmp eq i32 %bcmp88.i.i, 0
+  br i1 %387, label %388, label %391
 
-384:                                              ; preds = %382
+388:                                              ; preds = %386
   %.val103.i.i = load ptr, ptr %235, align 8
   %.not.i114.i.i = icmp eq ptr %.val103.i.i, null
-  br i1 %.not.i114.i.i, label %process_rule_option.exit.i, label %385
+  br i1 %.not.i114.i.i, label %process_rule_option.exit.i, label %389
 
-385:                                              ; preds = %384
-  %386 = getelementptr inbounds nuw i8, ptr %.val103.i.i, i64 45
-  store i8 1, ptr %386, align 1
+389:                                              ; preds = %388
+  %390 = getelementptr inbounds nuw i8, ptr %.val103.i.i, i64 45
+  store i8 1, ptr %390, align 1
   br label %process_rule_option.exit.i
 
-387:                                              ; preds = %382
+391:                                              ; preds = %386
   %bcmp89.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @process_rule_option.name, ptr noundef nonnull dereferenceable(9) @.str.31, i64 9)
-  %388 = icmp eq i32 %bcmp89.i.i, 0
-  br i1 %388, label %389, label %392
+  %392 = icmp eq i32 %bcmp89.i.i, 0
+  br i1 %392, label %393, label %396
 
-389:                                              ; preds = %387
+393:                                              ; preds = %391
   %.val104.i.i = load ptr, ptr %235, align 8
   %.not.i115.i.i = icmp eq ptr %.val104.i.i, null
-  br i1 %.not.i115.i.i, label %process_rule_option.exit.i, label %390
+  br i1 %.not.i115.i.i, label %process_rule_option.exit.i, label %394
 
-390:                                              ; preds = %389
-  %391 = getelementptr inbounds nuw i8, ptr %.val104.i.i, i64 41
-  store i8 1, ptr %391, align 1
+394:                                              ; preds = %393
+  %395 = getelementptr inbounds nuw i8, ptr %.val104.i.i, i64 41
+  store i8 1, ptr %395, align 1
   br label %process_rule_option.exit.i
 
-392:                                              ; preds = %387
+396:                                              ; preds = %391
   %bcmp90.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @process_rule_option.name, ptr noundef nonnull dereferenceable(10) @.str.32, i64 10)
-  %393 = icmp eq i32 %bcmp90.i.i, 0
-  br i1 %393, label %394, label %396
-
-394:                                              ; preds = %392
-  %395 = call noalias ptr @g_strdup(ptr noundef nonnull @process_rule_option.value)
-  store ptr %395, ptr %234, align 8
-  br label %process_rule_option.exit.i
-
-396:                                              ; preds = %392
-  %bcmp91.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @process_rule_option.name, ptr noundef nonnull dereferenceable(10) @.str.33, i64 10)
-  %397 = icmp eq i32 %bcmp91.i.i, 0
-  br i1 %397, label %398, label %process_rule_option.exit.i
+  %397 = icmp eq i32 %bcmp90.i.i, 0
+  br i1 %397, label %398, label %400
 
 398:                                              ; preds = %396
-  %399 = load i32, ptr %232, align 8
-  %400 = icmp ult i32 %399, 20
-  br i1 %400, label %401, label %process_rule_option.exit.i
-
-401:                                              ; preds = %398
-  %402 = call noalias ptr @g_strdup(ptr noundef nonnull @process_rule_option.value)
-  %403 = load i32, ptr %232, align 8
-  %404 = add i32 %403, 1
-  store i32 %404, ptr %232, align 8
-  %405 = zext i32 %403 to i64
-  %406 = getelementptr [20 x ptr], ptr %233, i64 0, i64 %405
-  store ptr %402, ptr %406, align 8
+  %399 = call noalias ptr @g_strdup(ptr noundef nonnull @process_rule_option.value)
+  store ptr %399, ptr %234, align 8
   br label %process_rule_option.exit.i
 
-process_rule_option.exit.i:                       ; preds = %401, %398, %396, %394, %390, %389, %385, %384, %380, %379, %375, %374, %370, %369, %365, %364, %357, %355, %350, %349, %344, %343, %336, %334, %330, %329, %321, %319, %316, %315, %.critedge93.i.i, %306, %301, %291, %.critedge.i.i, %282, %277, %274, %272, %270, %265
+400:                                              ; preds = %396
+  %bcmp91.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @process_rule_option.name, ptr noundef nonnull dereferenceable(10) @.str.33, i64 10)
+  %401 = icmp eq i32 %bcmp91.i.i, 0
+  br i1 %401, label %402, label %process_rule_option.exit.i
+
+402:                                              ; preds = %400
+  %403 = load i32, ptr %232, align 8
+  %404 = icmp ult i32 %403, 20
+  br i1 %404, label %405, label %process_rule_option.exit.i
+
+405:                                              ; preds = %402
+  %406 = call noalias ptr @g_strdup(ptr noundef nonnull @process_rule_option.value)
+  %407 = load i32, ptr %232, align 8
+  %408 = add i32 %407, 1
+  store i32 %408, ptr %232, align 8
+  %409 = zext i32 %407 to i64
+  %410 = getelementptr [20 x ptr], ptr %233, i64 0, i64 %409
+  store ptr %406, ptr %410, align 8
+  br label %process_rule_option.exit.i
+
+process_rule_option.exit.i:                       ; preds = %405, %402, %400, %398, %394, %393, %389, %388, %384, %383, %379, %378, %374, %373, %369, %368, %361, %359, %354, %353, %348, %347, %340, %338, %334, %333, %325, %323, %320, %319, %.critedge93.i.i, %308, %303, %291, %.critedge.i.i, %282, %277, %274, %272, %270, %265
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  br label %407
+  br label %411
 
-407:                                              ; preds = %407, %process_rule_option.exit.i
-  %.3.i = phi i32 [ %240, %process_rule_option.exit.i ], [ %412, %407 ]
-  %408 = sext i32 %.3.i to i64
-  %409 = getelementptr i8, ptr %228, i64 %408
-  %410 = load i8, ptr %409, align 1
-  %411 = icmp eq i8 %410, 32
-  %412 = add i32 %.3.i, 1
-  br i1 %411, label %407, label %.thread75.i, !llvm.loop !60
+411:                                              ; preds = %411, %process_rule_option.exit.i
+  %.3.i = phi i32 [ %240, %process_rule_option.exit.i ], [ %416, %411 ]
+  %412 = sext i32 %.3.i to i64
+  %413 = getelementptr i8, ptr %228, i64 %412
+  %414 = load i8, ptr %413, align 1
+  %415 = icmp eq i8 %414, 32
+  %416 = add i32 %.3.i, 1
+  br i1 %415, label %411, label %.thread75.i, !llvm.loop !60
 
-.thread75.i:                                      ; preds = %407, %242, %.thread.i, %241
-  %.165.i = phi i32 [ %.064.i, %241 ], [ %spec.select.i, %242 ], [ %.064.i, %.thread.i ], [ 0, %407 ]
-  %.263.i = phi i32 [ %240, %241 ], [ %240, %242 ], [ %240, %.thread.i ], [ %.3.i, %407 ]
-  %.160.i = phi i32 [ %.059.i, %241 ], [ %.059.i, %242 ], [ %.059.i, %.thread.i ], [ %.3.i, %407 ]
-  %.2.i = phi i1 [ true, %241 ], [ false, %242 ], [ %spec.select79.i, %.thread.i ], [ false, %407 ]
+.thread75.i:                                      ; preds = %411, %242, %.thread.i, %241
+  %.165.i = phi i32 [ %.064.i, %241 ], [ %spec.select.i, %242 ], [ %.064.i, %.thread.i ], [ 0, %411 ]
+  %.263.i = phi i32 [ %240, %241 ], [ %240, %242 ], [ %240, %.thread.i ], [ %.3.i, %411 ]
+  %.160.i = phi i32 [ %.059.i, %241 ], [ %.059.i, %242 ], [ %.059.i, %.thread.i ], [ %.3.i, %411 ]
+  %.2.i = phi i1 [ true, %241 ], [ false, %242 ], [ %spec.select79.i, %.thread.i ], [ false, %411 ]
   %.phi.trans.insert.i = sext i32 %.263.i to i64
-  %.phi.trans.insert89.i = getelementptr i8, ptr %228, i64 %.phi.trans.insert.i
-  %.pre.i = load i8, ptr %.phi.trans.insert89.i, align 1
+  %.phi.trans.insert88.i = getelementptr i8, ptr %228, i64 %.phi.trans.insert.i
+  %.pre.i = load i8, ptr %.phi.trans.insert88.i, align 1
   br label %238, !llvm.loop !61
 
-413:                                              ; preds = %238
-  %414 = load ptr, ptr %20, align 8
-  %415 = load i32, ptr %230, align 8
-  %416 = zext i32 %415 to i64
-  %417 = inttoptr i64 %416 to ptr
-  %418 = call i32 @g_hash_table_insert(ptr noundef %414, ptr noundef %417, ptr noundef %195)
-  %419 = load i32, ptr %21, align 4
-  %420 = add i32 %419, 1
-  store i32 %420, ptr %21, align 4
+417:                                              ; preds = %238
+  %418 = load ptr, ptr %20, align 8
+  %419 = load i32, ptr %230, align 8
+  %420 = zext i32 %419 to i64
+  %421 = inttoptr i64 %420 to ptr
+  %422 = call i32 @g_hash_table_insert(ptr noundef %418, ptr noundef %421, ptr noundef %195)
+  %423 = load i32, ptr %21, align 4
+  %424 = add i32 %423, 1
+  store i32 %424, ptr %21, align 4
   br label %parse_rule.exit.thread, !llvm.loop !44
 
-parse_rule.exit.thread:                           ; preds = %193, %218, %215, %parse_include_file.exit, %.critedge.thread, %22, %22, %413
-  %421 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %1)
-  %.not = icmp eq ptr %421, null
+parse_rule.exit.thread:                           ; preds = %193, %218, %215, %parse_include_file.exit, %.critedge.thread, %22, %22, %417
+  %425 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %1)
+  %.not = icmp eq ptr %425, null
   br i1 %.not, label %.loopexit, label %22
 
 .loopexit:                                        ; preds = %parse_rule.exit.thread, %.preheader, %5

@@ -1172,8 +1172,8 @@ Abc_TtSwapAdjacent.exit:                          ; preds = %._crit_edge.us.i, %
   br label %.thread
 
 Abc_TtSwapAdjacent.exit64.thread121:              ; preds = %101
-  %.not136 = icmp eq i64 %indvars.iv, 3
-  br i1 %.not136, label %.lr.ph.i78.preheader, label %.lr.ph64.i80
+  %.not135 = icmp eq i64 %indvars.iv, 3
+  br i1 %.not135, label %.lr.ph.i78.preheader, label %.lr.ph64.i80
 
 .lr.ph64.i80:                                     ; preds = %Abc_TtSwapAdjacent.exit64.thread121
   %139 = add nsw i64 %indvars.iv, 2
@@ -1240,10 +1240,10 @@ Abc_TtSwapAdjacent.exit64:                        ; preds = %._crit_edge.us.i56
   br i1 %21, label %Abc_TtSwapAdjacent.exit85, label %.preheader.us.preheader.i67
 
 .preheader.lr.ph.i66:                             ; preds = %172
-  %.not135 = icmp eq i32 %170, 31
+  %.not134 = icmp eq i32 %170, 31
   %173 = shl i32 4, %170
   %174 = sext i32 %173 to i64
-  br i1 %.not135, label %Abc_TtSwapAdjacent.exit85, label %.preheader.us.preheader.i67
+  br i1 %.not134, label %Abc_TtSwapAdjacent.exit85, label %.preheader.us.preheader.i67
 
 .preheader.us.preheader.i67:                      ; preds = %.lr.ph.i57, %.thread128, %.preheader.lr.ph.i66
   %175 = phi i64 [ %174, %.preheader.lr.ph.i66 ], [ 4, %.thread128 ], [ 4, %.lr.ph.i57 ]
@@ -1276,7 +1276,7 @@ Abc_TtSwapAdjacent.exit64:                        ; preds = %._crit_edge.us.i56
   %184 = icmp ult ptr %183, %27
   br i1 %184, label %.preheader.us.i68, label %Abc_TtSwapAdjacent.exit85, !llvm.loop !71
 
-Abc_TtSwapAdjacent.exit85:                        ; preds = %._crit_edge.us.i77, %149, %.lr.ph.i78, %91, %113, %.thread128, %.preheader.lr.ph.i66, %172, %Abc_TtSwapAdjacent.exit
+Abc_TtSwapAdjacent.exit85:                        ; preds = %._crit_edge.us.i77, %149, %.lr.ph.i78, %91, %.thread128, %113, %.preheader.lr.ph.i66, %172, %Abc_TtSwapAdjacent.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %185 = icmp sgt i64 %indvars.iv.next, %40
   br i1 %185, label %.lr.ph, label %._crit_edge, !llvm.loop !72
@@ -2452,108 +2452,108 @@ define noundef i32 @Gem_FuncCheckMajority(ptr noundef readonly captures(none) %0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #22
   %25 = load i32, ptr %7, align 4
   %26 = and i32 %25, 15
-  %.not48.i = icmp eq i32 %26, 0
-  br i1 %.not48.i, label %Abc_TtIsFullySymmetric.exit.thread19, label %.lr.ph.us.i
+  %.not40.i = icmp eq i32 %26, 0
+  br i1 %.not40.i, label %Abc_TtIsFullySymmetric.exit.thread19, label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %2, %36
-  %.02545.us.i = phi i32 [ %.12640.us.i, %36 ], [ 0, %2 ]
-  %.02844.us.i = phi i32 [ %.12939.us.i, %36 ], [ 0, %2 ]
-  %.03243.us.i = phi i32 [ %37, %36 ], [ 0, %2 ]
-  %27 = lshr i32 %.03243.us.i, 6
+.lr.ph.us.i:                                      ; preds = %2, %37
+  %.02539.us.i = phi i32 [ %.126.us.i, %37 ], [ 0, %2 ]
+  %.02838.us.i = phi i32 [ %.129.us.i, %37 ], [ 0, %2 ]
+  %.03237.us.i = phi i32 [ %38, %37 ], [ 0, %2 ]
+  %27 = lshr i32 %.03237.us.i, 6
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw i64, ptr %24, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !40
-  br label %39
+  br label %40
 
 31:                                               ; preds = %._crit_edge.us.i
-  %32 = lshr i32 %.02844.us.i, %42
+  %32 = lshr i32 %.02838.us.i, %43
   %33 = and i32 %32, 1
-  %.not34.us.i = icmp eq i32 %48, %33
-  br i1 %.not34.us.i, label %36, label %Abc_TtIsFullySymmetric.exit.thread
+  %.not34.us.i = icmp eq i32 %49, %33
+  br i1 %.not34.us.i, label %37, label %Abc_TtIsFullySymmetric.exit.thread
 
-.thread.us.i:                                     ; preds = %._crit_edge.us.i
-  %34 = or i32 %49, %.02545.us.i
-  %.not33.us.i = icmp eq i32 %48, 0
-  %35 = select i1 %.not33.us.i, i32 0, i32 %49
-  %spec.select.us.i = or i32 %35, %.02844.us.i
-  br label %36
+34:                                               ; preds = %._crit_edge.us.i
+  %35 = or i32 %50, %.02539.us.i
+  %.not33.us.i = icmp eq i32 %49, 0
+  %36 = select i1 %.not33.us.i, i32 0, i32 %50
+  %spec.select.us.i = or i32 %36, %.02838.us.i
+  br label %37
 
-36:                                               ; preds = %.thread.us.i, %31
-  %.12640.us.i = phi i32 [ %34, %.thread.us.i ], [ %.02545.us.i, %31 ]
-  %.12939.us.i = phi i32 [ %spec.select.us.i, %.thread.us.i ], [ %.02844.us.i, %31 ]
-  %37 = add nuw nsw i32 %.03243.us.i, 1
-  %.032.highbits.us.i = lshr i32 %37, %26
-  %38 = icmp eq i32 %.032.highbits.us.i, 0
-  br i1 %38, label %.lr.ph.us.i, label %Abc_TtIsFullySymmetric.exit, !llvm.loop !85
+37:                                               ; preds = %34, %31
+  %.129.us.i = phi i32 [ %spec.select.us.i, %34 ], [ %.02838.us.i, %31 ]
+  %.126.us.i = phi i32 [ %35, %34 ], [ %.02539.us.i, %31 ]
+  %38 = add nuw nsw i32 %.03237.us.i, 1
+  %.032.highbits.us.i = lshr i32 %38, %26
+  %39 = icmp eq i32 %.032.highbits.us.i, 0
+  br i1 %39, label %.lr.ph.us.i, label %Abc_TtIsFullySymmetric.exit, !llvm.loop !85
 
-39:                                               ; preds = %39, %.lr.ph.us.i
-  %.02442.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %42, %39 ]
-  %.03141.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %43, %39 ]
-  %40 = lshr i32 %.03243.us.i, %.03141.us.i
-  %41 = and i32 %40, 1
-  %42 = add nuw nsw i32 %41, %.02442.us.i
-  %43 = add nuw nsw i32 %.03141.us.i, 1
-  %exitcond.not.i = icmp eq i32 %43, %26
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %39, !llvm.loop !86
+40:                                               ; preds = %40, %.lr.ph.us.i
+  %.02436.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %43, %40 ]
+  %.03135.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %44, %40 ]
+  %41 = lshr i32 %.03237.us.i, %.03135.us.i
+  %42 = and i32 %41, 1
+  %43 = add nuw nsw i32 %42, %.02436.us.i
+  %44 = add nuw nsw i32 %.03135.us.i, 1
+  %exitcond.not.i = icmp eq i32 %44, %26
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %40, !llvm.loop !86
 
-._crit_edge.us.i:                                 ; preds = %39
-  %44 = and i32 %.03243.us.i, 63
-  %45 = zext nneg i32 %44 to i64
-  %46 = lshr i64 %30, %45
-  %47 = trunc i64 %46 to i32
-  %48 = and i32 %47, 1
-  %49 = shl nuw i32 1, %42
-  %50 = and i32 %49, %.02545.us.i
-  %.not.us.i = icmp eq i32 %50, 0
-  br i1 %.not.us.i, label %.thread.us.i, label %31
+._crit_edge.us.i:                                 ; preds = %40
+  %45 = and i32 %.03237.us.i, 63
+  %46 = zext nneg i32 %45 to i64
+  %47 = lshr i64 %30, %46
+  %48 = trunc i64 %47 to i32
+  %49 = and i32 %48, 1
+  %50 = shl nuw i32 1, %43
+  %51 = and i32 %50, %.02539.us.i
+  %.not.us.i = icmp eq i32 %51, 0
+  br i1 %.not.us.i, label %34, label %31
 
 Abc_TtIsFullySymmetric.exit.thread19:             ; preds = %2
-  %51 = load i64, ptr %24, align 8, !tbaa !40
-  %52 = trunc i64 %51 to i32
-  %53 = and i32 %52, 1
-  store i32 %53, ptr %3, align 4, !tbaa !12
-  br label %54
+  %52 = load i64, ptr %24, align 8, !tbaa !40
+  %53 = trunc i64 %52 to i32
+  %54 = and i32 %53, 1
+  store i32 %54, ptr %3, align 4, !tbaa !12
+  br label %55
 
-Abc_TtIsFullySymmetric.exit:                      ; preds = %36
-  store i32 %.12939.us.i, ptr %3, align 4, !tbaa !12
-  %.not = icmp eq i32 %.12939.us.i, -1
-  br i1 %.not, label %Abc_TtIsFullySymmetric.exit.thread, label %54
+Abc_TtIsFullySymmetric.exit:                      ; preds = %37
+  store i32 %.129.us.i, ptr %3, align 4, !tbaa !12
+  %.not = icmp eq i32 %.129.us.i, -1
+  br i1 %.not, label %Abc_TtIsFullySymmetric.exit.thread, label %55
 
-54:                                               ; preds = %Abc_TtIsFullySymmetric.exit.thread19, %Abc_TtIsFullySymmetric.exit
-  %55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %26)
-  %56 = load ptr, ptr @stdout, align 8, !tbaa !16
-  %57 = load i32, ptr %7, align 4
-  %58 = and i32 %57, 15
-  %59 = add nuw nsw i32 %58, 1
-  call void @Extra_PrintBinary2(ptr noundef %56, ptr noundef nonnull %3, i32 noundef %59) #22
-  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9)
-  %61 = load i32, ptr %7, align 4
-  %62 = and i32 %61, 15
-  %63 = and i32 %61, 1
-  %.not16 = icmp eq i32 %63, 0
-  br i1 %.not16, label %75, label %64
+55:                                               ; preds = %Abc_TtIsFullySymmetric.exit.thread19, %Abc_TtIsFullySymmetric.exit
+  %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %26)
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %58 = load i32, ptr %7, align 4
+  %59 = and i32 %58, 15
+  %60 = add nuw nsw i32 %59, 1
+  call void @Extra_PrintBinary2(ptr noundef %57, ptr noundef nonnull %3, i32 noundef %60) #22
+  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9)
+  %62 = load i32, ptr %7, align 4
+  %63 = and i32 %62, 15
+  %64 = and i32 %62, 1
+  %.not16 = icmp eq i32 %64, 0
+  br i1 %.not16, label %76, label %65
 
-64:                                               ; preds = %54
-  %65 = add nuw nsw i32 %26, 1
-  %66 = lshr i32 %65, 1
-  %67 = sub nuw nsw i32 64, %66
-  %68 = zext nneg i32 %67 to i64
-  %69 = lshr i64 -1, %68
-  %70 = trunc nuw nsw i64 %69 to i32
-  %71 = load i32, ptr %3, align 4, !tbaa !12
-  %72 = shl nuw nsw i32 %70, %66
-  %73 = icmp eq i32 %71, %72
-  br i1 %73, label %.critedge, label %75
+65:                                               ; preds = %55
+  %66 = add nuw nsw i32 %26, 1
+  %67 = lshr i32 %66, 1
+  %68 = sub nuw nsw i32 64, %67
+  %69 = zext nneg i32 %68 to i64
+  %70 = lshr i64 -1, %69
+  %71 = trunc nuw nsw i64 %70 to i32
+  %72 = load i32, ptr %3, align 4, !tbaa !12
+  %73 = shl nuw nsw i32 %71, %67
+  %74 = icmp eq i32 %72, %73
+  br i1 %74, label %.critedge, label %76
 
-.critedge:                                        ; preds = %64
-  %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %62)
+.critedge:                                        ; preds = %65
+  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %63)
   br label %Abc_TtIsFullySymmetric.exit.thread
 
-75:                                               ; preds = %64, %54
+76:                                               ; preds = %65, %55
   %putchar = call i32 @putchar(i32 10)
   br label %Abc_TtIsFullySymmetric.exit.thread
 
-Abc_TtIsFullySymmetric.exit.thread:               ; preds = %31, %Abc_TtIsFullySymmetric.exit, %75, %.critedge
+Abc_TtIsFullySymmetric.exit.thread:               ; preds = %31, %Abc_TtIsFullySymmetric.exit, %76, %.critedge
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #22
   ret i32 0
 }

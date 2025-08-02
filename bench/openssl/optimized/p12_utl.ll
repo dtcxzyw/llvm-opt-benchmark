@@ -386,7 +386,7 @@ bmp_to_utf8.exit:                                 ; preds = %9, %24
   %36 = icmp slt i32 %.fr79, 0
   br i1 %36, label %37, label %60
 
-37:                                               ; preds = %20, %18, %.lr.ph, %bmp_to_utf8.exit
+37:                                               ; preds = %18, %20, %.lr.ph, %bmp_to_utf8.exit
   %38 = lshr exact i32 %1, 1
   %39 = zext nneg i32 %1 to i64
   %40 = getelementptr i8, ptr %0, i64 %39
@@ -519,7 +519,7 @@ bmp_to_utf8.exit:                                 ; preds = %9, %24
   %108 = or disjoint i64 %106, %107
   br label %bmp_to_utf8.exit62
 
-bmp_to_utf8.exit62.thread:                        ; preds = %.lr.ph86, %93, %95
+bmp_to_utf8.exit62.thread:                        ; preds = %.lr.ph86, %95, %93
   %109 = add nsw i32 %.285, 2
   br label %113
 

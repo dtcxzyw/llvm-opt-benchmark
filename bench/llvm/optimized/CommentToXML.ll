@@ -2356,43 +2356,43 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %207, %205
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %_ZN4llvm11raw_ostreamlsEPKc.exit12.i.i
   %234 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr nonnull @.str.59, i64 3, i64 noundef 0) #20
   switch i64 %234, label %.lr.ph._crit_edge.i.i [
-    i64 0, label %235
-    i64 -1, label %247
+    i64 0, label %236
+    i64 -1, label %248
   ]
 
 .lr.ph._crit_edge.i.i:                            ; preds = %.lr.ph.i.i
   %.pre.i.i = load i64, ptr %220, align 8, !tbaa !477
-  br label %249
+  %235 = call i64 @llvm.umin.i64(i64 %.pre.i.i, i64 %234)
+  br label %250
 
-235:                                              ; preds = %.lr.ph.i.i
-  %236 = load ptr, ptr %176, align 8, !tbaa !32
-  %237 = load ptr, ptr %178, align 8, !tbaa !33
-  %238 = ptrtoint ptr %236 to i64
+236:                                              ; preds = %.lr.ph.i.i
+  %237 = load ptr, ptr %176, align 8, !tbaa !32
+  %238 = load ptr, ptr %178, align 8, !tbaa !33
   %239 = ptrtoint ptr %237 to i64
-  %240 = sub i64 %238, %239
-  %241 = icmp ult i64 %240, 15
-  br i1 %241, label %242, label %244
+  %240 = ptrtoint ptr %238 to i64
+  %241 = sub i64 %239, %240
+  %242 = icmp ult i64 %241, 15
+  br i1 %242, label %243, label %245
 
-242:                                              ; preds = %235
-  %243 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %175, ptr noundef nonnull @.str.60, i64 noundef 15) #20
+243:                                              ; preds = %236
+  %244 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %175, ptr noundef nonnull @.str.60, i64 noundef 15) #20
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit12.i.i, !llvm.loop !479
 
-244:                                              ; preds = %235
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %237, ptr noundef nonnull align 1 dereferenceable(15) @.str.60, i64 15, i1 false)
-  %245 = load ptr, ptr %178, align 8, !tbaa !33
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 15
-  store ptr %246, ptr %178, align 8, !tbaa !33
+245:                                              ; preds = %236
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %238, ptr noundef nonnull align 1 dereferenceable(15) @.str.60, i64 15, i1 false)
+  %246 = load ptr, ptr %178, align 8, !tbaa !33
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 15
+  store ptr %247, ptr %178, align 8, !tbaa !33
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit12.i.i, !llvm.loop !479
 
-247:                                              ; preds = %.lr.ph.i.i
-  %248 = load i64, ptr %220, align 8, !tbaa !477
-  br label %249
+248:                                              ; preds = %.lr.ph.i.i
+  %249 = load i64, ptr %220, align 8, !tbaa !477
+  br label %250
 
-249:                                              ; preds = %247, %.lr.ph._crit_edge.i.i
-  %250 = phi i64 [ %248, %247 ], [ %.pre.i.i, %.lr.ph._crit_edge.i.i ]
-  %.0.i.i18 = phi i64 [ %248, %247 ], [ %234, %.lr.ph._crit_edge.i.i ]
+250:                                              ; preds = %248, %.lr.ph._crit_edge.i.i
+  %.sroa.speculated.i.i.i = phi i64 [ %249, %248 ], [ %235, %.lr.ph._crit_edge.i.i ]
+  %.0.i.i18 = phi i64 [ %249, %248 ], [ %234, %.lr.ph._crit_edge.i.i ]
   %251 = load ptr, ptr %16, align 8, !tbaa !480
-  %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %250, i64 %.0.i.i18)
   %252 = load ptr, ptr %176, align 8, !tbaa !32
   %253 = load ptr, ptr %178, align 8, !tbaa !33
   %254 = ptrtoint ptr %252 to i64
@@ -2401,11 +2401,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %207, %205
   %257 = icmp ugt i64 %.sroa.speculated.i.i.i, %256
   br i1 %257, label %258, label %260
 
-258:                                              ; preds = %249
+258:                                              ; preds = %250
   %259 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %175, ptr noundef %251, i64 noundef %.sroa.speculated.i.i.i) #20
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit12.i.i
 
-260:                                              ; preds = %249
+260:                                              ; preds = %250
   %.not.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit12.i.i, label %261
 
@@ -2416,8 +2416,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %207, %205
   store ptr %263, ptr %178, align 8, !tbaa !33
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit12.i.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit12.i.i:           ; preds = %261, %260, %258, %244, %242
-  %.0.sink.i.i = phi i64 [ 3, %242 ], [ 3, %244 ], [ %.0.i.i18, %258 ], [ %.0.i.i18, %260 ], [ %.0.i.i18, %261 ]
+_ZN4llvm11raw_ostreamlsEPKc.exit12.i.i:           ; preds = %261, %260, %258, %245, %243
+  %.0.sink.i.i = phi i64 [ 3, %243 ], [ 3, %245 ], [ %.0.i.i18, %258 ], [ %.0.i.i18, %260 ], [ %.0.i.i18, %261 ]
   %264 = load i64, ptr %220, align 8, !tbaa !477
   %.sroa.speculated4.i.i13.i.i = call i64 @llvm.umin.i64(i64 %264, i64 %.0.sink.i.i)
   %265 = load ptr, ptr %16, align 8, !tbaa !480

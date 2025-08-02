@@ -745,7 +745,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 nou
   %24 = lshr i32 %21, %23
   %25 = zext nneg i32 %24 to i64
   %26 = icmp ult i64 %1, %25
-  br i1 %26, label %27, label %.thread4
+  br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -753,7 +753,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 nou
   %30 = add i64 %29, %1
   store i64 %30, ptr %2, align 8
   store i64 1, ptr %3, align 8
-  br label %.thread4
+  br label %.critedge
 
 31:                                               ; preds = %14, %6
   br i1 %5, label %53, label %32
@@ -775,7 +775,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 nou
 
 45:                                               ; preds = %32
   %46 = icmp eq i32 %4, 0
-  br i1 %46, label %.thread4, label %47
+  br i1 %46, label %.critedge, label %47
 
 47:                                               ; preds = %45
   %48 = getelementptr i8, ptr %0, i64 -120
@@ -783,7 +783,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 nou
   %50 = add i64 %49, %40
   %51 = lshr i64 %50, %42
   %52 = icmp ugt i64 %51, %1
-  br i1 %52, label %.thread, label %.thread4
+  br i1 %52, label %.thread, label %.critedge
 
 53:                                               ; preds = %31
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -796,14 +796,14 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 nou
   %61 = and i64 %60, 4294967295
   %62 = lshr i64 %55, %61
   %63 = icmp ugt i64 %62, %1
-  br i1 %63, label %.thread, label %.thread4
+  br i1 %63, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %32, %53, %47
   %64 = phi i64 [ %62, %53 ], [ %51, %47 ], [ %43, %32 ]
   %65 = tail call i32 @fat_get_mapped_cluster(ptr noundef %0, i64 noundef %1, i64 noundef %64, ptr noundef %3, ptr noundef %2), !range !22
-  br label %.thread4
+  br label %.critedge
 
-.thread4:                                         ; preds = %45, %.thread, %53, %47, %27, %18
+.critedge:                                        ; preds = %45, %.thread, %53, %47, %27, %18
   %66 = phi i32 [ %65, %.thread ], [ 0, %27 ], [ 0, %18 ], [ 0, %47 ], [ 0, %53 ], [ 0, %45 ]
   ret i32 %66
 }

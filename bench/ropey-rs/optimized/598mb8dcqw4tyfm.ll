@@ -1696,7 +1696,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i: ;
   br i1 %.not.i.i, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i
-  %59 = getelementptr i8, ptr %44, i64 224
+  %59 = getelementptr inbounds nuw i8, ptr %44, i64 224
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -1704,7 +1704,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i: ;
   %60 = phi i64 [ %64, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %61 = add nuw nsw i64 %.sroa.01.08.i.i, 1
   %.idx = shl nuw nsw i64 %.sroa.01.08.i.i, 5
-  %62 = getelementptr i8, ptr %59, i64 %.idx
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx
   %63 = load i64, ptr %62, align 8, !alias.scope !337, !noalias !335, !noundef !5
   %64 = add i64 %63, %60
   %exitcond.not.i.i = icmp eq i64 %61, %55
@@ -1772,7 +1772,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i54:
   br i1 %.not.i.i55, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit68, label %.lr.ph.i.i56.preheader
 
 .lr.ph.i.i56.preheader:                           ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i54
-  %87 = getelementptr i8, ptr %74, i64 224
+  %87 = getelementptr inbounds nuw i8, ptr %74, i64 224
   br label %.lr.ph.i.i56
 
 .lr.ph.i.i56:                                     ; preds = %.lr.ph.i.i56.preheader, %.lr.ph.i.i56
@@ -1780,7 +1780,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i54:
   %88 = phi i64 [ %92, %.lr.ph.i.i56 ], [ 0, %.lr.ph.i.i56.preheader ]
   %89 = add nuw nsw i64 %.sroa.01.08.i.i57, 1
   %.idx482 = shl nuw nsw i64 %.sroa.01.08.i.i57, 5
-  %90 = getelementptr i8, ptr %87, i64 %.idx482
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx482
   %91 = load i64, ptr %90, align 8, !alias.scope !360, !noalias !358, !noundef !5
   %92 = add i64 %91, %88
   %exitcond.not.i.i59 = icmp eq i64 %89, %85
@@ -1996,7 +1996,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i.i.
   br i1 %.not.i.i.i.i, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit.i.thread.i, label %.lr.ph.i.i.i.preheader.i
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i.i.i
-  %175 = getelementptr i8, ptr %.val431, i64 224
+  %175 = getelementptr inbounds nuw i8, ptr %.val431, i64 224
   br label %.lr.ph.i.i.i.i
 
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit.i.thread.i: ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i.i.i
@@ -2008,7 +2008,7 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit.i.thread.i: ; preds 
   %176 = phi i64 [ %180, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader.i ]
   %177 = add nuw nsw i64 %.sroa.01.08.i.i.i.i, 1
   %.idx.i.i = shl nuw nsw i64 %.sroa.01.08.i.i.i.i, 5
-  %178 = getelementptr i8, ptr %175, i64 %.idx.i.i
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 %.idx.i.i
   %179 = load i64, ptr %178, align 8, !alias.scope !412, !noalias !410, !noundef !5
   %180 = add i64 %179, %176
   %exitcond.not.i.i.i.i = icmp eq i64 %177, %173
@@ -3770,7 +3770,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i: ;
   br i1 %.not.i.i, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i
-  %30 = getelementptr i8, ptr %16, i64 224
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 224
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -3778,7 +3778,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i: ;
   %31 = phi i64 [ %35, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %32 = add nuw nsw i64 %.sroa.01.08.i.i, 1
   %.idx = shl nuw nsw i64 %.sroa.01.08.i.i, 5
-  %33 = getelementptr i8, ptr %30, i64 %.idx
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
   %34 = load i64, ptr %33, align 8, !alias.scope !816, !noalias !811, !noundef !5
   %35 = add i64 %34, %31
   %exitcond.not.i.i = icmp eq i64 %32, %27
@@ -3830,7 +3830,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i25:
   br i1 %.not.i.i26, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit36, label %.lr.ph.i.i27.preheader
 
 .lr.ph.i.i27.preheader:                           ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i25
-  %52 = getelementptr i8, ptr %38, i64 224
+  %52 = getelementptr inbounds nuw i8, ptr %38, i64 224
   br label %.lr.ph.i.i27
 
 .lr.ph.i.i27:                                     ; preds = %.lr.ph.i.i27.preheader, %.lr.ph.i.i27
@@ -3838,7 +3838,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i25:
   %53 = phi i64 [ %57, %.lr.ph.i.i27 ], [ 0, %.lr.ph.i.i27.preheader ]
   %54 = add nuw nsw i64 %.sroa.01.08.i.i28, 1
   %.idx105 = shl nuw nsw i64 %.sroa.01.08.i.i28, 5
-  %55 = getelementptr i8, ptr %52, i64 %.idx105
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx105
   %56 = load i64, ptr %55, align 8, !alias.scope !837, !noalias !832, !noundef !5
   %57 = add i64 %56, %53
   %exitcond.not.i.i30 = icmp eq i64 %54, %49
@@ -4314,7 +4314,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i: ;
   br i1 %.not.i.i, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i
-  %40 = getelementptr i8, ptr %26, i64 224
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 224
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -4322,7 +4322,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i: ;
   %41 = phi i64 [ %45, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %42 = add nuw nsw i64 %.sroa.01.08.i.i, 1
   %.idx = shl nuw nsw i64 %.sroa.01.08.i.i, 5
-  %43 = getelementptr i8, ptr %40, i64 %.idx
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   %44 = load i64, ptr %43, align 8, !alias.scope !941, !noalias !939, !noundef !5
   %45 = add i64 %44, %41
   %exitcond.not.i.i = icmp eq i64 %42, %37

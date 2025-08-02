@@ -1054,36 +1054,36 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17mergeCheckerboardERNS_3Ma
   %22 = load i64, ptr %21, align 8, !tbaa !40
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %24 = load i32, ptr %23, align 4
-  %.fr88 = freeze i32 %24
-  %25 = icmp sgt i32 %.fr88, 1
+  %.fr85 = freeze i32 %24
+  %25 = icmp sgt i32 %.fr85, 1
   br i1 %25, label %.lr.ph63.split.us.preheader, label %.lr.ph63.split.split
 
 .lr.ph63.split.us.preheader:                      ; preds = %.lr.ph63
-  %26 = add nsw i32 %.fr88, -2
+  %26 = add nsw i32 %.fr85, -2
   %27 = lshr i32 %26, 1
   %28 = add nuw nsw i32 %27, 2
-  %wide.trip.count139 = zext nneg i32 %6 to i64
-  %wide.trip.count125 = zext nneg i32 %28 to i64
+  %wide.trip.count136 = zext nneg i32 %6 to i64
+  %wide.trip.count122 = zext nneg i32 %28 to i64
   %29 = zext nneg i32 %28 to i64
-  %wide.trip.count134 = zext nneg i32 %28 to i64
+  %wide.trip.count131 = zext nneg i32 %28 to i64
   br label %.lr.ph63.split.us
 
 .lr.ph63.split.us:                                ; preds = %.lr.ph63.split.us.preheader, %52
-  %indvars.iv136 = phi i64 [ 0, %.lr.ph63.split.us.preheader ], [ %indvars.iv.next137, %52 ]
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %30 = mul i64 %12, %indvars.iv.next137
+  %indvars.iv133 = phi i64 [ 0, %.lr.ph63.split.us.preheader ], [ %indvars.iv.next134, %52 ]
+  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
+  %30 = mul i64 %12, %indvars.iv.next134
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 %30
-  %32 = mul i64 %17, %indvars.iv.next137
+  %32 = mul i64 %17, %indvars.iv.next134
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 %32
-  %34 = mul i64 %22, %indvars.iv136
+  %34 = mul i64 %22, %indvars.iv133
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 %34
-  %36 = and i64 %indvars.iv136, 1
+  %36 = and i64 %indvars.iv133, 1
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %.preheader.us, label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us
-  %38 = trunc nuw nsw i64 %indvars.iv.next121 to i32
-  %39 = icmp sgt i32 %.fr88, %38
+  %38 = trunc nuw nsw i64 %indvars.iv.next118 to i32
+  %39 = icmp sgt i32 %.fr85, %38
   br i1 %39, label %40, label %52
 
 40:                                               ; preds = %._crit_edge.us
@@ -1091,104 +1091,103 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17mergeCheckerboardERNS_3Ma
   br label %.sink.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph63.split.us, %.lr.ph.us
-  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.lr.ph.us ], [ 0, %.lr.ph63.split.us ]
-  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.lr.ph.us ], [ 1, %.lr.ph63.split.us ]
-  %42 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv118
+  %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph.us ], [ 0, %.lr.ph63.split.us ]
+  %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.lr.ph.us ], [ 1, %.lr.ph63.split.us ]
+  %42 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv115
   %43 = load float, ptr %42, align 4, !tbaa !42
-  %44 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv120
+  %44 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv117
   store float %43, ptr %44, align 4, !tbaa !42
-  %45 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv118
+  %45 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv115
   %46 = load float, ptr %45, align 4, !tbaa !42
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store float %46, ptr %47, align 4, !tbaa !42
-  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 2
-  %exitcond126.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count125
-  br i1 %exitcond126.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !47
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 2
+  %exitcond123.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count122
+  br i1 %exitcond123.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !47
 
 48:                                               ; preds = %._crit_edge57.us
-  %49 = getelementptr inbounds nuw float, ptr %31, i64 %wide.trip.count134
+  %49 = getelementptr inbounds nuw float, ptr %31, i64 %wide.trip.count131
   br label %.sink.split
 
 .sink.split:                                      ; preds = %40, %48
-  %indvars.iv.next130.lcssa.sink = phi i64 [ %indvars.iv.next130, %48 ], [ %indvars.iv.next121, %40 ]
+  %indvars.iv.next127.lcssa.sink = phi i64 [ %indvars.iv.next127, %48 ], [ %indvars.iv.next118, %40 ]
   %.sink.in = phi ptr [ %49, %48 ], [ %41, %40 ]
   %.sink = load float, ptr %.sink.in, align 4, !tbaa !42
-  %50 = and i64 %indvars.iv.next130.lcssa.sink, 4294967294
+  %50 = and i64 %indvars.iv.next127.lcssa.sink, 4294967294
   %51 = getelementptr inbounds nuw float, ptr %35, i64 %50
   store float %.sink, ptr %51, align 4, !tbaa !42
   br label %52
 
 52:                                               ; preds = %.sink.split, %._crit_edge57.us, %._crit_edge.us
-  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %._crit_edge64, label %.lr.ph63.split.us, !llvm.loop !48
+  %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
+  br i1 %exitcond137.not, label %._crit_edge64, label %.lr.ph63.split.us, !llvm.loop !48
 
 .preheader.us:                                    ; preds = %.lr.ph63.split.us, %.preheader.us
-  %indvars.iv129 = phi i64 [ %indvars.iv.next130, %.preheader.us ], [ 0, %.lr.ph63.split.us ]
-  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.preheader.us ], [ 1, %.lr.ph63.split.us ]
-  %53 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv127
+  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.preheader.us ], [ 0, %.lr.ph63.split.us ]
+  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %.preheader.us ], [ 1, %.lr.ph63.split.us ]
+  %53 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv124
   %54 = load float, ptr %53, align 4, !tbaa !42
-  %55 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv129
+  %55 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv126
   store float %54, ptr %55, align 4, !tbaa !42
-  %56 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv127
+  %56 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv124
   %57 = load float, ptr %56, align 4, !tbaa !42
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store float %57, ptr %58, align 4, !tbaa !42
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 2
-  %exitcond135.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count134
-  br i1 %exitcond135.not, label %._crit_edge57.us, label %.preheader.us, !llvm.loop !50
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 2
+  %exitcond132.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count131
+  br i1 %exitcond132.not, label %._crit_edge57.us, label %.preheader.us, !llvm.loop !50
 
 ._crit_edge57.us:                                 ; preds = %.preheader.us
-  %59 = trunc nuw nsw i64 %indvars.iv.next130 to i32
-  %60 = icmp sgt i32 %.fr88, %59
+  %59 = trunc nuw nsw i64 %indvars.iv.next127 to i32
+  %60 = icmp sgt i32 %.fr85, %59
   br i1 %60, label %48, label %52
 
 .lr.ph63.split.split:                             ; preds = %.lr.ph63
-  %61 = icmp eq i32 %.fr88, 1
-  %invariant.gep = getelementptr i8, ptr %14, i64 4
-  %invariant.gep77 = getelementptr i8, ptr %9, i64 4
+  %61 = icmp eq i32 %.fr85, 1
   br i1 %61, label %.lr.ph63.split.split.split.us.preheader, label %._crit_edge64
 
 .lr.ph63.split.split.split.us.preheader:          ; preds = %.lr.ph63.split.split
-  %wide.trip.count102 = zext nneg i32 %6 to i64
+  %wide.trip.count99 = zext nneg i32 %6 to i64
   br label %.lr.ph63.split.split.split.us
 
 .lr.ph63.split.split.split.us:                    ; preds = %.lr.ph63.split.split.split.us.preheader, %.lr.ph63.split.split.split.us
-  %indvars.iv99 = phi i64 [ 0, %.lr.ph63.split.split.split.us.preheader ], [ %indvars.iv.next100, %.lr.ph63.split.split.split.us ]
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %62 = mul i64 %17, %indvars.iv.next100
-  %63 = mul i64 %22, %indvars.iv99
-  %64 = getelementptr inbounds nuw i8, ptr %19, i64 %63
-  %65 = and i64 %indvars.iv99, 1
-  %66 = icmp eq i64 %65, 0
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %62
-  %67 = mul i64 %12, %indvars.iv.next100
-  %gep78.us = getelementptr i8, ptr %invariant.gep77, i64 %67
-  %storemerge.in = select i1 %66, ptr %gep78.us, ptr %gep.us
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph63.split.split.split.us.preheader ], [ %indvars.iv.next97, %.lr.ph63.split.split.split.us ]
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %62 = mul i64 %17, %indvars.iv.next97
+  %63 = getelementptr inbounds nuw i8, ptr %14, i64 %62
+  %64 = mul i64 %22, %indvars.iv96
+  %65 = getelementptr inbounds nuw i8, ptr %19, i64 %64
+  %66 = and i64 %indvars.iv96, 1
+  %67 = icmp eq i64 %66, 0
+  %68 = mul i64 %12, %indvars.iv.next97
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 %68
+  %.pn = select i1 %67, ptr %69, ptr %63
+  %storemerge.in = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %storemerge = load float, ptr %storemerge.in, align 4, !tbaa !42
-  store float %storemerge, ptr %64, align 4, !tbaa !42
-  %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
-  br i1 %exitcond103.not, label %._crit_edge64, label %.lr.ph63.split.split.split.us, !llvm.loop !51
+  store float %storemerge, ptr %65, align 4, !tbaa !42
+  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
+  br i1 %exitcond100.not, label %._crit_edge64, label %.lr.ph63.split.split.split.us, !llvm.loop !51
 
 ._crit_edge64:                                    ; preds = %.lr.ph63.split.split.split.us, %52, %.lr.ph63.split.split, %3
-  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %69 = load i32, ptr %68, align 8, !tbaa !33
-  %.not.i = icmp eq i32 %69, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %70
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %71 = load i32, ptr %70, align 8, !tbaa !33
+  %.not.i = icmp eq i32 %71, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %72
 
-70:                                               ; preds = %._crit_edge64
+72:                                               ; preds = %._crit_edge64
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %4)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %71
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %73
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+73:                                               ; preds = %72
+  %74 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #19
+  %75 = extractvalue { ptr, i32 } %74, 0
+  call void @__clang_call_terminate(ptr %75) #19
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge64, %70
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge64, %72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   ret void
 }

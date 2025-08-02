@@ -8157,17 +8157,17 @@ _ZN4jiff2tz12concatenated10IndexEntry3len17h9a551dbf9f631146E.exit: ; preds = %_
 define hidden noundef i32 @_ZN4jiff2tz12concatenated9read_be3217h2fd917006ae1de82E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [0 x i8], align 1
   %.not = icmp eq i64 %1, 4
-  br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd961535109510ce0E.exit", label %4
-
-4:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  call void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.9232167ce54e458d8940b51d93e63128.175, i64 noundef 17, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.9232167ce54e458d8940b51d93e63128.13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9232167ce54e458d8940b51d93e63128.176) #18
-  unreachable
+  br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd961535109510ce0E.exit", label %.critedge
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd961535109510ce0E.exit": ; preds = %2
   %.sroa.02.0.copyload = load i32, ptr %0, align 1
-  %5 = tail call i32 @llvm.bswap.i32(i32 %.sroa.02.0.copyload)
-  ret i32 %5
+  %4 = tail call i32 @llvm.bswap.i32(i32 %.sroa.02.0.copyload)
+  ret i32 %4
+
+.critedge:                                        ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
+  call void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.9232167ce54e458d8940b51d93e63128.175, i64 noundef 17, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.9232167ce54e458d8940b51d93e63128.13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9232167ce54e458d8940b51d93e63128.176) #18
+  unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable

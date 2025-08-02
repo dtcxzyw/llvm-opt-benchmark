@@ -2253,7 +2253,6 @@ for.cond121.preheader:                            ; preds = %entry
 
 for.body126.lr.ph:                                ; preds = %for.cond121.preheader
   %4 = load ptr, ptr %grid, align 8, !tbaa !35
-  %invariant.gep = getelementptr i8, ptr %4, i64 8
   %values_.i125 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %5 = load ptr, ptr %values_.i125, align 8
   %6 = load ptr, ptr %optvalues, align 8
@@ -2268,7 +2267,6 @@ for.cond77.preheader:                             ; preds = %entry
 
 for.body82.lr.ph:                                 ; preds = %for.cond77.preheader
   %8 = load ptr, ptr %grid, align 8, !tbaa !35
-  %invariant.gep143 = getelementptr i8, ptr %8, i64 8
   %values_.i114 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %9 = load ptr, ptr %values_.i114, align 8
   %values_.i.i116 = getelementptr inbounds nuw i8, ptr %this, i64 248
@@ -2280,8 +2278,8 @@ for.cond37.preheader:                             ; preds = %entry
   %n_.i95 = getelementptr inbounds nuw i8, ptr %optvalues, i64 8
   %12 = load i64, ptr %n_.i95, align 8, !tbaa !62
   %sub39 = add i64 %12, -1
-  %cmp40145.not = icmp eq i64 %sub39, 0
-  br i1 %cmp40145.not, label %sw.epilog, label %for.body42.lr.ph
+  %cmp40143.not = icmp eq i64 %sub39, 0
+  br i1 %cmp40143.not, label %sw.epilog, label %for.body42.lr.ph
 
 for.body42.lr.ph:                                 ; preds = %for.cond37.preheader
   %13 = load ptr, ptr %grid, align 8, !tbaa !35
@@ -2294,8 +2292,8 @@ for.cond.preheader:                               ; preds = %entry
   %n_.i = getelementptr inbounds nuw i8, ptr %optvalues, i64 8
   %16 = load i64, ptr %n_.i, align 8, !tbaa !62
   %sub = add i64 %16, -1
-  %cmp147.not = icmp eq i64 %sub, 0
-  br i1 %cmp147.not, label %sw.epilog, label %for.body.lr.ph
+  %cmp145.not = icmp eq i64 %sub, 0
+  br i1 %cmp145.not, label %sw.epilog, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %17 = load ptr, ptr %grid, align 8, !tbaa !35
@@ -2307,11 +2305,11 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %j.0148 = phi i64 [ 0, %for.body.lr.ph ], [ %.pre, %for.inc ]
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %17, i64 %j.0148
+  %j.0146 = phi i64 [ 0, %for.body.lr.ph ], [ %.pre, %for.inc ]
+  %arrayidx.i = getelementptr inbounds nuw double, ptr %17, i64 %j.0146
   %21 = load double, ptr %arrayidx.i, align 8, !tbaa !41
   %cmp10 = fcmp ugt double %21, %0
-  %.pre = add nuw i64 %j.0148, 1
+  %.pre = add nuw i64 %j.0146, 1
   br i1 %cmp10, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
@@ -2338,19 +2336,19 @@ if.then:                                          ; preds = %land.lhs.true
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
-  %exitcond154.not = icmp eq i64 %.pre, %sub
-  br i1 %exitcond154.not, label %sw.epilog, label %for.body, !llvm.loop !69
+  %exitcond152.not = icmp eq i64 %.pre, %sub
+  br i1 %exitcond152.not, label %sw.epilog, label %for.body, !llvm.loop !69
 
 for.body42:                                       ; preds = %for.body42.lr.ph, %for.inc72
-  %j36.0146 = phi i64 [ 0, %for.body42.lr.ph ], [ %.pre155, %for.inc72 ]
-  %arrayidx.i96 = getelementptr inbounds nuw double, ptr %13, i64 %j36.0146
+  %j36.0144 = phi i64 [ 0, %for.body42.lr.ph ], [ %.pre153, %for.inc72 ]
+  %arrayidx.i96 = getelementptr inbounds nuw double, ptr %13, i64 %j36.0144
   %26 = load double, ptr %arrayidx.i96, align 8, !tbaa !41
   %cmp44 = fcmp ugt double %26, %0
-  %.pre155 = add nuw i64 %j36.0146, 1
+  %.pre153 = add nuw i64 %j36.0144, 1
   br i1 %cmp44, label %for.inc72, label %land.lhs.true45
 
 land.lhs.true45:                                  ; preds = %for.body42
-  %arrayidx.i97 = getelementptr inbounds nuw double, ptr %13, i64 %.pre155
+  %arrayidx.i97 = getelementptr inbounds nuw double, ptr %13, i64 %.pre153
   %27 = load double, ptr %arrayidx.i97, align 8, !tbaa !41
   %cmp48 = fcmp ogt double %27, %0
   br i1 %cmp48, label %if.then49, label %for.inc72
@@ -2359,7 +2357,7 @@ if.then49:                                        ; preds = %land.lhs.true45
   %sub51 = fsub double %0, %26
   %mul = fmul double %1, %sub51
   %sub54 = fsub double %27, %0
-  %arrayidx.i101 = getelementptr inbounds nuw double, ptr %14, i64 %.pre155
+  %arrayidx.i101 = getelementptr inbounds nuw double, ptr %14, i64 %.pre153
   %28 = load double, ptr %arrayidx.i101, align 8, !tbaa !41
   %mul59 = fmul double %sub54, %28
   %sub63 = fsub double %27, %26
@@ -2367,13 +2365,13 @@ if.then49:                                        ; preds = %land.lhs.true45
   %div67 = fdiv double %add66, %sub63
   %cmp.i104 = fcmp ogt double %div67, 0.000000e+00
   %.sroa.speculated134 = select i1 %cmp.i104, double %div67, double 0.000000e+00
-  %arrayidx.i106 = getelementptr inbounds nuw double, ptr %15, i64 %.pre155
+  %arrayidx.i106 = getelementptr inbounds nuw double, ptr %15, i64 %.pre153
   store double %.sroa.speculated134, ptr %arrayidx.i106, align 8, !tbaa !41
   br label %for.inc72
 
 for.inc72:                                        ; preds = %for.body42, %land.lhs.true45, %if.then49
-  %exitcond153.not = icmp eq i64 %.pre155, %sub39
-  br i1 %exitcond153.not, label %sw.epilog, label %for.body42, !llvm.loop !70
+  %exitcond151.not = icmp eq i64 %.pre153, %sub39
+  br i1 %exitcond151.not, label %sw.epilog, label %for.body42, !llvm.loop !70
 
 for.body82:                                       ; preds = %for.body82.lr.ph, %for.inc116
   %j76.0142 = phi i64 [ 0, %for.body82.lr.ph ], [ %inc117, %for.inc116 ]
@@ -2383,8 +2381,8 @@ for.body82:                                       ; preds = %for.body82.lr.ph, %
   br i1 %cmp84, label %land.lhs.true85, label %for.inc116
 
 land.lhs.true85:                                  ; preds = %for.body82
-  %gep144 = getelementptr double, ptr %invariant.gep143, i64 %j76.0142
-  %30 = load double, ptr %gep144, align 8, !tbaa !41
+  %arrayidx.i109 = getelementptr inbounds nuw i8, ptr %arrayidx.i108, i64 8
+  %30 = load double, ptr %arrayidx.i109, align 8, !tbaa !41
   %cmp88 = fcmp ult double %30, %0
   br i1 %cmp88, label %for.inc116, label %if.then89
 
@@ -2407,8 +2405,8 @@ if.then89:                                        ; preds = %land.lhs.true85
 
 for.inc116:                                       ; preds = %for.body82, %land.lhs.true85, %if.then89
   %inc117 = add nuw i64 %j76.0142, 1
-  %exitcond152.not = icmp eq i64 %inc117, %sub79
-  br i1 %exitcond152.not, label %sw.epilog, label %for.body82, !llvm.loop !71
+  %exitcond150.not = icmp eq i64 %inc117, %sub79
+  br i1 %exitcond150.not, label %sw.epilog, label %for.body82, !llvm.loop !71
 
 for.body126:                                      ; preds = %for.body126.lr.ph, %for.inc158
   %j120.0140 = phi i64 [ 0, %for.body126.lr.ph ], [ %inc159, %for.inc158 ]
@@ -2418,8 +2416,8 @@ for.body126:                                      ; preds = %for.body126.lr.ph, 
   br i1 %cmp128, label %land.lhs.true129, label %for.inc158
 
 land.lhs.true129:                                 ; preds = %for.body126
-  %gep = getelementptr double, ptr %invariant.gep, i64 %j120.0140
-  %35 = load double, ptr %gep, align 8, !tbaa !41
+  %arrayidx.i123 = getelementptr inbounds nuw i8, ptr %arrayidx.i122, i64 8
+  %35 = load double, ptr %arrayidx.i123, align 8, !tbaa !41
   %cmp132 = fcmp ult double %35, %0
   br i1 %cmp132, label %for.inc158, label %if.then133
 

@@ -3066,7 +3066,7 @@ get_serial_from_interface.exit:                   ; preds = %20, %17
   %.08.i = phi ptr [ %19, %17 ], [ null, %20 ]
   %21 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, ptr noundef %3, ptr noundef %.08.i)
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %91, label %23
+  br i1 %22, label %93, label %23
 
 23:                                               ; preds = %get_serial_from_interface.exit
   %24 = tail call fastcc i32 @adb_send(i32 noundef %21, ptr noundef nonnull @.str.195)
@@ -3108,104 +3108,105 @@ get_serial_from_interface.exit:                   ; preds = %20, %17
 37:                                               ; preds = %.lr.ph162, %.backedge
   %.1130161 = phi i64 [ 0, %.lr.ph162 ], [ %.1130.be, %.backedge ]
   store i32 0, ptr %30, align 4
-  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 4), i64 %.1130161
-  %38 = shl i64 %.1130161, 32
-  %sext = sub i64 281453501874176, %38
-  %39 = ashr exact i64 %sext, 32
-  %40 = tail call i64 @recv(i32 noundef %21, ptr noundef %gep, i64 noundef %39, i32 noundef 0)
-  %41 = load i32, ptr %30, align 4
-  switch i32 %41, label %42 [
+  %38 = getelementptr i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 %.1130161
+  %39 = getelementptr i8, ptr %38, i64 4
+  %40 = shl i64 %.1130161, 32
+  %sext = sub i64 281453501874176, %40
+  %41 = ashr exact i64 %sext, 32
+  %42 = tail call i64 @recv(i32 noundef %21, ptr noundef %39, i64 noundef %41, i32 noundef 0)
+  %43 = load i32, ptr %30, align 4
+  switch i32 %43, label %44 [
     i32 11, label %.backedge
-    i32 0, label %44
+    i32 0, label %46
   ]
 
-42:                                               ; preds = %37
-  %43 = tail call ptr @strerror(i32 noundef %41) #20
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1973, ptr noundef nonnull @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef nonnull @.str.162, ptr noundef %43)
+44:                                               ; preds = %37
+  %45 = tail call ptr @strerror(i32 noundef %43) #20
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1973, ptr noundef nonnull @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef nonnull @.str.162, ptr noundef %45)
   br label %.sink.split
 
-44:                                               ; preds = %37
-  %45 = icmp slt i64 %40, 1
-  br i1 %45, label %46, label %47
+46:                                               ; preds = %37
+  %47 = icmp slt i64 %42, 1
+  br i1 %47, label %48, label %49
 
-46:                                               ; preds = %44
+48:                                               ; preds = %46
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1979, ptr noundef nonnull @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef nonnull @.str.175)
   br label %.sink.split
 
-47:                                               ; preds = %44
-  %48 = add i64 %40, %.1130161
-  %49 = icmp sgt i64 %48, 23
-  br i1 %49, label %.lr.ph, label %.backedge
+49:                                               ; preds = %46
+  %50 = add i64 %42, %.1130161
+  %51 = icmp sgt i64 %50, 23
+  br i1 %51, label %.lr.ph, label %.backedge
 
-.lr.ph:                                           ; preds = %47, %83
-  %.2131157 = phi i64 [ %80, %83 ], [ %48, %47 ]
-  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 8), align 8
-  %51 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %50) #25, !srcloc !45
-  %52 = add i32 %51, 24
-  %53 = sext i32 %52 to i64
-  %.not147 = icmp slt i64 %.2131157, %53
-  br i1 %.not147, label %.backedge, label %54
+.lr.ph:                                           ; preds = %49, %85
+  %.2131157 = phi i64 [ %82, %85 ], [ %50, %49 ]
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 8), align 8
+  %53 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %52) #25, !srcloc !45
+  %54 = add i32 %53, 24
+  %55 = sext i32 %54 to i64
+  %.not147 = icmp slt i64 %.2131157, %55
+  br i1 %.not147, label %.backedge, label %56
 
-54:                                               ; preds = %.lr.ph
-  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 20), align 8
-  %56 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %55) #25, !srcloc !46
-  %57 = add i64 %56, -62168256000000000
-  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 12), align 4
-  %59 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %58) #25, !srcloc !47
-  %60 = and i32 %59, 1
-  %61 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %60) #25, !srcloc !48
-  store i32 %61, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 24), align 8
-  %62 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %50) #25, !srcloc !49
-  %63 = sext i32 %62 to i64
-  %64 = add nsw i64 %63, 4
-  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 4), align 4
-  %66 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %65) #25, !srcloc !50
-  %67 = sext i32 %66 to i64
-  %68 = add nsw i64 %67, 4
-  %69 = udiv i64 %57, 1000000
-  %70 = and i64 %69, 4294967295
-  %71 = urem i64 %57, 1000000
-  %72 = trunc nuw nsw i64 %71 to i32
-  %73 = mul nuw nsw i32 %72, 1000
-  %74 = tail call fastcc zeroext i1 @extcap_dumper_dump(i32 %6, ptr %7, ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 24), i64 noundef %64, i64 noundef %68, i64 noundef %70, i32 noundef %73)
-  %75 = zext i1 %74 to i32
-  store i32 %75, ptr @endless_loop, align 4
-  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 8), align 8
-  %77 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %76) #25, !srcloc !51
-  %78 = add i32 %77, 24
-  %79 = sext i32 %78 to i64
-  %80 = sub i64 %.2131157, %79
-  %81 = icmp sgt i64 %80, -1
-  br i1 %81, label %82, label %.thread
+56:                                               ; preds = %.lr.ph
+  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 20), align 8
+  %58 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %57) #25, !srcloc !46
+  %59 = add i64 %58, -62168256000000000
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 12), align 4
+  %61 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %60) #25, !srcloc !47
+  %62 = and i32 %61, 1
+  %63 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %62) #25, !srcloc !48
+  store i32 %63, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 24), align 8
+  %64 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %52) #25, !srcloc !49
+  %65 = sext i32 %64 to i64
+  %66 = add nsw i64 %65, 4
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 4), align 4
+  %68 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %67) #25, !srcloc !50
+  %69 = sext i32 %68 to i64
+  %70 = add nsw i64 %69, 4
+  %71 = udiv i64 %59, 1000000
+  %72 = and i64 %71, 4294967295
+  %73 = urem i64 %59, 1000000
+  %74 = trunc nuw nsw i64 %73 to i32
+  %75 = mul nuw nsw i32 %74, 1000
+  %76 = tail call fastcc zeroext i1 @extcap_dumper_dump(i32 %6, ptr %7, ptr noundef %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 24), i64 noundef %66, i64 noundef %70, i64 noundef %72, i32 noundef %75)
+  %77 = zext i1 %76 to i32
+  store i32 %77, ptr @endless_loop, align 4
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 8), align 8
+  %79 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %78) #25, !srcloc !51
+  %80 = add i32 %79, 24
+  %81 = sext i32 %80 to i64
+  %82 = sub i64 %.2131157, %81
+  %83 = icmp sgt i64 %82, -1
+  br i1 %83, label %84, label %.thread
 
-.thread:                                          ; preds = %54
+.thread:                                          ; preds = %56
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2005, ptr noundef nonnull @__func__.capture_android_bluetooth_btsnoop_net, ptr noundef nonnull @.str.191)
   br label %.sink.split
 
-82:                                               ; preds = %54
-  %.not148 = icmp eq i64 %80, 0
-  br i1 %.not148, label %.backedge, label %83
+84:                                               ; preds = %56
+  %.not148 = icmp eq i64 %82, 0
+  br i1 %.not148, label %.backedge, label %85
 
-83:                                               ; preds = %82
-  %84 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %76) #25, !srcloc !52
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 28), i64 %85
-  %87 = tail call ptr @__memmove_chk(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 4), ptr noundef %86, i64 noundef %80, i64 noundef 65531) #20
-  %88 = icmp samesign ugt i64 %80, 23
-  br i1 %88, label %.lr.ph, label %.backedge, !llvm.loop !53
+85:                                               ; preds = %84
+  %86 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %78) #25, !srcloc !52
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 28), i64 %87
+  %89 = tail call ptr @__memmove_chk(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 4), ptr noundef %88, i64 noundef %82, i64 noundef 65531) #20
+  %90 = icmp samesign ugt i64 %82, 23
+  br i1 %90, label %.lr.ph, label %.backedge, !llvm.loop !53
 
-.backedge:                                        ; preds = %82, %83, %.lr.ph, %47, %37
-  %.1130.be = phi i64 [ %.1130161, %37 ], [ %48, %47 ], [ 0, %82 ], [ %80, %83 ], [ %.2131157, %.lr.ph ]
-  %89 = load i32, ptr @endless_loop, align 4
-  %.not145 = icmp eq i32 %89, 0
+.backedge:                                        ; preds = %84, %85, %.lr.ph, %49, %37
+  %.1130.be = phi i64 [ %.1130161, %37 ], [ %50, %49 ], [ 0, %84 ], [ %82, %85 ], [ %.2131157, %.lr.ph ]
+  %91 = load i32, ptr @endless_loop, align 4
+  %.not145 = icmp eq i32 %91, 0
   br i1 %.not145, label %.sink.split, label %37, !llvm.loop !54
 
-.sink.split:                                      ; preds = %.backedge, %.preheader, %25, %36, %42, %46, %.thread
-  %.0.ph = phi i32 [ -1, %.thread ], [ -1, %46 ], [ -1, %42 ], [ -1, %36 ], [ 29, %25 ], [ 0, %.preheader ], [ 0, %.backedge ]
-  %90 = tail call i32 @close(i32 noundef %21)
-  br label %91
+.sink.split:                                      ; preds = %.backedge, %.preheader, %25, %36, %44, %48, %.thread
+  %.0.ph = phi i32 [ -1, %.thread ], [ -1, %48 ], [ -1, %44 ], [ -1, %36 ], [ 29, %25 ], [ 0, %.preheader ], [ 0, %.backedge ]
+  %92 = tail call i32 @close(i32 noundef %21)
+  br label %93
 
-91:                                               ; preds = %.sink.split, %get_serial_from_interface.exit
+93:                                               ; preds = %.sink.split, %get_serial_from_interface.exit
   %.0 = phi i32 [ 41, %get_serial_from_interface.exit ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

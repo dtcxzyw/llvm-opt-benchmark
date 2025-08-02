@@ -1039,17 +1039,17 @@ mbedtls_ssl_own_cert.exit.i:                      ; preds = %.thread.i.i, %14
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %.059.i, i64 3
   call void @mbedtls_debug_print_crt(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 793, ptr noundef nonnull @.str.50, ptr noundef %20) #8
-  %.not6576.i = icmp eq ptr %20, null
-  br i1 %.not6576.i, label %.loopexit, label %.lr.ph.i
+  %.not6574.i = icmp eq ptr %20, null
+  br i1 %.not6574.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %38, %47
-  %.05778.i = phi ptr [ %60, %47 ], [ %20, %38 ]
-  %.16077.i = phi ptr [ %61, %47 ], [ %39, %38 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.05778.i, i64 16
+  %.05776.i = phi ptr [ %60, %47 ], [ %20, %38 ]
+  %.16075.i = phi ptr [ %61, %47 ], [ %39, %38 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.05776.i, i64 16
   %41 = load i64, ptr %40, align 8, !tbaa !75
   %42 = add i64 %41, 5
-  %43 = icmp ule ptr %.16077.i, %8
-  %44 = ptrtoint ptr %.16077.i to i64
+  %43 = icmp ule ptr %.16075.i, %8
+  %44 = ptrtoint ptr %.16075.i to i64
   %45 = sub i64 %26, %44
   %46 = icmp ule i64 %42, %45
   %narrow.i68.not.i = and i1 %43, %46
@@ -1058,20 +1058,20 @@ mbedtls_ssl_own_cert.exit.i:                      ; preds = %.thread.i.i, %14
 47:                                               ; preds = %.lr.ph.i
   %48 = lshr i64 %41, 16
   %49 = trunc i64 %48 to i8
-  store i8 %49, ptr %.16077.i, align 1, !tbaa !17
+  store i8 %49, ptr %.16075.i, align 1, !tbaa !17
   %50 = lshr i64 %41, 8
   %51 = trunc i64 %50 to i8
-  %52 = getelementptr inbounds nuw i8, ptr %.16077.i, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.16075.i, i64 1
   store i8 %51, ptr %52, align 1, !tbaa !17
   %53 = trunc i64 %41 to i8
-  %54 = getelementptr inbounds nuw i8, ptr %.16077.i, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %.16075.i, i64 2
   store i8 %53, ptr %54, align 1, !tbaa !17
-  %55 = getelementptr inbounds nuw i8, ptr %.16077.i, i64 3
-  %56 = getelementptr inbounds nuw i8, ptr %.05778.i, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.16075.i, i64 3
+  %56 = getelementptr inbounds nuw i8, ptr %.05776.i, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !86
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr align 1 %57, i64 %41, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 %41
-  %59 = getelementptr inbounds nuw i8, ptr %.05778.i, i64 736
+  %59 = getelementptr inbounds nuw i8, ptr %.05776.i, i64 736
   %60 = load ptr, ptr %59, align 8, !tbaa !87
   store i16 0, ptr %58, align 1
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 2

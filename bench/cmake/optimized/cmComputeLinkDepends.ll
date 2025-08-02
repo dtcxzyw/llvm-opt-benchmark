@@ -15277,22 +15277,18 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %1311 = icmp eq i64 %.fr916, 0
   br i1 %1311, label %.lr.ph884.split.us, label %.lr.ph884.split
 
-.lr.ph884.split.us:                               ; preds = %.lr.ph884
-  %invariant.gep = getelementptr i8, ptr %1309, i64 8
-  br label %1312
-
-1312:                                             ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit615.us, %.lr.ph884.split.us
-  %.sroa.0686.0883.us = phi ptr [ %1306, %.lr.ph884.split.us ], [ %1316, %_ZNSt6vectorImSaImEE9push_backERKm.exit615.us ]
-  %1313 = load i64, ptr %.sroa.0686.0883.us, align 8, !tbaa !342
-  %gep = getelementptr %"struct.cmComputeLinkDepends::LinkEntry", ptr %invariant.gep, i64 %1313
-  %1314 = load i64, ptr %gep, align 8, !tbaa !341
+.lr.ph884.split.us:                               ; preds = %.lr.ph884, %_ZNSt6vectorImSaImEE9push_backERKm.exit615.us
+  %.sroa.0686.0883.us = phi ptr [ %1316, %_ZNSt6vectorImSaImEE9push_backERKm.exit615.us ], [ %1306, %.lr.ph884 ]
+  %1312 = load i64, ptr %.sroa.0686.0883.us, align 8, !tbaa !342
+  %1313 = getelementptr inbounds nuw %"struct.cmComputeLinkDepends::LinkEntry", ptr %1309, i64 %1312, i32 0, i32 0, i32 1
+  %1314 = load i64, ptr %1313, align 8, !tbaa !341
   %1315 = icmp eq i64 %1314, 0
   br i1 %1315, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit605.thread, label %_ZNSt6vectorImSaImEE9push_backERKm.exit615.us
 
-_ZNSt6vectorImSaImEE9push_backERKm.exit615.us:    ; preds = %1312
+_ZNSt6vectorImSaImEE9push_backERKm.exit615.us:    ; preds = %.lr.ph884.split.us
   %1316 = getelementptr inbounds nuw i8, ptr %.sroa.0686.0883.us, i64 8
   %.not797.us = icmp eq ptr %1316, %1308
-  br i1 %.not797.us, label %_ZNSt6vectorImSaImEE9push_backERKm.exit615.thread, label %1312, !llvm.loop !1003
+  br i1 %.not797.us, label %_ZNSt6vectorImSaImEE9push_backERKm.exit615.thread, label %.lr.ph884.split.us, !llvm.loop !1003
 
 .lr.ph884.split:                                  ; preds = %.lr.ph884, %_ZNSt6vectorImSaImEE9push_backERKm.exit615
   %.sroa.0686.0883 = phi ptr [ %1348, %_ZNSt6vectorImSaImEE9push_backERKm.exit615 ], [ %1306, %.lr.ph884 ]
@@ -15310,7 +15306,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %1324 = icmp eq i32 %bcmp.i604, 0
   br i1 %1324, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit605.thread, label %_ZNSt6vectorImSaImEE9push_backERKm.exit615
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit605.thread: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit605, %1312
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit605.thread: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit605, %.lr.ph884.split.us
   %.not.i606 = icmp eq ptr %.sroa.11.3889, %.sroa.18.3886
   br i1 %.not.i606, label %1328, label %1325
 
@@ -20913,22 +20909,18 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %1311 = icmp eq i64 %.fr916, 0
   br i1 %1311, label %.lr.ph884.split.us, label %.lr.ph884.split
 
-.lr.ph884.split.us:                               ; preds = %.lr.ph884
-  %invariant.gep = getelementptr i8, ptr %1309, i64 8
-  br label %1312
-
-1312:                                             ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit615.us, %.lr.ph884.split.us
-  %.sroa.0686.0883.us = phi ptr [ %1306, %.lr.ph884.split.us ], [ %1316, %_ZNSt6vectorImSaImEE9push_backERKm.exit615.us ]
-  %1313 = load i64, ptr %.sroa.0686.0883.us, align 8, !tbaa !342
-  %gep = getelementptr %"struct.cmComputeLinkDepends::LinkEntry", ptr %invariant.gep, i64 %1313
-  %1314 = load i64, ptr %gep, align 8, !tbaa !341
+.lr.ph884.split.us:                               ; preds = %.lr.ph884, %_ZNSt6vectorImSaImEE9push_backERKm.exit615.us
+  %.sroa.0686.0883.us = phi ptr [ %1316, %_ZNSt6vectorImSaImEE9push_backERKm.exit615.us ], [ %1306, %.lr.ph884 ]
+  %1312 = load i64, ptr %.sroa.0686.0883.us, align 8, !tbaa !342
+  %1313 = getelementptr inbounds nuw %"struct.cmComputeLinkDepends::LinkEntry", ptr %1309, i64 %1312, i32 0, i32 0, i32 1
+  %1314 = load i64, ptr %1313, align 8, !tbaa !341
   %1315 = icmp eq i64 %1314, 0
   br i1 %1315, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit605.thread, label %_ZNSt6vectorImSaImEE9push_backERKm.exit615.us
 
-_ZNSt6vectorImSaImEE9push_backERKm.exit615.us:    ; preds = %1312
+_ZNSt6vectorImSaImEE9push_backERKm.exit615.us:    ; preds = %.lr.ph884.split.us
   %1316 = getelementptr inbounds nuw i8, ptr %.sroa.0686.0883.us, i64 8
   %.not797.us = icmp eq ptr %1316, %1308
-  br i1 %.not797.us, label %_ZNSt6vectorImSaImEE9push_backERKm.exit615.thread, label %1312, !llvm.loop !1274
+  br i1 %.not797.us, label %_ZNSt6vectorImSaImEE9push_backERKm.exit615.thread, label %.lr.ph884.split.us, !llvm.loop !1274
 
 .lr.ph884.split:                                  ; preds = %.lr.ph884, %_ZNSt6vectorImSaImEE9push_backERKm.exit615
   %.sroa.0686.0883 = phi ptr [ %1348, %_ZNSt6vectorImSaImEE9push_backERKm.exit615 ], [ %1306, %.lr.ph884 ]
@@ -20946,7 +20938,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %1324 = icmp eq i32 %bcmp.i604, 0
   br i1 %1324, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit605.thread, label %_ZNSt6vectorImSaImEE9push_backERKm.exit615
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit605.thread: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit605, %1312
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit605.thread: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit605, %.lr.ph884.split.us
   %.not.i606 = icmp eq ptr %.sroa.11.3889, %.sroa.18.3886
   br i1 %.not.i606, label %1328, label %1325
 

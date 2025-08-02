@@ -41056,8 +41056,8 @@ common.resume.i:                                  ; preds = %.body.i, %26
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i64, ptr %41, align 8, !alias.scope !9892, !noundef !4
   %.idx.i = mul nuw nsw i64 %34, 88
-  %43 = getelementptr i8, ptr %9, i64 96
-  %44 = getelementptr i8, ptr %43, i64 %.idx.i
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i
   %45 = load i64, ptr %44, align 8, !noalias !9892, !noundef !4
   %.not.i = icmp eq i64 %45, %42
   %.not26.i = icmp eq i64 %45, %40
@@ -41128,8 +41128,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.3606196232097133016.exit.
 
 68:                                               ; preds = %62
   %.idx28.i = mul nuw nsw i64 %34, 88
-  %69 = getelementptr i8, ptr %9, i64 56
-  %70 = getelementptr i8, ptr %69, i64 %.idx28.i
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx28.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load i64, ptr %71, align 8, !noalias !9892, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9904)
@@ -41212,8 +41212,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.3606196232097133016.exit.
           to label %106 unwind label %46, !noalias !9892
 
 106:                                              ; preds = %104
-  %107 = getelementptr i8, ptr %9, i64 96
-  %108 = getelementptr i8, ptr %107, i64 %.idx28.i
+  %107 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx28.i
   %109 = load i64, ptr %108, align 8, !noalias !9892, !noundef !4
   store i64 1, ptr %0, align 8, !alias.scope !9892
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -41237,8 +41237,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.3606196232097133016.exit.
   %118 = extractvalue { ptr, ptr } %116, 0
   %119 = extractvalue { ptr, ptr } %116, 1
   %.idx30.i = mul nuw nsw i64 %34, 88
-  %120 = getelementptr i8, ptr %9, i64 56
-  %121 = getelementptr i8, ptr %120, i64 %.idx30.i
+  %120 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %.idx30.i
   %122 = getelementptr i8, ptr %121, i64 16
   %.val36.i = load i64, ptr %122, align 8, !noalias !9892, !noundef !4
   %123 = icmp ult i64 %.sroa.05.0.i, %.val36.i

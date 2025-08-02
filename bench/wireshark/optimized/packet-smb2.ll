@@ -17485,7 +17485,7 @@ define internal void @dissect_smb2_file_directory_info(ptr noundef %0, ptr nound
   %.074 = phi i32 [ 0, %4 ], [ %69, %68 ]
   %9 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.074)
   %10 = icmp sgt i32 %9, 4
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %8
   br i1 %.not, label %17, label %12
@@ -17566,7 +17566,7 @@ define internal void @dissect_smb2_file_directory_info(ptr noundef %0, ptr nound
 
 66:                                               ; preds = %62, %59
   %67 = icmp eq i32 %18, 0
-  br i1 %67, label %.thread, label %68
+  br i1 %67, label %.critedge, label %68
 
 68:                                               ; preds = %66
   %69 = add i32 %18, %.074
@@ -17575,9 +17575,9 @@ define internal void @dissect_smb2_file_directory_info(ptr noundef %0, ptr nound
 
 71:                                               ; preds = %68
   %72 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.178, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %69, i32 noundef -1, ptr noundef nonnull @.str.1550)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %66, %8, %71
+.critedge:                                        ; preds = %66, %8, %71
   ret void
 }
 
@@ -17595,7 +17595,7 @@ define internal void @dissect_smb2_full_directory_info(ptr noundef %0, ptr nound
   %.081 = phi i32 [ 0, %4 ], [ %73, %72 ]
   %9 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.081)
   %10 = icmp sgt i32 %9, 4
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %8
   br i1 %.not, label %17, label %12
@@ -17683,7 +17683,7 @@ define internal void @dissect_smb2_full_directory_info(ptr noundef %0, ptr nound
 
 70:                                               ; preds = %66, %63
   %71 = icmp eq i32 %18, 0
-  br i1 %71, label %.thread, label %72
+  br i1 %71, label %.critedge, label %72
 
 72:                                               ; preds = %70
   %73 = add i32 %18, %.081
@@ -17692,9 +17692,9 @@ define internal void @dissect_smb2_full_directory_info(ptr noundef %0, ptr nound
 
 75:                                               ; preds = %72
   %76 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.185, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %73, i32 noundef -1, ptr noundef nonnull @.str.1550)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %70, %8, %75
+.critedge:                                        ; preds = %70, %8, %75
   ret void
 }
 
@@ -17712,7 +17712,7 @@ define internal void @dissect_smb2_both_directory_info(ptr noundef %0, ptr nound
   %.097 = phi i32 [ 0, %4 ], [ %86, %85 ]
   %9 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.097)
   %10 = icmp sgt i32 %9, 4
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %8
   br i1 %.not, label %17, label %12
@@ -17818,7 +17818,7 @@ define internal void @dissect_smb2_both_directory_info(ptr noundef %0, ptr nound
 
 83:                                               ; preds = %79, %76
   %84 = icmp eq i32 %18, 0
-  br i1 %84, label %.thread, label %85
+  br i1 %84, label %.critedge, label %85
 
 85:                                               ; preds = %83
   %86 = add i32 %18, %.097
@@ -17827,9 +17827,9 @@ define internal void @dissect_smb2_both_directory_info(ptr noundef %0, ptr nound
 
 88:                                               ; preds = %85
   %89 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.1101, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %86, i32 noundef -1, ptr noundef nonnull @.str.1550)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %83, %8, %88
+.critedge:                                        ; preds = %83, %8, %88
   ret void
 }
 
@@ -17847,7 +17847,7 @@ define internal void @dissect_smb2_file_name_info(ptr noundef %0, ptr noundef %1
   %.047 = phi i32 [ 0, %4 ], [ %45, %44 ]
   %9 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.047)
   %10 = icmp sgt i32 %9, 4
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %8
   br i1 %.not, label %17, label %12
@@ -17904,7 +17904,7 @@ define internal void @dissect_smb2_file_name_info(ptr noundef %0, ptr noundef %1
   %42 = sub i32 %.1, %.047
   call void @proto_item_set_len(ptr noundef %.149, i32 noundef %42)
   %43 = icmp eq i32 %18, 0
-  br i1 %43, label %.thread, label %44
+  br i1 %43, label %.critedge, label %44
 
 44:                                               ; preds = %41
   %45 = add i32 %18, %.047
@@ -17913,9 +17913,9 @@ define internal void @dissect_smb2_file_name_info(ptr noundef %0, ptr noundef %1
 
 47:                                               ; preds = %44
   %48 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.151, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %45, i32 noundef -1, ptr noundef nonnull @.str.1550)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %41, %8, %47
+.critedge:                                        ; preds = %41, %8, %47
   ret void
 }
 
@@ -17933,7 +17933,7 @@ define internal void @dissect_smb2_id_both_directory_info(ptr noundef %0, ptr no
   %.0105 = phi i32 [ 0, %4 ], [ %92, %91 ]
   %9 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0105)
   %10 = icmp sgt i32 %9, 4
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %8
   br i1 %.not, label %17, label %12
@@ -18045,7 +18045,7 @@ define internal void @dissect_smb2_id_both_directory_info(ptr noundef %0, ptr no
 
 89:                                               ; preds = %85, %82
   %90 = icmp eq i32 %18, 0
-  br i1 %90, label %.thread, label %91
+  br i1 %90, label %.critedge, label %91
 
 91:                                               ; preds = %89
   %92 = add i32 %18, %.0105
@@ -18054,9 +18054,9 @@ define internal void @dissect_smb2_id_both_directory_info(ptr noundef %0, ptr no
 
 94:                                               ; preds = %91
   %95 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.1109, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %92, i32 noundef -1, ptr noundef nonnull @.str.1550)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %89, %8, %94
+.critedge:                                        ; preds = %89, %8, %94
   ret void
 }
 
@@ -18074,7 +18074,7 @@ define internal void @dissect_smb2_id_full_directory_info(ptr noundef %0, ptr no
   %.089 = phi i32 [ 0, %4 ], [ %79, %78 ]
   %9 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.089)
   %10 = icmp sgt i32 %9, 4
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %8
   br i1 %.not, label %17, label %12
@@ -18168,7 +18168,7 @@ define internal void @dissect_smb2_id_full_directory_info(ptr noundef %0, ptr no
 
 76:                                               ; preds = %72, %69
   %77 = icmp eq i32 %18, 0
-  br i1 %77, label %.thread, label %78
+  br i1 %77, label %.critedge, label %78
 
 78:                                               ; preds = %76
   %79 = add i32 %18, %.089
@@ -18177,9 +18177,9 @@ define internal void @dissect_smb2_id_full_directory_info(ptr noundef %0, ptr no
 
 81:                                               ; preds = %78
   %82 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.193, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %79, i32 noundef -1, ptr noundef nonnull @.str.1550)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %76, %8, %81
+.critedge:                                        ; preds = %76, %8, %81
   ret void
 }
 
@@ -18195,26 +18195,26 @@ define internal void @dissect_smb2_posix_directory_info(ptr noundef %0, ptr noun
   br label %8
 
 8:                                                ; preds = %.lr.ph, %37
-  %.04056 = phi i32 [ 0, %.lr.ph ], [ %33, %37 ]
-  %.04155 = phi ptr [ null, %.lr.ph ], [ %.142, %37 ]
-  %.04354 = phi ptr [ null, %.lr.ph ], [ %.144, %37 ]
+  %.04054 = phi i32 [ 0, %.lr.ph ], [ %33, %37 ]
+  %.04153 = phi ptr [ null, %.lr.ph ], [ %.142, %37 ]
+  %.04352 = phi ptr [ null, %.lr.ph ], [ %.144, %37 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   br i1 %.not, label %14, label %9
 
 9:                                                ; preds = %8
   %10 = load i32, ptr @hf_smb2_posix_info, align 4
-  %11 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %10, ptr noundef %0, i32 noundef %.04056, i32 noundef -1, i32 noundef 0)
+  %11 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %10, ptr noundef %0, i32 noundef %.04054, i32 noundef -1, i32 noundef 0)
   %12 = load i32, ptr @ett_smb2_posix_info, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
   br label %14
 
 14:                                               ; preds = %9, %8
-  %.144 = phi ptr [ %13, %9 ], [ %.04354, %8 ]
-  %.142 = phi ptr [ %11, %9 ], [ %.04155, %8 ]
-  %15 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.04056)
+  %.144 = phi ptr [ %13, %9 ], [ %.04352, %8 ]
+  %.142 = phi ptr [ %11, %9 ], [ %.04153, %8 ]
+  %15 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.04054)
   %16 = load i32, ptr @hf_smb2_next_offset, align 4
-  %17 = call ptr @proto_tree_add_item(ptr noundef %.144, i32 noundef %16, ptr noundef %0, i32 noundef %.04056, i32 noundef 4, i32 noundef -2147483648)
-  %18 = add i32 %.04056, 8
+  %17 = call ptr @proto_tree_add_item(ptr noundef %.144, i32 noundef %16, ptr noundef %0, i32 noundef %.04054, i32 noundef 4, i32 noundef -2147483648)
+  %18 = add i32 %.04054, 8
   %19 = call fastcc i32 @dissect_smb2_posix_info(ptr noundef %0, ptr noundef %.144, i32 noundef %18, ptr noundef %3)
   %20 = load i32, ptr @hf_smb2_filename_len, align 4
   %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.144, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5)
@@ -18232,23 +18232,19 @@ define internal void @dissect_smb2_posix_directory_info(ptr noundef %0, ptr noun
 
 29:                                               ; preds = %24, %14
   %.1 = phi i32 [ %28, %24 ], [ %22, %14 ]
-  %30 = sub i32 %.1, %.04056
+  %30 = sub i32 %.1, %.04054
   call void @proto_item_set_len(ptr noundef %.142, i32 noundef %30)
   %31 = icmp eq i32 %15, 0
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %29
-  %33 = add i32 %15, %.04056
-  %34 = icmp slt i32 %33, %.04056
+  %33 = add i32 %15, %.04054
+  %34 = icmp slt i32 %33, %.04054
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
   %36 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.144, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %33, i32 noundef -1, ptr noundef nonnull @.str.1550)
-  br label %.thread
-
-.thread:                                          ; preds = %29, %35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
-  br label %.loopexit
+  br label %.critedge
 
 37:                                               ; preds = %32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
@@ -18256,7 +18252,11 @@ define internal void @dissect_smb2_posix_directory_info(ptr noundef %0, ptr noun
   %39 = icmp sgt i32 %38, 4
   br i1 %39, label %8, label %.loopexit, !llvm.loop !52
 
-.loopexit:                                        ; preds = %37, %4, %.thread
+.critedge:                                        ; preds = %29, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %37, %4, %.critedge
   ret void
 }
 

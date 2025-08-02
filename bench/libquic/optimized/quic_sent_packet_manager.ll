@@ -2138,120 +2138,120 @@ define void @_ZN3net21QuicSentPacketManager21MarkForRetransmissionEmNS_16Transmi
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !207
   %13 = icmp eq ptr %10, %12
-  br i1 %13, label %.critedge12, label %.critedge
+  br i1 %13, label %14, label %.critedge
 
-.critedge12:                                      ; preds = %9
+14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %5) #18
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %5, ptr noundef nonnull @.str, i32 noundef 356, i32 noundef 2)
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %5) #18
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5) #18
   br label %.critedge
 
-.critedge:                                        ; preds = %9, %3, %.critedge12
-  %14 = add i8 %2, -7
-  %or.cond = icmp ult i8 %14, -2
-  br i1 %or.cond, label %15, label %16
+.critedge:                                        ; preds = %9, %3, %14
+  %15 = add i8 %2, -7
+  %or.cond = icmp ult i8 %15, -2
+  br i1 %or.cond, label %16, label %17
 
-15:                                               ; preds = %.critedge
+16:                                               ; preds = %.critedge
   call void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr noundef nonnull align 8 dereferenceable(120) %6, i64 noundef %1)
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %.critedge
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %18 = load ptr, ptr %17, align 8, !tbaa !76
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %25, label %19
+17:                                               ; preds = %16, %.critedge
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %19 = load ptr, ptr %18, align 8, !tbaa !76
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %26, label %20
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %21 = load i8, ptr %20, align 4, !tbaa !73
-  %22 = load ptr, ptr %18, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %18, i8 noundef zeroext %21, i64 noundef %1, i8 noundef signext %2)
-  br label %60
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %22 = load i8, ptr %21, align 4, !tbaa !73
+  %23 = load ptr, ptr %19, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %25 = load ptr, ptr %24, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %19, i8 noundef zeroext %22, i64 noundef %1, i8 noundef signext %2)
+  br label %61
 
-25:                                               ; preds = %16
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %28 = load i64, ptr %27, align 8, !tbaa !184
-  %.not.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.not.i.i.i.i, label %29, label %36
+26:                                               ; preds = %17
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %29 = load i64, ptr %28, align 8, !tbaa !184
+  %.not.not.i.i.i.i = icmp eq i64 %29, 0
+  br i1 %.not.not.i.i.i.i, label %30, label %37
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  br label %31
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  br label %32
 
-31:                                               ; preds = %32, %29
-  %.sroa.06.0.in.i.i.i.i = phi ptr [ %30, %29 ], [ %.sroa.06.0.i.i.i.i, %32 ]
+32:                                               ; preds = %33, %30
+  %.sroa.06.0.in.i.i.i.i = phi ptr [ %31, %30 ], [ %.sroa.06.0.i.i.i.i, %33 ]
   %.sroa.06.0.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i, align 8, !tbaa !90
   %.not.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, label %32
+  br i1 %.not.i.i.i.i, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, label %33
 
-32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !111
-  %35 = icmp eq i64 %1, %34
-  br i1 %35, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit, label %31, !llvm.loop !212
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i, i64 8
+  %35 = load i64, ptr %34, align 8, !tbaa !111
+  %36 = icmp eq i64 %1, %35
+  br i1 %36, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit, label %32, !llvm.loop !212
 
-36:                                               ; preds = %25
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %38 = load i64, ptr %37, align 8, !tbaa !16
-  %39 = urem i64 %1, %38
-  %40 = load ptr, ptr %26, align 8, !tbaa !6
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
-  %42 = load ptr, ptr %41, align 8, !tbaa !186
-  %.not.i.i.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, label %43
+37:                                               ; preds = %26
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %39 = load i64, ptr %38, align 8, !tbaa !16
+  %40 = urem i64 %1, %39
+  %41 = load ptr, ptr %27, align 8, !tbaa !6
+  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %40
+  %43 = load ptr, ptr %42, align 8, !tbaa !186
+  %.not.i.i.i.i.i.i = icmp eq ptr %43, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, label %44
 
-43:                                               ; preds = %36
-  %44 = load ptr, ptr %42, align 8, !tbaa !90
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !111
-  %47 = icmp eq i64 %1, %46
-  br i1 %47, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit, label %.lr.ph.i.i.i.i.i.i
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %43, align 8, !tbaa !90
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !111
+  %48 = icmp eq i64 %1, %47
+  br i1 %48, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit, label %.lr.ph.i.i.i.i.i.i
 
-48:                                               ; preds = %51
-  %49 = icmp eq i64 %1, %53
-  br i1 %49, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !187
+49:                                               ; preds = %52
+  %50 = icmp eq i64 %1, %54
+  br i1 %50, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !187
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %43, %48
-  %.020.i.i.i.i.i.i = phi ptr [ %50, %48 ], [ %44, %43 ]
-  %50 = load ptr, ptr %.020.i.i.i.i.i.i, align 8, !tbaa !90
-  %.not18.i.i.i.i.i.i = icmp eq ptr %50, null
-  br i1 %.not18.i.i.i.i.i.i, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, label %51
+.lr.ph.i.i.i.i.i.i:                               ; preds = %44, %49
+  %.020.i.i.i.i.i.i = phi ptr [ %51, %49 ], [ %45, %44 ]
+  %51 = load ptr, ptr %.020.i.i.i.i.i.i, align 8, !tbaa !90
+  %.not18.i.i.i.i.i.i = icmp eq ptr %51, null
+  br i1 %.not18.i.i.i.i.i.i, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, label %52
 
-51:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load i64, ptr %52, align 8, !tbaa !111
-  %54 = urem i64 %53, %38
-  %.not19.i.i.i.i.i.i = icmp eq i64 %54, %39
-  br i1 %.not19.i.i.i.i.i.i, label %48, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !187
+52:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %54 = load i64, ptr %53, align 8, !tbaa !111
+  %55 = urem i64 %54, %39
+  %.not19.i.i.i.i.i.i = icmp eq i64 %55, %40
+  br i1 %.not19.i.i.i.i.i.i, label %49, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !187
 
-..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %51
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %52
   br label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, !llvm.loop !187
 
-_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit: ; preds = %48, %32, %43
-  %.sroa.06.1.i.i.i.i = phi ptr [ %44, %43 ], [ %.sroa.06.0.i.i.i.i, %32 ], [ %50, %48 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !188
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %.not18 = icmp eq ptr %56, %57
-  br i1 %.not18, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, label %60
+_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit: ; preds = %49, %33, %44
+  %.sroa.06.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.06.0.i.i.i.i, %33 ], [ %51, %49 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
+  %57 = load ptr, ptr %56, align 8, !tbaa !188
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %.not17 = icmp eq ptr %57, %58
+  br i1 %.not17, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, label %61
 
-_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %31, %..loopexit_crit_edge21.i.i.i.i.i.i, %36, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit
+_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %32, %..loopexit_crit_edge21.i.i.i.i.i.i, %37, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
   store i64 %1, ptr %4, align 8
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %.sroa.24.0..sroa_idx.i, align 8
-  %58 = call { ptr, i8 } @_ZN15linked_hash_mapImN3net16TransmissionTypeESt4hashImEE6insertERKSt4pairImS1_E(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull align 8 dereferenceable(9) %4)
-  %.fca.0.extract.i = extractvalue { ptr, i8 } %58, 0
-  %59 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
+  %59 = call { ptr, i8 } @_ZN15linked_hash_mapImN3net16TransmissionTypeESt4hashImEE6insertERKSt4pairImS1_E(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(9) %4)
+  %.fca.0.extract.i = extractvalue { ptr, i8 } %59, 0
+  %60 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
-  store i8 %2, ptr %59, align 1, !tbaa !213
-  br label %60
+  store i8 %2, ptr %60, align 1, !tbaa !213
+  br label %61
 
-60:                                               ; preds = %19, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit
+61:                                               ; preds = %20, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit
   ret void
 }
 
@@ -2649,16 +2649,16 @@ define void @_ZN3net21QuicSentPacketManager25NextPendingRetransmissionEv(ptr dea
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %8
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.2, i64 noundef 53)
-          to label %.critedge28 unwind label %19
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28 unwind label %19
 
-.critedge28:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %3) #18
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #18
   %.pre = load ptr, ptr %5, align 8, !tbaa !21
   br label %.critedge
 
-.critedge:                                        ; preds = %2, %.critedge28
-  %12 = phi ptr [ %6, %2 ], [ %.pre, %.critedge28 ]
+.critedge:                                        ; preds = %2, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28
+  %12 = phi ptr [ %6, %2 ], [ %.pre, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !135
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -2668,9 +2668,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %8
   br i1 %18, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.critedge, %21
-  %.sroa.030.0.in = phi ptr [ %.sroa.030.0, %21 ], [ %5, %.critedge ]
-  %.sroa.030.0 = load ptr, ptr %.sroa.030.0.in, align 8, !tbaa !21
-  %.not = icmp eq ptr %.sroa.030.0, %5
+  %.sroa.029.0.in = phi ptr [ %.sroa.029.0, %21 ], [ %5, %.critedge ]
+  %.sroa.029.0 = load ptr, ptr %.sroa.029.0.in, align 8, !tbaa !21
+  %.not = icmp eq ptr %.sroa.029.0, %5
   br i1 %.not, label %.loopexit, label %21
 
 19:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %8
@@ -2681,24 +2681,24 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %8
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.029.0, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !135
   %24 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPacketMap19GetTransmissionInfoEm(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %23)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 43
   %.val = load i8, ptr %25, align 1, !tbaa !194, !range !94, !noundef !95
   %26 = trunc nuw i8 %.val to i1
-  br i1 %26, label %.loopexit.split.loop.exit39, label %.preheader
+  br i1 %26, label %.loopexit.split.loop.exit38, label %.preheader
 
-.loopexit.split.loop.exit39:                      ; preds = %21
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 16
+.loopexit.split.loop.exit38:                      ; preds = %21
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.029.0, i64 16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.029.0, i64 24
   %30 = load i8, ptr %29, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit.split.loop.exit39, %.critedge
-  %.023 = phi i8 [ %16, %.critedge ], [ %30, %.loopexit.split.loop.exit39 ], [ %16, %.preheader ]
-  %.022 = phi i64 [ %14, %.critedge ], [ %28, %.loopexit.split.loop.exit39 ], [ %14, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %.loopexit.split.loop.exit38, %.critedge
+  %.023 = phi i8 [ %16, %.critedge ], [ %30, %.loopexit.split.loop.exit38 ], [ %16, %.preheader ]
+  %.022 = phi i64 [ %14, %.critedge ], [ %28, %.loopexit.split.loop.exit38 ], [ %14, %.preheader ]
   %31 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPacketMap19GetTransmissionInfoEm(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %.022)
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %33 = load i8, ptr %32, align 4, !tbaa !73
@@ -2859,14 +2859,14 @@ define noundef zeroext i1 @_ZN3net21QuicSentPacketManager12OnPacketSentEPNS_16Se
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %9, ptr noundef nonnull @.str, i32 noundef 537, i32 noundef 2)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.3, i64 noundef 26)
-          to label %.critedge28 unwind label %27
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %27
 
-.critedge28:                                      ; preds = %17
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %9) #18
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %9) #18
   br label %.critedge
 
-.critedge:                                        ; preds = %13, %7, %.critedge28
+.critedge:                                        ; preds = %13, %7, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %21 = load ptr, ptr %20, align 8, !tbaa !76
   %22 = icmp eq ptr %21, null
@@ -3323,22 +3323,22 @@ define void @_ZN3net21QuicSentPacketManager20RetransmitRtoPacketsEv(ptr noundef 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
   %10 = load i64, ptr %5, align 8, !tbaa !246
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %10)
-          to label %.critedge19 unwind label %27
+          to label %_ZNSolsEm.exit unwind label %27
 
-.critedge19:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+_ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %2) #18
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %2) #18
   br label %.critedge
 
-.critedge:                                        ; preds = %4, %1, %.critedge19
+.critedge:                                        ; preds = %4, %1, %_ZNSolsEm.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = call noundef i64 @_ZNK3net20QuicUnackedPacketMap15GetLeastUnackedEv(ptr noundef nonnull align 8 dereferenceable(120) %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !144, !noalias !274
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !144, !noalias !279
-  %.not3031 = icmp eq ptr %15, %17
-  br i1 %.not3031, label %._crit_edge, label %.lr.ph
+  %.not2930 = icmp eq ptr %15, %17
+  br i1 %.not2930, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3364,12 +3364,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %.lr.ph, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
-  %.01335 = phi i64 [ %13, %.lr.ph ], [ %68, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
-  %.sroa.16.034 = phi ptr [ %19, %.lr.ph ], [ %.sroa.16.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
-  %.sroa.13.033 = phi ptr [ %21, %.lr.ph ], [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
-  %.sroa.023.032 = phi ptr [ %15, %.lr.ph ], [ %.sroa.023.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
-  %30 = load ptr, ptr %.sroa.023.032, align 8, !tbaa !207
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.023.032, i64 8
+  %.01334 = phi i64 [ %13, %.lr.ph ], [ %68, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
+  %.sroa.16.033 = phi ptr [ %19, %.lr.ph ], [ %.sroa.16.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
+  %.sroa.13.032 = phi ptr [ %21, %.lr.ph ], [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
+  %.sroa.022.031 = phi ptr [ %15, %.lr.ph ], [ %.sroa.022.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
+  %30 = load ptr, ptr %.sroa.022.031, align 8, !tbaa !207
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.022.031, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !207
   %33 = icmp ne ptr %30, %32
   %34 = load i64, ptr %22, align 8
@@ -3378,32 +3378,32 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
   br i1 %or.cond, label %36, label %39
 
 36:                                               ; preds = %29
-  call void @_ZN3net21QuicSentPacketManager21MarkForRetransmissionEmNS_16TransmissionTypeE(ptr noundef nonnull align 8 dereferenceable(776) %0, i64 noundef %.01335, i8 noundef signext 5)
+  call void @_ZN3net21QuicSentPacketManager21MarkForRetransmissionEmNS_16TransmissionTypeE(ptr noundef nonnull align 8 dereferenceable(776) %0, i64 noundef %.01334, i8 noundef signext 5)
   %37 = load i64, ptr %22, align 8, !tbaa !246
   %38 = add i64 %37, 1
   store i64 %38, ptr %22, align 8, !tbaa !246
-  %.pre = load ptr, ptr %.sroa.023.032, align 8, !tbaa !207
-  %.pre37 = load ptr, ptr %31, align 8, !tbaa !207
+  %.pre = load ptr, ptr %.sroa.022.031, align 8, !tbaa !207
+  %.pre36 = load ptr, ptr %31, align 8, !tbaa !207
   br label %39
 
 39:                                               ; preds = %36, %29
-  %40 = phi ptr [ %.pre37, %36 ], [ %32, %29 ]
+  %40 = phi ptr [ %.pre36, %36 ], [ %32, %29 ]
   %41 = phi ptr [ %.pre, %36 ], [ %30, %29 ]
   %42 = icmp eq ptr %41, %40
   br i1 %42, label %43, label %61
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.023.032, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.022.031, i64 48
   %45 = load i64, ptr %44, align 8, !tbaa !192
   %46 = icmp eq i64 %45, 0
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.023.032, i64 41
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.022.031, i64 41
   %48 = load i8, ptr %47, align 1, !tbaa !158, !range !94, !noundef !95
   %49 = trunc nuw i8 %48 to i1
   %or.cond.not = select i1 %49, i1 %46, i1 false
   br i1 %or.cond.not, label %50, label %61
 
 50:                                               ; preds = %43
-  call void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr noundef nonnull align 8 dereferenceable(120) %12, i64 noundef %.01335)
+  call void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr noundef nonnull align 8 dereferenceable(120) %12, i64 noundef %.01334)
   %51 = load ptr, ptr %23, align 8, !tbaa !141
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %61, label %52
@@ -3417,28 +3417,28 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
   %58 = load ptr, ptr %51, align 8, !tbaa !3
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %51, i64 noundef %.01335, i8 noundef signext 5, i64 %57)
+  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %51, i64 noundef %.01334, i8 noundef signext 5, i64 %57)
   br label %61
 
 61:                                               ; preds = %50, %52, %43, %39
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.023.032, i64 80
-  %63 = icmp eq ptr %62, %.sroa.13.033
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.022.031, i64 80
+  %63 = icmp eq ptr %62, %.sroa.13.032
   br i1 %63, label %64, label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %.sroa.16.034, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.16.033, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !178
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 480
   br label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit: ; preds = %61, %64
-  %.sroa.023.1 = phi ptr [ %66, %64 ], [ %62, %61 ]
-  %.sroa.13.1 = phi ptr [ %67, %64 ], [ %.sroa.13.033, %61 ]
-  %.sroa.16.1 = phi ptr [ %65, %64 ], [ %.sroa.16.034, %61 ]
-  %68 = add i64 %.01335, 1
+  %.sroa.022.1 = phi ptr [ %66, %64 ], [ %62, %61 ]
+  %.sroa.13.1 = phi ptr [ %67, %64 ], [ %.sroa.13.032, %61 ]
+  %.sroa.16.1 = phi ptr [ %65, %64 ], [ %.sroa.16.033, %61 ]
+  %68 = add i64 %.01334, 1
   %69 = load ptr, ptr %16, align 8, !tbaa !144, !noalias !279
-  %.not30 = icmp eq ptr %.sroa.023.1, %69
-  br i1 %.not30, label %._crit_edge, label %29, !llvm.loop !284
+  %.not29 = icmp eq ptr %.sroa.022.1, %69
+  br i1 %.not29, label %._crit_edge, label %29, !llvm.loop !284
 
 70:                                               ; preds = %._crit_edge
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 568

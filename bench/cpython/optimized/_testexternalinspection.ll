@@ -1001,7 +1001,7 @@ find_map_start_address.exit.thread:               ; preds = %3
   %13 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
   %14 = tail call ptr @PyErr_SetFromErrno(ptr noundef %13) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
-  br label %98
+  br label %100
 
 15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #9
@@ -1034,7 +1034,7 @@ find_map_start_address.exit.thread63:             ; preds = %23, %15
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
-  br label %98
+  br label %100
 
 find_map_start_address.exit:                      ; preds = %.lr.ph.i
   %26 = load i64, ptr %7, align 8, !tbaa !8
@@ -1045,7 +1045,7 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
   %29 = icmp eq i64 %26, 0
-  br i1 %29, label %98, label %30
+  br i1 %29, label %100, label %30
 
 30:                                               ; preds = %find_map_start_address.exit
   %31 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %8, i32 noundef 0) #9
@@ -1055,7 +1055,7 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
 33:                                               ; preds = %30
   %34 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
   %35 = call ptr @PyErr_SetFromErrno(ptr noundef %34) #9
-  br label %88
+  br label %90
 
 36:                                               ; preds = %30
   %37 = call i32 @fstat(i32 noundef %31, ptr noundef nonnull %9) #9
@@ -1065,7 +1065,7 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
 38:                                               ; preds = %36
   %39 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
   %40 = call ptr @PyErr_SetFromErrno(ptr noundef %39) #9
-  br label %88
+  br label %90
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -1077,7 +1077,7 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
 46:                                               ; preds = %41
   %47 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
   %48 = call ptr @PyErr_SetFromErrno(ptr noundef %47) #9
-  br label %88
+  br label %90
 
 49:                                               ; preds = %41
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 40
@@ -1091,7 +1091,6 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
   %58 = getelementptr i8, ptr %44, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 60
   %60 = load i16, ptr %59, align 4, !tbaa !59
-  %invariant.gep = getelementptr i8, ptr %58, i64 1
   %.not75 = icmp eq i16 %60, 0
   br i1 %.not75, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1109,83 +1108,84 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
   %62 = getelementptr %struct.Elf64_Shdr, ptr %52, i64 %indvars.iv
   %63 = load i32, ptr %62, align 8, !tbaa !61
   %64 = zext i32 %63 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %64
-  %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %gep) #10
-  %.not59 = icmp eq i32 %65, 0
+  %65 = getelementptr i8, ptr %58, i64 %64
+  %66 = getelementptr i8, ptr %65, i64 1
+  %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %66) #10
+  %.not59 = icmp eq i32 %67, 0
   br i1 %.not59, label %._crit_edge, label %61
 
 ._crit_edge:                                      ; preds = %.lr.ph, %61, %49
   %.1 = phi ptr [ null, %49 ], [ null, %61 ], [ %62, %.lr.ph ]
-  %66 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %67 = load i64, ptr %66, align 8, !tbaa !62
-  %68 = getelementptr i8, ptr %44, i64 %67
-  %69 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  %70 = load i16, ptr %69, align 8, !tbaa !63
-  %.not76 = icmp eq i16 %70, 0
+  %68 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %69 = load i64, ptr %68, align 8, !tbaa !62
+  %70 = getelementptr i8, ptr %44, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %44, i64 56
+  %72 = load i16, ptr %71, align 8, !tbaa !63
+  %.not76 = icmp eq i16 %72, 0
   br i1 %.not76, label %.thread, label %.lr.ph74.preheader
 
 .lr.ph74.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count82 = zext i16 %70 to i64
+  %wide.trip.count82 = zext i16 %72 to i64
   br label %.lr.ph74
 
-71:                                               ; preds = %.lr.ph74
+73:                                               ; preds = %.lr.ph74
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
   br i1 %exitcond83.not, label %.thread, label %.lr.ph74, !llvm.loop !64
 
-.lr.ph74:                                         ; preds = %.lr.ph74.preheader, %71
-  %indvars.iv79 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next80, %71 ]
-  %72 = getelementptr %struct.Elf64_Phdr, ptr %68, i64 %indvars.iv79
-  %73 = load i32, ptr %72, align 8, !tbaa !65
-  %74 = icmp eq i32 %73, 1
-  br i1 %74, label %75, label %71
+.lr.ph74:                                         ; preds = %.lr.ph74.preheader, %73
+  %indvars.iv79 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next80, %73 ]
+  %74 = getelementptr %struct.Elf64_Phdr, ptr %70, i64 %indvars.iv79
+  %75 = load i32, ptr %74, align 8, !tbaa !65
+  %76 = icmp eq i32 %75, 1
+  br i1 %76, label %77, label %73
 
-75:                                               ; preds = %.lr.ph74
+77:                                               ; preds = %.lr.ph74
   %.not67 = icmp eq ptr %.1, null
-  br i1 %.not67, label %.thread, label %76
+  br i1 %.not67, label %.thread, label %78
 
-76:                                               ; preds = %75
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %78 = load i64, ptr %77, align 8, !tbaa !67
-  %79 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  %80 = load i64, ptr %79, align 8, !tbaa !68
-  %81 = urem i64 %78, %80
-  %82 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %83 = load i64, ptr %82, align 8, !tbaa !69
-  %84 = sub i64 %26, %78
-  %.neg = add i64 %84, %81
-  %85 = add i64 %.neg, %83
-  br label %88
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %80 = load i64, ptr %79, align 8, !tbaa !67
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 48
+  %82 = load i64, ptr %81, align 8, !tbaa !68
+  %83 = urem i64 %80, %82
+  %84 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %85 = load i64, ptr %84, align 8, !tbaa !69
+  %86 = sub i64 %26, %80
+  %.neg = add i64 %86, %83
+  %87 = add i64 %.neg, %85
+  br label %90
 
-.thread:                                          ; preds = %71, %._crit_edge, %75
-  %86 = load ptr, ptr @PyExc_KeyError, align 8, !tbaa !33
-  %87 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %86, ptr noundef nonnull @.str.11, ptr noundef %1) #9
-  br label %88
+.thread:                                          ; preds = %73, %._crit_edge, %77
+  %88 = load ptr, ptr @PyExc_KeyError, align 8, !tbaa !33
+  %89 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %88, ptr noundef nonnull @.str.11, ptr noundef %1) #9
+  br label %90
 
-88:                                               ; preds = %76, %.thread, %46, %38, %33
-  %.054 = phi ptr [ null, %33 ], [ null, %38 ], [ inttoptr (i64 -1 to ptr), %46 ], [ %44, %76 ], [ %44, %.thread ]
-  %.051 = phi i64 [ 0, %33 ], [ 0, %38 ], [ 0, %46 ], [ %85, %76 ], [ 0, %.thread ]
-  %89 = call i32 @close(i32 noundef %31) #9
-  %.not60 = icmp eq i32 %89, 0
-  br i1 %.not60, label %93, label %90
+90:                                               ; preds = %78, %.thread, %46, %38, %33
+  %.054 = phi ptr [ null, %33 ], [ null, %38 ], [ inttoptr (i64 -1 to ptr), %46 ], [ %44, %78 ], [ %44, %.thread ]
+  %.051 = phi i64 [ 0, %33 ], [ 0, %38 ], [ 0, %46 ], [ %87, %78 ], [ 0, %.thread ]
+  %91 = call i32 @close(i32 noundef %31) #9
+  %.not60 = icmp eq i32 %91, 0
+  br i1 %.not60, label %95, label %92
 
-90:                                               ; preds = %88
-  %91 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
-  %92 = call ptr @PyErr_SetFromErrno(ptr noundef %91) #9
-  br label %93
+92:                                               ; preds = %90
+  %93 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
+  %94 = call ptr @PyErr_SetFromErrno(ptr noundef %93) #9
+  br label %95
 
-93:                                               ; preds = %90, %88
+95:                                               ; preds = %92, %90
   %.not61 = icmp eq ptr %.054, null
-  br i1 %.not61, label %98, label %94
+  br i1 %.not61, label %100, label %96
 
-94:                                               ; preds = %93
-  %95 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %96 = load i64, ptr %95, align 8, !tbaa !50
-  %97 = call i32 @munmap(ptr noundef nonnull %.054, i64 noundef %96) #9
-  br label %98
+96:                                               ; preds = %95
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %98 = load i64, ptr %97, align 8, !tbaa !50
+  %99 = call i32 @munmap(ptr noundef nonnull %.054, i64 noundef %98) #9
+  br label %100
 
-98:                                               ; preds = %find_map_start_address.exit.thread63, %find_map_start_address.exit.thread, %93, %94, %find_map_start_address.exit
-  %.0 = phi i64 [ 0, %find_map_start_address.exit ], [ %.051, %94 ], [ %.051, %93 ], [ 0, %find_map_start_address.exit.thread ], [ 0, %find_map_start_address.exit.thread63 ]
+100:                                              ; preds = %find_map_start_address.exit.thread63, %find_map_start_address.exit.thread, %95, %96, %find_map_start_address.exit
+  %.0 = phi i64 [ 0, %find_map_start_address.exit ], [ %.051, %96 ], [ %.051, %95 ], [ 0, %find_map_start_address.exit.thread ], [ 0, %find_map_start_address.exit.thread63 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #9
   ret i64 %.0
 }

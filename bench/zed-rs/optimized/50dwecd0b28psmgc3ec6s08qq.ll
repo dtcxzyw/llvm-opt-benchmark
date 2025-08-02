@@ -6858,8 +6858,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1cf2e90be0009b20E.exit133.i: ; preds =
 
 503:                                              ; preds = %499
   %.idx.i = mul nuw nsw i64 %493, 600
-  %504 = getelementptr i8, ptr %488, i64 640
-  %505 = getelementptr i8, ptr %504, i64 %.idx.i
+  %504 = getelementptr inbounds nuw i8, ptr %488, i64 640
+  %505 = getelementptr inbounds nuw i8, ptr %504, i64 %.idx.i
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 32
   %507 = load i64, ptr %506, align 8, !alias.scope !2493, !noalias !2496, !noundef !9
   %508 = icmp ugt i64 %507, 4
@@ -9493,8 +9493,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1cf2e90be0009b20E.exit124.i: ; preds =
 
 499:                                              ; preds = %495
   %.idx.i = mul nuw nsw i64 %489, 600
-  %500 = getelementptr i8, ptr %484, i64 640
-  %501 = getelementptr i8, ptr %500, i64 %.idx.i
+  %500 = getelementptr inbounds nuw i8, ptr %484, i64 640
+  %501 = getelementptr inbounds nuw i8, ptr %500, i64 %.idx.i
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 32
   %503 = load i64, ptr %502, align 8, !alias.scope !3161, !noalias !3164, !noundef !9
   %504 = icmp ugt i64 %503, 4

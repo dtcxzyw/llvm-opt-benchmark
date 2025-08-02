@@ -521,7 +521,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare dso_local void @add_input_randomness(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @input_event_dispose(ptr noundef %0, i32 noundef range(i32 0, 10) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @input_event_dispose(ptr noundef %0, i32 noundef range(i32 1, 10) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = and i32 %1, 2
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %14, label %8
@@ -1890,50 +1890,85 @@ define internal fastcc noundef zeroext i1 @input_dev_release_keys(ptr noundef %0
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %14
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1304
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1308
+  br label %17
 
-14:                                               ; preds = %.thread, %11
-  %15 = phi i32 [ %9, %11 ], [ %35, %.thread ]
-  %16 = phi i64 [ %8, %11 ], [ %34, %.thread ]
-  %17 = load i8, ptr %12, align 8, !range !5, !noundef !6
-  %18 = icmp ne i8 %17, 0
-  %19 = icmp ugt i32 %15, 767
-  %20 = or i1 %19, %18
-  br i1 %20, label %.thread, label %21
+17:                                               ; preds = %.critedge, %11
+  %18 = phi i32 [ %9, %11 ], [ %59, %.critedge ]
+  %19 = phi i64 [ %8, %11 ], [ %58, %.critedge ]
+  %20 = load i8, ptr %12, align 8, !range !5, !noundef !6
+  %21 = icmp ne i8 %20, 0
+  %22 = icmp ugt i32 %18, 767
+  %23 = or i1 %22, %21
+  br i1 %23, label %.critedge, label %24
 
-21:                                               ; preds = %14
-  %22 = and i64 %16, 4294967295
-  %23 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %13, i64 %22) #19, !srcloc !7
-  %24 = icmp ult i8 %23, 2
-  tail call void @llvm.assume(i1 %24)
-  %25 = icmp eq i8 %23, 0
-  br i1 %25, label %.thread, label %26
+24:                                               ; preds = %17
+  %25 = and i64 %19, 4294967295
+  %26 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %13, i64 %25) #19, !srcloc !7
+  %27 = icmp ult i8 %26, 2
+  tail call void @llvm.assume(i1 %27)
+  %28 = icmp eq i8 %26, 0
+  br i1 %28, label %.critedge, label %29
 
-26:                                               ; preds = %21
-  %27 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %22) #19, !srcloc !7
-  %28 = icmp ult i8 %27, 2
-  tail call void @llvm.assume(i1 %28)
-  %29 = icmp eq i8 %27, 0
-  br i1 %29, label %.thread, label %30
+29:                                               ; preds = %24
+  %30 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %25) #19, !srcloc !7
+  %31 = icmp ult i8 %30, 2
+  tail call void @llvm.assume(i1 %31)
+  %32 = icmp eq i8 %30, 0
+  br i1 %32, label %.critedge, label %33
 
-30:                                               ; preds = %26
-  tail call void asm sideeffect " btcq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %22) #19, !srcloc !8
-  tail call void @add_input_randomness(i32 noundef 1, i32 noundef %15, i32 noundef 0) #19
-  tail call fastcc void @input_event_dispose(ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %15, i32 noundef 0)
-  br label %.thread
+33:                                               ; preds = %29
+  tail call void asm sideeffect " btcq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %25) #19, !srcloc !8
+  tail call void @add_input_randomness(i32 noundef 1, i32 noundef %18, i32 noundef 0) #19
+  %34 = load ptr, ptr %14, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %.critedge, label %36
 
-.thread:                                          ; preds = %21, %26, %14, %30
-  %31 = shl i64 %16, 32
-  %32 = add i64 %31, 4294967296
-  %33 = ashr exact i64 %32, 32
-  %34 = tail call i64 @_find_next_bit(ptr noundef nonnull %7, i64 noundef 768, i64 noundef %33) #19
-  %35 = trunc i64 %34 to i32
-  %36 = icmp slt i32 %35, 768
-  br i1 %36, label %14, label %.loopexit, !llvm.loop !29
+36:                                               ; preds = %33
+  %37 = load i32, ptr %15, align 8
+  %38 = add i32 %37, 1
+  store i32 %38, ptr %15, align 8
+  %39 = zext i32 %37 to i64
+  %40 = getelementptr %struct.input_value, ptr %34, i64 %39
+  store i16 1, ptr %40, align 4
+  %41 = trunc nuw nsw i32 %18 to i16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  store i16 %41, ptr %42, align 2
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  store i32 0, ptr %43, align 4
+  %44 = load i32, ptr %15, align 8
+  %45 = load i32, ptr %16, align 4
+  %46 = add i32 %45, -2
+  %47 = icmp ult i32 %44, %46
+  br i1 %47, label %.critedge, label %48
 
-.loopexit:                                        ; preds = %.thread, %6, %1
-  %37 = phi i1 [ false, %1 ], [ false, %6 ], [ true, %.thread ]
-  ret i1 %37
+48:                                               ; preds = %36
+  %49 = load ptr, ptr %14, align 8
+  %50 = add i32 %44, 1
+  store i32 %50, ptr %15, align 8
+  %51 = zext i32 %44 to i64
+  %52 = getelementptr %struct.input_value, ptr %49, i64 %51
+  store i64 4294967296, ptr %52, align 4
+  %53 = load ptr, ptr %14, align 8
+  %54 = load i32, ptr %15, align 8
+  tail call fastcc void @input_pass_values(ptr noundef %0, ptr noundef %53, i32 noundef %54)
+  store i32 0, ptr %15, align 8
+  br label %.critedge
+
+.critedge:                                        ; preds = %48, %36, %33, %17, %29, %24
+  %55 = shl i64 %19, 32
+  %56 = add i64 %55, 4294967296
+  %57 = ashr exact i64 %56, 32
+  %58 = tail call i64 @_find_next_bit(ptr noundef nonnull %7, i64 noundef 768, i64 noundef %57) #19
+  %59 = trunc i64 %58 to i32
+  %60 = icmp slt i32 %59, 768
+  br i1 %60, label %17, label %.loopexit, !llvm.loop !29
+
+.loopexit:                                        ; preds = %.critedge, %6, %1
+  %61 = phi i1 [ false, %1 ], [ false, %6 ], [ true, %.critedge ]
+  ret i1 %61
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

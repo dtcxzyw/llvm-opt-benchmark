@@ -16,12 +16,12 @@ declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unname
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 -2147483647, -2147483648) i32 @i2c_ASN1_BIT_STRING(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %60, label %4
+  br i1 %3, label %62, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 8, !tbaa !6
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %41
+  br i1 %6, label %7, label %43
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -33,108 +33,108 @@ define hidden range(i32 -2147483647, -2147483648) i32 @i2c_ASN1_BIT_STRING(ptr n
 .lr.ph:                                           ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !15
-  %invariant.gep = getelementptr i8, ptr %12, i64 -1
   br label %16
 
 13:                                               ; preds = %7
   %14 = trunc i64 %9 to i32
   %15 = and i32 %14, 7
-  br label %41
+  br label %43
 
-16:                                               ; preds = %.lr.ph, %19
-  %.03752 = phi i32 [ %5, %.lr.ph ], [ %20, %19 ]
+16:                                               ; preds = %.lr.ph, %21
+  %.03752 = phi i32 [ %5, %.lr.ph ], [ %22, %21 ]
   %17 = zext nneg i32 %.03752 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %17
-  %18 = load i8, ptr %gep, align 1, !tbaa !16
-  %.not43 = icmp eq i8 %18, 0
-  br i1 %.not43, label %19, label %._crit_edge
+  %18 = getelementptr i8, ptr %12, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 -1
+  %20 = load i8, ptr %19, align 1, !tbaa !16
+  %.not43 = icmp eq i8 %20, 0
+  br i1 %.not43, label %21, label %._crit_edge
 
-19:                                               ; preds = %16
-  %20 = add nsw i32 %.03752, -1
-  %21 = icmp sgt i32 %.03752, 1
-  br i1 %21, label %16, label %._crit_edge, !llvm.loop !17
+21:                                               ; preds = %16
+  %22 = add nsw i32 %.03752, -1
+  %23 = icmp sgt i32 %.03752, 1
+  br i1 %23, label %16, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %19, %16
-  %.037.lcssa.ph = phi i32 [ 0, %19 ], [ %.03752, %16 ]
-  %22 = zext nneg i32 %.037.lcssa.ph to i64
-  %23 = getelementptr i8, ptr %12, i64 %22
-  %24 = getelementptr i8, ptr %23, i64 -1
-  %25 = load i8, ptr %24, align 1, !tbaa !16
-  %26 = zext i8 %25 to i32
-  %27 = and i32 %26, 1
-  %.not44 = icmp eq i32 %27, 0
-  br i1 %.not44, label %28, label %41
+._crit_edge:                                      ; preds = %21, %16
+  %.037.lcssa.ph = phi i32 [ 0, %21 ], [ %.03752, %16 ]
+  %24 = zext nneg i32 %.037.lcssa.ph to i64
+  %25 = getelementptr i8, ptr %12, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -1
+  %27 = load i8, ptr %26, align 1, !tbaa !16
+  %28 = zext i8 %27 to i32
+  %29 = and i32 %28, 1
+  %.not44 = icmp eq i32 %29, 0
+  br i1 %.not44, label %30, label %43
 
-28:                                               ; preds = %._crit_edge
-  %29 = and i32 %26, 2
-  %.not45 = icmp eq i32 %29, 0
-  br i1 %.not45, label %30, label %41
-
-30:                                               ; preds = %28
-  %31 = and i32 %26, 4
-  %.not46 = icmp eq i32 %31, 0
-  br i1 %.not46, label %32, label %41
+30:                                               ; preds = %._crit_edge
+  %31 = and i32 %28, 2
+  %.not45 = icmp eq i32 %31, 0
+  br i1 %.not45, label %32, label %43
 
 32:                                               ; preds = %30
-  %33 = and i32 %26, 8
-  %.not47 = icmp eq i32 %33, 0
-  br i1 %.not47, label %34, label %41
+  %33 = and i32 %28, 4
+  %.not46 = icmp eq i32 %33, 0
+  br i1 %.not46, label %34, label %43
 
 34:                                               ; preds = %32
-  %35 = and i32 %26, 16
-  %.not48 = icmp eq i32 %35, 0
-  br i1 %.not48, label %36, label %41
+  %35 = and i32 %28, 8
+  %.not47 = icmp eq i32 %35, 0
+  br i1 %.not47, label %36, label %43
 
 36:                                               ; preds = %34
-  %37 = and i32 %26, 32
-  %.not49 = icmp eq i32 %37, 0
-  br i1 %.not49, label %38, label %41
+  %37 = and i32 %28, 16
+  %.not48 = icmp eq i32 %37, 0
+  br i1 %.not48, label %38, label %43
 
 38:                                               ; preds = %36
-  %39 = and i32 %26, 64
-  %.not50 = icmp eq i32 %39, 0
-  br i1 %.not50, label %40, label %41
+  %39 = and i32 %28, 32
+  %.not49 = icmp eq i32 %39, 0
+  br i1 %.not49, label %40, label %43
 
 40:                                               ; preds = %38
-  %.not51 = icmp eq i8 %25, 0
+  %41 = and i32 %28, 64
+  %.not50 = icmp eq i32 %41, 0
+  br i1 %.not50, label %42, label %43
+
+42:                                               ; preds = %40
+  %.not51 = icmp eq i8 %27, 0
   %. = select i1 %.not51, i32 0, i32 7
-  br label %41
+  br label %43
 
-41:                                               ; preds = %4, %40, %38, %36, %34, %32, %30, %28, %._crit_edge, %13
-  %.038 = phi i32 [ %15, %13 ], [ 0, %._crit_edge ], [ 1, %28 ], [ 2, %30 ], [ 3, %32 ], [ 4, %34 ], [ 5, %36 ], [ 6, %38 ], [ %., %40 ], [ 0, %4 ]
-  %.1 = phi i32 [ %5, %13 ], [ %.037.lcssa.ph, %._crit_edge ], [ %.037.lcssa.ph, %28 ], [ %.037.lcssa.ph, %30 ], [ %.037.lcssa.ph, %32 ], [ %.037.lcssa.ph, %34 ], [ %.037.lcssa.ph, %36 ], [ %.037.lcssa.ph, %38 ], [ %.037.lcssa.ph, %40 ], [ %5, %4 ]
-  %42 = add nsw i32 %.1, 1
-  %43 = icmp eq ptr %1, null
-  br i1 %43, label %60, label %44
+43:                                               ; preds = %4, %42, %40, %38, %36, %34, %32, %30, %._crit_edge, %13
+  %.038 = phi i32 [ %15, %13 ], [ 0, %._crit_edge ], [ 1, %30 ], [ 2, %32 ], [ 3, %34 ], [ 4, %36 ], [ 5, %38 ], [ 6, %40 ], [ %., %42 ], [ 0, %4 ]
+  %.1 = phi i32 [ %5, %13 ], [ %.037.lcssa.ph, %._crit_edge ], [ %.037.lcssa.ph, %30 ], [ %.037.lcssa.ph, %32 ], [ %.037.lcssa.ph, %34 ], [ %.037.lcssa.ph, %36 ], [ %.037.lcssa.ph, %38 ], [ %.037.lcssa.ph, %40 ], [ %.037.lcssa.ph, %42 ], [ %5, %4 ]
+  %44 = add nsw i32 %.1, 1
+  %45 = icmp eq ptr %1, null
+  br i1 %45, label %62, label %46
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %1, align 8, !tbaa !19
-  %46 = trunc nuw nsw i32 %.038 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  store i8 %46, ptr %45, align 1, !tbaa !16
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !15
-  %50 = sext i32 %.1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %49, i64 %50, i1 false)
-  %51 = getelementptr inbounds i8, ptr %47, i64 %50
-  %52 = icmp sgt i32 %.1, 0
-  br i1 %52, label %53, label %59
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %1, align 8, !tbaa !19
+  %48 = trunc nuw nsw i32 %.038 to i8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  store i8 %48, ptr %47, align 1, !tbaa !16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !15
+  %52 = sext i32 %.1 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr align 1 %51, i64 %52, i1 false)
+  %53 = getelementptr inbounds i8, ptr %49, i64 %52
+  %54 = icmp sgt i32 %.1, 0
+  br i1 %54, label %55, label %61
 
-53:                                               ; preds = %44
-  %54 = shl nuw nsw i32 255, %.038
-  %55 = getelementptr inbounds i8, ptr %51, i64 -1
-  %56 = load i8, ptr %55, align 1, !tbaa !16
-  %57 = trunc i32 %54 to i8
-  %58 = and i8 %56, %57
-  store i8 %58, ptr %55, align 1, !tbaa !16
-  br label %59
+55:                                               ; preds = %46
+  %56 = shl nuw nsw i32 255, %.038
+  %57 = getelementptr inbounds i8, ptr %53, i64 -1
+  %58 = load i8, ptr %57, align 1, !tbaa !16
+  %59 = trunc i32 %56 to i8
+  %60 = and i8 %58, %59
+  store i8 %60, ptr %57, align 1, !tbaa !16
+  br label %61
 
-59:                                               ; preds = %53, %44
-  store ptr %51, ptr %1, align 8, !tbaa !19
-  br label %60
+61:                                               ; preds = %55, %46
+  store ptr %53, ptr %1, align 8, !tbaa !19
+  br label %62
 
-60:                                               ; preds = %41, %2, %59
-  %.0 = phi i32 [ %42, %59 ], [ 0, %2 ], [ %42, %41 ]
+62:                                               ; preds = %43, %2, %61
+  %.0 = phi i32 [ %44, %61 ], [ 0, %2 ], [ %44, %43 ]
   ret i32 %.0
 }
 
@@ -361,25 +361,25 @@ define hidden range(i32 0, 2) i32 @ASN1_BIT_STRING_set_bit(ptr noundef captures(
 .lr.ph:                                           ; preds = %44
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !15
-  %invariant.gep = getelementptr i8, ptr %55, i64 -1
   br label %56
 
-56:                                               ; preds = %.lr.ph, %61
-  %57 = phi i32 [ %.pr, %.lr.ph ], [ %62, %61 ]
+56:                                               ; preds = %.lr.ph, %63
+  %57 = phi i32 [ %.pr, %.lr.ph ], [ %64, %63 ]
   %58 = zext nneg i32 %57 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %58
-  %59 = load i8, ptr %gep, align 1, !tbaa !16
-  %60 = icmp eq i8 %59, 0
-  br i1 %60, label %61, label %.critedge
+  %59 = getelementptr i8, ptr %55, i64 %58
+  %60 = getelementptr i8, ptr %59, i64 -1
+  %61 = load i8, ptr %60, align 1, !tbaa !16
+  %62 = icmp eq i8 %61, 0
+  br i1 %62, label %63, label %.critedge
 
-61:                                               ; preds = %56
-  %62 = add nsw i32 %57, -1
-  store i32 %62, ptr %0, align 8, !tbaa !6
-  %63 = icmp sgt i32 %57, 1
-  br i1 %63, label %56, label %.critedge, !llvm.loop !23
+63:                                               ; preds = %56
+  %64 = add nsw i32 %57, -1
+  store i32 %64, ptr %0, align 8, !tbaa !6
+  %65 = icmp sgt i32 %57, 1
+  br i1 %65, label %56, label %.critedge, !llvm.loop !23
 
-.critedge:                                        ; preds = %61, %56, %44, %20, %3, %34
-  %.036 = phi i32 [ 0, %34 ], [ 0, %3 ], [ 1, %20 ], [ 1, %44 ], [ 1, %56 ], [ 1, %61 ]
+.critedge:                                        ; preds = %63, %56, %44, %20, %3, %34
+  %.036 = phi i32 [ 0, %34 ], [ 0, %3 ], [ 1, %20 ], [ 1, %44 ], [ 1, %56 ], [ 1, %63 ]
   ret i32 %.036
 }
 

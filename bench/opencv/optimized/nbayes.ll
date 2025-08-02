@@ -4613,7 +4613,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %410, %406, %401
 
 508:                                              ; preds = %494
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #22
-  br i1 %459, label %.lr.ph386, label %._crit_edge387
+  br i1 %459, label %.lr.ph386, label %._crit_edge394
 
 .lr.ph386:                                        ; preds = %508, %516
   %indvars.iv424 = phi i64 [ %indvars.iv.next425, %516 ], [ 0, %508 ]
@@ -4643,7 +4643,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %410, %406, %401
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #22
   br label %679
 
-._crit_edge387:                                   ; preds = %516, %508
+._crit_edge387:                                   ; preds = %516
   %521 = load ptr, ptr %453, align 8, !tbaa !60
   %522 = getelementptr inbounds nuw %"class.cv::Mat", ptr %521, i64 %indvars.iv460, i32 4
   %523 = load ptr, ptr %522, align 8, !tbaa !98
@@ -4653,9 +4653,6 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %410, %406, %401
   %527 = load ptr, ptr %455, align 8, !tbaa !60
   %528 = getelementptr inbounds nuw %"class.cv::Mat", ptr %527, i64 %indvars.iv460, i32 4
   %529 = load ptr, ptr %528, align 8, !tbaa !98
-  br i1 %459, label %.lr.ph393, label %._crit_edge394
-
-.lr.ph393:                                        ; preds = %._crit_edge387
   %530 = load ptr, ptr %456, align 8, !tbaa !60
   %531 = getelementptr inbounds nuw %"class.cv::Mat", ptr %530, i64 %indvars.iv460
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 16
@@ -4668,9 +4665,9 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %410, %406, %401
   %539 = load i64, ptr %538, align 8, !tbaa !74
   br label %540
 
-540:                                              ; preds = %.lr.ph393, %.split390.us
-  %indvars.iv443 = phi i64 [ 0, %.lr.ph393 ], [ %indvars.iv.next444, %.split390.us ]
-  %indvars.iv441 = phi i64 [ 1, %.lr.ph393 ], [ %indvars.iv.next442, %.split390.us ]
+540:                                              ; preds = %._crit_edge387, %.split390.us
+  %indvars.iv443 = phi i64 [ 0, %._crit_edge387 ], [ %indvars.iv.next444, %.split390.us ]
+  %indvars.iv441 = phi i64 [ 1, %._crit_edge387 ], [ %indvars.iv.next442, %.split390.us ]
   %541 = mul i64 %536, %indvars.iv443
   %542 = getelementptr inbounds nuw i8, ptr %533, i64 %541
   %543 = mul i64 %539, %indvars.iv443
@@ -4734,7 +4731,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %410, %406, %401
   %exitcond449.not = icmp eq i64 %indvars.iv.next444, %wide.trip.count448
   br i1 %exitcond449.not, label %._crit_edge394, label %540, !llvm.loop !112
 
-._crit_edge394:                                   ; preds = %.split390.us, %._crit_edge387
+._crit_edge394:                                   ; preds = %.split390.us, %508
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #22
   store i64 0, ptr %463, align 8
   store i32 50397184, ptr %25, align 8, !tbaa !94

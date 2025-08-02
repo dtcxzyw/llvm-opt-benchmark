@@ -533,7 +533,7 @@ get_or_create_spdy_conversation_data.exit:        ; preds = %4, %37
   ]
 
 ._crit_edge:                                      ; preds = %76
-  %.pre139 = and i8 %74, 1
+  %.pre141 = and i8 %74, 1
   br label %91
 
 81:                                               ; preds = %76, %76, %76, %76
@@ -562,10 +562,10 @@ get_or_create_spdy_conversation_data.exit:        ; preds = %4, %37
   br i1 %.not25.i, label %dissect_spdy_flags.exit, label %dissect_spdy_flags.exit.sink.split
 
 91:                                               ; preds = %._crit_edge, %86
-  %.pre-phi140 = phi i8 [ %.pre139, %._crit_edge ], [ %84, %86 ]
+  %.pre-phi142 = phi i8 [ %.pre141, %._crit_edge ], [ %84, %86 ]
   %92 = load i32, ptr @hf_spdy_flags_clear_settings, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %92, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
-  %.not26.i = icmp eq i8 %.pre-phi140, 0
+  %.not26.i = icmp eq i8 %.pre-phi142, 0
   br i1 %.not26.i, label %dissect_spdy_flags.exit, label %dissect_spdy_flags.exit.sink.split
 
 dissect_spdy_flags.exit.sink.split:               ; preds = %91, %87
@@ -1093,11 +1093,11 @@ dissect_spdy_stream_id_field.exit.i:              ; preds = %328, %320
   unreachable
 
 345:                                              ; preds = %dissect_spdy_stream_id_field.exit.i, %dissect_spdy_stream_id_field.exit.i, %.thread
-  %.0170.i114 = phi i32 [ 18, %.thread ], [ 12, %dissect_spdy_stream_id_field.exit.i ], [ 12, %dissect_spdy_stream_id_field.exit.i ]
+  %.0170.i116 = phi i32 [ 18, %.thread ], [ 12, %dissect_spdy_stream_id_field.exit.i ], [ 12, %dissect_spdy_stream_id_field.exit.i ]
   %.sink.i = phi i32 [ -10, %.thread ], [ -4, %dissect_spdy_stream_id_field.exit.i ], [ -4, %dissect_spdy_stream_id_field.exit.i ]
   %346 = add i32 %.sink.i, %94
   %347 = load i32, ptr @hf_spdy_header_block, align 4
-  %348 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %347, ptr noundef %0, i32 noundef %.0170.i114, i32 noundef %346, i32 noundef 0)
+  %348 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %347, ptr noundef %0, i32 noundef %.0170.i116, i32 noundef %346, i32 noundef 0)
   %349 = load i32, ptr @ett_spdy_header_block, align 4
   %350 = tail call ptr @proto_item_add_subtree(ptr noundef %348, i32 noundef %349)
   %351 = load i8, ptr @spdy_decompress_headers, align 1, !range !6, !noundef !7
@@ -1119,25 +1119,25 @@ dissect_spdy_stream_id_field.exit.i:              ; preds = %328, %320
   %361 = tail call ptr @wmem_list_head(ptr noundef %360)
   %362 = tail call ptr @wmem_list_frame_next(ptr noundef %361)
   %.not4.i.i = icmp eq ptr %362, null
-  br i1 %.not4.i.i, label %spdy_find_saved_header_block.exit.thread.i, label %.lr.ph.i.i106
+  br i1 %.not4.i.i, label %spdy_find_saved_header_block.exit.thread.i, label %.lr.ph.i.i107
 
-.lr.ph.i.i106:                                    ; preds = %359, %370
+.lr.ph.i.i107:                                    ; preds = %359, %370
   %.0105.i.i = phi ptr [ %371, %370 ], [ %362, %359 ]
   %363 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.0105.i.i)
   %364 = load i32, ptr %363, align 8
   %365 = icmp eq i32 %364, %322
   br i1 %365, label %366, label %370
 
-366:                                              ; preds = %.lr.ph.i.i106
+366:                                              ; preds = %.lr.ph.i.i107
   %367 = getelementptr inbounds nuw i8, ptr %363, i64 20
   %368 = load i16, ptr %367, align 4
   %369 = icmp eq i16 %368, %69
   br i1 %369, label %spdy_find_saved_header_block.exit.i, label %370
 
-370:                                              ; preds = %366, %.lr.ph.i.i106
+370:                                              ; preds = %366, %.lr.ph.i.i107
   %371 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.0105.i.i)
-  %.not.i.i107 = icmp eq ptr %371, null
-  br i1 %.not.i.i107, label %spdy_find_saved_header_block.exit.thread.i, label %.lr.ph.i.i106, !llvm.loop !16
+  %.not.i.i108 = icmp eq ptr %371, null
+  br i1 %.not.i.i108, label %spdy_find_saved_header_block.exit.thread.i, label %.lr.ph.i.i107, !llvm.loop !16
 
 spdy_find_saved_header_block.exit.i:              ; preds = %366
   %372 = icmp eq ptr %363, null
@@ -1176,7 +1176,7 @@ spdy_find_saved_header_block.exit.thread.i:       ; preds = %370, %spdy_find_sav
   %.0197.i = load ptr, ptr %.0197.in.i, align 8
   %384 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %385 = load i64, ptr %384, align 8
-  %386 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 12, 19) %.0170.i114, i32 noundef %346)
+  %386 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 12, 19) %.0170.i116, i32 noundef %346)
   %387 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %388 = load ptr, ptr %387, align 8
   %389 = tail call noalias dereferenceable_or_null(16384) ptr @wmem_alloc(ptr noundef %388, i64 noundef 16384) #11
@@ -1195,12 +1195,12 @@ spdy_find_saved_header_block.exit.thread.i:       ; preds = %370, %spdy_find_sav
   %396 = getelementptr inbounds nuw i8, ptr %.0197.i, i64 96
   %397 = load i64, ptr %396, align 8
   %398 = icmp eq i64 %397, %385
-  br i1 %398, label %399, label %spdy_decompress_header_block.exit.thread.i
+  br i1 %398, label %399, label %.thread.i109
 
 399:                                              ; preds = %395
   %400 = tail call i32 @inflateSetDictionary(ptr noundef %.0197.i, ptr noundef nonnull @spdy_dictionary, i32 noundef 1423)
   %401 = icmp eq i32 %400, 0
-  br i1 %401, label %402, label %spdy_decompress_header_block.exit.thread.i
+  br i1 %401, label %402, label %.thread.i109
 
 402:                                              ; preds = %399
   %403 = tail call i32 @inflate(ptr noundef %.0197.i, i32 noundef 2)
@@ -1209,7 +1209,7 @@ spdy_find_saved_header_block.exit.thread.i:       ; preds = %370, %spdy_find_sav
 404:                                              ; preds = %402, %383
   %.023.i.i = phi i32 [ %403, %402 ], [ %393, %383 ]
   %.not.i229.i = icmp eq i32 %.023.i.i, 0
-  br i1 %.not.i229.i, label %spdy_decompress_header_block.exit.i, label %spdy_decompress_header_block.exit.thread.i
+  br i1 %.not.i229.i, label %spdy_decompress_header_block.exit.i, label %.thread.i109
 
 spdy_decompress_header_block.exit.i:              ; preds = %404
   %405 = load i32, ptr %392, align 8
@@ -1217,86 +1217,86 @@ spdy_decompress_header_block.exit.i:              ; preds = %404
   %407 = tail call ptr @wmem_file_scope()
   %408 = zext i32 %406 to i64
   %409 = tail call ptr @wmem_memdup(ptr noundef %407, ptr noundef %389, i64 noundef %408) #13
-  %.not.i108 = icmp eq ptr %409, null
-  br i1 %.not.i108, label %spdy_decompress_header_block.exit.thread.i, label %410
+  %.not.i110 = icmp eq ptr %409, null
+  br i1 %.not.i110, label %.thread.i109, label %411
 
-410:                                              ; preds = %spdy_decompress_header_block.exit.i
-  %411 = load ptr, ptr @header_info_list, align 8
-  %412 = icmp eq ptr %411, null
-  br i1 %412, label %413, label %416
-
-413:                                              ; preds = %410
-  %414 = tail call ptr @wmem_file_scope()
-  %415 = tail call noalias ptr @wmem_list_new(ptr noundef %414)
-  store ptr %415, ptr @header_info_list, align 8
-  br label %416
-
-416:                                              ; preds = %413, %410
-  %417 = tail call ptr @wmem_file_scope()
-  %418 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %417, i64 noundef 24) #11
-  store i32 %322, ptr %418, align 8
-  %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
-  store ptr %409, ptr %419, align 8
-  %420 = getelementptr inbounds nuw i8, ptr %418, i64 16
-  store i32 %406, ptr %420, align 8
-  %421 = getelementptr inbounds nuw i8, ptr %418, i64 20
-  store i16 %69, ptr %421, align 4
-  %422 = load ptr, ptr @header_info_list, align 8
-  tail call void @wmem_list_append(ptr noundef %422, ptr noundef %418)
-  br label %424
-
-spdy_decompress_header_block.exit.thread.i:       ; preds = %spdy_decompress_header_block.exit.i, %404, %399, %395
-  %423 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_spdy_inflation_failed)
+.thread.i109:                                     ; preds = %spdy_decompress_header_block.exit.i, %404, %399, %395
+  %410 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_spdy_inflation_failed)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.155)
   br label %dissect_spdy_header_payload.exit
 
-424:                                              ; preds = %416, %spdy_find_saved_header_block.exit.i
-  %.0198.i = phi ptr [ %418, %416 ], [ %363, %spdy_find_saved_header_block.exit.i ]
+411:                                              ; preds = %spdy_decompress_header_block.exit.i
+  %412 = load ptr, ptr @header_info_list, align 8
+  %413 = icmp eq ptr %412, null
+  br i1 %413, label %414, label %417
+
+414:                                              ; preds = %411
+  %415 = tail call ptr @wmem_file_scope()
+  %416 = tail call noalias ptr @wmem_list_new(ptr noundef %415)
+  store ptr %416, ptr @header_info_list, align 8
+  br label %417
+
+417:                                              ; preds = %414, %411
+  %418 = tail call ptr @wmem_file_scope()
+  %419 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %418, i64 noundef 24) #11
+  store i32 %322, ptr %419, align 8
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
+  store ptr %409, ptr %420, align 8
+  %421 = getelementptr inbounds nuw i8, ptr %419, i64 16
+  store i32 %406, ptr %421, align 8
+  %422 = getelementptr inbounds nuw i8, ptr %419, i64 20
+  store i16 %69, ptr %422, align 4
+  %423 = load ptr, ptr @header_info_list, align 8
+  tail call void @wmem_list_append(ptr noundef %423, ptr noundef %419)
+  br label %424
+
+424:                                              ; preds = %417, %spdy_find_saved_header_block.exit.i
+  %.0198.i = phi ptr [ %419, %417 ], [ %363, %spdy_find_saved_header_block.exit.i ]
   %425 = getelementptr inbounds nuw i8, ptr %.0198.i, i64 8
   %426 = load ptr, ptr %425, align 8
   %427 = getelementptr inbounds nuw i8, ptr %.0198.i, i64 16
   %428 = load i32, ptr %427, align 8
   %429 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %426, i32 noundef %428, i32 noundef %428)
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %429, ptr noundef nonnull @.str.156)
-  %.pre.i109 = load i8, ptr @spdy_decompress_headers, align 1, !range !6
-  %430 = trunc nuw i8 %.pre.i109 to i1
+  %.pre.i111 = load i8, ptr @spdy_decompress_headers, align 1, !range !6
+  %430 = trunc nuw i8 %.pre.i111 to i1
   %431 = icmp ne ptr %429, null
-  %or.cond.i110 = select i1 %431, i1 %430, i1 false
-  br i1 %or.cond.i110, label %432, label %dissect_spdy_header_payload.exit
+  %or.cond.i112 = select i1 %431, i1 %430, i1 false
+  br i1 %or.cond.i112, label %432, label %dissect_spdy_header_payload.exit
 
 432:                                              ; preds = %424
   %433 = tail call i32 @tvb_get_ntohl(ptr noundef nonnull %429, i32 noundef 0)
   %434 = load i32, ptr @hf_spdy_num_headers, align 4
   %435 = tail call ptr @proto_tree_add_item(ptr noundef %350, i32 noundef %434, ptr noundef nonnull %429, i32 noundef 0, i32 noundef 4, i32 noundef 0)
-  %.not223299.i = icmp eq i32 %433, 0
-  br i1 %.not223299.i, label %dissect_spdy_header_payload.exit, label %.lr.ph.i111
+  %.not223296.i = icmp eq i32 %433, 0
+  br i1 %.not223296.i, label %dissect_spdy_header_payload.exit, label %.lr.ph.i113
 
-.lr.ph.i111:                                      ; preds = %432
+.lr.ph.i113:                                      ; preds = %432
   %436 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %437
 
-437:                                              ; preds = %501, %.lr.ph.i111
-  %.in.i = phi i32 [ %433, %.lr.ph.i111 ], [ %438, %501 ]
-  %.2174308.i = phi i32 [ 4, %.lr.ph.i111 ], [ %460, %501 ]
-  %.0178307.i = phi ptr [ null, %.lr.ph.i111 ], [ %.2180.i, %501 ]
-  %.0182306.i = phi ptr [ null, %.lr.ph.i111 ], [ %.2184.i, %501 ]
-  %.0186305.i = phi ptr [ null, %.lr.ph.i111 ], [ %.2188.i, %501 ]
-  %.0190304.i = phi ptr [ null, %.lr.ph.i111 ], [ %.2192.i, %501 ]
-  %.0200303.i = phi ptr [ null, %.lr.ph.i111 ], [ %.2202.i, %501 ]
-  %.0204302.i = phi ptr [ null, %.lr.ph.i111 ], [ %.2206.i, %501 ]
-  %.0210301.i = phi ptr [ null, %.lr.ph.i111 ], [ %.2212.i, %501 ]
-  %.0214300.i = phi ptr [ null, %.lr.ph.i111 ], [ %.2216.i, %501 ]
+437:                                              ; preds = %501, %.lr.ph.i113
+  %.in.i = phi i32 [ %433, %.lr.ph.i113 ], [ %438, %501 ]
+  %.2174305.i = phi i32 [ 4, %.lr.ph.i113 ], [ %460, %501 ]
+  %.0178304.i = phi ptr [ null, %.lr.ph.i113 ], [ %.2180.i, %501 ]
+  %.0182303.i = phi ptr [ null, %.lr.ph.i113 ], [ %.2184.i, %501 ]
+  %.0186302.i = phi ptr [ null, %.lr.ph.i113 ], [ %.2188.i, %501 ]
+  %.0190301.i = phi ptr [ null, %.lr.ph.i113 ], [ %.2192.i, %501 ]
+  %.0200300.i = phi ptr [ null, %.lr.ph.i113 ], [ %.2202.i, %501 ]
+  %.0204299.i = phi ptr [ null, %.lr.ph.i113 ], [ %.2206.i, %501 ]
+  %.0210298.i = phi ptr [ null, %.lr.ph.i113 ], [ %.2212.i, %501 ]
+  %.0214297.i = phi ptr [ null, %.lr.ph.i113 ], [ %.2216.i, %501 ]
   %438 = add i32 %.in.i, -1
-  %439 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %429, i32 noundef %.2174308.i)
+  %439 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %429, i32 noundef %.2174305.i)
   %440 = icmp slt i32 %439, 4
-  br i1 %440, label %.thread244.sink.split.i, label %441
+  br i1 %440, label %.thread241.sink.split.i, label %441
 
 441:                                              ; preds = %437
-  %442 = tail call i32 @tvb_get_ntohl(ptr noundef nonnull %429, i32 noundef %.2174308.i)
-  %443 = add i32 %.2174308.i, 4
+  %442 = tail call i32 @tvb_get_ntohl(ptr noundef nonnull %429, i32 noundef %.2174305.i)
+  %443 = add i32 %.2174305.i, 4
   %444 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %429, i32 noundef %443)
   %445 = icmp slt i32 %444, %442
-  br i1 %445, label %.thread244.sink.split.i, label %446
+  br i1 %445, label %.thread241.sink.split.i, label %446
 
 446:                                              ; preds = %441
   %447 = load ptr, ptr %436, align 8
@@ -1304,14 +1304,14 @@ spdy_decompress_header_block.exit.thread.i:       ; preds = %spdy_decompress_hea
   %449 = add i32 %442, %443
   %450 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %429, i32 noundef %449)
   %451 = icmp slt i32 %450, 4
-  br i1 %451, label %.thread244.sink.split.i, label %452
+  br i1 %451, label %.thread241.sink.split.i, label %452
 
 452:                                              ; preds = %446
   %453 = tail call i32 @tvb_get_ntohl(ptr noundef nonnull %429, i32 noundef %449)
   %454 = add i32 %449, 4
   %455 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %429, i32 noundef %454)
   %456 = icmp slt i32 %455, %453
-  br i1 %456, label %.thread244.sink.split.i, label %457
+  br i1 %456, label %.thread241.sink.split.i, label %457
 
 457:                                              ; preds = %452
   %458 = load ptr, ptr %436, align 8
@@ -1321,13 +1321,13 @@ spdy_decompress_header_block.exit.thread.i:       ; preds = %spdy_decompress_hea
 
 461:                                              ; preds = %457
   %462 = load i32, ptr @hf_spdy_header, align 4
-  %463 = sub i32 %460, %.2174308.i
-  %464 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %44, i32 noundef %462, ptr noundef nonnull %429, i32 noundef %.2174308.i, i32 noundef %463, i32 noundef 0)
+  %463 = sub i32 %460, %.2174305.i
+  %464 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %44, i32 noundef %462, ptr noundef nonnull %429, i32 noundef %.2174305.i, i32 noundef %463, i32 noundef 0)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %464, ptr noundef nonnull @.str.161, ptr noundef %448, ptr noundef %459)
   %465 = load i32, ptr @ett_spdy_header, align 4
   %466 = tail call ptr @proto_item_add_subtree(ptr noundef %464, i32 noundef %465)
   %467 = load i32, ptr @hf_spdy_header_name, align 4
-  %468 = tail call ptr @proto_tree_add_item(ptr noundef %466, i32 noundef %467, ptr noundef nonnull %429, i32 noundef %.2174308.i, i32 noundef 4, i32 noundef 0)
+  %468 = tail call ptr @proto_tree_add_item(ptr noundef %466, i32 noundef %467, ptr noundef nonnull %429, i32 noundef %.2174305.i, i32 noundef 4, i32 noundef 0)
   %469 = load i32, ptr @hf_spdy_header_value, align 4
   %470 = tail call ptr @proto_tree_add_item(ptr noundef %466, i32 noundef %469, ptr noundef nonnull %429, i32 noundef %449, i32 noundef 4, i32 noundef 0)
   br label %471
@@ -1383,49 +1383,49 @@ spdy_decompress_header_block.exit.thread.i:       ; preds = %spdy_decompress_hea
   br label %501
 
 501:                                              ; preds = %498, %495, %492, %486, %483, %480, %477, %474, %471
-  %.2216.i = phi ptr [ %494, %492 ], [ %.0214300.i, %498 ], [ %.0214300.i, %495 ], [ %.0214300.i, %471 ], [ %.0214300.i, %474 ], [ %.0214300.i, %477 ], [ %.0214300.i, %480 ], [ %.0214300.i, %483 ], [ %.0214300.i, %486 ]
-  %.2212.i = phi ptr [ %.0210301.i, %492 ], [ %500, %498 ], [ %.0210301.i, %495 ], [ %.0210301.i, %471 ], [ %.0210301.i, %474 ], [ %.0210301.i, %477 ], [ %.0210301.i, %480 ], [ %.0210301.i, %483 ], [ %.0210301.i, %486 ]
-  %.2206.i = phi ptr [ %.0204302.i, %492 ], [ %.0204302.i, %498 ], [ %.0204302.i, %495 ], [ %.0204302.i, %471 ], [ %.0204302.i, %474 ], [ %.0204302.i, %477 ], [ %.0204302.i, %480 ], [ %.0204302.i, %483 ], [ %459, %486 ]
-  %.2202.i = phi ptr [ %.0200303.i, %492 ], [ %.0200303.i, %498 ], [ %.0200303.i, %495 ], [ %.0200303.i, %471 ], [ %.0200303.i, %474 ], [ %.0200303.i, %477 ], [ %.0200303.i, %480 ], [ %459, %483 ], [ %.0200303.i, %486 ]
-  %.2192.i = phi ptr [ %.0190304.i, %492 ], [ %.0190304.i, %498 ], [ %.0190304.i, %495 ], [ %.0190304.i, %471 ], [ %.0190304.i, %474 ], [ %.0190304.i, %477 ], [ %459, %480 ], [ %.0190304.i, %483 ], [ %.0190304.i, %486 ]
-  %.2188.i = phi ptr [ %.0186305.i, %492 ], [ %.0186305.i, %498 ], [ %.0186305.i, %495 ], [ %.0186305.i, %471 ], [ %.0186305.i, %474 ], [ %459, %477 ], [ %.0186305.i, %480 ], [ %.0186305.i, %483 ], [ %.0186305.i, %486 ]
-  %.2184.i = phi ptr [ %.0182306.i, %492 ], [ %.0182306.i, %498 ], [ %.0182306.i, %495 ], [ %.0182306.i, %471 ], [ %459, %474 ], [ %.0182306.i, %477 ], [ %.0182306.i, %480 ], [ %.0182306.i, %483 ], [ %.0182306.i, %486 ]
-  %.2180.i = phi ptr [ %.0178307.i, %492 ], [ %.0178307.i, %498 ], [ %.0178307.i, %495 ], [ %459, %471 ], [ %.0178307.i, %474 ], [ %.0178307.i, %477 ], [ %.0178307.i, %480 ], [ %.0178307.i, %483 ], [ %.0178307.i, %486 ]
+  %.2216.i = phi ptr [ %494, %492 ], [ %.0214297.i, %498 ], [ %.0214297.i, %495 ], [ %.0214297.i, %471 ], [ %.0214297.i, %474 ], [ %.0214297.i, %477 ], [ %.0214297.i, %480 ], [ %.0214297.i, %483 ], [ %.0214297.i, %486 ]
+  %.2212.i = phi ptr [ %.0210298.i, %492 ], [ %500, %498 ], [ %.0210298.i, %495 ], [ %.0210298.i, %471 ], [ %.0210298.i, %474 ], [ %.0210298.i, %477 ], [ %.0210298.i, %480 ], [ %.0210298.i, %483 ], [ %.0210298.i, %486 ]
+  %.2206.i = phi ptr [ %.0204299.i, %492 ], [ %.0204299.i, %498 ], [ %.0204299.i, %495 ], [ %.0204299.i, %471 ], [ %.0204299.i, %474 ], [ %.0204299.i, %477 ], [ %.0204299.i, %480 ], [ %.0204299.i, %483 ], [ %459, %486 ]
+  %.2202.i = phi ptr [ %.0200300.i, %492 ], [ %.0200300.i, %498 ], [ %.0200300.i, %495 ], [ %.0200300.i, %471 ], [ %.0200300.i, %474 ], [ %.0200300.i, %477 ], [ %.0200300.i, %480 ], [ %459, %483 ], [ %.0200300.i, %486 ]
+  %.2192.i = phi ptr [ %.0190301.i, %492 ], [ %.0190301.i, %498 ], [ %.0190301.i, %495 ], [ %.0190301.i, %471 ], [ %.0190301.i, %474 ], [ %.0190301.i, %477 ], [ %459, %480 ], [ %.0190301.i, %483 ], [ %.0190301.i, %486 ]
+  %.2188.i = phi ptr [ %.0186302.i, %492 ], [ %.0186302.i, %498 ], [ %.0186302.i, %495 ], [ %.0186302.i, %471 ], [ %.0186302.i, %474 ], [ %459, %477 ], [ %.0186302.i, %480 ], [ %.0186302.i, %483 ], [ %.0186302.i, %486 ]
+  %.2184.i = phi ptr [ %.0182303.i, %492 ], [ %.0182303.i, %498 ], [ %.0182303.i, %495 ], [ %.0182303.i, %471 ], [ %459, %474 ], [ %.0182303.i, %477 ], [ %.0182303.i, %480 ], [ %.0182303.i, %483 ], [ %.0182303.i, %486 ]
+  %.2180.i = phi ptr [ %.0178304.i, %492 ], [ %.0178304.i, %498 ], [ %.0178304.i, %495 ], [ %459, %471 ], [ %.0178304.i, %474 ], [ %.0178304.i, %477 ], [ %.0178304.i, %480 ], [ %.0178304.i, %483 ], [ %.0178304.i, %486 ]
   %.not223.i = icmp eq i32 %438, 0
-  br i1 %.not223.i, label %.thread244.i, label %437
+  br i1 %.not223.i, label %.thread241.i, label %437
 
-.thread244.sink.split.i:                          ; preds = %452, %446, %441, %437
+.thread241.sink.split.i:                          ; preds = %452, %446, %441, %437
   %.str.160.sink.i = phi ptr [ @.str.157, %437 ], [ @.str.158, %441 ], [ @.str.159, %446 ], [ @.str.160, %452 ]
   %502 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_spdy_mal_frame_data, ptr noundef nonnull %.str.160.sink.i)
-  br label %.thread244.i
+  br label %.thread241.i
 
-.thread244.i:                                     ; preds = %501, %.thread244.sink.split.i
-  %.0214296.i = phi ptr [ %.0214300.i, %.thread244.sink.split.i ], [ %.2216.i, %501 ]
-  %.0210291.i = phi ptr [ %.0210301.i, %.thread244.sink.split.i ], [ %.2212.i, %501 ]
-  %.0204286.i = phi ptr [ %.0204302.i, %.thread244.sink.split.i ], [ %.2206.i, %501 ]
-  %.0200281.i = phi ptr [ %.0200303.i, %.thread244.sink.split.i ], [ %.2202.i, %501 ]
-  %.0190276.i = phi ptr [ %.0190304.i, %.thread244.sink.split.i ], [ %.2192.i, %501 ]
-  %.0186271.i = phi ptr [ %.0186305.i, %.thread244.sink.split.i ], [ %.2188.i, %501 ]
-  %.0182266.i = phi ptr [ %.0182306.i, %.thread244.sink.split.i ], [ %.2184.i, %501 ]
-  %.0178261.i = phi ptr [ %.0178307.i, %.thread244.sink.split.i ], [ %.2180.i, %501 ]
-  %.not225.i = icmp eq ptr %.0186271.i, null
+.thread241.i:                                     ; preds = %501, %.thread241.sink.split.i
+  %.0214293.i = phi ptr [ %.0214297.i, %.thread241.sink.split.i ], [ %.2216.i, %501 ]
+  %.0210288.i = phi ptr [ %.0210298.i, %.thread241.sink.split.i ], [ %.2212.i, %501 ]
+  %.0204283.i = phi ptr [ %.0204299.i, %.thread241.sink.split.i ], [ %.2206.i, %501 ]
+  %.0200278.i = phi ptr [ %.0200300.i, %.thread241.sink.split.i ], [ %.2202.i, %501 ]
+  %.0190273.i = phi ptr [ %.0190301.i, %.thread241.sink.split.i ], [ %.2192.i, %501 ]
+  %.0186268.i = phi ptr [ %.0186302.i, %.thread241.sink.split.i ], [ %.2188.i, %501 ]
+  %.0182263.i = phi ptr [ %.0182303.i, %.thread241.sink.split.i ], [ %.2184.i, %501 ]
+  %.0178258.i = phi ptr [ %.0178304.i, %.thread241.sink.split.i ], [ %.2180.i, %501 ]
+  %.not225.i = icmp eq ptr %.0186268.i, null
   br i1 %.not225.i, label %507, label %503
 
-503:                                              ; preds = %.thread244.i
-  %504 = icmp eq ptr %.0204286.i, null
+503:                                              ; preds = %.thread241.i
+  %504 = icmp eq ptr %.0204283.i, null
   br i1 %504, label %505, label %506
 
 505:                                              ; preds = %503
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.170, ptr noundef %.0178261.i, ptr noundef %.0200281.i, ptr noundef %.0190276.i, ptr noundef %.0182266.i, ptr noundef nonnull %.0186271.i)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.170, ptr noundef %.0178258.i, ptr noundef %.0200278.i, ptr noundef %.0190273.i, ptr noundef %.0182263.i, ptr noundef nonnull %.0186268.i)
   br label %507
 
 506:                                              ; preds = %503
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.171, ptr noundef nonnull %.0204286.i, ptr noundef nonnull %.0186271.i)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.171, ptr noundef nonnull %.0204283.i, ptr noundef nonnull %.0186268.i)
   br label %507
 
-507:                                              ; preds = %506, %505, %.thread244.i
-  %.0204286372.i = phi ptr [ null, %505 ], [ %.0204286.i, %506 ], [ %.0204286.i, %.thread244.i ]
-  %.not226.i = icmp eq ptr %.0214296.i, null
+507:                                              ; preds = %506, %505, %.thread241.i
+  %.0204283370.i = phi ptr [ null, %505 ], [ %.0204283.i, %506 ], [ %.0204283.i, %.thread241.i ]
+  %.not226.i = icmp eq ptr %.0214293.i, null
   br i1 %.not226.i, label %dissect_spdy_header_payload.exit, label %508
 
 508:                                              ; preds = %507
@@ -1442,7 +1442,7 @@ spdy_decompress_header_block.exit.thread.i:       ; preds = %spdy_decompress_hea
   br label %516
 
 516:                                              ; preds = %523, %514
-  %.0.i231.i = phi ptr [ %.0214296.i, %514 ], [ %525, %523 ]
+  %.0.i231.i = phi ptr [ %.0214293.i, %514 ], [ %525, %523 ]
   %517 = load i8, ptr %.0.i231.i, align 1
   switch i8 %517, label %518 [
     i8 0, label %.critedge.i.i
@@ -1500,7 +1500,7 @@ spdy_decompress_header_block.exit.thread.i:       ; preds = %spdy_decompress_hea
 
 spdy_parse_content_type.exit.i:                   ; preds = %536, %535
   %.018.i.i = phi ptr [ null, %536 ], [ %.1.i.i, %535 ]
-  %537 = icmp ne ptr %.0204286372.i, null
+  %537 = icmp ne ptr %.0204283370.i, null
   %538 = zext i1 %537 to i32
   %539 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %540 = load ptr, ptr %539, align 8
@@ -1518,11 +1518,11 @@ spdy_save_stream_info.exit.i:                     ; preds = %542, %spdy_parse_co
   %546 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc(ptr noundef %545, i64 noundef 56) #11
   store i32 %538, ptr %546, align 8
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 8
-  store ptr %.0214296.i, ptr %547, align 8
+  store ptr %.0214293.i, ptr %547, align 8
   %548 = getelementptr inbounds nuw i8, ptr %546, i64 16
   store ptr %.018.i.i, ptr %548, align 8
   %549 = getelementptr inbounds nuw i8, ptr %546, i64 24
-  store ptr %.0210291.i, ptr %549, align 8
+  store ptr %.0210288.i, ptr %549, align 8
   %550 = tail call ptr @wmem_file_scope()
   %551 = tail call noalias ptr @wmem_list_new(ptr noundef %550)
   %552 = getelementptr inbounds nuw i8, ptr %546, i64 32
@@ -1559,7 +1559,7 @@ spdy_save_stream_info.exit.i:                     ; preds = %542, %spdy_parse_co
   %562 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.096, ptr noundef nonnull @ei_spdy_invalid_frame_type, ptr noundef nonnull @.str.135, i32 noundef %71)
   br label %dissect_spdy_header_payload.exit
 
-dissect_spdy_header_payload.exit:                 ; preds = %spdy_decompress_header_block.exit.thread.i, %spdy_save_stream_info.exit.i, %508, %507, %432, %424, %345, %561, %560, %559, %558, %557, %556, %319
+dissect_spdy_header_payload.exit:                 ; preds = %.thread.i109, %spdy_save_stream_info.exit.i, %508, %507, %432, %424, %345, %561, %560, %559, %558, %557, %556, %319
   %563 = load ptr, ptr %39, align 8
   tail call void @col_set_fence(ptr noundef %563, i32 noundef 25)
   br label %564

@@ -10495,7 +10495,6 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__op
   store ptr %4, ptr %6, align 8
   %8 = add nsw i64 %2, -1
   %9 = sdiv i64 %8, 2
-  %invariant.gep = getelementptr i8, ptr %0, i64 8
   %10 = icmp slt i64 %1, %9
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -10504,70 +10503,71 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__op
   %11 = shl i64 %.029, 1
   %12 = add i64 %11, 2
   %13 = getelementptr inbounds ptr, ptr %0, i64 %12
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %11
-  %14 = load ptr, ptr %13, align 8, !tbaa !305
-  %15 = load ptr, ptr %gep, align 8, !tbaa !305
-  %16 = call noundef i32 @_ZN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmp8cmp_exprEP4exprS4_i(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %14, ptr noundef %15, i32 noundef 4)
-  %17 = icmp eq i32 %16, -1
-  %18 = or disjoint i64 %11, 1
-  %spec.select = select i1 %17, i64 %18, i64 %12
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
-  %20 = load ptr, ptr %19, align 8, !tbaa !305
-  %21 = getelementptr inbounds ptr, ptr %0, i64 %.029
-  store ptr %20, ptr %21, align 8, !tbaa !305
-  %22 = icmp slt i64 %spec.select, %9
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !483
+  %14 = getelementptr ptr, ptr %0, i64 %11
+  %15 = getelementptr i8, ptr %14, i64 8
+  %16 = load ptr, ptr %13, align 8, !tbaa !305
+  %17 = load ptr, ptr %15, align 8, !tbaa !305
+  %18 = call noundef i32 @_ZN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmp8cmp_exprEP4exprS4_i(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %16, ptr noundef %17, i32 noundef 4)
+  %19 = icmp eq i32 %18, -1
+  %20 = or disjoint i64 %11, 1
+  %spec.select = select i1 %19, i64 %20, i64 %12
+  %21 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %22 = load ptr, ptr %21, align 8, !tbaa !305
+  %23 = getelementptr inbounds ptr, ptr %0, i64 %.029
+  store ptr %22, ptr %23, align 8, !tbaa !305
+  %24 = icmp slt i64 %spec.select, %9
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !483
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %.lr.ph ]
-  %23 = and i64 %2, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %35
+  %25 = and i64 %2, 1
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %27, label %37
 
-25:                                               ; preds = %._crit_edge
-  %26 = add nsw i64 %2, -2
-  %27 = ashr exact i64 %26, 1
-  %28 = icmp eq i64 %.0.lcssa, %27
-  br i1 %28, label %29, label %35
+27:                                               ; preds = %._crit_edge
+  %28 = add nsw i64 %2, -2
+  %29 = ashr exact i64 %28, 1
+  %30 = icmp eq i64 %.0.lcssa, %29
+  br i1 %30, label %31, label %37
 
-29:                                               ; preds = %25
-  %30 = shl nsw i64 %.0.lcssa, 1
-  %31 = or disjoint i64 %30, 1
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !305
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
-  store ptr %33, ptr %34, align 8, !tbaa !305
-  br label %35
+31:                                               ; preds = %27
+  %32 = shl nsw i64 %.0.lcssa, 1
+  %33 = or disjoint i64 %32, 1
+  %34 = getelementptr inbounds ptr, ptr %0, i64 %33
+  %35 = load ptr, ptr %34, align 8, !tbaa !305
+  %36 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  store ptr %35, ptr %36, align 8, !tbaa !305
+  br label %37
 
-35:                                               ; preds = %29, %25, %._crit_edge
-  %.128 = phi i64 [ %31, %29 ], [ %.0.lcssa, %25 ], [ %.0.lcssa, %._crit_edge ]
+37:                                               ; preds = %31, %27, %._crit_edge
+  %.128 = phi i64 [ %33, %31 ], [ %.0.lcssa, %27 ], [ %.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
-  %36 = load i64, ptr %6, align 8, !tbaa !82
-  store i64 %36, ptr %7, align 8, !tbaa !82
-  %37 = icmp sgt i64 %.128, %1
-  br i1 %37, label %.lr.ph.i, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmpEEEEvT_T0_SC_T1_RT2_.exit
+  %38 = load i64, ptr %6, align 8, !tbaa !82
+  store i64 %38, ptr %7, align 8, !tbaa !82
+  %39 = icmp sgt i64 %.128, %1
+  br i1 %39, label %.lr.ph.i, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmpEEEEvT_T0_SC_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %35, %42
-  %.01317.i = phi i64 [ %.018.i, %42 ], [ %.128, %35 ]
+.lr.ph.i:                                         ; preds = %37, %44
+  %.01317.i = phi i64 [ %.018.i, %44 ], [ %.128, %37 ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %38 = getelementptr inbounds ptr, ptr %0, i64 %.018.i
-  %39 = load ptr, ptr %38, align 8, !tbaa !305
-  %40 = call noundef i32 @_ZN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmp8cmp_exprEP4exprS4_i(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %39, ptr noundef %3, i32 noundef 4)
-  %41 = icmp eq i32 %40, -1
-  br i1 %41, label %42, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmpEEEEvT_T0_SC_T1_RT2_.exit
+  %40 = getelementptr inbounds ptr, ptr %0, i64 %.018.i
+  %41 = load ptr, ptr %40, align 8, !tbaa !305
+  %42 = call noundef i32 @_ZN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmp8cmp_exprEP4exprS4_i(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %41, ptr noundef %3, i32 noundef 4)
+  %43 = icmp eq i32 %42, -1
+  br i1 %43, label %44, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmpEEEEvT_T0_SC_T1_RT2_.exit
 
-42:                                               ; preds = %.lr.ph.i
-  %43 = load ptr, ptr %38, align 8, !tbaa !305
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i
-  store ptr %43, ptr %44, align 8, !tbaa !305
-  %45 = icmp sgt i64 %.018.i, %1
-  br i1 %45, label %.lr.ph.i, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmpEEEEvT_T0_SC_T1_RT2_.exit, !llvm.loop !484
+44:                                               ; preds = %.lr.ph.i
+  %45 = load ptr, ptr %40, align 8, !tbaa !305
+  %46 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i
+  store ptr %45, ptr %46, align 8, !tbaa !305
+  %47 = icmp sgt i64 %.018.i, %1
+  br i1 %47, label %.lr.ph.i, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmpEEEEvT_T0_SC_T1_RT2_.exit, !llvm.loop !484
 
-_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmpEEEEvT_T0_SC_T1_RT2_.exit: ; preds = %.lr.ph.i, %42, %35
-  %.013.lcssa.i = phi i64 [ %.128, %35 ], [ %.01317.i, %.lr.ph.i ], [ %.018.i, %42 ]
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %46, align 8, !tbaa !305
+_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmpEEEEvT_T0_SC_T1_RT2_.exit: ; preds = %.lr.ph.i, %44, %37
+  %.013.lcssa.i = phi i64 [ %.128, %37 ], [ %.01317.i, %.lr.ph.i ], [ %.018.i, %44 ]
+  %48 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %48, align 8, !tbaa !305
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
   ret void
 }

@@ -303,80 +303,80 @@ declare i32 @IpoptSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ipaddstroption_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !23
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %5, %10
-  %.014.i = phi i32 [ %11, %10 ], [ %3, %5 ]
+.lr.ph.i:                                         ; preds = %5, %12
+  %.014.i = phi i32 [ %13, %12 ], [ %3, %5 ]
   %8 = zext nneg i32 %.014.i to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %8
-  %9 = load i8, ptr %gep.i, align 1, !tbaa !24
-  %.not.i = icmp eq i8 %9, 32
-  br i1 %.not.i, label %10, label %._crit_edge.i
+  %9 = getelementptr i8, ptr %1, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 -1
+  %11 = load i8, ptr %10, align 1, !tbaa !24
+  %.not.i = icmp eq i8 %11, 32
+  br i1 %.not.i, label %12, label %._crit_edge.i
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = add nsw i32 %.014.i, -1
-  %12 = icmp sgt i32 %.014.i, 1
-  br i1 %12, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
+12:                                               ; preds = %.lr.ph.i
+  %13 = add nsw i32 %.014.i, -1
+  %14 = icmp sgt i32 %.014.i, 1
+  br i1 %14, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
 
-._crit_edge.i:                                    ; preds = %10, %.lr.ph.i, %5
-  %.0.lcssa.i = phi i32 [ %3, %5 ], [ 0, %10 ], [ %.014.i, %.lr.ph.i ]
-  %13 = add nsw i32 %.0.lcssa.i, 1
-  %14 = sext i32 %13 to i64
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #7
-  %.not13.i = icmp eq ptr %15, null
-  br i1 %.not13.i, label %f2cstr.exit, label %16
+._crit_edge.i:                                    ; preds = %12, %.lr.ph.i, %5
+  %.0.lcssa.i = phi i32 [ %3, %5 ], [ 0, %12 ], [ %.014.i, %.lr.ph.i ]
+  %15 = add nsw i32 %.0.lcssa.i, 1
+  %16 = sext i32 %15 to i64
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #7
+  %.not13.i = icmp eq ptr %17, null
+  br i1 %.not13.i, label %f2cstr.exit, label %18
 
-16:                                               ; preds = %._crit_edge.i
-  %17 = sext i32 %.0.lcssa.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %1, i64 %17, i1 false)
-  %18 = getelementptr inbounds i8, ptr %15, i64 %17
-  store i8 0, ptr %18, align 1, !tbaa !24
+18:                                               ; preds = %._crit_edge.i
+  %19 = sext i32 %.0.lcssa.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr readonly align 1 %1, i64 %19, i1 false)
+  %20 = getelementptr inbounds i8, ptr %17, i64 %19
+  store i8 0, ptr %20, align 1, !tbaa !24
   br label %f2cstr.exit
 
-f2cstr.exit:                                      ; preds = %._crit_edge.i, %16
-  %invariant.gep.i10 = getelementptr i8, ptr %2, i64 -1
-  %19 = icmp sgt i32 %4, 0
-  br i1 %19, label %.lr.ph.i14, label %._crit_edge.i11
+f2cstr.exit:                                      ; preds = %._crit_edge.i, %18
+  %21 = icmp sgt i32 %4, 0
+  br i1 %21, label %.lr.ph.i13, label %._crit_edge.i10
 
-.lr.ph.i14:                                       ; preds = %f2cstr.exit, %22
-  %.014.i15 = phi i32 [ %23, %22 ], [ %4, %f2cstr.exit ]
-  %20 = zext nneg i32 %.014.i15 to i64
-  %gep.i16 = getelementptr i8, ptr %invariant.gep.i10, i64 %20
-  %21 = load i8, ptr %gep.i16, align 1, !tbaa !24
-  %.not.i17 = icmp eq i8 %21, 32
-  br i1 %.not.i17, label %22, label %._crit_edge.i11
+.lr.ph.i13:                                       ; preds = %f2cstr.exit, %26
+  %.014.i14 = phi i32 [ %27, %26 ], [ %4, %f2cstr.exit ]
+  %22 = zext nneg i32 %.014.i14 to i64
+  %23 = getelementptr i8, ptr %2, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 -1
+  %25 = load i8, ptr %24, align 1, !tbaa !24
+  %.not.i15 = icmp eq i8 %25, 32
+  br i1 %.not.i15, label %26, label %._crit_edge.i10
 
-22:                                               ; preds = %.lr.ph.i14
-  %23 = add nsw i32 %.014.i15, -1
-  %24 = icmp sgt i32 %.014.i15, 1
-  br i1 %24, label %.lr.ph.i14, label %._crit_edge.i11, !llvm.loop !25
+26:                                               ; preds = %.lr.ph.i13
+  %27 = add nsw i32 %.014.i14, -1
+  %28 = icmp sgt i32 %.014.i14, 1
+  br i1 %28, label %.lr.ph.i13, label %._crit_edge.i10, !llvm.loop !25
 
-._crit_edge.i11:                                  ; preds = %22, %.lr.ph.i14, %f2cstr.exit
-  %.0.lcssa.i12 = phi i32 [ %4, %f2cstr.exit ], [ 0, %22 ], [ %.014.i15, %.lr.ph.i14 ]
-  %25 = add nsw i32 %.0.lcssa.i12, 1
-  %26 = sext i32 %25 to i64
-  %27 = tail call noalias ptr @malloc(i64 noundef %26) #7
-  %.not13.i13 = icmp eq ptr %27, null
-  br i1 %.not13.i13, label %f2cstr.exit18, label %28
+._crit_edge.i10:                                  ; preds = %26, %.lr.ph.i13, %f2cstr.exit
+  %.0.lcssa.i11 = phi i32 [ %4, %f2cstr.exit ], [ 0, %26 ], [ %.014.i14, %.lr.ph.i13 ]
+  %29 = add nsw i32 %.0.lcssa.i11, 1
+  %30 = sext i32 %29 to i64
+  %31 = tail call noalias ptr @malloc(i64 noundef %30) #7
+  %.not13.i12 = icmp eq ptr %31, null
+  br i1 %.not13.i12, label %f2cstr.exit16, label %32
 
-28:                                               ; preds = %._crit_edge.i11
-  %29 = sext i32 %.0.lcssa.i12 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %2, i64 %29, i1 false)
-  %30 = getelementptr inbounds i8, ptr %27, i64 %29
-  store i8 0, ptr %30, align 1, !tbaa !24
-  br label %f2cstr.exit18
+32:                                               ; preds = %._crit_edge.i10
+  %33 = sext i32 %.0.lcssa.i11 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr readonly align 1 %2, i64 %33, i1 false)
+  %34 = getelementptr inbounds i8, ptr %31, i64 %33
+  store i8 0, ptr %34, align 1, !tbaa !24
+  br label %f2cstr.exit16
 
-f2cstr.exit18:                                    ; preds = %._crit_edge.i11, %28
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %32 = load ptr, ptr %31, align 8, !tbaa !7
-  %33 = tail call zeroext i1 @AddIpoptStrOption(ptr noundef %32, ptr noundef %15, ptr noundef %27) #8
-  tail call void @free(ptr noundef %27) #8
-  tail call void @free(ptr noundef %15) #8
-  %not. = xor i1 %33, true
-  %34 = zext i1 %not. to i32
-  ret i32 %34
+f2cstr.exit16:                                    ; preds = %._crit_edge.i10, %32
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %36 = load ptr, ptr %35, align 8, !tbaa !7
+  %37 = tail call zeroext i1 @AddIpoptStrOption(ptr noundef %36, ptr noundef %17, ptr noundef %31) #8
+  tail call void @free(ptr noundef %31) #8
+  tail call void @free(ptr noundef %17) #8
+  %not. = xor i1 %37, true
+  %38 = zext i1 %not. to i32
+  ret i32 %38
 }
 
 declare zeroext i1 @AddIpoptStrOption(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -384,47 +384,47 @@ declare zeroext i1 @AddIpoptStrOption(ptr noundef, ptr noundef, ptr noundef) loc
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ipaddnumoption_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !23
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %4, %9
-  %.014.i = phi i32 [ %10, %9 ], [ %3, %4 ]
+.lr.ph.i:                                         ; preds = %4, %11
+  %.014.i = phi i32 [ %12, %11 ], [ %3, %4 ]
   %7 = zext nneg i32 %.014.i to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %7
-  %8 = load i8, ptr %gep.i, align 1, !tbaa !24
-  %.not.i = icmp eq i8 %8, 32
-  br i1 %.not.i, label %9, label %._crit_edge.i
+  %8 = getelementptr i8, ptr %1, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -1
+  %10 = load i8, ptr %9, align 1, !tbaa !24
+  %.not.i = icmp eq i8 %10, 32
+  br i1 %.not.i, label %11, label %._crit_edge.i
 
-9:                                                ; preds = %.lr.ph.i
-  %10 = add nsw i32 %.014.i, -1
-  %11 = icmp sgt i32 %.014.i, 1
-  br i1 %11, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
+11:                                               ; preds = %.lr.ph.i
+  %12 = add nsw i32 %.014.i, -1
+  %13 = icmp sgt i32 %.014.i, 1
+  br i1 %13, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
 
-._crit_edge.i:                                    ; preds = %9, %.lr.ph.i, %4
-  %.0.lcssa.i = phi i32 [ %3, %4 ], [ 0, %9 ], [ %.014.i, %.lr.ph.i ]
-  %12 = add nsw i32 %.0.lcssa.i, 1
-  %13 = sext i32 %12 to i64
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #7
-  %.not13.i = icmp eq ptr %14, null
-  br i1 %.not13.i, label %f2cstr.exit, label %15
+._crit_edge.i:                                    ; preds = %11, %.lr.ph.i, %4
+  %.0.lcssa.i = phi i32 [ %3, %4 ], [ 0, %11 ], [ %.014.i, %.lr.ph.i ]
+  %14 = add nsw i32 %.0.lcssa.i, 1
+  %15 = sext i32 %14 to i64
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #7
+  %.not13.i = icmp eq ptr %16, null
+  br i1 %.not13.i, label %f2cstr.exit, label %17
 
-15:                                               ; preds = %._crit_edge.i
-  %16 = sext i32 %.0.lcssa.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr readonly align 1 %1, i64 %16, i1 false)
-  %17 = getelementptr inbounds i8, ptr %14, i64 %16
-  store i8 0, ptr %17, align 1, !tbaa !24
+17:                                               ; preds = %._crit_edge.i
+  %18 = sext i32 %.0.lcssa.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr readonly align 1 %1, i64 %18, i1 false)
+  %19 = getelementptr inbounds i8, ptr %16, i64 %18
+  store i8 0, ptr %19, align 1, !tbaa !24
   br label %f2cstr.exit
 
-f2cstr.exit:                                      ; preds = %._crit_edge.i, %15
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %19 = load ptr, ptr %18, align 8, !tbaa !7
-  %20 = load double, ptr %2, align 8, !tbaa !21
-  %21 = tail call zeroext i1 @AddIpoptNumOption(ptr noundef %19, ptr noundef %14, double noundef %20) #8
-  tail call void @free(ptr noundef %14) #8
-  %not. = xor i1 %21, true
-  %22 = zext i1 %not. to i32
-  ret i32 %22
+f2cstr.exit:                                      ; preds = %._crit_edge.i, %17
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %21 = load ptr, ptr %20, align 8, !tbaa !7
+  %22 = load double, ptr %2, align 8, !tbaa !21
+  %23 = tail call zeroext i1 @AddIpoptNumOption(ptr noundef %21, ptr noundef %16, double noundef %22) #8
+  tail call void @free(ptr noundef %16) #8
+  %not. = xor i1 %23, true
+  %24 = zext i1 %not. to i32
+  ret i32 %24
 }
 
 declare zeroext i1 @AddIpoptNumOption(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #3
@@ -433,46 +433,46 @@ declare zeroext i1 @AddIpoptNumOption(ptr noundef, ptr noundef, double noundef) 
 define range(i32 0, 2) i32 @ipaddintoption_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !23
   %6 = load i32, ptr %2, align 4, !tbaa !3
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %4, %10
-  %.014.i = phi i32 [ %11, %10 ], [ %3, %4 ]
+.lr.ph.i:                                         ; preds = %4, %12
+  %.014.i = phi i32 [ %13, %12 ], [ %3, %4 ]
   %8 = zext nneg i32 %.014.i to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %8
-  %9 = load i8, ptr %gep.i, align 1, !tbaa !24
-  %.not.i = icmp eq i8 %9, 32
-  br i1 %.not.i, label %10, label %._crit_edge.i
+  %9 = getelementptr i8, ptr %1, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 -1
+  %11 = load i8, ptr %10, align 1, !tbaa !24
+  %.not.i = icmp eq i8 %11, 32
+  br i1 %.not.i, label %12, label %._crit_edge.i
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = add nsw i32 %.014.i, -1
-  %12 = icmp sgt i32 %.014.i, 1
-  br i1 %12, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
+12:                                               ; preds = %.lr.ph.i
+  %13 = add nsw i32 %.014.i, -1
+  %14 = icmp sgt i32 %.014.i, 1
+  br i1 %14, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
 
-._crit_edge.i:                                    ; preds = %10, %.lr.ph.i, %4
-  %.0.lcssa.i = phi i32 [ %3, %4 ], [ 0, %10 ], [ %.014.i, %.lr.ph.i ]
-  %13 = add nsw i32 %.0.lcssa.i, 1
-  %14 = sext i32 %13 to i64
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #7
-  %.not13.i = icmp eq ptr %15, null
-  br i1 %.not13.i, label %f2cstr.exit, label %16
+._crit_edge.i:                                    ; preds = %12, %.lr.ph.i, %4
+  %.0.lcssa.i = phi i32 [ %3, %4 ], [ 0, %12 ], [ %.014.i, %.lr.ph.i ]
+  %15 = add nsw i32 %.0.lcssa.i, 1
+  %16 = sext i32 %15 to i64
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #7
+  %.not13.i = icmp eq ptr %17, null
+  br i1 %.not13.i, label %f2cstr.exit, label %18
 
-16:                                               ; preds = %._crit_edge.i
-  %17 = sext i32 %.0.lcssa.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %1, i64 %17, i1 false)
-  %18 = getelementptr inbounds i8, ptr %15, i64 %17
-  store i8 0, ptr %18, align 1, !tbaa !24
+18:                                               ; preds = %._crit_edge.i
+  %19 = sext i32 %.0.lcssa.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr readonly align 1 %1, i64 %19, i1 false)
+  %20 = getelementptr inbounds i8, ptr %17, i64 %19
+  store i8 0, ptr %20, align 1, !tbaa !24
   br label %f2cstr.exit
 
-f2cstr.exit:                                      ; preds = %._crit_edge.i, %16
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %20 = load ptr, ptr %19, align 8, !tbaa !7
-  %21 = tail call zeroext i1 @AddIpoptIntOption(ptr noundef %20, ptr noundef %15, i32 noundef %6) #8
-  tail call void @free(ptr noundef %15) #8
-  %not. = xor i1 %21, true
-  %22 = zext i1 %not. to i32
-  ret i32 %22
+f2cstr.exit:                                      ; preds = %._crit_edge.i, %18
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %22 = load ptr, ptr %21, align 8, !tbaa !7
+  %23 = tail call zeroext i1 @AddIpoptIntOption(ptr noundef %22, ptr noundef %17, i32 noundef %6) #8
+  tail call void @free(ptr noundef %17) #8
+  %not. = xor i1 %23, true
+  %24 = zext i1 %not. to i32
+  ret i32 %24
 }
 
 declare zeroext i1 @AddIpoptIntOption(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -481,46 +481,46 @@ declare zeroext i1 @AddIpoptIntOption(ptr noundef, ptr noundef, i32 noundef) loc
 define range(i32 0, 2) i32 @ipopenoutputfile_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !23
   %6 = load i32, ptr %2, align 4, !tbaa !3
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %4, %10
-  %.014.i = phi i32 [ %11, %10 ], [ %3, %4 ]
+.lr.ph.i:                                         ; preds = %4, %12
+  %.014.i = phi i32 [ %13, %12 ], [ %3, %4 ]
   %8 = zext nneg i32 %.014.i to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %8
-  %9 = load i8, ptr %gep.i, align 1, !tbaa !24
-  %.not.i = icmp eq i8 %9, 32
-  br i1 %.not.i, label %10, label %._crit_edge.i
+  %9 = getelementptr i8, ptr %1, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 -1
+  %11 = load i8, ptr %10, align 1, !tbaa !24
+  %.not.i = icmp eq i8 %11, 32
+  br i1 %.not.i, label %12, label %._crit_edge.i
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = add nsw i32 %.014.i, -1
-  %12 = icmp sgt i32 %.014.i, 1
-  br i1 %12, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
+12:                                               ; preds = %.lr.ph.i
+  %13 = add nsw i32 %.014.i, -1
+  %14 = icmp sgt i32 %.014.i, 1
+  br i1 %14, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
 
-._crit_edge.i:                                    ; preds = %10, %.lr.ph.i, %4
-  %.0.lcssa.i = phi i32 [ %3, %4 ], [ 0, %10 ], [ %.014.i, %.lr.ph.i ]
-  %13 = add nsw i32 %.0.lcssa.i, 1
-  %14 = sext i32 %13 to i64
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #7
-  %.not13.i = icmp eq ptr %15, null
-  br i1 %.not13.i, label %f2cstr.exit, label %16
+._crit_edge.i:                                    ; preds = %12, %.lr.ph.i, %4
+  %.0.lcssa.i = phi i32 [ %3, %4 ], [ 0, %12 ], [ %.014.i, %.lr.ph.i ]
+  %15 = add nsw i32 %.0.lcssa.i, 1
+  %16 = sext i32 %15 to i64
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #7
+  %.not13.i = icmp eq ptr %17, null
+  br i1 %.not13.i, label %f2cstr.exit, label %18
 
-16:                                               ; preds = %._crit_edge.i
-  %17 = sext i32 %.0.lcssa.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %1, i64 %17, i1 false)
-  %18 = getelementptr inbounds i8, ptr %15, i64 %17
-  store i8 0, ptr %18, align 1, !tbaa !24
+18:                                               ; preds = %._crit_edge.i
+  %19 = sext i32 %.0.lcssa.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr readonly align 1 %1, i64 %19, i1 false)
+  %20 = getelementptr inbounds i8, ptr %17, i64 %19
+  store i8 0, ptr %20, align 1, !tbaa !24
   br label %f2cstr.exit
 
-f2cstr.exit:                                      ; preds = %._crit_edge.i, %16
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %20 = load ptr, ptr %19, align 8, !tbaa !7
-  %21 = tail call zeroext i1 @OpenIpoptOutputFile(ptr noundef %20, ptr noundef %15, i32 noundef %6) #8
-  tail call void @free(ptr noundef %15) #8
-  %not. = xor i1 %21, true
-  %22 = zext i1 %not. to i32
-  ret i32 %22
+f2cstr.exit:                                      ; preds = %._crit_edge.i, %18
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %22 = load ptr, ptr %21, align 8, !tbaa !7
+  %23 = tail call zeroext i1 @OpenIpoptOutputFile(ptr noundef %22, ptr noundef %17, i32 noundef %6) #8
+  tail call void @free(ptr noundef %17) #8
+  %not. = xor i1 %23, true
+  %24 = zext i1 %not. to i32
+  ret i32 %24
 }
 
 declare zeroext i1 @OpenIpoptOutputFile(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3

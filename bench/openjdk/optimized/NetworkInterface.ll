@@ -923,138 +923,138 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_boundInetAddres
 
 9:                                                ; preds = %3
   switch i32 %4, label %openSocket.exit51.thread [
-    i32 1, label %10
-    i32 2, label %49
+    i32 1, label %.critedge
+    i32 2, label %48
   ]
 
-10:                                               ; preds = %9
-  %11 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #15
-  %12 = icmp slt i32 %11, 0
-  br i1 %12, label %13, label %22
+.critedge:                                        ; preds = %9
+  %10 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #15
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %21
 
-13:                                               ; preds = %10
-  %14 = tail call ptr @__errno_location() #17
-  %15 = load i32, ptr %14, align 4
-  switch i32 %15, label %16 [
-    i32 93, label %17
-    i32 97, label %17
+12:                                               ; preds = %.critedge
+  %13 = tail call ptr @__errno_location() #17
+  %14 = load i32, ptr %13, align 4
+  switch i32 %14, label %15 [
+    i32 93, label %16
+    i32 97, label %16
   ]
 
-16:                                               ; preds = %13
+15:                                               ; preds = %12
   tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.28) #15
-  br label %17
+  br label %16
 
-17:                                               ; preds = %13, %13, %16
-  %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr %20(ptr noundef nonnull %0) #15
-  %.not45 = icmp eq ptr %21, null
+16:                                               ; preds = %12, %12, %15
+  %17 = load ptr, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 120
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call ptr %19(ptr noundef nonnull %0) #15
+  %.not45 = icmp eq ptr %20, null
   br i1 %.not45, label %find_bound_interface.exit, label %openSocket.exit51.thread
 
-22:                                               ; preds = %10
-  %23 = tail call fastcc ptr @enumIPv4Interfaces(ptr noundef nonnull %0, i32 noundef %11)
-  %24 = tail call i32 @close(i32 noundef %11) #15
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 120
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call ptr %27(ptr noundef nonnull %0) #15
-  %.not46 = icmp eq ptr %28, null
+21:                                               ; preds = %.critedge
+  %22 = tail call fastcc ptr @enumIPv4Interfaces(ptr noundef nonnull %0, i32 noundef %10)
+  %23 = tail call i32 @close(i32 noundef %10) #15
+  %24 = load ptr, ptr %0, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call ptr %26(ptr noundef nonnull %0) #15
+  %.not46 = icmp eq ptr %27, null
   br i1 %.not46, label %openSocket.exit, label %find_bound_interface.exit
 
-openSocket.exit:                                  ; preds = %22
-  %.not57.i = icmp eq ptr %23, null
+openSocket.exit:                                  ; preds = %21
+  %.not57.i = icmp eq ptr %22, null
   br i1 %.not57.i, label %find_bound_interface.exit, label %.lr.ph61.split.us.i
 
 .lr.ph61.split.us.i:                              ; preds = %openSocket.exit, %._crit_edge51.split.us.us.i
-  %.03458.us.i = phi ptr [ %31, %._crit_edge51.split.us.us.i ], [ %23, %openSocket.exit ]
-  %29 = getelementptr inbounds nuw i8, ptr %.03458.us.i, i64 16
-  %.03548.us.i = load ptr, ptr %29, align 8
+  %.03458.us.i = phi ptr [ %30, %._crit_edge51.split.us.us.i ], [ %22, %openSocket.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %.03458.us.i, i64 16
+  %.03548.us.i = load ptr, ptr %28, align 8
   %.not3849.us.i = icmp eq ptr %.03548.us.i, null
   br i1 %.not3849.us.i, label %._crit_edge51.split.us.us.i, label %.lr.ph.us.i
 
-._crit_edge51.split.us.us.i:                      ; preds = %47, %.lr.ph61.split.us.i
-  %30 = getelementptr inbounds nuw i8, ptr %.03458.us.i, i64 32
-  %31 = load ptr, ptr %30, align 8
-  %.not.us.i = icmp eq ptr %31, null
+._crit_edge51.split.us.us.i:                      ; preds = %46, %.lr.ph61.split.us.i
+  %29 = getelementptr inbounds nuw i8, ptr %.03458.us.i, i64 32
+  %30 = load ptr, ptr %29, align 8
+  %.not.us.i = icmp eq ptr %30, null
   br i1 %.not.us.i, label %find_bound_interface.exit, label %.lr.ph61.split.us.i, !llvm.loop !16
 
-.lr.ph.us.i:                                      ; preds = %.lr.ph61.split.us.i, %47
-  %.03550.us.us.i = phi ptr [ %.035.us.us.i, %47 ], [ %.03548.us.i, %.lr.ph61.split.us.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %.03550.us.us.i, i64 20
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp eq i32 %33, 2
-  br i1 %34, label %35, label %47
+.lr.ph.us.i:                                      ; preds = %.lr.ph61.split.us.i, %46
+  %.03550.us.us.i = phi ptr [ %.035.us.us.i, %46 ], [ %.03548.us.i, %.lr.ph61.split.us.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.03550.us.us.i, i64 20
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp eq i32 %32, 2
+  br i1 %33, label %34, label %46
 
-35:                                               ; preds = %.lr.ph.us.i
-  %36 = load ptr, ptr %.03550.us.us.i, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %38 = load i32, ptr %37, align 4
-  %39 = tail call i32 @getInetAddress_addr(ptr noundef nonnull %0, ptr noundef %2) #15
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1824
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call zeroext i8 %42(ptr noundef nonnull %0) #15
-  %.not42.us.us.i = icmp eq i8 %43, 0
-  br i1 %.not42.us.us.i, label %44, label %find_bound_interface.exit
+34:                                               ; preds = %.lr.ph.us.i
+  %35 = load ptr, ptr %.03550.us.us.i, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %37 = load i32, ptr %36, align 4
+  %38 = tail call i32 @getInetAddress_addr(ptr noundef nonnull %0, ptr noundef %2) #15
+  %39 = load ptr, ptr %0, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1824
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call zeroext i8 %41(ptr noundef nonnull %0) #15
+  %.not42.us.us.i = icmp eq i8 %42, 0
+  br i1 %.not42.us.us.i, label %43, label %find_bound_interface.exit
 
-44:                                               ; preds = %35
-  %45 = tail call i32 @htonl(i32 noundef %38) #17
-  %46 = icmp eq i32 %45, %39
-  br i1 %46, label %find_bound_interface.exit, label %47
+43:                                               ; preds = %34
+  %44 = tail call i32 @htonl(i32 noundef %37) #17
+  %45 = icmp eq i32 %44, %38
+  br i1 %45, label %find_bound_interface.exit, label %46
 
-47:                                               ; preds = %44, %.lr.ph.us.i
-  %48 = getelementptr inbounds nuw i8, ptr %.03550.us.us.i, i64 24
-  %.035.us.us.i = load ptr, ptr %48, align 8
+46:                                               ; preds = %43, %.lr.ph.us.i
+  %47 = getelementptr inbounds nuw i8, ptr %.03550.us.us.i, i64 24
+  %.035.us.us.i = load ptr, ptr %47, align 8
   %.not38.us.us.i = icmp eq ptr %.035.us.us.i, null
   br i1 %.not38.us.us.i, label %._crit_edge51.split.us.us.i, label %.lr.ph.us.i, !llvm.loop !18
 
-49:                                               ; preds = %9
-  %50 = tail call i32 (...) @ipv6_available() #15
-  %.not42 = icmp eq i32 %50, 0
-  br i1 %.not42, label %find_bound_interface.exit, label %51
+48:                                               ; preds = %9
+  %49 = tail call i32 (...) @ipv6_available() #15
+  %.not42 = icmp eq i32 %49, 0
+  br i1 %.not42, label %find_bound_interface.exit, label %50
 
-51:                                               ; preds = %49
-  %52 = tail call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #15
-  %53 = icmp slt i32 %52, 0
-  br i1 %53, label %54, label %openSocket.exit51
+50:                                               ; preds = %48
+  %51 = tail call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #15
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %53, label %openSocket.exit51
 
-54:                                               ; preds = %51
-  %55 = tail call ptr @__errno_location() #17
-  %56 = load i32, ptr %55, align 4
-  switch i32 %56, label %57 [
+53:                                               ; preds = %50
+  %54 = tail call ptr @__errno_location() #17
+  %55 = load i32, ptr %54, align 4
+  switch i32 %55, label %56 [
     i32 93, label %openSocket.exit51.thread
     i32 97, label %openSocket.exit51.thread
   ]
 
-57:                                               ; preds = %54
+56:                                               ; preds = %53
   tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.28) #15
   br label %openSocket.exit51.thread
 
-openSocket.exit51:                                ; preds = %51
-  %58 = tail call fastcc ptr @enumIPv6Interfaces(ptr noundef nonnull %0, i32 noundef %52, ptr noundef null)
-  %59 = tail call i32 @close(i32 noundef %52) #15
-  %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 120
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call ptr %62(ptr noundef nonnull %0) #15
-  %.not43 = icmp eq ptr %63, null
-  br i1 %.not43, label %64, label %find_bound_interface.exit
+openSocket.exit51:                                ; preds = %50
+  %57 = tail call fastcc ptr @enumIPv6Interfaces(ptr noundef nonnull %0, i32 noundef %51, ptr noundef null)
+  %58 = tail call i32 @close(i32 noundef %51) #15
+  %59 = load ptr, ptr %0, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 120
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call ptr %61(ptr noundef nonnull %0) #15
+  %.not43 = icmp eq ptr %62, null
+  br i1 %.not43, label %63, label %find_bound_interface.exit
 
-64:                                               ; preds = %openSocket.exit51
-  %65 = tail call fastcc ptr @find_bound_interface(ptr noundef nonnull %0, ptr noundef %58, ptr noundef %2, i32 noundef 10)
-  %.not44 = icmp ne ptr %65, null
+63:                                               ; preds = %openSocket.exit51
+  %64 = tail call fastcc ptr @find_bound_interface(ptr noundef nonnull %0, ptr noundef %57, ptr noundef %2, i32 noundef 10)
+  %.not44 = icmp ne ptr %64, null
   %spec.select48 = zext i1 %.not44 to i8
   br label %find_bound_interface.exit
 
-find_bound_interface.exit:                        ; preds = %._crit_edge51.split.us.us.i, %44, %35, %openSocket.exit, %17, %64, %49, %openSocket.exit51, %22
-  %.1 = phi ptr [ %23, %22 ], [ %58, %openSocket.exit51 ], [ null, %49 ], [ %58, %64 ], [ null, %openSocket.exit ], [ null, %17 ], [ %23, %35 ], [ %23, %44 ], [ %23, %._crit_edge51.split.us.us.i ]
-  %.036 = phi i8 [ 0, %22 ], [ 0, %openSocket.exit51 ], [ 0, %49 ], [ %spec.select48, %64 ], [ 0, %openSocket.exit ], [ 0, %17 ], [ 1, %44 ], [ 0, %35 ], [ 0, %._crit_edge51.split.us.us.i ]
+find_bound_interface.exit:                        ; preds = %._crit_edge51.split.us.us.i, %43, %34, %openSocket.exit, %16, %63, %48, %openSocket.exit51, %21
+  %.1 = phi ptr [ %22, %21 ], [ %57, %openSocket.exit51 ], [ null, %48 ], [ %57, %63 ], [ null, %openSocket.exit ], [ null, %16 ], [ %22, %34 ], [ %22, %43 ], [ %22, %._crit_edge51.split.us.us.i ]
+  %.036 = phi i8 [ 0, %21 ], [ 0, %openSocket.exit51 ], [ 0, %48 ], [ %spec.select48, %63 ], [ 0, %openSocket.exit ], [ 0, %16 ], [ 1, %43 ], [ 0, %34 ], [ 0, %._crit_edge51.split.us.us.i ]
   tail call fastcc void @freeif(ptr noundef %.1)
   br label %openSocket.exit51.thread
 
-openSocket.exit51.thread:                         ; preds = %9, %57, %54, %54, %17, %3, %find_bound_interface.exit
-  %.038 = phi i8 [ %.036, %find_bound_interface.exit ], [ 0, %3 ], [ 0, %17 ], [ 0, %54 ], [ 0, %54 ], [ 0, %57 ], [ 0, %9 ]
+openSocket.exit51.thread:                         ; preds = %56, %53, %53, %9, %16, %3, %find_bound_interface.exit
+  %.038 = phi i8 [ %.036, %find_bound_interface.exit ], [ 0, %3 ], [ 0, %16 ], [ 0, %9 ], [ 0, %53 ], [ 0, %53 ], [ 0, %56 ]
   ret i8 %.038
 }
 

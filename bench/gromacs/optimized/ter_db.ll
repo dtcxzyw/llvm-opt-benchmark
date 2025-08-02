@@ -3940,7 +3940,7 @@ _ZL10print_atomP8_IO_FILERK6t_atomP22PreprocessingAtomTypes.exit118.i: ; preds =
   br i1 %.not34.i, label %.thread26.i, label %.lr.ph55.i
 
 .thread26.i:                                      ; preds = %1363, %1350, %.loopexit38.i, %._crit_edge.i.i.i.i.i119.i
-  %1365 = getelementptr i8, ptr %.sroa.020.060.i, i64 96
+  %1365 = getelementptr inbounds nuw i8, ptr %.sroa.020.060.i, i64 96
   br label %1368
 
 1366:                                             ; preds = %.loopexit.i28
@@ -3952,7 +3952,7 @@ _ZL10print_atomP8_IO_FILERK6t_atomP22PreprocessingAtomTypes.exit118.i: ; preds =
 1368:                                             ; preds = %.loopexit.i28, %.thread26.i
   %indvars.iv65.i = phi i64 [ 0, %.thread26.i ], [ %indvars.iv.next66.i, %.loopexit.i28 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv65.i, 5
-  %1369 = getelementptr i8, ptr %1365, i64 %.idx.i
+  %1369 = getelementptr inbounds nuw i8, ptr %1365, i64 %.idx.i
   %1370 = load ptr, ptr %1369, align 8, !tbaa !119
   %1371 = getelementptr inbounds nuw i8, ptr %1369, i64 8
   %1372 = load ptr, ptr %1371, align 8, !tbaa !119

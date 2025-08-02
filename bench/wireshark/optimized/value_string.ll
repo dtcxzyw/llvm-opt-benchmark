@@ -860,7 +860,7 @@ try_val_to_str_ext.exit.thread:                   ; preds = %6, %5, %try_val_to_
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @val_to_str_ext_wmem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define noalias ptr @val_to_str_ext_wmem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %6
 
@@ -1263,7 +1263,7 @@ try_val64_to_str_ext.exit.thread:                 ; preds = %6, %5, %try_val64_t
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @val64_to_str_ext_wmem(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define noalias ptr @val64_to_str_ext_wmem(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %6
 

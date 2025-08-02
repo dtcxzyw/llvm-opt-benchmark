@@ -315,8 +315,8 @@ define hidden void @_ZN2cv18ConjGradSolverImpl17minimizeOnTheLineENS_3PtrINS_16M
   br label %37
 
 37:                                               ; preds = %5, %75
-  %.050 = phi double [ 1.000000e-01, %5 ], [ %76, %75 ]
-  %.03049 = phi i32 [ 0, %5 ], [ %77, %75 ]
+  %.048 = phi double [ 1.000000e-01, %5 ], [ %76, %75 ]
+  %.03047 = phi i32 [ 0, %5 ], [ %77, %75 ]
   %38 = load ptr, ptr %0, align 8, !tbaa !18
   %39 = load ptr, ptr %16, align 8, !tbaa !23
   %40 = load ptr, ptr %17, align 8, !tbaa !23
@@ -326,7 +326,7 @@ define hidden void @_ZN2cv18ConjGradSolverImpl17minimizeOnTheLineENS_3PtrINS_16M
   call void %43(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %39, ptr noundef %40)
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %8) #20
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %9) #20
-  call void @_ZN2cvmlEdRKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %9, double noundef %.050, ptr noundef nonnull align 8 dereferenceable(96) %2)
+  call void @_ZN2cvmlEdRKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %9, double noundef %.048, ptr noundef nonnull align 8 dereferenceable(96) %2)
   invoke void @_ZN2cvplERKNS_3MatERKNS_7MatExprE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %8, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(352) %9)
           to label %44 unwind label %59
 
@@ -370,7 +370,7 @@ _ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit:             ; preds = %44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #20
   %57 = fsub double %55, %56
   %58 = fcmp une double %57, 0.000000e+00
-  br i1 %58, label %64, label %83
+  br i1 %58, label %64, label %.critedge
 
 59:                                               ; preds = %37
   %60 = landingpad { ptr, i32 }
@@ -388,16 +388,16 @@ _ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit:             ; preds = %44
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %9) #20
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %9) #20
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %8) #20
-  br label %84
+  br label %83
 
 64:                                               ; preds = %_ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit
-  %65 = fneg double %.050
+  %65 = fneg double %.048
   %66 = fmul double %55, %65
   %67 = fsub double %56, %55
   %68 = fdiv double %66, %67
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %12) #20
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %13) #20
-  %69 = fsub double %68, %.050
+  %69 = fsub double %68, %.048
   call void @_ZN2cvmlEdRKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %13, double noundef %69, ptr noundef nonnull align 8 dereferenceable(96) %2)
   invoke void @_ZN2cvplERKNS_3MatERKNS_7MatExprE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %12, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(352) %13)
           to label %70 unwind label %78
@@ -420,9 +420,9 @@ _ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit:             ; preds = %44
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %13) #20
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %12) #20
   %76 = fneg double %68
-  %77 = add nuw nsw i32 %.03049, 1
+  %77 = add nuw nsw i32 %.03047, 1
   %exitcond.not = icmp eq i32 %77, 4
-  br i1 %exitcond.not, label %83, label %37, !llvm.loop !45
+  br i1 %exitcond.not, label %.critedge, label %37, !llvm.loop !45
 
 78:                                               ; preds = %64
   %79 = landingpad { ptr, i32 }
@@ -440,12 +440,12 @@ _ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit:             ; preds = %44
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %13) #20
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %13) #20
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %12) #20
-  br label %84
+  br label %83
 
-83:                                               ; preds = %_ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit, %75
+.critedge:                                        ; preds = %_ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit, %75
   ret void
 
-84:                                               ; preds = %82, %63
+83:                                               ; preds = %82, %63
   %.pn40.pn.pn.pn = phi { ptr, i32 } [ %.pn, %63 ], [ %.pn40, %82 ]
   resume { ptr, i32 } %.pn40.pn.pn.pn
 }
@@ -1516,8 +1516,8 @@ _ZN2cv3PtrINS_16MinProblemSolver8FunctionEEC2ERKS3_.exit: ; preds = %2, %11, %14
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv18ConjGradSolverImpl11setFunctionERKNS_3PtrINS_16MinProblemSolver8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(616) initializes((8, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN2cv18ConjGradSolverImpl11setFunctionERKNS_3PtrINS_16MinProblemSolver8FunctionEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(616) initializes((8, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8, !tbaa !18
   store ptr %4, ptr %3, align 8, !tbaa !18

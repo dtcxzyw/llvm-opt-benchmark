@@ -522,7 +522,7 @@ define internal fastcc void @io_waitid_drop_issue_ref(ptr noundef %0) unnamed_ad
 declare dso_local void @remove_wait_queue(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -2147483648, 1) i32 @io_waitid_finish(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -2147483648, 1) i32 @io_waitid_finish(ptr noundef captures(none) %0, i32 noundef range(i32 -511, -512) %1) unnamed_addr #0 align 16 {
   %3 = icmp sgt i32 %1, 0
   %4 = select i1 %3, i32 17, i32 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -709,13 +709,13 @@ define internal void @io_waitid_cb(ptr noundef %0, ptr noundef captures(none) %1
   %14 = tail call i64 @__do_wait(ptr noundef nonnull %13) #7
   %15 = trunc i64 %14 to i32
   %16 = icmp eq i32 %15, -512
-  br i1 %16, label %17, label %.thread, !prof !10
+  br i1 %16, label %17, label %34, !prof !10
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load volatile i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, -1
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %34
 
 21:                                               ; preds = %17
   %22 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !15
@@ -730,19 +730,19 @@ define internal void @io_waitid_cb(ptr noundef %0, ptr noundef captures(none) %1
   %29 = tail call i64 @__do_wait(ptr noundef nonnull %13) #7
   %30 = trunc i64 %29 to i32
   %31 = icmp eq i32 %30, -512
-  br i1 %31, label %34, label %32
+  br i1 %31, label %.critedge, label %32
+
+.critedge:                                        ; preds = %21
+  tail call fastcc void @io_waitid_drop_issue_ref(ptr noundef %0)
+  br label %67
 
 32:                                               ; preds = %21
   %33 = load ptr, ptr %27, align 8
   tail call void @remove_wait_queue(ptr noundef %33, ptr noundef nonnull %28) #7
-  br label %.thread
+  br label %34
 
-34:                                               ; preds = %21
-  tail call fastcc void @io_waitid_drop_issue_ref(ptr noundef %0)
-  br label %67
-
-.thread:                                          ; preds = %32, %17, %12
-  %35 = phi i32 [ %15, %12 ], [ %30, %32 ], [ -125, %17 ]
+34:                                               ; preds = %17, %32, %12
+  %35 = phi i32 [ %15, %12 ], [ -125, %17 ], [ %30, %32 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   store i8 1, ptr %3, align 1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -751,13 +751,13 @@ define internal void @io_waitid_cb(ptr noundef %0, ptr noundef captures(none) %1
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %41, !prof !10
 
-40:                                               ; preds = %.thread
+40:                                               ; preds = %34
   tail call void asm sideeffect "680: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 680b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 680) #7, !srcloc !11
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 124, i32 2307, i64 12) #7, !srcloc !12
   tail call void asm sideeffect "681: nop\0A\09.pushsection .discard.instr_end\0A\09.long 681b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 681) #7, !srcloc !13
   br label %41
 
-41:                                               ; preds = %40, %.thread
+41:                                               ; preds = %40, %34
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %44 = load ptr, ptr %43, align 8
@@ -805,7 +805,7 @@ define internal void @io_waitid_cb(ptr noundef %0, ptr noundef captures(none) %1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
   br label %67
 
-67:                                               ; preds = %34, %66
+67:                                               ; preds = %.critedge, %66
   ret void
 }
 

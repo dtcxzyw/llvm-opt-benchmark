@@ -190,12 +190,12 @@ define dso_local void @SDLTest_TextWindowAddTextWithLength(ptr noundef captures(
   %.phi.trans.insert80 = sext i32 %.pre83 to i64
   %.phi.trans.insert81 = getelementptr inbounds ptr, ptr %.pre78, i64 %.phi.trans.insert80
   %.pre82 = load ptr, ptr %.phi.trans.insert81, align 8
-  br label %45
+  br label %46
 
 .thread:                                          ; preds = %10
   %22 = load i8, ptr %1, align 1
   %23 = icmp eq i8 %22, 8
-  br i1 %23, label %.thread68, label %45
+  br i1 %23, label %.thread68, label %46
 
 24:                                               ; preds = %18
   %.not63 = icmp eq i64 %19, 0
@@ -209,103 +209,100 @@ define dso_local void @SDLTest_TextWindowAddTextWithLength(ptr noundef captures(
   %.pre77 = load ptr, ptr %.phi.trans.insert76, align 8
   br i1 %.not74, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader
-  %invariant.gep = getelementptr i8, ptr %.pre77, i64 -1
-  br label %25
+.lr.ph:                                           ; preds = %.preheader, %28
+  %.171 = phi i64 [ %29, %28 ], [ %19, %.preheader ]
+  %25 = getelementptr i8, ptr %.pre77, i64 %.171
+  %26 = getelementptr i8, ptr %25, i64 -1
+  %27 = load i8, ptr %26, align 1
+  %or.cond = icmp slt i8 %27, -64
+  br i1 %or.cond, label %28, label %.critedge
 
-25:                                               ; preds = %.lr.ph, %27
-  %.171 = phi i64 [ %19, %.lr.ph ], [ %28, %27 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.171
-  %26 = load i8, ptr %gep, align 1
-  %or.cond = icmp slt i8 %26, -64
-  br i1 %or.cond, label %27, label %.critedge
+28:                                               ; preds = %.lr.ph
+  %29 = add i64 %.171, -1
+  %30 = icmp ugt i64 %29, 1
+  br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !6
 
-27:                                               ; preds = %25
-  %28 = add i64 %.171, -1
-  %29 = icmp ugt i64 %28, 1
-  br i1 %29, label %25, label %.critedge, !llvm.loop !6
-
-.critedge:                                        ; preds = %25, %27, %.preheader
-  %.1.lcssa = phi i64 [ 1, %.preheader ], [ 1, %27 ], [ %.171, %25 ]
-  %30 = getelementptr i8, ptr %.pre77, i64 %.1.lcssa
-  %31 = getelementptr i8, ptr %30, i64 -1
-  store i8 0, ptr %31, align 1
-  br label %78
+.critedge:                                        ; preds = %.lr.ph, %28, %.preheader
+  %.1.lcssa = phi i64 [ 1, %.preheader ], [ 1, %28 ], [ %.171, %.lr.ph ]
+  %31 = getelementptr i8, ptr %.pre77, i64 %.1.lcssa
+  %32 = getelementptr i8, ptr %31, i64 -1
+  store i8 0, ptr %32, align 1
+  br label %79
 
 .thread68:                                        ; preds = %.thread, %24
-  %32 = phi i32 [ %14, %.thread ], [ %.pre83, %24 ]
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %78
+  %33 = phi i32 [ %14, %.thread ], [ %.pre83, %24 ]
+  %34 = icmp sgt i32 %33, 0
+  br i1 %34, label %35, label %79
 
-34:                                               ; preds = %.thread68
-  %35 = load ptr, ptr %11, align 8
-  %36 = zext nneg i32 %32 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
-  %38 = load ptr, ptr %37, align 8
-  tail call void @SDL_free(ptr noundef %38) #8
-  %39 = load ptr, ptr %11, align 8
-  %40 = load i32, ptr %13, align 8
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
-  store ptr null, ptr %42, align 8
-  %43 = load i32, ptr %13, align 8
-  %44 = add nsw i32 %43, -1
-  store i32 %44, ptr %13, align 8
-  br label %78
+35:                                               ; preds = %.thread68
+  %36 = load ptr, ptr %11, align 8
+  %37 = zext nneg i32 %33 to i64
+  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  tail call void @SDL_free(ptr noundef %39) #8
+  %40 = load ptr, ptr %11, align 8
+  %41 = load i32, ptr %13, align 8
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds ptr, ptr %40, i64 %42
+  store ptr null, ptr %43, align 8
+  %44 = load i32, ptr %13, align 8
+  %45 = add nsw i32 %44, -1
+  store i32 %45, ptr %13, align 8
+  br label %79
 
-45:                                               ; preds = %._crit_edge, %.thread
-  %46 = phi ptr [ null, %.thread ], [ %.pre82, %._crit_edge ]
+46:                                               ; preds = %._crit_edge, %.thread
+  %47 = phi ptr [ null, %.thread ], [ %.pre82, %._crit_edge ]
   %.05367 = phi i64 [ 0, %.thread ], [ %19, %._crit_edge ]
-  %47 = add i64 %.05367, %.0
-  %48 = add i64 %47, 1
-  %49 = tail call ptr @SDL_realloc(ptr noundef %46, i64 noundef %48) #10
-  %.not62 = icmp eq ptr %49, null
-  br i1 %.not62, label %78, label %50
+  %48 = add i64 %.05367, %.0
+  %49 = add i64 %48, 1
+  %50 = tail call ptr @SDL_realloc(ptr noundef %47, i64 noundef %49) #10
+  %.not62 = icmp eq ptr %50, null
+  br i1 %.not62, label %79, label %51
 
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %.05367
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %1, i64 %.0, i1 false)
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %47
-  store i8 0, ptr %52, align 1
-  %53 = load ptr, ptr %11, align 8
-  %54 = load i32, ptr %13, align 8
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %53, i64 %55
-  store ptr %49, ptr %56, align 8
-  br i1 %.052, label %57, label %78
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %.05367
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %1, i64 %.0, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %48
+  store i8 0, ptr %53, align 1
+  %54 = load ptr, ptr %11, align 8
+  %55 = load i32, ptr %13, align 8
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds ptr, ptr %54, i64 %56
+  store ptr %50, ptr %57, align 8
+  br i1 %.052, label %58, label %79
 
-57:                                               ; preds = %50
-  %58 = load i32, ptr %13, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %60 = load i32, ptr %59, align 4
-  %61 = add nsw i32 %60, -1
-  %62 = icmp eq i32 %58, %61
-  br i1 %62, label %63, label %76
+58:                                               ; preds = %51
+  %59 = load i32, ptr %13, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %61 = load i32, ptr %60, align 4
+  %62 = add nsw i32 %61, -1
+  %63 = icmp eq i32 %59, %62
+  br i1 %63, label %64, label %77
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr %11, align 8
-  %65 = load ptr, ptr %64, align 8
-  tail call void @SDL_free(ptr noundef %65) #8
-  %66 = load ptr, ptr %11, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load i32, ptr %59, align 4
-  %69 = add nsw i32 %68, -1
-  %70 = sext i32 %69 to i64
-  %71 = shl nsw i64 %70, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %66, ptr nonnull align 8 %67, i64 %71, i1 false)
-  %72 = load ptr, ptr %11, align 8
-  %73 = load i32, ptr %13, align 8
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %72, i64 %74
-  store ptr null, ptr %75, align 8
-  br label %78
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %11, align 8
+  %66 = load ptr, ptr %65, align 8
+  tail call void @SDL_free(ptr noundef %66) #8
+  %67 = load ptr, ptr %11, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = load i32, ptr %60, align 4
+  %70 = add nsw i32 %69, -1
+  %71 = sext i32 %70 to i64
+  %72 = shl nsw i64 %71, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %67, ptr nonnull align 8 %68, i64 %72, i1 false)
+  %73 = load ptr, ptr %11, align 8
+  %74 = load i32, ptr %13, align 8
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds ptr, ptr %73, i64 %75
+  store ptr null, ptr %76, align 8
+  br label %79
 
-76:                                               ; preds = %57
-  %77 = add nsw i32 %58, 1
-  store i32 %77, ptr %13, align 8
-  br label %78
+77:                                               ; preds = %58
+  %78 = add nsw i32 %59, 1
+  store i32 %78, ptr %13, align 8
+  br label %79
 
-78:                                               ; preds = %45, %63, %76, %50, %.critedge, %34, %.thread68
+79:                                               ; preds = %46, %64, %77, %51, %.critedge, %35, %.thread68
   ret void
 }
 

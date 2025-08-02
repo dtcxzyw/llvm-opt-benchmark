@@ -60,296 +60,298 @@ define dso_local range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 check_retval.exit:                                ; preds = %0
   %5 = load ptr, ptr @stderr, align 8, !tbaa !4
   %6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str, i32 noundef %3) #11
-  br label %143
+  br label %145
 
 7:                                                ; preds = %0
   %8 = call noalias dereferenceable_or_null(1144) ptr @malloc(i64 noundef 1144) #12
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 512
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %7
-  %indvars.iv18.i = phi i64 [ 0, %7 ], [ %indvars.iv.next19.i, %15 ]
-  br label %10
+.preheader.i:                                     ; preds = %17, %7
+  %indvars.iv18.i = phi i64 [ 0, %7 ], [ %indvars.iv.next19.i, %17 ]
+  %10 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %8, i64 0, i64 %indvars.iv18.i
+  %11 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %9, i64 0, i64 %indvars.iv18.i
+  br label %12
 
-10:                                               ; preds = %10, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = call ptr @SUNDlsMat_newDenseMat(i64 noundef 6, i64 noundef 6) #10
-  %12 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %8, i64 0, i64 %indvars.iv18.i, i64 %indvars.iv.i
-  store ptr %11, ptr %12, align 8, !tbaa !9
-  %13 = call ptr @SUNDlsMat_newIndexArray(i64 noundef 6) #10
-  %14 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %9, i64 0, i64 %indvars.iv18.i, i64 %indvars.iv.i
-  store ptr %13, ptr %14, align 8, !tbaa !11
+12:                                               ; preds = %12, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %12 ]
+  %13 = call ptr @SUNDlsMat_newDenseMat(i64 noundef 6, i64 noundef 6) #10
+  %14 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %indvars.iv.i
+  store ptr %13, ptr %14, align 8, !tbaa !9
+  %15 = call ptr @SUNDlsMat_newIndexArray(i64 noundef 6) #10
+  %16 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %indvars.iv.i
+  store ptr %15, ptr %16, align 8, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %15, label %10
+  br i1 %exitcond.not.i, label %17, label %12
 
-15:                                               ; preds = %10
+17:                                               ; preds = %12
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next19.i, 8
-  br i1 %exitcond21.not.i, label %16, label %.preheader.i
+  br i1 %exitcond21.not.i, label %18, label %.preheader.i
 
-16:                                               ; preds = %15
-  %17 = call ptr @SUNDlsMat_newDenseMat(i64 noundef 6, i64 noundef 6) #10
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 1024
-  store ptr %17, ptr %18, align 8, !tbaa !13
-  %19 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #12
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 1032
-  store ptr %19, ptr %20, align 8, !tbaa !19
+18:                                               ; preds = %17
+  %19 = call ptr @SUNDlsMat_newDenseMat(i64 noundef 6, i64 noundef 6) #10
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 1024
+  store ptr %19, ptr %20, align 8, !tbaa !13
   %21 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #12
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1048
-  store ptr %21, ptr %22, align 8, !tbaa !20
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1032
+  store ptr %21, ptr %22, align 8, !tbaa !19
   %23 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #12
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 1056
-  store ptr %23, ptr %24, align 8, !tbaa !21
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 1112
-  store i64 8, ptr %25, align 8, !tbaa !22
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 1120
-  store i64 8, ptr %26, align 8, !tbaa !23
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 1128
-  store i64 6, ptr %27, align 8, !tbaa !24
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 1136
-  store i64 3, ptr %28, align 8, !tbaa !25
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 1064
-  store double 1.000000e+00, ptr %29, align 8, !tbaa !26
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 1072
-  store double 1.000000e+00, ptr %30, align 8, !tbaa !27
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 1080
-  store double 0x3FC2492492492492, ptr %31, align 8, !tbaa !28
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 1088
-  store double 0x3FC2492492492492, ptr %32, align 8, !tbaa !29
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 1096
-  store double 0x3CB0000000000000, ptr %33, align 8, !tbaa !30
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 1104
-  store double 0x3E50000000000000, ptr %34, align 8, !tbaa !31
-  br label %35
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 1048
+  store ptr %23, ptr %24, align 8, !tbaa !20
+  %25 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #12
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 1056
+  store ptr %25, ptr %26, align 8, !tbaa !21
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 1112
+  store i64 8, ptr %27, align 8, !tbaa !22
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 1120
+  store i64 8, ptr %28, align 8, !tbaa !23
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 1128
+  store i64 6, ptr %29, align 8, !tbaa !24
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 1136
+  store i64 3, ptr %30, align 8, !tbaa !25
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 1064
+  store double 1.000000e+00, ptr %31, align 8, !tbaa !26
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 1072
+  store double 1.000000e+00, ptr %32, align 8, !tbaa !27
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 1080
+  store double 0x3FC2492492492492, ptr %33, align 8, !tbaa !28
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 1088
+  store double 0x3FC2492492492492, ptr %34, align 8, !tbaa !29
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 1096
+  store double 0x3CB0000000000000, ptr %35, align 8, !tbaa !30
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 1104
+  store double 0x3E50000000000000, ptr %36, align 8, !tbaa !31
+  br label %37
 
-35:                                               ; preds = %49, %16
-  %.078.i = phi i64 [ 0, %16 ], [ %58, %49 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %17, i64 %.078.i
-  %37 = load ptr, ptr %36, align 8, !tbaa !32
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = add nuw nsw i64 %.078.i, 3
-  %40 = getelementptr inbounds nuw ptr, ptr %17, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !32
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  br label %43
+37:                                               ; preds = %51, %18
+  %.078.i = phi i64 [ 0, %18 ], [ %60, %51 ]
+  %38 = getelementptr inbounds nuw ptr, ptr %19, i64 %.078.i
+  %39 = load ptr, ptr %38, align 8, !tbaa !32
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %41 = add nuw nsw i64 %.078.i, 3
+  %42 = getelementptr inbounds nuw ptr, ptr %19, i64 %41
+  %43 = load ptr, ptr %42, align 8, !tbaa !32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  br label %45
 
-43:                                               ; preds = %43, %35
-  %.06777.i = phi i64 [ 0, %35 ], [ %48, %43 ]
-  %.06876.i = phi ptr [ %42, %35 ], [ %47, %43 ]
-  %.06975.i = phi ptr [ %37, %35 ], [ %46, %43 ]
-  %.07074.i = phi ptr [ %41, %35 ], [ %45, %43 ]
-  %.07173.i = phi ptr [ %38, %35 ], [ %44, %43 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.07173.i, i64 8
+45:                                               ; preds = %45, %37
+  %.06777.i = phi i64 [ 0, %37 ], [ %50, %45 ]
+  %.06876.i = phi ptr [ %44, %37 ], [ %49, %45 ]
+  %.06975.i = phi ptr [ %39, %37 ], [ %48, %45 ]
+  %.07074.i = phi ptr [ %43, %37 ], [ %47, %45 ]
+  %.07173.i = phi ptr [ %40, %37 ], [ %46, %45 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.07173.i, i64 8
   store double -5.000000e-07, ptr %.07173.i, align 8, !tbaa !33
-  %45 = getelementptr inbounds nuw i8, ptr %.07074.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.07074.i, i64 8
   store double 1.000000e+04, ptr %.07074.i, align 8, !tbaa !33
-  %46 = getelementptr inbounds nuw i8, ptr %.06975.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.06975.i, i64 8
   store double 0.000000e+00, ptr %.06975.i, align 8, !tbaa !33
-  %47 = getelementptr inbounds nuw i8, ptr %.06876.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.06876.i, i64 8
   store double 0.000000e+00, ptr %.06876.i, align 8, !tbaa !33
-  %48 = add nuw nsw i64 %.06777.i, 1
-  %exitcond.not.i54 = icmp eq i64 %48, 3
-  br i1 %exitcond.not.i54, label %49, label %43
+  %50 = add nuw nsw i64 %.06777.i, 1
+  %exitcond.not.i54 = icmp eq i64 %50, 3
+  br i1 %exitcond.not.i54, label %51, label %45
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw double, ptr %37, i64 %.078.i
-  store double -1.000000e+00, ptr %50, align 8, !tbaa !33
-  %51 = getelementptr inbounds nuw double, ptr %41, i64 %39
-  store double -1.000000e+00, ptr %51, align 8, !tbaa !33
-  %52 = getelementptr inbounds nuw double, ptr %19, i64 %.078.i
-  store double 1.000000e+00, ptr %52, align 8, !tbaa !33
-  %53 = getelementptr inbounds nuw double, ptr %19, i64 %39
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds nuw double, ptr %39, i64 %.078.i
+  store double -1.000000e+00, ptr %52, align 8, !tbaa !33
+  %53 = getelementptr inbounds nuw double, ptr %43, i64 %41
   store double -1.000000e+00, ptr %53, align 8, !tbaa !33
   %54 = getelementptr inbounds nuw double, ptr %21, i64 %.078.i
-  store double 0x4048800000000001, ptr %54, align 8, !tbaa !33
-  %55 = getelementptr inbounds nuw double, ptr %21, i64 %39
-  store double 0x4038800000000001, ptr %55, align 8, !tbaa !33
+  store double 1.000000e+00, ptr %54, align 8, !tbaa !33
+  %55 = getelementptr inbounds nuw double, ptr %21, i64 %41
+  store double -1.000000e+00, ptr %55, align 8, !tbaa !33
   %56 = getelementptr inbounds nuw double, ptr %23, i64 %.078.i
   store double 0x4048800000000001, ptr %56, align 8, !tbaa !33
-  %57 = getelementptr inbounds nuw double, ptr %23, i64 %39
+  %57 = getelementptr inbounds nuw double, ptr %23, i64 %41
   store double 0x4038800000000001, ptr %57, align 8, !tbaa !33
-  %58 = add nuw nsw i64 %.078.i, 1
-  %exitcond79.not.i = icmp eq i64 %58, 3
-  br i1 %exitcond79.not.i, label %InitUserData.exit, label %35
+  %58 = getelementptr inbounds nuw double, ptr %25, i64 %.078.i
+  store double 0x4048800000000001, ptr %58, align 8, !tbaa !33
+  %59 = getelementptr inbounds nuw double, ptr %25, i64 %41
+  store double 0x4038800000000001, ptr %59, align 8, !tbaa !33
+  %60 = add nuw nsw i64 %.078.i, 1
+  %exitcond79.not.i = icmp eq i64 %60, 3
+  br i1 %exitcond79.not.i, label %InitUserData.exit, label %37
 
-InitUserData.exit:                                ; preds = %49
-  %59 = load ptr, ptr %1, align 8, !tbaa !34
-  %60 = call ptr @N_VNew_Serial(i64 noundef 384, ptr noundef %59) #10
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %check_retval.exit56, label %64
+InitUserData.exit:                                ; preds = %51
+  %61 = load ptr, ptr %1, align 8, !tbaa !34
+  %62 = call ptr @N_VNew_Serial(i64 noundef 384, ptr noundef %61) #10
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %check_retval.exit56, label %66
 
 check_retval.exit56:                              ; preds = %InitUserData.exit
-  %62 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.2) #11
-  br label %143
+  %64 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.2) #11
+  br label %145
 
-64:                                               ; preds = %InitUserData.exit
-  %65 = load ptr, ptr %1, align 8, !tbaa !34
-  %66 = call ptr @N_VNew_Serial(i64 noundef 384, ptr noundef %65) #10
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %check_retval.exit58, label %70
+66:                                               ; preds = %InitUserData.exit
+  %67 = load ptr, ptr %1, align 8, !tbaa !34
+  %68 = call ptr @N_VNew_Serial(i64 noundef 384, ptr noundef %67) #10
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %check_retval.exit58, label %72
 
-check_retval.exit58:                              ; preds = %64
-  %68 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.2) #11
-  br label %143
+check_retval.exit58:                              ; preds = %66
+  %70 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.2) #11
+  br label %145
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %1, align 8, !tbaa !34
-  %72 = call ptr @N_VNew_Serial(i64 noundef 384, ptr noundef %71) #10
-  %73 = getelementptr inbounds nuw i8, ptr %8, i64 1040
-  store ptr %72, ptr %73, align 8, !tbaa !36
-  %74 = icmp eq ptr %72, null
-  br i1 %74, label %check_retval.exit60, label %77
+72:                                               ; preds = %66
+  %73 = load ptr, ptr %1, align 8, !tbaa !34
+  %74 = call ptr @N_VNew_Serial(i64 noundef 384, ptr noundef %73) #10
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 1040
+  store ptr %74, ptr %75, align 8, !tbaa !36
+  %76 = icmp eq ptr %74, null
+  br i1 %76, label %check_retval.exit60, label %79
 
-check_retval.exit60:                              ; preds = %70
-  %75 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.2) #11
-  br label %143
+check_retval.exit60:                              ; preds = %72
+  %77 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.2) #11
+  br label %145
 
-77:                                               ; preds = %70
-  %78 = load ptr, ptr %1, align 8, !tbaa !34
-  %79 = call ptr @N_VNew_Serial(i64 noundef 384, ptr noundef %78) #10
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %check_retval.exit62, label %83
+79:                                               ; preds = %72
+  %80 = load ptr, ptr %1, align 8, !tbaa !34
+  %81 = call ptr @N_VNew_Serial(i64 noundef 384, ptr noundef %80) #10
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %check_retval.exit62, label %85
 
-check_retval.exit62:                              ; preds = %77
-  %81 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.2) #11
-  br label %143
+check_retval.exit62:                              ; preds = %79
+  %83 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.2) #11
+  br label %145
 
-83:                                               ; preds = %77
-  call void @N_VConst(double noundef 2.000000e+00, ptr noundef nonnull %79) #10
-  call fastcc void @SetInitialProfiles(ptr noundef nonnull %60, ptr noundef nonnull %66)
-  %84 = load ptr, ptr %1, align 8, !tbaa !34
-  %85 = call ptr @KINCreate(ptr noundef %84) #10
-  store ptr %85, ptr %2, align 8, !tbaa !37
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %check_retval.exit64, label %89
+85:                                               ; preds = %79
+  call void @N_VConst(double noundef 2.000000e+00, ptr noundef nonnull %81) #10
+  call fastcc void @SetInitialProfiles(ptr noundef nonnull %62, ptr noundef nonnull %68)
+  %86 = load ptr, ptr %1, align 8, !tbaa !34
+  %87 = call ptr @KINCreate(ptr noundef %86) #10
+  store ptr %87, ptr %2, align 8, !tbaa !37
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %check_retval.exit64, label %91
 
-check_retval.exit64:                              ; preds = %83
-  %87 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3) #11
-  br label %143
+check_retval.exit64:                              ; preds = %85
+  %89 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3) #11
+  br label %145
 
-89:                                               ; preds = %83
-  %90 = call i32 @KINInit(ptr noundef nonnull %85, ptr noundef nonnull @func, ptr noundef nonnull %60) #10
-  %91 = icmp slt i32 %90, 0
-  br i1 %91, label %check_retval.exit66, label %94
+91:                                               ; preds = %85
+  %92 = call i32 @KINInit(ptr noundef nonnull %87, ptr noundef nonnull @func, ptr noundef nonnull %62) #10
+  %93 = icmp slt i32 %92, 0
+  br i1 %93, label %check_retval.exit66, label %96
 
-check_retval.exit66:                              ; preds = %89
-  %92 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.4, i32 noundef %90) #11
-  br label %143
+check_retval.exit66:                              ; preds = %91
+  %94 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.4, i32 noundef %92) #11
+  br label %145
 
-94:                                               ; preds = %89
-  %95 = call i32 @KINSetUserData(ptr noundef nonnull %85, ptr noundef nonnull %8) #10
-  %96 = icmp slt i32 %95, 0
-  br i1 %96, label %check_retval.exit68, label %99
+96:                                               ; preds = %91
+  %97 = call i32 @KINSetUserData(ptr noundef nonnull %87, ptr noundef nonnull %8) #10
+  %98 = icmp slt i32 %97, 0
+  br i1 %98, label %check_retval.exit68, label %101
 
-check_retval.exit68:                              ; preds = %94
-  %97 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.5, i32 noundef %95) #11
-  br label %143
+check_retval.exit68:                              ; preds = %96
+  %99 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.5, i32 noundef %97) #11
+  br label %145
 
-99:                                               ; preds = %94
-  %100 = call i32 @KINSetConstraints(ptr noundef nonnull %85, ptr noundef nonnull %79) #10
-  %101 = icmp slt i32 %100, 0
-  br i1 %101, label %check_retval.exit70, label %104
+101:                                              ; preds = %96
+  %102 = call i32 @KINSetConstraints(ptr noundef nonnull %87, ptr noundef nonnull %81) #10
+  %103 = icmp slt i32 %102, 0
+  br i1 %103, label %check_retval.exit70, label %106
 
-check_retval.exit70:                              ; preds = %99
-  %102 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.6, i32 noundef %100) #11
-  br label %143
+check_retval.exit70:                              ; preds = %101
+  %104 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.6, i32 noundef %102) #11
+  br label %145
 
-104:                                              ; preds = %99
-  %105 = call i32 @KINSetFuncNormTol(ptr noundef nonnull %85, double noundef 0x3E7AD7F29ABCAF48) #10
-  %106 = icmp slt i32 %105, 0
-  br i1 %106, label %check_retval.exit72, label %109
+106:                                              ; preds = %101
+  %107 = call i32 @KINSetFuncNormTol(ptr noundef nonnull %87, double noundef 0x3E7AD7F29ABCAF48) #10
+  %108 = icmp slt i32 %107, 0
+  br i1 %108, label %check_retval.exit72, label %111
 
-check_retval.exit72:                              ; preds = %104
-  %107 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.7, i32 noundef %105) #11
-  br label %143
+check_retval.exit72:                              ; preds = %106
+  %109 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.7, i32 noundef %107) #11
+  br label %145
 
-109:                                              ; preds = %104
-  %110 = call i32 @KINSetScaledStepTol(ptr noundef nonnull %85, double noundef 1.000000e-13) #10
-  %111 = icmp slt i32 %110, 0
-  br i1 %111, label %check_retval.exit74, label %114
+111:                                              ; preds = %106
+  %112 = call i32 @KINSetScaledStepTol(ptr noundef nonnull %87, double noundef 1.000000e-13) #10
+  %113 = icmp slt i32 %112, 0
+  br i1 %113, label %check_retval.exit74, label %116
 
-check_retval.exit74:                              ; preds = %109
-  %112 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.8, i32 noundef %110) #11
-  br label %143
+check_retval.exit74:                              ; preds = %111
+  %114 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.8, i32 noundef %112) #11
+  br label %145
 
-114:                                              ; preds = %109
-  call void @N_VDestroy(ptr noundef nonnull %79) #10
-  %115 = load ptr, ptr %1, align 8, !tbaa !34
-  %116 = call ptr @SUNLinSol_SPGMR(ptr noundef nonnull %60, i32 noundef 2, i32 noundef 15, ptr noundef %115) #10
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %check_retval.exit76, label %120
+116:                                              ; preds = %111
+  call void @N_VDestroy(ptr noundef nonnull %81) #10
+  %117 = load ptr, ptr %1, align 8, !tbaa !34
+  %118 = call ptr @SUNLinSol_SPGMR(ptr noundef nonnull %62, i32 noundef 2, i32 noundef 15, ptr noundef %117) #10
+  %119 = icmp eq ptr %118, null
+  br i1 %119, label %check_retval.exit76, label %122
 
-check_retval.exit76:                              ; preds = %114
-  %118 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.9) #11
-  br label %143
+check_retval.exit76:                              ; preds = %116
+  %120 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.9) #11
+  br label %145
 
-120:                                              ; preds = %114
-  %121 = call i32 @KINSetLinearSolver(ptr noundef nonnull %85, ptr noundef nonnull %116, ptr noundef null) #10
-  %122 = icmp slt i32 %121, 0
-  br i1 %122, label %check_retval.exit78, label %125
+122:                                              ; preds = %116
+  %123 = call i32 @KINSetLinearSolver(ptr noundef nonnull %87, ptr noundef nonnull %118, ptr noundef null) #10
+  %124 = icmp slt i32 %123, 0
+  br i1 %124, label %check_retval.exit78, label %127
 
-check_retval.exit78:                              ; preds = %120
-  %123 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.10, i32 noundef %121) #11
-  br label %143
+check_retval.exit78:                              ; preds = %122
+  %125 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %126 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.10, i32 noundef %123) #11
+  br label %145
 
-125:                                              ; preds = %120
-  %126 = call i32 @SUNLinSol_SPGMRSetMaxRestarts(ptr noundef nonnull %116, i32 noundef 2) #10
-  %127 = icmp slt i32 %126, 0
-  br i1 %127, label %check_retval.exit80, label %130
+127:                                              ; preds = %122
+  %128 = call i32 @SUNLinSol_SPGMRSetMaxRestarts(ptr noundef nonnull %118, i32 noundef 2) #10
+  %129 = icmp slt i32 %128, 0
+  br i1 %129, label %check_retval.exit80, label %132
 
-check_retval.exit80:                              ; preds = %125
-  %128 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.11, i32 noundef %126) #11
-  br label %143
+check_retval.exit80:                              ; preds = %127
+  %130 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.11, i32 noundef %128) #11
+  br label %145
 
-130:                                              ; preds = %125
-  %131 = call i32 @KINSetPreconditioner(ptr noundef nonnull %85, ptr noundef nonnull @PrecSetupBD, ptr noundef nonnull @PrecSolveBD) #10
-  %132 = icmp slt i32 %131, 0
-  br i1 %132, label %check_retval.exit82, label %135
+132:                                              ; preds = %127
+  %133 = call i32 @KINSetPreconditioner(ptr noundef nonnull %87, ptr noundef nonnull @PrecSetupBD, ptr noundef nonnull @PrecSolveBD) #10
+  %134 = icmp slt i32 %133, 0
+  br i1 %134, label %check_retval.exit82, label %137
 
-check_retval.exit82:                              ; preds = %130
-  %133 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.12, i32 noundef %131) #11
-  br label %143
+check_retval.exit82:                              ; preds = %132
+  %135 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.12, i32 noundef %133) #11
+  br label %145
 
-135:                                              ; preds = %130
+137:                                              ; preds = %132
   call fastcc void @PrintHeader()
-  %136 = call i32 @KINSol(ptr noundef nonnull %85, ptr noundef nonnull %60, i32 noundef 0, ptr noundef nonnull %66, ptr noundef nonnull %66) #10
-  %137 = icmp slt i32 %136, 0
-  br i1 %137, label %check_retval.exit84, label %140
+  %138 = call i32 @KINSol(ptr noundef nonnull %87, ptr noundef nonnull %62, i32 noundef 0, ptr noundef nonnull %68, ptr noundef nonnull %68) #10
+  %139 = icmp slt i32 %138, 0
+  br i1 %139, label %check_retval.exit84, label %142
 
-check_retval.exit84:                              ; preds = %135
-  %138 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.13, i32 noundef %136) #11
-  br label %143
+check_retval.exit84:                              ; preds = %137
+  %140 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.13, i32 noundef %138) #11
+  br label %145
 
-140:                                              ; preds = %135
+142:                                              ; preds = %137
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  call fastcc void @PrintOutput(ptr noundef nonnull %60)
-  call fastcc void @PrintFinalStats(ptr noundef nonnull %85)
-  call void @N_VDestroy(ptr noundef nonnull %60) #10
-  call void @N_VDestroy(ptr noundef nonnull %66) #10
+  call fastcc void @PrintOutput(ptr noundef nonnull %62)
+  call fastcc void @PrintFinalStats(ptr noundef nonnull %87)
+  call void @N_VDestroy(ptr noundef nonnull %62) #10
+  call void @N_VDestroy(ptr noundef nonnull %68) #10
   call void @KINFree(ptr noundef nonnull %2) #10
-  %141 = call i32 @SUNLinSolFree(ptr noundef nonnull %116) #10
+  %143 = call i32 @SUNLinSolFree(ptr noundef nonnull %118) #10
   call fastcc void @FreeUserData(ptr noundef nonnull %8)
-  %142 = call i32 @SUNContext_Free(ptr noundef nonnull %1) #10
-  br label %143
+  %144 = call i32 @SUNContext_Free(ptr noundef nonnull %1) #10
+  br label %145
 
-143:                                              ; preds = %check_retval.exit84, %check_retval.exit82, %check_retval.exit80, %check_retval.exit78, %check_retval.exit76, %check_retval.exit74, %check_retval.exit72, %check_retval.exit70, %check_retval.exit68, %check_retval.exit66, %check_retval.exit64, %check_retval.exit62, %check_retval.exit60, %check_retval.exit58, %check_retval.exit56, %check_retval.exit, %140
-  %.0 = phi i32 [ 0, %140 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit56 ], [ 1, %check_retval.exit58 ], [ 1, %check_retval.exit60 ], [ 1, %check_retval.exit62 ], [ 1, %check_retval.exit64 ], [ 1, %check_retval.exit66 ], [ 1, %check_retval.exit68 ], [ 1, %check_retval.exit70 ], [ 1, %check_retval.exit72 ], [ 1, %check_retval.exit74 ], [ 1, %check_retval.exit76 ], [ 1, %check_retval.exit78 ], [ 1, %check_retval.exit80 ], [ 1, %check_retval.exit82 ], [ 1, %check_retval.exit84 ]
+145:                                              ; preds = %check_retval.exit84, %check_retval.exit82, %check_retval.exit80, %check_retval.exit78, %check_retval.exit76, %check_retval.exit74, %check_retval.exit72, %check_retval.exit70, %check_retval.exit68, %check_retval.exit66, %check_retval.exit64, %check_retval.exit62, %check_retval.exit60, %check_retval.exit58, %check_retval.exit56, %check_retval.exit, %142
+  %.0 = phi i32 [ 0, %142 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit56 ], [ 1, %check_retval.exit58 ], [ 1, %check_retval.exit60 ], [ 1, %check_retval.exit62 ], [ 1, %check_retval.exit64 ], [ 1, %check_retval.exit66 ], [ 1, %check_retval.exit68 ], [ 1, %check_retval.exit70 ], [ 1, %check_retval.exit72 ], [ 1, %check_retval.exit74 ], [ 1, %check_retval.exit76 ], [ 1, %check_retval.exit78 ], [ 1, %check_retval.exit80 ], [ 1, %check_retval.exit82 ], [ 1, %check_retval.exit84 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #10
   ret i32 %.0
@@ -643,141 +645,143 @@ define internal range(i32 0, 2) i32 @PrecSetupBD(ptr noundef readonly captures(n
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 512
   br label %24
 
-24:                                               ; preds = %5, %102
-  %.07182 = phi i64 [ 0, %5 ], [ %103, %102 ]
-  %25 = uitofp nneg i64 %.07182 to double
+24:                                               ; preds = %5, %100
+  %.07184 = phi i64 [ 0, %5 ], [ %101, %100 ]
+  %25 = uitofp nneg i64 %.07184 to double
   %26 = fmul double %10, %25
-  %27 = mul nuw nsw i64 %.07182, 48
+  %invariant.gep = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %.07184
+  %27 = mul nuw nsw i64 %.07184, 48
+  %invariant.gep81 = getelementptr inbounds nuw [8 x ptr], ptr %23, i64 0, i64 %.07184
   br label %30
 
-28:                                               ; preds = %98
-  %29 = add nuw nsw i64 %.07281, 1
-  %exitcond85.not = icmp eq i64 %29, 8
-  br i1 %exitcond85.not, label %102, label %30
+28:                                               ; preds = %97
+  %29 = add nuw nsw i64 %.07283, 1
+  %exitcond87.not = icmp eq i64 %29, 8
+  br i1 %exitcond87.not, label %100, label %30
 
 30:                                               ; preds = %24, %28
-  %.07281 = phi i64 [ 0, %24 ], [ %29, %28 ]
-  %31 = uitofp nneg i64 %.07281 to double
+  %.07283 = phi i64 [ 0, %24 ], [ %29, %28 ]
+  %31 = uitofp nneg i64 %.07283 to double
   %32 = fmul double %8, %31
-  %33 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %4, i64 0, i64 %.07281, i64 %.07182
-  %34 = load ptr, ptr %33, align 8, !tbaa !9
-  %35 = load ptr, ptr %0, align 8, !tbaa !38
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !41
-  %38 = mul nuw nsw i64 %.07281, 6
-  %39 = add nuw nsw i64 %38, %27
-  %40 = getelementptr inbounds nuw double, ptr %37, i64 %39
-  %41 = load ptr, ptr %1, align 8, !tbaa !38
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !41
-  %44 = getelementptr inbounds nuw double, ptr %43, i64 %39
-  %45 = load ptr, ptr %20, align 8, !tbaa !36
-  %46 = load ptr, ptr %45, align 8, !tbaa !38
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !41
-  %49 = getelementptr inbounds nuw double, ptr %48, i64 %39
-  %50 = load ptr, ptr %21, align 8, !tbaa !13
-  %51 = tail call double @llvm.fmuladd.f64(double %32, double %26, double 1.000000e+00)
-  %52 = load ptr, ptr %22, align 8, !tbaa !19
-  br label %53
+  %gep = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %invariant.gep, i64 0, i64 %.07283
+  %33 = load ptr, ptr %gep, align 8, !tbaa !9
+  %34 = load ptr, ptr %0, align 8, !tbaa !38
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !41
+  %37 = mul nuw nsw i64 %.07283, 6
+  %38 = add nuw nsw i64 %37, %27
+  %39 = getelementptr inbounds nuw double, ptr %36, i64 %38
+  %40 = load ptr, ptr %1, align 8, !tbaa !38
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !41
+  %43 = getelementptr inbounds nuw double, ptr %42, i64 %38
+  %44 = load ptr, ptr %20, align 8, !tbaa !36
+  %45 = load ptr, ptr %44, align 8, !tbaa !38
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8, !tbaa !41
+  %48 = getelementptr inbounds nuw double, ptr %47, i64 %38
+  %49 = load ptr, ptr %21, align 8, !tbaa !13
+  %50 = tail call double @llvm.fmuladd.f64(double %32, double %26, double 1.000000e+00)
+  %51 = load ptr, ptr %22, align 8, !tbaa !19
+  br label %52
 
-53:                                               ; preds = %30, %96
-  %.07380 = phi i64 [ 0, %30 ], [ %97, %96 ]
-  %54 = getelementptr inbounds nuw double, ptr %40, i64 %.07380
-  %55 = load double, ptr %54, align 8, !tbaa !33
-  %56 = tail call double @llvm.fabs.f64(double %55)
-  %57 = fmul double %14, %56
-  %58 = getelementptr inbounds nuw double, ptr %44, i64 %.07380
-  %59 = load double, ptr %58, align 8, !tbaa !33
-  %60 = fdiv double %.070, %59
-  %61 = fcmp ogt double %57, %60
-  %. = select i1 %61, double %57, double %60
-  %62 = fadd double %55, %.
-  store double %62, ptr %54, align 8, !tbaa !33
-  br label %63
+52:                                               ; preds = %30, %95
+  %.07380 = phi i64 [ 0, %30 ], [ %96, %95 ]
+  %53 = getelementptr inbounds nuw double, ptr %39, i64 %.07380
+  %54 = load double, ptr %53, align 8, !tbaa !33
+  %55 = tail call double @llvm.fabs.f64(double %54)
+  %56 = fmul double %14, %55
+  %57 = getelementptr inbounds nuw double, ptr %43, i64 %.07380
+  %58 = load double, ptr %57, align 8, !tbaa !33
+  %59 = fdiv double %.070, %58
+  %60 = fcmp ogt double %56, %59
+  %. = select i1 %60, double %56, double %59
+  %61 = fadd double %54, %.
+  store double %61, ptr %53, align 8, !tbaa !33
+  br label %62
 
-63:                                               ; preds = %DotProd.exit.i, %53
-  %.020.i = phi i64 [ 0, %53 ], [ %74, %DotProd.exit.i ]
-  %64 = getelementptr inbounds nuw ptr, ptr %50, i64 %.020.i
-  %65 = load ptr, ptr %64, align 8, !tbaa !32
-  br label %66
+62:                                               ; preds = %DotProd.exit.i, %52
+  %.020.i = phi i64 [ 0, %52 ], [ %73, %DotProd.exit.i ]
+  %63 = getelementptr inbounds nuw ptr, ptr %49, i64 %.020.i
+  %64 = load ptr, ptr %63, align 8, !tbaa !32
+  br label %65
 
-66:                                               ; preds = %66, %63
-  %.014.i.i = phi double [ 0.000000e+00, %63 ], [ %71, %66 ]
-  %.0813.i.i = phi ptr [ %65, %63 ], [ %69, %66 ]
-  %.0912.i.i = phi ptr [ %40, %63 ], [ %67, %66 ]
-  %.01011.i.i = phi i64 [ 0, %63 ], [ %72, %66 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 8
-  %68 = load double, ptr %.0912.i.i, align 8, !tbaa !33
-  %69 = getelementptr inbounds nuw i8, ptr %.0813.i.i, i64 8
-  %70 = load double, ptr %.0813.i.i, align 8, !tbaa !33
-  %71 = tail call double @llvm.fmuladd.f64(double %68, double %70, double %.014.i.i)
-  %72 = add nuw nsw i64 %.01011.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %72, 6
-  br i1 %exitcond.not.i.i, label %DotProd.exit.i, label %66
+65:                                               ; preds = %65, %62
+  %.014.i.i = phi double [ 0.000000e+00, %62 ], [ %70, %65 ]
+  %.0813.i.i = phi ptr [ %64, %62 ], [ %68, %65 ]
+  %.0912.i.i = phi ptr [ %39, %62 ], [ %66, %65 ]
+  %.01011.i.i = phi i64 [ 0, %62 ], [ %71, %65 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 8
+  %67 = load double, ptr %.0912.i.i, align 8, !tbaa !33
+  %68 = getelementptr inbounds nuw i8, ptr %.0813.i.i, i64 8
+  %69 = load double, ptr %.0813.i.i, align 8, !tbaa !33
+  %70 = tail call double @llvm.fmuladd.f64(double %67, double %69, double %.014.i.i)
+  %71 = add nuw nsw i64 %.01011.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %71, 6
+  br i1 %exitcond.not.i.i, label %DotProd.exit.i, label %65
 
-DotProd.exit.i:                                   ; preds = %66
-  %73 = getelementptr inbounds nuw double, ptr %6, i64 %.020.i
-  store double %71, ptr %73, align 8, !tbaa !33
-  %74 = add nuw nsw i64 %.020.i, 1
-  %exitcond.not.i = icmp eq i64 %74, 6
-  br i1 %exitcond.not.i, label %.preheader, label %63
+DotProd.exit.i:                                   ; preds = %65
+  %72 = getelementptr inbounds nuw double, ptr %6, i64 %.020.i
+  store double %70, ptr %72, align 8, !tbaa !33
+  %73 = add nuw nsw i64 %.020.i, 1
+  %exitcond.not.i = icmp eq i64 %73, 6
+  br i1 %exitcond.not.i, label %.preheader, label %62
 
 .preheader:                                       ; preds = %DotProd.exit.i, %.preheader
-  %.121.i = phi i64 [ %83, %.preheader ], [ 0, %DotProd.exit.i ]
-  %75 = getelementptr inbounds nuw double, ptr %40, i64 %.121.i
-  %76 = load double, ptr %75, align 8, !tbaa !33
-  %77 = getelementptr inbounds nuw double, ptr %52, i64 %.121.i
-  %78 = load double, ptr %77, align 8, !tbaa !33
-  %79 = getelementptr inbounds nuw double, ptr %6, i64 %.121.i
-  %80 = load double, ptr %79, align 8, !tbaa !33
-  %81 = tail call double @llvm.fmuladd.f64(double %78, double %51, double %80)
-  %82 = fmul double %76, %81
-  store double %82, ptr %79, align 8, !tbaa !33
-  %83 = add nuw nsw i64 %.121.i, 1
-  %exitcond22.not.i = icmp eq i64 %83, 6
+  %.121.i = phi i64 [ %82, %.preheader ], [ 0, %DotProd.exit.i ]
+  %74 = getelementptr inbounds nuw double, ptr %39, i64 %.121.i
+  %75 = load double, ptr %74, align 8, !tbaa !33
+  %76 = getelementptr inbounds nuw double, ptr %51, i64 %.121.i
+  %77 = load double, ptr %76, align 8, !tbaa !33
+  %78 = getelementptr inbounds nuw double, ptr %6, i64 %.121.i
+  %79 = load double, ptr %78, align 8, !tbaa !33
+  %80 = tail call double @llvm.fmuladd.f64(double %77, double %50, double %79)
+  %81 = fmul double %75, %80
+  store double %81, ptr %78, align 8, !tbaa !33
+  %82 = add nuw nsw i64 %.121.i, 1
+  %exitcond22.not.i = icmp eq i64 %82, 6
   br i1 %exitcond22.not.i, label %WebRate.exit, label %.preheader
 
 WebRate.exit:                                     ; preds = %.preheader
-  %84 = fdiv double 1.000000e+00, %.
-  store double %55, ptr %54, align 8, !tbaa !33
-  %85 = getelementptr inbounds nuw ptr, ptr %34, i64 %.07380
-  %86 = load ptr, ptr %85, align 8, !tbaa !32
-  br label %87
+  %83 = fdiv double 1.000000e+00, %.
+  store double %54, ptr %53, align 8, !tbaa !33
+  %84 = getelementptr inbounds nuw ptr, ptr %33, i64 %.07380
+  %85 = load ptr, ptr %84, align 8, !tbaa !32
+  br label %86
 
-87:                                               ; preds = %WebRate.exit, %87
-  %.07479 = phi i64 [ 0, %WebRate.exit ], [ %95, %87 ]
-  %88 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %.07479
-  %89 = load double, ptr %88, align 8, !tbaa !33
-  %90 = getelementptr inbounds nuw double, ptr %49, i64 %.07479
-  %91 = load double, ptr %90, align 8, !tbaa !33
-  %92 = fsub double %89, %91
-  %93 = fmul double %84, %92
-  %94 = getelementptr inbounds nuw double, ptr %86, i64 %.07479
-  store double %93, ptr %94, align 8, !tbaa !33
-  %95 = add nuw nsw i64 %.07479, 1
-  %exitcond.not = icmp eq i64 %95, 6
-  br i1 %exitcond.not, label %96, label %87
+86:                                               ; preds = %WebRate.exit, %86
+  %.07479 = phi i64 [ 0, %WebRate.exit ], [ %94, %86 ]
+  %87 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %.07479
+  %88 = load double, ptr %87, align 8, !tbaa !33
+  %89 = getelementptr inbounds nuw double, ptr %48, i64 %.07479
+  %90 = load double, ptr %89, align 8, !tbaa !33
+  %91 = fsub double %88, %90
+  %92 = fmul double %83, %91
+  %93 = getelementptr inbounds nuw double, ptr %85, i64 %.07479
+  store double %92, ptr %93, align 8, !tbaa !33
+  %94 = add nuw nsw i64 %.07479, 1
+  %exitcond.not = icmp eq i64 %94, 6
+  br i1 %exitcond.not, label %95, label %86
 
-96:                                               ; preds = %87
-  %97 = add nuw nsw i64 %.07380, 1
-  %exitcond84.not = icmp eq i64 %97, 6
-  br i1 %exitcond84.not, label %98, label %53
+95:                                               ; preds = %86
+  %96 = add nuw nsw i64 %.07380, 1
+  %exitcond86.not = icmp eq i64 %96, 6
+  br i1 %exitcond86.not, label %97, label %52
 
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %23, i64 0, i64 %.07281, i64 %.07182
-  %100 = load ptr, ptr %99, align 8, !tbaa !11
-  %101 = tail call i64 @SUNDlsMat_denseGETRF(ptr noundef nonnull %34, i64 noundef 6, i64 noundef 6, ptr noundef %100) #10
-  %.not = icmp eq i64 %101, 0
+97:                                               ; preds = %95
+  %gep82 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %invariant.gep81, i64 0, i64 %.07283
+  %98 = load ptr, ptr %gep82, align 8, !tbaa !11
+  %99 = tail call i64 @SUNDlsMat_denseGETRF(ptr noundef nonnull %33, i64 noundef 6, i64 noundef 6, ptr noundef %98) #10
+  %.not = icmp eq i64 %99, 0
   br i1 %.not, label %28, label %.loopexit
 
-102:                                              ; preds = %28
-  %103 = add nuw nsw i64 %.07182, 1
-  %exitcond86.not = icmp eq i64 %103, 8
-  br i1 %exitcond86.not, label %.loopexit, label %24
+100:                                              ; preds = %28
+  %101 = add nuw nsw i64 %.07184, 1
+  %exitcond88.not = icmp eq i64 %101, 8
+  br i1 %exitcond88.not, label %.loopexit, label %24
 
-.loopexit:                                        ; preds = %102, %98
-  %.0 = phi i32 [ 1, %98 ], [ 0, %102 ]
+.loopexit:                                        ; preds = %100, %97
+  %.0 = phi i32 [ 1, %97 ], [ 0, %100 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #10
   ret i32 %.0
 }
@@ -787,34 +791,36 @@ define internal noundef i32 @PrecSolveBD(ptr readnone captures(none) %0, ptr rea
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 512
   br label %.preheader
 
-.preheader:                                       ; preds = %6, %19
-  %.019 = phi i64 [ 0, %6 ], [ %20, %19 ]
+.preheader:                                       ; preds = %6, %21
+  %.019 = phi i64 [ 0, %6 ], [ %22, %21 ]
   %.idx = mul nuw nsw i64 %.019, 48
-  br label %8
+  %8 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %5, i64 0, i64 %.019
+  %9 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %7, i64 0, i64 %.019
+  br label %10
 
-8:                                                ; preds = %.preheader, %8
-  %.01618 = phi i64 [ 0, %.preheader ], [ %18, %8 ]
-  %9 = load ptr, ptr %4, align 8, !tbaa !38
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !41
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
+10:                                               ; preds = %.preheader, %10
+  %.01618 = phi i64 [ 0, %.preheader ], [ %20, %10 ]
+  %11 = load ptr, ptr %4, align 8, !tbaa !38
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !41
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %.idx17 = mul nuw nsw i64 %.01618, 384
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx17
-  %14 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %5, i64 0, i64 %.019, i64 %.01618
-  %15 = load ptr, ptr %14, align 8, !tbaa !9
-  %16 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %7, i64 0, i64 %.019, i64 %.01618
-  %17 = load ptr, ptr %16, align 8, !tbaa !11
-  tail call void @SUNDlsMat_denseGETRS(ptr noundef %15, i64 noundef 6, ptr noundef %17, ptr noundef %13) #10
-  %18 = add nuw nsw i64 %.01618, 1
-  %exitcond.not = icmp eq i64 %18, 8
-  br i1 %exitcond.not, label %19, label %8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx17
+  %16 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %.01618
+  %17 = load ptr, ptr %16, align 8, !tbaa !9
+  %18 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %.01618
+  %19 = load ptr, ptr %18, align 8, !tbaa !11
+  tail call void @SUNDlsMat_denseGETRS(ptr noundef %17, i64 noundef 6, ptr noundef %19, ptr noundef %15) #10
+  %20 = add nuw nsw i64 %.01618, 1
+  %exitcond.not = icmp eq i64 %20, 8
+  br i1 %exitcond.not, label %21, label %10
 
-19:                                               ; preds = %8
-  %20 = add nuw nsw i64 %.019, 1
-  %exitcond20.not = icmp eq i64 %20, 8
-  br i1 %exitcond20.not, label %21, label %.preheader
+21:                                               ; preds = %10
+  %22 = add nuw nsw i64 %.019, 1
+  %exitcond20.not = icmp eq i64 %22, 8
+  br i1 %exitcond20.not, label %23, label %.preheader
 
-21:                                               ; preds = %19
+23:                                               ; preds = %21
   ret i32 0
 }
 
@@ -1014,43 +1020,45 @@ define internal fastcc void @FreeUserData(ptr noundef captures(none) %0) unnamed
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %8
-  %indvars.iv19 = phi i64 [ 0, %1 ], [ %indvars.iv.next20, %8 ]
-  br label %3
+.preheader:                                       ; preds = %1, %10
+  %indvars.iv19 = phi i64 [ 0, %1 ], [ %indvars.iv.next20, %10 ]
+  %3 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %0, i64 0, i64 %indvars.iv19
+  %4 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %2, i64 0, i64 %indvars.iv19
+  br label %5
 
-3:                                                ; preds = %.preheader, %3
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %0, i64 0, i64 %indvars.iv19, i64 %indvars.iv
-  %5 = load ptr, ptr %4, align 8, !tbaa !9
-  tail call void @SUNDlsMat_destroyMat(ptr noundef %5) #10
-  %6 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr %2, i64 0, i64 %indvars.iv19, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !11
-  tail call void @SUNDlsMat_destroyArray(ptr noundef %7) #10
+5:                                                ; preds = %.preheader, %5
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
+  %6 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %7 = load ptr, ptr %6, align 8, !tbaa !9
+  tail call void @SUNDlsMat_destroyMat(ptr noundef %7) #10
+  %8 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
+  tail call void @SUNDlsMat_destroyArray(ptr noundef %9) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %8, label %3
+  br i1 %exitcond.not, label %10, label %5
 
-8:                                                ; preds = %3
+10:                                               ; preds = %5
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %9, label %.preheader
+  br i1 %exitcond22.not, label %11, label %.preheader
 
-9:                                                ; preds = %8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %11 = load ptr, ptr %10, align 8, !tbaa !13
-  tail call void @SUNDlsMat_destroyMat(ptr noundef %11) #10
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %13 = load ptr, ptr %12, align 8, !tbaa !19
-  tail call void @free(ptr noundef %13) #10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %15 = load ptr, ptr %14, align 8, !tbaa !20
+11:                                               ; preds = %10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %13 = load ptr, ptr %12, align 8, !tbaa !13
+  tail call void @SUNDlsMat_destroyMat(ptr noundef %13) #10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %15 = load ptr, ptr %14, align 8, !tbaa !19
   tail call void @free(ptr noundef %15) #10
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %17 = load ptr, ptr %16, align 8, !tbaa !21
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %17 = load ptr, ptr %16, align 8, !tbaa !20
   tail call void @free(ptr noundef %17) #10
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %19 = load ptr, ptr %18, align 8, !tbaa !36
-  tail call void @N_VDestroy(ptr noundef %19) #10
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  %19 = load ptr, ptr %18, align 8, !tbaa !21
+  tail call void @free(ptr noundef %19) #10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  %21 = load ptr, ptr %20, align 8, !tbaa !36
+  tail call void @N_VDestroy(ptr noundef %21) #10
   tail call void @free(ptr noundef nonnull %0) #10
   ret void
 }

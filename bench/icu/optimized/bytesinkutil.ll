@@ -481,7 +481,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   %8 = alloca i32, align 4
   %9 = load i32, ptr %5, align 4, !tbaa !13
   %10 = icmp slt i32 %9, 1
-  br i1 %10, label %11, label %97
+  br i1 %10, label %11, label %99
 
 11:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #13
@@ -489,7 +489,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   br i1 %.not79109, label %.lr.ph113, label %.thread102
 
 .lr.ph113:                                        ; preds = %11, %._crit_edge.thread
-  %.065111 = phi i32 [ %93, %._crit_edge.thread ], [ 0, %11 ]
+  %.065111 = phi i32 [ %95, %._crit_edge.thread ], [ 0, %11 ]
   %.071110 = phi i32 [ %.172.lcssa118, %._crit_edge.thread ], [ 0, %11 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
   %12 = sub nsw i32 %2, %.071110
@@ -506,13 +506,12 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   %21 = load i32, ptr %8, align 4, !tbaa !12
   %22 = add nsw i32 %21, -3
   store i32 %22, ptr %8, align 4, !tbaa !12
-  %invariant.gep = getelementptr i8, ptr %20, i64 1
   %23 = icmp sgt i32 %21, 3
   br i1 %23, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.lr.ph113, %84
-  %.061107 = phi i32 [ %.162, %84 ], [ 0, %.lr.ph113 ]
-  %.172106 = phi i32 [ %.27383, %84 ], [ %.071110, %.lr.ph113 ]
+.lr.ph:                                           ; preds = %.lr.ph113, %86
+  %.061107 = phi i32 [ %.162, %86 ], [ 0, %.lr.ph113 ]
+  %.172106 = phi i32 [ %.27383, %86 ], [ %.071110, %.lr.ph113 ]
   %24 = add nsw i32 %.172106, 1
   %25 = sext i32 %.172106 to i64
   %26 = getelementptr inbounds i16, ptr %1, i64 %25
@@ -532,7 +531,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   %36 = sext i32 %.061107 to i64
   %37 = getelementptr inbounds i8, ptr %20, i64 %36
   store i8 %34, ptr %37, align 1, !tbaa !19
-  br label %84
+  br label %86
 
 38:                                               ; preds = %31
   %39 = icmp ult i16 %27, 2048
@@ -606,57 +605,58 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   %81 = and i8 %80, 63
   %82 = or disjoint i8 %81, -128
   %83 = add nsw i32 %.364.sink, 2
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %78
-  store i8 %82, ptr %gep, align 1, !tbaa !19
-  br label %84
+  %84 = getelementptr i8, ptr %20, i64 %78
+  %85 = getelementptr i8, ptr %84, i64 1
+  store i8 %82, ptr %85, align 1, !tbaa !19
+  br label %86
 
-84:                                               ; preds = %77, %33
+86:                                               ; preds = %77, %33
   %.27383 = phi i32 [ %24, %33 ], [ %.2738491, %77 ]
   %.162 = phi i32 [ %35, %33 ], [ %83, %77 ]
-  %85 = icmp slt i32 %.27383, %2
-  %86 = load i32, ptr %8, align 4
-  %87 = icmp slt i32 %.162, %86
-  %88 = select i1 %85, i1 %87, i1 false
-  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  %87 = icmp slt i32 %.27383, %2
+  %88 = load i32, ptr %8, align 4
+  %89 = icmp slt i32 %.162, %88
+  %90 = select i1 %87, i1 %89, i1 false
+  br i1 %90, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %84
-  %89 = sub nsw i32 2147483647, %.065111
-  %.not78 = icmp sgt i32 %.162, %89
-  br i1 %.not78, label %94, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %86
+  %91 = sub nsw i32 2147483647, %.065111
+  %.not78 = icmp sgt i32 %.162, %91
+  br i1 %.not78, label %96, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph113, %._crit_edge
   %.061.lcssa119 = phi i32 [ %.162, %._crit_edge ], [ 0, %.lr.ph113 ]
   %.172.lcssa118 = phi i32 [ %.27383, %._crit_edge ], [ %.071110, %.lr.ph113 ]
-  %90 = load ptr, ptr %3, align 8, !tbaa !15
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %92 = load ptr, ptr %91, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20, i32 noundef %.061.lcssa119)
-  %93 = add nsw i32 %.061.lcssa119, %.065111
+  %92 = load ptr, ptr %3, align 8, !tbaa !15
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %94 = load ptr, ptr %93, align 8
+  call void %94(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20, i32 noundef %.061.lcssa119)
+  %95 = add nsw i32 %.061.lcssa119, %.065111
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
   %.not79 = icmp slt i32 %.172.lcssa118, %2
   br i1 %.not79, label %.lr.ph113, label %.thread102
 
-94:                                               ; preds = %._crit_edge
+96:                                               ; preds = %._crit_edge
   store i32 8, ptr %5, align 4, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  br label %96
+  br label %98
 
 .thread102:                                       ; preds = %._crit_edge.thread, %11
-  %.065.lcssa = phi i32 [ 0, %11 ], [ %93, %._crit_edge.thread ]
+  %.065.lcssa = phi i32 [ 0, %11 ], [ %95, %._crit_edge.thread ]
   %.not80 = icmp eq ptr %4, null
-  br i1 %.not80, label %96, label %95
+  br i1 %.not80, label %98, label %97
 
-95:                                               ; preds = %.thread102
+97:                                               ; preds = %.thread102
   call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %4, i32 noundef %0, i32 noundef %.065.lcssa)
-  br label %96
+  br label %98
 
-96:                                               ; preds = %94, %.thread102, %95
-  %.4 = phi i8 [ 0, %94 ], [ 1, %95 ], [ 1, %.thread102 ]
+98:                                               ; preds = %96, %.thread102, %97
+  %.4 = phi i8 [ 0, %96 ], [ 1, %97 ], [ 1, %.thread102 ]
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #13
-  br label %97
+  br label %99
 
-97:                                               ; preds = %6, %96
-  %.0 = phi i8 [ %.4, %96 ], [ 0, %6 ]
+99:                                               ; preds = %6, %98
+  %.0 = phi i8 [ %.4, %98 ], [ 0, %6 ]
   ret i8 %.0
 }
 

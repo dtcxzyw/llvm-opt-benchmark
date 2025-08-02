@@ -22983,8 +22983,8 @@ declare void @_ZN13QCPItemTracer8setGraphEP8QCPGraph(ptr noundef align 8 derefer
 ; Function Attrs: null_pointer_is_valid
 declare void @_ZN7QCPBars9moveBelowEPS_(ptr noundef align 8 dereferenceable_or_null(280), ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define { i64, i32 } @_ZNK7IOGraph9startTimeEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(252) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define { i64, i32 } @_ZNK7IOGraph9startTimeEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(252) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not.not = icmp eq ptr %3, null

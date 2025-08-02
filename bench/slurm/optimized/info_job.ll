@@ -4644,7 +4644,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_encode_hostlist(ptr noundef %0, 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 17, i64 1, ptr %6) #18
-  br label %.thread
+  br label %.critedge
 
 8:                                                ; preds = %2
   %9 = tail call i32 @xstrcmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.47) #16
@@ -4652,7 +4652,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_encode_hostlist(ptr noundef %0, 
   %.str.48. = select i1 %.not39, ptr @.str.48, ptr %0
   %10 = load i8, ptr %.str.48., align 1
   %11 = icmp eq i8 %10, 47
-  br i1 %11, label %12, label %66
+  br i1 %11, label %12, label %65
 
 12:                                               ; preds = %8
   %13 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %.str.48., i32 noundef 0) #16
@@ -4662,7 +4662,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_encode_hostlist(ptr noundef %0, 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.49, ptr noundef nonnull %.str.48.) #20
-  br label %.thread
+  br label %.critedge
 
 18:                                               ; preds = %12
   %19 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1048577, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 2188, ptr noundef nonnull @__func__.scontrol_encode_hostlist) #16
@@ -4690,7 +4690,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_encode_hostlist(ptr noundef %0, 
   call void @slurm_xfree(ptr noundef nonnull %3) #16
   %33 = load ptr, ptr @stderr, align 8
   %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.50, ptr noundef nonnull %.str.48.) #20
-  br label %.thread
+  br label %.critedge
 
 35:                                               ; preds = %29
   %36 = icmp sgt i32 %.034, 1048575
@@ -4700,7 +4700,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_encode_hostlist(ptr noundef %0, 
   %38 = load ptr, ptr @stderr, align 8
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.51, ptr noundef nonnull %.str.48.) #20
   call void @slurm_xfree(ptr noundef nonnull %3) #16
-  br label %.thread
+  br label %.critedge
 
 40:                                               ; preds = %35
   store i8 0, ptr %22, align 1
@@ -4719,7 +4719,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_encode_hostlist(ptr noundef %0, 
 .preheader23.i:                                   ; preds = %42
   %45 = load i8, ptr %41, align 1
   %.not2224.i = icmp eq i8 %45, 0
-  br i1 %.not2224.i, label %63, label %.preheader.i
+  br i1 %.not2224.i, label %_reformat_hostlist.exit, label %.preheader.i
 
 46:                                               ; preds = %42
   store i8 44, ptr %43, align 1
@@ -4763,45 +4763,45 @@ define dso_local range(i32 -1, 1) i32 @scontrol_encode_hostlist(ptr noundef %0, 
 
 ._crit_edge.loopexit.i:                           ; preds = %.critedge.i
   %62 = and i64 %indvars.iv.next33.i, 4294967295
-  br label %63
+  br label %_reformat_hostlist.exit
 
-63:                                               ; preds = %._crit_edge.loopexit.i, %.preheader23.i
+_reformat_hostlist.exit:                          ; preds = %.preheader23.i, %._crit_edge.loopexit.i
   %.0.lcssa.i = phi i64 [ 0, %.preheader23.i ], [ %62, %._crit_edge.loopexit.i ]
-  %64 = getelementptr inbounds nuw i8, ptr %41, i64 %.0.lcssa.i
-  store i8 0, ptr %64, align 1
-  %65 = load ptr, ptr %3, align 8
-  br label %66
+  %63 = getelementptr inbounds nuw i8, ptr %41, i64 %.0.lcssa.i
+  store i8 0, ptr %63, align 1
+  %64 = load ptr, ptr %3, align 8
+  br label %65
 
-66:                                               ; preds = %63, %8
-  %.131 = phi ptr [ %65, %63 ], [ %.str.48., %8 ]
-  %67 = tail call ptr @hostlist_create(ptr noundef %.131) #16
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %69, label %72
+65:                                               ; preds = %8, %_reformat_hostlist.exit
+  %.131 = phi ptr [ %64, %_reformat_hostlist.exit ], [ %.str.48., %8 ]
+  %66 = tail call ptr @hostlist_create(ptr noundef %.131) #16
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %68, label %71
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr @stderr, align 8
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.44, ptr noundef %.131) #20
+68:                                               ; preds = %65
+  %69 = load ptr, ptr @stderr, align 8
+  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.44, ptr noundef %.131) #20
   call void @slurm_xfree(ptr noundef nonnull %3) #16
-  br label %.thread
+  br label %.critedge
 
-72:                                               ; preds = %66
-  br i1 %1, label %73, label %74
+71:                                               ; preds = %65
+  br i1 %1, label %72, label %73
 
-73:                                               ; preds = %72
-  tail call void @hostlist_sort(ptr noundef nonnull %67) #16
-  br label %74
+72:                                               ; preds = %71
+  tail call void @hostlist_sort(ptr noundef nonnull %66) #16
+  br label %73
 
-74:                                               ; preds = %73, %72
-  %75 = tail call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %67) #16
-  store ptr %75, ptr %4, align 8
-  %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %75)
-  tail call void @hostlist_destroy(ptr noundef nonnull %67) #16
+73:                                               ; preds = %72, %71
+  %74 = tail call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %66) #16
+  store ptr %74, ptr %4, align 8
+  %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %74)
+  tail call void @hostlist_destroy(ptr noundef nonnull %66) #16
   call void @slurm_xfree(ptr noundef nonnull %4) #16
   call void @slurm_xfree(ptr noundef nonnull %3) #16
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %37, %32, %15, %74, %69, %5
-  %.0 = phi i32 [ -1, %69 ], [ 0, %74 ], [ -1, %5 ], [ -1, %15 ], [ -1, %32 ], [ -1, %37 ]
+.critedge:                                        ; preds = %15, %32, %37, %73, %68, %5
+  %.0 = phi i32 [ -1, %68 ], [ 0, %73 ], [ -1, %5 ], [ -1, %37 ], [ -1, %32 ], [ -1, %15 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   ret i32 %.0

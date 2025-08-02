@@ -58,12 +58,12 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   %10 = load i32, ptr %1, align 4
   %.not = icmp ne i32 %10, -12
   %. = sext i1 %.not to i32
-  br label %.thread
+  br label %.critedge
 
 11:                                               ; preds = %3
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %4, ptr noundef nonnull dereferenceable(17) @observer_magic, i64 17)
   %.not108 = icmp eq i32 %bcmp, 0
-  br i1 %.not108, label %12, label %.thread
+  br i1 %.not108, label %12, label %.critedge
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -81,7 +81,7 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   store i32 -13, ptr %1, align 4
   %23 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str)
   store ptr %23, ptr %2, align 8
-  br label %.thread
+  br label %.critedge
 
 24:                                               ; preds = %12
   %25 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #15
@@ -91,17 +91,17 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   store ptr %25, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 35
   %29 = load i8, ptr %28, align 1
-  %.not146 = icmp eq i8 %29, 0
-  br i1 %.not146, label %._crit_edge, label %.lr.ph
+  %.not136 = icmp eq i8 %29, 0
+  br i1 %.not136, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %31
 
-31:                                               ; preds = %.lr.ph, %.thread122
-  %.096145 = phi i32 [ 36, %.lr.ph ], [ %.197125, %.thread122 ]
-  %.0100144 = phi i32 [ 0, %.lr.ph ], [ %65, %.thread122 ]
-  %32 = add i32 %.096145, 4
+31:                                               ; preds = %.lr.ph, %66
+  %.096135 = phi i32 [ 36, %.lr.ph ], [ %.197, %66 ]
+  %.0100134 = phi i32 [ 0, %.lr.ph ], [ %67, %66 ]
+  %32 = add i32 %.096135, 4
   %33 = icmp ugt i32 %32, %20
   br i1 %33, label %34, label %36
 
@@ -109,12 +109,12 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   store i32 -13, ptr %1, align 4
   %35 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1)
   store ptr %35, ptr %2, align 8
-  br label %.thread
+  br label %.critedge
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %0, align 8
   %38 = call zeroext i1 @wtap_read_bytes(ptr noundef %37, ptr noundef nonnull %5, i32 noundef 4, ptr noundef %1, ptr noundef %2)
-  br i1 %38, label %39, label %.thread
+  br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %36
   %40 = load i16, ptr %5, align 2
@@ -127,12 +127,12 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   %44 = zext nneg i16 %41 to i32
   %45 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %44, i64 noundef 4)
   store ptr %45, ptr %2, align 8
-  br label %.thread
+  br label %.critedge
 
 46:                                               ; preds = %39
   %47 = zext i16 %41 to i32
   %48 = add nsw i32 %47, -4
-  %49 = add i32 %.096145, %47
+  %49 = add i32 %.096135, %47
   %50 = icmp ugt i32 %49, %20
   br i1 %50, label %51, label %53
 
@@ -140,11 +140,11 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   store i32 -13, ptr %1, align 4
   %52 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1)
   store ptr %52, ptr %2, align 8
-  br label %.thread
+  br label %.critedge
 
 53:                                               ; preds = %46
   %cond1 = icmp eq i16 %40, 4
-  br i1 %cond1, label %54, label %61
+  br i1 %cond1, label %54, label %62
 
 54:                                               ; preds = %53
   %.not113 = icmp eq i32 %48, 4
@@ -154,134 +154,137 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   store i32 -13, ptr %1, align 4
   %56 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %47, i64 noundef 8)
   store ptr %56, ptr %2, align 8
-  br label %.thread
+  br label %.critedge
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %0, align 8
   %59 = call zeroext i1 @wtap_read_bytes(ptr noundef %58, ptr noundef nonnull %26, i32 noundef 4, ptr noundef %1, ptr noundef %2)
-  %60 = add i32 %.096145, 8
-  br i1 %59, label %.thread122, label %.thread
+  br i1 %59, label %60, label %.critedge
 
-61:                                               ; preds = %53
+60:                                               ; preds = %57
+  %61 = add i32 %.096135, 8
+  br label %66
+
+62:                                               ; preds = %53
   %.not112 = icmp eq i32 %48, 0
-  br i1 %.not112, label %.thread122, label %62
+  br i1 %.not112, label %66, label %63
 
-62:                                               ; preds = %61
-  %63 = load ptr, ptr %0, align 8
-  %64 = call zeroext i1 @wtap_read_bytes(ptr noundef %63, ptr noundef null, i32 noundef %48, ptr noundef %1, ptr noundef %2)
-  br i1 %64, label %.thread122, label %.thread
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %0, align 8
+  %65 = call zeroext i1 @wtap_read_bytes(ptr noundef %64, ptr noundef null, i32 noundef %48, ptr noundef %1, ptr noundef %2)
+  br i1 %65, label %66, label %.critedge
 
-.thread122:                                       ; preds = %61, %57, %62
-  %.197125 = phi i32 [ %49, %62 ], [ %60, %57 ], [ %49, %61 ]
-  %65 = add nuw nsw i32 %.0100144, 1
-  %66 = load i8, ptr %28, align 1
-  %67 = zext i8 %66 to i32
-  %68 = icmp samesign ult i32 %65, %67
-  br i1 %68, label %31, label %._crit_edge, !llvm.loop !6
+66:                                               ; preds = %63, %62, %60
+  %.197 = phi i32 [ %61, %60 ], [ %49, %62 ], [ %49, %63 ]
+  %67 = add nuw nsw i32 %.0100134, 1
+  %68 = load i8, ptr %28, align 1
+  %69 = zext i8 %68 to i32
+  %70 = icmp samesign ult i32 %67, %69
+  br i1 %70, label %31, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.thread122, %24
-  %.096.lcssa = phi i32 [ 36, %24 ], [ %.197125, %.thread122 ]
+._crit_edge:                                      ; preds = %66, %24
+  %.096.lcssa = phi i32 [ 36, %24 ], [ %.197, %66 ]
   %.not109 = icmp eq i32 %20, %.096.lcssa
-  br i1 %.not109, label %73, label %69
+  br i1 %.not109, label %75, label %71
 
-69:                                               ; preds = %._crit_edge
-  %70 = sub i32 %20, %.096.lcssa
-  %71 = load ptr, ptr %0, align 8
-  %72 = call zeroext i1 @wtap_read_bytes(ptr noundef %71, ptr noundef null, i32 noundef %70, ptr noundef %1, ptr noundef %2)
-  br i1 %72, label %73, label %.thread
+71:                                               ; preds = %._crit_edge
+  %72 = sub i32 %20, %.096.lcssa
+  %73 = load ptr, ptr %0, align 8
+  %74 = call zeroext i1 @wtap_read_bytes(ptr noundef %73, ptr noundef null, i32 noundef %72, ptr noundef %1, ptr noundef %2)
+  br i1 %74, label %75, label %.critedge
 
-73:                                               ; preds = %69, %._crit_edge
-  %74 = load ptr, ptr %0, align 8
-  %75 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %74, ptr noundef nonnull %6, i32 noundef 48, ptr noundef %1, ptr noundef %2)
-  br i1 %75, label %81, label %76
+75:                                               ; preds = %71, %._crit_edge
+  %76 = load ptr, ptr %0, align 8
+  %77 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %76, ptr noundef nonnull %6, i32 noundef 48, ptr noundef %1, ptr noundef %2)
+  br i1 %77, label %83, label %78
 
-76:                                               ; preds = %73
-  %77 = load i32, ptr %1, align 4
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %.thread
+78:                                               ; preds = %75
+  %79 = load i32, ptr %1, align 4
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %.critedge
 
-79:                                               ; preds = %76
+81:                                               ; preds = %78
   store i32 -13, ptr %1, align 4
-  %80 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4)
-  store ptr %80, ptr %2, align 8
-  br label %.thread
+  %82 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4)
+  store ptr %82, ptr %2, align 8
+  br label %.critedge
 
-81:                                               ; preds = %73
-  %82 = load i32, ptr %6, align 8
-  %.not110 = icmp eq i32 %82, -2004318072
-  br i1 %.not110, label %85, label %83
+83:                                               ; preds = %75
+  %84 = load i32, ptr %6, align 8
+  %.not110 = icmp eq i32 %84, -2004318072
+  br i1 %.not110, label %87, label %85
 
-83:                                               ; preds = %81
+85:                                               ; preds = %83
   store i32 -4, ptr %1, align 4
-  %84 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %82)
-  store ptr %84, ptr %2, align 8
-  br label %.thread
+  %86 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %84)
+  store ptr %86, ptr %2, align 8
+  br label %.critedge
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %87 = load i8, ptr %86, align 8
-  %88 = icmp ult i8 %87, 10
-  %switch.maskindex = zext nneg i8 %87 to i16
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %89 = load i8, ptr %88, align 8
+  %90 = icmp ult i8 %89, 10
+  %switch.maskindex = zext nneg i8 %89 to i16
   %switch.shifted = lshr i16 771, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond = select i1 %88, i1 %switch.lobit, i1 false
+  %or.cond = select i1 %90, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %observer_to_wtap_encap.exit
 
-observer_to_wtap_encap.exit:                      ; preds = %85
+observer_to_wtap_encap.exit:                      ; preds = %87
   store i32 -4, ptr %1, align 4
-  %89 = zext i8 %87 to i32
-  %90 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %89)
-  store ptr %90, ptr %2, align 8
-  br label %.thread
+  %91 = zext i8 %89 to i32
+  %92 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %91)
+  store ptr %92, ptr %2, align 8
+  br label %.critedge
 
-switch.lookup:                                    ; preds = %85
-  %91 = zext nneg i8 %87 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.observer_open, i64 0, i64 %91
+switch.lookup:                                    ; preds = %87
+  %93 = zext nneg i8 %89 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.observer_open, i64 0, i64 %93
   %switch.load = load i32, ptr %switch.gep, align 4
-  %92 = zext nneg i8 %87 to i64
-  %switch.gep166 = getelementptr inbounds nuw [10 x i8], ptr @switch.table.observer_open.1, i64 0, i64 %92
-  %switch.load167 = load i8, ptr %switch.gep166, align 1
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %switch.load, ptr %93, align 8
+  %94 = zext nneg i8 %89 to i64
+  %switch.gep156 = getelementptr inbounds nuw [10 x i8], ptr @switch.table.observer_open.1, i64 0, i64 %94
+  %switch.load157 = load i8, ptr %switch.gep156, align 1
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 %switch.load, ptr %95, align 8
   store i64 0, ptr %25, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i8 %switch.load167, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @observer_read, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr @observer_seek_read, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
-  store i32 9, ptr %99, align 4
-  %100 = load i32, ptr @observer_file_type_subtype, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %100, ptr %101, align 4
-  %102 = load ptr, ptr %0, align 8
-  %103 = zext nneg i32 %20 to i64
-  %104 = call i64 @file_seek(ptr noundef %102, i64 noundef %103, i32 noundef 0, ptr noundef %1)
-  %105 = icmp eq i64 %104, -1
-  br i1 %105, label %.thread, label %106
+  %96 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i8 %switch.load157, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @observer_read, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr @observer_seek_read, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %100, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
+  store i32 9, ptr %101, align 4
+  %102 = load i32, ptr @observer_file_type_subtype, align 4
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %102, ptr %103, align 4
+  %104 = load ptr, ptr %0, align 8
+  %105 = zext nneg i32 %20 to i64
+  %106 = call i64 @file_seek(ptr noundef %104, i64 noundef %105, i32 noundef 0, ptr noundef %1)
+  %107 = icmp eq i64 %106, -1
+  br i1 %107, label %.critedge, label %108
 
-106:                                              ; preds = %switch.lookup
-  %107 = call fastcc ptr @init_gmt_to_localtime_offset()
-  %.not111 = icmp eq ptr %107, null
-  br i1 %.not111, label %110, label %108
+108:                                              ; preds = %switch.lookup
+  %109 = call fastcc ptr @init_gmt_to_localtime_offset()
+  %.not111 = icmp eq ptr %109, null
+  br i1 %.not111, label %112, label %110
 
-108:                                              ; preds = %106
+110:                                              ; preds = %108
   store i32 -21, ptr %1, align 4
-  %109 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %107)
-  store ptr %109, ptr %2, align 8
-  br label %.thread
+  %111 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %109)
+  store ptr %111, ptr %2, align 8
+  br label %.critedge
 
-110:                                              ; preds = %106
+112:                                              ; preds = %108
   call void @wtap_add_generated_idb(ptr noundef %0)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %36, %57, %62, %55, %51, %43, %34, %switch.lookup, %76, %79, %69, %11, %9, %110, %108, %observer_to_wtap_encap.exit, %83, %22
-  %.0 = phi i32 [ -1, %22 ], [ -1, %83 ], [ -1, %observer_to_wtap_encap.exit ], [ -1, %108 ], [ 1, %110 ], [ %., %9 ], [ 0, %11 ], [ -1, %69 ], [ -1, %79 ], [ -1, %76 ], [ -1, %switch.lookup ], [ -1, %34 ], [ -1, %43 ], [ -1, %51 ], [ -1, %55 ], [ -1, %62 ], [ -1, %57 ], [ -1, %36 ]
+.critedge:                                        ; preds = %36, %57, %63, %34, %43, %51, %55, %switch.lookup, %78, %81, %71, %11, %9, %112, %110, %observer_to_wtap_encap.exit, %85, %22
+  %.0 = phi i32 [ -1, %22 ], [ -1, %85 ], [ -1, %observer_to_wtap_encap.exit ], [ -1, %110 ], [ 1, %112 ], [ %., %9 ], [ 0, %11 ], [ -1, %71 ], [ -1, %81 ], [ -1, %78 ], [ -1, %switch.lookup ], [ -1, %55 ], [ -1, %51 ], [ -1, %43 ], [ -1, %34 ], [ -1, %63 ], [ -1, %57 ], [ -1, %36 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #14
@@ -600,7 +603,7 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
   %11 = load i32, ptr %4, align 4
   %.not = icmp ne i32 %11, 0
   %. = sext i1 %.not to i32
-  br label %.thread113
+  br label %.critedge
 
 12:                                               ; preds = %6
   %13 = load i32, ptr %3, align 8
@@ -621,14 +624,14 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
 
 17:                                               ; preds = %16
   store i32 0, ptr %4, align 4
-  br label %.thread113
+  br label %.critedge
 
 .thread:                                          ; preds = %.preheader
   store i32 -13, ptr %4, align 4
   %18 = load i32, ptr %3, align 8
   %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef %18)
   store ptr %19, ptr %5, align 8
-  br label %.thread113
+  br label %.critedge
 
 20:                                               ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -656,8 +659,8 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
 29:                                               ; preds = %24, %23, %20
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 18
   %31 = load i8, ptr %30, align 2
-  %.not128 = icmp eq i8 %31, 0
-  br i1 %.not128, label %.thread113, label %.lr.ph
+  %.not125 = icmp eq i8 %31, 0
+  br i1 %.not125, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -675,10 +678,10 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
   br label %44
 
 44:                                               ; preds = %.lr.ph, %79
-  %.1102121 = phi i32 [ 0, %.lr.ph ], [ %81, %79 ]
-  %.0103120 = phi i32 [ 48, %.lr.ph ], [ %80, %79 ]
+  %.1102118 = phi i32 [ 0, %.lr.ph ], [ %81, %79 ]
+  %.0103117 = phi i32 [ 48, %.lr.ph ], [ %80, %79 ]
   %45 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 4, ptr noundef %4, ptr noundef %5)
-  br i1 %45, label %46, label %.thread113
+  br i1 %45, label %46, label %.critedge
 
 46:                                               ; preds = %44
   %47 = load i16, ptr %32, align 2
@@ -690,7 +693,7 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
   store i32 -13, ptr %4, align 4
   %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %49, i64 noundef 4)
   store ptr %51, ptr %5, align 8
-  br label %.thread113
+  br label %.critedge
 
 52:                                               ; preds = %46
   %53 = load i16, ptr %7, align 2
@@ -706,11 +709,11 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
   store i32 -13, ptr %4, align 4
   %57 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %49, i64 noundef 12)
   store ptr %57, ptr %5, align 8
-  br label %.thread113
+  br label %.critedge
 
 58:                                               ; preds = %55
   %59 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 8, ptr noundef %4, ptr noundef %5)
-  br i1 %59, label %60, label %.thread113
+  br i1 %59, label %60, label %.critedge
 
 60:                                               ; preds = %58
   %61 = load i8, ptr %33, align 1
@@ -749,16 +752,16 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
 
 72:                                               ; preds = %60, %60, %60, %60, %60, %60, %60, %60
   %73 = icmp ult i8 %66, 15
-  %.138 = select i1 %73, i32 6, i32 5
-  %.139 = select i1 %73, i8 -2, i8 -4
+  %.135 = select i1 %73, i32 6, i32 5
+  %.136 = select i1 %73, i8 -2, i8 -4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %72, %60, %60, %60, %60, %60, %60
-  %.sink = phi i32 [ 4, %60 ], [ 4, %60 ], [ 4, %60 ], [ 4, %60 ], [ 4, %60 ], [ 4, %60 ], [ %.138, %72 ]
-  %.sink136 = phi i8 [ -2, %60 ], [ -2, %60 ], [ -2, %60 ], [ -2, %60 ], [ -2, %60 ], [ -2, %60 ], [ %.139, %72 ]
+  %.sink = phi i32 [ 4, %60 ], [ 4, %60 ], [ 4, %60 ], [ 4, %60 ], [ 4, %60 ], [ 4, %60 ], [ %.135, %72 ]
+  %.sink133 = phi i8 [ -2, %60 ], [ -2, %60 ], [ -2, %60 ], [ -2, %60 ], [ -2, %60 ], [ -2, %60 ], [ %.136, %72 ]
   store i32 %.sink, ptr %42, align 8
   %74 = load i8, ptr %43, align 4
-  %75 = and i8 %74, %.sink136
+  %75 = and i8 %74, %.sink133
   store i8 %75, ptr %43, align 4
   br label %79
 
@@ -768,19 +771,19 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
 
 77:                                               ; preds = %76
   %78 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef %54, ptr noundef %4, ptr noundef %5)
-  br i1 %78, label %79, label %.thread113
+  br i1 %78, label %79, label %.critedge
 
 79:                                               ; preds = %76, %77, %60, %.sink.split
-  %.sink137 = phi i32 [ 12, %.sink.split ], [ 12, %60 ], [ %49, %77 ], [ %49, %76 ]
-  %80 = add i32 %.0103120, %.sink137
-  %81 = add nuw nsw i32 %.1102121, 1
+  %.sink134 = phi i32 [ 12, %.sink.split ], [ 12, %60 ], [ %49, %77 ], [ %49, %76 ]
+  %80 = add i32 %.0103117, %.sink134
+  %81 = add nuw nsw i32 %.1102118, 1
   %82 = load i8, ptr %30, align 2
   %83 = zext i8 %82 to i32
   %84 = icmp samesign ult i32 %81, %83
-  br i1 %84, label %44, label %.thread113, !llvm.loop !9
+  br i1 %84, label %44, label %.critedge, !llvm.loop !9
 
-.thread113:                                       ; preds = %79, %44, %58, %77, %29, %56, %50, %10, %.thread, %17
-  %.0 = phi i32 [ 0, %17 ], [ -1, %.thread ], [ %., %10 ], [ -1, %50 ], [ -1, %56 ], [ 48, %29 ], [ %80, %79 ], [ -1, %44 ], [ -1, %58 ], [ -1, %77 ]
+.critedge:                                        ; preds = %79, %77, %58, %44, %29, %50, %56, %10, %.thread, %17
+  %.0 = phi i32 [ 0, %17 ], [ -1, %.thread ], [ %., %10 ], [ -1, %56 ], [ -1, %50 ], [ 48, %29 ], [ %80, %79 ], [ -1, %77 ], [ -1, %58 ], [ -1, %44 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
   ret i32 %.0

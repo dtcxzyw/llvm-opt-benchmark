@@ -1983,14 +1983,12 @@ define internal fastcc noundef range(i32 6, 25) i32 @dissect_packAscii(ptr nound
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %invariant.gep = getelementptr i8, ptr %8, i64 1
-  %invariant.gep56 = getelementptr i8, ptr %8, i64 2
   br label %20
 
-20:                                               ; preds = %.lr.ph, %54
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next54, %54 ]
-  %.03948 = phi i32 [ 0, %.lr.ph ], [ %55, %54 ]
-  %.04146 = phi i16 [ 0, %.lr.ph ], [ %56, %54 ]
+20:                                               ; preds = %.lr.ph, %58
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next54, %58 ]
+  %.03948 = phi i32 [ 0, %.lr.ph ], [ %59, %58 ]
+  %.04146 = phi i16 [ 0, %.lr.ph ], [ %60, %58 ]
   %21 = getelementptr i8, ptr %8, i64 %indvars.iv53
   %22 = load i8, ptr %21, align 1
   %23 = lshr i8 %22, 2
@@ -1999,68 +1997,70 @@ define internal fastcc noundef range(i32 6, 25) i32 @dissect_packAscii(ptr nound
   %25 = zext i8 %22 to i16
   %26 = shl nuw nsw i16 %25, 4
   %27 = and i16 %26, 48
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv53
-  %28 = load i8, ptr %gep, align 1
-  %29 = lshr i8 %28, 4
-  %30 = zext nneg i8 %29 to i16
-  %31 = or disjoint i16 %27, %30
-  store i16 %31, ptr %17, align 2
-  %32 = zext i8 %28 to i16
-  %33 = shl nuw nsw i16 %32, 2
-  %34 = and i16 %33, 60
-  %gep57 = getelementptr i8, ptr %invariant.gep56, i64 %indvars.iv53
-  %35 = load i8, ptr %gep57, align 1
-  %36 = lshr i8 %35, 6
-  %37 = zext nneg i8 %36 to i16
-  %38 = or disjoint i16 %34, %37
-  store i16 %38, ptr %18, align 2
-  %39 = and i8 %35, 63
-  %40 = zext nneg i8 %39 to i16
-  store i16 %40, ptr %19, align 2
+  %28 = getelementptr i8, ptr %8, i64 %indvars.iv53
+  %29 = getelementptr i8, ptr %28, i64 1
+  %30 = load i8, ptr %29, align 1
+  %31 = lshr i8 %30, 4
+  %32 = zext nneg i8 %31 to i16
+  %33 = or disjoint i16 %27, %32
+  store i16 %33, ptr %17, align 2
+  %34 = zext i8 %30 to i16
+  %35 = shl nuw nsw i16 %34, 2
+  %36 = and i16 %35, 60
+  %37 = getelementptr i8, ptr %8, i64 %indvars.iv53
+  %38 = getelementptr i8, ptr %37, i64 2
+  %39 = load i8, ptr %38, align 1
+  %40 = lshr i8 %39, 6
+  %41 = zext nneg i8 %40 to i16
+  %42 = or disjoint i16 %36, %41
+  store i16 %42, ptr %18, align 2
+  %43 = and i8 %39, 63
+  %44 = zext nneg i8 %43 to i16
+  store i16 %44, ptr %19, align 2
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 3
-  %41 = sext i32 %.03948 to i64
+  %45 = sext i32 %.03948 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %.03948, i32 256)
-  %42 = sub i32 %smax, %.03948
-  %wide.trip.count = zext i32 %42 to i64
-  br label %43
+  %46 = sub i32 %smax, %.03948
+  %wide.trip.count = zext i32 %46 to i64
+  br label %47
 
-43:                                               ; preds = %20, %45
-  %indvars.iv49 = phi i64 [ %41, %20 ], [ %indvars.iv.next50, %45 ]
-  %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %45 ]
+47:                                               ; preds = %20, %49
+  %indvars.iv49 = phi i64 [ %45, %20 ], [ %indvars.iv.next50, %49 ]
+  %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %49 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %44, label %45
+  br i1 %exitcond.not, label %48, label %49
 
-44:                                               ; preds = %43
+48:                                               ; preds = %47
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.376, ptr noundef nonnull @.str.377, i32 noundef 517, ptr noundef nonnull @.str.378) #8
   unreachable
 
-45:                                               ; preds = %43
-  %46 = getelementptr [4 x i16], ptr %5, i64 0, i64 %indvars.iv
-  %47 = load i16, ptr %46, align 2
-  %48 = shl i16 %47, 1
-  %49 = and i16 %48, 64
-  %50 = xor i16 %49, 64
-  %51 = or i16 %50, %47
-  %52 = trunc i16 %51 to i8
+49:                                               ; preds = %47
+  %50 = getelementptr [4 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %51 = load i16, ptr %50, align 2
+  %52 = shl i16 %51, 1
+  %53 = and i16 %52, 64
+  %54 = xor i16 %53, 64
+  %55 = or i16 %54, %51
+  %56 = trunc i16 %55 to i8
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, 1
-  %53 = getelementptr i8, ptr %15, i64 %indvars.iv49
-  store i8 %52, ptr %53, align 1
+  %57 = getelementptr i8, ptr %15, i64 %indvars.iv49
+  store i8 %56, ptr %57, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond52.not, label %54, label %43, !llvm.loop !12
+  br i1 %exitcond52.not, label %58, label %47, !llvm.loop !12
 
-54:                                               ; preds = %45
-  %55 = trunc nsw i64 %indvars.iv.next50 to i32
-  %56 = add nuw nsw i16 %.04146, 1
-  %exitcond55.not = icmp eq i16 %56, %16
+58:                                               ; preds = %49
+  %59 = trunc nsw i64 %indvars.iv.next50 to i32
+  %60 = add nuw nsw i16 %.04146, 1
+  %exitcond55.not = icmp eq i16 %60, %16
   br i1 %exitcond55.not, label %._crit_edge, label %20, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %54
+._crit_edge:                                      ; preds = %58
   %sext = shl i64 %indvars.iv.next50, 32
-  %57 = ashr exact i64 %sext, 32
-  %58 = getelementptr i8, ptr %15, i64 %57
-  store i8 0, ptr %58, align 1
-  %59 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %15)
+  %61 = ashr exact i64 %sext, 32
+  %62 = getelementptr i8, ptr %15, i64 %61
+  store i8 0, ptr %62, align 1
+  %63 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   ret i32 %4
 }

@@ -1445,22 +1445,21 @@ _ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit.i
   %.pre.i = load i32, ptr %21, align 8, !tbaa !64
+  %33 = tail call i32 @llvm.umax.i32(i32 %.pre.i, i32 %.sroa.speculated.i)
   %.pre.pre = load ptr, ptr %3, align 8, !tbaa !155
-  %.pre50.pre = load ptr, ptr %5, align 8, !tbaa !176
+  %.pre49.pre = load ptr, ptr %5, align 8, !tbaa !176
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 888
-  %.pre51.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !181
-  %.phi.trans.insert52.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre51.pre, i64 56
-  %.pre53.pre = load ptr, ptr %.phi.trans.insert52.phi.trans.insert, align 8, !tbaa !262
+  %.pre50.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !181
+  %.phi.trans.insert51.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre50.pre, i64 56
+  %.pre52.pre = load ptr, ptr %.phi.trans.insert51.phi.trans.insert, align 8, !tbaa !262
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %27
-  %.pre53 = phi ptr [ %14, %27 ], [ %.pre53.pre, %._crit_edge.loopexit.i ]
-  %.pre51 = phi ptr [ %11, %27 ], [ %.pre51.pre, %._crit_edge.loopexit.i ]
-  %.pre50 = phi ptr [ %4, %27 ], [ %.pre50.pre, %._crit_edge.loopexit.i ]
+  %.pre52 = phi ptr [ %14, %27 ], [ %.pre52.pre, %._crit_edge.loopexit.i ]
+  %.pre50 = phi ptr [ %11, %27 ], [ %.pre50.pre, %._crit_edge.loopexit.i ]
+  %.pre49 = phi ptr [ %4, %27 ], [ %.pre49.pre, %._crit_edge.loopexit.i ]
   %.pre = phi ptr [ %1, %27 ], [ %.pre.pre, %._crit_edge.loopexit.i ]
-  %33 = phi i32 [ %20, %27 ], [ %.pre.i, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi i32 [ 0, %27 ], [ %.sroa.speculated.i, %._crit_edge.loopexit.i ]
-  %.sroa.speculated15.i = tail call i32 @llvm.umax.i32(i32 %33, i32 %.0.lcssa.i)
+  %.sroa.speculated15.i = phi i32 [ %20, %27 ], [ %33, %._crit_edge.loopexit.i ]
   %34 = add i32 %.sroa.speculated15.i, 1
   store i32 %34, ptr %21, align 8, !tbaa !265
   br label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit
@@ -1501,9 +1500,9 @@ _ZNK4llvm5SUnit9getHeightEv.exit.i:               ; preds = %45, %43, %42, %40
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %35
 
 _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit: ; preds = %23, %._crit_edge.i
-  %49 = phi ptr [ %14, %23 ], [ %.pre53, %._crit_edge.i ]
-  %50 = phi ptr [ %11, %23 ], [ %.pre51, %._crit_edge.i ]
-  %51 = phi ptr [ %4, %23 ], [ %.pre50, %._crit_edge.i ]
+  %49 = phi ptr [ %14, %23 ], [ %.pre52, %._crit_edge.i ]
+  %50 = phi ptr [ %11, %23 ], [ %.pre50, %._crit_edge.i ]
+  %51 = phi ptr [ %4, %23 ], [ %.pre49, %._crit_edge.i ]
   %52 = phi ptr [ %1, %23 ], [ %.pre, %._crit_edge.i ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %52, ptr %53, align 8, !tbaa !177
@@ -1515,9 +1514,9 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSched
   store i32 0, ptr %56, align 4, !tbaa !180
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %.not4.i.i.i.i.i.i22 = icmp eq ptr %49, %57
-  br i1 %.not4.i.i.i.i.i.i22, label %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.thread.i42, label %.lr.ph.i.i.i.i.i.i23
+  br i1 %.not4.i.i.i.i.i.i22, label %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.thread.i41, label %.lr.ph.i.i.i.i.i.i23
 
-_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.thread.i42: ; preds = %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit
+_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.thread.i41: ; preds = %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 392
   br label %66
 
@@ -1538,12 +1537,12 @@ _ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.i27: ; preds = %.lr.ph.i.i.i.i.i
   %65 = icmp slt i32 %61, 50
   br i1 %65, label %66, label %70
 
-66:                                               ; preds = %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.i27, %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.thread.i42
-  %67 = phi ptr [ %58, %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.thread.i42 ], [ %64, %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.i27 ]
-  %68 = phi i32 [ 0, %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.thread.i42 ], [ %63, %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.i27 ]
+66:                                               ; preds = %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.i27, %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.thread.i41
+  %67 = phi ptr [ %58, %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.thread.i41 ], [ %64, %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.i27 ]
+  %68 = phi i32 [ 0, %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.thread.i41 ], [ %63, %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.i27 ]
   %69 = lshr i32 %68, 1
   store i32 %69, ptr %67, align 8, !tbaa !265
-  br label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit43
+  br label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit42
 
 70:                                               ; preds = %_ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.i27
   %71 = getelementptr inbounds nuw i8, ptr %52, i64 48
@@ -1559,17 +1558,16 @@ _ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.i27: ; preds = %.lr.ph.i.i.i.i.i
 
 ._crit_edge.loopexit.i36:                         ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit.i32
   %.pre.i37 = load i32, ptr %64, align 8, !tbaa !64
-  %.pre54.pre = load ptr, ptr %3, align 8, !tbaa !155
+  %76 = tail call i32 @llvm.umax.i32(i32 %.pre.i37, i32 %.sroa.speculated.i34)
+  %.pre53.pre = load ptr, ptr %3, align 8, !tbaa !155
   br label %._crit_edge.i38
 
 ._crit_edge.i38:                                  ; preds = %._crit_edge.loopexit.i36, %70
-  %.pre54 = phi ptr [ %52, %70 ], [ %.pre54.pre, %._crit_edge.loopexit.i36 ]
-  %76 = phi i32 [ %63, %70 ], [ %.pre.i37, %._crit_edge.loopexit.i36 ]
-  %.0.lcssa.i39 = phi i32 [ 0, %70 ], [ %.sroa.speculated.i34, %._crit_edge.loopexit.i36 ]
-  %.sroa.speculated15.i40 = tail call i32 @llvm.umax.i32(i32 %76, i32 %.0.lcssa.i39)
-  %77 = add i32 %.sroa.speculated15.i40, 1
+  %.pre53 = phi ptr [ %52, %70 ], [ %.pre53.pre, %._crit_edge.loopexit.i36 ]
+  %.sroa.speculated15.i39 = phi i32 [ %63, %70 ], [ %76, %._crit_edge.loopexit.i36 ]
+  %77 = add i32 %.sroa.speculated15.i39, 1
   store i32 %77, ptr %64, align 8, !tbaa !265
-  br label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit43
+  br label %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit42
 
 78:                                               ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit.i32, %.lr.ph.i29
   %.023.i30 = phi i32 [ 0, %.lr.ph.i29 ], [ %.sroa.speculated.i34, %_ZNK4llvm5SUnit9getHeightEv.exit.i32 ]
@@ -1582,8 +1580,8 @@ _ZN4llvm20VLIWMachineScheduler9getBBSizeEv.exit.i27: ; preds = %.lr.ph.i.i.i.i.i
 
 83:                                               ; preds = %78
   %84 = and i8 %82, 2
-  %.not.i.i41 = icmp eq i8 %84, 0
-  br i1 %.not.i.i41, label %85, label %_ZNK4llvm5SUnit9getHeightEv.exit.i32
+  %.not.i.i40 = icmp eq i8 %84, 0
+  br i1 %.not.i.i40, label %85, label %_ZNK4llvm5SUnit9getHeightEv.exit.i32
 
 85:                                               ; preds = %83
   tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %.sroa.010.022.i31) #19
@@ -1606,8 +1604,8 @@ _ZNK4llvm5SUnit9getHeightEv.exit.i32:             ; preds = %88, %86, %85, %83
   %.not.i35 = icmp eq ptr %91, %74
   br i1 %.not.i35, label %._crit_edge.loopexit.i36, label %78
 
-_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit43: ; preds = %66, %._crit_edge.i38
-  %92 = phi ptr [ %52, %66 ], [ %.pre54, %._crit_edge.i38 ]
+_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit42: ; preds = %66, %._crit_edge.i38
+  %92 = phi ptr [ %52, %66 ], [ %.pre53, %._crit_edge.i38 ]
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 600
   %94 = tail call noundef zeroext i1 @_ZNK4llvm16TargetSchedModel19hasInstrItinerariesEv(ptr noundef nonnull align 8 dereferenceable(280) %93) #19
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 672
@@ -1626,14 +1624,14 @@ _ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSched
   %107 = icmp eq ptr %106, null
   br i1 %107, label %112, label %108
 
-108:                                              ; preds = %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit43
+108:                                              ; preds = %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit42
   %109 = load ptr, ptr %106, align 8, !tbaa !3
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   tail call void %111(ptr noundef nonnull align 8 dereferenceable(12) %106) #19
   br label %112
 
-112:                                              ; preds = %108, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit43
+112:                                              ; preds = %108, %_ZN4llvm23ConvergingVLIWScheduler17VLIWSchedBoundary4initEPNS_20VLIWMachineSchedulerEPKNS_16TargetSchedModelE.exit42
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %114 = load ptr, ptr %113, align 8, !tbaa !378
   %115 = icmp eq ptr %114, null
@@ -1722,11 +1720,11 @@ _ZN4llvm23SmallVectorTemplateBaseIbLb1EE13growAndAssignEmb.exit.i: ; preds = %14
   %174 = load ptr, ptr %161, align 8, !tbaa !385
   tail call void @llvm.memset.p0.i64(ptr align 1 %174, i8 0, i64 %168, i1 false), !tbaa !49
   store i64 %168, ptr %172, align 8, !tbaa !384
-  %.pre55 = load ptr, ptr %162, align 8, !tbaa !381
-  %.pre56 = load ptr, ptr %160, align 8, !tbaa !382
+  %.pre54 = load ptr, ptr %162, align 8, !tbaa !381
+  %.pre55 = load ptr, ptr %160, align 8, !tbaa !382
+  %.pre63 = ptrtoint ptr %.pre54 to i64
   %.pre64 = ptrtoint ptr %.pre55 to i64
-  %.pre65 = ptrtoint ptr %.pre56 to i64
-  %.pre67 = sub i64 %.pre64, %.pre65
+  %.pre66 = sub i64 %.pre63, %.pre64
   br label %_ZN4llvm15SmallVectorImplIbE6assignEmb.exit
 
 175:                                              ; preds = %146
@@ -1734,12 +1732,12 @@ _ZN4llvm23SmallVectorTemplateBaseIbLb1EE13growAndAssignEmb.exit.i: ; preds = %14
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %178 = load i64, ptr %177, align 8, !tbaa !384
   %179 = icmp ult i64 %178, %168
-  %.sroa.speculated.i44 = tail call i64 @llvm.umin.i64(i64 %178, i64 %168)
-  %180 = icmp eq i64 %.sroa.speculated.i44, 0
+  %.sroa.speculated.i43 = tail call i64 @llvm.umin.i64(i64 %178, i64 %168)
+  %180 = icmp eq i64 %.sroa.speculated.i43, 0
   br i1 %180, label %_ZSt6fill_nIPbmbET_S1_T0_RKT1_.exit.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %175
-  tail call void @llvm.memset.p0.i64(ptr align 1 %176, i8 0, i64 %.sroa.speculated.i44, i1 false), !tbaa !49
+  tail call void @llvm.memset.p0.i64(ptr align 1 %176, i8 0, i64 %.sroa.speculated.i43, i1 false), !tbaa !49
   br label %_ZSt6fill_nIPbmbET_S1_T0_RKT1_.exit.i
 
 _ZSt6fill_nIPbmbET_S1_T0_RKT1_.exit.i:            ; preds = %.lr.ph.preheader.i.i.i.i.i, %175
@@ -1756,15 +1754,15 @@ _ZSt20uninitialized_fill_nIPbmbET_S1_T0_RKT1_.exit.i: ; preds = %.lr.ph.preheade
   br label %_ZN4llvm15SmallVectorImplIbE6assignEmb.exit
 
 _ZN4llvm15SmallVectorImplIbE6assignEmb.exit:      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE13growAndAssignEmb.exit.i, %_ZSt20uninitialized_fill_nIPbmbET_S1_T0_RKT1_.exit.i
-  %.pre-phi68 = phi i64 [ %.pre67, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE13growAndAssignEmb.exit.i ], [ %167, %_ZSt20uninitialized_fill_nIPbmbET_S1_T0_RKT1_.exit.i ]
+  %.pre-phi67 = phi i64 [ %.pre66, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE13growAndAssignEmb.exit.i ], [ %167, %_ZSt20uninitialized_fill_nIPbmbET_S1_T0_RKT1_.exit.i ]
   %183 = phi ptr [ %174, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE13growAndAssignEmb.exit.i ], [ %176, %_ZSt20uninitialized_fill_nIPbmbET_S1_T0_RKT1_.exit.i ]
-  %184 = phi ptr [ %.pre56, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE13growAndAssignEmb.exit.i ], [ %164, %_ZSt20uninitialized_fill_nIPbmbET_S1_T0_RKT1_.exit.i ]
-  %185 = and i64 %.pre-phi68, 17179869180
+  %184 = phi ptr [ %.pre55, %_ZN4llvm23SmallVectorTemplateBaseIbLb1EE13growAndAssignEmb.exit.i ], [ %164, %_ZSt20uninitialized_fill_nIPbmbET_S1_T0_RKT1_.exit.i ]
+  %185 = and i64 %.pre-phi67, 17179869180
   %.not = icmp eq i64 %185, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm15SmallVectorImplIbE6assignEmb.exit
-  %186 = lshr exact i64 %.pre-phi68, 2
+  %186 = lshr exact i64 %.pre-phi67, 2
   %wide.trip.count = and i64 %186, 4294967295
   br label %.lr.ph
 
@@ -1782,8 +1780,8 @@ _ZN4llvm15SmallVectorImplIbE6assignEmb.exit:      ; preds = %_ZN4llvm23SmallVect
   %193 = load ptr, ptr %192, align 8, !tbaa !451
   %194 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv
   %195 = load i32, ptr %194, align 4, !tbaa !64
-  %.not.i45 = icmp eq i32 %195, 0
-  br i1 %.not.i45, label %196, label %_ZNK4llvm17RegisterClassInfo22getRegPressureSetLimitEj.exit
+  %.not.i44 = icmp eq i32 %195, 0
+  br i1 %.not.i44, label %196, label %_ZNK4llvm17RegisterClassInfo22getRegPressureSetLimitEj.exit
 
 196:                                              ; preds = %.lr.ph
   %197 = trunc nuw i64 %indvars.iv to i32
@@ -1791,13 +1789,13 @@ _ZN4llvm15SmallVectorImplIbE6assignEmb.exit:      ; preds = %_ZN4llvm23SmallVect
   %199 = load ptr, ptr %192, align 8, !tbaa !451
   %200 = getelementptr inbounds nuw i32, ptr %199, i64 %indvars.iv
   store i32 %198, ptr %200, align 4, !tbaa !64
-  %.pre57 = load ptr, ptr %160, align 8, !tbaa !382
-  %.pre58 = load ptr, ptr %161, align 8, !tbaa !385
+  %.pre56 = load ptr, ptr %160, align 8, !tbaa !382
+  %.pre57 = load ptr, ptr %161, align 8, !tbaa !385
   br label %_ZNK4llvm17RegisterClassInfo22getRegPressureSetLimitEj.exit
 
 _ZNK4llvm17RegisterClassInfo22getRegPressureSetLimitEj.exit: ; preds = %.lr.ph, %196
-  %201 = phi ptr [ %.pre58, %196 ], [ %187, %.lr.ph ]
-  %202 = phi ptr [ %.pre57, %196 ], [ %188, %.lr.ph ]
+  %201 = phi ptr [ %.pre57, %196 ], [ %187, %.lr.ph ]
+  %202 = phi ptr [ %.pre56, %196 ], [ %188, %.lr.ph ]
   %203 = phi i32 [ %198, %196 ], [ %195, %.lr.ph ]
   %204 = getelementptr inbounds nuw i32, ptr %202, i64 %indvars.iv
   %205 = load i32, ptr %204, align 4, !tbaa !64

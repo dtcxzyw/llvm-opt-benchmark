@@ -1705,7 +1705,7 @@ define internal fastcc i32 @e1000_init_phy_workarounds_pchlan(ptr noundef %0) un
   %40 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %39) #9, !srcloc !8
   %41 = and i32 %40, 1024
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.thread4, label %.preheader
+  br i1 %42, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %31, %46
   %43 = phi i8 [ %51, %46 ], [ 0, %31 ]
@@ -1729,16 +1729,16 @@ define internal fastcc i32 @e1000_init_phy_workarounds_pchlan(ptr noundef %0) un
 
 57:                                               ; preds = %46
   %58 = icmp eq i8 %51, 0
-  br i1 %58, label %.thread4, label %59
+  br i1 %58, label %.critedge, label %59
 
 59:                                               ; preds = %57
   %60 = mul i32 %47, 10
   %61 = getelementptr inbounds nuw i8, ptr %32, i64 1448
   %62 = load ptr, ptr %61, align 8
   tail call void (ptr, ptr, ...) @netdev_warn(ptr noundef %62, ptr noundef nonnull @.str.3, i32 noundef %60) #11
-  br label %.thread4
+  br label %.critedge
 
-.thread4:                                         ; preds = %31, %59, %57
+.critedge:                                        ; preds = %31, %59, %57
   %63 = load ptr, ptr %4, align 8
   %64 = getelementptr i8, ptr %63, i64 23376
   %65 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %64) #9, !srcloc !8
@@ -1816,7 +1816,7 @@ define internal fastcc i32 @e1000_init_phy_workarounds_pchlan(ptr noundef %0) un
   call void @msleep(i32 noundef 50) #9
   br label %114
 
-114:                                              ; preds = %98, %.thread4
+114:                                              ; preds = %98, %.critedge
   store i32 1, ptr %17, align 8
   br label %123
 
@@ -1850,7 +1850,7 @@ define internal fastcc i32 @e1000_init_phy_workarounds_pchlan(ptr noundef %0) un
 
 129:                                              ; preds = %124
   %130 = load i32, ptr %8, align 4
-  switch i32 %130, label %.thread5 [
+  switch i32 %130, label %.thread4 [
     i32 11, label %131
     i32 12, label %131
     i32 13, label %131
@@ -1866,7 +1866,7 @@ define internal fastcc i32 @e1000_init_phy_workarounds_pchlan(ptr noundef %0) un
 
 131:                                              ; preds = %129, %129, %129, %129, %129, %129, %129, %129, %129
   %132 = call fastcc zeroext i1 @e1000_phy_is_accessible_pchlan(ptr noundef %0)
-  br i1 %132, label %.thread5, label %133
+  br i1 %132, label %.thread4, label %133
 
 133:                                              ; preds = %131
   %134 = load ptr, ptr %4, align 8
@@ -1879,7 +1879,7 @@ define internal fastcc i32 @e1000_init_phy_workarounds_pchlan(ptr noundef %0) un
 
 138:                                              ; preds = %133, %129
   %139 = call fastcc zeroext i1 @e1000_phy_is_accessible_pchlan(ptr noundef %0)
-  br i1 %139, label %.thread5, label %._crit_edge
+  br i1 %139, label %.thread4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %138
   %.pre = load i32, ptr %8, align 4
@@ -1891,16 +1891,16 @@ define internal fastcc i32 @e1000_init_phy_workarounds_pchlan(ptr noundef %0) un
   %143 = and i32 %7, 32768
   %144 = icmp eq i32 %143, 0
   %145 = select i1 %142, i1 true, i1 %144
-  br i1 %145, label %146, label %.thread5
+  br i1 %145, label %146, label %.thread4
 
 146:                                              ; preds = %141
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %148 = load ptr, ptr %147, align 8
   %149 = call i32 %148(ptr noundef %0) #9
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %153, label %.thread6
+  br i1 %150, label %153, label %.thread5
 
-.thread6:                                         ; preds = %146
+.thread5:                                         ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr noundef %0) #9
@@ -1910,13 +1910,13 @@ define internal fastcc i32 @e1000_init_phy_workarounds_pchlan(ptr noundef %0) un
   call fastcc void @e1000_toggle_lanphypc_pch_lpt(ptr noundef %0)
   %154 = load i32, ptr %8, align 4
   %155 = icmp ugt i32 %154, 10
-  br i1 %155, label %156, label %.thread5
+  br i1 %155, label %156, label %.thread4
 
 156:                                              ; preds = %153
   %157 = call fastcc zeroext i1 @e1000_phy_is_accessible_pchlan(ptr noundef %0)
-  br i1 %157, label %.thread5, label %160
+  br i1 %157, label %.thread4, label %160
 
-.thread5:                                         ; preds = %129, %156, %153, %138, %131, %141
+.thread4:                                         ; preds = %129, %156, %153, %138, %131, %141
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %159 = load ptr, ptr %158, align 8
   call void %159(ptr noundef %0) #9
@@ -1934,7 +1934,7 @@ define internal fastcc i32 @e1000_init_phy_workarounds_pchlan(ptr noundef %0) un
   call void %167(ptr noundef %0) #9
   br i1 %165, label %168, label %185
 
-168:                                              ; preds = %.thread5, %160
+168:                                              ; preds = %.thread4, %160
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %170 = load ptr, ptr %169, align 8
   %171 = call i32 %170(ptr noundef %0) #9
@@ -1960,8 +1960,8 @@ define internal fastcc i32 @e1000_init_phy_workarounds_pchlan(ptr noundef %0) un
   call void (ptr, ptr, ...) @netdev_err(ptr noundef %184, ptr noundef nonnull %181) #11
   br label %185
 
-185:                                              ; preds = %.thread6, %180, %176, %173, %160, %124
-  %186 = phi i32 [ %127, %124 ], [ -2, %160 ], [ %174, %173 ], [ 0, %176 ], [ %182, %180 ], [ -2, %.thread6 ]
+185:                                              ; preds = %.thread5, %180, %176, %173, %160, %124
+  %186 = phi i32 [ %127, %124 ], [ -2, %160 ], [ %174, %173 ], [ 0, %176 ], [ %182, %180 ], [ -2, %.thread5 ]
   %187 = load i32, ptr %8, align 4
   %188 = icmp eq i32 %187, 10
   %189 = and i32 %7, 32768
@@ -3263,7 +3263,7 @@ define internal noundef range(i32 -3, 1) i32 @e1000_acquire_swflag_ich8lan(ptr n
   %5 = icmp ult i8 %4, 2
   tail call void @llvm.assume(i1 %5)
   %6 = icmp eq i8 %4, 0
-  br i1 %6, label %7, label %.loopexit
+  br i1 %6, label %7, label %.critedge.thread
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3272,66 +3272,66 @@ define internal noundef range(i32 -3, 1) i32 @e1000_acquire_swflag_ich8lan(ptr n
   %11 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10) #9, !srcloc !8
   %12 = and i32 %11, 32
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.loopexit11, label %.preheader9
+  br i1 %13, label %.loopexit, label %.preheader4
 
-14:                                               ; preds = %.preheader9
+14:                                               ; preds = %.preheader4
   %15 = load ptr, ptr %8, align 8
   %16 = getelementptr i8, ptr %15, i64 3840
   %17 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16) #9, !srcloc !8
   %18 = and i32 %17, 32
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.loopexit11, label %.preheader9, !llvm.loop !28
+  br i1 %19, label %.loopexit, label %.preheader4, !llvm.loop !28
 
-.preheader9:                                      ; preds = %7, %14
+.preheader4:                                      ; preds = %7, %14
   %20 = phi i32 [ %21, %14 ], [ 100, %7 ]
   tail call void @__const_udelay(i64 noundef 4295000) #9
   %21 = add nsw i32 %20, -1
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.loopexit10, label %14, !llvm.loop !28
+  br i1 %22, label %.critedge, label %14, !llvm.loop !28
 
-.loopexit11:                                      ; preds = %14, %7
-  %.ph = phi i32 [ %11, %7 ], [ %17, %14 ]
-  %23 = or i32 %.ph, 32
-  tail call void @__ew32(ptr noundef %0, i64 noundef 3840, i32 noundef %23) #9
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr i8, ptr %24, i64 3840
-  %26 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25) #9, !srcloc !8
-  %27 = and i32 %26, 32
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.preheader, label %.loopexit
+.loopexit:                                        ; preds = %14, %7
+  %23 = phi i32 [ %11, %7 ], [ %17, %14 ]
+  %24 = or i32 %23, 32
+  tail call void @__ew32(ptr noundef %0, i64 noundef 3840, i32 noundef %24) #9
+  %25 = load ptr, ptr %8, align 8
+  %26 = getelementptr i8, ptr %25, i64 3840
+  %27 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %26) #9, !srcloc !8
+  %28 = and i32 %27, 32
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.preheader, label %.critedge.thread
 
-.preheader:                                       ; preds = %.loopexit11
+.preheader:                                       ; preds = %.loopexit
   tail call void @__const_udelay(i64 noundef 4295000) #9
-  br label %29
+  br label %30
 
-29:                                               ; preds = %.preheader, %36
-  %30 = phi i32 [ 999, %.preheader ], [ %37, %36 ]
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr i8, ptr %31, i64 3840
-  %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32) #9, !srcloc !8
-  %34 = and i32 %33, 32
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %.loopexit, !llvm.loop !29
+30:                                               ; preds = %.preheader, %37
+  %31 = phi i32 [ 999, %.preheader ], [ %38, %37 ]
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr i8, ptr %32, i64 3840
+  %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #9, !srcloc !8
+  %35 = and i32 %34, 32
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %.critedge.thread, !llvm.loop !29
 
-36:                                               ; preds = %29
+37:                                               ; preds = %30
   tail call void @__const_udelay(i64 noundef 4295000) #9
-  %37 = add nsw i32 %30, -1
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %29, !llvm.loop !29
+  %38 = add nsw i32 %31, -1
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %30, !llvm.loop !29
 
-39:                                               ; preds = %36
-  tail call void @__ew32(ptr noundef %0, i64 noundef 3840, i32 noundef %33) #9
-  br label %.loopexit10
+40:                                               ; preds = %37
+  tail call void @__ew32(ptr noundef %0, i64 noundef 3840, i32 noundef %34) #9
+  br label %.critedge
 
-.loopexit10:                                      ; preds = %.preheader9, %39
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 720
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %41, i32 -5, ptr nonnull elementtype(i8) %41) #9, !srcloc !23
-  br label %.loopexit
+.critedge:                                        ; preds = %.preheader4, %40
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 720
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %42, i32 -5, ptr nonnull elementtype(i8) %42) #9, !srcloc !23
+  br label %.critedge.thread
 
-.loopexit:                                        ; preds = %29, %.loopexit11, %.loopexit10, %1
-  %42 = phi i32 [ -2, %1 ], [ -3, %.loopexit10 ], [ 0, %.loopexit11 ], [ 0, %29 ]
-  ret i32 %42
+.critedge.thread:                                 ; preds = %30, %.loopexit, %.critedge, %1
+  %43 = phi i32 [ -2, %1 ], [ -3, %.critedge ], [ 0, %.loopexit ], [ 0, %30 ]
+  ret i32 %43
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -6230,17 +6230,13 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_valid_nvm_bank_detect
   store i16 0, ptr %3, align 2
   %47 = load i32, ptr %9, align 4
   %48 = icmp ugt i32 %47, 11
-  br i1 %48, label %.thread7, label %49
+  br i1 %48, label %.critedge, label %49
 
 49:                                               ; preds = %46
   %50 = add i32 %8, 39
   %51 = call fastcc i32 @e1000_read_flash_data_ich8lan(ptr noundef %0, i32 noundef %50, i8 noundef zeroext 1, ptr noundef nonnull %3), !range !36
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %.thread7
-
-.thread7:                                         ; preds = %46, %49
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #9
-  br label %59
+  br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %49
   %54 = load i16, ptr %3, align 2
@@ -6254,8 +6250,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_valid_nvm_bank_detect
   store i32 %58, ptr %1, align 4
   br label %59
 
-59:                                               ; preds = %.thread7, %.thread, %57, %53, %22, %18, %11
-  %60 = phi i32 [ -1, %11 ], [ -1, %18 ], [ -1, %22 ], [ -1, %53 ], [ 0, %57 ], [ -1, %.thread ], [ -1, %.thread7 ]
+.critedge:                                        ; preds = %49, %46
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #9
+  br label %59
+
+59:                                               ; preds = %.thread, %.critedge, %57, %53, %22, %18, %11
+  %60 = phi i32 [ -1, %11 ], [ -1, %18 ], [ -1, %22 ], [ -1, %53 ], [ 0, %57 ], [ -1, %.critedge ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   ret i32 %60
 }
@@ -7059,7 +7059,7 @@ define internal fastcc range(i32 -1, 1) i32 @e1000_erase_flash_bank_ich8lan(ptr 
   %9 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %8) #9, !srcloc !15
   %10 = lshr i16 %9, 3
   %11 = and i16 %10, 3
-  switch i16 %11, label %default.unreachable14 [
+  switch i16 %11, label %default.unreachable12 [
     i16 0, label %14
     i16 1, label %.thread
     i16 2, label %12
@@ -7072,13 +7072,13 @@ define internal fastcc range(i32 -1, 1) i32 @e1000_erase_flash_bank_ich8lan(ptr 
 13:                                               ; preds = %2
   br label %.thread
 
-default.unreachable14:                            ; preds = %2
+default.unreachable12:                            ; preds = %2
   unreachable
 
 14:                                               ; preds = %2
   %15 = lshr i32 %5, 8
   %16 = icmp ult i32 %5, 256
-  br i1 %16, label %.thread5, label %.thread
+  br i1 %16, label %.critedge.thread, label %.thread
 
 .thread:                                          ; preds = %2, %12, %13, %14
   %17 = phi i32 [ 256, %14 ], [ 4096, %2 ], [ 8192, %12 ], [ 65536, %13 ]
@@ -7091,21 +7091,21 @@ default.unreachable14:                            ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 220
   br label %25
 
-25:                                               ; preds = %.thread7, %.thread
-  %26 = phi i32 [ 0, %.thread ], [ %109, %.thread7 ]
-  %27 = phi i32 [ 0, %.thread ], [ %108, %.thread7 ]
-  %28 = phi i32 [ %23, %.thread ], [ %63, %.thread7 ]
+25:                                               ; preds = %.critedge.thread5, %.thread
+  %26 = phi i32 [ 0, %.thread ], [ %109, %.critedge.thread5 ]
+  %27 = phi i32 [ 0, %.thread ], [ %108, %.critedge.thread5 ]
+  %28 = phi i32 [ %23, %.thread ], [ %63, %.critedge.thread5 ]
   %29 = mul i32 %26, %17
   %30 = add i32 %27, 1
   %31 = tail call i32 @llvm.smax.i32(i32 %30, i32 10)
   br label %32
 
-32:                                               ; preds = %.thread6, %25
-  %33 = phi i32 [ %63, %.thread6 ], [ %28, %25 ]
-  %34 = phi i32 [ %107, %.thread6 ], [ %27, %25 ]
+32:                                               ; preds = %.critedge.thread4, %25
+  %33 = phi i32 [ %63, %.critedge.thread4 ], [ %28, %25 ]
+  %34 = phi i32 [ %107, %.critedge.thread4 ], [ %27, %25 ]
   %35 = tail call fastcc i32 @e1000_flash_cycle_init_ich8lan(ptr noundef %0), !range !36
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %.thread5
+  br i1 %36, label %37, label %.critedge.thread
 
 37:                                               ; preds = %32
   %38 = load i32, ptr %24, align 4
@@ -7210,7 +7210,7 @@ default.unreachable14:                            ; preds = %2
 100:                                              ; preds = %90
   %101 = and i16 %94, 2
   %102 = icmp eq i16 %101, 0
-  br i1 %102, label %.thread7, label %.loopexit
+  br i1 %102, label %.critedge.thread5, label %.loopexit
 
 .loopexit:                                        ; preds = %97, %100
   %103 = load ptr, ptr %6, align 8
@@ -7218,21 +7218,21 @@ default.unreachable14:                            ; preds = %2
   %105 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %104) #9, !srcloc !15
   %106 = and i16 %105, 3
   %or.cond = icmp eq i16 %106, 0
-  br i1 %or.cond, label %.thread5, label %.thread6
+  br i1 %or.cond, label %.critedge.thread, label %.critedge.thread4
 
-.thread6:                                         ; preds = %.loopexit
+.critedge.thread4:                                ; preds = %.loopexit
   %107 = add i32 %34, 1
   %exitcond.not = icmp eq i32 %107, %31
-  br i1 %exitcond.not, label %.thread7, label %32, !llvm.loop !47
+  br i1 %exitcond.not, label %.critedge.thread5, label %32, !llvm.loop !47
 
-.thread7:                                         ; preds = %100, %.thread6
-  %108 = phi i32 [ %31, %.thread6 ], [ %34, %100 ]
+.critedge.thread5:                                ; preds = %100, %.critedge.thread4
+  %108 = phi i32 [ %31, %.critedge.thread4 ], [ %34, %100 ]
   %109 = add nuw nsw i32 %26, 1
   %110 = icmp eq i32 %109, %18
-  br i1 %110, label %.thread5, label %25, !llvm.loop !48
+  br i1 %110, label %.critedge.thread, label %25, !llvm.loop !48
 
-.thread5:                                         ; preds = %.thread7, %32, %.loopexit, %14
-  %111 = phi i32 [ 0, %14 ], [ -1, %.loopexit ], [ -1, %32 ], [ 0, %.thread7 ]
+.critedge.thread:                                 ; preds = %.critedge.thread5, %.loopexit, %32, %14
+  %111 = phi i32 [ 0, %14 ], [ -1, %32 ], [ -1, %.loopexit ], [ 0, %.critedge.thread5 ]
   ret i32 %111
 }
 
@@ -7428,14 +7428,14 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %10 = load i16, ptr %9, align 8
   %11 = icmp ugt i16 %10, %1
-  br i1 %11, label %12, label %107
+  br i1 %11, label %12, label %109
 
 12:                                               ; preds = %4
   %13 = zext i16 %2 to i32
   %narrow = sub nuw i16 %10, %1
   %14 = add i16 %2, -1
   %.not = icmp ult i16 %14, %narrow
-  br i1 %.not, label %15, label %107
+  br i1 %.not, label %15, label %109
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %7, align 8
@@ -7460,12 +7460,11 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1178
   %29 = and i32 %25, 1
   %30 = icmp eq i32 %29, 0
-  %invariant.gep = getelementptr i8, ptr %0, i64 1184
   br label %31
 
-31:                                               ; preds = %95, %.thread
-  %32 = phi i32 [ 0, %.thread ], [ %101, %95 ]
-  %33 = phi i16 [ 0, %.thread ], [ %100, %95 ]
+31:                                               ; preds = %97, %.thread
+  %32 = phi i32 [ 0, %.thread ], [ %103, %97 ]
+  %33 = phi i16 [ 0, %.thread ], [ %102, %97 ]
   %34 = sub nsw i32 %13, %32
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %36, label %57
@@ -7481,14 +7480,14 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
 
 43:                                               ; preds = %36
   %44 = load i16, ptr %39, align 2
-  br label %95
+  br label %97
 
 45:                                               ; preds = %36
   %46 = add i32 %32, %25
   %47 = and i32 %46, 65534
   %48 = call fastcc i32 @e1000_read_flash_dword_ich8lan(ptr noundef %0, i32 noundef %47, ptr noundef nonnull %6)
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %103
+  br i1 %49, label %50, label %105
 
 50:                                               ; preds = %45
   %51 = load i32, ptr %6, align 4
@@ -7496,12 +7495,12 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
 
 52:                                               ; preds = %50
   %53 = trunc i32 %51 to i16
-  br label %95
+  br label %97
 
 54:                                               ; preds = %50
   %55 = lshr i32 %51, 16
   %56 = trunc nuw i32 %55 to i16
-  br label %95
+  br label %97
 
 57:                                               ; preds = %31
   %58 = add i16 %33, %27
@@ -7511,81 +7510,82 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %63 = load i8, ptr %62, align 2, !range !6, !noundef !7
   %64 = icmp eq i8 %63, 0
-  br i1 %64, label %70, label %65
+  br i1 %64, label %72, label %65
 
 65:                                               ; preds = %57
   %66 = shl nuw nsw i32 %59, 2
   %67 = zext nneg i32 %66 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %67
-  %68 = load i8, ptr %gep, align 2, !range !6, !noundef !7
-  %69 = icmp eq i8 %68, 0
-  br i1 %69, label %70, label %.thread7
+  %68 = getelementptr i8, ptr %28, i64 %67
+  %69 = getelementptr i8, ptr %68, i64 6
+  %70 = load i8, ptr %69, align 2, !range !6, !noundef !7
+  %71 = icmp eq i8 %70, 0
+  br i1 %71, label %72, label %.thread7
 
-70:                                               ; preds = %65, %57
-  %71 = zext i16 %58 to i32
-  %72 = call fastcc i32 @e1000_read_flash_dword_ich8lan(ptr noundef %0, i32 noundef %71, ptr noundef nonnull %6)
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %103
+72:                                               ; preds = %65, %57
+  %73 = zext i16 %58 to i32
+  %74 = call fastcc i32 @e1000_read_flash_dword_ich8lan(ptr noundef %0, i32 noundef %73, ptr noundef nonnull %6)
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %105
 
-74:                                               ; preds = %70
+76:                                               ; preds = %72
   %.pre = load i8, ptr %62, align 2, !range !6
-  %75 = icmp eq i8 %.pre, 0
-  br i1 %75, label %77, label %.thread7
+  %77 = icmp eq i8 %.pre, 0
+  br i1 %77, label %79, label %.thread7
 
-.thread7:                                         ; preds = %65, %74
-  %76 = load i16, ptr %61, align 2
-  br label %80
+.thread7:                                         ; preds = %65, %76
+  %78 = load i16, ptr %61, align 2
+  br label %82
 
-77:                                               ; preds = %74
-  %78 = load i32, ptr %6, align 4
-  %79 = trunc i32 %78 to i16
-  br label %80
+79:                                               ; preds = %76
+  %80 = load i32, ptr %6, align 4
+  %81 = trunc i32 %80 to i16
+  br label %82
 
-80:                                               ; preds = %77, %.thread7
-  %81 = phi i16 [ %79, %77 ], [ %76, %.thread7 ]
-  %82 = zext i16 %33 to i64
-  %83 = getelementptr i16, ptr %3, i64 %82
-  store i16 %81, ptr %83, align 2
-  %84 = load i8, ptr %62, align 2, !range !6, !noundef !7
-  %85 = icmp eq i8 %84, 0
-  br i1 %85, label %91, label %86
+82:                                               ; preds = %79, %.thread7
+  %83 = phi i16 [ %81, %79 ], [ %78, %.thread7 ]
+  %84 = zext i16 %33 to i64
+  %85 = getelementptr i16, ptr %3, i64 %84
+  store i16 %83, ptr %85, align 2
+  %86 = load i8, ptr %62, align 2, !range !6, !noundef !7
+  %87 = icmp eq i8 %86, 0
+  br i1 %87, label %93, label %88
 
-86:                                               ; preds = %80
-  %87 = add nuw nsw i32 %59, 1
-  %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr [2048 x %struct.e1000_shadow_ram], ptr %28, i64 0, i64 %88
-  %90 = load i16, ptr %89, align 2
-  br label %95
+88:                                               ; preds = %82
+  %89 = add nuw nsw i32 %59, 1
+  %90 = zext nneg i32 %89 to i64
+  %91 = getelementptr [2048 x %struct.e1000_shadow_ram], ptr %28, i64 0, i64 %90
+  %92 = load i16, ptr %91, align 2
+  br label %97
 
-91:                                               ; preds = %80
-  %92 = load i32, ptr %6, align 4
-  %93 = lshr i32 %92, 16
-  %94 = trunc nuw i32 %93 to i16
-  br label %95
+93:                                               ; preds = %82
+  %94 = load i32, ptr %6, align 4
+  %95 = lshr i32 %94, 16
+  %96 = trunc nuw i32 %95 to i16
+  br label %97
 
-95:                                               ; preds = %91, %86, %54, %52, %43
-  %96 = phi ptr [ %3, %52 ], [ %3, %54 ], [ %3, %43 ], [ %26, %91 ], [ %26, %86 ]
-  %97 = phi i16 [ %53, %52 ], [ %56, %54 ], [ %44, %43 ], [ %94, %91 ], [ %90, %86 ]
-  %98 = zext i16 %33 to i64
-  %99 = getelementptr i16, ptr %96, i64 %98
-  store i16 %97, ptr %99, align 2
-  %100 = add i16 %33, 2
-  %101 = zext i16 %100 to i32
-  %102 = icmp ult i16 %100, %2
-  br i1 %102, label %31, label %103, !llvm.loop !50
+97:                                               ; preds = %93, %88, %54, %52, %43
+  %98 = phi ptr [ %3, %52 ], [ %3, %54 ], [ %3, %43 ], [ %26, %93 ], [ %26, %88 ]
+  %99 = phi i16 [ %53, %52 ], [ %56, %54 ], [ %44, %43 ], [ %96, %93 ], [ %92, %88 ]
+  %100 = zext i16 %33 to i64
+  %101 = getelementptr i16, ptr %98, i64 %100
+  store i16 %99, ptr %101, align 2
+  %102 = add i16 %33, 2
+  %103 = zext i16 %102 to i32
+  %104 = icmp ult i16 %102, %2
+  br i1 %104, label %31, label %105, !llvm.loop !50
 
-103:                                              ; preds = %95, %70, %45
-  %104 = phi i32 [ 0, %95 ], [ -1, %45 ], [ -1, %70 ]
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  %106 = load ptr, ptr %105, align 8
-  tail call void %106(ptr noundef %0) #9
-  br label %107
+105:                                              ; preds = %97, %72, %45
+  %106 = phi i32 [ 0, %97 ], [ -1, %45 ], [ -1, %72 ]
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  %108 = load ptr, ptr %107, align 8
+  tail call void %108(ptr noundef %0) #9
+  br label %109
 
-107:                                              ; preds = %103, %12, %4
-  %108 = phi i32 [ %104, %103 ], [ -1, %12 ], [ -1, %4 ]
+109:                                              ; preds = %105, %12, %4
+  %110 = phi i32 [ %106, %105 ], [ -1, %12 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  ret i32 %108
+  ret i32 %110
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

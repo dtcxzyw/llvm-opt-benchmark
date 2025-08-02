@@ -1038,18 +1038,14 @@ _ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjPNS0_8CallableEbNS0_11Herm
   %arrayidx.i21.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -56
   store i64 %retval.sroa.0.0.i11, ptr %arrayidx.i21.i.i, align 8
   %cmp35 = icmp ugt i32 %8, 1
-  br i1 %cmp35, label %for.body.lr.ph, label %for.end
-
-for.body.lr.ph:                                   ; preds = %_ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjPNS0_8CallableEbNS0_11HermesValueE.exit
-  %invariant.gep = getelementptr i8, ptr %add.ptr.i.i.i, i64 -64
-  br label %for.body
+  br i1 %cmp35, label %for.body, label %for.end
 
 if.then10:                                        ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
   %call11 = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #13
   br label %cleanup
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit20
-  %i.036 = phi i32 [ 1, %for.body.lr.ph ], [ %inc, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit20 ]
+for.body:                                         ; preds = %_ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjPNS0_8CallableEbNS0_11HermesValueE.exit, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit20
+  %i.036 = phi i32 [ %inc, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit20 ], [ 1, %_ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjPNS0_8CallableEbNS0_11HermesValueE.exit ]
   %13 = load i32, ptr %argCount_.i, align 8
   %cmp.i14 = icmp ult i32 %i.036, %13
   br i1 %cmp.i14, label %cond.true.i16, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit20
@@ -1068,8 +1064,9 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit20:       ; preds = %for.body, %cond.tru
   %sub20 = add i32 %i.036, -1
   %conv.i23 = sext i32 %sub20 to i64
   %idx.neg.i.i.i24 = sub nsw i64 0, %conv.i23
-  %gep = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep, i64 %idx.neg.i.i.i24
-  store i64 %retval.sroa.0.0.i15, ptr %gep, align 8
+  %add.ptr.i.i.i25 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %arrayidx.i21.i.i, i64 %idx.neg.i.i.i24
+  %incdec.ptr.i.i.i26 = getelementptr inbounds i8, ptr %add.ptr.i.i.i25, i64 -8
+  store i64 %retval.sroa.0.0.i15, ptr %incdec.ptr.i.i.i26, align 8
   %inc = add nuw i32 %i.036, 1
   %exitcond.not = icmp eq i32 %inc, %8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25

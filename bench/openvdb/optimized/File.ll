@@ -4549,8 +4549,8 @@ _ZNSt12__shared_ptrIN7openvdb5v11_02io10MappedFileELN9__gnu_cxx12_Lock_policyE2E
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io4File5closeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN7openvdb5v11_02io4File5closeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mImpl = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %mImpl, align 8

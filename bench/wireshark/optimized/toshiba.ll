@@ -456,23 +456,23 @@ define internal fastcc noundef zeroext i1 @parse_toshiba_packet(ptr noundef %0, 
 111:                                              ; preds = %111, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %111 ]
   %indvars.iv33.i = phi i64 [ 7, %.preheader.i ], [ %indvars.iv.next34.i, %111 ]
-  %gep.i = getelementptr i8, ptr %93, i64 %indvars.iv33.i
-  store i8 0, ptr %gep.i, align 1
   %112 = getelementptr i8, ptr %5, i64 %indvars.iv33.i
-  %113 = call i64 @strtoul(ptr noundef captures(none) %112, ptr noundef null, i32 noundef 16) #7
-  %114 = trunc i64 %113 to i8
-  %115 = lshr i64 %113, 8
-  %116 = trunc i64 %115 to i8
+  %113 = getelementptr i8, ptr %112, i64 4
+  store i8 0, ptr %113, align 1
+  %114 = call i64 @strtoul(ptr noundef captures(none) %112, ptr noundef null, i32 noundef 16) #7
+  %115 = trunc i64 %114 to i8
+  %116 = lshr i64 %114, 8
+  %117 = trunc i64 %116 to i8
   %indvars.iv35.tr.i = trunc i64 %indvars.iv35.i to i32
-  %117 = shl i32 %indvars.iv35.tr.i, 1
-  %118 = add nuw nsw i32 %117, %103
-  %119 = zext i32 %118 to i64
-  %120 = getelementptr i8, ptr %86, i64 %119
-  store i8 %116, ptr %120, align 1
-  %.reass.i = add nuw nsw i32 %105, %117
-  %121 = zext i32 %.reass.i to i64
-  %122 = getelementptr i8, ptr %86, i64 %121
-  store i8 %114, ptr %122, align 1
+  %118 = shl i32 %indvars.iv35.tr.i, 1
+  %119 = add nuw nsw i32 %118, %103
+  %120 = zext i32 %119 to i64
+  %121 = getelementptr i8, ptr %86, i64 %120
+  store i8 %117, ptr %121, align 1
+  %.reass.i = add nuw nsw i32 %105, %118
+  %122 = zext i32 %.reass.i to i64
+  %123 = getelementptr i8, ptr %86, i64 %122
+  store i8 %115, ptr %123, align 1
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 5
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -480,8 +480,8 @@ define internal fastcc noundef zeroext i1 @parse_toshiba_packet(ptr noundef %0, 
 
 parse_single_hex_dump_line.exit.thread:           ; preds = %100
   store i32 -13, ptr %2, align 4
-  %123 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.8)
-  store ptr %123, ptr %3, align 8
+  %124 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.8)
+  store ptr %124, ptr %3, align 8
   br label %.loopexit
 
 parse_single_hex_dump_line.exit:                  ; preds = %111

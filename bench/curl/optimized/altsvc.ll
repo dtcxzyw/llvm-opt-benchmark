@@ -1193,7 +1193,6 @@ declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal fastcc void @altsvc_flush(ptr noundef %0, i32 noundef %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = tail call ptr @Curl_llist_head(ptr noundef nonnull %5) #12
-  %invariant.gep = getelementptr i8, ptr %2, i64 -1
   %.not14 = icmp eq ptr %6, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -1217,40 +1216,41 @@ define internal fastcc void @altsvc_flush(ptr noundef %0, i32 noundef %1, ptr no
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #13
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %24, label %20
+  br i1 %.not.i, label %26, label %20
 
 20:                                               ; preds = %16
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %18
-  %21 = load i8, ptr %gep, align 1, !tbaa !14
-  %22 = icmp eq i8 %21, 46
-  %23 = sext i1 %22 to i64
-  %spec.select.i = add i64 %18, %23
-  br label %24
+  %21 = getelementptr i8, ptr %2, i64 %18
+  %22 = getelementptr i8, ptr %21, i64 -1
+  %23 = load i8, ptr %22, align 1, !tbaa !14
+  %24 = icmp eq i8 %23, 46
+  %25 = sext i1 %24 to i64
+  %spec.select.i = add i64 %18, %25
+  br label %26
 
-24:                                               ; preds = %20, %16
+26:                                               ; preds = %20, %16
   %.011.i = phi i64 [ 0, %16 ], [ %spec.select.i, %20 ]
   %.not13.i = icmp eq i64 %.011.i, %19
   br i1 %.not13.i, label %hostcompare.exit, label %hostcompare.exit.thread
 
-hostcompare.exit:                                 ; preds = %24
-  %25 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %17, i64 noundef %19) #12
-  %.not13 = icmp eq i32 %25, 0
-  br i1 %.not13, label %hostcompare.exit.thread, label %26
+hostcompare.exit:                                 ; preds = %26
+  %27 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %17, i64 noundef %19) #12
+  %.not13 = icmp eq i32 %27, 0
+  br i1 %.not13, label %hostcompare.exit.thread, label %28
 
-26:                                               ; preds = %hostcompare.exit
+28:                                               ; preds = %hostcompare.exit
   tail call void @Curl_node_remove(ptr noundef nonnull %.015) #12
-  %27 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %28 = load ptr, ptr %7, align 8, !tbaa !34
-  tail call void %27(ptr noundef %28) #12
   %29 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !35
-  tail call void %29(ptr noundef %31) #12
-  %32 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  tail call void %32(ptr noundef nonnull %7) #12
+  %30 = load ptr, ptr %7, align 8, !tbaa !34
+  tail call void %29(ptr noundef %30) #12
+  %31 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !35
+  tail call void %31(ptr noundef %33) #12
+  %34 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
+  tail call void %34(ptr noundef nonnull %7) #12
   br label %hostcompare.exit.thread
 
-hostcompare.exit.thread:                          ; preds = %24, %26, %hostcompare.exit, %12, %.lr.ph
+hostcompare.exit.thread:                          ; preds = %26, %28, %hostcompare.exit, %12, %.lr.ph
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !121
 
@@ -1378,7 +1378,6 @@ define hidden noundef zeroext i1 @Curl_altsvc_lookup(ptr noundef %0, i32 noundef
   %7 = tail call i64 @time(ptr noundef null) #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call ptr @Curl_llist_head(ptr noundef nonnull %8) #12
-  %invariant.gep = getelementptr i8, ptr %2, i64 -1
   %.not28.not = icmp eq ptr %9, null
   br i1 %.not28.not, label %.loopexit, label %.lr.ph
 
@@ -1415,50 +1414,51 @@ define hidden noundef zeroext i1 @Curl_altsvc_lookup(ptr noundef %0, i32 noundef
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #13
   %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %34, label %30
+  br i1 %.not.i, label %36, label %30
 
 30:                                               ; preds = %26
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %28
-  %31 = load i8, ptr %gep, align 1, !tbaa !14
-  %32 = icmp eq i8 %31, 46
-  %33 = sext i1 %32 to i64
-  %spec.select.i = add i64 %28, %33
-  br label %34
+  %31 = getelementptr i8, ptr %2, i64 %28
+  %32 = getelementptr i8, ptr %31, i64 -1
+  %33 = load i8, ptr %32, align 1, !tbaa !14
+  %34 = icmp eq i8 %33, 46
+  %35 = sext i1 %34 to i64
+  %spec.select.i = add i64 %28, %35
+  br label %36
 
-34:                                               ; preds = %30, %26
+36:                                               ; preds = %30, %26
   %.011.i = phi i64 [ 0, %26 ], [ %spec.select.i, %30 ]
   %.not13.i = icmp eq i64 %.011.i, %29
   br i1 %.not13.i, label %hostcompare.exit, label %hostcompare.exit.thread
 
-hostcompare.exit:                                 ; preds = %34
-  %35 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %27, i64 noundef %29) #12
-  %.not25 = icmp eq i32 %35, 0
-  br i1 %.not25, label %hostcompare.exit.thread, label %36
+hostcompare.exit:                                 ; preds = %36
+  %37 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %27, i64 noundef %29) #12
+  %.not25 = icmp eq i32 %37, 0
+  br i1 %.not25, label %hostcompare.exit.thread, label %38
 
-36:                                               ; preds = %hostcompare.exit
-  %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %38 = load i16, ptr %37, align 8, !tbaa !40
-  %39 = zext i16 %38 to i32
-  %40 = icmp eq i32 %3, %39
-  br i1 %40, label %41, label %hostcompare.exit.thread
+38:                                               ; preds = %hostcompare.exit
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %40 = load i16, ptr %39, align 8, !tbaa !40
+  %41 = zext i16 %40 to i32
+  %42 = icmp eq i32 %3, %41
+  br i1 %42, label %43, label %hostcompare.exit.thread
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %10, i64 28
-  %43 = load i32, ptr %42, align 4, !tbaa !41
-  %44 = and i32 %43, %5
-  %.not22 = icmp eq i32 %44, 0
-  br i1 %.not22, label %hostcompare.exit.thread, label %45
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %45 = load i32, ptr %44, align 4, !tbaa !41
+  %46 = and i32 %45, %5
+  %.not22 = icmp eq i32 %46, 0
+  br i1 %.not22, label %hostcompare.exit.thread, label %47
 
-45:                                               ; preds = %41
+47:                                               ; preds = %43
   store ptr %10, ptr %4, align 8, !tbaa !122
   br label %.loopexit
 
-hostcompare.exit.thread:                          ; preds = %34, %15, %41, %36, %hostcompare.exit, %22
+hostcompare.exit.thread:                          ; preds = %36, %15, %43, %38, %hostcompare.exit, %22
   %.not.not = icmp eq ptr %11, null
   br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !124
 
-.loopexit:                                        ; preds = %hostcompare.exit.thread, %6, %45
-  %.not27 = phi i1 [ true, %45 ], [ false, %6 ], [ false, %hostcompare.exit.thread ]
+.loopexit:                                        ; preds = %hostcompare.exit.thread, %6, %47
+  %.not27 = phi i1 [ true, %47 ], [ false, %6 ], [ false, %hostcompare.exit.thread ]
   ret i1 %.not27
 }
 

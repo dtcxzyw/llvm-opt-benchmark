@@ -1216,23 +1216,22 @@ _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54.loopexit: ; preds = %while.body.i.i3
   %sub.ptr.lhs.cast90 = ptrtoint ptr %__first.addr.1.i.i to i64
   %sub.ptr.sub91 = sub i64 %sub.ptr.lhs.cast90, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div92 = ashr exact i64 %sub.ptr.sub91, 3
-  %.pre107 = ptrtoint ptr %__first.addr.1.i.i52 to i64
+  %.pre105 = ptrtoint ptr %__first.addr.1.i.i52 to i64
   %10 = icmp eq ptr %__first.addr.1.i.i52, %5
   br label %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54
 
 _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54:      ; preds = %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54.loopexit, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit
-  %sub.ptr.lhs.cast29.pre-phi = phi i64 [ %.pre107, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit ]
+  %sub.ptr.lhs.cast29.pre-phi = phi i64 [ %.pre105, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit ]
   %add2597 = phi double [ %add2593, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54.loopexit ], [ %add25, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit ]
   %sub.ptr.div94 = phi i64 [ %sub.ptr.div92, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54.loopexit ], [ 0, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit ]
   %__first.addr.0.lcssa.i.i37 = phi i1 [ %10, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54.loopexit ], [ true, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit ]
   %sub.ptr.sub31 = sub i64 %sub.ptr.lhs.cast29.pre-phi, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div32 = ashr exact i64 %sub.ptr.sub31, 3
-  %invariant.gep = getelementptr i8, ptr %5, i64 -8
-  %cmp33100 = icmp ult i64 %sub.ptr.div94, %sub.ptr.div32
+  %cmp3398 = icmp ult i64 %sub.ptr.div94, %sub.ptr.div32
   %reversionZero_34 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %11 = load i8, ptr %reversionZero_34, align 8, !tbaa !45, !range !26
   %loadedv35 = trunc nuw i8 %11 to i1
-  br i1 %cmp33100, label %for.body.lr.ph, label %for.cond.cleanup
+  br i1 %cmp3398, label %for.body.lr.ph, label %for.cond.cleanup
 
 for.body.lr.ph:                                   ; preds = %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54
   %reversion_55 = getelementptr inbounds nuw i8, ptr %this, i64 144
@@ -1245,19 +1244,19 @@ for.body.lr.ph:                                   ; preds = %_ZSt11upper_boundIP
   br i1 %loadedv35, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %cond.end50.us
-  %k.0102.us = phi i64 [ %inc.us, %cond.end50.us ], [ %sub.ptr.div94, %for.body.lr.ph ]
-  %v.0101.us = phi double [ %18, %cond.end50.us ], [ 0.000000e+00, %for.body.lr.ph ]
-  %arrayidx.i.us = getelementptr inbounds nuw double, ptr %14, i64 %k.0102.us
+  %k.0100.us = phi i64 [ %inc.us, %cond.end50.us ], [ %sub.ptr.div94, %for.body.lr.ph ]
+  %v.099.us = phi double [ %18, %cond.end50.us ], [ 0.000000e+00, %for.body.lr.ph ]
+  %arrayidx.i.us = getelementptr inbounds nuw double, ptr %14, i64 %k.0100.us
   %15 = load double, ptr %arrayidx.i.us, align 8, !tbaa !60
   %mul40.us = fmul double %15, %15
-  %arrayidx.i56.us = getelementptr inbounds nuw double, ptr %5, i64 %k.0102.us
+  %arrayidx.i56.us = getelementptr double, ptr %5, i64 %k.0100.us
   %16 = load double, ptr %arrayidx.i56.us, align 8, !tbaa !60
-  %cmp44.not.us = icmp eq i64 %k.0102.us, 0
+  %cmp44.not.us = icmp eq i64 %k.0100.us, 0
   br i1 %cmp44.not.us, label %cond.end50.us, label %cond.true45.us
 
 cond.true45.us:                                   ; preds = %for.body.us
-  %gep99.us = getelementptr double, ptr %invariant.gep, i64 %k.0102.us
-  %17 = load double, ptr %gep99.us, align 8, !tbaa !60
+  %arrayidx.i57.us = getelementptr i8, ptr %arrayidx.i56.us, i64 -8
+  %17 = load double, ptr %arrayidx.i57.us, align 8, !tbaa !60
   br label %cond.end50.us
 
 cond.end50.us:                                    ; preds = %cond.true45.us, %for.body.us
@@ -1265,31 +1264,31 @@ cond.end50.us:                                    ; preds = %cond.true45.us, %fo
   %cmp.i58.us = fcmp olt double %cond51.us, %t
   %.sroa.speculated80.us = select i1 %cmp.i58.us, double %t, double %cond51.us
   %sub53.us = fsub double %16, %.sroa.speculated80.us
-  %18 = tail call double @llvm.fmuladd.f64(double %mul40.us, double %sub53.us, double %v.0101.us)
-  %inc.us = add nuw i64 %k.0102.us, 1
-  %exitcond106.not = icmp eq i64 %inc.us, %sub.ptr.div32
-  br i1 %exitcond106.not, label %if.then89, label %for.body.us, !llvm.loop !71
+  %18 = tail call double @llvm.fmuladd.f64(double %mul40.us, double %sub53.us, double %v.099.us)
+  %inc.us = add nuw i64 %k.0100.us, 1
+  %exitcond104.not = icmp eq i64 %inc.us, %sub.ptr.div32
+  br i1 %exitcond104.not, label %if.then89, label %for.body.us, !llvm.loop !71
 
 for.cond.cleanup:                                 ; preds = %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54
   br i1 %loadedv35, label %if.then89, label %if.else108
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end79
-  %k.0102 = phi i64 [ %inc, %cond.end79 ], [ %sub.ptr.div94, %for.body.lr.ph ]
-  %v.0101 = phi double [ %22, %cond.end79 ], [ 0.000000e+00, %for.body.lr.ph ]
-  %arrayidx.i59 = getelementptr inbounds nuw double, ptr %14, i64 %k.0102
+  %k.0100 = phi i64 [ %inc, %cond.end79 ], [ %sub.ptr.div94, %for.body.lr.ph ]
+  %v.099 = phi double [ %22, %cond.end79 ], [ 0.000000e+00, %for.body.lr.ph ]
+  %arrayidx.i59 = getelementptr inbounds nuw double, ptr %14, i64 %k.0100
   %19 = load double, ptr %arrayidx.i59, align 8, !tbaa !60
   %mul60 = fmul double %div57, %19
   %mul63 = fmul double %19, %mul60
-  %arrayidx.i61 = getelementptr inbounds nuw double, ptr %5, i64 %k.0102
+  %arrayidx.i61 = getelementptr double, ptr %5, i64 %k.0100
   %20 = load double, ptr %arrayidx.i61, align 8, !tbaa !60
   %mul68 = fmul double %mul56, %20
   %call69 = tail call double @exp(double noundef %mul68) #27, !tbaa !69
-  %cmp73.not = icmp eq i64 %k.0102, 0
+  %cmp73.not = icmp eq i64 %k.0100, 0
   br i1 %cmp73.not, label %cond.end79, label %cond.true74
 
 cond.true74:                                      ; preds = %for.body
-  %gep = getelementptr double, ptr %invariant.gep, i64 %k.0102
-  %21 = load double, ptr %gep, align 8, !tbaa !60
+  %arrayidx.i62 = getelementptr i8, ptr %arrayidx.i61, i64 -8
+  %21 = load double, ptr %arrayidx.i62, align 8, !tbaa !60
   br label %cond.end79
 
 cond.end79:                                       ; preds = %for.body, %cond.true74
@@ -1299,13 +1298,13 @@ cond.end79:                                       ; preds = %for.body, %cond.tru
   %mul82 = fmul double %mul56, %.sroa.speculated78
   %call83 = tail call double @exp(double noundef %mul82) #27, !tbaa !69
   %sub84 = fsub double %call69, %call83
-  %22 = tail call double @llvm.fmuladd.f64(double %mul63, double %sub84, double %v.0101)
-  %inc = add nuw i64 %k.0102, 1
+  %22 = tail call double @llvm.fmuladd.f64(double %mul63, double %sub84, double %v.099)
+  %inc = add nuw i64 %k.0100, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div32
   br i1 %exitcond.not, label %if.else108, label %for.body, !llvm.loop !73
 
 if.then89:                                        ; preds = %cond.end50.us, %for.cond.cleanup
-  %v.0.lcssa110 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %18, %cond.end50.us ]
+  %v.0.lcssa108 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %18, %cond.end50.us ]
   %vols_90 = getelementptr inbounds nuw i8, ptr %this, i64 168
   %23 = load ptr, ptr %vols_90, align 8, !tbaa !68
   %24 = load ptr, ptr %23, align 8, !tbaa !3
@@ -1325,11 +1324,11 @@ cond.end103:                                      ; preds = %if.then89, %cond.tr
   %cmp.i68 = fcmp olt double %cond104, %t
   %.sroa.speculated76 = select i1 %cmp.i68, double %t, double %cond104
   %sub106 = fsub double %add2597, %.sroa.speculated76
-  %28 = tail call double @llvm.fmuladd.f64(double %mul94, double %sub106, double %v.0.lcssa110)
+  %28 = tail call double @llvm.fmuladd.f64(double %mul94, double %sub106, double %v.0.lcssa108)
   br label %return
 
 if.else108:                                       ; preds = %cond.end79, %for.cond.cleanup
-  %v.0.lcssa114 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %22, %cond.end79 ]
+  %v.0.lcssa112 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %22, %cond.end79 ]
   %reversion_109 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %29 = load double, ptr %reversion_109, align 8, !tbaa !30
   %mul110 = fmul double %29, 2.000000e+00
@@ -1358,7 +1357,7 @@ cond.end132:                                      ; preds = %if.else108, %cond.t
   %mul135 = fmul double %mul110, %.sroa.speculated
   %call136 = tail call double @exp(double noundef %mul135) #27, !tbaa !69
   %sub137 = fsub double %call122, %call136
-  %35 = tail call double @llvm.fmuladd.f64(double %mul117, double %sub137, double %v.0.lcssa114)
+  %35 = tail call double @llvm.fmuladd.f64(double %mul117, double %sub137, double %v.0.lcssa112)
   br label %return
 
 return:                                           ; preds = %cond.end103, %cond.end132, %cond.false, %if.then3, %entry

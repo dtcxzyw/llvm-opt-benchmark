@@ -69,12 +69,12 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
   store i64 %35, ptr %.sroa.324.0..sroa_idx.i.i, align 8
   %37 = load i64, ptr %21, align 8, !noundef !3
   %38 = add i64 %37, 1
-  %.not35.i.i9.not = icmp eq i64 %38, 0
-  br i1 %.not35.i.i9.not, label %._crit_edge, label %.lr.ph
+  %.not35.i.i6.not = icmp eq i64 %38, 0
+  br i1 %.not35.i.i6.not, label %.critedge.i.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %.backedge
-  %.sroa.011.0.i.i10 = phi i64 [ %39, %.backedge ], [ 0, %36 ]
-  %39 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.011.0.i.i10, i64 1)
+  %.sroa.011.0.i.i7 = phi i64 [ %39, %.backedge ], [ 0, %36 ]
+  %39 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.011.0.i.i7, i64 1)
           to label %41 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h47e2a64f65152cb3E.exit", %47, %.noexc
@@ -82,7 +82,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
           cleanup
   br label %40
 
-.loopexit.split-lp:                               ; preds = %._crit_edge
+.loopexit.split-lp:                               ; preds = %.critedge.i.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %40
@@ -94,25 +94,25 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
 
 41:                                               ; preds = %.lr.ph
   %42 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %43 = getelementptr inbounds i8, ptr %42, i64 %.sroa.011.0.i.i10
+  %43 = getelementptr inbounds i8, ptr %42, i64 %.sroa.011.0.i.i7
   %44 = load i8, ptr %43, align 1, !noundef !3
   %45 = icmp sgt i8 %44, -1
   br i1 %45, label %47, label %.backedge
 
 .backedge:                                        ; preds = %41, %53
   %.not35.i.i = icmp ult i64 %39, %38
-  br i1 %.not35.i.i, label %.lr.ph, label %._crit_edge
+  br i1 %.not35.i.i, label %.lr.ph, label %.critedge.i.i
 
-._crit_edge:                                      ; preds = %.backedge, %36
+.critedge.i.i:                                    ; preds = %.backedge, %36
   invoke void @_ZN4core3ptr19swap_nonoverlapping17hd66f62572713d438E(ptr nonnull align 8 %0, ptr nonnull %7, i64 1)
           to label %46 unwind label %.loopexit.split-lp
 
-46:                                               ; preds = %._crit_edge
+46:                                               ; preds = %.critedge.i.i
   call void @"_ZN4core3ptr284drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$LT$hashbrown..raw..inner..alloc..inner..Global$GT$$C$hashbrown..raw..inner..RawTableInner$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..prepare_resize..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9e5b3658ebc1b060E"(ptr nonnull align 8 %7)
   br label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$12resize_inner17h758bce2d283e1a67E.exit.i"
 
 47:                                               ; preds = %41
-  %48 = invoke ptr @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$6bucket17h65edd221893d2d5cE"(ptr nonnull align 8 %0, i64 %.sroa.011.0.i.i10)
+  %48 = invoke ptr @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$6bucket17h65edd221893d2d5cE"(ptr nonnull align 8 %0, i64 %.sroa.011.0.i.i7)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %47
@@ -129,7 +129,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
 53:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h47e2a64f65152cb3E.exit"
   %54 = extractvalue { i64, i8 } %52, 0
   %55 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %56 = shl i64 %.sroa.011.0.i.i10, 3
+  %56 = shl i64 %.sroa.011.0.i.i7, 3
   %57 = sub nuw nsw i64 -8, %56
   %58 = getelementptr inbounds i8, ptr %55, i64 %57
   %59 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
@@ -228,12 +228,12 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
   store i64 %35, ptr %.sroa.324.0..sroa_idx.i.i, align 8
   %37 = load i64, ptr %21, align 8, !noundef !3
   %38 = add i64 %37, 1
-  %.not35.i.i9.not = icmp eq i64 %38, 0
-  br i1 %.not35.i.i9.not, label %._crit_edge, label %.lr.ph
+  %.not35.i.i6.not = icmp eq i64 %38, 0
+  br i1 %.not35.i.i6.not, label %.critedge.i.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %.backedge
-  %.sroa.011.0.i.i10 = phi i64 [ %39, %.backedge ], [ 0, %36 ]
-  %39 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.011.0.i.i10, i64 1)
+  %.sroa.011.0.i.i7 = phi i64 [ %39, %.backedge ], [ 0, %36 ]
+  %39 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.011.0.i.i7, i64 1)
           to label %41 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h997efc6061635962E.exit", %47, %.noexc
@@ -241,7 +241,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
           cleanup
   br label %40
 
-.loopexit.split-lp:                               ; preds = %._crit_edge
+.loopexit.split-lp:                               ; preds = %.critedge.i.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %40
@@ -253,25 +253,25 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
 
 41:                                               ; preds = %.lr.ph
   %42 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %43 = getelementptr inbounds i8, ptr %42, i64 %.sroa.011.0.i.i10
+  %43 = getelementptr inbounds i8, ptr %42, i64 %.sroa.011.0.i.i7
   %44 = load i8, ptr %43, align 1, !noundef !3
   %45 = icmp sgt i8 %44, -1
   br i1 %45, label %47, label %.backedge
 
 .backedge:                                        ; preds = %41, %53
   %.not35.i.i = icmp ult i64 %39, %38
-  br i1 %.not35.i.i, label %.lr.ph, label %._crit_edge
+  br i1 %.not35.i.i, label %.lr.ph, label %.critedge.i.i
 
-._crit_edge:                                      ; preds = %.backedge, %36
+.critedge.i.i:                                    ; preds = %.backedge, %36
   invoke void @_ZN4core3ptr19swap_nonoverlapping17hd66f62572713d438E(ptr nonnull align 8 %0, ptr nonnull %7, i64 1)
           to label %46 unwind label %.loopexit.split-lp
 
-46:                                               ; preds = %._crit_edge
+46:                                               ; preds = %.critedge.i.i
   call void @"_ZN4core3ptr284drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$LT$hashbrown..raw..inner..alloc..inner..Global$GT$$C$hashbrown..raw..inner..RawTableInner$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..prepare_resize..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9e5b3658ebc1b060E"(ptr nonnull align 8 %7)
   br label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$12resize_inner17h758bce2d283e1a67E.exit.i"
 
 47:                                               ; preds = %41
-  %48 = invoke ptr @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$6bucket17h65edd221893d2d5cE"(ptr nonnull align 8 %0, i64 %.sroa.011.0.i.i10)
+  %48 = invoke ptr @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$6bucket17h65edd221893d2d5cE"(ptr nonnull align 8 %0, i64 %.sroa.011.0.i.i7)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %47
@@ -288,7 +288,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
 53:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h997efc6061635962E.exit"
   %54 = extractvalue { i64, i8 } %52, 0
   %55 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %56 = shl i64 %.sroa.011.0.i.i10, 3
+  %56 = shl i64 %.sroa.011.0.i.i7, 3
   %57 = sub nuw nsw i64 -8, %56
   %58 = getelementptr inbounds i8, ptr %55, i64 %57
   %59 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
@@ -387,12 +387,12 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
   store i64 %35, ptr %.sroa.324.0..sroa_idx.i.i, align 8
   %37 = load i64, ptr %21, align 8, !noundef !3
   %38 = add i64 %37, 1
-  %.not35.i.i9.not = icmp eq i64 %38, 0
-  br i1 %.not35.i.i9.not, label %._crit_edge, label %.lr.ph
+  %.not35.i.i6.not = icmp eq i64 %38, 0
+  br i1 %.not35.i.i6.not, label %.critedge.i.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %.backedge
-  %.sroa.011.0.i.i10 = phi i64 [ %39, %.backedge ], [ 0, %36 ]
-  %39 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.011.0.i.i10, i64 1)
+  %.sroa.011.0.i.i7 = phi i64 [ %39, %.backedge ], [ 0, %36 ]
+  %39 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.011.0.i.i7, i64 1)
           to label %41 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h3ac30de6b6fec082E.exit", %47, %.noexc
@@ -400,7 +400,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
           cleanup
   br label %40
 
-.loopexit.split-lp:                               ; preds = %._crit_edge
+.loopexit.split-lp:                               ; preds = %.critedge.i.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %40
@@ -412,25 +412,25 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
 
 41:                                               ; preds = %.lr.ph
   %42 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %43 = getelementptr inbounds i8, ptr %42, i64 %.sroa.011.0.i.i10
+  %43 = getelementptr inbounds i8, ptr %42, i64 %.sroa.011.0.i.i7
   %44 = load i8, ptr %43, align 1, !noundef !3
   %45 = icmp sgt i8 %44, -1
   br i1 %45, label %47, label %.backedge
 
 .backedge:                                        ; preds = %41, %53
   %.not35.i.i = icmp ult i64 %39, %38
-  br i1 %.not35.i.i, label %.lr.ph, label %._crit_edge
+  br i1 %.not35.i.i, label %.lr.ph, label %.critedge.i.i
 
-._crit_edge:                                      ; preds = %.backedge, %36
+.critedge.i.i:                                    ; preds = %.backedge, %36
   invoke void @_ZN4core3ptr19swap_nonoverlapping17hd66f62572713d438E(ptr nonnull align 8 %0, ptr nonnull %7, i64 1)
           to label %46 unwind label %.loopexit.split-lp
 
-46:                                               ; preds = %._crit_edge
+46:                                               ; preds = %.critedge.i.i
   call void @"_ZN4core3ptr284drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$LT$hashbrown..raw..inner..alloc..inner..Global$GT$$C$hashbrown..raw..inner..RawTableInner$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..prepare_resize..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9e5b3658ebc1b060E"(ptr nonnull align 8 %7)
   br label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$12resize_inner17h758bce2d283e1a67E.exit.i"
 
 47:                                               ; preds = %41
-  %48 = invoke ptr @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$6bucket17h65edd221893d2d5cE"(ptr nonnull align 8 %0, i64 %.sroa.011.0.i.i10)
+  %48 = invoke ptr @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$6bucket17h65edd221893d2d5cE"(ptr nonnull align 8 %0, i64 %.sroa.011.0.i.i7)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %47
@@ -447,7 +447,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
 53:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h3ac30de6b6fec082E.exit"
   %54 = extractvalue { i64, i8 } %52, 0
   %55 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %56 = shl i64 %.sroa.011.0.i.i10, 3
+  %56 = shl i64 %.sroa.011.0.i.i7, 3
   %57 = sub nuw nsw i64 -8, %56
   %58 = getelementptr inbounds i8, ptr %55, i64 %57
   %59 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3

@@ -1498,12 +1498,12 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = icmp ult i32 %11, 6
   %or.cond.i = and i1 %9, %14
-  br i1 %or.cond.i, label %53, label %15
+  br i1 %or.cond.i, label %49, label %15
 
 15:                                               ; preds = %4
   switch i32 %11, label %26 [
     i32 155, label %25
-    i32 34, label %53
+    i32 34, label %49
     i32 40, label %16
     i32 54, label %17
     i32 27, label %27
@@ -1522,10 +1522,10 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   ]
 
 16:                                               ; preds = %15
-  br label %53
+  br label %49
 
 17:                                               ; preds = %15
-  br label %53
+  br label %49
 
 18:                                               ; preds = %15
   br label %27
@@ -1552,7 +1552,7 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   br label %27
 
 26:                                               ; preds = %15
-  br label %53
+  br label %49
 
 27:                                               ; preds = %15, %25, %24, %23, %22, %21, %20, %19, %18
   %.sink33.i.ph = phi i32 [ 51, %18 ], [ 51, %19 ], [ 51, %20 ], [ 50, %21 ], [ 50, %22 ], [ 49, %23 ], [ 49, %24 ], [ 49, %25 ], [ 51, %15 ]
@@ -1569,8 +1569,8 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   %33 = load i32, ptr %32, align 4
   switch i32 %.val, label %.thread [
     i32 49, label %34
-    i32 50, label %39
-    i32 51, label %41
+    i32 50, label %47
+    i32 51, label %.thread.critedge
   ]
 
 34:                                               ; preds = %27
@@ -1578,42 +1578,43 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   %36 = shl i32 %33, 3
   %37 = add nuw nsw i32 %35, 2
   %38 = add i32 %37, %36
-  br label %41
-
-39:                                               ; preds = %27
-  %40 = select i1 %9, i32 37, i32 28
-  br label %41
-
-41:                                               ; preds = %27, %39, %34
-  %42 = phi i1 [ false, %27 ], [ false, %39 ], [ true, %34 ]
-  %.sroa.0.0.i.ph = phi i32 [ 31, %27 ], [ %40, %39 ], [ %35, %34 ]
-  %.sroa.8.0.i.ph = phi i32 [ 0, %27 ], [ 0, %39 ], [ %38, %34 ]
-  %43 = shl i32 %33, 3
-  %44 = or disjoint i32 %43, 2
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 1, ptr %45, align 4
-  %46 = call fastcc ptr @get_egprs_data_block(ptr noundef %1, i32 noundef %.sroa.0.0.i.ph, i32 noundef %44, ptr noundef %2)
-  %47 = load ptr, ptr %28, align 8
-  %48 = call i32 @call_dissector_with_data(ptr noundef %47, ptr noundef %46, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
-  br i1 %42, label %49, label %.thread
-
-49:                                               ; preds = %41
-  store i32 2, ptr %45, align 4
-  %50 = call fastcc ptr @get_egprs_data_block(ptr noundef %1, i32 noundef %.sroa.8.0.i.ph, i32 noundef %44, ptr noundef %2)
-  %51 = load ptr, ptr %28, align 8
-  %52 = call i32 @call_dissector_with_data(ptr noundef %51, ptr noundef %50, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %39 = or disjoint i32 %36, 2
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 1, ptr %40, align 4
+  %41 = call fastcc ptr @get_egprs_data_block(ptr noundef %1, i32 noundef %35, i32 noundef %39, ptr noundef %2)
+  %42 = load ptr, ptr %28, align 8
+  %43 = call i32 @call_dissector_with_data(ptr noundef %42, ptr noundef %41, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  store i32 2, ptr %40, align 4
+  %44 = call fastcc ptr @get_egprs_data_block(ptr noundef %1, i32 noundef %38, i32 noundef %39, ptr noundef %2)
+  %45 = load ptr, ptr %28, align 8
+  %46 = call i32 @call_dissector_with_data(ptr noundef %45, ptr noundef %44, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   br label %.thread
 
-53:                                               ; preds = %26, %17, %16, %15, %4
+47:                                               ; preds = %27
+  %48 = select i1 %9, i32 37, i32 28
+  br label %.thread.critedge
+
+49:                                               ; preds = %26, %17, %16, %15, %4
   %.sink33.i = phi i32 [ 33, %26 ], [ 36, %17 ], [ 35, %16 ], [ 32, %4 ], [ %11, %15 ]
   store i32 %.sink33.i, ptr %12, align 4
   store i8 0, ptr %13, align 4
-  %54 = getelementptr [31 x ptr], ptr @sub_handles, i64 0, i64 %.
-  %55 = load ptr, ptr %54, align 8
-  %56 = call i32 @call_dissector_with_data(ptr noundef %55, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %50 = getelementptr [31 x ptr], ptr @sub_handles, i64 0, i64 %.
+  %51 = load ptr, ptr %50, align 8
+  %52 = call i32 @call_dissector_with_data(ptr noundef %51, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   br label %.thread
 
-.thread:                                          ; preds = %27, %41, %49, %53
+.thread.critedge:                                 ; preds = %47, %27
+  %.sroa.0.0.i.ph.ph = phi i32 [ %48, %47 ], [ 31, %27 ]
+  %53 = shl i32 %33, 3
+  %54 = or disjoint i32 %53, 2
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 1, ptr %55, align 4
+  %56 = call fastcc ptr @get_egprs_data_block(ptr noundef %1, i32 noundef %.sroa.0.0.i.ph.ph, i32 noundef %54, ptr noundef %2)
+  %57 = load ptr, ptr %28, align 8
+  %58 = call i32 @call_dissector_with_data(ptr noundef %57, ptr noundef %56, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  br label %.thread
+
+.thread:                                          ; preds = %.thread.critedge, %27, %34, %49
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #7
   ret void
 }

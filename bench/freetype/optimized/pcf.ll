@@ -141,11 +141,11 @@ define internal i32 @PCF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %35 = icmp ne ptr %32, null
   %36 = icmp ne ptr %34, null
   %or.cond = select i1 %35, i1 %36, i1 false
-  br i1 %or.cond, label %37, label %.thread97
+  br i1 %or.cond, label %37, label %.critedge
 
 37:                                               ; preds = %30
   %38 = load i8, ptr %32, align 1, !tbaa !38
-  switch i8 %38, label %.thread97 [
+  switch i8 %38, label %.critedge [
     i8 105, label %39
     i8 73, label %39
   ]
@@ -153,7 +153,7 @@ define internal i32 @PCF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 39:                                               ; preds = %37, %37
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !38
-  switch i8 %41, label %.thread97 [
+  switch i8 %41, label %.critedge [
     i8 115, label %42
     i8 83, label %42
   ]
@@ -161,7 +161,7 @@ define internal i32 @PCF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 42:                                               ; preds = %39, %39
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %44 = load i8, ptr %43, align 1, !tbaa !38
-  switch i8 %44, label %.thread97 [
+  switch i8 %44, label %.critedge [
     i8 111, label %45
     i8 79, label %45
   ]
@@ -170,7 +170,7 @@ define internal i32 @PCF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 3
   %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(6) @.str.5) #16
   %.not81 = icmp eq i32 %47, 0
-  br i1 %.not81, label %.thread100, label %48
+  br i1 %.not81, label %.thread97, label %48
 
 48:                                               ; preds = %45
   %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(5) @.str.6) #16
@@ -179,57 +179,57 @@ define internal i32 @PCF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 sub_0:                                            ; preds = %48
   %50 = load i8, ptr %34, align 1
-  %.not103 = icmp eq i8 %50, 49
-  br i1 %.not103, label %.tail, label %.tail.thread
+  %.not100 = icmp eq i8 %50, 49
+  br i1 %.not100, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %.thread100, label %.tail.thread
+  br i1 %53, label %.thread97, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail, %48
   %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(9) @.str.8) #16
   %.not84 = icmp eq i32 %54, 0
-  br i1 %.not84, label %59, label %.thread97
+  br i1 %.not84, label %58, label %.critedge
 
-.thread97:                                        ; preds = %30, %.tail.thread, %37, %39, %42
+.thread97:                                        ; preds = %.tail, %45
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
   store ptr %1, ptr %6, align 8, !tbaa !39
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 14
   store i64 0, ptr %55, align 8
-  br label %68
+  br label %63
 
-.thread100:                                       ; preds = %.tail, %45
+58:                                               ; preds = %.tail.thread
+  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(4) @.str.9) #16
+  %.not85.not = icmp eq i32 %59, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
   store ptr %1, ptr %6, align 8, !tbaa !39
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 14
-  store i64 0, ptr %56, align 8
-  br label %64
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 14
+  store i64 0, ptr %60, align 8
+  br i1 %.not85.not, label %63, label %68
 
-59:                                               ; preds = %.tail.thread
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(4) @.str.9) #16
-  %.not85.not = icmp eq i32 %60, 0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
-  store ptr %1, ptr %6, align 8, !tbaa !39
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 14
-  store i64 0, ptr %61, align 8
-  br i1 %.not85.not, label %64, label %68
-
-64:                                               ; preds = %.thread100, %59
-  %65 = phi ptr [ %58, %.thread100 ], [ %63, %59 ]
-  %66 = phi ptr [ %57, %.thread100 ], [ %62, %59 ]
-  %67 = phi ptr [ %56, %.thread100 ], [ %61, %59 ]
-  store i32 1970170211, ptr %67, align 8, !tbaa !42
-  store i16 3, ptr %66, align 4, !tbaa !43
-  store i16 1, ptr %65, align 2, !tbaa !44
+63:                                               ; preds = %.thread97, %58
+  %64 = phi ptr [ %57, %.thread97 ], [ %62, %58 ]
+  %65 = phi ptr [ %56, %.thread97 ], [ %61, %58 ]
+  %66 = phi ptr [ %55, %.thread97 ], [ %60, %58 ]
+  store i32 1970170211, ptr %66, align 8, !tbaa !42
+  store i16 3, ptr %65, align 4, !tbaa !43
+  store i16 1, ptr %64, align 2, !tbaa !44
   br label %68
 
-68:                                               ; preds = %.thread97, %64, %59
+.critedge:                                        ; preds = %42, %39, %37, %.tail.thread, %30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  store ptr %1, ptr %6, align 8, !tbaa !39
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 0, ptr %67, align 8
+  br label %68
+
+68:                                               ; preds = %.critedge, %63, %58
   %69 = call i32 @FT_CMap_New(ptr noundef nonnull @pcf_cmap_class, ptr noundef null, ptr noundef nonnull %6, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
   br label %71

@@ -70,63 +70,63 @@ _ZL10div_nstepsii.exit102:                        ; preds = %_ZL10div_nstepsii.e
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph, %_ZL10div_nstepsii.exit102
   %.184.lcssa = phi i32 [ 0, %_ZL10div_nstepsii.exit102 ], [ %1, %.lr.ph ], [ %spec.select129, %.lr.ph.split ]
   %38 = sitofp i32 %.184.lcssa to double
-  %39 = sitofp i32 %31 to double
+  %39 = tail call double @llvm.fmuladd.f64(double %38, double 5.000000e+00, double 5.600000e+01)
+  %40 = sitofp i32 %31 to double
   br label %_ZL10div_nstepsii.exit102.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %.184126 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %spec.select129, %.lr.ph.split ]
-  %40 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv
-  %41 = load i8, ptr %40, align 1, !tbaa !108
-  %42 = icmp eq i8 %41, 0
-  %43 = zext i1 %42 to i32
-  %spec.select129 = add nuw nsw i32 %.184126, %43
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv
+  %42 = load i8, ptr %41, align 1, !tbaa !108
+  %43 = icmp eq i8 %42, 0
+  %44 = zext i1 %43 to i32
+  %spec.select129 = add nuw nsw i32 %.184126, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !109
 
 _ZL10div_nstepsii.exit102.thread:                 ; preds = %_ZL10div_nstepsii.exit100, %._crit_edge
-  %.0.i101121 = phi double [ %39, %._crit_edge ], [ 0.000000e+00, %_ZL10div_nstepsii.exit100 ]
-  %.083 = phi double [ %38, %._crit_edge ], [ 0.000000e+00, %_ZL10div_nstepsii.exit100 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %45 = load i32, ptr %44, align 4, !tbaa !111
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %47, label %_ZL10div_nstepsii.exit104
+  %.0.i101121 = phi double [ %40, %._crit_edge ], [ 0.000000e+00, %_ZL10div_nstepsii.exit100 ]
+  %.083 = phi double [ %39, %._crit_edge ], [ 5.600000e+01, %_ZL10div_nstepsii.exit100 ]
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %46 = load i32, ptr %45, align 4, !tbaa !111
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %48, label %_ZL10div_nstepsii.exit104
 
-47:                                               ; preds = %_ZL10div_nstepsii.exit102.thread
-  %48 = add i32 %45, %8
-  %49 = sdiv i32 %48, %45
-  %50 = sitofp i32 %49 to double
+48:                                               ; preds = %_ZL10div_nstepsii.exit102.thread
+  %49 = add i32 %46, %8
+  %50 = sdiv i32 %49, %46
+  %51 = sitofp i32 %50 to double
   br label %_ZL10div_nstepsii.exit104
 
-_ZL10div_nstepsii.exit104:                        ; preds = %_ZL10div_nstepsii.exit102.thread, %47
-  %.0.i103 = phi double [ %50, %47 ], [ 0.000000e+00, %_ZL10div_nstepsii.exit102.thread ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %52 = load i32, ptr %51, align 4, !tbaa !112
-  %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %54, label %_ZL10div_nstepsii.exit106
+_ZL10div_nstepsii.exit104:                        ; preds = %_ZL10div_nstepsii.exit102.thread, %48
+  %.0.i103 = phi double [ %51, %48 ], [ 0.000000e+00, %_ZL10div_nstepsii.exit102.thread ]
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %53 = load i32, ptr %52, align 4, !tbaa !112
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %55, label %_ZL10div_nstepsii.exit106
 
-54:                                               ; preds = %_ZL10div_nstepsii.exit104
-  %55 = add nsw i32 %8, 2
-  %56 = add i32 %55, %52
-  %57 = sdiv i32 %56, %52
-  %58 = sitofp i32 %57 to double
+55:                                               ; preds = %_ZL10div_nstepsii.exit104
+  %56 = add nsw i32 %8, 2
+  %57 = add i32 %56, %53
+  %58 = sdiv i32 %57, %53
+  %59 = sitofp i32 %58 to double
   br label %_ZL10div_nstepsii.exit106
 
-_ZL10div_nstepsii.exit106:                        ; preds = %_ZL10div_nstepsii.exit104, %54
-  %.0.i105 = phi double [ %58, %54 ], [ 0.000000e+00, %_ZL10div_nstepsii.exit104 ]
-  %59 = mul nsw i32 %1, 80
-  %60 = sitofp i32 %59 to double
-  %61 = add i32 %.0.i97, %.0.i
-  %62 = add i32 %61, %.0.i99
-  %63 = sext i32 %62 to i64
-  %64 = shl nsw i64 %63, 2
-  %65 = uitofp i64 %64 to double
-  %66 = sitofp i32 %1 to double
-  %67 = fmul double %66, 3.000000e+00
-  %68 = tail call double @llvm.fmuladd.f64(double %65, double %67, double %60)
-  %69 = tail call double @llvm.fmuladd.f64(double %.083, double 5.000000e+00, double 5.600000e+01)
-  %70 = tail call double @llvm.fmuladd.f64(double %.0.i101121, double %69, double %68)
+_ZL10div_nstepsii.exit106:                        ; preds = %_ZL10div_nstepsii.exit104, %55
+  %.0.i105 = phi double [ %59, %55 ], [ 0.000000e+00, %_ZL10div_nstepsii.exit104 ]
+  %60 = mul nsw i32 %1, 80
+  %61 = sitofp i32 %60 to double
+  %62 = add i32 %.0.i97, %.0.i
+  %63 = add i32 %62, %.0.i99
+  %64 = sext i32 %63 to i64
+  %65 = shl nsw i64 %64, 2
+  %66 = uitofp i64 %65 to double
+  %67 = sitofp i32 %1 to double
+  %68 = fmul double %67, 3.000000e+00
+  %69 = tail call double @llvm.fmuladd.f64(double %66, double %68, double %61)
+  %70 = tail call double @llvm.fmuladd.f64(double %.0.i101121, double %.083, double %69)
   %71 = shl nsw i32 %3, 4
   %72 = sitofp i32 %71 to double
   %73 = fmul double %72, 2.000000e+00
@@ -228,11 +228,11 @@ _ZL10div_nstepsii.exit110:                        ; preds = %119
   br label %150
 
 139:                                              ; preds = %119
-  br i1 %53, label %140, label %_ZL10div_nstepsii.exit112
+  br i1 %54, label %140, label %_ZL10div_nstepsii.exit112
 
 140:                                              ; preds = %139
-  %141 = add i32 %52, %8
-  %142 = sdiv i32 %141, %52
+  %141 = add i32 %53, %8
+  %142 = sdiv i32 %141, %53
   %143 = sext i32 %142 to i64
   %144 = shl nsw i64 %143, 2
   br label %_ZL10div_nstepsii.exit112

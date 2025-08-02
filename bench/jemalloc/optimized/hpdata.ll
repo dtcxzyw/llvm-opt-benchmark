@@ -2232,11 +2232,10 @@ fb_bit_not.exit:                                  ; preds = %6
 fb_bit_and.exit:                                  ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
-  %invariant.gep = getelementptr i8, ptr %1, i64 24
   br label %21
 
-21:                                               ; preds = %fb_bit_and.exit, %99
-  %.054 = phi i64 [ 0, %fb_bit_and.exit ], [ %100, %99 ]
+21:                                               ; preds = %fb_bit_and.exit, %100
+  %.054 = phi i64 [ 0, %fb_bit_and.exit ], [ %101, %100 ]
   %22 = lshr i64 %.054, 6
   %23 = and i64 %.054, 63
   %24 = getelementptr inbounds nuw i64, ptr %3, i64 %22
@@ -2352,52 +2351,53 @@ fb_fls.exit:                                      ; preds = %.lr.ph.i40, %._crit
 
 fb_assign_visitor.exit.preheader.i:               ; preds = %fb_fls.exit
   %83 = shl nuw nsw i64 %38, 3
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %83
-  %84 = add i64 %71, -65
+  %84 = getelementptr i8, ptr %20, i64 %83
+  %scevgep.i = getelementptr i8, ptr %84, i64 8
+  %85 = add i64 %71, -65
   %umin.i = tail call i64 @llvm.umin.i64(i64 %71, i64 64)
-  %85 = sub i64 %84, %umin.i
-  %86 = lshr i64 %85, 6
-  %87 = shl nuw nsw i64 %86, 3
-  %88 = add nuw nsw i64 %87, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %gep, i8 -1, i64 %88, i1 false), !tbaa !32
-  %89 = and i64 %85, -64
+  %86 = sub i64 %85, %umin.i
+  %87 = lshr i64 %86, 6
+  %88 = shl nuw nsw i64 %87, 3
+  %89 = add nuw nsw i64 %88, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 -1, i64 %89, i1 false), !tbaa !32
+  %90 = and i64 %86, -64
   %.neg47 = add i64 %71, -64
-  %90 = add i64 %umin.i, %89
-  %91 = sub i64 %.neg47, %90
-  %92 = add nuw nsw i64 %38, 2
-  %93 = add nuw nsw i64 %92, %86
+  %91 = add i64 %umin.i, %90
+  %92 = sub i64 %.neg47, %91
+  %93 = add nuw nsw i64 %38, 2
+  %94 = add nuw nsw i64 %93, %87
   br label %._crit_edge.i42
 
 ._crit_edge.i42:                                  ; preds = %fb_assign_visitor.exit.preheader.i, %fb_fls.exit
-  %.0.i.lcssa.i = phi i64 [ %81, %fb_fls.exit ], [ %91, %fb_assign_visitor.exit.preheader.i ]
-  %.029.i.lcssa.i = phi i64 [ %.029.i9.i, %fb_fls.exit ], [ %93, %fb_assign_visitor.exit.preheader.i ]
+  %.0.i.lcssa.i = phi i64 [ %81, %fb_fls.exit ], [ %92, %fb_assign_visitor.exit.preheader.i ]
+  %.029.i.lcssa.i = phi i64 [ %.029.i9.i, %fb_fls.exit ], [ %94, %fb_assign_visitor.exit.preheader.i ]
   %.not.i.i = icmp eq i64 %.0.i.lcssa.i, 0
-  br i1 %.not.i.i, label %99, label %fb_assign_visitor.exit4.i
+  br i1 %.not.i.i, label %100, label %fb_assign_visitor.exit4.i
 
 fb_assign_visitor.exit4.i:                        ; preds = %._crit_edge.i42
-  %94 = sub nuw nsw i64 64, %.0.i.lcssa.i
-  %95 = lshr i64 -1, %94
-  %96 = getelementptr inbounds nuw i64, ptr %20, i64 %.029.i.lcssa.i
-  %97 = load i64, ptr %96, align 8, !tbaa !32
-  %98 = or i64 %97, %95
-  store i64 %98, ptr %96, align 8, !tbaa !32
-  br label %99
+  %95 = sub nuw nsw i64 64, %.0.i.lcssa.i
+  %96 = lshr i64 -1, %95
+  %97 = getelementptr inbounds nuw i64, ptr %20, i64 %.029.i.lcssa.i
+  %98 = load i64, ptr %97, align 8, !tbaa !32
+  %99 = or i64 %98, %96
+  store i64 %99, ptr %97, align 8, !tbaa !32
+  br label %100
 
-99:                                               ; preds = %fb_assign_visitor.exit4.i, %._crit_edge.i42
-  %100 = add i64 %.0.i.i31, 1
-  %101 = icmp ult i64 %100, 512
-  br i1 %101, label %21, label %.thread
+100:                                              ; preds = %fb_assign_visitor.exit4.i, %._crit_edge.i42
+  %101 = add i64 %.0.i.i31, 1
+  %102 = icmp ult i64 %101, 512
+  br i1 %102, label %21, label %.thread
 
-.thread:                                          ; preds = %fb_ffs.exit, %99, %.lr.ph.i
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %103 = load i64, ptr %102, align 8, !tbaa !36
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %105 = load i64, ptr %104, align 8, !tbaa !34
-  %106 = sub i64 %103, %105
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %106, ptr %107, align 8, !tbaa !42
+.thread:                                          ; preds = %fb_ffs.exit, %100, %.lr.ph.i
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %104 = load i64, ptr %103, align 8, !tbaa !36
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %106 = load i64, ptr %105, align 8, !tbaa !34
+  %107 = sub i64 %104, %106
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %107, ptr %108, align 8, !tbaa !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
-  ret i64 %106
+  ret i64 %107
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

@@ -727,14 +727,14 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
 48:                                               ; preds = %.preheader
   %49 = add nuw nsw i64 %44, 1
   %50 = icmp eq i64 %49, 5
-  br i1 %50, label %.thread, label %.preheader, !llvm.loop !16
+  br i1 %50, label %.critedge, label %.preheader, !llvm.loop !16
 
 51:                                               ; preds = %.preheader
   %52 = and i64 %44, 4294967295
   %53 = icmp eq i64 %52, 5
-  br i1 %53, label %.thread, label %54
+  br i1 %53, label %.critedge, label %54
 
-.thread:                                          ; preds = %48, %51
+.critedge:                                        ; preds = %48, %51
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %38, ptr noundef nonnull @.str.26, i32 noundef %37) #7
   br label %87
 
@@ -781,8 +781,8 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
   %86 = call i32 @pci_write_config_dword(ptr noundef nonnull %41, i32 noundef 220, i32 noundef %81) #6
   br label %87
 
-87:                                               ; preds = %70, %69, %.thread
-  %88 = phi i32 [ -19, %.thread ], [ -19, %69 ], [ 0, %70 ]
+87:                                               ; preds = %70, %69, %.critedge
+  %88 = phi i32 [ -19, %.critedge ], [ -19, %69 ], [ 0, %70 ]
   call void @pci_dev_put(ptr noundef nonnull %41) #6
   br label %89
 

@@ -925,34 +925,34 @@ define noundef zeroext i1 @_ZNK3zmq6trie_t12is_redundantEv(ptr noundef nonnull r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3zmq6trie_t5checkEPKhm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #15 align 2 {
   %4 = load i32, ptr %0, align 8, !tbaa !3
-  %.not37 = icmp ne i32 %4, 0
-  %.not3038 = icmp eq i64 %2, 0
-  %or.cond39 = or i1 %.not37, %.not3038
-  br i1 %or.cond39, label %.thread, label %.lr.ph
+  %.not33 = icmp ne i32 %4, 0
+  %.not3034 = icmp eq i64 %2, 0
+  %or.cond35 = or i1 %.not33, %.not3034
+  br i1 %or.cond35, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %25
-  %.01942 = phi ptr [ %.221, %25 ], [ %0, %3 ]
-  %.02241 = phi i64 [ %27, %25 ], [ %2, %3 ]
-  %.02440 = phi ptr [ %26, %25 ], [ %1, %3 ]
-  %5 = load i8, ptr %.02440, align 1, !tbaa !12
+  %.01938 = phi ptr [ %.221, %25 ], [ %0, %3 ]
+  %.02237 = phi i64 [ %27, %25 ], [ %2, %3 ]
+  %.02436 = phi ptr [ %26, %25 ], [ %1, %3 ]
+  %5 = load i8, ptr %.02436, align 1, !tbaa !12
   %6 = zext i8 %5 to i32
-  %7 = getelementptr inbounds nuw i8, ptr %.01942, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.01938, i64 4
   %8 = load i8, ptr %7, align 4, !tbaa !9
   %9 = zext i8 %8 to i32
   %10 = icmp ult i8 %5, %8
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.01942, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %.01938, i64 6
   %13 = load i16, ptr %12, align 2, !tbaa !10
   %14 = zext i16 %13 to i32
   %15 = add nuw nsw i32 %14, %9
   %.not31 = icmp samesign ugt i32 %15, %6
-  br i1 %.not31, label %16, label %.thread
+  br i1 %.not31, label %16, label %.critedge
 
 16:                                               ; preds = %11
   %17 = icmp eq i16 %13, 1
-  %18 = getelementptr inbounds nuw i8, ptr %.01942, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.01938, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !12
   br i1 %17, label %25, label %20
 
@@ -962,20 +962,20 @@ define noundef zeroext i1 @_ZNK3zmq6trie_t5checkEPKhm(ptr noundef nonnull readon
   %23 = getelementptr inbounds ptr, ptr %19, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !17
   %.not32 = icmp eq ptr %24, null
-  br i1 %.not32, label %.thread, label %25
+  br i1 %.not32, label %.critedge, label %25
 
 25:                                               ; preds = %16, %20
   %.221 = phi ptr [ %24, %20 ], [ %19, %16 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.02440, i64 1
-  %27 = add i64 %.02241, -1
+  %26 = getelementptr inbounds nuw i8, ptr %.02436, i64 1
+  %27 = add i64 %.02237, -1
   %28 = load i32, ptr %.221, align 8, !tbaa !3
   %.not = icmp ne i32 %28, 0
   %.not30 = icmp eq i64 %27, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not30
-  br i1 %or.cond, label %.thread, label %.lr.ph, !llvm.loop !28
+  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !28
 
-.thread:                                          ; preds = %25, %11, %.lr.ph, %20, %3
-  %.not.lcssa = phi i1 [ %.not37, %3 ], [ false, %20 ], [ false, %.lr.ph ], [ false, %11 ], [ %.not, %25 ]
+.critedge:                                        ; preds = %25, %20, %.lr.ph, %11, %3
+  %.not.lcssa = phi i1 [ %.not33, %3 ], [ false, %11 ], [ false, %.lr.ph ], [ false, %20 ], [ %.not, %25 ]
   ret i1 %.not.lcssa
 }
 

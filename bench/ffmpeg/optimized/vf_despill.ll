@@ -245,14 +245,14 @@ define internal noundef i32 @config_output(ptr noundef readonly captures(none) %
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !57
   %7 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %6) #8
-  %8 = getelementptr i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %10
 
 10:                                               ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %11 = getelementptr i8, ptr %8, i64 %.idx
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = load i32, ptr %11, align 4, !tbaa !58
   %13 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %12, ptr %13, align 4, !tbaa !38

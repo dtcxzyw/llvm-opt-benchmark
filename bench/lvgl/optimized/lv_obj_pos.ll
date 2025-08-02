@@ -3620,8 +3620,8 @@ lv_obj_transform_point_array.exit:                ; preds = %63
 
 is_transformed.exit:                              ; preds = %41, %lv_obj_transform_point_array.exit
   %84 = call ptr @lv_obj_get_parent(ptr noundef %0) #8
-  %.not4564 = icmp eq ptr %84, null
-  br i1 %.not4564, label %.loopexit, label %.lr.ph
+  %.not4563 = icmp eq ptr %84, null
+  br i1 %.not4563, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %is_transformed.exit
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3637,19 +3637,19 @@ is_transformed.exit:                              ; preds = %41, %lv_obj_transfo
   br label %95
 
 95:                                               ; preds = %.lr.ph, %144
-  %.03765 = phi ptr [ %84, %.lr.ph ], [ %145, %144 ]
-  %96 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.03765, i32 noundef 1) #8
+  %.03764 = phi ptr [ %84, %.lr.ph ], [ %145, %144 ]
+  %96 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.03764, i32 noundef 1) #8
   br i1 %96, label %.loopexit.loopexit, label %97
 
 97:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
-  %98 = getelementptr inbounds nuw i8, ptr %.03765, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %.03764, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !tbaa.struct !71
-  %99 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.03765, i32 noundef 1048576) #8
+  %99 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.03764, i32 noundef 1048576) #8
   br i1 %99, label %100, label %.lr.ph.i47.preheader
 
 100:                                              ; preds = %97
-  %101 = call i32 @lv_obj_get_ext_draw_size(ptr noundef nonnull %.03765) #8
+  %101 = call i32 @lv_obj_get_ext_draw_size(ptr noundef nonnull %.03764) #8
   call void @lv_area_increase(ptr noundef nonnull %6, i32 noundef %101, i32 noundef %101) #8
   br label %.lr.ph.i47.preheader
 
@@ -3657,7 +3657,7 @@ is_transformed.exit:                              ; preds = %41, %lv_obj_transfo
   br label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %.lr.ph.i47.preheader, %109
-  %.09.i48 = phi ptr [ %111, %109 ], [ %.03765, %.lr.ph.i47.preheader ]
+  %.09.i48 = phi ptr [ %111, %109 ], [ %.03764, %.lr.ph.i47.preheader ]
   %102 = getelementptr inbounds nuw i8, ptr %.09.i48, i64 16
   %103 = load ptr, ptr %102, align 8, !tbaa !6
   %.not7.i49 = icmp eq ptr %103, null
@@ -3699,7 +3699,7 @@ is_transformed.exit52:                            ; preds = %109
   br label %.lr.ph.split.us.i57
 
 .lr.ph.split.us.i57:                              ; preds = %121, %.lr.ph.i56
-  %.tr33.us.i58 = phi ptr [ %122, %121 ], [ %.03765, %.lr.ph.i56 ]
+  %.tr33.us.i58 = phi ptr [ %122, %121 ], [ %.03764, %.lr.ph.i56 ]
   %118 = call i32 @lv_obj_get_layer_type(ptr noundef nonnull %.tr33.us.i58) #8
   %119 = icmp eq i32 %118, 2
   br i1 %119, label %120, label %121
@@ -3743,24 +3743,24 @@ lv_obj_transform_point_array.exit60:              ; preds = %121
 
 142:                                              ; preds = %lv_obj_transform_point_array.exit60, %is_transformed.exit52
   %143 = call zeroext i1 @lv_area_intersect(ptr noundef %1, ptr noundef %1, ptr noundef nonnull %6) #8
-  br i1 %143, label %144, label %.thread
-
-.thread:                                          ; preds = %142
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
-  br label %.loopexit
+  br i1 %143, label %144, label %.critedge
 
 144:                                              ; preds = %142
-  %145 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.03765) #8
+  %145 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.03764) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
   %.not45 = icmp eq ptr %145, null
-  br i1 %.not45, label %.loopexit.loopexit, label %95
+  br i1 %.not45, label %.loopexit.loopexit, label %95, !llvm.loop !73
+
+.critedge:                                        ; preds = %142
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %95, %144
   %.2.ph = xor i1 %96, true
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %is_transformed.exit, %.thread, %20
-  %.2 = phi i1 [ false, %20 ], [ false, %.thread ], [ true, %is_transformed.exit ], [ %.2.ph, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %is_transformed.exit, %.critedge, %20
+  %.2 = phi i1 [ false, %20 ], [ false, %.critedge ], [ true, %is_transformed.exit ], [ %.2.ph, %.loopexit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   br label %146
 
@@ -3836,7 +3836,7 @@ define void @lv_obj_set_ext_click_area(ptr noundef %0, i32 noundef %1) local_unn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 %1, ptr %6, align 8, !tbaa !73
+  store i32 %1, ptr %6, align 8, !tbaa !74
   ret void
 }
 
@@ -3866,7 +3866,7 @@ define void @lv_obj_get_click_area(ptr noundef readonly captures(none) %0, ptr n
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %18 = load i32, ptr %17, align 8, !tbaa !73
+  %18 = load i32, ptr %17, align 8, !tbaa !74
   tail call void @lv_area_increase(ptr noundef nonnull %1, i32 noundef %18, i32 noundef %18) #8
   br label %19
 
@@ -3905,7 +3905,7 @@ define zeroext i1 @lv_obj_hit_test(ptr noundef %0, ptr noundef %1) local_unnamed
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %22 = load i32, ptr %21, align 8, !tbaa !73
+  %22 = load i32, ptr %21, align 8, !tbaa !74
   call void @lv_area_increase(ptr noundef nonnull %3, i32 noundef %22, i32 noundef %22) #8
   br label %lv_obj_get_click_area.exit
 
@@ -3919,11 +3919,11 @@ lv_obj_get_click_area.exit:                       ; preds = %6, %20
 
 26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
-  store ptr %1, ptr %4, align 8, !tbaa !74
+  store ptr %1, ptr %4, align 8, !tbaa !75
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 1, ptr %27, align 8, !tbaa !76
+  store i8 1, ptr %27, align 8, !tbaa !77
   %28 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull %4) #8
-  %29 = load i8, ptr %27, align 8, !tbaa !76, !range !61, !noundef !62
+  %29 = load i8, ptr %27, align 8, !tbaa !77, !range !61, !noundef !62
   %30 = trunc nuw i8 %29 to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
   br label %31
@@ -4060,7 +4060,8 @@ attributes #8 = { nounwind }
 !70 = distinct !{!70, !31}
 !71 = !{i64 0, i64 4, !72, i64 4, i64 4, !72, i64 8, i64 4, !72, i64 12, i64 4, !72}
 !72 = !{!14, !14, i64 0}
-!73 = !{!17, !14, i64 56}
-!74 = !{!75, !9, i64 0}
-!75 = !{!"_lv_hit_test_info_t", !9, i64 0, !23, i64 8}
-!76 = !{!75, !23, i64 8}
+!73 = distinct !{!73, !31}
+!74 = !{!17, !14, i64 56}
+!75 = !{!76, !9, i64 0}
+!76 = !{!"_lv_hit_test_info_t", !9, i64 0, !23, i64 8}
+!77 = !{!76, !23, i64 8}

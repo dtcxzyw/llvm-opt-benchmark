@@ -55,7 +55,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %13 = phi i32 [ %.pre19, %._crit_edge.loopexit ], [ %10, %.preheader ]
-  %14 = phi i32 [ %21, %._crit_edge.loopexit ], [ %11, %.preheader ]
+  %14 = phi i32 [ %22, %._crit_edge.loopexit ], [ %11, %.preheader ]
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %15 = sext i32 %13 to i64
   %16 = icmp slt i64 %indvars.iv.next17, %15
@@ -64,16 +64,17 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %17 = load ptr, ptr %4, align 8, !tbaa !20
-  %18 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %17, i64 %indvars.iv16, i64 %indvars.iv
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  tail call void @av_freep(ptr noundef nonnull %19) #8
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %18 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %17, i64 %indvars.iv16
+  %19 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %18, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call void @av_freep(ptr noundef nonnull %20) #8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  tail call void @av_freep(ptr noundef nonnull %21) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = load i32, ptr %9, align 8, !tbaa !26
-  %22 = sext i32 %21 to i64
-  %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
+  %22 = load i32, ptr %9, align 8, !tbaa !26
+  %23 = sext i32 %22 to i64
+  %24 = icmp slt i64 %indvars.iv.next, %23
+  br i1 %24, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader12, %1
   tail call void @av_freep(ptr noundef nonnull %4) #8
@@ -185,120 +186,121 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   br i1 %27, label %.preheader, label %.thread37
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %28 = phi i32 [ %102, %._crit_edge ], [ %22, %.preheader.lr.ph ]
-  %29 = phi i32 [ %103, %._crit_edge ], [ %26, %.preheader.lr.ph ]
+  %28 = phi i32 [ %103, %._crit_edge ], [ %22, %.preheader.lr.ph ]
+  %29 = phi i32 [ %104, %._crit_edge ], [ %26, %.preheader.lr.ph ]
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   %.not3340 = icmp sgt i32 %29, 0
   br i1 %.not3340, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %67
-  %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %68
+  %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %.preheader ]
   %30 = load ptr, ptr %21, align 8, !tbaa !20
-  %31 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %30, i64 %indvars.iv46, i64 %indvars.iv
-  %32 = load i32, ptr %24, align 8, !tbaa !54
-  %33 = load i32, ptr %25, align 4, !tbaa !55
-  %34 = add i32 %33, 40
-  %35 = and i32 %34, 63
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw [64 x i32], ptr %14, i64 0, i64 %36
-  %38 = load i32, ptr %37, align 4, !tbaa !56
-  %39 = add i32 %33, 9
-  %40 = and i32 %39, 63
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw [64 x i32], ptr %14, i64 0, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !56
-  %44 = add i32 %43, %38
-  %45 = and i32 %33, 63
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw [64 x i32], ptr %14, i64 0, i64 %46
-  store i32 %44, ptr %47, align 4, !tbaa !56
-  %48 = add i32 %33, 1
-  store i32 %48, ptr %25, align 4, !tbaa !55
-  %49 = uitofp i32 %44 to double
-  %50 = fdiv nsz double %49, 0x41EFFFFFFFE00000
-  %51 = tail call nsz double @llvm.fmuladd.f64(double %50, double 2.291700e-03, double 8.333300e-04)
-  %52 = sitofp i32 %32 to double
-  %53 = fmul nsz double %51, %52
-  %54 = tail call nsz double @llvm.round.f64(double %53)
-  %55 = tail call i64 @llvm.lrint.i64.f64(double %54)
-  %56 = trunc i64 %55 to i32
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %31, align 8, !tbaa !57
-  %58 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 0, ptr %58, align 4, !tbaa !60
-  %59 = sext i32 %57 to i64
-  %60 = tail call noalias ptr @av_calloc(i64 noundef %59, i64 noundef 8) #8
-  %61 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %60, ptr %61, align 8, !tbaa !61
-  %62 = load i32, ptr %31, align 8, !tbaa !57
-  %63 = sext i32 %62 to i64
-  %64 = tail call noalias ptr @av_calloc(i64 noundef %63, i64 noundef 8) #8
-  %65 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store ptr %64, ptr %65, align 8, !tbaa !62
-  %66 = load ptr, ptr %61, align 8, !tbaa !61
-  %.not.i = icmp eq ptr %66, null
-  %.not41.i = icmp eq ptr %64, null
+  %31 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %30, i64 %indvars.iv46
+  %32 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %31, i64 0, i64 %indvars.iv
+  %33 = load i32, ptr %24, align 8, !tbaa !54
+  %34 = load i32, ptr %25, align 4, !tbaa !55
+  %35 = add i32 %34, 40
+  %36 = and i32 %35, 63
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw [64 x i32], ptr %14, i64 0, i64 %37
+  %39 = load i32, ptr %38, align 4, !tbaa !56
+  %40 = add i32 %34, 9
+  %41 = and i32 %40, 63
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr inbounds nuw [64 x i32], ptr %14, i64 0, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !56
+  %45 = add i32 %44, %39
+  %46 = and i32 %34, 63
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw [64 x i32], ptr %14, i64 0, i64 %47
+  store i32 %45, ptr %48, align 4, !tbaa !56
+  %49 = add i32 %34, 1
+  store i32 %49, ptr %25, align 4, !tbaa !55
+  %50 = uitofp i32 %45 to double
+  %51 = fdiv nsz double %50, 0x41EFFFFFFFE00000
+  %52 = tail call nsz double @llvm.fmuladd.f64(double %51, double 2.291700e-03, double 8.333300e-04)
+  %53 = sitofp i32 %33 to double
+  %54 = fmul nsz double %52, %53
+  %55 = tail call nsz double @llvm.round.f64(double %54)
+  %56 = tail call i64 @llvm.lrint.i64.f64(double %55)
+  %57 = trunc i64 %56 to i32
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %32, align 8, !tbaa !57
+  %59 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  store i32 0, ptr %59, align 4, !tbaa !60
+  %60 = sext i32 %58 to i64
+  %61 = tail call noalias ptr @av_calloc(i64 noundef %60, i64 noundef 8) #8
+  %62 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr %61, ptr %62, align 8, !tbaa !61
+  %63 = load i32, ptr %32, align 8, !tbaa !57
+  %64 = sext i32 %63 to i64
+  %65 = tail call noalias ptr @av_calloc(i64 noundef %64, i64 noundef 8) #8
+  %66 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store ptr %65, ptr %66, align 8, !tbaa !62
+  %67 = load ptr, ptr %62, align 8, !tbaa !61
+  %.not.i = icmp eq ptr %67, null
+  %.not41.i = icmp eq ptr %65, null
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not41.i
-  br i1 %or.cond.i, label %.loopexit, label %67
+  br i1 %or.cond.i, label %.loopexit, label %68
 
-67:                                               ; preds = %.lr.ph
-  %68 = fmul nsz double %52, 1.000000e-01
-  %69 = fdiv nsz double -6.000000e+01, %68
-  %70 = sitofp i32 %56 to double
-  %71 = fmul nsz double %69, %70
-  %72 = fmul nsz double %52, 8.000000e-03
-  %73 = fdiv nsz double -6.000000e+01, %72
-  %74 = fmul nsz double %73, %70
-  %75 = fsub nsz double %71, %74
-  %76 = fdiv nsz double %75, 2.000000e+01
-  %77 = fmul nsz double %76, 0x400A934F0979A371
-  %78 = tail call nsz double @llvm.exp2.f64(double %77)
-  %79 = tail call nsz double @llvm.sqrt.f64(double %78)
-  %80 = fdiv nsz double %74, 2.000000e+01
-  %81 = fmul nsz double %80, 0x400A934F0979A371
-  %82 = tail call nsz double @llvm.exp2.f64(double %81)
-  %83 = fdiv nsz double 0x40BAFF80FB853C71, %52
-  %84 = fmul nsz double %83, 5.000000e-01
-  %85 = tail call nsz double @llvm.tan.f64(double %84)
-  %86 = fadd nsz double %85, %79
-  %87 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %88 = fsub nsz double %85, %79
-  %89 = fdiv nsz double %88, %86
-  %90 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  store double %89, ptr %90, align 8, !tbaa !63
-  %91 = fneg nsz double %79
-  %92 = tail call nsz double @llvm.fmuladd.f64(double %78, double %85, double %91)
-  %93 = fdiv nsz double %92, %86
-  %94 = fmul nsz double %82, %93
-  %95 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store double %94, ptr %95, align 8, !tbaa !64
-  %96 = tail call nsz double @llvm.fmuladd.f64(double %78, double %85, double %79)
-  %97 = fdiv nsz double %96, %86
-  %98 = fmul nsz double %82, %97
-  %99 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store double %98, ptr %99, align 8, !tbaa !65
-  store double 1.000000e+00, ptr %87, align 8, !tbaa !66
+68:                                               ; preds = %.lr.ph
+  %69 = fmul nsz double %53, 1.000000e-01
+  %70 = fdiv nsz double -6.000000e+01, %69
+  %71 = sitofp i32 %57 to double
+  %72 = fmul nsz double %70, %71
+  %73 = fmul nsz double %53, 8.000000e-03
+  %74 = fdiv nsz double -6.000000e+01, %73
+  %75 = fmul nsz double %74, %71
+  %76 = fsub nsz double %72, %75
+  %77 = fdiv nsz double %76, 2.000000e+01
+  %78 = fmul nsz double %77, 0x400A934F0979A371
+  %79 = tail call nsz double @llvm.exp2.f64(double %78)
+  %80 = tail call nsz double @llvm.sqrt.f64(double %79)
+  %81 = fdiv nsz double %75, 2.000000e+01
+  %82 = fmul nsz double %81, 0x400A934F0979A371
+  %83 = tail call nsz double @llvm.exp2.f64(double %82)
+  %84 = fdiv nsz double 0x40BAFF80FB853C71, %53
+  %85 = fmul nsz double %84, 5.000000e-01
+  %86 = tail call nsz double @llvm.tan.f64(double %85)
+  %87 = fadd nsz double %86, %80
+  %88 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %89 = fsub nsz double %86, %80
+  %90 = fdiv nsz double %89, %87
+  %91 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  store double %90, ptr %91, align 8, !tbaa !63
+  %92 = fneg nsz double %80
+  %93 = tail call nsz double @llvm.fmuladd.f64(double %79, double %86, double %92)
+  %94 = fdiv nsz double %93, %87
+  %95 = fmul nsz double %83, %94
+  %96 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  store double %95, ptr %96, align 8, !tbaa !64
+  %97 = tail call nsz double @llvm.fmuladd.f64(double %79, double %86, double %80)
+  %98 = fdiv nsz double %97, %87
+  %99 = fmul nsz double %83, %98
+  %100 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  store double %99, ptr %100, align 8, !tbaa !65
+  store double 1.000000e+00, ptr %88, align 8, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %100 = load i32, ptr %23, align 8, !tbaa !26
-  %101 = sext i32 %100 to i64
-  %.not33 = icmp slt i64 %indvars.iv.next, %101
+  %101 = load i32, ptr %23, align 8, !tbaa !26
+  %102 = sext i32 %101 to i64
+  %.not33 = icmp slt i64 %indvars.iv.next, %102
   br i1 %.not33, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !67
 
-._crit_edge.loopexit:                             ; preds = %67
+._crit_edge.loopexit:                             ; preds = %68
   %.pre = load i32, ptr %16, align 4, !tbaa !52
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %102 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %28, %.preheader ]
-  %103 = phi i32 [ %100, %._crit_edge.loopexit ], [ %29, %.preheader ]
+  %103 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %28, %.preheader ]
+  %104 = phi i32 [ %101, %._crit_edge.loopexit ], [ %29, %.preheader ]
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %104 = sext i32 %102 to i64
-  %.not34 = icmp slt i64 %indvars.iv.next47, %104
+  %105 = sext i32 %103 to i64
+  %.not34 = icmp slt i64 %indvars.iv.next47, %105
   br i1 %.not34, label %.preheader, label %.thread37, !llvm.loop !68
 
 .thread37:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %.preheader39
-  %105 = getelementptr inbounds nuw i8, ptr %5, i64 304
-  store ptr @filter_channel_dbl, ptr %105, align 8, !tbaa !70
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 304
+  store ptr @filter_channel_dbl, ptr %106, align 8, !tbaa !70
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %.thread37
@@ -388,20 +390,20 @@ define internal void @filter_channel_dbl(ptr noundef readonly captures(none) %0,
   %19 = load i32, ptr %18, align 8, !tbaa !26
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !20
-  %22 = icmp sgt i32 %17, 0
-  br i1 %22, label %.lr.ph36, label %112
+  %22 = getelementptr inbounds [16 x %struct.APContext], ptr %21, i64 %9
+  %23 = icmp sgt i32 %17, 0
+  br i1 %23, label %.lr.ph36, label %112
 
 .lr.ph36:                                         ; preds = %4
-  %23 = getelementptr inbounds [16 x %struct.APContext], ptr %21, i64 %9
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %.pre.i = load i32, ptr %23, align 8, !tbaa !57
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %.pre.i = load i32, ptr %22, align 8, !tbaa !57
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !61
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !62
   %33 = icmp sgt i32 %19, 1
   %.promoted = load i32, ptr %24, align 4, !tbaa !60
@@ -461,7 +463,7 @@ define internal void @filter_channel_dbl(ptr noundef readonly captures(none) %0,
 68:                                               ; preds = %.lr.ph.us, %68
   %69 = phi double [ %66, %.lr.ph.us ], [ %111, %68 ]
   %indvars.iv41 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next42, %68 ]
-  %70 = getelementptr inbounds [16 x %struct.APContext], ptr %21, i64 %9, i64 %indvars.iv41
+  %70 = getelementptr inbounds nuw [16 x %struct.APContext], ptr %22, i64 0, i64 %indvars.iv41
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4, !tbaa !60
   %73 = icmp slt i32 %72, 1

@@ -2078,7 +2078,7 @@ define dso_local void @icu_validate_locale(ptr noundef %0) local_unnamed_addr #0
   call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1792, ptr noundef nonnull @__func__.icu_validate_locale) #20
   br label %.critedge40
 
-.critedge40:                                      ; preds = %36, %.critedge, %43, %27, %25, %23
+.critedge40:                                      ; preds = %36, %.critedge, %43, %23, %25, %27
   %47 = call ptr @pg_ucol_open(ptr noundef %0) #20
   call void @ucol_close_70(ptr noundef %47) #20
   br label %48

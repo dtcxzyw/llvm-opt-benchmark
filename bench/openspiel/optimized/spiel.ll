@@ -9634,8 +9634,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 131:                                              ; preds = %125
   %132 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i to i64
   %.idx.i = shl nuw nsw i64 %132, 6
-  %133 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 48
-  %134 = getelementptr i8, ptr %133, i64 %.idx.i
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 48
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 %.idx.i
   %135 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %134)
           to label %136 unwind label %291
 
@@ -9688,8 +9688,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 151:                                              ; preds = %145
   %152 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i38 to i64
   %.idx.i47 = shl nuw nsw i64 %152, 6
-  %153 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i36, i64 48
-  %154 = getelementptr i8, ptr %153, i64 %.idx.i47
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i36, i64 48
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 %.idx.i47
   %155 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %154)
           to label %156 unwind label %291
 
@@ -9742,8 +9742,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 171:                                              ; preds = %165
   %172 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i52 to i64
   %.idx.i61 = shl nuw nsw i64 %172, 6
-  %173 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i50, i64 48
-  %174 = getelementptr i8, ptr %173, i64 %.idx.i61
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i50, i64 48
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 %.idx.i61
   invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %36, ptr noundef nonnull align 8 dereferenceable(32) %174, i32 noundef 8)
           to label %175 unwind label %291
 
@@ -9802,8 +9802,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 192:                                              ; preds = %186
   %193 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i67 to i64
   %.idx.i76 = shl nuw nsw i64 %193, 6
-  %194 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i65, i64 48
-  %195 = getelementptr i8, ptr %194, i64 %.idx.i76
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i65, i64 48
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx.i76
   invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %37, ptr noundef nonnull align 8 dereferenceable(32) %195, i32 noundef 8)
           to label %196 unwind label %291
 
@@ -9862,8 +9862,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 213:                                              ; preds = %207
   %214 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i82 to i64
   %.idx.i92 = shl nuw nsw i64 %214, 6
-  %215 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i80, i64 48
-  %216 = getelementptr i8, ptr %215, i64 %.idx.i92
+  %215 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i80, i64 48
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 %.idx.i92
   invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %38, ptr noundef nonnull align 8 dereferenceable(32) %216, i32 noundef 8)
           to label %217 unwind label %291
 
@@ -9922,8 +9922,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 234:                                              ; preds = %228
   %235 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i100 to i64
   %.idx.i109 = shl nuw nsw i64 %235, 6
-  %236 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i98, i64 48
-  %237 = getelementptr i8, ptr %236, i64 %.idx.i109
+  %236 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i98, i64 48
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 %.idx.i109
   invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef nonnull align 8 dereferenceable(32) %237, i32 noundef 8)
           to label %238 unwind label %291
 
@@ -9982,8 +9982,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 255:                                              ; preds = %249
   %256 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i115 to i64
   %.idx.i124 = shl nuw nsw i64 %256, 6
-  %257 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i113, i64 48
-  %258 = getelementptr i8, ptr %257, i64 %.idx.i124
+  %257 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i113, i64 48
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 %.idx.i124
   invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %40, ptr noundef nonnull align 8 dereferenceable(32) %258, i32 noundef 8)
           to label %259 unwind label %291
 
@@ -10042,8 +10042,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 276:                                              ; preds = %270
   %277 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i130 to i64
   %.idx.i139 = shl nuw nsw i64 %277, 6
-  %278 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i128, i64 48
-  %279 = getelementptr i8, ptr %278, i64 %.idx.i139
+  %278 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i128, i64 48
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 %.idx.i139
   %280 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %279) #28
   %281 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %279) #28
   %282 = icmp sgt i64 %281, -1
@@ -10167,8 +10167,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 320:                                              ; preds = %314
   %321 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i145 to i64
   %.idx.i155 = shl nuw nsw i64 %321, 6
-  %322 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i143, i64 48
-  %323 = getelementptr i8, ptr %322, i64 %.idx.i155
+  %322 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i143, i64 48
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 %.idx.i155
   %324 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %323) #28
   %325 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %323) #28
   %326 = icmp sgt i64 %325, -1
@@ -10257,8 +10257,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 352:                                              ; preds = %346
   %353 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i165 to i64
   %.idx.i174 = shl nuw nsw i64 %353, 6
-  %354 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i163, i64 48
-  %355 = getelementptr i8, ptr %354, i64 %.idx.i174
+  %354 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i163, i64 48
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 %.idx.i174
   %356 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %355, ptr noundef nonnull @.str.109) #28
   %357 = icmp eq i32 %356, 0
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -10312,8 +10312,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 374:                                              ; preds = %368
   %375 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i179 to i64
   %.idx.i189 = shl nuw nsw i64 %375, 6
-  %376 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i177, i64 48
-  %377 = getelementptr i8, ptr %376, i64 %.idx.i189
+  %376 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i177, i64 48
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 %.idx.i189
   %378 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %377, ptr noundef nonnull @.str.109) #28
   %379 = icmp eq i32 %378, 0
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 93
@@ -10367,8 +10367,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 396:                                              ; preds = %390
   %397 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i196 to i64
   %.idx.i205 = shl nuw nsw i64 %397, 6
-  %398 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i194, i64 48
-  %399 = getelementptr i8, ptr %398, i64 %.idx.i205
+  %398 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i194, i64 48
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 %.idx.i205
   %400 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %399, ptr noundef nonnull @.str.109) #28
   %401 = icmp eq i32 %400, 0
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 94
@@ -10422,8 +10422,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 418:                                              ; preds = %412
   %419 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i210 to i64
   %.idx.i220 = shl nuw nsw i64 %419, 6
-  %420 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i208, i64 48
-  %421 = getelementptr i8, ptr %420, i64 %.idx.i220
+  %420 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i208, i64 48
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 %.idx.i220
   %422 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %421, ptr noundef nonnull @.str.109) #28
   %423 = icmp eq i32 %422, 0
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 95
@@ -10477,8 +10477,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 440:                                              ; preds = %434
   %441 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i227 to i64
   %.idx.i236 = shl nuw nsw i64 %441, 6
-  %442 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i225, i64 48
-  %443 = getelementptr i8, ptr %442, i64 %.idx.i236
+  %442 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i225, i64 48
+  %443 = getelementptr inbounds nuw i8, ptr %442, i64 %.idx.i236
   %444 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %443, ptr noundef nonnull @.str.109) #28
   %445 = icmp eq i32 %444, 0
   %446 = zext i1 %445 to i8
@@ -10538,8 +10538,8 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 461:                                              ; preds = %455
   %462 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i241 to i64
   %.idx.i250 = shl nuw nsw i64 %462, 6
-  %463 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i239, i64 48
-  %464 = getelementptr i8, ptr %463, i64 %.idx.i250
+  %463 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i239, i64 48
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 %.idx.i250
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #28
   %465 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %46)
           to label %.noexc253 unwind label %509

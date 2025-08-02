@@ -69,7 +69,7 @@ define dso_local void @fib6_update_sernum(ptr noundef %0, ptr noundef readonly c
   %14 = icmp ult i8 %13, 2
   tail call void @llvm.assume(i1 %14)
   %15 = icmp eq i8 %13, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge, !prof !6
+  br i1 %15, label %.lr.ph, label %.critedge, !prof !6
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %16 = phi { i8, i32 } [ %21, %.lr.ph ], [ %12, %6 ]
@@ -82,15 +82,15 @@ define dso_local void @fib6_update_sernum(ptr noundef %0, ptr noundef readonly c
   %23 = icmp ult i8 %22, 2
   tail call void @llvm.assume(i1 %23)
   %24 = icmp eq i8 %22, 0
-  br i1 %24, label %.lr.ph, label %._crit_edge, !prof !7, !llvm.loop !8
+  br i1 %24, label %.lr.ph, label %.critedge, !prof !7, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %6
+.critedge:                                        ; preds = %.lr.ph, %6
   %.lcssa = phi i32 [ %11, %6 ], [ %20, %.lr.ph ]
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store volatile i32 %.lcssa, ptr %25, align 4
   br label %26
 
-26:                                               ; preds = %._crit_edge, %2
+26:                                               ; preds = %.critedge, %2
   ret void
 }
 
@@ -784,7 +784,7 @@ define dso_local void @fib6_update_sernum_upto_root(ptr noundef %0, ptr noundef 
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i8 %9, 0
-  br i1 %11, label %.lr.ph, label %._crit_edge, !prof !6
+  br i1 %11, label %.lr.ph, label %.critedge, !prof !6
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %12 = phi { i8, i32 } [ %17, %.lr.ph ], [ %8, %2 ]
@@ -797,9 +797,9 @@ define dso_local void @fib6_update_sernum_upto_root(ptr noundef %0, ptr noundef 
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i8 %18, 0
-  br i1 %20, label %.lr.ph, label %._crit_edge, !prof !7, !llvm.loop !8
+  br i1 %20, label %.lr.ph, label %.critedge, !prof !7, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %2
+.critedge:                                        ; preds = %.lr.ph, %2
   %.lcssa = phi i32 [ %7, %2 ], [ %16, %.lr.ph ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
@@ -807,15 +807,15 @@ define dso_local void @fib6_update_sernum_upto_root(ptr noundef %0, ptr noundef 
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge, %.preheader
-  %24 = phi ptr [ %26, %.preheader ], [ %22, %._crit_edge ]
+.preheader:                                       ; preds = %.critedge, %.preheader
+  %24 = phi ptr [ %26, %.preheader ], [ %22, %.critedge ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 36
   store volatile i32 %.lcssa, ptr %25, align 4
   %26 = load ptr, ptr %24, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !32
 
-.loopexit:                                        ; preds = %.preheader, %._crit_edge
+.loopexit:                                        ; preds = %.preheader, %.critedge
   ret void
 }
 
@@ -834,7 +834,7 @@ define dso_local void @fib6_update_sernum_stub(ptr noundef %0, ptr noundef reado
   %12 = icmp ult i8 %11, 2
   tail call void @llvm.assume(i1 %12)
   %13 = icmp eq i8 %11, 0
-  br i1 %13, label %.lr.ph, label %._crit_edge, !prof !6
+  br i1 %13, label %.lr.ph, label %.critedge, !prof !6
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %14 = phi { i8, i32 } [ %19, %.lr.ph ], [ %10, %2 ]
@@ -847,9 +847,9 @@ define dso_local void @fib6_update_sernum_stub(ptr noundef %0, ptr noundef reado
   %21 = icmp ult i8 %20, 2
   tail call void @llvm.assume(i1 %21)
   %22 = icmp eq i8 %20, 0
-  br i1 %22, label %.lr.ph, label %._crit_edge, !prof !7, !llvm.loop !8
+  br i1 %22, label %.lr.ph, label %.critedge, !prof !7, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %2
+.critedge:                                        ; preds = %.lr.ph, %2
   %.lcssa = phi i32 [ %9, %2 ], [ %18, %.lr.ph ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
@@ -857,15 +857,15 @@ define dso_local void @fib6_update_sernum_stub(ptr noundef %0, ptr noundef reado
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge, %.preheader
-  %26 = phi ptr [ %28, %.preheader ], [ %24, %._crit_edge ]
+.preheader:                                       ; preds = %.critedge, %.preheader
+  %26 = phi ptr [ %28, %.preheader ], [ %24, %.critedge ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 36
   store volatile i32 %.lcssa, ptr %27, align 4
   %28 = load ptr, ptr %26, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !32
 
-.loopexit:                                        ; preds = %.preheader, %._crit_edge
+.loopexit:                                        ; preds = %.preheader, %.critedge
   %30 = load ptr, ptr %1, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 20
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %31) #13
@@ -3607,7 +3607,7 @@ define internal void @fib6_flush_trees(ptr noundef %0) #0 align 16 {
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge, !prof !6
+  br i1 %10, label %.lr.ph, label %.critedge, !prof !6
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %11 = phi { i8, i32 } [ %16, %.lr.ph ], [ %7, %1 ]
@@ -3620,9 +3620,9 @@ define internal void @fib6_flush_trees(ptr noundef %0) #0 align 16 {
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
-  br i1 %19, label %.lr.ph, label %._crit_edge, !prof !7, !llvm.loop !8
+  br i1 %19, label %.lr.ph, label %.critedge, !prof !7, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %1
+.critedge:                                        ; preds = %.lr.ph, %1
   %.lcssa = phi i32 [ %6, %1 ], [ %15, %.lr.ph ]
   tail call fastcc void @__fib6_clean_all(ptr noundef %0, ptr noundef null, i32 noundef %.lcssa, ptr noundef null, i1 noundef zeroext false)
   ret void

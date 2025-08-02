@@ -414,7 +414,7 @@ find_stream.exit.thread:                          ; preds = %135, %.preheader.sp
 .loopexit93:                                      ; preds = %find_guid.exit, %33, %35, %77
   %.067 = phi i32 [ -1094995529, %77 ], [ -541478725, %35 ], [ %31, %33 ], [ %54, %find_guid.exit ]
   %164 = load ptr, ptr %4, align 8, !tbaa !11
-  %165 = getelementptr i8, ptr %164, i64 1176
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 1176
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 7288
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 120
   br label %168
@@ -422,8 +422,8 @@ find_stream.exit.thread:                          ; preds = %135, %.preheader.sp
 168:                                              ; preds = %177, %.loopexit93
   %indvars.iv.i85 = phi i64 [ 0, %.loopexit93 ], [ %indvars.iv.next.i86, %177 ]
   %.idx.i = mul nuw nsw i64 %indvars.iv.i85, 48
-  %169 = getelementptr i8, ptr %165, i64 %.idx.i
-  call void @av_dict_free(ptr noundef %169) #12
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 %.idx.i
+  call void @av_dict_free(ptr noundef nonnull %169) #12
   %170 = load i32, ptr %166, align 8, !tbaa !44
   %171 = sext i32 %170 to i64
   %172 = icmp slt i64 %indvars.iv.i85, %171
@@ -1505,7 +1505,7 @@ asf_deinterleave.exit:                            ; preds = %.split12.us.i, %480
 define internal noundef i32 @asf_read_close(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !11
-  %4 = getelementptr i8, ptr %3, i64 1176
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1176
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 7288
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 120
   br label %7
@@ -1513,8 +1513,8 @@ define internal noundef i32 @asf_read_close(ptr noundef readonly captures(none) 
 7:                                                ; preds = %1, %16
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 48
-  %8 = getelementptr i8, ptr %4, i64 %.idx
-  tail call void @av_dict_free(ptr noundef %8) #12
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
+  tail call void @av_dict_free(ptr noundef nonnull %8) #12
   %9 = load i32, ptr %5, align 8, !tbaa !44
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv, %10
@@ -3148,153 +3148,154 @@ define internal range(i32 -12, 1) i32 @asf_read_metadata_obj(ptr noundef %0, ptr
   br i1 %.not53, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %5, i64 1176
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  br label %12
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  br label %13
 
-12:                                               ; preds = %.lr.ph, %asf_store_aspect_ratio.exit.thread
-  %.03652 = phi i32 [ 0, %.lr.ph ], [ %62, %asf_store_aspect_ratio.exit.thread ]
+13:                                               ; preds = %.lr.ph, %asf_store_aspect_ratio.exit.thread
+  %.03652 = phi i32 [ 0, %.lr.ph ], [ %65, %asf_store_aspect_ratio.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr null, ptr %3, align 8, !tbaa !147
-  %13 = call i64 @avio_skip(ptr noundef %7, i64 noundef 2) #12
-  %14 = call i32 @avio_rl16(ptr noundef %7) #12
+  %14 = call i64 @avio_skip(ptr noundef %7, i64 noundef 2) #12
   %15 = call i32 @avio_rl16(ptr noundef %7) #12
-  %16 = trunc i32 %15 to i16
-  %17 = and i32 %15, 65535
-  %18 = shl i16 %16, 1
-  %19 = or disjoint i16 %18, 1
-  %.not = icmp eq i16 %16, 0
-  br i1 %.not, label %.thread, label %20
+  %16 = call i32 @avio_rl16(ptr noundef %7) #12
+  %17 = trunc i32 %16 to i16
+  %18 = and i32 %16, 65535
+  %19 = shl i16 %17, 1
+  %20 = or disjoint i16 %19, 1
+  %.not = icmp eq i16 %17, 0
+  br i1 %.not, label %.thread, label %21
 
-20:                                               ; preds = %12
-  %21 = call i32 @avio_rl16(ptr noundef %7) #12
-  %22 = trunc i32 %21 to i16
-  %23 = call i32 @avio_rl32(ptr noundef %7) #12
-  %24 = trunc i32 %23 to i16
-  %25 = zext i16 %19 to i64
-  %26 = call noalias ptr @av_malloc(i64 noundef %25) #12
-  store ptr %26, ptr %3, align 8, !tbaa !147
-  %.not40 = icmp eq ptr %26, null
-  br i1 %.not40, label %.thread49, label %27
+21:                                               ; preds = %13
+  %22 = call i32 @avio_rl16(ptr noundef %7) #12
+  %23 = trunc i32 %22 to i16
+  %24 = call i32 @avio_rl32(ptr noundef %7) #12
+  %25 = trunc i32 %24 to i16
+  %26 = zext i16 %20 to i64
+  %27 = call noalias ptr @av_malloc(i64 noundef %26) #12
+  store ptr %27, ptr %3, align 8, !tbaa !147
+  %.not40 = icmp eq ptr %27, null
+  br i1 %.not40, label %.thread49, label %28
 
-.thread49:                                        ; preds = %20
+.thread49:                                        ; preds = %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   br label %align_position.exit
 
-27:                                               ; preds = %20
-  %28 = zext i16 %19 to i32
-  %29 = call i32 @avio_get_str16le(ptr noundef %7, i32 noundef %17, ptr noundef nonnull %26, i32 noundef %28) #12
-  %30 = load ptr, ptr %3, align 8, !tbaa !147
-  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(13) @.str.65) #13
-  %.not41 = icmp eq i32 %31, 0
-  br i1 %.not41, label %34, label %32
+28:                                               ; preds = %21
+  %29 = zext i16 %20 to i32
+  %30 = call i32 @avio_get_str16le(ptr noundef %7, i32 noundef %18, ptr noundef nonnull %27, i32 noundef %29) #12
+  %31 = load ptr, ptr %3, align 8, !tbaa !147
+  %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(13) @.str.65) #13
+  %.not41 = icmp eq i32 %32, 0
+  br i1 %.not41, label %35, label %33
 
-32:                                               ; preds = %27
-  %33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(13) @.str.66) #13
-  %.not42 = icmp eq i32 %33, 0
-  br i1 %.not42, label %34, label %54
+33:                                               ; preds = %28
+  %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(13) @.str.66) #13
+  %.not42 = icmp eq i32 %34, 0
+  br i1 %.not42, label %35, label %55
 
-34:                                               ; preds = %32, %27
+35:                                               ; preds = %33, %28
   %.val = load ptr, ptr %4, align 8, !tbaa !11
   %.val45 = load ptr, ptr %6, align 8, !tbaa !26
-  switch i16 %22, label %.thread.sink.split [
-    i16 2, label %35
-    i16 3, label %37
-    i16 4, label %39
-    i16 5, label %42
+  switch i16 %23, label %.thread.sink.split [
+    i16 2, label %36
+    i16 3, label %38
+    i16 4, label %40
+    i16 5, label %43
   ]
 
-35:                                               ; preds = %34
-  %36 = call i32 @avio_rl16(ptr noundef %.val45) #12
-  br label %44
+36:                                               ; preds = %35
+  %37 = call i32 @avio_rl16(ptr noundef %.val45) #12
+  br label %45
 
-37:                                               ; preds = %34
-  %38 = call i32 @avio_rl32(ptr noundef %.val45) #12
-  br label %44
+38:                                               ; preds = %35
+  %39 = call i32 @avio_rl32(ptr noundef %.val45) #12
+  br label %45
 
-39:                                               ; preds = %34
-  %40 = call i64 @avio_rl64(ptr noundef %.val45) #12
-  %41 = trunc i64 %40 to i32
-  br label %44
+40:                                               ; preds = %35
+  %41 = call i64 @avio_rl64(ptr noundef %.val45) #12
+  %42 = trunc i64 %41 to i32
+  br label %45
 
-42:                                               ; preds = %34
-  %43 = call i32 @avio_rl16(ptr noundef %.val45) #12
-  br label %44
+43:                                               ; preds = %35
+  %44 = call i32 @avio_rl16(ptr noundef %.val45) #12
+  br label %45
 
-44:                                               ; preds = %42, %39, %37, %35
-  %.02.ph.i = phi i32 [ %43, %42 ], [ %41, %39 ], [ %38, %37 ], [ %36, %35 ]
-  %45 = and i32 %14, 128
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %asf_store_aspect_ratio.exit.thread
+45:                                               ; preds = %43, %40, %38, %36
+  %.02.ph.i = phi i32 [ %44, %43 ], [ %42, %40 ], [ %39, %38 ], [ %37, %36 ]
+  %46 = and i32 %15, 128
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %asf_store_aspect_ratio.exit.thread
 
-47:                                               ; preds = %44
-  %48 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %30, ptr noundef nonnull dereferenceable(13) @.str.65) #13
-  %.not.i = icmp eq i32 %48, 0
-  %.mask = and i32 %14, 127
+48:                                               ; preds = %45
+  %49 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %31, ptr noundef nonnull dereferenceable(13) @.str.65) #13
+  %.not.i = icmp eq i32 %49, 0
+  %.mask = and i32 %15, 127
   %narrow51 = mul nuw nsw i32 %.mask, 48
   %.idx.i = zext nneg i32 %narrow51 to i64
-  %49 = getelementptr i8, ptr %.val, i64 1184
-  %50 = getelementptr i8, ptr %49, i64 %.idx.i
-  br i1 %.not.i, label %51, label %52
+  %50 = getelementptr inbounds nuw i8, ptr %.val, i64 1184
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i
+  br i1 %.not.i, label %52, label %53
 
-51:                                               ; preds = %47
-  store i32 %.02.ph.i, ptr %50, align 8, !tbaa !61
+52:                                               ; preds = %48
+  store i32 %.02.ph.i, ptr %51, align 8, !tbaa !61
   br label %asf_store_aspect_ratio.exit.thread
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 %.02.ph.i, ptr %53, align 4, !tbaa !62
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i32 %.02.ph.i, ptr %54, align 4, !tbaa !62
   br label %asf_store_aspect_ratio.exit.thread
 
-54:                                               ; preds = %32
-  %55 = and i32 %14, 65535
-  %56 = icmp samesign ult i32 %55, 128
-  br i1 %56, label %57, label %asf_store_aspect_ratio.exit.thread
+55:                                               ; preds = %33
+  %56 = and i32 %15, 65535
+  %57 = icmp samesign ult i32 %56, 128
+  br i1 %57, label %58, label %asf_store_aspect_ratio.exit.thread
 
-57:                                               ; preds = %54
-  %.not43 = icmp eq i32 %55, 0
-  %narrow = mul nuw nsw i32 %55, 48
-  %58 = zext nneg i32 %narrow to i64
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %58
-  %59 = select i1 %.not43, ptr %11, ptr %gep
-  %60 = call fastcc i32 @process_metadata(ptr noundef %0, ptr noundef nonnull %30, i16 noundef zeroext %24, i16 noundef zeroext %22, ptr noundef nonnull %59)
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %.thread.sink.split, label %asf_store_aspect_ratio.exit.thread
+58:                                               ; preds = %55
+  %.not43 = icmp eq i32 %56, 0
+  %narrow = mul nuw nsw i32 %56, 48
+  %59 = zext nneg i32 %narrow to i64
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %62 = select i1 %.not43, ptr %12, ptr %61
+  %63 = call fastcc i32 @process_metadata(ptr noundef %0, ptr noundef nonnull %31, i16 noundef zeroext %25, i16 noundef zeroext %23, ptr noundef nonnull %62)
+  %64 = icmp slt i32 %63, 0
+  br i1 %64, label %.thread.sink.split, label %asf_store_aspect_ratio.exit.thread
 
-.thread.sink.split:                               ; preds = %57, %34
+.thread.sink.split:                               ; preds = %58, %35
   call void @av_freep(ptr noundef nonnull %3) #12
   br label %.thread
 
-.thread:                                          ; preds = %12, %.thread.sink.split
+.thread:                                          ; preds = %13, %.thread.sink.split
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   br label %.loopexit
 
-asf_store_aspect_ratio.exit.thread:               ; preds = %44, %52, %51, %54, %57
+asf_store_aspect_ratio.exit.thread:               ; preds = %45, %53, %52, %55, %58
   call void @av_freep(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  %62 = add nuw nsw i32 %.03652, 1
-  %exitcond.not = icmp eq i32 %62, %10
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !174
+  %65 = add nuw nsw i32 %.03652, 1
+  %exitcond.not = icmp eq i32 %65, %10
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !174
 
 .loopexit:                                        ; preds = %asf_store_aspect_ratio.exit.thread, %2, %.thread
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %64 = load i64, ptr %63, align 8, !tbaa !32
-  %65 = sub nsw i64 9223372036854775807, %64
-  %66 = icmp ult i64 %8, %65
-  br i1 %66, label %67, label %align_position.exit
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %67 = load i64, ptr %66, align 8, !tbaa !32
+  %68 = sub nsw i64 9223372036854775807, %67
+  %69 = icmp ult i64 %8, %68
+  br i1 %69, label %70, label %align_position.exit
 
-67:                                               ; preds = %.loopexit
-  %68 = call i64 @avio_seek(ptr noundef %7, i64 noundef 0, i32 noundef 1) #12
-  %69 = add i64 %64, %8
-  %.not.i46 = icmp eq i64 %68, %69
-  br i1 %.not.i46, label %align_position.exit, label %70
+70:                                               ; preds = %.loopexit
+  %71 = call i64 @avio_seek(ptr noundef %7, i64 noundef 0, i32 noundef 1) #12
+  %72 = add i64 %67, %8
+  %.not.i46 = icmp eq i64 %71, %72
+  br i1 %.not.i46, label %align_position.exit, label %73
 
-70:                                               ; preds = %67
-  %71 = call i64 @avio_seek(ptr noundef %7, i64 noundef %69, i32 noundef 0) #12
+73:                                               ; preds = %70
+  %74 = call i64 @avio_seek(ptr noundef %7, i64 noundef %72, i32 noundef 0) #12
   br label %align_position.exit
 
-align_position.exit:                              ; preds = %70, %67, %.loopexit, %.thread49
-  %.2 = phi i32 [ -12, %.thread49 ], [ 0, %.loopexit ], [ 0, %67 ], [ 0, %70 ]
+align_position.exit:                              ; preds = %73, %70, %.loopexit, %.thread49
+  %.2 = phi i32 [ -12, %.thread49 ], [ 0, %.loopexit ], [ 0, %70 ], [ 0, %73 ]
   ret i32 %.2
 }
 

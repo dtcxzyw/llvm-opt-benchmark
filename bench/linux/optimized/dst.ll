@@ -232,7 +232,7 @@ define dso_local ptr @dst_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @dst_destroy(ptr noundef %0) #0 align 16 {
+define dso_local noalias noundef ptr @dst_destroy(ptr noundef %0) #0 align 16 {
   br label %2
 
 2:                                                ; preds = %59, %1

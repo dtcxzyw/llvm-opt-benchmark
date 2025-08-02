@@ -1379,8 +1379,8 @@ _ZNK5boost6locale28localization_backend_manager4impl12find_backendERKNSt7__cxx11
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5boost6locale28localization_backend_manager19remove_all_backendsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5boost6locale28localization_backend_manager19remove_all_backendsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !23
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8

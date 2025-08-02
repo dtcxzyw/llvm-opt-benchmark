@@ -387,314 +387,316 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !56
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %invariant.gep43 = getelementptr i8, ptr %40, i64 28
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 64
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 44
-  %45 = load i32, ptr %41, align 8, !tbaa !71
-  %46 = load i32, ptr %44, align 4, !tbaa !71
-  %47 = load i32, ptr %43, align 8, !tbaa !71
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 44
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %45 = load i32, ptr %44, align 8, !tbaa !71
+  %46 = load i32, ptr %43, align 4, !tbaa !71
+  %47 = load i32, ptr %42, align 8, !tbaa !71
   %48 = sext i32 %45 to i64
   %49 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !61
   %.idx.i.us = mul nsw i64 %48, 20
-  %gep40.us = getelementptr i8, ptr %invariant.gep43, i64 %.idx.i.us
-  %51 = load i32, ptr %gep40.us, align 4, !tbaa !64
-  %52 = getelementptr inbounds [8 x i32], ptr %42, i64 0, i64 %48
-  %53 = load i32, ptr %52, align 4, !tbaa !62
-  %54 = sext i32 %46 to i64
-  %55 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !61
-  %.idx147.i.us = mul nsw i64 %54, 20
-  %gep42.us = getelementptr i8, ptr %invariant.gep43, i64 %.idx147.i.us
-  %57 = load i32, ptr %gep42.us, align 4, !tbaa !64
-  %58 = getelementptr inbounds [8 x i32], ptr %42, i64 0, i64 %54
-  %59 = load i32, ptr %58, align 4, !tbaa !62
-  %60 = sext i32 %47 to i64
-  %61 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %60
-  %62 = load ptr, ptr %61, align 8, !tbaa !61
-  %.idx148.i.us = mul nsw i64 %60, 20
-  %gep44.us = getelementptr i8, ptr %invariant.gep43, i64 %.idx148.i.us
-  %63 = load i32, ptr %gep44.us, align 4, !tbaa !64
-  %64 = getelementptr inbounds [8 x i32], ptr %42, i64 0, i64 %60
-  %65 = load i32, ptr %64, align 4, !tbaa !62
-  %66 = getelementptr inbounds [8 x ptr], ptr %7, i64 0, i64 %48
-  %67 = load ptr, ptr %66, align 8, !tbaa !61
-  %68 = getelementptr inbounds [8 x i32], ptr %38, i64 0, i64 %48
-  %69 = load i32, ptr %68, align 4, !tbaa !62
-  %70 = getelementptr inbounds [8 x ptr], ptr %7, i64 0, i64 %54
-  %71 = load ptr, ptr %70, align 8, !tbaa !61
-  %72 = getelementptr inbounds [8 x i32], ptr %38, i64 0, i64 %54
-  %73 = load i32, ptr %72, align 4, !tbaa !62
-  %74 = getelementptr inbounds [8 x ptr], ptr %7, i64 0, i64 %60
-  %75 = load ptr, ptr %74, align 8, !tbaa !61
-  %76 = getelementptr inbounds [8 x i32], ptr %38, i64 0, i64 %60
-  %77 = load i32, ptr %76, align 4, !tbaa !62
-  %78 = load double, ptr %37, align 8, !tbaa !51
-  %79 = fcmp nsz ogt double %78, 0.000000e+00
-  %80 = load i32, ptr %36, align 8, !tbaa !20
-  %81 = sext i32 %51 to i64
-  %82 = sext i32 %57 to i64
-  %83 = sext i32 %63 to i64
-  %84 = sext i32 %11 to i64
-  %85 = sext i32 %53 to i64
-  %86 = sext i32 %59 to i64
-  %87 = sext i32 %65 to i64
-  %88 = sext i32 %69 to i64
-  %89 = sext i32 %73 to i64
-  %90 = sext i32 %77 to i64
-  %wide.trip.count50 = sext i32 %14 to i64
+  %51 = getelementptr i8, ptr %44, i64 %.idx.i.us
+  %52 = getelementptr i8, ptr %51, i64 4
+  %53 = load i32, ptr %52, align 4, !tbaa !64
+  %54 = getelementptr inbounds [8 x i32], ptr %39, i64 0, i64 %48
+  %55 = load i32, ptr %54, align 4, !tbaa !62
+  %56 = sext i32 %46 to i64
+  %57 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !61
+  %.idx147.i.us = mul nsw i64 %56, 20
+  %59 = getelementptr i8, ptr %44, i64 %.idx147.i.us
+  %60 = getelementptr i8, ptr %59, i64 4
+  %61 = load i32, ptr %60, align 4, !tbaa !64
+  %62 = getelementptr inbounds [8 x i32], ptr %39, i64 0, i64 %56
+  %63 = load i32, ptr %62, align 4, !tbaa !62
+  %64 = sext i32 %47 to i64
+  %65 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !61
+  %.idx148.i.us = mul nsw i64 %64, 20
+  %67 = getelementptr i8, ptr %44, i64 %.idx148.i.us
+  %68 = getelementptr i8, ptr %67, i64 4
+  %69 = load i32, ptr %68, align 4, !tbaa !64
+  %70 = getelementptr inbounds [8 x i32], ptr %39, i64 0, i64 %64
+  %71 = load i32, ptr %70, align 4, !tbaa !62
+  %72 = getelementptr inbounds [8 x ptr], ptr %7, i64 0, i64 %48
+  %73 = load ptr, ptr %72, align 8, !tbaa !61
+  %74 = getelementptr inbounds [8 x i32], ptr %38, i64 0, i64 %48
+  %75 = load i32, ptr %74, align 4, !tbaa !62
+  %76 = getelementptr inbounds [8 x ptr], ptr %7, i64 0, i64 %56
+  %77 = load ptr, ptr %76, align 8, !tbaa !61
+  %78 = getelementptr inbounds [8 x i32], ptr %38, i64 0, i64 %56
+  %79 = load i32, ptr %78, align 4, !tbaa !62
+  %80 = getelementptr inbounds [8 x ptr], ptr %7, i64 0, i64 %64
+  %81 = load ptr, ptr %80, align 8, !tbaa !61
+  %82 = getelementptr inbounds [8 x i32], ptr %38, i64 0, i64 %64
+  %83 = load i32, ptr %82, align 4, !tbaa !62
+  %84 = load double, ptr %37, align 8, !tbaa !51
+  %85 = fcmp nsz ogt double %84, 0.000000e+00
+  %86 = load i32, ptr %36, align 8, !tbaa !20
+  %87 = sext i32 %53 to i64
+  %88 = sext i32 %61 to i64
+  %89 = sext i32 %69 to i64
+  %90 = sext i32 %11 to i64
+  %91 = sext i32 %55 to i64
+  %92 = sext i32 %63 to i64
+  %93 = sext i32 %71 to i64
+  %94 = sext i32 %75 to i64
+  %95 = sext i32 %79 to i64
+  %96 = sext i32 %83 to i64
+  %wide.trip.count44 = sext i32 %14 to i64
   %wide.trip.count = zext nneg i32 %21 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %._crit_edge.us ], [ %84, %.preheader.lr.ph.split.us ]
-  %91 = mul nsw i64 %indvars.iv47, %85
-  %invariant.gep.us = getelementptr i8, ptr %50, i64 %91
-  %92 = mul nsw i64 %indvars.iv47, %86
-  %invariant.gep27.us = getelementptr i8, ptr %56, i64 %92
-  %93 = mul nsw i64 %indvars.iv47, %87
-  %invariant.gep29.us = getelementptr i8, ptr %62, i64 %93
-  %94 = mul nsw i64 %indvars.iv47, %88
-  %invariant.gep31.us = getelementptr i8, ptr %67, i64 %94
-  %95 = mul nsw i64 %indvars.iv47, %89
-  %invariant.gep33.us = getelementptr i8, ptr %71, i64 %95
-  %96 = mul nsw i64 %indvars.iv47, %90
-  %invariant.gep35.us = getelementptr i8, ptr %75, i64 %96
-  br label %97
+  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %._crit_edge.us ], [ %90, %.preheader.lr.ph.split.us ]
+  %97 = mul nsw i64 %indvars.iv41, %91
+  %invariant.gep.us = getelementptr i8, ptr %50, i64 %97
+  %98 = mul nsw i64 %indvars.iv41, %92
+  %invariant.gep27.us = getelementptr i8, ptr %58, i64 %98
+  %99 = mul nsw i64 %indvars.iv41, %93
+  %invariant.gep29.us = getelementptr i8, ptr %66, i64 %99
+  %100 = mul nsw i64 %indvars.iv41, %94
+  %invariant.gep31.us = getelementptr i8, ptr %73, i64 %100
+  %101 = mul nsw i64 %indvars.iv41, %95
+  %invariant.gep33.us = getelementptr i8, ptr %77, i64 %101
+  %102 = mul nsw i64 %indvars.iv41, %96
+  %invariant.gep35.us = getelementptr i8, ptr %81, i64 %102
+  br label %103
 
-97:                                               ; preds = %.preheader.us, %tonemap.exit.us
+103:                                              ; preds = %.preheader.us, %tonemap.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %tonemap.exit.us ]
-  %98 = mul nsw i64 %indvars.iv, %81
-  %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %98
-  %99 = mul nsw i64 %indvars.iv, %82
-  %gep28.us = getelementptr i8, ptr %invariant.gep27.us, i64 %99
-  %100 = mul nsw i64 %indvars.iv, %83
-  %gep30.us = getelementptr i8, ptr %invariant.gep29.us, i64 %100
-  %gep32.us = getelementptr i8, ptr %invariant.gep31.us, i64 %98
-  %gep34.us = getelementptr i8, ptr %invariant.gep33.us, i64 %99
-  %gep36.us = getelementptr i8, ptr %invariant.gep35.us, i64 %100
-  %101 = load float, ptr %gep.us, align 4, !tbaa !72
-  store float %101, ptr %gep32.us, align 4, !tbaa !72
-  %102 = load float, ptr %gep28.us, align 4, !tbaa !72
-  store float %102, ptr %gep34.us, align 4, !tbaa !72
-  %103 = load float, ptr %gep30.us, align 4, !tbaa !72
-  store float %103, ptr %gep36.us, align 4, !tbaa !72
-  br i1 %79, label %104, label %144
+  %104 = mul nsw i64 %indvars.iv, %87
+  %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %104
+  %105 = mul nsw i64 %indvars.iv, %88
+  %gep28.us = getelementptr i8, ptr %invariant.gep27.us, i64 %105
+  %106 = mul nsw i64 %indvars.iv, %89
+  %gep30.us = getelementptr i8, ptr %invariant.gep29.us, i64 %106
+  %gep32.us = getelementptr i8, ptr %invariant.gep31.us, i64 %104
+  %gep34.us = getelementptr i8, ptr %invariant.gep33.us, i64 %105
+  %gep36.us = getelementptr i8, ptr %invariant.gep35.us, i64 %106
+  %107 = load float, ptr %gep.us, align 4, !tbaa !72
+  store float %107, ptr %gep32.us, align 4, !tbaa !72
+  %108 = load float, ptr %gep28.us, align 4, !tbaa !72
+  store float %108, ptr %gep34.us, align 4, !tbaa !72
+  %109 = load float, ptr %gep30.us, align 4, !tbaa !72
+  store float %109, ptr %gep36.us, align 4, !tbaa !72
+  br i1 %85, label %110, label %150
 
-104:                                              ; preds = %97
-  %105 = load ptr, ptr %23, align 8, !tbaa !50
-  %106 = load i64, ptr %105, align 4
-  %.sroa.0.0.extract.trunc.i.i.us = trunc i64 %106 to i32
-  %.sroa.2.0.extract.shift.i.i.us = lshr i64 %106, 32
+110:                                              ; preds = %103
+  %111 = load ptr, ptr %23, align 8, !tbaa !50
+  %112 = load i64, ptr %111, align 4
+  %.sroa.0.0.extract.trunc.i.i.us = trunc i64 %112 to i32
+  %.sroa.2.0.extract.shift.i.i.us = lshr i64 %112, 32
   %.sroa.2.0.extract.trunc.i.i.us = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.us to i32
-  %107 = sitofp i32 %.sroa.0.0.extract.trunc.i.i.us to double
-  %108 = sitofp i32 %.sroa.2.0.extract.trunc.i.i.us to double
-  %109 = fdiv nsz double %107, %108
-  %110 = load float, ptr %gep.us, align 4, !tbaa !72
-  %111 = fpext nsz float %110 to double
-  %112 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %113 = load i64, ptr %112, align 4
-  %.sroa.0.0.extract.trunc.i152.i.us = trunc i64 %113 to i32
-  %.sroa.2.0.extract.shift.i153.i.us = lshr i64 %113, 32
+  %113 = sitofp i32 %.sroa.0.0.extract.trunc.i.i.us to double
+  %114 = sitofp i32 %.sroa.2.0.extract.trunc.i.i.us to double
+  %115 = fdiv nsz double %113, %114
+  %116 = load float, ptr %gep.us, align 4, !tbaa !72
+  %117 = fpext nsz float %116 to double
+  %118 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %119 = load i64, ptr %118, align 4
+  %.sroa.0.0.extract.trunc.i152.i.us = trunc i64 %119 to i32
+  %.sroa.2.0.extract.shift.i153.i.us = lshr i64 %119, 32
   %.sroa.2.0.extract.trunc.i154.i.us = trunc nuw i64 %.sroa.2.0.extract.shift.i153.i.us to i32
-  %114 = sitofp i32 %.sroa.0.0.extract.trunc.i152.i.us to double
-  %115 = sitofp i32 %.sroa.2.0.extract.trunc.i154.i.us to double
-  %116 = fdiv nsz double %114, %115
-  %117 = load float, ptr %gep28.us, align 4, !tbaa !72
-  %118 = fpext nsz float %117 to double
-  %119 = fmul nsz double %116, %118
-  %120 = tail call nsz double @llvm.fmuladd.f64(double %109, double %111, double %119)
-  %121 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %122 = load i64, ptr %121, align 4
-  %.sroa.0.0.extract.trunc.i155.i.us = trunc i64 %122 to i32
-  %.sroa.2.0.extract.shift.i156.i.us = lshr i64 %122, 32
+  %120 = sitofp i32 %.sroa.0.0.extract.trunc.i152.i.us to double
+  %121 = sitofp i32 %.sroa.2.0.extract.trunc.i154.i.us to double
+  %122 = fdiv nsz double %120, %121
+  %123 = load float, ptr %gep28.us, align 4, !tbaa !72
+  %124 = fpext nsz float %123 to double
+  %125 = fmul nsz double %122, %124
+  %126 = tail call nsz double @llvm.fmuladd.f64(double %115, double %117, double %125)
+  %127 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %128 = load i64, ptr %127, align 4
+  %.sroa.0.0.extract.trunc.i155.i.us = trunc i64 %128 to i32
+  %.sroa.2.0.extract.shift.i156.i.us = lshr i64 %128, 32
   %.sroa.2.0.extract.trunc.i157.i.us = trunc nuw i64 %.sroa.2.0.extract.shift.i156.i.us to i32
-  %123 = sitofp i32 %.sroa.0.0.extract.trunc.i155.i.us to double
-  %124 = sitofp i32 %.sroa.2.0.extract.trunc.i157.i.us to double
-  %125 = fdiv nsz double %123, %124
-  %126 = fpext nsz float %103 to double
-  %127 = tail call nsz double @llvm.fmuladd.f64(double %125, double %126, double %120)
-  %128 = fptrunc nsz double %127 to float
-  %129 = fpext nsz float %128 to double
-  %130 = fsub nsz double %129, %78
-  %131 = fcmp nsz ogt double %130, 0x3EB0C6F7A0B5ED8D
-  %132 = select nsz i1 %131, double %130, double 0x3EB0C6F7A0B5ED8D
-  %133 = fcmp nsz ogt double %129, 0x3EB0C6F7A0B5ED8D
-  %134 = select nsz i1 %133, double %129, double 0x3EB0C6F7A0B5ED8D
-  %135 = fdiv nsz double %132, %134
-  %136 = fptrunc nsz double %135 to float
-  %137 = fsub nsz float 1.000000e+00, %136
-  %138 = fmul nsz float %128, %136
-  %139 = tail call nsz float @llvm.fmuladd.f32(float %110, float %137, float %138)
-  store float %139, ptr %gep32.us, align 4, !tbaa !72
-  %140 = load float, ptr %gep28.us, align 4, !tbaa !72
-  %141 = tail call nsz float @llvm.fmuladd.f32(float %140, float %137, float %138)
-  store float %141, ptr %gep34.us, align 4, !tbaa !72
-  %142 = load float, ptr %gep30.us, align 4, !tbaa !72
-  %143 = tail call nsz float @llvm.fmuladd.f32(float %142, float %137, float %138)
-  store float %143, ptr %gep36.us, align 4, !tbaa !72
-  br label %144
+  %129 = sitofp i32 %.sroa.0.0.extract.trunc.i155.i.us to double
+  %130 = sitofp i32 %.sroa.2.0.extract.trunc.i157.i.us to double
+  %131 = fdiv nsz double %129, %130
+  %132 = fpext nsz float %109 to double
+  %133 = tail call nsz double @llvm.fmuladd.f64(double %131, double %132, double %126)
+  %134 = fptrunc nsz double %133 to float
+  %135 = fpext nsz float %134 to double
+  %136 = fsub nsz double %135, %84
+  %137 = fcmp nsz ogt double %136, 0x3EB0C6F7A0B5ED8D
+  %138 = select nsz i1 %137, double %136, double 0x3EB0C6F7A0B5ED8D
+  %139 = fcmp nsz ogt double %135, 0x3EB0C6F7A0B5ED8D
+  %140 = select nsz i1 %139, double %135, double 0x3EB0C6F7A0B5ED8D
+  %141 = fdiv nsz double %138, %140
+  %142 = fptrunc nsz double %141 to float
+  %143 = fsub nsz float 1.000000e+00, %142
+  %144 = fmul nsz float %134, %142
+  %145 = tail call nsz float @llvm.fmuladd.f32(float %116, float %143, float %144)
+  store float %145, ptr %gep32.us, align 4, !tbaa !72
+  %146 = load float, ptr %gep28.us, align 4, !tbaa !72
+  %147 = tail call nsz float @llvm.fmuladd.f32(float %146, float %143, float %144)
+  store float %147, ptr %gep34.us, align 4, !tbaa !72
+  %148 = load float, ptr %gep30.us, align 4, !tbaa !72
+  %149 = tail call nsz float @llvm.fmuladd.f32(float %148, float %143, float %144)
+  store float %149, ptr %gep36.us, align 4, !tbaa !72
+  br label %150
 
-144:                                              ; preds = %104, %97
-  %145 = phi float [ %143, %104 ], [ %103, %97 ]
-  %146 = load float, ptr %gep32.us, align 4, !tbaa !72
-  %147 = load float, ptr %gep34.us, align 4, !tbaa !72
-  %148 = fcmp nsz ogt float %146, %147
-  %..i.us = select nsz i1 %148, float %146, float %147
-  %149 = fcmp nsz ogt float %..i.us, %145
-  br i1 %149, label %152, label %.thread.i.us
+150:                                              ; preds = %110, %103
+  %151 = phi float [ %149, %110 ], [ %109, %103 ]
+  %152 = load float, ptr %gep32.us, align 4, !tbaa !72
+  %153 = load float, ptr %gep34.us, align 4, !tbaa !72
+  %154 = fcmp nsz ogt float %152, %153
+  %..i.us = select nsz i1 %154, float %152, float %153
+  %155 = fcmp nsz ogt float %..i.us, %151
+  br i1 %155, label %158, label %.thread.i.us
 
-.thread.i.us:                                     ; preds = %144
-  %150 = fpext nsz float %145 to double
-  %151 = fcmp nsz ogt double %150, 0x3EB0C6F7A0B5ED8D
-  br i1 %151, label %.thread158.i.us, label %156
+.thread.i.us:                                     ; preds = %150
+  %156 = fpext nsz float %151 to double
+  %157 = fcmp nsz ogt double %156, 0x3EB0C6F7A0B5ED8D
+  br i1 %157, label %.thread158.i.us, label %162
 
 .thread158.i.us:                                  ; preds = %.thread.i.us
-  br label %156
+  br label %162
 
-152:                                              ; preds = %144
-  %153 = fpext nsz float %..i.us to double
-  %154 = fcmp nsz ogt double %153, 0x3EB0C6F7A0B5ED8D
-  br i1 %154, label %155, label %156
+158:                                              ; preds = %150
+  %159 = fpext nsz float %..i.us to double
+  %160 = fcmp nsz ogt double %159, 0x3EB0C6F7A0B5ED8D
+  br i1 %160, label %161, label %162
 
-155:                                              ; preds = %152
-  br label %156
+161:                                              ; preds = %158
+  br label %162
 
-156:                                              ; preds = %155, %152, %.thread158.i.us, %.thread.i.us
-  %157 = phi float [ 0x3EB0C6F7A0000000, %152 ], [ %..i.us, %155 ], [ 0x3EB0C6F7A0000000, %.thread.i.us ], [ %145, %.thread158.i.us ]
-  switch i32 %80, label %tonemap.exit.us [
-    i32 6, label %204
-    i32 1, label %198
-    i32 2, label %183
-    i32 3, label %175
-    i32 5, label %167
-    i32 4, label %158
+162:                                              ; preds = %161, %158, %.thread158.i.us, %.thread.i.us
+  %163 = phi float [ 0x3EB0C6F7A0000000, %158 ], [ %..i.us, %161 ], [ 0x3EB0C6F7A0000000, %.thread.i.us ], [ %151, %.thread158.i.us ]
+  switch i32 %86, label %tonemap.exit.us [
+    i32 6, label %210
+    i32 1, label %204
+    i32 2, label %189
+    i32 3, label %181
+    i32 5, label %173
+    i32 4, label %164
   ]
 
-158:                                              ; preds = %156
-  %159 = fpext nsz float %157 to double
-  %160 = load double, ptr %24, align 8, !tbaa !24
-  %161 = fadd nsz double %160, %159
-  %162 = fdiv nsz double %159, %161
-  %163 = fadd nsz double %16, %160
-  %164 = fmul nsz double %163, %162
-  %165 = fdiv nsz double %164, %16
-  %166 = fptrunc nsz double %165 to float
+164:                                              ; preds = %162
+  %165 = fpext nsz float %163 to double
+  %166 = load double, ptr %24, align 8, !tbaa !24
+  %167 = fadd nsz double %166, %165
+  %168 = fdiv nsz double %165, %167
+  %169 = fadd nsz double %16, %166
+  %170 = fmul nsz double %169, %168
+  %171 = fdiv nsz double %170, %16
+  %172 = fptrunc nsz double %171 to float
   br label %tonemap.exit.us
 
-167:                                              ; preds = %156
-  %168 = tail call nsz float @llvm.fmuladd.f32(float %157, float 0x3FC3333340000000, float 0x3FA99999A0000000)
-  %169 = tail call nsz float @llvm.fmuladd.f32(float %157, float %168, float 0x3F70624DE0000000)
-  %170 = tail call nsz float @llvm.fmuladd.f32(float %157, float 0x3FC3333340000000, float 5.000000e-01)
-  %171 = tail call nsz float @llvm.fmuladd.f32(float %157, float %170, float 0x3FAEB85200000000)
-  %172 = fdiv nsz float %169, %171
-  %173 = fadd nsz float %172, 0xBFB1111100000000
-  %174 = fdiv nsz float %173, %31
+173:                                              ; preds = %162
+  %174 = tail call nsz float @llvm.fmuladd.f32(float %163, float 0x3FC3333340000000, float 0x3FA99999A0000000)
+  %175 = tail call nsz float @llvm.fmuladd.f32(float %163, float %174, float 0x3F70624DE0000000)
+  %176 = tail call nsz float @llvm.fmuladd.f32(float %163, float 0x3FC3333340000000, float 5.000000e-01)
+  %177 = tail call nsz float @llvm.fmuladd.f32(float %163, float %176, float 0x3FAEB85200000000)
+  %178 = fdiv nsz float %175, %177
+  %179 = fadd nsz float %178, 0xBFB1111100000000
+  %180 = fdiv nsz float %179, %31
   br label %tonemap.exit.us
 
-175:                                              ; preds = %156
-  %176 = fpext nsz float %157 to double
-  %177 = load double, ptr %24, align 8, !tbaa !24
-  %178 = fmul nsz double %177, %176
-  %179 = fptrunc nsz double %178 to float
-  %180 = fcmp nsz ogt float %179, 0.000000e+00
-  %181 = select nsz i1 %180, float %179, float 0.000000e+00
-  %182 = fcmp nsz ogt float %181, 1.000000e+00
-  %..i.i.us = select nsz i1 %182, float 1.000000e+00, float %181
+181:                                              ; preds = %162
+  %182 = fpext nsz float %163 to double
+  %183 = load double, ptr %24, align 8, !tbaa !24
+  %184 = fmul nsz double %183, %182
+  %185 = fptrunc nsz double %184 to float
+  %186 = fcmp nsz ogt float %185, 0.000000e+00
+  %187 = select nsz i1 %186, float %185, float 0.000000e+00
+  %188 = fcmp nsz ogt float %187, 1.000000e+00
+  %..i.i.us = select nsz i1 %188, float 1.000000e+00, float %187
   br label %tonemap.exit.us
 
-183:                                              ; preds = %156
-  %184 = fcmp nsz ogt float %157, 0x3FA99999A0000000
-  %185 = fpext nsz float %157 to double
-  %186 = load double, ptr %24, align 8, !tbaa !24
-  %187 = fdiv nsz double 1.000000e+00, %186
-  br i1 %184, label %192, label %188
+189:                                              ; preds = %162
+  %190 = fcmp nsz ogt float %163, 0x3FA99999A0000000
+  %191 = fpext nsz float %163 to double
+  %192 = load double, ptr %24, align 8, !tbaa !24
+  %193 = fdiv nsz double 1.000000e+00, %192
+  br i1 %190, label %198, label %194
 
-188:                                              ; preds = %183
-  %189 = tail call nsz double @llvm.pow.f64(double %32, double %187)
-  %190 = fmul nsz double %189, %185
-  %191 = fdiv nsz double %190, 0x3FA99999A0000000
-  br label %195
+194:                                              ; preds = %189
+  %195 = tail call nsz double @llvm.pow.f64(double %32, double %193)
+  %196 = fmul nsz double %195, %191
+  %197 = fdiv nsz double %196, 0x3FA99999A0000000
+  br label %201
 
-192:                                              ; preds = %183
-  %193 = fdiv nsz double %185, %16
-  %194 = tail call nsz double @llvm.pow.f64(double %193, double %187)
-  br label %195
+198:                                              ; preds = %189
+  %199 = fdiv nsz double %191, %16
+  %200 = tail call nsz double @llvm.pow.f64(double %199, double %193)
+  br label %201
 
-195:                                              ; preds = %192, %188
-  %196 = phi nsz double [ %194, %192 ], [ %191, %188 ]
-  %197 = fptrunc nsz double %196 to float
-  br label %tonemap.exit.us
-
-198:                                              ; preds = %156
-  %199 = fpext nsz float %157 to double
-  %200 = load double, ptr %24, align 8, !tbaa !24
-  %201 = fmul nsz double %200, %199
-  %202 = fdiv nsz double %201, %16
+201:                                              ; preds = %198, %194
+  %202 = phi nsz double [ %200, %198 ], [ %197, %194 ]
   %203 = fptrunc nsz double %202 to float
   br label %tonemap.exit.us
 
-204:                                              ; preds = %156
-  %205 = load double, ptr %24, align 8, !tbaa !24
-  %206 = fptrunc nsz double %205 to float
-  %207 = fcmp nsz ugt float %157, %206
-  br i1 %207, label %208, label %tonemap.exit.us
-
-208:                                              ; preds = %204
-  %209 = fneg nsz float %206
-  %210 = fmul nsz float %206, %209
-  %211 = fpext nsz float %210 to double
-  %212 = fmul nsz double %33, %211
-  %213 = fmul nsz float %206, 2.000000e+00
-  %214 = fneg nsz float %213
-  %215 = tail call nsz float @llvm.fmuladd.f32(float %206, float %206, float %214)
-  %216 = fpext nsz float %215 to double
-  %217 = fadd nsz double %16, %216
-  %218 = fdiv nsz double %212, %217
-  %219 = fptrunc nsz double %218 to float
-  %220 = fmul nsz float %206, %206
-  %221 = fpext nsz float %220 to double
-  %222 = fpext nsz float %213 to double
-  %223 = fneg nsz double %222
-  %224 = tail call nsz double @llvm.fmuladd.f64(double %223, double %16, double %221)
-  %225 = fadd nsz double %16, %224
-  %226 = fdiv nsz double %225, %35
-  %227 = fptrunc nsz double %226 to float
-  %228 = fmul nsz float %227, 2.000000e+00
-  %229 = fmul nsz float %228, %206
-  %230 = tail call nsz float @llvm.fmuladd.f32(float %227, float %227, float %229)
-  %231 = tail call nsz float @llvm.fmuladd.f32(float %206, float %206, float %230)
-  %232 = fsub nsz float %227, %219
-  %233 = fdiv nsz float %231, %232
-  %234 = fadd nsz float %157, %219
-  %235 = fmul nsz float %234, %233
-  %236 = fadd nsz float %157, %227
-  %237 = fdiv nsz float %235, %236
+204:                                              ; preds = %162
+  %205 = fpext nsz float %163 to double
+  %206 = load double, ptr %24, align 8, !tbaa !24
+  %207 = fmul nsz double %206, %205
+  %208 = fdiv nsz double %207, %16
+  %209 = fptrunc nsz double %208 to float
   br label %tonemap.exit.us
 
-tonemap.exit.us:                                  ; preds = %208, %204, %198, %195, %175, %167, %158, %156
-  %.0.i.us = phi nsz float [ %157, %156 ], [ %203, %198 ], [ %197, %195 ], [ %..i.i.us, %175 ], [ %174, %167 ], [ %166, %158 ], [ %237, %208 ], [ %157, %204 ]
-  %238 = fdiv nsz float %.0.i.us, %157
-  %239 = fmul nsz float %146, %238
-  store float %239, ptr %gep32.us, align 4, !tbaa !72
-  %240 = load float, ptr %gep34.us, align 4, !tbaa !72
-  %241 = fmul nsz float %238, %240
-  store float %241, ptr %gep34.us, align 4, !tbaa !72
-  %242 = load float, ptr %gep36.us, align 4, !tbaa !72
-  %243 = fmul nsz float %238, %242
-  store float %243, ptr %gep36.us, align 4, !tbaa !72
+210:                                              ; preds = %162
+  %211 = load double, ptr %24, align 8, !tbaa !24
+  %212 = fptrunc nsz double %211 to float
+  %213 = fcmp nsz ugt float %163, %212
+  br i1 %213, label %214, label %tonemap.exit.us
+
+214:                                              ; preds = %210
+  %215 = fneg nsz float %212
+  %216 = fmul nsz float %212, %215
+  %217 = fpext nsz float %216 to double
+  %218 = fmul nsz double %33, %217
+  %219 = fmul nsz float %212, 2.000000e+00
+  %220 = fneg nsz float %219
+  %221 = tail call nsz float @llvm.fmuladd.f32(float %212, float %212, float %220)
+  %222 = fpext nsz float %221 to double
+  %223 = fadd nsz double %16, %222
+  %224 = fdiv nsz double %218, %223
+  %225 = fptrunc nsz double %224 to float
+  %226 = fmul nsz float %212, %212
+  %227 = fpext nsz float %226 to double
+  %228 = fpext nsz float %219 to double
+  %229 = fneg nsz double %228
+  %230 = tail call nsz double @llvm.fmuladd.f64(double %229, double %16, double %227)
+  %231 = fadd nsz double %16, %230
+  %232 = fdiv nsz double %231, %35
+  %233 = fptrunc nsz double %232 to float
+  %234 = fmul nsz float %233, 2.000000e+00
+  %235 = fmul nsz float %234, %212
+  %236 = tail call nsz float @llvm.fmuladd.f32(float %233, float %233, float %235)
+  %237 = tail call nsz float @llvm.fmuladd.f32(float %212, float %212, float %236)
+  %238 = fsub nsz float %233, %225
+  %239 = fdiv nsz float %237, %238
+  %240 = fadd nsz float %163, %225
+  %241 = fmul nsz float %240, %239
+  %242 = fadd nsz float %163, %233
+  %243 = fdiv nsz float %241, %242
+  br label %tonemap.exit.us
+
+tonemap.exit.us:                                  ; preds = %214, %210, %204, %201, %181, %173, %164, %162
+  %.0.i.us = phi nsz float [ %163, %162 ], [ %209, %204 ], [ %203, %201 ], [ %..i.i.us, %181 ], [ %180, %173 ], [ %172, %164 ], [ %243, %214 ], [ %163, %210 ]
+  %244 = fdiv nsz float %.0.i.us, %163
+  %245 = fmul nsz float %152, %244
+  store float %245, ptr %gep32.us, align 4, !tbaa !72
+  %246 = load float, ptr %gep34.us, align 4, !tbaa !72
+  %247 = fmul nsz float %244, %246
+  store float %247, ptr %gep34.us, align 4, !tbaa !72
+  %248 = load float, ptr %gep36.us, align 4, !tbaa !72
+  %249 = fmul nsz float %244, %248
+  store float %249, ptr %gep36.us, align 4, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %97, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.us, label %103, !llvm.loop !74
 
 ._crit_edge.us:                                   ; preds = %tonemap.exit.us
-  %indvars.iv.next48 = add nsw i64 %indvars.iv47, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge38, label %.preheader.us, !llvm.loop !75
+  %indvars.iv.next42 = add nsw i64 %indvars.iv41, 1
+  %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
+  br i1 %exitcond45.not, label %._crit_edge38, label %.preheader.us, !llvm.loop !75
 
 ._crit_edge38:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0

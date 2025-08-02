@@ -247,13 +247,16 @@ define hidden i32 @mbedtls_lmots_calculate_public_key_candidate(ptr noundef %0, 
   %58 = add i16 %.08.i.i, %57
   %59 = add nuw nsw i64 %.067.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %59, 32
-  br i1 %exitcond.not.i.i, label %lmots_checksum_calculate.exit.i, label %.lr.ph.split.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %lmots_checksum_calculate.exit.loopexit.i, label %.lr.ph.split.i.i, !llvm.loop !14
 
-lmots_checksum_calculate.exit.i:                  ; preds = %.lr.ph.split.i.i, %51
-  %.sroa.phi = phi ptr [ %18, %51 ], [ %.sroa.gep40, %.lr.ph.split.i.i ]
-  %.0.lcssa.i.i = phi i16 [ 0, %51 ], [ %58, %.lr.ph.split.i.i ]
-  %60 = call i16 @llvm.bswap.i16(i16 %.0.lcssa.i.i)
-  store i16 %60, ptr %.sroa.phi, align 1
+lmots_checksum_calculate.exit.loopexit.i:         ; preds = %.lr.ph.split.i.i
+  %60 = call i16 @llvm.bswap.i16(i16 %58)
+  br label %lmots_checksum_calculate.exit.i
+
+lmots_checksum_calculate.exit.i:                  ; preds = %lmots_checksum_calculate.exit.loopexit.i, %51
+  %.sroa.phi = phi ptr [ %18, %51 ], [ %.sroa.gep40, %lmots_checksum_calculate.exit.loopexit.i ]
+  %.0.lcssa.i.i = phi i16 [ 0, %51 ], [ %60, %lmots_checksum_calculate.exit.loopexit.i ]
+  store i16 %.0.lcssa.i.i, ptr %.sroa.phi, align 1
   br label %create_digit_array_with_checksum.exit
 
 create_digit_array_with_checksum.exit:            ; preds = %29, %32, %34, %37, %39, %44, %46, %lmots_checksum_calculate.exit.i

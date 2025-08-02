@@ -186,22 +186,22 @@ define linkonce_odr hidden noundef i32 @_ZN11OpenImageIO6v3_1_08farmhash10farmha
 
 _ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit.loopexit: ; preds = %.lr.ph.i
   %16 = mul i32 %13, -862048943
+  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 15)
+  %18 = mul i32 %17, 461845907
   br label %_ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit
 
 _ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit: ; preds = %_ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit.loopexit, %8
   %.013.lcssa.i = phi i32 [ 9, %8 ], [ %14, %_ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit.loopexit ]
-  %.0.lcssa.i = phi i32 [ 0, %8 ], [ %16, %_ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit.loopexit ]
-  %17 = trunc nuw nsw i64 %1 to i32
-  %18 = mul i32 %17, -862048943
-  %19 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 15)
-  %20 = mul i32 %19, 461845907
-  %21 = xor i32 %.013.lcssa.i, %20
-  %22 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 13)
-  %23 = mul i32 %22, 5
-  %24 = add i32 %23, -430675100
-  %25 = tail call i32 @llvm.fshl.i32(i32 %.0.lcssa.i, i32 %.0.lcssa.i, i32 15)
-  %26 = mul i32 %25, 461845907
-  %27 = xor i32 %26, %24
+  %.0.lcssa.i = phi i32 [ 0, %8 ], [ %18, %_ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit.loopexit ]
+  %19 = trunc nuw nsw i64 %1 to i32
+  %20 = mul i32 %19, -862048943
+  %21 = tail call i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 15)
+  %22 = mul i32 %21, 461845907
+  %23 = xor i32 %.013.lcssa.i, %22
+  %24 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 13)
+  %25 = mul i32 %24, 5
+  %26 = add i32 %25, -430675100
+  %27 = xor i32 %.0.lcssa.i, %26
   %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 13)
   %29 = mul i32 %28, 5
   %30 = add i32 %29, -430675100

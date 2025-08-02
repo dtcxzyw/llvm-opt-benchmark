@@ -116,12 +116,11 @@ define noundef zeroext i1 @_ZN8uv_types6traits10BuildStack8contains17hd10e135838
   %14 = load ptr, ptr %0, align 8, !alias.scope !26, !noalias !27, !nonnull !3, !noundef !3
   %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %11, i64 0
   %.sroa.0.15.vec.insert.i.i.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %invariant.gep.i.i = getelementptr i8, ptr %14, i64 -88
   br label %15
 
-15:                                               ; preds = %33, %7
-  %.sroa.9.0.i.i.i = phi i64 [ 0, %7 ], [ %34, %33 ]
-  %.pn.i.i = phi i64 [ %9, %7 ], [ %35, %33 ]
+15:                                               ; preds = %35, %7
+  %.sroa.9.0.i.i.i = phi i64 [ 0, %7 ], [ %36, %35 ]
+  %.pn.i.i = phi i64 [ %9, %7 ], [ %37, %35 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i, %13
   %16 = getelementptr inbounds i8, ptr %14, i64 %.sroa.01.0.i.i.i
   %.sroa.0.0.copyload.i23.i.i = load <16 x i8>, ptr %16, align 1, !noalias !29
@@ -130,32 +129,33 @@ define noundef zeroext i1 @_ZN8uv_types6traits10BuildStack8contains17hd10e135838
   %19 = icmp eq i16 %18, 0
   br i1 %19, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %15, %29
-  %.sroa.06.0.i26.i.i = phi i16 [ %31, %29 ], [ %18, %15 ]
+.lr.ph.i.i:                                       ; preds = %15, %31
+  %.sroa.06.0.i26.i.i = phi i16 [ %33, %31 ], [ %18, %15 ]
   %20 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i26.i.i, i1 true)
   %21 = zext nneg i16 %20 to i64
   %22 = add i64 %.sroa.01.0.i.i.i, %21
   %23 = and i64 %22, %13
   %24 = sub nsw i64 0, %23
-  %gep.i.i = getelementptr { { i64, [10 x i64] }, {} }, ptr %invariant.gep.i.i, i64 %24
-  %25 = call noundef zeroext i1 @"_ZN82_$LT$uv_distribution_types..id..DistributionId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc57cc9c7b061ce04E.llvm.16539403835048581065"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %gep.i.i), !noalias !32
-  br i1 %25, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb803bf9817d5d995E.exit", label %29, !prof !35
+  %25 = getelementptr inbounds { { i64, [10 x i64] }, {} }, ptr %14, i64 %24
+  %26 = getelementptr inbounds i8, ptr %25, i64 -88
+  %27 = call noundef zeroext i1 @"_ZN82_$LT$uv_distribution_types..id..DistributionId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc57cc9c7b061ce04E.llvm.16539403835048581065"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %26), !noalias !32
+  br i1 %27, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb803bf9817d5d995E.exit", label %31, !prof !35
 
-._crit_edge.i.i:                                  ; preds = %29, %15
-  %26 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
-  %27 = bitcast <16 x i1> %26 to i16
-  %28 = icmp eq i16 %27, 0
-  br i1 %28, label %33, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb803bf9817d5d995E.exit", !prof !36
+._crit_edge.i.i:                                  ; preds = %31, %15
+  %28 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
+  %29 = bitcast <16 x i1> %28 to i16
+  %30 = icmp eq i16 %29, 0
+  br i1 %30, label %35, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb803bf9817d5d995E.exit", !prof !36
 
-29:                                               ; preds = %.lr.ph.i.i
-  %30 = add i16 %.sroa.06.0.i26.i.i, -1
-  %31 = and i16 %30, %.sroa.06.0.i26.i.i
-  %32 = icmp eq i16 %31, 0
-  br i1 %32, label %._crit_edge.i.i, label %.lr.ph.i.i
+31:                                               ; preds = %.lr.ph.i.i
+  %32 = add i16 %.sroa.06.0.i26.i.i, -1
+  %33 = and i16 %32, %.sroa.06.0.i26.i.i
+  %34 = icmp eq i16 %33, 0
+  br i1 %34, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-33:                                               ; preds = %._crit_edge.i.i
-  %34 = add i64 %.sroa.9.0.i.i.i, 16
-  %35 = add i64 %.sroa.01.0.i.i.i, %34
+35:                                               ; preds = %._crit_edge.i.i
+  %36 = add i64 %.sroa.9.0.i.i.i, 16
+  %37 = add i64 %.sroa.01.0.i.i.i, %36
   br label %15
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb803bf9817d5d995E.exit": ; preds = %._crit_edge.i.i, %.lr.ph.i.i, %2

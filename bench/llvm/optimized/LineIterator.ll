@@ -366,7 +366,6 @@ _ZL11isAtLineEndPKc.exit.thread:                  ; preds = %.critedge, %.crited
 .preheader.preheader:                             ; preds = %.critedge.thread, %.preheader57.split, %61, %.critedge.us.thread, %52, %20, %22, %_ZL11isAtLineEndPKc.exit.thread
   %.03398 = phi ptr [ %.033, %_ZL11isAtLineEndPKc.exit.thread ], [ %.536, %20 ], [ %.536, %22 ], [ %.1, %52 ], [ %.3.ph.ph.us87, %.critedge.us.thread ], [ %.2, %61 ], [ %.2, %.preheader57.split ], [ %.3.ph.ph93, %.critedge.thread ]
   %78 = phi i8 [ %76, %_ZL11isAtLineEndPKc.exit.thread ], [ %21, %20 ], [ 13, %22 ], [ 13, %52 ], [ 13, %.critedge.us.thread ], [ 13, %61 ], [ %60, %.preheader57.split ], [ 13, %.critedge.thread ]
-  %invariant.gep = getelementptr i8, ptr %.03398, i64 1
   br label %.preheader
 
 _ZL11isAtLineEndPKc.exit.thread.thread:           ; preds = %.preheader56, %.preheader56.us, %_ZL11isAtLineEndPKc.exit.thread
@@ -381,11 +380,11 @@ _ZL11isAtLineEndPKc.exit.thread.thread:           ; preds = %.preheader56, %.pre
 
 _ZNSt8optionalIN4llvm15MemoryBufferRefEEaSESt9nullopt_t.exit: ; preds = %_ZL11isAtLineEndPKc.exit.thread.thread, %82
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  br label %88
+  br label %90
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZL11isAtLineEndPKc.exit23
   %83 = phi i8 [ %.pre, %_ZL11isAtLineEndPKc.exit23 ], [ %78, %.preheader.preheader ]
-  %.0 = phi i64 [ %87, %_ZL11isAtLineEndPKc.exit23 ], [ 0, %.preheader.preheader ]
+  %.0 = phi i64 [ %89, %_ZL11isAtLineEndPKc.exit23 ], [ 0, %.preheader.preheader ]
   switch i8 %83, label %_ZL11isAtLineEndPKc.exit23 [
     i8 0, label %.critedge2
     i8 10, label %.critedge2
@@ -393,23 +392,24 @@ _ZNSt8optionalIN4llvm15MemoryBufferRefEEaSESt9nullopt_t.exit: ; preds = %_ZL11is
   ]
 
 84:                                               ; preds = %.preheader
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0
-  %85 = load i8, ptr %gep, align 1, !tbaa !25
-  %86 = icmp eq i8 %85, 10
-  br i1 %86, label %.critedge2, label %_ZL11isAtLineEndPKc.exit23
+  %85 = getelementptr inbounds nuw i8, ptr %.03398, i64 %.0
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
+  %87 = load i8, ptr %86, align 1, !tbaa !25
+  %88 = icmp eq i8 %87, 10
+  br i1 %88, label %.critedge2, label %_ZL11isAtLineEndPKc.exit23
 
 _ZL11isAtLineEndPKc.exit23:                       ; preds = %.preheader, %84
-  %87 = add i64 %.0, 1
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.03398, i64 %87
+  %89 = add i64 %.0, 1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.03398, i64 %89
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !25
   br label %.preheader, !llvm.loop !34
 
 .critedge2:                                       ; preds = %.preheader, %.preheader, %84
   store ptr %.03398, ptr %2, align 8, !tbaa !22
   store i64 %.0, ptr %4, align 8, !tbaa !23
-  br label %88
+  br label %90
 
-88:                                               ; preds = %.critedge2, %_ZNSt8optionalIN4llvm15MemoryBufferRefEEaSESt9nullopt_t.exit
+90:                                               ; preds = %.critedge2, %_ZNSt8optionalIN4llvm15MemoryBufferRefEEaSESt9nullopt_t.exit
   ret void
 }
 

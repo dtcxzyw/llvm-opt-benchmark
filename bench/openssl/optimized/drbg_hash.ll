@@ -480,7 +480,6 @@ define internal range(i32 0, 2) i32 @drbg_hash_generate(ptr noundef readonly cap
   %35 = load i64, ptr %34, align 8, !tbaa !25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %32, ptr nonnull align 8 %33, i64 %35, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %invariant.gep.i = getelementptr i8, ptr %29, i64 261
   %37 = load ptr, ptr %36, align 8, !tbaa !12
   %38 = tail call ptr @ossl_prov_digest_md(ptr noundef %29) #6
   %39 = tail call i32 @EVP_DigestInit_ex(ptr noundef %37, ptr noundef %38, ptr noundef null) #6
@@ -493,7 +492,7 @@ define internal range(i32 0, 2) i32 @drbg_hash_generate(ptr noundef readonly cap
 
 41:                                               ; preds = %add_bytes.exit.i, %.lr.ph.i
   %.02639.i = phi i64 [ %2, %.lr.ph.i ], [ %56, %add_bytes.exit.i ]
-  %.02738.i = phi ptr [ %1, %.lr.ph.i ], [ %61, %add_bytes.exit.i ]
+  %.02738.i = phi ptr [ %1, %.lr.ph.i ], [ %62, %add_bytes.exit.i ]
   %42 = load ptr, ptr %36, align 8, !tbaa !12
   %43 = load i64, ptr %34, align 8, !tbaa !25
   %44 = tail call i32 @EVP_DigestUpdate(ptr noundef %42, ptr noundef nonnull %32, i64 noundef %43) #6
@@ -528,158 +527,163 @@ define internal range(i32 0, 2) i32 @drbg_hash_generate(ptr noundef readonly cap
 
 .lr.ph.i.i:                                       ; preds = %54
   %58 = load i64, ptr %34, align 8, !tbaa !25
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %58
-  %59 = load i8, ptr %gep.i, align 1, !tbaa !22
-  %60 = add i8 %59, 1
-  store i8 %60, ptr %gep.i, align 1, !tbaa !22
-  %61 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %55
-  %.not48.i = icmp eq i8 %59, -1
-  br i1 %.not48.i, label %62, label %add_bytes.exit.i
+  %59 = getelementptr i8, ptr %32, i64 %58
+  %.030.i.i = getelementptr i8, ptr %59, i64 -1
+  %60 = load i8, ptr %.030.i.i, align 1, !tbaa !22
+  %61 = add i8 %60, 1
+  store i8 %61, ptr %.030.i.i, align 1, !tbaa !22
+  %62 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %55
+  %.not48.i = icmp eq i8 %60, -1
+  br i1 %.not48.i, label %63, label %add_bytes.exit.i
 
-62:                                               ; preds = %.lr.ph.i.i
-  %63 = load i64, ptr %34, align 8, !tbaa !25
-  %64 = add i64 %63, -1
-  %.not2737.i.i = icmp eq i64 %64, 0
-  br i1 %.not2737.i.i, label %add_bytes.exit.i, label %.lr.ph41.i.i
+63:                                               ; preds = %.lr.ph.i.i
+  %64 = load i64, ptr %34, align 8, !tbaa !25
+  %65 = add i64 %64, -1
+  %.not2737.i.i = icmp eq i64 %65, 0
+  br i1 %.not2737.i.i, label %add_bytes.exit.i, label %.lr.ph41.i.i.preheader
 
-.lr.ph41.i.i:                                     ; preds = %62, %.lr.ph41.i.i
-  %.139.i.pn.i = phi ptr [ %.139.i.i, %.lr.ph41.i.i ], [ %gep.i, %62 ]
-  %.12538.i.i = phi i64 [ %67, %.lr.ph41.i.i ], [ %64, %62 ]
-  %.139.i.i = getelementptr i8, ptr %.139.i.pn.i, i64 -1
-  %65 = load i8, ptr %.139.i.i, align 1, !tbaa !22
-  %66 = add i8 %65, 1
-  store i8 %66, ptr %.139.i.i, align 1, !tbaa !22
-  %.not28.i.i = icmp ne i8 %66, 0
-  %67 = add i64 %.12538.i.i, -1
-  %.not27.i.i = icmp eq i64 %67, 0
+.lr.ph41.i.i.preheader:                           ; preds = %63
+  %.0.i.i = getelementptr i8, ptr %59, i64 -2
+  br label %.lr.ph41.i.i
+
+.lr.ph41.i.i:                                     ; preds = %.lr.ph41.i.i.preheader, %.lr.ph41.i.i
+  %.139.i.i = phi ptr [ %69, %.lr.ph41.i.i ], [ %.0.i.i, %.lr.ph41.i.i.preheader ]
+  %.12538.i.i = phi i64 [ %68, %.lr.ph41.i.i ], [ %65, %.lr.ph41.i.i.preheader ]
+  %66 = load i8, ptr %.139.i.i, align 1, !tbaa !22
+  %67 = add i8 %66, 1
+  store i8 %67, ptr %.139.i.i, align 1, !tbaa !22
+  %.not28.i.i = icmp ne i8 %67, 0
+  %68 = add i64 %.12538.i.i, -1
+  %69 = getelementptr inbounds i8, ptr %.139.i.i, i64 -1
+  %.not27.i.i = icmp eq i64 %68, 0
   %or.cond.i.i = select i1 %.not28.i.i, i1 true, i1 %.not27.i.i
   br i1 %or.cond.i.i, label %add_bytes.exit.i, label %.lr.ph41.i.i, !llvm.loop !33
 
-add_bytes.exit.i:                                 ; preds = %.lr.ph41.i.i, %62, %.lr.ph.i.i
-  %68 = load ptr, ptr %36, align 8, !tbaa !12
-  %69 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %29) #6
-  %70 = tail call i32 @EVP_DigestInit_ex(ptr noundef %68, ptr noundef %69, ptr noundef null) #6
-  %.not.i = icmp eq i32 %70, 0
+add_bytes.exit.i:                                 ; preds = %.lr.ph41.i.i, %63, %.lr.ph.i.i
+  %70 = load ptr, ptr %36, align 8, !tbaa !12
+  %71 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %29) #6
+  %72 = tail call i32 @EVP_DigestInit_ex(ptr noundef %70, ptr noundef %71, ptr noundef null) #6
+  %.not.i = icmp eq i32 %72, 0
   br i1 %.not.i, label %add_bytes.exit48, label %41
 
 hash_gen.exit:                                    ; preds = %54, %51, %28
-  %71 = tail call fastcc i32 @add_hash_to_v(ptr noundef nonnull %0, i8 noundef zeroext 3, ptr noundef null, i64 noundef 0)
-  %.not25 = icmp eq i32 %71, 0
-  br i1 %.not25, label %add_bytes.exit48, label %72
+  %73 = tail call fastcc i32 @add_hash_to_v(ptr noundef nonnull %0, i8 noundef zeroext 3, ptr noundef null, i64 noundef 0)
+  %.not25 = icmp eq i32 %73, 0
+  br i1 %.not25, label %add_bytes.exit48, label %74
 
-72:                                               ; preds = %hash_gen.exit
-  %73 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %75 = load i64, ptr %74, align 8, !tbaa !25
-  %.not31.i26 = icmp eq i64 %75, 0
+74:                                               ; preds = %hash_gen.exit
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %77 = load i64, ptr %76, align 8, !tbaa !25
+  %.not31.i26 = icmp eq i64 %77, 0
   br i1 %.not31.i26, label %add_bytes.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %8, i64 151
-  %77 = getelementptr i8, ptr %73, i64 %75
-  %.030.i = getelementptr i8, ptr %77, i64 -1
-  %78 = getelementptr i8, ptr %76, i64 %75
+.lr.ph.preheader.i:                               ; preds = %74
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 151
+  %79 = getelementptr i8, ptr %75, i64 %77
+  %.030.i = getelementptr i8, ptr %79, i64 -1
+  %80 = getelementptr i8, ptr %78, i64 %77
   br label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %.lr.ph.i27, %.lr.ph.preheader.i
   %.035.i = phi ptr [ %.0.i28, %.lr.ph.i27 ], [ %.030.i, %.lr.ph.preheader.i ]
-  %.02234.i = phi i32 [ %85, %.lr.ph.i27 ], [ 0, %.lr.ph.preheader.i ]
-  %.pn2933.i = phi ptr [ %.023.i, %.lr.ph.i27 ], [ %78, %.lr.ph.preheader.i ]
-  %.02432.i = phi i64 [ %87, %.lr.ph.i27 ], [ %75, %.lr.ph.preheader.i ]
+  %.02234.i = phi i32 [ %87, %.lr.ph.i27 ], [ 0, %.lr.ph.preheader.i ]
+  %.pn2933.i = phi ptr [ %.023.i, %.lr.ph.i27 ], [ %80, %.lr.ph.preheader.i ]
+  %.02432.i = phi i64 [ %89, %.lr.ph.i27 ], [ %77, %.lr.ph.preheader.i ]
   %.023.i = getelementptr i8, ptr %.pn2933.i, i64 -1
-  %79 = load i8, ptr %.035.i, align 1, !tbaa !22
-  %80 = zext i8 %79 to i32
-  %81 = load i8, ptr %.023.i, align 1, !tbaa !22
+  %81 = load i8, ptr %.035.i, align 1, !tbaa !22
   %82 = zext i8 %81 to i32
-  %83 = add nuw nsw i32 %.02234.i, %80
-  %84 = add nuw nsw i32 %83, %82
-  %85 = lshr i32 %84, 8
-  %86 = trunc i32 %84 to i8
-  store i8 %86, ptr %.035.i, align 1, !tbaa !22
-  %87 = add i64 %.02432.i, -1
+  %83 = load i8, ptr %.023.i, align 1, !tbaa !22
+  %84 = zext i8 %83 to i32
+  %85 = add nuw nsw i32 %.02234.i, %82
+  %86 = add nuw nsw i32 %85, %84
+  %87 = lshr i32 %86, 8
+  %88 = trunc i32 %86 to i8
+  store i8 %88, ptr %.035.i, align 1, !tbaa !22
+  %89 = add i64 %.02432.i, -1
   %.0.i28 = getelementptr i8, ptr %.035.i, i64 -1
-  %.not.i29 = icmp eq i64 %87, 0
+  %.not.i29 = icmp eq i64 %89, 0
   br i1 %.not.i29, label %._crit_edge.i, label %.lr.ph.i27, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i27
-  %88 = icmp samesign ult i32 %84, 256
-  %.pre64 = load i64, ptr %74, align 8, !tbaa !25
-  %89 = sub i64 %.pre64, %75
-  %.not2737.i = icmp eq i64 %89, 0
-  %or.cond71 = select i1 %88, i1 true, i1 %.not2737.i
+  %90 = icmp samesign ult i32 %86, 256
+  %.pre64 = load i64, ptr %76, align 8, !tbaa !25
+  %91 = sub i64 %.pre64, %77
+  %.not2737.i = icmp eq i64 %91, 0
+  %or.cond71 = select i1 %90, i1 true, i1 %.not2737.i
   br i1 %or.cond71, label %add_bytes.exit, label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %._crit_edge.i, %.lr.ph41.i
-  %.139.i = phi ptr [ %93, %.lr.ph41.i ], [ %.0.i28, %._crit_edge.i ]
-  %.12538.i = phi i64 [ %92, %.lr.ph41.i ], [ %89, %._crit_edge.i ]
-  %90 = load i8, ptr %.139.i, align 1, !tbaa !22
-  %91 = add i8 %90, 1
-  store i8 %91, ptr %.139.i, align 1, !tbaa !22
-  %.not28.i = icmp ne i8 %91, 0
-  %92 = add i64 %.12538.i, -1
-  %93 = getelementptr inbounds i8, ptr %.139.i, i64 -1
-  %.not27.i = icmp eq i64 %92, 0
+  %.139.i = phi ptr [ %95, %.lr.ph41.i ], [ %.0.i28, %._crit_edge.i ]
+  %.12538.i = phi i64 [ %94, %.lr.ph41.i ], [ %91, %._crit_edge.i ]
+  %92 = load i8, ptr %.139.i, align 1, !tbaa !22
+  %93 = add i8 %92, 1
+  store i8 %93, ptr %.139.i, align 1, !tbaa !22
+  %.not28.i = icmp ne i8 %93, 0
+  %94 = add i64 %.12538.i, -1
+  %95 = getelementptr inbounds i8, ptr %.139.i, i64 -1
+  %.not27.i = icmp eq i64 %94, 0
   %or.cond.i = select i1 %.not28.i, i1 true, i1 %.not27.i
   br i1 %or.cond.i, label %add_bytes.exit.loopexit, label %.lr.ph41.i, !llvm.loop !33
 
 add_bytes.exit.loopexit:                          ; preds = %.lr.ph41.i
-  %.pre63 = load i64, ptr %74, align 8, !tbaa !25
+  %.pre63 = load i64, ptr %76, align 8, !tbaa !25
   br label %add_bytes.exit
 
-add_bytes.exit:                                   ; preds = %add_bytes.exit.loopexit, %72, %._crit_edge.i
-  %94 = phi i64 [ %.pre63, %add_bytes.exit.loopexit ], [ 0, %72 ], [ %.pre64, %._crit_edge.i ]
-  %95 = getelementptr i8, ptr %73, i64 %94
-  %.030.i31 = getelementptr i8, ptr %95, i64 -1
-  %96 = getelementptr inbounds nuw i8, ptr %6, i64 4
+add_bytes.exit:                                   ; preds = %add_bytes.exit.loopexit, %74, %._crit_edge.i
+  %96 = phi i64 [ %.pre63, %add_bytes.exit.loopexit ], [ 0, %74 ], [ %.pre64, %._crit_edge.i ]
+  %97 = getelementptr i8, ptr %75, i64 %96
+  %.030.i31 = getelementptr i8, ptr %97, i64 -1
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %add_bytes.exit
   %.035.i33 = phi ptr [ %.0.i38, %.lr.ph.i32 ], [ %.030.i31, %add_bytes.exit ]
-  %.02234.i34 = phi i32 [ %103, %.lr.ph.i32 ], [ 0, %add_bytes.exit ]
-  %.pn2933.i35 = phi ptr [ %.023.i37, %.lr.ph.i32 ], [ %96, %add_bytes.exit ]
-  %.02432.i36 = phi i64 [ %105, %.lr.ph.i32 ], [ 4, %add_bytes.exit ]
+  %.02234.i34 = phi i32 [ %105, %.lr.ph.i32 ], [ 0, %add_bytes.exit ]
+  %.pn2933.i35 = phi ptr [ %.023.i37, %.lr.ph.i32 ], [ %98, %add_bytes.exit ]
+  %.02432.i36 = phi i64 [ %107, %.lr.ph.i32 ], [ 4, %add_bytes.exit ]
   %.023.i37 = getelementptr i8, ptr %.pn2933.i35, i64 -1
-  %97 = load i8, ptr %.035.i33, align 1, !tbaa !22
-  %98 = zext i8 %97 to i32
-  %99 = load i8, ptr %.023.i37, align 1, !tbaa !22
+  %99 = load i8, ptr %.035.i33, align 1, !tbaa !22
   %100 = zext i8 %99 to i32
-  %101 = add nuw nsw i32 %.02234.i34, %98
-  %102 = add nuw nsw i32 %101, %100
-  %103 = lshr i32 %102, 8
-  %104 = trunc i32 %102 to i8
-  store i8 %104, ptr %.035.i33, align 1, !tbaa !22
-  %105 = add nsw i64 %.02432.i36, -1
+  %101 = load i8, ptr %.023.i37, align 1, !tbaa !22
+  %102 = zext i8 %101 to i32
+  %103 = add nuw nsw i32 %.02234.i34, %100
+  %104 = add nuw nsw i32 %103, %102
+  %105 = lshr i32 %104, 8
+  %106 = trunc i32 %104 to i8
+  store i8 %106, ptr %.035.i33, align 1, !tbaa !22
+  %107 = add nsw i64 %.02432.i36, -1
   %.0.i38 = getelementptr i8, ptr %.035.i33, i64 -1
-  %.not.i39 = icmp eq i64 %105, 0
+  %.not.i39 = icmp eq i64 %107, 0
   br i1 %.not.i39, label %._crit_edge.i40, label %.lr.ph.i32, !llvm.loop !34
 
 ._crit_edge.i40:                                  ; preds = %.lr.ph.i32
-  %106 = icmp samesign ult i32 %102, 256
-  br i1 %106, label %add_bytes.exit48, label %107
+  %108 = icmp samesign ult i32 %104, 256
+  br i1 %108, label %add_bytes.exit48, label %109
 
-107:                                              ; preds = %._crit_edge.i40
-  %108 = load i64, ptr %74, align 8, !tbaa !25
-  %109 = add i64 %108, -4
-  %.not2737.i41 = icmp eq i64 %109, 0
+109:                                              ; preds = %._crit_edge.i40
+  %110 = load i64, ptr %76, align 8, !tbaa !25
+  %111 = add i64 %110, -4
+  %.not2737.i41 = icmp eq i64 %111, 0
   br i1 %.not2737.i41, label %add_bytes.exit48, label %.lr.ph41.i42
 
-.lr.ph41.i42:                                     ; preds = %107, %.lr.ph41.i42
-  %.139.i43 = phi ptr [ %113, %.lr.ph41.i42 ], [ %.0.i38, %107 ]
-  %.12538.i44 = phi i64 [ %112, %.lr.ph41.i42 ], [ %109, %107 ]
-  %110 = load i8, ptr %.139.i43, align 1, !tbaa !22
-  %111 = add i8 %110, 1
-  store i8 %111, ptr %.139.i43, align 1, !tbaa !22
-  %.not28.i45 = icmp ne i8 %111, 0
-  %112 = add i64 %.12538.i44, -1
-  %113 = getelementptr inbounds i8, ptr %.139.i43, i64 -1
-  %.not27.i46 = icmp eq i64 %112, 0
+.lr.ph41.i42:                                     ; preds = %109, %.lr.ph41.i42
+  %.139.i43 = phi ptr [ %115, %.lr.ph41.i42 ], [ %.0.i38, %109 ]
+  %.12538.i44 = phi i64 [ %114, %.lr.ph41.i42 ], [ %111, %109 ]
+  %112 = load i8, ptr %.139.i43, align 1, !tbaa !22
+  %113 = add i8 %112, 1
+  store i8 %113, ptr %.139.i43, align 1, !tbaa !22
+  %.not28.i45 = icmp ne i8 %113, 0
+  %114 = add i64 %.12538.i44, -1
+  %115 = getelementptr inbounds i8, ptr %.139.i43, i64 -1
+  %.not27.i46 = icmp eq i64 %114, 0
   %or.cond.i47 = select i1 %.not28.i45, i1 true, i1 %.not27.i46
   br i1 %or.cond.i47, label %add_bytes.exit48, label %.lr.ph41.i42, !llvm.loop !33
 
-add_bytes.exit48:                                 ; preds = %52, %add_bytes.exit.i, %41, %.lr.ph41.i42, %31, %49, %107, %._crit_edge.i40, %hash_gen.exit, %26, %5
-  %114 = phi i32 [ 0, %hash_gen.exit ], [ 0, %26 ], [ 0, %5 ], [ 1, %._crit_edge.i40 ], [ 1, %107 ], [ 0, %49 ], [ 0, %31 ], [ 1, %.lr.ph41.i42 ], [ 0, %41 ], [ 0, %add_bytes.exit.i ], [ 0, %52 ]
+add_bytes.exit48:                                 ; preds = %52, %add_bytes.exit.i, %41, %.lr.ph41.i42, %31, %49, %109, %._crit_edge.i40, %hash_gen.exit, %26, %5
+  %116 = phi i32 [ 0, %hash_gen.exit ], [ 0, %26 ], [ 0, %5 ], [ 1, %._crit_edge.i40 ], [ 1, %109 ], [ 0, %49 ], [ 0, %31 ], [ 1, %.lr.ph41.i42 ], [ 0, %41 ], [ 0, %add_bytes.exit.i ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  ret i32 %114
+  ret i32 %116
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

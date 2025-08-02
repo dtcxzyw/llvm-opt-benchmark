@@ -774,13 +774,13 @@ define internal fastcc void @VP8LClear(ptr noundef nonnull %0) unnamed_addr #1 {
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %15 = getelementptr i8, ptr %0, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 24
-  %17 = getelementptr i8, ptr %15, i64 %.idx
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %18 = load ptr, ptr %17, align 8, !tbaa !59
   tail call void @WebPSafeFree(ptr noundef %18) #8
   store ptr null, ptr %17, align 8, !tbaa !59

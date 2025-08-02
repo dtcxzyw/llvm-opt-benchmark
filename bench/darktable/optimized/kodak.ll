@@ -20,33 +20,33 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_ZN6LibRaw16Kodak_KDC_WBtagsEii(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 187092
   %5 = sext i32 %1 to i64
-  br label %6
+  %6 = getelementptr inbounds [256 x [4 x i32]], ptr %4, i64 0, i64 %5
+  br label %7
 
-6:                                                ; preds = %3, %6
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %6 ]
-  %7 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %8 = getelementptr inbounds [256 x [4 x i32]], ptr %4, i64 0, i64 %5, i64 %indvars.iv
-  store i32 %7, ptr %8, align 4, !tbaa !6
+7:                                                ; preds = %3, %7
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
+  %8 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %9 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  store i32 %8, ptr %9, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %9, label %6, !llvm.loop !10
+  br i1 %exitcond.not, label %10, label %7, !llvm.loop !10
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds [256 x [4 x i32]], ptr %4, i64 0, i64 %5
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %12 = load i32, ptr %11, align 8, !tbaa !6
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %12, ptr %13, align 8, !tbaa !6
   %14 = icmp eq i32 %2, %1
   br i1 %14, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %9
+.preheader:                                       ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 153176
   br label %16
 
 16:                                               ; preds = %.preheader, %16
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %16 ]
-  %17 = getelementptr inbounds [256 x [4 x i32]], ptr %4, i64 0, i64 %5, i64 %indvars.iv16
+  %17 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv16
   %18 = load i32, ptr %17, align 4, !tbaa !6
   %19 = sitofp i32 %18 to float
   %20 = getelementptr inbounds nuw [4 x float], ptr %15, i64 0, i64 %indvars.iv16
@@ -55,7 +55,7 @@ define void @_ZN6LibRaw16Kodak_KDC_WBtagsEii(ptr noundef nonnull align 8 derefer
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 4
   br i1 %exitcond19.not, label %.loopexit, label %16, !llvm.loop !14
 
-.loopexit:                                        ; preds = %16, %9
+.loopexit:                                        ; preds = %16, %10
   ret void
 }
 
@@ -117,7 +117,7 @@ define void @_ZN6LibRaw16Kodak_DCR_WBtagsEiji(ptr noundef nonnull align 8 derefe
 
 32:                                               ; preds = %.preheader, %32
   %indvars.iv21 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next22, %32 ]
-  %33 = getelementptr inbounds [256 x [4 x i32]], ptr %16, i64 0, i64 %17, i64 %indvars.iv21
+  %33 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv21
   %34 = load i32, ptr %33, align 4, !tbaa !6
   %35 = sitofp i32 %34 to float
   %36 = getelementptr inbounds nuw [4 x float], ptr %31, i64 0, i64 %indvars.iv21

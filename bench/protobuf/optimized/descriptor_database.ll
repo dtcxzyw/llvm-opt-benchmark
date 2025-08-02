@@ -14854,7 +14854,7 @@ for.cond.i:                                       ; preds = %if.end.i, %if.end
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %for.cond.i
   %conv3.i.i.i = zext i8 %1 to i64
-  %2 = getelementptr i8, ptr %iter.sroa.0.0.i, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %iter.sroa.0.0.i, i64 24
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11FileCompareENS6_9FileEntryEE15checked_compareclIS8_S8_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS7_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSI_SL_.exit.i.i.i.i, %while.body.lr.ph.i.i.i.i
@@ -14863,7 +14863,7 @@ while.body.i.i.i.i:                               ; preds = %_ZNK4absl12lts_2023
   %add.i.i.i.i = add i64 %e.addr.07.i.i.i.i, %s.addr.08.i.i.i.i
   %shr.i.i.i.i = lshr i64 %add.i.i.i.i, 1
   %encoded_name.i.i.i.idx.i.i.i.i = mul nuw nsw i64 %shr.i.i.i.i, 40
-  %encoded_name.i.i.i.i.i.i.i = getelementptr i8, ptr %2, i64 %encoded_name.i.i.i.idx.i.i.i.i
+  %encoded_name.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %encoded_name.i.i.i.idx.i.i.i.i
   %call.i.i.i.i.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %encoded_name.i.i.i.i.i.i.i) #29
   %3 = extractvalue { i64, ptr } %call.i.i.i.i.i.i.i.i, 0
   %call.i.i2.i.i.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %encoded_name.i1.i.i.i.i.i.i) #29
@@ -15892,8 +15892,8 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google
   %17 = load i8, ptr %arrayidx.i24, align 1
   %conv.i38 = zext i8 %17 to i64
   %encoded_name.i.i.i.i.i.idx.i = mul nuw nsw i64 %conv.i38, 40
-  %18 = getelementptr i8, ptr %this, i64 24
-  %encoded_name.i.i.i.i.i.i = getelementptr i8, ptr %18, i64 %encoded_name.i.i.i.i.i.idx.i
+  %18 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %encoded_name.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 %encoded_name.i.i.i.i.i.idx.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %encoded_name.i.i.i.i.i.i) #29
   %19 = load ptr, ptr %this, align 8
   %20 = load i8, ptr %add.ptr.i.i.i, align 1
@@ -17293,8 +17293,8 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google
   %10 = load i8, ptr %arrayidx.i24, align 1
   %conv.i34 = zext i8 %10 to i64
   %encoded_extendee.i.i.i.i.i.idx.i = mul nuw nsw i64 %conv.i34, 48
-  %11 = getelementptr i8, ptr %this, i64 24
-  %encoded_extendee.i.i.i.i.i.i = getelementptr i8, ptr %11, i64 %encoded_extendee.i.i.i.i.i.idx.i
+  %11 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %encoded_extendee.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %encoded_extendee.i.i.i.i.i.idx.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %encoded_extendee.i.i.i.i.i.i) #29
   %12 = load ptr, ptr %this, align 8
   %13 = load i8, ptr %add.ptr.i.i.i, align 1
@@ -18995,8 +18995,8 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google
   %17 = load i8, ptr %arrayidx.i24, align 1
   %conv.i38 = zext i8 %17 to i64
   %encoded_symbol.i.i.i.i.i.idx.i = mul nuw nsw i64 %conv.i38, 40
-  %18 = getelementptr i8, ptr %this, i64 24
-  %encoded_symbol.i.i.i.i.i.i = getelementptr i8, ptr %18, i64 %encoded_symbol.i.i.i.i.i.idx.i
+  %18 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %encoded_symbol.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 %encoded_symbol.i.i.i.i.i.idx.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %encoded_symbol.i.i.i.i.i.i) #29
   %19 = load ptr, ptr %this, align 8
   %20 = load i8, ptr %add.ptr.i.i.i, align 1

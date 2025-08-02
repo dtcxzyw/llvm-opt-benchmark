@@ -1067,7 +1067,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_phy_c45_ids(ptr nounde
 14:                                               ; preds = %11
   %15 = tail call i32 @mdiobus_c45_read(ptr noundef %0, i32 noundef %1, i32 noundef %5, i32 noundef 8) #18
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %14
   %18 = and i32 %15, 49152
@@ -1077,14 +1077,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_phy_c45_ids(ptr nounde
 20:                                               ; preds = %17, %11
   %21 = tail call i32 @mdiobus_c45_read(ptr noundef %0, i32 noundef %1, i32 noundef %5, i32 noundef 6) #18
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %20
   %24 = shl i32 %21, 16
   %25 = tail call i32 @mdiobus_c45_read(ptr noundef %0, i32 noundef %1, i32 noundef %5, i32 noundef 5) #18
   %26 = icmp slt i32 %25, 0
   %27 = or i32 %25, %24
-  br i1 %26, label %.thread, label %28
+  br i1 %26, label %.critedge, label %28
 
 28:                                               ; preds = %23, %17
   %29 = phi i32 [ %6, %17 ], [ %27, %23 ]
@@ -1101,19 +1101,19 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_phy_c45_ids(ptr nounde
 36:                                               ; preds = %32
   %37 = tail call i32 @mdiobus_c45_read(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 6) #18
   %38 = icmp slt i32 %37, 0
-  br i1 %38, label %.thread, label %39
+  br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %36
   %40 = tail call i32 @mdiobus_c45_read(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 5) #18
   %41 = icmp slt i32 %40, 0
-  br i1 %41, label %.thread, label %42
+  br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %39
   %43 = shl i32 %37, 16
   %44 = or i32 %40, %43
   %45 = and i32 %44, 536870911
   %46 = icmp eq i32 %45, 536870911
-  br i1 %46, label %.thread, label %47
+  br i1 %46, label %.critedge, label %47
 
 47:                                               ; preds = %42, %32
   %48 = phi i32 [ %44, %42 ], [ %33, %32 ]
@@ -1136,7 +1136,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_phy_c45_ids(ptr nounde
 59:                                               ; preds = %56
   %60 = tail call i32 @mdiobus_c45_read(ptr noundef %0, i32 noundef %1, i32 noundef %52, i32 noundef 8) #18
   %61 = icmp slt i32 %60, 0
-  br i1 %61, label %.thread, label %62
+  br i1 %61, label %.critedge, label %62
 
 62:                                               ; preds = %59
   %63 = and i32 %60, 49152
@@ -1146,7 +1146,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_phy_c45_ids(ptr nounde
 64:                                               ; preds = %62, %56
   %65 = tail call i32 @mdiobus_c45_read(ptr noundef %0, i32 noundef %1, i32 noundef %52, i32 noundef 2) #18
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %.thread, label %67
+  br i1 %66, label %.critedge, label %67
 
 67:                                               ; preds = %64
   %68 = shl i32 %65, 16
@@ -1154,7 +1154,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_phy_c45_ids(ptr nounde
   store i32 %68, ptr %69, align 4
   %70 = tail call i32 @mdiobus_c45_read(ptr noundef %0, i32 noundef %1, i32 noundef %52, i32 noundef 3) #18
   %71 = icmp slt i32 %70, 0
-  br i1 %71, label %.thread, label %72
+  br i1 %71, label %.critedge, label %72
 
 72:                                               ; preds = %67
   %73 = load i32, ptr %69, align 4
@@ -1172,9 +1172,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_phy_c45_ids(ptr nounde
   %79 = and i32 %48, -2
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %79, ptr %80, align 4
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %20, %23, %14, %67, %64, %59, %36, %78, %42, %39
+.critedge:                                        ; preds = %20, %23, %14, %67, %64, %59, %36, %78, %42, %39
   %81 = phi i32 [ 0, %78 ], [ -5, %39 ], [ -19, %42 ], [ -5, %36 ], [ -5, %67 ], [ -5, %64 ], [ %60, %59 ], [ -5, %14 ], [ -5, %23 ], [ -5, %20 ]
   ret i32 %81
 }

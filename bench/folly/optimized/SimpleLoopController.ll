@@ -1036,8 +1036,8 @@ _ZNSt10unique_ptrIN5folly6fibers20SimpleLoopController20SimpleTimeoutManagerESt1
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers20SimpleLoopController11runTimeoutsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5folly6fibers20SimpleLoopController11runTimeoutsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !125
   %4 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #24
@@ -3727,7 +3727,7 @@ attributes #29 = { noreturn }
 !132 = !{!"_ZTSN5folly8OptionalISt4pairIPNS_12AsyncTimeoutENSt6chrono10time_pointINS4_3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEE", !124, i64 0}
 !133 = !{i8 0, i8 2}
 !134 = !{}
-!135 = !{!"branch_weights", i32 2146410, i32 -2146410}
+!135 = !{!"branch_weights", i32 1, i32 4001}
 !136 = !{!137, !138, i64 0}
 !137 = !{!"_ZTSSt4pairIPN5folly12AsyncTimeoutENSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEEE", !138, i64 0, !92, i64 8}
 !138 = !{!"p1 _ZTSN5folly12AsyncTimeoutE", !11, i64 0}

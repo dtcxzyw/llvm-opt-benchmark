@@ -55,7 +55,7 @@ define dso_local noundef ptr @statext_ndistinct_build(double noundef %0, ptr nou
   br label %18
 
 18:                                               ; preds = %.lr.ph57, %generator_next.exit.thread
-  %.03455 = phi i32 [ 2, %.lr.ph57 ], [ %163, %generator_next.exit.thread ]
+  %.03455 = phi i32 [ 2, %.lr.ph57 ], [ %164, %generator_next.exit.thread ]
   %.03554 = phi i32 [ 0, %.lr.ph57 ], [ %.1.lcssa, %generator_next.exit.thread ]
   %19 = tail call ptr @palloc(i64 noundef 24) #10
   %20 = sub i32 %4, %.03455
@@ -111,8 +111,8 @@ generator_next.exit.lr.ph:                        ; preds = %generator_init.exit
   br label %generator_next.exit
 
 generator_next.exit:                              ; preds = %generator_next.exit.lr.ph, %ndistinct_for_combination.exit
-  %42 = phi i32 [ 0, %generator_next.exit.lr.ph ], [ %159, %ndistinct_for_combination.exit ]
-  %.151 = phi i32 [ %.03554, %generator_next.exit.lr.ph ], [ %158, %ndistinct_for_combination.exit ]
+  %42 = phi i32 [ 0, %generator_next.exit.lr.ph ], [ %160, %ndistinct_for_combination.exit ]
+  %.151 = phi i32 [ %.03554, %generator_next.exit.lr.ph ], [ %159, %ndistinct_for_combination.exit ]
   %43 = load ptr, ptr %33, align 8
   %44 = load i32, ptr %19, align 8
   %45 = add i32 %42, 1
@@ -282,7 +282,6 @@ generator_next.exit:                              ; preds = %generator_next.exit
 
 ._crit_edge88.i:                                  ; preds = %132, %._crit_edge.us.i, %.preheader.i
   tail call void @qsort_interruptible(ptr noundef %67, i64 noundef %65, i64 noundef 24, ptr noundef nonnull @multi_sort_compare, ptr noundef %64) #10
-  %invariant.gep.i = getelementptr i8, ptr %67, i64 -24
   %134 = icmp sgt i32 %.fr96.i, 1
   br i1 %134, label %.lr.ph93.preheader.i, label %ndistinct_for_combination.exit
 
@@ -293,63 +292,63 @@ generator_next.exit:                              ; preds = %generator_next.exit
 .lr.ph93.i:                                       ; preds = %.lr.ph93.i, %.lr.ph93.preheader.i
   %indvars.iv119.i = phi i64 [ 1, %.lr.ph93.preheader.i ], [ %indvars.iv.next120.i, %.lr.ph93.i ]
   %.07391.i = phi i32 [ 0, %.lr.ph93.preheader.i ], [ %.174.i, %.lr.ph93.i ]
-  %.07690.i = phi i32 [ 1, %.lr.ph93.preheader.i ], [ %140, %.lr.ph93.i ]
+  %.07690.i = phi i32 [ 1, %.lr.ph93.preheader.i ], [ %141, %.lr.ph93.i ]
   %.07889.i = phi i32 [ 1, %.lr.ph93.preheader.i ], [ %.179.i, %.lr.ph93.i ]
-  %135 = getelementptr inbounds nuw %struct.SortItem, ptr %67, i64 %indvars.iv119.i
-  %gep.i = getelementptr %struct.SortItem, ptr %invariant.gep.i, i64 %indvars.iv119.i
-  %136 = tail call i32 @multi_sort_compare(ptr noundef nonnull %135, ptr noundef %gep.i, ptr noundef %64) #10
-  %.not.i = icmp ne i32 %136, 0
-  %137 = icmp eq i32 %.07690.i, 1
-  %138 = zext i1 %.not.i to i32
-  %.179.i = add i32 %.07889.i, %138
-  %narrow.i = select i1 %.not.i, i1 %137, i1 false
+  %135 = getelementptr %struct.SortItem, ptr %67, i64 %indvars.iv119.i
+  %136 = getelementptr i8, ptr %135, i64 -24
+  %137 = tail call i32 @multi_sort_compare(ptr noundef nonnull %135, ptr noundef %136, ptr noundef %64) #10
+  %.not.i = icmp ne i32 %137, 0
+  %138 = icmp eq i32 %.07690.i, 1
+  %139 = zext i1 %.not.i to i32
+  %.179.i = add i32 %.07889.i, %139
+  %narrow.i = select i1 %.not.i, i1 %138, i1 false
   %spec.select.i = zext i1 %narrow.i to i32
   %.174.i = add i32 %.07391.i, %spec.select.i
-  %139 = add i32 %.07690.i, 1
-  %140 = select i1 %.not.i, i32 1, i32 %139
+  %140 = add i32 %.07690.i, 1
+  %141 = select i1 %.not.i, i32 1, i32 %140
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
   %exitcond123.not.i = icmp eq i64 %indvars.iv.next120.i, %wide.trip.count122.i
   br i1 %exitcond123.not.i, label %._crit_edge.loopexit.i, label %.lr.ph93.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph93.i
-  %141 = icmp eq i32 %140, 1
-  %142 = zext i1 %141 to i32
-  %143 = add i32 %.174.i, %142
-  %144 = sitofp i32 %.179.i to double
+  %142 = icmp eq i32 %141, 1
+  %143 = zext i1 %142 to i32
+  %144 = add i32 %.174.i, %143
+  %145 = sitofp i32 %.179.i to double
   br label %ndistinct_for_combination.exit
 
 ndistinct_for_combination.exit:                   ; preds = %._crit_edge88.thread.i, %._crit_edge88.i, %._crit_edge.loopexit.i
-  %.078.lcssa.i = phi double [ 1.000000e+00, %._crit_edge88.i ], [ %144, %._crit_edge.loopexit.i ], [ 1.000000e+00, %._crit_edge88.thread.i ]
-  %spec.select82.i = phi i32 [ 1, %._crit_edge88.i ], [ %143, %._crit_edge.loopexit.i ], [ 1, %._crit_edge88.thread.i ]
-  %145 = sitofp i32 %.fr96.i to double
-  %146 = fmul double %.078.lcssa.i, %145
-  %147 = sub i32 %.fr96.i, %spec.select82.i
-  %148 = sitofp i32 %147 to double
-  %149 = sitofp i32 %spec.select82.i to double
-  %150 = fmul double %145, %149
-  %151 = fdiv double %150, %0
-  %152 = fadd double %151, %148
-  %153 = fdiv double %146, %152
-  %154 = fcmp olt double %153, %.078.lcssa.i
-  %.0.i.i = select i1 %154, double %.078.lcssa.i, double %153
-  %155 = fcmp ogt double %.0.i.i, %0
-  %.1.i.i = select i1 %155, double %0, double %.0.i.i
-  %156 = fadd double %.1.i.i, 5.000000e-01
-  %157 = tail call double @llvm.floor.f64(double %156)
-  store double %157, ptr %51, align 8
-  %158 = add i32 %.151, 1
-  %159 = load i32, ptr %34, align 8
-  %160 = load i32, ptr %27, align 4
-  %161 = icmp eq i32 %159, %160
-  br i1 %161, label %generator_next.exit.thread, label %generator_next.exit, !llvm.loop !15
+  %.078.lcssa.i = phi double [ 1.000000e+00, %._crit_edge88.i ], [ %145, %._crit_edge.loopexit.i ], [ 1.000000e+00, %._crit_edge88.thread.i ]
+  %spec.select82.i = phi i32 [ 1, %._crit_edge88.i ], [ %144, %._crit_edge.loopexit.i ], [ 1, %._crit_edge88.thread.i ]
+  %146 = sitofp i32 %.fr96.i to double
+  %147 = fmul double %.078.lcssa.i, %146
+  %148 = sub i32 %.fr96.i, %spec.select82.i
+  %149 = sitofp i32 %148 to double
+  %150 = sitofp i32 %spec.select82.i to double
+  %151 = fmul double %146, %150
+  %152 = fdiv double %151, %0
+  %153 = fadd double %152, %149
+  %154 = fdiv double %147, %153
+  %155 = fcmp olt double %154, %.078.lcssa.i
+  %.0.i.i = select i1 %155, double %.078.lcssa.i, double %154
+  %156 = fcmp ogt double %.0.i.i, %0
+  %.1.i.i = select i1 %156, double %0, double %.0.i.i
+  %157 = fadd double %.1.i.i, 5.000000e-01
+  %158 = tail call double @llvm.floor.f64(double %157)
+  store double %158, ptr %51, align 8
+  %159 = add i32 %.151, 1
+  %160 = load i32, ptr %34, align 8
+  %161 = load i32, ptr %27, align 4
+  %162 = icmp eq i32 %160, %161
+  br i1 %162, label %generator_next.exit.thread, label %generator_next.exit, !llvm.loop !15
 
 generator_next.exit.thread:                       ; preds = %generator_next.exit, %ndistinct_for_combination.exit, %generator_init.exit
-  %.1.lcssa = phi i32 [ %.03554, %generator_init.exit ], [ %158, %ndistinct_for_combination.exit ], [ %.151, %generator_next.exit ]
-  %162 = load ptr, ptr %33, align 8
-  tail call void @pfree(ptr noundef %162) #10
+  %.1.lcssa = phi i32 [ %.03554, %generator_init.exit ], [ %159, %ndistinct_for_combination.exit ], [ %.151, %generator_next.exit ]
+  %163 = load ptr, ptr %33, align 8
+  tail call void @pfree(ptr noundef %163) #10
   tail call void @pfree(ptr noundef nonnull %19) #10
-  %163 = add i32 %.03455, 1
-  %.not = icmp sgt i32 %163, %4
+  %164 = add i32 %.03455, 1
+  %.not = icmp sgt i32 %164, %4
   br i1 %.not, label %._crit_edge58, label %18, !llvm.loop !16
 
 ._crit_edge58:                                    ; preds = %generator_next.exit.thread, %2

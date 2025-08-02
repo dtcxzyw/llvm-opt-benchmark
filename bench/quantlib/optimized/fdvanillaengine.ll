@@ -610,8 +610,8 @@ unreachable:                                      ; preds = %invoke.cont14
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib15FDVanillaEngine18ensureStrikeInGridEv(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZNK8QuantLib15FDVanillaEngine18ensureStrikeInGridEv(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %payoff_, align 8, !tbaa !25, !noalias !27
@@ -1758,9 +1758,9 @@ for.body.i.preheader:                             ; preds = %_ZN8QuantLib5ArrayC
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %store_forwarded = phi double [ %load_initial, %for.body.i.preheader ], [ %mul.i, %for.body.i ]
   %j.09.i = phi i64 [ 1, %for.body.i.preheader ], [ %inc.i, %for.body.i ]
+  %4 = getelementptr double, ptr %cond.i.i, i64 %j.09.i
   %mul.i = fmul double %call2.i, %store_forwarded
-  %arrayidx.i7.i = getelementptr inbounds nuw double, ptr %cond.i.i, i64 %j.09.i
-  store double %mul.i, ptr %arrayidx.i7.i, align 8, !tbaa !67, !noalias !70
+  store double %mul.i, ptr %4, align 8, !tbaa !67, !noalias !70
   %inc.i = add nuw i64 %j.09.i, 1
   %exitcond.not.i = icmp eq i64 %j.09.i, %sub
   br i1 %exitcond.not.i, label %if.then.i.i.i.i.i.i.i.i, label %for.body.i, !llvm.loop !73
@@ -1769,25 +1769,25 @@ _ZN8QuantLib14BoundedLogGridEddm.exit:            ; preds = %_ZN8QuantLib5ArrayC
   br i1 %cmp.not.i.i, label %_ZN8QuantLib5ArrayC2ERKS0_.exit.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i, %_ZN8QuantLib14BoundedLogGridEddm.exit
-  %4 = icmp ugt i64 %0, 2305843009213693951
-  %5 = shl i64 %0, 3
-  %6 = select i1 %4, i64 -1, i64 %5
-  %call.i.i.i2 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %6) #27
+  %5 = icmp ugt i64 %0, 2305843009213693951
+  %6 = shl i64 %0, 3
+  %7 = select i1 %5, i64 -1, i64 %6
+  %call.i.i.i2 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %7) #27
           to label %call.i.i.i.noexc unwind label %_ZN8QuantLib5ArrayD2Ev.exit6
 
 call.i.i.i.noexc:                                 ; preds = %if.then.i.i.i.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i2, ptr nonnull align 8 %cond.i.i, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i.i2, ptr nonnull align 8 %cond.i.i, i64 %6, i1 false)
   br label %_ZN8QuantLib5ArrayC2ERKS0_.exit.i.i
 
 _ZN8QuantLib5ArrayC2ERKS0_.exit.i.i:              ; preds = %call.i.i.i.noexc, %_ZN8QuantLib14BoundedLogGridEddm.exit
   %temp.sroa.0.0.i.i = phi ptr [ %call.i.i.i2, %call.i.i.i.noexc ], [ null, %_ZN8QuantLib14BoundedLogGridEddm.exit ]
-  %7 = load ptr, ptr %this, align 8, !tbaa !58
+  %8 = load ptr, ptr %this, align 8, !tbaa !58
   store ptr %temp.sroa.0.0.i.i, ptr %this, align 8, !tbaa !58
-  %cmp.not.i.i.i.i = icmp eq ptr %7, null
+  %cmp.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8QuantLib5ArrayD2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i: ; preds = %_ZN8QuantLib5ArrayC2ERKS0_.exit.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #26
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #26
   br label %_ZN8QuantLib5ArrayD2Ev.exit
 
 _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i, %_ZN8QuantLib5ArrayC2ERKS0_.exit.i.i
@@ -1795,10 +1795,10 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %_ZNKSt14default_del
   ret void
 
 _ZN8QuantLib5ArrayD2Ev.exit6:                     ; preds = %if.then.i.i.i.i.i.i.i.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %cond.i.i) #26
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4241,7 +4241,6 @@ for.body.i:                                       ; preds = %invoke.cont10, %for
 
 _ZSt9transformIPdS0_ZN8QuantLib7LogGridC1ERKNS1_5ArrayEEUldE_ET0_T_S8_S7_T1_.exit: ; preds = %for.body.i, %invoke.cont10
   %sub = add i64 %12, -1
-  %invariant.gep = getelementptr i8, ptr %cond.i, i64 -8
   %cmp81 = icmp ugt i64 %sub, 1
   br i1 %cmp81, label %for.body.preheader, label %for.cond.cleanup
 
@@ -4277,8 +4276,9 @@ lpad9:                                            ; preds = %cond.true.i45
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %30 = phi double [ %32, %for.body ], [ %.pre86, %for.body.preheader ]
   %i.082 = phi i64 [ %add, %for.body ], [ 1, %for.body.preheader ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %i.082
-  %31 = load double, ptr %gep, align 8, !tbaa !67
+  %arrayidx.i = getelementptr double, ptr %cond.i, i64 %i.082
+  %arrayidx.i55 = getelementptr i8, ptr %arrayidx.i, i64 -8
+  %31 = load double, ptr %arrayidx.i55, align 8, !tbaa !67
   %sub27 = fsub double %30, %31
   %arrayidx.i56 = getelementptr inbounds nuw double, ptr %cond.i30, i64 %i.082
   store double %sub27, ptr %arrayidx.i56, align 8, !tbaa !67

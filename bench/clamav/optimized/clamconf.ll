@@ -213,12 +213,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #11
   %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(11) @.str.49) #12
-  %.not57.i73 = icmp eq i32 %33, 0
-  br i1 %.not57.i73, label %._crit_edge, label %.lr.ph
+  %.not57.i74 = icmp eq i32 %33, 0
+  br i1 %.not57.i74, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30, %34
-  %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i, %34 ], [ 0, %30 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i74, 1
+  %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i, %34 ], [ 0, %30 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.i, label %.thread.i, label %34
 
@@ -470,20 +470,20 @@ printconf.exit:                                   ; preds = %.loopexit.i, %46, %
 139:                                              ; preds = %132
   %140 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %133)
   %141 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %133) #12
-  %.not80 = icmp eq i64 %141, -13
-  br i1 %.not80, label %._crit_edge78, label %.lr.ph77
+  %.not81 = icmp eq i64 %141, -13
+  br i1 %.not81, label %._crit_edge79, label %.lr.ph78
 
-.lr.ph77:                                         ; preds = %139, %.lr.ph77
-  %.075 = phi i32 [ %142, %.lr.ph77 ], [ 0, %139 ]
+.lr.ph78:                                         ; preds = %139, %.lr.ph78
+  %.076 = phi i32 [ %142, %.lr.ph78 ], [ 0, %139 ]
   %putchar59 = call i32 @putchar(i32 45)
-  %142 = add i32 %.075, 1
+  %142 = add i32 %.076, 1
   %143 = zext i32 %142 to i64
   %144 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %133) #12
   %145 = add i64 %144, 13
   %146 = icmp ugt i64 %145, %143
-  br i1 %146, label %.lr.ph77, label %._crit_edge78
+  br i1 %146, label %.lr.ph78, label %._crit_edge79
 
-._crit_edge78:                                    ; preds = %.lr.ph77, %139
+._crit_edge79:                                    ; preds = %.lr.ph78, %139
   %putchar57 = call i32 @putchar(i32 10)
   %147 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %148 = load i32, ptr %147, align 8, !tbaa !17
@@ -492,7 +492,7 @@ printconf.exit:                                   ; preds = %.loopexit.i, %46, %
   %.not58 = icmp eq ptr %150, null
   br i1 %.not58, label %234, label %151
 
-151:                                              ; preds = %._crit_edge78
+151:                                              ; preds = %._crit_edge79
   %152 = call ptr @optget(ptr noundef nonnull %10, ptr noundef nonnull @.str.12) #11
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %154 = load i32, ptr %153, align 8, !tbaa !4
@@ -664,7 +664,7 @@ printopts.exit:                                   ; preds = %.backedge.i
   call void @optfree(ptr noundef nonnull %150) #11
   br label %234
 
-234:                                              ; preds = %._crit_edge78, %233, %137
+234:                                              ; preds = %._crit_edge79, %233, %137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %235 = getelementptr inbounds nuw [4 x %struct._cfgfile], ptr @cfgfile, i64 0, i64 %indvars.iv.next
   %236 = load ptr, ptr %235, align 16, !tbaa !15

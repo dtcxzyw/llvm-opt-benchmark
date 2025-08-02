@@ -2198,7 +2198,7 @@ _ZN5alloc3fmt6format17h466b4216b5d6a491E.exit174.i.i: ; preds = %686
 _ZN13pingora_error5Error7because17h2b7b7e2fd399f06dE.exit.i.i.i: ; preds = %.noexc177.i.i
   %708 = extractvalue { ptr, ptr } %696, 0
   %709 = extractvalue { ptr, ptr } %696, 1
-  %710 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %38, ptr noalias noundef align 8 captures(none) dereferenceable(24) %15, ptr noundef align 1 %708, ptr %709)
+  %710 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %38, ptr noalias noundef align 8 captures(none) dereferenceable(24) %15, ptr noundef align 1 %708, ptr %709)
           to label %713 unwind label %711
 
 .body178.i.i:                                     ; preds = %711, %706, %703, %701, %697, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h2f9ae07e208d1dccE.exit.i.i"
@@ -2282,7 +2282,7 @@ _ZN13pingora_error5Error7because17h2b7b7e2fd399f06dE.exit.i.i.i: ; preds = %.noe
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h8ba9e1dcaaa4c46cE.exit.i.i.i": ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3a632737a8298582E.exit.i.i.i"
   %721 = extractvalue { ptr, ptr } %720, 0
   %722 = extractvalue { ptr, ptr } %720, 1
-  %723 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef align 8 captures(none) dereferenceable(24) %12, ptr noundef align 1 %721, ptr %722)
+  %723 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef align 8 captures(none) dereferenceable(24) %12, ptr noundef align 1 %721, ptr %722)
           to label %741 unwind label %739
 
 724:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3a632737a8298582E.exit.i.i.i"
@@ -2571,7 +2571,7 @@ _ZN13pingora_error5Error7because17h2b7b7e2fd399f06dE.exit.i.i.i: ; preds = %.noe
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17he79305837612ef84E.exit.i.i": ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbe327a696fad74f8E.exit.i.i"
   %814 = extractvalue { ptr, ptr } %813, 0
   %815 = extractvalue { ptr, ptr } %813, 1
-  %816 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %814, ptr %815)
+  %816 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %814, ptr %815)
           to label %.noexc94 unwind label %855
 
 .noexc94:                                         ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17he79305837612ef84E.exit.i.i"
@@ -2642,7 +2642,7 @@ _ZN13pingora_error5Error7because17h2b7b7e2fd399f06dE.exit.i.i.i: ; preds = %.noe
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17he79305837612ef84E.exit.i10.i": ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbe327a696fad74f8E.exit.i7.i"
   %837 = extractvalue { ptr, ptr } %836, 0
   %838 = extractvalue { ptr, ptr } %836, 1
-  %839 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 %837, ptr %838)
+  %839 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 %837, ptr %838)
           to label %.noexc97 unwind label %855
 
 .noexc97:                                         ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17he79305837612ef84E.exit.i10.i"
@@ -4907,7 +4907,7 @@ common.ret:                                       ; preds = %185, %176
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef align 1 %2, ptr %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [72 x i8], align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.invoke, label %6
@@ -12673,7 +12673,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %758
 _ZN13pingora_error5Error7because17hc3f4e7237fc169beE.exit.i.i.i.i.i: ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3a632737a8298582E.exit.i.i.i.i.i.i"
   %930 = extractvalue { ptr, ptr } %914, 0
   %931 = extractvalue { ptr, ptr } %914, 1
-  %932 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %80, ptr noalias noundef align 8 captures(none) dereferenceable(24) %11, ptr noundef align 1 %930, ptr %931)
+  %932 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %80, ptr noalias noundef align 8 captures(none) dereferenceable(24) %11, ptr noundef align 1 %930, ptr %931)
           to label %935 unwind label %933
 
 933:                                              ; preds = %_ZN13pingora_error5Error7because17hc3f4e7237fc169beE.exit.i.i.i.i.i
@@ -13134,7 +13134,7 @@ _ZN13pingora_error5Error7because17hc3f4e7237fc169beE.exit.i.i.i.i.i: ; preds = %
 _ZN13pingora_error5Error7because17hc3f4e7237fc169beE.exit.i197.i.i.i.i: ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3a632737a8298582E.exit.i.i194.i.i.i.i"
   %1055 = extractvalue { ptr, ptr } %1039, 0
   %1056 = extractvalue { ptr, ptr } %1039, 1
-  %1057 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %1055, ptr %1056)
+  %1057 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %1055, ptr %1056)
           to label %1060 unwind label %1058
 
 1058:                                             ; preds = %_ZN13pingora_error5Error7because17hc3f4e7237fc169beE.exit.i197.i.i.i.i
@@ -18097,7 +18097,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %758
 _ZN13pingora_error5Error7because17hc3f4e7237fc169beE.exit.i.i.i.i.i: ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3a632737a8298582E.exit.i.i.i.i.i.i"
   %930 = extractvalue { ptr, ptr } %914, 0
   %931 = extractvalue { ptr, ptr } %914, 1
-  %932 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %80, ptr noalias noundef align 8 captures(none) dereferenceable(24) %11, ptr noundef align 1 %930, ptr %931)
+  %932 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %80, ptr noalias noundef align 8 captures(none) dereferenceable(24) %11, ptr noundef align 1 %930, ptr %931)
           to label %935 unwind label %933
 
 933:                                              ; preds = %_ZN13pingora_error5Error7because17hc3f4e7237fc169beE.exit.i.i.i.i.i
@@ -18558,7 +18558,7 @@ _ZN13pingora_error5Error7because17hc3f4e7237fc169beE.exit.i.i.i.i.i: ; preds = %
 _ZN13pingora_error5Error7because17hc3f4e7237fc169beE.exit.i197.i.i.i.i: ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3a632737a8298582E.exit.i.i194.i.i.i.i"
   %1055 = extractvalue { ptr, ptr } %1039, 0
   %1056 = extractvalue { ptr, ptr } %1039, 1
-  %1057 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %1055, ptr %1056)
+  %1057 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 %1055, ptr %1056)
           to label %1060 unwind label %1058
 
 1058:                                             ; preds = %_ZN13pingora_error5Error7because17hc3f4e7237fc169beE.exit.i197.i.i.i.i

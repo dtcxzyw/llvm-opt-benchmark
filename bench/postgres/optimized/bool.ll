@@ -160,50 +160,50 @@ define dso_local range(i64 0, 2) i64 @boolin(ptr noundef readonly captures(none)
 
 15:                                               ; preds = %8
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.016) #12
-  %invariant.gep = getelementptr i8, ptr %.016, i64 -1
   %.not1719 = icmp eq i64 %16, 0
   br i1 %.not1719, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %15, %22
-  %.01520 = phi i64 [ %23, %22 ], [ %16, %15 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.01520
-  %17 = load i8, ptr %gep, align 1
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %7, i64 %18
-  %20 = load i16, ptr %19, align 2
-  %21 = and i16 %20, 8192
-  %.not18 = icmp eq i16 %21, 0
-  br i1 %.not18, label %.critedge, label %22
+.lr.ph:                                           ; preds = %15, %24
+  %.01520 = phi i64 [ %25, %24 ], [ %16, %15 ]
+  %17 = getelementptr i8, ptr %.016, i64 %.01520
+  %18 = getelementptr i8, ptr %17, i64 -1
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i64
+  %21 = getelementptr inbounds nuw i16, ptr %7, i64 %20
+  %22 = load i16, ptr %21, align 2
+  %23 = and i16 %22, 8192
+  %.not18 = icmp eq i16 %23, 0
+  br i1 %.not18, label %.critedge, label %24
 
-22:                                               ; preds = %.lr.ph
-  %23 = add i64 %.01520, -1
-  %.not17 = icmp eq i64 %23, 0
+24:                                               ; preds = %.lr.ph
+  %25 = add i64 %.01520, -1
+  %.not17 = icmp eq i64 %25, 0
   br i1 %.not17, label %.critedge, label %.lr.ph, !llvm.loop !6
 
-.critedge:                                        ; preds = %.lr.ph, %22, %15
-  %.015.lcssa = phi i64 [ 0, %15 ], [ 0, %22 ], [ %.01520, %.lr.ph ]
-  %24 = call zeroext i1 @parse_bool_with_len(ptr noundef nonnull %.016, i64 noundef %.015.lcssa, ptr noundef nonnull %2)
-  br i1 %24, label %25, label %28
+.critedge:                                        ; preds = %.lr.ph, %24, %15
+  %.015.lcssa = phi i64 [ 0, %15 ], [ 0, %24 ], [ %.01520, %.lr.ph ]
+  %26 = call zeroext i1 @parse_bool_with_len(ptr noundef nonnull %.016, i64 noundef %.015.lcssa, ptr noundef nonnull %2)
+  br i1 %26, label %27, label %30
 
-25:                                               ; preds = %.critedge
-  %26 = load i8, ptr %2, align 1, !range !7, !noundef !8
-  %27 = zext nneg i8 %26 to i64
-  br label %35
+27:                                               ; preds = %.critedge
+  %28 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %29 = zext nneg i8 %28 to i64
+  br label %37
 
-28:                                               ; preds = %.critedge
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = call zeroext i1 @errsave_start(ptr noundef %30, ptr noundef null) #13
-  br i1 %31, label %32, label %35
+30:                                               ; preds = %.critedge
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = call zeroext i1 @errsave_start(ptr noundef %32, ptr noundef null) #13
+  br i1 %33, label %34, label %37
 
-32:                                               ; preds = %28
-  %33 = call i32 @errcode(i32 noundef 33685634) #13
-  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef %5) #13
-  call void @errsave_finish(ptr noundef %30, ptr noundef nonnull @.str.8, i32 noundef 151, ptr noundef nonnull @__func__.boolin) #13
-  br label %35
+34:                                               ; preds = %30
+  %35 = call i32 @errcode(i32 noundef 33685634) #13
+  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef %5) #13
+  call void @errsave_finish(ptr noundef %32, ptr noundef nonnull @.str.8, i32 noundef 151, ptr noundef nonnull @__func__.boolin) #13
+  br label %37
 
-35:                                               ; preds = %28, %32, %25
-  %.0 = phi i64 [ %27, %25 ], [ 0, %32 ], [ 0, %28 ]
+37:                                               ; preds = %30, %34, %27
+  %.0 = phi i64 [ %29, %27 ], [ 0, %34 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #13
   ret i64 %.0
 }

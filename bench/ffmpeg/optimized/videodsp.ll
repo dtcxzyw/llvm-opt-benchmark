@@ -177,8 +177,8 @@ define void @ff_emulated_edge_mc_8(ptr noundef captures(none) %0, ptr noundef re
   br label %.preheader129.us
 
 .preheader129.us:                                 ; preds = %.preheader129.us.preheader, %._crit_edge151.us
-  %98 = phi i32 [ %105, %._crit_edge151.us ], [ %94, %.preheader129.us.preheader ]
-  %.3153.us = phi ptr [ %104, %._crit_edge151.us ], [ %93, %.preheader129.us.preheader ]
+  %98 = phi i32 [ %107, %._crit_edge151.us ], [ %94, %.preheader129.us.preheader ]
+  %.3153.us = phi ptr [ %106, %._crit_edge151.us ], [ %93, %.preheader129.us.preheader ]
   br i1 %95, label %.lr.ph148.us, label %.preheader.us
 
 99:                                               ; preds = %.preheader.us, %99
@@ -199,19 +199,19 @@ define void @ff_emulated_edge_mc_8(ptr noundef captures(none) %0, ptr noundef re
   br i1 %exitcond178.not, label %.preheader.us, label %101, !llvm.loop !12
 
 .preheader.us:                                    ; preds = %101, %.preheader129.us
-  %invariant.gep.us = getelementptr i8, ptr %.3153.us, i64 -1
-  %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %97
-  %.pre183 = load i8, ptr %gep.us, align 1, !tbaa !8
+  %103 = getelementptr i8, ptr %.3153.us, i64 %97
+  %104 = getelementptr i8, ptr %103, i64 -1
+  %.pre183 = load i8, ptr %104, align 1, !tbaa !8
   br label %99
 
 .lr.ph148.us:                                     ; preds = %.preheader129.us
-  %103 = getelementptr inbounds nuw i8, ptr %.3153.us, i64 %61
-  %.pre182 = load i8, ptr %103, align 1, !tbaa !8
+  %105 = getelementptr inbounds nuw i8, ptr %.3153.us, i64 %61
+  %.pre182 = load i8, ptr %105, align 1, !tbaa !8
   br label %101
 
 ._crit_edge151.us:                                ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %.3153.us, i64 %2
-  %105 = add nsw i32 %98, -1
+  %106 = getelementptr inbounds i8, ptr %.3153.us, i64 %2
+  %107 = add nsw i32 %98, -1
   %.not128.us = icmp eq i32 %98, 0
   br i1 %.not128.us, label %.loopexit, label %.preheader129.us, !llvm.loop !13
 
@@ -224,24 +224,24 @@ define void @ff_emulated_edge_mc_8(ptr noundef captures(none) %0, ptr noundef re
   br label %.preheader129.us154
 
 .preheader129.us154:                              ; preds = %.preheader129.us154.preheader, %..preheader_crit_edge.us160
-  %106 = phi i32 [ %111, %..preheader_crit_edge.us160 ], [ %94, %.preheader129.us154.preheader ]
-  %.3153.us155 = phi ptr [ %110, %..preheader_crit_edge.us160 ], [ %93, %.preheader129.us154.preheader ]
-  %107 = getelementptr inbounds nuw i8, ptr %.3153.us155, i64 %61
-  %.pre = load i8, ptr %107, align 1, !tbaa !8
-  br label %108
+  %108 = phi i32 [ %113, %..preheader_crit_edge.us160 ], [ %94, %.preheader129.us154.preheader ]
+  %.3153.us155 = phi ptr [ %112, %..preheader_crit_edge.us160 ], [ %93, %.preheader129.us154.preheader ]
+  %109 = getelementptr inbounds nuw i8, ptr %.3153.us155, i64 %61
+  %.pre = load i8, ptr %109, align 1, !tbaa !8
+  br label %110
 
-108:                                              ; preds = %.preheader129.us154, %108
-  %indvars.iv = phi i64 [ 0, %.preheader129.us154 ], [ %indvars.iv.next, %108 ]
-  %109 = getelementptr inbounds nuw i8, ptr %.3153.us155, i64 %indvars.iv
-  store i8 %.pre, ptr %109, align 1, !tbaa !8
+110:                                              ; preds = %.preheader129.us154, %110
+  %indvars.iv = phi i64 [ 0, %.preheader129.us154 ], [ %indvars.iv.next, %110 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.3153.us155, i64 %indvars.iv
+  store i8 %.pre, ptr %111, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond172.not, label %..preheader_crit_edge.us160, label %108, !llvm.loop !12
+  br i1 %exitcond172.not, label %..preheader_crit_edge.us160, label %110, !llvm.loop !12
 
-..preheader_crit_edge.us160:                      ; preds = %108
-  %110 = getelementptr inbounds i8, ptr %.3153.us155, i64 %2
-  %111 = add nsw i32 %106, -1
-  %.not128.us158 = icmp eq i32 %106, 0
+..preheader_crit_edge.us160:                      ; preds = %110
+  %112 = getelementptr inbounds i8, ptr %.3153.us155, i64 %2
+  %113 = add nsw i32 %108, -1
+  %.not128.us158 = icmp eq i32 %108, 0
   br i1 %.not128.us158, label %.loopexit, label %.preheader129.us154, !llvm.loop !15
 
 .loopexit:                                        ; preds = %..preheader_crit_edge.us160, %._crit_edge151.us, %.preheader129.lr.ph.split, %._crit_edge145, %10
@@ -446,8 +446,8 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
   br label %.preheader129.us
 
 .preheader129.us:                                 ; preds = %.preheader129.us.preheader, %._crit_edge151.us
-  %104 = phi i32 [ %111, %._crit_edge151.us ], [ %100, %.preheader129.us.preheader ]
-  %.3153.us = phi ptr [ %110, %._crit_edge151.us ], [ %99, %.preheader129.us.preheader ]
+  %104 = phi i32 [ %113, %._crit_edge151.us ], [ %100, %.preheader129.us.preheader ]
+  %.3153.us = phi ptr [ %112, %._crit_edge151.us ], [ %99, %.preheader129.us.preheader ]
   br i1 %101, label %.lr.ph148.us, label %.preheader.us
 
 105:                                              ; preds = %.preheader.us, %105
@@ -468,19 +468,19 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
   br i1 %exitcond178.not, label %.preheader.us, label %107, !llvm.loop !26
 
 .preheader.us:                                    ; preds = %107, %.preheader129.us
-  %invariant.gep.us = getelementptr i8, ptr %.3153.us, i64 -2
-  %gep.us = getelementptr i16, ptr %invariant.gep.us, i64 %103
-  %.pre183 = load i16, ptr %gep.us, align 2, !tbaa !23
+  %109 = getelementptr i16, ptr %.3153.us, i64 %103
+  %110 = getelementptr i8, ptr %109, i64 -2
+  %.pre183 = load i16, ptr %110, align 2, !tbaa !23
   br label %105
 
 .lr.ph148.us:                                     ; preds = %.preheader129.us
-  %109 = getelementptr inbounds nuw i16, ptr %.3153.us, i64 %63
-  %.pre182 = load i16, ptr %109, align 2, !tbaa !23
+  %111 = getelementptr inbounds nuw i16, ptr %.3153.us, i64 %63
+  %.pre182 = load i16, ptr %111, align 2, !tbaa !23
   br label %107
 
 ._crit_edge151.us:                                ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %.3153.us, i64 %2
-  %111 = add nsw i32 %104, -1
+  %112 = getelementptr inbounds i8, ptr %.3153.us, i64 %2
+  %113 = add nsw i32 %104, -1
   %.not128.us = icmp eq i32 %104, 0
   br i1 %.not128.us, label %.loopexit, label %.preheader129.us, !llvm.loop !27
 
@@ -493,24 +493,24 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
   br label %.preheader129.us154
 
 .preheader129.us154:                              ; preds = %.preheader129.us154.preheader, %..preheader_crit_edge.us160
-  %112 = phi i32 [ %117, %..preheader_crit_edge.us160 ], [ %100, %.preheader129.us154.preheader ]
-  %.3153.us155 = phi ptr [ %116, %..preheader_crit_edge.us160 ], [ %99, %.preheader129.us154.preheader ]
-  %113 = getelementptr inbounds nuw i16, ptr %.3153.us155, i64 %63
-  %.pre = load i16, ptr %113, align 2, !tbaa !23
-  br label %114
+  %114 = phi i32 [ %119, %..preheader_crit_edge.us160 ], [ %100, %.preheader129.us154.preheader ]
+  %.3153.us155 = phi ptr [ %118, %..preheader_crit_edge.us160 ], [ %99, %.preheader129.us154.preheader ]
+  %115 = getelementptr inbounds nuw i16, ptr %.3153.us155, i64 %63
+  %.pre = load i16, ptr %115, align 2, !tbaa !23
+  br label %116
 
-114:                                              ; preds = %.preheader129.us154, %114
-  %indvars.iv = phi i64 [ 0, %.preheader129.us154 ], [ %indvars.iv.next, %114 ]
-  %115 = getelementptr inbounds nuw i16, ptr %.3153.us155, i64 %indvars.iv
-  store i16 %.pre, ptr %115, align 2, !tbaa !23
+116:                                              ; preds = %.preheader129.us154, %116
+  %indvars.iv = phi i64 [ 0, %.preheader129.us154 ], [ %indvars.iv.next, %116 ]
+  %117 = getelementptr inbounds nuw i16, ptr %.3153.us155, i64 %indvars.iv
+  store i16 %.pre, ptr %117, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond172.not, label %..preheader_crit_edge.us160, label %114, !llvm.loop !26
+  br i1 %exitcond172.not, label %..preheader_crit_edge.us160, label %116, !llvm.loop !26
 
-..preheader_crit_edge.us160:                      ; preds = %114
-  %116 = getelementptr inbounds i8, ptr %.3153.us155, i64 %2
-  %117 = add nsw i32 %112, -1
-  %.not128.us158 = icmp eq i32 %112, 0
+..preheader_crit_edge.us160:                      ; preds = %116
+  %118 = getelementptr inbounds i8, ptr %.3153.us155, i64 %2
+  %119 = add nsw i32 %114, -1
+  %.not128.us158 = icmp eq i32 %114, 0
   br i1 %.not128.us158, label %.loopexit, label %.preheader129.us154, !llvm.loop !28
 
 .loopexit:                                        ; preds = %..preheader_crit_edge.us160, %._crit_edge151.us, %.preheader129.lr.ph.split, %._crit_edge145, %10

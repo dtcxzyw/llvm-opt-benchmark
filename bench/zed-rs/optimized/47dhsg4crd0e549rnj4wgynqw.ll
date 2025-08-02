@@ -136393,8 +136393,8 @@ common.resume.i:                                  ; preds = %"_ZN4core3ptr72drop
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load i64, ptr %53, align 8, !alias.scope !30515, !noundef !4
   %.idx.i = mul nuw nsw i64 %46, 88
-  %55 = getelementptr i8, ptr %22, i64 96
-  %56 = getelementptr i8, ptr %55, i64 %.idx.i
+  %55 = getelementptr inbounds nuw i8, ptr %22, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i
   %57 = load i64, ptr %56, align 8, !noalias !30515, !noundef !4
   %.not.i = icmp eq i64 %57, %54
   %.not27.i = icmp eq i64 %57, %52
@@ -136468,8 +136468,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.2840939845381089846.exit.
 
 80:                                               ; preds = %74
   %.idx29.i = mul nuw nsw i64 %46, 88
-  %81 = getelementptr i8, ptr %22, i64 56
-  %82 = getelementptr i8, ptr %81, i64 %.idx29.i
+  %81 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx29.i
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %84 = load i64, ptr %83, align 8, !noalias !30515, !noundef !4
   invoke void @"_ZN4slab13Slab$LT$T$GT$9insert_at17h4714d394b4127a6bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %82, i64 noundef %84, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) null, ptr undef)
@@ -136487,8 +136487,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.2840939845381089846.exit.
           to label %90 unwind label %58, !noalias !30515
 
 90:                                               ; preds = %88
-  %91 = getelementptr i8, ptr %22, i64 96
-  %92 = getelementptr i8, ptr %91, i64 %.idx29.i
+  %91 = getelementptr inbounds nuw i8, ptr %22, i64 96
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx29.i
   %93 = load i64, ptr %92, align 8, !noalias !30515, !noundef !4
   store i64 1, ptr %0, align 8, !alias.scope !30515
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -136512,8 +136512,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.2840939845381089846.exit.
   %102 = extractvalue { ptr, ptr } %100, 0
   %103 = extractvalue { ptr, ptr } %100, 1
   %.idx31.i = mul nuw nsw i64 %46, 88
-  %104 = getelementptr i8, ptr %22, i64 56
-  %105 = getelementptr i8, ptr %104, i64 %.idx31.i
+  %104 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %.idx31.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30527)
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load i64, ptr %106, align 8, !alias.scope !30527, !noalias !30530, !noundef !4

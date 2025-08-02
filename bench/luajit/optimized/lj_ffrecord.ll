@@ -5165,7 +5165,7 @@ argv2str.exit:                                    ; preds = %17, %23
 45:                                               ; preds = %122, %argv2str.exit
   %.0104 = phi i32 [ %2, %argv2str.exit ], [ %.1105, %122 ]
   %.0102 = phi i32 [ 0, %argv2str.exit ], [ %123, %122 ]
-  %.0100 = phi i64 [ %6, %argv2str.exit ], [ %.1101112, %122 ]
+  %.0100 = phi i64 [ %6, %argv2str.exit ], [ %.1101111, %122 ]
   %46 = call i32 @lj_strfmt_parse(ptr noundef nonnull %5) #9
   switch i32 %46, label %48 [
     i32 0, label %125
@@ -5193,7 +5193,7 @@ argv2str.exit:                                    ; preds = %17, %23
   ]
 
 55:                                               ; preds = %.thread, %48
-  %.1101113 = phi i64 [ %.0100, %.thread ], [ %50, %48 ]
+  %.1101112 = phi i64 [ %.0100, %.thread ], [ %50, %48 ]
   %56 = trunc i32 %.0104 to i16
   %57 = load ptr, ptr %42, align 8, !tbaa !33
   %58 = load ptr, ptr %43, align 8, !tbaa !81
@@ -5271,7 +5271,7 @@ argv2str.exit:                                    ; preds = %17, %23
 
 97:                                               ; preds = %94
   call void @recff_nyi(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %.thread114
+  br label %.critedge
 
 98:                                               ; preds = %94
   %99 = icmp eq i32 %46, 6
@@ -5324,10 +5324,10 @@ argv2str.exit:                                    ; preds = %17, %23
 
 121:                                              ; preds = %48
   call void @recff_nyi(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %.thread114
+  br label %.critedge
 
 122:                                              ; preds = %113, %119, %100, %108, %106, %80, %86, %91, %73, %55
-  %.1101112 = phi i64 [ %.1101113, %55 ], [ %50, %80 ], [ %50, %86 ], [ %50, %73 ], [ %50, %91 ], [ %50, %100 ], [ %50, %106 ], [ %50, %108 ], [ %50, %113 ], [ %50, %119 ]
+  %.1101111 = phi i64 [ %.1101112, %55 ], [ %50, %80 ], [ %50, %86 ], [ %50, %73 ], [ %50, %91 ], [ %50, %100 ], [ %50, %106 ], [ %50, %108 ], [ %50, %113 ], [ %50, %119 ]
   %.1105 = phi i32 [ %64, %55 ], [ %85, %80 ], [ %89, %86 ], [ %77, %73 ], [ %93, %91 ], [ %103, %100 ], [ %107, %106 ], [ %109, %108 ], [ %118, %113 ], [ %120, %119 ]
   %123 = add nuw nsw i32 %.0102, 1
   %exitcond = icmp eq i32 %123, 101
@@ -5347,7 +5347,7 @@ argv2str.exit:                                    ; preds = %17, %23
   store i16 %126, ptr %32, align 8, !tbaa !4
   store i16 0, ptr %34, align 2, !tbaa !4
   %128 = call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
-  br label %.thread114
+  br label %.critedge
 
 129:                                              ; preds = %125
   %130 = trunc i32 %2 to i16
@@ -5357,9 +5357,9 @@ argv2str.exit:                                    ; preds = %17, %23
   %131 = call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
   %132 = load ptr, ptr %7, align 8, !tbaa !37
   store i32 %131, ptr %132, align 4, !tbaa !39
-  br label %.thread114
+  br label %.critedge
 
-.thread114:                                       ; preds = %97, %121, %127, %129
+.critedge:                                        ; preds = %121, %97, %127, %129
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
   ret void
 }

@@ -62,7 +62,7 @@ define dso_local void @__archive_write_entry_filetype_unsupported(ptr noundef %0
   %switch.shifted = lshr i16 2603, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond = select i1 %7, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %10
+  br i1 %or.cond, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %6 to i64
@@ -70,16 +70,16 @@ switch.lookup:                                    ; preds = %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = tail call ptr @archive_entry_pathname(ptr noundef %1) #3
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.7, ptr noundef %9, ptr noundef %2, ptr noundef nonnull %switch.load) #3
-  br label %14
+  br label %13
 
-10:                                               ; preds = %3
-  %11 = tail call ptr @archive_entry_pathname(ptr noundef %1) #3
-  %12 = tail call i32 @archive_entry_mode(ptr noundef %1) #3
-  %13 = zext i32 %12 to i64
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.8, ptr noundef %11, ptr noundef %2, i64 noundef %13) #3
-  br label %14
+.critedge:                                        ; preds = %3
+  %10 = tail call ptr @archive_entry_pathname(ptr noundef %1) #3
+  %11 = tail call i32 @archive_entry_mode(ptr noundef %1) #3
+  %12 = zext i32 %11 to i64
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.8, ptr noundef %10, ptr noundef %2, i64 noundef %12) #3
+  br label %13
 
-14:                                               ; preds = %10, %switch.lookup
+13:                                               ; preds = %.critedge, %switch.lookup
   ret void
 }
 

@@ -1106,89 +1106,89 @@ _preset_retrieve_old_layout_updated.exit:         ; preds = %._crit_edge.i, %_pr
   store ptr null, ptr %3, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store ptr null, ptr %4, align 8, !tbaa !17
-  %invariant.gep.i = getelementptr i8, ptr %196, i64 1
   %199 = icmp sgt i32 %198, 0
   br i1 %199, label %.lr.ph.i43, label %._crit_edge.i42
 
-.lr.ph.i43:                                       ; preds = %.lr.ph28.i, %208
-  %.026.i = phi i32 [ %209, %208 ], [ 0, %.lr.ph28.i ]
+.lr.ph.i43:                                       ; preds = %.lr.ph28.i, %210
+  %.026.i = phi i32 [ %211, %210 ], [ 0, %.lr.ph28.i ]
   %200 = sext i32 %.026.i to i64
   %201 = getelementptr inbounds i8, ptr %196, i64 %200
   %202 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %201) #17
   %203 = trunc i64 %202 to i32
   %204 = add nsw i32 %.026.i, %203
   %205 = sext i32 %204 to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %205
-  %206 = load i8, ptr %gep.i, align 1, !tbaa !69
-  switch i8 %206, label %208 [
+  %206 = getelementptr i8, ptr %196, i64 %205
+  %207 = getelementptr i8, ptr %206, i64 1
+  %208 = load i8, ptr %207, align 1, !tbaa !69
+  switch i8 %208, label %210 [
     i8 1, label %.sink.split.i
-    i8 2, label %207
+    i8 2, label %209
   ]
 
-207:                                              ; preds = %.lr.ph.i43
+209:                                              ; preds = %.lr.ph.i43
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, ptr noundef nonnull %201) #16
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %207, %.lr.ph.i43
+.sink.split.i:                                    ; preds = %209, %.lr.ph.i43
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef nonnull %201) #16
-  br label %208
+  br label %210
 
-208:                                              ; preds = %.sink.split.i, %.lr.ph.i43
-  %209 = add i32 %204, 2
-  %210 = icmp slt i32 %209, %198
-  br i1 %210, label %.lr.ph.i43, label %._crit_edge.i42
+210:                                              ; preds = %.sink.split.i, %.lr.ph.i43
+  %211 = add i32 %204, 2
+  %212 = icmp slt i32 %211, %198
+  br i1 %212, label %.lr.ph.i43, label %._crit_edge.i42
 
-._crit_edge.i42:                                  ; preds = %208, %.lr.ph28.i
+._crit_edge.i42:                                  ; preds = %210, %.lr.ph28.i
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.184) #16
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef nonnull @.str.184) #16
-  %211 = load ptr, ptr %3, align 8, !tbaa !17
-  %212 = load ptr, ptr %4, align 8, !tbaa !17
-  %213 = call fastcc ptr @_preset_retrieve_old_layout(ptr noundef %211, ptr noundef %212)
-  %214 = load ptr, ptr %24, align 8, !tbaa !18
-  %215 = call i32 (...) %214() #16
-  %216 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %213) #17
-  %217 = trunc i64 %216 to i32
-  call void @dt_lib_presets_add(ptr noundef %194, ptr noundef nonnull %23, i32 noundef %215, ptr noundef nonnull %213, i32 noundef %217, i32 noundef 0, i32 noundef 0) #16
-  call void @g_free(ptr noundef nonnull %213) #16
-  %218 = load ptr, ptr %3, align 8, !tbaa !17
-  call void @g_free(ptr noundef %218) #16
-  %219 = load ptr, ptr %4, align 8, !tbaa !17
-  call void @g_free(ptr noundef %219) #16
+  %213 = load ptr, ptr %3, align 8, !tbaa !17
+  %214 = load ptr, ptr %4, align 8, !tbaa !17
+  %215 = call fastcc ptr @_preset_retrieve_old_layout(ptr noundef %213, ptr noundef %214)
+  %216 = load ptr, ptr %24, align 8, !tbaa !18
+  %217 = call i32 (...) %216() #16
+  %218 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %215) #17
+  %219 = trunc i64 %218 to i32
+  call void @dt_lib_presets_add(ptr noundef %194, ptr noundef nonnull %23, i32 noundef %217, ptr noundef nonnull %215, i32 noundef %219, i32 noundef 0, i32 noundef 0) #16
+  call void @g_free(ptr noundef nonnull %215) #16
+  %220 = load ptr, ptr %3, align 8, !tbaa !17
+  call void @g_free(ptr noundef %220) #16
+  %221 = load ptr, ptr %4, align 8, !tbaa !17
+  call void @g_free(ptr noundef %221) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  %220 = load ptr, ptr %2, align 8, !tbaa !67
-  %221 = call i32 @sqlite3_step(ptr noundef %220) #16
-  %222 = icmp eq i32 %221, 100
-  br i1 %222, label %.lr.ph28.i, label %._crit_edge29.i
+  %222 = load ptr, ptr %2, align 8, !tbaa !67
+  %223 = call i32 @sqlite3_step(ptr noundef %222) #16
+  %224 = icmp eq i32 %223, 100
+  br i1 %224, label %.lr.ph28.i, label %._crit_edge29.i
 
 ._crit_edge29.i:                                  ; preds = %._crit_edge.i42, %189
-  %223 = load ptr, ptr %2, align 8, !tbaa !67
-  %224 = call i32 @sqlite3_finalize(ptr noundef %223) #16
-  %225 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
-  %226 = and i32 %225, 256
-  %.not24.i = icmp eq i32 %226, 0
-  br i1 %.not24.i, label %228, label %227
+  %225 = load ptr, ptr %2, align 8, !tbaa !67
+  %226 = call i32 @sqlite3_finalize(ptr noundef %225) #16
+  %227 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
+  %228 = and i32 %227, 256
+  %.not24.i = icmp eq i32 %228, 0
+  br i1 %.not24.i, label %230, label %229
 
-227:                                              ; preds = %._crit_edge29.i
+229:                                              ; preds = %._crit_edge29.i
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.157, i32 noundef 1328, ptr noundef nonnull @__FUNCTION__._preset_retrieve_old_presets, ptr noundef nonnull @.str.186) #16
-  br label %228
+  br label %230
 
-228:                                              ; preds = %227, %._crit_edge29.i
-  %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !64
-  %230 = call ptr @dt_database_get(ptr noundef %229) #16
-  %231 = call i32 @sqlite3_exec(ptr noundef %230, ptr noundef nonnull @.str.186, ptr noundef null, ptr noundef null, ptr noundef null) #16
-  %.not25.i = icmp eq i32 %231, 0
-  br i1 %.not25.i, label %_preset_retrieve_old_presets.exit, label %232
+230:                                              ; preds = %229, %._crit_edge29.i
+  %231 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !64
+  %232 = call ptr @dt_database_get(ptr noundef %231) #16
+  %233 = call i32 @sqlite3_exec(ptr noundef %232, ptr noundef nonnull @.str.186, ptr noundef null, ptr noundef null, ptr noundef null) #16
+  %.not25.i = icmp eq i32 %233, 0
+  br i1 %.not25.i, label %_preset_retrieve_old_presets.exit, label %234
 
-232:                                              ; preds = %228
-  %233 = load ptr, ptr @stderr, align 8, !tbaa !65
-  %234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !64
-  %235 = call ptr @dt_database_get(ptr noundef %234) #16
-  %236 = call ptr @sqlite3_errmsg(ptr noundef %235) #16
-  %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.157, i32 noundef 1328, ptr noundef nonnull @__FUNCTION__._preset_retrieve_old_presets, ptr noundef nonnull @.str.186, ptr noundef %236) #18
+234:                                              ; preds = %230
+  %235 = load ptr, ptr @stderr, align 8, !tbaa !65
+  %236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !64
+  %237 = call ptr @dt_database_get(ptr noundef %236) #16
+  %238 = call ptr @sqlite3_errmsg(ptr noundef %237) #16
+  %239 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %235, ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.157, i32 noundef 1328, ptr noundef nonnull @__FUNCTION__._preset_retrieve_old_presets, ptr noundef nonnull @.str.186, ptr noundef %238) #18
   br label %_preset_retrieve_old_presets.exit
 
-_preset_retrieve_old_presets.exit:                ; preds = %228, %232
+_preset_retrieve_old_presets.exit:                ; preds = %230, %234
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   ret void

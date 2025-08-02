@@ -83,13 +83,13 @@ define internal zeroext i1 @dissect_exablaze_heur(ptr noundef %0, ptr noundef re
 
 9:                                                ; preds = %33, %.preheader.i
   %10 = phi i1 [ true, %.preheader.i ], [ false, %33 ]
-  %.07717.i = phi i32 [ 0, %.preheader.i ], [ 4, %33 ]
-  %11 = or disjoint i32 %.07717.i, 16
+  %.0777.i = phi i32 [ 0, %.preheader.i ], [ 4, %33 ]
+  %11 = or disjoint i32 %.0777.i, 16
   %12 = icmp ult i32 %6, %11
   br i1 %12, label %33, label %13
 
 13:                                               ; preds = %9
-  %14 = sub nuw i32 %6, %.07717.i
+  %14 = sub nuw i32 %6, %.0777.i
   %15 = add i32 %14, -12
   %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %15)
   %17 = add i32 %14, -11

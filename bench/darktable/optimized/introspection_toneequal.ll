@@ -2503,90 +2503,92 @@ define internal fastcc float @_luminance_from_module_buffer(ptr %.664.val.2080.v
   %38 = add i64 %24, -2
   %39 = icmp ugt i64 %38, %27
   %or.cond62.i = and i1 %37, %39
-  br i1 %or.cond62.i, label %.preheader.i, label %53
+  br i1 %or.cond62.i, label %.preheader.i, label %55
 
 .preheader.i:                                     ; preds = %29
   %invariant.gep.i = getelementptr float, ptr %22, i64 %27
-  %invariant.gep69.i = getelementptr i8, ptr %invariant.gep.i, i64 -4
   br label %40
 
-40:                                               ; preds = %44, %.preheader.i
-  %indvars.iv77.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next78.i, %44 ]
-  %.05372.i = phi float [ 0.000000e+00, %.preheader.i ], [ %51, %44 ]
-  %41 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %indvars.iv77.i
+40:                                               ; preds = %46, %.preheader.i
+  %indvars.iv75.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next76.i, %46 ]
+  %.05370.i = phi float [ 0.000000e+00, %.preheader.i ], [ %53, %46 ]
+  %41 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %indvars.iv75.i
   %42 = load i64, ptr %41, align 8, !tbaa !168
   %43 = mul i64 %42, %24
-  %gep70.i = getelementptr float, ptr %invariant.gep69.i, i64 %43
-  br label %45
+  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %43
+  %44 = getelementptr i8, ptr %gep.i, i64 -4
+  %45 = getelementptr inbounds nuw [4 x [4 x float]], ptr @gauss_kernel, i64 0, i64 %indvars.iv75.i
+  br label %47
 
-44:                                               ; preds = %45
-  %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
-  %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
-  br i1 %exitcond80.not.i, label %.loopexit.i, label %40
+46:                                               ; preds = %47
+  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
+  %exitcond78.not.i = icmp eq i64 %indvars.iv.next76.i, 3
+  br i1 %exitcond78.not.i, label %.loopexit.i, label %40
 
-45:                                               ; preds = %45, %40
-  %.05268.i = phi i64 [ 0, %40 ], [ %52, %45 ]
-  %.15467.i = phi float [ %.05372.i, %40 ], [ %51, %45 ]
-  %46 = getelementptr float, ptr %gep70.i, i64 %.05268.i
-  %47 = load float, ptr %46, align 4, !tbaa !6
-  %48 = getelementptr inbounds nuw [4 x [4 x float]], ptr @gauss_kernel, i64 0, i64 %indvars.iv77.i, i64 %.05268.i
+47:                                               ; preds = %47, %40
+  %.05268.i = phi i64 [ 0, %40 ], [ %54, %47 ]
+  %.15467.i = phi float [ %.05370.i, %40 ], [ %53, %47 ]
+  %48 = getelementptr float, ptr %44, i64 %.05268.i
   %49 = load float, ptr %48, align 4, !tbaa !6
-  %50 = fmul reassoc nsz arcp contract afn float %49, %47
-  %51 = fadd reassoc nsz arcp contract afn float %50, %.15467.i
-  %52 = add nuw nsw i64 %.05268.i, 1
-  %exitcond76.not.i = icmp eq i64 %52, 4
-  br i1 %exitcond76.not.i, label %44, label %45
+  %50 = getelementptr inbounds nuw [4 x float], ptr %45, i64 0, i64 %.05268.i
+  %51 = load float, ptr %50, align 4, !tbaa !6
+  %52 = fmul reassoc nsz arcp contract afn float %51, %49
+  %53 = fadd reassoc nsz arcp contract afn float %52, %.15467.i
+  %54 = add nuw nsw i64 %.05268.i, 1
+  %exitcond74.not.i = icmp eq i64 %54, 4
+  br i1 %exitcond74.not.i, label %46, label %47
 
-53:                                               ; preds = %29
+55:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28
-  %54 = call i64 @llvm.usub.sat.i64(i64 range(i64 -2147483648, 2147483648) %27, i64 1)
-  store i64 %54, ptr %2, align 16, !tbaa !168
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %27, ptr %55, align 8, !tbaa !168
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %57 = add nsw i64 %27, 1
-  %58 = add i64 %24, -1
-  %59 = call i64 @llvm.umin.i64(i64 %57, i64 %58)
-  store i64 %59, ptr %56, align 16, !tbaa !168
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %27, ptr %60, align 8, !tbaa !168
-  br label %62
+  %56 = call i64 @llvm.usub.sat.i64(i64 range(i64 -2147483648, 2147483648) %27, i64 1)
+  store i64 %56, ptr %2, align 16, !tbaa !168
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %27, ptr %57, align 8, !tbaa !168
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %59 = add nsw i64 %27, 1
+  %60 = add i64 %24, -1
+  %61 = call i64 @llvm.umin.i64(i64 %59, i64 %60)
+  store i64 %61, ptr %58, align 16, !tbaa !168
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 %27, ptr %62, align 8, !tbaa !168
+  br label %64
 
-61:                                               ; preds = %67
+63:                                               ; preds = %70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
   br label %.loopexit.i
 
-62:                                               ; preds = %67, %53
-  %indvars.iv.i = phi i64 [ 0, %53 ], [ %indvars.iv.next.i, %67 ]
-  %.265.i = phi float [ 0.000000e+00, %53 ], [ %76, %67 ]
-  %63 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %indvars.iv.i
-  %64 = load i64, ptr %63, align 8, !tbaa !168
-  %65 = mul i64 %64, %24
-  %66 = getelementptr float, ptr %22, i64 %65
-  br label %68
+64:                                               ; preds = %70, %55
+  %indvars.iv.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i, %70 ]
+  %.265.i = phi float [ 0.000000e+00, %55 ], [ %79, %70 ]
+  %65 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %indvars.iv.i
+  %66 = load i64, ptr %65, align 8, !tbaa !168
+  %67 = mul i64 %66, %24
+  %68 = getelementptr float, ptr %22, i64 %67
+  %69 = getelementptr inbounds nuw [4 x [4 x float]], ptr @gauss_kernel, i64 0, i64 %indvars.iv.i
+  br label %71
 
-67:                                               ; preds = %68
+70:                                               ; preds = %71
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond75.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond75.not.i, label %61, label %62
+  %exitcond73.not.i = icmp eq i64 %indvars.iv.next.i, 3
+  br i1 %exitcond73.not.i, label %63, label %64
 
-68:                                               ; preds = %68, %62
-  %.064.i = phi i64 [ 0, %62 ], [ %77, %68 ]
-  %.363.i = phi float [ %.265.i, %62 ], [ %76, %68 ]
-  %69 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %.064.i
-  %70 = load i64, ptr %69, align 8, !tbaa !168
-  %71 = getelementptr float, ptr %66, i64 %70
-  %72 = load float, ptr %71, align 4, !tbaa !6
-  %73 = getelementptr inbounds nuw [4 x [4 x float]], ptr @gauss_kernel, i64 0, i64 %indvars.iv.i, i64 %.064.i
-  %74 = load float, ptr %73, align 4, !tbaa !6
-  %75 = fmul reassoc nsz arcp contract afn float %74, %72
-  %76 = fadd reassoc nsz arcp contract afn float %75, %.363.i
-  %77 = add nuw nsw i64 %.064.i, 1
-  %exitcond.not.i = icmp eq i64 %77, 4
-  br i1 %exitcond.not.i, label %67, label %68
+71:                                               ; preds = %71, %64
+  %.064.i = phi i64 [ 0, %64 ], [ %80, %71 ]
+  %.363.i = phi float [ %.265.i, %64 ], [ %79, %71 ]
+  %72 = getelementptr inbounds nuw [4 x i64], ptr %2, i64 0, i64 %.064.i
+  %73 = load i64, ptr %72, align 8, !tbaa !168
+  %74 = getelementptr float, ptr %68, i64 %73
+  %75 = load float, ptr %74, align 4, !tbaa !6
+  %76 = getelementptr inbounds nuw [4 x float], ptr %69, i64 0, i64 %.064.i
+  %77 = load float, ptr %76, align 4, !tbaa !6
+  %78 = fmul reassoc nsz arcp contract afn float %77, %75
+  %79 = fadd reassoc nsz arcp contract afn float %78, %.363.i
+  %80 = add nuw nsw i64 %.064.i, 1
+  %exitcond.not.i = icmp eq i64 %80, 4
+  br i1 %exitcond.not.i, label %70, label %71
 
-.loopexit.i:                                      ; preds = %44, %61
-  %.1.i = phi nsz float [ %76, %61 ], [ %51, %44 ]
+.loopexit.i:                                      ; preds = %46, %63
+  %.1.i = phi nsz float [ %79, %63 ], [ %53, %46 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #28
   br label %get_luminance_from_buffer.exit
 
@@ -7026,25 +7028,21 @@ define internal fastcc void @display_luminance_mask(ptr noalias noundef readonly
   %29 = tail call i32 @llvm.smin.i32(i32 %26, i32 %28)
   %30 = sext i32 %29 to i64
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %._crit_edge64, label %.preheader.lr.ph
+  %.not63 = icmp eq i32 %23, 0
+  %or.cond = select i1 %.not, i1 true, i1 %.not63
+  br i1 %or.cond, label %._crit_edge62, label %.preheader.us
 
-.preheader.lr.ph:                                 ; preds = %5
-  %invariant.gep = getelementptr i8, ptr %0, i64 12
-  %invariant.gep60 = getelementptr i8, ptr %2, i64 12
-  %.not65 = icmp eq i32 %23, 0
-  br i1 %.not65, label %._crit_edge64, label %.preheader.us
-
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.04763.us = phi i64 [ %53, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %31 = add i64 %.04763.us, %17
+.preheader.us:                                    ; preds = %5, %._crit_edge.us
+  %.04761.us = phi i64 [ %55, %._crit_edge.us ], [ 0, %5 ]
+  %31 = add i64 %.04761.us, %17
   %32 = mul i64 %31, %20
   %33 = add i64 %32, %10
-  %34 = mul i64 %.04763.us, %24
+  %34 = mul i64 %.04761.us, %24
   br label %35
 
-35:                                               ; preds = %.preheader.us, %47
-  %.04862.us = phi i64 [ 0, %.preheader.us ], [ %49, %47 ]
-  %36 = add i64 %33, %.04862.us
+35:                                               ; preds = %.preheader.us, %46
+  %.04860.us = phi i64 [ 0, %.preheader.us ], [ %51, %46 ]
+  %36 = add i64 %33, %.04860.us
   %37 = getelementptr inbounds nuw float, ptr %1, i64 %36
   %38 = load float, ptr %37, align 4, !tbaa !6
   %39 = fadd reassoc nsz arcp contract afn float %38, -3.906250e-03
@@ -7052,35 +7050,36 @@ define internal fastcc void @display_luminance_mask(ptr noalias noundef readonly
   %41 = fmul reassoc nsz arcp contract afn float %40, 0x3FF0101020000000
   %42 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %41, float 1.000000e+00)
   %43 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %42)
-  %44 = add i64 %.04862.us, %34
-  %45 = shl i64 %44, 2
-  %46 = getelementptr inbounds nuw float, ptr %2, i64 %45
-  br label %50
+  %44 = add i64 %.04860.us, %34
+  %.idx = shl i64 %44, 4
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  br label %52
 
-47:                                               ; preds = %50
+46:                                               ; preds = %52
   %.idx.us = shl i64 %36, 4
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %.idx.us
-  %48 = load float, ptr %gep.us, align 4, !tbaa !6
-  %gep61.us = getelementptr float, ptr %invariant.gep60, i64 %45
-  store float %48, ptr %gep61.us, align 4, !tbaa !6
-  %49 = add nuw i64 %.04862.us, 1
-  %exitcond67.not = icmp eq i64 %49, %24
-  br i1 %exitcond67.not, label %._crit_edge.us, label %35
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.us
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  %49 = load float, ptr %48, align 4, !tbaa !6
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 12
+  store float %49, ptr %50, align 4, !tbaa !6
+  %51 = add nuw i64 %.04860.us, 1
+  %exitcond65.not = icmp eq i64 %51, %24
+  br i1 %exitcond65.not, label %._crit_edge.us, label %35
 
-50:                                               ; preds = %50, %35
-  %.059.us = phi i64 [ 0, %35 ], [ %52, %50 ]
-  %51 = getelementptr inbounds nuw float, ptr %46, i64 %.059.us
-  store float %43, ptr %51, align 4, !tbaa !6
-  %52 = add nuw nsw i64 %.059.us, 1
-  %exitcond.not = icmp eq i64 %52, 4
-  br i1 %exitcond.not, label %47, label %50
+52:                                               ; preds = %52, %35
+  %.059.us = phi i64 [ 0, %35 ], [ %54, %52 ]
+  %53 = getelementptr inbounds nuw float, ptr %45, i64 %.059.us
+  store float %43, ptr %53, align 4, !tbaa !6
+  %54 = add nuw nsw i64 %.059.us, 1
+  %exitcond.not = icmp eq i64 %54, 4
+  br i1 %exitcond.not, label %46, label %52
 
-._crit_edge.us:                                   ; preds = %47
-  %53 = add nuw i64 %.04763.us, 1
-  %exitcond69.not = icmp eq i64 %53, %30
-  br i1 %exitcond69.not, label %._crit_edge64, label %.preheader.us, !llvm.loop !497
+._crit_edge.us:                                   ; preds = %46
+  %55 = add nuw i64 %.04761.us, 1
+  %exitcond67.not = icmp eq i64 %55, %30
+  br i1 %exitcond67.not, label %._crit_edge62, label %.preheader.us, !llvm.loop !497
 
-._crit_edge64:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
+._crit_edge62:                                    ; preds = %._crit_edge.us, %5
   ret void
 }
 

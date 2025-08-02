@@ -1329,7 +1329,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #8
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef ptr @storage_write_thread(ptr noundef %0) #9 {
+define internal noalias noundef nonnull ptr @storage_write_thread(ptr noundef %0) #9 {
   %2 = alloca %struct.lru_pull_tail_return, align 8
   %3 = alloca %struct._obj_io, align 8
   %4 = alloca [64 x i32], align 16

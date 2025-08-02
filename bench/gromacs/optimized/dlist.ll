@@ -1709,19 +1709,20 @@ define internal void @_ZL9pr_ntr_s2P8_IO_FILERK7t_dlistif(ptr noundef captures(n
 define internal void @_ZL9pr_one_roP8_IO_FILERK7t_dlistif(ptr noundef captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %1, i32 noundef %2, float %3) unnamed_addr #13 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %6 = sext i32 %2 to i64
-  br label %7
+  %7 = getelementptr inbounds [9 x [4 x float]], ptr %5, i64 0, i64 %6
+  br label %8
 
-7:                                                ; preds = %4, %7
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds [9 x [4 x float]], ptr %5, i64 0, i64 %6, i64 %indvars.iv
-  %9 = load float, ptr %8, align 4, !tbaa !79
-  %10 = fpext float %9 to double
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.67, double noundef %10) #18
+8:                                                ; preds = %4, %8
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %8 ]
+  %9 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv
+  %10 = load float, ptr %9, align 4, !tbaa !79
+  %11 = fpext float %10 to double
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.67, double noundef %11) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %12, label %7, !llvm.loop !80
+  br i1 %exitcond.not, label %13, label %8, !llvm.loop !80
 
-12:                                               ; preds = %7
+13:                                               ; preds = %8
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   ret void
 }

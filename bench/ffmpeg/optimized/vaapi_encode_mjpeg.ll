@@ -740,7 +740,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(148) %13, i8 0, i64 148, i1 false)
   store i32 1, ptr %4, align 4, !tbaa !133
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 2777
-  %15 = getelementptr i8, ptr %8, i64 3860
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 3860
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %17
 
@@ -749,7 +749,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   %18 = load i8, ptr %14, align 1, !tbaa !86
   %19 = zext i8 %18 to i64
   %.idx91 = mul nuw nsw i64 %19, 130
-  %20 = getelementptr i8, ptr %15, i64 %.idx91
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx91
   %21 = getelementptr inbounds nuw [64 x i16], ptr %20, i64 0, i64 %indvars.iv129
   %22 = load i16, ptr %21, align 2, !tbaa !99
   %23 = trunc i16 %22 to i8
@@ -777,7 +777,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   %34 = load i8, ptr %31, align 1, !tbaa !86
   %35 = zext i8 %34 to i64
   %.idx90 = mul nuw nsw i64 %35, 130
-  %36 = getelementptr i8, ptr %15, i64 %.idx90
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx90
   %37 = getelementptr inbounds nuw [64 x i16], ptr %36, i64 0, i64 %indvars.iv133
   %38 = load i16, ptr %37, align 2, !tbaa !99
   %39 = trunc i16 %38 to i8
@@ -799,9 +799,9 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 3034
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 4380
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %48 = getelementptr i8, ptr %4, i64 18
-  %49 = getelementptr i8, ptr %4, i64 30
-  %50 = getelementptr i8, ptr %4, i64 46
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 18
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 30
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 46
   br label %51
 
 51:                                               ; preds = %44, %._crit_edge103
@@ -843,7 +843,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
 .lr.ph:                                           ; preds = %.preheader94
   %66 = getelementptr inbounds nuw i8, ptr %55, i64 18
   %.idx89 = mul nuw nsw i64 %indvars.iv126, 208
-  %67 = getelementptr i8, ptr %48, i64 %.idx89
+  %67 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx89
   %wide.trip.count = zext nneg i32 %63 to i64
   br label %69
 
@@ -867,7 +867,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   %73 = or disjoint i64 %54, 1
   %74 = getelementptr inbounds nuw [8 x %struct.JPEGRawHuffmanTable], ptr %46, i64 0, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
-  %76 = getelementptr i8, ptr %49, i64 %.idx88.pre-phi
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx88.pre-phi
   br label %77
 
 77:                                               ; preds = %._crit_edge, %77
@@ -893,7 +893,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
 
 .lr.ph102:                                        ; preds = %.preheader
   %85 = getelementptr inbounds nuw i8, ptr %74, i64 18
-  %86 = getelementptr i8, ptr %50, i64 %.idx88.pre-phi
+  %86 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx88.pre-phi
   %wide.trip.count124 = zext nneg i32 %82 to i64
   br label %88
 

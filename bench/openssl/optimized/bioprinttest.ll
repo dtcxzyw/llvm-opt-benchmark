@@ -614,97 +614,99 @@ define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %0, i32 noundef
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #9
   %8 = icmp sgt i32 %4, -1
   %9 = sext i32 %0 to i64
-  %10 = zext nneg i32 %1 to i64
+  %10 = getelementptr inbounds [7 x [10 x [5 x ptr]]], ptr @fpexpected, i64 0, i64 %9
+  %11 = zext nneg i32 %1 to i64
+  %12 = getelementptr inbounds nuw [10 x [5 x ptr]], ptr %10, i64 0, i64 %11
   br i1 %8, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %5, %26
-  %indvars.iv29 = phi i64 [ %indvars.iv.next30, %26 ], [ 0, %5 ]
-  %.024.us = phi i32 [ %.1.us, %26 ], [ 1, %5 ]
-  %11 = getelementptr inbounds nuw [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv29
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
-  %13 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.47, ptr noundef %3, i32 noundef %4, ptr noundef %12) #9
-  %14 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull %6, double noundef %2) #9
+.split.us:                                        ; preds = %5, %28
+  %indvars.iv29 = phi i64 [ %indvars.iv.next30, %28 ], [ 0, %5 ]
+  %.024.us = phi i32 [ %.1.us, %28 ], [ 1, %5 ]
+  %13 = getelementptr inbounds nuw [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv29
+  %14 = load ptr, ptr %13, align 8, !tbaa !26
+  %15 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.47, ptr noundef %3, i32 noundef %4, ptr noundef %14) #9
+  %16 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull %6, double noundef %2) #9
   %.b22.us = load i1, ptr @justprint, align 4
-  br i1 %.b22.us, label %20, label %15
+  br i1 %.b22.us, label %22, label %17
 
-15:                                               ; preds = %.split.us
-  %16 = getelementptr inbounds [7 x [10 x [5 x ptr]]], ptr @fpexpected, i64 0, i64 %9, i64 %10, i64 %indvars.iv29
-  %17 = load ptr, ptr %16, align 8, !tbaa !26
-  %18 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 209, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef %17, ptr noundef nonnull %7) #9
-  %.not.us = icmp eq i32 %18, 0
-  br i1 %.not.us, label %19, label %26
+17:                                               ; preds = %.split.us
+  %18 = getelementptr inbounds nuw [5 x ptr], ptr %12, i64 0, i64 %indvars.iv29
+  %19 = load ptr, ptr %18, align 8, !tbaa !26
+  %20 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 209, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef %19, ptr noundef nonnull %7) #9
+  %.not.us = icmp eq i32 %20, 0
+  br i1 %.not.us, label %21, label %28
 
-19:                                               ; preds = %15
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.23, i32 noundef 211, ptr noundef nonnull @.str.53, i32 noundef %0, ptr noundef nonnull %6, ptr noundef %17, ptr noundef nonnull %7) #9
-  br label %26
+21:                                               ; preds = %17
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.23, i32 noundef 211, ptr noundef nonnull @.str.53, i32 noundef %0, ptr noundef nonnull %6, ptr noundef %19, ptr noundef nonnull %7) #9
+  br label %28
 
-20:                                               ; preds = %.split.us
-  %21 = icmp eq i64 %indvars.iv29, 0
-  br i1 %21, label %24, label %22
+22:                                               ; preds = %.split.us
+  %23 = icmp eq i64 %indvars.iv29, 0
+  br i1 %23, label %26, label %24
 
-22:                                               ; preds = %20
-  %23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, ptr noundef nonnull %7)
-  br label %26
+24:                                               ; preds = %22
+  %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, ptr noundef nonnull %7)
+  br label %28
 
-24:                                               ; preds = %20
-  %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %7)
-  br label %26
+26:                                               ; preds = %22
+  %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %7)
+  br label %28
 
-26:                                               ; preds = %24, %22, %19, %15
-  %.1.us = phi i32 [ %.024.us, %24 ], [ %.024.us, %22 ], [ %.024.us, %15 ], [ 0, %19 ]
+28:                                               ; preds = %26, %24, %21, %17
+  %.1.us = phi i32 [ %.024.us, %26 ], [ %.024.us, %24 ], [ %.024.us, %17 ], [ 0, %21 ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 5
   br i1 %exitcond32.not, label %.split26.us, label %.split.us, !llvm.loop !27
 
-.split:                                           ; preds = %5, %42
-  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %5 ]
-  %.024 = phi i32 [ %.1, %42 ], [ 1, %5 ]
-  %27 = getelementptr inbounds nuw [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv
-  %28 = load ptr, ptr %27, align 8, !tbaa !26
-  %29 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.48, ptr noundef %3, ptr noundef %28) #9
-  %30 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull %6, double noundef %2) #9
+.split:                                           ; preds = %5, %44
+  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %5 ]
+  %.024 = phi i32 [ %.1, %44 ], [ 1, %5 ]
+  %29 = getelementptr inbounds nuw [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv
+  %30 = load ptr, ptr %29, align 8, !tbaa !26
+  %31 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.48, ptr noundef %3, ptr noundef %30) #9
+  %32 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull %6, double noundef %2) #9
   %.b22 = load i1, ptr @justprint, align 4
-  br i1 %.b22, label %31, label %37
+  br i1 %.b22, label %33, label %39
 
-31:                                               ; preds = %.split
-  %32 = icmp eq i64 %indvars.iv, 0
-  br i1 %32, label %33, label %35
+33:                                               ; preds = %.split
+  %34 = icmp eq i64 %indvars.iv, 0
+  br i1 %34, label %35, label %37
 
-33:                                               ; preds = %31
-  %34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %7)
-  br label %42
+35:                                               ; preds = %33
+  %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %7)
+  br label %44
 
-35:                                               ; preds = %31
-  %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, ptr noundef nonnull %7)
-  br label %42
+37:                                               ; preds = %33
+  %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, ptr noundef nonnull %7)
+  br label %44
 
-37:                                               ; preds = %.split
-  %38 = getelementptr inbounds [7 x [10 x [5 x ptr]]], ptr @fpexpected, i64 0, i64 %9, i64 %10, i64 %indvars.iv
-  %39 = load ptr, ptr %38, align 8, !tbaa !26
-  %40 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 209, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef %39, ptr noundef nonnull %7) #9
-  %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %41, label %42
+39:                                               ; preds = %.split
+  %40 = getelementptr inbounds nuw [5 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8, !tbaa !26
+  %42 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 209, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef %41, ptr noundef nonnull %7) #9
+  %.not = icmp eq i32 %42, 0
+  br i1 %.not, label %43, label %44
 
-41:                                               ; preds = %37
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.23, i32 noundef 211, ptr noundef nonnull @.str.53, i32 noundef %0, ptr noundef nonnull %6, ptr noundef %39, ptr noundef nonnull %7) #9
-  br label %42
+43:                                               ; preds = %39
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.23, i32 noundef 211, ptr noundef nonnull @.str.53, i32 noundef %0, ptr noundef nonnull %6, ptr noundef %41, ptr noundef nonnull %7) #9
+  br label %44
 
-42:                                               ; preds = %37, %41, %33, %35
-  %.1 = phi i32 [ %.024, %33 ], [ %.024, %35 ], [ %.024, %37 ], [ 0, %41 ]
+44:                                               ; preds = %39, %43, %35, %37
+  %.1 = phi i32 [ %.024, %35 ], [ %.024, %37 ], [ %.024, %39 ], [ 0, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %.split26.us, label %.split, !llvm.loop !29
 
-.split26.us:                                      ; preds = %42, %26
-  %.us-phi = phi i32 [ %.1.us, %26 ], [ %.1, %42 ]
+.split26.us:                                      ; preds = %44, %28
+  %.us-phi = phi i32 [ %.1.us, %28 ], [ %.1, %44 ]
   %.b = load i1, ptr @justprint, align 4
-  br i1 %.b, label %43, label %44
+  br i1 %.b, label %45, label %46
 
-43:                                               ; preds = %.split26.us
+45:                                               ; preds = %.split26.us
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %44
+  br label %46
 
-44:                                               ; preds = %43, %.split26.us
+46:                                               ; preds = %45, %.split26.us
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #9
   ret i32 %.us-phi

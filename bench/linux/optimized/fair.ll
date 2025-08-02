@@ -7945,7 +7945,7 @@ define internal fastcc void @__dequeue_entity(ptr noundef %0, ptr noundef %1) un
   %59 = getelementptr i8, ptr %12, i64 32
   store i64 %58, ptr %59, align 16
   %.pre = ptrtoint ptr %12 to i64
-  br label %.thread
+  br label %.critedge
 
 .preheader:                                       ; preds = %50, %.preheader
   %60 = phi ptr [ %63, %.preheader ], [ %52, %50 ]
@@ -7971,7 +7971,7 @@ define internal fastcc void @__dequeue_entity(ptr noundef %0, ptr noundef %1) un
   %75 = getelementptr i8, ptr %60, i64 32
   store i64 %74, ptr %75, align 16
   %76 = icmp eq ptr %61, %60
-  br i1 %76, label %.thread, label %.lr.ph
+  br i1 %76, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65, %105
   %77 = phi ptr [ %108, %105 ], [ %61, %65 ]
@@ -8017,16 +8017,16 @@ define internal fastcc void @__dequeue_entity(ptr noundef %0, ptr noundef %1) un
 102:                                              ; preds = %101, %96, %91
   %103 = phi i64 [ %98, %101 ], [ %92, %96 ], [ %92, %91 ]
   %104 = icmp eq i64 %103, %79
-  br i1 %104, label %.thread, label %105
+  br i1 %104, label %.critedge, label %105
 
 105:                                              ; preds = %102
   %106 = load i64, ptr %77, align 16
   %107 = and i64 %106, -4
   %108 = inttoptr i64 %107 to ptr
   %109 = icmp eq ptr %60, %108
-  br i1 %109, label %.thread, label %.lr.ph
+  br i1 %109, label %.critedge, label %.lr.ph
 
-.thread:                                          ; preds = %105, %102, %65, %54
+.critedge:                                        ; preds = %105, %102, %65, %54
   %.pre-phi = phi i64 [ %71, %65 ], [ %.pre, %54 ], [ %71, %102 ], [ %71, %105 ]
   %110 = phi ptr [ %61, %65 ], [ %12, %54 ], [ %61, %102 ], [ %61, %105 ]
   %111 = phi ptr [ %60, %65 ], [ %12, %54 ], [ %60, %102 ], [ %60, %105 ]
@@ -8043,7 +8043,7 @@ define internal fastcc void @__dequeue_entity(ptr noundef %0, ptr noundef %1) un
   %120 = icmp eq i64 %119, 0
   br i1 %120, label %128, label %121
 
-121:                                              ; preds = %.thread
+121:                                              ; preds = %.critedge
   %122 = inttoptr i64 %119 to ptr
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
@@ -8052,8 +8052,8 @@ define internal fastcc void @__dequeue_entity(ptr noundef %0, ptr noundef %1) un
   %127 = select i1 %125, ptr %123, ptr %126
   br label %128
 
-128:                                              ; preds = %121, %.thread
-  %129 = phi ptr [ %4, %.thread ], [ %127, %121 ]
+128:                                              ; preds = %121, %.critedge
+  %129 = phi ptr [ %4, %.critedge ], [ %127, %121 ]
   store volatile ptr %111, ptr %129, align 8
   %130 = icmp eq ptr %112, null
   br i1 %130, label %134, label %131
@@ -8080,9 +8080,9 @@ define internal fastcc void @__dequeue_entity(ptr noundef %0, ptr noundef %1) un
   %142 = phi ptr [ %111, %139 ], [ %19, %31 ], [ %19, %30 ], [ %40, %46 ], [ %40, %47 ], [ %40, %49 ]
   %143 = phi ptr [ %140, %139 ], [ %34, %31 ], [ null, %30 ], [ null, %46 ], [ null, %47 ], [ null, %49 ]
   %144 = icmp eq ptr %142, null
-  br i1 %144, label %.thread15, label %.lr.ph18
+  br i1 %144, label %.thread, label %.lr.ph17
 
-.lr.ph18:                                         ; preds = %141, %173
+.lr.ph17:                                         ; preds = %141, %173
   %145 = phi ptr [ %176, %173 ], [ %142, %141 ]
   %146 = getelementptr i8, ptr %145, i64 32
   %147 = load i64, ptr %146, align 16
@@ -8094,7 +8094,7 @@ define internal fastcc void @__dequeue_entity(ptr noundef %0, ptr noundef %1) un
   %152 = icmp eq ptr %151, null
   br i1 %152, label %159, label %153
 
-153:                                              ; preds = %.lr.ph18
+153:                                              ; preds = %.lr.ph17
   %154 = getelementptr i8, ptr %151, i64 32
   %155 = load i64, ptr %154, align 16
   %156 = sub i64 %149, %155
@@ -8105,8 +8105,8 @@ define internal fastcc void @__dequeue_entity(ptr noundef %0, ptr noundef %1) un
   store i64 %155, ptr %146, align 16
   br label %159
 
-159:                                              ; preds = %158, %153, %.lr.ph18
-  %160 = phi i64 [ %155, %158 ], [ %149, %153 ], [ %149, %.lr.ph18 ]
+159:                                              ; preds = %158, %153, %.lr.ph17
+  %160 = phi i64 [ %155, %158 ], [ %149, %153 ], [ %149, %.lr.ph17 ]
   %161 = getelementptr i8, ptr %145, i64 16
   %162 = load ptr, ptr %161, align 8
   %163 = icmp eq ptr %162, null
@@ -8126,24 +8126,24 @@ define internal fastcc void @__dequeue_entity(ptr noundef %0, ptr noundef %1) un
 170:                                              ; preds = %169, %164, %159
   %171 = phi i64 [ %166, %169 ], [ %160, %164 ], [ %160, %159 ]
   %172 = icmp eq i64 %171, %147
-  br i1 %172, label %.thread15, label %173
+  br i1 %172, label %.thread, label %173
 
 173:                                              ; preds = %170
   %174 = load i64, ptr %145, align 16
   %175 = and i64 %174, -4
   %176 = inttoptr i64 %175 to ptr
   %177 = icmp eq i64 %175, 0
-  br i1 %177, label %.thread15, label %.lr.ph18
+  br i1 %177, label %.thread, label %.lr.ph17
 
-.thread15:                                        ; preds = %173, %170, %141
+.thread:                                          ; preds = %173, %170, %141
   %178 = icmp eq ptr %143, null
   br i1 %178, label %180, label %179
 
-179:                                              ; preds = %.thread15
+179:                                              ; preds = %.thread
   tail call void @__rb_erase_color(ptr noundef nonnull %143, ptr noundef nonnull %4, ptr noundef nonnull @min_vruntime_cb_rotate) #27
   br label %180
 
-180:                                              ; preds = %179, %.thread15
+180:                                              ; preds = %179, %.thread
   %181 = load i64, ptr %1, align 64
   %182 = icmp eq i64 %181, 0
   %183 = lshr i64 %181, 10
@@ -8194,9 +8194,9 @@ define internal fastcc void @__enqueue_entity(ptr noundef %0, ptr noundef initia
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.thread.thread, label %26
+  br i1 %25, label %.critedge.thread, label %26
 
-.thread.thread:                                   ; preds = %2
+.critedge.thread:                                 ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store ptr %22, ptr %23, align 8
   br label %78
@@ -8274,24 +8274,24 @@ define internal fastcc void @__enqueue_entity(ptr noundef %0, ptr noundef initia
 70:                                               ; preds = %69, %64, %59
   %71 = phi i64 [ %66, %69 ], [ %60, %64 ], [ %60, %59 ]
   %72 = icmp eq i64 %71, %47
-  br i1 %72, label %.thread, label %73
+  br i1 %72, label %.critedge, label %73
 
 73:                                               ; preds = %70
   %74 = load i64, ptr %45, align 16
   %75 = and i64 %74, -4
   %76 = inttoptr i64 %75 to ptr
   %77 = icmp eq i64 %75, 0
-  br i1 %77, label %.thread, label %.lr.ph
+  br i1 %77, label %.critedge, label %.lr.ph
 
-.thread:                                          ; preds = %73, %70
+.critedge:                                        ; preds = %73, %70
   br i1 %42, label %80, label %78
 
-78:                                               ; preds = %.thread.thread, %.thread
+78:                                               ; preds = %.critedge.thread, %.critedge
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %22, ptr %79, align 8
   br label %80
 
-80:                                               ; preds = %78, %.thread
+80:                                               ; preds = %78, %.critedge
   tail call void @__rb_insert_augmented(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull @min_vruntime_cb_rotate) #27
   ret void
 }

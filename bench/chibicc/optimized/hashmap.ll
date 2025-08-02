@@ -43,8 +43,8 @@ fnv_hash.exit.i.i:                                ; preds = %.lr.ph.i.i.i, %6
   %.07.lcssa.i.i.i = phi i64 [ -3750763034362895579, %6 ], [ %12, %.lr.ph.i.i.i ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !16
-  %.not2228.i.i = icmp sgt i32 %14, 0
-  br i1 %.not2228.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.not2227.i.i = icmp sgt i32 %14, 0
+  br i1 %.not2227.i.i, label %.lr.ph.i.i, label %.critedge.i.i
 
 .lr.ph.i.i:                                       ; preds = %fnv_hash.exit.i.i
   %15 = zext nneg i32 %14 to i64
@@ -55,7 +55,7 @@ fnv_hash.exit.i.i:                                ; preds = %.lr.ph.i.i.i, %6
 17:                                               ; preds = %match.exit.thread.i.i, %18
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %15
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %18, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %18, !llvm.loop !17
 
 18:                                               ; preds = %17, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %17 ]
@@ -81,10 +81,10 @@ match.exit.i.i:                                   ; preds = %23
   br i1 %27, label %get_entry.exit.i, label %match.exit.thread.i.i
 
 match.exit.thread.i.i:                            ; preds = %match.exit.i.i, %23
-  %.not27.i.i = icmp eq ptr %22, null
-  br i1 %.not27.i.i, label %hashmap_get2.exit, label %17
+  %.not26.i.i = icmp eq ptr %22, null
+  br i1 %.not26.i.i, label %hashmap_get2.exit, label %17
 
-._crit_edge.i.i:                                  ; preds = %17, %fnv_hash.exit.i.i
+.critedge.i.i:                                    ; preds = %17, %fnv_hash.exit.i.i
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 73) #10
   unreachable
 
@@ -128,8 +128,8 @@ fnv_hash.exit.i:                                  ; preds = %.lr.ph.i.i, %5
   %.07.lcssa.i.i = phi i64 [ -3750763034362895579, %5 ], [ %11, %.lr.ph.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !16
-  %.not2228.i = icmp sgt i32 %13, 0
-  br i1 %.not2228.i, label %.lr.ph.i, label %._crit_edge.i
+  %.not2227.i = icmp sgt i32 %13, 0
+  br i1 %.not2227.i, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %fnv_hash.exit.i
   %14 = zext nneg i32 %13 to i64
@@ -139,7 +139,7 @@ fnv_hash.exit.i:                                  ; preds = %.lr.ph.i.i, %5
 16:                                               ; preds = %match.exit.thread.i, %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %17, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.critedge.i, label %17, !llvm.loop !17
 
 17:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
@@ -165,10 +165,10 @@ match.exit.i:                                     ; preds = %22
   br i1 %26, label %get_entry.exit, label %match.exit.thread.i
 
 match.exit.thread.i:                              ; preds = %match.exit.i, %22
-  %.not27.i = icmp eq ptr %21, null
-  br i1 %.not27.i, label %get_entry.exit.thread, label %16
+  %.not26.i = icmp eq ptr %21, null
+  br i1 %.not26.i, label %get_entry.exit.thread, label %16
 
-._crit_edge.i:                                    ; preds = %16, %fnv_hash.exit.i
+.critedge.i:                                      ; preds = %16, %fnv_hash.exit.i
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 73) #10
   unreachable
 
@@ -221,27 +221,27 @@ define dso_local void @hashmap_put2(ptr noundef captures(none) %0, ptr noundef %
   %15 = load i32, ptr %14, align 8, !tbaa !16
   %16 = sdiv i32 %13, %15
   %17 = icmp sgt i32 %16, 69
-  br i1 %17, label %.preheader13, label %47
+  br i1 %17, label %.preheader10, label %47
 
-.preheader13:                                     ; preds = %10
+.preheader10:                                     ; preds = %10
   %18 = icmp sgt i32 %15, 0
   br i1 %18, label %.lr.ph.preheader, label %.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader13
+.lr.ph.preheader:                                 ; preds = %.preheader10
   %wide.trip.count = zext nneg i32 %15 to i64
   br label %.lr.ph
 
 .preheader.loopexit:                              ; preds = %24
-  %19 = mul nsw i32 %.1.i7, 100
+  %19 = mul nsw i32 %.1.i, 100
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.loopexit, %.preheader13
-  %.0.i5.lcssa = phi i32 [ 0, %.preheader13 ], [ %19, %.preheader.loopexit ]
+.preheader:                                       ; preds = %.preheader.loopexit, %.preheader10
+  %.0.i5.lcssa = phi i32 [ 0, %.preheader10 ], [ %19, %.preheader.loopexit ]
   br label %25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
-  %.0.i518 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1.i7, %24 ]
+  %.0.i515 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1.i, %24 ]
   %20 = getelementptr inbounds nuw %struct.HashEntry, ptr %6, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !18
   %magicptr.i6 = ptrtoint ptr %21 to i64
@@ -251,11 +251,11 @@ define dso_local void @hashmap_put2(ptr noundef captures(none) %0, ptr noundef %
   ]
 
 22:                                               ; preds = %.lr.ph
-  %23 = add nsw i32 %.0.i518, 1
+  %23 = add nsw i32 %.0.i515, 1
   br label %24
 
 24:                                               ; preds = %22, %.lr.ph, %.lr.ph
-  %.1.i7 = phi i32 [ %23, %22 ], [ %.0.i518, %.lr.ph ], [ %.0.i518, %.lr.ph ]
+  %.1.i = phi i32 [ %23, %22 ], [ %.0.i515, %.lr.ph ], [ %.0.i515, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !24
@@ -276,13 +276,13 @@ define dso_local void @hashmap_put2(ptr noundef captures(none) %0, ptr noundef %
   store ptr %32, ptr %5, align 8, !tbaa !7
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.025.i, ptr %33, align 8, !tbaa !16
-  br i1 %18, label %.lr.ph20, label %rehash.exit
+  br i1 %18, label %.lr.ph17, label %rehash.exit
 
-.lr.ph20:                                         ; preds = %29, %43
+.lr.ph17:                                         ; preds = %29, %43
   %34 = phi i32 [ %44, %43 ], [ %15, %29 ]
-  %indvars.iv29 = phi i64 [ %indvars.iv.next30, %43 ], [ 0, %29 ]
+  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %43 ], [ 0, %29 ]
   %35 = load ptr, ptr %0, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw %struct.HashEntry, ptr %35, i64 %indvars.iv29
+  %36 = getelementptr inbounds nuw %struct.HashEntry, ptr %35, i64 %indvars.iv26
   %37 = load ptr, ptr %36, align 8, !tbaa !18
   %magicptr33.i = ptrtoint ptr %37 to i64
   switch i64 %magicptr33.i, label %38 [
@@ -290,7 +290,7 @@ define dso_local void @hashmap_put2(ptr noundef captures(none) %0, ptr noundef %
     i64 -1, label %43
   ]
 
-38:                                               ; preds = %.lr.ph20
+38:                                               ; preds = %.lr.ph17
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !21
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -299,12 +299,12 @@ define dso_local void @hashmap_put2(ptr noundef captures(none) %0, ptr noundef %
   %.pre = load i32, ptr %14, align 8, !tbaa !16
   br label %43
 
-43:                                               ; preds = %38, %.lr.ph20, %.lr.ph20
-  %44 = phi i32 [ %.pre, %38 ], [ %34, %.lr.ph20 ], [ %34, %.lr.ph20 ]
-  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+43:                                               ; preds = %38, %.lr.ph17, %.lr.ph17
+  %44 = phi i32 [ %.pre, %38 ], [ %34, %.lr.ph17 ], [ %34, %.lr.ph17 ]
+  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next30, %45
-  br i1 %46, label %.lr.ph20, label %rehash.exit, !llvm.loop !26
+  %46 = icmp slt i64 %indvars.iv.next27, %45
+  br i1 %46, label %.lr.ph17, label %rehash.exit, !llvm.loop !26
 
 rehash.exit:                                      ; preds = %43, %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !27
@@ -335,18 +335,18 @@ fnv_hash.exit:                                    ; preds = %.lr.ph.i, %47
   %.07.lcssa.i = phi i64 [ -3750763034362895579, %47 ], [ %53, %.lr.ph.i ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load i32, ptr %54, align 8, !tbaa !16
-  %.not40.i21 = icmp sgt i32 %55, 0
-  br i1 %.not40.i21, label %.lr.ph23, label %._crit_edge
+  %.not40.i18 = icmp sgt i32 %55, 0
+  br i1 %.not40.i18, label %.lr.ph20, label %.critedge.i
 
-.lr.ph23:                                         ; preds = %fnv_hash.exit
+.lr.ph20:                                         ; preds = %fnv_hash.exit
   %56 = load ptr, ptr %0, align 8, !tbaa !7
   %57 = zext nneg i32 %55 to i64
   %58 = sext i32 %2 to i64
   br label %59
 
-59:                                               ; preds = %.lr.ph23, %match.exit.thread
-  %indvars.iv32 = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next33, %match.exit.thread ]
-  %60 = add i64 %.07.lcssa.i, %indvars.iv32
+59:                                               ; preds = %.lr.ph20, %match.exit.thread
+  %indvars.iv29 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next30, %match.exit.thread ]
+  %60 = add i64 %.07.lcssa.i, %indvars.iv29
   %61 = urem i64 %60, %57
   %62 = getelementptr inbounds nuw %struct.HashEntry, ptr %56, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !18
@@ -384,15 +384,15 @@ match.exit:                                       ; preds = %64
   br label %get_or_insert_entry.exit
 
 match.exit.thread:                                ; preds = %match.exit, %64
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %exitcond36.not = icmp eq i64 %indvars.iv.next33, %57
-  br i1 %exitcond36.not, label %._crit_edge, label %59, !llvm.loop !30
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+  %exitcond33.not = icmp eq i64 %indvars.iv.next30, %57
+  br i1 %exitcond33.not, label %.critedge.i, label %59, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %match.exit.thread, %fnv_hash.exit
+.critedge.i:                                      ; preds = %match.exit.thread, %fnv_hash.exit
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 105) #10
   unreachable
 
-get_or_insert_entry.exit:                         ; preds = %match.exit, %69, %71
+get_or_insert_entry.exit:                         ; preds = %match.exit, %71, %69
   %76 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %3, ptr %76, align 8, !tbaa !22
   ret void
@@ -430,8 +430,8 @@ fnv_hash.exit.i.i:                                ; preds = %.lr.ph.i.i.i, %6
   %.07.lcssa.i.i.i = phi i64 [ -3750763034362895579, %6 ], [ %12, %.lr.ph.i.i.i ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !16
-  %.not2228.i.i = icmp sgt i32 %14, 0
-  br i1 %.not2228.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.not2227.i.i = icmp sgt i32 %14, 0
+  br i1 %.not2227.i.i, label %.lr.ph.i.i, label %.critedge.i.i
 
 .lr.ph.i.i:                                       ; preds = %fnv_hash.exit.i.i
   %15 = zext nneg i32 %14 to i64
@@ -442,7 +442,7 @@ fnv_hash.exit.i.i:                                ; preds = %.lr.ph.i.i.i, %6
 17:                                               ; preds = %match.exit.thread.i.i, %18
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %15
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %18, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %18, !llvm.loop !17
 
 18:                                               ; preds = %17, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %17 ]
@@ -468,10 +468,10 @@ match.exit.i.i:                                   ; preds = %23
   br i1 %27, label %get_entry.exit.i, label %match.exit.thread.i.i
 
 match.exit.thread.i.i:                            ; preds = %match.exit.i.i, %23
-  %.not27.i.i = icmp eq ptr %22, null
-  br i1 %.not27.i.i, label %hashmap_delete2.exit, label %17
+  %.not26.i.i = icmp eq ptr %22, null
+  br i1 %.not26.i.i, label %hashmap_delete2.exit, label %17
 
-._crit_edge.i.i:                                  ; preds = %17, %fnv_hash.exit.i.i
+.critedge.i.i:                                    ; preds = %17, %fnv_hash.exit.i.i
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 73) #10
   unreachable
 
@@ -513,8 +513,8 @@ fnv_hash.exit.i:                                  ; preds = %.lr.ph.i.i, %5
   %.07.lcssa.i.i = phi i64 [ -3750763034362895579, %5 ], [ %11, %.lr.ph.i.i ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !16
-  %.not2228.i = icmp sgt i32 %13, 0
-  br i1 %.not2228.i, label %.lr.ph.i, label %._crit_edge.i
+  %.not2227.i = icmp sgt i32 %13, 0
+  br i1 %.not2227.i, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %fnv_hash.exit.i
   %14 = zext nneg i32 %13 to i64
@@ -524,7 +524,7 @@ fnv_hash.exit.i:                                  ; preds = %.lr.ph.i.i, %5
 16:                                               ; preds = %match.exit.thread.i, %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %17, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.critedge.i, label %17, !llvm.loop !17
 
 17:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
@@ -550,10 +550,10 @@ match.exit.i:                                     ; preds = %22
   br i1 %26, label %get_entry.exit, label %match.exit.thread.i
 
 match.exit.thread.i:                              ; preds = %match.exit.i, %22
-  %.not27.i = icmp eq ptr %21, null
-  br i1 %.not27.i, label %get_entry.exit.thread, label %16
+  %.not26.i = icmp eq ptr %21, null
+  br i1 %.not26.i, label %get_entry.exit.thread, label %16
 
-._crit_edge.i:                                    ; preds = %16, %fnv_hash.exit.i
+.critedge.i:                                      ; preds = %16, %fnv_hash.exit.i
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 73) #10
   unreachable
 

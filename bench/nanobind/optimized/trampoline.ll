@@ -121,7 +121,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8nanobind6detail18trampoline_releaseEPPvm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 16
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -129,34 +128,35 @@ define void @_ZN8nanobind6detail18trampoline_releaseEPPvm(ptr noundef readonly c
   ret void
 
 .lr.ph:                                           ; preds = %2, %_ZL11_Py_XDECREFP7_object.exit
-  %.04 = phi i64 [ %8, %_ZL11_Py_XDECREFP7_object.exit ], [ 0, %2 ]
+  %.04 = phi i64 [ %10, %_ZL11_Py_XDECREFP7_object.exit ], [ 0, %2 ]
   %.idx = shl i64 %.04, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %3 = load ptr, ptr %gep, align 8
-  %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %_ZL11_Py_XDECREFP7_object.exit, label %4
+  %3 = getelementptr i8, ptr %0, i64 %.idx
+  %4 = getelementptr i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %.not.i = icmp eq ptr %5, null
+  br i1 %.not.i, label %_ZL11_Py_XDECREFP7_object.exit, label %6
 
-4:                                                ; preds = %.lr.ph
-  %5 = load i64, ptr %3, align 8
-  %6 = add nsw i64 %5, -1
-  store i64 %6, ptr %3, align 8
-  %.not.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i, label %7, label %_ZL11_Py_XDECREFP7_object.exit
+6:                                                ; preds = %.lr.ph
+  %7 = load i64, ptr %5, align 8
+  %8 = add nsw i64 %7, -1
+  store i64 %8, ptr %5, align 8
+  %.not.i.i = icmp eq i64 %8, 0
+  br i1 %.not.i.i, label %9, label %_ZL11_Py_XDECREFP7_object.exit
 
-7:                                                ; preds = %4
-  invoke void @_Py_Dealloc(ptr noundef nonnull %3)
-          to label %_ZL11_Py_XDECREFP7_object.exit unwind label %9
+9:                                                ; preds = %6
+  invoke void @_Py_Dealloc(ptr noundef nonnull %5)
+          to label %_ZL11_Py_XDECREFP7_object.exit unwind label %11
 
-_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %4, %.lr.ph, %7
-  %8 = add nuw i64 %.04, 1
-  %exitcond.not = icmp eq i64 %8, %1
+_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %6, %.lr.ph, %9
+  %10 = add nuw i64 %.04, 1
+  %exitcond.not = icmp eq i64 %10, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-9:                                                ; preds = %7
-  %10 = landingpad { ptr, i32 }
+11:                                               ; preds = %9
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #9
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #9
   unreachable
 }
 

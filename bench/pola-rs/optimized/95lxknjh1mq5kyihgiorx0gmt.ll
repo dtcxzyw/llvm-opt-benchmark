@@ -25539,8 +25539,8 @@ define void @"_ZN104_$LT$polars_expr..idx_table..binview..BinviewKeyIdxTable$u20
   %114 = load i32, ptr %50, align 4, !alias.scope !1880, !noalias !1885, !noundef !6
   %115 = zext i32 %114 to i64
   %.idx = mul nuw nsw i64 %112, 24
-  %116 = getelementptr i8, ptr %106, i64 24
-  %117 = getelementptr i8, ptr %116, i64 %.idx
+  %116 = getelementptr inbounds nuw i8, ptr %106, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 %.idx
   %118 = load ptr, ptr %117, align 8, !alias.scope !1888, !noalias !1891, !noundef !6
   %119 = zext i32 %108 to i64
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 %115
@@ -25664,8 +25664,8 @@ define void @"_ZN104_$LT$polars_expr..idx_table..binview..BinviewKeyIdxTable$u20
   %183 = load i32, ptr %65, align 4, !alias.scope !1901, !noalias !1906, !noundef !6
   %184 = zext i32 %183 to i64
   %.idx44 = mul nuw nsw i64 %181, 24
-  %185 = getelementptr i8, ptr %175, i64 24
-  %186 = getelementptr i8, ptr %185, i64 %.idx44
+  %185 = getelementptr inbounds nuw i8, ptr %175, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 %.idx44
   %187 = load ptr, ptr %186, align 8, !alias.scope !1909, !noalias !1912, !noundef !6
   %188 = zext i32 %177 to i64
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 %184
@@ -56322,7 +56322,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   tail call void @llvm.assume(i1 %30)
   %31 = trunc i64 %29 to i32
   %.not = icmp samesign ult i64 %29, %26
-  br i1 %.not, label %._crit_edge, label %.loopexit20
+  br i1 %.not, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %21
   %32 = add i32 %2, %31
@@ -56335,30 +56335,30 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !noundef !6
   %36 = zext i32 %.sroa.0.0 to i64
-  %.not1522 = icmp ugt i64 %35, %36
-  br i1 %.not1522, label %.lr.ph25, label %.loopexit20
+  %.not1519 = icmp ugt i64 %35, %36
+  br i1 %.not1519, label %.lr.ph22, label %.critedge
 
-.lr.ph25:                                         ; preds = %33
+.lr.ph22:                                         ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = zext i32 %3 to i64
   br label %44
 
-.loopexit20:                                      ; preds = %.loopexit, %40, %33, %21
-  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %40 ], [ %73, %.loopexit ]
+.critedge:                                        ; preds = %40, %.loopexit, %33, %21
+  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %.loopexit ], [ %73, %40 ]
   ret i32 %.sroa.06.2
 
 40:                                               ; preds = %.loopexit
-  %41 = add i32 %.sroa.0.224, 1
+  %41 = add i32 %.sroa.0.221, 1
   %42 = load i64, ptr %34, align 8, !noundef !6
   %43 = zext i32 %41 to i64
   %.not15 = icmp ugt i64 %42, %43
-  br i1 %.not15, label %44, label %.loopexit20
+  br i1 %.not15, label %44, label %.critedge
 
-44:                                               ; preds = %.lr.ph25, %40
-  %45 = phi i64 [ %36, %.lr.ph25 ], [ %43, %40 ]
-  %.sroa.0.224 = phi i32 [ %.sroa.0.0, %.lr.ph25 ], [ %41, %40 ]
-  %.sroa.06.323 = phi i32 [ %.sroa.06.0, %.lr.ph25 ], [ %73, %40 ]
+44:                                               ; preds = %.lr.ph22, %40
+  %45 = phi i64 [ %36, %.lr.ph22 ], [ %43, %40 ]
+  %.sroa.0.221 = phi i32 [ %.sroa.0.0, %.lr.ph22 ], [ %41, %40 ]
+  %.sroa.06.320 = phi i32 [ %.sroa.06.0, %.lr.ph22 ], [ %73, %40 ]
   %46 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %47 = getelementptr inbounds nuw { i16, [3 x i16], { ptr, i32, i32 } }, ptr %46, i64 %45, i32 2
   %48 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17hbf656956c9a36a78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47)
@@ -56371,7 +56371,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %53, label %54, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %44
-  %.pre29 = load i64, ptr %6, align 8
+  %.pre26 = load i64, ptr %6, align 8
   br label %.loopexit
 
 54:                                               ; preds = %44
@@ -56383,14 +56383,14 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %59 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %57, 0
-  %.pre30 = load i64, ptr %6, align 8
+  %.pre27 = load i64, ptr %6, align 8
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit"
-  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre30, %54 ]
-  %.sroa.011.021 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
-  %63 = load atomic i64, ptr %.sroa.011.021 monotonic, align 8
+  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre27, %54 ]
+  %.sroa.011.018 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
+  %63 = load atomic i64, ptr %.sroa.011.018 monotonic, align 8
   %64 = trunc i64 %63 to i32
   %65 = load i64, ptr %1, align 8, !range !291, !alias.scope !7431, !noalias !7434, !noundef !6
   %66 = icmp eq i64 %61, %65
@@ -56410,12 +56410,12 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %71, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit", %..loopexit_crit_edge, %54
-  %72 = phi i64 [ %.pre29, %..loopexit_crit_edge ], [ %.pre30, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
-  %73 = add i32 %.sroa.06.323, 1
+  %72 = phi i64 [ %.pre26, %..loopexit_crit_edge ], [ %.pre27, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
+  %73 = add i32 %.sroa.06.320, 1
   %74 = icmp ult i64 %72, 2305843009213693952
   tail call void @llvm.assume(i1 %74)
   %.not17 = icmp samesign ult i64 %72, %39
-  br i1 %.not17, label %40, label %.loopexit20
+  br i1 %.not17, label %40, label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -56464,7 +56464,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   tail call void @llvm.assume(i1 %30)
   %31 = trunc i64 %29 to i32
   %.not = icmp samesign ult i64 %29, %26
-  br i1 %.not, label %._crit_edge, label %.loopexit20
+  br i1 %.not, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %21
   %32 = add i32 %2, %31
@@ -56477,30 +56477,30 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !noundef !6
   %36 = zext i32 %.sroa.0.0 to i64
-  %.not1522 = icmp ugt i64 %35, %36
-  br i1 %.not1522, label %.lr.ph25, label %.loopexit20
+  %.not1519 = icmp ugt i64 %35, %36
+  br i1 %.not1519, label %.lr.ph22, label %.critedge
 
-.lr.ph25:                                         ; preds = %33
+.lr.ph22:                                         ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = zext i32 %3 to i64
   br label %44
 
-.loopexit20:                                      ; preds = %.loopexit, %40, %33, %21
-  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %40 ], [ %73, %.loopexit ]
+.critedge:                                        ; preds = %40, %.loopexit, %33, %21
+  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %.loopexit ], [ %73, %40 ]
   ret i32 %.sroa.06.2
 
 40:                                               ; preds = %.loopexit
-  %41 = add i32 %.sroa.0.224, 1
+  %41 = add i32 %.sroa.0.221, 1
   %42 = load i64, ptr %34, align 8, !noundef !6
   %43 = zext i32 %41 to i64
   %.not15 = icmp ugt i64 %42, %43
-  br i1 %.not15, label %44, label %.loopexit20
+  br i1 %.not15, label %44, label %.critedge
 
-44:                                               ; preds = %.lr.ph25, %40
-  %45 = phi i64 [ %36, %.lr.ph25 ], [ %43, %40 ]
-  %.sroa.0.224 = phi i32 [ %.sroa.0.0, %.lr.ph25 ], [ %41, %40 ]
-  %.sroa.06.323 = phi i32 [ %.sroa.06.0, %.lr.ph25 ], [ %73, %40 ]
+44:                                               ; preds = %.lr.ph22, %40
+  %45 = phi i64 [ %36, %.lr.ph22 ], [ %43, %40 ]
+  %.sroa.0.221 = phi i32 [ %.sroa.0.0, %.lr.ph22 ], [ %41, %40 ]
+  %.sroa.06.320 = phi i32 [ %.sroa.06.0, %.lr.ph22 ], [ %73, %40 ]
   %46 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %47 = getelementptr inbounds nuw { i64, { ptr, i32, i32 } }, ptr %46, i64 %45, i32 1
   %48 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17hbf656956c9a36a78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47)
@@ -56513,7 +56513,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %53, label %54, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %44
-  %.pre29 = load i64, ptr %6, align 8
+  %.pre26 = load i64, ptr %6, align 8
   br label %.loopexit
 
 54:                                               ; preds = %44
@@ -56525,14 +56525,14 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %59 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %57, 0
-  %.pre30 = load i64, ptr %6, align 8
+  %.pre27 = load i64, ptr %6, align 8
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit"
-  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre30, %54 ]
-  %.sroa.011.021 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
-  %63 = load atomic i64, ptr %.sroa.011.021 monotonic, align 8
+  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre27, %54 ]
+  %.sroa.011.018 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
+  %63 = load atomic i64, ptr %.sroa.011.018 monotonic, align 8
   %64 = trunc i64 %63 to i32
   %65 = load i64, ptr %1, align 8, !range !291, !alias.scope !7436, !noalias !7439, !noundef !6
   %66 = icmp eq i64 %61, %65
@@ -56552,12 +56552,12 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %71, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit", %..loopexit_crit_edge, %54
-  %72 = phi i64 [ %.pre29, %..loopexit_crit_edge ], [ %.pre30, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
-  %73 = add i32 %.sroa.06.323, 1
+  %72 = phi i64 [ %.pre26, %..loopexit_crit_edge ], [ %.pre27, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
+  %73 = add i32 %.sroa.06.320, 1
   %74 = icmp ult i64 %72, 2305843009213693952
   tail call void @llvm.assume(i1 %74)
   %.not17 = icmp samesign ult i64 %72, %39
-  br i1 %.not17, label %40, label %.loopexit20
+  br i1 %.not17, label %40, label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -56606,7 +56606,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   tail call void @llvm.assume(i1 %30)
   %31 = trunc i64 %29 to i32
   %.not = icmp samesign ult i64 %29, %26
-  br i1 %.not, label %._crit_edge, label %.loopexit20
+  br i1 %.not, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %21
   %32 = add i32 %2, %31
@@ -56619,30 +56619,30 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !noundef !6
   %36 = zext i32 %.sroa.0.0 to i64
-  %.not1522 = icmp ugt i64 %35, %36
-  br i1 %.not1522, label %.lr.ph25, label %.loopexit20
+  %.not1519 = icmp ugt i64 %35, %36
+  br i1 %.not1519, label %.lr.ph22, label %.critedge
 
-.lr.ph25:                                         ; preds = %33
+.lr.ph22:                                         ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = zext i32 %3 to i64
   br label %44
 
-.loopexit20:                                      ; preds = %.loopexit, %40, %33, %21
-  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %40 ], [ %73, %.loopexit ]
+.critedge:                                        ; preds = %40, %.loopexit, %33, %21
+  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %.loopexit ], [ %73, %40 ]
   ret i32 %.sroa.06.2
 
 40:                                               ; preds = %.loopexit
-  %41 = add i32 %.sroa.0.224, 1
+  %41 = add i32 %.sroa.0.221, 1
   %42 = load i64, ptr %34, align 8, !noundef !6
   %43 = zext i32 %41 to i64
   %.not15 = icmp ugt i64 %42, %43
-  br i1 %.not15, label %44, label %.loopexit20
+  br i1 %.not15, label %44, label %.critedge
 
-44:                                               ; preds = %.lr.ph25, %40
-  %45 = phi i64 [ %36, %.lr.ph25 ], [ %43, %40 ]
-  %.sroa.0.224 = phi i32 [ %.sroa.0.0, %.lr.ph25 ], [ %41, %40 ]
-  %.sroa.06.323 = phi i32 [ %.sroa.06.0, %.lr.ph25 ], [ %73, %40 ]
+44:                                               ; preds = %.lr.ph22, %40
+  %45 = phi i64 [ %36, %.lr.ph22 ], [ %43, %40 ]
+  %.sroa.0.221 = phi i32 [ %.sroa.0.0, %.lr.ph22 ], [ %41, %40 ]
+  %.sroa.06.320 = phi i32 [ %.sroa.06.0, %.lr.ph22 ], [ %73, %40 ]
   %46 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %47 = getelementptr inbounds nuw { i8, [7 x i8], { ptr, i32, i32 } }, ptr %46, i64 %45, i32 2
   %48 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17hbf656956c9a36a78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47)
@@ -56655,7 +56655,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %53, label %54, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %44
-  %.pre29 = load i64, ptr %6, align 8
+  %.pre26 = load i64, ptr %6, align 8
   br label %.loopexit
 
 54:                                               ; preds = %44
@@ -56667,14 +56667,14 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %59 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %57, 0
-  %.pre30 = load i64, ptr %6, align 8
+  %.pre27 = load i64, ptr %6, align 8
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit"
-  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre30, %54 ]
-  %.sroa.011.021 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
-  %63 = load atomic i64, ptr %.sroa.011.021 monotonic, align 8
+  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre27, %54 ]
+  %.sroa.011.018 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
+  %63 = load atomic i64, ptr %.sroa.011.018 monotonic, align 8
   %64 = trunc i64 %63 to i32
   %65 = load i64, ptr %1, align 8, !range !291, !alias.scope !7441, !noalias !7444, !noundef !6
   %66 = icmp eq i64 %61, %65
@@ -56694,12 +56694,12 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %71, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit", %..loopexit_crit_edge, %54
-  %72 = phi i64 [ %.pre29, %..loopexit_crit_edge ], [ %.pre30, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
-  %73 = add i32 %.sroa.06.323, 1
+  %72 = phi i64 [ %.pre26, %..loopexit_crit_edge ], [ %.pre27, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
+  %73 = add i32 %.sroa.06.320, 1
   %74 = icmp ult i64 %72, 2305843009213693952
   tail call void @llvm.assume(i1 %74)
   %.not17 = icmp samesign ult i64 %72, %39
-  br i1 %.not17, label %40, label %.loopexit20
+  br i1 %.not17, label %40, label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -56748,7 +56748,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   tail call void @llvm.assume(i1 %30)
   %31 = trunc i64 %29 to i32
   %.not = icmp samesign ult i64 %29, %26
-  br i1 %.not, label %._crit_edge, label %.loopexit20
+  br i1 %.not, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %21
   %32 = add i32 %2, %31
@@ -56761,30 +56761,30 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !noundef !6
   %36 = zext i32 %.sroa.0.0 to i64
-  %.not1522 = icmp ugt i64 %35, %36
-  br i1 %.not1522, label %.lr.ph25, label %.loopexit20
+  %.not1519 = icmp ugt i64 %35, %36
+  br i1 %.not1519, label %.lr.ph22, label %.critedge
 
-.lr.ph25:                                         ; preds = %33
+.lr.ph22:                                         ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = zext i32 %3 to i64
   br label %44
 
-.loopexit20:                                      ; preds = %.loopexit, %40, %33, %21
-  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %40 ], [ %73, %.loopexit ]
+.critedge:                                        ; preds = %40, %.loopexit, %33, %21
+  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %.loopexit ], [ %73, %40 ]
   ret i32 %.sroa.06.2
 
 40:                                               ; preds = %.loopexit
-  %41 = add i32 %.sroa.0.224, 1
+  %41 = add i32 %.sroa.0.221, 1
   %42 = load i64, ptr %34, align 8, !noundef !6
   %43 = zext i32 %41 to i64
   %.not15 = icmp ugt i64 %42, %43
-  br i1 %.not15, label %44, label %.loopexit20
+  br i1 %.not15, label %44, label %.critedge
 
-44:                                               ; preds = %.lr.ph25, %40
-  %45 = phi i64 [ %36, %.lr.ph25 ], [ %43, %40 ]
-  %.sroa.0.224 = phi i32 [ %.sroa.0.0, %.lr.ph25 ], [ %41, %40 ]
-  %.sroa.06.323 = phi i32 [ %.sroa.06.0, %.lr.ph25 ], [ %73, %40 ]
+44:                                               ; preds = %.lr.ph22, %40
+  %45 = phi i64 [ %36, %.lr.ph22 ], [ %43, %40 ]
+  %.sroa.0.221 = phi i32 [ %.sroa.0.0, %.lr.ph22 ], [ %41, %40 ]
+  %.sroa.06.320 = phi i32 [ %.sroa.06.0, %.lr.ph22 ], [ %73, %40 ]
   %46 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %47 = getelementptr inbounds nuw { float, [1 x i32], { ptr, i32, i32 } }, ptr %46, i64 %45, i32 2
   %48 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17hbf656956c9a36a78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47)
@@ -56797,7 +56797,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %53, label %54, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %44
-  %.pre29 = load i64, ptr %6, align 8
+  %.pre26 = load i64, ptr %6, align 8
   br label %.loopexit
 
 54:                                               ; preds = %44
@@ -56809,14 +56809,14 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %59 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %57, 0
-  %.pre30 = load i64, ptr %6, align 8
+  %.pre27 = load i64, ptr %6, align 8
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit"
-  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre30, %54 ]
-  %.sroa.011.021 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
-  %63 = load atomic i64, ptr %.sroa.011.021 monotonic, align 8
+  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre27, %54 ]
+  %.sroa.011.018 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
+  %63 = load atomic i64, ptr %.sroa.011.018 monotonic, align 8
   %64 = trunc i64 %63 to i32
   %65 = load i64, ptr %1, align 8, !range !291, !alias.scope !7446, !noalias !7449, !noundef !6
   %66 = icmp eq i64 %61, %65
@@ -56836,12 +56836,12 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %71, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit", %..loopexit_crit_edge, %54
-  %72 = phi i64 [ %.pre29, %..loopexit_crit_edge ], [ %.pre30, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
-  %73 = add i32 %.sroa.06.323, 1
+  %72 = phi i64 [ %.pre26, %..loopexit_crit_edge ], [ %.pre27, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
+  %73 = add i32 %.sroa.06.320, 1
   %74 = icmp ult i64 %72, 2305843009213693952
   tail call void @llvm.assume(i1 %74)
   %.not17 = icmp samesign ult i64 %72, %39
-  br i1 %.not17, label %40, label %.loopexit20
+  br i1 %.not17, label %40, label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -56890,7 +56890,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   tail call void @llvm.assume(i1 %30)
   %31 = trunc i64 %29 to i32
   %.not = icmp samesign ult i64 %29, %26
-  br i1 %.not, label %._crit_edge, label %.loopexit20
+  br i1 %.not, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %21
   %32 = add i32 %2, %31
@@ -56903,30 +56903,30 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !noundef !6
   %36 = zext i32 %.sroa.0.0 to i64
-  %.not1522 = icmp ugt i64 %35, %36
-  br i1 %.not1522, label %.lr.ph25, label %.loopexit20
+  %.not1519 = icmp ugt i64 %35, %36
+  br i1 %.not1519, label %.lr.ph22, label %.critedge
 
-.lr.ph25:                                         ; preds = %33
+.lr.ph22:                                         ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = zext i32 %3 to i64
   br label %44
 
-.loopexit20:                                      ; preds = %.loopexit, %40, %33, %21
-  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %40 ], [ %73, %.loopexit ]
+.critedge:                                        ; preds = %40, %.loopexit, %33, %21
+  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %.loopexit ], [ %73, %40 ]
   ret i32 %.sroa.06.2
 
 40:                                               ; preds = %.loopexit
-  %41 = add i32 %.sroa.0.224, 1
+  %41 = add i32 %.sroa.0.221, 1
   %42 = load i64, ptr %34, align 8, !noundef !6
   %43 = zext i32 %41 to i64
   %.not15 = icmp ugt i64 %42, %43
-  br i1 %.not15, label %44, label %.loopexit20
+  br i1 %.not15, label %44, label %.critedge
 
-44:                                               ; preds = %.lr.ph25, %40
-  %45 = phi i64 [ %36, %.lr.ph25 ], [ %43, %40 ]
-  %.sroa.0.224 = phi i32 [ %.sroa.0.0, %.lr.ph25 ], [ %41, %40 ]
-  %.sroa.06.323 = phi i32 [ %.sroa.06.0, %.lr.ph25 ], [ %73, %40 ]
+44:                                               ; preds = %.lr.ph22, %40
+  %45 = phi i64 [ %36, %.lr.ph22 ], [ %43, %40 ]
+  %.sroa.0.221 = phi i32 [ %.sroa.0.0, %.lr.ph22 ], [ %41, %40 ]
+  %.sroa.06.320 = phi i32 [ %.sroa.06.0, %.lr.ph22 ], [ %73, %40 ]
   %46 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %47 = getelementptr inbounds nuw { i32, [1 x i32], { ptr, i32, i32 } }, ptr %46, i64 %45, i32 2
   %48 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17hbf656956c9a36a78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47)
@@ -56939,7 +56939,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %53, label %54, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %44
-  %.pre29 = load i64, ptr %6, align 8
+  %.pre26 = load i64, ptr %6, align 8
   br label %.loopexit
 
 54:                                               ; preds = %44
@@ -56951,14 +56951,14 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %59 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %57, 0
-  %.pre30 = load i64, ptr %6, align 8
+  %.pre27 = load i64, ptr %6, align 8
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit"
-  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre30, %54 ]
-  %.sroa.011.021 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
-  %63 = load atomic i64, ptr %.sroa.011.021 monotonic, align 8
+  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre27, %54 ]
+  %.sroa.011.018 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
+  %63 = load atomic i64, ptr %.sroa.011.018 monotonic, align 8
   %64 = trunc i64 %63 to i32
   %65 = load i64, ptr %1, align 8, !range !291, !alias.scope !7451, !noalias !7454, !noundef !6
   %66 = icmp eq i64 %61, %65
@@ -56978,12 +56978,12 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %71, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit", %..loopexit_crit_edge, %54
-  %72 = phi i64 [ %.pre29, %..loopexit_crit_edge ], [ %.pre30, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
-  %73 = add i32 %.sroa.06.323, 1
+  %72 = phi i64 [ %.pre26, %..loopexit_crit_edge ], [ %.pre27, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
+  %73 = add i32 %.sroa.06.320, 1
   %74 = icmp ult i64 %72, 2305843009213693952
   tail call void @llvm.assume(i1 %74)
   %.not17 = icmp samesign ult i64 %72, %39
-  br i1 %.not17, label %40, label %.loopexit20
+  br i1 %.not17, label %40, label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57032,7 +57032,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   tail call void @llvm.assume(i1 %30)
   %31 = trunc i64 %29 to i32
   %.not = icmp samesign ult i64 %29, %26
-  br i1 %.not, label %._crit_edge, label %.loopexit20
+  br i1 %.not, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %21
   %32 = add i32 %2, %31
@@ -57045,30 +57045,30 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !noundef !6
   %36 = zext i32 %.sroa.0.0 to i64
-  %.not1522 = icmp ugt i64 %35, %36
-  br i1 %.not1522, label %.lr.ph25, label %.loopexit20
+  %.not1519 = icmp ugt i64 %35, %36
+  br i1 %.not1519, label %.lr.ph22, label %.critedge
 
-.lr.ph25:                                         ; preds = %33
+.lr.ph22:                                         ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = zext i32 %3 to i64
   br label %44
 
-.loopexit20:                                      ; preds = %.loopexit, %40, %33, %21
-  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %40 ], [ %73, %.loopexit ]
+.critedge:                                        ; preds = %40, %.loopexit, %33, %21
+  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %.loopexit ], [ %73, %40 ]
   ret i32 %.sroa.06.2
 
 40:                                               ; preds = %.loopexit
-  %41 = add i32 %.sroa.0.224, 1
+  %41 = add i32 %.sroa.0.221, 1
   %42 = load i64, ptr %34, align 8, !noundef !6
   %43 = zext i32 %41 to i64
   %.not15 = icmp ugt i64 %42, %43
-  br i1 %.not15, label %44, label %.loopexit20
+  br i1 %.not15, label %44, label %.critedge
 
-44:                                               ; preds = %.lr.ph25, %40
-  %45 = phi i64 [ %36, %.lr.ph25 ], [ %43, %40 ]
-  %.sroa.0.224 = phi i32 [ %.sroa.0.0, %.lr.ph25 ], [ %41, %40 ]
-  %.sroa.06.323 = phi i32 [ %.sroa.06.0, %.lr.ph25 ], [ %73, %40 ]
+44:                                               ; preds = %.lr.ph22, %40
+  %45 = phi i64 [ %36, %.lr.ph22 ], [ %43, %40 ]
+  %.sroa.0.221 = phi i32 [ %.sroa.0.0, %.lr.ph22 ], [ %41, %40 ]
+  %.sroa.06.320 = phi i32 [ %.sroa.06.0, %.lr.ph22 ], [ %73, %40 ]
   %46 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %47 = getelementptr inbounds nuw { i64, { ptr, i32, i32 } }, ptr %46, i64 %45, i32 1
   %48 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17hbf656956c9a36a78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47)
@@ -57081,7 +57081,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %53, label %54, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %44
-  %.pre29 = load i64, ptr %6, align 8
+  %.pre26 = load i64, ptr %6, align 8
   br label %.loopexit
 
 54:                                               ; preds = %44
@@ -57093,14 +57093,14 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %59 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %57, 0
-  %.pre30 = load i64, ptr %6, align 8
+  %.pre27 = load i64, ptr %6, align 8
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit"
-  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre30, %54 ]
-  %.sroa.011.021 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
-  %63 = load atomic i64, ptr %.sroa.011.021 monotonic, align 8
+  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre27, %54 ]
+  %.sroa.011.018 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
+  %63 = load atomic i64, ptr %.sroa.011.018 monotonic, align 8
   %64 = trunc i64 %63 to i32
   %65 = load i64, ptr %1, align 8, !range !291, !alias.scope !7456, !noalias !7459, !noundef !6
   %66 = icmp eq i64 %61, %65
@@ -57120,12 +57120,12 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %71, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit", %..loopexit_crit_edge, %54
-  %72 = phi i64 [ %.pre29, %..loopexit_crit_edge ], [ %.pre30, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
-  %73 = add i32 %.sroa.06.323, 1
+  %72 = phi i64 [ %.pre26, %..loopexit_crit_edge ], [ %.pre27, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
+  %73 = add i32 %.sroa.06.320, 1
   %74 = icmp ult i64 %72, 2305843009213693952
   tail call void @llvm.assume(i1 %74)
   %.not17 = icmp samesign ult i64 %72, %39
-  br i1 %.not17, label %40, label %.loopexit20
+  br i1 %.not17, label %40, label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57174,7 +57174,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   tail call void @llvm.assume(i1 %30)
   %31 = trunc i64 %29 to i32
   %.not = icmp samesign ult i64 %29, %26
-  br i1 %.not, label %._crit_edge, label %.loopexit20
+  br i1 %.not, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %21
   %32 = add i32 %2, %31
@@ -57187,30 +57187,30 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !noundef !6
   %36 = zext i32 %.sroa.0.0 to i64
-  %.not1522 = icmp ugt i64 %35, %36
-  br i1 %.not1522, label %.lr.ph25, label %.loopexit20
+  %.not1519 = icmp ugt i64 %35, %36
+  br i1 %.not1519, label %.lr.ph22, label %.critedge
 
-.lr.ph25:                                         ; preds = %33
+.lr.ph22:                                         ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = zext i32 %3 to i64
   br label %44
 
-.loopexit20:                                      ; preds = %.loopexit, %40, %33, %21
-  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %40 ], [ %73, %.loopexit ]
+.critedge:                                        ; preds = %40, %.loopexit, %33, %21
+  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %.loopexit ], [ %73, %40 ]
   ret i32 %.sroa.06.2
 
 40:                                               ; preds = %.loopexit
-  %41 = add i32 %.sroa.0.224, 1
+  %41 = add i32 %.sroa.0.221, 1
   %42 = load i64, ptr %34, align 8, !noundef !6
   %43 = zext i32 %41 to i64
   %.not15 = icmp ugt i64 %42, %43
-  br i1 %.not15, label %44, label %.loopexit20
+  br i1 %.not15, label %44, label %.critedge
 
-44:                                               ; preds = %.lr.ph25, %40
-  %45 = phi i64 [ %36, %.lr.ph25 ], [ %43, %40 ]
-  %.sroa.0.224 = phi i32 [ %.sroa.0.0, %.lr.ph25 ], [ %41, %40 ]
-  %.sroa.06.323 = phi i32 [ %.sroa.06.0, %.lr.ph25 ], [ %73, %40 ]
+44:                                               ; preds = %.lr.ph22, %40
+  %45 = phi i64 [ %36, %.lr.ph22 ], [ %43, %40 ]
+  %.sroa.0.221 = phi i32 [ %.sroa.0.0, %.lr.ph22 ], [ %41, %40 ]
+  %.sroa.06.320 = phi i32 [ %.sroa.06.0, %.lr.ph22 ], [ %73, %40 ]
   %46 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %47 = getelementptr inbounds nuw { i16, [3 x i16], { ptr, i32, i32 } }, ptr %46, i64 %45, i32 2
   %48 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17hbf656956c9a36a78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47)
@@ -57223,7 +57223,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %53, label %54, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %44
-  %.pre29 = load i64, ptr %6, align 8
+  %.pre26 = load i64, ptr %6, align 8
   br label %.loopexit
 
 54:                                               ; preds = %44
@@ -57235,14 +57235,14 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %59 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %57, 0
-  %.pre30 = load i64, ptr %6, align 8
+  %.pre27 = load i64, ptr %6, align 8
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit"
-  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre30, %54 ]
-  %.sroa.011.021 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
-  %63 = load atomic i64, ptr %.sroa.011.021 monotonic, align 8
+  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre27, %54 ]
+  %.sroa.011.018 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
+  %63 = load atomic i64, ptr %.sroa.011.018 monotonic, align 8
   %64 = trunc i64 %63 to i32
   %65 = load i64, ptr %1, align 8, !range !291, !alias.scope !7461, !noalias !7464, !noundef !6
   %66 = icmp eq i64 %61, %65
@@ -57262,12 +57262,12 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %71, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit", %..loopexit_crit_edge, %54
-  %72 = phi i64 [ %.pre29, %..loopexit_crit_edge ], [ %.pre30, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
-  %73 = add i32 %.sroa.06.323, 1
+  %72 = phi i64 [ %.pre26, %..loopexit_crit_edge ], [ %.pre27, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
+  %73 = add i32 %.sroa.06.320, 1
   %74 = icmp ult i64 %72, 2305843009213693952
   tail call void @llvm.assume(i1 %74)
   %.not17 = icmp samesign ult i64 %72, %39
-  br i1 %.not17, label %40, label %.loopexit20
+  br i1 %.not17, label %40, label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57316,7 +57316,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   tail call void @llvm.assume(i1 %30)
   %31 = trunc i64 %29 to i32
   %.not = icmp samesign ult i64 %29, %26
-  br i1 %.not, label %._crit_edge, label %.loopexit20
+  br i1 %.not, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %21
   %32 = add i32 %2, %31
@@ -57329,30 +57329,30 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !noundef !6
   %36 = zext i32 %.sroa.0.0 to i64
-  %.not1522 = icmp ugt i64 %35, %36
-  br i1 %.not1522, label %.lr.ph25, label %.loopexit20
+  %.not1519 = icmp ugt i64 %35, %36
+  br i1 %.not1519, label %.lr.ph22, label %.critedge
 
-.lr.ph25:                                         ; preds = %33
+.lr.ph22:                                         ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = zext i32 %3 to i64
   br label %44
 
-.loopexit20:                                      ; preds = %.loopexit, %40, %33, %21
-  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %40 ], [ %73, %.loopexit ]
+.critedge:                                        ; preds = %40, %.loopexit, %33, %21
+  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %.loopexit ], [ %73, %40 ]
   ret i32 %.sroa.06.2
 
 40:                                               ; preds = %.loopexit
-  %41 = add i32 %.sroa.0.224, 1
+  %41 = add i32 %.sroa.0.221, 1
   %42 = load i64, ptr %34, align 8, !noundef !6
   %43 = zext i32 %41 to i64
   %.not15 = icmp ugt i64 %42, %43
-  br i1 %.not15, label %44, label %.loopexit20
+  br i1 %.not15, label %44, label %.critedge
 
-44:                                               ; preds = %.lr.ph25, %40
-  %45 = phi i64 [ %36, %.lr.ph25 ], [ %43, %40 ]
-  %.sroa.0.224 = phi i32 [ %.sroa.0.0, %.lr.ph25 ], [ %41, %40 ]
-  %.sroa.06.323 = phi i32 [ %.sroa.06.0, %.lr.ph25 ], [ %73, %40 ]
+44:                                               ; preds = %.lr.ph22, %40
+  %45 = phi i64 [ %36, %.lr.ph22 ], [ %43, %40 ]
+  %.sroa.0.221 = phi i32 [ %.sroa.0.0, %.lr.ph22 ], [ %41, %40 ]
+  %.sroa.06.320 = phi i32 [ %.sroa.06.0, %.lr.ph22 ], [ %73, %40 ]
   %46 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %47 = getelementptr inbounds nuw { double, { ptr, i32, i32 } }, ptr %46, i64 %45, i32 1
   %48 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17hbf656956c9a36a78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47)
@@ -57365,7 +57365,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %53, label %54, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %44
-  %.pre29 = load i64, ptr %6, align 8
+  %.pre26 = load i64, ptr %6, align 8
   br label %.loopexit
 
 54:                                               ; preds = %44
@@ -57377,14 +57377,14 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %59 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %57, 0
-  %.pre30 = load i64, ptr %6, align 8
+  %.pre27 = load i64, ptr %6, align 8
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit"
-  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre30, %54 ]
-  %.sroa.011.021 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
-  %63 = load atomic i64, ptr %.sroa.011.021 monotonic, align 8
+  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre27, %54 ]
+  %.sroa.011.018 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
+  %63 = load atomic i64, ptr %.sroa.011.018 monotonic, align 8
   %64 = trunc i64 %63 to i32
   %65 = load i64, ptr %1, align 8, !range !291, !alias.scope !7466, !noalias !7469, !noundef !6
   %66 = icmp eq i64 %61, %65
@@ -57404,12 +57404,12 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %71, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit", %..loopexit_crit_edge, %54
-  %72 = phi i64 [ %.pre29, %..loopexit_crit_edge ], [ %.pre30, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
-  %73 = add i32 %.sroa.06.323, 1
+  %72 = phi i64 [ %.pre26, %..loopexit_crit_edge ], [ %.pre27, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
+  %73 = add i32 %.sroa.06.320, 1
   %74 = icmp ult i64 %72, 2305843009213693952
   tail call void @llvm.assume(i1 %74)
   %.not17 = icmp samesign ult i64 %72, %39
-  br i1 %.not17, label %40, label %.loopexit20
+  br i1 %.not17, label %40, label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57458,7 +57458,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   tail call void @llvm.assume(i1 %30)
   %31 = trunc i64 %29 to i32
   %.not = icmp samesign ult i64 %29, %26
-  br i1 %.not, label %._crit_edge, label %.loopexit20
+  br i1 %.not, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %21
   %32 = add i32 %2, %31
@@ -57471,30 +57471,30 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !noundef !6
   %36 = zext i32 %.sroa.0.0 to i64
-  %.not1522 = icmp ugt i64 %35, %36
-  br i1 %.not1522, label %.lr.ph25, label %.loopexit20
+  %.not1519 = icmp ugt i64 %35, %36
+  br i1 %.not1519, label %.lr.ph22, label %.critedge
 
-.lr.ph25:                                         ; preds = %33
+.lr.ph22:                                         ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = zext i32 %3 to i64
   br label %44
 
-.loopexit20:                                      ; preds = %.loopexit, %40, %33, %21
-  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %40 ], [ %73, %.loopexit ]
+.critedge:                                        ; preds = %40, %.loopexit, %33, %21
+  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %.loopexit ], [ %73, %40 ]
   ret i32 %.sroa.06.2
 
 40:                                               ; preds = %.loopexit
-  %41 = add i32 %.sroa.0.224, 1
+  %41 = add i32 %.sroa.0.221, 1
   %42 = load i64, ptr %34, align 8, !noundef !6
   %43 = zext i32 %41 to i64
   %.not15 = icmp ugt i64 %42, %43
-  br i1 %.not15, label %44, label %.loopexit20
+  br i1 %.not15, label %44, label %.critedge
 
-44:                                               ; preds = %.lr.ph25, %40
-  %45 = phi i64 [ %36, %.lr.ph25 ], [ %43, %40 ]
-  %.sroa.0.224 = phi i32 [ %.sroa.0.0, %.lr.ph25 ], [ %41, %40 ]
-  %.sroa.06.323 = phi i32 [ %.sroa.06.0, %.lr.ph25 ], [ %73, %40 ]
+44:                                               ; preds = %.lr.ph22, %40
+  %45 = phi i64 [ %36, %.lr.ph22 ], [ %43, %40 ]
+  %.sroa.0.221 = phi i32 [ %.sroa.0.0, %.lr.ph22 ], [ %41, %40 ]
+  %.sroa.06.320 = phi i32 [ %.sroa.06.0, %.lr.ph22 ], [ %73, %40 ]
   %46 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %47 = getelementptr inbounds nuw { i8, [7 x i8], { ptr, i32, i32 } }, ptr %46, i64 %45, i32 2
   %48 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17hbf656956c9a36a78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47)
@@ -57507,7 +57507,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %53, label %54, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %44
-  %.pre29 = load i64, ptr %6, align 8
+  %.pre26 = load i64, ptr %6, align 8
   br label %.loopexit
 
 54:                                               ; preds = %44
@@ -57519,14 +57519,14 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %59 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %57, 0
-  %.pre30 = load i64, ptr %6, align 8
+  %.pre27 = load i64, ptr %6, align 8
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit"
-  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre30, %54 ]
-  %.sroa.011.021 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
-  %63 = load atomic i64, ptr %.sroa.011.021 monotonic, align 8
+  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre27, %54 ]
+  %.sroa.011.018 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
+  %63 = load atomic i64, ptr %.sroa.011.018 monotonic, align 8
   %64 = trunc i64 %63 to i32
   %65 = load i64, ptr %1, align 8, !range !291, !alias.scope !7471, !noalias !7474, !noundef !6
   %66 = icmp eq i64 %61, %65
@@ -57546,12 +57546,12 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %71, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit", %..loopexit_crit_edge, %54
-  %72 = phi i64 [ %.pre29, %..loopexit_crit_edge ], [ %.pre30, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
-  %73 = add i32 %.sroa.06.323, 1
+  %72 = phi i64 [ %.pre26, %..loopexit_crit_edge ], [ %.pre27, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
+  %73 = add i32 %.sroa.06.320, 1
   %74 = icmp ult i64 %72, 2305843009213693952
   tail call void @llvm.assume(i1 %74)
   %.not17 = icmp samesign ult i64 %72, %39
-  br i1 %.not17, label %40, label %.loopexit20
+  br i1 %.not17, label %40, label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57600,7 +57600,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   tail call void @llvm.assume(i1 %30)
   %31 = trunc i64 %29 to i32
   %.not = icmp samesign ult i64 %29, %26
-  br i1 %.not, label %._crit_edge, label %.loopexit20
+  br i1 %.not, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %21
   %32 = add i32 %2, %31
@@ -57613,30 +57613,30 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !noundef !6
   %36 = zext i32 %.sroa.0.0 to i64
-  %.not1522 = icmp ugt i64 %35, %36
-  br i1 %.not1522, label %.lr.ph25, label %.loopexit20
+  %.not1519 = icmp ugt i64 %35, %36
+  br i1 %.not1519, label %.lr.ph22, label %.critedge
 
-.lr.ph25:                                         ; preds = %33
+.lr.ph22:                                         ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = zext i32 %3 to i64
   br label %44
 
-.loopexit20:                                      ; preds = %.loopexit, %40, %33, %21
-  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %40 ], [ %73, %.loopexit ]
+.critedge:                                        ; preds = %40, %.loopexit, %33, %21
+  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %.loopexit ], [ %73, %40 ]
   ret i32 %.sroa.06.2
 
 40:                                               ; preds = %.loopexit
-  %41 = add i32 %.sroa.0.224, 1
+  %41 = add i32 %.sroa.0.221, 1
   %42 = load i64, ptr %34, align 8, !noundef !6
   %43 = zext i32 %41 to i64
   %.not15 = icmp ugt i64 %42, %43
-  br i1 %.not15, label %44, label %.loopexit20
+  br i1 %.not15, label %44, label %.critedge
 
-44:                                               ; preds = %.lr.ph25, %40
-  %45 = phi i64 [ %36, %.lr.ph25 ], [ %43, %40 ]
-  %.sroa.0.224 = phi i32 [ %.sroa.0.0, %.lr.ph25 ], [ %41, %40 ]
-  %.sroa.06.323 = phi i32 [ %.sroa.06.0, %.lr.ph25 ], [ %73, %40 ]
+44:                                               ; preds = %.lr.ph22, %40
+  %45 = phi i64 [ %36, %.lr.ph22 ], [ %43, %40 ]
+  %.sroa.0.221 = phi i32 [ %.sroa.0.0, %.lr.ph22 ], [ %41, %40 ]
+  %.sroa.06.320 = phi i32 [ %.sroa.06.0, %.lr.ph22 ], [ %73, %40 ]
   %46 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %47 = getelementptr inbounds nuw { i128, { ptr, i32, i32 } }, ptr %46, i64 %45, i32 1
   %48 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17hbf656956c9a36a78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47)
@@ -57649,7 +57649,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %53, label %54, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %44
-  %.pre29 = load i64, ptr %6, align 8
+  %.pre26 = load i64, ptr %6, align 8
   br label %.loopexit
 
 54:                                               ; preds = %44
@@ -57661,14 +57661,14 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %59 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %57, 0
-  %.pre30 = load i64, ptr %6, align 8
+  %.pre27 = load i64, ptr %6, align 8
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit"
-  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre30, %54 ]
-  %.sroa.011.021 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
-  %63 = load atomic i64, ptr %.sroa.011.021 monotonic, align 8
+  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre27, %54 ]
+  %.sroa.011.018 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
+  %63 = load atomic i64, ptr %.sroa.011.018 monotonic, align 8
   %64 = trunc i64 %63 to i32
   %65 = load i64, ptr %1, align 8, !range !291, !alias.scope !7476, !noalias !7479, !noundef !6
   %66 = icmp eq i64 %61, %65
@@ -57688,12 +57688,12 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %71, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit", %..loopexit_crit_edge, %54
-  %72 = phi i64 [ %.pre29, %..loopexit_crit_edge ], [ %.pre30, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
-  %73 = add i32 %.sroa.06.323, 1
+  %72 = phi i64 [ %.pre26, %..loopexit_crit_edge ], [ %.pre27, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
+  %73 = add i32 %.sroa.06.320, 1
   %74 = icmp ult i64 %72, 2305843009213693952
   tail call void @llvm.assume(i1 %74)
   %.not17 = icmp samesign ult i64 %72, %39
-  br i1 %.not17, label %40, label %.loopexit20
+  br i1 %.not17, label %40, label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57742,7 +57742,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   tail call void @llvm.assume(i1 %30)
   %31 = trunc i64 %29 to i32
   %.not = icmp samesign ult i64 %29, %26
-  br i1 %.not, label %._crit_edge, label %.loopexit20
+  br i1 %.not, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %21
   %32 = add i32 %2, %31
@@ -57755,30 +57755,30 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8, !noundef !6
   %36 = zext i32 %.sroa.0.0 to i64
-  %.not1522 = icmp ugt i64 %35, %36
-  br i1 %.not1522, label %.lr.ph25, label %.loopexit20
+  %.not1519 = icmp ugt i64 %35, %36
+  br i1 %.not1519, label %.lr.ph22, label %.critedge
 
-.lr.ph25:                                         ; preds = %33
+.lr.ph22:                                         ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = zext i32 %3 to i64
   br label %44
 
-.loopexit20:                                      ; preds = %.loopexit, %40, %33, %21
-  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %40 ], [ %73, %.loopexit ]
+.critedge:                                        ; preds = %40, %.loopexit, %33, %21
+  %.sroa.06.2 = phi i32 [ %31, %21 ], [ %.sroa.06.0, %33 ], [ %73, %.loopexit ], [ %73, %40 ]
   ret i32 %.sroa.06.2
 
 40:                                               ; preds = %.loopexit
-  %41 = add i32 %.sroa.0.224, 1
+  %41 = add i32 %.sroa.0.221, 1
   %42 = load i64, ptr %34, align 8, !noundef !6
   %43 = zext i32 %41 to i64
   %.not15 = icmp ugt i64 %42, %43
-  br i1 %.not15, label %44, label %.loopexit20
+  br i1 %.not15, label %44, label %.critedge
 
-44:                                               ; preds = %.lr.ph25, %40
-  %45 = phi i64 [ %36, %.lr.ph25 ], [ %43, %40 ]
-  %.sroa.0.224 = phi i32 [ %.sroa.0.0, %.lr.ph25 ], [ %41, %40 ]
-  %.sroa.06.323 = phi i32 [ %.sroa.06.0, %.lr.ph25 ], [ %73, %40 ]
+44:                                               ; preds = %.lr.ph22, %40
+  %45 = phi i64 [ %36, %.lr.ph22 ], [ %43, %40 ]
+  %.sroa.0.221 = phi i32 [ %.sroa.0.0, %.lr.ph22 ], [ %41, %40 ]
+  %.sroa.06.320 = phi i32 [ %.sroa.06.0, %.lr.ph22 ], [ %73, %40 ]
   %46 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %47 = getelementptr inbounds nuw { i32, [1 x i32], { ptr, i32, i32 } }, ptr %46, i64 %45, i32 2
   %48 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17hbf656956c9a36a78E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47)
@@ -57791,7 +57791,7 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %53, label %54, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %44
-  %.pre29 = load i64, ptr %6, align 8
+  %.pre26 = load i64, ptr %6, align 8
   br label %.loopexit
 
 54:                                               ; preds = %44
@@ -57803,14 +57803,14 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   %59 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i64 %57, 0
-  %.pre30 = load i64, ptr %6, align 8
+  %.pre27 = load i64, ptr %6, align 8
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit"
-  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre30, %54 ]
-  %.sroa.011.021 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
-  %63 = load atomic i64, ptr %.sroa.011.021 monotonic, align 8
+  %61 = phi i64 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %.pre27, %54 ]
+  %.sroa.011.018 = phi ptr [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ], [ %56, %54 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 8
+  %63 = load atomic i64, ptr %.sroa.011.018 monotonic, align 8
   %64 = trunc i64 %63 to i32
   %65 = load i64, ptr %1, align 8, !range !291, !alias.scope !7481, !noalias !7484, !noundef !6
   %66 = icmp eq i64 %61, %65
@@ -57830,12 +57830,12 @@ define internal noundef i32 @"_ZN115_$LT$polars_expr..idx_table..single_key..Sin
   br i1 %71, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit", %..loopexit_crit_edge, %54
-  %72 = phi i64 [ %.pre29, %..loopexit_crit_edge ], [ %.pre30, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
-  %73 = add i32 %.sroa.06.323, 1
+  %72 = phi i64 [ %.pre26, %..loopexit_crit_edge ], [ %.pre27, %54 ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h17f80fc83a71241fE.exit" ]
+  %73 = add i32 %.sroa.06.320, 1
   %74 = icmp ult i64 %72, 2305843009213693952
   tail call void @llvm.assume(i1 %74)
   %.not17 = icmp samesign ult i64 %72, %39
-  br i1 %.not17, label %40, label %.loopexit20
+  br i1 %.not17, label %40, label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable

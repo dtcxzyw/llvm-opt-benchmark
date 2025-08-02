@@ -22,36 +22,36 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   %or.cond = or i1 %5, %6
   %7 = icmp eq ptr %1, null
   %or.cond3 = or i1 %7, %or.cond
-  br i1 %or.cond3, label %168, label %8
+  br i1 %or.cond3, label %176, label %8
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %1, align 4, !tbaa !6
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %168, label %11
+  br i1 %10, label %176, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !11
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %168, label %15
+  br i1 %14, label %176, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i8, ptr %16, align 4, !tbaa !12
   %18 = add i8 %17, -5
   %or.cond186 = icmp ult i8 %18, -2
-  br i1 %or.cond186, label %168, label %19
+  br i1 %or.cond186, label %176, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %21 = load i8, ptr %20, align 1, !tbaa !13
   %22 = icmp ugt i8 %21, 1
-  br i1 %22, label %168, label %23
+  br i1 %22, label %176, label %23
 
 23:                                               ; preds = %19
   %24 = udiv i32 400000000, %9
   %.not = icmp ult i32 %13, %24
-  br i1 %.not, label %25, label %168
+  br i1 %.not, label %25, label %176
 
 25:                                               ; preds = %23
   %26 = mul i32 %13, %9
@@ -62,19 +62,19 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   %30 = sext i32 %29 to i64
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #10
   %.not185 = icmp eq ptr %31, null
-  br i1 %.not185, label %168, label %32
+  br i1 %.not185, label %176, label %32
 
 32:                                               ; preds = %25
   store i8 113, ptr %31, align 1, !tbaa !14
-  %33 = getelementptr i8, ptr %31, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store i8 111, ptr %33, align 1, !tbaa !14
-  %34 = getelementptr i8, ptr %31, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 2
   store i8 105, ptr %34, align 1, !tbaa !14
-  %35 = getelementptr i8, ptr %31, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 3
   store i8 102, ptr %35, align 1, !tbaa !14
   %36 = lshr i32 %9, 24
   %37 = trunc nuw i32 %36 to i8
-  %38 = getelementptr i8, ptr %31, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i8 %37, ptr %38, align 1, !tbaa !14
   %39 = lshr i32 %9, 16
   %40 = trunc i32 %39 to i8
@@ -120,7 +120,7 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   %67 = zext nneg i32 %61 to i64
   br label %71
 
-.preheader.loopexit:                              ; preds = %166
+.preheader.loopexit:                              ; preds = %174
   %68 = sext i32 %.1211 to i64
   br label %.preheader
 
@@ -131,16 +131,16 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   %69 = trunc nsw i64 %.0210.lcssa to i32
   %70 = add i32 %69, 8
   store i32 %70, ptr %2, align 4, !tbaa !15
-  br label %168
+  br label %176
 
-71:                                               ; preds = %.lr.ph, %166
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %166 ]
-  %.0171233 = phi i32 [ 0, %.lr.ph ], [ %.1, %166 ]
-  %.sroa.26.0231 = phi i8 [ -1, %.lr.ph ], [ %.sroa.26.1, %166 ]
-  %.sroa.0.0230 = phi i8 [ 0, %.lr.ph ], [ %73, %166 ]
-  %.sroa.7.0229 = phi i8 [ 0, %.lr.ph ], [ %75, %166 ]
-  %.sroa.9.0228 = phi i8 [ 0, %.lr.ph ], [ %77, %166 ]
-  %.0210227 = phi i32 [ 14, %.lr.ph ], [ %.1211, %166 ]
+71:                                               ; preds = %.lr.ph, %174
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %174 ]
+  %.0171219 = phi i32 [ 0, %.lr.ph ], [ %.1, %174 ]
+  %.sroa.26.0217 = phi i8 [ -1, %.lr.ph ], [ %.sroa.26.1, %174 ]
+  %.sroa.0.0216 = phi i8 [ 0, %.lr.ph ], [ %73, %174 ]
+  %.sroa.7.0215 = phi i8 [ 0, %.lr.ph ], [ %75, %174 ]
+  %.sroa.9.0214 = phi i8 [ 0, %.lr.ph ], [ %77, %174 ]
+  %.0210213 = phi i32 [ 14, %.lr.ph ], [ %.1211, %174 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %73 = load i8, ptr %72, align 1, !tbaa !14
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 1
@@ -155,7 +155,7 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   br label %81
 
 81:                                               ; preds = %78, %71
-  %.sroa.26.1 = phi i8 [ %80, %78 ], [ %.sroa.26.0231, %71 ]
+  %.sroa.26.1 = phi i8 [ %80, %78 ], [ %.sroa.26.0217, %71 ]
   %.sroa.26.0.insert.ext = zext i8 %.sroa.26.1 to i32
   %.sroa.26.0.insert.shift = shl nuw i32 %.sroa.26.0.insert.ext, 24
   %.sroa.19.0.insert.ext = zext i8 %77 to i32
@@ -166,52 +166,52 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   %.sroa.12.0.insert.insert = or disjoint i32 %.sroa.19.0.insert.insert, %.sroa.12.0.insert.shift
   %.sroa.066.0.insert.ext = zext i8 %73 to i32
   %.sroa.066.0.insert.insert = or disjoint i32 %.sroa.12.0.insert.insert, %.sroa.066.0.insert.ext
-  %.sroa.11.0.insert.ext = zext i8 %.sroa.26.0231 to i32
+  %.sroa.11.0.insert.ext = zext i8 %.sroa.26.0217 to i32
   %.sroa.11.0.insert.shift = shl nuw i32 %.sroa.11.0.insert.ext, 24
-  %.sroa.9.0.insert.ext = zext i8 %.sroa.9.0228 to i32
+  %.sroa.9.0.insert.ext = zext i8 %.sroa.9.0214 to i32
   %.sroa.9.0.insert.shift = shl nuw nsw i32 %.sroa.9.0.insert.ext, 16
   %.sroa.9.0.insert.insert = or disjoint i32 %.sroa.11.0.insert.shift, %.sroa.9.0.insert.shift
-  %.sroa.7.0.insert.ext = zext i8 %.sroa.7.0229 to i32
+  %.sroa.7.0.insert.ext = zext i8 %.sroa.7.0215 to i32
   %.sroa.7.0.insert.shift = shl nuw nsw i32 %.sroa.7.0.insert.ext, 8
   %.sroa.7.0.insert.insert = or disjoint i32 %.sroa.9.0.insert.insert, %.sroa.7.0.insert.shift
-  %.sroa.0.0.insert.ext = zext i8 %.sroa.0.0230 to i32
+  %.sroa.0.0.insert.ext = zext i8 %.sroa.0.0216 to i32
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.7.0.insert.insert, %.sroa.0.0.insert.ext
   %82 = icmp eq i32 %.sroa.066.0.insert.insert, %.sroa.0.0.insert.insert
   br i1 %82, label %83, label %93
 
 83:                                               ; preds = %81
-  %84 = add nsw i32 %.0171233, 1
+  %84 = add nsw i32 %.0171219, 1
   %85 = icmp eq i32 %84, 62
   %86 = icmp eq i64 %indvars.iv, %66
   %or.cond187 = select i1 %85, i1 true, i1 %86
-  br i1 %or.cond187, label %87, label %166
+  br i1 %or.cond187, label %87, label %174
 
 87:                                               ; preds = %83
-  %88 = trunc i32 %.0171233 to i8
+  %88 = trunc i32 %.0171219 to i8
   %89 = or i8 %88, -64
-  %90 = add nsw i32 %.0210227, 1
-  %91 = sext i32 %.0210227 to i64
+  %90 = add nsw i32 %.0210213, 1
+  %91 = sext i32 %.0210213 to i64
   %92 = getelementptr inbounds i8, ptr %31, i64 %91
   store i8 %89, ptr %92, align 1, !tbaa !14
-  br label %166
+  br label %174
 
 93:                                               ; preds = %81
-  %94 = icmp sgt i32 %.0171233, 0
+  %94 = icmp sgt i32 %.0171219, 0
   br i1 %94, label %95, label %102
 
 95:                                               ; preds = %93
-  %96 = trunc i32 %.0171233 to i8
+  %96 = trunc i32 %.0171219 to i8
   %97 = add i8 %96, 63
   %98 = or i8 %97, -64
-  %99 = add nsw i32 %.0210227, 1
-  %100 = sext i32 %.0210227 to i64
+  %99 = add nsw i32 %.0210213, 1
+  %100 = sext i32 %.0210213 to i64
   %101 = getelementptr inbounds i8, ptr %31, i64 %100
   store i8 %98, ptr %101, align 1, !tbaa !14
   br label %102
 
 102:                                              ; preds = %95, %93
-  %.2212 = phi i32 [ %99, %95 ], [ %.0210227, %93 ]
-  %.2 = phi i32 [ 0, %95 ], [ %.0171233, %93 ]
+  %.2212 = phi i32 [ %99, %95 ], [ %.0210213, %93 ]
+  %.2 = phi i32 [ 0, %95 ], [ %.0171219, %93 ]
   %103 = mul nuw nsw i32 %.sroa.066.0.insert.ext, 3
   %104 = mul nuw nsw i32 %.sroa.12.0.insert.ext, 5
   %105 = add nuw nsw i32 %104, %103
@@ -232,7 +232,7 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   %118 = sext i32 %.2212 to i64
   %119 = getelementptr inbounds i8, ptr %31, i64 %118
   store i8 %116, ptr %119, align 1, !tbaa !14
-  br label %166
+  br label %174
 
 120:                                              ; preds = %102
   store i8 %73, ptr %112, align 4
@@ -242,13 +242,13 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   store i8 %77, ptr %.sroa.19.0..sroa_idx, align 2
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 3
   store i8 %.sroa.26.1, ptr %.sroa.26.0..sroa_idx, align 1, !tbaa !14
-  %121 = icmp eq i8 %.sroa.26.1, %.sroa.26.0231
-  br i1 %121, label %122, label %162
+  %121 = icmp eq i8 %.sroa.26.1, %.sroa.26.0217
+  br i1 %121, label %122, label %166
 
 122:                                              ; preds = %120
-  %123 = sub i8 %73, %.sroa.0.0230
-  %124 = sub i8 %75, %.sroa.7.0229
-  %125 = sub i8 %77, %.sroa.9.0228
+  %123 = sub i8 %73, %.sroa.0.0216
+  %124 = sub i8 %75, %.sroa.7.0215
+  %125 = sub i8 %77, %.sroa.9.0214
   %126 = add i8 %123, 2
   %or.cond6 = icmp ult i8 %126, 4
   %127 = add i8 %124, 2
@@ -271,7 +271,7 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   %140 = sext i32 %.2212 to i64
   %141 = getelementptr inbounds i8, ptr %31, i64 %140
   store i8 %138, ptr %141, align 1, !tbaa !14
-  br label %166
+  br label %174
 
 142:                                              ; preds = %122
   %143 = sub i8 %125, %124
@@ -284,57 +284,57 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   %148 = add i8 %143, 8
   %149 = icmp ult i8 %148, 16
   %or.cond33 = select i1 %or.cond27, i1 %149, i1 false
-  br i1 %or.cond33, label %150, label %158
+  br i1 %or.cond33, label %150, label %159
 
 150:                                              ; preds = %142
   %151 = or disjoint i8 %146, -128
   %152 = sext i32 %.2212 to i64
-  %153 = getelementptr inbounds i8, ptr %31, i64 %152
+  %153 = getelementptr i8, ptr %31, i64 %152
   store i8 %151, ptr %153, align 1, !tbaa !14
   %154 = shl nsw i8 %144, 4
   %155 = or disjoint i8 %148, %154
   %156 = xor i8 %155, -128
   %157 = add nsw i32 %.2212, 2
-  %gep226 = getelementptr i8, ptr %33, i64 %152
-  store i8 %156, ptr %gep226, align 1, !tbaa !14
-  br label %166
+  %158 = getelementptr i8, ptr %153, i64 1
+  store i8 %156, ptr %158, align 1, !tbaa !14
+  br label %174
 
-158:                                              ; preds = %142
-  %159 = sext i32 %.2212 to i64
-  %160 = getelementptr inbounds i8, ptr %31, i64 %159
-  store i8 -2, ptr %160, align 1, !tbaa !14
-  %gep220 = getelementptr i8, ptr %33, i64 %159
-  store i8 %73, ptr %gep220, align 1, !tbaa !14
-  %gep222 = getelementptr i8, ptr %34, i64 %159
-  store i8 %75, ptr %gep222, align 1, !tbaa !14
-  %161 = add nsw i32 %.2212, 4
-  %gep224 = getelementptr i8, ptr %35, i64 %159
-  store i8 %77, ptr %gep224, align 1, !tbaa !14
-  br label %166
+159:                                              ; preds = %142
+  %160 = sext i32 %.2212 to i64
+  %161 = getelementptr i8, ptr %31, i64 %160
+  store i8 -2, ptr %161, align 1, !tbaa !14
+  %162 = getelementptr i8, ptr %161, i64 1
+  store i8 %73, ptr %162, align 1, !tbaa !14
+  %163 = getelementptr i8, ptr %161, i64 2
+  store i8 %75, ptr %163, align 1, !tbaa !14
+  %164 = add nsw i32 %.2212, 4
+  %165 = getelementptr i8, ptr %161, i64 3
+  store i8 %77, ptr %165, align 1, !tbaa !14
+  br label %174
 
-162:                                              ; preds = %120
-  %163 = sext i32 %.2212 to i64
-  %164 = getelementptr inbounds i8, ptr %31, i64 %163
-  store i8 -1, ptr %164, align 1, !tbaa !14
-  %gep = getelementptr i8, ptr %33, i64 %163
-  store i8 %73, ptr %gep, align 1, !tbaa !14
-  %gep214 = getelementptr i8, ptr %34, i64 %163
-  store i8 %75, ptr %gep214, align 1, !tbaa !14
-  %gep216 = getelementptr i8, ptr %35, i64 %163
-  store i8 %77, ptr %gep216, align 1, !tbaa !14
-  %165 = add nsw i32 %.2212, 5
-  %gep218 = getelementptr i8, ptr %38, i64 %163
-  store i8 %.sroa.26.1, ptr %gep218, align 1, !tbaa !14
-  br label %166
+166:                                              ; preds = %120
+  %167 = sext i32 %.2212 to i64
+  %168 = getelementptr i8, ptr %31, i64 %167
+  store i8 -1, ptr %168, align 1, !tbaa !14
+  %169 = getelementptr i8, ptr %168, i64 1
+  store i8 %73, ptr %169, align 1, !tbaa !14
+  %170 = getelementptr i8, ptr %168, i64 2
+  store i8 %75, ptr %170, align 1, !tbaa !14
+  %171 = getelementptr i8, ptr %168, i64 3
+  store i8 %77, ptr %171, align 1, !tbaa !14
+  %172 = add nsw i32 %.2212, 5
+  %173 = getelementptr i8, ptr %168, i64 4
+  store i8 %.sroa.26.1, ptr %173, align 1, !tbaa !14
+  br label %174
 
-166:                                              ; preds = %115, %162, %150, %158, %131, %83, %87
-  %.1211 = phi i32 [ %90, %87 ], [ %.0210227, %83 ], [ %117, %115 ], [ %139, %131 ], [ %157, %150 ], [ %161, %158 ], [ %165, %162 ]
-  %.1 = phi i32 [ 0, %87 ], [ %84, %83 ], [ %.2, %115 ], [ %.2, %131 ], [ %.2, %150 ], [ %.2, %158 ], [ %.2, %162 ]
+174:                                              ; preds = %115, %166, %150, %159, %131, %83, %87
+  %.1211 = phi i32 [ %90, %87 ], [ %.0210213, %83 ], [ %117, %115 ], [ %139, %131 ], [ %157, %150 ], [ %164, %159 ], [ %172, %166 ]
+  %.1 = phi i32 [ 0, %87 ], [ %84, %83 ], [ %.2, %115 ], [ %.2, %131 ], [ %.2, %150 ], [ %.2, %159 ], [ %.2, %166 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %65
-  %167 = icmp samesign ult i64 %indvars.iv.next, %67
-  br i1 %167, label %71, label %.preheader.loopexit
+  %175 = icmp samesign ult i64 %indvars.iv.next, %67
+  br i1 %175, label %71, label %.preheader.loopexit
 
-168:                                              ; preds = %25, %3, %8, %11, %15, %19, %23, %.preheader
+176:                                              ; preds = %25, %3, %8, %11, %15, %19, %23, %.preheader
   %.0 = phi ptr [ %31, %.preheader ], [ null, %23 ], [ null, %19 ], [ null, %15 ], [ null, %11 ], [ null, %8 ], [ null, %3 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #9
   ret ptr %.0
@@ -376,10 +376,10 @@ define noalias noundef ptr @qoi_decode(ptr noundef readonly captures(address_is_
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !14
   %18 = zext i8 %17 to i32
-  %19 = getelementptr i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %20 = load i8, ptr %19, align 1, !tbaa !14
   %21 = zext i8 %20 to i32
-  %22 = getelementptr i8, ptr %0, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %23 = load i8, ptr %22, align 1, !tbaa !14
   %24 = zext i8 %23 to i32
   %25 = shl nuw i32 %15, 24
@@ -388,7 +388,7 @@ define noalias noundef ptr @qoi_decode(ptr noundef readonly captures(address_is_
   %28 = shl nuw nsw i32 %21, 8
   %29 = or disjoint i32 %27, %28
   %30 = or disjoint i32 %29, %24
-  %31 = getelementptr i8, ptr %0, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i8, ptr %31, align 1, !tbaa !14
   %33 = zext i8 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -478,180 +478,180 @@ define noalias noundef ptr @qoi_decode(ptr noundef readonly captures(address_is_
   %94 = zext nneg i32 %spec.select to i64
   br label %95
 
-95:                                               ; preds = %.lr.ph, %180
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %180 ]
-  %.sroa.31.0139 = phi i8 [ -1, %.lr.ph ], [ %.sroa.31.1, %180 ]
-  %.0102138 = phi i32 [ 0, %.lr.ph ], [ %.1, %180 ]
-  %.sroa.22.0136 = phi i8 [ 0, %.lr.ph ], [ %.sroa.22.1, %180 ]
-  %.sroa.13.0135 = phi i8 [ 0, %.lr.ph ], [ %.sroa.13.1, %180 ]
-  %.sroa.0.0134 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0.1, %180 ]
-  %.0121133 = phi i32 [ 14, %.lr.ph ], [ %.1122, %180 ]
-  %96 = icmp sgt i32 %.0102138, 0
+95:                                               ; preds = %.lr.ph, %185
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %185 ]
+  %.sroa.31.0131 = phi i8 [ -1, %.lr.ph ], [ %.sroa.31.1, %185 ]
+  %.0102130 = phi i32 [ 0, %.lr.ph ], [ %.1, %185 ]
+  %.sroa.22.0128 = phi i8 [ 0, %.lr.ph ], [ %.sroa.22.1, %185 ]
+  %.sroa.13.0127 = phi i8 [ 0, %.lr.ph ], [ %.sroa.13.1, %185 ]
+  %.sroa.0.0126 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0.1, %185 ]
+  %.0121125 = phi i32 [ 14, %.lr.ph ], [ %.1122, %185 ]
+  %96 = icmp sgt i32 %.0102130, 0
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = add nsw i32 %.0102138, -1
-  br label %174
+  %98 = add nsw i32 %.0102130, -1
+  br label %179
 
 99:                                               ; preds = %95
-  %100 = icmp slt i32 %.0121133, %91
-  br i1 %100, label %101, label %174
+  %100 = icmp slt i32 %.0121125, %91
+  br i1 %100, label %101, label %179
 
 101:                                              ; preds = %99
-  %102 = add nsw i32 %.0121133, 1
-  %103 = sext i32 %.0121133 to i64
-  %104 = getelementptr inbounds i8, ptr %0, i64 %103
+  %102 = add nsw i32 %.0121125, 1
+  %103 = sext i32 %.0121125 to i64
+  %104 = getelementptr i8, ptr %0, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !14
   %106 = zext i8 %105 to i32
-  switch i8 %105, label %122 [
+  switch i8 %105, label %127 [
     i8 -2, label %107
-    i8 -1, label %114
+    i8 -1, label %116
   ]
 
 107:                                              ; preds = %101
   %108 = sext i32 %102 to i64
   %109 = getelementptr inbounds i8, ptr %0, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !14
-  %gep130 = getelementptr i8, ptr %19, i64 %103
-  %111 = load i8, ptr %gep130, align 1, !tbaa !14
-  %112 = add nsw i32 %.0121133, 4
-  %gep132 = getelementptr i8, ptr %22, i64 %103
-  %113 = load i8, ptr %gep132, align 1, !tbaa !14
-  br label %160
+  %111 = getelementptr i8, ptr %104, i64 2
+  %112 = load i8, ptr %111, align 1, !tbaa !14
+  %113 = add nsw i32 %.0121125, 4
+  %114 = getelementptr i8, ptr %104, i64 3
+  %115 = load i8, ptr %114, align 1, !tbaa !14
+  br label %165
 
-114:                                              ; preds = %101
-  %115 = sext i32 %102 to i64
-  %116 = getelementptr inbounds i8, ptr %0, i64 %115
-  %117 = load i8, ptr %116, align 1, !tbaa !14
-  %gep = getelementptr i8, ptr %19, i64 %103
-  %118 = load i8, ptr %gep, align 1, !tbaa !14
-  %gep126 = getelementptr i8, ptr %22, i64 %103
-  %119 = load i8, ptr %gep126, align 1, !tbaa !14
-  %120 = add nsw i32 %.0121133, 5
-  %gep128 = getelementptr i8, ptr %31, i64 %103
-  %121 = load i8, ptr %gep128, align 1, !tbaa !14
-  br label %160
+116:                                              ; preds = %101
+  %117 = sext i32 %102 to i64
+  %118 = getelementptr inbounds i8, ptr %0, i64 %117
+  %119 = load i8, ptr %118, align 1, !tbaa !14
+  %120 = getelementptr i8, ptr %104, i64 2
+  %121 = load i8, ptr %120, align 1, !tbaa !14
+  %122 = getelementptr i8, ptr %104, i64 3
+  %123 = load i8, ptr %122, align 1, !tbaa !14
+  %124 = add nsw i32 %.0121125, 5
+  %125 = getelementptr i8, ptr %104, i64 4
+  %126 = load i8, ptr %125, align 1, !tbaa !14
+  br label %165
 
-122:                                              ; preds = %101
-  %123 = lshr i32 %106, 6
-  switch i32 %123, label %default.unreachable [
-    i32 0, label %124
-    i32 1, label %127
-    i32 2, label %139
-    i32 3, label %158
+127:                                              ; preds = %101
+  %128 = lshr i32 %106, 6
+  switch i32 %128, label %default.unreachable [
+    i32 0, label %129
+    i32 1, label %132
+    i32 2, label %144
+    i32 3, label %163
   ]
 
-124:                                              ; preds = %122
-  %125 = zext i8 %105 to i64
-  %126 = getelementptr inbounds nuw [64 x %union.qoi_rgba_t], ptr %5, i64 0, i64 %125
-  %.sroa.0.0.copyload = load i8, ptr %126, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 1
+129:                                              ; preds = %127
+  %130 = zext i8 %105 to i64
+  %131 = getelementptr inbounds nuw [64 x %union.qoi_rgba_t], ptr %5, i64 0, i64 %130
+  %.sroa.0.0.copyload = load i8, ptr %131, align 4
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 1
   %.sroa.13.0.copyload = load i8, ptr %.sroa.13.0..sroa_idx, align 1
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 2
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 2
   %.sroa.22.0.copyload = load i8, ptr %.sroa.22.0..sroa_idx, align 2
-  %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 3
+  %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 3
   %.sroa.31.0.copyload = load i8, ptr %.sroa.31.0..sroa_idx, align 1, !tbaa !14
-  br label %160
+  br label %165
 
-127:                                              ; preds = %122
-  %128 = lshr i8 %105, 4
-  %129 = and i8 %128, 3
-  %130 = add i8 %.sroa.0.0134, -2
-  %131 = add i8 %130, %129
-  %132 = lshr i8 %105, 2
-  %133 = and i8 %132, 3
-  %134 = add i8 %.sroa.13.0135, -2
-  %135 = add i8 %134, %133
-  %136 = and i8 %105, 3
-  %137 = add i8 %.sroa.22.0136, -2
-  %138 = add i8 %137, %136
-  br label %160
+132:                                              ; preds = %127
+  %133 = lshr i8 %105, 4
+  %134 = and i8 %133, 3
+  %135 = add i8 %.sroa.0.0126, -2
+  %136 = add i8 %135, %134
+  %137 = lshr i8 %105, 2
+  %138 = and i8 %137, 3
+  %139 = add i8 %.sroa.13.0127, -2
+  %140 = add i8 %139, %138
+  %141 = and i8 %105, 3
+  %142 = add i8 %.sroa.22.0128, -2
+  %143 = add i8 %142, %141
+  br label %165
 
-139:                                              ; preds = %122
-  %140 = add nsw i32 %.0121133, 2
-  %141 = sext i32 %102 to i64
-  %142 = getelementptr inbounds i8, ptr %0, i64 %141
-  %143 = load i8, ptr %142, align 1, !tbaa !14
-  %144 = zext i8 %143 to i32
-  %145 = and i32 %106, 63
-  %146 = add nsw i32 %145, -40
-  %147 = lshr i32 %144, 4
-  %148 = add nsw i32 %147, %146
-  %149 = trunc nsw i32 %148 to i8
-  %150 = add i8 %.sroa.0.0134, %149
-  %151 = trunc nuw nsw i32 %145 to i8
-  %152 = add i8 %.sroa.13.0135, -32
-  %153 = add i8 %152, %151
-  %154 = and i32 %144, 15
-  %155 = add nsw i32 %154, %146
-  %156 = trunc nsw i32 %155 to i8
-  %157 = add i8 %.sroa.22.0136, %156
-  br label %160
+144:                                              ; preds = %127
+  %145 = add nsw i32 %.0121125, 2
+  %146 = sext i32 %102 to i64
+  %147 = getelementptr inbounds i8, ptr %0, i64 %146
+  %148 = load i8, ptr %147, align 1, !tbaa !14
+  %149 = zext i8 %148 to i32
+  %150 = and i32 %106, 63
+  %151 = add nsw i32 %150, -40
+  %152 = lshr i32 %149, 4
+  %153 = add nsw i32 %152, %151
+  %154 = trunc nsw i32 %153 to i8
+  %155 = add i8 %.sroa.0.0126, %154
+  %156 = trunc nuw nsw i32 %150 to i8
+  %157 = add i8 %.sroa.13.0127, -32
+  %158 = add i8 %157, %156
+  %159 = and i32 %149, 15
+  %160 = add nsw i32 %159, %151
+  %161 = trunc nsw i32 %160 to i8
+  %162 = add i8 %.sroa.22.0128, %161
+  br label %165
 
-158:                                              ; preds = %122
-  %159 = and i32 %106, 63
-  br label %160
+163:                                              ; preds = %127
+  %164 = and i32 %106, 63
+  br label %165
 
-default.unreachable:                              ; preds = %122
+default.unreachable:                              ; preds = %127
   unreachable
 
-160:                                              ; preds = %114, %127, %158, %139, %124, %107
-  %.2123 = phi i32 [ %102, %124 ], [ %102, %127 ], [ %140, %139 ], [ %102, %158 ], [ %112, %107 ], [ %120, %114 ]
-  %.sroa.0.2 = phi i8 [ %.sroa.0.0.copyload, %124 ], [ %131, %127 ], [ %150, %139 ], [ %.sroa.0.0134, %158 ], [ %110, %107 ], [ %117, %114 ]
-  %.sroa.13.2 = phi i8 [ %.sroa.13.0.copyload, %124 ], [ %135, %127 ], [ %153, %139 ], [ %.sroa.13.0135, %158 ], [ %111, %107 ], [ %118, %114 ]
-  %.sroa.22.2 = phi i8 [ %.sroa.22.0.copyload, %124 ], [ %138, %127 ], [ %157, %139 ], [ %.sroa.22.0136, %158 ], [ %113, %107 ], [ %119, %114 ]
-  %.2 = phi i32 [ 0, %124 ], [ 0, %127 ], [ 0, %139 ], [ %159, %158 ], [ 0, %107 ], [ 0, %114 ]
-  %.sroa.31.2 = phi i8 [ %.sroa.31.0.copyload, %124 ], [ %.sroa.31.0139, %127 ], [ %.sroa.31.0139, %139 ], [ %.sroa.31.0139, %158 ], [ %.sroa.31.0139, %107 ], [ %121, %114 ]
-  %161 = zext i8 %.sroa.0.2 to i64
-  %162 = mul nuw nsw i64 %161, 3
-  %163 = zext i8 %.sroa.13.2 to i64
-  %164 = mul nuw nsw i64 %163, 5
-  %165 = add nuw nsw i64 %164, %162
-  %166 = zext i8 %.sroa.22.2 to i64
-  %167 = mul nuw nsw i64 %166, 7
-  %168 = add nuw nsw i64 %165, %167
-  %169 = zext i8 %.sroa.31.2 to i64
-  %170 = mul nuw nsw i64 %169, 11
-  %171 = add nuw nsw i64 %168, %170
-  %172 = and i64 %171, 63
-  %173 = getelementptr inbounds nuw [64 x %union.qoi_rgba_t], ptr %5, i64 0, i64 %172
-  store i8 %.sroa.0.2, ptr %173, align 4
-  %.sroa.13.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %173, i64 1
+165:                                              ; preds = %116, %132, %163, %144, %129, %107
+  %.2123 = phi i32 [ %102, %129 ], [ %102, %132 ], [ %145, %144 ], [ %102, %163 ], [ %113, %107 ], [ %124, %116 ]
+  %.sroa.0.2 = phi i8 [ %.sroa.0.0.copyload, %129 ], [ %136, %132 ], [ %155, %144 ], [ %.sroa.0.0126, %163 ], [ %110, %107 ], [ %119, %116 ]
+  %.sroa.13.2 = phi i8 [ %.sroa.13.0.copyload, %129 ], [ %140, %132 ], [ %158, %144 ], [ %.sroa.13.0127, %163 ], [ %112, %107 ], [ %121, %116 ]
+  %.sroa.22.2 = phi i8 [ %.sroa.22.0.copyload, %129 ], [ %143, %132 ], [ %162, %144 ], [ %.sroa.22.0128, %163 ], [ %115, %107 ], [ %123, %116 ]
+  %.2 = phi i32 [ 0, %129 ], [ 0, %132 ], [ 0, %144 ], [ %164, %163 ], [ 0, %107 ], [ 0, %116 ]
+  %.sroa.31.2 = phi i8 [ %.sroa.31.0.copyload, %129 ], [ %.sroa.31.0131, %132 ], [ %.sroa.31.0131, %144 ], [ %.sroa.31.0131, %163 ], [ %.sroa.31.0131, %107 ], [ %126, %116 ]
+  %166 = zext i8 %.sroa.0.2 to i64
+  %167 = mul nuw nsw i64 %166, 3
+  %168 = zext i8 %.sroa.13.2 to i64
+  %169 = mul nuw nsw i64 %168, 5
+  %170 = add nuw nsw i64 %169, %167
+  %171 = zext i8 %.sroa.22.2 to i64
+  %172 = mul nuw nsw i64 %171, 7
+  %173 = add nuw nsw i64 %170, %172
+  %174 = zext i8 %.sroa.31.2 to i64
+  %175 = mul nuw nsw i64 %174, 11
+  %176 = add nuw nsw i64 %173, %175
+  %177 = and i64 %176, 63
+  %178 = getelementptr inbounds nuw [64 x %union.qoi_rgba_t], ptr %5, i64 0, i64 %177
+  store i8 %.sroa.0.2, ptr %178, align 4
+  %.sroa.13.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %178, i64 1
   store i8 %.sroa.13.2, ptr %.sroa.13.0..sroa_idx41, align 1
-  %.sroa.22.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %173, i64 2
+  %.sroa.22.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %178, i64 2
   store i8 %.sroa.22.2, ptr %.sroa.22.0..sroa_idx46, align 2
-  %.sroa.31.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %173, i64 3
+  %.sroa.31.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %178, i64 3
   store i8 %.sroa.31.2, ptr %.sroa.31.0..sroa_idx51, align 1, !tbaa !14
-  br label %174
+  br label %179
 
-174:                                              ; preds = %99, %160, %97
-  %.1122 = phi i32 [ %.0121133, %97 ], [ %.2123, %160 ], [ %.0121133, %99 ]
-  %.sroa.0.1 = phi i8 [ %.sroa.0.0134, %97 ], [ %.sroa.0.2, %160 ], [ %.sroa.0.0134, %99 ]
-  %.sroa.13.1 = phi i8 [ %.sroa.13.0135, %97 ], [ %.sroa.13.2, %160 ], [ %.sroa.13.0135, %99 ]
-  %.sroa.22.1 = phi i8 [ %.sroa.22.0136, %97 ], [ %.sroa.22.2, %160 ], [ %.sroa.22.0136, %99 ]
-  %.1 = phi i32 [ %98, %97 ], [ %.2, %160 ], [ 0, %99 ]
-  %.sroa.31.1 = phi i8 [ %.sroa.31.0139, %97 ], [ %.sroa.31.2, %160 ], [ %.sroa.31.0139, %99 ]
-  %175 = getelementptr inbounds nuw i8, ptr %89, i64 %indvars.iv
-  store i8 %.sroa.0.1, ptr %175, align 1, !tbaa !14
-  %176 = getelementptr i8, ptr %175, i64 1
-  store i8 %.sroa.13.1, ptr %176, align 1, !tbaa !14
-  %177 = getelementptr i8, ptr %175, i64 2
-  store i8 %.sroa.22.1, ptr %177, align 1, !tbaa !14
-  br i1 %93, label %178, label %180
+179:                                              ; preds = %99, %165, %97
+  %.1122 = phi i32 [ %.0121125, %97 ], [ %.2123, %165 ], [ %.0121125, %99 ]
+  %.sroa.0.1 = phi i8 [ %.sroa.0.0126, %97 ], [ %.sroa.0.2, %165 ], [ %.sroa.0.0126, %99 ]
+  %.sroa.13.1 = phi i8 [ %.sroa.13.0127, %97 ], [ %.sroa.13.2, %165 ], [ %.sroa.13.0127, %99 ]
+  %.sroa.22.1 = phi i8 [ %.sroa.22.0128, %97 ], [ %.sroa.22.2, %165 ], [ %.sroa.22.0128, %99 ]
+  %.1 = phi i32 [ %98, %97 ], [ %.2, %165 ], [ 0, %99 ]
+  %.sroa.31.1 = phi i8 [ %.sroa.31.0131, %97 ], [ %.sroa.31.2, %165 ], [ %.sroa.31.0131, %99 ]
+  %180 = getelementptr inbounds nuw i8, ptr %89, i64 %indvars.iv
+  store i8 %.sroa.0.1, ptr %180, align 1, !tbaa !14
+  %181 = getelementptr i8, ptr %180, i64 1
+  store i8 %.sroa.13.1, ptr %181, align 1, !tbaa !14
+  %182 = getelementptr i8, ptr %180, i64 2
+  store i8 %.sroa.22.1, ptr %182, align 1, !tbaa !14
+  br i1 %93, label %183, label %185
 
-178:                                              ; preds = %174
-  %179 = getelementptr i8, ptr %175, i64 3
-  store i8 %.sroa.31.1, ptr %179, align 1, !tbaa !14
-  br label %180
+183:                                              ; preds = %179
+  %184 = getelementptr i8, ptr %180, i64 3
+  store i8 %.sroa.31.1, ptr %184, align 1, !tbaa !14
+  br label %185
 
-180:                                              ; preds = %174, %178
+185:                                              ; preds = %179, %183
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %94
-  %181 = trunc nuw i64 %indvars.iv.next to i32
-  %182 = icmp sgt i32 %87, %181
-  br i1 %182, label %95, label %.loopexit
+  %186 = trunc nuw i64 %indvars.iv.next to i32
+  %187 = icmp sgt i32 %87, %186
+  br i1 %187, label %95, label %.loopexit
 
-.loopexit:                                        ; preds = %180, %90, %84, %13, %76, %79, %82, %4, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ null, %82 ], [ null, %79 ], [ null, %76 ], [ null, %13 ], [ null, %84 ], [ %89, %90 ], [ %89, %180 ]
+.loopexit:                                        ; preds = %185, %90, %84, %13, %76, %79, %82, %4, %8
+  %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ null, %82 ], [ null, %79 ], [ null, %76 ], [ null, %13 ], [ null, %84 ], [ %89, %90 ], [ %89, %185 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #9
   ret ptr %.0
 }

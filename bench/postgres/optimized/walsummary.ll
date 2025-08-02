@@ -189,7 +189,7 @@ declare i32 @FreeDir(ptr noundef) local_unnamed_addr #2
 define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -201,23 +201,23 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %.not23, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %10, label %.lr.ph89, label %._crit_edge
+  br i1 %10, label %.lr.ph86, label %.critedge
 
-.lr.ph89:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.028.us88 = phi ptr [ %.1.us, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
-  %indvars.iv7187 = phi i64 [ %indvars.iv.next72, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+.lr.ph86:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+  %.026.us85 = phi ptr [ %.1.us, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
+  %indvars.iv6884 = phi i64 [ %indvars.iv.next69, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv7187
+  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv6884
   %13 = load ptr, ptr %12, align 8
   br i1 %7, label %18, label %14
 
-14:                                               ; preds = %.lr.ph89
+14:                                               ; preds = %.lr.ph86
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %2, %16
   br i1 %17, label %.lr.ph.split.us, label %18
 
-18:                                               ; preds = %14, %.lr.ph89
+18:                                               ; preds = %14, %.lr.ph86
   br i1 %8, label %22, label %19
 
 19:                                               ; preds = %18
@@ -226,35 +226,35 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %21, label %.lr.ph.split.us, label %22
 
 22:                                               ; preds = %19, %18
-  %23 = tail call ptr @lappend(ptr noundef %.028.us88, ptr noundef %13) #12
+  %23 = tail call ptr @lappend(ptr noundef %.026.us85, ptr noundef %13) #12
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %22, %19, %14
-  %.1.us = phi ptr [ %23, %22 ], [ %.028.us88, %14 ], [ %.028.us88, %19 ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv7187, 1
+  %.1.us = phi ptr [ %23, %22 ], [ %.026.us85, %14 ], [ %.026.us85, %19 ]
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv6884, 1
   %24 = load i32, ptr %5, align 4
   %25 = sext i32 %24 to i64
-  %26 = icmp slt i64 %indvars.iv.next72, %25
-  br i1 %26, label %.lr.ph89, label %._crit_edge
+  %26 = icmp slt i64 %indvars.iv.next69, %25
+  br i1 %26, label %.lr.ph86, label %.critedge
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %7, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
-  br i1 %10, label %.lr.ph85, label %._crit_edge
+  br i1 %10, label %.lr.ph82, label %.critedge
 
-.lr.ph85:                                         ; preds = %.lr.ph.split.split.us.preheader, %.lr.ph.split.split.us
-  %.028.us3284 = phi ptr [ %.1.us34, %.lr.ph.split.split.us ], [ null, %.lr.ph.split.split.us.preheader ]
-  %indvars.iv6883 = phi i64 [ %indvars.iv.next69, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split.split.us.preheader ]
+.lr.ph82:                                         ; preds = %.lr.ph.split.split.us.preheader, %.lr.ph.split.split.us
+  %.026.us3081 = phi ptr [ %.1.us32, %.lr.ph.split.split.us ], [ null, %.lr.ph.split.split.us.preheader ]
+  %indvars.iv6580 = phi i64 [ %indvars.iv.next66, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split.split.us.preheader ]
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv6883
+  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv6580
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8
   %.not24.us = icmp eq i32 %1, %31
   br i1 %.not24.us, label %32, label %.lr.ph.split.split.us
 
-32:                                               ; preds = %.lr.ph85
+32:                                               ; preds = %.lr.ph82
   br i1 %8, label %36, label %33
 
 33:                                               ; preds = %32
@@ -263,63 +263,59 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %35, label %.lr.ph.split.split.us, label %36
 
 36:                                               ; preds = %33, %32
-  %37 = tail call ptr @lappend(ptr noundef %.028.us3284, ptr noundef nonnull %29) #12
+  %37 = tail call ptr @lappend(ptr noundef %.026.us3081, ptr noundef nonnull %29) #12
   br label %.lr.ph.split.split.us
 
-.lr.ph.split.split.us:                            ; preds = %36, %33, %.lr.ph85
-  %.1.us34 = phi ptr [ %37, %36 ], [ %.028.us3284, %.lr.ph85 ], [ %.028.us3284, %33 ]
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv6883, 1
+.lr.ph.split.split.us:                            ; preds = %36, %33, %.lr.ph82
+  %.1.us32 = phi ptr [ %37, %36 ], [ %.026.us3081, %.lr.ph82 ], [ %.026.us3081, %33 ]
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv6580, 1
   %38 = load i32, ptr %5, align 4
   %39 = sext i32 %38 to i64
-  %40 = icmp slt i64 %indvars.iv.next69, %39
-  br i1 %40, label %.lr.ph85, label %._crit_edge
+  %40 = icmp slt i64 %indvars.iv.next66, %39
+  br i1 %40, label %.lr.ph82, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %8, label %.lr.ph.split.split.split.us.preheader, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.us.preheader:            ; preds = %.lr.ph.split.split
-  br i1 %10, label %.lr.ph82, label %._crit_edge
+  br i1 %10, label %.lr.ph79, label %.critedge
 
-.lr.ph82:                                         ; preds = %.lr.ph.split.split.split.us.preheader, %.lr.ph.split.split.split.us
-  %.028.us3981 = phi ptr [ %.1.us42, %.lr.ph.split.split.split.us ], [ null, %.lr.ph.split.split.split.us.preheader ]
-  %indvars.iv6580 = phi i64 [ %indvars.iv.next66, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us.preheader ]
+.lr.ph79:                                         ; preds = %.lr.ph.split.split.split.us.preheader, %.lr.ph.split.split.split.us
+  %.026.us3778 = phi ptr [ %.1.us40, %.lr.ph.split.split.split.us ], [ null, %.lr.ph.split.split.split.us.preheader ]
+  %indvars.iv6277 = phi i64 [ %indvars.iv.next63, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split.split.us.preheader ]
   %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv6580
+  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv6277
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8
-  %.not24.us41 = icmp eq i32 %1, %45
-  br i1 %.not24.us41, label %46, label %.lr.ph.split.split.split.us
+  %.not24.us39 = icmp eq i32 %1, %45
+  br i1 %.not24.us39, label %46, label %.lr.ph.split.split.split.us
 
-46:                                               ; preds = %.lr.ph82
+46:                                               ; preds = %.lr.ph79
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = icmp ugt i64 %2, %48
   br i1 %49, label %.lr.ph.split.split.split.us, label %50
 
 50:                                               ; preds = %46
-  %51 = tail call ptr @lappend(ptr noundef %.028.us3981, ptr noundef nonnull %43) #12
+  %51 = tail call ptr @lappend(ptr noundef %.026.us3778, ptr noundef nonnull %43) #12
   br label %.lr.ph.split.split.split.us
 
-.lr.ph.split.split.split.us:                      ; preds = %50, %46, %.lr.ph82
-  %.1.us42 = phi ptr [ %51, %50 ], [ %.028.us3981, %.lr.ph82 ], [ %.028.us3981, %46 ]
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv6580, 1
+.lr.ph.split.split.split.us:                      ; preds = %50, %46, %.lr.ph79
+  %.1.us40 = phi ptr [ %51, %50 ], [ %.026.us3778, %.lr.ph79 ], [ %.026.us3778, %46 ]
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv6277, 1
   %52 = load i32, ptr %5, align 4
   %53 = sext i32 %52 to i64
-  %54 = icmp slt i64 %indvars.iv.next66, %53
-  br i1 %54, label %.lr.ph82, label %._crit_edge
+  %54 = icmp slt i64 %indvars.iv.next63, %53
+  br i1 %54, label %.lr.ph79, label %.critedge
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split
-  br i1 %10, label %.lr.ph57, label %._crit_edge
+  br i1 %10, label %.lr.ph55, label %.critedge
 
-._crit_edge:                                      ; preds = %70, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.us, %.lr.ph.split.split.split.us.preheader, %.lr.ph.split.split.us.preheader, %.lr.ph.split.us.preheader, %.lr.ph.split.split.split.split, %4
-  %.0.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph.split.split.split.split ], [ null, %.lr.ph.split.us.preheader ], [ null, %.lr.ph.split.split.us.preheader ], [ null, %.lr.ph.split.split.split.us.preheader ], [ %.1.us, %.lr.ph.split.us ], [ %.1.us34, %.lr.ph.split.split.us ], [ %.1.us42, %.lr.ph.split.split.split.us ], [ %.1, %70 ]
-  ret ptr %.0.lcssa
-
-.lr.ph57:                                         ; preds = %.lr.ph.split.split.split.split, %70
+.lr.ph55:                                         ; preds = %.lr.ph.split.split.split.split, %70
   %55 = phi i32 [ %71, %70 ], [ %9, %.lr.ph.split.split.split.split ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %.lr.ph.split.split.split.split ]
-  %.02855 = phi ptr [ %.1, %70 ], [ null, %.lr.ph.split.split.split.split ]
+  %.02653 = phi ptr [ %.1, %70 ], [ null, %.lr.ph.split.split.split.split ]
   %56 = load ptr, ptr %6, align 8
   %57 = getelementptr inbounds nuw %union.ListCell, ptr %56, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
@@ -328,7 +324,11 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   %.not24 = icmp eq i32 %1, %60
   br i1 %.not24, label %61, label %70
 
-61:                                               ; preds = %.lr.ph57
+.critedge:                                        ; preds = %70, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.us, %.lr.ph.split.split.split.us.preheader, %.lr.ph.split.split.us.preheader, %.lr.ph.split.us.preheader, %.lr.ph.split.split.split.split, %4
+  %.0.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph.split.split.split.split ], [ null, %.lr.ph.split.us.preheader ], [ null, %.lr.ph.split.split.us.preheader ], [ null, %.lr.ph.split.split.split.us.preheader ], [ %.1.us, %.lr.ph.split.us ], [ %.1.us32, %.lr.ph.split.split.us ], [ %.1.us40, %.lr.ph.split.split.split.us ], [ %.1, %70 ]
+  ret ptr %.0.lcssa
+
+61:                                               ; preds = %.lr.ph55
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = icmp ugt i64 %2, %63
@@ -340,74 +340,74 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %67, label %70, label %68
 
 68:                                               ; preds = %65
-  %69 = tail call ptr @lappend(ptr noundef %.02855, ptr noundef nonnull %58) #12
+  %69 = tail call ptr @lappend(ptr noundef %.02653, ptr noundef nonnull %58) #12
   %.pre = load i32, ptr %5, align 4
   br label %70
 
-70:                                               ; preds = %65, %61, %.lr.ph57, %68
-  %71 = phi i32 [ %.pre, %68 ], [ %55, %.lr.ph57 ], [ %55, %61 ], [ %55, %65 ]
-  %.1 = phi ptr [ %69, %68 ], [ %.02855, %.lr.ph57 ], [ %.02855, %61 ], [ %.02855, %65 ]
+70:                                               ; preds = %65, %61, %.lr.ph55, %68
+  %71 = phi i32 [ %.pre, %68 ], [ %55, %.lr.ph55 ], [ %55, %61 ], [ %55, %65 ]
+  %.1 = phi ptr [ %69, %68 ], [ %.02653, %.lr.ph55 ], [ %.02653, %61 ], [ %.02653, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph57, label %._crit_edge
+  br i1 %73, label %.lr.ph55, label %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @WalSummariesAreComplete(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %.loopexit.sink.split, label %6
+  br i1 %5, label %.critedge.sink.split, label %6
 
 6:                                                ; preds = %4
   %7 = tail call ptr @list_copy(ptr noundef nonnull %0) #12
   tail call void @list_sort(ptr noundef %7, ptr noundef nonnull @ListComparatorForWalSummaryFiles) #12
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.loopexit.sink.split, label %.lr.ph
+  br i1 %.not, label %.critedge.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph64, label %.loopexit.sink.split
+  br i1 %10, label %.lr.ph59, label %.critedge.sink.split
 
-.lr.ph64:                                         ; preds = %.lr.ph
+.lr.ph59:                                         ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load ptr, ptr %11, align 8
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %13
 
-13:                                               ; preds = %.lr.ph64, %.thread38
-  %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %.thread38 ]
-  %.0235463 = phi i64 [ %1, %.lr.ph64 ], [ %.22542, %.thread38 ]
+13:                                               ; preds = %.lr.ph59, %.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next, %.thread ]
+  %.0234958 = phi i64 [ %1, %.lr.ph59 ], [ %.22539, %.thread ]
   %14 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 8
-  %17 = icmp ugt i64 %16, %.0235463
-  br i1 %17, label %.loopexit.sink.split, label %18
+  %17 = icmp ugt i64 %16, %.0234958
+  br i1 %17, label %.critedge.sink.split, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = icmp ugt i64 %20, %.0235463
-  br i1 %21, label %22, label %.thread38
+  %21 = icmp ugt i64 %20, %.0234958
+  br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %18
   %.not34 = icmp ult i64 %20, %2
-  br i1 %.not34, label %.thread38, label %.loopexit
+  br i1 %.not34, label %.thread, label %.critedge
 
-.thread38:                                        ; preds = %18, %22
-  %.22542 = phi i64 [ %20, %22 ], [ %.0235463, %18 ]
+.thread:                                          ; preds = %18, %22
+  %.22539 = phi i64 [ %20, %22 ], [ %.0234958, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.sink.split, label %13
+  br i1 %exitcond.not, label %.critedge.sink.split, label %13
 
-.loopexit.sink.split:                             ; preds = %13, %.thread38, %6, %.lr.ph, %4
-  %.023.lcssa.sink = phi i64 [ 0, %4 ], [ %1, %6 ], [ %1, %.lr.ph ], [ %.0235463, %13 ], [ %.22542, %.thread38 ]
+.critedge.sink.split:                             ; preds = %13, %.thread, %6, %.lr.ph, %4
+  %.023.lcssa.sink = phi i64 [ 0, %4 ], [ %1, %6 ], [ %1, %.lr.ph ], [ %.0234958, %13 ], [ %.22539, %.thread ]
   store i64 %.023.lcssa.sink, ptr %3, align 8
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %22, %.loopexit.sink.split
-  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %22 ]
+.critedge:                                        ; preds = %22, %.critedge.sink.split
+  %.0 = phi i1 [ false, %.critedge.sink.split ], [ true, %22 ]
   ret i1 %.0
 }
 

@@ -166,20 +166,20 @@ define hidden void @_ZN14async_executor5steal17hea30ce606c5b969cE(ptr noundef no
   %6 = add i64 %5, 1
   %7 = lshr i64 %6, 1
   %.not = icmp ult i64 %6, 2
-  br i1 %.not, label %.thread12, label %8
+  br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %1, align 128, !range !11, !noundef !10
-  switch i64 %9, label %default.unreachable17 [
+  switch i64 %9, label %default.unreachable14 [
     i64 0, label %13
     i64 1, label %10
-    i64 2, label %16
+    i64 2, label %.critedge
   ]
 
-.thread12:                                        ; preds = %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE.exit", %16, %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$async_task..runnable..Runnable$C$concurrent_queue..PopError$GT$$GT$17hf50c87e0f66de8ebE.exit", %2
+.thread:                                          ; preds = %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE.exit", %.critedge, %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$async_task..runnable..Runnable$C$concurrent_queue..PopError$GT$$GT$17hf50c87e0f66de8ebE.exit", %2
   ret void
 
-default.unreachable17:                            ; preds = %24, %8
+default.unreachable14:                            ; preds = %23, %8
   unreachable
 
 10:                                               ; preds = %8
@@ -188,75 +188,75 @@ default.unreachable17:                            ; preds = %24, %8
   br label %13
 
 13:                                               ; preds = %10, %8
-  %.sroa.6.0.ph = phi i64 [ 1, %8 ], [ %12, %10 ]
+  %.sroa.6.0 = phi i64 [ %12, %10 ], [ 1, %8 ]
   %14 = tail call noundef i64 @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3len17h682c8f28e584a57eE"(ptr noundef nonnull align 128 %1)
-  %15 = sub i64 %.sroa.6.0.ph, %14
+  %15 = sub i64 %.sroa.6.0, %14
   %.0.sroa.speculated.i = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.umin.i64(i64 range(i64 1, -9223372036854775808) %7, i64 %15)
-  br label %16
+  br label %.critedge
 
-16:                                               ; preds = %8, %13
+.critedge:                                        ; preds = %8, %13
   %.0 = phi i64 [ %.0.sroa.speculated.i, %13 ], [ %7, %8 ]
-  %.not16 = icmp eq i64 %.0, 0
-  br i1 %.not16, label %.thread12, label %.lr.ph
+  %.not13 = icmp eq i64 %.0, 0
+  br i1 %.not13, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %16
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+.lr.ph:                                           ; preds = %.critedge
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %20
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE.exit"
-  %.sroa.04.015 = phi i64 [ 0, %.lr.ph ], [ %21, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE.exit" ]
-  %21 = add nuw nsw i64 %.sroa.04.015, 1
+19:                                               ; preds = %.lr.ph, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE.exit"
+  %.sroa.04.012 = phi i64 [ 0, %.lr.ph ], [ %20, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE.exit" ]
+  %20 = add nuw nsw i64 %.sroa.04.012, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3pop17hda207cbcc38696a6E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull align 128 %0)
-  %22 = load i8, ptr %4, align 8, !range !12, !noundef !10
-  %23 = icmp eq i8 %22, 0
-  br i1 %23, label %24, label %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$async_task..runnable..Runnable$C$concurrent_queue..PopError$GT$$GT$17hf50c87e0f66de8ebE.exit"
+  %21 = load i8, ptr %4, align 8, !range !12, !noundef !10
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$async_task..runnable..Runnable$C$concurrent_queue..PopError$GT$$GT$17hf50c87e0f66de8ebE.exit"
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %17, align 8, !nonnull !10, !noundef !10
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %16, align 8, !nonnull !10, !noundef !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %26 = load i64, ptr %1, align 128, !range !11, !noundef !10
-  switch i64 %26, label %default.unreachable17 [
-    i64 0, label %27
-    i64 1, label %29
-    i64 2, label %31
+  %25 = load i64, ptr %1, align 128, !range !11, !noundef !10
+  switch i64 %25, label %default.unreachable14 [
+    i64 0, label %26
+    i64 1, label %28
+    i64 2, label %30
   ]
 
-27:                                               ; preds = %24
-  %28 = tail call { i64, ptr } @"_ZN16concurrent_queue6single15Single$LT$T$GT$4push17h959db8fea597eaacE"(ptr noundef nonnull align 8 %19, ptr noundef nonnull %25)
+26:                                               ; preds = %23
+  %27 = tail call { i64, ptr } @"_ZN16concurrent_queue6single15Single$LT$T$GT$4push17h959db8fea597eaacE"(ptr noundef nonnull align 8 %18, ptr noundef nonnull %24)
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit"
 
-29:                                               ; preds = %24
-  %30 = tail call { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$4push17h92c5c2364fae2864E"(ptr noundef nonnull align 128 %18, ptr noundef nonnull %25)
+28:                                               ; preds = %23
+  %29 = tail call { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$4push17h92c5c2364fae2864E"(ptr noundef nonnull align 128 %17, ptr noundef nonnull %24)
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit"
 
-31:                                               ; preds = %24
-  %32 = tail call { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17hba4ba6eb7609a5e5E"(ptr noundef nonnull align 128 %18, ptr noundef nonnull %25)
+30:                                               ; preds = %23
+  %31 = tail call { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17hba4ba6eb7609a5e5E"(ptr noundef nonnull align 128 %17, ptr noundef nonnull %24)
   br label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit"
 
-"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit": ; preds = %27, %29, %31
-  %.pn.i = phi { i64, ptr } [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
+"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit": ; preds = %26, %28, %30
+  %.pn.i = phi { i64, ptr } [ %27, %26 ], [ %29, %28 ], [ %31, %30 ]
   %.fca.0.extract = extractvalue { i64, ptr } %.pn.i, 0
   store i64 %.fca.0.extract, ptr %3, align 8
   %.fca.1.extract = extractvalue { i64, ptr } %.pn.i, 1
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %33 = icmp eq i64 %.fca.0.extract, 2
-  br i1 %33, label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE.exit", label %34
+  %32 = icmp eq i64 %.fca.0.extract, 2
+  br i1 %32, label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE.exit", label %33
 
-"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$async_task..runnable..Runnable$C$concurrent_queue..PopError$GT$$GT$17hf50c87e0f66de8ebE.exit": ; preds = %20
+"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$async_task..runnable..Runnable$C$concurrent_queue..PopError$GT$$GT$17hf50c87e0f66de8ebE.exit": ; preds = %19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %.thread12
+  br label %.thread
 
 "_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE.exit": ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %exitcond.not = icmp eq i64 %21, %.0
-  br i1 %exitcond.not, label %.thread12, label %20
+  %exitcond.not = icmp eq i64 %20, %.0
+  br i1 %exitcond.not, label %.thread, label %19
 
-34:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit"
+33:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit"
   call fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE"(ptr noalias noundef align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.3175fb8d09b4a1a925f412bbfdb736fa.3, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3175fb8d09b4a1a925f412bbfdb736fa.4) #17

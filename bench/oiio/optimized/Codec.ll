@@ -1493,7 +1493,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 1
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -1527,14 +1526,14 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %101, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %103, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !48
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %101
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %101 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %101 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %103
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %103 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %103 ]
   %84 = trunc nuw nsw i64 %indvars.iv71 to i32
   %85 = sdiv i32 %84, 3
   %86 = sext i32 %85 to i64
@@ -1551,20 +1550,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i8 %96, ptr %94, align 1, !tbaa !24
   %97 = urem i32 %84, 3
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %101
+  br i1 %98, label %99, label %103
 
 99:                                               ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv73
-  %100 = load i8, ptr %gep, align 1, !tbaa !24
-  store i8 %100, ptr %94, align 1, !tbaa !24
-  store i8 %96, ptr %gep, align 1, !tbaa !24
-  br label %101
+  %100 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv73
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
+  %102 = load i8, ptr %101, align 1, !tbaa !24
+  store i8 %102, ptr %94, align 1, !tbaa !24
+  store i8 %96, ptr %101, align 1, !tbaa !24
+  br label %103
 
-101:                                              ; preds = %99, %.lr.ph.split
+103:                                              ; preds = %99, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %102 = icmp sgt i64 %indvars.iv71, 0
+  %104 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %102, label %.lr.ph.split, label %._crit_edge, !llvm.loop !49
+  br i1 %104, label %.lr.ph.split, label %._crit_edge, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1651,7 +1651,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 1
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -1684,14 +1683,14 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %99, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %101, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !51
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %99
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %99 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %99 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %101
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %101 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %101 ]
   %83 = trunc nuw nsw i64 %indvars.iv71 to i32
   %84 = sdiv i32 %83, 3
   %85 = sext i32 %84 to i64
@@ -1707,20 +1706,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i8 %94, ptr %92, align 1, !tbaa !24
   %95 = urem i32 %83, 3
   %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %99
+  br i1 %96, label %97, label %101
 
 97:                                               ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv73
-  %98 = load i8, ptr %gep, align 1, !tbaa !24
-  store i8 %98, ptr %92, align 1, !tbaa !24
-  store i8 %94, ptr %gep, align 1, !tbaa !24
-  br label %99
+  %98 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv73
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
+  %100 = load i8, ptr %99, align 1, !tbaa !24
+  store i8 %100, ptr %92, align 1, !tbaa !24
+  store i8 %94, ptr %99, align 1, !tbaa !24
+  br label %101
 
-99:                                               ; preds = %97, %.lr.ph.split
+101:                                              ; preds = %97, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %100 = icmp sgt i64 %indvars.iv71, 0
+  %102 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %100, label %.lr.ph.split, label %._crit_edge, !llvm.loop !52
+  br i1 %102, label %.lr.ph.split, label %._crit_edge, !llvm.loop !52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2792,7 +2792,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 2
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -2829,14 +2828,14 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !77
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %107, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %109, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !78
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %107
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %107 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %107 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %109 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %109 ]
   %87 = trunc nuw nsw i64 %indvars.iv71 to i32
   %88 = sdiv i32 %87, 3
   %89 = sext i32 %88 to i64
@@ -2856,20 +2855,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i16 %101, ptr %102, align 2, !tbaa !23
   %103 = urem i32 %87, 3
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %107
+  br i1 %104, label %105, label %109
 
 105:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv73
-  %106 = load i16, ptr %gep, align 2, !tbaa !23
-  store i16 %106, ptr %102, align 2, !tbaa !23
-  store i16 %101, ptr %gep, align 2, !tbaa !23
-  br label %107
+  %106 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv73
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 2
+  %108 = load i16, ptr %107, align 2, !tbaa !23
+  store i16 %108, ptr %102, align 2, !tbaa !23
+  store i16 %101, ptr %107, align 2, !tbaa !23
+  br label %109
 
-107:                                              ; preds = %105, %.lr.ph.split
+109:                                              ; preds = %105, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %108 = icmp sgt i64 %indvars.iv71, 0
+  %110 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %108, label %.lr.ph.split, label %._crit_edge, !llvm.loop !79
+  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !79
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2958,7 +2958,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 2
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -2994,14 +2993,14 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !80
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %105, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %107, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !81
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %105
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %105 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %105 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %107
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %107 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %107 ]
   %86 = trunc nuw nsw i64 %indvars.iv71 to i32
   %87 = sdiv i32 %86, 3
   %88 = sext i32 %87 to i64
@@ -3020,20 +3019,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i16 %99, ptr %100, align 2, !tbaa !23
   %101 = urem i32 %86, 3
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %105
+  br i1 %102, label %103, label %107
 
 103:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv73
-  %104 = load i16, ptr %gep, align 2, !tbaa !23
-  store i16 %104, ptr %100, align 2, !tbaa !23
-  store i16 %99, ptr %gep, align 2, !tbaa !23
-  br label %105
+  %104 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv73
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 2
+  %106 = load i16, ptr %105, align 2, !tbaa !23
+  store i16 %106, ptr %100, align 2, !tbaa !23
+  store i16 %99, ptr %105, align 2, !tbaa !23
+  br label %107
 
-105:                                              ; preds = %103, %.lr.ph.split
+107:                                              ; preds = %103, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %106 = icmp sgt i64 %indvars.iv71, 0
+  %108 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %106, label %.lr.ph.split, label %._crit_edge, !llvm.loop !82
+  br i1 %108, label %.lr.ph.split, label %._crit_edge, !llvm.loop !82
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4116,7 +4116,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -4155,14 +4154,14 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !107
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %111, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %113, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !108
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %111
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %111 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %111 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %113
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %113 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %113 ]
   %89 = trunc nuw nsw i64 %indvars.iv71 to i32
   %90 = sdiv i32 %89, 3
   %91 = sext i32 %90 to i64
@@ -4184,20 +4183,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i32 %106, ptr %104, align 4, !tbaa !34
   %107 = urem i32 %89, 3
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %109, label %111
+  br i1 %108, label %109, label %113
 
 109:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv73
-  %110 = load i32, ptr %gep, align 4, !tbaa !34
-  store i32 %110, ptr %104, align 4, !tbaa !34
-  store i32 %106, ptr %gep, align 4, !tbaa !34
-  br label %111
+  %110 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv73
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  %112 = load i32, ptr %111, align 4, !tbaa !34
+  store i32 %112, ptr %104, align 4, !tbaa !34
+  store i32 %106, ptr %111, align 4, !tbaa !34
+  br label %113
 
-111:                                              ; preds = %109, %.lr.ph.split
+113:                                              ; preds = %109, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %112 = icmp sgt i64 %indvars.iv71, 0
+  %114 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %112, label %.lr.ph.split, label %._crit_edge, !llvm.loop !109
+  br i1 %114, label %.lr.ph.split, label %._crit_edge, !llvm.loop !109
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4284,7 +4284,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -4322,14 +4321,14 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !110
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %109, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %111, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !111
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %109 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %109 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %111
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %111 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %111 ]
   %88 = trunc nuw nsw i64 %indvars.iv71 to i32
   %89 = sdiv i32 %88, 3
   %90 = sext i32 %89 to i64
@@ -4350,20 +4349,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store i32 %104, ptr %102, align 4, !tbaa !34
   %105 = urem i32 %88, 3
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %109
+  br i1 %106, label %107, label %111
 
 107:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv73
-  %108 = load i32, ptr %gep, align 4, !tbaa !34
-  store i32 %108, ptr %102, align 4, !tbaa !34
-  store i32 %104, ptr %gep, align 4, !tbaa !34
-  br label %109
+  %108 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv73
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
+  %110 = load i32, ptr %109, align 4, !tbaa !34
+  store i32 %110, ptr %102, align 4, !tbaa !34
+  store i32 %104, ptr %109, align 4, !tbaa !34
+  br label %111
 
-109:                                              ; preds = %107, %.lr.ph.split
+111:                                              ; preds = %107, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %110 = icmp sgt i64 %indvars.iv71, 0
+  %112 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !112
+  br i1 %112, label %.lr.ph.split, label %._crit_edge, !llvm.loop !112
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5445,7 +5445,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -5483,14 +5482,14 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !137
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %109, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %111, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !138
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %109 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %109 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %111
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %111 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %111 ]
   %88 = trunc nuw nsw i64 %indvars.iv71 to i32
   %89 = sdiv i32 %88, 3
   %90 = sext i32 %89 to i64
@@ -5511,20 +5510,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store float %104, ptr %103, align 4, !tbaa !38
   %105 = urem i32 %88, 3
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %109
+  br i1 %106, label %107, label %111
 
 107:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv73
-  %108 = load float, ptr %gep, align 4, !tbaa !38
-  store float %108, ptr %103, align 4, !tbaa !38
-  store float %104, ptr %gep, align 4, !tbaa !38
-  br label %109
+  %108 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv73
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
+  %110 = load float, ptr %109, align 4, !tbaa !38
+  store float %110, ptr %103, align 4, !tbaa !38
+  store float %104, ptr %109, align 4, !tbaa !38
+  br label %111
 
-109:                                              ; preds = %107, %.lr.ph.split
+111:                                              ; preds = %107, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %110 = icmp sgt i64 %indvars.iv71, 0
+  %112 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !139
+  br i1 %112, label %.lr.ph.split, label %._crit_edge, !llvm.loop !139
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5613,7 +5613,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -5650,14 +5649,14 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !140
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %107, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %109, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !141
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %107
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %107 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %107 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %109 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %109 ]
   %87 = trunc nuw nsw i64 %indvars.iv71 to i32
   %88 = sdiv i32 %87, 3
   %89 = sext i32 %88 to i64
@@ -5677,20 +5676,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store float %102, ptr %101, align 4, !tbaa !38
   %103 = urem i32 %87, 3
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %107
+  br i1 %104, label %105, label %109
 
 105:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv73
-  %106 = load float, ptr %gep, align 4, !tbaa !38
-  store float %106, ptr %101, align 4, !tbaa !38
-  store float %102, ptr %gep, align 4, !tbaa !38
-  br label %107
+  %106 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv73
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  %108 = load float, ptr %107, align 4, !tbaa !38
+  store float %108, ptr %101, align 4, !tbaa !38
+  store float %102, ptr %107, align 4, !tbaa !38
+  br label %109
 
-107:                                              ; preds = %105, %.lr.ph.split
+109:                                              ; preds = %105, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %108 = icmp sgt i64 %indvars.iv71, 0
+  %110 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %108, label %.lr.ph.split, label %._crit_edge, !llvm.loop !142
+  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !142
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6772,7 +6772,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 8
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -6810,14 +6809,14 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !167
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %109, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %111, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !168
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %109 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %109 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %111
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %111 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %111 ]
   %88 = trunc nuw nsw i64 %indvars.iv71 to i32
   %89 = sdiv i32 %88, 3
   %90 = sext i32 %89 to i64
@@ -6838,20 +6837,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store double %104, ptr %103, align 8, !tbaa !42
   %105 = urem i32 %88, 3
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %109
+  br i1 %106, label %107, label %111
 
 107:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv73
-  %108 = load double, ptr %gep, align 8, !tbaa !42
-  store double %108, ptr %103, align 8, !tbaa !42
-  store double %104, ptr %gep, align 8, !tbaa !42
-  br label %109
+  %108 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv73
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %110 = load double, ptr %109, align 8, !tbaa !42
+  store double %110, ptr %103, align 8, !tbaa !42
+  store double %104, ptr %109, align 8, !tbaa !42
+  br label %111
 
-109:                                              ; preds = %107, %.lr.ph.split
+111:                                              ; preds = %107, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %110 = icmp sgt i64 %indvars.iv71, 0
+  %112 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !169
+  br i1 %112, label %.lr.ph.split, label %._crit_edge, !llvm.loop !169
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6940,7 +6940,6 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %reass.sub68 = sub i32 %64, %60
   %65 = add i32 %reass.sub68, 1
   %66 = mul nsw i32 %65, %11
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %59, i64 8
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph, label %._crit_edge
 
@@ -6977,14 +6976,14 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !170
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %107, %32
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %109, %32
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge67, label %32, !llvm.loop !171
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %107
-  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %107 ]
-  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %107 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %109
+  %indvars.iv73 = phi i64 [ %69, %.lr.ph.split.preheader ], [ %indvars.iv.next74, %109 ]
+  %indvars.iv71 = phi i64 [ %68, %.lr.ph.split.preheader ], [ %indvars.iv.next72, %109 ]
   %87 = trunc nuw nsw i64 %indvars.iv71 to i32
   %88 = sdiv i32 %87, 3
   %89 = sext i32 %88 to i64
@@ -7004,20 +7003,21 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   store double %102, ptr %101, align 8, !tbaa !42
   %103 = urem i32 %87, 3
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %107
+  br i1 %104, label %105, label %109
 
 105:                                              ; preds = %.lr.ph.split
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv73
-  %106 = load double, ptr %gep, align 8, !tbaa !42
-  store double %106, ptr %101, align 8, !tbaa !42
-  store double %102, ptr %gep, align 8, !tbaa !42
-  br label %107
+  %106 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv73
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load double, ptr %107, align 8, !tbaa !42
+  store double %108, ptr %101, align 8, !tbaa !42
+  store double %102, ptr %107, align 8, !tbaa !42
+  br label %109
 
-107:                                              ; preds = %105, %.lr.ph.split
+109:                                              ; preds = %105, %.lr.ph.split
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %108 = icmp sgt i64 %indvars.iv71, 0
+  %110 = icmp sgt i64 %indvars.iv71, 0
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
-  br i1 %108, label %.lr.ph.split, label %._crit_edge, !llvm.loop !172
+  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !172
 }
 
 ; Function Attrs: mustprogress uwtable

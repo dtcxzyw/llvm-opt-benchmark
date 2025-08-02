@@ -5105,7 +5105,7 @@ define internal fastcc void @hwloc_x86_add_groups(ptr noundef %0, ptr noundef no
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %12, i32 2
   %14 = load i32, ptr %13, align 8, !tbaa !67
-  %15 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %12, i32 2, i64 %9
+  %15 = getelementptr inbounds nuw [8 x i32], ptr %13, i64 0, i64 %9
   %16 = load i32, ptr %15, align 4, !tbaa !67
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %20
@@ -5121,34 +5121,34 @@ define internal fastcc void @hwloc_x86_add_groups(ptr noundef %0, ptr noundef no
 
 .lr.ph:                                           ; preds = %20, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ %12, %20 ]
-  %23 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv, i32 2, i64 %9
-  %24 = load i32, ptr %23, align 4, !tbaa !67
-  %25 = icmp eq i32 %24, -1
-  br i1 %25, label %26, label %28
+  %23 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv, i32 2
+  %24 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %9
+  %25 = load i32, ptr %24, align 4, !tbaa !67
+  %26 = icmp eq i32 %25, -1
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %.lr.ph
-  %27 = trunc nuw i64 %indvars.iv to i32
+27:                                               ; preds = %.lr.ph
+  %28 = trunc nuw i64 %indvars.iv to i32
   br label %.sink.split
 
-28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv, i32 2
-  %30 = load i32, ptr %29, align 8, !tbaa !67
+29:                                               ; preds = %.lr.ph
+  %30 = load i32, ptr %23, align 8, !tbaa !67
   %31 = icmp eq i32 %30, %14
-  %32 = icmp eq i32 %24, %16
+  %32 = icmp eq i32 %25, %16
   %or.cond = and i1 %32, %31
   br i1 %or.cond, label %33, label %37
 
-33:                                               ; preds = %28
+33:                                               ; preds = %29
   %34 = trunc nuw i64 %indvars.iv to i32
   %35 = tail call i32 @hwloc_bitmap_set(ptr noundef %21, i32 noundef %34) #22
   br label %.sink.split
 
-.sink.split:                                      ; preds = %26, %33
-  %.sink = phi i32 [ %34, %33 ], [ %27, %26 ]
+.sink.split:                                      ; preds = %27, %33
+  %.sink = phi i32 [ %34, %33 ], [ %28, %27 ]
   %36 = tail call i32 @hwloc_bitmap_clr(ptr noundef %3, i32 noundef %.sink) #22
   br label %37
 
-37:                                               ; preds = %.sink.split, %28
+37:                                               ; preds = %.sink.split, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv

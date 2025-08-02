@@ -586,7 +586,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #14
 declare noundef i64 @_ZN4llvm27llvm_execute_on_thread_implEPFPvS0_ES0_St8optionalIjE(ptr noundef, ptr noundef, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN4llvm6thread11ThreadProxyISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEES3_S3_(ptr noundef %0) #3 align 2 {
+define internal noalias noundef ptr @_ZN4llvm6thread11ThreadProxyISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEES3_S3_(ptr noundef %0) #3 align 2 {
   %.val1.i = load ptr, ptr %0, align 8, !tbaa !51
   %2 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %2, align 8, !tbaa !38

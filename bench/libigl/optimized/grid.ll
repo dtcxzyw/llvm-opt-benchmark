@@ -64,7 +64,6 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit.pr
   br i1 %13, label %.preheader29.lr.ph, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._crit_edge
 
 .preheader29.lr.ph:                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit.preheader
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load ptr, ptr %1, align 8, !tbaa !13
   br label %.preheader29
 
@@ -76,55 +75,55 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._c
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #8
   ret void
 
-.preheader:                                       ; preds = %24
+.preheader:                                       ; preds = %25
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv37, 24
   %15 = getelementptr i8, ptr %14, i64 %.idx.i.i.i
-  br label %27
+  br label %28
 
-16:                                               ; preds = %.preheader29, %24
-  %17 = phi i1 [ true, %.preheader29 ], [ false, %24 ]
-  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %24 ]
-  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %24 ]
+16:                                               ; preds = %.preheader29, %25
+  %17 = phi i1 [ true, %.preheader29 ], [ false, %25 ]
+  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %25 ]
+  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %25 ]
   %18 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !4
   %.not = icmp slt i32 %18, %20
-  br i1 %.not, label %24, label %21
+  br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %16
   store i32 0, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %22 = load i32, ptr %gep, align 4, !tbaa !4
-  %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %gep, align 4, !tbaa !4
-  br label %24
+  %22 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !4
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %22, align 4, !tbaa !4
+  br label %25
 
-24:                                               ; preds = %16, %21
+25:                                               ; preds = %16, %21
   br i1 %17, label %16, label %.preheader, !llvm.loop !14
 
-_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit: ; preds = %27
-  %25 = load i32, ptr %2, align 4, !tbaa !4
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %2, align 4, !tbaa !4
+_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit: ; preds = %28
+  %26 = load i32, ptr %2, align 4, !tbaa !4
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %2, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %12
   br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !16
 
-27:                                               ; preds = %.preheader, %27
-  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
-  %29 = load i32, ptr %28, align 4, !tbaa !4
-  %30 = sitofp i32 %29 to double
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
-  %32 = load i32, ptr %31, align 4, !tbaa !4
-  %33 = add nsw i32 %32, -1
-  %34 = sitofp i32 %33 to double
-  %35 = fdiv double %30, %34
-  %36 = getelementptr double, ptr %15, i64 %indvars.iv34
-  store double %35, ptr %36, align 8, !tbaa !17
+28:                                               ; preds = %.preheader, %28
+  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %28 ]
+  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
+  %30 = load i32, ptr %29, align 4, !tbaa !4
+  %31 = sitofp i32 %30 to double
+  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
+  %33 = load i32, ptr %32, align 4, !tbaa !4
+  %34 = add nsw i32 %33, -1
+  %35 = sitofp i32 %34 to double
+  %36 = fdiv double %31, %35
+  %37 = getelementptr double, ptr %15, i64 %indvars.iv34
+  store double %36, ptr %37, align 8, !tbaa !17
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit, label %27, !llvm.loop !19
+  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit, label %28, !llvm.loop !19
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -220,7 +219,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %14, label %.preheader29.lr.ph, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge
 
 .preheader29.lr.ph:                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load ptr, ptr %1, align 8, !tbaa !25
   br label %.preheader29
 
@@ -232,55 +230,55 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._c
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #8
   ret void
 
-.preheader:                                       ; preds = %25
+.preheader:                                       ; preds = %26
   %16 = getelementptr float, ptr %15, i64 %indvars.iv37
-  br label %28
+  br label %29
 
-17:                                               ; preds = %.preheader29, %25
-  %18 = phi i1 [ true, %.preheader29 ], [ false, %25 ]
-  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %25 ]
-  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %25 ]
+17:                                               ; preds = %.preheader29, %26
+  %18 = phi i1 [ true, %.preheader29 ], [ false, %26 ]
+  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %26 ]
+  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %26 ]
   %19 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
   %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %.not = icmp slt i32 %19, %21
-  br i1 %.not, label %25, label %22
+  br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %17
   store i32 0, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %23 = load i32, ptr %gep, align 4, !tbaa !4
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %gep, align 4, !tbaa !4
-  br label %25
+  %23 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !4
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %23, align 4, !tbaa !4
+  br label %26
 
-25:                                               ; preds = %17, %22
+26:                                               ; preds = %17, %22
   br i1 %18, label %17, label %.preheader, !llvm.loop !26
 
-_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ; preds = %28
-  %26 = load i32, ptr %2, align 4, !tbaa !4
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %2, align 4, !tbaa !4
+_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ; preds = %29
+  %27 = load i32, ptr %2, align 4, !tbaa !4
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %2, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %13
   br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !27
 
-28:                                               ; preds = %.preheader, %28
-  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
-  %30 = load i32, ptr %29, align 4, !tbaa !4
-  %31 = sitofp i32 %30 to float
-  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
-  %33 = load i32, ptr %32, align 4, !tbaa !4
-  %34 = add nsw i32 %33, -1
-  %35 = sitofp i32 %34 to float
-  %36 = fdiv float %31, %35
-  %37 = mul nuw nsw i64 %13, %indvars.iv34
-  %38 = getelementptr float, ptr %16, i64 %37
-  store float %36, ptr %38, align 4, !tbaa !28
+29:                                               ; preds = %.preheader, %29
+  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %29 ]
+  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
+  %31 = load i32, ptr %30, align 4, !tbaa !4
+  %32 = sitofp i32 %31 to float
+  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
+  %34 = load i32, ptr %33, align 4, !tbaa !4
+  %35 = add nsw i32 %34, -1
+  %36 = sitofp i32 %35 to float
+  %37 = fdiv float %32, %36
+  %38 = mul nuw nsw i64 %13, %indvars.iv34
+  %39 = getelementptr float, ptr %16, i64 %38
+  store float %37, ptr %39, align 4, !tbaa !28
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %28, !llvm.loop !30
+  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %29, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -363,7 +361,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %14, label %.preheader29.lr.ph, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._crit_edge
 
 .preheader29.lr.ph:                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load ptr, ptr %1, align 8, !tbaa !25
   br label %.preheader29
 
@@ -375,55 +372,55 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._c
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #8
   ret void
 
-.preheader:                                       ; preds = %25
+.preheader:                                       ; preds = %26
   %16 = getelementptr float, ptr %15, i64 %indvars.iv37
-  br label %28
+  br label %29
 
-17:                                               ; preds = %.preheader29, %25
-  %18 = phi i1 [ true, %.preheader29 ], [ false, %25 ]
-  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %25 ]
-  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %25 ]
+17:                                               ; preds = %.preheader29, %26
+  %18 = phi i1 [ true, %.preheader29 ], [ false, %26 ]
+  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %26 ]
+  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %26 ]
   %19 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
   %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %.not = icmp slt i32 %19, %21
-  br i1 %.not, label %25, label %22
+  br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %17
   store i32 0, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %23 = load i32, ptr %gep, align 4, !tbaa !4
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %gep, align 4, !tbaa !4
-  br label %25
+  %23 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !4
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %23, align 4, !tbaa !4
+  br label %26
 
-25:                                               ; preds = %17, %22
+26:                                               ; preds = %17, %22
   br i1 %18, label %17, label %.preheader, !llvm.loop !35
 
-_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit: ; preds = %28
-  %26 = load i32, ptr %2, align 4, !tbaa !4
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %2, align 4, !tbaa !4
+_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit: ; preds = %29
+  %27 = load i32, ptr %2, align 4, !tbaa !4
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %2, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %13
   br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !36
 
-28:                                               ; preds = %.preheader, %28
-  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
-  %30 = load i32, ptr %29, align 4, !tbaa !4
-  %31 = sitofp i32 %30 to float
-  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
-  %33 = load i32, ptr %32, align 4, !tbaa !4
-  %34 = add nsw i32 %33, -1
-  %35 = sitofp i32 %34 to float
-  %36 = fdiv float %31, %35
-  %37 = mul nuw nsw i64 %13, %indvars.iv34
-  %38 = getelementptr float, ptr %16, i64 %37
-  store float %36, ptr %38, align 4, !tbaa !28
+29:                                               ; preds = %.preheader, %29
+  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %29 ]
+  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
+  %31 = load i32, ptr %30, align 4, !tbaa !4
+  %32 = sitofp i32 %31 to float
+  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
+  %34 = load i32, ptr %33, align 4, !tbaa !4
+  %35 = add nsw i32 %34, -1
+  %36 = sitofp i32 %35 to float
+  %37 = fdiv float %32, %36
+  %38 = mul nuw nsw i64 %13, %indvars.iv34
+  %39 = getelementptr float, ptr %16, i64 %38
+  store float %37, ptr %39, align 4, !tbaa !28
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit, label %28, !llvm.loop !37
+  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit, label %29, !llvm.loop !37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -448,7 +445,6 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit.pr
   br i1 %13, label %.preheader29.lr.ph, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge
 
 .preheader29.lr.ph:                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit.preheader
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load ptr, ptr %1, align 8, !tbaa !40
   br label %.preheader29
 
@@ -460,55 +456,55 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._c
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #8
   ret void
 
-.preheader:                                       ; preds = %24
+.preheader:                                       ; preds = %25
   %15 = getelementptr float, ptr %14, i64 %indvars.iv37
-  br label %27
+  br label %28
 
-16:                                               ; preds = %.preheader29, %24
-  %17 = phi i1 [ true, %.preheader29 ], [ false, %24 ]
-  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %24 ]
-  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %24 ]
+16:                                               ; preds = %.preheader29, %25
+  %17 = phi i1 [ true, %.preheader29 ], [ false, %25 ]
+  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %25 ]
+  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %25 ]
   %18 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !4
   %.not = icmp slt i32 %18, %20
-  br i1 %.not, label %24, label %21
+  br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %16
   store i32 0, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %22 = load i32, ptr %gep, align 4, !tbaa !4
-  %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %gep, align 4, !tbaa !4
-  br label %24
+  %22 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !4
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %22, align 4, !tbaa !4
+  br label %25
 
-24:                                               ; preds = %16, %21
+25:                                               ; preds = %16, %21
   br i1 %17, label %16, label %.preheader, !llvm.loop !41
 
-_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ; preds = %27
-  %25 = load i32, ptr %2, align 4, !tbaa !4
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %2, align 4, !tbaa !4
+_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ; preds = %28
+  %26 = load i32, ptr %2, align 4, !tbaa !4
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %2, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %12
   br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !42
 
-27:                                               ; preds = %.preheader, %27
-  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
-  %29 = load i32, ptr %28, align 4, !tbaa !4
-  %30 = sitofp i32 %29 to float
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
-  %32 = load i32, ptr %31, align 4, !tbaa !4
-  %33 = add nsw i32 %32, -1
-  %34 = sitofp i32 %33 to float
-  %35 = fdiv float %30, %34
-  %36 = mul nuw nsw i64 %12, %indvars.iv34
-  %37 = getelementptr float, ptr %15, i64 %36
-  store float %35, ptr %37, align 4, !tbaa !28
+28:                                               ; preds = %.preheader, %28
+  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %28 ]
+  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
+  %30 = load i32, ptr %29, align 4, !tbaa !4
+  %31 = sitofp i32 %30 to float
+  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
+  %33 = load i32, ptr %32, align 4, !tbaa !4
+  %34 = add nsw i32 %33, -1
+  %35 = sitofp i32 %34 to float
+  %36 = fdiv float %31, %35
+  %37 = mul nuw nsw i64 %12, %indvars.iv34
+  %38 = getelementptr float, ptr %15, i64 %37
+  store float %36, ptr %38, align 4, !tbaa !28
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %27, !llvm.loop !43
+  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %28, !llvm.loop !43
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -597,7 +593,6 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit.pr
   br i1 %13, label %.preheader29.lr.ph, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge
 
 .preheader29.lr.ph:                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit.preheader
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load ptr, ptr %1, align 8, !tbaa !46
   br label %.preheader29
 
@@ -609,55 +604,55 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._c
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #8
   ret void
 
-.preheader:                                       ; preds = %24
+.preheader:                                       ; preds = %25
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv37, 12
   %15 = getelementptr i8, ptr %14, i64 %.idx.i.i.i
-  br label %27
+  br label %28
 
-16:                                               ; preds = %.preheader29, %24
-  %17 = phi i1 [ true, %.preheader29 ], [ false, %24 ]
-  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %24 ]
-  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %24 ]
+16:                                               ; preds = %.preheader29, %25
+  %17 = phi i1 [ true, %.preheader29 ], [ false, %25 ]
+  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %25 ]
+  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %25 ]
   %18 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !4
   %.not = icmp slt i32 %18, %20
-  br i1 %.not, label %24, label %21
+  br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %16
   store i32 0, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %22 = load i32, ptr %gep, align 4, !tbaa !4
-  %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %gep, align 4, !tbaa !4
-  br label %24
+  %22 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !4
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %22, align 4, !tbaa !4
+  br label %25
 
-24:                                               ; preds = %16, %21
+25:                                               ; preds = %16, %21
   br i1 %17, label %16, label %.preheader, !llvm.loop !47
 
-_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ; preds = %27
-  %25 = load i32, ptr %2, align 4, !tbaa !4
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %2, align 4, !tbaa !4
+_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ; preds = %28
+  %26 = load i32, ptr %2, align 4, !tbaa !4
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %2, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %12
   br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !48
 
-27:                                               ; preds = %.preheader, %27
-  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
-  %29 = load i32, ptr %28, align 4, !tbaa !4
-  %30 = sitofp i32 %29 to float
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
-  %32 = load i32, ptr %31, align 4, !tbaa !4
-  %33 = add nsw i32 %32, -1
-  %34 = sitofp i32 %33 to float
-  %35 = fdiv float %30, %34
-  %36 = getelementptr float, ptr %15, i64 %indvars.iv34
-  store float %35, ptr %36, align 4, !tbaa !28
+28:                                               ; preds = %.preheader, %28
+  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %28 ]
+  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
+  %30 = load i32, ptr %29, align 4, !tbaa !4
+  %31 = sitofp i32 %30 to float
+  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
+  %33 = load i32, ptr %32, align 4, !tbaa !4
+  %34 = add nsw i32 %33, -1
+  %35 = sitofp i32 %34 to float
+  %36 = fdiv float %31, %35
+  %37 = getelementptr float, ptr %15, i64 %indvars.iv34
+  store float %36, ptr %37, align 4, !tbaa !28
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %27, !llvm.loop !49
+  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %28, !llvm.loop !49
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -747,7 +742,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %14, label %.preheader29.lr.ph, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge
 
 .preheader29.lr.ph:                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load ptr, ptr %1, align 8, !tbaa !33
   br label %.preheader29
 
@@ -759,55 +753,55 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._c
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #8
   ret void
 
-.preheader:                                       ; preds = %25
+.preheader:                                       ; preds = %26
   %16 = getelementptr double, ptr %15, i64 %indvars.iv37
-  br label %28
+  br label %29
 
-17:                                               ; preds = %.preheader29, %25
-  %18 = phi i1 [ true, %.preheader29 ], [ false, %25 ]
-  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %25 ]
-  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %25 ]
+17:                                               ; preds = %.preheader29, %26
+  %18 = phi i1 [ true, %.preheader29 ], [ false, %26 ]
+  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %26 ]
+  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %26 ]
   %19 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
   %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %.not = icmp slt i32 %19, %21
-  br i1 %.not, label %25, label %22
+  br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %17
   store i32 0, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %23 = load i32, ptr %gep, align 4, !tbaa !4
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %gep, align 4, !tbaa !4
-  br label %25
+  %23 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !4
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %23, align 4, !tbaa !4
+  br label %26
 
-25:                                               ; preds = %17, %22
+26:                                               ; preds = %17, %22
   br i1 %18, label %17, label %.preheader, !llvm.loop !50
 
-_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ; preds = %28
-  %26 = load i32, ptr %2, align 4, !tbaa !4
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %2, align 4, !tbaa !4
+_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit: ; preds = %29
+  %27 = load i32, ptr %2, align 4, !tbaa !4
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %2, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %13
   br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !51
 
-28:                                               ; preds = %.preheader, %28
-  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
-  %30 = load i32, ptr %29, align 4, !tbaa !4
-  %31 = sitofp i32 %30 to double
-  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
-  %33 = load i32, ptr %32, align 4, !tbaa !4
-  %34 = add nsw i32 %33, -1
-  %35 = sitofp i32 %34 to double
-  %36 = fdiv double %31, %35
-  %37 = mul nuw nsw i64 %13, %indvars.iv34
-  %38 = getelementptr double, ptr %16, i64 %37
-  store double %36, ptr %38, align 8, !tbaa !17
+29:                                               ; preds = %.preheader, %29
+  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %29 ]
+  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
+  %31 = load i32, ptr %30, align 4, !tbaa !4
+  %32 = sitofp i32 %31 to double
+  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
+  %34 = load i32, ptr %33, align 4, !tbaa !4
+  %35 = add nsw i32 %34, -1
+  %36 = sitofp i32 %35 to double
+  %37 = fdiv double %32, %36
+  %38 = mul nuw nsw i64 %13, %indvars.iv34
+  %39 = getelementptr double, ptr %16, i64 %38
+  store double %37, ptr %39, align 8, !tbaa !17
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %28, !llvm.loop !52
+  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKi.exit, label %29, !llvm.loop !52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -833,7 +827,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %14, label %.preheader29.lr.ph, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._crit_edge
 
 .preheader29.lr.ph:                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load ptr, ptr %1, align 8, !tbaa !33
   br label %.preheader29
 
@@ -845,55 +838,55 @@ _ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._c
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #8
   ret void
 
-.preheader:                                       ; preds = %25
+.preheader:                                       ; preds = %26
   %16 = getelementptr double, ptr %15, i64 %indvars.iv37
-  br label %28
+  br label %29
 
-17:                                               ; preds = %.preheader29, %25
-  %18 = phi i1 [ true, %.preheader29 ], [ false, %25 ]
-  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %25 ]
-  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %25 ]
+17:                                               ; preds = %.preheader29, %26
+  %18 = phi i1 [ true, %.preheader29 ], [ false, %26 ]
+  %indvars.iv.sroa.phi = phi ptr [ %2, %.preheader29 ], [ %indvars.iv.sroa.gep41, %26 ]
+  %indvars.iv = phi i64 [ 0, %.preheader29 ], [ 1, %26 ]
   %19 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
   %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %.not = icmp slt i32 %19, %21
-  br i1 %.not, label %25, label %22
+  br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %17
   store i32 0, ptr %indvars.iv.sroa.phi, align 4, !tbaa !4
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
-  %23 = load i32, ptr %gep, align 4, !tbaa !4
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %gep, align 4, !tbaa !4
-  br label %25
+  %23 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !4
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %23, align 4, !tbaa !4
+  br label %26
 
-25:                                               ; preds = %17, %22
+26:                                               ; preds = %17, %22
   br i1 %18, label %17, label %.preheader, !llvm.loop !53
 
-_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit: ; preds = %28
-  %26 = load i32, ptr %2, align 4, !tbaa !4
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %2, align 4, !tbaa !4
+_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit: ; preds = %29
+  %27 = load i32, ptr %2, align 4, !tbaa !4
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %2, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %13
   br i1 %exitcond40.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit._crit_edge, label %.preheader29, !llvm.loop !54
 
-28:                                               ; preds = %.preheader, %28
-  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
-  %30 = load i32, ptr %29, align 4, !tbaa !4
-  %31 = sitofp i32 %30 to double
-  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
-  %33 = load i32, ptr %32, align 4, !tbaa !4
-  %34 = add nsw i32 %33, -1
-  %35 = sitofp i32 %34 to double
-  %36 = fdiv double %31, %35
-  %37 = mul nuw nsw i64 %13, %indvars.iv34
-  %38 = getelementptr double, ptr %16, i64 %37
-  store double %36, ptr %38, align 8, !tbaa !17
+29:                                               ; preds = %.preheader, %29
+  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %29 ]
+  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
+  %31 = load i32, ptr %30, align 4, !tbaa !4
+  %32 = sitofp i32 %31 to double
+  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
+  %34 = load i32, ptr %33, align 4, !tbaa !4
+  %35 = add nsw i32 %34, -1
+  %36 = sitofp i32 %35 to double
+  %37 = fdiv double %32, %36
+  %38 = mul nuw nsw i64 %13, %indvars.iv34
+  %39 = getelementptr double, ptr %16, i64 %38
+  store double %37, ptr %39, align 8, !tbaa !17
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit, label %28, !llvm.loop !55
+  br i1 %exitcond.not, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLi1ELi3ELi1ELi1ELi3EEEE11setConstantERKi.exit, label %29, !llvm.loop !55
 }
 
 declare i32 @__gxx_personality_v0(...)

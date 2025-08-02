@@ -7001,7 +7001,7 @@ define range(i32 1000000001, 1000000000) i32 @Supp_FindNextDiv(ptr noundef reado
   %19 = getelementptr inbounds i64, ptr %.val29, i64 %11
   %20 = getelementptr inbounds i64, ptr %.val29, i64 %14
   %21 = icmp sgt i32 %8, 0
-  br i1 %21, label %.lr.ph.preheader.i, label %.thread
+  br i1 %21, label %.lr.ph.preheader.i, label %.thread.thread
 
 .lr.ph.preheader.i:                               ; preds = %2
   %wide.trip.count.i = zext nneg i32 %8 to i64
@@ -7127,16 +7127,22 @@ Abc_TtFindFirstAndBit2.exit51:                    ; preds = %.lr.ph.i35
   %88 = icmp eq i32 %.012.i, -1
   %spec.select = select i1 %88, i32 1000000000, i32 %.012.i
   %89 = icmp eq i32 %87, -1
-  %spec.select82 = select i1 %89, i32 1000000000, i32 %87
+  %spec.select83 = select i1 %89, i32 1000000000, i32 %87
   br label %.thread
 
-.thread:                                          ; preds = %Abc_TtFindFirstAndBit2.exit51, %Abc_TtFindFirstAndBit2.exit51.thread, %2
-  %90 = phi i32 [ 1000000000, %2 ], [ %spec.select74, %Abc_TtFindFirstAndBit2.exit51.thread ], [ %spec.select, %Abc_TtFindFirstAndBit2.exit51 ]
-  %91 = phi i32 [ 1000000000, %2 ], [ 1000000000, %Abc_TtFindFirstAndBit2.exit51.thread ], [ %spec.select82, %Abc_TtFindFirstAndBit2.exit51 ]
-  %92 = tail call noundef i32 @llvm.smin.i32(i32 %90, i32 %91)
-  %93 = icmp eq i32 %92, 1000000000
-  %. = select i1 %93, i32 -1, i32 %92
-  ret i32 %.
+.thread:                                          ; preds = %Abc_TtFindFirstAndBit2.exit51, %Abc_TtFindFirstAndBit2.exit51.thread
+  %spec.select75 = phi i32 [ %spec.select74, %Abc_TtFindFirstAndBit2.exit51.thread ], [ %spec.select, %Abc_TtFindFirstAndBit2.exit51 ]
+  %90 = phi i32 [ 1000000000, %Abc_TtFindFirstAndBit2.exit51.thread ], [ %spec.select83, %Abc_TtFindFirstAndBit2.exit51 ]
+  %91 = tail call i32 @llvm.smin.i32(i32 %spec.select75, i32 %90)
+  %92 = icmp eq i32 %91, 1000000000
+  br i1 %92, label %.thread.thread, label %93
+
+.thread.thread:                                   ; preds = %2, %.thread
+  br label %93
+
+93:                                               ; preds = %.thread, %.thread.thread
+  %94 = phi i32 [ -1, %.thread.thread ], [ %91, %.thread ]
+  ret i32 %94
 }
 
 ; Function Attrs: nounwind uwtable

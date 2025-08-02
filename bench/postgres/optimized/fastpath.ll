@@ -280,7 +280,7 @@ fetch_fp_info.exit:                               ; preds = %45
   %134 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #11
   %135 = icmp eq i32 %134, -1
   %.idx73.i = shl nuw nsw i64 %indvars.iv99.i, 4
-  %136 = getelementptr i8, ptr %129, i64 %.idx73.i
+  %136 = getelementptr inbounds nuw i8, ptr %129, i64 %.idx73.i
   br i1 %135, label %137, label %138
 
 137:                                              ; preds = %133
@@ -435,7 +435,7 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
 195:                                              ; preds = %.lr.ph, %194
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %194 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %196 = getelementptr i8, ptr %193, i64 %.idx
+  %196 = getelementptr inbounds nuw i8, ptr %193, i64 %.idx
   %197 = load i8, ptr %196, align 8, !range !4, !noundef !5
   %198 = trunc nuw i8 %197 to i1
   br i1 %198, label %201, label %194

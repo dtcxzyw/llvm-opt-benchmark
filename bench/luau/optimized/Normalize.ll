@@ -13867,18 +13867,18 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEES
   br i1 %242, label %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !354
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i.i, %239
-  %.016.i40.i.i.i = phi ptr [ %243, %239 ], [ %235, %.preheader.i.i.i.i ]
-  %243 = load ptr, ptr %.016.i40.i.i.i, align 8, !tbaa !97
+  %.016.i35.i.i.i = phi ptr [ %243, %239 ], [ %235, %.preheader.i.i.i.i ]
+  %243 = load ptr, ptr %.016.i35.i.i.i, align 8, !tbaa !97
   %.not14.i.i.i.i = icmp eq ptr %243, null
   br i1 %.not14.i.i.i.i, label %.loopexit, label %239, !llvm.loop !354
 
 _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i: ; preds = %239, %.preheader.i.i.i.i
   %244 = phi ptr [ %235, %.preheader.i.i.i.i ], [ %243, %239 ]
-  %.01115.i.lcssa.i.i.i = phi ptr [ %17, %.preheader.i.i.i.i ], [ %.016.i40.i.i.i, %239 ]
+  %.01115.i.lcssa.i.i.i = phi ptr [ %17, %.preheader.i.i.i.i ], [ %.016.i35.i.i.i, %239 ]
   %245 = load i64, ptr %16, align 8, !tbaa !100
   %246 = ptrtoint ptr %20 to i64
   %247 = urem i64 %246, %245
-  br label %.loopexit.i.i.i
+  br label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i
 
 248:                                              ; preds = %230
   %249 = ptrtoint ptr %20 to i64
@@ -13895,11 +13895,11 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load ptr, ptr %257, align 8, !tbaa !19
   %259 = icmp eq ptr %20, %258
-  br i1 %259, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %259, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 260:                                              ; preds = %263
   %261 = icmp eq ptr %20, %265
-  br i1 %261, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !344
+  br i1 %261, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !344
 
 .lr.ph.i.i.i.i:                                   ; preds = %255, %260
   %.020.i.i.i.i = phi ptr [ %262, %260 ], [ %256, %255 ]
@@ -13918,14 +13918,14 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %263
   br label %.loopexit, !llvm.loop !344
 
-.loopexit.i.i.i:                                  ; preds = %260, %255, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i
+_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i: ; preds = %260, %255, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i
   %.019.i.i.i = phi ptr [ %244, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i ], [ %256, %255 ], [ %262, %260 ]
   %.018.i.i.i = phi i64 [ %247, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i ], [ %251, %255 ], [ %251, %260 ]
   %.016.i.i.i = phi ptr [ %.01115.i.lcssa.i.i.i, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i ], [ %254, %255 ], [ %.020.i.i.i.i, %260 ]
   %268 = invoke ptr @_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.018.i.i.i, ptr noundef nonnull %.016.i.i.i, ptr noundef nonnull %.019.i.i.i)
-          to label %.loopexit.i.i.i..loopexit_crit_edge unwind label %293
+          to label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i..loopexit_crit_edge unwind label %293
 
-.loopexit.i.i.i..loopexit_crit_edge:              ; preds = %.loopexit.i.i.i
+_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i..loopexit_crit_edge: ; preds = %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i
   %.pre = load ptr, ptr %8, align 8, !tbaa !26
   %.pre183 = load i64, ptr %199, align 8, !tbaa !44
   %.pre184 = load i64, ptr %202, align 8, !tbaa !43
@@ -13936,15 +13936,15 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
   %.pre189 = load i64, ptr %217, align 8, !tbaa !37
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %.loopexit.i.i.i..loopexit_crit_edge, %234, %248, %..loopexit_crit_edge21.i.i.i.i
-  %269 = phi i64 [ %.pre189, %.loopexit.i.i.i..loopexit_crit_edge ], [ %219, %234 ], [ %219, %248 ], [ %219, %..loopexit_crit_edge21.i.i.i.i ], [ %219, %.lr.ph.i.i.i ], [ %219, %.lr.ph.i.i.i.i ]
-  %270 = phi ptr [ %.pre188, %.loopexit.i.i.i..loopexit_crit_edge ], [ %216, %234 ], [ %216, %248 ], [ %216, %..loopexit_crit_edge21.i.i.i.i ], [ %216, %.lr.ph.i.i.i ], [ %216, %.lr.ph.i.i.i.i ]
-  %271 = phi ptr [ %.pre187, %.loopexit.i.i.i..loopexit_crit_edge ], [ %213, %234 ], [ %213, %248 ], [ %213, %..loopexit_crit_edge21.i.i.i.i ], [ %213, %.lr.ph.i.i.i ], [ %213, %.lr.ph.i.i.i.i ]
-  %272 = phi ptr [ %.pre186, %.loopexit.i.i.i..loopexit_crit_edge ], [ %210, %234 ], [ %210, %248 ], [ %210, %..loopexit_crit_edge21.i.i.i.i ], [ %210, %.lr.ph.i.i.i ], [ %210, %.lr.ph.i.i.i.i ]
-  %273 = phi ptr [ %.pre185, %.loopexit.i.i.i..loopexit_crit_edge ], [ %207, %234 ], [ %207, %248 ], [ %207, %..loopexit_crit_edge21.i.i.i.i ], [ %207, %.lr.ph.i.i.i ], [ %207, %.lr.ph.i.i.i.i ]
-  %274 = phi i64 [ %.pre184, %.loopexit.i.i.i..loopexit_crit_edge ], [ %204, %234 ], [ %204, %248 ], [ %204, %..loopexit_crit_edge21.i.i.i.i ], [ %204, %.lr.ph.i.i.i ], [ %204, %.lr.ph.i.i.i.i ]
-  %275 = phi i64 [ %.pre183, %.loopexit.i.i.i..loopexit_crit_edge ], [ %201, %234 ], [ %201, %248 ], [ %201, %..loopexit_crit_edge21.i.i.i.i ], [ %201, %.lr.ph.i.i.i ], [ %201, %.lr.ph.i.i.i.i ]
-  %276 = phi ptr [ %.pre, %.loopexit.i.i.i..loopexit_crit_edge ], [ %198, %234 ], [ %198, %248 ], [ %198, %..loopexit_crit_edge21.i.i.i.i ], [ %198, %.lr.ph.i.i.i ], [ %198, %.lr.ph.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i..loopexit_crit_edge, %234, %248, %..loopexit_crit_edge21.i.i.i.i
+  %269 = phi i64 [ %.pre189, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i..loopexit_crit_edge ], [ %219, %234 ], [ %219, %248 ], [ %219, %..loopexit_crit_edge21.i.i.i.i ], [ %219, %.lr.ph.i.i.i ], [ %219, %.lr.ph.i.i.i.i ]
+  %270 = phi ptr [ %.pre188, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i..loopexit_crit_edge ], [ %216, %234 ], [ %216, %248 ], [ %216, %..loopexit_crit_edge21.i.i.i.i ], [ %216, %.lr.ph.i.i.i ], [ %216, %.lr.ph.i.i.i.i ]
+  %271 = phi ptr [ %.pre187, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i..loopexit_crit_edge ], [ %213, %234 ], [ %213, %248 ], [ %213, %..loopexit_crit_edge21.i.i.i.i ], [ %213, %.lr.ph.i.i.i ], [ %213, %.lr.ph.i.i.i.i ]
+  %272 = phi ptr [ %.pre186, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i..loopexit_crit_edge ], [ %210, %234 ], [ %210, %248 ], [ %210, %..loopexit_crit_edge21.i.i.i.i ], [ %210, %.lr.ph.i.i.i ], [ %210, %.lr.ph.i.i.i.i ]
+  %273 = phi ptr [ %.pre185, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i..loopexit_crit_edge ], [ %207, %234 ], [ %207, %248 ], [ %207, %..loopexit_crit_edge21.i.i.i.i ], [ %207, %.lr.ph.i.i.i ], [ %207, %.lr.ph.i.i.i.i ]
+  %274 = phi i64 [ %.pre184, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i..loopexit_crit_edge ], [ %204, %234 ], [ %204, %248 ], [ %204, %..loopexit_crit_edge21.i.i.i.i ], [ %204, %.lr.ph.i.i.i ], [ %204, %.lr.ph.i.i.i.i ]
+  %275 = phi i64 [ %.pre183, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i..loopexit_crit_edge ], [ %201, %234 ], [ %201, %248 ], [ %201, %..loopexit_crit_edge21.i.i.i.i ], [ %201, %.lr.ph.i.i.i ], [ %201, %.lr.ph.i.i.i.i ]
+  %276 = phi ptr [ %.pre, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i..loopexit_crit_edge ], [ %198, %234 ], [ %198, %248 ], [ %198, %..loopexit_crit_edge21.i.i.i.i ], [ %198, %.lr.ph.i.i.i ], [ %198, %.lr.ph.i.i.i.i ]
   store ptr %276, ptr %9, align 8, !tbaa !26
   %277 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %275, ptr %277, align 8, !tbaa !44
@@ -13991,7 +13991,7 @@ _ZN4Luau7TypeIdsD2Ev.exit69:                      ; preds = %_ZNSt6vectorIPKN4Lu
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #32
   br label %_ZN4Luau7TypeIdsD2Ev.exit73
 
-293:                                              ; preds = %.loopexit.i.i.i
+293:                                              ; preds = %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i
   %294 = landingpad { ptr, i32 }
           cleanup
   br label %297
@@ -15728,18 +15728,18 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEES
   br i1 %696, label %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i, label %.lr.ph.i.i.i87, !llvm.loop !354
 
 .lr.ph.i.i.i87:                                   ; preds = %.preheader.i.i.i.i, %693
-  %.016.i40.i.i.i = phi ptr [ %697, %693 ], [ %689, %.preheader.i.i.i.i ]
-  %697 = load ptr, ptr %.016.i40.i.i.i, align 8, !tbaa !97
+  %.016.i35.i.i.i = phi ptr [ %697, %693 ], [ %689, %.preheader.i.i.i.i ]
+  %697 = load ptr, ptr %.016.i35.i.i.i, align 8, !tbaa !97
   %.not14.i.i.i.i = icmp eq ptr %697, null
   br i1 %.not14.i.i.i.i, label %.loopexit459, label %693, !llvm.loop !354
 
 _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i: ; preds = %693, %.preheader.i.i.i.i
   %698 = phi ptr [ %689, %.preheader.i.i.i.i ], [ %697, %693 ]
-  %.01115.i.lcssa.i.i.i = phi ptr [ %24, %.preheader.i.i.i.i ], [ %.016.i40.i.i.i, %693 ]
+  %.01115.i.lcssa.i.i.i = phi ptr [ %24, %.preheader.i.i.i.i ], [ %.016.i35.i.i.i, %693 ]
   %699 = load i64, ptr %23, align 8, !tbaa !100
   %700 = ptrtoint ptr %96 to i64
   %701 = urem i64 %700, %699
-  br label %.loopexit.i.i.i
+  br label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i
 
 702:                                              ; preds = %684
   %703 = ptrtoint ptr %96 to i64
@@ -15756,11 +15756,11 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 8
   %712 = load ptr, ptr %711, align 8, !tbaa !19
   %713 = icmp eq ptr %96, %712
-  br i1 %713, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %713, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 714:                                              ; preds = %717
   %715 = icmp eq ptr %96, %719
-  br i1 %715, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !344
+  br i1 %715, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !344
 
 .lr.ph.i.i.i.i:                                   ; preds = %709, %714
   %.020.i.i.i.i = phi ptr [ %716, %714 ], [ %710, %709 ]
@@ -15779,14 +15779,14 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %717
   br label %.loopexit459, !llvm.loop !344
 
-.loopexit.i.i.i:                                  ; preds = %714, %709, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i
+_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i: ; preds = %714, %709, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i
   %.019.i.i.i = phi ptr [ %698, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i ], [ %710, %709 ], [ %716, %714 ]
   %.018.i.i.i = phi i64 [ %701, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i ], [ %705, %709 ], [ %705, %714 ]
   %.016.i.i.i = phi ptr [ %.01115.i.lcssa.i.i.i, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i ], [ %708, %709 ], [ %.020.i.i.i.i, %714 ]
   %722 = invoke ptr @_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.018.i.i.i, ptr noundef nonnull %.016.i.i.i, ptr noundef nonnull %.019.i.i.i)
           to label %.loopexit459 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.loopexit459:                                     ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i87, %.loopexit.i.i.i, %688, %702, %..loopexit_crit_edge21.i.i.i.i
+.loopexit459:                                     ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i87, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i, %688, %702, %..loopexit_crit_edge21.i.i.i.i
   %723 = load ptr, ptr %10, align 8, !tbaa !26
   %724 = load i64, ptr %25, align 8, !tbaa !44
   %725 = load i64, ptr %26, align 8, !tbaa !43
@@ -16140,7 +16140,7 @@ _ZN4Luau7TypeIdsD2Ev.exit116:                     ; preds = %_ZNSt6vectorIPKN4Lu
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.loopexit.i.i.i
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i
   %lpad.loopexit468 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -25105,18 +25105,18 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEES
   br i1 %379, label %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !354
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i.i, %376
-  %.016.i40.i.i.i = phi ptr [ %380, %376 ], [ %372, %.preheader.i.i.i.i ]
-  %380 = load ptr, ptr %.016.i40.i.i.i, align 8, !tbaa !97
+  %.016.i35.i.i.i = phi ptr [ %380, %376 ], [ %372, %.preheader.i.i.i.i ]
+  %380 = load ptr, ptr %.016.i35.i.i.i, align 8, !tbaa !97
   %.not14.i.i.i.i = icmp eq ptr %380, null
   br i1 %.not14.i.i.i.i, label %.loopexit399, label %376, !llvm.loop !354
 
 _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i: ; preds = %376, %.preheader.i.i.i.i
   %381 = phi ptr [ %372, %.preheader.i.i.i.i ], [ %380, %376 ]
-  %.01115.i.lcssa.i.i.i = phi ptr [ %58, %.preheader.i.i.i.i ], [ %.016.i40.i.i.i, %376 ]
+  %.01115.i.lcssa.i.i.i = phi ptr [ %58, %.preheader.i.i.i.i ], [ %.016.i35.i.i.i, %376 ]
   %382 = load i64, ptr %57, align 8, !tbaa !100
   %383 = ptrtoint ptr %112 to i64
   %384 = urem i64 %383, %382
-  br label %.loopexit.i.i.i
+  br label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i
 
 385:                                              ; preds = %367
   %386 = ptrtoint ptr %112 to i64
@@ -25133,11 +25133,11 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 8
   %395 = load ptr, ptr %394, align 8, !tbaa !19
   %396 = icmp eq ptr %112, %395
-  br i1 %396, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i72
+  br i1 %396, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i, label %.lr.ph.i.i.i.i72
 
 397:                                              ; preds = %400
   %398 = icmp eq ptr %112, %402
-  br i1 %398, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i72, !llvm.loop !344
+  br i1 %398, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i, label %.lr.ph.i.i.i.i72, !llvm.loop !344
 
 .lr.ph.i.i.i.i72:                                 ; preds = %392, %397
   %.020.i.i.i.i = phi ptr [ %399, %397 ], [ %393, %392 ]
@@ -25156,14 +25156,14 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %400
   br label %.loopexit399, !llvm.loop !344
 
-.loopexit.i.i.i:                                  ; preds = %397, %392, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i
+_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i: ; preds = %397, %392, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i
   %.019.i.i.i = phi ptr [ %381, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i ], [ %393, %392 ], [ %399, %397 ]
   %.018.i.i.i = phi i64 [ %384, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i ], [ %388, %392 ], [ %388, %397 ]
   %.016.i.i.i = phi ptr [ %.01115.i.lcssa.i.i.i, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i ], [ %391, %392 ], [ %.020.i.i.i.i, %397 ]
   %405 = invoke ptr @_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.018.i.i.i, ptr noundef nonnull %.016.i.i.i, ptr noundef nonnull %.019.i.i.i)
           to label %.loopexit399 unwind label %.loopexit.split-lp384.loopexit.split-lp
 
-.loopexit399:                                     ; preds = %.lr.ph.i.i.i.i72, %.lr.ph.i.i.i, %.loopexit.i.i.i, %371, %385, %..loopexit_crit_edge21.i.i.i.i
+.loopexit399:                                     ; preds = %.lr.ph.i.i.i.i72, %.lr.ph.i.i.i, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i, %371, %385, %..loopexit_crit_edge21.i.i.i.i
   %406 = load ptr, ptr %6, align 8, !tbaa !26
   store ptr %406, ptr %7, align 8, !tbaa !26
   %407 = load i64, ptr %66, align 8, !tbaa !44
@@ -25244,7 +25244,7 @@ _ZN4Luau7TypeIdsD2Ev.exit80:                      ; preds = %_ZNSt6vectorIPKN4Lu
           cleanup
   br label %.loopexit.split-lp384
 
-.loopexit.split-lp384.loopexit.split-lp:          ; preds = %.loopexit.i.i.i
+.loopexit.split-lp384.loopexit.split-lp:          ; preds = %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i
   %lpad.loopexit.split-lp402 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp384
@@ -25348,18 +25348,18 @@ _ZN4LuauL10isSubclassEPKNS_4TypeES2_.exit91:      ; preds = %_ZN4Luau3getINS_9Cl
   br i1 %472, label %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i109, label %.lr.ph.i.i.i106, !llvm.loop !354
 
 .lr.ph.i.i.i106:                                  ; preds = %.preheader.i.i.i.i105, %469
-  %.016.i40.i.i.i107 = phi ptr [ %473, %469 ], [ %465, %.preheader.i.i.i.i105 ]
-  %473 = load ptr, ptr %.016.i40.i.i.i107, align 8, !tbaa !97
+  %.016.i35.i.i.i107 = phi ptr [ %473, %469 ], [ %465, %.preheader.i.i.i.i105 ]
+  %473 = load ptr, ptr %.016.i35.i.i.i107, align 8, !tbaa !97
   %.not14.i.i.i.i108 = icmp eq ptr %473, null
   br i1 %.not14.i.i.i.i108, label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit112, label %469, !llvm.loop !354
 
 _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i109: ; preds = %469, %.preheader.i.i.i.i105
   %474 = phi ptr [ %465, %.preheader.i.i.i.i105 ], [ %473, %469 ]
-  %.01115.i.lcssa.i.i.i110 = phi ptr [ %58, %.preheader.i.i.i.i105 ], [ %.016.i40.i.i.i107, %469 ]
+  %.01115.i.lcssa.i.i.i110 = phi ptr [ %58, %.preheader.i.i.i.i105 ], [ %.016.i35.i.i.i107, %469 ]
   %475 = load i64, ptr %57, align 8, !tbaa !100
   %476 = ptrtoint ptr %112 to i64
   %477 = urem i64 %476, %475
-  br label %.loopexit.i.i.i100
+  br label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i100
 
 478:                                              ; preds = %462
   %479 = ptrtoint ptr %112 to i64
@@ -25376,11 +25376,11 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 8
   %488 = load ptr, ptr %487, align 8, !tbaa !19
   %489 = icmp eq ptr %112, %488
-  br i1 %489, label %.loopexit.i.i.i100, label %.lr.ph.i.i.i.i94
+  br i1 %489, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i100, label %.lr.ph.i.i.i.i94
 
 490:                                              ; preds = %493
   %491 = icmp eq ptr %112, %495
-  br i1 %491, label %.loopexit.i.i.i100, label %.lr.ph.i.i.i.i94, !llvm.loop !344
+  br i1 %491, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i100, label %.lr.ph.i.i.i.i94, !llvm.loop !344
 
 .lr.ph.i.i.i.i94:                                 ; preds = %485, %490
   %.020.i.i.i.i95 = phi ptr [ %492, %490 ], [ %486, %485 ]
@@ -25399,14 +25399,14 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
 ..loopexit_crit_edge21.i.i.i.i98:                 ; preds = %493
   br label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit112, !llvm.loop !344
 
-.loopexit.i.i.i100:                               ; preds = %490, %485, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i109
+_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i100: ; preds = %490, %485, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i109
   %.019.i.i.i101 = phi ptr [ %474, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i109 ], [ %486, %485 ], [ %492, %490 ]
   %.018.i.i.i102 = phi i64 [ %477, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i109 ], [ %481, %485 ], [ %481, %490 ]
   %.016.i.i.i103 = phi ptr [ %.01115.i.lcssa.i.i.i110, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i109 ], [ %484, %485 ], [ %.020.i.i.i.i95, %490 ]
   %498 = invoke ptr @_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.018.i.i.i102, ptr noundef nonnull %.016.i.i.i103, ptr noundef nonnull %.019.i.i.i101)
           to label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit112 unwind label %.loopexit.split-lp393
 
-_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit112: ; preds = %.lr.ph.i.i.i.i94, %.lr.ph.i.i.i106, %..loopexit_crit_edge21.i.i.i.i98, %478, %464, %.loopexit.i.i.i100
+_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit112: ; preds = %.lr.ph.i.i.i.i94, %.lr.ph.i.i.i106, %..loopexit_crit_edge21.i.i.i.i98, %478, %464, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i100
   %499 = load ptr, ptr %54, align 8, !tbaa !49
   %500 = ptrtoint ptr %.sroa.0353.0553 to i64
   %501 = ptrtoint ptr %499 to i64
@@ -25436,7 +25436,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEES
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp393:                            ; preds = %.loopexit.i.i.i100
+.loopexit.split-lp393:                            ; preds = %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i100
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -26307,18 +26307,18 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5
   br i1 %859, label %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i164, label %.lr.ph.i.i.i161, !llvm.loop !354
 
 .lr.ph.i.i.i161:                                  ; preds = %.preheader.i.i.i.i160, %856
-  %.016.i40.i.i.i162 = phi ptr [ %860, %856 ], [ %852, %.preheader.i.i.i.i160 ]
-  %860 = load ptr, ptr %.016.i40.i.i.i162, align 8, !tbaa !97
+  %.016.i35.i.i.i162 = phi ptr [ %860, %856 ], [ %852, %.preheader.i.i.i.i160 ]
+  %860 = load ptr, ptr %.016.i35.i.i.i162, align 8, !tbaa !97
   %.not14.i.i.i.i163 = icmp eq ptr %860, null
   br i1 %.not14.i.i.i.i163, label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit166, label %856, !llvm.loop !354
 
 _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i164: ; preds = %856, %.preheader.i.i.i.i160
   %861 = phi ptr [ %852, %.preheader.i.i.i.i160 ], [ %860, %856 ]
-  %.01115.i.lcssa.i.i.i165 = phi ptr [ %58, %.preheader.i.i.i.i160 ], [ %.016.i40.i.i.i162, %856 ]
+  %.01115.i.lcssa.i.i.i165 = phi ptr [ %58, %.preheader.i.i.i.i160 ], [ %.016.i35.i.i.i162, %856 ]
   %862 = load i64, ptr %57, align 8, !tbaa !100
   %863 = ptrtoint ptr %112 to i64
   %864 = urem i64 %863, %862
-  br label %.loopexit.i.i.i155
+  br label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i155
 
 865:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit146
   %866 = ptrtoint ptr %112 to i64
@@ -26335,11 +26335,11 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
   %874 = getelementptr inbounds nuw i8, ptr %873, i64 8
   %875 = load ptr, ptr %874, align 8, !tbaa !19
   %876 = icmp eq ptr %112, %875
-  br i1 %876, label %.loopexit.i.i.i155, label %.lr.ph.i.i.i.i149
+  br i1 %876, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i155, label %.lr.ph.i.i.i.i149
 
 877:                                              ; preds = %880
   %878 = icmp eq ptr %112, %882
-  br i1 %878, label %.loopexit.i.i.i155, label %.lr.ph.i.i.i.i149, !llvm.loop !344
+  br i1 %878, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i155, label %.lr.ph.i.i.i.i149, !llvm.loop !344
 
 .lr.ph.i.i.i.i149:                                ; preds = %872, %877
   %.020.i.i.i.i150 = phi ptr [ %879, %877 ], [ %873, %872 ]
@@ -26358,15 +26358,15 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
 ..loopexit_crit_edge21.i.i.i.i153:                ; preds = %880
   br label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit166, !llvm.loop !344
 
-.loopexit.i.i.i155:                               ; preds = %877, %872, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i164
+_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i155: ; preds = %877, %872, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i164
   %.019.i.i.i156 = phi ptr [ %861, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i164 ], [ %873, %872 ], [ %879, %877 ]
   %.018.i.i.i157 = phi i64 [ %864, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i164 ], [ %868, %872 ], [ %868, %877 ]
   %.016.i.i.i158 = phi ptr [ %.01115.i.lcssa.i.i.i165, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i164 ], [ %871, %872 ], [ %.020.i.i.i.i150, %877 ]
   %885 = call ptr @_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.018.i.i.i157, ptr noundef nonnull %.016.i.i.i158, ptr noundef nonnull %.019.i.i.i156)
   br label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit166
 
-_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit166: ; preds = %.lr.ph.i.i.i.i149, %.lr.ph.i.i.i161, %.loopexit.i.i.i155, %..loopexit_crit_edge21.i.i.i.i153, %865, %851, %_ZN4Luau7TypeIdsD2Ev.exit137
-  %.sroa.0353.1 = phi ptr [ %.sroa.0353.2, %_ZN4Luau7TypeIdsD2Ev.exit137 ], [ %842, %851 ], [ %842, %865 ], [ %842, %..loopexit_crit_edge21.i.i.i.i153 ], [ %842, %.loopexit.i.i.i155 ], [ %842, %.lr.ph.i.i.i161 ], [ %842, %.lr.ph.i.i.i.i149 ]
+_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit166: ; preds = %.lr.ph.i.i.i.i149, %.lr.ph.i.i.i161, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i155, %..loopexit_crit_edge21.i.i.i.i153, %865, %851, %_ZN4Luau7TypeIdsD2Ev.exit137
+  %.sroa.0353.1 = phi ptr [ %.sroa.0353.2, %_ZN4Luau7TypeIdsD2Ev.exit137 ], [ %842, %851 ], [ %842, %865 ], [ %842, %..loopexit_crit_edge21.i.i.i.i153 ], [ %842, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i155 ], [ %842, %.lr.ph.i.i.i161 ], [ %842, %.lr.ph.i.i.i.i149 ]
   %886 = load ptr, ptr %55, align 8, !tbaa !49
   %.not380 = icmp eq ptr %.sroa.0353.1, %886
   br i1 %.not380, label %.critedge47, label %111, !llvm.loop !444
@@ -26688,18 +26688,18 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEES
   br i1 %146, label %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !354
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i.i, %143
-  %.016.i40.i.i.i = phi ptr [ %147, %143 ], [ %139, %.preheader.i.i.i.i ]
-  %147 = load ptr, ptr %.016.i40.i.i.i, align 8, !tbaa !97
+  %.016.i35.i.i.i = phi ptr [ %147, %143 ], [ %139, %.preheader.i.i.i.i ]
+  %147 = load ptr, ptr %.016.i35.i.i.i, align 8, !tbaa !97
   %.not14.i.i.i.i = icmp eq ptr %147, null
   br i1 %.not14.i.i.i.i, label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit, label %143, !llvm.loop !354
 
 _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i: ; preds = %143, %.preheader.i.i.i.i
   %148 = phi ptr [ %139, %.preheader.i.i.i.i ], [ %147, %143 ]
-  %.01115.i.lcssa.i.i.i = phi ptr [ %13, %.preheader.i.i.i.i ], [ %.016.i40.i.i.i, %143 ]
+  %.01115.i.lcssa.i.i.i = phi ptr [ %13, %.preheader.i.i.i.i ], [ %.016.i35.i.i.i, %143 ]
   %149 = load i64, ptr %12, align 8, !tbaa !100
   %150 = ptrtoint ptr %17 to i64
   %151 = urem i64 %150, %149
-  br label %.loopexit.i.i.i
+  br label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i
 
 152:                                              ; preds = %134
   %153 = ptrtoint ptr %17 to i64
@@ -26716,11 +26716,11 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8, !tbaa !19
   %163 = icmp eq ptr %17, %162
-  br i1 %163, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %163, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 164:                                              ; preds = %167
   %165 = icmp eq ptr %17, %169
-  br i1 %165, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !344
+  br i1 %165, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !344
 
 .lr.ph.i.i.i.i:                                   ; preds = %159, %164
   %.020.i.i.i.i = phi ptr [ %166, %164 ], [ %160, %159 ]
@@ -26739,14 +26739,14 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %167
   br label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit, !llvm.loop !344
 
-.loopexit.i.i.i:                                  ; preds = %164, %159, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i
+_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i: ; preds = %164, %159, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i
   %.019.i.i.i = phi ptr [ %148, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i ], [ %160, %159 ], [ %166, %164 ]
   %.018.i.i.i = phi i64 [ %151, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i ], [ %155, %159 ], [ %155, %164 ]
   %.016.i.i.i = phi ptr [ %.01115.i.lcssa.i.i.i, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i ], [ %158, %159 ], [ %.020.i.i.i.i, %164 ]
   %172 = invoke ptr @_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.018.i.i.i, ptr noundef nonnull %.016.i.i.i, ptr noundef nonnull %.019.i.i.i)
           to label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit unwind label %203
 
-_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %152, %138, %.loopexit.i.i.i
+_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %152, %138, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i
   br i1 %.not98.lcssa, label %173, label %_ZN4Luau7TypeIdsD2Ev.exit
 
 173:                                              ; preds = %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit
@@ -26805,7 +26805,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i:   ; preds = %196, %194
   call void @_ZdlPv(ptr noundef nonnull %201) #32
   br label %_ZN4Luau7TypeIdsD2Ev.exit
 
-203:                                              ; preds = %.loopexit.i.i.i
+203:                                              ; preds = %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i
   %204 = landingpad { ptr, i32 }
           cleanup
   br label %216
@@ -26915,18 +26915,18 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5
   br i1 %250, label %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i74, label %.lr.ph.i.i.i71, !llvm.loop !354
 
 .lr.ph.i.i.i71:                                   ; preds = %.preheader.i.i.i.i70, %247
-  %.016.i40.i.i.i72 = phi ptr [ %251, %247 ], [ %243, %.preheader.i.i.i.i70 ]
-  %251 = load ptr, ptr %.016.i40.i.i.i72, align 8, !tbaa !97
+  %.016.i35.i.i.i72 = phi ptr [ %251, %247 ], [ %243, %.preheader.i.i.i.i70 ]
+  %251 = load ptr, ptr %.016.i35.i.i.i72, align 8, !tbaa !97
   %.not14.i.i.i.i73 = icmp eq ptr %251, null
   br i1 %.not14.i.i.i.i73, label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit76, label %247, !llvm.loop !354
 
 _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i74: ; preds = %247, %.preheader.i.i.i.i70
   %252 = phi ptr [ %243, %.preheader.i.i.i.i70 ], [ %251, %247 ]
-  %.01115.i.lcssa.i.i.i75 = phi ptr [ %13, %.preheader.i.i.i.i70 ], [ %.016.i40.i.i.i72, %247 ]
+  %.01115.i.lcssa.i.i.i75 = phi ptr [ %13, %.preheader.i.i.i.i70 ], [ %.016.i35.i.i.i72, %247 ]
   %253 = load i64, ptr %12, align 8, !tbaa !100
   %254 = ptrtoint ptr %17 to i64
   %255 = urem i64 %254, %253
-  br label %.loopexit.i.i.i65
+  br label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i65
 
 256:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit56
   %257 = ptrtoint ptr %17 to i64
@@ -26943,11 +26943,11 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load ptr, ptr %265, align 8, !tbaa !19
   %267 = icmp eq ptr %17, %266
-  br i1 %267, label %.loopexit.i.i.i65, label %.lr.ph.i.i.i.i59
+  br i1 %267, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i65, label %.lr.ph.i.i.i.i59
 
 268:                                              ; preds = %271
   %269 = icmp eq ptr %17, %273
-  br i1 %269, label %.loopexit.i.i.i65, label %.lr.ph.i.i.i.i59, !llvm.loop !344
+  br i1 %269, label %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i65, label %.lr.ph.i.i.i.i59, !llvm.loop !344
 
 .lr.ph.i.i.i.i59:                                 ; preds = %263, %268
   %.020.i.i.i.i60 = phi ptr [ %270, %268 ], [ %264, %263 ]
@@ -26966,7 +26966,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
 ..loopexit_crit_edge21.i.i.i.i63:                 ; preds = %271
   br label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit76, !llvm.loop !344
 
-.loopexit.i.i.i65:                                ; preds = %268, %263, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i74
+_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i65: ; preds = %268, %263, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i74
   %.019.i.i.i66 = phi ptr [ %252, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i74 ], [ %264, %263 ], [ %270, %268 ]
   %.018.i.i.i67 = phi i64 [ %255, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i74 ], [ %259, %263 ], [ %259, %268 ]
   %.016.i.i.i68 = phi ptr [ %.01115.i.lcssa.i.i.i75, %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS5_.exit.i.i.i74 ], [ %262, %263 ], [ %.020.i.i.i.i60, %268 ]
@@ -26974,9 +26974,9 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_
   %.pre188 = load ptr, ptr %9, align 8, !tbaa !49
   br label %_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit76
 
-_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit76: ; preds = %.lr.ph.i.i.i.i59, %.lr.ph.i.i.i71, %.loopexit.i.i.i65, %..loopexit_crit_edge21.i.i.i.i63, %256, %242, %44
-  %277 = phi ptr [ %16, %44 ], [ %240, %242 ], [ %240, %256 ], [ %240, %..loopexit_crit_edge21.i.i.i.i63 ], [ %.pre188, %.loopexit.i.i.i65 ], [ %240, %.lr.ph.i.i.i71 ], [ %240, %.lr.ph.i.i.i.i59 ]
-  %.sroa.093.1 = phi ptr [ %45, %44 ], [ %233, %242 ], [ %233, %256 ], [ %233, %..loopexit_crit_edge21.i.i.i.i63 ], [ %233, %.loopexit.i.i.i65 ], [ %233, %.lr.ph.i.i.i71 ], [ %233, %.lr.ph.i.i.i.i59 ]
+_ZNSt13unordered_mapIPKN4Luau4TypeENS0_7TypeIdsESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE5eraseERSA_.exit76: ; preds = %.lr.ph.i.i.i.i59, %.lr.ph.i.i.i71, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i65, %..loopexit_crit_edge21.i.i.i.i63, %256, %242, %44
+  %277 = phi ptr [ %16, %44 ], [ %240, %242 ], [ %240, %256 ], [ %240, %..loopexit_crit_edge21.i.i.i.i63 ], [ %.pre188, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i65 ], [ %240, %.lr.ph.i.i.i71 ], [ %240, %.lr.ph.i.i.i.i59 ]
+  %.sroa.093.1 = phi ptr [ %45, %44 ], [ %233, %242 ], [ %233, %256 ], [ %233, %..loopexit_crit_edge21.i.i.i.i63 ], [ %233, %_ZNKSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_NS0_7TypeIdsEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS5_m.exit.i.i.i65 ], [ %233, %.lr.ph.i.i.i71 ], [ %233, %.lr.ph.i.i.i.i59 ]
   %.not = icmp eq ptr %.sroa.093.1, %277
   br i1 %.not, label %.critedge, label %15, !llvm.loop !446
 

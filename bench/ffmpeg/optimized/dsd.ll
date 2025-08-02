@@ -23,21 +23,23 @@ define internal void @dsd_ctables_tableinit() #2 {
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1) #8
   br label %2
 
-2:                                                ; preds = %0, %30
-  %indvars.iv35 = phi i64 [ 0, %0 ], [ %indvars.iv.next36, %30 ]
+2:                                                ; preds = %0, %28
+  %indvars.iv37 = phi i64 [ 0, %0 ], [ %indvars.iv.next38, %28 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %1, i8 0, i64 48, i1 false)
-  %3 = trunc nuw nsw i64 %indvars.iv35 to i32
+  %3 = trunc nuw nsw i64 %indvars.iv37 to i32
   br label %7
 
 .preheader:                                       ; preds = %23
-  %4 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %indvars.iv35
+  %invariant.gep = getelementptr inbounds nuw [256 x double], ptr @ctables_msbf, i64 0, i64 %indvars.iv37
+  %4 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %indvars.iv37
   %5 = load i8, ptr %4, align 1, !tbaa !4
   %6 = zext i8 %5 to i64
+  %invariant.gep24 = getelementptr inbounds nuw [256 x double], ptr @ctables_lsbf, i64 0, i64 %6
   br label %24
 
 7:                                                ; preds = %2, %23
-  %indvars.iv27 = phi i64 [ 0, %2 ], [ %indvars.iv.next28, %23 ]
-  %8 = trunc i64 %indvars.iv27 to i32
+  %indvars.iv29 = phi i64 [ 0, %2 ], [ %indvars.iv.next30, %23 ]
+  %8 = trunc i64 %indvars.iv29 to i32
   %9 = sub i32 7, %8
   %10 = lshr i32 %3, %9
   %11 = shl nuw nsw i32 %10, 1
@@ -49,7 +51,7 @@ define internal void @dsd_ctables_tableinit() #2 {
 15:                                               ; preds = %7, %15
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %15 ]
   %16 = shl nuw nsw i64 %indvars.iv, 3
-  %17 = add nuw nsw i64 %16, %indvars.iv27
+  %17 = add nuw nsw i64 %16, %indvars.iv29
   %18 = getelementptr inbounds nuw [48 x double], ptr @htaps, i64 0, i64 %17
   %19 = load double, ptr %18, align 8, !tbaa !7
   %20 = getelementptr inbounds nuw [6 x double], ptr %1, i64 0, i64 %indvars.iv
@@ -61,29 +63,29 @@ define internal void @dsd_ctables_tableinit() #2 {
   br i1 %exitcond.not, label %23, label %15, !llvm.loop !9
 
 23:                                               ; preds = %15
-  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond30.not = icmp eq i64 %indvars.iv.next28, 8
-  br i1 %exitcond30.not, label %.preheader, label %7, !llvm.loop !11
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+  %exitcond32.not = icmp eq i64 %indvars.iv.next30, 8
+  br i1 %exitcond32.not, label %.preheader, label %7, !llvm.loop !11
 
 24:                                               ; preds = %.preheader, %24
-  %indvars.iv31 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next32, %24 ]
-  %25 = getelementptr inbounds nuw [6 x double], ptr %1, i64 0, i64 %indvars.iv31
+  %indvars.iv33 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next34, %24 ]
+  %25 = getelementptr inbounds nuw [6 x double], ptr %1, i64 0, i64 %indvars.iv33
   %26 = load double, ptr %25, align 8, !tbaa !7
-  %27 = sub nuw nsw i64 5, %indvars.iv31
-  %28 = getelementptr inbounds nuw [6 x [256 x double]], ptr @ctables_msbf, i64 0, i64 %27, i64 %indvars.iv35
-  store double %26, ptr %28, align 8, !tbaa !7
-  %29 = getelementptr inbounds nuw [6 x [256 x double]], ptr @ctables_lsbf, i64 0, i64 %27, i64 %6
-  store double %26, ptr %29, align 8, !tbaa !7
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond34.not = icmp eq i64 %indvars.iv.next32, 6
-  br i1 %exitcond34.not, label %30, label %24, !llvm.loop !12
+  %27 = sub nuw nsw i64 5, %indvars.iv33
+  %gep = getelementptr inbounds nuw [6 x [256 x double]], ptr %invariant.gep, i64 0, i64 %27
+  store double %26, ptr %gep, align 8, !tbaa !7
+  %gep25 = getelementptr inbounds nuw [6 x [256 x double]], ptr %invariant.gep24, i64 0, i64 %27
+  store double %26, ptr %gep25, align 8, !tbaa !7
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next34, 6
+  br i1 %exitcond36.not, label %28, label %24, !llvm.loop !12
 
-30:                                               ; preds = %24
-  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next36, 256
-  br i1 %exitcond38.not, label %31, label %2, !llvm.loop !13
+28:                                               ; preds = %24
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %exitcond40.not = icmp eq i64 %indvars.iv.next38, 256
+  br i1 %exitcond40.not, label %29, label %2, !llvm.loop !13
 
-31:                                               ; preds = %30
+29:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1) #8
   ret void
 }
@@ -100,11 +102,11 @@ define void @ff_dsd2pcm_translate(ptr noundef captures(none) %0, i64 noundef %1,
   %.not3639 = icmp eq i64 %1, 0
   br i1 %.not3639, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %44
-  %.in = phi i64 [ %45, %44 ], [ %1, %7 ]
-  %.03142 = phi ptr [ %46, %44 ], [ %3, %7 ]
-  %.03241 = phi ptr [ %48, %44 ], [ %5, %7 ]
-  %.03440 = phi i32 [ %50, %44 ], [ %11, %7 ]
+.lr.ph:                                           ; preds = %7, %45
+  %.in = phi i64 [ %46, %45 ], [ %1, %7 ]
+  %.03142 = phi ptr [ %47, %45 ], [ %3, %7 ]
+  %.03241 = phi ptr [ %49, %45 ], [ %5, %7 ]
+  %.03440 = phi i32 [ %51, %45 ], [ %11, %7 ]
   %12 = load i8, ptr %.03142, align 1, !tbaa !4
   %13 = zext i32 %.03440 to i64
   %14 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %13
@@ -123,7 +125,7 @@ define void @ff_dsd2pcm_translate(ptr noundef captures(none) %0, i64 noundef %1,
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %.03338 = phi double [ 0.000000e+00, %.lr.ph ], [ %43, %24 ]
+  %.03338 = phi double [ 0.000000e+00, %.lr.ph ], [ %44, %24 ]
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = sub i32 %.03440, %25
   %27 = and i32 %26, 15
@@ -135,31 +137,32 @@ define void @ff_dsd2pcm_translate(ptr noundef captures(none) %0, i64 noundef %1,
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !4
-  %36 = zext i8 %30 to i64
-  %37 = getelementptr inbounds nuw [256 x double], ptr %9, i64 %indvars.iv, i64 %36
-  %38 = load double, ptr %37, align 8, !tbaa !7
-  %39 = zext i8 %35 to i64
-  %40 = getelementptr inbounds nuw [256 x double], ptr %9, i64 %indvars.iv, i64 %39
-  %41 = load double, ptr %40, align 8, !tbaa !7
-  %42 = fadd nsz double %38, %41
-  %43 = fadd nsz double %.03338, %42
+  %36 = getelementptr inbounds nuw [256 x double], ptr %9, i64 %indvars.iv
+  %37 = zext i8 %30 to i64
+  %38 = getelementptr inbounds nuw [256 x double], ptr %36, i64 0, i64 %37
+  %39 = load double, ptr %38, align 8, !tbaa !7
+  %40 = zext i8 %35 to i64
+  %41 = getelementptr inbounds nuw [256 x double], ptr %36, i64 0, i64 %40
+  %42 = load double, ptr %41, align 8, !tbaa !7
+  %43 = fadd nsz double %39, %42
+  %44 = fadd nsz double %.03338, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %44, label %24, !llvm.loop !17
+  br i1 %exitcond.not, label %45, label %24, !llvm.loop !17
 
-44:                                               ; preds = %24
-  %45 = add i64 %.in, -1
-  %46 = getelementptr inbounds i8, ptr %.03142, i64 %4
-  %47 = fptrunc nsz double %43 to float
-  store float %47, ptr %.03241, align 4, !tbaa !18
-  %48 = getelementptr inbounds float, ptr %.03241, i64 %6
-  %49 = add i32 %.03440, 1
-  %50 = and i32 %49, 15
-  %.not36 = icmp eq i64 %45, 0
+45:                                               ; preds = %24
+  %46 = add i64 %.in, -1
+  %47 = getelementptr inbounds i8, ptr %.03142, i64 %4
+  %48 = fptrunc nsz double %44 to float
+  store float %48, ptr %.03241, align 4, !tbaa !18
+  %49 = getelementptr inbounds float, ptr %.03241, i64 %6
+  %50 = add i32 %.03440, 1
+  %51 = and i32 %50, 15
+  %.not36 = icmp eq i64 %46, 0
   br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %44, %7
-  %.034.lcssa = phi i32 [ %11, %7 ], [ %50, %44 ]
+._crit_edge:                                      ; preds = %45, %7
+  %.034.lcssa = phi i32 [ %11, %7 ], [ %51, %45 ]
   store i32 %.034.lcssa, ptr %10, align 4, !tbaa !14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8

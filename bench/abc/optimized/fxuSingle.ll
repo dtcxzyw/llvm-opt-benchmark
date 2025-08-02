@@ -388,7 +388,7 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %155, %13, %._crit_e
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 %163, ptr %164, align 4, !tbaa !51
   %165 = icmp sgt i32 %.val, %2
-  br i1 %165, label %166, label %211
+  br i1 %165, label %166, label %215
 
 166:                                              ; preds = %._crit_edge
   %calloc = tail call dereferenceable_or_null(4000) ptr @calloc(i64 1, i64 4000)
@@ -445,8 +445,8 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %155, %13, %._crit_e
 
 190:                                              ; preds = %.preheader
   %191 = add nsw i32 %.0100, -1
-  %.not131 = icmp eq i32 %.0100, 0
-  br i1 %.not131, label %192, label %.preheader, !llvm.loop !54
+  %.not121 = icmp eq i32 %.0100, 0
+  br i1 %.not121, label %192, label %.preheader, !llvm.loop !54
 
 192:                                              ; preds = %190, %.preheader
   %.0.lcssa = phi i32 [ -1, %190 ], [ %.0100, %.preheader ]
@@ -455,88 +455,79 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %155, %13, %._crit_e
 
 .lr.ph104:                                        ; preds = %192
   %.val82 = load ptr, ptr %9, align 8, !tbaa !27
-  %invariant.gep = getelementptr i8, ptr %.val82, i64 -16
-  %invariant.gep108 = getelementptr i8, ptr %.val82, i64 -8
-  %invariant.gep110 = getelementptr i8, ptr %.val82, i64 8
-  %invariant.gep112 = getelementptr i8, ptr %.val82, i64 16
   br label %193
 
-193:                                              ; preds = %.lr.ph104, %208
-  %indvars.iv123 = phi i64 [ 2, %.lr.ph104 ], [ %indvars.iv.next124, %208 ]
-  %.068101 = phi i32 [ 0, %.lr.ph104 ], [ %.2, %208 ]
-  %194 = getelementptr inbounds nuw ptr, ptr %.val82, i64 %indvars.iv123
+193:                                              ; preds = %.lr.ph104, %212
+  %indvars.iv113 = phi i64 [ 2, %.lr.ph104 ], [ %indvars.iv.next114, %212 ]
+  %.068101 = phi i32 [ 0, %.lr.ph104 ], [ %.2, %212 ]
+  %194 = getelementptr ptr, ptr %.val82, i64 %indvars.iv113
   %195 = load ptr, ptr %194, align 8, !tbaa !48
   %196 = ptrtoint ptr %195 to i64
   %197 = trunc i64 %196 to i32
   %198 = icmp sgt i32 %.0.lcssa, %197
-  br i1 %198, label %208, label %199
+  br i1 %198, label %212, label %199
 
 199:                                              ; preds = %193
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv123
-  %200 = load ptr, ptr %gep, align 8, !tbaa !48
-  %201 = sext i32 %.068101 to i64
-  %202 = getelementptr inbounds ptr, ptr %.val82, i64 %201
-  store ptr %200, ptr %202, align 8, !tbaa !48
-  %gep109 = getelementptr ptr, ptr %invariant.gep108, i64 %indvars.iv123
-  %203 = load ptr, ptr %gep109, align 8, !tbaa !48
-  %gep111 = getelementptr ptr, ptr %invariant.gep110, i64 %201
-  store ptr %203, ptr %gep111, align 8, !tbaa !48
-  %204 = add nsw i32 %.068101, 3
-  %205 = load ptr, ptr %194, align 8, !tbaa !48
-  %gep113 = getelementptr ptr, ptr %invariant.gep112, i64 %201
-  store ptr %205, ptr %gep113, align 8, !tbaa !48
-  %206 = sdiv i32 %204, 3
-  %207 = icmp eq i32 %206, %2
-  br i1 %207, label %._crit_edge105, label %208
+  %200 = getelementptr i8, ptr %194, i64 -16
+  %201 = load ptr, ptr %200, align 8, !tbaa !48
+  %202 = sext i32 %.068101 to i64
+  %203 = getelementptr ptr, ptr %.val82, i64 %202
+  store ptr %201, ptr %203, align 8, !tbaa !48
+  %204 = getelementptr i8, ptr %194, i64 -8
+  %205 = load ptr, ptr %204, align 8, !tbaa !48
+  %206 = getelementptr i8, ptr %203, i64 8
+  store ptr %205, ptr %206, align 8, !tbaa !48
+  %207 = add nsw i32 %.068101, 3
+  %208 = load ptr, ptr %194, align 8, !tbaa !48
+  %209 = getelementptr i8, ptr %203, i64 16
+  store ptr %208, ptr %209, align 8, !tbaa !48
+  %210 = sdiv i32 %207, 3
+  %211 = icmp eq i32 %210, %2
+  br i1 %211, label %._crit_edge105, label %212
 
-208:                                              ; preds = %199, %193
-  %.2 = phi i32 [ %.068101, %193 ], [ %204, %199 ]
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 3
-  %209 = trunc nuw i64 %indvars.iv.next124 to i32
-  %210 = icmp sgt i32 %.val, %209
-  br i1 %210, label %193, label %._crit_edge105, !llvm.loop !55
+212:                                              ; preds = %199, %193
+  %.2 = phi i32 [ %.068101, %193 ], [ %207, %199 ]
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 3
+  %213 = trunc nuw i64 %indvars.iv.next114 to i32
+  %214 = icmp sgt i32 %.val, %213
+  br i1 %214, label %193, label %._crit_edge105, !llvm.loop !55
 
-._crit_edge105:                                   ; preds = %208, %199, %192
-  %.169 = phi i32 [ 0, %192 ], [ %204, %199 ], [ %.2, %208 ]
+._crit_edge105:                                   ; preds = %212, %199, %192
+  %.169 = phi i32 [ 0, %192 ], [ %207, %199 ], [ %.2, %212 ]
   store i32 %.0.lcssa, ptr %5, align 8, !tbaa !3
-  br label %211
+  br label %215
 
-211:                                              ; preds = %._crit_edge105, %._crit_edge
+215:                                              ; preds = %._crit_edge105, %._crit_edge
   %.val80 = phi i32 [ %.169, %._crit_edge105 ], [ %.val, %._crit_edge ]
-  %212 = icmp sgt i32 %.val80, 0
+  %216 = icmp sgt i32 %.val80, 0
   %.pre = load ptr, ptr %9, align 8, !tbaa !27
-  br i1 %212, label %.lr.ph116, label %._crit_edge117
+  br i1 %216, label %.lr.ph110, label %._crit_edge111
 
-.lr.ph116:                                        ; preds = %211
-  %invariant.gep118 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  br label %213
+.lr.ph110:                                        ; preds = %215, %.lr.ph110
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph110 ], [ 0, %215 ]
+  %217 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv116
+  %218 = load ptr, ptr %217, align 8, !tbaa !48
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 8
+  %220 = load ptr, ptr %219, align 8, !tbaa !48
+  %221 = getelementptr inbounds nuw i8, ptr %217, i64 16
+  %222 = load ptr, ptr %221, align 8, !tbaa !48
+  %223 = ptrtoint ptr %222 to i64
+  %224 = trunc i64 %223 to i32
+  tail call void @Fxu_MatrixAddSingle(ptr noundef nonnull %0, ptr noundef %218, ptr noundef %220, i32 noundef %224) #9
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 3
+  %225 = trunc nuw i64 %indvars.iv.next117 to i32
+  %226 = icmp sgt i32 %.val80, %225
+  br i1 %226, label %.lr.ph110, label %._crit_edge111.thread, !llvm.loop !56
 
-213:                                              ; preds = %.lr.ph116, %213
-  %indvars.iv126 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next127, %213 ]
-  %214 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv126
-  %215 = load ptr, ptr %214, align 8, !tbaa !48
-  %gep119 = getelementptr inbounds nuw ptr, ptr %invariant.gep118, i64 %indvars.iv126
-  %216 = load ptr, ptr %gep119, align 8, !tbaa !48
-  %gep121 = getelementptr inbounds nuw ptr, ptr %invariant.gep120, i64 %indvars.iv126
-  %217 = load ptr, ptr %gep121, align 8, !tbaa !48
-  %218 = ptrtoint ptr %217 to i64
-  %219 = trunc i64 %218 to i32
-  tail call void @Fxu_MatrixAddSingle(ptr noundef nonnull %0, ptr noundef %215, ptr noundef %216, i32 noundef %219) #9
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 3
-  %220 = trunc nuw i64 %indvars.iv.next127 to i32
-  %221 = icmp sgt i32 %.val80, %220
-  br i1 %221, label %213, label %._crit_edge117.thread, !llvm.loop !56
-
-._crit_edge117:                                   ; preds = %211
+._crit_edge111:                                   ; preds = %215
   %.not.i92 = icmp eq ptr %.pre, null
-  br i1 %.not.i92, label %Vec_PtrFree.exit, label %._crit_edge117.thread
+  br i1 %.not.i92, label %Vec_PtrFree.exit, label %._crit_edge111.thread
 
-._crit_edge117.thread:                            ; preds = %213, %._crit_edge117
+._crit_edge111.thread:                            ; preds = %.lr.ph110, %._crit_edge111
   tail call void @free(ptr noundef nonnull %.pre) #9
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %._crit_edge117, %._crit_edge117.thread
+Vec_PtrFree.exit:                                 ; preds = %._crit_edge111, %._crit_edge111.thread
   tail call void @free(ptr noundef nonnull %6) #9
   ret void
 }

@@ -3281,45 +3281,45 @@ define internal fastcc range(i32 -1, 1) i32 @internal_close(ptr noundef captures
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = icmp sgt i32 %3, -1
-  br i1 %4, label %7, label %.thread
+  br i1 %4, label %5, label %.critedge
 
-.thread:                                          ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !19
-  tail call void @PyMem_Free(ptr noundef %6) #10
-  store ptr null, ptr %5, align 8, !tbaa !19
-  br label %21
-
-7:                                                ; preds = %1
+5:                                                ; preds = %1
   store i32 -1, ptr %2, align 8, !tbaa !4
-  %8 = tail call ptr @PyEval_SaveThread() #10
-  %9 = tail call i32 @close(i32 noundef %3) #10
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %14
+  %6 = tail call ptr @PyEval_SaveThread() #10
+  %7 = tail call i32 @close(i32 noundef %3) #10
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %.critedge14
 
-11:                                               ; preds = %7
-  %12 = tail call ptr @__errno_location() #12
-  %13 = load i32, ptr %12, align 4, !tbaa !43
-  br label %14
+9:                                                ; preds = %5
+  %10 = tail call ptr @__errno_location() #12
+  %11 = load i32, ptr %10, align 4, !tbaa !43
+  tail call void @PyEval_RestoreThread(ptr noundef %6) #10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
+  tail call void @PyMem_Free(ptr noundef %13) #10
+  store ptr null, ptr %12, align 8, !tbaa !19
+  store i32 %11, ptr %10, align 4, !tbaa !43
+  %14 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !21
+  %15 = tail call ptr @PyErr_SetFromErrno(ptr noundef %14) #10
+  br label %20
 
-14:                                               ; preds = %7, %11
-  %.1 = phi i32 [ %13, %11 ], [ 0, %7 ]
-  tail call void @PyEval_RestoreThread(ptr noundef %8) #10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !19
-  tail call void @PyMem_Free(ptr noundef %16) #10
-  store ptr null, ptr %15, align 8, !tbaa !19
-  br i1 %10, label %17, label %21
+.critedge:                                        ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = load ptr, ptr %16, align 8, !tbaa !19
+  tail call void @PyMem_Free(ptr noundef %17) #10
+  store ptr null, ptr %16, align 8, !tbaa !19
+  br label %20
 
-17:                                               ; preds = %14
-  %18 = tail call ptr @__errno_location() #12
-  store i32 %.1, ptr %18, align 4, !tbaa !43
-  %19 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !21
-  %20 = tail call ptr @PyErr_SetFromErrno(ptr noundef %19) #10
-  br label %21
+.critedge14:                                      ; preds = %5
+  tail call void @PyEval_RestoreThread(ptr noundef %6) #10
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  tail call void @PyMem_Free(ptr noundef %19) #10
+  store ptr null, ptr %18, align 8, !tbaa !19
+  br label %20
 
-21:                                               ; preds = %.thread, %14, %17
-  %.0 = phi i32 [ -1, %17 ], [ 0, %14 ], [ 0, %.thread ]
+20:                                               ; preds = %.critedge14, %.critedge, %9
+  %.0 = phi i32 [ -1, %9 ], [ 0, %.critedge ], [ 0, %.critedge14 ]
   ret i32 %.0
 }
 

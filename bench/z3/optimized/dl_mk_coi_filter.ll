@@ -252,7 +252,7 @@ define hidden noundef ptr @_ZN7datalog13mk_coi_filter8top_downERKNS_8rule_setE(p
   %35 = load i32, ptr %33, align 8, !tbaa !19
   %36 = zext i32 %35 to i64
   %.idx.i1.i = mul nuw nsw i64 %36, 24
-  %37 = getelementptr i8, ptr %34, i64 %.idx.i1.i
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i1.i
   %38 = load i32, ptr %37, align 4, !tbaa !29
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %_ZN7datalog15dataflow_engineINS_17reachability_infoEE12run_top_downEv.exit, label %.lr.ph.i
@@ -265,7 +265,7 @@ define hidden noundef ptr @_ZN7datalog13mk_coi_filter8top_downERKNS_8rule_setE(p
   %40 = load i32, ptr %33, align 8, !tbaa !19
   %41 = zext i32 %40 to i64
   %.idx.i.i = mul nuw nsw i64 %41, 24
-  %42 = getelementptr i8, ptr %34, i64 %.idx.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i.i
   %43 = load i32, ptr %42, align 4, !tbaa !29
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %_ZN7datalog15dataflow_engineINS_17reachability_infoEE12run_top_downEv.exit, label %.lr.ph.i, !llvm.loop !32
@@ -1708,7 +1708,7 @@ define hidden noundef ptr @_ZN7datalog13mk_coi_filter9bottom_upERKNS_8rule_setE(
   %15 = load i32, ptr %13, align 8, !tbaa !19
   %16 = zext i32 %15 to i64
   %.idx.i1.i = mul nuw nsw i64 %16, 24
-  %17 = getelementptr i8, ptr %14, i64 %.idx.i1.i
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i1.i
   %18 = load i32, ptr %17, align 4, !tbaa !29
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %_ZN7datalog15dataflow_engineINS_17reachability_infoEE13run_bottom_upEv.exit, label %.lr.ph.i
@@ -1721,7 +1721,7 @@ define hidden noundef ptr @_ZN7datalog13mk_coi_filter9bottom_upERKNS_8rule_setE(
   %20 = load i32, ptr %13, align 8, !tbaa !19
   %21 = zext i32 %20 to i64
   %.idx.i.i = mul nuw nsw i64 %21, 24
-  %22 = getelementptr i8, ptr %14, i64 %.idx.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i
   %23 = load i32, ptr %22, align 4, !tbaa !29
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %_ZN7datalog15dataflow_engineINS_17reachability_infoEE13run_bottom_upEv.exit, label %.lr.ph.i, !llvm.loop !140

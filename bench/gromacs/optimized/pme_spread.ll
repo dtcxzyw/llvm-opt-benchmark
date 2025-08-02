@@ -482,7 +482,7 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !96
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %203
+  br i1 %12, label %13, label %205
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -723,11 +723,10 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %170 = load i32, ptr %169, align 4, !tbaa !96
   %171 = sext i32 %170 to i64
   invoke void @_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %167, i64 noundef %171)
-          to label %.noexc unwind label %194
+          to label %.noexc unwind label %196
 
 .noexc:                                           ; preds = %._crit_edge122.i
   %172 = load i32, ptr %56, align 8, !tbaa !204
-  %invariant.gep.i = getelementptr i8, ptr %.0114.i, i64 -8
   %173 = icmp sgt i32 %172, 1
   br i1 %173, label %.lr.ph125.preheader.i, label %._crit_edge126.i
 
@@ -738,64 +737,65 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
 .lr.ph125.i:                                      ; preds = %.lr.ph125.i, %.lr.ph125.preheader.i
   %indvars.iv139.i = phi i64 [ %174, %.lr.ph125.preheader.i ], [ %indvars.iv.next140.i, %.lr.ph125.i ]
   %indvars.iv.next140.i = add nsw i64 %indvars.iv139.i, -1
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv139.i
-  %175 = load i32, ptr %gep.i, align 4, !tbaa !96
-  %176 = getelementptr inbounds nuw i32, ptr %.0114.i, i64 %indvars.iv.next140.i
-  store i32 %175, ptr %176, align 4, !tbaa !96
-  %177 = icmp samesign ugt i64 %indvars.iv139.i, 2
-  br i1 %177, label %.lr.ph125.i, label %._crit_edge126.i, !llvm.loop !214
+  %175 = getelementptr i32, ptr %.0114.i, i64 %indvars.iv139.i
+  %176 = getelementptr i8, ptr %175, i64 -8
+  %177 = load i32, ptr %176, align 4, !tbaa !96
+  %178 = getelementptr inbounds nuw i32, ptr %.0114.i, i64 %indvars.iv.next140.i
+  store i32 %177, ptr %178, align 4, !tbaa !96
+  %179 = icmp samesign ugt i64 %indvars.iv139.i, 2
+  br i1 %179, label %.lr.ph125.i, label %._crit_edge126.i, !llvm.loop !214
 
 ._crit_edge126.i:                                 ; preds = %.lr.ph125.i, %.noexc
   store i32 0, ptr %.0114.i, align 4, !tbaa !96
   br i1 %69, label %.lr.ph129.i, label %_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit
 
 .lr.ph129.i:                                      ; preds = %._crit_edge126.i
-  %178 = getelementptr inbounds nuw i8, ptr %20, i64 320
-  %179 = load ptr, ptr %178, align 8, !tbaa !205
-  %180 = load ptr, ptr %167, align 8, !tbaa !205
-  %181 = sext i32 %26 to i64
+  %180 = getelementptr inbounds nuw i8, ptr %20, i64 320
+  %181 = load ptr, ptr %180, align 8, !tbaa !205
+  %182 = load ptr, ptr %167, align 8, !tbaa !205
+  %183 = sext i32 %26 to i64
   %wide.trip.count145.i = sext i32 %29 to i64
-  br label %182
+  br label %184
 
-182:                                              ; preds = %182, %.lr.ph129.i
-  %indvars.iv142.i = phi i64 [ %181, %.lr.ph129.i ], [ %indvars.iv.next143.i, %182 ]
-  %183 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv142.i
-  %184 = load i32, ptr %183, align 4, !tbaa !96
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds i32, ptr %.0114.i, i64 %185
-  %187 = load i32, ptr %186, align 4, !tbaa !96
-  %188 = add nsw i32 %187, 1
-  store i32 %188, ptr %186, align 4, !tbaa !96
-  %189 = sext i32 %187 to i64
-  %190 = getelementptr inbounds nuw i32, ptr %180, i64 %189
-  %191 = trunc nsw i64 %indvars.iv142.i to i32
-  store i32 %191, ptr %190, align 4, !tbaa !96
+184:                                              ; preds = %184, %.lr.ph129.i
+  %indvars.iv142.i = phi i64 [ %183, %.lr.ph129.i ], [ %indvars.iv.next143.i, %184 ]
+  %185 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv142.i
+  %186 = load i32, ptr %185, align 4, !tbaa !96
+  %187 = sext i32 %186 to i64
+  %188 = getelementptr inbounds i32, ptr %.0114.i, i64 %187
+  %189 = load i32, ptr %188, align 4, !tbaa !96
+  %190 = add nsw i32 %189, 1
+  store i32 %190, ptr %188, align 4, !tbaa !96
+  %191 = sext i32 %189 to i64
+  %192 = getelementptr inbounds nuw i32, ptr %182, i64 %191
+  %193 = trunc nsw i64 %indvars.iv142.i to i32
+  store i32 %193, ptr %192, align 4, !tbaa !96
   %indvars.iv.next143.i = add nsw i64 %indvars.iv142.i, 1
   %exitcond146.not.i = icmp eq i64 %indvars.iv.next143.i, %wide.trip.count145.i
-  br i1 %exitcond146.not.i, label %_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit, label %182, !llvm.loop !215
+  br i1 %exitcond146.not.i, label %_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit, label %184, !llvm.loop !215
 
-_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit: ; preds = %182, %._crit_edge.i, %._crit_edge126.i
-  %192 = load i32, ptr %8, align 4, !tbaa !96
-  %193 = sext i32 %192 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %193
+_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit: ; preds = %184, %._crit_edge.i, %._crit_edge126.i
+  %194 = load i32, ptr %8, align 4, !tbaa !96
+  %195 = sext i32 %194 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %195
   br i1 %.not.not, label %.lr.ph, label %._crit_edge
 
-194:                                              ; preds = %._crit_edge122.i
-  %195 = landingpad { ptr, i32 }
+196:                                              ; preds = %._crit_edge122.i
+  %197 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  %196 = extractvalue { ptr, i32 } %195, 0
-  %197 = extractvalue { ptr, i32 } %195, 1
-  %198 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #3
-  %199 = icmp eq i32 %197, %198
-  br i1 %199, label %200, label %207
+  %198 = extractvalue { ptr, i32 } %197, 0
+  %199 = extractvalue { ptr, i32 } %197, 1
+  %200 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #3
+  %201 = icmp eq i32 %199, %200
+  br i1 %201, label %202, label %209
 
-200:                                              ; preds = %194
-  %201 = call ptr @__cxa_begin_catch(ptr %196) #3
-  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %201) #18
-          to label %202 unwind label %204
+202:                                              ; preds = %196
+  %203 = call ptr @__cxa_begin_catch(ptr %198) #3
+  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %203) #18
+          to label %204 unwind label %206
 
-202:                                              ; preds = %200
+204:                                              ; preds = %202
   unreachable
 
 ._crit_edge:                                      ; preds = %_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit, %13
@@ -804,20 +804,20 @@ _ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit: ; p
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
-  br label %203
+  br label %205
 
-203:                                              ; preds = %._crit_edge, %6
+205:                                              ; preds = %._crit_edge, %6
   ret void
 
-204:                                              ; preds = %200
-  %205 = landingpad { ptr, i32 }
+206:                                              ; preds = %202
+  %207 = landingpad { ptr, i32 }
           catch ptr null
-  %206 = extractvalue { ptr, i32 } %205, 0
-  call void @__clang_call_terminate(ptr %206) #19
+  %208 = extractvalue { ptr, i32 } %207, 0
+  call void @__clang_call_terminate(ptr %208) #19
   unreachable
 
-207:                                              ; preds = %194
-  call void @__clang_call_terminate(ptr %196) #19
+209:                                              ; preds = %196
+  call void @__clang_call_terminate(ptr %198) #19
   unreachable
 }
 

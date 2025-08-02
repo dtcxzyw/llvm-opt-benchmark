@@ -859,7 +859,7 @@ define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly 
 
 arkode_butcher_rowsum.exit:                       ; preds = %._crit_edge.us.i
   store i32 -1, ptr %1, align 4, !tbaa !25
-  br i1 %.not, label %thread-pre-split1020, label %42
+  br i1 %.not, label %thread-pre-split1025, label %42
 
 42:                                               ; preds = %arkode_butcher_rowsum.exit
   %43 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 33, i64 1, ptr nonnull %3)
@@ -871,1288 +871,1287 @@ arkode_butcher_rowsum.exit:                       ; preds = %._crit_edge.us.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %indvars.iv.i946 = phi i64 [ %indvars.iv.next.i947, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %indvars.iv.i948 = phi i64 [ %indvars.iv.next.i949, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.08.i = phi double [ %47, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.i.preheader ]
-  %45 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i946
+  %45 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i948
   %46 = load double, ptr %45, align 8, !tbaa !18
   %47 = fsub double %.08.i, %46
-  %indvars.iv.next.i947 = add nuw nsw i64 %indvars.iv.i946, 1
-  %exitcond.not.i948 = icmp eq i64 %indvars.iv.next.i947, %wide.trip.count29.i
-  br i1 %exitcond.not.i948, label %arkode_butcher_order1.exit, label %.lr.ph.i
+  %indvars.iv.next.i949 = add nuw nsw i64 %indvars.iv.i948, 1
+  %exitcond.not.i950 = icmp eq i64 %indvars.iv.next.i949, %wide.trip.count29.i
+  br i1 %exitcond.not.i950, label %arkode_butcher_order1.exit, label %.lr.ph.i
 
 arkode_butcher_order1.exit:                       ; preds = %.lr.ph.i
   %48 = tail call double @llvm.fabs.f64(double %47)
   %49 = fcmp ogt double %48, 0x3E50000000000000
-  br i1 %49, label %50, label %.thread997
+  br i1 %49, label %arkode_butcher_order1.exit.thread, label %.thread1002
 
-.thread997:                                       ; preds = %arkode_butcher_order1.exit
+.thread1002:                                      ; preds = %arkode_butcher_order1.exit
   store i32 1, ptr %1, align 4, !tbaa !25
-  br label %.preheader1153
+  br label %.preheader1160
 
-50:                                               ; preds = %arkode_butcher_order1.exit
-  br i1 %.not, label %.thread1125, label %51
+arkode_butcher_order1.exit.thread:                ; preds = %arkode_butcher_order1.exit
+  br i1 %.not, label %.thread1132, label %50
 
-51:                                               ; preds = %50
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 33, i64 1, ptr nonnull %3)
-  %.pr996.pre = load i32, ptr %1, align 4, !tbaa !25
+50:                                               ; preds = %arkode_butcher_order1.exit.thread
+  %51 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 33, i64 1, ptr nonnull %3)
+  %.pr1001.pre = load i32, ptr %1, align 4, !tbaa !25
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %51, %42
-  %53 = phi i32 [ %.pr, %42 ], [ %.pr996.pre, %51 ]
-  %54 = icmp eq i32 %53, 1
-  br i1 %54, label %.preheader1153, label %68
+thread-pre-split:                                 ; preds = %50, %42
+  %52 = phi i32 [ %.pr, %42 ], [ %.pr1001.pre, %50 ]
+  %53 = icmp eq i32 %52, 1
+  br i1 %53, label %.preheader1160, label %67
 
-.preheader1153:                                   ; preds = %thread-pre-split, %.thread997
-  br label %55
+.preheader1160:                                   ; preds = %thread-pre-split, %.thread1002
+  br label %54
 
-55:                                               ; preds = %.preheader1153, %55
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %55 ], [ 0, %.preheader1153 ]
-  %56 = phi double [ %61, %55 ], [ 0.000000e+00, %.preheader1153 ]
-  %57 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i.i
-  %58 = load double, ptr %57, align 8, !tbaa !18
-  %59 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i
-  %60 = load double, ptr %59, align 8, !tbaa !18
-  %61 = tail call double @llvm.fmuladd.f64(double %58, double %60, double %56)
+54:                                               ; preds = %.preheader1160, %54
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %54 ], [ 0, %.preheader1160 ]
+  %55 = phi double [ %60, %54 ], [ 0.000000e+00, %.preheader1160 ]
+  %56 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i.i
+  %57 = load double, ptr %56, align 8, !tbaa !18
+  %58 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i
+  %59 = load double, ptr %58, align 8, !tbaa !18
+  %60 = tail call double @llvm.fmuladd.f64(double %57, double %59, double %55)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i, label %arkode_butcher_order2.exit, label %55
+  br i1 %exitcond.not.i.i, label %arkode_butcher_order2.exit, label %54
 
-arkode_butcher_order2.exit:                       ; preds = %55
-  %62 = fadd double %61, -5.000000e-01
-  %63 = tail call double @llvm.fabs.f64(double %62)
-  %64 = fcmp ogt double %63, 0x3E50000000000000
-  br i1 %64, label %65, label %.thread1001
+arkode_butcher_order2.exit:                       ; preds = %54
+  %61 = fadd double %60, -5.000000e-01
+  %62 = tail call double @llvm.fabs.f64(double %61)
+  %63 = fcmp ogt double %62, 0x3E50000000000000
+  br i1 %63, label %64, label %.thread1006
 
-.thread1001:                                      ; preds = %arkode_butcher_order2.exit
+.thread1006:                                      ; preds = %arkode_butcher_order2.exit
   store i32 2, ptr %1, align 4, !tbaa !25
-  br label %70
+  br label %69
 
-65:                                               ; preds = %arkode_butcher_order2.exit
-  br i1 %.not, label %.thread1125, label %66
+64:                                               ; preds = %arkode_butcher_order2.exit
+  br i1 %.not, label %.thread1132, label %65
 
-66:                                               ; preds = %65
-  %67 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 33, i64 1, ptr nonnull %3)
-  %.pr1000.pre = load i32, ptr %1, align 4, !tbaa !25
-  br label %68
+65:                                               ; preds = %64
+  %66 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 33, i64 1, ptr nonnull %3)
+  %.pr1005.pre = load i32, ptr %1, align 4, !tbaa !25
+  br label %67
 
-68:                                               ; preds = %66, %thread-pre-split
-  %.pr1000 = phi i32 [ %.pr1000.pre, %66 ], [ %53, %thread-pre-split ]
-  %69 = icmp eq i32 %.pr1000, 2
-  br i1 %69, label %70, label %114
+67:                                               ; preds = %65, %thread-pre-split
+  %.pr1005 = phi i32 [ %.pr1005.pre, %65 ], [ %52, %thread-pre-split ]
+  %68 = icmp eq i32 %.pr1005, 2
+  br i1 %68, label %69, label %113
 
-70:                                               ; preds = %.thread1001, %68
-  %71 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %arkode_butcher_order3a.exit, label %.preheader.i.i
+69:                                               ; preds = %.thread1006, %67
+  %70 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %arkode_butcher_order3a.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %70, %.preheader.i.i
-  %indvars.iv.i.i952 = phi i64 [ %indvars.iv.next.i.i953, %.preheader.i.i ], [ 0, %70 ]
-  %73 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i952
-  %74 = load double, ptr %73, align 8, !tbaa !18
-  %75 = fmul double %74, %74
-  %76 = getelementptr inbounds nuw double, ptr %71, i64 %indvars.iv.i.i952
-  store double %75, ptr %76, align 8, !tbaa !18
-  %indvars.iv.next.i.i953 = add nuw nsw i64 %indvars.iv.i.i952, 1
-  %exitcond.not.i.i954 = icmp eq i64 %indvars.iv.next.i.i953, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i954, label %.preheader1095, label %.preheader.i.i
+.preheader.i.i:                                   ; preds = %69, %.preheader.i.i
+  %indvars.iv.i.i954 = phi i64 [ %indvars.iv.next.i.i955, %.preheader.i.i ], [ 0, %69 ]
+  %72 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i954
+  %73 = load double, ptr %72, align 8, !tbaa !18
+  %74 = fmul double %73, %73
+  %75 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv.i.i954
+  store double %74, ptr %75, align 8, !tbaa !18
+  %indvars.iv.next.i.i955 = add nuw nsw i64 %indvars.iv.i.i954, 1
+  %exitcond.not.i.i956 = icmp eq i64 %indvars.iv.next.i.i955, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i956, label %.preheader1102, label %.preheader.i.i
 
-.preheader1095:                                   ; preds = %.preheader.i.i, %.preheader1095
-  %indvars.iv.i14.i = phi i64 [ %indvars.iv.next.i15.i, %.preheader1095 ], [ 0, %.preheader.i.i ]
-  %77 = phi double [ %82, %.preheader1095 ], [ 0.000000e+00, %.preheader.i.i ]
-  %78 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i14.i
-  %79 = load double, ptr %78, align 8, !tbaa !18
-  %80 = getelementptr inbounds nuw double, ptr %71, i64 %indvars.iv.i14.i
-  %81 = load double, ptr %80, align 8, !tbaa !18
-  %82 = tail call double @llvm.fmuladd.f64(double %79, double %81, double %77)
+.preheader1102:                                   ; preds = %.preheader.i.i, %.preheader1102
+  %indvars.iv.i14.i = phi i64 [ %indvars.iv.next.i15.i, %.preheader1102 ], [ 0, %.preheader.i.i ]
+  %76 = phi double [ %81, %.preheader1102 ], [ 0.000000e+00, %.preheader.i.i ]
+  %77 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i14.i
+  %78 = load double, ptr %77, align 8, !tbaa !18
+  %79 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv.i14.i
+  %80 = load double, ptr %79, align 8, !tbaa !18
+  %81 = tail call double @llvm.fmuladd.f64(double %78, double %80, double %76)
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, %wide.trip.count29.i
-  br i1 %exitcond.not.i16.i, label %83, label %.preheader1095
+  br i1 %exitcond.not.i16.i, label %82, label %.preheader1102
 
-83:                                               ; preds = %.preheader1095
-  tail call void @free(ptr noundef nonnull %71) #17
-  %84 = fadd double %82, 0xBFD5555555555555
-  %85 = tail call double @llvm.fabs.f64(double %84)
-  %86 = fcmp ule double %85, 0x3E50000000000000
+82:                                               ; preds = %.preheader1102
+  tail call void @free(ptr noundef nonnull %70) #17
+  %83 = fadd double %81, 0xBFD5555555555555
+  %84 = tail call double @llvm.fabs.f64(double %83)
+  %85 = fcmp ule double %84, 0x3E50000000000000
   br label %arkode_butcher_order3a.exit
 
-arkode_butcher_order3a.exit:                      ; preds = %70, %83
-  %.0.i955 = phi i1 [ %86, %83 ], [ false, %70 ]
-  %brmerge = or i1 %.not, %.0.i955
-  br i1 %brmerge, label %89, label %87
+arkode_butcher_order3a.exit:                      ; preds = %69, %82
+  %.0.i957 = phi i1 [ %85, %82 ], [ false, %69 ]
+  %brmerge = or i1 %.not, %.0.i957
+  br i1 %brmerge, label %88, label %86
 
-87:                                               ; preds = %arkode_butcher_order3a.exit
-  %88 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 35, i64 1, ptr nonnull %3)
-  br label %89
+86:                                               ; preds = %arkode_butcher_order3a.exit
+  %87 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 35, i64 1, ptr nonnull %3)
+  br label %88
 
-89:                                               ; preds = %arkode_butcher_order3a.exit, %87
-  %.0.not = phi i1 [ %.0.i955, %arkode_butcher_order3a.exit ], [ false, %87 ]
-  %90 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %arkode_butcher_order3b.exit, label %.preheader.us.i.i
+88:                                               ; preds = %arkode_butcher_order3a.exit, %86
+  %.0.not = phi i1 [ %.0.i957, %arkode_butcher_order3a.exit ], [ false, %86 ]
+  %89 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %arkode_butcher_order3b.exit, label %.preheader.us.i.i
 
-.preheader.us.i.i:                                ; preds = %89, %._crit_edge.us.i.i
-  %indvars.iv40.i.i = phi i64 [ %indvars.iv.next41.i.i, %._crit_edge.us.i.i ], [ 0, %89 ]
-  %92 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv40.i.i
-  %93 = load ptr, ptr %92, align 8, !tbaa !12
-  %94 = getelementptr inbounds nuw double, ptr %90, i64 %indvars.iv40.i.i
-  %.promoted.us.i.i = load double, ptr %94, align 8, !tbaa !18
-  br label %95
+.preheader.us.i.i:                                ; preds = %88, %._crit_edge.us.i.i
+  %indvars.iv40.i.i = phi i64 [ %indvars.iv.next41.i.i, %._crit_edge.us.i.i ], [ 0, %88 ]
+  %91 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv40.i.i
+  %92 = load ptr, ptr %91, align 8, !tbaa !12
+  %93 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv40.i.i
+  %.promoted.us.i.i = load double, ptr %93, align 8, !tbaa !18
+  br label %94
 
-95:                                               ; preds = %95, %.preheader.us.i.i
-  %indvars.iv.i.i959 = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i960, %95 ]
-  %96 = phi double [ %.promoted.us.i.i, %.preheader.us.i.i ], [ %101, %95 ]
-  %97 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv.i.i959
-  %98 = load double, ptr %97, align 8, !tbaa !18
-  %99 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i959
-  %100 = load double, ptr %99, align 8, !tbaa !18
-  %101 = tail call double @llvm.fmuladd.f64(double %98, double %100, double %96)
-  %indvars.iv.next.i.i960 = add nuw nsw i64 %indvars.iv.i.i959, 1
-  %exitcond.not.i.i961 = icmp eq i64 %indvars.iv.next.i.i960, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i961, label %._crit_edge.us.i.i, label %95
+94:                                               ; preds = %94, %.preheader.us.i.i
+  %indvars.iv.i.i961 = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i962, %94 ]
+  %95 = phi double [ %.promoted.us.i.i, %.preheader.us.i.i ], [ %100, %94 ]
+  %96 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv.i.i961
+  %97 = load double, ptr %96, align 8, !tbaa !18
+  %98 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i961
+  %99 = load double, ptr %98, align 8, !tbaa !18
+  %100 = tail call double @llvm.fmuladd.f64(double %97, double %99, double %95)
+  %indvars.iv.next.i.i962 = add nuw nsw i64 %indvars.iv.i.i961, 1
+  %exitcond.not.i.i963 = icmp eq i64 %indvars.iv.next.i.i962, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i963, label %._crit_edge.us.i.i, label %94
 
-._crit_edge.us.i.i:                               ; preds = %95
-  store double %101, ptr %94, align 8, !tbaa !18
+._crit_edge.us.i.i:                               ; preds = %94
+  store double %100, ptr %93, align 8, !tbaa !18
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %exitcond44.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, %wide.trip.count29.i
   br i1 %exitcond44.not.i.i, label %.preheader, label %.preheader.us.i.i, !llvm.loop !27
 
 .preheader:                                       ; preds = %._crit_edge.us.i.i, %.preheader
   %indvars.iv.i13.i = phi i64 [ %indvars.iv.next.i14.i, %.preheader ], [ 0, %._crit_edge.us.i.i ]
-  %102 = phi double [ %107, %.preheader ], [ 0.000000e+00, %._crit_edge.us.i.i ]
-  %103 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i13.i
-  %104 = load double, ptr %103, align 8, !tbaa !18
-  %105 = getelementptr inbounds nuw double, ptr %90, i64 %indvars.iv.i13.i
-  %106 = load double, ptr %105, align 8, !tbaa !18
-  %107 = tail call double @llvm.fmuladd.f64(double %104, double %106, double %102)
+  %101 = phi double [ %106, %.preheader ], [ 0.000000e+00, %._crit_edge.us.i.i ]
+  %102 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i13.i
+  %103 = load double, ptr %102, align 8, !tbaa !18
+  %104 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv.i13.i
+  %105 = load double, ptr %104, align 8, !tbaa !18
+  %106 = tail call double @llvm.fmuladd.f64(double %103, double %105, double %101)
   %indvars.iv.next.i14.i = add nuw nsw i64 %indvars.iv.i13.i, 1
   %exitcond.not.i15.i = icmp eq i64 %indvars.iv.next.i14.i, %wide.trip.count29.i
-  br i1 %exitcond.not.i15.i, label %108, label %.preheader
+  br i1 %exitcond.not.i15.i, label %107, label %.preheader
 
-108:                                              ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %90) #17
-  %109 = fadd double %107, 0xBFC5555555555555
-  %110 = tail call double @llvm.fabs.f64(double %109)
-  %111 = fcmp ule double %110, 0x3E50000000000000
+107:                                              ; preds = %.preheader
+  tail call void @free(ptr noundef nonnull %89) #17
+  %108 = fadd double %106, 0xBFC5555555555555
+  %109 = tail call double @llvm.fabs.f64(double %108)
+  %110 = fcmp ule double %109, 0x3E50000000000000
   br label %arkode_butcher_order3b.exit
 
-arkode_butcher_order3b.exit:                      ; preds = %89, %108
-  %.0.i962 = phi i1 [ %111, %108 ], [ false, %89 ]
-  %brmerge868 = or i1 %.not, %.0.i962
-  br i1 %brmerge868, label %113, label %.thread1003
+arkode_butcher_order3b.exit:                      ; preds = %88, %107
+  %.0.i964 = phi i1 [ %110, %107 ], [ false, %88 ]
+  %brmerge868 = or i1 %.not, %.0.i964
+  br i1 %brmerge868, label %112, label %.thread1008
 
-.thread1003:                                      ; preds = %arkode_butcher_order3b.exit
-  %112 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 35, i64 1, ptr nonnull %3)
-  br label %thread-pre-split1006
+.thread1008:                                      ; preds = %arkode_butcher_order3b.exit
+  %111 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 35, i64 1, ptr nonnull %3)
+  br label %thread-pre-split1011
 
-113:                                              ; preds = %arkode_butcher_order3b.exit
-  %.not790.not = and i1 %.0.not, %.0.i962
-  br i1 %.not790.not, label %.thread1008, label %thread-pre-split1006
+112:                                              ; preds = %arkode_butcher_order3b.exit
+  %.not790.not = and i1 %.0.not, %.0.i964
+  br i1 %.not790.not, label %.thread1013, label %thread-pre-split1011
 
-.thread1008:                                      ; preds = %113
+.thread1013:                                      ; preds = %112
   store i32 3, ptr %1, align 4, !tbaa !25
-  br label %117
+  br label %116
 
-thread-pre-split1006:                             ; preds = %113, %.thread1003
-  %.pr1007 = load i32, ptr %1, align 4, !tbaa !25
-  br label %114
+thread-pre-split1011:                             ; preds = %112, %.thread1008
+  %.pr1012 = load i32, ptr %1, align 4, !tbaa !25
+  br label %113
 
-114:                                              ; preds = %thread-pre-split1006, %68
-  %115 = phi i32 [ %.pr1007, %thread-pre-split1006 ], [ %.pr1000, %68 ]
-  %116 = icmp eq i32 %115, 3
-  br i1 %116, label %117, label %.thread1125
+113:                                              ; preds = %thread-pre-split1011, %67
+  %114 = phi i32 [ %.pr1012, %thread-pre-split1011 ], [ %.pr1005, %67 ]
+  %115 = icmp eq i32 %114, 3
+  br i1 %115, label %116, label %.thread1132
 
-117:                                              ; preds = %.thread1008, %114
-  %118 = tail call fastcc i32 @arkode_butcher_order4a(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not791 = icmp ne i32 %118, 0
+116:                                              ; preds = %.thread1013, %113
+  %117 = tail call fastcc i32 @arkode_butcher_order4a(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not791 = icmp ne i32 %117, 0
   %brmerge869 = or i1 %.not, %.not791
-  br i1 %brmerge869, label %121, label %119
+  br i1 %brmerge869, label %120, label %118
 
-119:                                              ; preds = %117
-  %120 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 35, i64 1, ptr nonnull %3)
-  br label %121
+118:                                              ; preds = %116
+  %119 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 35, i64 1, ptr nonnull %3)
+  br label %120
 
-121:                                              ; preds = %117, %119
-  %122 = tail call fastcc i32 @arkode_butcher_order4b(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not792 = icmp ne i32 %122, 0
+120:                                              ; preds = %116, %118
+  %121 = tail call fastcc i32 @arkode_butcher_order4b(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not792 = icmp ne i32 %121, 0
   %brmerge871 = or i1 %.not, %.not792
-  %.2.mux = select i1 %.not792, i32 %118, i32 0
-  br i1 %brmerge871, label %125, label %123
+  %.2.mux = select i1 %.not792, i32 %117, i32 0
+  br i1 %brmerge871, label %124, label %122
 
-123:                                              ; preds = %121
-  %124 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 35, i64 1, ptr nonnull %3)
-  br label %125
+122:                                              ; preds = %120
+  %123 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 35, i64 1, ptr nonnull %3)
+  br label %124
 
-125:                                              ; preds = %121, %123
-  %.3 = phi i32 [ %.2.mux, %121 ], [ 0, %123 ]
-  %126 = tail call fastcc i32 @arkode_butcher_order4c(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not793 = icmp ne i32 %126, 0
+124:                                              ; preds = %120, %122
+  %.3 = phi i32 [ %.2.mux, %120 ], [ 0, %122 ]
+  %125 = tail call fastcc i32 @arkode_butcher_order4c(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not793 = icmp ne i32 %125, 0
   %brmerge872 = or i1 %.not, %.not793
   %.3.mux = select i1 %.not793, i32 %.3, i32 0
-  br i1 %brmerge872, label %129, label %127
+  br i1 %brmerge872, label %128, label %126
 
-127:                                              ; preds = %125
-  %128 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 35, i64 1, ptr nonnull %3)
-  br label %129
+126:                                              ; preds = %124
+  %127 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 35, i64 1, ptr nonnull %3)
+  br label %128
 
-129:                                              ; preds = %125, %127
-  %.4 = phi i32 [ %.3.mux, %125 ], [ 0, %127 ]
-  %130 = tail call fastcc i32 @arkode_butcher_order4d(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not794 = icmp ne i32 %130, 0
+128:                                              ; preds = %124, %126
+  %.4 = phi i32 [ %.3.mux, %124 ], [ 0, %126 ]
+  %129 = tail call fastcc i32 @arkode_butcher_order4d(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not794 = icmp ne i32 %129, 0
   %brmerge873 = or i1 %.not, %.not794
-  br i1 %brmerge873, label %132, label %.thread1010
+  br i1 %brmerge873, label %131, label %.thread1015
 
-.thread1010:                                      ; preds = %129
-  %131 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 35, i64 1, ptr nonnull %3)
-  br label %.thread1125
+.thread1015:                                      ; preds = %128
+  %130 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 35, i64 1, ptr nonnull %3)
+  br label %.thread1132
 
-132:                                              ; preds = %129
-  %.not7951088 = icmp ne i32 %.4, 0
-  %.not795.not = and i1 %.not7951088, %.not794
-  br i1 %.not795.not, label %.thread1015, label %.thread1125
+131:                                              ; preds = %128
+  %.not7951095 = icmp ne i32 %.4, 0
+  %.not795.not = and i1 %.not7951095, %.not794
+  br i1 %.not795.not, label %.thread1020, label %.thread1132
 
-.thread1015:                                      ; preds = %132
+.thread1020:                                      ; preds = %131
   store i32 4, ptr %1, align 4, !tbaa !25
-  br label %134
+  br label %133
 
-.thread1125:                                      ; preds = %65, %50, %.thread1010, %132, %114
-  %.pr1014 = load i32, ptr %1, align 4, !tbaa !25
-  %133 = icmp eq i32 %.pr1014, 4
-  br i1 %133, label %134, label %170
+.thread1132:                                      ; preds = %64, %arkode_butcher_order1.exit.thread, %.thread1015, %131, %113
+  %.pr1019 = load i32, ptr %1, align 4, !tbaa !25
+  %132 = icmp eq i32 %.pr1019, 4
+  br i1 %132, label %133, label %169
 
-134:                                              ; preds = %.thread1015, %.thread1125
-  %135 = tail call fastcc i32 @arkode_butcher_order5a(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not796 = icmp ne i32 %135, 0
+133:                                              ; preds = %.thread1020, %.thread1132
+  %134 = tail call fastcc i32 @arkode_butcher_order5a(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not796 = icmp ne i32 %134, 0
   %brmerge874 = or i1 %.not, %.not796
-  br i1 %brmerge874, label %138, label %136
+  br i1 %brmerge874, label %137, label %135
 
-136:                                              ; preds = %134
-  %137 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 35, i64 1, ptr nonnull %3)
-  br label %138
+135:                                              ; preds = %133
+  %136 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 35, i64 1, ptr nonnull %3)
+  br label %137
 
-138:                                              ; preds = %134, %136
-  %139 = tail call fastcc i32 @arkode_butcher_order5b(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not797 = icmp ne i32 %139, 0
+137:                                              ; preds = %133, %135
+  %138 = tail call fastcc i32 @arkode_butcher_order5b(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not797 = icmp ne i32 %138, 0
   %brmerge876 = or i1 %.not, %.not797
-  %.6.mux = select i1 %.not797, i32 %135, i32 0
-  br i1 %brmerge876, label %142, label %140
+  %.6.mux = select i1 %.not797, i32 %134, i32 0
+  br i1 %brmerge876, label %141, label %139
 
-140:                                              ; preds = %138
-  %141 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 35, i64 1, ptr nonnull %3)
-  br label %142
+139:                                              ; preds = %137
+  %140 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 35, i64 1, ptr nonnull %3)
+  br label %141
 
-142:                                              ; preds = %138, %140
-  %.7 = phi i32 [ %.6.mux, %138 ], [ 0, %140 ]
-  %143 = tail call fastcc i32 @arkode_butcher_order5c(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not798 = icmp ne i32 %143, 0
+141:                                              ; preds = %137, %139
+  %.7 = phi i32 [ %.6.mux, %137 ], [ 0, %139 ]
+  %142 = tail call fastcc i32 @arkode_butcher_order5c(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not798 = icmp ne i32 %142, 0
   %brmerge877 = or i1 %.not, %.not798
   %.7.mux = select i1 %.not798, i32 %.7, i32 0
-  br i1 %brmerge877, label %146, label %144
+  br i1 %brmerge877, label %145, label %143
 
-144:                                              ; preds = %142
-  %145 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 35, i64 1, ptr nonnull %3)
-  br label %146
+143:                                              ; preds = %141
+  %144 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 35, i64 1, ptr nonnull %3)
+  br label %145
 
-146:                                              ; preds = %142, %144
-  %.8 = phi i32 [ %.7.mux, %142 ], [ 0, %144 ]
-  %147 = tail call fastcc i32 @arkode_butcher_order5d(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not799 = icmp ne i32 %147, 0
+145:                                              ; preds = %141, %143
+  %.8 = phi i32 [ %.7.mux, %141 ], [ 0, %143 ]
+  %146 = tail call fastcc i32 @arkode_butcher_order5d(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not799 = icmp ne i32 %146, 0
   %brmerge878 = or i1 %.not, %.not799
   %.8.mux = select i1 %.not799, i32 %.8, i32 0
-  br i1 %brmerge878, label %150, label %148
+  br i1 %brmerge878, label %149, label %147
 
-148:                                              ; preds = %146
-  %149 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 35, i64 1, ptr nonnull %3)
-  br label %150
+147:                                              ; preds = %145
+  %148 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 35, i64 1, ptr nonnull %3)
+  br label %149
 
-150:                                              ; preds = %146, %148
-  %.9 = phi i32 [ %.8.mux, %146 ], [ 0, %148 ]
-  %151 = tail call fastcc i32 @arkode_butcher_order5e(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not800 = icmp ne i32 %151, 0
+149:                                              ; preds = %145, %147
+  %.9 = phi i32 [ %.8.mux, %145 ], [ 0, %147 ]
+  %150 = tail call fastcc i32 @arkode_butcher_order5e(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not800 = icmp ne i32 %150, 0
   %brmerge879 = or i1 %.not, %.not800
   %.9.mux = select i1 %.not800, i32 %.9, i32 0
-  br i1 %brmerge879, label %154, label %152
+  br i1 %brmerge879, label %153, label %151
 
-152:                                              ; preds = %150
-  %153 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr nonnull %3)
-  br label %154
+151:                                              ; preds = %149
+  %152 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr nonnull %3)
+  br label %153
 
-154:                                              ; preds = %150, %152
-  %.10 = phi i32 [ %.9.mux, %150 ], [ 0, %152 ]
-  %155 = tail call fastcc i32 @arkode_butcher_order5f(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not801 = icmp ne i32 %155, 0
+153:                                              ; preds = %149, %151
+  %.10 = phi i32 [ %.9.mux, %149 ], [ 0, %151 ]
+  %154 = tail call fastcc i32 @arkode_butcher_order5f(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not801 = icmp ne i32 %154, 0
   %brmerge880 = or i1 %.not, %.not801
   %.10.mux = select i1 %.not801, i32 %.10, i32 0
-  br i1 %brmerge880, label %158, label %156
+  br i1 %brmerge880, label %157, label %155
 
-156:                                              ; preds = %154
-  %157 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 35, i64 1, ptr nonnull %3)
-  br label %158
+155:                                              ; preds = %153
+  %156 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 35, i64 1, ptr nonnull %3)
+  br label %157
 
-158:                                              ; preds = %154, %156
-  %.11 = phi i32 [ %.10.mux, %154 ], [ 0, %156 ]
-  %159 = tail call fastcc i32 @arkode_butcher_order5g(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not802 = icmp ne i32 %159, 0
+157:                                              ; preds = %153, %155
+  %.11 = phi i32 [ %.10.mux, %153 ], [ 0, %155 ]
+  %158 = tail call fastcc i32 @arkode_butcher_order5g(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not802 = icmp ne i32 %158, 0
   %brmerge881 = or i1 %.not, %.not802
   %.11.mux = select i1 %.not802, i32 %.11, i32 0
-  br i1 %brmerge881, label %162, label %160
+  br i1 %brmerge881, label %161, label %159
 
-160:                                              ; preds = %158
-  %161 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 35, i64 1, ptr nonnull %3)
-  br label %162
+159:                                              ; preds = %157
+  %160 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 35, i64 1, ptr nonnull %3)
+  br label %161
 
-162:                                              ; preds = %158, %160
-  %.12 = phi i32 [ %.11.mux, %158 ], [ 0, %160 ]
-  %163 = tail call fastcc i32 @arkode_butcher_order5h(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not803 = icmp ne i32 %163, 0
+161:                                              ; preds = %157, %159
+  %.12 = phi i32 [ %.11.mux, %157 ], [ 0, %159 ]
+  %162 = tail call fastcc i32 @arkode_butcher_order5h(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not803 = icmp ne i32 %162, 0
   %brmerge882 = or i1 %.not, %.not803
   %.12.mux = select i1 %.not803, i32 %.12, i32 0
-  br i1 %brmerge882, label %166, label %164
+  br i1 %brmerge882, label %165, label %163
 
-164:                                              ; preds = %162
-  %165 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 35, i64 1, ptr nonnull %3)
-  br label %166
+163:                                              ; preds = %161
+  %164 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 35, i64 1, ptr nonnull %3)
+  br label %165
 
-166:                                              ; preds = %162, %164
-  %.13 = phi i32 [ %.12.mux, %162 ], [ 0, %164 ]
-  %167 = tail call fastcc i32 @arkode_butcher_order5i(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not804 = icmp ne i32 %167, 0
+165:                                              ; preds = %161, %163
+  %.13 = phi i32 [ %.12.mux, %161 ], [ 0, %163 ]
+  %166 = tail call fastcc i32 @arkode_butcher_order5i(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not804 = icmp ne i32 %166, 0
   %brmerge883 = or i1 %.not, %.not804
-  br i1 %brmerge883, label %169, label %.thread1017
+  br i1 %brmerge883, label %168, label %.thread1022
 
-.thread1017:                                      ; preds = %166
-  %168 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 35, i64 1, ptr nonnull %3)
-  br label %thread-pre-split1020
+.thread1022:                                      ; preds = %165
+  %167 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 35, i64 1, ptr nonnull %3)
+  br label %thread-pre-split1025
 
-169:                                              ; preds = %166
-  %.not8051089 = icmp ne i32 %.13, 0
-  %.not805.not = select i1 %.not804, i1 %.not8051089, i1 false
-  br i1 %.not805.not, label %.thread1022, label %thread-pre-split1020
+168:                                              ; preds = %165
+  %.not8051096 = icmp ne i32 %.13, 0
+  %.not805.not = select i1 %.not804, i1 %.not8051096, i1 false
+  br i1 %.not805.not, label %.thread1027, label %thread-pre-split1025
 
-.thread1022:                                      ; preds = %169
+.thread1027:                                      ; preds = %168
   store i32 5, ptr %1, align 4, !tbaa !25
-  br label %173
+  br label %172
 
-thread-pre-split1020:                             ; preds = %arkode_butcher_rowsum.exit, %169, %.thread1017
-  %.pr1021 = load i32, ptr %1, align 4, !tbaa !25
-  br label %170
+thread-pre-split1025:                             ; preds = %arkode_butcher_rowsum.exit, %168, %.thread1022
+  %.pr1026 = load i32, ptr %1, align 4, !tbaa !25
+  br label %169
 
-170:                                              ; preds = %thread-pre-split1020, %.thread1125
-  %171 = phi i32 [ %.pr1021, %thread-pre-split1020 ], [ %.pr1014, %.thread1125 ]
-  %172 = icmp eq i32 %171, 5
-  br i1 %172, label %173, label %249
+169:                                              ; preds = %thread-pre-split1025, %.thread1132
+  %170 = phi i32 [ %.pr1026, %thread-pre-split1025 ], [ %.pr1019, %.thread1132 ]
+  %171 = icmp eq i32 %170, 5
+  br i1 %171, label %172, label %248
 
-173:                                              ; preds = %.thread1022, %170
-  %174 = tail call fastcc i32 @arkode_butcher_order6a(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not806 = icmp ne i32 %174, 0
+172:                                              ; preds = %.thread1027, %169
+  %173 = tail call fastcc i32 @arkode_butcher_order6a(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not806 = icmp ne i32 %173, 0
   %brmerge884 = or i1 %.not, %.not806
-  br i1 %brmerge884, label %177, label %175
+  br i1 %brmerge884, label %176, label %174
 
-175:                                              ; preds = %173
-  %176 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 35, i64 1, ptr nonnull %3)
-  br label %177
+174:                                              ; preds = %172
+  %175 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 35, i64 1, ptr nonnull %3)
+  br label %176
 
-177:                                              ; preds = %173, %175
-  %178 = tail call fastcc i32 @arkode_butcher_order6b(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not807 = icmp ne i32 %178, 0
+176:                                              ; preds = %172, %174
+  %177 = tail call fastcc i32 @arkode_butcher_order6b(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not807 = icmp ne i32 %177, 0
   %brmerge886 = or i1 %.not, %.not807
-  %.15.mux = select i1 %.not807, i32 %174, i32 0
-  br i1 %brmerge886, label %181, label %179
+  %.15.mux = select i1 %.not807, i32 %173, i32 0
+  br i1 %brmerge886, label %180, label %178
 
-179:                                              ; preds = %177
-  %180 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 35, i64 1, ptr nonnull %3)
-  br label %181
+178:                                              ; preds = %176
+  %179 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 35, i64 1, ptr nonnull %3)
+  br label %180
 
-181:                                              ; preds = %177, %179
-  %.16 = phi i32 [ %.15.mux, %177 ], [ 0, %179 ]
-  %182 = tail call fastcc i32 @arkode_butcher_order6c(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not808 = icmp ne i32 %182, 0
+180:                                              ; preds = %176, %178
+  %.16 = phi i32 [ %.15.mux, %176 ], [ 0, %178 ]
+  %181 = tail call fastcc i32 @arkode_butcher_order6c(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not808 = icmp ne i32 %181, 0
   %brmerge887 = or i1 %.not, %.not808
   %.16.mux = select i1 %.not808, i32 %.16, i32 0
-  br i1 %brmerge887, label %185, label %183
+  br i1 %brmerge887, label %184, label %182
 
-183:                                              ; preds = %181
-  %184 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 35, i64 1, ptr nonnull %3)
-  br label %185
+182:                                              ; preds = %180
+  %183 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 35, i64 1, ptr nonnull %3)
+  br label %184
 
-185:                                              ; preds = %181, %183
-  %.17 = phi i32 [ %.16.mux, %181 ], [ 0, %183 ]
-  %186 = tail call fastcc i32 @arkode_butcher_order6d(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not809 = icmp ne i32 %186, 0
+184:                                              ; preds = %180, %182
+  %.17 = phi i32 [ %.16.mux, %180 ], [ 0, %182 ]
+  %185 = tail call fastcc i32 @arkode_butcher_order6d(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not809 = icmp ne i32 %185, 0
   %brmerge888 = or i1 %.not, %.not809
   %.17.mux = select i1 %.not809, i32 %.17, i32 0
-  br i1 %brmerge888, label %189, label %187
+  br i1 %brmerge888, label %188, label %186
 
-187:                                              ; preds = %185
-  %188 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 35, i64 1, ptr nonnull %3)
-  br label %189
+186:                                              ; preds = %184
+  %187 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 35, i64 1, ptr nonnull %3)
+  br label %188
 
-189:                                              ; preds = %185, %187
-  %.18 = phi i32 [ %.17.mux, %185 ], [ 0, %187 ]
-  %190 = tail call fastcc i32 @arkode_butcher_order6e(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not810 = icmp ne i32 %190, 0
+188:                                              ; preds = %184, %186
+  %.18 = phi i32 [ %.17.mux, %184 ], [ 0, %186 ]
+  %189 = tail call fastcc i32 @arkode_butcher_order6e(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not810 = icmp ne i32 %189, 0
   %brmerge889 = or i1 %.not, %.not810
   %.18.mux = select i1 %.not810, i32 %.18, i32 0
-  br i1 %brmerge889, label %193, label %191
+  br i1 %brmerge889, label %192, label %190
 
-191:                                              ; preds = %189
-  %192 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 35, i64 1, ptr nonnull %3)
-  br label %193
+190:                                              ; preds = %188
+  %191 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 35, i64 1, ptr nonnull %3)
+  br label %192
 
-193:                                              ; preds = %189, %191
-  %.19 = phi i32 [ %.18.mux, %189 ], [ 0, %191 ]
-  %194 = tail call fastcc i32 @arkode_butcher_order6f(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not811 = icmp ne i32 %194, 0
+192:                                              ; preds = %188, %190
+  %.19 = phi i32 [ %.18.mux, %188 ], [ 0, %190 ]
+  %193 = tail call fastcc i32 @arkode_butcher_order6f(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not811 = icmp ne i32 %193, 0
   %brmerge890 = or i1 %.not, %.not811
   %.19.mux = select i1 %.not811, i32 %.19, i32 0
-  br i1 %brmerge890, label %197, label %195
+  br i1 %brmerge890, label %196, label %194
 
-195:                                              ; preds = %193
-  %196 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 35, i64 1, ptr nonnull %3)
-  br label %197
+194:                                              ; preds = %192
+  %195 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 35, i64 1, ptr nonnull %3)
+  br label %196
 
-197:                                              ; preds = %193, %195
-  %.20 = phi i32 [ %.19.mux, %193 ], [ 0, %195 ]
-  %198 = tail call fastcc i32 @arkode_butcher_order6g(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not812 = icmp ne i32 %198, 0
+196:                                              ; preds = %192, %194
+  %.20 = phi i32 [ %.19.mux, %192 ], [ 0, %194 ]
+  %197 = tail call fastcc i32 @arkode_butcher_order6g(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not812 = icmp ne i32 %197, 0
   %brmerge891 = or i1 %.not, %.not812
   %.20.mux = select i1 %.not812, i32 %.20, i32 0
-  br i1 %brmerge891, label %201, label %199
+  br i1 %brmerge891, label %200, label %198
 
-199:                                              ; preds = %197
-  %200 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 35, i64 1, ptr nonnull %3)
-  br label %201
+198:                                              ; preds = %196
+  %199 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 35, i64 1, ptr nonnull %3)
+  br label %200
 
-201:                                              ; preds = %197, %199
-  %.21 = phi i32 [ %.20.mux, %197 ], [ 0, %199 ]
-  %202 = tail call fastcc i32 @arkode_butcher_order6h(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not813 = icmp ne i32 %202, 0
+200:                                              ; preds = %196, %198
+  %.21 = phi i32 [ %.20.mux, %196 ], [ 0, %198 ]
+  %201 = tail call fastcc i32 @arkode_butcher_order6h(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not813 = icmp ne i32 %201, 0
   %brmerge892 = or i1 %.not, %.not813
   %.21.mux = select i1 %.not813, i32 %.21, i32 0
-  br i1 %brmerge892, label %205, label %203
+  br i1 %brmerge892, label %204, label %202
 
-203:                                              ; preds = %201
-  %204 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 35, i64 1, ptr nonnull %3)
-  br label %205
+202:                                              ; preds = %200
+  %203 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 35, i64 1, ptr nonnull %3)
+  br label %204
 
-205:                                              ; preds = %201, %203
-  %.22 = phi i32 [ %.21.mux, %201 ], [ 0, %203 ]
-  %206 = tail call fastcc i32 @arkode_butcher_order6i(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not814 = icmp ne i32 %206, 0
+204:                                              ; preds = %200, %202
+  %.22 = phi i32 [ %.21.mux, %200 ], [ 0, %202 ]
+  %205 = tail call fastcc i32 @arkode_butcher_order6i(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not814 = icmp ne i32 %205, 0
   %brmerge893 = or i1 %.not, %.not814
   %.22.mux = select i1 %.not814, i32 %.22, i32 0
-  br i1 %brmerge893, label %209, label %207
+  br i1 %brmerge893, label %208, label %206
 
-207:                                              ; preds = %205
-  %208 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 35, i64 1, ptr nonnull %3)
-  br label %209
+206:                                              ; preds = %204
+  %207 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 35, i64 1, ptr nonnull %3)
+  br label %208
 
-209:                                              ; preds = %205, %207
-  %.23 = phi i32 [ %.22.mux, %205 ], [ 0, %207 ]
-  %210 = tail call fastcc i32 @arkode_butcher_order6j(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not815 = icmp ne i32 %210, 0
+208:                                              ; preds = %204, %206
+  %.23 = phi i32 [ %.22.mux, %204 ], [ 0, %206 ]
+  %209 = tail call fastcc i32 @arkode_butcher_order6j(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not815 = icmp ne i32 %209, 0
   %brmerge894 = or i1 %.not, %.not815
   %.23.mux = select i1 %.not815, i32 %.23, i32 0
-  br i1 %brmerge894, label %213, label %211
+  br i1 %brmerge894, label %212, label %210
 
-211:                                              ; preds = %209
-  %212 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 35, i64 1, ptr nonnull %3)
-  br label %213
+210:                                              ; preds = %208
+  %211 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 35, i64 1, ptr nonnull %3)
+  br label %212
 
-213:                                              ; preds = %209, %211
-  %.24 = phi i32 [ %.23.mux, %209 ], [ 0, %211 ]
-  %214 = tail call fastcc i32 @arkode_butcher_order6k(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not816 = icmp ne i32 %214, 0
+212:                                              ; preds = %208, %210
+  %.24 = phi i32 [ %.23.mux, %208 ], [ 0, %210 ]
+  %213 = tail call fastcc i32 @arkode_butcher_order6k(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not816 = icmp ne i32 %213, 0
   %brmerge895 = or i1 %.not, %.not816
   %.24.mux = select i1 %.not816, i32 %.24, i32 0
-  br i1 %brmerge895, label %217, label %215
+  br i1 %brmerge895, label %216, label %214
 
-215:                                              ; preds = %213
-  %216 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 35, i64 1, ptr nonnull %3)
-  br label %217
+214:                                              ; preds = %212
+  %215 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 35, i64 1, ptr nonnull %3)
+  br label %216
 
-217:                                              ; preds = %213, %215
-  %.25 = phi i32 [ %.24.mux, %213 ], [ 0, %215 ]
-  %218 = tail call fastcc i32 @arkode_butcher_order6l(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not817 = icmp ne i32 %218, 0
+216:                                              ; preds = %212, %214
+  %.25 = phi i32 [ %.24.mux, %212 ], [ 0, %214 ]
+  %217 = tail call fastcc i32 @arkode_butcher_order6l(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not817 = icmp ne i32 %217, 0
   %brmerge896 = or i1 %.not, %.not817
   %.25.mux = select i1 %.not817, i32 %.25, i32 0
-  br i1 %brmerge896, label %221, label %219
+  br i1 %brmerge896, label %220, label %218
 
-219:                                              ; preds = %217
-  %220 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 35, i64 1, ptr nonnull %3)
-  br label %221
+218:                                              ; preds = %216
+  %219 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 35, i64 1, ptr nonnull %3)
+  br label %220
 
-221:                                              ; preds = %217, %219
-  %.26 = phi i32 [ %.25.mux, %217 ], [ 0, %219 ]
-  %222 = tail call fastcc i32 @arkode_butcher_order6m(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not818 = icmp ne i32 %222, 0
+220:                                              ; preds = %216, %218
+  %.26 = phi i32 [ %.25.mux, %216 ], [ 0, %218 ]
+  %221 = tail call fastcc i32 @arkode_butcher_order6m(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not818 = icmp ne i32 %221, 0
   %brmerge897 = or i1 %.not, %.not818
   %.26.mux = select i1 %.not818, i32 %.26, i32 0
-  br i1 %brmerge897, label %225, label %223
+  br i1 %brmerge897, label %224, label %222
 
-223:                                              ; preds = %221
-  %224 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 35, i64 1, ptr nonnull %3)
-  br label %225
+222:                                              ; preds = %220
+  %223 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 35, i64 1, ptr nonnull %3)
+  br label %224
 
-225:                                              ; preds = %221, %223
-  %.27 = phi i32 [ %.26.mux, %221 ], [ 0, %223 ]
-  %226 = tail call fastcc i32 @arkode_butcher_order6n(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not819 = icmp ne i32 %226, 0
+224:                                              ; preds = %220, %222
+  %.27 = phi i32 [ %.26.mux, %220 ], [ 0, %222 ]
+  %225 = tail call fastcc i32 @arkode_butcher_order6n(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not819 = icmp ne i32 %225, 0
   %brmerge898 = or i1 %.not, %.not819
   %.27.mux = select i1 %.not819, i32 %.27, i32 0
-  br i1 %brmerge898, label %229, label %227
+  br i1 %brmerge898, label %228, label %226
 
-227:                                              ; preds = %225
-  %228 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 35, i64 1, ptr nonnull %3)
-  br label %229
+226:                                              ; preds = %224
+  %227 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 35, i64 1, ptr nonnull %3)
+  br label %228
 
-229:                                              ; preds = %225, %227
-  %.28 = phi i32 [ %.27.mux, %225 ], [ 0, %227 ]
-  %230 = tail call fastcc i32 @arkode_butcher_order6o(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not820 = icmp ne i32 %230, 0
+228:                                              ; preds = %224, %226
+  %.28 = phi i32 [ %.27.mux, %224 ], [ 0, %226 ]
+  %229 = tail call fastcc i32 @arkode_butcher_order6o(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not820 = icmp ne i32 %229, 0
   %brmerge899 = or i1 %.not, %.not820
   %.28.mux = select i1 %.not820, i32 %.28, i32 0
-  br i1 %brmerge899, label %233, label %231
+  br i1 %brmerge899, label %232, label %230
 
-231:                                              ; preds = %229
-  %232 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 35, i64 1, ptr nonnull %3)
-  br label %233
+230:                                              ; preds = %228
+  %231 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 35, i64 1, ptr nonnull %3)
+  br label %232
 
-233:                                              ; preds = %229, %231
-  %.29 = phi i32 [ %.28.mux, %229 ], [ 0, %231 ]
-  %234 = tail call fastcc i32 @arkode_butcher_order6p(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not821 = icmp ne i32 %234, 0
+232:                                              ; preds = %228, %230
+  %.29 = phi i32 [ %.28.mux, %228 ], [ 0, %230 ]
+  %233 = tail call fastcc i32 @arkode_butcher_order6p(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not821 = icmp ne i32 %233, 0
   %brmerge900 = or i1 %.not, %.not821
   %.29.mux = select i1 %.not821, i32 %.29, i32 0
-  br i1 %brmerge900, label %237, label %235
+  br i1 %brmerge900, label %236, label %234
 
-235:                                              ; preds = %233
-  %236 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 35, i64 1, ptr nonnull %3)
-  br label %237
+234:                                              ; preds = %232
+  %235 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 35, i64 1, ptr nonnull %3)
+  br label %236
 
-237:                                              ; preds = %233, %235
-  %.30 = phi i32 [ %.29.mux, %233 ], [ 0, %235 ]
-  %238 = tail call fastcc i32 @arkode_butcher_order6q(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not822 = icmp ne i32 %238, 0
+236:                                              ; preds = %232, %234
+  %.30 = phi i32 [ %.29.mux, %232 ], [ 0, %234 ]
+  %237 = tail call fastcc i32 @arkode_butcher_order6q(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not822 = icmp ne i32 %237, 0
   %brmerge901 = or i1 %.not, %.not822
   %.30.mux = select i1 %.not822, i32 %.30, i32 0
-  br i1 %brmerge901, label %241, label %239
+  br i1 %brmerge901, label %240, label %238
 
-239:                                              ; preds = %237
-  %240 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 35, i64 1, ptr nonnull %3)
-  br label %241
+238:                                              ; preds = %236
+  %239 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 35, i64 1, ptr nonnull %3)
+  br label %240
 
-241:                                              ; preds = %237, %239
-  %.31 = phi i32 [ %.30.mux, %237 ], [ 0, %239 ]
-  %242 = tail call fastcc i32 @arkode_butcher_order6r(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not823 = icmp ne i32 %242, 0
+240:                                              ; preds = %236, %238
+  %.31 = phi i32 [ %.30.mux, %236 ], [ 0, %238 ]
+  %241 = tail call fastcc i32 @arkode_butcher_order6r(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not823 = icmp ne i32 %241, 0
   %brmerge902 = or i1 %.not, %.not823
   %.31.mux = select i1 %.not823, i32 %.31, i32 0
-  br i1 %brmerge902, label %245, label %243
+  br i1 %brmerge902, label %244, label %242
 
-243:                                              ; preds = %241
-  %244 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 35, i64 1, ptr nonnull %3)
-  br label %245
+242:                                              ; preds = %240
+  %243 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 35, i64 1, ptr nonnull %3)
+  br label %244
 
-245:                                              ; preds = %241, %243
-  %.32 = phi i32 [ %.31.mux, %241 ], [ 0, %243 ]
-  %246 = tail call fastcc i32 @arkode_butcher_order6s(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not824 = icmp ne i32 %246, 0
+244:                                              ; preds = %240, %242
+  %.32 = phi i32 [ %.31.mux, %240 ], [ 0, %242 ]
+  %245 = tail call fastcc i32 @arkode_butcher_order6s(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not824 = icmp ne i32 %245, 0
   %brmerge903 = or i1 %.not, %.not824
-  br i1 %brmerge903, label %248, label %.thread1023
+  br i1 %brmerge903, label %247, label %.thread1028
 
-.thread1023:                                      ; preds = %245
-  %247 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 35, i64 1, ptr nonnull %3)
-  br label %249
+.thread1028:                                      ; preds = %244
+  %246 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 35, i64 1, ptr nonnull %3)
+  br label %248
 
-248:                                              ; preds = %245
-  %.not8251090 = icmp ne i32 %.32, 0
-  %.not825.not = select i1 %.not824, i1 %.not8251090, i1 false
-  br i1 %.not825.not, label %.thread1028, label %249
+247:                                              ; preds = %244
+  %.not8251097 = icmp ne i32 %.32, 0
+  %.not825.not = select i1 %.not824, i1 %.not8251097, i1 false
+  br i1 %.not825.not, label %.thread1033, label %248
 
-.thread1028:                                      ; preds = %248
+.thread1033:                                      ; preds = %247
   store i32 6, ptr %1, align 4, !tbaa !25
-  br label %251
+  br label %250
 
-249:                                              ; preds = %.thread1023, %248, %170
-  %.pr1027 = load i32, ptr %1, align 4, !tbaa !25
-  %250 = icmp eq i32 %.pr1027, 6
-  br i1 %250, label %251, label %257
+248:                                              ; preds = %.thread1028, %247, %169
+  %.pr1032 = load i32, ptr %1, align 4, !tbaa !25
+  %249 = icmp eq i32 %.pr1032, 6
+  br i1 %249, label %250, label %251
 
-251:                                              ; preds = %.thread1028, %249
-  br i1 %.not, label %254, label %252
+250:                                              ; preds = %.thread1033, %248
+  br i1 %.not, label %.thread1042, label %.thread1034
 
-252:                                              ; preds = %251
-  %253 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 58, i64 1, ptr nonnull %3)
-  br label %254
+251:                                              ; preds = %248
+  %.not826 = icmp eq ptr %27, null
+  br i1 %.not826, label %451, label %258
 
-254:                                              ; preds = %252, %251
+.thread1042:                                      ; preds = %250
+  %252 = tail call fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef nonnull %12, ptr noundef %23, ptr noundef %19, i32 noundef %8)
+  %253 = load i32, ptr %1, align 4, !tbaa !25
+  %..c = tail call i32 @llvm.smax.i32(i32 %253, i32 %252)
+  store i32 %..c, ptr %1, align 4, !tbaa !25
+  %.not8261043 = icmp eq ptr %27, null
+  br i1 %.not8261043, label %451, label %.preheader.us.i968.preheader
+
+.thread1034:                                      ; preds = %250
+  %254 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 58, i64 1, ptr nonnull %3)
   %255 = tail call fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef nonnull %12, ptr noundef %23, ptr noundef %19, i32 noundef %8)
   %256 = load i32, ptr %1, align 4, !tbaa !25
   %. = tail call i32 @llvm.smax.i32(i32 %256, i32 %255)
   store i32 %., ptr %1, align 4, !tbaa !25
-  br i1 %.not, label %.thread1037, label %.thread1029
+  %257 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i32 noundef %.) #17
+  %.not8261035 = icmp eq ptr %27, null
+  br i1 %.not8261035, label %451, label %.thread1038
 
-257:                                              ; preds = %249
-  %.not826 = icmp eq ptr %27, null
-  br i1 %.not826, label %453, label %259
+258:                                              ; preds = %251
+  br i1 %.not, label %.preheader.us.i968.preheader, label %.thread1038
 
-.thread1037:                                      ; preds = %254
-  %.not8261038 = icmp eq ptr %27, null
-  br i1 %.not8261038, label %453, label %.preheader.us.i966.preheader
-
-.thread1029:                                      ; preds = %254
-  %258 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i32 noundef %.) #17
-  %.not8261030 = icmp eq ptr %27, null
-  br i1 %.not8261030, label %453, label %.thread1033
-
-259:                                              ; preds = %257
-  br i1 %.not, label %.preheader.us.i966.preheader, label %.thread1033
-
-.thread1033:                                      ; preds = %.thread1029, %259
+.thread1038:                                      ; preds = %.thread1034, %258
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %3)
-  br label %.preheader.us.i966.preheader
+  br label %.preheader.us.i968.preheader
 
-.preheader.us.i966.preheader:                     ; preds = %259, %.thread1033, %.thread1037
-  br label %.preheader.us.i966
+.preheader.us.i968.preheader:                     ; preds = %258, %.thread1038, %.thread1042
+  br label %.preheader.us.i968
 
-.preheader.us.i966:                               ; preds = %.preheader.us.i966.preheader, %266
-  %indvars.iv26.i967 = phi i64 [ %indvars.iv.next27.i973, %266 ], [ 0, %.preheader.us.i966.preheader ]
-  %260 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv26.i967
-  %261 = load ptr, ptr %260, align 8, !tbaa !12
-  br label %262
+.preheader.us.i968:                               ; preds = %.preheader.us.i968.preheader, %265
+  %indvars.iv26.i969 = phi i64 [ %indvars.iv.next27.i975, %265 ], [ 0, %.preheader.us.i968.preheader ]
+  %259 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv26.i969
+  %260 = load ptr, ptr %259, align 8, !tbaa !12
+  br label %261
 
-262:                                              ; preds = %262, %.preheader.us.i966
-  %indvars.iv.i968 = phi i64 [ 0, %.preheader.us.i966 ], [ %indvars.iv.next.i970, %262 ]
-  %.018.us.i969 = phi double [ 0.000000e+00, %.preheader.us.i966 ], [ %265, %262 ]
-  %263 = getelementptr inbounds nuw double, ptr %261, i64 %indvars.iv.i968
-  %264 = load double, ptr %263, align 8, !tbaa !18
-  %265 = fadd double %.018.us.i969, %264
-  %indvars.iv.next.i970 = add nuw nsw i64 %indvars.iv.i968, 1
-  %exitcond.not.i971 = icmp eq i64 %indvars.iv.next.i970, %wide.trip.count29.i
-  br i1 %exitcond.not.i971, label %._crit_edge.us.i972, label %262
+261:                                              ; preds = %261, %.preheader.us.i968
+  %indvars.iv.i970 = phi i64 [ 0, %.preheader.us.i968 ], [ %indvars.iv.next.i972, %261 ]
+  %.018.us.i971 = phi double [ 0.000000e+00, %.preheader.us.i968 ], [ %264, %261 ]
+  %262 = getelementptr inbounds nuw double, ptr %260, i64 %indvars.iv.i970
+  %263 = load double, ptr %262, align 8, !tbaa !18
+  %264 = fadd double %.018.us.i971, %263
+  %indvars.iv.next.i972 = add nuw nsw i64 %indvars.iv.i970, 1
+  %exitcond.not.i973 = icmp eq i64 %indvars.iv.next.i972, %wide.trip.count29.i
+  br i1 %exitcond.not.i973, label %._crit_edge.us.i974, label %261
 
-266:                                              ; preds = %._crit_edge.us.i972
-  %indvars.iv.next27.i973 = add nuw nsw i64 %indvars.iv26.i967, 1
-  %exitcond30.not.i974 = icmp eq i64 %indvars.iv.next27.i973, %wide.trip.count29.i
-  br i1 %exitcond30.not.i974, label %.thread1044, label %.preheader.us.i966, !llvm.loop !26
+265:                                              ; preds = %._crit_edge.us.i974
+  %indvars.iv.next27.i975 = add nuw nsw i64 %indvars.iv26.i969, 1
+  %exitcond30.not.i976 = icmp eq i64 %indvars.iv.next27.i975, %wide.trip.count29.i
+  br i1 %exitcond30.not.i976, label %.thread1049, label %.preheader.us.i968, !llvm.loop !26
 
-._crit_edge.us.i972:                              ; preds = %262
-  %267 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv26.i967
-  %268 = load double, ptr %267, align 8, !tbaa !18
-  %269 = fsub double %265, %268
-  %270 = tail call double @llvm.fabs.f64(double %269)
-  %271 = fcmp ogt double %270, 0x3E50000000000000
-  br i1 %271, label %arkode_butcher_rowsum.exit975, label %266
+._crit_edge.us.i974:                              ; preds = %261
+  %266 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv26.i969
+  %267 = load double, ptr %266, align 8, !tbaa !18
+  %268 = fsub double %264, %267
+  %269 = tail call double @llvm.fabs.f64(double %268)
+  %270 = fcmp ogt double %269, 0x3E50000000000000
+  br i1 %270, label %arkode_butcher_rowsum.exit977, label %265
 
-.thread1044:                                      ; preds = %266
+.thread1049:                                      ; preds = %265
   store i32 0, ptr %2, align 4, !tbaa !25
-  br label %.lr.ph.i979.preheader
+  br label %.lr.ph.i981.preheader
 
-arkode_butcher_rowsum.exit975:                    ; preds = %._crit_edge.us.i972
+arkode_butcher_rowsum.exit977:                    ; preds = %._crit_edge.us.i974
   store i32 -1, ptr %2, align 4, !tbaa !25
-  br i1 %.not, label %thread-pre-split1071, label %272
+  br i1 %.not, label %thread-pre-split1078, label %271
 
-272:                                              ; preds = %arkode_butcher_rowsum.exit975
-  %273 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 36, i64 1, ptr nonnull %3)
-  %.pr1043 = load i32, ptr %2, align 4, !tbaa !25
-  %274 = icmp eq i32 %.pr1043, 0
-  br i1 %274, label %.lr.ph.i979.preheader, label %thread-pre-split1046
+271:                                              ; preds = %arkode_butcher_rowsum.exit977
+  %272 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 36, i64 1, ptr nonnull %3)
+  %.pr1048 = load i32, ptr %2, align 4, !tbaa !25
+  %273 = icmp eq i32 %.pr1048, 0
+  br i1 %273, label %.lr.ph.i981.preheader, label %thread-pre-split1053
 
-.lr.ph.i979.preheader:                            ; preds = %272, %.thread1044
-  br label %.lr.ph.i979
+.lr.ph.i981.preheader:                            ; preds = %271, %.thread1049
+  br label %.lr.ph.i981
 
-.lr.ph.i979:                                      ; preds = %.lr.ph.i979.preheader, %.lr.ph.i979
-  %indvars.iv.i980 = phi i64 [ %indvars.iv.next.i982, %.lr.ph.i979 ], [ 0, %.lr.ph.i979.preheader ]
-  %.08.i981 = phi double [ %277, %.lr.ph.i979 ], [ 1.000000e+00, %.lr.ph.i979.preheader ]
-  %275 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i980
-  %276 = load double, ptr %275, align 8, !tbaa !18
-  %277 = fsub double %.08.i981, %276
-  %indvars.iv.next.i982 = add nuw nsw i64 %indvars.iv.i980, 1
-  %exitcond.not.i983 = icmp eq i64 %indvars.iv.next.i982, %wide.trip.count29.i
-  br i1 %exitcond.not.i983, label %arkode_butcher_order1.exit984, label %.lr.ph.i979
+.lr.ph.i981:                                      ; preds = %.lr.ph.i981.preheader, %.lr.ph.i981
+  %indvars.iv.i982 = phi i64 [ %indvars.iv.next.i984, %.lr.ph.i981 ], [ 0, %.lr.ph.i981.preheader ]
+  %.08.i983 = phi double [ %276, %.lr.ph.i981 ], [ 1.000000e+00, %.lr.ph.i981.preheader ]
+  %274 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i982
+  %275 = load double, ptr %274, align 8, !tbaa !18
+  %276 = fsub double %.08.i983, %275
+  %indvars.iv.next.i984 = add nuw nsw i64 %indvars.iv.i982, 1
+  %exitcond.not.i985 = icmp eq i64 %indvars.iv.next.i984, %wide.trip.count29.i
+  br i1 %exitcond.not.i985, label %arkode_butcher_order1.exit987, label %.lr.ph.i981
 
-arkode_butcher_order1.exit984:                    ; preds = %.lr.ph.i979
-  %278 = tail call double @llvm.fabs.f64(double %277)
-  %279 = fcmp ogt double %278, 0x3E50000000000000
-  br i1 %279, label %280, label %.thread1048
+arkode_butcher_order1.exit987:                    ; preds = %.lr.ph.i981
+  %277 = tail call double @llvm.fabs.f64(double %276)
+  %278 = fcmp ogt double %277, 0x3E50000000000000
+  br i1 %278, label %arkode_butcher_order1.exit987.thread, label %.thread1055
 
-.thread1048:                                      ; preds = %arkode_butcher_order1.exit984
+.thread1055:                                      ; preds = %arkode_butcher_order1.exit987
   store i32 1, ptr %2, align 4, !tbaa !25
-  br label %.preheader1147
+  br label %.preheader1154
 
-280:                                              ; preds = %arkode_butcher_order1.exit984
-  br i1 %.not, label %.thread1129, label %281
+arkode_butcher_order1.exit987.thread:             ; preds = %arkode_butcher_order1.exit987
+  br i1 %.not, label %.thread1136, label %279
 
-281:                                              ; preds = %280
-  %282 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 36, i64 1, ptr nonnull %3)
-  %.pr1047.pre = load i32, ptr %2, align 4, !tbaa !25
-  br label %thread-pre-split1046
+279:                                              ; preds = %arkode_butcher_order1.exit987.thread
+  %280 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 36, i64 1, ptr nonnull %3)
+  %.pr1054.pre = load i32, ptr %2, align 4, !tbaa !25
+  br label %thread-pre-split1053
 
-thread-pre-split1046:                             ; preds = %281, %272
-  %283 = phi i32 [ %.pr1043, %272 ], [ %.pr1047.pre, %281 ]
-  %284 = icmp eq i32 %283, 1
-  br i1 %284, label %.preheader1147, label %298
+thread-pre-split1053:                             ; preds = %279, %271
+  %281 = phi i32 [ %.pr1048, %271 ], [ %.pr1054.pre, %279 ]
+  %282 = icmp eq i32 %281, 1
+  br i1 %282, label %.preheader1154, label %296
 
-.preheader1147:                                   ; preds = %thread-pre-split1046, %.thread1048
-  br label %285
+.preheader1154:                                   ; preds = %thread-pre-split1053, %.thread1055
+  br label %283
 
-285:                                              ; preds = %.preheader1147, %285
-  %indvars.iv.i.i988 = phi i64 [ %indvars.iv.next.i.i989, %285 ], [ 0, %.preheader1147 ]
-  %286 = phi double [ %291, %285 ], [ 0.000000e+00, %.preheader1147 ]
-  %287 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i.i988
+283:                                              ; preds = %.preheader1154, %283
+  %indvars.iv.i.i991 = phi i64 [ %indvars.iv.next.i.i992, %283 ], [ 0, %.preheader1154 ]
+  %284 = phi double [ %289, %283 ], [ 0.000000e+00, %.preheader1154 ]
+  %285 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i.i991
+  %286 = load double, ptr %285, align 8, !tbaa !18
+  %287 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i991
   %288 = load double, ptr %287, align 8, !tbaa !18
-  %289 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i988
-  %290 = load double, ptr %289, align 8, !tbaa !18
-  %291 = tail call double @llvm.fmuladd.f64(double %288, double %290, double %286)
-  %indvars.iv.next.i.i989 = add nuw nsw i64 %indvars.iv.i.i988, 1
-  %exitcond.not.i.i990 = icmp eq i64 %indvars.iv.next.i.i989, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i990, label %arkode_butcher_order2.exit992, label %285
+  %289 = tail call double @llvm.fmuladd.f64(double %286, double %288, double %284)
+  %indvars.iv.next.i.i992 = add nuw nsw i64 %indvars.iv.i.i991, 1
+  %exitcond.not.i.i993 = icmp eq i64 %indvars.iv.next.i.i992, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i993, label %arkode_butcher_order2.exit995, label %283
 
-arkode_butcher_order2.exit992:                    ; preds = %285
-  %292 = fadd double %291, -5.000000e-01
-  %293 = tail call double @llvm.fabs.f64(double %292)
-  %294 = fcmp ogt double %293, 0x3E50000000000000
-  br i1 %294, label %295, label %.thread1052
+arkode_butcher_order2.exit995:                    ; preds = %283
+  %290 = fadd double %289, -5.000000e-01
+  %291 = tail call double @llvm.fabs.f64(double %290)
+  %292 = fcmp ogt double %291, 0x3E50000000000000
+  br i1 %292, label %293, label %.thread1059
 
-.thread1052:                                      ; preds = %arkode_butcher_order2.exit992
+.thread1059:                                      ; preds = %arkode_butcher_order2.exit995
   store i32 2, ptr %2, align 4, !tbaa !25
-  br label %300
-
-295:                                              ; preds = %arkode_butcher_order2.exit992
-  br i1 %.not, label %.thread1129, label %296
-
-296:                                              ; preds = %295
-  %297 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 36, i64 1, ptr nonnull %3)
-  %.pr1051.pre = load i32, ptr %2, align 4, !tbaa !25
   br label %298
 
-298:                                              ; preds = %296, %thread-pre-split1046
-  %.pr1051 = phi i32 [ %.pr1051.pre, %296 ], [ %283, %thread-pre-split1046 ]
-  %299 = icmp eq i32 %.pr1051, 2
-  br i1 %299, label %300, label %308
+293:                                              ; preds = %arkode_butcher_order2.exit995
+  br i1 %.not, label %.thread1136, label %294
 
-300:                                              ; preds = %.thread1052, %298
-  %301 = tail call fastcc i32 @arkode_butcher_order3a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not830 = icmp ne i32 %301, 0
+294:                                              ; preds = %293
+  %295 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 36, i64 1, ptr nonnull %3)
+  %.pr1058.pre = load i32, ptr %2, align 4, !tbaa !25
+  br label %296
+
+296:                                              ; preds = %294, %thread-pre-split1053
+  %.pr1058 = phi i32 [ %.pr1058.pre, %294 ], [ %281, %thread-pre-split1053 ]
+  %297 = icmp eq i32 %.pr1058, 2
+  br i1 %297, label %298, label %306
+
+298:                                              ; preds = %.thread1059, %296
+  %299 = tail call fastcc i32 @arkode_butcher_order3a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not830 = icmp ne i32 %299, 0
   %brmerge904 = or i1 %.not, %.not830
-  br i1 %brmerge904, label %304, label %302
+  br i1 %brmerge904, label %302, label %300
 
-302:                                              ; preds = %300
-  %303 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 38, i64 1, ptr nonnull %3)
-  br label %304
+300:                                              ; preds = %298
+  %301 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 38, i64 1, ptr nonnull %3)
+  br label %302
 
-304:                                              ; preds = %300, %302
-  %305 = tail call fastcc i32 @arkode_butcher_order3b(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not831 = icmp ne i32 %305, 0
+302:                                              ; preds = %298, %300
+  %303 = tail call fastcc i32 @arkode_butcher_order3b(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not831 = icmp ne i32 %303, 0
   %brmerge906 = or i1 %.not, %.not831
-  br i1 %brmerge906, label %307, label %.thread1054
+  br i1 %brmerge906, label %305, label %.thread1061
 
-.thread1054:                                      ; preds = %304
-  %306 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 38, i64 1, ptr nonnull %3)
-  br label %thread-pre-split1057
+.thread1061:                                      ; preds = %302
+  %304 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 38, i64 1, ptr nonnull %3)
+  br label %thread-pre-split1064
 
-307:                                              ; preds = %304
-  %.not8321091 = icmp ne i32 %301, 0
-  %.not832.not = and i1 %.not8321091, %.not831
-  br i1 %.not832.not, label %.thread1059, label %thread-pre-split1057
+305:                                              ; preds = %302
+  %.not8321098 = icmp ne i32 %299, 0
+  %.not832.not = and i1 %.not8321098, %.not831
+  br i1 %.not832.not, label %.thread1066, label %thread-pre-split1064
 
-.thread1059:                                      ; preds = %307
+.thread1066:                                      ; preds = %305
   store i32 3, ptr %2, align 4, !tbaa !25
-  br label %311
+  br label %309
 
-thread-pre-split1057:                             ; preds = %307, %.thread1054
-  %.pr1058 = load i32, ptr %2, align 4, !tbaa !25
-  br label %308
+thread-pre-split1064:                             ; preds = %305, %.thread1061
+  %.pr1065 = load i32, ptr %2, align 4, !tbaa !25
+  br label %306
 
-308:                                              ; preds = %thread-pre-split1057, %298
-  %309 = phi i32 [ %.pr1058, %thread-pre-split1057 ], [ %.pr1051, %298 ]
-  %310 = icmp eq i32 %309, 3
-  br i1 %310, label %311, label %.thread1129
+306:                                              ; preds = %thread-pre-split1064, %296
+  %307 = phi i32 [ %.pr1065, %thread-pre-split1064 ], [ %.pr1058, %296 ]
+  %308 = icmp eq i32 %307, 3
+  br i1 %308, label %309, label %.thread1136
 
-311:                                              ; preds = %.thread1059, %308
-  %312 = tail call fastcc i32 @arkode_butcher_order4a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not833 = icmp ne i32 %312, 0
+309:                                              ; preds = %.thread1066, %306
+  %310 = tail call fastcc i32 @arkode_butcher_order4a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not833 = icmp ne i32 %310, 0
   %brmerge907 = or i1 %.not, %.not833
-  br i1 %brmerge907, label %315, label %313
+  br i1 %brmerge907, label %313, label %311
 
-313:                                              ; preds = %311
-  %314 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 38, i64 1, ptr nonnull %3)
-  br label %315
+311:                                              ; preds = %309
+  %312 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 38, i64 1, ptr nonnull %3)
+  br label %313
 
-315:                                              ; preds = %311, %313
-  %316 = tail call fastcc i32 @arkode_butcher_order4b(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not834 = icmp ne i32 %316, 0
+313:                                              ; preds = %309, %311
+  %314 = tail call fastcc i32 @arkode_butcher_order4b(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not834 = icmp ne i32 %314, 0
   %brmerge909 = or i1 %.not, %.not834
-  %.36.mux = select i1 %.not834, i32 %312, i32 0
-  br i1 %brmerge909, label %319, label %317
+  %.36.mux = select i1 %.not834, i32 %310, i32 0
+  br i1 %brmerge909, label %317, label %315
 
-317:                                              ; preds = %315
-  %318 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 38, i64 1, ptr nonnull %3)
-  br label %319
+315:                                              ; preds = %313
+  %316 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 38, i64 1, ptr nonnull %3)
+  br label %317
 
-319:                                              ; preds = %315, %317
-  %.37 = phi i32 [ %.36.mux, %315 ], [ 0, %317 ]
-  %320 = tail call fastcc i32 @arkode_butcher_order4c(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not835 = icmp ne i32 %320, 0
+317:                                              ; preds = %313, %315
+  %.37 = phi i32 [ %.36.mux, %313 ], [ 0, %315 ]
+  %318 = tail call fastcc i32 @arkode_butcher_order4c(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not835 = icmp ne i32 %318, 0
   %brmerge910 = or i1 %.not, %.not835
   %.37.mux = select i1 %.not835, i32 %.37, i32 0
-  br i1 %brmerge910, label %323, label %321
+  br i1 %brmerge910, label %321, label %319
 
-321:                                              ; preds = %319
-  %322 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 38, i64 1, ptr nonnull %3)
-  br label %323
+319:                                              ; preds = %317
+  %320 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 38, i64 1, ptr nonnull %3)
+  br label %321
 
-323:                                              ; preds = %319, %321
-  %.38 = phi i32 [ %.37.mux, %319 ], [ 0, %321 ]
-  %324 = tail call fastcc i32 @arkode_butcher_order4d(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not836 = icmp ne i32 %324, 0
+321:                                              ; preds = %317, %319
+  %.38 = phi i32 [ %.37.mux, %317 ], [ 0, %319 ]
+  %322 = tail call fastcc i32 @arkode_butcher_order4d(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not836 = icmp ne i32 %322, 0
   %brmerge911 = or i1 %.not, %.not836
-  br i1 %brmerge911, label %326, label %.thread1061
+  br i1 %brmerge911, label %324, label %.thread1068
 
-.thread1061:                                      ; preds = %323
-  %325 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 38, i64 1, ptr nonnull %3)
-  br label %.thread1129
+.thread1068:                                      ; preds = %321
+  %323 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 38, i64 1, ptr nonnull %3)
+  br label %.thread1136
 
-326:                                              ; preds = %323
-  %.not8371092 = icmp ne i32 %.38, 0
-  %.not837.not = and i1 %.not8371092, %.not836
-  br i1 %.not837.not, label %.thread1066, label %.thread1129
+324:                                              ; preds = %321
+  %.not8371099 = icmp ne i32 %.38, 0
+  %.not837.not = and i1 %.not8371099, %.not836
+  br i1 %.not837.not, label %.thread1073, label %.thread1136
 
-.thread1066:                                      ; preds = %326
+.thread1073:                                      ; preds = %324
   store i32 4, ptr %2, align 4, !tbaa !25
-  br label %328
+  br label %326
 
-.thread1129:                                      ; preds = %295, %280, %.thread1061, %326, %308
-  %.pr1065 = load i32, ptr %2, align 4, !tbaa !25
-  %327 = icmp eq i32 %.pr1065, 4
-  br i1 %327, label %328, label %364
+.thread1136:                                      ; preds = %293, %arkode_butcher_order1.exit987.thread, %.thread1068, %324, %306
+  %.pr1072 = load i32, ptr %2, align 4, !tbaa !25
+  %325 = icmp eq i32 %.pr1072, 4
+  br i1 %325, label %326, label %362
 
-328:                                              ; preds = %.thread1066, %.thread1129
-  %329 = tail call fastcc i32 @arkode_butcher_order5a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not838 = icmp ne i32 %329, 0
+326:                                              ; preds = %.thread1073, %.thread1136
+  %327 = tail call fastcc i32 @arkode_butcher_order5a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not838 = icmp ne i32 %327, 0
   %brmerge912 = or i1 %.not, %.not838
-  br i1 %brmerge912, label %332, label %330
+  br i1 %brmerge912, label %330, label %328
 
-330:                                              ; preds = %328
-  %331 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 38, i64 1, ptr nonnull %3)
-  br label %332
+328:                                              ; preds = %326
+  %329 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 38, i64 1, ptr nonnull %3)
+  br label %330
 
-332:                                              ; preds = %328, %330
-  %333 = tail call fastcc i32 @arkode_butcher_order5b(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not839 = icmp ne i32 %333, 0
+330:                                              ; preds = %326, %328
+  %331 = tail call fastcc i32 @arkode_butcher_order5b(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not839 = icmp ne i32 %331, 0
   %brmerge914 = or i1 %.not, %.not839
-  %.40.mux = select i1 %.not839, i32 %329, i32 0
-  br i1 %brmerge914, label %336, label %334
+  %.40.mux = select i1 %.not839, i32 %327, i32 0
+  br i1 %brmerge914, label %334, label %332
 
-334:                                              ; preds = %332
-  %335 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 38, i64 1, ptr nonnull %3)
-  br label %336
+332:                                              ; preds = %330
+  %333 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 38, i64 1, ptr nonnull %3)
+  br label %334
 
-336:                                              ; preds = %332, %334
-  %.41 = phi i32 [ %.40.mux, %332 ], [ 0, %334 ]
-  %337 = tail call fastcc i32 @arkode_butcher_order5c(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not840 = icmp ne i32 %337, 0
+334:                                              ; preds = %330, %332
+  %.41 = phi i32 [ %.40.mux, %330 ], [ 0, %332 ]
+  %335 = tail call fastcc i32 @arkode_butcher_order5c(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not840 = icmp ne i32 %335, 0
   %brmerge915 = or i1 %.not, %.not840
   %.41.mux = select i1 %.not840, i32 %.41, i32 0
-  br i1 %brmerge915, label %340, label %338
+  br i1 %brmerge915, label %338, label %336
 
-338:                                              ; preds = %336
-  %339 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 38, i64 1, ptr nonnull %3)
-  br label %340
+336:                                              ; preds = %334
+  %337 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 38, i64 1, ptr nonnull %3)
+  br label %338
 
-340:                                              ; preds = %336, %338
-  %.42 = phi i32 [ %.41.mux, %336 ], [ 0, %338 ]
-  %341 = tail call fastcc i32 @arkode_butcher_order5d(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not841 = icmp ne i32 %341, 0
+338:                                              ; preds = %334, %336
+  %.42 = phi i32 [ %.41.mux, %334 ], [ 0, %336 ]
+  %339 = tail call fastcc i32 @arkode_butcher_order5d(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not841 = icmp ne i32 %339, 0
   %brmerge916 = or i1 %.not, %.not841
   %.42.mux = select i1 %.not841, i32 %.42, i32 0
-  br i1 %brmerge916, label %344, label %342
+  br i1 %brmerge916, label %342, label %340
 
-342:                                              ; preds = %340
-  %343 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 38, i64 1, ptr nonnull %3)
-  br label %344
+340:                                              ; preds = %338
+  %341 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 38, i64 1, ptr nonnull %3)
+  br label %342
 
-344:                                              ; preds = %340, %342
-  %.43 = phi i32 [ %.42.mux, %340 ], [ 0, %342 ]
-  %345 = tail call fastcc i32 @arkode_butcher_order5e(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not842 = icmp ne i32 %345, 0
+342:                                              ; preds = %338, %340
+  %.43 = phi i32 [ %.42.mux, %338 ], [ 0, %340 ]
+  %343 = tail call fastcc i32 @arkode_butcher_order5e(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not842 = icmp ne i32 %343, 0
   %brmerge917 = or i1 %.not, %.not842
   %.43.mux = select i1 %.not842, i32 %.43, i32 0
-  br i1 %brmerge917, label %348, label %346
+  br i1 %brmerge917, label %346, label %344
 
-346:                                              ; preds = %344
-  %347 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 38, i64 1, ptr nonnull %3)
-  br label %348
+344:                                              ; preds = %342
+  %345 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 38, i64 1, ptr nonnull %3)
+  br label %346
 
-348:                                              ; preds = %344, %346
-  %.44 = phi i32 [ %.43.mux, %344 ], [ 0, %346 ]
-  %349 = tail call fastcc i32 @arkode_butcher_order5f(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not843 = icmp ne i32 %349, 0
+346:                                              ; preds = %342, %344
+  %.44 = phi i32 [ %.43.mux, %342 ], [ 0, %344 ]
+  %347 = tail call fastcc i32 @arkode_butcher_order5f(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not843 = icmp ne i32 %347, 0
   %brmerge918 = or i1 %.not, %.not843
   %.44.mux = select i1 %.not843, i32 %.44, i32 0
-  br i1 %brmerge918, label %352, label %350
+  br i1 %brmerge918, label %350, label %348
 
-350:                                              ; preds = %348
-  %351 = tail call i64 @fwrite(ptr nonnull @.str.61, i64 38, i64 1, ptr nonnull %3)
-  br label %352
+348:                                              ; preds = %346
+  %349 = tail call i64 @fwrite(ptr nonnull @.str.61, i64 38, i64 1, ptr nonnull %3)
+  br label %350
 
-352:                                              ; preds = %348, %350
-  %.45 = phi i32 [ %.44.mux, %348 ], [ 0, %350 ]
-  %353 = tail call fastcc i32 @arkode_butcher_order5g(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not844 = icmp ne i32 %353, 0
+350:                                              ; preds = %346, %348
+  %.45 = phi i32 [ %.44.mux, %346 ], [ 0, %348 ]
+  %351 = tail call fastcc i32 @arkode_butcher_order5g(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not844 = icmp ne i32 %351, 0
   %brmerge919 = or i1 %.not, %.not844
   %.45.mux = select i1 %.not844, i32 %.45, i32 0
-  br i1 %brmerge919, label %356, label %354
+  br i1 %brmerge919, label %354, label %352
 
-354:                                              ; preds = %352
-  %355 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 38, i64 1, ptr nonnull %3)
-  br label %356
+352:                                              ; preds = %350
+  %353 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 38, i64 1, ptr nonnull %3)
+  br label %354
 
-356:                                              ; preds = %352, %354
-  %.46 = phi i32 [ %.45.mux, %352 ], [ 0, %354 ]
-  %357 = tail call fastcc i32 @arkode_butcher_order5h(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not845 = icmp ne i32 %357, 0
+354:                                              ; preds = %350, %352
+  %.46 = phi i32 [ %.45.mux, %350 ], [ 0, %352 ]
+  %355 = tail call fastcc i32 @arkode_butcher_order5h(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not845 = icmp ne i32 %355, 0
   %brmerge920 = or i1 %.not, %.not845
   %.46.mux = select i1 %.not845, i32 %.46, i32 0
-  br i1 %brmerge920, label %360, label %358
+  br i1 %brmerge920, label %358, label %356
 
-358:                                              ; preds = %356
-  %359 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 38, i64 1, ptr nonnull %3)
-  br label %360
+356:                                              ; preds = %354
+  %357 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 38, i64 1, ptr nonnull %3)
+  br label %358
 
-360:                                              ; preds = %356, %358
-  %.47 = phi i32 [ %.46.mux, %356 ], [ 0, %358 ]
-  %361 = tail call fastcc i32 @arkode_butcher_order5i(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not846 = icmp ne i32 %361, 0
+358:                                              ; preds = %354, %356
+  %.47 = phi i32 [ %.46.mux, %354 ], [ 0, %356 ]
+  %359 = tail call fastcc i32 @arkode_butcher_order5i(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not846 = icmp ne i32 %359, 0
   %brmerge921 = or i1 %.not, %.not846
-  br i1 %brmerge921, label %363, label %.thread1068
+  br i1 %brmerge921, label %361, label %.thread1075
 
-.thread1068:                                      ; preds = %360
-  %362 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 38, i64 1, ptr nonnull %3)
-  br label %thread-pre-split1071
+.thread1075:                                      ; preds = %358
+  %360 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 38, i64 1, ptr nonnull %3)
+  br label %thread-pre-split1078
 
-363:                                              ; preds = %360
-  %.not8471093 = icmp ne i32 %.47, 0
-  %.not847.not = select i1 %.not846, i1 %.not8471093, i1 false
-  br i1 %.not847.not, label %.thread1073, label %thread-pre-split1071
+361:                                              ; preds = %358
+  %.not8471100 = icmp ne i32 %.47, 0
+  %.not847.not = select i1 %.not846, i1 %.not8471100, i1 false
+  br i1 %.not847.not, label %.thread1080, label %thread-pre-split1078
 
-.thread1073:                                      ; preds = %363
+.thread1080:                                      ; preds = %361
   store i32 5, ptr %2, align 4, !tbaa !25
-  br label %367
+  br label %365
 
-thread-pre-split1071:                             ; preds = %arkode_butcher_rowsum.exit975, %363, %.thread1068
-  %.pr1072 = load i32, ptr %2, align 4, !tbaa !25
-  br label %364
+thread-pre-split1078:                             ; preds = %arkode_butcher_rowsum.exit977, %361, %.thread1075
+  %.pr1079 = load i32, ptr %2, align 4, !tbaa !25
+  br label %362
 
-364:                                              ; preds = %thread-pre-split1071, %.thread1129
-  %365 = phi i32 [ %.pr1072, %thread-pre-split1071 ], [ %.pr1065, %.thread1129 ]
-  %366 = icmp eq i32 %365, 5
-  br i1 %366, label %367, label %443
+362:                                              ; preds = %thread-pre-split1078, %.thread1136
+  %363 = phi i32 [ %.pr1079, %thread-pre-split1078 ], [ %.pr1072, %.thread1136 ]
+  %364 = icmp eq i32 %363, 5
+  br i1 %364, label %365, label %441
 
-367:                                              ; preds = %.thread1073, %364
-  %368 = tail call fastcc i32 @arkode_butcher_order6a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not848 = icmp ne i32 %368, 0
+365:                                              ; preds = %.thread1080, %362
+  %366 = tail call fastcc i32 @arkode_butcher_order6a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not848 = icmp ne i32 %366, 0
   %brmerge922 = or i1 %.not, %.not848
-  br i1 %brmerge922, label %371, label %369
+  br i1 %brmerge922, label %369, label %367
 
-369:                                              ; preds = %367
-  %370 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 38, i64 1, ptr nonnull %3)
-  br label %371
+367:                                              ; preds = %365
+  %368 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 38, i64 1, ptr nonnull %3)
+  br label %369
 
-371:                                              ; preds = %367, %369
-  %372 = tail call fastcc i32 @arkode_butcher_order6b(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not849 = icmp ne i32 %372, 0
+369:                                              ; preds = %365, %367
+  %370 = tail call fastcc i32 @arkode_butcher_order6b(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not849 = icmp ne i32 %370, 0
   %brmerge924 = or i1 %.not, %.not849
-  %.49.mux = select i1 %.not849, i32 %368, i32 0
-  br i1 %brmerge924, label %375, label %373
+  %.49.mux = select i1 %.not849, i32 %366, i32 0
+  br i1 %brmerge924, label %373, label %371
 
-373:                                              ; preds = %371
-  %374 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 38, i64 1, ptr nonnull %3)
-  br label %375
+371:                                              ; preds = %369
+  %372 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 38, i64 1, ptr nonnull %3)
+  br label %373
 
-375:                                              ; preds = %371, %373
-  %.50 = phi i32 [ %.49.mux, %371 ], [ 0, %373 ]
-  %376 = tail call fastcc i32 @arkode_butcher_order6c(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not850 = icmp ne i32 %376, 0
+373:                                              ; preds = %369, %371
+  %.50 = phi i32 [ %.49.mux, %369 ], [ 0, %371 ]
+  %374 = tail call fastcc i32 @arkode_butcher_order6c(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not850 = icmp ne i32 %374, 0
   %brmerge925 = or i1 %.not, %.not850
   %.50.mux = select i1 %.not850, i32 %.50, i32 0
-  br i1 %brmerge925, label %379, label %377
+  br i1 %brmerge925, label %377, label %375
 
-377:                                              ; preds = %375
-  %378 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 38, i64 1, ptr nonnull %3)
-  br label %379
+375:                                              ; preds = %373
+  %376 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 38, i64 1, ptr nonnull %3)
+  br label %377
 
-379:                                              ; preds = %375, %377
-  %.51 = phi i32 [ %.50.mux, %375 ], [ 0, %377 ]
-  %380 = tail call fastcc i32 @arkode_butcher_order6d(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not851 = icmp ne i32 %380, 0
+377:                                              ; preds = %373, %375
+  %.51 = phi i32 [ %.50.mux, %373 ], [ 0, %375 ]
+  %378 = tail call fastcc i32 @arkode_butcher_order6d(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not851 = icmp ne i32 %378, 0
   %brmerge926 = or i1 %.not, %.not851
   %.51.mux = select i1 %.not851, i32 %.51, i32 0
-  br i1 %brmerge926, label %383, label %381
+  br i1 %brmerge926, label %381, label %379
 
-381:                                              ; preds = %379
-  %382 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 38, i64 1, ptr nonnull %3)
-  br label %383
+379:                                              ; preds = %377
+  %380 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 38, i64 1, ptr nonnull %3)
+  br label %381
 
-383:                                              ; preds = %379, %381
-  %.52 = phi i32 [ %.51.mux, %379 ], [ 0, %381 ]
-  %384 = tail call fastcc i32 @arkode_butcher_order6e(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not852 = icmp ne i32 %384, 0
+381:                                              ; preds = %377, %379
+  %.52 = phi i32 [ %.51.mux, %377 ], [ 0, %379 ]
+  %382 = tail call fastcc i32 @arkode_butcher_order6e(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not852 = icmp ne i32 %382, 0
   %brmerge927 = or i1 %.not, %.not852
   %.52.mux = select i1 %.not852, i32 %.52, i32 0
-  br i1 %brmerge927, label %387, label %385
+  br i1 %brmerge927, label %385, label %383
 
-385:                                              ; preds = %383
-  %386 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 38, i64 1, ptr nonnull %3)
-  br label %387
+383:                                              ; preds = %381
+  %384 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 38, i64 1, ptr nonnull %3)
+  br label %385
 
-387:                                              ; preds = %383, %385
-  %.53 = phi i32 [ %.52.mux, %383 ], [ 0, %385 ]
-  %388 = tail call fastcc i32 @arkode_butcher_order6f(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not853 = icmp ne i32 %388, 0
+385:                                              ; preds = %381, %383
+  %.53 = phi i32 [ %.52.mux, %381 ], [ 0, %383 ]
+  %386 = tail call fastcc i32 @arkode_butcher_order6f(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not853 = icmp ne i32 %386, 0
   %brmerge928 = or i1 %.not, %.not853
   %.53.mux = select i1 %.not853, i32 %.53, i32 0
-  br i1 %brmerge928, label %391, label %389
+  br i1 %brmerge928, label %389, label %387
 
-389:                                              ; preds = %387
-  %390 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 38, i64 1, ptr nonnull %3)
-  br label %391
+387:                                              ; preds = %385
+  %388 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 38, i64 1, ptr nonnull %3)
+  br label %389
 
-391:                                              ; preds = %387, %389
-  %.54 = phi i32 [ %.53.mux, %387 ], [ 0, %389 ]
-  %392 = tail call fastcc i32 @arkode_butcher_order6g(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not854 = icmp ne i32 %392, 0
+389:                                              ; preds = %385, %387
+  %.54 = phi i32 [ %.53.mux, %385 ], [ 0, %387 ]
+  %390 = tail call fastcc i32 @arkode_butcher_order6g(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not854 = icmp ne i32 %390, 0
   %brmerge929 = or i1 %.not, %.not854
   %.54.mux = select i1 %.not854, i32 %.54, i32 0
-  br i1 %brmerge929, label %395, label %393
+  br i1 %brmerge929, label %393, label %391
 
-393:                                              ; preds = %391
-  %394 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 38, i64 1, ptr nonnull %3)
-  br label %395
+391:                                              ; preds = %389
+  %392 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 38, i64 1, ptr nonnull %3)
+  br label %393
 
-395:                                              ; preds = %391, %393
-  %.55 = phi i32 [ %.54.mux, %391 ], [ 0, %393 ]
-  %396 = tail call fastcc i32 @arkode_butcher_order6h(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not855 = icmp ne i32 %396, 0
+393:                                              ; preds = %389, %391
+  %.55 = phi i32 [ %.54.mux, %389 ], [ 0, %391 ]
+  %394 = tail call fastcc i32 @arkode_butcher_order6h(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not855 = icmp ne i32 %394, 0
   %brmerge930 = or i1 %.not, %.not855
   %.55.mux = select i1 %.not855, i32 %.55, i32 0
-  br i1 %brmerge930, label %399, label %397
+  br i1 %brmerge930, label %397, label %395
 
-397:                                              ; preds = %395
-  %398 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 38, i64 1, ptr nonnull %3)
-  br label %399
+395:                                              ; preds = %393
+  %396 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 38, i64 1, ptr nonnull %3)
+  br label %397
 
-399:                                              ; preds = %395, %397
-  %.56 = phi i32 [ %.55.mux, %395 ], [ 0, %397 ]
-  %400 = tail call fastcc i32 @arkode_butcher_order6i(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not856 = icmp ne i32 %400, 0
+397:                                              ; preds = %393, %395
+  %.56 = phi i32 [ %.55.mux, %393 ], [ 0, %395 ]
+  %398 = tail call fastcc i32 @arkode_butcher_order6i(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not856 = icmp ne i32 %398, 0
   %brmerge931 = or i1 %.not, %.not856
   %.56.mux = select i1 %.not856, i32 %.56, i32 0
-  br i1 %brmerge931, label %403, label %401
+  br i1 %brmerge931, label %401, label %399
 
-401:                                              ; preds = %399
-  %402 = tail call i64 @fwrite(ptr nonnull @.str.73, i64 38, i64 1, ptr nonnull %3)
-  br label %403
+399:                                              ; preds = %397
+  %400 = tail call i64 @fwrite(ptr nonnull @.str.73, i64 38, i64 1, ptr nonnull %3)
+  br label %401
 
-403:                                              ; preds = %399, %401
-  %.57 = phi i32 [ %.56.mux, %399 ], [ 0, %401 ]
-  %404 = tail call fastcc i32 @arkode_butcher_order6j(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not857 = icmp ne i32 %404, 0
+401:                                              ; preds = %397, %399
+  %.57 = phi i32 [ %.56.mux, %397 ], [ 0, %399 ]
+  %402 = tail call fastcc i32 @arkode_butcher_order6j(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not857 = icmp ne i32 %402, 0
   %brmerge932 = or i1 %.not, %.not857
   %.57.mux = select i1 %.not857, i32 %.57, i32 0
-  br i1 %brmerge932, label %407, label %405
+  br i1 %brmerge932, label %405, label %403
 
-405:                                              ; preds = %403
-  %406 = tail call i64 @fwrite(ptr nonnull @.str.74, i64 38, i64 1, ptr nonnull %3)
-  br label %407
+403:                                              ; preds = %401
+  %404 = tail call i64 @fwrite(ptr nonnull @.str.74, i64 38, i64 1, ptr nonnull %3)
+  br label %405
 
-407:                                              ; preds = %403, %405
-  %.58 = phi i32 [ %.57.mux, %403 ], [ 0, %405 ]
-  %408 = tail call fastcc i32 @arkode_butcher_order6k(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not858 = icmp ne i32 %408, 0
+405:                                              ; preds = %401, %403
+  %.58 = phi i32 [ %.57.mux, %401 ], [ 0, %403 ]
+  %406 = tail call fastcc i32 @arkode_butcher_order6k(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not858 = icmp ne i32 %406, 0
   %brmerge933 = or i1 %.not, %.not858
   %.58.mux = select i1 %.not858, i32 %.58, i32 0
-  br i1 %brmerge933, label %411, label %409
+  br i1 %brmerge933, label %409, label %407
 
-409:                                              ; preds = %407
-  %410 = tail call i64 @fwrite(ptr nonnull @.str.75, i64 38, i64 1, ptr nonnull %3)
-  br label %411
+407:                                              ; preds = %405
+  %408 = tail call i64 @fwrite(ptr nonnull @.str.75, i64 38, i64 1, ptr nonnull %3)
+  br label %409
 
-411:                                              ; preds = %407, %409
-  %.59 = phi i32 [ %.58.mux, %407 ], [ 0, %409 ]
-  %412 = tail call fastcc i32 @arkode_butcher_order6l(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not859 = icmp ne i32 %412, 0
+409:                                              ; preds = %405, %407
+  %.59 = phi i32 [ %.58.mux, %405 ], [ 0, %407 ]
+  %410 = tail call fastcc i32 @arkode_butcher_order6l(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not859 = icmp ne i32 %410, 0
   %brmerge934 = or i1 %.not, %.not859
   %.59.mux = select i1 %.not859, i32 %.59, i32 0
-  br i1 %brmerge934, label %415, label %413
+  br i1 %brmerge934, label %413, label %411
 
-413:                                              ; preds = %411
-  %414 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 38, i64 1, ptr nonnull %3)
-  br label %415
+411:                                              ; preds = %409
+  %412 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 38, i64 1, ptr nonnull %3)
+  br label %413
 
-415:                                              ; preds = %411, %413
-  %.60 = phi i32 [ %.59.mux, %411 ], [ 0, %413 ]
-  %416 = tail call fastcc i32 @arkode_butcher_order6m(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not860 = icmp ne i32 %416, 0
+413:                                              ; preds = %409, %411
+  %.60 = phi i32 [ %.59.mux, %409 ], [ 0, %411 ]
+  %414 = tail call fastcc i32 @arkode_butcher_order6m(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not860 = icmp ne i32 %414, 0
   %brmerge935 = or i1 %.not, %.not860
   %.60.mux = select i1 %.not860, i32 %.60, i32 0
-  br i1 %brmerge935, label %419, label %417
+  br i1 %brmerge935, label %417, label %415
 
-417:                                              ; preds = %415
-  %418 = tail call i64 @fwrite(ptr nonnull @.str.77, i64 38, i64 1, ptr nonnull %3)
-  br label %419
+415:                                              ; preds = %413
+  %416 = tail call i64 @fwrite(ptr nonnull @.str.77, i64 38, i64 1, ptr nonnull %3)
+  br label %417
 
-419:                                              ; preds = %415, %417
-  %.61 = phi i32 [ %.60.mux, %415 ], [ 0, %417 ]
-  %420 = tail call fastcc i32 @arkode_butcher_order6n(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not861 = icmp ne i32 %420, 0
+417:                                              ; preds = %413, %415
+  %.61 = phi i32 [ %.60.mux, %413 ], [ 0, %415 ]
+  %418 = tail call fastcc i32 @arkode_butcher_order6n(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not861 = icmp ne i32 %418, 0
   %brmerge936 = or i1 %.not, %.not861
   %.61.mux = select i1 %.not861, i32 %.61, i32 0
-  br i1 %brmerge936, label %423, label %421
+  br i1 %brmerge936, label %421, label %419
 
-421:                                              ; preds = %419
-  %422 = tail call i64 @fwrite(ptr nonnull @.str.78, i64 38, i64 1, ptr nonnull %3)
-  br label %423
+419:                                              ; preds = %417
+  %420 = tail call i64 @fwrite(ptr nonnull @.str.78, i64 38, i64 1, ptr nonnull %3)
+  br label %421
 
-423:                                              ; preds = %419, %421
-  %.62 = phi i32 [ %.61.mux, %419 ], [ 0, %421 ]
-  %424 = tail call fastcc i32 @arkode_butcher_order6o(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not862 = icmp ne i32 %424, 0
+421:                                              ; preds = %417, %419
+  %.62 = phi i32 [ %.61.mux, %417 ], [ 0, %419 ]
+  %422 = tail call fastcc i32 @arkode_butcher_order6o(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not862 = icmp ne i32 %422, 0
   %brmerge937 = or i1 %.not, %.not862
   %.62.mux = select i1 %.not862, i32 %.62, i32 0
-  br i1 %brmerge937, label %427, label %425
+  br i1 %brmerge937, label %425, label %423
 
-425:                                              ; preds = %423
-  %426 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 38, i64 1, ptr nonnull %3)
-  br label %427
+423:                                              ; preds = %421
+  %424 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 38, i64 1, ptr nonnull %3)
+  br label %425
 
-427:                                              ; preds = %423, %425
-  %.63 = phi i32 [ %.62.mux, %423 ], [ 0, %425 ]
-  %428 = tail call fastcc i32 @arkode_butcher_order6p(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not863 = icmp ne i32 %428, 0
+425:                                              ; preds = %421, %423
+  %.63 = phi i32 [ %.62.mux, %421 ], [ 0, %423 ]
+  %426 = tail call fastcc i32 @arkode_butcher_order6p(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not863 = icmp ne i32 %426, 0
   %brmerge938 = or i1 %.not, %.not863
   %.63.mux = select i1 %.not863, i32 %.63, i32 0
-  br i1 %brmerge938, label %431, label %429
+  br i1 %brmerge938, label %429, label %427
 
-429:                                              ; preds = %427
-  %430 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 38, i64 1, ptr nonnull %3)
-  br label %431
+427:                                              ; preds = %425
+  %428 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 38, i64 1, ptr nonnull %3)
+  br label %429
 
-431:                                              ; preds = %427, %429
-  %.64 = phi i32 [ %.63.mux, %427 ], [ 0, %429 ]
-  %432 = tail call fastcc i32 @arkode_butcher_order6q(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not864 = icmp ne i32 %432, 0
+429:                                              ; preds = %425, %427
+  %.64 = phi i32 [ %.63.mux, %425 ], [ 0, %427 ]
+  %430 = tail call fastcc i32 @arkode_butcher_order6q(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not864 = icmp ne i32 %430, 0
   %brmerge939 = or i1 %.not, %.not864
   %.64.mux = select i1 %.not864, i32 %.64, i32 0
-  br i1 %brmerge939, label %435, label %433
+  br i1 %brmerge939, label %433, label %431
 
-433:                                              ; preds = %431
-  %434 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 38, i64 1, ptr nonnull %3)
-  br label %435
+431:                                              ; preds = %429
+  %432 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 38, i64 1, ptr nonnull %3)
+  br label %433
 
-435:                                              ; preds = %431, %433
-  %.65 = phi i32 [ %.64.mux, %431 ], [ 0, %433 ]
-  %436 = tail call fastcc i32 @arkode_butcher_order6r(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
-  %.not865 = icmp ne i32 %436, 0
+433:                                              ; preds = %429, %431
+  %.65 = phi i32 [ %.64.mux, %429 ], [ 0, %431 ]
+  %434 = tail call fastcc i32 @arkode_butcher_order6r(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
+  %.not865 = icmp ne i32 %434, 0
   %brmerge940 = or i1 %.not, %.not865
   %.65.mux = select i1 %.not865, i32 %.65, i32 0
-  br i1 %brmerge940, label %439, label %437
+  br i1 %brmerge940, label %437, label %435
 
-437:                                              ; preds = %435
-  %438 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 38, i64 1, ptr nonnull %3)
-  br label %439
+435:                                              ; preds = %433
+  %436 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 38, i64 1, ptr nonnull %3)
+  br label %437
 
-439:                                              ; preds = %435, %437
-  %.66 = phi i32 [ %.65.mux, %435 ], [ 0, %437 ]
-  %440 = tail call fastcc i32 @arkode_butcher_order6s(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
-  %.not866 = icmp ne i32 %440, 0
+437:                                              ; preds = %433, %435
+  %.66 = phi i32 [ %.65.mux, %433 ], [ 0, %435 ]
+  %438 = tail call fastcc i32 @arkode_butcher_order6s(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
+  %.not866 = icmp ne i32 %438, 0
   %brmerge941 = or i1 %.not, %.not866
-  br i1 %brmerge941, label %442, label %.thread1074
+  br i1 %brmerge941, label %440, label %.thread1081
 
-.thread1074:                                      ; preds = %439
-  %441 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 38, i64 1, ptr nonnull %3)
+.thread1081:                                      ; preds = %437
+  %439 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 38, i64 1, ptr nonnull %3)
+  br label %441
+
+440:                                              ; preds = %437
+  %.not8671101 = icmp ne i32 %.66, 0
+  %.not867.not = select i1 %.not866, i1 %.not8671101, i1 false
+  br i1 %.not867.not, label %.thread1086, label %441
+
+.thread1086:                                      ; preds = %440
+  store i32 6, ptr %2, align 4, !tbaa !25
   br label %443
 
-442:                                              ; preds = %439
-  %.not8671094 = icmp ne i32 %.66, 0
-  %.not867.not = select i1 %.not866, i1 %.not8671094, i1 false
-  br i1 %.not867.not, label %.thread1079, label %443
+441:                                              ; preds = %.thread1081, %440, %362
+  %.pr1085 = load i32, ptr %2, align 4, !tbaa !25
+  %442 = icmp eq i32 %.pr1085, 6
+  br i1 %442, label %443, label %451
 
-.thread1079:                                      ; preds = %442
-  store i32 6, ptr %2, align 4, !tbaa !25
-  br label %445
+443:                                              ; preds = %.thread1086, %441
+  br i1 %.not, label %.critedge947, label %444
 
-443:                                              ; preds = %.thread1074, %442, %364
-  %.pr1078 = load i32, ptr %2, align 4, !tbaa !25
-  %444 = icmp eq i32 %.pr1078, 6
-  br i1 %444, label %445, label %453
+444:                                              ; preds = %443
+  %445 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 61, i64 1, ptr nonnull %3)
+  %446 = tail call fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef nonnull %12, ptr noundef %27, ptr noundef %19, i32 noundef %8)
+  %447 = load i32, ptr %2, align 4, !tbaa !25
+  %.942 = tail call i32 @llvm.smax.i32(i32 %447, i32 %446)
+  store i32 %.942, ptr %2, align 4, !tbaa !25
+  %448 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.85, i32 noundef %.942) #17
+  br label %451
 
-445:                                              ; preds = %.thread1079, %443
-  br i1 %.not, label %448, label %446
-
-446:                                              ; preds = %445
-  %447 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 61, i64 1, ptr nonnull %3)
-  br label %448
-
-448:                                              ; preds = %446, %445
+.critedge947:                                     ; preds = %443
   %449 = tail call fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef nonnull %12, ptr noundef %27, ptr noundef %19, i32 noundef %8)
   %450 = load i32, ptr %2, align 4, !tbaa !25
-  %.942 = tail call i32 @llvm.smax.i32(i32 %450, i32 %449)
-  store i32 %.942, ptr %2, align 4, !tbaa !25
-  br i1 %.not, label %453, label %451
+  %.942.c = tail call i32 @llvm.smax.i32(i32 %450, i32 %449)
+  store i32 %.942.c, ptr %2, align 4, !tbaa !25
+  br label %451
 
-451:                                              ; preds = %448
-  %452 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.85, i32 noundef %.942) #17
-  br label %453
+451:                                              ; preds = %.thread1042, %.thread1034, %.critedge947, %441, %444, %251
+  %.not8261037 = phi i1 [ true, %.thread1034 ], [ false, %.critedge947 ], [ false, %441 ], [ false, %444 ], [ true, %251 ], [ true, %.thread1042 ]
+  %452 = load i32, ptr %1, align 4, !tbaa !25
+  %453 = load i32, ptr %0, align 8, !tbaa !16
+  %454 = icmp slt i32 %452, %453
+  %455 = icmp slt i32 %452, 6
+  %or.cond = and i1 %455, %454
+  br i1 %or.cond, label %.loopexit, label %456
 
-453:                                              ; preds = %.thread1037, %.thread1029, %443, %451, %448, %257
-  %.not8261032 = phi i1 [ true, %.thread1029 ], [ false, %443 ], [ false, %451 ], [ false, %448 ], [ true, %257 ], [ true, %.thread1037 ]
-  %454 = load i32, ptr %1, align 4, !tbaa !25
-  %455 = load i32, ptr %0, align 8, !tbaa !16
-  %456 = icmp slt i32 %454, %455
-  %457 = icmp slt i32 %454, 6
-  %or.cond = and i1 %457, %456
-  br i1 %or.cond, label %.loopexit, label %458
+456:                                              ; preds = %451
+  br i1 %.not8261037, label %463, label %457
 
-458:                                              ; preds = %453
-  br i1 %.not8261032, label %465, label %459
+457:                                              ; preds = %456
+  %458 = load i32, ptr %2, align 4, !tbaa !25
+  %459 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %460 = load i32, ptr %459, align 4, !tbaa !17
+  %461 = icmp slt i32 %458, %460
+  %462 = icmp slt i32 %458, 6
+  %or.cond943 = and i1 %462, %461
+  br i1 %or.cond943, label %.loopexit, label %.thread1087
 
-459:                                              ; preds = %458
-  %460 = load i32, ptr %2, align 4, !tbaa !25
-  %461 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %462 = load i32, ptr %461, align 4, !tbaa !17
-  %463 = icmp slt i32 %460, %462
-  %464 = icmp slt i32 %460, 6
-  %or.cond943 = and i1 %464, %463
-  br i1 %or.cond943, label %.loopexit, label %.thread1080
+463:                                              ; preds = %456
+  %464 = icmp sgt i32 %452, %453
+  %465 = icmp sgt i32 %452, 5
+  %or.cond944 = and i1 %465, %454
+  %or.cond1092 = or i1 %464, %or.cond944
+  br i1 %or.cond1092, label %.loopexit, label %471
 
-465:                                              ; preds = %458
-  %466 = icmp sgt i32 %454, %455
-  %467 = icmp sgt i32 %454, 5
-  %or.cond944 = and i1 %467, %456
-  %or.cond1085 = or i1 %466, %or.cond944
-  br i1 %or.cond1085, label %.loopexit, label %473
+.thread1087:                                      ; preds = %457
+  %466 = icmp sgt i32 %452, %453
+  br i1 %466, label %.loopexit, label %467
 
-.thread1080:                                      ; preds = %459
-  %468 = icmp sgt i32 %454, %455
-  br i1 %468, label %.loopexit, label %469
+467:                                              ; preds = %.thread1087
+  %468 = icmp sgt i32 %458, %460
+  %469 = icmp sgt i32 %452, 5
+  %or.cond9441090 = and i1 %469, %454
+  %or.cond1093 = or i1 %or.cond9441090, %468
+  %470 = icmp sgt i32 %458, 5
+  %or.cond945 = and i1 %470, %461
+  %or.cond1145 = or i1 %or.cond1093, %or.cond945
+  br i1 %or.cond1145, label %.loopexit, label %471
 
-469:                                              ; preds = %.thread1080
-  %470 = icmp sgt i32 %460, %462
-  %471 = icmp sgt i32 %454, 5
-  %or.cond9441083 = and i1 %471, %456
-  %or.cond1086 = or i1 %or.cond9441083, %470
-  %472 = icmp sgt i32 %460, 5
-  %or.cond945 = and i1 %472, %463
-  %or.cond1138 = or i1 %or.cond1086, %or.cond945
-  br i1 %or.cond1138, label %.loopexit, label %473
-
-473:                                              ; preds = %469, %465
+471:                                              ; preds = %467, %463
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.thread1080, %469, %465, %459, %453, %21, %._crit_edge, %10, %6, %4, %473
-  %.0702 = phi i32 [ 0, %473 ], [ -2, %4 ], [ -2, %6 ], [ -2, %10 ], [ -2, %._crit_edge ], [ -2, %21 ], [ -1, %453 ], [ -1, %459 ], [ 1, %465 ], [ 1, %469 ], [ 1, %.thread1080 ], [ -2, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.thread1087, %467, %463, %457, %451, %21, %._crit_edge, %10, %6, %4, %471
+  %.0702 = phi i32 [ 0, %471 ], [ -2, %4 ], [ -2, %6 ], [ -2, %10 ], [ -2, %._crit_edge ], [ -2, %21 ], [ -1, %451 ], [ -1, %457 ], [ 1, %463 ], [ 1, %467 ], [ 1, %.thread1087 ], [ -2, %.lr.ph ]
   ret i32 %.0702
 }
 
@@ -7327,19 +7326,19 @@ arkode_butcher_vp.exit:                           ; preds = %37, %.loopexit, %.l
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
-  %.sroa.05625 = alloca ptr, align 16
+  %.sroa.05626 = alloca ptr, align 16
   %.sroa.121 = alloca ptr, align 8
-  %.sroa.05505 = alloca ptr, align 16
-  %.sroa.385506 = alloca ptr, align 8
-  %.sroa.05469 = alloca ptr, align 16
+  %.sroa.05506 = alloca ptr, align 16
+  %.sroa.385507 = alloca ptr, align 8
+  %.sroa.05470 = alloca ptr, align 16
   %.sroa.181 = alloca ptr, align 8
   %.sroa.0 = alloca ptr, align 16
   %.sroa.38 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.05625)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.05626)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.121)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.05505)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.385506)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.05469)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.05506)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.385507)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.05470)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.181)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.38)
@@ -7400,47 +7399,47 @@ define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readon
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.loopexit, label %.lr.ph2978.preheader
+  br i1 %34, label %.loopexit, label %.lr.ph2979.preheader
 
-.lr.ph2978.preheader:                             ; preds = %31
-  %wide.trip.count3822 = zext nneg i32 %29 to i64
-  br label %.lr.ph2978
+.lr.ph2979.preheader:                             ; preds = %31
+  %wide.trip.count3823 = zext nneg i32 %29 to i64
+  br label %.lr.ph2979
 
-35:                                               ; preds = %.lr.ph2978
-  %indvars.iv.next3820 = add nuw nsw i64 %indvars.iv3819, 1
-  %exitcond3823.not = icmp eq i64 %indvars.iv.next3820, %wide.trip.count3822
-  br i1 %exitcond3823.not, label %._crit_edge2979, label %.lr.ph2978
+35:                                               ; preds = %.lr.ph2979
+  %indvars.iv.next3821 = add nuw nsw i64 %indvars.iv3820, 1
+  %exitcond3824.not = icmp eq i64 %indvars.iv.next3821, %wide.trip.count3823
+  br i1 %exitcond3824.not, label %._crit_edge2980, label %.lr.ph2979
 
-.lr.ph2978:                                       ; preds = %.lr.ph2978.preheader, %35
-  %indvars.iv3819 = phi i64 [ 0, %.lr.ph2978.preheader ], [ %indvars.iv.next3820, %35 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv3819
+.lr.ph2979:                                       ; preds = %.lr.ph2979.preheader, %35
+  %indvars.iv3820 = phi i64 [ 0, %.lr.ph2979.preheader ], [ %indvars.iv.next3821, %35 ]
+  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv3820
   %37 = load ptr, ptr %36, align 8, !tbaa !12
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.loopexit, label %35
 
-._crit_edge2979:                                  ; preds = %35
+._crit_edge2980:                                  ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !14
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.loopexit, label %42
 
-42:                                               ; preds = %._crit_edge2979
+42:                                               ; preds = %._crit_edge2980
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !13
   %45 = icmp ne ptr %44, null
   %.not = icmp eq i32 %9, %29
-  %or.cond2605 = and i1 %.not, %45
-  br i1 %or.cond2605, label %46, label %.loopexit
+  %or.cond2606 = and i1 %.not, %45
+  br i1 %or.cond2606, label %46, label %.loopexit
 
 46:                                               ; preds = %42
-  store ptr %13, ptr %.sroa.05625, align 16, !tbaa !31
-  store ptr %24, ptr %.sroa.05505, align 16, !tbaa !12
-  store ptr %20, ptr %.sroa.05469, align 16, !tbaa !12
+  store ptr %13, ptr %.sroa.05626, align 16, !tbaa !31
+  store ptr %24, ptr %.sroa.05506, align 16, !tbaa !12
+  store ptr %20, ptr %.sroa.05470, align 16, !tbaa !12
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !15
   store ptr %48, ptr %.sroa.0, align 16, !tbaa !12
   store ptr %33, ptr %.sroa.121, align 8, !tbaa !31
-  store ptr %44, ptr %.sroa.385506, align 8, !tbaa !12
+  store ptr %44, ptr %.sroa.385507, align 8, !tbaa !12
   store ptr %40, ptr %.sroa.181, align 8, !tbaa !12
   store ptr %48, ptr %.sroa.38, align 8, !tbaa !12
   %49 = icmp ne ptr %4, null
@@ -7502,7 +7501,7 @@ define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readon
 70:                                               ; preds = %._crit_edge.us.i2259
   %indvars.iv.next27.i2260 = add nuw nsw i64 %indvars.iv26.i2254, 1
   %exitcond30.not.i2261 = icmp eq i64 %indvars.iv.next27.i2260, %wide.trip.count29.i
-  br i1 %exitcond30.not.i2261, label %.thread2554, label %.preheader.us.i2253, !llvm.loop !26
+  br i1 %exitcond30.not.i2261, label %.thread2557, label %.preheader.us.i2253, !llvm.loop !26
 
 ._crit_edge.us.i2259:                             ; preds = %66
   %71 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv26.i2254
@@ -7512,7 +7511,7 @@ define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readon
   %75 = fcmp ogt double %74, 0x3E50000000000000
   br i1 %75, label %arkode_butcher_rowsum.exit, label %70
 
-.thread2554:                                      ; preds = %70
+.thread2557:                                      ; preds = %70
   store i32 0, ptr %2, align 4, !tbaa !25
   br label %.lr.ph.i.preheader
 
@@ -7526,7 +7525,7 @@ arkode_butcher_rowsum.exit:                       ; preds = %._crit_edge.us.i, %
   %78 = icmp eq i32 %.pr, 0
   br i1 %78, label %.lr.ph.i.preheader, label %thread-pre-split
 
-.lr.ph.i.preheader:                               ; preds = %76, %.thread2554
+.lr.ph.i.preheader:                               ; preds = %76, %.thread2557
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -7552,57 +7551,57 @@ arkode_butcher_order1.exit:                       ; preds = %.lr.ph.i
   %86 = fsub double %.08.i2271, %85
   %indvars.iv.next.i2272 = add nuw nsw i64 %indvars.iv.i2270, 1
   %exitcond.not.i2273 = icmp eq i64 %indvars.iv.next.i2272, %wide.trip.count29.i
-  br i1 %exitcond.not.i2273, label %arkode_butcher_order1.exit2274, label %.lr.ph.i2269
+  br i1 %exitcond.not.i2273, label %arkode_butcher_order1.exit2275, label %.lr.ph.i2269
 
-arkode_butcher_order1.exit2274:                   ; preds = %.lr.ph.i2269
+arkode_butcher_order1.exit2275:                   ; preds = %.lr.ph.i2269
   %87 = tail call double @llvm.fabs.f64(double %86)
   %88 = fcmp ogt double %87, 0x3E50000000000000
   br i1 %88, label %arkode_butcher_order1.exit.thread, label %thread-pre-split.thread
 
-thread-pre-split.thread:                          ; preds = %arkode_butcher_order1.exit2274
+thread-pre-split.thread:                          ; preds = %arkode_butcher_order1.exit2275
   store i32 1, ptr %2, align 4, !tbaa !25
-  br label %.preheader2939.preheader
+  br label %.preheader2940.preheader
 
-arkode_butcher_order1.exit.thread:                ; preds = %arkode_butcher_order1.exit2274, %arkode_butcher_order1.exit
-  br i1 %49, label %89, label %thread-pre-split2565
+arkode_butcher_order1.exit.thread:                ; preds = %arkode_butcher_order1.exit2275, %arkode_butcher_order1.exit
+  br i1 %49, label %89, label %thread-pre-split2567
 
 89:                                               ; preds = %arkode_butcher_order1.exit.thread
   %90 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 34, i64 1, ptr nonnull %4)
-  %.pr2559.pre = load i32, ptr %2, align 4, !tbaa !25
+  %.pr2561.pre = load i32, ptr %2, align 4, !tbaa !25
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %89, %76
-  %91 = phi i32 [ %.pr, %76 ], [ %.pr2559.pre, %89 ]
+  %91 = phi i32 [ %.pr, %76 ], [ %.pr2561.pre, %89 ]
   %92 = icmp eq i32 %91, 1
-  br i1 %92, label %.preheader2939.preheader, label %thread-pre-split2561
+  br i1 %92, label %.preheader2940.preheader, label %thread-pre-split2563
 
-.preheader2939.preheader:                         ; preds = %thread-pre-split.thread, %thread-pre-split
-  br label %.preheader2939
+.preheader2940.preheader:                         ; preds = %thread-pre-split.thread, %thread-pre-split
+  br label %.preheader2940
 
-.preheader2939:                                   ; preds = %.preheader2939.preheader, %113
-  %93 = phi i1 [ false, %113 ], [ true, %.preheader2939.preheader ]
-  %indvars.iv3827.sroa.phi = phi ptr [ %.sroa.385506, %113 ], [ %.sroa.05505, %.preheader2939.preheader ]
-  %.02983 = phi i32 [ %112, %113 ], [ 1, %.preheader2939.preheader ]
+.preheader2940:                                   ; preds = %.preheader2940.preheader, %113
+  %93 = phi i1 [ false, %113 ], [ true, %.preheader2940.preheader ]
+  %indvars.iv3828.sroa.phi = phi ptr [ %.sroa.385507, %113 ], [ %.sroa.05506, %.preheader2940.preheader ]
+  %.02984 = phi i32 [ %112, %113 ], [ 1, %.preheader2940.preheader ]
   br label %94
 
-94:                                               ; preds = %.preheader2939, %arkode_butcher_order2.exit
-  %95 = phi i1 [ true, %.preheader2939 ], [ false, %arkode_butcher_order2.exit ]
-  %indvars.iv3824.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2939 ], [ %.sroa.181, %arkode_butcher_order2.exit ]
-  %.12981 = phi i32 [ %.02983, %.preheader2939 ], [ %112, %arkode_butcher_order2.exit ]
-  %.not2244 = icmp eq i32 %.12981, 0
+94:                                               ; preds = %.preheader2940, %arkode_butcher_order2.exit
+  %95 = phi i1 [ true, %.preheader2940 ], [ false, %arkode_butcher_order2.exit ]
+  %indvars.iv3825.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2940 ], [ %.sroa.181, %arkode_butcher_order2.exit ]
+  %.12982 = phi i32 [ %.02984, %.preheader2940 ], [ %112, %arkode_butcher_order2.exit ]
+  %.not2244 = icmp eq i32 %.12982, 0
   br i1 %.not2244, label %arkode_butcher_order2.exit, label %96
 
 96:                                               ; preds = %94
-  %97 = load ptr, ptr %indvars.iv3827.sroa.phi, align 8, !tbaa !12
-  %98 = load ptr, ptr %indvars.iv3824.sroa.phi, align 8, !tbaa !12
+  %97 = load ptr, ptr %indvars.iv3828.sroa.phi, align 8, !tbaa !12
+  %98 = load ptr, ptr %indvars.iv3825.sroa.phi, align 8, !tbaa !12
   %99 = icmp eq ptr %97, null
   %100 = icmp eq ptr %98, null
   %or.cond.i.i = or i1 %99, %100
-  br i1 %or.cond.i.i, label %arkode_butcher_order2.exit, label %.preheader3714
+  br i1 %or.cond.i.i, label %arkode_butcher_order2.exit, label %.preheader3715
 
-.preheader3714:                                   ; preds = %96, %.preheader3714
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader3714 ], [ 0, %96 ]
-  %101 = phi double [ %106, %.preheader3714 ], [ 0.000000e+00, %96 ]
+.preheader3715:                                   ; preds = %96, %.preheader3715
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader3715 ], [ 0, %96 ]
+  %101 = phi double [ %106, %.preheader3715 ], [ 0.000000e+00, %96 ]
   %102 = getelementptr inbounds nuw double, ptr %97, i64 %indvars.iv.i.i
   %103 = load double, ptr %102, align 8, !tbaa !18
   %104 = getelementptr inbounds nuw double, ptr %98, i64 %indvars.iv.i.i
@@ -7610,9 +7609,9 @@ thread-pre-split:                                 ; preds = %89, %76
   %106 = tail call double @llvm.fmuladd.f64(double %103, double %105, double %101)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i, label %107, label %.preheader3714
+  br i1 %exitcond.not.i.i, label %107, label %.preheader3715
 
-107:                                              ; preds = %.preheader3714
+107:                                              ; preds = %.preheader3715
   %108 = fadd double %106, -5.000000e-01
   %109 = tail call double @llvm.fabs.f64(double %108)
   %110 = fcmp ule double %109, 0x3E50000000000000
@@ -7624,7 +7623,7 @@ arkode_butcher_order2.exit:                       ; preds = %107, %96, %94
   br i1 %95, label %94, label %113
 
 113:                                              ; preds = %arkode_butcher_order2.exit
-  br i1 %93, label %.preheader2939, label %114
+  br i1 %93, label %.preheader2940, label %114
 
 114:                                              ; preds = %113
   %.not2161 = icmp eq i32 %112, 0
@@ -7632,67 +7631,67 @@ arkode_butcher_order2.exit:                       ; preds = %107, %96, %94
 
 .critedge:                                        ; preds = %114
   store i32 2, ptr %2, align 4, !tbaa !25
-  br label %.preheader2937.preheader
+  br label %.preheader2938.preheader
 
 115:                                              ; preds = %114
-  br i1 %49, label %116, label %thread-pre-split2565
+  br i1 %49, label %116, label %thread-pre-split2567
 
 116:                                              ; preds = %115
   %117 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 34, i64 1, ptr nonnull %4)
-  %.pr2562.pre = load i32, ptr %2, align 4, !tbaa !25
-  br label %thread-pre-split2561
+  %.pr2564.pre = load i32, ptr %2, align 4, !tbaa !25
+  br label %thread-pre-split2563
 
-thread-pre-split2561:                             ; preds = %thread-pre-split, %116
-  %.pr2562 = phi i32 [ %91, %thread-pre-split ], [ %.pr2562.pre, %116 ]
-  %118 = icmp eq i32 %.pr2562, 2
-  br i1 %118, label %.preheader2937.preheader, label %thread-pre-split2565
+thread-pre-split2563:                             ; preds = %thread-pre-split, %116
+  %.pr2564 = phi i32 [ %91, %thread-pre-split ], [ %.pr2564.pre, %116 ]
+  %118 = icmp eq i32 %.pr2564, 2
+  br i1 %118, label %.preheader2938.preheader, label %thread-pre-split2567
 
-.preheader2937.preheader:                         ; preds = %thread-pre-split2561, %.critedge
+.preheader2938.preheader:                         ; preds = %thread-pre-split2563, %.critedge
+  br label %.preheader2938
+
+.preheader2938:                                   ; preds = %.preheader2938.preheader, %152
+  %119 = phi i1 [ false, %152 ], [ true, %.preheader2938.preheader ]
+  %indvars.iv3837.sroa.phi = phi ptr [ %.sroa.385507, %152 ], [ %.sroa.05506, %.preheader2938.preheader ]
+  %.22990 = phi i32 [ %150, %152 ], [ 1, %.preheader2938.preheader ]
   br label %.preheader2937
 
-.preheader2937:                                   ; preds = %.preheader2937.preheader, %152
-  %119 = phi i1 [ false, %152 ], [ true, %.preheader2937.preheader ]
-  %indvars.iv3836.sroa.phi = phi ptr [ %.sroa.385506, %152 ], [ %.sroa.05505, %.preheader2937.preheader ]
-  %.22989 = phi i32 [ %150, %152 ], [ 1, %.preheader2937.preheader ]
-  br label %.preheader2936
-
-.preheader2936:                                   ; preds = %.preheader2937, %151
-  %120 = phi i1 [ true, %.preheader2937 ], [ false, %151 ]
-  %indvars.iv3833.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2937 ], [ %.sroa.181, %151 ]
-  %.32987 = phi i32 [ %.22989, %.preheader2937 ], [ %150, %151 ]
+.preheader2937:                                   ; preds = %.preheader2938, %151
+  %120 = phi i1 [ true, %.preheader2938 ], [ false, %151 ]
+  %indvars.iv3834.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2938 ], [ %.sroa.181, %151 ]
+  %.32988 = phi i32 [ %.22990, %.preheader2938 ], [ %150, %151 ]
   br label %121
 
-121:                                              ; preds = %.preheader2936, %arkode_butcher_order3a.exit
-  %122 = phi i1 [ true, %.preheader2936 ], [ false, %arkode_butcher_order3a.exit ]
-  %indvars.iv3830.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2936 ], [ %.sroa.181, %arkode_butcher_order3a.exit ]
-  %.42985 = phi i32 [ %.32987, %.preheader2936 ], [ %150, %arkode_butcher_order3a.exit ]
-  %.not2243 = icmp eq i32 %.42985, 0
+121:                                              ; preds = %.preheader2937, %arkode_butcher_order3a.exit
+  %122 = phi i1 [ true, %.preheader2937 ], [ false, %arkode_butcher_order3a.exit ]
+  %indvars.iv3831.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2937 ], [ %.sroa.181, %arkode_butcher_order3a.exit ]
+  %.42986 = phi i32 [ %.32988, %.preheader2937 ], [ %150, %arkode_butcher_order3a.exit ]
+  %.not2243 = icmp eq i32 %.42986, 0
   br i1 %.not2243, label %arkode_butcher_order3a.exit, label %123
 
 123:                                              ; preds = %121
-  %124 = load ptr, ptr %indvars.iv3836.sroa.phi, align 8, !tbaa !12
-  %125 = load ptr, ptr %indvars.iv3833.sroa.phi, align 8, !tbaa !12
-  %126 = load ptr, ptr %indvars.iv3830.sroa.phi, align 8, !tbaa !12
+  %124 = load ptr, ptr %indvars.iv3837.sroa.phi, align 8, !tbaa !12
+  %125 = load ptr, ptr %indvars.iv3834.sroa.phi, align 8, !tbaa !12
+  %126 = load ptr, ptr %indvars.iv3831.sroa.phi, align 8, !tbaa !12
   %127 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %128 = icmp eq ptr %125, null
   %129 = icmp eq ptr %126, null
-  %or.cond.i.i2275 = or i1 %128, %129
+  %or.cond.i.i2276 = or i1 %128, %129
   %130 = icmp eq ptr %127, null
-  %or.cond3.i.i = or i1 %or.cond.i.i2275, %130
+  %or.cond3.i.i = or i1 %or.cond.i.i2276, %130
   br i1 %or.cond3.i.i, label %arkode_butcher_vv.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %123, %.preheader.i.i
-  %indvars.iv.i.i2278 = phi i64 [ %indvars.iv.next.i.i2279, %.preheader.i.i ], [ 0, %123 ]
-  %131 = getelementptr inbounds nuw double, ptr %125, i64 %indvars.iv.i.i2278
+  %indvars.iv.i.i2279 = phi i64 [ %indvars.iv.next.i.i2280, %.preheader.i.i ], [ 0, %123 ]
+  %131 = getelementptr inbounds nuw double, ptr %125, i64 %indvars.iv.i.i2279
   %132 = load double, ptr %131, align 8, !tbaa !18
-  %133 = getelementptr inbounds nuw double, ptr %126, i64 %indvars.iv.i.i2278
+  %133 = getelementptr inbounds nuw double, ptr %126, i64 %indvars.iv.i.i2279
   %134 = load double, ptr %133, align 8, !tbaa !18
   %135 = fmul double %132, %134
-  %136 = getelementptr inbounds nuw double, ptr %127, i64 %indvars.iv.i.i2278
+  %136 = getelementptr inbounds nuw double, ptr %127, i64 %indvars.iv.i.i2279
   store double %135, ptr %136, align 8, !tbaa !18
-  %indvars.iv.next.i.i2279 = add nuw nsw i64 %indvars.iv.i.i2278, 1
-  %exitcond.not.i.i2280 = icmp eq i64 %indvars.iv.next.i.i2279, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2280, label %137, label %.preheader.i.i
+  %indvars.iv.next.i.i2280 = add nuw nsw i64 %indvars.iv.i.i2279, 1
+  %exitcond.not.i.i2281 = icmp eq i64 %indvars.iv.next.i.i2280, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2281, label %137, label %.preheader.i.i
 
 arkode_butcher_vv.exit.i:                         ; preds = %123
   tail call void @free(ptr noundef %127) #17
@@ -7700,11 +7699,11 @@ arkode_butcher_vv.exit.i:                         ; preds = %123
 
 137:                                              ; preds = %.preheader.i.i
   %138 = icmp eq ptr %124, null
-  br i1 %138, label %arkode_butcher_order3a.exit, label %.preheader2935
+  br i1 %138, label %arkode_butcher_order3a.exit, label %.preheader2936
 
-.preheader2935:                                   ; preds = %137, %.preheader2935
-  %indvars.iv.i14.i = phi i64 [ %indvars.iv.next.i15.i, %.preheader2935 ], [ 0, %137 ]
-  %139 = phi double [ %144, %.preheader2935 ], [ 0.000000e+00, %137 ]
+.preheader2936:                                   ; preds = %137, %.preheader2936
+  %indvars.iv.i14.i = phi i64 [ %indvars.iv.next.i15.i, %.preheader2936 ], [ 0, %137 ]
+  %139 = phi double [ %144, %.preheader2936 ], [ 0.000000e+00, %137 ]
   %140 = getelementptr inbounds nuw double, ptr %124, i64 %indvars.iv.i14.i
   %141 = load double, ptr %140, align 8, !tbaa !18
   %142 = getelementptr inbounds nuw double, ptr %127, i64 %indvars.iv.i14.i
@@ -7712,9 +7711,9 @@ arkode_butcher_vv.exit.i:                         ; preds = %123
   %144 = tail call double @llvm.fmuladd.f64(double %141, double %143, double %139)
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, %wide.trip.count29.i
-  br i1 %exitcond.not.i16.i, label %145, label %.preheader2935
+  br i1 %exitcond.not.i16.i, label %145, label %.preheader2936
 
-145:                                              ; preds = %.preheader2935
+145:                                              ; preds = %.preheader2936
   tail call void @free(ptr noundef nonnull %127) #17
   %146 = fadd double %144, 0xBFD5555555555555
   %147 = tail call double @llvm.fabs.f64(double %146)
@@ -7727,53 +7726,53 @@ arkode_butcher_order3a.exit:                      ; preds = %145, %137, %arkode_
   br i1 %122, label %121, label %151
 
 151:                                              ; preds = %arkode_butcher_order3a.exit
-  br i1 %120, label %.preheader2936, label %152
+  br i1 %120, label %.preheader2937, label %152
 
 152:                                              ; preds = %151
-  br i1 %119, label %.preheader2937, label %153
+  br i1 %119, label %.preheader2938, label %153
 
 153:                                              ; preds = %152
   %154 = icmp eq i32 %150, 0
   %or.cond = and i1 %49, %154
-  br i1 %or.cond, label %155, label %.preheader2934.preheader
+  br i1 %or.cond, label %155, label %.preheader2935.preheader
 
 155:                                              ; preds = %153
   %156 = tail call i64 @fwrite(ptr nonnull @.str.90, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2934.preheader
+  br label %.preheader2935.preheader
 
-.preheader2934.preheader:                         ; preds = %155, %153
+.preheader2935.preheader:                         ; preds = %155, %153
+  br label %.preheader2935
+
+.preheader2935:                                   ; preds = %.preheader2935.preheader, %194
+  %157 = phi i1 [ false, %194 ], [ true, %.preheader2935.preheader ]
+  %indvars.iv3846.sroa.phi = phi ptr [ %.sroa.385507, %194 ], [ %.sroa.05506, %.preheader2935.preheader ]
+  %.52996 = phi i32 [ %192, %194 ], [ %150, %.preheader2935.preheader ]
   br label %.preheader2934
 
-.preheader2934:                                   ; preds = %.preheader2934.preheader, %194
-  %157 = phi i1 [ false, %194 ], [ true, %.preheader2934.preheader ]
-  %indvars.iv3845.sroa.phi = phi ptr [ %.sroa.385506, %194 ], [ %.sroa.05505, %.preheader2934.preheader ]
-  %.52995 = phi i32 [ %192, %194 ], [ %150, %.preheader2934.preheader ]
-  br label %.preheader2933
-
-.preheader2933:                                   ; preds = %.preheader2934, %193
-  %158 = phi i1 [ true, %.preheader2934 ], [ false, %193 ]
-  %indvars.iv3842.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2934 ], [ %.sroa.121, %193 ]
-  %.62993 = phi i32 [ %.52995, %.preheader2934 ], [ %192, %193 ]
+.preheader2934:                                   ; preds = %.preheader2935, %193
+  %158 = phi i1 [ true, %.preheader2935 ], [ false, %193 ]
+  %indvars.iv3843.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2935 ], [ %.sroa.121, %193 ]
+  %.62994 = phi i32 [ %.52996, %.preheader2935 ], [ %192, %193 ]
   br label %159
 
-159:                                              ; preds = %.preheader2933, %arkode_butcher_order3b.exit
-  %160 = phi i1 [ true, %.preheader2933 ], [ false, %arkode_butcher_order3b.exit ]
-  %indvars.iv3839.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2933 ], [ %.sroa.181, %arkode_butcher_order3b.exit ]
-  %.72991 = phi i32 [ %.62993, %.preheader2933 ], [ %192, %arkode_butcher_order3b.exit ]
-  %.not2242 = icmp eq i32 %.72991, 0
+159:                                              ; preds = %.preheader2934, %arkode_butcher_order3b.exit
+  %160 = phi i1 [ true, %.preheader2934 ], [ false, %arkode_butcher_order3b.exit ]
+  %indvars.iv3840.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2934 ], [ %.sroa.181, %arkode_butcher_order3b.exit ]
+  %.72992 = phi i32 [ %.62994, %.preheader2934 ], [ %192, %arkode_butcher_order3b.exit ]
+  %.not2242 = icmp eq i32 %.72992, 0
   br i1 %.not2242, label %arkode_butcher_order3b.exit, label %161
 
 161:                                              ; preds = %159
-  %162 = load ptr, ptr %indvars.iv3845.sroa.phi, align 8, !tbaa !12
-  %163 = load ptr, ptr %indvars.iv3842.sroa.phi, align 8, !tbaa !31
-  %164 = load ptr, ptr %indvars.iv3839.sroa.phi, align 8, !tbaa !12
+  %162 = load ptr, ptr %indvars.iv3846.sroa.phi, align 8, !tbaa !12
+  %163 = load ptr, ptr %indvars.iv3843.sroa.phi, align 8, !tbaa !31
+  %164 = load ptr, ptr %indvars.iv3840.sroa.phi, align 8, !tbaa !12
   %165 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %166 = icmp eq ptr %163, null
   %167 = icmp eq ptr %164, null
-  %or.cond.i.i2282 = or i1 %166, %167
+  %or.cond.i.i2283 = or i1 %166, %167
   %168 = icmp eq ptr %165, null
-  %or.cond3.i.i2283 = or i1 %or.cond.i.i2282, %168
-  br i1 %or.cond3.i.i2283, label %arkode_butcher_mv.exit.i, label %.preheader.us.i.i
+  %or.cond3.i.i2284 = or i1 %or.cond.i.i2283, %168
+  br i1 %or.cond3.i.i2284, label %arkode_butcher_mv.exit.i, label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %161, %._crit_edge.us.i.i
   %indvars.iv40.i.i = phi i64 [ %indvars.iv.next41.i.i, %._crit_edge.us.i.i ], [ 0, %161 ]
@@ -7784,16 +7783,16 @@ arkode_butcher_order3a.exit:                      ; preds = %145, %137, %arkode_
   br label %172
 
 172:                                              ; preds = %172, %.preheader.us.i.i
-  %indvars.iv.i.i2285 = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i2286, %172 ]
+  %indvars.iv.i.i2286 = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i2287, %172 ]
   %173 = phi double [ %.promoted.us.i.i, %.preheader.us.i.i ], [ %178, %172 ]
-  %174 = getelementptr inbounds nuw double, ptr %170, i64 %indvars.iv.i.i2285
+  %174 = getelementptr inbounds nuw double, ptr %170, i64 %indvars.iv.i.i2286
   %175 = load double, ptr %174, align 8, !tbaa !18
-  %176 = getelementptr inbounds nuw double, ptr %164, i64 %indvars.iv.i.i2285
+  %176 = getelementptr inbounds nuw double, ptr %164, i64 %indvars.iv.i.i2286
   %177 = load double, ptr %176, align 8, !tbaa !18
   %178 = tail call double @llvm.fmuladd.f64(double %175, double %177, double %173)
-  %indvars.iv.next.i.i2286 = add nuw nsw i64 %indvars.iv.i.i2285, 1
-  %exitcond.not.i.i2287 = icmp eq i64 %indvars.iv.next.i.i2286, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2287, label %._crit_edge.us.i.i, label %172
+  %indvars.iv.next.i.i2287 = add nuw nsw i64 %indvars.iv.i.i2286, 1
+  %exitcond.not.i.i2288 = icmp eq i64 %indvars.iv.next.i.i2287, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2288, label %._crit_edge.us.i.i, label %172
 
 ._crit_edge.us.i.i:                               ; preds = %172
   store double %178, ptr %171, align 8, !tbaa !18
@@ -7807,11 +7806,11 @@ arkode_butcher_mv.exit.i:                         ; preds = %161
 
 179:                                              ; preds = %._crit_edge.us.i.i
   %180 = icmp eq ptr %162, null
-  br i1 %180, label %arkode_butcher_order3b.exit, label %.preheader2932
+  br i1 %180, label %arkode_butcher_order3b.exit, label %.preheader2933
 
-.preheader2932:                                   ; preds = %179, %.preheader2932
-  %indvars.iv.i13.i = phi i64 [ %indvars.iv.next.i14.i, %.preheader2932 ], [ 0, %179 ]
-  %181 = phi double [ %186, %.preheader2932 ], [ 0.000000e+00, %179 ]
+.preheader2933:                                   ; preds = %179, %.preheader2933
+  %indvars.iv.i13.i = phi i64 [ %indvars.iv.next.i14.i, %.preheader2933 ], [ 0, %179 ]
+  %181 = phi double [ %186, %.preheader2933 ], [ 0.000000e+00, %179 ]
   %182 = getelementptr inbounds nuw double, ptr %162, i64 %indvars.iv.i13.i
   %183 = load double, ptr %182, align 8, !tbaa !18
   %184 = getelementptr inbounds nuw double, ptr %165, i64 %indvars.iv.i13.i
@@ -7819,9 +7818,9 @@ arkode_butcher_mv.exit.i:                         ; preds = %161
   %186 = tail call double @llvm.fmuladd.f64(double %183, double %185, double %181)
   %indvars.iv.next.i14.i = add nuw nsw i64 %indvars.iv.i13.i, 1
   %exitcond.not.i15.i = icmp eq i64 %indvars.iv.next.i14.i, %wide.trip.count29.i
-  br i1 %exitcond.not.i15.i, label %187, label %.preheader2932
+  br i1 %exitcond.not.i15.i, label %187, label %.preheader2933
 
-187:                                              ; preds = %.preheader2932
+187:                                              ; preds = %.preheader2933
   tail call void @free(ptr noundef nonnull %165) #17
   %188 = fadd double %186, 0xBFC5555555555555
   %189 = tail call double @llvm.fabs.f64(double %188)
@@ -7834,93 +7833,93 @@ arkode_butcher_order3b.exit:                      ; preds = %187, %179, %arkode_
   br i1 %160, label %159, label %193
 
 193:                                              ; preds = %arkode_butcher_order3b.exit
-  br i1 %158, label %.preheader2933, label %194
+  br i1 %158, label %.preheader2934, label %194
 
 194:                                              ; preds = %193
-  br i1 %157, label %.preheader2934, label %195
+  br i1 %157, label %.preheader2935, label %195
 
 195:                                              ; preds = %194
   %196 = icmp eq i32 %192, 0
   %or.cond3 = and i1 %49, %196
-  br i1 %or.cond3, label %.thread2564, label %198
+  br i1 %or.cond3, label %.thread2566, label %198
 
-.thread2564:                                      ; preds = %195
+.thread2566:                                      ; preds = %195
   %197 = tail call i64 @fwrite(ptr nonnull @.str.91, i64 36, i64 1, ptr nonnull %4)
-  br label %thread-pre-split2565
+  br label %thread-pre-split2567
 
 198:                                              ; preds = %195
-  br i1 %196, label %thread-pre-split2565, label %.critedge2610
+  br i1 %196, label %thread-pre-split2567, label %.critedge2611
 
-.critedge2610:                                    ; preds = %198
+.critedge2611:                                    ; preds = %198
   store i32 3, ptr %2, align 4, !tbaa !25
-  br label %.preheader2930.preheader
+  br label %.preheader2931.preheader
 
-thread-pre-split2565:                             ; preds = %arkode_butcher_order1.exit.thread, %115, %thread-pre-split2561, %198, %.thread2564
-  %.pr2566 = load i32, ptr %2, align 4, !tbaa !25
-  %199 = icmp eq i32 %.pr2566, 3
-  br i1 %199, label %.preheader2930.preheader, label %thread-pre-split2569
+thread-pre-split2567:                             ; preds = %arkode_butcher_order1.exit.thread, %115, %thread-pre-split2563, %198, %.thread2566
+  %.pr2568 = load i32, ptr %2, align 4, !tbaa !25
+  %199 = icmp eq i32 %.pr2568, 3
+  br i1 %199, label %.preheader2931.preheader, label %thread-pre-split2571
 
-.preheader2930.preheader:                         ; preds = %thread-pre-split2565, %.critedge2610
+.preheader2931.preheader:                         ; preds = %thread-pre-split2567, %.critedge2611
+  br label %.preheader2931
+
+.preheader2931:                                   ; preds = %.preheader2931.preheader, %246
+  %200 = phi i1 [ false, %246 ], [ true, %.preheader2931.preheader ]
+  %indvars.iv3858.sroa.phi = phi ptr [ %.sroa.385507, %246 ], [ %.sroa.05506, %.preheader2931.preheader ]
+  %.83004 = phi i32 [ %243, %246 ], [ 1, %.preheader2931.preheader ]
   br label %.preheader2930
 
-.preheader2930:                                   ; preds = %.preheader2930.preheader, %246
-  %200 = phi i1 [ false, %246 ], [ true, %.preheader2930.preheader ]
-  %indvars.iv3857.sroa.phi = phi ptr [ %.sroa.385506, %246 ], [ %.sroa.05505, %.preheader2930.preheader ]
-  %.83003 = phi i32 [ %243, %246 ], [ 1, %.preheader2930.preheader ]
+.preheader2930:                                   ; preds = %.preheader2931, %245
+  %201 = phi i1 [ true, %.preheader2931 ], [ false, %245 ]
+  %indvars.iv3855.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2931 ], [ %.sroa.181, %245 ]
+  %.93002 = phi i32 [ %.83004, %.preheader2931 ], [ %243, %245 ]
   br label %.preheader2929
 
-.preheader2929:                                   ; preds = %.preheader2930, %245
-  %201 = phi i1 [ true, %.preheader2930 ], [ false, %245 ]
-  %indvars.iv3854.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2930 ], [ %.sroa.181, %245 ]
-  %.93001 = phi i32 [ %.83003, %.preheader2930 ], [ %243, %245 ]
-  br label %.preheader2928
-
-.preheader2928:                                   ; preds = %.preheader2929, %244
-  %202 = phi i1 [ true, %.preheader2929 ], [ false, %244 ]
-  %indvars.iv3851.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2929 ], [ %.sroa.181, %244 ]
-  %.102999 = phi i32 [ %.93001, %.preheader2929 ], [ %243, %244 ]
+.preheader2929:                                   ; preds = %.preheader2930, %244
+  %202 = phi i1 [ true, %.preheader2930 ], [ false, %244 ]
+  %indvars.iv3852.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2930 ], [ %.sroa.181, %244 ]
+  %.103000 = phi i32 [ %.93002, %.preheader2930 ], [ %243, %244 ]
   br label %203
 
-203:                                              ; preds = %.preheader2928, %arkode_butcher_order4a.exit
-  %204 = phi i1 [ true, %.preheader2928 ], [ false, %arkode_butcher_order4a.exit ]
-  %indvars.iv3848.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2928 ], [ %.sroa.181, %arkode_butcher_order4a.exit ]
-  %.112997 = phi i32 [ %.102999, %.preheader2928 ], [ %243, %arkode_butcher_order4a.exit ]
-  %.not2241 = icmp eq i32 %.112997, 0
+203:                                              ; preds = %.preheader2929, %arkode_butcher_order4a.exit
+  %204 = phi i1 [ true, %.preheader2929 ], [ false, %arkode_butcher_order4a.exit ]
+  %indvars.iv3849.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2929 ], [ %.sroa.181, %arkode_butcher_order4a.exit ]
+  %.112998 = phi i32 [ %.103000, %.preheader2929 ], [ %243, %arkode_butcher_order4a.exit ]
+  %.not2241 = icmp eq i32 %.112998, 0
   br i1 %.not2241, label %arkode_butcher_order4a.exit, label %205
 
 205:                                              ; preds = %203
-  %206 = load ptr, ptr %indvars.iv3857.sroa.phi, align 8, !tbaa !12
-  %207 = load ptr, ptr %indvars.iv3854.sroa.phi, align 8, !tbaa !12
-  %208 = load ptr, ptr %indvars.iv3851.sroa.phi, align 8, !tbaa !12
-  %209 = load ptr, ptr %indvars.iv3848.sroa.phi, align 8, !tbaa !12
+  %206 = load ptr, ptr %indvars.iv3858.sroa.phi, align 8, !tbaa !12
+  %207 = load ptr, ptr %indvars.iv3855.sroa.phi, align 8, !tbaa !12
+  %208 = load ptr, ptr %indvars.iv3852.sroa.phi, align 8, !tbaa !12
+  %209 = load ptr, ptr %indvars.iv3849.sroa.phi, align 8, !tbaa !12
   %210 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %211 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %212 = icmp eq ptr %207, null
   %213 = icmp eq ptr %208, null
-  %or.cond.i.i2289 = or i1 %212, %213
+  %or.cond.i.i2290 = or i1 %212, %213
   %214 = icmp eq ptr %210, null
-  %or.cond3.i.i2290 = or i1 %or.cond.i.i2289, %214
-  br i1 %or.cond3.i.i2290, label %arkode_butcher_vv.exit.i2299, label %.preheader.i.i2294
+  %or.cond3.i.i2291 = or i1 %or.cond.i.i2290, %214
+  br i1 %or.cond3.i.i2291, label %arkode_butcher_vv.exit.i2300, label %.preheader.i.i2295
 
-.preheader.i.i2294:                               ; preds = %205, %.preheader.i.i2294
-  %indvars.iv.i.i2295 = phi i64 [ %indvars.iv.next.i.i2296, %.preheader.i.i2294 ], [ 0, %205 ]
-  %215 = getelementptr inbounds nuw double, ptr %207, i64 %indvars.iv.i.i2295
+.preheader.i.i2295:                               ; preds = %205, %.preheader.i.i2295
+  %indvars.iv.i.i2296 = phi i64 [ %indvars.iv.next.i.i2297, %.preheader.i.i2295 ], [ 0, %205 ]
+  %215 = getelementptr inbounds nuw double, ptr %207, i64 %indvars.iv.i.i2296
   %216 = load double, ptr %215, align 8, !tbaa !18
-  %217 = getelementptr inbounds nuw double, ptr %208, i64 %indvars.iv.i.i2295
+  %217 = getelementptr inbounds nuw double, ptr %208, i64 %indvars.iv.i.i2296
   %218 = load double, ptr %217, align 8, !tbaa !18
   %219 = fmul double %216, %218
-  %220 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv.i.i2295
+  %220 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv.i.i2296
   store double %219, ptr %220, align 8, !tbaa !18
-  %indvars.iv.next.i.i2296 = add nuw nsw i64 %indvars.iv.i.i2295, 1
-  %exitcond.not.i.i2297 = icmp eq i64 %indvars.iv.next.i.i2296, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2297, label %221, label %.preheader.i.i2294
+  %indvars.iv.next.i.i2297 = add nuw nsw i64 %indvars.iv.i.i2296, 1
+  %exitcond.not.i.i2298 = icmp eq i64 %indvars.iv.next.i.i2297, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2298, label %221, label %.preheader.i.i2295
 
-arkode_butcher_vv.exit.i2299:                     ; preds = %205
+arkode_butcher_vv.exit.i2300:                     ; preds = %205
   tail call void @free(ptr noundef %210) #17
   tail call void @free(ptr noundef %211) #17
   br label %arkode_butcher_order4a.exit
 
-221:                                              ; preds = %.preheader.i.i2294
+221:                                              ; preds = %.preheader.i.i2295
   %222 = icmp eq ptr %209, null
   %223 = icmp eq ptr %211, null
   %or.cond3.i22.i = or i1 %222, %223
@@ -7946,11 +7945,11 @@ arkode_butcher_vv.exit31.i:                       ; preds = %221
 
 230:                                              ; preds = %.preheader.i26.i
   %231 = icmp eq ptr %206, null
-  br i1 %231, label %arkode_butcher_order4a.exit, label %.preheader2927
+  br i1 %231, label %arkode_butcher_order4a.exit, label %.preheader2928
 
-.preheader2927:                                   ; preds = %230, %.preheader2927
-  %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i36.i, %.preheader2927 ], [ 0, %230 ]
-  %232 = phi double [ %237, %.preheader2927 ], [ 0.000000e+00, %230 ]
+.preheader2928:                                   ; preds = %230, %.preheader2928
+  %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i36.i, %.preheader2928 ], [ 0, %230 ]
+  %232 = phi double [ %237, %.preheader2928 ], [ 0.000000e+00, %230 ]
   %233 = getelementptr inbounds nuw double, ptr %206, i64 %indvars.iv.i35.i
   %234 = load double, ptr %233, align 8, !tbaa !18
   %235 = getelementptr inbounds nuw double, ptr %211, i64 %indvars.iv.i35.i
@@ -7958,9 +7957,9 @@ arkode_butcher_vv.exit31.i:                       ; preds = %221
   %237 = tail call double @llvm.fmuladd.f64(double %234, double %236, double %232)
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %exitcond.not.i37.i = icmp eq i64 %indvars.iv.next.i36.i, %wide.trip.count29.i
-  br i1 %exitcond.not.i37.i, label %238, label %.preheader2927
+  br i1 %exitcond.not.i37.i, label %238, label %.preheader2928
 
-238:                                              ; preds = %.preheader2927
+238:                                              ; preds = %.preheader2928
   tail call void @free(ptr noundef nonnull %210) #17
   tail call void @free(ptr noundef nonnull %211) #17
   %239 = fadd double %237, -2.500000e-01
@@ -7969,107 +7968,107 @@ arkode_butcher_vv.exit31.i:                       ; preds = %221
   %242 = zext i1 %241 to i32
   br label %arkode_butcher_order4a.exit
 
-arkode_butcher_order4a.exit:                      ; preds = %238, %230, %arkode_butcher_vv.exit31.i, %arkode_butcher_vv.exit.i2299, %203
-  %243 = phi i32 [ 0, %203 ], [ 0, %arkode_butcher_vv.exit.i2299 ], [ 0, %arkode_butcher_vv.exit31.i ], [ %242, %238 ], [ 0, %230 ]
+arkode_butcher_order4a.exit:                      ; preds = %238, %230, %arkode_butcher_vv.exit31.i, %arkode_butcher_vv.exit.i2300, %203
+  %243 = phi i32 [ 0, %203 ], [ 0, %arkode_butcher_vv.exit.i2300 ], [ 0, %arkode_butcher_vv.exit31.i ], [ %242, %238 ], [ 0, %230 ]
   br i1 %204, label %203, label %244
 
 244:                                              ; preds = %arkode_butcher_order4a.exit
-  br i1 %202, label %.preheader2928, label %245
+  br i1 %202, label %.preheader2929, label %245
 
 245:                                              ; preds = %244
-  br i1 %201, label %.preheader2929, label %246
+  br i1 %201, label %.preheader2930, label %246
 
 246:                                              ; preds = %245
-  br i1 %200, label %.preheader2930, label %247
+  br i1 %200, label %.preheader2931, label %247
 
 247:                                              ; preds = %246
   %248 = icmp eq i32 %243, 0
   %or.cond5 = and i1 %49, %248
-  br i1 %or.cond5, label %249, label %.preheader2926.preheader
+  br i1 %or.cond5, label %249, label %.preheader2927.preheader
 
 249:                                              ; preds = %247
   %250 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2926.preheader
+  br label %.preheader2927.preheader
 
-.preheader2926.preheader:                         ; preds = %249, %247
+.preheader2927.preheader:                         ; preds = %249, %247
+  br label %.preheader2927
+
+.preheader2927:                                   ; preds = %.preheader2927.preheader, %300
+  %251 = phi i1 [ false, %300 ], [ true, %.preheader2927.preheader ]
+  %indvars.iv3870.sroa.phi = phi ptr [ %.sroa.385507, %300 ], [ %.sroa.05506, %.preheader2927.preheader ]
+  %.123012 = phi i32 [ %297, %300 ], [ %243, %.preheader2927.preheader ]
   br label %.preheader2926
 
-.preheader2926:                                   ; preds = %.preheader2926.preheader, %300
-  %251 = phi i1 [ false, %300 ], [ true, %.preheader2926.preheader ]
-  %indvars.iv3869.sroa.phi = phi ptr [ %.sroa.385506, %300 ], [ %.sroa.05505, %.preheader2926.preheader ]
-  %.123011 = phi i32 [ %297, %300 ], [ %243, %.preheader2926.preheader ]
+.preheader2926:                                   ; preds = %.preheader2927, %299
+  %252 = phi i1 [ true, %.preheader2927 ], [ false, %299 ]
+  %indvars.iv3867.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2927 ], [ %.sroa.181, %299 ]
+  %.133010 = phi i32 [ %.123012, %.preheader2927 ], [ %297, %299 ]
   br label %.preheader2925
 
-.preheader2925:                                   ; preds = %.preheader2926, %299
-  %252 = phi i1 [ true, %.preheader2926 ], [ false, %299 ]
-  %indvars.iv3866.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2926 ], [ %.sroa.181, %299 ]
-  %.133009 = phi i32 [ %.123011, %.preheader2926 ], [ %297, %299 ]
-  br label %.preheader2924
-
-.preheader2924:                                   ; preds = %.preheader2925, %298
-  %253 = phi i1 [ true, %.preheader2925 ], [ false, %298 ]
-  %indvars.iv3863.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2925 ], [ %.sroa.121, %298 ]
-  %.143007 = phi i32 [ %.133009, %.preheader2925 ], [ %297, %298 ]
+.preheader2925:                                   ; preds = %.preheader2926, %298
+  %253 = phi i1 [ true, %.preheader2926 ], [ false, %298 ]
+  %indvars.iv3864.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2926 ], [ %.sroa.121, %298 ]
+  %.143008 = phi i32 [ %.133010, %.preheader2926 ], [ %297, %298 ]
   br label %254
 
-254:                                              ; preds = %.preheader2924, %arkode_butcher_order4b.exit
-  %255 = phi i1 [ true, %.preheader2924 ], [ false, %arkode_butcher_order4b.exit ]
-  %indvars.iv3860.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2924 ], [ %.sroa.181, %arkode_butcher_order4b.exit ]
-  %.153005 = phi i32 [ %.143007, %.preheader2924 ], [ %297, %arkode_butcher_order4b.exit ]
-  %.not2240 = icmp eq i32 %.153005, 0
+254:                                              ; preds = %.preheader2925, %arkode_butcher_order4b.exit
+  %255 = phi i1 [ true, %.preheader2925 ], [ false, %arkode_butcher_order4b.exit ]
+  %indvars.iv3861.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2925 ], [ %.sroa.181, %arkode_butcher_order4b.exit ]
+  %.153006 = phi i32 [ %.143008, %.preheader2925 ], [ %297, %arkode_butcher_order4b.exit ]
+  %.not2240 = icmp eq i32 %.153006, 0
   br i1 %.not2240, label %arkode_butcher_order4b.exit, label %256
 
 256:                                              ; preds = %254
-  %257 = load ptr, ptr %indvars.iv3869.sroa.phi, align 8, !tbaa !12
-  %258 = load ptr, ptr %indvars.iv3866.sroa.phi, align 8, !tbaa !12
-  %259 = load ptr, ptr %indvars.iv3863.sroa.phi, align 8, !tbaa !31
-  %260 = load ptr, ptr %indvars.iv3860.sroa.phi, align 8, !tbaa !12
+  %257 = load ptr, ptr %indvars.iv3870.sroa.phi, align 8, !tbaa !12
+  %258 = load ptr, ptr %indvars.iv3867.sroa.phi, align 8, !tbaa !12
+  %259 = load ptr, ptr %indvars.iv3864.sroa.phi, align 8, !tbaa !31
+  %260 = load ptr, ptr %indvars.iv3861.sroa.phi, align 8, !tbaa !12
   %261 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %262 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %263 = icmp eq ptr %257, null
   %264 = icmp eq ptr %258, null
-  %or.cond.i.i2300 = or i1 %263, %264
+  %or.cond.i.i2301 = or i1 %263, %264
   %265 = icmp eq ptr %261, null
-  %or.cond3.i.i2301 = or i1 %or.cond.i.i2300, %265
-  br i1 %or.cond3.i.i2301, label %arkode_butcher_vv.exit.i2318, label %.preheader.i.i2305
+  %or.cond3.i.i2302 = or i1 %or.cond.i.i2301, %265
+  br i1 %or.cond3.i.i2302, label %arkode_butcher_vv.exit.i2319, label %.preheader.i.i2306
 
-.preheader.i.i2305:                               ; preds = %256, %.preheader.i.i2305
-  %indvars.iv.i.i2306 = phi i64 [ %indvars.iv.next.i.i2307, %.preheader.i.i2305 ], [ 0, %256 ]
-  %266 = getelementptr inbounds nuw double, ptr %257, i64 %indvars.iv.i.i2306
+.preheader.i.i2306:                               ; preds = %256, %.preheader.i.i2306
+  %indvars.iv.i.i2307 = phi i64 [ %indvars.iv.next.i.i2308, %.preheader.i.i2306 ], [ 0, %256 ]
+  %266 = getelementptr inbounds nuw double, ptr %257, i64 %indvars.iv.i.i2307
   %267 = load double, ptr %266, align 8, !tbaa !18
-  %268 = getelementptr inbounds nuw double, ptr %258, i64 %indvars.iv.i.i2306
+  %268 = getelementptr inbounds nuw double, ptr %258, i64 %indvars.iv.i.i2307
   %269 = load double, ptr %268, align 8, !tbaa !18
   %270 = fmul double %267, %269
-  %271 = getelementptr inbounds nuw double, ptr %261, i64 %indvars.iv.i.i2306
+  %271 = getelementptr inbounds nuw double, ptr %261, i64 %indvars.iv.i.i2307
   store double %270, ptr %271, align 8, !tbaa !18
-  %indvars.iv.next.i.i2307 = add nuw nsw i64 %indvars.iv.i.i2306, 1
-  %exitcond.not.i.i2308 = icmp eq i64 %indvars.iv.next.i.i2307, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2308, label %272, label %.preheader.i.i2305
+  %indvars.iv.next.i.i2308 = add nuw nsw i64 %indvars.iv.i.i2307, 1
+  %exitcond.not.i.i2309 = icmp eq i64 %indvars.iv.next.i.i2308, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2309, label %272, label %.preheader.i.i2306
 
-arkode_butcher_vv.exit.i2318:                     ; preds = %256
+arkode_butcher_vv.exit.i2319:                     ; preds = %256
   tail call void @free(ptr noundef %261) #17
   tail call void @free(ptr noundef %262) #17
   br label %arkode_butcher_order4b.exit
 
-272:                                              ; preds = %.preheader.i.i2305
+272:                                              ; preds = %.preheader.i.i2306
   %273 = icmp eq ptr %259, null
   %274 = icmp eq ptr %260, null
   %or.cond.i21.i = or i1 %273, %274
   %275 = icmp eq ptr %262, null
-  %or.cond3.i22.i2309 = or i1 %or.cond.i21.i, %275
-  br i1 %or.cond3.i22.i2309, label %arkode_butcher_mv.exit.i2317, label %.preheader.us.i.i2310
+  %or.cond3.i22.i2310 = or i1 %or.cond.i21.i, %275
+  br i1 %or.cond3.i22.i2310, label %arkode_butcher_mv.exit.i2318, label %.preheader.us.i.i2311
 
-.preheader.us.i.i2310:                            ; preds = %272, %._crit_edge.us.i.i2313
-  %indvars.iv40.i.i2311 = phi i64 [ %indvars.iv.next41.i.i2314, %._crit_edge.us.i.i2313 ], [ 0, %272 ]
-  %276 = getelementptr inbounds nuw ptr, ptr %259, i64 %indvars.iv40.i.i2311
+.preheader.us.i.i2311:                            ; preds = %272, %._crit_edge.us.i.i2314
+  %indvars.iv40.i.i2312 = phi i64 [ %indvars.iv.next41.i.i2315, %._crit_edge.us.i.i2314 ], [ 0, %272 ]
+  %276 = getelementptr inbounds nuw ptr, ptr %259, i64 %indvars.iv40.i.i2312
   %277 = load ptr, ptr %276, align 8, !tbaa !12
-  %278 = getelementptr inbounds nuw double, ptr %262, i64 %indvars.iv40.i.i2311
-  %.promoted.us.i.i2312 = load double, ptr %278, align 8, !tbaa !18
+  %278 = getelementptr inbounds nuw double, ptr %262, i64 %indvars.iv40.i.i2312
+  %.promoted.us.i.i2313 = load double, ptr %278, align 8, !tbaa !18
   br label %279
 
-279:                                              ; preds = %279, %.preheader.us.i.i2310
-  %indvars.iv.i24.i = phi i64 [ 0, %.preheader.us.i.i2310 ], [ %indvars.iv.next.i25.i, %279 ]
-  %280 = phi double [ %.promoted.us.i.i2312, %.preheader.us.i.i2310 ], [ %285, %279 ]
+279:                                              ; preds = %279, %.preheader.us.i.i2311
+  %indvars.iv.i24.i = phi i64 [ 0, %.preheader.us.i.i2311 ], [ %indvars.iv.next.i25.i, %279 ]
+  %280 = phi double [ %.promoted.us.i.i2313, %.preheader.us.i.i2311 ], [ %285, %279 ]
   %281 = getelementptr inbounds nuw double, ptr %277, i64 %indvars.iv.i24.i
   %282 = load double, ptr %281, align 8, !tbaa !18
   %283 = getelementptr inbounds nuw double, ptr %260, i64 %indvars.iv.i24.i
@@ -8077,22 +8076,22 @@ arkode_butcher_vv.exit.i2318:                     ; preds = %256
   %285 = tail call double @llvm.fmuladd.f64(double %282, double %284, double %280)
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i24.i, 1
   %exitcond.not.i26.i = icmp eq i64 %indvars.iv.next.i25.i, %wide.trip.count29.i
-  br i1 %exitcond.not.i26.i, label %._crit_edge.us.i.i2313, label %279
+  br i1 %exitcond.not.i26.i, label %._crit_edge.us.i.i2314, label %279
 
-._crit_edge.us.i.i2313:                           ; preds = %279
+._crit_edge.us.i.i2314:                           ; preds = %279
   store double %285, ptr %278, align 8, !tbaa !18
-  %indvars.iv.next41.i.i2314 = add nuw nsw i64 %indvars.iv40.i.i2311, 1
-  %exitcond44.not.i.i2315 = icmp eq i64 %indvars.iv.next41.i.i2314, %wide.trip.count29.i
-  br i1 %exitcond44.not.i.i2315, label %.preheader2923, label %.preheader.us.i.i2310, !llvm.loop !27
+  %indvars.iv.next41.i.i2315 = add nuw nsw i64 %indvars.iv40.i.i2312, 1
+  %exitcond44.not.i.i2316 = icmp eq i64 %indvars.iv.next41.i.i2315, %wide.trip.count29.i
+  br i1 %exitcond44.not.i.i2316, label %.preheader2924, label %.preheader.us.i.i2311, !llvm.loop !27
 
-arkode_butcher_mv.exit.i2317:                     ; preds = %272
+arkode_butcher_mv.exit.i2318:                     ; preds = %272
   tail call void @free(ptr noundef nonnull %261) #17
   tail call void @free(ptr noundef %262) #17
   br label %arkode_butcher_order4b.exit
 
-.preheader2923:                                   ; preds = %._crit_edge.us.i.i2313, %.preheader2923
-  %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i31.i, %.preheader2923 ], [ 0, %._crit_edge.us.i.i2313 ]
-  %286 = phi double [ %291, %.preheader2923 ], [ 0.000000e+00, %._crit_edge.us.i.i2313 ]
+.preheader2924:                                   ; preds = %._crit_edge.us.i.i2314, %.preheader2924
+  %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i31.i, %.preheader2924 ], [ 0, %._crit_edge.us.i.i2314 ]
+  %286 = phi double [ %291, %.preheader2924 ], [ 0.000000e+00, %._crit_edge.us.i.i2314 ]
   %287 = getelementptr inbounds nuw double, ptr %261, i64 %indvars.iv.i30.i
   %288 = load double, ptr %287, align 8, !tbaa !18
   %289 = getelementptr inbounds nuw double, ptr %262, i64 %indvars.iv.i30.i
@@ -8100,9 +8099,9 @@ arkode_butcher_mv.exit.i2317:                     ; preds = %272
   %291 = tail call double @llvm.fmuladd.f64(double %288, double %290, double %286)
   %indvars.iv.next.i31.i = add nuw nsw i64 %indvars.iv.i30.i, 1
   %exitcond.not.i32.i = icmp eq i64 %indvars.iv.next.i31.i, %wide.trip.count29.i
-  br i1 %exitcond.not.i32.i, label %292, label %.preheader2923
+  br i1 %exitcond.not.i32.i, label %292, label %.preheader2924
 
-292:                                              ; preds = %.preheader2923
+292:                                              ; preds = %.preheader2924
   tail call void @free(ptr noundef nonnull %261) #17
   tail call void @free(ptr noundef nonnull %262) #17
   %293 = fadd double %291, -1.250000e-01
@@ -8111,142 +8110,142 @@ arkode_butcher_mv.exit.i2317:                     ; preds = %272
   %296 = zext i1 %295 to i32
   br label %arkode_butcher_order4b.exit
 
-arkode_butcher_order4b.exit:                      ; preds = %292, %arkode_butcher_mv.exit.i2317, %arkode_butcher_vv.exit.i2318, %254
-  %297 = phi i32 [ 0, %254 ], [ 0, %arkode_butcher_vv.exit.i2318 ], [ 0, %arkode_butcher_mv.exit.i2317 ], [ %296, %292 ]
+arkode_butcher_order4b.exit:                      ; preds = %292, %arkode_butcher_mv.exit.i2318, %arkode_butcher_vv.exit.i2319, %254
+  %297 = phi i32 [ 0, %254 ], [ 0, %arkode_butcher_vv.exit.i2319 ], [ 0, %arkode_butcher_mv.exit.i2318 ], [ %296, %292 ]
   br i1 %255, label %254, label %298
 
 298:                                              ; preds = %arkode_butcher_order4b.exit
-  br i1 %253, label %.preheader2924, label %299
+  br i1 %253, label %.preheader2925, label %299
 
 299:                                              ; preds = %298
-  br i1 %252, label %.preheader2925, label %300
+  br i1 %252, label %.preheader2926, label %300
 
 300:                                              ; preds = %299
-  br i1 %251, label %.preheader2926, label %301
+  br i1 %251, label %.preheader2927, label %301
 
 301:                                              ; preds = %300
   %302 = icmp eq i32 %297, 0
   %or.cond7 = and i1 %49, %302
-  br i1 %or.cond7, label %303, label %.preheader2922.preheader
+  br i1 %or.cond7, label %303, label %.preheader2923.preheader
 
 303:                                              ; preds = %301
   %304 = tail call i64 @fwrite(ptr nonnull @.str.93, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2922.preheader
+  br label %.preheader2923.preheader
 
-.preheader2922.preheader:                         ; preds = %303, %301
+.preheader2923.preheader:                         ; preds = %303, %301
+  br label %.preheader2923
+
+.preheader2923:                                   ; preds = %.preheader2923.preheader, %355
+  %305 = phi i1 [ false, %355 ], [ true, %.preheader2923.preheader ]
+  %indvars.iv3882.sroa.phi = phi ptr [ %.sroa.385507, %355 ], [ %.sroa.05506, %.preheader2923.preheader ]
+  %.163020 = phi i32 [ %352, %355 ], [ %297, %.preheader2923.preheader ]
   br label %.preheader2922
 
-.preheader2922:                                   ; preds = %.preheader2922.preheader, %355
-  %305 = phi i1 [ false, %355 ], [ true, %.preheader2922.preheader ]
-  %indvars.iv3881.sroa.phi = phi ptr [ %.sroa.385506, %355 ], [ %.sroa.05505, %.preheader2922.preheader ]
-  %.163019 = phi i32 [ %352, %355 ], [ %297, %.preheader2922.preheader ]
+.preheader2922:                                   ; preds = %.preheader2923, %354
+  %306 = phi i1 [ true, %.preheader2923 ], [ false, %354 ]
+  %indvars.iv3879.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2923 ], [ %.sroa.121, %354 ]
+  %.173018 = phi i32 [ %.163020, %.preheader2923 ], [ %352, %354 ]
   br label %.preheader2921
 
-.preheader2921:                                   ; preds = %.preheader2922, %354
-  %306 = phi i1 [ true, %.preheader2922 ], [ false, %354 ]
-  %indvars.iv3878.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2922 ], [ %.sroa.121, %354 ]
-  %.173017 = phi i32 [ %.163019, %.preheader2922 ], [ %352, %354 ]
-  br label %.preheader2920
-
-.preheader2920:                                   ; preds = %.preheader2921, %353
-  %307 = phi i1 [ true, %.preheader2921 ], [ false, %353 ]
-  %indvars.iv3875.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2921 ], [ %.sroa.181, %353 ]
-  %.183015 = phi i32 [ %.173017, %.preheader2921 ], [ %352, %353 ]
+.preheader2921:                                   ; preds = %.preheader2922, %353
+  %307 = phi i1 [ true, %.preheader2922 ], [ false, %353 ]
+  %indvars.iv3876.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2922 ], [ %.sroa.181, %353 ]
+  %.183016 = phi i32 [ %.173018, %.preheader2922 ], [ %352, %353 ]
   br label %308
 
-308:                                              ; preds = %.preheader2920, %arkode_butcher_order4c.exit
-  %309 = phi i1 [ true, %.preheader2920 ], [ false, %arkode_butcher_order4c.exit ]
-  %indvars.iv3872.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2920 ], [ %.sroa.181, %arkode_butcher_order4c.exit ]
-  %.193013 = phi i32 [ %.183015, %.preheader2920 ], [ %352, %arkode_butcher_order4c.exit ]
-  %.not2239 = icmp eq i32 %.193013, 0
+308:                                              ; preds = %.preheader2921, %arkode_butcher_order4c.exit
+  %309 = phi i1 [ true, %.preheader2921 ], [ false, %arkode_butcher_order4c.exit ]
+  %indvars.iv3873.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2921 ], [ %.sroa.181, %arkode_butcher_order4c.exit ]
+  %.193014 = phi i32 [ %.183016, %.preheader2921 ], [ %352, %arkode_butcher_order4c.exit ]
+  %.not2239 = icmp eq i32 %.193014, 0
   br i1 %.not2239, label %arkode_butcher_order4c.exit, label %310
 
 310:                                              ; preds = %308
-  %311 = load ptr, ptr %indvars.iv3881.sroa.phi, align 8, !tbaa !12
-  %312 = load ptr, ptr %indvars.iv3878.sroa.phi, align 8, !tbaa !31
-  %313 = load ptr, ptr %indvars.iv3875.sroa.phi, align 8, !tbaa !12
-  %314 = load ptr, ptr %indvars.iv3872.sroa.phi, align 8, !tbaa !12
+  %311 = load ptr, ptr %indvars.iv3882.sroa.phi, align 8, !tbaa !12
+  %312 = load ptr, ptr %indvars.iv3879.sroa.phi, align 8, !tbaa !31
+  %313 = load ptr, ptr %indvars.iv3876.sroa.phi, align 8, !tbaa !12
+  %314 = load ptr, ptr %indvars.iv3873.sroa.phi, align 8, !tbaa !12
   %315 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %316 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %317 = icmp eq ptr %313, null
   %318 = icmp eq ptr %314, null
-  %or.cond.i.i2319 = or i1 %317, %318
+  %or.cond.i.i2320 = or i1 %317, %318
   %319 = icmp eq ptr %315, null
-  %or.cond3.i.i2320 = or i1 %or.cond.i.i2319, %319
-  br i1 %or.cond3.i.i2320, label %arkode_butcher_vv.exit.i2343, label %.preheader.i.i2324
+  %or.cond3.i.i2321 = or i1 %or.cond.i.i2320, %319
+  br i1 %or.cond3.i.i2321, label %arkode_butcher_vv.exit.i2344, label %.preheader.i.i2325
 
-.preheader.i.i2324:                               ; preds = %310, %.preheader.i.i2324
-  %indvars.iv.i.i2325 = phi i64 [ %indvars.iv.next.i.i2326, %.preheader.i.i2324 ], [ 0, %310 ]
-  %320 = getelementptr inbounds nuw double, ptr %313, i64 %indvars.iv.i.i2325
+.preheader.i.i2325:                               ; preds = %310, %.preheader.i.i2325
+  %indvars.iv.i.i2326 = phi i64 [ %indvars.iv.next.i.i2327, %.preheader.i.i2325 ], [ 0, %310 ]
+  %320 = getelementptr inbounds nuw double, ptr %313, i64 %indvars.iv.i.i2326
   %321 = load double, ptr %320, align 8, !tbaa !18
-  %322 = getelementptr inbounds nuw double, ptr %314, i64 %indvars.iv.i.i2325
+  %322 = getelementptr inbounds nuw double, ptr %314, i64 %indvars.iv.i.i2326
   %323 = load double, ptr %322, align 8, !tbaa !18
   %324 = fmul double %321, %323
-  %325 = getelementptr inbounds nuw double, ptr %315, i64 %indvars.iv.i.i2325
+  %325 = getelementptr inbounds nuw double, ptr %315, i64 %indvars.iv.i.i2326
   store double %324, ptr %325, align 8, !tbaa !18
-  %indvars.iv.next.i.i2326 = add nuw nsw i64 %indvars.iv.i.i2325, 1
-  %exitcond.not.i.i2327 = icmp eq i64 %indvars.iv.next.i.i2326, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2327, label %326, label %.preheader.i.i2324
+  %indvars.iv.next.i.i2327 = add nuw nsw i64 %indvars.iv.i.i2326, 1
+  %exitcond.not.i.i2328 = icmp eq i64 %indvars.iv.next.i.i2327, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2328, label %326, label %.preheader.i.i2325
 
-arkode_butcher_vv.exit.i2343:                     ; preds = %310
+arkode_butcher_vv.exit.i2344:                     ; preds = %310
   tail call void @free(ptr noundef %315) #17
   tail call void @free(ptr noundef %316) #17
   br label %arkode_butcher_order4c.exit
 
-326:                                              ; preds = %.preheader.i.i2324
+326:                                              ; preds = %.preheader.i.i2325
   %327 = icmp eq ptr %312, null
   %328 = icmp eq ptr %316, null
-  %or.cond3.i22.i2328 = or i1 %327, %328
-  br i1 %or.cond3.i22.i2328, label %arkode_butcher_mv.exit.i2342, label %.preheader.us.i.i2329
+  %or.cond3.i22.i2329 = or i1 %327, %328
+  br i1 %or.cond3.i22.i2329, label %arkode_butcher_mv.exit.i2343, label %.preheader.us.i.i2330
 
-.preheader.us.i.i2329:                            ; preds = %326, %._crit_edge.us.i.i2335
-  %indvars.iv40.i.i2330 = phi i64 [ %indvars.iv.next41.i.i2336, %._crit_edge.us.i.i2335 ], [ 0, %326 ]
-  %329 = getelementptr inbounds nuw ptr, ptr %312, i64 %indvars.iv40.i.i2330
+.preheader.us.i.i2330:                            ; preds = %326, %._crit_edge.us.i.i2336
+  %indvars.iv40.i.i2331 = phi i64 [ %indvars.iv.next41.i.i2337, %._crit_edge.us.i.i2336 ], [ 0, %326 ]
+  %329 = getelementptr inbounds nuw ptr, ptr %312, i64 %indvars.iv40.i.i2331
   %330 = load ptr, ptr %329, align 8, !tbaa !12
-  %331 = getelementptr inbounds nuw double, ptr %316, i64 %indvars.iv40.i.i2330
-  %.promoted.us.i.i2331 = load double, ptr %331, align 8, !tbaa !18
+  %331 = getelementptr inbounds nuw double, ptr %316, i64 %indvars.iv40.i.i2331
+  %.promoted.us.i.i2332 = load double, ptr %331, align 8, !tbaa !18
   br label %332
 
-332:                                              ; preds = %332, %.preheader.us.i.i2329
-  %indvars.iv.i24.i2332 = phi i64 [ 0, %.preheader.us.i.i2329 ], [ %indvars.iv.next.i25.i2333, %332 ]
-  %333 = phi double [ %.promoted.us.i.i2331, %.preheader.us.i.i2329 ], [ %338, %332 ]
-  %334 = getelementptr inbounds nuw double, ptr %330, i64 %indvars.iv.i24.i2332
+332:                                              ; preds = %332, %.preheader.us.i.i2330
+  %indvars.iv.i24.i2333 = phi i64 [ 0, %.preheader.us.i.i2330 ], [ %indvars.iv.next.i25.i2334, %332 ]
+  %333 = phi double [ %.promoted.us.i.i2332, %.preheader.us.i.i2330 ], [ %338, %332 ]
+  %334 = getelementptr inbounds nuw double, ptr %330, i64 %indvars.iv.i24.i2333
   %335 = load double, ptr %334, align 8, !tbaa !18
-  %336 = getelementptr inbounds nuw double, ptr %315, i64 %indvars.iv.i24.i2332
+  %336 = getelementptr inbounds nuw double, ptr %315, i64 %indvars.iv.i24.i2333
   %337 = load double, ptr %336, align 8, !tbaa !18
   %338 = tail call double @llvm.fmuladd.f64(double %335, double %337, double %333)
-  %indvars.iv.next.i25.i2333 = add nuw nsw i64 %indvars.iv.i24.i2332, 1
-  %exitcond.not.i26.i2334 = icmp eq i64 %indvars.iv.next.i25.i2333, %wide.trip.count29.i
-  br i1 %exitcond.not.i26.i2334, label %._crit_edge.us.i.i2335, label %332
+  %indvars.iv.next.i25.i2334 = add nuw nsw i64 %indvars.iv.i24.i2333, 1
+  %exitcond.not.i26.i2335 = icmp eq i64 %indvars.iv.next.i25.i2334, %wide.trip.count29.i
+  br i1 %exitcond.not.i26.i2335, label %._crit_edge.us.i.i2336, label %332
 
-._crit_edge.us.i.i2335:                           ; preds = %332
+._crit_edge.us.i.i2336:                           ; preds = %332
   store double %338, ptr %331, align 8, !tbaa !18
-  %indvars.iv.next41.i.i2336 = add nuw nsw i64 %indvars.iv40.i.i2330, 1
-  %exitcond44.not.i.i2337 = icmp eq i64 %indvars.iv.next41.i.i2336, %wide.trip.count29.i
-  br i1 %exitcond44.not.i.i2337, label %339, label %.preheader.us.i.i2329, !llvm.loop !27
+  %indvars.iv.next41.i.i2337 = add nuw nsw i64 %indvars.iv40.i.i2331, 1
+  %exitcond44.not.i.i2338 = icmp eq i64 %indvars.iv.next41.i.i2337, %wide.trip.count29.i
+  br i1 %exitcond44.not.i.i2338, label %339, label %.preheader.us.i.i2330, !llvm.loop !27
 
-arkode_butcher_mv.exit.i2342:                     ; preds = %326
+arkode_butcher_mv.exit.i2343:                     ; preds = %326
   tail call void @free(ptr noundef nonnull %315) #17
   tail call void @free(ptr noundef %316) #17
   br label %arkode_butcher_order4c.exit
 
-339:                                              ; preds = %._crit_edge.us.i.i2335
+339:                                              ; preds = %._crit_edge.us.i.i2336
   %340 = icmp eq ptr %311, null
-  br i1 %340, label %arkode_butcher_order4c.exit, label %.preheader2919
+  br i1 %340, label %arkode_butcher_order4c.exit, label %.preheader2920
 
-.preheader2919:                                   ; preds = %339, %.preheader2919
-  %indvars.iv.i30.i2338 = phi i64 [ %indvars.iv.next.i31.i2339, %.preheader2919 ], [ 0, %339 ]
-  %341 = phi double [ %346, %.preheader2919 ], [ 0.000000e+00, %339 ]
-  %342 = getelementptr inbounds nuw double, ptr %311, i64 %indvars.iv.i30.i2338
+.preheader2920:                                   ; preds = %339, %.preheader2920
+  %indvars.iv.i30.i2339 = phi i64 [ %indvars.iv.next.i31.i2340, %.preheader2920 ], [ 0, %339 ]
+  %341 = phi double [ %346, %.preheader2920 ], [ 0.000000e+00, %339 ]
+  %342 = getelementptr inbounds nuw double, ptr %311, i64 %indvars.iv.i30.i2339
   %343 = load double, ptr %342, align 8, !tbaa !18
-  %344 = getelementptr inbounds nuw double, ptr %316, i64 %indvars.iv.i30.i2338
+  %344 = getelementptr inbounds nuw double, ptr %316, i64 %indvars.iv.i30.i2339
   %345 = load double, ptr %344, align 8, !tbaa !18
   %346 = tail call double @llvm.fmuladd.f64(double %343, double %345, double %341)
-  %indvars.iv.next.i31.i2339 = add nuw nsw i64 %indvars.iv.i30.i2338, 1
-  %exitcond.not.i32.i2340 = icmp eq i64 %indvars.iv.next.i31.i2339, %wide.trip.count29.i
-  br i1 %exitcond.not.i32.i2340, label %347, label %.preheader2919
+  %indvars.iv.next.i31.i2340 = add nuw nsw i64 %indvars.iv.i30.i2339, 1
+  %exitcond.not.i32.i2341 = icmp eq i64 %indvars.iv.next.i31.i2340, %wide.trip.count29.i
+  br i1 %exitcond.not.i32.i2341, label %347, label %.preheader2920
 
-347:                                              ; preds = %.preheader2919
+347:                                              ; preds = %.preheader2920
   tail call void @free(ptr noundef nonnull %315) #17
   tail call void @free(ptr noundef nonnull %316) #17
   %348 = fadd double %346, 0xBFB5555555555555
@@ -8255,106 +8254,106 @@ arkode_butcher_mv.exit.i2342:                     ; preds = %326
   %351 = zext i1 %350 to i32
   br label %arkode_butcher_order4c.exit
 
-arkode_butcher_order4c.exit:                      ; preds = %347, %339, %arkode_butcher_mv.exit.i2342, %arkode_butcher_vv.exit.i2343, %308
-  %352 = phi i32 [ 0, %308 ], [ 0, %arkode_butcher_vv.exit.i2343 ], [ 0, %arkode_butcher_mv.exit.i2342 ], [ %351, %347 ], [ 0, %339 ]
+arkode_butcher_order4c.exit:                      ; preds = %347, %339, %arkode_butcher_mv.exit.i2343, %arkode_butcher_vv.exit.i2344, %308
+  %352 = phi i32 [ 0, %308 ], [ 0, %arkode_butcher_vv.exit.i2344 ], [ 0, %arkode_butcher_mv.exit.i2343 ], [ %351, %347 ], [ 0, %339 ]
   br i1 %309, label %308, label %353
 
 353:                                              ; preds = %arkode_butcher_order4c.exit
-  br i1 %307, label %.preheader2920, label %354
+  br i1 %307, label %.preheader2921, label %354
 
 354:                                              ; preds = %353
-  br i1 %306, label %.preheader2921, label %355
+  br i1 %306, label %.preheader2922, label %355
 
 355:                                              ; preds = %354
-  br i1 %305, label %.preheader2922, label %356
+  br i1 %305, label %.preheader2923, label %356
 
 356:                                              ; preds = %355
   %357 = icmp eq i32 %352, 0
   %or.cond9 = and i1 %49, %357
-  br i1 %or.cond9, label %358, label %.preheader2918.preheader
+  br i1 %or.cond9, label %358, label %.preheader2919.preheader
 
 358:                                              ; preds = %356
   %359 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2918.preheader
+  br label %.preheader2919.preheader
 
-.preheader2918.preheader:                         ; preds = %358, %356
+.preheader2919.preheader:                         ; preds = %358, %356
+  br label %.preheader2919
+
+.preheader2919:                                   ; preds = %.preheader2919.preheader, %414
+  %360 = phi i1 [ false, %414 ], [ true, %.preheader2919.preheader ]
+  %indvars.iv3894.sroa.phi = phi ptr [ %.sroa.385507, %414 ], [ %.sroa.05506, %.preheader2919.preheader ]
+  %.203028 = phi i32 [ %411, %414 ], [ %352, %.preheader2919.preheader ]
   br label %.preheader2918
 
-.preheader2918:                                   ; preds = %.preheader2918.preheader, %414
-  %360 = phi i1 [ false, %414 ], [ true, %.preheader2918.preheader ]
-  %indvars.iv3893.sroa.phi = phi ptr [ %.sroa.385506, %414 ], [ %.sroa.05505, %.preheader2918.preheader ]
-  %.203027 = phi i32 [ %411, %414 ], [ %352, %.preheader2918.preheader ]
+.preheader2918:                                   ; preds = %.preheader2919, %413
+  %361 = phi i1 [ true, %.preheader2919 ], [ false, %413 ]
+  %indvars.iv3891.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2919 ], [ %.sroa.121, %413 ]
+  %.213026 = phi i32 [ %.203028, %.preheader2919 ], [ %411, %413 ]
   br label %.preheader2917
 
-.preheader2917:                                   ; preds = %.preheader2918, %413
-  %361 = phi i1 [ true, %.preheader2918 ], [ false, %413 ]
-  %indvars.iv3890.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2918 ], [ %.sroa.121, %413 ]
-  %.213025 = phi i32 [ %.203027, %.preheader2918 ], [ %411, %413 ]
-  br label %.preheader2916
-
-.preheader2916:                                   ; preds = %.preheader2917, %412
-  %362 = phi i1 [ true, %.preheader2917 ], [ false, %412 ]
-  %indvars.iv3887.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2917 ], [ %.sroa.121, %412 ]
-  %.223023 = phi i32 [ %.213025, %.preheader2917 ], [ %411, %412 ]
+.preheader2917:                                   ; preds = %.preheader2918, %412
+  %362 = phi i1 [ true, %.preheader2918 ], [ false, %412 ]
+  %indvars.iv3888.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2918 ], [ %.sroa.121, %412 ]
+  %.223024 = phi i32 [ %.213026, %.preheader2918 ], [ %411, %412 ]
   br label %363
 
-363:                                              ; preds = %.preheader2916, %arkode_butcher_order4d.exit
-  %364 = phi i1 [ true, %.preheader2916 ], [ false, %arkode_butcher_order4d.exit ]
-  %indvars.iv3884.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2916 ], [ %.sroa.181, %arkode_butcher_order4d.exit ]
-  %.233021 = phi i32 [ %.223023, %.preheader2916 ], [ %411, %arkode_butcher_order4d.exit ]
-  %.not2238 = icmp eq i32 %.233021, 0
+363:                                              ; preds = %.preheader2917, %arkode_butcher_order4d.exit
+  %364 = phi i1 [ true, %.preheader2917 ], [ false, %arkode_butcher_order4d.exit ]
+  %indvars.iv3885.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2917 ], [ %.sroa.181, %arkode_butcher_order4d.exit ]
+  %.233022 = phi i32 [ %.223024, %.preheader2917 ], [ %411, %arkode_butcher_order4d.exit ]
+  %.not2238 = icmp eq i32 %.233022, 0
   br i1 %.not2238, label %arkode_butcher_order4d.exit, label %365
 
 365:                                              ; preds = %363
-  %366 = load ptr, ptr %indvars.iv3893.sroa.phi, align 8, !tbaa !12
-  %367 = load ptr, ptr %indvars.iv3890.sroa.phi, align 8, !tbaa !31
-  %368 = load ptr, ptr %indvars.iv3887.sroa.phi, align 8, !tbaa !31
-  %369 = load ptr, ptr %indvars.iv3884.sroa.phi, align 8, !tbaa !12
+  %366 = load ptr, ptr %indvars.iv3894.sroa.phi, align 8, !tbaa !12
+  %367 = load ptr, ptr %indvars.iv3891.sroa.phi, align 8, !tbaa !31
+  %368 = load ptr, ptr %indvars.iv3888.sroa.phi, align 8, !tbaa !31
+  %369 = load ptr, ptr %indvars.iv3885.sroa.phi, align 8, !tbaa !12
   %370 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %371 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %372 = icmp eq ptr %368, null
   %373 = icmp eq ptr %369, null
-  %or.cond.i.i2344 = or i1 %372, %373
+  %or.cond.i.i2345 = or i1 %372, %373
   %374 = icmp eq ptr %370, null
-  %or.cond3.i.i2345 = or i1 %or.cond.i.i2344, %374
-  br i1 %or.cond3.i.i2345, label %arkode_butcher_mv.exit.i2359, label %.preheader.us.i.i2348
+  %or.cond3.i.i2346 = or i1 %or.cond.i.i2345, %374
+  br i1 %or.cond3.i.i2346, label %arkode_butcher_mv.exit.i2360, label %.preheader.us.i.i2349
 
-.preheader.us.i.i2348:                            ; preds = %365, %._crit_edge.us.i.i2354
-  %indvars.iv40.i.i2349 = phi i64 [ %indvars.iv.next41.i.i2355, %._crit_edge.us.i.i2354 ], [ 0, %365 ]
-  %375 = getelementptr inbounds nuw ptr, ptr %368, i64 %indvars.iv40.i.i2349
+.preheader.us.i.i2349:                            ; preds = %365, %._crit_edge.us.i.i2355
+  %indvars.iv40.i.i2350 = phi i64 [ %indvars.iv.next41.i.i2356, %._crit_edge.us.i.i2355 ], [ 0, %365 ]
+  %375 = getelementptr inbounds nuw ptr, ptr %368, i64 %indvars.iv40.i.i2350
   %376 = load ptr, ptr %375, align 8, !tbaa !12
-  %377 = getelementptr inbounds nuw double, ptr %370, i64 %indvars.iv40.i.i2349
-  %.promoted.us.i.i2350 = load double, ptr %377, align 8, !tbaa !18
+  %377 = getelementptr inbounds nuw double, ptr %370, i64 %indvars.iv40.i.i2350
+  %.promoted.us.i.i2351 = load double, ptr %377, align 8, !tbaa !18
   br label %378
 
-378:                                              ; preds = %378, %.preheader.us.i.i2348
-  %indvars.iv.i.i2351 = phi i64 [ 0, %.preheader.us.i.i2348 ], [ %indvars.iv.next.i.i2352, %378 ]
-  %379 = phi double [ %.promoted.us.i.i2350, %.preheader.us.i.i2348 ], [ %384, %378 ]
-  %380 = getelementptr inbounds nuw double, ptr %376, i64 %indvars.iv.i.i2351
+378:                                              ; preds = %378, %.preheader.us.i.i2349
+  %indvars.iv.i.i2352 = phi i64 [ 0, %.preheader.us.i.i2349 ], [ %indvars.iv.next.i.i2353, %378 ]
+  %379 = phi double [ %.promoted.us.i.i2351, %.preheader.us.i.i2349 ], [ %384, %378 ]
+  %380 = getelementptr inbounds nuw double, ptr %376, i64 %indvars.iv.i.i2352
   %381 = load double, ptr %380, align 8, !tbaa !18
-  %382 = getelementptr inbounds nuw double, ptr %369, i64 %indvars.iv.i.i2351
+  %382 = getelementptr inbounds nuw double, ptr %369, i64 %indvars.iv.i.i2352
   %383 = load double, ptr %382, align 8, !tbaa !18
   %384 = tail call double @llvm.fmuladd.f64(double %381, double %383, double %379)
-  %indvars.iv.next.i.i2352 = add nuw nsw i64 %indvars.iv.i.i2351, 1
-  %exitcond.not.i.i2353 = icmp eq i64 %indvars.iv.next.i.i2352, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2353, label %._crit_edge.us.i.i2354, label %378
+  %indvars.iv.next.i.i2353 = add nuw nsw i64 %indvars.iv.i.i2352, 1
+  %exitcond.not.i.i2354 = icmp eq i64 %indvars.iv.next.i.i2353, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2354, label %._crit_edge.us.i.i2355, label %378
 
-._crit_edge.us.i.i2354:                           ; preds = %378
+._crit_edge.us.i.i2355:                           ; preds = %378
   store double %384, ptr %377, align 8, !tbaa !18
-  %indvars.iv.next41.i.i2355 = add nuw nsw i64 %indvars.iv40.i.i2349, 1
-  %exitcond44.not.i.i2356 = icmp eq i64 %indvars.iv.next41.i.i2355, %wide.trip.count29.i
-  br i1 %exitcond44.not.i.i2356, label %385, label %.preheader.us.i.i2348, !llvm.loop !27
+  %indvars.iv.next41.i.i2356 = add nuw nsw i64 %indvars.iv40.i.i2350, 1
+  %exitcond44.not.i.i2357 = icmp eq i64 %indvars.iv.next41.i.i2356, %wide.trip.count29.i
+  br i1 %exitcond44.not.i.i2357, label %385, label %.preheader.us.i.i2349, !llvm.loop !27
 
-arkode_butcher_mv.exit.i2359:                     ; preds = %365
+arkode_butcher_mv.exit.i2360:                     ; preds = %365
   tail call void @free(ptr noundef %370) #17
   tail call void @free(ptr noundef %371) #17
   br label %arkode_butcher_order4d.exit
 
-385:                                              ; preds = %._crit_edge.us.i.i2354
+385:                                              ; preds = %._crit_edge.us.i.i2355
   %386 = icmp eq ptr %367, null
   %387 = icmp eq ptr %371, null
-  %or.cond3.i22.i2357 = or i1 %386, %387
-  br i1 %or.cond3.i22.i2357, label %arkode_butcher_mv.exit35.i, label %.preheader.us.i25.i
+  %or.cond3.i22.i2358 = or i1 %386, %387
+  br i1 %or.cond3.i22.i2358, label %arkode_butcher_mv.exit35.i, label %.preheader.us.i25.i
 
 .preheader.us.i25.i:                              ; preds = %385, %._crit_edge.us.i31.i
   %indvars.iv40.i26.i = phi i64 [ %indvars.iv.next41.i32.i, %._crit_edge.us.i31.i ], [ 0, %385 ]
@@ -8389,11 +8388,11 @@ arkode_butcher_mv.exit35.i:                       ; preds = %385
 
 398:                                              ; preds = %._crit_edge.us.i31.i
   %399 = icmp eq ptr %366, null
-  br i1 %399, label %arkode_butcher_order4d.exit, label %.preheader2915
+  br i1 %399, label %arkode_butcher_order4d.exit, label %.preheader2916
 
-.preheader2915:                                   ; preds = %398, %.preheader2915
-  %indvars.iv.i38.i = phi i64 [ %indvars.iv.next.i39.i, %.preheader2915 ], [ 0, %398 ]
-  %400 = phi double [ %405, %.preheader2915 ], [ 0.000000e+00, %398 ]
+.preheader2916:                                   ; preds = %398, %.preheader2916
+  %indvars.iv.i38.i = phi i64 [ %indvars.iv.next.i39.i, %.preheader2916 ], [ 0, %398 ]
+  %400 = phi double [ %405, %.preheader2916 ], [ 0.000000e+00, %398 ]
   %401 = getelementptr inbounds nuw double, ptr %366, i64 %indvars.iv.i38.i
   %402 = load double, ptr %401, align 8, !tbaa !18
   %403 = getelementptr inbounds nuw double, ptr %371, i64 %indvars.iv.i38.i
@@ -8401,9 +8400,9 @@ arkode_butcher_mv.exit35.i:                       ; preds = %385
   %405 = tail call double @llvm.fmuladd.f64(double %402, double %404, double %400)
   %indvars.iv.next.i39.i = add nuw nsw i64 %indvars.iv.i38.i, 1
   %exitcond.not.i40.i = icmp eq i64 %indvars.iv.next.i39.i, %wide.trip.count29.i
-  br i1 %exitcond.not.i40.i, label %406, label %.preheader2915
+  br i1 %exitcond.not.i40.i, label %406, label %.preheader2916
 
-406:                                              ; preds = %.preheader2915
+406:                                              ; preds = %.preheader2916
   tail call void @free(ptr noundef nonnull %370) #17
   tail call void @free(ptr noundef nonnull %371) #17
   %407 = fadd double %405, 0xBFA5555555555555
@@ -8412,84 +8411,84 @@ arkode_butcher_mv.exit35.i:                       ; preds = %385
   %410 = zext i1 %409 to i32
   br label %arkode_butcher_order4d.exit
 
-arkode_butcher_order4d.exit:                      ; preds = %406, %398, %arkode_butcher_mv.exit35.i, %arkode_butcher_mv.exit.i2359, %363
-  %411 = phi i32 [ 0, %363 ], [ 0, %arkode_butcher_mv.exit.i2359 ], [ 0, %arkode_butcher_mv.exit35.i ], [ %410, %406 ], [ 0, %398 ]
+arkode_butcher_order4d.exit:                      ; preds = %406, %398, %arkode_butcher_mv.exit35.i, %arkode_butcher_mv.exit.i2360, %363
+  %411 = phi i32 [ 0, %363 ], [ 0, %arkode_butcher_mv.exit.i2360 ], [ 0, %arkode_butcher_mv.exit35.i ], [ %410, %406 ], [ 0, %398 ]
   br i1 %364, label %363, label %412
 
 412:                                              ; preds = %arkode_butcher_order4d.exit
-  br i1 %362, label %.preheader2916, label %413
+  br i1 %362, label %.preheader2917, label %413
 
 413:                                              ; preds = %412
-  br i1 %361, label %.preheader2917, label %414
+  br i1 %361, label %.preheader2918, label %414
 
 414:                                              ; preds = %413
-  br i1 %360, label %.preheader2918, label %415
+  br i1 %360, label %.preheader2919, label %415
 
 415:                                              ; preds = %414
   %416 = icmp eq i32 %411, 0
   %or.cond11 = and i1 %49, %416
-  br i1 %or.cond11, label %.thread2568, label %418
+  br i1 %or.cond11, label %.thread2570, label %418
 
-.thread2568:                                      ; preds = %415
+.thread2570:                                      ; preds = %415
   %417 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 36, i64 1, ptr nonnull %4)
-  br label %thread-pre-split2569thread-pre-split
+  br label %thread-pre-split2571thread-pre-split
 
 418:                                              ; preds = %415
-  br i1 %416, label %thread-pre-split2569thread-pre-split, label %.critedge2612
+  br i1 %416, label %thread-pre-split2571thread-pre-split, label %.critedge2613
 
-.critedge2612:                                    ; preds = %418
+.critedge2613:                                    ; preds = %418
   store i32 4, ptr %2, align 4, !tbaa !25
-  br label %.preheader2913.preheader
+  br label %.preheader2914.preheader
 
-thread-pre-split2569thread-pre-split:             ; preds = %.thread2568, %418
-  %.pr2570.pr = load i32, ptr %2, align 4, !tbaa !25
-  br label %thread-pre-split2569
+thread-pre-split2571thread-pre-split:             ; preds = %.thread2570, %418
+  %.pr2572.pr = load i32, ptr %2, align 4, !tbaa !25
+  br label %thread-pre-split2571
 
-thread-pre-split2569:                             ; preds = %thread-pre-split2569thread-pre-split, %thread-pre-split2565
-  %.pr2570 = phi i32 [ %.pr2570.pr, %thread-pre-split2569thread-pre-split ], [ %.pr2566, %thread-pre-split2565 ]
-  %419 = icmp eq i32 %.pr2570, 4
-  br i1 %419, label %.preheader2913.preheader, label %thread-pre-split2573
+thread-pre-split2571:                             ; preds = %thread-pre-split2571thread-pre-split, %thread-pre-split2567
+  %.pr2572 = phi i32 [ %.pr2572.pr, %thread-pre-split2571thread-pre-split ], [ %.pr2568, %thread-pre-split2567 ]
+  %419 = icmp eq i32 %.pr2572, 4
+  br i1 %419, label %.preheader2914.preheader, label %thread-pre-split2575
 
-.preheader2913.preheader:                         ; preds = %thread-pre-split2569, %.critedge2612
+.preheader2914.preheader:                         ; preds = %thread-pre-split2571, %.critedge2613
+  br label %.preheader2914
+
+.preheader2914:                                   ; preds = %.preheader2914.preheader, %438
+  %420 = phi i1 [ false, %438 ], [ true, %.preheader2914.preheader ]
+  %indvars.iv3909.sroa.phi = phi ptr [ %.sroa.385507, %438 ], [ %.sroa.05506, %.preheader2914.preheader ]
+  %.243038 = phi i32 [ %434, %438 ], [ 1, %.preheader2914.preheader ]
   br label %.preheader2913
 
-.preheader2913:                                   ; preds = %.preheader2913.preheader, %438
-  %420 = phi i1 [ false, %438 ], [ true, %.preheader2913.preheader ]
-  %indvars.iv3908.sroa.phi = phi ptr [ %.sroa.385506, %438 ], [ %.sroa.05505, %.preheader2913.preheader ]
-  %.243037 = phi i32 [ %434, %438 ], [ 1, %.preheader2913.preheader ]
+.preheader2913:                                   ; preds = %.preheader2914, %437
+  %421 = phi i1 [ true, %.preheader2914 ], [ false, %437 ]
+  %indvars.iv3906.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2914 ], [ %.sroa.181, %437 ]
+  %.253036 = phi i32 [ %.243038, %.preheader2914 ], [ %434, %437 ]
   br label %.preheader2912
 
-.preheader2912:                                   ; preds = %.preheader2913, %437
-  %421 = phi i1 [ true, %.preheader2913 ], [ false, %437 ]
-  %indvars.iv3905.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2913 ], [ %.sroa.181, %437 ]
-  %.253035 = phi i32 [ %.243037, %.preheader2913 ], [ %434, %437 ]
+.preheader2912:                                   ; preds = %.preheader2913, %436
+  %422 = phi i1 [ true, %.preheader2913 ], [ false, %436 ]
+  %indvars.iv3903.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2913 ], [ %.sroa.181, %436 ]
+  %.263034 = phi i32 [ %.253036, %.preheader2913 ], [ %434, %436 ]
   br label %.preheader2911
 
-.preheader2911:                                   ; preds = %.preheader2912, %436
-  %422 = phi i1 [ true, %.preheader2912 ], [ false, %436 ]
-  %indvars.iv3902.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2912 ], [ %.sroa.181, %436 ]
-  %.263033 = phi i32 [ %.253035, %.preheader2912 ], [ %434, %436 ]
-  br label %.preheader2910
-
-.preheader2910:                                   ; preds = %.preheader2911, %435
-  %423 = phi i1 [ true, %.preheader2911 ], [ false, %435 ]
-  %indvars.iv3899.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2911 ], [ %.sroa.181, %435 ]
-  %.273031 = phi i32 [ %.263033, %.preheader2911 ], [ %434, %435 ]
+.preheader2911:                                   ; preds = %.preheader2912, %435
+  %423 = phi i1 [ true, %.preheader2912 ], [ false, %435 ]
+  %indvars.iv3900.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2912 ], [ %.sroa.181, %435 ]
+  %.273032 = phi i32 [ %.263034, %.preheader2912 ], [ %434, %435 ]
   br label %424
 
-424:                                              ; preds = %.preheader2910, %433
-  %425 = phi i1 [ true, %.preheader2910 ], [ false, %433 ]
-  %indvars.iv3896.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2910 ], [ %.sroa.181, %433 ]
-  %.283029 = phi i32 [ %.273031, %.preheader2910 ], [ %434, %433 ]
-  %.not2237 = icmp eq i32 %.283029, 0
+424:                                              ; preds = %.preheader2911, %433
+  %425 = phi i1 [ true, %.preheader2911 ], [ false, %433 ]
+  %indvars.iv3897.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2911 ], [ %.sroa.181, %433 ]
+  %.283030 = phi i32 [ %.273032, %.preheader2911 ], [ %434, %433 ]
+  %.not2237 = icmp eq i32 %.283030, 0
   br i1 %.not2237, label %433, label %426
 
 426:                                              ; preds = %424
-  %427 = load ptr, ptr %indvars.iv3908.sroa.phi, align 8, !tbaa !12
-  %428 = load ptr, ptr %indvars.iv3905.sroa.phi, align 8, !tbaa !12
-  %429 = load ptr, ptr %indvars.iv3902.sroa.phi, align 8, !tbaa !12
-  %430 = load ptr, ptr %indvars.iv3899.sroa.phi, align 8, !tbaa !12
-  %431 = load ptr, ptr %indvars.iv3896.sroa.phi, align 8, !tbaa !12
+  %427 = load ptr, ptr %indvars.iv3909.sroa.phi, align 8, !tbaa !12
+  %428 = load ptr, ptr %indvars.iv3906.sroa.phi, align 8, !tbaa !12
+  %429 = load ptr, ptr %indvars.iv3903.sroa.phi, align 8, !tbaa !12
+  %430 = load ptr, ptr %indvars.iv3900.sroa.phi, align 8, !tbaa !12
+  %431 = load ptr, ptr %indvars.iv3897.sroa.phi, align 8, !tbaa !12
   %432 = tail call fastcc i32 @arkode_butcher_order5a(ptr noundef %427, ptr noundef %428, ptr noundef %429, ptr noundef %430, ptr noundef %431, i32 noundef %9)
   br label %433
 
@@ -8498,66 +8497,66 @@ thread-pre-split2569:                             ; preds = %thread-pre-split256
   br i1 %425, label %424, label %435
 
 435:                                              ; preds = %433
-  br i1 %423, label %.preheader2910, label %436
+  br i1 %423, label %.preheader2911, label %436
 
 436:                                              ; preds = %435
-  br i1 %422, label %.preheader2911, label %437
+  br i1 %422, label %.preheader2912, label %437
 
 437:                                              ; preds = %436
-  br i1 %421, label %.preheader2912, label %438
+  br i1 %421, label %.preheader2913, label %438
 
 438:                                              ; preds = %437
-  br i1 %420, label %.preheader2913, label %439
+  br i1 %420, label %.preheader2914, label %439
 
 439:                                              ; preds = %438
   %440 = icmp eq i32 %434, 0
   %or.cond13 = and i1 %49, %440
-  br i1 %or.cond13, label %441, label %.preheader2909.preheader
+  br i1 %or.cond13, label %441, label %.preheader2910.preheader
 
 441:                                              ; preds = %439
   %442 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2909.preheader
+  br label %.preheader2910.preheader
 
-.preheader2909.preheader:                         ; preds = %441, %439
+.preheader2910.preheader:                         ; preds = %441, %439
+  br label %.preheader2910
+
+.preheader2910:                                   ; preds = %.preheader2910.preheader, %461
+  %443 = phi i1 [ false, %461 ], [ true, %.preheader2910.preheader ]
+  %indvars.iv3924.sroa.phi = phi ptr [ %.sroa.385507, %461 ], [ %.sroa.05506, %.preheader2910.preheader ]
+  %.293048 = phi i32 [ %457, %461 ], [ %434, %.preheader2910.preheader ]
   br label %.preheader2909
 
-.preheader2909:                                   ; preds = %.preheader2909.preheader, %461
-  %443 = phi i1 [ false, %461 ], [ true, %.preheader2909.preheader ]
-  %indvars.iv3923.sroa.phi = phi ptr [ %.sroa.385506, %461 ], [ %.sroa.05505, %.preheader2909.preheader ]
-  %.293047 = phi i32 [ %457, %461 ], [ %434, %.preheader2909.preheader ]
+.preheader2909:                                   ; preds = %.preheader2910, %460
+  %444 = phi i1 [ true, %.preheader2910 ], [ false, %460 ]
+  %indvars.iv3921.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2910 ], [ %.sroa.181, %460 ]
+  %.303046 = phi i32 [ %.293048, %.preheader2910 ], [ %457, %460 ]
   br label %.preheader2908
 
-.preheader2908:                                   ; preds = %.preheader2909, %460
-  %444 = phi i1 [ true, %.preheader2909 ], [ false, %460 ]
-  %indvars.iv3920.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2909 ], [ %.sroa.181, %460 ]
-  %.303045 = phi i32 [ %.293047, %.preheader2909 ], [ %457, %460 ]
+.preheader2908:                                   ; preds = %.preheader2909, %459
+  %445 = phi i1 [ true, %.preheader2909 ], [ false, %459 ]
+  %indvars.iv3918.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2909 ], [ %.sroa.181, %459 ]
+  %.313044 = phi i32 [ %.303046, %.preheader2909 ], [ %457, %459 ]
   br label %.preheader2907
 
-.preheader2907:                                   ; preds = %.preheader2908, %459
-  %445 = phi i1 [ true, %.preheader2908 ], [ false, %459 ]
-  %indvars.iv3917.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2908 ], [ %.sroa.181, %459 ]
-  %.313043 = phi i32 [ %.303045, %.preheader2908 ], [ %457, %459 ]
-  br label %.preheader2906
-
-.preheader2906:                                   ; preds = %.preheader2907, %458
-  %446 = phi i1 [ true, %.preheader2907 ], [ false, %458 ]
-  %indvars.iv3914.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2907 ], [ %.sroa.121, %458 ]
-  %.323041 = phi i32 [ %.313043, %.preheader2907 ], [ %457, %458 ]
+.preheader2907:                                   ; preds = %.preheader2908, %458
+  %446 = phi i1 [ true, %.preheader2908 ], [ false, %458 ]
+  %indvars.iv3915.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2908 ], [ %.sroa.121, %458 ]
+  %.323042 = phi i32 [ %.313044, %.preheader2908 ], [ %457, %458 ]
   br label %447
 
-447:                                              ; preds = %.preheader2906, %456
-  %448 = phi i1 [ true, %.preheader2906 ], [ false, %456 ]
-  %indvars.iv3911.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2906 ], [ %.sroa.181, %456 ]
-  %.333039 = phi i32 [ %.323041, %.preheader2906 ], [ %457, %456 ]
-  %.not2236 = icmp eq i32 %.333039, 0
+447:                                              ; preds = %.preheader2907, %456
+  %448 = phi i1 [ true, %.preheader2907 ], [ false, %456 ]
+  %indvars.iv3912.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2907 ], [ %.sroa.181, %456 ]
+  %.333040 = phi i32 [ %.323042, %.preheader2907 ], [ %457, %456 ]
+  %.not2236 = icmp eq i32 %.333040, 0
   br i1 %.not2236, label %456, label %449
 
 449:                                              ; preds = %447
-  %450 = load ptr, ptr %indvars.iv3923.sroa.phi, align 8, !tbaa !12
-  %451 = load ptr, ptr %indvars.iv3920.sroa.phi, align 8, !tbaa !12
-  %452 = load ptr, ptr %indvars.iv3917.sroa.phi, align 8, !tbaa !12
-  %453 = load ptr, ptr %indvars.iv3914.sroa.phi, align 8, !tbaa !31
-  %454 = load ptr, ptr %indvars.iv3911.sroa.phi, align 8, !tbaa !12
+  %450 = load ptr, ptr %indvars.iv3924.sroa.phi, align 8, !tbaa !12
+  %451 = load ptr, ptr %indvars.iv3921.sroa.phi, align 8, !tbaa !12
+  %452 = load ptr, ptr %indvars.iv3918.sroa.phi, align 8, !tbaa !12
+  %453 = load ptr, ptr %indvars.iv3915.sroa.phi, align 8, !tbaa !31
+  %454 = load ptr, ptr %indvars.iv3912.sroa.phi, align 8, !tbaa !12
   %455 = tail call fastcc i32 @arkode_butcher_order5b(ptr noundef %450, ptr noundef %451, ptr noundef %452, ptr noundef %453, ptr noundef %454, i32 noundef %9)
   br label %456
 
@@ -8566,66 +8565,66 @@ thread-pre-split2569:                             ; preds = %thread-pre-split256
   br i1 %448, label %447, label %458
 
 458:                                              ; preds = %456
-  br i1 %446, label %.preheader2906, label %459
+  br i1 %446, label %.preheader2907, label %459
 
 459:                                              ; preds = %458
-  br i1 %445, label %.preheader2907, label %460
+  br i1 %445, label %.preheader2908, label %460
 
 460:                                              ; preds = %459
-  br i1 %444, label %.preheader2908, label %461
+  br i1 %444, label %.preheader2909, label %461
 
 461:                                              ; preds = %460
-  br i1 %443, label %.preheader2909, label %462
+  br i1 %443, label %.preheader2910, label %462
 
 462:                                              ; preds = %461
   %463 = icmp eq i32 %457, 0
   %or.cond15 = and i1 %49, %463
-  br i1 %or.cond15, label %464, label %.preheader2905.preheader
+  br i1 %or.cond15, label %464, label %.preheader2906.preheader
 
 464:                                              ; preds = %462
   %465 = tail call i64 @fwrite(ptr nonnull @.str.97, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2905.preheader
+  br label %.preheader2906.preheader
 
-.preheader2905.preheader:                         ; preds = %464, %462
+.preheader2906.preheader:                         ; preds = %464, %462
+  br label %.preheader2906
+
+.preheader2906:                                   ; preds = %.preheader2906.preheader, %484
+  %466 = phi i1 [ false, %484 ], [ true, %.preheader2906.preheader ]
+  %indvars.iv3939.sroa.phi = phi ptr [ %.sroa.385507, %484 ], [ %.sroa.05506, %.preheader2906.preheader ]
+  %.343058 = phi i32 [ %480, %484 ], [ %457, %.preheader2906.preheader ]
   br label %.preheader2905
 
-.preheader2905:                                   ; preds = %.preheader2905.preheader, %484
-  %466 = phi i1 [ false, %484 ], [ true, %.preheader2905.preheader ]
-  %indvars.iv3938.sroa.phi = phi ptr [ %.sroa.385506, %484 ], [ %.sroa.05505, %.preheader2905.preheader ]
-  %.343057 = phi i32 [ %480, %484 ], [ %457, %.preheader2905.preheader ]
+.preheader2905:                                   ; preds = %.preheader2906, %483
+  %467 = phi i1 [ true, %.preheader2906 ], [ false, %483 ]
+  %indvars.iv3936.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2906 ], [ %.sroa.121, %483 ]
+  %.353056 = phi i32 [ %.343058, %.preheader2906 ], [ %480, %483 ]
   br label %.preheader2904
 
-.preheader2904:                                   ; preds = %.preheader2905, %483
-  %467 = phi i1 [ true, %.preheader2905 ], [ false, %483 ]
-  %indvars.iv3935.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2905 ], [ %.sroa.121, %483 ]
-  %.353055 = phi i32 [ %.343057, %.preheader2905 ], [ %480, %483 ]
+.preheader2904:                                   ; preds = %.preheader2905, %482
+  %468 = phi i1 [ true, %.preheader2905 ], [ false, %482 ]
+  %indvars.iv3933.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2905 ], [ %.sroa.181, %482 ]
+  %.363054 = phi i32 [ %.353056, %.preheader2905 ], [ %480, %482 ]
   br label %.preheader2903
 
-.preheader2903:                                   ; preds = %.preheader2904, %482
-  %468 = phi i1 [ true, %.preheader2904 ], [ false, %482 ]
-  %indvars.iv3932.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2904 ], [ %.sroa.181, %482 ]
-  %.363053 = phi i32 [ %.353055, %.preheader2904 ], [ %480, %482 ]
-  br label %.preheader2902
-
-.preheader2902:                                   ; preds = %.preheader2903, %481
-  %469 = phi i1 [ true, %.preheader2903 ], [ false, %481 ]
-  %indvars.iv3929.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2903 ], [ %.sroa.121, %481 ]
-  %.373051 = phi i32 [ %.363053, %.preheader2903 ], [ %480, %481 ]
+.preheader2903:                                   ; preds = %.preheader2904, %481
+  %469 = phi i1 [ true, %.preheader2904 ], [ false, %481 ]
+  %indvars.iv3930.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2904 ], [ %.sroa.121, %481 ]
+  %.373052 = phi i32 [ %.363054, %.preheader2904 ], [ %480, %481 ]
   br label %470
 
-470:                                              ; preds = %.preheader2902, %479
-  %471 = phi i1 [ true, %.preheader2902 ], [ false, %479 ]
-  %indvars.iv3926.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2902 ], [ %.sroa.181, %479 ]
-  %.383049 = phi i32 [ %.373051, %.preheader2902 ], [ %480, %479 ]
-  %.not2235 = icmp eq i32 %.383049, 0
+470:                                              ; preds = %.preheader2903, %479
+  %471 = phi i1 [ true, %.preheader2903 ], [ false, %479 ]
+  %indvars.iv3927.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2903 ], [ %.sroa.181, %479 ]
+  %.383050 = phi i32 [ %.373052, %.preheader2903 ], [ %480, %479 ]
+  %.not2235 = icmp eq i32 %.383050, 0
   br i1 %.not2235, label %479, label %472
 
 472:                                              ; preds = %470
-  %473 = load ptr, ptr %indvars.iv3938.sroa.phi, align 8, !tbaa !12
-  %474 = load ptr, ptr %indvars.iv3935.sroa.phi, align 8, !tbaa !31
-  %475 = load ptr, ptr %indvars.iv3932.sroa.phi, align 8, !tbaa !12
-  %476 = load ptr, ptr %indvars.iv3929.sroa.phi, align 8, !tbaa !31
-  %477 = load ptr, ptr %indvars.iv3926.sroa.phi, align 8, !tbaa !12
+  %473 = load ptr, ptr %indvars.iv3939.sroa.phi, align 8, !tbaa !12
+  %474 = load ptr, ptr %indvars.iv3936.sroa.phi, align 8, !tbaa !31
+  %475 = load ptr, ptr %indvars.iv3933.sroa.phi, align 8, !tbaa !12
+  %476 = load ptr, ptr %indvars.iv3930.sroa.phi, align 8, !tbaa !31
+  %477 = load ptr, ptr %indvars.iv3927.sroa.phi, align 8, !tbaa !12
   %478 = tail call fastcc i32 @arkode_butcher_order5c(ptr noundef %473, ptr noundef %474, ptr noundef %475, ptr noundef %476, ptr noundef %477, i32 noundef %9)
   br label %479
 
@@ -8634,66 +8633,66 @@ thread-pre-split2569:                             ; preds = %thread-pre-split256
   br i1 %471, label %470, label %481
 
 481:                                              ; preds = %479
-  br i1 %469, label %.preheader2902, label %482
+  br i1 %469, label %.preheader2903, label %482
 
 482:                                              ; preds = %481
-  br i1 %468, label %.preheader2903, label %483
+  br i1 %468, label %.preheader2904, label %483
 
 483:                                              ; preds = %482
-  br i1 %467, label %.preheader2904, label %484
+  br i1 %467, label %.preheader2905, label %484
 
 484:                                              ; preds = %483
-  br i1 %466, label %.preheader2905, label %485
+  br i1 %466, label %.preheader2906, label %485
 
 485:                                              ; preds = %484
   %486 = icmp eq i32 %480, 0
   %or.cond17 = and i1 %49, %486
-  br i1 %or.cond17, label %487, label %.preheader2901.preheader
+  br i1 %or.cond17, label %487, label %.preheader2902.preheader
 
 487:                                              ; preds = %485
   %488 = tail call i64 @fwrite(ptr nonnull @.str.98, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2901.preheader
+  br label %.preheader2902.preheader
 
-.preheader2901.preheader:                         ; preds = %487, %485
+.preheader2902.preheader:                         ; preds = %487, %485
+  br label %.preheader2902
+
+.preheader2902:                                   ; preds = %.preheader2902.preheader, %507
+  %489 = phi i1 [ false, %507 ], [ true, %.preheader2902.preheader ]
+  %indvars.iv3954.sroa.phi = phi ptr [ %.sroa.385507, %507 ], [ %.sroa.05506, %.preheader2902.preheader ]
+  %.393068 = phi i32 [ %503, %507 ], [ %480, %.preheader2902.preheader ]
   br label %.preheader2901
 
-.preheader2901:                                   ; preds = %.preheader2901.preheader, %507
-  %489 = phi i1 [ false, %507 ], [ true, %.preheader2901.preheader ]
-  %indvars.iv3953.sroa.phi = phi ptr [ %.sroa.385506, %507 ], [ %.sroa.05505, %.preheader2901.preheader ]
-  %.393067 = phi i32 [ %503, %507 ], [ %480, %.preheader2901.preheader ]
+.preheader2901:                                   ; preds = %.preheader2902, %506
+  %490 = phi i1 [ true, %.preheader2902 ], [ false, %506 ]
+  %indvars.iv3951.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2902 ], [ %.sroa.181, %506 ]
+  %.403066 = phi i32 [ %.393068, %.preheader2902 ], [ %503, %506 ]
   br label %.preheader2900
 
-.preheader2900:                                   ; preds = %.preheader2901, %506
-  %490 = phi i1 [ true, %.preheader2901 ], [ false, %506 ]
-  %indvars.iv3950.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2901 ], [ %.sroa.181, %506 ]
-  %.403065 = phi i32 [ %.393067, %.preheader2901 ], [ %503, %506 ]
+.preheader2900:                                   ; preds = %.preheader2901, %505
+  %491 = phi i1 [ true, %.preheader2901 ], [ false, %505 ]
+  %indvars.iv3948.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2901 ], [ %.sroa.121, %505 ]
+  %.413064 = phi i32 [ %.403066, %.preheader2901 ], [ %503, %505 ]
   br label %.preheader2899
 
-.preheader2899:                                   ; preds = %.preheader2900, %505
-  %491 = phi i1 [ true, %.preheader2900 ], [ false, %505 ]
-  %indvars.iv3947.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2900 ], [ %.sroa.121, %505 ]
-  %.413063 = phi i32 [ %.403065, %.preheader2900 ], [ %503, %505 ]
-  br label %.preheader2898
-
-.preheader2898:                                   ; preds = %.preheader2899, %504
-  %492 = phi i1 [ true, %.preheader2899 ], [ false, %504 ]
-  %indvars.iv3944.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2899 ], [ %.sroa.181, %504 ]
-  %.423061 = phi i32 [ %.413063, %.preheader2899 ], [ %503, %504 ]
+.preheader2899:                                   ; preds = %.preheader2900, %504
+  %492 = phi i1 [ true, %.preheader2900 ], [ false, %504 ]
+  %indvars.iv3945.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2900 ], [ %.sroa.181, %504 ]
+  %.423062 = phi i32 [ %.413064, %.preheader2900 ], [ %503, %504 ]
   br label %493
 
-493:                                              ; preds = %.preheader2898, %502
-  %494 = phi i1 [ true, %.preheader2898 ], [ false, %502 ]
-  %indvars.iv3941.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2898 ], [ %.sroa.181, %502 ]
-  %.433059 = phi i32 [ %.423061, %.preheader2898 ], [ %503, %502 ]
-  %.not2234 = icmp eq i32 %.433059, 0
+493:                                              ; preds = %.preheader2899, %502
+  %494 = phi i1 [ true, %.preheader2899 ], [ false, %502 ]
+  %indvars.iv3942.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2899 ], [ %.sroa.181, %502 ]
+  %.433060 = phi i32 [ %.423062, %.preheader2899 ], [ %503, %502 ]
+  %.not2234 = icmp eq i32 %.433060, 0
   br i1 %.not2234, label %502, label %495
 
 495:                                              ; preds = %493
-  %496 = load ptr, ptr %indvars.iv3953.sroa.phi, align 8, !tbaa !12
-  %497 = load ptr, ptr %indvars.iv3950.sroa.phi, align 8, !tbaa !12
-  %498 = load ptr, ptr %indvars.iv3947.sroa.phi, align 8, !tbaa !31
-  %499 = load ptr, ptr %indvars.iv3944.sroa.phi, align 8, !tbaa !12
-  %500 = load ptr, ptr %indvars.iv3941.sroa.phi, align 8, !tbaa !12
+  %496 = load ptr, ptr %indvars.iv3954.sroa.phi, align 8, !tbaa !12
+  %497 = load ptr, ptr %indvars.iv3951.sroa.phi, align 8, !tbaa !12
+  %498 = load ptr, ptr %indvars.iv3948.sroa.phi, align 8, !tbaa !31
+  %499 = load ptr, ptr %indvars.iv3945.sroa.phi, align 8, !tbaa !12
+  %500 = load ptr, ptr %indvars.iv3942.sroa.phi, align 8, !tbaa !12
   %501 = tail call fastcc i32 @arkode_butcher_order5d(ptr noundef %496, ptr noundef %497, ptr noundef %498, ptr noundef %499, ptr noundef %500, i32 noundef %9)
   br label %502
 
@@ -8702,66 +8701,66 @@ thread-pre-split2569:                             ; preds = %thread-pre-split256
   br i1 %494, label %493, label %504
 
 504:                                              ; preds = %502
-  br i1 %492, label %.preheader2898, label %505
+  br i1 %492, label %.preheader2899, label %505
 
 505:                                              ; preds = %504
-  br i1 %491, label %.preheader2899, label %506
+  br i1 %491, label %.preheader2900, label %506
 
 506:                                              ; preds = %505
-  br i1 %490, label %.preheader2900, label %507
+  br i1 %490, label %.preheader2901, label %507
 
 507:                                              ; preds = %506
-  br i1 %489, label %.preheader2901, label %508
+  br i1 %489, label %.preheader2902, label %508
 
 508:                                              ; preds = %507
   %509 = icmp eq i32 %503, 0
   %or.cond19 = and i1 %49, %509
-  br i1 %or.cond19, label %510, label %.preheader2897.preheader
+  br i1 %or.cond19, label %510, label %.preheader2898.preheader
 
 510:                                              ; preds = %508
   %511 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2897.preheader
+  br label %.preheader2898.preheader
 
-.preheader2897.preheader:                         ; preds = %510, %508
+.preheader2898.preheader:                         ; preds = %510, %508
+  br label %.preheader2898
+
+.preheader2898:                                   ; preds = %.preheader2898.preheader, %530
+  %512 = phi i1 [ false, %530 ], [ true, %.preheader2898.preheader ]
+  %indvars.iv3969.sroa.phi = phi ptr [ %.sroa.385507, %530 ], [ %.sroa.05506, %.preheader2898.preheader ]
+  %.443078 = phi i32 [ %526, %530 ], [ %503, %.preheader2898.preheader ]
   br label %.preheader2897
 
-.preheader2897:                                   ; preds = %.preheader2897.preheader, %530
-  %512 = phi i1 [ false, %530 ], [ true, %.preheader2897.preheader ]
-  %indvars.iv3968.sroa.phi = phi ptr [ %.sroa.385506, %530 ], [ %.sroa.05505, %.preheader2897.preheader ]
-  %.443077 = phi i32 [ %526, %530 ], [ %503, %.preheader2897.preheader ]
+.preheader2897:                                   ; preds = %.preheader2898, %529
+  %513 = phi i1 [ true, %.preheader2898 ], [ false, %529 ]
+  %indvars.iv3966.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2898 ], [ %.sroa.121, %529 ]
+  %.453076 = phi i32 [ %.443078, %.preheader2898 ], [ %526, %529 ]
   br label %.preheader2896
 
-.preheader2896:                                   ; preds = %.preheader2897, %529
-  %513 = phi i1 [ true, %.preheader2897 ], [ false, %529 ]
-  %indvars.iv3965.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2897 ], [ %.sroa.121, %529 ]
-  %.453075 = phi i32 [ %.443077, %.preheader2897 ], [ %526, %529 ]
+.preheader2896:                                   ; preds = %.preheader2897, %528
+  %514 = phi i1 [ true, %.preheader2897 ], [ false, %528 ]
+  %indvars.iv3963.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2897 ], [ %.sroa.181, %528 ]
+  %.463074 = phi i32 [ %.453076, %.preheader2897 ], [ %526, %528 ]
   br label %.preheader2895
 
-.preheader2895:                                   ; preds = %.preheader2896, %528
-  %514 = phi i1 [ true, %.preheader2896 ], [ false, %528 ]
-  %indvars.iv3962.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2896 ], [ %.sroa.181, %528 ]
-  %.463073 = phi i32 [ %.453075, %.preheader2896 ], [ %526, %528 ]
-  br label %.preheader2894
-
-.preheader2894:                                   ; preds = %.preheader2895, %527
-  %515 = phi i1 [ true, %.preheader2895 ], [ false, %527 ]
-  %indvars.iv3959.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2895 ], [ %.sroa.181, %527 ]
-  %.473071 = phi i32 [ %.463073, %.preheader2895 ], [ %526, %527 ]
+.preheader2895:                                   ; preds = %.preheader2896, %527
+  %515 = phi i1 [ true, %.preheader2896 ], [ false, %527 ]
+  %indvars.iv3960.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2896 ], [ %.sroa.181, %527 ]
+  %.473072 = phi i32 [ %.463074, %.preheader2896 ], [ %526, %527 ]
   br label %516
 
-516:                                              ; preds = %.preheader2894, %525
-  %517 = phi i1 [ true, %.preheader2894 ], [ false, %525 ]
-  %indvars.iv3956.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2894 ], [ %.sroa.181, %525 ]
-  %.483069 = phi i32 [ %.473071, %.preheader2894 ], [ %526, %525 ]
-  %.not2233 = icmp eq i32 %.483069, 0
+516:                                              ; preds = %.preheader2895, %525
+  %517 = phi i1 [ true, %.preheader2895 ], [ false, %525 ]
+  %indvars.iv3957.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2895 ], [ %.sroa.181, %525 ]
+  %.483070 = phi i32 [ %.473072, %.preheader2895 ], [ %526, %525 ]
+  %.not2233 = icmp eq i32 %.483070, 0
   br i1 %.not2233, label %525, label %518
 
 518:                                              ; preds = %516
-  %519 = load ptr, ptr %indvars.iv3968.sroa.phi, align 8, !tbaa !12
-  %520 = load ptr, ptr %indvars.iv3965.sroa.phi, align 8, !tbaa !31
-  %521 = load ptr, ptr %indvars.iv3962.sroa.phi, align 8, !tbaa !12
-  %522 = load ptr, ptr %indvars.iv3959.sroa.phi, align 8, !tbaa !12
-  %523 = load ptr, ptr %indvars.iv3956.sroa.phi, align 8, !tbaa !12
+  %519 = load ptr, ptr %indvars.iv3969.sroa.phi, align 8, !tbaa !12
+  %520 = load ptr, ptr %indvars.iv3966.sroa.phi, align 8, !tbaa !31
+  %521 = load ptr, ptr %indvars.iv3963.sroa.phi, align 8, !tbaa !12
+  %522 = load ptr, ptr %indvars.iv3960.sroa.phi, align 8, !tbaa !12
+  %523 = load ptr, ptr %indvars.iv3957.sroa.phi, align 8, !tbaa !12
   %524 = tail call fastcc i32 @arkode_butcher_order5e(ptr noundef %519, ptr noundef %520, ptr noundef %521, ptr noundef %522, ptr noundef %523, i32 noundef %9)
   br label %525
 
@@ -8770,66 +8769,66 @@ thread-pre-split2569:                             ; preds = %thread-pre-split256
   br i1 %517, label %516, label %527
 
 527:                                              ; preds = %525
-  br i1 %515, label %.preheader2894, label %528
+  br i1 %515, label %.preheader2895, label %528
 
 528:                                              ; preds = %527
-  br i1 %514, label %.preheader2895, label %529
+  br i1 %514, label %.preheader2896, label %529
 
 529:                                              ; preds = %528
-  br i1 %513, label %.preheader2896, label %530
+  br i1 %513, label %.preheader2897, label %530
 
 530:                                              ; preds = %529
-  br i1 %512, label %.preheader2897, label %531
+  br i1 %512, label %.preheader2898, label %531
 
 531:                                              ; preds = %530
   %532 = icmp eq i32 %526, 0
   %or.cond21 = and i1 %49, %532
-  br i1 %or.cond21, label %533, label %.preheader2893.preheader
+  br i1 %or.cond21, label %533, label %.preheader2894.preheader
 
 533:                                              ; preds = %531
   %534 = tail call i64 @fwrite(ptr nonnull @.str.100, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2893.preheader
+  br label %.preheader2894.preheader
 
-.preheader2893.preheader:                         ; preds = %533, %531
+.preheader2894.preheader:                         ; preds = %533, %531
+  br label %.preheader2894
+
+.preheader2894:                                   ; preds = %.preheader2894.preheader, %553
+  %535 = phi i1 [ false, %553 ], [ true, %.preheader2894.preheader ]
+  %indvars.iv3984.sroa.phi = phi ptr [ %.sroa.385507, %553 ], [ %.sroa.05506, %.preheader2894.preheader ]
+  %.493088 = phi i32 [ %549, %553 ], [ %526, %.preheader2894.preheader ]
   br label %.preheader2893
 
-.preheader2893:                                   ; preds = %.preheader2893.preheader, %553
-  %535 = phi i1 [ false, %553 ], [ true, %.preheader2893.preheader ]
-  %indvars.iv3983.sroa.phi = phi ptr [ %.sroa.385506, %553 ], [ %.sroa.05505, %.preheader2893.preheader ]
-  %.493087 = phi i32 [ %549, %553 ], [ %526, %.preheader2893.preheader ]
+.preheader2893:                                   ; preds = %.preheader2894, %552
+  %536 = phi i1 [ true, %.preheader2894 ], [ false, %552 ]
+  %indvars.iv3981.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2894 ], [ %.sroa.181, %552 ]
+  %.503086 = phi i32 [ %.493088, %.preheader2894 ], [ %549, %552 ]
   br label %.preheader2892
 
-.preheader2892:                                   ; preds = %.preheader2893, %552
-  %536 = phi i1 [ true, %.preheader2893 ], [ false, %552 ]
-  %indvars.iv3980.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2893 ], [ %.sroa.181, %552 ]
-  %.503085 = phi i32 [ %.493087, %.preheader2893 ], [ %549, %552 ]
+.preheader2892:                                   ; preds = %.preheader2893, %551
+  %537 = phi i1 [ true, %.preheader2893 ], [ false, %551 ]
+  %indvars.iv3978.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2893 ], [ %.sroa.121, %551 ]
+  %.513084 = phi i32 [ %.503086, %.preheader2893 ], [ %549, %551 ]
   br label %.preheader2891
 
-.preheader2891:                                   ; preds = %.preheader2892, %551
-  %537 = phi i1 [ true, %.preheader2892 ], [ false, %551 ]
-  %indvars.iv3977.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2892 ], [ %.sroa.121, %551 ]
-  %.513083 = phi i32 [ %.503085, %.preheader2892 ], [ %549, %551 ]
-  br label %.preheader2890
-
-.preheader2890:                                   ; preds = %.preheader2891, %550
-  %538 = phi i1 [ true, %.preheader2891 ], [ false, %550 ]
-  %indvars.iv3974.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2891 ], [ %.sroa.121, %550 ]
-  %.523081 = phi i32 [ %.513083, %.preheader2891 ], [ %549, %550 ]
+.preheader2891:                                   ; preds = %.preheader2892, %550
+  %538 = phi i1 [ true, %.preheader2892 ], [ false, %550 ]
+  %indvars.iv3975.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2892 ], [ %.sroa.121, %550 ]
+  %.523082 = phi i32 [ %.513084, %.preheader2892 ], [ %549, %550 ]
   br label %539
 
-539:                                              ; preds = %.preheader2890, %548
-  %540 = phi i1 [ true, %.preheader2890 ], [ false, %548 ]
-  %indvars.iv3971.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2890 ], [ %.sroa.181, %548 ]
-  %.533079 = phi i32 [ %.523081, %.preheader2890 ], [ %549, %548 ]
-  %.not2232 = icmp eq i32 %.533079, 0
+539:                                              ; preds = %.preheader2891, %548
+  %540 = phi i1 [ true, %.preheader2891 ], [ false, %548 ]
+  %indvars.iv3972.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2891 ], [ %.sroa.181, %548 ]
+  %.533080 = phi i32 [ %.523082, %.preheader2891 ], [ %549, %548 ]
+  %.not2232 = icmp eq i32 %.533080, 0
   br i1 %.not2232, label %548, label %541
 
 541:                                              ; preds = %539
-  %542 = load ptr, ptr %indvars.iv3983.sroa.phi, align 8, !tbaa !12
-  %543 = load ptr, ptr %indvars.iv3980.sroa.phi, align 8, !tbaa !12
-  %544 = load ptr, ptr %indvars.iv3977.sroa.phi, align 8, !tbaa !31
-  %545 = load ptr, ptr %indvars.iv3974.sroa.phi, align 8, !tbaa !31
-  %546 = load ptr, ptr %indvars.iv3971.sroa.phi, align 8, !tbaa !12
+  %542 = load ptr, ptr %indvars.iv3984.sroa.phi, align 8, !tbaa !12
+  %543 = load ptr, ptr %indvars.iv3981.sroa.phi, align 8, !tbaa !12
+  %544 = load ptr, ptr %indvars.iv3978.sroa.phi, align 8, !tbaa !31
+  %545 = load ptr, ptr %indvars.iv3975.sroa.phi, align 8, !tbaa !31
+  %546 = load ptr, ptr %indvars.iv3972.sroa.phi, align 8, !tbaa !12
   %547 = tail call fastcc i32 @arkode_butcher_order5f(ptr noundef %542, ptr noundef %543, ptr noundef %544, ptr noundef %545, ptr noundef %546, i32 noundef %9)
   br label %548
 
@@ -8838,66 +8837,66 @@ thread-pre-split2569:                             ; preds = %thread-pre-split256
   br i1 %540, label %539, label %550
 
 550:                                              ; preds = %548
-  br i1 %538, label %.preheader2890, label %551
+  br i1 %538, label %.preheader2891, label %551
 
 551:                                              ; preds = %550
-  br i1 %537, label %.preheader2891, label %552
+  br i1 %537, label %.preheader2892, label %552
 
 552:                                              ; preds = %551
-  br i1 %536, label %.preheader2892, label %553
+  br i1 %536, label %.preheader2893, label %553
 
 553:                                              ; preds = %552
-  br i1 %535, label %.preheader2893, label %554
+  br i1 %535, label %.preheader2894, label %554
 
 554:                                              ; preds = %553
   %555 = icmp eq i32 %549, 0
   %or.cond23 = and i1 %49, %555
-  br i1 %or.cond23, label %556, label %.preheader2889.preheader
+  br i1 %or.cond23, label %556, label %.preheader2890.preheader
 
 556:                                              ; preds = %554
   %557 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2889.preheader
+  br label %.preheader2890.preheader
 
-.preheader2889.preheader:                         ; preds = %556, %554
+.preheader2890.preheader:                         ; preds = %556, %554
+  br label %.preheader2890
+
+.preheader2890:                                   ; preds = %.preheader2890.preheader, %576
+  %558 = phi i1 [ false, %576 ], [ true, %.preheader2890.preheader ]
+  %indvars.iv3999.sroa.phi = phi ptr [ %.sroa.385507, %576 ], [ %.sroa.05506, %.preheader2890.preheader ]
+  %.543098 = phi i32 [ %572, %576 ], [ %549, %.preheader2890.preheader ]
   br label %.preheader2889
 
-.preheader2889:                                   ; preds = %.preheader2889.preheader, %576
-  %558 = phi i1 [ false, %576 ], [ true, %.preheader2889.preheader ]
-  %indvars.iv3998.sroa.phi = phi ptr [ %.sroa.385506, %576 ], [ %.sroa.05505, %.preheader2889.preheader ]
-  %.543097 = phi i32 [ %572, %576 ], [ %549, %.preheader2889.preheader ]
+.preheader2889:                                   ; preds = %.preheader2890, %575
+  %559 = phi i1 [ true, %.preheader2890 ], [ false, %575 ]
+  %indvars.iv3996.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2890 ], [ %.sroa.121, %575 ]
+  %.553096 = phi i32 [ %.543098, %.preheader2890 ], [ %572, %575 ]
   br label %.preheader2888
 
-.preheader2888:                                   ; preds = %.preheader2889, %575
-  %559 = phi i1 [ true, %.preheader2889 ], [ false, %575 ]
-  %indvars.iv3995.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2889 ], [ %.sroa.121, %575 ]
-  %.553095 = phi i32 [ %.543097, %.preheader2889 ], [ %572, %575 ]
+.preheader2888:                                   ; preds = %.preheader2889, %574
+  %560 = phi i1 [ true, %.preheader2889 ], [ false, %574 ]
+  %indvars.iv3993.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2889 ], [ %.sroa.181, %574 ]
+  %.563094 = phi i32 [ %.553096, %.preheader2889 ], [ %572, %574 ]
   br label %.preheader2887
 
-.preheader2887:                                   ; preds = %.preheader2888, %574
-  %560 = phi i1 [ true, %.preheader2888 ], [ false, %574 ]
-  %indvars.iv3992.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2888 ], [ %.sroa.181, %574 ]
-  %.563093 = phi i32 [ %.553095, %.preheader2888 ], [ %572, %574 ]
-  br label %.preheader2886
-
-.preheader2886:                                   ; preds = %.preheader2887, %573
-  %561 = phi i1 [ true, %.preheader2887 ], [ false, %573 ]
-  %indvars.iv3989.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2887 ], [ %.sroa.121, %573 ]
-  %.573091 = phi i32 [ %.563093, %.preheader2887 ], [ %572, %573 ]
+.preheader2887:                                   ; preds = %.preheader2888, %573
+  %561 = phi i1 [ true, %.preheader2888 ], [ false, %573 ]
+  %indvars.iv3990.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2888 ], [ %.sroa.121, %573 ]
+  %.573092 = phi i32 [ %.563094, %.preheader2888 ], [ %572, %573 ]
   br label %562
 
-562:                                              ; preds = %.preheader2886, %571
-  %563 = phi i1 [ true, %.preheader2886 ], [ false, %571 ]
-  %indvars.iv3986.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2886 ], [ %.sroa.181, %571 ]
-  %.583089 = phi i32 [ %.573091, %.preheader2886 ], [ %572, %571 ]
-  %.not2231 = icmp eq i32 %.583089, 0
+562:                                              ; preds = %.preheader2887, %571
+  %563 = phi i1 [ true, %.preheader2887 ], [ false, %571 ]
+  %indvars.iv3987.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2887 ], [ %.sroa.181, %571 ]
+  %.583090 = phi i32 [ %.573092, %.preheader2887 ], [ %572, %571 ]
+  %.not2231 = icmp eq i32 %.583090, 0
   br i1 %.not2231, label %571, label %564
 
 564:                                              ; preds = %562
-  %565 = load ptr, ptr %indvars.iv3998.sroa.phi, align 8, !tbaa !12
-  %566 = load ptr, ptr %indvars.iv3995.sroa.phi, align 8, !tbaa !31
-  %567 = load ptr, ptr %indvars.iv3992.sroa.phi, align 8, !tbaa !12
-  %568 = load ptr, ptr %indvars.iv3989.sroa.phi, align 8, !tbaa !31
-  %569 = load ptr, ptr %indvars.iv3986.sroa.phi, align 8, !tbaa !12
+  %565 = load ptr, ptr %indvars.iv3999.sroa.phi, align 8, !tbaa !12
+  %566 = load ptr, ptr %indvars.iv3996.sroa.phi, align 8, !tbaa !31
+  %567 = load ptr, ptr %indvars.iv3993.sroa.phi, align 8, !tbaa !12
+  %568 = load ptr, ptr %indvars.iv3990.sroa.phi, align 8, !tbaa !31
+  %569 = load ptr, ptr %indvars.iv3987.sroa.phi, align 8, !tbaa !12
   %570 = tail call fastcc i32 @arkode_butcher_order5g(ptr noundef %565, ptr noundef %566, ptr noundef %567, ptr noundef %568, ptr noundef %569, i32 noundef %9)
   br label %571
 
@@ -8906,66 +8905,66 @@ thread-pre-split2569:                             ; preds = %thread-pre-split256
   br i1 %563, label %562, label %573
 
 573:                                              ; preds = %571
-  br i1 %561, label %.preheader2886, label %574
+  br i1 %561, label %.preheader2887, label %574
 
 574:                                              ; preds = %573
-  br i1 %560, label %.preheader2887, label %575
+  br i1 %560, label %.preheader2888, label %575
 
 575:                                              ; preds = %574
-  br i1 %559, label %.preheader2888, label %576
+  br i1 %559, label %.preheader2889, label %576
 
 576:                                              ; preds = %575
-  br i1 %558, label %.preheader2889, label %577
+  br i1 %558, label %.preheader2890, label %577
 
 577:                                              ; preds = %576
   %578 = icmp eq i32 %572, 0
   %or.cond25 = and i1 %49, %578
-  br i1 %or.cond25, label %579, label %.preheader2885.preheader
+  br i1 %or.cond25, label %579, label %.preheader2886.preheader
 
 579:                                              ; preds = %577
   %580 = tail call i64 @fwrite(ptr nonnull @.str.102, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2885.preheader
+  br label %.preheader2886.preheader
 
-.preheader2885.preheader:                         ; preds = %579, %577
+.preheader2886.preheader:                         ; preds = %579, %577
+  br label %.preheader2886
+
+.preheader2886:                                   ; preds = %.preheader2886.preheader, %599
+  %581 = phi i1 [ false, %599 ], [ true, %.preheader2886.preheader ]
+  %indvars.iv4014.sroa.phi = phi ptr [ %.sroa.385507, %599 ], [ %.sroa.05506, %.preheader2886.preheader ]
+  %.593108 = phi i32 [ %595, %599 ], [ %572, %.preheader2886.preheader ]
   br label %.preheader2885
 
-.preheader2885:                                   ; preds = %.preheader2885.preheader, %599
-  %581 = phi i1 [ false, %599 ], [ true, %.preheader2885.preheader ]
-  %indvars.iv4013.sroa.phi = phi ptr [ %.sroa.385506, %599 ], [ %.sroa.05505, %.preheader2885.preheader ]
-  %.593107 = phi i32 [ %595, %599 ], [ %572, %.preheader2885.preheader ]
+.preheader2885:                                   ; preds = %.preheader2886, %598
+  %582 = phi i1 [ true, %.preheader2886 ], [ false, %598 ]
+  %indvars.iv4011.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2886 ], [ %.sroa.121, %598 ]
+  %.603106 = phi i32 [ %.593108, %.preheader2886 ], [ %595, %598 ]
   br label %.preheader2884
 
-.preheader2884:                                   ; preds = %.preheader2885, %598
-  %582 = phi i1 [ true, %.preheader2885 ], [ false, %598 ]
-  %indvars.iv4010.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2885 ], [ %.sroa.121, %598 ]
-  %.603105 = phi i32 [ %.593107, %.preheader2885 ], [ %595, %598 ]
+.preheader2884:                                   ; preds = %.preheader2885, %597
+  %583 = phi i1 [ true, %.preheader2885 ], [ false, %597 ]
+  %indvars.iv4008.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2885 ], [ %.sroa.121, %597 ]
+  %.613104 = phi i32 [ %.603106, %.preheader2885 ], [ %595, %597 ]
   br label %.preheader2883
 
-.preheader2883:                                   ; preds = %.preheader2884, %597
-  %583 = phi i1 [ true, %.preheader2884 ], [ false, %597 ]
-  %indvars.iv4007.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2884 ], [ %.sroa.121, %597 ]
-  %.613103 = phi i32 [ %.603105, %.preheader2884 ], [ %595, %597 ]
-  br label %.preheader2882
-
-.preheader2882:                                   ; preds = %.preheader2883, %596
-  %584 = phi i1 [ true, %.preheader2883 ], [ false, %596 ]
-  %indvars.iv4004.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2883 ], [ %.sroa.181, %596 ]
-  %.623101 = phi i32 [ %.613103, %.preheader2883 ], [ %595, %596 ]
+.preheader2883:                                   ; preds = %.preheader2884, %596
+  %584 = phi i1 [ true, %.preheader2884 ], [ false, %596 ]
+  %indvars.iv4005.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2884 ], [ %.sroa.181, %596 ]
+  %.623102 = phi i32 [ %.613104, %.preheader2884 ], [ %595, %596 ]
   br label %585
 
-585:                                              ; preds = %.preheader2882, %594
-  %586 = phi i1 [ true, %.preheader2882 ], [ false, %594 ]
-  %indvars.iv4001.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2882 ], [ %.sroa.181, %594 ]
-  %.633099 = phi i32 [ %.623101, %.preheader2882 ], [ %595, %594 ]
-  %.not2230 = icmp eq i32 %.633099, 0
+585:                                              ; preds = %.preheader2883, %594
+  %586 = phi i1 [ true, %.preheader2883 ], [ false, %594 ]
+  %indvars.iv4002.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2883 ], [ %.sroa.181, %594 ]
+  %.633100 = phi i32 [ %.623102, %.preheader2883 ], [ %595, %594 ]
+  %.not2230 = icmp eq i32 %.633100, 0
   br i1 %.not2230, label %594, label %587
 
 587:                                              ; preds = %585
-  %588 = load ptr, ptr %indvars.iv4013.sroa.phi, align 8, !tbaa !12
-  %589 = load ptr, ptr %indvars.iv4010.sroa.phi, align 8, !tbaa !31
-  %590 = load ptr, ptr %indvars.iv4007.sroa.phi, align 8, !tbaa !31
-  %591 = load ptr, ptr %indvars.iv4004.sroa.phi, align 8, !tbaa !12
-  %592 = load ptr, ptr %indvars.iv4001.sroa.phi, align 8, !tbaa !12
+  %588 = load ptr, ptr %indvars.iv4014.sroa.phi, align 8, !tbaa !12
+  %589 = load ptr, ptr %indvars.iv4011.sroa.phi, align 8, !tbaa !31
+  %590 = load ptr, ptr %indvars.iv4008.sroa.phi, align 8, !tbaa !31
+  %591 = load ptr, ptr %indvars.iv4005.sroa.phi, align 8, !tbaa !12
+  %592 = load ptr, ptr %indvars.iv4002.sroa.phi, align 8, !tbaa !12
   %593 = tail call fastcc i32 @arkode_butcher_order5h(ptr noundef %588, ptr noundef %589, ptr noundef %590, ptr noundef %591, ptr noundef %592, i32 noundef %9)
   br label %594
 
@@ -8974,66 +8973,66 @@ thread-pre-split2569:                             ; preds = %thread-pre-split256
   br i1 %586, label %585, label %596
 
 596:                                              ; preds = %594
-  br i1 %584, label %.preheader2882, label %597
+  br i1 %584, label %.preheader2883, label %597
 
 597:                                              ; preds = %596
-  br i1 %583, label %.preheader2883, label %598
+  br i1 %583, label %.preheader2884, label %598
 
 598:                                              ; preds = %597
-  br i1 %582, label %.preheader2884, label %599
+  br i1 %582, label %.preheader2885, label %599
 
 599:                                              ; preds = %598
-  br i1 %581, label %.preheader2885, label %600
+  br i1 %581, label %.preheader2886, label %600
 
 600:                                              ; preds = %599
   %601 = icmp eq i32 %595, 0
   %or.cond27 = and i1 %49, %601
-  br i1 %or.cond27, label %602, label %.preheader2881.preheader
+  br i1 %or.cond27, label %602, label %.preheader2882.preheader
 
 602:                                              ; preds = %600
   %603 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2881.preheader
+  br label %.preheader2882.preheader
 
-.preheader2881.preheader:                         ; preds = %602, %600
+.preheader2882.preheader:                         ; preds = %602, %600
+  br label %.preheader2882
+
+.preheader2882:                                   ; preds = %.preheader2882.preheader, %622
+  %604 = phi i1 [ false, %622 ], [ true, %.preheader2882.preheader ]
+  %indvars.iv4029.sroa.phi = phi ptr [ %.sroa.385507, %622 ], [ %.sroa.05506, %.preheader2882.preheader ]
+  %.643118 = phi i32 [ %618, %622 ], [ %595, %.preheader2882.preheader ]
   br label %.preheader2881
 
-.preheader2881:                                   ; preds = %.preheader2881.preheader, %622
-  %604 = phi i1 [ false, %622 ], [ true, %.preheader2881.preheader ]
-  %indvars.iv4028.sroa.phi = phi ptr [ %.sroa.385506, %622 ], [ %.sroa.05505, %.preheader2881.preheader ]
-  %.643117 = phi i32 [ %618, %622 ], [ %595, %.preheader2881.preheader ]
+.preheader2881:                                   ; preds = %.preheader2882, %621
+  %605 = phi i1 [ true, %.preheader2882 ], [ false, %621 ]
+  %indvars.iv4026.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2882 ], [ %.sroa.121, %621 ]
+  %.653116 = phi i32 [ %.643118, %.preheader2882 ], [ %618, %621 ]
   br label %.preheader2880
 
-.preheader2880:                                   ; preds = %.preheader2881, %621
-  %605 = phi i1 [ true, %.preheader2881 ], [ false, %621 ]
-  %indvars.iv4025.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2881 ], [ %.sroa.121, %621 ]
-  %.653115 = phi i32 [ %.643117, %.preheader2881 ], [ %618, %621 ]
+.preheader2880:                                   ; preds = %.preheader2881, %620
+  %606 = phi i1 [ true, %.preheader2881 ], [ false, %620 ]
+  %indvars.iv4023.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2881 ], [ %.sroa.121, %620 ]
+  %.663114 = phi i32 [ %.653116, %.preheader2881 ], [ %618, %620 ]
   br label %.preheader2879
 
-.preheader2879:                                   ; preds = %.preheader2880, %620
-  %606 = phi i1 [ true, %.preheader2880 ], [ false, %620 ]
-  %indvars.iv4022.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2880 ], [ %.sroa.121, %620 ]
-  %.663113 = phi i32 [ %.653115, %.preheader2880 ], [ %618, %620 ]
-  br label %.preheader2878
-
-.preheader2878:                                   ; preds = %.preheader2879, %619
-  %607 = phi i1 [ true, %.preheader2879 ], [ false, %619 ]
-  %indvars.iv4019.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2879 ], [ %.sroa.121, %619 ]
-  %.673111 = phi i32 [ %.663113, %.preheader2879 ], [ %618, %619 ]
+.preheader2879:                                   ; preds = %.preheader2880, %619
+  %607 = phi i1 [ true, %.preheader2880 ], [ false, %619 ]
+  %indvars.iv4020.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2880 ], [ %.sroa.121, %619 ]
+  %.673112 = phi i32 [ %.663114, %.preheader2880 ], [ %618, %619 ]
   br label %608
 
-608:                                              ; preds = %.preheader2878, %617
-  %609 = phi i1 [ true, %.preheader2878 ], [ false, %617 ]
-  %indvars.iv4016.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2878 ], [ %.sroa.181, %617 ]
-  %.683109 = phi i32 [ %.673111, %.preheader2878 ], [ %618, %617 ]
-  %.not2229 = icmp eq i32 %.683109, 0
+608:                                              ; preds = %.preheader2879, %617
+  %609 = phi i1 [ true, %.preheader2879 ], [ false, %617 ]
+  %indvars.iv4017.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2879 ], [ %.sroa.181, %617 ]
+  %.683110 = phi i32 [ %.673112, %.preheader2879 ], [ %618, %617 ]
+  %.not2229 = icmp eq i32 %.683110, 0
   br i1 %.not2229, label %617, label %610
 
 610:                                              ; preds = %608
-  %611 = load ptr, ptr %indvars.iv4028.sroa.phi, align 8, !tbaa !12
-  %612 = load ptr, ptr %indvars.iv4025.sroa.phi, align 8, !tbaa !31
-  %613 = load ptr, ptr %indvars.iv4022.sroa.phi, align 8, !tbaa !31
-  %614 = load ptr, ptr %indvars.iv4019.sroa.phi, align 8, !tbaa !31
-  %615 = load ptr, ptr %indvars.iv4016.sroa.phi, align 8, !tbaa !12
+  %611 = load ptr, ptr %indvars.iv4029.sroa.phi, align 8, !tbaa !12
+  %612 = load ptr, ptr %indvars.iv4026.sroa.phi, align 8, !tbaa !31
+  %613 = load ptr, ptr %indvars.iv4023.sroa.phi, align 8, !tbaa !31
+  %614 = load ptr, ptr %indvars.iv4020.sroa.phi, align 8, !tbaa !31
+  %615 = load ptr, ptr %indvars.iv4017.sroa.phi, align 8, !tbaa !12
   %616 = tail call fastcc i32 @arkode_butcher_order5i(ptr noundef %611, ptr noundef %612, ptr noundef %613, ptr noundef %614, ptr noundef %615, i32 noundef %9)
   br label %617
 
@@ -9042,85 +9041,85 @@ thread-pre-split2569:                             ; preds = %thread-pre-split256
   br i1 %609, label %608, label %619
 
 619:                                              ; preds = %617
-  br i1 %607, label %.preheader2878, label %620
+  br i1 %607, label %.preheader2879, label %620
 
 620:                                              ; preds = %619
-  br i1 %606, label %.preheader2879, label %621
+  br i1 %606, label %.preheader2880, label %621
 
 621:                                              ; preds = %620
-  br i1 %605, label %.preheader2880, label %622
+  br i1 %605, label %.preheader2881, label %622
 
 622:                                              ; preds = %621
-  br i1 %604, label %.preheader2881, label %623
+  br i1 %604, label %.preheader2882, label %623
 
 623:                                              ; preds = %622
   %624 = icmp eq i32 %618, 0
   %or.cond29 = and i1 %49, %624
-  br i1 %or.cond29, label %.thread2572, label %626
+  br i1 %or.cond29, label %.thread2574, label %626
 
-.thread2572:                                      ; preds = %623
+.thread2574:                                      ; preds = %623
   %625 = tail call i64 @fwrite(ptr nonnull @.str.104, i64 36, i64 1, ptr nonnull %4)
-  br label %thread-pre-split2573
+  br label %thread-pre-split2575
 
 626:                                              ; preds = %623
-  br i1 %624, label %thread-pre-split2573, label %.critedge2614
+  br i1 %624, label %thread-pre-split2575, label %.critedge2615
 
-.critedge2614:                                    ; preds = %626
+.critedge2615:                                    ; preds = %626
   store i32 5, ptr %2, align 4, !tbaa !25
-  br label %.preheader2876.preheader
+  br label %.preheader2877.preheader
 
-thread-pre-split2573:                             ; preds = %thread-pre-split2569, %626, %.thread2572
-  %.pr2574.pr = load i32, ptr %2, align 4, !tbaa !25
-  %627 = icmp eq i32 %.pr2574.pr, 5
-  br i1 %627, label %.preheader2876.preheader, label %1123
+thread-pre-split2575:                             ; preds = %thread-pre-split2571, %626, %.thread2574
+  %.pr2576.pr = load i32, ptr %2, align 4, !tbaa !25
+  %627 = icmp eq i32 %.pr2576.pr, 5
+  br i1 %627, label %.preheader2877.preheader, label %1123
 
-.preheader2876.preheader:                         ; preds = %thread-pre-split2573, %.critedge2614
+.preheader2877.preheader:                         ; preds = %thread-pre-split2575, %.critedge2615
+  br label %.preheader2877
+
+.preheader2877:                                   ; preds = %.preheader2877.preheader, %649
+  %628 = phi i1 [ false, %649 ], [ true, %.preheader2877.preheader ]
+  %indvars.iv4047.sroa.phi = phi ptr [ %.sroa.385507, %649 ], [ %.sroa.05506, %.preheader2877.preheader ]
+  %.693130 = phi i32 [ %644, %649 ], [ 1, %.preheader2877.preheader ]
   br label %.preheader2876
 
-.preheader2876:                                   ; preds = %.preheader2876.preheader, %649
-  %628 = phi i1 [ false, %649 ], [ true, %.preheader2876.preheader ]
-  %indvars.iv4046.sroa.phi = phi ptr [ %.sroa.385506, %649 ], [ %.sroa.05505, %.preheader2876.preheader ]
-  %.693129 = phi i32 [ %644, %649 ], [ 1, %.preheader2876.preheader ]
+.preheader2876:                                   ; preds = %.preheader2877, %648
+  %629 = phi i1 [ true, %.preheader2877 ], [ false, %648 ]
+  %indvars.iv4044.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2877 ], [ %.sroa.181, %648 ]
+  %.703128 = phi i32 [ %.693130, %.preheader2877 ], [ %644, %648 ]
   br label %.preheader2875
 
-.preheader2875:                                   ; preds = %.preheader2876, %648
-  %629 = phi i1 [ true, %.preheader2876 ], [ false, %648 ]
-  %indvars.iv4043.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2876 ], [ %.sroa.181, %648 ]
-  %.703127 = phi i32 [ %.693129, %.preheader2876 ], [ %644, %648 ]
+.preheader2875:                                   ; preds = %.preheader2876, %647
+  %630 = phi i1 [ true, %.preheader2876 ], [ false, %647 ]
+  %indvars.iv4041.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2876 ], [ %.sroa.181, %647 ]
+  %.713126 = phi i32 [ %.703128, %.preheader2876 ], [ %644, %647 ]
   br label %.preheader2874
 
-.preheader2874:                                   ; preds = %.preheader2875, %647
-  %630 = phi i1 [ true, %.preheader2875 ], [ false, %647 ]
-  %indvars.iv4040.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2875 ], [ %.sroa.181, %647 ]
-  %.713125 = phi i32 [ %.703127, %.preheader2875 ], [ %644, %647 ]
+.preheader2874:                                   ; preds = %.preheader2875, %646
+  %631 = phi i1 [ true, %.preheader2875 ], [ false, %646 ]
+  %indvars.iv4038.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2875 ], [ %.sroa.181, %646 ]
+  %.723124 = phi i32 [ %.713126, %.preheader2875 ], [ %644, %646 ]
   br label %.preheader2873
 
-.preheader2873:                                   ; preds = %.preheader2874, %646
-  %631 = phi i1 [ true, %.preheader2874 ], [ false, %646 ]
-  %indvars.iv4037.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2874 ], [ %.sroa.181, %646 ]
-  %.723123 = phi i32 [ %.713125, %.preheader2874 ], [ %644, %646 ]
-  br label %.preheader2872
-
-.preheader2872:                                   ; preds = %.preheader2873, %645
-  %632 = phi i1 [ true, %.preheader2873 ], [ false, %645 ]
-  %indvars.iv4034.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2873 ], [ %.sroa.181, %645 ]
-  %.733121 = phi i32 [ %.723123, %.preheader2873 ], [ %644, %645 ]
+.preheader2873:                                   ; preds = %.preheader2874, %645
+  %632 = phi i1 [ true, %.preheader2874 ], [ false, %645 ]
+  %indvars.iv4035.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2874 ], [ %.sroa.181, %645 ]
+  %.733122 = phi i32 [ %.723124, %.preheader2874 ], [ %644, %645 ]
   br label %633
 
-633:                                              ; preds = %.preheader2872, %643
-  %634 = phi i1 [ true, %.preheader2872 ], [ false, %643 ]
-  %indvars.iv4031.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2872 ], [ %.sroa.181, %643 ]
-  %.743119 = phi i32 [ %.733121, %.preheader2872 ], [ %644, %643 ]
-  %.not2228 = icmp eq i32 %.743119, 0
+633:                                              ; preds = %.preheader2873, %643
+  %634 = phi i1 [ true, %.preheader2873 ], [ false, %643 ]
+  %indvars.iv4032.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2873 ], [ %.sroa.181, %643 ]
+  %.743120 = phi i32 [ %.733122, %.preheader2873 ], [ %644, %643 ]
+  %.not2228 = icmp eq i32 %.743120, 0
   br i1 %.not2228, label %643, label %635
 
 635:                                              ; preds = %633
-  %636 = load ptr, ptr %indvars.iv4046.sroa.phi, align 8, !tbaa !12
-  %637 = load ptr, ptr %indvars.iv4043.sroa.phi, align 8, !tbaa !12
-  %638 = load ptr, ptr %indvars.iv4040.sroa.phi, align 8, !tbaa !12
-  %639 = load ptr, ptr %indvars.iv4037.sroa.phi, align 8, !tbaa !12
-  %640 = load ptr, ptr %indvars.iv4034.sroa.phi, align 8, !tbaa !12
-  %641 = load ptr, ptr %indvars.iv4031.sroa.phi, align 8, !tbaa !12
+  %636 = load ptr, ptr %indvars.iv4047.sroa.phi, align 8, !tbaa !12
+  %637 = load ptr, ptr %indvars.iv4044.sroa.phi, align 8, !tbaa !12
+  %638 = load ptr, ptr %indvars.iv4041.sroa.phi, align 8, !tbaa !12
+  %639 = load ptr, ptr %indvars.iv4038.sroa.phi, align 8, !tbaa !12
+  %640 = load ptr, ptr %indvars.iv4035.sroa.phi, align 8, !tbaa !12
+  %641 = load ptr, ptr %indvars.iv4032.sroa.phi, align 8, !tbaa !12
   %642 = tail call fastcc i32 @arkode_butcher_order6a(ptr noundef %636, ptr noundef %637, ptr noundef %638, ptr noundef %639, ptr noundef %640, ptr noundef %641, i32 noundef %9)
   br label %643
 
@@ -9129,76 +9128,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %634, label %633, label %645
 
 645:                                              ; preds = %643
-  br i1 %632, label %.preheader2872, label %646
+  br i1 %632, label %.preheader2873, label %646
 
 646:                                              ; preds = %645
-  br i1 %631, label %.preheader2873, label %647
+  br i1 %631, label %.preheader2874, label %647
 
 647:                                              ; preds = %646
-  br i1 %630, label %.preheader2874, label %648
+  br i1 %630, label %.preheader2875, label %648
 
 648:                                              ; preds = %647
-  br i1 %629, label %.preheader2875, label %649
+  br i1 %629, label %.preheader2876, label %649
 
 649:                                              ; preds = %648
-  br i1 %628, label %.preheader2876, label %650
+  br i1 %628, label %.preheader2877, label %650
 
 650:                                              ; preds = %649
   %651 = icmp eq i32 %644, 0
   %or.cond31 = and i1 %49, %651
-  br i1 %or.cond31, label %652, label %.preheader2871.preheader
+  br i1 %or.cond31, label %652, label %.preheader2872.preheader
 
 652:                                              ; preds = %650
   %653 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2871.preheader
+  br label %.preheader2872.preheader
 
-.preheader2871.preheader:                         ; preds = %652, %650
+.preheader2872.preheader:                         ; preds = %652, %650
+  br label %.preheader2872
+
+.preheader2872:                                   ; preds = %.preheader2872.preheader, %675
+  %654 = phi i1 [ false, %675 ], [ true, %.preheader2872.preheader ]
+  %indvars.iv4065.sroa.phi = phi ptr [ %.sroa.385507, %675 ], [ %.sroa.05506, %.preheader2872.preheader ]
+  %.753142 = phi i32 [ %670, %675 ], [ %644, %.preheader2872.preheader ]
   br label %.preheader2871
 
-.preheader2871:                                   ; preds = %.preheader2871.preheader, %675
-  %654 = phi i1 [ false, %675 ], [ true, %.preheader2871.preheader ]
-  %indvars.iv4064.sroa.phi = phi ptr [ %.sroa.385506, %675 ], [ %.sroa.05505, %.preheader2871.preheader ]
-  %.753141 = phi i32 [ %670, %675 ], [ %644, %.preheader2871.preheader ]
+.preheader2871:                                   ; preds = %.preheader2872, %674
+  %655 = phi i1 [ true, %.preheader2872 ], [ false, %674 ]
+  %indvars.iv4062.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2872 ], [ %.sroa.181, %674 ]
+  %.763140 = phi i32 [ %.753142, %.preheader2872 ], [ %670, %674 ]
   br label %.preheader2870
 
-.preheader2870:                                   ; preds = %.preheader2871, %674
-  %655 = phi i1 [ true, %.preheader2871 ], [ false, %674 ]
-  %indvars.iv4061.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2871 ], [ %.sroa.181, %674 ]
-  %.763139 = phi i32 [ %.753141, %.preheader2871 ], [ %670, %674 ]
+.preheader2870:                                   ; preds = %.preheader2871, %673
+  %656 = phi i1 [ true, %.preheader2871 ], [ false, %673 ]
+  %indvars.iv4059.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2871 ], [ %.sroa.181, %673 ]
+  %.773138 = phi i32 [ %.763140, %.preheader2871 ], [ %670, %673 ]
   br label %.preheader2869
 
-.preheader2869:                                   ; preds = %.preheader2870, %673
-  %656 = phi i1 [ true, %.preheader2870 ], [ false, %673 ]
-  %indvars.iv4058.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2870 ], [ %.sroa.181, %673 ]
-  %.773137 = phi i32 [ %.763139, %.preheader2870 ], [ %670, %673 ]
+.preheader2869:                                   ; preds = %.preheader2870, %672
+  %657 = phi i1 [ true, %.preheader2870 ], [ false, %672 ]
+  %indvars.iv4056.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2870 ], [ %.sroa.181, %672 ]
+  %.783136 = phi i32 [ %.773138, %.preheader2870 ], [ %670, %672 ]
   br label %.preheader2868
 
-.preheader2868:                                   ; preds = %.preheader2869, %672
-  %657 = phi i1 [ true, %.preheader2869 ], [ false, %672 ]
-  %indvars.iv4055.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2869 ], [ %.sroa.181, %672 ]
-  %.783135 = phi i32 [ %.773137, %.preheader2869 ], [ %670, %672 ]
-  br label %.preheader2867
-
-.preheader2867:                                   ; preds = %.preheader2868, %671
-  %658 = phi i1 [ true, %.preheader2868 ], [ false, %671 ]
-  %indvars.iv4052.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2868 ], [ %.sroa.121, %671 ]
-  %.793133 = phi i32 [ %.783135, %.preheader2868 ], [ %670, %671 ]
+.preheader2868:                                   ; preds = %.preheader2869, %671
+  %658 = phi i1 [ true, %.preheader2869 ], [ false, %671 ]
+  %indvars.iv4053.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2869 ], [ %.sroa.121, %671 ]
+  %.793134 = phi i32 [ %.783136, %.preheader2869 ], [ %670, %671 ]
   br label %659
 
-659:                                              ; preds = %.preheader2867, %669
-  %660 = phi i1 [ true, %.preheader2867 ], [ false, %669 ]
-  %indvars.iv4049.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2867 ], [ %.sroa.181, %669 ]
-  %.803131 = phi i32 [ %.793133, %.preheader2867 ], [ %670, %669 ]
-  %.not2227 = icmp eq i32 %.803131, 0
+659:                                              ; preds = %.preheader2868, %669
+  %660 = phi i1 [ true, %.preheader2868 ], [ false, %669 ]
+  %indvars.iv4050.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2868 ], [ %.sroa.181, %669 ]
+  %.803132 = phi i32 [ %.793134, %.preheader2868 ], [ %670, %669 ]
+  %.not2227 = icmp eq i32 %.803132, 0
   br i1 %.not2227, label %669, label %661
 
 661:                                              ; preds = %659
-  %662 = load ptr, ptr %indvars.iv4064.sroa.phi, align 8, !tbaa !12
-  %663 = load ptr, ptr %indvars.iv4061.sroa.phi, align 8, !tbaa !12
-  %664 = load ptr, ptr %indvars.iv4058.sroa.phi, align 8, !tbaa !12
-  %665 = load ptr, ptr %indvars.iv4055.sroa.phi, align 8, !tbaa !12
-  %666 = load ptr, ptr %indvars.iv4052.sroa.phi, align 8, !tbaa !31
-  %667 = load ptr, ptr %indvars.iv4049.sroa.phi, align 8, !tbaa !12
+  %662 = load ptr, ptr %indvars.iv4065.sroa.phi, align 8, !tbaa !12
+  %663 = load ptr, ptr %indvars.iv4062.sroa.phi, align 8, !tbaa !12
+  %664 = load ptr, ptr %indvars.iv4059.sroa.phi, align 8, !tbaa !12
+  %665 = load ptr, ptr %indvars.iv4056.sroa.phi, align 8, !tbaa !12
+  %666 = load ptr, ptr %indvars.iv4053.sroa.phi, align 8, !tbaa !31
+  %667 = load ptr, ptr %indvars.iv4050.sroa.phi, align 8, !tbaa !12
   %668 = tail call fastcc i32 @arkode_butcher_order6b(ptr noundef %662, ptr noundef %663, ptr noundef %664, ptr noundef %665, ptr noundef %666, ptr noundef %667, i32 noundef %9)
   br label %669
 
@@ -9207,76 +9206,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %660, label %659, label %671
 
 671:                                              ; preds = %669
-  br i1 %658, label %.preheader2867, label %672
+  br i1 %658, label %.preheader2868, label %672
 
 672:                                              ; preds = %671
-  br i1 %657, label %.preheader2868, label %673
+  br i1 %657, label %.preheader2869, label %673
 
 673:                                              ; preds = %672
-  br i1 %656, label %.preheader2869, label %674
+  br i1 %656, label %.preheader2870, label %674
 
 674:                                              ; preds = %673
-  br i1 %655, label %.preheader2870, label %675
+  br i1 %655, label %.preheader2871, label %675
 
 675:                                              ; preds = %674
-  br i1 %654, label %.preheader2871, label %676
+  br i1 %654, label %.preheader2872, label %676
 
 676:                                              ; preds = %675
   %677 = icmp eq i32 %670, 0
   %or.cond33 = and i1 %49, %677
-  br i1 %or.cond33, label %678, label %.preheader2866.preheader
+  br i1 %or.cond33, label %678, label %.preheader2867.preheader
 
 678:                                              ; preds = %676
   %679 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2866.preheader
+  br label %.preheader2867.preheader
 
-.preheader2866.preheader:                         ; preds = %678, %676
+.preheader2867.preheader:                         ; preds = %678, %676
+  br label %.preheader2867
+
+.preheader2867:                                   ; preds = %.preheader2867.preheader, %701
+  %680 = phi i1 [ false, %701 ], [ true, %.preheader2867.preheader ]
+  %indvars.iv4083.sroa.phi = phi ptr [ %.sroa.385507, %701 ], [ %.sroa.05506, %.preheader2867.preheader ]
+  %.813154 = phi i32 [ %696, %701 ], [ %670, %.preheader2867.preheader ]
   br label %.preheader2866
 
-.preheader2866:                                   ; preds = %.preheader2866.preheader, %701
-  %680 = phi i1 [ false, %701 ], [ true, %.preheader2866.preheader ]
-  %indvars.iv4082.sroa.phi = phi ptr [ %.sroa.385506, %701 ], [ %.sroa.05505, %.preheader2866.preheader ]
-  %.813153 = phi i32 [ %696, %701 ], [ %670, %.preheader2866.preheader ]
+.preheader2866:                                   ; preds = %.preheader2867, %700
+  %681 = phi i1 [ true, %.preheader2867 ], [ false, %700 ]
+  %indvars.iv4080.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2867 ], [ %.sroa.181, %700 ]
+  %.823152 = phi i32 [ %.813154, %.preheader2867 ], [ %696, %700 ]
   br label %.preheader2865
 
-.preheader2865:                                   ; preds = %.preheader2866, %700
-  %681 = phi i1 [ true, %.preheader2866 ], [ false, %700 ]
-  %indvars.iv4079.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2866 ], [ %.sroa.181, %700 ]
-  %.823151 = phi i32 [ %.813153, %.preheader2866 ], [ %696, %700 ]
+.preheader2865:                                   ; preds = %.preheader2866, %699
+  %682 = phi i1 [ true, %.preheader2866 ], [ false, %699 ]
+  %indvars.iv4077.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2866 ], [ %.sroa.121, %699 ]
+  %.833150 = phi i32 [ %.823152, %.preheader2866 ], [ %696, %699 ]
   br label %.preheader2864
 
-.preheader2864:                                   ; preds = %.preheader2865, %699
-  %682 = phi i1 [ true, %.preheader2865 ], [ false, %699 ]
-  %indvars.iv4076.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2865 ], [ %.sroa.121, %699 ]
-  %.833149 = phi i32 [ %.823151, %.preheader2865 ], [ %696, %699 ]
+.preheader2864:                                   ; preds = %.preheader2865, %698
+  %683 = phi i1 [ true, %.preheader2865 ], [ false, %698 ]
+  %indvars.iv4074.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2865 ], [ %.sroa.181, %698 ]
+  %.843148 = phi i32 [ %.833150, %.preheader2865 ], [ %696, %698 ]
   br label %.preheader2863
 
-.preheader2863:                                   ; preds = %.preheader2864, %698
-  %683 = phi i1 [ true, %.preheader2864 ], [ false, %698 ]
-  %indvars.iv4073.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2864 ], [ %.sroa.181, %698 ]
-  %.843147 = phi i32 [ %.833149, %.preheader2864 ], [ %696, %698 ]
-  br label %.preheader2862
-
-.preheader2862:                                   ; preds = %.preheader2863, %697
-  %684 = phi i1 [ true, %.preheader2863 ], [ false, %697 ]
-  %indvars.iv4070.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2863 ], [ %.sroa.121, %697 ]
-  %.853145 = phi i32 [ %.843147, %.preheader2863 ], [ %696, %697 ]
+.preheader2863:                                   ; preds = %.preheader2864, %697
+  %684 = phi i1 [ true, %.preheader2864 ], [ false, %697 ]
+  %indvars.iv4071.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2864 ], [ %.sroa.121, %697 ]
+  %.853146 = phi i32 [ %.843148, %.preheader2864 ], [ %696, %697 ]
   br label %685
 
-685:                                              ; preds = %.preheader2862, %695
-  %686 = phi i1 [ true, %.preheader2862 ], [ false, %695 ]
-  %indvars.iv4067.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2862 ], [ %.sroa.181, %695 ]
-  %.863143 = phi i32 [ %.853145, %.preheader2862 ], [ %696, %695 ]
-  %.not2226 = icmp eq i32 %.863143, 0
+685:                                              ; preds = %.preheader2863, %695
+  %686 = phi i1 [ true, %.preheader2863 ], [ false, %695 ]
+  %indvars.iv4068.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2863 ], [ %.sroa.181, %695 ]
+  %.863144 = phi i32 [ %.853146, %.preheader2863 ], [ %696, %695 ]
+  %.not2226 = icmp eq i32 %.863144, 0
   br i1 %.not2226, label %695, label %687
 
 687:                                              ; preds = %685
-  %688 = load ptr, ptr %indvars.iv4082.sroa.phi, align 8, !tbaa !12
-  %689 = load ptr, ptr %indvars.iv4079.sroa.phi, align 8, !tbaa !12
-  %690 = load ptr, ptr %indvars.iv4076.sroa.phi, align 8, !tbaa !31
-  %691 = load ptr, ptr %indvars.iv4073.sroa.phi, align 8, !tbaa !12
-  %692 = load ptr, ptr %indvars.iv4070.sroa.phi, align 8, !tbaa !31
-  %693 = load ptr, ptr %indvars.iv4067.sroa.phi, align 8, !tbaa !12
+  %688 = load ptr, ptr %indvars.iv4083.sroa.phi, align 8, !tbaa !12
+  %689 = load ptr, ptr %indvars.iv4080.sroa.phi, align 8, !tbaa !12
+  %690 = load ptr, ptr %indvars.iv4077.sroa.phi, align 8, !tbaa !31
+  %691 = load ptr, ptr %indvars.iv4074.sroa.phi, align 8, !tbaa !12
+  %692 = load ptr, ptr %indvars.iv4071.sroa.phi, align 8, !tbaa !31
+  %693 = load ptr, ptr %indvars.iv4068.sroa.phi, align 8, !tbaa !12
   %694 = tail call fastcc i32 @arkode_butcher_order6c(ptr noundef %688, ptr noundef %689, ptr noundef %690, ptr noundef %691, ptr noundef %692, ptr noundef %693, i32 noundef %9)
   br label %695
 
@@ -9285,76 +9284,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %686, label %685, label %697
 
 697:                                              ; preds = %695
-  br i1 %684, label %.preheader2862, label %698
+  br i1 %684, label %.preheader2863, label %698
 
 698:                                              ; preds = %697
-  br i1 %683, label %.preheader2863, label %699
+  br i1 %683, label %.preheader2864, label %699
 
 699:                                              ; preds = %698
-  br i1 %682, label %.preheader2864, label %700
+  br i1 %682, label %.preheader2865, label %700
 
 700:                                              ; preds = %699
-  br i1 %681, label %.preheader2865, label %701
+  br i1 %681, label %.preheader2866, label %701
 
 701:                                              ; preds = %700
-  br i1 %680, label %.preheader2866, label %702
+  br i1 %680, label %.preheader2867, label %702
 
 702:                                              ; preds = %701
   %703 = icmp eq i32 %696, 0
   %or.cond35 = and i1 %49, %703
-  br i1 %or.cond35, label %704, label %.preheader2861.preheader
+  br i1 %or.cond35, label %704, label %.preheader2862.preheader
 
 704:                                              ; preds = %702
   %705 = tail call i64 @fwrite(ptr nonnull @.str.107, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2861.preheader
+  br label %.preheader2862.preheader
 
-.preheader2861.preheader:                         ; preds = %704, %702
+.preheader2862.preheader:                         ; preds = %704, %702
+  br label %.preheader2862
+
+.preheader2862:                                   ; preds = %.preheader2862.preheader, %727
+  %706 = phi i1 [ false, %727 ], [ true, %.preheader2862.preheader ]
+  %indvars.iv4101.sroa.phi = phi ptr [ %.sroa.385507, %727 ], [ %.sroa.05506, %.preheader2862.preheader ]
+  %.873166 = phi i32 [ %722, %727 ], [ %696, %.preheader2862.preheader ]
   br label %.preheader2861
 
-.preheader2861:                                   ; preds = %.preheader2861.preheader, %727
-  %706 = phi i1 [ false, %727 ], [ true, %.preheader2861.preheader ]
-  %indvars.iv4100.sroa.phi = phi ptr [ %.sroa.385506, %727 ], [ %.sroa.05505, %.preheader2861.preheader ]
-  %.873165 = phi i32 [ %722, %727 ], [ %696, %.preheader2861.preheader ]
+.preheader2861:                                   ; preds = %.preheader2862, %726
+  %707 = phi i1 [ true, %.preheader2862 ], [ false, %726 ]
+  %indvars.iv4098.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2862 ], [ %.sroa.181, %726 ]
+  %.883164 = phi i32 [ %.873166, %.preheader2862 ], [ %722, %726 ]
   br label %.preheader2860
 
-.preheader2860:                                   ; preds = %.preheader2861, %726
-  %707 = phi i1 [ true, %.preheader2861 ], [ false, %726 ]
-  %indvars.iv4097.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2861 ], [ %.sroa.181, %726 ]
-  %.883163 = phi i32 [ %.873165, %.preheader2861 ], [ %722, %726 ]
+.preheader2860:                                   ; preds = %.preheader2861, %725
+  %708 = phi i1 [ true, %.preheader2861 ], [ false, %725 ]
+  %indvars.iv4095.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2861 ], [ %.sroa.181, %725 ]
+  %.893162 = phi i32 [ %.883164, %.preheader2861 ], [ %722, %725 ]
   br label %.preheader2859
 
-.preheader2859:                                   ; preds = %.preheader2860, %725
-  %708 = phi i1 [ true, %.preheader2860 ], [ false, %725 ]
-  %indvars.iv4094.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2860 ], [ %.sroa.181, %725 ]
-  %.893161 = phi i32 [ %.883163, %.preheader2860 ], [ %722, %725 ]
+.preheader2859:                                   ; preds = %.preheader2860, %724
+  %709 = phi i1 [ true, %.preheader2860 ], [ false, %724 ]
+  %indvars.iv4092.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2860 ], [ %.sroa.121, %724 ]
+  %.903160 = phi i32 [ %.893162, %.preheader2860 ], [ %722, %724 ]
   br label %.preheader2858
 
-.preheader2858:                                   ; preds = %.preheader2859, %724
-  %709 = phi i1 [ true, %.preheader2859 ], [ false, %724 ]
-  %indvars.iv4091.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2859 ], [ %.sroa.121, %724 ]
-  %.903159 = phi i32 [ %.893161, %.preheader2859 ], [ %722, %724 ]
-  br label %.preheader2857
-
-.preheader2857:                                   ; preds = %.preheader2858, %723
-  %710 = phi i1 [ true, %.preheader2858 ], [ false, %723 ]
-  %indvars.iv4088.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2858 ], [ %.sroa.181, %723 ]
-  %.913157 = phi i32 [ %.903159, %.preheader2858 ], [ %722, %723 ]
+.preheader2858:                                   ; preds = %.preheader2859, %723
+  %710 = phi i1 [ true, %.preheader2859 ], [ false, %723 ]
+  %indvars.iv4089.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2859 ], [ %.sroa.181, %723 ]
+  %.913158 = phi i32 [ %.903160, %.preheader2859 ], [ %722, %723 ]
   br label %711
 
-711:                                              ; preds = %.preheader2857, %721
-  %712 = phi i1 [ true, %.preheader2857 ], [ false, %721 ]
-  %indvars.iv4085.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2857 ], [ %.sroa.181, %721 ]
-  %.923155 = phi i32 [ %.913157, %.preheader2857 ], [ %722, %721 ]
-  %.not2225 = icmp eq i32 %.923155, 0
+711:                                              ; preds = %.preheader2858, %721
+  %712 = phi i1 [ true, %.preheader2858 ], [ false, %721 ]
+  %indvars.iv4086.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2858 ], [ %.sroa.181, %721 ]
+  %.923156 = phi i32 [ %.913158, %.preheader2858 ], [ %722, %721 ]
+  %.not2225 = icmp eq i32 %.923156, 0
   br i1 %.not2225, label %721, label %713
 
 713:                                              ; preds = %711
-  %714 = load ptr, ptr %indvars.iv4100.sroa.phi, align 8, !tbaa !12
-  %715 = load ptr, ptr %indvars.iv4097.sroa.phi, align 8, !tbaa !12
-  %716 = load ptr, ptr %indvars.iv4094.sroa.phi, align 8, !tbaa !12
-  %717 = load ptr, ptr %indvars.iv4091.sroa.phi, align 8, !tbaa !31
-  %718 = load ptr, ptr %indvars.iv4088.sroa.phi, align 8, !tbaa !12
-  %719 = load ptr, ptr %indvars.iv4085.sroa.phi, align 8, !tbaa !12
+  %714 = load ptr, ptr %indvars.iv4101.sroa.phi, align 8, !tbaa !12
+  %715 = load ptr, ptr %indvars.iv4098.sroa.phi, align 8, !tbaa !12
+  %716 = load ptr, ptr %indvars.iv4095.sroa.phi, align 8, !tbaa !12
+  %717 = load ptr, ptr %indvars.iv4092.sroa.phi, align 8, !tbaa !31
+  %718 = load ptr, ptr %indvars.iv4089.sroa.phi, align 8, !tbaa !12
+  %719 = load ptr, ptr %indvars.iv4086.sroa.phi, align 8, !tbaa !12
   %720 = tail call fastcc i32 @arkode_butcher_order6d(ptr noundef %714, ptr noundef %715, ptr noundef %716, ptr noundef %717, ptr noundef %718, ptr noundef %719, i32 noundef %9)
   br label %721
 
@@ -9363,76 +9362,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %712, label %711, label %723
 
 723:                                              ; preds = %721
-  br i1 %710, label %.preheader2857, label %724
+  br i1 %710, label %.preheader2858, label %724
 
 724:                                              ; preds = %723
-  br i1 %709, label %.preheader2858, label %725
+  br i1 %709, label %.preheader2859, label %725
 
 725:                                              ; preds = %724
-  br i1 %708, label %.preheader2859, label %726
+  br i1 %708, label %.preheader2860, label %726
 
 726:                                              ; preds = %725
-  br i1 %707, label %.preheader2860, label %727
+  br i1 %707, label %.preheader2861, label %727
 
 727:                                              ; preds = %726
-  br i1 %706, label %.preheader2861, label %728
+  br i1 %706, label %.preheader2862, label %728
 
 728:                                              ; preds = %727
   %729 = icmp eq i32 %722, 0
   %or.cond37 = and i1 %49, %729
-  br i1 %or.cond37, label %730, label %.preheader2856.preheader
+  br i1 %or.cond37, label %730, label %.preheader2857.preheader
 
 730:                                              ; preds = %728
   %731 = tail call i64 @fwrite(ptr nonnull @.str.108, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2856.preheader
+  br label %.preheader2857.preheader
 
-.preheader2856.preheader:                         ; preds = %730, %728
+.preheader2857.preheader:                         ; preds = %730, %728
+  br label %.preheader2857
+
+.preheader2857:                                   ; preds = %.preheader2857.preheader, %753
+  %732 = phi i1 [ false, %753 ], [ true, %.preheader2857.preheader ]
+  %indvars.iv4119.sroa.phi = phi ptr [ %.sroa.385507, %753 ], [ %.sroa.05506, %.preheader2857.preheader ]
+  %.933178 = phi i32 [ %748, %753 ], [ %722, %.preheader2857.preheader ]
   br label %.preheader2856
 
-.preheader2856:                                   ; preds = %.preheader2856.preheader, %753
-  %732 = phi i1 [ false, %753 ], [ true, %.preheader2856.preheader ]
-  %indvars.iv4118.sroa.phi = phi ptr [ %.sroa.385506, %753 ], [ %.sroa.05505, %.preheader2856.preheader ]
-  %.933177 = phi i32 [ %748, %753 ], [ %722, %.preheader2856.preheader ]
+.preheader2856:                                   ; preds = %.preheader2857, %752
+  %733 = phi i1 [ true, %.preheader2857 ], [ false, %752 ]
+  %indvars.iv4116.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2857 ], [ %.sroa.181, %752 ]
+  %.943176 = phi i32 [ %.933178, %.preheader2857 ], [ %748, %752 ]
   br label %.preheader2855
 
-.preheader2855:                                   ; preds = %.preheader2856, %752
-  %733 = phi i1 [ true, %.preheader2856 ], [ false, %752 ]
-  %indvars.iv4115.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2856 ], [ %.sroa.181, %752 ]
-  %.943175 = phi i32 [ %.933177, %.preheader2856 ], [ %748, %752 ]
+.preheader2855:                                   ; preds = %.preheader2856, %751
+  %734 = phi i1 [ true, %.preheader2856 ], [ false, %751 ]
+  %indvars.iv4113.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2856 ], [ %.sroa.181, %751 ]
+  %.953174 = phi i32 [ %.943176, %.preheader2856 ], [ %748, %751 ]
   br label %.preheader2854
 
-.preheader2854:                                   ; preds = %.preheader2855, %751
-  %734 = phi i1 [ true, %.preheader2855 ], [ false, %751 ]
-  %indvars.iv4112.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2855 ], [ %.sroa.181, %751 ]
-  %.953173 = phi i32 [ %.943175, %.preheader2855 ], [ %748, %751 ]
+.preheader2854:                                   ; preds = %.preheader2855, %750
+  %735 = phi i1 [ true, %.preheader2855 ], [ false, %750 ]
+  %indvars.iv4110.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2855 ], [ %.sroa.121, %750 ]
+  %.963172 = phi i32 [ %.953174, %.preheader2855 ], [ %748, %750 ]
   br label %.preheader2853
 
-.preheader2853:                                   ; preds = %.preheader2854, %750
-  %735 = phi i1 [ true, %.preheader2854 ], [ false, %750 ]
-  %indvars.iv4109.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2854 ], [ %.sroa.121, %750 ]
-  %.963171 = phi i32 [ %.953173, %.preheader2854 ], [ %748, %750 ]
-  br label %.preheader2852
-
-.preheader2852:                                   ; preds = %.preheader2853, %749
-  %736 = phi i1 [ true, %.preheader2853 ], [ false, %749 ]
-  %indvars.iv4106.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2853 ], [ %.sroa.121, %749 ]
-  %.973169 = phi i32 [ %.963171, %.preheader2853 ], [ %748, %749 ]
+.preheader2853:                                   ; preds = %.preheader2854, %749
+  %736 = phi i1 [ true, %.preheader2854 ], [ false, %749 ]
+  %indvars.iv4107.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2854 ], [ %.sroa.121, %749 ]
+  %.973170 = phi i32 [ %.963172, %.preheader2854 ], [ %748, %749 ]
   br label %737
 
-737:                                              ; preds = %.preheader2852, %747
-  %738 = phi i1 [ true, %.preheader2852 ], [ false, %747 ]
-  %indvars.iv4103.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2852 ], [ %.sroa.181, %747 ]
-  %.983167 = phi i32 [ %.973169, %.preheader2852 ], [ %748, %747 ]
-  %.not2224 = icmp eq i32 %.983167, 0
+737:                                              ; preds = %.preheader2853, %747
+  %738 = phi i1 [ true, %.preheader2853 ], [ false, %747 ]
+  %indvars.iv4104.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2853 ], [ %.sroa.181, %747 ]
+  %.983168 = phi i32 [ %.973170, %.preheader2853 ], [ %748, %747 ]
+  %.not2224 = icmp eq i32 %.983168, 0
   br i1 %.not2224, label %747, label %739
 
 739:                                              ; preds = %737
-  %740 = load ptr, ptr %indvars.iv4118.sroa.phi, align 8, !tbaa !12
-  %741 = load ptr, ptr %indvars.iv4115.sroa.phi, align 8, !tbaa !12
-  %742 = load ptr, ptr %indvars.iv4112.sroa.phi, align 8, !tbaa !12
-  %743 = load ptr, ptr %indvars.iv4109.sroa.phi, align 8, !tbaa !31
-  %744 = load ptr, ptr %indvars.iv4106.sroa.phi, align 8, !tbaa !31
-  %745 = load ptr, ptr %indvars.iv4103.sroa.phi, align 8, !tbaa !12
+  %740 = load ptr, ptr %indvars.iv4119.sroa.phi, align 8, !tbaa !12
+  %741 = load ptr, ptr %indvars.iv4116.sroa.phi, align 8, !tbaa !12
+  %742 = load ptr, ptr %indvars.iv4113.sroa.phi, align 8, !tbaa !12
+  %743 = load ptr, ptr %indvars.iv4110.sroa.phi, align 8, !tbaa !31
+  %744 = load ptr, ptr %indvars.iv4107.sroa.phi, align 8, !tbaa !31
+  %745 = load ptr, ptr %indvars.iv4104.sroa.phi, align 8, !tbaa !12
   %746 = tail call fastcc i32 @arkode_butcher_order6e(ptr noundef %740, ptr noundef %741, ptr noundef %742, ptr noundef %743, ptr noundef %744, ptr noundef %745, i32 noundef %9)
   br label %747
 
@@ -9441,76 +9440,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %738, label %737, label %749
 
 749:                                              ; preds = %747
-  br i1 %736, label %.preheader2852, label %750
+  br i1 %736, label %.preheader2853, label %750
 
 750:                                              ; preds = %749
-  br i1 %735, label %.preheader2853, label %751
+  br i1 %735, label %.preheader2854, label %751
 
 751:                                              ; preds = %750
-  br i1 %734, label %.preheader2854, label %752
+  br i1 %734, label %.preheader2855, label %752
 
 752:                                              ; preds = %751
-  br i1 %733, label %.preheader2855, label %753
+  br i1 %733, label %.preheader2856, label %753
 
 753:                                              ; preds = %752
-  br i1 %732, label %.preheader2856, label %754
+  br i1 %732, label %.preheader2857, label %754
 
 754:                                              ; preds = %753
   %755 = icmp eq i32 %748, 0
   %or.cond39 = and i1 %49, %755
-  br i1 %or.cond39, label %756, label %.preheader2851.preheader
+  br i1 %or.cond39, label %756, label %.preheader2852.preheader
 
 756:                                              ; preds = %754
   %757 = tail call i64 @fwrite(ptr nonnull @.str.109, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2851.preheader
+  br label %.preheader2852.preheader
 
-.preheader2851.preheader:                         ; preds = %756, %754
+.preheader2852.preheader:                         ; preds = %756, %754
+  br label %.preheader2852
+
+.preheader2852:                                   ; preds = %.preheader2852.preheader, %779
+  %758 = phi i1 [ false, %779 ], [ true, %.preheader2852.preheader ]
+  %indvars.iv4137.sroa.phi = phi ptr [ %.sroa.385507, %779 ], [ %.sroa.05506, %.preheader2852.preheader ]
+  %.993190 = phi i32 [ %774, %779 ], [ %748, %.preheader2852.preheader ]
   br label %.preheader2851
 
-.preheader2851:                                   ; preds = %.preheader2851.preheader, %779
-  %758 = phi i1 [ false, %779 ], [ true, %.preheader2851.preheader ]
-  %indvars.iv4136.sroa.phi = phi ptr [ %.sroa.385506, %779 ], [ %.sroa.05505, %.preheader2851.preheader ]
-  %.993189 = phi i32 [ %774, %779 ], [ %748, %.preheader2851.preheader ]
+.preheader2851:                                   ; preds = %.preheader2852, %778
+  %759 = phi i1 [ true, %.preheader2852 ], [ false, %778 ]
+  %indvars.iv4134.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2852 ], [ %.sroa.121, %778 ]
+  %.1003188 = phi i32 [ %.993190, %.preheader2852 ], [ %774, %778 ]
   br label %.preheader2850
 
-.preheader2850:                                   ; preds = %.preheader2851, %778
-  %759 = phi i1 [ true, %.preheader2851 ], [ false, %778 ]
-  %indvars.iv4133.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2851 ], [ %.sroa.121, %778 ]
-  %.1003187 = phi i32 [ %.993189, %.preheader2851 ], [ %774, %778 ]
+.preheader2850:                                   ; preds = %.preheader2851, %777
+  %760 = phi i1 [ true, %.preheader2851 ], [ false, %777 ]
+  %indvars.iv4131.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2851 ], [ %.sroa.121, %777 ]
+  %.1013186 = phi i32 [ %.1003188, %.preheader2851 ], [ %774, %777 ]
   br label %.preheader2849
 
-.preheader2849:                                   ; preds = %.preheader2850, %777
-  %760 = phi i1 [ true, %.preheader2850 ], [ false, %777 ]
-  %indvars.iv4130.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2850 ], [ %.sroa.121, %777 ]
-  %.1013185 = phi i32 [ %.1003187, %.preheader2850 ], [ %774, %777 ]
+.preheader2849:                                   ; preds = %.preheader2850, %776
+  %761 = phi i1 [ true, %.preheader2850 ], [ false, %776 ]
+  %indvars.iv4128.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2850 ], [ %.sroa.181, %776 ]
+  %.1023184 = phi i32 [ %.1013186, %.preheader2850 ], [ %774, %776 ]
   br label %.preheader2848
 
-.preheader2848:                                   ; preds = %.preheader2849, %776
-  %761 = phi i1 [ true, %.preheader2849 ], [ false, %776 ]
-  %indvars.iv4127.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2849 ], [ %.sroa.181, %776 ]
-  %.1023183 = phi i32 [ %.1013185, %.preheader2849 ], [ %774, %776 ]
-  br label %.preheader2847
-
-.preheader2847:                                   ; preds = %.preheader2848, %775
-  %762 = phi i1 [ true, %.preheader2848 ], [ false, %775 ]
-  %indvars.iv4124.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2848 ], [ %.sroa.121, %775 ]
-  %.1033181 = phi i32 [ %.1023183, %.preheader2848 ], [ %774, %775 ]
+.preheader2848:                                   ; preds = %.preheader2849, %775
+  %762 = phi i1 [ true, %.preheader2849 ], [ false, %775 ]
+  %indvars.iv4125.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2849 ], [ %.sroa.121, %775 ]
+  %.1033182 = phi i32 [ %.1023184, %.preheader2849 ], [ %774, %775 ]
   br label %763
 
-763:                                              ; preds = %.preheader2847, %773
-  %764 = phi i1 [ true, %.preheader2847 ], [ false, %773 ]
-  %indvars.iv4121.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2847 ], [ %.sroa.181, %773 ]
-  %.1043179 = phi i32 [ %.1033181, %.preheader2847 ], [ %774, %773 ]
-  %.not2223 = icmp eq i32 %.1043179, 0
+763:                                              ; preds = %.preheader2848, %773
+  %764 = phi i1 [ true, %.preheader2848 ], [ false, %773 ]
+  %indvars.iv4122.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2848 ], [ %.sroa.181, %773 ]
+  %.1043180 = phi i32 [ %.1033182, %.preheader2848 ], [ %774, %773 ]
+  %.not2223 = icmp eq i32 %.1043180, 0
   br i1 %.not2223, label %773, label %765
 
 765:                                              ; preds = %763
-  %766 = load ptr, ptr %indvars.iv4136.sroa.phi, align 8, !tbaa !12
-  %767 = load ptr, ptr %indvars.iv4133.sroa.phi, align 8, !tbaa !31
-  %768 = load ptr, ptr %indvars.iv4130.sroa.phi, align 8, !tbaa !31
-  %769 = load ptr, ptr %indvars.iv4127.sroa.phi, align 8, !tbaa !12
-  %770 = load ptr, ptr %indvars.iv4124.sroa.phi, align 8, !tbaa !31
-  %771 = load ptr, ptr %indvars.iv4121.sroa.phi, align 8, !tbaa !12
+  %766 = load ptr, ptr %indvars.iv4137.sroa.phi, align 8, !tbaa !12
+  %767 = load ptr, ptr %indvars.iv4134.sroa.phi, align 8, !tbaa !31
+  %768 = load ptr, ptr %indvars.iv4131.sroa.phi, align 8, !tbaa !31
+  %769 = load ptr, ptr %indvars.iv4128.sroa.phi, align 8, !tbaa !12
+  %770 = load ptr, ptr %indvars.iv4125.sroa.phi, align 8, !tbaa !31
+  %771 = load ptr, ptr %indvars.iv4122.sroa.phi, align 8, !tbaa !12
   %772 = tail call fastcc i32 @arkode_butcher_order6f(ptr noundef %766, ptr noundef %767, ptr noundef %768, ptr noundef %769, ptr noundef %770, ptr noundef %771, i32 noundef %9)
   br label %773
 
@@ -9519,76 +9518,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %764, label %763, label %775
 
 775:                                              ; preds = %773
-  br i1 %762, label %.preheader2847, label %776
+  br i1 %762, label %.preheader2848, label %776
 
 776:                                              ; preds = %775
-  br i1 %761, label %.preheader2848, label %777
+  br i1 %761, label %.preheader2849, label %777
 
 777:                                              ; preds = %776
-  br i1 %760, label %.preheader2849, label %778
+  br i1 %760, label %.preheader2850, label %778
 
 778:                                              ; preds = %777
-  br i1 %759, label %.preheader2850, label %779
+  br i1 %759, label %.preheader2851, label %779
 
 779:                                              ; preds = %778
-  br i1 %758, label %.preheader2851, label %780
+  br i1 %758, label %.preheader2852, label %780
 
 780:                                              ; preds = %779
   %781 = icmp eq i32 %774, 0
   %or.cond41 = and i1 %49, %781
-  br i1 %or.cond41, label %782, label %.preheader2846.preheader
+  br i1 %or.cond41, label %782, label %.preheader2847.preheader
 
 782:                                              ; preds = %780
   %783 = tail call i64 @fwrite(ptr nonnull @.str.110, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2846.preheader
+  br label %.preheader2847.preheader
 
-.preheader2846.preheader:                         ; preds = %782, %780
+.preheader2847.preheader:                         ; preds = %782, %780
+  br label %.preheader2847
+
+.preheader2847:                                   ; preds = %.preheader2847.preheader, %805
+  %784 = phi i1 [ false, %805 ], [ true, %.preheader2847.preheader ]
+  %indvars.iv4155.sroa.phi = phi ptr [ %.sroa.385507, %805 ], [ %.sroa.05506, %.preheader2847.preheader ]
+  %.1053202 = phi i32 [ %800, %805 ], [ %774, %.preheader2847.preheader ]
   br label %.preheader2846
 
-.preheader2846:                                   ; preds = %.preheader2846.preheader, %805
-  %784 = phi i1 [ false, %805 ], [ true, %.preheader2846.preheader ]
-  %indvars.iv4154.sroa.phi = phi ptr [ %.sroa.385506, %805 ], [ %.sroa.05505, %.preheader2846.preheader ]
-  %.1053201 = phi i32 [ %800, %805 ], [ %774, %.preheader2846.preheader ]
+.preheader2846:                                   ; preds = %.preheader2847, %804
+  %785 = phi i1 [ true, %.preheader2847 ], [ false, %804 ]
+  %indvars.iv4152.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2847 ], [ %.sroa.181, %804 ]
+  %.1063200 = phi i32 [ %.1053202, %.preheader2847 ], [ %800, %804 ]
   br label %.preheader2845
 
-.preheader2845:                                   ; preds = %.preheader2846, %804
-  %785 = phi i1 [ true, %.preheader2846 ], [ false, %804 ]
-  %indvars.iv4151.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2846 ], [ %.sroa.181, %804 ]
-  %.1063199 = phi i32 [ %.1053201, %.preheader2846 ], [ %800, %804 ]
+.preheader2845:                                   ; preds = %.preheader2846, %803
+  %786 = phi i1 [ true, %.preheader2846 ], [ false, %803 ]
+  %indvars.iv4149.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2846 ], [ %.sroa.121, %803 ]
+  %.1073198 = phi i32 [ %.1063200, %.preheader2846 ], [ %800, %803 ]
   br label %.preheader2844
 
-.preheader2844:                                   ; preds = %.preheader2845, %803
-  %786 = phi i1 [ true, %.preheader2845 ], [ false, %803 ]
-  %indvars.iv4148.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2845 ], [ %.sroa.121, %803 ]
-  %.1073197 = phi i32 [ %.1063199, %.preheader2845 ], [ %800, %803 ]
+.preheader2844:                                   ; preds = %.preheader2845, %802
+  %787 = phi i1 [ true, %.preheader2845 ], [ false, %802 ]
+  %indvars.iv4146.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2845 ], [ %.sroa.181, %802 ]
+  %.1083196 = phi i32 [ %.1073198, %.preheader2845 ], [ %800, %802 ]
   br label %.preheader2843
 
-.preheader2843:                                   ; preds = %.preheader2844, %802
-  %787 = phi i1 [ true, %.preheader2844 ], [ false, %802 ]
-  %indvars.iv4145.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2844 ], [ %.sroa.181, %802 ]
-  %.1083195 = phi i32 [ %.1073197, %.preheader2844 ], [ %800, %802 ]
-  br label %.preheader2842
-
-.preheader2842:                                   ; preds = %.preheader2843, %801
-  %788 = phi i1 [ true, %.preheader2843 ], [ false, %801 ]
-  %indvars.iv4142.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2843 ], [ %.sroa.181, %801 ]
-  %.1093193 = phi i32 [ %.1083195, %.preheader2843 ], [ %800, %801 ]
+.preheader2843:                                   ; preds = %.preheader2844, %801
+  %788 = phi i1 [ true, %.preheader2844 ], [ false, %801 ]
+  %indvars.iv4143.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2844 ], [ %.sroa.181, %801 ]
+  %.1093194 = phi i32 [ %.1083196, %.preheader2844 ], [ %800, %801 ]
   br label %789
 
-789:                                              ; preds = %.preheader2842, %799
-  %790 = phi i1 [ true, %.preheader2842 ], [ false, %799 ]
-  %indvars.iv4139.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2842 ], [ %.sroa.181, %799 ]
-  %.1103191 = phi i32 [ %.1093193, %.preheader2842 ], [ %800, %799 ]
-  %.not2222 = icmp eq i32 %.1103191, 0
+789:                                              ; preds = %.preheader2843, %799
+  %790 = phi i1 [ true, %.preheader2843 ], [ false, %799 ]
+  %indvars.iv4140.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2843 ], [ %.sroa.181, %799 ]
+  %.1103192 = phi i32 [ %.1093194, %.preheader2843 ], [ %800, %799 ]
+  %.not2222 = icmp eq i32 %.1103192, 0
   br i1 %.not2222, label %799, label %791
 
 791:                                              ; preds = %789
-  %792 = load ptr, ptr %indvars.iv4154.sroa.phi, align 8, !tbaa !12
-  %793 = load ptr, ptr %indvars.iv4151.sroa.phi, align 8, !tbaa !12
-  %794 = load ptr, ptr %indvars.iv4148.sroa.phi, align 8, !tbaa !31
-  %795 = load ptr, ptr %indvars.iv4145.sroa.phi, align 8, !tbaa !12
-  %796 = load ptr, ptr %indvars.iv4142.sroa.phi, align 8, !tbaa !12
-  %797 = load ptr, ptr %indvars.iv4139.sroa.phi, align 8, !tbaa !12
+  %792 = load ptr, ptr %indvars.iv4155.sroa.phi, align 8, !tbaa !12
+  %793 = load ptr, ptr %indvars.iv4152.sroa.phi, align 8, !tbaa !12
+  %794 = load ptr, ptr %indvars.iv4149.sroa.phi, align 8, !tbaa !31
+  %795 = load ptr, ptr %indvars.iv4146.sroa.phi, align 8, !tbaa !12
+  %796 = load ptr, ptr %indvars.iv4143.sroa.phi, align 8, !tbaa !12
+  %797 = load ptr, ptr %indvars.iv4140.sroa.phi, align 8, !tbaa !12
   %798 = tail call fastcc i32 @arkode_butcher_order6g(ptr noundef %792, ptr noundef %793, ptr noundef %794, ptr noundef %795, ptr noundef %796, ptr noundef %797, i32 noundef %9)
   br label %799
 
@@ -9597,76 +9596,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %790, label %789, label %801
 
 801:                                              ; preds = %799
-  br i1 %788, label %.preheader2842, label %802
+  br i1 %788, label %.preheader2843, label %802
 
 802:                                              ; preds = %801
-  br i1 %787, label %.preheader2843, label %803
+  br i1 %787, label %.preheader2844, label %803
 
 803:                                              ; preds = %802
-  br i1 %786, label %.preheader2844, label %804
+  br i1 %786, label %.preheader2845, label %804
 
 804:                                              ; preds = %803
-  br i1 %785, label %.preheader2845, label %805
+  br i1 %785, label %.preheader2846, label %805
 
 805:                                              ; preds = %804
-  br i1 %784, label %.preheader2846, label %806
+  br i1 %784, label %.preheader2847, label %806
 
 806:                                              ; preds = %805
   %807 = icmp eq i32 %800, 0
   %or.cond43 = and i1 %49, %807
-  br i1 %or.cond43, label %808, label %.preheader2841.preheader
+  br i1 %or.cond43, label %808, label %.preheader2842.preheader
 
 808:                                              ; preds = %806
   %809 = tail call i64 @fwrite(ptr nonnull @.str.111, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2841.preheader
+  br label %.preheader2842.preheader
 
-.preheader2841.preheader:                         ; preds = %808, %806
+.preheader2842.preheader:                         ; preds = %808, %806
+  br label %.preheader2842
+
+.preheader2842:                                   ; preds = %.preheader2842.preheader, %831
+  %810 = phi i1 [ false, %831 ], [ true, %.preheader2842.preheader ]
+  %indvars.iv4173.sroa.phi = phi ptr [ %.sroa.385507, %831 ], [ %.sroa.05506, %.preheader2842.preheader ]
+  %.1113214 = phi i32 [ %826, %831 ], [ %800, %.preheader2842.preheader ]
   br label %.preheader2841
 
-.preheader2841:                                   ; preds = %.preheader2841.preheader, %831
-  %810 = phi i1 [ false, %831 ], [ true, %.preheader2841.preheader ]
-  %indvars.iv4172.sroa.phi = phi ptr [ %.sroa.385506, %831 ], [ %.sroa.05505, %.preheader2841.preheader ]
-  %.1113213 = phi i32 [ %826, %831 ], [ %800, %.preheader2841.preheader ]
+.preheader2841:                                   ; preds = %.preheader2842, %830
+  %811 = phi i1 [ true, %.preheader2842 ], [ false, %830 ]
+  %indvars.iv4170.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2842 ], [ %.sroa.181, %830 ]
+  %.1123212 = phi i32 [ %.1113214, %.preheader2842 ], [ %826, %830 ]
   br label %.preheader2840
 
-.preheader2840:                                   ; preds = %.preheader2841, %830
-  %811 = phi i1 [ true, %.preheader2841 ], [ false, %830 ]
-  %indvars.iv4169.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2841 ], [ %.sroa.181, %830 ]
-  %.1123211 = phi i32 [ %.1113213, %.preheader2841 ], [ %826, %830 ]
+.preheader2840:                                   ; preds = %.preheader2841, %829
+  %812 = phi i1 [ true, %.preheader2841 ], [ false, %829 ]
+  %indvars.iv4167.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2841 ], [ %.sroa.121, %829 ]
+  %.1133210 = phi i32 [ %.1123212, %.preheader2841 ], [ %826, %829 ]
   br label %.preheader2839
 
-.preheader2839:                                   ; preds = %.preheader2840, %829
-  %812 = phi i1 [ true, %.preheader2840 ], [ false, %829 ]
-  %indvars.iv4166.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2840 ], [ %.sroa.121, %829 ]
-  %.1133209 = phi i32 [ %.1123211, %.preheader2840 ], [ %826, %829 ]
+.preheader2839:                                   ; preds = %.preheader2840, %828
+  %813 = phi i1 [ true, %.preheader2840 ], [ false, %828 ]
+  %indvars.iv4164.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2840 ], [ %.sroa.181, %828 ]
+  %.1143208 = phi i32 [ %.1133210, %.preheader2840 ], [ %826, %828 ]
   br label %.preheader2838
 
-.preheader2838:                                   ; preds = %.preheader2839, %828
-  %813 = phi i1 [ true, %.preheader2839 ], [ false, %828 ]
-  %indvars.iv4163.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2839 ], [ %.sroa.181, %828 ]
-  %.1143207 = phi i32 [ %.1133209, %.preheader2839 ], [ %826, %828 ]
-  br label %.preheader2837
-
-.preheader2837:                                   ; preds = %.preheader2838, %827
-  %814 = phi i1 [ true, %.preheader2838 ], [ false, %827 ]
-  %indvars.iv4160.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2838 ], [ %.sroa.121, %827 ]
-  %.1153205 = phi i32 [ %.1143207, %.preheader2838 ], [ %826, %827 ]
+.preheader2838:                                   ; preds = %.preheader2839, %827
+  %814 = phi i1 [ true, %.preheader2839 ], [ false, %827 ]
+  %indvars.iv4161.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2839 ], [ %.sroa.121, %827 ]
+  %.1153206 = phi i32 [ %.1143208, %.preheader2839 ], [ %826, %827 ]
   br label %815
 
-815:                                              ; preds = %.preheader2837, %825
-  %816 = phi i1 [ true, %.preheader2837 ], [ false, %825 ]
-  %indvars.iv4157.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2837 ], [ %.sroa.181, %825 ]
-  %.1163203 = phi i32 [ %.1153205, %.preheader2837 ], [ %826, %825 ]
-  %.not2221 = icmp eq i32 %.1163203, 0
+815:                                              ; preds = %.preheader2838, %825
+  %816 = phi i1 [ true, %.preheader2838 ], [ false, %825 ]
+  %indvars.iv4158.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2838 ], [ %.sroa.181, %825 ]
+  %.1163204 = phi i32 [ %.1153206, %.preheader2838 ], [ %826, %825 ]
+  %.not2221 = icmp eq i32 %.1163204, 0
   br i1 %.not2221, label %825, label %817
 
 817:                                              ; preds = %815
-  %818 = load ptr, ptr %indvars.iv4172.sroa.phi, align 8, !tbaa !12
-  %819 = load ptr, ptr %indvars.iv4169.sroa.phi, align 8, !tbaa !12
-  %820 = load ptr, ptr %indvars.iv4166.sroa.phi, align 8, !tbaa !31
-  %821 = load ptr, ptr %indvars.iv4163.sroa.phi, align 8, !tbaa !12
-  %822 = load ptr, ptr %indvars.iv4160.sroa.phi, align 8, !tbaa !31
-  %823 = load ptr, ptr %indvars.iv4157.sroa.phi, align 8, !tbaa !12
+  %818 = load ptr, ptr %indvars.iv4173.sroa.phi, align 8, !tbaa !12
+  %819 = load ptr, ptr %indvars.iv4170.sroa.phi, align 8, !tbaa !12
+  %820 = load ptr, ptr %indvars.iv4167.sroa.phi, align 8, !tbaa !31
+  %821 = load ptr, ptr %indvars.iv4164.sroa.phi, align 8, !tbaa !12
+  %822 = load ptr, ptr %indvars.iv4161.sroa.phi, align 8, !tbaa !31
+  %823 = load ptr, ptr %indvars.iv4158.sroa.phi, align 8, !tbaa !12
   %824 = tail call fastcc i32 @arkode_butcher_order6h(ptr noundef %818, ptr noundef %819, ptr noundef %820, ptr noundef %821, ptr noundef %822, ptr noundef %823, i32 noundef %9)
   br label %825
 
@@ -9675,76 +9674,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %816, label %815, label %827
 
 827:                                              ; preds = %825
-  br i1 %814, label %.preheader2837, label %828
+  br i1 %814, label %.preheader2838, label %828
 
 828:                                              ; preds = %827
-  br i1 %813, label %.preheader2838, label %829
+  br i1 %813, label %.preheader2839, label %829
 
 829:                                              ; preds = %828
-  br i1 %812, label %.preheader2839, label %830
+  br i1 %812, label %.preheader2840, label %830
 
 830:                                              ; preds = %829
-  br i1 %811, label %.preheader2840, label %831
+  br i1 %811, label %.preheader2841, label %831
 
 831:                                              ; preds = %830
-  br i1 %810, label %.preheader2841, label %832
+  br i1 %810, label %.preheader2842, label %832
 
 832:                                              ; preds = %831
   %833 = icmp eq i32 %826, 0
   %or.cond45 = and i1 %49, %833
-  br i1 %or.cond45, label %834, label %.preheader2836.preheader
+  br i1 %or.cond45, label %834, label %.preheader2837.preheader
 
 834:                                              ; preds = %832
   %835 = tail call i64 @fwrite(ptr nonnull @.str.112, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2836.preheader
+  br label %.preheader2837.preheader
 
-.preheader2836.preheader:                         ; preds = %834, %832
+.preheader2837.preheader:                         ; preds = %834, %832
+  br label %.preheader2837
+
+.preheader2837:                                   ; preds = %.preheader2837.preheader, %857
+  %836 = phi i1 [ false, %857 ], [ true, %.preheader2837.preheader ]
+  %indvars.iv4191.sroa.phi = phi ptr [ %.sroa.385507, %857 ], [ %.sroa.05506, %.preheader2837.preheader ]
+  %.1173226 = phi i32 [ %852, %857 ], [ %826, %.preheader2837.preheader ]
   br label %.preheader2836
 
-.preheader2836:                                   ; preds = %.preheader2836.preheader, %857
-  %836 = phi i1 [ false, %857 ], [ true, %.preheader2836.preheader ]
-  %indvars.iv4190.sroa.phi = phi ptr [ %.sroa.385506, %857 ], [ %.sroa.05505, %.preheader2836.preheader ]
-  %.1173225 = phi i32 [ %852, %857 ], [ %826, %.preheader2836.preheader ]
+.preheader2836:                                   ; preds = %.preheader2837, %856
+  %837 = phi i1 [ true, %.preheader2837 ], [ false, %856 ]
+  %indvars.iv4188.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2837 ], [ %.sroa.181, %856 ]
+  %.1183224 = phi i32 [ %.1173226, %.preheader2837 ], [ %852, %856 ]
   br label %.preheader2835
 
-.preheader2835:                                   ; preds = %.preheader2836, %856
-  %837 = phi i1 [ true, %.preheader2836 ], [ false, %856 ]
-  %indvars.iv4187.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2836 ], [ %.sroa.181, %856 ]
-  %.1183223 = phi i32 [ %.1173225, %.preheader2836 ], [ %852, %856 ]
+.preheader2835:                                   ; preds = %.preheader2836, %855
+  %838 = phi i1 [ true, %.preheader2836 ], [ false, %855 ]
+  %indvars.iv4185.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2836 ], [ %.sroa.121, %855 ]
+  %.1193222 = phi i32 [ %.1183224, %.preheader2836 ], [ %852, %855 ]
   br label %.preheader2834
 
-.preheader2834:                                   ; preds = %.preheader2835, %855
-  %838 = phi i1 [ true, %.preheader2835 ], [ false, %855 ]
-  %indvars.iv4184.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2835 ], [ %.sroa.121, %855 ]
-  %.1193221 = phi i32 [ %.1183223, %.preheader2835 ], [ %852, %855 ]
+.preheader2834:                                   ; preds = %.preheader2835, %854
+  %839 = phi i1 [ true, %.preheader2835 ], [ false, %854 ]
+  %indvars.iv4182.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2835 ], [ %.sroa.121, %854 ]
+  %.1203220 = phi i32 [ %.1193222, %.preheader2835 ], [ %852, %854 ]
   br label %.preheader2833
 
-.preheader2833:                                   ; preds = %.preheader2834, %854
-  %839 = phi i1 [ true, %.preheader2834 ], [ false, %854 ]
-  %indvars.iv4181.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2834 ], [ %.sroa.121, %854 ]
-  %.1203219 = phi i32 [ %.1193221, %.preheader2834 ], [ %852, %854 ]
-  br label %.preheader2832
-
-.preheader2832:                                   ; preds = %.preheader2833, %853
-  %840 = phi i1 [ true, %.preheader2833 ], [ false, %853 ]
-  %indvars.iv4178.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2833 ], [ %.sroa.181, %853 ]
-  %.1213217 = phi i32 [ %.1203219, %.preheader2833 ], [ %852, %853 ]
+.preheader2833:                                   ; preds = %.preheader2834, %853
+  %840 = phi i1 [ true, %.preheader2834 ], [ false, %853 ]
+  %indvars.iv4179.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2834 ], [ %.sroa.181, %853 ]
+  %.1213218 = phi i32 [ %.1203220, %.preheader2834 ], [ %852, %853 ]
   br label %841
 
-841:                                              ; preds = %.preheader2832, %851
-  %842 = phi i1 [ true, %.preheader2832 ], [ false, %851 ]
-  %indvars.iv4175.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2832 ], [ %.sroa.181, %851 ]
-  %.1223215 = phi i32 [ %.1213217, %.preheader2832 ], [ %852, %851 ]
-  %.not2220 = icmp eq i32 %.1223215, 0
+841:                                              ; preds = %.preheader2833, %851
+  %842 = phi i1 [ true, %.preheader2833 ], [ false, %851 ]
+  %indvars.iv4176.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2833 ], [ %.sroa.181, %851 ]
+  %.1223216 = phi i32 [ %.1213218, %.preheader2833 ], [ %852, %851 ]
+  %.not2220 = icmp eq i32 %.1223216, 0
   br i1 %.not2220, label %851, label %843
 
 843:                                              ; preds = %841
-  %844 = load ptr, ptr %indvars.iv4190.sroa.phi, align 8, !tbaa !12
-  %845 = load ptr, ptr %indvars.iv4187.sroa.phi, align 8, !tbaa !12
-  %846 = load ptr, ptr %indvars.iv4184.sroa.phi, align 8, !tbaa !31
-  %847 = load ptr, ptr %indvars.iv4181.sroa.phi, align 8, !tbaa !31
-  %848 = load ptr, ptr %indvars.iv4178.sroa.phi, align 8, !tbaa !12
-  %849 = load ptr, ptr %indvars.iv4175.sroa.phi, align 8, !tbaa !12
+  %844 = load ptr, ptr %indvars.iv4191.sroa.phi, align 8, !tbaa !12
+  %845 = load ptr, ptr %indvars.iv4188.sroa.phi, align 8, !tbaa !12
+  %846 = load ptr, ptr %indvars.iv4185.sroa.phi, align 8, !tbaa !31
+  %847 = load ptr, ptr %indvars.iv4182.sroa.phi, align 8, !tbaa !31
+  %848 = load ptr, ptr %indvars.iv4179.sroa.phi, align 8, !tbaa !12
+  %849 = load ptr, ptr %indvars.iv4176.sroa.phi, align 8, !tbaa !12
   %850 = tail call fastcc i32 @arkode_butcher_order6i(ptr noundef %844, ptr noundef %845, ptr noundef %846, ptr noundef %847, ptr noundef %848, ptr noundef %849, i32 noundef %9)
   br label %851
 
@@ -9753,76 +9752,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %842, label %841, label %853
 
 853:                                              ; preds = %851
-  br i1 %840, label %.preheader2832, label %854
+  br i1 %840, label %.preheader2833, label %854
 
 854:                                              ; preds = %853
-  br i1 %839, label %.preheader2833, label %855
+  br i1 %839, label %.preheader2834, label %855
 
 855:                                              ; preds = %854
-  br i1 %838, label %.preheader2834, label %856
+  br i1 %838, label %.preheader2835, label %856
 
 856:                                              ; preds = %855
-  br i1 %837, label %.preheader2835, label %857
+  br i1 %837, label %.preheader2836, label %857
 
 857:                                              ; preds = %856
-  br i1 %836, label %.preheader2836, label %858
+  br i1 %836, label %.preheader2837, label %858
 
 858:                                              ; preds = %857
   %859 = icmp eq i32 %852, 0
   %or.cond47 = and i1 %49, %859
-  br i1 %or.cond47, label %860, label %.preheader2831.preheader
+  br i1 %or.cond47, label %860, label %.preheader2832.preheader
 
 860:                                              ; preds = %858
   %861 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2831.preheader
+  br label %.preheader2832.preheader
 
-.preheader2831.preheader:                         ; preds = %860, %858
+.preheader2832.preheader:                         ; preds = %860, %858
+  br label %.preheader2832
+
+.preheader2832:                                   ; preds = %.preheader2832.preheader, %883
+  %862 = phi i1 [ false, %883 ], [ true, %.preheader2832.preheader ]
+  %indvars.iv4209.sroa.phi = phi ptr [ %.sroa.385507, %883 ], [ %.sroa.05506, %.preheader2832.preheader ]
+  %.1233238 = phi i32 [ %878, %883 ], [ %852, %.preheader2832.preheader ]
   br label %.preheader2831
 
-.preheader2831:                                   ; preds = %.preheader2831.preheader, %883
-  %862 = phi i1 [ false, %883 ], [ true, %.preheader2831.preheader ]
-  %indvars.iv4208.sroa.phi = phi ptr [ %.sroa.385506, %883 ], [ %.sroa.05505, %.preheader2831.preheader ]
-  %.1233237 = phi i32 [ %878, %883 ], [ %852, %.preheader2831.preheader ]
+.preheader2831:                                   ; preds = %.preheader2832, %882
+  %863 = phi i1 [ true, %.preheader2832 ], [ false, %882 ]
+  %indvars.iv4206.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2832 ], [ %.sroa.181, %882 ]
+  %.1243236 = phi i32 [ %.1233238, %.preheader2832 ], [ %878, %882 ]
   br label %.preheader2830
 
-.preheader2830:                                   ; preds = %.preheader2831, %882
-  %863 = phi i1 [ true, %.preheader2831 ], [ false, %882 ]
-  %indvars.iv4205.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2831 ], [ %.sroa.181, %882 ]
-  %.1243235 = phi i32 [ %.1233237, %.preheader2831 ], [ %878, %882 ]
+.preheader2830:                                   ; preds = %.preheader2831, %881
+  %864 = phi i1 [ true, %.preheader2831 ], [ false, %881 ]
+  %indvars.iv4203.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2831 ], [ %.sroa.121, %881 ]
+  %.1253234 = phi i32 [ %.1243236, %.preheader2831 ], [ %878, %881 ]
   br label %.preheader2829
 
-.preheader2829:                                   ; preds = %.preheader2830, %881
-  %864 = phi i1 [ true, %.preheader2830 ], [ false, %881 ]
-  %indvars.iv4202.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2830 ], [ %.sroa.121, %881 ]
-  %.1253233 = phi i32 [ %.1243235, %.preheader2830 ], [ %878, %881 ]
+.preheader2829:                                   ; preds = %.preheader2830, %880
+  %865 = phi i1 [ true, %.preheader2830 ], [ false, %880 ]
+  %indvars.iv4200.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2830 ], [ %.sroa.121, %880 ]
+  %.1263232 = phi i32 [ %.1253234, %.preheader2830 ], [ %878, %880 ]
   br label %.preheader2828
 
-.preheader2828:                                   ; preds = %.preheader2829, %880
-  %865 = phi i1 [ true, %.preheader2829 ], [ false, %880 ]
-  %indvars.iv4199.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2829 ], [ %.sroa.121, %880 ]
-  %.1263231 = phi i32 [ %.1253233, %.preheader2829 ], [ %878, %880 ]
-  br label %.preheader2827
-
-.preheader2827:                                   ; preds = %.preheader2828, %879
-  %866 = phi i1 [ true, %.preheader2828 ], [ false, %879 ]
-  %indvars.iv4196.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2828 ], [ %.sroa.121, %879 ]
-  %.1273229 = phi i32 [ %.1263231, %.preheader2828 ], [ %878, %879 ]
+.preheader2828:                                   ; preds = %.preheader2829, %879
+  %866 = phi i1 [ true, %.preheader2829 ], [ false, %879 ]
+  %indvars.iv4197.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2829 ], [ %.sroa.121, %879 ]
+  %.1273230 = phi i32 [ %.1263232, %.preheader2829 ], [ %878, %879 ]
   br label %867
 
-867:                                              ; preds = %.preheader2827, %877
-  %868 = phi i1 [ true, %.preheader2827 ], [ false, %877 ]
-  %indvars.iv4193.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2827 ], [ %.sroa.181, %877 ]
-  %.1283227 = phi i32 [ %.1273229, %.preheader2827 ], [ %878, %877 ]
-  %.not2219 = icmp eq i32 %.1283227, 0
+867:                                              ; preds = %.preheader2828, %877
+  %868 = phi i1 [ true, %.preheader2828 ], [ false, %877 ]
+  %indvars.iv4194.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2828 ], [ %.sroa.181, %877 ]
+  %.1283228 = phi i32 [ %.1273230, %.preheader2828 ], [ %878, %877 ]
+  %.not2219 = icmp eq i32 %.1283228, 0
   br i1 %.not2219, label %877, label %869
 
 869:                                              ; preds = %867
-  %870 = load ptr, ptr %indvars.iv4208.sroa.phi, align 8, !tbaa !12
-  %871 = load ptr, ptr %indvars.iv4205.sroa.phi, align 8, !tbaa !12
-  %872 = load ptr, ptr %indvars.iv4202.sroa.phi, align 8, !tbaa !31
-  %873 = load ptr, ptr %indvars.iv4199.sroa.phi, align 8, !tbaa !31
-  %874 = load ptr, ptr %indvars.iv4196.sroa.phi, align 8, !tbaa !31
-  %875 = load ptr, ptr %indvars.iv4193.sroa.phi, align 8, !tbaa !12
+  %870 = load ptr, ptr %indvars.iv4209.sroa.phi, align 8, !tbaa !12
+  %871 = load ptr, ptr %indvars.iv4206.sroa.phi, align 8, !tbaa !12
+  %872 = load ptr, ptr %indvars.iv4203.sroa.phi, align 8, !tbaa !31
+  %873 = load ptr, ptr %indvars.iv4200.sroa.phi, align 8, !tbaa !31
+  %874 = load ptr, ptr %indvars.iv4197.sroa.phi, align 8, !tbaa !31
+  %875 = load ptr, ptr %indvars.iv4194.sroa.phi, align 8, !tbaa !12
   %876 = tail call fastcc i32 @arkode_butcher_order6j(ptr noundef %870, ptr noundef %871, ptr noundef %872, ptr noundef %873, ptr noundef %874, ptr noundef %875, i32 noundef %9)
   br label %877
 
@@ -9831,76 +9830,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %868, label %867, label %879
 
 879:                                              ; preds = %877
-  br i1 %866, label %.preheader2827, label %880
+  br i1 %866, label %.preheader2828, label %880
 
 880:                                              ; preds = %879
-  br i1 %865, label %.preheader2828, label %881
+  br i1 %865, label %.preheader2829, label %881
 
 881:                                              ; preds = %880
-  br i1 %864, label %.preheader2829, label %882
+  br i1 %864, label %.preheader2830, label %882
 
 882:                                              ; preds = %881
-  br i1 %863, label %.preheader2830, label %883
+  br i1 %863, label %.preheader2831, label %883
 
 883:                                              ; preds = %882
-  br i1 %862, label %.preheader2831, label %884
+  br i1 %862, label %.preheader2832, label %884
 
 884:                                              ; preds = %883
   %885 = icmp eq i32 %878, 0
   %or.cond49 = and i1 %49, %885
-  br i1 %or.cond49, label %886, label %.preheader2826.preheader
+  br i1 %or.cond49, label %886, label %.preheader2827.preheader
 
 886:                                              ; preds = %884
   %887 = tail call i64 @fwrite(ptr nonnull @.str.114, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2826.preheader
+  br label %.preheader2827.preheader
 
-.preheader2826.preheader:                         ; preds = %886, %884
+.preheader2827.preheader:                         ; preds = %886, %884
+  br label %.preheader2827
+
+.preheader2827:                                   ; preds = %.preheader2827.preheader, %909
+  %888 = phi i1 [ false, %909 ], [ true, %.preheader2827.preheader ]
+  %indvars.iv4227.sroa.phi = phi ptr [ %.sroa.385507, %909 ], [ %.sroa.05506, %.preheader2827.preheader ]
+  %.1293250 = phi i32 [ %904, %909 ], [ %878, %.preheader2827.preheader ]
   br label %.preheader2826
 
-.preheader2826:                                   ; preds = %.preheader2826.preheader, %909
-  %888 = phi i1 [ false, %909 ], [ true, %.preheader2826.preheader ]
-  %indvars.iv4226.sroa.phi = phi ptr [ %.sroa.385506, %909 ], [ %.sroa.05505, %.preheader2826.preheader ]
-  %.1293249 = phi i32 [ %904, %909 ], [ %878, %.preheader2826.preheader ]
+.preheader2826:                                   ; preds = %.preheader2827, %908
+  %889 = phi i1 [ true, %.preheader2827 ], [ false, %908 ]
+  %indvars.iv4224.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2827 ], [ %.sroa.121, %908 ]
+  %.1303248 = phi i32 [ %.1293250, %.preheader2827 ], [ %904, %908 ]
   br label %.preheader2825
 
-.preheader2825:                                   ; preds = %.preheader2826, %908
-  %889 = phi i1 [ true, %.preheader2826 ], [ false, %908 ]
-  %indvars.iv4223.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2826 ], [ %.sroa.121, %908 ]
-  %.1303247 = phi i32 [ %.1293249, %.preheader2826 ], [ %904, %908 ]
+.preheader2825:                                   ; preds = %.preheader2826, %907
+  %890 = phi i1 [ true, %.preheader2826 ], [ false, %907 ]
+  %indvars.iv4221.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2826 ], [ %.sroa.181, %907 ]
+  %.1313246 = phi i32 [ %.1303248, %.preheader2826 ], [ %904, %907 ]
   br label %.preheader2824
 
-.preheader2824:                                   ; preds = %.preheader2825, %907
-  %890 = phi i1 [ true, %.preheader2825 ], [ false, %907 ]
-  %indvars.iv4220.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2825 ], [ %.sroa.181, %907 ]
-  %.1313245 = phi i32 [ %.1303247, %.preheader2825 ], [ %904, %907 ]
+.preheader2824:                                   ; preds = %.preheader2825, %906
+  %891 = phi i1 [ true, %.preheader2825 ], [ false, %906 ]
+  %indvars.iv4218.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2825 ], [ %.sroa.181, %906 ]
+  %.1323244 = phi i32 [ %.1313246, %.preheader2825 ], [ %904, %906 ]
   br label %.preheader2823
 
-.preheader2823:                                   ; preds = %.preheader2824, %906
-  %891 = phi i1 [ true, %.preheader2824 ], [ false, %906 ]
-  %indvars.iv4217.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2824 ], [ %.sroa.181, %906 ]
-  %.1323243 = phi i32 [ %.1313245, %.preheader2824 ], [ %904, %906 ]
-  br label %.preheader2822
-
-.preheader2822:                                   ; preds = %.preheader2823, %905
-  %892 = phi i1 [ true, %.preheader2823 ], [ false, %905 ]
-  %indvars.iv4214.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2823 ], [ %.sroa.181, %905 ]
-  %.1333241 = phi i32 [ %.1323243, %.preheader2823 ], [ %904, %905 ]
+.preheader2823:                                   ; preds = %.preheader2824, %905
+  %892 = phi i1 [ true, %.preheader2824 ], [ false, %905 ]
+  %indvars.iv4215.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2824 ], [ %.sroa.181, %905 ]
+  %.1333242 = phi i32 [ %.1323244, %.preheader2824 ], [ %904, %905 ]
   br label %893
 
-893:                                              ; preds = %.preheader2822, %903
-  %894 = phi i1 [ true, %.preheader2822 ], [ false, %903 ]
-  %indvars.iv4211.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2822 ], [ %.sroa.181, %903 ]
-  %.1343239 = phi i32 [ %.1333241, %.preheader2822 ], [ %904, %903 ]
-  %.not2218 = icmp eq i32 %.1343239, 0
+893:                                              ; preds = %.preheader2823, %903
+  %894 = phi i1 [ true, %.preheader2823 ], [ false, %903 ]
+  %indvars.iv4212.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2823 ], [ %.sroa.181, %903 ]
+  %.1343240 = phi i32 [ %.1333242, %.preheader2823 ], [ %904, %903 ]
+  %.not2218 = icmp eq i32 %.1343240, 0
   br i1 %.not2218, label %903, label %895
 
 895:                                              ; preds = %893
-  %896 = load ptr, ptr %indvars.iv4226.sroa.phi, align 8, !tbaa !12
-  %897 = load ptr, ptr %indvars.iv4223.sroa.phi, align 8, !tbaa !31
-  %898 = load ptr, ptr %indvars.iv4220.sroa.phi, align 8, !tbaa !12
-  %899 = load ptr, ptr %indvars.iv4217.sroa.phi, align 8, !tbaa !12
-  %900 = load ptr, ptr %indvars.iv4214.sroa.phi, align 8, !tbaa !12
-  %901 = load ptr, ptr %indvars.iv4211.sroa.phi, align 8, !tbaa !12
+  %896 = load ptr, ptr %indvars.iv4227.sroa.phi, align 8, !tbaa !12
+  %897 = load ptr, ptr %indvars.iv4224.sroa.phi, align 8, !tbaa !31
+  %898 = load ptr, ptr %indvars.iv4221.sroa.phi, align 8, !tbaa !12
+  %899 = load ptr, ptr %indvars.iv4218.sroa.phi, align 8, !tbaa !12
+  %900 = load ptr, ptr %indvars.iv4215.sroa.phi, align 8, !tbaa !12
+  %901 = load ptr, ptr %indvars.iv4212.sroa.phi, align 8, !tbaa !12
   %902 = tail call fastcc i32 @arkode_butcher_order6k(ptr noundef %896, ptr noundef %897, ptr noundef %898, ptr noundef %899, ptr noundef %900, ptr noundef %901, i32 noundef %9)
   br label %903
 
@@ -9909,76 +9908,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %894, label %893, label %905
 
 905:                                              ; preds = %903
-  br i1 %892, label %.preheader2822, label %906
+  br i1 %892, label %.preheader2823, label %906
 
 906:                                              ; preds = %905
-  br i1 %891, label %.preheader2823, label %907
+  br i1 %891, label %.preheader2824, label %907
 
 907:                                              ; preds = %906
-  br i1 %890, label %.preheader2824, label %908
+  br i1 %890, label %.preheader2825, label %908
 
 908:                                              ; preds = %907
-  br i1 %889, label %.preheader2825, label %909
+  br i1 %889, label %.preheader2826, label %909
 
 909:                                              ; preds = %908
-  br i1 %888, label %.preheader2826, label %910
+  br i1 %888, label %.preheader2827, label %910
 
 910:                                              ; preds = %909
   %911 = icmp eq i32 %904, 0
   %or.cond51 = and i1 %49, %911
-  br i1 %or.cond51, label %912, label %.preheader2821.preheader
+  br i1 %or.cond51, label %912, label %.preheader2822.preheader
 
 912:                                              ; preds = %910
   %913 = tail call i64 @fwrite(ptr nonnull @.str.115, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2821.preheader
+  br label %.preheader2822.preheader
 
-.preheader2821.preheader:                         ; preds = %912, %910
+.preheader2822.preheader:                         ; preds = %912, %910
+  br label %.preheader2822
+
+.preheader2822:                                   ; preds = %.preheader2822.preheader, %935
+  %914 = phi i1 [ false, %935 ], [ true, %.preheader2822.preheader ]
+  %indvars.iv4245.sroa.phi = phi ptr [ %.sroa.385507, %935 ], [ %.sroa.05506, %.preheader2822.preheader ]
+  %.1353262 = phi i32 [ %930, %935 ], [ %904, %.preheader2822.preheader ]
   br label %.preheader2821
 
-.preheader2821:                                   ; preds = %.preheader2821.preheader, %935
-  %914 = phi i1 [ false, %935 ], [ true, %.preheader2821.preheader ]
-  %indvars.iv4244.sroa.phi = phi ptr [ %.sroa.385506, %935 ], [ %.sroa.05505, %.preheader2821.preheader ]
-  %.1353261 = phi i32 [ %930, %935 ], [ %904, %.preheader2821.preheader ]
+.preheader2821:                                   ; preds = %.preheader2822, %934
+  %915 = phi i1 [ true, %.preheader2822 ], [ false, %934 ]
+  %indvars.iv4242.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2822 ], [ %.sroa.121, %934 ]
+  %.1363260 = phi i32 [ %.1353262, %.preheader2822 ], [ %930, %934 ]
   br label %.preheader2820
 
-.preheader2820:                                   ; preds = %.preheader2821, %934
-  %915 = phi i1 [ true, %.preheader2821 ], [ false, %934 ]
-  %indvars.iv4241.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2821 ], [ %.sroa.121, %934 ]
-  %.1363259 = phi i32 [ %.1353261, %.preheader2821 ], [ %930, %934 ]
+.preheader2820:                                   ; preds = %.preheader2821, %933
+  %916 = phi i1 [ true, %.preheader2821 ], [ false, %933 ]
+  %indvars.iv4239.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2821 ], [ %.sroa.181, %933 ]
+  %.1373258 = phi i32 [ %.1363260, %.preheader2821 ], [ %930, %933 ]
   br label %.preheader2819
 
-.preheader2819:                                   ; preds = %.preheader2820, %933
-  %916 = phi i1 [ true, %.preheader2820 ], [ false, %933 ]
-  %indvars.iv4238.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2820 ], [ %.sroa.181, %933 ]
-  %.1373257 = phi i32 [ %.1363259, %.preheader2820 ], [ %930, %933 ]
+.preheader2819:                                   ; preds = %.preheader2820, %932
+  %917 = phi i1 [ true, %.preheader2820 ], [ false, %932 ]
+  %indvars.iv4236.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2820 ], [ %.sroa.181, %932 ]
+  %.1383256 = phi i32 [ %.1373258, %.preheader2820 ], [ %930, %932 ]
   br label %.preheader2818
 
-.preheader2818:                                   ; preds = %.preheader2819, %932
-  %917 = phi i1 [ true, %.preheader2819 ], [ false, %932 ]
-  %indvars.iv4235.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2819 ], [ %.sroa.181, %932 ]
-  %.1383255 = phi i32 [ %.1373257, %.preheader2819 ], [ %930, %932 ]
-  br label %.preheader2817
-
-.preheader2817:                                   ; preds = %.preheader2818, %931
-  %918 = phi i1 [ true, %.preheader2818 ], [ false, %931 ]
-  %indvars.iv4232.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2818 ], [ %.sroa.121, %931 ]
-  %.1393253 = phi i32 [ %.1383255, %.preheader2818 ], [ %930, %931 ]
+.preheader2818:                                   ; preds = %.preheader2819, %931
+  %918 = phi i1 [ true, %.preheader2819 ], [ false, %931 ]
+  %indvars.iv4233.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2819 ], [ %.sroa.121, %931 ]
+  %.1393254 = phi i32 [ %.1383256, %.preheader2819 ], [ %930, %931 ]
   br label %919
 
-919:                                              ; preds = %.preheader2817, %929
-  %920 = phi i1 [ true, %.preheader2817 ], [ false, %929 ]
-  %indvars.iv4229.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2817 ], [ %.sroa.181, %929 ]
-  %.1403251 = phi i32 [ %.1393253, %.preheader2817 ], [ %930, %929 ]
-  %.not2217 = icmp eq i32 %.1403251, 0
+919:                                              ; preds = %.preheader2818, %929
+  %920 = phi i1 [ true, %.preheader2818 ], [ false, %929 ]
+  %indvars.iv4230.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2818 ], [ %.sroa.181, %929 ]
+  %.1403252 = phi i32 [ %.1393254, %.preheader2818 ], [ %930, %929 ]
+  %.not2217 = icmp eq i32 %.1403252, 0
   br i1 %.not2217, label %929, label %921
 
 921:                                              ; preds = %919
-  %922 = load ptr, ptr %indvars.iv4244.sroa.phi, align 8, !tbaa !12
-  %923 = load ptr, ptr %indvars.iv4241.sroa.phi, align 8, !tbaa !31
-  %924 = load ptr, ptr %indvars.iv4238.sroa.phi, align 8, !tbaa !12
-  %925 = load ptr, ptr %indvars.iv4235.sroa.phi, align 8, !tbaa !12
-  %926 = load ptr, ptr %indvars.iv4232.sroa.phi, align 8, !tbaa !31
-  %927 = load ptr, ptr %indvars.iv4229.sroa.phi, align 8, !tbaa !12
+  %922 = load ptr, ptr %indvars.iv4245.sroa.phi, align 8, !tbaa !12
+  %923 = load ptr, ptr %indvars.iv4242.sroa.phi, align 8, !tbaa !31
+  %924 = load ptr, ptr %indvars.iv4239.sroa.phi, align 8, !tbaa !12
+  %925 = load ptr, ptr %indvars.iv4236.sroa.phi, align 8, !tbaa !12
+  %926 = load ptr, ptr %indvars.iv4233.sroa.phi, align 8, !tbaa !31
+  %927 = load ptr, ptr %indvars.iv4230.sroa.phi, align 8, !tbaa !12
   %928 = tail call fastcc i32 @arkode_butcher_order6l(ptr noundef %922, ptr noundef %923, ptr noundef %924, ptr noundef %925, ptr noundef %926, ptr noundef %927, i32 noundef %9)
   br label %929
 
@@ -9987,76 +9986,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %920, label %919, label %931
 
 931:                                              ; preds = %929
-  br i1 %918, label %.preheader2817, label %932
+  br i1 %918, label %.preheader2818, label %932
 
 932:                                              ; preds = %931
-  br i1 %917, label %.preheader2818, label %933
+  br i1 %917, label %.preheader2819, label %933
 
 933:                                              ; preds = %932
-  br i1 %916, label %.preheader2819, label %934
+  br i1 %916, label %.preheader2820, label %934
 
 934:                                              ; preds = %933
-  br i1 %915, label %.preheader2820, label %935
+  br i1 %915, label %.preheader2821, label %935
 
 935:                                              ; preds = %934
-  br i1 %914, label %.preheader2821, label %936
+  br i1 %914, label %.preheader2822, label %936
 
 936:                                              ; preds = %935
   %937 = icmp eq i32 %930, 0
   %or.cond53 = and i1 %49, %937
-  br i1 %or.cond53, label %938, label %.preheader2816.preheader
+  br i1 %or.cond53, label %938, label %.preheader2817.preheader
 
 938:                                              ; preds = %936
   %939 = tail call i64 @fwrite(ptr nonnull @.str.116, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2816.preheader
+  br label %.preheader2817.preheader
 
-.preheader2816.preheader:                         ; preds = %938, %936
+.preheader2817.preheader:                         ; preds = %938, %936
+  br label %.preheader2817
+
+.preheader2817:                                   ; preds = %.preheader2817.preheader, %961
+  %940 = phi i1 [ false, %961 ], [ true, %.preheader2817.preheader ]
+  %indvars.iv4263.sroa.phi = phi ptr [ %.sroa.385507, %961 ], [ %.sroa.05506, %.preheader2817.preheader ]
+  %.1413274 = phi i32 [ %956, %961 ], [ %930, %.preheader2817.preheader ]
   br label %.preheader2816
 
-.preheader2816:                                   ; preds = %.preheader2816.preheader, %961
-  %940 = phi i1 [ false, %961 ], [ true, %.preheader2816.preheader ]
-  %indvars.iv4262.sroa.phi = phi ptr [ %.sroa.385506, %961 ], [ %.sroa.05505, %.preheader2816.preheader ]
-  %.1413273 = phi i32 [ %956, %961 ], [ %930, %.preheader2816.preheader ]
+.preheader2816:                                   ; preds = %.preheader2817, %960
+  %941 = phi i1 [ true, %.preheader2817 ], [ false, %960 ]
+  %indvars.iv4260.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2817 ], [ %.sroa.121, %960 ]
+  %.1423272 = phi i32 [ %.1413274, %.preheader2817 ], [ %956, %960 ]
   br label %.preheader2815
 
-.preheader2815:                                   ; preds = %.preheader2816, %960
-  %941 = phi i1 [ true, %.preheader2816 ], [ false, %960 ]
-  %indvars.iv4259.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2816 ], [ %.sroa.121, %960 ]
-  %.1423271 = phi i32 [ %.1413273, %.preheader2816 ], [ %956, %960 ]
+.preheader2815:                                   ; preds = %.preheader2816, %959
+  %942 = phi i1 [ true, %.preheader2816 ], [ false, %959 ]
+  %indvars.iv4257.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2816 ], [ %.sroa.121, %959 ]
+  %.1433270 = phi i32 [ %.1423272, %.preheader2816 ], [ %956, %959 ]
   br label %.preheader2814
 
-.preheader2814:                                   ; preds = %.preheader2815, %959
-  %942 = phi i1 [ true, %.preheader2815 ], [ false, %959 ]
-  %indvars.iv4256.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2815 ], [ %.sroa.121, %959 ]
-  %.1433269 = phi i32 [ %.1423271, %.preheader2815 ], [ %956, %959 ]
+.preheader2814:                                   ; preds = %.preheader2815, %958
+  %943 = phi i1 [ true, %.preheader2815 ], [ false, %958 ]
+  %indvars.iv4254.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2815 ], [ %.sroa.181, %958 ]
+  %.1443268 = phi i32 [ %.1433270, %.preheader2815 ], [ %956, %958 ]
   br label %.preheader2813
 
-.preheader2813:                                   ; preds = %.preheader2814, %958
-  %943 = phi i1 [ true, %.preheader2814 ], [ false, %958 ]
-  %indvars.iv4253.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2814 ], [ %.sroa.181, %958 ]
-  %.1443267 = phi i32 [ %.1433269, %.preheader2814 ], [ %956, %958 ]
-  br label %.preheader2812
-
-.preheader2812:                                   ; preds = %.preheader2813, %957
-  %944 = phi i1 [ true, %.preheader2813 ], [ false, %957 ]
-  %indvars.iv4250.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2813 ], [ %.sroa.121, %957 ]
-  %.1453265 = phi i32 [ %.1443267, %.preheader2813 ], [ %956, %957 ]
+.preheader2813:                                   ; preds = %.preheader2814, %957
+  %944 = phi i1 [ true, %.preheader2814 ], [ false, %957 ]
+  %indvars.iv4251.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2814 ], [ %.sroa.121, %957 ]
+  %.1453266 = phi i32 [ %.1443268, %.preheader2814 ], [ %956, %957 ]
   br label %945
 
-945:                                              ; preds = %.preheader2812, %955
-  %946 = phi i1 [ true, %.preheader2812 ], [ false, %955 ]
-  %indvars.iv4247.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2812 ], [ %.sroa.181, %955 ]
-  %.1463263 = phi i32 [ %.1453265, %.preheader2812 ], [ %956, %955 ]
-  %.not2216 = icmp eq i32 %.1463263, 0
+945:                                              ; preds = %.preheader2813, %955
+  %946 = phi i1 [ true, %.preheader2813 ], [ false, %955 ]
+  %indvars.iv4248.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2813 ], [ %.sroa.181, %955 ]
+  %.1463264 = phi i32 [ %.1453266, %.preheader2813 ], [ %956, %955 ]
+  %.not2216 = icmp eq i32 %.1463264, 0
   br i1 %.not2216, label %955, label %947
 
 947:                                              ; preds = %945
-  %948 = load ptr, ptr %indvars.iv4262.sroa.phi, align 8, !tbaa !12
-  %949 = load ptr, ptr %indvars.iv4259.sroa.phi, align 8, !tbaa !31
-  %950 = load ptr, ptr %indvars.iv4256.sroa.phi, align 8, !tbaa !31
-  %951 = load ptr, ptr %indvars.iv4253.sroa.phi, align 8, !tbaa !12
-  %952 = load ptr, ptr %indvars.iv4250.sroa.phi, align 8, !tbaa !31
-  %953 = load ptr, ptr %indvars.iv4247.sroa.phi, align 8, !tbaa !12
+  %948 = load ptr, ptr %indvars.iv4263.sroa.phi, align 8, !tbaa !12
+  %949 = load ptr, ptr %indvars.iv4260.sroa.phi, align 8, !tbaa !31
+  %950 = load ptr, ptr %indvars.iv4257.sroa.phi, align 8, !tbaa !31
+  %951 = load ptr, ptr %indvars.iv4254.sroa.phi, align 8, !tbaa !12
+  %952 = load ptr, ptr %indvars.iv4251.sroa.phi, align 8, !tbaa !31
+  %953 = load ptr, ptr %indvars.iv4248.sroa.phi, align 8, !tbaa !12
   %954 = tail call fastcc i32 @arkode_butcher_order6m(ptr noundef %948, ptr noundef %949, ptr noundef %950, ptr noundef %951, ptr noundef %952, ptr noundef %953, i32 noundef %9)
   br label %955
 
@@ -10065,76 +10064,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %946, label %945, label %957
 
 957:                                              ; preds = %955
-  br i1 %944, label %.preheader2812, label %958
+  br i1 %944, label %.preheader2813, label %958
 
 958:                                              ; preds = %957
-  br i1 %943, label %.preheader2813, label %959
+  br i1 %943, label %.preheader2814, label %959
 
 959:                                              ; preds = %958
-  br i1 %942, label %.preheader2814, label %960
+  br i1 %942, label %.preheader2815, label %960
 
 960:                                              ; preds = %959
-  br i1 %941, label %.preheader2815, label %961
+  br i1 %941, label %.preheader2816, label %961
 
 961:                                              ; preds = %960
-  br i1 %940, label %.preheader2816, label %962
+  br i1 %940, label %.preheader2817, label %962
 
 962:                                              ; preds = %961
   %963 = icmp eq i32 %956, 0
   %or.cond55 = and i1 %49, %963
-  br i1 %or.cond55, label %964, label %.preheader2811.preheader
+  br i1 %or.cond55, label %964, label %.preheader2812.preheader
 
 964:                                              ; preds = %962
   %965 = tail call i64 @fwrite(ptr nonnull @.str.117, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2811.preheader
+  br label %.preheader2812.preheader
 
-.preheader2811.preheader:                         ; preds = %964, %962
+.preheader2812.preheader:                         ; preds = %964, %962
+  br label %.preheader2812
+
+.preheader2812:                                   ; preds = %.preheader2812.preheader, %987
+  %966 = phi i1 [ false, %987 ], [ true, %.preheader2812.preheader ]
+  %indvars.iv4281.sroa.phi = phi ptr [ %.sroa.385507, %987 ], [ %.sroa.05506, %.preheader2812.preheader ]
+  %.1473286 = phi i32 [ %982, %987 ], [ %956, %.preheader2812.preheader ]
   br label %.preheader2811
 
-.preheader2811:                                   ; preds = %.preheader2811.preheader, %987
-  %966 = phi i1 [ false, %987 ], [ true, %.preheader2811.preheader ]
-  %indvars.iv4280.sroa.phi = phi ptr [ %.sroa.385506, %987 ], [ %.sroa.05505, %.preheader2811.preheader ]
-  %.1473285 = phi i32 [ %982, %987 ], [ %956, %.preheader2811.preheader ]
+.preheader2811:                                   ; preds = %.preheader2812, %986
+  %967 = phi i1 [ true, %.preheader2812 ], [ false, %986 ]
+  %indvars.iv4278.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2812 ], [ %.sroa.121, %986 ]
+  %.1483284 = phi i32 [ %.1473286, %.preheader2812 ], [ %982, %986 ]
   br label %.preheader2810
 
-.preheader2810:                                   ; preds = %.preheader2811, %986
-  %967 = phi i1 [ true, %.preheader2811 ], [ false, %986 ]
-  %indvars.iv4277.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2811 ], [ %.sroa.121, %986 ]
-  %.1483283 = phi i32 [ %.1473285, %.preheader2811 ], [ %982, %986 ]
+.preheader2810:                                   ; preds = %.preheader2811, %985
+  %968 = phi i1 [ true, %.preheader2811 ], [ false, %985 ]
+  %indvars.iv4275.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2811 ], [ %.sroa.181, %985 ]
+  %.1493282 = phi i32 [ %.1483284, %.preheader2811 ], [ %982, %985 ]
   br label %.preheader2809
 
-.preheader2809:                                   ; preds = %.preheader2810, %985
-  %968 = phi i1 [ true, %.preheader2810 ], [ false, %985 ]
-  %indvars.iv4274.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2810 ], [ %.sroa.181, %985 ]
-  %.1493281 = phi i32 [ %.1483283, %.preheader2810 ], [ %982, %985 ]
+.preheader2809:                                   ; preds = %.preheader2810, %984
+  %969 = phi i1 [ true, %.preheader2810 ], [ false, %984 ]
+  %indvars.iv4272.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2810 ], [ %.sroa.121, %984 ]
+  %.1503280 = phi i32 [ %.1493282, %.preheader2810 ], [ %982, %984 ]
   br label %.preheader2808
 
-.preheader2808:                                   ; preds = %.preheader2809, %984
-  %969 = phi i1 [ true, %.preheader2809 ], [ false, %984 ]
-  %indvars.iv4271.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2809 ], [ %.sroa.121, %984 ]
-  %.1503279 = phi i32 [ %.1493281, %.preheader2809 ], [ %982, %984 ]
-  br label %.preheader2807
-
-.preheader2807:                                   ; preds = %.preheader2808, %983
-  %970 = phi i1 [ true, %.preheader2808 ], [ false, %983 ]
-  %indvars.iv4268.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2808 ], [ %.sroa.181, %983 ]
-  %.1513277 = phi i32 [ %.1503279, %.preheader2808 ], [ %982, %983 ]
+.preheader2808:                                   ; preds = %.preheader2809, %983
+  %970 = phi i1 [ true, %.preheader2809 ], [ false, %983 ]
+  %indvars.iv4269.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2809 ], [ %.sroa.181, %983 ]
+  %.1513278 = phi i32 [ %.1503280, %.preheader2809 ], [ %982, %983 ]
   br label %971
 
-971:                                              ; preds = %.preheader2807, %981
-  %972 = phi i1 [ true, %.preheader2807 ], [ false, %981 ]
-  %indvars.iv4265.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2807 ], [ %.sroa.181, %981 ]
-  %.1523275 = phi i32 [ %.1513277, %.preheader2807 ], [ %982, %981 ]
-  %.not2215 = icmp eq i32 %.1523275, 0
+971:                                              ; preds = %.preheader2808, %981
+  %972 = phi i1 [ true, %.preheader2808 ], [ false, %981 ]
+  %indvars.iv4266.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2808 ], [ %.sroa.181, %981 ]
+  %.1523276 = phi i32 [ %.1513278, %.preheader2808 ], [ %982, %981 ]
+  %.not2215 = icmp eq i32 %.1523276, 0
   br i1 %.not2215, label %981, label %973
 
 973:                                              ; preds = %971
-  %974 = load ptr, ptr %indvars.iv4280.sroa.phi, align 8, !tbaa !12
-  %975 = load ptr, ptr %indvars.iv4277.sroa.phi, align 8, !tbaa !31
-  %976 = load ptr, ptr %indvars.iv4274.sroa.phi, align 8, !tbaa !12
-  %977 = load ptr, ptr %indvars.iv4271.sroa.phi, align 8, !tbaa !31
-  %978 = load ptr, ptr %indvars.iv4268.sroa.phi, align 8, !tbaa !12
-  %979 = load ptr, ptr %indvars.iv4265.sroa.phi, align 8, !tbaa !12
+  %974 = load ptr, ptr %indvars.iv4281.sroa.phi, align 8, !tbaa !12
+  %975 = load ptr, ptr %indvars.iv4278.sroa.phi, align 8, !tbaa !31
+  %976 = load ptr, ptr %indvars.iv4275.sroa.phi, align 8, !tbaa !12
+  %977 = load ptr, ptr %indvars.iv4272.sroa.phi, align 8, !tbaa !31
+  %978 = load ptr, ptr %indvars.iv4269.sroa.phi, align 8, !tbaa !12
+  %979 = load ptr, ptr %indvars.iv4266.sroa.phi, align 8, !tbaa !12
   %980 = tail call fastcc i32 @arkode_butcher_order6n(ptr noundef %974, ptr noundef %975, ptr noundef %976, ptr noundef %977, ptr noundef %978, ptr noundef %979, i32 noundef %9)
   br label %981
 
@@ -10143,76 +10142,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %972, label %971, label %983
 
 983:                                              ; preds = %981
-  br i1 %970, label %.preheader2807, label %984
+  br i1 %970, label %.preheader2808, label %984
 
 984:                                              ; preds = %983
-  br i1 %969, label %.preheader2808, label %985
+  br i1 %969, label %.preheader2809, label %985
 
 985:                                              ; preds = %984
-  br i1 %968, label %.preheader2809, label %986
+  br i1 %968, label %.preheader2810, label %986
 
 986:                                              ; preds = %985
-  br i1 %967, label %.preheader2810, label %987
+  br i1 %967, label %.preheader2811, label %987
 
 987:                                              ; preds = %986
-  br i1 %966, label %.preheader2811, label %988
+  br i1 %966, label %.preheader2812, label %988
 
 988:                                              ; preds = %987
   %989 = icmp eq i32 %982, 0
   %or.cond57 = and i1 %49, %989
-  br i1 %or.cond57, label %990, label %.preheader2806.preheader
+  br i1 %or.cond57, label %990, label %.preheader2807.preheader
 
 990:                                              ; preds = %988
   %991 = tail call i64 @fwrite(ptr nonnull @.str.118, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2806.preheader
+  br label %.preheader2807.preheader
 
-.preheader2806.preheader:                         ; preds = %990, %988
+.preheader2807.preheader:                         ; preds = %990, %988
+  br label %.preheader2807
+
+.preheader2807:                                   ; preds = %.preheader2807.preheader, %1013
+  %992 = phi i1 [ false, %1013 ], [ true, %.preheader2807.preheader ]
+  %indvars.iv4299.sroa.phi = phi ptr [ %.sroa.385507, %1013 ], [ %.sroa.05506, %.preheader2807.preheader ]
+  %.1533298 = phi i32 [ %1008, %1013 ], [ %982, %.preheader2807.preheader ]
   br label %.preheader2806
 
-.preheader2806:                                   ; preds = %.preheader2806.preheader, %1013
-  %992 = phi i1 [ false, %1013 ], [ true, %.preheader2806.preheader ]
-  %indvars.iv4298.sroa.phi = phi ptr [ %.sroa.385506, %1013 ], [ %.sroa.05505, %.preheader2806.preheader ]
-  %.1533297 = phi i32 [ %1008, %1013 ], [ %982, %.preheader2806.preheader ]
+.preheader2806:                                   ; preds = %.preheader2807, %1012
+  %993 = phi i1 [ true, %.preheader2807 ], [ false, %1012 ]
+  %indvars.iv4296.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2807 ], [ %.sroa.121, %1012 ]
+  %.1543296 = phi i32 [ %.1533298, %.preheader2807 ], [ %1008, %1012 ]
   br label %.preheader2805
 
-.preheader2805:                                   ; preds = %.preheader2806, %1012
-  %993 = phi i1 [ true, %.preheader2806 ], [ false, %1012 ]
-  %indvars.iv4295.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2806 ], [ %.sroa.121, %1012 ]
-  %.1543295 = phi i32 [ %.1533297, %.preheader2806 ], [ %1008, %1012 ]
+.preheader2805:                                   ; preds = %.preheader2806, %1011
+  %994 = phi i1 [ true, %.preheader2806 ], [ false, %1011 ]
+  %indvars.iv4293.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2806 ], [ %.sroa.181, %1011 ]
+  %.1553294 = phi i32 [ %.1543296, %.preheader2806 ], [ %1008, %1011 ]
   br label %.preheader2804
 
-.preheader2804:                                   ; preds = %.preheader2805, %1011
-  %994 = phi i1 [ true, %.preheader2805 ], [ false, %1011 ]
-  %indvars.iv4292.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2805 ], [ %.sroa.181, %1011 ]
-  %.1553293 = phi i32 [ %.1543295, %.preheader2805 ], [ %1008, %1011 ]
+.preheader2804:                                   ; preds = %.preheader2805, %1010
+  %995 = phi i1 [ true, %.preheader2805 ], [ false, %1010 ]
+  %indvars.iv4290.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2805 ], [ %.sroa.121, %1010 ]
+  %.1563292 = phi i32 [ %.1553294, %.preheader2805 ], [ %1008, %1010 ]
   br label %.preheader2803
 
-.preheader2803:                                   ; preds = %.preheader2804, %1010
-  %995 = phi i1 [ true, %.preheader2804 ], [ false, %1010 ]
-  %indvars.iv4289.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2804 ], [ %.sroa.121, %1010 ]
-  %.1563291 = phi i32 [ %.1553293, %.preheader2804 ], [ %1008, %1010 ]
-  br label %.preheader2802
-
-.preheader2802:                                   ; preds = %.preheader2803, %1009
-  %996 = phi i1 [ true, %.preheader2803 ], [ false, %1009 ]
-  %indvars.iv4286.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2803 ], [ %.sroa.121, %1009 ]
-  %.1573289 = phi i32 [ %.1563291, %.preheader2803 ], [ %1008, %1009 ]
+.preheader2803:                                   ; preds = %.preheader2804, %1009
+  %996 = phi i1 [ true, %.preheader2804 ], [ false, %1009 ]
+  %indvars.iv4287.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2804 ], [ %.sroa.121, %1009 ]
+  %.1573290 = phi i32 [ %.1563292, %.preheader2804 ], [ %1008, %1009 ]
   br label %997
 
-997:                                              ; preds = %.preheader2802, %1007
-  %998 = phi i1 [ true, %.preheader2802 ], [ false, %1007 ]
-  %indvars.iv4283.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2802 ], [ %.sroa.181, %1007 ]
-  %.1583287 = phi i32 [ %.1573289, %.preheader2802 ], [ %1008, %1007 ]
-  %.not2214 = icmp eq i32 %.1583287, 0
+997:                                              ; preds = %.preheader2803, %1007
+  %998 = phi i1 [ true, %.preheader2803 ], [ false, %1007 ]
+  %indvars.iv4284.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2803 ], [ %.sroa.181, %1007 ]
+  %.1583288 = phi i32 [ %.1573290, %.preheader2803 ], [ %1008, %1007 ]
+  %.not2214 = icmp eq i32 %.1583288, 0
   br i1 %.not2214, label %1007, label %999
 
 999:                                              ; preds = %997
-  %1000 = load ptr, ptr %indvars.iv4298.sroa.phi, align 8, !tbaa !12
-  %1001 = load ptr, ptr %indvars.iv4295.sroa.phi, align 8, !tbaa !31
-  %1002 = load ptr, ptr %indvars.iv4292.sroa.phi, align 8, !tbaa !12
-  %1003 = load ptr, ptr %indvars.iv4289.sroa.phi, align 8, !tbaa !31
-  %1004 = load ptr, ptr %indvars.iv4286.sroa.phi, align 8, !tbaa !31
-  %1005 = load ptr, ptr %indvars.iv4283.sroa.phi, align 8, !tbaa !12
+  %1000 = load ptr, ptr %indvars.iv4299.sroa.phi, align 8, !tbaa !12
+  %1001 = load ptr, ptr %indvars.iv4296.sroa.phi, align 8, !tbaa !31
+  %1002 = load ptr, ptr %indvars.iv4293.sroa.phi, align 8, !tbaa !12
+  %1003 = load ptr, ptr %indvars.iv4290.sroa.phi, align 8, !tbaa !31
+  %1004 = load ptr, ptr %indvars.iv4287.sroa.phi, align 8, !tbaa !31
+  %1005 = load ptr, ptr %indvars.iv4284.sroa.phi, align 8, !tbaa !12
   %1006 = tail call fastcc i32 @arkode_butcher_order6o(ptr noundef %1000, ptr noundef %1001, ptr noundef %1002, ptr noundef %1003, ptr noundef %1004, ptr noundef %1005, i32 noundef %9)
   br label %1007
 
@@ -10221,76 +10220,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %998, label %997, label %1009
 
 1009:                                             ; preds = %1007
-  br i1 %996, label %.preheader2802, label %1010
+  br i1 %996, label %.preheader2803, label %1010
 
 1010:                                             ; preds = %1009
-  br i1 %995, label %.preheader2803, label %1011
+  br i1 %995, label %.preheader2804, label %1011
 
 1011:                                             ; preds = %1010
-  br i1 %994, label %.preheader2804, label %1012
+  br i1 %994, label %.preheader2805, label %1012
 
 1012:                                             ; preds = %1011
-  br i1 %993, label %.preheader2805, label %1013
+  br i1 %993, label %.preheader2806, label %1013
 
 1013:                                             ; preds = %1012
-  br i1 %992, label %.preheader2806, label %1014
+  br i1 %992, label %.preheader2807, label %1014
 
 1014:                                             ; preds = %1013
   %1015 = icmp eq i32 %1008, 0
   %or.cond59 = and i1 %49, %1015
-  br i1 %or.cond59, label %1016, label %.preheader2801.preheader
+  br i1 %or.cond59, label %1016, label %.preheader2802.preheader
 
 1016:                                             ; preds = %1014
   %1017 = tail call i64 @fwrite(ptr nonnull @.str.119, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2801.preheader
+  br label %.preheader2802.preheader
 
-.preheader2801.preheader:                         ; preds = %1016, %1014
+.preheader2802.preheader:                         ; preds = %1016, %1014
+  br label %.preheader2802
+
+.preheader2802:                                   ; preds = %.preheader2802.preheader, %1039
+  %1018 = phi i1 [ false, %1039 ], [ true, %.preheader2802.preheader ]
+  %indvars.iv4317.sroa.phi = phi ptr [ %.sroa.385507, %1039 ], [ %.sroa.05506, %.preheader2802.preheader ]
+  %.1593310 = phi i32 [ %1034, %1039 ], [ %1008, %.preheader2802.preheader ]
   br label %.preheader2801
 
-.preheader2801:                                   ; preds = %.preheader2801.preheader, %1039
-  %1018 = phi i1 [ false, %1039 ], [ true, %.preheader2801.preheader ]
-  %indvars.iv4316.sroa.phi = phi ptr [ %.sroa.385506, %1039 ], [ %.sroa.05505, %.preheader2801.preheader ]
-  %.1593309 = phi i32 [ %1034, %1039 ], [ %1008, %.preheader2801.preheader ]
+.preheader2801:                                   ; preds = %.preheader2802, %1038
+  %1019 = phi i1 [ true, %.preheader2802 ], [ false, %1038 ]
+  %indvars.iv4314.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2802 ], [ %.sroa.121, %1038 ]
+  %.1603308 = phi i32 [ %.1593310, %.preheader2802 ], [ %1034, %1038 ]
   br label %.preheader2800
 
-.preheader2800:                                   ; preds = %.preheader2801, %1038
-  %1019 = phi i1 [ true, %.preheader2801 ], [ false, %1038 ]
-  %indvars.iv4313.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2801 ], [ %.sroa.121, %1038 ]
-  %.1603307 = phi i32 [ %.1593309, %.preheader2801 ], [ %1034, %1038 ]
+.preheader2800:                                   ; preds = %.preheader2801, %1037
+  %1020 = phi i1 [ true, %.preheader2801 ], [ false, %1037 ]
+  %indvars.iv4311.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2801 ], [ %.sroa.121, %1037 ]
+  %.1613306 = phi i32 [ %.1603308, %.preheader2801 ], [ %1034, %1037 ]
   br label %.preheader2799
 
-.preheader2799:                                   ; preds = %.preheader2800, %1037
-  %1020 = phi i1 [ true, %.preheader2800 ], [ false, %1037 ]
-  %indvars.iv4310.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2800 ], [ %.sroa.121, %1037 ]
-  %.1613305 = phi i32 [ %.1603307, %.preheader2800 ], [ %1034, %1037 ]
+.preheader2799:                                   ; preds = %.preheader2800, %1036
+  %1021 = phi i1 [ true, %.preheader2800 ], [ false, %1036 ]
+  %indvars.iv4308.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2800 ], [ %.sroa.181, %1036 ]
+  %.1623304 = phi i32 [ %.1613306, %.preheader2800 ], [ %1034, %1036 ]
   br label %.preheader2798
 
-.preheader2798:                                   ; preds = %.preheader2799, %1036
-  %1021 = phi i1 [ true, %.preheader2799 ], [ false, %1036 ]
-  %indvars.iv4307.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2799 ], [ %.sroa.181, %1036 ]
-  %.1623303 = phi i32 [ %.1613305, %.preheader2799 ], [ %1034, %1036 ]
-  br label %.preheader2797
-
-.preheader2797:                                   ; preds = %.preheader2798, %1035
-  %1022 = phi i1 [ true, %.preheader2798 ], [ false, %1035 ]
-  %indvars.iv4304.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2798 ], [ %.sroa.181, %1035 ]
-  %.1633301 = phi i32 [ %.1623303, %.preheader2798 ], [ %1034, %1035 ]
+.preheader2798:                                   ; preds = %.preheader2799, %1035
+  %1022 = phi i1 [ true, %.preheader2799 ], [ false, %1035 ]
+  %indvars.iv4305.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2799 ], [ %.sroa.181, %1035 ]
+  %.1633302 = phi i32 [ %.1623304, %.preheader2799 ], [ %1034, %1035 ]
   br label %1023
 
-1023:                                             ; preds = %.preheader2797, %1033
-  %1024 = phi i1 [ true, %.preheader2797 ], [ false, %1033 ]
-  %indvars.iv4301.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2797 ], [ %.sroa.181, %1033 ]
-  %.1643299 = phi i32 [ %.1633301, %.preheader2797 ], [ %1034, %1033 ]
-  %.not2213 = icmp eq i32 %.1643299, 0
+1023:                                             ; preds = %.preheader2798, %1033
+  %1024 = phi i1 [ true, %.preheader2798 ], [ false, %1033 ]
+  %indvars.iv4302.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2798 ], [ %.sroa.181, %1033 ]
+  %.1643300 = phi i32 [ %.1633302, %.preheader2798 ], [ %1034, %1033 ]
+  %.not2213 = icmp eq i32 %.1643300, 0
   br i1 %.not2213, label %1033, label %1025
 
 1025:                                             ; preds = %1023
-  %1026 = load ptr, ptr %indvars.iv4316.sroa.phi, align 8, !tbaa !12
-  %1027 = load ptr, ptr %indvars.iv4313.sroa.phi, align 8, !tbaa !31
-  %1028 = load ptr, ptr %indvars.iv4310.sroa.phi, align 8, !tbaa !31
-  %1029 = load ptr, ptr %indvars.iv4307.sroa.phi, align 8, !tbaa !12
-  %1030 = load ptr, ptr %indvars.iv4304.sroa.phi, align 8, !tbaa !12
-  %1031 = load ptr, ptr %indvars.iv4301.sroa.phi, align 8, !tbaa !12
+  %1026 = load ptr, ptr %indvars.iv4317.sroa.phi, align 8, !tbaa !12
+  %1027 = load ptr, ptr %indvars.iv4314.sroa.phi, align 8, !tbaa !31
+  %1028 = load ptr, ptr %indvars.iv4311.sroa.phi, align 8, !tbaa !31
+  %1029 = load ptr, ptr %indvars.iv4308.sroa.phi, align 8, !tbaa !12
+  %1030 = load ptr, ptr %indvars.iv4305.sroa.phi, align 8, !tbaa !12
+  %1031 = load ptr, ptr %indvars.iv4302.sroa.phi, align 8, !tbaa !12
   %1032 = tail call fastcc i32 @arkode_butcher_order6p(ptr noundef %1026, ptr noundef %1027, ptr noundef %1028, ptr noundef %1029, ptr noundef %1030, ptr noundef %1031, i32 noundef %9)
   br label %1033
 
@@ -10299,76 +10298,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %1024, label %1023, label %1035
 
 1035:                                             ; preds = %1033
-  br i1 %1022, label %.preheader2797, label %1036
+  br i1 %1022, label %.preheader2798, label %1036
 
 1036:                                             ; preds = %1035
-  br i1 %1021, label %.preheader2798, label %1037
+  br i1 %1021, label %.preheader2799, label %1037
 
 1037:                                             ; preds = %1036
-  br i1 %1020, label %.preheader2799, label %1038
+  br i1 %1020, label %.preheader2800, label %1038
 
 1038:                                             ; preds = %1037
-  br i1 %1019, label %.preheader2800, label %1039
+  br i1 %1019, label %.preheader2801, label %1039
 
 1039:                                             ; preds = %1038
-  br i1 %1018, label %.preheader2801, label %1040
+  br i1 %1018, label %.preheader2802, label %1040
 
 1040:                                             ; preds = %1039
   %1041 = icmp eq i32 %1034, 0
   %or.cond61 = and i1 %49, %1041
-  br i1 %or.cond61, label %1042, label %.preheader2796.preheader
+  br i1 %or.cond61, label %1042, label %.preheader2797.preheader
 
 1042:                                             ; preds = %1040
   %1043 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2796.preheader
+  br label %.preheader2797.preheader
 
-.preheader2796.preheader:                         ; preds = %1042, %1040
+.preheader2797.preheader:                         ; preds = %1042, %1040
+  br label %.preheader2797
+
+.preheader2797:                                   ; preds = %.preheader2797.preheader, %1065
+  %1044 = phi i1 [ false, %1065 ], [ true, %.preheader2797.preheader ]
+  %indvars.iv4335.sroa.phi = phi ptr [ %.sroa.385507, %1065 ], [ %.sroa.05506, %.preheader2797.preheader ]
+  %.1653322 = phi i32 [ %1060, %1065 ], [ %1034, %.preheader2797.preheader ]
   br label %.preheader2796
 
-.preheader2796:                                   ; preds = %.preheader2796.preheader, %1065
-  %1044 = phi i1 [ false, %1065 ], [ true, %.preheader2796.preheader ]
-  %indvars.iv4334.sroa.phi = phi ptr [ %.sroa.385506, %1065 ], [ %.sroa.05505, %.preheader2796.preheader ]
-  %.1653321 = phi i32 [ %1060, %1065 ], [ %1034, %.preheader2796.preheader ]
+.preheader2796:                                   ; preds = %.preheader2797, %1064
+  %1045 = phi i1 [ true, %.preheader2797 ], [ false, %1064 ]
+  %indvars.iv4332.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2797 ], [ %.sroa.121, %1064 ]
+  %.1663320 = phi i32 [ %.1653322, %.preheader2797 ], [ %1060, %1064 ]
   br label %.preheader2795
 
-.preheader2795:                                   ; preds = %.preheader2796, %1064
-  %1045 = phi i1 [ true, %.preheader2796 ], [ false, %1064 ]
-  %indvars.iv4331.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2796 ], [ %.sroa.121, %1064 ]
-  %.1663319 = phi i32 [ %.1653321, %.preheader2796 ], [ %1060, %1064 ]
+.preheader2795:                                   ; preds = %.preheader2796, %1063
+  %1046 = phi i1 [ true, %.preheader2796 ], [ false, %1063 ]
+  %indvars.iv4329.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2796 ], [ %.sroa.121, %1063 ]
+  %.1673318 = phi i32 [ %.1663320, %.preheader2796 ], [ %1060, %1063 ]
   br label %.preheader2794
 
-.preheader2794:                                   ; preds = %.preheader2795, %1063
-  %1046 = phi i1 [ true, %.preheader2795 ], [ false, %1063 ]
-  %indvars.iv4328.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2795 ], [ %.sroa.121, %1063 ]
-  %.1673317 = phi i32 [ %.1663319, %.preheader2795 ], [ %1060, %1063 ]
+.preheader2794:                                   ; preds = %.preheader2795, %1062
+  %1047 = phi i1 [ true, %.preheader2795 ], [ false, %1062 ]
+  %indvars.iv4326.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2795 ], [ %.sroa.181, %1062 ]
+  %.1683316 = phi i32 [ %.1673318, %.preheader2795 ], [ %1060, %1062 ]
   br label %.preheader2793
 
-.preheader2793:                                   ; preds = %.preheader2794, %1062
-  %1047 = phi i1 [ true, %.preheader2794 ], [ false, %1062 ]
-  %indvars.iv4325.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2794 ], [ %.sroa.181, %1062 ]
-  %.1683315 = phi i32 [ %.1673317, %.preheader2794 ], [ %1060, %1062 ]
-  br label %.preheader2792
-
-.preheader2792:                                   ; preds = %.preheader2793, %1061
-  %1048 = phi i1 [ true, %.preheader2793 ], [ false, %1061 ]
-  %indvars.iv4322.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2793 ], [ %.sroa.121, %1061 ]
-  %.1693313 = phi i32 [ %.1683315, %.preheader2793 ], [ %1060, %1061 ]
+.preheader2793:                                   ; preds = %.preheader2794, %1061
+  %1048 = phi i1 [ true, %.preheader2794 ], [ false, %1061 ]
+  %indvars.iv4323.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2794 ], [ %.sroa.121, %1061 ]
+  %.1693314 = phi i32 [ %.1683316, %.preheader2794 ], [ %1060, %1061 ]
   br label %1049
 
-1049:                                             ; preds = %.preheader2792, %1059
-  %1050 = phi i1 [ true, %.preheader2792 ], [ false, %1059 ]
-  %indvars.iv4319.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2792 ], [ %.sroa.181, %1059 ]
-  %.1703311 = phi i32 [ %.1693313, %.preheader2792 ], [ %1060, %1059 ]
-  %.not2212 = icmp eq i32 %.1703311, 0
+1049:                                             ; preds = %.preheader2793, %1059
+  %1050 = phi i1 [ true, %.preheader2793 ], [ false, %1059 ]
+  %indvars.iv4320.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2793 ], [ %.sroa.181, %1059 ]
+  %.1703312 = phi i32 [ %.1693314, %.preheader2793 ], [ %1060, %1059 ]
+  %.not2212 = icmp eq i32 %.1703312, 0
   br i1 %.not2212, label %1059, label %1051
 
 1051:                                             ; preds = %1049
-  %1052 = load ptr, ptr %indvars.iv4334.sroa.phi, align 8, !tbaa !12
-  %1053 = load ptr, ptr %indvars.iv4331.sroa.phi, align 8, !tbaa !31
-  %1054 = load ptr, ptr %indvars.iv4328.sroa.phi, align 8, !tbaa !31
-  %1055 = load ptr, ptr %indvars.iv4325.sroa.phi, align 8, !tbaa !12
-  %1056 = load ptr, ptr %indvars.iv4322.sroa.phi, align 8, !tbaa !31
-  %1057 = load ptr, ptr %indvars.iv4319.sroa.phi, align 8, !tbaa !12
+  %1052 = load ptr, ptr %indvars.iv4335.sroa.phi, align 8, !tbaa !12
+  %1053 = load ptr, ptr %indvars.iv4332.sroa.phi, align 8, !tbaa !31
+  %1054 = load ptr, ptr %indvars.iv4329.sroa.phi, align 8, !tbaa !31
+  %1055 = load ptr, ptr %indvars.iv4326.sroa.phi, align 8, !tbaa !12
+  %1056 = load ptr, ptr %indvars.iv4323.sroa.phi, align 8, !tbaa !31
+  %1057 = load ptr, ptr %indvars.iv4320.sroa.phi, align 8, !tbaa !12
   %1058 = tail call fastcc i32 @arkode_butcher_order6q(ptr noundef %1052, ptr noundef %1053, ptr noundef %1054, ptr noundef %1055, ptr noundef %1056, ptr noundef %1057, i32 noundef %9)
   br label %1059
 
@@ -10377,76 +10376,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %1050, label %1049, label %1061
 
 1061:                                             ; preds = %1059
-  br i1 %1048, label %.preheader2792, label %1062
+  br i1 %1048, label %.preheader2793, label %1062
 
 1062:                                             ; preds = %1061
-  br i1 %1047, label %.preheader2793, label %1063
+  br i1 %1047, label %.preheader2794, label %1063
 
 1063:                                             ; preds = %1062
-  br i1 %1046, label %.preheader2794, label %1064
+  br i1 %1046, label %.preheader2795, label %1064
 
 1064:                                             ; preds = %1063
-  br i1 %1045, label %.preheader2795, label %1065
+  br i1 %1045, label %.preheader2796, label %1065
 
 1065:                                             ; preds = %1064
-  br i1 %1044, label %.preheader2796, label %1066
+  br i1 %1044, label %.preheader2797, label %1066
 
 1066:                                             ; preds = %1065
   %1067 = icmp eq i32 %1060, 0
   %or.cond63 = and i1 %49, %1067
-  br i1 %or.cond63, label %1068, label %.preheader2791.preheader
+  br i1 %or.cond63, label %1068, label %.preheader2792.preheader
 
 1068:                                             ; preds = %1066
   %1069 = tail call i64 @fwrite(ptr nonnull @.str.121, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2791.preheader
+  br label %.preheader2792.preheader
 
-.preheader2791.preheader:                         ; preds = %1068, %1066
+.preheader2792.preheader:                         ; preds = %1068, %1066
+  br label %.preheader2792
+
+.preheader2792:                                   ; preds = %.preheader2792.preheader, %1091
+  %1070 = phi i1 [ false, %1091 ], [ true, %.preheader2792.preheader ]
+  %indvars.iv4353.sroa.phi = phi ptr [ %.sroa.385507, %1091 ], [ %.sroa.05506, %.preheader2792.preheader ]
+  %.1713334 = phi i32 [ %1086, %1091 ], [ %1060, %.preheader2792.preheader ]
   br label %.preheader2791
 
-.preheader2791:                                   ; preds = %.preheader2791.preheader, %1091
-  %1070 = phi i1 [ false, %1091 ], [ true, %.preheader2791.preheader ]
-  %indvars.iv4352.sroa.phi = phi ptr [ %.sroa.385506, %1091 ], [ %.sroa.05505, %.preheader2791.preheader ]
-  %.1713333 = phi i32 [ %1086, %1091 ], [ %1060, %.preheader2791.preheader ]
+.preheader2791:                                   ; preds = %.preheader2792, %1090
+  %1071 = phi i1 [ true, %.preheader2792 ], [ false, %1090 ]
+  %indvars.iv4350.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2792 ], [ %.sroa.121, %1090 ]
+  %.1723332 = phi i32 [ %.1713334, %.preheader2792 ], [ %1086, %1090 ]
   br label %.preheader2790
 
-.preheader2790:                                   ; preds = %.preheader2791, %1090
-  %1071 = phi i1 [ true, %.preheader2791 ], [ false, %1090 ]
-  %indvars.iv4349.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2791 ], [ %.sroa.121, %1090 ]
-  %.1723331 = phi i32 [ %.1713333, %.preheader2791 ], [ %1086, %1090 ]
+.preheader2790:                                   ; preds = %.preheader2791, %1089
+  %1072 = phi i1 [ true, %.preheader2791 ], [ false, %1089 ]
+  %indvars.iv4347.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2791 ], [ %.sroa.121, %1089 ]
+  %.1733330 = phi i32 [ %.1723332, %.preheader2791 ], [ %1086, %1089 ]
   br label %.preheader2789
 
-.preheader2789:                                   ; preds = %.preheader2790, %1089
-  %1072 = phi i1 [ true, %.preheader2790 ], [ false, %1089 ]
-  %indvars.iv4346.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2790 ], [ %.sroa.121, %1089 ]
-  %.1733329 = phi i32 [ %.1723331, %.preheader2790 ], [ %1086, %1089 ]
+.preheader2789:                                   ; preds = %.preheader2790, %1088
+  %1073 = phi i1 [ true, %.preheader2790 ], [ false, %1088 ]
+  %indvars.iv4344.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2790 ], [ %.sroa.121, %1088 ]
+  %.1743328 = phi i32 [ %.1733330, %.preheader2790 ], [ %1086, %1088 ]
   br label %.preheader2788
 
-.preheader2788:                                   ; preds = %.preheader2789, %1088
-  %1073 = phi i1 [ true, %.preheader2789 ], [ false, %1088 ]
-  %indvars.iv4343.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2789 ], [ %.sroa.121, %1088 ]
-  %.1743327 = phi i32 [ %.1733329, %.preheader2789 ], [ %1086, %1088 ]
-  br label %.preheader2787
-
-.preheader2787:                                   ; preds = %.preheader2788, %1087
-  %1074 = phi i1 [ true, %.preheader2788 ], [ false, %1087 ]
-  %indvars.iv4340.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2788 ], [ %.sroa.181, %1087 ]
-  %.1753325 = phi i32 [ %.1743327, %.preheader2788 ], [ %1086, %1087 ]
+.preheader2788:                                   ; preds = %.preheader2789, %1087
+  %1074 = phi i1 [ true, %.preheader2789 ], [ false, %1087 ]
+  %indvars.iv4341.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2789 ], [ %.sroa.181, %1087 ]
+  %.1753326 = phi i32 [ %.1743328, %.preheader2789 ], [ %1086, %1087 ]
   br label %1075
 
-1075:                                             ; preds = %.preheader2787, %1085
-  %1076 = phi i1 [ true, %.preheader2787 ], [ false, %1085 ]
-  %indvars.iv4337.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2787 ], [ %.sroa.181, %1085 ]
-  %.1763323 = phi i32 [ %.1753325, %.preheader2787 ], [ %1086, %1085 ]
-  %.not2211 = icmp eq i32 %.1763323, 0
+1075:                                             ; preds = %.preheader2788, %1085
+  %1076 = phi i1 [ true, %.preheader2788 ], [ false, %1085 ]
+  %indvars.iv4338.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2788 ], [ %.sroa.181, %1085 ]
+  %.1763324 = phi i32 [ %.1753326, %.preheader2788 ], [ %1086, %1085 ]
+  %.not2211 = icmp eq i32 %.1763324, 0
   br i1 %.not2211, label %1085, label %1077
 
 1077:                                             ; preds = %1075
-  %1078 = load ptr, ptr %indvars.iv4352.sroa.phi, align 8, !tbaa !12
-  %1079 = load ptr, ptr %indvars.iv4349.sroa.phi, align 8, !tbaa !31
-  %1080 = load ptr, ptr %indvars.iv4346.sroa.phi, align 8, !tbaa !31
-  %1081 = load ptr, ptr %indvars.iv4343.sroa.phi, align 8, !tbaa !31
-  %1082 = load ptr, ptr %indvars.iv4340.sroa.phi, align 8, !tbaa !12
-  %1083 = load ptr, ptr %indvars.iv4337.sroa.phi, align 8, !tbaa !12
+  %1078 = load ptr, ptr %indvars.iv4353.sroa.phi, align 8, !tbaa !12
+  %1079 = load ptr, ptr %indvars.iv4350.sroa.phi, align 8, !tbaa !31
+  %1080 = load ptr, ptr %indvars.iv4347.sroa.phi, align 8, !tbaa !31
+  %1081 = load ptr, ptr %indvars.iv4344.sroa.phi, align 8, !tbaa !31
+  %1082 = load ptr, ptr %indvars.iv4341.sroa.phi, align 8, !tbaa !12
+  %1083 = load ptr, ptr %indvars.iv4338.sroa.phi, align 8, !tbaa !12
   %1084 = tail call fastcc i32 @arkode_butcher_order6r(ptr noundef %1078, ptr noundef %1079, ptr noundef %1080, ptr noundef %1081, ptr noundef %1082, ptr noundef %1083, i32 noundef %9)
   br label %1085
 
@@ -10455,76 +10454,76 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %1076, label %1075, label %1087
 
 1087:                                             ; preds = %1085
-  br i1 %1074, label %.preheader2787, label %1088
+  br i1 %1074, label %.preheader2788, label %1088
 
 1088:                                             ; preds = %1087
-  br i1 %1073, label %.preheader2788, label %1089
+  br i1 %1073, label %.preheader2789, label %1089
 
 1089:                                             ; preds = %1088
-  br i1 %1072, label %.preheader2789, label %1090
+  br i1 %1072, label %.preheader2790, label %1090
 
 1090:                                             ; preds = %1089
-  br i1 %1071, label %.preheader2790, label %1091
+  br i1 %1071, label %.preheader2791, label %1091
 
 1091:                                             ; preds = %1090
-  br i1 %1070, label %.preheader2791, label %1092
+  br i1 %1070, label %.preheader2792, label %1092
 
 1092:                                             ; preds = %1091
   %1093 = icmp eq i32 %1086, 0
   %or.cond65 = and i1 %49, %1093
-  br i1 %or.cond65, label %1094, label %.preheader2786.preheader
+  br i1 %or.cond65, label %1094, label %.preheader2787.preheader
 
 1094:                                             ; preds = %1092
   %1095 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 36, i64 1, ptr nonnull %4)
-  br label %.preheader2786.preheader
+  br label %.preheader2787.preheader
 
-.preheader2786.preheader:                         ; preds = %1094, %1092
+.preheader2787.preheader:                         ; preds = %1094, %1092
+  br label %.preheader2787
+
+.preheader2787:                                   ; preds = %.preheader2787.preheader, %1117
+  %1096 = phi i1 [ false, %1117 ], [ true, %.preheader2787.preheader ]
+  %indvars.iv4371.sroa.phi = phi ptr [ %.sroa.385507, %1117 ], [ %.sroa.05506, %.preheader2787.preheader ]
+  %.1773346 = phi i32 [ %1112, %1117 ], [ %1086, %.preheader2787.preheader ]
   br label %.preheader2786
 
-.preheader2786:                                   ; preds = %.preheader2786.preheader, %1117
-  %1096 = phi i1 [ false, %1117 ], [ true, %.preheader2786.preheader ]
-  %indvars.iv4370.sroa.phi = phi ptr [ %.sroa.385506, %1117 ], [ %.sroa.05505, %.preheader2786.preheader ]
-  %.1773345 = phi i32 [ %1112, %1117 ], [ %1086, %.preheader2786.preheader ]
+.preheader2786:                                   ; preds = %.preheader2787, %1116
+  %1097 = phi i1 [ true, %.preheader2787 ], [ false, %1116 ]
+  %indvars.iv4368.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2787 ], [ %.sroa.121, %1116 ]
+  %.1783344 = phi i32 [ %.1773346, %.preheader2787 ], [ %1112, %1116 ]
   br label %.preheader2785
 
-.preheader2785:                                   ; preds = %.preheader2786, %1116
-  %1097 = phi i1 [ true, %.preheader2786 ], [ false, %1116 ]
-  %indvars.iv4367.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2786 ], [ %.sroa.121, %1116 ]
-  %.1783343 = phi i32 [ %.1773345, %.preheader2786 ], [ %1112, %1116 ]
+.preheader2785:                                   ; preds = %.preheader2786, %1115
+  %1098 = phi i1 [ true, %.preheader2786 ], [ false, %1115 ]
+  %indvars.iv4365.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2786 ], [ %.sroa.121, %1115 ]
+  %.1793342 = phi i32 [ %.1783344, %.preheader2786 ], [ %1112, %1115 ]
   br label %.preheader2784
 
-.preheader2784:                                   ; preds = %.preheader2785, %1115
-  %1098 = phi i1 [ true, %.preheader2785 ], [ false, %1115 ]
-  %indvars.iv4364.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2785 ], [ %.sroa.121, %1115 ]
-  %.1793341 = phi i32 [ %.1783343, %.preheader2785 ], [ %1112, %1115 ]
+.preheader2784:                                   ; preds = %.preheader2785, %1114
+  %1099 = phi i1 [ true, %.preheader2785 ], [ false, %1114 ]
+  %indvars.iv4362.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2785 ], [ %.sroa.121, %1114 ]
+  %.1803340 = phi i32 [ %.1793342, %.preheader2785 ], [ %1112, %1114 ]
   br label %.preheader2783
 
-.preheader2783:                                   ; preds = %.preheader2784, %1114
-  %1099 = phi i1 [ true, %.preheader2784 ], [ false, %1114 ]
-  %indvars.iv4361.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2784 ], [ %.sroa.121, %1114 ]
-  %.1803339 = phi i32 [ %.1793341, %.preheader2784 ], [ %1112, %1114 ]
-  br label %.preheader2782
-
-.preheader2782:                                   ; preds = %.preheader2783, %1113
-  %1100 = phi i1 [ true, %.preheader2783 ], [ false, %1113 ]
-  %indvars.iv4358.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2783 ], [ %.sroa.121, %1113 ]
-  %.1813337 = phi i32 [ %.1803339, %.preheader2783 ], [ %1112, %1113 ]
+.preheader2783:                                   ; preds = %.preheader2784, %1113
+  %1100 = phi i1 [ true, %.preheader2784 ], [ false, %1113 ]
+  %indvars.iv4359.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2784 ], [ %.sroa.121, %1113 ]
+  %.1813338 = phi i32 [ %.1803340, %.preheader2784 ], [ %1112, %1113 ]
   br label %1101
 
-1101:                                             ; preds = %.preheader2782, %1111
-  %1102 = phi i1 [ true, %.preheader2782 ], [ false, %1111 ]
-  %indvars.iv4355.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2782 ], [ %.sroa.181, %1111 ]
-  %.1823335 = phi i32 [ %.1813337, %.preheader2782 ], [ %1112, %1111 ]
-  %.not2210 = icmp eq i32 %.1823335, 0
+1101:                                             ; preds = %.preheader2783, %1111
+  %1102 = phi i1 [ true, %.preheader2783 ], [ false, %1111 ]
+  %indvars.iv4356.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2783 ], [ %.sroa.181, %1111 ]
+  %.1823336 = phi i32 [ %.1813338, %.preheader2783 ], [ %1112, %1111 ]
+  %.not2210 = icmp eq i32 %.1823336, 0
   br i1 %.not2210, label %1111, label %1103
 
 1103:                                             ; preds = %1101
-  %1104 = load ptr, ptr %indvars.iv4370.sroa.phi, align 8, !tbaa !12
-  %1105 = load ptr, ptr %indvars.iv4367.sroa.phi, align 8, !tbaa !31
-  %1106 = load ptr, ptr %indvars.iv4364.sroa.phi, align 8, !tbaa !31
-  %1107 = load ptr, ptr %indvars.iv4361.sroa.phi, align 8, !tbaa !31
-  %1108 = load ptr, ptr %indvars.iv4358.sroa.phi, align 8, !tbaa !31
-  %1109 = load ptr, ptr %indvars.iv4355.sroa.phi, align 8, !tbaa !12
+  %1104 = load ptr, ptr %indvars.iv4371.sroa.phi, align 8, !tbaa !12
+  %1105 = load ptr, ptr %indvars.iv4368.sroa.phi, align 8, !tbaa !31
+  %1106 = load ptr, ptr %indvars.iv4365.sroa.phi, align 8, !tbaa !31
+  %1107 = load ptr, ptr %indvars.iv4362.sroa.phi, align 8, !tbaa !31
+  %1108 = load ptr, ptr %indvars.iv4359.sroa.phi, align 8, !tbaa !31
+  %1109 = load ptr, ptr %indvars.iv4356.sroa.phi, align 8, !tbaa !12
   %1110 = tail call fastcc i32 @arkode_butcher_order6s(ptr noundef %1104, ptr noundef %1105, ptr noundef %1106, ptr noundef %1107, ptr noundef %1108, ptr noundef %1109, i32 noundef %9)
   br label %1111
 
@@ -10533,26 +10532,26 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   br i1 %1102, label %1101, label %1113
 
 1113:                                             ; preds = %1111
-  br i1 %1100, label %.preheader2782, label %1114
+  br i1 %1100, label %.preheader2783, label %1114
 
 1114:                                             ; preds = %1113
-  br i1 %1099, label %.preheader2783, label %1115
+  br i1 %1099, label %.preheader2784, label %1115
 
 1115:                                             ; preds = %1114
-  br i1 %1098, label %.preheader2784, label %1116
+  br i1 %1098, label %.preheader2785, label %1116
 
 1116:                                             ; preds = %1115
-  br i1 %1097, label %.preheader2785, label %1117
+  br i1 %1097, label %.preheader2786, label %1117
 
 1117:                                             ; preds = %1116
-  br i1 %1096, label %.preheader2786, label %1118
+  br i1 %1096, label %.preheader2787, label %1118
 
 1118:                                             ; preds = %1117
   %1119 = icmp eq i32 %1112, 0
   %or.cond67 = and i1 %49, %1119
-  br i1 %or.cond67, label %.thread2575, label %1121
+  br i1 %or.cond67, label %.thread2577, label %1121
 
-.thread2575:                                      ; preds = %1118
+.thread2577:                                      ; preds = %1118
   %1120 = tail call i64 @fwrite(ptr nonnull @.str.123, i64 36, i64 1, ptr nonnull %4)
   br label %1123
 
@@ -10563,1060 +10562,1060 @@ thread-pre-split2573:                             ; preds = %thread-pre-split256
   store i32 6, ptr %2, align 4, !tbaa !25
   br label %1123
 
-1123:                                             ; preds = %.thread2575, %1121, %1122, %thread-pre-split2573
-  %.not2607 = icmp eq ptr %48, null
-  br i1 %.not2607, label %thread-pre-split2602.thread, label %1124
+1123:                                             ; preds = %.thread2577, %1121, %1122, %thread-pre-split2575
+  %.not2608 = icmp eq ptr %48, null
+  br i1 %.not2608, label %thread-pre-split2603.thread, label %1124
 
 .thread:                                          ; preds = %arkode_butcher_rowsum.exit
-  %.not26074931 = icmp eq ptr %48, null
-  br i1 %.not26074931, label %thread-pre-split2602.thread, label %.preheader.us.i2363.preheader
+  %.not26084932 = icmp eq ptr %48, null
+  br i1 %.not26084932, label %thread-pre-split2603.thread, label %.preheader.us.i2364.preheader
 
 1124:                                             ; preds = %1123
-  br i1 %49, label %1125, label %.preheader.us.i2363.preheader
+  br i1 %49, label %1125, label %.preheader.us.i2364.preheader
 
 1125:                                             ; preds = %1124
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %4)
-  br label %.preheader.us.i2363.preheader
+  br label %.preheader.us.i2364.preheader
 
-.preheader.us.i2363.preheader:                    ; preds = %.thread, %1124, %1125
-  br label %.preheader.us.i2363
+.preheader.us.i2364.preheader:                    ; preds = %.thread, %1124, %1125
+  br label %.preheader.us.i2364
 
-.preheader.us.i2363:                              ; preds = %.preheader.us.i2363.preheader, %1132
-  %indvars.iv26.i2364 = phi i64 [ %indvars.iv.next27.i2370, %1132 ], [ 0, %.preheader.us.i2363.preheader ]
-  %1126 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv26.i2364
+.preheader.us.i2364:                              ; preds = %.preheader.us.i2364.preheader, %1132
+  %indvars.iv26.i2365 = phi i64 [ %indvars.iv.next27.i2371, %1132 ], [ 0, %.preheader.us.i2364.preheader ]
+  %1126 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv26.i2365
   %1127 = load ptr, ptr %1126, align 8, !tbaa !12
   br label %1128
 
-1128:                                             ; preds = %1128, %.preheader.us.i2363
-  %indvars.iv.i2365 = phi i64 [ 0, %.preheader.us.i2363 ], [ %indvars.iv.next.i2367, %1128 ]
-  %.018.us.i2366 = phi double [ 0.000000e+00, %.preheader.us.i2363 ], [ %1131, %1128 ]
-  %1129 = getelementptr inbounds nuw double, ptr %1127, i64 %indvars.iv.i2365
+1128:                                             ; preds = %1128, %.preheader.us.i2364
+  %indvars.iv.i2366 = phi i64 [ 0, %.preheader.us.i2364 ], [ %indvars.iv.next.i2368, %1128 ]
+  %.018.us.i2367 = phi double [ 0.000000e+00, %.preheader.us.i2364 ], [ %1131, %1128 ]
+  %1129 = getelementptr inbounds nuw double, ptr %1127, i64 %indvars.iv.i2366
   %1130 = load double, ptr %1129, align 8, !tbaa !18
-  %1131 = fadd double %.018.us.i2366, %1130
-  %indvars.iv.next.i2367 = add nuw nsw i64 %indvars.iv.i2365, 1
-  %exitcond.not.i2368 = icmp eq i64 %indvars.iv.next.i2367, %wide.trip.count29.i
-  br i1 %exitcond.not.i2368, label %._crit_edge.us.i2369, label %1128
+  %1131 = fadd double %.018.us.i2367, %1130
+  %indvars.iv.next.i2368 = add nuw nsw i64 %indvars.iv.i2366, 1
+  %exitcond.not.i2369 = icmp eq i64 %indvars.iv.next.i2368, %wide.trip.count29.i
+  br i1 %exitcond.not.i2369, label %._crit_edge.us.i2370, label %1128
 
-1132:                                             ; preds = %._crit_edge.us.i2369
-  %indvars.iv.next27.i2370 = add nuw nsw i64 %indvars.iv26.i2364, 1
-  %exitcond30.not.i2371 = icmp eq i64 %indvars.iv.next27.i2370, %wide.trip.count29.i
-  br i1 %exitcond30.not.i2371, label %.preheader.us.i2376, label %.preheader.us.i2363, !llvm.loop !26
+1132:                                             ; preds = %._crit_edge.us.i2370
+  %indvars.iv.next27.i2371 = add nuw nsw i64 %indvars.iv26.i2365, 1
+  %exitcond30.not.i2372 = icmp eq i64 %indvars.iv.next27.i2371, %wide.trip.count29.i
+  br i1 %exitcond30.not.i2372, label %.preheader.us.i2377, label %.preheader.us.i2364, !llvm.loop !26
 
-._crit_edge.us.i2369:                             ; preds = %1128
-  %1133 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv26.i2364
+._crit_edge.us.i2370:                             ; preds = %1128
+  %1133 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv26.i2365
   %1134 = load double, ptr %1133, align 8, !tbaa !18
   %1135 = fsub double %1131, %1134
   %1136 = tail call double @llvm.fabs.f64(double %1135)
   %1137 = fcmp ogt double %1136, 0x3E50000000000000
-  br i1 %1137, label %arkode_butcher_rowsum.exit2372, label %1132
+  br i1 %1137, label %arkode_butcher_rowsum.exit2373, label %1132
 
-.preheader.us.i2376:                              ; preds = %1132, %1144
-  %indvars.iv26.i2377 = phi i64 [ %indvars.iv.next27.i2383, %1144 ], [ 0, %1132 ]
-  %1138 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv26.i2377
+.preheader.us.i2377:                              ; preds = %1132, %1144
+  %indvars.iv26.i2378 = phi i64 [ %indvars.iv.next27.i2384, %1144 ], [ 0, %1132 ]
+  %1138 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv26.i2378
   %1139 = load ptr, ptr %1138, align 8, !tbaa !12
   br label %1140
 
-1140:                                             ; preds = %1140, %.preheader.us.i2376
-  %indvars.iv.i2378 = phi i64 [ 0, %.preheader.us.i2376 ], [ %indvars.iv.next.i2380, %1140 ]
-  %.018.us.i2379 = phi double [ 0.000000e+00, %.preheader.us.i2376 ], [ %1143, %1140 ]
-  %1141 = getelementptr inbounds nuw double, ptr %1139, i64 %indvars.iv.i2378
+1140:                                             ; preds = %1140, %.preheader.us.i2377
+  %indvars.iv.i2379 = phi i64 [ 0, %.preheader.us.i2377 ], [ %indvars.iv.next.i2381, %1140 ]
+  %.018.us.i2380 = phi double [ 0.000000e+00, %.preheader.us.i2377 ], [ %1143, %1140 ]
+  %1141 = getelementptr inbounds nuw double, ptr %1139, i64 %indvars.iv.i2379
   %1142 = load double, ptr %1141, align 8, !tbaa !18
-  %1143 = fadd double %.018.us.i2379, %1142
-  %indvars.iv.next.i2380 = add nuw nsw i64 %indvars.iv.i2378, 1
-  %exitcond.not.i2381 = icmp eq i64 %indvars.iv.next.i2380, %wide.trip.count29.i
-  br i1 %exitcond.not.i2381, label %._crit_edge.us.i2382, label %1140
+  %1143 = fadd double %.018.us.i2380, %1142
+  %indvars.iv.next.i2381 = add nuw nsw i64 %indvars.iv.i2379, 1
+  %exitcond.not.i2382 = icmp eq i64 %indvars.iv.next.i2381, %wide.trip.count29.i
+  br i1 %exitcond.not.i2382, label %._crit_edge.us.i2383, label %1140
 
-1144:                                             ; preds = %._crit_edge.us.i2382
-  %indvars.iv.next27.i2383 = add nuw nsw i64 %indvars.iv26.i2377, 1
-  %exitcond30.not.i2384 = icmp eq i64 %indvars.iv.next27.i2383, %wide.trip.count29.i
-  br i1 %exitcond30.not.i2384, label %.thread2582, label %.preheader.us.i2376, !llvm.loop !26
+1144:                                             ; preds = %._crit_edge.us.i2383
+  %indvars.iv.next27.i2384 = add nuw nsw i64 %indvars.iv26.i2378, 1
+  %exitcond30.not.i2385 = icmp eq i64 %indvars.iv.next27.i2384, %wide.trip.count29.i
+  br i1 %exitcond30.not.i2385, label %.thread2584, label %.preheader.us.i2377, !llvm.loop !26
 
-._crit_edge.us.i2382:                             ; preds = %1140
-  %1145 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv26.i2377
+._crit_edge.us.i2383:                             ; preds = %1140
+  %1145 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv26.i2378
   %1146 = load double, ptr %1145, align 8, !tbaa !18
   %1147 = fsub double %1143, %1146
   %1148 = tail call double @llvm.fabs.f64(double %1147)
   %1149 = fcmp ogt double %1148, 0x3E50000000000000
-  br i1 %1149, label %arkode_butcher_rowsum.exit2372, label %1144
+  br i1 %1149, label %arkode_butcher_rowsum.exit2373, label %1144
 
-.thread2582:                                      ; preds = %1144
+.thread2584:                                      ; preds = %1144
   store i32 0, ptr %3, align 4, !tbaa !25
-  br label %.lr.ph.i2389.preheader
+  br label %.lr.ph.i2390.preheader
 
-arkode_butcher_rowsum.exit2372:                   ; preds = %._crit_edge.us.i2369, %._crit_edge.us.i2382
+arkode_butcher_rowsum.exit2373:                   ; preds = %._crit_edge.us.i2370, %._crit_edge.us.i2383
   store i32 -1, ptr %3, align 4, !tbaa !25
-  br i1 %49, label %1150, label %thread-pre-split2602.thread
+  br i1 %49, label %1150, label %thread-pre-split2603.thread
 
-1150:                                             ; preds = %arkode_butcher_rowsum.exit2372
+1150:                                             ; preds = %arkode_butcher_rowsum.exit2373
   %1151 = tail call i64 @fwrite(ptr nonnull @.str.124, i64 37, i64 1, ptr nonnull %4)
-  %.pr2581 = load i32, ptr %3, align 4, !tbaa !25
-  %1152 = icmp eq i32 %.pr2581, 0
-  br i1 %1152, label %.lr.ph.i2389.preheader, label %thread-pre-split2587
+  %.pr2583 = load i32, ptr %3, align 4, !tbaa !25
+  %1152 = icmp eq i32 %.pr2583, 0
+  br i1 %1152, label %.lr.ph.i2390.preheader, label %thread-pre-split2588
 
-.lr.ph.i2389.preheader:                           ; preds = %1150, %.thread2582
-  br label %.lr.ph.i2389
+.lr.ph.i2390.preheader:                           ; preds = %1150, %.thread2584
+  br label %.lr.ph.i2390
 
-.lr.ph.i2389:                                     ; preds = %.lr.ph.i2389.preheader, %.lr.ph.i2389
-  %indvars.iv.i2390 = phi i64 [ %indvars.iv.next.i2392, %.lr.ph.i2389 ], [ 0, %.lr.ph.i2389.preheader ]
-  %.08.i2391 = phi double [ %1155, %.lr.ph.i2389 ], [ 1.000000e+00, %.lr.ph.i2389.preheader ]
-  %1153 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv.i2390
+.lr.ph.i2390:                                     ; preds = %.lr.ph.i2390.preheader, %.lr.ph.i2390
+  %indvars.iv.i2391 = phi i64 [ %indvars.iv.next.i2393, %.lr.ph.i2390 ], [ 0, %.lr.ph.i2390.preheader ]
+  %.08.i2392 = phi double [ %1155, %.lr.ph.i2390 ], [ 1.000000e+00, %.lr.ph.i2390.preheader ]
+  %1153 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv.i2391
   %1154 = load double, ptr %1153, align 8, !tbaa !18
-  %1155 = fsub double %.08.i2391, %1154
-  %indvars.iv.next.i2392 = add nuw nsw i64 %indvars.iv.i2390, 1
-  %exitcond.not.i2393 = icmp eq i64 %indvars.iv.next.i2392, %wide.trip.count29.i
-  br i1 %exitcond.not.i2393, label %arkode_butcher_order1.exit2394, label %.lr.ph.i2389
+  %1155 = fsub double %.08.i2392, %1154
+  %indvars.iv.next.i2393 = add nuw nsw i64 %indvars.iv.i2391, 1
+  %exitcond.not.i2394 = icmp eq i64 %indvars.iv.next.i2393, %wide.trip.count29.i
+  br i1 %exitcond.not.i2394, label %arkode_butcher_order1.exit2396, label %.lr.ph.i2390
 
-arkode_butcher_order1.exit2394:                   ; preds = %.lr.ph.i2389
+arkode_butcher_order1.exit2396:                   ; preds = %.lr.ph.i2390
   %1156 = tail call double @llvm.fabs.f64(double %1155)
   %1157 = fcmp ogt double %1156, 0x3E50000000000000
-  br i1 %1157, label %arkode_butcher_order1.exit2394.thread, label %.lr.ph.i2398
+  br i1 %1157, label %arkode_butcher_order1.exit2396.thread, label %.lr.ph.i2400
 
-.lr.ph.i2398:                                     ; preds = %arkode_butcher_order1.exit2394, %.lr.ph.i2398
-  %indvars.iv.i2399 = phi i64 [ %indvars.iv.next.i2401, %.lr.ph.i2398 ], [ 0, %arkode_butcher_order1.exit2394 ]
-  %.08.i2400 = phi double [ %1160, %.lr.ph.i2398 ], [ 1.000000e+00, %arkode_butcher_order1.exit2394 ]
-  %1158 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv.i2399
+.lr.ph.i2400:                                     ; preds = %arkode_butcher_order1.exit2396, %.lr.ph.i2400
+  %indvars.iv.i2401 = phi i64 [ %indvars.iv.next.i2403, %.lr.ph.i2400 ], [ 0, %arkode_butcher_order1.exit2396 ]
+  %.08.i2402 = phi double [ %1160, %.lr.ph.i2400 ], [ 1.000000e+00, %arkode_butcher_order1.exit2396 ]
+  %1158 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv.i2401
   %1159 = load double, ptr %1158, align 8, !tbaa !18
-  %1160 = fsub double %.08.i2400, %1159
-  %indvars.iv.next.i2401 = add nuw nsw i64 %indvars.iv.i2399, 1
-  %exitcond.not.i2402 = icmp eq i64 %indvars.iv.next.i2401, %wide.trip.count29.i
-  br i1 %exitcond.not.i2402, label %arkode_butcher_order1.exit2403, label %.lr.ph.i2398
+  %1160 = fsub double %.08.i2402, %1159
+  %indvars.iv.next.i2403 = add nuw nsw i64 %indvars.iv.i2401, 1
+  %exitcond.not.i2404 = icmp eq i64 %indvars.iv.next.i2403, %wide.trip.count29.i
+  br i1 %exitcond.not.i2404, label %arkode_butcher_order1.exit2406, label %.lr.ph.i2400
 
-arkode_butcher_order1.exit2403:                   ; preds = %.lr.ph.i2398
+arkode_butcher_order1.exit2406:                   ; preds = %.lr.ph.i2400
   %1161 = tail call double @llvm.fabs.f64(double %1160)
   %1162 = fcmp ogt double %1161, 0x3E50000000000000
-  br i1 %1162, label %arkode_butcher_order1.exit2394.thread, label %thread-pre-split2587.thread
+  br i1 %1162, label %arkode_butcher_order1.exit2396.thread, label %thread-pre-split2588.thread
 
-thread-pre-split2587.thread:                      ; preds = %arkode_butcher_order1.exit2403
+thread-pre-split2588.thread:                      ; preds = %arkode_butcher_order1.exit2406
   store i32 1, ptr %3, align 4, !tbaa !25
-  br label %.preheader2779.preheader
+  br label %.preheader2780.preheader
 
-arkode_butcher_order1.exit2394.thread:            ; preds = %arkode_butcher_order1.exit2403, %arkode_butcher_order1.exit2394
-  br i1 %49, label %1163, label %thread-pre-split2594
+arkode_butcher_order1.exit2396.thread:            ; preds = %arkode_butcher_order1.exit2406, %arkode_butcher_order1.exit2396
+  br i1 %49, label %1163, label %thread-pre-split2595
 
-1163:                                             ; preds = %arkode_butcher_order1.exit2394.thread
+1163:                                             ; preds = %arkode_butcher_order1.exit2396.thread
   %1164 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 37, i64 1, ptr nonnull %4)
-  %.pr2588.pre = load i32, ptr %3, align 4, !tbaa !25
-  br label %thread-pre-split2587
+  %.pr2589.pre = load i32, ptr %3, align 4, !tbaa !25
+  br label %thread-pre-split2588
 
-thread-pre-split2587:                             ; preds = %1163, %1150
-  %1165 = phi i32 [ %.pr2581, %1150 ], [ %.pr2588.pre, %1163 ]
+thread-pre-split2588:                             ; preds = %1163, %1150
+  %1165 = phi i32 [ %.pr2583, %1150 ], [ %.pr2589.pre, %1163 ]
   %1166 = icmp eq i32 %1165, 1
-  br i1 %1166, label %.preheader2779.preheader, label %thread-pre-split2590
+  br i1 %1166, label %.preheader2780.preheader, label %thread-pre-split2591
 
-.preheader2779.preheader:                         ; preds = %thread-pre-split2587.thread, %thread-pre-split2587
-  br label %.preheader2779
+.preheader2780.preheader:                         ; preds = %thread-pre-split2588.thread, %thread-pre-split2588
+  br label %.preheader2780
 
-.preheader2779:                                   ; preds = %.preheader2779.preheader, %1187
-  %1167 = phi i1 [ false, %1187 ], [ true, %.preheader2779.preheader ]
-  %indvars.iv4376.sroa.phi = phi ptr [ %.sroa.38, %1187 ], [ %.sroa.0, %.preheader2779.preheader ]
-  %.1833349 = phi i32 [ %1186, %1187 ], [ 1, %.preheader2779.preheader ]
+.preheader2780:                                   ; preds = %.preheader2780.preheader, %1187
+  %1167 = phi i1 [ false, %1187 ], [ true, %.preheader2780.preheader ]
+  %indvars.iv4377.sroa.phi = phi ptr [ %.sroa.38, %1187 ], [ %.sroa.0, %.preheader2780.preheader ]
+  %.1833350 = phi i32 [ %1186, %1187 ], [ 1, %.preheader2780.preheader ]
   br label %1168
 
-1168:                                             ; preds = %.preheader2779, %arkode_butcher_order2.exit2411
-  %1169 = phi i1 [ true, %.preheader2779 ], [ false, %arkode_butcher_order2.exit2411 ]
-  %indvars.iv4373.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2779 ], [ %.sroa.181, %arkode_butcher_order2.exit2411 ]
-  %.1843347 = phi i32 [ %.1833349, %.preheader2779 ], [ %1186, %arkode_butcher_order2.exit2411 ]
-  %.not2209 = icmp eq i32 %.1843347, 0
-  br i1 %.not2209, label %arkode_butcher_order2.exit2411, label %1170
+1168:                                             ; preds = %.preheader2780, %arkode_butcher_order2.exit2414
+  %1169 = phi i1 [ true, %.preheader2780 ], [ false, %arkode_butcher_order2.exit2414 ]
+  %indvars.iv4374.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2780 ], [ %.sroa.181, %arkode_butcher_order2.exit2414 ]
+  %.1843348 = phi i32 [ %.1833350, %.preheader2780 ], [ %1186, %arkode_butcher_order2.exit2414 ]
+  %.not2209 = icmp eq i32 %.1843348, 0
+  br i1 %.not2209, label %arkode_butcher_order2.exit2414, label %1170
 
 1170:                                             ; preds = %1168
-  %1171 = load ptr, ptr %indvars.iv4376.sroa.phi, align 8, !tbaa !12
-  %1172 = load ptr, ptr %indvars.iv4373.sroa.phi, align 8, !tbaa !12
+  %1171 = load ptr, ptr %indvars.iv4377.sroa.phi, align 8, !tbaa !12
+  %1172 = load ptr, ptr %indvars.iv4374.sroa.phi, align 8, !tbaa !12
   %1173 = icmp eq ptr %1171, null
   %1174 = icmp eq ptr %1172, null
-  %or.cond.i.i2404 = or i1 %1173, %1174
-  br i1 %or.cond.i.i2404, label %arkode_butcher_order2.exit2411, label %.preheader3712
+  %or.cond.i.i2407 = or i1 %1173, %1174
+  br i1 %or.cond.i.i2407, label %arkode_butcher_order2.exit2414, label %.preheader3713
 
-.preheader3712:                                   ; preds = %1170, %.preheader3712
-  %indvars.iv.i.i2407 = phi i64 [ %indvars.iv.next.i.i2408, %.preheader3712 ], [ 0, %1170 ]
-  %1175 = phi double [ %1180, %.preheader3712 ], [ 0.000000e+00, %1170 ]
-  %1176 = getelementptr inbounds nuw double, ptr %1171, i64 %indvars.iv.i.i2407
+.preheader3713:                                   ; preds = %1170, %.preheader3713
+  %indvars.iv.i.i2410 = phi i64 [ %indvars.iv.next.i.i2411, %.preheader3713 ], [ 0, %1170 ]
+  %1175 = phi double [ %1180, %.preheader3713 ], [ 0.000000e+00, %1170 ]
+  %1176 = getelementptr inbounds nuw double, ptr %1171, i64 %indvars.iv.i.i2410
   %1177 = load double, ptr %1176, align 8, !tbaa !18
-  %1178 = getelementptr inbounds nuw double, ptr %1172, i64 %indvars.iv.i.i2407
+  %1178 = getelementptr inbounds nuw double, ptr %1172, i64 %indvars.iv.i.i2410
   %1179 = load double, ptr %1178, align 8, !tbaa !18
   %1180 = tail call double @llvm.fmuladd.f64(double %1177, double %1179, double %1175)
-  %indvars.iv.next.i.i2408 = add nuw nsw i64 %indvars.iv.i.i2407, 1
-  %exitcond.not.i.i2409 = icmp eq i64 %indvars.iv.next.i.i2408, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2409, label %1181, label %.preheader3712
+  %indvars.iv.next.i.i2411 = add nuw nsw i64 %indvars.iv.i.i2410, 1
+  %exitcond.not.i.i2412 = icmp eq i64 %indvars.iv.next.i.i2411, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2412, label %1181, label %.preheader3713
 
-1181:                                             ; preds = %.preheader3712
+1181:                                             ; preds = %.preheader3713
   %1182 = fadd double %1180, -5.000000e-01
   %1183 = tail call double @llvm.fabs.f64(double %1182)
   %1184 = fcmp ule double %1183, 0x3E50000000000000
   %1185 = zext i1 %1184 to i32
-  br label %arkode_butcher_order2.exit2411
+  br label %arkode_butcher_order2.exit2414
 
-arkode_butcher_order2.exit2411:                   ; preds = %1181, %1170, %1168
+arkode_butcher_order2.exit2414:                   ; preds = %1181, %1170, %1168
   %1186 = phi i32 [ 0, %1168 ], [ %1185, %1181 ], [ 0, %1170 ]
   br i1 %1169, label %1168, label %1187
 
-1187:                                             ; preds = %arkode_butcher_order2.exit2411
-  br i1 %1167, label %.preheader2779, label %1188
+1187:                                             ; preds = %arkode_butcher_order2.exit2414
+  br i1 %1167, label %.preheader2780, label %1188
 
 1188:                                             ; preds = %1187
   %.not2170 = icmp eq i32 %1186, 0
-  br i1 %.not2170, label %1189, label %.critedge2616
+  br i1 %.not2170, label %1189, label %.critedge2617
 
-.critedge2616:                                    ; preds = %1188
+.critedge2617:                                    ; preds = %1188
   store i32 2, ptr %3, align 4, !tbaa !25
-  br label %.preheader2777.preheader
+  br label %.preheader2778.preheader
 
 1189:                                             ; preds = %1188
-  br i1 %49, label %1190, label %thread-pre-split2594
+  br i1 %49, label %1190, label %thread-pre-split2595
 
 1190:                                             ; preds = %1189
   %1191 = tail call i64 @fwrite(ptr nonnull @.str.126, i64 37, i64 1, ptr nonnull %4)
-  %.pr2591.pre = load i32, ptr %3, align 4, !tbaa !25
-  br label %thread-pre-split2590
+  %.pr2592.pre = load i32, ptr %3, align 4, !tbaa !25
+  br label %thread-pre-split2591
 
-thread-pre-split2590:                             ; preds = %thread-pre-split2587, %1190
-  %.pr2591 = phi i32 [ %1165, %thread-pre-split2587 ], [ %.pr2591.pre, %1190 ]
-  %1192 = icmp eq i32 %.pr2591, 2
-  br i1 %1192, label %.preheader2777.preheader, label %thread-pre-split2594
+thread-pre-split2591:                             ; preds = %thread-pre-split2588, %1190
+  %.pr2592 = phi i32 [ %1165, %thread-pre-split2588 ], [ %.pr2592.pre, %1190 ]
+  %1192 = icmp eq i32 %.pr2592, 2
+  br i1 %1192, label %.preheader2778.preheader, label %thread-pre-split2595
 
-.preheader2777.preheader:                         ; preds = %thread-pre-split2590, %.critedge2616
+.preheader2778.preheader:                         ; preds = %thread-pre-split2591, %.critedge2617
+  br label %.preheader2778
+
+.preheader2778:                                   ; preds = %.preheader2778.preheader, %1226
+  %1193 = phi i1 [ false, %1226 ], [ true, %.preheader2778.preheader ]
+  %indvars.iv4386.sroa.phi = phi ptr [ %.sroa.38, %1226 ], [ %.sroa.0, %.preheader2778.preheader ]
+  %.1853356 = phi i32 [ %1224, %1226 ], [ 1, %.preheader2778.preheader ]
   br label %.preheader2777
 
-.preheader2777:                                   ; preds = %.preheader2777.preheader, %1226
-  %1193 = phi i1 [ false, %1226 ], [ true, %.preheader2777.preheader ]
-  %indvars.iv4385.sroa.phi = phi ptr [ %.sroa.38, %1226 ], [ %.sroa.0, %.preheader2777.preheader ]
-  %.1853355 = phi i32 [ %1224, %1226 ], [ 1, %.preheader2777.preheader ]
-  br label %.preheader2776
-
-.preheader2776:                                   ; preds = %.preheader2777, %1225
-  %1194 = phi i1 [ true, %.preheader2777 ], [ false, %1225 ]
-  %indvars.iv4382.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2777 ], [ %.sroa.181, %1225 ]
-  %.1863353 = phi i32 [ %.1853355, %.preheader2777 ], [ %1224, %1225 ]
+.preheader2777:                                   ; preds = %.preheader2778, %1225
+  %1194 = phi i1 [ true, %.preheader2778 ], [ false, %1225 ]
+  %indvars.iv4383.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2778 ], [ %.sroa.181, %1225 ]
+  %.1863354 = phi i32 [ %.1853356, %.preheader2778 ], [ %1224, %1225 ]
   br label %1195
 
-1195:                                             ; preds = %.preheader2776, %arkode_butcher_order3a.exit2426
-  %1196 = phi i1 [ true, %.preheader2776 ], [ false, %arkode_butcher_order3a.exit2426 ]
-  %indvars.iv4379.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2776 ], [ %.sroa.181, %arkode_butcher_order3a.exit2426 ]
-  %.1873351 = phi i32 [ %.1863353, %.preheader2776 ], [ %1224, %arkode_butcher_order3a.exit2426 ]
-  %.not2208 = icmp eq i32 %.1873351, 0
-  br i1 %.not2208, label %arkode_butcher_order3a.exit2426, label %1197
+1195:                                             ; preds = %.preheader2777, %arkode_butcher_order3a.exit2429
+  %1196 = phi i1 [ true, %.preheader2777 ], [ false, %arkode_butcher_order3a.exit2429 ]
+  %indvars.iv4380.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2777 ], [ %.sroa.181, %arkode_butcher_order3a.exit2429 ]
+  %.1873352 = phi i32 [ %.1863354, %.preheader2777 ], [ %1224, %arkode_butcher_order3a.exit2429 ]
+  %.not2208 = icmp eq i32 %.1873352, 0
+  br i1 %.not2208, label %arkode_butcher_order3a.exit2429, label %1197
 
 1197:                                             ; preds = %1195
-  %1198 = load ptr, ptr %indvars.iv4385.sroa.phi, align 8, !tbaa !12
-  %1199 = load ptr, ptr %indvars.iv4382.sroa.phi, align 8, !tbaa !12
-  %1200 = load ptr, ptr %indvars.iv4379.sroa.phi, align 8, !tbaa !12
+  %1198 = load ptr, ptr %indvars.iv4386.sroa.phi, align 8, !tbaa !12
+  %1199 = load ptr, ptr %indvars.iv4383.sroa.phi, align 8, !tbaa !12
+  %1200 = load ptr, ptr %indvars.iv4380.sroa.phi, align 8, !tbaa !12
   %1201 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %1202 = icmp eq ptr %1199, null
   %1203 = icmp eq ptr %1200, null
-  %or.cond.i.i2412 = or i1 %1202, %1203
+  %or.cond.i.i2415 = or i1 %1202, %1203
   %1204 = icmp eq ptr %1201, null
-  %or.cond3.i.i2413 = or i1 %or.cond.i.i2412, %1204
-  br i1 %or.cond3.i.i2413, label %arkode_butcher_vv.exit.i2425, label %.preheader.i.i2417
+  %or.cond3.i.i2416 = or i1 %or.cond.i.i2415, %1204
+  br i1 %or.cond3.i.i2416, label %arkode_butcher_vv.exit.i2428, label %.preheader.i.i2420
 
-.preheader.i.i2417:                               ; preds = %1197, %.preheader.i.i2417
-  %indvars.iv.i.i2418 = phi i64 [ %indvars.iv.next.i.i2419, %.preheader.i.i2417 ], [ 0, %1197 ]
-  %1205 = getelementptr inbounds nuw double, ptr %1199, i64 %indvars.iv.i.i2418
+.preheader.i.i2420:                               ; preds = %1197, %.preheader.i.i2420
+  %indvars.iv.i.i2421 = phi i64 [ %indvars.iv.next.i.i2422, %.preheader.i.i2420 ], [ 0, %1197 ]
+  %1205 = getelementptr inbounds nuw double, ptr %1199, i64 %indvars.iv.i.i2421
   %1206 = load double, ptr %1205, align 8, !tbaa !18
-  %1207 = getelementptr inbounds nuw double, ptr %1200, i64 %indvars.iv.i.i2418
+  %1207 = getelementptr inbounds nuw double, ptr %1200, i64 %indvars.iv.i.i2421
   %1208 = load double, ptr %1207, align 8, !tbaa !18
   %1209 = fmul double %1206, %1208
-  %1210 = getelementptr inbounds nuw double, ptr %1201, i64 %indvars.iv.i.i2418
+  %1210 = getelementptr inbounds nuw double, ptr %1201, i64 %indvars.iv.i.i2421
   store double %1209, ptr %1210, align 8, !tbaa !18
-  %indvars.iv.next.i.i2419 = add nuw nsw i64 %indvars.iv.i.i2418, 1
-  %exitcond.not.i.i2420 = icmp eq i64 %indvars.iv.next.i.i2419, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2420, label %1211, label %.preheader.i.i2417
+  %indvars.iv.next.i.i2422 = add nuw nsw i64 %indvars.iv.i.i2421, 1
+  %exitcond.not.i.i2423 = icmp eq i64 %indvars.iv.next.i.i2422, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2423, label %1211, label %.preheader.i.i2420
 
-arkode_butcher_vv.exit.i2425:                     ; preds = %1197
+arkode_butcher_vv.exit.i2428:                     ; preds = %1197
   tail call void @free(ptr noundef %1201) #17
-  br label %arkode_butcher_order3a.exit2426
+  br label %arkode_butcher_order3a.exit2429
 
-1211:                                             ; preds = %.preheader.i.i2417
+1211:                                             ; preds = %.preheader.i.i2420
   %1212 = icmp eq ptr %1198, null
-  br i1 %1212, label %arkode_butcher_order3a.exit2426, label %.preheader2775
+  br i1 %1212, label %arkode_butcher_order3a.exit2429, label %.preheader2776
 
-.preheader2775:                                   ; preds = %1211, %.preheader2775
-  %indvars.iv.i14.i2421 = phi i64 [ %indvars.iv.next.i15.i2422, %.preheader2775 ], [ 0, %1211 ]
-  %1213 = phi double [ %1218, %.preheader2775 ], [ 0.000000e+00, %1211 ]
-  %1214 = getelementptr inbounds nuw double, ptr %1198, i64 %indvars.iv.i14.i2421
+.preheader2776:                                   ; preds = %1211, %.preheader2776
+  %indvars.iv.i14.i2424 = phi i64 [ %indvars.iv.next.i15.i2425, %.preheader2776 ], [ 0, %1211 ]
+  %1213 = phi double [ %1218, %.preheader2776 ], [ 0.000000e+00, %1211 ]
+  %1214 = getelementptr inbounds nuw double, ptr %1198, i64 %indvars.iv.i14.i2424
   %1215 = load double, ptr %1214, align 8, !tbaa !18
-  %1216 = getelementptr inbounds nuw double, ptr %1201, i64 %indvars.iv.i14.i2421
+  %1216 = getelementptr inbounds nuw double, ptr %1201, i64 %indvars.iv.i14.i2424
   %1217 = load double, ptr %1216, align 8, !tbaa !18
   %1218 = tail call double @llvm.fmuladd.f64(double %1215, double %1217, double %1213)
-  %indvars.iv.next.i15.i2422 = add nuw nsw i64 %indvars.iv.i14.i2421, 1
-  %exitcond.not.i16.i2423 = icmp eq i64 %indvars.iv.next.i15.i2422, %wide.trip.count29.i
-  br i1 %exitcond.not.i16.i2423, label %1219, label %.preheader2775
+  %indvars.iv.next.i15.i2425 = add nuw nsw i64 %indvars.iv.i14.i2424, 1
+  %exitcond.not.i16.i2426 = icmp eq i64 %indvars.iv.next.i15.i2425, %wide.trip.count29.i
+  br i1 %exitcond.not.i16.i2426, label %1219, label %.preheader2776
 
-1219:                                             ; preds = %.preheader2775
+1219:                                             ; preds = %.preheader2776
   tail call void @free(ptr noundef nonnull %1201) #17
   %1220 = fadd double %1218, 0xBFD5555555555555
   %1221 = tail call double @llvm.fabs.f64(double %1220)
   %1222 = fcmp ule double %1221, 0x3E50000000000000
   %1223 = zext i1 %1222 to i32
-  br label %arkode_butcher_order3a.exit2426
+  br label %arkode_butcher_order3a.exit2429
 
-arkode_butcher_order3a.exit2426:                  ; preds = %1219, %1211, %arkode_butcher_vv.exit.i2425, %1195
-  %1224 = phi i32 [ 0, %1195 ], [ 0, %arkode_butcher_vv.exit.i2425 ], [ %1223, %1219 ], [ 0, %1211 ]
+arkode_butcher_order3a.exit2429:                  ; preds = %1219, %1211, %arkode_butcher_vv.exit.i2428, %1195
+  %1224 = phi i32 [ 0, %1195 ], [ 0, %arkode_butcher_vv.exit.i2428 ], [ %1223, %1219 ], [ 0, %1211 ]
   br i1 %1196, label %1195, label %1225
 
-1225:                                             ; preds = %arkode_butcher_order3a.exit2426
-  br i1 %1194, label %.preheader2776, label %1226
+1225:                                             ; preds = %arkode_butcher_order3a.exit2429
+  br i1 %1194, label %.preheader2777, label %1226
 
 1226:                                             ; preds = %1225
-  br i1 %1193, label %.preheader2777, label %1227
+  br i1 %1193, label %.preheader2778, label %1227
 
 1227:                                             ; preds = %1226
   %1228 = icmp eq i32 %1224, 0
   %or.cond72 = and i1 %49, %1228
-  br i1 %or.cond72, label %1229, label %.preheader2774.preheader
+  br i1 %or.cond72, label %1229, label %.preheader2775.preheader
 
 1229:                                             ; preds = %1227
   %1230 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2774.preheader
+  br label %.preheader2775.preheader
 
-.preheader2774.preheader:                         ; preds = %1229, %1227
+.preheader2775.preheader:                         ; preds = %1229, %1227
+  br label %.preheader2775
+
+.preheader2775:                                   ; preds = %.preheader2775.preheader, %1268
+  %1231 = phi i1 [ false, %1268 ], [ true, %.preheader2775.preheader ]
+  %indvars.iv4395.sroa.phi = phi ptr [ %.sroa.38, %1268 ], [ %.sroa.0, %.preheader2775.preheader ]
+  %.1883362 = phi i32 [ %1266, %1268 ], [ %1224, %.preheader2775.preheader ]
   br label %.preheader2774
 
-.preheader2774:                                   ; preds = %.preheader2774.preheader, %1268
-  %1231 = phi i1 [ false, %1268 ], [ true, %.preheader2774.preheader ]
-  %indvars.iv4394.sroa.phi = phi ptr [ %.sroa.38, %1268 ], [ %.sroa.0, %.preheader2774.preheader ]
-  %.1883361 = phi i32 [ %1266, %1268 ], [ %1224, %.preheader2774.preheader ]
-  br label %.preheader2773
-
-.preheader2773:                                   ; preds = %.preheader2774, %1267
-  %1232 = phi i1 [ true, %.preheader2774 ], [ false, %1267 ]
-  %indvars.iv4391.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2774 ], [ %.sroa.121, %1267 ]
-  %.1893359 = phi i32 [ %.1883361, %.preheader2774 ], [ %1266, %1267 ]
+.preheader2774:                                   ; preds = %.preheader2775, %1267
+  %1232 = phi i1 [ true, %.preheader2775 ], [ false, %1267 ]
+  %indvars.iv4392.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2775 ], [ %.sroa.121, %1267 ]
+  %.1893360 = phi i32 [ %.1883362, %.preheader2775 ], [ %1266, %1267 ]
   br label %1233
 
-1233:                                             ; preds = %.preheader2773, %arkode_butcher_order3b.exit2445
-  %1234 = phi i1 [ true, %.preheader2773 ], [ false, %arkode_butcher_order3b.exit2445 ]
-  %indvars.iv4388.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2773 ], [ %.sroa.181, %arkode_butcher_order3b.exit2445 ]
-  %.1903357 = phi i32 [ %.1893359, %.preheader2773 ], [ %1266, %arkode_butcher_order3b.exit2445 ]
-  %.not2207 = icmp eq i32 %.1903357, 0
-  br i1 %.not2207, label %arkode_butcher_order3b.exit2445, label %1235
+1233:                                             ; preds = %.preheader2774, %arkode_butcher_order3b.exit2448
+  %1234 = phi i1 [ true, %.preheader2774 ], [ false, %arkode_butcher_order3b.exit2448 ]
+  %indvars.iv4389.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2774 ], [ %.sroa.181, %arkode_butcher_order3b.exit2448 ]
+  %.1903358 = phi i32 [ %.1893360, %.preheader2774 ], [ %1266, %arkode_butcher_order3b.exit2448 ]
+  %.not2207 = icmp eq i32 %.1903358, 0
+  br i1 %.not2207, label %arkode_butcher_order3b.exit2448, label %1235
 
 1235:                                             ; preds = %1233
-  %1236 = load ptr, ptr %indvars.iv4394.sroa.phi, align 8, !tbaa !12
-  %1237 = load ptr, ptr %indvars.iv4391.sroa.phi, align 8, !tbaa !31
-  %1238 = load ptr, ptr %indvars.iv4388.sroa.phi, align 8, !tbaa !12
+  %1236 = load ptr, ptr %indvars.iv4395.sroa.phi, align 8, !tbaa !12
+  %1237 = load ptr, ptr %indvars.iv4392.sroa.phi, align 8, !tbaa !31
+  %1238 = load ptr, ptr %indvars.iv4389.sroa.phi, align 8, !tbaa !12
   %1239 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %1240 = icmp eq ptr %1237, null
   %1241 = icmp eq ptr %1238, null
-  %or.cond.i.i2427 = or i1 %1240, %1241
+  %or.cond.i.i2430 = or i1 %1240, %1241
   %1242 = icmp eq ptr %1239, null
-  %or.cond3.i.i2428 = or i1 %or.cond.i.i2427, %1242
-  br i1 %or.cond3.i.i2428, label %arkode_butcher_mv.exit.i2444, label %.preheader.us.i.i2431
+  %or.cond3.i.i2431 = or i1 %or.cond.i.i2430, %1242
+  br i1 %or.cond3.i.i2431, label %arkode_butcher_mv.exit.i2447, label %.preheader.us.i.i2434
 
-.preheader.us.i.i2431:                            ; preds = %1235, %._crit_edge.us.i.i2437
-  %indvars.iv40.i.i2432 = phi i64 [ %indvars.iv.next41.i.i2438, %._crit_edge.us.i.i2437 ], [ 0, %1235 ]
-  %1243 = getelementptr inbounds nuw ptr, ptr %1237, i64 %indvars.iv40.i.i2432
+.preheader.us.i.i2434:                            ; preds = %1235, %._crit_edge.us.i.i2440
+  %indvars.iv40.i.i2435 = phi i64 [ %indvars.iv.next41.i.i2441, %._crit_edge.us.i.i2440 ], [ 0, %1235 ]
+  %1243 = getelementptr inbounds nuw ptr, ptr %1237, i64 %indvars.iv40.i.i2435
   %1244 = load ptr, ptr %1243, align 8, !tbaa !12
-  %1245 = getelementptr inbounds nuw double, ptr %1239, i64 %indvars.iv40.i.i2432
-  %.promoted.us.i.i2433 = load double, ptr %1245, align 8, !tbaa !18
+  %1245 = getelementptr inbounds nuw double, ptr %1239, i64 %indvars.iv40.i.i2435
+  %.promoted.us.i.i2436 = load double, ptr %1245, align 8, !tbaa !18
   br label %1246
 
-1246:                                             ; preds = %1246, %.preheader.us.i.i2431
-  %indvars.iv.i.i2434 = phi i64 [ 0, %.preheader.us.i.i2431 ], [ %indvars.iv.next.i.i2435, %1246 ]
-  %1247 = phi double [ %.promoted.us.i.i2433, %.preheader.us.i.i2431 ], [ %1252, %1246 ]
-  %1248 = getelementptr inbounds nuw double, ptr %1244, i64 %indvars.iv.i.i2434
+1246:                                             ; preds = %1246, %.preheader.us.i.i2434
+  %indvars.iv.i.i2437 = phi i64 [ 0, %.preheader.us.i.i2434 ], [ %indvars.iv.next.i.i2438, %1246 ]
+  %1247 = phi double [ %.promoted.us.i.i2436, %.preheader.us.i.i2434 ], [ %1252, %1246 ]
+  %1248 = getelementptr inbounds nuw double, ptr %1244, i64 %indvars.iv.i.i2437
   %1249 = load double, ptr %1248, align 8, !tbaa !18
-  %1250 = getelementptr inbounds nuw double, ptr %1238, i64 %indvars.iv.i.i2434
+  %1250 = getelementptr inbounds nuw double, ptr %1238, i64 %indvars.iv.i.i2437
   %1251 = load double, ptr %1250, align 8, !tbaa !18
   %1252 = tail call double @llvm.fmuladd.f64(double %1249, double %1251, double %1247)
-  %indvars.iv.next.i.i2435 = add nuw nsw i64 %indvars.iv.i.i2434, 1
-  %exitcond.not.i.i2436 = icmp eq i64 %indvars.iv.next.i.i2435, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2436, label %._crit_edge.us.i.i2437, label %1246
+  %indvars.iv.next.i.i2438 = add nuw nsw i64 %indvars.iv.i.i2437, 1
+  %exitcond.not.i.i2439 = icmp eq i64 %indvars.iv.next.i.i2438, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2439, label %._crit_edge.us.i.i2440, label %1246
 
-._crit_edge.us.i.i2437:                           ; preds = %1246
+._crit_edge.us.i.i2440:                           ; preds = %1246
   store double %1252, ptr %1245, align 8, !tbaa !18
-  %indvars.iv.next41.i.i2438 = add nuw nsw i64 %indvars.iv40.i.i2432, 1
-  %exitcond44.not.i.i2439 = icmp eq i64 %indvars.iv.next41.i.i2438, %wide.trip.count29.i
-  br i1 %exitcond44.not.i.i2439, label %1253, label %.preheader.us.i.i2431, !llvm.loop !27
+  %indvars.iv.next41.i.i2441 = add nuw nsw i64 %indvars.iv40.i.i2435, 1
+  %exitcond44.not.i.i2442 = icmp eq i64 %indvars.iv.next41.i.i2441, %wide.trip.count29.i
+  br i1 %exitcond44.not.i.i2442, label %1253, label %.preheader.us.i.i2434, !llvm.loop !27
 
-arkode_butcher_mv.exit.i2444:                     ; preds = %1235
+arkode_butcher_mv.exit.i2447:                     ; preds = %1235
   tail call void @free(ptr noundef %1239) #17
-  br label %arkode_butcher_order3b.exit2445
+  br label %arkode_butcher_order3b.exit2448
 
-1253:                                             ; preds = %._crit_edge.us.i.i2437
+1253:                                             ; preds = %._crit_edge.us.i.i2440
   %1254 = icmp eq ptr %1236, null
-  br i1 %1254, label %arkode_butcher_order3b.exit2445, label %.preheader2772
+  br i1 %1254, label %arkode_butcher_order3b.exit2448, label %.preheader2773
 
-.preheader2772:                                   ; preds = %1253, %.preheader2772
-  %indvars.iv.i13.i2440 = phi i64 [ %indvars.iv.next.i14.i2441, %.preheader2772 ], [ 0, %1253 ]
-  %1255 = phi double [ %1260, %.preheader2772 ], [ 0.000000e+00, %1253 ]
-  %1256 = getelementptr inbounds nuw double, ptr %1236, i64 %indvars.iv.i13.i2440
+.preheader2773:                                   ; preds = %1253, %.preheader2773
+  %indvars.iv.i13.i2443 = phi i64 [ %indvars.iv.next.i14.i2444, %.preheader2773 ], [ 0, %1253 ]
+  %1255 = phi double [ %1260, %.preheader2773 ], [ 0.000000e+00, %1253 ]
+  %1256 = getelementptr inbounds nuw double, ptr %1236, i64 %indvars.iv.i13.i2443
   %1257 = load double, ptr %1256, align 8, !tbaa !18
-  %1258 = getelementptr inbounds nuw double, ptr %1239, i64 %indvars.iv.i13.i2440
+  %1258 = getelementptr inbounds nuw double, ptr %1239, i64 %indvars.iv.i13.i2443
   %1259 = load double, ptr %1258, align 8, !tbaa !18
   %1260 = tail call double @llvm.fmuladd.f64(double %1257, double %1259, double %1255)
-  %indvars.iv.next.i14.i2441 = add nuw nsw i64 %indvars.iv.i13.i2440, 1
-  %exitcond.not.i15.i2442 = icmp eq i64 %indvars.iv.next.i14.i2441, %wide.trip.count29.i
-  br i1 %exitcond.not.i15.i2442, label %1261, label %.preheader2772
+  %indvars.iv.next.i14.i2444 = add nuw nsw i64 %indvars.iv.i13.i2443, 1
+  %exitcond.not.i15.i2445 = icmp eq i64 %indvars.iv.next.i14.i2444, %wide.trip.count29.i
+  br i1 %exitcond.not.i15.i2445, label %1261, label %.preheader2773
 
-1261:                                             ; preds = %.preheader2772
+1261:                                             ; preds = %.preheader2773
   tail call void @free(ptr noundef nonnull %1239) #17
   %1262 = fadd double %1260, 0xBFC5555555555555
   %1263 = tail call double @llvm.fabs.f64(double %1262)
   %1264 = fcmp ule double %1263, 0x3E50000000000000
   %1265 = zext i1 %1264 to i32
-  br label %arkode_butcher_order3b.exit2445
+  br label %arkode_butcher_order3b.exit2448
 
-arkode_butcher_order3b.exit2445:                  ; preds = %1261, %1253, %arkode_butcher_mv.exit.i2444, %1233
-  %1266 = phi i32 [ 0, %1233 ], [ 0, %arkode_butcher_mv.exit.i2444 ], [ %1265, %1261 ], [ 0, %1253 ]
+arkode_butcher_order3b.exit2448:                  ; preds = %1261, %1253, %arkode_butcher_mv.exit.i2447, %1233
+  %1266 = phi i32 [ 0, %1233 ], [ 0, %arkode_butcher_mv.exit.i2447 ], [ %1265, %1261 ], [ 0, %1253 ]
   br i1 %1234, label %1233, label %1267
 
-1267:                                             ; preds = %arkode_butcher_order3b.exit2445
-  br i1 %1232, label %.preheader2773, label %1268
+1267:                                             ; preds = %arkode_butcher_order3b.exit2448
+  br i1 %1232, label %.preheader2774, label %1268
 
 1268:                                             ; preds = %1267
-  br i1 %1231, label %.preheader2774, label %1269
+  br i1 %1231, label %.preheader2775, label %1269
 
 1269:                                             ; preds = %1268
   %1270 = icmp eq i32 %1266, 0
   %or.cond74 = and i1 %49, %1270
-  br i1 %or.cond74, label %.thread2593, label %1272
+  br i1 %or.cond74, label %.thread2594, label %1272
 
-.thread2593:                                      ; preds = %1269
+.thread2594:                                      ; preds = %1269
   %1271 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 39, i64 1, ptr nonnull %4)
-  br label %thread-pre-split2594
+  br label %thread-pre-split2595
 
 1272:                                             ; preds = %1269
-  br i1 %1270, label %thread-pre-split2594, label %.critedge2618
+  br i1 %1270, label %thread-pre-split2595, label %.critedge2619
 
-.critedge2618:                                    ; preds = %1272
+.critedge2619:                                    ; preds = %1272
   store i32 3, ptr %3, align 4, !tbaa !25
-  br label %.preheader2770.preheader
+  br label %.preheader2771.preheader
 
-thread-pre-split2594:                             ; preds = %arkode_butcher_order1.exit2394.thread, %1189, %thread-pre-split2590, %1272, %.thread2593
-  %.pr2595 = load i32, ptr %3, align 4, !tbaa !25
-  %1273 = icmp eq i32 %.pr2595, 3
-  br i1 %1273, label %.preheader2770.preheader, label %thread-pre-split2598
+thread-pre-split2595:                             ; preds = %arkode_butcher_order1.exit2396.thread, %1189, %thread-pre-split2591, %1272, %.thread2594
+  %.pr2596 = load i32, ptr %3, align 4, !tbaa !25
+  %1273 = icmp eq i32 %.pr2596, 3
+  br i1 %1273, label %.preheader2771.preheader, label %thread-pre-split2599
 
-.preheader2770.preheader:                         ; preds = %thread-pre-split2594, %.critedge2618
+.preheader2771.preheader:                         ; preds = %thread-pre-split2595, %.critedge2619
+  br label %.preheader2771
+
+.preheader2771:                                   ; preds = %.preheader2771.preheader, %1320
+  %1274 = phi i1 [ false, %1320 ], [ true, %.preheader2771.preheader ]
+  %indvars.iv4407.sroa.phi = phi ptr [ %.sroa.38, %1320 ], [ %.sroa.0, %.preheader2771.preheader ]
+  %.1913370 = phi i32 [ %1317, %1320 ], [ 1, %.preheader2771.preheader ]
   br label %.preheader2770
 
-.preheader2770:                                   ; preds = %.preheader2770.preheader, %1320
-  %1274 = phi i1 [ false, %1320 ], [ true, %.preheader2770.preheader ]
-  %indvars.iv4406.sroa.phi = phi ptr [ %.sroa.38, %1320 ], [ %.sroa.0, %.preheader2770.preheader ]
-  %.1913369 = phi i32 [ %1317, %1320 ], [ 1, %.preheader2770.preheader ]
+.preheader2770:                                   ; preds = %.preheader2771, %1319
+  %1275 = phi i1 [ true, %.preheader2771 ], [ false, %1319 ]
+  %indvars.iv4404.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2771 ], [ %.sroa.181, %1319 ]
+  %.1923368 = phi i32 [ %.1913370, %.preheader2771 ], [ %1317, %1319 ]
   br label %.preheader2769
 
-.preheader2769:                                   ; preds = %.preheader2770, %1319
-  %1275 = phi i1 [ true, %.preheader2770 ], [ false, %1319 ]
-  %indvars.iv4403.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2770 ], [ %.sroa.181, %1319 ]
-  %.1923367 = phi i32 [ %.1913369, %.preheader2770 ], [ %1317, %1319 ]
-  br label %.preheader2768
-
-.preheader2768:                                   ; preds = %.preheader2769, %1318
-  %1276 = phi i1 [ true, %.preheader2769 ], [ false, %1318 ]
-  %indvars.iv4400.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2769 ], [ %.sroa.181, %1318 ]
-  %.1933365 = phi i32 [ %.1923367, %.preheader2769 ], [ %1317, %1318 ]
+.preheader2769:                                   ; preds = %.preheader2770, %1318
+  %1276 = phi i1 [ true, %.preheader2770 ], [ false, %1318 ]
+  %indvars.iv4401.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2770 ], [ %.sroa.181, %1318 ]
+  %.1933366 = phi i32 [ %.1923368, %.preheader2770 ], [ %1317, %1318 ]
   br label %1277
 
-1277:                                             ; preds = %.preheader2768, %arkode_butcher_order4a.exit2466
-  %1278 = phi i1 [ true, %.preheader2768 ], [ false, %arkode_butcher_order4a.exit2466 ]
-  %indvars.iv4397.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2768 ], [ %.sroa.181, %arkode_butcher_order4a.exit2466 ]
-  %.1943363 = phi i32 [ %.1933365, %.preheader2768 ], [ %1317, %arkode_butcher_order4a.exit2466 ]
-  %.not2206 = icmp eq i32 %.1943363, 0
-  br i1 %.not2206, label %arkode_butcher_order4a.exit2466, label %1279
+1277:                                             ; preds = %.preheader2769, %arkode_butcher_order4a.exit2469
+  %1278 = phi i1 [ true, %.preheader2769 ], [ false, %arkode_butcher_order4a.exit2469 ]
+  %indvars.iv4398.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2769 ], [ %.sroa.181, %arkode_butcher_order4a.exit2469 ]
+  %.1943364 = phi i32 [ %.1933366, %.preheader2769 ], [ %1317, %arkode_butcher_order4a.exit2469 ]
+  %.not2206 = icmp eq i32 %.1943364, 0
+  br i1 %.not2206, label %arkode_butcher_order4a.exit2469, label %1279
 
 1279:                                             ; preds = %1277
-  %1280 = load ptr, ptr %indvars.iv4406.sroa.phi, align 8, !tbaa !12
-  %1281 = load ptr, ptr %indvars.iv4403.sroa.phi, align 8, !tbaa !12
-  %1282 = load ptr, ptr %indvars.iv4400.sroa.phi, align 8, !tbaa !12
-  %1283 = load ptr, ptr %indvars.iv4397.sroa.phi, align 8, !tbaa !12
+  %1280 = load ptr, ptr %indvars.iv4407.sroa.phi, align 8, !tbaa !12
+  %1281 = load ptr, ptr %indvars.iv4404.sroa.phi, align 8, !tbaa !12
+  %1282 = load ptr, ptr %indvars.iv4401.sroa.phi, align 8, !tbaa !12
+  %1283 = load ptr, ptr %indvars.iv4398.sroa.phi, align 8, !tbaa !12
   %1284 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %1285 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %1286 = icmp eq ptr %1281, null
   %1287 = icmp eq ptr %1282, null
-  %or.cond.i.i2446 = or i1 %1286, %1287
+  %or.cond.i.i2449 = or i1 %1286, %1287
   %1288 = icmp eq ptr %1284, null
-  %or.cond3.i.i2447 = or i1 %or.cond.i.i2446, %1288
-  br i1 %or.cond3.i.i2447, label %arkode_butcher_vv.exit.i2465, label %.preheader.i.i2451
+  %or.cond3.i.i2450 = or i1 %or.cond.i.i2449, %1288
+  br i1 %or.cond3.i.i2450, label %arkode_butcher_vv.exit.i2468, label %.preheader.i.i2454
 
-.preheader.i.i2451:                               ; preds = %1279, %.preheader.i.i2451
-  %indvars.iv.i.i2452 = phi i64 [ %indvars.iv.next.i.i2453, %.preheader.i.i2451 ], [ 0, %1279 ]
-  %1289 = getelementptr inbounds nuw double, ptr %1281, i64 %indvars.iv.i.i2452
+.preheader.i.i2454:                               ; preds = %1279, %.preheader.i.i2454
+  %indvars.iv.i.i2455 = phi i64 [ %indvars.iv.next.i.i2456, %.preheader.i.i2454 ], [ 0, %1279 ]
+  %1289 = getelementptr inbounds nuw double, ptr %1281, i64 %indvars.iv.i.i2455
   %1290 = load double, ptr %1289, align 8, !tbaa !18
-  %1291 = getelementptr inbounds nuw double, ptr %1282, i64 %indvars.iv.i.i2452
+  %1291 = getelementptr inbounds nuw double, ptr %1282, i64 %indvars.iv.i.i2455
   %1292 = load double, ptr %1291, align 8, !tbaa !18
   %1293 = fmul double %1290, %1292
-  %1294 = getelementptr inbounds nuw double, ptr %1284, i64 %indvars.iv.i.i2452
+  %1294 = getelementptr inbounds nuw double, ptr %1284, i64 %indvars.iv.i.i2455
   store double %1293, ptr %1294, align 8, !tbaa !18
-  %indvars.iv.next.i.i2453 = add nuw nsw i64 %indvars.iv.i.i2452, 1
-  %exitcond.not.i.i2454 = icmp eq i64 %indvars.iv.next.i.i2453, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2454, label %1295, label %.preheader.i.i2451
+  %indvars.iv.next.i.i2456 = add nuw nsw i64 %indvars.iv.i.i2455, 1
+  %exitcond.not.i.i2457 = icmp eq i64 %indvars.iv.next.i.i2456, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2457, label %1295, label %.preheader.i.i2454
 
-arkode_butcher_vv.exit.i2465:                     ; preds = %1279
+arkode_butcher_vv.exit.i2468:                     ; preds = %1279
   tail call void @free(ptr noundef %1284) #17
   tail call void @free(ptr noundef %1285) #17
-  br label %arkode_butcher_order4a.exit2466
+  br label %arkode_butcher_order4a.exit2469
 
-1295:                                             ; preds = %.preheader.i.i2451
+1295:                                             ; preds = %.preheader.i.i2454
   %1296 = icmp eq ptr %1283, null
   %1297 = icmp eq ptr %1285, null
-  %or.cond3.i22.i2455 = or i1 %1296, %1297
-  br i1 %or.cond3.i22.i2455, label %arkode_butcher_vv.exit31.i2464, label %.preheader.i26.i2456
+  %or.cond3.i22.i2458 = or i1 %1296, %1297
+  br i1 %or.cond3.i22.i2458, label %arkode_butcher_vv.exit31.i2467, label %.preheader.i26.i2459
 
-.preheader.i26.i2456:                             ; preds = %1295, %.preheader.i26.i2456
-  %indvars.iv.i27.i2457 = phi i64 [ %indvars.iv.next.i28.i2458, %.preheader.i26.i2456 ], [ 0, %1295 ]
-  %1298 = getelementptr inbounds nuw double, ptr %1283, i64 %indvars.iv.i27.i2457
+.preheader.i26.i2459:                             ; preds = %1295, %.preheader.i26.i2459
+  %indvars.iv.i27.i2460 = phi i64 [ %indvars.iv.next.i28.i2461, %.preheader.i26.i2459 ], [ 0, %1295 ]
+  %1298 = getelementptr inbounds nuw double, ptr %1283, i64 %indvars.iv.i27.i2460
   %1299 = load double, ptr %1298, align 8, !tbaa !18
-  %1300 = getelementptr inbounds nuw double, ptr %1284, i64 %indvars.iv.i27.i2457
+  %1300 = getelementptr inbounds nuw double, ptr %1284, i64 %indvars.iv.i27.i2460
   %1301 = load double, ptr %1300, align 8, !tbaa !18
   %1302 = fmul double %1299, %1301
-  %1303 = getelementptr inbounds nuw double, ptr %1285, i64 %indvars.iv.i27.i2457
+  %1303 = getelementptr inbounds nuw double, ptr %1285, i64 %indvars.iv.i27.i2460
   store double %1302, ptr %1303, align 8, !tbaa !18
-  %indvars.iv.next.i28.i2458 = add nuw nsw i64 %indvars.iv.i27.i2457, 1
-  %exitcond.not.i29.i2459 = icmp eq i64 %indvars.iv.next.i28.i2458, %wide.trip.count29.i
-  br i1 %exitcond.not.i29.i2459, label %1304, label %.preheader.i26.i2456
+  %indvars.iv.next.i28.i2461 = add nuw nsw i64 %indvars.iv.i27.i2460, 1
+  %exitcond.not.i29.i2462 = icmp eq i64 %indvars.iv.next.i28.i2461, %wide.trip.count29.i
+  br i1 %exitcond.not.i29.i2462, label %1304, label %.preheader.i26.i2459
 
-arkode_butcher_vv.exit31.i2464:                   ; preds = %1295
+arkode_butcher_vv.exit31.i2467:                   ; preds = %1295
   tail call void @free(ptr noundef nonnull %1284) #17
   tail call void @free(ptr noundef %1285) #17
-  br label %arkode_butcher_order4a.exit2466
+  br label %arkode_butcher_order4a.exit2469
 
-1304:                                             ; preds = %.preheader.i26.i2456
+1304:                                             ; preds = %.preheader.i26.i2459
   %1305 = icmp eq ptr %1280, null
-  br i1 %1305, label %arkode_butcher_order4a.exit2466, label %.preheader2767
+  br i1 %1305, label %arkode_butcher_order4a.exit2469, label %.preheader2768
 
-.preheader2767:                                   ; preds = %1304, %.preheader2767
-  %indvars.iv.i35.i2460 = phi i64 [ %indvars.iv.next.i36.i2461, %.preheader2767 ], [ 0, %1304 ]
-  %1306 = phi double [ %1311, %.preheader2767 ], [ 0.000000e+00, %1304 ]
-  %1307 = getelementptr inbounds nuw double, ptr %1280, i64 %indvars.iv.i35.i2460
+.preheader2768:                                   ; preds = %1304, %.preheader2768
+  %indvars.iv.i35.i2463 = phi i64 [ %indvars.iv.next.i36.i2464, %.preheader2768 ], [ 0, %1304 ]
+  %1306 = phi double [ %1311, %.preheader2768 ], [ 0.000000e+00, %1304 ]
+  %1307 = getelementptr inbounds nuw double, ptr %1280, i64 %indvars.iv.i35.i2463
   %1308 = load double, ptr %1307, align 8, !tbaa !18
-  %1309 = getelementptr inbounds nuw double, ptr %1285, i64 %indvars.iv.i35.i2460
+  %1309 = getelementptr inbounds nuw double, ptr %1285, i64 %indvars.iv.i35.i2463
   %1310 = load double, ptr %1309, align 8, !tbaa !18
   %1311 = tail call double @llvm.fmuladd.f64(double %1308, double %1310, double %1306)
-  %indvars.iv.next.i36.i2461 = add nuw nsw i64 %indvars.iv.i35.i2460, 1
-  %exitcond.not.i37.i2462 = icmp eq i64 %indvars.iv.next.i36.i2461, %wide.trip.count29.i
-  br i1 %exitcond.not.i37.i2462, label %1312, label %.preheader2767
+  %indvars.iv.next.i36.i2464 = add nuw nsw i64 %indvars.iv.i35.i2463, 1
+  %exitcond.not.i37.i2465 = icmp eq i64 %indvars.iv.next.i36.i2464, %wide.trip.count29.i
+  br i1 %exitcond.not.i37.i2465, label %1312, label %.preheader2768
 
-1312:                                             ; preds = %.preheader2767
+1312:                                             ; preds = %.preheader2768
   tail call void @free(ptr noundef nonnull %1284) #17
   tail call void @free(ptr noundef nonnull %1285) #17
   %1313 = fadd double %1311, -2.500000e-01
   %1314 = tail call double @llvm.fabs.f64(double %1313)
   %1315 = fcmp ule double %1314, 0x3E50000000000000
   %1316 = zext i1 %1315 to i32
-  br label %arkode_butcher_order4a.exit2466
+  br label %arkode_butcher_order4a.exit2469
 
-arkode_butcher_order4a.exit2466:                  ; preds = %1312, %1304, %arkode_butcher_vv.exit31.i2464, %arkode_butcher_vv.exit.i2465, %1277
-  %1317 = phi i32 [ 0, %1277 ], [ 0, %arkode_butcher_vv.exit.i2465 ], [ 0, %arkode_butcher_vv.exit31.i2464 ], [ %1316, %1312 ], [ 0, %1304 ]
+arkode_butcher_order4a.exit2469:                  ; preds = %1312, %1304, %arkode_butcher_vv.exit31.i2467, %arkode_butcher_vv.exit.i2468, %1277
+  %1317 = phi i32 [ 0, %1277 ], [ 0, %arkode_butcher_vv.exit.i2468 ], [ 0, %arkode_butcher_vv.exit31.i2467 ], [ %1316, %1312 ], [ 0, %1304 ]
   br i1 %1278, label %1277, label %1318
 
-1318:                                             ; preds = %arkode_butcher_order4a.exit2466
-  br i1 %1276, label %.preheader2768, label %1319
+1318:                                             ; preds = %arkode_butcher_order4a.exit2469
+  br i1 %1276, label %.preheader2769, label %1319
 
 1319:                                             ; preds = %1318
-  br i1 %1275, label %.preheader2769, label %1320
+  br i1 %1275, label %.preheader2770, label %1320
 
 1320:                                             ; preds = %1319
-  br i1 %1274, label %.preheader2770, label %1321
+  br i1 %1274, label %.preheader2771, label %1321
 
 1321:                                             ; preds = %1320
   %1322 = icmp eq i32 %1317, 0
   %or.cond76 = and i1 %49, %1322
-  br i1 %or.cond76, label %1323, label %.preheader2766.preheader
+  br i1 %or.cond76, label %1323, label %.preheader2767.preheader
 
 1323:                                             ; preds = %1321
   %1324 = tail call i64 @fwrite(ptr nonnull @.str.129, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2766.preheader
+  br label %.preheader2767.preheader
 
-.preheader2766.preheader:                         ; preds = %1323, %1321
+.preheader2767.preheader:                         ; preds = %1323, %1321
+  br label %.preheader2767
+
+.preheader2767:                                   ; preds = %.preheader2767.preheader, %1374
+  %1325 = phi i1 [ false, %1374 ], [ true, %.preheader2767.preheader ]
+  %indvars.iv4419.sroa.phi = phi ptr [ %.sroa.38, %1374 ], [ %.sroa.0, %.preheader2767.preheader ]
+  %.1953378 = phi i32 [ %1371, %1374 ], [ %1317, %.preheader2767.preheader ]
   br label %.preheader2766
 
-.preheader2766:                                   ; preds = %.preheader2766.preheader, %1374
-  %1325 = phi i1 [ false, %1374 ], [ true, %.preheader2766.preheader ]
-  %indvars.iv4418.sroa.phi = phi ptr [ %.sroa.38, %1374 ], [ %.sroa.0, %.preheader2766.preheader ]
-  %.1953377 = phi i32 [ %1371, %1374 ], [ %1317, %.preheader2766.preheader ]
+.preheader2766:                                   ; preds = %.preheader2767, %1373
+  %1326 = phi i1 [ true, %.preheader2767 ], [ false, %1373 ]
+  %indvars.iv4416.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2767 ], [ %.sroa.181, %1373 ]
+  %.1963376 = phi i32 [ %.1953378, %.preheader2767 ], [ %1371, %1373 ]
   br label %.preheader2765
 
-.preheader2765:                                   ; preds = %.preheader2766, %1373
-  %1326 = phi i1 [ true, %.preheader2766 ], [ false, %1373 ]
-  %indvars.iv4415.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2766 ], [ %.sroa.181, %1373 ]
-  %.1963375 = phi i32 [ %.1953377, %.preheader2766 ], [ %1371, %1373 ]
-  br label %.preheader2764
-
-.preheader2764:                                   ; preds = %.preheader2765, %1372
-  %1327 = phi i1 [ true, %.preheader2765 ], [ false, %1372 ]
-  %indvars.iv4412.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2765 ], [ %.sroa.121, %1372 ]
-  %.1973373 = phi i32 [ %.1963375, %.preheader2765 ], [ %1371, %1372 ]
+.preheader2765:                                   ; preds = %.preheader2766, %1372
+  %1327 = phi i1 [ true, %.preheader2766 ], [ false, %1372 ]
+  %indvars.iv4413.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2766 ], [ %.sroa.121, %1372 ]
+  %.1973374 = phi i32 [ %.1963376, %.preheader2766 ], [ %1371, %1372 ]
   br label %1328
 
-1328:                                             ; preds = %.preheader2764, %arkode_butcher_order4b.exit2493
-  %1329 = phi i1 [ true, %.preheader2764 ], [ false, %arkode_butcher_order4b.exit2493 ]
-  %indvars.iv4409.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2764 ], [ %.sroa.181, %arkode_butcher_order4b.exit2493 ]
-  %.1983371 = phi i32 [ %.1973373, %.preheader2764 ], [ %1371, %arkode_butcher_order4b.exit2493 ]
-  %.not2205 = icmp eq i32 %.1983371, 0
-  br i1 %.not2205, label %arkode_butcher_order4b.exit2493, label %1330
+1328:                                             ; preds = %.preheader2765, %arkode_butcher_order4b.exit2496
+  %1329 = phi i1 [ true, %.preheader2765 ], [ false, %arkode_butcher_order4b.exit2496 ]
+  %indvars.iv4410.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2765 ], [ %.sroa.181, %arkode_butcher_order4b.exit2496 ]
+  %.1983372 = phi i32 [ %.1973374, %.preheader2765 ], [ %1371, %arkode_butcher_order4b.exit2496 ]
+  %.not2205 = icmp eq i32 %.1983372, 0
+  br i1 %.not2205, label %arkode_butcher_order4b.exit2496, label %1330
 
 1330:                                             ; preds = %1328
-  %1331 = load ptr, ptr %indvars.iv4418.sroa.phi, align 8, !tbaa !12
-  %1332 = load ptr, ptr %indvars.iv4415.sroa.phi, align 8, !tbaa !12
-  %1333 = load ptr, ptr %indvars.iv4412.sroa.phi, align 8, !tbaa !31
-  %1334 = load ptr, ptr %indvars.iv4409.sroa.phi, align 8, !tbaa !12
+  %1331 = load ptr, ptr %indvars.iv4419.sroa.phi, align 8, !tbaa !12
+  %1332 = load ptr, ptr %indvars.iv4416.sroa.phi, align 8, !tbaa !12
+  %1333 = load ptr, ptr %indvars.iv4413.sroa.phi, align 8, !tbaa !31
+  %1334 = load ptr, ptr %indvars.iv4410.sroa.phi, align 8, !tbaa !12
   %1335 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %1336 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %1337 = icmp eq ptr %1331, null
   %1338 = icmp eq ptr %1332, null
-  %or.cond.i.i2467 = or i1 %1337, %1338
+  %or.cond.i.i2470 = or i1 %1337, %1338
   %1339 = icmp eq ptr %1335, null
-  %or.cond3.i.i2468 = or i1 %or.cond.i.i2467, %1339
-  br i1 %or.cond3.i.i2468, label %arkode_butcher_vv.exit.i2492, label %.preheader.i.i2472
+  %or.cond3.i.i2471 = or i1 %or.cond.i.i2470, %1339
+  br i1 %or.cond3.i.i2471, label %arkode_butcher_vv.exit.i2495, label %.preheader.i.i2475
 
-.preheader.i.i2472:                               ; preds = %1330, %.preheader.i.i2472
-  %indvars.iv.i.i2473 = phi i64 [ %indvars.iv.next.i.i2474, %.preheader.i.i2472 ], [ 0, %1330 ]
-  %1340 = getelementptr inbounds nuw double, ptr %1331, i64 %indvars.iv.i.i2473
+.preheader.i.i2475:                               ; preds = %1330, %.preheader.i.i2475
+  %indvars.iv.i.i2476 = phi i64 [ %indvars.iv.next.i.i2477, %.preheader.i.i2475 ], [ 0, %1330 ]
+  %1340 = getelementptr inbounds nuw double, ptr %1331, i64 %indvars.iv.i.i2476
   %1341 = load double, ptr %1340, align 8, !tbaa !18
-  %1342 = getelementptr inbounds nuw double, ptr %1332, i64 %indvars.iv.i.i2473
+  %1342 = getelementptr inbounds nuw double, ptr %1332, i64 %indvars.iv.i.i2476
   %1343 = load double, ptr %1342, align 8, !tbaa !18
   %1344 = fmul double %1341, %1343
-  %1345 = getelementptr inbounds nuw double, ptr %1335, i64 %indvars.iv.i.i2473
+  %1345 = getelementptr inbounds nuw double, ptr %1335, i64 %indvars.iv.i.i2476
   store double %1344, ptr %1345, align 8, !tbaa !18
-  %indvars.iv.next.i.i2474 = add nuw nsw i64 %indvars.iv.i.i2473, 1
-  %exitcond.not.i.i2475 = icmp eq i64 %indvars.iv.next.i.i2474, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2475, label %1346, label %.preheader.i.i2472
+  %indvars.iv.next.i.i2477 = add nuw nsw i64 %indvars.iv.i.i2476, 1
+  %exitcond.not.i.i2478 = icmp eq i64 %indvars.iv.next.i.i2477, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2478, label %1346, label %.preheader.i.i2475
 
-arkode_butcher_vv.exit.i2492:                     ; preds = %1330
+arkode_butcher_vv.exit.i2495:                     ; preds = %1330
   tail call void @free(ptr noundef %1335) #17
   tail call void @free(ptr noundef %1336) #17
-  br label %arkode_butcher_order4b.exit2493
+  br label %arkode_butcher_order4b.exit2496
 
-1346:                                             ; preds = %.preheader.i.i2472
+1346:                                             ; preds = %.preheader.i.i2475
   %1347 = icmp eq ptr %1333, null
   %1348 = icmp eq ptr %1334, null
-  %or.cond.i21.i2476 = or i1 %1347, %1348
+  %or.cond.i21.i2479 = or i1 %1347, %1348
   %1349 = icmp eq ptr %1336, null
-  %or.cond3.i22.i2477 = or i1 %or.cond.i21.i2476, %1349
-  br i1 %or.cond3.i22.i2477, label %arkode_butcher_mv.exit.i2491, label %.preheader.us.i.i2478
+  %or.cond3.i22.i2480 = or i1 %or.cond.i21.i2479, %1349
+  br i1 %or.cond3.i22.i2480, label %arkode_butcher_mv.exit.i2494, label %.preheader.us.i.i2481
 
-.preheader.us.i.i2478:                            ; preds = %1346, %._crit_edge.us.i.i2484
-  %indvars.iv40.i.i2479 = phi i64 [ %indvars.iv.next41.i.i2485, %._crit_edge.us.i.i2484 ], [ 0, %1346 ]
-  %1350 = getelementptr inbounds nuw ptr, ptr %1333, i64 %indvars.iv40.i.i2479
+.preheader.us.i.i2481:                            ; preds = %1346, %._crit_edge.us.i.i2487
+  %indvars.iv40.i.i2482 = phi i64 [ %indvars.iv.next41.i.i2488, %._crit_edge.us.i.i2487 ], [ 0, %1346 ]
+  %1350 = getelementptr inbounds nuw ptr, ptr %1333, i64 %indvars.iv40.i.i2482
   %1351 = load ptr, ptr %1350, align 8, !tbaa !12
-  %1352 = getelementptr inbounds nuw double, ptr %1336, i64 %indvars.iv40.i.i2479
-  %.promoted.us.i.i2480 = load double, ptr %1352, align 8, !tbaa !18
+  %1352 = getelementptr inbounds nuw double, ptr %1336, i64 %indvars.iv40.i.i2482
+  %.promoted.us.i.i2483 = load double, ptr %1352, align 8, !tbaa !18
   br label %1353
 
-1353:                                             ; preds = %1353, %.preheader.us.i.i2478
-  %indvars.iv.i24.i2481 = phi i64 [ 0, %.preheader.us.i.i2478 ], [ %indvars.iv.next.i25.i2482, %1353 ]
-  %1354 = phi double [ %.promoted.us.i.i2480, %.preheader.us.i.i2478 ], [ %1359, %1353 ]
-  %1355 = getelementptr inbounds nuw double, ptr %1351, i64 %indvars.iv.i24.i2481
+1353:                                             ; preds = %1353, %.preheader.us.i.i2481
+  %indvars.iv.i24.i2484 = phi i64 [ 0, %.preheader.us.i.i2481 ], [ %indvars.iv.next.i25.i2485, %1353 ]
+  %1354 = phi double [ %.promoted.us.i.i2483, %.preheader.us.i.i2481 ], [ %1359, %1353 ]
+  %1355 = getelementptr inbounds nuw double, ptr %1351, i64 %indvars.iv.i24.i2484
   %1356 = load double, ptr %1355, align 8, !tbaa !18
-  %1357 = getelementptr inbounds nuw double, ptr %1334, i64 %indvars.iv.i24.i2481
+  %1357 = getelementptr inbounds nuw double, ptr %1334, i64 %indvars.iv.i24.i2484
   %1358 = load double, ptr %1357, align 8, !tbaa !18
   %1359 = tail call double @llvm.fmuladd.f64(double %1356, double %1358, double %1354)
-  %indvars.iv.next.i25.i2482 = add nuw nsw i64 %indvars.iv.i24.i2481, 1
-  %exitcond.not.i26.i2483 = icmp eq i64 %indvars.iv.next.i25.i2482, %wide.trip.count29.i
-  br i1 %exitcond.not.i26.i2483, label %._crit_edge.us.i.i2484, label %1353
+  %indvars.iv.next.i25.i2485 = add nuw nsw i64 %indvars.iv.i24.i2484, 1
+  %exitcond.not.i26.i2486 = icmp eq i64 %indvars.iv.next.i25.i2485, %wide.trip.count29.i
+  br i1 %exitcond.not.i26.i2486, label %._crit_edge.us.i.i2487, label %1353
 
-._crit_edge.us.i.i2484:                           ; preds = %1353
+._crit_edge.us.i.i2487:                           ; preds = %1353
   store double %1359, ptr %1352, align 8, !tbaa !18
-  %indvars.iv.next41.i.i2485 = add nuw nsw i64 %indvars.iv40.i.i2479, 1
-  %exitcond44.not.i.i2486 = icmp eq i64 %indvars.iv.next41.i.i2485, %wide.trip.count29.i
-  br i1 %exitcond44.not.i.i2486, label %.preheader2763, label %.preheader.us.i.i2478, !llvm.loop !27
+  %indvars.iv.next41.i.i2488 = add nuw nsw i64 %indvars.iv40.i.i2482, 1
+  %exitcond44.not.i.i2489 = icmp eq i64 %indvars.iv.next41.i.i2488, %wide.trip.count29.i
+  br i1 %exitcond44.not.i.i2489, label %.preheader2764, label %.preheader.us.i.i2481, !llvm.loop !27
 
-arkode_butcher_mv.exit.i2491:                     ; preds = %1346
+arkode_butcher_mv.exit.i2494:                     ; preds = %1346
   tail call void @free(ptr noundef nonnull %1335) #17
   tail call void @free(ptr noundef %1336) #17
-  br label %arkode_butcher_order4b.exit2493
+  br label %arkode_butcher_order4b.exit2496
 
-.preheader2763:                                   ; preds = %._crit_edge.us.i.i2484, %.preheader2763
-  %indvars.iv.i30.i2487 = phi i64 [ %indvars.iv.next.i31.i2488, %.preheader2763 ], [ 0, %._crit_edge.us.i.i2484 ]
-  %1360 = phi double [ %1365, %.preheader2763 ], [ 0.000000e+00, %._crit_edge.us.i.i2484 ]
-  %1361 = getelementptr inbounds nuw double, ptr %1335, i64 %indvars.iv.i30.i2487
+.preheader2764:                                   ; preds = %._crit_edge.us.i.i2487, %.preheader2764
+  %indvars.iv.i30.i2490 = phi i64 [ %indvars.iv.next.i31.i2491, %.preheader2764 ], [ 0, %._crit_edge.us.i.i2487 ]
+  %1360 = phi double [ %1365, %.preheader2764 ], [ 0.000000e+00, %._crit_edge.us.i.i2487 ]
+  %1361 = getelementptr inbounds nuw double, ptr %1335, i64 %indvars.iv.i30.i2490
   %1362 = load double, ptr %1361, align 8, !tbaa !18
-  %1363 = getelementptr inbounds nuw double, ptr %1336, i64 %indvars.iv.i30.i2487
+  %1363 = getelementptr inbounds nuw double, ptr %1336, i64 %indvars.iv.i30.i2490
   %1364 = load double, ptr %1363, align 8, !tbaa !18
   %1365 = tail call double @llvm.fmuladd.f64(double %1362, double %1364, double %1360)
-  %indvars.iv.next.i31.i2488 = add nuw nsw i64 %indvars.iv.i30.i2487, 1
-  %exitcond.not.i32.i2489 = icmp eq i64 %indvars.iv.next.i31.i2488, %wide.trip.count29.i
-  br i1 %exitcond.not.i32.i2489, label %1366, label %.preheader2763
+  %indvars.iv.next.i31.i2491 = add nuw nsw i64 %indvars.iv.i30.i2490, 1
+  %exitcond.not.i32.i2492 = icmp eq i64 %indvars.iv.next.i31.i2491, %wide.trip.count29.i
+  br i1 %exitcond.not.i32.i2492, label %1366, label %.preheader2764
 
-1366:                                             ; preds = %.preheader2763
+1366:                                             ; preds = %.preheader2764
   tail call void @free(ptr noundef nonnull %1335) #17
   tail call void @free(ptr noundef nonnull %1336) #17
   %1367 = fadd double %1365, -1.250000e-01
   %1368 = tail call double @llvm.fabs.f64(double %1367)
   %1369 = fcmp ule double %1368, 0x3E50000000000000
   %1370 = zext i1 %1369 to i32
-  br label %arkode_butcher_order4b.exit2493
+  br label %arkode_butcher_order4b.exit2496
 
-arkode_butcher_order4b.exit2493:                  ; preds = %1366, %arkode_butcher_mv.exit.i2491, %arkode_butcher_vv.exit.i2492, %1328
-  %1371 = phi i32 [ 0, %1328 ], [ 0, %arkode_butcher_vv.exit.i2492 ], [ 0, %arkode_butcher_mv.exit.i2491 ], [ %1370, %1366 ]
+arkode_butcher_order4b.exit2496:                  ; preds = %1366, %arkode_butcher_mv.exit.i2494, %arkode_butcher_vv.exit.i2495, %1328
+  %1371 = phi i32 [ 0, %1328 ], [ 0, %arkode_butcher_vv.exit.i2495 ], [ 0, %arkode_butcher_mv.exit.i2494 ], [ %1370, %1366 ]
   br i1 %1329, label %1328, label %1372
 
-1372:                                             ; preds = %arkode_butcher_order4b.exit2493
-  br i1 %1327, label %.preheader2764, label %1373
+1372:                                             ; preds = %arkode_butcher_order4b.exit2496
+  br i1 %1327, label %.preheader2765, label %1373
 
 1373:                                             ; preds = %1372
-  br i1 %1326, label %.preheader2765, label %1374
+  br i1 %1326, label %.preheader2766, label %1374
 
 1374:                                             ; preds = %1373
-  br i1 %1325, label %.preheader2766, label %1375
+  br i1 %1325, label %.preheader2767, label %1375
 
 1375:                                             ; preds = %1374
   %1376 = icmp eq i32 %1371, 0
   %or.cond78 = and i1 %49, %1376
-  br i1 %or.cond78, label %1377, label %.preheader2762.preheader
+  br i1 %or.cond78, label %1377, label %.preheader2763.preheader
 
 1377:                                             ; preds = %1375
   %1378 = tail call i64 @fwrite(ptr nonnull @.str.130, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2762.preheader
+  br label %.preheader2763.preheader
 
-.preheader2762.preheader:                         ; preds = %1377, %1375
+.preheader2763.preheader:                         ; preds = %1377, %1375
+  br label %.preheader2763
+
+.preheader2763:                                   ; preds = %.preheader2763.preheader, %1429
+  %1379 = phi i1 [ false, %1429 ], [ true, %.preheader2763.preheader ]
+  %indvars.iv4431.sroa.phi = phi ptr [ %.sroa.38, %1429 ], [ %.sroa.0, %.preheader2763.preheader ]
+  %.1993386 = phi i32 [ %1426, %1429 ], [ %1371, %.preheader2763.preheader ]
   br label %.preheader2762
 
-.preheader2762:                                   ; preds = %.preheader2762.preheader, %1429
-  %1379 = phi i1 [ false, %1429 ], [ true, %.preheader2762.preheader ]
-  %indvars.iv4430.sroa.phi = phi ptr [ %.sroa.38, %1429 ], [ %.sroa.0, %.preheader2762.preheader ]
-  %.1993385 = phi i32 [ %1426, %1429 ], [ %1371, %.preheader2762.preheader ]
+.preheader2762:                                   ; preds = %.preheader2763, %1428
+  %1380 = phi i1 [ true, %.preheader2763 ], [ false, %1428 ]
+  %indvars.iv4428.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2763 ], [ %.sroa.121, %1428 ]
+  %.2003384 = phi i32 [ %.1993386, %.preheader2763 ], [ %1426, %1428 ]
   br label %.preheader2761
 
-.preheader2761:                                   ; preds = %.preheader2762, %1428
-  %1380 = phi i1 [ true, %.preheader2762 ], [ false, %1428 ]
-  %indvars.iv4427.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2762 ], [ %.sroa.121, %1428 ]
-  %.2003383 = phi i32 [ %.1993385, %.preheader2762 ], [ %1426, %1428 ]
-  br label %.preheader2760
-
-.preheader2760:                                   ; preds = %.preheader2761, %1427
-  %1381 = phi i1 [ true, %.preheader2761 ], [ false, %1427 ]
-  %indvars.iv4424.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2761 ], [ %.sroa.181, %1427 ]
-  %.2013381 = phi i32 [ %.2003383, %.preheader2761 ], [ %1426, %1427 ]
+.preheader2761:                                   ; preds = %.preheader2762, %1427
+  %1381 = phi i1 [ true, %.preheader2762 ], [ false, %1427 ]
+  %indvars.iv4425.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2762 ], [ %.sroa.181, %1427 ]
+  %.2013382 = phi i32 [ %.2003384, %.preheader2762 ], [ %1426, %1427 ]
   br label %1382
 
-1382:                                             ; preds = %.preheader2760, %arkode_butcher_order4c.exit2519
-  %1383 = phi i1 [ true, %.preheader2760 ], [ false, %arkode_butcher_order4c.exit2519 ]
-  %indvars.iv4421.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2760 ], [ %.sroa.181, %arkode_butcher_order4c.exit2519 ]
-  %.2023379 = phi i32 [ %.2013381, %.preheader2760 ], [ %1426, %arkode_butcher_order4c.exit2519 ]
-  %.not2204 = icmp eq i32 %.2023379, 0
-  br i1 %.not2204, label %arkode_butcher_order4c.exit2519, label %1384
+1382:                                             ; preds = %.preheader2761, %arkode_butcher_order4c.exit2522
+  %1383 = phi i1 [ true, %.preheader2761 ], [ false, %arkode_butcher_order4c.exit2522 ]
+  %indvars.iv4422.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2761 ], [ %.sroa.181, %arkode_butcher_order4c.exit2522 ]
+  %.2023380 = phi i32 [ %.2013382, %.preheader2761 ], [ %1426, %arkode_butcher_order4c.exit2522 ]
+  %.not2204 = icmp eq i32 %.2023380, 0
+  br i1 %.not2204, label %arkode_butcher_order4c.exit2522, label %1384
 
 1384:                                             ; preds = %1382
-  %1385 = load ptr, ptr %indvars.iv4430.sroa.phi, align 8, !tbaa !12
-  %1386 = load ptr, ptr %indvars.iv4427.sroa.phi, align 8, !tbaa !31
-  %1387 = load ptr, ptr %indvars.iv4424.sroa.phi, align 8, !tbaa !12
-  %1388 = load ptr, ptr %indvars.iv4421.sroa.phi, align 8, !tbaa !12
+  %1385 = load ptr, ptr %indvars.iv4431.sroa.phi, align 8, !tbaa !12
+  %1386 = load ptr, ptr %indvars.iv4428.sroa.phi, align 8, !tbaa !31
+  %1387 = load ptr, ptr %indvars.iv4425.sroa.phi, align 8, !tbaa !12
+  %1388 = load ptr, ptr %indvars.iv4422.sroa.phi, align 8, !tbaa !12
   %1389 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %1390 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %1391 = icmp eq ptr %1387, null
   %1392 = icmp eq ptr %1388, null
-  %or.cond.i.i2494 = or i1 %1391, %1392
+  %or.cond.i.i2497 = or i1 %1391, %1392
   %1393 = icmp eq ptr %1389, null
-  %or.cond3.i.i2495 = or i1 %or.cond.i.i2494, %1393
-  br i1 %or.cond3.i.i2495, label %arkode_butcher_vv.exit.i2518, label %.preheader.i.i2499
+  %or.cond3.i.i2498 = or i1 %or.cond.i.i2497, %1393
+  br i1 %or.cond3.i.i2498, label %arkode_butcher_vv.exit.i2521, label %.preheader.i.i2502
 
-.preheader.i.i2499:                               ; preds = %1384, %.preheader.i.i2499
-  %indvars.iv.i.i2500 = phi i64 [ %indvars.iv.next.i.i2501, %.preheader.i.i2499 ], [ 0, %1384 ]
-  %1394 = getelementptr inbounds nuw double, ptr %1387, i64 %indvars.iv.i.i2500
+.preheader.i.i2502:                               ; preds = %1384, %.preheader.i.i2502
+  %indvars.iv.i.i2503 = phi i64 [ %indvars.iv.next.i.i2504, %.preheader.i.i2502 ], [ 0, %1384 ]
+  %1394 = getelementptr inbounds nuw double, ptr %1387, i64 %indvars.iv.i.i2503
   %1395 = load double, ptr %1394, align 8, !tbaa !18
-  %1396 = getelementptr inbounds nuw double, ptr %1388, i64 %indvars.iv.i.i2500
+  %1396 = getelementptr inbounds nuw double, ptr %1388, i64 %indvars.iv.i.i2503
   %1397 = load double, ptr %1396, align 8, !tbaa !18
   %1398 = fmul double %1395, %1397
-  %1399 = getelementptr inbounds nuw double, ptr %1389, i64 %indvars.iv.i.i2500
+  %1399 = getelementptr inbounds nuw double, ptr %1389, i64 %indvars.iv.i.i2503
   store double %1398, ptr %1399, align 8, !tbaa !18
-  %indvars.iv.next.i.i2501 = add nuw nsw i64 %indvars.iv.i.i2500, 1
-  %exitcond.not.i.i2502 = icmp eq i64 %indvars.iv.next.i.i2501, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2502, label %1400, label %.preheader.i.i2499
+  %indvars.iv.next.i.i2504 = add nuw nsw i64 %indvars.iv.i.i2503, 1
+  %exitcond.not.i.i2505 = icmp eq i64 %indvars.iv.next.i.i2504, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2505, label %1400, label %.preheader.i.i2502
 
-arkode_butcher_vv.exit.i2518:                     ; preds = %1384
+arkode_butcher_vv.exit.i2521:                     ; preds = %1384
   tail call void @free(ptr noundef %1389) #17
   tail call void @free(ptr noundef %1390) #17
-  br label %arkode_butcher_order4c.exit2519
+  br label %arkode_butcher_order4c.exit2522
 
-1400:                                             ; preds = %.preheader.i.i2499
+1400:                                             ; preds = %.preheader.i.i2502
   %1401 = icmp eq ptr %1386, null
   %1402 = icmp eq ptr %1390, null
-  %or.cond3.i22.i2503 = or i1 %1401, %1402
-  br i1 %or.cond3.i22.i2503, label %arkode_butcher_mv.exit.i2517, label %.preheader.us.i.i2504
+  %or.cond3.i22.i2506 = or i1 %1401, %1402
+  br i1 %or.cond3.i22.i2506, label %arkode_butcher_mv.exit.i2520, label %.preheader.us.i.i2507
 
-.preheader.us.i.i2504:                            ; preds = %1400, %._crit_edge.us.i.i2510
-  %indvars.iv40.i.i2505 = phi i64 [ %indvars.iv.next41.i.i2511, %._crit_edge.us.i.i2510 ], [ 0, %1400 ]
-  %1403 = getelementptr inbounds nuw ptr, ptr %1386, i64 %indvars.iv40.i.i2505
+.preheader.us.i.i2507:                            ; preds = %1400, %._crit_edge.us.i.i2513
+  %indvars.iv40.i.i2508 = phi i64 [ %indvars.iv.next41.i.i2514, %._crit_edge.us.i.i2513 ], [ 0, %1400 ]
+  %1403 = getelementptr inbounds nuw ptr, ptr %1386, i64 %indvars.iv40.i.i2508
   %1404 = load ptr, ptr %1403, align 8, !tbaa !12
-  %1405 = getelementptr inbounds nuw double, ptr %1390, i64 %indvars.iv40.i.i2505
-  %.promoted.us.i.i2506 = load double, ptr %1405, align 8, !tbaa !18
+  %1405 = getelementptr inbounds nuw double, ptr %1390, i64 %indvars.iv40.i.i2508
+  %.promoted.us.i.i2509 = load double, ptr %1405, align 8, !tbaa !18
   br label %1406
 
-1406:                                             ; preds = %1406, %.preheader.us.i.i2504
-  %indvars.iv.i24.i2507 = phi i64 [ 0, %.preheader.us.i.i2504 ], [ %indvars.iv.next.i25.i2508, %1406 ]
-  %1407 = phi double [ %.promoted.us.i.i2506, %.preheader.us.i.i2504 ], [ %1412, %1406 ]
-  %1408 = getelementptr inbounds nuw double, ptr %1404, i64 %indvars.iv.i24.i2507
+1406:                                             ; preds = %1406, %.preheader.us.i.i2507
+  %indvars.iv.i24.i2510 = phi i64 [ 0, %.preheader.us.i.i2507 ], [ %indvars.iv.next.i25.i2511, %1406 ]
+  %1407 = phi double [ %.promoted.us.i.i2509, %.preheader.us.i.i2507 ], [ %1412, %1406 ]
+  %1408 = getelementptr inbounds nuw double, ptr %1404, i64 %indvars.iv.i24.i2510
   %1409 = load double, ptr %1408, align 8, !tbaa !18
-  %1410 = getelementptr inbounds nuw double, ptr %1389, i64 %indvars.iv.i24.i2507
+  %1410 = getelementptr inbounds nuw double, ptr %1389, i64 %indvars.iv.i24.i2510
   %1411 = load double, ptr %1410, align 8, !tbaa !18
   %1412 = tail call double @llvm.fmuladd.f64(double %1409, double %1411, double %1407)
-  %indvars.iv.next.i25.i2508 = add nuw nsw i64 %indvars.iv.i24.i2507, 1
-  %exitcond.not.i26.i2509 = icmp eq i64 %indvars.iv.next.i25.i2508, %wide.trip.count29.i
-  br i1 %exitcond.not.i26.i2509, label %._crit_edge.us.i.i2510, label %1406
+  %indvars.iv.next.i25.i2511 = add nuw nsw i64 %indvars.iv.i24.i2510, 1
+  %exitcond.not.i26.i2512 = icmp eq i64 %indvars.iv.next.i25.i2511, %wide.trip.count29.i
+  br i1 %exitcond.not.i26.i2512, label %._crit_edge.us.i.i2513, label %1406
 
-._crit_edge.us.i.i2510:                           ; preds = %1406
+._crit_edge.us.i.i2513:                           ; preds = %1406
   store double %1412, ptr %1405, align 8, !tbaa !18
-  %indvars.iv.next41.i.i2511 = add nuw nsw i64 %indvars.iv40.i.i2505, 1
-  %exitcond44.not.i.i2512 = icmp eq i64 %indvars.iv.next41.i.i2511, %wide.trip.count29.i
-  br i1 %exitcond44.not.i.i2512, label %1413, label %.preheader.us.i.i2504, !llvm.loop !27
+  %indvars.iv.next41.i.i2514 = add nuw nsw i64 %indvars.iv40.i.i2508, 1
+  %exitcond44.not.i.i2515 = icmp eq i64 %indvars.iv.next41.i.i2514, %wide.trip.count29.i
+  br i1 %exitcond44.not.i.i2515, label %1413, label %.preheader.us.i.i2507, !llvm.loop !27
 
-arkode_butcher_mv.exit.i2517:                     ; preds = %1400
+arkode_butcher_mv.exit.i2520:                     ; preds = %1400
   tail call void @free(ptr noundef nonnull %1389) #17
   tail call void @free(ptr noundef %1390) #17
-  br label %arkode_butcher_order4c.exit2519
+  br label %arkode_butcher_order4c.exit2522
 
-1413:                                             ; preds = %._crit_edge.us.i.i2510
+1413:                                             ; preds = %._crit_edge.us.i.i2513
   %1414 = icmp eq ptr %1385, null
-  br i1 %1414, label %arkode_butcher_order4c.exit2519, label %.preheader2759
+  br i1 %1414, label %arkode_butcher_order4c.exit2522, label %.preheader2760
 
-.preheader2759:                                   ; preds = %1413, %.preheader2759
-  %indvars.iv.i30.i2513 = phi i64 [ %indvars.iv.next.i31.i2514, %.preheader2759 ], [ 0, %1413 ]
-  %1415 = phi double [ %1420, %.preheader2759 ], [ 0.000000e+00, %1413 ]
-  %1416 = getelementptr inbounds nuw double, ptr %1385, i64 %indvars.iv.i30.i2513
+.preheader2760:                                   ; preds = %1413, %.preheader2760
+  %indvars.iv.i30.i2516 = phi i64 [ %indvars.iv.next.i31.i2517, %.preheader2760 ], [ 0, %1413 ]
+  %1415 = phi double [ %1420, %.preheader2760 ], [ 0.000000e+00, %1413 ]
+  %1416 = getelementptr inbounds nuw double, ptr %1385, i64 %indvars.iv.i30.i2516
   %1417 = load double, ptr %1416, align 8, !tbaa !18
-  %1418 = getelementptr inbounds nuw double, ptr %1390, i64 %indvars.iv.i30.i2513
+  %1418 = getelementptr inbounds nuw double, ptr %1390, i64 %indvars.iv.i30.i2516
   %1419 = load double, ptr %1418, align 8, !tbaa !18
   %1420 = tail call double @llvm.fmuladd.f64(double %1417, double %1419, double %1415)
-  %indvars.iv.next.i31.i2514 = add nuw nsw i64 %indvars.iv.i30.i2513, 1
-  %exitcond.not.i32.i2515 = icmp eq i64 %indvars.iv.next.i31.i2514, %wide.trip.count29.i
-  br i1 %exitcond.not.i32.i2515, label %1421, label %.preheader2759
+  %indvars.iv.next.i31.i2517 = add nuw nsw i64 %indvars.iv.i30.i2516, 1
+  %exitcond.not.i32.i2518 = icmp eq i64 %indvars.iv.next.i31.i2517, %wide.trip.count29.i
+  br i1 %exitcond.not.i32.i2518, label %1421, label %.preheader2760
 
-1421:                                             ; preds = %.preheader2759
+1421:                                             ; preds = %.preheader2760
   tail call void @free(ptr noundef nonnull %1389) #17
   tail call void @free(ptr noundef nonnull %1390) #17
   %1422 = fadd double %1420, 0xBFB5555555555555
   %1423 = tail call double @llvm.fabs.f64(double %1422)
   %1424 = fcmp ule double %1423, 0x3E50000000000000
   %1425 = zext i1 %1424 to i32
-  br label %arkode_butcher_order4c.exit2519
+  br label %arkode_butcher_order4c.exit2522
 
-arkode_butcher_order4c.exit2519:                  ; preds = %1421, %1413, %arkode_butcher_mv.exit.i2517, %arkode_butcher_vv.exit.i2518, %1382
-  %1426 = phi i32 [ 0, %1382 ], [ 0, %arkode_butcher_vv.exit.i2518 ], [ 0, %arkode_butcher_mv.exit.i2517 ], [ %1425, %1421 ], [ 0, %1413 ]
+arkode_butcher_order4c.exit2522:                  ; preds = %1421, %1413, %arkode_butcher_mv.exit.i2520, %arkode_butcher_vv.exit.i2521, %1382
+  %1426 = phi i32 [ 0, %1382 ], [ 0, %arkode_butcher_vv.exit.i2521 ], [ 0, %arkode_butcher_mv.exit.i2520 ], [ %1425, %1421 ], [ 0, %1413 ]
   br i1 %1383, label %1382, label %1427
 
-1427:                                             ; preds = %arkode_butcher_order4c.exit2519
-  br i1 %1381, label %.preheader2760, label %1428
+1427:                                             ; preds = %arkode_butcher_order4c.exit2522
+  br i1 %1381, label %.preheader2761, label %1428
 
 1428:                                             ; preds = %1427
-  br i1 %1380, label %.preheader2761, label %1429
+  br i1 %1380, label %.preheader2762, label %1429
 
 1429:                                             ; preds = %1428
-  br i1 %1379, label %.preheader2762, label %1430
+  br i1 %1379, label %.preheader2763, label %1430
 
 1430:                                             ; preds = %1429
   %1431 = icmp eq i32 %1426, 0
   %or.cond80 = and i1 %49, %1431
-  br i1 %or.cond80, label %1432, label %.preheader2758.preheader
+  br i1 %or.cond80, label %1432, label %.preheader2759.preheader
 
 1432:                                             ; preds = %1430
   %1433 = tail call i64 @fwrite(ptr nonnull @.str.131, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2758.preheader
+  br label %.preheader2759.preheader
 
-.preheader2758.preheader:                         ; preds = %1432, %1430
+.preheader2759.preheader:                         ; preds = %1432, %1430
+  br label %.preheader2759
+
+.preheader2759:                                   ; preds = %.preheader2759.preheader, %1488
+  %1434 = phi i1 [ false, %1488 ], [ true, %.preheader2759.preheader ]
+  %indvars.iv4443.sroa.phi = phi ptr [ %.sroa.38, %1488 ], [ %.sroa.0, %.preheader2759.preheader ]
+  %.2033394 = phi i32 [ %1485, %1488 ], [ %1426, %.preheader2759.preheader ]
   br label %.preheader2758
 
-.preheader2758:                                   ; preds = %.preheader2758.preheader, %1488
-  %1434 = phi i1 [ false, %1488 ], [ true, %.preheader2758.preheader ]
-  %indvars.iv4442.sroa.phi = phi ptr [ %.sroa.38, %1488 ], [ %.sroa.0, %.preheader2758.preheader ]
-  %.2033393 = phi i32 [ %1485, %1488 ], [ %1426, %.preheader2758.preheader ]
+.preheader2758:                                   ; preds = %.preheader2759, %1487
+  %1435 = phi i1 [ true, %.preheader2759 ], [ false, %1487 ]
+  %indvars.iv4440.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2759 ], [ %.sroa.121, %1487 ]
+  %.2043392 = phi i32 [ %.2033394, %.preheader2759 ], [ %1485, %1487 ]
   br label %.preheader2757
 
-.preheader2757:                                   ; preds = %.preheader2758, %1487
-  %1435 = phi i1 [ true, %.preheader2758 ], [ false, %1487 ]
-  %indvars.iv4439.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2758 ], [ %.sroa.121, %1487 ]
-  %.2043391 = phi i32 [ %.2033393, %.preheader2758 ], [ %1485, %1487 ]
-  br label %.preheader2756
-
-.preheader2756:                                   ; preds = %.preheader2757, %1486
-  %1436 = phi i1 [ true, %.preheader2757 ], [ false, %1486 ]
-  %indvars.iv4436.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2757 ], [ %.sroa.121, %1486 ]
-  %.2053389 = phi i32 [ %.2043391, %.preheader2757 ], [ %1485, %1486 ]
+.preheader2757:                                   ; preds = %.preheader2758, %1486
+  %1436 = phi i1 [ true, %.preheader2758 ], [ false, %1486 ]
+  %indvars.iv4437.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2758 ], [ %.sroa.121, %1486 ]
+  %.2053390 = phi i32 [ %.2043392, %.preheader2758 ], [ %1485, %1486 ]
   br label %1437
 
-1437:                                             ; preds = %.preheader2756, %arkode_butcher_order4d.exit2549
-  %1438 = phi i1 [ true, %.preheader2756 ], [ false, %arkode_butcher_order4d.exit2549 ]
-  %indvars.iv4433.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2756 ], [ %.sroa.181, %arkode_butcher_order4d.exit2549 ]
-  %.2063387 = phi i32 [ %.2053389, %.preheader2756 ], [ %1485, %arkode_butcher_order4d.exit2549 ]
-  %.not2203 = icmp eq i32 %.2063387, 0
-  br i1 %.not2203, label %arkode_butcher_order4d.exit2549, label %1439
+1437:                                             ; preds = %.preheader2757, %arkode_butcher_order4d.exit2552
+  %1438 = phi i1 [ true, %.preheader2757 ], [ false, %arkode_butcher_order4d.exit2552 ]
+  %indvars.iv4434.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2757 ], [ %.sroa.181, %arkode_butcher_order4d.exit2552 ]
+  %.2063388 = phi i32 [ %.2053390, %.preheader2757 ], [ %1485, %arkode_butcher_order4d.exit2552 ]
+  %.not2203 = icmp eq i32 %.2063388, 0
+  br i1 %.not2203, label %arkode_butcher_order4d.exit2552, label %1439
 
 1439:                                             ; preds = %1437
-  %1440 = load ptr, ptr %indvars.iv4442.sroa.phi, align 8, !tbaa !12
-  %1441 = load ptr, ptr %indvars.iv4439.sroa.phi, align 8, !tbaa !31
-  %1442 = load ptr, ptr %indvars.iv4436.sroa.phi, align 8, !tbaa !31
-  %1443 = load ptr, ptr %indvars.iv4433.sroa.phi, align 8, !tbaa !12
+  %1440 = load ptr, ptr %indvars.iv4443.sroa.phi, align 8, !tbaa !12
+  %1441 = load ptr, ptr %indvars.iv4440.sroa.phi, align 8, !tbaa !31
+  %1442 = load ptr, ptr %indvars.iv4437.sroa.phi, align 8, !tbaa !31
+  %1443 = load ptr, ptr %indvars.iv4434.sroa.phi, align 8, !tbaa !12
   %1444 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %1445 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %1446 = icmp eq ptr %1442, null
   %1447 = icmp eq ptr %1443, null
-  %or.cond.i.i2520 = or i1 %1446, %1447
+  %or.cond.i.i2523 = or i1 %1446, %1447
   %1448 = icmp eq ptr %1444, null
-  %or.cond3.i.i2521 = or i1 %or.cond.i.i2520, %1448
-  br i1 %or.cond3.i.i2521, label %arkode_butcher_mv.exit.i2548, label %.preheader.us.i.i2524
+  %or.cond3.i.i2524 = or i1 %or.cond.i.i2523, %1448
+  br i1 %or.cond3.i.i2524, label %arkode_butcher_mv.exit.i2551, label %.preheader.us.i.i2527
 
-.preheader.us.i.i2524:                            ; preds = %1439, %._crit_edge.us.i.i2530
-  %indvars.iv40.i.i2525 = phi i64 [ %indvars.iv.next41.i.i2531, %._crit_edge.us.i.i2530 ], [ 0, %1439 ]
-  %1449 = getelementptr inbounds nuw ptr, ptr %1442, i64 %indvars.iv40.i.i2525
+.preheader.us.i.i2527:                            ; preds = %1439, %._crit_edge.us.i.i2533
+  %indvars.iv40.i.i2528 = phi i64 [ %indvars.iv.next41.i.i2534, %._crit_edge.us.i.i2533 ], [ 0, %1439 ]
+  %1449 = getelementptr inbounds nuw ptr, ptr %1442, i64 %indvars.iv40.i.i2528
   %1450 = load ptr, ptr %1449, align 8, !tbaa !12
-  %1451 = getelementptr inbounds nuw double, ptr %1444, i64 %indvars.iv40.i.i2525
-  %.promoted.us.i.i2526 = load double, ptr %1451, align 8, !tbaa !18
+  %1451 = getelementptr inbounds nuw double, ptr %1444, i64 %indvars.iv40.i.i2528
+  %.promoted.us.i.i2529 = load double, ptr %1451, align 8, !tbaa !18
   br label %1452
 
-1452:                                             ; preds = %1452, %.preheader.us.i.i2524
-  %indvars.iv.i.i2527 = phi i64 [ 0, %.preheader.us.i.i2524 ], [ %indvars.iv.next.i.i2528, %1452 ]
-  %1453 = phi double [ %.promoted.us.i.i2526, %.preheader.us.i.i2524 ], [ %1458, %1452 ]
-  %1454 = getelementptr inbounds nuw double, ptr %1450, i64 %indvars.iv.i.i2527
+1452:                                             ; preds = %1452, %.preheader.us.i.i2527
+  %indvars.iv.i.i2530 = phi i64 [ 0, %.preheader.us.i.i2527 ], [ %indvars.iv.next.i.i2531, %1452 ]
+  %1453 = phi double [ %.promoted.us.i.i2529, %.preheader.us.i.i2527 ], [ %1458, %1452 ]
+  %1454 = getelementptr inbounds nuw double, ptr %1450, i64 %indvars.iv.i.i2530
   %1455 = load double, ptr %1454, align 8, !tbaa !18
-  %1456 = getelementptr inbounds nuw double, ptr %1443, i64 %indvars.iv.i.i2527
+  %1456 = getelementptr inbounds nuw double, ptr %1443, i64 %indvars.iv.i.i2530
   %1457 = load double, ptr %1456, align 8, !tbaa !18
   %1458 = tail call double @llvm.fmuladd.f64(double %1455, double %1457, double %1453)
-  %indvars.iv.next.i.i2528 = add nuw nsw i64 %indvars.iv.i.i2527, 1
-  %exitcond.not.i.i2529 = icmp eq i64 %indvars.iv.next.i.i2528, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i2529, label %._crit_edge.us.i.i2530, label %1452
+  %indvars.iv.next.i.i2531 = add nuw nsw i64 %indvars.iv.i.i2530, 1
+  %exitcond.not.i.i2532 = icmp eq i64 %indvars.iv.next.i.i2531, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i2532, label %._crit_edge.us.i.i2533, label %1452
 
-._crit_edge.us.i.i2530:                           ; preds = %1452
+._crit_edge.us.i.i2533:                           ; preds = %1452
   store double %1458, ptr %1451, align 8, !tbaa !18
-  %indvars.iv.next41.i.i2531 = add nuw nsw i64 %indvars.iv40.i.i2525, 1
-  %exitcond44.not.i.i2532 = icmp eq i64 %indvars.iv.next41.i.i2531, %wide.trip.count29.i
-  br i1 %exitcond44.not.i.i2532, label %1459, label %.preheader.us.i.i2524, !llvm.loop !27
+  %indvars.iv.next41.i.i2534 = add nuw nsw i64 %indvars.iv40.i.i2528, 1
+  %exitcond44.not.i.i2535 = icmp eq i64 %indvars.iv.next41.i.i2534, %wide.trip.count29.i
+  br i1 %exitcond44.not.i.i2535, label %1459, label %.preheader.us.i.i2527, !llvm.loop !27
 
-arkode_butcher_mv.exit.i2548:                     ; preds = %1439
+arkode_butcher_mv.exit.i2551:                     ; preds = %1439
   tail call void @free(ptr noundef %1444) #17
   tail call void @free(ptr noundef %1445) #17
-  br label %arkode_butcher_order4d.exit2549
+  br label %arkode_butcher_order4d.exit2552
 
-1459:                                             ; preds = %._crit_edge.us.i.i2530
+1459:                                             ; preds = %._crit_edge.us.i.i2533
   %1460 = icmp eq ptr %1441, null
   %1461 = icmp eq ptr %1445, null
-  %or.cond3.i22.i2533 = or i1 %1460, %1461
-  br i1 %or.cond3.i22.i2533, label %arkode_butcher_mv.exit35.i2547, label %.preheader.us.i25.i2534
+  %or.cond3.i22.i2536 = or i1 %1460, %1461
+  br i1 %or.cond3.i22.i2536, label %arkode_butcher_mv.exit35.i2550, label %.preheader.us.i25.i2537
 
-.preheader.us.i25.i2534:                          ; preds = %1459, %._crit_edge.us.i31.i2540
-  %indvars.iv40.i26.i2535 = phi i64 [ %indvars.iv.next41.i32.i2541, %._crit_edge.us.i31.i2540 ], [ 0, %1459 ]
-  %1462 = getelementptr inbounds nuw ptr, ptr %1441, i64 %indvars.iv40.i26.i2535
+.preheader.us.i25.i2537:                          ; preds = %1459, %._crit_edge.us.i31.i2543
+  %indvars.iv40.i26.i2538 = phi i64 [ %indvars.iv.next41.i32.i2544, %._crit_edge.us.i31.i2543 ], [ 0, %1459 ]
+  %1462 = getelementptr inbounds nuw ptr, ptr %1441, i64 %indvars.iv40.i26.i2538
   %1463 = load ptr, ptr %1462, align 8, !tbaa !12
-  %1464 = getelementptr inbounds nuw double, ptr %1445, i64 %indvars.iv40.i26.i2535
-  %.promoted.us.i27.i2536 = load double, ptr %1464, align 8, !tbaa !18
+  %1464 = getelementptr inbounds nuw double, ptr %1445, i64 %indvars.iv40.i26.i2538
+  %.promoted.us.i27.i2539 = load double, ptr %1464, align 8, !tbaa !18
   br label %1465
 
-1465:                                             ; preds = %1465, %.preheader.us.i25.i2534
-  %indvars.iv.i28.i2537 = phi i64 [ 0, %.preheader.us.i25.i2534 ], [ %indvars.iv.next.i29.i2538, %1465 ]
-  %1466 = phi double [ %.promoted.us.i27.i2536, %.preheader.us.i25.i2534 ], [ %1471, %1465 ]
-  %1467 = getelementptr inbounds nuw double, ptr %1463, i64 %indvars.iv.i28.i2537
+1465:                                             ; preds = %1465, %.preheader.us.i25.i2537
+  %indvars.iv.i28.i2540 = phi i64 [ 0, %.preheader.us.i25.i2537 ], [ %indvars.iv.next.i29.i2541, %1465 ]
+  %1466 = phi double [ %.promoted.us.i27.i2539, %.preheader.us.i25.i2537 ], [ %1471, %1465 ]
+  %1467 = getelementptr inbounds nuw double, ptr %1463, i64 %indvars.iv.i28.i2540
   %1468 = load double, ptr %1467, align 8, !tbaa !18
-  %1469 = getelementptr inbounds nuw double, ptr %1444, i64 %indvars.iv.i28.i2537
+  %1469 = getelementptr inbounds nuw double, ptr %1444, i64 %indvars.iv.i28.i2540
   %1470 = load double, ptr %1469, align 8, !tbaa !18
   %1471 = tail call double @llvm.fmuladd.f64(double %1468, double %1470, double %1466)
-  %indvars.iv.next.i29.i2538 = add nuw nsw i64 %indvars.iv.i28.i2537, 1
-  %exitcond.not.i30.i2539 = icmp eq i64 %indvars.iv.next.i29.i2538, %wide.trip.count29.i
-  br i1 %exitcond.not.i30.i2539, label %._crit_edge.us.i31.i2540, label %1465
+  %indvars.iv.next.i29.i2541 = add nuw nsw i64 %indvars.iv.i28.i2540, 1
+  %exitcond.not.i30.i2542 = icmp eq i64 %indvars.iv.next.i29.i2541, %wide.trip.count29.i
+  br i1 %exitcond.not.i30.i2542, label %._crit_edge.us.i31.i2543, label %1465
 
-._crit_edge.us.i31.i2540:                         ; preds = %1465
+._crit_edge.us.i31.i2543:                         ; preds = %1465
   store double %1471, ptr %1464, align 8, !tbaa !18
-  %indvars.iv.next41.i32.i2541 = add nuw nsw i64 %indvars.iv40.i26.i2535, 1
-  %exitcond44.not.i33.i2542 = icmp eq i64 %indvars.iv.next41.i32.i2541, %wide.trip.count29.i
-  br i1 %exitcond44.not.i33.i2542, label %1472, label %.preheader.us.i25.i2534, !llvm.loop !27
+  %indvars.iv.next41.i32.i2544 = add nuw nsw i64 %indvars.iv40.i26.i2538, 1
+  %exitcond44.not.i33.i2545 = icmp eq i64 %indvars.iv.next41.i32.i2544, %wide.trip.count29.i
+  br i1 %exitcond44.not.i33.i2545, label %1472, label %.preheader.us.i25.i2537, !llvm.loop !27
 
-arkode_butcher_mv.exit35.i2547:                   ; preds = %1459
+arkode_butcher_mv.exit35.i2550:                   ; preds = %1459
   tail call void @free(ptr noundef nonnull %1444) #17
   tail call void @free(ptr noundef %1445) #17
-  br label %arkode_butcher_order4d.exit2549
+  br label %arkode_butcher_order4d.exit2552
 
-1472:                                             ; preds = %._crit_edge.us.i31.i2540
+1472:                                             ; preds = %._crit_edge.us.i31.i2543
   %1473 = icmp eq ptr %1440, null
-  br i1 %1473, label %arkode_butcher_order4d.exit2549, label %.preheader2755
+  br i1 %1473, label %arkode_butcher_order4d.exit2552, label %.preheader2756
 
-.preheader2755:                                   ; preds = %1472, %.preheader2755
-  %indvars.iv.i38.i2543 = phi i64 [ %indvars.iv.next.i39.i2544, %.preheader2755 ], [ 0, %1472 ]
-  %1474 = phi double [ %1479, %.preheader2755 ], [ 0.000000e+00, %1472 ]
-  %1475 = getelementptr inbounds nuw double, ptr %1440, i64 %indvars.iv.i38.i2543
+.preheader2756:                                   ; preds = %1472, %.preheader2756
+  %indvars.iv.i38.i2546 = phi i64 [ %indvars.iv.next.i39.i2547, %.preheader2756 ], [ 0, %1472 ]
+  %1474 = phi double [ %1479, %.preheader2756 ], [ 0.000000e+00, %1472 ]
+  %1475 = getelementptr inbounds nuw double, ptr %1440, i64 %indvars.iv.i38.i2546
   %1476 = load double, ptr %1475, align 8, !tbaa !18
-  %1477 = getelementptr inbounds nuw double, ptr %1445, i64 %indvars.iv.i38.i2543
+  %1477 = getelementptr inbounds nuw double, ptr %1445, i64 %indvars.iv.i38.i2546
   %1478 = load double, ptr %1477, align 8, !tbaa !18
   %1479 = tail call double @llvm.fmuladd.f64(double %1476, double %1478, double %1474)
-  %indvars.iv.next.i39.i2544 = add nuw nsw i64 %indvars.iv.i38.i2543, 1
-  %exitcond.not.i40.i2545 = icmp eq i64 %indvars.iv.next.i39.i2544, %wide.trip.count29.i
-  br i1 %exitcond.not.i40.i2545, label %1480, label %.preheader2755
+  %indvars.iv.next.i39.i2547 = add nuw nsw i64 %indvars.iv.i38.i2546, 1
+  %exitcond.not.i40.i2548 = icmp eq i64 %indvars.iv.next.i39.i2547, %wide.trip.count29.i
+  br i1 %exitcond.not.i40.i2548, label %1480, label %.preheader2756
 
-1480:                                             ; preds = %.preheader2755
+1480:                                             ; preds = %.preheader2756
   tail call void @free(ptr noundef nonnull %1444) #17
   tail call void @free(ptr noundef nonnull %1445) #17
   %1481 = fadd double %1479, 0xBFA5555555555555
   %1482 = tail call double @llvm.fabs.f64(double %1481)
   %1483 = fcmp ule double %1482, 0x3E50000000000000
   %1484 = zext i1 %1483 to i32
-  br label %arkode_butcher_order4d.exit2549
+  br label %arkode_butcher_order4d.exit2552
 
-arkode_butcher_order4d.exit2549:                  ; preds = %1480, %1472, %arkode_butcher_mv.exit35.i2547, %arkode_butcher_mv.exit.i2548, %1437
-  %1485 = phi i32 [ 0, %1437 ], [ 0, %arkode_butcher_mv.exit.i2548 ], [ 0, %arkode_butcher_mv.exit35.i2547 ], [ %1484, %1480 ], [ 0, %1472 ]
+arkode_butcher_order4d.exit2552:                  ; preds = %1480, %1472, %arkode_butcher_mv.exit35.i2550, %arkode_butcher_mv.exit.i2551, %1437
+  %1485 = phi i32 [ 0, %1437 ], [ 0, %arkode_butcher_mv.exit.i2551 ], [ 0, %arkode_butcher_mv.exit35.i2550 ], [ %1484, %1480 ], [ 0, %1472 ]
   br i1 %1438, label %1437, label %1486
 
-1486:                                             ; preds = %arkode_butcher_order4d.exit2549
-  br i1 %1436, label %.preheader2756, label %1487
+1486:                                             ; preds = %arkode_butcher_order4d.exit2552
+  br i1 %1436, label %.preheader2757, label %1487
 
 1487:                                             ; preds = %1486
-  br i1 %1435, label %.preheader2757, label %1488
+  br i1 %1435, label %.preheader2758, label %1488
 
 1488:                                             ; preds = %1487
-  br i1 %1434, label %.preheader2758, label %1489
+  br i1 %1434, label %.preheader2759, label %1489
 
 1489:                                             ; preds = %1488
   %1490 = icmp eq i32 %1485, 0
   %or.cond82 = and i1 %49, %1490
-  br i1 %or.cond82, label %.thread2597, label %1492
+  br i1 %or.cond82, label %.thread2598, label %1492
 
-.thread2597:                                      ; preds = %1489
+.thread2598:                                      ; preds = %1489
   %1491 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 39, i64 1, ptr nonnull %4)
-  br label %thread-pre-split2598thread-pre-split
+  br label %thread-pre-split2599thread-pre-split
 
 1492:                                             ; preds = %1489
-  br i1 %1490, label %thread-pre-split2598thread-pre-split, label %.critedge2620
+  br i1 %1490, label %thread-pre-split2599thread-pre-split, label %.critedge2621
 
-.critedge2620:                                    ; preds = %1492
+.critedge2621:                                    ; preds = %1492
   store i32 4, ptr %3, align 4, !tbaa !25
-  br label %.preheader2753.preheader
+  br label %.preheader2754.preheader
 
-thread-pre-split2598thread-pre-split:             ; preds = %.thread2597, %1492
-  %.pr2599.pr = load i32, ptr %3, align 4, !tbaa !25
-  br label %thread-pre-split2598
+thread-pre-split2599thread-pre-split:             ; preds = %.thread2598, %1492
+  %.pr2600.pr = load i32, ptr %3, align 4, !tbaa !25
+  br label %thread-pre-split2599
 
-thread-pre-split2598:                             ; preds = %thread-pre-split2598thread-pre-split, %thread-pre-split2594
-  %.pr2599 = phi i32 [ %.pr2599.pr, %thread-pre-split2598thread-pre-split ], [ %.pr2595, %thread-pre-split2594 ]
-  %1493 = icmp eq i32 %.pr2599, 4
-  br i1 %1493, label %.preheader2753.preheader, label %thread-pre-split2602
+thread-pre-split2599:                             ; preds = %thread-pre-split2599thread-pre-split, %thread-pre-split2595
+  %.pr2600 = phi i32 [ %.pr2600.pr, %thread-pre-split2599thread-pre-split ], [ %.pr2596, %thread-pre-split2595 ]
+  %1493 = icmp eq i32 %.pr2600, 4
+  br i1 %1493, label %.preheader2754.preheader, label %thread-pre-split2603
 
-.preheader2753.preheader:                         ; preds = %thread-pre-split2598, %.critedge2620
+.preheader2754.preheader:                         ; preds = %thread-pre-split2599, %.critedge2621
+  br label %.preheader2754
+
+.preheader2754:                                   ; preds = %.preheader2754.preheader, %1512
+  %1494 = phi i1 [ false, %1512 ], [ true, %.preheader2754.preheader ]
+  %indvars.iv4458.sroa.phi = phi ptr [ %.sroa.38, %1512 ], [ %.sroa.0, %.preheader2754.preheader ]
+  %.2073404 = phi i32 [ %1508, %1512 ], [ 1, %.preheader2754.preheader ]
   br label %.preheader2753
 
-.preheader2753:                                   ; preds = %.preheader2753.preheader, %1512
-  %1494 = phi i1 [ false, %1512 ], [ true, %.preheader2753.preheader ]
-  %indvars.iv4457.sroa.phi = phi ptr [ %.sroa.38, %1512 ], [ %.sroa.0, %.preheader2753.preheader ]
-  %.2073403 = phi i32 [ %1508, %1512 ], [ 1, %.preheader2753.preheader ]
+.preheader2753:                                   ; preds = %.preheader2754, %1511
+  %1495 = phi i1 [ true, %.preheader2754 ], [ false, %1511 ]
+  %indvars.iv4455.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2754 ], [ %.sroa.181, %1511 ]
+  %.2083402 = phi i32 [ %.2073404, %.preheader2754 ], [ %1508, %1511 ]
   br label %.preheader2752
 
-.preheader2752:                                   ; preds = %.preheader2753, %1511
-  %1495 = phi i1 [ true, %.preheader2753 ], [ false, %1511 ]
-  %indvars.iv4454.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2753 ], [ %.sroa.181, %1511 ]
-  %.2083401 = phi i32 [ %.2073403, %.preheader2753 ], [ %1508, %1511 ]
+.preheader2752:                                   ; preds = %.preheader2753, %1510
+  %1496 = phi i1 [ true, %.preheader2753 ], [ false, %1510 ]
+  %indvars.iv4452.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2753 ], [ %.sroa.181, %1510 ]
+  %.2093400 = phi i32 [ %.2083402, %.preheader2753 ], [ %1508, %1510 ]
   br label %.preheader2751
 
-.preheader2751:                                   ; preds = %.preheader2752, %1510
-  %1496 = phi i1 [ true, %.preheader2752 ], [ false, %1510 ]
-  %indvars.iv4451.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2752 ], [ %.sroa.181, %1510 ]
-  %.2093399 = phi i32 [ %.2083401, %.preheader2752 ], [ %1508, %1510 ]
-  br label %.preheader2750
-
-.preheader2750:                                   ; preds = %.preheader2751, %1509
-  %1497 = phi i1 [ true, %.preheader2751 ], [ false, %1509 ]
-  %indvars.iv4448.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2751 ], [ %.sroa.181, %1509 ]
-  %.2103397 = phi i32 [ %.2093399, %.preheader2751 ], [ %1508, %1509 ]
+.preheader2751:                                   ; preds = %.preheader2752, %1509
+  %1497 = phi i1 [ true, %.preheader2752 ], [ false, %1509 ]
+  %indvars.iv4449.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2752 ], [ %.sroa.181, %1509 ]
+  %.2103398 = phi i32 [ %.2093400, %.preheader2752 ], [ %1508, %1509 ]
   br label %1498
 
-1498:                                             ; preds = %.preheader2750, %1507
-  %1499 = phi i1 [ true, %.preheader2750 ], [ false, %1507 ]
-  %indvars.iv4445.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2750 ], [ %.sroa.181, %1507 ]
-  %.2113395 = phi i32 [ %.2103397, %.preheader2750 ], [ %1508, %1507 ]
-  %.not2202 = icmp eq i32 %.2113395, 0
+1498:                                             ; preds = %.preheader2751, %1507
+  %1499 = phi i1 [ true, %.preheader2751 ], [ false, %1507 ]
+  %indvars.iv4446.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2751 ], [ %.sroa.181, %1507 ]
+  %.2113396 = phi i32 [ %.2103398, %.preheader2751 ], [ %1508, %1507 ]
+  %.not2202 = icmp eq i32 %.2113396, 0
   br i1 %.not2202, label %1507, label %1500
 
 1500:                                             ; preds = %1498
-  %1501 = load ptr, ptr %indvars.iv4457.sroa.phi, align 8, !tbaa !12
-  %1502 = load ptr, ptr %indvars.iv4454.sroa.phi, align 8, !tbaa !12
-  %1503 = load ptr, ptr %indvars.iv4451.sroa.phi, align 8, !tbaa !12
-  %1504 = load ptr, ptr %indvars.iv4448.sroa.phi, align 8, !tbaa !12
-  %1505 = load ptr, ptr %indvars.iv4445.sroa.phi, align 8, !tbaa !12
+  %1501 = load ptr, ptr %indvars.iv4458.sroa.phi, align 8, !tbaa !12
+  %1502 = load ptr, ptr %indvars.iv4455.sroa.phi, align 8, !tbaa !12
+  %1503 = load ptr, ptr %indvars.iv4452.sroa.phi, align 8, !tbaa !12
+  %1504 = load ptr, ptr %indvars.iv4449.sroa.phi, align 8, !tbaa !12
+  %1505 = load ptr, ptr %indvars.iv4446.sroa.phi, align 8, !tbaa !12
   %1506 = tail call fastcc i32 @arkode_butcher_order5a(ptr noundef %1501, ptr noundef %1502, ptr noundef %1503, ptr noundef %1504, ptr noundef %1505, i32 noundef %9)
   br label %1507
 
@@ -11625,66 +11624,66 @@ thread-pre-split2598:                             ; preds = %thread-pre-split259
   br i1 %1499, label %1498, label %1509
 
 1509:                                             ; preds = %1507
-  br i1 %1497, label %.preheader2750, label %1510
+  br i1 %1497, label %.preheader2751, label %1510
 
 1510:                                             ; preds = %1509
-  br i1 %1496, label %.preheader2751, label %1511
+  br i1 %1496, label %.preheader2752, label %1511
 
 1511:                                             ; preds = %1510
-  br i1 %1495, label %.preheader2752, label %1512
+  br i1 %1495, label %.preheader2753, label %1512
 
 1512:                                             ; preds = %1511
-  br i1 %1494, label %.preheader2753, label %1513
+  br i1 %1494, label %.preheader2754, label %1513
 
 1513:                                             ; preds = %1512
   %1514 = icmp eq i32 %1508, 0
   %or.cond84 = and i1 %49, %1514
-  br i1 %or.cond84, label %1515, label %.preheader2749.preheader
+  br i1 %or.cond84, label %1515, label %.preheader2750.preheader
 
 1515:                                             ; preds = %1513
   %1516 = tail call i64 @fwrite(ptr nonnull @.str.133, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2749.preheader
+  br label %.preheader2750.preheader
 
-.preheader2749.preheader:                         ; preds = %1515, %1513
+.preheader2750.preheader:                         ; preds = %1515, %1513
+  br label %.preheader2750
+
+.preheader2750:                                   ; preds = %.preheader2750.preheader, %1535
+  %1517 = phi i1 [ false, %1535 ], [ true, %.preheader2750.preheader ]
+  %indvars.iv4473.sroa.phi = phi ptr [ %.sroa.38, %1535 ], [ %.sroa.0, %.preheader2750.preheader ]
+  %.2123414 = phi i32 [ %1531, %1535 ], [ %1508, %.preheader2750.preheader ]
   br label %.preheader2749
 
-.preheader2749:                                   ; preds = %.preheader2749.preheader, %1535
-  %1517 = phi i1 [ false, %1535 ], [ true, %.preheader2749.preheader ]
-  %indvars.iv4472.sroa.phi = phi ptr [ %.sroa.38, %1535 ], [ %.sroa.0, %.preheader2749.preheader ]
-  %.2123413 = phi i32 [ %1531, %1535 ], [ %1508, %.preheader2749.preheader ]
+.preheader2749:                                   ; preds = %.preheader2750, %1534
+  %1518 = phi i1 [ true, %.preheader2750 ], [ false, %1534 ]
+  %indvars.iv4470.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2750 ], [ %.sroa.181, %1534 ]
+  %.2133412 = phi i32 [ %.2123414, %.preheader2750 ], [ %1531, %1534 ]
   br label %.preheader2748
 
-.preheader2748:                                   ; preds = %.preheader2749, %1534
-  %1518 = phi i1 [ true, %.preheader2749 ], [ false, %1534 ]
-  %indvars.iv4469.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2749 ], [ %.sroa.181, %1534 ]
-  %.2133411 = phi i32 [ %.2123413, %.preheader2749 ], [ %1531, %1534 ]
+.preheader2748:                                   ; preds = %.preheader2749, %1533
+  %1519 = phi i1 [ true, %.preheader2749 ], [ false, %1533 ]
+  %indvars.iv4467.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2749 ], [ %.sroa.181, %1533 ]
+  %.2143410 = phi i32 [ %.2133412, %.preheader2749 ], [ %1531, %1533 ]
   br label %.preheader2747
 
-.preheader2747:                                   ; preds = %.preheader2748, %1533
-  %1519 = phi i1 [ true, %.preheader2748 ], [ false, %1533 ]
-  %indvars.iv4466.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2748 ], [ %.sroa.181, %1533 ]
-  %.2143409 = phi i32 [ %.2133411, %.preheader2748 ], [ %1531, %1533 ]
-  br label %.preheader2746
-
-.preheader2746:                                   ; preds = %.preheader2747, %1532
-  %1520 = phi i1 [ true, %.preheader2747 ], [ false, %1532 ]
-  %indvars.iv4463.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2747 ], [ %.sroa.121, %1532 ]
-  %.2153407 = phi i32 [ %.2143409, %.preheader2747 ], [ %1531, %1532 ]
+.preheader2747:                                   ; preds = %.preheader2748, %1532
+  %1520 = phi i1 [ true, %.preheader2748 ], [ false, %1532 ]
+  %indvars.iv4464.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2748 ], [ %.sroa.121, %1532 ]
+  %.2153408 = phi i32 [ %.2143410, %.preheader2748 ], [ %1531, %1532 ]
   br label %1521
 
-1521:                                             ; preds = %.preheader2746, %1530
-  %1522 = phi i1 [ true, %.preheader2746 ], [ false, %1530 ]
-  %indvars.iv4460.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2746 ], [ %.sroa.181, %1530 ]
-  %.2163405 = phi i32 [ %.2153407, %.preheader2746 ], [ %1531, %1530 ]
-  %.not2201 = icmp eq i32 %.2163405, 0
+1521:                                             ; preds = %.preheader2747, %1530
+  %1522 = phi i1 [ true, %.preheader2747 ], [ false, %1530 ]
+  %indvars.iv4461.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2747 ], [ %.sroa.181, %1530 ]
+  %.2163406 = phi i32 [ %.2153408, %.preheader2747 ], [ %1531, %1530 ]
+  %.not2201 = icmp eq i32 %.2163406, 0
   br i1 %.not2201, label %1530, label %1523
 
 1523:                                             ; preds = %1521
-  %1524 = load ptr, ptr %indvars.iv4472.sroa.phi, align 8, !tbaa !12
-  %1525 = load ptr, ptr %indvars.iv4469.sroa.phi, align 8, !tbaa !12
-  %1526 = load ptr, ptr %indvars.iv4466.sroa.phi, align 8, !tbaa !12
-  %1527 = load ptr, ptr %indvars.iv4463.sroa.phi, align 8, !tbaa !31
-  %1528 = load ptr, ptr %indvars.iv4460.sroa.phi, align 8, !tbaa !12
+  %1524 = load ptr, ptr %indvars.iv4473.sroa.phi, align 8, !tbaa !12
+  %1525 = load ptr, ptr %indvars.iv4470.sroa.phi, align 8, !tbaa !12
+  %1526 = load ptr, ptr %indvars.iv4467.sroa.phi, align 8, !tbaa !12
+  %1527 = load ptr, ptr %indvars.iv4464.sroa.phi, align 8, !tbaa !31
+  %1528 = load ptr, ptr %indvars.iv4461.sroa.phi, align 8, !tbaa !12
   %1529 = tail call fastcc i32 @arkode_butcher_order5b(ptr noundef %1524, ptr noundef %1525, ptr noundef %1526, ptr noundef %1527, ptr noundef %1528, i32 noundef %9)
   br label %1530
 
@@ -11693,66 +11692,66 @@ thread-pre-split2598:                             ; preds = %thread-pre-split259
   br i1 %1522, label %1521, label %1532
 
 1532:                                             ; preds = %1530
-  br i1 %1520, label %.preheader2746, label %1533
+  br i1 %1520, label %.preheader2747, label %1533
 
 1533:                                             ; preds = %1532
-  br i1 %1519, label %.preheader2747, label %1534
+  br i1 %1519, label %.preheader2748, label %1534
 
 1534:                                             ; preds = %1533
-  br i1 %1518, label %.preheader2748, label %1535
+  br i1 %1518, label %.preheader2749, label %1535
 
 1535:                                             ; preds = %1534
-  br i1 %1517, label %.preheader2749, label %1536
+  br i1 %1517, label %.preheader2750, label %1536
 
 1536:                                             ; preds = %1535
   %1537 = icmp eq i32 %1531, 0
   %or.cond86 = and i1 %49, %1537
-  br i1 %or.cond86, label %1538, label %.preheader2745.preheader
+  br i1 %or.cond86, label %1538, label %.preheader2746.preheader
 
 1538:                                             ; preds = %1536
   %1539 = tail call i64 @fwrite(ptr nonnull @.str.134, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2745.preheader
+  br label %.preheader2746.preheader
 
-.preheader2745.preheader:                         ; preds = %1538, %1536
+.preheader2746.preheader:                         ; preds = %1538, %1536
+  br label %.preheader2746
+
+.preheader2746:                                   ; preds = %.preheader2746.preheader, %1558
+  %1540 = phi i1 [ false, %1558 ], [ true, %.preheader2746.preheader ]
+  %indvars.iv4488.sroa.phi = phi ptr [ %.sroa.38, %1558 ], [ %.sroa.0, %.preheader2746.preheader ]
+  %.2173424 = phi i32 [ %1554, %1558 ], [ %1531, %.preheader2746.preheader ]
   br label %.preheader2745
 
-.preheader2745:                                   ; preds = %.preheader2745.preheader, %1558
-  %1540 = phi i1 [ false, %1558 ], [ true, %.preheader2745.preheader ]
-  %indvars.iv4487.sroa.phi = phi ptr [ %.sroa.38, %1558 ], [ %.sroa.0, %.preheader2745.preheader ]
-  %.2173423 = phi i32 [ %1554, %1558 ], [ %1531, %.preheader2745.preheader ]
+.preheader2745:                                   ; preds = %.preheader2746, %1557
+  %1541 = phi i1 [ true, %.preheader2746 ], [ false, %1557 ]
+  %indvars.iv4485.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2746 ], [ %.sroa.121, %1557 ]
+  %.2183422 = phi i32 [ %.2173424, %.preheader2746 ], [ %1554, %1557 ]
   br label %.preheader2744
 
-.preheader2744:                                   ; preds = %.preheader2745, %1557
-  %1541 = phi i1 [ true, %.preheader2745 ], [ false, %1557 ]
-  %indvars.iv4484.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2745 ], [ %.sroa.121, %1557 ]
-  %.2183421 = phi i32 [ %.2173423, %.preheader2745 ], [ %1554, %1557 ]
+.preheader2744:                                   ; preds = %.preheader2745, %1556
+  %1542 = phi i1 [ true, %.preheader2745 ], [ false, %1556 ]
+  %indvars.iv4482.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2745 ], [ %.sroa.181, %1556 ]
+  %.2193420 = phi i32 [ %.2183422, %.preheader2745 ], [ %1554, %1556 ]
   br label %.preheader2743
 
-.preheader2743:                                   ; preds = %.preheader2744, %1556
-  %1542 = phi i1 [ true, %.preheader2744 ], [ false, %1556 ]
-  %indvars.iv4481.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2744 ], [ %.sroa.181, %1556 ]
-  %.2193419 = phi i32 [ %.2183421, %.preheader2744 ], [ %1554, %1556 ]
-  br label %.preheader2742
-
-.preheader2742:                                   ; preds = %.preheader2743, %1555
-  %1543 = phi i1 [ true, %.preheader2743 ], [ false, %1555 ]
-  %indvars.iv4478.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2743 ], [ %.sroa.121, %1555 ]
-  %.2203417 = phi i32 [ %.2193419, %.preheader2743 ], [ %1554, %1555 ]
+.preheader2743:                                   ; preds = %.preheader2744, %1555
+  %1543 = phi i1 [ true, %.preheader2744 ], [ false, %1555 ]
+  %indvars.iv4479.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2744 ], [ %.sroa.121, %1555 ]
+  %.2203418 = phi i32 [ %.2193420, %.preheader2744 ], [ %1554, %1555 ]
   br label %1544
 
-1544:                                             ; preds = %.preheader2742, %1553
-  %1545 = phi i1 [ true, %.preheader2742 ], [ false, %1553 ]
-  %indvars.iv4475.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2742 ], [ %.sroa.181, %1553 ]
-  %.2213415 = phi i32 [ %.2203417, %.preheader2742 ], [ %1554, %1553 ]
-  %.not2200 = icmp eq i32 %.2213415, 0
+1544:                                             ; preds = %.preheader2743, %1553
+  %1545 = phi i1 [ true, %.preheader2743 ], [ false, %1553 ]
+  %indvars.iv4476.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2743 ], [ %.sroa.181, %1553 ]
+  %.2213416 = phi i32 [ %.2203418, %.preheader2743 ], [ %1554, %1553 ]
+  %.not2200 = icmp eq i32 %.2213416, 0
   br i1 %.not2200, label %1553, label %1546
 
 1546:                                             ; preds = %1544
-  %1547 = load ptr, ptr %indvars.iv4487.sroa.phi, align 8, !tbaa !12
-  %1548 = load ptr, ptr %indvars.iv4484.sroa.phi, align 8, !tbaa !31
-  %1549 = load ptr, ptr %indvars.iv4481.sroa.phi, align 8, !tbaa !12
-  %1550 = load ptr, ptr %indvars.iv4478.sroa.phi, align 8, !tbaa !31
-  %1551 = load ptr, ptr %indvars.iv4475.sroa.phi, align 8, !tbaa !12
+  %1547 = load ptr, ptr %indvars.iv4488.sroa.phi, align 8, !tbaa !12
+  %1548 = load ptr, ptr %indvars.iv4485.sroa.phi, align 8, !tbaa !31
+  %1549 = load ptr, ptr %indvars.iv4482.sroa.phi, align 8, !tbaa !12
+  %1550 = load ptr, ptr %indvars.iv4479.sroa.phi, align 8, !tbaa !31
+  %1551 = load ptr, ptr %indvars.iv4476.sroa.phi, align 8, !tbaa !12
   %1552 = tail call fastcc i32 @arkode_butcher_order5c(ptr noundef %1547, ptr noundef %1548, ptr noundef %1549, ptr noundef %1550, ptr noundef %1551, i32 noundef %9)
   br label %1553
 
@@ -11761,66 +11760,66 @@ thread-pre-split2598:                             ; preds = %thread-pre-split259
   br i1 %1545, label %1544, label %1555
 
 1555:                                             ; preds = %1553
-  br i1 %1543, label %.preheader2742, label %1556
+  br i1 %1543, label %.preheader2743, label %1556
 
 1556:                                             ; preds = %1555
-  br i1 %1542, label %.preheader2743, label %1557
+  br i1 %1542, label %.preheader2744, label %1557
 
 1557:                                             ; preds = %1556
-  br i1 %1541, label %.preheader2744, label %1558
+  br i1 %1541, label %.preheader2745, label %1558
 
 1558:                                             ; preds = %1557
-  br i1 %1540, label %.preheader2745, label %1559
+  br i1 %1540, label %.preheader2746, label %1559
 
 1559:                                             ; preds = %1558
   %1560 = icmp eq i32 %1554, 0
   %or.cond88 = and i1 %49, %1560
-  br i1 %or.cond88, label %1561, label %.preheader2741.preheader
+  br i1 %or.cond88, label %1561, label %.preheader2742.preheader
 
 1561:                                             ; preds = %1559
   %1562 = tail call i64 @fwrite(ptr nonnull @.str.135, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2741.preheader
+  br label %.preheader2742.preheader
 
-.preheader2741.preheader:                         ; preds = %1561, %1559
+.preheader2742.preheader:                         ; preds = %1561, %1559
+  br label %.preheader2742
+
+.preheader2742:                                   ; preds = %.preheader2742.preheader, %1581
+  %1563 = phi i1 [ false, %1581 ], [ true, %.preheader2742.preheader ]
+  %indvars.iv4503.sroa.phi = phi ptr [ %.sroa.38, %1581 ], [ %.sroa.0, %.preheader2742.preheader ]
+  %.2223434 = phi i32 [ %1577, %1581 ], [ %1554, %.preheader2742.preheader ]
   br label %.preheader2741
 
-.preheader2741:                                   ; preds = %.preheader2741.preheader, %1581
-  %1563 = phi i1 [ false, %1581 ], [ true, %.preheader2741.preheader ]
-  %indvars.iv4502.sroa.phi = phi ptr [ %.sroa.38, %1581 ], [ %.sroa.0, %.preheader2741.preheader ]
-  %.2223433 = phi i32 [ %1577, %1581 ], [ %1554, %.preheader2741.preheader ]
+.preheader2741:                                   ; preds = %.preheader2742, %1580
+  %1564 = phi i1 [ true, %.preheader2742 ], [ false, %1580 ]
+  %indvars.iv4500.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2742 ], [ %.sroa.181, %1580 ]
+  %.2233432 = phi i32 [ %.2223434, %.preheader2742 ], [ %1577, %1580 ]
   br label %.preheader2740
 
-.preheader2740:                                   ; preds = %.preheader2741, %1580
-  %1564 = phi i1 [ true, %.preheader2741 ], [ false, %1580 ]
-  %indvars.iv4499.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2741 ], [ %.sroa.181, %1580 ]
-  %.2233431 = phi i32 [ %.2223433, %.preheader2741 ], [ %1577, %1580 ]
+.preheader2740:                                   ; preds = %.preheader2741, %1579
+  %1565 = phi i1 [ true, %.preheader2741 ], [ false, %1579 ]
+  %indvars.iv4497.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2741 ], [ %.sroa.121, %1579 ]
+  %.2243430 = phi i32 [ %.2233432, %.preheader2741 ], [ %1577, %1579 ]
   br label %.preheader2739
 
-.preheader2739:                                   ; preds = %.preheader2740, %1579
-  %1565 = phi i1 [ true, %.preheader2740 ], [ false, %1579 ]
-  %indvars.iv4496.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2740 ], [ %.sroa.121, %1579 ]
-  %.2243429 = phi i32 [ %.2233431, %.preheader2740 ], [ %1577, %1579 ]
-  br label %.preheader2738
-
-.preheader2738:                                   ; preds = %.preheader2739, %1578
-  %1566 = phi i1 [ true, %.preheader2739 ], [ false, %1578 ]
-  %indvars.iv4493.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2739 ], [ %.sroa.181, %1578 ]
-  %.2253427 = phi i32 [ %.2243429, %.preheader2739 ], [ %1577, %1578 ]
+.preheader2739:                                   ; preds = %.preheader2740, %1578
+  %1566 = phi i1 [ true, %.preheader2740 ], [ false, %1578 ]
+  %indvars.iv4494.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2740 ], [ %.sroa.181, %1578 ]
+  %.2253428 = phi i32 [ %.2243430, %.preheader2740 ], [ %1577, %1578 ]
   br label %1567
 
-1567:                                             ; preds = %.preheader2738, %1576
-  %1568 = phi i1 [ true, %.preheader2738 ], [ false, %1576 ]
-  %indvars.iv4490.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2738 ], [ %.sroa.181, %1576 ]
-  %.2263425 = phi i32 [ %.2253427, %.preheader2738 ], [ %1577, %1576 ]
-  %.not2199 = icmp eq i32 %.2263425, 0
+1567:                                             ; preds = %.preheader2739, %1576
+  %1568 = phi i1 [ true, %.preheader2739 ], [ false, %1576 ]
+  %indvars.iv4491.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2739 ], [ %.sroa.181, %1576 ]
+  %.2263426 = phi i32 [ %.2253428, %.preheader2739 ], [ %1577, %1576 ]
+  %.not2199 = icmp eq i32 %.2263426, 0
   br i1 %.not2199, label %1576, label %1569
 
 1569:                                             ; preds = %1567
-  %1570 = load ptr, ptr %indvars.iv4502.sroa.phi, align 8, !tbaa !12
-  %1571 = load ptr, ptr %indvars.iv4499.sroa.phi, align 8, !tbaa !12
-  %1572 = load ptr, ptr %indvars.iv4496.sroa.phi, align 8, !tbaa !31
-  %1573 = load ptr, ptr %indvars.iv4493.sroa.phi, align 8, !tbaa !12
-  %1574 = load ptr, ptr %indvars.iv4490.sroa.phi, align 8, !tbaa !12
+  %1570 = load ptr, ptr %indvars.iv4503.sroa.phi, align 8, !tbaa !12
+  %1571 = load ptr, ptr %indvars.iv4500.sroa.phi, align 8, !tbaa !12
+  %1572 = load ptr, ptr %indvars.iv4497.sroa.phi, align 8, !tbaa !31
+  %1573 = load ptr, ptr %indvars.iv4494.sroa.phi, align 8, !tbaa !12
+  %1574 = load ptr, ptr %indvars.iv4491.sroa.phi, align 8, !tbaa !12
   %1575 = tail call fastcc i32 @arkode_butcher_order5d(ptr noundef %1570, ptr noundef %1571, ptr noundef %1572, ptr noundef %1573, ptr noundef %1574, i32 noundef %9)
   br label %1576
 
@@ -11829,66 +11828,66 @@ thread-pre-split2598:                             ; preds = %thread-pre-split259
   br i1 %1568, label %1567, label %1578
 
 1578:                                             ; preds = %1576
-  br i1 %1566, label %.preheader2738, label %1579
+  br i1 %1566, label %.preheader2739, label %1579
 
 1579:                                             ; preds = %1578
-  br i1 %1565, label %.preheader2739, label %1580
+  br i1 %1565, label %.preheader2740, label %1580
 
 1580:                                             ; preds = %1579
-  br i1 %1564, label %.preheader2740, label %1581
+  br i1 %1564, label %.preheader2741, label %1581
 
 1581:                                             ; preds = %1580
-  br i1 %1563, label %.preheader2741, label %1582
+  br i1 %1563, label %.preheader2742, label %1582
 
 1582:                                             ; preds = %1581
   %1583 = icmp eq i32 %1577, 0
   %or.cond90 = and i1 %49, %1583
-  br i1 %or.cond90, label %1584, label %.preheader2737.preheader
+  br i1 %or.cond90, label %1584, label %.preheader2738.preheader
 
 1584:                                             ; preds = %1582
   %1585 = tail call i64 @fwrite(ptr nonnull @.str.136, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2737.preheader
+  br label %.preheader2738.preheader
 
-.preheader2737.preheader:                         ; preds = %1584, %1582
+.preheader2738.preheader:                         ; preds = %1584, %1582
+  br label %.preheader2738
+
+.preheader2738:                                   ; preds = %.preheader2738.preheader, %1604
+  %1586 = phi i1 [ false, %1604 ], [ true, %.preheader2738.preheader ]
+  %indvars.iv4518.sroa.phi = phi ptr [ %.sroa.38, %1604 ], [ %.sroa.0, %.preheader2738.preheader ]
+  %.2273444 = phi i32 [ %1600, %1604 ], [ %1577, %.preheader2738.preheader ]
   br label %.preheader2737
 
-.preheader2737:                                   ; preds = %.preheader2737.preheader, %1604
-  %1586 = phi i1 [ false, %1604 ], [ true, %.preheader2737.preheader ]
-  %indvars.iv4517.sroa.phi = phi ptr [ %.sroa.38, %1604 ], [ %.sroa.0, %.preheader2737.preheader ]
-  %.2273443 = phi i32 [ %1600, %1604 ], [ %1577, %.preheader2737.preheader ]
+.preheader2737:                                   ; preds = %.preheader2738, %1603
+  %1587 = phi i1 [ true, %.preheader2738 ], [ false, %1603 ]
+  %indvars.iv4515.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2738 ], [ %.sroa.121, %1603 ]
+  %.2283442 = phi i32 [ %.2273444, %.preheader2738 ], [ %1600, %1603 ]
   br label %.preheader2736
 
-.preheader2736:                                   ; preds = %.preheader2737, %1603
-  %1587 = phi i1 [ true, %.preheader2737 ], [ false, %1603 ]
-  %indvars.iv4514.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2737 ], [ %.sroa.121, %1603 ]
-  %.2283441 = phi i32 [ %.2273443, %.preheader2737 ], [ %1600, %1603 ]
+.preheader2736:                                   ; preds = %.preheader2737, %1602
+  %1588 = phi i1 [ true, %.preheader2737 ], [ false, %1602 ]
+  %indvars.iv4512.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2737 ], [ %.sroa.181, %1602 ]
+  %.2293440 = phi i32 [ %.2283442, %.preheader2737 ], [ %1600, %1602 ]
   br label %.preheader2735
 
-.preheader2735:                                   ; preds = %.preheader2736, %1602
-  %1588 = phi i1 [ true, %.preheader2736 ], [ false, %1602 ]
-  %indvars.iv4511.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2736 ], [ %.sroa.181, %1602 ]
-  %.2293439 = phi i32 [ %.2283441, %.preheader2736 ], [ %1600, %1602 ]
-  br label %.preheader2734
-
-.preheader2734:                                   ; preds = %.preheader2735, %1601
-  %1589 = phi i1 [ true, %.preheader2735 ], [ false, %1601 ]
-  %indvars.iv4508.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2735 ], [ %.sroa.181, %1601 ]
-  %.2303437 = phi i32 [ %.2293439, %.preheader2735 ], [ %1600, %1601 ]
+.preheader2735:                                   ; preds = %.preheader2736, %1601
+  %1589 = phi i1 [ true, %.preheader2736 ], [ false, %1601 ]
+  %indvars.iv4509.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2736 ], [ %.sroa.181, %1601 ]
+  %.2303438 = phi i32 [ %.2293440, %.preheader2736 ], [ %1600, %1601 ]
   br label %1590
 
-1590:                                             ; preds = %.preheader2734, %1599
-  %1591 = phi i1 [ true, %.preheader2734 ], [ false, %1599 ]
-  %indvars.iv4505.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2734 ], [ %.sroa.181, %1599 ]
-  %.2313435 = phi i32 [ %.2303437, %.preheader2734 ], [ %1600, %1599 ]
-  %.not2198 = icmp eq i32 %.2313435, 0
+1590:                                             ; preds = %.preheader2735, %1599
+  %1591 = phi i1 [ true, %.preheader2735 ], [ false, %1599 ]
+  %indvars.iv4506.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2735 ], [ %.sroa.181, %1599 ]
+  %.2313436 = phi i32 [ %.2303438, %.preheader2735 ], [ %1600, %1599 ]
+  %.not2198 = icmp eq i32 %.2313436, 0
   br i1 %.not2198, label %1599, label %1592
 
 1592:                                             ; preds = %1590
-  %1593 = load ptr, ptr %indvars.iv4517.sroa.phi, align 8, !tbaa !12
-  %1594 = load ptr, ptr %indvars.iv4514.sroa.phi, align 8, !tbaa !31
-  %1595 = load ptr, ptr %indvars.iv4511.sroa.phi, align 8, !tbaa !12
-  %1596 = load ptr, ptr %indvars.iv4508.sroa.phi, align 8, !tbaa !12
-  %1597 = load ptr, ptr %indvars.iv4505.sroa.phi, align 8, !tbaa !12
+  %1593 = load ptr, ptr %indvars.iv4518.sroa.phi, align 8, !tbaa !12
+  %1594 = load ptr, ptr %indvars.iv4515.sroa.phi, align 8, !tbaa !31
+  %1595 = load ptr, ptr %indvars.iv4512.sroa.phi, align 8, !tbaa !12
+  %1596 = load ptr, ptr %indvars.iv4509.sroa.phi, align 8, !tbaa !12
+  %1597 = load ptr, ptr %indvars.iv4506.sroa.phi, align 8, !tbaa !12
   %1598 = tail call fastcc i32 @arkode_butcher_order5e(ptr noundef %1593, ptr noundef %1594, ptr noundef %1595, ptr noundef %1596, ptr noundef %1597, i32 noundef %9)
   br label %1599
 
@@ -11897,66 +11896,66 @@ thread-pre-split2598:                             ; preds = %thread-pre-split259
   br i1 %1591, label %1590, label %1601
 
 1601:                                             ; preds = %1599
-  br i1 %1589, label %.preheader2734, label %1602
+  br i1 %1589, label %.preheader2735, label %1602
 
 1602:                                             ; preds = %1601
-  br i1 %1588, label %.preheader2735, label %1603
+  br i1 %1588, label %.preheader2736, label %1603
 
 1603:                                             ; preds = %1602
-  br i1 %1587, label %.preheader2736, label %1604
+  br i1 %1587, label %.preheader2737, label %1604
 
 1604:                                             ; preds = %1603
-  br i1 %1586, label %.preheader2737, label %1605
+  br i1 %1586, label %.preheader2738, label %1605
 
 1605:                                             ; preds = %1604
   %1606 = icmp eq i32 %1600, 0
   %or.cond92 = and i1 %49, %1606
-  br i1 %or.cond92, label %1607, label %.preheader2733.preheader
+  br i1 %or.cond92, label %1607, label %.preheader2734.preheader
 
 1607:                                             ; preds = %1605
   %1608 = tail call i64 @fwrite(ptr nonnull @.str.137, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2733.preheader
+  br label %.preheader2734.preheader
 
-.preheader2733.preheader:                         ; preds = %1607, %1605
+.preheader2734.preheader:                         ; preds = %1607, %1605
+  br label %.preheader2734
+
+.preheader2734:                                   ; preds = %.preheader2734.preheader, %1627
+  %1609 = phi i1 [ false, %1627 ], [ true, %.preheader2734.preheader ]
+  %indvars.iv4533.sroa.phi = phi ptr [ %.sroa.38, %1627 ], [ %.sroa.0, %.preheader2734.preheader ]
+  %.2323454 = phi i32 [ %1623, %1627 ], [ %1600, %.preheader2734.preheader ]
   br label %.preheader2733
 
-.preheader2733:                                   ; preds = %.preheader2733.preheader, %1627
-  %1609 = phi i1 [ false, %1627 ], [ true, %.preheader2733.preheader ]
-  %indvars.iv4532.sroa.phi = phi ptr [ %.sroa.38, %1627 ], [ %.sroa.0, %.preheader2733.preheader ]
-  %.2323453 = phi i32 [ %1623, %1627 ], [ %1600, %.preheader2733.preheader ]
+.preheader2733:                                   ; preds = %.preheader2734, %1626
+  %1610 = phi i1 [ true, %.preheader2734 ], [ false, %1626 ]
+  %indvars.iv4530.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2734 ], [ %.sroa.181, %1626 ]
+  %.2333452 = phi i32 [ %.2323454, %.preheader2734 ], [ %1623, %1626 ]
   br label %.preheader2732
 
-.preheader2732:                                   ; preds = %.preheader2733, %1626
-  %1610 = phi i1 [ true, %.preheader2733 ], [ false, %1626 ]
-  %indvars.iv4529.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2733 ], [ %.sroa.181, %1626 ]
-  %.2333451 = phi i32 [ %.2323453, %.preheader2733 ], [ %1623, %1626 ]
+.preheader2732:                                   ; preds = %.preheader2733, %1625
+  %1611 = phi i1 [ true, %.preheader2733 ], [ false, %1625 ]
+  %indvars.iv4527.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2733 ], [ %.sroa.121, %1625 ]
+  %.2343450 = phi i32 [ %.2333452, %.preheader2733 ], [ %1623, %1625 ]
   br label %.preheader2731
 
-.preheader2731:                                   ; preds = %.preheader2732, %1625
-  %1611 = phi i1 [ true, %.preheader2732 ], [ false, %1625 ]
-  %indvars.iv4526.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2732 ], [ %.sroa.121, %1625 ]
-  %.2343449 = phi i32 [ %.2333451, %.preheader2732 ], [ %1623, %1625 ]
-  br label %.preheader2730
-
-.preheader2730:                                   ; preds = %.preheader2731, %1624
-  %1612 = phi i1 [ true, %.preheader2731 ], [ false, %1624 ]
-  %indvars.iv4523.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2731 ], [ %.sroa.121, %1624 ]
-  %.2353447 = phi i32 [ %.2343449, %.preheader2731 ], [ %1623, %1624 ]
+.preheader2731:                                   ; preds = %.preheader2732, %1624
+  %1612 = phi i1 [ true, %.preheader2732 ], [ false, %1624 ]
+  %indvars.iv4524.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2732 ], [ %.sroa.121, %1624 ]
+  %.2353448 = phi i32 [ %.2343450, %.preheader2732 ], [ %1623, %1624 ]
   br label %1613
 
-1613:                                             ; preds = %.preheader2730, %1622
-  %1614 = phi i1 [ true, %.preheader2730 ], [ false, %1622 ]
-  %indvars.iv4520.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2730 ], [ %.sroa.181, %1622 ]
-  %.2363445 = phi i32 [ %.2353447, %.preheader2730 ], [ %1623, %1622 ]
-  %.not2197 = icmp eq i32 %.2363445, 0
+1613:                                             ; preds = %.preheader2731, %1622
+  %1614 = phi i1 [ true, %.preheader2731 ], [ false, %1622 ]
+  %indvars.iv4521.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2731 ], [ %.sroa.181, %1622 ]
+  %.2363446 = phi i32 [ %.2353448, %.preheader2731 ], [ %1623, %1622 ]
+  %.not2197 = icmp eq i32 %.2363446, 0
   br i1 %.not2197, label %1622, label %1615
 
 1615:                                             ; preds = %1613
-  %1616 = load ptr, ptr %indvars.iv4532.sroa.phi, align 8, !tbaa !12
-  %1617 = load ptr, ptr %indvars.iv4529.sroa.phi, align 8, !tbaa !12
-  %1618 = load ptr, ptr %indvars.iv4526.sroa.phi, align 8, !tbaa !31
-  %1619 = load ptr, ptr %indvars.iv4523.sroa.phi, align 8, !tbaa !31
-  %1620 = load ptr, ptr %indvars.iv4520.sroa.phi, align 8, !tbaa !12
+  %1616 = load ptr, ptr %indvars.iv4533.sroa.phi, align 8, !tbaa !12
+  %1617 = load ptr, ptr %indvars.iv4530.sroa.phi, align 8, !tbaa !12
+  %1618 = load ptr, ptr %indvars.iv4527.sroa.phi, align 8, !tbaa !31
+  %1619 = load ptr, ptr %indvars.iv4524.sroa.phi, align 8, !tbaa !31
+  %1620 = load ptr, ptr %indvars.iv4521.sroa.phi, align 8, !tbaa !12
   %1621 = tail call fastcc i32 @arkode_butcher_order5f(ptr noundef %1616, ptr noundef %1617, ptr noundef %1618, ptr noundef %1619, ptr noundef %1620, i32 noundef %9)
   br label %1622
 
@@ -11965,66 +11964,66 @@ thread-pre-split2598:                             ; preds = %thread-pre-split259
   br i1 %1614, label %1613, label %1624
 
 1624:                                             ; preds = %1622
-  br i1 %1612, label %.preheader2730, label %1625
+  br i1 %1612, label %.preheader2731, label %1625
 
 1625:                                             ; preds = %1624
-  br i1 %1611, label %.preheader2731, label %1626
+  br i1 %1611, label %.preheader2732, label %1626
 
 1626:                                             ; preds = %1625
-  br i1 %1610, label %.preheader2732, label %1627
+  br i1 %1610, label %.preheader2733, label %1627
 
 1627:                                             ; preds = %1626
-  br i1 %1609, label %.preheader2733, label %1628
+  br i1 %1609, label %.preheader2734, label %1628
 
 1628:                                             ; preds = %1627
   %1629 = icmp eq i32 %1623, 0
   %or.cond94 = and i1 %49, %1629
-  br i1 %or.cond94, label %1630, label %.preheader2729.preheader
+  br i1 %or.cond94, label %1630, label %.preheader2730.preheader
 
 1630:                                             ; preds = %1628
   %1631 = tail call i64 @fwrite(ptr nonnull @.str.138, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2729.preheader
+  br label %.preheader2730.preheader
 
-.preheader2729.preheader:                         ; preds = %1630, %1628
+.preheader2730.preheader:                         ; preds = %1630, %1628
+  br label %.preheader2730
+
+.preheader2730:                                   ; preds = %.preheader2730.preheader, %1650
+  %1632 = phi i1 [ false, %1650 ], [ true, %.preheader2730.preheader ]
+  %indvars.iv4548.sroa.phi = phi ptr [ %.sroa.38, %1650 ], [ %.sroa.0, %.preheader2730.preheader ]
+  %.2373464 = phi i32 [ %1646, %1650 ], [ %1623, %.preheader2730.preheader ]
   br label %.preheader2729
 
-.preheader2729:                                   ; preds = %.preheader2729.preheader, %1650
-  %1632 = phi i1 [ false, %1650 ], [ true, %.preheader2729.preheader ]
-  %indvars.iv4547.sroa.phi = phi ptr [ %.sroa.38, %1650 ], [ %.sroa.0, %.preheader2729.preheader ]
-  %.2373463 = phi i32 [ %1646, %1650 ], [ %1623, %.preheader2729.preheader ]
+.preheader2729:                                   ; preds = %.preheader2730, %1649
+  %1633 = phi i1 [ true, %.preheader2730 ], [ false, %1649 ]
+  %indvars.iv4545.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2730 ], [ %.sroa.121, %1649 ]
+  %.2383462 = phi i32 [ %.2373464, %.preheader2730 ], [ %1646, %1649 ]
   br label %.preheader2728
 
-.preheader2728:                                   ; preds = %.preheader2729, %1649
-  %1633 = phi i1 [ true, %.preheader2729 ], [ false, %1649 ]
-  %indvars.iv4544.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2729 ], [ %.sroa.121, %1649 ]
-  %.2383461 = phi i32 [ %.2373463, %.preheader2729 ], [ %1646, %1649 ]
+.preheader2728:                                   ; preds = %.preheader2729, %1648
+  %1634 = phi i1 [ true, %.preheader2729 ], [ false, %1648 ]
+  %indvars.iv4542.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2729 ], [ %.sroa.181, %1648 ]
+  %.2393460 = phi i32 [ %.2383462, %.preheader2729 ], [ %1646, %1648 ]
   br label %.preheader2727
 
-.preheader2727:                                   ; preds = %.preheader2728, %1648
-  %1634 = phi i1 [ true, %.preheader2728 ], [ false, %1648 ]
-  %indvars.iv4541.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2728 ], [ %.sroa.181, %1648 ]
-  %.2393459 = phi i32 [ %.2383461, %.preheader2728 ], [ %1646, %1648 ]
-  br label %.preheader2726
-
-.preheader2726:                                   ; preds = %.preheader2727, %1647
-  %1635 = phi i1 [ true, %.preheader2727 ], [ false, %1647 ]
-  %indvars.iv4538.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2727 ], [ %.sroa.121, %1647 ]
-  %.2403457 = phi i32 [ %.2393459, %.preheader2727 ], [ %1646, %1647 ]
+.preheader2727:                                   ; preds = %.preheader2728, %1647
+  %1635 = phi i1 [ true, %.preheader2728 ], [ false, %1647 ]
+  %indvars.iv4539.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2728 ], [ %.sroa.121, %1647 ]
+  %.2403458 = phi i32 [ %.2393460, %.preheader2728 ], [ %1646, %1647 ]
   br label %1636
 
-1636:                                             ; preds = %.preheader2726, %1645
-  %1637 = phi i1 [ true, %.preheader2726 ], [ false, %1645 ]
-  %indvars.iv4535.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2726 ], [ %.sroa.181, %1645 ]
-  %.2413455 = phi i32 [ %.2403457, %.preheader2726 ], [ %1646, %1645 ]
-  %.not2196 = icmp eq i32 %.2413455, 0
+1636:                                             ; preds = %.preheader2727, %1645
+  %1637 = phi i1 [ true, %.preheader2727 ], [ false, %1645 ]
+  %indvars.iv4536.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2727 ], [ %.sroa.181, %1645 ]
+  %.2413456 = phi i32 [ %.2403458, %.preheader2727 ], [ %1646, %1645 ]
+  %.not2196 = icmp eq i32 %.2413456, 0
   br i1 %.not2196, label %1645, label %1638
 
 1638:                                             ; preds = %1636
-  %1639 = load ptr, ptr %indvars.iv4547.sroa.phi, align 8, !tbaa !12
-  %1640 = load ptr, ptr %indvars.iv4544.sroa.phi, align 8, !tbaa !31
-  %1641 = load ptr, ptr %indvars.iv4541.sroa.phi, align 8, !tbaa !12
-  %1642 = load ptr, ptr %indvars.iv4538.sroa.phi, align 8, !tbaa !31
-  %1643 = load ptr, ptr %indvars.iv4535.sroa.phi, align 8, !tbaa !12
+  %1639 = load ptr, ptr %indvars.iv4548.sroa.phi, align 8, !tbaa !12
+  %1640 = load ptr, ptr %indvars.iv4545.sroa.phi, align 8, !tbaa !31
+  %1641 = load ptr, ptr %indvars.iv4542.sroa.phi, align 8, !tbaa !12
+  %1642 = load ptr, ptr %indvars.iv4539.sroa.phi, align 8, !tbaa !31
+  %1643 = load ptr, ptr %indvars.iv4536.sroa.phi, align 8, !tbaa !12
   %1644 = tail call fastcc i32 @arkode_butcher_order5g(ptr noundef %1639, ptr noundef %1640, ptr noundef %1641, ptr noundef %1642, ptr noundef %1643, i32 noundef %9)
   br label %1645
 
@@ -12033,66 +12032,66 @@ thread-pre-split2598:                             ; preds = %thread-pre-split259
   br i1 %1637, label %1636, label %1647
 
 1647:                                             ; preds = %1645
-  br i1 %1635, label %.preheader2726, label %1648
+  br i1 %1635, label %.preheader2727, label %1648
 
 1648:                                             ; preds = %1647
-  br i1 %1634, label %.preheader2727, label %1649
+  br i1 %1634, label %.preheader2728, label %1649
 
 1649:                                             ; preds = %1648
-  br i1 %1633, label %.preheader2728, label %1650
+  br i1 %1633, label %.preheader2729, label %1650
 
 1650:                                             ; preds = %1649
-  br i1 %1632, label %.preheader2729, label %1651
+  br i1 %1632, label %.preheader2730, label %1651
 
 1651:                                             ; preds = %1650
   %1652 = icmp eq i32 %1646, 0
   %or.cond96 = and i1 %49, %1652
-  br i1 %or.cond96, label %1653, label %.preheader2725.preheader
+  br i1 %or.cond96, label %1653, label %.preheader2726.preheader
 
 1653:                                             ; preds = %1651
   %1654 = tail call i64 @fwrite(ptr nonnull @.str.139, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2725.preheader
+  br label %.preheader2726.preheader
 
-.preheader2725.preheader:                         ; preds = %1653, %1651
+.preheader2726.preheader:                         ; preds = %1653, %1651
+  br label %.preheader2726
+
+.preheader2726:                                   ; preds = %.preheader2726.preheader, %1673
+  %1655 = phi i1 [ false, %1673 ], [ true, %.preheader2726.preheader ]
+  %indvars.iv4563.sroa.phi = phi ptr [ %.sroa.38, %1673 ], [ %.sroa.0, %.preheader2726.preheader ]
+  %.2423474 = phi i32 [ %1669, %1673 ], [ %1646, %.preheader2726.preheader ]
   br label %.preheader2725
 
-.preheader2725:                                   ; preds = %.preheader2725.preheader, %1673
-  %1655 = phi i1 [ false, %1673 ], [ true, %.preheader2725.preheader ]
-  %indvars.iv4562.sroa.phi = phi ptr [ %.sroa.38, %1673 ], [ %.sroa.0, %.preheader2725.preheader ]
-  %.2423473 = phi i32 [ %1669, %1673 ], [ %1646, %.preheader2725.preheader ]
+.preheader2725:                                   ; preds = %.preheader2726, %1672
+  %1656 = phi i1 [ true, %.preheader2726 ], [ false, %1672 ]
+  %indvars.iv4560.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2726 ], [ %.sroa.121, %1672 ]
+  %.2433472 = phi i32 [ %.2423474, %.preheader2726 ], [ %1669, %1672 ]
   br label %.preheader2724
 
-.preheader2724:                                   ; preds = %.preheader2725, %1672
-  %1656 = phi i1 [ true, %.preheader2725 ], [ false, %1672 ]
-  %indvars.iv4559.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2725 ], [ %.sroa.121, %1672 ]
-  %.2433471 = phi i32 [ %.2423473, %.preheader2725 ], [ %1669, %1672 ]
+.preheader2724:                                   ; preds = %.preheader2725, %1671
+  %1657 = phi i1 [ true, %.preheader2725 ], [ false, %1671 ]
+  %indvars.iv4557.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2725 ], [ %.sroa.121, %1671 ]
+  %.2443470 = phi i32 [ %.2433472, %.preheader2725 ], [ %1669, %1671 ]
   br label %.preheader2723
 
-.preheader2723:                                   ; preds = %.preheader2724, %1671
-  %1657 = phi i1 [ true, %.preheader2724 ], [ false, %1671 ]
-  %indvars.iv4556.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2724 ], [ %.sroa.121, %1671 ]
-  %.2443469 = phi i32 [ %.2433471, %.preheader2724 ], [ %1669, %1671 ]
-  br label %.preheader2722
-
-.preheader2722:                                   ; preds = %.preheader2723, %1670
-  %1658 = phi i1 [ true, %.preheader2723 ], [ false, %1670 ]
-  %indvars.iv4553.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2723 ], [ %.sroa.181, %1670 ]
-  %.2453467 = phi i32 [ %.2443469, %.preheader2723 ], [ %1669, %1670 ]
+.preheader2723:                                   ; preds = %.preheader2724, %1670
+  %1658 = phi i1 [ true, %.preheader2724 ], [ false, %1670 ]
+  %indvars.iv4554.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2724 ], [ %.sroa.181, %1670 ]
+  %.2453468 = phi i32 [ %.2443470, %.preheader2724 ], [ %1669, %1670 ]
   br label %1659
 
-1659:                                             ; preds = %.preheader2722, %1668
-  %1660 = phi i1 [ true, %.preheader2722 ], [ false, %1668 ]
-  %indvars.iv4550.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2722 ], [ %.sroa.181, %1668 ]
-  %.2463465 = phi i32 [ %.2453467, %.preheader2722 ], [ %1669, %1668 ]
-  %.not2195 = icmp eq i32 %.2463465, 0
+1659:                                             ; preds = %.preheader2723, %1668
+  %1660 = phi i1 [ true, %.preheader2723 ], [ false, %1668 ]
+  %indvars.iv4551.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2723 ], [ %.sroa.181, %1668 ]
+  %.2463466 = phi i32 [ %.2453468, %.preheader2723 ], [ %1669, %1668 ]
+  %.not2195 = icmp eq i32 %.2463466, 0
   br i1 %.not2195, label %1668, label %1661
 
 1661:                                             ; preds = %1659
-  %1662 = load ptr, ptr %indvars.iv4562.sroa.phi, align 8, !tbaa !12
-  %1663 = load ptr, ptr %indvars.iv4559.sroa.phi, align 8, !tbaa !31
-  %1664 = load ptr, ptr %indvars.iv4556.sroa.phi, align 8, !tbaa !31
-  %1665 = load ptr, ptr %indvars.iv4553.sroa.phi, align 8, !tbaa !12
-  %1666 = load ptr, ptr %indvars.iv4550.sroa.phi, align 8, !tbaa !12
+  %1662 = load ptr, ptr %indvars.iv4563.sroa.phi, align 8, !tbaa !12
+  %1663 = load ptr, ptr %indvars.iv4560.sroa.phi, align 8, !tbaa !31
+  %1664 = load ptr, ptr %indvars.iv4557.sroa.phi, align 8, !tbaa !31
+  %1665 = load ptr, ptr %indvars.iv4554.sroa.phi, align 8, !tbaa !12
+  %1666 = load ptr, ptr %indvars.iv4551.sroa.phi, align 8, !tbaa !12
   %1667 = tail call fastcc i32 @arkode_butcher_order5h(ptr noundef %1662, ptr noundef %1663, ptr noundef %1664, ptr noundef %1665, ptr noundef %1666, i32 noundef %9)
   br label %1668
 
@@ -12101,66 +12100,66 @@ thread-pre-split2598:                             ; preds = %thread-pre-split259
   br i1 %1660, label %1659, label %1670
 
 1670:                                             ; preds = %1668
-  br i1 %1658, label %.preheader2722, label %1671
+  br i1 %1658, label %.preheader2723, label %1671
 
 1671:                                             ; preds = %1670
-  br i1 %1657, label %.preheader2723, label %1672
+  br i1 %1657, label %.preheader2724, label %1672
 
 1672:                                             ; preds = %1671
-  br i1 %1656, label %.preheader2724, label %1673
+  br i1 %1656, label %.preheader2725, label %1673
 
 1673:                                             ; preds = %1672
-  br i1 %1655, label %.preheader2725, label %1674
+  br i1 %1655, label %.preheader2726, label %1674
 
 1674:                                             ; preds = %1673
   %1675 = icmp eq i32 %1669, 0
   %or.cond98 = and i1 %49, %1675
-  br i1 %or.cond98, label %1676, label %.preheader2721.preheader
+  br i1 %or.cond98, label %1676, label %.preheader2722.preheader
 
 1676:                                             ; preds = %1674
   %1677 = tail call i64 @fwrite(ptr nonnull @.str.140, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2721.preheader
+  br label %.preheader2722.preheader
 
-.preheader2721.preheader:                         ; preds = %1676, %1674
+.preheader2722.preheader:                         ; preds = %1676, %1674
+  br label %.preheader2722
+
+.preheader2722:                                   ; preds = %.preheader2722.preheader, %1696
+  %1678 = phi i1 [ false, %1696 ], [ true, %.preheader2722.preheader ]
+  %indvars.iv4578.sroa.phi = phi ptr [ %.sroa.38, %1696 ], [ %.sroa.0, %.preheader2722.preheader ]
+  %.2473484 = phi i32 [ %1692, %1696 ], [ %1669, %.preheader2722.preheader ]
   br label %.preheader2721
 
-.preheader2721:                                   ; preds = %.preheader2721.preheader, %1696
-  %1678 = phi i1 [ false, %1696 ], [ true, %.preheader2721.preheader ]
-  %indvars.iv4577.sroa.phi = phi ptr [ %.sroa.38, %1696 ], [ %.sroa.0, %.preheader2721.preheader ]
-  %.2473483 = phi i32 [ %1692, %1696 ], [ %1669, %.preheader2721.preheader ]
+.preheader2721:                                   ; preds = %.preheader2722, %1695
+  %1679 = phi i1 [ true, %.preheader2722 ], [ false, %1695 ]
+  %indvars.iv4575.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2722 ], [ %.sroa.121, %1695 ]
+  %.2483482 = phi i32 [ %.2473484, %.preheader2722 ], [ %1692, %1695 ]
   br label %.preheader2720
 
-.preheader2720:                                   ; preds = %.preheader2721, %1695
-  %1679 = phi i1 [ true, %.preheader2721 ], [ false, %1695 ]
-  %indvars.iv4574.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2721 ], [ %.sroa.121, %1695 ]
-  %.2483481 = phi i32 [ %.2473483, %.preheader2721 ], [ %1692, %1695 ]
+.preheader2720:                                   ; preds = %.preheader2721, %1694
+  %1680 = phi i1 [ true, %.preheader2721 ], [ false, %1694 ]
+  %indvars.iv4572.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2721 ], [ %.sroa.121, %1694 ]
+  %.2493480 = phi i32 [ %.2483482, %.preheader2721 ], [ %1692, %1694 ]
   br label %.preheader2719
 
-.preheader2719:                                   ; preds = %.preheader2720, %1694
-  %1680 = phi i1 [ true, %.preheader2720 ], [ false, %1694 ]
-  %indvars.iv4571.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2720 ], [ %.sroa.121, %1694 ]
-  %.2493479 = phi i32 [ %.2483481, %.preheader2720 ], [ %1692, %1694 ]
-  br label %.preheader2718
-
-.preheader2718:                                   ; preds = %.preheader2719, %1693
-  %1681 = phi i1 [ true, %.preheader2719 ], [ false, %1693 ]
-  %indvars.iv4568.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2719 ], [ %.sroa.121, %1693 ]
-  %.2503477 = phi i32 [ %.2493479, %.preheader2719 ], [ %1692, %1693 ]
+.preheader2719:                                   ; preds = %.preheader2720, %1693
+  %1681 = phi i1 [ true, %.preheader2720 ], [ false, %1693 ]
+  %indvars.iv4569.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2720 ], [ %.sroa.121, %1693 ]
+  %.2503478 = phi i32 [ %.2493480, %.preheader2720 ], [ %1692, %1693 ]
   br label %1682
 
-1682:                                             ; preds = %.preheader2718, %1691
-  %1683 = phi i1 [ true, %.preheader2718 ], [ false, %1691 ]
-  %indvars.iv4565.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2718 ], [ %.sroa.181, %1691 ]
-  %.2513475 = phi i32 [ %.2503477, %.preheader2718 ], [ %1692, %1691 ]
-  %.not2194 = icmp eq i32 %.2513475, 0
+1682:                                             ; preds = %.preheader2719, %1691
+  %1683 = phi i1 [ true, %.preheader2719 ], [ false, %1691 ]
+  %indvars.iv4566.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2719 ], [ %.sroa.181, %1691 ]
+  %.2513476 = phi i32 [ %.2503478, %.preheader2719 ], [ %1692, %1691 ]
+  %.not2194 = icmp eq i32 %.2513476, 0
   br i1 %.not2194, label %1691, label %1684
 
 1684:                                             ; preds = %1682
-  %1685 = load ptr, ptr %indvars.iv4577.sroa.phi, align 8, !tbaa !12
-  %1686 = load ptr, ptr %indvars.iv4574.sroa.phi, align 8, !tbaa !31
-  %1687 = load ptr, ptr %indvars.iv4571.sroa.phi, align 8, !tbaa !31
-  %1688 = load ptr, ptr %indvars.iv4568.sroa.phi, align 8, !tbaa !31
-  %1689 = load ptr, ptr %indvars.iv4565.sroa.phi, align 8, !tbaa !12
+  %1685 = load ptr, ptr %indvars.iv4578.sroa.phi, align 8, !tbaa !12
+  %1686 = load ptr, ptr %indvars.iv4575.sroa.phi, align 8, !tbaa !31
+  %1687 = load ptr, ptr %indvars.iv4572.sroa.phi, align 8, !tbaa !31
+  %1688 = load ptr, ptr %indvars.iv4569.sroa.phi, align 8, !tbaa !31
+  %1689 = load ptr, ptr %indvars.iv4566.sroa.phi, align 8, !tbaa !12
   %1690 = tail call fastcc i32 @arkode_butcher_order5i(ptr noundef %1685, ptr noundef %1686, ptr noundef %1687, ptr noundef %1688, ptr noundef %1689, i32 noundef %9)
   br label %1691
 
@@ -12169,85 +12168,85 @@ thread-pre-split2598:                             ; preds = %thread-pre-split259
   br i1 %1683, label %1682, label %1693
 
 1693:                                             ; preds = %1691
-  br i1 %1681, label %.preheader2718, label %1694
+  br i1 %1681, label %.preheader2719, label %1694
 
 1694:                                             ; preds = %1693
-  br i1 %1680, label %.preheader2719, label %1695
+  br i1 %1680, label %.preheader2720, label %1695
 
 1695:                                             ; preds = %1694
-  br i1 %1679, label %.preheader2720, label %1696
+  br i1 %1679, label %.preheader2721, label %1696
 
 1696:                                             ; preds = %1695
-  br i1 %1678, label %.preheader2721, label %1697
+  br i1 %1678, label %.preheader2722, label %1697
 
 1697:                                             ; preds = %1696
   %1698 = icmp eq i32 %1692, 0
   %or.cond100 = and i1 %49, %1698
-  br i1 %or.cond100, label %.thread2601, label %1700
+  br i1 %or.cond100, label %.thread2602, label %1700
 
-.thread2601:                                      ; preds = %1697
+.thread2602:                                      ; preds = %1697
   %1699 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 39, i64 1, ptr nonnull %4)
-  br label %thread-pre-split2602
+  br label %thread-pre-split2603
 
 1700:                                             ; preds = %1697
-  br i1 %1698, label %thread-pre-split2602, label %.critedge2622
+  br i1 %1698, label %thread-pre-split2603, label %.critedge2623
 
-.critedge2622:                                    ; preds = %1700
+.critedge2623:                                    ; preds = %1700
   store i32 5, ptr %3, align 4, !tbaa !25
-  br label %.preheader2716.preheader
+  br label %.preheader2717.preheader
 
-thread-pre-split2602:                             ; preds = %thread-pre-split2598, %1700, %.thread2601
-  %.pr2603.pr = load i32, ptr %3, align 4, !tbaa !25
-  %1701 = icmp eq i32 %.pr2603.pr, 5
-  br i1 %1701, label %.preheader2716.preheader, label %thread-pre-split2602.thread
+thread-pre-split2603:                             ; preds = %thread-pre-split2599, %1700, %.thread2602
+  %.pr2604.pr = load i32, ptr %3, align 4, !tbaa !25
+  %1701 = icmp eq i32 %.pr2604.pr, 5
+  br i1 %1701, label %.preheader2717.preheader, label %thread-pre-split2603.thread
 
-.preheader2716.preheader:                         ; preds = %thread-pre-split2602, %.critedge2622
+.preheader2717.preheader:                         ; preds = %thread-pre-split2603, %.critedge2623
+  br label %.preheader2717
+
+.preheader2717:                                   ; preds = %.preheader2717.preheader, %1723
+  %1702 = phi i1 [ false, %1723 ], [ true, %.preheader2717.preheader ]
+  %indvars.iv4596.sroa.phi = phi ptr [ %.sroa.38, %1723 ], [ %.sroa.0, %.preheader2717.preheader ]
+  %.2523496 = phi i32 [ %1718, %1723 ], [ 1, %.preheader2717.preheader ]
   br label %.preheader2716
 
-.preheader2716:                                   ; preds = %.preheader2716.preheader, %1723
-  %1702 = phi i1 [ false, %1723 ], [ true, %.preheader2716.preheader ]
-  %indvars.iv4595.sroa.phi = phi ptr [ %.sroa.38, %1723 ], [ %.sroa.0, %.preheader2716.preheader ]
-  %.2523495 = phi i32 [ %1718, %1723 ], [ 1, %.preheader2716.preheader ]
+.preheader2716:                                   ; preds = %.preheader2717, %1722
+  %1703 = phi i1 [ true, %.preheader2717 ], [ false, %1722 ]
+  %indvars.iv4593.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2717 ], [ %.sroa.181, %1722 ]
+  %.2533494 = phi i32 [ %.2523496, %.preheader2717 ], [ %1718, %1722 ]
   br label %.preheader2715
 
-.preheader2715:                                   ; preds = %.preheader2716, %1722
-  %1703 = phi i1 [ true, %.preheader2716 ], [ false, %1722 ]
-  %indvars.iv4592.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2716 ], [ %.sroa.181, %1722 ]
-  %.2533493 = phi i32 [ %.2523495, %.preheader2716 ], [ %1718, %1722 ]
+.preheader2715:                                   ; preds = %.preheader2716, %1721
+  %1704 = phi i1 [ true, %.preheader2716 ], [ false, %1721 ]
+  %indvars.iv4590.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2716 ], [ %.sroa.181, %1721 ]
+  %.2543492 = phi i32 [ %.2533494, %.preheader2716 ], [ %1718, %1721 ]
   br label %.preheader2714
 
-.preheader2714:                                   ; preds = %.preheader2715, %1721
-  %1704 = phi i1 [ true, %.preheader2715 ], [ false, %1721 ]
-  %indvars.iv4589.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2715 ], [ %.sroa.181, %1721 ]
-  %.2543491 = phi i32 [ %.2533493, %.preheader2715 ], [ %1718, %1721 ]
+.preheader2714:                                   ; preds = %.preheader2715, %1720
+  %1705 = phi i1 [ true, %.preheader2715 ], [ false, %1720 ]
+  %indvars.iv4587.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2715 ], [ %.sroa.181, %1720 ]
+  %.2553490 = phi i32 [ %.2543492, %.preheader2715 ], [ %1718, %1720 ]
   br label %.preheader2713
 
-.preheader2713:                                   ; preds = %.preheader2714, %1720
-  %1705 = phi i1 [ true, %.preheader2714 ], [ false, %1720 ]
-  %indvars.iv4586.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2714 ], [ %.sroa.181, %1720 ]
-  %.2553489 = phi i32 [ %.2543491, %.preheader2714 ], [ %1718, %1720 ]
-  br label %.preheader2712
-
-.preheader2712:                                   ; preds = %.preheader2713, %1719
-  %1706 = phi i1 [ true, %.preheader2713 ], [ false, %1719 ]
-  %indvars.iv4583.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2713 ], [ %.sroa.181, %1719 ]
-  %.2563487 = phi i32 [ %.2553489, %.preheader2713 ], [ %1718, %1719 ]
+.preheader2713:                                   ; preds = %.preheader2714, %1719
+  %1706 = phi i1 [ true, %.preheader2714 ], [ false, %1719 ]
+  %indvars.iv4584.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2714 ], [ %.sroa.181, %1719 ]
+  %.2563488 = phi i32 [ %.2553490, %.preheader2714 ], [ %1718, %1719 ]
   br label %1707
 
-1707:                                             ; preds = %.preheader2712, %1717
-  %1708 = phi i1 [ true, %.preheader2712 ], [ false, %1717 ]
-  %indvars.iv4580.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2712 ], [ %.sroa.181, %1717 ]
-  %.2573485 = phi i32 [ %.2563487, %.preheader2712 ], [ %1718, %1717 ]
-  %.not2193 = icmp eq i32 %.2573485, 0
+1707:                                             ; preds = %.preheader2713, %1717
+  %1708 = phi i1 [ true, %.preheader2713 ], [ false, %1717 ]
+  %indvars.iv4581.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2713 ], [ %.sroa.181, %1717 ]
+  %.2573486 = phi i32 [ %.2563488, %.preheader2713 ], [ %1718, %1717 ]
+  %.not2193 = icmp eq i32 %.2573486, 0
   br i1 %.not2193, label %1717, label %1709
 
 1709:                                             ; preds = %1707
-  %1710 = load ptr, ptr %indvars.iv4595.sroa.phi, align 8, !tbaa !12
-  %1711 = load ptr, ptr %indvars.iv4592.sroa.phi, align 8, !tbaa !12
-  %1712 = load ptr, ptr %indvars.iv4589.sroa.phi, align 8, !tbaa !12
-  %1713 = load ptr, ptr %indvars.iv4586.sroa.phi, align 8, !tbaa !12
-  %1714 = load ptr, ptr %indvars.iv4583.sroa.phi, align 8, !tbaa !12
-  %1715 = load ptr, ptr %indvars.iv4580.sroa.phi, align 8, !tbaa !12
+  %1710 = load ptr, ptr %indvars.iv4596.sroa.phi, align 8, !tbaa !12
+  %1711 = load ptr, ptr %indvars.iv4593.sroa.phi, align 8, !tbaa !12
+  %1712 = load ptr, ptr %indvars.iv4590.sroa.phi, align 8, !tbaa !12
+  %1713 = load ptr, ptr %indvars.iv4587.sroa.phi, align 8, !tbaa !12
+  %1714 = load ptr, ptr %indvars.iv4584.sroa.phi, align 8, !tbaa !12
+  %1715 = load ptr, ptr %indvars.iv4581.sroa.phi, align 8, !tbaa !12
   %1716 = tail call fastcc i32 @arkode_butcher_order6a(ptr noundef %1710, ptr noundef %1711, ptr noundef %1712, ptr noundef %1713, ptr noundef %1714, ptr noundef %1715, i32 noundef %9)
   br label %1717
 
@@ -12256,76 +12255,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %1708, label %1707, label %1719
 
 1719:                                             ; preds = %1717
-  br i1 %1706, label %.preheader2712, label %1720
+  br i1 %1706, label %.preheader2713, label %1720
 
 1720:                                             ; preds = %1719
-  br i1 %1705, label %.preheader2713, label %1721
+  br i1 %1705, label %.preheader2714, label %1721
 
 1721:                                             ; preds = %1720
-  br i1 %1704, label %.preheader2714, label %1722
+  br i1 %1704, label %.preheader2715, label %1722
 
 1722:                                             ; preds = %1721
-  br i1 %1703, label %.preheader2715, label %1723
+  br i1 %1703, label %.preheader2716, label %1723
 
 1723:                                             ; preds = %1722
-  br i1 %1702, label %.preheader2716, label %1724
+  br i1 %1702, label %.preheader2717, label %1724
 
 1724:                                             ; preds = %1723
   %1725 = icmp eq i32 %1718, 0
   %or.cond102 = and i1 %49, %1725
-  br i1 %or.cond102, label %1726, label %.preheader2711.preheader
+  br i1 %or.cond102, label %1726, label %.preheader2712.preheader
 
 1726:                                             ; preds = %1724
   %1727 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2711.preheader
+  br label %.preheader2712.preheader
 
-.preheader2711.preheader:                         ; preds = %1726, %1724
+.preheader2712.preheader:                         ; preds = %1726, %1724
+  br label %.preheader2712
+
+.preheader2712:                                   ; preds = %.preheader2712.preheader, %1749
+  %1728 = phi i1 [ false, %1749 ], [ true, %.preheader2712.preheader ]
+  %indvars.iv4614.sroa.phi = phi ptr [ %.sroa.38, %1749 ], [ %.sroa.0, %.preheader2712.preheader ]
+  %.2583508 = phi i32 [ %1744, %1749 ], [ %1718, %.preheader2712.preheader ]
   br label %.preheader2711
 
-.preheader2711:                                   ; preds = %.preheader2711.preheader, %1749
-  %1728 = phi i1 [ false, %1749 ], [ true, %.preheader2711.preheader ]
-  %indvars.iv4613.sroa.phi = phi ptr [ %.sroa.38, %1749 ], [ %.sroa.0, %.preheader2711.preheader ]
-  %.2583507 = phi i32 [ %1744, %1749 ], [ %1718, %.preheader2711.preheader ]
+.preheader2711:                                   ; preds = %.preheader2712, %1748
+  %1729 = phi i1 [ true, %.preheader2712 ], [ false, %1748 ]
+  %indvars.iv4611.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2712 ], [ %.sroa.181, %1748 ]
+  %.2593506 = phi i32 [ %.2583508, %.preheader2712 ], [ %1744, %1748 ]
   br label %.preheader2710
 
-.preheader2710:                                   ; preds = %.preheader2711, %1748
-  %1729 = phi i1 [ true, %.preheader2711 ], [ false, %1748 ]
-  %indvars.iv4610.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2711 ], [ %.sroa.181, %1748 ]
-  %.2593505 = phi i32 [ %.2583507, %.preheader2711 ], [ %1744, %1748 ]
+.preheader2710:                                   ; preds = %.preheader2711, %1747
+  %1730 = phi i1 [ true, %.preheader2711 ], [ false, %1747 ]
+  %indvars.iv4608.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2711 ], [ %.sroa.181, %1747 ]
+  %.2603504 = phi i32 [ %.2593506, %.preheader2711 ], [ %1744, %1747 ]
   br label %.preheader2709
 
-.preheader2709:                                   ; preds = %.preheader2710, %1747
-  %1730 = phi i1 [ true, %.preheader2710 ], [ false, %1747 ]
-  %indvars.iv4607.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2710 ], [ %.sroa.181, %1747 ]
-  %.2603503 = phi i32 [ %.2593505, %.preheader2710 ], [ %1744, %1747 ]
+.preheader2709:                                   ; preds = %.preheader2710, %1746
+  %1731 = phi i1 [ true, %.preheader2710 ], [ false, %1746 ]
+  %indvars.iv4605.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2710 ], [ %.sroa.181, %1746 ]
+  %.2613502 = phi i32 [ %.2603504, %.preheader2710 ], [ %1744, %1746 ]
   br label %.preheader2708
 
-.preheader2708:                                   ; preds = %.preheader2709, %1746
-  %1731 = phi i1 [ true, %.preheader2709 ], [ false, %1746 ]
-  %indvars.iv4604.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2709 ], [ %.sroa.181, %1746 ]
-  %.2613501 = phi i32 [ %.2603503, %.preheader2709 ], [ %1744, %1746 ]
-  br label %.preheader2707
-
-.preheader2707:                                   ; preds = %.preheader2708, %1745
-  %1732 = phi i1 [ true, %.preheader2708 ], [ false, %1745 ]
-  %indvars.iv4601.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2708 ], [ %.sroa.121, %1745 ]
-  %.2623499 = phi i32 [ %.2613501, %.preheader2708 ], [ %1744, %1745 ]
+.preheader2708:                                   ; preds = %.preheader2709, %1745
+  %1732 = phi i1 [ true, %.preheader2709 ], [ false, %1745 ]
+  %indvars.iv4602.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2709 ], [ %.sroa.121, %1745 ]
+  %.2623500 = phi i32 [ %.2613502, %.preheader2709 ], [ %1744, %1745 ]
   br label %1733
 
-1733:                                             ; preds = %.preheader2707, %1743
-  %1734 = phi i1 [ true, %.preheader2707 ], [ false, %1743 ]
-  %indvars.iv4598.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2707 ], [ %.sroa.181, %1743 ]
-  %.2633497 = phi i32 [ %.2623499, %.preheader2707 ], [ %1744, %1743 ]
-  %.not2192 = icmp eq i32 %.2633497, 0
+1733:                                             ; preds = %.preheader2708, %1743
+  %1734 = phi i1 [ true, %.preheader2708 ], [ false, %1743 ]
+  %indvars.iv4599.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2708 ], [ %.sroa.181, %1743 ]
+  %.2633498 = phi i32 [ %.2623500, %.preheader2708 ], [ %1744, %1743 ]
+  %.not2192 = icmp eq i32 %.2633498, 0
   br i1 %.not2192, label %1743, label %1735
 
 1735:                                             ; preds = %1733
-  %1736 = load ptr, ptr %indvars.iv4613.sroa.phi, align 8, !tbaa !12
-  %1737 = load ptr, ptr %indvars.iv4610.sroa.phi, align 8, !tbaa !12
-  %1738 = load ptr, ptr %indvars.iv4607.sroa.phi, align 8, !tbaa !12
-  %1739 = load ptr, ptr %indvars.iv4604.sroa.phi, align 8, !tbaa !12
-  %1740 = load ptr, ptr %indvars.iv4601.sroa.phi, align 8, !tbaa !31
-  %1741 = load ptr, ptr %indvars.iv4598.sroa.phi, align 8, !tbaa !12
+  %1736 = load ptr, ptr %indvars.iv4614.sroa.phi, align 8, !tbaa !12
+  %1737 = load ptr, ptr %indvars.iv4611.sroa.phi, align 8, !tbaa !12
+  %1738 = load ptr, ptr %indvars.iv4608.sroa.phi, align 8, !tbaa !12
+  %1739 = load ptr, ptr %indvars.iv4605.sroa.phi, align 8, !tbaa !12
+  %1740 = load ptr, ptr %indvars.iv4602.sroa.phi, align 8, !tbaa !31
+  %1741 = load ptr, ptr %indvars.iv4599.sroa.phi, align 8, !tbaa !12
   %1742 = tail call fastcc i32 @arkode_butcher_order6b(ptr noundef %1736, ptr noundef %1737, ptr noundef %1738, ptr noundef %1739, ptr noundef %1740, ptr noundef %1741, i32 noundef %9)
   br label %1743
 
@@ -12334,76 +12333,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %1734, label %1733, label %1745
 
 1745:                                             ; preds = %1743
-  br i1 %1732, label %.preheader2707, label %1746
+  br i1 %1732, label %.preheader2708, label %1746
 
 1746:                                             ; preds = %1745
-  br i1 %1731, label %.preheader2708, label %1747
+  br i1 %1731, label %.preheader2709, label %1747
 
 1747:                                             ; preds = %1746
-  br i1 %1730, label %.preheader2709, label %1748
+  br i1 %1730, label %.preheader2710, label %1748
 
 1748:                                             ; preds = %1747
-  br i1 %1729, label %.preheader2710, label %1749
+  br i1 %1729, label %.preheader2711, label %1749
 
 1749:                                             ; preds = %1748
-  br i1 %1728, label %.preheader2711, label %1750
+  br i1 %1728, label %.preheader2712, label %1750
 
 1750:                                             ; preds = %1749
   %1751 = icmp eq i32 %1744, 0
   %or.cond104 = and i1 %49, %1751
-  br i1 %or.cond104, label %1752, label %.preheader2706.preheader
+  br i1 %or.cond104, label %1752, label %.preheader2707.preheader
 
 1752:                                             ; preds = %1750
   %1753 = tail call i64 @fwrite(ptr nonnull @.str.143, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2706.preheader
+  br label %.preheader2707.preheader
 
-.preheader2706.preheader:                         ; preds = %1752, %1750
+.preheader2707.preheader:                         ; preds = %1752, %1750
+  br label %.preheader2707
+
+.preheader2707:                                   ; preds = %.preheader2707.preheader, %1775
+  %1754 = phi i1 [ false, %1775 ], [ true, %.preheader2707.preheader ]
+  %indvars.iv4632.sroa.phi = phi ptr [ %.sroa.38, %1775 ], [ %.sroa.0, %.preheader2707.preheader ]
+  %.2643520 = phi i32 [ %1770, %1775 ], [ %1744, %.preheader2707.preheader ]
   br label %.preheader2706
 
-.preheader2706:                                   ; preds = %.preheader2706.preheader, %1775
-  %1754 = phi i1 [ false, %1775 ], [ true, %.preheader2706.preheader ]
-  %indvars.iv4631.sroa.phi = phi ptr [ %.sroa.38, %1775 ], [ %.sroa.0, %.preheader2706.preheader ]
-  %.2643519 = phi i32 [ %1770, %1775 ], [ %1744, %.preheader2706.preheader ]
+.preheader2706:                                   ; preds = %.preheader2707, %1774
+  %1755 = phi i1 [ true, %.preheader2707 ], [ false, %1774 ]
+  %indvars.iv4629.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2707 ], [ %.sroa.181, %1774 ]
+  %.2653518 = phi i32 [ %.2643520, %.preheader2707 ], [ %1770, %1774 ]
   br label %.preheader2705
 
-.preheader2705:                                   ; preds = %.preheader2706, %1774
-  %1755 = phi i1 [ true, %.preheader2706 ], [ false, %1774 ]
-  %indvars.iv4628.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2706 ], [ %.sroa.181, %1774 ]
-  %.2653517 = phi i32 [ %.2643519, %.preheader2706 ], [ %1770, %1774 ]
+.preheader2705:                                   ; preds = %.preheader2706, %1773
+  %1756 = phi i1 [ true, %.preheader2706 ], [ false, %1773 ]
+  %indvars.iv4626.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2706 ], [ %.sroa.121, %1773 ]
+  %.2663516 = phi i32 [ %.2653518, %.preheader2706 ], [ %1770, %1773 ]
   br label %.preheader2704
 
-.preheader2704:                                   ; preds = %.preheader2705, %1773
-  %1756 = phi i1 [ true, %.preheader2705 ], [ false, %1773 ]
-  %indvars.iv4625.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2705 ], [ %.sroa.121, %1773 ]
-  %.2663515 = phi i32 [ %.2653517, %.preheader2705 ], [ %1770, %1773 ]
+.preheader2704:                                   ; preds = %.preheader2705, %1772
+  %1757 = phi i1 [ true, %.preheader2705 ], [ false, %1772 ]
+  %indvars.iv4623.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2705 ], [ %.sroa.181, %1772 ]
+  %.2673514 = phi i32 [ %.2663516, %.preheader2705 ], [ %1770, %1772 ]
   br label %.preheader2703
 
-.preheader2703:                                   ; preds = %.preheader2704, %1772
-  %1757 = phi i1 [ true, %.preheader2704 ], [ false, %1772 ]
-  %indvars.iv4622.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2704 ], [ %.sroa.181, %1772 ]
-  %.2673513 = phi i32 [ %.2663515, %.preheader2704 ], [ %1770, %1772 ]
-  br label %.preheader2702
-
-.preheader2702:                                   ; preds = %.preheader2703, %1771
-  %1758 = phi i1 [ true, %.preheader2703 ], [ false, %1771 ]
-  %indvars.iv4619.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2703 ], [ %.sroa.121, %1771 ]
-  %.2683511 = phi i32 [ %.2673513, %.preheader2703 ], [ %1770, %1771 ]
+.preheader2703:                                   ; preds = %.preheader2704, %1771
+  %1758 = phi i1 [ true, %.preheader2704 ], [ false, %1771 ]
+  %indvars.iv4620.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2704 ], [ %.sroa.121, %1771 ]
+  %.2683512 = phi i32 [ %.2673514, %.preheader2704 ], [ %1770, %1771 ]
   br label %1759
 
-1759:                                             ; preds = %.preheader2702, %1769
-  %1760 = phi i1 [ true, %.preheader2702 ], [ false, %1769 ]
-  %indvars.iv4616.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2702 ], [ %.sroa.181, %1769 ]
-  %.2693509 = phi i32 [ %.2683511, %.preheader2702 ], [ %1770, %1769 ]
-  %.not2191 = icmp eq i32 %.2693509, 0
+1759:                                             ; preds = %.preheader2703, %1769
+  %1760 = phi i1 [ true, %.preheader2703 ], [ false, %1769 ]
+  %indvars.iv4617.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2703 ], [ %.sroa.181, %1769 ]
+  %.2693510 = phi i32 [ %.2683512, %.preheader2703 ], [ %1770, %1769 ]
+  %.not2191 = icmp eq i32 %.2693510, 0
   br i1 %.not2191, label %1769, label %1761
 
 1761:                                             ; preds = %1759
-  %1762 = load ptr, ptr %indvars.iv4631.sroa.phi, align 8, !tbaa !12
-  %1763 = load ptr, ptr %indvars.iv4628.sroa.phi, align 8, !tbaa !12
-  %1764 = load ptr, ptr %indvars.iv4625.sroa.phi, align 8, !tbaa !31
-  %1765 = load ptr, ptr %indvars.iv4622.sroa.phi, align 8, !tbaa !12
-  %1766 = load ptr, ptr %indvars.iv4619.sroa.phi, align 8, !tbaa !31
-  %1767 = load ptr, ptr %indvars.iv4616.sroa.phi, align 8, !tbaa !12
+  %1762 = load ptr, ptr %indvars.iv4632.sroa.phi, align 8, !tbaa !12
+  %1763 = load ptr, ptr %indvars.iv4629.sroa.phi, align 8, !tbaa !12
+  %1764 = load ptr, ptr %indvars.iv4626.sroa.phi, align 8, !tbaa !31
+  %1765 = load ptr, ptr %indvars.iv4623.sroa.phi, align 8, !tbaa !12
+  %1766 = load ptr, ptr %indvars.iv4620.sroa.phi, align 8, !tbaa !31
+  %1767 = load ptr, ptr %indvars.iv4617.sroa.phi, align 8, !tbaa !12
   %1768 = tail call fastcc i32 @arkode_butcher_order6c(ptr noundef %1762, ptr noundef %1763, ptr noundef %1764, ptr noundef %1765, ptr noundef %1766, ptr noundef %1767, i32 noundef %9)
   br label %1769
 
@@ -12412,76 +12411,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %1760, label %1759, label %1771
 
 1771:                                             ; preds = %1769
-  br i1 %1758, label %.preheader2702, label %1772
+  br i1 %1758, label %.preheader2703, label %1772
 
 1772:                                             ; preds = %1771
-  br i1 %1757, label %.preheader2703, label %1773
+  br i1 %1757, label %.preheader2704, label %1773
 
 1773:                                             ; preds = %1772
-  br i1 %1756, label %.preheader2704, label %1774
+  br i1 %1756, label %.preheader2705, label %1774
 
 1774:                                             ; preds = %1773
-  br i1 %1755, label %.preheader2705, label %1775
+  br i1 %1755, label %.preheader2706, label %1775
 
 1775:                                             ; preds = %1774
-  br i1 %1754, label %.preheader2706, label %1776
+  br i1 %1754, label %.preheader2707, label %1776
 
 1776:                                             ; preds = %1775
   %1777 = icmp eq i32 %1770, 0
   %or.cond106 = and i1 %49, %1777
-  br i1 %or.cond106, label %1778, label %.preheader2701.preheader
+  br i1 %or.cond106, label %1778, label %.preheader2702.preheader
 
 1778:                                             ; preds = %1776
   %1779 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2701.preheader
+  br label %.preheader2702.preheader
 
-.preheader2701.preheader:                         ; preds = %1778, %1776
+.preheader2702.preheader:                         ; preds = %1778, %1776
+  br label %.preheader2702
+
+.preheader2702:                                   ; preds = %.preheader2702.preheader, %1801
+  %1780 = phi i1 [ false, %1801 ], [ true, %.preheader2702.preheader ]
+  %indvars.iv4650.sroa.phi = phi ptr [ %.sroa.38, %1801 ], [ %.sroa.0, %.preheader2702.preheader ]
+  %.2703532 = phi i32 [ %1796, %1801 ], [ %1770, %.preheader2702.preheader ]
   br label %.preheader2701
 
-.preheader2701:                                   ; preds = %.preheader2701.preheader, %1801
-  %1780 = phi i1 [ false, %1801 ], [ true, %.preheader2701.preheader ]
-  %indvars.iv4649.sroa.phi = phi ptr [ %.sroa.38, %1801 ], [ %.sroa.0, %.preheader2701.preheader ]
-  %.2703531 = phi i32 [ %1796, %1801 ], [ %1770, %.preheader2701.preheader ]
+.preheader2701:                                   ; preds = %.preheader2702, %1800
+  %1781 = phi i1 [ true, %.preheader2702 ], [ false, %1800 ]
+  %indvars.iv4647.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2702 ], [ %.sroa.181, %1800 ]
+  %.2713530 = phi i32 [ %.2703532, %.preheader2702 ], [ %1796, %1800 ]
   br label %.preheader2700
 
-.preheader2700:                                   ; preds = %.preheader2701, %1800
-  %1781 = phi i1 [ true, %.preheader2701 ], [ false, %1800 ]
-  %indvars.iv4646.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2701 ], [ %.sroa.181, %1800 ]
-  %.2713529 = phi i32 [ %.2703531, %.preheader2701 ], [ %1796, %1800 ]
+.preheader2700:                                   ; preds = %.preheader2701, %1799
+  %1782 = phi i1 [ true, %.preheader2701 ], [ false, %1799 ]
+  %indvars.iv4644.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2701 ], [ %.sroa.181, %1799 ]
+  %.2723528 = phi i32 [ %.2713530, %.preheader2701 ], [ %1796, %1799 ]
   br label %.preheader2699
 
-.preheader2699:                                   ; preds = %.preheader2700, %1799
-  %1782 = phi i1 [ true, %.preheader2700 ], [ false, %1799 ]
-  %indvars.iv4643.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2700 ], [ %.sroa.181, %1799 ]
-  %.2723527 = phi i32 [ %.2713529, %.preheader2700 ], [ %1796, %1799 ]
+.preheader2699:                                   ; preds = %.preheader2700, %1798
+  %1783 = phi i1 [ true, %.preheader2700 ], [ false, %1798 ]
+  %indvars.iv4641.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2700 ], [ %.sroa.121, %1798 ]
+  %.2733526 = phi i32 [ %.2723528, %.preheader2700 ], [ %1796, %1798 ]
   br label %.preheader2698
 
-.preheader2698:                                   ; preds = %.preheader2699, %1798
-  %1783 = phi i1 [ true, %.preheader2699 ], [ false, %1798 ]
-  %indvars.iv4640.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2699 ], [ %.sroa.121, %1798 ]
-  %.2733525 = phi i32 [ %.2723527, %.preheader2699 ], [ %1796, %1798 ]
-  br label %.preheader2697
-
-.preheader2697:                                   ; preds = %.preheader2698, %1797
-  %1784 = phi i1 [ true, %.preheader2698 ], [ false, %1797 ]
-  %indvars.iv4637.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2698 ], [ %.sroa.181, %1797 ]
-  %.2743523 = phi i32 [ %.2733525, %.preheader2698 ], [ %1796, %1797 ]
+.preheader2698:                                   ; preds = %.preheader2699, %1797
+  %1784 = phi i1 [ true, %.preheader2699 ], [ false, %1797 ]
+  %indvars.iv4638.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2699 ], [ %.sroa.181, %1797 ]
+  %.2743524 = phi i32 [ %.2733526, %.preheader2699 ], [ %1796, %1797 ]
   br label %1785
 
-1785:                                             ; preds = %.preheader2697, %1795
-  %1786 = phi i1 [ true, %.preheader2697 ], [ false, %1795 ]
-  %indvars.iv4634.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2697 ], [ %.sroa.181, %1795 ]
-  %.2753521 = phi i32 [ %.2743523, %.preheader2697 ], [ %1796, %1795 ]
-  %.not2190 = icmp eq i32 %.2753521, 0
+1785:                                             ; preds = %.preheader2698, %1795
+  %1786 = phi i1 [ true, %.preheader2698 ], [ false, %1795 ]
+  %indvars.iv4635.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2698 ], [ %.sroa.181, %1795 ]
+  %.2753522 = phi i32 [ %.2743524, %.preheader2698 ], [ %1796, %1795 ]
+  %.not2190 = icmp eq i32 %.2753522, 0
   br i1 %.not2190, label %1795, label %1787
 
 1787:                                             ; preds = %1785
-  %1788 = load ptr, ptr %indvars.iv4649.sroa.phi, align 8, !tbaa !12
-  %1789 = load ptr, ptr %indvars.iv4646.sroa.phi, align 8, !tbaa !12
-  %1790 = load ptr, ptr %indvars.iv4643.sroa.phi, align 8, !tbaa !12
-  %1791 = load ptr, ptr %indvars.iv4640.sroa.phi, align 8, !tbaa !31
-  %1792 = load ptr, ptr %indvars.iv4637.sroa.phi, align 8, !tbaa !12
-  %1793 = load ptr, ptr %indvars.iv4634.sroa.phi, align 8, !tbaa !12
+  %1788 = load ptr, ptr %indvars.iv4650.sroa.phi, align 8, !tbaa !12
+  %1789 = load ptr, ptr %indvars.iv4647.sroa.phi, align 8, !tbaa !12
+  %1790 = load ptr, ptr %indvars.iv4644.sroa.phi, align 8, !tbaa !12
+  %1791 = load ptr, ptr %indvars.iv4641.sroa.phi, align 8, !tbaa !31
+  %1792 = load ptr, ptr %indvars.iv4638.sroa.phi, align 8, !tbaa !12
+  %1793 = load ptr, ptr %indvars.iv4635.sroa.phi, align 8, !tbaa !12
   %1794 = tail call fastcc i32 @arkode_butcher_order6d(ptr noundef %1788, ptr noundef %1789, ptr noundef %1790, ptr noundef %1791, ptr noundef %1792, ptr noundef %1793, i32 noundef %9)
   br label %1795
 
@@ -12490,76 +12489,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %1786, label %1785, label %1797
 
 1797:                                             ; preds = %1795
-  br i1 %1784, label %.preheader2697, label %1798
+  br i1 %1784, label %.preheader2698, label %1798
 
 1798:                                             ; preds = %1797
-  br i1 %1783, label %.preheader2698, label %1799
+  br i1 %1783, label %.preheader2699, label %1799
 
 1799:                                             ; preds = %1798
-  br i1 %1782, label %.preheader2699, label %1800
+  br i1 %1782, label %.preheader2700, label %1800
 
 1800:                                             ; preds = %1799
-  br i1 %1781, label %.preheader2700, label %1801
+  br i1 %1781, label %.preheader2701, label %1801
 
 1801:                                             ; preds = %1800
-  br i1 %1780, label %.preheader2701, label %1802
+  br i1 %1780, label %.preheader2702, label %1802
 
 1802:                                             ; preds = %1801
   %1803 = icmp eq i32 %1796, 0
   %or.cond108 = and i1 %49, %1803
-  br i1 %or.cond108, label %1804, label %.preheader2696.preheader
+  br i1 %or.cond108, label %1804, label %.preheader2697.preheader
 
 1804:                                             ; preds = %1802
   %1805 = tail call i64 @fwrite(ptr nonnull @.str.145, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2696.preheader
+  br label %.preheader2697.preheader
 
-.preheader2696.preheader:                         ; preds = %1804, %1802
+.preheader2697.preheader:                         ; preds = %1804, %1802
+  br label %.preheader2697
+
+.preheader2697:                                   ; preds = %.preheader2697.preheader, %1827
+  %1806 = phi i1 [ false, %1827 ], [ true, %.preheader2697.preheader ]
+  %indvars.iv4668.sroa.phi = phi ptr [ %.sroa.38, %1827 ], [ %.sroa.0, %.preheader2697.preheader ]
+  %.2763544 = phi i32 [ %1822, %1827 ], [ %1796, %.preheader2697.preheader ]
   br label %.preheader2696
 
-.preheader2696:                                   ; preds = %.preheader2696.preheader, %1827
-  %1806 = phi i1 [ false, %1827 ], [ true, %.preheader2696.preheader ]
-  %indvars.iv4667.sroa.phi = phi ptr [ %.sroa.38, %1827 ], [ %.sroa.0, %.preheader2696.preheader ]
-  %.2763543 = phi i32 [ %1822, %1827 ], [ %1796, %.preheader2696.preheader ]
+.preheader2696:                                   ; preds = %.preheader2697, %1826
+  %1807 = phi i1 [ true, %.preheader2697 ], [ false, %1826 ]
+  %indvars.iv4665.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2697 ], [ %.sroa.181, %1826 ]
+  %.2773542 = phi i32 [ %.2763544, %.preheader2697 ], [ %1822, %1826 ]
   br label %.preheader2695
 
-.preheader2695:                                   ; preds = %.preheader2696, %1826
-  %1807 = phi i1 [ true, %.preheader2696 ], [ false, %1826 ]
-  %indvars.iv4664.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2696 ], [ %.sroa.181, %1826 ]
-  %.2773541 = phi i32 [ %.2763543, %.preheader2696 ], [ %1822, %1826 ]
+.preheader2695:                                   ; preds = %.preheader2696, %1825
+  %1808 = phi i1 [ true, %.preheader2696 ], [ false, %1825 ]
+  %indvars.iv4662.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2696 ], [ %.sroa.181, %1825 ]
+  %.2783540 = phi i32 [ %.2773542, %.preheader2696 ], [ %1822, %1825 ]
   br label %.preheader2694
 
-.preheader2694:                                   ; preds = %.preheader2695, %1825
-  %1808 = phi i1 [ true, %.preheader2695 ], [ false, %1825 ]
-  %indvars.iv4661.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2695 ], [ %.sroa.181, %1825 ]
-  %.2783539 = phi i32 [ %.2773541, %.preheader2695 ], [ %1822, %1825 ]
+.preheader2694:                                   ; preds = %.preheader2695, %1824
+  %1809 = phi i1 [ true, %.preheader2695 ], [ false, %1824 ]
+  %indvars.iv4659.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2695 ], [ %.sroa.121, %1824 ]
+  %.2793538 = phi i32 [ %.2783540, %.preheader2695 ], [ %1822, %1824 ]
   br label %.preheader2693
 
-.preheader2693:                                   ; preds = %.preheader2694, %1824
-  %1809 = phi i1 [ true, %.preheader2694 ], [ false, %1824 ]
-  %indvars.iv4658.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2694 ], [ %.sroa.121, %1824 ]
-  %.2793537 = phi i32 [ %.2783539, %.preheader2694 ], [ %1822, %1824 ]
-  br label %.preheader2692
-
-.preheader2692:                                   ; preds = %.preheader2693, %1823
-  %1810 = phi i1 [ true, %.preheader2693 ], [ false, %1823 ]
-  %indvars.iv4655.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2693 ], [ %.sroa.121, %1823 ]
-  %.2803535 = phi i32 [ %.2793537, %.preheader2693 ], [ %1822, %1823 ]
+.preheader2693:                                   ; preds = %.preheader2694, %1823
+  %1810 = phi i1 [ true, %.preheader2694 ], [ false, %1823 ]
+  %indvars.iv4656.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2694 ], [ %.sroa.121, %1823 ]
+  %.2803536 = phi i32 [ %.2793538, %.preheader2694 ], [ %1822, %1823 ]
   br label %1811
 
-1811:                                             ; preds = %.preheader2692, %1821
-  %1812 = phi i1 [ true, %.preheader2692 ], [ false, %1821 ]
-  %indvars.iv4652.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2692 ], [ %.sroa.181, %1821 ]
-  %.2813533 = phi i32 [ %.2803535, %.preheader2692 ], [ %1822, %1821 ]
-  %.not2189 = icmp eq i32 %.2813533, 0
+1811:                                             ; preds = %.preheader2693, %1821
+  %1812 = phi i1 [ true, %.preheader2693 ], [ false, %1821 ]
+  %indvars.iv4653.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2693 ], [ %.sroa.181, %1821 ]
+  %.2813534 = phi i32 [ %.2803536, %.preheader2693 ], [ %1822, %1821 ]
+  %.not2189 = icmp eq i32 %.2813534, 0
   br i1 %.not2189, label %1821, label %1813
 
 1813:                                             ; preds = %1811
-  %1814 = load ptr, ptr %indvars.iv4667.sroa.phi, align 8, !tbaa !12
-  %1815 = load ptr, ptr %indvars.iv4664.sroa.phi, align 8, !tbaa !12
-  %1816 = load ptr, ptr %indvars.iv4661.sroa.phi, align 8, !tbaa !12
-  %1817 = load ptr, ptr %indvars.iv4658.sroa.phi, align 8, !tbaa !31
-  %1818 = load ptr, ptr %indvars.iv4655.sroa.phi, align 8, !tbaa !31
-  %1819 = load ptr, ptr %indvars.iv4652.sroa.phi, align 8, !tbaa !12
+  %1814 = load ptr, ptr %indvars.iv4668.sroa.phi, align 8, !tbaa !12
+  %1815 = load ptr, ptr %indvars.iv4665.sroa.phi, align 8, !tbaa !12
+  %1816 = load ptr, ptr %indvars.iv4662.sroa.phi, align 8, !tbaa !12
+  %1817 = load ptr, ptr %indvars.iv4659.sroa.phi, align 8, !tbaa !31
+  %1818 = load ptr, ptr %indvars.iv4656.sroa.phi, align 8, !tbaa !31
+  %1819 = load ptr, ptr %indvars.iv4653.sroa.phi, align 8, !tbaa !12
   %1820 = tail call fastcc i32 @arkode_butcher_order6e(ptr noundef %1814, ptr noundef %1815, ptr noundef %1816, ptr noundef %1817, ptr noundef %1818, ptr noundef %1819, i32 noundef %9)
   br label %1821
 
@@ -12568,76 +12567,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %1812, label %1811, label %1823
 
 1823:                                             ; preds = %1821
-  br i1 %1810, label %.preheader2692, label %1824
+  br i1 %1810, label %.preheader2693, label %1824
 
 1824:                                             ; preds = %1823
-  br i1 %1809, label %.preheader2693, label %1825
+  br i1 %1809, label %.preheader2694, label %1825
 
 1825:                                             ; preds = %1824
-  br i1 %1808, label %.preheader2694, label %1826
+  br i1 %1808, label %.preheader2695, label %1826
 
 1826:                                             ; preds = %1825
-  br i1 %1807, label %.preheader2695, label %1827
+  br i1 %1807, label %.preheader2696, label %1827
 
 1827:                                             ; preds = %1826
-  br i1 %1806, label %.preheader2696, label %1828
+  br i1 %1806, label %.preheader2697, label %1828
 
 1828:                                             ; preds = %1827
   %1829 = icmp eq i32 %1822, 0
   %or.cond110 = and i1 %49, %1829
-  br i1 %or.cond110, label %1830, label %.preheader2691.preheader
+  br i1 %or.cond110, label %1830, label %.preheader2692.preheader
 
 1830:                                             ; preds = %1828
   %1831 = tail call i64 @fwrite(ptr nonnull @.str.146, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2691.preheader
+  br label %.preheader2692.preheader
 
-.preheader2691.preheader:                         ; preds = %1830, %1828
+.preheader2692.preheader:                         ; preds = %1830, %1828
+  br label %.preheader2692
+
+.preheader2692:                                   ; preds = %.preheader2692.preheader, %1853
+  %1832 = phi i1 [ false, %1853 ], [ true, %.preheader2692.preheader ]
+  %indvars.iv4686.sroa.phi = phi ptr [ %.sroa.38, %1853 ], [ %.sroa.0, %.preheader2692.preheader ]
+  %.2823556 = phi i32 [ %1848, %1853 ], [ %1822, %.preheader2692.preheader ]
   br label %.preheader2691
 
-.preheader2691:                                   ; preds = %.preheader2691.preheader, %1853
-  %1832 = phi i1 [ false, %1853 ], [ true, %.preheader2691.preheader ]
-  %indvars.iv4685.sroa.phi = phi ptr [ %.sroa.38, %1853 ], [ %.sroa.0, %.preheader2691.preheader ]
-  %.2823555 = phi i32 [ %1848, %1853 ], [ %1822, %.preheader2691.preheader ]
+.preheader2691:                                   ; preds = %.preheader2692, %1852
+  %1833 = phi i1 [ true, %.preheader2692 ], [ false, %1852 ]
+  %indvars.iv4683.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2692 ], [ %.sroa.121, %1852 ]
+  %.2833554 = phi i32 [ %.2823556, %.preheader2692 ], [ %1848, %1852 ]
   br label %.preheader2690
 
-.preheader2690:                                   ; preds = %.preheader2691, %1852
-  %1833 = phi i1 [ true, %.preheader2691 ], [ false, %1852 ]
-  %indvars.iv4682.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2691 ], [ %.sroa.121, %1852 ]
-  %.2833553 = phi i32 [ %.2823555, %.preheader2691 ], [ %1848, %1852 ]
+.preheader2690:                                   ; preds = %.preheader2691, %1851
+  %1834 = phi i1 [ true, %.preheader2691 ], [ false, %1851 ]
+  %indvars.iv4680.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2691 ], [ %.sroa.121, %1851 ]
+  %.2843552 = phi i32 [ %.2833554, %.preheader2691 ], [ %1848, %1851 ]
   br label %.preheader2689
 
-.preheader2689:                                   ; preds = %.preheader2690, %1851
-  %1834 = phi i1 [ true, %.preheader2690 ], [ false, %1851 ]
-  %indvars.iv4679.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2690 ], [ %.sroa.121, %1851 ]
-  %.2843551 = phi i32 [ %.2833553, %.preheader2690 ], [ %1848, %1851 ]
+.preheader2689:                                   ; preds = %.preheader2690, %1850
+  %1835 = phi i1 [ true, %.preheader2690 ], [ false, %1850 ]
+  %indvars.iv4677.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2690 ], [ %.sroa.181, %1850 ]
+  %.2853550 = phi i32 [ %.2843552, %.preheader2690 ], [ %1848, %1850 ]
   br label %.preheader2688
 
-.preheader2688:                                   ; preds = %.preheader2689, %1850
-  %1835 = phi i1 [ true, %.preheader2689 ], [ false, %1850 ]
-  %indvars.iv4676.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2689 ], [ %.sroa.181, %1850 ]
-  %.2853549 = phi i32 [ %.2843551, %.preheader2689 ], [ %1848, %1850 ]
-  br label %.preheader2687
-
-.preheader2687:                                   ; preds = %.preheader2688, %1849
-  %1836 = phi i1 [ true, %.preheader2688 ], [ false, %1849 ]
-  %indvars.iv4673.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2688 ], [ %.sroa.121, %1849 ]
-  %.2863547 = phi i32 [ %.2853549, %.preheader2688 ], [ %1848, %1849 ]
+.preheader2688:                                   ; preds = %.preheader2689, %1849
+  %1836 = phi i1 [ true, %.preheader2689 ], [ false, %1849 ]
+  %indvars.iv4674.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2689 ], [ %.sroa.121, %1849 ]
+  %.2863548 = phi i32 [ %.2853550, %.preheader2689 ], [ %1848, %1849 ]
   br label %1837
 
-1837:                                             ; preds = %.preheader2687, %1847
-  %1838 = phi i1 [ true, %.preheader2687 ], [ false, %1847 ]
-  %indvars.iv4670.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2687 ], [ %.sroa.181, %1847 ]
-  %.2873545 = phi i32 [ %.2863547, %.preheader2687 ], [ %1848, %1847 ]
-  %.not2188 = icmp eq i32 %.2873545, 0
+1837:                                             ; preds = %.preheader2688, %1847
+  %1838 = phi i1 [ true, %.preheader2688 ], [ false, %1847 ]
+  %indvars.iv4671.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2688 ], [ %.sroa.181, %1847 ]
+  %.2873546 = phi i32 [ %.2863548, %.preheader2688 ], [ %1848, %1847 ]
+  %.not2188 = icmp eq i32 %.2873546, 0
   br i1 %.not2188, label %1847, label %1839
 
 1839:                                             ; preds = %1837
-  %1840 = load ptr, ptr %indvars.iv4685.sroa.phi, align 8, !tbaa !12
-  %1841 = load ptr, ptr %indvars.iv4682.sroa.phi, align 8, !tbaa !31
-  %1842 = load ptr, ptr %indvars.iv4679.sroa.phi, align 8, !tbaa !31
-  %1843 = load ptr, ptr %indvars.iv4676.sroa.phi, align 8, !tbaa !12
-  %1844 = load ptr, ptr %indvars.iv4673.sroa.phi, align 8, !tbaa !31
-  %1845 = load ptr, ptr %indvars.iv4670.sroa.phi, align 8, !tbaa !12
+  %1840 = load ptr, ptr %indvars.iv4686.sroa.phi, align 8, !tbaa !12
+  %1841 = load ptr, ptr %indvars.iv4683.sroa.phi, align 8, !tbaa !31
+  %1842 = load ptr, ptr %indvars.iv4680.sroa.phi, align 8, !tbaa !31
+  %1843 = load ptr, ptr %indvars.iv4677.sroa.phi, align 8, !tbaa !12
+  %1844 = load ptr, ptr %indvars.iv4674.sroa.phi, align 8, !tbaa !31
+  %1845 = load ptr, ptr %indvars.iv4671.sroa.phi, align 8, !tbaa !12
   %1846 = tail call fastcc i32 @arkode_butcher_order6f(ptr noundef %1840, ptr noundef %1841, ptr noundef %1842, ptr noundef %1843, ptr noundef %1844, ptr noundef %1845, i32 noundef %9)
   br label %1847
 
@@ -12646,76 +12645,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %1838, label %1837, label %1849
 
 1849:                                             ; preds = %1847
-  br i1 %1836, label %.preheader2687, label %1850
+  br i1 %1836, label %.preheader2688, label %1850
 
 1850:                                             ; preds = %1849
-  br i1 %1835, label %.preheader2688, label %1851
+  br i1 %1835, label %.preheader2689, label %1851
 
 1851:                                             ; preds = %1850
-  br i1 %1834, label %.preheader2689, label %1852
+  br i1 %1834, label %.preheader2690, label %1852
 
 1852:                                             ; preds = %1851
-  br i1 %1833, label %.preheader2690, label %1853
+  br i1 %1833, label %.preheader2691, label %1853
 
 1853:                                             ; preds = %1852
-  br i1 %1832, label %.preheader2691, label %1854
+  br i1 %1832, label %.preheader2692, label %1854
 
 1854:                                             ; preds = %1853
   %1855 = icmp eq i32 %1848, 0
   %or.cond112 = and i1 %49, %1855
-  br i1 %or.cond112, label %1856, label %.preheader2686.preheader
+  br i1 %or.cond112, label %1856, label %.preheader2687.preheader
 
 1856:                                             ; preds = %1854
   %1857 = tail call i64 @fwrite(ptr nonnull @.str.147, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2686.preheader
+  br label %.preheader2687.preheader
 
-.preheader2686.preheader:                         ; preds = %1856, %1854
+.preheader2687.preheader:                         ; preds = %1856, %1854
+  br label %.preheader2687
+
+.preheader2687:                                   ; preds = %.preheader2687.preheader, %1879
+  %1858 = phi i1 [ false, %1879 ], [ true, %.preheader2687.preheader ]
+  %indvars.iv4704.sroa.phi = phi ptr [ %.sroa.38, %1879 ], [ %.sroa.0, %.preheader2687.preheader ]
+  %.2883568 = phi i32 [ %1874, %1879 ], [ %1848, %.preheader2687.preheader ]
   br label %.preheader2686
 
-.preheader2686:                                   ; preds = %.preheader2686.preheader, %1879
-  %1858 = phi i1 [ false, %1879 ], [ true, %.preheader2686.preheader ]
-  %indvars.iv4703.sroa.phi = phi ptr [ %.sroa.38, %1879 ], [ %.sroa.0, %.preheader2686.preheader ]
-  %.2883567 = phi i32 [ %1874, %1879 ], [ %1848, %.preheader2686.preheader ]
+.preheader2686:                                   ; preds = %.preheader2687, %1878
+  %1859 = phi i1 [ true, %.preheader2687 ], [ false, %1878 ]
+  %indvars.iv4701.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2687 ], [ %.sroa.181, %1878 ]
+  %.2893566 = phi i32 [ %.2883568, %.preheader2687 ], [ %1874, %1878 ]
   br label %.preheader2685
 
-.preheader2685:                                   ; preds = %.preheader2686, %1878
-  %1859 = phi i1 [ true, %.preheader2686 ], [ false, %1878 ]
-  %indvars.iv4700.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2686 ], [ %.sroa.181, %1878 ]
-  %.2893565 = phi i32 [ %.2883567, %.preheader2686 ], [ %1874, %1878 ]
+.preheader2685:                                   ; preds = %.preheader2686, %1877
+  %1860 = phi i1 [ true, %.preheader2686 ], [ false, %1877 ]
+  %indvars.iv4698.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2686 ], [ %.sroa.121, %1877 ]
+  %.2903564 = phi i32 [ %.2893566, %.preheader2686 ], [ %1874, %1877 ]
   br label %.preheader2684
 
-.preheader2684:                                   ; preds = %.preheader2685, %1877
-  %1860 = phi i1 [ true, %.preheader2685 ], [ false, %1877 ]
-  %indvars.iv4697.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2685 ], [ %.sroa.121, %1877 ]
-  %.2903563 = phi i32 [ %.2893565, %.preheader2685 ], [ %1874, %1877 ]
+.preheader2684:                                   ; preds = %.preheader2685, %1876
+  %1861 = phi i1 [ true, %.preheader2685 ], [ false, %1876 ]
+  %indvars.iv4695.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2685 ], [ %.sroa.181, %1876 ]
+  %.2913562 = phi i32 [ %.2903564, %.preheader2685 ], [ %1874, %1876 ]
   br label %.preheader2683
 
-.preheader2683:                                   ; preds = %.preheader2684, %1876
-  %1861 = phi i1 [ true, %.preheader2684 ], [ false, %1876 ]
-  %indvars.iv4694.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2684 ], [ %.sroa.181, %1876 ]
-  %.2913561 = phi i32 [ %.2903563, %.preheader2684 ], [ %1874, %1876 ]
-  br label %.preheader2682
-
-.preheader2682:                                   ; preds = %.preheader2683, %1875
-  %1862 = phi i1 [ true, %.preheader2683 ], [ false, %1875 ]
-  %indvars.iv4691.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2683 ], [ %.sroa.181, %1875 ]
-  %.2923559 = phi i32 [ %.2913561, %.preheader2683 ], [ %1874, %1875 ]
+.preheader2683:                                   ; preds = %.preheader2684, %1875
+  %1862 = phi i1 [ true, %.preheader2684 ], [ false, %1875 ]
+  %indvars.iv4692.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2684 ], [ %.sroa.181, %1875 ]
+  %.2923560 = phi i32 [ %.2913562, %.preheader2684 ], [ %1874, %1875 ]
   br label %1863
 
-1863:                                             ; preds = %.preheader2682, %1873
-  %1864 = phi i1 [ true, %.preheader2682 ], [ false, %1873 ]
-  %indvars.iv4688.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2682 ], [ %.sroa.181, %1873 ]
-  %.2933557 = phi i32 [ %.2923559, %.preheader2682 ], [ %1874, %1873 ]
-  %.not2187 = icmp eq i32 %.2933557, 0
+1863:                                             ; preds = %.preheader2683, %1873
+  %1864 = phi i1 [ true, %.preheader2683 ], [ false, %1873 ]
+  %indvars.iv4689.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2683 ], [ %.sroa.181, %1873 ]
+  %.2933558 = phi i32 [ %.2923560, %.preheader2683 ], [ %1874, %1873 ]
+  %.not2187 = icmp eq i32 %.2933558, 0
   br i1 %.not2187, label %1873, label %1865
 
 1865:                                             ; preds = %1863
-  %1866 = load ptr, ptr %indvars.iv4703.sroa.phi, align 8, !tbaa !12
-  %1867 = load ptr, ptr %indvars.iv4700.sroa.phi, align 8, !tbaa !12
-  %1868 = load ptr, ptr %indvars.iv4697.sroa.phi, align 8, !tbaa !31
-  %1869 = load ptr, ptr %indvars.iv4694.sroa.phi, align 8, !tbaa !12
-  %1870 = load ptr, ptr %indvars.iv4691.sroa.phi, align 8, !tbaa !12
-  %1871 = load ptr, ptr %indvars.iv4688.sroa.phi, align 8, !tbaa !12
+  %1866 = load ptr, ptr %indvars.iv4704.sroa.phi, align 8, !tbaa !12
+  %1867 = load ptr, ptr %indvars.iv4701.sroa.phi, align 8, !tbaa !12
+  %1868 = load ptr, ptr %indvars.iv4698.sroa.phi, align 8, !tbaa !31
+  %1869 = load ptr, ptr %indvars.iv4695.sroa.phi, align 8, !tbaa !12
+  %1870 = load ptr, ptr %indvars.iv4692.sroa.phi, align 8, !tbaa !12
+  %1871 = load ptr, ptr %indvars.iv4689.sroa.phi, align 8, !tbaa !12
   %1872 = tail call fastcc i32 @arkode_butcher_order6g(ptr noundef %1866, ptr noundef %1867, ptr noundef %1868, ptr noundef %1869, ptr noundef %1870, ptr noundef %1871, i32 noundef %9)
   br label %1873
 
@@ -12724,76 +12723,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %1864, label %1863, label %1875
 
 1875:                                             ; preds = %1873
-  br i1 %1862, label %.preheader2682, label %1876
+  br i1 %1862, label %.preheader2683, label %1876
 
 1876:                                             ; preds = %1875
-  br i1 %1861, label %.preheader2683, label %1877
+  br i1 %1861, label %.preheader2684, label %1877
 
 1877:                                             ; preds = %1876
-  br i1 %1860, label %.preheader2684, label %1878
+  br i1 %1860, label %.preheader2685, label %1878
 
 1878:                                             ; preds = %1877
-  br i1 %1859, label %.preheader2685, label %1879
+  br i1 %1859, label %.preheader2686, label %1879
 
 1879:                                             ; preds = %1878
-  br i1 %1858, label %.preheader2686, label %1880
+  br i1 %1858, label %.preheader2687, label %1880
 
 1880:                                             ; preds = %1879
   %1881 = icmp eq i32 %1874, 0
   %or.cond114 = and i1 %49, %1881
-  br i1 %or.cond114, label %1882, label %.preheader2681.preheader
+  br i1 %or.cond114, label %1882, label %.preheader2682.preheader
 
 1882:                                             ; preds = %1880
   %1883 = tail call i64 @fwrite(ptr nonnull @.str.148, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2681.preheader
+  br label %.preheader2682.preheader
 
-.preheader2681.preheader:                         ; preds = %1882, %1880
+.preheader2682.preheader:                         ; preds = %1882, %1880
+  br label %.preheader2682
+
+.preheader2682:                                   ; preds = %.preheader2682.preheader, %1905
+  %1884 = phi i1 [ false, %1905 ], [ true, %.preheader2682.preheader ]
+  %indvars.iv4722.sroa.phi = phi ptr [ %.sroa.38, %1905 ], [ %.sroa.0, %.preheader2682.preheader ]
+  %.2943580 = phi i32 [ %1900, %1905 ], [ %1874, %.preheader2682.preheader ]
   br label %.preheader2681
 
-.preheader2681:                                   ; preds = %.preheader2681.preheader, %1905
-  %1884 = phi i1 [ false, %1905 ], [ true, %.preheader2681.preheader ]
-  %indvars.iv4721.sroa.phi = phi ptr [ %.sroa.38, %1905 ], [ %.sroa.0, %.preheader2681.preheader ]
-  %.2943579 = phi i32 [ %1900, %1905 ], [ %1874, %.preheader2681.preheader ]
+.preheader2681:                                   ; preds = %.preheader2682, %1904
+  %1885 = phi i1 [ true, %.preheader2682 ], [ false, %1904 ]
+  %indvars.iv4719.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2682 ], [ %.sroa.181, %1904 ]
+  %.2953578 = phi i32 [ %.2943580, %.preheader2682 ], [ %1900, %1904 ]
   br label %.preheader2680
 
-.preheader2680:                                   ; preds = %.preheader2681, %1904
-  %1885 = phi i1 [ true, %.preheader2681 ], [ false, %1904 ]
-  %indvars.iv4718.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2681 ], [ %.sroa.181, %1904 ]
-  %.2953577 = phi i32 [ %.2943579, %.preheader2681 ], [ %1900, %1904 ]
+.preheader2680:                                   ; preds = %.preheader2681, %1903
+  %1886 = phi i1 [ true, %.preheader2681 ], [ false, %1903 ]
+  %indvars.iv4716.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2681 ], [ %.sroa.121, %1903 ]
+  %.2963576 = phi i32 [ %.2953578, %.preheader2681 ], [ %1900, %1903 ]
   br label %.preheader2679
 
-.preheader2679:                                   ; preds = %.preheader2680, %1903
-  %1886 = phi i1 [ true, %.preheader2680 ], [ false, %1903 ]
-  %indvars.iv4715.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2680 ], [ %.sroa.121, %1903 ]
-  %.2963575 = phi i32 [ %.2953577, %.preheader2680 ], [ %1900, %1903 ]
+.preheader2679:                                   ; preds = %.preheader2680, %1902
+  %1887 = phi i1 [ true, %.preheader2680 ], [ false, %1902 ]
+  %indvars.iv4713.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2680 ], [ %.sroa.181, %1902 ]
+  %.2973574 = phi i32 [ %.2963576, %.preheader2680 ], [ %1900, %1902 ]
   br label %.preheader2678
 
-.preheader2678:                                   ; preds = %.preheader2679, %1902
-  %1887 = phi i1 [ true, %.preheader2679 ], [ false, %1902 ]
-  %indvars.iv4712.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2679 ], [ %.sroa.181, %1902 ]
-  %.2973573 = phi i32 [ %.2963575, %.preheader2679 ], [ %1900, %1902 ]
-  br label %.preheader2677
-
-.preheader2677:                                   ; preds = %.preheader2678, %1901
-  %1888 = phi i1 [ true, %.preheader2678 ], [ false, %1901 ]
-  %indvars.iv4709.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2678 ], [ %.sroa.121, %1901 ]
-  %.2983571 = phi i32 [ %.2973573, %.preheader2678 ], [ %1900, %1901 ]
+.preheader2678:                                   ; preds = %.preheader2679, %1901
+  %1888 = phi i1 [ true, %.preheader2679 ], [ false, %1901 ]
+  %indvars.iv4710.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2679 ], [ %.sroa.121, %1901 ]
+  %.2983572 = phi i32 [ %.2973574, %.preheader2679 ], [ %1900, %1901 ]
   br label %1889
 
-1889:                                             ; preds = %.preheader2677, %1899
-  %1890 = phi i1 [ true, %.preheader2677 ], [ false, %1899 ]
-  %indvars.iv4706.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2677 ], [ %.sroa.181, %1899 ]
-  %.2993569 = phi i32 [ %.2983571, %.preheader2677 ], [ %1900, %1899 ]
-  %.not2186 = icmp eq i32 %.2993569, 0
+1889:                                             ; preds = %.preheader2678, %1899
+  %1890 = phi i1 [ true, %.preheader2678 ], [ false, %1899 ]
+  %indvars.iv4707.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2678 ], [ %.sroa.181, %1899 ]
+  %.2993570 = phi i32 [ %.2983572, %.preheader2678 ], [ %1900, %1899 ]
+  %.not2186 = icmp eq i32 %.2993570, 0
   br i1 %.not2186, label %1899, label %1891
 
 1891:                                             ; preds = %1889
-  %1892 = load ptr, ptr %indvars.iv4721.sroa.phi, align 8, !tbaa !12
-  %1893 = load ptr, ptr %indvars.iv4718.sroa.phi, align 8, !tbaa !12
-  %1894 = load ptr, ptr %indvars.iv4715.sroa.phi, align 8, !tbaa !31
-  %1895 = load ptr, ptr %indvars.iv4712.sroa.phi, align 8, !tbaa !12
-  %1896 = load ptr, ptr %indvars.iv4709.sroa.phi, align 8, !tbaa !31
-  %1897 = load ptr, ptr %indvars.iv4706.sroa.phi, align 8, !tbaa !12
+  %1892 = load ptr, ptr %indvars.iv4722.sroa.phi, align 8, !tbaa !12
+  %1893 = load ptr, ptr %indvars.iv4719.sroa.phi, align 8, !tbaa !12
+  %1894 = load ptr, ptr %indvars.iv4716.sroa.phi, align 8, !tbaa !31
+  %1895 = load ptr, ptr %indvars.iv4713.sroa.phi, align 8, !tbaa !12
+  %1896 = load ptr, ptr %indvars.iv4710.sroa.phi, align 8, !tbaa !31
+  %1897 = load ptr, ptr %indvars.iv4707.sroa.phi, align 8, !tbaa !12
   %1898 = tail call fastcc i32 @arkode_butcher_order6h(ptr noundef %1892, ptr noundef %1893, ptr noundef %1894, ptr noundef %1895, ptr noundef %1896, ptr noundef %1897, i32 noundef %9)
   br label %1899
 
@@ -12802,76 +12801,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %1890, label %1889, label %1901
 
 1901:                                             ; preds = %1899
-  br i1 %1888, label %.preheader2677, label %1902
+  br i1 %1888, label %.preheader2678, label %1902
 
 1902:                                             ; preds = %1901
-  br i1 %1887, label %.preheader2678, label %1903
+  br i1 %1887, label %.preheader2679, label %1903
 
 1903:                                             ; preds = %1902
-  br i1 %1886, label %.preheader2679, label %1904
+  br i1 %1886, label %.preheader2680, label %1904
 
 1904:                                             ; preds = %1903
-  br i1 %1885, label %.preheader2680, label %1905
+  br i1 %1885, label %.preheader2681, label %1905
 
 1905:                                             ; preds = %1904
-  br i1 %1884, label %.preheader2681, label %1906
+  br i1 %1884, label %.preheader2682, label %1906
 
 1906:                                             ; preds = %1905
   %1907 = icmp eq i32 %1900, 0
   %or.cond116 = and i1 %49, %1907
-  br i1 %or.cond116, label %1908, label %.preheader2676.preheader
+  br i1 %or.cond116, label %1908, label %.preheader2677.preheader
 
 1908:                                             ; preds = %1906
   %1909 = tail call i64 @fwrite(ptr nonnull @.str.149, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2676.preheader
+  br label %.preheader2677.preheader
 
-.preheader2676.preheader:                         ; preds = %1908, %1906
+.preheader2677.preheader:                         ; preds = %1908, %1906
+  br label %.preheader2677
+
+.preheader2677:                                   ; preds = %.preheader2677.preheader, %1931
+  %1910 = phi i1 [ false, %1931 ], [ true, %.preheader2677.preheader ]
+  %indvars.iv4740.sroa.phi = phi ptr [ %.sroa.38, %1931 ], [ %.sroa.0, %.preheader2677.preheader ]
+  %.3003592 = phi i32 [ %1926, %1931 ], [ %1900, %.preheader2677.preheader ]
   br label %.preheader2676
 
-.preheader2676:                                   ; preds = %.preheader2676.preheader, %1931
-  %1910 = phi i1 [ false, %1931 ], [ true, %.preheader2676.preheader ]
-  %indvars.iv4739.sroa.phi = phi ptr [ %.sroa.38, %1931 ], [ %.sroa.0, %.preheader2676.preheader ]
-  %.3003591 = phi i32 [ %1926, %1931 ], [ %1900, %.preheader2676.preheader ]
+.preheader2676:                                   ; preds = %.preheader2677, %1930
+  %1911 = phi i1 [ true, %.preheader2677 ], [ false, %1930 ]
+  %indvars.iv4737.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2677 ], [ %.sroa.181, %1930 ]
+  %.3013590 = phi i32 [ %.3003592, %.preheader2677 ], [ %1926, %1930 ]
   br label %.preheader2675
 
-.preheader2675:                                   ; preds = %.preheader2676, %1930
-  %1911 = phi i1 [ true, %.preheader2676 ], [ false, %1930 ]
-  %indvars.iv4736.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2676 ], [ %.sroa.181, %1930 ]
-  %.3013589 = phi i32 [ %.3003591, %.preheader2676 ], [ %1926, %1930 ]
+.preheader2675:                                   ; preds = %.preheader2676, %1929
+  %1912 = phi i1 [ true, %.preheader2676 ], [ false, %1929 ]
+  %indvars.iv4734.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2676 ], [ %.sroa.121, %1929 ]
+  %.3023588 = phi i32 [ %.3013590, %.preheader2676 ], [ %1926, %1929 ]
   br label %.preheader2674
 
-.preheader2674:                                   ; preds = %.preheader2675, %1929
-  %1912 = phi i1 [ true, %.preheader2675 ], [ false, %1929 ]
-  %indvars.iv4733.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2675 ], [ %.sroa.121, %1929 ]
-  %.3023587 = phi i32 [ %.3013589, %.preheader2675 ], [ %1926, %1929 ]
+.preheader2674:                                   ; preds = %.preheader2675, %1928
+  %1913 = phi i1 [ true, %.preheader2675 ], [ false, %1928 ]
+  %indvars.iv4731.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2675 ], [ %.sroa.121, %1928 ]
+  %.3033586 = phi i32 [ %.3023588, %.preheader2675 ], [ %1926, %1928 ]
   br label %.preheader2673
 
-.preheader2673:                                   ; preds = %.preheader2674, %1928
-  %1913 = phi i1 [ true, %.preheader2674 ], [ false, %1928 ]
-  %indvars.iv4730.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2674 ], [ %.sroa.121, %1928 ]
-  %.3033585 = phi i32 [ %.3023587, %.preheader2674 ], [ %1926, %1928 ]
-  br label %.preheader2672
-
-.preheader2672:                                   ; preds = %.preheader2673, %1927
-  %1914 = phi i1 [ true, %.preheader2673 ], [ false, %1927 ]
-  %indvars.iv4727.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2673 ], [ %.sroa.181, %1927 ]
-  %.3043583 = phi i32 [ %.3033585, %.preheader2673 ], [ %1926, %1927 ]
+.preheader2673:                                   ; preds = %.preheader2674, %1927
+  %1914 = phi i1 [ true, %.preheader2674 ], [ false, %1927 ]
+  %indvars.iv4728.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2674 ], [ %.sroa.181, %1927 ]
+  %.3043584 = phi i32 [ %.3033586, %.preheader2674 ], [ %1926, %1927 ]
   br label %1915
 
-1915:                                             ; preds = %.preheader2672, %1925
-  %1916 = phi i1 [ true, %.preheader2672 ], [ false, %1925 ]
-  %indvars.iv4724.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2672 ], [ %.sroa.181, %1925 ]
-  %.3053581 = phi i32 [ %.3043583, %.preheader2672 ], [ %1926, %1925 ]
-  %.not2185 = icmp eq i32 %.3053581, 0
+1915:                                             ; preds = %.preheader2673, %1925
+  %1916 = phi i1 [ true, %.preheader2673 ], [ false, %1925 ]
+  %indvars.iv4725.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2673 ], [ %.sroa.181, %1925 ]
+  %.3053582 = phi i32 [ %.3043584, %.preheader2673 ], [ %1926, %1925 ]
+  %.not2185 = icmp eq i32 %.3053582, 0
   br i1 %.not2185, label %1925, label %1917
 
 1917:                                             ; preds = %1915
-  %1918 = load ptr, ptr %indvars.iv4739.sroa.phi, align 8, !tbaa !12
-  %1919 = load ptr, ptr %indvars.iv4736.sroa.phi, align 8, !tbaa !12
-  %1920 = load ptr, ptr %indvars.iv4733.sroa.phi, align 8, !tbaa !31
-  %1921 = load ptr, ptr %indvars.iv4730.sroa.phi, align 8, !tbaa !31
-  %1922 = load ptr, ptr %indvars.iv4727.sroa.phi, align 8, !tbaa !12
-  %1923 = load ptr, ptr %indvars.iv4724.sroa.phi, align 8, !tbaa !12
+  %1918 = load ptr, ptr %indvars.iv4740.sroa.phi, align 8, !tbaa !12
+  %1919 = load ptr, ptr %indvars.iv4737.sroa.phi, align 8, !tbaa !12
+  %1920 = load ptr, ptr %indvars.iv4734.sroa.phi, align 8, !tbaa !31
+  %1921 = load ptr, ptr %indvars.iv4731.sroa.phi, align 8, !tbaa !31
+  %1922 = load ptr, ptr %indvars.iv4728.sroa.phi, align 8, !tbaa !12
+  %1923 = load ptr, ptr %indvars.iv4725.sroa.phi, align 8, !tbaa !12
   %1924 = tail call fastcc i32 @arkode_butcher_order6i(ptr noundef %1918, ptr noundef %1919, ptr noundef %1920, ptr noundef %1921, ptr noundef %1922, ptr noundef %1923, i32 noundef %9)
   br label %1925
 
@@ -12880,76 +12879,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %1916, label %1915, label %1927
 
 1927:                                             ; preds = %1925
-  br i1 %1914, label %.preheader2672, label %1928
+  br i1 %1914, label %.preheader2673, label %1928
 
 1928:                                             ; preds = %1927
-  br i1 %1913, label %.preheader2673, label %1929
+  br i1 %1913, label %.preheader2674, label %1929
 
 1929:                                             ; preds = %1928
-  br i1 %1912, label %.preheader2674, label %1930
+  br i1 %1912, label %.preheader2675, label %1930
 
 1930:                                             ; preds = %1929
-  br i1 %1911, label %.preheader2675, label %1931
+  br i1 %1911, label %.preheader2676, label %1931
 
 1931:                                             ; preds = %1930
-  br i1 %1910, label %.preheader2676, label %1932
+  br i1 %1910, label %.preheader2677, label %1932
 
 1932:                                             ; preds = %1931
   %1933 = icmp eq i32 %1926, 0
   %or.cond118 = and i1 %49, %1933
-  br i1 %or.cond118, label %1934, label %.preheader2671.preheader
+  br i1 %or.cond118, label %1934, label %.preheader2672.preheader
 
 1934:                                             ; preds = %1932
   %1935 = tail call i64 @fwrite(ptr nonnull @.str.150, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2671.preheader
+  br label %.preheader2672.preheader
 
-.preheader2671.preheader:                         ; preds = %1934, %1932
+.preheader2672.preheader:                         ; preds = %1934, %1932
+  br label %.preheader2672
+
+.preheader2672:                                   ; preds = %.preheader2672.preheader, %1957
+  %1936 = phi i1 [ false, %1957 ], [ true, %.preheader2672.preheader ]
+  %indvars.iv4758.sroa.phi = phi ptr [ %.sroa.38, %1957 ], [ %.sroa.0, %.preheader2672.preheader ]
+  %.3063604 = phi i32 [ %1952, %1957 ], [ %1926, %.preheader2672.preheader ]
   br label %.preheader2671
 
-.preheader2671:                                   ; preds = %.preheader2671.preheader, %1957
-  %1936 = phi i1 [ false, %1957 ], [ true, %.preheader2671.preheader ]
-  %indvars.iv4757.sroa.phi = phi ptr [ %.sroa.38, %1957 ], [ %.sroa.0, %.preheader2671.preheader ]
-  %.3063603 = phi i32 [ %1952, %1957 ], [ %1926, %.preheader2671.preheader ]
+.preheader2671:                                   ; preds = %.preheader2672, %1956
+  %1937 = phi i1 [ true, %.preheader2672 ], [ false, %1956 ]
+  %indvars.iv4755.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2672 ], [ %.sroa.181, %1956 ]
+  %.3073602 = phi i32 [ %.3063604, %.preheader2672 ], [ %1952, %1956 ]
   br label %.preheader2670
 
-.preheader2670:                                   ; preds = %.preheader2671, %1956
-  %1937 = phi i1 [ true, %.preheader2671 ], [ false, %1956 ]
-  %indvars.iv4754.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2671 ], [ %.sroa.181, %1956 ]
-  %.3073601 = phi i32 [ %.3063603, %.preheader2671 ], [ %1952, %1956 ]
+.preheader2670:                                   ; preds = %.preheader2671, %1955
+  %1938 = phi i1 [ true, %.preheader2671 ], [ false, %1955 ]
+  %indvars.iv4752.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2671 ], [ %.sroa.121, %1955 ]
+  %.3083600 = phi i32 [ %.3073602, %.preheader2671 ], [ %1952, %1955 ]
   br label %.preheader2669
 
-.preheader2669:                                   ; preds = %.preheader2670, %1955
-  %1938 = phi i1 [ true, %.preheader2670 ], [ false, %1955 ]
-  %indvars.iv4751.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2670 ], [ %.sroa.121, %1955 ]
-  %.3083599 = phi i32 [ %.3073601, %.preheader2670 ], [ %1952, %1955 ]
+.preheader2669:                                   ; preds = %.preheader2670, %1954
+  %1939 = phi i1 [ true, %.preheader2670 ], [ false, %1954 ]
+  %indvars.iv4749.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2670 ], [ %.sroa.121, %1954 ]
+  %.3093598 = phi i32 [ %.3083600, %.preheader2670 ], [ %1952, %1954 ]
   br label %.preheader2668
 
-.preheader2668:                                   ; preds = %.preheader2669, %1954
-  %1939 = phi i1 [ true, %.preheader2669 ], [ false, %1954 ]
-  %indvars.iv4748.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2669 ], [ %.sroa.121, %1954 ]
-  %.3093597 = phi i32 [ %.3083599, %.preheader2669 ], [ %1952, %1954 ]
-  br label %.preheader2667
-
-.preheader2667:                                   ; preds = %.preheader2668, %1953
-  %1940 = phi i1 [ true, %.preheader2668 ], [ false, %1953 ]
-  %indvars.iv4745.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2668 ], [ %.sroa.121, %1953 ]
-  %.3103595 = phi i32 [ %.3093597, %.preheader2668 ], [ %1952, %1953 ]
+.preheader2668:                                   ; preds = %.preheader2669, %1953
+  %1940 = phi i1 [ true, %.preheader2669 ], [ false, %1953 ]
+  %indvars.iv4746.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2669 ], [ %.sroa.121, %1953 ]
+  %.3103596 = phi i32 [ %.3093598, %.preheader2669 ], [ %1952, %1953 ]
   br label %1941
 
-1941:                                             ; preds = %.preheader2667, %1951
-  %1942 = phi i1 [ true, %.preheader2667 ], [ false, %1951 ]
-  %indvars.iv4742.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2667 ], [ %.sroa.181, %1951 ]
-  %.3113593 = phi i32 [ %.3103595, %.preheader2667 ], [ %1952, %1951 ]
-  %.not2184 = icmp eq i32 %.3113593, 0
+1941:                                             ; preds = %.preheader2668, %1951
+  %1942 = phi i1 [ true, %.preheader2668 ], [ false, %1951 ]
+  %indvars.iv4743.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2668 ], [ %.sroa.181, %1951 ]
+  %.3113594 = phi i32 [ %.3103596, %.preheader2668 ], [ %1952, %1951 ]
+  %.not2184 = icmp eq i32 %.3113594, 0
   br i1 %.not2184, label %1951, label %1943
 
 1943:                                             ; preds = %1941
-  %1944 = load ptr, ptr %indvars.iv4757.sroa.phi, align 8, !tbaa !12
-  %1945 = load ptr, ptr %indvars.iv4754.sroa.phi, align 8, !tbaa !12
-  %1946 = load ptr, ptr %indvars.iv4751.sroa.phi, align 8, !tbaa !31
-  %1947 = load ptr, ptr %indvars.iv4748.sroa.phi, align 8, !tbaa !31
-  %1948 = load ptr, ptr %indvars.iv4745.sroa.phi, align 8, !tbaa !31
-  %1949 = load ptr, ptr %indvars.iv4742.sroa.phi, align 8, !tbaa !12
+  %1944 = load ptr, ptr %indvars.iv4758.sroa.phi, align 8, !tbaa !12
+  %1945 = load ptr, ptr %indvars.iv4755.sroa.phi, align 8, !tbaa !12
+  %1946 = load ptr, ptr %indvars.iv4752.sroa.phi, align 8, !tbaa !31
+  %1947 = load ptr, ptr %indvars.iv4749.sroa.phi, align 8, !tbaa !31
+  %1948 = load ptr, ptr %indvars.iv4746.sroa.phi, align 8, !tbaa !31
+  %1949 = load ptr, ptr %indvars.iv4743.sroa.phi, align 8, !tbaa !12
   %1950 = tail call fastcc i32 @arkode_butcher_order6j(ptr noundef %1944, ptr noundef %1945, ptr noundef %1946, ptr noundef %1947, ptr noundef %1948, ptr noundef %1949, i32 noundef %9)
   br label %1951
 
@@ -12958,76 +12957,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %1942, label %1941, label %1953
 
 1953:                                             ; preds = %1951
-  br i1 %1940, label %.preheader2667, label %1954
+  br i1 %1940, label %.preheader2668, label %1954
 
 1954:                                             ; preds = %1953
-  br i1 %1939, label %.preheader2668, label %1955
+  br i1 %1939, label %.preheader2669, label %1955
 
 1955:                                             ; preds = %1954
-  br i1 %1938, label %.preheader2669, label %1956
+  br i1 %1938, label %.preheader2670, label %1956
 
 1956:                                             ; preds = %1955
-  br i1 %1937, label %.preheader2670, label %1957
+  br i1 %1937, label %.preheader2671, label %1957
 
 1957:                                             ; preds = %1956
-  br i1 %1936, label %.preheader2671, label %1958
+  br i1 %1936, label %.preheader2672, label %1958
 
 1958:                                             ; preds = %1957
   %1959 = icmp eq i32 %1952, 0
   %or.cond120 = and i1 %49, %1959
-  br i1 %or.cond120, label %1960, label %.preheader2666.preheader
+  br i1 %or.cond120, label %1960, label %.preheader2667.preheader
 
 1960:                                             ; preds = %1958
   %1961 = tail call i64 @fwrite(ptr nonnull @.str.151, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2666.preheader
+  br label %.preheader2667.preheader
 
-.preheader2666.preheader:                         ; preds = %1960, %1958
+.preheader2667.preheader:                         ; preds = %1960, %1958
+  br label %.preheader2667
+
+.preheader2667:                                   ; preds = %.preheader2667.preheader, %1983
+  %1962 = phi i1 [ false, %1983 ], [ true, %.preheader2667.preheader ]
+  %indvars.iv4776.sroa.phi = phi ptr [ %.sroa.38, %1983 ], [ %.sroa.0, %.preheader2667.preheader ]
+  %.3123616 = phi i32 [ %1978, %1983 ], [ %1952, %.preheader2667.preheader ]
   br label %.preheader2666
 
-.preheader2666:                                   ; preds = %.preheader2666.preheader, %1983
-  %1962 = phi i1 [ false, %1983 ], [ true, %.preheader2666.preheader ]
-  %indvars.iv4775.sroa.phi = phi ptr [ %.sroa.38, %1983 ], [ %.sroa.0, %.preheader2666.preheader ]
-  %.3123615 = phi i32 [ %1978, %1983 ], [ %1952, %.preheader2666.preheader ]
+.preheader2666:                                   ; preds = %.preheader2667, %1982
+  %1963 = phi i1 [ true, %.preheader2667 ], [ false, %1982 ]
+  %indvars.iv4773.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2667 ], [ %.sroa.121, %1982 ]
+  %.3133614 = phi i32 [ %.3123616, %.preheader2667 ], [ %1978, %1982 ]
   br label %.preheader2665
 
-.preheader2665:                                   ; preds = %.preheader2666, %1982
-  %1963 = phi i1 [ true, %.preheader2666 ], [ false, %1982 ]
-  %indvars.iv4772.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2666 ], [ %.sroa.121, %1982 ]
-  %.3133613 = phi i32 [ %.3123615, %.preheader2666 ], [ %1978, %1982 ]
+.preheader2665:                                   ; preds = %.preheader2666, %1981
+  %1964 = phi i1 [ true, %.preheader2666 ], [ false, %1981 ]
+  %indvars.iv4770.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2666 ], [ %.sroa.181, %1981 ]
+  %.3143612 = phi i32 [ %.3133614, %.preheader2666 ], [ %1978, %1981 ]
   br label %.preheader2664
 
-.preheader2664:                                   ; preds = %.preheader2665, %1981
-  %1964 = phi i1 [ true, %.preheader2665 ], [ false, %1981 ]
-  %indvars.iv4769.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2665 ], [ %.sroa.181, %1981 ]
-  %.3143611 = phi i32 [ %.3133613, %.preheader2665 ], [ %1978, %1981 ]
+.preheader2664:                                   ; preds = %.preheader2665, %1980
+  %1965 = phi i1 [ true, %.preheader2665 ], [ false, %1980 ]
+  %indvars.iv4767.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2665 ], [ %.sroa.181, %1980 ]
+  %.3153610 = phi i32 [ %.3143612, %.preheader2665 ], [ %1978, %1980 ]
   br label %.preheader2663
 
-.preheader2663:                                   ; preds = %.preheader2664, %1980
-  %1965 = phi i1 [ true, %.preheader2664 ], [ false, %1980 ]
-  %indvars.iv4766.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2664 ], [ %.sroa.181, %1980 ]
-  %.3153609 = phi i32 [ %.3143611, %.preheader2664 ], [ %1978, %1980 ]
-  br label %.preheader2662
-
-.preheader2662:                                   ; preds = %.preheader2663, %1979
-  %1966 = phi i1 [ true, %.preheader2663 ], [ false, %1979 ]
-  %indvars.iv4763.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2663 ], [ %.sroa.181, %1979 ]
-  %.3163607 = phi i32 [ %.3153609, %.preheader2663 ], [ %1978, %1979 ]
+.preheader2663:                                   ; preds = %.preheader2664, %1979
+  %1966 = phi i1 [ true, %.preheader2664 ], [ false, %1979 ]
+  %indvars.iv4764.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2664 ], [ %.sroa.181, %1979 ]
+  %.3163608 = phi i32 [ %.3153610, %.preheader2664 ], [ %1978, %1979 ]
   br label %1967
 
-1967:                                             ; preds = %.preheader2662, %1977
-  %1968 = phi i1 [ true, %.preheader2662 ], [ false, %1977 ]
-  %indvars.iv4760.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2662 ], [ %.sroa.181, %1977 ]
-  %.3173605 = phi i32 [ %.3163607, %.preheader2662 ], [ %1978, %1977 ]
-  %.not2183 = icmp eq i32 %.3173605, 0
+1967:                                             ; preds = %.preheader2663, %1977
+  %1968 = phi i1 [ true, %.preheader2663 ], [ false, %1977 ]
+  %indvars.iv4761.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2663 ], [ %.sroa.181, %1977 ]
+  %.3173606 = phi i32 [ %.3163608, %.preheader2663 ], [ %1978, %1977 ]
+  %.not2183 = icmp eq i32 %.3173606, 0
   br i1 %.not2183, label %1977, label %1969
 
 1969:                                             ; preds = %1967
-  %1970 = load ptr, ptr %indvars.iv4775.sroa.phi, align 8, !tbaa !12
-  %1971 = load ptr, ptr %indvars.iv4772.sroa.phi, align 8, !tbaa !31
-  %1972 = load ptr, ptr %indvars.iv4769.sroa.phi, align 8, !tbaa !12
-  %1973 = load ptr, ptr %indvars.iv4766.sroa.phi, align 8, !tbaa !12
-  %1974 = load ptr, ptr %indvars.iv4763.sroa.phi, align 8, !tbaa !12
-  %1975 = load ptr, ptr %indvars.iv4760.sroa.phi, align 8, !tbaa !12
+  %1970 = load ptr, ptr %indvars.iv4776.sroa.phi, align 8, !tbaa !12
+  %1971 = load ptr, ptr %indvars.iv4773.sroa.phi, align 8, !tbaa !31
+  %1972 = load ptr, ptr %indvars.iv4770.sroa.phi, align 8, !tbaa !12
+  %1973 = load ptr, ptr %indvars.iv4767.sroa.phi, align 8, !tbaa !12
+  %1974 = load ptr, ptr %indvars.iv4764.sroa.phi, align 8, !tbaa !12
+  %1975 = load ptr, ptr %indvars.iv4761.sroa.phi, align 8, !tbaa !12
   %1976 = tail call fastcc i32 @arkode_butcher_order6k(ptr noundef %1970, ptr noundef %1971, ptr noundef %1972, ptr noundef %1973, ptr noundef %1974, ptr noundef %1975, i32 noundef %9)
   br label %1977
 
@@ -13036,76 +13035,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %1968, label %1967, label %1979
 
 1979:                                             ; preds = %1977
-  br i1 %1966, label %.preheader2662, label %1980
+  br i1 %1966, label %.preheader2663, label %1980
 
 1980:                                             ; preds = %1979
-  br i1 %1965, label %.preheader2663, label %1981
+  br i1 %1965, label %.preheader2664, label %1981
 
 1981:                                             ; preds = %1980
-  br i1 %1964, label %.preheader2664, label %1982
+  br i1 %1964, label %.preheader2665, label %1982
 
 1982:                                             ; preds = %1981
-  br i1 %1963, label %.preheader2665, label %1983
+  br i1 %1963, label %.preheader2666, label %1983
 
 1983:                                             ; preds = %1982
-  br i1 %1962, label %.preheader2666, label %1984
+  br i1 %1962, label %.preheader2667, label %1984
 
 1984:                                             ; preds = %1983
   %1985 = icmp eq i32 %1978, 0
   %or.cond122 = and i1 %49, %1985
-  br i1 %or.cond122, label %1986, label %.preheader2661.preheader
+  br i1 %or.cond122, label %1986, label %.preheader2662.preheader
 
 1986:                                             ; preds = %1984
   %1987 = tail call i64 @fwrite(ptr nonnull @.str.152, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2661.preheader
+  br label %.preheader2662.preheader
 
-.preheader2661.preheader:                         ; preds = %1986, %1984
+.preheader2662.preheader:                         ; preds = %1986, %1984
+  br label %.preheader2662
+
+.preheader2662:                                   ; preds = %.preheader2662.preheader, %2009
+  %1988 = phi i1 [ false, %2009 ], [ true, %.preheader2662.preheader ]
+  %indvars.iv4794.sroa.phi = phi ptr [ %.sroa.38, %2009 ], [ %.sroa.0, %.preheader2662.preheader ]
+  %.3183628 = phi i32 [ %2004, %2009 ], [ %1978, %.preheader2662.preheader ]
   br label %.preheader2661
 
-.preheader2661:                                   ; preds = %.preheader2661.preheader, %2009
-  %1988 = phi i1 [ false, %2009 ], [ true, %.preheader2661.preheader ]
-  %indvars.iv4793.sroa.phi = phi ptr [ %.sroa.38, %2009 ], [ %.sroa.0, %.preheader2661.preheader ]
-  %.3183627 = phi i32 [ %2004, %2009 ], [ %1978, %.preheader2661.preheader ]
+.preheader2661:                                   ; preds = %.preheader2662, %2008
+  %1989 = phi i1 [ true, %.preheader2662 ], [ false, %2008 ]
+  %indvars.iv4791.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2662 ], [ %.sroa.121, %2008 ]
+  %.3193626 = phi i32 [ %.3183628, %.preheader2662 ], [ %2004, %2008 ]
   br label %.preheader2660
 
-.preheader2660:                                   ; preds = %.preheader2661, %2008
-  %1989 = phi i1 [ true, %.preheader2661 ], [ false, %2008 ]
-  %indvars.iv4790.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2661 ], [ %.sroa.121, %2008 ]
-  %.3193625 = phi i32 [ %.3183627, %.preheader2661 ], [ %2004, %2008 ]
+.preheader2660:                                   ; preds = %.preheader2661, %2007
+  %1990 = phi i1 [ true, %.preheader2661 ], [ false, %2007 ]
+  %indvars.iv4788.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2661 ], [ %.sroa.181, %2007 ]
+  %.3203624 = phi i32 [ %.3193626, %.preheader2661 ], [ %2004, %2007 ]
   br label %.preheader2659
 
-.preheader2659:                                   ; preds = %.preheader2660, %2007
-  %1990 = phi i1 [ true, %.preheader2660 ], [ false, %2007 ]
-  %indvars.iv4787.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2660 ], [ %.sroa.181, %2007 ]
-  %.3203623 = phi i32 [ %.3193625, %.preheader2660 ], [ %2004, %2007 ]
+.preheader2659:                                   ; preds = %.preheader2660, %2006
+  %1991 = phi i1 [ true, %.preheader2660 ], [ false, %2006 ]
+  %indvars.iv4785.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2660 ], [ %.sroa.181, %2006 ]
+  %.3213622 = phi i32 [ %.3203624, %.preheader2660 ], [ %2004, %2006 ]
   br label %.preheader2658
 
-.preheader2658:                                   ; preds = %.preheader2659, %2006
-  %1991 = phi i1 [ true, %.preheader2659 ], [ false, %2006 ]
-  %indvars.iv4784.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2659 ], [ %.sroa.181, %2006 ]
-  %.3213621 = phi i32 [ %.3203623, %.preheader2659 ], [ %2004, %2006 ]
-  br label %.preheader2657
-
-.preheader2657:                                   ; preds = %.preheader2658, %2005
-  %1992 = phi i1 [ true, %.preheader2658 ], [ false, %2005 ]
-  %indvars.iv4781.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2658 ], [ %.sroa.121, %2005 ]
-  %.3223619 = phi i32 [ %.3213621, %.preheader2658 ], [ %2004, %2005 ]
+.preheader2658:                                   ; preds = %.preheader2659, %2005
+  %1992 = phi i1 [ true, %.preheader2659 ], [ false, %2005 ]
+  %indvars.iv4782.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2659 ], [ %.sroa.121, %2005 ]
+  %.3223620 = phi i32 [ %.3213622, %.preheader2659 ], [ %2004, %2005 ]
   br label %1993
 
-1993:                                             ; preds = %.preheader2657, %2003
-  %1994 = phi i1 [ true, %.preheader2657 ], [ false, %2003 ]
-  %indvars.iv4778.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2657 ], [ %.sroa.181, %2003 ]
-  %.3233617 = phi i32 [ %.3223619, %.preheader2657 ], [ %2004, %2003 ]
-  %.not2182 = icmp eq i32 %.3233617, 0
+1993:                                             ; preds = %.preheader2658, %2003
+  %1994 = phi i1 [ true, %.preheader2658 ], [ false, %2003 ]
+  %indvars.iv4779.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2658 ], [ %.sroa.181, %2003 ]
+  %.3233618 = phi i32 [ %.3223620, %.preheader2658 ], [ %2004, %2003 ]
+  %.not2182 = icmp eq i32 %.3233618, 0
   br i1 %.not2182, label %2003, label %1995
 
 1995:                                             ; preds = %1993
-  %1996 = load ptr, ptr %indvars.iv4793.sroa.phi, align 8, !tbaa !12
-  %1997 = load ptr, ptr %indvars.iv4790.sroa.phi, align 8, !tbaa !31
-  %1998 = load ptr, ptr %indvars.iv4787.sroa.phi, align 8, !tbaa !12
-  %1999 = load ptr, ptr %indvars.iv4784.sroa.phi, align 8, !tbaa !12
-  %2000 = load ptr, ptr %indvars.iv4781.sroa.phi, align 8, !tbaa !31
-  %2001 = load ptr, ptr %indvars.iv4778.sroa.phi, align 8, !tbaa !12
+  %1996 = load ptr, ptr %indvars.iv4794.sroa.phi, align 8, !tbaa !12
+  %1997 = load ptr, ptr %indvars.iv4791.sroa.phi, align 8, !tbaa !31
+  %1998 = load ptr, ptr %indvars.iv4788.sroa.phi, align 8, !tbaa !12
+  %1999 = load ptr, ptr %indvars.iv4785.sroa.phi, align 8, !tbaa !12
+  %2000 = load ptr, ptr %indvars.iv4782.sroa.phi, align 8, !tbaa !31
+  %2001 = load ptr, ptr %indvars.iv4779.sroa.phi, align 8, !tbaa !12
   %2002 = tail call fastcc i32 @arkode_butcher_order6l(ptr noundef %1996, ptr noundef %1997, ptr noundef %1998, ptr noundef %1999, ptr noundef %2000, ptr noundef %2001, i32 noundef %9)
   br label %2003
 
@@ -13114,76 +13113,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %1994, label %1993, label %2005
 
 2005:                                             ; preds = %2003
-  br i1 %1992, label %.preheader2657, label %2006
+  br i1 %1992, label %.preheader2658, label %2006
 
 2006:                                             ; preds = %2005
-  br i1 %1991, label %.preheader2658, label %2007
+  br i1 %1991, label %.preheader2659, label %2007
 
 2007:                                             ; preds = %2006
-  br i1 %1990, label %.preheader2659, label %2008
+  br i1 %1990, label %.preheader2660, label %2008
 
 2008:                                             ; preds = %2007
-  br i1 %1989, label %.preheader2660, label %2009
+  br i1 %1989, label %.preheader2661, label %2009
 
 2009:                                             ; preds = %2008
-  br i1 %1988, label %.preheader2661, label %2010
+  br i1 %1988, label %.preheader2662, label %2010
 
 2010:                                             ; preds = %2009
   %2011 = icmp eq i32 %2004, 0
   %or.cond124 = and i1 %49, %2011
-  br i1 %or.cond124, label %2012, label %.preheader2656.preheader
+  br i1 %or.cond124, label %2012, label %.preheader2657.preheader
 
 2012:                                             ; preds = %2010
   %2013 = tail call i64 @fwrite(ptr nonnull @.str.153, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2656.preheader
+  br label %.preheader2657.preheader
 
-.preheader2656.preheader:                         ; preds = %2012, %2010
+.preheader2657.preheader:                         ; preds = %2012, %2010
+  br label %.preheader2657
+
+.preheader2657:                                   ; preds = %.preheader2657.preheader, %2035
+  %2014 = phi i1 [ false, %2035 ], [ true, %.preheader2657.preheader ]
+  %indvars.iv4812.sroa.phi = phi ptr [ %.sroa.38, %2035 ], [ %.sroa.0, %.preheader2657.preheader ]
+  %.3243640 = phi i32 [ %2030, %2035 ], [ %2004, %.preheader2657.preheader ]
   br label %.preheader2656
 
-.preheader2656:                                   ; preds = %.preheader2656.preheader, %2035
-  %2014 = phi i1 [ false, %2035 ], [ true, %.preheader2656.preheader ]
-  %indvars.iv4811.sroa.phi = phi ptr [ %.sroa.38, %2035 ], [ %.sroa.0, %.preheader2656.preheader ]
-  %.3243639 = phi i32 [ %2030, %2035 ], [ %2004, %.preheader2656.preheader ]
+.preheader2656:                                   ; preds = %.preheader2657, %2034
+  %2015 = phi i1 [ true, %.preheader2657 ], [ false, %2034 ]
+  %indvars.iv4809.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2657 ], [ %.sroa.121, %2034 ]
+  %.3253638 = phi i32 [ %.3243640, %.preheader2657 ], [ %2030, %2034 ]
   br label %.preheader2655
 
-.preheader2655:                                   ; preds = %.preheader2656, %2034
-  %2015 = phi i1 [ true, %.preheader2656 ], [ false, %2034 ]
-  %indvars.iv4808.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2656 ], [ %.sroa.121, %2034 ]
-  %.3253637 = phi i32 [ %.3243639, %.preheader2656 ], [ %2030, %2034 ]
+.preheader2655:                                   ; preds = %.preheader2656, %2033
+  %2016 = phi i1 [ true, %.preheader2656 ], [ false, %2033 ]
+  %indvars.iv4806.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2656 ], [ %.sroa.121, %2033 ]
+  %.3263636 = phi i32 [ %.3253638, %.preheader2656 ], [ %2030, %2033 ]
   br label %.preheader2654
 
-.preheader2654:                                   ; preds = %.preheader2655, %2033
-  %2016 = phi i1 [ true, %.preheader2655 ], [ false, %2033 ]
-  %indvars.iv4805.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2655 ], [ %.sroa.121, %2033 ]
-  %.3263635 = phi i32 [ %.3253637, %.preheader2655 ], [ %2030, %2033 ]
+.preheader2654:                                   ; preds = %.preheader2655, %2032
+  %2017 = phi i1 [ true, %.preheader2655 ], [ false, %2032 ]
+  %indvars.iv4803.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2655 ], [ %.sroa.181, %2032 ]
+  %.3273634 = phi i32 [ %.3263636, %.preheader2655 ], [ %2030, %2032 ]
   br label %.preheader2653
 
-.preheader2653:                                   ; preds = %.preheader2654, %2032
-  %2017 = phi i1 [ true, %.preheader2654 ], [ false, %2032 ]
-  %indvars.iv4802.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2654 ], [ %.sroa.181, %2032 ]
-  %.3273633 = phi i32 [ %.3263635, %.preheader2654 ], [ %2030, %2032 ]
-  br label %.preheader2652
-
-.preheader2652:                                   ; preds = %.preheader2653, %2031
-  %2018 = phi i1 [ true, %.preheader2653 ], [ false, %2031 ]
-  %indvars.iv4799.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2653 ], [ %.sroa.121, %2031 ]
-  %.3283631 = phi i32 [ %.3273633, %.preheader2653 ], [ %2030, %2031 ]
+.preheader2653:                                   ; preds = %.preheader2654, %2031
+  %2018 = phi i1 [ true, %.preheader2654 ], [ false, %2031 ]
+  %indvars.iv4800.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2654 ], [ %.sroa.121, %2031 ]
+  %.3283632 = phi i32 [ %.3273634, %.preheader2654 ], [ %2030, %2031 ]
   br label %2019
 
-2019:                                             ; preds = %.preheader2652, %2029
-  %2020 = phi i1 [ true, %.preheader2652 ], [ false, %2029 ]
-  %indvars.iv4796.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2652 ], [ %.sroa.181, %2029 ]
-  %.3293629 = phi i32 [ %.3283631, %.preheader2652 ], [ %2030, %2029 ]
-  %.not2181 = icmp eq i32 %.3293629, 0
+2019:                                             ; preds = %.preheader2653, %2029
+  %2020 = phi i1 [ true, %.preheader2653 ], [ false, %2029 ]
+  %indvars.iv4797.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2653 ], [ %.sroa.181, %2029 ]
+  %.3293630 = phi i32 [ %.3283632, %.preheader2653 ], [ %2030, %2029 ]
+  %.not2181 = icmp eq i32 %.3293630, 0
   br i1 %.not2181, label %2029, label %2021
 
 2021:                                             ; preds = %2019
-  %2022 = load ptr, ptr %indvars.iv4811.sroa.phi, align 8, !tbaa !12
-  %2023 = load ptr, ptr %indvars.iv4808.sroa.phi, align 8, !tbaa !31
-  %2024 = load ptr, ptr %indvars.iv4805.sroa.phi, align 8, !tbaa !31
-  %2025 = load ptr, ptr %indvars.iv4802.sroa.phi, align 8, !tbaa !12
-  %2026 = load ptr, ptr %indvars.iv4799.sroa.phi, align 8, !tbaa !31
-  %2027 = load ptr, ptr %indvars.iv4796.sroa.phi, align 8, !tbaa !12
+  %2022 = load ptr, ptr %indvars.iv4812.sroa.phi, align 8, !tbaa !12
+  %2023 = load ptr, ptr %indvars.iv4809.sroa.phi, align 8, !tbaa !31
+  %2024 = load ptr, ptr %indvars.iv4806.sroa.phi, align 8, !tbaa !31
+  %2025 = load ptr, ptr %indvars.iv4803.sroa.phi, align 8, !tbaa !12
+  %2026 = load ptr, ptr %indvars.iv4800.sroa.phi, align 8, !tbaa !31
+  %2027 = load ptr, ptr %indvars.iv4797.sroa.phi, align 8, !tbaa !12
   %2028 = tail call fastcc i32 @arkode_butcher_order6m(ptr noundef %2022, ptr noundef %2023, ptr noundef %2024, ptr noundef %2025, ptr noundef %2026, ptr noundef %2027, i32 noundef %9)
   br label %2029
 
@@ -13192,76 +13191,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %2020, label %2019, label %2031
 
 2031:                                             ; preds = %2029
-  br i1 %2018, label %.preheader2652, label %2032
+  br i1 %2018, label %.preheader2653, label %2032
 
 2032:                                             ; preds = %2031
-  br i1 %2017, label %.preheader2653, label %2033
+  br i1 %2017, label %.preheader2654, label %2033
 
 2033:                                             ; preds = %2032
-  br i1 %2016, label %.preheader2654, label %2034
+  br i1 %2016, label %.preheader2655, label %2034
 
 2034:                                             ; preds = %2033
-  br i1 %2015, label %.preheader2655, label %2035
+  br i1 %2015, label %.preheader2656, label %2035
 
 2035:                                             ; preds = %2034
-  br i1 %2014, label %.preheader2656, label %2036
+  br i1 %2014, label %.preheader2657, label %2036
 
 2036:                                             ; preds = %2035
   %2037 = icmp eq i32 %2030, 0
   %or.cond126 = and i1 %49, %2037
-  br i1 %or.cond126, label %2038, label %.preheader2651.preheader
+  br i1 %or.cond126, label %2038, label %.preheader2652.preheader
 
 2038:                                             ; preds = %2036
   %2039 = tail call i64 @fwrite(ptr nonnull @.str.154, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2651.preheader
+  br label %.preheader2652.preheader
 
-.preheader2651.preheader:                         ; preds = %2038, %2036
+.preheader2652.preheader:                         ; preds = %2038, %2036
+  br label %.preheader2652
+
+.preheader2652:                                   ; preds = %.preheader2652.preheader, %2061
+  %2040 = phi i1 [ false, %2061 ], [ true, %.preheader2652.preheader ]
+  %indvars.iv4830.sroa.phi = phi ptr [ %.sroa.38, %2061 ], [ %.sroa.0, %.preheader2652.preheader ]
+  %.3303652 = phi i32 [ %2056, %2061 ], [ %2030, %.preheader2652.preheader ]
   br label %.preheader2651
 
-.preheader2651:                                   ; preds = %.preheader2651.preheader, %2061
-  %2040 = phi i1 [ false, %2061 ], [ true, %.preheader2651.preheader ]
-  %indvars.iv4829.sroa.phi = phi ptr [ %.sroa.38, %2061 ], [ %.sroa.0, %.preheader2651.preheader ]
-  %.3303651 = phi i32 [ %2056, %2061 ], [ %2030, %.preheader2651.preheader ]
+.preheader2651:                                   ; preds = %.preheader2652, %2060
+  %2041 = phi i1 [ true, %.preheader2652 ], [ false, %2060 ]
+  %indvars.iv4827.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2652 ], [ %.sroa.121, %2060 ]
+  %.3313650 = phi i32 [ %.3303652, %.preheader2652 ], [ %2056, %2060 ]
   br label %.preheader2650
 
-.preheader2650:                                   ; preds = %.preheader2651, %2060
-  %2041 = phi i1 [ true, %.preheader2651 ], [ false, %2060 ]
-  %indvars.iv4826.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2651 ], [ %.sroa.121, %2060 ]
-  %.3313649 = phi i32 [ %.3303651, %.preheader2651 ], [ %2056, %2060 ]
+.preheader2650:                                   ; preds = %.preheader2651, %2059
+  %2042 = phi i1 [ true, %.preheader2651 ], [ false, %2059 ]
+  %indvars.iv4824.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2651 ], [ %.sroa.181, %2059 ]
+  %.3323648 = phi i32 [ %.3313650, %.preheader2651 ], [ %2056, %2059 ]
   br label %.preheader2649
 
-.preheader2649:                                   ; preds = %.preheader2650, %2059
-  %2042 = phi i1 [ true, %.preheader2650 ], [ false, %2059 ]
-  %indvars.iv4823.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2650 ], [ %.sroa.181, %2059 ]
-  %.3323647 = phi i32 [ %.3313649, %.preheader2650 ], [ %2056, %2059 ]
+.preheader2649:                                   ; preds = %.preheader2650, %2058
+  %2043 = phi i1 [ true, %.preheader2650 ], [ false, %2058 ]
+  %indvars.iv4821.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2650 ], [ %.sroa.121, %2058 ]
+  %.3333646 = phi i32 [ %.3323648, %.preheader2650 ], [ %2056, %2058 ]
   br label %.preheader2648
 
-.preheader2648:                                   ; preds = %.preheader2649, %2058
-  %2043 = phi i1 [ true, %.preheader2649 ], [ false, %2058 ]
-  %indvars.iv4820.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2649 ], [ %.sroa.121, %2058 ]
-  %.3333645 = phi i32 [ %.3323647, %.preheader2649 ], [ %2056, %2058 ]
-  br label %.preheader2647
-
-.preheader2647:                                   ; preds = %.preheader2648, %2057
-  %2044 = phi i1 [ true, %.preheader2648 ], [ false, %2057 ]
-  %indvars.iv4817.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2648 ], [ %.sroa.181, %2057 ]
-  %.3343643 = phi i32 [ %.3333645, %.preheader2648 ], [ %2056, %2057 ]
+.preheader2648:                                   ; preds = %.preheader2649, %2057
+  %2044 = phi i1 [ true, %.preheader2649 ], [ false, %2057 ]
+  %indvars.iv4818.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2649 ], [ %.sroa.181, %2057 ]
+  %.3343644 = phi i32 [ %.3333646, %.preheader2649 ], [ %2056, %2057 ]
   br label %2045
 
-2045:                                             ; preds = %.preheader2647, %2055
-  %2046 = phi i1 [ true, %.preheader2647 ], [ false, %2055 ]
-  %indvars.iv4814.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2647 ], [ %.sroa.181, %2055 ]
-  %.3353641 = phi i32 [ %.3343643, %.preheader2647 ], [ %2056, %2055 ]
-  %.not2180 = icmp eq i32 %.3353641, 0
+2045:                                             ; preds = %.preheader2648, %2055
+  %2046 = phi i1 [ true, %.preheader2648 ], [ false, %2055 ]
+  %indvars.iv4815.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2648 ], [ %.sroa.181, %2055 ]
+  %.3353642 = phi i32 [ %.3343644, %.preheader2648 ], [ %2056, %2055 ]
+  %.not2180 = icmp eq i32 %.3353642, 0
   br i1 %.not2180, label %2055, label %2047
 
 2047:                                             ; preds = %2045
-  %2048 = load ptr, ptr %indvars.iv4829.sroa.phi, align 8, !tbaa !12
-  %2049 = load ptr, ptr %indvars.iv4826.sroa.phi, align 8, !tbaa !31
-  %2050 = load ptr, ptr %indvars.iv4823.sroa.phi, align 8, !tbaa !12
-  %2051 = load ptr, ptr %indvars.iv4820.sroa.phi, align 8, !tbaa !31
-  %2052 = load ptr, ptr %indvars.iv4817.sroa.phi, align 8, !tbaa !12
-  %2053 = load ptr, ptr %indvars.iv4814.sroa.phi, align 8, !tbaa !12
+  %2048 = load ptr, ptr %indvars.iv4830.sroa.phi, align 8, !tbaa !12
+  %2049 = load ptr, ptr %indvars.iv4827.sroa.phi, align 8, !tbaa !31
+  %2050 = load ptr, ptr %indvars.iv4824.sroa.phi, align 8, !tbaa !12
+  %2051 = load ptr, ptr %indvars.iv4821.sroa.phi, align 8, !tbaa !31
+  %2052 = load ptr, ptr %indvars.iv4818.sroa.phi, align 8, !tbaa !12
+  %2053 = load ptr, ptr %indvars.iv4815.sroa.phi, align 8, !tbaa !12
   %2054 = tail call fastcc i32 @arkode_butcher_order6n(ptr noundef %2048, ptr noundef %2049, ptr noundef %2050, ptr noundef %2051, ptr noundef %2052, ptr noundef %2053, i32 noundef %9)
   br label %2055
 
@@ -13270,76 +13269,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %2046, label %2045, label %2057
 
 2057:                                             ; preds = %2055
-  br i1 %2044, label %.preheader2647, label %2058
+  br i1 %2044, label %.preheader2648, label %2058
 
 2058:                                             ; preds = %2057
-  br i1 %2043, label %.preheader2648, label %2059
+  br i1 %2043, label %.preheader2649, label %2059
 
 2059:                                             ; preds = %2058
-  br i1 %2042, label %.preheader2649, label %2060
+  br i1 %2042, label %.preheader2650, label %2060
 
 2060:                                             ; preds = %2059
-  br i1 %2041, label %.preheader2650, label %2061
+  br i1 %2041, label %.preheader2651, label %2061
 
 2061:                                             ; preds = %2060
-  br i1 %2040, label %.preheader2651, label %2062
+  br i1 %2040, label %.preheader2652, label %2062
 
 2062:                                             ; preds = %2061
   %2063 = icmp eq i32 %2056, 0
   %or.cond128 = and i1 %49, %2063
-  br i1 %or.cond128, label %2064, label %.preheader2646.preheader
+  br i1 %or.cond128, label %2064, label %.preheader2647.preheader
 
 2064:                                             ; preds = %2062
   %2065 = tail call i64 @fwrite(ptr nonnull @.str.155, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2646.preheader
+  br label %.preheader2647.preheader
 
-.preheader2646.preheader:                         ; preds = %2064, %2062
+.preheader2647.preheader:                         ; preds = %2064, %2062
+  br label %.preheader2647
+
+.preheader2647:                                   ; preds = %.preheader2647.preheader, %2087
+  %2066 = phi i1 [ false, %2087 ], [ true, %.preheader2647.preheader ]
+  %indvars.iv4848.sroa.phi = phi ptr [ %.sroa.38, %2087 ], [ %.sroa.0, %.preheader2647.preheader ]
+  %.3363664 = phi i32 [ %2082, %2087 ], [ %2056, %.preheader2647.preheader ]
   br label %.preheader2646
 
-.preheader2646:                                   ; preds = %.preheader2646.preheader, %2087
-  %2066 = phi i1 [ false, %2087 ], [ true, %.preheader2646.preheader ]
-  %indvars.iv4847.sroa.phi = phi ptr [ %.sroa.38, %2087 ], [ %.sroa.0, %.preheader2646.preheader ]
-  %.3363663 = phi i32 [ %2082, %2087 ], [ %2056, %.preheader2646.preheader ]
+.preheader2646:                                   ; preds = %.preheader2647, %2086
+  %2067 = phi i1 [ true, %.preheader2647 ], [ false, %2086 ]
+  %indvars.iv4845.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2647 ], [ %.sroa.121, %2086 ]
+  %.3373662 = phi i32 [ %.3363664, %.preheader2647 ], [ %2082, %2086 ]
   br label %.preheader2645
 
-.preheader2645:                                   ; preds = %.preheader2646, %2086
-  %2067 = phi i1 [ true, %.preheader2646 ], [ false, %2086 ]
-  %indvars.iv4844.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2646 ], [ %.sroa.121, %2086 ]
-  %.3373661 = phi i32 [ %.3363663, %.preheader2646 ], [ %2082, %2086 ]
+.preheader2645:                                   ; preds = %.preheader2646, %2085
+  %2068 = phi i1 [ true, %.preheader2646 ], [ false, %2085 ]
+  %indvars.iv4842.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2646 ], [ %.sroa.181, %2085 ]
+  %.3383660 = phi i32 [ %.3373662, %.preheader2646 ], [ %2082, %2085 ]
   br label %.preheader2644
 
-.preheader2644:                                   ; preds = %.preheader2645, %2085
-  %2068 = phi i1 [ true, %.preheader2645 ], [ false, %2085 ]
-  %indvars.iv4841.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2645 ], [ %.sroa.181, %2085 ]
-  %.3383659 = phi i32 [ %.3373661, %.preheader2645 ], [ %2082, %2085 ]
+.preheader2644:                                   ; preds = %.preheader2645, %2084
+  %2069 = phi i1 [ true, %.preheader2645 ], [ false, %2084 ]
+  %indvars.iv4839.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2645 ], [ %.sroa.121, %2084 ]
+  %.3393658 = phi i32 [ %.3383660, %.preheader2645 ], [ %2082, %2084 ]
   br label %.preheader2643
 
-.preheader2643:                                   ; preds = %.preheader2644, %2084
-  %2069 = phi i1 [ true, %.preheader2644 ], [ false, %2084 ]
-  %indvars.iv4838.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2644 ], [ %.sroa.121, %2084 ]
-  %.3393657 = phi i32 [ %.3383659, %.preheader2644 ], [ %2082, %2084 ]
-  br label %.preheader2642
-
-.preheader2642:                                   ; preds = %.preheader2643, %2083
-  %2070 = phi i1 [ true, %.preheader2643 ], [ false, %2083 ]
-  %indvars.iv4835.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2643 ], [ %.sroa.121, %2083 ]
-  %.3403655 = phi i32 [ %.3393657, %.preheader2643 ], [ %2082, %2083 ]
+.preheader2643:                                   ; preds = %.preheader2644, %2083
+  %2070 = phi i1 [ true, %.preheader2644 ], [ false, %2083 ]
+  %indvars.iv4836.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2644 ], [ %.sroa.121, %2083 ]
+  %.3403656 = phi i32 [ %.3393658, %.preheader2644 ], [ %2082, %2083 ]
   br label %2071
 
-2071:                                             ; preds = %.preheader2642, %2081
-  %2072 = phi i1 [ true, %.preheader2642 ], [ false, %2081 ]
-  %indvars.iv4832.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2642 ], [ %.sroa.181, %2081 ]
-  %.3413653 = phi i32 [ %.3403655, %.preheader2642 ], [ %2082, %2081 ]
-  %.not2179 = icmp eq i32 %.3413653, 0
+2071:                                             ; preds = %.preheader2643, %2081
+  %2072 = phi i1 [ true, %.preheader2643 ], [ false, %2081 ]
+  %indvars.iv4833.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2643 ], [ %.sroa.181, %2081 ]
+  %.3413654 = phi i32 [ %.3403656, %.preheader2643 ], [ %2082, %2081 ]
+  %.not2179 = icmp eq i32 %.3413654, 0
   br i1 %.not2179, label %2081, label %2073
 
 2073:                                             ; preds = %2071
-  %2074 = load ptr, ptr %indvars.iv4847.sroa.phi, align 8, !tbaa !12
-  %2075 = load ptr, ptr %indvars.iv4844.sroa.phi, align 8, !tbaa !31
-  %2076 = load ptr, ptr %indvars.iv4841.sroa.phi, align 8, !tbaa !12
-  %2077 = load ptr, ptr %indvars.iv4838.sroa.phi, align 8, !tbaa !31
-  %2078 = load ptr, ptr %indvars.iv4835.sroa.phi, align 8, !tbaa !31
-  %2079 = load ptr, ptr %indvars.iv4832.sroa.phi, align 8, !tbaa !12
+  %2074 = load ptr, ptr %indvars.iv4848.sroa.phi, align 8, !tbaa !12
+  %2075 = load ptr, ptr %indvars.iv4845.sroa.phi, align 8, !tbaa !31
+  %2076 = load ptr, ptr %indvars.iv4842.sroa.phi, align 8, !tbaa !12
+  %2077 = load ptr, ptr %indvars.iv4839.sroa.phi, align 8, !tbaa !31
+  %2078 = load ptr, ptr %indvars.iv4836.sroa.phi, align 8, !tbaa !31
+  %2079 = load ptr, ptr %indvars.iv4833.sroa.phi, align 8, !tbaa !12
   %2080 = tail call fastcc i32 @arkode_butcher_order6o(ptr noundef %2074, ptr noundef %2075, ptr noundef %2076, ptr noundef %2077, ptr noundef %2078, ptr noundef %2079, i32 noundef %9)
   br label %2081
 
@@ -13348,76 +13347,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %2072, label %2071, label %2083
 
 2083:                                             ; preds = %2081
-  br i1 %2070, label %.preheader2642, label %2084
+  br i1 %2070, label %.preheader2643, label %2084
 
 2084:                                             ; preds = %2083
-  br i1 %2069, label %.preheader2643, label %2085
+  br i1 %2069, label %.preheader2644, label %2085
 
 2085:                                             ; preds = %2084
-  br i1 %2068, label %.preheader2644, label %2086
+  br i1 %2068, label %.preheader2645, label %2086
 
 2086:                                             ; preds = %2085
-  br i1 %2067, label %.preheader2645, label %2087
+  br i1 %2067, label %.preheader2646, label %2087
 
 2087:                                             ; preds = %2086
-  br i1 %2066, label %.preheader2646, label %2088
+  br i1 %2066, label %.preheader2647, label %2088
 
 2088:                                             ; preds = %2087
   %2089 = icmp eq i32 %2082, 0
   %or.cond130 = and i1 %49, %2089
-  br i1 %or.cond130, label %2090, label %.preheader2641.preheader
+  br i1 %or.cond130, label %2090, label %.preheader2642.preheader
 
 2090:                                             ; preds = %2088
   %2091 = tail call i64 @fwrite(ptr nonnull @.str.156, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2641.preheader
+  br label %.preheader2642.preheader
 
-.preheader2641.preheader:                         ; preds = %2090, %2088
+.preheader2642.preheader:                         ; preds = %2090, %2088
+  br label %.preheader2642
+
+.preheader2642:                                   ; preds = %.preheader2642.preheader, %2113
+  %2092 = phi i1 [ false, %2113 ], [ true, %.preheader2642.preheader ]
+  %indvars.iv4866.sroa.phi = phi ptr [ %.sroa.38, %2113 ], [ %.sroa.0, %.preheader2642.preheader ]
+  %.3423676 = phi i32 [ %2108, %2113 ], [ %2082, %.preheader2642.preheader ]
   br label %.preheader2641
 
-.preheader2641:                                   ; preds = %.preheader2641.preheader, %2113
-  %2092 = phi i1 [ false, %2113 ], [ true, %.preheader2641.preheader ]
-  %indvars.iv4865.sroa.phi = phi ptr [ %.sroa.38, %2113 ], [ %.sroa.0, %.preheader2641.preheader ]
-  %.3423675 = phi i32 [ %2108, %2113 ], [ %2082, %.preheader2641.preheader ]
+.preheader2641:                                   ; preds = %.preheader2642, %2112
+  %2093 = phi i1 [ true, %.preheader2642 ], [ false, %2112 ]
+  %indvars.iv4863.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2642 ], [ %.sroa.121, %2112 ]
+  %.3433674 = phi i32 [ %.3423676, %.preheader2642 ], [ %2108, %2112 ]
   br label %.preheader2640
 
-.preheader2640:                                   ; preds = %.preheader2641, %2112
-  %2093 = phi i1 [ true, %.preheader2641 ], [ false, %2112 ]
-  %indvars.iv4862.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2641 ], [ %.sroa.121, %2112 ]
-  %.3433673 = phi i32 [ %.3423675, %.preheader2641 ], [ %2108, %2112 ]
+.preheader2640:                                   ; preds = %.preheader2641, %2111
+  %2094 = phi i1 [ true, %.preheader2641 ], [ false, %2111 ]
+  %indvars.iv4860.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2641 ], [ %.sroa.121, %2111 ]
+  %.3443672 = phi i32 [ %.3433674, %.preheader2641 ], [ %2108, %2111 ]
   br label %.preheader2639
 
-.preheader2639:                                   ; preds = %.preheader2640, %2111
-  %2094 = phi i1 [ true, %.preheader2640 ], [ false, %2111 ]
-  %indvars.iv4859.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2640 ], [ %.sroa.121, %2111 ]
-  %.3443671 = phi i32 [ %.3433673, %.preheader2640 ], [ %2108, %2111 ]
+.preheader2639:                                   ; preds = %.preheader2640, %2110
+  %2095 = phi i1 [ true, %.preheader2640 ], [ false, %2110 ]
+  %indvars.iv4857.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2640 ], [ %.sroa.181, %2110 ]
+  %.3453670 = phi i32 [ %.3443672, %.preheader2640 ], [ %2108, %2110 ]
   br label %.preheader2638
 
-.preheader2638:                                   ; preds = %.preheader2639, %2110
-  %2095 = phi i1 [ true, %.preheader2639 ], [ false, %2110 ]
-  %indvars.iv4856.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2639 ], [ %.sroa.181, %2110 ]
-  %.3453669 = phi i32 [ %.3443671, %.preheader2639 ], [ %2108, %2110 ]
-  br label %.preheader2637
-
-.preheader2637:                                   ; preds = %.preheader2638, %2109
-  %2096 = phi i1 [ true, %.preheader2638 ], [ false, %2109 ]
-  %indvars.iv4853.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2638 ], [ %.sroa.181, %2109 ]
-  %.3463667 = phi i32 [ %.3453669, %.preheader2638 ], [ %2108, %2109 ]
+.preheader2638:                                   ; preds = %.preheader2639, %2109
+  %2096 = phi i1 [ true, %.preheader2639 ], [ false, %2109 ]
+  %indvars.iv4854.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2639 ], [ %.sroa.181, %2109 ]
+  %.3463668 = phi i32 [ %.3453670, %.preheader2639 ], [ %2108, %2109 ]
   br label %2097
 
-2097:                                             ; preds = %.preheader2637, %2107
-  %2098 = phi i1 [ true, %.preheader2637 ], [ false, %2107 ]
-  %indvars.iv4850.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2637 ], [ %.sroa.181, %2107 ]
-  %.3473665 = phi i32 [ %.3463667, %.preheader2637 ], [ %2108, %2107 ]
-  %.not2178 = icmp eq i32 %.3473665, 0
+2097:                                             ; preds = %.preheader2638, %2107
+  %2098 = phi i1 [ true, %.preheader2638 ], [ false, %2107 ]
+  %indvars.iv4851.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2638 ], [ %.sroa.181, %2107 ]
+  %.3473666 = phi i32 [ %.3463668, %.preheader2638 ], [ %2108, %2107 ]
+  %.not2178 = icmp eq i32 %.3473666, 0
   br i1 %.not2178, label %2107, label %2099
 
 2099:                                             ; preds = %2097
-  %2100 = load ptr, ptr %indvars.iv4865.sroa.phi, align 8, !tbaa !12
-  %2101 = load ptr, ptr %indvars.iv4862.sroa.phi, align 8, !tbaa !31
-  %2102 = load ptr, ptr %indvars.iv4859.sroa.phi, align 8, !tbaa !31
-  %2103 = load ptr, ptr %indvars.iv4856.sroa.phi, align 8, !tbaa !12
-  %2104 = load ptr, ptr %indvars.iv4853.sroa.phi, align 8, !tbaa !12
-  %2105 = load ptr, ptr %indvars.iv4850.sroa.phi, align 8, !tbaa !12
+  %2100 = load ptr, ptr %indvars.iv4866.sroa.phi, align 8, !tbaa !12
+  %2101 = load ptr, ptr %indvars.iv4863.sroa.phi, align 8, !tbaa !31
+  %2102 = load ptr, ptr %indvars.iv4860.sroa.phi, align 8, !tbaa !31
+  %2103 = load ptr, ptr %indvars.iv4857.sroa.phi, align 8, !tbaa !12
+  %2104 = load ptr, ptr %indvars.iv4854.sroa.phi, align 8, !tbaa !12
+  %2105 = load ptr, ptr %indvars.iv4851.sroa.phi, align 8, !tbaa !12
   %2106 = tail call fastcc i32 @arkode_butcher_order6p(ptr noundef %2100, ptr noundef %2101, ptr noundef %2102, ptr noundef %2103, ptr noundef %2104, ptr noundef %2105, i32 noundef %9)
   br label %2107
 
@@ -13426,76 +13425,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %2098, label %2097, label %2109
 
 2109:                                             ; preds = %2107
-  br i1 %2096, label %.preheader2637, label %2110
+  br i1 %2096, label %.preheader2638, label %2110
 
 2110:                                             ; preds = %2109
-  br i1 %2095, label %.preheader2638, label %2111
+  br i1 %2095, label %.preheader2639, label %2111
 
 2111:                                             ; preds = %2110
-  br i1 %2094, label %.preheader2639, label %2112
+  br i1 %2094, label %.preheader2640, label %2112
 
 2112:                                             ; preds = %2111
-  br i1 %2093, label %.preheader2640, label %2113
+  br i1 %2093, label %.preheader2641, label %2113
 
 2113:                                             ; preds = %2112
-  br i1 %2092, label %.preheader2641, label %2114
+  br i1 %2092, label %.preheader2642, label %2114
 
 2114:                                             ; preds = %2113
   %2115 = icmp eq i32 %2108, 0
   %or.cond132 = and i1 %49, %2115
-  br i1 %or.cond132, label %2116, label %.preheader2636.preheader
+  br i1 %or.cond132, label %2116, label %.preheader2637.preheader
 
 2116:                                             ; preds = %2114
   %2117 = tail call i64 @fwrite(ptr nonnull @.str.157, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2636.preheader
+  br label %.preheader2637.preheader
 
-.preheader2636.preheader:                         ; preds = %2116, %2114
+.preheader2637.preheader:                         ; preds = %2116, %2114
+  br label %.preheader2637
+
+.preheader2637:                                   ; preds = %.preheader2637.preheader, %2139
+  %2118 = phi i1 [ false, %2139 ], [ true, %.preheader2637.preheader ]
+  %indvars.iv4884.sroa.phi = phi ptr [ %.sroa.38, %2139 ], [ %.sroa.0, %.preheader2637.preheader ]
+  %.3483688 = phi i32 [ %2134, %2139 ], [ %2108, %.preheader2637.preheader ]
   br label %.preheader2636
 
-.preheader2636:                                   ; preds = %.preheader2636.preheader, %2139
-  %2118 = phi i1 [ false, %2139 ], [ true, %.preheader2636.preheader ]
-  %indvars.iv4883.sroa.phi = phi ptr [ %.sroa.38, %2139 ], [ %.sroa.0, %.preheader2636.preheader ]
-  %.3483687 = phi i32 [ %2134, %2139 ], [ %2108, %.preheader2636.preheader ]
+.preheader2636:                                   ; preds = %.preheader2637, %2138
+  %2119 = phi i1 [ true, %.preheader2637 ], [ false, %2138 ]
+  %indvars.iv4881.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2637 ], [ %.sroa.121, %2138 ]
+  %.3493686 = phi i32 [ %.3483688, %.preheader2637 ], [ %2134, %2138 ]
   br label %.preheader2635
 
-.preheader2635:                                   ; preds = %.preheader2636, %2138
-  %2119 = phi i1 [ true, %.preheader2636 ], [ false, %2138 ]
-  %indvars.iv4880.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2636 ], [ %.sroa.121, %2138 ]
-  %.3493685 = phi i32 [ %.3483687, %.preheader2636 ], [ %2134, %2138 ]
+.preheader2635:                                   ; preds = %.preheader2636, %2137
+  %2120 = phi i1 [ true, %.preheader2636 ], [ false, %2137 ]
+  %indvars.iv4878.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2636 ], [ %.sroa.121, %2137 ]
+  %.3503684 = phi i32 [ %.3493686, %.preheader2636 ], [ %2134, %2137 ]
   br label %.preheader2634
 
-.preheader2634:                                   ; preds = %.preheader2635, %2137
-  %2120 = phi i1 [ true, %.preheader2635 ], [ false, %2137 ]
-  %indvars.iv4877.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2635 ], [ %.sroa.121, %2137 ]
-  %.3503683 = phi i32 [ %.3493685, %.preheader2635 ], [ %2134, %2137 ]
+.preheader2634:                                   ; preds = %.preheader2635, %2136
+  %2121 = phi i1 [ true, %.preheader2635 ], [ false, %2136 ]
+  %indvars.iv4875.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2635 ], [ %.sroa.181, %2136 ]
+  %.3513682 = phi i32 [ %.3503684, %.preheader2635 ], [ %2134, %2136 ]
   br label %.preheader2633
 
-.preheader2633:                                   ; preds = %.preheader2634, %2136
-  %2121 = phi i1 [ true, %.preheader2634 ], [ false, %2136 ]
-  %indvars.iv4874.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2634 ], [ %.sroa.181, %2136 ]
-  %.3513681 = phi i32 [ %.3503683, %.preheader2634 ], [ %2134, %2136 ]
-  br label %.preheader2632
-
-.preheader2632:                                   ; preds = %.preheader2633, %2135
-  %2122 = phi i1 [ true, %.preheader2633 ], [ false, %2135 ]
-  %indvars.iv4871.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2633 ], [ %.sroa.121, %2135 ]
-  %.3523679 = phi i32 [ %.3513681, %.preheader2633 ], [ %2134, %2135 ]
+.preheader2633:                                   ; preds = %.preheader2634, %2135
+  %2122 = phi i1 [ true, %.preheader2634 ], [ false, %2135 ]
+  %indvars.iv4872.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2634 ], [ %.sroa.121, %2135 ]
+  %.3523680 = phi i32 [ %.3513682, %.preheader2634 ], [ %2134, %2135 ]
   br label %2123
 
-2123:                                             ; preds = %.preheader2632, %2133
-  %2124 = phi i1 [ true, %.preheader2632 ], [ false, %2133 ]
-  %indvars.iv4868.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2632 ], [ %.sroa.181, %2133 ]
-  %.3533677 = phi i32 [ %.3523679, %.preheader2632 ], [ %2134, %2133 ]
-  %.not2177 = icmp eq i32 %.3533677, 0
+2123:                                             ; preds = %.preheader2633, %2133
+  %2124 = phi i1 [ true, %.preheader2633 ], [ false, %2133 ]
+  %indvars.iv4869.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2633 ], [ %.sroa.181, %2133 ]
+  %.3533678 = phi i32 [ %.3523680, %.preheader2633 ], [ %2134, %2133 ]
+  %.not2177 = icmp eq i32 %.3533678, 0
   br i1 %.not2177, label %2133, label %2125
 
 2125:                                             ; preds = %2123
-  %2126 = load ptr, ptr %indvars.iv4883.sroa.phi, align 8, !tbaa !12
-  %2127 = load ptr, ptr %indvars.iv4880.sroa.phi, align 8, !tbaa !31
-  %2128 = load ptr, ptr %indvars.iv4877.sroa.phi, align 8, !tbaa !31
-  %2129 = load ptr, ptr %indvars.iv4874.sroa.phi, align 8, !tbaa !12
-  %2130 = load ptr, ptr %indvars.iv4871.sroa.phi, align 8, !tbaa !31
-  %2131 = load ptr, ptr %indvars.iv4868.sroa.phi, align 8, !tbaa !12
+  %2126 = load ptr, ptr %indvars.iv4884.sroa.phi, align 8, !tbaa !12
+  %2127 = load ptr, ptr %indvars.iv4881.sroa.phi, align 8, !tbaa !31
+  %2128 = load ptr, ptr %indvars.iv4878.sroa.phi, align 8, !tbaa !31
+  %2129 = load ptr, ptr %indvars.iv4875.sroa.phi, align 8, !tbaa !12
+  %2130 = load ptr, ptr %indvars.iv4872.sroa.phi, align 8, !tbaa !31
+  %2131 = load ptr, ptr %indvars.iv4869.sroa.phi, align 8, !tbaa !12
   %2132 = tail call fastcc i32 @arkode_butcher_order6q(ptr noundef %2126, ptr noundef %2127, ptr noundef %2128, ptr noundef %2129, ptr noundef %2130, ptr noundef %2131, i32 noundef %9)
   br label %2133
 
@@ -13504,76 +13503,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %2124, label %2123, label %2135
 
 2135:                                             ; preds = %2133
-  br i1 %2122, label %.preheader2632, label %2136
+  br i1 %2122, label %.preheader2633, label %2136
 
 2136:                                             ; preds = %2135
-  br i1 %2121, label %.preheader2633, label %2137
+  br i1 %2121, label %.preheader2634, label %2137
 
 2137:                                             ; preds = %2136
-  br i1 %2120, label %.preheader2634, label %2138
+  br i1 %2120, label %.preheader2635, label %2138
 
 2138:                                             ; preds = %2137
-  br i1 %2119, label %.preheader2635, label %2139
+  br i1 %2119, label %.preheader2636, label %2139
 
 2139:                                             ; preds = %2138
-  br i1 %2118, label %.preheader2636, label %2140
+  br i1 %2118, label %.preheader2637, label %2140
 
 2140:                                             ; preds = %2139
   %2141 = icmp eq i32 %2134, 0
   %or.cond134 = and i1 %49, %2141
-  br i1 %or.cond134, label %2142, label %.preheader2631.preheader
+  br i1 %or.cond134, label %2142, label %.preheader2632.preheader
 
 2142:                                             ; preds = %2140
   %2143 = tail call i64 @fwrite(ptr nonnull @.str.158, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2631.preheader
+  br label %.preheader2632.preheader
 
-.preheader2631.preheader:                         ; preds = %2142, %2140
+.preheader2632.preheader:                         ; preds = %2142, %2140
+  br label %.preheader2632
+
+.preheader2632:                                   ; preds = %.preheader2632.preheader, %2165
+  %2144 = phi i1 [ false, %2165 ], [ true, %.preheader2632.preheader ]
+  %indvars.iv4902.sroa.phi = phi ptr [ %.sroa.38, %2165 ], [ %.sroa.0, %.preheader2632.preheader ]
+  %.3543700 = phi i32 [ %2160, %2165 ], [ %2134, %.preheader2632.preheader ]
   br label %.preheader2631
 
-.preheader2631:                                   ; preds = %.preheader2631.preheader, %2165
-  %2144 = phi i1 [ false, %2165 ], [ true, %.preheader2631.preheader ]
-  %indvars.iv4901.sroa.phi = phi ptr [ %.sroa.38, %2165 ], [ %.sroa.0, %.preheader2631.preheader ]
-  %.3543699 = phi i32 [ %2160, %2165 ], [ %2134, %.preheader2631.preheader ]
+.preheader2631:                                   ; preds = %.preheader2632, %2164
+  %2145 = phi i1 [ true, %.preheader2632 ], [ false, %2164 ]
+  %indvars.iv4899.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2632 ], [ %.sroa.121, %2164 ]
+  %.3553698 = phi i32 [ %.3543700, %.preheader2632 ], [ %2160, %2164 ]
   br label %.preheader2630
 
-.preheader2630:                                   ; preds = %.preheader2631, %2164
-  %2145 = phi i1 [ true, %.preheader2631 ], [ false, %2164 ]
-  %indvars.iv4898.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2631 ], [ %.sroa.121, %2164 ]
-  %.3553697 = phi i32 [ %.3543699, %.preheader2631 ], [ %2160, %2164 ]
+.preheader2630:                                   ; preds = %.preheader2631, %2163
+  %2146 = phi i1 [ true, %.preheader2631 ], [ false, %2163 ]
+  %indvars.iv4896.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2631 ], [ %.sroa.121, %2163 ]
+  %.3563696 = phi i32 [ %.3553698, %.preheader2631 ], [ %2160, %2163 ]
   br label %.preheader2629
 
-.preheader2629:                                   ; preds = %.preheader2630, %2163
-  %2146 = phi i1 [ true, %.preheader2630 ], [ false, %2163 ]
-  %indvars.iv4895.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2630 ], [ %.sroa.121, %2163 ]
-  %.3563695 = phi i32 [ %.3553697, %.preheader2630 ], [ %2160, %2163 ]
+.preheader2629:                                   ; preds = %.preheader2630, %2162
+  %2147 = phi i1 [ true, %.preheader2630 ], [ false, %2162 ]
+  %indvars.iv4893.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2630 ], [ %.sroa.121, %2162 ]
+  %.3573694 = phi i32 [ %.3563696, %.preheader2630 ], [ %2160, %2162 ]
   br label %.preheader2628
 
-.preheader2628:                                   ; preds = %.preheader2629, %2162
-  %2147 = phi i1 [ true, %.preheader2629 ], [ false, %2162 ]
-  %indvars.iv4892.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2629 ], [ %.sroa.121, %2162 ]
-  %.3573693 = phi i32 [ %.3563695, %.preheader2629 ], [ %2160, %2162 ]
-  br label %.preheader2627
-
-.preheader2627:                                   ; preds = %.preheader2628, %2161
-  %2148 = phi i1 [ true, %.preheader2628 ], [ false, %2161 ]
-  %indvars.iv4889.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2628 ], [ %.sroa.181, %2161 ]
-  %.3583691 = phi i32 [ %.3573693, %.preheader2628 ], [ %2160, %2161 ]
+.preheader2628:                                   ; preds = %.preheader2629, %2161
+  %2148 = phi i1 [ true, %.preheader2629 ], [ false, %2161 ]
+  %indvars.iv4890.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2629 ], [ %.sroa.181, %2161 ]
+  %.3583692 = phi i32 [ %.3573694, %.preheader2629 ], [ %2160, %2161 ]
   br label %2149
 
-2149:                                             ; preds = %.preheader2627, %2159
-  %2150 = phi i1 [ true, %.preheader2627 ], [ false, %2159 ]
-  %indvars.iv4886.sroa.phi = phi ptr [ %.sroa.05469, %.preheader2627 ], [ %.sroa.181, %2159 ]
-  %.3593689 = phi i32 [ %.3583691, %.preheader2627 ], [ %2160, %2159 ]
-  %.not2176 = icmp eq i32 %.3593689, 0
+2149:                                             ; preds = %.preheader2628, %2159
+  %2150 = phi i1 [ true, %.preheader2628 ], [ false, %2159 ]
+  %indvars.iv4887.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2628 ], [ %.sroa.181, %2159 ]
+  %.3593690 = phi i32 [ %.3583692, %.preheader2628 ], [ %2160, %2159 ]
+  %.not2176 = icmp eq i32 %.3593690, 0
   br i1 %.not2176, label %2159, label %2151
 
 2151:                                             ; preds = %2149
-  %2152 = load ptr, ptr %indvars.iv4901.sroa.phi, align 8, !tbaa !12
-  %2153 = load ptr, ptr %indvars.iv4898.sroa.phi, align 8, !tbaa !31
-  %2154 = load ptr, ptr %indvars.iv4895.sroa.phi, align 8, !tbaa !31
-  %2155 = load ptr, ptr %indvars.iv4892.sroa.phi, align 8, !tbaa !31
-  %2156 = load ptr, ptr %indvars.iv4889.sroa.phi, align 8, !tbaa !12
-  %2157 = load ptr, ptr %indvars.iv4886.sroa.phi, align 8, !tbaa !12
+  %2152 = load ptr, ptr %indvars.iv4902.sroa.phi, align 8, !tbaa !12
+  %2153 = load ptr, ptr %indvars.iv4899.sroa.phi, align 8, !tbaa !31
+  %2154 = load ptr, ptr %indvars.iv4896.sroa.phi, align 8, !tbaa !31
+  %2155 = load ptr, ptr %indvars.iv4893.sroa.phi, align 8, !tbaa !31
+  %2156 = load ptr, ptr %indvars.iv4890.sroa.phi, align 8, !tbaa !12
+  %2157 = load ptr, ptr %indvars.iv4887.sroa.phi, align 8, !tbaa !12
   %2158 = tail call fastcc i32 @arkode_butcher_order6r(ptr noundef %2152, ptr noundef %2153, ptr noundef %2154, ptr noundef %2155, ptr noundef %2156, ptr noundef %2157, i32 noundef %9)
   br label %2159
 
@@ -13582,76 +13581,76 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %2150, label %2149, label %2161
 
 2161:                                             ; preds = %2159
-  br i1 %2148, label %.preheader2627, label %2162
+  br i1 %2148, label %.preheader2628, label %2162
 
 2162:                                             ; preds = %2161
-  br i1 %2147, label %.preheader2628, label %2163
+  br i1 %2147, label %.preheader2629, label %2163
 
 2163:                                             ; preds = %2162
-  br i1 %2146, label %.preheader2629, label %2164
+  br i1 %2146, label %.preheader2630, label %2164
 
 2164:                                             ; preds = %2163
-  br i1 %2145, label %.preheader2630, label %2165
+  br i1 %2145, label %.preheader2631, label %2165
 
 2165:                                             ; preds = %2164
-  br i1 %2144, label %.preheader2631, label %2166
+  br i1 %2144, label %.preheader2632, label %2166
 
 2166:                                             ; preds = %2165
   %2167 = icmp eq i32 %2160, 0
   %or.cond136 = and i1 %49, %2167
-  br i1 %or.cond136, label %2168, label %.preheader2626.preheader
+  br i1 %or.cond136, label %2168, label %.preheader2627.preheader
 
 2168:                                             ; preds = %2166
   %2169 = tail call i64 @fwrite(ptr nonnull @.str.159, i64 39, i64 1, ptr nonnull %4)
-  br label %.preheader2626.preheader
+  br label %.preheader2627.preheader
 
-.preheader2626.preheader:                         ; preds = %2168, %2166
+.preheader2627.preheader:                         ; preds = %2168, %2166
+  br label %.preheader2627
+
+.preheader2627:                                   ; preds = %.preheader2627.preheader, %2191
+  %2170 = phi i1 [ false, %2191 ], [ true, %.preheader2627.preheader ]
+  %indvars.iv4920.sroa.phi = phi ptr [ %.sroa.38, %2191 ], [ %.sroa.0, %.preheader2627.preheader ]
+  %.3603712 = phi i32 [ %2186, %2191 ], [ %2160, %.preheader2627.preheader ]
   br label %.preheader2626
 
-.preheader2626:                                   ; preds = %.preheader2626.preheader, %2191
-  %2170 = phi i1 [ false, %2191 ], [ true, %.preheader2626.preheader ]
-  %indvars.iv4919.sroa.phi = phi ptr [ %.sroa.38, %2191 ], [ %.sroa.0, %.preheader2626.preheader ]
-  %.3603711 = phi i32 [ %2186, %2191 ], [ %2160, %.preheader2626.preheader ]
+.preheader2626:                                   ; preds = %.preheader2627, %2190
+  %2171 = phi i1 [ true, %.preheader2627 ], [ false, %2190 ]
+  %indvars.iv4917.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2627 ], [ %.sroa.121, %2190 ]
+  %.3613710 = phi i32 [ %.3603712, %.preheader2627 ], [ %2186, %2190 ]
   br label %.preheader2625
 
-.preheader2625:                                   ; preds = %.preheader2626, %2190
-  %2171 = phi i1 [ true, %.preheader2626 ], [ false, %2190 ]
-  %indvars.iv4916.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2626 ], [ %.sroa.121, %2190 ]
-  %.3613709 = phi i32 [ %.3603711, %.preheader2626 ], [ %2186, %2190 ]
+.preheader2625:                                   ; preds = %.preheader2626, %2189
+  %2172 = phi i1 [ true, %.preheader2626 ], [ false, %2189 ]
+  %indvars.iv4914.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2626 ], [ %.sroa.121, %2189 ]
+  %.3623708 = phi i32 [ %.3613710, %.preheader2626 ], [ %2186, %2189 ]
   br label %.preheader2624
 
-.preheader2624:                                   ; preds = %.preheader2625, %2189
-  %2172 = phi i1 [ true, %.preheader2625 ], [ false, %2189 ]
-  %indvars.iv4913.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2625 ], [ %.sroa.121, %2189 ]
-  %.3623707 = phi i32 [ %.3613709, %.preheader2625 ], [ %2186, %2189 ]
-  br label %.preheader2623
-
-.preheader2623:                                   ; preds = %.preheader2624, %2188
-  %2173 = phi i1 [ true, %.preheader2624 ], [ false, %2188 ]
-  %indvars.iv4910.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2624 ], [ %.sroa.121, %2188 ]
-  %.3633705 = phi i32 [ %.3623707, %.preheader2624 ], [ %2186, %2188 ]
+.preheader2624:                                   ; preds = %.preheader2625, %2188
+  %2173 = phi i1 [ true, %.preheader2625 ], [ false, %2188 ]
+  %indvars.iv4911.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2625 ], [ %.sroa.121, %2188 ]
+  %.3633706 = phi i32 [ %.3623708, %.preheader2625 ], [ %2186, %2188 ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader2623, %2187
-  %2174 = phi i1 [ true, %.preheader2623 ], [ false, %2187 ]
-  %indvars.iv4907.sroa.phi = phi ptr [ %.sroa.05625, %.preheader2623 ], [ %.sroa.121, %2187 ]
-  %.3643703 = phi i32 [ %.3633705, %.preheader2623 ], [ %2186, %2187 ]
+.preheader:                                       ; preds = %.preheader2624, %2187
+  %2174 = phi i1 [ true, %.preheader2624 ], [ false, %2187 ]
+  %indvars.iv4908.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2624 ], [ %.sroa.121, %2187 ]
+  %.3643704 = phi i32 [ %.3633706, %.preheader2624 ], [ %2186, %2187 ]
   br label %2175
 
 2175:                                             ; preds = %.preheader, %2185
   %2176 = phi i1 [ true, %.preheader ], [ false, %2185 ]
-  %indvars.iv4904.sroa.phi = phi ptr [ %.sroa.05469, %.preheader ], [ %.sroa.181, %2185 ]
-  %.3653701 = phi i32 [ %.3643703, %.preheader ], [ %2186, %2185 ]
-  %.not2175 = icmp eq i32 %.3653701, 0
+  %indvars.iv4905.sroa.phi = phi ptr [ %.sroa.05470, %.preheader ], [ %.sroa.181, %2185 ]
+  %.3653702 = phi i32 [ %.3643704, %.preheader ], [ %2186, %2185 ]
+  %.not2175 = icmp eq i32 %.3653702, 0
   br i1 %.not2175, label %2185, label %2177
 
 2177:                                             ; preds = %2175
-  %2178 = load ptr, ptr %indvars.iv4919.sroa.phi, align 8, !tbaa !12
-  %2179 = load ptr, ptr %indvars.iv4916.sroa.phi, align 8, !tbaa !31
-  %2180 = load ptr, ptr %indvars.iv4913.sroa.phi, align 8, !tbaa !31
-  %2181 = load ptr, ptr %indvars.iv4910.sroa.phi, align 8, !tbaa !31
-  %2182 = load ptr, ptr %indvars.iv4907.sroa.phi, align 8, !tbaa !31
-  %2183 = load ptr, ptr %indvars.iv4904.sroa.phi, align 8, !tbaa !12
+  %2178 = load ptr, ptr %indvars.iv4920.sroa.phi, align 8, !tbaa !12
+  %2179 = load ptr, ptr %indvars.iv4917.sroa.phi, align 8, !tbaa !31
+  %2180 = load ptr, ptr %indvars.iv4914.sroa.phi, align 8, !tbaa !31
+  %2181 = load ptr, ptr %indvars.iv4911.sroa.phi, align 8, !tbaa !31
+  %2182 = load ptr, ptr %indvars.iv4908.sroa.phi, align 8, !tbaa !31
+  %2183 = load ptr, ptr %indvars.iv4905.sroa.phi, align 8, !tbaa !12
   %2184 = tail call fastcc i32 @arkode_butcher_order6s(ptr noundef %2178, ptr noundef %2179, ptr noundef %2180, ptr noundef %2181, ptr noundef %2182, ptr noundef %2183, i32 noundef %9)
   br label %2185
 
@@ -13663,47 +13662,47 @@ thread-pre-split2602:                             ; preds = %thread-pre-split259
   br i1 %2174, label %.preheader, label %2188
 
 2188:                                             ; preds = %2187
-  br i1 %2173, label %.preheader2623, label %2189
+  br i1 %2173, label %.preheader2624, label %2189
 
 2189:                                             ; preds = %2188
-  br i1 %2172, label %.preheader2624, label %2190
+  br i1 %2172, label %.preheader2625, label %2190
 
 2190:                                             ; preds = %2189
-  br i1 %2171, label %.preheader2625, label %2191
+  br i1 %2171, label %.preheader2626, label %2191
 
 2191:                                             ; preds = %2190
-  br i1 %2170, label %.preheader2626, label %2192
+  br i1 %2170, label %.preheader2627, label %2192
 
 2192:                                             ; preds = %2191
   %2193 = icmp eq i32 %2186, 0
   %or.cond138 = and i1 %49, %2193
-  br i1 %or.cond138, label %.thread2604, label %2195
+  br i1 %or.cond138, label %.thread2605, label %2195
 
-.thread2604:                                      ; preds = %2192
+.thread2605:                                      ; preds = %2192
   %2194 = tail call i64 @fwrite(ptr nonnull @.str.160, i64 39, i64 1, ptr nonnull %4)
-  br label %thread-pre-split2602.thread
+  br label %thread-pre-split2603.thread
 
 2195:                                             ; preds = %2192
-  br i1 %2193, label %thread-pre-split2602.thread, label %2196
+  br i1 %2193, label %thread-pre-split2603.thread, label %2196
 
 2196:                                             ; preds = %2195
   store i32 6, ptr %3, align 4, !tbaa !25
-  br label %thread-pre-split2602.thread
+  br label %thread-pre-split2603.thread
 
-thread-pre-split2602.thread:                      ; preds = %arkode_butcher_rowsum.exit2372, %.thread, %.thread2604, %thread-pre-split2602, %2196, %2195, %1123
-  %.not26074933 = phi i1 [ true, %.thread ], [ false, %.thread2604 ], [ false, %thread-pre-split2602 ], [ false, %2196 ], [ false, %2195 ], [ true, %1123 ], [ false, %arkode_butcher_rowsum.exit2372 ]
+thread-pre-split2603.thread:                      ; preds = %arkode_butcher_rowsum.exit2373, %.thread, %.thread2605, %thread-pre-split2603, %2196, %2195, %1123
+  %.not26084934 = phi i1 [ true, %.thread ], [ false, %.thread2605 ], [ false, %thread-pre-split2603 ], [ false, %2196 ], [ false, %2195 ], [ true, %1123 ], [ false, %arkode_butcher_rowsum.exit2373 ]
   %2197 = load i32, ptr %2, align 4, !tbaa !25
   %2198 = load i32, ptr %0, align 8, !tbaa !16
   %2199 = icmp sgt i32 %2197, %2198
   br i1 %2199, label %.loopexit, label %2200
 
-2200:                                             ; preds = %thread-pre-split2602.thread
+2200:                                             ; preds = %thread-pre-split2603.thread
   %2201 = load i32, ptr %1, align 8, !tbaa !16
   %2202 = icmp sgt i32 %2197, %2201
   br i1 %2202, label %.loopexit, label %2203
 
 2203:                                             ; preds = %2200
-  br i1 %.not26074933, label %2213, label %2204
+  br i1 %.not26084934, label %2213, label %2204
 
 2204:                                             ; preds = %2203
   %2205 = load i32, ptr %3, align 4, !tbaa !25
@@ -13716,25 +13715,25 @@ thread-pre-split2602.thread:                      ; preds = %arkode_butcher_rows
   %2210 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2211 = load i32, ptr %2210, align 4, !tbaa !17
   %2212 = icmp sgt i32 %2205, %2211
-  br i1 %2212, label %.loopexit, label %.thread4940
+  br i1 %2212, label %.loopexit, label %.thread4941
 
 2213:                                             ; preds = %2203
   %2214 = icmp eq i32 %2197, 6
   %2215 = icmp sgt i32 %2198, 6
   %2216 = icmp sgt i32 %2201, 6
-  %or.cond22462608 = or i1 %2215, %2216
-  %or.cond2606 = and i1 %2214, %or.cond22462608
-  br i1 %or.cond2606, label %.loopexit, label %2230
+  %or.cond22462609 = or i1 %2215, %2216
+  %or.cond2607 = and i1 %2214, %or.cond22462609
+  br i1 %or.cond2607, label %.loopexit, label %2230
 
-.thread4940:                                      ; preds = %2209
+.thread4941:                                      ; preds = %2209
   %2217 = icmp eq i32 %2197, 6
   %2218 = icmp sgt i32 %2198, 6
   %2219 = icmp sgt i32 %2201, 6
-  %or.cond224626084941 = or i1 %2218, %2219
-  %or.cond26064942 = and i1 %2217, %or.cond224626084941
-  br i1 %or.cond26064942, label %.loopexit, label %2220
+  %or.cond224626094942 = or i1 %2218, %2219
+  %or.cond26074943 = and i1 %2217, %or.cond224626094942
+  br i1 %or.cond26074943, label %.loopexit, label %2220
 
-2220:                                             ; preds = %.thread4940
+2220:                                             ; preds = %.thread4941
   %2221 = load i32, ptr %3, align 4, !tbaa !25
   %2222 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2223 = load i32, ptr %2222, align 4, !tbaa !17
@@ -13753,15 +13752,15 @@ thread-pre-split2602.thread:                      ; preds = %arkode_butcher_rows
 2230:                                             ; preds = %2213, %2226
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph2978, %.thread4940, %2226, %2220, %2213, %2209, %2204, %2200, %thread-pre-split2602.thread, %42, %._crit_edge2979, %31, %27, %22, %._crit_edge, %11, %7, %5, %2230
-  %.01701 = phi i32 [ 0, %2230 ], [ -1, %5 ], [ -1, %7 ], [ -1, %11 ], [ -1, %._crit_edge ], [ -1, %22 ], [ -1, %27 ], [ -1, %31 ], [ -1, %._crit_edge2979 ], [ -1, %42 ], [ 1, %thread-pre-split2602.thread ], [ 1, %2200 ], [ 1, %2204 ], [ 1, %2209 ], [ 1, %2213 ], [ 1, %2220 ], [ 1, %2226 ], [ 1, %.thread4940 ], [ -1, %.lr.ph2978 ], [ -1, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph2979, %.thread4941, %2226, %2220, %2213, %2209, %2204, %2200, %thread-pre-split2603.thread, %42, %._crit_edge2980, %31, %27, %22, %._crit_edge, %11, %7, %5, %2230
+  %.01701 = phi i32 [ 0, %2230 ], [ -1, %5 ], [ -1, %7 ], [ -1, %11 ], [ -1, %._crit_edge ], [ -1, %22 ], [ -1, %27 ], [ -1, %31 ], [ -1, %._crit_edge2980 ], [ -1, %42 ], [ 1, %thread-pre-split2603.thread ], [ 1, %2200 ], [ 1, %2204 ], [ 1, %2209 ], [ 1, %2213 ], [ 1, %2220 ], [ 1, %2226 ], [ 1, %.thread4941 ], [ -1, %.lr.ph2979 ], [ -1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.05469)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.05470)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.181)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.05505)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.385506)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.05625)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.05506)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.385507)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.05626)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.121)
   ret i32 %.01701
 }

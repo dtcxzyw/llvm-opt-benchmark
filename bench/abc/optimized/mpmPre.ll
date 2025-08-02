@@ -1694,34 +1694,31 @@ Hsh_IntObj.exit.lr.ph.split.i:                    ; preds = %Hsh_IntObj.exit.lr.
   %47 = getelementptr inbounds i32, ptr %.val19.val.i, i64 %46
   %bcmp25.i = call i32 @bcmp(ptr nonnull readonly %6, ptr %47, i64 %39)
   %.not1626.i = icmp eq i32 %bcmp25.i, 0
-  br i1 %.not1626.i, label %Hsh_IntManLookup.exit, label %.lr.ph.i.preheader
+  br i1 %.not1626.i, label %Hsh_IntManLookup.exit, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %Hsh_IntObj.exit.lr.ph.split.i
-  %invariant.gep = getelementptr i8, ptr %.val.i.i, i64 4
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %Hsh_IntObj.exit.i
-  %48 = phi i64 [ %51, %Hsh_IntObj.exit.i ], [ %42, %.lr.ph.i.preheader ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %48
-  %49 = load i32, ptr %gep, align 4, !tbaa !37
-  %50 = icmp eq i32 %49, -1
-  br i1 %50, label %Hsh_IntManLookup.exit, label %Hsh_IntObj.exit.i, !llvm.loop !64
+.lr.ph.i:                                         ; preds = %Hsh_IntObj.exit.lr.ph.split.i, %Hsh_IntObj.exit.i
+  %48 = phi i64 [ %53, %Hsh_IntObj.exit.i ], [ %42, %Hsh_IntObj.exit.lr.ph.split.i ]
+  %49 = getelementptr inbounds i64, ptr %.val.i.i, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %51 = load i32, ptr %50, align 4, !tbaa !37
+  %52 = icmp eq i32 %51, -1
+  br i1 %52, label %Hsh_IntManLookup.exit, label %Hsh_IntObj.exit.i, !llvm.loop !64
 
 Hsh_IntObj.exit.i:                                ; preds = %.lr.ph.i
-  %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds i64, ptr %.val.i.i, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !62
-  %54 = mul nsw i32 %53, %14
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i32, ptr %.val19.val.i, i64 %55
-  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %6, ptr %56, i64 %39)
+  %53 = sext i32 %51 to i64
+  %54 = getelementptr inbounds i64, ptr %.val.i.i, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !62
+  %56 = mul nsw i32 %55, %14
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i32, ptr %.val19.val.i, i64 %57
+  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %6, ptr %58, i64 %39)
   %.not16.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not16.i, label %Hsh_IntManLookup.exit, label %.lr.ph.i, !llvm.loop !64
 
 Hsh_IntManLookup.exit:                            ; preds = %.lr.ph.i, %Hsh_IntObj.exit.i, %Hsh_IntManHash.exit.i, %Hsh_IntObj.exit.lr.ph.i, %Hsh_IntObj.exit.lr.ph.split.i
-  %57 = phi i32 [ -1, %Hsh_IntManHash.exit.i ], [ %33, %Hsh_IntObj.exit.lr.ph.split.i ], [ %33, %Hsh_IntObj.exit.lr.ph.i ], [ -1, %.lr.ph.i ], [ %49, %Hsh_IntObj.exit.i ]
+  %59 = phi i32 [ -1, %Hsh_IntManHash.exit.i ], [ %33, %Hsh_IntObj.exit.lr.ph.split.i ], [ %33, %Hsh_IntObj.exit.lr.ph.i ], [ -1, %.lr.ph.i ], [ %51, %Hsh_IntObj.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #28
-  ret i32 %57
+  ret i32 %59
 }
 
 ; Function Attrs: nounwind uwtable

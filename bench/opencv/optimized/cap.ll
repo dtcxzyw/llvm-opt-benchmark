@@ -15618,8 +15618,8 @@ _ZN2cv15VideoParametersD2Ev.exit543:              ; preds = %1252, %1250, %167
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11VideoWriter7releaseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN2cv11VideoWriter7releaseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 32)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8, !tbaa !307
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32

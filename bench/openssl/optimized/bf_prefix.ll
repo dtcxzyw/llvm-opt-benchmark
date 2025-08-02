@@ -20,7 +20,7 @@ define internal i32 @prefix_write(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %6 = alloca i64, align 8
   %7 = tail call ptr @BIO_get_data(ptr noundef %0) #5
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread77, label %9
+  br i1 %8, label %.critedge75, label %9
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %7, align 8, !tbaa !3
@@ -55,21 +55,21 @@ define internal i32 @prefix_write(ptr noundef %0, ptr noundef %1, i64 noundef %2
 27:                                               ; preds = %20, %19
   %28 = tail call ptr @BIO_next(ptr noundef %0) #5
   %29 = tail call i32 @BIO_write_ex(ptr noundef %28, ptr noundef %1, i64 noundef %2, ptr noundef %3) #5
-  br label %.thread77
+  br label %.critedge75
 
 30:                                               ; preds = %15, %12
   store i64 0, ptr %3, align 8, !tbaa !13
-  %.not89 = icmp eq i64 %2, 0
-  br i1 %.not89, label %.thread77, label %.lr.ph93
+  %.not85 = icmp eq i64 %2, 0
+  br i1 %.not85, label %.critedge75, label %.lr.ph89
 
-.lr.ph93:                                         ; preds = %30
+.lr.ph89:                                         ; preds = %30
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %33
 
-33:                                               ; preds = %.lr.ph93, %62
-  %.05491 = phi ptr [ %1, %.lr.ph93 ], [ %.256.lcssa, %62 ]
-  %.05890 = phi i64 [ %2, %.lr.ph93 ], [ %.260.lcssa, %62 ]
+33:                                               ; preds = %.lr.ph89, %62
+  %.05487 = phi ptr [ %1, %.lr.ph89 ], [ %.256.lcssa, %62 ]
+  %.05886 = phi i64 [ %2, %.lr.ph89 ], [ %.260.lcssa, %62 ]
   %34 = load i32, ptr %31, align 4, !tbaa !12
   %.not65 = icmp eq i32 %34, 0
   br i1 %.not65, label %.preheader, label %35
@@ -101,57 +101,53 @@ define internal i32 @prefix_write(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 45:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  br label %.thread77
+  br label %.critedge75
 
 46:                                               ; preds = %.preheader, %49
-  %.04583 = phi i64 [ %50, %49 ], [ 0, %.preheader ]
-  %47 = getelementptr inbounds nuw i8, ptr %.05491, i64 %.04583
+  %.04579 = phi i64 [ %50, %49 ], [ 0, %.preheader ]
+  %47 = getelementptr inbounds nuw i8, ptr %.05487, i64 %.04579
   %48 = load i8, ptr %47, align 1, !tbaa !10
   %.not68 = icmp eq i8 %48, 10
   br i1 %.not68, label %.critedge, label %49
 
 49:                                               ; preds = %46
-  %50 = add nuw i64 %.04583, 1
-  %exitcond.not = icmp eq i64 %50, %.05890
+  %50 = add nuw i64 %.04579, 1
+  %exitcond.not = icmp eq i64 %50, %.05886
   br i1 %exitcond.not, label %.critedge, label %46, !llvm.loop !15
 
 .critedge:                                        ; preds = %49, %46
-  %.045.lcssa = phi i64 [ %.05890, %49 ], [ %.04583, %46 ]
+  %.045.lcssa = phi i64 [ %.05886, %49 ], [ %.04579, %46 ]
   %51 = zext i1 %.not68 to i64
   %spec.select = add nuw i64 %.045.lcssa, %51
-  %.not6984 = icmp eq i64 %spec.select, 0
-  br i1 %.not6984, label %._crit_edge, label %.lr.ph
+  %.not6980 = icmp eq i64 %spec.select, 0
+  br i1 %.not6980, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge, %54
-  %.287 = phi i64 [ %60, %54 ], [ %spec.select, %.critedge ]
-  %.25686 = phi ptr [ %56, %54 ], [ %.05491, %.critedge ]
-  %.26085 = phi i64 [ %57, %54 ], [ %.05890, %.critedge ]
+  %.283 = phi i64 [ %60, %54 ], [ %spec.select, %.critedge ]
+  %.25682 = phi ptr [ %56, %54 ], [ %.05487, %.critedge ]
+  %.26081 = phi i64 [ %57, %54 ], [ %.05886, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
   store i64 0, ptr %6, align 8, !tbaa !13
   %52 = call ptr @BIO_next(ptr noundef %0) #5
-  %53 = call i32 @BIO_write_ex(ptr noundef %52, ptr noundef %.25686, i64 noundef %.287, ptr noundef nonnull %6) #5
+  %53 = call i32 @BIO_write_ex(ptr noundef %52, ptr noundef %.25682, i64 noundef %.283, ptr noundef nonnull %6) #5
   %.not70.not = icmp eq i32 %53, 0
-  br i1 %.not70.not, label %.thread, label %54
-
-.thread:                                          ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  br label %.thread77
+  br i1 %.not70.not, label %.critedge75.critedge, label %54
 
 54:                                               ; preds = %.lr.ph
   %55 = load i64, ptr %6, align 8, !tbaa !13
-  %56 = getelementptr inbounds nuw i8, ptr %.25686, i64 %55
-  %57 = sub i64 %.26085, %55
+  %56 = getelementptr inbounds nuw i8, ptr %.25682, i64 %55
+  %57 = sub i64 %.26081, %55
   %58 = load i64, ptr %3, align 8, !tbaa !13
   %59 = add i64 %58, %55
   store i64 %59, ptr %3, align 8, !tbaa !13
-  %60 = sub i64 %.287, %55
+  %60 = sub i64 %.283, %55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   %.not69 = icmp eq i64 %60, 0
   br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %54, %.critedge
-  %.260.lcssa = phi i64 [ %.05890, %.critedge ], [ %57, %54 ]
-  %.256.lcssa = phi ptr [ %.05491, %.critedge ], [ %56, %54 ]
+  %.260.lcssa = phi i64 [ %.05886, %.critedge ], [ %57, %54 ]
+  %.256.lcssa = phi ptr [ %.05487, %.critedge ], [ %56, %54 ]
   br i1 %.not68, label %61, label %62
 
 61:                                               ; preds = %._crit_edge
@@ -160,10 +156,14 @@ define internal i32 @prefix_write(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 62:                                               ; preds = %._crit_edge, %61
   %.not = icmp eq i64 %.260.lcssa, 0
-  br i1 %.not, label %.thread77, label %33, !llvm.loop !18
+  br i1 %.not, label %.critedge75, label %33, !llvm.loop !18
 
-.thread77:                                        ; preds = %62, %30, %.thread, %45, %4, %27
-  %.050 = phi i32 [ %29, %27 ], [ 0, %4 ], [ 0, %45 ], [ 0, %.thread ], [ 1, %30 ], [ 1, %62 ]
+.critedge75.critedge:                             ; preds = %.lr.ph
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  br label %.critedge75
+
+.critedge75:                                      ; preds = %62, %30, %.critedge75.critedge, %45, %4, %27
+  %.050 = phi i32 [ %29, %27 ], [ 0, %4 ], [ 0, %45 ], [ 0, %.critedge75.critedge ], [ 1, %30 ], [ 1, %62 ]
   ret i32 %.050
 }
 

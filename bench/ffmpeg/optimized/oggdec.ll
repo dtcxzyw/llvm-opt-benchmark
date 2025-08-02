@@ -2458,7 +2458,7 @@ define internal fastcc void @ogg_restore(ptr noundef %0) unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %15 = getelementptr i8, ptr %7, i64 456
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 456
   br label %16
 
 16:                                               ; preds = %.lr.ph, %38
@@ -2475,7 +2475,7 @@ define internal fastcc void @ogg_restore(ptr noundef %0) unnamed_addr #1 {
 
 22:                                               ; preds = %16
   %.idx = mul nuw nsw i64 %indvars.iv, 432
-  %23 = getelementptr i8, ptr %15, i64 %.idx
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %24 = load ptr, ptr %23, align 8, !tbaa !137
   %.not38 = icmp eq ptr %24, null
   br i1 %.not38, label %25, label %38

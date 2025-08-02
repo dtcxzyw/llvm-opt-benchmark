@@ -266,7 +266,7 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal8DemangleEPKcPc
 
 11:                                               ; preds = %7
   %12 = tail call noundef zeroext i1 @_ZN4absl18debugging_internal26DemangleRustSymbolEncodingEPKcPcm(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
-  br label %72
+  br label %71
 
 13:                                               ; preds = %3, %7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
@@ -308,108 +308,110 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal8DemangleEPKcPc
   %31 = getelementptr inbounds i8, ptr %.val19.i, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !4
   %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %.loopexit, label %33
+  br i1 %.not.i, label %.loopexit, label %.preheader.i
 
-33:                                               ; preds = %29
-  %invariant.gep.i.i = getelementptr i8, ptr %31, i64 1
-  br label %34
-
-34:                                               ; preds = %.loopexit.i.i, %33
-  %.025.i.i = phi i64 [ 0, %33 ], [ %.3.i.i, %.loopexit.i.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 %.025.i.i
-  %36 = load i8, ptr %35, align 1, !tbaa !4
-  switch i8 %36, label %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i [
-    i8 46, label %37
+.preheader.i:                                     ; preds = %29, %.loopexit.i.i
+  %.025.i.i = phi i64 [ %.3.i.i, %.loopexit.i.i ], [ 0, %29 ]
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %.025.i.i
+  %34 = load i8, ptr %33, align 1, !tbaa !4
+  switch i8 %34, label %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i [
+    i8 46, label %35
     i8 0, label %.loopexit
   ]
 
-37:                                               ; preds = %34
-  %38 = getelementptr i8, ptr %35, i64 1
-  %39 = load i8, ptr %38, align 1, !tbaa !4
-  %40 = and i8 %39, -33
-  %41 = add i8 %40, -65
-  %42 = icmp ult i8 %41, 26
-  %43 = icmp eq i8 %39, 95
-  %or.cond.i22.i = or i1 %43, %42
-  br i1 %or.cond.i22.i, label %44, label %.loopexit32.thread.i.i
+35:                                               ; preds = %.preheader.i
+  %36 = getelementptr i8, ptr %33, i64 1
+  %37 = load i8, ptr %36, align 1, !tbaa !4
+  %38 = and i8 %37, -33
+  %39 = add i8 %38, -65
+  %40 = icmp ult i8 %39, 26
+  %41 = icmp eq i8 %37, 95
+  %or.cond.i22.i = or i1 %41, %40
+  br i1 %or.cond.i22.i, label %42, label %.loopexit32.thread.i.i
 
-44:                                               ; preds = %37
-  %45 = add i64 %.025.i.i, 2
+42:                                               ; preds = %35
+  %43 = add i64 %.025.i.i, 2
   br label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %.critedge.i.i, %44
-  %.2.i.i = phi i64 [ %45, %44 ], [ %52, %.critedge.i.i ]
-  %46 = getelementptr inbounds nuw i8, ptr %31, i64 %.2.i.i
-  %47 = load i8, ptr %46, align 1, !tbaa !4
-  %48 = and i8 %47, -33
-  %49 = add i8 %48, -65
-  %50 = icmp ult i8 %49, 26
-  %51 = icmp eq i8 %47, 95
-  %or.cond31.i.i = or i1 %51, %50
-  %52 = add i64 %.2.i.i, 1
+.critedge.i.i:                                    ; preds = %.critedge.i.i, %42
+  %.2.i.i = phi i64 [ %43, %42 ], [ %50, %.critedge.i.i ]
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 %.2.i.i
+  %45 = load i8, ptr %44, align 1, !tbaa !4
+  %46 = and i8 %45, -33
+  %47 = add i8 %46, -65
+  %48 = icmp ult i8 %47, 26
+  %49 = icmp eq i8 %45, 95
+  %or.cond31.i.i = or i1 %49, %48
+  %50 = add i64 %.2.i.i, 1
   br i1 %or.cond31.i.i, label %.critedge.i.i, label %.loopexit32.i.i, !llvm.loop !18
 
 .loopexit32.i.i:                                  ; preds = %.critedge.i.i
-  %53 = icmp eq i8 %47, 46
-  br i1 %53, label %.loopexit32.thread.i.i, label %.loopexit.i.i
+  %51 = icmp eq i8 %45, 46
+  br i1 %51, label %.loopexit32.i..loopexit32.thread.i_crit_edge.i, label %.loopexit.i.i
 
-.loopexit32.thread.i.i:                           ; preds = %.loopexit32.i.i, %37
-  %.12635.i.i = phi i64 [ %.2.i.i, %.loopexit32.i.i ], [ %.025.i.i, %37 ]
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %.12635.i.i
-  %54 = load i8, ptr %gep.i.i, align 1, !tbaa !4
-  %55 = add i8 %54, -48
-  %56 = icmp ult i8 %55, 10
-  br i1 %56, label %57, label %.loopexit.i.i
+.loopexit32.i..loopexit32.thread.i_crit_edge.i:   ; preds = %.loopexit32.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %31, i64 %.2.i.i
+  %.phi.trans.insert.i = getelementptr i8, ptr %52, i64 1
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !4
+  br label %.loopexit32.thread.i.i
 
-57:                                               ; preds = %.loopexit32.thread.i.i
-  %58 = add i64 %.12635.i.i, 2
-  br label %59
+.loopexit32.thread.i.i:                           ; preds = %.loopexit32.i..loopexit32.thread.i_crit_edge.i, %35
+  %53 = phi i8 [ %.pre.i, %.loopexit32.i..loopexit32.thread.i_crit_edge.i ], [ %37, %35 ]
+  %.12635.i.i = phi i64 [ %.2.i.i, %.loopexit32.i..loopexit32.thread.i_crit_edge.i ], [ %.025.i.i, %35 ]
+  %54 = add i8 %53, -48
+  %55 = icmp ult i8 %54, 10
+  br i1 %55, label %56, label %.loopexit.i.i
 
-59:                                               ; preds = %59, %57
-  %.4.i.i = phi i64 [ %58, %57 ], [ %64, %59 ]
-  %60 = getelementptr inbounds nuw i8, ptr %31, i64 %.4.i.i
-  %61 = load i8, ptr %60, align 1, !tbaa !4
-  %62 = add i8 %61, -48
-  %63 = icmp ult i8 %62, 10
-  %64 = add i64 %.4.i.i, 1
-  br i1 %63, label %59, label %.loopexit.i.i, !llvm.loop !20
+56:                                               ; preds = %.loopexit32.thread.i.i
+  %57 = add i64 %.12635.i.i, 2
+  br label %58
 
-.loopexit.i.i:                                    ; preds = %59, %.loopexit32.thread.i.i, %.loopexit32.i.i
-  %.3.i.i = phi i64 [ %.12635.i.i, %.loopexit32.thread.i.i ], [ %.2.i.i, %.loopexit32.i.i ], [ %.4.i.i, %59 ]
-  %.1.i.i = phi i1 [ %or.cond.i22.i, %.loopexit32.thread.i.i ], [ true, %.loopexit32.i.i ], [ true, %59 ]
-  br i1 %.1.i.i, label %34, label %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i, !llvm.loop !21
+58:                                               ; preds = %58, %56
+  %.4.i.i = phi i64 [ %57, %56 ], [ %63, %58 ]
+  %59 = getelementptr inbounds nuw i8, ptr %31, i64 %.4.i.i
+  %60 = load i8, ptr %59, align 1, !tbaa !4
+  %61 = add i8 %60, -48
+  %62 = icmp ult i8 %61, 10
+  %63 = add i64 %.4.i.i, 1
+  br i1 %62, label %58, label %.loopexit.i.i, !llvm.loop !20
 
-_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i: ; preds = %.loopexit.i.i, %34
-  %65 = icmp eq i8 %32, 64
-  br i1 %65, label %66, label %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit
+.loopexit.i.i:                                    ; preds = %58, %.loopexit32.thread.i.i, %.loopexit32.i.i
+  %.3.i.i = phi i64 [ %.12635.i.i, %.loopexit32.thread.i.i ], [ %.2.i.i, %.loopexit32.i.i ], [ %.4.i.i, %58 ]
+  %.1.i.i = phi i1 [ %or.cond.i22.i, %.loopexit32.thread.i.i ], [ true, %.loopexit32.i.i ], [ true, %58 ]
+  br i1 %.1.i.i, label %.preheader.i, label %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i, !llvm.loop !21
 
-66:                                               ; preds = %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i
-  %67 = load i32, ptr %18, align 8
-  %.not.i23.i = icmp sgt i32 %67, -1
+_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i: ; preds = %.loopexit.i.i, %.preheader.i
+  %64 = icmp eq i8 %32, 64
+  br i1 %64, label %65, label %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit
+
+65:                                               ; preds = %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i
+  %66 = load i32, ptr %18, align 8
+  %.not.i23.i = icmp sgt i32 %66, -1
   br i1 %.not.i23.i, label %.loopexit, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i
 
-_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %66
-  %strlen.i.i.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %invariant.gep.i.i)
-  %68 = add i64 %strlen.i.i.i, 1
-  call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %4, ptr noundef nonnull readonly %31, i64 noundef %68)
+_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %65
+  %scevgep.i.i.i = getelementptr i8, ptr %31, i64 1
+  %strlen.i.i.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i.i.i)
+  %67 = add i64 %strlen.i.i.i, 1
+  call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %4, ptr noundef nonnull readonly %31, i64 noundef %67)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %29, %66, %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i
+.loopexit:                                        ; preds = %.preheader.i, %29, %65, %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i
   %.val = load i32, ptr %16, align 8, !tbaa !14
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.val8 = load i32, ptr %69, align 8, !tbaa !22
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.val8 = load i32, ptr %68, align 8, !tbaa !22
   %.not = icmp slt i32 %.val8, %.val
-  %70 = icmp sgt i32 %.val8, 0
-  %spec.select = and i1 %.not, %70
+  %69 = icmp sgt i32 %.val8, 0
+  %spec.select = and i1 %.not, %69
   br label %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit
 
 _ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit: ; preds = %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i, %26, %13, %22, %.loopexit
-  %71 = phi i1 [ %spec.select, %.loopexit ], [ false, %22 ], [ false, %13 ], [ false, %26 ], [ false, %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i ]
+  %70 = phi i1 [ %spec.select, %.loopexit ], [ false, %22 ], [ false, %13 ], [ false, %26 ], [ false, %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #15
-  br label %72
+  br label %71
 
-72:                                               ; preds = %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit, %11
-  %.0 = phi i1 [ %12, %11 ], [ %71, %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit ]
+71:                                               ; preds = %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit, %11
+  %.0 = phi i1 [ %12, %11 ], [ %70, %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit ]
   ret i1 %.0
 }
 

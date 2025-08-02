@@ -178,8 +178,8 @@ define dso_local float @float4in_internal(ptr noundef %0, ptr noundef writeonly 
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
   %7 = load i8, ptr %0, align 1
-  %.not76 = icmp eq i8 %7, 0
-  br i1 %.not76, label %._crit_edge, label %.lr.ph
+  %.not75 = icmp eq i8 %7, 0
+  br i1 %.not75, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = tail call ptr @__ctype_b_loc() #21
@@ -188,7 +188,7 @@ define dso_local float @float4in_internal(ptr noundef %0, ptr noundef writeonly 
 
 10:                                               ; preds = %.lr.ph, %16
   %11 = phi i8 [ %7, %.lr.ph ], [ %18, %16 ]
-  %.05777 = phi ptr [ %0, %.lr.ph ], [ %17, %16 ]
+  %.05776 = phi ptr [ %0, %.lr.ph ], [ %17, %16 ]
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds nuw i16, ptr %9, i64 %12
   %14 = load i16, ptr %13, align 2
@@ -197,66 +197,66 @@ define dso_local float @float4in_internal(ptr noundef %0, ptr noundef writeonly 
   br i1 %.not64, label %.critedge, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %.05777, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.05776, i64 1
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %16, %5
   %19 = tail call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #20
-  br i1 %19, label %20, label %85
+  br i1 %19, label %20, label %.critedge71
 
 20:                                               ; preds = %._crit_edge
   %21 = tail call i32 @errcode(i32 noundef 33685634) #20
   %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #20
   tail call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 208, ptr noundef nonnull @__func__.float4in_internal) #20
-  br label %85
+  br label %.critedge71
 
 .critedge:                                        ; preds = %10
   %23 = tail call ptr @__errno_location() #21
   store i32 0, ptr %23, align 4
-  %24 = call float @strtof(ptr noundef nonnull %.05777, ptr noundef nonnull %6) #20
+  %24 = call float @strtof(ptr noundef nonnull %.05776, ptr noundef nonnull %6) #20
   %25 = load ptr, ptr %6, align 8
-  %26 = icmp ne ptr %25, %.05777
+  %26 = icmp ne ptr %25, %.05776
   %.pr = load i32, ptr %23, align 4
   %.not65 = icmp eq i32 %.pr, 0
   %or.cond91 = select i1 %26, i1 %.not65, i1 false
-  br i1 %or.cond91, label %.thread, label %thread-pre-split
+  br i1 %or.cond91, label %66, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.critedge
-  %27 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.6, i64 noundef 3) #20
+  %27 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.6, i64 noundef 3) #20
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.thread.sink.split, label %29
+  br i1 %28, label %.sink.split, label %29
 
 29:                                               ; preds = %thread-pre-split
-  %30 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.7, i64 noundef 8) #20
+  %30 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.7, i64 noundef 8) #20
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.thread.sink.split, label %32
+  br i1 %31, label %.sink.split, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.8, i64 noundef 9) #20
+  %33 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.8, i64 noundef 9) #20
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.thread.sink.split, label %35
+  br i1 %34, label %.sink.split, label %35
 
 35:                                               ; preds = %32
-  %36 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.9, i64 noundef 9) #20
+  %36 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.9, i64 noundef 9) #20
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.thread.sink.split, label %38
+  br i1 %37, label %.sink.split, label %38
 
 38:                                               ; preds = %35
-  %39 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.10, i64 noundef 3) #20
+  %39 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.10, i64 noundef 3) #20
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.thread.sink.split, label %41
+  br i1 %40, label %.sink.split, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.11, i64 noundef 4) #20
+  %42 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.11, i64 noundef 4) #20
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.thread.sink.split, label %44
+  br i1 %43, label %.sink.split, label %44
 
 44:                                               ; preds = %41
-  %45 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.12, i64 noundef 4) #20
+  %45 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.12, i64 noundef 4) #20
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.thread.sink.split, label %47
+  br i1 %46, label %.sink.split, label %47
 
 47:                                               ; preds = %44
   %48 = icmp eq i32 %.pr, 34
@@ -264,94 +264,94 @@ thread-pre-split:                                 ; preds = %.critedge
 
 49:                                               ; preds = %47
   %or.cond = tail call i1 @llvm.is.fpclass.f32(float %24, i32 612)
-  br i1 %or.cond, label %50, label %.thread
+  br i1 %or.cond, label %50, label %66
 
 50:                                               ; preds = %49
-  %51 = tail call ptr @pstrdup(ptr noundef nonnull %.05777) #20
+  %51 = tail call ptr @pstrdup(ptr noundef nonnull %.05776) #20
   %52 = ptrtoint ptr %25 to i64
-  %53 = ptrtoint ptr %.05777 to i64
+  %53 = ptrtoint ptr %.05776 to i64
   %54 = sub i64 %52, %53
   %55 = getelementptr inbounds i8, ptr %51, i64 %54
   store i8 0, ptr %55, align 1
   %56 = tail call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #20
-  br i1 %56, label %57, label %85
+  br i1 %56, label %57, label %.critedge71
 
 57:                                               ; preds = %50
   %58 = tail call i32 @errcode(i32 noundef 50331778) #20
   %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %51) #20
   tail call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @__func__.float4in_internal) #20
-  br label %85
+  br label %.critedge71
 
 60:                                               ; preds = %47
   %61 = tail call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #20
-  br i1 %61, label %62, label %85
+  br i1 %61, label %62, label %.critedge71
 
 62:                                               ; preds = %60
   %63 = tail call i32 @errcode(i32 noundef 33685634) #20
   %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #20
   tail call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 295, ptr noundef nonnull @__func__.float4in_internal) #20
-  br label %85
+  br label %.critedge71
 
-.thread.sink.split:                               ; preds = %44, %41, %38, %35, %32, %29, %thread-pre-split
+.sink.split:                                      ; preds = %44, %41, %38, %35, %32, %29, %thread-pre-split
   %.sink90 = phi i64 [ 3, %thread-pre-split ], [ 8, %29 ], [ 9, %32 ], [ 9, %35 ], [ 3, %38 ], [ 4, %41 ], [ 4, %44 ]
   %.058.ph = phi float [ 0x7FF8000000000000, %thread-pre-split ], [ 0x7FF0000000000000, %29 ], [ 0x7FF0000000000000, %32 ], [ 0xFFF0000000000000, %35 ], [ 0x7FF0000000000000, %38 ], [ 0x7FF0000000000000, %41 ], [ 0xFFF0000000000000, %44 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.05777, i64 %.sink90
+  %65 = getelementptr inbounds nuw i8, ptr %.05776, i64 %.sink90
   store ptr %65, ptr %6, align 8
-  br label %.thread
+  br label %66
 
-.thread:                                          ; preds = %.critedge, %.thread.sink.split, %49
-  %.promoted = phi ptr [ %25, %49 ], [ %65, %.thread.sink.split ], [ %25, %.critedge ]
-  %.058 = phi float [ %24, %49 ], [ %.058.ph, %.thread.sink.split ], [ %24, %.critedge ]
-  %66 = load i8, ptr %.promoted, align 1
-  %.not6680 = icmp eq i8 %66, 0
-  br i1 %.not6680, label %.critedge6, label %.lr.ph81
+66:                                               ; preds = %.critedge, %.sink.split, %49
+  %.promoted = phi ptr [ %25, %49 ], [ %65, %.sink.split ], [ %25, %.critedge ]
+  %.058 = phi float [ %24, %49 ], [ %.058.ph, %.sink.split ], [ %24, %.critedge ]
+  %67 = load i8, ptr %.promoted, align 1
+  %.not6679 = icmp eq i8 %67, 0
+  br i1 %.not6679, label %.critedge6, label %.lr.ph81
 
-.lr.ph81:                                         ; preds = %.thread
-  %67 = load ptr, ptr %8, align 8
-  br label %68
+.lr.ph81:                                         ; preds = %66
+  %68 = load ptr, ptr %8, align 8
+  br label %69
 
-68:                                               ; preds = %.lr.ph81, %75
-  %69 = phi i8 [ %66, %.lr.ph81 ], [ %77, %75 ]
-  %70 = phi ptr [ %.promoted, %.lr.ph81 ], [ %76, %75 ]
-  %71 = zext i8 %69 to i64
-  %72 = getelementptr inbounds nuw i16, ptr %67, i64 %71
-  %73 = load i16, ptr %72, align 2
-  %74 = and i16 %73, 8192
-  %.not67 = icmp eq i16 %74, 0
-  br i1 %.not67, label %.critedge6.thread, label %75
+69:                                               ; preds = %.lr.ph81, %76
+  %70 = phi i8 [ %67, %.lr.ph81 ], [ %78, %76 ]
+  %71 = phi ptr [ %.promoted, %.lr.ph81 ], [ %77, %76 ]
+  %72 = zext i8 %70 to i64
+  %73 = getelementptr inbounds nuw i16, ptr %68, i64 %72
+  %74 = load i16, ptr %73, align 2
+  %75 = and i16 %74, 8192
+  %.not67 = icmp eq i16 %75, 0
+  br i1 %.not67, label %.critedge6.thread, label %76
 
-75:                                               ; preds = %68
-  %76 = getelementptr inbounds nuw i8, ptr %70, i64 1
-  %77 = load i8, ptr %76, align 1
-  %.not66 = icmp eq i8 %77, 0
-  br i1 %.not66, label %.critedge6, label %68, !llvm.loop !6
+76:                                               ; preds = %69
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 1
+  %78 = load i8, ptr %77, align 1
+  %.not66 = icmp eq i8 %78, 0
+  br i1 %.not66, label %.critedge6, label %69, !llvm.loop !6
 
-.critedge6:                                       ; preds = %75, %.thread
-  %.lcssa78 = phi ptr [ %.promoted, %.thread ], [ %76, %75 ]
+.critedge6:                                       ; preds = %76, %66
+  %.lcssa77 = phi ptr [ %.promoted, %66 ], [ %77, %76 ]
   %.not68 = icmp eq ptr %1, null
-  br i1 %.not68, label %85, label %78
+  br i1 %.not68, label %.critedge71, label %79
 
-.critedge6.thread:                                ; preds = %68
+.critedge6.thread:                                ; preds = %69
   %.not6872 = icmp eq ptr %1, null
-  br i1 %.not6872, label %80, label %78
+  br i1 %.not6872, label %81, label %79
 
-78:                                               ; preds = %.critedge6.thread, %.critedge6
-  %79 = phi ptr [ %70, %.critedge6.thread ], [ %.lcssa78, %.critedge6 ]
-  store ptr %79, ptr %1, align 8
-  br label %85
+79:                                               ; preds = %.critedge6.thread, %.critedge6
+  %80 = phi ptr [ %71, %.critedge6.thread ], [ %.lcssa77, %.critedge6 ]
+  store ptr %80, ptr %1, align 8
+  br label %.critedge71
 
-80:                                               ; preds = %.critedge6.thread
-  %81 = tail call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #20
-  br i1 %81, label %82, label %85
+81:                                               ; preds = %.critedge6.thread
+  %82 = tail call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #20
+  br i1 %82, label %83, label %.critedge71
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @errcode(i32 noundef 33685634) #20
-  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #20
+83:                                               ; preds = %81
+  %84 = tail call i32 @errcode(i32 noundef 33685634) #20
+  %85 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #20
   tail call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 309, ptr noundef nonnull @__func__.float4in_internal) #20
-  br label %85
+  br label %.critedge71
 
-85:                                               ; preds = %.critedge6, %57, %50, %62, %60, %78, %80, %82, %._crit_edge, %20
-  %.0 = phi float [ 0.000000e+00, %20 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %82 ], [ 0.000000e+00, %80 ], [ %.058, %78 ], [ 0.000000e+00, %60 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %57 ], [ %.058, %.critedge6 ]
+.critedge71:                                      ; preds = %.critedge6, %57, %50, %62, %60, %79, %81, %83, %._crit_edge, %20
+  %.0 = phi float [ 0.000000e+00, %20 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %83 ], [ 0.000000e+00, %81 ], [ %.058, %79 ], [ 0.000000e+00, %60 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %57 ], [ %.058, %.critedge6 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   ret float %.0
 }
@@ -457,8 +457,8 @@ define dso_local double @float8in_internal(ptr noundef %0, ptr noundef writeonly
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
   %7 = load i8, ptr %0, align 1
-  %.not76 = icmp eq i8 %7, 0
-  br i1 %.not76, label %._crit_edge, label %.lr.ph
+  %.not75 = icmp eq i8 %7, 0
+  br i1 %.not75, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = tail call ptr @__ctype_b_loc() #21
@@ -467,7 +467,7 @@ define dso_local double @float8in_internal(ptr noundef %0, ptr noundef writeonly
 
 10:                                               ; preds = %.lr.ph, %16
   %11 = phi i8 [ %7, %.lr.ph ], [ %18, %16 ]
-  %.05777 = phi ptr [ %0, %.lr.ph ], [ %17, %16 ]
+  %.05776 = phi ptr [ %0, %.lr.ph ], [ %17, %16 ]
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds nuw i16, ptr %9, i64 %12
   %14 = load i16, ptr %13, align 2
@@ -476,66 +476,66 @@ define dso_local double @float8in_internal(ptr noundef %0, ptr noundef writeonly
   br i1 %.not64, label %.critedge, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %.05777, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.05776, i64 1
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %16, %5
   %19 = tail call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #20
-  br i1 %19, label %20, label %85
+  br i1 %19, label %20, label %.critedge71
 
 20:                                               ; preds = %._crit_edge
   %21 = tail call i32 @errcode(i32 noundef 33685634) #20
   %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #20
   tail call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 414, ptr noundef nonnull @__func__.float8in_internal) #20
-  br label %85
+  br label %.critedge71
 
 .critedge:                                        ; preds = %10
   %23 = tail call ptr @__errno_location() #21
   store i32 0, ptr %23, align 4
-  %24 = call double @strtod(ptr noundef nonnull %.05777, ptr noundef nonnull %6) #20
+  %24 = call double @strtod(ptr noundef nonnull %.05776, ptr noundef nonnull %6) #20
   %25 = load ptr, ptr %6, align 8
-  %26 = icmp ne ptr %25, %.05777
+  %26 = icmp ne ptr %25, %.05776
   %.pr = load i32, ptr %23, align 4
   %.not65 = icmp eq i32 %.pr, 0
   %or.cond91 = select i1 %26, i1 %.not65, i1 false
-  br i1 %or.cond91, label %.thread, label %thread-pre-split
+  br i1 %or.cond91, label %66, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.critedge
-  %27 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.6, i64 noundef 3) #20
+  %27 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.6, i64 noundef 3) #20
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.thread.sink.split, label %29
+  br i1 %28, label %.sink.split, label %29
 
 29:                                               ; preds = %thread-pre-split
-  %30 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.7, i64 noundef 8) #20
+  %30 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.7, i64 noundef 8) #20
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.thread.sink.split, label %32
+  br i1 %31, label %.sink.split, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.8, i64 noundef 9) #20
+  %33 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.8, i64 noundef 9) #20
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.thread.sink.split, label %35
+  br i1 %34, label %.sink.split, label %35
 
 35:                                               ; preds = %32
-  %36 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.9, i64 noundef 9) #20
+  %36 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.9, i64 noundef 9) #20
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.thread.sink.split, label %38
+  br i1 %37, label %.sink.split, label %38
 
 38:                                               ; preds = %35
-  %39 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.10, i64 noundef 3) #20
+  %39 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.10, i64 noundef 3) #20
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.thread.sink.split, label %41
+  br i1 %40, label %.sink.split, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.11, i64 noundef 4) #20
+  %42 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.11, i64 noundef 4) #20
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.thread.sink.split, label %44
+  br i1 %43, label %.sink.split, label %44
 
 44:                                               ; preds = %41
-  %45 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05777, ptr noundef nonnull @.str.12, i64 noundef 4) #20
+  %45 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05776, ptr noundef nonnull @.str.12, i64 noundef 4) #20
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.thread.sink.split, label %47
+  br i1 %46, label %.sink.split, label %47
 
 47:                                               ; preds = %44
   %48 = icmp eq i32 %.pr, 34
@@ -543,94 +543,94 @@ thread-pre-split:                                 ; preds = %.critedge
 
 49:                                               ; preds = %47
   %or.cond = tail call i1 @llvm.is.fpclass.f64(double %24, i32 612)
-  br i1 %or.cond, label %50, label %.thread
+  br i1 %or.cond, label %50, label %66
 
 50:                                               ; preds = %49
-  %51 = tail call ptr @pstrdup(ptr noundef nonnull %.05777) #20
+  %51 = tail call ptr @pstrdup(ptr noundef nonnull %.05776) #20
   %52 = ptrtoint ptr %25 to i64
-  %53 = ptrtoint ptr %.05777 to i64
+  %53 = ptrtoint ptr %.05776 to i64
   %54 = sub i64 %52, %53
   %55 = getelementptr inbounds i8, ptr %51, i64 %54
   store i8 0, ptr %55, align 1
   %56 = tail call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #20
-  br i1 %56, label %57, label %85
+  br i1 %56, label %57, label %.critedge71
 
 57:                                               ; preds = %50
   %58 = tail call i32 @errcode(i32 noundef 50331778) #20
   %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %51) #20
   tail call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 490, ptr noundef nonnull @__func__.float8in_internal) #20
-  br label %85
+  br label %.critedge71
 
 60:                                               ; preds = %47
   %61 = tail call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #20
-  br i1 %61, label %62, label %85
+  br i1 %61, label %62, label %.critedge71
 
 62:                                               ; preds = %60
   %63 = tail call i32 @errcode(i32 noundef 33685634) #20
   %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #20
   tail call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__func__.float8in_internal) #20
-  br label %85
+  br label %.critedge71
 
-.thread.sink.split:                               ; preds = %44, %41, %38, %35, %32, %29, %thread-pre-split
+.sink.split:                                      ; preds = %44, %41, %38, %35, %32, %29, %thread-pre-split
   %.sink90 = phi i64 [ 3, %thread-pre-split ], [ 8, %29 ], [ 9, %32 ], [ 9, %35 ], [ 3, %38 ], [ 4, %41 ], [ 4, %44 ]
   %.058.ph = phi double [ 0x7FF8000000000000, %thread-pre-split ], [ 0x7FF0000000000000, %29 ], [ 0x7FF0000000000000, %32 ], [ 0xFFF0000000000000, %35 ], [ 0x7FF0000000000000, %38 ], [ 0x7FF0000000000000, %41 ], [ 0xFFF0000000000000, %44 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.05777, i64 %.sink90
+  %65 = getelementptr inbounds nuw i8, ptr %.05776, i64 %.sink90
   store ptr %65, ptr %6, align 8
-  br label %.thread
+  br label %66
 
-.thread:                                          ; preds = %.critedge, %.thread.sink.split, %49
-  %.promoted = phi ptr [ %25, %49 ], [ %65, %.thread.sink.split ], [ %25, %.critedge ]
-  %.058 = phi double [ %24, %49 ], [ %.058.ph, %.thread.sink.split ], [ %24, %.critedge ]
-  %66 = load i8, ptr %.promoted, align 1
-  %.not6680 = icmp eq i8 %66, 0
-  br i1 %.not6680, label %.critedge6, label %.lr.ph81
+66:                                               ; preds = %.critedge, %.sink.split, %49
+  %.promoted = phi ptr [ %25, %49 ], [ %65, %.sink.split ], [ %25, %.critedge ]
+  %.058 = phi double [ %24, %49 ], [ %.058.ph, %.sink.split ], [ %24, %.critedge ]
+  %67 = load i8, ptr %.promoted, align 1
+  %.not6679 = icmp eq i8 %67, 0
+  br i1 %.not6679, label %.critedge6, label %.lr.ph81
 
-.lr.ph81:                                         ; preds = %.thread
-  %67 = load ptr, ptr %8, align 8
-  br label %68
+.lr.ph81:                                         ; preds = %66
+  %68 = load ptr, ptr %8, align 8
+  br label %69
 
-68:                                               ; preds = %.lr.ph81, %75
-  %69 = phi i8 [ %66, %.lr.ph81 ], [ %77, %75 ]
-  %70 = phi ptr [ %.promoted, %.lr.ph81 ], [ %76, %75 ]
-  %71 = zext i8 %69 to i64
-  %72 = getelementptr inbounds nuw i16, ptr %67, i64 %71
-  %73 = load i16, ptr %72, align 2
-  %74 = and i16 %73, 8192
-  %.not67 = icmp eq i16 %74, 0
-  br i1 %.not67, label %.critedge6.thread, label %75
+69:                                               ; preds = %.lr.ph81, %76
+  %70 = phi i8 [ %67, %.lr.ph81 ], [ %78, %76 ]
+  %71 = phi ptr [ %.promoted, %.lr.ph81 ], [ %77, %76 ]
+  %72 = zext i8 %70 to i64
+  %73 = getelementptr inbounds nuw i16, ptr %68, i64 %72
+  %74 = load i16, ptr %73, align 2
+  %75 = and i16 %74, 8192
+  %.not67 = icmp eq i16 %75, 0
+  br i1 %.not67, label %.critedge6.thread, label %76
 
-75:                                               ; preds = %68
-  %76 = getelementptr inbounds nuw i8, ptr %70, i64 1
-  %77 = load i8, ptr %76, align 1
-  %.not66 = icmp eq i8 %77, 0
-  br i1 %.not66, label %.critedge6, label %68, !llvm.loop !8
+76:                                               ; preds = %69
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 1
+  %78 = load i8, ptr %77, align 1
+  %.not66 = icmp eq i8 %78, 0
+  br i1 %.not66, label %.critedge6, label %69, !llvm.loop !8
 
-.critedge6:                                       ; preds = %75, %.thread
-  %.lcssa78 = phi ptr [ %.promoted, %.thread ], [ %76, %75 ]
+.critedge6:                                       ; preds = %76, %66
+  %.lcssa77 = phi ptr [ %.promoted, %66 ], [ %77, %76 ]
   %.not68 = icmp eq ptr %1, null
-  br i1 %.not68, label %85, label %78
+  br i1 %.not68, label %.critedge71, label %79
 
-.critedge6.thread:                                ; preds = %68
+.critedge6.thread:                                ; preds = %69
   %.not6872 = icmp eq ptr %1, null
-  br i1 %.not6872, label %80, label %78
+  br i1 %.not6872, label %81, label %79
 
-78:                                               ; preds = %.critedge6.thread, %.critedge6
-  %79 = phi ptr [ %70, %.critedge6.thread ], [ %.lcssa78, %.critedge6 ]
-  store ptr %79, ptr %1, align 8
-  br label %85
+79:                                               ; preds = %.critedge6.thread, %.critedge6
+  %80 = phi ptr [ %71, %.critedge6.thread ], [ %.lcssa77, %.critedge6 ]
+  store ptr %80, ptr %1, align 8
+  br label %.critedge71
 
-80:                                               ; preds = %.critedge6.thread
-  %81 = tail call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #20
-  br i1 %81, label %82, label %85
+81:                                               ; preds = %.critedge6.thread
+  %82 = tail call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #20
+  br i1 %82, label %83, label %.critedge71
 
-82:                                               ; preds = %80
-  %83 = tail call i32 @errcode(i32 noundef 33685634) #20
-  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #20
+83:                                               ; preds = %81
+  %84 = tail call i32 @errcode(i32 noundef 33685634) #20
+  %85 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #20
   tail call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 511, ptr noundef nonnull @__func__.float8in_internal) #20
-  br label %85
+  br label %.critedge71
 
-85:                                               ; preds = %.critedge6, %57, %50, %62, %60, %78, %80, %82, %._crit_edge, %20
-  %.0 = phi double [ 0.000000e+00, %20 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %82 ], [ 0.000000e+00, %80 ], [ %.058, %78 ], [ 0.000000e+00, %60 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %57 ], [ %.058, %.critedge6 ]
+.critedge71:                                      ; preds = %.critedge6, %57, %50, %62, %60, %79, %81, %83, %._crit_edge, %20
+  %.0 = phi double [ 0.000000e+00, %20 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %83 ], [ 0.000000e+00, %81 ], [ %.058, %79 ], [ 0.000000e+00, %60 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %57 ], [ %.058, %.critedge6 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   ret double %.0
 }

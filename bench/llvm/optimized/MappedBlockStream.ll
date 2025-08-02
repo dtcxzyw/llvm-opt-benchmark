@@ -1350,21 +1350,21 @@ _ZN4llvm12BinaryStream18checkOffsetForReadEmm.exit.thread: ; preds = %5, %17
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17
   store ptr null, ptr %0, align 8, !tbaa !85, !alias.scope !137
-  %.not51 = icmp eq i64 %4, 0
-  br i1 %.not51, label %_ZN4llvm5ErrorD2Ev.exit34, label %.lr.ph
+  %.not47 = icmp eq i64 %4, 0
+  br i1 %.not47, label %_ZN4llvm5ErrorD2Ev.exit35, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm5ErrorD2Ev.exit
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %27
 
-27:                                               ; preds = %.lr.ph, %.critedge32
-  %.055 = phi i64 [ %10, %.lr.ph ], [ %43, %.critedge32 ]
-  %.02354 = phi i64 [ %11, %.lr.ph ], [ 0, %.critedge32 ]
-  %.02953 = phi i64 [ 0, %.lr.ph ], [ %41, %.critedge32 ]
-  %.04352 = phi i64 [ %4, %.lr.ph ], [ %42, %.critedge32 ]
+27:                                               ; preds = %.lr.ph, %_ZN4llvm5ErrorD2Ev.exit34
+  %.051 = phi i64 [ %10, %.lr.ph ], [ %43, %_ZN4llvm5ErrorD2Ev.exit34 ]
+  %.02350 = phi i64 [ %11, %.lr.ph ], [ 0, %_ZN4llvm5ErrorD2Ev.exit34 ]
+  %.02949 = phi i64 [ 0, %.lr.ph ], [ %41, %_ZN4llvm5ErrorD2Ev.exit34 ]
+  %.04448 = phi i64 [ %4, %.lr.ph ], [ %42, %_ZN4llvm5ErrorD2Ev.exit34 ]
   %28 = load ptr, ptr %25, align 8, !tbaa !36
-  %29 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %28, i64 %.055
+  %29 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %28, i64 %.051
   call void @llvm.assume(i1 true) [ "align"(ptr %29, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %29, align 1
   %30 = zext i32 %.0.copyload.i.i.i to i64
@@ -1375,34 +1375,34 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17
   %33 = mul nuw i64 %32, %30
   call void @_ZNK4llvm15BinaryStreamRef9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %26, i64 noundef %33, i64 noundef %32, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   %34 = load ptr, ptr %0, align 8, !tbaa !85
-  %.not50 = icmp eq ptr %34, null
-  br i1 %.not50, label %.critedge32, label %.critedge32.thread
+  %.not46 = icmp eq ptr %34, null
+  br i1 %.not46, label %_ZN4llvm5ErrorD2Ev.exit34, label %.critedge33
 
-.critedge32.thread:                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
-  br label %.critedge
-
-.critedge32:                                      ; preds = %27
+_ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %27
   %35 = load ptr, ptr %6, align 8, !tbaa !100
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.02354
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.02350
   %37 = load i32, ptr %7, align 8, !tbaa !6
   %38 = zext i32 %37 to i64
-  %39 = sub nsw i64 %38, %.02354
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %39, i64 %.04352)
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %.02953
+  %39 = sub nsw i64 %38, %.02350
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %39, i64 %.04448)
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %.02949
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 1 %36, i64 %.sroa.speculated, i1 false)
-  %41 = add i64 %.sroa.speculated, %.02953
-  %42 = sub i64 %.04352, %.sroa.speculated
-  %43 = add i64 %.055, 1
+  %41 = add i64 %.sroa.speculated, %.02949
+  %42 = sub i64 %.04448, %.sroa.speculated
+  %43 = add i64 %.051, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
   %.not = icmp eq i64 %42, 0
-  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit34, label %27, !llvm.loop !140
+  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit35, label %27, !llvm.loop !140
 
-_ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %.critedge32, %_ZN4llvm5ErrorD2Ev.exit
+_ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit
   store ptr null, ptr %0, align 8, !tbaa !85
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit34, %.critedge32.thread, %_ZN4llvm12BinaryStream18checkOffsetForReadEmm.exit.thread
+.critedge33:                                      ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  br label %.critedge
+
+.critedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit35, %.critedge33, %_ZN4llvm12BinaryStream18checkOffsetForReadEmm.exit.thread
   ret void
 }
 
@@ -2713,13 +2713,13 @@ define dso_local void @_ZN4llvm3msf25WritableMappedBlockStream10writeBytesEmNS_8
   %.sink6.i.sink.i = phi i32 [ 3, %16 ], [ 1, %17 ], [ 3, %24 ]
   %26 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17, !noalias !177
   tail call void @_ZN4llvm17BinaryStreamErrorC1ENS_17stream_error_codeE(ptr noundef nonnull align 8 dereferenceable(44) %26, i32 noundef %.sink6.i.sink.i) #18, !noalias !177
-  br label %.critedge.thread.sink.split
+  br label %.critedge33.sink.split
 
 27:                                               ; preds = %17, %24
   store ptr null, ptr %0, align 8, !tbaa !85, !alias.scope !177
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.not54 = icmp eq i64 %4, 0
-  br i1 %.not54, label %._crit_edge, label %.lr.ph
+  %.not51 = icmp eq i64 %4, 0
+  br i1 %.not51, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %29 = load i32, ptr %28, align 8, !tbaa !6
@@ -2730,36 +2730,36 @@ define dso_local void @_ZN4llvm3msf25WritableMappedBlockStream10writeBytesEmNS_8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 136
   br label %35
 
-35:                                               ; preds = %.lr.ph, %.critedge
-  %.02658 = phi i64 [ %32, %.lr.ph ], [ %48, %.critedge ]
-  %.02857 = phi i64 [ %31, %.lr.ph ], [ 0, %.critedge ]
-  %.03156 = phi i64 [ 0, %.lr.ph ], [ %47, %.critedge ]
-  %.055 = phi i64 [ %4, %.lr.ph ], [ %46, %.critedge ]
+35:                                               ; preds = %.lr.ph, %_ZN4llvm5ErrorD2Ev.exit34
+  %.02655 = phi i64 [ %32, %.lr.ph ], [ %48, %_ZN4llvm5ErrorD2Ev.exit34 ]
+  %.02854 = phi i64 [ %31, %.lr.ph ], [ 0, %_ZN4llvm5ErrorD2Ev.exit34 ]
+  %.03153 = phi i64 [ 0, %.lr.ph ], [ %47, %_ZN4llvm5ErrorD2Ev.exit34 ]
+  %.052 = phi i64 [ %4, %.lr.ph ], [ %46, %_ZN4llvm5ErrorD2Ev.exit34 ]
   %36 = load ptr, ptr %33, align 8, !tbaa !36
-  %37 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %36, i64 %.02658
+  %37 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %36, i64 %.02655
   call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %37, align 1
   %38 = zext i32 %.0.copyload.i.i.i to i64
   %39 = load i32, ptr %28, align 8, !tbaa !6
   %40 = zext i32 %39 to i64
-  %41 = sub nsw i64 %40, %.02857
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %41, i64 %.055)
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 %.03156
+  %41 = sub nsw i64 %40, %.02854
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %41, i64 %.052)
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 %.03153
   %43 = mul nuw i64 %40, %38
-  %44 = add nuw i64 %43, %.02857
+  %44 = add nuw i64 %43, %.02854
   tail call void @_ZNK4llvm23WritableBinaryStreamRef10writeBytesEmNS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef %44, ptr %42, i64 %.sroa.speculated) #18
   %45 = load ptr, ptr %0, align 8, !tbaa !85
-  %.not53 = icmp eq ptr %45, null
-  br i1 %.not53, label %.critedge, label %.critedge.thread
+  %.not50 = icmp eq ptr %45, null
+  br i1 %.not50, label %_ZN4llvm5ErrorD2Ev.exit34, label %.critedge33
 
-.critedge:                                        ; preds = %35
-  %46 = sub i64 %.055, %.sroa.speculated
-  %47 = add i64 %.sroa.speculated, %.03156
-  %48 = add i64 %.02658, 1
+_ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %35
+  %46 = sub i64 %.052, %.sroa.speculated
+  %47 = add i64 %.sroa.speculated, %.03153
+  %48 = add i64 %.02655, 1
   %.not = icmp eq i64 %46, 0
   br i1 %.not, label %._crit_edge, label %35, !llvm.loop !183
 
-._crit_edge:                                      ; preds = %.critedge, %27
+._crit_edge:                                      ; preds = %_ZN4llvm5ErrorD2Ev.exit34, %27
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %51 = load i32, ptr %50, align 8, !tbaa !103
@@ -2796,7 +2796,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_15MutableArrayRefIhEESaIS4_EE
   %.pn12.i.i = phi ptr [ %58, %57 ], [ %60, %59 ], [ %60, %.lr.ph.i6.i12.i3.i.i ], [ %60, %.critedge2.i8.i14.i9.i.i ]
   %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %53, i64 %56
   %.not46.i = icmp eq ptr %.pn14.i.i, %63
-  br i1 %.not46.i, label %.critedge.thread.sink.split, label %.lr.ph48.i
+  br i1 %.not46.i, label %.critedge33.sink.split, label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_15MutableArrayRefIhEESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit.i
   %64 = add i64 %4, %2
@@ -2862,15 +2862,15 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_15MutableArrayRefIhEESaIS4_EE
 
 _ZN4llvm16DenseMapIteratorIjSt6vectorINS_15MutableArrayRefIhEESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb1EEppEv.exit.i: ; preds = %.critedge2.i6.i.i, %.lr.ph.i4.i.i, %.loopexit.i
   %.sroa.034.2.i = phi ptr [ %91, %.loopexit.i ], [ %93, %.critedge2.i6.i.i ], [ %.sroa.034.1.i, %.lr.ph.i4.i.i ]
-  %.not.i34 = icmp eq ptr %.sroa.034.2.i, %63
-  br i1 %.not.i34, label %.critedge.thread.sink.split, label %65
+  %.not.i35 = icmp eq ptr %.sroa.034.2.i, %63
+  br i1 %.not.i35, label %.critedge33.sink.split, label %65
 
-.critedge.thread.sink.split:                      ; preds = %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_15MutableArrayRefIhEESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb1EEppEv.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_15MutableArrayRefIhEESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit.i, %25
+.critedge33.sink.split:                           ; preds = %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_15MutableArrayRefIhEESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb1EEppEv.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_15MutableArrayRefIhEESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit.i, %25
   %.sink = phi ptr [ %26, %25 ], [ null, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorINS_15MutableArrayRefIhEESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E5beginEv.exit.i ], [ null, %_ZN4llvm16DenseMapIteratorIjSt6vectorINS_15MutableArrayRefIhEESaIS3_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EELb1EEppEv.exit.i ]
   store ptr %.sink, ptr %0, align 8, !tbaa !85
-  br label %.critedge.thread
+  br label %.critedge33
 
-.critedge.thread:                                 ; preds = %35, %.critedge.thread.sink.split
+.critedge33:                                      ; preds = %35, %.critedge33.sink.split
   ret void
 }
 

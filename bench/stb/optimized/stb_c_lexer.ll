@@ -232,19 +232,19 @@ define noundef i32 @stb__clex_parse_string(ptr noundef captures(none) %0, ptr no
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
   %13 = load i8, ptr %5, align 1, !tbaa !16
-  %.not53 = icmp eq i8 %13, %6
-  br i1 %.not53, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp eq i8 %13, %6
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %38
   %14 = phi i8 [ %39, %38 ], [ %13, %3 ]
-  %.03655 = phi ptr [ %30, %38 ], [ %8, %3 ]
-  %.03854 = phi ptr [ %.341, %38 ], [ %5, %3 ]
+  %.03651 = phi ptr [ %30, %38 ], [ %8, %3 ]
+  %.03850 = phi ptr [ %.341, %38 ], [ %5, %3 ]
   %15 = icmp eq i8 %14, 92
   br i1 %15, label %16, label %27
 
 16:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  %17 = call i32 @stb__clex_parse_char(ptr noundef nonnull %.03854, ptr noundef nonnull %4)
+  %17 = call i32 @stb__clex_parse_char(ptr noundef nonnull %.03850, ptr noundef nonnull %4)
   %18 = icmp sgt i32 %17, -1
   %19 = load ptr, ptr %4, align 8, !tbaa !26
   br i1 %18, label %.thread, label %21
@@ -265,16 +265,16 @@ define noundef i32 @stb__clex_parse_string(ptr noundef captures(none) %0, ptr no
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %26, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  br label %.thread45
+  br label %.critedge
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds nuw i8, ptr %.03854, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.03850, i64 1
   br label %29
 
 29:                                               ; preds = %.thread, %27
   %.341 = phi ptr [ %28, %27 ], [ %19, %.thread ]
   %.033 = phi i8 [ %14, %27 ], [ %20, %.thread ]
-  %30 = getelementptr inbounds nuw i8, ptr %.03655, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.03651, i64 1
   %31 = icmp ugt ptr %30, %12
   br i1 %31, label %32, label %38
 
@@ -288,10 +288,10 @@ define noundef i32 @stb__clex_parse_string(ptr noundef captures(none) %0, ptr no
   %36 = getelementptr inbounds nuw i8, ptr %.341, i64 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %36, ptr %37, align 8, !tbaa !13
-  br label %.thread45
+  br label %.critedge
 
 38:                                               ; preds = %29
-  store i8 %.033, ptr %.03655, align 1, !tbaa !16
+  store i8 %.033, ptr %.03651, align 1, !tbaa !16
   %39 = load i8, ptr %.341, align 1, !tbaa !16
   %.not = icmp eq i8 %39, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
@@ -319,9 +319,9 @@ define noundef i32 @stb__clex_parse_string(ptr noundef captures(none) %0, ptr no
   %51 = getelementptr inbounds nuw i8, ptr %.038.lcssa, i64 1
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %51, ptr %52, align 8, !tbaa !13
-  br label %.thread45
+  br label %.critedge
 
-.thread45:                                        ; preds = %21, %32, %._crit_edge
+.critedge:                                        ; preds = %21, %32, %._crit_edge
   ret i32 1
 }
 
@@ -992,19 +992,19 @@ switch.early.test291:                             ; preds = %.lr.ph287
   %261 = sext i32 %260 to i64
   %262 = getelementptr inbounds i8, ptr %258, i64 %261
   %263 = load i8, ptr %256, align 1, !tbaa !16
-  %.not53.i = icmp eq i8 %263, 34
-  br i1 %.not53.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not49.i = icmp eq i8 %263, 34
+  br i1 %.not49.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %255, %286
   %264 = phi i8 [ %287, %286 ], [ %263, %255 ]
-  %.03655.i = phi ptr [ %279, %286 ], [ %258, %255 ]
-  %.03854.i = phi ptr [ %.341.i, %286 ], [ %256, %255 ]
+  %.03651.i = phi ptr [ %279, %286 ], [ %258, %255 ]
+  %.03850.i = phi ptr [ %.341.i, %286 ], [ %256, %255 ]
   %265 = icmp eq i8 %264, 92
   br i1 %265, label %266, label %276
 
 266:                                              ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  %267 = call i32 @stb__clex_parse_char(ptr noundef nonnull %.03854.i, ptr noundef nonnull %2)
+  %267 = call i32 @stb__clex_parse_char(ptr noundef nonnull %.03850.i, ptr noundef nonnull %2)
   %268 = icmp sgt i32 %267, -1
   %269 = load ptr, ptr %2, align 8, !tbaa !26
   br i1 %268, label %.thread.i, label %271
@@ -1027,13 +1027,13 @@ switch.early.test291:                             ; preds = %.lr.ph287
   br label %stb__clex_parse_string.exit
 
 276:                                              ; preds = %.lr.ph.i
-  %277 = getelementptr inbounds nuw i8, ptr %.03854.i, i64 1
+  %277 = getelementptr inbounds nuw i8, ptr %.03850.i, i64 1
   br label %278
 
 278:                                              ; preds = %276, %.thread.i
   %.341.i = phi ptr [ %277, %276 ], [ %269, %.thread.i ]
   %.033.i = phi i8 [ %264, %276 ], [ %270, %.thread.i ]
-  %279 = getelementptr inbounds nuw i8, ptr %.03655.i, i64 1
+  %279 = getelementptr inbounds nuw i8, ptr %.03651.i, i64 1
   %280 = icmp ugt ptr %279, %262
   br i1 %280, label %281, label %286
 
@@ -1049,7 +1049,7 @@ switch.early.test291:                             ; preds = %.lr.ph287
   br label %stb__clex_parse_string.exit
 
 286:                                              ; preds = %278
-  store i8 %.033.i, ptr %.03655.i, align 1, !tbaa !16
+  store i8 %.033.i, ptr %.03651.i, align 1, !tbaa !16
   %287 = load i8, ptr %.341.i, align 1, !tbaa !16
   %.not.i = icmp eq i8 %287, 34
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27

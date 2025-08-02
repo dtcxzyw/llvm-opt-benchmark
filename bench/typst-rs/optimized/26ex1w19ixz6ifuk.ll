@@ -92863,13 +92863,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !20295, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -94793,13 +94793,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !21535, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -98120,13 +98120,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !23775, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -99338,13 +99338,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !24565, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -99715,13 +99715,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !24827, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -101355,13 +101355,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !25945, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -102169,13 +102169,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !26511, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -102571,13 +102571,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !26777, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -103198,13 +103198,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !27207, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -103984,13 +103984,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !27756, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -106165,13 +106165,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !29171, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -108189,13 +108189,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !30504, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -109069,13 +109069,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !31070, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -109448,13 +109448,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !31287, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -112191,13 +112191,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !33036, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -112318,13 +112318,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !33123, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -112507,13 +112507,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !33259, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -113266,13 +113266,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !33736, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -113675,13 +113675,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !34005, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -114905,13 +114905,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !34807, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -115672,13 +115672,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !35287, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -117054,13 +117054,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !36156, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -117326,13 +117326,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !36314, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -118014,13 +118014,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !36761, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -120760,13 +120760,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !38581, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121039,13 +121039,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !38774, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -121455,13 +121455,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !39037, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -123278,13 +123278,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !40261, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -123812,13 +123812,13 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5typst11foundations6styles10StyleC
 "_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread": ; preds = %4, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit"
   %.0.i15 = phi ptr [ %8, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ], [ %3, %4 ]
   %10 = load i64, ptr %.0.i15, align 8, !alias.scope !40617, !noundef !47
+  %11 = tail call range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit", %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread"
-  %.0.i2 = phi i64 [ %10, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
-  %spec.select.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.0.i2, i64 1)
+  %.0.i2 = phi i64 [ %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit.thread" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b4a95f39e74a441E.llvm.4622153547959463051.exit" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
-  ret i64 %spec.select.i
+  ret i64 %.0.i2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -161224,7 +161224,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h00cef674bf16d61fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(128) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h00cef674bf16d61fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -161293,7 +161293,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(112) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h01c276b199db5f26E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(112) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h01c276b199db5f26E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -161362,7 +161362,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(64) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0805de3e3ab52b1dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(64) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0805de3e3ab52b1dE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -161431,7 +161431,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(136) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h20d7bddb20778620E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(136) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h20d7bddb20778620E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -161500,7 +161500,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2264d2493603ae6fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2264d2493603ae6fE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -161569,7 +161569,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(472) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h341858591972be52E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(472) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h341858591972be52E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -161638,7 +161638,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h49ea3cf4ec813589E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h49ea3cf4ec813589E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -161707,7 +161707,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(160) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4bf802de608d13aeE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(160) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4bf802de608d13aeE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -161776,7 +161776,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h53f8c4665671d268E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h53f8c4665671d268E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -161845,7 +161845,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5595e779eb6ac0d0E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5595e779eb6ac0d0E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -161914,7 +161914,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(448) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h588aa2dc4d83e1b7E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(448) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h588aa2dc4d83e1b7E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -161983,7 +161983,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(112) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6943252d5d8fabf9E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(112) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6943252d5d8fabf9E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -162052,7 +162052,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h70cbb39a9673beb7E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h70cbb39a9673beb7E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -162121,7 +162121,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(40) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7639a4a514097db7E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(40) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7639a4a514097db7E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -162190,7 +162190,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7883f2a319ff816eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7883f2a319ff816eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -162259,7 +162259,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7c9f6229e6e70b8eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7c9f6229e6e70b8eE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -162328,7 +162328,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(448) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1680d59f3fa5579E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(448) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1680d59f3fa5579E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -162397,7 +162397,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(112) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hadfeda2be3e86ce3E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(112) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hadfeda2be3e86ce3E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -162466,7 +162466,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(64) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb1dc3a7d3bb77949E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(64) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb1dc3a7d3bb77949E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -162535,7 +162535,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbfbe9d4548db230bE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(128) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbfbe9d4548db230bE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -162604,7 +162604,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(128) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc7b14e09e08c943cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(128) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc7b14e09e08c943cE.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -162673,7 +162673,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 16 dereferenceable(64) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd15829f9ef08c382E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 16 dereferenceable(64) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd15829f9ef08c382E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -162742,7 +162742,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdfa4c7f7ebb925a6E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdfa4c7f7ebb925a6E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8
@@ -162811,7 +162811,7 @@ _ZN5typst11foundations7element7Element10field_name17h7f2b4f8b93b17b99E.exit.thre
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf6f881df3ba1d136E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
+define hidden noalias noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf6f881df3ba1d136E.llvm.4622153547959463051"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #25 {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [3 x { ptr, ptr }], align 8

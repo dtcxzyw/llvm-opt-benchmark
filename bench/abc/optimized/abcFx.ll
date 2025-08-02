@@ -3116,14 +3116,17 @@ Vec_IntPush.exit63:                               ; preds = %.Vec_IntGrow.exit10
   %98 = tail call noundef i32 @llvm.smax.i32(i32 %.012.i, i32 %97)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Fx_ManComputeLevelDiv.exit, label %91, !llvm.loop !132
+  br i1 %exitcond.not.i, label %.critedge.loopexit.i, label %91, !llvm.loop !132
 
-Fx_ManComputeLevelDiv.exit:                       ; preds = %91, %84
-  %.0.lcssa.i = phi i32 [ 0, %84 ], [ %98, %91 ]
-  %99 = tail call noundef range(i32 -2147483648, 801) i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 800)
+.critedge.loopexit.i:                             ; preds = %91
+  %99 = tail call range(i32 -2147483648, 801) i32 @llvm.smin.i32(i32 %98, i32 800)
   %100 = uitofp nneg i32 %99 to double
   %101 = tail call double @llvm.fmuladd.f64(double %100, double -1.000000e-03, double -1.100000e+00)
   %102 = fptrunc double %101 to float
+  br label %Fx_ManComputeLevelDiv.exit
+
+Fx_ManComputeLevelDiv.exit:                       ; preds = %84, %.critedge.loopexit.i
+  %.0.lcssa.i = phi float [ 0xBFF19999A0000000, %84 ], [ %102, %.critedge.loopexit.i ]
   %103 = load i32, ptr %80, align 8, !tbaa !133
   %104 = icmp eq i32 %79, %103
   br i1 %104, label %105, label %.Vec_FltGrow.exit11_crit_edge.i
@@ -3187,7 +3190,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
   store i32 %129, ptr %82, align 4, !tbaa !76
   %130 = sext i32 %128 to i64
   %131 = getelementptr inbounds float, ptr %127, i64 %130
-  store float %102, ptr %131, align 4, !tbaa !87
+  store float %.0.lcssa.i, ptr %131, align 4, !tbaa !87
   %132 = load i32, ptr %13, align 8, !tbaa !134
   %133 = add nsw i32 %132, 1
   store i32 %133, ptr %13, align 8, !tbaa !134
@@ -4724,13 +4727,16 @@ Vec_IntPush.exit112:                              ; preds = %.Vec_IntGrow.exit10
   %174 = tail call noundef i32 @llvm.smax.i32(i32 %.012.i, i32 %173)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Fx_ManComputeLevelDiv.exit, label %167, !llvm.loop !132
+  br i1 %exitcond.not.i, label %.critedge.loopexit.i, label %167, !llvm.loop !132
 
-Fx_ManComputeLevelDiv.exit:                       ; preds = %167, %158
-  %.0.lcssa.i = phi i32 [ 0, %158 ], [ %174, %167 ]
-  %175 = tail call noundef range(i32 -2147483648, 801) i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 800)
+.critedge.loopexit.i:                             ; preds = %167
+  %175 = tail call range(i32 -2147483648, 801) i32 @llvm.smin.i32(i32 %174, i32 800)
   %176 = uitofp nneg i32 %175 to double
-  %177 = tail call double @llvm.fmuladd.f64(double %176, double -9.000000e-04, double %162)
+  br label %Fx_ManComputeLevelDiv.exit
+
+Fx_ManComputeLevelDiv.exit:                       ; preds = %158, %.critedge.loopexit.i
+  %.0.lcssa.i = phi double [ 0.000000e+00, %158 ], [ %176, %.critedge.loopexit.i ]
+  %177 = tail call double @llvm.fmuladd.f64(double %.0.lcssa.i, double -9.000000e-04, double %162)
   %178 = fptrunc double %177 to float
   %179 = load i32, ptr %154, align 8, !tbaa !133
   %180 = icmp eq i32 %153, %179

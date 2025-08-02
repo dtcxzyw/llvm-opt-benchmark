@@ -3100,7 +3100,8 @@ define dso_local void @new_kmalloc_cache(i32 noundef %0, i32 noundef %1, i32 nou
 11:                                               ; preds = %9, %7, %3
   %12 = phi i32 [ %8, %7 ], [ %10, %9 ], [ %2, %3 ]
   %13 = zext i32 %1 to i64
-  %14 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %13, i64 %4
+  %.split = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %13
+  %14 = getelementptr [14 x ptr], ptr %.split, i64 0, i64 %4
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %22
@@ -3158,7 +3159,7 @@ define dso_local void @create_kmalloc_caches(i32 noundef %0) local_unnamed_addr 
 
 8:                                                ; preds = %25, %2
   %9 = phi i64 [ 3, %2 ], [ %26, %25 ]
-  %10 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %3, i64 %9
+  %10 = getelementptr [14 x ptr], ptr %4, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %13 = trunc i64 %9 to i32

@@ -18,22 +18,22 @@ define dso_local noundef nonnull ptr @_ZN4absl15random_internal10RandenSlow7GetK
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4absl15random_internal10RandenSlow6AbsorbEPKvPv(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -16
   br label %4
 
 3:                                                ; preds = %4
   ret void
 
 4:                                                ; preds = %2, %4
-  %.07 = phi i64 [ 2, %2 ], [ %9, %4 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %.07
-  %5 = load i64, ptr %gep, align 8, !tbaa !4
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %.07
+  %.07 = phi i64 [ 2, %2 ], [ %11, %4 ]
+  %5 = getelementptr i64, ptr %0, i64 %.07
+  %6 = getelementptr i8, ptr %5, i64 -16
   %7 = load i64, ptr %6, align 8, !tbaa !4
-  %8 = xor i64 %7, %5
-  store i64 %8, ptr %6, align 8, !tbaa !4
-  %9 = add nuw nsw i64 %.07, 1
-  %exitcond.not = icmp eq i64 %9, 32
+  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %.07
+  %9 = load i64, ptr %8, align 8, !tbaa !4
+  %10 = xor i64 %9, %7
+  store i64 %10, ptr %8, align 8, !tbaa !4
+  %11 = add nuw nsw i64 %.07, 1
+  %exitcond.not = icmp eq i64 %11, 32
   br i1 %exitcond.not, label %3, label %4, !llvm.loop !8
 }
 

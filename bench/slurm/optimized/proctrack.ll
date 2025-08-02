@@ -675,7 +675,7 @@ declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_sig_agent(ptr noundef %0) #0 {
+define internal noalias noundef ptr @_sig_agent(ptr noundef %0) #0 {
 .critedge:
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8

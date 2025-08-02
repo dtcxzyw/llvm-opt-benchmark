@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @memfd_fcntl(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  switch i32 %1, label %.thread10 [
+  switch i32 %1, label %.thread8 [
     i32 1033, label %4
     i32 1034, label %81
   ]
@@ -46,11 +46,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @memfd_fcntl(ptr noundef
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 2
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.thread10, label %11
+  br i1 %10, label %.thread8, label %11
 
 11:                                               ; preds = %4
   %12 = icmp ult i32 %2, 64
-  br i1 %12, label %13, label %.thread10
+  br i1 %12, label %13, label %.thread8
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -78,20 +78,20 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @memfd_fcntl(ptr noundef
 
 28:                                               ; preds = %24
   %29 = tail call zeroext i1 @is_file_shm_hugepages(ptr noundef %0) #9
-  br i1 %29, label %30, label %.thread
+  br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %20, %24, %28
   %31 = phi i64 [ -124, %20 ], [ 600, %28 ], [ 600, %24 ]
   %32 = load ptr, ptr %5, align 8
   %33 = getelementptr i8, ptr %32, i64 %31
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread, label %35
+  br i1 %34, label %.critedge, label %35
 
 35:                                               ; preds = %30
   %36 = load i32, ptr %33, align 4
   %37 = and i32 %36, 1
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %.thread
+  br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %35
   %40 = and i32 %2, 8
@@ -107,7 +107,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @memfd_fcntl(ptr noundef
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 68
   %49 = load volatile i32, ptr %48, align 4
   %50 = icmp slt i32 %49, 1
-  br i1 %50, label %.lr.ph, label %.thread, !prof !5
+  br i1 %50, label %.lr.ph, label %.critedge, !prof !5
 
 .lr.ph:                                           ; preds = %45, %57
   %51 = phi i32 [ %58, %57 ], [ %49, %45 ]
@@ -122,7 +122,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @memfd_fcntl(ptr noundef
 57:                                               ; preds = %.lr.ph
   %58 = extractvalue { i8, i32 } %53, 1
   %59 = icmp slt i32 %58, 1
-  br i1 %59, label %.lr.ph, label %.thread, !prof !8, !llvm.loop !9
+  br i1 %59, label %.lr.ph, label %.critedge, !prof !8, !llvm.loop !9
 
 60:                                               ; preds = %.lr.ph
   %61 = load ptr, ptr %46, align 8
@@ -135,7 +135,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @memfd_fcntl(ptr noundef
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 68
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %66, ptr nonnull elementtype(i32) %66) #9, !srcloc !13
   %67 = sext i32 %62 to i64
-  br label %.thread
+  br label %.critedge
 
 68:                                               ; preds = %60, %39
   %69 = icmp ult i32 %2, 32
@@ -154,12 +154,12 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @memfd_fcntl(ptr noundef
   %78 = load i32, ptr %33, align 4
   %79 = or i32 %78, %77
   store i32 %79, ptr %33, align 4
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %57, %45, %28, %76, %64, %35, %30
+.critedge:                                        ; preds = %57, %45, %28, %76, %64, %35, %30
   %80 = phi i64 [ 0, %76 ], [ %67, %64 ], [ -22, %30 ], [ -1, %35 ], [ -22, %28 ], [ -16, %45 ], [ -16, %57 ]
   tail call void @up_write(ptr noundef nonnull %14) #9
-  br label %.thread10
+  br label %.thread8
 
 81:                                               ; preds = %3
   %82 = icmp eq ptr %0, null
@@ -185,7 +185,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @memfd_fcntl(ptr noundef
 
 95:                                               ; preds = %91
   %96 = tail call zeroext i1 @is_file_shm_hugepages(ptr noundef %0) #9
-  br i1 %96, label %97, label %.thread10
+  br i1 %96, label %97, label %.thread8
 
 97:                                               ; preds = %87, %91, %95
   %98 = phi i64 [ -124, %87 ], [ 600, %95 ], [ 600, %91 ]
@@ -193,15 +193,15 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @memfd_fcntl(ptr noundef
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr i8, ptr %100, i64 %98
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %.thread10, label %103
+  br i1 %102, label %.thread8, label %103
 
 103:                                              ; preds = %97
   %104 = load i32, ptr %101, align 4
   %105 = sext i32 %104 to i64
-  br label %.thread10
+  br label %.thread8
 
-.thread10:                                        ; preds = %95, %103, %97, %.thread, %11, %4, %3
-  %106 = phi i64 [ -22, %3 ], [ %80, %.thread ], [ -1, %4 ], [ -22, %11 ], [ %105, %103 ], [ -22, %97 ], [ -22, %95 ]
+.thread8:                                         ; preds = %95, %103, %97, %.critedge, %11, %4, %3
+  %106 = phi i64 [ -22, %3 ], [ %80, %.critedge ], [ -1, %4 ], [ -22, %11 ], [ %105, %103 ], [ -22, %97 ], [ -22, %95 ]
   ret i64 %106
 }
 

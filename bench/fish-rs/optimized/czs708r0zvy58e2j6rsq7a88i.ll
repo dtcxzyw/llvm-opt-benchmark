@@ -9970,11 +9970,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h2cbd21b40be3f310
           to label %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit" unwind label %.loopexit.split-lp
 
 "_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit": ; preds = %30, %22
-  %invariant.gep = getelementptr i8, ptr %10, i64 -8
   %31 = icmp ult i64 %23, %5
   br i1 %31, label %.lr.ph, label %._crit_edge
 
-.loopexit:                                        ; preds = %.lr.ph, %.noexc15, %54
+.loopexit:                                        ; preds = %.lr.ph, %.noexc15, %55
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %32
@@ -9987,73 +9986,73 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h2cbd21b40be3f310
 32:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr141drop_in_place$LT$alloc..vec..Vec$LT$T$C$A$GT$..dedup_by..FillGapOnDrop$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$C$alloc..alloc..Global$GT$$GT$17h33ea12233ed5b26aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #33
-          to label %19 unwind label %58
+          to label %19 unwind label %59
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18", %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit"
-  %33 = phi i64 [ %.sroa.0.020, %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit" ], [ %56, %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18" ]
+  %33 = phi i64 [ %.sroa.0.020, %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit" ], [ %57, %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18" ]
   store i64 %33, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %.thread
 
 .lr.ph:                                           ; preds = %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit", %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18"
-  %34 = phi i64 [ %56, %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18" ], [ %.sroa.0.020, %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit" ]
-  %35 = phi i64 [ %55, %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18" ], [ %23, %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit" ]
+  %34 = phi i64 [ %57, %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18" ], [ %.sroa.0.020, %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit" ]
+  %35 = phi i64 [ %56, %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18" ], [ %23, %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit" ]
   %36 = getelementptr inbounds nuw ptr, ptr %10, i64 %35
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %34
+  %37 = getelementptr ptr, ptr %10, i64 %34
+  %38 = getelementptr i8, ptr %37, i64 -8
   %.val12 = load ptr, ptr %36, align 8, !nonnull !3, !noundef !3
-  %.val13 = load ptr, ptr %gep, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
-  %38 = invoke noundef i32 @_ZN4fish4proc3Job6job_id17ha23a759ac1788b15E(ptr noundef nonnull align 8 %37)
+  %.val13 = load ptr, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
+  %40 = invoke noundef i32 @_ZN4fish4proc3Job6job_id17ha23a759ac1788b15E(ptr noundef nonnull align 8 %39)
           to label %.noexc15 unwind label %.loopexit
 
 .noexc15:                                         ; preds = %.lr.ph
-  %39 = icmp ne ptr %.val13, null
-  tail call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw i8, ptr %.val13, i64 16
-  %41 = invoke noundef i32 @_ZN4fish4proc3Job6job_id17ha23a759ac1788b15E(ptr noundef nonnull align 8 %40)
-          to label %42 unwind label %.loopexit
+  %41 = icmp ne ptr %.val13, null
+  tail call void @llvm.assume(i1 %41)
+  %42 = getelementptr inbounds nuw i8, ptr %.val13, i64 16
+  %43 = invoke noundef i32 @_ZN4fish4proc3Job6job_id17ha23a759ac1788b15E(ptr noundef nonnull align 8 %42)
+          to label %44 unwind label %.loopexit
 
 .thread:                                          ; preds = %20, %2, %._crit_edge
   ret void
 
-42:                                               ; preds = %.noexc15
-  %.sroa.0.0.shrunk.i.i.i14 = icmp eq i32 %41, %38
-  br i1 %.sroa.0.0.shrunk.i.i.i14, label %48, label %43
+44:                                               ; preds = %.noexc15
+  %.sroa.0.0.shrunk.i.i.i14 = icmp eq i32 %43, %40
+  br i1 %.sroa.0.0.shrunk.i.i.i14, label %49, label %45
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw ptr, ptr %10, i64 %34
-  %45 = load i64, ptr %36, align 8
-  store i64 %45, ptr %44, align 8
-  %46 = add i64 %34, 1
-  store i64 %46, ptr %25, align 8
-  %47 = add nuw i64 %35, 1
-  store i64 %47, ptr %24, align 8
+45:                                               ; preds = %44
+  %46 = load i64, ptr %36, align 8
+  store i64 %46, ptr %37, align 8
+  %47 = add i64 %34, 1
+  store i64 %47, ptr %25, align 8
+  %48 = add nuw i64 %35, 1
+  store i64 %48, ptr %24, align 8
   br label %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18"
 
-48:                                               ; preds = %42
-  %49 = add nuw i64 %35, 1
-  store i64 %49, ptr %24, align 8
+49:                                               ; preds = %44
+  %50 = add nuw i64 %35, 1
+  store i64 %50, ptr %24, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1362)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1365)
-  %50 = load ptr, ptr %36, align 8, !alias.scope !1368, !nonnull !3, !noundef !3
-  %51 = load i64, ptr %50, align 8, !noalias !1368, !noundef !3
-  %52 = add i64 %51, -1
-  store i64 %52, ptr %50, align 8, !noalias !1368
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %54, label %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18"
+  %51 = load ptr, ptr %36, align 8, !alias.scope !1368, !nonnull !3, !noundef !3
+  %52 = load i64, ptr %51, align 8, !noalias !1368, !noundef !3
+  %53 = add i64 %52, -1
+  store i64 %53, ptr %51, align 8, !noalias !1368
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %55, label %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18"
 
-54:                                               ; preds = %48
+55:                                               ; preds = %49
   invoke void @"_ZN5alloc2rc15Rc$LT$T$C$A$GT$9drop_slow17h361cebe24d4aff14E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %36)
           to label %"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18" unwind label %.loopexit
 
-"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18": ; preds = %48, %54, %43
-  %55 = phi i64 [ %49, %48 ], [ %49, %54 ], [ %47, %43 ]
-  %56 = phi i64 [ %34, %48 ], [ %34, %54 ], [ %46, %43 ]
-  %57 = icmp ult i64 %55, %5
-  br i1 %57, label %.lr.ph, label %._crit_edge
+"_ZN4core3ptr57drop_in_place$LT$alloc..rc..Rc$LT$fish..proc..Job$GT$$GT$17h91bacfbb997dd521E.exit18": ; preds = %49, %55, %45
+  %56 = phi i64 [ %50, %49 ], [ %50, %55 ], [ %48, %45 ]
+  %57 = phi i64 [ %34, %49 ], [ %34, %55 ], [ %47, %45 ]
+  %58 = icmp ult i64 %56, %5
+  br i1 %58, label %.lr.ph, label %._crit_edge
 
-58:                                               ; preds = %32
-  %59 = landingpad { ptr, i32 }
+59:                                               ; preds = %32
+  %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #34
   unreachable

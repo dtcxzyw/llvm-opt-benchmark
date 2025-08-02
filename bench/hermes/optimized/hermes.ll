@@ -4003,14 +4003,14 @@ for.cond.loopexit.i.i:                            ; preds = %for.body4.i.i
 for.cond3.preheader.i.i:                          ; preds = %entry, %for.cond.loopexit.i.i
   %size.0.i = phi i64 [ %spec.select.i, %for.cond.loopexit.i.i ], [ 0, %entry ]
   %chunk.010.i.i = phi ptr [ %chunk.0.i.i, %for.cond.loopexit.i.i ], [ %chunk.08.i.i, %entry ]
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %chunk.010.i.i, i64 8
   br label %for.body4.i.i
 
 for.body4.i.i:                                    ; preds = %for.body4.i.i, %for.cond3.preheader.i.i
   %size.1.i = phi i64 [ %size.0.i, %for.cond3.preheader.i.i ], [ %spec.select.i, %for.body4.i.i ]
   %__begin0.0.idx7.i.i = phi i64 [ 8, %for.cond3.preheader.i.i ], [ %__begin0.0.add.i.i, %for.body4.i.i ]
-  %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %__begin0.0.idx7.i.i
-  %0 = load atomic i32, ptr %gep.i.i monotonic, align 4
+  %__begin0.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %chunk.010.i.i, i64 %__begin0.0.idx7.i.i
+  %refCount_.i.i.i = getelementptr inbounds nuw i8, ptr %__begin0.0.ptr.i.i, i64 8
+  %0 = load atomic i32, ptr %refCount_.i.i.i monotonic, align 4
   %cmp.i.i.i = icmp ne i32 %0, 0
   %inc.i.i.i = zext i1 %cmp.i.i.i to i64
   %spec.select.i = add i64 %size.1.i, %inc.i.i.i
@@ -6604,8 +6604,8 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 declare noundef ptr @_ZN6hermes2vm11NativeState6createERNS0_7RuntimeEPvPFvRNS0_7HadesGCEPS1_E(ptr noundef nonnull align 8 dereferenceable(9832), ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook6hermesL12deleteSharedERN6hermes2vm7HadesGCEPNS2_11NativeStateE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %ns) #0 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN8facebook6hermesL12deleteSharedERN6hermes2vm7HadesGCEPNS2_11NativeStateE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %ns) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %context_.i = getelementptr inbounds nuw i8, ptr %ns, i64 8
   %1 = load ptr, ptr %context_.i, align 8
@@ -9262,7 +9262,7 @@ if.end38:                                         ; preds = %invoke.cont35, %inv
   br i1 %cmp40.not54, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end38
-  %invariant.gep = getelementptr i8, ptr %newFrame.sroa.8.052, i64 -64
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %newFrame.sroa.8.052, i64 -56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -9315,8 +9315,9 @@ for.inc:                                          ; preds = %return.fold.split.i
   %retval.sroa.0.0.i19 = phi i64 [ %or.i.i.i26, %if.then8.i23 ], [ %retval.sroa.0.0.i.i22, %if.then14.i20 ], [ %retval.sroa.0.0.copyload.i18, %if.then25.i16 ], [ -1688849860263936, %for.body ], [ -1548112371908608, %return.fold.split.i27 ]
   %conv.i = sext i32 %i.055 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i
-  %gep = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep, i64 %idx.neg.i.i.i
-  store i64 %retval.sroa.0.0.i19, ptr %gep, align 8
+  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %arrayidx.i.i.i, i64 %idx.neg.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -8
+  store i64 %retval.sroa.0.0.i19, ptr %incdec.ptr.i.i.i, align 8
   %inc = add i32 %i.055, 1
   %conv39 = zext i32 %inc to i64
   %cmp40.not = icmp eq i64 %count, %conv39
@@ -9549,7 +9550,7 @@ if.end52:                                         ; preds = %invoke.cont49, %inv
   br i1 %cmp54.not46, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end52
-  %invariant.gep = getelementptr i8, ptr %newFrame.sroa.8.044, i64 -64
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %newFrame.sroa.8.044, i64 -56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -9602,8 +9603,9 @@ for.inc:                                          ; preds = %return.fold.split.i
   %retval.sroa.0.0.i = phi i64 [ %or.i.i.i18, %if.then8.i ], [ %retval.sroa.0.0.i.i, %if.then14.i ], [ %retval.sroa.0.0.copyload.i16, %if.then25.i ], [ -1688849860263936, %for.body ], [ -1548112371908608, %return.fold.split.i ]
   %conv.i = sext i32 %i.047 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i
-  %gep = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep, i64 %idx.neg.i.i.i
-  store i64 %retval.sroa.0.0.i, ptr %gep, align 8
+  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %arrayidx.i.i.i, i64 %idx.neg.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -8
+  store i64 %retval.sroa.0.0.i, ptr %incdec.ptr.i.i.i, align 8
   %inc = add i32 %i.047, 1
   %conv53 = zext i32 %inc to i64
   %cmp54.not = icmp eq i64 %count, %conv53
@@ -13525,8 +13527,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEEEN3$_08__invokeERN6hermes2vm7HadesGCEPNS8_11NativeStateE"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %ns) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEEEN3$_08__invokeERN6hermes2vm7HadesGCEPNS8_11NativeStateE"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %ns) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = getelementptr i8, ptr %ns, i64 8
   %ns.val = load ptr, ptr %1, align 8

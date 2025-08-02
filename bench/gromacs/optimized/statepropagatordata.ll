@@ -2512,7 +2512,7 @@ define void @_ZN3gmx19StatePropagatorDataC2EiP8_IO_FILEPK9t_commrecP7t_stateS7_b
 79:                                               ; preds = %30
   %80 = landingpad { ptr, i32 }
           cleanup
-  br label %269
+  br label %270
 
 81:                                               ; preds = %33
   %82 = landingpad { ptr, i32 }
@@ -2538,7 +2538,7 @@ define void @_ZN3gmx19StatePropagatorDataC2EiP8_IO_FILEPK9t_commrecP7t_stateS7_b
   %90 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
-  br label %253
+  br label %254
 
 91:                                               ; preds = %56
   %92 = landingpad { ptr, i32 }
@@ -2555,7 +2555,7 @@ define void @_ZN3gmx19StatePropagatorDataC2EiP8_IO_FILEPK9t_commrecP7t_stateS7_b
           cleanup
   %97 = load ptr, ptr %66, align 8, !tbaa !125
   %.not.i.i.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i.i.i, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit, label %250
+  br i1 %.not.i.i.i.i, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit, label %251
 
 98:                                               ; preds = %65
   %99 = load i32, ptr %4, align 8, !tbaa !275
@@ -2753,7 +2753,7 @@ _ZN3gmx19StatePropagatorData12copyPositionEv.exit: ; preds = %159
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 181
   %209 = load i8, ptr %208, align 1, !tbaa !278, !range !84, !noundef !85
   %210 = trunc nuw i8 %209 to i1
-  br i1 %210, label %249, label %211
+  br i1 %210, label %250, label %211
 
 211:                                              ; preds = %206
   br i1 %.030.in.not, label %.loopexit93, label %212
@@ -2801,157 +2801,158 @@ _ZN3gmx19StatePropagatorData12copyPositionEv.exit: ; preds = %159
   %235 = getelementptr inbounds nuw i16, ptr %231, i64 %indvars.iv97
   %236 = load i16, ptr %235, align 2, !tbaa !397
   %237 = zext i16 %236 to i64
-  %238 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %213, i64 %indvars.iv97
-  br label %239
+  %238 = getelementptr inbounds nuw [3 x i32], ptr %234, i64 %237
+  %239 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %213, i64 %indvars.iv97
+  br label %240
 
-239:                                              ; preds = %.preheader, %244
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %244 ]
-  %240 = getelementptr inbounds nuw [3 x i32], ptr %234, i64 %237, i64 %indvars.iv
-  %241 = load i32, ptr %240, align 4, !tbaa !277
-  %.not = icmp eq i32 %241, 0
-  br i1 %.not, label %244, label %242
+240:                                              ; preds = %.preheader, %245
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %245 ]
+  %241 = getelementptr inbounds nuw [3 x i32], ptr %238, i64 0, i64 %indvars.iv
+  %242 = load i32, ptr %241, align 4, !tbaa !277
+  %.not = icmp eq i32 %242, 0
+  br i1 %.not, label %245, label %243
 
-242:                                              ; preds = %239
-  %243 = getelementptr inbounds nuw [3 x float], ptr %238, i64 0, i64 %indvars.iv
-  store float 0.000000e+00, ptr %243, align 4, !tbaa !136
-  br label %244
+243:                                              ; preds = %240
+  %244 = getelementptr inbounds nuw [3 x float], ptr %239, i64 0, i64 %indvars.iv
+  store float 0.000000e+00, ptr %244, align 4, !tbaa !136
+  br label %245
 
-244:                                              ; preds = %239, %242
+245:                                              ; preds = %240, %243
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %239, !llvm.loop !399
+  br i1 %exitcond.not, label %.loopexit, label %240, !llvm.loop !399
 
-.loopexit:                                        ; preds = %244, %226, %230
+.loopexit:                                        ; preds = %245, %226, %230
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
   br i1 %exitcond100.not, label %.loopexit93, label %222, !llvm.loop !401
 
 .loopexit93:                                      ; preds = %.loopexit, %212, %211
-  %245 = getelementptr inbounds nuw i8, ptr %207, i64 4
-  %246 = load i32, ptr %245, align 4, !tbaa !402
-  %247 = icmp eq i32 %246, 10
-  br i1 %247, label %248, label %249
+  %246 = getelementptr inbounds nuw i8, ptr %207, i64 4
+  %247 = load i32, ptr %246, align 4, !tbaa !402
+  %248 = icmp eq i32 %247, 10
+  br i1 %248, label %249, label %250
 
-248:                                              ; preds = %.loopexit93
+249:                                              ; preds = %.loopexit93
   store i8 1, ptr %63, align 8, !tbaa !50
-  br label %249
+  br label %250
 
-249:                                              ; preds = %.loopexit93, %248, %206
+250:                                              ; preds = %.loopexit93, %249, %206
   ret void
 
-250:                                              ; preds = %95
+251:                                              ; preds = %95
   call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull %97) #22
   br label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit
 
-_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit: ; preds = %250, %95, %93
-  %.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %96, %250 ]
+_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit: ; preds = %251, %95, %93
+  %.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %96, %251 ]
   call void @_ZNSt10unique_ptrIN3gmx19StatePropagatorData26ReferenceTemperatureHelperESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #22
   br label %.body
 
 .body:                                            ; preds = %91, %60, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit ], [ %92, %91 ], [ %61, %60 ]
-  %251 = load ptr, ptr %50, align 8, !tbaa !86
-  %.not.i69 = icmp eq ptr %251, null
-  br i1 %.not.i69, label %_ZNSt10unique_ptrIN3gmx19StatePropagatorData7ElementESt14default_deleteIS2_EED2Ev.exit, label %252
+  %252 = load ptr, ptr %50, align 8, !tbaa !86
+  %.not.i69 = icmp eq ptr %252, null
+  br i1 %.not.i69, label %_ZNSt10unique_ptrIN3gmx19StatePropagatorData7ElementESt14default_deleteIS2_EED2Ev.exit, label %253
 
-252:                                              ; preds = %.body
-  call void @_ZNKSt14default_deleteIN3gmx19StatePropagatorData7ElementEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull %251)
+253:                                              ; preds = %.body
+  call void @_ZNKSt14default_deleteIN3gmx19StatePropagatorData7ElementEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull %252)
   br label %_ZNSt10unique_ptrIN3gmx19StatePropagatorData7ElementESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3gmx19StatePropagatorData7ElementESt14default_deleteIS2_EED2Ev.exit: ; preds = %.body, %252
+_ZNSt10unique_ptrIN3gmx19StatePropagatorData7ElementESt14default_deleteIS2_EED2Ev.exit: ; preds = %.body, %253
   store ptr null, ptr %50, align 8, !tbaa !86
-  br label %253
+  br label %254
 
-253:                                              ; preds = %_ZNSt10unique_ptrIN3gmx19StatePropagatorData7ElementESt14default_deleteIS2_EED2Ev.exit, %89
+254:                                              ; preds = %_ZNSt10unique_ptrIN3gmx19StatePropagatorData7ElementESt14default_deleteIS2_EED2Ev.exit, %89
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %_ZNSt10unique_ptrIN3gmx19StatePropagatorData7ElementESt14default_deleteIS2_EED2Ev.exit ], [ %90, %89 ]
-  %254 = load ptr, ptr %49, align 8, !tbaa !125
-  %.not.i.i.i.i70 = icmp eq ptr %254, null
-  br i1 %.not.i.i.i.i70, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit71, label %255
+  %255 = load ptr, ptr %49, align 8, !tbaa !125
+  %.not.i.i.i.i70 = icmp eq ptr %255, null
+  br i1 %.not.i.i.i.i70, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit71, label %256
 
-255:                                              ; preds = %253
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull %254) #22
+256:                                              ; preds = %254
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull %255) #22
   br label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit71
 
-_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit71: ; preds = %255, %253, %87
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %88, %87 ], [ %.pn.pn.pn.pn.pn, %253 ], [ %.pn.pn.pn.pn.pn, %255 ]
-  %256 = load ptr, ptr %46, align 8, !tbaa !125
-  %.not.i.i.i.i72 = icmp eq ptr %256, null
-  br i1 %.not.i.i.i.i72, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit73, label %257
+_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit71: ; preds = %256, %254, %87
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %88, %87 ], [ %.pn.pn.pn.pn.pn, %254 ], [ %.pn.pn.pn.pn.pn, %256 ]
+  %257 = load ptr, ptr %46, align 8, !tbaa !125
+  %.not.i.i.i.i72 = icmp eq ptr %257, null
+  br i1 %.not.i.i.i.i72, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit73, label %258
 
-257:                                              ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit71
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull %256) #22
+258:                                              ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit71
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull %257) #22
   br label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit73
 
-_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit73: ; preds = %257, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit71, %85
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %86, %85 ], [ %.pn.pn.pn.pn.pn.pn, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit71 ], [ %.pn.pn.pn.pn.pn.pn, %257 ]
-  %258 = load ptr, ptr %43, align 8, !tbaa !125
-  %.not.i.i.i.i74 = icmp eq ptr %258, null
-  br i1 %.not.i.i.i.i74, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit75, label %259
+_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit73: ; preds = %258, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit71, %85
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %86, %85 ], [ %.pn.pn.pn.pn.pn.pn, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit71 ], [ %.pn.pn.pn.pn.pn.pn, %258 ]
+  %259 = load ptr, ptr %43, align 8, !tbaa !125
+  %.not.i.i.i.i74 = icmp eq ptr %259, null
+  br i1 %.not.i.i.i.i74, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit75, label %260
 
-259:                                              ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit73
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull %258) #22
+260:                                              ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit73
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull %259) #22
   br label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit75
 
-_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit75: ; preds = %259, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit73, %83
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit73 ], [ %.pn.pn.pn.pn.pn.pn.pn, %259 ]
-  %260 = load ptr, ptr %40, align 8, !tbaa !125
-  %.not.i.i.i.i76 = icmp eq ptr %260, null
-  br i1 %.not.i.i.i.i76, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit77, label %261
+_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit75: ; preds = %260, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit73, %83
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit73 ], [ %.pn.pn.pn.pn.pn.pn.pn, %260 ]
+  %261 = load ptr, ptr %40, align 8, !tbaa !125
+  %.not.i.i.i.i76 = icmp eq ptr %261, null
+  br i1 %.not.i.i.i.i76, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit77, label %262
 
-261:                                              ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit75
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull %260) #22
+262:                                              ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit75
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull %261) #22
   br label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit77
 
-_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit77: ; preds = %261, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit75, %81
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit75 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %261 ]
-  %262 = load ptr, ptr %37, align 8, !tbaa !123
-  %.not.i.i.i = icmp eq ptr %262, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %263
+_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit77: ; preds = %262, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit75, %81
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit75 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %262 ]
+  %263 = load ptr, ptr %37, align 8, !tbaa !123
+  %.not.i.i.i = icmp eq ptr %263, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %264
 
-263:                                              ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit77
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %265 = load ptr, ptr %264, align 8, !tbaa !403
-  %266 = ptrtoint ptr %265 to i64
-  %267 = ptrtoint ptr %262 to i64
-  %268 = sub i64 %266, %267
-  call void @_ZdlPvm(ptr noundef nonnull %262, i64 noundef %268) #38
+264:                                              ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit77
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %266 = load ptr, ptr %265, align 8, !tbaa !403
+  %267 = ptrtoint ptr %266 to i64
+  %268 = ptrtoint ptr %263 to i64
+  %269 = sub i64 %267, %268
+  call void @_ZdlPvm(ptr noundef nonnull %263, i64 noundef %269) #38
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit77, %263
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit77, %264
   call void @_ZN3gmx12ForceBuffersD1Ev(ptr noundef nonnull align 8 dereferenceable(137) %32) #22
-  br label %269
+  br label %270
 
-269:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %79
+270:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %79
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %80, %79 ]
-  %270 = load ptr, ptr %31, align 8, !tbaa !125
-  %.not.i.i.i.i78 = icmp eq ptr %270, null
-  br i1 %.not.i.i.i.i78, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit79, label %271
+  %271 = load ptr, ptr %31, align 8, !tbaa !125
+  %.not.i.i.i.i78 = icmp eq ptr %271, null
+  br i1 %.not.i.i.i.i78, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit79, label %272
 
-271:                                              ; preds = %269
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull %270) #22
+272:                                              ; preds = %270
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull %271) #22
   br label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit79
 
-_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit79: ; preds = %271, %269, %77
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %269 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %271 ]
-  %272 = load ptr, ptr %28, align 8, !tbaa !125
-  %.not.i.i.i.i80 = icmp eq ptr %272, null
-  br i1 %.not.i.i.i.i80, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit81, label %273
+_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit79: ; preds = %272, %270, %77
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %270 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %272 ]
+  %273 = load ptr, ptr %28, align 8, !tbaa !125
+  %.not.i.i.i.i80 = icmp eq ptr %273, null
+  br i1 %.not.i.i.i.i80, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit81, label %274
 
-273:                                              ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit79
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull %272) #22
+274:                                              ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit79
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull %273) #22
   br label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit81
 
-_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit81: ; preds = %273, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit79, %75
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit79 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %273 ]
-  %274 = load ptr, ptr %25, align 8, !tbaa !125
-  %.not.i.i.i.i82 = icmp eq ptr %274, null
-  br i1 %.not.i.i.i.i82, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit83, label %275
+_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit81: ; preds = %274, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit79, %75
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit79 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %274 ]
+  %275 = load ptr, ptr %25, align 8, !tbaa !125
+  %.not.i.i.i.i82 = icmp eq ptr %275, null
+  br i1 %.not.i.i.i.i82, label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit83, label %276
 
-275:                                              ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit81
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull %274) #22
+276:                                              ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit81
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull %275) #22
   br label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit83
 
-_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit83: ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit81, %275
+_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit83: ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEED2Ev.exit81, %276
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 

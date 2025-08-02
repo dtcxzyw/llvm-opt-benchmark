@@ -166,37 +166,37 @@ define dso_local void @lzma_filters_free(ptr noundef captures(address_is_null) %
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local range(i32 0, 12) i32 @lzma_validate_chain(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %.thread, label %4
+  br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr %0, align 8, !tbaa !4
   %6 = icmp eq i64 %5, -1
-  br i1 %6, label %.thread, label %.preheader
+  br i1 %6, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %4, %13
   %7 = phi i64 [ %22, %13 ], [ %5, %4 ]
   %.028 = phi i64 [ %19, %13 ], [ 0, %4 ]
   %.026 = phi i8 [ %15, %13 ], [ 1, %4 ]
   %.024 = phi i64 [ %20, %13 ], [ 0, %4 ]
-  %.not45 = icmp eq i64 %7, 4611686018427387905
-  br i1 %.not45, label %._crit_edge, label %.lr.ph
+  %.not41 = icmp eq i64 %7, 4611686018427387905
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
-  %9 = add nuw nsw i64 %.02346, 1
+  %9 = add nuw nsw i64 %.02342, 1
   %10 = getelementptr inbounds nuw [11 x %struct.anon], ptr @features, i64 0, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !11
   %.not = icmp eq i64 %7, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.preheader, %8
-  %.02346 = phi i64 [ %9, %8 ], [ 0, %.preheader ]
-  %exitcond = icmp eq i64 %.02346, 10
-  br i1 %exitcond, label %.thread, label %8
+  %.02342 = phi i64 [ %9, %8 ], [ 0, %.preheader ]
+  %exitcond = icmp eq i64 %.02342, 10
+  br i1 %exitcond, label %.critedge, label %8
 
 ._crit_edge:                                      ; preds = %8, %.preheader
   %.lcssa = phi ptr [ @features, %.preheader ], [ %10, %8 ]
   %12 = trunc nuw i8 %.026 to i1
-  br i1 %12, label %13, label %.thread
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
@@ -219,13 +219,13 @@ define dso_local range(i32 0, 12) i32 @lzma_validate_chain(ptr noundef readonly 
   %or.cond = select i1 %26, i1 %27, i1 false
   %28 = icmp ult i64 %19, 4
   %or.cond3.not = select i1 %or.cond, i1 %28, i1 false
-  br i1 %or.cond3.not, label %29, label %.thread
+  br i1 %or.cond3.not, label %29, label %.critedge
 
 29:                                               ; preds = %23
   store i64 %20, ptr %1, align 8, !tbaa !27
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %._crit_edge, %.lr.ph, %29, %23, %2, %4
+.critedge:                                        ; preds = %._crit_edge, %.lr.ph, %29, %23, %2, %4
   %.030 = phi i32 [ 11, %4 ], [ 11, %2 ], [ 0, %29 ], [ 8, %23 ], [ 8, %.lr.ph ], [ 8, %._crit_edge ]
   ret i32 %.030
 }
@@ -247,19 +247,19 @@ define dso_local i32 @lzma_raw_coder_init(ptr noundef %0, ptr noundef %1, ptr no
   %.028.i = phi i64 [ %23, %17 ], [ 0, %8 ]
   %.026.i = phi i8 [ %19, %17 ], [ 1, %8 ]
   %.024.i = phi i64 [ %24, %17 ], [ 0, %8 ]
-  %.not45.i = icmp eq i64 %11, 4611686018427387905
-  br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not41.i = icmp eq i64 %11, 4611686018427387905
+  br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = add nuw nsw i64 %.02346.i, 1
+  %13 = add nuw nsw i64 %.02342.i, 1
   %14 = getelementptr inbounds nuw [11 x %struct.anon], ptr @features, i64 0, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !11
   %.not.i = icmp eq i64 %11, %15
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %12
-  %.02346.i = phi i64 [ %13, %12 ], [ 0, %.preheader.i ]
-  %exitcond.i = icmp eq i64 %.02346.i, 10
+  %.02342.i = phi i64 [ %13, %12 ], [ 0, %.preheader.i ]
+  %exitcond.i = icmp eq i64 %.02342.i, 10
   br i1 %exitcond.i, label %lzma_validate_chain.exit.thread, label %12
 
 ._crit_edge.i:                                    ; preds = %12, %.preheader.i
@@ -389,37 +389,37 @@ declare void @lzma_next_end(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @lzma_raw_coder_memusage(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %lzma_validate_chain.exit.thread, label %4
+  br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr %1, align 8, !tbaa !4
   %6 = icmp eq i64 %5, -1
-  br i1 %6, label %lzma_validate_chain.exit.thread, label %.preheader.i
+  br i1 %6, label %.critedge, label %.preheader.i
 
 .preheader.i:                                     ; preds = %4, %13
   %7 = phi i64 [ %22, %13 ], [ %5, %4 ]
   %.028.i = phi i64 [ %19, %13 ], [ 0, %4 ]
   %.026.i = phi i8 [ %15, %13 ], [ 1, %4 ]
   %.024.i = phi i64 [ %20, %13 ], [ 0, %4 ]
-  %.not45.i = icmp eq i64 %7, 4611686018427387905
-  br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not41.i = icmp eq i64 %7, 4611686018427387905
+  br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = add nuw nsw i64 %.02346.i, 1
+  %9 = add nuw nsw i64 %.02342.i, 1
   %10 = getelementptr inbounds nuw [11 x %struct.anon], ptr @features, i64 0, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !11
   %.not.i = icmp eq i64 %7, %11
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %8
-  %.02346.i = phi i64 [ %9, %8 ], [ 0, %.preheader.i ]
-  %exitcond.i = icmp eq i64 %.02346.i, 10
-  br i1 %exitcond.i, label %lzma_validate_chain.exit.thread, label %8
+  %.02342.i = phi i64 [ %9, %8 ], [ 0, %.preheader.i ]
+  %exitcond.i = icmp eq i64 %.02342.i, 10
+  br i1 %exitcond.i, label %.critedge, label %8
 
 ._crit_edge.i:                                    ; preds = %8, %.preheader.i
   %.lcssa.i = phi ptr [ @features, %.preheader.i ], [ %10, %8 ]
   %12 = trunc nuw i8 %.026.i to i1
-  br i1 %12, label %13, label %lzma_validate_chain.exit.thread
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %._crit_edge.i
   %14 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 16
@@ -442,49 +442,48 @@ define dso_local i64 @lzma_raw_coder_memusage(ptr noundef readonly captures(none
   %or.cond.i = select i1 %26, i1 %27, i1 false
   %28 = icmp ult i64 %19, 4
   %or.cond3.not.i = select i1 %or.cond.i, i1 %28, i1 false
-  br i1 %or.cond3.not.i, label %lzma_validate_chain.exit, label %lzma_validate_chain.exit.thread
+  br i1 %or.cond3.not.i, label %lzma_validate_chain.exit, label %.critedge
 
-lzma_validate_chain.exit:                         ; preds = %23, %42
-  %29 = phi i64 [ %45, %42 ], [ %5, %23 ]
-  %.024 = phi i64 [ %.12537, %42 ], [ 0, %23 ]
-  %.023 = phi i64 [ %43, %42 ], [ 0, %23 ]
+lzma_validate_chain.exit:                         ; preds = %23, %43
+  %29 = phi i64 [ %46, %43 ], [ %5, %23 ]
+  %.024 = phi i64 [ %.125, %43 ], [ 0, %23 ]
+  %.023 = phi i64 [ %44, %43 ], [ 0, %23 ]
   %30 = tail call ptr %0(i64 noundef %29) #5
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %lzma_validate_chain.exit.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %lzma_validate_chain.exit
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !36
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread, label %37
+  br i1 %35, label %36, label %38
 
-.thread:                                          ; preds = %32
-  %36 = add i64 %.024, 1024
-  br label %42
+36:                                               ; preds = %32
+  %37 = add i64 %.024, 1024
+  br label %43
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw %struct.lzma_filter, ptr %1, i64 %.023, i32 1
-  %39 = load ptr, ptr %38, align 8, !tbaa !10
-  %40 = tail call i64 %34(ptr noundef %39) #5
-  %.not30.not = icmp eq i64 %40, -1
-  %41 = select i1 %.not30.not, i64 0, i64 %40
-  %.327 = add i64 %41, %.024
-  br i1 %.not30.not, label %lzma_validate_chain.exit.thread, label %42
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds nuw %struct.lzma_filter, ptr %1, i64 %.023, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !10
+  %41 = tail call i64 %34(ptr noundef %40) #5
+  %.not30 = icmp eq i64 %41, -1
+  %42 = add i64 %41, %.024
+  br i1 %.not30, label %.critedge, label %43
 
-42:                                               ; preds = %.thread, %37
-  %.12537 = phi i64 [ %36, %.thread ], [ %.327, %37 ]
-  %43 = add i64 %.023, 1
-  %44 = getelementptr inbounds nuw %struct.lzma_filter, ptr %1, i64 %43
-  %45 = load i64, ptr %44, align 8, !tbaa !4
-  %.not31 = icmp eq i64 %45, -1
-  br i1 %.not31, label %46, label %lzma_validate_chain.exit, !llvm.loop !37
+43:                                               ; preds = %38, %36
+  %.125 = phi i64 [ %37, %36 ], [ %42, %38 ]
+  %44 = add i64 %.023, 1
+  %45 = getelementptr inbounds nuw %struct.lzma_filter, ptr %1, i64 %44
+  %46 = load i64, ptr %45, align 8, !tbaa !4
+  %.not31 = icmp eq i64 %46, -1
+  br i1 %.not31, label %47, label %lzma_validate_chain.exit, !llvm.loop !37
 
-46:                                               ; preds = %42
-  %47 = add i64 %.12537, 32768
-  br label %lzma_validate_chain.exit.thread
+47:                                               ; preds = %43
+  %48 = add i64 %.125, 32768
+  br label %.critedge
 
-lzma_validate_chain.exit.thread:                  ; preds = %._crit_edge.i, %.lr.ph.i, %lzma_validate_chain.exit, %37, %23, %2, %4, %46
-  %.1 = phi i64 [ %47, %46 ], [ -1, %4 ], [ -1, %2 ], [ -1, %23 ], [ -1, %37 ], [ -1, %lzma_validate_chain.exit ], [ -1, %.lr.ph.i ], [ -1, %._crit_edge.i ]
+.critedge:                                        ; preds = %._crit_edge.i, %.lr.ph.i, %lzma_validate_chain.exit, %38, %23, %2, %4, %47
+  %.1 = phi i64 [ %48, %47 ], [ -1, %4 ], [ -1, %2 ], [ -1, %23 ], [ -1, %38 ], [ -1, %lzma_validate_chain.exit ], [ -1, %.lr.ph.i ], [ -1, %._crit_edge.i ]
   ret i64 %.1
 }
 

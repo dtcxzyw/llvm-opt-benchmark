@@ -277,36 +277,36 @@ define internal fastcc i32 @msxml_parse_element(ptr noundef nonnull readonly cap
 25:                                               ; preds = %20
   %26 = tail call i32 @cli_json_parse_error(ptr noundef %18, ptr noundef nonnull @.str.13) #8
   %.not293 = icmp eq i32 %26, 0
-  br i1 %.not293, label %27, label %.thread
+  br i1 %.not293, label %27, label %.critedge296
 
 27:                                               ; preds = %25, %20
   %28 = tail call i32 @xmlTextReaderNext(ptr noundef %1) #8
-  switch i32 %28, label %.thread [
+  switch i32 %28, label %.critedge296 [
     i32 -1, label %29
     i32 0, label %30
   ]
 
 29:                                               ; preds = %27
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14, i32 noundef 188) #8
-  br label %.thread
+  br label %.critedge296
 
 30:                                               ; preds = %27
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef 188) #8
-  br label %.thread
+  br label %.critedge296
 
 31:                                               ; preds = %4
   %32 = tail call i32 @xmlTextReaderNodeType(ptr noundef %1) #8
   %33 = icmp eq i32 %32, -1
-  br i1 %33, label %.thread, label %34
+  br i1 %33, label %.critedge296, label %34
 
 34:                                               ; preds = %31
   %35 = tail call ptr @xmlTextReaderConstLocalName(ptr noundef %1) #8
   %36 = tail call ptr @xmlTextReaderConstValue(ptr noundef %1) #8
   switch i32 %32, label %303 [
     i32 1, label %37
-    i32 7, label %.thread
-    i32 14, label %.thread
-    i32 15, label %.thread
+    i32 7, label %.critedge296
+    i32 14, label %.critedge296
+    i32 15, label %.critedge296
   ]
 
 37:                                               ; preds = %34
@@ -325,10 +325,10 @@ define internal fastcc i32 @msxml_parse_element(ptr noundef nonnull readonly cap
 43:                                               ; preds = %38
   %44 = tail call i32 @cli_json_parse_error(ptr noundef %18, ptr noundef nonnull @.str.17) #8
   %.not248 = icmp eq i32 %44, 0
-  br i1 %.not248, label %45, label %.thread
+  br i1 %.not248, label %45, label %.critedge296
 
 45:                                               ; preds = %43, %38
-  br label %.thread
+  br label %.critedge296
 
 46:                                               ; preds = %37
   %47 = load ptr, ptr %14, align 8, !tbaa !32
@@ -382,18 +382,18 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 71:                                               ; preds = %msxml_check_key.exit
   %72 = tail call i32 @xmlTextReaderNext(ptr noundef %1) #8
-  switch i32 %72, label %.thread [
+  switch i32 %72, label %.critedge296 [
     i32 -1, label %73
     i32 0, label %74
   ]
 
 73:                                               ; preds = %71
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14, i32 noundef 231) #8
-  br label %.thread
+  br label %.critedge296
 
 74:                                               ; preds = %71
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef 231) #8
-  br label %.thread
+  br label %.critedge296
 
 75:                                               ; preds = %msxml_check_key.exit
   %76 = load ptr, ptr %14, align 8, !tbaa !32
@@ -414,7 +414,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 83:                                               ; preds = %81
   %84 = and i32 %69, 32
   %.not253 = icmp eq i32 %84, 0
-  br i1 %.not253, label %.thread, label %85
+  br i1 %.not253, label %.critedge296, label %85
 
 85:                                               ; preds = %83, %81
   %.sink = phi ptr [ %18, %81 ], [ %3, %83 ]
@@ -422,7 +422,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %87 = load ptr, ptr %86, align 8, !tbaa !38
   %88 = tail call ptr @cli_jsonobj(ptr noundef %.sink, ptr noundef %87) #8
   %.not254 = icmp eq ptr %88, null
-  br i1 %.not254, label %.thread, label %89
+  br i1 %.not254, label %.critedge296, label %89
 
 89:                                               ; preds = %85
   %90 = load i32, ptr %68, align 8, !tbaa !37
@@ -444,8 +444,8 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br label %98
 
 98:                                               ; preds = %92, %94
-  %.sink375 = phi i32 [ %97, %94 ], [ 1, %92 ]
-  %99 = call i32 @cli_jsonint(ptr noundef nonnull %88, ptr noundef nonnull @.str.18, i32 noundef %.sink375) #8
+  %.sink373 = phi i32 [ %97, %94 ], [ 1, %92 ]
+  %99 = call i32 @cli_jsonint(ptr noundef nonnull %88, ptr noundef nonnull @.str.18, i32 noundef %.sink373) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   %.pre = load i32, ptr %68, align 8, !tbaa !37
   br label %100
@@ -454,47 +454,47 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %101 = phi i32 [ %90, %89 ], [ %.pre, %98 ]
   %102 = and i32 %101, 64
   %.not257 = icmp eq i32 %102, 0
-  br i1 %.not257, label %.thread302, label %103
+  br i1 %.not257, label %.thread301, label %103
 
 103:                                              ; preds = %100
   %104 = call ptr @cli_jsonarray(ptr noundef nonnull %88, ptr noundef nonnull @.str.19) #8
   %.not258 = icmp eq ptr %104, null
-  br i1 %.not258, label %.thread, label %105
+  br i1 %.not258, label %.critedge296, label %105
 
 105:                                              ; preds = %103
   %106 = call ptr @cli_jsonobj(ptr noundef nonnull %104, ptr noundef null) #8
   %.not259.not = icmp eq ptr %106, null
-  br i1 %.not259.not, label %.thread, label %..thread302_crit_edge
+  br i1 %.not259.not, label %.critedge296, label %..thread301_crit_edge
 
-..thread302_crit_edge:                            ; preds = %105
-  %.pre350 = load i32, ptr %68, align 8, !tbaa !37
-  br label %.thread302
+..thread301_crit_edge:                            ; preds = %105
+  %.pre349 = load i32, ptr %68, align 8, !tbaa !37
+  br label %.thread301
 
-.thread302:                                       ; preds = %..thread302_crit_edge, %100
-  %107 = phi i32 [ %101, %100 ], [ %.pre350, %..thread302_crit_edge ]
-  %.2214305 = phi ptr [ %88, %100 ], [ %106, %..thread302_crit_edge ]
+.thread301:                                       ; preds = %..thread301_crit_edge, %100
+  %107 = phi i32 [ %101, %100 ], [ %.pre349, %..thread301_crit_edge ]
+  %.2214304 = phi ptr [ %88, %100 ], [ %106, %..thread301_crit_edge ]
   %108 = and i32 %107, 1024
   %.not261 = icmp eq i32 %108, 0
   br i1 %.not261, label %.loopexit, label %109
 
-109:                                              ; preds = %.thread302
+109:                                              ; preds = %.thread301
   %110 = call i32 @xmlTextReaderHasAttributes(ptr noundef %1) #8
   switch i32 %110, label %.loopexit [
     i32 1, label %111
-    i32 -1, label %.thread
+    i32 -1, label %.critedge296
   ]
 
 111:                                              ; preds = %109
-  %112 = call ptr @cli_jsonobj(ptr noundef nonnull %.2214305, ptr noundef nonnull @.str.20) #8
+  %112 = call ptr @cli_jsonobj(ptr noundef nonnull %.2214304, ptr noundef nonnull @.str.20) #8
   %.not262.not = icmp eq ptr %112, null
-  br i1 %.not262.not, label %.thread, label %.preheader319
+  br i1 %.not262.not, label %.critedge296, label %.preheader318
 
-.preheader319:                                    ; preds = %111
+.preheader318:                                    ; preds = %111
   %113 = call i32 @xmlTextReaderMoveToNextAttribute(ptr noundef %1) #8
   %114 = icmp eq i32 %113, 1
   br i1 %114, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader319, %.lr.ph
+.lr.ph:                                           ; preds = %.preheader318, %.lr.ph
   %115 = call ptr @xmlTextReaderConstLocalName(ptr noundef %1) #8
   %116 = call ptr @xmlTextReaderConstValue(ptr noundef %1) #8
   %117 = call i32 @cli_jsonstr(ptr noundef nonnull %112, ptr noundef %115, ptr noundef %116) #8
@@ -502,8 +502,8 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %119 = icmp eq i32 %118, 1
   br i1 %119, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader319, %109, %.thread302, %75
-  %.0212 = phi ptr [ %.2214305, %.thread302 ], [ null, %75 ], [ %.2214305, %109 ], [ %.2214305, %.preheader319 ], [ %.2214305, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.preheader318, %109, %.thread301, %75
+  %.0212 = phi ptr [ %.2214304, %.thread301 ], [ null, %75 ], [ %.2214304, %109 ], [ %.2214304, %.preheader318 ], [ %.2214304, %.lr.ph ]
   %120 = load i32, ptr %68, align 8, !tbaa !37
   %121 = and i32 %120, 2
   %.not263 = icmp eq i32 %121, 0
@@ -522,36 +522,36 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 127:                                              ; preds = %124
   %128 = call i32 @xmlTextReaderMoveToFirstAttribute(ptr noundef %1) #8
   switch i32 %128, label %132 [
-    i32 1, label %.thread355
-    i32 -1, label %.thread
+    i32 1, label %.thread
+    i32 -1, label %.critedge296
   ]
 
-.thread355:                                       ; preds = %127
+.thread:                                          ; preds = %127
   %129 = call ptr @xmlTextReaderConstLocalName(ptr noundef %1) #8
   store ptr %129, ptr %5, align 16, !tbaa !41
   %130 = call ptr @xmlTextReaderConstValue(ptr noundef %1) #8
   %131 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %130, ptr %131, align 8, !tbaa !43
-  br label %.preheader318.preheader
+  br label %.preheader317.preheader
 
 132:                                              ; preds = %127, %124
   %.0200 = phi i32 [ %125, %124 ], [ %128, %127 ]
   switch i32 %.0200, label %.critedge [
-    i32 1, label %.preheader318.preheader
-    i32 -1, label %.thread
+    i32 1, label %.preheader317.preheader
+    i32 -1, label %.critedge296
   ]
 
-.preheader318.preheader:                          ; preds = %.thread355, %132
-  %indvars.iv.ph = phi i64 [ 0, %132 ], [ 1, %.thread355 ]
-  br label %.preheader318
+.preheader317.preheader:                          ; preds = %.thread, %132
+  %indvars.iv.ph = phi i64 [ 0, %132 ], [ 1, %.thread ]
+  br label %.preheader317
 
-.preheader318:                                    ; preds = %.preheader318.preheader, %135
-  %indvars.iv = phi i64 [ %indvars.iv.next, %135 ], [ %indvars.iv.ph, %.preheader318.preheader ]
+.preheader317:                                    ; preds = %.preheader317.preheader, %135
+  %indvars.iv = phi i64 [ %indvars.iv.next, %135 ], [ %indvars.iv.ph, %.preheader317.preheader ]
   %133 = call i32 @xmlTextReaderMoveToNextAttribute(ptr noundef %1) #8
   %134 = icmp eq i32 %133, 1
   br i1 %134, label %135, label %.critedge.loopexit.split.loop.exit
 
-135:                                              ; preds = %.preheader318
+135:                                              ; preds = %.preheader317
   %136 = call ptr @xmlTextReaderConstLocalName(ptr noundef %1) #8
   %137 = getelementptr inbounds nuw [20 x %struct.attrib_entry], ptr %5, i64 0, i64 %indvars.iv
   store ptr %136, ptr %137, align 16, !tbaa !41
@@ -560,9 +560,9 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   store ptr %138, ptr %139, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %.critedge, label %.preheader318
+  br i1 %exitcond.not, label %.critedge, label %.preheader317
 
-.critedge.loopexit.split.loop.exit:               ; preds = %.preheader318
+.critedge.loopexit.split.loop.exit:               ; preds = %.preheader317
   %140 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
@@ -570,29 +570,29 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %.0209 = phi i32 [ 0, %122 ], [ 0, %.loopexit ], [ 0, %132 ], [ %140, %.critedge.loopexit.split.loop.exit ], [ 20, %135 ]
   %141 = call i32 @xmlTextReaderMoveToElement(ptr noundef %1) #8
   %142 = icmp eq i32 %141, -1
-  br i1 %142, label %.thread, label %143
+  br i1 %142, label %.critedge296, label %143
 
 143:                                              ; preds = %.critedge
   %144 = call i32 @xmlTextReaderIsEmptyElement(ptr noundef %1) #8
   switch i32 %144, label %149 [
     i32 1, label %145
-    i32 -1, label %.thread
+    i32 -1, label %.critedge296
   ]
 
 145:                                              ; preds = %143
   %146 = call i32 @xmlTextReaderNext(ptr noundef %1) #8
-  switch i32 %146, label %.thread [
+  switch i32 %146, label %.critedge296 [
     i32 -1, label %147
     i32 0, label %148
   ]
 
 147:                                              ; preds = %145
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14, i32 noundef 338) #8
-  br label %.thread
+  br label %.critedge296
 
 148:                                              ; preds = %145
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef 338) #8
-  br label %.thread
+  br label %.critedge296
 
 149:                                              ; preds = %143
   %150 = call i32 @xmlTextReaderRead(ptr noundef %1) #8
@@ -614,11 +614,11 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 158:                                              ; preds = %149
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14, i32 noundef 345) #8
-  br label %.thread
+  br label %.critedge296
 
 159:                                              ; preds = %149
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef 345) #8
-  br label %.thread
+  br label %.critedge296
 
 160:                                              ; preds = %.backedge, %.preheader
   %161 = load ptr, ptr %14, align 8, !tbaa !32
@@ -632,12 +632,12 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 40
   %167 = call i32 @cli_json_timeout_cycle_check(ptr noundef %16, ptr noundef nonnull %166) #8
   %.not267 = icmp eq i32 %167, 0
-  br i1 %.not267, label %168, label %.thread
+  br i1 %.not267, label %168, label %.critedge296
 
 168:                                              ; preds = %165, %160
   %169 = call i32 @xmlTextReaderNodeType(ptr noundef %1) #8
   switch i32 %169, label %297 [
-    i32 -1, label %.thread
+    i32 -1, label %.critedge296
     i32 1, label %170
     i32 3, label %172
     i32 8, label %270
@@ -648,27 +648,27 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 170:                                              ; preds = %168
   %171 = call fastcc i32 @msxml_parse_element(ptr noundef %0, ptr noundef %1, i32 noundef %156, ptr noundef %157)
   %.not291 = icmp eq i32 %171, 0
-  br i1 %.not291, label %.backedge, label %.thread
+  br i1 %.not291, label %.backedge, label %.critedge296
 
 172:                                              ; preds = %168
   %173 = call ptr @xmlTextReaderConstValue(ptr noundef %1) #8
-  %.pre352 = load i32, ptr %68, align 8, !tbaa !37
-  %174 = and i32 %.pre352, 512
+  %.pre351 = load i32, ptr %68, align 8, !tbaa !37
+  %174 = and i32 %.pre351, 512
   %.not274 = icmp eq i32 %174, 0
-  %or.cond376 = select i1 %.not273, i1 true, i1 %.not274
-  br i1 %or.cond376, label %177, label %175
+  %or.cond374 = select i1 %.not273, i1 true, i1 %.not274
+  br i1 %or.cond374, label %177, label %175
 
 175:                                              ; preds = %172
   %176 = call fastcc i32 @msxml_parse_value(ptr noundef %.0212, ptr noundef %173)
   %.not275 = icmp eq i32 %176, 0
-  br i1 %.not275, label %._crit_edge, label %.thread
+  br i1 %.not275, label %._crit_edge, label %.critedge296
 
 ._crit_edge:                                      ; preds = %175
-  %.pre351 = load i32, ptr %68, align 8, !tbaa !37
+  %.pre350 = load i32, ptr %68, align 8, !tbaa !37
   br label %177
 
 177:                                              ; preds = %._crit_edge, %172
-  %178 = phi i32 [ %.pre351, %._crit_edge ], [ %.pre352, %172 ]
+  %178 = phi i32 [ %.pre350, %._crit_edge ], [ %.pre351, %172 ]
   %179 = and i32 %178, 2
   %.not276 = icmp eq i32 %179, 0
   br i1 %.not276, label %219, label %180
@@ -692,7 +692,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 186:                                              ; preds = %182
   %187 = load ptr, ptr %8, align 8, !tbaa !44
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.22, ptr noundef %187) #8
-  br label %.thread308
+  br label %.thread307
 
 188:                                              ; preds = %182
   %189 = load i32, ptr %9, align 4, !tbaa !46
@@ -717,7 +717,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 200:                                              ; preds = %197, %191
   %201 = load ptr, ptr %8, align 8, !tbaa !44
   call void @free(ptr noundef %201) #8
-  br label %.thread308
+  br label %.thread307
 
 202:                                              ; preds = %188
   %203 = load ptr, ptr %8, align 8, !tbaa !44
@@ -740,12 +740,12 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %216 = call i32 @cli_unlink(ptr noundef %215) #8
   br label %217
 
-.thread308:                                       ; preds = %186, %200
+.thread307:                                       ; preds = %186, %200
   %.10.ph = phi i32 [ 14, %200 ], [ %185, %186 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #8
-  br label %.thread
+  br label %.critedge296
 
 217:                                              ; preds = %202, %214
   %218 = load ptr, ptr %8, align 8, !tbaa !44
@@ -754,14 +754,14 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #8
-  br i1 %.not281, label %._crit_edge353, label %.thread
+  br i1 %.not281, label %._crit_edge352, label %.critedge296
 
-._crit_edge353:                                   ; preds = %217
-  %.pre354 = load i32, ptr %68, align 8, !tbaa !37
+._crit_edge352:                                   ; preds = %217
+  %.pre353 = load i32, ptr %68, align 8, !tbaa !37
   br label %219
 
-219:                                              ; preds = %._crit_edge353, %180, %177
-  %220 = phi i32 [ %.pre354, %._crit_edge353 ], [ %178, %180 ], [ %178, %177 ]
+219:                                              ; preds = %._crit_edge352, %180, %177
+  %220 = phi i32 [ %.pre353, %._crit_edge352 ], [ %178, %180 ], [ %178, %177 ]
   %221 = and i32 %220, 4
   %.not283 = icmp eq i32 %221, 0
   br i1 %.not283, label %266, label %222
@@ -787,11 +787,11 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 227:                                              ; preds = %225
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14, i32 noundef 425) #8
-  br label %.thread312
+  br label %.thread311
 
 228:                                              ; preds = %225
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef 425) #8
-  br label %.thread312
+  br label %.thread311
 
 229:                                              ; preds = %222
   %230 = load ptr, ptr %153, align 8, !tbaa !45
@@ -803,7 +803,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %233 = load ptr, ptr %11, align 8, !tbaa !44
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.22, ptr noundef %233) #8
   call void @free(ptr noundef nonnull %224) #8
-  br label %.thread312
+  br label %.thread311
 
 234:                                              ; preds = %229
   %235 = load i32, ptr %13, align 4, !tbaa !46
@@ -831,7 +831,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 248:                                              ; preds = %245, %239
   %249 = load ptr, ptr %11, align 8, !tbaa !44
   call void @free(ptr noundef %249) #8
-  br label %.thread312
+  br label %.thread311
 
 250:                                              ; preds = %234
   %251 = load ptr, ptr %11, align 8, !tbaa !44
@@ -856,22 +856,22 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %264 = load ptr, ptr %11, align 8, !tbaa !44
   call void @free(ptr noundef %264) #8
   %.not288 = icmp eq i32 %254, 0
-  br i1 %.not288, label %.thread315, label %.thread312
+  br i1 %.not288, label %.thread314, label %.thread311
 
-.thread315:                                       ; preds = %263
+.thread314:                                       ; preds = %263
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #8
   br label %266
 
-.thread312:                                       ; preds = %263, %232, %248, %227, %228
+.thread311:                                       ; preds = %263, %232, %248, %227, %228
   %.12.ph = phi i32 [ 22, %228 ], [ 27, %227 ], [ 14, %248 ], [ %231, %232 ], [ %254, %263 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #8
-  br label %.thread
+  br label %.critedge296
 
 265:                                              ; preds = %225
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
@@ -883,7 +883,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 .backedge:                                        ; preds = %265, %297, %283, %279, %266, %170
   br label %160
 
-266:                                              ; preds = %.thread315, %219
+266:                                              ; preds = %.thread314, %219
   %267 = call i32 @xmlTextReaderRead(ptr noundef %1) #8
   switch i32 %267, label %.backedge [
     i32 -1, label %268
@@ -892,11 +892,11 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 268:                                              ; preds = %266
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14, i32 noundef 459) #8
-  br label %.thread
+  br label %.critedge296
 
 269:                                              ; preds = %266
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef 459) #8
-  br label %.thread
+  br label %.critedge296
 
 270:                                              ; preds = %168
   %271 = call ptr @xmlTextReaderConstValue(ptr noundef %1) #8
@@ -914,7 +914,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %277 = load ptr, ptr %152, align 8, !tbaa !70
   %278 = call i32 %275(ptr noundef %271, ptr noundef %16, ptr noundef %.0212, ptr noundef %277) #8
   %.not272 = icmp eq i32 %278, 0
-  br i1 %.not272, label %279, label %.thread
+  br i1 %.not272, label %279, label %.critedge296
 
 279:                                              ; preds = %276, %274, %270
   %280 = call i32 @xmlTextReaderRead(ptr noundef %1) #8
@@ -925,11 +925,11 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 281:                                              ; preds = %279
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14, i32 noundef 477) #8
-  br label %.thread
+  br label %.critedge296
 
 282:                                              ; preds = %279
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef 477) #8
-  br label %.thread
+  br label %.critedge296
 
 283:                                              ; preds = %168
   %284 = call i32 @xmlTextReaderRead(ptr noundef %1) #8
@@ -940,11 +940,11 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 285:                                              ; preds = %283
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14, i32 noundef 483) #8
-  br label %.thread
+  br label %.critedge296
 
 286:                                              ; preds = %283
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef 483) #8
-  br label %.thread
+  br label %.critedge296
 
 287:                                              ; preds = %168
   %288 = call ptr @xmlTextReaderConstLocalName(ptr noundef %1) #8
@@ -953,7 +953,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 289:                                              ; preds = %287
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25) #8
-  br label %.thread
+  br label %.critedge296
 
 290:                                              ; preds = %287
   %291 = call i32 @xmlStrcmp(ptr noundef nonnull %35, ptr noundef nonnull %288) #8
@@ -962,22 +962,22 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 292:                                              ; preds = %290
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %35, ptr noundef nonnull %288) #8
-  br label %.thread
+  br label %.critedge296
 
 293:                                              ; preds = %290
   %294 = call i32 @xmlTextReaderRead(ptr noundef %1) #8
-  switch i32 %294, label %.thread [
+  switch i32 %294, label %.critedge296 [
     i32 -1, label %295
     i32 0, label %296
   ]
 
 295:                                              ; preds = %293
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14, i32 noundef 501) #8
-  br label %.thread
+  br label %.critedge296
 
 296:                                              ; preds = %293
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef 501) #8
-  br label %.thread
+  br label %.critedge296
 
 297:                                              ; preds = %168
   %298 = call ptr @xmlTextReaderConstLocalName(ptr noundef %1) #8
@@ -991,18 +991,18 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 301:                                              ; preds = %297
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14, i32 noundef 513) #8
-  br label %.thread
+  br label %.critedge296
 
 302:                                              ; preds = %297
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef 513) #8
-  br label %.thread
+  br label %.critedge296
 
 303:                                              ; preds = %34
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28, ptr noundef %35, i32 noundef %32, ptr noundef %36) #8
-  br label %.thread
+  br label %.critedge296
 
-.thread:                                          ; preds = %276, %175, %170, %168, %165, %217, %293, %111, %103, %83, %.thread312, %.thread308, %303, %34, %34, %34, %143, %145, %.critedge, %132, %127, %109, %85, %71, %31, %27, %25, %105, %43, %302, %301, %296, %295, %292, %289, %286, %285, %282, %281, %269, %268, %159, %158, %148, %147, %74, %73, %45, %30, %29
-  %.1 = phi i32 [ 27, %29 ], [ 22, %30 ], [ %26, %25 ], [ 27, %73 ], [ 22, %74 ], [ 27, %147 ], [ 22, %148 ], [ 27, %158 ], [ 22, %159 ], [ 27, %301 ], [ 22, %302 ], [ 27, %268 ], [ 22, %269 ], [ 27, %281 ], [ 22, %282 ], [ 27, %285 ], [ 22, %286 ], [ 26, %292 ], [ 27, %295 ], [ 22, %296 ], [ 27, %289 ], [ 20, %105 ], [ 27, %45 ], [ %44, %43 ], [ 0, %27 ], [ 27, %31 ], [ 0, %71 ], [ 20, %85 ], [ 27, %109 ], [ 27, %127 ], [ 27, %132 ], [ 27, %.critedge ], [ 0, %145 ], [ 27, %143 ], [ 0, %34 ], [ 0, %34 ], [ 0, %34 ], [ 0, %303 ], [ %.10.ph, %.thread308 ], [ %.12.ph, %.thread312 ], [ 20, %83 ], [ 20, %103 ], [ 27, %111 ], [ 0, %293 ], [ %278, %276 ], [ %176, %175 ], [ %171, %170 ], [ 27, %168 ], [ 21, %165 ], [ %208, %217 ]
+.critedge296:                                     ; preds = %276, %175, %170, %168, %165, %217, %293, %111, %83, %.thread311, %.thread307, %103, %303, %34, %34, %34, %143, %145, %.critedge, %132, %127, %109, %85, %71, %31, %27, %25, %105, %43, %302, %301, %296, %295, %292, %289, %286, %285, %282, %281, %269, %268, %159, %158, %148, %147, %74, %73, %45, %30, %29
+  %.1 = phi i32 [ 27, %29 ], [ 22, %30 ], [ %26, %25 ], [ 27, %73 ], [ 22, %74 ], [ 27, %147 ], [ 22, %148 ], [ 27, %158 ], [ 22, %159 ], [ 27, %301 ], [ 22, %302 ], [ 27, %268 ], [ 22, %269 ], [ 27, %281 ], [ 22, %282 ], [ 27, %285 ], [ 22, %286 ], [ 26, %292 ], [ 27, %295 ], [ 22, %296 ], [ 27, %289 ], [ 20, %105 ], [ 27, %45 ], [ %44, %43 ], [ 0, %27 ], [ 27, %31 ], [ 0, %71 ], [ 20, %85 ], [ 27, %109 ], [ 27, %127 ], [ 27, %132 ], [ 27, %.critedge ], [ 0, %145 ], [ 27, %143 ], [ 0, %34 ], [ 0, %34 ], [ 0, %34 ], [ 0, %303 ], [ 20, %103 ], [ %.10.ph, %.thread307 ], [ %.12.ph, %.thread311 ], [ 20, %83 ], [ 27, %111 ], [ 0, %293 ], [ %278, %276 ], [ %176, %175 ], [ %171, %170 ], [ 27, %168 ], [ 21, %165 ], [ %208, %217 ]
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %5) #8
   ret i32 %.1
 }

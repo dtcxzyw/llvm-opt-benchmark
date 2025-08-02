@@ -202,8 +202,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc19.i
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i
-  %.0.i.i.i.i.i56.i = phi ptr [ %21, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %26, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i ], [ %26, %.lr.ph.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i56.i, i64 -8
+  %.0.i.i.i.i.i55.i = phi ptr [ %21, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %26, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i ], [ %26, %.lr.ph.i ]
+  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i55.i, i64 -8
   %30 = load double, ptr %29, align 8, !tbaa !28
   %31 = invoke noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef %30, double noundef 1.000000e+00, double noundef 1.000000e-02)
           to label %39 unwind label %32
@@ -214,13 +214,13 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc19.i
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit26.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %store_forwarded = phi double [ %load_initial, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %store_forwarded = phi double [ %load_initial, %.lr.ph.i.preheader ], [ %37, %.lr.ph.i ]
   %.01453.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
-  %34 = getelementptr inbounds nuw double, ptr %3, i64 %.01453.i
-  %35 = load double, ptr %34, align 8, !tbaa !28
-  %36 = fadd double %store_forwarded, %35
-  %37 = getelementptr inbounds nuw double, ptr %20, i64 %.01453.i
-  store double %36, ptr %37, align 8, !tbaa !28
+  %34 = getelementptr double, ptr %20, i64 %.01453.i
+  %35 = getelementptr inbounds nuw double, ptr %3, i64 %.01453.i
+  %36 = load double, ptr %35, align 8, !tbaa !28
+  %37 = fadd double %store_forwarded, %36
+  store double %37, ptr %34, align 8, !tbaa !28
   %38 = add nuw nsw i64 %.01453.i, 1
   %exitcond.not.i = icmp eq i64 %38, %18
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34

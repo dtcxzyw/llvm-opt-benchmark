@@ -9345,8 +9345,8 @@ common.resume:                                    ; preds = %_ZNSt6vectorIN12col
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   br label %147
 
-._crit_edge:                                      ; preds = %349, %.preheader262
-  %.033.lcssa = phi double [ 0.000000e+00, %.preheader262 ], [ %.us-phi, %349 ]
+._crit_edge:                                      ; preds = %350, %.preheader262
+  %.033.lcssa = phi double [ 0.000000e+00, %.preheader262 ], [ %.us-phi, %350 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %105 = load double, ptr %104, align 8, !tbaa !93
   %106 = call noundef double @sqrt(double noundef %105) #26, !tbaa !269
@@ -9446,18 +9446,18 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %_ZNSt6vectorIN12co
 145:                                              ; preds = %41
   %146 = landingpad { ptr, i32 }
           cleanup
-  br label %372
+  br label %373
 
-147:                                              ; preds = %.lr.ph, %349
-  %148 = phi ptr [ %49, %.lr.ph ], [ %351, %349 ]
-  %.032278 = phi i64 [ 0, %.lr.ph ], [ %350, %349 ]
-  %.033277 = phi double [ 0.000000e+00, %.lr.ph ], [ %.us-phi, %349 ]
+147:                                              ; preds = %.lr.ph, %350
+  %148 = phi ptr [ %49, %.lr.ph ], [ %352, %350 ]
+  %.032276 = phi i64 [ 0, %.lr.ph ], [ %351, %350 ]
+  %.033275 = phi double [ 0.000000e+00, %.lr.ph ], [ %.us-phi, %350 ]
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 1232
   %150 = load ptr, ptr %149, align 8, !tbaa !426
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %152 = load ptr, ptr %151, align 8, !tbaa !428, !noalias !433
   %153 = load ptr, ptr %152, align 8, !tbaa !296, !noalias !438
-  %154 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %153, i64 %.032278
+  %154 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %153, i64 %.032276
   %155 = load double, ptr %154, align 8, !tbaa !95, !noalias !438
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %157 = load double, ptr %156, align 8, !tbaa !96, !noalias !438
@@ -9515,7 +9515,7 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %_ZNSt6vectorIN12co
   store double %160, ptr %98, align 16, !tbaa !96, !noalias !433
   store double %159, ptr %99, align 8, !tbaa !97, !noalias !433
   invoke void @_ZNK19rotation_derivativeIN12colvarmodule4atomENS0_7rvectorEE20calc_derivative_implILb0ELb1ELb0EEEvRA4_A4_KS2_PS2_PNS0_8vector1dIS2_EEPNS0_8matrix2dIS2_EE(ptr noundef nonnull align 8 dereferenceable(664) %150, ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef null, ptr noundef nonnull %5, ptr noundef null)
-          to label %163 unwind label %361
+          to label %163 unwind label %362
 
 163:                                              ; preds = %147
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2) #26, !noalias !433
@@ -9725,25 +9725,25 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %_ZNSt6vectorIN12co
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %309, i64 64
   store double %322, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !93
   %324 = load ptr, ptr %103, align 8, !tbaa !296
-  %325 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %324, i64 %.032278
+  %325 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %324, i64 %.032276
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 8
   %327 = getelementptr inbounds nuw i8, ptr %325, i64 16
   br label %.preheader
 
 .preheader:                                       ; preds = %163, %.split.us
-  %.031276 = phi i64 [ 0, %163 ], [ %363, %.split.us ]
-  %.1275 = phi double [ %.033277, %163 ], [ %.us-phi, %.split.us ]
-  %328 = getelementptr inbounds nuw %"class.colvarmodule::matrix2d<colvarmodule::rvector>::row", ptr %264, i64 %.031276
+  %.031274 = phi i64 [ 0, %163 ], [ %364, %.split.us ]
+  %.1273 = phi double [ %.033275, %163 ], [ %.us-phi, %.split.us ]
+  %328 = getelementptr inbounds nuw %"class.colvarmodule::matrix2d<colvarmodule::rvector>::row", ptr %264, i64 %.031274
   %329 = load ptr, ptr %328, align 8, !tbaa !455
-  %330 = trunc nuw nsw i64 %.031276 to i32
+  %330 = trunc nuw nsw i64 %.031274 to i32
   switch i32 %330, label %.preheader.split [
     i32 0, label %_ZN12colvarmodule7rvectorixEi.exit.us
-    i32 1, label %.preheader.split.us266
+    i32 1, label %_ZN12colvarmodule7rvectorixEi.exit.us269
   ]
 
 _ZN12colvarmodule7rvectorixEi.exit.us:            ; preds = %.preheader, %_ZN12colvarmodule7rvectorixEi.exit88.us
   %.0265.us = phi i64 [ %339, %_ZN12colvarmodule7rvectorixEi.exit88.us ], [ 0, %.preheader ]
-  %.2264.us = phi double [ %338, %_ZN12colvarmodule7rvectorixEi.exit88.us ], [ %.1275, %.preheader ]
+  %.2264.us = phi double [ %338, %_ZN12colvarmodule7rvectorixEi.exit88.us ], [ %.1273, %.preheader ]
   %331 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %329, i64 %.0265.us
   %332 = load double, ptr %331, align 8, !tbaa !93
   %333 = trunc nuw nsw i64 %.0265.us to i32
@@ -9763,118 +9763,114 @@ _ZN12colvarmodule7rvectorixEi.exit88.us:          ; preds = %335, %334, %_ZN12co
   %337 = load double, ptr %336, align 8, !tbaa !93
   %338 = call double @llvm.fmuladd.f64(double %332, double %337, double %.2264.us)
   %339 = add nuw nsw i64 %.0265.us, 1
-  %exitcond283.not = icmp eq i64 %339, 3
-  br i1 %exitcond283.not, label %.split.us, label %_ZN12colvarmodule7rvectorixEi.exit.us, !llvm.loop !457
+  %exitcond281.not = icmp eq i64 %339, 3
+  br i1 %exitcond281.not, label %.split.us, label %_ZN12colvarmodule7rvectorixEi.exit.us, !llvm.loop !457
 
-.preheader.split.us266:                           ; preds = %.preheader
-  %invariant.gep273 = getelementptr inbounds nuw i8, ptr %329, i64 8
-  br label %_ZN12colvarmodule7rvectorixEi.exit.us269
-
-_ZN12colvarmodule7rvectorixEi.exit.us269:         ; preds = %_ZN12colvarmodule7rvectorixEi.exit88.us270, %.preheader.split.us266
-  %.0265.us267 = phi i64 [ 0, %.preheader.split.us266 ], [ %347, %_ZN12colvarmodule7rvectorixEi.exit88.us270 ]
-  %.2264.us268 = phi double [ %.1275, %.preheader.split.us266 ], [ %346, %_ZN12colvarmodule7rvectorixEi.exit88.us270 ]
-  %gep274 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %invariant.gep273, i64 %.0265.us267
-  %340 = load double, ptr %gep274, align 8, !tbaa !93
-  %341 = trunc nuw nsw i64 %.0265.us267 to i32
-  switch i32 %341, label %343 [
+_ZN12colvarmodule7rvectorixEi.exit.us269:         ; preds = %.preheader, %_ZN12colvarmodule7rvectorixEi.exit88.us270
+  %.0265.us267 = phi i64 [ %348, %_ZN12colvarmodule7rvectorixEi.exit88.us270 ], [ 0, %.preheader ]
+  %.2264.us268 = phi double [ %347, %_ZN12colvarmodule7rvectorixEi.exit88.us270 ], [ %.1273, %.preheader ]
+  %340 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %329, i64 %.0265.us267, i32 1
+  %341 = load double, ptr %340, align 8, !tbaa !93
+  %342 = trunc nuw nsw i64 %.0265.us267 to i32
+  switch i32 %342, label %344 [
     i32 0, label %_ZN12colvarmodule7rvectorixEi.exit88.us270
-    i32 1, label %342
+    i32 1, label %343
   ]
-
-342:                                              ; preds = %_ZN12colvarmodule7rvectorixEi.exit.us269
-  br label %_ZN12colvarmodule7rvectorixEi.exit88.us270
 
 343:                                              ; preds = %_ZN12colvarmodule7rvectorixEi.exit.us269
   br label %_ZN12colvarmodule7rvectorixEi.exit88.us270
 
-_ZN12colvarmodule7rvectorixEi.exit88.us270:       ; preds = %343, %342, %_ZN12colvarmodule7rvectorixEi.exit.us269
-  %344 = phi ptr [ %326, %342 ], [ %327, %343 ], [ %325, %_ZN12colvarmodule7rvectorixEi.exit.us269 ]
-  %345 = load double, ptr %344, align 8, !tbaa !93
-  %346 = call double @llvm.fmuladd.f64(double %340, double %345, double %.2264.us268)
-  %347 = add nuw nsw i64 %.0265.us267, 1
-  %exitcond.not = icmp eq i64 %347, 3
+344:                                              ; preds = %_ZN12colvarmodule7rvectorixEi.exit.us269
+  br label %_ZN12colvarmodule7rvectorixEi.exit88.us270
+
+_ZN12colvarmodule7rvectorixEi.exit88.us270:       ; preds = %344, %343, %_ZN12colvarmodule7rvectorixEi.exit.us269
+  %345 = phi ptr [ %326, %343 ], [ %327, %344 ], [ %325, %_ZN12colvarmodule7rvectorixEi.exit.us269 ]
+  %346 = load double, ptr %345, align 8, !tbaa !93
+  %347 = call double @llvm.fmuladd.f64(double %341, double %346, double %.2264.us268)
+  %348 = add nuw nsw i64 %.0265.us267, 1
+  %exitcond.not = icmp eq i64 %348, 3
   br i1 %exitcond.not, label %.split.us, label %_ZN12colvarmodule7rvectorixEi.exit.us269, !llvm.loop !458
 
 .preheader.split:                                 ; preds = %.preheader
-  %348 = icmp eq i64 %.031276, 2
-  %.idx.i = select i1 %348, i64 16, i64 0
+  %349 = icmp eq i64 %.031274, 2
+  %.idx.i = select i1 %349, i64 16, i64 0
   %invariant.gep = getelementptr inbounds nuw i8, ptr %329, i64 %.idx.i
   br label %_ZN12colvarmodule7rvectorixEi.exit
 
-349:                                              ; preds = %.split.us
-  %350 = add nuw i64 %.032278, 1
-  %351 = load ptr, ptr %42, align 8, !tbaa !361
-  %352 = getelementptr inbounds nuw i8, ptr %351, i64 504
-  %353 = getelementptr inbounds nuw i8, ptr %351, i64 512
-  %354 = load ptr, ptr %353, align 8, !tbaa !267
-  %355 = load ptr, ptr %352, align 8, !tbaa !268
-  %356 = ptrtoint ptr %354 to i64
+350:                                              ; preds = %.split.us
+  %351 = add nuw i64 %.032276, 1
+  %352 = load ptr, ptr %42, align 8, !tbaa !361
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 504
+  %354 = getelementptr inbounds nuw i8, ptr %352, i64 512
+  %355 = load ptr, ptr %354, align 8, !tbaa !267
+  %356 = load ptr, ptr %353, align 8, !tbaa !268
   %357 = ptrtoint ptr %355 to i64
-  %358 = sub i64 %356, %357
-  %359 = sdiv exact i64 %358, 120
-  %360 = icmp ult i64 %350, %359
-  br i1 %360, label %147, label %._crit_edge, !llvm.loop !459
+  %358 = ptrtoint ptr %356 to i64
+  %359 = sub i64 %357, %358
+  %360 = sdiv exact i64 %359, 120
+  %361 = icmp ult i64 %351, %360
+  br i1 %361, label %147, label %._crit_edge, !llvm.loop !459
 
-361:                                              ; preds = %147
-  %362 = landingpad { ptr, i32 }
+362:                                              ; preds = %147
+  %363 = landingpad { ptr, i32 }
           cleanup
-  br label %372
+  br label %373
 
 .split.us:                                        ; preds = %_ZN12colvarmodule7rvectorixEi.exit88.us270, %_ZN12colvarmodule7rvectorixEi.exit88.us, %_ZN12colvarmodule7rvectorixEi.exit88
-  %.us-phi = phi double [ %370, %_ZN12colvarmodule7rvectorixEi.exit88 ], [ %338, %_ZN12colvarmodule7rvectorixEi.exit88.us ], [ %346, %_ZN12colvarmodule7rvectorixEi.exit88.us270 ]
-  %363 = add nuw nsw i64 %.031276, 1
-  %exitcond285.not = icmp eq i64 %363, 3
-  br i1 %exitcond285.not, label %349, label %.preheader, !llvm.loop !460
+  %.us-phi = phi double [ %371, %_ZN12colvarmodule7rvectorixEi.exit88 ], [ %338, %_ZN12colvarmodule7rvectorixEi.exit88.us ], [ %347, %_ZN12colvarmodule7rvectorixEi.exit88.us270 ]
+  %364 = add nuw nsw i64 %.031274, 1
+  %exitcond283.not = icmp eq i64 %364, 3
+  br i1 %exitcond283.not, label %350, label %.preheader, !llvm.loop !460
 
 _ZN12colvarmodule7rvectorixEi.exit:               ; preds = %.preheader.split, %_ZN12colvarmodule7rvectorixEi.exit88
-  %.0265 = phi i64 [ 0, %.preheader.split ], [ %371, %_ZN12colvarmodule7rvectorixEi.exit88 ]
-  %.2264 = phi double [ %.1275, %.preheader.split ], [ %370, %_ZN12colvarmodule7rvectorixEi.exit88 ]
+  %.0265 = phi i64 [ 0, %.preheader.split ], [ %372, %_ZN12colvarmodule7rvectorixEi.exit88 ]
+  %.2264 = phi double [ %.1273, %.preheader.split ], [ %371, %_ZN12colvarmodule7rvectorixEi.exit88 ]
   %gep = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %invariant.gep, i64 %.0265
-  %364 = load double, ptr %gep, align 8, !tbaa !93
-  %365 = trunc nuw nsw i64 %.0265 to i32
-  switch i32 %365, label %367 [
+  %365 = load double, ptr %gep, align 8, !tbaa !93
+  %366 = trunc nuw nsw i64 %.0265 to i32
+  switch i32 %366, label %368 [
     i32 0, label %_ZN12colvarmodule7rvectorixEi.exit88
-    i32 1, label %366
+    i32 1, label %367
   ]
-
-366:                                              ; preds = %_ZN12colvarmodule7rvectorixEi.exit
-  br label %_ZN12colvarmodule7rvectorixEi.exit88
 
 367:                                              ; preds = %_ZN12colvarmodule7rvectorixEi.exit
   br label %_ZN12colvarmodule7rvectorixEi.exit88
 
-_ZN12colvarmodule7rvectorixEi.exit88:             ; preds = %_ZN12colvarmodule7rvectorixEi.exit, %366, %367
-  %368 = phi ptr [ %326, %366 ], [ %327, %367 ], [ %325, %_ZN12colvarmodule7rvectorixEi.exit ]
-  %369 = load double, ptr %368, align 8, !tbaa !93
-  %370 = call double @llvm.fmuladd.f64(double %364, double %369, double %.2264)
-  %371 = add nuw nsw i64 %.0265, 1
-  %exitcond284.not = icmp eq i64 %371, 3
-  br i1 %exitcond284.not, label %.split.us, label %_ZN12colvarmodule7rvectorixEi.exit, !llvm.loop !461
+368:                                              ; preds = %_ZN12colvarmodule7rvectorixEi.exit
+  br label %_ZN12colvarmodule7rvectorixEi.exit88
 
-372:                                              ; preds = %361, %145
-  %.pn66.pn = phi { ptr, i32 } [ %146, %145 ], [ %362, %361 ]
-  %373 = load ptr, ptr %5, align 8, !tbaa !296
-  %374 = load ptr, ptr %46, align 8, !tbaa !363
-  %.not.i.i.i89 = icmp eq ptr %374, %373
-  br i1 %.not.i.i.i89, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i90, label %375
+_ZN12colvarmodule7rvectorixEi.exit88:             ; preds = %_ZN12colvarmodule7rvectorixEi.exit, %367, %368
+  %369 = phi ptr [ %326, %367 ], [ %327, %368 ], [ %325, %_ZN12colvarmodule7rvectorixEi.exit ]
+  %370 = load double, ptr %369, align 8, !tbaa !93
+  %371 = call double @llvm.fmuladd.f64(double %365, double %370, double %.2264)
+  %372 = add nuw nsw i64 %.0265, 1
+  %exitcond282.not = icmp eq i64 %372, 3
+  br i1 %exitcond282.not, label %.split.us, label %_ZN12colvarmodule7rvectorixEi.exit, !llvm.loop !461
 
-375:                                              ; preds = %372
-  store ptr %373, ptr %46, align 8, !tbaa !363
+373:                                              ; preds = %362, %145
+  %.pn66.pn = phi { ptr, i32 } [ %146, %145 ], [ %363, %362 ]
+  %374 = load ptr, ptr %5, align 8, !tbaa !296
+  %375 = load ptr, ptr %46, align 8, !tbaa !363
+  %.not.i.i.i89 = icmp eq ptr %375, %374
+  br i1 %.not.i.i.i89, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i90, label %376
+
+376:                                              ; preds = %373
+  store ptr %374, ptr %46, align 8, !tbaa !363
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i90
 
-_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i90: ; preds = %375, %372
-  %.not.i.i.i.i91 = icmp eq ptr %373, null
-  br i1 %.not.i.i.i.i91, label %_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit93, label %376
+_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i90: ; preds = %376, %373
+  %.not.i.i.i.i91 = icmp eq ptr %374, null
+  br i1 %.not.i.i.i.i91, label %_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit93, label %377
 
-376:                                              ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i90
-  %377 = load ptr, ptr %45, align 8, !tbaa !360
-  %378 = ptrtoint ptr %377 to i64
-  %379 = ptrtoint ptr %373 to i64
-  %380 = sub i64 %378, %379
-  call void @_ZdlPvm(ptr noundef nonnull %373, i64 noundef %380) #27
+377:                                              ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i90
+  %378 = load ptr, ptr %45, align 8, !tbaa !360
+  %379 = ptrtoint ptr %378 to i64
+  %380 = ptrtoint ptr %374 to i64
+  %381 = sub i64 %379, %380
+  call void @_ZdlPvm(ptr noundef nonnull %374, i64 noundef %381) #27
   br label %_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit93
 
-_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit93: ; preds = %376, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i90
+_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit93: ; preds = %377, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i90
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
   call void @_ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #26
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #26

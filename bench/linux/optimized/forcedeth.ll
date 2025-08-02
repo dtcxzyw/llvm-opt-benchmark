@@ -312,44 +312,44 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %50 = getelementptr i8, ptr %10, i64 3100
   br label %51
 
-51:                                               ; preds = %.thread46, %47
-  %52 = phi i64 [ 0, %47 ], [ %67, %.thread46 ]
+51:                                               ; preds = %.thread45, %47
+  %52 = phi i64 [ 0, %47 ], [ %71, %.thread45 ]
   %53 = getelementptr [11 x %struct.resource], ptr %49, i64 0, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, 512
   %57 = icmp eq i64 %56, 0
-  br i1 %57, label %.thread46, label %58
+  br i1 %57, label %.thread45, label %58
 
 58:                                               ; preds = %51
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 0
-  br i1 %61, label %.thread46, label %62
+  br i1 %61, label %.thread45, label %62
 
 62:                                               ; preds = %58
   %63 = load i64, ptr %53, align 8
   %64 = add i64 %60, 1
   %65 = sub i64 %64, %63
   %66 = icmp ult i64 %65, %48
-  br i1 %66, label %.thread46, label %69
+  br i1 %66, label %.thread45, label %67
 
-.thread46:                                        ; preds = %58, %62, %51
-  %67 = add nuw nsw i64 %52, 1
-  %68 = icmp eq i64 %67, 11
-  br i1 %68, label %.thread, label %51, !llvm.loop !6
+67:                                               ; preds = %62
+  %68 = load i64, ptr %53, align 8
+  %69 = and i64 %52, 4294967295
+  %70 = icmp eq i64 %69, 11
+  br i1 %70, label %.critedge, label %73
 
-69:                                               ; preds = %62
-  %70 = load i64, ptr %53, align 8
-  %71 = and i64 %52, 4294967295
+.thread45:                                        ; preds = %58, %62, %51
+  %71 = add nuw nsw i64 %52, 1
   %72 = icmp eq i64 %71, 11
-  br i1 %72, label %.thread, label %73
+  br i1 %72, label %.critedge, label %51, !llvm.loop !6
 
-.thread:                                          ; preds = %.thread46, %69
+.critedge:                                        ; preds = %.thread45, %67
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %17, ptr noundef nonnull @.str.4) #19
   br label %662
 
-73:                                               ; preds = %69
+73:                                               ; preds = %67
   %74 = load i64, ptr %35, align 8
   %75 = trunc i64 %74 to i32
   %76 = getelementptr i8, ptr %10, i64 3092
@@ -472,7 +472,7 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   store i32 %142, ptr %138, align 8
   %143 = load i32, ptr %50, align 4
   %144 = zext i32 %143 to i64
-  %145 = tail call ptr @ioremap(i64 noundef %70, i64 noundef %144) #18
+  %145 = tail call ptr @ioremap(i64 noundef %68, i64 noundef %144) #18
   %146 = getelementptr i8, ptr %10, i64 3120
   store ptr %145, ptr %146, align 8
   %147 = icmp eq ptr %145, null
@@ -537,9 +537,9 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %183 = sext i32 %182 to i64
   %184 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %183, i64 40)
   %185 = extractvalue { i64, i1 } %184, 1
-  br i1 %185, label %.thread15, label %187, !prof !9
+  br i1 %185, label %.thread, label %187, !prof !9
 
-.thread15:                                        ; preds = %179
+.thread:                                          ; preds = %179
   %186 = getelementptr i8, ptr %10, i64 3400
   store ptr null, ptr %186, align 8
   br label %639
@@ -809,11 +809,11 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
 359:                                              ; preds = %354
   %360 = getelementptr i8, ptr %10, i64 3076
   store i32 %355, ptr %360, align 4
-  %.pre45 = load i64, ptr %35, align 8
+  %.pre44 = load i64, ptr %35, align 8
   br label %361
 
 361:                                              ; preds = %359, %354
-  %362 = phi i64 [ %.pre45, %359 ], [ %356, %354 ]
+  %362 = phi i64 [ %.pre44, %359 ], [ %356, %354 ]
   %363 = and i64 %362, 2
   %364 = icmp eq i64 %363, 0
   %365 = getelementptr i8, ptr %10, i64 3336
@@ -907,7 +907,7 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %416 = getelementptr i8, ptr %10, i64 3108
   %417 = load i32, ptr %416, align 4
   %418 = icmp sgt i32 %417, 0
-  br i1 %418, label %419, label %.thread16
+  br i1 %418, label %419, label %.thread15
 
 419:                                              ; preds = %414
   %420 = getelementptr i8, ptr %205, i64 632
@@ -915,16 +915,16 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %422 = and i32 %421, 131072
   store i32 %422, ptr %415, align 8
   %423 = icmp eq i32 %422, 0
-  br i1 %423, label %427, label %.thread16
+  br i1 %423, label %427, label %.thread15
 
-.thread16:                                        ; preds = %414, %419
+.thread15:                                        ; preds = %414, %419
   %424 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %400) #18, !srcloc !10
   %425 = and i32 %424, 983040
   %426 = icmp ne i32 %425, 262144
   br label %427
 
-427:                                              ; preds = %.thread16, %419, %411, %408, %404, %399, %393
-  %428 = phi i1 [ true, %419 ], [ true, %411 ], [ true, %408 ], [ true, %404 ], [ true, %399 ], [ true, %393 ], [ %426, %.thread16 ]
+427:                                              ; preds = %.thread15, %419, %411, %408, %404, %399, %393
+  %428 = phi i1 [ true, %419 ], [ true, %411 ], [ true, %408 ], [ true, %404 ], [ true, %399 ], [ true, %393 ], [ %426, %.thread15 ]
   br label %429
 
 429:                                              ; preds = %542, %427
@@ -958,7 +958,7 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %446 = phi i32 [ 10000, %439 ], [ %449, %448 ]
   call void @__const_udelay(i64 noundef 42950) #18
   %447 = icmp ult i32 %446, 10
-  br i1 %447, label %.thread17, label %448
+  br i1 %447, label %.thread16, label %448
 
 448:                                              ; preds = %445
   %449 = add nsw i32 %446, -10
@@ -971,14 +971,14 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %454 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %433) #18, !srcloc !10
   %455 = and i32 %454, 1
   %456 = icmp eq i32 %455, 0
-  br i1 %456, label %457, label %.thread17
+  br i1 %456, label %457, label %.thread16
 
 457:                                              ; preds = %453
   %458 = getelementptr i8, ptr %432, i64 404
   %459 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %458) #18, !srcloc !10
-  br label %.thread17
+  br label %.thread16
 
-.thread17:                                        ; preds = %445, %457, %453
+.thread16:                                        ; preds = %445, %457, %453
   %460 = phi i32 [ %459, %457 ], [ -1, %453 ], [ -1, %445 ]
   call void @_raw_spin_unlock_irq(ptr noundef %13) #18
   %461 = icmp slt i32 %460, 0
@@ -986,7 +986,7 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %463 = or i1 %461, %462
   br i1 %463, label %542, label %464
 
-464:                                              ; preds = %.thread17
+464:                                              ; preds = %.thread16
   call void @_raw_spin_lock_irq(ptr noundef %13) #18
   %465 = load ptr, ptr %146, align 8
   %466 = getelementptr i8, ptr %465, i64 384
@@ -1014,7 +1014,7 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %478 = phi i32 [ 10000, %472 ], [ %481, %480 ]
   call void @__const_udelay(i64 noundef 42950) #18
   %479 = icmp ult i32 %478, 10
-  br i1 %479, label %.thread18, label %480
+  br i1 %479, label %.thread17, label %480
 
 480:                                              ; preds = %477
   %481 = add nsw i32 %478, -10
@@ -1027,14 +1027,14 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %486 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %466) #18, !srcloc !10
   %487 = and i32 %486, 1
   %488 = icmp eq i32 %487, 0
-  br i1 %488, label %489, label %.thread18
+  br i1 %488, label %489, label %.thread17
 
 489:                                              ; preds = %485
   %490 = getelementptr i8, ptr %465, i64 404
   %491 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %490) #18, !srcloc !10
-  br label %.thread18
+  br label %.thread17
 
-.thread18:                                        ; preds = %477, %489, %485
+.thread17:                                        ; preds = %477, %489, %485
   %492 = phi i32 [ %491, %489 ], [ -1, %485 ], [ -1, %477 ]
   call void @_raw_spin_unlock_irq(ptr noundef %13) #18
   %493 = icmp slt i32 %492, 0
@@ -1042,7 +1042,7 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %495 = or i1 %493, %494
   br i1 %495, label %542, label %496
 
-496:                                              ; preds = %.thread18
+496:                                              ; preds = %.thread17
   %497 = and i32 %492, 1008
   %498 = getelementptr i8, ptr %10, i64 3024
   store i32 %497, ptr %498, align 8
@@ -1089,7 +1089,7 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %525 = phi i32 [ 10000, %519 ], [ %528, %527 ]
   call void @__const_udelay(i64 noundef 42950) #18
   %526 = icmp ult i32 %525, 10
-  br i1 %526, label %.thread19, label %527
+  br i1 %526, label %.thread18, label %527
 
 527:                                              ; preds = %524
   %528 = add nsw i32 %525, -10
@@ -1102,30 +1102,30 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %533 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %513) #18, !srcloc !10
   %534 = and i32 %533, 1
   %535 = icmp eq i32 %534, 0
-  br i1 %535, label %536, label %.thread19
+  br i1 %535, label %536, label %.thread18
 
 536:                                              ; preds = %532
   %537 = getelementptr i8, ptr %512, i64 404
   %538 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %537) #18, !srcloc !10
   %539 = and i32 %538, 1
-  br label %.thread19
+  br label %.thread18
 
-.thread19:                                        ; preds = %524, %536, %532
+.thread18:                                        ; preds = %524, %536, %532
   %540 = phi i32 [ %539, %536 ], [ 1, %532 ], [ 1, %524 ]
   %541 = getelementptr i8, ptr %10, i64 3028
   store i32 %540, ptr %541, align 4
   br label %545
 
-542:                                              ; preds = %.thread18, %.thread17
+542:                                              ; preds = %.thread17, %.thread16
   %543 = add nuw nsw i32 %430, 1
   %544 = icmp eq i32 %543, 33
-  br i1 %544, label %.thread20, label %429, !llvm.loop !14
+  br i1 %544, label %.thread19, label %429, !llvm.loop !14
 
-545:                                              ; preds = %.thread19, %496
+545:                                              ; preds = %.thread18, %496
   %546 = icmp eq i32 %430, 33
-  br i1 %546, label %.thread20, label %547
+  br i1 %546, label %.thread19, label %547
 
-.thread20:                                        ; preds = %542, %545
+.thread19:                                        ; preds = %542, %545
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %17, ptr noundef nonnull @.str.8) #19
   br label %622
 
@@ -1235,8 +1235,8 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %17, ptr noundef nonnull @.str.11, ptr noundef nonnull %587, ptr noundef nonnull %590, ptr noundef nonnull %593, ptr noundef nonnull %596, ptr noundef nonnull %600, ptr noundef nonnull %603, ptr noundef nonnull %606, ptr noundef nonnull %610, ptr noundef nonnull %613, ptr noundef nonnull %617, ptr noundef nonnull %620, i32 noundef %621) #19
   br label %671
 
-622:                                              ; preds = %562, %.thread20
-  %623 = phi i32 [ -12, %.thread20 ], [ %560, %562 ]
+622:                                              ; preds = %562, %.thread19
+  %623 = phi i32 [ -12, %.thread19 ], [ %560, %562 ]
   %624 = load ptr, ptr %146, align 8
   %625 = load i32, ptr %76, align 4
   %626 = and i32 %625, 8192
@@ -1264,9 +1264,9 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %638, ptr elementtype(i32) %387) #18, !srcloc !11
   br label %639
 
-639:                                              ; preds = %.thread15, %637, %636, %187
-  %640 = phi ptr [ %190, %637 ], [ %190, %636 ], [ %190, %187 ], [ %186, %.thread15 ]
-  %641 = phi i32 [ %623, %637 ], [ %623, %636 ], [ -12, %187 ], [ -12, %.thread15 ]
+639:                                              ; preds = %.thread, %637, %636, %187
+  %640 = phi ptr [ %190, %637 ], [ %190, %636 ], [ %190, %187 ], [ %186, %.thread ]
+  %641 = phi i32 [ %623, %637 ], [ %623, %636 ], [ -12, %187 ], [ -12, %.thread ]
   %642 = load ptr, ptr %156, align 8
   %643 = icmp eq ptr %642, null
   br i1 %643, label %free_rings.exit, label %644
@@ -1300,8 +1300,8 @@ free_rings.exit:                                  ; preds = %639, %644
   call void @iounmap(ptr noundef %661) #18
   br label %662
 
-662:                                              ; preds = %659, %129, %.thread
-  %663 = phi i32 [ -22, %.thread ], [ %660, %659 ], [ -12, %129 ]
+662:                                              ; preds = %659, %129, %.critedge
+  %663 = phi i32 [ -22, %.critedge ], [ %660, %659 ], [ -12, %129 ]
   call void @pci_release_regions(ptr noundef %0) #18
   br label %664
 
@@ -8228,12 +8228,14 @@ define internal fastcc void @nv_gear_backoff_reseed(ptr %.3120.val) unnamed_addr
   %52 = load i32, ptr %4, align 4
   %53 = zext i32 %52 to i64
   %54 = add nsw i64 %51, -1
-  %55 = getelementptr [8 x [15 x i32]], ptr @main_seedset, i64 0, i64 %53, i64 %54
+  %.split = getelementptr [8 x [15 x i32]], ptr @main_seedset, i64 0, i64 %53
+  %55 = getelementptr [15 x i32], ptr %.split, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 1023
   %58 = trunc i64 %51 to i32
   %59 = shl i32 %58, 24
-  %60 = getelementptr [8 x [15 x i32]], ptr @gear_seedset, i64 0, i64 %53, i64 %54
+  %.split1 = getelementptr [8 x [15 x i32]], ptr @gear_seedset, i64 0, i64 %53
+  %60 = getelementptr [15 x i32], ptr %.split1, i64 0, i64 %54
   %61 = load i32, ptr %60, align 4
   %62 = shl i32 %61, 12
   %63 = and i32 %62, 4190208

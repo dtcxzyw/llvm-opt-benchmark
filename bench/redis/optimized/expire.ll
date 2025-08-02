@@ -898,7 +898,7 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8, !tbaa !77
   %5 = icmp sgt i32 %4, 3
-  br i1 %5, label %.lr.ph, label %.thread94
+  br i1 %5, label %.lr.ph, label %.thread87
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -907,10 +907,10 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr n
 
 8:                                                ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 3, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %.03664 = phi i32 [ 0, %.lr.ph ], [ %.137, %20 ]
-  %.03963 = phi i32 [ 0, %.lr.ph ], [ %.140, %20 ]
-  %.04262 = phi i32 [ 0, %.lr.ph ], [ %.143, %20 ]
-  %.04561 = phi i32 [ 0, %.lr.ph ], [ %.146, %20 ]
+  %.03658 = phi i32 [ 0, %.lr.ph ], [ %.137, %20 ]
+  %.03957 = phi i32 [ 0, %.lr.ph ], [ %.140, %20 ]
+  %.04256 = phi i32 [ 0, %.lr.ph ], [ %.143, %20 ]
+  %.04555 = phi i32 [ 0, %.lr.ph ], [ %.146, %20 ]
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !89
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -932,20 +932,20 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr n
 18:                                               ; preds = %16
   %19 = tail call i32 @strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.6) #12
   %.not50 = icmp eq i32 %19, 0
-  br i1 %.not50, label %20, label %.thread
+  br i1 %.not50, label %20, label %.critedge
 
-.thread:                                          ; preds = %18
+.critedge:                                        ; preds = %18
   tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %12) #10
-  br label %.thread94
+  br label %.thread87
 
 20:                                               ; preds = %18, %16, %14, %8
-  %.sink100 = phi i32 [ 1, %8 ], [ 2, %14 ], [ 4, %16 ], [ 8, %18 ]
-  %.146 = phi i32 [ 1, %8 ], [ %.04561, %14 ], [ %.04561, %16 ], [ %.04561, %18 ]
-  %.143 = phi i32 [ %.04262, %8 ], [ 1, %14 ], [ %.04262, %16 ], [ %.04262, %18 ]
-  %.140 = phi i32 [ %.03963, %8 ], [ %.03963, %14 ], [ 1, %16 ], [ %.03963, %18 ]
-  %.137 = phi i32 [ %.03664, %8 ], [ %.03664, %14 ], [ %.03664, %16 ], [ 1, %18 ]
+  %.sink93 = phi i32 [ 1, %8 ], [ 2, %14 ], [ 4, %16 ], [ 8, %18 ]
+  %.146 = phi i32 [ 1, %8 ], [ %.04555, %14 ], [ %.04555, %16 ], [ %.04555, %18 ]
+  %.143 = phi i32 [ %.04256, %8 ], [ 1, %14 ], [ %.04256, %16 ], [ %.04256, %18 ]
+  %.140 = phi i32 [ %.03957, %8 ], [ %.03957, %14 ], [ 1, %16 ], [ %.03957, %18 ]
+  %.137 = phi i32 [ %.03658, %8 ], [ %.03658, %14 ], [ %.03658, %16 ], [ 1, %18 ]
   %21 = load i32, ptr %1, align 4, !tbaa !10
-  %22 = or i32 %21, %.sink100
+  %22 = or i32 %21, %.sink93
   store i32 %22, ptr %1, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %3, align 8, !tbaa !77
@@ -960,23 +960,23 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr n
   %29 = icmp ne i32 %.137, 0
   %30 = select i1 %27, i1 true, i1 %28
   %31 = select i1 %30, i1 true, i1 %29
-  %or.cond102 = select i1 %26, i1 %31, i1 false
-  br i1 %or.cond102, label %32, label %33
+  %or.cond95 = select i1 %26, i1 %31, i1 false
+  br i1 %or.cond95, label %32, label %33
 
 32:                                               ; preds = %._crit_edge
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #10
-  br label %.thread94
+  br label %.thread87
 
 33:                                               ; preds = %._crit_edge
   %or.cond7 = select i1 %28, i1 %29, i1 false
-  br i1 %or.cond7, label %34, label %.thread94
+  br i1 %or.cond7, label %34, label %.thread87
 
 34:                                               ; preds = %33
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #10
-  br label %.thread94
+  br label %.thread87
 
-.thread94:                                        ; preds = %2, %.thread, %33, %34, %32
-  %.2 = phi i32 [ -1, %32 ], [ -1, %34 ], [ 0, %33 ], [ -1, %.thread ], [ 0, %2 ]
+.thread87:                                        ; preds = %2, %33, %.critedge, %34, %32
+  %.2 = phi i32 [ -1, %32 ], [ -1, %34 ], [ -1, %.critedge ], [ 0, %33 ], [ 0, %2 ]
   ret i32 %.2
 }
 

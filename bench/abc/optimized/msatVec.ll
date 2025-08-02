@@ -449,30 +449,30 @@ define void @Msat_IntVecPushUniqueOrder(ptr noundef captures(none) %0, i32 nound
 
 .lr.ph:                                           ; preds = %3
   %8 = load ptr, ptr %0, align 8, !tbaa !11
-  %invariant.gep = getelementptr i8, ptr %8, i64 -8
   %.not = icmp eq i32 %2, 0
   %9 = zext nneg i32 %6 to i64
   br label %10
 
-10:                                               ; preds = %.lr.ph, %14
-  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %14 ]
+10:                                               ; preds = %.lr.ph, %16
+  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %11 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next
   %12 = load i32, ptr %11, align 4, !tbaa !12
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %13 = load i32, ptr %gep, align 4, !tbaa !12
-  %.not20 = icmp sge i32 %12, %13
-  %.not21 = icmp sle i32 %12, %13
+  %13 = getelementptr i32, ptr %8, i64 %indvars.iv
+  %14 = getelementptr i8, ptr %13, i64 -8
+  %15 = load i32, ptr %14, align 4, !tbaa !12
+  %.not20 = icmp sge i32 %12, %15
+  %.not21 = icmp sle i32 %12, %15
   %or.cond23 = select i1 %.not, i1 %.not21, i1 %.not20
-  br i1 %or.cond23, label %._crit_edge, label %14
+  br i1 %or.cond23, label %._crit_edge, label %16
 
-14:                                               ; preds = %10
-  store i32 %13, ptr %11, align 4, !tbaa !12
-  store i32 %12, ptr %gep, align 4, !tbaa !12
-  %15 = icmp samesign ugt i64 %indvars.iv, 2
-  br i1 %15, label %10, label %._crit_edge, !llvm.loop !16
+16:                                               ; preds = %10
+  store i32 %15, ptr %11, align 4, !tbaa !12
+  store i32 %12, ptr %14, align 4, !tbaa !12
+  %17 = icmp samesign ugt i64 %indvars.iv, 2
+  br i1 %17, label %10, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %14, %10, %3
+._crit_edge:                                      ; preds = %16, %10, %3
   ret void
 }
 

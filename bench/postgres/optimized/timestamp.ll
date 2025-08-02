@@ -1360,13 +1360,13 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %6 = load i64, ptr %0, align 8
   %.off = add i64 %6, -9223372036854775807
   %switch44 = icmp ult i64 %.off, 2
-  br i1 %switch44, label %115, label %7
+  br i1 %switch44, label %117, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %111, label %10
+  br i1 %.not, label %113, label %10
 
 10:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #10
@@ -1437,124 +1437,126 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %47 = srem i32 %39, 400
   %48 = icmp eq i32 %47, 0
   %49 = zext i1 %48 to i64
-  %50 = add nsw i32 %38, -1
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @day_tab, i64 0, i64 %49, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp sgt i32 %41, %53
-  br i1 %54, label %65, label %73
+  %50 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @day_tab, i64 0, i64 %49
+  %51 = add nsw i32 %38, -1
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw [13 x i32], ptr %50, i64 0, i64 %52
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp sgt i32 %41, %54
+  br i1 %55, label %66, label %75
 
 .thread58:                                        ; preds = %44
-  %55 = add nsw i32 %38, -1
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @day_tab, i64 0, i64 1, i64 %56
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp sgt i32 %41, %58
-  br i1 %59, label %.thread45, label %73
+  %56 = add nsw i32 %38, -1
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw [13 x i32], ptr getelementptr inbounds nuw (i8, ptr @day_tab, i64 52), i64 0, i64 %57
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp sgt i32 %41, %59
+  br i1 %60, label %.thread45, label %75
 
 .thread:                                          ; preds = %37
-  %60 = add nsw i32 %38, -1
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @day_tab, i64 0, i64 0, i64 %61
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp sgt i32 %41, %63
-  br i1 %64, label %.thread45, label %73
+  %61 = add nsw i32 %38, -1
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr inbounds nuw [13 x i32], ptr @day_tab, i64 0, i64 %62
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp sgt i32 %41, %64
+  br i1 %65, label %.thread45, label %75
 
-65:                                               ; preds = %46
-  %66 = srem i32 %39, 400
-  %67 = icmp eq i32 %66, 0
-  %68 = zext i1 %67 to i64
+66:                                               ; preds = %46
+  %67 = srem i32 %39, 400
+  %68 = icmp eq i32 %67, 0
+  %69 = zext i1 %68 to i64
   br label %.thread45
 
-.thread45:                                        ; preds = %.thread58, %.thread, %65
-  %69 = phi i64 [ %51, %65 ], [ %61, %.thread ], [ %56, %.thread58 ]
-  %70 = phi i64 [ %68, %65 ], [ 0, %.thread ], [ 1, %.thread58 ]
-  %71 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @day_tab, i64 0, i64 %70, i64 %69
-  %72 = load i32, ptr %71, align 4
-  store i32 %72, ptr %40, align 4
-  br label %73
+.thread45:                                        ; preds = %.thread58, %.thread, %66
+  %70 = phi i64 [ %52, %66 ], [ %62, %.thread ], [ %57, %.thread58 ]
+  %71 = phi i64 [ %69, %66 ], [ 0, %.thread ], [ 1, %.thread58 ]
+  %72 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @day_tab, i64 0, i64 %71
+  %73 = getelementptr inbounds nuw [13 x i32], ptr %72, i64 0, i64 %70
+  %74 = load i32, ptr %73, align 4
+  store i32 %74, ptr %40, align 4
+  br label %75
 
-73:                                               ; preds = %.thread58, %.thread, %.thread45, %46
-  %74 = phi i32 [ %41, %.thread ], [ %72, %.thread45 ], [ %41, %46 ], [ %41, %.thread58 ]
-  %75 = load i32, ptr %5, align 4
-  %76 = icmp sgt i32 %39, -4713
-  br i1 %76, label %80, label %77
+75:                                               ; preds = %.thread58, %.thread, %.thread45, %46
+  %76 = phi i32 [ %41, %.thread ], [ %74, %.thread45 ], [ %41, %46 ], [ %41, %.thread58 ]
+  %77 = load i32, ptr %5, align 4
+  %78 = icmp sgt i32 %39, -4713
+  br i1 %78, label %82, label %79
 
-77:                                               ; preds = %73
-  %78 = icmp eq i32 %39, -4713
-  %79 = icmp samesign ugt i32 %38, 10
-  %or.cond = and i1 %78, %79
+79:                                               ; preds = %75
+  %80 = icmp eq i32 %39, -4713
+  %81 = icmp samesign ugt i32 %38, 10
+  %or.cond = and i1 %80, %81
   br i1 %or.cond, label %.thread.i, label %.thread49
 
-80:                                               ; preds = %73
-  %81 = icmp slt i32 %39, 5874898
-  br i1 %81, label %.thread.i, label %82
+82:                                               ; preds = %75
+  %83 = icmp slt i32 %39, 5874898
+  br i1 %83, label %.thread.i, label %84
 
-82:                                               ; preds = %80
-  %83 = icmp eq i32 %39, 5874898
-  %84 = icmp samesign ult i32 %38, 6
-  %or.cond54 = and i1 %83, %84
+84:                                               ; preds = %82
+  %85 = icmp eq i32 %39, 5874898
+  %86 = icmp samesign ult i32 %38, 6
+  %or.cond54 = and i1 %85, %86
   br i1 %or.cond54, label %.thread.i, label %.thread49
 
-.thread.i:                                        ; preds = %82, %77, %80
-  %85 = call i32 @date2j(i32 noundef %39, i32 noundef %38, i32 noundef %74) #10
-  %86 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #10
-  %87 = sub i32 %85, %86
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %89 = load i32, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %91 = load i32, ptr %90, align 4
-  %92 = load i32, ptr %4, align 8
-  %93 = sext i32 %87 to i64
-  %94 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %93, i64 86400000000)
-  %95 = extractvalue { i64, i1 } %94, 1
-  %96 = extractvalue { i64, i1 } %94, 0
-  store i64 %96, ptr %0, align 8
-  br i1 %95, label %.thread49, label %97
+.thread.i:                                        ; preds = %84, %79, %82
+  %87 = call i32 @date2j(i32 noundef %39, i32 noundef %38, i32 noundef %76) #10
+  %88 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #10
+  %89 = sub i32 %87, %88
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %91 = load i32, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %93 = load i32, ptr %92, align 4
+  %94 = load i32, ptr %4, align 8
+  %95 = sext i32 %89 to i64
+  %96 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %95, i64 86400000000)
+  %97 = extractvalue { i64, i1 } %96, 1
+  %98 = extractvalue { i64, i1 } %96, 0
+  store i64 %98, ptr %0, align 8
+  br i1 %97, label %.thread49, label %99
 
-97:                                               ; preds = %.thread.i
-  %98 = mul i32 %89, 60
-  %99 = add i32 %98, %91
-  %100 = mul i32 %99, 60
-  %101 = add i32 %100, %92
-  %102 = sext i32 %101 to i64
-  %103 = mul nsw i64 %102, 1000000
-  %104 = sext i32 %75 to i64
-  %105 = add nsw i64 %103, %104
-  %106 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %96, i64 range(i64 -2147485795483648, 2147485794483648) %105)
-  %.fr = freeze { i64, i1 } %106
-  %107 = extractvalue { i64, i1 } %.fr, 1
-  %108 = extractvalue { i64, i1 } %.fr, 0
-  store i64 %108, ptr %0, align 8
-  %109 = add i64 %108, -9223371331200000000
-  %or.cond.i = icmp ult i64 %109, 9011559254509551616
-  %or.cond57.not = or i1 %or.cond.i, %107
-  br i1 %or.cond57.not, label %.thread49, label %110, !prof !16
+99:                                               ; preds = %.thread.i
+  %100 = mul i32 %91, 60
+  %101 = add i32 %100, %93
+  %102 = mul i32 %101, 60
+  %103 = add i32 %102, %94
+  %104 = sext i32 %103 to i64
+  %105 = mul nsw i64 %104, 1000000
+  %106 = sext i32 %77 to i64
+  %107 = add nsw i64 %105, %106
+  %108 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %98, i64 range(i64 -2147485795483648, 2147485794483648) %107)
+  %.fr = freeze { i64, i1 } %108
+  %109 = extractvalue { i64, i1 } %.fr, 1
+  %110 = extractvalue { i64, i1 } %.fr, 0
+  store i64 %110, ptr %0, align 8
+  %111 = add i64 %110, -9223371331200000000
+  %or.cond.i = icmp ult i64 %111, 9011559254509551616
+  %or.cond57.not = or i1 %or.cond.i, %109
+  br i1 %or.cond57.not, label %.thread49, label %112, !prof !16
 
-.thread49:                                        ; preds = %10, %82, %77, %97, %.thread.i
+.thread49:                                        ; preds = %10, %84, %79, %99, %.thread.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #10
-  br label %116
+  br label %118
 
-110:                                              ; preds = %97
+112:                                              ; preds = %99
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #10
-  br label %111
+  br label %113
 
-111:                                              ; preds = %110, %7
-  %112 = phi i64 [ %108, %110 ], [ %6, %7 ]
-  %113 = load i64, ptr %1, align 8
-  %114 = add i64 %112, %113
-  store i64 %114, ptr %0, align 8
-  br label %115
+113:                                              ; preds = %112, %7
+  %114 = phi i64 [ %110, %112 ], [ %6, %7 ]
+  %115 = load i64, ptr %1, align 8
+  %116 = add i64 %114, %115
+  store i64 %116, ptr %0, align 8
+  br label %117
 
-115:                                              ; preds = %3, %111
-  %storemerge = phi i64 [ %114, %111 ], [ %6, %3 ]
+117:                                              ; preds = %3, %113
+  %storemerge = phi i64 [ %116, %113 ], [ %6, %3 ]
   store i64 %storemerge, ptr %2, align 8
-  br label %116
+  br label %118
 
-116:                                              ; preds = %.thread49, %115
-  %.1 = phi i32 [ 0, %115 ], [ -1, %.thread49 ]
+118:                                              ; preds = %.thread49, %117
+  %.1 = phi i32 [ 0, %117 ], [ -1, %.thread49 ]
   ret i32 %.1
 }
 

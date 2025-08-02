@@ -91,11 +91,12 @@ define void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef readonly captures(address_is
 
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw [3 x [3 x float]], ptr %10, i64 0, i64 %indvars.iv, i64 %indvars.iv
-  %54 = load float, ptr %53, align 4, !tbaa !12
-  %55 = fdiv float 1.000000e+00, %54
-  %56 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv
-  store float %55, ptr %56, align 4, !tbaa !12
+  %53 = getelementptr inbounds nuw [3 x [3 x float]], ptr %10, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [3 x float], ptr %53, i64 0, i64 %indvars.iv
+  %55 = load float, ptr %54, align 4, !tbaa !12
+  %56 = fdiv float 1.000000e+00, %55
+  %57 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv
+  store float %56, ptr %57, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %52, !llvm.loop !14

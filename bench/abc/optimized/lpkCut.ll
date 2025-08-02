@@ -2256,8 +2256,8 @@ define range(i32 0, 2) i32 @Lpk_NodeCuts(ptr noundef captures(none) initializes(
 
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %Lpk_NodeCutSignature.exit
   %28 = phi i32 [ 1, %.lr.ph91.preheader ], [ %44, %Lpk_NodeCutSignature.exit ]
-  %indvars.iv108 = phi i64 [ 0, %.lr.ph91.preheader ], [ %indvars.iv.next109, %Lpk_NodeCutSignature.exit ]
-  %29 = getelementptr inbounds nuw %struct.Lpk_Cut_t_, ptr %10, i64 %indvars.iv108
+  %indvars.iv106 = phi i64 [ 0, %.lr.ph91.preheader ], [ %indvars.iv.next107, %Lpk_NodeCutSignature.exit ]
+  %29 = getelementptr inbounds nuw %struct.Lpk_Cut_t_, ptr %10, i64 %indvars.iv106
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 63
   %32 = icmp eq i32 %31, 0
@@ -2286,9 +2286,9 @@ define range(i32 0, 2) i32 @Lpk_NodeCuts(ptr noundef captures(none) initializes(
 
 Lpk_NodeCutSignature.exit:                        ; preds = %34, %.lr.ph91
   %44 = phi i32 [ %28, %.lr.ph91 ], [ %42, %34 ]
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next109, %45
+  %46 = icmp slt i64 %indvars.iv.next107, %45
   br i1 %46, label %.lr.ph91, label %Lpk_NodeCutSignature.exit._crit_edge, !llvm.loop !123
 
 Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignature.exit
@@ -2327,8 +2327,8 @@ Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignatur
   br label %62
 
 62:                                               ; preds = %.lr.ph94, %106
-  %indvars.iv111 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next112, %106 ]
-  %63 = getelementptr inbounds nuw %struct.Lpk_Cut_t_, ptr %10, i64 %indvars.iv111
+  %indvars.iv109 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next110, %106 ]
+  %63 = getelementptr inbounds nuw %struct.Lpk_Cut_t_, ptr %10, i64 %indvars.iv109
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 63
   %66 = icmp samesign ult i32 %65, 2
@@ -2381,76 +2381,77 @@ Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignatur
   store i32 %102, ptr %59, align 4, !tbaa !126
   %103 = sext i32 %101 to i64
   %104 = getelementptr inbounds [10000 x i32], ptr %61, i64 0, i64 %103
-  %105 = trunc nuw nsw i64 %indvars.iv111 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv109 to i32
   store i32 %105, ptr %104, align 4, !tbaa !45
   br label %106
 
 106:                                              ; preds = %94, %67, %62, %100
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %107 = load i32, ptr %11, align 4, !tbaa !82
   %108 = sext i32 %107 to i64
-  %109 = icmp slt i64 %indvars.iv.next112, %108
+  %109 = icmp slt i64 %indvars.iv.next110, %108
   br i1 %109, label %62, label %._crit_edge95, !llvm.loop !130
 
 ._crit_edge95:                                    ; preds = %106
-  %.pre119 = load i32, ptr %59, align 4, !tbaa !126
-  %110 = icmp eq i32 %.pre119, 0
+  %.pre117 = load i32, ptr %59, align 4, !tbaa !126
+  %110 = icmp eq i32 %.pre117, 0
   br i1 %110, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge95
-  %invariant.gep = getelementptr i8, ptr %0, i64 52
-  %111 = icmp sgt i32 %.pre119, 1
+  %111 = icmp sgt i32 %.pre117, 1
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8200040
-  br i1 %111, label %.lr.ph101.us.preheader, label %.loopexit
+  br i1 %111, label %.lr.ph99.us.preheader, label %.loopexit
 
-.lr.ph101.us.preheader:                           ; preds = %.preheader
-  %113 = add nsw i32 %.pre119, -1
+.lr.ph99.us.preheader:                            ; preds = %.preheader
+  %113 = add nsw i32 %.pre117, -1
   %wide.trip.count = zext i32 %113 to i64
-  br label %.lr.ph101.us
+  br label %.lr.ph99.us
 
-.lr.ph101.us:                                     ; preds = %.lr.ph101.us.preheader, %._crit_edge102.us
-  %.pre120 = load i32, ptr %112, align 4, !tbaa !45
+.lr.ph99.us:                                      ; preds = %.lr.ph99.us.preheader, %._crit_edge100.us
+  %.pre118 = load i32, ptr %112, align 4, !tbaa !45
   br label %114
 
-114:                                              ; preds = %.lr.ph101.us, %128
-  %115 = phi i32 [ %.pre120, %.lr.ph101.us ], [ %129, %128 ]
-  %indvars.iv114 = phi i64 [ 0, %.lr.ph101.us ], [ %indvars.iv.next115, %128 ]
-  %.099.us = phi i32 [ 0, %.lr.ph101.us ], [ %.1.us, %128 ]
+114:                                              ; preds = %.lr.ph99.us, %132
+  %115 = phi i32 [ %.pre118, %.lr.ph99.us ], [ %133, %132 ]
+  %indvars.iv112 = phi i64 [ 0, %.lr.ph99.us ], [ %indvars.iv.next113, %132 ]
+  %.097.us = phi i32 [ 0, %.lr.ph99.us ], [ %.1.us, %132 ]
   %116 = sext i32 %115 to i64
-  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %117 = getelementptr inbounds nuw [10000 x i32], ptr %112, i64 0, i64 %indvars.iv.next115
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %117 = getelementptr inbounds nuw [10000 x i32], ptr %112, i64 0, i64 %indvars.iv.next113
   %118 = load i32, ptr %117, align 4, !tbaa !45
   %119 = sext i32 %118 to i64
   %.idx.us = mul nsw i64 %116, 820
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %.idx.us
-  %120 = load float, ptr %gep.us, align 4, !tbaa !128
-  %121 = fpext float %120 to double
-  %.idx82.us = mul nsw i64 %119, 820
-  %gep97.us = getelementptr i8, ptr %invariant.gep, i64 %.idx82.us
-  %122 = load float, ptr %gep97.us, align 4, !tbaa !128
+  %120 = getelementptr i8, ptr %10, i64 %.idx.us
+  %121 = getelementptr i8, ptr %120, i64 12
+  %122 = load float, ptr %121, align 4, !tbaa !128
   %123 = fpext float %122 to double
-  %124 = fadd double %123, -1.000000e-03
-  %125 = fcmp ugt double %124, %121
-  br i1 %125, label %126, label %128
+  %.idx82.us = mul nsw i64 %119, 820
+  %124 = getelementptr i8, ptr %10, i64 %.idx82.us
+  %125 = getelementptr i8, ptr %124, i64 12
+  %126 = load float, ptr %125, align 4, !tbaa !128
+  %127 = fpext float %126 to double
+  %128 = fadd double %127, -1.000000e-03
+  %129 = fcmp ugt double %128, %123
+  br i1 %129, label %130, label %132
 
-126:                                              ; preds = %114
-  %127 = getelementptr inbounds nuw [10000 x i32], ptr %112, i64 0, i64 %indvars.iv114
-  store i32 %118, ptr %127, align 4, !tbaa !45
+130:                                              ; preds = %114
+  %131 = getelementptr inbounds nuw [10000 x i32], ptr %112, i64 0, i64 %indvars.iv112
+  store i32 %118, ptr %131, align 4, !tbaa !45
   store i32 %115, ptr %117, align 4, !tbaa !45
-  br label %128
+  br label %132
 
-128:                                              ; preds = %126, %114
-  %129 = phi i32 [ %118, %114 ], [ %115, %126 ]
-  %.1.us = phi i32 [ %.099.us, %114 ], [ 1, %126 ]
-  %exitcond.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge102.us, label %114, !llvm.loop !131
+132:                                              ; preds = %130, %114
+  %133 = phi i32 [ %118, %114 ], [ %115, %130 ]
+  %.1.us = phi i32 [ %.097.us, %114 ], [ 1, %130 ]
+  %exitcond.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge100.us, label %114, !llvm.loop !131
 
-._crit_edge102.us:                                ; preds = %128
+._crit_edge100.us:                                ; preds = %132
   %.not81.us = icmp eq i32 %.1.us, 0
-  br i1 %.not81.us, label %.loopexit, label %.lr.ph101.us, !llvm.loop !132
+  br i1 %.not81.us, label %.loopexit, label %.lr.ph99.us, !llvm.loop !132
 
-.loopexit:                                        ; preds = %._crit_edge102.us, %57, %.preheader, %._crit_edge95, %1
-  %.076 = phi i32 [ 0, %1 ], [ 0, %._crit_edge95 ], [ 1, %.preheader ], [ 0, %57 ], [ 1, %._crit_edge102.us ]
+.loopexit:                                        ; preds = %._crit_edge100.us, %57, %.preheader, %._crit_edge95, %1
+  %.076 = phi i32 [ 0, %1 ], [ 0, %._crit_edge95 ], [ 1, %.preheader ], [ 0, %57 ], [ 1, %._crit_edge100.us ]
   ret i32 %.076
 }
 

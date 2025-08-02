@@ -861,17 +861,11 @@ _ZN5vcpkg4Util4Sets8containsISt3setINS_13StringLiteralESt4lessIvESaIS4_EES4_EEbR
   %269 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %270 = load i64, ptr %269, align 8, !noalias !38
   %271 = icmp eq i64 %270, 128
-  br i1 %271, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.thread.i
+  br i1 %271, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.thread.i
 
-.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %267
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %268, i64 1
-  %invariant.gep23.i.i = getelementptr inbounds nuw i8, ptr %268, i64 2
-  %invariant.gep25.i.i = getelementptr inbounds nuw i8, ptr %268, i64 3
-  br label %.lr.ph.i.i.i.i.i.i.i
-
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %307, %.lr.ph.i.i.i.i.preheader.i.i.i
-  %.047.i.i.i.i.i.i.i = phi i64 [ %308, %307 ], [ 32, %.lr.ph.i.i.i.i.preheader.i.i.i ]
-  %.02946.i.i.i.i.i.idx.i.i = phi i64 [ %.02946.i.i.i.i.i.add17.i.i, %307 ], [ 0, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %267, %307
+  %.047.i.i.i.i.i.i.i = phi i64 [ %308, %307 ], [ 32, %267 ]
+  %.02946.i.i.i.i.i.idx.i.i = phi i64 [ %.02946.i.i.i.i.i.add17.i.i, %307 ], [ 0, %267 ]
   %.02946.i.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %268, i64 %.02946.i.i.i.i.i.idx.i.i
   %272 = load i8, ptr %.02946.i.i.i.i.i.ptr.i.i, align 1, !tbaa !19
   %273 = sext i8 %272 to i32
@@ -884,8 +878,8 @@ _ZN5vcpkg4Util4Sets8containsISt3setINS_13StringLiteralESt4lessIvESaIS4_EES4_EEbR
   br i1 %279, label %280, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.i
 
 280:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %.02946.i.i.i.i.i.idx.i.i
-  %281 = load i8, ptr %gep.i.i, align 1, !tbaa !19
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.ptr.i.i, i64 1
+  %281 = load i8, ptr %.ptr.i.i, align 1, !tbaa !19
   %282 = sext i8 %281 to i32
   %283 = add nsw i32 %282, -48
   %284 = icmp ult i32 %283, 10
@@ -896,8 +890,8 @@ _ZN5vcpkg4Util4Sets8containsISt3setINS_13StringLiteralESt4lessIvESaIS4_EES4_EEbR
   br i1 %288, label %289, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.thread.i
 
 289:                                              ; preds = %280
-  %gep24.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep23.i.i, i64 %.02946.i.i.i.i.i.idx.i.i
-  %290 = load i8, ptr %gep24.i.i, align 1, !tbaa !19
+  %.ptr18.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.ptr.i.i, i64 2
+  %290 = load i8, ptr %.ptr18.i.i, align 1, !tbaa !19
   %291 = sext i8 %290 to i32
   %292 = add nsw i32 %291, -48
   %293 = icmp ult i32 %292, 10
@@ -908,8 +902,8 @@ _ZN5vcpkg4Util4Sets8containsISt3setINS_13StringLiteralESt4lessIvESaIS4_EES4_EEbR
   br i1 %297, label %298, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.thread.i
 
 298:                                              ; preds = %289
-  %gep26.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep25.i.i, i64 %.02946.i.i.i.i.i.idx.i.i
-  %299 = load i8, ptr %gep26.i.i, align 1, !tbaa !19
+  %.ptr19.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.ptr.i.i, i64 3
+  %299 = load i8, ptr %.ptr19.i.i, align 1, !tbaa !19
   %300 = sext i8 %299 to i32
   %301 = add nsw i32 %300, -48
   %302 = icmp ult i32 %301, 10

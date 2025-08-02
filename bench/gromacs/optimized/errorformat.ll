@@ -151,47 +151,47 @@ define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr nou
   %5 = sub nsw i32 78, %2
   store i32 %5, ptr %4, align 4, !tbaa !16
   %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
-  %invariant.gep22 = getelementptr i8, ptr %1, i64 -1
-  %.not26 = icmp eq i64 %6, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph25
+  %.not24 = icmp eq i64 %6, 0
+  br i1 %.not24, label %._crit_edge, label %.lr.ph23
 
-.lr.ph25:                                         ; preds = %3, %.critedge
-  %.01824 = phi i64 [ %7, %.critedge ], [ 0, %3 ]
-  %7 = call noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull %1, i64 noundef %.01824)
-  %8 = sub i64 %7, %.01824
+.lr.ph23:                                         ; preds = %3, %.critedge
+  %.01822 = phi i64 [ %7, %.critedge ], [ 0, %3 ]
+  %7 = call noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull %1, i64 noundef %.01822)
+  %8 = sub i64 %7, %.01822
   %9 = trunc i64 %8 to i32
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph25
-  %gep23 = getelementptr i8, ptr %invariant.gep22, i64 %.01824
-  %11 = and i64 %8, 2147483647
-  br label %12
+.lr.ph:                                           ; preds = %.lr.ph23
+  %11 = getelementptr i8, ptr %1, i64 %.01822
+  %12 = and i64 %8, 2147483647
+  br label %13
 
-12:                                               ; preds = %.lr.ph, %16
-  %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %gep = getelementptr i8, ptr %gep23, i64 %indvars.iv
-  %13 = load i8, ptr %gep, align 1, !tbaa !15
-  %14 = sext i8 %13 to i32
-  %15 = call i32 @isspace(i32 noundef %14) #13
-  %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %.critedge.loopexit.split.loop.exit28, label %16
+13:                                               ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %19 ]
+  %14 = getelementptr i8, ptr %11, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %14, i64 -1
+  %16 = load i8, ptr %15, align 1, !tbaa !15
+  %17 = sext i8 %16 to i32
+  %18 = call i32 @isspace(i32 noundef %17) #13
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %.critedge.loopexit.split.loop.exit26, label %19
 
-16:                                               ; preds = %12
+19:                                               ; preds = %13
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %17 = icmp sgt i64 %indvars.iv, 1
-  br i1 %17, label %12, label %.critedge, !llvm.loop !20
+  %20 = icmp sgt i64 %indvars.iv, 1
+  br i1 %20, label %13, label %.critedge, !llvm.loop !20
 
-.critedge.loopexit.split.loop.exit28:             ; preds = %12
-  %18 = trunc nuw nsw i64 %indvars.iv to i32
+.critedge.loopexit.split.loop.exit26:             ; preds = %13
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %16, %.critedge.loopexit.split.loop.exit28, %.lr.ph25
-  %.0.lcssa = phi i32 [ %9, %.lr.ph25 ], [ %18, %.critedge.loopexit.split.loop.exit28 ], [ 0, %16 ]
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.01824
-  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %.0.lcssa, ptr noundef nonnull %19) #11
-  %21 = icmp ult i64 %7, %6
-  br i1 %21, label %.lr.ph25, label %._crit_edge, !llvm.loop !22
+.critedge:                                        ; preds = %19, %.critedge.loopexit.split.loop.exit26, %.lr.ph23
+  %.0.lcssa = phi i32 [ %9, %.lr.ph23 ], [ %21, %.critedge.loopexit.split.loop.exit26 ], [ 0, %19 ]
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.01822
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %.0.lcssa, ptr noundef nonnull %22) #11
+  %24 = icmp ult i64 %7, %6
+  br i1 %24, label %.lr.ph23, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.critedge, %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11

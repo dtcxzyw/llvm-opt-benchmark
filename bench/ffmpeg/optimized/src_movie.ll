@@ -953,15 +953,15 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
 
 53:                                               ; preds = %46
   %54 = tail call fastcc i32 @decode_packet(ptr noundef nonnull %0, i32 noundef %51)
+  %55 = tail call i32 @llvm.smin.i32(i32 %54, i32 0)
   %.pre141 = load ptr, ptr %26, align 8, !tbaa !65
   br label %.thread
 
 .thread:                                          ; preds = %39, %53, %46
-  %55 = phi ptr [ %.pre141, %53 ], [ %40, %46 ], [ %40, %39 ]
-  %.079 = phi i32 [ %54, %53 ], [ %28, %46 ], [ %28, %39 ]
-  tail call void @av_packet_unref(ptr noundef %55) #13
+  %56 = phi ptr [ %.pre141, %53 ], [ %40, %46 ], [ %40, %39 ]
+  %.079 = phi i32 [ %55, %53 ], [ 0, %46 ], [ 0, %39 ]
+  tail call void @av_packet_unref(ptr noundef %56) #13
   tail call void @ff_filter_set_ready(ptr noundef nonnull %0, i32 noundef 100) #13
-  %56 = tail call i32 @llvm.smin.i32(i32 %.079, i32 0)
   br label %._crit_edge.thread
 
 ._crit_edge100:                                   ; preds = %68
@@ -1140,7 +1140,7 @@ rewind_file.exit:                                 ; preds = %80
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %110, %1, %rewind_file.exit, %._crit_edge106, %132, %._crit_edge111, %._crit_edge, %.thread, %._crit_edge117
-  %.075 = phi i32 [ 0, %._crit_edge117 ], [ %56, %.thread ], [ -1497649742, %._crit_edge ], [ 0, %._crit_edge106 ], [ %89, %rewind_file.exit ], [ 0, %132 ], [ 0, %._crit_edge111 ], [ -1497649742, %1 ], [ 0, %110 ]
+  %.075 = phi i32 [ 0, %._crit_edge117 ], [ %.079, %.thread ], [ -1497649742, %._crit_edge ], [ 0, %._crit_edge106 ], [ %89, %rewind_file.exit ], [ 0, %132 ], [ 0, %._crit_edge111 ], [ -1497649742, %1 ], [ 0, %110 ]
   ret i32 %.075
 }
 

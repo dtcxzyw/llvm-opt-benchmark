@@ -12917,196 +12917,195 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
 
 .lr.ph:                                           ; preds = %5
   %11 = icmp sgt i32 %4, 0
-  %invariant.gep46 = getelementptr i8, ptr %0, i64 8
   br i1 %11, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us
-  %.043.us = phi i64 [ %23, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us ], [ %1, %.lr.ph ]
+  %.043.us = phi i64 [ %25, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us ], [ %1, %.lr.ph ]
   %12 = shl i64 %.043.us, 1
   %13 = add i64 %12, 2
   %14 = or disjoint i64 %12, 1
-  %gep47 = getelementptr %"struct.cvc5::internal::theory::arith::linear::Border", ptr %invariant.gep46, i64 %14
-  %gep49 = getelementptr %"struct.cvc5::internal::theory::arith::linear::Border", ptr %invariant.gep46, i64 %13
-  %15 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(64) %gep49, ptr noundef nonnull align 8 dereferenceable(64) %gep47) #31
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40.us, label %17
+  %15 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %14, i32 1
+  %16 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %13, i32 1
+  %17 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %15) #31
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40.us, label %19
 
-17:                                               ; preds = %.lr.ph.split.us
-  %18 = icmp eq i32 %15, 0
-  br i1 %18, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.us, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread.us
+19:                                               ; preds = %.lr.ph.split.us
+  %20 = icmp eq i32 %17, 0
+  br i1 %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.us, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread.us
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.us: ; preds = %17
-  %19 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %13, i32 1, i32 1
-  %20 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %14, i32 1, i32 1
-  %21 = tail call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19) #31
-  %.fr.us = freeze i32 %21
-  %22 = icmp slt i32 %.fr.us, 0
-  br i1 %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread.us, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40.us
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.us: ; preds = %19
+  %21 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %13, i32 1, i32 1
+  %22 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %14, i32 1, i32 1
+  %23 = tail call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %21) #31
+  %.fr.us = freeze i32 %23
+  %24 = icmp slt i32 %.fr.us, 0
+  br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread.us, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40.us
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread.us: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.us, %17
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread.us: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.us, %19
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40.us
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40.us: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.us, %.lr.ph.split.us
-  %23 = phi i64 [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread.us ], [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.us ], [ %13, %.lr.ph.split.us ]
-  %24 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %23
-  %25 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %.043.us
-  %26 = load ptr, ptr %24, align 8, !tbaa !62
-  store ptr %26, ptr %25, align 8, !tbaa !62
-  %27 = icmp eq i64 %.043.us, %23
-  br i1 %27, label %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us, label %28
+  %25 = phi i64 [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread.us ], [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.us ], [ %13, %.lr.ph.split.us ]
+  %26 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %25
+  %27 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %.043.us
+  %28 = load ptr, ptr %26, align 8, !tbaa !62
+  store ptr %28, ptr %27, align 8, !tbaa !62
+  %29 = icmp eq i64 %.043.us, %25
+  br i1 %29, label %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us, label %30
 
-28:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40.us
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %29)
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %31)
+30:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40.us
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 8 dereferenceable(64) %31)
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %33)
   br label %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us
 
-_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us: ; preds = %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40.us
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 72
-  %34 = getelementptr inbounds nuw i8, ptr %24, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %33, ptr noundef nonnull align 8 dereferenceable(17) %34, i64 17, i1 false)
-  %35 = icmp slt i64 %23, %9
-  br i1 %35, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !265
+_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us: ; preds = %30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40.us
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %35, ptr noundef nonnull align 8 dereferenceable(17) %36, i64 17, i1 false)
+  %37 = icmp slt i64 %25, %9
+  br i1 %37, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !265
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit
-  %.043 = phi i64 [ %47, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit ], [ %1, %.lr.ph ]
-  %36 = shl i64 %.043, 1
-  %37 = add i64 %36, 2
-  %38 = or disjoint i64 %36, 1
-  %gep = getelementptr %"struct.cvc5::internal::theory::arith::linear::Border", ptr %invariant.gep46, i64 %37
-  %gep45 = getelementptr %"struct.cvc5::internal::theory::arith::linear::Border", ptr %invariant.gep46, i64 %38
-  %39 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(64) %gep45, ptr noundef nonnull align 8 dereferenceable(64) %gep) #31
-  %40 = icmp slt i32 %39, 0
-  br i1 %40, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40, label %41
+  %.043 = phi i64 [ %51, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit ], [ %1, %.lr.ph ]
+  %38 = shl i64 %.043, 1
+  %39 = add i64 %38, 2
+  %40 = or disjoint i64 %38, 1
+  %41 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %39, i32 1
+  %42 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %40, i32 1
+  %43 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull align 8 dereferenceable(64) %41) #31
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40, label %45
 
-41:                                               ; preds = %.lr.ph.split
-  %42 = icmp eq i32 %39, 0
-  br i1 %42, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread
+45:                                               ; preds = %.lr.ph.split
+  %46 = icmp eq i32 %43, 0
+  br i1 %46, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit: ; preds = %41
-  %43 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %38, i32 1, i32 1
-  %44 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %37, i32 1, i32 1
-  %45 = tail call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %43) #31
-  %.fr = freeze i32 %45
-  %46 = icmp slt i32 %.fr, 0
-  br i1 %46, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit: ; preds = %45
+  %47 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %40, i32 1, i32 1
+  %48 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %39, i32 1, i32 1
+  %49 = tail call i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %47) #31
+  %.fr = freeze i32 %49
+  %50 = icmp slt i32 %.fr, 0
+  br i1 %50, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread: ; preds = %41, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread: ; preds = %45, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40: ; preds = %.lr.ph.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread
-  %47 = phi i64 [ %38, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread ], [ %37, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit ], [ %37, %.lr.ph.split ]
-  %48 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %47
-  %49 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %.043
-  %50 = load ptr, ptr %48, align 8, !tbaa !62
-  store ptr %50, ptr %49, align 8, !tbaa !62
-  %51 = icmp eq i64 %.043, %47
-  br i1 %51, label %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit, label %52
+  %51 = phi i64 [ %40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread ], [ %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit ], [ %39, %.lr.ph.split ]
+  %52 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %51
+  %53 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %.043
+  %54 = load ptr, ptr %52, align 8, !tbaa !62
+  store ptr %54, ptr %53, align 8, !tbaa !62
+  %55 = icmp eq i64 %.043, %51
+  br i1 %55, label %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit, label %56
 
-52:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(64) %53)
-  %55 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %55)
+56:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(64) %58, ptr noundef nonnull align 8 dereferenceable(64) %57)
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %59)
   br label %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit
 
-_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40, %52
-  %57 = getelementptr inbounds nuw i8, ptr %49, i64 72
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %57, ptr noundef nonnull align 8 dereferenceable(17) %58, i64 17, i1 false)
-  %59 = icmp slt i64 %47, %9
-  br i1 %59, label %.lr.ph.split, label %._crit_edge, !llvm.loop !266
+_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear10BorderHeap13BorderHeapCmpEEclINS_17__normal_iteratorIPNS6_6BorderESt6vectorISC_SaISC_EEEESH_EEbT_T0_.exit.thread40, %56
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %61, ptr noundef nonnull align 8 dereferenceable(17) %62, i64 17, i1 false)
+  %63 = icmp slt i64 %51, %9
+  br i1 %63, label %.lr.ph.split, label %._crit_edge, !llvm.loop !266
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us, %5
-  %.0.lcssa = phi i64 [ %1, %5 ], [ %23, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us ], [ %47, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit ]
-  %60 = and i64 %2, 1
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %62, label %80
+  %.0.lcssa = phi i64 [ %1, %5 ], [ %25, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.us ], [ %51, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit ]
+  %64 = and i64 %2, 1
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %66, label %84
 
-62:                                               ; preds = %._crit_edge
-  %63 = add nsw i64 %2, -2
-  %64 = ashr exact i64 %63, 1
-  %65 = icmp eq i64 %.0.lcssa, %64
-  br i1 %65, label %66, label %80
+66:                                               ; preds = %._crit_edge
+  %67 = add nsw i64 %2, -2
+  %68 = ashr exact i64 %67, 1
+  %69 = icmp eq i64 %.0.lcssa, %68
+  br i1 %69, label %70, label %84
 
-66:                                               ; preds = %62
-  %67 = shl nsw i64 %.0.lcssa, 1
-  %68 = or disjoint i64 %67, 1
-  %69 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %68
-  %70 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %.0.lcssa
-  %71 = load ptr, ptr %69, align 8, !tbaa !62
-  store ptr %71, ptr %70, align 8, !tbaa !62
-  %72 = icmp eq i64 %.0.lcssa, %68
-  br i1 %72, label %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit25, label %73
+70:                                               ; preds = %66
+  %71 = shl nsw i64 %.0.lcssa, 1
+  %72 = or disjoint i64 %71, 1
+  %73 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %72
+  %74 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Border", ptr %0, i64 %.0.lcssa
+  %75 = load ptr, ptr %73, align 8, !tbaa !62
+  store ptr %75, ptr %74, align 8, !tbaa !62
+  %76 = icmp eq i64 %.0.lcssa, %72
+  br i1 %76, label %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit25, label %77
 
-73:                                               ; preds = %66
-  %74 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(64) %75, ptr noundef nonnull align 8 dereferenceable(64) %74)
-  %76 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  %77 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %76)
+77:                                               ; preds = %70
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(64) %79, ptr noundef nonnull align 8 dereferenceable(64) %78)
+  %80 = getelementptr inbounds nuw i8, ptr %73, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 40
+  tail call void @__gmpq_set(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %80)
   br label %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit25
 
-_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit25: ; preds = %66, %73
-  %78 = getelementptr inbounds nuw i8, ptr %70, i64 72
-  %79 = getelementptr inbounds nuw i8, ptr %69, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %78, ptr noundef nonnull align 8 dereferenceable(17) %79, i64 17, i1 false)
-  br label %80
+_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit25: ; preds = %70, %77
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %73, i64 72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %82, ptr noundef nonnull align 8 dereferenceable(17) %83, i64 17, i1 false)
+  br label %84
 
-80:                                               ; preds = %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit25, %62, %._crit_edge
-  %.1 = phi i64 [ %68, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit25 ], [ %.0.lcssa, %62 ], [ %.0.lcssa, %._crit_edge ]
+84:                                               ; preds = %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit25, %66, %._crit_edge
+  %.1 = phi i64 [ %72, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit25 ], [ %.0.lcssa, %66 ], [ %.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
   store i32 %4, ptr %6, align 4, !tbaa !28
-  %81 = load ptr, ptr %3, align 8, !tbaa !62
-  store ptr %81, ptr %7, align 8, !tbaa !62
-  %82 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %83 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %82, ptr noundef nonnull align 8 dereferenceable(64) %83)
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %85 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %84, ptr noundef nonnull align 8 dereferenceable(17) %85, i64 17, i1 false)
+  %85 = load ptr, ptr %3, align 8, !tbaa !62
+  store ptr %85, ptr %7, align 8, !tbaa !62
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %86, ptr noundef nonnull align 8 dereferenceable(64) %87)
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %88, ptr noundef nonnull align 8 dereferenceable(17) %89, i64 17, i1 false)
   invoke void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops14_Iter_comp_valINS6_10BorderHeap13BorderHeapCmpEEEEvT_T0_SJ_T1_RT2_(ptr %0, i64 noundef %.1, i64 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %86 unwind label %94
+          to label %90 unwind label %98
 
-86:                                               ; preds = %80
-  %87 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %87)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit.i.i unwind label %88
+90:                                               ; preds = %84
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %91)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit.i.i unwind label %92
 
-88:                                               ; preds = %86
-  %89 = landingpad { ptr, i32 }
+92:                                               ; preds = %90
+  %93 = landingpad { ptr, i32 }
           catch ptr null
-  %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #29
+  %94 = extractvalue { ptr, i32 } %93, 0
+  call void @__clang_call_terminate(ptr %94) #29
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit.i.i:          ; preds = %86
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(64) %82)
-          to label %_ZN4cvc58internal6theory5arith6linear6BorderD2Ev.exit unwind label %91
+_ZN4cvc58internal8RationalD2Ev.exit.i.i:          ; preds = %90
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(64) %86)
+          to label %_ZN4cvc58internal6theory5arith6linear6BorderD2Ev.exit unwind label %95
 
-91:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i.i
-  %92 = landingpad { ptr, i32 }
+95:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i.i
+  %96 = landingpad { ptr, i32 }
           catch ptr null
-  %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #29
+  %97 = extractvalue { ptr, i32 } %96, 0
+  call void @__clang_call_terminate(ptr %97) #29
   unreachable
 
 _ZN4cvc58internal6theory5arith6linear6BorderD2Ev.exit: ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
   ret void
 
-94:                                               ; preds = %80
-  %95 = landingpad { ptr, i32 }
+98:                                               ; preds = %84
+  %99 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal6theory5arith6linear6BorderD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %7) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
-  resume { ptr, i32 } %95
+  resume { ptr, i32 } %99
 }
 
 ; Function Attrs: mustprogress uwtable

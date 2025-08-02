@@ -9412,48 +9412,48 @@ define void @_ZN10open_spiel6hearts11HeartsState12ComputeScoreEv(ptr noundef non
 .noexc:                                           ; preds = %.loopexit
   %34 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 116
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
 
 .preheader:                                       ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1576
-  br label %42
+  br label %44
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
   %indvars.iv56 = phi i64 [ 0, %.noexc ], [ %indvars.iv.next57, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
   %36 = mul nuw nsw i64 %indvars.iv56, 48
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %36
-  %37 = load i32, ptr %gep, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %34, i64 %38
-  %40 = load i32, ptr %39, align 4
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %39, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %39 = load i32, ptr %38, align 4
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %34, i64 %40
+  %42 = load i32, ptr %41, align 4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %41, align 4
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, 13
   br i1 %exitcond60.not, label %.preheader, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, !llvm.loop !101
 
-42:                                               ; preds = %.preheader, %51
-  %indvars.iv61 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next62, %51 ]
-  %43 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv61
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %51
+44:                                               ; preds = %.preheader, %53
+  %indvars.iv61 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next62, %53 ]
+  %45 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv61
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %53
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %35, align 8
-  %48 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv61
-  %49 = load double, ptr %48, align 8
-  %50 = fadd double %49, -5.000000e+00
-  store double %50, ptr %48, align 8
-  br label %51
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %35, align 8
+  %50 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv61
+  %51 = load double, ptr %50, align 8
+  %52 = fadd double %51, -5.000000e+00
+  store double %52, ptr %50, align 8
+  br label %53
 
-51:                                               ; preds = %42, %46
+53:                                               ; preds = %44, %48
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 4
-  br i1 %exitcond64.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %42, !llvm.loop !102
+  br i1 %exitcond64.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %44, !llvm.loop !102
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %51
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %53
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 16) #31
   br label %.loopexit.thread
 

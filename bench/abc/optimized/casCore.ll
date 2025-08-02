@@ -539,7 +539,7 @@ define noundef ptr @GetSingleOutputFunctionRemappedNewDD(ptr noundef %0, ptr nou
 
 8:                                                ; preds = %.lr.ph79, %._crit_edge
   %indvars.iv98 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next99, %._crit_edge ]
-  %.077 = phi i32 [ 0, %.lr.ph79 ], [ %spec.select, %._crit_edge ]
+  %.077 = phi i32 [ 0, %.lr.ph79 ], [ %.069.lcssa, %._crit_edge ]
   %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv98
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %10) #14
@@ -569,28 +569,28 @@ define noundef ptr @GetSingleOutputFunctionRemappedNewDD(ptr noundef %0, ptr nou
 
 ._crit_edge.loopexit:                             ; preds = %14
   %22 = trunc nuw i64 %indvars.iv.next to i32
+  %23 = tail call i32 @llvm.umax.i32(i32 %.077, i32 %22)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
-  %.069.lcssa = phi i32 [ 0, %8 ], [ %22, %._crit_edge.loopexit ]
-  %23 = load ptr, ptr %9, align 8, !tbaa !3
-  %24 = tail call ptr @Cudd_bddPermute(ptr noundef nonnull %0, ptr noundef %23, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.Permute) #14
-  %25 = getelementptr inbounds nuw [1024 x ptr], ptr @GetSingleOutputFunctionRemappedNewDD.pRemapped, i64 0, i64 %indvars.iv98
-  store ptr %24, ptr %25, align 8, !tbaa !3
-  tail call void @Cudd_Ref(ptr noundef %24) #14
+  %.069.lcssa = phi i32 [ %.077, %8 ], [ %23, %._crit_edge.loopexit ]
+  %24 = load ptr, ptr %9, align 8, !tbaa !3
+  %25 = tail call ptr @Cudd_bddPermute(ptr noundef nonnull %0, ptr noundef %24, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.Permute) #14
+  %26 = getelementptr inbounds nuw [1024 x ptr], ptr @GetSingleOutputFunctionRemappedNewDD.pRemapped, i64 0, i64 %indvars.iv98
+  store ptr %25, ptr %26, align 8, !tbaa !3
+  tail call void @Cudd_Ref(ptr noundef %25) #14
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %11) #14
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %.077, i32 %.069.lcssa)
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge80, label %8, !llvm.loop !45
 
 ._crit_edge80:                                    ; preds = %._crit_edge, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %spec.select, %._crit_edge ]
-  %26 = icmp ult i32 %2, 2
-  %27 = add i32 %2, -1
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
-  %29 = sub nuw nsw i32 32, %28
-  %.09.i = select i1 %26, i32 %2, i32 %29
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %.069.lcssa, %._crit_edge ]
+  %27 = icmp ult i32 %2, 2
+  %28 = add i32 %2, -1
+  %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 true)
+  %30 = sub nuw nsw i32 32, %29
+  %.09.i = select i1 %27, i32 %2, i32 %30
   %.not95 = icmp eq i32 %.09.i, 0
   br i1 %.not95, label %._crit_edge85, label %.lr.ph84.preheader
 
@@ -600,45 +600,45 @@ define noundef ptr @GetSingleOutputFunctionRemappedNewDD(ptr noundef %0, ptr nou
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %indvars.iv101 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next102, %.lr.ph84 ]
-  %30 = trunc nuw nsw i64 %indvars.iv101 to i32
-  %31 = tail call ptr @Cudd_bddNewVarAtLevel(ptr noundef %0, i32 noundef %30) #14
-  %32 = getelementptr inbounds nuw [1024 x ptr], ptr @GetSingleOutputFunctionRemappedNewDD.pbVarsEnc, i64 0, i64 %indvars.iv101
-  store ptr %31, ptr %32, align 8, !tbaa !3
+  %31 = trunc nuw nsw i64 %indvars.iv101 to i32
+  %32 = tail call ptr @Cudd_bddNewVarAtLevel(ptr noundef %0, i32 noundef %31) #14
+  %33 = getelementptr inbounds nuw [1024 x ptr], ptr @GetSingleOutputFunctionRemappedNewDD.pbVarsEnc, i64 0, i64 %indvars.iv101
+  store ptr %32, ptr %33, align 8, !tbaa !3
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
   br i1 %exitcond105.not, label %._crit_edge85, label %.lr.ph84, !llvm.loop !46
 
 ._crit_edge85:                                    ; preds = %.lr.ph84, %._crit_edge80
-  %33 = tail call ptr @Extra_bddEncodingBinary(ptr noundef %0, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.pRemapped, i32 noundef %2, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.pbVarsEnc, i32 noundef %.09.i) #14
-  tail call void @Cudd_Ref(ptr noundef %33) #14
-  %34 = add nuw nsw i32 %.0.lcssa, %.09.i
-  %.not96 = icmp eq i32 %34, 0
+  %34 = tail call ptr @Extra_bddEncodingBinary(ptr noundef %0, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.pRemapped, i32 noundef %2, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.pbVarsEnc, i32 noundef %.09.i) #14
+  tail call void @Cudd_Ref(ptr noundef %34) #14
+  %35 = add nuw nsw i32 %.0.lcssa, %.09.i
+  %.not96 = icmp eq i32 %35, 0
   br i1 %.not96, label %._crit_edge89, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %._crit_edge85
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %36 = load ptr, ptr %35, align 8, !tbaa !43
-  %wide.trip.count109 = zext i32 %34 to i64
-  br label %37
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %37 = load ptr, ptr %36, align 8, !tbaa !43
+  %wide.trip.count109 = zext i32 %35 to i64
+  br label %38
 
-37:                                               ; preds = %.lr.ph88, %37
-  %indvars.iv106 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next107, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv106
-  %39 = load i32, ptr %38, align 4, !tbaa !19
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [1024 x i32], ptr @GetSingleOutputFunctionRemappedNewDD.Permute, i64 0, i64 %40
-  %42 = trunc nuw nsw i64 %indvars.iv106 to i32
-  store i32 %42, ptr %41, align 4, !tbaa !19
+38:                                               ; preds = %.lr.ph88, %38
+  %indvars.iv106 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next107, %38 ]
+  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv106
+  %40 = load i32, ptr %39, align 4, !tbaa !19
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds [1024 x i32], ptr @GetSingleOutputFunctionRemappedNewDD.Permute, i64 0, i64 %41
+  %43 = trunc nuw nsw i64 %indvars.iv106 to i32
+  store i32 %43, ptr %42, align 4, !tbaa !19
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
-  br i1 %exitcond110.not, label %._crit_edge89, label %37, !llvm.loop !47
+  br i1 %exitcond110.not, label %._crit_edge89, label %38, !llvm.loop !47
 
-._crit_edge89:                                    ; preds = %37, %._crit_edge85
-  %43 = tail call ptr @Cudd_Init(i32 noundef %34, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #14
+._crit_edge89:                                    ; preds = %38, %._crit_edge85
+  %44 = tail call ptr @Cudd_Init(i32 noundef %35, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #14
   tail call void @Cudd_AutodynEnable(ptr noundef %0, i32 noundef 6) #14
-  %44 = tail call ptr @Cudd_bddTransferPermute(ptr poison, ptr noundef %43, ptr noundef %33, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.Permute)
-  tail call void @Cudd_Ref(ptr noundef %44) #14
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %33) #14
+  %45 = tail call ptr @Cudd_bddTransferPermute(ptr poison, ptr noundef %44, ptr noundef %34, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.Permute)
+  tail call void @Cudd_Ref(ptr noundef %45) #14
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %34) #14
   br i1 %5, label %.lr.ph93.preheader, label %._crit_edge94
 
 .lr.ph93.preheader:                               ; preds = %._crit_edge89
@@ -647,20 +647,20 @@ define noundef ptr @GetSingleOutputFunctionRemappedNewDD(ptr noundef %0, ptr nou
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %indvars.iv111 = phi i64 [ 0, %.lr.ph93.preheader ], [ %indvars.iv.next112, %.lr.ph93 ]
-  %45 = getelementptr inbounds nuw [1024 x ptr], ptr @GetSingleOutputFunctionRemappedNewDD.pRemapped, i64 0, i64 %indvars.iv111
-  %46 = load ptr, ptr %45, align 8, !tbaa !3
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %46) #14
+  %46 = getelementptr inbounds nuw [1024 x ptr], ptr @GetSingleOutputFunctionRemappedNewDD.pRemapped, i64 0, i64 %indvars.iv111
+  %47 = load ptr, ptr %46, align 8, !tbaa !3
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %47) #14
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
   br i1 %exitcond115.not, label %._crit_edge94, label %.lr.ph93, !llvm.loop !48
 
 ._crit_edge94:                                    ; preds = %.lr.ph93, %._crit_edge89
-  %47 = tail call ptr @Cudd_BddToAdd(ptr noundef %43, ptr noundef %44) #14
-  tail call void @Cudd_Ref(ptr noundef %47) #14
-  tail call void @Cudd_RecursiveDeref(ptr noundef %43, ptr noundef %44) #14
-  store ptr %43, ptr %3, align 8, !tbaa !49
-  tail call void @Cudd_Deref(ptr noundef %47) #14
-  ret ptr %47
+  %48 = tail call ptr @Cudd_BddToAdd(ptr noundef %44, ptr noundef %45) #14
+  tail call void @Cudd_Ref(ptr noundef %48) #14
+  tail call void @Cudd_RecursiveDeref(ptr noundef %44, ptr noundef %45) #14
+  store ptr %44, ptr %3, align 8, !tbaa !49
+  tail call void @Cudd_Deref(ptr noundef %48) #14
+  ret ptr %48
 }
 
 declare ptr @Cudd_Init(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3

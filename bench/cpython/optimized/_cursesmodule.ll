@@ -6227,9 +6227,9 @@ define internal noundef ptr @_curses_setupterm(ptr noundef %0, ptr noundef %1, i
   %47 = icmp eq ptr %46, null
   %48 = icmp eq ptr %46, @_Py_NoneStruct
   %or.cond.i = or i1 %47, %48
-  br i1 %or.cond.i, label %.thread.i, label %51
+  br i1 %or.cond.i, label %.critedge.i, label %51
 
-.thread.i:                                        ; preds = %45
+.critedge.i:                                      ; preds = %45
   %49 = call ptr @PyModule_GetState(ptr noundef %0) #9
   %50 = load ptr, ptr %49, align 8, !tbaa !3
   call void @PyErr_SetString(ptr noundef %50, ptr noundef nonnull @.str.169) #9
@@ -6266,8 +6266,8 @@ define internal noundef ptr @_curses_setupterm(ptr noundef %0, ptr noundef %1, i
   store i1 true, ptr @curses_setupterm_called, align 4
   br label %_curses_setupterm_impl.exit
 
-_curses_setupterm_impl.exit:                      ; preds = %.thread.i, %51, %57, %61
-  %.1.i = phi ptr [ @_Py_NoneStruct, %61 ], [ null, %57 ], [ null, %51 ], [ null, %.thread.i ]
+_curses_setupterm_impl.exit:                      ; preds = %.critedge.i, %51, %57, %61
+  %.1.i = phi ptr [ @_Py_NoneStruct, %61 ], [ null, %57 ], [ null, %51 ], [ null, %.critedge.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   br label %62
 

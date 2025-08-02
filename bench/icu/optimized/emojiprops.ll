@@ -760,8 +760,8 @@ declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 declare void @ucln_common_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_7712_GLOBAL__N_118emojiprops_cleanupEv() #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZN6icu_7712_GLOBAL__N_118emojiprops_cleanupEv() #0 {
   %1 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !19
   %2 = icmp eq ptr %1, null
   br i1 %2, label %4, label %3

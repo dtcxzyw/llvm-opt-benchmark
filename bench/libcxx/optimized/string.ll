@@ -2457,23 +2457,23 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trait
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.loopexit.i.i.i, %.lr.ph.i.i.preheader.i
-  %.02964.i.i.i = phi ptr [ %.2.i.i.i, %.loopexit.i.i.i ], [ %10, %.lr.ph.i.i.preheader.i ]
-  %.04162.i.i.i = phi ptr [ %.142.i.i.i, %.loopexit.i.i.i ], [ %19, %.lr.ph.i.i.preheader.i ]
+  %.02956.i.i.i = phi ptr [ %.2.i.i.i, %.loopexit.i.i.i ], [ %10, %.lr.ph.i.i.preheader.i ]
+  %.04054.i.i.i = phi ptr [ %.141.i.i.i, %.loopexit.i.i.i ], [ %19, %.lr.ph.i.i.preheader.i ]
   br label %24
 
 24:                                               ; preds = %27, %.lr.ph.i.i.i
-  %.157.i.i.i = phi ptr [ %.02964.i.i.i, %.lr.ph.i.i.i ], [ %28, %27 ]
-  %25 = load i8, ptr %.157.i.i.i, align 1, !tbaa !4
+  %.149.i.i.i = phi ptr [ %.02956.i.i.i, %.lr.ph.i.i.i ], [ %28, %27 ]
+  %25 = load i8, ptr %.149.i.i.i, align 1, !tbaa !4
   %26 = icmp eq i8 %25, %23
   br i1 %26, label %.preheader.i.i.i, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %.157.i.i.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.149.i.i.i, i64 1
   %29 = icmp eq ptr %28, %19
   br i1 %29, label %_ZNSt3__111__str_rfindB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit, label %24, !llvm.loop !12
 
 .preheader.i.i.i:                                 ; preds = %24, %35
-  %.027.i.i.i = phi ptr [ %33, %35 ], [ %.157.i.i.i, %24 ]
+  %.027.i.i.i = phi ptr [ %33, %35 ], [ %.149.i.i.i, %24 ]
   %.0.i.i.i = phi ptr [ %30, %35 ], [ %1, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
   %31 = icmp eq ptr %30, %20
@@ -2491,13 +2491,13 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trait
   br i1 %38, label %.preheader.i.i.i, label %.loopexit.i.i.i, !llvm.loop !13
 
 .loopexit.i.i.i:                                  ; preds = %35, %.preheader.i.i.i
-  %.142.i.i.i = phi ptr [ %.04162.i.i.i, %35 ], [ %.157.i.i.i, %.preheader.i.i.i ]
-  %.2.i.i.i = getelementptr inbounds nuw i8, ptr %.157.i.i.i, i64 1
+  %.141.i.i.i = phi ptr [ %.04054.i.i.i, %35 ], [ %.149.i.i.i, %.preheader.i.i.i ]
+  %.2.i.i.i = getelementptr inbounds nuw i8, ptr %.149.i.i.i, i64 1
   %39 = icmp eq ptr %.2.i.i.i, %19
   br i1 %39, label %_ZNSt3__111__str_rfindB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZNSt3__111__str_rfindB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %.loopexit.i.i.i, %27, %32, %4
-  %.sroa.0.0.i.i.i = phi ptr [ %19, %4 ], [ %.04162.i.i.i, %32 ], [ %.04162.i.i.i, %27 ], [ %.142.i.i.i, %.loopexit.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %19, %4 ], [ %.04054.i.i.i, %32 ], [ %.04054.i.i.i, %27 ], [ %.141.i.i.i, %.loopexit.i.i.i ]
   %.not.i3 = icmp ne i64 %3, 0
   %40 = icmp eq ptr %.sroa.0.0.i.i.i, %19
   %or.cond.i = select i1 %.not.i3, i1 %40, i1 false
@@ -5348,23 +5348,23 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIwNS_11char_trait
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.loopexit.i.i.i, %.lr.ph.i.i.preheader.i
-  %.02964.i.i.i = phi ptr [ %.2.i.i.i, %.loopexit.i.i.i ], [ %10, %.lr.ph.i.i.preheader.i ]
-  %.04162.i.i.i = phi ptr [ %.142.i.i.i, %.loopexit.i.i.i ], [ %19, %.lr.ph.i.i.preheader.i ]
+  %.02956.i.i.i = phi ptr [ %.2.i.i.i, %.loopexit.i.i.i ], [ %10, %.lr.ph.i.i.preheader.i ]
+  %.04054.i.i.i = phi ptr [ %.141.i.i.i, %.loopexit.i.i.i ], [ %19, %.lr.ph.i.i.preheader.i ]
   br label %24
 
 24:                                               ; preds = %27, %.lr.ph.i.i.i
-  %.157.i.i.i = phi ptr [ %.02964.i.i.i, %.lr.ph.i.i.i ], [ %28, %27 ]
-  %25 = load i32, ptr %.157.i.i.i, align 4, !tbaa !7
+  %.149.i.i.i = phi ptr [ %.02956.i.i.i, %.lr.ph.i.i.i ], [ %28, %27 ]
+  %25 = load i32, ptr %.149.i.i.i, align 4, !tbaa !7
   %26 = icmp eq i32 %25, %23
   br i1 %26, label %.preheader.i.i.i, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %.157.i.i.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.149.i.i.i, i64 4
   %29 = icmp eq ptr %28, %19
   br i1 %29, label %_ZNSt3__111__str_rfindB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit, label %24, !llvm.loop !24
 
 .preheader.i.i.i:                                 ; preds = %24, %35
-  %.027.i.i.i = phi ptr [ %33, %35 ], [ %.157.i.i.i, %24 ]
+  %.027.i.i.i = phi ptr [ %33, %35 ], [ %.149.i.i.i, %24 ]
   %.0.i.i.i = phi ptr [ %30, %35 ], [ %1, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %31 = icmp eq ptr %30, %20
@@ -5382,13 +5382,13 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIwNS_11char_trait
   br i1 %38, label %.preheader.i.i.i, label %.loopexit.i.i.i, !llvm.loop !25
 
 .loopexit.i.i.i:                                  ; preds = %35, %.preheader.i.i.i
-  %.142.i.i.i = phi ptr [ %.04162.i.i.i, %35 ], [ %.157.i.i.i, %.preheader.i.i.i ]
-  %.2.i.i.i = getelementptr inbounds nuw i8, ptr %.157.i.i.i, i64 4
+  %.141.i.i.i = phi ptr [ %.04054.i.i.i, %35 ], [ %.149.i.i.i, %.preheader.i.i.i ]
+  %.2.i.i.i = getelementptr inbounds nuw i8, ptr %.149.i.i.i, i64 4
   %39 = icmp eq ptr %.2.i.i.i, %19
   br i1 %39, label %_ZNSt3__111__str_rfindB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit, label %.lr.ph.i.i.i, !llvm.loop !26
 
 _ZNSt3__111__str_rfindB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %.loopexit.i.i.i, %27, %32, %4
-  %.sroa.0.0.i.i.i = phi ptr [ %19, %4 ], [ %.04162.i.i.i, %32 ], [ %.04162.i.i.i, %27 ], [ %.142.i.i.i, %.loopexit.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %19, %4 ], [ %.04054.i.i.i, %32 ], [ %.04054.i.i.i, %27 ], [ %.141.i.i.i, %.loopexit.i.i.i ]
   %.not.i3 = icmp ne i64 %3, 0
   %40 = icmp eq ptr %.sroa.0.0.i.i.i, %19
   %or.cond.i = select i1 %.not.i3, i1 %40, i1 false

@@ -41425,7 +41425,7 @@ _ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_ite
   %46 = zext i8 %44 to i64
   %47 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 0, i64 %46
   %.idx.i.i11 = mul nuw nsw i64 %46, 24
-  %48 = getelementptr i8, ptr %33, i64 %.idx.i.i11
+  %48 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i11
   %49 = load i64, ptr %48, align 8
   %50 = icmp ugt i64 %49, 499
   br i1 %50, label %.noexc, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE13split_to_fillEh.exit
@@ -41538,7 +41538,7 @@ _ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_ite
 
 _ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit: ; preds = %102
   %.idx.i = mul nuw nsw i64 %104, 24
-  %108 = getelementptr i8, ptr %33, i64 %.idx.i
+  %108 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i
   %109 = load i64, ptr %108, align 8
   %110 = icmp ugt i64 %109, 499
   br i1 %110, label %thread-pre-split38, label %_ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS7_SaIS7_EEEENS7_12FastLessThanEEELh8EE12is_divisibleEh.exit.thread

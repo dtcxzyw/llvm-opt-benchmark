@@ -909,7 +909,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %.thread, %36
 define dso_local noundef zeroext i1 @_ZN4llvm14FoldingSetBase10RemoveNodeEPNS0_4NodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(address) %1) local_unnamed_addr #10 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !39
   %.not = icmp ne ptr %3, null
-  br i1 %.not, label %4, label %.critedge.thread
+  br i1 %.not, label %4, label %.critedge33
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -931,25 +931,25 @@ define dso_local noundef zeroext i1 @_ZN4llvm14FoldingSetBase10RemoveNodeEPNS0_4
 10:                                               ; preds = %.critedge
   %11 = load ptr, ptr %.021, align 8, !tbaa !39
   %12 = icmp eq ptr %11, %1
-  br i1 %12, label %.critedge.thread.sink.split, label %.critedge.backedge
+  br i1 %12, label %.critedge33.sink.split, label %.critedge.backedge
 
 13:                                               ; preds = %.critedge
   %14 = and i64 %8, -2
   %15 = inttoptr i64 %14 to ptr
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   %.not31 = icmp eq ptr %16, %1
-  br i1 %.not31, label %.critedge.thread.sink.split, label %.critedge.backedge
+  br i1 %.not31, label %.critedge33.sink.split, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %13, %10
   %.021.be = phi ptr [ %11, %10 ], [ %16, %13 ]
   br label %.critedge, !llvm.loop !45
 
-.critedge.thread.sink.split:                      ; preds = %13, %10
-  %.lcssa.sink = phi ptr [ %.021, %10 ], [ %15, %13 ]
-  store ptr %3, ptr %.lcssa.sink, align 8, !tbaa !36
-  br label %.critedge.thread
+.critedge33.sink.split:                           ; preds = %13, %10
+  %.021.lcssa.sink = phi ptr [ %.021, %10 ], [ %15, %13 ]
+  store ptr %3, ptr %.021.lcssa.sink, align 8, !tbaa !36
+  br label %.critedge33
 
-.critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %2
+.critedge33:                                      ; preds = %.critedge33.sink.split, %2
   ret i1 %.not
 }
 

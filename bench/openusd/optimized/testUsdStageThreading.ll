@@ -16690,13 +16690,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9e
 
 171:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i92, %163, %152, %140
   %172 = mul nsw i32 %149, %147
+  %173 = tail call i32 @llvm.umax.i32(i32 %172, i32 1)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit94
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6Option22get_items_expected_maxEv.exit94: ; preds = %155, %163, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i92, %171
-  %173 = phi i32 [ %172, %171 ], [ 536870912, %155 ], [ 536870912, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i92 ], [ 536870912, %163 ]
+  %narrow62 = phi i32 [ %173, %171 ], [ 536870912, %155 ], [ 536870912, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_CLI3CLI6detail13overflowCheckIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES5_E4typeERKS5_S9_.exit.i.i92 ], [ 536870912, %163 ]
   %narrow = tail call i32 @llvm.umax.i32(i32 %145, i32 1)
   %spec.store.select = sext i32 %narrow to i64
-  %narrow62 = tail call i32 @llvm.umax.i32(i32 %173, i32 1)
   %174 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %175 = load ptr, ptr %174, align 8
   %176 = load ptr, ptr %2, align 8
@@ -46988,7 +46988,7 @@ define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__px
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZZ4mainENK3$_0clERS4_EUlvE_EEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZZ4mainENK3$_0clERS4_EUlvE_EEE7executeERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.289", align 8
   %5 = alloca %"class.std::thread::id", align 8
@@ -47352,7 +47352,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZZ4mainENK3$_0clERS4_EUlvE_EEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 align 2 {
+define internal noalias noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIZZ4mainENK3$_0clERS4_EUlvE_EEE6cancelERNS1_14execution_dataE"(ptr noundef nonnull align 64 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96

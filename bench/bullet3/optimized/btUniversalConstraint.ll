@@ -467,7 +467,7 @@ _ZN23btGeneric6DofConstraint20setAngularLowerLimitERK9btVector3.exit: ; preds = 
 _Z16btNormalizeAnglef.exit.i49:                   ; preds = %258, %256, %254
   %.0.i.i50 = phi float [ %255, %254 ], [ %259, %258 ], [ %252, %256 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv.i48, 6
-  %260 = getelementptr i8, ptr %248, i64 %.idx.i
+  %260 = getelementptr inbounds nuw i8, ptr %248, i64 %.idx.i
   store float %.0.i.i50, ptr %260, align 8, !tbaa !32
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, 3

@@ -2971,35 +2971,35 @@ define linkonce_odr dso_local void @_ZN9SolveTask3runEi(ptr noundef nonnull alig
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0.4..sroa_idx103 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
-  %.sroa.0.8..sroa_idx104 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  %.sroa.0.4..sroa_idx102 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  %.sroa.0.8..sroa_idx103 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %.sroa.6.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 4
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 8
   br label %12
 
 12:                                               ; preds = %2, %._crit_edge
-  %.05479 = phi i32 [ 0, %2 ], [ %563, %._crit_edge ]
-  %.05578 = phi i32 [ 0, %2 ], [ %564, %._crit_edge ]
+  %.05478 = phi i32 [ 0, %2 ], [ %563, %._crit_edge ]
+  %.05577 = phi i32 [ 0, %2 ], [ %564, %._crit_edge ]
   %13 = load ptr, ptr %6, align 8, !tbaa !140
   %14 = load i32, ptr %7, align 8, !tbaa !143
   %15 = shl nsw i32 %14, 7
-  %16 = add nuw nsw i32 %15, %.05578
+  %16 = add nuw nsw i32 %15, %.05577
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !130
   %19 = sext i32 %16 to i64
   %20 = getelementptr inbounds i32, ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !76
   %.not.not = icmp eq i32 %21, 0
-  br i1 %.not.not, label %.thread, label %.preheader71
+  br i1 %.not.not, label %.critedge, label %.preheader70
 
-.preheader71:                                     ; preds = %12
+.preheader70:                                     ; preds = %12
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader71, %561
-  %.05777 = phi i32 [ %562, %561 ], [ 0, %.preheader71 ]
+.lr.ph:                                           ; preds = %.preheader70, %561
+  %.05776 = phi i32 [ %562, %561 ], [ 0, %.preheader70 ]
   %23 = load i32, ptr %8, align 8, !tbaa !145
-  %24 = add i32 %.05777, %.05479
+  %24 = add i32 %.05776, %.05478
   %25 = add i32 %24, %23
   %26 = load ptr, ptr %9, align 8, !tbaa !169
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -3277,10 +3277,10 @@ _ZL12solveContactILb0EEvR16b3GpuConstraint4RK9b3Vector3RS2_S5_fRK11b3Matrix3x3S4
 
 257:                                              ; preds = %253, %257
   %indvars.iv = phi i64 [ 0, %253 ], [ %indvars.iv.next, %257 ]
-  %.05374 = phi float [ 0.000000e+00, %253 ], [ %260, %257 ]
+  %.05373 = phi float [ 0.000000e+00, %253 ], [ %260, %257 ]
   %258 = getelementptr inbounds nuw [4 x float], ptr %254, i64 0, i64 %indvars.iv
   %259 = load float, ptr %258, align 4, !tbaa !17
-  %260 = fadd float %.05374, %259
+  %260 = fadd float %.05373, %259
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.preheader, label %257, !llvm.loop !177
@@ -3352,8 +3352,8 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i: ; preds = %299, %290
   %.sink.i = phi float [ %297, %290 ], [ %306, %299 ]
   %.sink.i.i = phi float [ %298, %290 ], [ %307, %299 ]
   store float %.sink262.i, ptr %.sroa.0, align 16, !tbaa !17
-  store float %.sink261.i, ptr %.sroa.0.4..sroa_idx103, align 4, !tbaa !17
-  store float %.sink260.i, ptr %.sroa.0.8..sroa_idx104, align 8, !tbaa !17
+  store float %.sink261.i, ptr %.sroa.0.4..sroa_idx102, align 4, !tbaa !17
+  store float %.sink260.i, ptr %.sroa.0.8..sroa_idx103, align 8, !tbaa !17
   store float %.sink259.i, ptr %.sroa.6, align 16, !tbaa !17
   store float %.sink.i, ptr %.sroa.6.4..sroa_idx, align 4, !tbaa !17
   store float %.sink.i.i, ptr %.sroa.6.8..sroa_idx, align 8, !tbaa !17
@@ -3407,8 +3407,8 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i: ; preds = %299, %290
   %.pre263.i = load float, ptr %335, align 4, !tbaa !4
   %.pre264.i = load float, ptr %336, align 8, !tbaa !4
   %.pre = load float, ptr %270, align 16, !tbaa !4
-  %.pre92 = load float, ptr %333, align 4, !tbaa !4
-  %.pre93 = load float, ptr %334, align 8, !tbaa !4
+  %.pre91 = load float, ptr %333, align 4, !tbaa !4
+  %.pre92 = load float, ptr %334, align 8, !tbaa !4
   br label %390
 
 354:                                              ; preds = %390
@@ -3454,8 +3454,8 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i: ; preds = %299, %290
   br i1 %or.cond3.i, label %530, label %557
 
 390:                                              ; preds = %390, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i
-  %391 = phi float [ %.pre93, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i ], [ %523, %390 ]
-  %392 = phi float [ %.pre92, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i ], [ %521, %390 ]
+  %391 = phi float [ %.pre92, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i ], [ %523, %390 ]
+  %392 = phi float [ %.pre91, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i ], [ %521, %390 ]
   %393 = phi float [ %.pre, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i ], [ %519, %390 ]
   %394 = phi float [ %.pre264.i, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i ], [ %529, %390 ]
   %395 = phi float [ %.pre263.i, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit.i ], [ %527, %390 ]
@@ -3660,27 +3660,27 @@ _ZL13solveFrictionR16b3GpuConstraint4RK9b3Vector3RS1_S4_fRK11b3Matrix3x3S3_S4_S4
   br label %561
 
 558:                                              ; preds = %.preheader, %558
-  %indvars.iv84 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next85, %558 ]
-  %559 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv84
+  %indvars.iv83 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next84, %558 ]
+  %559 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv83
   store float %255, ptr %559, align 4, !tbaa !17
-  %560 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv84
+  %560 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv83
   store float %256, ptr %560, align 4, !tbaa !17
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next85, 4
-  br i1 %exitcond87.not, label %261, label %558, !llvm.loop !179
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+  %exitcond86.not = icmp eq i64 %indvars.iv.next84, 4
+  br i1 %exitcond86.not, label %261, label %558, !llvm.loop !179
 
 561:                                              ; preds = %_ZL13solveFrictionR16b3GpuConstraint4RK9b3Vector3RS1_S4_fRK11b3Matrix3x3S3_S4_S4_fS7_PfS8_.exit, %_ZL12solveContactILb0EEvR16b3GpuConstraint4RK9b3Vector3RS2_S5_fRK11b3Matrix3x3S4_S5_S5_fS8_PfS9_.exit
-  %562 = add nuw nsw i32 %.05777, 1
-  %exitcond88.not = icmp eq i32 %562, %21
-  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph, !llvm.loop !180
+  %562 = add nuw nsw i32 %.05776, 1
+  %exitcond87.not = icmp eq i32 %562, %21
+  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph, !llvm.loop !180
 
-._crit_edge:                                      ; preds = %561, %.preheader71
-  %563 = add nsw i32 %21, %.05479
-  %564 = add nuw nsw i32 %.05578, 1
-  %exitcond89.not = icmp eq i32 %564, 128
-  br i1 %exitcond89.not, label %.thread, label %12, !llvm.loop !181
+._crit_edge:                                      ; preds = %561, %.preheader70
+  %563 = add nsw i32 %21, %.05478
+  %564 = add nuw nsw i32 %.05577, 1
+  %exitcond88.not = icmp eq i32 %564, 128
+  br i1 %exitcond88.not, label %.critedge, label %12, !llvm.loop !181
 
-.thread:                                          ; preds = %12, %._crit_edge
+.critedge:                                        ; preds = %12, %._crit_edge
   ret void
 }
 

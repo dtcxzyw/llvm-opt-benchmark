@@ -288,8 +288,8 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr noundef r
   %55 = load ptr, ptr %1, align 8
   %56 = icmp eq ptr %55, null
   %57 = zext i1 %56 to i8
-  %.not17 = icmp eq i8 %48, %57
-  br i1 %.not17, label %128, label %58
+  %.not16 = icmp eq i8 %48, %57
+  br i1 %.not16, label %128, label %58
 
 58:                                               ; preds = %._crit_edge, %54
   %59 = phi i8 [ %.pre, %._crit_edge ], [ %48, %54 ]
@@ -331,13 +331,13 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr noundef r
   %83 = getelementptr inbounds nuw i8, ptr %66, i64 248
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.thread, label %86
+  br i1 %85, label %.critedge, label %86
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %66, i64 192
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.thread, label %90
+  br i1 %89, label %.critedge, label %90
 
 90:                                               ; preds = %86
   %91 = trunc i64 %39 to i32
@@ -349,7 +349,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr noundef r
   %95 = icmp slt i32 %94, 1
   %96 = or i1 %64, %95
   %97 = select i1 %95, i32 0, i32 %94
-  br i1 %96, label %.thread, label %98
+  br i1 %96, label %.critedge, label %98
 
 98:                                               ; preds = %93
   %99 = zext nneg i32 %94 to i64
@@ -396,15 +396,15 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr noundef r
   store ptr %101, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store i8 1, ptr %125, align 1
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %82, %86, %93, %123
+.critedge:                                        ; preds = %82, %86, %123, %93
   %126 = phi i32 [ %97, %93 ], [ %94, %123 ], [ 0, %86 ], [ 0, %82 ]
   %127 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 %126, ptr %127, align 4
   br label %128
 
-128:                                              ; preds = %.thread, %42, %58, %54, %50
+128:                                              ; preds = %42, %.critedge, %58, %54, %50
   %129 = add nuw nsw i64 %39, 1
   %130 = icmp eq i64 %129, 21
   br i1 %130, label %131, label %38, !llvm.loop !18

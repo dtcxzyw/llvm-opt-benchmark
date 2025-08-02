@@ -404,14 +404,10 @@ if.then58.split.us:                               ; preds = %for.body7.us
   br label %if.then58
 
 for.body7.lr.ph.split:                            ; preds = %for.body7.lr.ph
-  br i1 %AllowReplacements, label %for.body7.us69.preheader, label %for.body7.lr.ph.split.split
+  br i1 %AllowReplacements, label %for.body7.us69, label %for.body7.lr.ph.split.split
 
-for.body7.us69.preheader:                         ; preds = %for.body7.lr.ph.split
-  %invariant.gep = getelementptr i8, ptr %ToArray.coerce0, i64 -1
-  br label %for.body7.us69
-
-for.body7.us69:                                   ; preds = %for.body7.us69.preheader, %for.cond5.us74
-  %y.068.us70 = phi i64 [ %inc62.us78, %for.cond5.us74 ], [ 1, %for.body7.us69.preheader ]
+for.body7.us69:                                   ; preds = %for.body7.lr.ph.split, %for.cond5.us74
+  %y.068.us70 = phi i64 [ %inc62.us78, %for.cond5.us74 ], [ 1, %for.body7.lr.ph.split ]
   %conv8.us71 = trunc i64 %y.068.us70 to i32
   store i32 %conv8.us71, ptr %Row.0105, align 4
   %sub.us72 = add i64 %y.068.us70, -1
@@ -432,13 +428,14 @@ for.body14.us.us:                                 ; preds = %for.body14.us.us, %
   %BestThisRow.064.us.us = phi i32 [ %conv8.us71, %for.body7.us69 ], [ %.sroa.speculated54.us.us, %for.body14.us.us ]
   %arrayidx15.us.us = getelementptr inbounds nuw i32, ptr %Row.0105, i64 %x.066.us.us
   %5 = load i32, ptr %arrayidx15.us.us, align 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %x.066.us.us
-  %6 = load i8, ptr %gep, align 1
-  %cmp23.us.us = icmp ne i8 %3, %6
+  %6 = getelementptr i8, ptr %ToArray.coerce0, i64 %x.066.us.us
+  %arrayidx.i42.us.us = getelementptr i8, ptr %6, i64 -1
+  %7 = load i8, ptr %arrayidx.i42.us.us, align 1
+  %cmp23.us.us = icmp ne i8 %3, %7
   %cond.us.us = zext i1 %cmp23.us.us to i32
   %add24.us.us = add i32 %Previous.065.us.us, %cond.us.us
-  %7 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
-  %add30.us.us = add i32 %7, 1
+  %8 = tail call i32 @llvm.umin.i32(i32 %5, i32 %4)
+  %add30.us.us = add i32 %8, 1
   %.sroa.speculated.us.us = tail call i32 @llvm.umin.i32(i32 %add30.us.us, i32 %add24.us.us)
   store i32 %.sroa.speculated.us.us, ptr %arrayidx15.us.us, align 4
   %.sroa.speculated54.us.us = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated.us.us, i32 %BestThisRow.064.us.us)
@@ -455,8 +452,8 @@ for.body7.lr.ph.split.split:                      ; preds = %for.body7.lr.ph.spl
   br i1 %tobool56.not, label %for.body7, label %for.body7.us79.preheader
 
 for.body7.us79.preheader:                         ; preds = %for.body7.lr.ph.split.split
-  %8 = add i64 %FromArray.coerce1, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 2)
+  %9 = add i64 %FromArray.coerce1, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 2)
   br label %for.body7.us79
 
 for.body7.us79:                                   ; preds = %for.body7.us79.preheader, %for.cond12.for.end55_crit_edge.split.us
@@ -466,27 +463,27 @@ for.body7.us79:                                   ; preds = %for.body7.us79.preh
   %sub.us82 = add i64 %y.068.us80, -1
   %conv11.us83 = trunc i64 %sub.us82 to i32
   %arrayidx.i45.us84 = getelementptr inbounds i8, ptr %FromArray.coerce0, i64 %sub.us82
-  %9 = load i8, ptr %arrayidx.i45.us84, align 1
+  %10 = load i8, ptr %arrayidx.i45.us84, align 1
   br label %for.body14.us
 
 for.body14.us:                                    ; preds = %if.end50.us, %for.body7.us79
-  %10 = phi i32 [ %conv8.us81, %for.body7.us79 ], [ %storemerge, %if.end50.us ]
+  %11 = phi i32 [ %conv8.us81, %for.body7.us79 ], [ %storemerge, %if.end50.us ]
   %x.066.us = phi i64 [ 1, %for.body7.us79 ], [ %inc54.us, %if.end50.us ]
-  %Previous.065.us = phi i32 [ %conv11.us83, %for.body7.us79 ], [ %11, %if.end50.us ]
+  %Previous.065.us = phi i32 [ %conv11.us83, %for.body7.us79 ], [ %12, %if.end50.us ]
   %arrayidx15.us = getelementptr inbounds nuw i32, ptr %Row.0105, i64 %x.066.us
-  %11 = load i32, ptr %arrayidx15.us, align 4
+  %12 = load i32, ptr %arrayidx15.us, align 4
   %sub36.us = add nsw i64 %x.066.us, -1
   %arrayidx.i46.us = getelementptr inbounds i8, ptr %ToArray.coerce0, i64 %sub36.us
-  %12 = load i8, ptr %arrayidx.i46.us, align 1
-  %cmp39.us = icmp eq i8 %9, %12
+  %13 = load i8, ptr %arrayidx.i46.us, align 1
+  %cmp39.us = icmp eq i8 %10, %13
   br i1 %cmp39.us, label %if.end50.us, label %if.else42.us
 
 if.else42.us:                                     ; preds = %for.body14.us
   %arrayidx44.us = getelementptr inbounds i32, ptr %Row.0105, i64 %sub36.us
-  %cmp.i47.us = icmp ult i32 %11, %10
+  %cmp.i47.us = icmp ult i32 %12, %11
   %__b.__a.i48.us = select i1 %cmp.i47.us, ptr %arrayidx15.us, ptr %arrayidx44.us
-  %13 = load i32, ptr %__b.__a.i48.us, align 4
-  %add47.us = add i32 %13, 1
+  %14 = load i32, ptr %__b.__a.i48.us, align 4
+  %add47.us = add i32 %14, 1
   br label %if.end50.us
 
 if.end50.us:                                      ; preds = %for.body14.us, %if.else42.us
@@ -523,28 +520,28 @@ for.body7:                                        ; preds = %for.body7.lr.ph.spl
   %sub = add i64 %y.068, -1
   %conv11 = trunc i64 %sub to i32
   %arrayidx.i45 = getelementptr inbounds i8, ptr %FromArray.coerce0, i64 %sub
-  %14 = load i8, ptr %arrayidx.i45, align 1
+  %15 = load i8, ptr %arrayidx.i45, align 1
   br label %for.body14
 
 for.body14:                                       ; preds = %for.body7, %if.end50
-  %15 = phi i32 [ %conv8, %for.body7 ], [ %storemerge91, %if.end50 ]
+  %16 = phi i32 [ %conv8, %for.body7 ], [ %storemerge91, %if.end50 ]
   %x.066 = phi i64 [ 1, %for.body7 ], [ %inc54, %if.end50 ]
-  %Previous.065 = phi i32 [ %conv11, %for.body7 ], [ %16, %if.end50 ]
+  %Previous.065 = phi i32 [ %conv11, %for.body7 ], [ %17, %if.end50 ]
   %BestThisRow.064 = phi i32 [ %conv8, %for.body7 ], [ %.sroa.speculated54, %if.end50 ]
   %arrayidx15 = getelementptr inbounds nuw i32, ptr %Row.0105, i64 %x.066
-  %16 = load i32, ptr %arrayidx15, align 4
+  %17 = load i32, ptr %arrayidx15, align 4
   %sub36 = add nsw i64 %x.066, -1
   %arrayidx.i46 = getelementptr inbounds i8, ptr %ToArray.coerce0, i64 %sub36
-  %17 = load i8, ptr %arrayidx.i46, align 1
-  %cmp39 = icmp eq i8 %14, %17
+  %18 = load i8, ptr %arrayidx.i46, align 1
+  %cmp39 = icmp eq i8 %15, %18
   br i1 %cmp39, label %if.end50, label %if.else42
 
 if.else42:                                        ; preds = %for.body14
   %arrayidx44 = getelementptr inbounds i32, ptr %Row.0105, i64 %sub36
-  %cmp.i47 = icmp ult i32 %16, %15
+  %cmp.i47 = icmp ult i32 %17, %16
   %__b.__a.i48 = select i1 %cmp.i47, ptr %arrayidx15, ptr %arrayidx44
-  %18 = load i32, ptr %__b.__a.i48, align 4
-  %add47 = add i32 %18, 1
+  %19 = load i32, ptr %__b.__a.i48, align 4
+  %add47 = add i32 %19, 1
   br label %if.end50
 
 if.end50:                                         ; preds = %for.body14, %if.else42
@@ -565,11 +562,11 @@ if.then58:                                        ; preds = %for.cond12.for.end5
 
 for.end63:                                        ; preds = %for.cond12.for.end55_crit_edge.split.us, %for.cond5, %for.cond5.us74, %for.cond5.for.end63_crit_edge.split.us, %for.cond5.preheader
   %arrayidx64 = getelementptr inbounds nuw i32, ptr %Row.0105, i64 %ToArray.coerce1
-  %19 = load i32, ptr %arrayidx64, align 4
+  %20 = load i32, ptr %arrayidx64, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end63, %if.then58
-  %retval.0 = phi i32 [ %add59, %if.then58 ], [ %19, %for.end63 ]
+  %retval.0 = phi i32 [ %add59, %if.then58 ], [ %20, %for.end63 ]
   %cmp.not.i = icmp eq ptr %Allocated.sroa.0.0103, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 

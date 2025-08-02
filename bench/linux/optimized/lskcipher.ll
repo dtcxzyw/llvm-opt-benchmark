@@ -162,7 +162,7 @@ define internal fastcc i32 @crypto_lskcipher_crypt(ptr noundef %0, ptr noundef %
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %35 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 2080, i64 noundef 4096) #13
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.thread, label %37
+  br i1 %36, label %.critedge, label %37
 
 37:                                               ; preds = %31
   %38 = sub i32 0, %27
@@ -181,7 +181,7 @@ define internal fastcc i32 @crypto_lskcipher_crypt(ptr noundef %0, ptr noundef %
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr align 1 %40, i64 %47, i1 false)
   %48 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %35, ptr noundef nonnull %35, i32 noundef %46, ptr noundef nonnull %29, i32 noundef 2) #12
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %.thread
+  br i1 %49, label %50, label %.critedge
 
 50:                                               ; preds = %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr nonnull align 8 %35, i64 %47, i1 false)
@@ -195,9 +195,9 @@ define internal fastcc i32 @crypto_lskcipher_crypt(ptr noundef %0, ptr noundef %
   %.lcssa = phi i32 [ %3, %37 ], [ %53, %50 ]
   %55 = icmp eq i32 %.lcssa, 0
   %56 = select i1 %55, i32 0, i32 -22
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph, %._crit_edge, %31
+.critedge:                                        ; preds = %.lr.ph, %._crit_edge, %31
   %57 = phi i32 [ %56, %._crit_edge ], [ -12, %31 ], [ -12, %.lr.ph ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull align 8 %29, i64 %33, i1 false)
   tail call void @kfree_sensitive(ptr noundef %35) #12
@@ -208,8 +208,8 @@ define internal fastcc i32 @crypto_lskcipher_crypt(ptr noundef %0, ptr noundef %
   %59 = tail call i32 %5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 2) #12
   br label %60
 
-60:                                               ; preds = %58, %.thread, %19
-  %61 = phi i32 [ %59, %58 ], [ %57, %.thread ], [ -12, %19 ]
+60:                                               ; preds = %58, %.critedge, %19
+  %61 = phi i32 [ %59, %58 ], [ %57, %.critedge ], [ -12, %19 ]
   ret i32 %61
 }
 

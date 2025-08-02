@@ -7408,7 +7408,6 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm14LRStartEndInfoElN9
 define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_T2_"(ptr noundef captures(none) %0, i64 noundef range(i64 0, 192153584101141162) %1, i64 noundef range(i64 -384307168202282325, 384307168202282326) %2, ptr noundef readonly byval(%"struct.llvm::LRStartEndInfo") align 8 captures(none) %3) unnamed_addr #19 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
-  %invariant.gep = getelementptr i8, ptr %0, i64 24
   %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -7417,100 +7416,101 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9
   %8 = shl i64 %.032, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %9
-  %gep = getelementptr %"struct.llvm::LRStartEndInfo", ptr %invariant.gep, i64 %8
+  %11 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sroa.01.0.copyload.i = load i64, ptr %10, align 8, !tbaa !42
-  %.sroa.0.0.copyload.i = load i64, ptr %gep, align 8, !tbaa !42
-  %11 = and i64 %.sroa.01.0.copyload.i, -8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !84
-  %15 = trunc i64 %.sroa.01.0.copyload.i to i32
-  %16 = lshr i32 %15, 1
-  %17 = and i32 %16, 3
-  %18 = or i32 %17, %14
-  %19 = and i64 %.sroa.0.0.copyload.i, -8
-  %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load i32, ptr %21, align 8, !tbaa !84
-  %23 = trunc i64 %.sroa.0.0.copyload.i to i32
-  %24 = lshr i32 %23, 1
-  %25 = and i32 %24, 3
-  %26 = or i32 %25, %22
-  %27 = icmp ult i32 %18, %26
-  %28 = or disjoint i64 %8, 1
-  %spec.select = select i1 %27, i64 %28, i64 %9
-  %29 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %spec.select
-  %30 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.032
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false), !tbaa.struct !92
-  %31 = icmp slt i64 %spec.select, %6
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !786
+  %.sroa.0.0.copyload.i = load i64, ptr %12, align 8, !tbaa !42
+  %13 = and i64 %.sroa.01.0.copyload.i, -8
+  %14 = inttoptr i64 %13 to ptr
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load i32, ptr %15, align 8, !tbaa !84
+  %17 = trunc i64 %.sroa.01.0.copyload.i to i32
+  %18 = lshr i32 %17, 1
+  %19 = and i32 %18, 3
+  %20 = or i32 %19, %16
+  %21 = and i64 %.sroa.0.0.copyload.i, -8
+  %22 = inttoptr i64 %21 to ptr
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %24 = load i32, ptr %23, align 8, !tbaa !84
+  %25 = trunc i64 %.sroa.0.0.copyload.i to i32
+  %26 = lshr i32 %25, 1
+  %27 = and i32 %26, 3
+  %28 = or i32 %27, %24
+  %29 = icmp ult i32 %20, %28
+  %30 = or disjoint i64 %8, 1
+  %spec.select = select i1 %29, i64 %30, i64 %9
+  %31 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %spec.select
+  %32 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.032
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false), !tbaa.struct !92
+  %33 = icmp slt i64 %spec.select, %6
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !786
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %.lr.ph ]
-  %32 = and i64 %2, 1
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %43
+  %34 = and i64 %2, 1
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %36, label %45
 
-34:                                               ; preds = %._crit_edge
-  %35 = add nsw i64 %2, -2
-  %36 = ashr exact i64 %35, 1
-  %37 = icmp eq i64 %.0.lcssa, %36
-  br i1 %37, label %38, label %43
+36:                                               ; preds = %._crit_edge
+  %37 = add nsw i64 %2, -2
+  %38 = ashr exact i64 %37, 1
+  %39 = icmp eq i64 %.0.lcssa, %38
+  br i1 %39, label %40, label %45
 
-38:                                               ; preds = %34
-  %39 = shl nuw nsw i64 %.0.lcssa, 1
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %40
-  %42 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false), !tbaa.struct !92
-  br label %43
+40:                                               ; preds = %36
+  %41 = shl nuw nsw i64 %.0.lcssa, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %42
+  %44 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.0.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false), !tbaa.struct !92
+  br label %45
 
-43:                                               ; preds = %38, %34, %._crit_edge
-  %.127 = phi i64 [ %40, %38 ], [ %.0.lcssa, %34 ], [ %.0.lcssa, %._crit_edge ]
+45:                                               ; preds = %40, %36, %._crit_edge
+  %.127 = phi i64 [ %42, %40 ], [ %.0.lcssa, %36 ], [ %.0.lcssa, %._crit_edge ]
   %.sroa.031.0.copyload = load i64, ptr %3, align 8, !tbaa !42
-  %44 = icmp samesign ugt i64 %.127, %1
-  br i1 %44, label %.lr.ph.i, label %"_ZSt11__push_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_RT2_.exit"
+  %46 = icmp samesign ugt i64 %.127, %1
+  br i1 %46, label %.lr.ph.i, label %"_ZSt11__push_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %43
-  %45 = and i64 %.sroa.031.0.copyload, -8
-  %46 = inttoptr i64 %45 to ptr
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %48 = trunc i64 %.sroa.031.0.copyload to i32
-  %49 = lshr i32 %48, 1
-  %50 = and i32 %49, 3
-  br label %51
+.lr.ph.i:                                         ; preds = %45
+  %47 = and i64 %.sroa.031.0.copyload, -8
+  %48 = inttoptr i64 %47 to ptr
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %50 = trunc i64 %.sroa.031.0.copyload to i32
+  %51 = lshr i32 %50, 1
+  %52 = and i32 %51, 3
+  br label %53
 
-51:                                               ; preds = %64, %.lr.ph.i
-  %.0133.i = phi i64 [ %.127, %.lr.ph.i ], [ %.04.i, %64 ]
+53:                                               ; preds = %66, %.lr.ph.i
+  %.0133.i = phi i64 [ %.127, %.lr.ph.i ], [ %.04.i, %66 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %52 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.04.i
-  %.sroa.01.0.copyload.i.i = load i64, ptr %52, align 8, !tbaa !42
-  %53 = and i64 %.sroa.01.0.copyload.i.i, -8
-  %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %56 = load i32, ptr %55, align 8, !tbaa !84
-  %57 = trunc i64 %.sroa.01.0.copyload.i.i to i32
-  %58 = lshr i32 %57, 1
-  %59 = and i32 %58, 3
-  %60 = or i32 %59, %56
-  %61 = load i32, ptr %47, align 8, !tbaa !84
-  %62 = or i32 %61, %50
-  %63 = icmp ult i32 %60, %62
-  br i1 %63, label %64, label %"_ZSt11__push_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_RT2_.exit"
+  %54 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.04.i
+  %.sroa.01.0.copyload.i.i = load i64, ptr %54, align 8, !tbaa !42
+  %55 = and i64 %.sroa.01.0.copyload.i.i, -8
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %58 = load i32, ptr %57, align 8, !tbaa !84
+  %59 = trunc i64 %.sroa.01.0.copyload.i.i to i32
+  %60 = lshr i32 %59, 1
+  %61 = and i32 %60, 3
+  %62 = or i32 %61, %58
+  %63 = load i32, ptr %49, align 8, !tbaa !84
+  %64 = or i32 %63, %52
+  %65 = icmp ult i32 %62, %64
+  br i1 %65, label %66, label %"_ZSt11__push_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_RT2_.exit"
 
-64:                                               ; preds = %51
-  %65 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.0133.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false), !tbaa.struct !92
-  %66 = icmp sgt i64 %.04.i, %1
-  br i1 %66, label %51, label %"_ZSt11__push_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_RT2_.exit", !llvm.loop !787
+66:                                               ; preds = %53
+  %67 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.0133.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 24, i1 false), !tbaa.struct !92
+  %68 = icmp sgt i64 %.04.i, %1
+  br i1 %68, label %53, label %"_ZSt11__push_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_RT2_.exit", !llvm.loop !787
 
-"_ZSt11__push_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_RT2_.exit": ; preds = %51, %64, %43
-  %.013.lcssa.i = phi i64 [ %.127, %43 ], [ %.0133.i, %51 ], [ %.04.i, %64 ]
+"_ZSt11__push_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_RT2_.exit": ; preds = %53, %66, %45
+  %.013.lcssa.i = phi i64 [ %.127, %45 ], [ %.0133.i, %53 ], [ %.04.i, %66 ]
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %67 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.013.lcssa.i
-  store i64 %.sroa.031.0.copyload, ptr %67, align 8, !tbaa !42
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.013.lcssa.i
+  store i64 %.sroa.031.0.copyload, ptr %69, align 8, !tbaa !42
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i64 16, i1 false)
   ret void
 }

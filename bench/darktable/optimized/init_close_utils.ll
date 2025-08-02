@@ -275,368 +275,369 @@ define void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(76
   br label %5
 
 5:                                                ; preds = %1, %4
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 4912
-  br label %9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4896
+  br label %10
 
-6:                                                ; preds = %13
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 193368
-  %8 = load ptr, ptr %7, align 8, !tbaa !125
-  %.not33 = icmp eq ptr %8, null
-  br i1 %.not33, label %15, label %14
+7:                                                ; preds = %16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 193368
+  %9 = load ptr, ptr %8, align 8, !tbaa !125
+  %.not33 = icmp eq ptr %9, null
+  br i1 %.not33, label %18, label %17
 
-9:                                                ; preds = %5, %13
-  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %13 ]
-  %10 = mul nuw nsw i64 %indvars.iv, 24
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %10
-  %11 = load ptr, ptr %gep, align 8, !tbaa !126
-  %.not44 = icmp eq ptr %11, null
-  br i1 %.not44, label %13, label %12
+10:                                               ; preds = %5, %16
+  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %16 ]
+  %11 = mul nuw nsw i64 %indvars.iv, 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !126
+  %.not44 = icmp eq ptr %14, null
+  br i1 %.not44, label %16, label %15
 
-12:                                               ; preds = %9
-  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %11)
-  store ptr null, ptr %gep, align 8, !tbaa !126
-  br label %13
+15:                                               ; preds = %10
+  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %14)
+  store ptr null, ptr %13, align 8, !tbaa !126
+  br label %16
 
-13:                                               ; preds = %9, %12
+16:                                               ; preds = %10, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %6, label %9, !llvm.loop !128
+  br i1 %exitcond.not, label %7, label %10, !llvm.loop !128
 
-14:                                               ; preds = %6
-  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %8)
-  store ptr null, ptr %7, align 8, !tbaa !125
-  br label %15
+17:                                               ; preds = %7
+  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %9)
+  store ptr null, ptr %8, align 8, !tbaa !125
+  br label %18
 
-15:                                               ; preds = %14, %6
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 381416
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 381440
-  %18 = load ptr, ptr %17, align 8, !tbaa !129
-  %.not34 = icmp eq ptr %18, null
-  br i1 %.not34, label %20, label %19
+18:                                               ; preds = %17, %7
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 381416
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 381440
+  %21 = load ptr, ptr %20, align 8, !tbaa !129
+  %.not34 = icmp eq ptr %21, null
+  br i1 %.not34, label %23, label %22
 
-19:                                               ; preds = %15
-  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %18)
-  store ptr null, ptr %17, align 8, !tbaa !129
-  br label %20
+22:                                               ; preds = %18
+  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %21)
+  store ptr null, ptr %20, align 8, !tbaa !129
+  br label %23
 
-20:                                               ; preds = %19, %15
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 381496
-  %22 = load ptr, ptr %21, align 8, !tbaa !130
-  %.not35 = icmp eq ptr %22, null
-  br i1 %.not35, label %24, label %23
+23:                                               ; preds = %22, %18
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 381496
+  %25 = load ptr, ptr %24, align 8, !tbaa !130
+  %.not35 = icmp eq ptr %25, null
+  br i1 %.not35, label %27, label %26
 
-23:                                               ; preds = %20
-  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %22)
-  store ptr null, ptr %21, align 8, !tbaa !130
-  br label %24
+26:                                               ; preds = %23
+  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %25)
+  store ptr null, ptr %24, align 8, !tbaa !130
+  br label %27
 
-24:                                               ; preds = %23, %20
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 381504
-  %26 = load ptr, ptr %25, align 8, !tbaa !131
-  %.not36 = icmp eq ptr %26, null
-  br i1 %.not36, label %28, label %27
+27:                                               ; preds = %26, %23
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 381504
+  %29 = load ptr, ptr %28, align 8, !tbaa !131
+  %.not36 = icmp eq ptr %29, null
+  br i1 %.not36, label %31, label %30
 
-27:                                               ; preds = %24
-  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %26)
-  store ptr null, ptr %25, align 8, !tbaa !131
-  br label %28
+30:                                               ; preds = %27
+  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %29)
+  store ptr null, ptr %28, align 8, !tbaa !131
+  br label %31
 
-28:                                               ; preds = %27, %24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 5504
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 153784
-  %31 = load ptr, ptr %30, align 8, !tbaa !132
-  %.not37 = icmp eq ptr %31, null
-  br i1 %.not37, label %33, label %32
+31:                                               ; preds = %30, %27
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 5504
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 153784
+  %34 = load ptr, ptr %33, align 8, !tbaa !132
+  %.not37 = icmp eq ptr %34, null
+  br i1 %.not37, label %36, label %35
 
-32:                                               ; preds = %28
-  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %31)
-  store ptr null, ptr %30, align 8, !tbaa !132
-  br label %33
+35:                                               ; preds = %31
+  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %34)
+  store ptr null, ptr %33, align 8, !tbaa !132
+  br label %36
 
-33:                                               ; preds = %32, %28
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 193640
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 193696
-  %36 = load ptr, ptr %35, align 8, !tbaa !133
-  %.not38 = icmp eq ptr %36, null
-  br i1 %.not38, label %38, label %37
+36:                                               ; preds = %35, %31
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 193640
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 193696
+  %39 = load ptr, ptr %38, align 8, !tbaa !133
+  %.not38 = icmp eq ptr %39, null
+  br i1 %.not38, label %41, label %40
 
-37:                                               ; preds = %33
-  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %36)
-  store ptr null, ptr %35, align 8, !tbaa !133
-  br label %38
+40:                                               ; preds = %36
+  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %39)
+  store ptr null, ptr %38, align 8, !tbaa !133
+  br label %41
 
-38:                                               ; preds = %37, %33
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 193704
-  %40 = load ptr, ptr %39, align 8, !tbaa !134
-  %.not39 = icmp eq ptr %40, null
-  br i1 %.not39, label %42, label %41
+41:                                               ; preds = %40, %36
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 193704
+  %43 = load ptr, ptr %42, align 8, !tbaa !134
+  %.not39 = icmp eq ptr %43, null
+  br i1 %.not39, label %45, label %44
 
-41:                                               ; preds = %38
-  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %40)
-  store ptr null, ptr %39, align 8, !tbaa !134
-  br label %42
-
-42:                                               ; preds = %41, %38
-  %43 = load ptr, ptr %34, align 8, !tbaa !135
-  %.not40 = icmp eq ptr %43, null
-  br i1 %.not40, label %45, label %44
-
-44:                                               ; preds = %42
+44:                                               ; preds = %41
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %43)
-  store ptr null, ptr %34, align 8, !tbaa !135
+  store ptr null, ptr %42, align 8, !tbaa !134
   br label %45
 
-45:                                               ; preds = %44, %42
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %48 = load ptr, ptr %47, align 8, !tbaa !136
-  %.not41 = icmp eq ptr %48, null
-  br i1 %.not41, label %50, label %49
+45:                                               ; preds = %44, %41
+  %46 = load ptr, ptr %37, align 8, !tbaa !135
+  %.not40 = icmp eq ptr %46, null
+  br i1 %.not40, label %48, label %47
 
-49:                                               ; preds = %45
-  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %48)
-  store ptr null, ptr %47, align 8, !tbaa !136
-  br label %50
+47:                                               ; preds = %45
+  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %46)
+  store ptr null, ptr %37, align 8, !tbaa !135
+  br label %48
 
-50:                                               ; preds = %45, %49
+48:                                               ; preds = %47, %45
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %51 = load ptr, ptr %50, align 8, !tbaa !136
+  %.not41 = icmp eq ptr %51, null
+  br i1 %.not41, label %53, label %52
+
+52:                                               ; preds = %48
+  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %51)
+  store ptr null, ptr %50, align 8, !tbaa !136
+  br label %53
+
+53:                                               ; preds = %48, %52
   tail call void @_ZN6LibRaw13parseCR3_FreeEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %51, i8 0, i64 184, i1 false)
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 182
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 190
-  store i16 -1, ptr %53, align 2, !tbaa !137
-  store i16 -1, ptr %52, align 2, !tbaa !137
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i16 -1, ptr %54, align 8, !tbaa !139
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i16 -1, ptr %55, align 8, !tbaa !139
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 5000
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 192732
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4942) %46, i8 0, i64 4942, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(375896) %29, i8 0, i64 375896, i1 false)
-  br label %58
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %54, i8 0, i64 184, i1 false)
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 182
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 190
+  store i16 -1, ptr %56, align 2, !tbaa !137
+  store i16 -1, ptr %55, align 2, !tbaa !137
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i16 -1, ptr %57, align 8, !tbaa !139
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i16 -1, ptr %58, align 8, !tbaa !139
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 5000
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 192732
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4942) %49, i8 0, i64 4942, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(375896) %32, i8 0, i64 375896, i1 false)
+  br label %61
 
-58:                                               ; preds = %58, %50
-  %indvars.iv.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i, %58 ]
-  %59 = getelementptr inbounds nuw [3 x float], ptr %57, i64 0, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %59, align 4, !tbaa !15
+61:                                               ; preds = %61, %53
+  %indvars.iv.i = phi i64 [ 0, %53 ], [ %indvars.iv.next.i, %61 ]
+  %62 = getelementptr inbounds nuw [3 x float], ptr %60, i64 0, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %62, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZL8cleargpsP17libraw_gps_info_t.exit, label %58, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_ZL8cleargpsP17libraw_gps_info_t.exit, label %61, !llvm.loop !17
 
-_ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 192744
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %60, i8 0, i64 9, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2752) %16, i8 0, i64 2752, i1 false)
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1200
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  store i16 1, ptr %62, align 8, !tbaa !140
-  store i64 -1, ptr %61, align 8, !tbaa !141
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 187084
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %56, i8 -1, i64 14, i1 false)
-  store float -9.990000e+02, ptr %63, align 4, !tbaa !105
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 187088
-  store float 1.000000e+00, ptr %64, align 8, !tbaa !106
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 154000
-  store i16 -1, ptr %65, align 8, !tbaa !142
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 153832
-  store i16 -1, ptr %66, align 8, !tbaa !142
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 187052
-  br label %98
+_ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %61
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 192744
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %63, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2752) %19, i8 0, i64 2752, i1 false)
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1200
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1928
+  store i16 1, ptr %65, align 8, !tbaa !140
+  store i64 -1, ptr %64, align 8, !tbaa !141
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 187084
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %59, i8 -1, i64 14, i1 false)
+  store float -9.990000e+02, ptr %66, align 4, !tbaa !105
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 187088
+  store float 1.000000e+00, ptr %67, align 8, !tbaa !106
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 154000
+  store i16 -1, ptr %68, align 8, !tbaa !142
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 153832
+  store i16 -1, ptr %69, align 8, !tbaa !142
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 187052
+  br label %101
 
-68:                                               ; preds = %98
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 2060
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 2062
-  store i16 -1, ptr %70, align 2, !tbaa !144
-  store i16 -1, ptr %69, align 4, !tbaa !145
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 2044
-  store i32 3, ptr %71, align 4, !tbaa !146
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 2752
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 2874
-  store i16 -1, ptr %73, align 2, !tbaa !147
-  store float -9.990000e+02, ptr %72, align 8, !tbaa !148
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 2756
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 2844
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 2856
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 2928
-  store i16 -1, ptr %77, align 8, !tbaa !149
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 3096
-  store i32 -1, ptr %78, align 8, !tbaa !150
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 3076
-  store i32 -1, ptr %79, align 4, !tbaa !151
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 3080
-  store i32 -1, ptr %80, align 8, !tbaa !152
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 3084
-  store i32 -1, ptr %81, align 4, !tbaa !153
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 3088
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 3092
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %74, i8 -1, i64 12, i1 false)
-  store i64 -1, ptr %75, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 -1, i64 16, i1 false)
-  store float -9.990000e+02, ptr %83, align 4, !tbaa !15
-  store float -9.990000e+02, ptr %82, align 8, !tbaa !15
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 2636
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 2640
-  store i32 -1, ptr %85, align 8, !tbaa !82
-  store i32 -1, ptr %84, align 4, !tbaa !82
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 3696
-  store i16 -1, ptr %86, align 8, !tbaa !154
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 3698
-  store i16 -1, ptr %87, align 2, !tbaa !155
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 3932
-  store float 1.000000e+00, ptr %88, align 4, !tbaa !107
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 2276
-  store i16 -1, ptr %89, align 4, !tbaa !156
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 2278
-  store i16 -1, ptr %90, align 2, !tbaa !157
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 3132
-  store i16 -1, ptr %91, align 4, !tbaa !158
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 3136
-  store i16 -1, ptr %92, align 8, !tbaa !159
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 3138
-  store i16 -1, ptr %93, align 2, !tbaa !160
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 3440
-  store i16 -1, ptr %94, align 8, !tbaa !161
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 3442
-  store i8 -1, ptr %95, align 2, !tbaa !162
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 3444
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 3452
-  br label %136
-
-98:                                               ; preds = %_ZL8cleargpsP17libraw_gps_info_t.exit, %98
-  %indvars.iv55 = phi i64 [ 0, %_ZL8cleargpsP17libraw_gps_info_t.exit ], [ %indvars.iv.next56, %98 ]
-  %99 = getelementptr inbounds nuw [4 x float], ptr %67, i64 0, i64 %indvars.iv55
-  store float 1.000000e+00, ptr %99, align 4, !tbaa !15
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next56, 4
-  br i1 %exitcond58.not, label %68, label %98, !llvm.loop !163
-
-100:                                              ; preds = %136
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 3464
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 3472
-  store i64 -1, ptr %101, align 8
-  store double -9.990000e+02, ptr %102, align 8, !tbaa !164
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 3480
-  store i64 -1, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 3488
-  store i32 -1, ptr %104, align 8, !tbaa !82
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 4004
-  store i32 -1, ptr %105, align 4, !tbaa !165
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 4012
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 4014
-  store i16 -1, ptr %107, align 2, !tbaa !158
-  store i16 -1, ptr %106, align 4, !tbaa !158
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 4018
-  store i16 -1, ptr %108, align 2, !tbaa !158
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 4020
-  store i16 -1, ptr %109, align 4, !tbaa !166
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 4028
-  store i32 -1, ptr %110, align 4, !tbaa !167
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 4036
-  store i8 -1, ptr %111, align 4, !tbaa !168
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 4488
-  store i16 -1, ptr %112, align 8, !tbaa !169
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 4508
-  store i16 -1, ptr %113, align 4, !tbaa !170
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 4528
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 4544
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %114, i8 -1, i64 12, i1 false)
-  store double -9.990000e+02, ptr %115, align 8, !tbaa !171
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 4552
-  store double -9.990000e+02, ptr %116, align 8, !tbaa !172
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 4592
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 4596
-  store i32 -1, ptr %118, align 4, !tbaa !82
-  store i32 -1, ptr %117, align 8, !tbaa !82
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  store i16 -1, ptr %119, align 8, !tbaa !173
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 3578
-  store i16 0, ptr %120, align 2, !tbaa !174
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3584
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 3600
-  store i16 -1, ptr %122, align 8, !tbaa !175
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 3608
-  store i32 -1, ptr %123, align 8, !tbaa !176
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 3529
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 3550
-  store i8 -1, ptr %125, align 2, !tbaa !177
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 3560
-  store i16 -1, ptr %126, align 8, !tbaa !178
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 3568
-  store i32 -1, ptr %127, align 8, !tbaa !179
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 3572
-  store i16 -1, ptr %128, align 4, !tbaa !180
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 3662
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 3562
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %124, i8 -1, i64 9, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %121, i8 -1, i64 12, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %129, i8 -1, i64 10, i1 false)
-  store i8 127, ptr %130, align 2, !tbaa !181
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 3563
-  store i8 -1, ptr %131, align 1, !tbaa !182
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 3564
-  store i8 -1, ptr %132, align 4, !tbaa !183
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 3692
-  store float -9.990000e+02, ptr %133, align 4, !tbaa !184
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 767640
-  store i64 0, ptr %134, align 8, !tbaa !108
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 767416
+71:                                               ; preds = %101
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 2060
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 2062
+  store i16 -1, ptr %73, align 2, !tbaa !144
+  store i16 -1, ptr %72, align 4, !tbaa !145
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 2044
+  store i32 3, ptr %74, align 4, !tbaa !146
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 2874
+  store i16 -1, ptr %76, align 2, !tbaa !147
+  store float -9.990000e+02, ptr %75, align 8, !tbaa !148
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 2756
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 2844
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 2856
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 2928
+  store i16 -1, ptr %80, align 8, !tbaa !149
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 3096
+  store i32 -1, ptr %81, align 8, !tbaa !150
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 3076
+  store i32 -1, ptr %82, align 4, !tbaa !151
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 3080
+  store i32 -1, ptr %83, align 8, !tbaa !152
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 3084
+  store i32 -1, ptr %84, align 4, !tbaa !153
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 3088
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 3092
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %77, i8 -1, i64 12, i1 false)
+  store i64 -1, ptr %78, align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 -1, i64 16, i1 false)
+  store float -9.990000e+02, ptr %86, align 4, !tbaa !15
+  store float -9.990000e+02, ptr %85, align 8, !tbaa !15
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2636
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 2640
+  store i32 -1, ptr %88, align 8, !tbaa !82
+  store i32 -1, ptr %87, align 4, !tbaa !82
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 3696
+  store i16 -1, ptr %89, align 8, !tbaa !154
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 3698
+  store i16 -1, ptr %90, align 2, !tbaa !155
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 3932
+  store float 1.000000e+00, ptr %91, align 4, !tbaa !107
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 2276
+  store i16 -1, ptr %92, align 4, !tbaa !156
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 2278
+  store i16 -1, ptr %93, align 2, !tbaa !157
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 3132
+  store i16 -1, ptr %94, align 4, !tbaa !158
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 3136
+  store i16 -1, ptr %95, align 8, !tbaa !159
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 3138
+  store i16 -1, ptr %96, align 2, !tbaa !160
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 3440
+  store i16 -1, ptr %97, align 8, !tbaa !161
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 3442
+  store i8 -1, ptr %98, align 2, !tbaa !162
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 3444
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 3452
   br label %139
 
-136:                                              ; preds = %68, %136
-  %indvars.iv62 = phi i64 [ 0, %68 ], [ %indvars.iv.next63, %136 ]
-  %137 = getelementptr inbounds nuw [3 x i16], ptr %96, i64 0, i64 %indvars.iv62
-  store i16 -32768, ptr %137, align 2, !tbaa !158
-  %138 = getelementptr inbounds nuw [3 x i32], ptr %97, i64 0, i64 %indvars.iv62
-  store i32 -1, ptr %138, align 4, !tbaa !82
+101:                                              ; preds = %_ZL8cleargpsP17libraw_gps_info_t.exit, %101
+  %indvars.iv55 = phi i64 [ 0, %_ZL8cleargpsP17libraw_gps_info_t.exit ], [ %indvars.iv.next56, %101 ]
+  %102 = getelementptr inbounds nuw [4 x float], ptr %70, i64 0, i64 %indvars.iv55
+  store float 1.000000e+00, ptr %102, align 4, !tbaa !15
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next56, 4
+  br i1 %exitcond58.not, label %71, label %101, !llvm.loop !163
+
+103:                                              ; preds = %139
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 3464
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 3472
+  store i64 -1, ptr %104, align 8
+  store double -9.990000e+02, ptr %105, align 8, !tbaa !164
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 3480
+  store i64 -1, ptr %106, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 3488
+  store i32 -1, ptr %107, align 8, !tbaa !82
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 4004
+  store i32 -1, ptr %108, align 4, !tbaa !165
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 4012
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 4014
+  store i16 -1, ptr %110, align 2, !tbaa !158
+  store i16 -1, ptr %109, align 4, !tbaa !158
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 4018
+  store i16 -1, ptr %111, align 2, !tbaa !158
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 4020
+  store i16 -1, ptr %112, align 4, !tbaa !166
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 4028
+  store i32 -1, ptr %113, align 4, !tbaa !167
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 4036
+  store i8 -1, ptr %114, align 4, !tbaa !168
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 4488
+  store i16 -1, ptr %115, align 8, !tbaa !169
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 4508
+  store i16 -1, ptr %116, align 4, !tbaa !170
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 4528
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 4544
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %117, i8 -1, i64 12, i1 false)
+  store double -9.990000e+02, ptr %118, align 8, !tbaa !171
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 4552
+  store double -9.990000e+02, ptr %119, align 8, !tbaa !172
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 4592
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 4596
+  store i32 -1, ptr %121, align 4, !tbaa !82
+  store i32 -1, ptr %120, align 8, !tbaa !82
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  store i16 -1, ptr %122, align 8, !tbaa !173
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 3578
+  store i16 0, ptr %123, align 2, !tbaa !174
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 3584
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 3600
+  store i16 -1, ptr %125, align 8, !tbaa !175
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 3608
+  store i32 -1, ptr %126, align 8, !tbaa !176
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 3529
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 3550
+  store i8 -1, ptr %128, align 2, !tbaa !177
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 3560
+  store i16 -1, ptr %129, align 8, !tbaa !178
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 3568
+  store i32 -1, ptr %130, align 8, !tbaa !179
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 3572
+  store i16 -1, ptr %131, align 4, !tbaa !180
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 3662
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 3562
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %127, i8 -1, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %124, i8 -1, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %132, i8 -1, i64 10, i1 false)
+  store i8 127, ptr %133, align 2, !tbaa !181
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 3563
+  store i8 -1, ptr %134, align 1, !tbaa !182
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 3564
+  store i8 -1, ptr %135, align 4, !tbaa !183
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 3692
+  store float -9.990000e+02, ptr %136, align 4, !tbaa !184
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 767640
+  store i64 0, ptr %137, align 8, !tbaa !108
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 767416
+  br label %142
+
+139:                                              ; preds = %71, %139
+  %indvars.iv62 = phi i64 [ 0, %71 ], [ %indvars.iv.next63, %139 ]
+  %140 = getelementptr inbounds nuw [3 x i16], ptr %99, i64 0, i64 %indvars.iv62
+  store i16 -32768, ptr %140, align 2, !tbaa !158
+  %141 = getelementptr inbounds nuw [3 x i32], ptr %100, i64 0, i64 %indvars.iv62
+  store i32 -1, ptr %141, align 4, !tbaa !82
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 3
-  br i1 %exitcond65.not, label %100, label %136, !llvm.loop !185
+  br i1 %exitcond65.not, label %103, label %139, !llvm.loop !185
 
-139:                                              ; preds = %146, %100
-  %indvars.iv.i45 = phi i64 [ 0, %100 ], [ %indvars.iv.next.i46, %146 ]
-  %140 = load ptr, ptr %135, align 8, !tbaa !14
-  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv.i45
-  %142 = load ptr, ptr %141, align 8, !tbaa !122
-  %.not.i = icmp eq ptr %142, null
-  br i1 %.not.i, label %146, label %143
+142:                                              ; preds = %149, %103
+  %indvars.iv.i45 = phi i64 [ 0, %103 ], [ %indvars.iv.next.i46, %149 ]
+  %143 = load ptr, ptr %138, align 8, !tbaa !14
+  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv.i45
+  %145 = load ptr, ptr %144, align 8, !tbaa !122
+  %.not.i = icmp eq ptr %145, null
+  br i1 %.not.i, label %149, label %146
 
-143:                                              ; preds = %139
-  tail call void @free(ptr noundef nonnull %142) #12
-  %144 = load ptr, ptr %135, align 8, !tbaa !14
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv.i45
-  store ptr null, ptr %145, align 8, !tbaa !122
-  br label %146
+146:                                              ; preds = %142
+  tail call void @free(ptr noundef nonnull %145) #12
+  %147 = load ptr, ptr %138, align 8, !tbaa !14
+  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv.i45
+  store ptr null, ptr %148, align 8, !tbaa !122
+  br label %149
 
-146:                                              ; preds = %143, %139
+149:                                              ; preds = %146, %142
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 512
-  br i1 %exitcond.not.i47, label %_ZN13libraw_memmgr7cleanupEv.exit, label %139, !llvm.loop !123
+  br i1 %exitcond.not.i47, label %_ZN13libraw_memmgr7cleanupEv.exit, label %142, !llvm.loop !123
 
-_ZN13libraw_memmgr7cleanupEv.exit:                ; preds = %146
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 193352
-  store i32 0, ptr %147, align 8, !tbaa !186
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 381644
-  store i32 0, ptr %148, align 4, !tbaa !187
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 5496
-  store i32 0, ptr %149, align 8, !tbaa !104
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 767584
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 381408
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %150, i8 0, i64 16, i1 false)
-  %152 = load ptr, ptr %151, align 8, !tbaa !109
-  store i32 0, ptr %152, align 8, !tbaa !110
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store i32 0, ptr %153, align 8, !tbaa !117
-  %154 = getelementptr inbounds nuw i8, ptr %152, i64 4
-  store i32 0, ptr %154, align 4, !tbaa !118
-  %155 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  store i64 0, ptr %155, align 8, !tbaa !119
-  %156 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  store i32 0, ptr %156, align 8, !tbaa !120
-  %157 = getelementptr inbounds nuw i8, ptr %152, i64 16936
-  store i32 0, ptr %157, align 4, !tbaa !121
-  %158 = getelementptr inbounds nuw i8, ptr %152, i64 21040
-  store float -2.000000e+00, ptr %158, align 8, !tbaa !15
+_ZN13libraw_memmgr7cleanupEv.exit:                ; preds = %149
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 193352
+  store i32 0, ptr %150, align 8, !tbaa !186
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 381644
+  store i32 0, ptr %151, align 4, !tbaa !187
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 5496
+  store i32 0, ptr %152, align 8, !tbaa !104
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 767584
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 381408
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, i8 0, i64 16, i1 false)
+  %155 = load ptr, ptr %154, align 8, !tbaa !109
+  store i32 0, ptr %155, align 8, !tbaa !110
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  store i32 0, ptr %156, align 8, !tbaa !117
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 4
+  store i32 0, ptr %157, align 4, !tbaa !118
+  %158 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  store i64 0, ptr %158, align 8, !tbaa !119
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 24
+  store i32 0, ptr %159, align 8, !tbaa !120
+  %160 = getelementptr inbounds nuw i8, ptr %155, i64 16936
+  store i32 0, ptr %160, align 4, !tbaa !121
+  %161 = getelementptr inbounds nuw i8, ptr %155, i64 21040
+  store float -2.000000e+00, ptr %161, align 8, !tbaa !15
   ret void
 }
 

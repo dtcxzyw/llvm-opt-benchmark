@@ -25,19 +25,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @dt_group_events_post_expose(ptr noundef %0, float noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.01725 = load ptr, ptr %2, align 8, !tbaa !6
-  %.not26 = icmp eq ptr %.01725, null
-  br i1 %.not26, label %.thread, label %.lr.ph
+  %.01724 = load ptr, ptr %2, align 8, !tbaa !6
+  %.not25 = icmp eq ptr %.01724, null
+  br i1 %.not25, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %17
-  %.01728 = phi ptr [ %.017, %17 ], [ %.01725, %4 ]
-  %.027 = phi i32 [ %18, %17 ], [ 0, %4 ]
-  %5 = load ptr, ptr %.01728, align 8, !tbaa !11
+  %.01727 = phi ptr [ %.017, %17 ], [ %.01724, %4 ]
+  %.026 = phi i32 [ %18, %17 ], [ 0, %4 ]
+  %5 = load ptr, ptr %.01727, align 8, !tbaa !11
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !13
   %7 = load i32, ptr %5, align 4, !tbaa !51
   %8 = tail call ptr @dt_masks_get_from_id(ptr noundef %6, i32 noundef %7) #12
   %.not22.not = icmp eq ptr %8, null
-  br i1 %.not22.not, label %.thread, label %9
+  br i1 %.not22.not, label %.critedge, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -50,17 +50,17 @@ define void @dt_group_events_post_expose(ptr noundef %0, float noundef %1, ptr n
   %14 = load ptr, ptr %13, align 8, !tbaa !57
   %15 = load ptr, ptr %8, align 8, !tbaa !59
   %16 = tail call i32 @g_list_length(ptr noundef %15) #12
-  tail call void %14(ptr noundef %0, float noundef %1, ptr noundef %3, i32 noundef %.027, i32 noundef %16) #12
+  tail call void %14(ptr noundef %0, float noundef %1, ptr noundef %3, i32 noundef %.026, i32 noundef %16) #12
   br label %17
 
-17:                                               ; preds = %12, %9
-  %18 = add nuw nsw i32 %.027, 1
-  %19 = getelementptr inbounds nuw i8, ptr %.01728, i64 8
+17:                                               ; preds = %9, %12
+  %18 = add nuw nsw i32 %.026, 1
+  %19 = getelementptr inbounds nuw i8, ptr %.01727, i64 8
   %.017 = load ptr, ptr %19, align 8, !tbaa !6
   %.not = icmp eq ptr %.017, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
-.thread:                                          ; preds = %17, %.lr.ph, %4
+.critedge:                                        ; preds = %17, %.lr.ph, %4
   ret void
 }
 

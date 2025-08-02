@@ -898,133 +898,133 @@ conv_ascii2bin.exit:                              ; preds = %.lr.ph
   br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .critedge:                                        ; preds = %conv_ascii2bin.exit, %.lr.ph
-  %invariant.gep = getelementptr i8, ptr %.04471, i64 -1
   %21 = icmp samesign ugt i32 %.04570, 3
   br i1 %21, label %.lr.ph79, label %.critedge2
 
-.lr.ph79:                                         ; preds = %.critedge, %29
-  %.14678 = phi i32 [ %30, %29 ], [ %.04570, %.critedge ]
+.lr.ph79:                                         ; preds = %.critedge, %31
+  %.14678 = phi i32 [ %32, %31 ], [ %.04570, %.critedge ]
   %22 = zext nneg i32 %.14678 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %22
-  %23 = load i8, ptr %gep, align 1, !tbaa !12
-  %.not.i53 = icmp sgt i8 %23, -1
+  %23 = getelementptr i8, ptr %.04471, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 -1
+  %25 = load i8, ptr %24, align 1, !tbaa !12
+  %.not.i53 = icmp sgt i8 %25, -1
   br i1 %.not.i53, label %conv_ascii2bin.exit55, label %.critedge2
 
 conv_ascii2bin.exit55:                            ; preds = %.lr.ph79
-  %24 = zext nneg i8 %23 to i64
-  %25 = getelementptr inbounds nuw i8, ptr %.0, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !12
-  %27 = and i8 %26, -20
-  %28 = icmp eq i8 %27, -32
-  br i1 %28, label %29, label %.critedge2
+  %26 = zext nneg i8 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !12
+  %29 = and i8 %28, -20
+  %30 = icmp eq i8 %29, -32
+  br i1 %30, label %31, label %.critedge2
 
-29:                                               ; preds = %conv_ascii2bin.exit55
-  %30 = add nsw i32 %.14678, -1
-  %31 = icmp sgt i32 %.14678, 4
-  br i1 %31, label %.lr.ph79, label %.loopexit, !llvm.loop !18
+31:                                               ; preds = %conv_ascii2bin.exit55
+  %32 = add nsw i32 %.14678, -1
+  %33 = icmp sgt i32 %.14678, 4
+  br i1 %33, label %.lr.ph79, label %.loopexit, !llvm.loop !18
 
 .critedge2:                                       ; preds = %conv_ascii2bin.exit55, %.lr.ph79, %10, %.critedge
-  %.044.lcssa94 = phi ptr [ %.04471, %.critedge ], [ %2, %10 ], [ %.04471, %.lr.ph79 ], [ %.04471, %conv_ascii2bin.exit55 ]
+  %.044.lcssa93 = phi ptr [ %.04471, %.critedge ], [ %2, %10 ], [ %.04471, %.lr.ph79 ], [ %.04471, %conv_ascii2bin.exit55 ]
   %.146.lcssa = phi i32 [ %.04570, %.critedge ], [ %3, %10 ], [ %.14678, %.lr.ph79 ], [ %.14678, %conv_ascii2bin.exit55 ]
-  %32 = and i32 %.146.lcssa, 3
-  %.not51 = icmp eq i32 %32, 0
+  %34 = and i32 %.146.lcssa, 3
+  %.not51 = icmp eq i32 %34, 0
   br i1 %.not51, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.critedge2
-  %33 = icmp sgt i32 %.146.lcssa, 0
-  br i1 %33, label %.lr.ph88, label %.loopexit
+  %35 = icmp sgt i32 %.146.lcssa, 0
+  br i1 %35, label %.lr.ph88, label %.loopexit
 
-.lr.ph88:                                         ; preds = %.preheader, %60
-  %.04387 = phi ptr [ %78, %60 ], [ %1, %.preheader ]
-  %.186 = phi ptr [ %61, %60 ], [ %.044.lcssa94, %.preheader ]
-  %.04785 = phi i32 [ %80, %60 ], [ 0, %.preheader ]
-  %.04884 = phi i32 [ %79, %60 ], [ 0, %.preheader ]
-  %34 = getelementptr inbounds nuw i8, ptr %.186, i64 1
-  %35 = load i8, ptr %.186, align 1, !tbaa !12
-  %.not.i56 = icmp sgt i8 %35, -1
-  br i1 %.not.i56, label %36, label %conv_ascii2bin.exit58
+.lr.ph88:                                         ; preds = %.preheader, %62
+  %.04387 = phi ptr [ %80, %62 ], [ %1, %.preheader ]
+  %.186 = phi ptr [ %63, %62 ], [ %.044.lcssa93, %.preheader ]
+  %.04785 = phi i32 [ %82, %62 ], [ 0, %.preheader ]
+  %.04884 = phi i32 [ %81, %62 ], [ 0, %.preheader ]
+  %36 = getelementptr inbounds nuw i8, ptr %.186, i64 1
+  %37 = load i8, ptr %.186, align 1, !tbaa !12
+  %.not.i56 = icmp sgt i8 %37, -1
+  br i1 %.not.i56, label %38, label %conv_ascii2bin.exit58
 
-36:                                               ; preds = %.lr.ph88
-  %37 = zext nneg i8 %35 to i64
-  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !12
+38:                                               ; preds = %.lr.ph88
+  %39 = zext nneg i8 %37 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %.0, i64 %39
+  %41 = load i8, ptr %40, align 1, !tbaa !12
   br label %conv_ascii2bin.exit58
 
-conv_ascii2bin.exit58:                            ; preds = %.lr.ph88, %36
-  %.0.i57 = phi i8 [ %39, %36 ], [ -1, %.lr.ph88 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.186, i64 2
-  %41 = load i8, ptr %34, align 1, !tbaa !12
-  %.not.i59 = icmp sgt i8 %41, -1
-  br i1 %.not.i59, label %42, label %conv_ascii2bin.exit61
+conv_ascii2bin.exit58:                            ; preds = %.lr.ph88, %38
+  %.0.i57 = phi i8 [ %41, %38 ], [ -1, %.lr.ph88 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.186, i64 2
+  %43 = load i8, ptr %36, align 1, !tbaa !12
+  %.not.i59 = icmp sgt i8 %43, -1
+  br i1 %.not.i59, label %44, label %conv_ascii2bin.exit61
 
-42:                                               ; preds = %conv_ascii2bin.exit58
-  %43 = zext nneg i8 %41 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %.0, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !12
+44:                                               ; preds = %conv_ascii2bin.exit58
+  %45 = zext nneg i8 %43 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 %45
+  %47 = load i8, ptr %46, align 1, !tbaa !12
   br label %conv_ascii2bin.exit61
 
-conv_ascii2bin.exit61:                            ; preds = %conv_ascii2bin.exit58, %42
-  %.0.i60 = phi i8 [ %45, %42 ], [ -1, %conv_ascii2bin.exit58 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.186, i64 3
-  %47 = load i8, ptr %40, align 1, !tbaa !12
-  %.not.i62 = icmp sgt i8 %47, -1
-  br i1 %.not.i62, label %48, label %conv_ascii2bin.exit64
+conv_ascii2bin.exit61:                            ; preds = %conv_ascii2bin.exit58, %44
+  %.0.i60 = phi i8 [ %47, %44 ], [ -1, %conv_ascii2bin.exit58 ]
+  %48 = getelementptr inbounds nuw i8, ptr %.186, i64 3
+  %49 = load i8, ptr %42, align 1, !tbaa !12
+  %.not.i62 = icmp sgt i8 %49, -1
+  br i1 %.not.i62, label %50, label %conv_ascii2bin.exit64
 
-48:                                               ; preds = %conv_ascii2bin.exit61
-  %49 = zext nneg i8 %47 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %.0, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !12
+50:                                               ; preds = %conv_ascii2bin.exit61
+  %51 = zext nneg i8 %49 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %.0, i64 %51
+  %53 = load i8, ptr %52, align 1, !tbaa !12
   br label %conv_ascii2bin.exit64
 
-conv_ascii2bin.exit64:                            ; preds = %conv_ascii2bin.exit61, %48
-  %.0.i63 = phi i8 [ %51, %48 ], [ -1, %conv_ascii2bin.exit61 ]
-  %52 = load i8, ptr %46, align 1, !tbaa !12
-  %.not.i65 = icmp sgt i8 %52, -1
-  br i1 %.not.i65, label %53, label %conv_ascii2bin.exit67
+conv_ascii2bin.exit64:                            ; preds = %conv_ascii2bin.exit61, %50
+  %.0.i63 = phi i8 [ %53, %50 ], [ -1, %conv_ascii2bin.exit61 ]
+  %54 = load i8, ptr %48, align 1, !tbaa !12
+  %.not.i65 = icmp sgt i8 %54, -1
+  br i1 %.not.i65, label %55, label %conv_ascii2bin.exit67
 
-53:                                               ; preds = %conv_ascii2bin.exit64
-  %54 = zext nneg i8 %52 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %.0, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !12
+55:                                               ; preds = %conv_ascii2bin.exit64
+  %56 = zext nneg i8 %54 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %.0, i64 %56
+  %58 = load i8, ptr %57, align 1, !tbaa !12
   br label %conv_ascii2bin.exit67
 
-conv_ascii2bin.exit67:                            ; preds = %conv_ascii2bin.exit64, %53
-  %.0.i66 = phi i8 [ %56, %53 ], [ -1, %conv_ascii2bin.exit64 ]
-  %57 = or i8 %.0.i60, %.0.i57
-  %58 = or i8 %57, %.0.i63
-  %59 = or i8 %58, %.0.i66
-  %.not52 = icmp sgt i8 %59, -1
-  br i1 %.not52, label %60, label %.loopexit
+conv_ascii2bin.exit67:                            ; preds = %conv_ascii2bin.exit64, %55
+  %.0.i66 = phi i8 [ %58, %55 ], [ -1, %conv_ascii2bin.exit64 ]
+  %59 = or i8 %.0.i60, %.0.i57
+  %60 = or i8 %59, %.0.i63
+  %61 = or i8 %60, %.0.i66
+  %.not52 = icmp sgt i8 %61, -1
+  br i1 %.not52, label %62, label %.loopexit
 
-60:                                               ; preds = %conv_ascii2bin.exit67
-  %61 = getelementptr inbounds nuw i8, ptr %.186, i64 4
-  %62 = zext i8 %.0.i57 to i64
-  %63 = shl nuw nsw i64 %62, 18
-  %64 = zext i8 %.0.i60 to i64
-  %65 = shl nuw nsw i64 %64, 12
-  %66 = or i64 %65, %63
-  %67 = zext i8 %.0.i63 to i64
-  %68 = shl nuw nsw i64 %67, 6
-  %69 = or i64 %68, %65
-  %70 = lshr i64 %66, 16
-  %71 = trunc i64 %70 to i8
-  %72 = getelementptr inbounds nuw i8, ptr %.04387, i64 1
-  store i8 %71, ptr %.04387, align 1, !tbaa !12
-  %73 = lshr i64 %69, 8
-  %74 = trunc i64 %73 to i8
-  %75 = getelementptr inbounds nuw i8, ptr %.04387, i64 2
-  store i8 %74, ptr %72, align 1, !tbaa !12
-  %76 = trunc i64 %68 to i8
-  %77 = or i8 %.0.i66, %76
-  %78 = getelementptr inbounds nuw i8, ptr %.04387, i64 3
-  store i8 %77, ptr %75, align 1, !tbaa !12
-  %79 = add nuw nsw i32 %.04884, 3
-  %80 = add nuw nsw i32 %.04785, 4
-  %81 = icmp slt i32 %80, %.146.lcssa
-  br i1 %81, label %.lr.ph88, label %.loopexit, !llvm.loop !19
+62:                                               ; preds = %conv_ascii2bin.exit67
+  %63 = getelementptr inbounds nuw i8, ptr %.186, i64 4
+  %64 = zext i8 %.0.i57 to i64
+  %65 = shl nuw nsw i64 %64, 18
+  %66 = zext i8 %.0.i60 to i64
+  %67 = shl nuw nsw i64 %66, 12
+  %68 = or i64 %67, %65
+  %69 = zext i8 %.0.i63 to i64
+  %70 = shl nuw nsw i64 %69, 6
+  %71 = or i64 %70, %67
+  %72 = lshr i64 %68, 16
+  %73 = trunc i64 %72 to i8
+  %74 = getelementptr inbounds nuw i8, ptr %.04387, i64 1
+  store i8 %73, ptr %.04387, align 1, !tbaa !12
+  %75 = lshr i64 %71, 8
+  %76 = trunc i64 %75 to i8
+  %77 = getelementptr inbounds nuw i8, ptr %.04387, i64 2
+  store i8 %76, ptr %74, align 1, !tbaa !12
+  %78 = trunc i64 %70 to i8
+  %79 = or i8 %.0.i66, %78
+  %80 = getelementptr inbounds nuw i8, ptr %.04387, i64 3
+  store i8 %79, ptr %77, align 1, !tbaa !12
+  %81 = add nuw nsw i32 %.04884, 3
+  %82 = add nuw nsw i32 %.04785, 4
+  %83 = icmp slt i32 %82, %.146.lcssa
+  br i1 %83, label %.lr.ph88, label %.loopexit, !llvm.loop !19
 
-.loopexit:                                        ; preds = %17, %29, %conv_ascii2bin.exit67, %60, %.preheader, %.critedge2
-  %.042 = phi i32 [ -1, %.critedge2 ], [ 0, %.preheader ], [ -1, %conv_ascii2bin.exit67 ], [ %79, %60 ], [ -1, %29 ], [ 0, %17 ]
+.loopexit:                                        ; preds = %17, %31, %conv_ascii2bin.exit67, %62, %.preheader, %.critedge2
+  %.042 = phi i32 [ -1, %.critedge2 ], [ 0, %.preheader ], [ -1, %conv_ascii2bin.exit67 ], [ %81, %62 ], [ -1, %31 ], [ 0, %17 ]
   ret i32 %.042
 }
 

@@ -6415,16 +6415,17 @@ if.end154.1:                                      ; preds = %if.then149.1, %invo
 if.then149.1.1:                                   ; preds = %if.end154.1
   %gep1485 = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   store i8 1, ptr %gep1485, align 1, !tbaa !12
-  %gep20 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv1383
-  store i8 2, ptr %gep20, align 1, !tbaa !12
+  %68 = getelementptr inbounds nuw i8, ptr %call.i723, i64 %indvars.iv1383
+  %arrayidx.i826.1.1 = getelementptr inbounds nuw i8, ptr %68, i64 1
+  store i8 2, ptr %arrayidx.i826.1.1, align 1, !tbaa !12
   br label %if.end154.1.1
 
 if.end154.1.1:                                    ; preds = %if.then149.1.1, %if.end154.1
   %mul.i.i817.1.2 = mul i32 %add.i.i818.1.1, 1103515245
   %add.i.i818.1.2 = add i32 %mul.i.i817.1.2, 12345
   %div.i.i819.1.2 = sdiv i32 %add.i.i818.1.2, 65536
-  %68 = trunc nsw i32 %div.i.i819.1.2 to i16
-  %rem.lhs.trunc.i820.1.2 = and i16 %68, 32767
+  %69 = trunc nsw i32 %div.i.i819.1.2 to i16
+  %rem.lhs.trunc.i820.1.2 = and i16 %69, 32767
   %rem49.i821.1.2 = urem i16 %rem.lhs.trunc.i820.1.2, 21
   %cmp148.not.1.2 = icmp samesign ugt i16 %rem49.i821.1.2, 17
   br i1 %cmp148.not.1.2, label %if.end154.1.2, label %if.then149.1.2
@@ -6440,8 +6441,8 @@ if.end154.1.2:                                    ; preds = %if.then149.1.2, %if
   %mul.i.i817.1.3 = mul i32 %add.i.i818.1.2, 1103515245
   %add.i.i818.1.3 = add i32 %mul.i.i817.1.3, 12345
   %div.i.i819.1.3 = sdiv i32 %add.i.i818.1.3, 65536
-  %69 = trunc nsw i32 %div.i.i819.1.3 to i16
-  %rem.lhs.trunc.i820.1.3 = and i16 %69, 32767
+  %70 = trunc nsw i32 %div.i.i819.1.3 to i16
+  %rem.lhs.trunc.i820.1.3 = and i16 %70, 32767
   %rem49.i821.1.3 = urem i16 %rem.lhs.trunc.i820.1.3, 21
   %cmp148.not.1.3 = icmp samesign ugt i16 %rem49.i821.1.3, 17
   br i1 %cmp148.not.1.3, label %if.end154.1.3, label %if.then149.1.3
@@ -6457,8 +6458,8 @@ if.end154.1.3:                                    ; preds = %if.then149.1.3, %if
   %mul.i.i817.1.4 = mul i32 %add.i.i818.1.3, 1103515245
   %add.i.i818.1.4 = add i32 %mul.i.i817.1.4, 12345
   %div.i.i819.1.4 = sdiv i32 %add.i.i818.1.4, 65536
-  %70 = trunc nsw i32 %div.i.i819.1.4 to i16
-  %rem.lhs.trunc.i820.1.4 = and i16 %70, 32767
+  %71 = trunc nsw i32 %div.i.i819.1.4 to i16
+  %rem.lhs.trunc.i820.1.4 = and i16 %71, 32767
   %rem49.i821.1.4 = urem i16 %rem.lhs.trunc.i820.1.4, 21
   %cmp148.not.1.4 = icmp samesign ugt i16 %rem49.i821.1.4, 17
   br i1 %cmp148.not.1.4, label %if.end154.1.4, label %if.then149.1.4
@@ -6483,8 +6484,8 @@ invoke.cont122.preheader.2:                       ; preds = %if.end154.1.4
   %mul.i.i817.2 = mul i32 %add.i.i818.1.4, 1103515245
   %add.i.i818.2 = add i32 %mul.i.i817.2, 12345
   %div.i.i819.2 = sdiv i32 %add.i.i818.2, 65536
-  %71 = trunc nsw i32 %div.i.i819.2 to i16
-  %rem.lhs.trunc.i820.2 = and i16 %71, 32767
+  %72 = trunc nsw i32 %div.i.i819.2 to i16
+  %rem.lhs.trunc.i820.2 = and i16 %72, 32767
   %rem49.i821.2 = urem i16 %rem.lhs.trunc.i820.2, 21
   %cmp148.not.2 = icmp samesign ugt i16 %rem49.i821.2, 18
   br i1 %cmp148.not.2, label %if.end154.2, label %if.then149.2
@@ -6500,8 +6501,8 @@ if.end154.2:                                      ; preds = %if.then149.2, %invo
   %mul.i.i817.2.1 = mul i32 %add.i.i818.2, 1103515245
   %add.i.i818.2.1 = add i32 %mul.i.i817.2.1, 12345
   %div.i.i819.2.1 = sdiv i32 %add.i.i818.2.1, 65536
-  %72 = trunc nsw i32 %div.i.i819.2.1 to i16
-  %rem.lhs.trunc.i820.2.1 = and i16 %72, 32767
+  %73 = trunc nsw i32 %div.i.i819.2.1 to i16
+  %rem.lhs.trunc.i820.2.1 = and i16 %73, 32767
   %rem49.i821.2.1 = urem i16 %rem.lhs.trunc.i820.2.1, 21
   %cmp148.not.2.1 = icmp samesign ugt i16 %rem49.i821.2.1, 18
   br i1 %cmp148.not.2.1, label %if.end154.2.1, label %if.then149.2.1
@@ -6517,8 +6518,8 @@ if.end154.2.1:                                    ; preds = %if.then149.2.1, %if
   %mul.i.i817.2.2 = mul i32 %add.i.i818.2.1, 1103515245
   %add.i.i818.2.2 = add i32 %mul.i.i817.2.2, 12345
   %div.i.i819.2.2 = sdiv i32 %add.i.i818.2.2, 65536
-  %73 = trunc nsw i32 %div.i.i819.2.2 to i16
-  %rem.lhs.trunc.i820.2.2 = and i16 %73, 32767
+  %74 = trunc nsw i32 %div.i.i819.2.2 to i16
+  %rem.lhs.trunc.i820.2.2 = and i16 %74, 32767
   %rem49.i821.2.2 = urem i16 %rem.lhs.trunc.i820.2.2, 21
   %cmp148.not.2.2 = icmp samesign ugt i16 %rem49.i821.2.2, 18
   br i1 %cmp148.not.2.2, label %if.end154.2.2, label %if.then149.2.2
@@ -6534,8 +6535,8 @@ if.end154.2.2:                                    ; preds = %if.then149.2.2, %if
   %mul.i.i817.2.11357 = mul i32 %add.i.i818.2.2, 1103515245
   %add.i.i818.2.11358 = add i32 %mul.i.i817.2.11357, 12345
   %div.i.i819.2.11359 = sdiv i32 %add.i.i818.2.11358, 65536
-  %74 = trunc nsw i32 %div.i.i819.2.11359 to i16
-  %rem.lhs.trunc.i820.2.11360 = and i16 %74, 32767
+  %75 = trunc nsw i32 %div.i.i819.2.11359 to i16
+  %rem.lhs.trunc.i820.2.11360 = and i16 %75, 32767
   %rem49.i821.2.11361 = urem i16 %rem.lhs.trunc.i820.2.11360, 21
   %cmp148.not.2.11363 = icmp samesign ugt i16 %rem49.i821.2.11361, 18
   br i1 %cmp148.not.2.11363, label %if.end154.2.11369, label %if.then149.2.11366
@@ -6551,8 +6552,8 @@ if.end154.2.11369:                                ; preds = %if.then149.2.11366,
   %mul.i.i817.2.1.1 = mul i32 %add.i.i818.2.11358, 1103515245
   %add.i.i818.2.1.1 = add i32 %mul.i.i817.2.1.1, 12345
   %div.i.i819.2.1.1 = sdiv i32 %add.i.i818.2.1.1, 65536
-  %75 = trunc nsw i32 %div.i.i819.2.1.1 to i16
-  %rem.lhs.trunc.i820.2.1.1 = and i16 %75, 32767
+  %76 = trunc nsw i32 %div.i.i819.2.1.1 to i16
+  %rem.lhs.trunc.i820.2.1.1 = and i16 %76, 32767
   %rem49.i821.2.1.1 = urem i16 %rem.lhs.trunc.i820.2.1.1, 21
   %cmp148.not.2.1.1 = icmp samesign ugt i16 %rem49.i821.2.1.1, 18
   br i1 %cmp148.not.2.1.1, label %if.end154.2.1.1, label %if.then149.2.1.1
@@ -6568,8 +6569,8 @@ if.end154.2.1.1:                                  ; preds = %if.then149.2.1.1, %
   %mul.i.i817.2.2.1 = mul i32 %add.i.i818.2.1.1, 1103515245
   %add.i.i818.2.2.1 = add i32 %mul.i.i817.2.2.1, 12345
   %div.i.i819.2.2.1 = sdiv i32 %add.i.i818.2.2.1, 65536
-  %76 = trunc nsw i32 %div.i.i819.2.2.1 to i16
-  %rem.lhs.trunc.i820.2.2.1 = and i16 %76, 32767
+  %77 = trunc nsw i32 %div.i.i819.2.2.1 to i16
+  %rem.lhs.trunc.i820.2.2.1 = and i16 %77, 32767
   %rem49.i821.2.2.1 = urem i16 %rem.lhs.trunc.i820.2.2.1, 21
   %cmp148.not.2.2.1 = icmp samesign ugt i16 %rem49.i821.2.2.1, 18
   br i1 %cmp148.not.2.2.1, label %if.end154.2.2.1, label %if.then149.2.2.1
@@ -6585,8 +6586,8 @@ if.end154.2.2.1:                                  ; preds = %if.then149.2.2.1, %
   %mul.i.i817.2.21370 = mul i32 %add.i.i818.2.2.1, 1103515245
   %add.i.i818.2.21371 = add i32 %mul.i.i817.2.21370, 12345
   %div.i.i819.2.21372 = sdiv i32 %add.i.i818.2.21371, 65536
-  %77 = trunc nsw i32 %div.i.i819.2.21372 to i16
-  %rem.lhs.trunc.i820.2.21373 = and i16 %77, 32767
+  %78 = trunc nsw i32 %div.i.i819.2.21372 to i16
+  %rem.lhs.trunc.i820.2.21373 = and i16 %78, 32767
   %rem49.i821.2.21374 = urem i16 %rem.lhs.trunc.i820.2.21373, 21
   %cmp148.not.2.21376 = icmp samesign ugt i16 %rem49.i821.2.21374, 18
   br i1 %cmp148.not.2.21376, label %if.end154.2.21380, label %if.then149.2.21379
@@ -6602,8 +6603,8 @@ if.end154.2.21380:                                ; preds = %if.then149.2.21379,
   %mul.i.i817.2.1.2 = mul i32 %add.i.i818.2.21371, 1103515245
   %add.i.i818.2.1.2 = add i32 %mul.i.i817.2.1.2, 12345
   %div.i.i819.2.1.2 = sdiv i32 %add.i.i818.2.1.2, 65536
-  %78 = trunc nsw i32 %div.i.i819.2.1.2 to i16
-  %rem.lhs.trunc.i820.2.1.2 = and i16 %78, 32767
+  %79 = trunc nsw i32 %div.i.i819.2.1.2 to i16
+  %rem.lhs.trunc.i820.2.1.2 = and i16 %79, 32767
   %rem49.i821.2.1.2 = urem i16 %rem.lhs.trunc.i820.2.1.2, 21
   %cmp148.not.2.1.2 = icmp samesign ugt i16 %rem49.i821.2.1.2, 18
   br i1 %cmp148.not.2.1.2, label %if.end154.2.1.2, label %if.then149.2.1.2
@@ -6619,8 +6620,8 @@ if.end154.2.1.2:                                  ; preds = %if.then149.2.1.2, %
   %mul.i.i817.2.2.2 = mul i32 %add.i.i818.2.1.2, 1103515245
   %add.i.i818.2.2.2 = add i32 %mul.i.i817.2.2.2, 12345
   %div.i.i819.2.2.2 = sdiv i32 %add.i.i818.2.2.2, 65536
-  %79 = trunc nsw i32 %div.i.i819.2.2.2 to i16
-  %rem.lhs.trunc.i820.2.2.2 = and i16 %79, 32767
+  %80 = trunc nsw i32 %div.i.i819.2.2.2 to i16
+  %rem.lhs.trunc.i820.2.2.2 = and i16 %80, 32767
   %rem49.i821.2.2.2 = urem i16 %rem.lhs.trunc.i820.2.2.2, 21
   %cmp148.not.2.2.2 = icmp samesign ugt i16 %rem49.i821.2.2.2, 18
   br i1 %cmp148.not.2.2.2, label %for.cond.cleanup113.2, label %if.then149.2.2.2
@@ -6649,8 +6650,8 @@ invoke.cont122:                                   ; preds = %if.end154.6, %invok
   %mul.i.i817 = mul i32 %pr.sroa.0.11295, 1103515245
   %add.i.i818 = add i32 %mul.i.i817, 12345
   %div.i.i819 = sdiv i32 %add.i.i818, 65536
-  %80 = trunc nsw i32 %div.i.i819 to i16
-  %rem.lhs.trunc.i820 = and i16 %80, 32767
+  %81 = trunc nsw i32 %div.i.i819 to i16
+  %rem.lhs.trunc.i820 = and i16 %81, 32767
   %rem49.i821 = urem i16 %rem.lhs.trunc.i820, 21
   %cmp148.not = icmp samesign ugt i16 %rem49.i821, 16
   br i1 %cmp148.not, label %if.end154, label %if.then149
@@ -6666,8 +6667,8 @@ if.end154:                                        ; preds = %if.then149, %invoke
   %mul.i.i817.11411 = mul i32 %add.i.i818, 1103515245
   %add.i.i818.11412 = add i32 %mul.i.i817.11411, 12345
   %div.i.i819.11413 = sdiv i32 %add.i.i818.11412, 65536
-  %81 = trunc nsw i32 %div.i.i819.11413 to i16
-  %rem.lhs.trunc.i820.11414 = and i16 %81, 32767
+  %82 = trunc nsw i32 %div.i.i819.11413 to i16
+  %rem.lhs.trunc.i820.11414 = and i16 %82, 32767
   %rem49.i821.11415 = urem i16 %rem.lhs.trunc.i820.11414, 21
   %cmp148.not.11417 = icmp samesign ugt i16 %rem49.i821.11415, 16
   br i1 %cmp148.not.11417, label %if.end154.11422, label %if.then149.11421
@@ -6675,16 +6676,17 @@ if.end154:                                        ; preds = %if.then149, %invoke
 if.then149.11421:                                 ; preds = %if.end154
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv1397
   store i8 1, ptr %gep, align 1, !tbaa !12
-  %gep18 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv1401
-  store i8 2, ptr %gep18, align 1, !tbaa !12
+  %83 = getelementptr inbounds nuw i8, ptr %call.i723, i64 %indvars.iv1401
+  %arrayidx.i826.11420 = getelementptr inbounds nuw i8, ptr %83, i64 1
+  store i8 2, ptr %arrayidx.i826.11420, align 1, !tbaa !12
   br label %if.end154.11422
 
 if.end154.11422:                                  ; preds = %if.then149.11421, %if.end154
   %mul.i.i817.21423 = mul i32 %add.i.i818.11412, 1103515245
   %add.i.i818.21424 = add i32 %mul.i.i817.21423, 12345
   %div.i.i819.21425 = sdiv i32 %add.i.i818.21424, 65536
-  %82 = trunc nsw i32 %div.i.i819.21425 to i16
-  %rem.lhs.trunc.i820.21426 = and i16 %82, 32767
+  %84 = trunc nsw i32 %div.i.i819.21425 to i16
+  %rem.lhs.trunc.i820.21426 = and i16 %84, 32767
   %rem49.i821.21427 = urem i16 %rem.lhs.trunc.i820.21426, 21
   %cmp148.not.21429 = icmp samesign ugt i16 %rem49.i821.21427, 16
   br i1 %cmp148.not.21429, label %if.end154.21434, label %if.then149.21433
@@ -6700,8 +6702,8 @@ if.end154.21434:                                  ; preds = %if.then149.21433, %
   %mul.i.i817.3 = mul i32 %add.i.i818.21424, 1103515245
   %add.i.i818.3 = add i32 %mul.i.i817.3, 12345
   %div.i.i819.3 = sdiv i32 %add.i.i818.3, 65536
-  %83 = trunc nsw i32 %div.i.i819.3 to i16
-  %rem.lhs.trunc.i820.3 = and i16 %83, 32767
+  %85 = trunc nsw i32 %div.i.i819.3 to i16
+  %rem.lhs.trunc.i820.3 = and i16 %85, 32767
   %rem49.i821.3 = urem i16 %rem.lhs.trunc.i820.3, 21
   %cmp148.not.3 = icmp samesign ugt i16 %rem49.i821.3, 16
   br i1 %cmp148.not.3, label %if.end154.3, label %if.then149.3
@@ -6717,8 +6719,8 @@ if.end154.3:                                      ; preds = %if.then149.3, %if.e
   %mul.i.i817.4 = mul i32 %add.i.i818.3, 1103515245
   %add.i.i818.4 = add i32 %mul.i.i817.4, 12345
   %div.i.i819.4 = sdiv i32 %add.i.i818.4, 65536
-  %84 = trunc nsw i32 %div.i.i819.4 to i16
-  %rem.lhs.trunc.i820.4 = and i16 %84, 32767
+  %86 = trunc nsw i32 %div.i.i819.4 to i16
+  %rem.lhs.trunc.i820.4 = and i16 %86, 32767
   %rem49.i821.4 = urem i16 %rem.lhs.trunc.i820.4, 21
   %cmp148.not.4 = icmp samesign ugt i16 %rem49.i821.4, 16
   br i1 %cmp148.not.4, label %if.end154.4, label %if.then149.4
@@ -6734,8 +6736,8 @@ if.end154.4:                                      ; preds = %if.then149.4, %if.e
   %mul.i.i817.5 = mul i32 %add.i.i818.4, 1103515245
   %add.i.i818.5 = add i32 %mul.i.i817.5, 12345
   %div.i.i819.5 = sdiv i32 %add.i.i818.5, 65536
-  %85 = trunc nsw i32 %div.i.i819.5 to i16
-  %rem.lhs.trunc.i820.5 = and i16 %85, 32767
+  %87 = trunc nsw i32 %div.i.i819.5 to i16
+  %rem.lhs.trunc.i820.5 = and i16 %87, 32767
   %rem49.i821.5 = urem i16 %rem.lhs.trunc.i820.5, 21
   %cmp148.not.5 = icmp samesign ugt i16 %rem49.i821.5, 16
   br i1 %cmp148.not.5, label %if.end154.5, label %if.then149.5
@@ -6751,8 +6753,8 @@ if.end154.5:                                      ; preds = %if.then149.5, %if.e
   %mul.i.i817.6 = mul i32 %add.i.i818.5, 1103515245
   %add.i.i818.6 = add i32 %mul.i.i817.6, 12345
   %div.i.i819.6 = sdiv i32 %add.i.i818.6, 65536
-  %86 = trunc nsw i32 %div.i.i819.6 to i16
-  %rem.lhs.trunc.i820.6 = and i16 %86, 32767
+  %88 = trunc nsw i32 %div.i.i819.6 to i16
+  %rem.lhs.trunc.i820.6 = and i16 %88, 32767
   %rem49.i821.6 = urem i16 %rem.lhs.trunc.i820.6, 21
   %cmp148.not.6 = icmp samesign ugt i16 %rem49.i821.6, 16
   br i1 %cmp148.not.6, label %if.end154.6, label %if.then149.6
@@ -6790,15 +6792,15 @@ invoke.cont204:                                   ; preds = %for.cond.cleanup218
   %mul.i.i897 = mul i32 %add.i.i891, 1103515245
   %add.i.i898 = add i32 %mul.i.i897, 12345
   %div.i.i899 = sdiv i32 %add.i.i898, 65536
-  %87 = trunc nsw i32 %div.i.i899 to i16
-  %rem.lhs.trunc.i900 = and i16 %87, 32767
+  %89 = trunc nsw i32 %div.i.i899 to i16
+  %rem.lhs.trunc.i900 = and i16 %89, 32767
   %rem49.i901 = urem i16 %rem.lhs.trunc.i900, 6
   %rem.zext.i902 = zext nneg i16 %rem49.i901 to i32
   %add28.i903 = add nsw i16 %rem49.i901, -3
   %add216 = add nsw i32 %rem.zext.i902, -2
   %div.i.i885 = sdiv i32 %add.i.i884, 65536
-  %88 = trunc nsw i32 %div.i.i885 to i16
-  %rem.lhs.trunc.i886 = and i16 %88, 32767
+  %90 = trunc nsw i32 %div.i.i885 to i16
+  %rem.lhs.trunc.i886 = and i16 %90, 32767
   %rem49.i887 = urem i16 %rem.lhs.trunc.i886, 6
   %conv7.i.i918 = or disjoint i32 %rem49.i894, 24
   %narrow = add nuw nsw i16 %rem49.i887, 42
@@ -6820,20 +6822,20 @@ for.cond.cleanup218.loopexit:                     ; preds = %if.end253.1
 invoke.cont233:                                   ; preds = %if.end253.1, %invoke.cont204
   %zz212.01306 = phi i16 [ %add28.i903, %invoke.cont204 ], [ %inc263, %if.end253.1 ]
   %conv.i.i909 = sext i16 %zz212.01306 to i32
-  %89 = mul nsw i32 %conv.i.i909, 10
-  %sub11.i.i921 = add nsw i32 %conv7.i.i918, %89
-  %90 = mul nsw i32 %sub11.i.i921, 7
-  %add21.i.i928 = add nsw i32 %90, %add.i.i923
-  %sub11.i.i946 = add nsw i32 %mul.i.i941, %89
-  %91 = mul nsw i32 %sub11.i.i946, 7
-  %add21.i.i953 = add nsw i32 %91, %add.i.i923
+  %91 = mul nsw i32 %conv.i.i909, 10
+  %sub11.i.i921 = add nsw i32 %conv7.i.i918, %91
+  %92 = mul nsw i32 %sub11.i.i921, 7
+  %add21.i.i928 = add nsw i32 %92, %add.i.i923
+  %sub11.i.i946 = add nsw i32 %mul.i.i941, %91
+  %93 = mul nsw i32 %sub11.i.i946, 7
+  %add21.i.i953 = add nsw i32 %93, %add.i.i923
   %idxprom.i954 = zext i32 %add21.i.i928 to i64
   %arrayidx.i955 = getelementptr inbounds nuw i8, ptr %call.i723, i64 %idxprom.i954
   store i8 1, ptr %arrayidx.i955, align 1, !tbaa !12
   %idxprom.i956 = zext i32 %add21.i.i953 to i64
   %arrayidx.i957 = getelementptr inbounds nuw i8, ptr %call.i723, i64 %idxprom.i956
-  %92 = load i8, ptr %arrayidx.i957, align 1, !tbaa !12
-  %cmp249 = icmp eq i8 %92, 0
+  %94 = load i8, ptr %arrayidx.i957, align 1, !tbaa !12
+  %cmp249 = icmp eq i8 %94, 0
   br i1 %cmp249, label %if.then250, label %if.end253
 
 if.then250:                                       ; preds = %invoke.cont233
@@ -6841,15 +6843,15 @@ if.then250:                                       ; preds = %invoke.cont233
   br label %if.end253
 
 if.end253:                                        ; preds = %if.then250, %invoke.cont233
-  %inc254.reass = add nsw i32 %90, %invariant.op
-  %inc255.reass = add nsw i32 %91, %invariant.op
+  %inc254.reass = add nsw i32 %92, %invariant.op
+  %inc255.reass = add nsw i32 %93, %invariant.op
   %idxprom.i954.1 = zext i32 %inc254.reass to i64
   %arrayidx.i955.1 = getelementptr inbounds nuw i8, ptr %call.i723, i64 %idxprom.i954.1
   store i8 1, ptr %arrayidx.i955.1, align 1, !tbaa !12
   %idxprom.i956.1 = zext i32 %inc255.reass to i64
   %arrayidx.i957.1 = getelementptr inbounds nuw i8, ptr %call.i723, i64 %idxprom.i956.1
-  %93 = load i8, ptr %arrayidx.i957.1, align 1, !tbaa !12
-  %cmp249.1 = icmp eq i8 %93, 0
+  %95 = load i8, ptr %arrayidx.i957.1, align 1, !tbaa !12
+  %cmp249.1 = icmp eq i8 %95, 0
   br i1 %cmp249.1, label %if.then250.1, label %if.end253.1
 
 if.then250.1:                                     ; preds = %if.end253
@@ -6915,13 +6917,13 @@ invoke.cont301:                                   ; preds = %for.cond319.for.con
   %zz284.01320 = phi i16 [ %inc346, %for.cond319.for.cond.cleanup323_crit_edge ], [ %sub286, %invoke.cont301.preheader ]
   %pr.sroa.0.51319 = phi i32 [ %add.i.i1011, %for.cond319.for.cond.cleanup323_crit_edge ], [ %pr.sroa.0.41326, %invoke.cont301.preheader ]
   %conv.i.i965 = sext i16 %zz284.01320 to i32
-  %94 = mul nsw i32 %conv.i.i965, 10
-  %sub11.i.i977 = add nsw i32 %mul.i.i972, %94
-  %95 = mul nsw i32 %sub11.i.i977, 7
-  %add21.i.i984 = add nsw i32 %add.i.i979, %95
-  %sub11.i.i1002 = add nsw i32 %mul.i.i997, %94
-  %96 = mul nsw i32 %sub11.i.i1002, 7
-  %add21.i.i1009 = add nsw i32 %add.i.i1004, %96
+  %96 = mul nsw i32 %conv.i.i965, 10
+  %sub11.i.i977 = add nsw i32 %mul.i.i972, %96
+  %97 = mul nsw i32 %sub11.i.i977, 7
+  %add21.i.i984 = add nsw i32 %add.i.i979, %97
+  %sub11.i.i1002 = add nsw i32 %mul.i.i997, %96
+  %98 = mul nsw i32 %sub11.i.i1002, 7
+  %add21.i.i1009 = add nsw i32 %add.i.i1004, %98
   br label %invoke.cont326
 
 for.cond319.for.cond.cleanup323_crit_edge:        ; preds = %if.end336
@@ -6938,8 +6940,8 @@ invoke.cont326:                                   ; preds = %if.end336, %invoke.
   %mul.i.i1010 = mul i32 %pr.sroa.0.61312, 1103515245
   %add.i.i1011 = add i32 %mul.i.i1010, 12345
   %div.i.i1012 = sdiv i32 %add.i.i1011, 65536
-  %97 = trunc nsw i32 %div.i.i1012 to i16
-  %rem.lhs.trunc.i1013 = and i16 %97, 32767
+  %99 = trunc nsw i32 %div.i.i1012 to i16
+  %rem.lhs.trunc.i1013 = and i16 %99, 32767
   %rem49.i1014 = urem i16 %rem.lhs.trunc.i1013, 21
   %rem.zext.i1015 = zext nneg i16 %rem49.i1014 to i32
   %cmp330.not = icmp slt i32 %sub329, %rem.zext.i1015
@@ -6966,8 +6968,8 @@ for.cond363.preheader:                            ; preds = %for.cond.cleanup369
   %indvars.iv1458 = phi i32 [ -3, %for.cond354.preheader ], [ %indvars.iv.next1459, %for.cond.cleanup369 ]
   %indvars.iv1452 = phi i64 [ 7, %for.cond354.preheader ], [ %indvars.iv.next1453, %for.cond.cleanup369 ]
   %indvars.iv1441 = phi i64 [ 0, %for.cond354.preheader ], [ %indvars.iv.next1442, %for.cond.cleanup369 ]
-  %98 = trunc i32 %indvars.iv1458 to i16
-  %add13.i = add i16 %98, %p1.sroa.14.0.extract.trunc
+  %100 = trunc i32 %indvars.iv1458 to i16
+  %add13.i = add i16 %100, %p1.sroa.14.0.extract.trunc
   %conv.i.i1050 = sext i16 %add13.i to i32
   br label %invoke.cont386
 
@@ -6991,24 +6993,24 @@ invoke.cont386:                                   ; preds = %for.cond.cleanup396
   %retval.sroa.2.0.insert.shift.i = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i, 16
   %retval.sroa.0.0.insert.insert.i = or disjoint i48 %retval.sroa.2.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
   %p.sroa.0.0.extract.trunc.i1047 = trunc nuw i48 %retval.sroa.0.0.insert.insert.i to i32
-  %99 = load i16, ptr %Z25.i, align 4, !tbaa !57
-  %conv2.i.i1052 = sext i16 %99 to i32
+  %101 = load i16, ptr %Z25.i, align 4, !tbaa !57
+  %conv2.i.i1052 = sext i16 %101 to i32
   %sub.i.i1053 = sub nsw i32 %conv.i.i1050, %conv2.i.i1052
-  %100 = load i16, ptr %Y.i.i, align 2, !tbaa !58
-  %conv3.i.i1056 = sext i16 %100 to i32
+  %102 = load i16, ptr %Y.i.i, align 2, !tbaa !58
+  %conv3.i.i1056 = sext i16 %102 to i32
   %mul.i.i1057 = mul nsw i32 %sub.i.i1053, %conv3.i.i1056
-  %101 = load i16, ptr %m_cache_extent.i.i, align 4, !tbaa !59
-  %conv5.i.i1058 = sext i16 %101 to i32
+  %103 = load i16, ptr %m_cache_extent.i.i, align 4, !tbaa !59
+  %conv5.i.i1058 = sext i16 %103 to i32
   %conv7.i.i1059 = ashr i32 %p.sroa.0.0.extract.trunc.i1047, 16
-  %102 = load i16, ptr %Y12.i, align 2, !tbaa !56
-  %conv10.i.i1061 = sext i16 %102 to i32
+  %104 = load i16, ptr %Y12.i, align 2, !tbaa !56
+  %conv10.i.i1061 = sext i16 %104 to i32
   %sub11.i.i1062 = sub i32 %mul.i.i1057, %conv10.i.i1061
   %mul622.i.i1063 = add i32 %sub11.i.i1062, %conv7.i.i1059
   %add.i.i1064 = mul i32 %mul622.i.i1063, %conv5.i.i1058
   %sext.i1065 = shl i32 %p.sroa.0.0.extract.trunc.i1047, 16
   %conv16.i.i1066 = ashr exact i32 %sext.i1065, 16
-  %103 = load i16, ptr %m_area, align 8, !tbaa !53
-  %conv19.i.i1067 = sext i16 %103 to i32
+  %105 = load i16, ptr %m_area, align 8, !tbaa !53
+  %conv19.i.i1067 = sext i16 %105 to i32
   %sub20.i.i1068 = sub nsw i32 %conv16.i.i1066, %conv19.i.i1067
   %add21.i.i1069 = add nsw i32 %sub20.i.i1068, %add.i.i1064
   br label %invoke.cont402
@@ -7030,63 +7032,63 @@ invoke.cont402:                                   ; preds = %if.end443, %invoke.
   %p.sroa.0.0.extract.trunc.i1086 = trunc nuw i48 %retval.sroa.0.0.insert.insert.i1085 to i32
   %sext.i1087 = shl i32 %p.sroa.0.0.extract.trunc.i1086, 16
   %conv.i1088 = ashr exact i32 %sext.i1087, 16
-  %104 = load i16, ptr %m_area, align 8, !tbaa !53
-  %conv3.i1089 = sext i16 %104 to i32
+  %106 = load i16, ptr %m_area, align 8, !tbaa !53
+  %conv3.i1089 = sext i16 %106 to i32
   %cmp.not.i1090 = icmp slt i32 %conv.i1088, %conv3.i1089
-  %105 = load i16, ptr %MaxEdge.i727, align 2
-  %conv7.i1092 = sext i16 %105 to i32
+  %107 = load i16, ptr %MaxEdge.i727, align 2
+  %conv7.i1092 = sext i16 %107 to i32
   %cmp8.not.i1093 = icmp sgt i32 %conv.i1088, %conv7.i1092
   %or.cond.i1094 = select i1 %cmp.not.i1090, i1 true, i1 %cmp8.not.i1093
   br i1 %or.cond.i1094, label %if.end443, label %land.lhs.true9.i1095
 
 land.lhs.true9.i1095:                             ; preds = %invoke.cont402
   %conv10.i1096 = ashr i32 %p.sroa.0.0.extract.trunc.i1086, 16
-  %106 = load i16, ptr %Y12.i, align 2, !tbaa !56
-  %conv13.i1098 = sext i16 %106 to i32
+  %108 = load i16, ptr %Y12.i, align 2, !tbaa !56
+  %conv13.i1098 = sext i16 %108 to i32
   %cmp14.not.i1099 = icmp slt i32 %conv10.i1096, %conv13.i1098
-  %107 = load i16, ptr %Y19.i, align 8
-  %conv20.i1101 = sext i16 %107 to i32
+  %109 = load i16, ptr %Y19.i, align 8
+  %conv20.i1101 = sext i16 %109 to i32
   %cmp21.not.i1102 = icmp sgt i32 %conv10.i1096, %conv20.i1101
   %or.cond39.i1103 = select i1 %cmp14.not.i1099, i1 true, i1 %cmp21.not.i1102
   br i1 %or.cond39.i1103, label %if.end443, label %land.lhs.true22.i1104
 
 land.lhs.true22.i1104:                            ; preds = %land.lhs.true9.i1095
-  %108 = load i16, ptr %Z25.i, align 4, !tbaa !57
-  %cmp27.not.i1110 = icmp sge i16 %add13.i, %108
-  %109 = load i16, ptr %Z31.i, align 2
-  %cmp33.i1114 = icmp sle i16 %add13.i, %109
+  %110 = load i16, ptr %Z25.i, align 4, !tbaa !57
+  %cmp27.not.i1110 = icmp sge i16 %add13.i, %110
+  %111 = load i16, ptr %Z31.i, align 2
+  %cmp33.i1114 = icmp sle i16 %add13.i, %111
   %or.cond1283 = select i1 %cmp27.not.i1110, i1 %cmp33.i1114, i1 false
   br i1 %or.cond1283, label %land.lhs.true, label %if.end443
 
 land.lhs.true:                                    ; preds = %land.lhs.true22.i1104
-  %110 = load ptr, ptr %m_data, align 8, !tbaa !60
+  %112 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom408 = zext i32 %vi379.01331 to i64
-  %arrayidx409 = getelementptr inbounds nuw %struct.MapNode, ptr %110, i64 %idxprom408
-  %111 = load i16, ptr %arrayidx409, align 4, !tbaa !68
-  %112 = and i16 %111, -2
-  %switch = icmp eq i16 %112, 126
+  %arrayidx409 = getelementptr inbounds nuw %struct.MapNode, ptr %112, i64 %idxprom408
+  %113 = load i16, ptr %arrayidx409, align 4, !tbaa !68
+  %114 = and i16 %113, -2
+  %switch = icmp eq i16 %114, 126
   br i1 %switch, label %if.then424, label %lor.lhs.false419
 
 lor.lhs.false419:                                 ; preds = %land.lhs.true
-  %cmp.i = icmp eq i16 %111, %spec.store.select
+  %cmp.i = icmp eq i16 %113, %spec.store.select
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end443
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false419
   %param1.i1116 = getelementptr inbounds nuw i8, ptr %arrayidx409, i64 2
-  %113 = load i8, ptr %param1.i1116, align 2, !tbaa !173
-  %cmp7.i = icmp eq i8 %113, 0
+  %115 = load i8, ptr %param1.i1116, align 2, !tbaa !173
+  %cmp7.i = icmp eq i8 %115, 0
   br i1 %cmp7.i, label %_ZNK7MapNodeeqERKS_.exit, label %if.end443
 
 _ZNK7MapNodeeqERKS_.exit:                         ; preds = %land.lhs.true.i
   %param2.i1118 = getelementptr inbounds nuw i8, ptr %arrayidx409, i64 3
-  %114 = load i8, ptr %param2.i1118, align 1, !tbaa !174
-  %cmp11.i = icmp eq i8 %114, 0
+  %116 = load i8, ptr %param2.i1118, align 1, !tbaa !174
+  %cmp11.i = icmp eq i8 %116, 0
   br i1 %cmp11.i, label %if.then424, label %if.end443
 
 if.then424:                                       ; preds = %_ZNK7MapNodeeqERKS_.exit, %land.lhs.true
   %arrayidx.i1120 = getelementptr inbounds nuw i8, ptr %call.i723, i64 %indvars.iv1445
-  %115 = load i8, ptr %arrayidx.i1120, align 1, !tbaa !12
-  switch i8 %115, label %if.end443 [
+  %117 = load i8, ptr %arrayidx.i1120, align 1, !tbaa !12
+  switch i8 %117, label %if.end443 [
     i8 1, label %if.end443.sink.split
     i8 2, label %if.then437
   ]

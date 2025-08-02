@@ -6924,8 +6924,8 @@ declare i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_
 
 declare void @_ZN9grpc_core15ConnectionQuota25SetMaxIncomingConnectionsEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core20Chttp2ServerListener25TcpServerShutdownCompleteEPvN4absl12lts_202407226StatusE(ptr noundef %0, ptr readnone captures(none) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN9grpc_core20Chttp2ServerListener25TcpServerShutdownCompleteEPvN4absl12lts_202407226StatusE(ptr noundef %0, ptr readnone captures(none) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8, !tbaa !227
   store ptr null, ptr %3, align 8, !tbaa !227
@@ -11975,8 +11975,8 @@ _ZN9grpc_core13RefCountedPtrINS_6Server13ListenerStateEED2Ev.exit: ; preds = %21
   resume { ptr, i32 } %22
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23NewChttp2ServerListener25TcpServerShutdownCompleteEPvN4absl12lts_202407226StatusE(ptr noundef %0, ptr readnone captures(none) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN9grpc_core23NewChttp2ServerListener25TcpServerShutdownCompleteEPvN4absl12lts_202407226StatusE(ptr noundef %0, ptr readnone captures(none) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8, !tbaa !227
   store ptr null, ptr %3, align 8, !tbaa !227
@@ -22478,8 +22478,8 @@ _ZZN17grpc_event_engine12experimental15MemoryAllocator3NewIN9grpc_core23NewChttp
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4absl12lts_2024072222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core23NewChttp2ServerListener16ActiveConnection6OrphanEvE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE"(ptr noundef readonly captures(none) %0) #3 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN4absl12lts_2024072222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core23NewChttp2ServerListener16ActiveConnection6OrphanEvE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE"(ptr noundef readonly captures(none) %0) #5 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8, !tbaa !656
   %2 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   store i8 1, ptr %2, align 8, !tbaa !339

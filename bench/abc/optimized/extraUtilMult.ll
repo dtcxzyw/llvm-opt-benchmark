@@ -60,13 +60,12 @@ define noalias noundef ptr @Abc_BddManAlloc(i32 noundef %0, i32 noundef %1) loca
   store i8 -1, ptr %30, align 1, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %32, align 4, !tbaa !22
-  %invariant.gep = getelementptr i8, ptr %26, i64 4
   %33 = icmp sgt i32 %0, 0
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %Abc_BddUniqueCreate.exit
-  %34 = phi i32 [ %74, %Abc_BddUniqueCreate.exit ], [ 1, %2 ]
-  %.035 = phi i32 [ %75, %Abc_BddUniqueCreate.exit ], [ 0, %2 ]
+  %34 = phi i32 [ %75, %Abc_BddUniqueCreate.exit ], [ 1, %2 ]
+  %.035 = phi i32 [ %76, %Abc_BddUniqueCreate.exit ], [ 0, %2 ]
   %35 = mul nuw nsw i32 %.035, 12582917
   %36 = add nuw nsw i32 %35, 4256249
   %37 = and i32 %36, %9
@@ -130,27 +129,27 @@ define noalias noundef ptr @Abc_BddManAlloc(i32 noundef %0, i32 noundef %1) loca
   store i8 %68, ptr %70, align 1, !tbaa !21
   %71 = shl nsw i32 %34, 1
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %26, i64 %72
+  %73 = getelementptr i32, ptr %26, i64 %72
   store i32 1, ptr %73, align 4, !tbaa !23
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %72
-  store i32 0, ptr %gep, align 4, !tbaa !23
+  %74 = getelementptr i8, ptr %73, i64 4
+  store i32 0, ptr %74, align 4, !tbaa !23
   br label %Abc_BddUniqueCreate.exit
 
 Abc_BddUniqueCreate.exit:                         ; preds = %53, %66
-  %74 = phi i32 [ %67, %66 ], [ %34, %53 ]
-  %75 = add nuw nsw i32 %.035, 1
-  %exitcond.not = icmp eq i32 %75, %0
+  %75 = phi i32 [ %67, %66 ], [ %34, %53 ]
+  %76 = add nuw nsw i32 %.035, 1
+  %exitcond.not = icmp eq i32 %76, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %Abc_BddUniqueCreate.exit, %2
   %narrow = sub i32 22, %notmask
-  %76 = zext i32 %narrow to i64
-  %77 = and i64 %25, 4611686018427387902
-  %78 = add nsw i64 %77, %16
-  %79 = add nsw i64 %78, %76
-  %80 = add nsw i64 %79, %21
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i64 %80, ptr %81, align 8, !tbaa !29
+  %77 = zext i32 %narrow to i64
+  %78 = and i64 %25, 4611686018427387902
+  %79 = add nsw i64 %78, %16
+  %80 = add nsw i64 %79, %77
+  %81 = add nsw i64 %80, %21
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i64 %81, ptr %82, align 8, !tbaa !29
   ret ptr %3
 }
 

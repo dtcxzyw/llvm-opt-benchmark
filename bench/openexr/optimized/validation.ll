@@ -135,13 +135,13 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = tail call i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.4, i32 noundef 5, i32 noundef 0, ptr noundef null, ptr noundef nonnull %4) #7
   %.not161 = icmp eq i32 %9, 0
-  br i1 %.not161, label %.thread, label %229
+  br i1 %.not161, label %.thread, label %.critedge
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = tail call i32 (ptr, i32, ptr, ...) %12(ptr noundef %0, i32 noundef 13, ptr noundef nonnull @.str.5) #7
-  br label %229
+  br label %.critedge
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -153,7 +153,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = tail call i32 (ptr, i32, ptr, ...) %19(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6) #7
-  br label %229
+  br label %.critedge
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -181,13 +181,13 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = tail call i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull @.str.7, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %30) #7
   %.not165 = icmp eq i32 %32, 0
-  br i1 %.not165, label %.thread204, label %229
+  br i1 %.not165, label %.thread202, label %.critedge
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = load ptr, ptr %34, align 8, !tbaa !23
   %36 = tail call i32 (ptr, i32, ptr, ...) %35(ptr noundef %0, i32 noundef 13, ptr noundef nonnull @.str.8) #7
-  br label %229
+  br label %.critedge
 
 37:                                               ; preds = %.thread, %21
   %38 = phi ptr [ %28, %.thread ], [ %23, %21 ]
@@ -200,7 +200,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load ptr, ptr %42, align 8, !tbaa !23
   %44 = tail call i32 (ptr, i32, ptr, ...) %43(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.9) #7
-  br label %229
+  br label %.critedge
 
 45:                                               ; preds = %37
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -208,7 +208,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %.not167 = icmp eq ptr %47, null
   br i1 %.not167, label %55, label %63
 
-.thread204:                                       ; preds = %.thread200
+.thread202:                                       ; preds = %.thread200
   %48 = load ptr, ptr %30, align 8, !tbaa !26
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !27
@@ -218,29 +218,29 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %52 = tail call i32 @internal_exr_compute_tile_information(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1) #7
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %54 = load ptr, ptr %53, align 8, !tbaa !29
-  %.not167207 = icmp eq ptr %54, null
-  br i1 %.not167207, label %.thread211, label %63
+  %.not167205 = icmp eq ptr %54, null
+  br i1 %.not167205, label %.thread209, label %63
 
 55:                                               ; preds = %45
   %.not168 = icmp eq i32 %2, 0
-  br i1 %.not168, label %59, label %.thread211
+  br i1 %.not168, label %59, label %.thread209
 
-.thread211:                                       ; preds = %.thread204, %55
-  %56 = phi ptr [ %46, %55 ], [ %53, %.thread204 ]
+.thread209:                                       ; preds = %.thread202, %55
+  %56 = phi ptr [ %46, %55 ], [ %53, %.thread202 ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = tail call i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef nonnull %57, ptr noundef nonnull @.str, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %56) #7
   %.not169 = icmp eq i32 %58, 0
-  br i1 %.not169, label %.thread217, label %229
+  br i1 %.not169, label %.thread215, label %.critedge
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %61 = load ptr, ptr %60, align 8, !tbaa !23
   %62 = tail call i32 (ptr, i32, ptr, ...) %61(ptr noundef %0, i32 noundef 13, ptr noundef nonnull @.str.11) #7
-  br label %229
+  br label %.critedge
 
-63:                                               ; preds = %.thread204, %45
-  %64 = phi ptr [ %54, %.thread204 ], [ %47, %45 ]
-  %.2133210 = phi i32 [ %52, %.thread204 ], [ 0, %45 ]
+63:                                               ; preds = %.thread202, %45
+  %64 = phi ptr [ %54, %.thread202 ], [ %47, %45 ]
+  %.2133208 = phi i32 [ %52, %.thread202 ], [ 0, %45 ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 20
   %66 = load i32, ptr %65, align 4, !tbaa !24
   %.not170 = icmp eq i32 %66, 1
@@ -250,7 +250,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %69 = load ptr, ptr %68, align 8, !tbaa !23
   %70 = tail call i32 (ptr, i32, ptr, ...) %69(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.12) #7
-  br label %229
+  br label %.critedge
 
 71:                                               ; preds = %63
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -258,7 +258,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %.not171 = icmp eq ptr %73, null
   br i1 %.not171, label %80, label %88
 
-.thread217:                                       ; preds = %.thread211
+.thread215:                                       ; preds = %.thread209
   %74 = load ptr, ptr %56, align 8, !tbaa !29
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8, !tbaa !27
@@ -267,29 +267,29 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 1 dereferenceable(16) @__const.validate_req_attr.defdw.10, i64 16, i1 false), !tbaa.struct !30
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %79 = load ptr, ptr %78, align 8, !tbaa !32
-  %.not171220 = icmp eq ptr %79, null
-  br i1 %.not171220, label %.thread225, label %88
+  %.not171218 = icmp eq ptr %79, null
+  br i1 %.not171218, label %.thread223, label %88
 
 80:                                               ; preds = %71
   %.not172 = icmp eq i32 %2, 0
-  br i1 %.not172, label %84, label %.thread225
+  br i1 %.not172, label %84, label %.thread223
 
-.thread225:                                       ; preds = %.thread217, %80
-  %81 = phi ptr [ %72, %80 ], [ %78, %.thread217 ]
+.thread223:                                       ; preds = %.thread215, %80
+  %81 = phi ptr [ %72, %80 ], [ %78, %.thread215 ]
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %83 = tail call i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef nonnull %82, ptr noundef nonnull @.str.13, i32 noundef 12, i32 noundef 0, ptr noundef null, ptr noundef nonnull %81) #7
   %.not173 = icmp eq i32 %83, 0
-  br i1 %.not173, label %.thread229, label %229
+  br i1 %.not173, label %.thread227, label %.critedge
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %86 = load ptr, ptr %85, align 8, !tbaa !23
   %87 = tail call i32 (ptr, i32, ptr, ...) %86(ptr noundef %0, i32 noundef 13, ptr noundef nonnull @.str.14) #7
-  br label %229
+  br label %.critedge
 
-88:                                               ; preds = %.thread217, %71
-  %89 = phi ptr [ %79, %.thread217 ], [ %73, %71 ]
-  %.3224 = phi i32 [ 0, %.thread217 ], [ %.2133210, %71 ]
+88:                                               ; preds = %.thread215, %71
+  %89 = phi ptr [ %79, %.thread215 ], [ %73, %71 ]
+  %.3222 = phi i32 [ 0, %.thread215 ], [ %.2133208, %71 ]
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 20
   %91 = load i32, ptr %90, align 4, !tbaa !24
   %.not174 = icmp eq i32 %91, 12
@@ -299,7 +299,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %94 = load ptr, ptr %93, align 8, !tbaa !23
   %95 = tail call i32 (ptr, i32, ptr, ...) %94(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.15) #7
-  br label %229
+  br label %.critedge
 
 96:                                               ; preds = %88
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -307,7 +307,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %.not175 = icmp eq ptr %98, null
   br i1 %.not175, label %104, label %112
 
-.thread229:                                       ; preds = %.thread225
+.thread227:                                       ; preds = %.thread223
   %99 = load ptr, ptr %81, align 8, !tbaa !32
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   store i8 0, ptr %100, align 8, !tbaa !27
@@ -315,29 +315,29 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   store i32 0, ptr %101, align 4, !tbaa !34
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %103 = load ptr, ptr %102, align 8, !tbaa !33
-  %.not175232 = icmp eq ptr %103, null
-  br i1 %.not175232, label %.thread237, label %112
+  %.not175230 = icmp eq ptr %103, null
+  br i1 %.not175230, label %.thread235, label %112
 
 104:                                              ; preds = %96
   %.not176 = icmp eq i32 %2, 0
-  br i1 %.not176, label %108, label %.thread237
+  br i1 %.not176, label %108, label %.thread235
 
-.thread237:                                       ; preds = %.thread229, %104
-  %105 = phi ptr [ %97, %104 ], [ %102, %.thread229 ]
+.thread235:                                       ; preds = %.thread227, %104
+  %105 = phi ptr [ %97, %104 ], [ %102, %.thread227 ]
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %107 = tail call i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef nonnull %106, ptr noundef nonnull @.str.1, i32 noundef 8, i32 noundef 0, ptr noundef null, ptr noundef nonnull %105) #7
   %.not177 = icmp eq i32 %107, 0
-  br i1 %.not177, label %.thread241, label %229
+  br i1 %.not177, label %.thread239, label %.critedge
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %110 = load ptr, ptr %109, align 8, !tbaa !23
   %111 = tail call i32 (ptr, i32, ptr, ...) %110(ptr noundef %0, i32 noundef 13, ptr noundef nonnull @.str.16) #7
-  br label %229
+  br label %.critedge
 
-112:                                              ; preds = %.thread229, %96
-  %113 = phi ptr [ %103, %.thread229 ], [ %98, %96 ]
-  %.4236 = phi i32 [ 0, %.thread229 ], [ %.3224, %96 ]
+112:                                              ; preds = %.thread227, %96
+  %113 = phi ptr [ %103, %.thread227 ], [ %98, %96 ]
+  %.4234 = phi i32 [ 0, %.thread227 ], [ %.3222, %96 ]
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 20
   %115 = load i32, ptr %114, align 4, !tbaa !24
   %.not178 = icmp eq i32 %115, 8
@@ -347,7 +347,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %118 = load ptr, ptr %117, align 8, !tbaa !23
   %119 = tail call i32 (ptr, i32, ptr, ...) %118(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.17) #7
-  br label %229
+  br label %.critedge
 
 120:                                              ; preds = %112
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -355,35 +355,35 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %.not179 = icmp eq ptr %122, null
   br i1 %.not179, label %127, label %135
 
-.thread241:                                       ; preds = %.thread237
+.thread239:                                       ; preds = %.thread235
   %123 = load ptr, ptr %105, align 8, !tbaa !33
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   store float 1.000000e+00, ptr %124, align 8, !tbaa !27
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %126 = load ptr, ptr %125, align 8, !tbaa !35
-  %.not179244 = icmp eq ptr %126, null
-  br i1 %.not179244, label %.thread247, label %135
+  %.not179242 = icmp eq ptr %126, null
+  br i1 %.not179242, label %.thread245, label %135
 
 127:                                              ; preds = %120
   %.not180 = icmp eq i32 %2, 0
-  br i1 %.not180, label %131, label %.thread247
+  br i1 %.not180, label %131, label %.thread245
 
-.thread247:                                       ; preds = %.thread241, %127
-  %128 = phi ptr [ %121, %127 ], [ %125, %.thread241 ]
+.thread245:                                       ; preds = %.thread239, %127
+  %128 = phi ptr [ %121, %127 ], [ %125, %.thread239 ]
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %130 = tail call i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef nonnull %129, ptr noundef nonnull @.str.18, i32 noundef 24, i32 noundef 0, ptr noundef null, ptr noundef nonnull %128) #7
   %.not181 = icmp eq i32 %130, 0
-  br i1 %.not181, label %.thread253, label %229
+  br i1 %.not181, label %.thread251, label %.critedge
 
 131:                                              ; preds = %127
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %133 = load ptr, ptr %132, align 8, !tbaa !23
   %134 = tail call i32 (ptr, i32, ptr, ...) %133(ptr noundef %0, i32 noundef 13, ptr noundef nonnull @.str.19) #7
-  br label %229
+  br label %.critedge
 
-135:                                              ; preds = %.thread241, %120
-  %136 = phi ptr [ %126, %.thread241 ], [ %122, %120 ]
-  %.5246 = phi i32 [ 0, %.thread241 ], [ %.4236, %120 ]
+135:                                              ; preds = %.thread239, %120
+  %136 = phi ptr [ %126, %.thread239 ], [ %122, %120 ]
+  %.5244 = phi i32 [ 0, %.thread239 ], [ %.4234, %120 ]
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 20
   %138 = load i32, ptr %137, align 4, !tbaa !24
   %.not182 = icmp eq i32 %138, 24
@@ -393,7 +393,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %141 = load ptr, ptr %140, align 8, !tbaa !23
   %142 = tail call i32 (ptr, i32, ptr, ...) %141(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.20) #7
-  br label %229
+  br label %.critedge
 
 143:                                              ; preds = %135
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -401,28 +401,28 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %.not183 = icmp eq ptr %145, null
   br i1 %.not183, label %151, label %162
 
-.thread253:                                       ; preds = %.thread247
+.thread251:                                       ; preds = %.thread245
   %146 = load ptr, ptr %128, align 8, !tbaa !35
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %148 = load ptr, ptr %147, align 8, !tbaa !27
   store i64 0, ptr %148, align 1
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %150 = load ptr, ptr %149, align 8, !tbaa !36
-  %.not183255 = icmp eq ptr %150, null
-  br i1 %.not183255, label %.thread257, label %162
+  %.not183253 = icmp eq ptr %150, null
+  br i1 %.not183253, label %.thread255, label %162
 
 151:                                              ; preds = %143
   %.not184 = icmp eq i32 %2, 0
-  br i1 %.not184, label %158, label %.thread257
+  br i1 %.not184, label %158, label %.thread255
 
-.thread257:                                       ; preds = %.thread253, %151
-  %152 = phi ptr [ %144, %151 ], [ %149, %.thread253 ]
+.thread255:                                       ; preds = %.thread251, %151
+  %152 = phi ptr [ %144, %151 ], [ %149, %.thread251 ]
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %154 = tail call i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef nonnull %153, ptr noundef nonnull @.str.21, i32 noundef 8, i32 noundef 0, ptr noundef null, ptr noundef nonnull %152) #7
   %.not185 = icmp eq i32 %154, 0
-  br i1 %.not185, label %155, label %229
+  br i1 %.not185, label %155, label %.critedge
 
-155:                                              ; preds = %.thread257
+155:                                              ; preds = %.thread255
   %156 = load ptr, ptr %152, align 8, !tbaa !36
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 24
   store float 1.000000e+00, ptr %157, align 8, !tbaa !27
@@ -432,11 +432,11 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %160 = load ptr, ptr %159, align 8, !tbaa !23
   %161 = tail call i32 (ptr, i32, ptr, ...) %160(ptr noundef %0, i32 noundef 13, ptr noundef nonnull @.str.22) #7
-  br label %229
+  br label %.critedge
 
-162:                                              ; preds = %.thread253, %143
-  %163 = phi ptr [ %150, %.thread253 ], [ %145, %143 ]
-  %.6256 = phi i32 [ 0, %.thread253 ], [ %.5246, %143 ]
+162:                                              ; preds = %.thread251, %143
+  %163 = phi ptr [ %150, %.thread251 ], [ %145, %143 ]
+  %.6254 = phi i32 [ 0, %.thread251 ], [ %.5244, %143 ]
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 20
   %165 = load i32, ptr %164, align 4, !tbaa !24
   %.not186 = icmp eq i32 %165, 8
@@ -446,10 +446,10 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %168 = load ptr, ptr %167, align 8, !tbaa !23
   %169 = tail call i32 (ptr, i32, ptr, ...) %168(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.23) #7
-  br label %229
+  br label %.critedge
 
 170:                                              ; preds = %162, %155
-  %.7 = phi i32 [ %.6256, %162 ], [ 0, %155 ]
+  %.7 = phi i32 [ %.6254, %162 ], [ 0, %155 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %172 = load i8, ptr %171, align 1, !tbaa !37
   %.not187 = icmp eq i8 %172, 0
@@ -459,7 +459,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %175 = load i8, ptr %174, align 4, !tbaa !38
   %.not188 = icmp eq i8 %175, 0
-  br i1 %.not188, label %229, label %.thread259
+  br i1 %.not188, label %.critedge, label %.thread257
 
 176:                                              ; preds = %170
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -471,33 +471,33 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %181 = load ptr, ptr %180, align 8, !tbaa !23
   %182 = tail call i32 (ptr, i32, ptr, ...) %181(ptr noundef nonnull %0, i32 noundef 13, ptr noundef nonnull @.str.24) #7
-  br label %229
+  br label %.critedge
 
 183:                                              ; preds = %176
   %184 = getelementptr inbounds nuw i8, ptr %178, i64 20
   %185 = load i32, ptr %184, align 4, !tbaa !24
   %.not191 = icmp eq i32 %185, 19
-  br i1 %.not191, label %.thread259, label %186
+  br i1 %.not191, label %.thread257, label %186
 
 186:                                              ; preds = %183
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %188 = load ptr, ptr %187, align 8, !tbaa !23
   %189 = tail call i32 (ptr, i32, ptr, ...) %188(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.25) #7
-  br label %229
+  br label %.critedge
 
-.thread259:                                       ; preds = %173, %183
+.thread257:                                       ; preds = %173, %183
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %191 = load ptr, ptr %190, align 8, !tbaa !40
   %.not192 = icmp eq ptr %191, null
   br i1 %.not192, label %192, label %196
 
-192:                                              ; preds = %.thread259
+192:                                              ; preds = %.thread257
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %194 = load ptr, ptr %193, align 8, !tbaa !23
   %195 = tail call i32 (ptr, i32, ptr, ...) %194(ptr noundef nonnull %0, i32 noundef 13, ptr noundef nonnull @.str.26) #7
-  br label %229
+  br label %.critedge
 
-196:                                              ; preds = %.thread259
+196:                                              ; preds = %.thread257
   %197 = getelementptr inbounds nuw i8, ptr %191, i64 20
   %198 = load i32, ptr %197, align 4, !tbaa !24
   %.not193 = icmp eq i32 %198, 19
@@ -507,7 +507,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %201 = load ptr, ptr %200, align 8, !tbaa !23
   %202 = tail call i32 (ptr, i32, ptr, ...) %201(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.27) #7
-  br label %229
+  br label %.critedge
 
 203:                                              ; preds = %196
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -537,29 +537,29 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %217 = load ptr, ptr %216, align 8, !tbaa !23
   %218 = tail call i32 (ptr, i32, ptr, ...) %217(ptr noundef nonnull %0, i32 noundef 13, ptr noundef nonnull @.str.29) #7
-  br label %229
+  br label %.critedge
 
 219:                                              ; preds = %210, %206, %203
   %.9 = phi i32 [ %.7, %206 ], [ %212, %210 ], [ %.7, %203 ]
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %221 = load i8, ptr %220, align 2, !tbaa !3
   %.not197 = icmp eq i8 %221, 0
-  br i1 %.not197, label %229, label %222
+  br i1 %.not197, label %.critedge, label %222
 
 222:                                              ; preds = %219
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %224 = load ptr, ptr %223, align 8, !tbaa !42
   %.not198 = icmp eq ptr %224, null
-  br i1 %.not198, label %225, label %229
+  br i1 %.not198, label %225, label %.critedge
 
 225:                                              ; preds = %222
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %227 = load ptr, ptr %226, align 8, !tbaa !23
   %228 = tail call i32 (ptr, i32, ptr, ...) %227(ptr noundef nonnull %0, i32 noundef 13, ptr noundef nonnull @.str.30) #7
-  br label %229
+  br label %.critedge
 
-229:                                              ; preds = %.thread247, %.thread211, %.thread200, %173, %222, %219, %.thread257, %.thread237, %.thread225, %7, %225, %215, %199, %192, %186, %179, %166, %158, %139, %131, %116, %108, %92, %84, %67, %59, %41, %33, %17, %10
-  %.0134 = phi i32 [ %20, %17 ], [ %44, %41 ], [ %70, %67 ], [ %95, %92 ], [ %119, %116 ], [ %142, %139 ], [ %169, %166 ], [ %189, %186 ], [ %202, %199 ], [ %228, %225 ], [ %218, %215 ], [ %195, %192 ], [ %182, %179 ], [ %161, %158 ], [ %134, %131 ], [ %111, %108 ], [ %87, %84 ], [ %62, %59 ], [ %36, %33 ], [ %13, %10 ], [ %9, %7 ], [ %83, %.thread225 ], [ %107, %.thread237 ], [ %154, %.thread257 ], [ %.9, %222 ], [ %.9, %219 ], [ %.7, %173 ], [ %32, %.thread200 ], [ %58, %.thread211 ], [ %130, %.thread247 ]
+.critedge:                                        ; preds = %.thread245, %.thread209, %.thread200, %173, %222, %219, %.thread255, %.thread235, %.thread223, %7, %225, %215, %199, %192, %186, %179, %166, %158, %139, %131, %116, %108, %92, %84, %67, %59, %41, %33, %17, %10
+  %.0134 = phi i32 [ %20, %17 ], [ %44, %41 ], [ %70, %67 ], [ %95, %92 ], [ %119, %116 ], [ %142, %139 ], [ %169, %166 ], [ %189, %186 ], [ %202, %199 ], [ %228, %225 ], [ %218, %215 ], [ %195, %192 ], [ %182, %179 ], [ %161, %158 ], [ %134, %131 ], [ %111, %108 ], [ %87, %84 ], [ %62, %59 ], [ %36, %33 ], [ %13, %10 ], [ %9, %7 ], [ %83, %.thread223 ], [ %107, %.thread235 ], [ %154, %.thread255 ], [ %.9, %222 ], [ %.9, %219 ], [ %.7, %173 ], [ %32, %.thread200 ], [ %58, %.thread209 ], [ %130, %.thread245 ]
   ret i32 %.0134
 }
 
@@ -896,7 +896,7 @@ define internal fastcc i32 @validate_part_type(ptr noundef %0, ptr noundef captu
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !40
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %53, label %5
+  br i1 %.not, label %.fold.split, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -920,7 +920,7 @@ define internal fastcc i32 @validate_part_type(ptr noundef %0, ptr noundef captu
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = tail call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.48) #7
-  br label %.thread49
+  br label %.fold.split.thread
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -939,13 +939,13 @@ define internal fastcc i32 @validate_part_type(ptr noundef %0, ptr noundef captu
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = tail call i32 (ptr, i32, ptr, ...) %27(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.49) #7
-  br label %.thread49
+  br label %.fold.split.thread
 
 29:                                               ; preds = %5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !59
   %30 = icmp ult i32 %.pre, 4
-  br i1 %30, label %switch.lookup, label %53
+  br i1 %30, label %switch.lookup, label %.fold.split
 
 switch.lookup:                                    ; preds = %29
   %31 = zext nneg i32 %.pre to i64
@@ -954,19 +954,19 @@ switch.lookup:                                    ; preds = %29
   br label %.thread
 
 .thread:                                          ; preds = %19, %22, %switch.lookup
-  %.035.ph = phi ptr [ %switch.load, %switch.lookup ], [ @.str.51, %22 ], [ @.str.51, %19 ]
+  %.035 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.51, %22 ], [ @.str.51, %19 ]
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !60
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %.035.ph) #8
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %.035) #8
   %.not42 = icmp eq i32 %36, 0
-  br i1 %.not42, label %53, label %37
+  br i1 %.not42, label %.fold.split, label %37
 
 37:                                               ; preds = %.thread
   %38 = load i8, ptr %0, align 8, !tbaa !61
   %39 = icmp eq i8 %38, 1
-  br i1 %39, label %.thread49, label %40
+  br i1 %39, label %.fold.split.thread, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -977,34 +977,34 @@ switch.lookup:                                    ; preds = %29
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %45 = load ptr, ptr %44, align 8, !tbaa !23
-  %46 = tail call i32 (ptr, i32, ptr, ...) %45(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.54, ptr noundef nonnull %.035.ph, ptr noundef nonnull %35) #7
-  br label %.thread49
+  %46 = tail call i32 (ptr, i32, ptr, ...) %45(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.54, ptr noundef nonnull %.035, ptr noundef nonnull %35) #7
+  br label %.fold.split.thread
 
 47:                                               ; preds = %40
-  %48 = tail call i32 @exr_attr_string_set(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef nonnull %.035.ph) #7
+  %48 = tail call i32 @exr_attr_string_set(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef nonnull %.035) #7
   %.not44 = icmp eq i32 %48, 0
-  br i1 %.not44, label %53, label %49
+  br i1 %.not44, label %.fold.split, label %49
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %51 = load ptr, ptr %50, align 8, !tbaa !23
   %52 = tail call i32 (ptr, i32, ptr, ...) %51(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.55) #7
-  br label %.thread49
+  br label %.fold.split.thread
 
-53:                                               ; preds = %29, %47, %.thread, %2
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %55 = load i32, ptr %54, align 4, !tbaa !59
-  %56 = icmp eq i32 %55, 4
-  br i1 %56, label %57, label %.thread49
+.fold.split:                                      ; preds = %29, %47, %.thread, %2
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %54 = load i32, ptr %53, align 4, !tbaa !59
+  %55 = icmp eq i32 %54, 4
+  br i1 %55, label %56, label %.fold.split.thread
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %59 = load ptr, ptr %58, align 8, !tbaa !23
-  %60 = tail call i32 (ptr, i32, ptr, ...) %59(ptr noundef %0, i32 noundef 14, ptr noundef nonnull @.str.56) #7
-  br label %.thread49
+56:                                               ; preds = %.fold.split
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %58 = load ptr, ptr %57, align 8, !tbaa !23
+  %59 = tail call i32 (ptr, i32, ptr, ...) %58(ptr noundef %0, i32 noundef 14, ptr noundef nonnull @.str.56) #7
+  br label %.fold.split.thread
 
-.thread49:                                        ; preds = %37, %49, %43, %25, %15, %53, %57
-  %.1 = phi i32 [ %60, %57 ], [ 0, %53 ], [ 14, %37 ], [ %52, %49 ], [ %46, %43 ], [ %28, %25 ], [ %18, %15 ]
+.fold.split.thread:                               ; preds = %37, %49, %43, %25, %15, %.fold.split, %56
+  %.1 = phi i32 [ %59, %56 ], [ 0, %.fold.split ], [ 14, %37 ], [ %52, %49 ], [ %46, %43 ], [ %28, %25 ], [ %18, %15 ]
   ret i32 %.1
 }
 

@@ -2637,7 +2637,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @dm_kvzalloc(i64 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noalias ptr @dm_kvzalloc(i64 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @shared_memory_lock) #16
   %3 = load i64, ptr @shared_memory_amount, align 8
   %4 = add i64 %3, %0

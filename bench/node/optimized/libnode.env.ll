@@ -71772,9 +71772,9 @@ if.then64:                                        ; preds = %if.end33
 
 lor.rhs.i20:                                      ; preds = %if.then64
   %call25.i21 = call noundef zeroext i1 @_ZNK2v85Value8IsUint32Ev(ptr noundef nonnull align 1 dereferenceable(1) %call18.i18) #24
-  br i1 %call25.i21, label %_ZNRSt8optionalIjE5valueEv.exit, label %cleanup
+  br i1 %call25.i21, label %if.end.i25, label %cleanup
 
-_ZNRSt8optionalIjE5valueEv.exit:                  ; preds = %lor.rhs.i20
+if.end.i25:                                       ; preds = %lor.rhs.i20
   %call34.i26 = call noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %call18.i18) #24
   store i32 %call34.i26, ptr %id, align 4
   br label %if.end79
@@ -71784,8 +71784,8 @@ do.body:                                          ; preds = %if.end33
   call void @abort() #25
   unreachable
 
-if.end79:                                         ; preds = %_ZNRSt8optionalIjE5valueEv.exit, %if.then35
-  %.str.1339.sink = phi ptr [ @.str.1339, %_ZNRSt8optionalIjE5valueEv.exit ], [ @.str.1338, %if.then35 ]
+if.end79:                                         ; preds = %if.end.i25, %if.then35
+  %.str.1339.sink = phi ptr [ @.str.1339, %if.end.i25 ], [ @.str.1338, %if.then35 ]
   %call76 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %action, ptr noundef nonnull %.str.1339.sink) #24
   %22 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJEEEvP8_IO_FILEPKcDpOT_(ptr noundef %22, ptr noundef nonnull @.str.1343) #29
@@ -71802,7 +71802,7 @@ if.end83:                                         ; preds = %_ZNRSt8optionalIjE5
   call void @_ZN4node22PrintCurrentStackTraceEPN2v87IsolateENS_16StackTracePrefixE(ptr noundef nonnull %call, i32 noundef 0) #24
   br label %cleanup
 
-cleanup:                                          ; preds = %lor.rhs.i20, %if.then64, %if.end83
+cleanup:                                          ; preds = %if.then64, %lor.rhs.i20, %if.end83
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %action) #24
   br label %cleanup.cont
 

@@ -166,14 +166,13 @@ define internal fastcc range(i32 0, 3) i32 @yc_poly_emulator(ptr noundef %0, ptr
 .lr.ph:                                           ; preds = %7
   %8 = trunc i32 %5 to i8
   %9 = ptrtoint ptr %1 to i64
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %10
 
-10:                                               ; preds = %.lr.ph, %136
-  %.0242 = phi i32 [ 100000000, %.lr.ph ], [ %.2, %136 ]
-  %.0137241 = phi i32 [ 0, %.lr.ph ], [ %138, %136 ]
-  %.0140240 = phi i8 [ %8, %.lr.ph ], [ %137, %136 ]
-  %11 = zext i32 %.0137241 to i64
+10:                                               ; preds = %.lr.ph, %138
+  %.0240 = phi i32 [ 100000000, %.lr.ph ], [ %.2, %138 ]
+  %.0137239 = phi i32 [ 0, %.lr.ph ], [ %140, %138 ]
+  %.0140238 = phi i8 [ %8, %.lr.ph ], [ %139, %138 ]
+  %11 = zext i32 %.0137239 to i64
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %9
@@ -190,11 +189,11 @@ yc_bounds_check.exit:                             ; preds = %10
   %19 = load i8, ptr %12, align 1, !tbaa !12
   br label %20
 
-20:                                               ; preds = %18, %133
-  %.1239 = phi i32 [ %.0242, %18 ], [ %.2, %133 ]
-  %.0138238 = phi i32 [ 0, %18 ], [ %134, %133 ]
-  %.0141237 = phi i8 [ %19, %18 ], [ %.1142, %133 ]
-  %21 = zext nneg i32 %.0138238 to i64
+20:                                               ; preds = %18, %135
+  %.1237 = phi i32 [ %.0240, %18 ], [ %.2, %135 ]
+  %.0138236 = phi i32 [ 0, %18 ], [ %136, %135 ]
+  %.0141235 = phi i8 [ %19, %18 ], [ %.1142, %135 ]
+  %21 = zext nneg i32 %.0138236 to i64
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 %21
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %23, %9
@@ -219,14 +218,14 @@ yc_bounds_check.exit157:                          ; preds = %20
     i8 52, label %68
     i8 44, label %80
     i8 -64, label %92
-    i8 -46, label %118
-    i8 -112, label %133
-    i8 -8, label %133
-    i8 -7, label %133
+    i8 -46, label %119
+    i8 -112, label %135
+    i8 -8, label %135
+    i8 -7, label %135
   ]
 
 30:                                               ; preds = %28
-  %31 = add nuw nsw i32 %.0138238, 1
+  %31 = add nuw nsw i32 %.0138236, 1
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 %32
   %34 = ptrtoint ptr %33 to i64
@@ -241,38 +240,38 @@ yc_bounds_check.exit159.thread:                   ; preds = %30
   br label %.loopexit
 
 yc_bounds_check.exit159:                          ; preds = %30
-  %.not154 = icmp eq i32 %.1239, 0
+  %.not154 = icmp eq i32 %.1237, 0
   br i1 %.not154, label %.loopexit, label %39
 
 39:                                               ; preds = %yc_bounds_check.exit159
-  %40 = add i32 %.1239, -1
+  %40 = add i32 %.1237, -1
   %41 = load i8, ptr %33, align 1, !tbaa !12
   %42 = sext i8 %41 to i32
   %43 = add nsw i32 %31, %42
-  br label %133
+  br label %135
 
 44:                                               ; preds = %28
-  %45 = add i8 %.0141237, -1
-  %46 = add nuw nsw i32 %.0138238, 1
-  br label %133
+  %45 = add i8 %.0141235, -1
+  %46 = add nuw nsw i32 %.0138236, 1
+  br label %135
 
 47:                                               ; preds = %28
-  %48 = sub i8 %.0141237, %.0140240
-  %49 = add nuw nsw i32 %.0138238, 1
-  br label %133
+  %48 = sub i8 %.0141235, %.0140238
+  %49 = add nuw nsw i32 %.0138236, 1
+  br label %135
 
 50:                                               ; preds = %28
-  %51 = add i8 %.0141237, %.0140240
-  %52 = add nuw nsw i32 %.0138238, 1
-  br label %133
+  %51 = add i8 %.0141235, %.0140238
+  %52 = add nuw nsw i32 %.0138236, 1
+  br label %135
 
 53:                                               ; preds = %28
-  %54 = xor i8 %.0141237, %.0140240
-  %55 = add nuw nsw i32 %.0138238, 1
-  br label %133
+  %54 = xor i8 %.0141235, %.0140238
+  %55 = add nuw nsw i32 %.0138236, 1
+  br label %135
 
 56:                                               ; preds = %28
-  %57 = add nuw nsw i32 %.0138238, 1
+  %57 = add nuw nsw i32 %.0138236, 1
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 %58
   %60 = ptrtoint ptr %59 to i64
@@ -288,11 +287,11 @@ yc_bounds_check.exit161:                          ; preds = %56
 
 65:                                               ; preds = %56
   %66 = load i8, ptr %59, align 1, !tbaa !12
-  %67 = add i8 %66, %.0141237
-  br label %133
+  %67 = add i8 %66, %.0141235
+  br label %135
 
 68:                                               ; preds = %28
-  %69 = add nuw nsw i32 %.0138238, 1
+  %69 = add nuw nsw i32 %.0138236, 1
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 %70
   %72 = ptrtoint ptr %71 to i64
@@ -308,11 +307,11 @@ yc_bounds_check.exit163:                          ; preds = %68
 
 77:                                               ; preds = %68
   %78 = load i8, ptr %71, align 1, !tbaa !12
-  %79 = xor i8 %78, %.0141237
-  br label %133
+  %79 = xor i8 %78, %.0141235
+  br label %135
 
 80:                                               ; preds = %28
-  %81 = add nuw nsw i32 %.0138238, 1
+  %81 = add nuw nsw i32 %.0138236, 1
   %82 = zext nneg i32 %81 to i64
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 %82
   %84 = ptrtoint ptr %83 to i64
@@ -328,109 +327,109 @@ yc_bounds_check.exit165:                          ; preds = %80
 
 89:                                               ; preds = %80
   %90 = load i8, ptr %83, align 1, !tbaa !12
-  %91 = sub i8 %.0141237, %90
-  br label %133
+  %91 = sub i8 %.0141235, %90
+  br label %135
 
 92:                                               ; preds = %28
-  %gep236 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %21
-  %93 = ptrtoint ptr %gep236 to i64
-  %94 = sub i64 %93, %9
-  %95 = trunc i64 %94 to i32
-  %96 = icmp ult i32 %2, %95
-  br i1 %96, label %yc_bounds_check.exit167, label %98
+  %93 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  %94 = ptrtoint ptr %93 to i64
+  %95 = sub i64 %94, %9
+  %96 = trunc i64 %95 to i32
+  %97 = icmp ult i32 %2, %96
+  br i1 %97, label %yc_bounds_check.exit167, label %99
 
 yc_bounds_check.exit167:                          ; preds = %92
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #3
-  %97 = tail call i32 @cli_append_potentially_unwanted(ptr noundef %0, ptr noundef nonnull @.str.7) #3
+  %98 = tail call i32 @cli_append_potentially_unwanted(ptr noundef %0, ptr noundef nonnull @.str.7) #3
   br label %.loopexit
 
-98:                                               ; preds = %92
-  %99 = load i8, ptr %gep236, align 1, !tbaa !12
-  %100 = icmp eq i8 %99, -64
-  %101 = add nuw nsw i32 %.0138238, 2
-  %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw i8, ptr %3, i64 %102
-  %104 = ptrtoint ptr %103 to i64
-  %105 = sub i64 %104, %9
-  %106 = trunc i64 %105 to i32
-  %107 = icmp ult i32 %2, %106
-  br i1 %100, label %108, label %113
+99:                                               ; preds = %92
+  %100 = load i8, ptr %93, align 1, !tbaa !12
+  %101 = icmp eq i8 %100, -64
+  %102 = add nuw nsw i32 %.0138236, 2
+  %103 = zext nneg i32 %102 to i64
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 %103
+  %105 = ptrtoint ptr %104 to i64
+  %106 = sub i64 %105, %9
+  %107 = trunc i64 %106 to i32
+  %108 = icmp ult i32 %2, %107
+  br i1 %101, label %109, label %114
 
-108:                                              ; preds = %98
-  br i1 %107, label %yc_bounds_check.exit169, label %110
+109:                                              ; preds = %99
+  br i1 %108, label %yc_bounds_check.exit169, label %111
 
-yc_bounds_check.exit169:                          ; preds = %108
+yc_bounds_check.exit169:                          ; preds = %109
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #3
-  %109 = tail call i32 @cli_append_potentially_unwanted(ptr noundef %0, ptr noundef nonnull @.str.7) #3
+  %110 = tail call i32 @cli_append_potentially_unwanted(ptr noundef %0, ptr noundef nonnull @.str.7) #3
   br label %.loopexit
 
-110:                                              ; preds = %108
-  %111 = load i8, ptr %103, align 1, !tbaa !12
-  %112 = tail call i8 @llvm.fshl.i8(i8 %.0141237, i8 %.0141237, i8 %111)
-  br label %133
+111:                                              ; preds = %109
+  %112 = load i8, ptr %104, align 1, !tbaa !12
+  %113 = tail call i8 @llvm.fshl.i8(i8 %.0141235, i8 %.0141235, i8 %112)
+  br label %135
 
-113:                                              ; preds = %98
-  br i1 %107, label %yc_bounds_check.exit171, label %115
+114:                                              ; preds = %99
+  br i1 %108, label %yc_bounds_check.exit171, label %116
 
-yc_bounds_check.exit171:                          ; preds = %113
+yc_bounds_check.exit171:                          ; preds = %114
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #3
-  %114 = tail call i32 @cli_append_potentially_unwanted(ptr noundef %0, ptr noundef nonnull @.str.7) #3
+  %115 = tail call i32 @cli_append_potentially_unwanted(ptr noundef %0, ptr noundef nonnull @.str.7) #3
   br label %.loopexit
 
-115:                                              ; preds = %113
-  %116 = load i8, ptr %103, align 1, !tbaa !12
-  %117 = tail call i8 @llvm.fshr.i8(i8 %.0141237, i8 %.0141237, i8 %116)
-  br label %133
+116:                                              ; preds = %114
+  %117 = load i8, ptr %104, align 1, !tbaa !12
+  %118 = tail call i8 @llvm.fshr.i8(i8 %.0141235, i8 %.0141235, i8 %117)
+  br label %135
 
-118:                                              ; preds = %28
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %21
-  %119 = ptrtoint ptr %gep to i64
-  %120 = sub i64 %119, %9
-  %121 = trunc i64 %120 to i32
-  %122 = icmp ult i32 %2, %121
-  br i1 %122, label %yc_bounds_check.exit173, label %124
+119:                                              ; preds = %28
+  %120 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  %121 = ptrtoint ptr %120 to i64
+  %122 = sub i64 %121, %9
+  %123 = trunc i64 %122 to i32
+  %124 = icmp ult i32 %2, %123
+  br i1 %124, label %yc_bounds_check.exit173, label %126
 
-yc_bounds_check.exit173:                          ; preds = %118
+yc_bounds_check.exit173:                          ; preds = %119
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #3
-  %123 = tail call i32 @cli_append_potentially_unwanted(ptr noundef %0, ptr noundef nonnull @.str.7) #3
+  %125 = tail call i32 @cli_append_potentially_unwanted(ptr noundef %0, ptr noundef nonnull @.str.7) #3
   br label %.loopexit
 
-124:                                              ; preds = %118
-  %125 = load i8, ptr %gep, align 1, !tbaa !12
-  %126 = icmp eq i8 %125, -56
-  %127 = add nuw nsw i32 %.0138238, 2
-  br i1 %126, label %128, label %130
+126:                                              ; preds = %119
+  %127 = load i8, ptr %120, align 1, !tbaa !12
+  %128 = icmp eq i8 %127, -56
+  %129 = add nuw nsw i32 %.0138236, 2
+  br i1 %128, label %130, label %132
 
-128:                                              ; preds = %124
-  %129 = tail call i8 @llvm.fshr.i8(i8 %.0141237, i8 %.0141237, i8 %.0140240)
-  br label %133
+130:                                              ; preds = %126
+  %131 = tail call i8 @llvm.fshr.i8(i8 %.0141235, i8 %.0141235, i8 %.0140238)
+  br label %135
 
-130:                                              ; preds = %124
-  %131 = tail call i8 @llvm.fshl.i8(i8 %.0141237, i8 %.0141237, i8 %.0140240)
-  br label %133
+132:                                              ; preds = %126
+  %133 = tail call i8 @llvm.fshl.i8(i8 %.0141235, i8 %.0141235, i8 %.0140238)
+  br label %135
 
 yc_bounds_check.exit175:                          ; preds = %28
-  %132 = zext i8 %29 to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %132) #3
+  %134 = zext i8 %29 to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %134) #3
   br label %.loopexit
 
-133:                                              ; preds = %39, %44, %47, %50, %53, %65, %77, %89, %115, %110, %130, %128, %28, %28, %28
-  %.1142 = phi i8 [ %.0141237, %39 ], [ %45, %44 ], [ %48, %47 ], [ %51, %50 ], [ %54, %53 ], [ %67, %65 ], [ %79, %77 ], [ %91, %89 ], [ %112, %110 ], [ %117, %115 ], [ %129, %128 ], [ %131, %130 ], [ %.0141237, %28 ], [ %.0141237, %28 ], [ %.0141237, %28 ]
-  %.1139 = phi i32 [ %43, %39 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %57, %65 ], [ %69, %77 ], [ %81, %89 ], [ %101, %110 ], [ %101, %115 ], [ %127, %128 ], [ %127, %130 ], [ %.0138238, %28 ], [ %.0138238, %28 ], [ %.0138238, %28 ]
-  %.2 = phi i32 [ %40, %39 ], [ %.1239, %44 ], [ %.1239, %47 ], [ %.1239, %50 ], [ %.1239, %53 ], [ %.1239, %65 ], [ %.1239, %77 ], [ %.1239, %89 ], [ %.1239, %110 ], [ %.1239, %115 ], [ %.1239, %128 ], [ %.1239, %130 ], [ %.1239, %28 ], [ %.1239, %28 ], [ %.1239, %28 ]
-  %134 = add nsw i32 %.1139, 1
-  %135 = icmp ult i32 %134, 48
-  br i1 %135, label %20, label %136
+135:                                              ; preds = %39, %44, %47, %50, %53, %65, %77, %89, %116, %111, %132, %130, %28, %28, %28
+  %.1142 = phi i8 [ %.0141235, %39 ], [ %45, %44 ], [ %48, %47 ], [ %51, %50 ], [ %54, %53 ], [ %67, %65 ], [ %79, %77 ], [ %91, %89 ], [ %113, %111 ], [ %118, %116 ], [ %131, %130 ], [ %133, %132 ], [ %.0141235, %28 ], [ %.0141235, %28 ], [ %.0141235, %28 ]
+  %.1139 = phi i32 [ %43, %39 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %57, %65 ], [ %69, %77 ], [ %81, %89 ], [ %102, %111 ], [ %102, %116 ], [ %129, %130 ], [ %129, %132 ], [ %.0138236, %28 ], [ %.0138236, %28 ], [ %.0138236, %28 ]
+  %.2 = phi i32 [ %40, %39 ], [ %.1237, %44 ], [ %.1237, %47 ], [ %.1237, %50 ], [ %.1237, %53 ], [ %.1237, %65 ], [ %.1237, %77 ], [ %.1237, %89 ], [ %.1237, %111 ], [ %.1237, %116 ], [ %.1237, %130 ], [ %.1237, %132 ], [ %.1237, %28 ], [ %.1237, %28 ], [ %.1237, %28 ]
+  %136 = add nsw i32 %.1139, 1
+  %137 = icmp ult i32 %136, 48
+  br i1 %137, label %20, label %138
 
-136:                                              ; preds = %133
-  %137 = add i8 %.0140240, -1
+138:                                              ; preds = %135
+  %139 = add i8 %.0140238, -1
   store i8 %.1142, ptr %12, align 1, !tbaa !12
-  %138 = add nuw i32 %.0137241, 1
-  %exitcond.not = icmp eq i32 %138, %invariant.umin
+  %140 = add nuw i32 %.0137239, 1
+  %exitcond.not = icmp eq i32 %140, %invariant.umin
   br i1 %exitcond.not, label %.loopexit, label %10
 
-.loopexit:                                        ; preds = %136, %yc_bounds_check.exit159, %7, %yc_bounds_check.exit173, %yc_bounds_check.exit171, %yc_bounds_check.exit169, %yc_bounds_check.exit167, %yc_bounds_check.exit165, %yc_bounds_check.exit163, %yc_bounds_check.exit161, %yc_bounds_check.exit159.thread, %yc_bounds_check.exit157, %yc_bounds_check.exit, %yc_bounds_check.exit175
-  %.0143 = phi i32 [ 1, %yc_bounds_check.exit175 ], [ 2, %yc_bounds_check.exit ], [ 2, %yc_bounds_check.exit157 ], [ 2, %yc_bounds_check.exit161 ], [ 2, %yc_bounds_check.exit163 ], [ 2, %yc_bounds_check.exit165 ], [ 2, %yc_bounds_check.exit167 ], [ 2, %yc_bounds_check.exit169 ], [ 2, %yc_bounds_check.exit171 ], [ 2, %yc_bounds_check.exit173 ], [ 2, %yc_bounds_check.exit159.thread ], [ 0, %7 ], [ 2, %yc_bounds_check.exit159 ], [ 0, %136 ]
+.loopexit:                                        ; preds = %138, %yc_bounds_check.exit159, %7, %yc_bounds_check.exit173, %yc_bounds_check.exit171, %yc_bounds_check.exit169, %yc_bounds_check.exit167, %yc_bounds_check.exit165, %yc_bounds_check.exit163, %yc_bounds_check.exit161, %yc_bounds_check.exit159.thread, %yc_bounds_check.exit157, %yc_bounds_check.exit, %yc_bounds_check.exit175
+  %.0143 = phi i32 [ 1, %yc_bounds_check.exit175 ], [ 2, %yc_bounds_check.exit ], [ 2, %yc_bounds_check.exit157 ], [ 2, %yc_bounds_check.exit161 ], [ 2, %yc_bounds_check.exit163 ], [ 2, %yc_bounds_check.exit165 ], [ 2, %yc_bounds_check.exit167 ], [ 2, %yc_bounds_check.exit169 ], [ 2, %yc_bounds_check.exit171 ], [ 2, %yc_bounds_check.exit173 ], [ 2, %yc_bounds_check.exit159.thread ], [ 0, %7 ], [ 2, %yc_bounds_check.exit159 ], [ 0, %138 ]
   ret i32 %.0143
 }
 

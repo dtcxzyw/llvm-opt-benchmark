@@ -3726,14 +3726,13 @@ define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIi
   %.pn9.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %75
+  br label %77
 
 17:                                               ; preds = %5
   br i1 %.not10.i, label %_ZN4entt13basic_storageIi9entity_idSaIiEvE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_SaIS1_EEEES9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17
   %18 = load ptr, ptr %1, align 8, !tbaa !144
-  %invariant.gep.i = getelementptr i8, ptr %18, i64 -4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !23
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3746,198 +3745,199 @@ define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIi
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.i
-  %28 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %61, %27 ]
-  %.sroa.3.011.i = phi i64 [ %2, %.lr.ph.i ], [ %74, %27 ]
-  %gep.i = getelementptr %struct.entity_id, ptr %invariant.gep.i, i64 %.sroa.3.011.i
-  %.sroa.02.0.copyload.i = load i32, ptr %gep.i, align 4, !tbaa !26
-  %29 = and i32 %.sroa.02.0.copyload.i, 1048575
-  %30 = zext nneg i32 %29 to i64
-  %31 = lshr i64 %30, 12
-  %32 = getelementptr inbounds nuw ptr, ptr %20, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !24
-  %34 = and i64 %30, 4095
-  %35 = getelementptr inbounds nuw %struct.entity_id, ptr %33, i64 %34
-  %.sroa.01.0.copyload.i.i = load i32, ptr %35, align 4, !tbaa !26
-  %36 = and i32 %.sroa.01.0.copyload.i.i, 1048575
-  %37 = zext nneg i32 %36 to i64
-  %38 = lshr i64 %37, 10
-  %39 = getelementptr inbounds nuw ptr, ptr %22, i64 %38
-  %40 = load ptr, ptr %39, align 8, !tbaa !72
-  %41 = and i64 %37, 1023
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
-  %43 = ptrtoint ptr %28 to i64
-  %44 = sub i64 %43, %26
-  %45 = ashr exact i64 %44, 2
-  %46 = add nsw i64 %45, -1
-  %47 = lshr i64 %46, 10
-  %48 = getelementptr inbounds nuw ptr, ptr %22, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !72
-  %50 = and i64 %46, 1023
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !26
-  store i32 %52, ptr %42, align 4, !tbaa !26
-  %.sroa.06.0.copyload.i.i = load i32, ptr %gep.i, align 4, !tbaa !26
-  %53 = and i32 %.sroa.06.0.copyload.i.i, 1048575
-  %54 = zext nneg i32 %53 to i64
-  %55 = lshr i64 %54, 12
-  %56 = getelementptr inbounds nuw ptr, ptr %20, i64 %55
-  %57 = load ptr, ptr %56, align 8, !tbaa !24
-  %58 = and i64 %54, 4095
-  %59 = getelementptr inbounds nuw %struct.entity_id, ptr %57, i64 %58
-  %.sroa.04.0.copyload.i.i = load i32, ptr %59, align 4, !tbaa !26
-  %60 = and i32 %.sroa.04.0.copyload.i.i, 1048575
-  %61 = getelementptr inbounds i8, ptr %28, i64 -4
-  %.sroa.02.0.copyload.i.i = load i32, ptr %61, align 4, !tbaa !26
-  %62 = and i32 %.sroa.02.0.copyload.i.i, -1048576
-  %63 = or disjoint i32 %62, %60
-  %64 = and i32 %.sroa.02.0.copyload.i.i, 1048575
-  %65 = zext nneg i32 %64 to i64
-  %66 = lshr i64 %65, 12
-  %67 = getelementptr inbounds nuw ptr, ptr %20, i64 %66
-  %68 = load ptr, ptr %67, align 8, !tbaa !24
-  %69 = and i64 %65, 4095
-  %70 = getelementptr inbounds nuw %struct.entity_id, ptr %68, i64 %69
-  store i32 %63, ptr %70, align 4, !tbaa !26
-  %71 = zext nneg i32 %60 to i64
-  %72 = getelementptr inbounds nuw %struct.entity_id, ptr %25, i64 %71
-  %73 = load i32, ptr %61, align 4, !tbaa !26
-  store i32 %73, ptr %72, align 4, !tbaa !26
-  store i32 -1, ptr %59, align 4, !tbaa !26
-  store ptr %61, ptr %24, align 8, !tbaa !145
-  %74 = add nsw i64 %.sroa.3.011.i, -1
-  %.not.i = icmp eq i64 %74, %4
+  %28 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %63, %27 ]
+  %.sroa.3.011.i = phi i64 [ %2, %.lr.ph.i ], [ %76, %27 ]
+  %29 = getelementptr %struct.entity_id, ptr %18, i64 %.sroa.3.011.i
+  %30 = getelementptr i8, ptr %29, i64 -4
+  %.sroa.02.0.copyload.i = load i32, ptr %30, align 4, !tbaa !26
+  %31 = and i32 %.sroa.02.0.copyload.i, 1048575
+  %32 = zext nneg i32 %31 to i64
+  %33 = lshr i64 %32, 12
+  %34 = getelementptr inbounds nuw ptr, ptr %20, i64 %33
+  %35 = load ptr, ptr %34, align 8, !tbaa !24
+  %36 = and i64 %32, 4095
+  %37 = getelementptr inbounds nuw %struct.entity_id, ptr %35, i64 %36
+  %.sroa.01.0.copyload.i.i = load i32, ptr %37, align 4, !tbaa !26
+  %38 = and i32 %.sroa.01.0.copyload.i.i, 1048575
+  %39 = zext nneg i32 %38 to i64
+  %40 = lshr i64 %39, 10
+  %41 = getelementptr inbounds nuw ptr, ptr %22, i64 %40
+  %42 = load ptr, ptr %41, align 8, !tbaa !72
+  %43 = and i64 %39, 1023
+  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %45 = ptrtoint ptr %28 to i64
+  %46 = sub i64 %45, %26
+  %47 = ashr exact i64 %46, 2
+  %48 = add nsw i64 %47, -1
+  %49 = lshr i64 %48, 10
+  %50 = getelementptr inbounds nuw ptr, ptr %22, i64 %49
+  %51 = load ptr, ptr %50, align 8, !tbaa !72
+  %52 = and i64 %48, 1023
+  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !26
+  store i32 %54, ptr %44, align 4, !tbaa !26
+  %.sroa.06.0.copyload.i.i = load i32, ptr %30, align 4, !tbaa !26
+  %55 = and i32 %.sroa.06.0.copyload.i.i, 1048575
+  %56 = zext nneg i32 %55 to i64
+  %57 = lshr i64 %56, 12
+  %58 = getelementptr inbounds nuw ptr, ptr %20, i64 %57
+  %59 = load ptr, ptr %58, align 8, !tbaa !24
+  %60 = and i64 %56, 4095
+  %61 = getelementptr inbounds nuw %struct.entity_id, ptr %59, i64 %60
+  %.sroa.04.0.copyload.i.i = load i32, ptr %61, align 4, !tbaa !26
+  %62 = and i32 %.sroa.04.0.copyload.i.i, 1048575
+  %63 = getelementptr inbounds i8, ptr %28, i64 -4
+  %.sroa.02.0.copyload.i.i = load i32, ptr %63, align 4, !tbaa !26
+  %64 = and i32 %.sroa.02.0.copyload.i.i, -1048576
+  %65 = or disjoint i32 %64, %62
+  %66 = and i32 %.sroa.02.0.copyload.i.i, 1048575
+  %67 = zext nneg i32 %66 to i64
+  %68 = lshr i64 %67, 12
+  %69 = getelementptr inbounds nuw ptr, ptr %20, i64 %68
+  %70 = load ptr, ptr %69, align 8, !tbaa !24
+  %71 = and i64 %67, 4095
+  %72 = getelementptr inbounds nuw %struct.entity_id, ptr %70, i64 %71
+  store i32 %65, ptr %72, align 4, !tbaa !26
+  %73 = zext nneg i32 %62 to i64
+  %74 = getelementptr inbounds nuw %struct.entity_id, ptr %25, i64 %73
+  %75 = load i32, ptr %63, align 4, !tbaa !26
+  store i32 %75, ptr %74, align 4, !tbaa !26
+  store i32 -1, ptr %61, align 4, !tbaa !26
+  store ptr %63, ptr %24, align 8, !tbaa !145
+  %76 = add nsw i64 %.sroa.3.011.i, -1
+  %.not.i = icmp eq i64 %76, %4
   br i1 %.not.i, label %_ZN4entt13basic_storageIi9entity_idSaIiEvE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_SaIS1_EEEES9_.exit, label %27, !llvm.loop !146
 
-75:                                               ; preds = %.lr.ph, %.lr.ph.i15
-  %.sroa.3.035 = phi i64 [ %2, %.lr.ph ], [ %160, %.lr.ph.i15 ]
-  %76 = load ptr, ptr %1, align 8, !tbaa !144
-  %77 = getelementptr %struct.entity_id, ptr %76, i64 %.sroa.3.035
-  %78 = getelementptr i8, ptr %77, i64 -4
-  %.sroa.05.0.copyload = load i32, ptr %78, align 4, !tbaa !26
-  %79 = load ptr, ptr %10, align 8, !tbaa !94
-  %80 = load ptr, ptr %8, align 8, !tbaa !95
-  %.not5.i = icmp eq ptr %79, %80
+77:                                               ; preds = %.lr.ph, %.lr.ph.i15
+  %.sroa.3.033 = phi i64 [ %2, %.lr.ph ], [ %164, %.lr.ph.i15 ]
+  %78 = load ptr, ptr %1, align 8, !tbaa !144
+  %79 = getelementptr %struct.entity_id, ptr %78, i64 %.sroa.3.033
+  %80 = getelementptr i8, ptr %79, i64 -4
+  %.sroa.05.0.copyload = load i32, ptr %80, align 4, !tbaa !26
+  %81 = load ptr, ptr %10, align 8, !tbaa !94
+  %82 = load ptr, ptr %8, align 8, !tbaa !95
+  %.not5.i = icmp eq ptr %81, %82
   br i1 %.not5.i, label %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %75
-  %81 = ptrtoint ptr %79 to i64
-  %82 = ptrtoint ptr %80 to i64
-  %83 = sub i64 %81, %82
-  %84 = ashr exact i64 %83, 4
+.lr.ph.preheader.i:                               ; preds = %77
+  %83 = ptrtoint ptr %81 to i64
+  %84 = ptrtoint ptr %82 to i64
+  %85 = sub i64 %83, %84
+  %86 = ashr exact i64 %85, 4
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i
-  %.06.i = phi i64 [ %85, %.lr.ph.i12 ], [ %84, %.lr.ph.preheader.i ]
-  %85 = add i64 %.06.i, -1
-  %86 = load ptr, ptr %8, align 8, !tbaa !95
-  %87 = getelementptr inbounds nuw %"class.entt::delegate", ptr %86, i64 %85
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !96
-  %90 = load ptr, ptr %87, align 8, !tbaa !98
-  tail call void %89(ptr noundef %90, ptr noundef nonnull align 8 dereferenceable(336) %7, i32 %.sroa.05.0.copyload)
-  %.not.i13 = icmp eq i64 %85, 0
+  %.06.i = phi i64 [ %87, %.lr.ph.i12 ], [ %86, %.lr.ph.preheader.i ]
+  %87 = add i64 %.06.i, -1
+  %88 = load ptr, ptr %8, align 8, !tbaa !95
+  %89 = getelementptr inbounds nuw %"class.entt::delegate", ptr %88, i64 %87
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load ptr, ptr %90, align 8, !tbaa !96
+  %92 = load ptr, ptr %89, align 8, !tbaa !98
+  tail call void %91(ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(336) %7, i32 %.sroa.05.0.copyload)
+  %.not.i13 = icmp eq i64 %87, 0
   br i1 %.not.i13, label %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit, label %.lr.ph.i12, !llvm.loop !99
 
-_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit: ; preds = %.lr.ph.i12, %75
-  %91 = and i32 %.sroa.05.0.copyload, 1048575
-  %92 = zext nneg i32 %91 to i64
-  %93 = lshr i64 %92, 12
-  %94 = load ptr, ptr %14, align 8, !tbaa !20
-  %95 = load ptr, ptr %13, align 8, !tbaa !23
-  %96 = ptrtoint ptr %94 to i64
-  %97 = ptrtoint ptr %95 to i64
-  %98 = sub i64 %96, %97
-  %99 = ashr exact i64 %98, 3
-  %100 = icmp ult i64 %93, %99
-  br i1 %100, label %101, label %.lr.ph.i15
+_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit: ; preds = %.lr.ph.i12, %77
+  %93 = and i32 %.sroa.05.0.copyload, 1048575
+  %94 = zext nneg i32 %93 to i64
+  %95 = lshr i64 %94, 12
+  %96 = load ptr, ptr %14, align 8, !tbaa !20
+  %97 = load ptr, ptr %13, align 8, !tbaa !23
+  %98 = ptrtoint ptr %96 to i64
+  %99 = ptrtoint ptr %97 to i64
+  %100 = sub i64 %98, %99
+  %101 = ashr exact i64 %100, 3
+  %102 = icmp ult i64 %95, %101
+  br i1 %102, label %103, label %.lr.ph.i15
 
-101:                                              ; preds = %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit
-  %102 = getelementptr inbounds nuw ptr, ptr %95, i64 %93
-  %103 = load ptr, ptr %102, align 8, !tbaa !24
-  %.not.i.i.i = icmp eq ptr %103, null
+103:                                              ; preds = %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit
+  %104 = getelementptr inbounds nuw ptr, ptr %97, i64 %95
+  %105 = load ptr, ptr %104, align 8, !tbaa !24
+  %.not.i.i.i = icmp eq ptr %105, null
   br i1 %.not.i.i.i, label %.lr.ph.i15, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i
 
-_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i: ; preds = %101
-  %104 = and i64 %92, 4095
-  %105 = getelementptr inbounds nuw %struct.entity_id, ptr %103, i64 %104
-  %106 = and i32 %.sroa.05.0.copyload, -1048576
-  %.sroa.0.0.copyload.i.i = load i32, ptr %105, align 4, !tbaa !26
-  %107 = xor i32 %.sroa.0.0.copyload.i.i, %106
-  %108 = icmp ult i32 %107, 1048575
-  br i1 %108, label %109, label %.lr.ph.i15
+_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i: ; preds = %103
+  %106 = and i64 %94, 4095
+  %107 = getelementptr inbounds nuw %struct.entity_id, ptr %105, i64 %106
+  %108 = and i32 %.sroa.05.0.copyload, -1048576
+  %.sroa.0.0.copyload.i.i = load i32, ptr %107, align 4, !tbaa !26
+  %109 = xor i32 %.sroa.0.0.copyload.i.i, %108
+  %110 = icmp ult i32 %109, 1048575
+  br i1 %110, label %111, label %.lr.ph.i15
 
-109:                                              ; preds = %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i
-  %110 = and i32 %.sroa.0.0.copyload.i.i, 1048575
-  %narrow.i.i = add nuw nsw i32 %110, 1
-  %111 = zext nneg i32 %narrow.i.i to i64
+111:                                              ; preds = %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i
+  %112 = and i32 %.sroa.0.0.copyload.i.i, 1048575
+  %narrow.i.i = add nuw nsw i32 %112, 1
+  %113 = zext nneg i32 %narrow.i.i to i64
   br label %.lr.ph.i15
 
-.lr.ph.i15:                                       ; preds = %109, %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i, %101, %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit
-  %.pn7.i = phi i64 [ %111, %109 ], [ 0, %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit ], [ 0, %101 ], [ 0, %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i ]
-  %112 = load ptr, ptr %.pn9.i, align 8, !tbaa !144
-  %invariant.gep.i16 = getelementptr i8, ptr %112, i64 -4
-  %113 = load ptr, ptr %15, align 8, !tbaa !76
-  %114 = ptrtoint ptr %112 to i64
-  %.promoted.i17 = load ptr, ptr %16, align 8, !tbaa !145
-  %gep.i19 = getelementptr %struct.entity_id, ptr %invariant.gep.i16, i64 %.pn7.i
-  %.sroa.02.0.copyload.i20 = load i32, ptr %gep.i19, align 4, !tbaa !26
-  %115 = and i32 %.sroa.02.0.copyload.i20, 1048575
-  %116 = zext nneg i32 %115 to i64
-  %117 = lshr i64 %116, 12
-  %118 = getelementptr inbounds nuw ptr, ptr %95, i64 %117
-  %119 = load ptr, ptr %118, align 8, !tbaa !24
-  %120 = and i64 %116, 4095
-  %121 = getelementptr inbounds nuw %struct.entity_id, ptr %119, i64 %120
-  %.sroa.01.0.copyload.i.i21 = load i32, ptr %121, align 4, !tbaa !26
-  %122 = and i32 %.sroa.01.0.copyload.i.i21, 1048575
-  %123 = zext nneg i32 %122 to i64
-  %124 = lshr i64 %123, 10
-  %125 = getelementptr inbounds nuw ptr, ptr %113, i64 %124
-  %126 = load ptr, ptr %125, align 8, !tbaa !72
-  %127 = and i64 %123, 1023
-  %128 = getelementptr inbounds nuw i32, ptr %126, i64 %127
-  %129 = ptrtoint ptr %.promoted.i17 to i64
-  %130 = sub i64 %129, %114
-  %131 = ashr exact i64 %130, 2
-  %132 = add nsw i64 %131, -1
-  %133 = lshr i64 %132, 10
-  %134 = getelementptr inbounds nuw ptr, ptr %113, i64 %133
-  %135 = load ptr, ptr %134, align 8, !tbaa !72
-  %136 = and i64 %132, 1023
-  %137 = getelementptr inbounds nuw i32, ptr %135, i64 %136
-  %138 = load i32, ptr %137, align 4, !tbaa !26
-  store i32 %138, ptr %128, align 4, !tbaa !26
-  %.sroa.06.0.copyload.i.i22 = load i32, ptr %gep.i19, align 4, !tbaa !26
-  %139 = and i32 %.sroa.06.0.copyload.i.i22, 1048575
-  %140 = zext nneg i32 %139 to i64
-  %141 = lshr i64 %140, 12
-  %142 = getelementptr inbounds nuw ptr, ptr %95, i64 %141
-  %143 = load ptr, ptr %142, align 8, !tbaa !24
-  %144 = and i64 %140, 4095
-  %145 = getelementptr inbounds nuw %struct.entity_id, ptr %143, i64 %144
-  %.sroa.04.0.copyload.i.i23 = load i32, ptr %145, align 4, !tbaa !26
-  %146 = and i32 %.sroa.04.0.copyload.i.i23, 1048575
-  %147 = getelementptr inbounds i8, ptr %.promoted.i17, i64 -4
-  %.sroa.02.0.copyload.i.i24 = load i32, ptr %147, align 4, !tbaa !26
-  %148 = and i32 %.sroa.02.0.copyload.i.i24, -1048576
-  %149 = or disjoint i32 %148, %146
-  %150 = and i32 %.sroa.02.0.copyload.i.i24, 1048575
-  %151 = zext nneg i32 %150 to i64
-  %152 = lshr i64 %151, 12
-  %153 = getelementptr inbounds nuw ptr, ptr %95, i64 %152
-  %154 = load ptr, ptr %153, align 8, !tbaa !24
-  %155 = and i64 %151, 4095
-  %156 = getelementptr inbounds nuw %struct.entity_id, ptr %154, i64 %155
-  store i32 %149, ptr %156, align 4, !tbaa !26
-  %157 = zext nneg i32 %146 to i64
-  %158 = getelementptr inbounds nuw %struct.entity_id, ptr %112, i64 %157
-  %159 = load i32, ptr %147, align 4, !tbaa !26
-  store i32 %159, ptr %158, align 4, !tbaa !26
-  store i32 -1, ptr %145, align 4, !tbaa !26
-  store ptr %147, ptr %16, align 8, !tbaa !145
-  %160 = add nsw i64 %.sroa.3.035, -1
-  %.not = icmp eq i64 %160, %4
-  br i1 %.not, label %_ZN4entt13basic_storageIi9entity_idSaIiEvE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_SaIS1_EEEES9_.exit, label %75, !llvm.loop !147
+.lr.ph.i15:                                       ; preds = %111, %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i, %103, %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit
+  %.pn7.i = phi i64 [ %113, %111 ], [ 0, %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit ], [ 0, %103 ], [ 0, %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i ]
+  %114 = load ptr, ptr %.pn9.i, align 8, !tbaa !144
+  %115 = load ptr, ptr %15, align 8, !tbaa !76
+  %116 = ptrtoint ptr %114 to i64
+  %.promoted.i16 = load ptr, ptr %16, align 8, !tbaa !145
+  %117 = getelementptr %struct.entity_id, ptr %114, i64 %.pn7.i
+  %118 = getelementptr i8, ptr %117, i64 -4
+  %.sroa.02.0.copyload.i18 = load i32, ptr %118, align 4, !tbaa !26
+  %119 = and i32 %.sroa.02.0.copyload.i18, 1048575
+  %120 = zext nneg i32 %119 to i64
+  %121 = lshr i64 %120, 12
+  %122 = getelementptr inbounds nuw ptr, ptr %97, i64 %121
+  %123 = load ptr, ptr %122, align 8, !tbaa !24
+  %124 = and i64 %120, 4095
+  %125 = getelementptr inbounds nuw %struct.entity_id, ptr %123, i64 %124
+  %.sroa.01.0.copyload.i.i19 = load i32, ptr %125, align 4, !tbaa !26
+  %126 = and i32 %.sroa.01.0.copyload.i.i19, 1048575
+  %127 = zext nneg i32 %126 to i64
+  %128 = lshr i64 %127, 10
+  %129 = getelementptr inbounds nuw ptr, ptr %115, i64 %128
+  %130 = load ptr, ptr %129, align 8, !tbaa !72
+  %131 = and i64 %127, 1023
+  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %131
+  %133 = ptrtoint ptr %.promoted.i16 to i64
+  %134 = sub i64 %133, %116
+  %135 = ashr exact i64 %134, 2
+  %136 = add nsw i64 %135, -1
+  %137 = lshr i64 %136, 10
+  %138 = getelementptr inbounds nuw ptr, ptr %115, i64 %137
+  %139 = load ptr, ptr %138, align 8, !tbaa !72
+  %140 = and i64 %136, 1023
+  %141 = getelementptr inbounds nuw i32, ptr %139, i64 %140
+  %142 = load i32, ptr %141, align 4, !tbaa !26
+  store i32 %142, ptr %132, align 4, !tbaa !26
+  %.sroa.06.0.copyload.i.i20 = load i32, ptr %118, align 4, !tbaa !26
+  %143 = and i32 %.sroa.06.0.copyload.i.i20, 1048575
+  %144 = zext nneg i32 %143 to i64
+  %145 = lshr i64 %144, 12
+  %146 = getelementptr inbounds nuw ptr, ptr %97, i64 %145
+  %147 = load ptr, ptr %146, align 8, !tbaa !24
+  %148 = and i64 %144, 4095
+  %149 = getelementptr inbounds nuw %struct.entity_id, ptr %147, i64 %148
+  %.sroa.04.0.copyload.i.i21 = load i32, ptr %149, align 4, !tbaa !26
+  %150 = and i32 %.sroa.04.0.copyload.i.i21, 1048575
+  %151 = getelementptr inbounds i8, ptr %.promoted.i16, i64 -4
+  %.sroa.02.0.copyload.i.i22 = load i32, ptr %151, align 4, !tbaa !26
+  %152 = and i32 %.sroa.02.0.copyload.i.i22, -1048576
+  %153 = or disjoint i32 %152, %150
+  %154 = and i32 %.sroa.02.0.copyload.i.i22, 1048575
+  %155 = zext nneg i32 %154 to i64
+  %156 = lshr i64 %155, 12
+  %157 = getelementptr inbounds nuw ptr, ptr %97, i64 %156
+  %158 = load ptr, ptr %157, align 8, !tbaa !24
+  %159 = and i64 %155, 4095
+  %160 = getelementptr inbounds nuw %struct.entity_id, ptr %158, i64 %159
+  store i32 %153, ptr %160, align 4, !tbaa !26
+  %161 = zext nneg i32 %150 to i64
+  %162 = getelementptr inbounds nuw %struct.entity_id, ptr %114, i64 %161
+  %163 = load i32, ptr %151, align 4, !tbaa !26
+  store i32 %163, ptr %162, align 4, !tbaa !26
+  store i32 -1, ptr %149, align 4, !tbaa !26
+  store ptr %151, ptr %16, align 8, !tbaa !145
+  %164 = add nsw i64 %.sroa.3.033, -1
+  %.not = icmp eq i64 %164, %4
+  br i1 %.not, label %_ZN4entt13basic_storageIi9entity_idSaIiEvE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_SaIS1_EEEES9_.exit, label %77, !llvm.loop !147
 
 _ZN4entt13basic_storageIi9entity_idSaIiEvE3popENS_8internal19sparse_set_iteratorISt6vectorIS1_SaIS1_EEEES9_.exit: ; preds = %.lr.ph.i15, %27, %.preheader, %17
   ret void
@@ -4013,7 +4013,6 @@ _ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 2
-  %invariant.gep.i = getelementptr i8, ptr %37, i64 -4
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i7, label %_ZN4entt13basic_storageIi9entity_idSaIiEvE7pop_allEv.exit
 
@@ -4024,39 +4023,40 @@ _ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S
 
 45:                                               ; preds = %45, %.lr.ph.i7
   %.sroa.4.05.i = phi i64 [ %41, %.lr.ph.i7 ], [ %47, %45 ]
-  %46 = phi ptr [ %36, %.lr.ph.i7 ], [ %56, %45 ]
+  %46 = phi ptr [ %36, %.lr.ph.i7 ], [ %58, %45 ]
   %47 = add nsw i64 %.sroa.4.05.i, -1
-  %gep.i = getelementptr %struct.entity_id, ptr %invariant.gep.i, i64 %.sroa.4.05.i
-  %.sroa.06.0.copyload.i.i = load i32, ptr %gep.i, align 4, !tbaa !26
-  %48 = and i32 %.sroa.06.0.copyload.i.i, 1048575
-  %49 = zext nneg i32 %48 to i64
-  %50 = lshr i64 %49, 12
-  %51 = getelementptr inbounds nuw ptr, ptr %44, i64 %50
-  %52 = load ptr, ptr %51, align 8, !tbaa !24
-  %53 = and i64 %49, 4095
-  %54 = getelementptr inbounds nuw %struct.entity_id, ptr %52, i64 %53
-  %.sroa.04.0.copyload.i.i = load i32, ptr %54, align 4, !tbaa !26
-  %55 = and i32 %.sroa.04.0.copyload.i.i, 1048575
-  %56 = getelementptr inbounds i8, ptr %46, i64 -4
-  %.sroa.02.0.copyload.i.i = load i32, ptr %56, align 4, !tbaa !26
-  %57 = and i32 %.sroa.02.0.copyload.i.i, -1048576
-  %58 = or disjoint i32 %57, %55
-  %59 = and i32 %.sroa.02.0.copyload.i.i, 1048575
-  %60 = zext nneg i32 %59 to i64
-  %61 = lshr i64 %60, 12
-  %62 = getelementptr inbounds nuw ptr, ptr %44, i64 %61
-  %63 = load ptr, ptr %62, align 8, !tbaa !24
-  %64 = and i64 %60, 4095
-  %65 = getelementptr inbounds nuw %struct.entity_id, ptr %63, i64 %64
-  store i32 %58, ptr %65, align 4, !tbaa !26
-  %66 = zext nneg i32 %55 to i64
-  %67 = getelementptr inbounds nuw %struct.entity_id, ptr %37, i64 %66
-  %68 = load i32, ptr %56, align 4, !tbaa !26
-  store i32 %68, ptr %67, align 4, !tbaa !26
-  store i32 -1, ptr %54, align 4, !tbaa !26
-  store ptr %56, ptr %35, align 8, !tbaa !145
-  %69 = icmp samesign ugt i64 %.sroa.4.05.i, 1
-  br i1 %69, label %45, label %_ZN4entt13basic_storageIi9entity_idSaIiEvE7pop_allEv.exit, !llvm.loop !150
+  %48 = getelementptr %struct.entity_id, ptr %37, i64 %.sroa.4.05.i
+  %49 = getelementptr i8, ptr %48, i64 -4
+  %.sroa.06.0.copyload.i.i = load i32, ptr %49, align 4, !tbaa !26
+  %50 = and i32 %.sroa.06.0.copyload.i.i, 1048575
+  %51 = zext nneg i32 %50 to i64
+  %52 = lshr i64 %51, 12
+  %53 = getelementptr inbounds nuw ptr, ptr %44, i64 %52
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %55 = and i64 %51, 4095
+  %56 = getelementptr inbounds nuw %struct.entity_id, ptr %54, i64 %55
+  %.sroa.04.0.copyload.i.i = load i32, ptr %56, align 4, !tbaa !26
+  %57 = and i32 %.sroa.04.0.copyload.i.i, 1048575
+  %58 = getelementptr inbounds i8, ptr %46, i64 -4
+  %.sroa.02.0.copyload.i.i = load i32, ptr %58, align 4, !tbaa !26
+  %59 = and i32 %.sroa.02.0.copyload.i.i, -1048576
+  %60 = or disjoint i32 %59, %57
+  %61 = and i32 %.sroa.02.0.copyload.i.i, 1048575
+  %62 = zext nneg i32 %61 to i64
+  %63 = lshr i64 %62, 12
+  %64 = getelementptr inbounds nuw ptr, ptr %44, i64 %63
+  %65 = load ptr, ptr %64, align 8, !tbaa !24
+  %66 = and i64 %62, 4095
+  %67 = getelementptr inbounds nuw %struct.entity_id, ptr %65, i64 %66
+  store i32 %60, ptr %67, align 4, !tbaa !26
+  %68 = zext nneg i32 %57 to i64
+  %69 = getelementptr inbounds nuw %struct.entity_id, ptr %37, i64 %68
+  %70 = load i32, ptr %58, align 4, !tbaa !26
+  store i32 %70, ptr %69, align 4, !tbaa !26
+  store i32 -1, ptr %56, align 4, !tbaa !26
+  store ptr %58, ptr %35, align 8, !tbaa !145
+  %71 = icmp samesign ugt i64 %.sroa.4.05.i, 1
+  br i1 %71, label %45, label %_ZN4entt13basic_storageIi9entity_idSaIiEvE7pop_allEv.exit, !llvm.loop !150
 
 _ZN4entt13basic_storageIi9entity_idSaIiEvE7pop_allEv.exit: ; preds = %45, %.loopexit
   ret void
@@ -4465,7 +4465,6 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageIi9entity_idSaIiEvE3popE
 
 .lr.ph:                                           ; preds = %5
   %6 = load ptr, ptr %1, align 8, !tbaa !144
-  %invariant.gep = getelementptr i8, ptr %6, i64 -4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4481,66 +4480,67 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageIi9entity_idSaIiEvE3popE
   ret void
 
 15:                                               ; preds = %.lr.ph, %15
-  %16 = phi ptr [ %.promoted, %.lr.ph ], [ %49, %15 ]
-  %.sroa.3.011 = phi i64 [ %2, %.lr.ph ], [ %62, %15 ]
-  %gep = getelementptr %struct.entity_id, ptr %invariant.gep, i64 %.sroa.3.011
-  %.sroa.02.0.copyload = load i32, ptr %gep, align 4, !tbaa !26
-  %17 = and i32 %.sroa.02.0.copyload, 1048575
-  %18 = zext nneg i32 %17 to i64
-  %19 = lshr i64 %18, 12
-  %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !24
-  %22 = and i64 %18, 4095
-  %23 = getelementptr inbounds nuw %struct.entity_id, ptr %21, i64 %22
-  %.sroa.01.0.copyload.i = load i32, ptr %23, align 4, !tbaa !26
-  %24 = and i32 %.sroa.01.0.copyload.i, 1048575
-  %25 = zext nneg i32 %24 to i64
-  %26 = lshr i64 %25, 10
-  %27 = getelementptr inbounds nuw ptr, ptr %10, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !72
-  %29 = and i64 %25, 1023
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
-  %31 = ptrtoint ptr %16 to i64
-  %32 = sub i64 %31, %14
-  %33 = ashr exact i64 %32, 2
-  %34 = add nsw i64 %33, -1
-  %35 = lshr i64 %34, 10
-  %36 = getelementptr inbounds nuw ptr, ptr %10, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !72
-  %38 = and i64 %34, 1023
-  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !26
-  store i32 %40, ptr %30, align 4, !tbaa !26
-  %.sroa.06.0.copyload.i = load i32, ptr %gep, align 4, !tbaa !26
-  %41 = and i32 %.sroa.06.0.copyload.i, 1048575
-  %42 = zext nneg i32 %41 to i64
-  %43 = lshr i64 %42, 12
-  %44 = getelementptr inbounds nuw ptr, ptr %8, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !24
-  %46 = and i64 %42, 4095
-  %47 = getelementptr inbounds nuw %struct.entity_id, ptr %45, i64 %46
-  %.sroa.04.0.copyload.i = load i32, ptr %47, align 4, !tbaa !26
-  %48 = and i32 %.sroa.04.0.copyload.i, 1048575
-  %49 = getelementptr inbounds i8, ptr %16, i64 -4
-  %.sroa.02.0.copyload.i = load i32, ptr %49, align 4, !tbaa !26
-  %50 = and i32 %.sroa.02.0.copyload.i, -1048576
-  %51 = or disjoint i32 %50, %48
-  %52 = and i32 %.sroa.02.0.copyload.i, 1048575
-  %53 = zext nneg i32 %52 to i64
-  %54 = lshr i64 %53, 12
-  %55 = getelementptr inbounds nuw ptr, ptr %8, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !24
-  %57 = and i64 %53, 4095
-  %58 = getelementptr inbounds nuw %struct.entity_id, ptr %56, i64 %57
-  store i32 %51, ptr %58, align 4, !tbaa !26
-  %59 = zext nneg i32 %48 to i64
-  %60 = getelementptr inbounds nuw %struct.entity_id, ptr %13, i64 %59
-  %61 = load i32, ptr %49, align 4, !tbaa !26
-  store i32 %61, ptr %60, align 4, !tbaa !26
-  store i32 -1, ptr %47, align 4, !tbaa !26
-  store ptr %49, ptr %12, align 8, !tbaa !145
-  %62 = add nsw i64 %.sroa.3.011, -1
-  %.not = icmp eq i64 %62, %4
+  %16 = phi ptr [ %.promoted, %.lr.ph ], [ %51, %15 ]
+  %.sroa.3.011 = phi i64 [ %2, %.lr.ph ], [ %64, %15 ]
+  %17 = getelementptr %struct.entity_id, ptr %6, i64 %.sroa.3.011
+  %18 = getelementptr i8, ptr %17, i64 -4
+  %.sroa.02.0.copyload = load i32, ptr %18, align 4, !tbaa !26
+  %19 = and i32 %.sroa.02.0.copyload, 1048575
+  %20 = zext nneg i32 %19 to i64
+  %21 = lshr i64 %20, 12
+  %22 = getelementptr inbounds nuw ptr, ptr %8, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
+  %24 = and i64 %20, 4095
+  %25 = getelementptr inbounds nuw %struct.entity_id, ptr %23, i64 %24
+  %.sroa.01.0.copyload.i = load i32, ptr %25, align 4, !tbaa !26
+  %26 = and i32 %.sroa.01.0.copyload.i, 1048575
+  %27 = zext nneg i32 %26 to i64
+  %28 = lshr i64 %27, 10
+  %29 = getelementptr inbounds nuw ptr, ptr %10, i64 %28
+  %30 = load ptr, ptr %29, align 8, !tbaa !72
+  %31 = and i64 %27, 1023
+  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %33 = ptrtoint ptr %16 to i64
+  %34 = sub i64 %33, %14
+  %35 = ashr exact i64 %34, 2
+  %36 = add nsw i64 %35, -1
+  %37 = lshr i64 %36, 10
+  %38 = getelementptr inbounds nuw ptr, ptr %10, i64 %37
+  %39 = load ptr, ptr %38, align 8, !tbaa !72
+  %40 = and i64 %36, 1023
+  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !26
+  store i32 %42, ptr %32, align 4, !tbaa !26
+  %.sroa.06.0.copyload.i = load i32, ptr %18, align 4, !tbaa !26
+  %43 = and i32 %.sroa.06.0.copyload.i, 1048575
+  %44 = zext nneg i32 %43 to i64
+  %45 = lshr i64 %44, 12
+  %46 = getelementptr inbounds nuw ptr, ptr %8, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !24
+  %48 = and i64 %44, 4095
+  %49 = getelementptr inbounds nuw %struct.entity_id, ptr %47, i64 %48
+  %.sroa.04.0.copyload.i = load i32, ptr %49, align 4, !tbaa !26
+  %50 = and i32 %.sroa.04.0.copyload.i, 1048575
+  %51 = getelementptr inbounds i8, ptr %16, i64 -4
+  %.sroa.02.0.copyload.i = load i32, ptr %51, align 4, !tbaa !26
+  %52 = and i32 %.sroa.02.0.copyload.i, -1048576
+  %53 = or disjoint i32 %52, %50
+  %54 = and i32 %.sroa.02.0.copyload.i, 1048575
+  %55 = zext nneg i32 %54 to i64
+  %56 = lshr i64 %55, 12
+  %57 = getelementptr inbounds nuw ptr, ptr %8, i64 %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !24
+  %59 = and i64 %55, 4095
+  %60 = getelementptr inbounds nuw %struct.entity_id, ptr %58, i64 %59
+  store i32 %53, ptr %60, align 4, !tbaa !26
+  %61 = zext nneg i32 %50 to i64
+  %62 = getelementptr inbounds nuw %struct.entity_id, ptr %13, i64 %61
+  %63 = load i32, ptr %51, align 4, !tbaa !26
+  store i32 %63, ptr %62, align 4, !tbaa !26
+  store i32 -1, ptr %49, align 4, !tbaa !26
+  store ptr %51, ptr %12, align 8, !tbaa !145
+  %64 = add nsw i64 %.sroa.3.011, -1
+  %.not = icmp eq i64 %64, %4
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !146
 }
 
@@ -4554,7 +4554,6 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageIi9entity_idSaIiEvE7pop_
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %invariant.gep = getelementptr i8, ptr %5, i64 -4
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -4568,39 +4567,40 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageIi9entity_idSaIiEvE7pop_
 
 13:                                               ; preds = %.lr.ph, %13
   %.sroa.4.05 = phi i64 [ %9, %.lr.ph ], [ %15, %13 ]
-  %14 = phi ptr [ %4, %.lr.ph ], [ %24, %13 ]
+  %14 = phi ptr [ %4, %.lr.ph ], [ %26, %13 ]
   %15 = add nsw i64 %.sroa.4.05, -1
-  %gep = getelementptr %struct.entity_id, ptr %invariant.gep, i64 %.sroa.4.05
-  %.sroa.06.0.copyload.i = load i32, ptr %gep, align 4, !tbaa !26
-  %16 = and i32 %.sroa.06.0.copyload.i, 1048575
-  %17 = zext nneg i32 %16 to i64
-  %18 = lshr i64 %17, 12
-  %19 = getelementptr inbounds nuw ptr, ptr %12, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !24
-  %21 = and i64 %17, 4095
-  %22 = getelementptr inbounds nuw %struct.entity_id, ptr %20, i64 %21
-  %.sroa.04.0.copyload.i = load i32, ptr %22, align 4, !tbaa !26
-  %23 = and i32 %.sroa.04.0.copyload.i, 1048575
-  %24 = getelementptr inbounds i8, ptr %14, i64 -4
-  %.sroa.02.0.copyload.i = load i32, ptr %24, align 4, !tbaa !26
-  %25 = and i32 %.sroa.02.0.copyload.i, -1048576
-  %26 = or disjoint i32 %25, %23
-  %27 = and i32 %.sroa.02.0.copyload.i, 1048575
-  %28 = zext nneg i32 %27 to i64
-  %29 = lshr i64 %28, 12
-  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !24
-  %32 = and i64 %28, 4095
-  %33 = getelementptr inbounds nuw %struct.entity_id, ptr %31, i64 %32
-  store i32 %26, ptr %33, align 4, !tbaa !26
-  %34 = zext nneg i32 %23 to i64
-  %35 = getelementptr inbounds nuw %struct.entity_id, ptr %5, i64 %34
-  %36 = load i32, ptr %24, align 4, !tbaa !26
-  store i32 %36, ptr %35, align 4, !tbaa !26
-  store i32 -1, ptr %22, align 4, !tbaa !26
-  store ptr %24, ptr %3, align 8, !tbaa !145
-  %37 = icmp samesign ugt i64 %.sroa.4.05, 1
-  br i1 %37, label %13, label %._crit_edge, !llvm.loop !150
+  %16 = getelementptr %struct.entity_id, ptr %5, i64 %.sroa.4.05
+  %17 = getelementptr i8, ptr %16, i64 -4
+  %.sroa.06.0.copyload.i = load i32, ptr %17, align 4, !tbaa !26
+  %18 = and i32 %.sroa.06.0.copyload.i, 1048575
+  %19 = zext nneg i32 %18 to i64
+  %20 = lshr i64 %19, 12
+  %21 = getelementptr inbounds nuw ptr, ptr %12, i64 %20
+  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  %23 = and i64 %19, 4095
+  %24 = getelementptr inbounds nuw %struct.entity_id, ptr %22, i64 %23
+  %.sroa.04.0.copyload.i = load i32, ptr %24, align 4, !tbaa !26
+  %25 = and i32 %.sroa.04.0.copyload.i, 1048575
+  %26 = getelementptr inbounds i8, ptr %14, i64 -4
+  %.sroa.02.0.copyload.i = load i32, ptr %26, align 4, !tbaa !26
+  %27 = and i32 %.sroa.02.0.copyload.i, -1048576
+  %28 = or disjoint i32 %27, %25
+  %29 = and i32 %.sroa.02.0.copyload.i, 1048575
+  %30 = zext nneg i32 %29 to i64
+  %31 = lshr i64 %30, 12
+  %32 = getelementptr inbounds nuw ptr, ptr %12, i64 %31
+  %33 = load ptr, ptr %32, align 8, !tbaa !24
+  %34 = and i64 %30, 4095
+  %35 = getelementptr inbounds nuw %struct.entity_id, ptr %33, i64 %34
+  store i32 %28, ptr %35, align 4, !tbaa !26
+  %36 = zext nneg i32 %25 to i64
+  %37 = getelementptr inbounds nuw %struct.entity_id, ptr %5, i64 %36
+  %38 = load i32, ptr %26, align 4, !tbaa !26
+  store i32 %38, ptr %37, align 4, !tbaa !26
+  store i32 -1, ptr %24, align 4, !tbaa !26
+  store ptr %26, ptr %3, align 8, !tbaa !145
+  %39 = icmp samesign ugt i64 %.sroa.4.05, 1
+  br i1 %39, label %13, label %._crit_edge, !llvm.loop !150
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4815,14 +4815,13 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE3p
 
 .lr.ph:                                           ; preds = %.preheader21
   %8 = load ptr, ptr %1, align 8, !tbaa !144
-  %invariant.gep = getelementptr i8, ptr %8, i64 -4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !144
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.promoted = load i64, ptr %13, align 8, !tbaa !27
-  br label %65
+  br label %69
 
 .preheader19:                                     ; preds = %5
   %.not1725 = icmp eq i64 %2, %4
@@ -4830,146 +4829,147 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE3p
 
 .lr.ph27:                                         ; preds = %.preheader19
   %14 = load ptr, ptr %1, align 8, !tbaa !144
-  %invariant.gep28 = getelementptr i8, ptr %14, i64 -4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !144
-  %.promoted30 = load i64, ptr %17, align 8, !tbaa !64
-  %20 = trunc i64 %.promoted30 to i32
-  br label %51
+  %.promoted28 = load i64, ptr %17, align 8, !tbaa !64
+  %20 = trunc i64 %.promoted28 to i32
+  br label %53
 
 .preheader:                                       ; preds = %5
-  %.not1832 = icmp eq i64 %2, %4
-  br i1 %.not1832, label %.loopexit, label %.lr.ph34
+  %.not1830 = icmp eq i64 %2, %4
+  br i1 %.not1830, label %.loopexit, label %.lr.ph32
 
-.lr.ph34:                                         ; preds = %.preheader
+.lr.ph32:                                         ; preds = %.preheader
   %21 = load ptr, ptr %1, align 8, !tbaa !144
-  %invariant.gep35 = getelementptr i8, ptr %21, i64 -4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %24, align 8, !tbaa !144
-  %.promoted37 = load ptr, ptr %25, align 8, !tbaa !24
+  %.promoted33 = load ptr, ptr %25, align 8, !tbaa !24
   br label %27
 
-27:                                               ; preds = %.lr.ph34, %27
-  %28 = phi ptr [ %.promoted37, %.lr.ph34 ], [ %37, %27 ]
-  %.sroa.4.033 = phi i64 [ %2, %.lr.ph34 ], [ %50, %27 ]
-  %gep36 = getelementptr %struct.entity_id, ptr %invariant.gep35, i64 %.sroa.4.033
-  %.sroa.06.0.copyload.i = load i32, ptr %gep36, align 4, !tbaa !26
-  %29 = and i32 %.sroa.06.0.copyload.i, 1048575
-  %30 = zext nneg i32 %29 to i64
-  %31 = lshr i64 %30, 12
-  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !24
-  %34 = and i64 %30, 4095
-  %35 = getelementptr inbounds nuw %struct.entity_id, ptr %33, i64 %34
-  %.sroa.04.0.copyload.i = load i32, ptr %35, align 4, !tbaa !26
-  %36 = and i32 %.sroa.04.0.copyload.i, 1048575
-  %37 = getelementptr inbounds i8, ptr %28, i64 -4
-  %.sroa.02.0.copyload.i = load i32, ptr %37, align 4, !tbaa !26
-  %38 = and i32 %.sroa.02.0.copyload.i, -1048576
-  %39 = or disjoint i32 %38, %36
-  %40 = and i32 %.sroa.02.0.copyload.i, 1048575
-  %41 = zext nneg i32 %40 to i64
-  %42 = lshr i64 %41, 12
-  %43 = getelementptr inbounds nuw ptr, ptr %23, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !24
-  %45 = and i64 %41, 4095
-  %46 = getelementptr inbounds nuw %struct.entity_id, ptr %44, i64 %45
-  store i32 %39, ptr %46, align 4, !tbaa !26
-  %47 = zext nneg i32 %36 to i64
-  %48 = getelementptr inbounds nuw %struct.entity_id, ptr %26, i64 %47
-  %49 = load i32, ptr %37, align 4, !tbaa !26
-  store i32 %49, ptr %48, align 4, !tbaa !26
-  store i32 -1, ptr %35, align 4, !tbaa !26
-  store ptr %37, ptr %25, align 8, !tbaa !145
-  %50 = add nsw i64 %.sroa.4.033, -1
-  %.not18 = icmp eq i64 %50, %4
+27:                                               ; preds = %.lr.ph32, %27
+  %28 = phi ptr [ %.promoted33, %.lr.ph32 ], [ %39, %27 ]
+  %.sroa.4.031 = phi i64 [ %2, %.lr.ph32 ], [ %52, %27 ]
+  %29 = getelementptr %struct.entity_id, ptr %21, i64 %.sroa.4.031
+  %30 = getelementptr i8, ptr %29, i64 -4
+  %.sroa.06.0.copyload.i = load i32, ptr %30, align 4, !tbaa !26
+  %31 = and i32 %.sroa.06.0.copyload.i, 1048575
+  %32 = zext nneg i32 %31 to i64
+  %33 = lshr i64 %32, 12
+  %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %33
+  %35 = load ptr, ptr %34, align 8, !tbaa !24
+  %36 = and i64 %32, 4095
+  %37 = getelementptr inbounds nuw %struct.entity_id, ptr %35, i64 %36
+  %.sroa.04.0.copyload.i = load i32, ptr %37, align 4, !tbaa !26
+  %38 = and i32 %.sroa.04.0.copyload.i, 1048575
+  %39 = getelementptr inbounds i8, ptr %28, i64 -4
+  %.sroa.02.0.copyload.i = load i32, ptr %39, align 4, !tbaa !26
+  %40 = and i32 %.sroa.02.0.copyload.i, -1048576
+  %41 = or disjoint i32 %40, %38
+  %42 = and i32 %.sroa.02.0.copyload.i, 1048575
+  %43 = zext nneg i32 %42 to i64
+  %44 = lshr i64 %43, 12
+  %45 = getelementptr inbounds nuw ptr, ptr %23, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !24
+  %47 = and i64 %43, 4095
+  %48 = getelementptr inbounds nuw %struct.entity_id, ptr %46, i64 %47
+  store i32 %41, ptr %48, align 4, !tbaa !26
+  %49 = zext nneg i32 %38 to i64
+  %50 = getelementptr inbounds nuw %struct.entity_id, ptr %26, i64 %49
+  %51 = load i32, ptr %39, align 4, !tbaa !26
+  store i32 %51, ptr %50, align 4, !tbaa !26
+  store i32 -1, ptr %37, align 4, !tbaa !26
+  store ptr %39, ptr %25, align 8, !tbaa !145
+  %52 = add nsw i64 %.sroa.4.031, -1
+  %.not18 = icmp eq i64 %52, %4
   br i1 %.not18, label %.loopexit, label %27, !llvm.loop !168
 
-51:                                               ; preds = %.lr.ph27, %51
-  %52 = phi i32 [ %20, %.lr.ph27 ], [ %60, %51 ]
-  %.sroa.4.126 = phi i64 [ %2, %.lr.ph27 ], [ %64, %51 ]
-  %gep29 = getelementptr %struct.entity_id, ptr %invariant.gep28, i64 %.sroa.4.126
-  %.sroa.01.0.copyload.i = load i32, ptr %gep29, align 4, !tbaa !26
-  %53 = and i32 %.sroa.01.0.copyload.i, 1048575
-  %54 = zext nneg i32 %53 to i64
-  %55 = lshr i64 %54, 12
-  %56 = getelementptr inbounds nuw ptr, ptr %16, i64 %55
-  %57 = load ptr, ptr %56, align 8, !tbaa !24
-  %58 = and i64 %54, 4095
-  %59 = getelementptr inbounds nuw %struct.entity_id, ptr %57, i64 %58
-  %.sroa.03.0.copyload.i.i.i = load i32, ptr %59, align 4, !tbaa !26
-  store i32 -1, ptr %59, align 4, !tbaa !26
-  %60 = and i32 %.sroa.03.0.copyload.i.i.i, 1048575
-  %61 = zext nneg i32 %60 to i64
-  %62 = or i32 %52, -1048576
-  %63 = getelementptr inbounds nuw %struct.entity_id, ptr %19, i64 %61
-  store i32 %62, ptr %63, align 4, !tbaa !26
-  %64 = add nsw i64 %.sroa.4.126, -1
-  %.not17 = icmp eq i64 %64, %4
-  br i1 %.not17, label %..loopexit20_crit_edge, label %51, !llvm.loop !169
+53:                                               ; preds = %.lr.ph27, %53
+  %54 = phi i32 [ %20, %.lr.ph27 ], [ %64, %53 ]
+  %.sroa.4.126 = phi i64 [ %2, %.lr.ph27 ], [ %68, %53 ]
+  %55 = getelementptr %struct.entity_id, ptr %14, i64 %.sroa.4.126
+  %56 = getelementptr i8, ptr %55, i64 -4
+  %.sroa.01.0.copyload.i = load i32, ptr %56, align 4, !tbaa !26
+  %57 = and i32 %.sroa.01.0.copyload.i, 1048575
+  %58 = zext nneg i32 %57 to i64
+  %59 = lshr i64 %58, 12
+  %60 = getelementptr inbounds nuw ptr, ptr %16, i64 %59
+  %61 = load ptr, ptr %60, align 8, !tbaa !24
+  %62 = and i64 %58, 4095
+  %63 = getelementptr inbounds nuw %struct.entity_id, ptr %61, i64 %62
+  %.sroa.03.0.copyload.i.i.i = load i32, ptr %63, align 4, !tbaa !26
+  store i32 -1, ptr %63, align 4, !tbaa !26
+  %64 = and i32 %.sroa.03.0.copyload.i.i.i, 1048575
+  %65 = zext nneg i32 %64 to i64
+  %66 = or i32 %54, -1048576
+  %67 = getelementptr inbounds nuw %struct.entity_id, ptr %19, i64 %65
+  store i32 %66, ptr %67, align 4, !tbaa !26
+  %68 = add nsw i64 %.sroa.4.126, -1
+  %.not17 = icmp eq i64 %68, %4
+  br i1 %.not17, label %..loopexit20_crit_edge, label %53, !llvm.loop !169
 
-65:                                               ; preds = %.lr.ph, %65
-  %66 = phi i64 [ %.promoted, %.lr.ph ], [ %84, %65 ]
-  %.sroa.4.224 = phi i64 [ %2, %.lr.ph ], [ %99, %65 ]
-  %gep = getelementptr %struct.entity_id, ptr %invariant.gep, i64 %.sroa.4.224
-  %.sroa.02.0.copyload.i5 = load i32, ptr %gep, align 4, !tbaa !26
-  %67 = and i32 %.sroa.02.0.copyload.i5, 1048575
-  %68 = zext nneg i32 %67 to i64
-  %69 = lshr i64 %68, 12
-  %70 = getelementptr inbounds nuw ptr, ptr %10, i64 %69
-  %71 = load ptr, ptr %70, align 8, !tbaa !24
-  %72 = and i64 %68, 4095
-  %73 = getelementptr inbounds nuw %struct.entity_id, ptr %71, i64 %72
-  %.sroa.01.0.copyload.i.i = load i32, ptr %73, align 4, !tbaa !26
-  %74 = and i32 %.sroa.01.0.copyload.i.i, 1048575
-  %75 = zext nneg i32 %74 to i64
-  %76 = lshr i32 %.sroa.02.0.copyload.i5, 20
-  %77 = add nuw nsw i32 %76, 1
-  %78 = icmp eq i32 %77, 4095
-  %79 = shl i32 %77, 20
-  %80 = select i1 %78, i32 0, i32 %79
-  %81 = or disjoint i32 %80, %67
-  %82 = getelementptr inbounds nuw %struct.entity_id, ptr %12, i64 %75
-  store i32 %81, ptr %82, align 4, !tbaa !26
-  %83 = icmp ugt i64 %66, %75
-  %.neg.i = sext i1 %83 to i64
-  %84 = add i64 %66, %.neg.i
-  %85 = getelementptr inbounds nuw %struct.entity_id, ptr %12, i64 %84
-  %86 = trunc i64 %84 to i32
-  %87 = and i32 %86, 1048575
-  %88 = or disjoint i32 %87, %80
-  store i32 %88, ptr %73, align 4, !tbaa !26
-  %.sroa.01.0.copyload.i4.i = load i32, ptr %85, align 4, !tbaa !26
-  %89 = and i32 %.sroa.01.0.copyload.i4.i, -1048576
-  %90 = or disjoint i32 %89, %74
-  %91 = and i32 %.sroa.01.0.copyload.i4.i, 1048575
-  %92 = zext nneg i32 %91 to i64
-  %93 = lshr i64 %92, 12
-  %94 = getelementptr inbounds nuw ptr, ptr %10, i64 %93
-  %95 = load ptr, ptr %94, align 8, !tbaa !24
-  %96 = and i64 %92, 4095
-  %97 = getelementptr inbounds nuw %struct.entity_id, ptr %95, i64 %96
-  store i32 %90, ptr %97, align 4, !tbaa !26
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %82, align 4, !tbaa !26
-  %98 = load i32, ptr %85, align 4, !tbaa !26
-  store i32 %98, ptr %82, align 4, !tbaa !26
-  store i32 %.sroa.0.0.copyload.i.i.i, ptr %85, align 4, !tbaa !26
-  %99 = add nsw i64 %.sroa.4.224, -1
-  %.not = icmp eq i64 %99, %4
-  br i1 %.not, label %..loopexit22_crit_edge, label %65, !llvm.loop !170
+69:                                               ; preds = %.lr.ph, %69
+  %70 = phi i64 [ %.promoted, %.lr.ph ], [ %90, %69 ]
+  %.sroa.4.224 = phi i64 [ %2, %.lr.ph ], [ %105, %69 ]
+  %71 = getelementptr %struct.entity_id, ptr %8, i64 %.sroa.4.224
+  %72 = getelementptr i8, ptr %71, i64 -4
+  %.sroa.02.0.copyload.i5 = load i32, ptr %72, align 4, !tbaa !26
+  %73 = and i32 %.sroa.02.0.copyload.i5, 1048575
+  %74 = zext nneg i32 %73 to i64
+  %75 = lshr i64 %74, 12
+  %76 = getelementptr inbounds nuw ptr, ptr %10, i64 %75
+  %77 = load ptr, ptr %76, align 8, !tbaa !24
+  %78 = and i64 %74, 4095
+  %79 = getelementptr inbounds nuw %struct.entity_id, ptr %77, i64 %78
+  %.sroa.01.0.copyload.i.i = load i32, ptr %79, align 4, !tbaa !26
+  %80 = and i32 %.sroa.01.0.copyload.i.i, 1048575
+  %81 = zext nneg i32 %80 to i64
+  %82 = lshr i32 %.sroa.02.0.copyload.i5, 20
+  %83 = add nuw nsw i32 %82, 1
+  %84 = icmp eq i32 %83, 4095
+  %85 = shl i32 %83, 20
+  %86 = select i1 %84, i32 0, i32 %85
+  %87 = or disjoint i32 %86, %73
+  %88 = getelementptr inbounds nuw %struct.entity_id, ptr %12, i64 %81
+  store i32 %87, ptr %88, align 4, !tbaa !26
+  %89 = icmp ugt i64 %70, %81
+  %.neg.i = sext i1 %89 to i64
+  %90 = add i64 %70, %.neg.i
+  %91 = getelementptr inbounds nuw %struct.entity_id, ptr %12, i64 %90
+  %92 = trunc i64 %90 to i32
+  %93 = and i32 %92, 1048575
+  %94 = or disjoint i32 %93, %86
+  store i32 %94, ptr %79, align 4, !tbaa !26
+  %.sroa.01.0.copyload.i4.i = load i32, ptr %91, align 4, !tbaa !26
+  %95 = and i32 %.sroa.01.0.copyload.i4.i, -1048576
+  %96 = or disjoint i32 %95, %80
+  %97 = and i32 %.sroa.01.0.copyload.i4.i, 1048575
+  %98 = zext nneg i32 %97 to i64
+  %99 = lshr i64 %98, 12
+  %100 = getelementptr inbounds nuw ptr, ptr %10, i64 %99
+  %101 = load ptr, ptr %100, align 8, !tbaa !24
+  %102 = and i64 %98, 4095
+  %103 = getelementptr inbounds nuw %struct.entity_id, ptr %101, i64 %102
+  store i32 %96, ptr %103, align 4, !tbaa !26
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %88, align 4, !tbaa !26
+  %104 = load i32, ptr %91, align 4, !tbaa !26
+  store i32 %104, ptr %88, align 4, !tbaa !26
+  store i32 %.sroa.0.0.copyload.i.i.i, ptr %91, align 4, !tbaa !26
+  %105 = add nsw i64 %.sroa.4.224, -1
+  %.not = icmp eq i64 %105, %4
+  br i1 %.not, label %..loopexit22_crit_edge, label %69, !llvm.loop !170
 
-..loopexit20_crit_edge:                           ; preds = %51
-  store i64 %61, ptr %17, align 8, !tbaa !64
+..loopexit20_crit_edge:                           ; preds = %53
+  store i64 %65, ptr %17, align 8, !tbaa !64
   br label %.loopexit
 
-..loopexit22_crit_edge:                           ; preds = %65
-  store i64 %84, ptr %13, align 8, !tbaa !27
+..loopexit22_crit_edge:                           ; preds = %69
+  store i64 %90, ptr %13, align 8, !tbaa !27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.preheader21, %..loopexit22_crit_edge, %.preheader19, %..loopexit20_crit_edge, %.preheader, %5

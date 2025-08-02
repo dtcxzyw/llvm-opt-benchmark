@@ -11486,11 +11486,10 @@ define internal fastcc range(i64 1, 0) i64 @apply2files(ptr noundef %0, i32 noun
   %23 = phi ptr [ %12, %.thread ], [ %18, %16 ]
   %24 = phi ptr [ %11, %.thread ], [ %17, %16 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %invariant.gep = getelementptr i8, ptr %24, i64 40
   br label %26
 
 26:                                               ; preds = %.lr.ph, %RSTRING_PTR.exit
-  %storemerge33 = phi i32 [ 0, %.lr.ph ], [ %51, %RSTRING_PTR.exit ]
+  %storemerge33 = phi i32 [ 0, %.lr.ph ], [ %53, %RSTRING_PTR.exit ]
   %27 = sext i32 %storemerge33 to i64
   %28 = getelementptr i64, ptr %2, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !12
@@ -11549,45 +11548,46 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
   %50 = getelementptr [0 x %struct.apply_filename], ptr %25, i64 0, i64 %49
   store ptr %.sroa.2.0.i, ptr %50, align 8, !tbaa !339
   %.idx32 = shl nsw i64 %49, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx32
-  store i64 %42, ptr %gep, align 8, !tbaa !341
-  %51 = add i32 %48, 1
-  store i32 %51, ptr %24, align 8, !tbaa !26
-  %52 = icmp slt i32 %51, %1
-  br i1 %52, label %26, label %._crit_edge, !llvm.loop !342
+  %51 = getelementptr i8, ptr %25, i64 %.idx32
+  %52 = getelementptr i8, ptr %51, i64 8
+  store i64 %42, ptr %52, align 8, !tbaa !341
+  %53 = add i32 %48, 1
+  store i32 %53, ptr %24, align 8, !tbaa !26
+  %54 = icmp slt i32 %53, %1
+  br i1 %54, label %26, label %._crit_edge, !llvm.loop !342
 
 ._crit_edge:                                      ; preds = %RSTRING_PTR.exit, %16
-  %53 = phi ptr [ %18, %16 ], [ %23, %RSTRING_PTR.exit ]
-  %54 = phi ptr [ %17, %16 ], [ %24, %RSTRING_PTR.exit ]
-  %55 = call ptr @rb_nogvl(ptr noundef nonnull @no_gvl_apply2files, ptr noundef nonnull %54, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null, i32 noundef 4) #22
-  %56 = load i32, ptr %53, align 8, !tbaa !26
-  %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %63, label %57
+  %55 = phi ptr [ %18, %16 ], [ %23, %RSTRING_PTR.exit ]
+  %56 = phi ptr [ %17, %16 ], [ %24, %RSTRING_PTR.exit ]
+  %57 = call ptr @rb_nogvl(ptr noundef nonnull @no_gvl_apply2files, ptr noundef nonnull %56, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null, i32 noundef 4) #22
+  %58 = load i32, ptr %55, align 8, !tbaa !26
+  %.not = icmp eq i32 %58, 0
+  br i1 %.not, label %65, label %59
 
-57:                                               ; preds = %._crit_edge
-  %58 = load i32, ptr %54, align 8, !tbaa !26
-  %59 = sext i32 %58 to i64
-  %.idx = shl nsw i64 %59, 4
-  %60 = getelementptr i8, ptr %54, i64 40
-  %61 = getelementptr i8, ptr %60, i64 %.idx
-  %62 = load i64, ptr %61, align 8, !tbaa !341
-  call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.apply2files, i32 noundef %56, i64 noundef %62) #24
+59:                                               ; preds = %._crit_edge
+  %60 = load i32, ptr %56, align 8, !tbaa !26
+  %61 = sext i32 %60 to i64
+  %.idx = shl nsw i64 %61, 4
+  %62 = getelementptr i8, ptr %56, i64 40
+  %63 = getelementptr i8, ptr %62, i64 %.idx
+  %64 = load i64, ptr %63, align 8, !tbaa !341
+  call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.apply2files, i32 noundef %58, i64 noundef %64) #24
   unreachable
 
-63:                                               ; preds = %._crit_edge
-  %64 = load i64, ptr %6, align 8, !tbaa !12
-  %.not31 = icmp eq i64 %64, 0
-  br i1 %.not31, label %66, label %65
+65:                                               ; preds = %._crit_edge
+  %66 = load i64, ptr %6, align 8, !tbaa !12
+  %.not31 = icmp eq i64 %66, 0
+  br i1 %.not31, label %68, label %67
 
-65:                                               ; preds = %63
+67:                                               ; preds = %65
   call void @rb_free_tmp_buffer(ptr noundef nonnull %6) #22
-  br label %66
+  br label %68
 
-66:                                               ; preds = %65, %63
-  %67 = shl nsw i64 %7, 1
-  %68 = or disjoint i64 %67, 1
+68:                                               ; preds = %67, %65
+  %69 = shl nsw i64 %7, 1
+  %70 = or disjoint i64 %69, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  ret i64 %68
+  ret i64 %70
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -11680,7 +11680,7 @@ define internal i32 @utime_internal(ptr noundef %0, ptr noundef readonly capture
 declare noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @no_gvl_apply2files(ptr noundef captures(none) initializes((0, 4)) %0) #0 {
+define internal noalias noundef ptr @no_gvl_apply2files(ptr noundef captures(none) initializes((0, 4)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %0, align 8, !tbaa !26
   %3 = load i32, ptr %2, align 4, !tbaa !26

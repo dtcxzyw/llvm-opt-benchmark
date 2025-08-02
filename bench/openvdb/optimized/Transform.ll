@@ -2095,8 +2095,8 @@ _ZNSt12__shared_ptrIN7openvdb5v11_04math9AffineMapELN9__gnu_cxx12_Lock_policyE2E
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9TransformC2ERKS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN7openvdb5v11_04math9TransformC2ERKS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %other, align 8, !noalias !25
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 8

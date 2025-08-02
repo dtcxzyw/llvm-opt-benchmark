@@ -31,7 +31,7 @@ define void @_ZN3tbb6detail2r117assertion_failureEPKciS3_S3_(ptr noundef %0, i32
   store i32 %1, ptr %6, align 4, !tbaa !8
   store ptr %2, ptr %7, align 8, !tbaa !3
   store ptr %3, ptr %8, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #14
   store ptr %5, ptr %9, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %6, ptr %10, align 8, !tbaa !13
@@ -68,7 +68,7 @@ _ZNSt6atomicIN3tbb6detail2d013do_once_stateEE23compare_exchange_strongERS3_S3_St
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %.lr.ph.i.i
-  %24 = call noundef i32 @sched_yield() #15
+  %24 = call noundef i32 @sched_yield() #14
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i
 
 25:                                               ; preds = %.lr.ph.i.i
@@ -98,7 +98,7 @@ _ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eq
   br i1 %.not.i, label %"_ZN3tbb6detail2d014atomic_do_onceIZNS0_2r117assertion_failureEPKciS5_S5_E3$_0EEvRKT_RSt6atomicINS1_13do_once_stateEE.exit", label %.lr.ph.i, !llvm.loop !19
 
 "_ZN3tbb6detail2d014atomic_do_onceIZNS0_2r117assertion_failureEPKciS5_S5_E3$_0EEvRKT_RSt6atomicINS1_13do_once_stateEE.exit": ; preds = %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i, %4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #14
   ret void
 }
 
@@ -112,9 +112,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define void @_ZN3tbb6detail2r115runtime_warningEPKcz(ptr noundef %0, ...) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %2, i8 noundef 0, i64 noundef 1024, i1 noundef false) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %2, i8 noundef 0, i64 noundef 1024, i1 noundef false) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = invoke i32 @__vsnprintf_chk(ptr noundef nonnull %2, i64 noundef 1023, i32 noundef 1, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %3)
           to label %vsnprintf.inline.exit unwind label %5
@@ -123,15 +123,15 @@ define void @_ZN3tbb6detail2r115runtime_warningEPKcz(ptr noundef %0, ...) local_
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #17
+  call void @__clang_call_terminate(ptr %7) #16
   unreachable
 
 vsnprintf.inline.exit:                            ; preds = %1
   call void @llvm.va_end.p0(ptr nonnull %3)
   %8 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull %2) #18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #15
+  %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull %2) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #14
   ret void
 }
 
@@ -146,7 +146,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define noundef i64 @_ZN3tbb6detail2r121DefaultSystemPageSizeEv() local_unnamed_addr #0 {
-  %1 = tail call i64 @sysconf(i32 noundef 30) #15
+  %1 = tail call i64 @sysconf(i32 noundef 30) #14
   ret i64 %1
 }
 
@@ -157,7 +157,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #4
 define void @_ZN3tbb6detail2r112PrintVersionEv() local_unnamed_addr #5 {
   store i1 true, ptr @_ZN3tbb6detail2r1L16PrintVersionFlagE, align 1
   %1 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %2 = tail call i64 @fwrite(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZN3tbb6detail2r1L13VersionStringE, i64 1), i64 141, i64 1, ptr %1) #19
+  %2 = tail call i64 @fwrite(ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZN3tbb6detail2r1L13VersionStringE, i64 1), i64 141, i64 1, ptr %1) #18
   ret void
 }
 
@@ -169,9 +169,9 @@ define void @_ZN3tbb6detail2r121PrintExtraVersionInfoEPKcS3_z(ptr noundef %0, pt
   br i1 %.b2, label %5, label %12
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %3, i8 noundef 0, i64 noundef 1024, i1 noundef false) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %3, i8 noundef 0, i64 noundef 1024, i1 noundef false) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #14
   call void @llvm.va_start.p0(ptr nonnull %4)
   %6 = invoke i32 @__vsnprintf_chk(ptr noundef nonnull %3, i64 noundef 1023, i32 noundef 1, i64 noundef 1024, ptr noundef %1, ptr noundef nonnull %4)
           to label %vsnprintf.inline.exit unwind label %7
@@ -180,15 +180,15 @@ define void @_ZN3tbb6detail2r121PrintExtraVersionInfoEPKcS3_z(ptr noundef %0, pt
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #17
+  call void @__clang_call_terminate(ptr %9) #16
   unreachable
 
 vsnprintf.inline.exit:                            ; preds = %5
   call void @llvm.va_end.p0(ptr nonnull %4)
   %10 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #15
+  %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #14
   br label %12
 
 12:                                               ; preds = %vsnprintf.inline.exit, %2
@@ -197,7 +197,7 @@ vsnprintf.inline.exit:                            ; preds = %5
 
 ; Function Attrs: mustprogress nounwind sspstrong memory(argmem: write) uwtable
 define void @_ZN3tbb6detail2r111check_cpuidEiiPi(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #6 {
-  %4 = tail call { i32, i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 %1) #20, !srcloc !22
+  %4 = tail call { i32, i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 %1) #19, !srcloc !22
   %5 = extractvalue { i32, i32, i32, i32 } %4, 0
   %6 = extractvalue { i32, i32, i32, i32 } %4, 1
   %7 = extractvalue { i32, i32, i32, i32 } %4, 2
@@ -212,9 +212,9 @@ define void @_ZN3tbb6detail2r111check_cpuidEiiPi(i32 noundef %0, i32 noundef %1,
   ret void
 }
 
-; Function Attrs: mustprogress sspstrong memory(argmem: write) uwtable
-define void @_ZN3tbb6detail2r119detect_cpu_featuresERNS1_17cpu_features_typeE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0) local_unnamed_addr #7 {
-  %2 = tail call { i32, i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #20, !srcloc !22
+; Function Attrs: mustprogress nounwind sspstrong memory(argmem: write) uwtable
+define void @_ZN3tbb6detail2r119detect_cpu_featuresERNS1_17cpu_features_typeE(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %0) local_unnamed_addr #6 {
+  %2 = tail call { i32, i32, i32, i32 } asm "cpuid", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #19, !srcloc !22
   %3 = extractvalue { i32, i32, i32, i32 } %2, 1
   %4 = extractvalue { i32, i32, i32, i32 } %2, 2
   %5 = extractvalue { i32, i32, i32, i32 } %2, 3
@@ -236,27 +236,27 @@ define void @_ZN3tbb6detail2r119detect_cpu_featuresERNS1_17cpu_features_typeE(pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree
-declare i32 @__vsnprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @__vsnprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind sspstrong uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #17
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #11
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: cold inlinehint mustprogress nofree noreturn nounwind sspstrong uwtable
-define internal fastcc void @"_ZZN3tbb6detail2r117assertion_failureEPKciS3_S3_ENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #12 align 2 {
+define internal fastcc void @"_ZZN3tbb6detail2r117assertion_failureEPKciS3_S3_ENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #11 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -273,21 +273,21 @@ define internal fastcc void @"_ZZN3tbb6detail2r117assertion_failureEPKciS3_S3_EN
 }
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind sspstrong uwtable
-define internal fastcc void @_ZN3tbb6detail2r1L22assertion_failure_implEPKciS3_S3_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #13 {
+define internal fastcc void @_ZN3tbb6detail2r1L22assertion_failure_implEPKciS3_S3_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #12 {
   %5 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef %2, ptr noundef %0, i32 noundef %1) #18
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef %2, ptr noundef %0, i32 noundef %1) #17
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #18
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #17
   br label %10
 
 10:                                               ; preds = %7, %4
   %11 = load ptr, ptr @stderr, align 8, !tbaa !20
   %12 = tail call i32 @fflush(ptr noundef %11)
-  tail call void @abort() #17
+  tail call void @abort() #16
   unreachable
 }
 
@@ -295,16 +295,16 @@ define internal fastcc void @_ZN3tbb6detail2r1L22assertion_failure_implEPKciS3_S
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #14
+declare void @abort() local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse2.pause() #15
+declare void @llvm.x86.sse2.pause() #14
 
 ; Function Attrs: nounwind
 declare i32 @sched_yield() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 attributes #0 = { mustprogress nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -313,20 +313,19 @@ attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buf
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold mustprogress nofree nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind sspstrong memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress sspstrong memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #10 = { noinline noreturn nounwind sspstrong uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold nofree noreturn }
-attributes #12 = { cold inlinehint mustprogress nofree noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold mustprogress nofree noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind }
-attributes #16 = { nofree nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { cold nounwind }
-attributes #19 = { cold }
-attributes #20 = { nounwind memory(none) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline noreturn nounwind sspstrong uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { cold inlinehint mustprogress nofree noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold mustprogress nofree noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind }
+attributes #15 = { nofree nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { cold nounwind }
+attributes #18 = { cold }
+attributes #19 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

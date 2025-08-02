@@ -9829,20 +9829,20 @@ define internal fastcc void @dissect_zcl_met_mirror_report_attribute_response(pt
   %9 = load i32, ptr %2, align 4
   %10 = add i32 %9, 1
   store i32 %10, ptr %2, align 4
-  switch i8 %5, label %.preheader [
+  switch i8 %5, label %.critedge.preheader [
     i8 1, label %14
     i8 2, label %13
   ]
 
-.preheader:                                       ; preds = %3
+.critedge.preheader:                              ; preds = %3
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %10)
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph, label %.loopexit
+  br i1 %12, label %.critedge, label %.loopexit
 
 13:                                               ; preds = %3
   br label %14
 
-14:                                               ; preds = %3, %13
+14:                                               ; preds = %13, %3
   %.0 = phi i32 [ 5, %13 ], [ 1, %3 ]
   br label %15
 
@@ -9854,7 +9854,7 @@ define internal fastcc void @dissect_zcl_met_mirror_report_attribute_response(pt
   %exitcond.not = icmp eq i32 %indvars.iv.next, %.0
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !31
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+.critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %17 = load i32, ptr %2, align 4
   %18 = load i32, ptr @ett_zbee_zcl_met_mirror_noti_flag, align 4
   %19 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.611)
@@ -9866,9 +9866,9 @@ define internal fastcc void @dissect_zcl_met_mirror_report_attribute_response(pt
   store i32 %24, ptr %2, align 4
   %25 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %24)
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !32
+  br i1 %26, label %.critedge, label %.loopexit, !llvm.loop !32
 
-.loopexit:                                        ; preds = %15, %.lr.ph, %.preheader
+.loopexit:                                        ; preds = %15, %.critedge, %.critedge.preheader
   ret void
 }
 

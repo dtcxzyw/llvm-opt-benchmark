@@ -209,7 +209,7 @@ define hidden void @_ZNK6hermes9SourceMap21getLocationForAddressEjj(ptr noalias 
 entry:
   %ref.tmp = alloca %"struct.hermes::SourceMapTextLocation", align 8
   %cmp.i.i = icmp eq i32 %line, 0
-  br i1 %cmp.i.i, label %if.then, label %lor.lhs.false.i.i
+  br i1 %cmp.i.i, label %if.then.critedge, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
   %conv.i.i = zext i32 %line to i64
@@ -222,7 +222,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
   %cmp2.i.i = icmp ult i64 %sub.ptr.div.i.i.i, %conv.i.i
-  br i1 %cmp2.i.i, label %if.then, label %if.end.i.i
+  br i1 %cmp2.i.i, label %if.then.critedge, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %sub.i.i = add i32 %line, -1
@@ -232,7 +232,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !9
   %cmp.i.i.i.i = icmp eq ptr %2, %3
-  br i1 %cmp.i.i.i.i, label %if.then, label %if.end8.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.critedge, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
   %sub9.i.i = add i32 %column, -1
@@ -240,7 +240,7 @@ if.end8.i.i:                                      ; preds = %if.end.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %cmp2.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i, 0
-  br i1 %cmp2.i.i.i.i, label %while.body.preheader.i.i.i.i, label %if.then
+  br i1 %cmp2.i.i.i.i, label %while.body.preheader.i.i.i.i, label %if.then.critedge
 
 while.body.preheader.i.i.i.i:                     ; preds = %if.end8.i.i
   %sub.ptr.div.i.i.i5.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 28
@@ -263,20 +263,15 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
 
 "_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i.i": ; preds = %while.body.i.i.i.i
   %cmp.i.i.i = icmp eq ptr %__first.sroa.0.1.i.i.i.i, %2
-  br i1 %cmp.i.i.i, label %if.then, label %lor.lhs.false.i
+  br i1 %cmp.i.i.i, label %if.then.critedge, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i.i"
   %seg.sroa.44.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 -4
   %seg.sroa.44.0.copyload.i = load i8, ptr %seg.sroa.44.0.cond-lvalue.i.sroa_idx.i, align 4
   %tobool.i2.i = trunc i8 %seg.sroa.44.0.copyload.i to i1
-  br i1 %tobool.i2.i, label %if.end, label %if.then
+  br i1 %tobool.i2.i, label %if.end.i, label %if.then.critedge
 
-if.then:                                          ; preds = %lor.lhs.false.i, %lor.lhs.false.i.i, %entry, %if.end.i.i, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i.i", %if.end8.i.i
-  %hasVal.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
-  store i8 0, ptr %hasVal.i.i, align 8
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false.i
+if.end.i:                                         ; preds = %lor.lhs.false.i
   %seg.sroa.3.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 -16
   %seg.sroa.3.0.copyload.i = load i32, ptr %seg.sroa.3.0.cond-lvalue.i.sroa_idx.i, align 4
   %seg.sroa.2.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 -20
@@ -304,7 +299,12 @@ if.end:                                           ; preds = %lor.lhs.false.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #6
   br label %return
 
-return:                                           ; preds = %if.end, %if.then
+if.then.critedge:                                 ; preds = %if.end8.i.i, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i.i", %if.end.i.i, %entry, %lor.lhs.false.i.i, %lor.lhs.false.i
+  %hasVal.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
+  store i8 0, ptr %hasVal.i.i, align 8
+  br label %return
+
+return:                                           ; preds = %if.end.i, %if.then.critedge
   ret void
 }
 

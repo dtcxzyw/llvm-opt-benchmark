@@ -647,7 +647,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ipv6_dev_get_saddr(ptr noundef %
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %23, align 8
   tail call void @__rcu_read_lock() #20
-  br i1 %9, label %39, label %24
+  br i1 %9, label %.critedge, label %24
 
 24:                                               ; preds = %13
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -660,63 +660,63 @@ define dso_local noundef range(i32 -99, 1) i32 @ipv6_dev_get_saddr(ptr noundef %
   br i1 %30, label %37, label %32
 
 32:                                               ; preds = %24
-  br i1 %31, label %39, label %33
+  br i1 %31, label %.critedge, label %33
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 852
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %39, label %.thread7
+  br i1 %36, label %.critedge, label %.thread
 
 37:                                               ; preds = %24
-  br i1 %31, label %.loopexit, label %.thread7
+  br i1 %31, label %.loopexit, label %.thread
 
-.thread7:                                         ; preds = %33, %37
+.thread:                                          ; preds = %33, %37
   %38 = call fastcc i32 @__ipv6_dev_get_saddr(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %26, ptr noundef nonnull %6, i32 noundef 0)
   br label %.loopexit
 
-39:                                               ; preds = %33, %32, %13
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %41 = load volatile ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, %40
-  br i1 %42, label %.loopexit, label %.preheader
+.critedge:                                        ; preds = %33, %32, %13
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %40 = load volatile ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, %39
+  br i1 %41, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %39, %50
-  %43 = phi ptr [ %52, %50 ], [ %41, %39 ]
-  %44 = phi i32 [ %51, %50 ], [ 0, %39 ]
-  %45 = getelementptr i8, ptr %43, i64 -176
-  %46 = load volatile ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %50, label %48
+.preheader:                                       ; preds = %.critedge, %49
+  %42 = phi ptr [ %51, %49 ], [ %40, %.critedge ]
+  %43 = phi i32 [ %50, %49 ], [ 0, %.critedge ]
+  %44 = getelementptr i8, ptr %42, i64 -176
+  %45 = load volatile ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %49, label %47
 
-48:                                               ; preds = %.preheader
-  %49 = call fastcc i32 @__ipv6_dev_get_saddr(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %46, ptr noundef nonnull %6, i32 noundef %44)
-  br label %50
+47:                                               ; preds = %.preheader
+  %48 = call fastcc i32 @__ipv6_dev_get_saddr(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %45, ptr noundef nonnull %6, i32 noundef %43)
+  br label %49
 
-50:                                               ; preds = %48, %.preheader
-  %51 = phi i32 [ %49, %48 ], [ %44, %.preheader ]
-  %52 = load volatile ptr, ptr %43, align 8
-  %53 = icmp eq ptr %52, %40
-  br i1 %53, label %.loopexit, label %.preheader, !llvm.loop !20
+49:                                               ; preds = %47, %.preheader
+  %50 = phi i32 [ %48, %47 ], [ %43, %.preheader ]
+  %51 = load volatile ptr, ptr %42, align 8
+  %52 = icmp eq ptr %51, %39
+  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !20
 
-.loopexit:                                        ; preds = %50, %39, %.thread7, %37
-  %54 = phi i32 [ %38, %.thread7 ], [ 0, %37 ], [ 0, %39 ], [ %51, %50 ]
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr [2 x %struct.ipv6_saddr_score], ptr %6, i64 0, i64 %55, i32 2
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %60, label %59
+.loopexit:                                        ; preds = %49, %.critedge, %.thread, %37
+  %53 = phi i32 [ %38, %.thread ], [ 0, %37 ], [ 0, %.critedge ], [ %50, %49 ]
+  %54 = zext nneg i32 %53 to i64
+  %55 = getelementptr [2 x %struct.ipv6_saddr_score], ptr %6, i64 0, i64 %54, i32 2
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %59, label %58
 
-59:                                               ; preds = %.loopexit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
-  br label %60
+58:                                               ; preds = %.loopexit
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
+  br label %59
 
-60:                                               ; preds = %59, %.loopexit
-  %61 = phi i32 [ 0, %59 ], [ -99, %.loopexit ]
+59:                                               ; preds = %58, %.loopexit
+  %60 = phi i32 [ 0, %58 ], [ -99, %.loopexit ]
   call void @__rcu_read_unlock() #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #20
-  ret i32 %61
+  ret i32 %60
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2219,14 +2219,14 @@ define dso_local noundef range(i32 -1, 1) i32 @addrconf_prefix_rcv_add_addr(ptr 
 43:                                               ; preds = %37
   tail call void @__rcu_read_unlock() #20
   %44 = icmp slt i32 %38, %20
-  br i1 %44, label %45, label %addrconf_mod_dad_work.exit
+  br i1 %44, label %45, label %.critedge
 
 45:                                               ; preds = %18, %43
   %46 = call fastcc ptr @ipv6_add_addr(ptr noundef %3, ptr noundef nonnull %12, i1 noundef zeroext false, ptr noundef null)
   %47 = icmp eq ptr %46, null
   %48 = icmp ugt ptr %46, inttoptr (i64 -4096 to ptr)
   %49 = or i1 %47, %48
-  br i1 %49, label %addrconf_mod_dad_work.exit, label %50
+  br i1 %49, label %.critedge, label %50
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 36
@@ -2294,13 +2294,9 @@ define dso_local noundef range(i32 -1, 1) i32 @addrconf_prefix_rcv_add_addr(ptr 
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %51) #20
   br label %.thread6
 
-.thread6:                                         ; preds = %81, %80, %78, %71, %82
+.thread6:                                         ; preds = %82, %71, %78, %80, %81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #20
   br label %84
-
-addrconf_mod_dad_work.exit:                       ; preds = %43, %45
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #20
-  br label %135
 
 83:                                               ; preds = %11
   br i1 %15, label %135, label %84
@@ -2394,8 +2390,12 @@ addrconf_mod_dad_work.exit:                       ; preds = %43, %45
   %134 = tail call zeroext i1 @mod_delayed_work_on(i32 noundef 64, ptr noundef %132, ptr noundef nonnull %133, i64 noundef 0) #20
   br label %135
 
-135:                                              ; preds = %addrconf_mod_dad_work.exit, %.thread9, %83
-  %136 = phi i32 [ -1, %addrconf_mod_dad_work.exit ], [ 0, %.thread9 ], [ 0, %83 ]
+.critedge:                                        ; preds = %43, %45
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #20
+  br label %135
+
+135:                                              ; preds = %.critedge, %.thread9, %83
+  %136 = phi i32 [ 0, %.thread9 ], [ 0, %83 ], [ -1, %.critedge ]
   ret i32 %136
 }
 

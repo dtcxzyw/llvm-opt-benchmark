@@ -12690,8 +12690,8 @@ default.unreachable34:                            ; preds = %27
   %176 = load i32, ptr %175, align 4, !alias.scope !897, !noalias !900, !noundef !6
   %177 = zext i32 %176 to i64
   %.idx33 = mul nuw nsw i64 %173, 24
-  %178 = getelementptr i8, ptr %165, i64 24
-  %179 = getelementptr i8, ptr %178, i64 %.idx33
+  %178 = getelementptr inbounds nuw i8, ptr %165, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx33
   %180 = load ptr, ptr %179, align 8, !alias.scope !902, !noalias !897, !noundef !6
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 %177
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc10E.exit
@@ -12738,8 +12738,8 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc1
   %205 = load i32, ptr %204, align 4, !alias.scope !905, !noalias !908, !noundef !6
   %206 = zext i32 %205 to i64
   %.idx = mul nuw nsw i64 %202, 24
-  %207 = getelementptr i8, ptr %194, i64 24
-  %208 = getelementptr i8, ptr %207, i64 %.idx
+  %207 = getelementptr inbounds nuw i8, ptr %194, i64 24
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 %.idx
   %209 = load ptr, ptr %208, align 8, !alias.scope !910, !noalias !905, !noundef !6
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 %206
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc10E.exit61
@@ -21772,8 +21772,8 @@ define hidden { i32, i32 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %56 = load i32, ptr %55, align 4, !alias.scope !1420, !noalias !1425, !noundef !6
   %57 = zext i32 %56 to i64
   %.idx.i = mul nuw nsw i64 %53, 24
-  %58 = getelementptr i8, ptr %45, i64 24
-  %59 = getelementptr i8, ptr %58, i64 %.idx.i
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i
   %60 = load ptr, ptr %59, align 8, !alias.scope !1428, !noalias !1431, !noundef !6
   %61 = zext i32 %48 to i64
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 %57
@@ -37213,7 +37213,7 @@ define void @"_ZN97_$LT$polars_expr..groups..binview..BinviewHashGrouper$u20$as$
   %45 = load i64, ptr %44, align 8, !alias.scope !2356, !noalias !2359, !noundef !6
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %48 = getelementptr i8, ptr %43, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   br label %49
 
@@ -37249,7 +37249,7 @@ define void @"_ZN97_$LT$polars_expr..groups..binview..BinviewHashGrouper$u20$as$
   %65 = load i32, ptr %47, align 4, !alias.scope !2371, !noalias !2376, !noundef !6
   %66 = zext i32 %65 to i64
   %.idx.i.i.i = mul nuw nsw i64 %63, 24
-  %67 = getelementptr i8, ptr %48, i64 %.idx.i.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i.i.i
   %68 = load ptr, ptr %67, align 8, !alias.scope !2379, !noalias !2382, !noundef !6
   %69 = zext i32 %59 to i64
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 %66
@@ -37393,8 +37393,8 @@ define void @"_ZN97_$LT$polars_expr..groups..binview..BinviewHashGrouper$u20$as$
   %130 = load i32, ptr %94, align 4, !alias.scope !2401, !noalias !2406, !noundef !6
   %131 = zext i32 %130 to i64
   %.idx.i.i.i56 = mul nuw nsw i64 %128, 24
-  %132 = getelementptr i8, ptr %122, i64 24
-  %133 = getelementptr i8, ptr %132, i64 %.idx.i.i.i56
+  %132 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 %.idx.i.i.i56
   %134 = load ptr, ptr %133, align 8, !alias.scope !2409, !noalias !2412, !noundef !6
   %135 = zext i32 %124 to i64
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 %131
@@ -37510,8 +37510,8 @@ define void @"_ZN97_$LT$polars_expr..groups..binview..BinviewHashGrouper$u20$as$
   %197 = load i32, ptr %155, align 4, !alias.scope !2431, !noalias !2436, !noundef !6
   %198 = zext i32 %197 to i64
   %.idx.i.i.i63 = mul nuw nsw i64 %195, 24
-  %199 = getelementptr i8, ptr %189, i64 24
-  %200 = getelementptr i8, ptr %199, i64 %.idx.i.i.i63
+  %199 = getelementptr inbounds nuw i8, ptr %189, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 %.idx.i.i.i63
   %201 = load ptr, ptr %200, align 8, !alias.scope !2439, !noalias !2442, !noundef !6
   %202 = zext i32 %191 to i64
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 %198

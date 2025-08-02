@@ -707,8 +707,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hce1a3268f670654dE.exit.threa
 
 142:                                              ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h1ca010c0dd3b7947E.exit.i.i.i.i.i.i"
   %.idx.i.i.i.i.i.i = mul nuw nsw i64 %114, 600
-  %143 = getelementptr i8, ptr %109, i64 732
-  %144 = getelementptr i8, ptr %143, i64 %.idx.i.i.i.i.i.i
+  %143 = getelementptr inbounds nuw i8, ptr %109, i64 732
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 %.idx.i.i.i.i.i.i
   %145 = load i8, ptr %144, align 4, !range !57, !noundef !22
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %150, label %147

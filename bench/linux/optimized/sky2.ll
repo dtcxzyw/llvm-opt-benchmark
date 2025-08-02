@@ -1917,7 +1917,7 @@ define internal fastcc i32 @sky2_test_msi(ptr noundef nonnull %0) unnamed_addr #
   %28 = load i64, ptr %22, align 8
   %29 = and i64 %28, 1
   %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %30 = phi i64 [ %38, %.lr.ph ], [ 100, %26 ]
@@ -1931,16 +1931,16 @@ define internal fastcc i32 @sky2_test_msi(ptr noundef nonnull %0) unnamed_addr #
   %38 = select i1 %37, i64 1, i64 %31
   %39 = icmp eq i64 %38, 0
   %40 = select i1 %35, i1 true, i1 %39
-  br i1 %40, label %._crit_edge, label %.lr.ph
+  br i1 %40, label %.critedge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %26
+.critedge:                                        ; preds = %.lr.ph, %26
   call void @finish_wait(ptr noundef nonnull %5, ptr noundef nonnull %2) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #23
   %.pre = load i64, ptr %22, align 8
   br label %41
 
-41:                                               ; preds = %._crit_edge, %13
-  %42 = phi i64 [ %.pre, %._crit_edge ], [ %23, %13 ]
+41:                                               ; preds = %.critedge, %13
+  %42 = phi i64 [ %.pre, %.critedge ], [ %23, %13 ]
   %43 = and i64 %42, 1
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %45, label %49

@@ -4971,15 +4971,15 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread: ; preds = %28, %_Z
 .noexc:                                           ; preds = %137, %.lr.ph.i
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.012.025.i, i64 8
   %.not21.i = icmp eq ptr %142, %132
-  br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not21.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.noexc
+._crit_edge.loopexit.i:                           ; preds = %.noexc
   %.pre.i = load ptr, ptr %9, align 8
   %.pre36.i = load ptr, ptr %10, align 8
   %143 = icmp eq ptr %.pre36.i, %.pre.i
   br i1 %143, label %_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit.i.thread
 
-_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit.i.thread: ; preds = %._crit_edge.i
+_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit.i.thread: ; preds = %._crit_edge.loopexit.i
   store ptr %.pre.i, ptr %10, align 8
   br label %_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit
 
@@ -4994,7 +4994,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit.i.thread: ; preds = %._crit
   store ptr null, ptr %146, align 8
   br label %_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit
 
-_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit: ; preds = %130, %._crit_edge.i, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit.i.thread, %144, %145, %125
+_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit: ; preds = %130, %._crit_edge.loopexit.i, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit.i.thread, %144, %145, %125
   %147 = load i32, ptr %6, align 8
   %148 = load ptr, ptr %0, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 32

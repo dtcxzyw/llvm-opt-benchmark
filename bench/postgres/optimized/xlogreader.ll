@@ -2622,7 +2622,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr noundef captures(none
   %22 = trunc nuw i64 %21 to i32
   %23 = trunc i64 %20 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, i32 noundef %22, i32 noundef %23, i32 noundef %6)
-  br label %.thread
+  br label %.critedge
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 29
@@ -2637,7 +2637,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr noundef captures(none
   %32 = trunc nuw i64 %31 to i32
   %33 = trunc i64 %30 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, i32 noundef %32, i32 noundef %33, i32 noundef %6)
-  br label %.thread
+  br label %.critedge
 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -2678,7 +2678,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr noundef captures(none
   %59 = trunc nuw i64 %58 to i32
   %60 = trunc i64 %57 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %59, i32 noundef %60, ptr noundef nonnull @.str.21, i32 noundef %6)
-  br label %.thread
+  br label %.critedge
 
 61:                                               ; preds = %53
   %62 = and i32 %39, 16
@@ -2692,11 +2692,11 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr noundef captures(none
 
 68:                                               ; preds = %61
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %66, i32 noundef %67, ptr noundef nonnull @.str.22, i32 noundef %6)
-  br label %.thread
+  br label %.critedge
 
 69:                                               ; preds = %61
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %66, i32 noundef %67, i32 noundef %6)
-  br label %.thread
+  br label %.critedge
 
 70:                                               ; preds = %43
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2705,7 +2705,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr noundef captures(none
   %74 = trunc nuw i64 %73 to i32
   %75 = trunc i64 %72 to i32
   call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i32 noundef %74, i32 noundef %75, i32 noundef %6)
-  br label %.thread
+  br label %.critedge
 
 76:                                               ; preds = %43, %34
   %.075 = phi ptr [ %36, %34 ], [ %5, %43 ]
@@ -2716,7 +2716,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr noundef captures(none
 
 80:                                               ; preds = %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %2, ptr noundef nonnull align 1 dereferenceable(8192) %.075, i64 8192, i1 false)
-  br label %.thread
+  br label %.critedge
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -2741,8 +2741,8 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr noundef captures(none
   br i1 %or.cond3, label %97, label %.loopexit.sink.split
 
 97:                                               ; preds = %93
-  %.not87 = icmp eq i16 %88, 0
-  br i1 %.not87, label %.loopexit, label %.lr.ph.preheader
+  %.not85 = icmp eq i16 %88, 0
+  br i1 %.not85, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %97
   %98 = add i64 %4, %86
@@ -2774,10 +2774,10 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr noundef captures(none
   %115 = sub nsw i32 8192, %110
   %116 = sext i32 %115 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %112, ptr align 1 %114, i64 %116, i1 false)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %69, %68, %55, %70, %80, %.loopexit, %28, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %28 ], [ true, %.loopexit ], [ true, %80 ], [ false, %70 ], [ false, %55 ], [ false, %68 ], [ false, %69 ]
+.critedge:                                        ; preds = %70, %55, %68, %69, %80, %.loopexit, %28, %18
+  %.0 = phi i1 [ false, %18 ], [ false, %28 ], [ true, %.loopexit ], [ true, %80 ], [ false, %69 ], [ false, %68 ], [ false, %55 ], [ false, %70 ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #15
   ret i1 %.0
 }

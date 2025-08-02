@@ -339,7 +339,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
 ._crit_edge155.thread:                            ; preds = %.preheader
   %158 = load i8, ptr @Verbose, align 1, !tbaa !15
   %.not73168 = icmp eq i8 %158, 0
-  br i1 %.not73168, label %.thread173, label %get_12_norm.exit131
+  br i1 %.not73168, label %.thread173, label %.thread173.loopexit176.critedge
 
 .lr.ph57.preheader.i109:                          ; preds = %._crit_edge155
   %.pre.i111 = load i32, ptr %5, align 4, !tbaa !18
@@ -402,33 +402,41 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   %exitcond67.not.i120 = icmp eq i64 %indvars.iv.next64.i116, %wide.trip.count66.i
   br i1 %exitcond67.not.i120, label %get_12_norm.exit131, label %.lr.ph57.i112, !llvm.loop !23
 
-get_12_norm.exit131:                              ; preds = %._crit_edge.i117, %._crit_edge155.thread
-  %.1.lcssa169172 = phi i1 [ false, %._crit_edge155.thread ], [ %.3, %._crit_edge.i117 ]
-  %.sroa.0137.14 = phi double [ %16, %._crit_edge155.thread ], [ %.sroa.0137.11, %._crit_edge.i117 ]
-  %storemerge.lcssa52.i108 = phi double [ 0.000000e+00, %._crit_edge155.thread ], [ %185, %._crit_edge.i117 ]
-  %186 = fdiv double %storemerge.lcssa52.i108, %16
+get_12_norm.exit131:                              ; preds = %._crit_edge.i117
+  %186 = fdiv double %185, %16
   %187 = load ptr, ptr @stderr, align 8, !tbaa !16
   %188 = add nuw nsw i32 %.065157.ph, 1
-  %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.4, i32 noundef %.065157.ph, double noundef %.sroa.0137.14, double noundef %186) #9
+  %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.4, i32 noundef %.065157.ph, double noundef %.sroa.0137.11, double noundef %186) #9
   %190 = tail call i64 @clock() #7
   %191 = sub nsw i64 %190, %8
   %192 = sitofp i64 %191 to double
   %193 = fdiv double %192, 1.000000e+06
-  %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.067, ptr noundef nonnull @.str.3, double noundef %193, double noundef %.sroa.0137.14, double noundef %186) #7
-  br i1 %.1.lcssa169172, label %.preheader.outer, label %.thread173, !llvm.loop !25
+  %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.067, ptr noundef nonnull @.str.3, double noundef %193, double noundef %.sroa.0137.11, double noundef %186) #7
+  br i1 %.3, label %.preheader.outer, label %.thread173, !llvm.loop !25
 
 195:                                              ; preds = %._crit_edge155
   br i1 %.3, label %.preheader, label %.thread173, !llvm.loop !25
 
-.thread173:                                       ; preds = %._crit_edge155.thread, %get_12_norm.exit131, %195
+.thread173.loopexit176.critedge:                  ; preds = %._crit_edge155.thread
+  %196 = fdiv double 0.000000e+00, %16
+  %197 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %198 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.4, i32 noundef %.065157.ph, double noundef %16, double noundef %196) #9
+  %199 = tail call i64 @clock() #7
+  %200 = sub nsw i64 %199, %8
+  %201 = sitofp i64 %200 to double
+  %202 = fdiv double %201, 1.000000e+06
+  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.067, ptr noundef nonnull @.str.3, double noundef %202, double noundef %16, double noundef %196) #7
+  br label %.thread173
+
+.thread173:                                       ; preds = %get_12_norm.exit131, %195, %._crit_edge155.thread, %.thread173.loopexit176.critedge
   %.not72 = icmp eq ptr %.067, null
-  br i1 %.not72, label %198, label %196
+  br i1 %.not72, label %206, label %204
 
-196:                                              ; preds = %.thread173
-  %197 = tail call i32 @fclose(ptr noundef nonnull %.067)
-  br label %198
+204:                                              ; preds = %.thread173
+  %205 = tail call i32 @fclose(ptr noundef nonnull %.067)
+  br label %206
 
-198:                                              ; preds = %196, %.thread173
+206:                                              ; preds = %204, %.thread173
   ret void
 }
 

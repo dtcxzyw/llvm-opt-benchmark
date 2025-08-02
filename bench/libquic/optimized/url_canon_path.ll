@@ -278,7 +278,6 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathI
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sink3.in.i87 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = sext i32 %1 to i64
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %9
 
 ._crit_edge:                                      ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit89, %3
@@ -872,8 +871,9 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i110: ; preds = %275, %280
   %288 = add nsw i32 %287, 1
   store i32 %288, ptr %6, align 4, !tbaa !3
   %.phi.trans.insert = sext i32 %163 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.phi.trans.insert
-  %.pre = load i8, ptr %gep, align 1, !tbaa !13
+  %.phi.trans.insert98 = getelementptr i8, ptr %0, i64 %.phi.trans.insert
+  %.phi.trans.insert99 = getelementptr i8, ptr %.phi.trans.insert98, i64 -1
+  %.pre = load i8, ptr %.phi.trans.insert99, align 1, !tbaa !13
   %.pre100 = load i32, ptr %7, align 8, !tbaa !14
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit114
 
@@ -1093,7 +1093,6 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathI
   %5 = alloca i32, align 4
   %6 = add nsw i32 %.4.val, %.0.val
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
-  %invariant.gep = getelementptr i8, ptr %0, i64 -2
   store i32 %.0.val, ptr %5, align 4, !tbaa !24
   %7 = icmp sgt i32 %.4.val, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -1117,7 +1116,7 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathI
 12:                                               ; preds = %.lr.ph, %_ZN3url12CanonOutputTIcE9push_backEc.exit95
   %.065 = phi i32 [ -2147483648, %.lr.ph ], [ %.1, %_ZN3url12CanonOutputTIcE9push_backEc.exit95 ]
   %.05863 = phi i8 [ 1, %.lr.ph ], [ %.159, %_ZN3url12CanonOutputTIcE9push_backEc.exit95 ]
-  %storemerge62 = phi i32 [ %.0.val, %.lr.ph ], [ %393, %_ZN3url12CanonOutputTIcE9push_backEc.exit95 ]
+  %storemerge62 = phi i32 [ %.0.val, %.lr.ph ], [ %395, %_ZN3url12CanonOutputTIcE9push_backEc.exit95 ]
   %13 = sext i32 %storemerge62 to i64
   %14 = getelementptr inbounds i16, ptr %0, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !20
@@ -1143,10 +1142,10 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathI
   %28 = zext i8 %27 to i32
   %29 = and i32 %28, 1
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %375, label %30
+  br i1 %.not, label %377, label %30
 
 30:                                               ; preds = %23
-  switch i16 %15, label %369 [
+  switch i16 %15, label %371 [
     i16 46, label %select.unfold
     i16 37, label %31
     i16 92, label %133
@@ -1751,44 +1750,45 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit120:     ; preds = %select.unfold.i.i11
   %315 = phi i32 [ %313, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i116 ], [ %188, %select.unfold.i.i113 ]
   %316 = phi i32 [ %.pre, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i116 ], [ %183, %select.unfold.i.i113 ]
   %317 = sext i32 %316 to i64
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %317
-  %318 = load i16, ptr %gep, align 2, !tbaa !20
-  %319 = trunc i16 %318 to i8
-  %320 = icmp slt i32 %315, %314
-  br i1 %320, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i126, label %select.unfold.i.preheader.i121
+  %318 = getelementptr i16, ptr %0, i64 %317
+  %319 = getelementptr i8, ptr %318, i64 -2
+  %320 = load i16, ptr %319, align 2, !tbaa !20
+  %321 = trunc i16 %320 to i8
+  %322 = icmp slt i32 %315, %314
+  br i1 %322, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i126, label %select.unfold.i.preheader.i121
 
 select.unfold.i.preheader.i121:                   ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit120
-  %321 = icmp eq i32 %314, 0
-  %spec.select122 = select i1 %321, i32 16, i32 %314
+  %323 = icmp eq i32 %314, 0
+  %spec.select122 = select i1 %323, i32 16, i32 %314
   br label %select.unfold.i.i123
 
-select.unfold.i.i123:                             ; preds = %select.unfold.i.preheader.i121, %323
-  %.0.i.i124 = phi i32 [ %324, %323 ], [ %spec.select122, %select.unfold.i.preheader.i121 ]
-  %322 = icmp slt i32 %.0.i.i124, 1073741824
-  br i1 %322, label %323, label %_ZN3url12CanonOutputTIcE9push_backEc.exit130
+select.unfold.i.i123:                             ; preds = %select.unfold.i.preheader.i121, %325
+  %.0.i.i124 = phi i32 [ %326, %325 ], [ %spec.select122, %select.unfold.i.preheader.i121 ]
+  %324 = icmp slt i32 %.0.i.i124, 1073741824
+  br i1 %324, label %325, label %_ZN3url12CanonOutputTIcE9push_backEc.exit130
 
-323:                                              ; preds = %select.unfold.i.i123
-  %324 = shl nsw i32 %.0.i.i124, 1
-  %.not.i125 = icmp sgt i32 %324, %314
-  br i1 %.not.i125, label %325, label %select.unfold.i.i123, !llvm.loop !15
+325:                                              ; preds = %select.unfold.i.i123
+  %326 = shl nsw i32 %.0.i.i124, 1
+  %.not.i125 = icmp sgt i32 %326, %314
+  br i1 %.not.i125, label %327, label %select.unfold.i.i123, !llvm.loop !15
 
-325:                                              ; preds = %323
-  %326 = load ptr, ptr %2, align 8, !tbaa !17
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 16
-  %328 = load ptr, ptr %327, align 8
-  call void %328(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %324)
-  %329 = load i32, ptr %8, align 4, !tbaa !3
+327:                                              ; preds = %325
+  %328 = load ptr, ptr %2, align 8, !tbaa !17
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 16
+  %330 = load ptr, ptr %329, align 8
+  call void %330(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %326)
+  %331 = load i32, ptr %8, align 4, !tbaa !3
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i126
 
-_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i126: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit120, %325
-  %.sink.i127 = phi i32 [ %329, %325 ], [ %315, %_ZN3url12CanonOutputTIcE9push_backEc.exit120 ]
+_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i126: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit120, %327
+  %.sink.i127 = phi i32 [ %331, %327 ], [ %315, %_ZN3url12CanonOutputTIcE9push_backEc.exit120 ]
   %.sink3.i129 = load ptr, ptr %.sink3.in.i93, align 8, !tbaa !19
-  %330 = sext i32 %.sink.i127 to i64
-  %331 = getelementptr inbounds i8, ptr %.sink3.i129, i64 %330
-  store i8 %319, ptr %331, align 1, !tbaa !13
-  %332 = load i32, ptr %8, align 4, !tbaa !3
-  %333 = add nsw i32 %332, 1
-  store i32 %333, ptr %8, align 4, !tbaa !3
+  %332 = sext i32 %.sink.i127 to i64
+  %333 = getelementptr inbounds i8, ptr %.sink3.i129, i64 %332
+  store i8 %321, ptr %333, align 1, !tbaa !13
+  %334 = load i32, ptr %8, align 4, !tbaa !3
+  %335 = add nsw i32 %334, 1
+  store i32 %335, ptr %8, align 4, !tbaa !3
   %.pre82 = load i32, ptr %5, align 4, !tbaa !24
   %.pre83 = load i32, ptr %9, align 8, !tbaa !14
   %.pre87 = sext i32 %.pre82 to i64
@@ -1796,46 +1796,46 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i126: ; preds = %_ZN3url12CanonO
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit130:     ; preds = %select.unfold.i.i123, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i126
   %.pre-phi = phi i64 [ %.pre87, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i126 ], [ %317, %select.unfold.i.i123 ]
-  %334 = phi i32 [ %.pre83, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i126 ], [ %314, %select.unfold.i.i123 ]
-  %335 = phi i32 [ %333, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i126 ], [ %315, %select.unfold.i.i123 ]
-  %336 = getelementptr inbounds i16, ptr %0, i64 %.pre-phi
-  %337 = load i16, ptr %336, align 2, !tbaa !20
-  %338 = trunc i16 %337 to i8
-  %339 = icmp slt i32 %335, %334
-  br i1 %339, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i136, label %select.unfold.i.preheader.i131
+  %336 = phi i32 [ %.pre83, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i126 ], [ %314, %select.unfold.i.i123 ]
+  %337 = phi i32 [ %335, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i126 ], [ %315, %select.unfold.i.i123 ]
+  %338 = getelementptr inbounds i16, ptr %0, i64 %.pre-phi
+  %339 = load i16, ptr %338, align 2, !tbaa !20
+  %340 = trunc i16 %339 to i8
+  %341 = icmp slt i32 %337, %336
+  br i1 %341, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i136, label %select.unfold.i.preheader.i131
 
 select.unfold.i.preheader.i131:                   ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit130
-  %340 = icmp eq i32 %334, 0
-  %spec.select123 = select i1 %340, i32 16, i32 %334
+  %342 = icmp eq i32 %336, 0
+  %spec.select123 = select i1 %342, i32 16, i32 %336
   br label %select.unfold.i.i133
 
-select.unfold.i.i133:                             ; preds = %select.unfold.i.preheader.i131, %342
-  %.0.i.i134 = phi i32 [ %343, %342 ], [ %spec.select123, %select.unfold.i.preheader.i131 ]
-  %341 = icmp slt i32 %.0.i.i134, 1073741824
-  br i1 %341, label %342, label %_ZN3url12CanonOutputTIcE9push_backEc.exit140
+select.unfold.i.i133:                             ; preds = %select.unfold.i.preheader.i131, %344
+  %.0.i.i134 = phi i32 [ %345, %344 ], [ %spec.select123, %select.unfold.i.preheader.i131 ]
+  %343 = icmp slt i32 %.0.i.i134, 1073741824
+  br i1 %343, label %344, label %_ZN3url12CanonOutputTIcE9push_backEc.exit140
 
-342:                                              ; preds = %select.unfold.i.i133
-  %343 = shl nsw i32 %.0.i.i134, 1
-  %.not.i135 = icmp sgt i32 %343, %334
-  br i1 %.not.i135, label %344, label %select.unfold.i.i133, !llvm.loop !15
+344:                                              ; preds = %select.unfold.i.i133
+  %345 = shl nsw i32 %.0.i.i134, 1
+  %.not.i135 = icmp sgt i32 %345, %336
+  br i1 %.not.i135, label %346, label %select.unfold.i.i133, !llvm.loop !15
 
-344:                                              ; preds = %342
-  %345 = load ptr, ptr %2, align 8, !tbaa !17
-  %346 = getelementptr inbounds nuw i8, ptr %345, i64 16
-  %347 = load ptr, ptr %346, align 8
-  call void %347(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %343)
-  %348 = load i32, ptr %8, align 4, !tbaa !3
+346:                                              ; preds = %344
+  %347 = load ptr, ptr %2, align 8, !tbaa !17
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 16
+  %349 = load ptr, ptr %348, align 8
+  call void %349(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %345)
+  %350 = load i32, ptr %8, align 4, !tbaa !3
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i136
 
-_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i136: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit130, %344
-  %.sink.i137 = phi i32 [ %348, %344 ], [ %335, %_ZN3url12CanonOutputTIcE9push_backEc.exit130 ]
+_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i136: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit130, %346
+  %.sink.i137 = phi i32 [ %350, %346 ], [ %337, %_ZN3url12CanonOutputTIcE9push_backEc.exit130 ]
   %.sink3.i139 = load ptr, ptr %.sink3.in.i93, align 8, !tbaa !19
-  %349 = sext i32 %.sink.i137 to i64
-  %350 = getelementptr inbounds i8, ptr %.sink3.i139, i64 %349
-  store i8 %338, ptr %350, align 1, !tbaa !13
-  %351 = load i32, ptr %8, align 4, !tbaa !3
-  %352 = add nsw i32 %351, 1
-  store i32 %352, ptr %8, align 4, !tbaa !3
+  %351 = sext i32 %.sink.i137 to i64
+  %352 = getelementptr inbounds i8, ptr %.sink3.i139, i64 %351
+  store i8 %340, ptr %352, align 1, !tbaa !13
+  %353 = load i32, ptr %8, align 4, !tbaa !3
+  %354 = add nsw i32 %353, 1
+  store i32 %354, ptr %8, align 4, !tbaa !3
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit140
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit140:     ; preds = %select.unfold.i.i133, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i136
@@ -1844,111 +1844,111 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit140:     ; preds = %select.unfold.i.i13
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit95
 
 _ZN3url5IsDotItEEiPKT_ii.exit.thread18:           ; preds = %31, %154, %150, %165, %158
-  %353 = load i32, ptr %8, align 4, !tbaa !3
-  %354 = load i32, ptr %9, align 8, !tbaa !14
-  %355 = icmp slt i32 %353, %354
-  br i1 %355, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146, label %select.unfold.i.preheader.i141
+  %355 = load i32, ptr %8, align 4, !tbaa !3
+  %356 = load i32, ptr %9, align 8, !tbaa !14
+  %357 = icmp slt i32 %355, %356
+  br i1 %357, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146, label %select.unfold.i.preheader.i141
 
 select.unfold.i.preheader.i141:                   ; preds = %_ZN3url5IsDotItEEiPKT_ii.exit.thread18
-  %356 = icmp eq i32 %354, 0
-  %spec.select124 = select i1 %356, i32 16, i32 %354
+  %358 = icmp eq i32 %356, 0
+  %spec.select124 = select i1 %358, i32 16, i32 %356
   br label %select.unfold.i.i143
 
-select.unfold.i.i143:                             ; preds = %select.unfold.i.preheader.i141, %358
-  %.0.i.i144 = phi i32 [ %359, %358 ], [ %spec.select124, %select.unfold.i.preheader.i141 ]
-  %357 = icmp slt i32 %.0.i.i144, 1073741824
-  br i1 %357, label %358, label %_ZN3url12CanonOutputTIcE9push_backEc.exit95
+select.unfold.i.i143:                             ; preds = %select.unfold.i.preheader.i141, %360
+  %.0.i.i144 = phi i32 [ %361, %360 ], [ %spec.select124, %select.unfold.i.preheader.i141 ]
+  %359 = icmp slt i32 %.0.i.i144, 1073741824
+  br i1 %359, label %360, label %_ZN3url12CanonOutputTIcE9push_backEc.exit95
 
-358:                                              ; preds = %select.unfold.i.i143
-  %359 = shl nsw i32 %.0.i.i144, 1
-  %.not.i145 = icmp sgt i32 %359, %354
-  br i1 %.not.i145, label %360, label %select.unfold.i.i143, !llvm.loop !15
+360:                                              ; preds = %select.unfold.i.i143
+  %361 = shl nsw i32 %.0.i.i144, 1
+  %.not.i145 = icmp sgt i32 %361, %356
+  br i1 %.not.i145, label %362, label %select.unfold.i.i143, !llvm.loop !15
 
-360:                                              ; preds = %358
-  %361 = load ptr, ptr %2, align 8, !tbaa !17
-  %362 = getelementptr inbounds nuw i8, ptr %361, i64 16
-  %363 = load ptr, ptr %362, align 8
-  call void %363(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %359)
-  %364 = load i32, ptr %8, align 4, !tbaa !3
+362:                                              ; preds = %360
+  %363 = load ptr, ptr %2, align 8, !tbaa !17
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 16
+  %365 = load ptr, ptr %364, align 8
+  call void %365(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %361)
+  %366 = load i32, ptr %8, align 4, !tbaa !3
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146
 
-_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146: ; preds = %_ZN3url5IsDotItEEiPKT_ii.exit.thread18, %360
-  %.sink.i147 = phi i32 [ %364, %360 ], [ %353, %_ZN3url5IsDotItEEiPKT_ii.exit.thread18 ]
+_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146: ; preds = %_ZN3url5IsDotItEEiPKT_ii.exit.thread18, %362
+  %.sink.i147 = phi i32 [ %366, %362 ], [ %355, %_ZN3url5IsDotItEEiPKT_ii.exit.thread18 ]
   %.sink3.i149 = load ptr, ptr %.sink3.in.i93, align 8, !tbaa !19
-  %365 = sext i32 %.sink.i147 to i64
-  %366 = getelementptr inbounds i8, ptr %.sink3.i149, i64 %365
-  store i8 37, ptr %366, align 1, !tbaa !13
-  %367 = load i32, ptr %8, align 4, !tbaa !3
-  %368 = add nsw i32 %367, 1
-  store i32 %368, ptr %8, align 4, !tbaa !3
+  %367 = sext i32 %.sink.i147 to i64
+  %368 = getelementptr inbounds i8, ptr %.sink3.i149, i64 %367
+  store i8 37, ptr %368, align 1, !tbaa !13
+  %369 = load i32, ptr %8, align 4, !tbaa !3
+  %370 = add nsw i32 %369, 1
+  store i32 %370, ptr %8, align 4, !tbaa !3
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit95
 
-369:                                              ; preds = %30
-  %370 = and i32 %28, 8
-  %.not68 = icmp eq i32 %370, 0
-  br i1 %.not68, label %372, label %371
+371:                                              ; preds = %30
+  %372 = and i32 %28, 8
+  %.not68 = icmp eq i32 %372, 0
+  br i1 %.not68, label %374, label %373
 
-371:                                              ; preds = %369
+373:                                              ; preds = %371
   call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %24, ptr noundef %2)
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit95
 
-372:                                              ; preds = %369
-  %373 = and i32 %28, 2
-  %.not69 = icmp eq i32 %373, 0
-  br i1 %.not69, label %_ZN3url12CanonOutputTIcE9push_backEc.exit95, label %374
+374:                                              ; preds = %371
+  %375 = and i32 %28, 2
+  %.not69 = icmp eq i32 %375, 0
+  br i1 %.not69, label %_ZN3url12CanonOutputTIcE9push_backEc.exit95, label %376
 
-374:                                              ; preds = %372
+376:                                              ; preds = %374
   call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %24, ptr noundef %2)
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit95
 
-375:                                              ; preds = %23
-  %376 = load i32, ptr %8, align 4, !tbaa !3
-  %377 = load i32, ptr %9, align 8, !tbaa !14
-  %378 = icmp slt i32 %376, %377
-  br i1 %378, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156, label %select.unfold.i.preheader.i151
+377:                                              ; preds = %23
+  %378 = load i32, ptr %8, align 4, !tbaa !3
+  %379 = load i32, ptr %9, align 8, !tbaa !14
+  %380 = icmp slt i32 %378, %379
+  br i1 %380, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156, label %select.unfold.i.preheader.i151
 
-select.unfold.i.preheader.i151:                   ; preds = %375
-  %379 = icmp eq i32 %377, 0
-  %spec.select125 = select i1 %379, i32 16, i32 %377
+select.unfold.i.preheader.i151:                   ; preds = %377
+  %381 = icmp eq i32 %379, 0
+  %spec.select125 = select i1 %381, i32 16, i32 %379
   br label %select.unfold.i.i153
 
-select.unfold.i.i153:                             ; preds = %select.unfold.i.preheader.i151, %381
-  %.0.i.i154 = phi i32 [ %382, %381 ], [ %spec.select125, %select.unfold.i.preheader.i151 ]
-  %380 = icmp slt i32 %.0.i.i154, 1073741824
-  br i1 %380, label %381, label %_ZN3url12CanonOutputTIcE9push_backEc.exit95
+select.unfold.i.i153:                             ; preds = %select.unfold.i.preheader.i151, %383
+  %.0.i.i154 = phi i32 [ %384, %383 ], [ %spec.select125, %select.unfold.i.preheader.i151 ]
+  %382 = icmp slt i32 %.0.i.i154, 1073741824
+  br i1 %382, label %383, label %_ZN3url12CanonOutputTIcE9push_backEc.exit95
 
-381:                                              ; preds = %select.unfold.i.i153
-  %382 = shl nsw i32 %.0.i.i154, 1
-  %.not.i155 = icmp sgt i32 %382, %377
-  br i1 %.not.i155, label %383, label %select.unfold.i.i153, !llvm.loop !15
+383:                                              ; preds = %select.unfold.i.i153
+  %384 = shl nsw i32 %.0.i.i154, 1
+  %.not.i155 = icmp sgt i32 %384, %379
+  br i1 %.not.i155, label %385, label %select.unfold.i.i153, !llvm.loop !15
 
-383:                                              ; preds = %381
-  %384 = load ptr, ptr %2, align 8, !tbaa !17
-  %385 = getelementptr inbounds nuw i8, ptr %384, i64 16
-  %386 = load ptr, ptr %385, align 8
-  call void %386(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %382)
-  %387 = load i32, ptr %8, align 4, !tbaa !3
+385:                                              ; preds = %383
+  %386 = load ptr, ptr %2, align 8, !tbaa !17
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 16
+  %388 = load ptr, ptr %387, align 8
+  call void %388(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %384)
+  %389 = load i32, ptr %8, align 4, !tbaa !3
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156
 
-_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156: ; preds = %375, %383
-  %.sink.i157 = phi i32 [ %387, %383 ], [ %376, %375 ]
+_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156: ; preds = %377, %385
+  %.sink.i157 = phi i32 [ %389, %385 ], [ %378, %377 ]
   %.sink3.i159 = load ptr, ptr %.sink3.in.i93, align 8, !tbaa !19
-  %388 = sext i32 %.sink.i157 to i64
-  %389 = getelementptr inbounds i8, ptr %.sink3.i159, i64 %388
-  store i8 %24, ptr %389, align 1, !tbaa !13
-  %390 = load i32, ptr %8, align 4, !tbaa !3
-  %391 = add nsw i32 %390, 1
-  store i32 %391, ptr %8, align 4, !tbaa !3
+  %390 = sext i32 %.sink.i157 to i64
+  %391 = getelementptr inbounds i8, ptr %.sink3.i159, i64 %390
+  store i8 %24, ptr %391, align 1, !tbaa !13
+  %392 = load i32, ptr %8, align 4, !tbaa !3
+  %393 = add nsw i32 %392, 1
+  store i32 %393, ptr %8, align 4, !tbaa !3
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit95
 
-_ZN3url12CanonOutputTIcE9push_backEc.exit95:      ; preds = %select.unfold.i.i88, %select.unfold.i.i42.i, %select.unfold.i.i143, %select.unfold.i.i153, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156, %_ZN3url12CanonOutputTIcE9push_backEc.exit107, %_ZN3url12CanonOutputTIcE9push_backEc.exit140, %217, %219, %299, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i91, %_ZN3url12CanonOutputTIcE9push_backEc.exit, %93, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit, %371, %374, %372, %_ZN3url12CanonOutputTIcE9push_backEc.exit85, %17
-  %.159 = phi i8 [ %22, %17 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit85 ], [ 0, %371 ], [ %.05863, %374 ], [ %.05863, %372 ], [ %.05863, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %.05863, %93 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %.05863, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i91 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit107 ], [ %spec.select, %_ZN3url12CanonOutputTIcE9push_backEc.exit140 ], [ %.05863, %217 ], [ %.05863, %219 ], [ %.05863, %299 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %.05863, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146 ], [ %.05863, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156 ], [ %.05863, %select.unfold.i.i153 ], [ %.05863, %select.unfold.i.i143 ], [ %.05863, %select.unfold.i.i42.i ], [ %.05863, %select.unfold.i.i88 ]
-  %.1 = phi i32 [ %.065, %17 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit85 ], [ %.065, %371 ], [ %.065, %374 ], [ %.065, %372 ], [ %.065, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %.065, %93 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %.065, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i91 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit107 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit140 ], [ %.065, %217 ], [ %.065, %219 ], [ %.065, %299 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %353, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146 ], [ %.065, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156 ], [ %.065, %select.unfold.i.i153 ], [ %353, %select.unfold.i.i143 ], [ %.065, %select.unfold.i.i42.i ], [ %.065, %select.unfold.i.i88 ]
-  %392 = load i32, ptr %5, align 4, !tbaa !24
-  %393 = add nsw i32 %392, 1
-  store i32 %393, ptr %5, align 4, !tbaa !24
-  %394 = icmp slt i32 %393, %6
-  br i1 %394, label %12, label %._crit_edge.loopexit, !llvm.loop !25
+_ZN3url12CanonOutputTIcE9push_backEc.exit95:      ; preds = %select.unfold.i.i88, %select.unfold.i.i42.i, %select.unfold.i.i143, %select.unfold.i.i153, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156, %_ZN3url12CanonOutputTIcE9push_backEc.exit107, %_ZN3url12CanonOutputTIcE9push_backEc.exit140, %217, %219, %299, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i91, %_ZN3url12CanonOutputTIcE9push_backEc.exit, %93, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit, %373, %376, %374, %_ZN3url12CanonOutputTIcE9push_backEc.exit85, %17
+  %.159 = phi i8 [ %22, %17 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit85 ], [ 0, %373 ], [ %.05863, %376 ], [ %.05863, %374 ], [ %.05863, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %.05863, %93 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %.05863, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i91 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit107 ], [ %spec.select, %_ZN3url12CanonOutputTIcE9push_backEc.exit140 ], [ %.05863, %217 ], [ %.05863, %219 ], [ %.05863, %299 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %.05863, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146 ], [ %.05863, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156 ], [ %.05863, %select.unfold.i.i153 ], [ %.05863, %select.unfold.i.i143 ], [ %.05863, %select.unfold.i.i42.i ], [ %.05863, %select.unfold.i.i88 ]
+  %.1 = phi i32 [ %.065, %17 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit85 ], [ %.065, %373 ], [ %.065, %376 ], [ %.065, %374 ], [ %.065, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %.065, %93 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %.065, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i91 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit107 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit140 ], [ %.065, %217 ], [ %.065, %219 ], [ %.065, %299 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %355, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146 ], [ %.065, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156 ], [ %.065, %select.unfold.i.i153 ], [ %355, %select.unfold.i.i143 ], [ %.065, %select.unfold.i.i42.i ], [ %.065, %select.unfold.i.i88 ]
+  %394 = load i32, ptr %5, align 4, !tbaa !24
+  %395 = add nsw i32 %394, 1
+  store i32 %395, ptr %5, align 4, !tbaa !24
+  %396 = icmp slt i32 %395, %6
+  br i1 %396, label %12, label %._crit_edge.loopexit, !llvm.loop !25
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

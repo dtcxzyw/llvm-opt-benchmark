@@ -4108,7 +4108,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %selectivity_ = getelementptr inbounds nuw i8, ptr %this, i64 488
   %inputOrder_ = getelementptr inbounds nuw i8, ptr %this, i64 512
   %2 = load ptr, ptr %inputOrder_, align 8
-  %invariant.gep = getelementptr i8, ptr %2, i64 -4
   %3 = load ptr, ptr %selectivity_, align 8
   br label %for.body
 
@@ -4119,33 +4118,33 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %4 = load i32, ptr %gep, align 4
-  %conv4 = sext i32 %4 to i64
+  %4 = getelementptr i32, ptr %2, i64 %indvars.iv
+  %add.ptr.i = getelementptr i8, ptr %4, i64 -4
+  %5 = load i32, ptr %add.ptr.i, align 4
+  %conv4 = sext i32 %5 to i64
   %add.ptr.i4 = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %3, i64 %conv4
-  %5 = load i64, ptr %add.ptr.i4, align 8
+  %6 = load i64, ptr %add.ptr.i4, align 8
   %numOut_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i4, i64 8
-  %6 = load i64, ptr %numOut_.i, align 8
-  %cmp.i = icmp eq i64 %5, %6
+  %7 = load i64, ptr %numOut_.i, align 8
+  %cmp.i = icmp eq i64 %6, %7
   %timeClocks_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i4, i64 16
-  %7 = load i64, ptr %timeClocks_.i, align 8
-  %conv.i = uitofp i64 %7 to float
-  %sub.i = sub i64 %5, %6
+  %8 = load i64, ptr %timeClocks_.i, align 8
+  %conv.i = uitofp i64 %8 to float
+  %sub.i = sub i64 %6, %7
   %conv6.i = uitofp i64 %sub.i to float
   %div.i = select i1 %cmp.i, float 1.000000e+00, float %conv6.i
   %retval.0.i = fdiv float %conv.i, %div.i
-  %add.ptr.i5 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %8 = load i32, ptr %add.ptr.i5, align 4
-  %conv11 = sext i32 %8 to i64
+  %9 = load i32, ptr %4, align 4
+  %conv11 = sext i32 %9 to i64
   %add.ptr.i6 = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %3, i64 %conv11
-  %9 = load i64, ptr %add.ptr.i6, align 8
+  %10 = load i64, ptr %add.ptr.i6, align 8
   %numOut_.i7 = getelementptr inbounds nuw i8, ptr %add.ptr.i6, i64 8
-  %10 = load i64, ptr %numOut_.i7, align 8
-  %cmp.i8 = icmp eq i64 %9, %10
+  %11 = load i64, ptr %numOut_.i7, align 8
+  %cmp.i8 = icmp eq i64 %10, %11
   %timeClocks_.i9 = getelementptr inbounds nuw i8, ptr %add.ptr.i6, i64 16
-  %11 = load i64, ptr %timeClocks_.i9, align 8
-  %conv.i10 = uitofp i64 %11 to float
-  %sub.i11 = sub i64 %9, %10
+  %12 = load i64, ptr %timeClocks_.i9, align 8
+  %conv.i10 = uitofp i64 %12 to float
+  %sub.i11 = sub i64 %10, %11
   %conv6.i12 = uitofp i64 %sub.i11 to float
   %div.i13 = select i1 %cmp.i8, float 1.000000e+00, float %conv6.i12
   %retval.0.i14 = fdiv float %conv.i10, %div.i13
@@ -4154,19 +4153,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then15:                                        ; preds = %for.body
   %_M_finish.i15 = getelementptr inbounds nuw i8, ptr %this, i64 520
-  %12 = load ptr, ptr %_M_finish.i15, align 8
-  %cmp.i.not.i.i = icmp eq ptr %2, %12
+  %13 = load ptr, ptr %_M_finish.i15, align 8
+  %cmp.i.not.i.i = icmp eq ptr %2, %13
   br i1 %cmp.i.not.i.i, label %if.end26, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then15
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
-  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true)
-  %sub.i.i.i = shl nuw nsw i64 %13, 1
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true)
+  %sub.i.i.i = shl nuw nsw i64 %14, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEvE3$_0EEEvT_SF_T0_T1_"(ptr nonnull %2, ptr %12, i64 noundef %mul.i.i, ptr nonnull readonly %this)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEvE3$_0EEEvT_SF_T0_T1_"(ptr nonnull %2, ptr %13, i64 noundef %mul.i.i, ptr nonnull readonly %this)
   %cmp.i1.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 64
   %scevgep.i.i = getelementptr i8, ptr %2, i64 4
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %for.cond.preheader.i.i
@@ -4175,31 +4174,31 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.i
   %__i.sroa.0.013.i.idx.i.i = phi i64 [ %__i.sroa.0.013.i.add.i.i, %for.inc.i.i.i ], [ 4, %if.then.i.i ]
   %__i.sroa.0.013.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %__i.sroa.0.013.i.idx.i.i
   %__comp.val.val.i.i.i = load ptr, ptr %selectivity_, align 8
-  %14 = load i32, ptr %__i.sroa.0.013.i.ptr.i.i, align 4
-  %conv.i.i.i.i = sext i32 %14 to i64
-  %15 = load i32, ptr %2, align 4
-  %conv4.i.i.i.i = sext i32 %15 to i64
+  %15 = load i32, ptr %__i.sroa.0.013.i.ptr.i.i, align 4
+  %conv.i.i.i.i = sext i32 %15 to i64
+  %16 = load i32, ptr %2, align 4
+  %conv4.i.i.i.i = sext i32 %16 to i64
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %__comp.val.val.i.i.i, i64 %conv.i.i.i.i
-  %16 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
+  %17 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
   %numOut_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
-  %17 = load i64, ptr %numOut_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq i64 %16, %17
+  %18 = load i64, ptr %numOut_.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = icmp eq i64 %17, %18
   %timeClocks_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 16
-  %18 = load i64, ptr %timeClocks_.i.i.i.i.i.i, align 8
-  %conv.i.i.i.i2.i.i = uitofp i64 %18 to float
-  %sub.i.i.i.i.i.i = sub i64 %16, %17
+  %19 = load i64, ptr %timeClocks_.i.i.i.i.i.i, align 8
+  %conv.i.i.i.i2.i.i = uitofp i64 %19 to float
+  %sub.i.i.i.i.i.i = sub i64 %17, %18
   %conv6.i.i.i.i.i.i = uitofp i64 %sub.i.i.i.i.i.i to float
   %div.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, float 1.000000e+00, float %conv6.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = fdiv float %conv.i.i.i.i2.i.i, %div.i.i.i.i.i.i
   %add.ptr.i1.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %__comp.val.val.i.i.i, i64 %conv4.i.i.i.i
-  %19 = load i64, ptr %add.ptr.i1.i.i.i.i.i, align 8
+  %20 = load i64, ptr %add.ptr.i1.i.i.i.i.i, align 8
   %numOut_.i2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1.i.i.i.i.i, i64 8
-  %20 = load i64, ptr %numOut_.i2.i.i.i.i.i, align 8
-  %cmp.i3.i.i.i.i.i = icmp eq i64 %19, %20
+  %21 = load i64, ptr %numOut_.i2.i.i.i.i.i, align 8
+  %cmp.i3.i.i.i.i.i = icmp eq i64 %20, %21
   %timeClocks_.i4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1.i.i.i.i.i, i64 16
-  %21 = load i64, ptr %timeClocks_.i4.i.i.i.i.i, align 8
-  %conv.i5.i.i.i.i.i = uitofp i64 %21 to float
-  %sub.i6.i.i.i.i.i = sub i64 %19, %20
+  %22 = load i64, ptr %timeClocks_.i4.i.i.i.i.i, align 8
+  %conv.i5.i.i.i.i.i = uitofp i64 %22 to float
+  %sub.i6.i.i.i.i.i = sub i64 %20, %21
   %conv6.i7.i.i.i.i.i = uitofp i64 %sub.i6.i.i.i.i.i to float
   %div.i8.i.i.i.i.i = select i1 %cmp.i3.i.i.i.i.i, float 1.000000e+00, float %conv6.i7.i.i.i.i.i
   %retval.0.i9.i.i.i.i.i = fdiv float %conv.i5.i.i.i.i.i, %div.i8.i.i.i.i.i
@@ -4211,29 +4210,29 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   br label %for.inc.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %for.body.i.i.i, %while.body.i.i.i.i
-  %22 = phi i64 [ %.pre16.i.i.i, %while.body.i.i.i.i ], [ %18, %for.body.i.i.i ]
-  %23 = phi i64 [ %.pre15.i.i.i, %while.body.i.i.i.i ], [ %17, %for.body.i.i.i ]
-  %24 = phi i64 [ %.pre.i.i.i, %while.body.i.i.i.i ], [ %16, %for.body.i.i.i ]
+  %23 = phi i64 [ %.pre16.i.i.i, %while.body.i.i.i.i ], [ %19, %for.body.i.i.i ]
+  %24 = phi i64 [ %.pre15.i.i.i, %while.body.i.i.i.i ], [ %18, %for.body.i.i.i ]
+  %25 = phi i64 [ %.pre.i.i.i, %while.body.i.i.i.i ], [ %17, %for.body.i.i.i ]
   %__comp.val.val.i.i.i.i = phi ptr [ %__comp.val.val.i.pre.i.i.i, %while.body.i.i.i.i ], [ %__comp.val.val.i.i.i, %for.body.i.i.i ]
   %__last.sroa.0.0.i.i.i.i = phi ptr [ %__next.sroa.0.0.i.i.i.i, %while.body.i.i.i.i ], [ %__i.sroa.0.013.i.ptr.i.i, %for.body.i.i.i ]
   %__next.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i.i.i, i64 -4
-  %25 = load i32, ptr %__next.sroa.0.0.i.i.i.i, align 4
-  %conv2.i.i.i.i.i = sext i32 %25 to i64
-  %cmp.i.i.i.i.i3.i.i = icmp eq i64 %24, %23
-  %conv.i.i.i.i.i.i.i = uitofp i64 %22 to float
-  %sub.i.i.i.i.i.i.i = sub i64 %24, %23
+  %26 = load i32, ptr %__next.sroa.0.0.i.i.i.i, align 4
+  %conv2.i.i.i.i.i = sext i32 %26 to i64
+  %cmp.i.i.i.i.i3.i.i = icmp eq i64 %25, %24
+  %conv.i.i.i.i.i.i.i = uitofp i64 %23 to float
+  %sub.i.i.i.i.i.i.i = sub i64 %25, %24
   %conv6.i.i.i.i.i.i.i = uitofp i64 %sub.i.i.i.i.i.i.i to float
   %div.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i3.i.i, float 1.000000e+00, float %conv6.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = fdiv float %conv.i.i.i.i.i.i.i, %div.i.i.i.i.i.i.i
   %add.ptr.i1.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %__comp.val.val.i.i.i.i, i64 %conv2.i.i.i.i.i
-  %26 = load i64, ptr %add.ptr.i1.i.i.i.i.i.i, align 8
+  %27 = load i64, ptr %add.ptr.i1.i.i.i.i.i.i, align 8
   %numOut_.i2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1.i.i.i.i.i.i, i64 8
-  %27 = load i64, ptr %numOut_.i2.i.i.i.i.i.i, align 8
-  %cmp.i3.i.i.i.i.i.i = icmp eq i64 %26, %27
+  %28 = load i64, ptr %numOut_.i2.i.i.i.i.i.i, align 8
+  %cmp.i3.i.i.i.i.i.i = icmp eq i64 %27, %28
   %timeClocks_.i4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1.i.i.i.i.i.i, i64 16
-  %28 = load i64, ptr %timeClocks_.i4.i.i.i.i.i.i, align 8
-  %conv.i5.i.i.i.i.i.i = uitofp i64 %28 to float
-  %sub.i6.i.i.i.i.i.i = sub i64 %26, %27
+  %29 = load i64, ptr %timeClocks_.i4.i.i.i.i.i.i, align 8
+  %conv.i5.i.i.i.i.i.i = uitofp i64 %29 to float
+  %sub.i6.i.i.i.i.i.i = sub i64 %27, %28
   %conv6.i7.i.i.i.i.i.i = uitofp i64 %sub.i6.i.i.i.i.i.i to float
   %div.i8.i.i.i.i.i.i = select i1 %cmp.i3.i.i.i.i.i.i, float 1.000000e+00, float %conv6.i7.i.i.i.i.i.i
   %retval.0.i9.i.i.i.i.i.i = fdiv float %conv.i5.i.i.i.i.i.i, %div.i8.i.i.i.i.i.i
@@ -4241,7 +4240,7 @@ while.cond.i.i.i.i:                               ; preds = %for.body.i.i.i, %wh
   br i1 %cmp.i.i.i3.i.i.i, label %while.body.i.i.i.i, label %for.inc.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.cond.i.i.i.i
-  store i32 %25, ptr %__last.sroa.0.0.i.i.i.i, align 4
+  store i32 %26, ptr %__last.sroa.0.0.i.i.i.i, align 4
   %__comp.val.val.i.pre.i.i.i = load ptr, ptr %selectivity_, align 8
   %add.ptr.i.i.i.i.phi.trans.insert.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %__comp.val.val.i.pre.i.i.i, i64 %conv.i.i.i.i
   %.pre.i.i.i = load i64, ptr %add.ptr.i.i.i.i.phi.trans.insert.i.i.i, align 8
@@ -4253,49 +4252,49 @@ while.body.i.i.i.i:                               ; preds = %while.cond.i.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %while.cond.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i.i
   %__first.coerce.sink.i.i.i = phi ptr [ %2, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i.i ], [ %__last.sroa.0.0.i.i.i.i, %while.cond.i.i.i.i ]
-  store i32 %14, ptr %__first.coerce.sink.i.i.i, align 4
+  store i32 %15, ptr %__first.coerce.sink.i.i.i, align 4
   %__i.sroa.0.013.i.add.i.i = add nuw nsw i64 %__i.sroa.0.013.i.idx.i.i, 4
   %cmp.i1.not.i.i.i = icmp eq i64 %__i.sroa.0.013.i.add.i.i, 64
   br i1 %cmp.i1.not.i.i.i, label %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEvE3$_0EEEvT_SF_T0_.exit.i.i", label %for.body.i.i.i, !llvm.loop !60
 
 "_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEvE3$_0EEEvT_SF_T0_.exit.i.i": ; preds = %for.inc.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %cmp.i.not2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %12
+  %cmp.i.not2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %13
   br i1 %cmp.i.not2.i.i.i.i, label %if.end26, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEvE3$_0EEEvT_SF_T0_.exit.i.i", %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEvE3$_0EEEvT_T0_.exit.i.i.i.i"
   %__i.sroa.0.03.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEvE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %add.ptr.i.i.i.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEvE3$_0EEEvT_SF_T0_.exit.i.i" ]
-  %29 = load i32, ptr %__i.sroa.0.03.i.i.i.i, align 4
-  %conv.i.i.i.i.i.i = sext i32 %29 to i64
+  %30 = load i32, ptr %__i.sroa.0.03.i.i.i.i, align 4
+  %conv.i.i.i.i.i.i = sext i32 %30 to i64
   br label %while.cond.i.i.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.i, %for.body.i.i.i.i
   %__last.sroa.0.0.i.i.i.i.i = phi ptr [ %__i.sroa.0.03.i.i.i.i, %for.body.i.i.i.i ], [ %__next.sroa.0.0.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %__next.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i.i.i.i, i64 -4
   %__comp.val.val.i.i.i.i.i = load ptr, ptr %selectivity_, align 8
-  %30 = load i32, ptr %__next.sroa.0.0.i.i.i.i.i, align 4
-  %conv2.i.i.i.i.i.i = sext i32 %30 to i64
+  %31 = load i32, ptr %__next.sroa.0.0.i.i.i.i.i, align 4
+  %conv2.i.i.i.i.i.i = sext i32 %31 to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %__comp.val.val.i.i.i.i.i, i64 %conv.i.i.i.i.i.i
-  %31 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
+  %32 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %numOut_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 8
-  %32 = load i64, ptr %numOut_.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %31, %32
+  %33 = load i64, ptr %numOut_.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %32, %33
   %timeClocks_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 16
-  %33 = load i64, ptr %timeClocks_.i.i.i.i.i.i.i.i, align 8
-  %conv.i.i.i.i.i.i.i.i = uitofp i64 %33 to float
-  %sub.i.i.i.i.i.i.i.i = sub i64 %31, %32
+  %34 = load i64, ptr %timeClocks_.i.i.i.i.i.i.i.i, align 8
+  %conv.i.i.i.i.i.i.i.i = uitofp i64 %34 to float
+  %sub.i.i.i.i.i.i.i.i = sub i64 %32, %33
   %conv6.i.i.i.i.i.i.i.i = uitofp i64 %sub.i.i.i.i.i.i.i.i to float
   %div.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, float 1.000000e+00, float %conv6.i.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i = fdiv float %conv.i.i.i.i.i.i.i.i, %div.i.i.i.i.i.i.i.i
   %add.ptr.i1.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %__comp.val.val.i.i.i.i.i, i64 %conv2.i.i.i.i.i.i
-  %34 = load i64, ptr %add.ptr.i1.i.i.i.i.i.i.i, align 8
+  %35 = load i64, ptr %add.ptr.i1.i.i.i.i.i.i.i, align 8
   %numOut_.i2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1.i.i.i.i.i.i.i, i64 8
-  %35 = load i64, ptr %numOut_.i2.i.i.i.i.i.i.i, align 8
-  %cmp.i3.i.i.i.i.i.i.i = icmp eq i64 %34, %35
+  %36 = load i64, ptr %numOut_.i2.i.i.i.i.i.i.i, align 8
+  %cmp.i3.i.i.i.i.i.i.i = icmp eq i64 %35, %36
   %timeClocks_.i4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1.i.i.i.i.i.i.i, i64 16
-  %36 = load i64, ptr %timeClocks_.i4.i.i.i.i.i.i.i, align 8
-  %conv.i5.i.i.i.i.i.i.i = uitofp i64 %36 to float
-  %sub.i6.i.i.i.i.i.i.i = sub i64 %34, %35
+  %37 = load i64, ptr %timeClocks_.i4.i.i.i.i.i.i.i, align 8
+  %conv.i5.i.i.i.i.i.i.i = uitofp i64 %37 to float
+  %sub.i6.i.i.i.i.i.i.i = sub i64 %35, %36
   %conv6.i7.i.i.i.i.i.i.i = uitofp i64 %sub.i6.i.i.i.i.i.i.i to float
   %div.i8.i.i.i.i.i.i.i = select i1 %cmp.i3.i.i.i.i.i.i.i, float 1.000000e+00, float %conv6.i7.i.i.i.i.i.i.i
   %retval.0.i9.i.i.i.i.i.i.i = fdiv float %conv.i5.i.i.i.i.i.i.i, %div.i8.i.i.i.i.i.i.i
@@ -4303,48 +4302,48 @@ while.cond.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEvE3$_0EEEvT_T0_.exit.i.i.i.i"
 
 while.body.i.i.i.i.i:                             ; preds = %while.cond.i.i.i.i.i
-  store i32 %30, ptr %__last.sroa.0.0.i.i.i.i.i, align 4
+  store i32 %31, ptr %__last.sroa.0.0.i.i.i.i.i, align 4
   br label %while.cond.i.i.i.i.i, !llvm.loop !59
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEvE3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %while.cond.i.i.i.i.i
-  store i32 %29, ptr %__last.sroa.0.0.i.i.i.i.i, align 4
+  store i32 %30, ptr %__last.sroa.0.0.i.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.03.i.i.i.i, i64 4
-  %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i, label %if.end26, label %for.body.i.i.i.i, !llvm.loop !61
 
 for.cond.preheader.i.i:                           ; preds = %if.then.i.i
-  %cmp.i1.not11.i.i = icmp eq ptr %scevgep.i.i, %12
+  %cmp.i1.not11.i.i = icmp eq ptr %scevgep.i.i, %13
   br i1 %cmp.i1.not11.i.i, label %if.end26, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.inc.i.i
   %__i.sroa.0.013.i.i = phi ptr [ %__i.sroa.0.0.i.i, %for.inc.i.i ], [ %scevgep.i.i, %for.cond.preheader.i.i ]
   %__first.coerce.pn12.i.i = phi ptr [ %__i.sroa.0.013.i.i, %for.inc.i.i ], [ %2, %for.cond.preheader.i.i ]
   %__comp.val.val.i.i = load ptr, ptr %selectivity_, align 8
-  %37 = load i32, ptr %__i.sroa.0.013.i.i, align 4
-  %conv.i.i.i = sext i32 %37 to i64
-  %38 = load i32, ptr %2, align 4
-  %conv4.i.i.i = sext i32 %38 to i64
+  %38 = load i32, ptr %__i.sroa.0.013.i.i, align 4
+  %conv.i.i.i = sext i32 %38 to i64
+  %39 = load i32, ptr %2, align 4
+  %conv4.i.i.i = sext i32 %39 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %__comp.val.val.i.i, i64 %conv.i.i.i
-  %39 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %40 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %numOut_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
-  %40 = load i64, ptr %numOut_.i.i.i.i.i, align 8
-  %cmp.i.i.i.i1.i = icmp eq i64 %39, %40
+  %41 = load i64, ptr %numOut_.i.i.i.i.i, align 8
+  %cmp.i.i.i.i1.i = icmp eq i64 %40, %41
   %timeClocks_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 16
-  %41 = load i64, ptr %timeClocks_.i.i.i.i.i, align 8
-  %conv.i.i.i.i.i = uitofp i64 %41 to float
-  %sub.i.i.i.i.i = sub i64 %39, %40
+  %42 = load i64, ptr %timeClocks_.i.i.i.i.i, align 8
+  %conv.i.i.i.i.i = uitofp i64 %42 to float
+  %sub.i.i.i.i.i = sub i64 %40, %41
   %conv6.i.i.i.i.i = uitofp i64 %sub.i.i.i.i.i to float
   %div.i.i.i.i.i = select i1 %cmp.i.i.i.i1.i, float 1.000000e+00, float %conv6.i.i.i.i.i
   %retval.0.i.i.i.i.i = fdiv float %conv.i.i.i.i.i, %div.i.i.i.i.i
   %add.ptr.i1.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %__comp.val.val.i.i, i64 %conv4.i.i.i
-  %42 = load i64, ptr %add.ptr.i1.i.i.i.i, align 8
+  %43 = load i64, ptr %add.ptr.i1.i.i.i.i, align 8
   %numOut_.i2.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1.i.i.i.i, i64 8
-  %43 = load i64, ptr %numOut_.i2.i.i.i.i, align 8
-  %cmp.i3.i.i.i.i = icmp eq i64 %42, %43
+  %44 = load i64, ptr %numOut_.i2.i.i.i.i, align 8
+  %cmp.i3.i.i.i.i = icmp eq i64 %43, %44
   %timeClocks_.i4.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1.i.i.i.i, i64 16
-  %44 = load i64, ptr %timeClocks_.i4.i.i.i.i, align 8
-  %conv.i5.i.i.i.i = uitofp i64 %44 to float
-  %sub.i6.i.i.i.i = sub i64 %42, %43
+  %45 = load i64, ptr %timeClocks_.i4.i.i.i.i, align 8
+  %conv.i5.i.i.i.i = uitofp i64 %45 to float
+  %sub.i6.i.i.i.i = sub i64 %43, %44
   %conv6.i7.i.i.i.i = uitofp i64 %sub.i6.i.i.i.i to float
   %div.i8.i.i.i.i = select i1 %cmp.i3.i.i.i.i, float 1.000000e+00, float %conv6.i7.i.i.i.i
   %retval.0.i9.i.i.i.i = fdiv float %conv.i5.i.i.i.i, %div.i8.i.i.i.i
@@ -4362,29 +4361,29 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   br label %for.inc.i.i
 
 while.cond.i.i.i:                                 ; preds = %for.body.i.i, %while.body.i.i.i
-  %45 = phi i64 [ %.pre16.i.i, %while.body.i.i.i ], [ %41, %for.body.i.i ]
-  %46 = phi i64 [ %.pre15.i.i, %while.body.i.i.i ], [ %40, %for.body.i.i ]
-  %47 = phi i64 [ %.pre.i.i, %while.body.i.i.i ], [ %39, %for.body.i.i ]
+  %46 = phi i64 [ %.pre16.i.i, %while.body.i.i.i ], [ %42, %for.body.i.i ]
+  %47 = phi i64 [ %.pre15.i.i, %while.body.i.i.i ], [ %41, %for.body.i.i ]
+  %48 = phi i64 [ %.pre.i.i, %while.body.i.i.i ], [ %40, %for.body.i.i ]
   %__comp.val.val.i.i2.i = phi ptr [ %__comp.val.val.i.pre.i.i, %while.body.i.i.i ], [ %__comp.val.val.i.i, %for.body.i.i ]
   %__last.sroa.0.0.i.i.i = phi ptr [ %__next.sroa.0.0.i.i.i, %while.body.i.i.i ], [ %__i.sroa.0.013.i.i, %for.body.i.i ]
   %__next.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i.i, i64 -4
-  %48 = load i32, ptr %__next.sroa.0.0.i.i.i, align 4
-  %conv2.i.i.i.i = sext i32 %48 to i64
-  %cmp.i.i.i.i.i3.i = icmp eq i64 %47, %46
-  %conv.i.i.i.i.i4.i = uitofp i64 %45 to float
-  %sub.i.i.i.i.i5.i = sub i64 %47, %46
+  %49 = load i32, ptr %__next.sroa.0.0.i.i.i, align 4
+  %conv2.i.i.i.i = sext i32 %49 to i64
+  %cmp.i.i.i.i.i3.i = icmp eq i64 %48, %47
+  %conv.i.i.i.i.i4.i = uitofp i64 %46 to float
+  %sub.i.i.i.i.i5.i = sub i64 %48, %47
   %conv6.i.i.i.i.i6.i = uitofp i64 %sub.i.i.i.i.i5.i to float
   %div.i.i.i.i.i7.i = select i1 %cmp.i.i.i.i.i3.i, float 1.000000e+00, float %conv6.i.i.i.i.i6.i
   %retval.0.i.i.i.i.i8.i = fdiv float %conv.i.i.i.i.i4.i, %div.i.i.i.i.i7.i
   %add.ptr.i1.i.i.i.i9.i = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %__comp.val.val.i.i2.i, i64 %conv2.i.i.i.i
-  %49 = load i64, ptr %add.ptr.i1.i.i.i.i9.i, align 8
+  %50 = load i64, ptr %add.ptr.i1.i.i.i.i9.i, align 8
   %numOut_.i2.i.i.i.i10.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1.i.i.i.i9.i, i64 8
-  %50 = load i64, ptr %numOut_.i2.i.i.i.i10.i, align 8
-  %cmp.i3.i.i.i.i11.i = icmp eq i64 %49, %50
+  %51 = load i64, ptr %numOut_.i2.i.i.i.i10.i, align 8
+  %cmp.i3.i.i.i.i11.i = icmp eq i64 %50, %51
   %timeClocks_.i4.i.i.i.i12.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1.i.i.i.i9.i, i64 16
-  %51 = load i64, ptr %timeClocks_.i4.i.i.i.i12.i, align 8
-  %conv.i5.i.i.i.i13.i = uitofp i64 %51 to float
-  %sub.i6.i.i.i.i14.i = sub i64 %49, %50
+  %52 = load i64, ptr %timeClocks_.i4.i.i.i.i12.i, align 8
+  %conv.i5.i.i.i.i13.i = uitofp i64 %52 to float
+  %sub.i6.i.i.i.i14.i = sub i64 %50, %51
   %conv6.i7.i.i.i.i15.i = uitofp i64 %sub.i6.i.i.i.i14.i to float
   %div.i8.i.i.i.i16.i = select i1 %cmp.i3.i.i.i.i11.i, float 1.000000e+00, float %conv6.i7.i.i.i.i15.i
   %retval.0.i9.i.i.i.i17.i = fdiv float %conv.i5.i.i.i.i13.i, %div.i8.i.i.i.i16.i
@@ -4392,7 +4391,7 @@ while.cond.i.i.i:                                 ; preds = %for.body.i.i, %whil
   br i1 %cmp.i.i.i3.i.i, label %while.body.i.i.i, label %for.inc.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
-  store i32 %48, ptr %__last.sroa.0.0.i.i.i, align 4
+  store i32 %49, ptr %__last.sroa.0.0.i.i.i, align 4
   %__comp.val.val.i.pre.i.i = load ptr, ptr %selectivity_, align 8
   %add.ptr.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityInfo", ptr %__comp.val.val.i.pre.i.i, i64 %conv.i.i.i
   %.pre.i.i = load i64, ptr %add.ptr.i.i.i.i.phi.trans.insert.i.i, align 8
@@ -4404,9 +4403,9 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
 
 for.inc.i.i:                                      ; preds = %while.cond.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i
   %__first.coerce.sink.i.i = phi ptr [ %2, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i ], [ %__last.sroa.0.0.i.i.i, %while.cond.i.i.i ]
-  store i32 %37, ptr %__first.coerce.sink.i.i, align 4
+  store i32 %38, ptr %__first.coerce.sink.i.i, align 4
   %__i.sroa.0.0.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.013.i.i, i64 4
-  %cmp.i1.not.i.i = icmp eq ptr %__i.sroa.0.0.i.i, %12
+  %cmp.i1.not.i.i = icmp eq ptr %__i.sroa.0.0.i.i, %13
   br i1 %cmp.i1.not.i.i, label %if.end26, label %for.body.i.i, !llvm.loop !60
 
 if.end26:                                         ; preds = %for.cond, %for.inc.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEvE3$_0EEEvT_T0_.exit.i.i.i.i", %entry, %for.cond.preheader.i.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEvE3$_0EEEvT_SF_T0_.exit.i.i", %if.then15
@@ -6490,20 +6489,20 @@ if.then.i.i:                                      ; preds = %entry
   store i8 1, ptr %2, align 8, !alias.scope !106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i.i), !noalias !93
   %cmp.not4.i.i.i.i = icmp eq ptr %retval.sroa.0.0.copyload.i.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i
-  br i1 %cmp.not4.i.i.i.i, label %_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IbEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit, label %for.body.i.i.i.i
+  br i1 %cmp.not4.i.i.i.i, label %_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IbEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit.critedge, label %for.body.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.05.i.i.i.i, i64 1
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IbEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit, label %for.body.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IbEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit.critedge, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i, %for.cond.i.i.i.i
   %__begin2.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.cond.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i.i.i.i, %if.then.i.i ]
   %3 = load i8, ptr %__begin2.05.i.i.i.i, align 1
   %conv.i.i.i.i = sext i8 %3 to i32
   %call2.i.i.i.i = call i32 @isspace(i32 noundef %conv.i.i.i.i) #30
-  %tobool.not.i.i.i.i.not = icmp eq i32 %call2.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i.i.not, label %if.end.i.i2, label %for.cond.i.i.i.i
+  %tobool.not.i.i.i.i = icmp eq i32 %call2.i.i.i.i, 0
+  br i1 %tobool.not.i.i.i.i, label %_ZNR5folly8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEE11thenOrThrowINS_6detail18CheckTrailingSpaceEZNS_2toIbEENSt9enable_ifIXntsr3std7is_sameIS4_T_EE5valueESC_E4typeES4_EUlS5_E_EEDTclclsr3stdE7declvalISC_EEclL_ZSt7declvalIRS4_EDTcl9__declvalISC_ELi0EEEvEEEEOSC_OT0_.exit, label %for.cond.i.i.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %ref.tmp.sroa.2.0.extract.shift.i.i = lshr i24 %call.i.i.i, 8
@@ -6514,13 +6513,13 @@ if.end.i.i:                                       ; preds = %entry
   call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %ref.tmp.sroa.2.0.extract.trunc.i.i) #17
   unreachable
 
-if.end.i.i2:                                      ; preds = %for.body.i.i.i.i
+_ZNR5folly8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEE11thenOrThrowINS_6detail18CheckTrailingSpaceEZNS_2toIbEENSt9enable_ifIXntsr3std7is_sameIS4_T_EE5valueESC_E4typeES4_EUlS5_E_EEDTclclsr3stdE7declvalISC_EEclL_ZSt7declvalIRS4_EDTcl9__declvalISC_ELi0EEEvEEEEOSC_OT0_.exit: ; preds = %for.body.i.i.i.i
   store ptr %tmp, ptr %ref.tmp4, align 8
   call void @_ZZN5folly2toIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_ENKUlNS_14ConversionCodeEE0_clES9_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4, i8 noundef zeroext 10)
   call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext 10) #17
   unreachable
 
-_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IbEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit: ; preds = %for.cond.i.i.i.i, %if.then.i.i
+_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IbEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit.critedge: ; preds = %for.cond.i.i.i.i, %if.then.i.i
   %4 = and i24 %call.i.i.i, 65536
   %ref.tmp.sroa.3.0.extract.trunc.i.i = icmp ne i24 %4, 0
   ret i1 %ref.tmp.sroa.3.0.extract.trunc.i.i

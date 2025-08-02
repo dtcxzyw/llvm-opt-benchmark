@@ -2837,7 +2837,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br i1 %69, label %83, label %79
 
 70:                                               ; preds = %45
-  %71 = getelementptr i8, ptr %39, i64 200
+  %71 = getelementptr inbounds nuw i8, ptr %39, i64 200
   %72 = load ptr, ptr %71, align 8, !noalias !415, !nonnull !21, !noundef !21
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   %73 = zext nneg i16 %16 to i64
@@ -3028,7 +3028,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br i1 %129, label %._crit_edge158, label %139
 
 130:                                              ; preds = %108
-  %131 = getelementptr i8, ptr %102, i64 200
+  %131 = getelementptr inbounds nuw i8, ptr %102, i64 200
   %132 = load ptr, ptr %131, align 8, !noalias !433, !nonnull !21, !noundef !21
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !425
   store ptr %102, ptr %6, align 8, !noalias !425
@@ -3331,7 +3331,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br i1 %67, label %82, label %77
 
 68:                                               ; preds = %45
-  %69 = getelementptr i8, ptr %39, i64 816
+  %69 = getelementptr inbounds nuw i8, ptr %39, i64 816
   %70 = load ptr, ptr %69, align 8, !noalias !489, !nonnull !21, !noundef !21
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   %71 = zext nneg i16 %17 to i64
@@ -3543,7 +3543,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br i1 %129, label %._crit_edge165, label %139
 
 130:                                              ; preds = %112
-  %131 = getelementptr i8, ptr %106, i64 816
+  %131 = getelementptr inbounds nuw i8, ptr %106, i64 816
   %132 = load ptr, ptr %131, align 8, !noalias !501, !nonnull !21, !noundef !21
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !493
   store ptr %106, ptr %6, align 8, !noalias !493

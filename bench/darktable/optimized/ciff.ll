@@ -50,56 +50,57 @@ define void @_ZN6LibRaw15ciff_block_1030Ev(ptr noundef nonnull align 8 dereferen
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 153048
   br label %.preheader
 
-.preheader:                                       ; preds = %9, %35
-  %indvars.iv36 = phi i64 [ 0, %9 ], [ %indvars.iv.next37, %35 ]
-  %.034 = phi i64 [ 0, %9 ], [ %.2, %35 ]
-  %.01833 = phi i32 [ 0, %9 ], [ %29, %35 ]
-  %.02331 = phi i32 [ 0, %9 ], [ %.225, %35 ]
-  br label %14
+.preheader:                                       ; preds = %9, %36
+  %indvars.iv36 = phi i64 [ 0, %9 ], [ %indvars.iv.next37, %36 ]
+  %.034 = phi i64 [ 0, %9 ], [ %.2, %36 ]
+  %.01833 = phi i32 [ 0, %9 ], [ %30, %36 ]
+  %.02331 = phi i32 [ 0, %9 ], [ %.225, %36 ]
+  %14 = getelementptr inbounds nuw [8 x [8 x i16]], ptr %13, i64 0, i64 %indvars.iv36
+  br label %15
 
-14:                                               ; preds = %.preheader, %28
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %28 ]
-  %.130 = phi i64 [ %.034, %.preheader ], [ %.2, %28 ]
-  %.11929 = phi i32 [ %.01833, %.preheader ], [ %29, %28 ]
-  %.12427 = phi i32 [ %.02331, %.preheader ], [ %.225, %28 ]
-  %15 = icmp slt i32 %.11929, %8
-  br i1 %15, label %16, label %28
+15:                                               ; preds = %.preheader, %29
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %29 ]
+  %.130 = phi i64 [ %.034, %.preheader ], [ %.2, %29 ]
+  %.11929 = phi i32 [ %.01833, %.preheader ], [ %30, %29 ]
+  %.12427 = phi i32 [ %.02331, %.preheader ], [ %.225, %29 ]
+  %16 = icmp slt i32 %.11929, %8
+  br i1 %16, label %17, label %29
 
-16:                                               ; preds = %14
-  %17 = shl i64 %.130, 16
-  %18 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %19 = add nsw i32 %.12427, 1
-  %20 = and i32 %.12427, 1
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [2 x i16], ptr @_ZZN6LibRaw15ciff_block_1030EvE3key, i64 0, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !6
-  %24 = xor i16 %23, %18
-  %25 = zext i16 %24 to i64
-  %26 = or disjoint i64 %17, %25
-  %27 = add nsw i32 %.11929, 16
-  br label %28
+17:                                               ; preds = %15
+  %18 = shl i64 %.130, 16
+  %19 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %20 = add nsw i32 %.12427, 1
+  %21 = and i32 %.12427, 1
+  %22 = zext nneg i32 %21 to i64
+  %23 = getelementptr inbounds nuw [2 x i16], ptr @_ZZN6LibRaw15ciff_block_1030EvE3key, i64 0, i64 %22
+  %24 = load i16, ptr %23, align 2, !tbaa !6
+  %25 = xor i16 %24, %19
+  %26 = zext i16 %25 to i64
+  %27 = or disjoint i64 %18, %26
+  %28 = add nsw i32 %.11929, 16
+  br label %29
 
-28:                                               ; preds = %16, %14
-  %.225 = phi i32 [ %19, %16 ], [ %.12427, %14 ]
-  %.220 = phi i32 [ %27, %16 ], [ %.11929, %14 ]
-  %.2 = phi i64 [ %26, %16 ], [ %.130, %14 ]
-  %29 = sub nsw i32 %.220, %8
-  %30 = zext nneg i32 %29 to i64
-  %31 = lshr i64 %.2, %30
-  %32 = and i64 %31, %12
-  %33 = trunc nuw i64 %32 to i16
-  %34 = getelementptr inbounds nuw [8 x [8 x i16]], ptr %13, i64 0, i64 %indvars.iv36, i64 %indvars.iv
-  store i16 %33, ptr %34, align 2, !tbaa !6
+29:                                               ; preds = %17, %15
+  %.225 = phi i32 [ %20, %17 ], [ %.12427, %15 ]
+  %.220 = phi i32 [ %28, %17 ], [ %.11929, %15 ]
+  %.2 = phi i64 [ %27, %17 ], [ %.130, %15 ]
+  %30 = sub nsw i32 %.220, %8
+  %31 = zext nneg i32 %30 to i64
+  %32 = lshr i64 %.2, %31
+  %33 = and i64 %32, %12
+  %34 = trunc nuw i64 %33 to i16
+  %35 = getelementptr inbounds nuw [8 x i16], ptr %14, i64 0, i64 %indvars.iv
+  store i16 %34, ptr %35, align 2, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %35, label %14, !llvm.loop !10
+  br i1 %exitcond.not, label %36, label %15, !llvm.loop !10
 
-35:                                               ; preds = %28
+36:                                               ; preds = %29
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 8
   br i1 %exitcond39.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
-.loopexit:                                        ; preds = %35, %6, %1, %4
+.loopexit:                                        ; preds = %36, %6, %1, %4
   ret void
 }
 
@@ -216,14 +217,14 @@ define void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferencea
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2076
   br label %89
 
-89:                                               ; preds = %.lr.ph417, %560
-  %90 = phi i16 [ 1040, %.lr.ph417 ], [ %561, %560 ]
-  %.in = phi i32 [ %37, %.lr.ph417 ], [ %91, %560 ]
-  %.0228416 = phi i32 [ -1, %.lr.ph417 ], [ %.1229, %560 ]
-  %.0233415 = phi i16 [ 0, %.lr.ph417 ], [ %.1234, %560 ]
-  %.0237414 = phi i64 [ 0, %.lr.ph417 ], [ %.1238, %560 ]
-  %.0244413 = phi i32 [ 1, %.lr.ph417 ], [ %.1245, %560 ]
-  %.0250412 = phi i32 [ 0, %.lr.ph417 ], [ %.1251, %560 ]
+89:                                               ; preds = %.lr.ph417, %565
+  %90 = phi i16 [ 1040, %.lr.ph417 ], [ %566, %565 ]
+  %.in = phi i32 [ %37, %.lr.ph417 ], [ %91, %565 ]
+  %.0228416 = phi i32 [ -1, %.lr.ph417 ], [ %.1229, %565 ]
+  %.0233415 = phi i16 [ 0, %.lr.ph417 ], [ %.1234, %565 ]
+  %.0237414 = phi i64 [ 0, %.lr.ph417 ], [ %.1238, %565 ]
+  %.0244413 = phi i32 [ 1, %.lr.ph417 ], [ %.1245, %565 ]
+  %.0250412 = phi i32 [ 0, %.lr.ph417 ], [ %.1251, %565 ]
   %91 = add nsw i32 %.in, -1
   %92 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %93 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -237,14 +238,14 @@ define void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferencea
   %101 = tail call noundef i64 %100(ptr noundef nonnull align 8 dereferenceable(8) %97)
   switch i16 %92, label %102 [
     i16 8199, label %174
-    i16 22539, label %352
-    i16 20508, label %530
-    i16 20521, label %533
-    i16 22547, label %542
-    i16 22548, label %544
-    i16 22551, label %546
-    i16 22580, label %547
-    i16 22542, label %549
+    i16 22539, label %354
+    i16 20508, label %535
+    i16 20521, label %538
+    i16 22547, label %547
+    i16 22548, label %549
+    i16 22551, label %551
+    i16 22580, label %552
+    i16 22542, label %554
   ]
 
 102:                                              ; preds = %89
@@ -257,7 +258,7 @@ define void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferencea
 
 107:                                              ; preds = %102
   %108 = tail call noundef i32 %106(ptr noundef nonnull align 8 dereferenceable(8) %103, i64 noundef %101, i32 noundef 0)
-  br label %560, !llvm.loop !80
+  br label %565, !llvm.loop !80
 
 109:                                              ; preds = %102
   %110 = tail call noundef i32 %106(ptr noundef nonnull align 8 dereferenceable(8) %103, i64 noundef %96, i32 noundef 0)
@@ -278,7 +279,7 @@ define void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferencea
   br label %121
 
 121:                                              ; preds = %109, %114
-  switch i16 %92, label %512 [
+  switch i16 %92, label %517 [
     i16 12292, label %122
     i16 2064, label %129
     i16 2058, label %135
@@ -290,10 +291,10 @@ define void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferencea
     i16 4138, label %187
     i16 4140, label %223
     i16 4265, label %259
-    i16 4141, label %345
-    i16 4276, label %347
-    i16 22539, label %352
-    i16 50, label %359
+    i16 4141, label %347
+    i16 4276, label %349
+    i16 22539, label %354
+    i16 50, label %361
   ]
 
 122:                                              ; preds = %121
@@ -595,101 +596,103 @@ define void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferencea
 _ZNK21libraw_static_table_tixEj.exit:             ; preds = %288, %286, %289
   %.0.i = phi i32 [ %287, %286 ], [ %290, %289 ], [ 0, %288 ]
   %291 = sext i32 %.0.i to i64
-  %292 = getelementptr inbounds [256 x [4 x i32]], ptr %50, i64 0, i64 %291, i64 %indvars.iv459
-  %293 = load i32, ptr %292, align 4, !tbaa !98
-  %294 = sitofp i32 %293 to float
-  %295 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %indvars.iv459
-  store float %294, ptr %295, align 4, !tbaa !95
+  %292 = getelementptr inbounds [256 x [4 x i32]], ptr %50, i64 0, i64 %291
+  %293 = getelementptr inbounds nuw [4 x i32], ptr %292, i64 0, i64 %indvars.iv459
+  %294 = load i32, ptr %293, align 4, !tbaa !98
+  %295 = sitofp i32 %294 to float
+  %296 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %indvars.iv459
+  store float %295, ptr %296, align 4, !tbaa !95
   %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, 1
   %exitcond462.not = icmp eq i64 %indvars.iv.next460, 4
   br i1 %exitcond462.not, label %.loopexit372.preheader, label %285, !llvm.loop !101
 
 .preheader373:                                    ; preds = %278, %.preheader373
   %indvars.iv455 = phi i64 [ %indvars.iv.next456, %.preheader373 ], [ 0, %278 ]
-  %296 = getelementptr inbounds nuw [4 x i32], ptr %54, i64 0, i64 %indvars.iv455
-  %297 = load i32, ptr %296, align 4, !tbaa !98
-  %298 = sitofp i32 %297 to float
-  %299 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %indvars.iv455
-  store float %298, ptr %299, align 4, !tbaa !95
+  %297 = getelementptr inbounds nuw [4 x i32], ptr %54, i64 0, i64 %indvars.iv455
+  %298 = load i32, ptr %297, align 4, !tbaa !98
+  %299 = sitofp i32 %298 to float
+  %300 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %indvars.iv455
+  store float %299, ptr %300, align 4, !tbaa !95
   %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
   %exitcond458.not = icmp eq i64 %indvars.iv.next456, 4
   br i1 %exitcond458.not, label %.loopexit372.preheader, label %.preheader373, !llvm.loop !102
 
 .preheader380:                                    ; preds = %.loopexit382, %.preheader380
-  %.6401 = phi i32 [ %306, %.preheader380 ], [ 0, %.loopexit382 ]
-  %300 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %301 = zext i16 %300 to i32
-  %302 = lshr i32 %.6401, 1
-  %303 = xor i32 %302, %.6401
-  %304 = zext nneg i32 %303 to i64
-  %305 = getelementptr inbounds nuw [4 x i32], ptr %55, i64 0, i64 %304
-  store i32 %301, ptr %305, align 4, !tbaa !98
-  %306 = add nuw nsw i32 %.6401, 1
-  %exitcond445.not = icmp eq i32 %306, 4
+  %.6401 = phi i32 [ %307, %.preheader380 ], [ 0, %.loopexit382 ]
+  %301 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %302 = zext i16 %301 to i32
+  %303 = lshr i32 %.6401, 1
+  %304 = xor i32 %303, %.6401
+  %305 = zext nneg i32 %304 to i64
+  %306 = getelementptr inbounds nuw [4 x i32], ptr %55, i64 0, i64 %305
+  store i32 %302, ptr %306, align 4, !tbaa !98
+  %307 = add nuw nsw i32 %.6401, 1
+  %exitcond445.not = icmp eq i32 %307, 4
   br i1 %exitcond445.not, label %.preheader379, label %.preheader380, !llvm.loop !103
 
 .preheader379:                                    ; preds = %.preheader380, %.preheader379
-  %.7402 = phi i32 [ %313, %.preheader379 ], [ 0, %.preheader380 ]
-  %307 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %308 = zext i16 %307 to i32
-  %309 = lshr i32 %.7402, 1
-  %310 = xor i32 %309, %.7402
-  %311 = zext nneg i32 %310 to i64
-  %312 = getelementptr inbounds nuw [4 x i32], ptr %56, i64 0, i64 %311
-  store i32 %308, ptr %312, align 4, !tbaa !98
-  %313 = add nuw nsw i32 %.7402, 1
-  %exitcond446.not = icmp eq i32 %313, 4
-  br i1 %exitcond446.not, label %314, label %.preheader379, !llvm.loop !104
+  %.7402 = phi i32 [ %314, %.preheader379 ], [ 0, %.preheader380 ]
+  %308 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %309 = zext i16 %308 to i32
+  %310 = lshr i32 %.7402, 1
+  %311 = xor i32 %310, %.7402
+  %312 = zext nneg i32 %311 to i64
+  %313 = getelementptr inbounds nuw [4 x i32], ptr %56, i64 0, i64 %312
+  store i32 %309, ptr %313, align 4, !tbaa !98
+  %314 = add nuw nsw i32 %.7402, 1
+  %exitcond446.not = icmp eq i32 %314, 4
+  br i1 %exitcond446.not, label %315, label %.preheader379, !llvm.loop !104
 
-314:                                              ; preds = %.preheader379
+315:                                              ; preds = %.preheader379
   %or.cond21 = icmp ult i32 %.0228416, 10
   br i1 %or.cond21, label %.preheader375, label %.preheader377
 
-.preheader375:                                    ; preds = %314
-  %315 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw13Canon_wbi2stdE, i64 8), align 8, !tbaa !93
-  %316 = icmp ult i32 %.0228416, %315
-  %.not.i283 = icmp eq i32 %315, 0
-  %317 = load ptr, ptr @_ZN6LibRaw13Canon_wbi2stdE, align 8
-  %.not6.i284 = icmp eq ptr %317, null
-  %318 = zext nneg i32 %.0228416 to i64
-  %319 = getelementptr inbounds nuw i32, ptr %317, i64 %318
+.preheader375:                                    ; preds = %315
+  %316 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw13Canon_wbi2stdE, i64 8), align 8, !tbaa !93
+  %317 = icmp ult i32 %.0228416, %316
+  %.not.i283 = icmp eq i32 %316, 0
+  %318 = load ptr, ptr @_ZN6LibRaw13Canon_wbi2stdE, align 8
+  %.not6.i284 = icmp eq ptr %318, null
+  %319 = zext nneg i32 %.0228416 to i64
+  %320 = getelementptr inbounds nuw i32, ptr %318, i64 %319
   %brmerge418 = select i1 %.not.i283, i1 true, i1 %.not6.i284
-  br label %320
+  br label %321
 
-320:                                              ; preds = %.preheader375, %_ZNK21libraw_static_table_tixEj.exit286
+321:                                              ; preds = %.preheader375, %_ZNK21libraw_static_table_tixEj.exit286
   %indvars.iv451 = phi i64 [ 0, %.preheader375 ], [ %indvars.iv.next452, %_ZNK21libraw_static_table_tixEj.exit286 ]
-  br i1 %316, label %321, label %323
+  br i1 %317, label %322, label %324
 
-321:                                              ; preds = %320
-  %322 = load i32, ptr %319, align 4, !tbaa !98
+322:                                              ; preds = %321
+  %323 = load i32, ptr %320, align 4, !tbaa !98
   br label %_ZNK21libraw_static_table_tixEj.exit286
 
-323:                                              ; preds = %320
-  br i1 %brmerge418, label %_ZNK21libraw_static_table_tixEj.exit286, label %324
+324:                                              ; preds = %321
+  br i1 %brmerge418, label %_ZNK21libraw_static_table_tixEj.exit286, label %325
 
-324:                                              ; preds = %323
-  %325 = load i32, ptr %317, align 4, !tbaa !98
+325:                                              ; preds = %324
+  %326 = load i32, ptr %318, align 4, !tbaa !98
   br label %_ZNK21libraw_static_table_tixEj.exit286
 
-_ZNK21libraw_static_table_tixEj.exit286:          ; preds = %323, %321, %324
-  %.0.i285 = phi i32 [ %322, %321 ], [ %325, %324 ], [ 0, %323 ]
-  %326 = sext i32 %.0.i285 to i64
-  %327 = getelementptr inbounds [256 x [4 x i32]], ptr %50, i64 0, i64 %326, i64 %indvars.iv451
-  %328 = load i32, ptr %327, align 4, !tbaa !98
-  %329 = sitofp i32 %328 to float
-  %330 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %indvars.iv451
-  store float %329, ptr %330, align 4, !tbaa !95
+_ZNK21libraw_static_table_tixEj.exit286:          ; preds = %324, %322, %325
+  %.0.i285 = phi i32 [ %323, %322 ], [ %326, %325 ], [ 0, %324 ]
+  %327 = sext i32 %.0.i285 to i64
+  %328 = getelementptr inbounds [256 x [4 x i32]], ptr %50, i64 0, i64 %327
+  %329 = getelementptr inbounds nuw [4 x i32], ptr %328, i64 0, i64 %indvars.iv451
+  %330 = load i32, ptr %329, align 4, !tbaa !98
+  %331 = sitofp i32 %330 to float
+  %332 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %indvars.iv451
+  store float %331, ptr %332, align 4, !tbaa !95
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %exitcond454.not = icmp eq i64 %indvars.iv.next452, 4
-  br i1 %exitcond454.not, label %.loopexit372.preheader, label %320, !llvm.loop !105
+  br i1 %exitcond454.not, label %.loopexit372.preheader, label %321, !llvm.loop !105
 
-.preheader377:                                    ; preds = %314, %.preheader377
-  %indvars.iv447 = phi i64 [ %indvars.iv.next448, %.preheader377 ], [ 0, %314 ]
-  %331 = getelementptr inbounds nuw [4 x i32], ptr %54, i64 0, i64 %indvars.iv447
-  %332 = load i32, ptr %331, align 4, !tbaa !98
-  %333 = sitofp i32 %332 to float
-  %334 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %indvars.iv447
-  store float %333, ptr %334, align 4, !tbaa !95
+.preheader377:                                    ; preds = %315, %.preheader377
+  %indvars.iv447 = phi i64 [ %indvars.iv.next448, %.preheader377 ], [ 0, %315 ]
+  %333 = getelementptr inbounds nuw [4 x i32], ptr %54, i64 0, i64 %indvars.iv447
+  %334 = load i32, ptr %333, align 4, !tbaa !98
+  %335 = sitofp i32 %334 to float
+  %336 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %indvars.iv447
+  store float %335, ptr %336, align 4, !tbaa !95
   %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
   %exitcond450.not = icmp eq i64 %indvars.iv.next448, 4
   br i1 %exitcond450.not, label %.loopexit372.preheader, label %.preheader377, !llvm.loop !106
@@ -698,144 +701,145 @@ _ZNK21libraw_static_table_tixEj.exit286:          ; preds = %323, %321, %324
   br label %.loopexit372
 
 .loopexit372:                                     ; preds = %.loopexit372.preheader, %.loopexit372
-  %.10408 = phi i32 [ %342, %.loopexit372 ], [ 0, %.loopexit372.preheader ]
-  %.0232407 = phi i32 [ %341, %.loopexit372 ], [ 0, %.loopexit372.preheader ]
-  %335 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %336 = zext i16 %335 to i32
-  %337 = lshr i32 %.10408, 1
-  %338 = xor i32 %337, %.10408
-  %339 = zext nneg i32 %338 to i64
-  %340 = getelementptr inbounds nuw [4 x i32], ptr %57, i64 0, i64 %339
-  store i32 %336, ptr %340, align 4, !tbaa !98
-  %341 = add nuw nsw i32 %.0232407, %336
-  %342 = add nuw nsw i32 %.10408, 1
-  %exitcond463.not = icmp eq i32 %342, 4
-  br i1 %exitcond463.not, label %343, label %.loopexit372, !llvm.loop !107
+  %.10408 = phi i32 [ %344, %.loopexit372 ], [ 0, %.loopexit372.preheader ]
+  %.0232407 = phi i32 [ %343, %.loopexit372 ], [ 0, %.loopexit372.preheader ]
+  %337 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %338 = zext i16 %337 to i32
+  %339 = lshr i32 %.10408, 1
+  %340 = xor i32 %339, %.10408
+  %341 = zext nneg i32 %340 to i64
+  %342 = getelementptr inbounds nuw [4 x i32], ptr %57, i64 0, i64 %341
+  store i32 %338, ptr %342, align 4, !tbaa !98
+  %343 = add nuw nsw i32 %.0232407, %338
+  %344 = add nuw nsw i32 %.10408, 1
+  %exitcond463.not = icmp eq i32 %344, 4
+  br i1 %exitcond463.not, label %345, label %.loopexit372, !llvm.loop !107
 
-343:                                              ; preds = %.loopexit372
-  %344 = lshr i32 %341, 2
-  store i32 %344, ptr %58, align 8, !tbaa !108
-  br label %.thread361
-
-345:                                              ; preds = %121
-  %346 = ashr i32 %93, 1
-  tail call void @_ZN6LibRaw20Canon_CameraSettingsEj(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %346)
+345:                                              ; preds = %.loopexit372
+  %346 = lshr i32 %343, 2
+  store i32 %346, ptr %58, align 8, !tbaa !108
   br label %.thread361
 
 347:                                              ; preds = %121
-  %348 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  switch i16 %348, label %351 [
-    i16 1, label %349
-    i16 2, label %350
+  %348 = ashr i32 %93, 1
+  tail call void @_ZN6LibRaw20Canon_CameraSettingsEj(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %348)
+  br label %.thread361
+
+349:                                              ; preds = %121
+  %350 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  switch i16 %350, label %353 [
+    i16 1, label %351
+    i16 2, label %352
   ]
 
-349:                                              ; preds = %347
+351:                                              ; preds = %349
   store i16 1, ptr %53, align 8, !tbaa !109
   br label %.thread361
 
-350:                                              ; preds = %347
+352:                                              ; preds = %349
   store i16 2, ptr %53, align 8, !tbaa !109
   br label %.thread361
 
-351:                                              ; preds = %347
+353:                                              ; preds = %349
   store i16 255, ptr %53, align 8, !tbaa !109
   br label %.thread361
 
-352:                                              ; preds = %89, %121
+354:                                              ; preds = %89, %121
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %51, ptr noundef nonnull dereferenceable(14) @.str.1, i64 14)
   %.not273 = icmp eq i32 %bcmp, 0
-  br i1 %.not273, label %355, label %353
+  br i1 %.not273, label %357, label %355
 
-353:                                              ; preds = %352
-  %354 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %93) #12
+355:                                              ; preds = %354
+  %356 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %93) #12
   br label %.thread361
 
-355:                                              ; preds = %352
-  %356 = ashr i32 %93, 16
-  %357 = and i32 %93, 65535
-  %358 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %356, i32 noundef %357) #12
+357:                                              ; preds = %354
+  %358 = ashr i32 %93, 16
+  %359 = and i32 %93, 65535
+  %360 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %358, i32 noundef %359) #12
   br label %.thread361
 
-359:                                              ; preds = %121
-  %360 = icmp eq i32 %93, 768
-  br i1 %360, label %361, label %417
+361:                                              ; preds = %121
+  %362 = icmp eq i32 %93, 768
+  br i1 %362, label %363, label %420
 
-361:                                              ; preds = %359
-  %362 = load ptr, ptr %6, align 8, !tbaa !13
-  %363 = load ptr, ptr %362, align 8, !tbaa !75
-  %364 = getelementptr inbounds nuw i8, ptr %363, i64 32
-  %365 = load ptr, ptr %364, align 8
-  %366 = tail call noundef i32 %365(ptr noundef nonnull align 8 dereferenceable(8) %362, i64 noundef 4, i32 noundef 1)
-  %367 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw27Canon_D30_linenums_2_StdWBiE, i64 8), align 8, !tbaa !93
-  %.not422 = icmp eq i32 %367, 0
+363:                                              ; preds = %361
+  %364 = load ptr, ptr %6, align 8, !tbaa !13
+  %365 = load ptr, ptr %364, align 8, !tbaa !75
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 32
+  %367 = load ptr, ptr %366, align 8
+  %368 = tail call noundef i32 %367(ptr noundef nonnull align 8 dereferenceable(8) %364, i64 noundef 4, i32 noundef 1)
+  %369 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw27Canon_D30_linenums_2_StdWBiE, i64 8), align 8, !tbaa !93
+  %.not422 = icmp eq i32 %369, 0
   br i1 %.not422, label %._crit_edge396, label %_ZNK21libraw_static_table_tixEj.exit290
 
 ._crit_edge396.loopexit:                          ; preds = %.loopexit
-  %368 = shl nsw i32 %403, 3
-  %369 = sub nsw i32 68, %368
-  %370 = sext i32 %369 to i64
+  %370 = shl nsw i32 %406, 3
+  %371 = sub nsw i32 68, %370
+  %372 = sext i32 %371 to i64
   br label %._crit_edge396
 
-._crit_edge396:                                   ; preds = %._crit_edge396.loopexit, %361
-  %.lcssa = phi i64 [ 68, %361 ], [ %370, %._crit_edge396.loopexit ]
-  %371 = load ptr, ptr %6, align 8, !tbaa !13
-  %372 = load ptr, ptr %371, align 8, !tbaa !75
-  %373 = getelementptr inbounds nuw i8, ptr %372, i64 32
-  %374 = load ptr, ptr %373, align 8
-  %375 = tail call noundef i32 %374(ptr noundef nonnull align 8 dereferenceable(8) %371, i64 noundef %.lcssa, i32 noundef 1)
-  br label %406
+._crit_edge396:                                   ; preds = %._crit_edge396.loopexit, %363
+  %.lcssa = phi i64 [ 68, %363 ], [ %372, %._crit_edge396.loopexit ]
+  %373 = load ptr, ptr %6, align 8, !tbaa !13
+  %374 = load ptr, ptr %373, align 8, !tbaa !75
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 32
+  %376 = load ptr, ptr %375, align 8
+  %377 = tail call noundef i32 %376(ptr noundef nonnull align 8 dereferenceable(8) %373, i64 noundef %.lcssa, i32 noundef 1)
+  br label %409
 
-_ZNK21libraw_static_table_tixEj.exit290:          ; preds = %361, %.loopexit
-  %376 = phi i32 [ %403, %.loopexit ], [ %367, %361 ]
-  %indvars.iv436 = phi i64 [ %indvars.iv.next437, %.loopexit ], [ 0, %361 ]
-  %377 = load ptr, ptr @_ZN6LibRaw27Canon_D30_linenums_2_StdWBiE, align 8, !tbaa !110
-  %378 = getelementptr inbounds nuw i32, ptr %377, i64 %indvars.iv436
-  %379 = load i32, ptr %378, align 4, !tbaa !98
-  %.not271 = icmp eq i32 %379, 0
+_ZNK21libraw_static_table_tixEj.exit290:          ; preds = %363, %.loopexit
+  %378 = phi i32 [ %406, %.loopexit ], [ %369, %363 ]
+  %indvars.iv436 = phi i64 [ %indvars.iv.next437, %.loopexit ], [ 0, %363 ]
+  %379 = load ptr, ptr @_ZN6LibRaw27Canon_D30_linenums_2_StdWBiE, align 8, !tbaa !110
+  %380 = getelementptr inbounds nuw i32, ptr %379, i64 %indvars.iv436
+  %381 = load i32, ptr %380, align 4, !tbaa !98
+  %.not271 = icmp eq i32 %381, 0
   br i1 %.not271, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK21libraw_static_table_tixEj.exit290, %_ZNK21libraw_static_table_tixEj.exit294
-  %.11394 = phi i32 [ %402, %_ZNK21libraw_static_table_tixEj.exit294 ], [ 0, %_ZNK21libraw_static_table_tixEj.exit290 ]
-  %380 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %narrow272 = tail call i16 @llvm.umax.i16(i16 %380, i16 1)
-  %381 = uitofp i16 %narrow272 to float
-  %382 = fdiv reassoc nsz arcp contract afn float 1.024000e+06, %381
-  %383 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %382)
-  %384 = fptosi float %383 to i32
-  %385 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw27Canon_D30_linenums_2_StdWBiE, i64 8), align 8, !tbaa !93
-  %386 = zext i32 %385 to i64
-  %387 = icmp samesign ult i64 %indvars.iv436, %386
-  br i1 %387, label %388, label %392
+  %.11394 = phi i32 [ %405, %_ZNK21libraw_static_table_tixEj.exit294 ], [ 0, %_ZNK21libraw_static_table_tixEj.exit290 ]
+  %382 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %narrow272 = tail call i16 @llvm.umax.i16(i16 %382, i16 1)
+  %383 = uitofp i16 %narrow272 to float
+  %384 = fdiv reassoc nsz arcp contract afn float 1.024000e+06, %383
+  %385 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %384)
+  %386 = fptosi float %385 to i32
+  %387 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw27Canon_D30_linenums_2_StdWBiE, i64 8), align 8, !tbaa !93
+  %388 = zext i32 %387 to i64
+  %389 = icmp samesign ult i64 %indvars.iv436, %388
+  br i1 %389, label %390, label %394
 
-388:                                              ; preds = %.preheader
-  %389 = load ptr, ptr @_ZN6LibRaw27Canon_D30_linenums_2_StdWBiE, align 8, !tbaa !110
-  %390 = getelementptr inbounds nuw i32, ptr %389, i64 %indvars.iv436
-  %391 = load i32, ptr %390, align 4, !tbaa !98
+390:                                              ; preds = %.preheader
+  %391 = load ptr, ptr @_ZN6LibRaw27Canon_D30_linenums_2_StdWBiE, align 8, !tbaa !110
+  %392 = getelementptr inbounds nuw i32, ptr %391, i64 %indvars.iv436
+  %393 = load i32, ptr %392, align 4, !tbaa !98
   br label %_ZNK21libraw_static_table_tixEj.exit294
 
-392:                                              ; preds = %.preheader
-  %.not.i291 = icmp eq i32 %385, 0
-  br i1 %.not.i291, label %_ZNK21libraw_static_table_tixEj.exit294, label %393
+394:                                              ; preds = %.preheader
+  %.not.i291 = icmp eq i32 %387, 0
+  br i1 %.not.i291, label %_ZNK21libraw_static_table_tixEj.exit294, label %395
 
-393:                                              ; preds = %392
-  %394 = load ptr, ptr @_ZN6LibRaw27Canon_D30_linenums_2_StdWBiE, align 8, !tbaa !110
-  %.not6.i292 = icmp eq ptr %394, null
-  br i1 %.not6.i292, label %_ZNK21libraw_static_table_tixEj.exit294, label %395
+395:                                              ; preds = %394
+  %396 = load ptr, ptr @_ZN6LibRaw27Canon_D30_linenums_2_StdWBiE, align 8, !tbaa !110
+  %.not6.i292 = icmp eq ptr %396, null
+  br i1 %.not6.i292, label %_ZNK21libraw_static_table_tixEj.exit294, label %397
 
-395:                                              ; preds = %393
-  %396 = load i32, ptr %394, align 4, !tbaa !98
+397:                                              ; preds = %395
+  %398 = load i32, ptr %396, align 4, !tbaa !98
   br label %_ZNK21libraw_static_table_tixEj.exit294
 
-_ZNK21libraw_static_table_tixEj.exit294:          ; preds = %388, %392, %393, %395
-  %.0.i293 = phi i32 [ %391, %388 ], [ %396, %395 ], [ 0, %393 ], [ 0, %392 ]
-  %397 = sext i32 %.0.i293 to i64
-  %398 = lshr i32 %.11394, 1
-  %399 = xor i32 %398, %.11394
-  %400 = zext nneg i32 %399 to i64
-  %401 = getelementptr inbounds [256 x [4 x i32]], ptr %50, i64 0, i64 %397, i64 %400
-  store i32 %384, ptr %401, align 4, !tbaa !98
-  %402 = add nuw nsw i32 %.11394, 1
-  %exitcond435.not = icmp eq i32 %402, 4
+_ZNK21libraw_static_table_tixEj.exit294:          ; preds = %390, %394, %395, %397
+  %.0.i293 = phi i32 [ %393, %390 ], [ %398, %397 ], [ 0, %395 ], [ 0, %394 ]
+  %399 = sext i32 %.0.i293 to i64
+  %400 = getelementptr inbounds [256 x [4 x i32]], ptr %50, i64 0, i64 %399
+  %401 = lshr i32 %.11394, 1
+  %402 = xor i32 %401, %.11394
+  %403 = zext nneg i32 %402 to i64
+  %404 = getelementptr inbounds nuw [4 x i32], ptr %400, i64 0, i64 %403
+  store i32 %386, ptr %404, align 4, !tbaa !98
+  %405 = add nuw nsw i32 %.11394, 1
+  %exitcond435.not = icmp eq i32 %405, 4
   br i1 %exitcond435.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !111
 
 .loopexit.loopexit:                               ; preds = %_ZNK21libraw_static_table_tixEj.exit294
@@ -843,378 +847,380 @@ _ZNK21libraw_static_table_tixEj.exit294:          ; preds = %388, %392, %393, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZNK21libraw_static_table_tixEj.exit290
-  %403 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %376, %_ZNK21libraw_static_table_tixEj.exit290 ]
+  %406 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %378, %_ZNK21libraw_static_table_tixEj.exit290 ]
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
-  %404 = zext i32 %403 to i64
-  %405 = icmp samesign ult i64 %indvars.iv.next437, %404
-  br i1 %405, label %_ZNK21libraw_static_table_tixEj.exit290, label %._crit_edge396.loopexit, !llvm.loop !112
+  %407 = zext i32 %406 to i64
+  %408 = icmp samesign ult i64 %indvars.iv.next437, %407
+  br i1 %408, label %_ZNK21libraw_static_table_tixEj.exit290, label %._crit_edge396.loopexit, !llvm.loop !112
 
-406:                                              ; preds = %._crit_edge396, %406
-  %.12398 = phi i32 [ 0, %._crit_edge396 ], [ %414, %406 ]
-  %407 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %narrow270 = tail call i16 @llvm.umax.i16(i16 %407, i16 1)
-  %408 = uitofp i16 %narrow270 to float
-  %409 = fdiv reassoc nsz arcp contract afn float 1.024000e+03, %408
-  %410 = lshr i32 %.12398, 1
-  %411 = xor i32 %410, %.12398
-  %412 = zext nneg i32 %411 to i64
-  %413 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %412
-  store float %409, ptr %413, align 4, !tbaa !95
-  %414 = add nuw nsw i32 %.12398, 1
-  %exitcond439.not = icmp eq i32 %414, 4
-  br i1 %exitcond439.not, label %415, label %406, !llvm.loop !113
+409:                                              ; preds = %._crit_edge396, %409
+  %.12398 = phi i32 [ 0, %._crit_edge396 ], [ %417, %409 ]
+  %410 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %narrow270 = tail call i16 @llvm.umax.i16(i16 %410, i16 1)
+  %411 = uitofp i16 %narrow270 to float
+  %412 = fdiv reassoc nsz arcp contract afn float 1.024000e+03, %411
+  %413 = lshr i32 %.12398, 1
+  %414 = xor i32 %413, %.12398
+  %415 = zext nneg i32 %414 to i64
+  %416 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %415
+  store float %412, ptr %416, align 4, !tbaa !95
+  %417 = add nuw nsw i32 %.12398, 1
+  %exitcond439.not = icmp eq i32 %417, 4
+  br i1 %exitcond439.not, label %418, label %409, !llvm.loop !113
 
-415:                                              ; preds = %406
+418:                                              ; preds = %409
   %.not269 = icmp eq i32 %.0228416, 0
-  br i1 %.not269, label %416, label %.thread361
+  br i1 %.not269, label %419, label %.thread361
 
-416:                                              ; preds = %415
+419:                                              ; preds = %418
   store float -1.000000e+00, ptr %47, align 8, !tbaa !95
   br label %.thread361
 
-417:                                              ; preds = %359
-  %418 = load float, ptr %47, align 8, !tbaa !95
-  %419 = fcmp reassoc nsz arcp contract afn ole float %418, 0x3F50624DE0000000
-  %420 = icmp ne i16 %.0233415, 0
-  %or.cond23 = select i1 %419, i1 true, i1 %420
-  br i1 %or.cond23, label %421, label %.thread361
+420:                                              ; preds = %361
+  %421 = load float, ptr %47, align 8, !tbaa !95
+  %422 = fcmp reassoc nsz arcp contract afn ole float %421, 0x3F50624DE0000000
+  %423 = icmp ne i16 %.0233415, 0
+  %or.cond23 = select i1 %422, i1 true, i1 %423
+  br i1 %or.cond23, label %424, label %.thread361
 
-421:                                              ; preds = %417
-  %422 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw13Canon_wbi2stdE, i64 8), align 8, !tbaa !93
-  %423 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %424 = icmp eq i16 %423, %90
-  %425 = icmp eq i32 %93, 2048
-  %or.cond25 = and i1 %425, %424
-  br i1 %or.cond25, label %426, label %429
+424:                                              ; preds = %420
+  %425 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw13Canon_wbi2stdE, i64 8), align 8, !tbaa !93
+  %426 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %427 = icmp eq i16 %426, %90
+  %428 = icmp eq i32 %93, 2048
+  %or.cond25 = and i1 %428, %427
+  br i1 %or.cond25, label %429, label %432
 
-426:                                              ; preds = %421
-  %427 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw43Canon_KeyIs0x0410_Len2048_linenums_2_StdWBiE, i64 8), align 8, !tbaa !93
-  %428 = load ptr, ptr @_ZN6LibRaw43Canon_KeyIs0x0410_Len2048_linenums_2_StdWBiE, align 8, !tbaa !110
-  br label %442
+429:                                              ; preds = %424
+  %430 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw43Canon_KeyIs0x0410_Len2048_linenums_2_StdWBiE, i64 8), align 8, !tbaa !93
+  %431 = load ptr, ptr @_ZN6LibRaw43Canon_KeyIs0x0410_Len2048_linenums_2_StdWBiE, align 8, !tbaa !110
+  br label %445
 
-429:                                              ; preds = %421
-  %430 = icmp eq i32 %93, 3072
-  %or.cond27 = and i1 %430, %424
-  br i1 %or.cond27, label %431, label %434
+432:                                              ; preds = %424
+  %433 = icmp eq i32 %93, 3072
+  %or.cond27 = and i1 %433, %427
+  br i1 %or.cond27, label %434, label %437
 
-431:                                              ; preds = %429
-  %432 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw43Canon_KeyIs0x0410_Len3072_linenums_2_StdWBiE, i64 8), align 8, !tbaa !93
-  %433 = load ptr, ptr @_ZN6LibRaw43Canon_KeyIs0x0410_Len3072_linenums_2_StdWBiE, align 8, !tbaa !110
-  br label %442
+434:                                              ; preds = %432
+  %435 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw43Canon_KeyIs0x0410_Len3072_linenums_2_StdWBiE, i64 8), align 8, !tbaa !93
+  %436 = load ptr, ptr @_ZN6LibRaw43Canon_KeyIs0x0410_Len3072_linenums_2_StdWBiE, align 8, !tbaa !110
+  br label %445
 
-434:                                              ; preds = %429
-  %435 = icmp eq i16 %423, 0
-  %or.cond29 = and i1 %425, %435
-  br i1 %or.cond29, label %436, label %.thread361
+437:                                              ; preds = %432
+  %438 = icmp eq i16 %426, 0
+  %or.cond29 = and i1 %428, %438
+  br i1 %or.cond29, label %439, label %.thread361
 
-436:                                              ; preds = %434
+439:                                              ; preds = %437
   store i16 0, ptr %48, align 2, !tbaa !6
   store i16 0, ptr %5, align 4, !tbaa !6
-  %437 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw41Canon_KeyIsZero_Len2048_linenums_2_StdWBiE, i64 8), align 8, !tbaa !93
-  %438 = load ptr, ptr @_ZN6LibRaw41Canon_KeyIsZero_Len2048_linenums_2_StdWBiE, align 8, !tbaa !110
-  %439 = tail call reassoc nsz arcp contract afn double @strtod(ptr noundef nonnull captures(none) %49, ptr noundef null) #12
-  %440 = fcmp reassoc nsz arcp contract afn olt double %439, 0x3FF051EB80000000
-  br i1 %440, label %441, label %442
+  %440 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw41Canon_KeyIsZero_Len2048_linenums_2_StdWBiE, i64 8), align 8, !tbaa !93
+  %441 = load ptr, ptr @_ZN6LibRaw41Canon_KeyIsZero_Len2048_linenums_2_StdWBiE, align 8, !tbaa !110
+  %442 = tail call reassoc nsz arcp contract afn double @strtod(ptr noundef nonnull captures(none) %49, ptr noundef null) #12
+  %443 = fcmp reassoc nsz arcp contract afn olt double %442, 0x3FF051EB80000000
+  br i1 %443, label %444, label %445
 
-441:                                              ; preds = %436
-  br label %442
+444:                                              ; preds = %439
+  br label %445
 
-442:                                              ; preds = %431, %436, %441, %426
-  %443 = phi i16 [ %90, %426 ], [ %90, %431 ], [ 0, %441 ], [ 0, %436 ]
-  %.sroa.14.0 = phi i32 [ %427, %426 ], [ %432, %431 ], [ %437, %441 ], [ %437, %436 ]
-  %.sroa.0.0 = phi ptr [ %428, %426 ], [ %433, %431 ], [ %438, %441 ], [ %438, %436 ]
-  %.2246 = phi i32 [ %.0244413, %426 ], [ %.0244413, %431 ], [ 0, %441 ], [ %.0244413, %436 ]
-  %.3240 = phi i64 [ 8, %426 ], [ 16, %431 ], [ %.0237414, %441 ], [ %.0237414, %436 ]
-  %444 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw13Canon_wbi2stdE, i64 8), align 8, !tbaa !93
-  %445 = icmp ult i32 %.0228416, %444
-  br i1 %445, label %_ZNK21libraw_static_table_tixEj.exit298, label %446
+445:                                              ; preds = %434, %439, %444, %429
+  %446 = phi i16 [ %90, %429 ], [ %90, %434 ], [ 0, %444 ], [ 0, %439 ]
+  %.sroa.14.0 = phi i32 [ %430, %429 ], [ %435, %434 ], [ %440, %444 ], [ %440, %439 ]
+  %.sroa.0.0 = phi ptr [ %431, %429 ], [ %436, %434 ], [ %441, %444 ], [ %441, %439 ]
+  %.2246 = phi i32 [ %.0244413, %429 ], [ %.0244413, %434 ], [ 0, %444 ], [ %.0244413, %439 ]
+  %.3240 = phi i64 [ 8, %429 ], [ 16, %434 ], [ %.0237414, %444 ], [ %.0237414, %439 ]
+  %447 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6LibRaw13Canon_wbi2stdE, i64 8), align 8, !tbaa !93
+  %448 = icmp ult i32 %.0228416, %447
+  br i1 %448, label %_ZNK21libraw_static_table_tixEj.exit298, label %449
 
-446:                                              ; preds = %442
-  %.not.i295 = icmp eq i32 %444, 0
-  br i1 %.not.i295, label %.thread351, label %447
+449:                                              ; preds = %445
+  %.not.i295 = icmp eq i32 %447, 0
+  br i1 %.not.i295, label %.thread351, label %450
 
-447:                                              ; preds = %446
-  %448 = load ptr, ptr @_ZN6LibRaw13Canon_wbi2stdE, align 8, !tbaa !110
-  %.not6.i296 = icmp eq ptr %448, null
+450:                                              ; preds = %449
+  %451 = load ptr, ptr @_ZN6LibRaw13Canon_wbi2stdE, align 8, !tbaa !110
+  %.not6.i296 = icmp eq ptr %451, null
   br i1 %.not6.i296, label %.thread351, label %_ZNK21libraw_static_table_tixEj.exit298.thread340
 
-_ZNK21libraw_static_table_tixEj.exit298:          ; preds = %442
-  %449 = load ptr, ptr @_ZN6LibRaw13Canon_wbi2stdE, align 8, !tbaa !110
-  %450 = zext i32 %.0228416 to i64
-  %451 = getelementptr inbounds nuw i32, ptr %449, i64 %450
-  %452 = load i32, ptr %451, align 4, !tbaa !98
-  %453 = icmp eq i32 %452, 82
-  br i1 %453, label %.thread351, label %_ZNK21libraw_static_table_tixEj.exit302
+_ZNK21libraw_static_table_tixEj.exit298:          ; preds = %445
+  %452 = load ptr, ptr @_ZN6LibRaw13Canon_wbi2stdE, align 8, !tbaa !110
+  %453 = zext i32 %.0228416 to i64
+  %454 = getelementptr inbounds nuw i32, ptr %452, i64 %453
+  %455 = load i32, ptr %454, align 4, !tbaa !98
+  %456 = icmp eq i32 %455, 82
+  br i1 %456, label %.thread351, label %_ZNK21libraw_static_table_tixEj.exit302
 
-_ZNK21libraw_static_table_tixEj.exit298.thread340: ; preds = %447
-  %454 = load i32, ptr %448, align 4, !tbaa !98
-  %455 = icmp eq i32 %454, 82
-  br i1 %455, label %.thread351, label %_ZNK21libraw_static_table_tixEj.exit302.thread
+_ZNK21libraw_static_table_tixEj.exit298.thread340: ; preds = %450
+  %457 = load i32, ptr %451, align 4, !tbaa !98
+  %458 = icmp eq i32 %457, 82
+  br i1 %458, label %.thread351, label %_ZNK21libraw_static_table_tixEj.exit302.thread
 
 _ZNK21libraw_static_table_tixEj.exit302:          ; preds = %_ZNK21libraw_static_table_tixEj.exit298
-  %456 = icmp eq i32 %452, 0
-  %457 = icmp ne i32 %.0250412, 0
-  %or.cond31 = select i1 %456, i1 true, i1 %457
+  %459 = icmp eq i32 %455, 0
+  %460 = icmp ne i32 %.0250412, 0
+  %or.cond31 = select i1 %459, i1 true, i1 %460
   %.not266 = icmp eq i32 %.2246, 0
   %or.cond366 = select i1 %or.cond31, i1 true, i1 %.not266
-  br i1 %or.cond366, label %.thread351, label %460
+  br i1 %or.cond366, label %.thread351, label %463
 
 _ZNK21libraw_static_table_tixEj.exit302.thread:   ; preds = %_ZNK21libraw_static_table_tixEj.exit298.thread340
-  %458 = icmp eq i32 %454, 0
-  %459 = icmp ne i32 %.0250412, 0
-  %or.cond31468 = select i1 %458, i1 true, i1 %459
+  %461 = icmp eq i32 %457, 0
+  %462 = icmp ne i32 %.0250412, 0
+  %or.cond31468 = select i1 %461, i1 true, i1 %462
   %.not266469 = icmp eq i32 %.2246, 0
   %or.cond366470 = select i1 %or.cond31468, i1 true, i1 %.not266469
   br i1 %or.cond366470, label %.thread351, label %_ZNK21libraw_static_table_tixEj.exit306.thread
 
-460:                                              ; preds = %_ZNK21libraw_static_table_tixEj.exit302
-  %461 = zext i32 %.0228416 to i64
-  %462 = getelementptr inbounds nuw i32, ptr %449, i64 %461
+463:                                              ; preds = %_ZNK21libraw_static_table_tixEj.exit302
+  %464 = zext i32 %.0228416 to i64
+  %465 = getelementptr inbounds nuw i32, ptr %452, i64 %464
   br label %_ZNK21libraw_static_table_tixEj.exit306.thread
 
-_ZNK21libraw_static_table_tixEj.exit306.thread:   ; preds = %460, %_ZNK21libraw_static_table_tixEj.exit302.thread
-  %463 = phi ptr [ %449, %460 ], [ %448, %_ZNK21libraw_static_table_tixEj.exit302.thread ]
-  %.0.i305.in = phi ptr [ %462, %460 ], [ %448, %_ZNK21libraw_static_table_tixEj.exit302.thread ]
+_ZNK21libraw_static_table_tixEj.exit306.thread:   ; preds = %463, %_ZNK21libraw_static_table_tixEj.exit302.thread
+  %466 = phi ptr [ %452, %463 ], [ %451, %_ZNK21libraw_static_table_tixEj.exit302.thread ]
+  %.0.i305.in = phi ptr [ %465, %463 ], [ %451, %_ZNK21libraw_static_table_tixEj.exit302.thread ]
   %.not420 = icmp eq i32 %.sroa.14.0, 0
   br i1 %.not420, label %.thread351, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK21libraw_static_table_tixEj.exit306.thread
   %.0.i305 = load i32, ptr %.0.i305.in, align 4, !tbaa !98
   %.0.i305.fr = freeze i32 %.0.i305
-  %464 = icmp eq i32 %.0.i305.fr, 83
-  %spec.select362 = select i1 %464, i32 1, i32 %.0228416
-  %465 = icmp ult i32 %spec.select362, %444
-  %narrow481 = select i1 %465, i32 %spec.select362, i32 0
+  %467 = icmp eq i32 %.0.i305.fr, 83
+  %spec.select362 = select i1 %467, i32 1, i32 %.0228416
+  %468 = icmp ult i32 %spec.select362, %447
+  %narrow481 = select i1 %468, i32 %spec.select362, i32 0
   %.0.i309.in.idx = zext i32 %narrow481 to i64
-  %.0.i309.in = getelementptr inbounds nuw i32, ptr %463, i64 %.0.i309.in.idx
+  %.0.i309.in = getelementptr inbounds nuw i32, ptr %466, i64 %.0.i309.in.idx
   %.0.i309 = load i32, ptr %.0.i309.in, align 4, !tbaa !98
   br label %_ZNK21libraw_static_table_tixEj.exit314
 
-_ZNK21libraw_static_table_tixEj.exit314:          ; preds = %.lr.ph, %470
-  %.1226387 = phi i32 [ 0, %.lr.ph ], [ %471, %470 ]
-  %466 = zext i32 %.1226387 to i64
-  %467 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %466
-  %468 = load i32, ptr %467, align 4, !tbaa !98
-  %469 = icmp eq i32 %.0.i309, %468
-  br i1 %469, label %.thread351, label %470
+_ZNK21libraw_static_table_tixEj.exit314:          ; preds = %.lr.ph, %473
+  %.1226387 = phi i32 [ 0, %.lr.ph ], [ %474, %473 ]
+  %469 = zext i32 %.1226387 to i64
+  %470 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %469
+  %471 = load i32, ptr %470, align 4, !tbaa !98
+  %472 = icmp eq i32 %.0.i309, %471
+  br i1 %472, label %.thread351, label %473
 
-470:                                              ; preds = %_ZNK21libraw_static_table_tixEj.exit314
-  %471 = add nuw i32 %.1226387, 1
-  %exitcond.not = icmp eq i32 %471, %.sroa.14.0
+473:                                              ; preds = %_ZNK21libraw_static_table_tixEj.exit314
+  %474 = add nuw i32 %.1226387, 1
+  %exitcond.not = icmp eq i32 %474, %.sroa.14.0
   br i1 %exitcond.not, label %.thread351, label %_ZNK21libraw_static_table_tixEj.exit314, !llvm.loop !114
 
-.thread351:                                       ; preds = %_ZNK21libraw_static_table_tixEj.exit314, %470, %_ZNK21libraw_static_table_tixEj.exit302.thread, %_ZNK21libraw_static_table_tixEj.exit306.thread, %447, %446, %_ZNK21libraw_static_table_tixEj.exit298.thread340, %_ZNK21libraw_static_table_tixEj.exit302, %_ZNK21libraw_static_table_tixEj.exit298
-  %.not266.not = phi i1 [ false, %_ZNK21libraw_static_table_tixEj.exit298 ], [ false, %_ZNK21libraw_static_table_tixEj.exit302 ], [ false, %_ZNK21libraw_static_table_tixEj.exit298.thread340 ], [ false, %446 ], [ false, %447 ], [ true, %_ZNK21libraw_static_table_tixEj.exit306.thread ], [ false, %_ZNK21libraw_static_table_tixEj.exit302.thread ], [ true, %470 ], [ true, %_ZNK21libraw_static_table_tixEj.exit314 ]
-  %.4248354 = phi i32 [ 0, %_ZNK21libraw_static_table_tixEj.exit298 ], [ 0, %_ZNK21libraw_static_table_tixEj.exit302 ], [ 0, %_ZNK21libraw_static_table_tixEj.exit298.thread340 ], [ 0, %446 ], [ 0, %447 ], [ %.2246, %_ZNK21libraw_static_table_tixEj.exit306.thread ], [ 0, %_ZNK21libraw_static_table_tixEj.exit302.thread ], [ %.2246, %470 ], [ %.2246, %_ZNK21libraw_static_table_tixEj.exit314 ]
-  %.0225 = phi i32 [ %422, %_ZNK21libraw_static_table_tixEj.exit298 ], [ %422, %_ZNK21libraw_static_table_tixEj.exit302 ], [ %422, %_ZNK21libraw_static_table_tixEj.exit298.thread340 ], [ %422, %446 ], [ %422, %447 ], [ 0, %_ZNK21libraw_static_table_tixEj.exit306.thread ], [ %422, %_ZNK21libraw_static_table_tixEj.exit302.thread ], [ %.1226387, %_ZNK21libraw_static_table_tixEj.exit314 ], [ %.sroa.14.0, %470 ]
-  %472 = load ptr, ptr %6, align 8, !tbaa !13
-  %473 = add nsw i64 %.3240, 78
-  %474 = load ptr, ptr %472, align 8, !tbaa !75
-  %475 = getelementptr inbounds nuw i8, ptr %474, i64 32
-  %476 = load ptr, ptr %475, align 8
-  %477 = tail call noundef i32 %476(ptr noundef nonnull align 8 dereferenceable(8) %472, i64 noundef %473, i32 noundef 1)
+.thread351:                                       ; preds = %_ZNK21libraw_static_table_tixEj.exit314, %473, %_ZNK21libraw_static_table_tixEj.exit302.thread, %_ZNK21libraw_static_table_tixEj.exit306.thread, %450, %449, %_ZNK21libraw_static_table_tixEj.exit298.thread340, %_ZNK21libraw_static_table_tixEj.exit302, %_ZNK21libraw_static_table_tixEj.exit298
+  %.not266.not = phi i1 [ false, %_ZNK21libraw_static_table_tixEj.exit298 ], [ false, %_ZNK21libraw_static_table_tixEj.exit302 ], [ false, %_ZNK21libraw_static_table_tixEj.exit298.thread340 ], [ false, %449 ], [ false, %450 ], [ true, %_ZNK21libraw_static_table_tixEj.exit306.thread ], [ false, %_ZNK21libraw_static_table_tixEj.exit302.thread ], [ true, %473 ], [ true, %_ZNK21libraw_static_table_tixEj.exit314 ]
+  %.4248354 = phi i32 [ 0, %_ZNK21libraw_static_table_tixEj.exit298 ], [ 0, %_ZNK21libraw_static_table_tixEj.exit302 ], [ 0, %_ZNK21libraw_static_table_tixEj.exit298.thread340 ], [ 0, %449 ], [ 0, %450 ], [ %.2246, %_ZNK21libraw_static_table_tixEj.exit306.thread ], [ 0, %_ZNK21libraw_static_table_tixEj.exit302.thread ], [ %.2246, %473 ], [ %.2246, %_ZNK21libraw_static_table_tixEj.exit314 ]
+  %.0225 = phi i32 [ %425, %_ZNK21libraw_static_table_tixEj.exit298 ], [ %425, %_ZNK21libraw_static_table_tixEj.exit302 ], [ %425, %_ZNK21libraw_static_table_tixEj.exit298.thread340 ], [ %425, %449 ], [ %425, %450 ], [ 0, %_ZNK21libraw_static_table_tixEj.exit306.thread ], [ %425, %_ZNK21libraw_static_table_tixEj.exit302.thread ], [ %.1226387, %_ZNK21libraw_static_table_tixEj.exit314 ], [ %.sroa.14.0, %473 ]
+  %475 = load ptr, ptr %6, align 8, !tbaa !13
+  %476 = add nsw i64 %.3240, 78
+  %477 = load ptr, ptr %475, align 8, !tbaa !75
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 32
+  %479 = load ptr, ptr %478, align 8
+  %480 = tail call noundef i32 %479(ptr noundef nonnull align 8 dereferenceable(8) %475, i64 noundef %476, i32 noundef 1)
   %.not421 = icmp eq i32 %.sroa.14.0, 0
   br i1 %.not421, label %._crit_edge, label %_ZNK21libraw_static_table_tixEj.exit318.preheader
 
 _ZNK21libraw_static_table_tixEj.exit318.preheader: ; preds = %.thread351
-  %478 = zext i32 %.0225 to i64
+  %481 = zext i32 %.0225 to i64
   %wide.trip.count = zext i32 %.sroa.14.0 to i64
-  %479 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %478
+  %482 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %481
   br label %_ZNK21libraw_static_table_tixEj.exit318
 
 ._crit_edge:                                      ; preds = %.loopexit369, %.thread351
   %.4254.lcssa = phi i32 [ %.0250412, %.thread351 ], [ %.5255, %.loopexit369 ]
   %.not267 = icmp eq i32 %.4254.lcssa, 0
-  br i1 %.not267, label %511, label %.thread361
+  br i1 %.not267, label %516, label %.thread361
 
 _ZNK21libraw_static_table_tixEj.exit318:          ; preds = %_ZNK21libraw_static_table_tixEj.exit318.preheader, %.loopexit369
   %indvars.iv431 = phi i64 [ 0, %_ZNK21libraw_static_table_tixEj.exit318.preheader ], [ %indvars.iv.next432, %.loopexit369 ]
   %.4254391 = phi i32 [ %.0250412, %_ZNK21libraw_static_table_tixEj.exit318.preheader ], [ %.5255, %.loopexit369 ]
-  %480 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv431
-  %481 = load i32, ptr %480, align 4, !tbaa !98
-  %.not268 = icmp eq i32 %481, 0
-  br i1 %.not268, label %505, label %_ZNK21libraw_static_table_tixEj.exit322
+  %483 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv431
+  %484 = load i32, ptr %483, align 4, !tbaa !98
+  %.not268 = icmp eq i32 %484, 0
+  br i1 %.not268, label %510, label %_ZNK21libraw_static_table_tixEj.exit322
 
 _ZNK21libraw_static_table_tixEj.exit322:          ; preds = %_ZNK21libraw_static_table_tixEj.exit318, %_ZNK21libraw_static_table_tixEj.exit322
-  %.13389 = phi i32 [ %496, %_ZNK21libraw_static_table_tixEj.exit322 ], [ 0, %_ZNK21libraw_static_table_tixEj.exit318 ]
-  %482 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %483 = and i32 %.13389, 1
-  %484 = zext nneg i32 %483 to i64
-  %485 = getelementptr inbounds nuw [2 x i16], ptr %5, i64 0, i64 %484
-  %486 = load i16, ptr %485, align 2, !tbaa !6
-  %487 = xor i16 %486, %482
-  %488 = zext i16 %487 to i32
-  %489 = load i32, ptr %480, align 4, !tbaa !98
-  %490 = sext i32 %489 to i64
-  %491 = lshr i32 %.13389, 1
-  %492 = xor i32 %.13389, %491
-  %493 = xor i32 %492, 1
-  %494 = zext nneg i32 %493 to i64
-  %495 = getelementptr inbounds [256 x [4 x i32]], ptr %50, i64 0, i64 %490, i64 %494
-  store i32 %488, ptr %495, align 4, !tbaa !98
-  %496 = add nuw nsw i32 %.13389, 1
-  %exitcond428.not = icmp eq i32 %496, 4
-  br i1 %exitcond428.not, label %497, label %_ZNK21libraw_static_table_tixEj.exit322, !llvm.loop !115
+  %.13389 = phi i32 [ %500, %_ZNK21libraw_static_table_tixEj.exit322 ], [ 0, %_ZNK21libraw_static_table_tixEj.exit318 ]
+  %485 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %486 = and i32 %.13389, 1
+  %487 = zext nneg i32 %486 to i64
+  %488 = getelementptr inbounds nuw [2 x i16], ptr %5, i64 0, i64 %487
+  %489 = load i16, ptr %488, align 2, !tbaa !6
+  %490 = xor i16 %489, %485
+  %491 = zext i16 %490 to i32
+  %492 = load i32, ptr %483, align 4, !tbaa !98
+  %493 = sext i32 %492 to i64
+  %494 = getelementptr inbounds [256 x [4 x i32]], ptr %50, i64 0, i64 %493
+  %495 = lshr i32 %.13389, 1
+  %496 = xor i32 %.13389, %495
+  %497 = xor i32 %496, 1
+  %498 = zext nneg i32 %497 to i64
+  %499 = getelementptr inbounds nuw [4 x i32], ptr %494, i64 0, i64 %498
+  store i32 %491, ptr %499, align 4, !tbaa !98
+  %500 = add nuw nsw i32 %.13389, 1
+  %exitcond428.not = icmp eq i32 %500, 4
+  br i1 %exitcond428.not, label %501, label %_ZNK21libraw_static_table_tixEj.exit322, !llvm.loop !115
 
-497:                                              ; preds = %_ZNK21libraw_static_table_tixEj.exit322
-  %498 = icmp eq i64 %indvars.iv431, %478
-  %or.cond = select i1 %.not266.not, i1 %498, i1 false
+501:                                              ; preds = %_ZNK21libraw_static_table_tixEj.exit322
+  %502 = icmp eq i64 %indvars.iv431, %481
+  %or.cond = select i1 %.not266.not, i1 %502, i1 false
   br i1 %or.cond, label %.preheader368, label %.loopexit369
 
-.preheader368:                                    ; preds = %497
-  %499 = load i32, ptr %479, align 4, !tbaa !98
-  %500 = sext i32 %499 to i64
+.preheader368:                                    ; preds = %501
+  %503 = load i32, ptr %482, align 4, !tbaa !98
+  %504 = sext i32 %503 to i64
+  %505 = getelementptr inbounds [256 x [4 x i32]], ptr %50, i64 0, i64 %504
   br label %_ZNK21libraw_static_table_tixEj.exit326
 
 _ZNK21libraw_static_table_tixEj.exit326:          ; preds = %.preheader368, %_ZNK21libraw_static_table_tixEj.exit326
   %indvars.iv = phi i64 [ 0, %.preheader368 ], [ %indvars.iv.next, %_ZNK21libraw_static_table_tixEj.exit326 ]
-  %501 = getelementptr inbounds [256 x [4 x i32]], ptr %50, i64 0, i64 %500, i64 %indvars.iv
-  %502 = load i32, ptr %501, align 4, !tbaa !98
-  %503 = sitofp i32 %502 to float
-  %504 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %indvars.iv
-  store float %503, ptr %504, align 4, !tbaa !95
+  %506 = getelementptr inbounds nuw [4 x i32], ptr %505, i64 0, i64 %indvars.iv
+  %507 = load i32, ptr %506, align 4, !tbaa !98
+  %508 = sitofp i32 %507 to float
+  %509 = getelementptr inbounds nuw [4 x float], ptr %47, i64 0, i64 %indvars.iv
+  store float %508, ptr %509, align 4, !tbaa !95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond430.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond430.not, label %.loopexit369, label %_ZNK21libraw_static_table_tixEj.exit326, !llvm.loop !116
 
-505:                                              ; preds = %_ZNK21libraw_static_table_tixEj.exit318
-  %506 = load ptr, ptr %6, align 8, !tbaa !13
-  %507 = load ptr, ptr %506, align 8, !tbaa !75
-  %508 = getelementptr inbounds nuw i8, ptr %507, i64 32
-  %509 = load ptr, ptr %508, align 8
-  %510 = tail call noundef i32 %509(ptr noundef nonnull align 8 dereferenceable(8) %506, i64 noundef 8, i32 noundef 1)
+510:                                              ; preds = %_ZNK21libraw_static_table_tixEj.exit318
+  %511 = load ptr, ptr %6, align 8, !tbaa !13
+  %512 = load ptr, ptr %511, align 8, !tbaa !75
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 32
+  %514 = load ptr, ptr %513, align 8
+  %515 = tail call noundef i32 %514(ptr noundef nonnull align 8 dereferenceable(8) %511, i64 noundef 8, i32 noundef 1)
   br label %.loopexit369
 
-.loopexit369:                                     ; preds = %_ZNK21libraw_static_table_tixEj.exit326, %505, %497
-  %.5255 = phi i32 [ %.4254391, %497 ], [ %.4254391, %505 ], [ 1, %_ZNK21libraw_static_table_tixEj.exit326 ]
+.loopexit369:                                     ; preds = %_ZNK21libraw_static_table_tixEj.exit326, %510, %501
+  %.5255 = phi i32 [ %.4254391, %501 ], [ %.4254391, %510 ], [ 1, %_ZNK21libraw_static_table_tixEj.exit326 ]
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %exitcond434.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count
   br i1 %exitcond434.not, label %._crit_edge, label %_ZNK21libraw_static_table_tixEj.exit318, !llvm.loop !117
 
-511:                                              ; preds = %._crit_edge
+516:                                              ; preds = %._crit_edge
   store float -1.000000e+00, ptr %47, align 8, !tbaa !95
   br label %.thread361
 
-512:                                              ; preds = %121
-  %513 = icmp eq i16 %92, 4144
-  %514 = icmp sgt i32 %.0228416, -1
-  %or.cond33 = select i1 %513, i1 %514, i1 false
-  br i1 %or.cond33, label %515, label %.thread359
+517:                                              ; preds = %121
+  %518 = icmp eq i16 %92, 4144
+  %519 = icmp sgt i32 %.0228416, -1
+  %or.cond33 = select i1 %518, i1 %519, i1 false
+  br i1 %or.cond33, label %520, label %.thread359
 
-515:                                              ; preds = %512
-  %516 = shl nuw i32 1, %.0228416
-  %517 = and i32 %516, 98368
-  %.not265 = icmp eq i32 %517, 0
-  br i1 %.not265, label %.thread361, label %518
+520:                                              ; preds = %517
+  %521 = shl nuw i32 1, %.0228416
+  %522 = and i32 %521, 98368
+  %.not265 = icmp eq i32 %522, 0
+  br i1 %.not265, label %.thread361, label %523
 
-518:                                              ; preds = %515
+523:                                              ; preds = %520
   tail call void @_ZN6LibRaw15ciff_block_1030Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   br label %.thread361
 
-.thread359:                                       ; preds = %512
+.thread359:                                       ; preds = %517
   switch i16 %92, label %.thread361 [
-    i16 4145, label %519
-    i16 20508, label %530
-    i16 20521, label %533
-    i16 6158, label %551
-    i16 22542, label %549
-    i16 22551, label %546
-    i16 22580, label %547
+    i16 4145, label %524
+    i16 20508, label %535
+    i16 20521, label %538
+    i16 6158, label %556
+    i16 22542, label %554
+    i16 22551, label %551
+    i16 22580, label %552
   ]
 
-519:                                              ; preds = %.thread359
-  %520 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %521 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  store i16 %521, ptr %83, align 8, !tbaa !118
-  store i16 %521, ptr %85, align 2, !tbaa !119
-  %522 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  store i16 %522, ptr %86, align 2, !tbaa !120
-  store i16 %522, ptr %84, align 8, !tbaa !121
-  %523 = load ptr, ptr %6, align 8, !tbaa !13
-  %524 = load ptr, ptr %523, align 8, !tbaa !75
-  %525 = getelementptr inbounds nuw i8, ptr %524, i64 32
-  %526 = load ptr, ptr %525, align 8
-  %527 = tail call noundef i32 %526(ptr noundef nonnull align 8 dereferenceable(8) %523, i64 noundef 4, i32 noundef 1)
-  %528 = tail call i64 @_ZN6LibRaw13get_CanonAreaEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  store i64 %528, ptr %87, align 4
-  %529 = tail call i64 @_ZN6LibRaw13get_CanonAreaEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  store i64 %529, ptr %88, align 4
+524:                                              ; preds = %.thread359
+  %525 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %526 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  store i16 %526, ptr %83, align 8, !tbaa !118
+  store i16 %526, ptr %85, align 2, !tbaa !119
+  %527 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  store i16 %527, ptr %86, align 2, !tbaa !120
+  store i16 %527, ptr %84, align 8, !tbaa !121
+  %528 = load ptr, ptr %6, align 8, !tbaa !13
+  %529 = load ptr, ptr %528, align 8, !tbaa !75
+  %530 = getelementptr inbounds nuw i8, ptr %529, i64 32
+  %531 = load ptr, ptr %530, align 8
+  %532 = tail call noundef i32 %531(ptr noundef nonnull align 8 dereferenceable(8) %528, i64 noundef 4, i32 noundef 1)
+  %533 = tail call i64 @_ZN6LibRaw13get_CanonAreaEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  store i64 %533, ptr %87, align 4
+  %534 = tail call i64 @_ZN6LibRaw13get_CanonAreaEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  store i64 %534, ptr %88, align 4
   br label %.thread361
 
-530:                                              ; preds = %89, %.thread359
-  %531 = and i32 %93, 65535
-  %532 = uitofp nneg i32 %531 to float
-  store float %532, ptr %59, align 8, !tbaa !91
+535:                                              ; preds = %89, %.thread359
+  %536 = and i32 %93, 65535
+  %537 = uitofp nneg i32 %536 to float
+  store float %537, ptr %59, align 8, !tbaa !91
   br label %.thread361
 
-533:                                              ; preds = %89, %.thread359
-  %534 = ashr i32 %93, 16
-  %535 = sitofp i32 %534 to float
-  store float %535, ptr %79, align 8, !tbaa !122
-  %536 = trunc i32 %93 to i16
-  store i16 %536, ptr %80, align 4, !tbaa !123
+538:                                              ; preds = %89, %.thread359
+  %539 = ashr i32 %93, 16
+  %540 = sitofp i32 %539 to float
+  store float %540, ptr %79, align 8, !tbaa !122
+  %541 = trunc i32 %93 to i16
+  store i16 %541, ptr %80, align 4, !tbaa !123
   %sext.mask = and i32 %93, 65535
-  %537 = icmp eq i32 %sext.mask, 2
-  br i1 %537, label %538, label %540
+  %542 = icmp eq i32 %sext.mask, 2
+  br i1 %542, label %543, label %545
 
-538:                                              ; preds = %533
+543:                                              ; preds = %538
   store i16 32, ptr %81, align 8, !tbaa !124
-  %539 = fmul reassoc nsz arcp contract afn float %535, 3.125000e-02
-  store float %539, ptr %79, align 8, !tbaa !122
-  br label %540
+  %544 = fmul reassoc nsz arcp contract afn float %540, 3.125000e-02
+  store float %544, ptr %79, align 8, !tbaa !122
+  br label %545
 
-540:                                              ; preds = %538, %533
-  %541 = phi float [ %539, %538 ], [ %535, %533 ]
-  store float %541, ptr %82, align 4, !tbaa !125
+545:                                              ; preds = %543, %538
+  %546 = phi float [ %544, %543 ], [ %540, %538 ]
+  store float %546, ptr %82, align 4, !tbaa !125
   br label %.thread361
 
-542:                                              ; preds = %89
-  %543 = tail call reassoc nsz arcp contract afn noundef float @_ZN6LibRaw12int_to_floatEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %93)
-  store float %543, ptr %78, align 4, !tbaa !126
+547:                                              ; preds = %89
+  %548 = tail call reassoc nsz arcp contract afn noundef float @_ZN6LibRaw12int_to_floatEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %93)
+  store float %548, ptr %78, align 4, !tbaa !126
   br label %.thread361
 
-544:                                              ; preds = %89
-  %545 = tail call reassoc nsz arcp contract afn noundef float @_ZN6LibRaw12int_to_floatEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %93)
-  store float %545, ptr %77, align 8, !tbaa !127
+549:                                              ; preds = %89
+  %550 = tail call reassoc nsz arcp contract afn noundef float @_ZN6LibRaw12int_to_floatEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %93)
+  store float %550, ptr %77, align 8, !tbaa !127
   br label %.thread361
 
-546:                                              ; preds = %89, %.thread359
+551:                                              ; preds = %89, %.thread359
   store i32 %93, ptr %76, align 8, !tbaa !128
   br label %.thread361
 
-547:                                              ; preds = %89, %.thread359
-  %548 = zext i32 %93 to i64
-  store i64 %548, ptr %75, align 8, !tbaa !129
-  tail call void @_ZN6LibRaw20setCanonBodyFeaturesEy(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %548)
+552:                                              ; preds = %89, %.thread359
+  %553 = zext i32 %93 to i64
+  store i64 %553, ptr %75, align 8, !tbaa !129
+  tail call void @_ZN6LibRaw20setCanonBodyFeaturesEy(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %553)
   br label %.thread361
 
-549:                                              ; preds = %.thread359, %89
-  %550 = sext i32 %93 to i64
-  store i64 %550, ptr %74, align 8, !tbaa !130
+554:                                              ; preds = %.thread359, %89
+  %555 = sext i32 %93 to i64
+  store i64 %555, ptr %74, align 8, !tbaa !130
   br label %.thread361
 
-551:                                              ; preds = %.thread359
-  %552 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %553 = zext i32 %552 to i64
-  store i64 %553, ptr %74, align 8, !tbaa !130
+556:                                              ; preds = %.thread359
+  %557 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %558 = zext i32 %557 to i64
+  store i64 %558, ptr %74, align 8, !tbaa !130
   br label %.thread361
 
-.thread361:                                       ; preds = %232, %515, %434, %511, %._crit_edge, %.thread359, %415, %416, %255, %258, %239, %122, %135, %163, %174, %219, %187, %343, %351, %350, %349, %417, %519, %540, %544, %547, %551, %549, %546, %542, %530, %518, %353, %355, %345, %175, %172, %162, %129
-  %554 = phi i16 [ %90, %122 ], [ %90, %129 ], [ %90, %135 ], [ %90, %162 ], [ %90, %163 ], [ %90, %172 ], [ %90, %174 ], [ %90, %175 ], [ %90, %219 ], [ %90, %187 ], [ %90, %343 ], [ %90, %345 ], [ %90, %351 ], [ %90, %349 ], [ %90, %350 ], [ %90, %353 ], [ %90, %355 ], [ %90, %417 ], [ %90, %518 ], [ %90, %519 ], [ %90, %530 ], [ %90, %540 ], [ %90, %542 ], [ %90, %544 ], [ %90, %546 ], [ %90, %547 ], [ %90, %549 ], [ %90, %551 ], [ %90, %258 ], [ %90, %255 ], [ %90, %239 ], [ %90, %416 ], [ %90, %415 ], [ %90, %.thread359 ], [ %90, %434 ], [ %443, %511 ], [ %443, %._crit_edge ], [ %90, %515 ], [ %90, %232 ]
-  %.6256 = phi i32 [ %.0250412, %122 ], [ %.0250412, %129 ], [ %.0250412, %135 ], [ %.0250412, %162 ], [ %.0250412, %163 ], [ %.0250412, %172 ], [ %.0250412, %174 ], [ %.0250412, %175 ], [ %.0250412, %219 ], [ %.0250412, %187 ], [ %.0250412, %343 ], [ %.0250412, %345 ], [ %.0250412, %351 ], [ %.0250412, %349 ], [ %.0250412, %350 ], [ %.0250412, %353 ], [ %.0250412, %355 ], [ %.0250412, %417 ], [ %.0250412, %518 ], [ %.0250412, %519 ], [ %.0250412, %530 ], [ %.0250412, %540 ], [ %.0250412, %542 ], [ %.0250412, %544 ], [ %.0250412, %546 ], [ %.0250412, %547 ], [ %.0250412, %549 ], [ %.0250412, %551 ], [ 1, %258 ], [ %.0250412, %255 ], [ %.0250412, %239 ], [ %.0250412, %416 ], [ %.0250412, %415 ], [ %.0250412, %.thread359 ], [ %.0250412, %434 ], [ 0, %511 ], [ %.4254.lcssa, %._crit_edge ], [ %.0250412, %515 ], [ %.0250412, %232 ]
-  %.5249 = phi i32 [ %.0244413, %122 ], [ %.0244413, %129 ], [ %.0244413, %135 ], [ %.0244413, %162 ], [ %.0244413, %163 ], [ %.0244413, %172 ], [ %.0244413, %174 ], [ %.0244413, %175 ], [ %.0244413, %219 ], [ %.0244413, %187 ], [ %.0244413, %343 ], [ %.0244413, %345 ], [ %.0244413, %351 ], [ %.0244413, %349 ], [ %.0244413, %350 ], [ %.0244413, %353 ], [ %.0244413, %355 ], [ %.0244413, %417 ], [ %.0244413, %518 ], [ %.0244413, %519 ], [ %.0244413, %530 ], [ %.0244413, %540 ], [ %.0244413, %542 ], [ %.0244413, %544 ], [ %.0244413, %546 ], [ %.0244413, %547 ], [ %.0244413, %549 ], [ %.0244413, %551 ], [ %.0244413, %258 ], [ %.0244413, %255 ], [ %.0244413, %239 ], [ %.0244413, %416 ], [ %.0244413, %415 ], [ %.0244413, %.thread359 ], [ %.0244413, %434 ], [ %.4248354, %511 ], [ %.4248354, %._crit_edge ], [ %.0244413, %515 ], [ %.0244413, %232 ]
-  %.5242 = phi i64 [ %.0237414, %122 ], [ %.0237414, %129 ], [ %.0237414, %135 ], [ %.0237414, %162 ], [ %.0237414, %163 ], [ %.0237414, %172 ], [ %.0237414, %174 ], [ %.0237414, %175 ], [ %.0237414, %219 ], [ %.0237414, %187 ], [ %.0237414, %343 ], [ %.0237414, %345 ], [ %.0237414, %351 ], [ %.0237414, %349 ], [ %.0237414, %350 ], [ %.0237414, %353 ], [ %.0237414, %355 ], [ %.0237414, %417 ], [ %.0237414, %518 ], [ %.0237414, %519 ], [ %.0237414, %530 ], [ %.0237414, %540 ], [ %.0237414, %542 ], [ %.0237414, %544 ], [ %.0237414, %546 ], [ %.0237414, %547 ], [ %.0237414, %549 ], [ %.0237414, %551 ], [ -14, %258 ], [ -14, %255 ], [ %.0237414, %239 ], [ %.0237414, %416 ], [ %.0237414, %415 ], [ %.0237414, %.thread359 ], [ %.0237414, %434 ], [ %.3240, %511 ], [ %.3240, %._crit_edge ], [ %.0237414, %515 ], [ %.0237414, %232 ]
-  %.3236 = phi i16 [ %.0233415, %122 ], [ %.0233415, %129 ], [ %.0233415, %135 ], [ %.0233415, %162 ], [ %.0233415, %163 ], [ %.0233415, %172 ], [ %.0233415, %174 ], [ %.0233415, %175 ], [ %.0233415, %219 ], [ %.0233415, %187 ], [ %.0233415, %343 ], [ %.0233415, %345 ], [ %.0233415, %351 ], [ %.0233415, %349 ], [ %.0233415, %350 ], [ %.0233415, %353 ], [ %.0233415, %355 ], [ 0, %417 ], [ %.0233415, %518 ], [ %.0233415, %519 ], [ %.0233415, %530 ], [ %.0233415, %540 ], [ %.0233415, %542 ], [ %.0233415, %544 ], [ %.0233415, %546 ], [ %.0233415, %547 ], [ %.0233415, %549 ], [ %.0233415, %551 ], [ 1, %258 ], [ 1, %255 ], [ %.0233415, %239 ], [ %.0233415, %416 ], [ %.0233415, %415 ], [ %.0233415, %.thread359 ], [ %.0233415, %434 ], [ %.0233415, %511 ], [ %.0233415, %._crit_edge ], [ %.0233415, %515 ], [ %.0233415, %232 ]
-  %.3231 = phi i32 [ %.0228416, %122 ], [ %.0228416, %129 ], [ %.0228416, %135 ], [ %.0228416, %162 ], [ %.0228416, %163 ], [ %.0228416, %172 ], [ %.0228416, %174 ], [ %.0228416, %175 ], [ %spec.select, %219 ], [ %spec.select, %187 ], [ %.0228416, %343 ], [ %.0228416, %345 ], [ %.0228416, %351 ], [ %.0228416, %349 ], [ %.0228416, %350 ], [ %.0228416, %353 ], [ %.0228416, %355 ], [ %.0228416, %417 ], [ %.0228416, %518 ], [ %.0228416, %519 ], [ %.0228416, %530 ], [ %.0228416, %540 ], [ %.0228416, %542 ], [ %.0228416, %544 ], [ %.0228416, %546 ], [ %.0228416, %547 ], [ %.0228416, %549 ], [ %.0228416, %551 ], [ %.0228416, %258 ], [ %.0228416, %255 ], [ %.0228416, %239 ], [ 0, %416 ], [ %.0228416, %415 ], [ %.0228416, %.thread359 ], [ %.0228416, %434 ], [ %.0228416, %511 ], [ %.0228416, %._crit_edge ], [ %.0228416, %515 ], [ %.0228416, %232 ]
-  %555 = load ptr, ptr %6, align 8, !tbaa !13
-  %556 = load ptr, ptr %555, align 8, !tbaa !75
-  %557 = getelementptr inbounds nuw i8, ptr %556, i64 32
-  %558 = load ptr, ptr %557, align 8
-  %559 = tail call noundef i32 %558(ptr noundef nonnull align 8 dereferenceable(8) %555, i64 noundef %101, i32 noundef 0)
-  br label %560
+.thread361:                                       ; preds = %232, %520, %437, %516, %._crit_edge, %.thread359, %418, %419, %255, %258, %239, %122, %135, %163, %174, %219, %187, %345, %353, %352, %351, %420, %524, %545, %549, %552, %556, %554, %551, %547, %535, %523, %355, %357, %347, %175, %172, %162, %129
+  %559 = phi i16 [ %90, %122 ], [ %90, %129 ], [ %90, %135 ], [ %90, %162 ], [ %90, %163 ], [ %90, %172 ], [ %90, %174 ], [ %90, %175 ], [ %90, %219 ], [ %90, %187 ], [ %90, %345 ], [ %90, %347 ], [ %90, %353 ], [ %90, %351 ], [ %90, %352 ], [ %90, %355 ], [ %90, %357 ], [ %90, %420 ], [ %90, %523 ], [ %90, %524 ], [ %90, %535 ], [ %90, %545 ], [ %90, %547 ], [ %90, %549 ], [ %90, %551 ], [ %90, %552 ], [ %90, %554 ], [ %90, %556 ], [ %90, %258 ], [ %90, %255 ], [ %90, %239 ], [ %90, %419 ], [ %90, %418 ], [ %90, %.thread359 ], [ %90, %437 ], [ %446, %516 ], [ %446, %._crit_edge ], [ %90, %520 ], [ %90, %232 ]
+  %.6256 = phi i32 [ %.0250412, %122 ], [ %.0250412, %129 ], [ %.0250412, %135 ], [ %.0250412, %162 ], [ %.0250412, %163 ], [ %.0250412, %172 ], [ %.0250412, %174 ], [ %.0250412, %175 ], [ %.0250412, %219 ], [ %.0250412, %187 ], [ %.0250412, %345 ], [ %.0250412, %347 ], [ %.0250412, %353 ], [ %.0250412, %351 ], [ %.0250412, %352 ], [ %.0250412, %355 ], [ %.0250412, %357 ], [ %.0250412, %420 ], [ %.0250412, %523 ], [ %.0250412, %524 ], [ %.0250412, %535 ], [ %.0250412, %545 ], [ %.0250412, %547 ], [ %.0250412, %549 ], [ %.0250412, %551 ], [ %.0250412, %552 ], [ %.0250412, %554 ], [ %.0250412, %556 ], [ 1, %258 ], [ %.0250412, %255 ], [ %.0250412, %239 ], [ %.0250412, %419 ], [ %.0250412, %418 ], [ %.0250412, %.thread359 ], [ %.0250412, %437 ], [ 0, %516 ], [ %.4254.lcssa, %._crit_edge ], [ %.0250412, %520 ], [ %.0250412, %232 ]
+  %.5249 = phi i32 [ %.0244413, %122 ], [ %.0244413, %129 ], [ %.0244413, %135 ], [ %.0244413, %162 ], [ %.0244413, %163 ], [ %.0244413, %172 ], [ %.0244413, %174 ], [ %.0244413, %175 ], [ %.0244413, %219 ], [ %.0244413, %187 ], [ %.0244413, %345 ], [ %.0244413, %347 ], [ %.0244413, %353 ], [ %.0244413, %351 ], [ %.0244413, %352 ], [ %.0244413, %355 ], [ %.0244413, %357 ], [ %.0244413, %420 ], [ %.0244413, %523 ], [ %.0244413, %524 ], [ %.0244413, %535 ], [ %.0244413, %545 ], [ %.0244413, %547 ], [ %.0244413, %549 ], [ %.0244413, %551 ], [ %.0244413, %552 ], [ %.0244413, %554 ], [ %.0244413, %556 ], [ %.0244413, %258 ], [ %.0244413, %255 ], [ %.0244413, %239 ], [ %.0244413, %419 ], [ %.0244413, %418 ], [ %.0244413, %.thread359 ], [ %.0244413, %437 ], [ %.4248354, %516 ], [ %.4248354, %._crit_edge ], [ %.0244413, %520 ], [ %.0244413, %232 ]
+  %.5242 = phi i64 [ %.0237414, %122 ], [ %.0237414, %129 ], [ %.0237414, %135 ], [ %.0237414, %162 ], [ %.0237414, %163 ], [ %.0237414, %172 ], [ %.0237414, %174 ], [ %.0237414, %175 ], [ %.0237414, %219 ], [ %.0237414, %187 ], [ %.0237414, %345 ], [ %.0237414, %347 ], [ %.0237414, %353 ], [ %.0237414, %351 ], [ %.0237414, %352 ], [ %.0237414, %355 ], [ %.0237414, %357 ], [ %.0237414, %420 ], [ %.0237414, %523 ], [ %.0237414, %524 ], [ %.0237414, %535 ], [ %.0237414, %545 ], [ %.0237414, %547 ], [ %.0237414, %549 ], [ %.0237414, %551 ], [ %.0237414, %552 ], [ %.0237414, %554 ], [ %.0237414, %556 ], [ -14, %258 ], [ -14, %255 ], [ %.0237414, %239 ], [ %.0237414, %419 ], [ %.0237414, %418 ], [ %.0237414, %.thread359 ], [ %.0237414, %437 ], [ %.3240, %516 ], [ %.3240, %._crit_edge ], [ %.0237414, %520 ], [ %.0237414, %232 ]
+  %.3236 = phi i16 [ %.0233415, %122 ], [ %.0233415, %129 ], [ %.0233415, %135 ], [ %.0233415, %162 ], [ %.0233415, %163 ], [ %.0233415, %172 ], [ %.0233415, %174 ], [ %.0233415, %175 ], [ %.0233415, %219 ], [ %.0233415, %187 ], [ %.0233415, %345 ], [ %.0233415, %347 ], [ %.0233415, %353 ], [ %.0233415, %351 ], [ %.0233415, %352 ], [ %.0233415, %355 ], [ %.0233415, %357 ], [ 0, %420 ], [ %.0233415, %523 ], [ %.0233415, %524 ], [ %.0233415, %535 ], [ %.0233415, %545 ], [ %.0233415, %547 ], [ %.0233415, %549 ], [ %.0233415, %551 ], [ %.0233415, %552 ], [ %.0233415, %554 ], [ %.0233415, %556 ], [ 1, %258 ], [ 1, %255 ], [ %.0233415, %239 ], [ %.0233415, %419 ], [ %.0233415, %418 ], [ %.0233415, %.thread359 ], [ %.0233415, %437 ], [ %.0233415, %516 ], [ %.0233415, %._crit_edge ], [ %.0233415, %520 ], [ %.0233415, %232 ]
+  %.3231 = phi i32 [ %.0228416, %122 ], [ %.0228416, %129 ], [ %.0228416, %135 ], [ %.0228416, %162 ], [ %.0228416, %163 ], [ %.0228416, %172 ], [ %.0228416, %174 ], [ %.0228416, %175 ], [ %spec.select, %219 ], [ %spec.select, %187 ], [ %.0228416, %345 ], [ %.0228416, %347 ], [ %.0228416, %353 ], [ %.0228416, %351 ], [ %.0228416, %352 ], [ %.0228416, %355 ], [ %.0228416, %357 ], [ %.0228416, %420 ], [ %.0228416, %523 ], [ %.0228416, %524 ], [ %.0228416, %535 ], [ %.0228416, %545 ], [ %.0228416, %547 ], [ %.0228416, %549 ], [ %.0228416, %551 ], [ %.0228416, %552 ], [ %.0228416, %554 ], [ %.0228416, %556 ], [ %.0228416, %258 ], [ %.0228416, %255 ], [ %.0228416, %239 ], [ 0, %419 ], [ %.0228416, %418 ], [ %.0228416, %.thread359 ], [ %.0228416, %437 ], [ %.0228416, %516 ], [ %.0228416, %._crit_edge ], [ %.0228416, %520 ], [ %.0228416, %232 ]
+  %560 = load ptr, ptr %6, align 8, !tbaa !13
+  %561 = load ptr, ptr %560, align 8, !tbaa !75
+  %562 = getelementptr inbounds nuw i8, ptr %561, i64 32
+  %563 = load ptr, ptr %562, align 8
+  %564 = tail call noundef i32 %563(ptr noundef nonnull align 8 dereferenceable(8) %560, i64 noundef %101, i32 noundef 0)
+  br label %565
 
-560:                                              ; preds = %.thread361, %107
-  %561 = phi i16 [ %90, %107 ], [ %554, %.thread361 ]
+565:                                              ; preds = %.thread361, %107
+  %566 = phi i16 [ %90, %107 ], [ %559, %.thread361 ]
   %.1251 = phi i32 [ %.0250412, %107 ], [ %.6256, %.thread361 ]
   %.1245 = phi i32 [ %.0244413, %107 ], [ %.5249, %.thread361 ]
   %.1238 = phi i64 [ %.0237414, %107 ], [ %.5242, %.thread361 ]
@@ -1223,7 +1229,7 @@ _ZNK21libraw_static_table_tixEj.exit326:          ; preds = %.preheader368, %_ZN
   %.not = icmp eq i32 %91, 0
   br i1 %.not, label %.loopexit386, label %89
 
-.loopexit386:                                     ; preds = %560, %41, %18
+.loopexit386:                                     ; preds = %565, %41, %18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
   ret void
 }

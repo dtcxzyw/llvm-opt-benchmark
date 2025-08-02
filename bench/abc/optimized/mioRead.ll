@@ -1257,7 +1257,6 @@ define void @Mio_LibrarySortGates(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge41:                                    ; preds = %.lr.ph40.preheader, %._crit_edge
   tail call void @qsort(ptr noundef %6, i64 noundef %13, i64 noundef 8, ptr noundef nonnull @Mio_LibraryCompareGatesByName) #18
   %20 = load i32, ptr %2, align 8, !tbaa !78
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph44, label %._crit_edge45
 
@@ -1267,32 +1266,33 @@ define void @Mio_LibrarySortGates(ptr noundef %0) local_unnamed_addr #0 {
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %24
 
-24:                                               ; preds = %.lr.ph44, %28
-  %indvars.iv50 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next51, %28 ]
+24:                                               ; preds = %.lr.ph44, %30
+  %indvars.iv50 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next51, %30 ]
   %25 = icmp samesign ult i64 %indvars.iv50, %23
-  br i1 %25, label %26, label %28
+  br i1 %25, label %26, label %30
 
 26:                                               ; preds = %24
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv50
-  %27 = load ptr, ptr %gep, align 8, !tbaa !66
-  br label %28
+  %27 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv50
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !66
+  br label %30
 
-28:                                               ; preds = %24, %26
-  %29 = phi ptr [ %27, %26 ], [ null, %24 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv50
-  %31 = load ptr, ptr %30, align 8, !tbaa !66
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  store ptr %29, ptr %32, align 8, !tbaa !81
+30:                                               ; preds = %24, %26
+  %31 = phi ptr [ %29, %26 ], [ null, %24 ]
+  %32 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv50
+  %33 = load ptr, ptr %32, align 8, !tbaa !66
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  store ptr %31, ptr %34, align 8, !tbaa !81
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge45, label %24, !llvm.loop !82
 
-._crit_edge45:                                    ; preds = %28, %._crit_edge41
-  %33 = load ptr, ptr %6, align 8, !tbaa !66
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %33, ptr %34, align 8, !tbaa !83
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %6, ptr %35, align 8, !tbaa !84
+._crit_edge45:                                    ; preds = %30, %._crit_edge41
+  %35 = load ptr, ptr %6, align 8, !tbaa !66
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %35, ptr %36, align 8, !tbaa !83
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %6, ptr %37, align 8, !tbaa !84
   ret void
 }
 

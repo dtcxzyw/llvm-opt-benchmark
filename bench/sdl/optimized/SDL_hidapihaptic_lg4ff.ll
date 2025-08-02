@@ -265,29 +265,30 @@ define internal void @SDL_HIDAPI_HapticDriverLg4ff_Close(ptr noundef readonly ca
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2944
   %5 = load ptr, ptr %4, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %5) #8
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 104
-  br label %6
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %7
 
-6:                                                ; preds = %6, %1
-  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %6 ]
-  %7 = mul nuw nsw i64 %indvars.iv.i, 152
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %7
-  store i32 0, ptr %gep.i, align 8
+7:                                                ; preds = %7, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %7 ]
+  %8 = mul nuw nsw i64 %indvars.iv.i, 152
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store i32 0, ptr %10, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %SDL_HIDAPI_HapticDriverLg4ff_StopEffects.exit, label %6, !llvm.loop !6
+  br i1 %exitcond.not.i, label %SDL_HIDAPI_HapticDriverLg4ff_StopEffects.exit, label %7, !llvm.loop !6
 
-SDL_HIDAPI_HapticDriverLg4ff_StopEffects.exit:    ; preds = %6
-  %8 = load ptr, ptr %4, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %8) #8
+SDL_HIDAPI_HapticDriverLg4ff_StopEffects.exit:    ; preds = %7
+  %11 = load ptr, ptr %4, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %11) #8
   tail call void @SDL_Delay_REAL(i32 noundef 50) #8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2672
-  store i8 1, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2680
-  %11 = load ptr, ptr %10, align 8
-  tail call void @SDL_WaitThread_REAL(ptr noundef %11, ptr noundef null) #8
-  %12 = load ptr, ptr %4, align 8
-  tail call void @SDL_DestroyMutex_REAL(ptr noundef %12) #8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2672
+  store i8 1, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 2680
+  %14 = load ptr, ptr %13, align 8
+  tail call void @SDL_WaitThread_REAL(ptr noundef %14, ptr noundef null) #8
+  %15 = load ptr, ptr %4, align 8
+  tail call void @SDL_DestroyMutex_REAL(ptr noundef %15) #8
   ret void
 }
 
@@ -308,106 +309,106 @@ define internal noundef i32 @SDL_HIDAPI_HapticDriverLg4ff_NumAxes(ptr readnone c
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 16) i32 @SDL_HIDAPI_HapticDriverLg4ff_CreateEffect(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8
   %.val = load i16, ptr %1, align 8
-  %5 = and i16 %.val, 1535
-  %.not = icmp eq i16 %5, 0
-  br i1 %.not, label %6, label %8
+  %3 = and i16 %.val, 1535
+  %.not = icmp eq i16 %3, 0
+  br i1 %.not, label %4, label %6
+
+4:                                                ; preds = %2
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #8
+  br label %47
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #8
-  br label %45
-
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2944
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2944
   %10 = load ptr, ptr %9, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %10) #8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 156
-  br label %11
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br label %12
 
-11:                                               ; preds = %8, %15
-  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %15 ]
-  %12 = mul nuw nsw i64 %indvars.iv, 152
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %12
-  %13 = load i8, ptr %gep, align 4, !range !7, !noundef !8
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %15, label %19
+12:                                               ; preds = %6, %18
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %18 ]
+  %13 = mul nuw nsw i64 %indvars.iv, 152
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 148
+  %16 = load i8, ptr %15, align 4, !range !7, !noundef !8
+  %17 = trunc nuw i8 %16 to i1
+  br i1 %17, label %18, label %22
 
-15:                                               ; preds = %11
+18:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %16, label %11, !llvm.loop !9
+  br i1 %exitcond.not, label %19, label %12, !llvm.loop !9
 
-16:                                               ; preds = %15
-  %17 = load ptr, ptr %9, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %17) #8
-  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #8
-  br label %45
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %9, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %20) #8
+  %21 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #8
+  br label %47
 
-19:                                               ; preds = %11
-  %20 = trunc nuw nsw i64 %indvars.iv to i32
-  %21 = tail call i64 @SDL_GetTicks_REAL() #8
+22:                                               ; preds = %12
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
+  %24 = tail call i64 @SDL_GetTicks_REAL() #8
   %.val.i = load i16, ptr %1, align 8
   switch i16 %.val.i, label %effect_is_periodic.exit.i [
-    i16 2, label %22
-    i16 8, label %22
-    i16 16, label %22
-    i16 32, label %22
-    i16 4, label %22
+    i16 2, label %25
+    i16 8, label %25
+    i16 16, label %25
+    i16 32, label %25
+    i16 4, label %25
   ]
 
-22:                                               ; preds = %19, %19, %19, %19, %19
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %24 = load i16, ptr %23, align 2
-  %25 = icmp eq i16 %24, 0
-  br i1 %25, label %42, label %effect_is_periodic.exit.i
+25:                                               ; preds = %22, %22, %22, %22, %22
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %27 = load i16, ptr %26, align 2
+  %28 = icmp eq i16 %27, 0
+  br i1 %28, label %44, label %effect_is_periodic.exit.i
 
-effect_is_periodic.exit.i:                        ; preds = %22, %19
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %27 = and i64 %indvars.iv, 4294967295
-  %28 = getelementptr inbounds nuw [16 x %struct.lg4ff_effect_state], ptr %26, i64 0, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 96
-  %30 = load i32, ptr %29, align 8
-  %31 = and i32 %30, 1
-  %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %.thread.i, label %32
+effect_is_periodic.exit.i:                        ; preds = %25, %22
+  %29 = and i64 %indvars.iv, 4294967295
+  %30 = getelementptr inbounds nuw [16 x %struct.lg4ff_effect_state], ptr %11, i64 0, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
+  %32 = load i32, ptr %31, align 8
+  %33 = and i32 %32, 1
+  %.not.i = icmp eq i32 %33, 0
+  br i1 %.not.i, label %.thread.i, label %34
 
 .thread.i:                                        ; preds = %effect_is_periodic.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %28, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i64 72, i1 false)
-  br label %37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i64 72, i1 false)
+  br label %39
 
-32:                                               ; preds = %effect_is_periodic.exit.i
-  %33 = load i16, ptr %28, align 8
-  %.not14.i = icmp eq i16 %.val.i, %33
-  br i1 %.not14.i, label %34, label %42
+34:                                               ; preds = %effect_is_periodic.exit.i
+  %35 = load i16, ptr %30, align 8
+  %.not14.i = icmp eq i16 %.val.i, %35
+  br i1 %.not14.i, label %36, label %44
 
-34:                                               ; preds = %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %28, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i64 72, i1 false)
-  %35 = or i32 %30, 8
-  store i32 %35, ptr %29, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %28, i64 112
-  store i64 %21, ptr %36, align 8
-  br label %37
+36:                                               ; preds = %34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i64 72, i1 false)
+  %37 = or i32 %32, 8
+  store i32 %37, ptr %31, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 112
+  store i64 %24, ptr %38, align 8
+  br label %39
 
-37:                                               ; preds = %34, %.thread.i
-  %38 = load ptr, ptr %9, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %38) #8
+39:                                               ; preds = %36, %.thread.i
+  %40 = load ptr, ptr %9, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %40) #8
   %narrow22 = mul i64 %indvars.iv, 152
-  %39 = and i64 %narrow22, 4294967288
-  %40 = getelementptr i8, ptr %26, i64 %39
-  %41 = getelementptr i8, ptr %40, i64 148
-  store i8 1, ptr %41, align 4
-  br label %45
+  %41 = and i64 %narrow22, 4294967288
+  %42 = getelementptr i8, ptr %11, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 148
+  store i8 1, ptr %43, align 4
+  br label %47
 
-42:                                               ; preds = %32, %22
-  %43 = load ptr, ptr %9, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %43) #8
-  %44 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #8
-  br label %45
+44:                                               ; preds = %34, %25
+  %45 = load ptr, ptr %9, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %45) #8
+  %46 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #8
+  br label %47
 
-45:                                               ; preds = %42, %37, %16, %6
-  %.0 = phi i32 [ -1, %16 ], [ %20, %37 ], [ -1, %42 ], [ -1, %6 ]
+47:                                               ; preds = %44, %39, %19, %4
+  %.0 = phi i32 [ -1, %19 ], [ %23, %39 ], [ -1, %44 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -859,21 +860,22 @@ define internal noundef zeroext i1 @SDL_HIDAPI_HapticDriverLg4ff_StopEffects(ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2944
   %5 = load ptr, ptr %4, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %5) #8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 104
-  br label %6
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %7
 
-6:                                                ; preds = %1, %6
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = mul nuw nsw i64 %indvars.iv, 152
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %7
-  store i32 0, ptr %gep, align 8
+7:                                                ; preds = %1, %7
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
+  %8 = mul nuw nsw i64 %indvars.iv, 152
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store i32 0, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %8, label %6, !llvm.loop !6
+  br i1 %exitcond.not, label %11, label %7, !llvm.loop !6
 
-8:                                                ; preds = %6
-  %9 = load ptr, ptr %4, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %9) #8
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %4, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %12) #8
   ret i1 true
 }
 

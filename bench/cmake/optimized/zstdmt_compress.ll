@@ -399,7 +399,7 @@ define dso_local i64 @ZSTDMT_sizeof_CCtx(ptr noundef readonly captures(address_i
   br i1 %.not.i, label %ZSTDMT_sizeof_bufferPool.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %10 = getelementptr i8, ptr %7, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %wide.trip.count.i = zext i32 %9 to i64
   br label %11
 
@@ -407,7 +407,7 @@ define dso_local i64 @ZSTDMT_sizeof_CCtx(ptr noundef readonly captures(address_i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
   %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %14, %11 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
-  %12 = getelementptr i8, ptr %10, i64 %.idx.i
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %13 = load i64, ptr %12, align 8, !tbaa !57
   %14 = add i64 %13, %.010.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -459,7 +459,7 @@ ZSTDMT_sizeof_CCtxPool.exit:                      ; preds = %27, %ZSTDMT_sizeof_
   br i1 %.not.i.i, label %ZSTDMT_sizeof_seqPool.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %ZSTDMT_sizeof_CCtxPool.exit
-  %39 = getelementptr i8, ptr %36, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %wide.trip.count.i.i = zext i32 %38 to i64
   br label %40
 
@@ -467,7 +467,7 @@ ZSTDMT_sizeof_CCtxPool.exit:                      ; preds = %27, %ZSTDMT_sizeof_
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %40 ]
   %.010.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %43, %40 ]
   %.idx.i.i = shl nuw nsw i64 %indvars.iv.i.i, 4
-  %41 = getelementptr i8, ptr %39, i64 %.idx.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i
   %42 = load i64, ptr %41, align 8, !tbaa !57
   %43 = add i64 %42, %.010.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

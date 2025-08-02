@@ -16403,7 +16403,6 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4lean4exprElS1_N9__gnu_cxx5_
   store ptr %4, ptr %6, align 8
   %9 = add nsw i64 %2, -1
   %10 = sdiv i64 %9, 2
-  %invariant.gep = getelementptr i8, ptr %0, i64 8
   %11 = icmp slt i64 %1, %10
   %12 = ptrtoint ptr %4 to i64
   br i1 %11, label %.lr.ph, label %._crit_edge
@@ -16413,189 +16412,190 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4lean4exprElS1_N9__gnu_cxx5_
   %13 = shl i64 %.038, 1
   %14 = add i64 %13, 2
   %15 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %14
-  %gep = getelementptr %"class.lean::expr", ptr %invariant.gep, i64 %13
+  %16 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %13
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.val = load ptr, ptr %15, align 8, !tbaa !3, !noalias !356
-  %16 = call fastcc noundef zeroext i1 @"_ZZN4lean10sort_fvarsERKNS_9local_ctxERNS_6bufferINS_4exprELm16EEEENK3$_0clERKS4_S9_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %6, ptr %.val, ptr noundef nonnull readonly align 8 dereferenceable(8) %gep)
-  %17 = or disjoint i64 %13, 1
-  %spec.select = select i1 %16, i64 %17, i64 %14
-  %18 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %spec.select
-  %19 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %.038
-  %20 = load ptr, ptr %19, align 8, !tbaa !3
-  %21 = ptrtoint ptr %20 to i64
-  %22 = and i64 %21, 1
-  %.not.i.i.i = icmp eq i64 %22, 0
-  br i1 %.not.i.i.i, label %23, label %_ZN4lean4expraSEOS0_.exit
+  %18 = call fastcc noundef zeroext i1 @"_ZZN4lean10sort_fvarsERKNS_9local_ctxERNS_6bufferINS_4exprELm16EEEENK3$_0clERKS4_S9_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %6, ptr %.val, ptr noundef nonnull readonly align 8 dereferenceable(8) %17)
+  %19 = or disjoint i64 %13, 1
+  %spec.select = select i1 %18, i64 %19, i64 %14
+  %20 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %spec.select
+  %21 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %.038
+  %22 = load ptr, ptr %21, align 8, !tbaa !3
+  %23 = ptrtoint ptr %22 to i64
+  %24 = and i64 %23, 1
+  %.not.i.i.i = icmp eq i64 %24, 0
+  br i1 %.not.i.i.i, label %25, label %_ZN4lean4expraSEOS0_.exit
 
-23:                                               ; preds = %.lr.ph
-  %24 = load i32, ptr %20, align 4, !tbaa !13
-  %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %26, label %28, !prof !15
+25:                                               ; preds = %.lr.ph
+  %26 = load i32, ptr %22, align 4, !tbaa !13
+  %27 = icmp sgt i32 %26, 1
+  br i1 %27, label %28, label %30, !prof !15
 
-26:                                               ; preds = %23
-  %27 = add nsw i32 %24, -1
-  store i32 %27, ptr %20, align 4, !tbaa !13
+28:                                               ; preds = %25
+  %29 = add nsw i32 %26, -1
+  store i32 %29, ptr %22, align 4, !tbaa !13
   br label %_ZN4lean4expraSEOS0_.exit
 
-28:                                               ; preds = %23
-  %.not.i.i.i.i = icmp eq i32 %24, 0
-  br i1 %.not.i.i.i.i, label %_ZN4lean4expraSEOS0_.exit, label %29
+30:                                               ; preds = %25
+  %.not.i.i.i.i = icmp eq i32 %26, 0
+  br i1 %.not.i.i.i.i, label %_ZN4lean4expraSEOS0_.exit, label %31
 
-29:                                               ; preds = %28
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %20)
+31:                                               ; preds = %30
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %22)
   br label %_ZN4lean4expraSEOS0_.exit
 
-_ZN4lean4expraSEOS0_.exit:                        ; preds = %.lr.ph, %26, %28, %29
-  %30 = load ptr, ptr %18, align 8, !tbaa !3
-  store ptr %30, ptr %19, align 8, !tbaa !3
-  store ptr inttoptr (i64 1 to ptr), ptr %18, align 8, !tbaa !3
-  %31 = icmp slt i64 %spec.select, %10
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !359
+_ZN4lean4expraSEOS0_.exit:                        ; preds = %.lr.ph, %28, %30, %31
+  %32 = load ptr, ptr %20, align 8, !tbaa !3
+  store ptr %32, ptr %21, align 8, !tbaa !3
+  store ptr inttoptr (i64 1 to ptr), ptr %20, align 8, !tbaa !3
+  %33 = icmp slt i64 %spec.select, %10
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !359
 
 ._crit_edge:                                      ; preds = %_ZN4lean4expraSEOS0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %_ZN4lean4expraSEOS0_.exit ]
-  %32 = and i64 %2, 1
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %54
+  %34 = and i64 %2, 1
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %36, label %56
 
-34:                                               ; preds = %._crit_edge
-  %35 = add nsw i64 %2, -2
-  %36 = ashr exact i64 %35, 1
-  %37 = icmp eq i64 %.0.lcssa, %36
-  br i1 %37, label %38, label %54
+36:                                               ; preds = %._crit_edge
+  %37 = add nsw i64 %2, -2
+  %38 = ashr exact i64 %37, 1
+  %39 = icmp eq i64 %.0.lcssa, %38
+  br i1 %39, label %40, label %56
 
-38:                                               ; preds = %34
-  %39 = shl nsw i64 %.0.lcssa, 1
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %40
-  %42 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %.0.lcssa
-  %43 = load ptr, ptr %42, align 8, !tbaa !3
-  %44 = ptrtoint ptr %43 to i64
-  %45 = and i64 %44, 1
-  %.not.i.i.i31 = icmp eq i64 %45, 0
-  br i1 %.not.i.i.i31, label %46, label %_ZN4lean4expraSEOS0_.exit33
+40:                                               ; preds = %36
+  %41 = shl nsw i64 %.0.lcssa, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %42
+  %44 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %.0.lcssa
+  %45 = load ptr, ptr %44, align 8, !tbaa !3
+  %46 = ptrtoint ptr %45 to i64
+  %47 = and i64 %46, 1
+  %.not.i.i.i31 = icmp eq i64 %47, 0
+  br i1 %.not.i.i.i31, label %48, label %_ZN4lean4expraSEOS0_.exit33
 
-46:                                               ; preds = %38
-  %47 = load i32, ptr %43, align 4, !tbaa !13
-  %48 = icmp sgt i32 %47, 1
-  br i1 %48, label %49, label %51, !prof !15
+48:                                               ; preds = %40
+  %49 = load i32, ptr %45, align 4, !tbaa !13
+  %50 = icmp sgt i32 %49, 1
+  br i1 %50, label %51, label %53, !prof !15
 
-49:                                               ; preds = %46
-  %50 = add nsw i32 %47, -1
-  store i32 %50, ptr %43, align 4, !tbaa !13
+51:                                               ; preds = %48
+  %52 = add nsw i32 %49, -1
+  store i32 %52, ptr %45, align 4, !tbaa !13
   br label %_ZN4lean4expraSEOS0_.exit33
 
-51:                                               ; preds = %46
-  %.not.i.i.i.i32 = icmp eq i32 %47, 0
-  br i1 %.not.i.i.i.i32, label %_ZN4lean4expraSEOS0_.exit33, label %52
+53:                                               ; preds = %48
+  %.not.i.i.i.i32 = icmp eq i32 %49, 0
+  br i1 %.not.i.i.i.i32, label %_ZN4lean4expraSEOS0_.exit33, label %54
 
-52:                                               ; preds = %51
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %43)
+54:                                               ; preds = %53
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %45)
   br label %_ZN4lean4expraSEOS0_.exit33
 
-_ZN4lean4expraSEOS0_.exit33:                      ; preds = %38, %49, %51, %52
-  %53 = load ptr, ptr %41, align 8, !tbaa !3
-  store ptr %53, ptr %42, align 8, !tbaa !3
-  store ptr inttoptr (i64 1 to ptr), ptr %41, align 8, !tbaa !3
-  br label %54
+_ZN4lean4expraSEOS0_.exit33:                      ; preds = %40, %51, %53, %54
+  %55 = load ptr, ptr %43, align 8, !tbaa !3
+  store ptr %55, ptr %44, align 8, !tbaa !3
+  store ptr inttoptr (i64 1 to ptr), ptr %43, align 8, !tbaa !3
+  br label %56
 
-54:                                               ; preds = %_ZN4lean4expraSEOS0_.exit33, %34, %._crit_edge
-  %.1 = phi i64 [ %40, %_ZN4lean4expraSEOS0_.exit33 ], [ %.0.lcssa, %34 ], [ %.0.lcssa, %._crit_edge ]
+56:                                               ; preds = %_ZN4lean4expraSEOS0_.exit33, %36, %._crit_edge
+  %.1 = phi i64 [ %42, %_ZN4lean4expraSEOS0_.exit33 ], [ %.0.lcssa, %36 ], [ %.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
   store i64 %12, ptr %7, align 8, !tbaa !360
-  %55 = load ptr, ptr %3, align 8, !tbaa !3
-  store ptr %55, ptr %8, align 8, !tbaa !3
+  %57 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %57, ptr %8, align 8, !tbaa !3
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8, !tbaa !3
-  %56 = icmp samesign ugt i64 %.1, %1
-  br i1 %56, label %.lr.ph.i, label %.critedge.i
+  %58 = icmp samesign ugt i64 %.1, %1
+  br i1 %58, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %54, %_ZN4lean4expraSEOS0_.exit.i
-  %.01319.i = phi i64 [ %.020.i, %_ZN4lean4expraSEOS0_.exit.i ], [ %.1, %54 ]
+.lr.ph.i:                                         ; preds = %56, %_ZN4lean4expraSEOS0_.exit.i
+  %.01319.i = phi i64 [ %.020.i, %_ZN4lean4expraSEOS0_.exit.i ], [ %.1, %56 ]
   %.020.in.i = add nsw i64 %.01319.i, -1
   %.020.i = sdiv i64 %.020.in.i, 2
-  %57 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %.020.i
-  %.val.i = load ptr, ptr %57, align 8, !tbaa !3, !noalias !362
-  %58 = invoke fastcc noundef zeroext i1 @"_ZZN4lean10sort_fvarsERKNS_9local_ctxERNS_6bufferINS_4exprELm16EEEENK3$_0clERKS4_S9_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %7, ptr %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %8)
+  %59 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %.020.i
+  %.val.i = load ptr, ptr %59, align 8, !tbaa !3, !noalias !362
+  %60 = invoke fastcc noundef zeroext i1 @"_ZZN4lean10sort_fvarsERKNS_9local_ctxERNS_6bufferINS_4exprELm16EEEENK3$_0clERKS4_S9_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %7, ptr %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %8)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
-  br i1 %58, label %59, label %.critedge.i
+  br i1 %60, label %61, label %.critedge.i
 
-59:                                               ; preds = %.noexc
-  %60 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %.01319.i
-  %61 = load ptr, ptr %60, align 8, !tbaa !3
-  %62 = ptrtoint ptr %61 to i64
-  %63 = and i64 %62, 1
-  %.not.i.i.i.i34 = icmp eq i64 %63, 0
-  br i1 %.not.i.i.i.i34, label %64, label %_ZN4lean4expraSEOS0_.exit.i
+61:                                               ; preds = %.noexc
+  %62 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %.01319.i
+  %63 = load ptr, ptr %62, align 8, !tbaa !3
+  %64 = ptrtoint ptr %63 to i64
+  %65 = and i64 %64, 1
+  %.not.i.i.i.i34 = icmp eq i64 %65, 0
+  br i1 %.not.i.i.i.i34, label %66, label %_ZN4lean4expraSEOS0_.exit.i
 
-64:                                               ; preds = %59
-  %65 = load i32, ptr %61, align 4, !tbaa !13
-  %66 = icmp sgt i32 %65, 1
-  br i1 %66, label %67, label %69, !prof !15
+66:                                               ; preds = %61
+  %67 = load i32, ptr %63, align 4, !tbaa !13
+  %68 = icmp sgt i32 %67, 1
+  br i1 %68, label %69, label %71, !prof !15
 
-67:                                               ; preds = %64
-  %68 = add nsw i32 %65, -1
-  store i32 %68, ptr %61, align 4, !tbaa !13
+69:                                               ; preds = %66
+  %70 = add nsw i32 %67, -1
+  store i32 %70, ptr %63, align 4, !tbaa !13
   br label %_ZN4lean4expraSEOS0_.exit.i
 
-69:                                               ; preds = %64
-  %.not.i.i.i.i.i = icmp eq i32 %65, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN4lean4expraSEOS0_.exit.i, label %70
+71:                                               ; preds = %66
+  %.not.i.i.i.i.i = icmp eq i32 %67, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN4lean4expraSEOS0_.exit.i, label %72
 
-70:                                               ; preds = %69
-  invoke void @lean_dec_ref_cold(ptr noundef nonnull %61)
+72:                                               ; preds = %71
+  invoke void @lean_dec_ref_cold(ptr noundef nonnull %63)
           to label %_ZN4lean4expraSEOS0_.exit.i unwind label %.loopexit
 
-_ZN4lean4expraSEOS0_.exit.i:                      ; preds = %70, %69, %67, %59
-  %71 = load ptr, ptr %57, align 8, !tbaa !3
-  store ptr %71, ptr %60, align 8, !tbaa !3
-  store ptr inttoptr (i64 1 to ptr), ptr %57, align 8, !tbaa !3
-  %72 = icmp sgt i64 %.020.i, %1
-  br i1 %72, label %.lr.ph.i, label %.critedge.i, !llvm.loop !365
+_ZN4lean4expraSEOS0_.exit.i:                      ; preds = %72, %71, %69, %61
+  %73 = load ptr, ptr %59, align 8, !tbaa !3
+  store ptr %73, ptr %62, align 8, !tbaa !3
+  store ptr inttoptr (i64 1 to ptr), ptr %59, align 8, !tbaa !3
+  %74 = icmp sgt i64 %.020.i, %1
+  br i1 %74, label %.lr.ph.i, label %.critedge.i, !llvm.loop !365
 
-.critedge.i:                                      ; preds = %_ZN4lean4expraSEOS0_.exit.i, %.noexc, %54
-  %.013.lcssa.i = phi i64 [ %.1, %54 ], [ %.01319.i, %.noexc ], [ %.020.i, %_ZN4lean4expraSEOS0_.exit.i ]
-  %73 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %.013.lcssa.i
-  %74 = load ptr, ptr %73, align 8, !tbaa !3
-  %75 = ptrtoint ptr %74 to i64
-  %76 = and i64 %75, 1
-  %.not.i.i.i14.i = icmp eq i64 %76, 0
-  br i1 %.not.i.i.i14.i, label %77, label %_ZN4lean10object_refD2Ev.exit
+.critedge.i:                                      ; preds = %_ZN4lean4expraSEOS0_.exit.i, %.noexc, %56
+  %.013.lcssa.i = phi i64 [ %.1, %56 ], [ %.01319.i, %.noexc ], [ %.020.i, %_ZN4lean4expraSEOS0_.exit.i ]
+  %75 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %.013.lcssa.i
+  %76 = load ptr, ptr %75, align 8, !tbaa !3
+  %77 = ptrtoint ptr %76 to i64
+  %78 = and i64 %77, 1
+  %.not.i.i.i14.i = icmp eq i64 %78, 0
+  br i1 %.not.i.i.i14.i, label %79, label %_ZN4lean10object_refD2Ev.exit
 
-77:                                               ; preds = %.critedge.i
-  %78 = load i32, ptr %74, align 4, !tbaa !13
-  %79 = icmp sgt i32 %78, 1
-  br i1 %79, label %80, label %82, !prof !15
+79:                                               ; preds = %.critedge.i
+  %80 = load i32, ptr %76, align 4, !tbaa !13
+  %81 = icmp sgt i32 %80, 1
+  br i1 %81, label %82, label %84, !prof !15
 
-80:                                               ; preds = %77
-  %81 = add nsw i32 %78, -1
-  store i32 %81, ptr %74, align 4, !tbaa !13
+82:                                               ; preds = %79
+  %83 = add nsw i32 %80, -1
+  store i32 %83, ptr %76, align 4, !tbaa !13
   br label %_ZN4lean10object_refD2Ev.exit
 
-82:                                               ; preds = %77
-  %.not.i.i.i.i15.i = icmp eq i32 %78, 0
-  br i1 %.not.i.i.i.i15.i, label %_ZN4lean10object_refD2Ev.exit, label %83
+84:                                               ; preds = %79
+  %.not.i.i.i.i15.i = icmp eq i32 %80, 0
+  br i1 %.not.i.i.i.i15.i, label %_ZN4lean10object_refD2Ev.exit, label %85
 
-83:                                               ; preds = %82
-  invoke void @lean_dec_ref_cold(ptr noundef nonnull %74)
+85:                                               ; preds = %84
+  invoke void @lean_dec_ref_cold(ptr noundef nonnull %76)
           to label %_ZN4lean10object_refD2Ev.exit unwind label %.loopexit.split-lp
 
-_ZN4lean10object_refD2Ev.exit:                    ; preds = %83, %.critedge.i, %80, %82
-  store ptr %55, ptr %73, align 8, !tbaa !3
+_ZN4lean10object_refD2Ev.exit:                    ; preds = %85, %.critedge.i, %82, %84
+  store ptr %57, ptr %75, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
   ret void
 
-.loopexit:                                        ; preds = %.lr.ph.i, %70
+.loopexit:                                        ; preds = %.lr.ph.i, %72
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %86
 
-.loopexit.split-lp:                               ; preds = %83
+.loopexit.split-lp:                               ; preds = %85
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %86
 
-84:                                               ; preds = %.loopexit.split-lp, %.loopexit
+86:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25

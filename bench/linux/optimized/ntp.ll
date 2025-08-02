@@ -866,76 +866,76 @@ define internal void @sync_hw_clock(ptr readnone captures(none) %0) #3 align 16 
 
 23:                                               ; preds = %12
   %24 = icmp ugt i64 %21, 995000000
-  br i1 %24, label %25, label %56
+  br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %23
   %26 = add i64 %19, 1
   br label %27
 
-27:                                               ; preds = %25, %12
-  %.ph = phi i64 [ %19, %12 ], [ %26, %25 ]
-  %28 = load i32, ptr @persistent_clock_is_local, align 4
-  %29 = icmp eq i32 %28, 0
-  %30 = load i32, ptr @sys_tz, align 4
-  %31 = mul i32 %30, 60
-  %32 = select i1 %29, i32 0, i32 %31
-  %33 = sext i32 %32 to i64
-  %34 = sub i64 %.ph, %33
-  %35 = call i32 @update_persistent_clock64(i64 %34, i64 0)
-  %36 = icmp eq i32 %35, -19
-  br i1 %36, label %37, label %56
+27:                                               ; preds = %12, %25
+  %28 = phi i64 [ %26, %25 ], [ %19, %12 ]
+  %29 = load i32, ptr @persistent_clock_is_local, align 4
+  %30 = icmp eq i32 %29, 0
+  %31 = load i32, ptr @sys_tz, align 4
+  %32 = mul i32 %31, 60
+  %33 = select i1 %30, i32 0, i32 %32
+  %34 = sext i32 %33 to i64
+  %35 = sub i64 %28, %34
+  %36 = call i32 @update_persistent_clock64(i64 %35, i64 0)
+  %37 = icmp eq i32 %36, -19
+  br i1 %37, label %38, label %.critedge
 
-37:                                               ; preds = %27
+38:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false), !annotation !7
-  %38 = call ptr @rtc_class_open(ptr noundef nonnull @.str.2) #11
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread6, label %40
+  %39 = call ptr @rtc_class_open(ptr noundef nonnull @.str.2) #11
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %.thread, label %41
 
-.thread6:                                         ; preds = %37
+.thread:                                          ; preds = %38
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #11
   br label %66
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 744
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %.thread8, label %44
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 744
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %.thread6, label %45
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %.thread8, label %48
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %.thread6, label %49
 
-48:                                               ; preds = %44
-  %49 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %38, i64 1200
-  %51 = load i64, ptr %50, align 8
-  %52 = icmp eq i64 %49, %51
-  br i1 %52, label %53, label %.thread9
+49:                                               ; preds = %45
+  %50 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 1200
+  %52 = load i64, ptr %51, align 8
+  %53 = icmp eq i64 %50, %52
+  br i1 %53, label %54, label %.thread7
 
-.thread9:                                         ; preds = %48
-  store i64 %51, ptr @sync_hw_clock.offset_nsec, align 8
-  call void @rtc_class_close(ptr noundef nonnull %38) #11
+.thread7:                                         ; preds = %49
+  store i64 %52, ptr @sync_hw_clock.offset_nsec, align 8
+  call void @rtc_class_close(ptr noundef nonnull %39) #11
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #11
-  br label %56
+  br label %.critedge
 
-.thread8:                                         ; preds = %44, %40
-  call void @rtc_class_close(ptr noundef nonnull %38) #11
+.thread6:                                         ; preds = %45, %41
+  call void @rtc_class_close(ptr noundef nonnull %39) #11
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #11
   br label %66
 
-53:                                               ; preds = %48
-  call void @rtc_time64_to_tm(i64 noundef %34, ptr noundef nonnull %2) #11
-  %54 = call i32 @rtc_set_time(ptr noundef nonnull %38, ptr noundef nonnull %2) #11
-  call void @rtc_class_close(ptr noundef nonnull %38) #11
+54:                                               ; preds = %49
+  call void @rtc_time64_to_tm(i64 noundef %35, ptr noundef nonnull %2) #11
+  %55 = call i32 @rtc_set_time(ptr noundef nonnull %39, ptr noundef nonnull %2) #11
+  call void @rtc_class_close(ptr noundef nonnull %39) #11
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #11
-  %55 = icmp eq i32 %54, -19
-  br i1 %55, label %66, label %56
+  %56 = icmp eq i32 %55, -19
+  br i1 %56, label %66, label %.critedge
 
-56:                                               ; preds = %.thread9, %23, %53, %27
-  %57 = phi i32 [ %35, %27 ], [ %54, %53 ], [ -11, %23 ], [ -11, %.thread9 ]
+.critedge:                                        ; preds = %.thread7, %23, %54, %27
+  %57 = phi i32 [ %36, %27 ], [ %55, %54 ], [ -11, %23 ], [ -11, %.thread7 ]
   %58 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
   %.fr = freeze i32 %57
   %59 = icmp eq i32 %.fr, 0
@@ -949,7 +949,7 @@ define internal void @sync_hw_clock(ptr readnone captures(none) %0) #3 align 16 
   call void @hrtimer_start_range_ns(ptr noundef nonnull @sync_hrtimer, i64 noundef %65, i64 noundef 0, i32 noundef 0) #11
   br label %66
 
-66:                                               ; preds = %.thread8, %.thread6, %56, %53, %8, %1
+66:                                               ; preds = %.thread6, %.thread, %.critedge, %54, %8, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret void
 }

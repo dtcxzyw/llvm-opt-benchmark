@@ -110,62 +110,62 @@ define internal void @ct_incoming_request_worker_func(ptr noundef %0) #1 align 1
   %6 = getelementptr i8, ptr %0, i64 3488
   br label %7
 
-7:                                                ; preds = %38, %1
+7:                                                ; preds = %37, %1
   %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #13
   %9 = load volatile ptr, ptr %4, align 8
   %10 = icmp eq ptr %9, %4
   %11 = icmp eq ptr %9, null
   %12 = or i1 %10, %11
-  br i1 %12, label %.thread, label %14
+  br i1 %12, label %.critedge, label %13
 
-.thread:                                          ; preds = %7
-  %13 = load volatile ptr, ptr %4, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %9, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %15, ptr %17, align 8
+  store volatile ptr %16, ptr %15, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %9, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %14, align 8
+  %18 = load volatile ptr, ptr %4, align 8
+  %19 = icmp eq ptr %18, %4
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %3, i64 noundef %8) #13
+  %20 = tail call fastcc i32 @ct_process_request(ptr noundef %2, ptr noundef nonnull %9)
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %37, label %22, !prof !6
+
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %5, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %28, label %25
+
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %27 = load ptr, ptr %26, align 8
+  br label %28
+
+28:                                               ; preds = %25, %22
+  %29 = phi ptr [ %27, %25 ], [ null, %22 ]
+  %30 = load i32, ptr %6, align 8
+  %31 = sext i32 %20 to i64
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %34 = load i32, ptr %33, align 8
+  %35 = shl i32 %34, 2
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %29, ptr noundef nonnull @.str.31, i32 noundef %30, ptr noundef nonnull %32, i32 noundef %35, ptr noundef nonnull %36) #14
+  tail call void @kfree(ptr noundef nonnull %9) #13
+  br label %37
+
+37:                                               ; preds = %28, %13
+  br i1 %19, label %.loopexit, label %7, !llvm.loop !7
+
+.critedge:                                        ; preds = %7
+  %38 = load volatile ptr, ptr %4, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %3, i64 noundef %8) #13
   br label %.loopexit
 
-14:                                               ; preds = %7
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %16, ptr %18, align 8
-  store volatile ptr %17, ptr %16, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %9, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %15, align 8
-  %19 = load volatile ptr, ptr %4, align 8
-  %20 = icmp eq ptr %19, %4
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %3, i64 noundef %8) #13
-  %21 = tail call fastcc i32 @ct_process_request(ptr noundef %2, ptr noundef nonnull %9)
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %38, label %23, !prof !6
-
-23:                                               ; preds = %14
-  %24 = load ptr, ptr %5, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %29, label %26
-
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load ptr, ptr %27, align 8
-  br label %29
-
-29:                                               ; preds = %26, %23
-  %30 = phi ptr [ %28, %26 ], [ null, %23 ]
-  %31 = load i32, ptr %6, align 8
-  %32 = sext i32 %21 to i64
-  %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %35 = load i32, ptr %34, align 8
-  %36 = shl i32 %35, 2
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %30, ptr noundef nonnull @.str.31, i32 noundef %31, ptr noundef nonnull %33, i32 noundef %36, ptr noundef nonnull %37) #14
-  tail call void @kfree(ptr noundef nonnull %9) #13
-  br label %38
-
-38:                                               ; preds = %29, %14
-  br i1 %20, label %.loopexit, label %7, !llvm.loop !7
-
-.loopexit:                                        ; preds = %38, %.thread
+.loopexit:                                        ; preds = %37, %.critedge
   ret void
 }
 

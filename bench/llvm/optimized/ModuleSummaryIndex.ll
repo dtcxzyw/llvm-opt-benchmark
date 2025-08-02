@@ -4491,7 +4491,7 @@ _ZL15hasReadOnlyFlagPKN4llvm18GlobalValueSummaryE.exit.thread: ; preds = %630, %
   %662 = phi i32 [ %633, %630 ], [ 2, %_ZL15hasReadOnlyFlagPKN4llvm18GlobalValueSummaryE.exit ], [ %.pre883, %_ZN12_GLOBAL__N_110Attributes10addCommentERKN4llvm5TwineE.exit ]
   %663 = phi ptr [ %631, %630 ], [ %631, %_ZL15hasReadOnlyFlagPKN4llvm18GlobalValueSummaryE.exit ], [ %.pre881, %_ZN12_GLOBAL__N_110Attributes10addCommentERKN4llvm5TwineE.exit ]
   %664 = icmp eq i32 %662, 2
-  br i1 %664, label %_ZL16hasWriteOnlyFlagPKN4llvm18GlobalValueSummaryE.exit, label %.critedge
+  br i1 %664, label %_ZL16hasWriteOnlyFlagPKN4llvm18GlobalValueSummaryE.exit, label %.critedge127
 
 _ZL16hasWriteOnlyFlagPKN4llvm18GlobalValueSummaryE.exit: ; preds = %_ZL15hasReadOnlyFlagPKN4llvm18GlobalValueSummaryE.exit.thread
   %665 = getelementptr inbounds nuw i8, ptr %663, i64 64
@@ -4513,9 +4513,9 @@ _ZL16hasWriteOnlyFlagPKN4llvm18GlobalValueSummaryE.exit: ; preds = %_ZL15hasRead
   %669 = icmp eq i32 %.pre886, 2
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZL15hasReadOnlyFlagPKN4llvm18GlobalValueSummaryE.exit.thread, %_ZL16hasWriteOnlyFlagPKN4llvm18GlobalValueSummaryE.exit, %668
-  %670 = phi i1 [ false, %_ZL15hasReadOnlyFlagPKN4llvm18GlobalValueSummaryE.exit.thread ], [ true, %_ZL16hasWriteOnlyFlagPKN4llvm18GlobalValueSummaryE.exit ], [ %669, %668 ]
-  %671 = phi ptr [ %663, %_ZL15hasReadOnlyFlagPKN4llvm18GlobalValueSummaryE.exit.thread ], [ %663, %_ZL16hasWriteOnlyFlagPKN4llvm18GlobalValueSummaryE.exit ], [ %.pre884, %668 ]
+.critedge:                                        ; preds = %_ZL16hasWriteOnlyFlagPKN4llvm18GlobalValueSummaryE.exit, %668
+  %670 = phi i1 [ true, %_ZL16hasWriteOnlyFlagPKN4llvm18GlobalValueSummaryE.exit ], [ %669, %668 ]
+  %671 = phi ptr [ %663, %_ZL16hasWriteOnlyFlagPKN4llvm18GlobalValueSummaryE.exit ], [ %.pre884, %668 ]
   br i1 %670, label %_ZL15hasConstantFlagPKN4llvm18GlobalValueSummaryE.exit, label %.critedge127
 
 _ZL15hasConstantFlagPKN4llvm18GlobalValueSummaryE.exit: ; preds = %.critedge
@@ -4534,7 +4534,7 @@ _ZL15hasConstantFlagPKN4llvm18GlobalValueSummaryE.exit: ; preds = %.critedge
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %58) #26
   br label %.critedge127
 
-.critedge127:                                     ; preds = %.critedge, %628, %627, %675, %_ZL15hasConstantFlagPKN4llvm18GlobalValueSummaryE.exit, %626
+.critedge127:                                     ; preds = %_ZL15hasReadOnlyFlagPKN4llvm18GlobalValueSummaryE.exit.thread, %.critedge, %628, %627, %675, %_ZL15hasConstantFlagPKN4llvm18GlobalValueSummaryE.exit, %626
   %676 = and i32 %.sroa.0.0.copyload.i, 48
   %.not121 = icmp eq i32 %676, 0
   br i1 %.not121, label %701, label %677

@@ -1357,7 +1357,7 @@ _ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8
   %47 = zext i8 %46 to i64
   %.idx = mul nuw nsw i64 %47, 88
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %49 = getelementptr i8, ptr %48, i64 %.idx
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx
   %50 = load i64, ptr %49, align 8, !tbaa !111
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %50, i64 %2)
   store i64 %.sroa.speculated, ptr %49, align 8, !tbaa !19
@@ -1479,7 +1479,7 @@ _ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %.02532 = phi i64 [ 0, %.lr.ph ], [ %.sroa.speculated, %47 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 88
-  %48 = getelementptr i8, ptr %46, i64 %.idx
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %49 = load i64, ptr %48, align 8, !tbaa !111
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %.02532, i64 %49)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -11355,128 +11355,122 @@ define void @_Z18initialize_lambdasP8_IO_FILE26FreeEnergyPerturbationTypebRK8t_l
   br i1 %or.cond, label %12, label %_Z21printLambdaStateToLogP8_IO_FILEN3gmx8ArrayRefIKfEEb.exit
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br i1 %7, label %.split.us.preheader, label %.split.preheader
+  br i1 %7, label %13, label %.split34.us
 
-.split.preheader:                                 ; preds = %12
-  %14 = load i64, ptr %9, align 8
-  %15 = inttoptr i64 %14 to ptr
-  br label %.split34.us
-
-.split.us.preheader:                              ; preds = %12
-  %16 = load i32, ptr %13, align 8, !tbaa !483
-  store i32 %16, ptr %8, align 4, !tbaa !42
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = load double, ptr %17, align 8
-  %19 = fcmp ult double %18, 0.000000e+00
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %22 = sext i32 %16 to i64
-  %23 = load i64, ptr %9, align 8
-  %24 = inttoptr i64 %23 to ptr
+13:                                               ; preds = %12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %15 = load i32, ptr %14, align 8, !tbaa !483
+  store i32 %15, ptr %8, align 4, !tbaa !42
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %17 = load double, ptr %16, align 8
+  %18 = fcmp ult double %17, 0.000000e+00
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %20 = sext i32 %15 to i64
+  %21 = load i64, ptr %9, align 8
+  %22 = inttoptr i64 %21 to ptr
   br label %.split.us
 
-.split.us:                                        ; preds = %.split.us.preheader, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us
-  %indvars.iv = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us ]
-  br i1 %19, label %25, label %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us
+.split.us:                                        ; preds = %13, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us
+  %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us ]
+  br i1 %18, label %23, label %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us
 
-25:                                               ; preds = %.split.us
-  %26 = getelementptr inbounds nuw [7 x %"class.std::vector.0"], ptr %20, i64 0, i64 %indvars.iv
-  %27 = load ptr, ptr %26, align 8, !tbaa !46
-  %28 = getelementptr inbounds nuw double, ptr %27, i64 %22
-  %29 = load double, ptr %28, align 8, !tbaa !63
+23:                                               ; preds = %.split.us
+  %24 = getelementptr inbounds nuw [7 x %"class.std::vector.0"], ptr %19, i64 0, i64 %indvars.iv
+  %25 = load ptr, ptr %24, align 8, !tbaa !46
+  %26 = getelementptr inbounds nuw double, ptr %25, i64 %20
+  %27 = load double, ptr %26, align 8, !tbaa !63
   br label %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us
 
-_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us: ; preds = %25, %.split.us
-  %.0.i.us = phi double [ %29, %25 ], [ %18, %.split.us ]
-  %30 = fptrunc double %.0.i.us to float
-  %31 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
-  store float %30, ptr %31, align 4, !tbaa !58
+_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us: ; preds = %23, %.split.us
+  %.0.i.us = phi double [ %27, %23 ], [ %17, %.split.us ]
+  %28 = fptrunc double %.0.i.us to float
+  %29 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
+  store float %28, ptr %29, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not31.us = icmp eq i64 %indvars.iv.next, 7
   br i1 %.not31.us, label %.split34.us, label %.split.us, !llvm.loop !491
 
-.split34.us:                                      ; preds = %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us, %.split.preheader
-  %32 = phi ptr [ %15, %.split.preheader ], [ %24, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us ]
-  %33 = phi ptr [ %13, %.split.preheader ], [ %21, %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us ]
-  br i1 %2, label %34, label %.loopexit
+.split34.us:                                      ; preds = %_ZNK8t_lambda13initialLambdaE34FreeEnergyPerturbationCouplingType.exit.us, %12
+  br i1 %2, label %30, label %.loopexit
 
-34:                                               ; preds = %.split34.us
+30:                                               ; preds = %.split34.us
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %49, label %.preheader
+  br i1 %.not, label %46, label %.preheader
 
-.preheader:                                       ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !493
-  %37 = load ptr, ptr %6, align 8, !tbaa !494
-  %38 = ptrtoint ptr %36 to i64
-  %39 = ptrtoint ptr %37 to i64
-  %40 = sub i64 %38, %39
-  %41 = lshr exact i64 %40, 2
-  %42 = trunc i64 %41 to i32
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph, label %.loopexit
+.preheader:                                       ; preds = %30
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !493
+  %33 = load ptr, ptr %6, align 8, !tbaa !494
+  %34 = ptrtoint ptr %32 to i64
+  %35 = ptrtoint ptr %33 to i64
+  %36 = sub i64 %34, %35
+  %37 = lshr exact i64 %36, 2
+  %38 = trunc i64 %37 to i32
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %44 = load i32, ptr %33, align 8
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds float, ptr %4, i64 %45
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %wide.trip.count = and i64 %41, 2147483647
-  br label %50
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %41 = load i32, ptr %40, align 8
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds float, ptr %4, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %wide.trip.count = and i64 %37, 2147483647
+  br label %47
 
-49:                                               ; preds = %34
+46:                                               ; preds = %30
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ18initialize_lambdasP8_IO_FILE26FreeEnergyPerturbationTypebRK8t_lambdaN3gmx8ArrayRefIKfEEP14gmx_ekindata_tbPiNS6_IfEEENK3$_0clEv", ptr noundef nonnull @.str.22, i32 noundef 474) #27
   unreachable
 
-50:                                               ; preds = %.lr.ph, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
+47:                                               ; preds = %.lr.ph, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
   %indvars.iv38 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next39, %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit ]
-  %51 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv38
-  %52 = load float, ptr %51, align 4, !tbaa !58
-  %53 = fcmp ogt float %52, 0.000000e+00
-  br i1 %53, label %54, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
+  %48 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv38
+  %49 = load float, ptr %48, align 4, !tbaa !58
+  %50 = fcmp ogt float %49, 0.000000e+00
+  br i1 %50, label %51, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
-54:                                               ; preds = %50
-  %55 = load float, ptr %46, align 4, !tbaa !58
-  store float %55, ptr %51, align 4, !tbaa !58
-  %56 = load i32, ptr %47, align 8, !tbaa !495
-  %57 = icmp eq i32 %56, 2
-  %58 = icmp eq i64 %indvars.iv38, 0
-  %or.cond.i = and i1 %58, %57
-  br i1 %or.cond.i, label %59, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
+51:                                               ; preds = %47
+  %52 = load float, ptr %43, align 4, !tbaa !58
+  store float %52, ptr %48, align 4, !tbaa !58
+  %53 = load i32, ptr %44, align 8, !tbaa !495
+  %54 = icmp eq i32 %53, 2
+  %55 = icmp eq i64 %indvars.iv38, 0
+  %or.cond.i = and i1 %55, %54
+  br i1 %or.cond.i, label %56, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
-59:                                               ; preds = %54
-  store float %55, ptr %48, align 4, !tbaa !515
+56:                                               ; preds = %51
+  store float %52, ptr %45, align 4, !tbaa !515
   br label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
-_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %59, %54, %50
+_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %56, %51, %47
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %50, !llvm.loop !516
+  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !516
 
 .loopexit:                                        ; preds = %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit, %.preheader, %.split34.us
-  %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !517
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !517
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %_Z21printLambdaStateToLogP8_IO_FILEN3gmx8ArrayRefIKfEEb.exit, label %62
+  br i1 %.not.i, label %_Z21printLambdaStateToLogP8_IO_FILEN3gmx8ArrayRefIKfEEb.exit, label %59
 
-62:                                               ; preds = %.loopexit
-  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79) #25
-  %.not1314.i = icmp eq ptr %61, %32
+59:                                               ; preds = %.loopexit
+  %60 = load ptr, ptr %9, align 8, !tbaa !517
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79) #25
+  %.not1314.i = icmp eq ptr %60, %58
   br i1 %.not1314.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %62
-  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83) #25
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %59
+  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83) #25
   br label %_Z21printLambdaStateToLogP8_IO_FILEN3gmx8ArrayRefIKfEEb.exit
 
-.lr.ph.i:                                         ; preds = %62, %.lr.ph.i
-  %.sroa.0.015.i = phi ptr [ %68, %.lr.ph.i ], [ %32, %62 ]
-  %65 = load float, ptr %.sroa.0.015.i, align 4, !tbaa !58
-  %66 = fpext float %65 to double
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, double noundef %66) #25
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 4
-  %.not13.i = icmp eq ptr %68, %61
+.lr.ph.i:                                         ; preds = %59, %.lr.ph.i
+  %.sroa.0.015.i = phi ptr [ %66, %.lr.ph.i ], [ %60, %59 ]
+  %63 = load float, ptr %.sroa.0.015.i, align 4, !tbaa !58
+  %64 = fpext float %63 to double
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, double noundef %64) #25
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 4
+  %.not13.i = icmp eq ptr %66, %58
   br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i
 
 _Z21printLambdaStateToLogP8_IO_FILEN3gmx8ArrayRefIKfEEb.exit: ; preds = %._crit_edge.i, %.loopexit, %10

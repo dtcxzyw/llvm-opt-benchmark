@@ -221,7 +221,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define dso_local noundef nonnull ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !28
   %6 = load ptr, ptr %2, align 8, !tbaa !9

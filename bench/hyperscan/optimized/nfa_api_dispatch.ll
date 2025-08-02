@@ -509,11 +509,11 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %.idx = mul nuw nsw i64 %6, 24
-  %7 = getelementptr i8, ptr %1, i64 112
-  %8 = getelementptr i8, ptr %7, i64 %.idx
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %9 = load i64, ptr %8, align 8
   %10 = icmp sgt i64 %9, %2
-  br i1 %10, label %115, label %11
+  br i1 %10, label %122, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -532,7 +532,7 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
   %20 = add i64 %19, %spec.select
   %21 = zext i8 %16 to i64
   %22 = icmp ugt i64 %20, %21
-  br i1 %22, label %63, label %23
+  br i1 %22, label %70, label %23
 
 23:                                               ; preds = %17, %11
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -545,7 +545,7 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
   %28 = load i64, ptr %27, align 8
   %29 = zext i32 %25 to i64
   %.not39.i = icmp ult i64 %28, %29
-  br i1 %.not39.i, label %30, label %63
+  br i1 %.not39.i, label %30, label %70
 
 30:                                               ; preds = %26
   %31 = add i64 %28, %spec.select
@@ -564,191 +564,194 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
   %38 = add nuw i32 %5, 1
   %39 = add i32 %.promoted, -1
   %40 = zext i32 %39 to i64
-  %.idx.i40 = mul nuw nsw i64 %40, 24
-  %gep41 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i40
-  %41 = load i64, ptr %gep41, align 8
-  %42 = icmp sgt i64 %41, %34
-  br i1 %42, label %.lr.ph44, label %.critedge.i
+  %.idx.i38 = mul nuw nsw i64 %40, 24
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i38
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load i64, ptr %42, align 8
+  %44 = icmp sgt i64 %43, %34
+  br i1 %44, label %.lr.ph40, label %.critedge.i
 
-.lr.ph44:                                         ; preds = %.lr.ph.preheader
-  %43 = zext i32 %.promoted to i64
-  br label %44
+.lr.ph40:                                         ; preds = %.lr.ph.preheader
+  %45 = zext i32 %.promoted to i64
+  br label %46
 
-44:                                               ; preds = %.lr.ph44, %.lr.ph
-  %gep43 = phi ptr [ %gep41, %.lr.ph44 ], [ %gep, %.lr.ph ]
-  %45 = phi i64 [ %40, %.lr.ph44 ], [ %58, %.lr.ph ]
-  %46 = phi i32 [ %39, %.lr.ph44 ], [ %57, %.lr.ph ]
-  %47 = phi i32 [ %.promoted, %.lr.ph44 ], [ %56, %.lr.ph ]
-  %48 = phi i32 [ %.promoted, %.lr.ph44 ], [ %46, %.lr.ph ]
-  %indvars.iv42 = phi i64 [ %43, %.lr.ph44 ], [ %indvars.iv.next, %.lr.ph ]
-  store i64 %34, ptr %gep43, align 8
-  %49 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %35, i64 0, i64 %45
-  store i32 1, ptr %49, align 8
-  %50 = sub i32 %48, %5
-  %51 = icmp ult i32 %50, 2
-  br i1 %51, label %.critedge.i, label %52
+46:                                               ; preds = %.lr.ph40, %.lr.ph
+  %47 = phi ptr [ %42, %.lr.ph40 ], [ %65, %.lr.ph ]
+  %48 = phi i64 [ %40, %.lr.ph40 ], [ %63, %.lr.ph ]
+  %49 = phi i32 [ %39, %.lr.ph40 ], [ %62, %.lr.ph ]
+  %50 = phi i32 [ %.promoted, %.lr.ph40 ], [ %61, %.lr.ph ]
+  %51 = phi i32 [ %.promoted, %.lr.ph40 ], [ %49, %.lr.ph ]
+  %indvars.iv39 = phi i64 [ %45, %.lr.ph40 ], [ %indvars.iv.next, %.lr.ph ]
+  store i64 %34, ptr %47, align 8
+  %52 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %35, i64 0, i64 %48
+  store i32 1, ptr %52, align 8
+  %53 = sub i32 %51, %5
+  %54 = icmp ult i32 %53, 2
+  br i1 %54, label %.critedge.i, label %55
 
-52:                                               ; preds = %44
-  %53 = add i64 %indvars.iv42, 4294967294
-  %54 = and i64 %53, 4294967295
-  %.idx41.i = mul nuw nsw i64 %54, 24
-  %gep28 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx41.i
-  %55 = load i64, ptr %gep28, align 8
-  %.not42.i = icmp sgt i64 %55, %34
+55:                                               ; preds = %46
+  %56 = add i64 %indvars.iv39, 4294967294
+  %57 = and i64 %56, 4294967295
+  %.idx41.i = mul nuw nsw i64 %57, 24
+  %58 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx41.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load i64, ptr %59, align 8
+  %.not42.i = icmp sgt i64 %60, %34
   br i1 %.not42.i, label %.lr.ph, label %.critedge.i
 
-.lr.ph:                                           ; preds = %52
-  store i32 %46, ptr %36, align 4
-  %indvars.iv.next = add nsw i64 %indvars.iv42, -1
-  %56 = trunc nuw i64 %indvars.iv.next to i32
-  %57 = add i32 %56, -1
-  %58 = zext i32 %57 to i64
-  %.idx.i = mul nuw nsw i64 %58, 24
-  %gep = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
-  %59 = load i64, ptr %gep, align 8
-  %60 = icmp sgt i64 %59, %34
-  br i1 %60, label %44, label %.critedge.i
+.lr.ph:                                           ; preds = %55
+  store i32 %49, ptr %36, align 4
+  %indvars.iv.next = add nsw i64 %indvars.iv39, -1
+  %61 = trunc nuw i64 %indvars.iv.next to i32
+  %62 = add i32 %61, -1
+  %63 = zext i32 %62 to i64
+  %.idx.i = mul nuw nsw i64 %63, 24
+  %64 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load i64, ptr %65, align 8
+  %67 = icmp sgt i64 %66, %34
+  br i1 %67, label %46, label %.critedge.i
 
-.critedge.i:                                      ; preds = %52, %44, %.lr.ph, %.lr.ph.preheader, %33
-  %.lcssa = phi i32 [ %.promoted, %33 ], [ %.promoted, %.lr.ph.preheader ], [ %56, %.lr.ph ], [ %38, %44 ], [ %47, %52 ]
-  %.2 = phi i8 [ %spec.store.select, %33 ], [ %spec.store.select, %.lr.ph.preheader ], [ 1, %.lr.ph ], [ 1, %44 ], [ 1, %52 ]
-  %61 = sub i32 %.lcssa, %5
-  %62 = icmp ugt i32 %61, 1
-  br i1 %62, label %nfaQueueCanMatch.exit, label %63
+.critedge.i:                                      ; preds = %55, %46, %.lr.ph, %.lr.ph.preheader, %33
+  %.lcssa = phi i32 [ %.promoted, %33 ], [ %.promoted, %.lr.ph.preheader ], [ %61, %.lr.ph ], [ %38, %46 ], [ %50, %55 ]
+  %.2 = phi i8 [ %spec.store.select, %33 ], [ %spec.store.select, %.lr.ph.preheader ], [ 1, %.lr.ph ], [ 1, %46 ], [ 1, %55 ]
+  %68 = sub i32 %.lcssa, %5
+  %69 = icmp ugt i32 %68, 1
+  br i1 %69, label %nfaQueueCanMatch.exit, label %70
 
-63:                                               ; preds = %.critedge.i, %17, %26
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %65 = load i8, ptr %64, align 8
-  %.not20 = icmp eq i8 %65, 0
-  br i1 %.not20, label %115, label %66
+70:                                               ; preds = %.critedge.i, %17, %26
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %72 = load i8, ptr %71, align 8
+  %.not20 = icmp eq i8 %72, 0
+  br i1 %.not20, label %122, label %73
 
-66:                                               ; preds = %63
-  %67 = tail call signext i8 @nfaReportCurrentMatches(ptr noundef %0, ptr noundef nonnull %1)
-  store i8 0, ptr %64, align 8
-  br label %115
+73:                                               ; preds = %70
+  %74 = tail call signext i8 @nfaReportCurrentMatches(ptr noundef %0, ptr noundef nonnull %1)
+  store i8 0, ptr %71, align 8
+  br label %122
 
 nfaQueueCanMatch.exit:                            ; preds = %.critedge.i, %30, %23
   %.3 = phi i8 [ %spec.store.select, %23 ], [ %spec.store.select, %30 ], [ %.2, %.critedge.i ]
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %69 = load i8, ptr %68, align 8
-  switch i8 %69, label %nfaQueueExec_i.exit [
-    i8 0, label %70
-    i8 1, label %72
-    i8 2, label %74
-    i8 3, label %76
-    i8 4, label %78
-    i8 5, label %80
-    i8 6, label %82
-    i8 7, label %84
-    i8 8, label %86
-    i8 9, label %88
-    i8 10, label %90
-    i8 11, label %92
-    i8 12, label %94
-    i8 13, label %96
-    i8 14, label %98
-    i8 15, label %100
-    i8 16, label %102
-    i8 17, label %104
-    i8 18, label %106
-    i8 19, label %108
-    i8 20, label %110
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %76 = load i8, ptr %75, align 8
+  switch i8 %76, label %nfaQueueExec_i.exit [
+    i8 0, label %77
+    i8 1, label %79
+    i8 2, label %81
+    i8 3, label %83
+    i8 4, label %85
+    i8 5, label %87
+    i8 6, label %89
+    i8 7, label %91
+    i8 8, label %93
+    i8 9, label %95
+    i8 10, label %97
+    i8 11, label %99
+    i8 12, label %101
+    i8 13, label %103
+    i8 14, label %105
+    i8 15, label %107
+    i8 16, label %109
+    i8 17, label %111
+    i8 18, label %113
+    i8 19, label %115
+    i8 20, label %117
   ]
 
-70:                                               ; preds = %nfaQueueCanMatch.exit
-  %71 = tail call signext i8 @nfaExecLimEx32_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+77:                                               ; preds = %nfaQueueCanMatch.exit
+  %78 = tail call signext i8 @nfaExecLimEx32_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-72:                                               ; preds = %nfaQueueCanMatch.exit
-  %73 = tail call signext i8 @nfaExecLimEx64_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+79:                                               ; preds = %nfaQueueCanMatch.exit
+  %80 = tail call signext i8 @nfaExecLimEx64_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-74:                                               ; preds = %nfaQueueCanMatch.exit
-  %75 = tail call signext i8 @nfaExecLimEx128_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+81:                                               ; preds = %nfaQueueCanMatch.exit
+  %82 = tail call signext i8 @nfaExecLimEx128_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-76:                                               ; preds = %nfaQueueCanMatch.exit
-  %77 = tail call signext i8 @nfaExecLimEx256_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+83:                                               ; preds = %nfaQueueCanMatch.exit
+  %84 = tail call signext i8 @nfaExecLimEx256_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-78:                                               ; preds = %nfaQueueCanMatch.exit
-  %79 = tail call signext i8 @nfaExecLimEx384_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+85:                                               ; preds = %nfaQueueCanMatch.exit
+  %86 = tail call signext i8 @nfaExecLimEx384_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-80:                                               ; preds = %nfaQueueCanMatch.exit
-  %81 = tail call signext i8 @nfaExecLimEx512_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+87:                                               ; preds = %nfaQueueCanMatch.exit
+  %88 = tail call signext i8 @nfaExecLimEx512_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-82:                                               ; preds = %nfaQueueCanMatch.exit
-  %83 = tail call signext i8 @nfaExecMcClellan8_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+89:                                               ; preds = %nfaQueueCanMatch.exit
+  %90 = tail call signext i8 @nfaExecMcClellan8_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-84:                                               ; preds = %nfaQueueCanMatch.exit
-  %85 = tail call signext i8 @nfaExecMcClellan16_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+91:                                               ; preds = %nfaQueueCanMatch.exit
+  %92 = tail call signext i8 @nfaExecMcClellan16_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-86:                                               ; preds = %nfaQueueCanMatch.exit
-  %87 = tail call signext i8 @nfaExecGough8_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+93:                                               ; preds = %nfaQueueCanMatch.exit
+  %94 = tail call signext i8 @nfaExecGough8_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-88:                                               ; preds = %nfaQueueCanMatch.exit
-  %89 = tail call signext i8 @nfaExecGough16_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+95:                                               ; preds = %nfaQueueCanMatch.exit
+  %96 = tail call signext i8 @nfaExecGough16_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-90:                                               ; preds = %nfaQueueCanMatch.exit
-  %91 = tail call signext i8 @nfaExecMpv_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+97:                                               ; preds = %nfaQueueCanMatch.exit
+  %98 = tail call signext i8 @nfaExecMpv_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-92:                                               ; preds = %nfaQueueCanMatch.exit
-  %93 = tail call signext i8 @nfaExecLbrDot_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+99:                                               ; preds = %nfaQueueCanMatch.exit
+  %100 = tail call signext i8 @nfaExecLbrDot_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-94:                                               ; preds = %nfaQueueCanMatch.exit
-  %95 = tail call signext i8 @nfaExecLbrVerm_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+101:                                              ; preds = %nfaQueueCanMatch.exit
+  %102 = tail call signext i8 @nfaExecLbrVerm_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-96:                                               ; preds = %nfaQueueCanMatch.exit
-  %97 = tail call signext i8 @nfaExecLbrNVerm_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+103:                                              ; preds = %nfaQueueCanMatch.exit
+  %104 = tail call signext i8 @nfaExecLbrNVerm_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-98:                                               ; preds = %nfaQueueCanMatch.exit
-  %99 = tail call signext i8 @nfaExecLbrShuf_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+105:                                              ; preds = %nfaQueueCanMatch.exit
+  %106 = tail call signext i8 @nfaExecLbrShuf_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-100:                                              ; preds = %nfaQueueCanMatch.exit
-  %101 = tail call signext i8 @nfaExecLbrTruf_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+107:                                              ; preds = %nfaQueueCanMatch.exit
+  %108 = tail call signext i8 @nfaExecLbrTruf_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-102:                                              ; preds = %nfaQueueCanMatch.exit
-  %103 = tail call signext i8 @nfaExecCastle_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+109:                                              ; preds = %nfaQueueCanMatch.exit
+  %110 = tail call signext i8 @nfaExecCastle_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-104:                                              ; preds = %nfaQueueCanMatch.exit
-  %105 = tail call signext i8 @nfaExecSheng_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+111:                                              ; preds = %nfaQueueCanMatch.exit
+  %112 = tail call signext i8 @nfaExecSheng_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-106:                                              ; preds = %nfaQueueCanMatch.exit
-  %107 = tail call signext i8 @nfaExecTamarama_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+113:                                              ; preds = %nfaQueueCanMatch.exit
+  %114 = tail call signext i8 @nfaExecTamarama_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-108:                                              ; preds = %nfaQueueCanMatch.exit
-  %109 = tail call signext i8 @nfaExecMcSheng8_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+115:                                              ; preds = %nfaQueueCanMatch.exit
+  %116 = tail call signext i8 @nfaExecMcSheng8_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-110:                                              ; preds = %nfaQueueCanMatch.exit
-  %111 = tail call signext i8 @nfaExecMcSheng16_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+117:                                              ; preds = %nfaQueueCanMatch.exit
+  %118 = tail call signext i8 @nfaExecMcSheng16_Q(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec_i.exit
 
-nfaQueueExec_i.exit:                              ; preds = %nfaQueueCanMatch.exit, %70, %72, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110
-  %.0.i = phi i8 [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ 0, %nfaQueueCanMatch.exit ]
-  %112 = icmp ne i8 %.0.i, 0
+nfaQueueExec_i.exit:                              ; preds = %nfaQueueCanMatch.exit, %77, %79, %81, %83, %85, %87, %89, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %113, %115, %117
+  %.0.i = phi i8 [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ 0, %nfaQueueCanMatch.exit ]
+  %119 = icmp ne i8 %.0.i, 0
   %.not21 = icmp eq i8 %.3, 0
-  %113 = select i1 %112, i1 %.not21, i1 false
-  %114 = zext i1 %113 to i8
-  br label %115
+  %120 = select i1 %119, i1 %.not21, i1 false
+  %121 = zext i1 %120 to i8
+  br label %122
 
-115:                                              ; preds = %nfaQueueExec_i.exit, %66, %63, %3
-  %.0 = phi i8 [ 1, %3 ], [ %114, %nfaQueueExec_i.exit ], [ 0, %66 ], [ 0, %63 ]
+122:                                              ; preds = %nfaQueueExec_i.exit, %73, %70, %3
+  %.0 = phi i8 [ 1, %3 ], [ %121, %nfaQueueExec_i.exit ], [ 0, %73 ], [ 0, %70 ]
   ret i8 %.0
 }
 
@@ -880,7 +883,7 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp sgt i64 %10, %2
-  br i1 %11, label %126, label %12
+  br i1 %11, label %133, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -898,7 +901,7 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
   %21 = add i64 %20, %spec.select
   %22 = zext i8 %17 to i64
   %23 = icmp ugt i64 %21, %22
-  br i1 %23, label %63, label %24
+  br i1 %23, label %70, label %24
 
 24:                                               ; preds = %18, %12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -911,7 +914,7 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
   %29 = load i64, ptr %28, align 8
   %30 = zext i32 %26 to i64
   %.not39.i = icmp ult i64 %29, %30
-  br i1 %.not39.i, label %31, label %63
+  br i1 %.not39.i, label %31, label %70
 
 31:                                               ; preds = %27
   %32 = add i64 %29, %spec.select
@@ -921,7 +924,6 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
 34:                                               ; preds = %31
   %35 = sub nsw i64 %30, %29
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.promoted = load i32, ptr %36, align 4
   %37 = icmp ugt i32 %.promoted, %6
   br i1 %37, label %.lr.ph.preheader, label %.critedge.i
@@ -930,210 +932,213 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
   %38 = add nuw i32 %6, 1
   %39 = add i32 %.promoted, -1
   %40 = zext i32 %39 to i64
-  %.idx.i56 = mul nuw nsw i64 %40, 24
-  %gep57 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx.i56
-  %41 = load i64, ptr %gep57, align 8
-  %42 = icmp sgt i64 %41, %35
-  br i1 %42, label %.lr.ph60, label %.critedge.i
+  %.idx.i54 = mul nuw nsw i64 %40, 24
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i54
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load i64, ptr %42, align 8
+  %44 = icmp sgt i64 %43, %35
+  br i1 %44, label %.lr.ph56, label %.critedge.i
 
-.lr.ph60:                                         ; preds = %.lr.ph.preheader
-  %43 = zext i32 %.promoted to i64
-  br label %44
+.lr.ph56:                                         ; preds = %.lr.ph.preheader
+  %45 = zext i32 %.promoted to i64
+  br label %46
 
-44:                                               ; preds = %.lr.ph60, %.lr.ph
-  %gep59 = phi ptr [ %gep57, %.lr.ph60 ], [ %gep, %.lr.ph ]
-  %45 = phi i64 [ %40, %.lr.ph60 ], [ %58, %.lr.ph ]
-  %46 = phi i32 [ %39, %.lr.ph60 ], [ %57, %.lr.ph ]
-  %47 = phi i32 [ %.promoted, %.lr.ph60 ], [ %56, %.lr.ph ]
-  %48 = phi i32 [ %.promoted, %.lr.ph60 ], [ %46, %.lr.ph ]
-  %indvars.iv58 = phi i64 [ %43, %.lr.ph60 ], [ %indvars.iv.next, %.lr.ph ]
-  store i64 %35, ptr %gep59, align 8
-  %49 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %4, i64 0, i64 %45
-  store i32 1, ptr %49, align 8
-  %50 = sub i32 %48, %6
-  %51 = icmp ult i32 %50, 2
-  br i1 %51, label %.critedge.i, label %52
+46:                                               ; preds = %.lr.ph56, %.lr.ph
+  %47 = phi ptr [ %42, %.lr.ph56 ], [ %65, %.lr.ph ]
+  %48 = phi i64 [ %40, %.lr.ph56 ], [ %63, %.lr.ph ]
+  %49 = phi i32 [ %39, %.lr.ph56 ], [ %62, %.lr.ph ]
+  %50 = phi i32 [ %.promoted, %.lr.ph56 ], [ %61, %.lr.ph ]
+  %51 = phi i32 [ %.promoted, %.lr.ph56 ], [ %49, %.lr.ph ]
+  %indvars.iv55 = phi i64 [ %45, %.lr.ph56 ], [ %indvars.iv.next, %.lr.ph ]
+  store i64 %35, ptr %47, align 8
+  %52 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %4, i64 0, i64 %48
+  store i32 1, ptr %52, align 8
+  %53 = sub i32 %51, %6
+  %54 = icmp ult i32 %53, 2
+  br i1 %54, label %.critedge.i, label %55
 
-52:                                               ; preds = %44
-  %53 = add i64 %indvars.iv58, 4294967294
-  %54 = and i64 %53, 4294967295
-  %.idx41.i = mul nuw nsw i64 %54, 24
-  %gep44 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx41.i
-  %55 = load i64, ptr %gep44, align 8
-  %.not42.i = icmp sgt i64 %55, %35
+55:                                               ; preds = %46
+  %56 = add i64 %indvars.iv55, 4294967294
+  %57 = and i64 %56, 4294967295
+  %.idx41.i = mul nuw nsw i64 %57, 24
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx41.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load i64, ptr %59, align 8
+  %.not42.i = icmp sgt i64 %60, %35
   br i1 %.not42.i, label %.lr.ph, label %.critedge.i
 
-.lr.ph:                                           ; preds = %52
-  store i32 %46, ptr %36, align 4
-  %indvars.iv.next = add nsw i64 %indvars.iv58, -1
-  %56 = trunc nuw i64 %indvars.iv.next to i32
-  %57 = add i32 %56, -1
-  %58 = zext i32 %57 to i64
-  %.idx.i = mul nuw nsw i64 %58, 24
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx.i
-  %59 = load i64, ptr %gep, align 8
-  %60 = icmp sgt i64 %59, %35
-  br i1 %60, label %44, label %.critedge.i
+.lr.ph:                                           ; preds = %55
+  store i32 %49, ptr %36, align 4
+  %indvars.iv.next = add nsw i64 %indvars.iv55, -1
+  %61 = trunc nuw i64 %indvars.iv.next to i32
+  %62 = add i32 %61, -1
+  %63 = zext i32 %62 to i64
+  %.idx.i = mul nuw nsw i64 %63, 24
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load i64, ptr %65, align 8
+  %67 = icmp sgt i64 %66, %35
+  br i1 %67, label %46, label %.critedge.i
 
-.critedge.i:                                      ; preds = %52, %44, %.lr.ph, %.lr.ph.preheader, %34
-  %.lcssa = phi i32 [ %.promoted, %34 ], [ %.promoted, %.lr.ph.preheader ], [ %56, %.lr.ph ], [ %38, %44 ], [ %47, %52 ]
-  %.2 = phi i8 [ 0, %34 ], [ 0, %.lr.ph.preheader ], [ 1, %.lr.ph ], [ 1, %44 ], [ 1, %52 ]
-  %61 = sub i32 %.lcssa, %6
-  %62 = icmp ugt i32 %61, 1
-  br i1 %62, label %nfaQueueCanMatch.exit, label %63
+.critedge.i:                                      ; preds = %55, %46, %.lr.ph, %.lr.ph.preheader, %34
+  %.lcssa = phi i32 [ %.promoted, %34 ], [ %.promoted, %.lr.ph.preheader ], [ %61, %.lr.ph ], [ %38, %46 ], [ %50, %55 ]
+  %.2 = phi i8 [ 0, %34 ], [ 0, %.lr.ph.preheader ], [ 1, %.lr.ph ], [ 1, %46 ], [ 1, %55 ]
+  %68 = sub i32 %.lcssa, %6
+  %69 = icmp ugt i32 %68, 1
+  br i1 %69, label %nfaQueueCanMatch.exit, label %70
 
-63:                                               ; preds = %.critedge.i, %18, %27
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %65 = load i8, ptr %64, align 8
-  %.not29 = icmp eq i8 %65, 0
-  br i1 %.not29, label %126, label %66
+70:                                               ; preds = %.critedge.i, %18, %27
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %72 = load i8, ptr %71, align 8
+  %.not29 = icmp eq i8 %72, 0
+  br i1 %.not29, label %133, label %73
 
-66:                                               ; preds = %63
-  %67 = tail call signext i8 @nfaReportCurrentMatches(ptr noundef %0, ptr noundef nonnull %1)
-  store i8 0, ptr %64, align 8
-  br label %126
+73:                                               ; preds = %70
+  %74 = tail call signext i8 @nfaReportCurrentMatches(ptr noundef %0, ptr noundef nonnull %1)
+  store i8 0, ptr %71, align 8
+  br label %133
 
 nfaQueueCanMatch.exit:                            ; preds = %.critedge.i, %31, %24
   %.3 = phi i8 [ 0, %24 ], [ 0, %31 ], [ %.2, %.critedge.i ]
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %69 = load i8, ptr %68, align 8
-  switch i8 %69, label %nfaQueueExec2_i.exit.thread [
-    i8 0, label %70
-    i8 1, label %72
-    i8 2, label %74
-    i8 3, label %76
-    i8 4, label %78
-    i8 5, label %80
-    i8 6, label %82
-    i8 7, label %84
-    i8 8, label %86
-    i8 9, label %88
-    i8 20, label %108
-    i8 11, label %90
-    i8 12, label %92
-    i8 13, label %94
-    i8 14, label %96
-    i8 15, label %98
-    i8 16, label %100
-    i8 17, label %102
-    i8 18, label %104
-    i8 19, label %106
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %76 = load i8, ptr %75, align 8
+  switch i8 %76, label %nfaQueueExec2_i.exit.thread [
+    i8 0, label %77
+    i8 1, label %79
+    i8 2, label %81
+    i8 3, label %83
+    i8 4, label %85
+    i8 5, label %87
+    i8 6, label %89
+    i8 7, label %91
+    i8 8, label %93
+    i8 9, label %95
+    i8 20, label %115
+    i8 11, label %97
+    i8 12, label %99
+    i8 13, label %101
+    i8 14, label %103
+    i8 15, label %105
+    i8 16, label %107
+    i8 17, label %109
+    i8 18, label %111
+    i8 19, label %113
   ]
 
-70:                                               ; preds = %nfaQueueCanMatch.exit
-  %71 = tail call signext i8 @nfaExecLimEx32_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+77:                                               ; preds = %nfaQueueCanMatch.exit
+  %78 = tail call signext i8 @nfaExecLimEx32_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-72:                                               ; preds = %nfaQueueCanMatch.exit
-  %73 = tail call signext i8 @nfaExecLimEx64_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+79:                                               ; preds = %nfaQueueCanMatch.exit
+  %80 = tail call signext i8 @nfaExecLimEx64_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-74:                                               ; preds = %nfaQueueCanMatch.exit
-  %75 = tail call signext i8 @nfaExecLimEx128_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+81:                                               ; preds = %nfaQueueCanMatch.exit
+  %82 = tail call signext i8 @nfaExecLimEx128_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-76:                                               ; preds = %nfaQueueCanMatch.exit
-  %77 = tail call signext i8 @nfaExecLimEx256_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+83:                                               ; preds = %nfaQueueCanMatch.exit
+  %84 = tail call signext i8 @nfaExecLimEx256_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-78:                                               ; preds = %nfaQueueCanMatch.exit
-  %79 = tail call signext i8 @nfaExecLimEx384_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+85:                                               ; preds = %nfaQueueCanMatch.exit
+  %86 = tail call signext i8 @nfaExecLimEx384_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-80:                                               ; preds = %nfaQueueCanMatch.exit
-  %81 = tail call signext i8 @nfaExecLimEx512_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+87:                                               ; preds = %nfaQueueCanMatch.exit
+  %88 = tail call signext i8 @nfaExecLimEx512_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-82:                                               ; preds = %nfaQueueCanMatch.exit
-  %83 = tail call signext i8 @nfaExecMcClellan8_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+89:                                               ; preds = %nfaQueueCanMatch.exit
+  %90 = tail call signext i8 @nfaExecMcClellan8_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-84:                                               ; preds = %nfaQueueCanMatch.exit
-  %85 = tail call signext i8 @nfaExecMcClellan16_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+91:                                               ; preds = %nfaQueueCanMatch.exit
+  %92 = tail call signext i8 @nfaExecMcClellan16_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-86:                                               ; preds = %nfaQueueCanMatch.exit
-  %87 = tail call signext i8 @nfaExecGough8_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+93:                                               ; preds = %nfaQueueCanMatch.exit
+  %94 = tail call signext i8 @nfaExecGough8_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-88:                                               ; preds = %nfaQueueCanMatch.exit
-  %89 = tail call signext i8 @nfaExecGough16_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+95:                                               ; preds = %nfaQueueCanMatch.exit
+  %96 = tail call signext i8 @nfaExecGough16_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-90:                                               ; preds = %nfaQueueCanMatch.exit
-  %91 = tail call signext i8 @nfaExecLbrDot_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+97:                                               ; preds = %nfaQueueCanMatch.exit
+  %98 = tail call signext i8 @nfaExecLbrDot_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-92:                                               ; preds = %nfaQueueCanMatch.exit
-  %93 = tail call signext i8 @nfaExecLbrVerm_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+99:                                               ; preds = %nfaQueueCanMatch.exit
+  %100 = tail call signext i8 @nfaExecLbrVerm_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-94:                                               ; preds = %nfaQueueCanMatch.exit
-  %95 = tail call signext i8 @nfaExecLbrNVerm_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+101:                                              ; preds = %nfaQueueCanMatch.exit
+  %102 = tail call signext i8 @nfaExecLbrNVerm_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-96:                                               ; preds = %nfaQueueCanMatch.exit
-  %97 = tail call signext i8 @nfaExecLbrShuf_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+103:                                              ; preds = %nfaQueueCanMatch.exit
+  %104 = tail call signext i8 @nfaExecLbrShuf_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-98:                                               ; preds = %nfaQueueCanMatch.exit
-  %99 = tail call signext i8 @nfaExecLbrTruf_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+105:                                              ; preds = %nfaQueueCanMatch.exit
+  %106 = tail call signext i8 @nfaExecLbrTruf_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-100:                                              ; preds = %nfaQueueCanMatch.exit
-  %101 = tail call signext i8 @nfaExecCastle_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+107:                                              ; preds = %nfaQueueCanMatch.exit
+  %108 = tail call signext i8 @nfaExecCastle_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-102:                                              ; preds = %nfaQueueCanMatch.exit
-  %103 = tail call signext i8 @nfaExecSheng_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+109:                                              ; preds = %nfaQueueCanMatch.exit
+  %110 = tail call signext i8 @nfaExecSheng_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-104:                                              ; preds = %nfaQueueCanMatch.exit
-  %105 = tail call signext i8 @nfaExecTamarama_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+111:                                              ; preds = %nfaQueueCanMatch.exit
+  %112 = tail call signext i8 @nfaExecTamarama_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-106:                                              ; preds = %nfaQueueCanMatch.exit
-  %107 = tail call signext i8 @nfaExecMcSheng8_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+113:                                              ; preds = %nfaQueueCanMatch.exit
+  %114 = tail call signext i8 @nfaExecMcSheng8_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-108:                                              ; preds = %nfaQueueCanMatch.exit
-  %109 = tail call signext i8 @nfaExecMcSheng16_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
+115:                                              ; preds = %nfaQueueCanMatch.exit
+  %116 = tail call signext i8 @nfaExecMcSheng16_Q2(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %spec.select) #3
   br label %nfaQueueExec2_i.exit
 
-nfaQueueExec2_i.exit:                             ; preds = %70, %72, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108
-  %.0.i = phi i8 [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ]
-  %110 = icmp eq i8 %.0.i, 2
-  br i1 %110, label %111, label %nfaQueueExec2_i.exit.thread
+nfaQueueExec2_i.exit:                             ; preds = %77, %79, %81, %83, %85, %87, %89, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %113, %115
+  %.0.i = phi i8 [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ]
+  %117 = icmp eq i8 %.0.i, 2
+  br i1 %117, label %118, label %nfaQueueExec2_i.exit.thread
 
-111:                                              ; preds = %nfaQueueExec2_i.exit
+118:                                              ; preds = %nfaQueueExec2_i.exit
   %.not33 = icmp eq i8 %.3, 0
-  br i1 %.not33, label %126, label %112
+  br i1 %.not33, label %133, label %119
 
-112:                                              ; preds = %111
-  %113 = load i32, ptr %25, align 8
-  %114 = add i32 %113, 1
-  %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %117 = load i32, ptr %116, align 4
-  %118 = add i32 %117, -1
-  %119 = zext i32 %118 to i64
-  %.idx34 = mul nuw nsw i64 %119, 24
-  %120 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx34
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store i64 %115, ptr %121, align 8
-  br label %126
+119:                                              ; preds = %118
+  %120 = load i32, ptr %25, align 8
+  %121 = add i32 %120, 1
+  %122 = zext i32 %121 to i64
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %124 = load i32, ptr %123, align 4
+  %125 = add i32 %124, -1
+  %126 = zext i32 %125 to i64
+  %.idx34 = mul nuw nsw i64 %126, 24
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx34
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  store i64 %122, ptr %128, align 8
+  br label %133
 
 nfaQueueExec2_i.exit.thread:                      ; preds = %nfaQueueCanMatch.exit, %nfaQueueExec2_i.exit
   %.0.i42 = phi i8 [ %.0.i, %nfaQueueExec2_i.exit ], [ 0, %nfaQueueCanMatch.exit ]
-  %122 = icmp ne i8 %.0.i42, 0
-  %123 = icmp eq i8 %.3, 0
-  %or.cond.not = and i1 %123, %122
-  %124 = and i1 %15, %or.cond.not
-  %125 = zext i1 %124 to i8
-  br label %126
+  %129 = icmp ne i8 %.0.i42, 0
+  %130 = icmp eq i8 %.3, 0
+  %or.cond.not = and i1 %130, %129
+  %131 = and i1 %15, %or.cond.not
+  %132 = zext i1 %131 to i8
+  br label %133
 
-126:                                              ; preds = %66, %63, %111, %112, %nfaQueueExec2_i.exit.thread, %3
-  %.0 = phi i8 [ 1, %3 ], [ 0, %66 ], [ 0, %63 ], [ %125, %nfaQueueExec2_i.exit.thread ], [ 2, %112 ], [ 2, %111 ]
+133:                                              ; preds = %73, %70, %118, %119, %nfaQueueExec2_i.exit.thread, %3
+  %.0 = phi i8 [ 1, %3 ], [ 0, %73 ], [ 0, %70 ], [ %132, %nfaQueueExec2_i.exit.thread ], [ 2, %119 ], [ 2, %118 ]
   ret i8 %.0
 }
 

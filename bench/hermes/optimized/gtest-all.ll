@@ -1895,7 +1895,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i6, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0

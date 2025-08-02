@@ -2840,35 +2840,35 @@ define range(i32 0, 4) i32 @lv_obj_style_state_compare(ptr noundef readonly capt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 1008
-  %.not111 = icmp eq i16 %7, 0
-  br i1 %.not111, label %.loopexit, label %.lr.ph
+  %.not101 = icmp eq i16 %7, 0
+  br i1 %.not101, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = xor i16 %1, -1
   %invariant.op = zext i16 %9 to i32
   %10 = xor i16 %2, -1
-  %invariant.op109 = zext i16 %10 to i32
+  %invariant.op99 = zext i16 %10 to i32
   br label %11
 
-11:                                               ; preds = %.lr.ph, %.thread103
-  %12 = phi i16 [ %6, %.lr.ph ], [ %82, %.thread103 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread103 ]
-  %.054108 = phi i32 [ 0, %.lr.ph ], [ %.155, %.thread103 ]
+11:                                               ; preds = %.lr.ph, %83
+  %12 = phi i16 [ %6, %.lr.ph ], [ %84, %83 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
+  %.05498 = phi i32 [ 0, %.lr.ph ], [ %.155, %83 ]
   %13 = load ptr, ptr %8, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %13, i64 %indvars.iv, i32 1
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 33554432
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %.thread103
+  br i1 %.not, label %17, label %83
 
 17:                                               ; preds = %11
   %.reass = and i32 %15, %invariant.op
   %.not61 = icmp eq i32 %.reass, 0
-  %.reass110 = and i32 %15, %invariant.op109
-  %18 = icmp ne i32 %.reass110, 0
+  %.reass100 = and i32 %15, %invariant.op99
+  %18 = icmp ne i32 %.reass100, 0
   %.not63 = xor i1 %.not61, %18
-  br i1 %.not63, label %.thread103, label %19
+  br i1 %.not63, label %83, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %13, i64 %indvars.iv
@@ -2876,179 +2876,179 @@ define range(i32 0, 4) i32 @lv_obj_style_state_compare(ptr noundef readonly capt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %22 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 16, ptr noundef nonnull %4) #9
   %.not64 = icmp eq i32 %22, 0
-  br i1 %.not64, label %23, label %.thread
+  br i1 %.not64, label %23, label %.critedge.critedge
 
 23:                                               ; preds = %19
   %24 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 17, ptr noundef nonnull %4) #9
   %.not65 = icmp eq i32 %24, 0
-  br i1 %.not65, label %25, label %.thread
+  br i1 %.not65, label %25, label %.critedge.critedge
 
 25:                                               ; preds = %23
   %26 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 18, ptr noundef nonnull %4) #9
   %.not66 = icmp eq i32 %26, 0
-  br i1 %.not66, label %27, label %.thread
+  br i1 %.not66, label %27, label %.critedge.critedge
 
 27:                                               ; preds = %25
   %28 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 19, ptr noundef nonnull %4) #9
   %.not67 = icmp eq i32 %28, 0
-  br i1 %.not67, label %29, label %.thread
+  br i1 %.not67, label %29, label %.critedge.critedge
 
 29:                                               ; preds = %27
   %30 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 21, ptr noundef nonnull %4) #9
   %.not68 = icmp eq i32 %30, 0
-  br i1 %.not68, label %31, label %.thread
+  br i1 %.not68, label %31, label %.critedge.critedge
 
 31:                                               ; preds = %29
   %32 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 20, ptr noundef nonnull %4) #9
   %.not69 = icmp eq i32 %32, 0
-  br i1 %.not69, label %33, label %.thread
+  br i1 %.not69, label %33, label %.critedge.critedge
 
 33:                                               ; preds = %31
   %34 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 22, ptr noundef nonnull %4) #9
   %.not70 = icmp eq i32 %34, 0
-  br i1 %.not70, label %35, label %.thread
+  br i1 %.not70, label %35, label %.critedge.critedge
 
 35:                                               ; preds = %33
   %36 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 106, ptr noundef nonnull %4) #9
   %.not71 = icmp eq i32 %36, 0
-  br i1 %.not71, label %37, label %.thread
+  br i1 %.not71, label %37, label %.critedge.critedge
 
 37:                                               ; preds = %35
   %38 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 107, ptr noundef nonnull %4) #9
   %.not72 = icmp eq i32 %38, 0
-  br i1 %.not72, label %39, label %.thread
+  br i1 %.not72, label %39, label %.critedge.critedge
 
 39:                                               ; preds = %37
   %40 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 1, ptr noundef nonnull %4) #9
   %.not73 = icmp eq i32 %40, 0
-  br i1 %.not73, label %41, label %.thread
+  br i1 %.not73, label %41, label %.critedge.critedge
 
 41:                                               ; preds = %39
   %42 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 2, ptr noundef nonnull %4) #9
   %.not74 = icmp eq i32 %42, 0
-  br i1 %.not74, label %43, label %.thread
+  br i1 %.not74, label %43, label %.critedge.critedge
 
 43:                                               ; preds = %41
   %44 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 4, ptr noundef nonnull %4) #9
   %.not75 = icmp eq i32 %44, 0
-  br i1 %.not75, label %45, label %.thread
+  br i1 %.not75, label %45, label %.critedge.critedge
 
 45:                                               ; preds = %43
   %46 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 5, ptr noundef nonnull %4) #9
   %.not76 = icmp eq i32 %46, 0
-  br i1 %.not76, label %47, label %.thread
+  br i1 %.not76, label %47, label %.critedge.critedge
 
 47:                                               ; preds = %45
   %48 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 6, ptr noundef nonnull %4) #9
   %.not77 = icmp eq i32 %48, 0
-  br i1 %.not77, label %49, label %.thread
+  br i1 %.not77, label %49, label %.critedge.critedge
 
 49:                                               ; preds = %47
   %50 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 7, ptr noundef nonnull %4) #9
   %.not78 = icmp eq i32 %50, 0
-  br i1 %.not78, label %51, label %.thread
+  br i1 %.not78, label %51, label %.critedge.critedge
 
 51:                                               ; preds = %49
   %52 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 48, ptr noundef nonnull %4) #9
   %.not79.not = icmp eq i32 %52, 0
-  br i1 %.not79.not, label %53, label %.thread
+  br i1 %.not79.not, label %53, label %.critedge.critedge
 
 53:                                               ; preds = %51
   %54 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 104, ptr noundef nonnull %4) #9
   %.not80 = icmp eq i32 %54, 0
-  br i1 %.not80, label %55, label %.thread98
+  br i1 %.not80, label %55, label %82
 
 55:                                               ; preds = %53
   %56 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 105, ptr noundef nonnull %4) #9
   %.not81 = icmp eq i32 %56, 0
-  br i1 %.not81, label %57, label %.thread98
+  br i1 %.not81, label %57, label %82
 
 57:                                               ; preds = %55
   %58 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 110, ptr noundef nonnull %4) #9
   %.not82 = icmp eq i32 %58, 0
-  br i1 %.not82, label %59, label %.thread98
+  br i1 %.not82, label %59, label %82
 
 59:                                               ; preds = %57
   %60 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 108, ptr noundef nonnull %4) #9
   %.not83 = icmp eq i32 %60, 0
-  br i1 %.not83, label %61, label %.thread98
+  br i1 %.not83, label %61, label %82
 
 61:                                               ; preds = %59
   %62 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 109, ptr noundef nonnull %4) #9
   %.not84 = icmp eq i32 %62, 0
-  br i1 %.not84, label %63, label %.thread98
+  br i1 %.not84, label %63, label %82
 
 63:                                               ; preds = %61
   %64 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 58, ptr noundef nonnull %4) #9
   %.not85 = icmp eq i32 %64, 0
-  br i1 %.not85, label %65, label %.thread98
+  br i1 %.not85, label %65, label %82
 
 65:                                               ; preds = %63
   %66 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 59, ptr noundef nonnull %4) #9
   %.not86 = icmp eq i32 %66, 0
-  br i1 %.not86, label %67, label %.thread98
+  br i1 %.not86, label %67, label %82
 
 67:                                               ; preds = %65
   %68 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 56, ptr noundef nonnull %4) #9
   %.not87 = icmp eq i32 %68, 0
-  br i1 %.not87, label %69, label %.thread98
+  br i1 %.not87, label %69, label %82
 
 69:                                               ; preds = %67
   %70 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 60, ptr noundef nonnull %4) #9
   %.not88 = icmp eq i32 %70, 0
-  br i1 %.not88, label %71, label %.thread98
+  br i1 %.not88, label %71, label %82
 
 71:                                               ; preds = %69
   %72 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 62, ptr noundef nonnull %4) #9
   %.not89 = icmp eq i32 %72, 0
-  br i1 %.not89, label %73, label %.thread98
+  br i1 %.not89, label %73, label %82
 
 73:                                               ; preds = %71
   %74 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 64, ptr noundef nonnull %4) #9
   %.not90 = icmp eq i32 %74, 0
-  br i1 %.not90, label %75, label %.thread98
+  br i1 %.not90, label %75, label %82
 
 75:                                               ; preds = %73
   %76 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 65, ptr noundef nonnull %4) #9
   %.not91 = icmp eq i32 %76, 0
-  br i1 %.not91, label %77, label %.thread98
+  br i1 %.not91, label %77, label %82
 
 77:                                               ; preds = %75
   %78 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 66, ptr noundef nonnull %4) #9
   %.not92 = icmp eq i32 %78, 0
-  br i1 %.not92, label %79, label %.thread98
+  br i1 %.not92, label %79, label %82
 
 79:                                               ; preds = %77
   %80 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 72, ptr noundef nonnull %4) #9
   %.not93 = icmp eq i32 %80, 0
-  br i1 %.not93, label %81, label %.thread98
+  br i1 %.not93, label %81, label %82
 
 81:                                               ; preds = %79
-  %spec.store.select = call i32 @llvm.umax.i32(i32 %.054108, i32 1)
-  br label %.thread98
+  %spec.store.select = call i32 @llvm.umax.i32(i32 %.05498, i32 1)
+  br label %82
 
-.thread98:                                        ; preds = %81, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %79
-  %.357.ph = phi i32 [ 2, %79 ], [ 2, %77 ], [ 2, %75 ], [ 2, %73 ], [ 2, %71 ], [ 2, %69 ], [ 2, %67 ], [ 2, %65 ], [ 2, %63 ], [ 2, %61 ], [ 2, %59 ], [ 2, %57 ], [ 2, %55 ], [ 2, %53 ], [ %spec.store.select, %81 ]
+82:                                               ; preds = %81, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %79
+  %.357 = phi i32 [ %spec.store.select, %81 ], [ 2, %53 ], [ 2, %55 ], [ 2, %57 ], [ 2, %59 ], [ 2, %61 ], [ 2, %63 ], [ 2, %65 ], [ 2, %67 ], [ 2, %69 ], [ 2, %71 ], [ 2, %73 ], [ 2, %75 ], [ 2, %77 ], [ 2, %79 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   %.pre = load i16, ptr %5, align 2
-  br label %.thread103
+  br label %83
 
-.thread:                                          ; preds = %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %19, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  br label %.loopexit
-
-.thread103:                                       ; preds = %.thread98, %17, %11
-  %82 = phi i16 [ %12, %11 ], [ %.pre, %.thread98 ], [ %12, %17 ]
-  %.155 = phi i32 [ %.054108, %11 ], [ %.357.ph, %.thread98 ], [ %.054108, %17 ]
+83:                                               ; preds = %82, %17, %11
+  %84 = phi i16 [ %12, %11 ], [ %12, %17 ], [ %.pre, %82 ]
+  %.155 = phi i32 [ %.05498, %11 ], [ %.05498, %17 ], [ %.357, %82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %83 = lshr i16 %82, 4
-  %84 = and i16 %83, 63
-  %85 = zext nneg i16 %84 to i64
-  %86 = icmp samesign ult i64 %indvars.iv.next, %85
-  br i1 %86, label %11, label %.loopexit, !llvm.loop !119
+  %85 = lshr i16 %84, 4
+  %86 = and i16 %85, 63
+  %87 = zext nneg i16 %86 to i64
+  %88 = icmp samesign ult i64 %indvars.iv.next, %87
+  br i1 %88, label %11, label %.critedge, !llvm.loop !119
 
-.loopexit:                                        ; preds = %.thread103, %3, %.thread
-  %.5 = phi i32 [ 3, %.thread ], [ 0, %3 ], [ %.155, %.thread103 ]
+.critedge.critedge:                               ; preds = %19, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  br label %.critedge
+
+.critedge:                                        ; preds = %83, %3, %.critedge.critedge
+  %.5 = phi i32 [ 3, %.critedge.critedge ], [ 0, %3 ], [ %.155, %83 ]
   ret i32 %.5
 }
 
@@ -3743,32 +3743,24 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   %.not.not = icmp eq i16 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !38
-  br i1 %.not.not, label %.lr.ph113.split.preheader, label %.lr.ph113.split.us
-
-.lr.ph113.split.preheader:                        ; preds = %.lr.ph113
   %wide.trip.count147 = zext nneg i16 %13 to i64
-  br label %.lr.ph113.split
+  br i1 %.not.not, label %.lr.ph113.split, label %.lr.ph113.split.us
 
-.lr.ph113.split.us:                               ; preds = %.lr.ph113
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %wide.trip.count = zext nneg i16 %13 to i64
-  br label %18
-
-18:                                               ; preds = %.thread.us, %.lr.ph113.split.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread.us ], [ 0, %.lr.ph113.split.us ]
-  %gep = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %invariant.gep, i64 %indvars.iv
-  %19 = load i32, ptr %gep, align 8
+.lr.ph113.split.us:                               ; preds = %.lr.ph113, %.thread.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread.us ], [ 0, %.lr.ph113 ]
+  %18 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %17, i64 %indvars.iv, i32 1
+  %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 33554432
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %._crit_edge.loopexit157, label %.thread.us
 
-.thread.us:                                       ; preds = %18
+.thread.us:                                       ; preds = %.lr.ph113.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !121
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count147
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph113.split.us, !llvm.loop !121
 
-.lr.ph113.split:                                  ; preds = %.lr.ph113.split.preheader, %.thread
-  %indvars.iv144 = phi i64 [ 0, %.lr.ph113.split.preheader ], [ %indvars.iv.next145, %.thread ]
+.lr.ph113.split:                                  ; preds = %.lr.ph113, %.thread
+  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %.thread ], [ 0, %.lr.ph113 ]
   %22 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %17, i64 %indvars.iv144
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
@@ -3861,7 +3853,7 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   %58 = trunc nuw nsw i64 %indvars.iv144 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit157:                          ; preds = %18
+._crit_edge.loopexit157:                          ; preds = %.lr.ph113.split.us
   %59 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 

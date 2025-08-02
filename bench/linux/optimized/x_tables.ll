@@ -2171,13 +2171,13 @@ define dso_local ptr @xt_replace_table(ptr noundef %0, i32 noundef %1, ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
-  br i1 %16, label %.loopexit10, label %17
+  br i1 %16, label %.loopexit9, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %17
   %22 = shl i32 %19, 4
@@ -2188,20 +2188,20 @@ define dso_local ptr @xt_replace_table(ptr noundef %0, i32 noundef %1, ptr nound
   %25 = phi i64 [ 0, %21 ], [ %51, %37 ]
   %26 = and i64 %25, 4294967295
   %27 = icmp samesign ugt i64 %26, 63
-  br i1 %27, label %.thread, label %28, !prof !14
+  br i1 %27, label %.critedge, label %28, !prof !14
 
 28:                                               ; preds = %24
   %29 = load i64, ptr @__cpu_possible_mask, align 8
   %30 = shl nsw i64 -1, %26
   %31 = and i64 %29, %30
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %.thread, label %33
+  br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %28
   %34 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %31) #23, !srcloc !30
   %35 = and i64 %34, 4294967232
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %.thread
+  br i1 %36, label %37, label %.critedge
 
 37:                                               ; preds = %33
   %38 = and i64 %34, 63
@@ -2219,13 +2219,13 @@ define dso_local ptr @xt_replace_table(ptr noundef %0, i32 noundef %1, ptr nound
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   %51 = add nuw nsw i64 %34, 1
-  br i1 %50, label %.loopexit10, label %24, !llvm.loop !36
+  br i1 %50, label %.loopexit9, label %24, !llvm.loop !36
 
-.loopexit10:                                      ; preds = %37, %13
+.loopexit9:                                       ; preds = %37, %13
   store i32 -12, ptr %3, align 4
   br label %97
 
-.thread:                                          ; preds = %28, %24, %33, %17
+.critedge:                                        ; preds = %28, %24, %33, %17
   %52 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !37
   tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !38
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !39
@@ -2236,12 +2236,12 @@ define dso_local ptr @xt_replace_table(ptr noundef %0, i32 noundef %1, ptr nound
   %57 = icmp eq i32 %56, %1
   br i1 %57, label %59, label %58
 
-58:                                               ; preds = %.thread
+58:                                               ; preds = %.critedge
   tail call void @__local_bh_enable_ip(i64 noundef %52, i32 noundef 512) #20
   store i32 -11, ptr %3, align 4
   br label %97
 
-59:                                               ; preds = %.thread
+59:                                               ; preds = %.critedge
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2258,13 +2258,13 @@ define dso_local ptr @xt_replace_table(ptr noundef %0, i32 noundef %1, ptr nound
   %66 = shl nsw i64 -1, %64
   %67 = and i64 %65, %66
   %68 = icmp eq i64 %67, 0
-  br i1 %68, label %.thread9, label %69
+  br i1 %68, label %.thread8, label %69
 
 69:                                               ; preds = %63
   %70 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %67) #23, !srcloc !30
   %71 = and i64 %70, 4294967232
   %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %.thread9
+  br i1 %72, label %73, label %.thread8
 
 73:                                               ; preds = %69
   %74 = and i64 %70, 63
@@ -2290,14 +2290,14 @@ define dso_local ptr @xt_replace_table(ptr noundef %0, i32 noundef %1, ptr nound
   %85 = add nuw nsw i64 %70, 1
   %86 = and i64 %85, 127
   %87 = icmp samesign ugt i64 %86, 63
-  br i1 %87, label %.thread9, label %63, !prof !31, !llvm.loop !46
+  br i1 %87, label %.thread8, label %63, !prof !31, !llvm.loop !46
 
-.thread9:                                         ; preds = %63, %.loopexit, %69
+.thread8:                                         ; preds = %63, %.loopexit, %69
   %88 = load i32, ptr @audit_enabled, align 4
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %97, label %90
 
-90:                                               ; preds = %.thread9
+90:                                               ; preds = %.thread8
   %91 = load i32, ptr %55, align 4
   %92 = icmp ne i32 %91, 0
   %93 = zext i1 %92 to i32
@@ -2307,8 +2307,8 @@ define dso_local ptr @xt_replace_table(ptr noundef %0, i32 noundef %1, ptr nound
   tail call void @__audit_log_nfcfg(ptr noundef nonnull %96, i8 noundef zeroext %95, i32 noundef %91, i32 noundef %93, i32 noundef 3264) #20
   br label %97
 
-97:                                               ; preds = %90, %.thread9, %58, %.loopexit10
-  %98 = phi ptr [ null, %.loopexit10 ], [ null, %58 ], [ %54, %.thread9 ], [ %54, %90 ]
+97:                                               ; preds = %90, %.thread8, %58, %.loopexit9
+  %98 = phi ptr [ null, %.loopexit9 ], [ null, %58 ], [ %54, %.thread8 ], [ %54, %90 ]
   ret ptr %98
 }
 

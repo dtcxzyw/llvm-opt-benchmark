@@ -466,7 +466,6 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
 
 .lr.ph:                                           ; preds = %22
   %26 = load ptr, ptr %14, align 8, !tbaa !105
-  %invariant.gep = getelementptr i8, ptr %26, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !106
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
@@ -487,35 +486,35 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %39 = phi float [ %.promoted, %.lr.ph ], [ %64, %72 ]
   %.0180 = phi i32 [ 1, %.lr.ph ], [ %.1, %72 ]
-  %40 = shl nsw i64 %indvars.iv, 1
-  %gep = getelementptr float, ptr %invariant.gep, i64 %40
-  %41 = load float, ptr %gep, align 4, !tbaa !93
-  %42 = mul nsw i32 %.0180, 6
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr float, ptr %26, i64 %43
-  %45 = getelementptr i8, ptr %44, i64 12
-  %46 = load float, ptr %45, align 4, !tbaa !93
-  %47 = fcmp reassoc nsz arcp contract afn oeq float %41, %46
-  %48 = getelementptr inbounds float, ptr %26, i64 %40
-  %49 = load float, ptr %48, align 4, !tbaa !93
-  br i1 %47, label %50, label %._crit_edge198
+  %.idx = shl i64 %indvars.iv, 3
+  %40 = getelementptr i8, ptr %26, i64 %.idx
+  %41 = getelementptr i8, ptr %40, i64 4
+  %42 = load float, ptr %41, align 4, !tbaa !93
+  %43 = mul nsw i32 %.0180, 6
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr float, ptr %26, i64 %44
+  %46 = getelementptr i8, ptr %45, i64 12
+  %47 = load float, ptr %46, align 4, !tbaa !93
+  %48 = fcmp reassoc nsz arcp contract afn oeq float %42, %47
+  %.pre = load float, ptr %40, align 4, !tbaa !93
+  br i1 %48, label %49, label %56
 
-50:                                               ; preds = %38
-  %51 = getelementptr i8, ptr %44, i64 8
-  %52 = load float, ptr %51, align 4, !tbaa !93
-  %53 = fcmp reassoc nsz arcp contract afn oeq float %49, %52
-  br i1 %53, label %54, label %._crit_edge198
+49:                                               ; preds = %38
+  %50 = getelementptr i8, ptr %45, i64 8
+  %51 = load float, ptr %50, align 4, !tbaa !93
+  %52 = fcmp reassoc nsz arcp contract afn oeq float %.pre, %51
+  br i1 %52, label %53, label %56
 
-54:                                               ; preds = %50
-  %55 = add nsw i32 %.0180, 1
-  %56 = srem i32 %55, %5
-  br label %._crit_edge198
+53:                                               ; preds = %49
+  %54 = add nsw i32 %.0180, 1
+  %55 = srem i32 %54, %5
+  br label %56
 
-._crit_edge198:                                   ; preds = %38, %54, %50
-  %.1 = phi i32 [ %56, %54 ], [ %.0180, %50 ], [ %.0180, %38 ]
-  %57 = fadd reassoc nsz arcp contract afn float %34, %49
+56:                                               ; preds = %53, %49, %38
+  %.1 = phi i32 [ %55, %53 ], [ %.0180, %49 ], [ %.0180, %38 ]
+  %57 = fadd reassoc nsz arcp contract afn float %34, %.pre
   %58 = fsub reassoc nsz arcp contract afn float %.neg171, %57
-  %59 = fadd reassoc nsz arcp contract afn float %30, %41
+  %59 = fadd reassoc nsz arcp contract afn float %30, %42
   %60 = fsub reassoc nsz arcp contract afn float %.neg175, %59
   %61 = fmul reassoc nsz arcp contract afn float %58, %58
   %62 = fmul reassoc nsz arcp contract afn float %60, %60
@@ -527,7 +526,7 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
   %or.cond161 = and i1 %66, %65
   br i1 %or.cond161, label %67, label %72
 
-67:                                               ; preds = %._crit_edge198
+67:                                               ; preds = %56
   %68 = load i32, ptr %6, align 4, !tbaa !97
   %.not160 = icmp eq i32 %68, 0
   br i1 %.not160, label %69, label %72
@@ -544,7 +543,7 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
   store i32 1, ptr %6, align 4, !tbaa !97
   br label %72
 
-72:                                               ; preds = %67, %71, %69, %._crit_edge198
+72:                                               ; preds = %67, %71, %69, %56
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %73 = load i32, ptr %17, align 8, !tbaa !102
   %74 = sext i32 %73 to i64
@@ -583,10 +582,10 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
 
 .lr.ph184:                                        ; preds = %.lr.ph184.preheader, %119
   %94 = phi i32 [ -1, %.lr.ph184.preheader ], [ %109, %119 ]
-  %indvars.iv192 = phi i64 [ %89, %.lr.ph184.preheader ], [ %indvars.iv.next193, %119 ]
+  %indvars.iv190 = phi i64 [ %89, %.lr.ph184.preheader ], [ %indvars.iv.next191, %119 ]
   %.0142183 = phi float [ %88, %.lr.ph184.preheader ], [ %99, %119 ]
   %.0143182 = phi i32 [ 0, %.lr.ph184.preheader ], [ %.1144, %119 ]
-  %95 = shl nsw i64 %indvars.iv192, 1
+  %95 = shl nsw i64 %indvars.iv190, 1
   %96 = getelementptr inbounds float, ptr %81, i64 %95
   %97 = load float, ptr %96, align 4, !tbaa !93
   %98 = getelementptr i8, ptr %96, i64 4
@@ -629,10 +628,10 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
 
 119:                                              ; preds = %117, %116, %112
   %.1144 = phi i32 [ %118, %117 ], [ %.0143182, %116 ], [ %.0143182, %112 ]
-  %indvars.iv.next193 = add nsw i64 %indvars.iv192, 1
+  %indvars.iv.next191 = add nsw i64 %indvars.iv190, 1
   %120 = load i32, ptr %76, align 8, !tbaa !107
   %121 = sext i32 %120 to i64
-  %122 = icmp slt i64 %indvars.iv.next193, %121
+  %122 = icmp slt i64 %indvars.iv.next191, %121
   br i1 %122, label %.lr.ph184, label %._crit_edge
 
 123:                                              ; preds = %._crit_edge
@@ -648,45 +647,44 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
 
 .lr.ph187:                                        ; preds = %._crit_edge.thread
   %126 = load ptr, ptr %14, align 8, !tbaa !105
-  %invariant.gep188 = getelementptr i8, ptr %126, i64 4
-  %.promoted190 = load float, ptr %10, align 4, !tbaa !93
+  %.promoted188 = load float, ptr %10, align 4, !tbaa !93
   %127 = sext i32 %19 to i64
   br label %128
 
 128:                                              ; preds = %.lr.ph187, %160
   %129 = phi i32 [ -1, %.lr.ph187 ], [ %161, %160 ]
   %130 = phi i32 [ %124, %.lr.ph187 ], [ %162, %160 ]
-  %indvars.iv195 = phi i64 [ %127, %.lr.ph187 ], [ %indvars.iv.next196, %160 ]
-  %131 = phi float [ %.promoted190, %.lr.ph187 ], [ %154, %160 ]
+  %indvars.iv193 = phi i64 [ %127, %.lr.ph187 ], [ %indvars.iv.next194, %160 ]
+  %131 = phi float [ %.promoted188, %.lr.ph187 ], [ %154, %160 ]
   %.0146185 = phi i32 [ 1, %.lr.ph187 ], [ %.1147, %160 ]
-  %132 = shl nsw i64 %indvars.iv195, 1
-  %gep189 = getelementptr float, ptr %invariant.gep188, i64 %132
-  %133 = load float, ptr %gep189, align 4, !tbaa !93
-  %134 = mul nsw i32 %.0146185, 6
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr float, ptr %126, i64 %135
-  %137 = getelementptr i8, ptr %136, i64 12
-  %138 = load float, ptr %137, align 4, !tbaa !93
-  %139 = fcmp reassoc nsz arcp contract afn oeq float %133, %138
-  %140 = getelementptr inbounds float, ptr %126, i64 %132
-  %141 = load float, ptr %140, align 4, !tbaa !93
-  br i1 %139, label %142, label %._crit_edge199
+  %.idx198 = shl i64 %indvars.iv193, 3
+  %132 = getelementptr i8, ptr %126, i64 %.idx198
+  %133 = getelementptr i8, ptr %132, i64 4
+  %134 = load float, ptr %133, align 4, !tbaa !93
+  %135 = mul nsw i32 %.0146185, 6
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr float, ptr %126, i64 %136
+  %138 = getelementptr i8, ptr %137, i64 12
+  %139 = load float, ptr %138, align 4, !tbaa !93
+  %140 = fcmp reassoc nsz arcp contract afn oeq float %134, %139
+  %.pre196 = load float, ptr %132, align 4, !tbaa !93
+  br i1 %140, label %141, label %148
 
-142:                                              ; preds = %128
-  %143 = getelementptr i8, ptr %136, i64 8
-  %144 = load float, ptr %143, align 4, !tbaa !93
-  %145 = fcmp reassoc nsz arcp contract afn oeq float %141, %144
-  br i1 %145, label %146, label %._crit_edge199
+141:                                              ; preds = %128
+  %142 = getelementptr i8, ptr %137, i64 8
+  %143 = load float, ptr %142, align 4, !tbaa !93
+  %144 = fcmp reassoc nsz arcp contract afn oeq float %.pre196, %143
+  br i1 %144, label %145, label %148
 
-146:                                              ; preds = %142
-  %147 = add nsw i32 %.0146185, 1
-  %148 = srem i32 %147, %5
-  br label %._crit_edge199
+145:                                              ; preds = %141
+  %146 = add nsw i32 %.0146185, 1
+  %147 = srem i32 %146, %5
+  br label %148
 
-._crit_edge199:                                   ; preds = %128, %146, %142
-  %.1147 = phi i32 [ %148, %146 ], [ %.0146185, %142 ], [ %.0146185, %128 ]
-  %149 = fsub reassoc nsz arcp contract afn float %0, %141
-  %150 = fsub reassoc nsz arcp contract afn float %1, %133
+148:                                              ; preds = %145, %141, %128
+  %.1147 = phi i32 [ %147, %145 ], [ %.0146185, %141 ], [ %.0146185, %128 ]
+  %149 = fsub reassoc nsz arcp contract afn float %0, %.pre196
+  %150 = fsub reassoc nsz arcp contract afn float %1, %134
   %151 = fmul reassoc nsz arcp contract afn float %149, %149
   %152 = fmul reassoc nsz arcp contract afn float %150, %150
   %153 = fadd reassoc nsz arcp contract afn float %151, %152
@@ -699,18 +697,18 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
   %or.cond168 = and i1 %157, %or.cond
   br i1 %or.cond168, label %158, label %160
 
-158:                                              ; preds = %._crit_edge199
+158:                                              ; preds = %148
   %159 = add nsw i32 %.1147, -1
   store i32 %159, ptr %8, align 4, !tbaa !97
-  %.pre202 = load i32, ptr %17, align 8, !tbaa !102
+  %.pre197 = load i32, ptr %17, align 8, !tbaa !102
   br label %160
 
-160:                                              ; preds = %158, %._crit_edge199
-  %161 = phi i32 [ %159, %158 ], [ %129, %._crit_edge199 ]
-  %162 = phi i32 [ %.pre202, %158 ], [ %130, %._crit_edge199 ]
-  %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1
+160:                                              ; preds = %158, %148
+  %161 = phi i32 [ %159, %158 ], [ %129, %148 ]
+  %162 = phi i32 [ %.pre197, %158 ], [ %130, %148 ]
+  %indvars.iv.next194 = add nsw i64 %indvars.iv193, 1
   %163 = sext i32 %162 to i64
-  %164 = icmp slt i64 %indvars.iv.next196, %163
+  %164 = icmp slt i64 %indvars.iv.next194, %163
   br i1 %164, label %128, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %160
@@ -718,7 +716,7 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge.thread
-  %.not205 = phi i1 [ %165, %.loopexit.loopexit ], [ false, %._crit_edge.thread ]
+  %.not201 = phi i1 [ %165, %.loopexit.loopexit ], [ false, %._crit_edge.thread ]
   %166 = load i32, ptr %6, align 4, !tbaa !97
   %.not158 = icmp eq i32 %166, 0
   br i1 %.not158, label %170, label %167
@@ -726,7 +724,7 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
 167:                                              ; preds = %.loopexit
   %168 = load i32, ptr %7, align 4, !tbaa !97
   %.not159 = icmp eq i32 %168, 0
-  %brmerge = select i1 %.not159, i1 true, i1 %.not205
+  %brmerge = select i1 %.not159, i1 true, i1 %.not201
   br i1 %brmerge, label %170, label %169
 
 169:                                              ; preds = %167
@@ -1275,7 +1273,6 @@ dt_get_debug_wtime.exit:                          ; preds = %17, %19
 
 .lr.ph:                                           ; preds = %66
   %72 = load ptr, ptr %12, align 8, !tbaa !125
-  %invariant.gep = getelementptr i8, ptr %72, i64 4
   %73 = sitofp i32 %30 to float
   %74 = sitofp i32 %32 to float
   %75 = sext i32 %69 to i64
@@ -1289,26 +1286,25 @@ dt_get_debug_wtime.exit:                          ; preds = %17, %19
   br i1 %77, label %.lr.ph123, label %._crit_edge
 
 .lr.ph123:                                        ; preds = %.preheader111
-  %invariant.gep125 = getelementptr i8, ptr %.pre, i64 4
   %78 = sitofp i32 %30 to float
   %79 = sitofp i32 %32 to float
   %80 = sext i32 %69 to i64
-  %wide.trip.count142 = sext i32 %76 to i64
+  %wide.trip.count140 = sext i32 %76 to i64
   br label %133
 
 81:                                               ; preds = %.lr.ph, %81
   %indvars.iv = phi i64 [ %75, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %82 = shl nsw i64 %indvars.iv, 1
-  %83 = getelementptr inbounds float, ptr %72, i64 %82
-  %84 = load float, ptr %83, align 4, !tbaa !93
-  %gep = getelementptr float, ptr %invariant.gep, i64 %82
-  %85 = load float, ptr %gep, align 4, !tbaa !93
-  %86 = fmul reassoc nsz arcp contract afn float %84, %38
+  %.idx = shl i64 %indvars.iv, 3
+  %82 = getelementptr i8, ptr %72, i64 %.idx
+  %83 = load float, ptr %82, align 4, !tbaa !93
+  %84 = getelementptr i8, ptr %82, i64 4
+  %85 = load float, ptr %84, align 4, !tbaa !93
+  %86 = fmul reassoc nsz arcp contract afn float %83, %38
   %87 = fsub reassoc nsz arcp contract afn float %86, %73
-  store float %87, ptr %83, align 4, !tbaa !93
+  store float %87, ptr %82, align 4, !tbaa !93
   %88 = fmul reassoc nsz arcp contract afn float %85, %38
   %89 = fsub reassoc nsz arcp contract afn float %88, %74
-  store float %89, ptr %gep, align 4, !tbaa !93
+  store float %89, ptr %84, align 4, !tbaa !93
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader111, label %81
@@ -1394,21 +1390,21 @@ _brush_bounding_box_raw.exit:                     ; preds = %.lr.ph.split.i, %.l
   br i1 %or.cond77.not, label %142, label %154
 
 133:                                              ; preds = %.lr.ph123, %133
-  %indvars.iv139 = phi i64 [ %80, %.lr.ph123 ], [ %indvars.iv.next140, %133 ]
-  %134 = shl nsw i64 %indvars.iv139, 1
-  %135 = getelementptr inbounds float, ptr %.pre, i64 %134
-  %136 = load float, ptr %135, align 4, !tbaa !93
-  %gep126 = getelementptr float, ptr %invariant.gep125, i64 %134
-  %137 = load float, ptr %gep126, align 4, !tbaa !93
-  %138 = fmul reassoc nsz arcp contract afn float %136, %38
+  %indvars.iv137 = phi i64 [ %80, %.lr.ph123 ], [ %indvars.iv.next138, %133 ]
+  %.idx149 = shl i64 %indvars.iv137, 3
+  %134 = getelementptr i8, ptr %.pre, i64 %.idx149
+  %135 = load float, ptr %134, align 4, !tbaa !93
+  %136 = getelementptr i8, ptr %134, i64 4
+  %137 = load float, ptr %136, align 4, !tbaa !93
+  %138 = fmul reassoc nsz arcp contract afn float %135, %38
   %139 = fsub reassoc nsz arcp contract afn float %138, %78
-  store float %139, ptr %135, align 4, !tbaa !93
+  store float %139, ptr %134, align 4, !tbaa !93
   %140 = fmul reassoc nsz arcp contract afn float %137, %38
   %141 = fsub reassoc nsz arcp contract afn float %140, %79
-  store float %141, ptr %gep126, align 4, !tbaa !93
-  %indvars.iv.next140 = add nsw i64 %indvars.iv139, 1
-  %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count142
-  br i1 %exitcond143.not, label %.lr.ph.i, label %133
+  store float %141, ptr %136, align 4, !tbaa !93
+  %indvars.iv.next138 = add nsw i64 %indvars.iv137, 1
+  %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
+  br i1 %exitcond141.not, label %.lr.ph.i, label %133
 
 142:                                              ; preds = %_brush_bounding_box_raw.exit
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1441,13 +1437,13 @@ _brush_bounding_box_raw.exit:                     ; preds = %.lr.ph.split.i, %.l
   br i1 %or.cond106, label %.preheader, label %163
 
 .preheader:                                       ; preds = %154
-  %.pre149 = load ptr, ptr %13, align 8, !tbaa !125
-  br i1 %71, label %.lr.ph128, label %._crit_edge129
+  %.pre147 = load ptr, ptr %13, align 8, !tbaa !125
+  br i1 %71, label %.lr.ph126, label %._crit_edge127
 
-.lr.ph128:                                        ; preds = %.preheader
+.lr.ph126:                                        ; preds = %.preheader
   %161 = zext nneg i32 %34 to i64
   %162 = sext i32 %69 to i64
-  %wide.trip.count147 = sext i32 %70 to i64
+  %wide.trip.count145 = sext i32 %70 to i64
   br label %167
 
 163:                                              ; preds = %154
@@ -1457,18 +1453,18 @@ _brush_bounding_box_raw.exit:                     ; preds = %.lr.ph.split.i, %.l
   call void @free(ptr noundef %164) #19
   br label %287
 
-._crit_edge129:                                   ; preds = %_brush_falloff_roi.exit, %.preheader
+._crit_edge127:                                   ; preds = %_brush_falloff_roi.exit, %.preheader
   call void @free(ptr noundef %.pre) #19
   call void @free(ptr noundef %130) #19
-  call void @free(ptr noundef %.pre149) #19
+  call void @free(ptr noundef %.pre147) #19
   %165 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
   %166 = and i32 %165, 4112
   %or.cond80.not = icmp eq i32 %166, 4112
   br i1 %or.cond80.not, label %260, label %272
 
-167:                                              ; preds = %.lr.ph128, %_brush_falloff_roi.exit
-  %indvars.iv144 = phi i64 [ %162, %.lr.ph128 ], [ %indvars.iv.next145, %_brush_falloff_roi.exit ]
-  %168 = shl nsw i64 %indvars.iv144, 1
+167:                                              ; preds = %.lr.ph126, %_brush_falloff_roi.exit
+  %indvars.iv142 = phi i64 [ %162, %.lr.ph126 ], [ %indvars.iv.next143, %_brush_falloff_roi.exit ]
+  %168 = shl nsw i64 %indvars.iv142, 1
   %169 = getelementptr inbounds float, ptr %.pre, i64 %168
   %170 = load float, ptr %169, align 4, !tbaa !93
   %171 = fptosi float %170 to i32
@@ -1498,9 +1494,9 @@ _brush_bounding_box_raw.exit:                     ; preds = %.lr.ph.split.i, %.l
   br i1 %or.cond79, label %189, label %_brush_falloff_roi.exit
 
 189:                                              ; preds = %185
-  %190 = getelementptr inbounds float, ptr %.pre149, i64 %168
+  %190 = getelementptr inbounds float, ptr %.pre147, i64 %168
   %191 = load float, ptr %190, align 4, !tbaa !93
-  %192 = getelementptr inbounds float, ptr %.pre149, i64 %172
+  %192 = getelementptr inbounds float, ptr %.pre147, i64 %172
   %193 = load float, ptr %192, align 4, !tbaa !93
   %194 = sub nsw i32 %178, %171
   %195 = mul nsw i32 %194, %194
@@ -1604,11 +1600,11 @@ _brush_bounding_box_raw.exit:                     ; preds = %.lr.ph.split.i, %.l
   br i1 %exitcond.not.i88, label %_brush_falloff_roi.exit, label %223
 
 _brush_falloff_roi.exit:                          ; preds = %258, %189, %167, %185
-  %indvars.iv.next145 = add nsw i64 %indvars.iv144, 1
-  %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
-  br i1 %exitcond148.not, label %._crit_edge129, label %167
+  %indvars.iv.next143 = add nsw i64 %indvars.iv142, 1
+  %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
+  br i1 %exitcond146.not, label %._crit_edge127, label %167
 
-260:                                              ; preds = %._crit_edge129
+260:                                              ; preds = %._crit_edge127
   %261 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
   %262 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #19
@@ -1623,11 +1619,11 @@ _brush_falloff_roi.exit:                          ; preds = %258, %189, %167, %1
   %270 = fsub reassoc nsz arcp contract afn double %265, %.1102
   %271 = fadd reassoc nsz arcp contract afn double %270, %269
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.24, ptr noundef nonnull %261, double noundef %271) #19
-  %.pre150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %.pre148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
   br label %272
 
-272:                                              ; preds = %._crit_edge129, %260
-  %273 = phi i32 [ %165, %._crit_edge129 ], [ %.pre150, %260 ]
+272:                                              ; preds = %._crit_edge127, %260
+  %273 = phi i32 [ %165, %._crit_edge127 ], [ %.pre148, %260 ]
   %274 = and i32 %273, 4112
   %or.cond81.not = icmp eq i32 %274, 4112
   br i1 %or.cond81.not, label %275, label %287

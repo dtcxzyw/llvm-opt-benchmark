@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)

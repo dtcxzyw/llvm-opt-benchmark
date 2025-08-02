@@ -244,8 +244,8 @@ define noundef i64 @Java_sun_security_jgss_wrapper_GSSLibStub_getMechPtr(ptr nou
   %15 = load ptr, ptr @ftab, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i64, ptr %16, align 8
-  %.not34 = icmp eq i64 %17, 0
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %.not32 = icmp eq i64 %17, 0
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -256,7 +256,7 @@ define noundef i64 @Java_sun_security_jgss_wrapper_GSSLibStub_getMechPtr(ptr nou
 
 22:                                               ; preds = %.lr.ph, %31
   %23 = phi i64 [ 0, %.lr.ph ], [ %33, %31 ]
-  %.02533 = phi i32 [ 0, %.lr.ph ], [ %32, %31 ]
+  %.02531 = phi i32 [ 0, %.lr.ph ], [ %32, %31 ]
   %24 = getelementptr inbounds nuw %struct.gss_OID_desc_struct, ptr %19, i64 %23
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %9, %25
@@ -270,7 +270,7 @@ define noundef i64 @Java_sun_security_jgss_wrapper_GSSLibStub_getMechPtr(ptr nou
   br i1 %30, label %38, label %31
 
 31:                                               ; preds = %22, %27
-  %32 = add i32 %.02533, 1
+  %32 = add i32 %.02531, 1
   %33 = zext i32 %32 to i64
   %34 = icmp ugt i64 %17, %33
   br i1 %34, label %22, label %._crit_edge, !llvm.loop !6

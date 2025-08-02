@@ -1911,7 +1911,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %12 = zext i16 %11 to i64
   %.idx.i.i = mul nuw nsw i64 %12, 12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2654
-  %14 = getelementptr i8, ptr %13, i64 %.idx.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i
   %15 = load i16, ptr %14, align 2
   %.not = icmp eq i16 %15, 0
   %16 = zext i16 %15 to i32
@@ -1934,7 +1934,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %25 = zext i16 %24 to i64
   %.idx.i7.i = mul nuw nsw i64 %25, 12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2654
-  %27 = getelementptr i8, ptr %26, i64 %.idx.i7.i
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i7.i
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
   %30 = icmp samesign ult i32 %.0, %29
@@ -1958,7 +1958,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %39 = zext i16 %38 to i64
   %.idx.i9.i = mul nuw nsw i64 %39, 12
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 2654
-  %41 = getelementptr i8, ptr %40, i64 %.idx.i9.i
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i9.i
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
   %44 = icmp samesign ult i32 %.1, %43
@@ -1982,7 +1982,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %53 = zext i16 %52 to i64
   %.idx.i11.i = mul nuw nsw i64 %53, 12
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 2654
-  %55 = getelementptr i8, ptr %54, i64 %.idx.i11.i
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i11.i
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
   %58 = icmp samesign ult i32 %.2, %57

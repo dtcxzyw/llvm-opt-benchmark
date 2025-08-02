@@ -1535,7 +1535,6 @@ define dso_local i32 @reftable_stack_auto_compact(ptr noundef %0) local_unnamed_
   %36 = load i8, ptr %35, align 1, !tbaa !83
   %.not.i11 = icmp eq i8 %36, 0
   %spec.store.select.i = select i1 %.not.i11, i8 2, i8 %36
-  %invariant.gep.i = getelementptr i8, ptr %16, i64 -16
   %37 = zext i8 %spec.store.select.i to i64
   br label %38
 
@@ -1546,44 +1545,45 @@ define dso_local i32 @reftable_stack_auto_compact(ptr noundef %0) local_unnamed_
   br i1 %.not27.i, label %suggest_compaction_segment.exit, label %39
 
 39:                                               ; preds = %38
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.0.in.i
-  %40 = load i64, ptr %gep.i, align 8, !tbaa !12, !noalias !84
-  %41 = getelementptr inbounds nuw i64, ptr %16, i64 %.0.i
+  %40 = getelementptr i64, ptr %16, i64 %.0.in.i
+  %41 = getelementptr i8, ptr %40, i64 -16
   %42 = load i64, ptr %41, align 8, !tbaa !12, !noalias !84
-  %43 = mul i64 %42, %37
-  %44 = icmp ult i64 %40, %43
-  br i1 %44, label %.lr.ph.i12, label %38, !llvm.loop !87
+  %43 = getelementptr inbounds nuw i64, ptr %16, i64 %.0.i
+  %44 = load i64, ptr %43, align 8, !tbaa !12, !noalias !84
+  %45 = mul i64 %44, %37
+  %46 = icmp ult i64 %42, %45
+  br i1 %46, label %.lr.ph.i12, label %38, !llvm.loop !87
 
 .lr.ph.i12:                                       ; preds = %39, %.lr.ph.i12
-  %.136.i = phi i64 [ %46, %.lr.ph.i12 ], [ %.0.i, %39 ]
-  %.12535.i = phi i64 [ %49, %.lr.ph.i12 ], [ %42, %39 ]
-  %45 = phi i64 [ %spec.select39.i, %.lr.ph.i12 ], [ 0, %39 ]
-  %46 = add i64 %.136.i, -1
-  %47 = getelementptr inbounds nuw i64, ptr %16, i64 %46
-  %48 = load i64, ptr %47, align 8, !tbaa !12, !noalias !84
-  %49 = add i64 %48, %.12535.i
-  %50 = mul i64 %.12535.i, %37
-  %51 = icmp ult i64 %48, %50
-  %spec.select39.i = select i1 %51, i64 %46, i64 %45
-  %.not28.i = icmp eq i64 %46, 0
+  %.136.i = phi i64 [ %48, %.lr.ph.i12 ], [ %.0.i, %39 ]
+  %.12535.i = phi i64 [ %51, %.lr.ph.i12 ], [ %44, %39 ]
+  %47 = phi i64 [ %spec.select39.i, %.lr.ph.i12 ], [ 0, %39 ]
+  %48 = add i64 %.136.i, -1
+  %49 = getelementptr inbounds nuw i64, ptr %16, i64 %48
+  %50 = load i64, ptr %49, align 8, !tbaa !12, !noalias !84
+  %51 = add i64 %50, %.12535.i
+  %52 = mul i64 %.12535.i, %37
+  %53 = icmp ult i64 %50, %52
+  %spec.select39.i = select i1 %53, i64 %48, i64 %47
+  %.not28.i = icmp eq i64 %48, 0
   br i1 %.not28.i, label %suggest_compaction_segment.exit, label %.lr.ph.i12, !llvm.loop !88
 
 suggest_compaction_segment.exit:                  ; preds = %38, %.lr.ph.i12, %.preheader.i, %.loopexit
   %.sroa.0.0 = phi i64 [ 0, %.loopexit ], [ 0, %.preheader.i ], [ %spec.select39.i, %.lr.ph.i12 ], [ 0, %38 ]
   %.sroa.5.1 = phi i64 [ 0, %.loopexit ], [ 0, %.preheader.i ], [ %.0.in.i, %.lr.ph.i12 ], [ 0, %38 ]
   tail call void @reftable_free(ptr noundef nonnull %16) #16
-  %52 = sub i64 %.sroa.5.1, %.sroa.0.0
-  %53 = trunc i64 %52 to i32
-  %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %55, label %stack_table_sizes_for_compaction.exit
+  %54 = sub i64 %.sroa.5.1, %.sroa.0.0
+  %55 = trunc i64 %54 to i32
+  %56 = icmp sgt i32 %55, 0
+  br i1 %56, label %57, label %stack_table_sizes_for_compaction.exit
 
-55:                                               ; preds = %suggest_compaction_segment.exit
-  %56 = add i64 %.sroa.5.1, -1
-  %57 = tail call fastcc i32 @stack_compact_range(ptr noundef %0, i64 noundef %.sroa.0.0, i64 noundef %56, ptr noundef null, i32 noundef 1)
+57:                                               ; preds = %suggest_compaction_segment.exit
+  %58 = add i64 %.sroa.5.1, -1
+  %59 = tail call fastcc i32 @stack_compact_range(ptr noundef %0, i64 noundef %.sroa.0.0, i64 noundef %58, ptr noundef null, i32 noundef 1)
   br label %stack_table_sizes_for_compaction.exit
 
-stack_table_sizes_for_compaction.exit:            ; preds = %7, %suggest_compaction_segment.exit, %1, %55
-  %.0 = phi i32 [ %57, %55 ], [ 0, %1 ], [ 0, %suggest_compaction_segment.exit ], [ -13, %7 ]
+stack_table_sizes_for_compaction.exit:            ; preds = %7, %suggest_compaction_segment.exit, %1, %57
+  %.0 = phi i32 [ %59, %57 ], [ 0, %1 ], [ 0, %suggest_compaction_segment.exit ], [ -13, %7 ]
   ret i32 %.0
 }
 
@@ -2613,12 +2613,11 @@ stack_filename.exit.thread:                       ; preds = %73, %46, %55, %stac
 define dso_local void @suggest_compaction_segment(ptr dead_on_unwind noalias writable writeonly sret(%struct.segment) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #10 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = icmp ult i64 %2, 2
-  br i1 %5, label %25, label %.preheader
+  br i1 %5, label %27, label %.preheader
 
 .preheader:                                       ; preds = %4
   %.not = icmp eq i8 %3, 0
   %spec.store.select = select i1 %.not, i8 2, i8 %3
-  %invariant.gep = getelementptr i8, ptr %1, i64 -16
   %6 = zext i8 %spec.store.select to i64
   br label %7
 
@@ -2629,46 +2628,47 @@ define dso_local void @suggest_compaction_segment(ptr dead_on_unwind noalias wri
   br i1 %.not27, label %.loopexit, label %8
 
 8:                                                ; preds = %7
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %.0.in
-  %9 = load i64, ptr %gep, align 8, !tbaa !12
-  %10 = getelementptr inbounds nuw i64, ptr %1, i64 %.0
+  %9 = getelementptr i64, ptr %1, i64 %.0.in
+  %10 = getelementptr i8, ptr %9, i64 -16
   %11 = load i64, ptr %10, align 8, !tbaa !12
-  %12 = mul i64 %11, %6
-  %13 = icmp ult i64 %9, %12
-  br i1 %13, label %.lr.ph, label %7, !llvm.loop !87
+  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %.0
+  %13 = load i64, ptr %12, align 8, !tbaa !12
+  %14 = mul i64 %13, %6
+  %15 = icmp ult i64 %11, %14
+  br i1 %15, label %.lr.ph, label %7, !llvm.loop !87
 
 .lr.ph:                                           ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.0.in, ptr %14, align 8, !tbaa !131
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.0.in, ptr %16, align 8, !tbaa !131
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %18
 
-16:                                               ; preds = %.lr.ph, %16
-  %17 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %16 ]
-  %.136 = phi i64 [ %.0, %.lr.ph ], [ %19, %16 ]
-  %.12535 = phi i64 [ %11, %.lr.ph ], [ %22, %16 ]
-  %18 = phi i64 [ 0, %.lr.ph ], [ %spec.select39, %16 ]
-  %19 = add i64 %.136, -1
-  %20 = getelementptr inbounds nuw i64, ptr %1, i64 %19
-  %21 = load i64, ptr %20, align 8, !tbaa !12
-  %22 = add i64 %21, %.12535
-  %23 = mul i64 %.12535, %6
-  %24 = icmp ult i64 %21, %23
-  %spec.select = select i1 %24, i64 %22, i64 %17
-  %spec.select39 = select i1 %24, i64 %19, i64 %18
-  %.not28 = icmp eq i64 %19, 0
-  br i1 %.not28, label %..loopexit_crit_edge, label %16, !llvm.loop !88
+18:                                               ; preds = %.lr.ph, %18
+  %19 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %18 ]
+  %.136 = phi i64 [ %.0, %.lr.ph ], [ %21, %18 ]
+  %.12535 = phi i64 [ %13, %.lr.ph ], [ %24, %18 ]
+  %20 = phi i64 [ 0, %.lr.ph ], [ %spec.select39, %18 ]
+  %21 = add i64 %.136, -1
+  %22 = getelementptr inbounds nuw i64, ptr %1, i64 %21
+  %23 = load i64, ptr %22, align 8, !tbaa !12
+  %24 = add i64 %23, %.12535
+  %25 = mul i64 %.12535, %6
+  %26 = icmp ult i64 %23, %25
+  %spec.select = select i1 %26, i64 %24, i64 %19
+  %spec.select39 = select i1 %26, i64 %21, i64 %20
+  %.not28 = icmp eq i64 %21, 0
+  br i1 %.not28, label %..loopexit_crit_edge, label %18, !llvm.loop !88
 
-..loopexit_crit_edge:                             ; preds = %16
-  store i64 %spec.select, ptr %15, align 8
+..loopexit_crit_edge:                             ; preds = %18
+  store i64 %spec.select, ptr %17, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %..loopexit_crit_edge
   %.lcssa33 = phi i64 [ %spec.select39, %..loopexit_crit_edge ], [ 0, %7 ]
   store i64 %.lcssa33, ptr %0, align 8
-  br label %25
+  br label %27
 
-25:                                               ; preds = %.loopexit, %4
+27:                                               ; preds = %.loopexit, %4
   ret void
 }
 

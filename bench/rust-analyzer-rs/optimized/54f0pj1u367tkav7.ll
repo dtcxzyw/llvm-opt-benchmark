@@ -13845,7 +13845,7 @@ define void @_ZN10hir_expand11declarative24DeclarativeMacroExpander17expand_unhy
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN10hir_expand11declarative24DeclarativeMacroExpander8expander17h80f5ecf804d5371fE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull ptr @_ZN10hir_expand11declarative24DeclarativeMacroExpander8expander17h80f5ecf804d5371fE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = alloca { {} }, align 1
   %7 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, align 8
   %8 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, align 8

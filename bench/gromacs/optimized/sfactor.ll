@@ -211,11 +211,10 @@ define noundef ptr @_Z20rc_tensor_allocationiii(i32 noundef %0, i32 noundef %1, 
   %13 = load ptr, ptr %5, align 8, !tbaa !13
   %14 = sext i32 %2 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  %load_initial67 = load ptr, ptr %13, align 8
-  br label %32
+  %load_initial63 = load ptr, ptr %13, align 8
+  br label %33
 
-.preheader:                                       ; preds = %32
-  %invariant.gep = getelementptr i8, ptr %5, i64 -8
+.preheader:                                       ; preds = %33
   %15 = icmp sgt i32 %0, 1
   br i1 %15, label %.lr.ph42, label %._crit_edge43
 
@@ -224,7 +223,6 @@ define noundef ptr @_Z20rc_tensor_allocationiii(i32 noundef %0, i32 noundef %1, 
   br i1 %16, label %.lr.ph42.thread, label %._crit_edge43
 
 .lr.ph42.thread:                                  ; preds = %.preheader.thread
-  %invariant.gep61 = getelementptr i8, ptr %5, i64 -8
   %17 = sext i32 %1 to i64
   %18 = mul nsw i32 %2, %1
   %19 = sext i32 %18 to i64
@@ -242,51 +240,51 @@ define noundef ptr @_Z20rc_tensor_allocationiii(i32 noundef %0, i32 noundef %1, 
 
 .lr.ph40.us:                                      ; preds = %.lr.ph42, %._crit_edge.us
   %indvars.iv56 = phi i64 [ 1, %.lr.ph42 ], [ %indvars.iv.next57, %._crit_edge.us ]
-  %gep.us = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv56
-  %24 = load ptr, ptr %gep.us, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %20
-  %26 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv56
-  store ptr %25, ptr %26, align 8, !tbaa !13
-  %27 = load ptr, ptr %24, align 8, !tbaa !17
-  %28 = getelementptr inbounds %struct.t_complex, ptr %27, i64 %22
-  store ptr %28, ptr %25, align 8, !tbaa !17
-  br label %29
+  %24 = getelementptr ptr, ptr %5, i64 %indvars.iv56
+  %25 = getelementptr i8, ptr %24, i64 -8
+  %26 = load ptr, ptr %25, align 8, !tbaa !13
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %20
+  store ptr %27, ptr %24, align 8, !tbaa !13
+  %28 = load ptr, ptr %26, align 8, !tbaa !17
+  %29 = getelementptr inbounds %struct.t_complex, ptr %28, i64 %22
+  store ptr %29, ptr %27, align 8, !tbaa !17
+  br label %30
 
-29:                                               ; preds = %.lr.ph40.us, %29
-  %store_forwarded = phi ptr [ %28, %.lr.ph40.us ], [ %31, %29 ]
-  %indvars.iv51 = phi i64 [ 1, %.lr.ph40.us ], [ %indvars.iv.next52, %29 ]
-  %30 = getelementptr ptr, ptr %25, i64 %indvars.iv51
-  %31 = getelementptr inbounds %struct.t_complex, ptr %store_forwarded, i64 %23
-  store ptr %31, ptr %30, align 8, !tbaa !17
+30:                                               ; preds = %.lr.ph40.us, %30
+  %store_forwarded = phi ptr [ %29, %.lr.ph40.us ], [ %32, %30 ]
+  %indvars.iv51 = phi i64 [ 1, %.lr.ph40.us ], [ %indvars.iv.next52, %30 ]
+  %31 = getelementptr ptr, ptr %27, i64 %indvars.iv51
+  %32 = getelementptr inbounds %struct.t_complex, ptr %store_forwarded, i64 %23
+  store ptr %32, ptr %31, align 8, !tbaa !17
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %._crit_edge.us, label %29, !llvm.loop !19
+  br i1 %exitcond55.not, label %._crit_edge.us, label %30, !llvm.loop !19
 
-._crit_edge.us:                                   ; preds = %29
+._crit_edge.us:                                   ; preds = %30
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
   br i1 %exitcond60.not, label %._crit_edge43, label %.lr.ph40.us, !llvm.loop !20
 
-32:                                               ; preds = %.lr.ph, %32
-  %store_forwarded68 = phi ptr [ %load_initial67, %.lr.ph ], [ %34, %32 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr ptr, ptr %13, i64 %indvars.iv
-  %34 = getelementptr inbounds %struct.t_complex, ptr %store_forwarded68, i64 %14
-  store ptr %34, ptr %33, align 8, !tbaa !17
+33:                                               ; preds = %.lr.ph, %33
+  %store_forwarded64 = phi ptr [ %load_initial63, %.lr.ph ], [ %35, %33 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %33 ]
+  %34 = getelementptr ptr, ptr %13, i64 %indvars.iv
+  %35 = getelementptr inbounds %struct.t_complex, ptr %store_forwarded64, i64 %14
+  store ptr %35, ptr %34, align 8, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %32, !llvm.loop !22
+  br i1 %exitcond.not, label %.preheader, label %33, !llvm.loop !22
 
 .lr.ph42.split:                                   ; preds = %.lr.ph42.thread, %.lr.ph42.split
   %indvars.iv46 = phi i64 [ 1, %.lr.ph42.thread ], [ %indvars.iv.next47, %.lr.ph42.split ]
-  %gep = getelementptr ptr, ptr %invariant.gep61, i64 %indvars.iv46
-  %35 = load ptr, ptr %gep, align 8, !tbaa !13
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %17
-  %37 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv46
-  store ptr %36, ptr %37, align 8, !tbaa !13
-  %38 = load ptr, ptr %35, align 8, !tbaa !17
-  %39 = getelementptr inbounds %struct.t_complex, ptr %38, i64 %19
-  store ptr %39, ptr %36, align 8, !tbaa !17
+  %36 = getelementptr ptr, ptr %5, i64 %indvars.iv46
+  %37 = getelementptr i8, ptr %36, i64 -8
+  %38 = load ptr, ptr %37, align 8, !tbaa !13
+  %39 = getelementptr inbounds ptr, ptr %38, i64 %17
+  store ptr %39, ptr %36, align 8, !tbaa !13
+  %40 = load ptr, ptr %38, align 8, !tbaa !17
+  %41 = getelementptr inbounds %struct.t_complex, ptr %40, i64 %19
+  store ptr %41, ptr %39, align 8, !tbaa !17
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
   br i1 %exitcond50.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !23

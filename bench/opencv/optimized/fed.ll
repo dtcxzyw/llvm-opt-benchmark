@@ -260,7 +260,6 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   br i1 %spec.select.i, label %.preheader97, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge
 
 .preheader97:                                     ; preds = %_Z21fed_is_prime_internalRKi.exit, %66, %66, %66, %66, %76
-  %invariant.gep = getelementptr i8, ptr %.sroa.086.1, i64 -4
   %83 = icmp sgt i32 %.lcssa101119, 0
   br i1 %83, label %.preheader.lr.ph, label %.loopexit
 
@@ -284,10 +283,11 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
 
 89:                                               ; preds = %85
   %90 = sext i32 %88 to i64
-  %gep = getelementptr float, ptr %invariant.gep, i64 %90
-  %91 = load float, ptr %gep, align 4, !tbaa !3
-  %92 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv113
-  store float %91, ptr %92, align 4, !tbaa !3
+  %91 = getelementptr float, ptr %.sroa.086.1, i64 %90
+  %92 = getelementptr i8, ptr %91, i64 -4
+  %93 = load float, ptr %92, align 4, !tbaa !3
+  %94 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv113
+  store float %93, ptr %94, align 4, !tbaa !3
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.thread, label %.preheader, !llvm.loop !26

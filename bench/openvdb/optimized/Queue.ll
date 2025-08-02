@@ -249,21 +249,21 @@ entry:
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
-  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 48
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   %0 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry
-  %i.07.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
+  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
-  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
+  %1 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
@@ -272,8 +272,8 @@ for.body6.i.i.i.i:                                ; preds = %for.body6.i.i.i.i, 
   %segment_index.08.i.i.i.i = phi i64 [ 0, %for.cond4.preheader.i.i.i.i ], [ %inc14.i.i.i.i, %for.body6.i.i.i.i ]
   %cmp7.i.i.i.i = icmp eq i64 %segment_index.08.i.i.i.i, 0
   %arrayidx12.i.i.i.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.8"], ptr %my_table11.i.i.i.i, i64 0, i64 %segment_index.08.i.i.i.i
-  %1 = select i1 %cmp7.i.i.i.i, i64 %0, i64 0
-  store atomic i64 %1, ptr %arrayidx12.i.i.i.i monotonic, align 8
+  %2 = select i1 %cmp7.i.i.i.i, i64 %0, i64 0
+  store atomic i64 %2, ptr %arrayidx12.i.i.i.i monotonic, align 8
   %inc14.i.i.i.i = add nuw nsw i64 %segment_index.08.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc14.i.i.i.i, 64
   br i1 %exitcond.not.i.i.i.i, label %invoke.cont, label %for.body6.i.i.i.i, !llvm.loop !6
@@ -281,14 +281,14 @@ for.body6.i.i.i.i:                                ; preds = %for.body6.i.i.i.i, 
 invoke.cont:                                      ; preds = %for.body6.i.i.i.i
   %my_hash_compare.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 584
   store i16 0, ptr %my_hash_compare.i.i.i, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %call, i64 600
-  store i32 0, ptr %2, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %call, i64 600
+  store i32 0, ptr %3, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 608
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 616
-  store ptr %2, ptr %_M_left.i.i.i.i.i.i, align 8
+  store ptr %3, ptr %_M_left.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 624
-  store ptr %2, ptr %_M_right.i.i.i.i.i.i, align 8
+  store ptr %3, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 632
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %mNextNotifierId.i = getelementptr inbounds nuw i8, ptr %call, i64 640
@@ -4393,7 +4393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_E7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(12) %ed) unnamed_addr #5 align 2 {
+define internal noalias noundef ptr @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_E7executeERNS1_14execution_dataE(ptr noundef nonnull align 64 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(12) %ed) unnamed_addr #5 align 2 {
 entry:
   %m_func = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZNK7openvdb5v11_02io12_GLOBAL__N_110OutputTask7executeEv(ptr noundef nonnull align 8 dereferenceable(144) %m_func)

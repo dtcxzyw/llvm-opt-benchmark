@@ -879,7 +879,6 @@ define dso_local void @logicalrep_write_insert(ptr noundef %0, i32 noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @logicalrep_write_tuple(ptr noundef %0, ptr readonly captures(none) %.64.val, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
-  %invariant.gep = getelementptr i8, ptr %.64.val, i64 24
   %6 = load i32, ptr %.64.val, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -893,291 +892,294 @@ define internal fastcc void @logicalrep_write_tuple(ptr noundef %0, ptr readonly
   %wide.trip.count = zext nneg i32 %6 to i64
   %9 = zext nneg i32 %6 to i64
   %10 = shl nuw nsw i64 %9, 4
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %10
-  br label %11
+  %11 = getelementptr i8, ptr %.64.val, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 24
+  br label %13
 
-11:                                               ; preds = %logicalrep_should_publish_column.exit.thread.us, %.lr.ph.split.us
-  %indvars.iv22 = phi i64 [ %indvars.iv.next23, %logicalrep_should_publish_column.exit.thread.us ], [ 0, %.lr.ph.split.us ]
-  %.05710.us = phi i16 [ %20, %logicalrep_should_publish_column.exit.thread.us ], [ 0, %.lr.ph.split.us ]
-  %12 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep.us, i64 %indvars.iv22
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 91
-  %14 = load i8, ptr %13, align 1, !range !121, !noundef !122
-  %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %logicalrep_should_publish_column.exit.thread.us, label %16
+13:                                               ; preds = %logicalrep_should_publish_column.exit.thread.us, %.lr.ph.split.us
+  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %logicalrep_should_publish_column.exit.thread.us ], [ 0, %.lr.ph.split.us ]
+  %.05710.us = phi i16 [ %22, %logicalrep_should_publish_column.exit.thread.us ], [ 0, %.lr.ph.split.us ]
+  %14 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %12, i64 %indvars.iv20
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 91
+  %16 = load i8, ptr %15, align 1, !range !121, !noundef !122
+  %17 = trunc nuw i8 %16 to i1
+  br i1 %17, label %logicalrep_should_publish_column.exit.thread.us, label %18
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 90
-  %18 = load i8, ptr %17, align 2
-  switch i8 %18, label %logicalrep_should_publish_column.exit.thread.us [
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 90
+  %20 = load i8, ptr %19, align 2
+  switch i8 %20, label %logicalrep_should_publish_column.exit.thread.us [
     i8 0, label %logicalrep_should_publish_column.exit.thread3.us
     i8 115, label %logicalrep_should_publish_column.exit.us
   ]
 
-logicalrep_should_publish_column.exit.us:         ; preds = %16
+logicalrep_should_publish_column.exit.us:         ; preds = %18
   br i1 %8, label %logicalrep_should_publish_column.exit.thread3.us, label %logicalrep_should_publish_column.exit.thread.us
 
-logicalrep_should_publish_column.exit.thread3.us: ; preds = %logicalrep_should_publish_column.exit.us, %16
-  %19 = add i16 %.05710.us, 1
+logicalrep_should_publish_column.exit.thread3.us: ; preds = %logicalrep_should_publish_column.exit.us, %18
+  %21 = add i16 %.05710.us, 1
   br label %logicalrep_should_publish_column.exit.thread.us
 
-logicalrep_should_publish_column.exit.thread.us:  ; preds = %logicalrep_should_publish_column.exit.thread3.us, %logicalrep_should_publish_column.exit.us, %16, %11
-  %20 = phi i16 [ %19, %logicalrep_should_publish_column.exit.thread3.us ], [ %.05710.us, %logicalrep_should_publish_column.exit.us ], [ %.05710.us, %11 ], [ %.05710.us, %16 ]
-  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !123
+logicalrep_should_publish_column.exit.thread.us:  ; preds = %logicalrep_should_publish_column.exit.thread3.us, %logicalrep_should_publish_column.exit.us, %18, %13
+  %22 = phi i16 [ %21, %logicalrep_should_publish_column.exit.thread3.us ], [ %.05710.us, %logicalrep_should_publish_column.exit.us ], [ %.05710.us, %13 ], [ %.05710.us, %18 ]
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !123
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %logicalrep_should_publish_column.exit.thread
-  %21 = phi i32 [ %34, %logicalrep_should_publish_column.exit.thread ], [ %6, %.lr.ph ]
+  %23 = phi i32 [ %38, %logicalrep_should_publish_column.exit.thread ], [ %6, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %logicalrep_should_publish_column.exit.thread ], [ 0, %.lr.ph ]
-  %.05710 = phi i16 [ %35, %logicalrep_should_publish_column.exit.thread ], [ 0, %.lr.ph ]
-  %22 = sext i32 %21 to i64
-  %23 = shl nsw i64 %22, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %23
-  %24 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 91
-  %26 = load i8, ptr %25, align 1, !range !121, !noundef !122
-  %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %logicalrep_should_publish_column.exit.thread, label %28
+  %.05710 = phi i16 [ %39, %logicalrep_should_publish_column.exit.thread ], [ 0, %.lr.ph ]
+  %24 = sext i32 %23 to i64
+  %25 = shl nsw i64 %24, 4
+  %26 = getelementptr i8, ptr %.64.val, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 24
+  %28 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 91
+  %30 = load i8, ptr %29, align 1, !range !121, !noundef !122
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %logicalrep_should_publish_column.exit.thread, label %32
 
-28:                                               ; preds = %.lr.ph.split
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 74
-  %30 = load i16, ptr %29, align 2
-  %31 = sext i16 %30 to i32
-  %32 = tail call zeroext i1 @bms_is_member(i32 noundef %31, ptr noundef nonnull %3) #8
-  %cond.fr6 = freeze i1 %32
-  %33 = zext i1 %cond.fr6 to i16
-  %spec.select = add i16 %.05710, %33
+32:                                               ; preds = %.lr.ph.split
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 74
+  %34 = load i16, ptr %33, align 2
+  %35 = sext i16 %34 to i32
+  %36 = tail call zeroext i1 @bms_is_member(i32 noundef %35, ptr noundef nonnull %3) #8
+  %cond.fr6 = freeze i1 %36
+  %37 = zext i1 %cond.fr6 to i16
+  %spec.select = add i16 %.05710, %37
   %.pre = load i32, ptr %.64.val, align 8
   br label %logicalrep_should_publish_column.exit.thread
 
-logicalrep_should_publish_column.exit.thread:     ; preds = %28, %.lr.ph.split
-  %34 = phi i32 [ %21, %.lr.ph.split ], [ %.pre, %28 ]
-  %35 = phi i16 [ %.05710, %.lr.ph.split ], [ %spec.select, %28 ]
+logicalrep_should_publish_column.exit.thread:     ; preds = %32, %.lr.ph.split
+  %38 = phi i32 [ %23, %.lr.ph.split ], [ %.pre, %32 ]
+  %39 = phi i16 [ %.05710, %.lr.ph.split ], [ %spec.select, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = sext i32 %34 to i64
-  %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph.split, label %._crit_edge, !llvm.loop !126
+  %40 = sext i32 %38 to i64
+  %41 = icmp slt i64 %indvars.iv.next, %40
+  br i1 %41, label %.lr.ph.split, label %._crit_edge, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %logicalrep_should_publish_column.exit.thread, %logicalrep_should_publish_column.exit.thread.us, %5
-  %.057.lcssa = phi i16 [ 0, %5 ], [ %20, %logicalrep_should_publish_column.exit.thread.us ], [ %35, %logicalrep_should_publish_column.exit.thread ]
+  %.057.lcssa = phi i16 [ 0, %5 ], [ %22, %logicalrep_should_publish_column.exit.thread.us ], [ %39, %logicalrep_should_publish_column.exit.thread ]
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 2) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  %38 = tail call i16 @llvm.bswap.i16(i16 %.057.lcssa)
-  %39 = load ptr, ptr %0, align 8, !alias.scope !127
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load i32, ptr %40, align 8, !alias.scope !127
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  store i16 %38, ptr %43, align 1, !noalias !127
-  %44 = add i32 %41, 2
-  store i32 %44, ptr %40, align 8, !alias.scope !127
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %49 = load i16, ptr %48, align 2
-  %50 = sext i16 %49 to i32
-  %51 = icmp sgt i32 %47, %50
-  br i1 %51, label %52, label %slot_getallattrs.exit
+  %42 = tail call i16 @llvm.bswap.i16(i16 %.057.lcssa)
+  %43 = load ptr, ptr %0, align 8, !alias.scope !127
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %45 = load i32, ptr %44, align 8, !alias.scope !127
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i8, ptr %43, i64 %46
+  store i16 %42, ptr %47, align 1, !noalias !127
+  %48 = add i32 %45, 2
+  store i32 %48, ptr %44, align 8, !alias.scope !127
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = load i32, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %53 = load i16, ptr %52, align 2
+  %54 = sext i16 %53 to i32
+  %55 = icmp sgt i32 %51, %54
+  br i1 %55, label %56, label %slot_getallattrs.exit
 
-52:                                               ; preds = %._crit_edge
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %47) #8
+56:                                               ; preds = %._crit_edge
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %51) #8
   br label %slot_getallattrs.exit
 
-slot_getallattrs.exit:                            ; preds = %._crit_edge, %52
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %.64.val, align 8
-  %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %.lr.ph16, label %._crit_edge17
+slot_getallattrs.exit:                            ; preds = %._crit_edge, %56
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %60 = load ptr, ptr %59, align 8
+  %61 = load i32, ptr %.64.val, align 8
+  %62 = icmp sgt i32 %61, 0
+  br i1 %62, label %.lr.ph14, label %._crit_edge15
 
-.lr.ph16:                                         ; preds = %slot_getallattrs.exit
+.lr.ph14:                                         ; preds = %slot_getallattrs.exit
   %.not.i61 = icmp eq ptr %3, null
-  %59 = icmp eq i32 %4, 115
-  br label %60
+  %63 = icmp eq i32 %4, 115
+  br label %64
 
-60:                                               ; preds = %.lr.ph16, %logicalrep_should_publish_column.exit63.thread
-  %indvars.iv24 = phi i64 [ 0, %.lr.ph16 ], [ %indvars.iv.next25, %logicalrep_should_publish_column.exit63.thread ]
-  %61 = phi i32 [ %57, %.lr.ph16 ], [ %159, %logicalrep_should_publish_column.exit63.thread ]
-  %62 = sext i32 %61 to i64
-  %63 = shl nsw i64 %62, 4
-  %gep14 = getelementptr i8, ptr %invariant.gep, i64 %63
-  %64 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep14, i64 %indvars.iv24
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 91
-  %66 = load i8, ptr %65, align 1, !range !121, !noundef !122
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %logicalrep_should_publish_column.exit63.thread, label %68
+64:                                               ; preds = %.lr.ph14, %logicalrep_should_publish_column.exit63.thread
+  %indvars.iv22 = phi i64 [ 0, %.lr.ph14 ], [ %indvars.iv.next23, %logicalrep_should_publish_column.exit63.thread ]
+  %65 = phi i32 [ %61, %.lr.ph14 ], [ %165, %logicalrep_should_publish_column.exit63.thread ]
+  %66 = sext i32 %65 to i64
+  %67 = shl nsw i64 %66, 4
+  %68 = getelementptr i8, ptr %.64.val, i64 %67
+  %69 = getelementptr i8, ptr %68, i64 24
+  %70 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %69, i64 %indvars.iv22
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 91
+  %72 = load i8, ptr %71, align 1, !range !121, !noundef !122
+  %73 = trunc nuw i8 %72 to i1
+  br i1 %73, label %logicalrep_should_publish_column.exit63.thread, label %74
 
-68:                                               ; preds = %60
-  br i1 %.not.i61, label %74, label %69
+74:                                               ; preds = %64
+  br i1 %.not.i61, label %80, label %75
 
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw i8, ptr %64, i64 74
-  %71 = load i16, ptr %70, align 2
-  %72 = sext i16 %71 to i32
-  %73 = tail call zeroext i1 @bms_is_member(i32 noundef %72, ptr noundef nonnull %3) #8
-  br i1 %73, label %logicalrep_should_publish_column.exit63.thread8, label %logicalrep_should_publish_column.exit63.thread
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 74
+  %77 = load i16, ptr %76, align 2
+  %78 = sext i16 %77 to i32
+  %79 = tail call zeroext i1 @bms_is_member(i32 noundef %78, ptr noundef nonnull %3) #8
+  br i1 %79, label %logicalrep_should_publish_column.exit63.thread8, label %logicalrep_should_publish_column.exit63.thread
 
-74:                                               ; preds = %68
-  %75 = getelementptr inbounds nuw i8, ptr %64, i64 90
-  %76 = load i8, ptr %75, align 2
-  switch i8 %76, label %logicalrep_should_publish_column.exit63.thread [
+80:                                               ; preds = %74
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 90
+  %82 = load i8, ptr %81, align 2
+  switch i8 %82, label %logicalrep_should_publish_column.exit63.thread [
     i8 0, label %logicalrep_should_publish_column.exit63.thread8
     i8 115, label %logicalrep_should_publish_column.exit63
   ]
 
-logicalrep_should_publish_column.exit63:          ; preds = %74
-  br i1 %59, label %logicalrep_should_publish_column.exit63.thread8, label %logicalrep_should_publish_column.exit63.thread
+logicalrep_should_publish_column.exit63:          ; preds = %80
+  br i1 %63, label %logicalrep_should_publish_column.exit63.thread8, label %logicalrep_should_publish_column.exit63.thread
 
-logicalrep_should_publish_column.exit63.thread8:  ; preds = %74, %69, %logicalrep_should_publish_column.exit63
-  %77 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv24
-  %78 = load i8, ptr %77, align 1, !range !121, !noundef !122
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %80, label %86
-
-80:                                               ; preds = %logicalrep_should_publish_column.exit63.thread8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
-  %81 = load ptr, ptr %0, align 8, !alias.scope !130
-  %82 = load i32, ptr %40, align 8, !alias.scope !130
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i8, ptr %81, i64 %83
-  store i8 110, ptr %84, align 1, !noalias !130
-  %85 = add i32 %82, 1
-  store i32 %85, ptr %40, align 8, !alias.scope !130
-  br label %logicalrep_should_publish_column.exit63.thread
+logicalrep_should_publish_column.exit63.thread8:  ; preds = %80, %75, %logicalrep_should_publish_column.exit63
+  %83 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv22
+  %84 = load i8, ptr %83, align 1, !range !121, !noundef !122
+  %85 = trunc nuw i8 %84 to i1
+  br i1 %85, label %86, label %92
 
 86:                                               ; preds = %logicalrep_should_publish_column.exit63.thread8
-  %87 = getelementptr inbounds nuw i8, ptr %64, i64 72
-  %88 = load i16, ptr %87, align 4
-  %89 = icmp eq i16 %88, -1
-  br i1 %89, label %90, label %106
-
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv24
-  %92 = load i64, ptr %91, align 8
-  %93 = inttoptr i64 %92 to ptr
-  %94 = load i8, ptr %93, align 1
-  %95 = icmp eq i8 %94, 1
-  br i1 %95, label %96, label %106
-
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 1
-  %98 = load i8, ptr %97, align 1
-  %99 = icmp eq i8 %98, 18
-  br i1 %99, label %100, label %106
-
-100:                                              ; preds = %96
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  %101 = load ptr, ptr %0, align 8, !alias.scope !133
-  %102 = load i32, ptr %40, align 8, !alias.scope !133
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i8, ptr %101, i64 %103
-  store i8 117, ptr %104, align 1, !noalias !133
-  %105 = add i32 %102, 1
-  store i32 %105, ptr %40, align 8, !alias.scope !133
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
+  %87 = load ptr, ptr %0, align 8, !alias.scope !130
+  %88 = load i32, ptr %44, align 8, !alias.scope !130
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i8, ptr %87, i64 %89
+  store i8 110, ptr %90, align 1, !noalias !130
+  %91 = add i32 %88, 1
+  store i32 %91, ptr %44, align 8, !alias.scope !130
   br label %logicalrep_should_publish_column.exit63.thread
 
-106:                                              ; preds = %96, %90, %86
-  %107 = getelementptr inbounds nuw i8, ptr %64, i64 68
-  %108 = load i32, ptr %107, align 4
-  %109 = zext i32 %108 to i64
-  %110 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %109) #8
-  %.not = icmp eq ptr %110, null
-  br i1 %.not, label %111, label %116
+92:                                               ; preds = %logicalrep_should_publish_column.exit63.thread8
+  %93 = getelementptr inbounds nuw i8, ptr %70, i64 72
+  %94 = load i16, ptr %93, align 4
+  %95 = icmp eq i16 %94, -1
+  br i1 %95, label %96, label %112
 
-111:                                              ; preds = %106
-  %112 = getelementptr inbounds nuw i8, ptr %64, i64 68
-  %113 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %113)
-  %114 = load i32, ptr %112, align 4
-  %115 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %114) #8
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv22
+  %98 = load i64, ptr %97, align 8
+  %99 = inttoptr i64 %98 to ptr
+  %100 = load i8, ptr %99, align 1
+  %101 = icmp eq i8 %100, 1
+  br i1 %101, label %102, label %112
+
+102:                                              ; preds = %96
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 1
+  %104 = load i8, ptr %103, align 1
+  %105 = icmp eq i8 %104, 18
+  br i1 %105, label %106, label %112
+
+106:                                              ; preds = %102
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
+  %107 = load ptr, ptr %0, align 8, !alias.scope !133
+  %108 = load i32, ptr %44, align 8, !alias.scope !133
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds i8, ptr %107, i64 %109
+  store i8 117, ptr %110, align 1, !noalias !133
+  %111 = add i32 %108, 1
+  store i32 %111, ptr %44, align 8, !alias.scope !133
+  br label %logicalrep_should_publish_column.exit63.thread
+
+112:                                              ; preds = %102, %96, %92
+  %113 = getelementptr inbounds nuw i8, ptr %70, i64 68
+  %114 = load i32, ptr %113, align 4
+  %115 = zext i32 %114 to i64
+  %116 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %115) #8
+  %.not = icmp eq ptr %116, null
+  br i1 %.not, label %117, label %122
+
+117:                                              ; preds = %112
+  %118 = getelementptr inbounds nuw i8, ptr %70, i64 68
+  %119 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %119)
+  %120 = load i32, ptr %118, align 4
+  %121 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %120) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 825, ptr noundef nonnull @__func__.logicalrep_write_tuple) #8
   unreachable
 
-116:                                              ; preds = %106
-  %117 = getelementptr i8, ptr %110, i64 16
-  %.val = load ptr, ptr %117, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %119 = load i8, ptr %118, align 2
-  %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds nuw i8, ptr %.val, i64 %120
-  br i1 %2, label %122, label %145
+122:                                              ; preds = %112
+  %123 = getelementptr i8, ptr %116, i64 16
+  %.val = load ptr, ptr %123, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %125 = load i8, ptr %124, align 2
+  %126 = zext i8 %125 to i64
+  %127 = getelementptr inbounds nuw i8, ptr %.val, i64 %126
+  br i1 %2, label %128, label %151
 
-122:                                              ; preds = %116
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 112
-  %124 = load i32, ptr %123, align 4
-  %.not60 = icmp eq i32 %124, 0
-  br i1 %.not60, label %145, label %125
+128:                                              ; preds = %122
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 112
+  %130 = load i32, ptr %129, align 4
+  %.not60 = icmp eq i32 %130, 0
+  br i1 %.not60, label %151, label %131
 
-125:                                              ; preds = %122
+131:                                              ; preds = %128
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  %126 = load ptr, ptr %0, align 8, !alias.scope !136
-  %127 = load i32, ptr %40, align 8, !alias.scope !136
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds i8, ptr %126, i64 %128
-  store i8 98, ptr %129, align 1, !noalias !136
-  %130 = add i32 %127, 1
-  store i32 %130, ptr %40, align 8, !alias.scope !136
-  %131 = load i32, ptr %123, align 4
-  %132 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv24
-  %133 = load i64, ptr %132, align 8
-  %134 = tail call ptr @OidSendFunctionCall(i32 noundef %131, i64 noundef %133) #8
-  %135 = load i32, ptr %134, align 4
-  %136 = lshr i32 %135, 2
-  %137 = add nsw i32 %136, -4
+  %132 = load ptr, ptr %0, align 8, !alias.scope !136
+  %133 = load i32, ptr %44, align 8, !alias.scope !136
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr inbounds i8, ptr %132, i64 %134
+  store i8 98, ptr %135, align 1, !noalias !136
+  %136 = add i32 %133, 1
+  store i32 %136, ptr %44, align 8, !alias.scope !136
+  %137 = load i32, ptr %129, align 4
+  %138 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv22
+  %139 = load i64, ptr %138, align 8
+  %140 = tail call ptr @OidSendFunctionCall(i32 noundef %137, i64 noundef %139) #8
+  %141 = load i32, ptr %140, align 4
+  %142 = lshr i32 %141, 2
+  %143 = add nsw i32 %142, -4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
-  %138 = tail call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %137)
-  %139 = load ptr, ptr %0, align 8, !alias.scope !139
-  %140 = load i32, ptr %40, align 8, !alias.scope !139
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i8, ptr %139, i64 %141
-  store i32 %138, ptr %142, align 1, !noalias !139
-  %143 = add i32 %140, 4
-  store i32 %143, ptr %40, align 8, !alias.scope !139
-  %144 = getelementptr inbounds nuw i8, ptr %134, i64 4
-  tail call void @pq_sendbytes(ptr noundef nonnull %0, ptr noundef nonnull %144, i32 noundef %137) #8
-  br label %158
+  %144 = tail call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %143)
+  %145 = load ptr, ptr %0, align 8, !alias.scope !139
+  %146 = load i32, ptr %44, align 8, !alias.scope !139
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr inbounds i8, ptr %145, i64 %147
+  store i32 %144, ptr %148, align 1, !noalias !139
+  %149 = add i32 %146, 4
+  store i32 %149, ptr %44, align 8, !alias.scope !139
+  %150 = getelementptr inbounds nuw i8, ptr %140, i64 4
+  tail call void @pq_sendbytes(ptr noundef nonnull %0, ptr noundef nonnull %150, i32 noundef %143) #8
+  br label %164
 
-145:                                              ; preds = %122, %116
+151:                                              ; preds = %128, %122
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
-  %146 = load ptr, ptr %0, align 8, !alias.scope !142
-  %147 = load i32, ptr %40, align 8, !alias.scope !142
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i8, ptr %146, i64 %148
-  store i8 116, ptr %149, align 1, !noalias !142
-  %150 = add i32 %147, 1
-  store i32 %150, ptr %40, align 8, !alias.scope !142
-  %151 = getelementptr inbounds nuw i8, ptr %121, i64 104
-  %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv24
-  %154 = load i64, ptr %153, align 8
-  %155 = tail call ptr @OidOutputFunctionCall(i32 noundef %152, i64 noundef %154) #8
-  %156 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %155) #10
-  %157 = trunc i64 %156 to i32
-  tail call void @pq_sendcountedtext(ptr noundef nonnull %0, ptr noundef nonnull %155, i32 noundef %157) #8
-  br label %158
+  %152 = load ptr, ptr %0, align 8, !alias.scope !142
+  %153 = load i32, ptr %44, align 8, !alias.scope !142
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds i8, ptr %152, i64 %154
+  store i8 116, ptr %155, align 1, !noalias !142
+  %156 = add i32 %153, 1
+  store i32 %156, ptr %44, align 8, !alias.scope !142
+  %157 = getelementptr inbounds nuw i8, ptr %127, i64 104
+  %158 = load i32, ptr %157, align 4
+  %159 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv22
+  %160 = load i64, ptr %159, align 8
+  %161 = tail call ptr @OidOutputFunctionCall(i32 noundef %158, i64 noundef %160) #8
+  %162 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %161) #10
+  %163 = trunc i64 %162 to i32
+  tail call void @pq_sendcountedtext(ptr noundef nonnull %0, ptr noundef nonnull %161, i32 noundef %163) #8
+  br label %164
 
-158:                                              ; preds = %145, %125
-  %.sink = phi ptr [ %155, %145 ], [ %134, %125 ]
+164:                                              ; preds = %151, %131
+  %.sink = phi ptr [ %161, %151 ], [ %140, %131 ]
   tail call void @pfree(ptr noundef nonnull %.sink) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %110) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %116) #8
   br label %logicalrep_should_publish_column.exit63.thread
 
-logicalrep_should_publish_column.exit63.thread:   ; preds = %74, %60, %69, %logicalrep_should_publish_column.exit63, %158, %100, %80
-  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %159 = load i32, ptr %.64.val, align 8
-  %160 = sext i32 %159 to i64
-  %161 = icmp slt i64 %indvars.iv.next25, %160
-  br i1 %161, label %60, label %._crit_edge17, !llvm.loop !145
+logicalrep_should_publish_column.exit63.thread:   ; preds = %80, %64, %75, %logicalrep_should_publish_column.exit63, %164, %106, %86
+  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
+  %165 = load i32, ptr %.64.val, align 8
+  %166 = sext i32 %165 to i64
+  %167 = icmp slt i64 %indvars.iv.next23, %166
+  br i1 %167, label %64, label %._crit_edge15, !llvm.loop !145
 
-._crit_edge17:                                    ; preds = %logicalrep_should_publish_column.exit63.thread, %slot_getallattrs.exit
+._crit_edge15:                                    ; preds = %logicalrep_should_publish_column.exit63.thread, %slot_getallattrs.exit
   ret void
 }
 
@@ -1759,7 +1761,6 @@ logicalrep_write_namespace.exit:                  ; preds = %33, %45
   store i32 %55, ptr %7, align 8, !alias.scope !212
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %57 = load ptr, ptr %56, align 8
-  %invariant.gep.i = getelementptr i8, ptr %57, i64 24
   %58 = load i32, ptr %57, align 8
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.lr.ph.i, label %._crit_edge.i
@@ -1772,198 +1773,201 @@ logicalrep_write_namespace.exit:                  ; preds = %33, %45
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   %wide.trip.count.i = zext nneg i32 %58 to i64
   %61 = shl nuw nsw i64 %wide.trip.count.i, 4
-  %gep.us.i = getelementptr i8, ptr %invariant.gep.i, i64 %61
-  br label %62
+  %62 = getelementptr i8, ptr %57, i64 %61
+  %63 = getelementptr i8, ptr %62, i64 24
+  br label %64
 
-62:                                               ; preds = %logicalrep_should_publish_column.exit.thread.us.i, %.lr.ph.split.us.i
-  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %logicalrep_should_publish_column.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %.03652.us.i = phi i16 [ %71, %logicalrep_should_publish_column.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %63 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep.us.i, i64 %indvars.iv62.i
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 91
-  %65 = load i8, ptr %64, align 1, !range !121, !noundef !122
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %logicalrep_should_publish_column.exit.thread.us.i, label %67
+64:                                               ; preds = %logicalrep_should_publish_column.exit.thread.us.i, %.lr.ph.split.us.i
+  %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %logicalrep_should_publish_column.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
+  %.03652.us.i = phi i16 [ %73, %logicalrep_should_publish_column.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
+  %65 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %63, i64 %indvars.iv60.i
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 91
+  %67 = load i8, ptr %66, align 1, !range !121, !noundef !122
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %logicalrep_should_publish_column.exit.thread.us.i, label %69
 
-67:                                               ; preds = %62
-  %68 = getelementptr inbounds nuw i8, ptr %63, i64 90
-  %69 = load i8, ptr %68, align 2
-  switch i8 %69, label %logicalrep_should_publish_column.exit.thread.us.i [
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 90
+  %71 = load i8, ptr %70, align 2
+  switch i8 %71, label %logicalrep_should_publish_column.exit.thread.us.i [
     i8 0, label %logicalrep_should_publish_column.exit.thread45.us.i
     i8 115, label %logicalrep_should_publish_column.exit.us.i
   ]
 
-logicalrep_should_publish_column.exit.us.i:       ; preds = %67
+logicalrep_should_publish_column.exit.us.i:       ; preds = %69
   br i1 %60, label %logicalrep_should_publish_column.exit.thread45.us.i, label %logicalrep_should_publish_column.exit.thread.us.i
 
-logicalrep_should_publish_column.exit.thread45.us.i: ; preds = %logicalrep_should_publish_column.exit.us.i, %67
-  %70 = add i16 %.03652.us.i, 1
+logicalrep_should_publish_column.exit.thread45.us.i: ; preds = %logicalrep_should_publish_column.exit.us.i, %69
+  %72 = add i16 %.03652.us.i, 1
   br label %logicalrep_should_publish_column.exit.thread.us.i
 
-logicalrep_should_publish_column.exit.thread.us.i: ; preds = %logicalrep_should_publish_column.exit.thread45.us.i, %logicalrep_should_publish_column.exit.us.i, %67, %62
-  %71 = phi i16 [ %70, %logicalrep_should_publish_column.exit.thread45.us.i ], [ %.03652.us.i, %logicalrep_should_publish_column.exit.us.i ], [ %.03652.us.i, %62 ], [ %.03652.us.i, %67 ]
-  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %62, !llvm.loop !215
+logicalrep_should_publish_column.exit.thread.us.i: ; preds = %logicalrep_should_publish_column.exit.thread45.us.i, %logicalrep_should_publish_column.exit.us.i, %69, %64
+  %73 = phi i16 [ %72, %logicalrep_should_publish_column.exit.thread45.us.i ], [ %.03652.us.i, %logicalrep_should_publish_column.exit.us.i ], [ %.03652.us.i, %64 ], [ %.03652.us.i, %69 ]
+  %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next61.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %64, !llvm.loop !215
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %logicalrep_should_publish_column.exit.thread.i
-  %72 = phi i32 [ %85, %logicalrep_should_publish_column.exit.thread.i ], [ %58, %.lr.ph.i ]
+  %74 = phi i32 [ %89, %logicalrep_should_publish_column.exit.thread.i ], [ %58, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %logicalrep_should_publish_column.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.03652.i = phi i16 [ %86, %logicalrep_should_publish_column.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %73 = sext i32 %72 to i64
-  %74 = shl nsw i64 %73, 4
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %74
-  %75 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep.i, i64 %indvars.iv.i
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 91
-  %77 = load i8, ptr %76, align 1, !range !121, !noundef !122
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %logicalrep_should_publish_column.exit.thread.i, label %79
+  %.03652.i = phi i16 [ %90, %logicalrep_should_publish_column.exit.thread.i ], [ 0, %.lr.ph.i ]
+  %75 = sext i32 %74 to i64
+  %76 = shl nsw i64 %75, 4
+  %77 = getelementptr i8, ptr %57, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 24
+  %79 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %78, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 91
+  %81 = load i8, ptr %80, align 1, !range !121, !noundef !122
+  %82 = trunc nuw i8 %81 to i1
+  br i1 %82, label %logicalrep_should_publish_column.exit.thread.i, label %83
 
-79:                                               ; preds = %.lr.ph.split.i
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 74
-  %81 = load i16, ptr %80, align 2
-  %82 = sext i16 %81 to i32
-  %83 = tail call zeroext i1 @bms_is_member(i32 noundef %82, ptr noundef nonnull %3) #8
-  %cond.fr48.i = freeze i1 %83
-  %84 = zext i1 %cond.fr48.i to i16
-  %spec.select.i = add i16 %.03652.i, %84
+83:                                               ; preds = %.lr.ph.split.i
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 74
+  %85 = load i16, ptr %84, align 2
+  %86 = sext i16 %85 to i32
+  %87 = tail call zeroext i1 @bms_is_member(i32 noundef %86, ptr noundef nonnull %3) #8
+  %cond.fr48.i = freeze i1 %87
+  %88 = zext i1 %cond.fr48.i to i16
+  %spec.select.i = add i16 %.03652.i, %88
   %.pre.i = load i32, ptr %57, align 8
   %.pre = sext i32 %.pre.i to i64
   br label %logicalrep_should_publish_column.exit.thread.i
 
-logicalrep_should_publish_column.exit.thread.i:   ; preds = %79, %.lr.ph.split.i
-  %.pre-phi = phi i64 [ %.pre, %79 ], [ %73, %.lr.ph.split.i ]
-  %85 = phi i32 [ %.pre.i, %79 ], [ %72, %.lr.ph.split.i ]
-  %86 = phi i16 [ %spec.select.i, %79 ], [ %.03652.i, %.lr.ph.split.i ]
+logicalrep_should_publish_column.exit.thread.i:   ; preds = %83, %.lr.ph.split.i
+  %.pre-phi = phi i64 [ %.pre, %83 ], [ %75, %.lr.ph.split.i ]
+  %89 = phi i32 [ %.pre.i, %83 ], [ %74, %.lr.ph.split.i ]
+  %90 = phi i16 [ %spec.select.i, %83 ], [ %.03652.i, %.lr.ph.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %87 = icmp slt i64 %indvars.iv.next.i, %.pre-phi
-  br i1 %87, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !216
+  %91 = icmp slt i64 %indvars.iv.next.i, %.pre-phi
+  br i1 %91, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !216
 
 ._crit_edge.i:                                    ; preds = %logicalrep_should_publish_column.exit.thread.i, %logicalrep_should_publish_column.exit.thread.us.i, %logicalrep_write_namespace.exit
-  %.036.lcssa.i = phi i16 [ 0, %logicalrep_write_namespace.exit ], [ %71, %logicalrep_should_publish_column.exit.thread.us.i ], [ %86, %logicalrep_should_publish_column.exit.thread.i ]
+  %.036.lcssa.i = phi i16 [ 0, %logicalrep_write_namespace.exit ], [ %73, %logicalrep_should_publish_column.exit.thread.us.i ], [ %90, %logicalrep_should_publish_column.exit.thread.i ]
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 2) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
-  %88 = tail call i16 @llvm.bswap.i16(i16 %.036.lcssa.i)
-  %89 = load ptr, ptr %0, align 8, !alias.scope !217
-  %90 = load i32, ptr %7, align 8, !alias.scope !217
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i8, ptr %89, i64 %91
-  store i16 %88, ptr %92, align 1, !noalias !217
-  %93 = add i32 %90, 2
-  store i32 %93, ptr %7, align 8, !alias.scope !217
-  %94 = load ptr, ptr %28, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 126
-  %96 = load i8, ptr %95, align 2
-  %97 = icmp eq i8 %96, 102
-  br i1 %97, label %100, label %98
+  %92 = tail call i16 @llvm.bswap.i16(i16 %.036.lcssa.i)
+  %93 = load ptr, ptr %0, align 8, !alias.scope !217
+  %94 = load i32, ptr %7, align 8, !alias.scope !217
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds i8, ptr %93, i64 %95
+  store i16 %92, ptr %96, align 1, !noalias !217
+  %97 = add i32 %94, 2
+  store i32 %97, ptr %7, align 8, !alias.scope !217
+  %98 = load ptr, ptr %28, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 126
+  %100 = load i8, ptr %99, align 2
+  %101 = icmp eq i8 %100, 102
+  br i1 %101, label %104, label %102
 
-98:                                               ; preds = %._crit_edge.i
-  %99 = tail call ptr @RelationGetIdentityKeyBitmap(ptr noundef nonnull %2) #8
-  br label %100
-
-100:                                              ; preds = %98, %._crit_edge.i
-  %.038.i = phi ptr [ null, %._crit_edge.i ], [ %99, %98 ]
-  %101 = load i32, ptr %57, align 8
-  %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %.lr.ph58.i, label %logicalrep_write_attrs.exit
-
-.lr.ph58.i:                                       ; preds = %100
-  %.not.i40.i = icmp eq ptr %3, null
-  %103 = icmp eq i32 %4, 115
+102:                                              ; preds = %._crit_edge.i
+  %103 = tail call ptr @RelationGetIdentityKeyBitmap(ptr noundef nonnull %2) #8
   br label %104
 
-104:                                              ; preds = %logicalrep_should_publish_column.exit42.thread.i, %.lr.ph58.i
-  %indvars.iv64.i = phi i64 [ 0, %.lr.ph58.i ], [ %indvars.iv.next65.i, %logicalrep_should_publish_column.exit42.thread.i ]
-  %105 = phi i32 [ %101, %.lr.ph58.i ], [ %148, %logicalrep_should_publish_column.exit42.thread.i ]
-  %106 = sext i32 %105 to i64
-  %107 = shl nsw i64 %106, 4
-  %gep55.i = getelementptr i8, ptr %invariant.gep.i, i64 %107
-  %108 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep55.i, i64 %indvars.iv64.i
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 91
-  %110 = load i8, ptr %109, align 1, !range !121, !noundef !122
-  %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %logicalrep_should_publish_column.exit42.thread.i, label %112
+104:                                              ; preds = %102, %._crit_edge.i
+  %.038.i = phi ptr [ null, %._crit_edge.i ], [ %103, %102 ]
+  %105 = load i32, ptr %57, align 8
+  %106 = icmp sgt i32 %105, 0
+  br i1 %106, label %.lr.ph56.i, label %logicalrep_write_attrs.exit
 
-112:                                              ; preds = %104
-  br i1 %.not.i40.i, label %118, label %113
+.lr.ph56.i:                                       ; preds = %104
+  %.not.i40.i = icmp eq ptr %3, null
+  %107 = icmp eq i32 %4, 115
+  br label %108
 
-113:                                              ; preds = %112
-  %114 = getelementptr inbounds nuw i8, ptr %108, i64 74
-  %115 = load i16, ptr %114, align 2
-  %116 = sext i16 %115 to i32
-  %117 = tail call zeroext i1 @bms_is_member(i32 noundef %116, ptr noundef nonnull %3) #8
-  br i1 %117, label %logicalrep_should_publish_column.exit42.thread50.i, label %logicalrep_should_publish_column.exit42.thread.i
+108:                                              ; preds = %logicalrep_should_publish_column.exit42.thread.i, %.lr.ph56.i
+  %indvars.iv62.i = phi i64 [ 0, %.lr.ph56.i ], [ %indvars.iv.next63.i, %logicalrep_should_publish_column.exit42.thread.i ]
+  %109 = phi i32 [ %105, %.lr.ph56.i ], [ %154, %logicalrep_should_publish_column.exit42.thread.i ]
+  %110 = sext i32 %109 to i64
+  %111 = shl nsw i64 %110, 4
+  %112 = getelementptr i8, ptr %57, i64 %111
+  %113 = getelementptr i8, ptr %112, i64 24
+  %114 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %113, i64 %indvars.iv62.i
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 91
+  %116 = load i8, ptr %115, align 1, !range !121, !noundef !122
+  %117 = trunc nuw i8 %116 to i1
+  br i1 %117, label %logicalrep_should_publish_column.exit42.thread.i, label %118
 
-118:                                              ; preds = %112
-  %119 = getelementptr inbounds nuw i8, ptr %108, i64 90
-  %120 = load i8, ptr %119, align 2
-  switch i8 %120, label %logicalrep_should_publish_column.exit42.thread.i [
+118:                                              ; preds = %108
+  br i1 %.not.i40.i, label %124, label %119
+
+119:                                              ; preds = %118
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 74
+  %121 = load i16, ptr %120, align 2
+  %122 = sext i16 %121 to i32
+  %123 = tail call zeroext i1 @bms_is_member(i32 noundef %122, ptr noundef nonnull %3) #8
+  br i1 %123, label %logicalrep_should_publish_column.exit42.thread50.i, label %logicalrep_should_publish_column.exit42.thread.i
+
+124:                                              ; preds = %118
+  %125 = getelementptr inbounds nuw i8, ptr %114, i64 90
+  %126 = load i8, ptr %125, align 2
+  switch i8 %126, label %logicalrep_should_publish_column.exit42.thread.i [
     i8 0, label %logicalrep_should_publish_column.exit42.thread50.i
     i8 115, label %logicalrep_should_publish_column.exit42.i
   ]
 
-logicalrep_should_publish_column.exit42.i:        ; preds = %118
-  br i1 %103, label %logicalrep_should_publish_column.exit42.thread50.i, label %logicalrep_should_publish_column.exit42.thread.i
+logicalrep_should_publish_column.exit42.i:        ; preds = %124
+  br i1 %107, label %logicalrep_should_publish_column.exit42.thread50.i, label %logicalrep_should_publish_column.exit42.thread.i
 
-logicalrep_should_publish_column.exit42.thread50.i: ; preds = %logicalrep_should_publish_column.exit42.i, %118, %113
-  br i1 %97, label %.split.i, label %121
+logicalrep_should_publish_column.exit42.thread50.i: ; preds = %logicalrep_should_publish_column.exit42.i, %124, %119
+  br i1 %101, label %.split.i, label %127
 
-121:                                              ; preds = %logicalrep_should_publish_column.exit42.thread50.i
-  %122 = getelementptr inbounds nuw i8, ptr %108, i64 74
-  %123 = load i16, ptr %122, align 2
-  %124 = sext i16 %123 to i32
-  %125 = add nsw i32 %124, 7
-  %126 = tail call zeroext i1 @bms_is_member(i32 noundef %125, ptr noundef %.038.i) #8
-  br i1 %126, label %.split.i, label %.split39.i
+127:                                              ; preds = %logicalrep_should_publish_column.exit42.thread50.i
+  %128 = getelementptr inbounds nuw i8, ptr %114, i64 74
+  %129 = load i16, ptr %128, align 2
+  %130 = sext i16 %129 to i32
+  %131 = add nsw i32 %130, 7
+  %132 = tail call zeroext i1 @bms_is_member(i32 noundef %131, ptr noundef %.038.i) #8
+  br i1 %132, label %.split.i, label %.split39.i
 
-.split.i:                                         ; preds = %121, %logicalrep_should_publish_column.exit42.thread50.i
+.split.i:                                         ; preds = %127, %logicalrep_should_publish_column.exit42.thread50.i
   br label %.split39.i
 
-.split39.i:                                       ; preds = %121, %.split.i
-  %.sink.i = phi i8 [ 1, %.split.i ], [ 0, %121 ]
+.split39.i:                                       ; preds = %127, %.split.i
+  %.sink.i = phi i8 [ 1, %.split.i ], [ 0, %127 ]
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
-  %127 = load ptr, ptr %0, align 8
-  %128 = load i32, ptr %7, align 8
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i8, ptr %127, i64 %129
-  store i8 %.sink.i, ptr %130, align 1, !noalias !122
-  %storemerge.i = add i32 %128, 1
+  %133 = load ptr, ptr %0, align 8
+  %134 = load i32, ptr %7, align 8
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds i8, ptr %133, i64 %135
+  store i8 %.sink.i, ptr %136, align 1, !noalias !122
+  %storemerge.i = add i32 %134, 1
   store i32 %storemerge.i, ptr %7, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %108, i64 4
-  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %131) #8
-  %132 = getelementptr inbounds nuw i8, ptr %108, i64 68
-  %133 = load i32, ptr %132, align 4
+  %137 = getelementptr inbounds nuw i8, ptr %114, i64 4
+  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %137) #8
+  %138 = getelementptr inbounds nuw i8, ptr %114, i64 68
+  %139 = load i32, ptr %138, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
-  %134 = tail call i32 @llvm.bswap.i32(i32 %133)
-  %135 = load ptr, ptr %0, align 8, !alias.scope !220
-  %136 = load i32, ptr %7, align 8, !alias.scope !220
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i8, ptr %135, i64 %137
-  store i32 %134, ptr %138, align 1, !noalias !220
-  %139 = add i32 %136, 4
-  store i32 %139, ptr %7, align 8, !alias.scope !220
-  %140 = getelementptr inbounds nuw i8, ptr %108, i64 76
-  %141 = load i32, ptr %140, align 4
+  %140 = tail call i32 @llvm.bswap.i32(i32 %139)
+  %141 = load ptr, ptr %0, align 8, !alias.scope !220
+  %142 = load i32, ptr %7, align 8, !alias.scope !220
+  %143 = sext i32 %142 to i64
+  %144 = getelementptr inbounds i8, ptr %141, i64 %143
+  store i32 %140, ptr %144, align 1, !noalias !220
+  %145 = add i32 %142, 4
+  store i32 %145, ptr %7, align 8, !alias.scope !220
+  %146 = getelementptr inbounds nuw i8, ptr %114, i64 76
+  %147 = load i32, ptr %146, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
-  %142 = tail call i32 @llvm.bswap.i32(i32 %141)
-  %143 = load ptr, ptr %0, align 8, !alias.scope !223
-  %144 = load i32, ptr %7, align 8, !alias.scope !223
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds i8, ptr %143, i64 %145
-  store i32 %142, ptr %146, align 1, !noalias !223
-  %147 = add i32 %144, 4
-  store i32 %147, ptr %7, align 8, !alias.scope !223
+  %148 = tail call i32 @llvm.bswap.i32(i32 %147)
+  %149 = load ptr, ptr %0, align 8, !alias.scope !223
+  %150 = load i32, ptr %7, align 8, !alias.scope !223
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr inbounds i8, ptr %149, i64 %151
+  store i32 %148, ptr %152, align 1, !noalias !223
+  %153 = add i32 %150, 4
+  store i32 %153, ptr %7, align 8, !alias.scope !223
   br label %logicalrep_should_publish_column.exit42.thread.i
 
-logicalrep_should_publish_column.exit42.thread.i: ; preds = %.split39.i, %logicalrep_should_publish_column.exit42.i, %118, %113, %104
-  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %148 = load i32, ptr %57, align 8
-  %149 = sext i32 %148 to i64
-  %150 = icmp slt i64 %indvars.iv.next65.i, %149
-  br i1 %150, label %104, label %logicalrep_write_attrs.exit, !llvm.loop !226
+logicalrep_should_publish_column.exit42.thread.i: ; preds = %.split39.i, %logicalrep_should_publish_column.exit42.i, %124, %119, %108
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
+  %154 = load i32, ptr %57, align 8
+  %155 = sext i32 %154 to i64
+  %156 = icmp slt i64 %indvars.iv.next63.i, %155
+  br i1 %156, label %108, label %logicalrep_write_attrs.exit, !llvm.loop !226
 
-logicalrep_write_attrs.exit:                      ; preds = %logicalrep_should_publish_column.exit42.thread.i, %100
+logicalrep_write_attrs.exit:                      ; preds = %logicalrep_should_publish_column.exit42.thread.i, %104
   tail call void @bms_free(ptr noundef %.038.i) #8
   ret void
 }

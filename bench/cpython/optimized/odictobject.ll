@@ -3704,7 +3704,7 @@ PyODict_SetItem.exit.i:                           ; preds = %28
   br label %OrderedDict_setdefault_impl.exit
 
 OrderedDict_setdefault_impl.exit:                 ; preds = %55, %52, %49, %47, %43, %41, %38, %36, %33, %PyODict_SetItem.exit.i, %28, %26, %12
-  %.023 = phi ptr [ null, %12 ], [ null, %26 ], [ null, %PyODict_SetItem.exit.i ], [ %.0, %33 ], [ %.0, %36 ], [ %24, %38 ], [ %24, %41 ], [ null, %28 ], [ null, %43 ], [ %48, %47 ], [ null, %49 ], [ %.0, %52 ], [ %.0, %55 ]
+  %.023 = phi ptr [ null, %12 ], [ null, %26 ], [ null, %PyODict_SetItem.exit.i ], [ null, %43 ], [ %.0, %33 ], [ %.0, %36 ], [ %24, %38 ], [ %24, %41 ], [ %48, %47 ], [ null, %49 ], [ %.0, %52 ], [ %.0, %55 ], [ null, %28 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   ret ptr %.023
 }

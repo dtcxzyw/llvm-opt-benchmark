@@ -3310,13 +3310,13 @@ define internal fastcc void @_mpd_fix_nan(ptr noundef %0, i64 %.0.val, i32 %.40.
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = icmp sgt i64 %7, 0
-  br i1 %8, label %9, label %142
+  br i1 %8, label %9, label %144
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !11
   %12 = icmp sgt i64 %11, %5
-  br i1 %12, label %13, label %142
+  br i1 %12, label %13, label %144
 
 13:                                               ; preds = %9
   %14 = icmp eq i64 %.0.val, %4
@@ -3385,173 +3385,173 @@ define internal fastcc void @_mpd_fix_nan(ptr noundef %0, i64 %.0.val, i32 %.40.
 46:                                               ; preds = %._crit_edge, %37
   %47 = phi ptr [ %.pre, %._crit_edge ], [ %41, %37 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %invariant.gep.i = getelementptr i8, ptr %47, i64 -8
   %49 = icmp sgt i64 %36, 1
   br i1 %49, label %.lr.ph.i, label %_mpd_real_size.exit
 
-.lr.ph.i:                                         ; preds = %46, %52
-  %.04.i = phi i64 [ %53, %52 ], [ %36, %46 ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.04.i
-  %50 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %_mpd_real_size.exit
+.lr.ph.i:                                         ; preds = %46, %54
+  %.04.i = phi i64 [ %55, %54 ], [ %36, %46 ]
+  %50 = getelementptr i64, ptr %47, i64 %.04.i
+  %51 = getelementptr i8, ptr %50, i64 -8
+  %52 = load i64, ptr %51, align 8, !tbaa !3
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %54, label %_mpd_real_size.exit
 
-52:                                               ; preds = %.lr.ph.i
-  %53 = add nsw i64 %.04.i, -1
-  %54 = icmp sgt i64 %.04.i, 2
-  br i1 %54, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
+54:                                               ; preds = %.lr.ph.i
+  %55 = add nsw i64 %.04.i, -1
+  %56 = icmp sgt i64 %.04.i, 2
+  br i1 %56, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
 
-_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %52, %46
-  %.0.lcssa.i = phi i64 [ %36, %46 ], [ %.04.i, %.lr.ph.i ], [ 1, %52 ]
-  %55 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %56 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %55)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %58 = load i64, ptr %57, align 8, !tbaa !21
-  %59 = icmp eq i64 %56, %58
-  br i1 %59, label %mpd_qresize.exit, label %60
+_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %54, %46
+  %.0.lcssa.i = phi i64 [ %36, %46 ], [ %.04.i, %.lr.ph.i ], [ 1, %54 ]
+  %57 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %58 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %57)
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %60 = load i64, ptr %59, align 8, !tbaa !21
+  %61 = icmp eq i64 %58, %60
+  br i1 %61, label %mpd_qresize.exit, label %62
 
-60:                                               ; preds = %_mpd_real_size.exit
-  %61 = load i8, ptr %0, align 8, !tbaa !19
-  %62 = and i8 %61, 32
-  %.not.i = icmp eq i8 %62, 0
-  br i1 %.not.i, label %67, label %63
+62:                                               ; preds = %_mpd_real_size.exit
+  %63 = load i8, ptr %0, align 8, !tbaa !19
+  %64 = and i8 %63, 32
+  %.not.i = icmp eq i8 %64, 0
+  br i1 %.not.i, label %69, label %65
 
-63:                                               ; preds = %60
-  %64 = icmp sgt i64 %56, %58
-  br i1 %64, label %65, label %mpd_qresize.exit
+65:                                               ; preds = %62
+  %66 = icmp sgt i64 %58, %60
+  br i1 %66, label %67, label %mpd_qresize.exit
 
-65:                                               ; preds = %63
-  %66 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %56, ptr noundef nonnull %3) #33
+67:                                               ; preds = %65
+  %68 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef nonnull %3) #33
   br label %mpd_qresize.exit
 
-67:                                               ; preds = %60
-  %68 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %56, ptr noundef nonnull %3) #33
+69:                                               ; preds = %62
+  %70 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %58, ptr noundef nonnull %3) #33
   br label %mpd_qresize.exit
 
-mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %63, %65, %67
+mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %65, %67, %69
   store i64 %.0.lcssa.i, ptr %6, align 8, !tbaa !18
-  %69 = load ptr, ptr %48, align 8, !tbaa !17
-  %70 = getelementptr i64, ptr %69, i64 %.0.lcssa.i
-  %71 = getelementptr i8, ptr %70, i64 -8
-  %72 = load i64, ptr %71, align 8, !tbaa !3
-  %73 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
-  %74 = icmp ult i64 %72, %73
-  br i1 %74, label %75, label %103
+  %71 = load ptr, ptr %48, align 8, !tbaa !17
+  %72 = getelementptr i64, ptr %71, i64 %.0.lcssa.i
+  %73 = getelementptr i8, ptr %72, i64 -8
+  %74 = load i64, ptr %73, align 8, !tbaa !3
+  %75 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
+  %76 = icmp ult i64 %74, %75
+  br i1 %76, label %77, label %105
 
-75:                                               ; preds = %mpd_qresize.exit
-  %76 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
-  %77 = icmp ult i64 %72, %76
-  br i1 %77, label %78, label %89
+77:                                               ; preds = %mpd_qresize.exit
+  %78 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
+  %79 = icmp ult i64 %74, %78
+  br i1 %79, label %80, label %91
 
-78:                                               ; preds = %75
-  %79 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
-  %80 = icmp ult i64 %72, %79
-  br i1 %80, label %81, label %85
+80:                                               ; preds = %77
+  %81 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
+  %82 = icmp ult i64 %74, %81
+  br i1 %82, label %83, label %87
 
-81:                                               ; preds = %78
-  %82 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
-  %83 = icmp ult i64 %72, %82
-  %84 = select i1 %83, i64 1, i64 2
+83:                                               ; preds = %80
+  %84 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
+  %85 = icmp ult i64 %74, %84
+  %86 = select i1 %85, i64 1, i64 2
   br label %mpd_setdigits.exit
 
-85:                                               ; preds = %78
-  %86 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
-  %87 = icmp ult i64 %72, %86
-  %88 = select i1 %87, i64 3, i64 4
+87:                                               ; preds = %80
+  %88 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
+  %89 = icmp ult i64 %74, %88
+  %90 = select i1 %89, i64 3, i64 4
   br label %mpd_setdigits.exit
 
-89:                                               ; preds = %75
-  %90 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
-  %91 = icmp ult i64 %72, %90
-  br i1 %91, label %92, label %96
+91:                                               ; preds = %77
+  %92 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
+  %93 = icmp ult i64 %74, %92
+  br i1 %93, label %94, label %98
 
-92:                                               ; preds = %89
-  %93 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
-  %94 = icmp ult i64 %72, %93
-  %95 = select i1 %94, i64 5, i64 6
+94:                                               ; preds = %91
+  %95 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
+  %96 = icmp ult i64 %74, %95
+  %97 = select i1 %96, i64 5, i64 6
   br label %mpd_setdigits.exit
 
-96:                                               ; preds = %89
-  %97 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
-  %98 = icmp ult i64 %72, %97
-  br i1 %98, label %99, label %mpd_setdigits.exit
+98:                                               ; preds = %91
+  %99 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
+  %100 = icmp ult i64 %74, %99
+  br i1 %100, label %101, label %mpd_setdigits.exit
 
-99:                                               ; preds = %96
-  %100 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
-  %101 = icmp ult i64 %72, %100
-  %102 = select i1 %101, i64 7, i64 8
+101:                                              ; preds = %98
+  %102 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
+  %103 = icmp ult i64 %74, %102
+  %104 = select i1 %103, i64 7, i64 8
   br label %mpd_setdigits.exit
 
-103:                                              ; preds = %mpd_qresize.exit
-  %104 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
-  %105 = icmp ult i64 %72, %104
-  br i1 %105, label %106, label %120
+105:                                              ; preds = %mpd_qresize.exit
+  %106 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
+  %107 = icmp ult i64 %74, %106
+  br i1 %107, label %108, label %122
 
-106:                                              ; preds = %103
-  %107 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
-  %108 = icmp ult i64 %72, %107
-  br i1 %108, label %109, label %113
+108:                                              ; preds = %105
+  %109 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
+  %110 = icmp ult i64 %74, %109
+  br i1 %110, label %111, label %115
 
-109:                                              ; preds = %106
-  %110 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
-  %111 = icmp ult i64 %72, %110
-  %112 = select i1 %111, i64 10, i64 11
+111:                                              ; preds = %108
+  %112 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
+  %113 = icmp ult i64 %74, %112
+  %114 = select i1 %113, i64 10, i64 11
   br label %mpd_setdigits.exit
 
-113:                                              ; preds = %106
-  %114 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
-  %115 = icmp ult i64 %72, %114
-  br i1 %115, label %116, label %mpd_setdigits.exit
+115:                                              ; preds = %108
+  %116 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
+  %117 = icmp ult i64 %74, %116
+  br i1 %117, label %118, label %mpd_setdigits.exit
 
-116:                                              ; preds = %113
-  %117 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
-  %118 = icmp ult i64 %72, %117
-  %119 = select i1 %118, i64 12, i64 13
+118:                                              ; preds = %115
+  %119 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
+  %120 = icmp ult i64 %74, %119
+  %121 = select i1 %120, i64 12, i64 13
   br label %mpd_setdigits.exit
 
-120:                                              ; preds = %103
-  %121 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
-  %122 = icmp ult i64 %72, %121
-  br i1 %122, label %123, label %134
+122:                                              ; preds = %105
+  %123 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
+  %124 = icmp ult i64 %74, %123
+  br i1 %124, label %125, label %136
 
-123:                                              ; preds = %120
-  %124 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
-  %125 = icmp ult i64 %72, %124
-  br i1 %125, label %126, label %130
+125:                                              ; preds = %122
+  %126 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
+  %127 = icmp ult i64 %74, %126
+  br i1 %127, label %128, label %132
 
-126:                                              ; preds = %123
-  %127 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
-  %128 = icmp ult i64 %72, %127
-  %129 = select i1 %128, i64 15, i64 16
+128:                                              ; preds = %125
+  %129 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
+  %130 = icmp ult i64 %74, %129
+  %131 = select i1 %130, i64 15, i64 16
   br label %mpd_setdigits.exit
 
-130:                                              ; preds = %123
-  %131 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
-  %132 = icmp ult i64 %72, %131
-  %133 = select i1 %132, i64 17, i64 18
+132:                                              ; preds = %125
+  %133 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
+  %134 = icmp ult i64 %74, %133
+  %135 = select i1 %134, i64 17, i64 18
   br label %mpd_setdigits.exit
 
-134:                                              ; preds = %120
-  %135 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
-  %136 = icmp ult i64 %72, %135
-  %137 = select i1 %136, i64 19, i64 20
+136:                                              ; preds = %122
+  %137 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
+  %138 = icmp ult i64 %74, %137
+  %139 = select i1 %138, i64 19, i64 20
   br label %mpd_setdigits.exit
 
-mpd_setdigits.exit:                               ; preds = %81, %85, %92, %96, %99, %109, %113, %116, %126, %130, %134
-  %.0.i.i = phi i64 [ %84, %81 ], [ %88, %85 ], [ %95, %92 ], [ %102, %99 ], [ %112, %109 ], [ %119, %116 ], [ %129, %126 ], [ %133, %130 ], [ %137, %134 ], [ 9, %96 ], [ 14, %113 ]
-  %138 = mul i64 %.0.lcssa.i, 19
-  %139 = add i64 %138, -19
-  %140 = add i64 %139, %.0.i.i
-  store i64 %140, ptr %10, align 8, !tbaa !11
-  %141 = load i64, ptr %71, align 8, !tbaa !3
-  %.not4 = icmp eq i64 %141, 0
-  br i1 %.not4, label %.sink.split, label %142
+mpd_setdigits.exit:                               ; preds = %83, %87, %94, %98, %101, %111, %115, %118, %128, %132, %136
+  %.0.i.i = phi i64 [ %86, %83 ], [ %90, %87 ], [ %97, %94 ], [ %104, %101 ], [ %114, %111 ], [ %121, %118 ], [ %131, %128 ], [ %135, %132 ], [ %139, %136 ], [ 9, %98 ], [ 14, %115 ]
+  %140 = mul i64 %.0.lcssa.i, 19
+  %141 = add i64 %140, -19
+  %142 = add i64 %141, %.0.i.i
+  store i64 %142, ptr %10, align 8, !tbaa !11
+  %143 = load i64, ptr %73, align 8, !tbaa !3
+  %.not4 = icmp eq i64 %143, 0
+  br i1 %.not4, label %.sink.split, label %144
 
 .sink.split:                                      ; preds = %mpd_setdigits.exit, %30, %18, %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  br label %142
+  br label %144
 
-142:                                              ; preds = %.sink.split, %mpd_setdigits.exit, %9, %1
+144:                                              ; preds = %.sink.split, %mpd_setdigits.exit, %9, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #33
   ret void
 }
@@ -5951,7 +5951,7 @@ mpd_seterror.exit:                                ; preds = %20, %23, %35
   %40 = load i32, ptr %4, align 4, !tbaa !23
   %41 = or i32 %40, 256
   store i32 %41, ptr %4, align 4, !tbaa !23
-  br label %227
+  br label %230
 
 42:                                               ; preds = %17
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5991,7 +5991,7 @@ mpd_seterror.exit:                                ; preds = %20, %23, %35
 mpd_qresize.exit118:                              ; preds = %60, %62
   %.0.i117 = phi i32 [ %61, %60 ], [ %63, %62 ]
   %.not111 = icmp eq i32 %.0.i117, 0
-  br i1 %.not111, label %227, label %.preheader125
+  br i1 %.not111, label %230, label %.preheader125
 
 .preheader125:                                    ; preds = %58, %42, %mpd_qresize.exit118
   %64 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
@@ -6168,151 +6168,151 @@ mpd_qresize.exit118:                              ; preds = %60, %62
 
 mpd_word_digits.exit:                             ; preds = %112, %116, %123, %127, %130, %140, %144, %147, %157, %161, %165
   %.0.i = phi i32 [ %115, %112 ], [ %119, %116 ], [ %126, %123 ], [ %133, %130 ], [ %143, %140 ], [ %150, %147 ], [ %160, %157 ], [ %164, %161 ], [ %168, %165 ], [ 9, %127 ], [ 14, %144 ]
-  %wide.trip.count = zext nneg i32 %.0.i to i64
-  br label %169
+  %169 = zext nneg i32 %.0.i to i64
+  br label %170
 
-169:                                              ; preds = %mpd_word_digits.exit, %181
-  %indvars.iv160 = phi i64 [ 0, %mpd_word_digits.exit ], [ %indvars.iv.next161, %181 ]
-  %.194139 = phi i64 [ 0, %mpd_word_digits.exit ], [ %183, %181 ]
-  %.196138 = phi i64 [ %103, %mpd_word_digits.exit ], [ %173, %181 ]
-  %.1100137 = phi i64 [ %101, %mpd_word_digits.exit ], [ %171, %181 ]
-  %170 = urem i64 %.1100137, 10
-  %171 = udiv i64 %.1100137, 10
-  %172 = urem i64 %.196138, 10
-  %173 = udiv i64 %.196138, 10
-  %174 = icmp samesign ugt i64 %170, 1
-  %175 = icmp samesign ugt i64 %172, 1
-  %or.cond3 = select i1 %174, i1 true, i1 %175
-  br i1 %or.cond3, label %.loopexit121, label %176
+170:                                              ; preds = %mpd_word_digits.exit, %182
+  %indvars.iv160 = phi i64 [ 0, %mpd_word_digits.exit ], [ %indvars.iv.next161, %182 ]
+  %.194139 = phi i64 [ 0, %mpd_word_digits.exit ], [ %184, %182 ]
+  %.196138 = phi i64 [ %103, %mpd_word_digits.exit ], [ %174, %182 ]
+  %.1100137 = phi i64 [ %101, %mpd_word_digits.exit ], [ %172, %182 ]
+  %171 = urem i64 %.1100137, 10
+  %172 = udiv i64 %.1100137, 10
+  %173 = urem i64 %.196138, 10
+  %174 = udiv i64 %.196138, 10
+  %175 = icmp samesign ugt i64 %171, 1
+  %176 = icmp samesign ugt i64 %173, 1
+  %or.cond3 = select i1 %175, i1 true, i1 %176
+  br i1 %or.cond3, label %.loopexit121, label %177
 
-176:                                              ; preds = %169
-  %177 = and i64 %172, %170
-  %.not112 = icmp eq i64 %177, 0
-  br i1 %.not112, label %181, label %178
+177:                                              ; preds = %170
+  %178 = and i64 %173, %171
+  %.not112 = icmp eq i64 %178, 0
+  br i1 %.not112, label %182, label %179
 
-178:                                              ; preds = %176
-  %179 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %indvars.iv160
-  %180 = load i64, ptr %179, align 8, !tbaa !3
-  br label %181
+179:                                              ; preds = %177
+  %180 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %indvars.iv160
+  %181 = load i64, ptr %180, align 8, !tbaa !3
+  br label %182
 
-181:                                              ; preds = %176, %178
-  %182 = phi i64 [ %180, %178 ], [ 0, %176 ]
-  %183 = add i64 %182, %.194139
+182:                                              ; preds = %177, %179
+  %183 = phi i64 [ %181, %179 ], [ 0, %177 ]
+  %184 = add i64 %183, %.194139
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
-  %exitcond163.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count
-  br i1 %exitcond163.not, label %184, label %169, !llvm.loop !34
+  %exitcond164.not = icmp eq i64 %indvars.iv.next161, %169
+  br i1 %exitcond164.not, label %185, label %170, !llvm.loop !34
 
-184:                                              ; preds = %181
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %186 = load ptr, ptr %185, align 8, !tbaa !17
-  %187 = getelementptr i64, ptr %186, i64 %.0.lcssa
-  store i64 %183, ptr %187, align 8, !tbaa !3
-  %188 = icmp samesign ult i32 %.0.i, 19
-  br i1 %188, label %.lr.ph144, label %.preheader
+185:                                              ; preds = %182
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %187 = load ptr, ptr %186, align 8, !tbaa !17
+  %188 = getelementptr i64, ptr %187, i64 %.0.lcssa
+  store i64 %184, ptr %188, align 8, !tbaa !3
+  %189 = icmp samesign ult i32 %.0.i, 19
+  br i1 %189, label %.lr.ph144, label %.preheader
 
-.preheader:                                       ; preds = %194, %184
-  %189 = load i64, ptr %48, align 8, !tbaa !18
+.preheader:                                       ; preds = %195, %185
+  %190 = load i64, ptr %48, align 8, !tbaa !18
   %.1147 = add i64 %.0.lcssa, 1
-  %190 = icmp slt i64 %.1147, %189
-  br i1 %190, label %.lr.ph149, label %._crit_edge150
+  %191 = icmp slt i64 %.1147, %190
+  br i1 %191, label %.lr.ph149, label %._crit_edge150
 
-.lr.ph144:                                        ; preds = %184, %194
-  %.2142 = phi i32 [ %195, %194 ], [ %.0.i, %184 ]
-  %.297141 = phi i64 [ %192, %194 ], [ %173, %184 ]
-  %191 = urem i64 %.297141, 10
-  %192 = udiv i64 %.297141, 10
-  %193 = icmp samesign ugt i64 %191, 1
-  br i1 %193, label %.loopexit121, label %194
+.lr.ph144:                                        ; preds = %185, %195
+  %.2142 = phi i32 [ %196, %195 ], [ %.0.i, %185 ]
+  %.297141 = phi i64 [ %193, %195 ], [ %174, %185 ]
+  %192 = urem i64 %.297141, 10
+  %193 = udiv i64 %.297141, 10
+  %194 = icmp samesign ugt i64 %192, 1
+  br i1 %194, label %.loopexit121, label %195
 
-194:                                              ; preds = %.lr.ph144
-  %195 = add nuw nsw i32 %.2142, 1
-  %exitcond164.not = icmp eq i32 %195, 19
-  br i1 %exitcond164.not, label %.preheader, label %.lr.ph144, !llvm.loop !35
+195:                                              ; preds = %.lr.ph144
+  %196 = add nuw nsw i32 %.2142, 1
+  %exitcond166.not = icmp eq i32 %196, 19
+  br i1 %exitcond166.not, label %.preheader, label %.lr.ph144, !llvm.loop !35
 
-.loopexit:                                        ; preds = %202
+.loopexit:                                        ; preds = %203
   %.1 = add nsw i64 %.1148, 1
-  %exitcond166.not = icmp eq i64 %.1, %189
-  br i1 %exitcond166.not, label %._crit_edge150, label %.lr.ph149, !llvm.loop !36
+  %exitcond168.not = icmp eq i64 %.1, %190
+  br i1 %exitcond168.not, label %._crit_edge150, label %.lr.ph149, !llvm.loop !36
 
 .lr.ph149:                                        ; preds = %.preheader, %.loopexit
   %.1148 = phi i64 [ %.1, %.loopexit ], [ %.1147, %.preheader ]
-  %196 = getelementptr i64, ptr %71, i64 %.1148
-  %197 = load i64, ptr %196, align 8, !tbaa !3
-  br label %198
+  %197 = getelementptr i64, ptr %71, i64 %.1148
+  %198 = load i64, ptr %197, align 8, !tbaa !3
+  br label %199
 
-198:                                              ; preds = %.lr.ph149, %202
-  %.3146 = phi i32 [ 0, %.lr.ph149 ], [ %203, %202 ]
-  %.398145 = phi i64 [ %197, %.lr.ph149 ], [ %200, %202 ]
-  %199 = urem i64 %.398145, 10
-  %200 = udiv i64 %.398145, 10
-  %201 = icmp samesign ugt i64 %199, 1
-  br i1 %201, label %.loopexit121, label %202
+199:                                              ; preds = %.lr.ph149, %203
+  %.3146 = phi i32 [ 0, %.lr.ph149 ], [ %204, %203 ]
+  %.398145 = phi i64 [ %198, %.lr.ph149 ], [ %201, %203 ]
+  %200 = urem i64 %.398145, 10
+  %201 = udiv i64 %.398145, 10
+  %202 = icmp samesign ugt i64 %200, 1
+  br i1 %202, label %.loopexit121, label %203
 
-202:                                              ; preds = %198
-  %203 = add nuw nsw i32 %.3146, 1
-  %exitcond165.not = icmp eq i32 %203, 19
-  br i1 %exitcond165.not, label %.loopexit, label %198, !llvm.loop !37
+203:                                              ; preds = %199
+  %204 = add nuw nsw i32 %.3146, 1
+  %exitcond167.not = icmp eq i32 %204, 19
+  br i1 %exitcond167.not, label %.loopexit, label %199, !llvm.loop !37
 
 ._crit_edge150:                                   ; preds = %.loopexit, %.preheader
-  %204 = load i8, ptr %0, align 8, !tbaa !19
-  %205 = and i8 %204, -16
-  store i8 %205, ptr %0, align 8, !tbaa !19
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %206, align 8, !tbaa !7
-  %207 = load i64, ptr %64, align 8, !tbaa !18
-  %invariant.gep.i = getelementptr i8, ptr %186, i64 -8
-  %208 = icmp sgt i64 %207, 1
-  br i1 %208, label %.lr.ph.i, label %_mpd_real_size.exit
+  %205 = load i8, ptr %0, align 8, !tbaa !19
+  %206 = and i8 %205, -16
+  store i8 %206, ptr %0, align 8, !tbaa !19
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %207, align 8, !tbaa !7
+  %208 = load i64, ptr %64, align 8, !tbaa !18
+  %209 = icmp sgt i64 %208, 1
+  br i1 %209, label %.lr.ph.i, label %_mpd_real_size.exit
 
-.lr.ph.i:                                         ; preds = %._crit_edge150, %211
-  %.04.i = phi i64 [ %212, %211 ], [ %207, %._crit_edge150 ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.04.i
-  %209 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %210 = icmp eq i64 %209, 0
-  br i1 %210, label %211, label %_mpd_real_size.exit
+.lr.ph.i:                                         ; preds = %._crit_edge150, %214
+  %.04.i = phi i64 [ %215, %214 ], [ %208, %._crit_edge150 ]
+  %210 = getelementptr i64, ptr %187, i64 %.04.i
+  %211 = getelementptr i8, ptr %210, i64 -8
+  %212 = load i64, ptr %211, align 8, !tbaa !3
+  %213 = icmp eq i64 %212, 0
+  br i1 %213, label %214, label %_mpd_real_size.exit
 
-211:                                              ; preds = %.lr.ph.i
-  %212 = add nsw i64 %.04.i, -1
-  %213 = icmp sgt i64 %.04.i, 2
-  br i1 %213, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
+214:                                              ; preds = %.lr.ph.i
+  %215 = add nsw i64 %.04.i, -1
+  %216 = icmp sgt i64 %.04.i, 2
+  br i1 %216, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
 
-_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %211, %._crit_edge150
-  %.0.lcssa.i = phi i64 [ %207, %._crit_edge150 ], [ %.04.i, %.lr.ph.i ], [ 1, %211 ]
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.0.lcssa.i, ptr %214, align 8, !tbaa !18
-  %215 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %216 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %215)
-  %217 = load i64, ptr %52, align 8, !tbaa !21
-  %218 = icmp eq i64 %216, %217
-  br i1 %218, label %mpd_qresize.exit, label %219
+_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %214, %._crit_edge150
+  %.0.lcssa.i = phi i64 [ %208, %._crit_edge150 ], [ %.04.i, %.lr.ph.i ], [ 1, %214 ]
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.0.lcssa.i, ptr %217, align 8, !tbaa !18
+  %218 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %219 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %218)
+  %220 = load i64, ptr %52, align 8, !tbaa !21
+  %221 = icmp eq i64 %219, %220
+  br i1 %221, label %mpd_qresize.exit, label %222
 
-219:                                              ; preds = %_mpd_real_size.exit
-  %220 = and i8 %204, 32
-  %.not.i = icmp eq i8 %220, 0
-  br i1 %.not.i, label %225, label %221
+222:                                              ; preds = %_mpd_real_size.exit
+  %223 = and i8 %205, 32
+  %.not.i = icmp eq i8 %223, 0
+  br i1 %.not.i, label %228, label %224
 
-221:                                              ; preds = %219
-  %222 = icmp sgt i64 %216, %217
-  br i1 %222, label %223, label %mpd_qresize.exit
+224:                                              ; preds = %222
+  %225 = icmp sgt i64 %219, %220
+  br i1 %225, label %226, label %mpd_qresize.exit
 
-223:                                              ; preds = %221
-  %224 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %216, ptr noundef %4) #33
+226:                                              ; preds = %224
+  %227 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %219, ptr noundef %4) #33
   br label %mpd_qresize.exit
 
-225:                                              ; preds = %219
-  %226 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %216, ptr noundef %4) #33
+228:                                              ; preds = %222
+  %229 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %219, ptr noundef %4) #33
   br label %mpd_qresize.exit
 
-mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %221, %223, %225
+mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %224, %226, %228
   tail call void @mpd_setdigits(ptr noundef nonnull %0)
   tail call fastcc void @_mpd_cap(ptr noundef nonnull %0, ptr noundef %3)
-  br label %227
+  br label %230
 
-.loopexit121:                                     ; preds = %78, %169, %.lr.ph144, %198
+.loopexit121:                                     ; preds = %78, %170, %.lr.ph144, %199
   tail call void @mpd_seterror(ptr noundef %0, i32 noundef 256, ptr noundef %4)
-  br label %227
+  br label %230
 
-227:                                              ; preds = %mpd_qresize.exit118, %.loopexit121, %mpd_qresize.exit, %mpd_seterror.exit
+230:                                              ; preds = %mpd_qresize.exit118, %.loopexit121, %mpd_qresize.exit, %mpd_seterror.exit
   ret void
 }
 
@@ -6323,14 +6323,14 @@ define internal fastcc void @_mpd_cap(ptr noundef %0, ptr noundef readonly captu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp sgt i64 %5, 0
-  br i1 %6, label %7, label %122
+  br i1 %6, label %7, label %124
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !11
   %10 = load i64, ptr %1, align 8, !tbaa !15
   %11 = icmp sgt i64 %9, %10
-  br i1 %11, label %12, label %122
+  br i1 %11, label %12, label %124
 
 12:                                               ; preds = %7
   %13 = sdiv i64 %10, 19
@@ -6362,190 +6362,190 @@ define internal fastcc void @_mpd_cap(ptr noundef %0, ptr noundef readonly captu
 27:                                               ; preds = %._crit_edge, %18
   %28 = phi ptr [ %.pre, %._crit_edge ], [ %22, %18 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %invariant.gep.i = getelementptr i8, ptr %28, i64 -8
   %30 = icmp sgt i64 %17, 1
   br i1 %30, label %.lr.ph.i, label %_mpd_real_size.exit
 
-.lr.ph.i:                                         ; preds = %27, %33
-  %.04.i = phi i64 [ %34, %33 ], [ %17, %27 ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.04.i
-  %31 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %_mpd_real_size.exit
+.lr.ph.i:                                         ; preds = %27, %35
+  %.04.i = phi i64 [ %36, %35 ], [ %17, %27 ]
+  %31 = getelementptr i64, ptr %28, i64 %.04.i
+  %32 = getelementptr i8, ptr %31, i64 -8
+  %33 = load i64, ptr %32, align 8, !tbaa !3
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %_mpd_real_size.exit
 
-33:                                               ; preds = %.lr.ph.i
-  %34 = add nsw i64 %.04.i, -1
-  %35 = icmp sgt i64 %.04.i, 2
-  br i1 %35, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
+35:                                               ; preds = %.lr.ph.i
+  %36 = add nsw i64 %.04.i, -1
+  %37 = icmp sgt i64 %.04.i, 2
+  br i1 %37, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
 
-_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %33, %27
-  %.0.lcssa.i = phi i64 [ %17, %27 ], [ %.04.i, %.lr.ph.i ], [ 1, %33 ]
-  %36 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %37 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %36)
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load i64, ptr %38, align 8, !tbaa !21
-  %40 = icmp eq i64 %37, %39
-  br i1 %40, label %mpd_qresize.exit, label %41
+_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %35, %27
+  %.0.lcssa.i = phi i64 [ %17, %27 ], [ %.04.i, %.lr.ph.i ], [ 1, %35 ]
+  %38 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %39 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %38)
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %41 = load i64, ptr %40, align 8, !tbaa !21
+  %42 = icmp eq i64 %39, %41
+  br i1 %42, label %mpd_qresize.exit, label %43
 
-41:                                               ; preds = %_mpd_real_size.exit
-  %42 = load i8, ptr %0, align 8, !tbaa !19
-  %43 = and i8 %42, 32
-  %.not.i15 = icmp eq i8 %43, 0
-  br i1 %.not.i15, label %48, label %44
+43:                                               ; preds = %_mpd_real_size.exit
+  %44 = load i8, ptr %0, align 8, !tbaa !19
+  %45 = and i8 %44, 32
+  %.not.i15 = icmp eq i8 %45, 0
+  br i1 %.not.i15, label %50, label %46
 
-44:                                               ; preds = %41
-  %45 = icmp sgt i64 %37, %39
-  br i1 %45, label %46, label %mpd_qresize.exit
+46:                                               ; preds = %43
+  %47 = icmp sgt i64 %39, %41
+  br i1 %47, label %48, label %mpd_qresize.exit
 
-46:                                               ; preds = %44
-  %47 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %37, ptr noundef nonnull %3) #33
+48:                                               ; preds = %46
+  %49 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %39, ptr noundef nonnull %3) #33
   br label %mpd_qresize.exit
 
-48:                                               ; preds = %41
-  %49 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %37, ptr noundef nonnull %3) #33
+50:                                               ; preds = %43
+  %51 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %39, ptr noundef nonnull %3) #33
   br label %mpd_qresize.exit
 
-mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %44, %46, %48
+mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %46, %48, %50
   store i64 %.0.lcssa.i, ptr %4, align 8, !tbaa !18
-  %50 = load ptr, ptr %29, align 8, !tbaa !17
-  %51 = getelementptr i64, ptr %50, i64 %.0.lcssa.i
-  %52 = getelementptr i8, ptr %51, i64 -8
-  %53 = load i64, ptr %52, align 8, !tbaa !3
-  %54 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
-  %55 = icmp ult i64 %53, %54
-  br i1 %55, label %56, label %84
+  %52 = load ptr, ptr %29, align 8, !tbaa !17
+  %53 = getelementptr i64, ptr %52, i64 %.0.lcssa.i
+  %54 = getelementptr i8, ptr %53, i64 -8
+  %55 = load i64, ptr %54, align 8, !tbaa !3
+  %56 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
+  %57 = icmp ult i64 %55, %56
+  br i1 %57, label %58, label %86
 
-56:                                               ; preds = %mpd_qresize.exit
-  %57 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
-  %58 = icmp ult i64 %53, %57
-  br i1 %58, label %59, label %70
+58:                                               ; preds = %mpd_qresize.exit
+  %59 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
+  %60 = icmp ult i64 %55, %59
+  br i1 %60, label %61, label %72
 
-59:                                               ; preds = %56
-  %60 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
-  %61 = icmp ult i64 %53, %60
-  br i1 %61, label %62, label %66
+61:                                               ; preds = %58
+  %62 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
+  %63 = icmp ult i64 %55, %62
+  br i1 %63, label %64, label %68
 
-62:                                               ; preds = %59
-  %63 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
-  %64 = icmp ult i64 %53, %63
-  %65 = select i1 %64, i64 1, i64 2
+64:                                               ; preds = %61
+  %65 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
+  %66 = icmp ult i64 %55, %65
+  %67 = select i1 %66, i64 1, i64 2
   br label %mpd_setdigits.exit
 
-66:                                               ; preds = %59
-  %67 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
-  %68 = icmp ult i64 %53, %67
-  %69 = select i1 %68, i64 3, i64 4
+68:                                               ; preds = %61
+  %69 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
+  %70 = icmp ult i64 %55, %69
+  %71 = select i1 %70, i64 3, i64 4
   br label %mpd_setdigits.exit
 
-70:                                               ; preds = %56
-  %71 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
-  %72 = icmp ult i64 %53, %71
-  br i1 %72, label %73, label %77
+72:                                               ; preds = %58
+  %73 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
+  %74 = icmp ult i64 %55, %73
+  br i1 %74, label %75, label %79
 
-73:                                               ; preds = %70
-  %74 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
-  %75 = icmp ult i64 %53, %74
-  %76 = select i1 %75, i64 5, i64 6
+75:                                               ; preds = %72
+  %76 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
+  %77 = icmp ult i64 %55, %76
+  %78 = select i1 %77, i64 5, i64 6
   br label %mpd_setdigits.exit
 
-77:                                               ; preds = %70
-  %78 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
-  %79 = icmp ult i64 %53, %78
-  br i1 %79, label %80, label %mpd_setdigits.exit
+79:                                               ; preds = %72
+  %80 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
+  %81 = icmp ult i64 %55, %80
+  br i1 %81, label %82, label %mpd_setdigits.exit
 
-80:                                               ; preds = %77
-  %81 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
-  %82 = icmp ult i64 %53, %81
-  %83 = select i1 %82, i64 7, i64 8
+82:                                               ; preds = %79
+  %83 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
+  %84 = icmp ult i64 %55, %83
+  %85 = select i1 %84, i64 7, i64 8
   br label %mpd_setdigits.exit
 
-84:                                               ; preds = %mpd_qresize.exit
-  %85 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
-  %86 = icmp ult i64 %53, %85
-  br i1 %86, label %87, label %101
+86:                                               ; preds = %mpd_qresize.exit
+  %87 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
+  %88 = icmp ult i64 %55, %87
+  br i1 %88, label %89, label %103
 
-87:                                               ; preds = %84
-  %88 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
-  %89 = icmp ult i64 %53, %88
-  br i1 %89, label %90, label %94
+89:                                               ; preds = %86
+  %90 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
+  %91 = icmp ult i64 %55, %90
+  br i1 %91, label %92, label %96
 
-90:                                               ; preds = %87
-  %91 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
-  %92 = icmp ult i64 %53, %91
-  %93 = select i1 %92, i64 10, i64 11
+92:                                               ; preds = %89
+  %93 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
+  %94 = icmp ult i64 %55, %93
+  %95 = select i1 %94, i64 10, i64 11
   br label %mpd_setdigits.exit
 
-94:                                               ; preds = %87
-  %95 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
-  %96 = icmp ult i64 %53, %95
-  br i1 %96, label %97, label %mpd_setdigits.exit
+96:                                               ; preds = %89
+  %97 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
+  %98 = icmp ult i64 %55, %97
+  br i1 %98, label %99, label %mpd_setdigits.exit
 
-97:                                               ; preds = %94
-  %98 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
-  %99 = icmp ult i64 %53, %98
-  %100 = select i1 %99, i64 12, i64 13
+99:                                               ; preds = %96
+  %100 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
+  %101 = icmp ult i64 %55, %100
+  %102 = select i1 %101, i64 12, i64 13
   br label %mpd_setdigits.exit
 
-101:                                              ; preds = %84
-  %102 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
-  %103 = icmp ult i64 %53, %102
-  br i1 %103, label %104, label %115
+103:                                              ; preds = %86
+  %104 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
+  %105 = icmp ult i64 %55, %104
+  br i1 %105, label %106, label %117
 
-104:                                              ; preds = %101
-  %105 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
-  %106 = icmp ult i64 %53, %105
-  br i1 %106, label %107, label %111
+106:                                              ; preds = %103
+  %107 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
+  %108 = icmp ult i64 %55, %107
+  br i1 %108, label %109, label %113
 
-107:                                              ; preds = %104
-  %108 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
-  %109 = icmp ult i64 %53, %108
-  %110 = select i1 %109, i64 15, i64 16
+109:                                              ; preds = %106
+  %110 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
+  %111 = icmp ult i64 %55, %110
+  %112 = select i1 %111, i64 15, i64 16
   br label %mpd_setdigits.exit
 
-111:                                              ; preds = %104
-  %112 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
-  %113 = icmp ult i64 %53, %112
-  %114 = select i1 %113, i64 17, i64 18
+113:                                              ; preds = %106
+  %114 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
+  %115 = icmp ult i64 %55, %114
+  %116 = select i1 %115, i64 17, i64 18
   br label %mpd_setdigits.exit
 
-115:                                              ; preds = %101
-  %116 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
-  %117 = icmp ult i64 %53, %116
-  %118 = select i1 %117, i64 19, i64 20
+117:                                              ; preds = %103
+  %118 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
+  %119 = icmp ult i64 %55, %118
+  %120 = select i1 %119, i64 19, i64 20
   br label %mpd_setdigits.exit
 
-mpd_setdigits.exit:                               ; preds = %62, %66, %73, %77, %80, %90, %94, %97, %107, %111, %115
-  %.0.i.i = phi i64 [ %65, %62 ], [ %69, %66 ], [ %76, %73 ], [ %83, %80 ], [ %93, %90 ], [ %100, %97 ], [ %110, %107 ], [ %114, %111 ], [ %118, %115 ], [ 9, %77 ], [ 14, %94 ]
-  %119 = mul i64 %.0.lcssa.i, 19
-  %120 = add i64 %119, -19
-  %121 = add i64 %120, %.0.i.i
-  store i64 %121, ptr %8, align 8, !tbaa !11
-  br label %122
+mpd_setdigits.exit:                               ; preds = %64, %68, %75, %79, %82, %92, %96, %99, %109, %113, %117
+  %.0.i.i = phi i64 [ %67, %64 ], [ %71, %68 ], [ %78, %75 ], [ %85, %82 ], [ %95, %92 ], [ %102, %99 ], [ %112, %109 ], [ %116, %113 ], [ %120, %117 ], [ 9, %79 ], [ 14, %96 ]
+  %121 = mul i64 %.0.lcssa.i, 19
+  %122 = add i64 %121, -19
+  %123 = add i64 %122, %.0.i.i
+  store i64 %123, ptr %8, align 8, !tbaa !11
+  br label %124
 
-122:                                              ; preds = %mpd_setdigits.exit, %7, %2
-  %123 = phi i64 [ %.0.lcssa.i, %mpd_setdigits.exit ], [ %5, %7 ], [ %5, %2 ]
-  %124 = load i8, ptr %0, align 8, !tbaa !19
-  %125 = and i8 %124, 14
-  %.not.i = icmp eq i8 %125, 0
+124:                                              ; preds = %mpd_setdigits.exit, %7, %2
+  %125 = phi i64 [ %.0.lcssa.i, %mpd_setdigits.exit ], [ %5, %7 ], [ %5, %2 ]
+  %126 = load i8, ptr %0, align 8, !tbaa !19
+  %127 = and i8 %126, 14
+  %.not.i = icmp eq i8 %127, 0
   br i1 %.not.i, label %mpd_iszero.exit, label %mpd_iszero.exit.thread
 
-mpd_iszero.exit:                                  ; preds = %122
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %127 = load ptr, ptr %126, align 8, !tbaa !17
-  %128 = getelementptr i64, ptr %127, i64 %123
-  %129 = getelementptr i8, ptr %128, i64 -8
-  %130 = load i64, ptr %129, align 8, !tbaa !3
-  %.not20 = icmp eq i64 %130, 0
-  br i1 %.not20, label %131, label %mpd_iszero.exit.thread
+mpd_iszero.exit:                                  ; preds = %124
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %129 = load ptr, ptr %128, align 8, !tbaa !17
+  %130 = getelementptr i64, ptr %129, i64 %125
+  %131 = getelementptr i8, ptr %130, i64 -8
+  %132 = load i64, ptr %131, align 8, !tbaa !3
+  %.not20 = icmp eq i64 %132, 0
+  br i1 %.not20, label %133, label %mpd_iszero.exit.thread
 
-131:                                              ; preds = %mpd_iszero.exit
-  %132 = and i8 %124, 1
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %134 = load i64, ptr %133, align 8, !tbaa !7
-  call fastcc void @_settriple(ptr noundef nonnull %0, i8 noundef zeroext %132, i64 noundef 0, i64 noundef %134)
+133:                                              ; preds = %mpd_iszero.exit
+  %134 = and i8 %126, 1
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %136 = load i64, ptr %135, align 8, !tbaa !7
+  call fastcc void @_settriple(ptr noundef nonnull %0, i8 noundef zeroext %134, i64 noundef 0, i64 noundef %136)
   br label %mpd_iszero.exit.thread
 
-mpd_iszero.exit.thread:                           ; preds = %122, %131, %mpd_iszero.exit
+mpd_iszero.exit.thread:                           ; preds = %124, %133, %mpd_iszero.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #33
   ret void
 }
@@ -6690,7 +6690,7 @@ mpd_seterror.exit:                                ; preds = %12, %15, %27
   %32 = load i32, ptr %3, align 4, !tbaa !23
   %33 = or i32 %32, 256
   store i32 %33, ptr %3, align 4, !tbaa !23
-  br label %128
+  br label %130
 
 34:                                               ; preds = %9
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6731,7 +6731,7 @@ mpd_seterror.exit:                                ; preds = %12, %15, %27
 mpd_qresize.exit56:                               ; preds = %53, %55
   %.0.i55 = phi i32 [ %54, %53 ], [ %56, %55 ]
   %.not52 = icmp eq i32 %.0.i55, 0
-  br i1 %.not52, label %128, label %.preheader
+  br i1 %.not52, label %130, label %.preheader
 
 .preheader:                                       ; preds = %51, %34, %mpd_qresize.exit56
   %57 = icmp sgt i64 %42, 0
@@ -6755,26 +6755,26 @@ mpd_qresize.exit56:                               ; preds = %53, %55
   %.04566 = phi i64 [ 0, %.lr.ph ], [ %85, %82 ]
   %65 = load i64, ptr %61, align 8, !tbaa !18
   %66 = icmp slt i64 %.04566, %65
-  br i1 %66, label %67, label %.preheader74
+  br i1 %66, label %67, label %.preheader73
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %62, align 8, !tbaa !17
   %69 = getelementptr i64, ptr %68, i64 %.04566
   %70 = load i64, ptr %69, align 8, !tbaa !3
-  br label %.preheader74
+  br label %.preheader73
 
-.preheader74:                                     ; preds = %64, %67
+.preheader73:                                     ; preds = %64, %67
   %.04364.ph = phi i64 [ %70, %67 ], [ 0, %64 ]
   br label %71
 
-71:                                               ; preds = %.preheader74, %79
-  %indvars.iv = phi i64 [ %indvars.iv.next, %79 ], [ 0, %.preheader74 ]
-  %.04364 = phi i64 [ %73, %79 ], [ %.04364.ph, %.preheader74 ]
-  %.04463 = phi i64 [ %81, %79 ], [ 0, %.preheader74 ]
+71:                                               ; preds = %.preheader73, %79
+  %indvars.iv = phi i64 [ %indvars.iv.next, %79 ], [ 0, %.preheader73 ]
+  %.04364 = phi i64 [ %73, %79 ], [ %.04364.ph, %.preheader73 ]
+  %.04463 = phi i64 [ %81, %79 ], [ 0, %.preheader73 ]
   %72 = urem i64 %.04364, 10
   %73 = udiv i64 %.04364, 10
   %74 = icmp samesign ugt i64 %72, 1
-  br i1 %74, label %108, label %75
+  br i1 %74, label %110, label %75
 
 75:                                               ; preds = %71
   %.not53 = icmp eq i64 %72, 0
@@ -6806,100 +6806,100 @@ mpd_qresize.exit56:                               ; preds = %53, %55
   store i8 %87, ptr %0, align 8, !tbaa !19
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %88, align 8, !tbaa !7
-  %invariant.gep.i = getelementptr i8, ptr %83, i64 -8
   %.not = icmp eq i64 %42, 1
   br i1 %.not, label %_mpd_real_size.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge, %91
-  %.04.i = phi i64 [ %92, %91 ], [ %42, %._crit_edge ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.04.i
-  %89 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %91, label %_mpd_real_size.exit
+.lr.ph.i:                                         ; preds = %._crit_edge, %93
+  %.04.i = phi i64 [ %94, %93 ], [ %42, %._crit_edge ]
+  %89 = getelementptr i64, ptr %83, i64 %.04.i
+  %90 = getelementptr i8, ptr %89, i64 -8
+  %91 = load i64, ptr %90, align 8, !tbaa !3
+  %92 = icmp eq i64 %91, 0
+  br i1 %92, label %93, label %_mpd_real_size.exit
 
-91:                                               ; preds = %.lr.ph.i
-  %92 = add nsw i64 %.04.i, -1
-  %93 = icmp sgt i64 %.04.i, 2
-  br i1 %93, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
+93:                                               ; preds = %.lr.ph.i
+  %94 = add nsw i64 %.04.i, -1
+  %95 = icmp sgt i64 %.04.i, 2
+  br i1 %95, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
 
-_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %91, %._crit_edge.thread, %._crit_edge
-  %94 = phi i8 [ %86, %._crit_edge ], [ %58, %._crit_edge.thread ], [ %86, %91 ], [ %86, %.lr.ph.i ]
-  %.0.lcssa.i = phi i64 [ %42, %._crit_edge ], [ %42, %._crit_edge.thread ], [ %.04.i, %.lr.ph.i ], [ 1, %91 ]
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.0.lcssa.i, ptr %95, align 8, !tbaa !18
-  %96 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %97 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %96)
-  %98 = load i64, ptr %45, align 8, !tbaa !21
-  %99 = icmp eq i64 %97, %98
-  br i1 %99, label %mpd_qresize.exit, label %100
+_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %93, %._crit_edge.thread, %._crit_edge
+  %96 = phi i8 [ %86, %._crit_edge ], [ %58, %._crit_edge.thread ], [ %86, %93 ], [ %86, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ %42, %._crit_edge ], [ %42, %._crit_edge.thread ], [ %.04.i, %.lr.ph.i ], [ 1, %93 ]
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.0.lcssa.i, ptr %97, align 8, !tbaa !18
+  %98 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %99 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %98)
+  %100 = load i64, ptr %45, align 8, !tbaa !21
+  %101 = icmp eq i64 %99, %100
+  br i1 %101, label %mpd_qresize.exit, label %102
 
-100:                                              ; preds = %_mpd_real_size.exit
-  %101 = and i8 %94, 32
-  %.not.i = icmp eq i8 %101, 0
-  br i1 %.not.i, label %106, label %102
-
-102:                                              ; preds = %100
-  %103 = icmp sgt i64 %97, %98
-  br i1 %103, label %104, label %mpd_qresize.exit
+102:                                              ; preds = %_mpd_real_size.exit
+  %103 = and i8 %96, 32
+  %.not.i = icmp eq i8 %103, 0
+  br i1 %.not.i, label %108, label %104
 
 104:                                              ; preds = %102
-  %105 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %97, ptr noundef %3) #33
+  %105 = icmp sgt i64 %99, %100
+  br i1 %105, label %106, label %mpd_qresize.exit
+
+106:                                              ; preds = %104
+  %107 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %99, ptr noundef %3) #33
   br label %mpd_qresize.exit
 
-106:                                              ; preds = %100
-  %107 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %97, ptr noundef %3) #33
+108:                                              ; preds = %102
+  %109 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %99, ptr noundef %3) #33
   br label %mpd_qresize.exit
 
-mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %102, %104, %106
+mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %104, %106, %108
   tail call void @mpd_setdigits(ptr noundef nonnull %0)
   tail call fastcc void @_mpd_cap(ptr noundef nonnull %0, ptr noundef nonnull %2)
-  br label %128
+  br label %130
 
-108:                                              ; preds = %71
-  %109 = load i8, ptr %0, align 8, !tbaa !19
-  %110 = and i8 %109, 32
-  %.not.i.i57 = icmp eq i8 %110, 0
-  br i1 %.not.i.i57, label %111, label %mpd_seterror.exit60
+110:                                              ; preds = %71
+  %111 = load i8, ptr %0, align 8, !tbaa !19
+  %112 = and i8 %111, 32
+  %.not.i.i57 = icmp eq i8 %112, 0
+  br i1 %.not.i.i57, label %113, label %mpd_seterror.exit60
 
-111:                                              ; preds = %108
-  %112 = load i64, ptr %45, align 8, !tbaa !21
-  %113 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %114 = icmp sgt i64 %112, %113
-  br i1 %114, label %115, label %mpd_seterror.exit60
+113:                                              ; preds = %110
+  %114 = load i64, ptr %45, align 8, !tbaa !21
+  %115 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %116 = icmp sgt i64 %114, %115
+  br i1 %116, label %117, label %mpd_seterror.exit60
 
-115:                                              ; preds = %111
+117:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #33
   store i8 0, ptr %5, align 1, !tbaa !22
-  %116 = load ptr, ptr %63, align 8, !tbaa !17
-  %117 = call ptr @mpd_realloc(ptr noundef %116, i64 noundef %113, i64 noundef 8, ptr noundef nonnull %5) #33
-  store ptr %117, ptr %63, align 8, !tbaa !17
-  %118 = load i8, ptr %5, align 1, !tbaa !22
-  %.not5.i.i58 = icmp eq i8 %118, 0
-  br i1 %.not5.i.i58, label %119, label %121
+  %118 = load ptr, ptr %63, align 8, !tbaa !17
+  %119 = call ptr @mpd_realloc(ptr noundef %118, i64 noundef %115, i64 noundef 8, ptr noundef nonnull %5) #33
+  store ptr %119, ptr %63, align 8, !tbaa !17
+  %120 = load i8, ptr %5, align 1, !tbaa !22
+  %.not5.i.i58 = icmp eq i8 %120, 0
+  br i1 %.not5.i.i58, label %121, label %123
 
-119:                                              ; preds = %115
-  %120 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  store i64 %120, ptr %45, align 8, !tbaa !21
-  br label %121
+121:                                              ; preds = %117
+  %122 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %122, ptr %45, align 8, !tbaa !21
+  br label %123
 
-121:                                              ; preds = %119, %115
+123:                                              ; preds = %121, %117
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #33
   %.pre.i59 = load i8, ptr %0, align 8, !tbaa !19
   br label %mpd_seterror.exit60
 
-mpd_seterror.exit60:                              ; preds = %108, %111, %121
-  %122 = phi i8 [ %109, %108 ], [ %109, %111 ], [ %.pre.i59, %121 ]
-  %123 = and i8 %122, -16
-  %124 = or disjoint i8 %123, 4
-  store i8 %124, ptr %0, align 8, !tbaa !19
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, i8 0, i64 24, i1 false)
-  %126 = load i32, ptr %3, align 4, !tbaa !23
-  %127 = or i32 %126, 256
-  store i32 %127, ptr %3, align 4, !tbaa !23
-  br label %128
+mpd_seterror.exit60:                              ; preds = %110, %113, %123
+  %124 = phi i8 [ %111, %110 ], [ %111, %113 ], [ %.pre.i59, %123 ]
+  %125 = and i8 %124, -16
+  %126 = or disjoint i8 %125, 4
+  store i8 %126, ptr %0, align 8, !tbaa !19
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, i8 0, i64 24, i1 false)
+  %128 = load i32, ptr %3, align 4, !tbaa !23
+  %129 = or i32 %128, 256
+  store i32 %129, ptr %3, align 4, !tbaa !23
+  br label %130
 
-128:                                              ; preds = %mpd_qresize.exit56, %mpd_seterror.exit60, %mpd_qresize.exit, %mpd_seterror.exit
+130:                                              ; preds = %mpd_qresize.exit56, %mpd_seterror.exit60, %mpd_qresize.exit, %mpd_seterror.exit
   ret void
 }
 
@@ -7150,7 +7150,7 @@ mpd_seterror.exit:                                ; preds = %20, %23, %35
   %40 = load i32, ptr %4, align 4, !tbaa !23
   %41 = or i32 %40, 256
   store i32 %41, ptr %4, align 4, !tbaa !23
-  br label %232
+  br label %235
 
 42:                                               ; preds = %17
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7190,7 +7190,7 @@ mpd_seterror.exit:                                ; preds = %20, %23, %35
 mpd_qresize.exit127:                              ; preds = %60, %62
   %.0.i126 = phi i32 [ %61, %60 ], [ %63, %62 ]
   %.not120 = icmp eq i32 %.0.i126, 0
-  br i1 %.not120, label %232, label %.preheader133
+  br i1 %.not120, label %235, label %.preheader133
 
 .preheader133:                                    ; preds = %58, %42, %mpd_qresize.exit127
   %64 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
@@ -7367,160 +7367,160 @@ mpd_qresize.exit127:                              ; preds = %60, %62
 
 mpd_word_digits.exit:                             ; preds = %112, %116, %123, %127, %130, %140, %144, %147, %157, %161, %165
   %.0.i = phi i32 [ %115, %112 ], [ %119, %116 ], [ %126, %123 ], [ %133, %130 ], [ %143, %140 ], [ %150, %147 ], [ %160, %157 ], [ %164, %161 ], [ %168, %165 ], [ 9, %127 ], [ 14, %144 ]
-  %wide.trip.count = zext nneg i32 %.0.i to i64
-  br label %170
+  %169 = zext nneg i32 %.0.i to i64
+  br label %171
 
-.preheader:                                       ; preds = %182
-  %169 = icmp samesign ult i32 %.0.i, 19
-  br i1 %169, label %.lr.ph153, label %._crit_edge154
+.preheader:                                       ; preds = %183
+  %170 = icmp samesign ult i32 %.0.i, 19
+  br i1 %170, label %.lr.ph153, label %._crit_edge154
 
-170:                                              ; preds = %mpd_word_digits.exit, %182
-  %indvars.iv177 = phi i64 [ 0, %mpd_word_digits.exit ], [ %indvars.iv.next178, %182 ]
-  %.1101148 = phi i64 [ 0, %mpd_word_digits.exit ], [ %184, %182 ]
-  %.1104147 = phi i64 [ %103, %mpd_word_digits.exit ], [ %174, %182 ]
-  %.1108146 = phi i64 [ %101, %mpd_word_digits.exit ], [ %172, %182 ]
-  %171 = urem i64 %.1108146, 10
-  %172 = udiv i64 %.1108146, 10
-  %173 = urem i64 %.1104147, 10
-  %174 = udiv i64 %.1104147, 10
-  %175 = icmp samesign ugt i64 %171, 1
-  %176 = icmp samesign ugt i64 %173, 1
-  %or.cond3 = select i1 %175, i1 true, i1 %176
-  br i1 %or.cond3, label %.loopexit, label %177
+171:                                              ; preds = %mpd_word_digits.exit, %183
+  %indvars.iv177 = phi i64 [ 0, %mpd_word_digits.exit ], [ %indvars.iv.next178, %183 ]
+  %.1101148 = phi i64 [ 0, %mpd_word_digits.exit ], [ %185, %183 ]
+  %.1104147 = phi i64 [ %103, %mpd_word_digits.exit ], [ %175, %183 ]
+  %.1108146 = phi i64 [ %101, %mpd_word_digits.exit ], [ %173, %183 ]
+  %172 = urem i64 %.1108146, 10
+  %173 = udiv i64 %.1108146, 10
+  %174 = urem i64 %.1104147, 10
+  %175 = udiv i64 %.1104147, 10
+  %176 = icmp samesign ugt i64 %172, 1
+  %177 = icmp samesign ugt i64 %174, 1
+  %or.cond3 = select i1 %176, i1 true, i1 %177
+  br i1 %or.cond3, label %.loopexit, label %178
 
-177:                                              ; preds = %170
-  %178 = or i64 %173, %171
-  %.not121 = icmp eq i64 %178, 0
-  br i1 %.not121, label %182, label %179
+178:                                              ; preds = %171
+  %179 = or i64 %174, %172
+  %.not121 = icmp eq i64 %179, 0
+  br i1 %.not121, label %183, label %180
 
-179:                                              ; preds = %177
-  %180 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %indvars.iv177
-  %181 = load i64, ptr %180, align 8, !tbaa !3
-  br label %182
+180:                                              ; preds = %178
+  %181 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %indvars.iv177
+  %182 = load i64, ptr %181, align 8, !tbaa !3
+  br label %183
 
-182:                                              ; preds = %177, %179
-  %183 = phi i64 [ %181, %179 ], [ 0, %177 ]
-  %184 = add i64 %183, %.1101148
+183:                                              ; preds = %178, %180
+  %184 = phi i64 [ %182, %180 ], [ 0, %178 ]
+  %185 = add i64 %184, %.1101148
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %exitcond180.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count
-  br i1 %exitcond180.not, label %.preheader, label %170, !llvm.loop !42
+  %exitcond181.not = icmp eq i64 %indvars.iv.next178, %169
+  br i1 %exitcond181.not, label %.preheader, label %171, !llvm.loop !42
 
-.lr.ph153:                                        ; preds = %.preheader, %188
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %188 ], [ %wide.trip.count, %.preheader ]
-  %.2102151 = phi i64 [ %192, %188 ], [ %184, %.preheader ]
-  %.2105150 = phi i64 [ %186, %188 ], [ %174, %.preheader ]
-  %185 = urem i64 %.2105150, 10
-  %186 = udiv i64 %.2105150, 10
-  %187 = icmp samesign ugt i64 %185, 1
-  br i1 %187, label %.loopexit, label %188
+.lr.ph153:                                        ; preds = %.preheader, %189
+  %indvars.iv182 = phi i64 [ %indvars.iv.next183, %189 ], [ %169, %.preheader ]
+  %.2102151 = phi i64 [ %193, %189 ], [ %185, %.preheader ]
+  %.2105150 = phi i64 [ %187, %189 ], [ %175, %.preheader ]
+  %186 = urem i64 %.2105150, 10
+  %187 = udiv i64 %.2105150, 10
+  %188 = icmp samesign ugt i64 %186, 1
+  br i1 %188, label %.loopexit, label %189
 
-188:                                              ; preds = %.lr.ph153
-  %189 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %indvars.iv181
-  %190 = load i64, ptr %189, align 8, !tbaa !3
-  %191 = mul nuw nsw i64 %190, %185
-  %192 = add i64 %191, %.2102151
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %exitcond184.not = icmp eq i64 %indvars.iv.next182, 19
-  br i1 %exitcond184.not, label %._crit_edge154, label %.lr.ph153, !llvm.loop !43
+189:                                              ; preds = %.lr.ph153
+  %190 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %indvars.iv182
+  %191 = load i64, ptr %190, align 8, !tbaa !3
+  %192 = mul nuw nsw i64 %191, %186
+  %193 = add i64 %192, %.2102151
+  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
+  %exitcond187.not = icmp eq i64 %indvars.iv.next183, 19
+  br i1 %exitcond187.not, label %._crit_edge154, label %.lr.ph153, !llvm.loop !43
 
-._crit_edge154:                                   ; preds = %188, %.preheader
-  %.2102.lcssa = phi i64 [ %184, %.preheader ], [ %192, %188 ]
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %194 = load ptr, ptr %193, align 8, !tbaa !17
-  %195 = getelementptr i64, ptr %194, i64 %.0.lcssa
-  store i64 %.2102.lcssa, ptr %195, align 8, !tbaa !3
+._crit_edge154:                                   ; preds = %189, %.preheader
+  %.2102.lcssa = phi i64 [ %185, %.preheader ], [ %193, %189 ]
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %195 = load ptr, ptr %194, align 8, !tbaa !17
+  %196 = getelementptr i64, ptr %195, i64 %.0.lcssa
+  store i64 %.2102.lcssa, ptr %196, align 8, !tbaa !3
   %.1158 = add i64 %.0.lcssa, 1
-  %196 = load i64, ptr %48, align 8, !tbaa !18
-  %197 = icmp slt i64 %.1158, %196
-  br i1 %197, label %.lr.ph161, label %._crit_edge162
+  %197 = load i64, ptr %48, align 8, !tbaa !18
+  %198 = icmp slt i64 %.1158, %197
+  br i1 %198, label %.lr.ph161, label %._crit_edge162
 
-.lr.ph161:                                        ; preds = %._crit_edge154, %206
-  %.1159 = phi i64 [ %.1, %206 ], [ %.1158, %._crit_edge154 ]
-  %198 = getelementptr i64, ptr %71, i64 %.1159
-  %199 = load i64, ptr %198, align 8, !tbaa !3
-  br label %200
+.lr.ph161:                                        ; preds = %._crit_edge154, %207
+  %.1159 = phi i64 [ %.1, %207 ], [ %.1158, %._crit_edge154 ]
+  %199 = getelementptr i64, ptr %71, i64 %.1159
+  %200 = load i64, ptr %199, align 8, !tbaa !3
+  br label %201
 
-200:                                              ; preds = %.lr.ph161, %204
-  %.3157 = phi i32 [ 0, %.lr.ph161 ], [ %205, %204 ]
-  %.3106156 = phi i64 [ %199, %.lr.ph161 ], [ %202, %204 ]
-  %201 = urem i64 %.3106156, 10
-  %202 = udiv i64 %.3106156, 10
-  %203 = icmp samesign ugt i64 %201, 1
-  br i1 %203, label %.loopexit, label %204
+201:                                              ; preds = %.lr.ph161, %205
+  %.3157 = phi i32 [ 0, %.lr.ph161 ], [ %206, %205 ]
+  %.3106156 = phi i64 [ %200, %.lr.ph161 ], [ %203, %205 ]
+  %202 = urem i64 %.3106156, 10
+  %203 = udiv i64 %.3106156, 10
+  %204 = icmp samesign ugt i64 %202, 1
+  br i1 %204, label %.loopexit, label %205
 
-204:                                              ; preds = %200
-  %205 = add nuw nsw i32 %.3157, 1
-  %exitcond185.not = icmp eq i32 %205, 19
-  br i1 %exitcond185.not, label %206, label %200, !llvm.loop !44
+205:                                              ; preds = %201
+  %206 = add nuw nsw i32 %.3157, 1
+  %exitcond188.not = icmp eq i32 %206, 19
+  br i1 %exitcond188.not, label %207, label %201, !llvm.loop !44
 
-206:                                              ; preds = %204
-  %207 = getelementptr i64, ptr %194, i64 %.1159
-  store i64 %199, ptr %207, align 8, !tbaa !3
+207:                                              ; preds = %205
+  %208 = getelementptr i64, ptr %195, i64 %.1159
+  store i64 %200, ptr %208, align 8, !tbaa !3
   %.1 = add nsw i64 %.1159, 1
-  %208 = load i64, ptr %48, align 8, !tbaa !18
-  %209 = icmp slt i64 %.1, %208
-  br i1 %209, label %.lr.ph161, label %._crit_edge162, !llvm.loop !45
+  %209 = load i64, ptr %48, align 8, !tbaa !18
+  %210 = icmp slt i64 %.1, %209
+  br i1 %210, label %.lr.ph161, label %._crit_edge162, !llvm.loop !45
 
-._crit_edge162:                                   ; preds = %206, %._crit_edge154
-  %.lcssa = phi i64 [ %196, %._crit_edge154 ], [ %208, %206 ]
-  %210 = load i8, ptr %0, align 8, !tbaa !19
-  %211 = and i8 %210, -16
-  store i8 %211, ptr %0, align 8, !tbaa !19
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %212, align 8, !tbaa !7
-  %invariant.gep.i = getelementptr i8, ptr %194, i64 -8
-  %213 = icmp sgt i64 %.lcssa, 1
-  br i1 %213, label %.lr.ph.i, label %_mpd_real_size.exit
+._crit_edge162:                                   ; preds = %207, %._crit_edge154
+  %.lcssa = phi i64 [ %197, %._crit_edge154 ], [ %209, %207 ]
+  %211 = load i8, ptr %0, align 8, !tbaa !19
+  %212 = and i8 %211, -16
+  store i8 %212, ptr %0, align 8, !tbaa !19
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %213, align 8, !tbaa !7
+  %214 = icmp sgt i64 %.lcssa, 1
+  br i1 %214, label %.lr.ph.i, label %_mpd_real_size.exit
 
-.lr.ph.i:                                         ; preds = %._crit_edge162, %216
-  %.04.i = phi i64 [ %217, %216 ], [ %.lcssa, %._crit_edge162 ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.04.i
-  %214 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %215 = icmp eq i64 %214, 0
-  br i1 %215, label %216, label %_mpd_real_size.exit
+.lr.ph.i:                                         ; preds = %._crit_edge162, %219
+  %.04.i = phi i64 [ %220, %219 ], [ %.lcssa, %._crit_edge162 ]
+  %215 = getelementptr i64, ptr %195, i64 %.04.i
+  %216 = getelementptr i8, ptr %215, i64 -8
+  %217 = load i64, ptr %216, align 8, !tbaa !3
+  %218 = icmp eq i64 %217, 0
+  br i1 %218, label %219, label %_mpd_real_size.exit
 
-216:                                              ; preds = %.lr.ph.i
-  %217 = add nsw i64 %.04.i, -1
-  %218 = icmp sgt i64 %.04.i, 2
-  br i1 %218, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
+219:                                              ; preds = %.lr.ph.i
+  %220 = add nsw i64 %.04.i, -1
+  %221 = icmp sgt i64 %.04.i, 2
+  br i1 %221, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
 
-_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %216, %._crit_edge162
-  %.0.lcssa.i = phi i64 [ %.lcssa, %._crit_edge162 ], [ %.04.i, %.lr.ph.i ], [ 1, %216 ]
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.0.lcssa.i, ptr %219, align 8, !tbaa !18
-  %220 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %221 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %220)
-  %222 = load i64, ptr %52, align 8, !tbaa !21
-  %223 = icmp eq i64 %221, %222
-  br i1 %223, label %mpd_qresize.exit, label %224
+_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %219, %._crit_edge162
+  %.0.lcssa.i = phi i64 [ %.lcssa, %._crit_edge162 ], [ %.04.i, %.lr.ph.i ], [ 1, %219 ]
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.0.lcssa.i, ptr %222, align 8, !tbaa !18
+  %223 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %224 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %223)
+  %225 = load i64, ptr %52, align 8, !tbaa !21
+  %226 = icmp eq i64 %224, %225
+  br i1 %226, label %mpd_qresize.exit, label %227
 
-224:                                              ; preds = %_mpd_real_size.exit
-  %225 = and i8 %210, 32
-  %.not.i = icmp eq i8 %225, 0
-  br i1 %.not.i, label %230, label %226
+227:                                              ; preds = %_mpd_real_size.exit
+  %228 = and i8 %211, 32
+  %.not.i = icmp eq i8 %228, 0
+  br i1 %.not.i, label %233, label %229
 
-226:                                              ; preds = %224
-  %227 = icmp sgt i64 %221, %222
-  br i1 %227, label %228, label %mpd_qresize.exit
+229:                                              ; preds = %227
+  %230 = icmp sgt i64 %224, %225
+  br i1 %230, label %231, label %mpd_qresize.exit
 
-228:                                              ; preds = %226
-  %229 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %221, ptr noundef %4) #33
+231:                                              ; preds = %229
+  %232 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %224, ptr noundef %4) #33
   br label %mpd_qresize.exit
 
-230:                                              ; preds = %224
-  %231 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %221, ptr noundef %4) #33
+233:                                              ; preds = %227
+  %234 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %224, ptr noundef %4) #33
   br label %mpd_qresize.exit
 
-mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %226, %228, %230
+mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %229, %231, %233
   tail call void @mpd_setdigits(ptr noundef nonnull %0)
   tail call fastcc void @_mpd_cap(ptr noundef nonnull %0, ptr noundef %3)
-  br label %232
+  br label %235
 
-.loopexit:                                        ; preds = %78, %170, %.lr.ph153, %200
+.loopexit:                                        ; preds = %78, %171, %.lr.ph153, %201
   tail call void @mpd_seterror(ptr noundef %0, i32 noundef 256, ptr noundef %4)
-  br label %232
+  br label %235
 
-232:                                              ; preds = %mpd_qresize.exit127, %.loopexit, %mpd_qresize.exit, %mpd_seterror.exit
+235:                                              ; preds = %mpd_qresize.exit127, %.loopexit, %mpd_qresize.exit, %mpd_seterror.exit
   ret void
 }
 
@@ -8540,7 +8540,7 @@ mpd_seterror.exit:                                ; preds = %20, %23, %35
   %40 = load i32, ptr %4, align 4, !tbaa !23
   %41 = or i32 %40, 256
   store i32 %41, ptr %4, align 4, !tbaa !23
-  br label %230
+  br label %233
 
 42:                                               ; preds = %17
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -8580,7 +8580,7 @@ mpd_seterror.exit:                                ; preds = %20, %23, %35
 mpd_qresize.exit127:                              ; preds = %60, %62
   %.0.i126 = phi i32 [ %61, %60 ], [ %63, %62 ]
   %.not120 = icmp eq i32 %.0.i126, 0
-  br i1 %.not120, label %230, label %.preheader133
+  br i1 %.not120, label %233, label %.preheader133
 
 .preheader133:                                    ; preds = %58, %42, %mpd_qresize.exit127
   %64 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
@@ -8756,159 +8756,159 @@ mpd_qresize.exit127:                              ; preds = %60, %62
 
 mpd_word_digits.exit:                             ; preds = %111, %115, %122, %126, %129, %139, %143, %146, %156, %160, %164
   %.0.i = phi i32 [ %114, %111 ], [ %118, %115 ], [ %125, %122 ], [ %132, %129 ], [ %142, %139 ], [ %149, %146 ], [ %159, %156 ], [ %163, %160 ], [ %167, %164 ], [ 9, %126 ], [ 14, %143 ]
-  %wide.trip.count = zext nneg i32 %.0.i to i64
-  br label %169
+  %168 = zext nneg i32 %.0.i to i64
+  br label %170
 
-.preheader:                                       ; preds = %180
-  %168 = icmp samesign ult i32 %.0.i, 19
-  br i1 %168, label %.lr.ph153, label %._crit_edge154
+.preheader:                                       ; preds = %181
+  %169 = icmp samesign ult i32 %.0.i, 19
+  br i1 %169, label %.lr.ph153, label %._crit_edge154
 
-169:                                              ; preds = %mpd_word_digits.exit, %180
-  %indvars.iv177 = phi i64 [ 0, %mpd_word_digits.exit ], [ %indvars.iv.next178, %180 ]
-  %.1101148 = phi i64 [ 0, %mpd_word_digits.exit ], [ %182, %180 ]
-  %.1104147 = phi i64 [ %102, %mpd_word_digits.exit ], [ %173, %180 ]
-  %.1108146 = phi i64 [ %100, %mpd_word_digits.exit ], [ %171, %180 ]
-  %170 = urem i64 %.1108146, 10
-  %171 = udiv i64 %.1108146, 10
-  %172 = urem i64 %.1104147, 10
-  %173 = udiv i64 %.1104147, 10
-  %174 = icmp samesign ugt i64 %170, 1
-  %175 = icmp samesign ugt i64 %172, 1
-  %or.cond3 = select i1 %174, i1 true, i1 %175
-  br i1 %or.cond3, label %.loopexit, label %176
+170:                                              ; preds = %mpd_word_digits.exit, %181
+  %indvars.iv177 = phi i64 [ 0, %mpd_word_digits.exit ], [ %indvars.iv.next178, %181 ]
+  %.1101148 = phi i64 [ 0, %mpd_word_digits.exit ], [ %183, %181 ]
+  %.1104147 = phi i64 [ %102, %mpd_word_digits.exit ], [ %174, %181 ]
+  %.1108146 = phi i64 [ %100, %mpd_word_digits.exit ], [ %172, %181 ]
+  %171 = urem i64 %.1108146, 10
+  %172 = udiv i64 %.1108146, 10
+  %173 = urem i64 %.1104147, 10
+  %174 = udiv i64 %.1104147, 10
+  %175 = icmp samesign ugt i64 %171, 1
+  %176 = icmp samesign ugt i64 %173, 1
+  %or.cond3 = select i1 %175, i1 true, i1 %176
+  br i1 %or.cond3, label %.loopexit, label %177
 
-176:                                              ; preds = %169
-  %.not121 = icmp eq i64 %170, %172
-  br i1 %.not121, label %180, label %177
+177:                                              ; preds = %170
+  %.not121 = icmp eq i64 %171, %173
+  br i1 %.not121, label %181, label %178
 
-177:                                              ; preds = %176
-  %178 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %indvars.iv177
-  %179 = load i64, ptr %178, align 8, !tbaa !3
-  br label %180
+178:                                              ; preds = %177
+  %179 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %indvars.iv177
+  %180 = load i64, ptr %179, align 8, !tbaa !3
+  br label %181
 
-180:                                              ; preds = %176, %177
-  %181 = phi i64 [ %179, %177 ], [ 0, %176 ]
-  %182 = add i64 %181, %.1101148
+181:                                              ; preds = %177, %178
+  %182 = phi i64 [ %180, %178 ], [ 0, %177 ]
+  %183 = add i64 %182, %.1101148
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %exitcond180.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count
-  br i1 %exitcond180.not, label %.preheader, label %169, !llvm.loop !48
+  %exitcond181.not = icmp eq i64 %indvars.iv.next178, %168
+  br i1 %exitcond181.not, label %.preheader, label %170, !llvm.loop !48
 
-.lr.ph153:                                        ; preds = %.preheader, %186
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %186 ], [ %wide.trip.count, %.preheader ]
-  %.2102151 = phi i64 [ %190, %186 ], [ %182, %.preheader ]
-  %.2105150 = phi i64 [ %184, %186 ], [ %173, %.preheader ]
-  %183 = urem i64 %.2105150, 10
-  %184 = udiv i64 %.2105150, 10
-  %185 = icmp samesign ugt i64 %183, 1
-  br i1 %185, label %.loopexit, label %186
+.lr.ph153:                                        ; preds = %.preheader, %187
+  %indvars.iv182 = phi i64 [ %indvars.iv.next183, %187 ], [ %168, %.preheader ]
+  %.2102151 = phi i64 [ %191, %187 ], [ %183, %.preheader ]
+  %.2105150 = phi i64 [ %185, %187 ], [ %174, %.preheader ]
+  %184 = urem i64 %.2105150, 10
+  %185 = udiv i64 %.2105150, 10
+  %186 = icmp samesign ugt i64 %184, 1
+  br i1 %186, label %.loopexit, label %187
 
-186:                                              ; preds = %.lr.ph153
-  %187 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %indvars.iv181
-  %188 = load i64, ptr %187, align 8, !tbaa !3
-  %189 = mul nuw nsw i64 %188, %183
-  %190 = add i64 %189, %.2102151
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %exitcond184.not = icmp eq i64 %indvars.iv.next182, 19
-  br i1 %exitcond184.not, label %._crit_edge154, label %.lr.ph153, !llvm.loop !49
+187:                                              ; preds = %.lr.ph153
+  %188 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %indvars.iv182
+  %189 = load i64, ptr %188, align 8, !tbaa !3
+  %190 = mul nuw nsw i64 %189, %184
+  %191 = add i64 %190, %.2102151
+  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
+  %exitcond187.not = icmp eq i64 %indvars.iv.next183, 19
+  br i1 %exitcond187.not, label %._crit_edge154, label %.lr.ph153, !llvm.loop !49
 
-._crit_edge154:                                   ; preds = %186, %.preheader
-  %.2102.lcssa = phi i64 [ %182, %.preheader ], [ %190, %186 ]
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %192 = load ptr, ptr %191, align 8, !tbaa !17
-  %193 = getelementptr i64, ptr %192, i64 %.0.lcssa
-  store i64 %.2102.lcssa, ptr %193, align 8, !tbaa !3
+._crit_edge154:                                   ; preds = %187, %.preheader
+  %.2102.lcssa = phi i64 [ %183, %.preheader ], [ %191, %187 ]
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %193 = load ptr, ptr %192, align 8, !tbaa !17
+  %194 = getelementptr i64, ptr %193, i64 %.0.lcssa
+  store i64 %.2102.lcssa, ptr %194, align 8, !tbaa !3
   %.1158 = add i64 %.0.lcssa, 1
-  %194 = load i64, ptr %48, align 8, !tbaa !18
-  %195 = icmp slt i64 %.1158, %194
-  br i1 %195, label %.lr.ph161, label %._crit_edge162
+  %195 = load i64, ptr %48, align 8, !tbaa !18
+  %196 = icmp slt i64 %.1158, %195
+  br i1 %196, label %.lr.ph161, label %._crit_edge162
 
-.lr.ph161:                                        ; preds = %._crit_edge154, %204
-  %.1159 = phi i64 [ %.1, %204 ], [ %.1158, %._crit_edge154 ]
-  %196 = getelementptr i64, ptr %71, i64 %.1159
-  %197 = load i64, ptr %196, align 8, !tbaa !3
-  br label %198
+.lr.ph161:                                        ; preds = %._crit_edge154, %205
+  %.1159 = phi i64 [ %.1, %205 ], [ %.1158, %._crit_edge154 ]
+  %197 = getelementptr i64, ptr %71, i64 %.1159
+  %198 = load i64, ptr %197, align 8, !tbaa !3
+  br label %199
 
-198:                                              ; preds = %.lr.ph161, %202
-  %.3157 = phi i32 [ 0, %.lr.ph161 ], [ %203, %202 ]
-  %.3106156 = phi i64 [ %197, %.lr.ph161 ], [ %200, %202 ]
-  %199 = urem i64 %.3106156, 10
-  %200 = udiv i64 %.3106156, 10
-  %201 = icmp samesign ugt i64 %199, 1
-  br i1 %201, label %.loopexit, label %202
+199:                                              ; preds = %.lr.ph161, %203
+  %.3157 = phi i32 [ 0, %.lr.ph161 ], [ %204, %203 ]
+  %.3106156 = phi i64 [ %198, %.lr.ph161 ], [ %201, %203 ]
+  %200 = urem i64 %.3106156, 10
+  %201 = udiv i64 %.3106156, 10
+  %202 = icmp samesign ugt i64 %200, 1
+  br i1 %202, label %.loopexit, label %203
 
-202:                                              ; preds = %198
-  %203 = add nuw nsw i32 %.3157, 1
-  %exitcond185.not = icmp eq i32 %203, 19
-  br i1 %exitcond185.not, label %204, label %198, !llvm.loop !50
+203:                                              ; preds = %199
+  %204 = add nuw nsw i32 %.3157, 1
+  %exitcond188.not = icmp eq i32 %204, 19
+  br i1 %exitcond188.not, label %205, label %199, !llvm.loop !50
 
-204:                                              ; preds = %202
-  %205 = getelementptr i64, ptr %192, i64 %.1159
-  store i64 %197, ptr %205, align 8, !tbaa !3
+205:                                              ; preds = %203
+  %206 = getelementptr i64, ptr %193, i64 %.1159
+  store i64 %198, ptr %206, align 8, !tbaa !3
   %.1 = add nsw i64 %.1159, 1
-  %206 = load i64, ptr %48, align 8, !tbaa !18
-  %207 = icmp slt i64 %.1, %206
-  br i1 %207, label %.lr.ph161, label %._crit_edge162, !llvm.loop !51
+  %207 = load i64, ptr %48, align 8, !tbaa !18
+  %208 = icmp slt i64 %.1, %207
+  br i1 %208, label %.lr.ph161, label %._crit_edge162, !llvm.loop !51
 
-._crit_edge162:                                   ; preds = %204, %._crit_edge154
-  %.lcssa = phi i64 [ %194, %._crit_edge154 ], [ %206, %204 ]
-  %208 = load i8, ptr %0, align 8, !tbaa !19
-  %209 = and i8 %208, -16
-  store i8 %209, ptr %0, align 8, !tbaa !19
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %210, align 8, !tbaa !7
-  %invariant.gep.i = getelementptr i8, ptr %192, i64 -8
-  %211 = icmp sgt i64 %.lcssa, 1
-  br i1 %211, label %.lr.ph.i, label %_mpd_real_size.exit
+._crit_edge162:                                   ; preds = %205, %._crit_edge154
+  %.lcssa = phi i64 [ %195, %._crit_edge154 ], [ %207, %205 ]
+  %209 = load i8, ptr %0, align 8, !tbaa !19
+  %210 = and i8 %209, -16
+  store i8 %210, ptr %0, align 8, !tbaa !19
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %211, align 8, !tbaa !7
+  %212 = icmp sgt i64 %.lcssa, 1
+  br i1 %212, label %.lr.ph.i, label %_mpd_real_size.exit
 
-.lr.ph.i:                                         ; preds = %._crit_edge162, %214
-  %.04.i = phi i64 [ %215, %214 ], [ %.lcssa, %._crit_edge162 ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.04.i
-  %212 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %213 = icmp eq i64 %212, 0
-  br i1 %213, label %214, label %_mpd_real_size.exit
+.lr.ph.i:                                         ; preds = %._crit_edge162, %217
+  %.04.i = phi i64 [ %218, %217 ], [ %.lcssa, %._crit_edge162 ]
+  %213 = getelementptr i64, ptr %193, i64 %.04.i
+  %214 = getelementptr i8, ptr %213, i64 -8
+  %215 = load i64, ptr %214, align 8, !tbaa !3
+  %216 = icmp eq i64 %215, 0
+  br i1 %216, label %217, label %_mpd_real_size.exit
 
-214:                                              ; preds = %.lr.ph.i
-  %215 = add nsw i64 %.04.i, -1
-  %216 = icmp sgt i64 %.04.i, 2
-  br i1 %216, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
+217:                                              ; preds = %.lr.ph.i
+  %218 = add nsw i64 %.04.i, -1
+  %219 = icmp sgt i64 %.04.i, 2
+  br i1 %219, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
 
-_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %214, %._crit_edge162
-  %.0.lcssa.i = phi i64 [ %.lcssa, %._crit_edge162 ], [ %.04.i, %.lr.ph.i ], [ 1, %214 ]
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.0.lcssa.i, ptr %217, align 8, !tbaa !18
-  %218 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %219 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %218)
-  %220 = load i64, ptr %52, align 8, !tbaa !21
-  %221 = icmp eq i64 %219, %220
-  br i1 %221, label %mpd_qresize.exit, label %222
+_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %217, %._crit_edge162
+  %.0.lcssa.i = phi i64 [ %.lcssa, %._crit_edge162 ], [ %.04.i, %.lr.ph.i ], [ 1, %217 ]
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.0.lcssa.i, ptr %220, align 8, !tbaa !18
+  %221 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %222 = tail call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %221)
+  %223 = load i64, ptr %52, align 8, !tbaa !21
+  %224 = icmp eq i64 %222, %223
+  br i1 %224, label %mpd_qresize.exit, label %225
 
-222:                                              ; preds = %_mpd_real_size.exit
-  %223 = and i8 %208, 32
-  %.not.i = icmp eq i8 %223, 0
-  br i1 %.not.i, label %228, label %224
+225:                                              ; preds = %_mpd_real_size.exit
+  %226 = and i8 %209, 32
+  %.not.i = icmp eq i8 %226, 0
+  br i1 %.not.i, label %231, label %227
 
-224:                                              ; preds = %222
-  %225 = icmp sgt i64 %219, %220
-  br i1 %225, label %226, label %mpd_qresize.exit
+227:                                              ; preds = %225
+  %228 = icmp sgt i64 %222, %223
+  br i1 %228, label %229, label %mpd_qresize.exit
 
-226:                                              ; preds = %224
-  %227 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %219, ptr noundef %4) #33
+229:                                              ; preds = %227
+  %230 = tail call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %222, ptr noundef %4) #33
   br label %mpd_qresize.exit
 
-228:                                              ; preds = %222
-  %229 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %219, ptr noundef %4) #33
+231:                                              ; preds = %225
+  %232 = tail call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %222, ptr noundef %4) #33
   br label %mpd_qresize.exit
 
-mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %224, %226, %228
+mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %227, %229, %231
   tail call void @mpd_setdigits(ptr noundef nonnull %0)
   tail call fastcc void @_mpd_cap(ptr noundef nonnull %0, ptr noundef %3)
-  br label %230
+  br label %233
 
-.loopexit:                                        ; preds = %78, %169, %.lr.ph153, %198
+.loopexit:                                        ; preds = %78, %170, %.lr.ph153, %199
   tail call void @mpd_seterror(ptr noundef %0, i32 noundef 256, ptr noundef %4)
-  br label %230
+  br label %233
 
-230:                                              ; preds = %mpd_qresize.exit127, %.loopexit, %mpd_qresize.exit, %mpd_seterror.exit
+233:                                              ; preds = %mpd_qresize.exit127, %.loopexit, %mpd_qresize.exit, %mpd_seterror.exit
   ret void
 }
 
@@ -9677,7 +9677,7 @@ mpd_seterror.exit:                                ; preds = %73, %76, %88
   %93 = load i32, ptr %5, align 4, !tbaa !23
   %94 = or i32 %93, 512
   store i32 %94, ptr %5, align 4, !tbaa !23
-  br label %299
+  br label %301
 
 95:                                               ; preds = %69, %31
   %.0113 = phi ptr [ %.1114, %31 ], [ %9, %69 ]
@@ -9738,7 +9738,7 @@ mpd_seterror.exit:                                ; preds = %73, %76, %88
 mpd_qresize.exit81:                               ; preds = %122, %124
   %.0.i80 = phi i32 [ %123, %122 ], [ %125, %124 ]
   %.not69 = icmp eq i32 %.0.i80, 0
-  br i1 %.not69, label %299, label %mpd_qresize.exit81.thread
+  br i1 %.not69, label %301, label %mpd_qresize.exit81.thread
 
 mpd_qresize.exit81.thread:                        ; preds = %120, %104, %mpd_qresize.exit81
   %126 = load i8, ptr %1, align 8, !tbaa !19
@@ -9796,7 +9796,7 @@ mpd_qresize.exit81.thread:                        ; preds = %120, %104, %mpd_qre
 mpd_qresize.exit78:                               ; preds = %149, %151
   %.0.i77 = phi i32 [ %150, %149 ], [ %152, %151 ]
   %.not74 = icmp eq i32 %.0.i77, 0
-  br i1 %.not74, label %299, label %mpd_qresize.exit78.thread
+  br i1 %.not74, label %301, label %mpd_qresize.exit78.thread
 
 mpd_qresize.exit78.thread:                        ; preds = %147, %137, %mpd_qresize.exit78
   %153 = load ptr, ptr %130, align 8, !tbaa !17
@@ -9816,7 +9816,7 @@ mpd_qresize.exit78.thread:                        ; preds = %147, %137, %mpd_qre
   %.phi.trans.insert142 = getelementptr i64, ptr %.pre, i64 %.055
   %.phi.trans.insert143 = getelementptr i8, ptr %.phi.trans.insert142, i64 -8
   %.pre144 = load i64, ptr %.phi.trans.insert143, align 8, !tbaa !3
-  br label %227
+  br label %229
 
 160:                                              ; preds = %mpd_qresize.exit81.thread
   %161 = load i64, ptr %.2115.sroa.sel130, align 8, !tbaa !18
@@ -9873,224 +9873,224 @@ mpd_qresize.exit78.thread:                        ; preds = %147, %137, %mpd_qre
   call void @_mpd_basesub(ptr noundef %178, ptr noundef %180, ptr noundef %182, i64 noundef %184, i64 noundef %186) #33
   %187 = load ptr, ptr %177, align 8, !tbaa !17
   %188 = load i64, ptr %183, align 8, !tbaa !18
-  %invariant.gep.i = getelementptr i8, ptr %187, i64 -8
   %189 = icmp sgt i64 %188, 1
   br i1 %189, label %.lr.ph.i, label %_mpd_real_size.exit
 
-.lr.ph.i:                                         ; preds = %.loopexit, %192
-  %.04.i = phi i64 [ %193, %192 ], [ %188, %.loopexit ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.04.i
-  %190 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %191 = icmp eq i64 %190, 0
-  br i1 %191, label %192, label %_mpd_real_size.exit
+.lr.ph.i:                                         ; preds = %.loopexit, %194
+  %.04.i = phi i64 [ %195, %194 ], [ %188, %.loopexit ]
+  %190 = getelementptr i64, ptr %187, i64 %.04.i
+  %191 = getelementptr i8, ptr %190, i64 -8
+  %192 = load i64, ptr %191, align 8, !tbaa !3
+  %193 = icmp eq i64 %192, 0
+  br i1 %193, label %194, label %_mpd_real_size.exit
 
-192:                                              ; preds = %.lr.ph.i
-  %193 = add nsw i64 %.04.i, -1
-  %194 = icmp sgt i64 %.04.i, 2
-  br i1 %194, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
+194:                                              ; preds = %.lr.ph.i
+  %195 = add nsw i64 %.04.i, -1
+  %196 = icmp sgt i64 %.04.i, 2
+  br i1 %196, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
 
-_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %192, %.loopexit
-  %.0.lcssa.i = phi i64 [ %188, %.loopexit ], [ %.04.i, %.lr.ph.i ], [ 1, %192 ]
-  %195 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %196 = call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %195)
-  %197 = load i64, ptr %114, align 8, !tbaa !21
-  %198 = icmp eq i64 %196, %197
-  br i1 %198, label %mpd_qresize.exit, label %199
+_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %194, %.loopexit
+  %.0.lcssa.i = phi i64 [ %188, %.loopexit ], [ %.04.i, %.lr.ph.i ], [ 1, %194 ]
+  %197 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %198 = call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %197)
+  %199 = load i64, ptr %114, align 8, !tbaa !21
+  %200 = icmp eq i64 %198, %199
+  br i1 %200, label %mpd_qresize.exit, label %201
 
-199:                                              ; preds = %_mpd_real_size.exit
-  %200 = load i8, ptr %0, align 8, !tbaa !19
-  %201 = and i8 %200, 32
-  %.not.i75 = icmp eq i8 %201, 0
-  br i1 %.not.i75, label %206, label %202
+201:                                              ; preds = %_mpd_real_size.exit
+  %202 = load i8, ptr %0, align 8, !tbaa !19
+  %203 = and i8 %202, 32
+  %.not.i75 = icmp eq i8 %203, 0
+  br i1 %.not.i75, label %208, label %204
 
-202:                                              ; preds = %199
-  %203 = icmp sgt i64 %196, %197
-  br i1 %203, label %204, label %mpd_qresize.exit
+204:                                              ; preds = %201
+  %205 = icmp sgt i64 %198, %199
+  br i1 %205, label %206, label %mpd_qresize.exit
 
-204:                                              ; preds = %202
-  %205 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %196, ptr noundef %5) #33
+206:                                              ; preds = %204
+  %207 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %198, ptr noundef %5) #33
   br label %mpd_qresize.exit
 
-206:                                              ; preds = %199
-  %207 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %196, ptr noundef %5) #33
+208:                                              ; preds = %201
+  %209 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %198, ptr noundef %5) #33
   br label %mpd_qresize.exit
 
-mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %202, %204, %206
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.0.lcssa.i, ptr %208, align 8, !tbaa !18
-  %209 = and i32 %.3, 1
-  %.not71 = icmp eq i32 %209, 0
-  br i1 %.not71, label %210, label %213
+mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %204, %206, %208
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.0.lcssa.i, ptr %210, align 8, !tbaa !18
+  %211 = and i32 %.3, 1
+  %.not71 = icmp eq i32 %211, 0
+  br i1 %.not71, label %212, label %215
 
-210:                                              ; preds = %mpd_qresize.exit
-  %211 = load i8, ptr %1, align 8, !tbaa !19
-  %212 = and i8 %211, 1
-  br label %213
+212:                                              ; preds = %mpd_qresize.exit
+  %213 = load i8, ptr %1, align 8, !tbaa !19
+  %214 = and i8 %213, 1
+  br label %215
 
-213:                                              ; preds = %mpd_qresize.exit, %210
-  %.in = phi i8 [ %212, %210 ], [ %3, %mpd_qresize.exit ]
-  %214 = load i8, ptr %0, align 8, !tbaa !19
-  %215 = and i8 %214, -16
-  %216 = or disjoint i8 %215, %.in
-  store i8 %216, ptr %0, align 8, !tbaa !19
-  %217 = load ptr, ptr %177, align 8, !tbaa !17
-  %218 = getelementptr i64, ptr %217, i64 %.0.lcssa.i
-  %219 = getelementptr i8, ptr %218, i64 -8
-  %220 = load i64, ptr %219, align 8, !tbaa !3
-  %.not122 = icmp eq i64 %220, 0
-  br i1 %.not122, label %221, label %227
+215:                                              ; preds = %mpd_qresize.exit, %212
+  %.in = phi i8 [ %214, %212 ], [ %3, %mpd_qresize.exit ]
+  %216 = load i8, ptr %0, align 8, !tbaa !19
+  %217 = and i8 %216, -16
+  %218 = or disjoint i8 %217, %.in
+  store i8 %218, ptr %0, align 8, !tbaa !19
+  %219 = load ptr, ptr %177, align 8, !tbaa !17
+  %220 = getelementptr i64, ptr %219, i64 %.0.lcssa.i
+  %221 = getelementptr i8, ptr %220, i64 -8
+  %222 = load i64, ptr %221, align 8, !tbaa !3
+  %.not122 = icmp eq i64 %222, 0
+  br i1 %.not122, label %223, label %229
 
-221:                                              ; preds = %213
-  store i8 %215, ptr %0, align 8, !tbaa !19
-  %222 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %223 = load i32, ptr %222, align 4, !tbaa !29
-  %224 = icmp eq i32 %223, 3
-  br i1 %224, label %225, label %227
+223:                                              ; preds = %215
+  store i8 %217, ptr %0, align 8, !tbaa !19
+  %224 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %225 = load i32, ptr %224, align 4, !tbaa !29
+  %226 = icmp eq i32 %225, 3
+  br i1 %226, label %227, label %229
 
-225:                                              ; preds = %221
-  %226 = or disjoint i8 %215, 1
-  store i8 %226, ptr %0, align 8, !tbaa !19
-  br label %227
+227:                                              ; preds = %223
+  %228 = or disjoint i8 %217, 1
+  store i8 %228, ptr %0, align 8, !tbaa !19
+  br label %229
 
-227:                                              ; preds = %213, %225, %221, %155
-  %228 = phi i64 [ %220, %213 ], [ 0, %225 ], [ 0, %221 ], [ %.pre144, %155 ]
-  %229 = phi i64 [ %.0.lcssa.i, %213 ], [ %.0.lcssa.i, %225 ], [ %.0.lcssa.i, %221 ], [ %.055, %155 ]
-  %230 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
-  %231 = icmp ult i64 %228, %230
-  br i1 %231, label %232, label %260
+229:                                              ; preds = %215, %227, %223, %155
+  %230 = phi i64 [ %222, %215 ], [ 0, %227 ], [ 0, %223 ], [ %.pre144, %155 ]
+  %231 = phi i64 [ %.0.lcssa.i, %215 ], [ %.0.lcssa.i, %227 ], [ %.0.lcssa.i, %223 ], [ %.055, %155 ]
+  %232 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
+  %233 = icmp ult i64 %230, %232
+  br i1 %233, label %234, label %262
 
-232:                                              ; preds = %227
-  %233 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
-  %234 = icmp ult i64 %228, %233
-  br i1 %234, label %235, label %246
+234:                                              ; preds = %229
+  %235 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
+  %236 = icmp ult i64 %230, %235
+  br i1 %236, label %237, label %248
 
-235:                                              ; preds = %232
-  %236 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
-  %237 = icmp ult i64 %228, %236
-  br i1 %237, label %238, label %242
+237:                                              ; preds = %234
+  %238 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
+  %239 = icmp ult i64 %230, %238
+  br i1 %239, label %240, label %244
 
-238:                                              ; preds = %235
-  %239 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
-  %240 = icmp ult i64 %228, %239
-  %241 = select i1 %240, i64 1, i64 2
+240:                                              ; preds = %237
+  %241 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
+  %242 = icmp ult i64 %230, %241
+  %243 = select i1 %242, i64 1, i64 2
   br label %mpd_setdigits.exit
 
-242:                                              ; preds = %235
-  %243 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
-  %244 = icmp ult i64 %228, %243
-  %245 = select i1 %244, i64 3, i64 4
+244:                                              ; preds = %237
+  %245 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
+  %246 = icmp ult i64 %230, %245
+  %247 = select i1 %246, i64 3, i64 4
   br label %mpd_setdigits.exit
 
-246:                                              ; preds = %232
-  %247 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
-  %248 = icmp ult i64 %228, %247
-  br i1 %248, label %249, label %253
+248:                                              ; preds = %234
+  %249 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
+  %250 = icmp ult i64 %230, %249
+  br i1 %250, label %251, label %255
 
-249:                                              ; preds = %246
-  %250 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
-  %251 = icmp ult i64 %228, %250
-  %252 = select i1 %251, i64 5, i64 6
+251:                                              ; preds = %248
+  %252 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
+  %253 = icmp ult i64 %230, %252
+  %254 = select i1 %253, i64 5, i64 6
   br label %mpd_setdigits.exit
 
-253:                                              ; preds = %246
-  %254 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
-  %255 = icmp ult i64 %228, %254
-  br i1 %255, label %256, label %mpd_setdigits.exit
+255:                                              ; preds = %248
+  %256 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
+  %257 = icmp ult i64 %230, %256
+  br i1 %257, label %258, label %mpd_setdigits.exit
 
-256:                                              ; preds = %253
-  %257 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
-  %258 = icmp ult i64 %228, %257
-  %259 = select i1 %258, i64 7, i64 8
+258:                                              ; preds = %255
+  %259 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
+  %260 = icmp ult i64 %230, %259
+  %261 = select i1 %260, i64 7, i64 8
   br label %mpd_setdigits.exit
 
-260:                                              ; preds = %227
-  %261 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
-  %262 = icmp ult i64 %228, %261
-  br i1 %262, label %263, label %277
+262:                                              ; preds = %229
+  %263 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
+  %264 = icmp ult i64 %230, %263
+  br i1 %264, label %265, label %279
 
-263:                                              ; preds = %260
-  %264 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
-  %265 = icmp ult i64 %228, %264
-  br i1 %265, label %266, label %270
+265:                                              ; preds = %262
+  %266 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
+  %267 = icmp ult i64 %230, %266
+  br i1 %267, label %268, label %272
 
-266:                                              ; preds = %263
-  %267 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
-  %268 = icmp ult i64 %228, %267
-  %269 = select i1 %268, i64 10, i64 11
+268:                                              ; preds = %265
+  %269 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
+  %270 = icmp ult i64 %230, %269
+  %271 = select i1 %270, i64 10, i64 11
   br label %mpd_setdigits.exit
 
-270:                                              ; preds = %263
-  %271 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
-  %272 = icmp ult i64 %228, %271
-  br i1 %272, label %273, label %mpd_setdigits.exit
+272:                                              ; preds = %265
+  %273 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
+  %274 = icmp ult i64 %230, %273
+  br i1 %274, label %275, label %mpd_setdigits.exit
 
-273:                                              ; preds = %270
-  %274 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
-  %275 = icmp ult i64 %228, %274
-  %276 = select i1 %275, i64 12, i64 13
+275:                                              ; preds = %272
+  %276 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
+  %277 = icmp ult i64 %230, %276
+  %278 = select i1 %277, i64 12, i64 13
   br label %mpd_setdigits.exit
 
-277:                                              ; preds = %260
-  %278 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
-  %279 = icmp ult i64 %228, %278
-  br i1 %279, label %280, label %291
+279:                                              ; preds = %262
+  %280 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
+  %281 = icmp ult i64 %230, %280
+  br i1 %281, label %282, label %293
 
-280:                                              ; preds = %277
-  %281 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
-  %282 = icmp ult i64 %228, %281
-  br i1 %282, label %283, label %287
+282:                                              ; preds = %279
+  %283 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
+  %284 = icmp ult i64 %230, %283
+  br i1 %284, label %285, label %289
 
-283:                                              ; preds = %280
-  %284 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
-  %285 = icmp ult i64 %228, %284
-  %286 = select i1 %285, i64 15, i64 16
+285:                                              ; preds = %282
+  %286 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
+  %287 = icmp ult i64 %230, %286
+  %288 = select i1 %287, i64 15, i64 16
   br label %mpd_setdigits.exit
 
-287:                                              ; preds = %280
-  %288 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
-  %289 = icmp ult i64 %228, %288
-  %290 = select i1 %289, i64 17, i64 18
+289:                                              ; preds = %282
+  %290 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
+  %291 = icmp ult i64 %230, %290
+  %292 = select i1 %291, i64 17, i64 18
   br label %mpd_setdigits.exit
 
-291:                                              ; preds = %277
-  %292 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
-  %293 = icmp ult i64 %228, %292
-  %294 = select i1 %293, i64 19, i64 20
+293:                                              ; preds = %279
+  %294 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
+  %295 = icmp ult i64 %230, %294
+  %296 = select i1 %295, i64 19, i64 20
   br label %mpd_setdigits.exit
 
-mpd_setdigits.exit:                               ; preds = %238, %242, %249, %253, %256, %266, %270, %273, %283, %287, %291
-  %.0.i.i = phi i64 [ %241, %238 ], [ %245, %242 ], [ %252, %249 ], [ %259, %256 ], [ %269, %266 ], [ %276, %273 ], [ %286, %283 ], [ %290, %287 ], [ %294, %291 ], [ 9, %253 ], [ 14, %270 ]
-  %295 = mul i64 %229, 19
-  %296 = add i64 %295, -19
-  %297 = add i64 %296, %.0.i.i
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %297, ptr %298, align 8, !tbaa !11
-  br label %299
+mpd_setdigits.exit:                               ; preds = %240, %244, %251, %255, %258, %268, %272, %275, %285, %289, %293
+  %.0.i.i = phi i64 [ %243, %240 ], [ %247, %244 ], [ %254, %251 ], [ %261, %258 ], [ %271, %268 ], [ %278, %275 ], [ %288, %285 ], [ %292, %289 ], [ %296, %293 ], [ 9, %255 ], [ 14, %272 ]
+  %297 = mul i64 %231, 19
+  %298 = add i64 %297, -19
+  %299 = add i64 %298, %.0.i.i
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %299, ptr %300, align 8, !tbaa !11
+  br label %301
 
-299:                                              ; preds = %mpd_qresize.exit78, %mpd_qresize.exit81, %mpd_setdigits.exit, %mpd_seterror.exit
-  %300 = load i8, ptr %9, align 8, !tbaa !19
-  %.not.i5.i = icmp ugt i8 %300, 31
-  br i1 %.not.i5.i, label %304, label %301
+301:                                              ; preds = %mpd_qresize.exit78, %mpd_qresize.exit81, %mpd_setdigits.exit, %mpd_seterror.exit
+  %302 = load i8, ptr %9, align 8, !tbaa !19
+  %.not.i5.i = icmp ugt i8 %302, 31
+  br i1 %.not.i5.i, label %306, label %303
 
-301:                                              ; preds = %299
-  %302 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %303 = load ptr, ptr %14, align 8, !tbaa !17
-  call void %302(ptr noundef %303) #33
+303:                                              ; preds = %301
+  %304 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %305 = load ptr, ptr %14, align 8, !tbaa !17
+  call void %304(ptr noundef %305) #33
   %.pre145 = load i8, ptr %9, align 8, !tbaa !19
-  br label %304
+  br label %306
 
-304:                                              ; preds = %301, %299
-  %305 = phi i8 [ %.pre145, %301 ], [ %300, %299 ]
-  %306 = and i8 %305, 16
-  %.not.i.i.not = icmp eq i8 %306, 0
-  br i1 %.not.i.i.not, label %307, label %mpd_del.exit
+306:                                              ; preds = %303, %301
+  %307 = phi i8 [ %.pre145, %303 ], [ %302, %301 ]
+  %308 = and i8 %307, 16
+  %.not.i.i.not = icmp eq i8 %308, 0
+  br i1 %.not.i.i.not, label %309, label %mpd_del.exit
 
-307:                                              ; preds = %304
-  %308 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %308(ptr noundef nonnull %9) #33
+309:                                              ; preds = %306
+  %310 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %310(ptr noundef nonnull %9) #33
   br label %mpd_del.exit
 
-mpd_del.exit:                                     ; preds = %304, %307
+mpd_del.exit:                                     ; preds = %306, %309
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #33
@@ -11234,7 +11234,7 @@ mpd_setspecial.exit:                              ; preds = %119, %123, %135
 
 168:                                              ; preds = %166
   call void @mpd_seterror(ptr noundef %1, i32 noundef 512, ptr noundef %5)
-  br label %298
+  br label %300
 
 169:                                              ; preds = %151
   %170 = icmp slt i64 %159, 0
@@ -11247,7 +11247,7 @@ mpd_setspecial.exit:                              ; preds = %119, %123, %135
 
 173:                                              ; preds = %171
   call void @mpd_seterror(ptr noundef %1, i32 noundef 512, ptr noundef %5)
-  br label %298
+  br label %300
 
 174:                                              ; preds = %171, %166, %169
   %.0128.sroa.phi166 = phi ptr [ %.0128.sroa.gep159, %169 ], [ %.0128.sroa.gep159, %166 ], [ %18, %171 ]
@@ -11303,7 +11303,7 @@ mpd_qresize.exit215.mpd_qresize.exit215.thread_crit_edge: ; preds = %mpd_qresize
 
 195:                                              ; preds = %mpd_qresize.exit215
   call void @mpd_seterror(ptr noundef nonnull %1, i32 noundef 512, ptr noundef %5)
-  br label %298
+  br label %300
 
 mpd_qresize.exit215.thread:                       ; preds = %mpd_qresize.exit215.mpd_qresize.exit215.thread_crit_edge, %174, %189, %180
   %196 = phi i64 [ %.pre, %mpd_qresize.exit215.mpd_qresize.exit215.thread_crit_edge ], [ %176, %174 ], [ %176, %189 ], [ %176, %180 ]
@@ -11340,7 +11340,7 @@ mpd_qresize.exit215.thread:                       ; preds = %mpd_qresize.exit215
 
 217:                                              ; preds = %208
   call void @mpd_seterror(ptr noundef nonnull %1, i32 noundef 512, ptr noundef %5)
-  br label %298
+  br label %300
 
 218:                                              ; preds = %206
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13) #33
@@ -11420,7 +11420,7 @@ mpd_qresize.exit215.thread:                       ; preds = %mpd_qresize.exit215
 mpd_del.exit211.thread:                           ; preds = %233, %236
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #33
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13) #33
-  br label %298
+  br label %300
 
 mpd_del.exit211:                                  ; preds = %251, %248
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -11434,117 +11434,117 @@ mpd_del.exit211:                                  ; preds = %251, %248
   %.0129 = phi i64 [ %205, %198 ], [ %245, %mpd_del.exit211 ], [ %216, %.thread ]
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %257 = load ptr, ptr %256, align 8, !tbaa !17
-  %invariant.gep.i = getelementptr i8, ptr %257, i64 -8
   %258 = icmp sgt i64 %.0132, 1
   br i1 %258, label %.lr.ph.i, label %_mpd_real_size.exit
 
-.lr.ph.i:                                         ; preds = %255, %261
-  %.04.i = phi i64 [ %262, %261 ], [ %.0132, %255 ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.04.i
-  %259 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %260 = icmp eq i64 %259, 0
-  br i1 %260, label %261, label %_mpd_real_size.exit
+.lr.ph.i:                                         ; preds = %255, %263
+  %.04.i = phi i64 [ %264, %263 ], [ %.0132, %255 ]
+  %259 = getelementptr i64, ptr %257, i64 %.04.i
+  %260 = getelementptr i8, ptr %259, i64 -8
+  %261 = load i64, ptr %260, align 8, !tbaa !3
+  %262 = icmp eq i64 %261, 0
+  br i1 %262, label %263, label %_mpd_real_size.exit
 
-261:                                              ; preds = %.lr.ph.i
-  %262 = add nsw i64 %.04.i, -1
-  %263 = icmp sgt i64 %.04.i, 2
-  br i1 %263, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
+263:                                              ; preds = %.lr.ph.i
+  %264 = add nsw i64 %.04.i, -1
+  %265 = icmp sgt i64 %.04.i, 2
+  br i1 %265, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
 
-_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %261, %255
-  %.0.lcssa.i = phi i64 [ %.0132, %255 ], [ %.04.i, %.lr.ph.i ], [ 1, %261 ]
-  %264 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %265 = call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %264)
-  %266 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %267 = load i64, ptr %266, align 8, !tbaa !21
-  %268 = icmp eq i64 %265, %267
-  br i1 %268, label %mpd_qresize.exit, label %269
+_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %263, %255
+  %.0.lcssa.i = phi i64 [ %.0132, %255 ], [ %.04.i, %.lr.ph.i ], [ 1, %263 ]
+  %266 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %267 = call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %266)
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %269 = load i64, ptr %268, align 8, !tbaa !21
+  %270 = icmp eq i64 %267, %269
+  br i1 %270, label %mpd_qresize.exit, label %271
 
-269:                                              ; preds = %_mpd_real_size.exit
-  %270 = load i8, ptr %1, align 8, !tbaa !19
-  %271 = and i8 %270, 32
-  %.not.i212 = icmp eq i8 %271, 0
-  br i1 %.not.i212, label %276, label %272
+271:                                              ; preds = %_mpd_real_size.exit
+  %272 = load i8, ptr %1, align 8, !tbaa !19
+  %273 = and i8 %272, 32
+  %.not.i212 = icmp eq i8 %273, 0
+  br i1 %.not.i212, label %278, label %274
 
-272:                                              ; preds = %269
-  %273 = icmp sgt i64 %265, %267
-  br i1 %273, label %274, label %mpd_qresize.exit
+274:                                              ; preds = %271
+  %275 = icmp sgt i64 %267, %269
+  br i1 %275, label %276, label %mpd_qresize.exit
 
-274:                                              ; preds = %272
-  %275 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %265, ptr noundef %5) #33
+276:                                              ; preds = %274
+  %277 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %267, ptr noundef %5) #33
   br label %mpd_qresize.exit
 
-276:                                              ; preds = %269
-  %277 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %265, ptr noundef %5) #33
+278:                                              ; preds = %271
+  %279 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %267, ptr noundef %5) #33
   br label %mpd_qresize.exit
 
-mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %272, %274, %276
-  %278 = xor i8 %22, %20
-  %279 = load i8, ptr %1, align 8, !tbaa !19
-  %280 = and i8 %279, -16
-  %281 = or disjoint i8 %280, %278
-  store i8 %281, ptr %1, align 8, !tbaa !19
-  %282 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %.0.lcssa.i, ptr %282, align 8, !tbaa !18
+mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %274, %276, %278
+  %280 = xor i8 %22, %20
+  %281 = load i8, ptr %1, align 8, !tbaa !19
+  %282 = and i8 %281, -16
+  %283 = or disjoint i8 %282, %280
+  store i8 %283, ptr %1, align 8, !tbaa !19
+  %284 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %.0.lcssa.i, ptr %284, align 8, !tbaa !18
   call void @mpd_setdigits(ptr noundef nonnull %1)
   %.not194 = icmp eq i64 %.0129, 0
-  br i1 %.not194, label %289, label %283
+  br i1 %.not194, label %291, label %285
 
-283:                                              ; preds = %mpd_qresize.exit
-  %284 = load ptr, ptr %256, align 8, !tbaa !17
-  %285 = load i64, ptr %284, align 8, !tbaa !3
-  %286 = urem i64 %285, 10
-  switch i64 %286, label %296 [
-    i64 5, label %287
-    i64 0, label %287
+285:                                              ; preds = %mpd_qresize.exit
+  %286 = load ptr, ptr %256, align 8, !tbaa !17
+  %287 = load i64, ptr %286, align 8, !tbaa !3
+  %288 = urem i64 %287, 10
+  switch i64 %288, label %298 [
+    i64 5, label %289
+    i64 0, label %289
   ]
 
-287:                                              ; preds = %283, %283
-  %288 = add i64 %285, 1
-  store i64 %288, ptr %284, align 8, !tbaa !3
-  br label %296
-
-289:                                              ; preds = %mpd_qresize.exit
-  %290 = icmp ne i32 %0, 0
-  %or.cond3 = and i1 %290, %165
-  br i1 %or.cond3, label %291, label %296
-
-291:                                              ; preds = %289
-  %292 = call i64 @mpd_trail_zeros(ptr noundef nonnull %1)
-  %293 = call i64 @llvm.smin.i64(i64 %292, i64 %159)
-  %294 = call i64 @mpd_qshiftr_inplace(ptr noundef nonnull %1, i64 noundef %293)
-  %295 = add i64 %293, %164
-  br label %296
-
-296:                                              ; preds = %283, %289, %291, %287
-  %.0131 = phi i64 [ %164, %287 ], [ %164, %283 ], [ %295, %291 ], [ %164, %289 ]
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.0131, ptr %297, align 8, !tbaa !7
+289:                                              ; preds = %285, %285
+  %290 = add i64 %287, 1
+  store i64 %290, ptr %286, align 8, !tbaa !3
   br label %298
 
-298:                                              ; preds = %mpd_del.exit211.thread, %217, %296, %195, %173, %168
-  %299 = load i8, ptr %12, align 8, !tbaa !19
-  %.not.i5.i = icmp ugt i8 %299, 31
-  br i1 %.not.i5.i, label %303, label %300
+291:                                              ; preds = %mpd_qresize.exit
+  %292 = icmp ne i32 %0, 0
+  %or.cond3 = and i1 %292, %165
+  br i1 %or.cond3, label %293, label %298
 
-300:                                              ; preds = %298
-  %301 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %302 = load ptr, ptr %18, align 8, !tbaa !17
-  call void %301(ptr noundef %302) #33
+293:                                              ; preds = %291
+  %294 = call i64 @mpd_trail_zeros(ptr noundef nonnull %1)
+  %295 = call i64 @llvm.smin.i64(i64 %294, i64 %159)
+  %296 = call i64 @mpd_qshiftr_inplace(ptr noundef nonnull %1, i64 noundef %295)
+  %297 = add i64 %295, %164
+  br label %298
+
+298:                                              ; preds = %285, %291, %293, %289
+  %.0131 = phi i64 [ %164, %289 ], [ %164, %285 ], [ %297, %293 ], [ %164, %291 ]
+  %299 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.0131, ptr %299, align 8, !tbaa !7
+  br label %300
+
+300:                                              ; preds = %mpd_del.exit211.thread, %217, %298, %195, %173, %168
+  %301 = load i8, ptr %12, align 8, !tbaa !19
+  %.not.i5.i = icmp ugt i8 %301, 31
+  br i1 %.not.i5.i, label %305, label %302
+
+302:                                              ; preds = %300
+  %303 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %304 = load ptr, ptr %18, align 8, !tbaa !17
+  call void %303(ptr noundef %304) #33
   %.pre239 = load i8, ptr %12, align 8, !tbaa !19
-  br label %303
+  br label %305
 
-303:                                              ; preds = %300, %298
-  %304 = phi i8 [ %.pre239, %300 ], [ %299, %298 ]
-  %305 = and i8 %304, 16
-  %.not.i.i.not = icmp eq i8 %305, 0
-  br i1 %.not.i.i.not, label %306, label %mpd_del.exit
+305:                                              ; preds = %302, %300
+  %306 = phi i8 [ %.pre239, %302 ], [ %301, %300 ]
+  %307 = and i8 %306, 16
+  %.not.i.i.not = icmp eq i8 %307, 0
+  br i1 %.not.i.i.not, label %308, label %mpd_del.exit
 
-306:                                              ; preds = %303
-  %307 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %307(ptr noundef nonnull %12) #33
+308:                                              ; preds = %305
+  %309 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %309(ptr noundef nonnull %12) #33
   br label %mpd_del.exit
 
-mpd_del.exit:                                     ; preds = %303, %306
+mpd_del.exit:                                     ; preds = %305, %308
   call void @mpd_qfinalize(ptr noundef %1, ptr noundef nonnull %4, ptr noundef %5)
   br label %_mpd_qdiv_inf.exit
 
@@ -12191,15 +12191,15 @@ mpd_qresize.exit.i:                               ; preds = %44, %42
 mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i: ; preds = %mpd_qresize.exit.i
   %.pre.i = load i8, ptr %1, align 8, !tbaa !19
   %.pre21.i = load i64, ptr %.0.sroa.gep130, align 8, !tbaa !18
-  %.pre273 = load i8, ptr %2, align 8, !tbaa !19
-  %.pre274 = load i64, ptr %20, align 8, !tbaa !7
-  %.pre275 = load ptr, ptr %.0.sroa.gep146, align 8, !tbaa !17
+  %.pre271 = load i8, ptr %2, align 8, !tbaa !19
+  %.pre272 = load i64, ptr %20, align 8, !tbaa !7
+  %.pre273 = load ptr, ptr %.0.sroa.gep146, align 8, !tbaa !17
   br label %mpd_qresize.exit.thread.i
 
 mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i, %40, %32
-  %46 = phi ptr [ %.pre275, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %25, %40 ], [ %25, %32 ]
-  %47 = phi i64 [ %.pre274, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %21, %40 ], [ %21, %32 ]
-  %48 = phi i8 [ %.pre273, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %15, %40 ], [ %15, %32 ]
+  %46 = phi ptr [ %.pre273, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %25, %40 ], [ %25, %32 ]
+  %47 = phi i64 [ %.pre272, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %21, %40 ], [ %21, %32 ]
+  %48 = phi i8 [ %.pre271, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %15, %40 ], [ %15, %32 ]
   %49 = phi i64 [ %.pre21.i, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %26, %40 ], [ %26, %32 ]
   %50 = phi i8 [ %.pre.i, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i ], [ %.pre20.i, %40 ], [ %.pre20.i, %32 ]
   %51 = and i8 %50, -16
@@ -12290,17 +12290,17 @@ mpd_qresize.exit.i234:                            ; preds = %94, %92
 mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237: ; preds = %mpd_qresize.exit.i234
   %.pre.i238 = load i8, ptr %1, align 8, !tbaa !19
   %.pre21.i239 = load i64, ptr %.0.sroa.gep130, align 8, !tbaa !18
-  %.pre268 = load i8, ptr %2, align 8, !tbaa !19
-  %.pre269 = load i64, ptr %20, align 8, !tbaa !7
-  %.pre270 = load i64, ptr %66, align 8, !tbaa !11
-  %.pre271 = load ptr, ptr %.0.sroa.gep146, align 8, !tbaa !17
+  %.pre266 = load i8, ptr %2, align 8, !tbaa !19
+  %.pre267 = load i64, ptr %20, align 8, !tbaa !7
+  %.pre268 = load i64, ptr %66, align 8, !tbaa !11
+  %.pre269 = load ptr, ptr %.0.sroa.gep146, align 8, !tbaa !17
   br label %mpd_qresize.exit.thread.i232
 
 mpd_qresize.exit.thread.i232:                     ; preds = %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237, %90, %82
-  %96 = phi ptr [ %.pre271, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %25, %90 ], [ %25, %82 ]
-  %97 = phi i64 [ %.pre270, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %67, %90 ], [ %67, %82 ]
-  %98 = phi i64 [ %.pre269, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %21, %90 ], [ %21, %82 ]
-  %99 = phi i8 [ %.pre268, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %15, %90 ], [ %15, %82 ]
+  %96 = phi ptr [ %.pre269, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %25, %90 ], [ %25, %82 ]
+  %97 = phi i64 [ %.pre268, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %67, %90 ], [ %67, %82 ]
+  %98 = phi i64 [ %.pre267, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %21, %90 ], [ %21, %82 ]
+  %99 = phi i8 [ %.pre266, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %15, %90 ], [ %15, %82 ]
   %100 = phi i64 [ %.pre21.i239, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %26, %90 ], [ %26, %82 ]
   %101 = phi i8 [ %.pre.i238, %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237 ], [ %.pre20.i230, %90 ], [ %.pre20.i230, %82 ]
   %102 = and i8 %101, -16
@@ -12368,8 +12368,8 @@ mpd_qcopy.exit240.thread:                         ; preds = %80, %mpd_qresize.ex
 131:                                              ; preds = %124
   %132 = icmp eq ptr %0, %.0127
   %133 = icmp slt i64 %128, %126
-  %or.cond264 = select i1 %132, i1 %133, i1 false
-  br i1 %or.cond264, label %mpd_qresize.exit226.thread, label %134
+  %or.cond262 = select i1 %132, i1 %133, i1 false
+  br i1 %or.cond262, label %mpd_qresize.exit226.thread, label %134
 
 134:                                              ; preds = %131
   %135 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
@@ -12528,348 +12528,348 @@ thread-pre-split:                                 ; preds = %154, %163, %mpd_qre
   %.0128 = phi i64 [ %128, %176 ], [ %128, %185 ], [ %212, %210 ], [ %128, %194 ]
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %216 = load ptr, ptr %215, align 8, !tbaa !17
-  %invariant.gep.i = getelementptr i8, ptr %216, i64 -8
   %217 = icmp sgt i64 %.0128, 1
   br i1 %217, label %.lr.ph.i, label %_mpd_real_size.exit
 
-.lr.ph.i:                                         ; preds = %.thread, %220
-  %.04.i = phi i64 [ %221, %220 ], [ %.0128, %.thread ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.04.i
-  %218 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %219 = icmp eq i64 %218, 0
-  br i1 %219, label %220, label %_mpd_real_size.exit
+.lr.ph.i:                                         ; preds = %.thread, %222
+  %.04.i = phi i64 [ %223, %222 ], [ %.0128, %.thread ]
+  %218 = getelementptr i64, ptr %216, i64 %.04.i
+  %219 = getelementptr i8, ptr %218, i64 -8
+  %220 = load i64, ptr %219, align 8, !tbaa !3
+  %221 = icmp eq i64 %220, 0
+  br i1 %221, label %222, label %_mpd_real_size.exit
 
-220:                                              ; preds = %.lr.ph.i
-  %221 = add nsw i64 %.04.i, -1
-  %222 = icmp sgt i64 %.04.i, 2
-  br i1 %222, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
+222:                                              ; preds = %.lr.ph.i
+  %223 = add nsw i64 %.04.i, -1
+  %224 = icmp sgt i64 %.04.i, 2
+  br i1 %224, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
 
-_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %220, %.thread
-  %.0.lcssa.i = phi i64 [ %.0128, %.thread ], [ %.04.i, %.lr.ph.i ], [ 1, %220 ]
-  %223 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %224 = call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %223)
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %226 = load i64, ptr %225, align 8, !tbaa !21
-  %227 = icmp eq i64 %224, %226
-  br i1 %227, label %mpd_qresize.exit220, label %228
+_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %222, %.thread
+  %.0.lcssa.i = phi i64 [ %.0128, %.thread ], [ %.04.i, %.lr.ph.i ], [ 1, %222 ]
+  %225 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %226 = call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %225)
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %228 = load i64, ptr %227, align 8, !tbaa !21
+  %229 = icmp eq i64 %226, %228
+  br i1 %229, label %mpd_qresize.exit220, label %230
 
-228:                                              ; preds = %_mpd_real_size.exit
-  %229 = load i8, ptr %0, align 8, !tbaa !19
-  %230 = and i8 %229, 32
-  %.not.i218 = icmp eq i8 %230, 0
-  br i1 %.not.i218, label %235, label %231
+230:                                              ; preds = %_mpd_real_size.exit
+  %231 = load i8, ptr %0, align 8, !tbaa !19
+  %232 = and i8 %231, 32
+  %.not.i218 = icmp eq i8 %232, 0
+  br i1 %.not.i218, label %237, label %233
 
-231:                                              ; preds = %228
-  %232 = icmp sgt i64 %224, %226
-  br i1 %232, label %233, label %mpd_qresize.exit220
+233:                                              ; preds = %230
+  %234 = icmp sgt i64 %226, %228
+  br i1 %234, label %235, label %mpd_qresize.exit220
 
-233:                                              ; preds = %231
-  %234 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %224, ptr noundef %5) #33
+235:                                              ; preds = %233
+  %236 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %226, ptr noundef %5) #33
   br label %mpd_qresize.exit220
 
-235:                                              ; preds = %228
-  %236 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %224, ptr noundef %5) #33
+237:                                              ; preds = %230
+  %238 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %226, ptr noundef %5) #33
   br label %mpd_qresize.exit220
 
-mpd_qresize.exit220:                              ; preds = %_mpd_real_size.exit, %231, %233, %235
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.0.lcssa.i, ptr %237, align 8, !tbaa !18
-  %238 = load ptr, ptr %215, align 8, !tbaa !17
-  %239 = getelementptr i64, ptr %238, i64 %.0.lcssa.i
-  %240 = getelementptr i8, ptr %239, i64 -8
-  %241 = load i64, ptr %240, align 8, !tbaa !3
-  %242 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
-  %243 = icmp ult i64 %241, %242
-  br i1 %243, label %244, label %272
+mpd_qresize.exit220:                              ; preds = %_mpd_real_size.exit, %233, %235, %237
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.0.lcssa.i, ptr %239, align 8, !tbaa !18
+  %240 = load ptr, ptr %215, align 8, !tbaa !17
+  %241 = getelementptr i64, ptr %240, i64 %.0.lcssa.i
+  %242 = getelementptr i8, ptr %241, i64 -8
+  %243 = load i64, ptr %242, align 8, !tbaa !3
+  %244 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
+  %245 = icmp ult i64 %243, %244
+  br i1 %245, label %246, label %274
 
-244:                                              ; preds = %mpd_qresize.exit220
-  %245 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
-  %246 = icmp ult i64 %241, %245
-  br i1 %246, label %247, label %258
+246:                                              ; preds = %mpd_qresize.exit220
+  %247 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
+  %248 = icmp ult i64 %243, %247
+  br i1 %248, label %249, label %260
 
-247:                                              ; preds = %244
-  %248 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
-  %249 = icmp ult i64 %241, %248
-  br i1 %249, label %250, label %254
+249:                                              ; preds = %246
+  %250 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
+  %251 = icmp ult i64 %243, %250
+  br i1 %251, label %252, label %256
 
-250:                                              ; preds = %247
-  %251 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
-  %252 = icmp ult i64 %241, %251
-  %253 = select i1 %252, i64 1, i64 2
+252:                                              ; preds = %249
+  %253 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
+  %254 = icmp ult i64 %243, %253
+  %255 = select i1 %254, i64 1, i64 2
   br label %mpd_setdigits.exit
 
-254:                                              ; preds = %247
-  %255 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
-  %256 = icmp ult i64 %241, %255
-  %257 = select i1 %256, i64 3, i64 4
+256:                                              ; preds = %249
+  %257 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
+  %258 = icmp ult i64 %243, %257
+  %259 = select i1 %258, i64 3, i64 4
   br label %mpd_setdigits.exit
 
-258:                                              ; preds = %244
-  %259 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
-  %260 = icmp ult i64 %241, %259
-  br i1 %260, label %261, label %265
+260:                                              ; preds = %246
+  %261 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
+  %262 = icmp ult i64 %243, %261
+  br i1 %262, label %263, label %267
 
-261:                                              ; preds = %258
-  %262 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
-  %263 = icmp ult i64 %241, %262
-  %264 = select i1 %263, i64 5, i64 6
+263:                                              ; preds = %260
+  %264 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
+  %265 = icmp ult i64 %243, %264
+  %266 = select i1 %265, i64 5, i64 6
   br label %mpd_setdigits.exit
 
-265:                                              ; preds = %258
-  %266 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
-  %267 = icmp ult i64 %241, %266
-  br i1 %267, label %268, label %mpd_setdigits.exit
+267:                                              ; preds = %260
+  %268 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
+  %269 = icmp ult i64 %243, %268
+  br i1 %269, label %270, label %mpd_setdigits.exit
 
-268:                                              ; preds = %265
-  %269 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
-  %270 = icmp ult i64 %241, %269
-  %271 = select i1 %270, i64 7, i64 8
+270:                                              ; preds = %267
+  %271 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
+  %272 = icmp ult i64 %243, %271
+  %273 = select i1 %272, i64 7, i64 8
   br label %mpd_setdigits.exit
 
-272:                                              ; preds = %mpd_qresize.exit220
-  %273 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
-  %274 = icmp ult i64 %241, %273
-  br i1 %274, label %275, label %289
+274:                                              ; preds = %mpd_qresize.exit220
+  %275 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
+  %276 = icmp ult i64 %243, %275
+  br i1 %276, label %277, label %291
 
-275:                                              ; preds = %272
-  %276 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
-  %277 = icmp ult i64 %241, %276
-  br i1 %277, label %278, label %282
+277:                                              ; preds = %274
+  %278 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
+  %279 = icmp ult i64 %243, %278
+  br i1 %279, label %280, label %284
 
-278:                                              ; preds = %275
-  %279 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
-  %280 = icmp ult i64 %241, %279
-  %281 = select i1 %280, i64 10, i64 11
+280:                                              ; preds = %277
+  %281 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
+  %282 = icmp ult i64 %243, %281
+  %283 = select i1 %282, i64 10, i64 11
   br label %mpd_setdigits.exit
 
-282:                                              ; preds = %275
-  %283 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
-  %284 = icmp ult i64 %241, %283
-  br i1 %284, label %285, label %mpd_setdigits.exit
+284:                                              ; preds = %277
+  %285 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
+  %286 = icmp ult i64 %243, %285
+  br i1 %286, label %287, label %mpd_setdigits.exit
 
-285:                                              ; preds = %282
-  %286 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
-  %287 = icmp ult i64 %241, %286
-  %288 = select i1 %287, i64 12, i64 13
+287:                                              ; preds = %284
+  %288 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
+  %289 = icmp ult i64 %243, %288
+  %290 = select i1 %289, i64 12, i64 13
   br label %mpd_setdigits.exit
 
-289:                                              ; preds = %272
-  %290 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
-  %291 = icmp ult i64 %241, %290
-  br i1 %291, label %292, label %303
+291:                                              ; preds = %274
+  %292 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
+  %293 = icmp ult i64 %243, %292
+  br i1 %293, label %294, label %305
 
-292:                                              ; preds = %289
-  %293 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
-  %294 = icmp ult i64 %241, %293
-  br i1 %294, label %295, label %299
+294:                                              ; preds = %291
+  %295 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
+  %296 = icmp ult i64 %243, %295
+  br i1 %296, label %297, label %301
 
-295:                                              ; preds = %292
-  %296 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
-  %297 = icmp ult i64 %241, %296
-  %298 = select i1 %297, i64 15, i64 16
+297:                                              ; preds = %294
+  %298 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
+  %299 = icmp ult i64 %243, %298
+  %300 = select i1 %299, i64 15, i64 16
   br label %mpd_setdigits.exit
 
-299:                                              ; preds = %292
-  %300 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
-  %301 = icmp ult i64 %241, %300
-  %302 = select i1 %301, i64 17, i64 18
+301:                                              ; preds = %294
+  %302 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
+  %303 = icmp ult i64 %243, %302
+  %304 = select i1 %303, i64 17, i64 18
   br label %mpd_setdigits.exit
 
-303:                                              ; preds = %289
-  %304 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
-  %305 = icmp ult i64 %241, %304
-  %306 = select i1 %305, i64 19, i64 20
+305:                                              ; preds = %291
+  %306 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
+  %307 = icmp ult i64 %243, %306
+  %308 = select i1 %307, i64 19, i64 20
   br label %mpd_setdigits.exit
 
-mpd_setdigits.exit:                               ; preds = %250, %254, %261, %265, %268, %278, %282, %285, %295, %299, %303
-  %.0.i.i241 = phi i64 [ %253, %250 ], [ %257, %254 ], [ %264, %261 ], [ %271, %268 ], [ %281, %278 ], [ %288, %285 ], [ %298, %295 ], [ %302, %299 ], [ %306, %303 ], [ 9, %265 ], [ 14, %282 ]
-  %307 = mul i64 %.0.lcssa.i, 19
-  %308 = add i64 %307, -19
-  %309 = add i64 %308, %.0.i.i241
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %309, ptr %310, align 8, !tbaa !11
-  %311 = load i8, ptr %0, align 8, !tbaa !19
-  %312 = and i8 %311, -16
-  %313 = or disjoint i8 %312, %19
-  store i8 %313, ptr %0, align 8, !tbaa !19
-  %314 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %314, align 8, !tbaa !7
-  %315 = load i64, ptr %4, align 8, !tbaa !15
-  %316 = icmp sgt i64 %309, %315
-  br i1 %316, label %mpd_qcopy.exit.sink.split, label %317
+mpd_setdigits.exit:                               ; preds = %252, %256, %263, %267, %270, %280, %284, %287, %297, %301, %305
+  %.0.i.i241 = phi i64 [ %255, %252 ], [ %259, %256 ], [ %266, %263 ], [ %273, %270 ], [ %283, %280 ], [ %290, %287 ], [ %300, %297 ], [ %304, %301 ], [ %308, %305 ], [ 9, %267 ], [ 14, %284 ]
+  %309 = mul i64 %.0.lcssa.i, 19
+  %310 = add i64 %309, -19
+  %311 = add i64 %310, %.0.i.i241
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %311, ptr %312, align 8, !tbaa !11
+  %313 = load i8, ptr %0, align 8, !tbaa !19
+  %314 = and i8 %313, -16
+  %315 = or disjoint i8 %314, %19
+  store i8 %315, ptr %0, align 8, !tbaa !19
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %316, align 8, !tbaa !7
+  %317 = load i64, ptr %4, align 8, !tbaa !15
+  %318 = icmp sgt i64 %311, %317
+  br i1 %318, label %mpd_qcopy.exit.sink.split, label %319
 
-317:                                              ; preds = %mpd_setdigits.exit
-  %318 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %319 = load ptr, ptr %318, align 8, !tbaa !17
-  %invariant.gep.i242 = getelementptr i8, ptr %319, i64 -8
-  %320 = icmp sgt i64 %.0129, 1
-  br i1 %320, label %.lr.ph.i244, label %_mpd_real_size.exit247
+319:                                              ; preds = %mpd_setdigits.exit
+  %320 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %321 = load ptr, ptr %320, align 8, !tbaa !17
+  %322 = icmp sgt i64 %.0129, 1
+  br i1 %322, label %.lr.ph.i243, label %_mpd_real_size.exit245
 
-.lr.ph.i244:                                      ; preds = %317, %323
-  %.04.i245 = phi i64 [ %324, %323 ], [ %.0129, %317 ]
-  %gep.i246 = getelementptr i64, ptr %invariant.gep.i242, i64 %.04.i245
-  %321 = load i64, ptr %gep.i246, align 8, !tbaa !3
-  %322 = icmp eq i64 %321, 0
-  br i1 %322, label %323, label %_mpd_real_size.exit247
+.lr.ph.i243:                                      ; preds = %319, %327
+  %.04.i244 = phi i64 [ %328, %327 ], [ %.0129, %319 ]
+  %323 = getelementptr i64, ptr %321, i64 %.04.i244
+  %324 = getelementptr i8, ptr %323, i64 -8
+  %325 = load i64, ptr %324, align 8, !tbaa !3
+  %326 = icmp eq i64 %325, 0
+  br i1 %326, label %327, label %_mpd_real_size.exit245
 
-323:                                              ; preds = %.lr.ph.i244
-  %324 = add nsw i64 %.04.i245, -1
-  %325 = icmp sgt i64 %.04.i245, 2
-  br i1 %325, label %.lr.ph.i244, label %_mpd_real_size.exit247, !llvm.loop !30
+327:                                              ; preds = %.lr.ph.i243
+  %328 = add nsw i64 %.04.i244, -1
+  %329 = icmp sgt i64 %.04.i244, 2
+  br i1 %329, label %.lr.ph.i243, label %_mpd_real_size.exit245, !llvm.loop !30
 
-_mpd_real_size.exit247:                           ; preds = %.lr.ph.i244, %323, %317
-  %.0.lcssa.i243 = phi i64 [ %.0129, %317 ], [ %.04.i245, %.lr.ph.i244 ], [ 1, %323 ]
-  %326 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %327 = call i64 @llvm.smax.i64(i64 %.0.lcssa.i243, i64 %326)
-  %328 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %329 = load i64, ptr %328, align 8, !tbaa !21
-  %330 = icmp eq i64 %327, %329
-  br i1 %330, label %mpd_qresize.exit, label %331
+_mpd_real_size.exit245:                           ; preds = %.lr.ph.i243, %327, %319
+  %.0.lcssa.i242 = phi i64 [ %.0129, %319 ], [ %.04.i244, %.lr.ph.i243 ], [ 1, %327 ]
+  %330 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %331 = call i64 @llvm.smax.i64(i64 %.0.lcssa.i242, i64 %330)
+  %332 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %333 = load i64, ptr %332, align 8, !tbaa !21
+  %334 = icmp eq i64 %331, %333
+  br i1 %334, label %mpd_qresize.exit, label %335
 
-331:                                              ; preds = %_mpd_real_size.exit247
-  %332 = load i8, ptr %1, align 8, !tbaa !19
-  %333 = and i8 %332, 32
-  %.not.i217 = icmp eq i8 %333, 0
-  br i1 %.not.i217, label %338, label %334
+335:                                              ; preds = %_mpd_real_size.exit245
+  %336 = load i8, ptr %1, align 8, !tbaa !19
+  %337 = and i8 %336, 32
+  %.not.i217 = icmp eq i8 %337, 0
+  br i1 %.not.i217, label %342, label %338
 
-334:                                              ; preds = %331
-  %335 = icmp sgt i64 %327, %329
-  br i1 %335, label %336, label %mpd_qresize.exit
+338:                                              ; preds = %335
+  %339 = icmp sgt i64 %331, %333
+  br i1 %339, label %340, label %mpd_qresize.exit
 
-336:                                              ; preds = %334
-  %337 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %327, ptr noundef %5) #33
+340:                                              ; preds = %338
+  %341 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %1, i64 noundef %331, ptr noundef %5) #33
   br label %mpd_qresize.exit
 
-338:                                              ; preds = %331
-  %339 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %327, ptr noundef %5) #33
+342:                                              ; preds = %335
+  %343 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %1, i64 noundef %331, ptr noundef %5) #33
   br label %mpd_qresize.exit
 
-mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit247, %334, %336, %338
-  %340 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %.0.lcssa.i243, ptr %340, align 8, !tbaa !18
+mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit245, %338, %340, %342
+  %344 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %.0.lcssa.i242, ptr %344, align 8, !tbaa !18
   call void @mpd_setdigits(ptr noundef nonnull %1)
-  %341 = load i8, ptr %1, align 8, !tbaa !19
-  %342 = and i8 %341, -16
-  %343 = or disjoint i8 %342, %16
-  store i8 %343, ptr %1, align 8, !tbaa !19
-  %344 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %., ptr %344, align 8, !tbaa !7
-  br label %345
+  %345 = load i8, ptr %1, align 8, !tbaa !19
+  %346 = and i8 %345, -16
+  %347 = or disjoint i8 %346, %16
+  store i8 %347, ptr %1, align 8, !tbaa !19
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %., ptr %348, align 8, !tbaa !7
+  br label %349
 
-345:                                              ; preds = %mpd_setspecial.exit253, %mpd_qresize.exit
-  %346 = load i8, ptr %10, align 8, !tbaa !19
-  %.not.i5.i = icmp ugt i8 %346, 31
-  br i1 %.not.i5.i, label %350, label %347
+349:                                              ; preds = %mpd_setspecial.exit251, %mpd_qresize.exit
+  %350 = load i8, ptr %10, align 8, !tbaa !19
+  %.not.i5.i = icmp ugt i8 %350, 31
+  br i1 %.not.i5.i, label %354, label %351
 
-347:                                              ; preds = %345
-  %348 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %349 = load ptr, ptr %14, align 8, !tbaa !17
-  call void %348(ptr noundef %349) #33
-  %.pre272 = load i8, ptr %10, align 8, !tbaa !19
-  br label %350
+351:                                              ; preds = %349
+  %352 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %353 = load ptr, ptr %14, align 8, !tbaa !17
+  call void %352(ptr noundef %353) #33
+  %.pre270 = load i8, ptr %10, align 8, !tbaa !19
+  br label %354
 
-350:                                              ; preds = %347, %345
-  %351 = phi i8 [ %.pre272, %347 ], [ %346, %345 ]
-  %352 = and i8 %351, 16
-  %.not.i.i.not = icmp eq i8 %352, 0
-  br i1 %.not.i.i.not, label %353, label %mpd_del.exit
+354:                                              ; preds = %351, %349
+  %355 = phi i8 [ %.pre270, %351 ], [ %350, %349 ]
+  %356 = and i8 %355, 16
+  %.not.i.i.not = icmp eq i8 %356, 0
+  br i1 %.not.i.i.not, label %357, label %mpd_del.exit
 
-353:                                              ; preds = %350
-  %354 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %354(ptr noundef nonnull %10) #33
+357:                                              ; preds = %354
+  %358 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %358(ptr noundef nonnull %10) #33
   br label %mpd_del.exit
 
 mpd_qcopy.exit.sink.split:                        ; preds = %mpd_setdigits.exit, %194, %112
-  %.sink277 = phi i32 [ 8, %112 ], [ 512, %194 ], [ 8, %mpd_setdigits.exit ]
-  %355 = load i32, ptr %5, align 4, !tbaa !23
-  %356 = or i32 %355, %.sink277
-  store i32 %356, ptr %5, align 4, !tbaa !23
+  %.sink275 = phi i32 [ 8, %112 ], [ 512, %194 ], [ 8, %mpd_setdigits.exit ]
+  %359 = load i32, ptr %5, align 4, !tbaa !23
+  %360 = or i32 %359, %.sink275
+  store i32 %360, ptr %5, align 4, !tbaa !23
   br label %mpd_qcopy.exit
 
 mpd_qcopy.exit:                                   ; preds = %mpd_qcopy.exit.sink.split, %mpd_qresize.exit.i234, %mpd_qresize.exit.i, %204, %207, %mpd_qresize.exit223, %mpd_qresize.exit226, %121, %119, %75
-  %357 = load i8, ptr %0, align 8, !tbaa !19
-  %358 = and i8 %357, 32
-  %.not.i.i248 = icmp eq i8 %358, 0
-  br i1 %.not.i.i248, label %359, label %mpd_setspecial.exit
+  %361 = load i8, ptr %0, align 8, !tbaa !19
+  %362 = and i8 %361, 32
+  %.not.i.i246 = icmp eq i8 %362, 0
+  br i1 %.not.i.i246, label %363, label %mpd_setspecial.exit
 
-359:                                              ; preds = %mpd_qcopy.exit
-  %360 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %361 = load i64, ptr %360, align 8, !tbaa !21
-  %362 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %363 = icmp sgt i64 %361, %362
-  br i1 %363, label %364, label %mpd_setspecial.exit
+363:                                              ; preds = %mpd_qcopy.exit
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %365 = load i64, ptr %364, align 8, !tbaa !21
+  %366 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %367 = icmp sgt i64 %365, %366
+  br i1 %367, label %368, label %mpd_setspecial.exit
 
-364:                                              ; preds = %359
+368:                                              ; preds = %363
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #33
   store i8 0, ptr %8, align 1, !tbaa !22
-  %365 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %366 = load ptr, ptr %365, align 8, !tbaa !17
-  %367 = call ptr @mpd_realloc(ptr noundef %366, i64 noundef %362, i64 noundef 8, ptr noundef nonnull %8) #33
-  store ptr %367, ptr %365, align 8, !tbaa !17
-  %368 = load i8, ptr %8, align 1, !tbaa !22
-  %.not5.i.i = icmp eq i8 %368, 0
-  br i1 %.not5.i.i, label %369, label %371
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %370 = load ptr, ptr %369, align 8, !tbaa !17
+  %371 = call ptr @mpd_realloc(ptr noundef %370, i64 noundef %366, i64 noundef 8, ptr noundef nonnull %8) #33
+  store ptr %371, ptr %369, align 8, !tbaa !17
+  %372 = load i8, ptr %8, align 1, !tbaa !22
+  %.not5.i.i = icmp eq i8 %372, 0
+  br i1 %.not5.i.i, label %373, label %375
 
-369:                                              ; preds = %364
-  %370 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  store i64 %370, ptr %360, align 8, !tbaa !21
-  br label %371
+373:                                              ; preds = %368
+  %374 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %374, ptr %364, align 8, !tbaa !21
+  br label %375
 
-371:                                              ; preds = %369, %364
+375:                                              ; preds = %373, %368
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #33
-  %.pre.i249 = load i8, ptr %0, align 8, !tbaa !19
+  %.pre.i247 = load i8, ptr %0, align 8, !tbaa !19
   br label %mpd_setspecial.exit
 
-mpd_setspecial.exit:                              ; preds = %mpd_qcopy.exit, %359, %371
-  %372 = phi i8 [ %357, %mpd_qcopy.exit ], [ %357, %359 ], [ %.pre.i249, %371 ]
-  %373 = and i8 %372, -16
-  %374 = or disjoint i8 %373, 4
-  store i8 %374, ptr %0, align 8, !tbaa !19
-  %375 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %375, i8 0, i64 24, i1 false)
-  %376 = load i8, ptr %1, align 8, !tbaa !19
-  %377 = and i8 %376, 32
-  %.not.i.i250 = icmp eq i8 %377, 0
-  br i1 %.not.i.i250, label %378, label %mpd_setspecial.exit253
+mpd_setspecial.exit:                              ; preds = %mpd_qcopy.exit, %363, %375
+  %376 = phi i8 [ %361, %mpd_qcopy.exit ], [ %361, %363 ], [ %.pre.i247, %375 ]
+  %377 = and i8 %376, -16
+  %378 = or disjoint i8 %377, 4
+  store i8 %378, ptr %0, align 8, !tbaa !19
+  %379 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %379, i8 0, i64 24, i1 false)
+  %380 = load i8, ptr %1, align 8, !tbaa !19
+  %381 = and i8 %380, 32
+  %.not.i.i248 = icmp eq i8 %381, 0
+  br i1 %.not.i.i248, label %382, label %mpd_setspecial.exit251
 
-378:                                              ; preds = %mpd_setspecial.exit
-  %379 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %380 = load i64, ptr %379, align 8, !tbaa !21
-  %381 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %382 = icmp sgt i64 %380, %381
-  br i1 %382, label %383, label %mpd_setspecial.exit253
+382:                                              ; preds = %mpd_setspecial.exit
+  %383 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %384 = load i64, ptr %383, align 8, !tbaa !21
+  %385 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %386 = icmp sgt i64 %384, %385
+  br i1 %386, label %387, label %mpd_setspecial.exit251
 
-383:                                              ; preds = %378
+387:                                              ; preds = %382
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #33
   store i8 0, ptr %7, align 1, !tbaa !22
-  %384 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %385 = load ptr, ptr %384, align 8, !tbaa !17
-  %386 = call ptr @mpd_realloc(ptr noundef %385, i64 noundef %381, i64 noundef 8, ptr noundef nonnull %7) #33
-  store ptr %386, ptr %384, align 8, !tbaa !17
-  %387 = load i8, ptr %7, align 1, !tbaa !22
-  %.not5.i.i251 = icmp eq i8 %387, 0
-  br i1 %.not5.i.i251, label %388, label %390
+  %388 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %389 = load ptr, ptr %388, align 8, !tbaa !17
+  %390 = call ptr @mpd_realloc(ptr noundef %389, i64 noundef %385, i64 noundef 8, ptr noundef nonnull %7) #33
+  store ptr %390, ptr %388, align 8, !tbaa !17
+  %391 = load i8, ptr %7, align 1, !tbaa !22
+  %.not5.i.i249 = icmp eq i8 %391, 0
+  br i1 %.not5.i.i249, label %392, label %394
 
-388:                                              ; preds = %383
-  %389 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  store i64 %389, ptr %379, align 8, !tbaa !21
-  br label %390
+392:                                              ; preds = %387
+  %393 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  store i64 %393, ptr %383, align 8, !tbaa !21
+  br label %394
 
-390:                                              ; preds = %388, %383
+394:                                              ; preds = %392, %387
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #33
-  %.pre.i252 = load i8, ptr %1, align 8, !tbaa !19
-  br label %mpd_setspecial.exit253
+  %.pre.i250 = load i8, ptr %1, align 8, !tbaa !19
+  br label %mpd_setspecial.exit251
 
-mpd_setspecial.exit253:                           ; preds = %mpd_setspecial.exit, %378, %390
-  %391 = phi i8 [ %376, %mpd_setspecial.exit ], [ %376, %378 ], [ %.pre.i252, %390 ]
-  %392 = and i8 %391, -16
-  %393 = or disjoint i8 %392, 4
-  store i8 %393, ptr %1, align 8, !tbaa !19
-  %394 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %394, i8 0, i64 24, i1 false)
-  br label %345
+mpd_setspecial.exit251:                           ; preds = %mpd_setspecial.exit, %382, %394
+  %395 = phi i8 [ %380, %mpd_setspecial.exit ], [ %380, %382 ], [ %.pre.i250, %394 ]
+  %396 = and i8 %395, -16
+  %397 = or disjoint i8 %396, 4
+  store i8 %397, ptr %1, align 8, !tbaa !19
+  %398 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %398, i8 0, i64 24, i1 false)
+  br label %349
 
-mpd_del.exit:                                     ; preds = %353, %350, %mpd_qcopy.exit240.thread, %63
+mpd_del.exit:                                     ; preds = %357, %354, %mpd_qcopy.exit240.thread, %63
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #33
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #33
   ret void
@@ -15355,166 +15355,166 @@ mpd_qresize.exit59:                               ; preds = %219, %221
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %291, ptr %292, align 8, !tbaa !7
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %invariant.gep.i = getelementptr i8, ptr %279, i64 -8
   %294 = icmp sgt i64 %278, 1
   br i1 %294, label %.lr.ph.i, label %_mpd_real_size.exit
 
-.lr.ph.i:                                         ; preds = %.loopexit, %297
-  %.04.i = phi i64 [ %298, %297 ], [ %278, %.loopexit ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.04.i
-  %295 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %296 = icmp eq i64 %295, 0
-  br i1 %296, label %297, label %_mpd_real_size.exit
+.lr.ph.i:                                         ; preds = %.loopexit, %299
+  %.04.i = phi i64 [ %300, %299 ], [ %278, %.loopexit ]
+  %295 = getelementptr i64, ptr %279, i64 %.04.i
+  %296 = getelementptr i8, ptr %295, i64 -8
+  %297 = load i64, ptr %296, align 8, !tbaa !3
+  %298 = icmp eq i64 %297, 0
+  br i1 %298, label %299, label %_mpd_real_size.exit
 
-297:                                              ; preds = %.lr.ph.i
-  %298 = add nsw i64 %.04.i, -1
-  %299 = icmp sgt i64 %.04.i, 2
-  br i1 %299, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
+299:                                              ; preds = %.lr.ph.i
+  %300 = add nsw i64 %.04.i, -1
+  %301 = icmp sgt i64 %.04.i, 2
+  br i1 %301, label %.lr.ph.i, label %_mpd_real_size.exit, !llvm.loop !30
 
-_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %297, %.loopexit
-  %.0.lcssa.i = phi i64 [ %278, %.loopexit ], [ %.04.i, %.lr.ph.i ], [ 1, %297 ]
-  %300 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.0.lcssa.i, ptr %300, align 8, !tbaa !18
-  %301 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
-  %302 = call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %301)
-  %303 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %304 = load i64, ptr %303, align 8, !tbaa !21
-  %305 = icmp eq i64 %302, %304
-  br i1 %305, label %mpd_qresize.exit, label %306
+_mpd_real_size.exit:                              ; preds = %.lr.ph.i, %299, %.loopexit
+  %.0.lcssa.i = phi i64 [ %278, %.loopexit ], [ %.04.i, %.lr.ph.i ], [ 1, %299 ]
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.0.lcssa.i, ptr %302, align 8, !tbaa !18
+  %303 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
+  %304 = call i64 @llvm.smax.i64(i64 %.0.lcssa.i, i64 %303)
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %306 = load i64, ptr %305, align 8, !tbaa !21
+  %307 = icmp eq i64 %304, %306
+  br i1 %307, label %mpd_qresize.exit, label %308
 
-306:                                              ; preds = %_mpd_real_size.exit
-  %307 = and i8 %284, 32
-  %.not.i55 = icmp eq i8 %307, 0
-  br i1 %.not.i55, label %312, label %308
-
-308:                                              ; preds = %306
-  %309 = icmp sgt i64 %302, %304
-  br i1 %309, label %310, label %mpd_qresize.exit
+308:                                              ; preds = %_mpd_real_size.exit
+  %309 = and i8 %284, 32
+  %.not.i55 = icmp eq i8 %309, 0
+  br i1 %.not.i55, label %314, label %310
 
 310:                                              ; preds = %308
-  %311 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %302, ptr noundef %4) #33
+  %311 = icmp sgt i64 %304, %306
+  br i1 %311, label %312, label %mpd_qresize.exit
+
+312:                                              ; preds = %310
+  %313 = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %0, i64 noundef %304, ptr noundef %4) #33
   br label %mpd_qresize.exit
 
-312:                                              ; preds = %306
-  %313 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %302, ptr noundef %4) #33
+314:                                              ; preds = %308
+  %315 = call i32 @mpd_realloc_dyn(ptr noundef nonnull %0, i64 noundef %304, ptr noundef %4) #33
   br label %mpd_qresize.exit
 
-mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %308, %310, %312
-  %314 = load ptr, ptr %293, align 8, !tbaa !17
-  %315 = load i64, ptr %300, align 8, !tbaa !18
-  %316 = getelementptr i64, ptr %314, i64 %315
-  %317 = getelementptr i8, ptr %316, i64 -8
-  %318 = load i64, ptr %317, align 8, !tbaa !3
-  %319 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
-  %320 = icmp ult i64 %318, %319
-  br i1 %320, label %321, label %349
+mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit, %310, %312, %314
+  %316 = load ptr, ptr %293, align 8, !tbaa !17
+  %317 = load i64, ptr %302, align 8, !tbaa !18
+  %318 = getelementptr i64, ptr %316, i64 %317
+  %319 = getelementptr i8, ptr %318, i64 -8
+  %320 = load i64, ptr %319, align 8, !tbaa !3
+  %321 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
+  %322 = icmp ult i64 %320, %321
+  br i1 %322, label %323, label %351
 
-321:                                              ; preds = %mpd_qresize.exit
-  %322 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
-  %323 = icmp ult i64 %318, %322
-  br i1 %323, label %324, label %335
+323:                                              ; preds = %mpd_qresize.exit
+  %324 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 32), align 8, !tbaa !3
+  %325 = icmp ult i64 %320, %324
+  br i1 %325, label %326, label %337
 
-324:                                              ; preds = %321
-  %325 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
-  %326 = icmp ult i64 %318, %325
-  br i1 %326, label %327, label %331
+326:                                              ; preds = %323
+  %327 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 16), align 8, !tbaa !3
+  %328 = icmp ult i64 %320, %327
+  br i1 %328, label %329, label %333
 
-327:                                              ; preds = %324
-  %328 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
-  %329 = icmp ult i64 %318, %328
-  %330 = select i1 %329, i64 1, i64 2
+329:                                              ; preds = %326
+  %330 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 8), align 8, !tbaa !3
+  %331 = icmp ult i64 %320, %330
+  %332 = select i1 %331, i64 1, i64 2
   br label %mpd_setdigits.exit
 
-331:                                              ; preds = %324
-  %332 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
-  %333 = icmp ult i64 %318, %332
-  %334 = select i1 %333, i64 3, i64 4
+333:                                              ; preds = %326
+  %334 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 24), align 8, !tbaa !3
+  %335 = icmp ult i64 %320, %334
+  %336 = select i1 %335, i64 3, i64 4
   br label %mpd_setdigits.exit
 
-335:                                              ; preds = %321
-  %336 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
-  %337 = icmp ult i64 %318, %336
-  br i1 %337, label %338, label %342
+337:                                              ; preds = %323
+  %338 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 48), align 8, !tbaa !3
+  %339 = icmp ult i64 %320, %338
+  br i1 %339, label %340, label %344
 
-338:                                              ; preds = %335
-  %339 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
-  %340 = icmp ult i64 %318, %339
-  %341 = select i1 %340, i64 5, i64 6
+340:                                              ; preds = %337
+  %341 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 40), align 8, !tbaa !3
+  %342 = icmp ult i64 %320, %341
+  %343 = select i1 %342, i64 5, i64 6
   br label %mpd_setdigits.exit
 
-342:                                              ; preds = %335
-  %343 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
-  %344 = icmp ult i64 %318, %343
-  br i1 %344, label %345, label %mpd_setdigits.exit
+344:                                              ; preds = %337
+  %345 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 64), align 8, !tbaa !3
+  %346 = icmp ult i64 %320, %345
+  br i1 %346, label %347, label %mpd_setdigits.exit
 
-345:                                              ; preds = %342
-  %346 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
-  %347 = icmp ult i64 %318, %346
-  %348 = select i1 %347, i64 7, i64 8
+347:                                              ; preds = %344
+  %348 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 56), align 8, !tbaa !3
+  %349 = icmp ult i64 %320, %348
+  %350 = select i1 %349, i64 7, i64 8
   br label %mpd_setdigits.exit
 
-349:                                              ; preds = %mpd_qresize.exit
-  %350 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
-  %351 = icmp ult i64 %318, %350
-  br i1 %351, label %352, label %366
+351:                                              ; preds = %mpd_qresize.exit
+  %352 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 112), align 8, !tbaa !3
+  %353 = icmp ult i64 %320, %352
+  br i1 %353, label %354, label %368
 
-352:                                              ; preds = %349
-  %353 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
-  %354 = icmp ult i64 %318, %353
-  br i1 %354, label %355, label %359
+354:                                              ; preds = %351
+  %355 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 88), align 8, !tbaa !3
+  %356 = icmp ult i64 %320, %355
+  br i1 %356, label %357, label %361
 
-355:                                              ; preds = %352
-  %356 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
-  %357 = icmp ult i64 %318, %356
-  %358 = select i1 %357, i64 10, i64 11
+357:                                              ; preds = %354
+  %358 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
+  %359 = icmp ult i64 %320, %358
+  %360 = select i1 %359, i64 10, i64 11
   br label %mpd_setdigits.exit
 
-359:                                              ; preds = %352
-  %360 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
-  %361 = icmp ult i64 %318, %360
-  br i1 %361, label %362, label %mpd_setdigits.exit
+361:                                              ; preds = %354
+  %362 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 104), align 8, !tbaa !3
+  %363 = icmp ult i64 %320, %362
+  br i1 %363, label %364, label %mpd_setdigits.exit
 
-362:                                              ; preds = %359
-  %363 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
-  %364 = icmp ult i64 %318, %363
-  %365 = select i1 %364, i64 12, i64 13
+364:                                              ; preds = %361
+  %365 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
+  %366 = icmp ult i64 %320, %365
+  %367 = select i1 %366, i64 12, i64 13
   br label %mpd_setdigits.exit
 
-366:                                              ; preds = %349
-  %367 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
-  %368 = icmp ult i64 %318, %367
-  br i1 %368, label %369, label %380
+368:                                              ; preds = %351
+  %369 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 144), align 8, !tbaa !3
+  %370 = icmp ult i64 %320, %369
+  br i1 %370, label %371, label %382
 
-369:                                              ; preds = %366
-  %370 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
-  %371 = icmp ult i64 %318, %370
-  br i1 %371, label %372, label %376
+371:                                              ; preds = %368
+  %372 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 128), align 8, !tbaa !3
+  %373 = icmp ult i64 %320, %372
+  br i1 %373, label %374, label %378
 
-372:                                              ; preds = %369
-  %373 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
-  %374 = icmp ult i64 %318, %373
-  %375 = select i1 %374, i64 15, i64 16
+374:                                              ; preds = %371
+  %375 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
+  %376 = icmp ult i64 %320, %375
+  %377 = select i1 %376, i64 15, i64 16
   br label %mpd_setdigits.exit
 
-376:                                              ; preds = %369
-  %377 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
-  %378 = icmp ult i64 %318, %377
-  %379 = select i1 %378, i64 17, i64 18
+378:                                              ; preds = %371
+  %379 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8, !tbaa !3
+  %380 = icmp ult i64 %320, %379
+  %381 = select i1 %380, i64 17, i64 18
   br label %mpd_setdigits.exit
 
-380:                                              ; preds = %366
-  %381 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
-  %382 = icmp ult i64 %318, %381
-  %383 = select i1 %382, i64 19, i64 20
+382:                                              ; preds = %368
+  %383 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
+  %384 = icmp ult i64 %320, %383
+  %385 = select i1 %384, i64 19, i64 20
   br label %mpd_setdigits.exit
 
-mpd_setdigits.exit:                               ; preds = %327, %331, %338, %342, %345, %355, %359, %362, %372, %376, %380
-  %.0.i.i = phi i64 [ %330, %327 ], [ %334, %331 ], [ %341, %338 ], [ %348, %345 ], [ %358, %355 ], [ %365, %362 ], [ %375, %372 ], [ %379, %376 ], [ %383, %380 ], [ 9, %342 ], [ 14, %359 ]
-  %384 = mul i64 %315, 19
-  %385 = add i64 %384, -19
-  %386 = add i64 %385, %.0.i.i
-  %387 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %386, ptr %387, align 8, !tbaa !11
+mpd_setdigits.exit:                               ; preds = %329, %333, %340, %344, %347, %357, %361, %364, %374, %378, %382
+  %.0.i.i = phi i64 [ %332, %329 ], [ %336, %333 ], [ %343, %340 ], [ %350, %347 ], [ %360, %357 ], [ %367, %364 ], [ %377, %374 ], [ %381, %378 ], [ %385, %382 ], [ 9, %344 ], [ 14, %361 ]
+  %386 = mul i64 %317, 19
+  %387 = add i64 %386, -19
+  %388 = add i64 %387, %.0.i.i
+  %389 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %388, ptr %389, align 8, !tbaa !11
   br label %_mpd_qmul_inf.exit
 
 _mpd_qmul_inf.exit:                               ; preds = %mpd_setspecial.exit27.i, %mpd_seterror.exit23.i, %mpd_setspecial.exit.i, %mpd_seterror.exit.i, %mpd_qresize.exit59, %17, %mpd_setdigits.exit, %.thread82
@@ -28519,7 +28519,6 @@ mpd_iszero.exit.thread:                           ; preds = %65, %mpd_iszero.exi
   %85 = zext i32 %2 to i64
   %86 = load ptr, ptr %12, align 8, !tbaa !17
   %87 = load i64, ptr %10, align 8, !tbaa !18
-  %invariant.gep.i = getelementptr i8, ptr %86, i64 -8
   br label %88
 
 88:                                               ; preds = %_mpd_real_size.exit.i, %84
@@ -28551,71 +28550,73 @@ mpd_iszero.exit.thread:                           ; preds = %65, %mpd_iszero.exi
   %97 = icmp sgt i64 %.016.i, 1
   br i1 %97, label %.lr.ph.i.i48, label %_mpd_real_size.exit.i
 
-.lr.ph.i.i48:                                     ; preds = %._crit_edge.i, %100
-  %.04.i.i = phi i64 [ %101, %100 ], [ %.016.i, %._crit_edge.i ]
-  %gep.i.i = getelementptr i64, ptr %invariant.gep.i, i64 %.04.i.i
-  %98 = load i64, ptr %gep.i.i, align 8, !tbaa !3
-  %99 = icmp eq i64 %98, 0
-  br i1 %99, label %100, label %_mpd_real_size.exit.i
+.lr.ph.i.i48:                                     ; preds = %._crit_edge.i, %102
+  %.04.i.i = phi i64 [ %103, %102 ], [ %.016.i, %._crit_edge.i ]
+  %98 = getelementptr i64, ptr %86, i64 %.04.i.i
+  %99 = getelementptr i8, ptr %98, i64 -8
+  %100 = load i64, ptr %99, align 8, !tbaa !3
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %102, label %_mpd_real_size.exit.i
 
-100:                                              ; preds = %.lr.ph.i.i48
-  %101 = add nsw i64 %.04.i.i, -1
-  %102 = icmp sgt i64 %.04.i.i, 2
-  br i1 %102, label %.lr.ph.i.i48, label %_mpd_real_size.exit.i, !llvm.loop !30
+102:                                              ; preds = %.lr.ph.i.i48
+  %103 = add nsw i64 %.04.i.i, -1
+  %104 = icmp sgt i64 %.04.i.i, 2
+  br i1 %104, label %.lr.ph.i.i48, label %_mpd_real_size.exit.i, !llvm.loop !30
 
-_mpd_real_size.exit.i:                            ; preds = %100, %.lr.ph.i.i48, %._crit_edge.i
-  %.0.lcssa.i.i = phi i64 [ %.016.i, %._crit_edge.i ], [ 1, %100 ], [ %.04.i.i, %.lr.ph.i.i48 ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.0.lcssa.i.i
-  %103 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %.not20.i = icmp eq i64 %103, 0
+_mpd_real_size.exit.i:                            ; preds = %102, %.lr.ph.i.i48, %._crit_edge.i
+  %.0.lcssa.i.i = phi i64 [ %.016.i, %._crit_edge.i ], [ 1, %102 ], [ %.04.i.i, %.lr.ph.i.i48 ]
+  %105 = getelementptr i64, ptr %86, i64 %.0.lcssa.i.i
+  %106 = getelementptr i8, ptr %105, i64 -8
+  %107 = load i64, ptr %106, align 8, !tbaa !3
+  %.not20.i = icmp eq i64 %107, 0
   br i1 %.not20.i, label %_baseconv_to_u16.exit, label %88, !llvm.loop !77
 
 _baseconv_to_u16.exit:                            ; preds = %_mpd_real_size.exit.i
-  %104 = icmp eq i64 %.pre.i, -1
-  br i1 %104, label %_baseconv_to_u16.exit.thread, label %105
+  %108 = icmp eq i64 %.pre.i, -1
+  br i1 %108, label %_baseconv_to_u16.exit.thread, label %109
 
-105:                                              ; preds = %_baseconv_to_u16.exit, %.thread
+109:                                              ; preds = %_baseconv_to_u16.exit, %.thread
   %.0 = phi i64 [ -1, %.thread ], [ %.pre.i, %_baseconv_to_u16.exit ]
-  %106 = load i8, ptr %8, align 8, !tbaa !19
-  %.not.i5.i = icmp ugt i8 %106, 31
-  br i1 %.not.i5.i, label %110, label %107
+  %110 = load i8, ptr %8, align 8, !tbaa !19
+  %.not.i5.i = icmp ugt i8 %110, 31
+  br i1 %.not.i5.i, label %114, label %111
 
-107:                                              ; preds = %105
-  %108 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %109 = load ptr, ptr %12, align 8, !tbaa !17
-  call void %108(ptr noundef %109) #33
+111:                                              ; preds = %109
+  %112 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %113 = load ptr, ptr %12, align 8, !tbaa !17
+  call void %112(ptr noundef %113) #33
   %.pre71 = load i8, ptr %8, align 8, !tbaa !19
-  br label %110
+  br label %114
 
-110:                                              ; preds = %107, %105
-  %111 = phi i8 [ %.pre71, %107 ], [ %106, %105 ]
-  %112 = and i8 %111, 16
-  %.not.i.i.not = icmp eq i8 %112, 0
-  br i1 %.not.i.i.not, label %113, label %mpd_del.exit
+114:                                              ; preds = %111, %109
+  %115 = phi i8 [ %.pre71, %111 ], [ %110, %109 ]
+  %116 = and i8 %115, 16
+  %.not.i.i.not = icmp eq i8 %116, 0
+  br i1 %.not.i.i.not, label %117, label %mpd_del.exit
 
-113:                                              ; preds = %110
-  %114 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %114(ptr noundef nonnull %8) #33
+117:                                              ; preds = %114
+  %118 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %118(ptr noundef nonnull %8) #33
   br label %mpd_del.exit
 
 _baseconv_to_u16.exit.thread:                     ; preds = %89, %_baseconv_to_u16.exit, %80, %78
-  br i1 %.not6073, label %115, label %.thread
+  br i1 %.not6073, label %119, label %.thread
 
-115:                                              ; preds = %_baseconv_to_u16.exit.thread
-  %116 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %117 = load ptr, ptr %0, align 8, !tbaa !75
-  call void %116(ptr noundef %117) #33
+119:                                              ; preds = %_baseconv_to_u16.exit.thread
+  %120 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %121 = load ptr, ptr %0, align 8, !tbaa !75
+  call void %120(ptr noundef %121) #33
   store ptr null, ptr %0, align 8, !tbaa !75
   br label %.thread
 
-.thread:                                          ; preds = %mpd_sizeinbase.exit.thread52, %115, %_baseconv_to_u16.exit.thread
-  %118 = load i32, ptr %4, align 4, !tbaa !23
-  %119 = or i32 %118, 512
-  store i32 %119, ptr %4, align 4, !tbaa !23
-  br label %105
+.thread:                                          ; preds = %mpd_sizeinbase.exit.thread52, %119, %_baseconv_to_u16.exit.thread
+  %122 = load i32, ptr %4, align 4, !tbaa !23
+  %123 = or i32 %122, 512
+  store i32 %123, ptr %4, align 4, !tbaa !23
+  br label %109
 
-mpd_del.exit:                                     ; preds = %113, %110, %74, %mpd_sizeinbase.exit.thread, %41
-  %.030 = phi i64 [ -1, %41 ], [ -1, %mpd_sizeinbase.exit.thread ], [ 1, %74 ], [ %.0, %110 ], [ %.0, %113 ]
+mpd_del.exit:                                     ; preds = %117, %114, %74, %mpd_sizeinbase.exit.thread, %41
+  %.030 = phi i64 [ -1, %41 ], [ -1, %mpd_sizeinbase.exit.thread ], [ 1, %74 ], [ %.0, %114 ], [ %.0, %117 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #33
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #33
   ret i64 %.030
@@ -28789,7 +28790,6 @@ mpd_iszero.exit.thread:                           ; preds = %65, %mpd_iszero.exi
 84:                                               ; preds = %80, %78
   %85 = load ptr, ptr %12, align 8, !tbaa !17
   %86 = load i64, ptr %10, align 8, !tbaa !18
-  %invariant.gep.i = getelementptr i8, ptr %85, i64 -8
   %87 = zext i32 %2 to i64
   br label %88
 
@@ -28822,71 +28822,73 @@ mpd_iszero.exit.thread:                           ; preds = %65, %mpd_iszero.exi
   %97 = icmp sgt i64 %.018.i, 1
   br i1 %97, label %.lr.ph.i.i48, label %_mpd_real_size.exit.i
 
-.lr.ph.i.i48:                                     ; preds = %._crit_edge.i, %100
-  %.04.i.i = phi i64 [ %101, %100 ], [ %.018.i, %._crit_edge.i ]
-  %gep.i.i = getelementptr i64, ptr %invariant.gep.i, i64 %.04.i.i
-  %98 = load i64, ptr %gep.i.i, align 8, !tbaa !3
-  %99 = icmp eq i64 %98, 0
-  br i1 %99, label %100, label %_mpd_real_size.exit.i
+.lr.ph.i.i48:                                     ; preds = %._crit_edge.i, %102
+  %.04.i.i = phi i64 [ %103, %102 ], [ %.018.i, %._crit_edge.i ]
+  %98 = getelementptr i64, ptr %85, i64 %.04.i.i
+  %99 = getelementptr i8, ptr %98, i64 -8
+  %100 = load i64, ptr %99, align 8, !tbaa !3
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %102, label %_mpd_real_size.exit.i
 
-100:                                              ; preds = %.lr.ph.i.i48
-  %101 = add nsw i64 %.04.i.i, -1
-  %102 = icmp sgt i64 %.04.i.i, 2
-  br i1 %102, label %.lr.ph.i.i48, label %_mpd_real_size.exit.i, !llvm.loop !30
+102:                                              ; preds = %.lr.ph.i.i48
+  %103 = add nsw i64 %.04.i.i, -1
+  %104 = icmp sgt i64 %.04.i.i, 2
+  br i1 %104, label %.lr.ph.i.i48, label %_mpd_real_size.exit.i, !llvm.loop !30
 
-_mpd_real_size.exit.i:                            ; preds = %100, %.lr.ph.i.i48, %._crit_edge.i
-  %.0.lcssa.i.i = phi i64 [ %.018.i, %._crit_edge.i ], [ 1, %100 ], [ %.04.i.i, %.lr.ph.i.i48 ]
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.0.lcssa.i.i
-  %103 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %.not21.i = icmp eq i64 %103, 0
+_mpd_real_size.exit.i:                            ; preds = %102, %.lr.ph.i.i48, %._crit_edge.i
+  %.0.lcssa.i.i = phi i64 [ %.018.i, %._crit_edge.i ], [ 1, %102 ], [ %.04.i.i, %.lr.ph.i.i48 ]
+  %105 = getelementptr i64, ptr %85, i64 %.0.lcssa.i.i
+  %106 = getelementptr i8, ptr %105, i64 -8
+  %107 = load i64, ptr %106, align 8, !tbaa !3
+  %.not21.i = icmp eq i64 %107, 0
   br i1 %.not21.i, label %_baseconv_to_smaller.exit, label %88, !llvm.loop !80
 
 _baseconv_to_smaller.exit:                        ; preds = %_mpd_real_size.exit.i
-  %104 = icmp eq i64 %.pre.i, -1
-  br i1 %104, label %_baseconv_to_smaller.exit.thread, label %105
+  %108 = icmp eq i64 %.pre.i, -1
+  br i1 %108, label %_baseconv_to_smaller.exit.thread, label %109
 
-105:                                              ; preds = %_baseconv_to_smaller.exit, %.thread
+109:                                              ; preds = %_baseconv_to_smaller.exit, %.thread
   %.0 = phi i64 [ -1, %.thread ], [ %.pre.i, %_baseconv_to_smaller.exit ]
-  %106 = load i8, ptr %8, align 8, !tbaa !19
-  %.not.i5.i = icmp ugt i8 %106, 31
-  br i1 %.not.i5.i, label %110, label %107
+  %110 = load i8, ptr %8, align 8, !tbaa !19
+  %.not.i5.i = icmp ugt i8 %110, 31
+  br i1 %.not.i5.i, label %114, label %111
 
-107:                                              ; preds = %105
-  %108 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %109 = load ptr, ptr %12, align 8, !tbaa !17
-  call void %108(ptr noundef %109) #33
+111:                                              ; preds = %109
+  %112 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %113 = load ptr, ptr %12, align 8, !tbaa !17
+  call void %112(ptr noundef %113) #33
   %.pre71 = load i8, ptr %8, align 8, !tbaa !19
-  br label %110
+  br label %114
 
-110:                                              ; preds = %107, %105
-  %111 = phi i8 [ %.pre71, %107 ], [ %106, %105 ]
-  %112 = and i8 %111, 16
-  %.not.i.i.not = icmp eq i8 %112, 0
-  br i1 %.not.i.i.not, label %113, label %mpd_del.exit
+114:                                              ; preds = %111, %109
+  %115 = phi i8 [ %.pre71, %111 ], [ %110, %109 ]
+  %116 = and i8 %115, 16
+  %.not.i.i.not = icmp eq i8 %116, 0
+  br i1 %.not.i.i.not, label %117, label %mpd_del.exit
 
-113:                                              ; preds = %110
-  %114 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  call void %114(ptr noundef nonnull %8) #33
+117:                                              ; preds = %114
+  %118 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  call void %118(ptr noundef nonnull %8) #33
   br label %mpd_del.exit
 
 _baseconv_to_smaller.exit.thread:                 ; preds = %89, %_baseconv_to_smaller.exit, %80, %78
-  br i1 %.not6073, label %115, label %.thread
+  br i1 %.not6073, label %119, label %.thread
 
-115:                                              ; preds = %_baseconv_to_smaller.exit.thread
-  %116 = load ptr, ptr @mpd_free, align 8, !tbaa !20
-  %117 = load ptr, ptr %0, align 8, !tbaa !78
-  call void %116(ptr noundef %117) #33
+119:                                              ; preds = %_baseconv_to_smaller.exit.thread
+  %120 = load ptr, ptr @mpd_free, align 8, !tbaa !20
+  %121 = load ptr, ptr %0, align 8, !tbaa !78
+  call void %120(ptr noundef %121) #33
   store ptr null, ptr %0, align 8, !tbaa !78
   br label %.thread
 
-.thread:                                          ; preds = %mpd_sizeinbase.exit.thread52, %115, %_baseconv_to_smaller.exit.thread
-  %118 = load i32, ptr %4, align 4, !tbaa !23
-  %119 = or i32 %118, 512
-  store i32 %119, ptr %4, align 4, !tbaa !23
-  br label %105
+.thread:                                          ; preds = %mpd_sizeinbase.exit.thread52, %119, %_baseconv_to_smaller.exit.thread
+  %122 = load i32, ptr %4, align 4, !tbaa !23
+  %123 = or i32 %122, 512
+  store i32 %123, ptr %4, align 4, !tbaa !23
+  br label %109
 
-mpd_del.exit:                                     ; preds = %113, %110, %74, %mpd_sizeinbase.exit.thread, %41
-  %.030 = phi i64 [ -1, %41 ], [ -1, %mpd_sizeinbase.exit.thread ], [ 1, %74 ], [ %.0, %110 ], [ %.0, %113 ]
+mpd_del.exit:                                     ; preds = %117, %114, %74, %mpd_sizeinbase.exit.thread, %41
+  %.030 = phi i64 [ -1, %41 ], [ -1, %mpd_sizeinbase.exit.thread ], [ 1, %74 ], [ %.0, %114 ], [ %.0, %117 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #33
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #33
   ret i64 %.030

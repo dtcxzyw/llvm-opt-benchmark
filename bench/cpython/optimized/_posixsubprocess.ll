@@ -320,26 +320,26 @@ define internal fastcc ptr @subprocess_fork_exec_impl(ptr noundef %0, ptr nounde
 
 47:                                               ; preds = %.critedge
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.val2126.i = load i64, ptr %30, align 8, !tbaa !21
-  %49 = icmp sgt i64 %.val2126.i, 0
+  %.val2021.i = load i64, ptr %30, align 8, !tbaa !21
+  %49 = icmp sgt i64 %.val2021.i, 0
   br i1 %49, label %.lr.ph.i, label %_sanity_check_python_fd_sequence.exit
 
 50:                                               ; preds = %61
-  %51 = add nuw nsw i64 %.01528.i, 1
-  %.val21.i = load i64, ptr %30, align 8, !tbaa !21
-  %52 = icmp slt i64 %51, %.val21.i
+  %51 = add nuw nsw i64 %.01523.i, 1
+  %.val20.i = load i64, ptr %30, align 8, !tbaa !21
+  %52 = icmp slt i64 %51, %.val20.i
   br i1 %52, label %.lr.ph.i, label %_sanity_check_python_fd_sequence.exit, !llvm.loop !32
 
 .lr.ph.i:                                         ; preds = %47, %50
-  %.01528.i = phi i64 [ %51, %50 ], [ 0, %47 ]
-  %.01627.i = phi i64 [ %59, %50 ], [ -1, %47 ]
-  %53 = getelementptr [1 x ptr], ptr %48, i64 0, i64 %.01528.i
+  %.01523.i = phi i64 [ %51, %50 ], [ 0, %47 ]
+  %.01622.i = phi i64 [ %59, %50 ], [ -1, %47 ]
+  %53 = getelementptr [1 x ptr], ptr %48, i64 0, i64 %.01523.i
   %54 = load ptr, ptr %53, align 8, !tbaa !3
   %55 = getelementptr i8, ptr %54, i64 8
   %.val.i = load ptr, ptr %55, align 8, !tbaa !8
   %56 = getelementptr i8, ptr %.val.i, i64 168
-  %.val20.i = load i64, ptr %56, align 8, !tbaa !11
-  %57 = and i64 %.val20.i, 16777216
+  %.val19.i = load i64, ptr %56, align 8, !tbaa !11
+  %57 = and i64 %.val19.i, 16777216
   %.not.i263 = icmp eq i64 %57, 0
   br i1 %.not.i263, label %64, label %58
 
@@ -349,12 +349,12 @@ define internal fastcc ptr @subprocess_fork_exec_impl(ptr noundef %0, ptr nounde
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %58
-  %62 = icmp sgt i64 %59, %.01627.i
-  %63 = icmp samesign ult i64 %59, 2147483648
-  %or.cond.not.i = and i1 %62, %63
-  br i1 %or.cond.not.i, label %50, label %64
+  %62 = icmp sle i64 %59, %.01622.i
+  %63 = icmp samesign ugt i64 %59, 2147483647
+  %or.cond.i = or i1 %62, %63
+  br i1 %or.cond.i, label %64, label %50
 
-64:                                               ; preds = %58, %.lr.ph.i, %61
+64:                                               ; preds = %.lr.ph.i, %61, %58
   %65 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
   tail call void @PyErr_SetString(ptr noundef %65, ptr noundef nonnull @.str.8) #12
   br label %272

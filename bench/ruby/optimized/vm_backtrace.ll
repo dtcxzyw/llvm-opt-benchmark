@@ -4429,17 +4429,17 @@ define internal fastcc i64 @ec_backtrace_range(ptr noundef readonly captures(non
   br i1 %27, label %43, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %17, %23, %26
-  %.0.i66 = phi i32 [ 0, %26 ], [ %1, %17 ], [ %25, %23 ]
-  %.087.i65 = phi i64 [ 4, %26 ], [ 4, %17 ], [ %24, %23 ]
+  %.0.i62 = phi i32 [ 0, %26 ], [ %1, %17 ], [ %25, %23 ]
+  %.087.i61 = phi i64 [ 4, %26 ], [ 4, %17 ], [ %24, %23 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %40
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %40 ]
-  %.185.i57 = phi i32 [ 0, %.preheader.preheader ], [ %.286.i, %40 ]
+  %.185.i53 = phi i32 [ 0, %.preheader.preheader ], [ %.286.i, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = getelementptr ptr, ptr %10, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !84
-  %30 = icmp slt i32 %.185.i57, %.0.i66
+  %30 = icmp slt i32 %.185.i53, %.0.i62
   %.not104.i = icmp eq ptr %29, null
   br i1 %30, label %31, label %38
 
@@ -4447,14 +4447,14 @@ define internal fastcc i64 @ec_backtrace_range(ptr noundef readonly captures(non
   br i1 %.not104.i, label %36, label %32
 
 32:                                               ; preds = %31
-  %33 = sext i32 %.185.i57 to i64
+  %33 = sext i32 %.185.i53 to i64
   %34 = getelementptr i64, ptr %2, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !15
   store i64 %35, ptr %29, align 8, !tbaa !15
   br label %36
 
 36:                                               ; preds = %32, %31
-  %37 = add nsw i32 %.185.i57, 1
+  %37 = add nsw i32 %.185.i53, 1
   br label %40
 
 38:                                               ; preds = %.preheader
@@ -4465,18 +4465,18 @@ define internal fastcc i64 @ec_backtrace_range(ptr noundef readonly captures(non
   br label %40
 
 40:                                               ; preds = %39, %38, %36
-  %.286.i = phi i32 [ %37, %36 ], [ %.185.i57, %39 ], [ %.185.i57, %38 ]
+  %.286.i = phi i32 [ %37, %36 ], [ %.185.i53, %39 ], [ %.185.i53, %38 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2
   br i1 %exitcond.not, label %41, label %.preheader, !llvm.loop !206
 
 41:                                               ; preds = %40
-  store i64 %.087.i65, ptr %9, align 8, !tbaa !15
-  %42 = icmp eq i32 %.286.i, %.0.i66
+  store i64 %.087.i61, ptr %9, align 8, !tbaa !15
+  %42 = icmp eq i32 %.286.i, %.0.i62
   br i1 %42, label %rb_scan_args_set.exit, label %43
 
 43:                                               ; preds = %41, %26
-  %.0.i67 = phi i32 [ %.0.i66, %41 ], [ %1, %26 ]
-  call void @rb_error_arity(i32 noundef %.0.i67, i32 noundef 0, i32 noundef 2) #16
+  %.0.i63 = phi i32 [ %.0.i62, %41 ], [ %1, %26 ]
+  call void @rb_error_arity(i32 noundef %.0.i63, i32 noundef 0, i32 noundef 2) #16
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %41
@@ -4539,7 +4539,7 @@ backtrace_size.exit:                              ; preds = %.thread, %60, %63
   %72 = call i64 @rb_range_beg_len(i64 noundef %69, ptr noundef nonnull %12, ptr noundef nonnull %13, i64 noundef %71, i32 noundef 0) #6
   switch i64 %72, label %83 [
     i64 0, label %73
-    i64 4, label %86
+    i64 4, label %.critedge
   ]
 
 73:                                               ; preds = %backtrace_size.exit
@@ -4559,7 +4559,7 @@ backtrace_size.exit:                              ; preds = %.thread, %60, %63
 rb_num2long_inline.exit:                          ; preds = %76, %78
   %.0.i42 = phi i64 [ %77, %76 ], [ %79, %78 ]
   %80 = icmp slt i64 %.0.i42, 0
-  br i1 %80, label %81, label %.thread52
+  br i1 %80, label %81, label %86
 
 81:                                               ; preds = %rb_num2long_inline.exit
   %82 = load i64, ptr @rb_eArgError, align 8, !tbaa !15
@@ -4569,20 +4569,15 @@ rb_num2long_inline.exit:                          ; preds = %76, %78
 83:                                               ; preds = %backtrace_size.exit
   %84 = load i64, ptr %12, align 8, !tbaa !15
   %85 = load i64, ptr %13, align 8, !tbaa !15
-  br label %.thread52
+  br label %86
 
-.thread52:                                        ; preds = %83, %rb_num2long_inline.exit
+86:                                               ; preds = %rb_num2long_inline.exit, %83
   %.pn = phi i64 [ %84, %83 ], [ %.0.i42, %rb_num2long_inline.exit ]
   %.127 = phi i64 [ %85, %83 ], [ -1, %rb_num2long_inline.exit ]
   %.129 = add i64 %.pn, %70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
   br label %109
-
-86:                                               ; preds = %backtrace_size.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
-  br label %110
 
 .thread50:                                        ; preds = %49
   %87 = load i64, ptr %7, align 8, !tbaa !15
@@ -4638,14 +4633,19 @@ rb_num2long_inline.exit48:                        ; preds = %95, %97
   %108 = add nuw i64 %.0.i44, %107
   br label %109
 
-109:                                              ; preds = %48, %.thread52, %106, %52
-  %.028 = phi i64 [ %54, %52 ], [ %108, %106 ], [ %.129, %.thread52 ], [ 0, %48 ]
-  %.026 = phi i64 [ -1, %52 ], [ %.0.i47, %106 ], [ %.127, %.thread52 ], [ 0, %48 ]
+109:                                              ; preds = %48, %86, %106, %52
+  %.028 = phi i64 [ %54, %52 ], [ %.129, %86 ], [ %108, %106 ], [ 0, %48 ]
+  %.026 = phi i64 [ -1, %52 ], [ %.127, %86 ], [ %.0.i47, %106 ], [ 0, %48 ]
   store i64 %.026, ptr %5, align 8, !tbaa !15
   br label %110
 
-110:                                              ; preds = %86, %109
-  %.1 = phi i64 [ %.028, %109 ], [ -1, %86 ]
+.critedge:                                        ; preds = %backtrace_size.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  br label %110
+
+110:                                              ; preds = %.critedge, %109
+  %.1 = phi i64 [ %.028, %109 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6

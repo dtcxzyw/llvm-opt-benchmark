@@ -1055,7 +1055,7 @@ _ZL14print_resatomsP8_IO_FILERK22PreprocessingAtomTypesRK17PreprocessResidue.exi
 93:                                               ; preds = %_ZL14print_resatomsP8_IO_FILERK22PreprocessingAtomTypesRK17PreprocessResidue.exit, %_ZL16print_resbondedsP8_IO_FILE11BondedTypesRK17PreprocessResidue.exit
   %indvars.iv = phi i64 [ 0, %_ZL14print_resatomsP8_IO_FILERK22PreprocessingAtomTypesRK17PreprocessResidue.exit ], [ %indvars.iv.next, %_ZL16print_resbondedsP8_IO_FILE11BondedTypesRK17PreprocessResidue.exit ]
   %.idx.i = shl nuw nsw i64 %indvars.iv, 5
-  %94 = getelementptr i8, ptr %92, i64 %.idx.i
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i
   %95 = load ptr, ptr %94, align 8, !tbaa !80
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !80
@@ -2402,7 +2402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201: ; preds = %_Z
   %520 = getelementptr inbounds i8, ptr %445, i64 -224
   %521 = getelementptr inbounds i8, ptr %445, i64 -216
   %522 = getelementptr inbounds i8, ptr %445, i64 -240
-  %523 = getelementptr i8, ptr %445, i64 -184
+  %523 = getelementptr inbounds i8, ptr %445, i64 -184
   br label %524
 
 524:                                              ; preds = %.preheader, %835
@@ -2725,7 +2725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i: ; preds = %_Z
 .lr.ph41.i:                                       ; preds = %.noexc208
   %621 = sext i32 %.sroa.04.0.i.i to i64
   %.idx.i = shl nuw nsw i64 %621, 5
-  %622 = getelementptr i8, ptr %523, i64 %.idx.i
+  %622 = getelementptr inbounds nuw i8, ptr %523, i64 %.idx.i
   %623 = getelementptr inbounds nuw i8, ptr %622, i64 8
   %624 = getelementptr inbounds nuw i8, ptr %622, i64 16
   br label %625

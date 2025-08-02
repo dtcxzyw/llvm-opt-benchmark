@@ -81682,7 +81682,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i40.i.i: ; preds = %
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i.i.i: ; preds = %205
   %.sroa.424.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %invariant.gep.i.i.i = getelementptr i8, ptr %196, i64 8
   br label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds = %.loopexit14.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i.i.i
@@ -81716,8 +81715,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
 
 .lr.ph.i.split.us.i.i.i:                          ; preds = %.lr.ph.i.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i
   %.121.i.us.i.i.i = phi i64 [ %217, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %.026.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %gep.i.i.i = getelementptr %"struct.duckdb::list_entry_t", ptr %invariant.gep.i.i.i, i64 %.121.i.us.i.i.i
-  %.sroa.426.0.copyload.i.us.i.i.i = load i64, ptr %gep.i.i.i, align 8, !tbaa !71, !alias.scope !1309, !noalias !1318
+  %.sroa.426.0..sroa_idx.i.us.i.i.i = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %196, i64 %.121.i.us.i.i.i, i32 1
+  %.sroa.426.0.copyload.i.us.i.i.i = load i64, ptr %.sroa.426.0..sroa_idx.i.us.i.i.i, align 8, !tbaa !71, !alias.scope !1309, !noalias !1318
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !1317
   %.not.i.i.i.us.i.i.i = icmp eq i64 %.sroa.426.0.copyload.i.us.i.i.i, 0
   br i1 %.not.i.i.i.us.i.i.i, label %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i, label %.split.us.i.i.i
@@ -82110,7 +82109,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i43.i.i: ; preds = %
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i46.i.i: ; preds = %328
   %.sroa.426.0..sroa_idx.i.i47.i.i = getelementptr inbounds nuw i8, ptr %.val36.i.i, i64 8
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %319, i64 8
   br label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i: ; preds = %.loopexit14.i.i54.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i46.i.i
@@ -82144,8 +82142,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i: ; pred
 
 .lr.ph.split.us.i.i.i.i:                          ; preds = %.lr.ph.i.i57.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i
   %.121.us.i.i.i.i = phi i64 [ %340, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %.029.i.i.i.i, %.lr.ph.i.i57.i.i ]
-  %gep.i.i.i.i = getelementptr %"struct.duckdb::list_entry_t", ptr %invariant.gep.i.i.i.i, i64 %.121.us.i.i.i.i
-  %.sroa.424.0.copyload.us.i.i.i.i = load i64, ptr %gep.i.i.i.i, align 8, !tbaa !71, !alias.scope !1329, !noalias !1335
+  %.sroa.424.0..sroa_idx.us.i.i.i.i = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %319, i64 %.121.us.i.i.i.i, i32 1
+  %.sroa.424.0.copyload.us.i.i.i.i = load i64, ptr %.sroa.424.0..sroa_idx.us.i.i.i.i, align 8, !tbaa !71, !alias.scope !1329, !noalias !1335
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !1334
   %.not.i.i.us.i.i.i.i = icmp eq i64 %.sroa.424.0.copyload.us.i.i.i.i, 0
   br i1 %.not.i.i.us.i.i.i.i, label %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i, label %.split.us.i.i.i.i
@@ -83973,7 +83971,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i40.i.i: ; preds = %
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i.i.i: ; preds = %205
   %.sroa.424.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %invariant.gep.i.i.i = getelementptr i8, ptr %196, i64 8
   br label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds = %.loopexit14.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i.i.i
@@ -84007,8 +84004,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
 
 .lr.ph.i.split.us.i.i.i:                          ; preds = %.lr.ph.i.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i
   %.121.i.us.i.i.i = phi i64 [ %217, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %.026.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %gep.i.i.i = getelementptr %"struct.duckdb::list_entry_t", ptr %invariant.gep.i.i.i, i64 %.121.i.us.i.i.i
-  %.sroa.426.0.copyload.i.us.i.i.i = load i64, ptr %gep.i.i.i, align 8, !tbaa !71, !alias.scope !1380, !noalias !1389
+  %.sroa.426.0..sroa_idx.i.us.i.i.i = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %196, i64 %.121.i.us.i.i.i, i32 1
+  %.sroa.426.0.copyload.i.us.i.i.i = load i64, ptr %.sroa.426.0..sroa_idx.i.us.i.i.i, align 8, !tbaa !71, !alias.scope !1380, !noalias !1389
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !1388
   %.not.i.i.i.us.i.i.i = icmp eq i64 %.sroa.426.0.copyload.i.us.i.i.i, 0
   br i1 %.not.i.i.i.us.i.i.i, label %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i, label %.split.us.i.i.i
@@ -84401,7 +84398,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i43.i.i: ; preds = %
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i46.i.i: ; preds = %328
   %.sroa.426.0..sroa_idx.i.i47.i.i = getelementptr inbounds nuw i8, ptr %.val36.i.i, i64 8
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %319, i64 8
   br label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i: ; preds = %.loopexit14.i.i54.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i46.i.i
@@ -84435,8 +84431,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i: ; pred
 
 .lr.ph.split.us.i.i.i.i:                          ; preds = %.lr.ph.i.i57.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i
   %.121.us.i.i.i.i = phi i64 [ %340, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %.029.i.i.i.i, %.lr.ph.i.i57.i.i ]
-  %gep.i.i.i.i = getelementptr %"struct.duckdb::list_entry_t", ptr %invariant.gep.i.i.i.i, i64 %.121.us.i.i.i.i
-  %.sroa.424.0.copyload.us.i.i.i.i = load i64, ptr %gep.i.i.i.i, align 8, !tbaa !71, !alias.scope !1400, !noalias !1406
+  %.sroa.424.0..sroa_idx.us.i.i.i.i = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %319, i64 %.121.us.i.i.i.i, i32 1
+  %.sroa.424.0.copyload.us.i.i.i.i = load i64, ptr %.sroa.424.0..sroa_idx.us.i.i.i.i, align 8, !tbaa !71, !alias.scope !1400, !noalias !1406
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !1405
   %.not.i.i.us.i.i.i.i = icmp eq i64 %.sroa.424.0.copyload.us.i.i.i.i, 0
   br i1 %.not.i.i.us.i.i.i.i, label %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_10DistanceOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i, label %.split.us.i.i.i.i
@@ -87179,7 +87175,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i40.i.i: ; preds = %
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i.i.i: ; preds = %205
   %.sroa.424.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %invariant.gep.i.i.i = getelementptr i8, ptr %196, i64 8
   br label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds = %.loopexit14.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i.i.i
@@ -87213,8 +87208,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
 
 .lr.ph.i.split.us.i.i.i:                          ; preds = %.lr.ph.i.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i
   %.121.i.us.i.i.i = phi i64 [ %217, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %.026.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %gep.i.i.i = getelementptr %"struct.duckdb::list_entry_t", ptr %invariant.gep.i.i.i, i64 %.121.i.us.i.i.i
-  %.sroa.426.0.copyload.i.us.i.i.i = load i64, ptr %gep.i.i.i, align 8, !tbaa !71, !alias.scope !1460, !noalias !1469
+  %.sroa.426.0..sroa_idx.i.us.i.i.i = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %196, i64 %.121.i.us.i.i.i, i32 1
+  %.sroa.426.0.copyload.i.us.i.i.i = load i64, ptr %.sroa.426.0..sroa_idx.i.us.i.i.i, align 8, !tbaa !71, !alias.scope !1460, !noalias !1469
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !1468
   %.not.i.i.i.us.i.i.i = icmp eq i64 %.sroa.426.0.copyload.i.us.i.i.i, 0
   br i1 %.not.i.i.i.us.i.i.i, label %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i, label %.split.us.i.i.i
@@ -87603,7 +87598,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i43.i.i: ; preds = %
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i46.i.i: ; preds = %324
   %.sroa.426.0..sroa_idx.i.i47.i.i = getelementptr inbounds nuw i8, ptr %.val36.i.i, i64 8
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %315, i64 8
   br label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i: ; preds = %.loopexit14.i.i54.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i46.i.i
@@ -87637,8 +87631,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i: ; pred
 
 .lr.ph.split.us.i.i.i.i:                          ; preds = %.lr.ph.i.i57.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i
   %.121.us.i.i.i.i = phi i64 [ %336, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %.029.i.i.i.i, %.lr.ph.i.i57.i.i ]
-  %gep.i.i.i.i = getelementptr %"struct.duckdb::list_entry_t", ptr %invariant.gep.i.i.i.i, i64 %.121.us.i.i.i.i
-  %.sroa.424.0.copyload.us.i.i.i.i = load i64, ptr %gep.i.i.i.i, align 8, !tbaa !71, !alias.scope !1480, !noalias !1486
+  %.sroa.424.0..sroa_idx.us.i.i.i.i = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %315, i64 %.121.us.i.i.i.i, i32 1
+  %.sroa.424.0.copyload.us.i.i.i.i = load i64, ptr %.sroa.424.0..sroa_idx.us.i.i.i.i, align 8, !tbaa !71, !alias.scope !1480, !noalias !1486
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !1485
   %.not.i.i.us.i.i.i.i = icmp eq i64 %.sroa.424.0.copyload.us.i.i.i.i, 0
   br i1 %.not.i.i.us.i.i.i.i, label %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i, label %.split.us.i.i.i.i
@@ -89458,7 +89452,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i40.i.i: ; preds = %
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i.i.i: ; preds = %205
   %.sroa.424.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %invariant.gep.i.i.i = getelementptr i8, ptr %196, i64 8
   br label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds = %.loopexit14.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i.i.i
@@ -89492,8 +89485,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
 
 .lr.ph.i.split.us.i.i.i:                          ; preds = %.lr.ph.i.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i
   %.121.i.us.i.i.i = phi i64 [ %217, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %.026.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %gep.i.i.i = getelementptr %"struct.duckdb::list_entry_t", ptr %invariant.gep.i.i.i, i64 %.121.i.us.i.i.i
-  %.sroa.426.0.copyload.i.us.i.i.i = load i64, ptr %gep.i.i.i, align 8, !tbaa !71, !alias.scope !1529, !noalias !1538
+  %.sroa.426.0..sroa_idx.i.us.i.i.i = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %196, i64 %.121.i.us.i.i.i, i32 1
+  %.sroa.426.0.copyload.i.us.i.i.i = load i64, ptr %.sroa.426.0..sroa_idx.i.us.i.i.i, align 8, !tbaa !71, !alias.scope !1529, !noalias !1538
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !1537
   %.not.i.i.i.us.i.i.i = icmp eq i64 %.sroa.426.0.copyload.i.us.i.i.i, 0
   br i1 %.not.i.i.i.us.i.i.i, label %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i, label %.split.us.i.i.i
@@ -89882,7 +89875,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i43.i.i: ; preds = %
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i46.i.i: ; preds = %324
   %.sroa.426.0..sroa_idx.i.i47.i.i = getelementptr inbounds nuw i8, ptr %.val36.i.i, i64 8
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %315, i64 8
   br label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i: ; preds = %.loopexit14.i.i54.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i46.i.i
@@ -89916,8 +89908,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i: ; pred
 
 .lr.ph.split.us.i.i.i.i:                          ; preds = %.lr.ph.i.i57.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i
   %.121.us.i.i.i.i = phi i64 [ %336, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %.029.i.i.i.i, %.lr.ph.i.i57.i.i ]
-  %gep.i.i.i.i = getelementptr %"struct.duckdb::list_entry_t", ptr %invariant.gep.i.i.i.i, i64 %.121.us.i.i.i.i
-  %.sroa.424.0.copyload.us.i.i.i.i = load i64, ptr %gep.i.i.i.i, align 8, !tbaa !71, !alias.scope !1549, !noalias !1555
+  %.sroa.424.0..sroa_idx.us.i.i.i.i = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %315, i64 %.121.us.i.i.i.i, i32 1
+  %.sroa.424.0.copyload.us.i.i.i.i = load i64, ptr %.sroa.424.0..sroa_idx.us.i.i.i.i, align 8, !tbaa !71, !alias.scope !1549, !noalias !1555
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !1554
   %.not.i.i.us.i.i.i.i = icmp eq i64 %.sroa.424.0.copyload.us.i.i.i.i, 0
   br i1 %.not.i.i.us.i.i.i.i, label %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_14InnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i, label %.split.us.i.i.i.i
@@ -92031,7 +92023,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i40.i.i: ; preds = %
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i.i.i: ; preds = %205
   %.sroa.424.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %invariant.gep.i.i.i = getelementptr i8, ptr %196, i64 8
   br label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds = %.loopexit14.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i.i.i
@@ -92065,8 +92056,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
 
 .lr.ph.i.split.us.i.i.i:                          ; preds = %.lr.ph.i.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i
   %.121.i.us.i.i.i = phi i64 [ %217, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %.026.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %gep.i.i.i = getelementptr %"struct.duckdb::list_entry_t", ptr %invariant.gep.i.i.i, i64 %.121.i.us.i.i.i
-  %.sroa.426.0.copyload.i.us.i.i.i = load i64, ptr %gep.i.i.i, align 8, !tbaa !71, !alias.scope !1606, !noalias !1615
+  %.sroa.426.0..sroa_idx.i.us.i.i.i = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %196, i64 %.121.i.us.i.i.i, i32 1
+  %.sroa.426.0.copyload.i.us.i.i.i = load i64, ptr %.sroa.426.0..sroa_idx.i.us.i.i.i, align 8, !tbaa !71, !alias.scope !1606, !noalias !1615
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !1614
   %.not.i.i.i.us.i.i.i = icmp eq i64 %.sroa.426.0.copyload.i.us.i.i.i, 0
   br i1 %.not.i.i.i.us.i.i.i, label %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.i.us.i.i.i, label %.split.us.i.i.i
@@ -92457,7 +92448,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i43.i.i: ; preds = %
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i46.i.i: ; preds = %326
   %.sroa.426.0..sroa_idx.i.i47.i.i = getelementptr inbounds nuw i8, ptr %.val36.i.i, i64 8
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %317, i64 8
   br label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i: ; preds = %.loopexit14.i.i54.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i46.i.i
@@ -92491,8 +92481,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i: ; pred
 
 .lr.ph.split.us.i.i.i.i:                          ; preds = %.lr.ph.i.i57.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i
   %.121.us.i.i.i.i = phi i64 [ %338, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %.029.i.i.i.i, %.lr.ph.i.i57.i.i ]
-  %gep.i.i.i.i = getelementptr %"struct.duckdb::list_entry_t", ptr %invariant.gep.i.i.i.i, i64 %.121.us.i.i.i.i
-  %.sroa.424.0.copyload.us.i.i.i.i = load i64, ptr %gep.i.i.i.i, align 8, !tbaa !71, !alias.scope !1625, !noalias !1631
+  %.sroa.424.0..sroa_idx.us.i.i.i.i = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %317, i64 %.121.us.i.i.i.i, i32 1
+  %.sroa.424.0.copyload.us.i.i.i.i = load i64, ptr %.sroa.424.0..sroa_idx.us.i.i.i.i, align 8, !tbaa !71, !alias.scope !1625, !noalias !1631
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !1630
   %.not.i.i.us.i.i.i.i = icmp eq i64 %.sroa.424.0.copyload.us.i.i.i.i, 0
   br i1 %.not.i.i.us.i.i.i.i, label %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIfNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_fEET3_T_T1_T2_SE_m.exit.us.i.i.i.i, label %.split.us.i.i.i.i
@@ -94316,7 +94306,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i40.i.i: ; preds = %
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i.i.i: ; preds = %205
   %.sroa.424.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %invariant.gep.i.i.i = getelementptr i8, ptr %196, i64 8
   br label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds = %.loopexit14.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i.i.i
@@ -94350,8 +94339,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i: ; preds 
 
 .lr.ph.i.split.us.i.i.i:                          ; preds = %.lr.ph.i.i.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i
   %.121.i.us.i.i.i = phi i64 [ %217, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i ], [ %.026.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %gep.i.i.i = getelementptr %"struct.duckdb::list_entry_t", ptr %invariant.gep.i.i.i, i64 %.121.i.us.i.i.i
-  %.sroa.426.0.copyload.i.us.i.i.i = load i64, ptr %gep.i.i.i, align 8, !tbaa !71, !alias.scope !1674, !noalias !1683
+  %.sroa.426.0..sroa_idx.i.us.i.i.i = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %196, i64 %.121.i.us.i.i.i, i32 1
+  %.sroa.426.0.copyload.i.us.i.i.i = load i64, ptr %.sroa.426.0..sroa_idx.i.us.i.i.i, align 8, !tbaa !71, !alias.scope !1674, !noalias !1683
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !1682
   %.not.i.i.i.us.i.i.i = icmp eq i64 %.sroa.426.0.copyload.i.us.i.i.i, 0
   br i1 %.not.i.i.i.us.i.i.i, label %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.i.us.i.i.i, label %.split.us.i.i.i
@@ -94742,7 +94731,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i43.i.i: ; preds = %
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i46.i.i: ; preds = %326
   %.sroa.426.0..sroa_idx.i.i47.i.i = getelementptr inbounds nuw i8, ptr %.val36.i.i, i64 8
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %317, i64 8
   br label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i: ; preds = %.loopexit14.i.i54.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.lr.ph.i.i46.i.i
@@ -94776,8 +94764,8 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i53.i.i: ; pred
 
 .lr.ph.split.us.i.i.i.i:                          ; preds = %.lr.ph.i.i57.i.i, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i
   %.121.us.i.i.i.i = phi i64 [ %338, %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i ], [ %.029.i.i.i.i, %.lr.ph.i.i57.i.i ]
-  %gep.i.i.i.i = getelementptr %"struct.duckdb::list_entry_t", ptr %invariant.gep.i.i.i.i, i64 %.121.us.i.i.i.i
-  %.sroa.424.0.copyload.us.i.i.i.i = load i64, ptr %gep.i.i.i.i, align 8, !tbaa !71, !alias.scope !1693, !noalias !1699
+  %.sroa.424.0..sroa_idx.us.i.i.i.i = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %317, i64 %.121.us.i.i.i.i, i32 1
+  %.sroa.424.0.copyload.us.i.i.i.i = load i64, ptr %.sroa.424.0..sroa_idx.us.i.i.i.i, align 8, !tbaa !71, !alias.scope !1693, !noalias !1699
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !1698
   %.not.i.i.us.i.i.i.i = icmp eq i64 %.sroa.424.0.copyload.us.i.i.i.i, 0
   br i1 %.not.i.i.us.i.i.i.i, label %_ZN6duckdb28BinaryLambdaWrapperWithNulls9OperationIZNS_L15ListGenericFoldIdNS_22NegativeInnerProductOpEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKNS_12list_entry_tESC_RNS_12ValidityMaskEmE_bSA_SA_dEET3_T_T1_T2_SE_m.exit.us.i.i.i.i, label %.split.us.i.i.i.i

@@ -8037,7 +8037,7 @@ zend_safe_address_guarded.exit:                   ; preds = %zend_safe_address.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @_safe_realloc(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @_safe_realloc(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
 zend_safe_address.exit:
   %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #47, !srcloc !80
   %.0.i = extractvalue { i64, i64 } %4, 1

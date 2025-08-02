@@ -4262,33 +4262,33 @@ decode_sj_chapter_f.exit.i:                       ; preds = %1194, %1193, %decod
   br i1 %.not138.i.i, label %.thread242, label %.preheader.split.i.i
 
 .preheader.split.i.i:                             ; preds = %.preheader.i.i, %1237
-  %.01186.i.i = phi i32 [ %1243, %1237 ], [ 0, %.preheader.i.i ]
-  %.01195.i.i = phi i32 [ %1242, %1237 ], [ 0, %.preheader.i.i ]
-  %1235 = add i32 %.01186.i.i, %.1129.i.i
+  %.01183.i.i = phi i32 [ %1243, %1237 ], [ 0, %.preheader.i.i ]
+  %.01192.i.i = phi i32 [ %1242, %1237 ], [ 0, %.preheader.i.i ]
+  %1235 = add i32 %.01183.i.i, %.1129.i.i
   %1236 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %1235, i32 noundef 1)
   br i1 %1236, label %1237, label %.thread242
 
 1237:                                             ; preds = %.preheader.split.i.i
   %1238 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1235)
-  %1239 = shl i32 %.01195.i.i, 7
+  %1239 = shl i32 %.01192.i.i, 7
   %1240 = and i8 %1238, 127
   %1241 = zext nneg i8 %1240 to i32
   %1242 = or disjoint i32 %1239, %1241
-  %1243 = add nuw nsw i32 %.01186.i.i, 1
+  %1243 = add nuw nsw i32 %.01183.i.i, 1
   %1244 = icmp slt i8 %1238, 0
-  %1245 = icmp samesign ult i32 %.01186.i.i, 3
+  %1245 = icmp samesign ult i32 %.01183.i.i, 3
   %or.cond.i.i = select i1 %1244, i1 %1245, i1 false
   br i1 %or.cond.i.i, label %.preheader.split.i.i, label %1246, !llvm.loop !10
 
 1246:                                             ; preds = %1237
-  %1247 = icmp samesign ult i32 %.01186.i.i, 4
+  %1247 = icmp samesign ult i32 %.01183.i.i, 4
   br i1 %1247, label %switch.lookup, label %1251
 
 switch.lookup:                                    ; preds = %1246
-  %1248 = zext nneg i32 %.01186.i.i to i64
+  %1248 = zext nneg i32 %.01183.i.i to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_rtp_midi, i64 0, i64 %1248
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.offset = add nuw nsw i32 %.01186.i.i, 1
+  %switch.offset = add nuw nsw i32 %.01183.i.i, 1
   %1249 = load i32, ptr %switch.load, align 4
   %1250 = tail call ptr @proto_tree_add_uint(ptr noundef %1204, i32 noundef %1249, ptr noundef %0, i32 noundef %.1129.i.i, i32 noundef %switch.offset, i32 noundef %1242)
   br label %1251
@@ -4313,28 +4313,28 @@ switch.lookup:                                    ; preds = %1246
   br i1 %1260, label %.lr.ph.i.outer.i, label %._crit_edge.thread.i.i
 
 .lr.ph.i.outer.i:                                 ; preds = %1256, %.thread.i150
-  %.58.i.ph.i = phi i32 [ %1268, %.thread.i150 ], [ %.2.i89.i, %1256 ]
-  %.51337.i.ph.i = phi i32 [ %1261, %.thread.i150 ], [ %.2130.i.i, %1256 ]
+  %.55.i.ph.i = phi i32 [ %1268, %.thread.i150 ], [ %.2.i89.i, %1256 ]
+  %.51334.i.ph.i = phi i32 [ %1261, %.thread.i150 ], [ %.2130.i.i, %1256 ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1263, %.lr.ph.i.outer.i
-  %.01229.i.i = phi i32 [ %1264, %1263 ], [ 0, %.lr.ph.i.outer.i ]
-  %.58.i.i = phi i32 [ %1265, %1263 ], [ %.58.i.ph.i, %.lr.ph.i.outer.i ]
-  %1261 = add i32 %.01229.i.i, %.51337.i.ph.i
+  %.01226.i.i = phi i32 [ %1264, %1263 ], [ 0, %.lr.ph.i.outer.i ]
+  %.55.i.i = phi i32 [ %1265, %1263 ], [ %.55.i.ph.i, %.lr.ph.i.outer.i ]
+  %1261 = add i32 %.01226.i.i, %.51334.i.ph.i
   %1262 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1261)
   %.not141.i.i = icmp sgt i8 %1262, -1
   br i1 %.not141.i.i, label %1263, label %.thread.i150
 
 1263:                                             ; preds = %.lr.ph.i.i
-  %1264 = add i32 %.01229.i.i, 1
-  %1265 = add i32 %.58.i.i, 1
+  %1264 = add i32 %.01226.i.i, 1
+  %1265 = add i32 %.55.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %1265, %1201
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 .thread.i150:                                     ; preds = %.lr.ph.i.i
   %1266 = load i32, ptr @hf_rtp_midi_sj_chapter_x_data, align 4
-  %1267 = tail call ptr @proto_tree_add_item(ptr noundef %1259, i32 noundef %1266, ptr noundef %0, i32 noundef %.51337.i.ph.i, i32 noundef %.01229.i.i, i32 noundef 0)
-  %1268 = add i32 %.58.i.i, 1
+  %1267 = tail call ptr @proto_tree_add_item(ptr noundef %1259, i32 noundef %1266, ptr noundef %0, i32 noundef %.51334.i.ph.i, i32 noundef %.01226.i.i, i32 noundef 0)
+  %1268 = add i32 %.55.i.i, 1
   %exitcond.not.i3.i = icmp eq i32 %1268, %1201
   br i1 %exitcond.not.i3.i, label %decode_sj_chapter_x.exit.i, label %.lr.ph.i.outer.i, !llvm.loop !11
 
@@ -4344,7 +4344,7 @@ switch.lookup:                                    ; preds = %1246
 
 1269:                                             ; preds = %._crit_edge.i.i
   %1270 = load i32, ptr @hf_rtp_midi_sj_chapter_x_invalid_data, align 4
-  %1271 = tail call ptr @proto_tree_add_item(ptr noundef %1259, i32 noundef %1270, ptr noundef %0, i32 noundef %.51337.i.ph.i, i32 noundef %1264, i32 noundef 0)
+  %1271 = tail call ptr @proto_tree_add_item(ptr noundef %1259, i32 noundef %1270, ptr noundef %0, i32 noundef %.51334.i.ph.i, i32 noundef %1264, i32 noundef 0)
   br label %decode_sj_chapter_x.exit.i
 
 ._crit_edge.thread.i.i:                           ; preds = %1256, %1254

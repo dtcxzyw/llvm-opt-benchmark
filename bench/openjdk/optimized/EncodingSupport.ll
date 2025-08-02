@@ -122,16 +122,14 @@ define hidden i32 @modifiedUtf8LengthOfUtf8(ptr noundef readonly captures(none) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @convertUtf8ToModifiedUtf8(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 1
-  %invariant.gep67 = getelementptr i8, ptr %0, i64 2
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4, %86
-  %.072 = phi i32 [ %87, %86 ], [ 0, %4 ]
-  %.06571 = phi i32 [ %.166, %86 ], [ 0, %4 ]
-  %6 = sext i32 %.072 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 %6
+.lr.ph:                                           ; preds = %4, %89
+  %.068 = phi i32 [ %90, %89 ], [ 0, %4 ]
+  %.06567 = phi i32 [ %.166, %89 ], [ 0, %4 ]
+  %6 = sext i32 %.068 to i64
+  %7 = getelementptr i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = icmp sgt i8 %8, -1
@@ -142,20 +140,20 @@ define hidden void @convertUtf8ToModifiedUtf8(ptr noundef readonly captures(none
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %11
-  %14 = sext i32 %.06571 to i64
+  %14 = sext i32 %.06567 to i64
   %15 = getelementptr inbounds i8, ptr %2, i64 %14
   store i8 -64, ptr %15, align 1
-  %16 = add nsw i32 %.06571, 2
+  %16 = add nsw i32 %.06567, 2
   %17 = getelementptr i8, ptr %15, i64 1
   store i8 -128, ptr %17, align 1
-  br label %86
+  br label %89
 
 18:                                               ; preds = %11
-  %19 = add nsw i32 %.06571, 1
-  %20 = sext i32 %.06571 to i64
+  %19 = add nsw i32 %.06567, 1
+  %20 = sext i32 %.06567 to i64
   %21 = getelementptr inbounds i8, ptr %2, i64 %20
   store i8 %8, ptr %21, align 1
-  br label %86
+  br label %89
 
 22:                                               ; preds = %.lr.ph
   %23 = and i32 %9, 224
@@ -163,105 +161,105 @@ define hidden void @convertUtf8ToModifiedUtf8(ptr noundef readonly captures(none
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %22
-  %26 = sext i32 %.06571 to i64
+  %26 = sext i32 %.06567 to i64
   %27 = getelementptr inbounds i8, ptr %2, i64 %26
   store i8 %8, ptr %27, align 1
-  %28 = add nsw i32 %.072, 1
+  %28 = add nsw i32 %.068, 1
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %0, i64 %29
   %31 = load i8, ptr %30, align 1
-  %32 = add nsw i32 %.06571, 2
+  %32 = add nsw i32 %.06567, 2
   %33 = getelementptr i8, ptr %27, i64 1
   store i8 %31, ptr %33, align 1
-  br label %86
+  br label %89
 
 34:                                               ; preds = %22
   %35 = and i32 %9, 240
   %36 = icmp eq i32 %35, 224
-  br i1 %36, label %37, label %48
+  br i1 %36, label %37, label %49
 
 37:                                               ; preds = %34
-  %38 = sext i32 %.06571 to i64
+  %38 = sext i32 %.06567 to i64
   %39 = getelementptr inbounds i8, ptr %2, i64 %38
   store i8 %8, ptr %39, align 1
-  %gep70 = getelementptr i8, ptr %invariant.gep, i64 %6
-  %40 = load i8, ptr %gep70, align 1
-  %41 = getelementptr i8, ptr %39, i64 1
-  store i8 %40, ptr %41, align 1
-  %42 = add nsw i32 %.072, 2
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %0, i64 %43
-  %45 = load i8, ptr %44, align 1
-  %46 = add nsw i32 %.06571, 3
-  %47 = getelementptr i8, ptr %39, i64 2
-  store i8 %45, ptr %47, align 1
-  br label %86
+  %40 = getelementptr i8, ptr %7, i64 1
+  %41 = load i8, ptr %40, align 1
+  %42 = getelementptr i8, ptr %39, i64 1
+  store i8 %41, ptr %42, align 1
+  %43 = add nsw i32 %.068, 2
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i8, ptr %0, i64 %44
+  %46 = load i8, ptr %45, align 1
+  %47 = add nsw i32 %.06567, 3
+  %48 = getelementptr i8, ptr %39, i64 2
+  store i8 %46, ptr %48, align 1
+  br label %89
 
-48:                                               ; preds = %34
-  %49 = and i32 %9, 248
-  %50 = icmp eq i32 %49, 240
-  br i1 %50, label %51, label %86
+49:                                               ; preds = %34
+  %50 = and i32 %9, 248
+  %51 = icmp eq i32 %50, 240
+  br i1 %51, label %52, label %89
 
-51:                                               ; preds = %48
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %6
-  %52 = load i8, ptr %gep, align 1
-  %gep68 = getelementptr i8, ptr %invariant.gep67, i64 %6
-  %53 = load i8, ptr %gep68, align 1
-  %54 = add nsw i32 %.072, 3
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i8, ptr %0, i64 %55
-  %57 = load i8, ptr %56, align 1
-  %58 = shl nuw nsw i32 %9, 18
-  %59 = and i32 %58, 786432
-  %60 = and i8 %52, 63
-  %61 = zext nneg i8 %60 to i32
-  %62 = shl nuw nsw i32 %61, 12
-  %63 = or disjoint i32 %62, %59
-  %64 = and i8 %53, 63
-  %65 = zext nneg i8 %64 to i32
-  %66 = shl nuw nsw i32 %65, 6
-  %67 = or disjoint i32 %66, %62
-  %68 = sext i32 %.06571 to i64
-  %69 = getelementptr inbounds i8, ptr %2, i64 %68
-  store i8 -19, ptr %69, align 1
-  %70 = lshr i32 %63, 16
-  %71 = trunc nuw nsw i32 %70 to i8
-  %72 = add nuw nsw i8 %71, 15
-  %73 = and i8 %72, 15
-  %74 = or disjoint i8 %73, -96
-  %75 = getelementptr i8, ptr %69, i64 1
-  store i8 %74, ptr %75, align 1
-  %76 = lshr i32 %67, 10
-  %77 = trunc nuw i32 %76 to i8
-  %78 = and i8 %77, 63
-  %79 = or disjoint i8 %78, -128
-  %80 = getelementptr i8, ptr %69, i64 2
-  store i8 %79, ptr %80, align 1
-  %81 = getelementptr i8, ptr %69, i64 3
-  store i8 -19, ptr %81, align 1
-  %82 = or i8 %64, -80
-  %83 = getelementptr i8, ptr %69, i64 4
+52:                                               ; preds = %49
+  %53 = getelementptr i8, ptr %7, i64 1
+  %54 = load i8, ptr %53, align 1
+  %55 = getelementptr i8, ptr %7, i64 2
+  %56 = load i8, ptr %55, align 1
+  %57 = add nsw i32 %.068, 3
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i8, ptr %0, i64 %58
+  %60 = load i8, ptr %59, align 1
+  %61 = shl nuw nsw i32 %9, 18
+  %62 = and i32 %61, 786432
+  %63 = and i8 %54, 63
+  %64 = zext nneg i8 %63 to i32
+  %65 = shl nuw nsw i32 %64, 12
+  %66 = or disjoint i32 %65, %62
+  %67 = and i8 %56, 63
+  %68 = zext nneg i8 %67 to i32
+  %69 = shl nuw nsw i32 %68, 6
+  %70 = or disjoint i32 %69, %65
+  %71 = sext i32 %.06567 to i64
+  %72 = getelementptr inbounds i8, ptr %2, i64 %71
+  store i8 -19, ptr %72, align 1
+  %73 = lshr i32 %66, 16
+  %74 = trunc nuw nsw i32 %73 to i8
+  %75 = add nuw nsw i8 %74, 15
+  %76 = and i8 %75, 15
+  %77 = or disjoint i8 %76, -96
+  %78 = getelementptr i8, ptr %72, i64 1
+  store i8 %77, ptr %78, align 1
+  %79 = lshr i32 %70, 10
+  %80 = trunc nuw i32 %79 to i8
+  %81 = and i8 %80, 63
+  %82 = or disjoint i8 %81, -128
+  %83 = getelementptr i8, ptr %72, i64 2
   store i8 %82, ptr %83, align 1
-  %84 = add nsw i32 %.06571, 6
-  %85 = getelementptr i8, ptr %69, i64 5
-  store i8 %57, ptr %85, align 1
-  br label %86
+  %84 = getelementptr i8, ptr %72, i64 3
+  store i8 -19, ptr %84, align 1
+  %85 = or i8 %67, -80
+  %86 = getelementptr i8, ptr %72, i64 4
+  store i8 %85, ptr %86, align 1
+  %87 = add nsw i32 %.06567, 6
+  %88 = getelementptr i8, ptr %72, i64 5
+  store i8 %60, ptr %88, align 1
+  br label %89
 
-86:                                               ; preds = %18, %13, %37, %51, %48, %25
-  %.166 = phi i32 [ %16, %13 ], [ %19, %18 ], [ %32, %25 ], [ %46, %37 ], [ %84, %51 ], [ %.06571, %48 ]
-  %.1 = phi i32 [ %.072, %13 ], [ %.072, %18 ], [ %28, %25 ], [ %42, %37 ], [ %54, %51 ], [ %.072, %48 ]
-  %87 = add nsw i32 %.1, 1
-  %88 = icmp slt i32 %87, %1
-  br i1 %88, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
+89:                                               ; preds = %18, %13, %37, %52, %49, %25
+  %.166 = phi i32 [ %16, %13 ], [ %19, %18 ], [ %32, %25 ], [ %47, %37 ], [ %87, %52 ], [ %.06567, %49 ]
+  %.1 = phi i32 [ %.068, %13 ], [ %.068, %18 ], [ %28, %25 ], [ %43, %37 ], [ %57, %52 ], [ %.068, %49 ]
+  %90 = add nsw i32 %.1, 1
+  %91 = icmp slt i32 %90, %1
+  br i1 %91, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
-._crit_edge.loopexit:                             ; preds = %86
-  %89 = sext i32 %.166 to i64
+._crit_edge.loopexit:                             ; preds = %89
+  %92 = sext i32 %.166 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.065.lcssa = phi i64 [ 0, %4 ], [ %89, %._crit_edge.loopexit ]
-  %90 = getelementptr inbounds i8, ptr %2, i64 %.065.lcssa
-  store i8 0, ptr %90, align 1
+  %.065.lcssa = phi i64 [ 0, %4 ], [ %92, %._crit_edge.loopexit ]
+  %93 = getelementptr inbounds i8, ptr %2, i64 %.065.lcssa
+  store i8 0, ptr %93, align 1
   ret void
 }
 

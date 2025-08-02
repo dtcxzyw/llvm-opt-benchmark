@@ -877,16 +877,16 @@ for.cond.preheader:                               ; preds = %if.end90
   %cmp95311 = icmp ult i32 %bias.1.ph, 36
   %sub98312 = sub nuw i32 36, %bias.1.ph
   %31 = tail call i32 @llvm.umin.i32(i32 %sub98312, i32 26)
-  %spec.store.select313 = select i1 %cmp95311, i32 %31, i32 1
-  %cmp104314 = icmp ult i32 %delta.2, %spec.store.select313
+  %t.0313 = select i1 %cmp95311, i32 %31, i32 1
+  %cmp104314 = icmp ult i32 %delta.2, %t.0313
   br i1 %cmp104314, label %for.end, label %if.end107
 
 if.end107:                                        ; preds = %for.cond.preheader, %for.inc
-  %spec.store.select317 = phi i32 [ %spec.store.select, %for.inc ], [ %spec.store.select313, %for.cond.preheader ]
+  %t.0317 = phi i32 [ %t.0, %for.inc ], [ %t.0313, %for.cond.preheader ]
   %q.0316 = phi i32 [ %div110, %for.inc ], [ %delta.2, %for.cond.preheader ]
   %k.0315 = phi i32 [ %add117, %for.inc ], [ 36, %for.cond.preheader ]
-  %sub108 = sub nuw i32 %q.0316, %spec.store.select317
-  %sub109 = sub nuw nsw i32 36, %spec.store.select317
+  %sub108 = sub nuw i32 %q.0316, %t.0317
+  %sub109 = sub nuw nsw i32 36, %t.0317
   %div110 = udiv i32 %sub108, %sub109
   %rem = urem i32 %sub108, %sub109
   %32 = load ptr, ptr %d, align 8
@@ -894,7 +894,7 @@ if.end107:                                        ; preds = %for.cond.preheader,
   br i1 %cmp112, label %if.then114, label %for.inc
 
 if.then114:                                       ; preds = %if.end107
-  %add111 = add nuw nsw i32 %rem, %spec.store.select317
+  %add111 = add nuw nsw i32 %rem, %t.0317
   %idxprom = zext nneg i32 %add111 to i64
   %arrayidx = getelementptr inbounds nuw [37 x i8], ptr @uv__idna_toascii_label.alphabet, i64 0, i64 %idxprom
   %33 = load i8, ptr %arrayidx, align 1
@@ -908,8 +908,8 @@ for.inc:                                          ; preds = %if.end107, %if.then
   %cmp95 = icmp ugt i32 %add117, %bias.1.ph
   %sub98 = sub nuw i32 %add117, %bias.1.ph
   %34 = tail call i32 @llvm.umin.i32(i32 %sub98, i32 26)
-  %spec.store.select = select i1 %cmp95, i32 %34, i32 1
-  %cmp104 = icmp samesign ult i32 %div110, %spec.store.select
+  %t.0 = select i1 %cmp95, i32 %34, i32 1
+  %cmp104 = icmp samesign ult i32 %div110, %t.0
   br i1 %cmp104, label %for.end, label %if.end107
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader

@@ -4890,7 +4890,7 @@ define internal noundef zeroext i1 @dissect_cmgl_data_part(ptr noundef %0, ptr n
   %11 = icmp eq i32 %4, 1
   %12 = icmp eq i16 %5, 58
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %57
+  br i1 %or.cond, label %13, label %59
 
 13:                                               ; preds = %10
   %14 = load i32, ptr @hf_cmgl_msg_pdu, align 4
@@ -4901,7 +4901,7 @@ define internal noundef zeroext i1 @dissect_cmgl_data_part(ptr noundef %0, ptr n
 
 18:                                               ; preds = %13
   %19 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_odd_len)
-  br label %57
+  br label %59
 
 20:                                               ; preds = %13
   %21 = icmp slt i32 %8, 1
@@ -4909,7 +4909,7 @@ define internal noundef zeroext i1 @dissect_cmgl_data_part(ptr noundef %0, ptr n
 
 22:                                               ; preds = %20
   %23 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_empty_hex)
-  br label %57
+  br label %59
 
 24:                                               ; preds = %20
   %25 = lshr i32 %8, 1
@@ -4918,7 +4918,6 @@ define internal noundef zeroext i1 @dissect_cmgl_data_part(ptr noundef %0, ptr n
   %28 = add nuw nsw i32 %25, 1
   %29 = zext nneg i32 %28 to i64
   %30 = tail call noalias ptr @wmem_alloc0(ptr noundef %27, i64 noundef %29) #12
-  %invariant.gep = getelementptr i8, ptr %30, i64 -8
   %31 = icmp samesign ugt i32 %8, 17
   br i1 %31, label %.lr.ph, label %._crit_edge
 
@@ -4930,7 +4929,7 @@ define internal noundef zeroext i1 @dissect_cmgl_data_part(ptr noundef %0, ptr n
 
 34:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 8, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %.04653 = phi ptr [ %32, %.lr.ph ], [ %51, %49 ]
+  %.04653 = phi ptr [ %32, %.lr.ph ], [ %53, %49 ]
   %35 = load i8, ptr %.04653, align 1
   %36 = zext i8 %35 to i64
   %37 = getelementptr i16, ptr %33, i64 %36
@@ -4951,28 +4950,29 @@ define internal noundef zeroext i1 @dissect_cmgl_data_part(ptr noundef %0, ptr n
 
 47:                                               ; preds = %40, %34
   %48 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_invalid_hex)
-  br label %57
+  br label %59
 
 49:                                               ; preds = %40
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %50 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.04653, ptr noundef nonnull @.str.627, ptr noundef %gep) #13
-  %51 = getelementptr i8, ptr %.04653, i64 2
+  %50 = getelementptr i8, ptr %30, i64 %indvars.iv
+  %51 = getelementptr i8, ptr %50, i64 -8
+  %52 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.04653, ptr noundef nonnull @.str.627, ptr noundef %51) #13
+  %53 = getelementptr i8, ptr %.04653, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %49, %24
-  %52 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %30, i32 noundef %25, i32 noundef %25)
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %52, ptr noundef nonnull @.str.628)
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 348
-  %54 = load i32, ptr %53, align 4
-  store i32 0, ptr %53, align 4
-  %55 = load ptr, ptr @gsm_sms_handle, align 8
-  %56 = tail call i32 @call_dissector_only(ptr noundef %55, ptr noundef %52, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  store i32 %54, ptr %53, align 4
-  br label %57
+  %54 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %30, i32 noundef %25, i32 noundef %25)
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %54, ptr noundef nonnull @.str.628)
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 348
+  %56 = load i32, ptr %55, align 4
+  store i32 0, ptr %55, align 4
+  %57 = load ptr, ptr @gsm_sms_handle, align 8
+  %58 = tail call i32 @call_dissector_only(ptr noundef %57, ptr noundef %54, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  store i32 %56, ptr %55, align 4
+  br label %59
 
-57:                                               ; preds = %47, %._crit_edge, %10, %22, %18
+59:                                               ; preds = %47, %._crit_edge, %10, %22, %18
   ret i1 %or.cond
 }
 
@@ -4993,7 +4993,7 @@ define internal noundef zeroext i1 @dissect_cmgr_data_part(ptr noundef %0, ptr n
   %11 = icmp eq i32 %4, 1
   %12 = icmp eq i16 %5, 58
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %57
+  br i1 %or.cond, label %13, label %59
 
 13:                                               ; preds = %10
   %14 = load i32, ptr @hf_cmgr_msg_pdu, align 4
@@ -5004,7 +5004,7 @@ define internal noundef zeroext i1 @dissect_cmgr_data_part(ptr noundef %0, ptr n
 
 18:                                               ; preds = %13
   %19 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_odd_len)
-  br label %57
+  br label %59
 
 20:                                               ; preds = %13
   %21 = icmp slt i32 %8, 1
@@ -5012,7 +5012,7 @@ define internal noundef zeroext i1 @dissect_cmgr_data_part(ptr noundef %0, ptr n
 
 22:                                               ; preds = %20
   %23 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_empty_hex)
-  br label %57
+  br label %59
 
 24:                                               ; preds = %20
   %25 = lshr i32 %8, 1
@@ -5021,7 +5021,6 @@ define internal noundef zeroext i1 @dissect_cmgr_data_part(ptr noundef %0, ptr n
   %28 = add nuw nsw i32 %25, 1
   %29 = zext nneg i32 %28 to i64
   %30 = tail call noalias ptr @wmem_alloc0(ptr noundef %27, i64 noundef %29) #12
-  %invariant.gep = getelementptr i8, ptr %30, i64 -8
   %31 = icmp samesign ugt i32 %8, 17
   br i1 %31, label %.lr.ph, label %._crit_edge
 
@@ -5033,7 +5032,7 @@ define internal noundef zeroext i1 @dissect_cmgr_data_part(ptr noundef %0, ptr n
 
 34:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 8, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %.04653 = phi ptr [ %32, %.lr.ph ], [ %51, %49 ]
+  %.04653 = phi ptr [ %32, %.lr.ph ], [ %53, %49 ]
   %35 = load i8, ptr %.04653, align 1
   %36 = zext i8 %35 to i64
   %37 = getelementptr i16, ptr %33, i64 %36
@@ -5054,28 +5053,29 @@ define internal noundef zeroext i1 @dissect_cmgr_data_part(ptr noundef %0, ptr n
 
 47:                                               ; preds = %40, %34
   %48 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_invalid_hex)
-  br label %57
+  br label %59
 
 49:                                               ; preds = %40
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %50 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.04653, ptr noundef nonnull @.str.627, ptr noundef %gep) #13
-  %51 = getelementptr i8, ptr %.04653, i64 2
+  %50 = getelementptr i8, ptr %30, i64 %indvars.iv
+  %51 = getelementptr i8, ptr %50, i64 -8
+  %52 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.04653, ptr noundef nonnull @.str.627, ptr noundef %51) #13
+  %53 = getelementptr i8, ptr %.04653, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !153
 
 ._crit_edge:                                      ; preds = %49, %24
-  %52 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %30, i32 noundef %25, i32 noundef %25)
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %52, ptr noundef nonnull @.str.628)
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 348
-  %54 = load i32, ptr %53, align 4
-  store i32 0, ptr %53, align 4
-  %55 = load ptr, ptr @gsm_sms_handle, align 8
-  %56 = tail call i32 @call_dissector_only(ptr noundef %55, ptr noundef %52, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  store i32 %54, ptr %53, align 4
-  br label %57
+  %54 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %30, i32 noundef %25, i32 noundef %25)
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %54, ptr noundef nonnull @.str.628)
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 348
+  %56 = load i32, ptr %55, align 4
+  store i32 0, ptr %55, align 4
+  %57 = load ptr, ptr @gsm_sms_handle, align 8
+  %58 = tail call i32 @call_dissector_only(ptr noundef %57, ptr noundef %54, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  store i32 %56, ptr %55, align 4
+  br label %59
 
-57:                                               ; preds = %47, %._crit_edge, %10, %22, %18
+59:                                               ; preds = %47, %._crit_edge, %10, %22, %18
   ret i1 %or.cond
 }
 

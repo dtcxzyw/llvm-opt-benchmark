@@ -347,7 +347,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE3addEmm
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE3addEmmNS_5RangeIPKhEES8_NS5_IPhEEENK3$_0clEv"() unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @"_ZZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE3addEmmNS_5RangeIPKhEES8_NS5_IPhEEENK3$_0clEv"() unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.google::LogMessage", align 8
   %2 = alloca %"class.google::LogMessage", align 8
   %3 = alloca %"class.google::LogMessage", align 8
@@ -578,7 +578,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE3subEmm
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE3subEmmNS_5RangeIPKhEES8_NS5_IPhEEENK3$_0clEv"() unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @"_ZZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE3subEmmNS_5RangeIPKhEES8_NS5_IPhEEENK3$_0clEv"() unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.google::LogMessage", align 8
   %2 = alloca %"class.google::LogMessage", align 8
   %3 = alloca %"class.google::LogMessage", align 8
@@ -800,7 +800,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE16clear
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE16clearPaddingBitsEmNS_5RangeIPhEEENK3$_0clEv"() unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @"_ZZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE16clearPaddingBitsEmNS_5RangeIPhEEENK3$_0clEv"() unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.google::LogMessage", align 8
   %2 = alloca %"class.google::LogMessage", align 8
   %3 = alloca %"class.google::LogMessage", align 8
@@ -1022,7 +1022,7 @@ define noundef zeroext i1 @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEng
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE16checkPaddingBitsEmNS_5RangeIPKhEEENK3$_0clEv"() unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @"_ZZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE0EE16checkPaddingBitsEmNS_5RangeIPKhEEENK3$_0clEv"() unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.google::LogMessage", align 8
   %2 = alloca %"class.google::LogMessage", align 8
   %3 = alloca %"class.google::LogMessage", align 8

@@ -123,19 +123,19 @@ define hidden void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
   br label %9
 
 7:                                                ; preds = %.thread44
-  %8 = add nuw nsw i32 %.03655, 1
+  %8 = add nuw nsw i32 %.03650, 1
   %exitcond.not = icmp eq i32 %8, 100
   br i1 %exitcond.not, label %75, label %9, !llvm.loop !12
 
 9:                                                ; preds = %4, %7
   %10 = phi i32 [ %.pre, %4 ], [ %47, %7 ]
-  %.03456 = phi ptr [ %1, %4 ], [ %.4, %7 ]
-  %.03655 = phi i32 [ 0, %4 ], [ %8, %7 ]
+  %.03451 = phi ptr [ %1, %4 ], [ %.4, %7 ]
+  %.03650 = phi i32 [ 0, %4 ], [ %8, %7 ]
   %11 = icmp eq i32 %10, 6
   br i1 %11, label %12, label %41
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %.03456, align 8, !tbaa !9
+  %13 = load ptr, ptr %.03451, align 8, !tbaa !9
   %14 = tail call noundef ptr @_Z8luaH_getP8LuaTablePK10lua_TValue(ptr noundef %13, ptr noundef %2)
   %.not = icmp eq ptr %14, @luaO_nilobject_
   br i1 %.not, label %23, label %15
@@ -179,27 +179,27 @@ define hidden void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
   br i1 %40, label %.thread, label %..thread44_crit_edge
 
 ..thread44_crit_edge:                             ; preds = %35
-  %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  %.pre62 = load i32, ptr %.phi.trans.insert61, align 4, !tbaa !4
+  %.phi.trans.insert56 = getelementptr inbounds nuw i8, ptr %39, i64 12
+  %.pre57 = load i32, ptr %.phi.trans.insert56, align 4, !tbaa !4
   br label %.thread44
 
 .thread:                                          ; preds = %31, %27, %23, %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !33
-  br label %76
+  br label %.critedge
 
 41:                                               ; preds = %9
-  %42 = tail call noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef %0, ptr noundef nonnull %.03456, i32 noundef 0)
+  %42 = tail call noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef %0, ptr noundef nonnull %.03451, i32 noundef 0)
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %44 = load i32, ptr %43, align 4, !tbaa !4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %.thread44
 
 46:                                               ; preds = %41
-  tail call void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr noundef nonnull %.03456, ptr noundef %2) #12
+  tail call void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr noundef nonnull %.03451, ptr noundef %2) #12
   unreachable
 
 .thread44:                                        ; preds = %..thread44_crit_edge, %41
-  %47 = phi i32 [ %44, %41 ], [ %.pre62, %..thread44_crit_edge ]
+  %47 = phi i32 [ %44, %41 ], [ %.pre57, %..thread44_crit_edge ]
   %.4 = phi ptr [ %42, %41 ], [ %39, %..thread44_crit_edge ]
   %48 = icmp eq i32 %47, 7
   br i1 %48, label %49, label %7
@@ -212,7 +212,7 @@ define hidden void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull readonly align 8 dereferenceable(16) %.4, i64 16, i1 false), !tbaa.struct !33
   %54 = load ptr, ptr %52, align 8, !tbaa !36
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull readonly align 8 dereferenceable(16) %.03456, i64 16, i1 false), !tbaa.struct !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull readonly align 8 dereferenceable(16) %.03451, i64 16, i1 false), !tbaa.struct !33
   %56 = load ptr, ptr %52, align 8, !tbaa !36
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
@@ -244,13 +244,13 @@ _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %49, %65
   %74 = getelementptr inbounds i8, ptr %73, i64 -16
   store ptr %74, ptr %52, align 8, !tbaa !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !33
-  br label %76
+  br label %.critedge
 
 75:                                               ; preds = %7
   tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str) #12
   unreachable
 
-76:                                               ; preds = %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit, %.thread
+.critedge:                                        ; preds = %.thread, %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit
   ret void
 }
 
@@ -273,21 +273,21 @@ declare hidden void @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef, ptr noundef,
 define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.lua_TValue, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.0.sroa.gep61 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.075.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.075.sroa.gep81 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %7
 
 7:                                                ; preds = %4, %89
-  %.075.sroa.phi = phi ptr [ %.075.sroa.gep, %4 ], [ %.075.sroa.gep81, %89 ]
-  %.075 = phi ptr [ %1, %4 ], [ %5, %89 ]
-  %.04974 = phi i32 [ 0, %4 ], [ %90, %89 ]
-  %8 = load i32, ptr %.075.sroa.phi, align 4, !tbaa !4
+  %.072 = phi ptr [ %1, %4 ], [ %5, %89 ]
+  %.0.sroa.phi71 = phi ptr [ %.0.sroa.gep, %4 ], [ %.0.sroa.gep61, %89 ]
+  %.04970 = phi i32 [ 0, %4 ], [ %90, %89 ]
+  %8 = load i32, ptr %.0.sroa.phi71, align 4, !tbaa !4
   %9 = icmp eq i32 %8, 6
   br i1 %9, label %10, label %61
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %.075, align 8, !tbaa !9
+  %11 = load ptr, ptr %.072, align 8, !tbaa !9
   %12 = call noundef ptr @_Z8luaH_getP8LuaTablePK10lua_TValue(ptr noundef %11, ptr noundef %2)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !4
@@ -355,14 +355,14 @@ define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %49 = load i32, ptr %48, align 4, !tbaa !4
   %50 = icmp sgt i32 %49, 4
-  br i1 %50, label %51, label %.thread62
+  br i1 %50, label %51, label %.critedge
 
 51:                                               ; preds = %38
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !9
   %54 = and i8 %53, 4
   %.not59 = icmp eq i8 %54, 0
-  br i1 %.not59, label %.thread62, label %55
+  br i1 %.not59, label %.critedge, label %55
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %3, align 8, !tbaa !9
@@ -370,21 +370,21 @@ define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
   %58 = load i8, ptr %57, align 1, !tbaa !9
   %59 = and i8 %58, 3
   %.not60 = icmp eq i8 %59, 0
-  br i1 %.not60, label %.thread62, label %60
+  br i1 %.not60, label %.critedge, label %60
 
 60:                                               ; preds = %55
   call void @_Z17luaC_barriertableP9lua_StateP8LuaTableP8GCObject(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %56)
-  br label %.thread62
+  br label %.critedge
 
 61:                                               ; preds = %7
-  %62 = call noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef %0, ptr noundef nonnull %.075, i32 noundef 1)
+  %62 = call noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef %0, ptr noundef %.072, i32 noundef 1)
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %64 = load i32, ptr %63, align 4, !tbaa !4
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %61
-  call void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr noundef nonnull %.075, ptr noundef %2) #12
+  call void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr noundef %.072, ptr noundef %2) #12
   unreachable
 
 67:                                               ; preds = %._crit_edge, %61
@@ -399,7 +399,7 @@ define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull readonly align 8 dereferenceable(16) %.4, i64 16, i1 false), !tbaa.struct !33
   %73 = load ptr, ptr %71, align 8, !tbaa !36
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull readonly align 8 dereferenceable(16) %.075, i64 16, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull readonly align 8 dereferenceable(16) %.072, i64 16, i1 false), !tbaa.struct !33
   %75 = load ptr, ptr %71, align 8, !tbaa !36
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !33
@@ -425,11 +425,11 @@ _ZL6callTMP9lua_StatePK10lua_TValueS3_S3_S3_.exit: ; preds = %70, %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
   store ptr %88, ptr %71, align 8, !tbaa !36
   call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %87, i32 noundef 0)
-  br label %.thread62
+  br label %.critedge
 
 89:                                               ; preds = %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.4, i64 16, i1 false), !tbaa.struct !33
-  %90 = add nuw nsw i32 %.04974, 1
+  %90 = add nuw nsw i32 %.04970, 1
   %exitcond.not = icmp eq i32 %90, 100
   br i1 %exitcond.not, label %91, label %7, !llvm.loop !39
 
@@ -437,7 +437,7 @@ _ZL6callTMP9lua_StatePK10lua_TValueS3_S3_S3_.exit: ; preds = %70, %86
   call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.1) #12
   unreachable
 
-.thread62:                                        ; preds = %38, %51, %55, %60, %_ZL6callTMP9lua_StatePK10lua_TValueS3_S3_S3_.exit
+.critedge:                                        ; preds = %38, %51, %55, %60, %_ZL6callTMP9lua_StatePK10lua_TValueS3_S3_S3_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   ret void
 }

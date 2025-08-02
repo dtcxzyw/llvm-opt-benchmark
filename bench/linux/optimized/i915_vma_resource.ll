@@ -187,7 +187,7 @@ define internal fastcc void @__i915_vma_resource_unhold(ptr noundef %0) unnamed_
   %81 = getelementptr i8, ptr %34, i64 24
   store i64 %80, ptr %81, align 8
   %.pre = ptrtoint ptr %34 to i64
-  br label %.thread20
+  br label %.critedge
 
 .preheader:                                       ; preds = %72, %.preheader
   %82 = phi ptr [ %85, %.preheader ], [ %74, %72 ]
@@ -213,7 +213,7 @@ define internal fastcc void @__i915_vma_resource_unhold(ptr noundef %0) unnamed_
   %97 = getelementptr i8, ptr %82, i64 24
   store i64 %96, ptr %97, align 8
   %98 = icmp eq ptr %83, %82
-  br i1 %98, label %.thread20, label %.lr.ph
+  br i1 %98, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %87, %131
   %99 = phi ptr [ %134, %131 ], [ %83, %87 ]
@@ -256,7 +256,7 @@ define internal fastcc void @__i915_vma_resource_unhold(ptr noundef %0) unnamed_
   %128 = getelementptr i8, ptr %99, i64 24
   %129 = load i64, ptr %128, align 8
   %130 = icmp eq i64 %129, %127
-  br i1 %130, label %.thread20, label %131
+  br i1 %130, label %.critedge, label %131
 
 131:                                              ; preds = %126
   store i64 %127, ptr %128, align 8
@@ -264,9 +264,9 @@ define internal fastcc void @__i915_vma_resource_unhold(ptr noundef %0) unnamed_
   %133 = and i64 %132, -4
   %134 = inttoptr i64 %133 to ptr
   %135 = icmp eq ptr %82, %134
-  br i1 %135, label %.thread20, label %.lr.ph
+  br i1 %135, label %.critedge, label %.lr.ph
 
-.thread20:                                        ; preds = %131, %126, %87, %76
+.critedge:                                        ; preds = %131, %126, %87, %76
   %.pre-phi = phi i64 [ %93, %87 ], [ %.pre, %76 ], [ %93, %126 ], [ %93, %131 ]
   %136 = phi ptr [ %83, %87 ], [ %34, %76 ], [ %83, %126 ], [ %83, %131 ]
   %137 = phi ptr [ %82, %87 ], [ %34, %76 ], [ %82, %126 ], [ %82, %131 ]
@@ -283,7 +283,7 @@ define internal fastcc void @__i915_vma_resource_unhold(ptr noundef %0) unnamed_
   %146 = icmp eq i64 %145, 0
   br i1 %146, label %154, label %147
 
-147:                                              ; preds = %.thread20
+147:                                              ; preds = %.critedge
   %148 = inttoptr i64 %145 to ptr
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %150 = load ptr, ptr %149, align 8
@@ -292,8 +292,8 @@ define internal fastcc void @__i915_vma_resource_unhold(ptr noundef %0) unnamed_
   %153 = select i1 %151, ptr %149, ptr %152
   br label %154
 
-154:                                              ; preds = %147, %.thread20
-  %155 = phi ptr [ %26, %.thread20 ], [ %153, %147 ]
+154:                                              ; preds = %147, %.critedge
+  %155 = phi ptr [ %26, %.critedge ], [ %153, %147 ]
   store volatile ptr %137, ptr %155, align 8
   %156 = icmp eq ptr %138, null
   br i1 %156, label %160, label %157
@@ -320,9 +320,9 @@ define internal fastcc void @__i915_vma_resource_unhold(ptr noundef %0) unnamed_
   %168 = phi ptr [ %137, %165 ], [ %41, %53 ], [ %41, %52 ], [ %62, %68 ], [ %62, %69 ], [ %62, %71 ]
   %169 = phi ptr [ %166, %165 ], [ %56, %53 ], [ null, %52 ], [ null, %68 ], [ null, %69 ], [ null, %71 ]
   %170 = icmp eq ptr %168, null
-  br i1 %170, label %.thread21, label %.lr.ph26
+  br i1 %170, label %.thread20, label %.lr.ph25
 
-.lr.ph26:                                         ; preds = %167, %203
+.lr.ph25:                                         ; preds = %167, %203
   %171 = phi ptr [ %206, %203 ], [ %168, %167 ]
   %172 = getelementptr i8, ptr %171, i64 104
   %173 = load i64, ptr %172, align 8
@@ -339,14 +339,14 @@ define internal fastcc void @__i915_vma_resource_unhold(ptr noundef %0) unnamed_
   %184 = icmp eq ptr %183, null
   br i1 %184, label %189, label %185
 
-185:                                              ; preds = %.lr.ph26
+185:                                              ; preds = %.lr.ph25
   %186 = getelementptr i8, ptr %183, i64 24
   %187 = load i64, ptr %186, align 8
   %188 = tail call i64 @llvm.umax.i64(i64 %187, i64 %181)
   br label %189
 
-189:                                              ; preds = %185, %.lr.ph26
-  %190 = phi i64 [ %181, %.lr.ph26 ], [ %188, %185 ]
+189:                                              ; preds = %185, %.lr.ph25
+  %190 = phi i64 [ %181, %.lr.ph25 ], [ %188, %185 ]
   %191 = getelementptr i8, ptr %171, i64 8
   %192 = load ptr, ptr %191, align 8
   %193 = icmp eq ptr %192, null
@@ -363,7 +363,7 @@ define internal fastcc void @__i915_vma_resource_unhold(ptr noundef %0) unnamed_
   %200 = getelementptr i8, ptr %171, i64 24
   %201 = load i64, ptr %200, align 8
   %202 = icmp eq i64 %201, %199
-  br i1 %202, label %.thread21, label %203
+  br i1 %202, label %.thread20, label %203
 
 203:                                              ; preds = %198
   store i64 %199, ptr %200, align 8
@@ -371,17 +371,17 @@ define internal fastcc void @__i915_vma_resource_unhold(ptr noundef %0) unnamed_
   %205 = and i64 %204, -4
   %206 = inttoptr i64 %205 to ptr
   %207 = icmp eq i64 %205, 0
-  br i1 %207, label %.thread21, label %.lr.ph26
+  br i1 %207, label %.thread20, label %.lr.ph25
 
-.thread21:                                        ; preds = %203, %198, %167
+.thread20:                                        ; preds = %203, %198, %167
   %208 = icmp eq ptr %169, null
   br i1 %208, label %210, label %209
 
-209:                                              ; preds = %.thread21
+209:                                              ; preds = %.thread20
   tail call void @__rb_erase_color(ptr noundef nonnull %169, ptr noundef nonnull %26, ptr noundef nonnull @vma_res_itree_augment_rotate) #8
   br label %210
 
-210:                                              ; preds = %209, %.thread21
+210:                                              ; preds = %209, %.thread20
   tail call void @mutex_unlock(ptr noundef nonnull %25) #8
   br label %211
 

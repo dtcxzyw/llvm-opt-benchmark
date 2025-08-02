@@ -2298,23 +2298,23 @@ define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11
   %12 = select i1 %10, i64 61, i64 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17, !noalias !225
   store i64 %12, ptr %4, align 8, !tbaa !32, !noalias !225
-  br i1 %10, label %13, label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNSB_9CallEventERNSB_14CheckerContextEE3$_0JRNSB_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.exit"
+  br i1 %10, label %._crit_edge.i.i.i, label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNSB_9CallEventERNSB_14CheckerContextEE3$_0JRNSB_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.exit"
 
-13:                                               ; preds = %3
-  %14 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #17
-  store ptr %14, ptr %0, align 8, !tbaa !23, !alias.scope !225
-  %15 = load i64, ptr %4, align 8, !tbaa !32, !noalias !225
-  store i64 %15, ptr %11, align 8, !tbaa !27, !alias.scope !225
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(61) %14, ptr noundef nonnull align 1 dereferenceable(61) @.str.16, i64 61, i1 false)
+._crit_edge.i.i.i:                                ; preds = %3
+  %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #17
+  store ptr %13, ptr %0, align 8, !tbaa !23, !alias.scope !225
+  %14 = load i64, ptr %4, align 8, !tbaa !32, !noalias !225
+  store i64 %14, ptr %11, align 8, !tbaa !27, !alias.scope !225
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(61) %13, ptr noundef nonnull align 1 dereferenceable(61) @.str.16, i64 61, i1 false)
   br label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNSB_9CallEventERNSB_14CheckerContextEE3$_0JRNSB_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.exit"
 
-"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNSB_9CallEventERNSB_14CheckerContextEE3$_0JRNSB_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.exit": ; preds = %3, %13
-  %16 = phi ptr [ %14, %13 ], [ %11, %3 ]
-  %17 = phi i64 [ %15, %13 ], [ 0, %3 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %17, ptr %18, align 8, !tbaa !26, !alias.scope !225
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %17
-  store i8 0, ptr %19, align 1, !tbaa !27
+"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_124SetgidSetuidOrderChecker13processSetuidEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNSB_9CallEventERNSB_14CheckerContextEE3$_0JRNSB_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.exit": ; preds = %3, %._crit_edge.i.i.i
+  %15 = phi ptr [ %11, %3 ], [ %13, %._crit_edge.i.i.i ]
+  %16 = phi i64 [ 0, %3 ], [ %14, %._crit_edge.i.i.i ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %16, ptr %17, align 8, !tbaa !26, !alias.scope !225
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %16
+  store i8 0, ptr %18, align 1, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17, !noalias !225
   ret void
 }

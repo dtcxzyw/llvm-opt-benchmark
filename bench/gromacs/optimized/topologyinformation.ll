@@ -307,7 +307,7 @@ _ZSt8_DestroyIP14gmx_cmapdata_tS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i: ; pr
 _ZSt8_DestroyIP14gmx_cmapdata_tS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIP14gmx_cmapdata_tS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i, %1
   %14 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIP14gmx_cmapdata_tS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i ], [ %3, %1 ]
   %.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i.i, label %_ZN10gmx_cmap_tD2Ev.exit, label %15
+  br i1 %.not.i.i.i.i, label %_ZN10gmx_cmap_tD2Ev.exit.preheader, label %15
 
 15:                                               ; preds = %_ZSt8_DestroyIP14gmx_cmapdata_tS0_EvT_S2_RSaIT0_E.exit.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2752
@@ -316,32 +316,32 @@ _ZSt8_DestroyIP14gmx_cmapdata_tS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_Des
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
   tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #23
+  br label %_ZN10gmx_cmap_tD2Ev.exit.preheader
+
+_ZN10gmx_cmap_tD2Ev.exit.preheader:               ; preds = %_ZSt8_DestroyIP14gmx_cmapdata_tS0_EvT_S2_RSaIT0_E.exit.i.i, %15
   br label %_ZN10gmx_cmap_tD2Ev.exit
 
-_ZN10gmx_cmap_tD2Ev.exit:                         ; preds = %_ZSt8_DestroyIP14gmx_cmapdata_tS0_EvT_S2_RSaIT0_E.exit.i.i, %15
-  %invariant.gep = getelementptr i8, ptr %0, i64 -8
-  br label %21
-
-21:                                               ; preds = %_ZN15InteractionListD2Ev.exit.i, %_ZN10gmx_cmap_tD2Ev.exit
-  %.idx = phi i64 [ 2344, %_ZN10gmx_cmap_tD2Ev.exit ], [ %.add, %_ZN15InteractionListD2Ev.exit.i ]
+_ZN10gmx_cmap_tD2Ev.exit:                         ; preds = %_ZN10gmx_cmap_tD2Ev.exit.preheader, %_ZN15InteractionListD2Ev.exit.i
+  %.idx = phi i64 [ %.add, %_ZN15InteractionListD2Ev.exit.i ], [ 2344, %_ZN10gmx_cmap_tD2Ev.exit.preheader ]
   %.add = add nsw i64 %.idx, -24
   %.ptr4 = getelementptr inbounds i8, ptr %0, i64 %.add
-  %22 = load ptr, ptr %.ptr4, align 8, !tbaa !43
-  %.not.i.i.i.i.i1 = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i.i1, label %_ZN15InteractionListD2Ev.exit.i, label %23
+  %21 = load ptr, ptr %.ptr4, align 8, !tbaa !43
+  %.not.i.i.i.i.i1 = icmp eq ptr %21, null
+  br i1 %.not.i.i.i.i.i1, label %_ZN15InteractionListD2Ev.exit.i, label %22
 
-23:                                               ; preds = %21
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %24 = load ptr, ptr %gep, align 8, !tbaa !46
+22:                                               ; preds = %_ZN10gmx_cmap_tD2Ev.exit
+  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %23 = getelementptr inbounds i8, ptr %.ptr, i64 -8
+  %24 = load ptr, ptr %23, align 8, !tbaa !46
   %25 = ptrtoint ptr %24 to i64
-  %26 = ptrtoint ptr %22 to i64
+  %26 = ptrtoint ptr %21 to i64
   %27 = sub i64 %25, %26
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %27) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %27) #23
   br label %_ZN15InteractionListD2Ev.exit.i
 
-_ZN15InteractionListD2Ev.exit.i:                  ; preds = %23, %21
+_ZN15InteractionListD2Ev.exit.i:                  ; preds = %22, %_ZN10gmx_cmap_tD2Ev.exit
   %28 = icmp eq i64 %.add, 64
-  br i1 %28, label %_ZNSt5arrayI15InteractionListLm95EED2Ev.exit, label %21
+  br i1 %28, label %_ZNSt5arrayI15InteractionListLm95EED2Ev.exit, label %_ZN10gmx_cmap_tD2Ev.exit
 
 _ZNSt5arrayI15InteractionListLm95EED2Ev.exit:     ; preds = %_ZN15InteractionListD2Ev.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40

@@ -10025,7 +10025,7 @@ declare dso_local void @__rb_erase_color(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define internal fastcc void @free_vmap_area_rb_augment_cb_propagate(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #16 align 16 {
   %3 = icmp eq ptr %0, %1
-  br i1 %3, label %.thread, label %.lr.ph
+  br i1 %3, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %31
   %4 = phi ptr [ %34, %31 ], [ %0, %2 ]
@@ -10063,7 +10063,7 @@ define internal fastcc void @free_vmap_area_rb_augment_cb_propagate(ptr noundef 
   %28 = getelementptr i8, ptr %4, i64 40
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, %27
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %26
   store i64 %27, ptr %28, align 8
@@ -10071,9 +10071,9 @@ define internal fastcc void @free_vmap_area_rb_augment_cb_propagate(ptr noundef 
   %33 = and i64 %32, -4
   %34 = inttoptr i64 %33 to ptr
   %35 = icmp eq ptr %1, %34
-  br i1 %35, label %.thread, label %.lr.ph
+  br i1 %35, label %.critedge, label %.lr.ph
 
-.thread:                                          ; preds = %31, %26, %2
+.critedge:                                        ; preds = %31, %26, %2
   ret void
 }
 
@@ -10272,14 +10272,14 @@ define internal fastcc void @insert_vmap_area_augment(ptr noundef nonnull %0, pt
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 896, i32 2313, i64 12) #21, !srcloc !121
   tail call void asm sideeffect "553: nop\0A\09.pushsection .discard.instr_end\0A\09.long 553b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 553) #21, !srcloc !122
   tail call void asm sideeffect "554: nop\0A\09.pushsection .discard.instr_end\0A\09.long 554b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 554) #21, !srcloc !123
-  br label %.thread18
+  br label %.critedge
 
 24:                                               ; preds = %12, %7
   %25 = phi i64 [ 16, %7 ], [ 8, %12 ]
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread13.loopexit40, label %7, !llvm.loop !118
+  br i1 %28, label %.thread13.loopexit39, label %7, !llvm.loop !118
 
 29:                                               ; preds = %2
   %30 = load ptr, ptr @free_vmap_area_root, align 8
@@ -10318,7 +10318,7 @@ define internal fastcc void @insert_vmap_area_augment(ptr noundef nonnull %0, pt
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 896, i32 2313, i64 12) #21, !srcloc !121
   tail call void asm sideeffect "553: nop\0A\09.pushsection .discard.instr_end\0A\09.long 553b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 553) #21, !srcloc !122
   tail call void asm sideeffect "554: nop\0A\09.pushsection .discard.instr_end\0A\09.long 554b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 554) #21, !srcloc !123
-  br label %.thread18
+  br label %.critedge
 
 52:                                               ; preds = %40, %35
   %53 = phi i64 [ 16, %35 ], [ 8, %40 ]
@@ -10331,13 +10331,13 @@ define internal fastcc void @insert_vmap_area_augment(ptr noundef nonnull %0, pt
   %57 = getelementptr inbounds nuw i8, ptr %36, i64 %53
   br label %.thread13
 
-.thread13.loopexit40:                             ; preds = %24
+.thread13.loopexit39:                             ; preds = %24
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 %25
   br label %.thread13
 
-.thread13:                                        ; preds = %.thread13.loopexit40, %.thread13.loopexit
-  %.ph817 = phi ptr [ %57, %.thread13.loopexit ], [ %58, %.thread13.loopexit40 ]
-  %.ph16 = phi ptr [ %36, %.thread13.loopexit ], [ %8, %.thread13.loopexit40 ]
+.thread13:                                        ; preds = %.thread13.loopexit39, %.thread13.loopexit
+  %.ph817 = phi ptr [ %57, %.thread13.loopexit ], [ %58, %.thread13.loopexit39 ]
+  %.ph16 = phi ptr [ %36, %.thread13.loopexit ], [ %8, %.thread13.loopexit39 ]
   %59 = getelementptr i8, ptr %.ph16, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %.ph16, i64 8
   %61 = icmp eq ptr %60, %.ph817
@@ -10407,7 +10407,7 @@ define internal fastcc void @insert_vmap_area_augment(ptr noundef nonnull %0, pt
   %99 = getelementptr i8, ptr %75, i64 40
   %100 = load i64, ptr %99, align 8
   %101 = icmp eq i64 %100, %98
-  br i1 %101, label %.thread18, label %102
+  br i1 %101, label %.critedge, label %102
 
 102:                                              ; preds = %97
   store i64 %98, ptr %99, align 8
@@ -10415,9 +10415,9 @@ define internal fastcc void @insert_vmap_area_augment(ptr noundef nonnull %0, pt
   %104 = and i64 %103, -4
   %105 = inttoptr i64 %104 to ptr
   %106 = icmp eq i64 %104, 0
-  br i1 %106, label %.thread18, label %74
+  br i1 %106, label %.critedge, label %74
 
-.thread18:                                        ; preds = %97, %102, %17, %45
+.critedge:                                        ; preds = %97, %102, %17, %45
   ret void
 }
 

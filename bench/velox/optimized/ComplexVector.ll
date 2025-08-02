@@ -20401,7 +20401,6 @@ define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_c
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %invariant.gep = getelementptr i8, ptr %__first, i64 4
   %cmp25 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp25, label %while.body, label %while.end
 
@@ -20410,18 +20409,19 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %add = shl i64 %__secondChild.026, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds nuw i32, ptr %__first, i64 %mul
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %add
+  %0 = getelementptr inbounds nuw i32, ptr %__first, i64 %add
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %add.ptr.val = load i32, ptr %add.ptr, align 4
-  %add.ptr3.val = load i32, ptr %gep, align 4
+  %add.ptr3.val = load i32, ptr %add.ptr3, align 4
   %__comp.val.val = load ptr, ptr %__comp.coerce, align 8
-  %0 = getelementptr i8, ptr %__comp.val.val, i64 136
-  %__comp.val.val.val = load ptr, ptr %0, align 8
+  %1 = getelementptr i8, ptr %__comp.val.val, i64 136
+  %__comp.val.val.val = load ptr, ptr %1, align 8
   %vtable.i.i.i = load ptr, ptr %__comp.val.val.val, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 80
-  %1 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val, ptr noundef nonnull %__comp.val.val.val, i32 noundef %add.ptr.val, i32 noundef %add.ptr3.val, i64 257)
-  %2 = and i64 %call.i.i.i, 4294967296
-  %tobool.i.i.not.i.i.i = icmp eq i64 %2, 0
+  %2 = load ptr, ptr %vfn.i.i.i, align 8
+  %call.i.i.i = tail call i64 %2(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val, ptr noundef nonnull %__comp.val.val.val, i32 noundef %add.ptr.val, i32 noundef %add.ptr3.val, i64 257)
+  %3 = and i64 %call.i.i.i, 4294967296
+  %tobool.i.i.not.i.i.i = icmp eq i64 %3, 0
   br i1 %tobool.i.i.not.i.i.i, label %if.end.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit"
 
 if.end.i.i.i.i:                                   ; preds = %while.body
@@ -20429,14 +20429,14 @@ if.end.i.i.i.i:                                   ; preds = %while.body
   unreachable
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit": ; preds = %while.body
-  %3 = and i64 %call.i.i.i, 2147483648
-  %cmp.i.i.not = icmp eq i64 %3, 0
+  %4 = and i64 %call.i.i.i, 2147483648
+  %cmp.i.i.not = icmp eq i64 %4, 0
   %dec = or disjoint i64 %add, 1
   %spec.select = select i1 %cmp.i.i.not, i64 %mul, i64 %dec
   %add.ptr4 = getelementptr inbounds nuw i32, ptr %__first, i64 %spec.select
-  %4 = load i32, ptr %add.ptr4, align 4
+  %5 = load i32, ptr %add.ptr4, align 4
   %add.ptr5 = getelementptr inbounds nuw i32, ptr %__first, i64 %__secondChild.026
-  store i32 %4, ptr %add.ptr5, align 4
+  store i32 %5, ptr %add.ptr5, align 4
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !161
 
@@ -20456,9 +20456,9 @@ if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds nuw i32, ptr %__first, i64 %sub13
-  %5 = load i32, ptr %add.ptr14, align 4
+  %6 = load i32, ptr %add.ptr14, align 4
   %add.ptr15 = getelementptr inbounds nuw i32, ptr %__first, i64 %__secondChild.0.lcssa
-  store i32 %5, ptr %add.ptr15, align 4
+  store i32 %6, ptr %add.ptr15, align 4
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then10, %land.lhs.true, %while.end
@@ -20473,14 +20473,14 @@ land.rhs.i:                                       ; preds = %if.end17, %while.bo
   %add.ptr.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__parent.07.i
   %add.ptr.val.i = load i32, ptr %add.ptr.i, align 4
   %__comp.val.val.i = load ptr, ptr %__comp.coerce, align 8
-  %6 = getelementptr i8, ptr %__comp.val.val.i, i64 136
-  %__comp.val.val.val.i = load ptr, ptr %6, align 8
+  %7 = getelementptr i8, ptr %__comp.val.val.i, i64 136
+  %__comp.val.val.val.i = load ptr, ptr %7, align 8
   %vtable.i.i.i.i = load ptr, ptr %__comp.val.val.val.i, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 80
-  %7 = load ptr, ptr %vfn.i.i.i.i, align 8
-  %call.i.i.i.i = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i, ptr noundef nonnull %__comp.val.val.val.i, i32 noundef %add.ptr.val.i, i32 noundef %__value, i64 257)
-  %8 = and i64 %call.i.i.i.i, 4294967296
-  %tobool.i.i.not.i.i.i.i = icmp eq i64 %8, 0
+  %8 = load ptr, ptr %vfn.i.i.i.i, align 8
+  %call.i.i.i.i = tail call i64 %8(ptr noundef nonnull align 8 dereferenceable(99) %__comp.val.val.val.i, ptr noundef nonnull %__comp.val.val.val.i, i32 noundef %add.ptr.val.i, i32 noundef %__value, i64 257)
+  %9 = and i64 %call.i.i.i.i, 4294967296
+  %tobool.i.i.not.i.i.i.i = icmp eq i64 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.exit.i"
 
 if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i
@@ -20488,14 +20488,14 @@ if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i
   unreachable
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.exit.i": ; preds = %land.rhs.i
-  %9 = and i64 %call.i.i.i.i, 2147483648
-  %cmp.i.i.not.i = icmp eq i64 %9, 0
+  %10 = and i64 %call.i.i.i.i, 2147483648
+  %cmp.i.i.not.i = icmp eq i64 %10, 0
   br i1 %cmp.i.i.not.i, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_SE_T1_RT2_.exit", label %while.body.i
 
 while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.exit.i"
-  %10 = load i32, ptr %add.ptr.i, align 4
+  %11 = load i32, ptr %add.ptr.i, align 4
   %add.ptr2.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__holeIndex.addr.06.i
-  store i32 %10, ptr %add.ptr2.i, align 4
+  store i32 %11, ptr %add.ptr2.i, align 4
   %cmp.i = icmp sgt i64 %__parent.07.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_SE_T1_RT2_.exit", !llvm.loop !162
 

@@ -47,7 +47,7 @@ define hidden noundef nonnull ptr @hb_blob_get_empty() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_blob_create_or_fail(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @hb_blob_create_or_fail(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = icmp slt i32 %1, 0
   br i1 %6, label %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread, label %7
 

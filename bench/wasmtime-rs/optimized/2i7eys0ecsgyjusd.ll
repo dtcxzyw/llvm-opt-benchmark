@@ -1158,7 +1158,7 @@ _ZN18cranelift_frontend3ssa10SSABuilder12predecessors17h2b13db62e7443210E.llvm.1
 89:                                               ; preds = %83
   %90 = load i64, ptr %55, align 8, !alias.scope !154, !noalias !153, !noundef !4
   %91 = icmp ugt i64 %86, %90
-  br i1 %91, label %93, label %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17hea3077c550487ccfE.llvm.7615600370855926762.exit.i"
+  br i1 %91, label %93, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he42a86ad2fc4ad73E.llvm.7615600370855926762.exit.i.i"
 
 92:                                               ; preds = %83
   call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %85, i64 noundef %86, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d38b881a75336d54f1641bafdf4b5c5a.26.llvm.7615600370855926762) #21, !noalias !155
@@ -1168,7 +1168,7 @@ _ZN18cranelift_frontend3ssa10SSABuilder12predecessors17h2b13db62e7443210E.llvm.1
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %86, i64 noundef %90, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d38b881a75336d54f1641bafdf4b5c5a.26.llvm.7615600370855926762) #21, !noalias !155
   unreachable
 
-"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17hea3077c550487ccfE.llvm.7615600370855926762.exit.i": ; preds = %89
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he42a86ad2fc4ad73E.llvm.7615600370855926762.exit.i.i": ; preds = %89
   %.not.i24 = icmp ult i64 %.sroa.03.042, %84
   br i1 %.not.i24, label %95, label %94
 
@@ -1176,11 +1176,11 @@ _ZN18cranelift_frontend3ssa10SSABuilder12predecessors17h2b13db62e7443210E.llvm.1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret void
 
-94:                                               ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17hea3077c550487ccfE.llvm.7615600370855926762.exit.i", %78
+94:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he42a86ad2fc4ad73E.llvm.7615600370855926762.exit.i.i", %78
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f378413b6247863a529c4dab6769c8f0.45) #21
   unreachable
 
-95:                                               ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17hea3077c550487ccfE.llvm.7615600370855926762.exit.i"
+95:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he42a86ad2fc4ad73E.llvm.7615600370855926762.exit.i.i"
   %96 = getelementptr inbounds nuw i32, ptr %87, i64 %85
   %97 = getelementptr inbounds i32, ptr %96, i64 %.sroa.03.042
   %98 = load i32, ptr %97, align 4, !alias.scope !158, !noundef !4

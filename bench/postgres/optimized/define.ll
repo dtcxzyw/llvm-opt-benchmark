@@ -595,8 +595,8 @@ define dso_local ptr @defGetStringList(ptr noundef readonly captures(none) %0) l
 .preheader:                                       ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %14 = load i32, ptr %13, align 4
-  %.not1518 = icmp sgt i32 %14, 0
-  br i1 %.not1518, label %.lr.ph, label %._crit_edge
+  %.not1516 = icmp sgt i32 %14, 0
+  br i1 %.not1516, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -616,10 +616,7 @@ define dso_local ptr @defGetStringList(ptr noundef readonly captures(none) %0) l
 22:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !6
-
-._crit_edge:                                      ; preds = %22, %.preheader
-  ret ptr %3
+  br i1 %exitcond.not, label %.critedge, label %23, !llvm.loop !6
 
 23:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
@@ -628,6 +625,9 @@ define dso_local ptr @defGetStringList(ptr noundef readonly captures(none) %0) l
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 467
   br i1 %27, label %22, label %28
+
+.critedge:                                        ; preds = %22, %.preheader
+  ret ptr %3
 
 28:                                               ; preds = %23
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6

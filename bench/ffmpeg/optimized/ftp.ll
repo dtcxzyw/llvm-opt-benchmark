@@ -780,7 +780,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 1184
   br label %13
 
-13:                                               ; preds = %131, %2
+13:                                               ; preds = %128, %2
   %14 = load ptr, ptr %8, align 8, !tbaa !28
   %15 = load i64, ptr %9, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
@@ -788,288 +788,281 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
   %.not85 = icmp eq ptr %strchr84, null
   br i1 %.not85, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %13, %34
-  %17 = phi ptr [ %40, %34 ], [ %14, %13 ]
-  %.not5487 = phi i1 [ false, %34 ], [ true, %13 ]
-  %.04686 = phi ptr [ %40, %34 ], [ %16, %13 ]
-  br i1 %.not5487, label %18, label %.thread68
-
-18:                                               ; preds = %.lr.ph
-  %19 = load i64, ptr %9, align 8, !tbaa !30
-  %20 = load i64, ptr %10, align 8, !tbaa !31
-  %21 = sub i64 %20, %19
-  store i64 %21, ptr %10, align 8, !tbaa !31
+.lr.ph:                                           ; preds = %13
+  %17 = load i64, ptr %10, align 8, !tbaa !31
+  %18 = sub i64 %17, %15
+  store i64 %18, ptr %10, align 8, !tbaa !31
   store i64 0, ptr %9, align 8, !tbaa !30
-  %.not55 = icmp eq i64 %20, %19
-  br i1 %.not55, label %23, label %22
+  %.not55 = icmp eq i64 %17, %15
+  br i1 %.not55, label %20, label %19
 
-22:                                               ; preds = %18
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %.04686, i64 %21, i1 false)
+19:                                               ; preds = %.lr.ph
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %16, i64 %18, i1 false)
   %.pre = load ptr, ptr %8, align 8, !tbaa !28
-  %.pre101 = load i64, ptr %10, align 8, !tbaa !31
-  br label %23
+  %.pre96 = load i64, ptr %10, align 8, !tbaa !31
+  br label %20
 
-23:                                               ; preds = %22, %18
-  %24 = phi i64 [ %.pre101, %22 ], [ 0, %18 ]
-  %25 = phi ptr [ %.pre, %22 ], [ %17, %18 ]
-  %26 = load ptr, ptr %11, align 8, !tbaa !24
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %24
-  %28 = trunc i64 %24 to i32
-  %29 = sub i32 4095, %28
-  %30 = call i32 @ffurl_read2(ptr noundef %26, ptr noundef %27, i32 noundef %29) #10
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %.thread68, label %32
+20:                                               ; preds = %19, %.lr.ph
+  %21 = phi i64 [ %.pre96, %19 ], [ 0, %.lr.ph ]
+  %22 = phi ptr [ %.pre, %19 ], [ %14, %.lr.ph ]
+  %23 = load ptr, ptr %11, align 8, !tbaa !24
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
+  %25 = trunc i64 %21 to i32
+  %26 = sub i32 4095, %25
+  %27 = call i32 @ffurl_read2(ptr noundef %23, ptr noundef %24, i32 noundef %26) #10
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %.thread68, label %29
 
-32:                                               ; preds = %23
-  %.not56 = icmp eq i32 %30, 0
-  br i1 %.not56, label %33, label %34
+29:                                               ; preds = %20
+  %.not56 = icmp eq i32 %27, 0
+  br i1 %.not56, label %30, label %31
 
-33:                                               ; preds = %32
+30:                                               ; preds = %29
   store ptr null, ptr %1, align 8, !tbaa !32
   br label %.thread68
 
-34:                                               ; preds = %32
-  %35 = zext nneg i32 %30 to i64
-  %36 = load i64, ptr %10, align 8, !tbaa !31
-  %37 = add i64 %36, %35
-  store i64 %37, ptr %10, align 8, !tbaa !31
-  %38 = load ptr, ptr %8, align 8, !tbaa !28
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %37
-  store i8 0, ptr %39, align 1, !tbaa !29
-  %40 = load ptr, ptr %8, align 8, !tbaa !28
-  %strchr = call ptr @strchr(ptr nonnull dereferenceable(1) %40, i32 10)
+31:                                               ; preds = %29
+  %32 = zext nneg i32 %27 to i64
+  %33 = load i64, ptr %10, align 8, !tbaa !31
+  %34 = add i64 %33, %32
+  store i64 %34, ptr %10, align 8, !tbaa !31
+  %35 = load ptr, ptr %8, align 8, !tbaa !28
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
+  store i8 0, ptr %36, align 1, !tbaa !29
+  %37 = load ptr, ptr %8, align 8, !tbaa !28
+  %strchr = call ptr @strchr(ptr nonnull dereferenceable(1) %37, i32 10)
   %.not = icmp eq ptr %strchr, null
-  br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !34
+  br i1 %.not, label %.thread68, label %.._crit_edge_crit_edge, !llvm.loop !34
 
-._crit_edge.loopexit:                             ; preds = %34
-  %.pre102 = load i64, ptr %9, align 8, !tbaa !30
-  br label %._crit_edge
+.._crit_edge_crit_edge:                           ; preds = %31
+  %.pre97 = load i64, ptr %9, align 8, !tbaa !30
+  br label %._crit_edge, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
-  %41 = phi i64 [ %15, %13 ], [ %.pre102, %._crit_edge.loopexit ]
-  %.046.lcssa = phi ptr [ %16, %13 ], [ %40, %._crit_edge.loopexit ]
-  %strchr.lcssa = phi ptr [ %strchr84, %13 ], [ %strchr, %._crit_edge.loopexit ]
-  %42 = getelementptr inbounds nuw i8, ptr %strchr.lcssa, i64 1
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %.046.lcssa to i64
-  %45 = sub i64 %43, %44
-  %46 = add i64 %45, %41
-  store i64 %46, ptr %9, align 8, !tbaa !30
+._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %13
+  %38 = phi i64 [ %15, %13 ], [ %.pre97, %.._crit_edge_crit_edge ]
+  %.046.lcssa = phi ptr [ %16, %13 ], [ %37, %.._crit_edge_crit_edge ]
+  %strchr.lcssa = phi ptr [ %strchr84, %13 ], [ %strchr, %.._crit_edge_crit_edge ]
+  %39 = getelementptr inbounds nuw i8, ptr %strchr.lcssa, i64 1
+  %40 = ptrtoint ptr %39 to i64
+  %41 = ptrtoint ptr %.046.lcssa to i64
+  %42 = sub i64 %40, %41
+  %43 = add i64 %42, %38
+  store i64 %43, ptr %9, align 8, !tbaa !30
   store i8 0, ptr %strchr.lcssa, align 1, !tbaa !29
-  %47 = icmp ugt ptr %strchr.lcssa, %.046.lcssa
-  br i1 %47, label %48, label %53
+  %44 = icmp ugt ptr %strchr.lcssa, %.046.lcssa
+  br i1 %44, label %45, label %50
 
-48:                                               ; preds = %._crit_edge
-  %49 = getelementptr inbounds i8, ptr %strchr.lcssa, i64 -1
-  %50 = load i8, ptr %49, align 1, !tbaa !29
-  %51 = icmp eq i8 %50, 13
-  br i1 %51, label %52, label %53
+45:                                               ; preds = %._crit_edge
+  %46 = getelementptr inbounds i8, ptr %strchr.lcssa, i64 -1
+  %47 = load i8, ptr %46, align 1, !tbaa !29
+  %48 = icmp eq i8 %47, 13
+  br i1 %48, label %49, label %50
 
-52:                                               ; preds = %48
-  store i8 0, ptr %49, align 1, !tbaa !29
-  br label %53
+49:                                               ; preds = %45
+  store i8 0, ptr %46, align 1, !tbaa !29
+  br label %50
 
-53:                                               ; preds = %52, %48, %._crit_edge
-  %54 = call ptr @ff_alloc_dir_entry() #10
-  store ptr %54, ptr %1, align 8, !tbaa !32
-  %.not52 = icmp eq ptr %54, null
-  br i1 %.not52, label %.thread68, label %55
+50:                                               ; preds = %49, %45, %._crit_edge
+  %51 = call ptr @ff_alloc_dir_entry() #10
+  store ptr %51, ptr %1, align 8, !tbaa !32
+  %.not52 = icmp eq ptr %51, null
+  br i1 %.not52, label %.thread68, label %52
 
-55:                                               ; preds = %53
-  %56 = load i32, ptr %12, align 8, !tbaa !36
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  store i32 %56, ptr %57, align 4, !tbaa !37
+52:                                               ; preds = %50
+  %53 = load i32, ptr %12, align 8, !tbaa !36
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  store i32 %53, ptr %54, align 4, !tbaa !37
   %.val = load ptr, ptr %6, align 8, !tbaa !4
-  %58 = getelementptr i8, ptr %.val, i64 1144
-  %.val.val = load i32, ptr %58, align 8, !tbaa !27
+  %55 = getelementptr i8, ptr %.val, i64 1144
+  %.val.val = load i32, ptr %55, align 8, !tbaa !27
   switch i32 %.val.val, label %.thread [
-    i32 2, label %59
+    i32 2, label %56
     i32 1, label %ftp_parse_entry.exit.thread
   ]
 
-.thread:                                          ; preds = %55
+.thread:                                          ; preds = %52
   call void @avio_free_directory_entry(ptr noundef nonnull %1) #10
   br label %.thread68
 
-59:                                               ; preds = %55
+56:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   store ptr null, ptr %5, align 8, !tbaa !20
-  %60 = call ptr @av_strtok(ptr noundef nonnull %.046.lcssa, ptr noundef nonnull @.str.52, ptr noundef nonnull %5) #10
-  %.not42.i.i = icmp eq ptr %60, null
+  %57 = call ptr @av_strtok(ptr noundef nonnull %.046.lcssa, ptr noundef nonnull @.str.52, ptr noundef nonnull %5) #10
+  %.not42.i.i = icmp eq ptr %57, null
   br i1 %.not42.i.i, label %ftp_parse_entry.exit.thread64, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %59
-  %61 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %62 = getelementptr inbounds nuw i8, ptr %54, i64 56
-  %63 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %64 = getelementptr inbounds nuw i8, ptr %54, i64 64
-  %65 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %66 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  br label %67
+.lr.ph.i.i:                                       ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  br label %64
 
-67:                                               ; preds = %.backedge.i.i, %.lr.ph.i.i
-  %68 = phi ptr [ %60, %.lr.ph.i.i ], [ %74, %.backedge.i.i ]
-  %69 = load i8, ptr %68, align 1, !tbaa !29
-  %70 = icmp eq i8 %69, 32
-  br i1 %70, label %71, label %75
+64:                                               ; preds = %.backedge.i.i, %.lr.ph.i.i
+  %65 = phi ptr [ %57, %.lr.ph.i.i ], [ %71, %.backedge.i.i ]
+  %66 = load i8, ptr %65, align 1, !tbaa !29
+  %67 = icmp eq i8 %66, 32
+  br i1 %67, label %68, label %72
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 1
-  %73 = call noalias ptr @av_strdup(ptr noundef nonnull %72) #10
-  store ptr %73, ptr %54, align 8, !tbaa !39
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  %70 = call noalias ptr @av_strdup(ptr noundef nonnull %69) #10
+  store ptr %70, ptr %51, align 8, !tbaa !39
   br label %.backedge.i.i
 
-.backedge.i.i:                                    ; preds = %127, %125, %120, %113, %106, %99, %96, %93, %92, %88, %75, %71
-  %74 = call ptr @av_strtok(ptr noundef null, ptr noundef nonnull @.str.52, ptr noundef nonnull %5) #10
-  %.not.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i, label %ftp_parse_entry.exit.thread64, label %67, !llvm.loop !40
+.backedge.i.i:                                    ; preds = %124, %122, %117, %110, %103, %96, %93, %90, %89, %85, %72, %68
+  %71 = call ptr @av_strtok(ptr noundef null, ptr noundef nonnull @.str.52, ptr noundef nonnull %5) #10
+  %.not.i.i = icmp eq ptr %71, null
+  br i1 %.not.i.i, label %ftp_parse_entry.exit.thread64, label %64, !llvm.loop !40
 
-75:                                               ; preds = %67
-  %76 = call ptr @av_strtok(ptr noundef nonnull %68, ptr noundef nonnull @.str.53, ptr noundef nonnull %4) #10
-  %.not27.i.i = icmp eq ptr %76, null
-  br i1 %.not27.i.i, label %.backedge.i.i, label %77
+72:                                               ; preds = %64
+  %73 = call ptr @av_strtok(ptr noundef nonnull %65, ptr noundef nonnull @.str.53, ptr noundef nonnull %4) #10
+  %.not27.i.i = icmp eq ptr %73, null
+  br i1 %.not27.i.i, label %.backedge.i.i, label %74
 
-77:                                               ; preds = %75
-  %78 = call i32 @av_strcasecmp(ptr noundef nonnull %76, ptr noundef nonnull @.str.54) #10
-  %.not28.i.i = icmp eq i32 %78, 0
-  br i1 %.not28.i.i, label %79, label %97
+74:                                               ; preds = %72
+  %75 = call i32 @av_strcasecmp(ptr noundef nonnull %73, ptr noundef nonnull @.str.54) #10
+  %.not28.i.i = icmp eq i32 %75, 0
+  br i1 %.not28.i.i, label %76, label %94
 
-79:                                               ; preds = %77
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %4, align 8, !tbaa !20
+  %78 = call i32 @av_strcasecmp(ptr noundef %77, ptr noundef nonnull @.str.55) #10
+  %.not29.i.i = icmp eq i32 %78, 0
+  br i1 %.not29.i.i, label %128, label %79
+
+79:                                               ; preds = %76
   %80 = load ptr, ptr %4, align 8, !tbaa !20
-  %81 = call i32 @av_strcasecmp(ptr noundef %80, ptr noundef nonnull @.str.55) #10
-  %.not29.i.i = icmp eq i32 %81, 0
-  br i1 %.not29.i.i, label %131, label %82
+  %81 = call i32 @av_strcasecmp(ptr noundef %80, ptr noundef nonnull @.str.56) #10
+  %.not30.i.i = icmp eq i32 %81, 0
+  br i1 %.not30.i.i, label %128, label %82
 
 82:                                               ; preds = %79
   %83 = load ptr, ptr %4, align 8, !tbaa !20
-  %84 = call i32 @av_strcasecmp(ptr noundef %83, ptr noundef nonnull @.str.56) #10
-  %.not30.i.i = icmp eq i32 %84, 0
-  br i1 %.not30.i.i, label %131, label %85
+  %84 = call i32 @av_strcasecmp(ptr noundef %83, ptr noundef nonnull @.str.57) #10
+  %.not31.i.i = icmp eq i32 %84, 0
+  br i1 %.not31.i.i, label %85, label %86
 
 85:                                               ; preds = %82
-  %86 = load ptr, ptr %4, align 8, !tbaa !20
-  %87 = call i32 @av_strcasecmp(ptr noundef %86, ptr noundef nonnull @.str.57) #10
-  %.not31.i.i = icmp eq i32 %87, 0
-  br i1 %.not31.i.i, label %88, label %89
-
-88:                                               ; preds = %85
-  store i32 3, ptr %66, align 8, !tbaa !41
+  store i32 3, ptr %63, align 8, !tbaa !41
   br label %.backedge.i.i
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr %4, align 8, !tbaa !20
-  %91 = call i32 @av_strcasecmp(ptr noundef %90, ptr noundef nonnull @.str.58) #10
-  %.not32.i.i = icmp eq i32 %91, 0
-  br i1 %.not32.i.i, label %92, label %93
+86:                                               ; preds = %82
+  %87 = load ptr, ptr %4, align 8, !tbaa !20
+  %88 = call i32 @av_strcasecmp(ptr noundef %87, ptr noundef nonnull @.str.58) #10
+  %.not32.i.i = icmp eq i32 %88, 0
+  br i1 %.not32.i.i, label %89, label %90
 
-92:                                               ; preds = %89
-  store i32 7, ptr %66, align 8, !tbaa !41
+89:                                               ; preds = %86
+  store i32 7, ptr %63, align 8, !tbaa !41
   br label %.backedge.i.i
 
-93:                                               ; preds = %89
-  %94 = load ptr, ptr %4, align 8, !tbaa !20
-  %95 = call i32 @av_strcasecmp(ptr noundef %94, ptr noundef nonnull @.str.59) #10
-  %.not33.i.i = icmp eq i32 %95, 0
-  br i1 %.not33.i.i, label %96, label %.backedge.i.i
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %4, align 8, !tbaa !20
+  %92 = call i32 @av_strcasecmp(ptr noundef %91, ptr noundef nonnull @.str.59) #10
+  %.not33.i.i = icmp eq i32 %92, 0
+  br i1 %.not33.i.i, label %93, label %.backedge.i.i
 
-96:                                               ; preds = %93
-  store i32 5, ptr %66, align 8, !tbaa !41
+93:                                               ; preds = %90
+  store i32 5, ptr %63, align 8, !tbaa !41
   br label %.backedge.i.i
 
-97:                                               ; preds = %77
-  %98 = call i32 @av_strcasecmp(ptr noundef nonnull %76, ptr noundef nonnull @.str.60) #10
-  %.not34.i.i = icmp eq i32 %98, 0
-  br i1 %.not34.i.i, label %99, label %104
+94:                                               ; preds = %74
+  %95 = call i32 @av_strcasecmp(ptr noundef nonnull %73, ptr noundef nonnull @.str.60) #10
+  %.not34.i.i = icmp eq i32 %95, 0
+  br i1 %.not34.i.i, label %96, label %101
 
-99:                                               ; preds = %97
-  %100 = load ptr, ptr %4, align 8, !tbaa !20
+96:                                               ; preds = %94
+  %97 = load ptr, ptr %4, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  %101 = call ptr @av_small_strptime(ptr noundef %100, ptr noundef nonnull @.str.68, ptr noundef nonnull %3) #10
-  %102 = call i64 @av_timegm(ptr noundef nonnull %3) #10
-  %103 = mul nsw i64 %102, 1000000
+  %98 = call ptr @av_small_strptime(ptr noundef %97, ptr noundef nonnull @.str.68, ptr noundef nonnull %3) #10
+  %99 = call i64 @av_timegm(ptr noundef nonnull %3) #10
+  %100 = mul nsw i64 %99, 1000000
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #10
-  store i64 %103, ptr %65, align 8, !tbaa !42
+  store i64 %100, ptr %62, align 8, !tbaa !42
   br label %.backedge.i.i
 
-104:                                              ; preds = %97
-  %105 = call i32 @av_strcasecmp(ptr noundef nonnull %76, ptr noundef nonnull @.str.61) #10
-  %.not35.i.i = icmp eq i32 %105, 0
-  br i1 %.not35.i.i, label %106, label %109
+101:                                              ; preds = %94
+  %102 = call i32 @av_strcasecmp(ptr noundef nonnull %73, ptr noundef nonnull @.str.61) #10
+  %.not35.i.i = icmp eq i32 %102, 0
+  br i1 %.not35.i.i, label %103, label %106
 
-106:                                              ; preds = %104
-  %107 = load ptr, ptr %4, align 8, !tbaa !20
-  %108 = call i64 @strtoumax(ptr noundef %107, ptr noundef null, i32 noundef 8) #10
-  store i64 %108, ptr %64, align 8, !tbaa !43
+103:                                              ; preds = %101
+  %104 = load ptr, ptr %4, align 8, !tbaa !20
+  %105 = call i64 @strtoumax(ptr noundef %104, ptr noundef null, i32 noundef 8) #10
+  store i64 %105, ptr %61, align 8, !tbaa !43
   br label %.backedge.i.i
 
-109:                                              ; preds = %104
-  %110 = call i32 @av_strcasecmp(ptr noundef nonnull %76, ptr noundef nonnull @.str.62) #10
-  %.not36.i.i = icmp eq i32 %110, 0
-  br i1 %.not36.i.i, label %113, label %111
+106:                                              ; preds = %101
+  %107 = call i32 @av_strcasecmp(ptr noundef nonnull %73, ptr noundef nonnull @.str.62) #10
+  %.not36.i.i = icmp eq i32 %107, 0
+  br i1 %.not36.i.i, label %110, label %108
 
-111:                                              ; preds = %109
-  %112 = call i32 @av_strcasecmp(ptr noundef nonnull %76, ptr noundef nonnull @.str.63) #10
-  %.not37.i.i = icmp eq i32 %112, 0
-  br i1 %.not37.i.i, label %113, label %116
+108:                                              ; preds = %106
+  %109 = call i32 @av_strcasecmp(ptr noundef nonnull %73, ptr noundef nonnull @.str.63) #10
+  %.not37.i.i = icmp eq i32 %109, 0
+  br i1 %.not37.i.i, label %110, label %113
 
-113:                                              ; preds = %111, %109
-  %114 = load ptr, ptr %4, align 8, !tbaa !20
-  %115 = call i64 @strtoumax(ptr noundef %114, ptr noundef null, i32 noundef 10) #10
-  store i64 %115, ptr %63, align 8, !tbaa !44
+110:                                              ; preds = %108, %106
+  %111 = load ptr, ptr %4, align 8, !tbaa !20
+  %112 = call i64 @strtoumax(ptr noundef %111, ptr noundef null, i32 noundef 10) #10
+  store i64 %112, ptr %60, align 8, !tbaa !44
   br label %.backedge.i.i
 
-116:                                              ; preds = %111
-  %117 = call i32 @av_strcasecmp(ptr noundef nonnull %76, ptr noundef nonnull @.str.64) #10
-  %.not38.i.i = icmp eq i32 %117, 0
-  br i1 %.not38.i.i, label %120, label %118
+113:                                              ; preds = %108
+  %114 = call i32 @av_strcasecmp(ptr noundef nonnull %73, ptr noundef nonnull @.str.64) #10
+  %.not38.i.i = icmp eq i32 %114, 0
+  br i1 %.not38.i.i, label %117, label %115
 
-118:                                              ; preds = %116
-  %119 = call i32 @av_strcasecmp(ptr noundef nonnull %76, ptr noundef nonnull @.str.65) #10
-  %.not39.i.i = icmp eq i32 %119, 0
-  br i1 %.not39.i.i, label %120, label %123
+115:                                              ; preds = %113
+  %116 = call i32 @av_strcasecmp(ptr noundef nonnull %73, ptr noundef nonnull @.str.65) #10
+  %.not39.i.i = icmp eq i32 %116, 0
+  br i1 %.not39.i.i, label %117, label %120
 
-120:                                              ; preds = %118, %116
-  %121 = load ptr, ptr %4, align 8, !tbaa !20
-  %122 = call i64 @strtoumax(ptr noundef %121, ptr noundef null, i32 noundef 10) #10
-  store i64 %122, ptr %62, align 8, !tbaa !45
+117:                                              ; preds = %115, %113
+  %118 = load ptr, ptr %4, align 8, !tbaa !20
+  %119 = call i64 @strtoumax(ptr noundef %118, ptr noundef null, i32 noundef 10) #10
+  store i64 %119, ptr %59, align 8, !tbaa !45
   br label %.backedge.i.i
 
-123:                                              ; preds = %118
-  %124 = call i32 @av_strcasecmp(ptr noundef nonnull %76, ptr noundef nonnull @.str.66) #10
-  %.not40.i.i = icmp eq i32 %124, 0
-  br i1 %.not40.i.i, label %127, label %125
+120:                                              ; preds = %115
+  %121 = call i32 @av_strcasecmp(ptr noundef nonnull %73, ptr noundef nonnull @.str.66) #10
+  %.not40.i.i = icmp eq i32 %121, 0
+  br i1 %.not40.i.i, label %124, label %122
 
-125:                                              ; preds = %123
-  %126 = call i32 @av_strcasecmp(ptr noundef nonnull %76, ptr noundef nonnull @.str.67) #10
-  %.not41.i.i = icmp eq i32 %126, 0
-  br i1 %.not41.i.i, label %127, label %.backedge.i.i
+122:                                              ; preds = %120
+  %123 = call i32 @av_strcasecmp(ptr noundef nonnull %73, ptr noundef nonnull @.str.67) #10
+  %.not41.i.i = icmp eq i32 %123, 0
+  br i1 %.not41.i.i, label %124, label %.backedge.i.i
 
-127:                                              ; preds = %125, %123
-  %128 = load ptr, ptr %4, align 8, !tbaa !20
-  %129 = call i64 @strtoll(ptr noundef captures(none) %128, ptr noundef null, i32 noundef 10) #10
-  store i64 %129, ptr %61, align 8, !tbaa !46
+124:                                              ; preds = %122, %120
+  %125 = load ptr, ptr %4, align 8, !tbaa !20
+  %126 = call i64 @strtoll(ptr noundef captures(none) %125, ptr noundef null, i32 noundef 10) #10
+  store i64 %126, ptr %58, align 8, !tbaa !46
   br label %.backedge.i.i
 
-ftp_parse_entry.exit.thread:                      ; preds = %55
-  %130 = call noalias ptr @av_strdup(ptr noundef nonnull %.046.lcssa) #10
-  store ptr %130, ptr %54, align 8, !tbaa !39
+ftp_parse_entry.exit.thread:                      ; preds = %52
+  %127 = call noalias ptr @av_strdup(ptr noundef nonnull %.046.lcssa) #10
+  store ptr %127, ptr %51, align 8, !tbaa !39
   br label %.thread68
 
-ftp_parse_entry.exit.thread64:                    ; preds = %59, %.backedge.i.i
+ftp_parse_entry.exit.thread64:                    ; preds = %56, %.backedge.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   br label %.thread68
 
-131:                                              ; preds = %79, %82
+128:                                              ; preds = %76, %79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   call void @avio_free_directory_entry(ptr noundef nonnull %1) #10
   br label %13, !llvm.loop !47
 
-.thread68:                                        ; preds = %53, %23, %.lr.ph, %ftp_parse_entry.exit.thread64, %ftp_parse_entry.exit.thread, %.thread, %33
-  %.045 = phi i32 [ 0, %33 ], [ -1, %.thread ], [ 0, %ftp_parse_entry.exit.thread ], [ 0, %ftp_parse_entry.exit.thread64 ], [ %30, %23 ], [ -5, %.lr.ph ], [ -12, %53 ]
+.thread68:                                        ; preds = %50, %20, %31, %ftp_parse_entry.exit.thread64, %ftp_parse_entry.exit.thread, %.thread, %30
+  %.045 = phi i32 [ 0, %30 ], [ -1, %.thread ], [ 0, %ftp_parse_entry.exit.thread ], [ 0, %ftp_parse_entry.exit.thread64 ], [ %27, %20 ], [ -5, %31 ], [ -12, %50 ]
   ret i32 %.045
 }
 

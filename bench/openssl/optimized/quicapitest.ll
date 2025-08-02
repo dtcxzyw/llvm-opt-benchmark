@@ -1458,14 +1458,14 @@ define internal range(i32 0, 2) i32 @test_ssl_trace() #1 {
   %7 = tail call ptr @SSL_CTX_new_ex(ptr noundef %5, ptr noundef null, ptr noundef %6) #10
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 520, ptr noundef nonnull @.str.130, ptr noundef %7) #10
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %104, label %9
+  br i1 %.not, label %107, label %9
 
 9:                                                ; preds = %0
   %10 = tail call ptr @BIO_s_mem() #10
   %11 = tail call ptr @BIO_new(ptr noundef %10) #10
   %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 521, ptr noundef nonnull @.str.131, ptr noundef %11) #10
   %.not8 = icmp eq i32 %12, 0
-  br i1 %.not8, label %104, label %13
+  br i1 %.not8, label %107, label %13
 
 13:                                               ; preds = %9
   %14 = tail call i32 @SSL_CTX_set_ciphersuites(ptr noundef %7, ptr noundef nonnull @.str.133) #10
@@ -1473,7 +1473,7 @@ define internal range(i32 0, 2) i32 @test_ssl_trace() #1 {
   %16 = zext i1 %15 to i32
   %17 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 522, ptr noundef nonnull @.str.132, i32 noundef %16) #10
   %.not9 = icmp eq i32 %17, 0
-  br i1 %.not9, label %104, label %18
+  br i1 %.not9, label %107, label %18
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr @libctx, align 8, !tbaa !4
@@ -1484,7 +1484,7 @@ define internal range(i32 0, 2) i32 @test_ssl_trace() #1 {
   %24 = zext i1 %23 to i32
   %25 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 527, ptr noundef nonnull @.str.134, i32 noundef %24) #10
   %.not10 = icmp eq i32 %25, 0
-  br i1 %.not10, label %104, label %26
+  br i1 %.not10, label %107, label %26
 
 26:                                               ; preds = %18
   %27 = load ptr, ptr %3, align 8, !tbaa !13
@@ -1498,7 +1498,7 @@ define internal range(i32 0, 2) i32 @test_ssl_trace() #1 {
   %34 = zext i1 %33 to i32
   %35 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 533, ptr noundef nonnull @.str.67, i32 noundef %34) #10
   %.not11 = icmp eq i32 %35, 0
-  br i1 %.not11, label %104, label %36
+  br i1 %.not11, label %107, label %36
 
 36:                                               ; preds = %26
   %.b = load i1, ptr @is_fips, align 4
@@ -1509,7 +1509,7 @@ define internal range(i32 0, 2) i32 @test_ssl_trace() #1 {
   %39 = trunc i64 %38 to i32
   %40 = call i32 @test_int_gt(ptr noundef nonnull @.str.14, i32 noundef 539, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.70, i32 noundef %39, i32 noundef 0) #10
   %.not13 = icmp eq i32 %40, 0
-  br i1 %.not13, label %104, label %103
+  br i1 %.not13, label %107, label %106
 
 41:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %1) #10
@@ -1530,174 +1530,171 @@ define internal range(i32 0, 2) i32 @test_ssl_trace() #1 {
   %49 = call ptr @BIO_new_file(ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.142) #10
   %50 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 463, ptr noundef nonnull @.str.143, ptr noundef %49) #10
   %.not22.i = icmp eq i32 %50, 0
-  br i1 %.not22.i, label %compare_with_file.exit, label %.preheader38.i
+  br i1 %.not22.i, label %compare_with_file.exit, label %.preheader36.i
 
-.preheader38.i:                                   ; preds = %48, %53
+.preheader36.i:                                   ; preds = %48, %53
   %51 = call i32 @BIO_gets(ptr noundef %11, ptr noundef nonnull %2, i32 noundef 512) #10
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %57
 
-53:                                               ; preds = %.preheader38.i
+53:                                               ; preds = %.preheader36.i
   %54 = call i32 @BIO_puts(ptr noundef %49, ptr noundef nonnull %2) #10
   %55 = icmp slt i32 %54, 1
-  br i1 %55, label %56, label %.preheader38.i, !llvm.loop !30
+  br i1 %55, label %56, label %.preheader36.i, !llvm.loop !30
 
 56:                                               ; preds = %53
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 468, ptr noundef nonnull @.str.144) #10
   br label %compare_with_file.exit
 
-57:                                               ; preds = %.preheader38.i
+57:                                               ; preds = %.preheader36.i
   %58 = call i64 @BIO_ctrl(ptr noundef %11, i32 noundef 128, i64 noundef 0, ptr noundef null) #10
   %59 = trunc i64 %58 to i32
   %60 = call i32 @test_int_ge(ptr noundef nonnull @.str.14, i32 noundef 472, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.70, i32 noundef %59, i32 noundef 0) #10
   %.not23.i = icmp eq i32 %60, 0
-  br i1 %.not23.i, label %compare_with_file.exit, label %.preheader37.i
+  br i1 %.not23.i, label %compare_with_file.exit, label %.preheader35.i
 
-.preheader37.i:                                   ; preds = %57
-  %invariant.gep.i.i = getelementptr i8, ptr %1, i64 -1
-  %invariant.gep.i28.i = getelementptr i8, ptr %2, i64 -1
-  br label %61
+.preheader35.i:                                   ; preds = %57, %._crit_edge.i
+  %61 = call i32 @BIO_gets(ptr noundef %46, ptr noundef nonnull %1, i32 noundef 512) #10
+  %62 = icmp sgt i32 %61, 0
+  br i1 %62, label %63, label %91
 
-61:                                               ; preds = %._crit_edge.i, %.preheader37.i
-  %62 = call i32 @BIO_gets(ptr noundef %46, ptr noundef nonnull %1, i32 noundef 512) #10
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %64, label %88
+63:                                               ; preds = %.preheader35.i
+  %64 = call i32 @BIO_gets(ptr noundef %11, ptr noundef nonnull %2, i32 noundef 512) #10
+  %65 = icmp slt i32 %64, 1
+  br i1 %65, label %66, label %67
 
-64:                                               ; preds = %61
-  %65 = call i32 @BIO_gets(ptr noundef %11, ptr noundef nonnull %2, i32 noundef 512) #10
-  %66 = icmp slt i32 %65, 1
-  br i1 %66, label %67, label %68
-
-67:                                               ; preds = %64
+66:                                               ; preds = %63
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 477, ptr noundef nonnull @.str.146) #10
   br label %compare_with_file.exit
 
-68:                                               ; preds = %64
-  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %.not11.i.i = icmp eq i64 %69, 0
+67:                                               ; preds = %63
+  %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %.not11.i.i = icmp eq i64 %68, 0
   br i1 %.not11.i.i, label %strip_line_ends.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %68, %.critedge2.i.i
-  %.012.i.i = phi i64 [ %71, %.critedge2.i.i ], [ %69, %68 ]
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %.012.i.i
-  %70 = load i8, ptr %gep.i.i, align 1, !tbaa !31
-  switch i8 %70, label %strip_line_ends.exit.i [
+.lr.ph.i.i:                                       ; preds = %67, %.critedge2.i.i
+  %.012.i.i = phi i64 [ %72, %.critedge2.i.i ], [ %68, %67 ]
+  %69 = getelementptr i8, ptr %1, i64 %.012.i.i
+  %70 = getelementptr i8, ptr %69, i64 -1
+  %71 = load i8, ptr %70, align 1, !tbaa !31
+  switch i8 %71, label %strip_line_ends.exit.i [
     i8 10, label %.critedge2.i.i
     i8 13, label %.critedge2.i.i
   ]
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i
-  %71 = add i64 %.012.i.i, -1
-  %.not.i.i = icmp eq i64 %71, 0
+  %72 = add i64 %.012.i.i, -1
+  %.not.i.i = icmp eq i64 %72, 0
   br i1 %.not.i.i, label %strip_line_ends.exit.i, label %.lr.ph.i.i, !llvm.loop !32
 
-strip_line_ends.exit.i:                           ; preds = %.critedge2.i.i, %.lr.ph.i.i, %68
-  %.0.lcssa.i.i = phi i64 [ 0, %68 ], [ %.012.i.i, %.lr.ph.i.i ], [ 0, %.critedge2.i.i ]
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.lcssa.i.i
-  store i8 0, ptr %72, align 1, !tbaa !31
-  %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
-  %.not11.i29.i = icmp eq i64 %73, 0
-  br i1 %.not11.i29.i, label %strip_line_ends.exit36.i, label %.lr.ph.i30.i
+strip_line_ends.exit.i:                           ; preds = %.critedge2.i.i, %.lr.ph.i.i, %67
+  %.0.lcssa.i.i = phi i64 [ 0, %67 ], [ %.012.i.i, %.lr.ph.i.i ], [ 0, %.critedge2.i.i ]
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.lcssa.i.i
+  store i8 0, ptr %73, align 1, !tbaa !31
+  %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
+  %.not11.i28.i = icmp eq i64 %74, 0
+  br i1 %.not11.i28.i, label %strip_line_ends.exit34.i, label %.lr.ph.i29.i
 
-.lr.ph.i30.i:                                     ; preds = %strip_line_ends.exit.i, %.critedge2.i33.i
-  %.012.i31.i = phi i64 [ %75, %.critedge2.i33.i ], [ %73, %strip_line_ends.exit.i ]
-  %gep.i32.i = getelementptr i8, ptr %invariant.gep.i28.i, i64 %.012.i31.i
-  %74 = load i8, ptr %gep.i32.i, align 1, !tbaa !31
-  switch i8 %74, label %strip_line_ends.exit36.i [
-    i8 10, label %.critedge2.i33.i
-    i8 13, label %.critedge2.i33.i
+.lr.ph.i29.i:                                     ; preds = %strip_line_ends.exit.i, %.critedge2.i31.i
+  %.012.i30.i = phi i64 [ %78, %.critedge2.i31.i ], [ %74, %strip_line_ends.exit.i ]
+  %75 = getelementptr i8, ptr %2, i64 %.012.i30.i
+  %76 = getelementptr i8, ptr %75, i64 -1
+  %77 = load i8, ptr %76, align 1, !tbaa !31
+  switch i8 %77, label %strip_line_ends.exit34.i [
+    i8 10, label %.critedge2.i31.i
+    i8 13, label %.critedge2.i31.i
   ]
 
-.critedge2.i33.i:                                 ; preds = %.lr.ph.i30.i, %.lr.ph.i30.i
-  %75 = add i64 %.012.i31.i, -1
-  %.not.i34.i = icmp eq i64 %75, 0
-  br i1 %.not.i34.i, label %strip_line_ends.exit36.i, label %.lr.ph.i30.i, !llvm.loop !32
+.critedge2.i31.i:                                 ; preds = %.lr.ph.i29.i, %.lr.ph.i29.i
+  %78 = add i64 %.012.i30.i, -1
+  %.not.i32.i = icmp eq i64 %78, 0
+  br i1 %.not.i32.i, label %strip_line_ends.exit34.i, label %.lr.ph.i29.i, !llvm.loop !32
 
-strip_line_ends.exit36.i:                         ; preds = %.critedge2.i33.i, %.lr.ph.i30.i, %strip_line_ends.exit.i
-  %.0.lcssa.i35.i = phi i64 [ 0, %strip_line_ends.exit.i ], [ %.012.i31.i, %.lr.ph.i30.i ], [ 0, %.critedge2.i33.i ]
-  %76 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa.i35.i
-  store i8 0, ptr %76, align 1, !tbaa !31
-  %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
-  %.not26.i = icmp eq i64 %77, %78
-  br i1 %.not26.i, label %.preheader.i, label %79
+strip_line_ends.exit34.i:                         ; preds = %.critedge2.i31.i, %.lr.ph.i29.i, %strip_line_ends.exit.i
+  %.0.lcssa.i33.i = phi i64 [ 0, %strip_line_ends.exit.i ], [ %.012.i30.i, %.lr.ph.i29.i ], [ 0, %.critedge2.i31.i ]
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa.i33.i
+  store i8 0, ptr %79, align 1, !tbaa !31
+  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
+  %.not26.i = icmp eq i64 %80, %81
+  br i1 %.not26.i, label %.preheader.i, label %82
 
-.preheader.i:                                     ; preds = %strip_line_ends.exit36.i
-  %.not40.i = icmp eq i64 %77, 0
-  br i1 %.not40.i, label %._crit_edge.i, label %.lr.ph.i
+.preheader.i:                                     ; preds = %strip_line_ends.exit34.i
+  %.not38.i = icmp eq i64 %80, 0
+  br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i
 
-79:                                               ; preds = %strip_line_ends.exit36.i
+82:                                               ; preds = %strip_line_ends.exit34.i
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 483, ptr noundef nonnull @.str.147) #10
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 484, ptr noundef nonnull @.str.148, ptr noundef nonnull %1) #10
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 485, ptr noundef nonnull @.str.148, ptr noundef nonnull %2) #10
   br label %compare_with_file.exit
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %85
-  %.039.i = phi i64 [ %86, %85 ], [ 0, %.preheader.i ]
-  %80 = getelementptr inbounds nuw [512 x i8], ptr %1, i64 0, i64 %.039.i
-  %81 = load i8, ptr %80, align 1, !tbaa !31
-  %82 = icmp eq i8 %81, 63
-  br i1 %82, label %83, label %85
+.lr.ph.i:                                         ; preds = %.preheader.i, %88
+  %.037.i = phi i64 [ %89, %88 ], [ 0, %.preheader.i ]
+  %83 = getelementptr inbounds nuw [512 x i8], ptr %1, i64 0, i64 %.037.i
+  %84 = load i8, ptr %83, align 1, !tbaa !31
+  %85 = icmp eq i8 %84, 63
+  br i1 %85, label %86, label %88
 
-83:                                               ; preds = %.lr.ph.i
-  %84 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %.039.i
-  store i8 63, ptr %84, align 1, !tbaa !31
-  br label %85
+86:                                               ; preds = %.lr.ph.i
+  %87 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %.037.i
+  store i8 63, ptr %87, align 1, !tbaa !31
+  br label %88
 
-85:                                               ; preds = %83, %.lr.ph.i
-  %86 = add nuw i64 %.039.i, 1
-  %exitcond.not.i = icmp eq i64 %86, %77
+88:                                               ; preds = %86, %.lr.ph.i
+  %89 = add nuw i64 %.037.i, 1
+  %exitcond.not.i = icmp eq i64 %89, %80
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !33
 
-._crit_edge.i:                                    ; preds = %85, %.preheader.i
-  %87 = call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 493, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.150, ptr noundef nonnull %1, ptr noundef nonnull %2) #10
-  %.not27.i = icmp eq i32 %87, 0
-  br i1 %.not27.i, label %compare_with_file.exit, label %61, !llvm.loop !34
+._crit_edge.i:                                    ; preds = %88, %.preheader.i
+  %90 = call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 493, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.150, ptr noundef nonnull %1, ptr noundef nonnull %2) #10
+  %.not27.i = icmp eq i32 %90, 0
+  br i1 %.not27.i, label %compare_with_file.exit, label %.preheader35.i, !llvm.loop !34
 
-88:                                               ; preds = %61
-  %89 = call i64 @BIO_ctrl(ptr noundef %46, i32 noundef 2, i64 noundef 0, ptr noundef null) #10
-  %90 = and i64 %89, 4294967295
-  %91 = icmp ne i64 %90, 0
-  %92 = zext i1 %91 to i32
-  %93 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 496, ptr noundef nonnull @.str.151, i32 noundef %92) #10
-  %.not24.i = icmp eq i32 %93, 0
-  br i1 %.not24.i, label %compare_with_file.exit, label %94
+91:                                               ; preds = %.preheader35.i
+  %92 = call i64 @BIO_ctrl(ptr noundef %46, i32 noundef 2, i64 noundef 0, ptr noundef null) #10
+  %93 = and i64 %92, 4294967295
+  %94 = icmp ne i64 %93, 0
+  %95 = zext i1 %94 to i32
+  %96 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 496, ptr noundef nonnull @.str.151, i32 noundef %95) #10
+  %.not24.i = icmp eq i32 %96, 0
+  br i1 %.not24.i, label %compare_with_file.exit, label %97
 
-94:                                               ; preds = %88
-  %95 = call i64 @BIO_ctrl(ptr noundef %11, i32 noundef 2, i64 noundef 0, ptr noundef null) #10
-  %96 = and i64 %95, 4294967295
-  %97 = icmp ne i64 %96, 0
-  %98 = zext i1 %97 to i32
-  %99 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 497, ptr noundef nonnull @.str.152, i32 noundef %98) #10
-  %.not25.i = icmp ne i32 %99, 0
+97:                                               ; preds = %91
+  %98 = call i64 @BIO_ctrl(ptr noundef %11, i32 noundef 2, i64 noundef 0, ptr noundef null) #10
+  %99 = and i64 %98, 4294967295
+  %100 = icmp ne i64 %99, 0
+  %101 = zext i1 %100 to i32
+  %102 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 497, ptr noundef nonnull @.str.152, i32 noundef %101) #10
+  %.not25.i = icmp ne i32 %102, 0
   %spec.select.i = zext i1 %.not25.i to i32
   br label %compare_with_file.exit
 
-compare_with_file.exit:                           ; preds = %._crit_edge.i, %41, %45, %48, %56, %57, %67, %79, %88, %94
-  %.020.i = phi ptr [ %49, %56 ], [ %49, %67 ], [ %49, %79 ], [ %49, %88 ], [ %49, %57 ], [ %49, %48 ], [ null, %45 ], [ null, %41 ], [ %49, %94 ], [ %49, %._crit_edge.i ]
-  %.019.i = phi ptr [ %46, %56 ], [ %46, %67 ], [ %46, %79 ], [ %46, %88 ], [ %46, %57 ], [ %46, %48 ], [ %46, %45 ], [ null, %41 ], [ %46, %94 ], [ %46, %._crit_edge.i ]
-  %.018.i = phi i32 [ 0, %56 ], [ 0, %67 ], [ 0, %79 ], [ 0, %88 ], [ 0, %57 ], [ 0, %48 ], [ 0, %45 ], [ 0, %41 ], [ %spec.select.i, %94 ], [ 0, %._crit_edge.i ]
+compare_with_file.exit:                           ; preds = %._crit_edge.i, %41, %45, %48, %56, %57, %66, %82, %91, %97
+  %.020.i = phi ptr [ %49, %56 ], [ %49, %66 ], [ %49, %82 ], [ %49, %91 ], [ %49, %57 ], [ %49, %48 ], [ null, %45 ], [ null, %41 ], [ %49, %97 ], [ %49, %._crit_edge.i ]
+  %.019.i = phi ptr [ %46, %56 ], [ %46, %66 ], [ %46, %82 ], [ %46, %91 ], [ %46, %57 ], [ %46, %48 ], [ %46, %45 ], [ null, %41 ], [ %46, %97 ], [ %46, %._crit_edge.i ]
+  %.018.i = phi i32 [ 0, %56 ], [ 0, %66 ], [ 0, %82 ], [ 0, %91 ], [ 0, %57 ], [ 0, %48 ], [ 0, %45 ], [ 0, %41 ], [ %spec.select.i, %97 ], [ 0, %._crit_edge.i ]
   call void @CRYPTO_free(ptr noundef %43, ptr noundef nonnull @.str.14, i32 noundef 502) #10
-  %100 = call i32 @BIO_free(ptr noundef %.019.i) #10
-  %101 = call i32 @BIO_free(ptr noundef %.020.i) #10
+  %103 = call i32 @BIO_free(ptr noundef %.019.i) #10
+  %104 = call i32 @BIO_free(ptr noundef %.020.i) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %1) #10
-  %102 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 542, ptr noundef nonnull @.str.136, i32 noundef %.018.i) #10
-  %.not12 = icmp eq i32 %102, 0
-  br i1 %.not12, label %104, label %103
+  %105 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 542, ptr noundef nonnull @.str.136, i32 noundef %.018.i) #10
+  %.not12 = icmp eq i32 %105, 0
+  br i1 %.not12, label %107, label %106
 
-103:                                              ; preds = %compare_with_file.exit, %37
-  br label %104
+106:                                              ; preds = %compare_with_file.exit, %37
+  br label %107
 
-104:                                              ; preds = %compare_with_file.exit, %37, %26, %0, %9, %13, %18, %103
-  %.07 = phi i32 [ 1, %103 ], [ 0, %37 ], [ 0, %compare_with_file.exit ], [ 0, %26 ], [ 0, %18 ], [ 0, %13 ], [ 0, %9 ], [ 0, %0 ]
-  %.0 = phi ptr [ %11, %103 ], [ %11, %37 ], [ %11, %compare_with_file.exit ], [ %11, %26 ], [ %11, %18 ], [ %11, %13 ], [ %11, %9 ], [ null, %0 ]
-  %105 = load ptr, ptr %4, align 8, !tbaa !15
-  call void @ossl_quic_tserver_free(ptr noundef %105) #10
-  %106 = load ptr, ptr %3, align 8, !tbaa !13
-  call void @SSL_free(ptr noundef %106) #10
+107:                                              ; preds = %compare_with_file.exit, %37, %26, %0, %9, %13, %18, %106
+  %.07 = phi i32 [ 1, %106 ], [ 0, %37 ], [ 0, %compare_with_file.exit ], [ 0, %26 ], [ 0, %18 ], [ 0, %13 ], [ 0, %9 ], [ 0, %0 ]
+  %.0 = phi ptr [ %11, %106 ], [ %11, %37 ], [ %11, %compare_with_file.exit ], [ %11, %26 ], [ %11, %18 ], [ %11, %13 ], [ %11, %9 ], [ null, %0 ]
+  %108 = load ptr, ptr %4, align 8, !tbaa !15
+  call void @ossl_quic_tserver_free(ptr noundef %108) #10
+  %109 = load ptr, ptr %3, align 8, !tbaa !13
+  call void @SSL_free(ptr noundef %109) #10
   call void @SSL_CTX_free(ptr noundef %7) #10
-  %107 = call i32 @BIO_free(ptr noundef %.0) #10
+  %110 = call i32 @BIO_free(ptr noundef %.0) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   ret i32 %.07

@@ -3926,8 +3926,8 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 declare void @_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZN7rocksdb10BlobSource12PinOwnedBlobEPSt10unique_ptrINS_12BlobContentsESt14default_deleteIS2_EEPNS_13PinnableSliceEEN3$_08__invokeEPvSA_"(ptr noundef %0, ptr readnone captures(none) %1) #12 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @"_ZZN7rocksdb10BlobSource12PinOwnedBlobEPSt10unique_ptrINS_12BlobContentsESt14default_deleteIS2_EEPNS_13PinnableSliceEEN3$_08__invokeEPvSA_"(ptr noundef %0, ptr readnone captures(none) %1) #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %"_ZZN7rocksdb10BlobSource12PinOwnedBlobEPSt10unique_ptrINS_12BlobContentsESt14default_deleteIS2_EEPNS_13PinnableSliceEENK3$_0clEPvSA_.exit", label %4
 
@@ -3969,17 +3969,17 @@ _ZN7rocksdb12BlobContentsD2Ev.exit.i:             ; preds = %13, %9, %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare void @_ZN7rocksdb6Status9CopyStateEPKc(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef) local_unnamed_addr #6
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
@@ -4025,7 +4025,7 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb12Charg
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZSt10_ConstructIN7rocksdb12ChargedCacheEJRKSt10shared_ptrINS0_5CacheEERS4_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZSt10_ConstructIN7rocksdb12ChargedCacheEJRKSt10shared_ptrINS0_5CacheEERS4_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #15 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !29
@@ -4448,7 +4448,7 @@ _ZNSt10unique_ptrIN7rocksdb12BlobContentsESt14default_deleteIS1_EE5resetEPS1_.ex
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #15
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #14
 
 declare void @_ZN7rocksdb25ReleaseCacheHandleCleanupEPvS0_(ptr noundef, ptr noundef) #6
 
@@ -4470,8 +4470,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %16, align 8, !tbaa !252
   %19 = load i64, ptr %17, align 8, !tbaa !252
-  %.fr37.i42 = freeze i64 %19
-  %20 = sub i64 %18, %.fr37.i42
+  %.fr35.i40 = freeze i64 %19
+  %20 = sub i64 %18, %.fr35.i40
   %21 = icmp sgt i64 %20, 16
   br i1 %21, label %.lr.ph, label %"_ZSt14__partial_sortIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_SK_T0_.exit"
 
@@ -4480,18 +4480,18 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   br label %22
 
 22:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit"
-  %23 = phi i64 [ %20, %.lr.ph ], [ %161, %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit" ]
-  %.fr37.i44 = phi i64 [ %.fr37.i42, %.lr.ph ], [ %.fr37.i, %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit" ]
+  %23 = phi i64 [ %20, %.lr.ph ], [ %167, %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit" ]
+  %.fr35.i42 = phi i64 [ %.fr35.i40, %.lr.ph ], [ %.fr35.i, %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit" ]
   %24 = phi i64 [ %18, %.lr.ph ], [ %.us-phi.i, %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit" ]
-  %.043 = phi i64 [ %2, %.lr.ph ], [ %70, %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit" ]
-  %25 = icmp eq i64 %.043, 0
+  %.041 = phi i64 [ %2, %.lr.ph ], [ %70, %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit" ]
+  %25 = icmp eq i64 %.041, 0
   br i1 %25, label %26, label %69
 
 26:                                               ; preds = %22
   %.sroa.033.0.copyload = load ptr, ptr %0, align 8, !tbaa !245
   %.sroa.030.0.copyload = load ptr, ptr %1, align 8, !tbaa !245
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  %27 = sub i64 %24, %.fr37.i44
+  %27 = sub i64 %24, %.fr35.i42
   %28 = icmp slt i64 %27, 2
   br i1 %28, label %"_ZSt13__heap_selectIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_SK_T0_.exit.i.thread", label %29
 
@@ -4505,7 +4505,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
 
 34:                                               ; preds = %34, %29
   %.09.i.i.i = phi i64 [ %31, %29 ], [ %42, %34 ]
-  %35 = add i64 %.09.i.i.i, %.fr37.i44
+  %35 = add i64 %.09.i.i.i, %.fr35.i42
   %36 = icmp ult i64 %35, 8
   %37 = load ptr, ptr %32, align 8
   %38 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %37, i64 %35
@@ -4514,7 +4514,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %41 = getelementptr i8, ptr %40, i64 -384
   %.0.i.i.i.i.i = select i1 %36, ptr %38, ptr %41
   store ptr %.sroa.033.0.copyload, ptr %13, align 8, !tbaa !245
-  store i64 %.fr37.i44, ptr %.sroa.335.0..sroa_idx36.i.i, align 8, !tbaa !86
+  store i64 %.fr35.i42, ptr %.sroa.335.0..sroa_idx36.i.i, align 8, !tbaa !86
   call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr noundef %13, i64 noundef %.09.i.i.i, i64 noundef %27, ptr noundef nonnull byval(%"struct.rocksdb::BlobReadRequest") align 8 %.0.i.i.i.i.i)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
   %42 = add nsw i64 %.09.i.i.i, -1
@@ -4525,7 +4525,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %.sroa.3.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %43 = getelementptr i8, ptr %.sroa.030.0.copyload, i64 392
   %44 = getelementptr i8, ptr %.sroa.030.0.copyload, i64 400
-  %45 = icmp ult i64 %.fr37.i44, 8
+  %45 = icmp ult i64 %.fr35.i42, 8
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.copyload, i64 392
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.copyload, i64 400
   br i1 %45, label %"_ZSt13__heap_selectIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_SK_T0_.exit.i.thread.split.us", label %"_ZSt13__heap_selectIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_SK_T0_.exit.i.thread.split"
@@ -4544,11 +4544,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %.0.i.i.i.i5.i.us = select i1 %50, ptr %51, ptr %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i5.i.us, i64 48, i1 false)
   %54 = load ptr, ptr %46, align 8
-  %55 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %54, i64 %.fr37.i44
+  %55 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %54, i64 %.fr35.i42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i5.i.us, ptr noundef nonnull align 8 dereferenceable(48) %55, i64 48, i1 false), !tbaa.struct !262
   store ptr %.sroa.033.0.copyload, ptr %11, align 8, !tbaa !245
-  store i64 %.fr37.i44, ptr %.sroa.3.0..sroa_idx4.i.i, align 8, !tbaa !86
-  %56 = sub i64 %49, %.fr37.i44
+  store i64 %.fr35.i42, ptr %.sroa.3.0..sroa_idx4.i.i, align 8, !tbaa !86
+  %56 = sub i64 %49, %.fr35.i42
   call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr noundef %11, i64 noundef 0, i64 noundef %56, ptr noundef nonnull byval(%"struct.rocksdb::BlobReadRequest") align 8 %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
@@ -4569,12 +4569,12 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %.0.i.i.i.i5.i = select i1 %60, ptr %61, ptr %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i5.i, i64 48, i1 false)
   %64 = load ptr, ptr %47, align 8
-  %65 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %64, i64 %.fr37.i44
+  %65 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %64, i64 %.fr35.i42
   %66 = getelementptr i8, ptr %65, i64 -384
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i5.i, ptr noundef nonnull align 8 dereferenceable(48) %66, i64 48, i1 false), !tbaa.struct !262
   store ptr %.sroa.033.0.copyload, ptr %11, align 8, !tbaa !245
-  store i64 %.fr37.i44, ptr %.sroa.3.0..sroa_idx4.i.i, align 8, !tbaa !86
-  %67 = sub i64 %59, %.fr37.i44
+  store i64 %.fr35.i42, ptr %.sroa.3.0..sroa_idx4.i.i, align 8, !tbaa !86
+  %67 = sub i64 %59, %.fr35.i42
   call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr noundef %11, i64 noundef 0, i64 noundef %67, ptr noundef nonnull byval(%"struct.rocksdb::BlobReadRequest") align 8 %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
@@ -4582,12 +4582,12 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   br i1 %68, label %"_ZSt13__heap_selectIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_SK_T0_.exit.i.thread.split", label %"_ZSt14__partial_sortIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_SK_T0_.exit", !llvm.loop !319
 
 69:                                               ; preds = %22
-  %70 = add nsw i64 %.043, -1
+  %70 = add nsw i64 %.041, -1
   %.sroa.021.0.copyload = load ptr, ptr %0, align 8, !tbaa !245
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !tbaa !245
   %71 = lshr i64 %23, 1
-  %72 = add i64 %71, %.fr37.i44
-  %73 = add i64 %.fr37.i44, 1
+  %72 = add i64 %71, %.fr35.i42
+  %73 = add i64 %.fr35.i42, 1
   %74 = add i64 %24, -1
   %75 = getelementptr i8, ptr %.sroa.021.0.copyload, i64 392
   %.val18.val.i.i = load ptr, ptr %75, align 8, !noalias !320
@@ -4626,9 +4626,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   br i1 %96, label %97, label %102
 
 97:                                               ; preds = %95
-  %98 = icmp ult i64 %.fr37.i44, 8
-  %99 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %.fr37.i44
-  %100 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %.fr37.i44
+  %98 = icmp ult i64 %.fr35.i42, 8
+  %99 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %.fr35.i42
+  %100 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %.fr35.i42
   %101 = getelementptr i8, ptr %100, i64 -384
   %.0.i.i.i36.i.i = select i1 %98, ptr %99, ptr %101
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -4640,9 +4640,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
 
 102:                                              ; preds = %95
   %103 = icmp ult i64 %.val.i.i.i16, %.val1.i35.i.i
-  %104 = icmp ult i64 %.fr37.i44, 8
-  %105 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %.fr37.i44
-  %106 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %.fr37.i44
+  %104 = icmp ult i64 %.fr35.i42, 8
+  %105 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %.fr35.i42
+  %106 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %.fr35.i42
   %107 = getelementptr i8, ptr %106, i64 -384
   %.0.i.i.i41.i.i = select i1 %104, ptr %105, ptr %107
   br i1 %103, label %108, label %109
@@ -4668,9 +4668,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   br i1 %111, label %112, label %117
 
 112:                                              ; preds = %110
-  %113 = icmp ult i64 %.fr37.i44, 8
-  %114 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %.fr37.i44
-  %115 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %.fr37.i44
+  %113 = icmp ult i64 %.fr35.i42, 8
+  %114 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %.fr35.i42
+  %115 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %.fr35.i42
   %116 = getelementptr i8, ptr %115, i64 -384
   %.0.i.i.i49.i.i = select i1 %113, ptr %114, ptr %116
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
@@ -4682,9 +4682,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
 
 117:                                              ; preds = %110
   %118 = icmp ult i64 %.val1.i.i.i17, %.val1.i35.i.i
-  %119 = icmp ult i64 %.fr37.i44, 8
-  %120 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %.fr37.i44
-  %121 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %.fr37.i44
+  %119 = icmp ult i64 %.fr35.i42, 8
+  %120 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val18.val.i.i, i64 %.fr35.i42
+  %121 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val18.val22.i.i, i64 %.fr35.i42
   %122 = getelementptr i8, ptr %121, i64 -384
   %.0.i.i.i55.i.i = select i1 %119, ptr %120, ptr %122
   br i1 %118, label %123, label %124
@@ -4706,16 +4706,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   br label %125
 
 125:                                              ; preds = %124, %123, %112, %109, %108, %97
-  %126 = icmp ult i64 %.fr37.i44, 8
+  %126 = icmp ult i64 %.fr35.i42, 8
   br i1 %126, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %125, %139
-  %.sroa.217.0.us.i = phi i64 [ %storemerge.i.us.i, %139 ], [ %24, %125 ]
-  %.sroa.3.0.in.us.i = phi i64 [ %.sroa.228.0.copyload.i.us.i, %139 ], [ %.fr37.i44, %125 ]
+.split.us.i:                                      ; preds = %125, %145
+  %.sroa.217.0.us.i = phi i64 [ %storemerge.i.us.i, %145 ], [ %24, %125 ]
+  %.sroa.3.0.in.us.i = phi i64 [ %.sroa.228.0.copyload.i.us.i, %145 ], [ %.fr35.i42, %125 ]
   %.val6.val.i.us.i19 = load ptr, ptr %75, align 8, !noalias !323
   %.val6.val10.i.us.i = load ptr, ptr %76, align 8, !noalias !323
-  %invariant.gep.us.i = getelementptr i8, ptr %.val6.val10.i.us.i, i64 -384
-  %127 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val6.val.i.us.i19, i64 %.fr37.i44, i32 1
+  %127 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val6.val.i.us.i19, i64 %.fr35.i42, i32 1
   %.val1.i.i14.us.i = load i64, ptr %127, align 8, !tbaa !260, !noalias !323
   br label %128
 
@@ -4723,112 +4722,111 @@ define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_1
   %.sroa.228.0.copyload.i.in.us.i = phi i64 [ %.sroa.3.0.in.us.i, %.split.us.i ], [ %.sroa.228.0.copyload.i.us.i, %128 ]
   %.sroa.228.0.copyload.i.us.i = add i64 %.sroa.228.0.copyload.i.in.us.i, 1
   %129 = icmp ult i64 %.sroa.228.0.copyload.i.us.i, 8
-  %.0.i.i.i.i11.us.v.i = select i1 %129, ptr %.val6.val.i.us.i19, ptr %invariant.gep.us.i
-  %130 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.0.i.i.i.i11.us.v.i, i64 %.sroa.228.0.copyload.i.us.i, i32 1
-  %.val.i.i13.us.i = load i64, ptr %130, align 8, !tbaa !260, !noalias !323
-  %131 = icmp ult i64 %.val.i.i13.us.i, %.val1.i.i14.us.i
-  br i1 %131, label %128, label %132, !llvm.loop !326
+  %130 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val6.val.i.us.i19, i64 %.sroa.228.0.copyload.i.us.i
+  %131 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val6.val10.i.us.i, i64 %.sroa.228.0.copyload.i.us.i
+  %132 = getelementptr i8, ptr %131, i64 -384
+  %.0.i.i.i.i11.us.i = select i1 %129, ptr %130, ptr %132
+  %133 = getelementptr i8, ptr %.0.i.i.i.i11.us.i, i64 8
+  %.val.i.i13.us.i = load i64, ptr %133, align 8, !tbaa !260, !noalias !323
+  %134 = icmp ult i64 %.val.i.i13.us.i, %.val1.i.i14.us.i
+  br i1 %134, label %128, label %135, !llvm.loop !326
 
-132:                                              ; preds = %128
+135:                                              ; preds = %128
   %.val4.val.i.us.i = load ptr, ptr %88, align 8, !noalias !323
   %.val4.val13.i.us.i = load ptr, ptr %89, align 8, !noalias !323
-  %invariant.gep33.us.i = getelementptr i8, ptr %.val4.val13.i.us.i, i64 -384
-  br label %133
+  br label %136
 
-133:                                              ; preds = %133, %132
-  %storemerge.in.i.us.i = phi i64 [ %.sroa.217.0.us.i, %132 ], [ %storemerge.i.us.i, %133 ]
+136:                                              ; preds = %136, %135
+  %storemerge.in.i.us.i = phi i64 [ %.sroa.217.0.us.i, %135 ], [ %storemerge.i.us.i, %136 ]
   %storemerge.i.us.i = add i64 %storemerge.in.i.us.i, -1
-  %134 = icmp ult i64 %storemerge.i.us.i, 8
-  %.0.i.i2.i15.i.us.v.i = select i1 %134, ptr %.val4.val.i.us.i, ptr %invariant.gep33.us.i
-  %.0.i.i2.i15.i.us.i = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.0.i.i2.i15.i.us.v.i, i64 %storemerge.i.us.i
-  %135 = getelementptr i8, ptr %.0.i.i2.i15.i.us.i, i64 8
-  %.val1.i17.i.us.i = load i64, ptr %135, align 8, !tbaa !260, !noalias !323
-  %136 = icmp ult i64 %.val1.i.i14.us.i, %.val1.i17.i.us.i
-  br i1 %136, label %133, label %137, !llvm.loop !327
+  %137 = icmp ult i64 %storemerge.i.us.i, 8
+  %138 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val4.val.i.us.i, i64 %storemerge.i.us.i
+  %139 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val4.val13.i.us.i, i64 %storemerge.i.us.i
+  %140 = getelementptr i8, ptr %139, i64 -384
+  %.0.i.i2.i15.i.us.i = select i1 %137, ptr %138, ptr %140
+  %141 = getelementptr i8, ptr %.0.i.i2.i15.i.us.i, i64 8
+  %.val1.i17.i.us.i = load i64, ptr %141, align 8, !tbaa !260, !noalias !323
+  %142 = icmp ult i64 %.val1.i.i14.us.i, %.val1.i17.i.us.i
+  br i1 %142, label %136, label %143, !llvm.loop !327
 
-137:                                              ; preds = %133
-  %138 = icmp ult i64 %.sroa.228.0.copyload.i.us.i, %storemerge.i.us.i
-  br i1 %138, label %139, label %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit"
+143:                                              ; preds = %136
+  %144 = icmp ult i64 %.sroa.228.0.copyload.i.us.i, %storemerge.i.us.i
+  br i1 %144, label %145, label %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit"
 
-139:                                              ; preds = %137
-  %140 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val6.val.i.us.i19, i64 %.sroa.228.0.copyload.i.us.i
-  %141 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val6.val10.i.us.i, i64 %.sroa.228.0.copyload.i.us.i
-  %142 = getelementptr i8, ptr %141, i64 -384
-  %.0.i.i.i18.i.us.i = select i1 %129, ptr %140, ptr %142
+145:                                              ; preds = %143
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i18.i.us.i, i64 48, i1 false), !tbaa.struct !262, !noalias !323
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i18.i.us.i, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i2.i15.i.us.i, i64 48, i1 false), !tbaa.struct !262, !noalias !323
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i11.us.i, i64 48, i1 false), !tbaa.struct !262, !noalias !323
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i11.us.i, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i2.i15.i.us.i, i64 48, i1 false), !tbaa.struct !262, !noalias !323
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i2.i15.i.us.i, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !tbaa.struct !262, !noalias !323
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   br label %.split.us.i, !llvm.loop !328
 
-.split.i:                                         ; preds = %125, %156
-  %.sroa.217.0.i = phi i64 [ %storemerge.i.i, %156 ], [ %24, %125 ]
-  %.sroa.3.0.in.i = phi i64 [ %.sroa.228.0.copyload.i.i, %156 ], [ %.fr37.i44, %125 ]
+.split.i:                                         ; preds = %125, %165
+  %.sroa.217.0.i = phi i64 [ %storemerge.i.i, %165 ], [ %24, %125 ]
+  %.sroa.3.0.in.i = phi i64 [ %.sroa.228.0.copyload.i.i, %165 ], [ %.fr35.i42, %125 ]
   %.val6.val.i.i = load ptr, ptr %75, align 8, !noalias !323
   %.val6.val10.i.i = load ptr, ptr %76, align 8, !noalias !323
-  %invariant.gep.i = getelementptr i8, ptr %.val6.val10.i.i, i64 -384
-  %143 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val6.val10.i.i, i64 %.fr37.i44
-  %144 = getelementptr i8, ptr %143, i64 -376
-  %.val1.i.i14.i = load i64, ptr %144, align 8, !tbaa !260, !noalias !323
-  br label %145
+  %146 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val6.val10.i.i, i64 %.fr35.i42
+  %147 = getelementptr i8, ptr %146, i64 -376
+  %.val1.i.i14.i = load i64, ptr %147, align 8, !tbaa !260, !noalias !323
+  br label %148
 
-145:                                              ; preds = %145, %.split.i
-  %.sroa.228.0.copyload.i.in.i = phi i64 [ %.sroa.3.0.in.i, %.split.i ], [ %.sroa.228.0.copyload.i.i, %145 ]
+148:                                              ; preds = %148, %.split.i
+  %.sroa.228.0.copyload.i.in.i = phi i64 [ %.sroa.3.0.in.i, %.split.i ], [ %.sroa.228.0.copyload.i.i, %148 ]
   %.sroa.228.0.copyload.i.i = add i64 %.sroa.228.0.copyload.i.in.i, 1
-  %146 = icmp ult i64 %.sroa.228.0.copyload.i.i, 8
-  %.0.i.i.i.i11.v.i = select i1 %146, ptr %.val6.val.i.i, ptr %invariant.gep.i
-  %147 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.0.i.i.i.i11.v.i, i64 %.sroa.228.0.copyload.i.i, i32 1
-  %.val.i.i13.i = load i64, ptr %147, align 8, !tbaa !260, !noalias !323
-  %148 = icmp ult i64 %.val.i.i13.i, %.val1.i.i14.i
-  br i1 %148, label %145, label %149, !llvm.loop !326
+  %149 = icmp ult i64 %.sroa.228.0.copyload.i.i, 8
+  %150 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val6.val.i.i, i64 %.sroa.228.0.copyload.i.i
+  %151 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val6.val10.i.i, i64 %.sroa.228.0.copyload.i.i
+  %152 = getelementptr i8, ptr %151, i64 -384
+  %.0.i.i.i.i11.i = select i1 %149, ptr %150, ptr %152
+  %153 = getelementptr i8, ptr %.0.i.i.i.i11.i, i64 8
+  %.val.i.i13.i = load i64, ptr %153, align 8, !tbaa !260, !noalias !323
+  %154 = icmp ult i64 %.val.i.i13.i, %.val1.i.i14.i
+  br i1 %154, label %148, label %155, !llvm.loop !326
 
-149:                                              ; preds = %145
+155:                                              ; preds = %148
   %.val4.val.i.i = load ptr, ptr %88, align 8, !noalias !323
   %.val4.val13.i.i = load ptr, ptr %89, align 8, !noalias !323
-  %invariant.gep33.i = getelementptr i8, ptr %.val4.val13.i.i, i64 -384
-  br label %150
+  br label %156
 
-150:                                              ; preds = %150, %149
-  %storemerge.in.i.i = phi i64 [ %.sroa.217.0.i, %149 ], [ %storemerge.i.i, %150 ]
+156:                                              ; preds = %156, %155
+  %storemerge.in.i.i = phi i64 [ %.sroa.217.0.i, %155 ], [ %storemerge.i.i, %156 ]
   %storemerge.i.i = add i64 %storemerge.in.i.i, -1
-  %151 = icmp ult i64 %storemerge.i.i, 8
-  %.0.i.i2.i15.i.v.i = select i1 %151, ptr %.val4.val.i.i, ptr %invariant.gep33.i
-  %.0.i.i2.i15.i.i = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.0.i.i2.i15.i.v.i, i64 %storemerge.i.i
-  %152 = getelementptr i8, ptr %.0.i.i2.i15.i.i, i64 8
-  %.val1.i17.i.i = load i64, ptr %152, align 8, !tbaa !260, !noalias !323
-  %153 = icmp ult i64 %.val1.i.i14.i, %.val1.i17.i.i
-  br i1 %153, label %150, label %154, !llvm.loop !327
+  %157 = icmp ult i64 %storemerge.i.i, 8
+  %158 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val4.val.i.i, i64 %storemerge.i.i
+  %159 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val4.val13.i.i, i64 %storemerge.i.i
+  %160 = getelementptr i8, ptr %159, i64 -384
+  %.0.i.i2.i15.i.i = select i1 %157, ptr %158, ptr %160
+  %161 = getelementptr i8, ptr %.0.i.i2.i15.i.i, i64 8
+  %.val1.i17.i.i = load i64, ptr %161, align 8, !tbaa !260, !noalias !323
+  %162 = icmp ult i64 %.val1.i.i14.i, %.val1.i17.i.i
+  br i1 %162, label %156, label %163, !llvm.loop !327
 
-154:                                              ; preds = %150
-  %155 = icmp ult i64 %.sroa.228.0.copyload.i.i, %storemerge.i.i
-  br i1 %155, label %156, label %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit"
+163:                                              ; preds = %156
+  %164 = icmp ult i64 %.sroa.228.0.copyload.i.i, %storemerge.i.i
+  br i1 %164, label %165, label %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit"
 
-156:                                              ; preds = %154
-  %157 = getelementptr inbounds nuw %"struct.rocksdb::BlobReadRequest", ptr %.val6.val.i.i, i64 %.sroa.228.0.copyload.i.i
-  %158 = getelementptr %"struct.rocksdb::BlobReadRequest", ptr %.val6.val10.i.i, i64 %.sroa.228.0.copyload.i.i
-  %159 = getelementptr i8, ptr %158, i64 -384
-  %.0.i.i.i18.i.i = select i1 %146, ptr %157, ptr %159
+165:                                              ; preds = %163
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i18.i.i, i64 48, i1 false), !tbaa.struct !262, !noalias !323
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i18.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i2.i15.i.i, i64 48, i1 false), !tbaa.struct !262, !noalias !323
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i11.i, i64 48, i1 false), !tbaa.struct !262, !noalias !323
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i11.i, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i2.i15.i.i, i64 48, i1 false), !tbaa.struct !262, !noalias !323
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i2.i15.i.i, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !tbaa.struct !262, !noalias !323
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   br label %.split.i, !llvm.loop !329
 
-"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit": ; preds = %154, %137
-  %.us-phi.i = phi i64 [ %.sroa.228.0.copyload.i.us.i, %137 ], [ %.sroa.228.0.copyload.i.i, %154 ]
+"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit": ; preds = %163, %143
+  %.us-phi.i = phi i64 [ %.sroa.228.0.copyload.i.us.i, %143 ], [ %.sroa.228.0.copyload.i.i, %163 ]
   store ptr %.sroa.021.0.copyload, ptr %14, align 8, !tbaa !245
   store i64 %.us-phi.i, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !330
   call fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_T1_"(ptr noundef %14, ptr noundef %15, i64 noundef %70)
   store ptr %.sroa.021.0.copyload, ptr %1, align 8, !tbaa !245
   store i64 %.us-phi.i, ptr %16, align 8, !tbaa !86
-  %160 = load i64, ptr %17, align 8, !tbaa !252
-  %.fr37.i = freeze i64 %160
-  %161 = sub i64 %.us-phi.i, %.fr37.i
-  %162 = icmp sgt i64 %161, 16
-  br i1 %162, label %22, label %"_ZSt14__partial_sortIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_SK_T0_.exit", !llvm.loop !331
+  %166 = load i64, ptr %17, align 8, !tbaa !252
+  %.fr35.i = freeze i64 %166
+  %167 = sub i64 %.us-phi.i, %.fr35.i
+  %168 = icmp sgt i64 %167, 16
+  br i1 %168, label %22, label %"_ZSt14__partial_sortIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_SK_T0_.exit", !llvm.loop !331
 
 "_ZSt14__partial_sortIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_SK_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEET_SK_SK_T0_.exit", %"_ZSt13__heap_selectIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_SK_T0_.exit.i.thread.split", %"_ZSt13__heap_selectIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_SK_T0_.exit.i.thread.split.us", %3
   ret void
@@ -5367,7 +5365,7 @@ _ZNSt12_Vector_baseISt4pairIPN7rocksdb15BlobReadRequestESt10unique_ptrINS1_12Blo
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_blob_source.cc() #20 section ".text.startup" {
@@ -5409,10 +5407,10 @@ attributes #8 = { noinline noreturn nounwind uwtable "frame-pointer"="non-leaf" 
 attributes #9 = { cold nofree noreturn }
 attributes #10 = { mustprogress noinline nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #11 = { nobuiltin nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #12 = { inlinehint mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { noreturn "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { noreturn "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #15 = { inlinehint mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #16 = { nounwind "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #17 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }

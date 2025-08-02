@@ -997,8 +997,8 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$polars_core..frame.
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr56drop_in_place$LT$polars_ffi..version_0..SeriesExport$GT$17h0747d57a6f5fada8E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 {
+; Function Attrs: nounwind nonlazybind uwtable
+define hidden void @"_ZN4core3ptr56drop_in_place$LT$polars_ffi..version_0..SeriesExport$GT$17h0747d57a6f5fada8E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !193, !noundef !15
   %.not.i = icmp eq ptr %3, null
@@ -3154,8 +3154,8 @@ define hidden void @"_ZN4core3ptr96drop_in_place$LT$alloc..vec..Vec$LT$$BP$mut$u
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$polars_ffi..version_0..SeriesExport$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5bed72b6b821cdd7E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 {
+; Function Attrs: nounwind nonlazybind uwtable
+define void @"_ZN77_$LT$polars_ffi..version_0..SeriesExport$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5bed72b6b821cdd7E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !noundef !15
   %.not = icmp eq ptr %3, null

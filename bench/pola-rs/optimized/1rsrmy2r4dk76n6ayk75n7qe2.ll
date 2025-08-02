@@ -24514,22 +24514,22 @@ define hidden { i64, i64 } @_ZN21polars_parquet_format6thrift6varint6decode15Var
   br i1 %8, label %.loopexit, label %.lr.ph.i.i
 
 9:                                                ; preds = %.lr.ph.i.i
-  %10 = add nuw nsw i64 %.sroa.05.015.i.i, 7
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.09.017.i.i, i64 1
+  %10 = add nuw nsw i64 %.sroa.05.012.i.i, 7
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i.i, i64 1
   %12 = icmp eq ptr %11, %7
   br i1 %12, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit", %9
-  %.sroa.09.017.i.i = phi ptr [ %11, %9 ], [ %6, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit" ]
-  %.sroa.03.016.i.i = phi i64 [ %17, %9 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit" ]
-  %.sroa.05.015.i.i = phi i64 [ %10, %9 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit" ]
-  %13 = load i8, ptr %.sroa.09.017.i.i, align 1, !alias.scope !1958, !noalias !1963, !noundef !6
+  %.sroa.09.014.i.i = phi ptr [ %11, %9 ], [ %6, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit" ]
+  %.sroa.03.013.i.i = phi i64 [ %17, %9 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit" ]
+  %.sroa.05.012.i.i = phi i64 [ %10, %9 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit" ]
+  %13 = load i8, ptr %.sroa.09.014.i.i, align 1, !alias.scope !1958, !noalias !1963, !noundef !6
   %14 = and i8 %13, 127
   %15 = zext nneg i8 %14 to i64
-  %16 = shl i64 %15, %.sroa.05.015.i.i
-  %17 = or i64 %16, %.sroa.03.016.i.i
+  %16 = shl i64 %15, %.sroa.05.012.i.i
+  %17 = or i64 %16, %.sroa.03.013.i.i
   %18 = icmp sgt i8 %13, -1
-  %19 = icmp samesign ugt i64 %.sroa.05.015.i.i, 56
+  %19 = icmp samesign ugt i64 %.sroa.05.012.i.i, 56
   %or.cond.i.i = select i1 %18, i1 true, i1 %19
   br i1 %or.cond.i.i, label %20, label %9
 

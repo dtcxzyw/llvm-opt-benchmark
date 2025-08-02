@@ -240,57 +240,57 @@ define i32 @wc_export_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   %or.cond = or i1 %7, %8
   %9 = icmp eq ptr %2, null
   %or.cond3 = or i1 %or.cond, %9
-  br i1 %or.cond3, label %33, label %10
+  br i1 %or.cond3, label %32, label %10
 
 10:                                               ; preds = %5
   %11 = icmp eq i32 %4, 1
-  br i1 %11, label %12, label %23
+  br i1 %11, label %12, label %22
 
 12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
   store i32 0, ptr %6, align 4, !tbaa !16
   %13 = call i32 @sp_radix_size(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %6) #6
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %22
+  br i1 %14, label %15, label %21
 
 15:                                               ; preds = %12
   %16 = load i32, ptr %2, align 4, !tbaa !16
   %17 = load i32, ptr %6, align 4, !tbaa !16
   %18 = icmp ult i32 %16, %17
   store i32 %17, ptr %2, align 4, !tbaa !16
-  br i1 %18, label %21, label %19
+  br i1 %18, label %.critedge, label %19
+
+.critedge:                                        ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  br label %32
 
 19:                                               ; preds = %15
   %20 = call i32 @sp_tohex(ptr noundef nonnull %0, ptr noundef nonnull %1) #6
-  br label %22
+  br label %21
 
-21:                                               ; preds = %15
+21:                                               ; preds = %12, %19
+  %.1 = phi i32 [ %20, %19 ], [ %13, %12 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  br label %33
+  br label %32
 
-22:                                               ; preds = %19, %12
-  %.1.ph = phi i32 [ %13, %12 ], [ %20, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  br label %33
-
-23:                                               ; preds = %10
-  %24 = load i32, ptr %2, align 4, !tbaa !16
-  %25 = icmp ult i32 %24, %3
+22:                                               ; preds = %10
+  %23 = load i32, ptr %2, align 4, !tbaa !16
+  %24 = icmp ult i32 %23, %3
   store i32 %3, ptr %2, align 4, !tbaa !16
-  br i1 %25, label %33, label %26
+  br i1 %24, label %32, label %25
 
-26:                                               ; preds = %23
-  %27 = zext i32 %3 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %27, i1 false)
-  %28 = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %0) #6
-  %29 = sub i32 %3, %28
-  %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
-  %32 = tail call i32 @sp_to_unsigned_bin(ptr noundef nonnull %0, ptr noundef %31) #6
-  br label %33
+25:                                               ; preds = %22
+  %26 = zext i32 %3 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %26, i1 false)
+  %27 = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %0) #6
+  %28 = sub i32 %3, %27
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %29
+  %31 = tail call i32 @sp_to_unsigned_bin(ptr noundef nonnull %0, ptr noundef %30) #6
+  br label %32
 
-33:                                               ; preds = %23, %22, %21, %26, %5
-  %.029 = phi i32 [ -173, %5 ], [ %32, %26 ], [ %.1.ph, %22 ], [ -132, %21 ], [ -132, %23 ]
+32:                                               ; preds = %22, %25, %21, %.critedge, %5
+  %.029 = phi i32 [ -173, %5 ], [ -132, %.critedge ], [ %.1, %21 ], [ %31, %25 ], [ -132, %22 ]
   ret i32 %.029
 }
 

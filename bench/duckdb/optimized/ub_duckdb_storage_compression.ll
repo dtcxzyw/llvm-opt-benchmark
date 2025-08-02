@@ -5254,8 +5254,8 @@ define void @_ZN6duckdb21UncompressedFunctions8CompressERNS_16CompressionStateER
           to label %.preheader unwind label %12
 
 .preheader:                                       ; preds = %3
-  %.not36 = icmp eq i64 %2, 0
-  br i1 %.not36, label %.thread, label %.lr.ph
+  %.not34 = icmp eq i64 %2, 0
+  br i1 %.not34, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5263,18 +5263,18 @@ define void @_ZN6duckdb21UncompressedFunctions8CompressERNS_16CompressionStateER
   br label %7
 
 7:                                                ; preds = %33, %.lr.ph
-  %.038 = phi i64 [ %2, %.lr.ph ], [ %35, %33 ]
-  %.02637 = phi i64 [ 0, %.lr.ph ], [ %34, %33 ]
+  %.036 = phi i64 [ %2, %.lr.ph ], [ %35, %33 ]
+  %.02635 = phi i64 [ 0, %.lr.ph ], [ %34, %33 ]
   %8 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %9 unwind label %14
 
 9:                                                ; preds = %7
-  %10 = invoke noundef i64 @_ZN6duckdb13ColumnSegment6AppendERNS_17ColumnAppendStateERNS_19UnifiedVectorFormatEmm(ptr noundef nonnull align 8 dereferenceable(224) %8, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 noundef %.02637, i64 noundef %.038)
+  %10 = invoke noundef i64 @_ZN6duckdb13ColumnSegment6AppendERNS_17ColumnAppendStateERNS_19UnifiedVectorFormatEmm(ptr noundef nonnull align 8 dereferenceable(224) %8, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 noundef %.02635, i64 noundef %.036)
           to label %11 unwind label %14
 
 11:                                               ; preds = %9
-  %.not33 = icmp eq i64 %10, %.038
-  br i1 %.not33, label %.thread, label %16
+  %.not33 = icmp eq i64 %10, %.036
+  br i1 %.not33, label %.critedge, label %16
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
@@ -5318,8 +5318,8 @@ define void @_ZN6duckdb21UncompressedFunctions8CompressERNS_16CompressionStateER
           to label %33 unwind label %36
 
 33:                                               ; preds = %29
-  %34 = add i64 %10, %.02637
-  %35 = sub i64 %.038, %10
+  %34 = add i64 %10, %.02635
+  %35 = sub i64 %.036, %10
   br label %7
 
 36:                                               ; preds = %29, %28, %26, %21, %18, %16
@@ -5327,13 +5327,13 @@ define void @_ZN6duckdb21UncompressedFunctions8CompressERNS_16CompressionStateER
           cleanup
   br label %84
 
-.thread:                                          ; preds = %11, %.preheader
+.critedge:                                        ; preds = %11, %.preheader
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %39 = load ptr, ptr %38, align 8, !tbaa !210
   %.not.i.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i.i, label %_ZN6duckdb15SelectionVectorD2Ev.exit.i, label %40
 
-40:                                               ; preds = %.thread
+40:                                               ; preds = %.critedge
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load atomic i64, ptr %41 acquire, align 8
   %43 = icmp eq i64 %42, 4294967297
@@ -5377,7 +5377,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %57, 
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #33
   br label %_ZN6duckdb15SelectionVectorD2Ev.exit.i
 
-_ZN6duckdb15SelectionVectorD2Ev.exit.i:           ; preds = %60, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %45, %.thread
+_ZN6duckdb15SelectionVectorD2Ev.exit.i:           ; preds = %60, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %45, %.critedge
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !210
   %.not.i.i.i.i1.i = icmp eq ptr %62, null
@@ -8250,23 +8250,23 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %31, %33
   %39 = getelementptr inbounds nuw i32, ptr %20, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !216
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %44, label %41
+  br i1 %.not, label %45, label %41
 
 41:                                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit
   %42 = getelementptr i8, ptr %39, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !216
-  br label %44
+  %44 = tail call i32 @llvm.abs.i32(i32 %43, i1 true)
+  br label %45
 
-44:                                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit, %41
-  %45 = phi i32 [ %43, %41 ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ]
-  %46 = tail call i32 @llvm.abs.i32(i32 %40, i1 true)
-  %47 = tail call i32 @llvm.abs.i32(i32 %45, i1 true)
-  %48 = sub nsw i32 %46, %47
+45:                                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit, %41
+  %46 = phi i32 [ %44, %41 ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ]
+  %47 = tail call i32 @llvm.abs.i32(i32 %40, i1 true)
+  %48 = sub nsw i32 %47, %46
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i.sroa.2)
   %49 = icmp sgt i32 %40, -1
   br i1 %49, label %50, label %61, !prof !426
 
-50:                                               ; preds = %44
+50:                                               ; preds = %45
   %51 = zext nneg i32 %40 to i64
   %52 = sub nsw i64 0, %51
   %53 = getelementptr inbounds i8, ptr %30, i64 %52
@@ -8275,7 +8275,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %31, %33
 
 55:                                               ; preds = %50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.i.sroa.2, i8 0, i64 12, i1 false)
-  %56 = icmp eq i32 %46, %47
+  %56 = icmp eq i32 %47, %46
   br i1 %56, label %_ZN6duckdb25UncompressedStringStorage19FetchStringFromDictERNS_13ColumnSegmentEjRNS_6VectorEPhij.exit, label %57
 
 57:                                               ; preds = %55
@@ -8289,7 +8289,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %31, %33
   %60 = load i32, ptr %53, align 1
   br label %_ZN6duckdb25UncompressedStringStorage19FetchStringFromDictERNS_13ColumnSegmentEjRNS_6VectorEPhij.exit
 
-61:                                               ; preds = %44
+61:                                               ; preds = %45
   %62 = sub nsw i32 0, %40
   %63 = zext nneg i32 %62 to i64
   %64 = sub nsw i64 0, %63
@@ -12810,7 +12810,7 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %78 = zext i8 %2 to i16
   %79 = zext i8 %2 to i64
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %.sroa.2.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %.sroa.2.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -12890,47 +12890,46 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
 
 129:                                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !550)
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %131 = getelementptr inbounds nuw i8, ptr %68, i64 8
   br label %132
 
 132:                                              ; preds = %132, %129
-  %indvars.iv.i17 = phi i64 [ 0, %129 ], [ %indvars.iv.next.i18, %132 ]
-  %133 = mul nuw nsw i64 %indvars.iv.i17, 3
-  %134 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %indvars.iv.i17
-  %135 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %134), !noalias !550
-  %136 = getelementptr inbounds nuw i32, ptr %1, i64 %133
-  store i32 %135, ptr %136, align 4, !tbaa !216, !alias.scope !550, !noalias !553
+  %indvars.iv.i17 = phi i64 [ 0, %129 ], [ %indvars.iv.next.i19, %132 ]
+  %133 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %indvars.iv.i17
+  %134 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %133), !noalias !550
+  %.idx.i18 = mul nuw nsw i64 %indvars.iv.i17, 12
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i18
+  store i32 %134, ptr %135, align 4, !tbaa !216, !alias.scope !550, !noalias !553
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66) #33, !noalias !555
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %67) #33, !noalias !555
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %67, i64 noundef 32), !noalias !550
-  %137 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 8 dereferenceable(16) %67), !noalias !550
-  %138 = extractvalue { i64, i64 } %137, 0
-  store i64 %138, ptr %66, align 8, !noalias !555
-  %139 = extractvalue { i64, i64 } %137, 1
-  store i64 %139, ptr %130, align 8, !noalias !555
-  %140 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %66), !noalias !550
-  %141 = getelementptr inbounds nuw i8, ptr %136, i64 4
-  store i32 %140, ptr %141, align 4, !tbaa !216, !alias.scope !550, !noalias !553
+  %136 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(16) %67), !noalias !550
+  %137 = extractvalue { i64, i64 } %136, 0
+  store i64 %137, ptr %66, align 8, !noalias !555
+  %138 = extractvalue { i64, i64 } %136, 1
+  store i64 %138, ptr %130, align 8, !noalias !555
+  %139 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %66), !noalias !550
+  %140 = getelementptr inbounds nuw i8, ptr %135, i64 4
+  store i32 %139, ptr %140, align 4, !tbaa !216, !alias.scope !550, !noalias !553
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67) #33, !noalias !555
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #33, !noalias !555
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68) #33, !noalias !555
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69) #33, !noalias !555
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %69, i64 noundef 64), !noalias !550
-  %142 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 8 dereferenceable(16) %69), !noalias !550
-  %143 = extractvalue { i64, i64 } %142, 0
-  store i64 %143, ptr %68, align 8, !noalias !555
-  %144 = extractvalue { i64, i64 } %142, 1
-  store i64 %144, ptr %131, align 8, !noalias !555
-  %145 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %68), !noalias !550
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %133
-  store i32 %145, ptr %gep.i, align 4, !tbaa !216, !alias.scope !550, !noalias !553
+  %141 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(16) %69), !noalias !550
+  %142 = extractvalue { i64, i64 } %141, 0
+  store i64 %142, ptr %68, align 8, !noalias !555
+  %143 = extractvalue { i64, i64 } %141, 1
+  store i64 %143, ptr %131, align 8, !noalias !555
+  %144 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %68), !noalias !550
+  %145 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  store i32 %144, ptr %145, align 4, !tbaa !216, !alias.scope !550, !noalias !553
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69) #33, !noalias !555
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68) #33, !noalias !555
-  %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
-  %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, 32
-  br i1 %exitcond.not.i19, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit, label %132, !llvm.loop !556
+  %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i17, 1
+  %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, 32
+  br i1 %exitcond.not.i20, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit, label %132, !llvm.loop !556
 
 146:                                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !557)
@@ -12940,11 +12939,11 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   br label %150
 
 150:                                              ; preds = %150, %146
-  %indvars.iv.i20 = phi i64 [ 0, %146 ], [ %indvars.iv.next.i22, %150 ]
-  %151 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %indvars.iv.i20
+  %indvars.iv.i21 = phi i64 [ 0, %146 ], [ %indvars.iv.next.i23, %150 ]
+  %151 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %indvars.iv.i21
   %152 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %151), !noalias !557
-  %.idx.i21 = shl nuw nsw i64 %indvars.iv.i20, 4
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i21
+  %.idx.i22 = shl nuw nsw i64 %indvars.iv.i21, 4
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i22
   store i32 %152, ptr %153, align 4, !tbaa !216, !alias.scope !557, !noalias !560
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60) #33, !noalias !562
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61) #33, !noalias !562
@@ -12985,9 +12984,9 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   store i32 %167, ptr %168, align 4, !tbaa !216, !alias.scope !557, !noalias !560
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #33, !noalias !562
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64) #33, !noalias !562
-  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
-  %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 32
-  br i1 %exitcond.not.i23, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit, label %150, !llvm.loop !563
+  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i21, 1
+  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 32
+  br i1 %exitcond.not.i24, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit, label %150, !llvm.loop !563
 
 169:                                              ; preds = %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !564)
@@ -13074,13 +13073,13 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   br label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit
 
 209:                                              ; preds = %.preheader, %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
-  %.052 = phi i64 [ 0, %.preheader ], [ %409, %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit ]
-  %.04751 = phi ptr [ %1, %.preheader ], [ %.1, %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit ]
-  %210 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %.052
+  %.053 = phi i64 [ 0, %.preheader ], [ %409, %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit ]
+  %.04852 = phi ptr [ %1, %.preheader ], [ %.1, %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit ]
+  %210 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %.053
   %.sroa.0.0.copyload = load i64, ptr %210, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !19
-  %211 = mul nuw nsw i64 %.052, %79
+  %211 = mul nuw nsw i64 %.053, %79
   %212 = trunc nuw nsw i64 %211 to i16
   %213 = and i16 %212, 31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72) #33
@@ -13101,12 +13100,12 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i64 %218, ptr %51, align 8
-  store i64 %219, ptr %.sroa.2.0..sroa_idx26, align 8
+  store i64 %219, ptr %.sroa.2.0..sroa_idx27, align 8
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
   store i64 %.sroa.2.0.copyload, ptr %81, align 8
   %220 = zext nneg i16 %213 to i32
-  %narrow.i24 = add nuw nsw i16 %213, %78
-  %221 = icmp samesign ult i16 %narrow.i24, 32
+  %narrow.i25 = add nuw nsw i16 %213, %78
+  %221 = icmp samesign ult i16 %narrow.i25, 32
   br i1 %221, label %222, label %240
 
 222:                                              ; preds = %209
@@ -13121,7 +13120,7 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %227 = extractvalue { i64, i64 } %225, 1
   store i64 %227, ptr %112, align 8
   %228 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store i32 %228, ptr %.04751, align 4, !tbaa !216
+  store i32 %228, ptr %.04852, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #33
   br label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
 
@@ -13142,16 +13141,16 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %236 = extractvalue { i64, i64 } %234, 1
   store i64 %236, ptr %111, align 8
   %237 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  %238 = load i32, ptr %.04751, align 4, !tbaa !216
+  %238 = load i32, ptr %.04852, align 4, !tbaa !216
   %239 = or i32 %238, %237
-  store i32 %239, ptr %.04751, align 4, !tbaa !216
+  store i32 %239, ptr %.04852, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #33
   br label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
 
 240:                                              ; preds = %209
-  %241 = icmp samesign ult i16 %narrow.i24, 64
+  %241 = icmp samesign ult i16 %narrow.i25, 64
   br i1 %241, label %242, label %272
 
 242:                                              ; preds = %240
@@ -13166,7 +13165,7 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %247 = extractvalue { i64, i64 } %245, 1
   store i64 %247, ptr %107, align 8
   %248 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store i32 %248, ptr %.04751, align 4, !tbaa !216
+  store i32 %248, ptr %.04852, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #33
   br label %260
 
@@ -13187,17 +13186,17 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %256 = extractvalue { i64, i64 } %254, 1
   store i64 %256, ptr %106, align 8
   %257 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %258 = load i32, ptr %.04751, align 4, !tbaa !216
+  %258 = load i32, ptr %.04852, align 4, !tbaa !216
   %259 = or i32 %258, %257
-  store i32 %259, ptr %.04751, align 4, !tbaa !216
+  store i32 %259, ptr %.04852, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #33
   br label %260
 
 260:                                              ; preds = %249, %244
-  %261 = getelementptr inbounds nuw i8, ptr %.04751, i64 4
-  %.not67.i = icmp eq i16 %narrow.i24, 32
+  %261 = getelementptr inbounds nuw i8, ptr %.04852, i64 4
+  %.not67.i = icmp eq i16 %narrow.i25, 32
   br i1 %.not67.i, label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit, label %262
 
 262:                                              ; preds = %260
@@ -13225,7 +13224,7 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   br label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
 
 272:                                              ; preds = %240
-  %273 = icmp samesign ult i16 %narrow.i24, 96
+  %273 = icmp samesign ult i16 %narrow.i25, 96
   br i1 %273, label %274, label %311
 
 274:                                              ; preds = %272
@@ -13240,7 +13239,7 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %279 = extractvalue { i64, i64 } %277, 1
   store i64 %279, ptr %100, align 8
   %280 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  store i32 %280, ptr %.04751, align 4, !tbaa !216
+  store i32 %280, ptr %.04852, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #33
   br label %289
 
@@ -13255,9 +13254,9 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %285 = extractvalue { i64, i64 } %283, 1
   store i64 %285, ptr %99, align 8
   %286 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
-  %287 = load i32, ptr %.04751, align 4, !tbaa !216
+  %287 = load i32, ptr %.04852, align 4, !tbaa !216
   %288 = or i32 %287, %286
-  store i32 %288, ptr %.04751, align 4, !tbaa !216
+  store i32 %288, ptr %.04852, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #33
   br label %289
@@ -13280,13 +13279,13 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %297 = extractvalue { i64, i64 } %295, 1
   store i64 %297, ptr %102, align 8
   %298 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
-  %299 = getelementptr inbounds nuw i8, ptr %.04751, i64 4
+  %299 = getelementptr inbounds nuw i8, ptr %.04852, i64 4
   store i32 %298, ptr %299, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #33
-  %300 = getelementptr inbounds nuw i8, ptr %.04751, i64 8
-  %.not66.i = icmp eq i16 %narrow.i24, 64
+  %300 = getelementptr inbounds nuw i8, ptr %.04852, i64 8
+  %.not66.i = icmp eq i16 %narrow.i25, 64
   br i1 %.not66.i, label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit, label %301
 
 301:                                              ; preds = %289
@@ -13314,7 +13313,7 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   br label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
 
 311:                                              ; preds = %272
-  %312 = icmp samesign ult i16 %narrow.i24, 128
+  %312 = icmp samesign ult i16 %narrow.i25, 128
   br i1 %312, label %313, label %360
 
 313:                                              ; preds = %311
@@ -13329,7 +13328,7 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %318 = extractvalue { i64, i64 } %316, 1
   store i64 %318, ptr %92, align 8
   %319 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
-  store i32 %319, ptr %.04751, align 4, !tbaa !216
+  store i32 %319, ptr %.04852, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #33
   br label %328
 
@@ -13344,9 +13343,9 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %324 = extractvalue { i64, i64 } %322, 1
   store i64 %324, ptr %91, align 8
   %325 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
-  %326 = load i32, ptr %.04751, align 4, !tbaa !216
+  %326 = load i32, ptr %.04852, align 4, !tbaa !216
   %327 = or i32 %326, %325
-  store i32 %327, ptr %.04751, align 4, !tbaa !216
+  store i32 %327, ptr %.04852, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #33
   br label %328
@@ -13369,7 +13368,7 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %336 = extractvalue { i64, i64 } %334, 1
   store i64 %336, ptr %94, align 8
   %337 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
-  %338 = getelementptr inbounds nuw i8, ptr %.04751, i64 4
+  %338 = getelementptr inbounds nuw i8, ptr %.04852, i64 4
   store i32 %337, ptr %338, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #33
@@ -13391,13 +13390,13 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %346 = extractvalue { i64, i64 } %344, 1
   store i64 %346, ptr %96, align 8
   %347 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
-  %348 = getelementptr inbounds nuw i8, ptr %.04751, i64 8
+  %348 = getelementptr inbounds nuw i8, ptr %.04852, i64 8
   store i32 %347, ptr %348, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #33
-  %349 = getelementptr inbounds nuw i8, ptr %.04751, i64 12
-  %.not65.i = icmp eq i16 %narrow.i24, 96
+  %349 = getelementptr inbounds nuw i8, ptr %.04852, i64 12
+  %.not65.i = icmp eq i16 %narrow.i25, 96
   br i1 %.not65.i, label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit, label %350
 
 350:                                              ; preds = %328
@@ -13435,9 +13434,9 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %364 = extractvalue { i64, i64 } %362, 1
   store i64 %364, ptr %82, align 8
   %365 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %37)
-  %366 = load i32, ptr %.04751, align 4, !tbaa !216
+  %366 = load i32, ptr %.04852, align 4, !tbaa !216
   %367 = or i32 %366, %365
-  store i32 %367, ptr %.04751, align 4, !tbaa !216
+  store i32 %367, ptr %.04852, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #33
@@ -13457,7 +13456,7 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %375 = extractvalue { i64, i64 } %373, 1
   store i64 %375, ptr %84, align 8
   %376 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %39)
-  %377 = getelementptr inbounds nuw i8, ptr %.04751, i64 4
+  %377 = getelementptr inbounds nuw i8, ptr %.04852, i64 4
   store i32 %376, ptr %377, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #33
@@ -13479,7 +13478,7 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %385 = extractvalue { i64, i64 } %383, 1
   store i64 %385, ptr %86, align 8
   %386 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %42)
-  %387 = getelementptr inbounds nuw i8, ptr %.04751, i64 8
+  %387 = getelementptr inbounds nuw i8, ptr %.04852, i64 8
   store i32 %386, ptr %387, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #33
@@ -13501,13 +13500,13 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %395 = extractvalue { i64, i64 } %393, 1
   store i64 %395, ptr %88, align 8
   %396 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %45)
-  %397 = getelementptr inbounds nuw i8, ptr %.04751, i64 12
+  %397 = getelementptr inbounds nuw i8, ptr %.04852, i64 12
   store i32 %396, ptr %397, align 4, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #33
-  %398 = getelementptr inbounds nuw i8, ptr %.04751, i64 16
-  %.not.i = icmp eq i16 %narrow.i24, 128
+  %398 = getelementptr inbounds nuw i8, ptr %.04852, i64 16
+  %.not.i = icmp eq i16 %narrow.i25, 128
   br i1 %.not.i, label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit, label %399
 
 399:                                              ; preds = %360
@@ -13535,14 +13534,14 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   br label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
 
 _ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit: ; preds = %224, %229, %260, %262, %289, %301, %328, %350, %360, %399
-  %.1 = phi ptr [ %.04751, %224 ], [ %.04751, %229 ], [ %261, %260 ], [ %261, %262 ], [ %300, %289 ], [ %300, %301 ], [ %349, %328 ], [ %349, %350 ], [ %398, %360 ], [ %398, %399 ]
+  %.1 = phi ptr [ %.04852, %224 ], [ %.04852, %229 ], [ %261, %260 ], [ %261, %262 ], [ %300, %289 ], [ %300, %301 ], [ %349, %328 ], [ %349, %350 ], [ %398, %360 ], [ %398, %399 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #33
-  %409 = add nuw nsw i64 %.052, 1
+  %409 = add nuw nsw i64 %.053, 1
   %exitcond.not = icmp eq i64 %409, 31
   br i1 %exitcond.not, label %169, label %209, !llvm.loop !570
 
@@ -13638,7 +13637,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   %81 = zext i8 %2 to i32
   %82 = tail call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 27)
   switch i32 %82, label %.preheader [
-    i32 0, label %.preheader46
+    i32 0, label %.preheader47
     i32 1, label %98
     i32 2, label %104
     i32 3, label %118
@@ -13662,8 +13661,8 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %214
 
-.preheader46:                                     ; preds = %3, %.preheader46
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader46 ], [ 0, %3 ]
+.preheader47:                                     ; preds = %3, %.preheader47
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader47 ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80) #33, !noalias !571
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %80, i64 noundef 0), !noalias !571
   %97 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %indvars.iv.i
@@ -13671,7 +13670,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %80) #33, !noalias !571
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %.preheader46, !llvm.loop !575
+  br i1 %exitcond.not.i, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %.preheader47, !llvm.loop !575
 
 98:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !576)
@@ -13730,43 +13729,42 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
 
 118:                                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !590)
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %119 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %120 = getelementptr inbounds nuw i8, ptr %72, i64 8
   br label %121
 
 121:                                              ; preds = %121, %118
-  %indvars.iv.i20 = phi i64 [ 0, %118 ], [ %indvars.iv.next.i21, %121 ]
-  %122 = mul nuw nsw i64 %indvars.iv.i20, 3
+  %indvars.iv.i20 = phi i64 [ 0, %118 ], [ %indvars.iv.next.i22, %121 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68) #33, !noalias !593
-  %123 = getelementptr inbounds nuw i32, ptr %0, i64 %122
-  %124 = load i32, ptr %123, align 4, !tbaa !216, !alias.scope !590, !noalias !595
-  %125 = zext i32 %124 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %68, i64 noundef %125), !noalias !590
-  %126 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %indvars.iv.i20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !574, !noalias !590
+  %.idx.i21 = mul nuw nsw i64 %indvars.iv.i20, 12
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i21
+  %123 = load i32, ptr %122, align 4, !tbaa !216, !alias.scope !590, !noalias !595
+  %124 = zext i32 %123 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %68, i64 noundef %124), !noalias !590
+  %125 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %indvars.iv.i20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !574, !noalias !590
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68) #33, !noalias !593
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69) #33, !noalias !593
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70) #33, !noalias !593
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 4
-  %128 = load i32, ptr %127, align 4, !tbaa !216, !alias.scope !590, !noalias !595
-  %129 = zext i32 %128 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %70, i64 noundef %129), !noalias !590
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  %127 = load i32, ptr %126, align 4, !tbaa !216, !alias.scope !590, !noalias !595
+  %128 = zext i32 %127 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %70, i64 noundef %128), !noalias !590
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71) #33, !noalias !593
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef 32), !noalias !590
-  %130 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %71), !noalias !590
-  %131 = extractvalue { i64, i64 } %130, 0
-  store i64 %131, ptr %69, align 8, !noalias !593
-  %132 = extractvalue { i64, i64 } %130, 1
-  store i64 %132, ptr %119, align 8, !noalias !593
-  %133 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(16) %69), !noalias !590
+  %129 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %71), !noalias !590
+  %130 = extractvalue { i64, i64 } %129, 0
+  store i64 %130, ptr %69, align 8, !noalias !593
+  %131 = extractvalue { i64, i64 } %129, 1
+  store i64 %131, ptr %119, align 8, !noalias !593
+  %132 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(16) %69), !noalias !590
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71) #33, !noalias !593
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70) #33, !noalias !593
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69) #33, !noalias !593
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72) #33, !noalias !593
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %73) #33, !noalias !593
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %122
-  %134 = load i32, ptr %gep.i, align 4, !tbaa !216, !alias.scope !590, !noalias !595
+  %133 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %134 = load i32, ptr %133, align 4, !tbaa !216, !alias.scope !590, !noalias !595
   %135 = zext i32 %134 to i64
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %73, i64 noundef %135), !noalias !590
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74) #33, !noalias !593
@@ -13776,13 +13774,13 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   store i64 %137, ptr %72, align 8, !noalias !593
   %138 = extractvalue { i64, i64 } %136, 1
   store i64 %138, ptr %120, align 8, !noalias !593
-  %139 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(16) %72), !noalias !590
+  %139 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(16) %72), !noalias !590
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #33, !noalias !593
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73) #33, !noalias !593
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #33, !noalias !593
-  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
-  %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 32
-  br i1 %exitcond.not.i22, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %121, !llvm.loop !596
+  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
+  %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 32
+  br i1 %exitcond.not.i23, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %121, !llvm.loop !596
 
 140:                                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !597)
@@ -13792,14 +13790,14 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   br label %144
 
 144:                                              ; preds = %144, %140
-  %indvars.iv.i23 = phi i64 [ 0, %140 ], [ %indvars.iv.next.i25, %144 ]
+  %indvars.iv.i24 = phi i64 [ 0, %140 ], [ %indvars.iv.next.i26, %144 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58) #33, !noalias !600
-  %.idx.i24 = shl nuw nsw i64 %indvars.iv.i23, 4
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i24
+  %.idx.i25 = shl nuw nsw i64 %indvars.iv.i24, 4
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i25
   %146 = load i32, ptr %145, align 4, !tbaa !216, !alias.scope !597, !noalias !602
   %147 = zext i32 %146 to i64
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %58, i64 noundef %147), !noalias !597
-  %148 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %indvars.iv.i23
+  %148 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %indvars.iv.i24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !574, !noalias !597
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #33, !noalias !600
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59) #33, !noalias !600
@@ -13853,9 +13851,9 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67) #33, !noalias !600
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #33, !noalias !600
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #33, !noalias !600
-  %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i23, 1
-  %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, 32
-  br i1 %exitcond.not.i26, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %144, !llvm.loop !603
+  %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i24, 1
+  %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 32
+  br i1 %exitcond.not.i27, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %144, !llvm.loop !603
 
 170:                                              ; preds = %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit
   %171 = mul i8 %2, 31
@@ -13944,10 +13942,10 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   br label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit
 
 214:                                              ; preds = %.preheader, %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit
-  %.052 = phi i64 [ 0, %.preheader ], [ %374, %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit ]
-  %.04551 = phi ptr [ %0, %.preheader ], [ %.1, %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit ]
-  %215 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %.052
-  %216 = mul nuw nsw i64 %.052, %84
+  %.053 = phi i64 [ 0, %.preheader ], [ %374, %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit ]
+  %.04652 = phi ptr [ %0, %.preheader ], [ %.1, %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit ]
+  %215 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %.053
+  %216 = mul nuw nsw i64 %.053, %84
   %217 = trunc nuw nsw i64 %216 to i16
   %218 = and i16 %217, 31
   call void @llvm.experimental.noalias.scope.decl(metadata !607)
@@ -13959,7 +13957,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
 221:                                              ; preds = %214
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #33, !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #33, !noalias !607
-  %222 = load i32, ptr %.04551, align 4, !tbaa !216, !noalias !607
+  %222 = load i32, ptr %.04652, align 4, !tbaa !216, !noalias !607
   %223 = zext i32 %222 to i64
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %223), !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #33, !noalias !607
@@ -14000,7 +13998,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
 
 236:                                              ; preds = %234
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #33, !noalias !607
-  %237 = load i32, ptr %.04551, align 4, !tbaa !216, !noalias !607
+  %237 = load i32, ptr %.04652, align 4, !tbaa !216, !noalias !607
   %238 = zext i32 %237 to i64
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %238), !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #33, !noalias !607
@@ -14014,7 +14012,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   store i64 %242, ptr %.sroa.49.0..sroa_idx.i, align 8, !tbaa !19, !alias.scope !607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #33, !noalias !607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #33, !noalias !607
-  %243 = getelementptr inbounds nuw i8, ptr %.04551, i64 4
+  %243 = getelementptr inbounds nuw i8, ptr %.04652, i64 4
   %.not97.i = icmp eq i16 %narrow.i, 32
   br i1 %.not97.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit, label %244
 
@@ -14050,7 +14048,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
 
 259:                                              ; preds = %257
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #33, !noalias !607
-  %260 = load i32, ptr %.04551, align 4, !tbaa !216, !noalias !607
+  %260 = load i32, ptr %.04652, align 4, !tbaa !216, !noalias !607
   %261 = zext i32 %260 to i64
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %261), !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #33, !noalias !607
@@ -14066,7 +14064,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #33, !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #33, !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #33, !noalias !607
-  %266 = getelementptr inbounds nuw i8, ptr %.04551, i64 4
+  %266 = getelementptr inbounds nuw i8, ptr %.04652, i64 4
   %267 = load i32, ptr %266, align 4, !tbaa !216, !noalias !607
   %268 = zext i32 %267 to i64
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %268), !noalias !607
@@ -14083,7 +14081,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #33, !noalias !607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #33, !noalias !607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #33, !noalias !607
-  %275 = getelementptr inbounds nuw i8, ptr %.04551, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %.04652, i64 8
   %.not95.i = icmp eq i16 %narrow.i, 64
   br i1 %.not95.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit, label %276
 
@@ -14117,14 +14115,14 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   %290 = icmp samesign ult i16 %narrow.i, 128
   %291 = and i64 %216, 31
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %292 = getelementptr inbounds nuw i8, ptr %.04551, i64 4
+  %292 = getelementptr inbounds nuw i8, ptr %.04652, i64 4
   %293 = sub nuw nsw i32 32, %219
   %294 = zext nneg i32 %293 to i64
   br i1 %290, label %295, label %330
 
 295:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #33, !noalias !607
-  %296 = load i32, ptr %.04551, align 4, !tbaa !216, !noalias !607
+  %296 = load i32, ptr %.04652, align 4, !tbaa !216, !noalias !607
   %297 = zext i32 %296 to i64
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %297), !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #33, !noalias !607
@@ -14154,7 +14152,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #33, !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #33, !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #33, !noalias !607
-  %307 = getelementptr inbounds nuw i8, ptr %.04551, i64 8
+  %307 = getelementptr inbounds nuw i8, ptr %.04652, i64 8
   %308 = load i32, ptr %307, align 4, !tbaa !216
   %309 = zext i32 %308 to i64
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %29, i64 noundef %309)
@@ -14171,7 +14169,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #33, !noalias !607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #33, !noalias !607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #33, !noalias !607
-  %316 = getelementptr inbounds nuw i8, ptr %.04551, i64 12
+  %316 = getelementptr inbounds nuw i8, ptr %.04652, i64 12
   %.not93.i = icmp eq i16 %narrow.i, 96
   br i1 %.not93.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit, label %317
 
@@ -14203,7 +14201,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
 
 330:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #33, !noalias !607
-  %331 = load i32, ptr %.04551, align 4, !tbaa !216, !noalias !607
+  %331 = load i32, ptr %.04652, align 4, !tbaa !216, !noalias !607
   %332 = zext i32 %331 to i64
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %332), !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #33, !noalias !607
@@ -14233,7 +14231,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #33, !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #33, !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #33, !noalias !607
-  %342 = getelementptr inbounds nuw i8, ptr %.04551, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %.04652, i64 8
   %343 = load i32, ptr %342, align 4, !tbaa !216
   %344 = zext i32 %343 to i64
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %344)
@@ -14252,7 +14250,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #33, !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #33, !noalias !607
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43) #33, !noalias !607
-  %351 = getelementptr inbounds nuw i8, ptr %.04551, i64 12
+  %351 = getelementptr inbounds nuw i8, ptr %.04652, i64 12
   %352 = load i32, ptr %351, align 4, !tbaa !216
   %353 = zext i32 %352 to i64
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef %353)
@@ -14269,7 +14267,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #33, !noalias !607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #33, !noalias !607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #33, !noalias !607
-  %360 = getelementptr inbounds nuw i8, ptr %.04551, i64 16
+  %360 = getelementptr inbounds nuw i8, ptr %.04652, i64 16
   %.not.i = icmp eq i16 %narrow.i, 128
   br i1 %.not.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit, label %361
 
@@ -14300,12 +14298,12 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   br label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit
 
 _ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit: ; preds = %221, %236, %244, %259, %276, %295, %317, %330, %361
-  %.1 = phi ptr [ %.04551, %221 ], [ %243, %236 ], [ %243, %244 ], [ %275, %259 ], [ %275, %276 ], [ %316, %295 ], [ %316, %317 ], [ %360, %330 ], [ %360, %361 ]
-  %374 = add nuw nsw i64 %.052, 1
+  %.1 = phi ptr [ %.04652, %221 ], [ %243, %236 ], [ %243, %244 ], [ %275, %259 ], [ %275, %276 ], [ %316, %295 ], [ %316, %317 ], [ %360, %330 ], [ %360, %361 ]
+  %374 = add nuw nsw i64 %.053, 1
   %exitcond.not = icmp eq i64 %374, 31
   br i1 %exitcond.not, label %170, label %214, !llvm.loop !610
 
-_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit: ; preds = %144, %121, %106, %99, %.preheader46, %203, %191, %179, %170
+_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit: ; preds = %144, %121, %106, %99, %.preheader47, %203, %191, %179, %170
   ret void
 }
 

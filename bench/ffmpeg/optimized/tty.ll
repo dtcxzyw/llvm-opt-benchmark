@@ -269,7 +269,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
   %6 = load ptr, ptr %5, align 8, !tbaa !52
   %7 = tail call i32 @avio_feof(ptr noundef %6) #4
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %.thread
+  br i1 %.not, label %8, label %.critedge
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -284,7 +284,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
   %15 = tail call i64 @avio_seek(ptr noundef %14, i64 noundef 0, i32 noundef 1) #4
   %16 = load i64, ptr %11, align 8, !tbaa !55
   %.not31 = icmp eq i64 %15, %16
-  br i1 %.not31, label %.thread, label %17
+  br i1 %.not31, label %.critedge, label %17
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %9, align 8, !tbaa !51
@@ -303,7 +303,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %26, ptr %27, align 8, !tbaa !57
   %28 = icmp slt i32 %26, 0
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -319,9 +319,9 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
   %38 = load i32, ptr %37, align 8, !tbaa !61
   %39 = or i32 %38, 1
   store i32 %39, ptr %37, align 8, !tbaa !61
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %13, %24, %2, %29
+.critedge:                                        ; preds = %13, %24, %2, %29
   %.0 = phi i32 [ 0, %29 ], [ -541478725, %2 ], [ %26, %24 ], [ -541478725, %13 ]
   ret i32 %.0
 }

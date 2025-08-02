@@ -131,10 +131,10 @@ define dso_local void @rhash_byte_to_base64(ptr noundef writeonly captures(none)
   %.not47 = icmp eq i64 %2, 0
   br i1 %.not47, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %45
-  %.045 = phi ptr [ %47, %45 ], [ %0, %3 ]
-  %.03344 = phi i32 [ %.134, %45 ], [ 0, %3 ]
-  %.03543 = phi ptr [ %.136, %45 ], [ %1, %3 ]
+.lr.ph:                                           ; preds = %3, %47
+  %.045 = phi ptr [ %49, %47 ], [ %0, %3 ]
+  %.03344 = phi i32 [ %.134, %47 ], [ 0, %3 ]
+  %.03543 = phi ptr [ %.136, %47 ], [ %1, %3 ]
   %5 = icmp ugt i32 %.03344, 2
   br i1 %5, label %6, label %24
 
@@ -191,42 +191,43 @@ define dso_local void @rhash_byte_to_base64(ptr noundef writeonly captures(none)
 
 38:                                               ; preds = %36
   %39 = add nuw nsw i8 %.132, 65
-  br label %45
+  br label %47
 
 40:                                               ; preds = %36
   %41 = add nuw nsw i8 %.132, 71
-  br label %45
+  br label %47
 
 42:                                               ; preds = %34
   %43 = zext i8 %.132 to i64
-  %gep = getelementptr i8, ptr getelementptr (i8, ptr @.str, i64 -52), i64 %43
-  %44 = load i8, ptr %gep, align 1, !tbaa !4
-  br label %45
+  %44 = getelementptr i8, ptr @.str, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 -52
+  %46 = load i8, ptr %45, align 1, !tbaa !4
+  br label %47
 
-45:                                               ; preds = %38, %40, %42
-  %46 = phi i8 [ %44, %42 ], [ %39, %38 ], [ %41, %40 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.045, i64 1
-  store i8 %46, ptr %.045, align 1, !tbaa !4
-  %48 = icmp ult ptr %.136, %4
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+47:                                               ; preds = %38, %40, %42
+  %48 = phi i8 [ %46, %42 ], [ %39, %38 ], [ %41, %40 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.045, i64 1
+  store i8 %48, ptr %.045, align 1, !tbaa !4
+  %50 = icmp ult ptr %.136, %4
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %45
+._crit_edge:                                      ; preds = %47
   %.not = icmp eq i32 %.134, 0
-  br i1 %.not, label %._crit_edge.thread, label %49
+  br i1 %.not, label %._crit_edge.thread, label %51
 
-49:                                               ; preds = %._crit_edge
-  %50 = getelementptr inbounds nuw i8, ptr %.045, i64 2
-  store i8 61, ptr %47, align 1, !tbaa !4
-  %51 = icmp eq i32 %.134, 4
-  br i1 %51, label %52, label %._crit_edge.thread
+51:                                               ; preds = %._crit_edge
+  %52 = getelementptr inbounds nuw i8, ptr %.045, i64 2
+  store i8 61, ptr %49, align 1, !tbaa !4
+  %53 = icmp eq i32 %.134, 4
+  br i1 %53, label %54, label %._crit_edge.thread
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %.045, i64 3
-  store i8 61, ptr %50, align 1, !tbaa !4
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %.045, i64 3
+  store i8 61, ptr %52, align 1, !tbaa !4
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %3, %49, %52, %._crit_edge
-  %.1 = phi ptr [ %53, %52 ], [ %50, %49 ], [ %47, %._crit_edge ], [ %0, %3 ]
+._crit_edge.thread:                               ; preds = %3, %51, %54, %._crit_edge
+  %.1 = phi ptr [ %55, %54 ], [ %52, %51 ], [ %49, %._crit_edge ], [ %0, %3 ]
   store i8 0, ptr %.1, align 1, !tbaa !4
   ret void
 }
@@ -236,11 +237,11 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
   %6 = alloca [164 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 164, ptr nonnull %6) #4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %112, label %.preheader
+  br i1 %.not, label %114, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %.not2548 = icmp eq i64 %2, 0
-  br i1 %.not2548, label %.loopexit, label %.lr.ph
+  %.not2547 = icmp eq i64 %2, 0
+  br i1 %.not2547, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %.not58.i = icmp eq i32 %4, 0
@@ -248,18 +249,18 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
   br label %8
 
 8:                                                ; preds = %.lr.ph, %rhash_urlencode.exit
-  %.02152 = phi ptr [ %0, %.lr.ph ], [ %109, %rhash_urlencode.exit ]
-  %.02251 = phi i64 [ 0, %.lr.ph ], [ %108, %rhash_urlencode.exit ]
-  %.02350 = phi ptr [ %1, %.lr.ph ], [ %111, %rhash_urlencode.exit ]
-  %.02449 = phi i64 [ %2, %.lr.ph ], [ %110, %rhash_urlencode.exit ]
-  %9 = tail call i64 @llvm.umin.i64(i64 %.02449, i64 120)
-  %10 = getelementptr inbounds nuw i8, ptr %.02350, i64 %9
+  %.02151 = phi ptr [ %0, %.lr.ph ], [ %111, %rhash_urlencode.exit ]
+  %.02250 = phi i64 [ 0, %.lr.ph ], [ %110, %rhash_urlencode.exit ]
+  %.02349 = phi ptr [ %1, %.lr.ph ], [ %113, %rhash_urlencode.exit ]
+  %.02448 = phi i64 [ %2, %.lr.ph ], [ %112, %rhash_urlencode.exit ]
+  %9 = tail call i64 @llvm.umin.i64(i64 %.02448, i64 120)
+  %10 = getelementptr inbounds nuw i8, ptr %.02349, i64 %9
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %8, %51
-  %.045.i = phi ptr [ %53, %51 ], [ %6, %8 ]
-  %.03344.i = phi i32 [ %.134.i, %51 ], [ 0, %8 ]
-  %.03543.i = phi ptr [ %.136.i, %51 ], [ %.02350, %8 ]
+.lr.ph.i:                                         ; preds = %8, %53
+  %.045.i = phi ptr [ %55, %53 ], [ %6, %8 ]
+  %.03344.i = phi i32 [ %.134.i, %53 ], [ 0, %8 ]
+  %.03543.i = phi ptr [ %.136.i, %53 ], [ %.02349, %8 ]
   %11 = icmp ugt i32 %.03344.i, 2
   br i1 %11, label %12, label %30
 
@@ -316,254 +317,256 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
 
 44:                                               ; preds = %42
   %45 = add nuw nsw i8 %.132.i, 65
-  br label %51
+  br label %53
 
 46:                                               ; preds = %42
   %47 = add nuw nsw i8 %.132.i, 71
-  br label %51
+  br label %53
 
 48:                                               ; preds = %40
   %49 = zext i8 %.132.i to i64
-  %gep.i = getelementptr i8, ptr getelementptr (i8, ptr @.str, i64 -52), i64 %49
-  %50 = load i8, ptr %gep.i, align 1, !tbaa !4
-  br label %51
+  %50 = getelementptr i8, ptr @.str, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 -52
+  %52 = load i8, ptr %51, align 1, !tbaa !4
+  br label %53
 
-51:                                               ; preds = %48, %46, %44
-  %52 = phi i8 [ %50, %48 ], [ %45, %44 ], [ %47, %46 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.045.i, i64 1
-  store i8 %52, ptr %.045.i, align 1, !tbaa !4
-  %54 = icmp ult ptr %.136.i, %10
-  br i1 %54, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
+53:                                               ; preds = %48, %46, %44
+  %54 = phi i8 [ %52, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.045.i, i64 1
+  store i8 %54, ptr %.045.i, align 1, !tbaa !4
+  %56 = icmp ult ptr %.136.i, %10
+  br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %51
+._crit_edge.i:                                    ; preds = %53
   %.not.i = icmp eq i32 %.134.i, 0
-  br i1 %.not.i, label %rhash_byte_to_base64.exit, label %55
+  br i1 %.not.i, label %rhash_byte_to_base64.exit, label %57
 
-55:                                               ; preds = %._crit_edge.i
-  %56 = getelementptr inbounds nuw i8, ptr %.045.i, i64 2
-  store i8 61, ptr %53, align 1, !tbaa !4
-  %57 = icmp eq i32 %.134.i, 4
-  br i1 %57, label %58, label %rhash_byte_to_base64.exit
+57:                                               ; preds = %._crit_edge.i
+  %58 = getelementptr inbounds nuw i8, ptr %.045.i, i64 2
+  store i8 61, ptr %55, align 1, !tbaa !4
+  %59 = icmp eq i32 %.134.i, 4
+  br i1 %59, label %60, label %rhash_byte_to_base64.exit
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %.045.i, i64 3
-  store i8 61, ptr %56, align 1, !tbaa !4
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %.045.i, i64 3
+  store i8 61, ptr %58, align 1, !tbaa !4
   br label %rhash_byte_to_base64.exit
 
-rhash_byte_to_base64.exit:                        ; preds = %._crit_edge.i, %55, %58
-  %.1.i = phi ptr [ %59, %58 ], [ %56, %55 ], [ %53, %._crit_edge.i ]
+rhash_byte_to_base64.exit:                        ; preds = %._crit_edge.i, %57, %60
+  %.1.i = phi ptr [ %61, %60 ], [ %58, %57 ], [ %55, %._crit_edge.i ]
   store i8 0, ptr %.1.i, align 1, !tbaa !4
-  %60 = add nuw nsw i64 %9, 2
-  %61 = udiv i64 %60, 3
-  %62 = shl nuw nsw i64 %61, 2
-  %.not.i26 = icmp eq ptr %.02152, null
+  %62 = add nuw nsw i64 %9, 2
+  %63 = udiv i64 %62, 3
+  %64 = shl nuw nsw i64 %63, 2
+  %.not.i26 = icmp eq ptr %.02151, null
   br i1 %.not.i26, label %.lr.ph66.i, label %.lr.ph.i27
 
-.lr.ph66.i:                                       ; preds = %rhash_byte_to_base64.exit, %77
-  %.04665.i = phi i64 [ %78, %77 ], [ 0, %rhash_byte_to_base64.exit ]
-  %.04864.i = phi i64 [ %.149.i, %77 ], [ %62, %rhash_byte_to_base64.exit ]
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 %.04665.i
-  %64 = load i8, ptr %63, align 1, !tbaa !4
-  %65 = icmp sgt i8 %64, -1
-  br i1 %65, label %66, label %75
+.lr.ph66.i:                                       ; preds = %rhash_byte_to_base64.exit, %79
+  %.04665.i = phi i64 [ %80, %79 ], [ 0, %rhash_byte_to_base64.exit ]
+  %.04864.i = phi i64 [ %.149.i, %79 ], [ %64, %rhash_byte_to_base64.exit ]
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 %.04665.i
+  %66 = load i8, ptr %65, align 1, !tbaa !4
+  %67 = icmp sgt i8 %66, -1
+  br i1 %67, label %68, label %77
 
-66:                                               ; preds = %.lr.ph66.i
-  %67 = zext nneg i8 %64 to i32
-  %68 = lshr i32 %67, 5
-  %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw [4 x i32], ptr @url_safe_char_mask, i64 0, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !11
-  %72 = and i32 %67, 31
-  %73 = shl nuw i32 1, %72
-  %74 = and i32 %71, %73
-  %.not57.i = icmp eq i32 %74, 0
-  br i1 %.not57.i, label %75, label %77
+68:                                               ; preds = %.lr.ph66.i
+  %69 = zext nneg i8 %66 to i32
+  %70 = lshr i32 %69, 5
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr inbounds nuw [4 x i32], ptr @url_safe_char_mask, i64 0, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !11
+  %74 = and i32 %69, 31
+  %75 = shl nuw i32 1, %74
+  %76 = and i32 %73, %75
+  %.not57.i = icmp eq i32 %76, 0
+  br i1 %.not57.i, label %77, label %79
 
-75:                                               ; preds = %66, %.lr.ph66.i
-  %76 = add i64 %.04864.i, 2
-  br label %77
+77:                                               ; preds = %68, %.lr.ph66.i
+  %78 = add i64 %.04864.i, 2
+  br label %79
 
-77:                                               ; preds = %75, %66
-  %.149.i = phi i64 [ %.04864.i, %66 ], [ %76, %75 ]
-  %78 = add nuw i64 %.04665.i, 1
-  %exitcond70.not.i = icmp eq i64 %78, %62
+79:                                               ; preds = %77, %68
+  %.149.i = phi i64 [ %.04864.i, %68 ], [ %78, %77 ]
+  %80 = add nuw i64 %.04665.i, 1
+  %exitcond70.not.i = icmp eq i64 %80, %64
   br i1 %exitcond70.not.i, label %rhash_urlencode.exit, label %.lr.ph66.i, !llvm.loop !13
 
-.lr.ph.i27:                                       ; preds = %rhash_byte_to_base64.exit, %103
-  %.04563.i = phi ptr [ %.1.i28, %103 ], [ %.02152, %rhash_byte_to_base64.exit ]
-  %.14762.i = phi i64 [ %104, %103 ], [ 0, %rhash_byte_to_base64.exit ]
-  %79 = getelementptr inbounds nuw i8, ptr %6, i64 %.14762.i
-  %80 = load i8, ptr %79, align 1, !tbaa !4
-  %81 = icmp sgt i8 %80, -1
-  br i1 %81, label %82, label %93
+.lr.ph.i27:                                       ; preds = %rhash_byte_to_base64.exit, %105
+  %.04563.i = phi ptr [ %.1.i28, %105 ], [ %.02151, %rhash_byte_to_base64.exit ]
+  %.14762.i = phi i64 [ %106, %105 ], [ 0, %rhash_byte_to_base64.exit ]
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 %.14762.i
+  %82 = load i8, ptr %81, align 1, !tbaa !4
+  %83 = icmp sgt i8 %82, -1
+  br i1 %83, label %84, label %95
 
-82:                                               ; preds = %.lr.ph.i27
-  %83 = zext nneg i8 %80 to i32
-  %84 = lshr i32 %83, 5
-  %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw [4 x i32], ptr @url_safe_char_mask, i64 0, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !11
-  %88 = and i32 %83, 31
-  %89 = shl nuw i32 1, %88
-  %90 = and i32 %87, %89
-  %.not59.i = icmp eq i32 %90, 0
-  br i1 %.not59.i, label %93, label %91
+84:                                               ; preds = %.lr.ph.i27
+  %85 = zext nneg i8 %82 to i32
+  %86 = lshr i32 %85, 5
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr inbounds nuw [4 x i32], ptr @url_safe_char_mask, i64 0, i64 %87
+  %89 = load i32, ptr %88, align 4, !tbaa !11
+  %90 = and i32 %85, 31
+  %91 = shl nuw i32 1, %90
+  %92 = and i32 %89, %91
+  %.not59.i = icmp eq i32 %92, 0
+  br i1 %.not59.i, label %95, label %93
 
-91:                                               ; preds = %82
-  %92 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 1
-  store i8 %80, ptr %.04563.i, align 1, !tbaa !4
-  br label %103
+93:                                               ; preds = %84
+  %94 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 1
+  store i8 %82, ptr %.04563.i, align 1, !tbaa !4
+  br label %105
 
-93:                                               ; preds = %82, %.lr.ph.i27
-  %94 = lshr i8 %80, 4
-  %95 = and i8 %80, 15
-  %96 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 1
+95:                                               ; preds = %84, %.lr.ph.i27
+  %96 = lshr i8 %82, 4
+  %97 = and i8 %82, 15
+  %98 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 1
   store i8 37, ptr %.04563.i, align 1, !tbaa !4
-  %97 = icmp ugt i8 %80, -97
-  %narrow.i = add nuw nsw i8 %94, %7
-  %98 = or disjoint i8 %94, 48
-  %.in.i = select i1 %97, i8 %narrow.i, i8 %98
-  %99 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 2
-  store i8 %.in.i, ptr %96, align 1, !tbaa !4
-  %100 = icmp samesign ugt i8 %95, 9
-  %narrow60.i = add nuw nsw i8 %95, %7
-  %101 = or disjoint i8 %95, 48
-  %.in61.i = select i1 %100, i8 %narrow60.i, i8 %101
-  %102 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 3
-  store i8 %.in61.i, ptr %99, align 1, !tbaa !4
-  br label %103
+  %99 = icmp ugt i8 %82, -97
+  %narrow.i = add nuw nsw i8 %96, %7
+  %100 = or disjoint i8 %96, 48
+  %.in.i = select i1 %99, i8 %narrow.i, i8 %100
+  %101 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 2
+  store i8 %.in.i, ptr %98, align 1, !tbaa !4
+  %102 = icmp samesign ugt i8 %97, 9
+  %narrow60.i = add nuw nsw i8 %97, %7
+  %103 = or disjoint i8 %97, 48
+  %.in61.i = select i1 %102, i8 %narrow60.i, i8 %103
+  %104 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 3
+  store i8 %.in61.i, ptr %101, align 1, !tbaa !4
+  br label %105
 
-103:                                              ; preds = %93, %91
-  %.1.i28 = phi ptr [ %92, %91 ], [ %102, %93 ]
-  %104 = add nuw i64 %.14762.i, 1
-  %exitcond.not.i = icmp eq i64 %104, %62
+105:                                              ; preds = %95, %93
+  %.1.i28 = phi ptr [ %94, %93 ], [ %104, %95 ]
+  %106 = add nuw i64 %.14762.i, 1
+  %exitcond.not.i = icmp eq i64 %106, %64
   br i1 %exitcond.not.i, label %._crit_edge.i29, label %.lr.ph.i27, !llvm.loop !14
 
-._crit_edge.i29:                                  ; preds = %103
+._crit_edge.i29:                                  ; preds = %105
   store i8 0, ptr %.1.i28, align 1, !tbaa !4
-  %105 = ptrtoint ptr %.1.i28 to i64
-  %106 = ptrtoint ptr %.02152 to i64
-  %107 = sub i64 %105, %106
+  %107 = ptrtoint ptr %.1.i28 to i64
+  %108 = ptrtoint ptr %.02151 to i64
+  %109 = sub i64 %107, %108
   br label %rhash_urlencode.exit
 
-rhash_urlencode.exit:                             ; preds = %77, %._crit_edge.i29
-  %.0.i = phi i64 [ %107, %._crit_edge.i29 ], [ %.149.i, %77 ]
-  %108 = add i64 %.0.i, %.02251
-  %109 = getelementptr inbounds nuw i8, ptr %.02152, i64 %.0.i
-  %110 = sub i64 %.02449, %9
-  %111 = getelementptr inbounds nuw i8, ptr %.02350, i64 120
-  %.not25 = icmp eq i64 %110, 0
+rhash_urlencode.exit:                             ; preds = %79, %._crit_edge.i29
+  %.0.i = phi i64 [ %109, %._crit_edge.i29 ], [ %.149.i, %79 ]
+  %110 = add i64 %.0.i, %.02250
+  %111 = getelementptr inbounds nuw i8, ptr %.02151, i64 %.0.i
+  %112 = sub i64 %.02448, %9
+  %113 = getelementptr inbounds nuw i8, ptr %.02349, i64 120
+  %.not25 = icmp eq i64 %112, 0
   br i1 %.not25, label %.loopexit, label %8, !llvm.loop !15
 
-112:                                              ; preds = %5
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 %2
+114:                                              ; preds = %5
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not47.i30 = icmp eq i64 %2, 0
-  br i1 %.not47.i30, label %rhash_byte_to_base64.exit46, label %.lr.ph.i31
+  br i1 %.not47.i30, label %rhash_byte_to_base64.exit45, label %.lr.ph.i31
 
-.lr.ph.i31:                                       ; preds = %112, %154
-  %.045.i32 = phi ptr [ %156, %154 ], [ %0, %112 ]
-  %.03344.i33 = phi i32 [ %.134.i38, %154 ], [ 0, %112 ]
-  %.03543.i34 = phi ptr [ %.136.i37, %154 ], [ %1, %112 ]
-  %114 = icmp ugt i32 %.03344.i33, 2
-  br i1 %114, label %115, label %133
+.lr.ph.i31:                                       ; preds = %114, %158
+  %.045.i32 = phi ptr [ %160, %158 ], [ %0, %114 ]
+  %.03344.i33 = phi i32 [ %.134.i38, %158 ], [ 0, %114 ]
+  %.03543.i34 = phi ptr [ %.136.i37, %158 ], [ %1, %114 ]
+  %116 = icmp ugt i32 %.03344.i33, 2
+  br i1 %116, label %117, label %135
 
-115:                                              ; preds = %.lr.ph.i31
-  %116 = load i8, ptr %.03543.i34, align 1, !tbaa !4
-  %117 = lshr i32 255, %.03344.i33
-  %118 = trunc nuw nsw i32 %117 to i8
-  %119 = and i8 %116, %118
-  %120 = add nuw nsw i32 %.03344.i33, 6
-  %121 = and i32 %120, 7
-  %122 = zext nneg i8 %119 to i32
-  %123 = shl nuw nsw i32 %122, %121
-  %124 = getelementptr inbounds nuw i8, ptr %.03543.i34, i64 1
-  %125 = icmp ult ptr %124, %113
-  br i1 %125, label %126, label %132
+117:                                              ; preds = %.lr.ph.i31
+  %118 = load i8, ptr %.03543.i34, align 1, !tbaa !4
+  %119 = lshr i32 255, %.03344.i33
+  %120 = trunc nuw nsw i32 %119 to i8
+  %121 = and i8 %118, %120
+  %122 = add nuw nsw i32 %.03344.i33, 6
+  %123 = and i32 %122, 7
+  %124 = zext nneg i8 %121 to i32
+  %125 = shl nuw nsw i32 %124, %123
+  %126 = getelementptr inbounds nuw i8, ptr %.03543.i34, i64 1
+  %127 = icmp ult ptr %126, %115
+  br i1 %127, label %128, label %134
 
-126:                                              ; preds = %115
-  %127 = load i8, ptr %124, align 1, !tbaa !4
-  %128 = zext i8 %127 to i32
-  %129 = sub nuw nsw i32 8, %121
-  %130 = lshr i32 %128, %129
-  %131 = or i32 %130, %123
-  br label %132
+128:                                              ; preds = %117
+  %129 = load i8, ptr %126, align 1, !tbaa !4
+  %130 = zext i8 %129 to i32
+  %131 = sub nuw nsw i32 8, %123
+  %132 = lshr i32 %130, %131
+  %133 = or i32 %132, %125
+  br label %134
 
-132:                                              ; preds = %126, %115
-  %.031.in.i44 = phi i32 [ %131, %126 ], [ %123, %115 ]
-  %.031.i45 = trunc i32 %.031.in.i44 to i8
-  br label %143
+134:                                              ; preds = %128, %117
+  %.031.in.i43 = phi i32 [ %133, %128 ], [ %125, %117 ]
+  %.031.i44 = trunc i32 %.031.in.i43 to i8
+  br label %145
 
-133:                                              ; preds = %.lr.ph.i31
-  %134 = add nuw nsw i32 %.03344.i33, 6
-  %135 = and i32 %134, 7
-  %136 = load i8, ptr %.03543.i34, align 1, !tbaa !4
-  %137 = zext i8 %136 to i32
-  %138 = sub nuw nsw i32 2, %.03344.i33
-  %139 = lshr i32 %137, %138
-  %140 = trunc nuw i32 %139 to i8
-  %141 = and i8 %140, 63
-  %142 = icmp eq i32 %.03344.i33, 2
-  %spec.select.idx.i35 = zext i1 %142 to i64
+135:                                              ; preds = %.lr.ph.i31
+  %136 = add nuw nsw i32 %.03344.i33, 6
+  %137 = and i32 %136, 7
+  %138 = load i8, ptr %.03543.i34, align 1, !tbaa !4
+  %139 = zext i8 %138 to i32
+  %140 = sub nuw nsw i32 2, %.03344.i33
+  %141 = lshr i32 %139, %140
+  %142 = trunc nuw i32 %141 to i8
+  %143 = and i8 %142, 63
+  %144 = icmp eq i32 %.03344.i33, 2
+  %spec.select.idx.i35 = zext i1 %144 to i64
   %spec.select.i36 = getelementptr inbounds nuw i8, ptr %.03543.i34, i64 %spec.select.idx.i35
-  br label %143
+  br label %145
 
-143:                                              ; preds = %133, %132
-  %.136.i37 = phi ptr [ %124, %132 ], [ %spec.select.i36, %133 ]
-  %.134.i38 = phi i32 [ %121, %132 ], [ %135, %133 ]
-  %.132.i39 = phi i8 [ %.031.i45, %132 ], [ %141, %133 ]
-  %144 = icmp ult i8 %.132.i39, 52
-  br i1 %144, label %145, label %151
-
-145:                                              ; preds = %143
-  %146 = icmp samesign ult i8 %.132.i39, 26
-  br i1 %146, label %147, label %149
+145:                                              ; preds = %135, %134
+  %.136.i37 = phi ptr [ %126, %134 ], [ %spec.select.i36, %135 ]
+  %.134.i38 = phi i32 [ %123, %134 ], [ %137, %135 ]
+  %.132.i39 = phi i8 [ %.031.i44, %134 ], [ %143, %135 ]
+  %146 = icmp ult i8 %.132.i39, 52
+  br i1 %146, label %147, label %153
 
 147:                                              ; preds = %145
-  %148 = add nuw nsw i8 %.132.i39, 65
-  br label %154
+  %148 = icmp samesign ult i8 %.132.i39, 26
+  br i1 %148, label %149, label %151
 
-149:                                              ; preds = %145
-  %150 = add nuw nsw i8 %.132.i39, 71
-  br label %154
+149:                                              ; preds = %147
+  %150 = add nuw nsw i8 %.132.i39, 65
+  br label %158
 
-151:                                              ; preds = %143
-  %152 = zext i8 %.132.i39 to i64
-  %gep.i40 = getelementptr i8, ptr getelementptr (i8, ptr @.str, i64 -52), i64 %152
-  %153 = load i8, ptr %gep.i40, align 1, !tbaa !4
-  br label %154
+151:                                              ; preds = %147
+  %152 = add nuw nsw i8 %.132.i39, 71
+  br label %158
 
-154:                                              ; preds = %151, %149, %147
-  %155 = phi i8 [ %153, %151 ], [ %148, %147 ], [ %150, %149 ]
-  %156 = getelementptr inbounds nuw i8, ptr %.045.i32, i64 1
-  store i8 %155, ptr %.045.i32, align 1, !tbaa !4
-  %157 = icmp ult ptr %.136.i37, %113
-  br i1 %157, label %.lr.ph.i31, label %._crit_edge.i41, !llvm.loop !10
+153:                                              ; preds = %145
+  %154 = zext i8 %.132.i39 to i64
+  %155 = getelementptr i8, ptr @.str, i64 %154
+  %156 = getelementptr i8, ptr %155, i64 -52
+  %157 = load i8, ptr %156, align 1, !tbaa !4
+  br label %158
 
-._crit_edge.i41:                                  ; preds = %154
-  %.not.i42 = icmp eq i32 %.134.i38, 0
-  br i1 %.not.i42, label %rhash_byte_to_base64.exit46, label %158
+158:                                              ; preds = %153, %151, %149
+  %159 = phi i8 [ %157, %153 ], [ %150, %149 ], [ %152, %151 ]
+  %160 = getelementptr inbounds nuw i8, ptr %.045.i32, i64 1
+  store i8 %159, ptr %.045.i32, align 1, !tbaa !4
+  %161 = icmp ult ptr %.136.i37, %115
+  br i1 %161, label %.lr.ph.i31, label %._crit_edge.i40, !llvm.loop !10
 
-158:                                              ; preds = %._crit_edge.i41
-  %159 = getelementptr inbounds nuw i8, ptr %.045.i32, i64 2
-  store i8 61, ptr %156, align 1, !tbaa !4
-  %160 = icmp eq i32 %.134.i38, 4
-  br i1 %160, label %161, label %rhash_byte_to_base64.exit46
+._crit_edge.i40:                                  ; preds = %158
+  %.not.i41 = icmp eq i32 %.134.i38, 0
+  br i1 %.not.i41, label %rhash_byte_to_base64.exit45, label %162
 
-161:                                              ; preds = %158
-  %162 = getelementptr inbounds nuw i8, ptr %.045.i32, i64 3
-  store i8 61, ptr %159, align 1, !tbaa !4
-  br label %rhash_byte_to_base64.exit46
+162:                                              ; preds = %._crit_edge.i40
+  %163 = getelementptr inbounds nuw i8, ptr %.045.i32, i64 2
+  store i8 61, ptr %160, align 1, !tbaa !4
+  %164 = icmp eq i32 %.134.i38, 4
+  br i1 %164, label %165, label %rhash_byte_to_base64.exit45
 
-rhash_byte_to_base64.exit46:                      ; preds = %112, %._crit_edge.i41, %158, %161
-  %.1.i43 = phi ptr [ %162, %161 ], [ %159, %158 ], [ %156, %._crit_edge.i41 ], [ %0, %112 ]
-  store i8 0, ptr %.1.i43, align 1, !tbaa !4
-  %163 = add i64 %2, 2
-  %164 = udiv i64 %163, 3
-  %165 = shl i64 %164, 2
+165:                                              ; preds = %162
+  %166 = getelementptr inbounds nuw i8, ptr %.045.i32, i64 3
+  store i8 61, ptr %163, align 1, !tbaa !4
+  br label %rhash_byte_to_base64.exit45
+
+rhash_byte_to_base64.exit45:                      ; preds = %114, %._crit_edge.i40, %162, %165
+  %.1.i42 = phi ptr [ %166, %165 ], [ %163, %162 ], [ %160, %._crit_edge.i40 ], [ %0, %114 ]
+  store i8 0, ptr %.1.i42, align 1, !tbaa !4
+  %167 = add i64 %2, 2
+  %168 = udiv i64 %167, 3
+  %169 = shl i64 %168, 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %rhash_urlencode.exit, %.preheader, %rhash_byte_to_base64.exit46
-  %.0 = phi i64 [ %165, %rhash_byte_to_base64.exit46 ], [ 0, %.preheader ], [ %108, %rhash_urlencode.exit ]
+.loopexit:                                        ; preds = %rhash_urlencode.exit, %.preheader, %rhash_byte_to_base64.exit45
+  %.0 = phi i64 [ %169, %rhash_byte_to_base64.exit45 ], [ 0, %.preheader ], [ %110, %rhash_urlencode.exit ]
   call void @llvm.lifetime.end.p0(i64 164, ptr nonnull %6) #4
   ret i64 %.0
 }

@@ -677,19 +677,19 @@ define hidden void @SDL_GamepadSensorWatcher(i64 noundef %0, i32 noundef %1, i64
   %.not27 = icmp eq ptr %.026, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %49
-  %.028 = phi ptr [ %.0, %49 ], [ %.026, %5 ]
+.lr.ph:                                           ; preds = %5, %51
+  %.028 = phi ptr [ %.0, %51 ], [ %.026, %5 ]
   %8 = load ptr, ptr %.028, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 248
   %10 = load ptr, ptr %9, align 8
   %.not17 = icmp eq ptr %10, null
-  br i1 %.not17, label %28, label %11
+  br i1 %.not17, label %29, label %11
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 244
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %1
-  br i1 %14, label %15, label %28
+  br i1 %14, label %15, label %29
 
 15:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #10
@@ -697,93 +697,95 @@ define hidden void @SDL_GamepadSensorWatcher(i64 noundef %0, i32 noundef %1, i64
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 272
   br label %17
 
-17:                                               ; preds = %26, %15
-  %indvars.iv16.i = phi i64 [ 0, %15 ], [ %indvars.iv.next17.i, %26 ]
+17:                                               ; preds = %27, %15
+  %indvars.iv16.i = phi i64 [ 0, %15 ], [ %indvars.iv.next17.i, %27 ]
   %18 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv16.i
   store float 0.000000e+00, ptr %18, align 4
-  br label %19
+  %19 = getelementptr inbounds nuw [3 x [3 x float]], ptr %16, i64 0, i64 %indvars.iv16.i
+  br label %20
 
-19:                                               ; preds = %19, %17
-  %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %19 ]
-  %20 = phi float [ 0.000000e+00, %17 ], [ %25, %19 ]
-  %21 = getelementptr inbounds nuw [3 x [3 x float]], ptr %16, i64 0, i64 %indvars.iv16.i, i64 %indvars.iv.i
-  %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
-  %24 = load float, ptr %23, align 4
-  %25 = call float @llvm.fmuladd.f32(float %22, float %24, float %20)
-  store float %25, ptr %18, align 4
+20:                                               ; preds = %20, %17
+  %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %20 ]
+  %21 = phi float [ 0.000000e+00, %17 ], [ %26, %20 ]
+  %22 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i
+  %23 = load float, ptr %22, align 4
+  %24 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
+  %25 = load float, ptr %24, align 4
+  %26 = call float @llvm.fmuladd.f32(float %23, float %25, float %21)
+  store float %26, ptr %18, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %26, label %19, !llvm.loop !7
+  br i1 %exitcond.not.i, label %27, label %20, !llvm.loop !7
 
-26:                                               ; preds = %19
+27:                                               ; preds = %20
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 3
   br i1 %exitcond19.not.i, label %AdjustSensorOrientation.exit, label %17, !llvm.loop !8
 
-AdjustSensorOrientation.exit:                     ; preds = %26
-  %27 = load ptr, ptr %.028, align 8
-  call void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef %27, i32 noundef 1, i64 noundef %2, ptr noundef nonnull %6, i32 noundef 3) #10
+AdjustSensorOrientation.exit:                     ; preds = %27
+  %28 = load ptr, ptr %.028, align 8
+  call void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef %28, i32 noundef 1, i64 noundef %2, ptr noundef nonnull %6, i32 noundef 3) #10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #10
   %.pre = load ptr, ptr %.028, align 8
-  br label %28
+  br label %29
 
-28:                                               ; preds = %AdjustSensorOrientation.exit, %11, %.lr.ph
-  %29 = phi ptr [ %.pre, %AdjustSensorOrientation.exit ], [ %8, %11 ], [ %8, %.lr.ph ]
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 264
-  %31 = load ptr, ptr %30, align 8
-  %.not18 = icmp eq ptr %31, null
-  br i1 %.not18, label %49, label %32
+29:                                               ; preds = %AdjustSensorOrientation.exit, %11, %.lr.ph
+  %30 = phi ptr [ %.pre, %AdjustSensorOrientation.exit ], [ %8, %11 ], [ %8, %.lr.ph ]
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 264
+  %32 = load ptr, ptr %31, align 8
+  %.not18 = icmp eq ptr %32, null
+  br i1 %.not18, label %51, label %33
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 256
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp eq i32 %34, %1
-  br i1 %35, label %36, label %49
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 256
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp eq i32 %35, %1
+  br i1 %36, label %37, label %51
 
-36:                                               ; preds = %32
+37:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #10
   call void @SDL_AssertJoysticksLocked() #10
-  %37 = getelementptr inbounds nuw i8, ptr %29, i64 272
-  br label %38
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 272
+  br label %39
 
-38:                                               ; preds = %47, %36
-  %indvars.iv16.i19 = phi i64 [ 0, %36 ], [ %indvars.iv.next17.i23, %47 ]
-  %39 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv16.i19
-  store float 0.000000e+00, ptr %39, align 4
-  br label %40
+39:                                               ; preds = %49, %37
+  %indvars.iv16.i19 = phi i64 [ 0, %37 ], [ %indvars.iv.next17.i23, %49 ]
+  %40 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv16.i19
+  store float 0.000000e+00, ptr %40, align 4
+  %41 = getelementptr inbounds nuw [3 x [3 x float]], ptr %38, i64 0, i64 %indvars.iv16.i19
+  br label %42
 
-40:                                               ; preds = %40, %38
-  %indvars.iv.i20 = phi i64 [ 0, %38 ], [ %indvars.iv.next.i21, %40 ]
-  %41 = phi float [ 0.000000e+00, %38 ], [ %46, %40 ]
-  %42 = getelementptr inbounds nuw [3 x [3 x float]], ptr %37, i64 0, i64 %indvars.iv16.i19, i64 %indvars.iv.i20
-  %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i20
+42:                                               ; preds = %42, %39
+  %indvars.iv.i20 = phi i64 [ 0, %39 ], [ %indvars.iv.next.i21, %42 ]
+  %43 = phi float [ 0.000000e+00, %39 ], [ %48, %42 ]
+  %44 = getelementptr inbounds nuw [3 x float], ptr %41, i64 0, i64 %indvars.iv.i20
   %45 = load float, ptr %44, align 4
-  %46 = call float @llvm.fmuladd.f32(float %43, float %45, float %41)
-  store float %46, ptr %39, align 4
+  %46 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i20
+  %47 = load float, ptr %46, align 4
+  %48 = call float @llvm.fmuladd.f32(float %45, float %47, float %43)
+  store float %48, ptr %40, align 4
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 3
-  br i1 %exitcond.not.i22, label %47, label %40, !llvm.loop !7
+  br i1 %exitcond.not.i22, label %49, label %42, !llvm.loop !7
 
-47:                                               ; preds = %40
+49:                                               ; preds = %42
   %indvars.iv.next17.i23 = add nuw nsw i64 %indvars.iv16.i19, 1
   %exitcond19.not.i24 = icmp eq i64 %indvars.iv.next17.i23, 3
-  br i1 %exitcond19.not.i24, label %AdjustSensorOrientation.exit25, label %38, !llvm.loop !8
+  br i1 %exitcond19.not.i24, label %AdjustSensorOrientation.exit25, label %39, !llvm.loop !8
 
-AdjustSensorOrientation.exit25:                   ; preds = %47
-  %48 = load ptr, ptr %.028, align 8
-  call void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef %48, i32 noundef 2, i64 noundef %2, ptr noundef nonnull %7, i32 noundef 3) #10
+AdjustSensorOrientation.exit25:                   ; preds = %49
+  %50 = load ptr, ptr %.028, align 8
+  call void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef %50, i32 noundef 2, i64 noundef %2, ptr noundef nonnull %7, i32 noundef 3) #10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #10
-  br label %49
+  br label %51
 
-49:                                               ; preds = %28, %32, %AdjustSensorOrientation.exit25
-  %50 = getelementptr inbounds nuw i8, ptr %.028, i64 80
-  %.0 = load ptr, ptr %50, align 8
+51:                                               ; preds = %29, %33, %AdjustSensorOrientation.exit25
+  %52 = getelementptr inbounds nuw i8, ptr %.028, i64 80
+  %.0 = load ptr, ptr %52, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %49, %5
+._crit_edge:                                      ; preds = %51, %5
   call void @SDL_UnlockJoysticks_REAL() #10
   ret void
 }
@@ -1872,9 +1874,9 @@ define hidden ptr @SDL_GetGamepadMappings_REAL(ptr noundef writeonly captures(ad
 
 3:                                                ; preds = %2, %1
   tail call void @SDL_LockJoysticks_REAL() #10
-  %.06994 = load ptr, ptr @s_pSupportedGamepads, align 8
-  %.not7795 = icmp eq ptr %.06994, null
-  br i1 %.not7795, label %._crit_edge, label %.lr.ph
+  %.06991 = load ptr, ptr @s_pSupportedGamepads, align 8
+  %.not7792 = icmp eq ptr %.06991, null
+  br i1 %.not7792, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.053.lcssa = phi i32 [ 0, %3 ], [ %spec.select, %.lr.ph ]
@@ -1882,136 +1884,136 @@ define hidden ptr @SDL_GetGamepadMappings_REAL(ptr noundef writeonly captures(ad
   %5 = zext nneg i32 %4 to i64
   %6 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %5, i64 noundef 8) #11
   %.not78 = icmp eq ptr %6, null
-  br i1 %.not78, label %.thread90, label %.preheader
+  br i1 %.not78, label %.thread87, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %.05898 = load ptr, ptr @s_pSupportedGamepads, align 8
-  %.not7999 = icmp eq ptr %.05898, null
-  br i1 %.not7999, label %._crit_edge104, label %.lr.ph103
-
-.thread90:                                        ; preds = %._crit_edge
-  tail call void @SDL_UnlockJoysticks_REAL() #10
-  br label %45
+  %.05895 = load ptr, ptr @s_pSupportedGamepads, align 8
+  %.not7996 = icmp eq ptr %.05895, null
+  br i1 %.not7996, label %._crit_edge101, label %.lr.ph100
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.06997 = phi ptr [ %.069, %.lr.ph ], [ %.06994, %3 ]
-  %.05396 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %3 ]
-  %7 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.06997, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
+  %.06994 = phi ptr [ %.069, %.lr.ph ], [ %.06991, %3 ]
+  %.05393 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %3 ]
+  %7 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.06994, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
-  %spec.select = add nuw nsw i32 %.05396, %9
-  %10 = getelementptr inbounds nuw i8, ptr %.06997, i64 40
+  %spec.select = add nuw nsw i32 %.05393, %9
+  %10 = getelementptr inbounds nuw i8, ptr %.06994, i64 40
   %.069 = load ptr, ptr %10, align 8
   %.not77 = icmp eq ptr %.069, null
   br i1 %.not77, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
-.lr.ph103:                                        ; preds = %.preheader, %25
-  %.058102 = phi ptr [ %.058, %25 ], [ %.05898, %.preheader ]
-  %.059101 = phi i32 [ %.160, %25 ], [ 0, %.preheader ]
-  %.165100 = phi i64 [ %.367, %25 ], [ 8, %.preheader ]
-  %11 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.058102, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
+.lr.ph100:                                        ; preds = %.preheader, %25
+  %.05899 = phi ptr [ %.058, %25 ], [ %.05895, %.preheader ]
+  %.05998 = phi i32 [ %.160, %25 ], [ 0, %.preheader ]
+  %.16597 = phi i64 [ %.367, %25 ], [ 8, %.preheader ]
+  %11 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.05899, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %25, label %13
 
-13:                                               ; preds = %.lr.ph103
-  %14 = load i64, ptr %.058102, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %.058102, i64 8
+13:                                               ; preds = %.lr.ph100
+  %14 = load i64, ptr %.05899, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %.05899, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = tail call fastcc ptr @CreateMappingString(ptr noundef nonnull %.058102, i64 %14, i64 %16)
+  %17 = tail call fastcc ptr @CreateMappingString(ptr noundef nonnull %.05899, i64 %14, i64 %16)
   %.not80.not = icmp eq ptr %17, null
-  br i1 %.not80.not, label %.thread88, label %18
+  br i1 %.not80.not, label %.thread85, label %18
 
-.thread88:                                        ; preds = %13
+.thread85:                                        ; preds = %13
   tail call void @SDL_UnlockJoysticks_REAL() #10
   br label %42
 
 18:                                               ; preds = %13
-  %19 = add nsw i32 %.059101, 1
-  %20 = sext i32 %.059101 to i64
+  %19 = add nsw i32 %.05998, 1
+  %20 = sext i32 %.05998 to i64
   %21 = getelementptr inbounds ptr, ptr %6, i64 %20
   store ptr %17, ptr %21, align 8
   %22 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %17) #10
-  %23 = add i64 %.165100, 9
+  %23 = add i64 %.16597, 9
   %24 = add i64 %23, %22
   br label %25
 
-25:                                               ; preds = %18, %.lr.ph103
-  %.367 = phi i64 [ %.165100, %.lr.ph103 ], [ %24, %18 ]
-  %.160 = phi i32 [ %.059101, %.lr.ph103 ], [ %19, %18 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.058102, i64 40
+25:                                               ; preds = %18, %.lr.ph100
+  %.367 = phi i64 [ %.16597, %.lr.ph100 ], [ %24, %18 ]
+  %.160 = phi i32 [ %.05998, %.lr.ph100 ], [ %19, %18 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.05899, i64 40
   %.058 = load ptr, ptr %26, align 8
   %.not79 = icmp eq ptr %.058, null
-  br i1 %.not79, label %._crit_edge104, label %.lr.ph103, !llvm.loop !26
+  br i1 %.not79, label %._crit_edge101, label %.lr.ph100, !llvm.loop !26
 
-._crit_edge104:                                   ; preds = %25, %.preheader
+._crit_edge101:                                   ; preds = %25, %.preheader
   %.165.lcssa = phi i64 [ 8, %.preheader ], [ %.367, %25 ]
   tail call void @SDL_UnlockJoysticks_REAL() #10
   %27 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %.165.lcssa) #10
   %.not81 = icmp eq ptr %27, null
   br i1 %.not81, label %42, label %28
 
-28:                                               ; preds = %._crit_edge104
+28:                                               ; preds = %._crit_edge101
   %29 = zext i32 %.053.lcssa to i64
-  %.not116 = icmp eq i32 %.053.lcssa, 0
-  br i1 %.not116, label %._crit_edge111, label %.lr.ph110.preheader
+  %.not113 = icmp eq i32 %.053.lcssa, 0
+  br i1 %.not113, label %._crit_edge108, label %.lr.ph107.preheader
 
-.lr.ph110.preheader:                              ; preds = %28
+.lr.ph107.preheader:                              ; preds = %28
   %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %5
   %31 = shl nuw nsw i64 %29, 3
   %.neg = xor i64 %31, -1
   %32 = add i64 %.165.lcssa, %.neg
-  br label %.lr.ph110
+  br label %.lr.ph107
 
-._crit_edge111:                                   ; preds = %.lr.ph110, %28
+._crit_edge108:                                   ; preds = %.lr.ph107, %28
   %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
   store ptr null, ptr %33, align 8
   br i1 %.not, label %42, label %41
 
-.lr.ph110:                                        ; preds = %.lr.ph110.preheader, %.lr.ph110
-  %indvars.iv = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next, %.lr.ph110 ]
-  %.055107 = phi ptr [ %30, %.lr.ph110.preheader ], [ %40, %.lr.ph110 ]
-  %.5106 = phi i64 [ %32, %.lr.ph110.preheader ], [ %39, %.lr.ph110 ]
+.lr.ph107:                                        ; preds = %.lr.ph107.preheader, %.lr.ph107
+  %indvars.iv = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next, %.lr.ph107 ]
+  %.055104 = phi ptr [ %30, %.lr.ph107.preheader ], [ %40, %.lr.ph107 ]
+  %.5103 = phi i64 [ %32, %.lr.ph107.preheader ], [ %39, %.lr.ph107 ]
   %34 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
-  store ptr %.055107, ptr %34, align 8
+  store ptr %.055104, ptr %34, align 8
   %35 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i64 @SDL_strlcpy_REAL(ptr noundef %.055107, ptr noundef %36, i64 noundef %.5106) #10
+  %37 = tail call i64 @SDL_strlcpy_REAL(ptr noundef %.055104, ptr noundef %36, i64 noundef %.5103) #10
   %38 = add i64 %37, 1
-  %39 = sub i64 %.5106, %38
-  %40 = getelementptr inbounds nuw i8, ptr %.055107, i64 %38
+  %39 = sub i64 %.5103, %38
+  %40 = getelementptr inbounds nuw i8, ptr %.055104, i64 %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %29
-  br i1 %exitcond.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge108, label %.lr.ph107, !llvm.loop !27
 
-41:                                               ; preds = %._crit_edge111
+41:                                               ; preds = %._crit_edge108
   store i32 %.053.lcssa, ptr %0, align 4
   br label %42
 
-42:                                               ; preds = %.thread88, %._crit_edge111, %41, %._crit_edge104
-  %.056 = phi ptr [ null, %._crit_edge104 ], [ %27, %41 ], [ %27, %._crit_edge111 ], [ null, %.thread88 ]
-  %.not117 = icmp eq i32 %.053.lcssa, 0
-  br i1 %.not117, label %._crit_edge115, label %.lr.ph114.preheader
+.thread87:                                        ; preds = %._crit_edge
+  tail call void @SDL_UnlockJoysticks_REAL() #10
+  br label %45
 
-.lr.ph114.preheader:                              ; preds = %42
-  %wide.trip.count122 = zext i32 %.053.lcssa to i64
-  br label %.lr.ph114
+42:                                               ; preds = %.thread85, %._crit_edge108, %41, %._crit_edge101
+  %.056 = phi ptr [ null, %._crit_edge101 ], [ %27, %41 ], [ %27, %._crit_edge108 ], [ null, %.thread85 ]
+  %.not114 = icmp eq i32 %.053.lcssa, 0
+  br i1 %.not114, label %._crit_edge112, label %.lr.ph111.preheader
 
-._crit_edge115:                                   ; preds = %.lr.ph114, %42
+.lr.ph111.preheader:                              ; preds = %42
+  %wide.trip.count119 = zext i32 %.053.lcssa to i64
+  br label %.lr.ph111
+
+._crit_edge112:                                   ; preds = %.lr.ph111, %42
   tail call void @SDL_free_REAL(ptr noundef nonnull %6) #10
   br label %45
 
-.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
-  %indvars.iv119 = phi i64 [ 0, %.lr.ph114.preheader ], [ %indvars.iv.next120, %.lr.ph114 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv119
+.lr.ph111:                                        ; preds = %.lr.ph111.preheader, %.lr.ph111
+  %indvars.iv116 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next117, %.lr.ph111 ]
+  %43 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv116
   %44 = load ptr, ptr %43, align 8
   tail call void @SDL_free_REAL(ptr noundef %44) #10
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge115, label %.lr.ph114, !llvm.loop !28
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
+  br i1 %exitcond120.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !28
 
-45:                                               ; preds = %.thread90, %._crit_edge115
-  %.05692 = phi ptr [ null, %.thread90 ], [ %.056, %._crit_edge115 ]
-  ret ptr %.05692
+45:                                               ; preds = %.thread87, %._crit_edge112
+  %.05689 = phi ptr [ null, %.thread87 ], [ %.056, %._crit_edge112 ]
+  ret ptr %.05689
 }
 
 declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -2552,7 +2554,7 @@ define internal fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %0, i64 %1, ptr nou
 
 19:                                               ; preds = %5, %11, %14
   %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.115, ptr noundef %2) #10
-  br label %116
+  br label %118
 
 21:                                               ; preds = %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %12, i64 %17, i1 false)
@@ -2581,235 +2583,235 @@ define internal fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %0, i64 %1, ptr nou
 32:                                               ; preds = %.preheader.i
   %33 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %28) #10
   %34 = tail call i64 @SDL_strlen_REAL(ptr noundef %33) #10
-  %invariant.gep.i = getelementptr i8, ptr %33, i64 -1
   %.not2123.i = icmp eq i64 %34, 0
   br i1 %.not2123.i, label %SDL_PrivateGetGamepadMappingFromMappingString.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %32, %38
-  %.024.i = phi i64 [ %39, %38 ], [ %34, %32 ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.024.i
-  %35 = load i8, ptr %gep.i, align 1
-  %36 = sext i8 %35 to i32
-  %37 = tail call i32 @SDL_isspace_REAL(i32 noundef %36) #10
-  %.not22.i = icmp eq i32 %37, 0
-  br i1 %.not22.i, label %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105, label %38
+.lr.ph.i:                                         ; preds = %32, %40
+  %.024.i = phi i64 [ %41, %40 ], [ %34, %32 ]
+  %35 = getelementptr i8, ptr %33, i64 %.024.i
+  %36 = getelementptr i8, ptr %35, i64 -1
+  %37 = load i8, ptr %36, align 1
+  %38 = sext i8 %37 to i32
+  %39 = tail call i32 @SDL_isspace_REAL(i32 noundef %38) #10
+  %.not22.i = icmp eq i32 %39, 0
+  br i1 %.not22.i, label %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105, label %40
 
-38:                                               ; preds = %.lr.ph.i
-  %39 = add i64 %.024.i, -1
-  %.not21.i = icmp eq i64 %39, 0
+40:                                               ; preds = %.lr.ph.i
+  %41 = add i64 %.024.i, -1
+  %.not21.i = icmp eq i64 %41, 0
   br i1 %.not21.i, label %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105, label %.lr.ph.i, !llvm.loop !30
 
-SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105: ; preds = %.lr.ph.i, %38
-  %.0.lcssa.i.ph = phi i64 [ %.024.i, %.lr.ph.i ], [ 0, %38 ]
-  %40 = getelementptr inbounds nuw i8, ptr %33, i64 %.0.lcssa.i.ph
-  store i8 0, ptr %40, align 1
-  br label %42
+SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105: ; preds = %.lr.ph.i, %40
+  %.0.lcssa.i.ph = phi i64 [ %.024.i, %.lr.ph.i ], [ 0, %40 ]
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 %.0.lcssa.i.ph
+  store i8 0, ptr %42, align 1
+  br label %44
 
 SDL_PrivateGetGamepadMappingFromMappingString.exit: ; preds = %32
   store i8 0, ptr %33, align 1
-  br label %42
+  br label %44
 
 SDL_PrivateGetGamepadMappingFromMappingString.exit.thread: ; preds = %25, %21
   tail call void @SDL_free_REAL(ptr noundef nonnull %18) #10
-  %41 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.116, ptr noundef %2) #10
-  br label %116
+  %43 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.116, ptr noundef %2) #10
+  br label %118
 
-42:                                               ; preds = %SDL_PrivateGetGamepadMappingFromMappingString.exit, %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105
+44:                                               ; preds = %SDL_PrivateGetGamepadMappingFromMappingString.exit, %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105
   call void @SDL_GetJoystickGUIDInfo_REAL(i64 %0, i64 %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %7) #10
-  %43 = load i16, ptr %7, align 2
-  %.not82 = icmp eq i16 %43, 0
-  br i1 %.not82, label %65, label %44
-
-44:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  %45 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %33, ptr noundef nonnull @.str.82) #10
-  %.not85 = icmp eq ptr %45, null
-  br i1 %.not85, label %49, label %46
+  %45 = load i16, ptr %7, align 2
+  %.not82 = icmp eq i16 %45, 0
+  br i1 %.not82, label %67, label %46
 
 46:                                               ; preds = %44
-  %47 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %45, i32 noundef 44) #10
-  %.not86 = icmp eq ptr %47, null
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  %.165 = select i1 %.not86, ptr @.str.117, ptr %48
-  store i8 0, ptr %45, align 1
-  br label %49
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  %47 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %33, ptr noundef nonnull @.str.82) #10
+  %.not85 = icmp eq ptr %47, null
+  br i1 %.not85, label %51, label %48
 
-49:                                               ; preds = %46, %44
-  %.064 = phi ptr [ %.165, %46 ], [ @.str.117, %44 ]
-  %50 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %33) #10
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %57, label %52
+48:                                               ; preds = %46
+  %49 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %47, i32 noundef 44) #10
+  %.not86 = icmp eq ptr %49, null
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  %.165 = select i1 %.not86, ptr @.str.117, ptr %50
+  store i8 0, ptr %47, align 1
+  br label %51
 
-52:                                               ; preds = %49
-  %53 = getelementptr i8, ptr %33, i64 %50
-  %54 = getelementptr i8, ptr %53, i64 -1
-  %55 = load i8, ptr %54, align 1
-  %56 = icmp eq i8 %55, 44
-  %spec.select = select i1 %56, ptr @.str.117, ptr @.str.81
-  br label %57
+51:                                               ; preds = %48, %46
+  %.064 = phi ptr [ %.165, %48 ], [ @.str.117, %46 ]
+  %52 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %33) #10
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %59, label %54
 
-57:                                               ; preds = %52, %49
-  %.067 = phi ptr [ @.str.117, %49 ], [ %spec.select, %52 ]
-  %58 = load i16, ptr %7, align 2
-  %59 = zext i16 %58 to i32
-  %60 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %8, ptr noundef nonnull @.str.118, ptr noundef nonnull %33, ptr noundef nonnull %.067, ptr noundef nonnull @.str.82, i32 noundef %59, ptr noundef %.064) #10
-  %61 = icmp sgt i32 %60, -1
-  br i1 %61, label %62, label %64
+54:                                               ; preds = %51
+  %55 = getelementptr i8, ptr %33, i64 %52
+  %56 = getelementptr i8, ptr %55, i64 -1
+  %57 = load i8, ptr %56, align 1
+  %58 = icmp eq i8 %57, 44
+  %spec.select = select i1 %58, ptr @.str.117, ptr @.str.81
+  br label %59
 
-62:                                               ; preds = %57
+59:                                               ; preds = %54, %51
+  %.067 = phi ptr [ @.str.117, %51 ], [ %spec.select, %54 ]
+  %60 = load i16, ptr %7, align 2
+  %61 = zext i16 %60 to i32
+  %62 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %8, ptr noundef nonnull @.str.118, ptr noundef nonnull %33, ptr noundef nonnull %.067, ptr noundef nonnull @.str.82, i32 noundef %61, ptr noundef %.064) #10
+  %63 = icmp sgt i32 %62, -1
+  br i1 %63, label %64, label %66
+
+64:                                               ; preds = %59
   call void @SDL_free_REAL(ptr noundef nonnull %33) #10
-  %63 = load ptr, ptr %8, align 8
-  br label %64
+  %65 = load ptr, ptr %8, align 8
+  br label %66
 
-64:                                               ; preds = %62, %57
-  %.063 = phi ptr [ %63, %62 ], [ %33, %57 ]
+66:                                               ; preds = %64, %59
+  %.063 = phi ptr [ %65, %64 ], [ %33, %59 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  br label %72
+  br label %74
 
-65:                                               ; preds = %42
-  %66 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %33, ptr noundef nonnull @.str.82) #10
-  %.not83 = icmp eq ptr %66, null
-  br i1 %.not83, label %72, label %67
+67:                                               ; preds = %44
+  %68 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %33, ptr noundef nonnull @.str.82) #10
+  %.not83 = icmp eq ptr %68, null
+  br i1 %.not83, label %74, label %69
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %69 = call i64 @SDL_strtol_REAL(ptr noundef nonnull %68, ptr noundef null, i32 noundef 16) #10
-  %70 = trunc i64 %69 to i16
-  store i16 %70, ptr %7, align 2
-  %.not84 = icmp eq i16 %70, 0
-  br i1 %.not84, label %72, label %71
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %71 = call i64 @SDL_strtol_REAL(ptr noundef nonnull %70, ptr noundef null, i32 noundef 16) #10
+  %72 = trunc i64 %71 to i16
+  store i16 %72, ptr %7, align 2
+  %.not84 = icmp eq i16 %72, 0
+  br i1 %.not84, label %74, label %73
 
-71:                                               ; preds = %67
-  call void @SDL_SetJoystickGUIDCRC(ptr noundef nonnull %6, i16 noundef zeroext %70) #10
-  br label %72
+73:                                               ; preds = %69
+  call void @SDL_SetJoystickGUIDCRC(ptr noundef nonnull %6, i16 noundef zeroext %72) #10
+  br label %74
 
-72:                                               ; preds = %65, %71, %67, %64
-  %.1 = phi ptr [ %.063, %64 ], [ %33, %67 ], [ %33, %71 ], [ %33, %65 ]
+74:                                               ; preds = %67, %73, %69, %66
+  %.1 = phi ptr [ %.063, %66 ], [ %33, %69 ], [ %33, %73 ], [ %33, %67 ]
   call fastcc void @PushMappingChangeTracking()
-  %73 = load i64, ptr %6, align 8
-  %74 = load i64, ptr %9, align 8
-  %75 = call fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %73, i64 %74, i1 noundef zeroext true, i1 noundef zeroext true)
-  %.not87 = icmp eq ptr %75, null
-  br i1 %.not87, label %100, label %76
+  %75 = load i64, ptr %6, align 8
+  %76 = load i64, ptr %9, align 8
+  %77 = call fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %75, i64 %76, i1 noundef zeroext true, i1 noundef zeroext true)
+  %.not87 = icmp eq ptr %77, null
+  br i1 %.not87, label %102, label %78
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %78 = load i32, ptr %77, align 8
-  %.not93 = icmp ugt i32 %78, %4
-  br i1 %.not93, label %84, label %79
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %80 = load i32, ptr %79, align 8
+  %.not93 = icmp ugt i32 %80, %4
+  br i1 %.not93, label %86, label %81
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %81 = load ptr, ptr %80, align 8
-  call void @SDL_free_REAL(ptr noundef %81) #10
-  store ptr %18, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %75, i64 24
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %83 = load ptr, ptr %82, align 8
   call void @SDL_free_REAL(ptr noundef %83) #10
-  store ptr %.1, ptr %82, align 8
-  store i32 %4, ptr %77, align 8
-  br label %85
-
-84:                                               ; preds = %76
-  call void @SDL_free_REAL(ptr noundef nonnull %18) #10
-  call void @SDL_free_REAL(ptr noundef %.1) #10
-  br label %85
-
-85:                                               ; preds = %84, %79
-  %.not94 = icmp eq ptr %3, null
-  br i1 %.not94, label %87, label %86
-
-86:                                               ; preds = %85
-  store i8 1, ptr %3, align 1
+  store ptr %18, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %85 = load ptr, ptr %84, align 8
+  call void @SDL_free_REAL(ptr noundef %85) #10
+  store ptr %.1, ptr %84, align 8
+  store i32 %4, ptr %79, align 8
   br label %87
 
-87:                                               ; preds = %86, %85
-  call void @SDL_AssertJoysticksLocked() #10
-  %88 = load ptr, ptr @s_mappingChangeTracker, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %90 = load i32, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 32
-  %92 = load ptr, ptr %91, align 8
-  %93 = add nsw i32 %90, 1
-  %94 = sext i32 %93 to i64
-  %95 = shl nsw i64 %94, 3
-  %96 = call ptr @SDL_realloc_REAL(ptr noundef %92, i64 noundef %95) #12
-  %.not.i99 = icmp eq ptr %96, null
-  br i1 %.not.i99, label %AddMappingChangeTracking.exit, label %97
+86:                                               ; preds = %78
+  call void @SDL_free_REAL(ptr noundef nonnull %18) #10
+  call void @SDL_free_REAL(ptr noundef %.1) #10
+  br label %87
 
-97:                                               ; preds = %87
-  store ptr %96, ptr %91, align 8
-  %98 = sext i32 %90 to i64
-  %99 = getelementptr inbounds ptr, ptr %96, i64 %98
-  store ptr %75, ptr %99, align 8
-  store i32 %93, ptr %89, align 8
+87:                                               ; preds = %86, %81
+  %.not94 = icmp eq ptr %3, null
+  br i1 %.not94, label %89, label %88
+
+88:                                               ; preds = %87
+  store i8 1, ptr %3, align 1
+  br label %89
+
+89:                                               ; preds = %88, %87
+  call void @SDL_AssertJoysticksLocked() #10
+  %90 = load ptr, ptr @s_mappingChangeTracker, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  %92 = load i32, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 32
+  %94 = load ptr, ptr %93, align 8
+  %95 = add nsw i32 %92, 1
+  %96 = sext i32 %95 to i64
+  %97 = shl nsw i64 %96, 3
+  %98 = call ptr @SDL_realloc_REAL(ptr noundef %94, i64 noundef %97) #12
+  %.not.i99 = icmp eq ptr %98, null
+  br i1 %.not.i99, label %AddMappingChangeTracking.exit, label %99
+
+99:                                               ; preds = %89
+  store ptr %98, ptr %93, align 8
+  %100 = sext i32 %92 to i64
+  %101 = getelementptr inbounds ptr, ptr %98, i64 %100
+  store ptr %77, ptr %101, align 8
+  store i32 %95, ptr %91, align 8
   br label %AddMappingChangeTracking.exit
 
-100:                                              ; preds = %72
-  %101 = call noalias ptr @SDL_malloc_REAL(i64 noundef 48) #10
-  %.not88 = icmp eq ptr %101, null
-  br i1 %.not88, label %102, label %103
+102:                                              ; preds = %74
+  %103 = call noalias ptr @SDL_malloc_REAL(i64 noundef 48) #10
+  %.not88 = icmp eq ptr %103, null
+  br i1 %.not88, label %104, label %105
 
-102:                                              ; preds = %100
+104:                                              ; preds = %102
   call fastcc void @PopMappingChangeTracking()
   call void @SDL_free_REAL(ptr noundef nonnull %18) #10
   call void @SDL_free_REAL(ptr noundef %.1) #10
-  br label %116
+  br label %118
 
-103:                                              ; preds = %100
-  %104 = load i16, ptr %7, align 2
-  %.not89 = icmp eq i16 %104, 0
-  br i1 %.not89, label %106, label %105
+105:                                              ; preds = %102
+  %106 = load i16, ptr %7, align 2
+  %.not89 = icmp eq i16 %106, 0
+  br i1 %.not89, label %108, label %107
 
-105:                                              ; preds = %103
+107:                                              ; preds = %105
   call void @SDL_SetJoystickGUIDCRC(ptr noundef nonnull %6, i16 noundef zeroext 0) #10
-  br label %106
+  br label %108
 
-106:                                              ; preds = %105, %103
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  %107 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  store ptr %18, ptr %107, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  store ptr %.1, ptr %108, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  store ptr null, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  store i32 %4, ptr %110, align 8
-  %111 = load ptr, ptr @s_pSupportedGamepads, align 8
-  %.not90 = icmp eq ptr %111, null
-  br i1 %.not90, label %113, label %.preheader
+108:                                              ; preds = %107, %105
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  %109 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  store ptr %18, ptr %109, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  store ptr %.1, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 40
+  store ptr null, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %103, i64 32
+  store i32 %4, ptr %112, align 8
+  %113 = load ptr, ptr @s_pSupportedGamepads, align 8
+  %.not90 = icmp eq ptr %113, null
+  br i1 %.not90, label %115, label %.preheader
 
-.preheader:                                       ; preds = %106, %.preheader
-  %.0 = phi ptr [ %.061, %.preheader ], [ %111, %106 ]
+.preheader:                                       ; preds = %108, %.preheader
+  %.0 = phi ptr [ %.061, %.preheader ], [ %113, %108 ]
   %.061.in = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %.061 = load ptr, ptr %.061.in, align 8
   %.not91 = icmp eq ptr %.061, null
-  br i1 %.not91, label %112, label %.preheader, !llvm.loop !31
+  br i1 %.not91, label %114, label %.preheader, !llvm.loop !31
 
-112:                                              ; preds = %.preheader
+114:                                              ; preds = %.preheader
   %.061.in.le = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  store ptr %101, ptr %.061.in.le, align 8
-  br label %114
+  store ptr %103, ptr %.061.in.le, align 8
+  br label %116
 
-113:                                              ; preds = %106
-  store ptr %101, ptr @s_pSupportedGamepads, align 8
-  br label %114
+115:                                              ; preds = %108
+  store ptr %103, ptr @s_pSupportedGamepads, align 8
+  br label %116
 
-114:                                              ; preds = %113, %112
+116:                                              ; preds = %115, %114
   %.not92 = icmp eq ptr %3, null
-  br i1 %.not92, label %AddMappingChangeTracking.exit, label %115
+  br i1 %.not92, label %AddMappingChangeTracking.exit, label %117
 
-115:                                              ; preds = %114
+117:                                              ; preds = %116
   store i8 0, ptr %3, align 1
   br label %AddMappingChangeTracking.exit
 
-AddMappingChangeTracking.exit:                    ; preds = %97, %87, %114, %115
-  %.066 = phi ptr [ %101, %115 ], [ %101, %114 ], [ %75, %87 ], [ %75, %97 ]
+AddMappingChangeTracking.exit:                    ; preds = %99, %89, %116, %117
+  %.066 = phi ptr [ %103, %117 ], [ %103, %116 ], [ %77, %89 ], [ %77, %99 ]
   call fastcc void @PopMappingChangeTracking()
-  br label %116
+  br label %118
 
-116:                                              ; preds = %AddMappingChangeTracking.exit, %102, %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread, %19
-  %.062 = phi ptr [ %.066, %AddMappingChangeTracking.exit ], [ null, %102 ], [ null, %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread ], [ null, %19 ]
+118:                                              ; preds = %AddMappingChangeTracking.exit, %104, %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread, %19
+  %.062 = phi ptr [ %.066, %AddMappingChangeTracking.exit ], [ null, %104 ], [ null, %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #10
   ret ptr %.062
 }

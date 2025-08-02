@@ -3095,14 +3095,14 @@ declare void @llvm.assume(i1 noundef) #12
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @__uart_start(ptr %.432.val) unnamed_addr #0 align 16 {
   %1 = icmp eq ptr %.432.val, null
-  br i1 %1, label %.thread, label %2
+  br i1 %1, label %.critedge, label %2
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %.432.val, i64 272
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 1073741824
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %.thread
+  br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %.432.val, i64 208
@@ -3116,13 +3116,13 @@ define internal fastcc void @__uart_start(ptr %.432.val) unnamed_addr #0 align 1
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 444
   %15 = load i8, ptr %14, align 4, !range !15, !noundef !16
   %16 = icmp eq i8 %15, 0
-  br i1 %16, label %17, label %.thread
+  br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %13, %7
   %18 = getelementptr inbounds nuw i8, ptr %.432.val, i64 284
   %19 = load i8, ptr %18, align 4, !range !15, !noundef !16
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %.432.val, i64 352
@@ -3137,7 +3137,7 @@ define internal fastcc void @__uart_start(ptr %.432.val) unnamed_addr #0 align 1
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 432
   %30 = load volatile i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.thread, label %.lr.ph, !prof !25
+  br i1 %31, label %.critedge, label %.lr.ph, !prof !25
 
 .lr.ph:                                           ; preds = %28, %38
   %32 = phi i32 [ %39, %38 ], [ %30, %28 ]
@@ -3147,12 +3147,12 @@ define internal fastcc void @__uart_start(ptr %.432.val) unnamed_addr #0 align 1
   %36 = icmp ult i8 %35, 2
   tail call void @llvm.assume(i1 %36)
   %37 = icmp eq i8 %35, 0
-  br i1 %37, label %38, label %.thread, !prof !6
+  br i1 %37, label %38, label %.critedge, !prof !6
 
 38:                                               ; preds = %.lr.ph
   %39 = extractvalue { i8, i32 } %34, 1
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.thread, label %.lr.ph, !prof !27, !llvm.loop !28
+  br i1 %40, label %.critedge, label %.lr.ph, !prof !27, !llvm.loop !28
 
 41:                                               ; preds = %21
   %42 = getelementptr inbounds nuw i8, ptr %23, i64 452
@@ -3180,9 +3180,9 @@ define internal fastcc void @__uart_start(ptr %.432.val) unnamed_addr #0 align 1
   %57 = getelementptr inbounds nuw i8, ptr %23, i64 472
   store volatile i64 %56, ptr %57, align 8
   %58 = tail call i32 @__pm_runtime_suspend(ptr noundef %23, i32 noundef 13) #20
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %38, %.lr.ph, %28, %55, %17, %13, %2, %0
+.critedge:                                        ; preds = %38, %.lr.ph, %28, %55, %17, %13, %2, %0
   ret void
 }
 

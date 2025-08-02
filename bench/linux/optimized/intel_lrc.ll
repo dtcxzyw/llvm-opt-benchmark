@@ -107,7 +107,7 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %43 = load i32, ptr %42, align 8
   %44 = load i8, ptr %41, align 1
   %45 = icmp eq i8 %44, 0
-  br i1 %45, label %.loopexit45, label %.preheader
+  br i1 %45, label %.loopexit42, label %.preheader
 
 .preheader:                                       ; preds = %40, %.loopexit
   %46 = phi i8 [ %94, %.loopexit ], [ %44, %40 ]
@@ -180,13 +180,13 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %93 = phi ptr [ %54, %50 ], [ %89, %86 ]
   %94 = load i8, ptr %92, align 1
   %95 = icmp eq i8 %94, 0
-  br i1 %95, label %.loopexit45, label %.preheader
+  br i1 %95, label %.loopexit42, label %.preheader
 
-.loopexit45:                                      ; preds = %.loopexit, %40
+.loopexit42:                                      ; preds = %.loopexit, %40
   %96 = phi ptr [ %0, %40 ], [ %93, %.loopexit ]
   br i1 %3, label %97, label %103
 
-97:                                               ; preds = %.loopexit45
+97:                                               ; preds = %.loopexit42
   store i32 83886080, ptr %96, align 4
   %98 = load ptr, ptr %2, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 7176
@@ -196,8 +196,8 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   store i32 %102, ptr %96, align 4
   br label %103
 
-103:                                              ; preds = %97, %.loopexit45
-  %104 = phi i32 [ 589832, %.loopexit45 ], [ 589833, %97 ]
+103:                                              ; preds = %97, %.loopexit42
+  %104 = phi i32 [ 589832, %.loopexit42 ], [ 589833, %97 ]
   %105 = load ptr, ptr %2, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 7176
   %107 = load i8, ptr %106, align 8
@@ -276,22 +276,22 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
 
 153:                                              ; preds = %151
   %154 = icmp eq i8 %141, 8
-  br i1 %154, label %155, label %162
+  br i1 %154, label %155, label %.critedge
 
 155:                                              ; preds = %153
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %157 = load i8, ptr %156, align 8
   %158 = icmp eq i8 %157, 0
-  br i1 %158, label %159, label %162
+  br i1 %158, label %159, label %.critedge
 
 159:                                              ; preds = %.thread, %149, %151, %155
-  %.ph = phi i64 [ 196, %155 ], [ 100, %151 ], [ 112, %149 ], [ 128, %.thread ]
-  %160 = getelementptr i32, ptr %0, i64 %.ph
-  %161 = getelementptr i8, ptr %160, i64 4
-  store i32 0, ptr %161, align 4
-  br label %162
+  %160 = phi i64 [ 128, %.thread ], [ 112, %149 ], [ 100, %151 ], [ 196, %155 ]
+  %161 = getelementptr i32, ptr %0, i64 %160
+  %162 = getelementptr i8, ptr %161, i64 4
+  store i32 0, ptr %162, align 4
+  br label %.critedge
 
-162:                                              ; preds = %155, %153, %159
+.critedge:                                        ; preds = %153, %155, %159
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 536
@@ -300,13 +300,13 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %168 = icmp eq i8 %167, 0
   br i1 %168, label %172, label %169
 
-169:                                              ; preds = %162
+169:                                              ; preds = %.critedge
   %170 = getelementptr inbounds nuw i8, ptr %164, i64 800
   %171 = load ptr, ptr %170, align 8
   br label %172
 
-172:                                              ; preds = %169, %162
-  %173 = phi ptr [ %171, %169 ], [ %164, %162 ]
+172:                                              ; preds = %169, %.critedge
+  %173 = phi ptr [ %171, %169 ], [ %164, %.critedge ]
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 328
   %175 = load i64, ptr %174, align 8
   %176 = add i64 %175, -4294967297
@@ -488,21 +488,21 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 7176
   %314 = load i8, ptr %313, align 8
   %315 = icmp ugt i8 %314, 11
-  br i1 %315, label %.thread25, label %316
+  br i1 %315, label %.thread22, label %316
 
 316:                                              ; preds = %299
   %317 = icmp samesign ugt i8 %314, 8
-  br i1 %317, label %.thread25, label %318
+  br i1 %317, label %.thread22, label %318
 
 318:                                              ; preds = %316
   %319 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %320 = load i8, ptr %319, align 8
   %321 = icmp eq i8 %320, 0
-  %spec.select43 = select i1 %321, i64 26, i64 -1
-  br label %.thread25
+  %spec.select40 = select i1 %321, i64 26, i64 -1
+  br label %.thread22
 
-.thread25:                                        ; preds = %318, %316, %299
-  %322 = phi i64 [ 26, %316 ], [ 20, %299 ], [ %spec.select43, %318 ]
+.thread22:                                        ; preds = %318, %316, %299
+  %322 = phi i64 [ 26, %316 ], [ 20, %299 ], [ %spec.select40, %318 ]
   %323 = getelementptr i32, ptr %0, i64 %322
   %324 = getelementptr i8, ptr %323, i64 4
   store i32 %311, ptr %324, align 4
@@ -510,15 +510,15 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 7176
   %327 = load i8, ptr %326, align 8
   %328 = icmp ugt i8 %327, 11
-  br i1 %328, label %.thread37.thread, label %329
+  br i1 %328, label %.thread34.thread, label %329
 
-329:                                              ; preds = %.thread25
+329:                                              ; preds = %.thread22
   %330 = icmp eq i8 %327, 11
-  br i1 %330, label %.thread37.thread, label %331
+  br i1 %330, label %.thread34.thread, label %331
 
 331:                                              ; preds = %329
   %332 = icmp samesign ugt i8 %327, 8
-  br i1 %332, label %.thread37.thread, label %333
+  br i1 %332, label %.thread34.thread, label %333
 
 333:                                              ; preds = %331
   %334 = icmp eq i8 %327, 8
@@ -526,18 +526,18 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %336 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %337 = load i8, ptr %336, align 8
   %338 = icmp eq i8 %337, 0
-  %spec.select61 = select i1 %338, i64 28, i64 -1
-  br label %.thread37.thread
+  %spec.select57 = select i1 %338, i64 28, i64 -1
+  br label %.thread34.thread
 
-.thread37.thread:                                 ; preds = %333, %331, %329, %.thread25
-  %339 = phi i32 [ 2432, %331 ], [ 1664, %329 ], [ 832, %.thread25 ], [ %335, %333 ]
-  %340 = phi i64 [ 28, %331 ], [ 28, %329 ], [ 22, %.thread25 ], [ %spec.select61, %333 ]
+.thread34.thread:                                 ; preds = %333, %331, %329, %.thread22
+  %339 = phi i32 [ 2432, %331 ], [ 1664, %329 ], [ 832, %.thread22 ], [ %335, %333 ]
+  %340 = phi i64 [ 28, %331 ], [ 28, %329 ], [ 22, %.thread22 ], [ %spec.select57, %333 ]
   %341 = getelementptr i32, ptr %0, i64 %340
   %342 = getelementptr i8, ptr %341, i64 4
   store i32 %339, ptr %342, align 4
   br label %343
 
-343:                                              ; preds = %.thread37.thread, %295
+343:                                              ; preds = %.thread34.thread, %295
   %344 = load ptr, ptr %2, align 8
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 7176
   %346 = load i8, ptr %345, align 8
@@ -548,25 +548,25 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %351 = zext i8 %350 to i32
   %352 = or disjoint i32 %348, %351
   %353 = icmp samesign ugt i32 %352, 3121
-  br i1 %353, label %select.unfold39, label %354
+  br i1 %353, label %select.unfold36, label %354
 
 354:                                              ; preds = %343
   %355 = icmp ugt i8 %346, 11
-  br i1 %355, label %select.unfold39, label %356
+  br i1 %355, label %select.unfold36, label %356
 
 356:                                              ; preds = %354
   %357 = icmp samesign ugt i8 %346, 8
-  br i1 %357, label %select.unfold39, label %358
+  br i1 %357, label %select.unfold36, label %358
 
 358:                                              ; preds = %356
   %359 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %360 = load i8, ptr %359, align 8
   %361 = icmp eq i8 %360, 0
-  br i1 %361, label %select.unfold39, label %367
+  br i1 %361, label %select.unfold36, label %367
 
-select.unfold39:                                  ; preds = %358, %343, %354, %356
-  %.ph41 = phi i64 [ 84, %356 ], [ 96, %354 ], [ 112, %343 ], [ 88, %358 ]
-  %362 = getelementptr i32, ptr %0, i64 %.ph41
+select.unfold36:                                  ; preds = %358, %343, %354, %356
+  %.ph38 = phi i64 [ 84, %356 ], [ 96, %354 ], [ 112, %343 ], [ 88, %358 ]
+  %362 = getelementptr i32, ptr %0, i64 %.ph38
   %363 = getelementptr i8, ptr %362, i64 4
   %364 = load i32, ptr %363, align 4
   %365 = and i32 %364, -16777473
@@ -574,7 +574,7 @@ select.unfold39:                                  ; preds = %358, %343, %354, %3
   store i32 %366, ptr %363, align 4
   br label %367
 
-367:                                              ; preds = %358, %select.unfold39
+367:                                              ; preds = %358, %select.unfold36
   ret void
 }
 

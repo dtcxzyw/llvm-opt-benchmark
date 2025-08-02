@@ -9093,8 +9093,9 @@ for.body.i.preheader:                             ; preds = %entry, %if.end.i
 
 for.body.i.us:                                    ; preds = %entry, %for.inc.i.us
   %__begin1.0.idx14.i.us = phi i64 [ %__begin1.0.add.i.us, %for.inc.i.us ], [ %GPU.coerce1.fr, %entry ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %__begin1.0.idx14.i.us
-  %C.sroa.2.0.copyload.i.us = load i64, ptr %gep, align 8
+  %__begin1.0.ptr.i.us = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %__begin1.0.idx14.i.us
+  %C.sroa.2.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr.i.us, i64 8
+  %C.sroa.2.0.copyload.i.us = load i64, ptr %C.sroa.2.0..sroa_idx.i.us, align 8
   %cmp.i.i.us = icmp eq i64 %C.sroa.2.0.copyload.i.us, 0
   br i1 %cmp.i.i.us, label %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, label %for.inc.i.us
 

@@ -79610,8 +79610,8 @@ common.resume:                                    ; preds = %45, %27
 
 38:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2cbb66efc6125c7bE.exit"
   %.idx = mul nuw nsw i64 %35, 88
-  %39 = getelementptr i8, ptr %10, i64 56
-  %40 = getelementptr i8, ptr %39, i64 %.idx
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8, !noundef !4
   %43 = icmp ult i64 %8, %42

@@ -419,7 +419,7 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 59
   %12 = load i8, ptr %11, align 1, !tbaa !44, !range !45, !noundef !46
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %93, label %14
+  br i1 %13, label %97, label %14
 
 14:                                               ; preds = %10
   %15 = load i64, ptr %9, align 8, !tbaa !47
@@ -433,18 +433,18 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   store double %20, ptr %22, align 8, !tbaa !49
   %23 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %24 = icmp sgt i64 %23, 1
-  br i1 %24, label %.lr.ph153, label %._crit_edge154
+  br i1 %24, label %.lr.ph151, label %._crit_edge152
 
-.lr.ph153:                                        ; preds = %14, %.lr.ph153
-  %.0145151 = phi i64 [ %40, %.lr.ph153 ], [ 1, %14 ]
-  %25 = getelementptr inbounds nuw i64, ptr %9, i64 %.0145151
+.lr.ph151:                                        ; preds = %14, %.lr.ph151
+  %.0145149 = phi i64 [ %40, %.lr.ph151 ], [ 1, %14 ]
+  %25 = getelementptr inbounds nuw i64, ptr %9, i64 %.0145149
   %26 = load i64, ptr %25, align 8, !tbaa !47
   %27 = getelementptr double, ptr %2, i64 %26
   %28 = getelementptr i8, ptr %27, i64 8
   %29 = load double, ptr %28, align 8, !tbaa !49
   %30 = load double, ptr %27, align 8, !tbaa !49
   %31 = load ptr, ptr %21, align 8, !tbaa !25
-  %32 = getelementptr double, ptr %31, i64 %.0145151
+  %32 = getelementptr double, ptr %31, i64 %.0145149
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load double, ptr %33, align 8, !tbaa !49
   %35 = fneg double %30
@@ -453,20 +453,20 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %38 = load double, ptr %37, align 8, !tbaa !49
   %39 = fdiv double %38, %36
   store double %39, ptr %32, align 8, !tbaa !49
-  %40 = add nuw nsw i64 %.0145151, 1
+  %40 = add nuw nsw i64 %.0145149, 1
   %41 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %42 = icmp slt i64 %40, %41
-  br i1 %42, label %.lr.ph153, label %._crit_edge154, !llvm.loop !51
+  br i1 %42, label %.lr.ph151, label %._crit_edge152, !llvm.loop !51
 
-._crit_edge154:                                   ; preds = %.lr.ph153, %14
+._crit_edge152:                                   ; preds = %.lr.ph151, %14
   store i8 1, ptr %11, align 1, !tbaa !44
-  br label %93
+  br label %97
 
 43:                                               ; preds = %6
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 58
   %45 = load i8, ptr %44, align 2, !tbaa !26, !range !45, !noundef !46
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %93, label %47
+  br i1 %46, label %97, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -493,251 +493,252 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5solveEPvPKdPdxb(ptr noundef nonnu
   %68 = fdiv double %67, %63
   %69 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store double %68, ptr %69, align 8, !tbaa !49
-  %invariant.gep = getelementptr i8, ptr %2, i64 8
-  %invariant.gep148 = getelementptr i8, ptr %2, i64 16
   %70 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %71 = icmp sgt i64 %70, 2
   br i1 %71, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %47, %.lr.ph
-  %.1150 = phi i64 [ %84, %.lr.ph ], [ 2, %47 ]
-  %72 = getelementptr inbounds nuw i64, ptr %9, i64 %.1150
+  %.1148 = phi i64 [ %88, %.lr.ph ], [ 2, %47 ]
+  %72 = getelementptr inbounds nuw i64, ptr %9, i64 %.1148
   %73 = load i64, ptr %72, align 8, !tbaa !47
-  %gep = getelementptr double, ptr %invariant.gep, i64 %73
-  %74 = load double, ptr %gep, align 8, !tbaa !49
-  %75 = add nsw i64 %.1150, -1
-  %76 = getelementptr inbounds i64, ptr %9, i64 %75
-  %77 = load i64, ptr %76, align 8, !tbaa !47
-  %gep149 = getelementptr double, ptr %invariant.gep148, i64 %77
-  %78 = load double, ptr %gep149, align 8, !tbaa !49
-  %79 = load ptr, ptr %56, align 8, !tbaa !25
-  %80 = getelementptr inbounds nuw double, ptr %79, i64 %75
-  %81 = load double, ptr %80, align 8, !tbaa !49
-  %82 = fneg double %78
-  %83 = tail call double @llvm.fmuladd.f64(double %82, double %81, double %74)
-  %84 = add nuw nsw i64 %.1150, 1
-  %85 = getelementptr inbounds nuw i64, ptr %9, i64 %84
-  %86 = load i64, ptr %85, align 8, !tbaa !47
-  %87 = getelementptr inbounds double, ptr %2, i64 %86
-  %88 = load double, ptr %87, align 8, !tbaa !49
-  %89 = fdiv double %88, %83
-  %90 = getelementptr inbounds nuw double, ptr %79, i64 %.1150
-  store double %89, ptr %90, align 8, !tbaa !49
-  %91 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %92 = icmp slt i64 %84, %91
-  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  %74 = getelementptr double, ptr %2, i64 %73
+  %75 = getelementptr i8, ptr %74, i64 8
+  %76 = load double, ptr %75, align 8, !tbaa !49
+  %77 = add nsw i64 %.1148, -1
+  %78 = getelementptr inbounds i64, ptr %9, i64 %77
+  %79 = load i64, ptr %78, align 8, !tbaa !47
+  %80 = getelementptr double, ptr %2, i64 %79
+  %81 = getelementptr i8, ptr %80, i64 16
+  %82 = load double, ptr %81, align 8, !tbaa !49
+  %83 = load ptr, ptr %56, align 8, !tbaa !25
+  %84 = getelementptr inbounds nuw double, ptr %83, i64 %77
+  %85 = load double, ptr %84, align 8, !tbaa !49
+  %86 = fneg double %82
+  %87 = tail call double @llvm.fmuladd.f64(double %86, double %85, double %76)
+  %88 = add nuw nsw i64 %.1148, 1
+  %89 = getelementptr inbounds nuw i64, ptr %9, i64 %88
+  %90 = load i64, ptr %89, align 8, !tbaa !47
+  %91 = getelementptr inbounds double, ptr %2, i64 %90
+  %92 = load double, ptr %91, align 8, !tbaa !49
+  %93 = fdiv double %92, %87
+  %94 = getelementptr inbounds nuw double, ptr %83, i64 %.1148
+  store double %93, ptr %94, align 8, !tbaa !49
+  %95 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %96 = icmp slt i64 %88, %95
+  br i1 %96, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
   store i8 1, ptr %44, align 2, !tbaa !26
-  br label %93
+  br label %97
 
-93:                                               ; preds = %43, %._crit_edge, %10, %._crit_edge154
-  %invariant.gep173 = getelementptr i8, ptr %2, i64 8
-  %94 = icmp sgt i64 %4, 0
-  br i1 %94, label %.lr.ph179, label %._crit_edge180
+97:                                               ; preds = %43, %._crit_edge, %10, %._crit_edge152
+  %98 = icmp sgt i64 %4, 0
+  br i1 %98, label %.lr.ph171, label %._crit_edge172
 
-.lr.ph179:                                        ; preds = %93
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %96 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %invariant.gep157 = getelementptr i8, ptr %2, i64 16
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  br i1 %5, label %.lr.ph179.split.us, label %.lr.ph179.split
+.lr.ph171:                                        ; preds = %97
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  br i1 %5, label %.lr.ph171.split.us, label %.lr.ph171.split
 
-.lr.ph179.split.us:                               ; preds = %.lr.ph179, %.loopexit.us
-  %.0176.us = phi ptr [ %150, %.loopexit.us ], [ %3, %.lr.ph179 ]
-  %.0146175.us = phi i64 [ %151, %.loopexit.us ], [ 0, %.lr.ph179 ]
-  %99 = load double, ptr %.0176.us, align 8, !tbaa !49
-  %100 = load i64, ptr %9, align 8, !tbaa !47
-  %101 = getelementptr inbounds double, ptr %2, i64 %100
-  %102 = load double, ptr %101, align 8, !tbaa !49
-  %103 = fdiv double %99, %102
-  %104 = load ptr, ptr %95, align 8, !tbaa !25
-  store double %103, ptr %104, align 8, !tbaa !49
-  %105 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %106 = icmp sgt i64 %105, 1
-  br i1 %106, label %.lr.ph168.us, label %._crit_edge169.us
+.lr.ph171.split.us:                               ; preds = %.lr.ph171, %.loopexit.us
+  %.0168.us = phi ptr [ %154, %.loopexit.us ], [ %3, %.lr.ph171 ]
+  %.0146167.us = phi i64 [ %155, %.loopexit.us ], [ 0, %.lr.ph171 ]
+  %103 = load double, ptr %.0168.us, align 8, !tbaa !49
+  %104 = load i64, ptr %9, align 8, !tbaa !47
+  %105 = getelementptr inbounds double, ptr %2, i64 %104
+  %106 = load double, ptr %105, align 8, !tbaa !49
+  %107 = fdiv double %103, %106
+  %108 = load ptr, ptr %99, align 8, !tbaa !25
+  store double %107, ptr %108, align 8, !tbaa !49
+  %109 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %110 = icmp sgt i64 %109, 1
+  br i1 %110, label %.lr.ph162.us, label %._crit_edge163.us
 
-._crit_edge169.us:                                ; preds = %.lr.ph168.us, %.lr.ph179.split.us
-  %107 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %108 = load ptr, ptr %95, align 8, !tbaa !25
-  %109 = getelementptr double, ptr %108, i64 %107
-  %110 = getelementptr i8, ptr %109, i64 -8
-  %111 = load double, ptr %110, align 8, !tbaa !49
-  %112 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %113 = getelementptr double, ptr %.0176.us, i64 %112
+._crit_edge163.us:                                ; preds = %.lr.ph162.us, %.lr.ph171.split.us
+  %111 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %112 = load ptr, ptr %99, align 8, !tbaa !25
+  %113 = getelementptr double, ptr %112, i64 %111
   %114 = getelementptr i8, ptr %113, i64 -8
-  store double %111, ptr %114, align 8, !tbaa !49
-  %115 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %116 = icmp sgt i64 %115, 1
-  br i1 %116, label %.lr.ph172.us, label %.loopexit.us
+  %115 = load double, ptr %114, align 8, !tbaa !49
+  %116 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %117 = getelementptr double, ptr %.0168.us, i64 %116
+  %118 = getelementptr i8, ptr %117, i64 -8
+  store double %115, ptr %118, align 8, !tbaa !49
+  %119 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %120 = icmp sgt i64 %119, 1
+  br i1 %120, label %.lr.ph166.us, label %.loopexit.us
 
-117:                                              ; preds = %.lr.ph172.us, %117
-  %store_forwarded = phi double [ %load_initial, %.lr.ph172.us ], [ %124, %117 ]
-  %.3170.us = phi i64 [ %152, %.lr.ph172.us ], [ %125, %117 ]
-  %118 = getelementptr inbounds nuw double, ptr %153, i64 %.3170.us
-  %119 = load double, ptr %118, align 8, !tbaa !49
-  %120 = getelementptr inbounds nuw double, ptr %154, i64 %.3170.us
-  %121 = load double, ptr %120, align 8, !tbaa !49
-  %122 = getelementptr inbounds nuw double, ptr %.0176.us, i64 %.3170.us
-  %123 = fneg double %121
-  %124 = tail call double @llvm.fmuladd.f64(double %123, double %store_forwarded, double %119)
-  store double %124, ptr %122, align 8, !tbaa !49
-  %125 = add nsw i64 %.3170.us, -1
-  %.not184 = icmp eq i64 %.3170.us, 0
-  br i1 %.not184, label %.loopexit.us, label %117, !llvm.loop !54
+121:                                              ; preds = %.lr.ph166.us, %121
+  %store_forwarded = phi double [ %load_initial, %.lr.ph166.us ], [ %128, %121 ]
+  %.3164.us = phi i64 [ %156, %.lr.ph166.us ], [ %129, %121 ]
+  %122 = getelementptr inbounds nuw double, ptr %157, i64 %.3164.us
+  %123 = load double, ptr %122, align 8, !tbaa !49
+  %124 = getelementptr inbounds nuw double, ptr %158, i64 %.3164.us
+  %125 = load double, ptr %124, align 8, !tbaa !49
+  %126 = getelementptr inbounds nuw double, ptr %.0168.us, i64 %.3164.us
+  %127 = fneg double %125
+  %128 = tail call double @llvm.fmuladd.f64(double %127, double %store_forwarded, double %123)
+  store double %128, ptr %126, align 8, !tbaa !49
+  %129 = add nsw i64 %.3164.us, -1
+  %.not176 = icmp eq i64 %.3164.us, 0
+  br i1 %.not176, label %.loopexit.us, label %121, !llvm.loop !54
 
-.lr.ph168.us:                                     ; preds = %.lr.ph179.split.us, %.lr.ph168.us
-  %.2166.us = phi i64 [ %146, %.lr.ph168.us ], [ 1, %.lr.ph179.split.us ]
-  %126 = getelementptr inbounds nuw i64, ptr %9, i64 %.2166.us
-  %127 = load i64, ptr %126, align 8, !tbaa !47
-  %128 = getelementptr double, ptr %2, i64 %127
-  %129 = getelementptr i8, ptr %128, i64 8
-  %130 = load double, ptr %129, align 8, !tbaa !49
-  %131 = load double, ptr %128, align 8, !tbaa !49
-  %132 = add nsw i64 %.2166.us, -1
-  %133 = load ptr, ptr %98, align 8, !tbaa !25
-  %134 = getelementptr inbounds nuw double, ptr %133, i64 %132
-  %135 = load double, ptr %134, align 8, !tbaa !49
-  %136 = fneg double %131
-  %137 = tail call double @llvm.fmuladd.f64(double %136, double %135, double %130)
-  %138 = getelementptr inbounds nuw double, ptr %.0176.us, i64 %.2166.us
+.lr.ph162.us:                                     ; preds = %.lr.ph171.split.us, %.lr.ph162.us
+  %.2160.us = phi i64 [ %150, %.lr.ph162.us ], [ 1, %.lr.ph171.split.us ]
+  %130 = getelementptr inbounds nuw i64, ptr %9, i64 %.2160.us
+  %131 = load i64, ptr %130, align 8, !tbaa !47
+  %132 = getelementptr double, ptr %2, i64 %131
+  %133 = getelementptr i8, ptr %132, i64 8
+  %134 = load double, ptr %133, align 8, !tbaa !49
+  %135 = load double, ptr %132, align 8, !tbaa !49
+  %136 = add nsw i64 %.2160.us, -1
+  %137 = load ptr, ptr %102, align 8, !tbaa !25
+  %138 = getelementptr inbounds nuw double, ptr %137, i64 %136
   %139 = load double, ptr %138, align 8, !tbaa !49
-  %140 = load ptr, ptr %95, align 8, !tbaa !25
-  %141 = getelementptr inbounds nuw double, ptr %140, i64 %132
-  %142 = load double, ptr %141, align 8, !tbaa !49
-  %143 = tail call double @llvm.fmuladd.f64(double %136, double %142, double %139)
-  %144 = fdiv double %143, %137
-  %145 = getelementptr inbounds nuw double, ptr %140, i64 %.2166.us
-  store double %144, ptr %145, align 8, !tbaa !49
-  %146 = add nuw nsw i64 %.2166.us, 1
-  %147 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %148 = icmp slt i64 %146, %147
-  br i1 %148, label %.lr.ph168.us, label %._crit_edge169.us, !llvm.loop !55
+  %140 = fneg double %135
+  %141 = tail call double @llvm.fmuladd.f64(double %140, double %139, double %134)
+  %142 = getelementptr inbounds nuw double, ptr %.0168.us, i64 %.2160.us
+  %143 = load double, ptr %142, align 8, !tbaa !49
+  %144 = load ptr, ptr %99, align 8, !tbaa !25
+  %145 = getelementptr inbounds nuw double, ptr %144, i64 %136
+  %146 = load double, ptr %145, align 8, !tbaa !49
+  %147 = tail call double @llvm.fmuladd.f64(double %140, double %146, double %143)
+  %148 = fdiv double %147, %141
+  %149 = getelementptr inbounds nuw double, ptr %144, i64 %.2160.us
+  store double %148, ptr %149, align 8, !tbaa !49
+  %150 = add nuw nsw i64 %.2160.us, 1
+  %151 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %152 = icmp slt i64 %150, %151
+  br i1 %152, label %.lr.ph162.us, label %._crit_edge163.us, !llvm.loop !55
 
-.loopexit.us:                                     ; preds = %117, %._crit_edge169.us
-  %149 = tail call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %150 = getelementptr inbounds double, ptr %.0176.us, i64 %149
-  %151 = add nuw nsw i64 %.0146175.us, 1
-  %exitcond182.not = icmp eq i64 %151, %4
-  br i1 %exitcond182.not, label %._crit_edge180, label %.lr.ph179.split.us, !llvm.loop !56
+.loopexit.us:                                     ; preds = %121, %._crit_edge163.us
+  %153 = tail call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %154 = getelementptr inbounds double, ptr %.0168.us, i64 %153
+  %155 = add nuw nsw i64 %.0146167.us, 1
+  %exitcond174.not = icmp eq i64 %155, %4
+  br i1 %exitcond174.not, label %._crit_edge172, label %.lr.ph171.split.us, !llvm.loop !56
 
-.lr.ph172.us:                                     ; preds = %._crit_edge169.us
-  %152 = add nsw i64 %115, -2
-  %153 = load ptr, ptr %95, align 8, !tbaa !25
-  %154 = load ptr, ptr %98, align 8, !tbaa !25
-  %scevgep = getelementptr i8, ptr %.0176.us, i64 -8
-  %155 = shl i64 %115, 3
-  %scevgep186 = getelementptr i8, ptr %scevgep, i64 %155
-  %load_initial = load double, ptr %scevgep186, align 8
-  br label %117
+.lr.ph166.us:                                     ; preds = %._crit_edge163.us
+  %156 = add nsw i64 %119, -2
+  %157 = load ptr, ptr %99, align 8, !tbaa !25
+  %158 = load ptr, ptr %102, align 8, !tbaa !25
+  %scevgep = getelementptr i8, ptr %.0168.us, i64 -8
+  %159 = shl i64 %119, 3
+  %scevgep178 = getelementptr i8, ptr %scevgep, i64 %159
+  %load_initial = load double, ptr %scevgep178, align 8
+  br label %121
 
-.lr.ph179.split:                                  ; preds = %.lr.ph179, %.loopexit147
-  %.0176 = phi ptr [ %224, %.loopexit147 ], [ %3, %.lr.ph179 ]
-  %.0146175 = phi i64 [ %225, %.loopexit147 ], [ 0, %.lr.ph179 ]
-  %156 = load double, ptr %.0176, align 8, !tbaa !49
-  %157 = load i64, ptr %9, align 8, !tbaa !47
-  %158 = getelementptr inbounds double, ptr %2, i64 %157
-  %159 = load double, ptr %158, align 8, !tbaa !49
-  %160 = fdiv double %156, %159
-  %161 = load ptr, ptr %95, align 8, !tbaa !25
-  store double %160, ptr %161, align 8, !tbaa !49
-  %162 = load i64, ptr %96, align 8, !tbaa !47
-  %gep174 = getelementptr double, ptr %invariant.gep173, i64 %162
-  %163 = load double, ptr %gep174, align 8, !tbaa !49
-  %164 = getelementptr i8, ptr %158, i64 8
-  %165 = load double, ptr %164, align 8, !tbaa !49
-  %166 = load ptr, ptr %97, align 8, !tbaa !25
-  %167 = load double, ptr %166, align 8, !tbaa !49
-  %168 = fneg double %165
-  %169 = tail call double @llvm.fmuladd.f64(double %168, double %167, double %163)
-  %170 = getelementptr inbounds nuw i8, ptr %.0176, i64 8
+.lr.ph171.split:                                  ; preds = %.lr.ph171, %.loopexit147
+  %.0168 = phi ptr [ %234, %.loopexit147 ], [ %3, %.lr.ph171 ]
+  %.0146167 = phi i64 [ %235, %.loopexit147 ], [ 0, %.lr.ph171 ]
+  %160 = load double, ptr %.0168, align 8, !tbaa !49
+  %161 = load i64, ptr %9, align 8, !tbaa !47
+  %162 = getelementptr inbounds double, ptr %2, i64 %161
+  %163 = load double, ptr %162, align 8, !tbaa !49
+  %164 = fdiv double %160, %163
+  %165 = load ptr, ptr %99, align 8, !tbaa !25
+  store double %164, ptr %165, align 8, !tbaa !49
+  %166 = load i64, ptr %100, align 8, !tbaa !47
+  %167 = getelementptr double, ptr %2, i64 %166
+  %168 = getelementptr i8, ptr %167, i64 8
+  %169 = load double, ptr %168, align 8, !tbaa !49
+  %170 = getelementptr i8, ptr %162, i64 8
   %171 = load double, ptr %170, align 8, !tbaa !49
-  %172 = tail call double @llvm.fmuladd.f64(double %168, double %160, double %171)
-  %173 = fdiv double %172, %169
-  %174 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  store double %173, ptr %174, align 8, !tbaa !49
-  %175 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %176 = icmp sgt i64 %175, 2
-  br i1 %176, label %.lr.ph161, label %._crit_edge162
+  %172 = load ptr, ptr %101, align 8, !tbaa !25
+  %173 = load double, ptr %172, align 8, !tbaa !49
+  %174 = fneg double %171
+  %175 = tail call double @llvm.fmuladd.f64(double %174, double %173, double %169)
+  %176 = getelementptr inbounds nuw i8, ptr %.0168, i64 8
+  %177 = load double, ptr %176, align 8, !tbaa !49
+  %178 = tail call double @llvm.fmuladd.f64(double %174, double %164, double %177)
+  %179 = fdiv double %178, %175
+  %180 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  store double %179, ptr %180, align 8, !tbaa !49
+  %181 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %182 = icmp sgt i64 %181, 2
+  br i1 %182, label %.lr.ph155, label %._crit_edge156
 
-.lr.ph161:                                        ; preds = %.lr.ph179.split, %.lr.ph161
-  %.4159 = phi i64 [ %197, %.lr.ph161 ], [ 2, %.lr.ph179.split ]
-  %177 = getelementptr inbounds nuw i64, ptr %9, i64 %.4159
-  %178 = load i64, ptr %177, align 8, !tbaa !47
-  %gep156 = getelementptr double, ptr %invariant.gep173, i64 %178
-  %179 = load double, ptr %gep156, align 8, !tbaa !49
-  %180 = add nsw i64 %.4159, -1
-  %181 = getelementptr inbounds i64, ptr %9, i64 %180
-  %182 = load i64, ptr %181, align 8, !tbaa !47
-  %gep158 = getelementptr double, ptr %invariant.gep157, i64 %182
-  %183 = load double, ptr %gep158, align 8, !tbaa !49
-  %184 = load ptr, ptr %97, align 8, !tbaa !25
-  %185 = getelementptr inbounds nuw double, ptr %184, i64 %180
-  %186 = load double, ptr %185, align 8, !tbaa !49
-  %187 = fneg double %183
-  %188 = tail call double @llvm.fmuladd.f64(double %187, double %186, double %179)
-  %189 = getelementptr inbounds nuw double, ptr %.0176, i64 %.4159
-  %190 = load double, ptr %189, align 8, !tbaa !49
-  %191 = load ptr, ptr %95, align 8, !tbaa !25
-  %192 = getelementptr inbounds nuw double, ptr %191, i64 %180
+.lr.ph155:                                        ; preds = %.lr.ph171.split, %.lr.ph155
+  %.4153 = phi i64 [ %207, %.lr.ph155 ], [ 2, %.lr.ph171.split ]
+  %183 = getelementptr inbounds nuw i64, ptr %9, i64 %.4153
+  %184 = load i64, ptr %183, align 8, !tbaa !47
+  %185 = getelementptr double, ptr %2, i64 %184
+  %186 = getelementptr i8, ptr %185, i64 8
+  %187 = load double, ptr %186, align 8, !tbaa !49
+  %188 = add nsw i64 %.4153, -1
+  %189 = getelementptr inbounds i64, ptr %9, i64 %188
+  %190 = load i64, ptr %189, align 8, !tbaa !47
+  %191 = getelementptr double, ptr %2, i64 %190
+  %192 = getelementptr i8, ptr %191, i64 16
   %193 = load double, ptr %192, align 8, !tbaa !49
-  %194 = tail call double @llvm.fmuladd.f64(double %187, double %193, double %190)
-  %195 = fdiv double %194, %188
-  %196 = getelementptr inbounds nuw double, ptr %191, i64 %.4159
-  store double %195, ptr %196, align 8, !tbaa !49
-  %197 = add nuw nsw i64 %.4159, 1
-  %198 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %199 = icmp slt i64 %197, %198
-  br i1 %199, label %.lr.ph161, label %._crit_edge162, !llvm.loop !58
-
-._crit_edge162:                                   ; preds = %.lr.ph161, %.lr.ph179.split
-  %200 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %201 = load ptr, ptr %95, align 8, !tbaa !25
-  %202 = getelementptr double, ptr %201, i64 %200
-  %203 = getelementptr i8, ptr %202, i64 -8
-  %204 = load double, ptr %203, align 8, !tbaa !49
-  %205 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %206 = getelementptr double, ptr %.0176, i64 %205
-  %207 = getelementptr i8, ptr %206, i64 -8
-  store double %204, ptr %207, align 8, !tbaa !49
+  %194 = load ptr, ptr %101, align 8, !tbaa !25
+  %195 = getelementptr inbounds nuw double, ptr %194, i64 %188
+  %196 = load double, ptr %195, align 8, !tbaa !49
+  %197 = fneg double %193
+  %198 = tail call double @llvm.fmuladd.f64(double %197, double %196, double %187)
+  %199 = getelementptr inbounds nuw double, ptr %.0168, i64 %.4153
+  %200 = load double, ptr %199, align 8, !tbaa !49
+  %201 = load ptr, ptr %99, align 8, !tbaa !25
+  %202 = getelementptr inbounds nuw double, ptr %201, i64 %188
+  %203 = load double, ptr %202, align 8, !tbaa !49
+  %204 = tail call double @llvm.fmuladd.f64(double %197, double %203, double %200)
+  %205 = fdiv double %204, %198
+  %206 = getelementptr inbounds nuw double, ptr %201, i64 %.4153
+  store double %205, ptr %206, align 8, !tbaa !49
+  %207 = add nuw nsw i64 %.4153, 1
   %208 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %209 = icmp sgt i64 %208, 1
-  br i1 %209, label %.lr.ph165, label %.loopexit147
+  %209 = icmp slt i64 %207, %208
+  br i1 %209, label %.lr.ph155, label %._crit_edge156, !llvm.loop !58
 
-.lr.ph165:                                        ; preds = %._crit_edge162
-  %210 = add nsw i64 %208, -2
-  %211 = load ptr, ptr %95, align 8, !tbaa !25
-  %212 = load ptr, ptr %97, align 8, !tbaa !25
-  %scevgep187 = getelementptr i8, ptr %.0176, i64 -8
-  %213 = shl i64 %208, 3
-  %scevgep188 = getelementptr i8, ptr %scevgep187, i64 %213
-  %load_initial189 = load double, ptr %scevgep188, align 8
-  br label %214
+._crit_edge156:                                   ; preds = %.lr.ph155, %.lr.ph171.split
+  %210 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %211 = load ptr, ptr %99, align 8, !tbaa !25
+  %212 = getelementptr double, ptr %211, i64 %210
+  %213 = getelementptr i8, ptr %212, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !49
+  %215 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %216 = getelementptr double, ptr %.0168, i64 %215
+  %217 = getelementptr i8, ptr %216, i64 -8
+  store double %214, ptr %217, align 8, !tbaa !49
+  %218 = tail call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %219 = icmp sgt i64 %218, 1
+  br i1 %219, label %.lr.ph159, label %.loopexit147
 
-214:                                              ; preds = %.lr.ph165, %214
-  %store_forwarded190 = phi double [ %load_initial189, %.lr.ph165 ], [ %221, %214 ]
-  %.5163 = phi i64 [ %210, %.lr.ph165 ], [ %222, %214 ]
-  %215 = getelementptr inbounds nuw double, ptr %211, i64 %.5163
-  %216 = load double, ptr %215, align 8, !tbaa !49
-  %217 = getelementptr inbounds nuw double, ptr %212, i64 %.5163
-  %218 = load double, ptr %217, align 8, !tbaa !49
-  %219 = getelementptr inbounds nuw double, ptr %.0176, i64 %.5163
-  %220 = fneg double %218
-  %221 = tail call double @llvm.fmuladd.f64(double %220, double %store_forwarded190, double %216)
-  store double %221, ptr %219, align 8, !tbaa !49
-  %222 = add nsw i64 %.5163, -1
-  %.not = icmp eq i64 %.5163, 0
-  br i1 %.not, label %.loopexit147, label %214, !llvm.loop !59
+.lr.ph159:                                        ; preds = %._crit_edge156
+  %220 = add nsw i64 %218, -2
+  %221 = load ptr, ptr %99, align 8, !tbaa !25
+  %222 = load ptr, ptr %101, align 8, !tbaa !25
+  %scevgep179 = getelementptr i8, ptr %.0168, i64 -8
+  %223 = shl i64 %218, 3
+  %scevgep180 = getelementptr i8, ptr %scevgep179, i64 %223
+  %load_initial181 = load double, ptr %scevgep180, align 8
+  br label %224
 
-.loopexit147:                                     ; preds = %214, %._crit_edge162
-  %223 = tail call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %224 = getelementptr inbounds double, ptr %.0176, i64 %223
-  %225 = add nuw nsw i64 %.0146175, 1
-  %exitcond.not = icmp eq i64 %225, %4
-  br i1 %exitcond.not, label %._crit_edge180, label %.lr.ph179.split, !llvm.loop !60
+224:                                              ; preds = %.lr.ph159, %224
+  %store_forwarded182 = phi double [ %load_initial181, %.lr.ph159 ], [ %231, %224 ]
+  %.5157 = phi i64 [ %220, %.lr.ph159 ], [ %232, %224 ]
+  %225 = getelementptr inbounds nuw double, ptr %221, i64 %.5157
+  %226 = load double, ptr %225, align 8, !tbaa !49
+  %227 = getelementptr inbounds nuw double, ptr %222, i64 %.5157
+  %228 = load double, ptr %227, align 8, !tbaa !49
+  %229 = getelementptr inbounds nuw double, ptr %.0168, i64 %.5157
+  %230 = fneg double %228
+  %231 = tail call double @llvm.fmuladd.f64(double %230, double %store_forwarded182, double %226)
+  store double %231, ptr %229, align 8, !tbaa !49
+  %232 = add nsw i64 %.5157, -1
+  %.not = icmp eq i64 %.5157, 0
+  br i1 %.not, label %.loopexit147, label %224, !llvm.loop !59
 
-._crit_edge180:                                   ; preds = %.loopexit147, %.loopexit.us, %93
+.loopexit147:                                     ; preds = %224, %._crit_edge156
+  %233 = tail call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %234 = getelementptr inbounds double, ptr %.0168, i64 %233
+  %235 = add nuw nsw i64 %.0146167, 1
+  %exitcond.not = icmp eq i64 %235, %4
+  br i1 %exitcond.not, label %._crit_edge172, label %.lr.ph171.split, !llvm.loop !60
+
+._crit_edge172:                                   ; preds = %.loopexit147, %.loopexit.us, %97
   ret i32 0
 }
 

@@ -1433,14 +1433,14 @@ set_xcoords.exit:                                 ; preds = %._crit_edge.i31, %7
   %.sroa.06.0.i = select i1 %.not86.i, double %796, double %797
   switch i32 %786, label %set_aspect.exit [
     i32 4, label %801
-    i32 2, label %._crit_edge103.i
+    i32 2, label %._crit_edge97.i
     i32 5, label %849
     i32 1, label %862
   ]
 
-._crit_edge103.i:                                 ; preds = %787
+._crit_edge97.i:                                  ; preds = %787
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %784, i64 64
-  %.pre.i40 = load double, ptr %.phi.trans.insert.i, align 8, !tbaa !128
+  %.pre.i41 = load double, ptr %.phi.trans.insert.i, align 8, !tbaa !128
   br label %833
 
 801:                                              ; preds = %787
@@ -1450,18 +1450,18 @@ set_xcoords.exit:                                 ; preds = %._crit_edge.i31, %7
   %.sroa.11.0.copyload.i.i = load double, ptr %.sroa.11.0..sroa_idx.i.i, align 8, !tbaa !116
   %803 = fcmp olt double %.sroa.010.0.copyload.i.i, 1.000000e-03
   %804 = fcmp olt double %.sroa.11.0.copyload.i.i, 1.000000e-03
-  %or.cond.i.i41 = select i1 %803, i1 true, i1 %804
-  br i1 %or.cond.i.i41, label %set_aspect.exit, label %805
+  %or.cond.i.i42 = select i1 %803, i1 true, i1 %804
+  br i1 %or.cond.i.i42, label %set_aspect.exit, label %805
 
 805:                                              ; preds = %801
   %806 = getelementptr inbounds nuw i8, ptr %784, i64 32
   %.sroa.07.0.copyload.i.i = load double, ptr %806, align 8, !tbaa !116
-  %.sroa.5.0..sroa_idx.i.i42 = getelementptr inbounds nuw i8, ptr %784, i64 40
-  %.sroa.5.0.copyload.i.i43 = load double, ptr %.sroa.5.0..sroa_idx.i.i42, align 8, !tbaa !116
+  %.sroa.5.0..sroa_idx.i.i43 = getelementptr inbounds nuw i8, ptr %784, i64 40
+  %.sroa.5.0.copyload.i.i44 = load double, ptr %.sroa.5.0..sroa_idx.i.i43, align 8, !tbaa !116
   %807 = fsub double %.sroa.010.0.copyload.i.i, %.sroa.07.0.copyload.i.i
-  %808 = fsub double %.sroa.11.0.copyload.i.i, %.sroa.5.0.copyload.i.i43
+  %808 = fsub double %.sroa.11.0.copyload.i.i, %.sroa.5.0.copyload.i.i44
   %809 = fsub double %807, %.sroa.07.0.copyload.i.i
-  %810 = fsub double %808, %.sroa.5.0.copyload.i.i43
+  %810 = fsub double %808, %.sroa.5.0.copyload.i.i44
   %811 = fdiv double %809, %790
   %812 = fdiv double %810, %792
   %813 = fcmp oge double %811, 1.000000e+00
@@ -1492,8 +1492,8 @@ idealsize.exit.thread92.i:                        ; preds = %805
   store double %831, ptr %832, align 8, !tbaa !129
   br label %833
 
-833:                                              ; preds = %idealsize.exit.thread92.i, %._crit_edge103.i
-  %834 = phi double [ %.pre.i40, %._crit_edge103.i ], [ %829, %idealsize.exit.thread92.i ]
+833:                                              ; preds = %idealsize.exit.thread92.i, %._crit_edge97.i
+  %834 = phi double [ %.pre.i41, %._crit_edge97.i ], [ %829, %idealsize.exit.thread92.i ]
   %835 = fcmp ugt double %834, 0.000000e+00
   br i1 %835, label %836, label %set_aspect.exit
 
@@ -1555,18 +1555,18 @@ idealsize.exit.thread92.i:                        ; preds = %805
   br label %871
 
 871:                                              ; preds = %869, %867, %860, %847, %845, %836
-  %.066.ph.i = phi double [ 1.000000e+00, %869 ], [ %868, %867 ], [ %861, %860 ], [ %840, %836 ], [ 1.000000e+00, %847 ], [ %846, %845 ]
-  %.0.ph.i = phi double [ %870, %869 ], [ 1.000000e+00, %867 ], [ %861, %860 ], [ %837, %836 ], [ %848, %847 ], [ 1.000000e+00, %845 ]
-  %.167.i = select i1 %.not86.i, double %.066.ph.i, double %.0.ph.i
-  %.1.i = select i1 %.not86.i, double %.0.ph.i, double %.066.ph.i
+  %.066.i = phi double [ %846, %845 ], [ 1.000000e+00, %847 ], [ %840, %836 ], [ %861, %860 ], [ %868, %867 ], [ 1.000000e+00, %869 ]
+  %.0.i38 = phi double [ 1.000000e+00, %845 ], [ %848, %847 ], [ %837, %836 ], [ %861, %860 ], [ 1.000000e+00, %867 ], [ %870, %869 ]
+  %.167.i = select i1 %.not86.i, double %.066.i, double %.0.i38
+  %.1.i = select i1 %.not86.i, double %.0.i38, double %.066.i
   %872 = getelementptr inbounds nuw i8, ptr %778, i64 256
-  %.069100.i = load ptr, ptr %872, align 8, !tbaa !42
-  %.not88101.i = icmp eq ptr %.069100.i, null
-  br i1 %.not88101.i, label %._crit_edge.i39, label %.lr.ph.i38
+  %.06994.i = load ptr, ptr %872, align 8, !tbaa !42
+  %.not8895.i = icmp eq ptr %.06994.i, null
+  br i1 %.not8895.i, label %._crit_edge.i40, label %.lr.ph.i39
 
-.lr.ph.i38:                                       ; preds = %871, %.lr.ph.i38
-  %.069102.i = phi ptr [ %.069.i, %.lr.ph.i38 ], [ %.069100.i, %871 ]
-  %873 = getelementptr inbounds nuw i8, ptr %.069102.i, i64 16
+.lr.ph.i39:                                       ; preds = %871, %.lr.ph.i39
+  %.06996.i = phi ptr [ %.069.i, %.lr.ph.i39 ], [ %.06994.i, %871 ]
+  %873 = getelementptr inbounds nuw i8, ptr %.06996.i, i64 16
   %874 = load ptr, ptr %873, align 8, !tbaa !3
   %875 = getelementptr inbounds nuw i8, ptr %874, i64 32
   %876 = load double, ptr %875, align 8, !tbaa !125
@@ -1581,47 +1581,47 @@ idealsize.exit.thread92.i:                        ; preds = %805
   %883 = getelementptr inbounds nuw i8, ptr %874, i64 240
   %.069.i = load ptr, ptr %883, align 8, !tbaa !42
   %.not88.i = icmp eq ptr %.069.i, null
-  br i1 %.not88.i, label %._crit_edge.i39, label %.lr.ph.i38, !llvm.loop !132
+  br i1 %.not88.i, label %._crit_edge.i40, label %.lr.ph.i39, !llvm.loop !132
 
-._crit_edge.i39:                                  ; preds = %.lr.ph.i38, %871
+._crit_edge.i40:                                  ; preds = %.lr.ph.i39, %871
   tail call fastcc void @scale_bb(ptr noundef nonnull %0, double noundef %.1.i, double noundef %.167.i)
   %.pre = load ptr, ptr %3, align 8, !tbaa !3
   br label %set_aspect.exit
 
-set_aspect.exit:                                  ; preds = %set_xcoords.exit, %782, %787, %801, %805, %833, %849, %853, %._crit_edge.i39
-  %884 = phi ptr [ %778, %set_xcoords.exit ], [ %778, %782 ], [ %778, %787 ], [ %778, %801 ], [ %778, %805 ], [ %778, %833 ], [ %778, %849 ], [ %778, %853 ], [ %.pre, %._crit_edge.i39 ]
+set_aspect.exit:                                  ; preds = %set_xcoords.exit, %782, %787, %801, %805, %833, %849, %853, %._crit_edge.i40
+  %884 = phi ptr [ %778, %set_xcoords.exit ], [ %778, %782 ], [ %778, %787 ], [ %778, %801 ], [ %778, %805 ], [ %778, %833 ], [ %778, %849 ], [ %778, %853 ], [ %.pre, %._crit_edge.i40 ]
   %885 = getelementptr inbounds nuw i8, ptr %884, i64 256
   %.02837.i = load ptr, ptr %885, align 8, !tbaa !42, !nonnull !34, !noundef !34
-  br label %.preheader.i44
+  br label %.preheader.i45
 
-.preheader.i44:                                   ; preds = %._crit_edge.i48, %set_aspect.exit
-  %.02839.i = phi ptr [ %.028.i, %._crit_edge.i48 ], [ %.02837.i, %set_aspect.exit ]
+.preheader.i45:                                   ; preds = %._crit_edge.i49, %set_aspect.exit
+  %.02839.i = phi ptr [ %.028.i, %._crit_edge.i49 ], [ %.02837.i, %set_aspect.exit ]
   %886 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
   %887 = load ptr, ptr %886, align 8, !tbaa !3
   %888 = getelementptr inbounds nuw i8, ptr %887, i64 272
   %889 = load ptr, ptr %888, align 8, !tbaa !61
   %890 = load ptr, ptr %889, align 8, !tbaa !62
   %.not3335.i = icmp eq ptr %890, null
-  br i1 %.not3335.i, label %._crit_edge.i48, label %.lr.ph.i45
+  br i1 %.not3335.i, label %._crit_edge.i49, label %.lr.ph.i46
 
-.lr.ph.i45:                                       ; preds = %.preheader.i44, %.lr.ph.i45
-  %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i47, %.lr.ph.i45 ], [ 0, %.preheader.i44 ]
-  %891 = phi ptr [ %898, %.lr.ph.i45 ], [ %890, %.preheader.i44 ]
+.lr.ph.i46:                                       ; preds = %.preheader.i45, %.lr.ph.i46
+  %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i48, %.lr.ph.i46 ], [ 0, %.preheader.i45 ]
+  %891 = phi ptr [ %898, %.lr.ph.i46 ], [ %890, %.preheader.i45 ]
   %892 = getelementptr inbounds nuw i8, ptr %891, i64 16
   %893 = load ptr, ptr %892, align 8, !tbaa !133
   tail call void @free(ptr noundef %893) #15
   tail call void @free(ptr noundef nonnull %891) #15
-  %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
+  %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %894 = load ptr, ptr %886, align 8, !tbaa !3
   %895 = getelementptr inbounds nuw i8, ptr %894, i64 272
   %896 = load ptr, ptr %895, align 8, !tbaa !61
-  %897 = getelementptr inbounds nuw ptr, ptr %896, i64 %indvars.iv.next.i47
+  %897 = getelementptr inbounds nuw ptr, ptr %896, i64 %indvars.iv.next.i48
   %898 = load ptr, ptr %897, align 8, !tbaa !62
   %.not33.i = icmp eq ptr %898, null
-  br i1 %.not33.i, label %._crit_edge.i48, label %.lr.ph.i45, !llvm.loop !134
+  br i1 %.not33.i, label %._crit_edge.i49, label %.lr.ph.i46, !llvm.loop !134
 
-._crit_edge.i48:                                  ; preds = %.lr.ph.i45, %.preheader.i44
-  %.lcssa.i = phi ptr [ %889, %.preheader.i44 ], [ %896, %.lr.ph.i45 ]
+._crit_edge.i49:                                  ; preds = %.lr.ph.i46, %.preheader.i45
+  %.lcssa.i = phi ptr [ %889, %.preheader.i45 ], [ %896, %.lr.ph.i46 ]
   tail call void @free(ptr noundef nonnull %.lcssa.i) #15
   %899 = load ptr, ptr %886, align 8, !tbaa !3
   %900 = getelementptr inbounds nuw i8, ptr %899, i64 256
@@ -1638,17 +1638,17 @@ set_aspect.exit:                                  ; preds = %set_xcoords.exit, %
   %908 = load ptr, ptr %886, align 8, !tbaa !3
   %909 = getelementptr inbounds nuw i8, ptr %908, i64 240
   %.028.i = load ptr, ptr %909, align 8, !tbaa !42
-  %.not.i49 = icmp eq ptr %.028.i, null
-  br i1 %.not.i49, label %._crit_edge40.i, label %.preheader.i44, !llvm.loop !135
+  %.not.i50 = icmp eq ptr %.028.i, null
+  br i1 %.not.i50, label %._crit_edge40.i, label %.preheader.i45, !llvm.loop !135
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.i48
-  %.pre.i50 = load ptr, ptr %3, align 8, !tbaa !3
-  %.phi.trans.insert.i51 = getelementptr inbounds nuw i8, ptr %.pre.i50, i64 256
-  %.pre49.i = load ptr, ptr %.phi.trans.insert.i51, align 8, !tbaa !12, !nonnull !34, !noundef !34
+._crit_edge40.i:                                  ; preds = %._crit_edge.i49
+  %.pre.i51 = load ptr, ptr %3, align 8, !tbaa !3
+  %.phi.trans.insert.i52 = getelementptr inbounds nuw i8, ptr %.pre.i51, i64 256
+  %.pre49.i = load ptr, ptr %.phi.trans.insert.i52, align 8, !tbaa !12, !nonnull !34, !noundef !34
   br label %.lr.ph45.i
 
 .lr.ph45.i:                                       ; preds = %926, %._crit_edge40.i
-  %.02743.i = phi ptr [ %.1.i52, %926 ], [ null, %._crit_edge40.i ]
+  %.02743.i = phi ptr [ %.1.i53, %926 ], [ null, %._crit_edge40.i ]
   %.12942.i = phi ptr [ %913, %926 ], [ %.pre49.i, %._crit_edge40.i ]
   %910 = getelementptr inbounds nuw i8, ptr %.12942.i, i64 16
   %911 = load ptr, ptr %910, align 8, !tbaa !3
@@ -1682,7 +1682,7 @@ set_aspect.exit:                                  ; preds = %set_xcoords.exit, %
   br label %926
 
 926:                                              ; preds = %925, %.lr.ph45.i
-  %.1.i52 = phi ptr [ %.02743.i, %925 ], [ %.12942.i, %.lr.ph45.i ]
+  %.1.i53 = phi ptr [ %.02743.i, %925 ], [ %.12942.i, %.lr.ph45.i ]
   %.not31.i = icmp eq ptr %913, null
   br i1 %.not31.i, label %remove_aux_edges.exit, label %.lr.ph45.i, !llvm.loop !137
 

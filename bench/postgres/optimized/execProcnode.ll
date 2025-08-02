@@ -252,48 +252,48 @@ define dso_local ptr @ExecInitNode(ptr noundef %0, ptr noundef %1, i32 noundef %
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %.not = icmp eq ptr %100, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %95
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %103 = load i32, ptr %101, align 4
   %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %.lr.ph165, label %._crit_edge
+  br i1 %104, label %.lr.ph163, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph165, %.lr.ph, %95
-  %.0149.lcssa = phi ptr [ null, %95 ], [ null, %.lr.ph ], [ %112, %.lr.ph165 ]
-  %105 = getelementptr inbounds nuw i8, ptr %.0148, i64 88
-  store ptr %.0149.lcssa, ptr %105, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 228
-  %107 = load i32, ptr %106, align 4
-  %.not155 = icmp eq i32 %107, 0
+.lr.ph163:                                        ; preds = %.lr.ph, %.lr.ph163
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph163 ], [ 0, %.lr.ph ]
+  %.0149157161 = phi ptr [ %109, %.lr.ph163 ], [ null, %.lr.ph ]
+  %105 = load ptr, ptr %102, align 8
+  %106 = getelementptr inbounds nuw %union.ListCell, ptr %105, i64 %indvars.iv
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call ptr @ExecInitSubPlan(ptr noundef %107, ptr noundef nonnull %.0148) #6
+  %109 = tail call ptr @lappend(ptr noundef %.0149157161, ptr noundef %108) #6
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %110 = load i32, ptr %101, align 4
+  %111 = sext i32 %110 to i64
+  %112 = icmp slt i64 %indvars.iv.next, %111
+  br i1 %112, label %.lr.ph163, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph163, %.lr.ph, %95
+  %.0149.lcssa = phi ptr [ null, %95 ], [ null, %.lr.ph ], [ %109, %.lr.ph163 ]
+  %113 = getelementptr inbounds nuw i8, ptr %.0148, i64 88
+  store ptr %.0149.lcssa, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 228
+  %115 = load i32, ptr %114, align 4
+  %.not155 = icmp eq i32 %115, 0
   br i1 %.not155, label %122, label %116
 
-.lr.ph165:                                        ; preds = %.lr.ph, %.lr.ph165
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph165 ], [ 0, %.lr.ph ]
-  %.0149159163 = phi ptr [ %112, %.lr.ph165 ], [ null, %.lr.ph ]
-  %108 = load ptr, ptr %102, align 8
-  %109 = getelementptr inbounds nuw %union.ListCell, ptr %108, i64 %indvars.iv
-  %110 = load ptr, ptr %109, align 8
-  %111 = tail call ptr @ExecInitSubPlan(ptr noundef %110, ptr noundef nonnull %.0148) #6
-  %112 = tail call ptr @lappend(ptr noundef %.0149159163, ptr noundef %111) #6
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %113 = load i32, ptr %101, align 4
-  %114 = sext i32 %113 to i64
-  %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %.lr.ph165, label %._crit_edge
-
-116:                                              ; preds = %._crit_edge
+116:                                              ; preds = %.critedge
   %117 = getelementptr inbounds nuw i8, ptr %.0148, i64 144
   %118 = load i8, ptr %117, align 8, !range !4, !noundef !5
   %119 = trunc nuw i8 %118 to i1
-  %120 = tail call ptr @InstrAlloc(i32 noundef 1, i32 noundef %107, i1 noundef zeroext %119) #6
+  %120 = tail call ptr @InstrAlloc(i32 noundef 1, i32 noundef %115, i1 noundef zeroext %119) #6
   %121 = getelementptr inbounds nuw i8, ptr %.0148, i64 40
   store ptr %120, ptr %121, align 8
   br label %122
 
-122:                                              ; preds = %._crit_edge, %116, %3
-  %.0 = phi ptr [ null, %3 ], [ %.0148, %116 ], [ %.0148, %._crit_edge ]
+122:                                              ; preds = %.critedge, %116, %3
+  %.0 = phi ptr [ null, %3 ], [ %.0148, %116 ], [ %.0148, %.critedge ]
   ret ptr %.0
 }
 

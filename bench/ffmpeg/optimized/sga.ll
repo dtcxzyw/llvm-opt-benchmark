@@ -1529,9 +1529,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_index_tilemap(ptr n
 72:                                               ; preds = %40
   %73 = and i32 %45, 2048
   %.not = icmp eq i32 %73, 0
-  br i1 %.not, label %.preheader86, label %.preheader84
+  br i1 %.not, label %.preheader83.preheader, label %.preheader84
 
-.preheader86:                                     ; preds = %72
+.preheader83.preheader:                           ; preds = %72
   %74 = or disjoint i64 %53, 56
   br label %.preheader83
 
@@ -1558,8 +1558,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_index_tilemap(ptr n
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 8
   br i1 %exitcond118.not, label %77, label %78, !llvm.loop !100
 
-.preheader83:                                     ; preds = %.preheader86, %.preheader83
-  %indvar = phi i64 [ 0, %.preheader86 ], [ %indvar.next, %.preheader83 ]
+.preheader83:                                     ; preds = %.preheader83.preheader, %.preheader83
+  %indvar = phi i64 [ 0, %.preheader83.preheader ], [ %indvar.next, %.preheader83 ]
   %84 = shl nuw nsw i64 %indvar, 3
   %scevgep = getelementptr nuw i8, ptr %3, i64 %84
   %85 = shl i64 %indvar, 3

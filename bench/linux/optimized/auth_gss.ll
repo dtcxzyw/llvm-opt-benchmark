@@ -4145,7 +4145,7 @@ define internal i32 @gss_unwrap_resp(ptr noundef %0, ptr noundef %1) #2 align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %64 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #18
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.thread.i, label %66, !prof !7
+  br i1 %65, label %.critedge.i, label %66, !prof !7
 
 66:                                               ; preds = %61
   %67 = load i32, ptr %64, align 4
@@ -4153,7 +4153,7 @@ define internal i32 @gss_unwrap_resp(ptr noundef %0, ptr noundef %1) #2 align 16
   store i32 %68, ptr %4, align 4
   %69 = and i32 %68, 3
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %.thread.i
+  br i1 %70, label %71, label %.critedge.i
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 144
@@ -4164,7 +4164,7 @@ define internal i32 @gss_unwrap_resp(ptr noundef %0, ptr noundef %1) #2 align 16
   %77 = sub i32 %73, %76
   %78 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #18
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread.i, label %80, !prof !7
+  br i1 %79, label %.critedge.i, label %80, !prof !7
 
 80:                                               ; preds = %71
   %81 = load i32, ptr %78, align 4
@@ -4177,13 +4177,13 @@ define internal i32 @gss_unwrap_resp(ptr noundef %0, ptr noundef %1) #2 align 16
 86:                                               ; preds = %80
   %87 = call i32 @xdr_buf_subsegment(ptr noundef nonnull %62, ptr noundef nonnull %3, i32 noundef %77, i32 noundef %68) #18
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %.thread.i
+  br i1 %88, label %89, label %.critedge.i
 
 89:                                               ; preds = %86
   %90 = add i32 %77, %68
   %91 = call i32 @xdr_decode_word(ptr noundef nonnull %62, i32 noundef %90, ptr noundef nonnull %4) #18
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %.thread.i
+  br i1 %92, label %93, label %.critedge.i
 
 93:                                               ; preds = %89
   %94 = add i32 %90, 4
@@ -4191,7 +4191,7 @@ define internal i32 @gss_unwrap_resp(ptr noundef %0, ptr noundef %1) #2 align 16
   %96 = add i32 %95, %94
   %97 = load i32, ptr %72, align 8
   %98 = icmp ugt i32 %96, %97
-  br i1 %98, label %.thread.i, label %99
+  br i1 %98, label %.critedge.i, label %99
 
 99:                                               ; preds = %93
   store i32 %95, ptr %5, align 8
@@ -4199,12 +4199,12 @@ define internal i32 @gss_unwrap_resp(ptr noundef %0, ptr noundef %1) #2 align 16
   %101 = call noalias align 8 ptr @__kmalloc(i64 noundef %100, i32 noundef 3264) #20
   store ptr %101, ptr %63, align 8
   %102 = icmp ult ptr %101, inttoptr (i64 17 to ptr)
-  br i1 %102, label %.thread.i, label %103
+  br i1 %102, label %.critedge.i, label %103
 
 103:                                              ; preds = %99
   %104 = call i32 @read_bytes_from_xdr_buf(ptr noundef nonnull %62, i32 noundef %94, ptr noundef %101, i32 noundef %95) #18
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %.thread.i
+  br i1 %105, label %106, label %.critedge.i
 
 106:                                              ; preds = %103
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -4230,11 +4230,11 @@ define internal i32 @gss_unwrap_resp(ptr noundef %0, ptr noundef %1) #2 align 16
   call fastcc void @gss_update_rslack(ptr noundef %0, ptr %.val.i, i32 noundef %116)
   br label %gss_unwrap_resp_integ.exit
 
-.thread.i:                                        ; preds = %103, %99, %93, %89, %86, %71, %66, %61
+.critedge.i:                                      ; preds = %103, %99, %93, %89, %86, %71, %66, %61
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rpcgss_unwrap_failed, i64 8), i32 2) #18
           to label %gss_unwrap_resp_integ.exit [label %118], !srcloc !12
 
-118:                                              ; preds = %.thread.i
+118:                                              ; preds = %.critedge.i
   %119 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !88
   %120 = zext i32 %119 to i64
   %121 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %120) #18, !srcloc !14
@@ -4314,8 +4314,8 @@ define internal i32 @gss_unwrap_resp(ptr noundef %0, ptr noundef %1) #2 align 16
   call fastcc void @trace_rpcgss_verify_mic(ptr noundef %0, i32 noundef %109)
   br label %gss_unwrap_resp_integ.exit
 
-gss_unwrap_resp_integ.exit:                       ; preds = %112, %.thread.i, %118, %131, %135, %138, %139, %152, %156, %159
-  %160 = phi i32 [ -5, %159 ], [ 0, %112 ], [ -5, %.thread.i ], [ -5, %118 ], [ -5, %131 ], [ -5, %135 ], [ -5, %138 ], [ -5, %139 ], [ -5, %152 ], [ -5, %156 ]
+gss_unwrap_resp_integ.exit:                       ; preds = %112, %.critedge.i, %118, %131, %135, %138, %139, %152, %156, %159
+  %160 = phi i32 [ -5, %159 ], [ 0, %112 ], [ -5, %.critedge.i ], [ -5, %118 ], [ -5, %131 ], [ -5, %135 ], [ -5, %138 ], [ -5, %139 ], [ -5, %152 ], [ -5, %156 ]
   %161 = load ptr, ptr %63, align 8
   call void @kfree(ptr noundef %161) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18

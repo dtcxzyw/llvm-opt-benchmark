@@ -5403,7 +5403,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIbE7ReserveEi(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIjEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread, label %5
+  br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5412,8 +5412,8 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %1 to i64
   %11 = sub i64 %9, %10
-  %.04355 = trunc i64 %11 to i32
-  %12 = icmp sgt i32 %2, %.04355
+  %.04352 = trunc i64 %11 to i32
+  %12 = icmp sgt i32 %2, %.04352
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -5422,15 +5422,15 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br label %15
 
 15:                                               ; preds = %.lr.ph, %32
-  %.04359 = phi i32 [ %.04355, %.lr.ph ], [ %.043, %32 ]
-  %.04058 = phi ptr [ %1, %.lr.ph ], [ %35, %32 ]
-  %.04257 = phi i32 [ %2, %.lr.ph ], [ %26, %32 ]
-  %.043.in56 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
-  %16 = ashr i32 %.04359, 2
+  %.04356 = phi i32 [ %.04352, %.lr.ph ], [ %.043, %32 ]
+  %.04055 = phi ptr [ %1, %.lr.ph ], [ %35, %32 ]
+  %.04254 = phi i32 [ %2, %.lr.ph ], [ %26, %32 ]
+  %.043.in53 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
+  %16 = ashr i32 %.04356, 2
   %17 = load i32, ptr %3, align 8, !tbaa !60
   %18 = add nsw i32 %17, %16
   tail call void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %18)
-  %19 = and i32 %.04359, -4
+  %19 = and i32 %.04356, -4
   %20 = load ptr, ptr %13, align 8, !tbaa !63
   %21 = load i32, ptr %3, align 8, !tbaa !60
   %22 = sext i32 %21 to i64
@@ -5438,19 +5438,19 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %24 = add nsw i32 %21, %16
   store i32 %24, ptr %3, align 8, !tbaa !60
   %25 = sext i32 %19 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr nonnull align 1 %.04058, i64 %25, i1 false)
-  %26 = sub nsw i32 %.04257, %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr nonnull align 1 %.04055, i64 %25, i1 false)
+  %26 = sub nsw i32 %.04254, %19
   %27 = load i32, ptr %14, align 4, !tbaa !24
   %28 = icmp slt i32 %27, 17
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %15
   %30 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %29
-  %33 = and i64 %.043.in56, 3
+  %33 = and i64 %.043.in53, 3
   %34 = sub nuw nsw i64 16, %33
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
   %36 = load ptr, ptr %6, align 8, !tbaa !13
@@ -5482,9 +5482,9 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %.not49 = icmp eq i32 %.042.lcssa, %45
   %53 = getelementptr inbounds i8, ptr %.040.lcssa, i64 %52
   %.4 = select i1 %.not49, ptr %53, ptr null
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %29, %15, %._crit_edge, %4
+.critedge:                                        ; preds = %29, %15, %._crit_edge, %4
   %.0 = phi ptr [ null, %4 ], [ %.4, %._crit_edge ], [ null, %15 ], [ null, %29 ]
   ret ptr %.0
 }
@@ -5492,7 +5492,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIiEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread, label %5
+  br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5501,8 +5501,8 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %1 to i64
   %11 = sub i64 %9, %10
-  %.04355 = trunc i64 %11 to i32
-  %12 = icmp sgt i32 %2, %.04355
+  %.04352 = trunc i64 %11 to i32
+  %12 = icmp sgt i32 %2, %.04352
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -5511,15 +5511,15 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br label %15
 
 15:                                               ; preds = %.lr.ph, %32
-  %.04359 = phi i32 [ %.04355, %.lr.ph ], [ %.043, %32 ]
-  %.04058 = phi ptr [ %1, %.lr.ph ], [ %35, %32 ]
-  %.04257 = phi i32 [ %2, %.lr.ph ], [ %26, %32 ]
-  %.043.in56 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
-  %16 = ashr i32 %.04359, 2
+  %.04356 = phi i32 [ %.04352, %.lr.ph ], [ %.043, %32 ]
+  %.04055 = phi ptr [ %1, %.lr.ph ], [ %35, %32 ]
+  %.04254 = phi i32 [ %2, %.lr.ph ], [ %26, %32 ]
+  %.043.in53 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
+  %16 = ashr i32 %.04356, 2
   %17 = load i32, ptr %3, align 8, !tbaa !55
   %18 = add nsw i32 %17, %16
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %18)
-  %19 = and i32 %.04359, -4
+  %19 = and i32 %.04356, -4
   %20 = load ptr, ptr %13, align 8, !tbaa !58
   %21 = load i32, ptr %3, align 8, !tbaa !55
   %22 = sext i32 %21 to i64
@@ -5527,19 +5527,19 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %24 = add nsw i32 %21, %16
   store i32 %24, ptr %3, align 8, !tbaa !55
   %25 = sext i32 %19 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr nonnull align 1 %.04058, i64 %25, i1 false)
-  %26 = sub nsw i32 %.04257, %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr nonnull align 1 %.04055, i64 %25, i1 false)
+  %26 = sub nsw i32 %.04254, %19
   %27 = load i32, ptr %14, align 4, !tbaa !24
   %28 = icmp slt i32 %27, 17
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %15
   %30 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %29
-  %33 = and i64 %.043.in56, 3
+  %33 = and i64 %.043.in53, 3
   %34 = sub nuw nsw i64 16, %33
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
   %36 = load ptr, ptr %6, align 8, !tbaa !13
@@ -5571,9 +5571,9 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %.not49 = icmp eq i32 %.042.lcssa, %45
   %53 = getelementptr inbounds i8, ptr %.040.lcssa, i64 %52
   %.4 = select i1 %.not49, ptr %53, ptr null
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %29, %15, %._crit_edge, %4
+.critedge:                                        ; preds = %29, %15, %._crit_edge, %4
   %.0 = phi ptr [ null, %4 ], [ %.4, %._crit_edge ], [ null, %15 ], [ null, %29 ]
   ret ptr %.0
 }
@@ -5581,7 +5581,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedImEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread, label %5
+  br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5590,8 +5590,8 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %1 to i64
   %11 = sub i64 %9, %10
-  %.04355 = trunc i64 %11 to i32
-  %12 = icmp sgt i32 %2, %.04355
+  %.04352 = trunc i64 %11 to i32
+  %12 = icmp sgt i32 %2, %.04352
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -5600,15 +5600,15 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br label %15
 
 15:                                               ; preds = %.lr.ph, %32
-  %.04359 = phi i32 [ %.04355, %.lr.ph ], [ %.043, %32 ]
-  %.04058 = phi ptr [ %1, %.lr.ph ], [ %35, %32 ]
-  %.04257 = phi i32 [ %2, %.lr.ph ], [ %26, %32 ]
-  %.043.in56 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
-  %16 = ashr i32 %.04359, 3
+  %.04356 = phi i32 [ %.04352, %.lr.ph ], [ %.043, %32 ]
+  %.04055 = phi ptr [ %1, %.lr.ph ], [ %35, %32 ]
+  %.04254 = phi i32 [ %2, %.lr.ph ], [ %26, %32 ]
+  %.043.in53 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
+  %16 = ashr i32 %.04356, 3
   %17 = load i32, ptr %3, align 8, !tbaa !70
   %18 = add nsw i32 %17, %16
   tail call void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %18)
-  %19 = and i32 %.04359, -8
+  %19 = and i32 %.04356, -8
   %20 = load ptr, ptr %13, align 8, !tbaa !73
   %21 = load i32, ptr %3, align 8, !tbaa !70
   %22 = sext i32 %21 to i64
@@ -5616,19 +5616,19 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %24 = add nsw i32 %21, %16
   store i32 %24, ptr %3, align 8, !tbaa !70
   %25 = sext i32 %19 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr nonnull align 1 %.04058, i64 %25, i1 false)
-  %26 = sub nsw i32 %.04257, %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr nonnull align 1 %.04055, i64 %25, i1 false)
+  %26 = sub nsw i32 %.04254, %19
   %27 = load i32, ptr %14, align 4, !tbaa !24
   %28 = icmp slt i32 %27, 17
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %15
   %30 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %29
-  %33 = and i64 %.043.in56, 7
+  %33 = and i64 %.043.in53, 7
   %34 = sub nuw nsw i64 16, %33
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
   %36 = load ptr, ptr %6, align 8, !tbaa !13
@@ -5660,9 +5660,9 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %.not49 = icmp eq i32 %.042.lcssa, %45
   %53 = getelementptr inbounds i8, ptr %.040.lcssa, i64 %52
   %.4 = select i1 %.not49, ptr %53, ptr null
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %29, %15, %._crit_edge, %4
+.critedge:                                        ; preds = %29, %15, %._crit_edge, %4
   %.0 = phi ptr [ null, %4 ], [ %.4, %._crit_edge ], [ null, %15 ], [ null, %29 ]
   ret ptr %.0
 }
@@ -5670,7 +5670,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIlEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread, label %5
+  br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5679,8 +5679,8 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %1 to i64
   %11 = sub i64 %9, %10
-  %.04355 = trunc i64 %11 to i32
-  %12 = icmp sgt i32 %2, %.04355
+  %.04352 = trunc i64 %11 to i32
+  %12 = icmp sgt i32 %2, %.04352
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -5689,15 +5689,15 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br label %15
 
 15:                                               ; preds = %.lr.ph, %32
-  %.04359 = phi i32 [ %.04355, %.lr.ph ], [ %.043, %32 ]
-  %.04058 = phi ptr [ %1, %.lr.ph ], [ %35, %32 ]
-  %.04257 = phi i32 [ %2, %.lr.ph ], [ %26, %32 ]
-  %.043.in56 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
-  %16 = ashr i32 %.04359, 3
+  %.04356 = phi i32 [ %.04352, %.lr.ph ], [ %.043, %32 ]
+  %.04055 = phi ptr [ %1, %.lr.ph ], [ %35, %32 ]
+  %.04254 = phi i32 [ %2, %.lr.ph ], [ %26, %32 ]
+  %.043.in53 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
+  %16 = ashr i32 %.04356, 3
   %17 = load i32, ptr %3, align 8, !tbaa !65
   %18 = add nsw i32 %17, %16
   tail call void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %18)
-  %19 = and i32 %.04359, -8
+  %19 = and i32 %.04356, -8
   %20 = load ptr, ptr %13, align 8, !tbaa !68
   %21 = load i32, ptr %3, align 8, !tbaa !65
   %22 = sext i32 %21 to i64
@@ -5705,19 +5705,19 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %24 = add nsw i32 %21, %16
   store i32 %24, ptr %3, align 8, !tbaa !65
   %25 = sext i32 %19 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr nonnull align 1 %.04058, i64 %25, i1 false)
-  %26 = sub nsw i32 %.04257, %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr nonnull align 1 %.04055, i64 %25, i1 false)
+  %26 = sub nsw i32 %.04254, %19
   %27 = load i32, ptr %14, align 4, !tbaa !24
   %28 = icmp slt i32 %27, 17
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %15
   %30 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %29
-  %33 = and i64 %.043.in56, 7
+  %33 = and i64 %.043.in53, 7
   %34 = sub nuw nsw i64 16, %33
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
   %36 = load ptr, ptr %6, align 8, !tbaa !13
@@ -5749,9 +5749,9 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %.not49 = icmp eq i32 %.042.lcssa, %45
   %53 = getelementptr inbounds i8, ptr %.040.lcssa, i64 %52
   %.4 = select i1 %.not49, ptr %53, ptr null
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %29, %15, %._crit_edge, %4
+.critedge:                                        ; preds = %29, %15, %._crit_edge, %4
   %.0 = phi ptr [ null, %4 ], [ %.4, %._crit_edge ], [ null, %15 ], [ null, %29 ]
   ret ptr %.0
 }
@@ -5759,7 +5759,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIfEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread, label %5
+  br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5768,8 +5768,8 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %1 to i64
   %11 = sub i64 %9, %10
-  %.04355 = trunc i64 %11 to i32
-  %12 = icmp sgt i32 %2, %.04355
+  %.04352 = trunc i64 %11 to i32
+  %12 = icmp sgt i32 %2, %.04352
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -5778,15 +5778,15 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br label %15
 
 15:                                               ; preds = %.lr.ph, %32
-  %.04359 = phi i32 [ %.04355, %.lr.ph ], [ %.043, %32 ]
-  %.04058 = phi ptr [ %1, %.lr.ph ], [ %35, %32 ]
-  %.04257 = phi i32 [ %2, %.lr.ph ], [ %26, %32 ]
-  %.043.in56 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
-  %16 = ashr i32 %.04359, 2
+  %.04356 = phi i32 [ %.04352, %.lr.ph ], [ %.043, %32 ]
+  %.04055 = phi ptr [ %1, %.lr.ph ], [ %35, %32 ]
+  %.04254 = phi i32 [ %2, %.lr.ph ], [ %26, %32 ]
+  %.043.in53 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
+  %16 = ashr i32 %.04356, 2
   %17 = load i32, ptr %3, align 8, !tbaa !88
   %18 = add nsw i32 %17, %16
   tail call void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %18)
-  %19 = and i32 %.04359, -4
+  %19 = and i32 %.04356, -4
   %20 = load ptr, ptr %13, align 8, !tbaa !90
   %21 = load i32, ptr %3, align 8, !tbaa !88
   %22 = sext i32 %21 to i64
@@ -5794,19 +5794,19 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %24 = add nsw i32 %21, %16
   store i32 %24, ptr %3, align 8, !tbaa !88
   %25 = sext i32 %19 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr nonnull align 1 %.04058, i64 %25, i1 false)
-  %26 = sub nsw i32 %.04257, %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr nonnull align 1 %.04055, i64 %25, i1 false)
+  %26 = sub nsw i32 %.04254, %19
   %27 = load i32, ptr %14, align 4, !tbaa !24
   %28 = icmp slt i32 %27, 17
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %15
   %30 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %29
-  %33 = and i64 %.043.in56, 3
+  %33 = and i64 %.043.in53, 3
   %34 = sub nuw nsw i64 16, %33
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
   %36 = load ptr, ptr %6, align 8, !tbaa !13
@@ -5838,9 +5838,9 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %.not49 = icmp eq i32 %.042.lcssa, %45
   %53 = getelementptr inbounds i8, ptr %.040.lcssa, i64 %52
   %.4 = select i1 %.not49, ptr %53, ptr null
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %29, %15, %._crit_edge, %4
+.critedge:                                        ; preds = %29, %15, %._crit_edge, %4
   %.0 = phi ptr [ null, %4 ], [ %.4, %._crit_edge ], [ null, %15 ], [ null, %29 ]
   ret ptr %.0
 }
@@ -5850,7 +5850,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIdEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread, label %5
+  br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5859,8 +5859,8 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %1 to i64
   %11 = sub i64 %9, %10
-  %.04355 = trunc i64 %11 to i32
-  %12 = icmp sgt i32 %2, %.04355
+  %.04352 = trunc i64 %11 to i32
+  %12 = icmp sgt i32 %2, %.04352
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -5869,15 +5869,15 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br label %15
 
 15:                                               ; preds = %.lr.ph, %32
-  %.04359 = phi i32 [ %.04355, %.lr.ph ], [ %.043, %32 ]
-  %.04058 = phi ptr [ %1, %.lr.ph ], [ %35, %32 ]
-  %.04257 = phi i32 [ %2, %.lr.ph ], [ %26, %32 ]
-  %.043.in56 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
-  %16 = ashr i32 %.04359, 3
+  %.04356 = phi i32 [ %.04352, %.lr.ph ], [ %.043, %32 ]
+  %.04055 = phi ptr [ %1, %.lr.ph ], [ %35, %32 ]
+  %.04254 = phi i32 [ %2, %.lr.ph ], [ %26, %32 ]
+  %.043.in53 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
+  %16 = ashr i32 %.04356, 3
   %17 = load i32, ptr %3, align 8, !tbaa !92
   %18 = add nsw i32 %17, %16
   tail call void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %18)
-  %19 = and i32 %.04359, -8
+  %19 = and i32 %.04356, -8
   %20 = load ptr, ptr %13, align 8, !tbaa !94
   %21 = load i32, ptr %3, align 8, !tbaa !92
   %22 = sext i32 %21 to i64
@@ -5885,19 +5885,19 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %24 = add nsw i32 %21, %16
   store i32 %24, ptr %3, align 8, !tbaa !92
   %25 = sext i32 %19 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr nonnull align 1 %.04058, i64 %25, i1 false)
-  %26 = sub nsw i32 %.04257, %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr nonnull align 1 %.04055, i64 %25, i1 false)
+  %26 = sub nsw i32 %.04254, %19
   %27 = load i32, ptr %14, align 4, !tbaa !24
   %28 = icmp slt i32 %27, 17
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %15
   %30 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %29
-  %33 = and i64 %.043.in56, 7
+  %33 = and i64 %.043.in53, 7
   %34 = sub nuw nsw i64 16, %33
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
   %36 = load ptr, ptr %6, align 8, !tbaa !13
@@ -5929,9 +5929,9 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %.not49 = icmp eq i32 %.042.lcssa, %45
   %53 = getelementptr inbounds i8, ptr %.040.lcssa, i64 %52
   %.4 = select i1 %.not49, ptr %53, ptr null
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %29, %15, %._crit_edge, %4
+.critedge:                                        ; preds = %29, %15, %._crit_edge, %4
   %.0 = phi ptr [ null, %4 ], [ %.4, %._crit_edge ], [ null, %15 ], [ null, %29 ]
   ret ptr %.0
 }

@@ -13274,11 +13274,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2782: ; preds = %_
   %.pre = load ptr, ptr %132, align 8, !tbaa !37
   br i1 %.not30793081, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3816
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  br label %3829
-
-._crit_edge:                                      ; preds = %3829, %3816
+._crit_edge:                                      ; preds = %.lr.ph, %3816
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %134) #21
   %3818 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %3819 = load ptr, ptr %3818, align 8, !tbaa !34
@@ -13298,21 +13294,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2782: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %133) #21
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit2792
 
-3829:                                             ; preds = %.lr.ph, %3829
-  %.sroa.03056.03083 = phi ptr [ %.sroa.03056.03080, %.lr.ph ], [ %.sroa.03056.0, %3829 ]
-  %.017573082 = phi i64 [ 0, %.lr.ph ], [ %3835, %3829 ]
-  %3830 = getelementptr inbounds nuw i8, ptr %.sroa.03056.03083, i64 8
-  %3831 = load i64, ptr %3830, align 8, !tbaa !94
-  %3832 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.017573082
-  store i64 %3831, ptr %3832, align 8, !tbaa !23
-  %3833 = getelementptr inbounds nuw i8, ptr %.sroa.03056.03083, i64 16
-  %3834 = load i64, ptr %3833, align 8, !tbaa !96
-  %3835 = add nuw nsw i64 %.017573082, 2
-  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %.017573082
-  store i64 %3834, ptr %gep, align 8, !tbaa !23
+.lr.ph:                                           ; preds = %3816, %.lr.ph
+  %.sroa.03056.03083 = phi ptr [ %.sroa.03056.0, %.lr.ph ], [ %.sroa.03056.03080, %3816 ]
+  %.017573082 = phi i64 [ %3834, %.lr.ph ], [ 0, %3816 ]
+  %3829 = getelementptr inbounds nuw i8, ptr %.sroa.03056.03083, i64 8
+  %3830 = load i64, ptr %3829, align 8, !tbaa !94
+  %3831 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.017573082
+  store i64 %3830, ptr %3831, align 8, !tbaa !23
+  %3832 = getelementptr inbounds nuw i8, ptr %.sroa.03056.03083, i64 16
+  %3833 = load i64, ptr %3832, align 8, !tbaa !96
+  %3834 = add nuw nsw i64 %.017573082, 2
+  %3835 = getelementptr inbounds nuw i8, ptr %3831, i64 8
+  store i64 %3833, ptr %3835, align 8, !tbaa !23
   %.sroa.03056.0 = load ptr, ptr %.sroa.03056.03083, align 8, !tbaa !93
   %.not3079 = icmp eq ptr %.sroa.03056.0, null
-  br i1 %.not3079, label %._crit_edge, label %3829, !llvm.loop !97
+  br i1 %.not3079, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 3836:                                             ; preds = %._crit_edge
   %3837 = icmp eq i64 %3826, 1

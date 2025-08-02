@@ -4969,7 +4969,7 @@ entry:
   %Items = getelementptr inbounds nuw i8, ptr %this, i64 312
   %conv.i = zext i32 %index to i64
   %0 = load ptr, ptr %Items, align 8, !tbaa !82
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i, i32 2, i64 0
+  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i, i32 2
   store i8 1, ptr %arrayidx, align 4, !tbaa !131
   %Color = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i, i32 2, i64 0, i32 1
   store i32 %color.coerce, ptr %Color, align 4, !tbaa !52
@@ -5008,9 +5008,10 @@ entry:
 if.end:                                           ; preds = %entry
   %conv.i18 = zext i32 %index to i64
   %idxprom = zext nneg i32 %colorType to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i18, i32 2, i64 %idxprom
+  %arrayidx.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i18, i32 2
+  %arrayidx = getelementptr inbounds nuw [4 x %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor"], ptr %arrayidx.split, i64 0, i64 %idxprom
   store i8 1, ptr %arrayidx, align 4, !tbaa !131
-  %Color = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i18, i32 2, i64 %idxprom, i32 1
+  %Color = getelementptr inbounds nuw [4 x %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor"], ptr %arrayidx.split, i64 0, i64 %idxprom, i32 1
   store i32 %color.coerce, ptr %Color, align 4, !tbaa !52
   br label %return
 
@@ -5024,7 +5025,7 @@ entry:
   %Items = getelementptr inbounds nuw i8, ptr %this, i64 312
   %conv.i = zext i32 %index to i64
   %0 = load ptr, ptr %Items, align 8, !tbaa !82
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i, i32 2, i64 0
+  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i, i32 2
   store i8 0, ptr %arrayidx, align 4, !tbaa !131
   %arrayidx.1 = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %0, i64 %conv.i, i32 2, i64 1
   store i8 0, ptr %arrayidx.1, align 4, !tbaa !131
@@ -5055,7 +5056,8 @@ entry:
 if.end:                                           ; preds = %entry
   %conv.i11 = zext i32 %index to i64
   %idxprom = zext nneg i32 %colorType to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i11, i32 2, i64 %idxprom
+  %arrayidx.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i11, i32 2
+  %arrayidx = getelementptr inbounds nuw [4 x %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor"], ptr %arrayidx.split, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 4, !tbaa !131
   br label %return
 
@@ -5083,7 +5085,8 @@ entry:
 if.end:                                           ; preds = %entry
   %conv.i11 = zext i32 %index to i64
   %idxprom = zext nneg i32 %colorType to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i11, i32 2, i64 %idxprom
+  %arrayidx.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i11, i32 2
+  %arrayidx = getelementptr inbounds nuw [4 x %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor"], ptr %arrayidx.split, i64 0, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 4, !tbaa !131, !range !70, !noundef !71
   %tobool = icmp ne i8 %3, 0
   br label %return
@@ -5113,7 +5116,8 @@ entry:
 if.end:                                           ; preds = %entry
   %conv.i11 = zext i32 %index to i64
   %idxprom = zext nneg i32 %colorType to i64
-  %Color = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i11, i32 2, i64 %idxprom, i32 1
+  %Color.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIListBox::ListItem", ptr %1, i64 %conv.i11, i32 2
+  %Color = getelementptr inbounds nuw [4 x %"struct.irr::gui::CGUIListBox::ListItem::ListItemOverrideColor"], ptr %Color.split, i64 0, i64 %idxprom, i32 1
   %3 = load i32, ptr %Color, align 8, !tbaa !52
   br label %return
 

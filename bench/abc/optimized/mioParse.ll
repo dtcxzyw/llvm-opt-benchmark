@@ -2425,16 +2425,15 @@ define noalias noundef ptr @Mio_ParseFormulaTruth(ptr noundef %0, ptr noundef re
   %58 = zext i32 %10 to i64
   %59 = shl nuw nsw i64 %58, 3
   %60 = shl nsw i32 %2, 1
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %.val.i, i64 4
   %wide.trip.count254.i = zext nneg i32 %46 to i64
   br label %61
 
 61:                                               ; preds = %._crit_edge202.i, %.lr.ph205.i
   %indvars.iv251.i = phi i64 [ 0, %.lr.ph205.i ], [ %indvars.iv.next252.i, %._crit_edge202.i ]
-  %62 = shl nuw nsw i64 %indvars.iv251.i, 1
-  %63 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !14
-  switch i32 %64, label %65 [
+  %.idx.i = shl nuw nsw i64 %indvars.iv251.i, 3
+  %62 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
+  %63 = load i32, ptr %62, align 4, !tbaa !14
+  switch i32 %63, label %64 [
     i32 -1, label %.preheader43.i.i
     i32 -2, label %.preheader45.i.i
   ]
@@ -2453,83 +2452,83 @@ define noalias noundef ptr @Mio_ParseFormulaTruth(ptr noundef %0, ptr noundef re
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %54, i8 0, i64 %59, i1 false), !tbaa !44
   br label %Exp_TruthLit.exit.i
 
-65:                                               ; preds = %61
-  %66 = icmp slt i32 %64, %60
-  br i1 %66, label %.preheader.i.i, label %.preheader41.i.i
+64:                                               ; preds = %61
+  %65 = icmp slt i32 %63, %60
+  br i1 %65, label %.preheader.i.i, label %.preheader41.i.i
 
-.preheader41.i.i:                                 ; preds = %65
+.preheader41.i.i:                                 ; preds = %64
   br i1 %57, label %.lr.ph51.i.i, label %Exp_TruthLit.exit.i
 
 .lr.ph51.i.i:                                     ; preds = %.preheader41.i.i
-  %67 = and i32 %64, 1
-  %.not.i.i = icmp eq i32 %67, 0
+  %66 = and i32 %63, 1
+  %.not.i.i = icmp eq i32 %66, 0
   br i1 %.not.i.i, label %.lr.ph51.split.us.i.i, label %.lr.ph51.split.i.i
 
 .lr.ph51.split.us.i.i:                            ; preds = %.lr.ph51.i.i
-  %68 = ashr exact i32 %64, 1
-  %69 = sub nsw i32 %68, %2
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %49, i64 %70
-  %72 = load ptr, ptr %71, align 8, !tbaa !42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %54, ptr noundef nonnull align 8 dereferenceable(1) %72, i64 %59, i1 false), !tbaa !44
+  %67 = ashr exact i32 %63, 1
+  %68 = sub nsw i32 %67, %2
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds ptr, ptr %49, i64 %69
+  %71 = load ptr, ptr %70, align 8, !tbaa !42
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %54, ptr noundef nonnull align 8 dereferenceable(1) %71, i64 %59, i1 false), !tbaa !44
   br label %Exp_TruthLit.exit.i
 
 .lr.ph51.split.i.i:                               ; preds = %.lr.ph51.i.i
-  %73 = sdiv i32 %64, 2
-  %74 = sub nsw i32 %73, %2
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %49, i64 %75
-  %77 = load ptr, ptr %76, align 8, !tbaa !42
-  br label %92
+  %72 = sdiv i32 %63, 2
+  %73 = sub nsw i32 %72, %2
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds ptr, ptr %49, i64 %74
+  %76 = load ptr, ptr %75, align 8, !tbaa !42
+  br label %91
 
-.preheader.i.i:                                   ; preds = %65
+.preheader.i.i:                                   ; preds = %64
   br i1 %57, label %.lr.ph53.i.i, label %Exp_TruthLit.exit.i
 
 .lr.ph53.i.i:                                     ; preds = %.preheader.i.i
-  %78 = and i32 %64, 1
-  %.not40.i.i = icmp eq i32 %78, 0
+  %77 = and i32 %63, 1
+  %.not40.i.i = icmp eq i32 %77, 0
   br i1 %.not40.i.i, label %.lr.ph53.split.us.i.i, label %.lr.ph53.split.i.i
 
 .lr.ph53.split.us.i.i:                            ; preds = %.lr.ph53.i.i
-  %79 = ashr exact i32 %64, 1
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %21, i64 %80
-  %82 = load ptr, ptr %81, align 8, !tbaa !42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %54, ptr noundef nonnull align 8 dereferenceable(1) %82, i64 %59, i1 false), !tbaa !44
+  %78 = ashr exact i32 %63, 1
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds ptr, ptr %21, i64 %79
+  %81 = load ptr, ptr %80, align 8, !tbaa !42
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %54, ptr noundef nonnull align 8 dereferenceable(1) %81, i64 %59, i1 false), !tbaa !44
   br label %Exp_TruthLit.exit.i
 
 .lr.ph53.split.i.i:                               ; preds = %.lr.ph53.i.i
-  %83 = sdiv i32 %64, 2
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr %21, i64 %84
-  %86 = load ptr, ptr %85, align 8, !tbaa !42
-  br label %87
+  %82 = sdiv i32 %63, 2
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds ptr, ptr %21, i64 %83
+  %85 = load ptr, ptr %84, align 8, !tbaa !42
+  br label %86
 
-87:                                               ; preds = %87, %.lr.ph53.split.i.i
-  %indvars.iv67.i.i = phi i64 [ 0, %.lr.ph53.split.i.i ], [ %indvars.iv.next68.i.i, %87 ]
-  %88 = getelementptr inbounds nuw i64, ptr %86, i64 %indvars.iv67.i.i
-  %89 = load i64, ptr %88, align 8, !tbaa !44
-  %90 = xor i64 %89, -1
-  %91 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv67.i.i
-  store i64 %90, ptr %91, align 8, !tbaa !44
+86:                                               ; preds = %86, %.lr.ph53.split.i.i
+  %indvars.iv67.i.i = phi i64 [ 0, %.lr.ph53.split.i.i ], [ %indvars.iv.next68.i.i, %86 ]
+  %87 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv67.i.i
+  %88 = load i64, ptr %87, align 8, !tbaa !44
+  %89 = xor i64 %88, -1
+  %90 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv67.i.i
+  store i64 %89, ptr %90, align 8, !tbaa !44
   %indvars.iv.next68.i.i = add nuw nsw i64 %indvars.iv67.i.i, 1
   %exitcond71.not.i.i = icmp eq i64 %indvars.iv.next68.i.i, %58
-  br i1 %exitcond71.not.i.i, label %Exp_TruthLit.exit.i, label %87, !llvm.loop !50
+  br i1 %exitcond71.not.i.i, label %Exp_TruthLit.exit.i, label %86, !llvm.loop !50
 
-92:                                               ; preds = %92, %.lr.ph51.split.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph51.split.i.i ], [ %indvars.iv.next.i.i, %92 ]
-  %93 = getelementptr inbounds nuw i64, ptr %77, i64 %indvars.iv.i.i
-  %94 = load i64, ptr %93, align 8, !tbaa !44
-  %95 = xor i64 %94, -1
-  %96 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i.i
-  store i64 %95, ptr %96, align 8, !tbaa !44
+91:                                               ; preds = %91, %.lr.ph51.split.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph51.split.i.i ], [ %indvars.iv.next.i.i, %91 ]
+  %92 = getelementptr inbounds nuw i64, ptr %76, i64 %indvars.iv.i.i
+  %93 = load i64, ptr %92, align 8, !tbaa !44
+  %94 = xor i64 %93, -1
+  %95 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i.i
+  store i64 %94, ptr %95, align 8, !tbaa !44
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %58
-  br i1 %exitcond.not.i.i, label %Exp_TruthLit.exit.i, label %92, !llvm.loop !51
+  br i1 %exitcond.not.i.i, label %Exp_TruthLit.exit.i, label %91, !llvm.loop !51
 
-Exp_TruthLit.exit.i:                              ; preds = %92, %87, %.lr.ph53.split.us.i.i, %.preheader.i.i, %.lr.ph51.split.us.i.i, %.preheader41.i.i, %.lr.ph49.preheader.i.i, %.preheader43.i.i, %.lr.ph.preheader.i.i, %.preheader45.i.i
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %62
-  %97 = load i32, ptr %gep.i, align 4, !tbaa !14
+Exp_TruthLit.exit.i:                              ; preds = %91, %86, %.lr.ph53.split.us.i.i, %.preheader.i.i, %.lr.ph51.split.us.i.i, %.preheader41.i.i, %.lr.ph49.preheader.i.i, %.preheader43.i.i, %.lr.ph.preheader.i.i, %.preheader45.i.i
+  %96 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %97 = load i32, ptr %96, align 4, !tbaa !14
   switch i32 %97, label %98 [
     i32 -1, label %.preheader43.i120.i
     i32 -2, label %.preheader45.i118.i

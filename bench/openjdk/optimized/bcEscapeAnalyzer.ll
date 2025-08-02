@@ -2068,7 +2068,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %17, %_ZN8ciMethod4c
   store ptr %44, ptr %42, align 8
   %45 = load ptr, ptr %43, align 8
   %.not.i1323 = icmp ult ptr %44, %45
-  br i1 %.not.i1323, label %.lr.ph1325, label %.critedge.thread
+  br i1 %.not.i1323, label %.lr.ph1325, label %.critedge1331
 
 .lr.ph1325:                                       ; preds = %_ZN16ciBytecodeStreamC2EP8ciMethod.exit
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 68
@@ -5609,11 +5609,11 @@ _ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit670:   ; preds = %1493
 
 1501:                                             ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit670
   %1502 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %89) #12
-  %.pre1335 = load ptr, ptr %6, align 8
+  %.pre1336 = load ptr, ptr %6, align 8
   br label %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit
 
 _ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit: ; preds = %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit670, %1501
-  %1503 = phi ptr [ %.pre1335, %1501 ], [ %89, %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit670 ]
+  %1503 = phi ptr [ %.pre1336, %1501 ], [ %89, %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit670 ]
   %1504 = phi i32 [ %1502, %1501 ], [ %1500, %_ZN16BCEscapeAnalyzer9StateInfo4spopEv.exit670 ]
   store i32 %1504, ptr %68, align 8
   %1505 = getelementptr inbounds nuw i8, ptr %1503, i64 9
@@ -5675,15 +5675,15 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit67
   %1545 = getelementptr inbounds ptr, ptr %1543, i64 %1544
   store ptr %1529, ptr %1545, align 8
   %1546 = add nuw nsw i32 %.03351320, 1
-  %exitcond1334.not = icmp eq i32 %1546, %1518
-  br i1 %exitcond1334.not, label %._crit_edge1322.loopexit, label %.lr.ph1321, !llvm.loop !25
+  %exitcond1335.not = icmp eq i32 %1546, %1518
+  br i1 %exitcond1335.not, label %._crit_edge1322.loopexit, label %.lr.ph1321, !llvm.loop !25
 
 ._crit_edge1322.loopexit:                         ; preds = %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit676
-  %.pre1336 = load ptr, ptr %6, align 8
+  %.pre1337 = load ptr, ptr %6, align 8
   br label %._crit_edge1322
 
 ._crit_edge1322:                                  ; preds = %._crit_edge1322.loopexit, %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit
-  %1547 = phi ptr [ %.pre1336, %._crit_edge1322.loopexit ], [ %1503, %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit ]
+  %1547 = phi ptr [ %.pre1337, %._crit_edge1322.loopexit ], [ %1503, %_ZN20Bytecode_tableswitchC2EPK16ciBytecodeStream.exit ]
   %1548 = load ptr, ptr %42, align 8
   %1549 = load ptr, ptr %48, align 8
   %1550 = ptrtoint ptr %1548 to i64
@@ -6716,8 +6716,8 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit788: ; preds = %_ZN1
 2052:                                             ; preds = %96
   %2053 = getelementptr inbounds nuw i8, ptr %89, i64 3
   %2054 = load i8, ptr %2053, align 1
-  %.not1331 = icmp eq i8 %2054, 0
-  br i1 %.not1331, label %._crit_edge, label %.lr.ph
+  %.not1332 = icmp eq i8 %2054, 0
+  br i1 %.not1332, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2052
   %2055 = zext i8 %2054 to i32
@@ -7389,59 +7389,55 @@ _ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit: ; preds = %1997, %
   br i1 %.not.i, label %70, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %_ZN16ciBytecodeStream4nextEv.exit.thread922, %_ZN16ciBytecodeStream4nextEv.exit, %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
-  %.0.lcssa = phi i1 [ %.01324, %_ZN16ciBytecodeStream4nextEv.exit.thread922 ], [ %.01324, %_ZN16ciBytecodeStream4nextEv.exit ], [ %.1, %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit ]
-  br i1 %.0.lcssa, label %2375, label %.critedge.thread
+  %.0.lcssa = phi i1 [ %.1, %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit ], [ %.01324, %_ZN16ciBytecodeStream4nextEv.exit ], [ %.01324, %_ZN16ciBytecodeStream4nextEv.exit.thread922 ]
+  br i1 %.0.lcssa, label %2375, label %.critedge1331
 
 2375:                                             ; preds = %.critedge
   %2376 = load ptr, ptr %42, align 8
-  %2377 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %2378 = load ptr, ptr %2377, align 8
-  %2379 = ptrtoint ptr %2376 to i64
-  %2380 = ptrtoint ptr %2378 to i64
-  %2381 = sub i64 %2379, %2380
-  %2382 = trunc i64 %2381 to i32
-  %2383 = load ptr, ptr %14, align 8
-  %2384 = getelementptr inbounds nuw i8, ptr %2383, i64 72
-  %2385 = load i32, ptr %2384, align 8
-  %2386 = icmp sgt i32 %2385, %2382
-  br i1 %2386, label %2387, label %.critedge.thread
+  %2377 = load ptr, ptr %48, align 8
+  %2378 = ptrtoint ptr %2376 to i64
+  %2379 = ptrtoint ptr %2377 to i64
+  %2380 = sub i64 %2378, %2379
+  %2381 = trunc i64 %2380 to i32
+  %2382 = load ptr, ptr %14, align 8
+  %2383 = getelementptr inbounds nuw i8, ptr %2382, i64 72
+  %2384 = load i32, ptr %2383, align 8
+  %2385 = icmp sgt i32 %2384, %2381
+  br i1 %2385, label %2386, label %.critedge1331
 
-2387:                                             ; preds = %2375
-  %2388 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %2389 = load ptr, ptr %2388, align 8
-  %2390 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %2389, i32 noundef %2382) #12
-  %2391 = load i32, ptr %3, align 8
-  %2392 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %2393 = load i32, ptr %2392, align 4
-  %2394 = icmp eq i32 %2391, %2393
-  br i1 %2394, label %2395, label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit893
+2386:                                             ; preds = %2375
+  %2387 = load ptr, ptr %52, align 8
+  %2388 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %2387, i32 noundef %2381) #12
+  %2389 = load i32, ptr %3, align 8
+  %2390 = load i32, ptr %53, align 4
+  %2391 = icmp eq i32 %2389, %2390
+  br i1 %2391, label %2392, label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit893
 
-2395:                                             ; preds = %2387
-  %2396 = add nsw i32 %2391, 1
-  %2397 = icmp sgt i32 %2391, -1
-  %2398 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %2396)
-  %2399 = icmp samesign ult i32 %2398, 2
-  %or.cond.i.i.i.i.i890 = select i1 %2397, i1 %2399, i1 false
-  %2400 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2396, i1 true)
-  %2401 = sub nuw nsw i32 32, %2400
-  %2402 = shl nuw i32 1, %2401
-  %.0.i.i.i.i.i891 = select i1 %or.cond.i.i.i.i.i890, i32 %2396, i32 %2402
+2392:                                             ; preds = %2386
+  %2393 = add nsw i32 %2389, 1
+  %2394 = icmp sgt i32 %2389, -1
+  %2395 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %2393)
+  %2396 = icmp samesign ult i32 %2395, 2
+  %or.cond.i.i.i.i.i890 = select i1 %2394, i1 %2396, i1 false
+  %2397 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2393, i1 true)
+  %2398 = sub nuw nsw i32 32, %2397
+  %2399 = shl nuw i32 1, %2398
+  %.0.i.i.i.i.i891 = select i1 %or.cond.i.i.i.i.i890, i32 %2393, i32 %2399
   call void @_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %.0.i.i.i.i.i891)
   %.pre.i.i892 = load i32, ptr %3, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit893
 
-_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit893: ; preds = %2387, %2395
-  %2403 = phi i32 [ %.pre.i.i892, %2395 ], [ %2391, %2387 ]
-  %2404 = add nsw i32 %2403, 1
-  store i32 %2404, ptr %3, align 8
-  %2405 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %2406 = load ptr, ptr %2405, align 8
-  %2407 = sext i32 %2403 to i64
-  %2408 = getelementptr inbounds ptr, ptr %2406, i64 %2407
-  store ptr %2390, ptr %2408, align 8
-  br label %.critedge.thread
+_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit893: ; preds = %2386, %2392
+  %2400 = phi i32 [ %.pre.i.i892, %2392 ], [ %2389, %2386 ]
+  %2401 = add nsw i32 %2400, 1
+  store i32 %2401, ptr %3, align 8
+  %2402 = load ptr, ptr %54, align 8
+  %2403 = sext i32 %2400 to i64
+  %2404 = getelementptr inbounds ptr, ptr %2402, i64 %2403
+  store ptr %2388, ptr %2404, align 8
+  br label %.critedge1331
 
-.critedge.thread:                                 ; preds = %_ZN16ciBytecodeStreamC2EP8ciMethod.exit, %2375, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit893, %.critedge
+.critedge1331:                                    ; preds = %_ZN16ciBytecodeStreamC2EP8ciMethod.exit, %2375, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit893, %.critedge
   ret void
 }
 

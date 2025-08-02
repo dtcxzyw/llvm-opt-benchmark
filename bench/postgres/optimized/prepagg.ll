@@ -642,7 +642,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -658,94 +658,94 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = load i32, ptr %8, align 4
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph117.preheader, label %._crit_edge
+  br i1 %18, label %.lr.ph111.preheader, label %.critedge
 
-.lr.ph117.preheader:                              ; preds = %.lr.ph
+.lr.ph111.preheader:                              ; preds = %.lr.ph
   %. = select i1 %.not81, i64 24, i64 36
-  br label %.lr.ph117
+  br label %.lr.ph111
 
-._crit_edge:                                      ; preds = %125, %.lr.ph, %3
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %.not76 = icmp eq ptr %20, null
-  br i1 %.not76, label %._crit_edge98, label %.lr.ph97
-
-.lr.ph97:                                         ; preds = %._crit_edge
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %23 = and i32 %1, 2
-  %.not78 = icmp eq i32 %23, 0
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %27 = load i32, ptr %21, align 4
-  %28 = icmp sgt i32 %27, 0
-  br i1 %.not78, label %.lr.ph97.split.us.preheader, label %.lr.ph97.split.split
-
-.lr.ph97.split.us.preheader:                      ; preds = %.lr.ph97
-  br i1 %28, label %.lr.ph119, label %._crit_edge98
-
-.lr.ph119:                                        ; preds = %.lr.ph97.split.us.preheader, %.lr.ph97.split.us
-  %indvars.iv110118 = phi i64 [ %indvars.iv.next111, %.lr.ph97.split.us ], [ 0, %.lr.ph97.split.us.preheader ]
-  %29 = load ptr, ptr %22, align 8
-  %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv110118
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr i8, ptr %33, i64 16
-  %.val.us = load ptr, ptr %34, align 8
-  %35 = load ptr, ptr %.val.us, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %37 = load i32, ptr %36, align 8
-  %.not79.us = icmp eq i32 %37, 0
-  br i1 %.not79.us, label %39, label %38
-
-38:                                               ; preds = %.lr.ph119
-  call void @add_function_cost(ptr noundef %0, i32 noundef %37, ptr noundef null, ptr noundef nonnull %24) #6
-  br label %39
-
-39:                                               ; preds = %38, %.lr.ph119
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %41 = load ptr, ptr %40, align 8
-  %.not80.us = icmp eq ptr %41, null
-  br i1 %.not80.us, label %.lr.ph97.split.us, label %42
-
-42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @cost_qual_eval_node(ptr noundef nonnull %5, ptr noundef nonnull %41, ptr noundef %0) #6
-  %43 = load double, ptr %5, align 8
-  %44 = load double, ptr %24, align 8
-  %45 = fadd double %43, %44
-  store double %45, ptr %24, align 8
-  %46 = load double, ptr %25, align 8
-  %47 = load double, ptr %26, align 8
-  %48 = fadd double %46, %47
-  store double %48, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  br label %.lr.ph97.split.us
-
-.lr.ph97.split.us:                                ; preds = %42, %39
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110118, 1
-  %49 = load i32, ptr %21, align 4
-  %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next111, %50
-  br i1 %51, label %.lr.ph119, label %._crit_edge98
-
-.lr.ph97.split.split:                             ; preds = %.lr.ph97
-  br i1 %28, label %.lr.ph104, label %._crit_edge98
-
-.lr.ph117:                                        ; preds = %.lr.ph117.preheader, %125
-  %indvars.iv116 = phi i64 [ %indvars.iv.next, %125 ], [ 0, %.lr.ph117.preheader ]
-  %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds nuw %union.ListCell, ptr %52, i64 %indvars.iv116
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.
-  %.sink = load i32, ptr %55, align 4
+.lr.ph111:                                        ; preds = %.lr.ph111.preheader, %125
+  %indvars.iv110 = phi i64 [ %indvars.iv.next, %125 ], [ 0, %.lr.ph111.preheader ]
+  %19 = load ptr, ptr %9, align 8
+  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv110
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.
+  %.sink = load i32, ptr %22, align 4
   call void @add_function_cost(ptr noundef %0, i32 noundef %.sink, ptr noundef null, ptr noundef %2) #6
   br i1 %.not82, label %60, label %56
 
-56:                                               ; preds = %.lr.ph117
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 32
+.critedge:                                        ; preds = %125, %.lr.ph, %3
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %.not76 = icmp eq ptr %24, null
+  br i1 %.not76, label %.critedge88, label %.lr.ph92
+
+.lr.ph92:                                         ; preds = %.critedge
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %27 = and i32 %1, 2
+  %.not78 = icmp eq i32 %27, 0
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %31 = load i32, ptr %25, align 4
+  %32 = icmp sgt i32 %31, 0
+  br i1 %.not78, label %.lr.ph92.split.us.preheader, label %.lr.ph92.split.split
+
+.lr.ph92.split.us.preheader:                      ; preds = %.lr.ph92
+  br i1 %32, label %.lr.ph113, label %.critedge88
+
+.lr.ph113:                                        ; preds = %.lr.ph92.split.us.preheader, %.lr.ph92.split.us
+  %indvars.iv104112 = phi i64 [ %indvars.iv.next105, %.lr.ph92.split.us ], [ 0, %.lr.ph92.split.us.preheader ]
+  %33 = load ptr, ptr %26, align 8
+  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv104112
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr i8, ptr %37, i64 16
+  %.val.us = load ptr, ptr %38, align 8
+  %39 = load ptr, ptr %.val.us, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %41 = load i32, ptr %40, align 8
+  %.not79.us = icmp eq i32 %41, 0
+  br i1 %.not79.us, label %43, label %42
+
+42:                                               ; preds = %.lr.ph113
+  call void @add_function_cost(ptr noundef %0, i32 noundef %41, ptr noundef null, ptr noundef nonnull %28) #6
+  br label %43
+
+43:                                               ; preds = %42, %.lr.ph113
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %45 = load ptr, ptr %44, align 8
+  %.not80.us = icmp eq ptr %45, null
+  br i1 %.not80.us, label %.lr.ph92.split.us, label %46
+
+46:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @cost_qual_eval_node(ptr noundef nonnull %5, ptr noundef nonnull %45, ptr noundef %0) #6
+  %47 = load double, ptr %5, align 8
+  %48 = load double, ptr %28, align 8
+  %49 = fadd double %47, %48
+  store double %49, ptr %28, align 8
+  %50 = load double, ptr %29, align 8
+  %51 = load double, ptr %30, align 8
+  %52 = fadd double %50, %51
+  store double %52, ptr %30, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  br label %.lr.ph92.split.us
+
+.lr.ph92.split.us:                                ; preds = %46, %43
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104112, 1
+  %53 = load i32, ptr %25, align 4
+  %54 = sext i32 %53 to i64
+  %55 = icmp slt i64 %indvars.iv.next105, %54
+  br i1 %55, label %.lr.ph113, label %.critedge88
+
+.lr.ph92.split.split:                             ; preds = %.lr.ph92
+  br i1 %32, label %.lr.ph98, label %.critedge88
+
+56:                                               ; preds = %.lr.ph111
+  %57 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %58 = load i32, ptr %57, align 8
   %.not83 = icmp eq i32 %58, 0
   br i1 %.not83, label %60, label %59
@@ -754,11 +754,11 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   call void @add_function_cost(ptr noundef %0, i32 noundef %58, ptr noundef null, ptr noundef %2) #6
   br label %60
 
-60:                                               ; preds = %59, %56, %.lr.ph117
+60:                                               ; preds = %59, %56, %.lr.ph111
   br i1 %.not84, label %65, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds nuw i8, ptr %54, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %63 = load i32, ptr %62, align 4
   %.not85 = icmp eq i32 %63, 0
   br i1 %.not85, label %65, label %64
@@ -772,7 +772,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
 
 66:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
-  %67 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %68 = load ptr, ptr %67, align 8
   call void @cost_qual_eval_node(ptr noundef nonnull %4, ptr noundef %68, ptr noundef %0) #6
   %69 = load double, ptr %4, align 8
@@ -783,7 +783,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   %73 = load double, ptr %15, align 8
   %74 = fadd double %72, %73
   store double %74, ptr %15, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %76 = load ptr, ptr %75, align 8
   %.not86 = icmp eq ptr %76, null
   br i1 %.not86, label %84, label %77
@@ -805,27 +805,27 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   br label %85
 
 85:                                               ; preds = %84, %65
-  %86 = getelementptr inbounds nuw i8, ptr %54, i64 52
+  %86 = getelementptr inbounds nuw i8, ptr %21, i64 52
   %87 = load i8, ptr %86, align 4, !range !4, !noundef !5
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %110, label %89
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %54, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %91 = load i32, ptr %90, align 8
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %103, label %93
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, 378
   br i1 %96, label %103, label %97
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %54, i64 44
+  %100 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %101 = load i32, ptr %100, align 4
   %102 = call i32 @get_typavgwidth(i32 noundef %99, i32 noundef %101) #6
   br label %103
@@ -841,13 +841,13 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   br label %.sink.split
 
 110:                                              ; preds = %85
-  %111 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %112 = load i32, ptr %111, align 8
   %113 = icmp eq i32 %112, 2281
   br i1 %113, label %114, label %125
 
 114:                                              ; preds = %110
-  %115 = getelementptr inbounds nuw i8, ptr %54, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %116 = load i32, ptr %115, align 8
   %117 = icmp sgt i32 %116, 0
   br i1 %117, label %118, label %122
@@ -864,25 +864,22 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %103, %118, %122
-  %.sink114 = phi i64 [ %124, %122 ], [ %121, %118 ], [ %109, %103 ]
-  store i64 %.sink114, ptr %16, align 8
+  %.sink108 = phi i64 [ %124, %122 ], [ %121, %118 ], [ %109, %103 ]
+  store i64 %.sink108, ptr %16, align 8
   br label %125
 
 125:                                              ; preds = %.sink.split, %110
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv116, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv110, 1
   %126 = load i32, ptr %8, align 4
   %127 = sext i32 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next, %127
-  br i1 %128, label %.lr.ph117, label %._crit_edge
+  br i1 %128, label %.lr.ph111, label %.critedge
 
-._crit_edge98:                                    ; preds = %146, %.lr.ph97.split.us, %.lr.ph97.split.us.preheader, %.lr.ph97.split.split, %._crit_edge
-  ret void
-
-.lr.ph104:                                        ; preds = %.lr.ph97.split.split, %146
-  %129 = phi i32 [ %147, %146 ], [ %27, %.lr.ph97.split.split ]
-  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %146 ], [ 0, %.lr.ph97.split.split ]
-  %130 = load ptr, ptr %22, align 8
-  %131 = getelementptr inbounds nuw %union.ListCell, ptr %130, i64 %indvars.iv107
+.lr.ph98:                                         ; preds = %.lr.ph92.split.split, %146
+  %129 = phi i32 [ %147, %146 ], [ %31, %.lr.ph92.split.split ]
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %146 ], [ 0, %.lr.ph92.split.split ]
+  %130 = load ptr, ptr %26, align 8
+  %131 = getelementptr inbounds nuw %union.ListCell, ptr %130, i64 %indvars.iv101
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
@@ -894,27 +891,30 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   %.not80 = icmp eq ptr %138, null
   br i1 %.not80, label %146, label %139
 
-139:                                              ; preds = %.lr.ph104
+.critedge88:                                      ; preds = %146, %.lr.ph92.split.us, %.lr.ph92.split.us.preheader, %.lr.ph92.split.split, %.critedge
+  ret void
+
+139:                                              ; preds = %.lr.ph98
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
   call void @cost_qual_eval_node(ptr noundef nonnull %5, ptr noundef nonnull %138, ptr noundef %0) #6
   %140 = load double, ptr %5, align 8
-  %141 = load double, ptr %24, align 8
+  %141 = load double, ptr %28, align 8
   %142 = fadd double %140, %141
-  store double %142, ptr %24, align 8
-  %143 = load double, ptr %25, align 8
-  %144 = load double, ptr %26, align 8
+  store double %142, ptr %28, align 8
+  %143 = load double, ptr %29, align 8
+  %144 = load double, ptr %30, align 8
   %145 = fadd double %143, %144
-  store double %145, ptr %26, align 8
+  store double %145, ptr %30, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  %.pre = load i32, ptr %21, align 4
+  %.pre = load i32, ptr %25, align 4
   br label %146
 
-146:                                              ; preds = %139, %.lr.ph104
-  %147 = phi i32 [ %.pre, %139 ], [ %129, %.lr.ph104 ]
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+146:                                              ; preds = %139, %.lr.ph98
+  %147 = phi i32 [ %.pre, %139 ], [ %129, %.lr.ph98 ]
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %148 = sext i32 %147 to i64
-  %149 = icmp slt i64 %indvars.iv.next108, %148
-  br i1 %149, label %.lr.ph104, label %._crit_edge98
+  %149 = icmp slt i64 %indvars.iv.next102, %148
+  br i1 %149, label %.lr.ph98, label %.critedge88
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

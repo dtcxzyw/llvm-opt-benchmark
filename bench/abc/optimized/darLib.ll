@@ -1353,43 +1353,43 @@ define void @Dar_LibIncrementScore(i32 noundef %0, i32 noundef %1, i32 noundef %
   %18 = add nsw i32 %17, %2
   store i32 %18, ptr %16, align 4, !tbaa !18
   %19 = getelementptr inbounds i32, ptr %11, i64 %15
-  %invariant.gep = getelementptr i8, ptr %8, i64 -4
   %20 = load i32, ptr %19, align 4, !tbaa !18
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %3, %30
-  %22 = phi i32 [ %41, %30 ], [ %20, %3 ]
+.lr.ph:                                           ; preds = %3, %32
+  %22 = phi i32 [ %43, %32 ], [ %20, %3 ]
   %23 = load i32, ptr %16, align 4, !tbaa !18
   %24 = zext nneg i32 %22 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %24
-  %25 = load i32, ptr %gep, align 4, !tbaa !18
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %14, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !18
-  %29 = icmp sgt i32 %23, %28
-  br i1 %29, label %30, label %.critedge
+  %25 = getelementptr i32, ptr %8, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -4
+  %27 = load i32, ptr %26, align 4, !tbaa !18
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i32, ptr %14, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !18
+  %31 = icmp sgt i32 %23, %30
+  br i1 %31, label %32, label %.critedge
 
-30:                                               ; preds = %.lr.ph
-  %31 = add nsw i32 %22, -1
-  store i32 %31, ptr %19, align 4, !tbaa !18
-  %32 = getelementptr inbounds i32, ptr %11, i64 %26
-  %33 = load i32, ptr %32, align 4, !tbaa !18
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %32, align 4, !tbaa !18
-  %35 = load i32, ptr %19, align 4, !tbaa !18
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %8, i64 %36
-  store i32 %1, ptr %37, align 4, !tbaa !18
-  %38 = load i32, ptr %32, align 4, !tbaa !18
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %8, i64 %39
-  store i32 %25, ptr %40, align 4, !tbaa !18
-  %41 = load i32, ptr %19, align 4, !tbaa !18
-  %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph, label %.critedge, !llvm.loop !73
+32:                                               ; preds = %.lr.ph
+  %33 = add nsw i32 %22, -1
+  store i32 %33, ptr %19, align 4, !tbaa !18
+  %34 = getelementptr inbounds i32, ptr %11, i64 %28
+  %35 = load i32, ptr %34, align 4, !tbaa !18
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %34, align 4, !tbaa !18
+  %37 = load i32, ptr %19, align 4, !tbaa !18
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i32, ptr %8, i64 %38
+  store i32 %1, ptr %39, align 4, !tbaa !18
+  %40 = load i32, ptr %34, align 4, !tbaa !18
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i32, ptr %8, i64 %41
+  store i32 %27, ptr %42, align 4, !tbaa !18
+  %43 = load i32, ptr %19, align 4, !tbaa !18
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph, label %.critedge, !llvm.loop !73
 
-.critedge:                                        ; preds = %.lr.ph, %30, %3
+.critedge:                                        ; preds = %.lr.ph, %32, %3
   ret void
 }
 

@@ -434,7 +434,7 @@ declare ptr @listNext(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @replicationGetSlaveName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @replicationGetSlaveName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [46 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %2) #21
   store i8 0, ptr %2, align 16, !tbaa !53
@@ -1496,7 +1496,7 @@ define dso_local void @replicationFeedSlaves(ptr noundef readonly captures(none)
 .critedge:                                        ; preds = %4, %11
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !98
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %18, label %151
+  br i1 %.not, label %18, label %153
 
 18:                                               ; preds = %.critedge
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7104), align 8, !tbaa !64
@@ -1513,7 +1513,7 @@ define dso_local void @replicationFeedSlaves(ptr noundef readonly captures(none)
   %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7064), align 8, !tbaa !69
   %27 = add nsw i64 %26, 1
   store i64 %27, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7064), align 8, !tbaa !69
-  br label %151
+  br label %153
 
 28:                                               ; preds = %21
   tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.3, i32 noundef 520) #21
@@ -1764,17 +1764,18 @@ feedReplicationBufferWithObject.exit45:           ; preds = %123, %127, %132, %1
   call void @feedReplicationBuffer(ptr noundef nonnull %.05.i43, i64 noundef %.0.i44)
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %5) #21
   %150 = sext i32 %108 to i64
-  %gep = getelementptr i8, ptr %93, i64 %150
-  call void @feedReplicationBuffer(ptr noundef nonnull %gep, i64 noundef 2)
+  %151 = getelementptr inbounds i8, ptr %9, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 1
+  call void @feedReplicationBuffer(ptr noundef nonnull %152, i64 noundef 2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %feedReplicationBufferWithObject.exit45, %92
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #21
-  br label %151
+  br label %153
 
-151:                                              ; preds = %.critedge, %._crit_edge, %25
+153:                                              ; preds = %.critedge, %._crit_edge, %25
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %8) #21
   ret void
 }
@@ -3229,8 +3230,8 @@ define dso_local void @syncCommand(ptr noundef %0) local_unnamed_addr #0 {
   %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1464), align 8, !tbaa !29
   call void @listRewind(ptr noundef %166, ptr noundef nonnull %4) #21
   %167 = call ptr @listNext(ptr noundef nonnull %4) #21
-  %.not8898 = icmp eq ptr %167, null
-  br i1 %.not8898, label %.loopexit, label %.lr.ph
+  %.not8894 = icmp eq ptr %167, null
+  br i1 %.not8894, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %165, %181
   %168 = phi ptr [ %182, %181 ], [ %167, %165 ]
@@ -3257,23 +3258,23 @@ define dso_local void @syncCommand(ptr noundef %0) local_unnamed_addr #0 {
 181:                                              ; preds = %178, %.lr.ph
   %182 = call ptr @listNext(ptr noundef nonnull %4) #21
   %.not88 = icmp eq ptr %182, null
-  br i1 %.not88, label %.loopexit, label %.lr.ph, !llvm.loop !152
+  br i1 %.not88, label %.critedge, label %.lr.ph, !llvm.loop !152
 
-183:                                              ; preds = %174, %178
+183:                                              ; preds = %178, %174
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %185 = load i32, ptr %184, align 8, !tbaa !132
   %186 = getelementptr inbounds nuw i8, ptr %170, i64 424
   %187 = load i32, ptr %186, align 8, !tbaa !132
   %188 = and i32 %187, %185
   %189 = icmp eq i32 %188, %187
-  br i1 %189, label %190, label %.loopexit
+  br i1 %189, label %190, label %.critedge
 
 190:                                              ; preds = %183
   %191 = load i32, ptr %68, align 4, !tbaa !127
   %192 = getelementptr inbounds nuw i8, ptr %170, i64 428
   %193 = load i32, ptr %192, align 4, !tbaa !127
   %194 = icmp eq i32 %191, %193
-  br i1 %194, label %195, label %.loopexit
+  br i1 %194, label %195, label %.critedge
 
 195:                                              ; preds = %190
   %196 = load i64, ptr %5, align 8, !tbaa !5
@@ -3293,17 +3294,17 @@ define dso_local void @syncCommand(ptr noundef %0) local_unnamed_addr #0 {
   %204 = icmp sgt i32 %203, 2
   br i1 %204, label %207, label %.sink.split
 
-.loopexit:                                        ; preds = %181, %165, %183, %190
+.critedge:                                        ; preds = %181, %165, %183, %190
   %205 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !87
   %206 = icmp sgt i32 %205, 2
   br i1 %206, label %207, label %.sink.split
 
-.sink.split:                                      ; preds = %.loopexit, %199
-  %.str.71.sink = phi ptr [ @.str.70, %199 ], [ @.str.71, %.loopexit ]
+.sink.split:                                      ; preds = %.critedge, %199
+  %.str.71.sink = phi ptr [ @.str.70, %199 ], [ @.str.71, %.critedge ]
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull %.str.71.sink) #21
   br label %207
 
-207:                                              ; preds = %.sink.split, %.loopexit, %199
+207:                                              ; preds = %.sink.split, %.critedge, %199
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
   br label %238
 
@@ -10834,15 +10835,15 @@ define dso_local void @processClientsWaitingReplicas() local_unnamed_addr #0 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7504), align 8, !tbaa !279
   call void @listRewind(ptr noundef %4, ptr noundef nonnull %3) #21
   %5 = call ptr @listNext(ptr noundef nonnull %3) #21
-  %.not115 = icmp eq ptr %5, null
-  br i1 %.not115, label %._crit_edge, label %.lr.ph
+  %.not102 = icmp eq ptr %5, null
+  br i1 %.not102, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %0, %74
-  %6 = phi ptr [ %75, %74 ], [ %5, %0 ]
-  %.0119 = phi i64 [ %.1, %74 ], [ 0, %0 ]
-  %.047118 = phi i64 [ %.148, %74 ], [ 0, %0 ]
-  %.052117 = phi i32 [ %.153, %74 ], [ 0, %0 ]
-  %.055116 = phi i32 [ %.156, %74 ], [ 0, %0 ]
+.lr.ph:                                           ; preds = %0, %73
+  %6 = phi ptr [ %74, %73 ], [ %5, %0 ]
+  %.0108 = phi i64 [ %.1, %73 ], [ 0, %0 ]
+  %.047107 = phi i64 [ %.148, %73 ], [ 0, %0 ]
+  %.052104 = phi i32 [ %.153, %73 ], [ 0, %0 ]
+  %.055103 = phi i32 [ %.156, %73 ], [ 0, %0 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 480
@@ -10864,34 +10865,34 @@ define dso_local void @processClientsWaitingReplicas() local_unnamed_addr #0 {
   br label %.sink.split, !llvm.loop !282
 
 19:                                               ; preds = %.lr.ph
-  %20 = icmp eq i64 %.0119, 0
+  %20 = icmp eq i64 %.0108, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 520
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !283
-  %.not62 = icmp slt i64 %.0119, %.pre
-  %or.cond126 = select i1 %20, i1 true, i1 %.not62
-  br i1 %or.cond126, label %._crit_edge120, label %21
+  %.not62 = icmp slt i64 %.0108, %.pre
+  %or.cond117 = select i1 %20, i1 true, i1 %.not62
+  br i1 %or.cond117, label %._crit_edge111, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %23 = load i32, ptr %22, align 8, !tbaa !284
-  %.not63 = icmp slt i32 %.052117, %23
-  br i1 %.not63, label %._crit_edge120, label %72
+  %.not63 = icmp slt i32 %.052104, %23
+  br i1 %.not63, label %._crit_edge111, label %.critedge
 
 24:                                               ; preds = %12
-  %.not114 = icmp eq i64 %.047118, 0
-  %.phi.trans.insert122 = getelementptr inbounds nuw i8, ptr %8, i64 520
-  %.pre123 = load i64, ptr %.phi.trans.insert122, align 8, !tbaa !283
-  %.not64 = icmp slt i64 %.047118, %.pre123
-  %or.cond127 = select i1 %.not114, i1 true, i1 %.not64
-  br i1 %or.cond127, label %._crit_edge121, label %25
+  %.not101 = icmp eq i64 %.047107, 0
+  %.phi.trans.insert113 = getelementptr inbounds nuw i8, ptr %8, i64 520
+  %.pre114 = load i64, ptr %.phi.trans.insert113, align 8, !tbaa !283
+  %.not64 = icmp slt i64 %.047107, %.pre114
+  %or.cond118 = select i1 %.not101, i1 true, i1 %.not64
+  br i1 %or.cond118, label %._crit_edge112, label %25
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %27 = load i32, ptr %26, align 8, !tbaa !284
-  %.not65 = icmp slt i32 %.055116, %27
-  br i1 %.not65, label %._crit_edge121, label %63
+  %.not65 = icmp slt i32 %.055103, %27
+  br i1 %.not65, label %._crit_edge112, label %63
 
-._crit_edge121:                                   ; preds = %24, %25
+._crit_edge112:                                   ; preds = %24, %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #21
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1464), align 8, !tbaa !29
   call void @listRewind(ptr noundef %28, ptr noundef nonnull %2) #21
@@ -10899,9 +10900,9 @@ define dso_local void @processClientsWaitingReplicas() local_unnamed_addr #0 {
   %.not8.i = icmp eq ptr %29, null
   br i1 %.not8.i, label %replicationCountAOFAcksByOffset.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge121, %39
-  %30 = phi ptr [ %40, %39 ], [ %29, %._crit_edge121 ]
-  %.09.i = phi i32 [ %.1.i, %39 ], [ 0, %._crit_edge121 ]
+.lr.ph.i:                                         ; preds = %._crit_edge112, %39
+  %30 = phi ptr [ %40, %39 ], [ %29, %._crit_edge112 ]
+  %.09.i = phi i32 [ %.1.i, %39 ], [ 0, %._crit_edge112 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !50
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 268
@@ -10912,7 +10913,7 @@ define dso_local void @processClientsWaitingReplicas() local_unnamed_addr #0 {
 35:                                               ; preds = %.lr.ph.i
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 336
   %37 = load i64, ptr %36, align 8, !tbaa !164
-  %.not7.i = icmp sge i64 %37, %.pre123
+  %.not7.i = icmp sge i64 %37, %.pre114
   %38 = zext i1 %.not7.i to i32
   %spec.select.i = add nsw i32 %.09.i, %38
   br label %39
@@ -10923,12 +10924,12 @@ define dso_local void @processClientsWaitingReplicas() local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %replicationCountAOFAcksByOffset.exit, label %.lr.ph.i
 
-replicationCountAOFAcksByOffset.exit:             ; preds = %39, %._crit_edge121
-  %.0.lcssa.i = phi i32 [ 0, %._crit_edge121 ], [ %.1.i, %39 ]
+replicationCountAOFAcksByOffset.exit:             ; preds = %39, %._crit_edge112
+  %.0.lcssa.i = phi i32 [ 0, %._crit_edge112 ], [ %.1.i, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #21
   br label %54
 
-._crit_edge120:                                   ; preds = %19, %21
+._crit_edge111:                                   ; preds = %19, %21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #21
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1464), align 8, !tbaa !29
   call void @listRewind(ptr noundef %41, ptr noundef nonnull %1) #21
@@ -10936,9 +10937,9 @@ replicationCountAOFAcksByOffset.exit:             ; preds = %39, %._crit_edge121
   %.not8.i66 = icmp eq ptr %42, null
   br i1 %.not8.i66, label %replicationCountAcksByOffset.exit, label %.lr.ph.i67
 
-.lr.ph.i67:                                       ; preds = %._crit_edge120, %52
-  %43 = phi ptr [ %53, %52 ], [ %42, %._crit_edge120 ]
-  %.09.i68 = phi i32 [ %.1.i70, %52 ], [ 0, %._crit_edge120 ]
+.lr.ph.i67:                                       ; preds = %._crit_edge111, %52
+  %43 = phi ptr [ %53, %52 ], [ %42, %._crit_edge111 ]
+  %.09.i68 = phi i32 [ %.1.i70, %52 ], [ 0, %._crit_edge111 ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !50
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 268
@@ -10960,8 +10961,8 @@ replicationCountAOFAcksByOffset.exit:             ; preds = %39, %._crit_edge121
   %.not.i71 = icmp eq ptr %53, null
   br i1 %.not.i71, label %replicationCountAcksByOffset.exit, label %.lr.ph.i67
 
-replicationCountAcksByOffset.exit:                ; preds = %52, %._crit_edge120
-  %.0.lcssa.i72 = phi i32 [ 0, %._crit_edge120 ], [ %.1.i70, %52 ]
+replicationCountAcksByOffset.exit:                ; preds = %52, %._crit_edge111
+  %.0.lcssa.i72 = phi i32 [ 0, %._crit_edge111 ], [ %.1.i70, %52 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #21
   br label %54
 
@@ -10970,63 +10971,63 @@ replicationCountAcksByOffset.exit:                ; preds = %52, %._crit_edge120
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %57 = load i32, ptr %56, align 8, !tbaa !284
   %58 = icmp slt i32 %55, %57
-  br i1 %58, label %74, label %59, !llvm.loop !282
+  br i1 %58, label %73, label %59, !llvm.loop !282
 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 520
   %61 = load i64, ptr %60, align 8, !tbaa !283
-  br i1 %11, label %62, label %72
+  br i1 %11, label %62, label %.critedge
 
 62:                                               ; preds = %59
-  %.phi.trans.insert124 = getelementptr inbounds nuw i8, ptr %8, i64 516
-  %.pre125 = load i32, ptr %.phi.trans.insert124, align 4, !tbaa !281
+  %.phi.trans.insert115 = getelementptr inbounds nuw i8, ptr %8, i64 516
+  %.pre116 = load i32, ptr %.phi.trans.insert115, align 4, !tbaa !281
   br label %63
 
 63:                                               ; preds = %25, %62
-  %64 = phi i32 [ %14, %25 ], [ %.pre125, %62 ]
-  %65 = phi i64 [ %.pre123, %25 ], [ %61, %62 ]
-  %.257.ph = phi i32 [ %.055116, %25 ], [ %55, %62 ]
-  %.249.ph = phi i64 [ %.047118, %25 ], [ %61, %62 ]
+  %64 = phi i32 [ %14, %25 ], [ %.pre116, %62 ]
+  %65 = phi i64 [ %.pre114, %25 ], [ %61, %62 ]
+  %.257.ph = phi i32 [ %.055103, %25 ], [ %55, %62 ]
+  %.249.ph = phi i64 [ %.047107, %25 ], [ %61, %62 ]
   %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7088), align 8, !tbaa !169
   %67 = icmp sge i64 %66, %65
   %68 = zext i1 %67 to i32
   %69 = icmp sgt i32 %64, %68
-  br i1 %69, label %74, label %70, !llvm.loop !282
+  br i1 %69, label %73, label %70, !llvm.loop !282
 
 70:                                               ; preds = %63
   call void @addReplyArrayLen(ptr noundef nonnull %8, i64 noundef 2) #21
   %71 = zext i1 %67 to i64
   call void @addReplyLongLong(ptr noundef nonnull %8, i64 noundef %71) #21
-  br label %72
+  br label %.critedge
 
-72:                                               ; preds = %21, %59, %70
-  %.05091.ph.sink = phi i32 [ %.257.ph, %70 ], [ %.052117, %21 ], [ %55, %59 ]
-  %.25787112 = phi i32 [ %.257.ph, %70 ], [ %.055116, %21 ], [ %.055116, %59 ]
-  %.25489110 = phi i32 [ %.052117, %70 ], [ %.052117, %21 ], [ %55, %59 ]
-  %.24993107 = phi i64 [ %.249.ph, %70 ], [ %.047118, %21 ], [ %.047118, %59 ]
-  %.295105 = phi i64 [ %.0119, %70 ], [ %.0119, %21 ], [ %61, %59 ]
-  %73 = sext i32 %.05091.ph.sink to i64
-  call void @addReplyLongLong(ptr noundef nonnull %8, i64 noundef %73) #21
+.critedge:                                        ; preds = %21, %59, %70
+  %.05094.sink = phi i32 [ %.257.ph, %70 ], [ %.052104, %21 ], [ %55, %59 ]
+  %.298 = phi i64 [ %.0108, %70 ], [ %.0108, %21 ], [ %61, %59 ]
+  %.24995 = phi i64 [ %.249.ph, %70 ], [ %.047107, %21 ], [ %.047107, %59 ]
+  %.25490 = phi i32 [ %.052104, %70 ], [ %.052104, %21 ], [ %55, %59 ]
+  %.25787 = phi i32 [ %.257.ph, %70 ], [ %.055103, %21 ], [ %.055103, %59 ]
+  %72 = sext i32 %.05094.sink to i64
+  call void @addReplyLongLong(ptr noundef nonnull %8, i64 noundef %72) #21
   br label %.sink.split
 
-.sink.split:                                      ; preds = %18, %72
-  %.156.ph = phi i32 [ %.055116, %18 ], [ %.25787112, %72 ]
-  %.153.ph = phi i32 [ %.052117, %18 ], [ %.25489110, %72 ]
-  %.148.ph = phi i64 [ %.047118, %18 ], [ %.24993107, %72 ]
-  %.1.ph = phi i64 [ %.0119, %18 ], [ %.295105, %72 ]
+.sink.split:                                      ; preds = %18, %.critedge
+  %.156.ph = phi i32 [ %.055103, %18 ], [ %.25787, %.critedge ]
+  %.153.ph = phi i32 [ %.052104, %18 ], [ %.25490, %.critedge ]
+  %.148.ph = phi i64 [ %.047107, %18 ], [ %.24995, %.critedge ]
+  %.1.ph = phi i64 [ %.0108, %18 ], [ %.298, %.critedge ]
   call void @unblockClient(ptr noundef nonnull %8, i32 noundef 1) #21
-  br label %74
+  br label %73
 
-74:                                               ; preds = %.sink.split, %63, %54
-  %.156 = phi i32 [ %.055116, %54 ], [ %.257.ph, %63 ], [ %.156.ph, %.sink.split ]
-  %.153 = phi i32 [ %.052117, %54 ], [ %.052117, %63 ], [ %.153.ph, %.sink.split ]
-  %.148 = phi i64 [ %.047118, %54 ], [ %.249.ph, %63 ], [ %.148.ph, %.sink.split ]
-  %.1 = phi i64 [ %.0119, %54 ], [ %.0119, %63 ], [ %.1.ph, %.sink.split ]
-  %75 = call ptr @listNext(ptr noundef nonnull %3) #21
-  %.not = icmp eq ptr %75, null
+73:                                               ; preds = %.sink.split, %63, %54
+  %.156 = phi i32 [ %.055103, %54 ], [ %.257.ph, %63 ], [ %.156.ph, %.sink.split ]
+  %.153 = phi i32 [ %.052104, %54 ], [ %.052104, %63 ], [ %.153.ph, %.sink.split ]
+  %.148 = phi i64 [ %.047107, %54 ], [ %.249.ph, %63 ], [ %.148.ph, %.sink.split ]
+  %.1 = phi i64 [ %.0108, %54 ], [ %.0108, %63 ], [ %.1.ph, %.sink.split ]
+  %74 = call ptr @listNext(ptr noundef nonnull %3) #21
+  %.not = icmp eq ptr %74, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %74, %0
+._crit_edge:                                      ; preds = %73, %0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #21
   ret void
 }
@@ -11037,7 +11038,7 @@ declare void @unblockClient(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local range(i64 0, -9223372036854775808) i64 @replicationGetSlaveOffset() local_unnamed_addr #18 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !98
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %8, label %2
+  br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7280), align 8, !tbaa !154
@@ -11047,18 +11048,18 @@ define dso_local range(i64 0, -9223372036854775808) i64 @replicationGetSlaveOffs
 4:                                                ; preds = %2
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7288), align 8, !tbaa !155
   %.not5 = icmp eq ptr %5, null
-  br i1 %.not5, label %8, label %.sink.split
+  br i1 %.not5, label %9, label %.sink.split
 
 .sink.split:                                      ; preds = %4, %2
   %.sink6 = phi ptr [ %3, %2 ], [ %5, %4 ]
   %6 = getelementptr inbounds nuw i8, ptr %.sink6, i64 312
   %7 = load i64, ptr %6, align 8, !tbaa !170
-  br label %8
+  %8 = tail call i64 @llvm.smax.i64(i64 %7, i64 0)
+  br label %9
 
-8:                                                ; preds = %.sink.split, %4, %0
-  %.0 = phi i64 [ 0, %4 ], [ 0, %0 ], [ %7, %.sink.split ]
-  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %.0, i64 0)
-  ret i64 %spec.store.select
+9:                                                ; preds = %.sink.split, %4, %0
+  %.0 = phi i64 [ 0, %4 ], [ 0, %0 ], [ %8, %.sink.split ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

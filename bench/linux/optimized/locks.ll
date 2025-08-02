@@ -4378,23 +4378,23 @@ lease_alloc.exit.thread:                          ; preds = %3, %lease_alloc.exi
   %163 = getelementptr i8, ptr %161, i64 144
   %164 = load i64, ptr %163, align 8
   %165 = icmp eq i64 %164, 0
-  br i1 %165, label %169, label %166
+  br i1 %165, label %170, label %166
 
 166:                                              ; preds = %.preheader49
   %167 = load volatile i64, ptr @jiffies, align 64
   %168 = sub i64 %164, %167
-  br label %169
+  %169 = call i64 @llvm.umax.i64(i64 %168, i64 1)
+  br label %170
 
-169:                                              ; preds = %166, %.preheader49
-  %170 = phi i64 [ %168, %166 ], [ 0, %.preheader49 ]
-  %171 = call i64 @llvm.umax.i64(i64 %170, i64 1)
+170:                                              ; preds = %166, %.preheader49
+  %171 = phi i64 [ %169, %166 ], [ 1, %.preheader49 ]
   call void @_raw_spin_lock(ptr noundef nonnull @blocked_lock_lock) #15
   call fastcc void @__locks_insert_block(ptr noundef %162, ptr noundef %10, ptr noundef nonnull @leases_conflict)
   call void @_raw_spin_unlock(ptr noundef nonnull @blocked_lock_lock) #15
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_break_lease_block, i64 8), i32 2) #15
           to label %192 [label %172], !srcloc !75
 
-172:                                              ; preds = %169
+172:                                              ; preds = %170
   %173 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !92
   %174 = zext i32 %173 to i64
   %175 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %174) #15, !srcloc !77
@@ -4430,7 +4430,7 @@ lease_alloc.exit.thread:                          ; preds = %3, %lease_alloc.exi
   call void @llvm.write_register.i64(metadata !0, i64 %191)
   br label %192
 
-192:                                              ; preds = %189, %185, %172, %169
+192:                                              ; preds = %189, %185, %172, %170
   call void @_raw_spin_unlock(ptr noundef nonnull %40) #15
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !53
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !61
@@ -6620,7 +6620,7 @@ define dso_local i32 @fcntl_setlk(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %5 = load ptr, ptr @filelock_cache, align 8
   %6 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %5, i32 noundef 3520) #15
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -6890,9 +6890,9 @@ flock_to_posix_lock.exit.thread:                  ; preds = %81, %76, %60, %52, 
   tail call void @locks_release_private(ptr noundef nonnull %6)
   %154 = load ptr, ptr @filelock_cache, align 8
   tail call void @kmem_cache_free(ptr noundef %154, ptr noundef nonnull %6) #15
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %4, %153
+.critedge:                                        ; preds = %4, %153
   %155 = phi i32 [ %132, %153 ], [ -37, %4 ]
   ret i32 %155
 }

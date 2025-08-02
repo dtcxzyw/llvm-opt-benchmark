@@ -3143,7 +3143,7 @@ mi_malloc_aligned.exit.thread7:                   ; preds = %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @mi_new_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @mi_new_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = tail call noundef ptr @_Z21_mi_heap_realloc_zeroP9mi_heap_sPvmb(ptr noundef %4, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false) #55
@@ -7724,9 +7724,9 @@ _ZL15mi_align_up_ptrPvm.exit.i:                   ; preds = %89, %_ZL24mi_atomic
 98:                                               ; preds = %65
   %99 = call fastcc noundef ptr @_ZL16mi_os_prim_allocmmbbPbS_(i64 noundef %66, i64 noundef 1, i1 noundef zeroext %2, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %_ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit.thread, label %_ZL15mi_align_up_ptrPvm.exit90.i
+  br i1 %100, label %_ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit.thread, label %_ZL15mi_align_up_ptrPvm.exit89.i
 
-_ZL15mi_align_up_ptrPvm.exit90.i:                 ; preds = %98
+_ZL15mi_align_up_ptrPvm.exit89.i:                 ; preds = %98
   %101 = ptrtoint ptr %99 to i64
   %102 = add i64 %58, %101
   %103 = sub i64 0, %.0.i17
@@ -7740,34 +7740,34 @@ _ZL15mi_align_up_ptrPvm.exit90.i:                 ; preds = %98
   %111 = add i64 %110, %107
   br i1 %109, label %112, label %115
 
-112:                                              ; preds = %_ZL15mi_align_up_ptrPvm.exit90.i
+112:                                              ; preds = %_ZL15mi_align_up_ptrPvm.exit89.i
   %113 = sub i64 0, %107
   %114 = and i64 %111, %113
-  br label %_ZL12_mi_align_upmm.exit92.i
+  br label %_ZL12_mi_align_upmm.exit91.i
 
-115:                                              ; preds = %_ZL15mi_align_up_ptrPvm.exit90.i
+115:                                              ; preds = %_ZL15mi_align_up_ptrPvm.exit89.i
   %116 = urem i64 %111, %107
   %117 = sub nuw i64 %111, %116
-  br label %_ZL12_mi_align_upmm.exit92.i
+  br label %_ZL12_mi_align_upmm.exit91.i
 
-_ZL12_mi_align_upmm.exit92.i:                     ; preds = %115, %112
-  %.0.i91.i = phi i64 [ %114, %112 ], [ %117, %115 ]
-  %118 = add i64 %.0.i91.i, %106
+_ZL12_mi_align_upmm.exit91.i:                     ; preds = %115, %112
+  %.0.i90.i = phi i64 [ %114, %112 ], [ %117, %115 ]
+  %118 = add i64 %.0.i90.i, %106
   %119 = sub i64 %66, %118
   %.not84.i = icmp eq ptr %99, %105
   br i1 %.not84.i, label %122, label %120
 
-120:                                              ; preds = %_ZL12_mi_align_upmm.exit92.i
+120:                                              ; preds = %_ZL12_mi_align_upmm.exit91.i
   %121 = select i1 %2, i64 %106, i64 0
   tail call fastcc void @_ZL15mi_os_prim_freePvmm(ptr noundef nonnull %99, i64 noundef %106, i64 noundef %121)
   br label %122
 
-122:                                              ; preds = %120, %_ZL12_mi_align_upmm.exit92.i
+122:                                              ; preds = %120, %_ZL12_mi_align_upmm.exit91.i
   %.not85.i = icmp eq i64 %66, %118
   br i1 %.not85.i, label %_ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit, label %123
 
 123:                                              ; preds = %122
-  %124 = getelementptr inbounds nuw i8, ptr %105, i64 %.0.i91.i
+  %124 = getelementptr inbounds nuw i8, ptr %105, i64 %.0.i90.i
   %125 = select i1 %2, i64 %119, i64 0
   tail call fastcc void @_ZL15mi_os_prim_freePvmm(ptr noundef %124, i64 noundef %119, i64 noundef %125)
   br label %_ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit
@@ -17840,16 +17840,16 @@ define range(i64 0, -1023) i64 @mi_option_get_size(i32 noundef %0) local_unnamed
 
 9:                                                ; preds = %8, %2
   %10 = load i64, ptr %4, align 16, !tbaa !112
+  %11 = tail call i64 @llvm.smax.i64(i64 %10, i64 0)
   br label %mi_option_get.exit
 
 mi_option_get.exit:                               ; preds = %1, %9
-  %.0.i = phi i64 [ %10, %9 ], [ 0, %1 ]
-  %11 = tail call i64 @llvm.smax.i64(i64 %.0.i, i64 0)
+  %.0.i = phi i64 [ %11, %9 ], [ 0, %1 ]
   %12 = icmp eq i32 %0, 9
   %13 = icmp eq i32 %0, 23
   %14 = or i1 %12, %13
-  %15 = shl i64 %11, 10
-  %spec.select = select i1 %14, i64 %15, i64 %11
+  %15 = shl i64 %.0.i, 10
+  %spec.select = select i1 %14, i64 %15, i64 %.0.i
   ret i64 %spec.select
 }
 
@@ -21991,7 +21991,7 @@ _Z21_mi_page_free_collectP9mi_page_sb.exit.thread.i.i: ; preds = %125, %_Z21_mi_
   %.not54.i.i = icmp eq ptr %.145.i.i, null
   %spec.select56.i.i = select i1 %.not54.i.i, ptr %.149.i.i, ptr %.145.i.i
   %cond.i.i = icmp eq ptr %spec.select56.i.i, null
-  br i1 %cond.i.i, label %166, label %148
+  br i1 %cond.i.i, label %167, label %148
 
 148:                                              ; preds = %.thread.i.i
   %149 = getelementptr i8, ptr %spec.select56.i.i, i64 16
@@ -22013,59 +22013,59 @@ _Z21_mi_page_free_collectP9mi_page_sb.exit.thread.i.i: ; preds = %125, %_Z21_mi_
   %narrow.i.i.i = sub nuw i16 %154, %152
   %157 = zext i16 %narrow.i.i.i to i64
   %158 = icmp ugt i64 %.val.i.i.i, 4095
-  br i1 %158, label %161, label %159
+  br i1 %158, label %163, label %159
 
 159:                                              ; preds = %155
   %.rhs.trunc.i.i.i = trunc nuw nsw i64 %.val.i.i.i to i16
   %160 = udiv i16 4096, %.rhs.trunc.i.i.i
-  %.zext.i.i.i = zext nneg i16 %160 to i64
-  br label %161
+  %161 = tail call i16 @llvm.umax.i16(i16 %160, i16 4)
+  %162 = zext nneg i16 %161 to i64
+  br label %163
 
-161:                                              ; preds = %159, %155
-  %162 = phi i64 [ %.zext.i.i.i, %159 ], [ 4, %155 ]
-  %spec.store.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %162, i64 4)
+163:                                              ; preds = %159, %155
+  %spec.store.select.i.i.i = phi i64 [ %162, %159 ], [ 4, %155 ]
   %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %spec.store.select.i.i.i, i64 %157)
   tail call fastcc void @_ZL24mi_page_free_list_extendP9mi_page_smmP10mi_stats_s(ptr noundef nonnull %spec.select56.i.i, i64 noundef %.val.i.i.i, i64 noundef %spec.select.i.i.i)
-  %163 = trunc nuw nsw i64 %spec.select.i.i.i to i16
-  %164 = load i16, ptr %151, align 2, !tbaa !29
-  %165 = add i16 %164, %163
-  store i16 %165, ptr %151, align 2, !tbaa !29
+  %164 = trunc nuw nsw i64 %spec.select.i.i.i to i16
+  %165 = load i16, ptr %151, align 2, !tbaa !29
+  %166 = add i16 %165, %164
+  store i16 %166, ptr %151, align 2, !tbaa !29
   br label %_ZL19mi_page_extend_freeP9mi_heap_sP9mi_page_sP8mi_tld_s.exit.i.i
 
-166:                                              ; preds = %.thread.i.i
+167:                                              ; preds = %.thread.i.i
   invoke void @_Z24_mi_heap_collect_retiredP9mi_heap_sb(ptr noundef %0, i1 noundef zeroext false)
           to label %.noexc13 unwind label %.loopexit.split-lp.loopexit
 
-.noexc13:                                         ; preds = %166
-  %167 = load i64, ptr %77, align 8, !tbaa !62
-  %168 = invoke fastcc noundef ptr @_ZL19mi_page_fresh_allocP9mi_heap_sP15mi_page_queue_smm(ptr noundef nonnull %0, ptr noundef nonnull %29, i64 noundef %167, i64 noundef 0)
+.noexc13:                                         ; preds = %167
+  %168 = load i64, ptr %77, align 8, !tbaa !62
+  %169 = invoke fastcc noundef ptr @_ZL19mi_page_fresh_allocP9mi_heap_sP15mi_page_queue_smm(ptr noundef nonnull %0, ptr noundef nonnull %29, i64 noundef %168, i64 noundef 0)
           to label %.noexc14 unwind label %.loopexit.split-lp.loopexit
 
 .noexc14:                                         ; preds = %.noexc13
-  %169 = icmp eq ptr %168, null
-  %or.cond3.i.i = and i1 %.tr74.i.i, %169
+  %170 = icmp eq ptr %169, null
+  %or.cond3.i.i = and i1 %.tr74.i.i, %170
   br i1 %or.cond3.i.i, label %tailrecurse.i.i, label %_ZL17mi_find_free_pageP9mi_heap_sm.exit
 
-_ZL19mi_page_extend_freeP9mi_heap_sP9mi_page_sP8mi_tld_s.exit.i.i: ; preds = %161, %150, %148
-  %170 = load ptr, ptr %29, align 8, !tbaa !211
-  %171 = icmp eq ptr %170, %spec.select56.i.i
-  br i1 %171, label %_ZL26mi_page_queue_find_free_exP9mi_heap_sP15mi_page_queue_sb.exit.sink.split.i, label %172
+_ZL19mi_page_extend_freeP9mi_heap_sP9mi_page_sP8mi_tld_s.exit.i.i: ; preds = %163, %150, %148
+  %171 = load ptr, ptr %29, align 8, !tbaa !211
+  %172 = icmp eq ptr %171, %spec.select56.i.i
+  br i1 %172, label %_ZL26mi_page_queue_find_free_exP9mi_heap_sP15mi_page_queue_sb.exit.sink.split.i, label %173
 
-172:                                              ; preds = %_ZL19mi_page_extend_freeP9mi_heap_sP9mi_page_sP8mi_tld_s.exit.i.i
+173:                                              ; preds = %_ZL19mi_page_extend_freeP9mi_heap_sP9mi_page_sP8mi_tld_s.exit.i.i
   tail call fastcc void @_ZL20mi_page_queue_removeP15mi_page_queue_sP9mi_page_s(ptr noundef nonnull %29, ptr noundef nonnull %spec.select56.i.i)
   tail call fastcc void @_ZL18mi_page_queue_pushP9mi_heap_sP15mi_page_queue_sP9mi_page_s(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef nonnull %spec.select56.i.i)
   br label %_ZL26mi_page_queue_find_free_exP9mi_heap_sP15mi_page_queue_sb.exit.sink.split.i
 
-_ZL26mi_page_queue_find_free_exP9mi_heap_sP15mi_page_queue_sb.exit.sink.split.i: ; preds = %172, %_ZL19mi_page_extend_freeP9mi_heap_sP9mi_page_sP8mi_tld_s.exit.i.i, %_Z21_mi_page_free_collectP9mi_page_sb.exit.i, %.sink.split.i.i, %72
-  %spec.select56.i.lcssa.sink.i = phi ptr [ %30, %.sink.split.i.i ], [ %30, %72 ], [ %30, %_Z21_mi_page_free_collectP9mi_page_sb.exit.i ], [ %spec.select56.i.i, %172 ], [ %spec.select56.i.i, %_ZL19mi_page_extend_freeP9mi_heap_sP9mi_page_sP8mi_tld_s.exit.i.i ]
-  %173 = getelementptr inbounds nuw i8, ptr %spec.select56.i.lcssa.sink.i, i64 15
-  %174 = load i8, ptr %173, align 1
-  %175 = and i8 %174, 1
-  store i8 %175, ptr %173, align 1
+_ZL26mi_page_queue_find_free_exP9mi_heap_sP15mi_page_queue_sb.exit.sink.split.i: ; preds = %173, %_ZL19mi_page_extend_freeP9mi_heap_sP9mi_page_sP8mi_tld_s.exit.i.i, %_Z21_mi_page_free_collectP9mi_page_sb.exit.i, %.sink.split.i.i, %72
+  %spec.select56.i.lcssa.sink.i = phi ptr [ %30, %.sink.split.i.i ], [ %30, %72 ], [ %30, %_Z21_mi_page_free_collectP9mi_page_sb.exit.i ], [ %spec.select56.i.i, %173 ], [ %spec.select56.i.i, %_ZL19mi_page_extend_freeP9mi_heap_sP9mi_page_sP8mi_tld_s.exit.i.i ]
+  %174 = getelementptr inbounds nuw i8, ptr %spec.select56.i.lcssa.sink.i, i64 15
+  %175 = load i8, ptr %174, align 1
+  %176 = and i8 %175, 1
+  store i8 %176, ptr %174, align 1
   br label %_ZL17mi_find_free_pageP9mi_heap_sm.exit
 
 _ZL17mi_find_free_pageP9mi_heap_sm.exit:          ; preds = %.noexc14, %_ZL26mi_page_queue_find_free_exP9mi_heap_sP15mi_page_queue_sb.exit.sink.split.i, %10, %9
-  %.0 = phi ptr [ null, %9 ], [ %11, %10 ], [ %spec.select56.i.lcssa.sink.i, %_ZL26mi_page_queue_find_free_exP9mi_heap_sP15mi_page_queue_sb.exit.sink.split.i ], [ %168, %.noexc14 ]
+  %.0 = phi ptr [ null, %9 ], [ %11, %10 ], [ %spec.select56.i.lcssa.sink.i, %_ZL26mi_page_queue_find_free_exP9mi_heap_sP15mi_page_queue_sb.exit.sink.split.i ], [ %169, %.noexc14 ]
   ret ptr %.0
 
 .loopexit:                                        ; preds = %110, %129
@@ -22073,7 +22073,7 @@ _ZL17mi_find_free_pageP9mi_heap_sm.exit:          ; preds = %.noexc14, %_ZL26mi_
           catch ptr null
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.noexc13, %166
+.loopexit.split-lp.loopexit:                      ; preds = %.noexc13, %167
   %lpad.loopexit15 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
@@ -22085,8 +22085,8 @@ _ZL17mi_find_free_pageP9mi_heap_sm.exit:          ; preds = %.noexc14, %_ZL26mi_
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit15, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp16, %.loopexit.split-lp.loopexit.split-lp ]
-  %176 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %176) #56
+  %177 = extractvalue { ptr, i32 } %lpad.phi, 0
+  tail call void @__clang_call_terminate(ptr %177) #56
   unreachable
 }
 
@@ -32688,7 +32688,7 @@ define internal fastcc noundef ptr @_ZL19mi_page_fresh_allocP9mi_heap_sP15mi_pag
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = tail call noundef ptr @_Z22_mi_segment_page_allocP9mi_heap_smmP17mi_segments_tld_s(ptr noundef nonnull %0, i64 noundef %2, i64 noundef %3, ptr noundef nonnull %6)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %92, label %9
+  br i1 %8, label %93, label %9
 
 9:                                                ; preds = %4
   %10 = icmp eq ptr %1, null
@@ -32810,33 +32810,33 @@ _Z22_mi_segment_page_startPK12mi_segment_sPK9mi_page_sPm.exit.i: ; preds = %52, 
   %narrow.i.i = sub nuw i16 %61, %80
   %82 = zext i16 %narrow.i.i to i64
   %83 = icmp ugt i64 %16, 4095
-  br i1 %83, label %86, label %84
+  br i1 %83, label %88, label %84
 
 84:                                               ; preds = %81
   %.rhs.trunc.i.i = trunc nuw nsw i64 %16 to i16
   %85 = udiv i16 4096, %.rhs.trunc.i.i
-  %.zext.i.i = zext nneg i16 %85 to i64
-  br label %86
+  %86 = tail call i16 @llvm.umax.i16(i16 %85, i16 4)
+  %87 = zext nneg i16 %86 to i64
+  br label %88
 
-86:                                               ; preds = %84, %81
-  %87 = phi i64 [ %.zext.i.i, %84 ], [ 4, %81 ]
-  %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %87, i64 4)
+88:                                               ; preds = %84, %81
+  %spec.store.select.i.i = phi i64 [ %87, %84 ], [ 4, %81 ]
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %spec.store.select.i.i, i64 %82)
   tail call fastcc void @_ZL24mi_page_free_list_extendP9mi_page_smmP10mi_stats_s(ptr noundef nonnull %7, i64 noundef %16, i64 noundef %spec.select.i.i)
-  %88 = trunc nuw nsw i64 %spec.select.i.i to i16
-  %89 = load i16, ptr %79, align 2, !tbaa !29
-  %90 = add i16 %89, %88
-  store i16 %90, ptr %79, align 2, !tbaa !29
+  %89 = trunc nuw nsw i64 %spec.select.i.i to i16
+  %90 = load i16, ptr %79, align 2, !tbaa !29
+  %91 = add i16 %90, %89
+  store i16 %91, ptr %79, align 2, !tbaa !29
   br label %_ZL12mi_page_initP9mi_heap_sP9mi_page_smP8mi_tld_s.exit
 
-_ZL12mi_page_initP9mi_heap_sP9mi_page_smP8mi_tld_s.exit: ; preds = %_Z22_mi_segment_page_startPK12mi_segment_sPK9mi_page_sPm.exit.i, %78, %86
-  br i1 %10, label %92, label %91
+_ZL12mi_page_initP9mi_heap_sP9mi_page_smP8mi_tld_s.exit: ; preds = %_Z22_mi_segment_page_startPK12mi_segment_sPK9mi_page_sPm.exit.i, %78, %88
+  br i1 %10, label %93, label %92
 
-91:                                               ; preds = %_ZL12mi_page_initP9mi_heap_sP9mi_page_smP8mi_tld_s.exit
+92:                                               ; preds = %_ZL12mi_page_initP9mi_heap_sP9mi_page_smP8mi_tld_s.exit
   tail call fastcc void @_ZL18mi_page_queue_pushP9mi_heap_sP15mi_page_queue_sP9mi_page_s(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7)
-  br label %92
+  br label %93
 
-92:                                               ; preds = %_ZL12mi_page_initP9mi_heap_sP9mi_page_smP8mi_tld_s.exit, %91, %4
+93:                                               ; preds = %_ZL12mi_page_initP9mi_heap_sP9mi_page_smP8mi_tld_s.exit, %92, %4
   ret ptr %7
 }
 
@@ -35215,6 +35215,9 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #53
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #54
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #53
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

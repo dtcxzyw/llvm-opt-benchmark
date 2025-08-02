@@ -189,14 +189,14 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   br i1 %74, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %72
-  %75 = getelementptr i8, ptr %23, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %wide.trip.count = zext nneg i32 %73 to i64
   br label %76
 
 76:                                               ; preds = %.lr.ph, %76
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %77 = getelementptr i8, ptr %75, i64 %.idx
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx
   %78 = load i32, ptr %77, align 4, !tbaa !47
   %79 = trunc i32 %78 to i16
   %80 = getelementptr inbounds nuw [4 x i16], ptr %17, i64 0, i64 %indvars.iv

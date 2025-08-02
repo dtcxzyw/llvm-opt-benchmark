@@ -778,7 +778,7 @@ define internal i32 @ip_finish_output(ptr noundef %0, ptr noundef %1, ptr nounde
 
 18:                                               ; preds = %11
   %19 = tail call i32 @ip6_output(ptr noundef %0, ptr noundef %1, ptr noundef %2) #12
-  br label %ip_fragment.exit6
+  br label %.critedge
 
 20:                                               ; preds = %11
   %21 = icmp eq ptr %16, @ip_output
@@ -786,11 +786,11 @@ define internal i32 @ip_finish_output(ptr noundef %0, ptr noundef %1, ptr nounde
 
 22:                                               ; preds = %20
   %23 = tail call i32 @ip_output(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %ip_fragment.exit6
+  br label %.critedge
 
 24:                                               ; preds = %20
   %25 = tail call i32 %16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #12
-  br label %ip_fragment.exit6
+  br label %.critedge
 
 26:                                               ; preds = %3
   %27 = icmp eq ptr %1, null
@@ -837,10 +837,10 @@ define internal i32 @ip_finish_output(ptr noundef %0, ptr noundef %1, ptr nounde
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 4
   %61 = icmp eq i32 %60, 0
-  %.not12 = and i1 %54, %61
+  %.not11 = and i1 %54, %61
   %62 = icmp ult i32 %49, 2
-  %or.cond9 = select i1 %.not12, i1 true, i1 %62
-  br i1 %or.cond9, label %70, label %63
+  %or.cond8 = select i1 %.not11, i1 true, i1 %62
+  br i1 %or.cond8, label %70, label %63
 
 .thread:                                          ; preds = %39
   %.old = icmp ult i32 %49, 2
@@ -912,7 +912,7 @@ define internal i32 @ip_finish_output(ptr noundef %0, ptr noundef %1, ptr nounde
 
 111:                                              ; preds = %109
   %112 = tail call i32 @ip_finish_output2(ptr noundef %0, ptr poison, ptr noundef %2)
-  br label %ip_fragment.exit6
+  br label %.critedge
 
 113:                                              ; preds = %109
   %114 = tail call i64 @netif_skb_features(ptr noundef %2) #12
@@ -925,7 +925,7 @@ define internal i32 @ip_finish_output(ptr noundef %0, ptr noundef %1, ptr nounde
 
 120:                                              ; preds = %113
   tail call void @kfree_skb_reason(ptr noundef %2, i32 noundef 2) #12
-  br label %ip_fragment.exit6
+  br label %.critedge
 
 121:                                              ; preds = %113
   tail call void @consume_skb(ptr noundef %2) #12
@@ -988,7 +988,7 @@ ip_fragment.exit:                                 ; preds = %138, %150, %154
   %159 = select i1 %157, i1 %158, i1 false
   %160 = select i1 %159, i32 %156, i32 %125
   %161 = icmp eq ptr %127, null
-  br i1 %161, label %ip_fragment.exit6, label %124, !llvm.loop !13
+  br i1 %161, label %.critedge, label %124, !llvm.loop !13
 
 162:                                              ; preds = %97
   %163 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -1015,7 +1015,7 @@ ip_fragment.exit:                                 ; preds = %138, %150, %154
 
 179:                                              ; preds = %170
   %180 = tail call i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ip_finish_output2)
-  br label %ip_fragment.exit6
+  br label %.critedge
 
 181:                                              ; preds = %170
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -1040,17 +1040,17 @@ ip_fragment.exit:                                 ; preds = %138, %150, %154
   %196 = getelementptr inbounds nuw i8, ptr %2, i64 44
   tail call void @__icmp_send(ptr noundef %2, i32 noundef 3, i32 noundef 4, i32 noundef %195, ptr noundef nonnull %196) #12
   tail call void @kfree_skb_reason(ptr noundef %2, i32 noundef 2) #12
-  br label %ip_fragment.exit6
+  br label %.critedge
 
 197:                                              ; preds = %186
   %198 = tail call i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ip_finish_output2)
-  br label %ip_fragment.exit6
+  br label %.critedge
 
 199:                                              ; preds = %166
   %200 = tail call i32 @ip_finish_output2(ptr noundef %0, ptr poison, ptr noundef %2)
-  br label %ip_fragment.exit6
+  br label %.critedge
 
-ip_fragment.exit6:                                ; preds = %ip_fragment.exit, %197, %191, %179, %199, %120, %111, %24, %22, %18
+.critedge:                                        ; preds = %ip_fragment.exit, %197, %191, %179, %199, %120, %111, %24, %22, %18
   %201 = phi i32 [ %200, %199 ], [ %19, %18 ], [ %23, %22 ], [ %25, %24 ], [ %112, %111 ], [ -12, %120 ], [ %180, %179 ], [ -90, %191 ], [ %198, %197 ], [ %160, %ip_fragment.exit ]
   ret i32 %201
 }

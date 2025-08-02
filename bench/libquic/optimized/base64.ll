@@ -812,16 +812,16 @@ conv_ascii2bin.exit.thread:                       ; preds = %16, %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %20
 
-20:                                               ; preds = %conv_ascii2bin.exit.thread, %124
-  %.1165 = phi i32 [ 0, %conv_ascii2bin.exit.thread ], [ %.2, %124 ]
-  %.180164 = phi i32 [ %10, %conv_ascii2bin.exit.thread ], [ %.4, %124 ]
-  %.184163 = phi i32 [ %7, %conv_ascii2bin.exit.thread ], [ %.386, %124 ]
-  %.088162 = phi i32 [ 0, %conv_ascii2bin.exit.thread ], [ %125, %124 ]
-  %.089160 = phi ptr [ %1, %conv_ascii2bin.exit.thread ], [ %.190, %124 ]
-  %.192159 = phi i32 [ %12, %conv_ascii2bin.exit.thread ], [ %.293, %124 ]
-  %.095158 = phi ptr [ %3, %conv_ascii2bin.exit.thread ], [ %23, %124 ]
-  %.099157 = phi i32 [ 0, %conv_ascii2bin.exit.thread ], [ %.2101, %124 ]
-  %.0105156 = phi i32 [ -1, %conv_ascii2bin.exit.thread ], [ %.1106, %124 ]
+20:                                               ; preds = %conv_ascii2bin.exit.thread, %126
+  %.1165 = phi i32 [ 0, %conv_ascii2bin.exit.thread ], [ %.2, %126 ]
+  %.180164 = phi i32 [ %10, %conv_ascii2bin.exit.thread ], [ %.4, %126 ]
+  %.184163 = phi i32 [ %7, %conv_ascii2bin.exit.thread ], [ %.386, %126 ]
+  %.088162 = phi i32 [ 0, %conv_ascii2bin.exit.thread ], [ %127, %126 ]
+  %.089160 = phi ptr [ %1, %conv_ascii2bin.exit.thread ], [ %.190, %126 ]
+  %.192159 = phi i32 [ %12, %conv_ascii2bin.exit.thread ], [ %.293, %126 ]
+  %.095158 = phi ptr [ %3, %conv_ascii2bin.exit.thread ], [ %23, %126 ]
+  %.099157 = phi i32 [ 0, %conv_ascii2bin.exit.thread ], [ %.2101, %126 ]
+  %.0105156 = phi i32 [ -1, %conv_ascii2bin.exit.thread ], [ %.1106, %126 ]
   %21 = icmp ugt i32 %.180164, 79
   br i1 %21, label %.loopexit, label %22
 
@@ -875,11 +875,11 @@ conv_ascii2bin.exit117.thread:                    ; preds = %22, %conv_ascii2bin
 
 45:                                               ; preds = %44
   %.not = icmp eq i32 %.192159, 0
-  br i1 %.not, label %.thread, label %124
+  br i1 %.not, label %.thread, label %126
 
 46:                                               ; preds = %44
   %.not111 = icmp eq i32 %.192159, 0
-  br i1 %.not111, label %.thread, label %124
+  br i1 %.not111, label %.thread, label %126
 
 .thread:                                          ; preds = %44, %45, %46
   %.5 = phi i32 [ 0, %46 ], [ 0, %45 ], [ %.281, %44 ]
@@ -926,15 +926,15 @@ conv_ascii2bin.exit117.thread:                    ; preds = %22, %conv_ascii2bin
   %68 = icmp eq i32 %.pre-phi, 0
   %69 = icmp ugt i32 %.285, 63
   %or.cond3 = or i1 %69, %68
-  br i1 %or.cond3, label %71, label %124
+  br i1 %or.cond3, label %71, label %126
 
 70:                                               ; preds = %65
   %.old2 = icmp ugt i32 %.285, 63
-  br i1 %.old2, label %.thread131, label %124
+  br i1 %.old2, label %.thread131, label %126
 
 71:                                               ; preds = %67
   %.not112 = icmp eq i32 %.285, 0
-  br i1 %.not112, label %115, label %.thread131
+  br i1 %.not112, label %117, label %.thread131
 
 .thread131:                                       ; preds = %70, %71
   %spec.select114138 = phi i32 [ 0, %71 ], [ 1, %70 ]
@@ -959,7 +959,6 @@ conv_ascii2bin.exit.i:                            ; preds = %.thread131, %82
 .preheader24.i:                                   ; preds = %82, %conv_ascii2bin.exit.i, %.thread131
   %.014.i.lcssa = phi ptr [ %8, %.thread131 ], [ %.014.i151, %conv_ascii2bin.exit.i ], [ %83, %82 ]
   %.0.i118.lcssa = phi i64 [ %72, %.thread131 ], [ %.0.i118152, %conv_ascii2bin.exit.i ], [ %84, %82 ]
-  %invariant.gep.i = getelementptr i8, ptr %.014.i.lcssa, i64 -1
   %81 = icmp ugt i64 %.0.i118.lcssa, 3
   br i1 %81, label %.lr.ph.i, label %.critedge.i
 
@@ -970,118 +969,119 @@ conv_ascii2bin.exit.i:                            ; preds = %.thread131, %82
   %86 = icmp slt i8 %85, 0
   br i1 %86, label %.preheader24.i, label %conv_ascii2bin.exit.i, !llvm.loop !22
 
-.lr.ph.i:                                         ; preds = %.preheader24.i, %94
-  %.125.i = phi i64 [ %95, %94 ], [ %.0.i118.lcssa, %.preheader24.i ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.125.i
-  %87 = load i8, ptr %gep.i, align 1, !tbaa !14
-  %88 = icmp slt i8 %87, 0
-  br i1 %88, label %.critedge.i, label %conv_ascii2bin.exit19.i
+.lr.ph.i:                                         ; preds = %.preheader24.i, %96
+  %.125.i = phi i64 [ %97, %96 ], [ %.0.i118.lcssa, %.preheader24.i ]
+  %87 = getelementptr i8, ptr %.014.i.lcssa, i64 %.125.i
+  %88 = getelementptr i8, ptr %87, i64 -1
+  %89 = load i8, ptr %88, align 1, !tbaa !14
+  %90 = icmp slt i8 %89, 0
+  br i1 %90, label %.critedge.i, label %conv_ascii2bin.exit19.i
 
 conv_ascii2bin.exit19.i:                          ; preds = %.lr.ph.i
-  %89 = zext nneg i8 %87 to i64
-  %90 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %89
-  %91 = load i8, ptr %90, align 1, !tbaa !14
-  %92 = and i8 %91, -20
-  %93 = icmp eq i8 %92, -32
-  br i1 %93, label %94, label %.critedge.i
+  %91 = zext nneg i8 %89 to i64
+  %92 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %91
+  %93 = load i8, ptr %92, align 1, !tbaa !14
+  %94 = and i8 %93, -20
+  %95 = icmp eq i8 %94, -32
+  br i1 %95, label %96, label %.critedge.i
 
-94:                                               ; preds = %conv_ascii2bin.exit19.i
-  %95 = add i64 %.125.i, -1
-  %96 = icmp ugt i64 %95, 3
-  br i1 %96, label %.lr.ph.i, label %EVP_DecodeBlock.exit.thread, !llvm.loop !23
+96:                                               ; preds = %conv_ascii2bin.exit19.i
+  %97 = add i64 %.125.i, -1
+  %98 = icmp ugt i64 %97, 3
+  br i1 %98, label %.lr.ph.i, label %EVP_DecodeBlock.exit.thread, !llvm.loop !23
 
 .critedge.i:                                      ; preds = %conv_ascii2bin.exit19.i, %.lr.ph.i, %.preheader24.i
   %.1.lcssa.i = phi i64 [ %.0.i118.lcssa, %.preheader24.i ], [ %.125.i, %.lr.ph.i ], [ %.125.i, %conv_ascii2bin.exit19.i ]
-  %97 = and i64 %.1.lcssa.i, 3
-  %.not.i.i = icmp eq i64 %97, 0
+  %99 = and i64 %.1.lcssa.i, 3
+  %.not.i.i = icmp eq i64 %99, 0
   br i1 %.not.i.i, label %EVP_DecodedLength.exit.i, label %EVP_DecodeBlock.exit.thread
 
 EVP_DecodedLength.exit.i:                         ; preds = %.critedge.i
-  %98 = lshr exact i64 %.1.lcssa.i, 2
-  %99 = mul nuw i64 %98, 3
-  store i64 %99, ptr %6, align 8, !tbaa !18
-  %100 = icmp ugt i64 %.1.lcssa.i, 2863311528
-  br i1 %100, label %EVP_DecodeBlock.exit.thread, label %101
+  %100 = lshr exact i64 %.1.lcssa.i, 2
+  %101 = mul nuw i64 %100, 3
+  store i64 %101, ptr %6, align 8, !tbaa !18
+  %102 = icmp ugt i64 %.1.lcssa.i, 2863311528
+  br i1 %102, label %EVP_DecodeBlock.exit.thread, label %103
 
-101:                                              ; preds = %EVP_DecodedLength.exit.i
-  %102 = call i32 @EVP_DecodeBase64(ptr noundef %.089160, ptr noundef nonnull %6, i64 noundef %99, ptr noundef nonnull %.014.i.lcssa, i64 noundef %.1.lcssa.i)
-  %.not.i = icmp eq i32 %102, 0
+103:                                              ; preds = %EVP_DecodedLength.exit.i
+  %104 = call i32 @EVP_DecodeBase64(ptr noundef %.089160, ptr noundef nonnull %6, i64 noundef %101, ptr noundef nonnull %.014.i.lcssa, i64 noundef %.1.lcssa.i)
+  %.not.i = icmp eq i32 %104, 0
   br i1 %.not.i, label %EVP_DecodeBlock.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %101
+.preheader.i:                                     ; preds = %103
   %.promoted.i = load i64, ptr %6, align 8, !tbaa !18
-  %103 = urem i64 %.promoted.i, 3
-  %.not1730.i = icmp eq i64 %103, 0
+  %105 = urem i64 %.promoted.i, 3
+  %.not1730.i = icmp eq i64 %105, 0
   br i1 %.not1730.i, label %EVP_DecodeBlock.exit, label %.lr.ph31.i
 
 .lr.ph31.i:                                       ; preds = %.preheader.i, %.lr.ph31.i
-  %104 = phi i64 [ %105, %.lr.ph31.i ], [ %.promoted.i, %.preheader.i ]
-  %105 = add i64 %104, 1
-  %106 = getelementptr inbounds nuw i8, ptr %.089160, i64 %104
-  store i8 0, ptr %106, align 1, !tbaa !14
-  %107 = urem i64 %105, 3
-  %.not17.i = icmp eq i64 %107, 0
+  %106 = phi i64 [ %107, %.lr.ph31.i ], [ %.promoted.i, %.preheader.i ]
+  %107 = add i64 %106, 1
+  %108 = getelementptr inbounds nuw i8, ptr %.089160, i64 %106
+  store i8 0, ptr %108, align 1, !tbaa !14
+  %109 = urem i64 %107, 3
+  %.not17.i = icmp eq i64 %109, 0
   br i1 %.not17.i, label %EVP_DecodeBlock.exit, label %.lr.ph31.i, !llvm.loop !24
 
-EVP_DecodeBlock.exit.thread:                      ; preds = %EVP_DecodedLength.exit.i, %101, %.critedge.i, %94
+EVP_DecodeBlock.exit.thread:                      ; preds = %EVP_DecodedLength.exit.i, %103, %.critedge.i, %96
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   br label %.loopexit
 
 EVP_DecodeBlock.exit:                             ; preds = %.lr.ph31.i, %.preheader.i
-  %.lcssa29.i = phi i64 [ %.promoted.i, %.preheader.i ], [ %105, %.lr.ph31.i ]
-  %108 = trunc i64 %.lcssa29.i to i32
+  %.lcssa29.i = phi i64 [ %.promoted.i, %.preheader.i ], [ %107, %.lr.ph31.i ]
+  %110 = trunc i64 %.lcssa29.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  %109 = icmp slt i32 %108, 0
-  br i1 %109, label %.loopexit, label %110
-
-110:                                              ; preds = %EVP_DecodeBlock.exit
-  %111 = icmp sgt i32 %.3102127137, %108
+  %111 = icmp slt i32 %110, 0
   br i1 %111, label %.loopexit, label %112
 
-112:                                              ; preds = %110
-  %113 = sub i32 %.1165, %.3102127137
-  %114 = add i32 %113, %108
-  br label %115
+112:                                              ; preds = %EVP_DecodeBlock.exit
+  %113 = icmp sgt i32 %.3102127137, %110
+  br i1 %113, label %.loopexit, label %114
 
-115:                                              ; preds = %71, %112
-  %spec.select114139 = phi i32 [ %spec.select114138, %112 ], [ 0, %71 ]
-  %.5104 = phi i32 [ %.3102127137, %112 ], [ 1, %71 ]
-  %.197 = phi i32 [ %108, %112 ], [ 0, %71 ]
-  %.3 = phi i32 [ %114, %112 ], [ %.1165, %71 ]
-  %116 = load i32, ptr %19, align 4, !tbaa !6
-  %117 = icmp slt i32 %.197, %116
-  %118 = icmp ne i32 %.5104, 0
-  %or.cond9 = select i1 %117, i1 %118, i1 false
-  br i1 %or.cond9, label %.loopexit, label %119
+114:                                              ; preds = %112
+  %115 = sub i32 %.1165, %.3102127137
+  %116 = add i32 %115, %110
+  br label %117
 
-119:                                              ; preds = %115
+117:                                              ; preds = %71, %114
+  %spec.select114139 = phi i32 [ %spec.select114138, %114 ], [ 0, %71 ]
+  %.5104 = phi i32 [ %.3102127137, %114 ], [ 1, %71 ]
+  %.197 = phi i32 [ %110, %114 ], [ 0, %71 ]
+  %.3 = phi i32 [ %116, %114 ], [ %.1165, %71 ]
+  %118 = load i32, ptr %19, align 4, !tbaa !6
+  %119 = icmp slt i32 %.197, %118
+  %120 = icmp ne i32 %.5104, 0
+  %or.cond9 = select i1 %119, i1 %120, i1 false
+  br i1 %or.cond9, label %.loopexit, label %121
+
+121:                                              ; preds = %117
   store i32 %.197, ptr %19, align 4, !tbaa !6
-  %120 = icmp sgt i32 %.1106, -1
-  br i1 %120, label %.loopexit, label %121
+  %122 = icmp sgt i32 %.1106, -1
+  br i1 %122, label %.loopexit, label %123
 
-121:                                              ; preds = %119
-  %122 = zext nneg i32 %.197 to i64
-  %123 = getelementptr inbounds nuw i8, ptr %.089160, i64 %122
-  br label %124
+123:                                              ; preds = %121
+  %124 = zext nneg i32 %.197 to i64
+  %125 = getelementptr inbounds nuw i8, ptr %.089160, i64 %124
+  br label %126
 
-124:                                              ; preds = %46, %70, %121, %67, %45
-  %.2101 = phi i32 [ %.1100, %45 ], [ %.5104, %121 ], [ %.3102128, %67 ], [ %.3102, %70 ], [ %.1100, %46 ]
-  %.293 = phi i32 [ %.192159, %45 ], [ %spec.select114139, %121 ], [ 0, %67 ], [ 0, %70 ], [ 0, %46 ]
-  %.190 = phi ptr [ %.089160, %45 ], [ %123, %121 ], [ %.089160, %67 ], [ %.089160, %70 ], [ %.089160, %46 ]
-  %.386 = phi i32 [ %.285, %45 ], [ 0, %121 ], [ %.285, %67 ], [ %.285, %70 ], [ %.285, %46 ]
-  %.4 = phi i32 [ 0, %45 ], [ %.5, %121 ], [ %.5, %67 ], [ %.5, %70 ], [ 0, %46 ]
-  %.2 = phi i32 [ %.1165, %45 ], [ %.3, %121 ], [ %.1165, %67 ], [ %.1165, %70 ], [ %.1165, %46 ]
-  %125 = add i32 %.088162, 1
-  %126 = zext i32 %125 to i64
-  %127 = icmp ugt i64 %4, %126
-  br i1 %127, label %20, label %.loopexit, !llvm.loop !25
+126:                                              ; preds = %46, %70, %123, %67, %45
+  %.2101 = phi i32 [ %.1100, %45 ], [ %.5104, %123 ], [ %.3102128, %67 ], [ %.3102, %70 ], [ %.1100, %46 ]
+  %.293 = phi i32 [ %.192159, %45 ], [ %spec.select114139, %123 ], [ 0, %67 ], [ 0, %70 ], [ 0, %46 ]
+  %.190 = phi ptr [ %.089160, %45 ], [ %125, %123 ], [ %.089160, %67 ], [ %.089160, %70 ], [ %.089160, %46 ]
+  %.386 = phi i32 [ %.285, %45 ], [ 0, %123 ], [ %.285, %67 ], [ %.285, %70 ], [ %.285, %46 ]
+  %.4 = phi i32 [ 0, %45 ], [ %.5, %123 ], [ %.5, %67 ], [ %.5, %70 ], [ 0, %46 ]
+  %.2 = phi i32 [ %.1165, %45 ], [ %.3, %123 ], [ %.1165, %67 ], [ %.1165, %70 ], [ %.1165, %46 ]
+  %127 = add i32 %.088162, 1
+  %128 = zext i32 %127 to i64
+  %129 = icmp ugt i64 %4, %128
+  br i1 %129, label %20, label %.loopexit, !llvm.loop !25
 
-.loopexit:                                        ; preds = %124, %119, %115, %110, %EVP_DecodeBlock.exit, %40, %20, %16, %EVP_DecodeBlock.exit.thread, %5
-  %.098 = phi i32 [ 0, %5 ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 0, %16 ], [ 1, %124 ], [ 0, %119 ], [ 0, %115 ], [ -1, %110 ], [ 0, %EVP_DecodeBlock.exit ], [ -1, %40 ], [ -1, %20 ]
-  %.091 = phi i32 [ %12, %5 ], [ %spec.select114138, %EVP_DecodeBlock.exit.thread ], [ %12, %16 ], [ %.293, %124 ], [ %spec.select114139, %119 ], [ %spec.select114139, %115 ], [ %spec.select114138, %110 ], [ %spec.select114138, %EVP_DecodeBlock.exit ], [ %.192159, %40 ], [ %.192159, %20 ]
-  %.083 = phi i32 [ %7, %5 ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 0, %16 ], [ %.386, %124 ], [ 0, %119 ], [ 0, %115 ], [ 0, %110 ], [ 0, %EVP_DecodeBlock.exit ], [ %.285, %40 ], [ %.184163, %20 ]
-  %.079 = phi i32 [ %10, %5 ], [ %.5, %EVP_DecodeBlock.exit.thread ], [ %10, %16 ], [ %.4, %124 ], [ %.5, %119 ], [ %.5, %115 ], [ %.5, %110 ], [ %.5, %EVP_DecodeBlock.exit ], [ %.281, %40 ], [ %.180164, %20 ]
-  %.0 = phi i32 [ 0, %5 ], [ %.1165, %EVP_DecodeBlock.exit.thread ], [ 0, %16 ], [ %.2, %124 ], [ %.3, %119 ], [ %.3, %115 ], [ %.1165, %110 ], [ %.1165, %EVP_DecodeBlock.exit ], [ %.1165, %40 ], [ %.1165, %20 ]
+.loopexit:                                        ; preds = %126, %121, %117, %112, %EVP_DecodeBlock.exit, %40, %20, %16, %EVP_DecodeBlock.exit.thread, %5
+  %.098 = phi i32 [ 0, %5 ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 0, %16 ], [ 1, %126 ], [ 0, %121 ], [ 0, %117 ], [ -1, %112 ], [ 0, %EVP_DecodeBlock.exit ], [ -1, %40 ], [ -1, %20 ]
+  %.091 = phi i32 [ %12, %5 ], [ %spec.select114138, %EVP_DecodeBlock.exit.thread ], [ %12, %16 ], [ %.293, %126 ], [ %spec.select114139, %121 ], [ %spec.select114139, %117 ], [ %spec.select114138, %112 ], [ %spec.select114138, %EVP_DecodeBlock.exit ], [ %.192159, %40 ], [ %.192159, %20 ]
+  %.083 = phi i32 [ %7, %5 ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 0, %16 ], [ %.386, %126 ], [ 0, %121 ], [ 0, %117 ], [ 0, %112 ], [ 0, %EVP_DecodeBlock.exit ], [ %.285, %40 ], [ %.184163, %20 ]
+  %.079 = phi i32 [ %10, %5 ], [ %.5, %EVP_DecodeBlock.exit.thread ], [ %10, %16 ], [ %.4, %126 ], [ %.5, %121 ], [ %.5, %117 ], [ %.5, %112 ], [ %.5, %EVP_DecodeBlock.exit ], [ %.281, %40 ], [ %.180164, %20 ]
+  %.0 = phi i32 [ 0, %5 ], [ %.1165, %EVP_DecodeBlock.exit.thread ], [ 0, %16 ], [ %.2, %126 ], [ %.3, %121 ], [ %.3, %117 ], [ %.1165, %112 ], [ %.1165, %EVP_DecodeBlock.exit ], [ %.1165, %40 ], [ %.1165, %20 ]
   store i32 %.0, ptr %2, align 4, !tbaa !13
   store i32 %.083, ptr %0, align 4, !tbaa !11
   store i32 %.079, ptr %9, align 4, !tbaa !12
@@ -1111,7 +1111,6 @@ conv_ascii2bin.exit:                              ; preds = %3, %14
 .preheader24:                                     ; preds = %conv_ascii2bin.exit, %14, %3
   %.014.lcssa = phi ptr [ %1, %3 ], [ %.01439, %conv_ascii2bin.exit ], [ %15, %14 ]
   %.0.lcssa = phi i64 [ %2, %3 ], [ %.040, %conv_ascii2bin.exit ], [ %16, %14 ]
-  %invariant.gep = getelementptr i8, ptr %.014.lcssa, i64 -1
   %13 = icmp ugt i64 %.0.lcssa, 3
   br i1 %13, label %.lr.ph, label %.critedge
 
@@ -1122,66 +1121,67 @@ conv_ascii2bin.exit:                              ; preds = %3, %14
   %18 = icmp slt i8 %17, 0
   br i1 %18, label %.preheader24, label %conv_ascii2bin.exit, !llvm.loop !22
 
-.lr.ph:                                           ; preds = %.preheader24, %26
-  %.125 = phi i64 [ %27, %26 ], [ %.0.lcssa, %.preheader24 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.125
-  %19 = load i8, ptr %gep, align 1, !tbaa !14
-  %20 = icmp slt i8 %19, 0
-  br i1 %20, label %.critedge, label %conv_ascii2bin.exit19
+.lr.ph:                                           ; preds = %.preheader24, %28
+  %.125 = phi i64 [ %29, %28 ], [ %.0.lcssa, %.preheader24 ]
+  %19 = getelementptr i8, ptr %.014.lcssa, i64 %.125
+  %20 = getelementptr i8, ptr %19, i64 -1
+  %21 = load i8, ptr %20, align 1, !tbaa !14
+  %22 = icmp slt i8 %21, 0
+  br i1 %22, label %.critedge, label %conv_ascii2bin.exit19
 
 conv_ascii2bin.exit19:                            ; preds = %.lr.ph
-  %21 = zext nneg i8 %19 to i64
-  %22 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !14
-  %24 = and i8 %23, -20
-  %25 = icmp eq i8 %24, -32
-  br i1 %25, label %26, label %.critedge
+  %23 = zext nneg i8 %21 to i64
+  %24 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !14
+  %26 = and i8 %25, -20
+  %27 = icmp eq i8 %26, -32
+  br i1 %27, label %28, label %.critedge
 
-26:                                               ; preds = %conv_ascii2bin.exit19
-  %27 = add i64 %.125, -1
-  %28 = icmp ugt i64 %27, 3
-  br i1 %28, label %.lr.ph, label %EVP_DecodedLength.exit.thread, !llvm.loop !23
+28:                                               ; preds = %conv_ascii2bin.exit19
+  %29 = add i64 %.125, -1
+  %30 = icmp ugt i64 %29, 3
+  br i1 %30, label %.lr.ph, label %EVP_DecodedLength.exit.thread, !llvm.loop !23
 
 .critedge:                                        ; preds = %conv_ascii2bin.exit19, %.lr.ph, %.preheader24
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader24 ], [ %.125, %.lr.ph ], [ %.125, %conv_ascii2bin.exit19 ]
-  %29 = and i64 %.1.lcssa, 3
-  %.not.i = icmp eq i64 %29, 0
+  %31 = and i64 %.1.lcssa, 3
+  %.not.i = icmp eq i64 %31, 0
   br i1 %.not.i, label %EVP_DecodedLength.exit, label %EVP_DecodedLength.exit.thread
 
 EVP_DecodedLength.exit:                           ; preds = %.critedge
-  %30 = lshr exact i64 %.1.lcssa, 2
-  %31 = mul nuw i64 %30, 3
-  store i64 %31, ptr %4, align 8, !tbaa !18
-  %32 = icmp ugt i64 %.1.lcssa, 2863311528
-  br i1 %32, label %EVP_DecodedLength.exit.thread, label %33
+  %32 = lshr exact i64 %.1.lcssa, 2
+  %33 = mul nuw i64 %32, 3
+  store i64 %33, ptr %4, align 8, !tbaa !18
+  %34 = icmp ugt i64 %.1.lcssa, 2863311528
+  br i1 %34, label %EVP_DecodedLength.exit.thread, label %35
 
-33:                                               ; preds = %EVP_DecodedLength.exit
-  %34 = call i32 @EVP_DecodeBase64(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %31, ptr noundef nonnull %.014.lcssa, i64 noundef %.1.lcssa)
-  %.not = icmp eq i32 %34, 0
+35:                                               ; preds = %EVP_DecodedLength.exit
+  %36 = call i32 @EVP_DecodeBase64(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %33, ptr noundef nonnull %.014.lcssa, i64 noundef %.1.lcssa)
+  %.not = icmp eq i32 %36, 0
   br i1 %.not, label %EVP_DecodedLength.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %33
+.preheader:                                       ; preds = %35
   %.promoted = load i64, ptr %4, align 8, !tbaa !18
-  %35 = urem i64 %.promoted, 3
-  %.not1730 = icmp eq i64 %35, 0
+  %37 = urem i64 %.promoted, 3
+  %.not1730 = icmp eq i64 %37, 0
   br i1 %.not1730, label %._crit_edge, label %.lr.ph31
 
 .lr.ph31:                                         ; preds = %.preheader, %.lr.ph31
-  %36 = phi i64 [ %37, %.lr.ph31 ], [ %.promoted, %.preheader ]
-  %37 = add i64 %36, 1
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %36
-  store i8 0, ptr %38, align 1, !tbaa !14
-  %39 = urem i64 %37, 3
-  %.not17 = icmp eq i64 %39, 0
+  %38 = phi i64 [ %39, %.lr.ph31 ], [ %.promoted, %.preheader ]
+  %39 = add i64 %38, 1
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %38
+  store i8 0, ptr %40, align 1, !tbaa !14
+  %41 = urem i64 %39, 3
+  %.not17 = icmp eq i64 %41, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph31, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph31, %.preheader
-  %.lcssa29 = phi i64 [ %.promoted, %.preheader ], [ %37, %.lr.ph31 ]
-  %40 = trunc i64 %.lcssa29 to i32
+  %.lcssa29 = phi i64 [ %.promoted, %.preheader ], [ %39, %.lr.ph31 ]
+  %42 = trunc i64 %.lcssa29 to i32
   br label %EVP_DecodedLength.exit.thread
 
-EVP_DecodedLength.exit.thread:                    ; preds = %26, %.critedge, %33, %EVP_DecodedLength.exit, %._crit_edge
-  %.015 = phi i32 [ %40, %._crit_edge ], [ -1, %EVP_DecodedLength.exit ], [ -1, %33 ], [ -1, %.critedge ], [ -1, %26 ]
+EVP_DecodedLength.exit.thread:                    ; preds = %28, %.critedge, %35, %EVP_DecodedLength.exit, %._crit_edge
+  %.015 = phi i32 [ %42, %._crit_edge ], [ -1, %EVP_DecodedLength.exit ], [ -1, %35 ], [ -1, %.critedge ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   ret i32 %.015
 }
@@ -1192,7 +1192,7 @@ define hidden range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr noundef captures(none) %
   store i32 0, ptr %2, align 4, !tbaa !13
   %5 = load i32, ptr %0, align 4, !tbaa !11
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %47, label %6
+  br i1 %.not, label %49, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1216,7 +1216,6 @@ conv_ascii2bin.exit.i:                            ; preds = %6, %18
 .preheader24.i:                                   ; preds = %18, %conv_ascii2bin.exit.i, %6
   %.014.i.lcssa = phi ptr [ %7, %6 ], [ %.014.i13, %conv_ascii2bin.exit.i ], [ %19, %18 ]
   %.0.i.lcssa = phi i64 [ %8, %6 ], [ %.0.i14, %conv_ascii2bin.exit.i ], [ %20, %18 ]
-  %invariant.gep.i = getelementptr i8, ptr %.014.i.lcssa, i64 -1
   %17 = icmp ugt i64 %.0.i.lcssa, 3
   br i1 %17, label %.lr.ph.i, label %.critedge.i
 
@@ -1227,77 +1226,78 @@ conv_ascii2bin.exit.i:                            ; preds = %6, %18
   %22 = icmp slt i8 %21, 0
   br i1 %22, label %.preheader24.i, label %conv_ascii2bin.exit.i, !llvm.loop !22
 
-.lr.ph.i:                                         ; preds = %.preheader24.i, %30
-  %.125.i = phi i64 [ %31, %30 ], [ %.0.i.lcssa, %.preheader24.i ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.125.i
-  %23 = load i8, ptr %gep.i, align 1, !tbaa !14
-  %24 = icmp slt i8 %23, 0
-  br i1 %24, label %.critedge.i, label %conv_ascii2bin.exit19.i
+.lr.ph.i:                                         ; preds = %.preheader24.i, %32
+  %.125.i = phi i64 [ %33, %32 ], [ %.0.i.lcssa, %.preheader24.i ]
+  %23 = getelementptr i8, ptr %.014.i.lcssa, i64 %.125.i
+  %24 = getelementptr i8, ptr %23, i64 -1
+  %25 = load i8, ptr %24, align 1, !tbaa !14
+  %26 = icmp slt i8 %25, 0
+  br i1 %26, label %.critedge.i, label %conv_ascii2bin.exit19.i
 
 conv_ascii2bin.exit19.i:                          ; preds = %.lr.ph.i
-  %25 = zext nneg i8 %23 to i64
-  %26 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !14
-  %28 = and i8 %27, -20
-  %29 = icmp eq i8 %28, -32
-  br i1 %29, label %30, label %.critedge.i
+  %27 = zext nneg i8 %25 to i64
+  %28 = getelementptr inbounds nuw [128 x i8], ptr @data_ascii2bin, i64 0, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !14
+  %30 = and i8 %29, -20
+  %31 = icmp eq i8 %30, -32
+  br i1 %31, label %32, label %.critedge.i
 
-30:                                               ; preds = %conv_ascii2bin.exit19.i
-  %31 = add i64 %.125.i, -1
-  %32 = icmp ugt i64 %31, 3
-  br i1 %32, label %.lr.ph.i, label %EVP_DecodeBlock.exit.thread, !llvm.loop !23
+32:                                               ; preds = %conv_ascii2bin.exit19.i
+  %33 = add i64 %.125.i, -1
+  %34 = icmp ugt i64 %33, 3
+  br i1 %34, label %.lr.ph.i, label %EVP_DecodeBlock.exit.thread, !llvm.loop !23
 
 .critedge.i:                                      ; preds = %conv_ascii2bin.exit19.i, %.lr.ph.i, %.preheader24.i
   %.1.lcssa.i = phi i64 [ %.0.i.lcssa, %.preheader24.i ], [ %.125.i, %.lr.ph.i ], [ %.125.i, %conv_ascii2bin.exit19.i ]
-  %33 = and i64 %.1.lcssa.i, 3
-  %.not.i.i = icmp eq i64 %33, 0
+  %35 = and i64 %.1.lcssa.i, 3
+  %.not.i.i = icmp eq i64 %35, 0
   br i1 %.not.i.i, label %EVP_DecodedLength.exit.i, label %EVP_DecodeBlock.exit.thread
 
 EVP_DecodedLength.exit.i:                         ; preds = %.critedge.i
-  %34 = lshr exact i64 %.1.lcssa.i, 2
-  %35 = mul nuw i64 %34, 3
-  store i64 %35, ptr %4, align 8, !tbaa !18
-  %36 = icmp ugt i64 %.1.lcssa.i, 2863311528
-  br i1 %36, label %EVP_DecodeBlock.exit.thread, label %37
+  %36 = lshr exact i64 %.1.lcssa.i, 2
+  %37 = mul nuw i64 %36, 3
+  store i64 %37, ptr %4, align 8, !tbaa !18
+  %38 = icmp ugt i64 %.1.lcssa.i, 2863311528
+  br i1 %38, label %EVP_DecodeBlock.exit.thread, label %39
 
-37:                                               ; preds = %EVP_DecodedLength.exit.i
-  %38 = call i32 @EVP_DecodeBase64(ptr noundef %1, ptr noundef nonnull %4, i64 noundef %35, ptr noundef nonnull %.014.i.lcssa, i64 noundef %.1.lcssa.i)
-  %.not.i = icmp eq i32 %38, 0
+39:                                               ; preds = %EVP_DecodedLength.exit.i
+  %40 = call i32 @EVP_DecodeBase64(ptr noundef %1, ptr noundef nonnull %4, i64 noundef %37, ptr noundef nonnull %.014.i.lcssa, i64 noundef %.1.lcssa.i)
+  %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %EVP_DecodeBlock.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %37
+.preheader.i:                                     ; preds = %39
   %.promoted.i = load i64, ptr %4, align 8, !tbaa !18
-  %39 = urem i64 %.promoted.i, 3
-  %.not1730.i = icmp eq i64 %39, 0
+  %41 = urem i64 %.promoted.i, 3
+  %.not1730.i = icmp eq i64 %41, 0
   br i1 %.not1730.i, label %EVP_DecodeBlock.exit, label %.lr.ph31.i
 
 .lr.ph31.i:                                       ; preds = %.preheader.i, %.lr.ph31.i
-  %40 = phi i64 [ %41, %.lr.ph31.i ], [ %.promoted.i, %.preheader.i ]
-  %41 = add i64 %40, 1
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %40
-  store i8 0, ptr %42, align 1, !tbaa !14
-  %43 = urem i64 %41, 3
-  %.not17.i = icmp eq i64 %43, 0
+  %42 = phi i64 [ %43, %.lr.ph31.i ], [ %.promoted.i, %.preheader.i ]
+  %43 = add i64 %42, 1
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %42
+  store i8 0, ptr %44, align 1, !tbaa !14
+  %45 = urem i64 %43, 3
+  %.not17.i = icmp eq i64 %45, 0
   br i1 %.not17.i, label %EVP_DecodeBlock.exit, label %.lr.ph31.i, !llvm.loop !24
 
-EVP_DecodeBlock.exit.thread:                      ; preds = %30, %EVP_DecodedLength.exit.i, %37, %.critedge.i
+EVP_DecodeBlock.exit.thread:                      ; preds = %32, %EVP_DecodedLength.exit.i, %39, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  br label %47
+  br label %49
 
 EVP_DecodeBlock.exit:                             ; preds = %.lr.ph31.i, %.preheader.i
-  %.lcssa29.i = phi i64 [ %.promoted.i, %.preheader.i ], [ %41, %.lr.ph31.i ]
-  %44 = trunc i64 %.lcssa29.i to i32
+  %.lcssa29.i = phi i64 [ %.promoted.i, %.preheader.i ], [ %43, %.lr.ph31.i ]
+  %46 = trunc i64 %.lcssa29.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %47, label %46
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %49, label %48
 
-46:                                               ; preds = %EVP_DecodeBlock.exit
+48:                                               ; preds = %EVP_DecodeBlock.exit
   store i32 0, ptr %0, align 4, !tbaa !11
-  store i32 %44, ptr %2, align 4, !tbaa !13
-  br label %47
+  store i32 %46, ptr %2, align 4, !tbaa !13
+  br label %49
 
-47:                                               ; preds = %EVP_DecodeBlock.exit.thread, %3, %EVP_DecodeBlock.exit, %46
-  %.0 = phi i32 [ 1, %46 ], [ -1, %EVP_DecodeBlock.exit ], [ 1, %3 ], [ -1, %EVP_DecodeBlock.exit.thread ]
+49:                                               ; preds = %EVP_DecodeBlock.exit.thread, %3, %EVP_DecodeBlock.exit, %48
+  %.0 = phi i32 [ 1, %48 ], [ -1, %EVP_DecodeBlock.exit ], [ 1, %3 ], [ -1, %EVP_DecodeBlock.exit.thread ]
   ret i32 %.0
 }
 

@@ -9,7 +9,7 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   %5 = zext i32 %4 to i64
   %6 = tail call ptr @opj_malloc(i64 noundef %5) #5
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %106, label %8
+  br i1 %7, label %108, label %8
 
 8:                                                ; preds = %3
   %9 = shl i32 %2, 2
@@ -155,123 +155,123 @@ define hidden range(i32 0, 2) i32 @opj_matrix_inversion_f(ptr noundef captures(n
   %63 = shl i32 %2, 1
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw float, ptr %11, i64 %64
-  %invariant.gep.i = getelementptr i8, ptr %0, i64 -4
   %66 = add i32 %2, 1
   %67 = getelementptr inbounds nuw float, ptr %62, i64 %.pre-phi
   %68 = getelementptr inbounds nuw float, ptr %65, i64 %.pre-phi
   %69 = mul i32 %2, %2
   %70 = zext i32 %69 to i64
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %70
-  %71 = zext i32 %66 to i64
-  %72 = sub nsw i64 0, %71
-  br label %73
+  %71 = getelementptr inbounds nuw float, ptr %0, i64 %70
+  %72 = getelementptr inbounds i8, ptr %71, i64 -4
+  %73 = zext i32 %66 to i64
+  %74 = sub nsw i64 0, %73
+  br label %75
 
-73:                                               ; preds = %104, %.lr.ph.i28
-  %indvars.iv34.i = phi i64 [ 0, %.lr.ph.i28 ], [ %indvars.iv.next35.i, %104 ]
-  %.02330.i = phi ptr [ %1, %.lr.ph.i28 ], [ %105, %104 ]
+75:                                               ; preds = %106, %.lr.ph.i28
+  %indvars.iv34.i = phi i64 [ 0, %.lr.ph.i28 ], [ %indvars.iv.next35.i, %106 ]
+  %.02330.i = phi ptr [ %1, %.lr.ph.i28 ], [ %107, %106 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %11, i8 0, i64 %10, i1 false)
-  %74 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv34.i
-  store float 1.000000e+00, ptr %74, align 4, !tbaa !9
+  %76 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv34.i
+  store float 1.000000e+00, ptr %76, align 4, !tbaa !9
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %._crit_edge.i.i, %73
-  %indvars.iv.i.i = phi i32 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 1, %73 ]
-  %.074.i.i = phi ptr [ %81, %._crit_edge.i.i ], [ %6, %73 ]
-  %.05073.i.i = phi ptr [ %88, %._crit_edge.i.i ], [ %0, %73 ]
-  %.05472.i.i = phi ptr [ %87, %._crit_edge.i.i ], [ %65, %73 ]
-  %.05871.i.i = phi i32 [ %89, %._crit_edge.i.i ], [ 0, %73 ]
+.preheader.i.i:                                   ; preds = %._crit_edge.i.i, %75
+  %indvars.iv.i.i = phi i32 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 1, %75 ]
+  %.074.i.i = phi ptr [ %83, %._crit_edge.i.i ], [ %6, %75 ]
+  %.05073.i.i = phi ptr [ %90, %._crit_edge.i.i ], [ %0, %75 ]
+  %.05472.i.i = phi ptr [ %89, %._crit_edge.i.i ], [ %65, %75 ]
+  %.05871.i.i = phi i32 [ %91, %._crit_edge.i.i ], [ 0, %75 ]
   %.not6566.i.i = icmp eq i32 %.05871.i.i, 0
   br i1 %.not6566.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.05170.i.i = phi ptr [ %75, %.lr.ph.i.i ], [ %.05073.i.i, %.preheader.i.i ]
-  %.05569.i.i = phi ptr [ %77, %.lr.ph.i.i ], [ %65, %.preheader.i.i ]
-  %.05968.i.i = phi float [ %79, %.lr.ph.i.i ], [ 0.000000e+00, %.preheader.i.i ]
-  %.06167.i.i = phi i32 [ %80, %.lr.ph.i.i ], [ 1, %.preheader.i.i ]
-  %75 = getelementptr inbounds nuw i8, ptr %.05170.i.i, i64 4
-  %76 = load float, ptr %.05170.i.i, align 4, !tbaa !9
-  %77 = getelementptr inbounds nuw i8, ptr %.05569.i.i, i64 4
-  %78 = load float, ptr %.05569.i.i, align 4, !tbaa !9
-  %79 = tail call float @llvm.fmuladd.f32(float %76, float %78, float %.05968.i.i)
-  %80 = add nuw i32 %.06167.i.i, 1
-  %exitcond.i.i = icmp eq i32 %80, %indvars.iv.i.i
+  %.05170.i.i = phi ptr [ %77, %.lr.ph.i.i ], [ %.05073.i.i, %.preheader.i.i ]
+  %.05569.i.i = phi ptr [ %79, %.lr.ph.i.i ], [ %65, %.preheader.i.i ]
+  %.05968.i.i = phi float [ %81, %.lr.ph.i.i ], [ 0.000000e+00, %.preheader.i.i ]
+  %.06167.i.i = phi i32 [ %82, %.lr.ph.i.i ], [ 1, %.preheader.i.i ]
+  %77 = getelementptr inbounds nuw i8, ptr %.05170.i.i, i64 4
+  %78 = load float, ptr %.05170.i.i, align 4, !tbaa !9
+  %79 = getelementptr inbounds nuw i8, ptr %.05569.i.i, i64 4
+  %80 = load float, ptr %.05569.i.i, align 4, !tbaa !9
+  %81 = tail call float @llvm.fmuladd.f32(float %78, float %80, float %.05968.i.i)
+  %82 = add nuw i32 %.06167.i.i, 1
+  %exitcond.i.i = icmp eq i32 %82, %indvars.iv.i.i
   br i1 %exitcond.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !16
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.059.lcssa.i.i = phi float [ 0.000000e+00, %.preheader.i.i ], [ %79, %.lr.ph.i.i ]
-  %81 = getelementptr inbounds nuw i8, ptr %.074.i.i, i64 4
-  %82 = load i32, ptr %.074.i.i, align 4, !tbaa !3
-  %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw float, ptr %11, i64 %83
-  %85 = load float, ptr %84, align 4, !tbaa !9
-  %86 = fsub float %85, %.059.lcssa.i.i
-  %87 = getelementptr inbounds nuw i8, ptr %.05472.i.i, i64 4
-  store float %86, ptr %.05472.i.i, align 4, !tbaa !9
-  %88 = getelementptr inbounds nuw float, ptr %.05073.i.i, i64 %.pre-phi
-  %89 = add nuw i32 %.05871.i.i, 1
+  %.059.lcssa.i.i = phi float [ 0.000000e+00, %.preheader.i.i ], [ %81, %.lr.ph.i.i ]
+  %83 = getelementptr inbounds nuw i8, ptr %.074.i.i, i64 4
+  %84 = load i32, ptr %.074.i.i, align 4, !tbaa !3
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr inbounds nuw float, ptr %11, i64 %85
+  %87 = load float, ptr %86, align 4, !tbaa !9
+  %88 = fsub float %87, %.059.lcssa.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %.05472.i.i, i64 4
+  store float %88, ptr %.05472.i.i, align 4, !tbaa !9
+  %90 = getelementptr inbounds nuw float, ptr %.05073.i.i, i64 %.pre-phi
+  %91 = add nuw i32 %.05871.i.i, 1
   %indvars.iv.next.i.i = add i32 %indvars.iv.i.i, 1
-  %exitcond100.not.i.i = icmp eq i32 %89, %2
+  %exitcond100.not.i.i = icmp eq i32 %91, %2
   br i1 %exitcond100.not.i.i, label %.lr.ph95.i.i, label %.preheader.i.i, !llvm.loop !17
 
 .lr.ph95.i.i:                                     ; preds = %._crit_edge.i.i, %._crit_edge82.i.i
   %.pn.i.i = phi ptr [ %.04892.i.i, %._crit_edge82.i.i ], [ %68, %._crit_edge.i.i ]
   %.pn98.i.i = phi ptr [ %.04991.i.i, %._crit_edge82.i.i ], [ %67, %._crit_edge.i.i ]
-  %.190.i.i = phi ptr [ %100, %._crit_edge82.i.i ], [ %gep.i, %._crit_edge.i.i ]
+  %.190.i.i = phi ptr [ %102, %._crit_edge82.i.i ], [ %72, %._crit_edge.i.i ]
   %.057.in88.i.i = phi i32 [ %.05793.i.i, %._crit_edge82.i.i ], [ %2, %._crit_edge.i.i ]
   %.04991.i.i = getelementptr i8, ptr %.pn98.i.i, i64 -4
   %.04892.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 -4
   %.05793.i.i = add nsw i32 %.057.in88.i.i, -1
-  %90 = load float, ptr %.190.i.i, align 4, !tbaa !9
-  %91 = icmp ult i32 %.057.in88.i.i, %2
-  br i1 %91, label %.lr.ph81.i.i, label %._crit_edge82.i.i
+  %92 = load float, ptr %.190.i.i, align 4, !tbaa !9
+  %93 = icmp ult i32 %.057.in88.i.i, %2
+  br i1 %93, label %.lr.ph81.i.i, label %._crit_edge82.i.i
 
 .lr.ph81.i.i:                                     ; preds = %.lr.ph95.i.i, %.lr.ph81.i.i
   %.1.pn79.i.i = phi ptr [ %.152.i.i, %.lr.ph81.i.i ], [ %.190.i.i, %.lr.ph95.i.i ]
-  %.15678.i.i = phi ptr [ %93, %.lr.ph81.i.i ], [ %.pn98.i.i, %.lr.ph95.i.i ]
-  %.16077.i.i = phi float [ %95, %.lr.ph81.i.i ], [ 0.000000e+00, %.lr.ph95.i.i ]
-  %.16276.i.i = phi i32 [ %96, %.lr.ph81.i.i ], [ %.057.in88.i.i, %.lr.ph95.i.i ]
+  %.15678.i.i = phi ptr [ %95, %.lr.ph81.i.i ], [ %.pn98.i.i, %.lr.ph95.i.i ]
+  %.16077.i.i = phi float [ %97, %.lr.ph81.i.i ], [ 0.000000e+00, %.lr.ph95.i.i ]
+  %.16276.i.i = phi i32 [ %98, %.lr.ph81.i.i ], [ %.057.in88.i.i, %.lr.ph95.i.i ]
   %.152.i.i = getelementptr inbounds nuw i8, ptr %.1.pn79.i.i, i64 4
-  %92 = load float, ptr %.152.i.i, align 4, !tbaa !9
-  %93 = getelementptr inbounds nuw i8, ptr %.15678.i.i, i64 4
-  %94 = load float, ptr %.15678.i.i, align 4, !tbaa !9
-  %95 = tail call float @llvm.fmuladd.f32(float %92, float %94, float %.16077.i.i)
-  %96 = add nuw i32 %.16276.i.i, 1
-  %exitcond101.not.i.i = icmp eq i32 %96, %2
+  %94 = load float, ptr %.152.i.i, align 4, !tbaa !9
+  %95 = getelementptr inbounds nuw i8, ptr %.15678.i.i, i64 4
+  %96 = load float, ptr %.15678.i.i, align 4, !tbaa !9
+  %97 = tail call float @llvm.fmuladd.f32(float %94, float %96, float %.16077.i.i)
+  %98 = add nuw i32 %.16276.i.i, 1
+  %exitcond101.not.i.i = icmp eq i32 %98, %2
   br i1 %exitcond101.not.i.i, label %._crit_edge82.i.i, label %.lr.ph81.i.i, !llvm.loop !18
 
 ._crit_edge82.i.i:                                ; preds = %.lr.ph81.i.i, %.lr.ph95.i.i
-  %.160.lcssa.i.i = phi float [ 0.000000e+00, %.lr.ph95.i.i ], [ %95, %.lr.ph81.i.i ]
-  %97 = load float, ptr %.04892.i.i, align 4, !tbaa !9
-  %98 = fsub float %97, %.160.lcssa.i.i
-  %99 = fdiv float %98, %90
-  store float %99, ptr %.04991.i.i, align 4, !tbaa !9
-  %100 = getelementptr inbounds float, ptr %.190.i.i, i64 %72
+  %.160.lcssa.i.i = phi float [ 0.000000e+00, %.lr.ph95.i.i ], [ %97, %.lr.ph81.i.i ]
+  %99 = load float, ptr %.04892.i.i, align 4, !tbaa !9
+  %100 = fsub float %99, %.160.lcssa.i.i
+  %101 = fdiv float %100, %92
+  store float %101, ptr %.04991.i.i, align 4, !tbaa !9
+  %102 = getelementptr inbounds float, ptr %.190.i.i, i64 %74
   %.not.i.i = icmp eq i32 %.05793.i.i, 0
   br i1 %.not.i.i, label %opj_lupSolve.exit.i, label %.lr.ph95.i.i, !llvm.loop !19
 
 opj_lupSolve.exit.i:                              ; preds = %._crit_edge82.i.i, %opj_lupSolve.exit.i
   %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %opj_lupSolve.exit.i ], [ 0, %._crit_edge82.i.i ]
-  %.02429.i = phi ptr [ %103, %opj_lupSolve.exit.i ], [ %.02330.i, %._crit_edge82.i.i ]
-  %101 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i29
-  %102 = load float, ptr %101, align 4, !tbaa !9
-  store float %102, ptr %.02429.i, align 4, !tbaa !9
-  %103 = getelementptr inbounds nuw float, ptr %.02429.i, i64 %.pre-phi
+  %.02429.i = phi ptr [ %105, %opj_lupSolve.exit.i ], [ %.02330.i, %._crit_edge82.i.i ]
+  %103 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i29
+  %104 = load float, ptr %103, align 4, !tbaa !9
+  store float %104, ptr %.02429.i, align 4, !tbaa !9
+  %105 = getelementptr inbounds nuw float, ptr %.02429.i, i64 %.pre-phi
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %.pre-phi
-  br i1 %exitcond.not.i31, label %104, label %opj_lupSolve.exit.i, !llvm.loop !20
+  br i1 %exitcond.not.i31, label %106, label %opj_lupSolve.exit.i, !llvm.loop !20
 
-104:                                              ; preds = %opj_lupSolve.exit.i
-  %105 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
+106:                                              ; preds = %opj_lupSolve.exit.i
+  %107 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next35.i, %.pre-phi
-  br i1 %exitcond38.not.i, label %.sink.split, label %73, !llvm.loop !21
+  br i1 %exitcond38.not.i, label %.sink.split, label %75, !llvm.loop !21
 
-.sink.split:                                      ; preds = %._crit_edge.i, %16, %104
-  %.0.ph = phi i32 [ 1, %104 ], [ 0, %16 ], [ 0, %._crit_edge.i ]
+.sink.split:                                      ; preds = %._crit_edge.i, %16, %106
+  %.0.ph = phi i32 [ 1, %106 ], [ 0, %16 ], [ 0, %._crit_edge.i ]
   tail call void @opj_free(ptr noundef nonnull %6) #5
-  br label %106
+  br label %108
 
-106:                                              ; preds = %.sink.split, %3
+108:                                              ; preds = %.sink.split, %3
   %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

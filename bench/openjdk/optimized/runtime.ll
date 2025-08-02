@@ -882,21 +882,22 @@ define hidden noundef ptr @_ZN11OptoRuntime20multianewarray2_TypeEv() #0 align 2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %gep.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
-  store ptr %.pre.i, ptr %gep.i, align 8
+  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.pre.i, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN11OptoRuntime19multianewarray_TypeEi.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN11OptoRuntime19multianewarray_TypeEi.exit:     ; preds = %.lr.ph.i
-  %4 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 8, ptr noundef nonnull %1) #12
-  %5 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
-  %6 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %6, ptr %7, align 8
-  %8 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %5) #12
-  %9 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %4, ptr noundef %8) #12
-  ret ptr %9
+  %6 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 8, ptr noundef nonnull %1) #12
+  %7 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
+  %8 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %8, ptr %9, align 8
+  %10 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %7) #12
+  %11 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %6, ptr noundef %10) #12
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1034,21 +1035,22 @@ define hidden noundef ptr @_ZN11OptoRuntime20multianewarray3_TypeEv() #0 align 2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %gep.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
-  store ptr %.pre.i, ptr %gep.i, align 8
+  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.pre.i, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZN11OptoRuntime19multianewarray_TypeEi.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN11OptoRuntime19multianewarray_TypeEi.exit:     ; preds = %.lr.ph.i
-  %4 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 9, ptr noundef nonnull %1) #12
-  %5 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
-  %6 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %6, ptr %7, align 8
-  %8 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %5) #12
-  %9 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %4, ptr noundef %8) #12
-  ret ptr %9
+  %6 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 9, ptr noundef nonnull %1) #12
+  %7 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
+  %8 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %8, ptr %9, align 8
+  %10 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %7) #12
+  %11 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %6, ptr noundef %10) #12
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1188,21 +1190,22 @@ define hidden noundef ptr @_ZN11OptoRuntime20multianewarray4_TypeEv() #0 align 2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %gep.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
-  store ptr %.pre.i, ptr %gep.i, align 8
+  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.pre.i, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %_ZN11OptoRuntime19multianewarray_TypeEi.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN11OptoRuntime19multianewarray_TypeEi.exit:     ; preds = %.lr.ph.i
-  %4 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 10, ptr noundef nonnull %1) #12
-  %5 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
-  %6 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %6, ptr %7, align 8
-  %8 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %5) #12
-  %9 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %4, ptr noundef %8) #12
-  ret ptr %9
+  %6 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 10, ptr noundef nonnull %1) #12
+  %7 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
+  %8 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %8, ptr %9, align 8
+  %10 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %7) #12
+  %11 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %6, ptr noundef %10) #12
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1344,21 +1347,22 @@ define hidden noundef ptr @_ZN11OptoRuntime20multianewarray5_TypeEv() #0 align 2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 1, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %gep.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
-  store ptr %.pre.i, ptr %gep.i, align 8
+  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.pre.i, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %_ZN11OptoRuntime19multianewarray_TypeEi.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZN11OptoRuntime19multianewarray_TypeEi.exit:     ; preds = %.lr.ph.i
-  %4 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 11, ptr noundef nonnull %1) #12
-  %5 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
-  %6 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %6, ptr %7, align 8
-  %8 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %5) #12
-  %9 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %4, ptr noundef %8) #12
-  ret ptr %9
+  %6 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 11, ptr noundef nonnull %1) #12
+  %7 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
+  %8 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %8, ptr %9, align 8
+  %10 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %7) #12
+  %11 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %6, ptr noundef %10) #12
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2197,22 +2201,23 @@ define hidden noundef ptr @_ZN11OptoRuntime19multianewarray_TypeEi(i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  store ptr %.pre, ptr %gep, align 8
+  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %.pre, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %6 = add nsw i32 %0, 6
-  %7 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %6, ptr noundef nonnull %3) #12
-  %8 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
-  %9 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr %9, ptr %10, align 8
-  %11 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %8) #12
-  %12 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %7, ptr noundef %11) #12
-  ret ptr %12
+  %8 = add nsw i32 %0, 6
+  %9 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %8, ptr noundef nonnull %3) #12
+  %10 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
+  %11 = load ptr, ptr @_ZN10TypeRawPtr7NOTNULLE, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store ptr %11, ptr %12, align 8
+  %13 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 6, ptr noundef %10) #12
+  %14 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %9, ptr noundef %13) #12
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

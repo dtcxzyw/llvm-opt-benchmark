@@ -10659,9 +10659,9 @@ define noundef nonnull ptr @TextSplit(ptr noundef readonly captures(address_is_n
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %3, %15
-  %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %3 ]
-  %.120 = phi i32 [ %.3, %15 ], [ 1, %3 ]
+.preheader:                                       ; preds = %3, %16
+  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %3 ]
+  %.120 = phi i32 [ %.3, %16 ], [ 1, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = getelementptr inbounds nuw [1024 x i8], ptr @TextSplit.buffer, i64 0, i64 %indvars.iv
@@ -10671,26 +10671,26 @@ define noundef nonnull ptr @TextSplit(ptr noundef readonly captures(address_is_n
 
 8:                                                ; preds = %.preheader
   %9 = icmp eq i8 %5, %1
-  br i1 %9, label %10, label %15
+  br i1 %9, label %10, label %16
 
 10:                                               ; preds = %8
   store i8 0, ptr %6, align 1
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @TextSplit.buffer, i64 1), i64 %indvars.iv
-  %11 = sext i32 %.120 to i64
-  %12 = getelementptr inbounds [128 x ptr], ptr @TextSplit.result, i64 0, i64 %11
-  store ptr %gep, ptr %12, align 8
-  %13 = add nsw i32 %.120, 1
-  %14 = icmp eq i32 %13, 128
-  br i1 %14, label %.loopexit, label %15
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %12 = sext i32 %.120 to i64
+  %13 = getelementptr inbounds [128 x ptr], ptr @TextSplit.result, i64 0, i64 %12
+  store ptr %11, ptr %13, align 8
+  %14 = add nsw i32 %.120, 1
+  %15 = icmp eq i32 %14, 128
+  br i1 %15, label %.loopexit, label %16
 
-15:                                               ; preds = %10, %8
-  %.3 = phi i32 [ %13, %10 ], [ %.120, %8 ]
+16:                                               ; preds = %10, %8
+  %.3 = phi i32 [ %14, %10 ], [ %.120, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
   br i1 %exitcond.not, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %15, %.preheader, %10, %3
-  %.015 = phi i32 [ 0, %3 ], [ 128, %10 ], [ %.120, %.preheader ], [ %.3, %15 ]
+.loopexit:                                        ; preds = %16, %.preheader, %10, %3
+  %.015 = phi i32 [ 0, %3 ], [ 128, %10 ], [ %.120, %.preheader ], [ %.3, %16 ]
   store i32 %.015, ptr %2, align 4
   ret ptr @TextSplit.result
 }
@@ -11272,12 +11272,12 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
 6:                                                ; preds = %2
   %7 = load i8, ptr %0, align 1
   %8 = sext i8 %7 to i32
-  br label %.thread130
+  br label %.critedge
 
 9:                                                ; preds = %2
   %10 = and i32 %4, 224
   %11 = icmp eq i32 %10, 192
-  br i1 %11, label %12, label %24
+  br i1 %11, label %12, label %23
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -11285,12 +11285,16 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
   %15 = zext i8 %14 to i32
   %.mask116 = and i32 %15, 192
   %.not115 = icmp eq i32 %.mask116, 128
-  br i1 %.not115, label %16, label %23
+  br i1 %.not115, label %16, label %.critedge.critedge
+
+.critedge.critedge:                               ; preds = %12
+  store i32 2, ptr %1, align 4
+  br label %.critedge
 
 16:                                               ; preds = %12
   %17 = add nsw i8 %3, 62
   %or.cond = icmp ult i8 %17, 30
-  br i1 %or.cond, label %18, label %.thread130
+  br i1 %or.cond, label %18, label %.critedge
 
 18:                                               ; preds = %16
   %19 = shl nuw nsw i32 %4, 6
@@ -11298,157 +11302,153 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
   %21 = and i32 %15, 63
   %22 = or disjoint i32 %21, %20
   store i32 2, ptr %1, align 4
-  br label %.thread130
+  br label %.critedge
 
-23:                                               ; preds = %12
-  store i32 2, ptr %1, align 4
-  br label %.thread130
+23:                                               ; preds = %9
+  %24 = and i32 %4, 240
+  %25 = icmp eq i32 %24, 224
+  br i1 %25, label %26, label %52
 
-24:                                               ; preds = %9
-  %25 = and i32 %4, 240
-  %26 = icmp eq i32 %25, 224
-  br i1 %26, label %27, label %53
-
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %.mask112 = and i32 %30, 192
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %28 = load i8, ptr %27, align 1
+  %29 = zext i8 %28 to i32
+  %.mask112 = and i32 %29, 192
   %.not111 = icmp eq i32 %.mask112, 128
-  br i1 %.not111, label %32, label %31
+  br i1 %.not111, label %31, label %30
 
-31:                                               ; preds = %27
+30:                                               ; preds = %26
   store i32 2, ptr %1, align 4
-  br label %.thread130
+  br label %.critedge
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %.mask114 = and i32 %35, 192
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i32
+  %.mask114 = and i32 %34, 192
   %.not113 = icmp eq i32 %.mask114, 128
-  br i1 %.not113, label %37, label %36
+  br i1 %.not113, label %36, label %35
 
-36:                                               ; preds = %32
+35:                                               ; preds = %31
   store i32 3, ptr %1, align 4
-  br label %.thread130
+  br label %.critedge
 
-37:                                               ; preds = %32
-  %38 = icmp ne i8 %3, -32
-  %39 = and i8 %29, -32
-  %or.cond6 = icmp eq i8 %39, -96
-  %or.cond120 = or i1 %38, %or.cond6
-  br i1 %or.cond120, label %40, label %42
+36:                                               ; preds = %31
+  %37 = icmp ne i8 %3, -32
+  %38 = and i8 %28, -32
+  %or.cond6 = icmp eq i8 %38, -96
+  %or.cond120 = or i1 %37, %or.cond6
+  br i1 %or.cond120, label %39, label %41
 
-40:                                               ; preds = %37
-  %41 = icmp ne i8 %3, -19
-  %or.cond9 = icmp slt i8 %29, -96
-  %or.cond121 = or i1 %41, %or.cond9
-  br i1 %or.cond121, label %43, label %42
+39:                                               ; preds = %36
+  %40 = icmp ne i8 %3, -19
+  %or.cond9 = icmp slt i8 %28, -96
+  %or.cond121 = or i1 %40, %or.cond9
+  br i1 %or.cond121, label %42, label %41
 
-42:                                               ; preds = %40, %37
+41:                                               ; preds = %39, %36
   store i32 2, ptr %1, align 4
-  br label %.thread130
+  br label %.critedge
 
-43:                                               ; preds = %40
-  %44 = and i8 %3, -16
-  %or.cond11 = icmp eq i8 %44, -32
-  br i1 %or.cond11, label %45, label %.thread130
+42:                                               ; preds = %39
+  %43 = and i8 %3, -16
+  %or.cond11 = icmp eq i8 %43, -32
+  br i1 %or.cond11, label %44, label %.critedge
 
-45:                                               ; preds = %43
-  %46 = shl nuw nsw i32 %4, 12
-  %47 = and i32 %46, 61440
-  %48 = shl nuw nsw i32 %30, 6
-  %49 = and i32 %48, 4032
-  %50 = or disjoint i32 %49, %47
-  %51 = and i32 %35, 63
-  %52 = or disjoint i32 %50, %51
+44:                                               ; preds = %42
+  %45 = shl nuw nsw i32 %4, 12
+  %46 = and i32 %45, 61440
+  %47 = shl nuw nsw i32 %29, 6
+  %48 = and i32 %47, 4032
+  %49 = or disjoint i32 %48, %46
+  %50 = and i32 %34, 63
+  %51 = or disjoint i32 %49, %50
   store i32 3, ptr %1, align 4
-  br label %.thread130
+  br label %.critedge
 
-53:                                               ; preds = %24
-  %54 = and i32 %4, 248
-  %55 = icmp ne i32 %54, 240
-  %56 = icmp samesign ugt i8 %3, -12
-  %or.cond141 = select i1 %55, i1 true, i1 %56
-  br i1 %or.cond141, label %.thread130, label %57
+52:                                               ; preds = %23
+  %53 = and i32 %4, 248
+  %54 = icmp ne i32 %53, 240
+  %55 = icmp samesign ugt i8 %3, -12
+  %or.cond132 = select i1 %54, i1 true, i1 %55
+  br i1 %or.cond132, label %.critedge, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %.mask = and i32 %60, 192
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %58 = load i8, ptr %57, align 1
+  %59 = zext i8 %58 to i32
+  %.mask = and i32 %59, 192
   %.not = icmp eq i32 %.mask, 128
-  br i1 %.not, label %62, label %61
+  br i1 %.not, label %61, label %60
 
-61:                                               ; preds = %57
+60:                                               ; preds = %56
   store i32 2, ptr %1, align 4
-  br label %.thread130
+  br label %.critedge
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %64 = load i8, ptr %63, align 1
-  %65 = zext i8 %64 to i32
-  %.mask108 = and i32 %65, 192
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i32
+  %.mask108 = and i32 %64, 192
   %.not107 = icmp eq i32 %.mask108, 128
-  br i1 %.not107, label %67, label %66
+  br i1 %.not107, label %66, label %65
 
-66:                                               ; preds = %62
+65:                                               ; preds = %61
   store i32 3, ptr %1, align 4
-  br label %.thread130
+  br label %.critedge
 
-67:                                               ; preds = %62
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  %.mask110 = and i32 %70, 192
+66:                                               ; preds = %61
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
+  %.mask110 = and i32 %69, 192
   %.not109 = icmp eq i32 %.mask110, 128
-  br i1 %.not109, label %72, label %71
+  br i1 %.not109, label %71, label %70
 
-71:                                               ; preds = %67
+70:                                               ; preds = %66
   store i32 4, ptr %1, align 4
-  br label %.thread130
+  br label %.critedge
 
-72:                                               ; preds = %67
-  %73 = icmp ne i8 %3, -16
-  %74 = add i8 %59, 112
-  %or.cond14 = icmp ult i8 %74, 48
-  %or.cond125 = or i1 %73, %or.cond14
-  br i1 %or.cond125, label %75, label %77
+71:                                               ; preds = %66
+  %72 = icmp ne i8 %3, -16
+  %73 = add i8 %58, 112
+  %or.cond14 = icmp ult i8 %73, 48
+  %or.cond125 = or i1 %72, %or.cond14
+  br i1 %or.cond125, label %74, label %76
 
-75:                                               ; preds = %72
-  %76 = icmp ne i8 %3, -12
-  %or.cond17 = icmp slt i8 %59, -112
-  %or.cond126 = or i1 %76, %or.cond17
-  br i1 %or.cond126, label %78, label %77
+74:                                               ; preds = %71
+  %75 = icmp ne i8 %3, -12
+  %or.cond17 = icmp slt i8 %58, -112
+  %or.cond126 = or i1 %75, %or.cond17
+  br i1 %or.cond126, label %77, label %76
 
-77:                                               ; preds = %75, %72
+76:                                               ; preds = %74, %71
   store i32 2, ptr %1, align 4
-  br label %.thread130
+  br label %.critedge
 
-78:                                               ; preds = %75
-  %79 = icmp samesign ugt i8 %3, -17
-  br i1 %79, label %80, label %.thread130
+77:                                               ; preds = %74
+  %78 = icmp samesign ugt i8 %3, -17
+  br i1 %78, label %79, label %.critedge
 
-80:                                               ; preds = %78
-  %81 = shl nuw nsw i32 %4, 18
-  %82 = and i32 %81, 1835008
-  %83 = shl nuw nsw i32 %60, 12
-  %84 = and i32 %83, 258048
-  %85 = or disjoint i32 %84, %82
-  %.fr = freeze i32 %85
-  %86 = shl nuw nsw i32 %65, 6
-  %87 = and i32 %86, 4032
-  %88 = and i32 %70, 63
-  %89 = or disjoint i32 %87, %88
-  %90 = or i32 %89, %.fr
+79:                                               ; preds = %77
+  %80 = shl nuw nsw i32 %4, 18
+  %81 = and i32 %80, 1835008
+  %82 = shl nuw nsw i32 %59, 12
+  %83 = and i32 %82, 258048
+  %84 = or disjoint i32 %83, %81
+  %.fr = freeze i32 %84
+  %85 = shl nuw nsw i32 %64, 6
+  %86 = and i32 %85, 4032
+  %87 = and i32 %69, 63
+  %88 = or disjoint i32 %86, %87
+  %89 = or i32 %88, %.fr
   store i32 4, ptr %1, align 4
-  %91 = icmp ugt i32 %.fr, 1114111
-  %spec.select = select i1 %91, i32 63, i32 %90
-  br label %.thread130
+  %90 = icmp ugt i32 %.fr, 1114111
+  %spec.select = select i1 %90, i32 63, i32 %89
+  br label %.critedge
 
-.thread130:                                       ; preds = %80, %16, %18, %78, %43, %45, %53, %6, %77, %71, %66, %61, %42, %36, %31, %23
-  %.1 = phi i32 [ 63, %23 ], [ 63, %31 ], [ 63, %36 ], [ 63, %42 ], [ 63, %61 ], [ 63, %66 ], [ 63, %71 ], [ 63, %77 ], [ 63, %78 ], [ 63, %43 ], [ %52, %45 ], [ 63, %53 ], [ %8, %6 ], [ 63, %16 ], [ %22, %18 ], [ %spec.select, %80 ]
+.critedge:                                        ; preds = %79, %42, %44, %16, %18, %77, %52, %6, %30, %35, %41, %.critedge.critedge, %60, %65, %70, %76
+  %.1 = phi i32 [ 63, %76 ], [ 63, %70 ], [ 63, %65 ], [ 63, %60 ], [ 63, %.critedge.critedge ], [ 63, %41 ], [ 63, %35 ], [ 63, %30 ], [ 63, %42 ], [ %51, %44 ], [ 63, %16 ], [ %22, %18 ], [ 63, %77 ], [ 63, %52 ], [ %8, %6 ], [ %spec.select, %79 ]
   ret i32 %.1
 }
 

@@ -62,10 +62,10 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc(ptr noundef %0, ptr noundef %1,
 
 5:                                                ; preds = %4
   %.not48 = icmp eq ptr %1, null
-  br i1 %.not48, label %.preheader57, label %6
+  br i1 %.not48, label %.preheader54, label %6
 
-.preheader57:                                     ; preds = %5, %.preheader57
-  br label %.preheader57
+.preheader54:                                     ; preds = %5, %.preheader54
+  br label %.preheader54
 
 6:                                                ; preds = %5
   store ptr null, ptr %1, align 8, !tbaa !3
@@ -76,35 +76,35 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc(ptr noundef %0, ptr noundef %1,
   br label %10
 
 10:                                               ; preds = %6, %22
-  %.04161 = phi ptr [ %0, %6 ], [ %24, %22 ]
-  %.04360 = phi ptr [ null, %6 ], [ %.144, %22 ]
-  %11 = load ptr, ptr %.04161, align 8, !tbaa !15
-  %12 = getelementptr inbounds nuw i8, ptr %.04161, i64 32
+  %.04158 = phi ptr [ %0, %6 ], [ %24, %22 ]
+  %.04357 = phi ptr [ null, %6 ], [ %.144, %22 ]
+  %11 = load ptr, ptr %.04158, align 8, !tbaa !15
+  %12 = getelementptr inbounds nuw i8, ptr %.04158, i64 32
   %13 = load i8, ptr %12, align 8
   %14 = and i8 %13, 4
   %.not52 = icmp eq i8 %14, 0
   %15 = select i1 %.not52, i32 %3, i32 0
-  %16 = tail call zeroext i1 %11(ptr noundef nonnull %.04161, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %15) #5
+  %16 = tail call zeroext i1 %11(ptr noundef nonnull %.04158, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %15) #5
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %10
   %18 = load i8, ptr %7, align 8
   %19 = and i8 %18, 1
   %.not53 = icmp eq i8 %19, 0
-  br i1 %.not53, label %.thread, label %20
+  br i1 %.not53, label %.critedge, label %20
 
-.thread:                                          ; preds = %17
-  store ptr %.04161, ptr %1, align 8, !tbaa !3
+.critedge:                                        ; preds = %17
+  store ptr %.04158, ptr %1, align 8, !tbaa !3
   br label %48
 
 20:                                               ; preds = %17
-  %21 = icmp eq ptr %.04360, null
-  %spec.select = select i1 %21, ptr %.04161, ptr %.04360
+  %21 = icmp eq ptr %.04357, null
+  %spec.select = select i1 %21, ptr %.04158, ptr %.04357
   br label %22
 
-22:                                               ; preds = %10, %20
-  %.144 = phi ptr [ %.04360, %10 ], [ %spec.select, %20 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.04161, i64 48
+22:                                               ; preds = %20, %10
+  %.144 = phi ptr [ %.04357, %10 ], [ %spec.select, %20 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.04158, i64 48
   %24 = load ptr, ptr %23, align 8, !tbaa !16
   %.not49 = icmp eq ptr %24, null
   br i1 %.not49, label %25, label %10, !llvm.loop !17
@@ -149,8 +149,8 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc(ptr noundef %0, ptr noundef %1,
   store i8 %47, ptr %7, align 8
   br label %48
 
-48:                                               ; preds = %.thread, %33, %26
-  %.2 = phi i1 [ true, %26 ], [ false, %33 ], [ true, %.thread ]
+48:                                               ; preds = %.critedge, %33, %26
+  %.2 = phi i1 [ true, %26 ], [ false, %33 ], [ true, %.critedge ]
   ret i1 %.2
 }
 
@@ -202,15 +202,15 @@ lv_text_is_marker.exit:                           ; preds = %8
   br label %15
 
 15:                                               ; preds = %27, %13
-  %.04161.i = phi ptr [ %0, %13 ], [ %29, %27 ]
-  %.04360.i = phi ptr [ null, %13 ], [ %.144.i, %27 ]
-  %16 = load ptr, ptr %.04161.i, align 8, !tbaa !15
-  %17 = getelementptr inbounds nuw i8, ptr %.04161.i, i64 32
+  %.04158.i = phi ptr [ %0, %13 ], [ %29, %27 ]
+  %.04357.i = phi ptr [ null, %13 ], [ %.144.i, %27 ]
+  %16 = load ptr, ptr %.04158.i, align 8, !tbaa !15
+  %17 = getelementptr inbounds nuw i8, ptr %.04158.i, i64 32
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 4
   %.not52.i = icmp eq i8 %19, 0
   %20 = select i1 %.not52.i, i32 %2, i32 0
-  %21 = call zeroext i1 %16(ptr noundef nonnull %.04161.i, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %20) #5
+  %21 = call zeroext i1 %16(ptr noundef nonnull %.04158.i, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %20) #5
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %15
@@ -220,13 +220,13 @@ lv_text_is_marker.exit:                           ; preds = %8
   br i1 %.not53.i, label %lv_font_get_glyph_dsc.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = icmp eq ptr %.04360.i, null
-  %spec.select.i = select i1 %26, ptr %.04161.i, ptr %.04360.i
+  %26 = icmp eq ptr %.04357.i, null
+  %spec.select.i = select i1 %26, ptr %.04158.i, ptr %.04357.i
   br label %27
 
 27:                                               ; preds = %25, %15
-  %.144.i = phi ptr [ %.04360.i, %15 ], [ %spec.select.i, %25 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.04161.i, i64 48
+  %.144.i = phi ptr [ %.04357.i, %15 ], [ %spec.select.i, %25 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.04158.i, i64 48
   %29 = load ptr, ptr %28, align 8, !tbaa !16
   %.not49.i = icmp eq ptr %29, null
   br i1 %.not49.i, label %30, label %15, !llvm.loop !17

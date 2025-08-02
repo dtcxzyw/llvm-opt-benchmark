@@ -3279,17 +3279,17 @@ define void @_ZN10CmdExtract15ExtrPrepareNameER7ArchivePKwPwm(ptr noundef nonnul
   %41 = select i1 %.not80, ptr %40, ptr %38
   %42 = tail call i64 @wcslen(ptr noundef nonnull %41) #26
   %.not81 = icmp eq i64 %42, 0
-  br i1 %.not81, label %.thread, label %43
+  br i1 %.not81, label %69, label %43
 
 43:                                               ; preds = %36
   %44 = tail call i64 @wcslen(ptr noundef %2) #26
   %.not82 = icmp ult i64 %44, %42
-  br i1 %.not82, label %.thread, label %45
+  br i1 %.not82, label %69, label %45
 
 45:                                               ; preds = %43
   %46 = tail call noundef i32 @_Z10wcsnicompcPKwS0_m(ptr noundef nonnull %41, ptr noundef %2, i64 noundef %42)
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %.thread
+  br i1 %47, label %48, label %69
 
 48:                                               ; preds = %45
   %49 = getelementptr i32, ptr %41, i64 %42
@@ -3307,7 +3307,7 @@ define void @_ZN10CmdExtract15ExtrPrepareNameER7ArchivePKwPwm(ptr noundef nonnul
 57:                                               ; preds = %53
   %58 = load i32, ptr %54, align 4, !tbaa !14
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %.thread
+  br i1 %59, label %60, label %69
 
 60:                                               ; preds = %57, %53, %48
   %61 = getelementptr inbounds nuw i32, ptr %2, i64 %42
@@ -3323,14 +3323,14 @@ define void @_ZN10CmdExtract15ExtrPrepareNameER7ArchivePKwPwm(ptr noundef nonnul
 66:                                               ; preds = %62
   %67 = load i32, ptr %.2, align 4, !tbaa !14
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %.thread
+  br i1 %68, label %.critedge, label %69
 
-69:                                               ; preds = %66
+.critedge:                                        ; preds = %66
   store i32 0, ptr %3, align 4, !tbaa !14
   br label %114
 
-.thread:                                          ; preds = %43, %45, %57, %66, %36
-  %.0 = phi ptr [ %2, %36 ], [ %2, %43 ], [ %2, %45 ], [ %2, %57 ], [ %.2, %66 ]
+69:                                               ; preds = %66, %57, %45, %43, %36
+  %.0 = phi ptr [ %2, %36 ], [ %.2, %66 ], [ %2, %57 ], [ %2, %45 ], [ %2, %43 ]
   %70 = load ptr, ptr %6, align 8, !tbaa !16
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 83476
   %72 = load i32, ptr %71, align 4, !tbaa !14
@@ -3341,19 +3341,19 @@ define void @_ZN10CmdExtract15ExtrPrepareNameER7ArchivePKwPwm(ptr noundef nonnul
   %or.cond = select i1 %75, i1 %76, i1 false
   br i1 %or.cond, label %77, label %80
 
-77:                                               ; preds = %.thread
+77:                                               ; preds = %69
   %78 = tail call noundef zeroext i1 @_Z10IsDriveDivi(i32 noundef 58)
-  br i1 %78, label %79, label %.thread87
+  br i1 %78, label %79, label %.thread83
 
 79:                                               ; preds = %77
   store i32 0, ptr %3, align 4, !tbaa !14
-  br label %.thread87
+  br label %.thread83
 
-80:                                               ; preds = %.thread
+80:                                               ; preds = %69
   %81 = icmp eq i32 %72, 69
-  br i1 %81, label %90, label %.thread87
+  br i1 %81, label %90, label %.thread83
 
-.thread87:                                        ; preds = %77, %79, %80
+.thread83:                                        ; preds = %77, %79, %80
   %82 = phi i1 [ false, %80 ], [ true, %79 ], [ false, %77 ]
   %83 = load ptr, ptr %6, align 8, !tbaa !16
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 57452
@@ -3361,14 +3361,14 @@ define void @_ZN10CmdExtract15ExtrPrepareNameER7ArchivePKwPwm(ptr noundef nonnul
   %86 = icmp eq i32 %85, 1
   br i1 %86, label %90, label %87
 
-87:                                               ; preds = %.thread87
+87:                                               ; preds = %.thread83
   tail call void @_Z8wcsncatzPwPKwm(ptr noundef %3, ptr noundef %.0, i64 noundef %4)
   %88 = load i32, ptr %3, align 4, !tbaa !14
   %89 = tail call noundef i32 @_Z8toupperwi(i32 noundef %88)
   br i1 %82, label %95, label %114
 
-90:                                               ; preds = %80, %.thread87
-  %91 = phi i1 [ %82, %.thread87 ], [ false, %80 ]
+90:                                               ; preds = %80, %.thread83
+  %91 = phi i1 [ %82, %.thread83 ], [ false, %80 ]
   %92 = tail call noundef ptr @_Z11PointToNamePKw(ptr noundef %.0)
   tail call void @_Z8wcsncatzPwPKwm(ptr noundef %3, ptr noundef %92, i64 noundef %4)
   %93 = load i32, ptr %3, align 4, !tbaa !14
@@ -3410,7 +3410,7 @@ define void @_ZN10CmdExtract15ExtrPrepareNameER7ArchivePKwPwm(ptr noundef nonnul
   store i32 47, ptr %97, align 4, !tbaa !14
   br label %114
 
-114:                                              ; preds = %87, %69, %106, %113, %110, %107, %90, %11
+114:                                              ; preds = %87, %.critedge, %106, %113, %110, %107, %90, %11
   ret void
 }
 
@@ -3691,7 +3691,7 @@ define void @_ZN10CmdExtract13ExtrCreateDirER7ArchivePKw(ptr noundef nonnull ali
 25:                                               ; preds = %23
   %26 = tail call noundef i32 @_Z11GetFileAttrPKw(ptr noundef nonnull %15)
   %27 = tail call noundef zeroext i1 @_Z5IsDirj(i32 noundef %26)
-  br i1 %27, label %.thread55, label %28
+  br i1 %27, label %.thread51, label %28
 
 28:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #24
@@ -3721,7 +3721,7 @@ define void @_ZN10CmdExtract13ExtrCreateDirER7ArchivePKw(ptr noundef nonnull ali
 
 47:                                               ; preds = %34
   %48 = call noundef zeroext i1 @_Z12IsNameUsablePKw(ptr noundef nonnull %15)
-  br i1 %48, label %.thread53, label %49
+  br i1 %48, label %.thread49, label %49
 
 49:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #24
@@ -3780,11 +3780,11 @@ _Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %56
 64:                                               ; preds = %_Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit
   %65 = call noundef i32 @_Z11GetFileAttrPKw(ptr noundef nonnull %15)
   %66 = call noundef zeroext i1 @_Z5IsDirj(i32 noundef %65)
-  br i1 %66, label %.thread51, label %.thread39
+  br i1 %66, label %.thread47, label %.thread39
 
-.thread51:                                        ; preds = %64
+.thread47:                                        ; preds = %64
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #24
-  br label %.thread55
+  br label %.thread51
 
 .thread39:                                        ; preds = %_Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit, %64
   %67 = load ptr, ptr %9, align 8, !tbaa !16
@@ -3820,26 +3820,26 @@ _Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %56
   %90 = call noundef i32 @_Z7MakeDirPKwbj(ptr noundef nonnull %15, i1 noundef zeroext %88, i32 noundef %89)
   %91 = icmp eq i32 %90, 0
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #24
-  br i1 %91, label %.thread.sink.split, label %.thread53
+  br i1 %91, label %.thread.sink.split, label %.thread49
 
-.thread55:                                        ; preds = %25, %.thread51
+.thread51:                                        ; preds = %25, %.thread47
   %92 = load ptr, ptr %9, align 8, !tbaa !16
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 58532
   %94 = load i8, ptr %93, align 4, !tbaa !218, !range !67, !noundef !68
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %.thread.sink.split, label %96
 
-96:                                               ; preds = %.thread55
+96:                                               ; preds = %.thread51
   %97 = load i32, ptr %20, align 4, !tbaa !219
   %98 = call noundef zeroext i1 @_Z11SetFileAttrPKwj(ptr noundef nonnull %15, i32 noundef %97)
   br label %.thread.sink.split
 
-.thread53:                                        ; preds = %78, %47
+.thread49:                                        ; preds = %78, %47
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #24
   br label %99
 
-99:                                               ; preds = %99, %.thread53
-  %indvars.iv.i.i34 = phi i64 [ 0, %.thread53 ], [ %indvars.iv.next.i.i35, %99 ]
+99:                                               ; preds = %99, %.thread49
+  %indvars.iv.i.i34 = phi i64 [ 0, %.thread49 ], [ %indvars.iv.next.i.i35, %99 ]
   %100 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i34
   store ptr @.str, ptr %100, align 8, !tbaa !77
   %indvars.iv.next.i.i35 = add nuw nsw i64 %indvars.iv.i.i34, 1
@@ -3865,11 +3865,11 @@ _Z5uiMsgIJRA2048_wS1_S1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %56
   store i32 16, ptr %108, align 8, !tbaa !162
   call void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 9)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8569
-  %.pre57 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !127, !range !67
-  %109 = trunc nuw i8 %.pre57 to i1
+  %.pre53 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !127, !range !67
+  %109 = trunc nuw i8 %.pre53 to i1
   br i1 %109, label %.thread, label %128
 
-.thread.sink.split:                               ; preds = %.thread55, %96, %14, %34, %78
+.thread.sink.split:                               ; preds = %.thread51, %96, %34, %14, %78
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8569
   store i8 1, ptr %110, align 1, !tbaa !127
   br label %.thread

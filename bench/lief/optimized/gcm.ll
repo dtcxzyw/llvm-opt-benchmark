@@ -574,12 +574,12 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = icmp ult i64 %4, %2
-  br i1 %8, label %.loopexit, label %9
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %6
   store i64 %2, ptr %5, align 8, !tbaa !3
   %10 = icmp eq i64 %2, 0
-  br i1 %10, label %.loopexit, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %9
   %12 = icmp ugt ptr %3, %1
@@ -588,7 +588,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %15 = sub i64 %13, %14
   %16 = icmp ult i64 %15, %2
   %or.cond = and i1 %12, %16
-  br i1 %or.cond, label %.loopexit, label %17
+  br i1 %or.cond, label %.critedge, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -597,7 +597,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %21 = icmp ult i64 %20, %19
   %22 = icmp ugt i64 %20, 68719476704
   %or.cond96 = or i1 %21, %22
-  br i1 %or.cond96, label %.loopexit, label %23
+  br i1 %or.cond96, label %.critedge, label %23
 
 23:                                               ; preds = %17
   %24 = icmp eq i64 %19, 0
@@ -608,7 +608,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %27 = load i64, ptr %26, align 8, !tbaa !27
   %28 = and i64 %27, 15
   %.not = icmp eq i64 %28, 0
-  br i1 %.not, label %.thread113, label %29
+  br i1 %.not, label %.thread, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -620,93 +620,93 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %32 = phi i64 [ %.pre, %29 ], [ %19, %23 ]
   %33 = and i64 %32, 15
   %.not88 = icmp eq i64 %33, 0
-  br i1 %.not88, label %.thread113, label %34
+  br i1 %.not88, label %.thread, label %34
 
 34:                                               ; preds = %31
   %35 = sub nuw nsw i64 16, %33
   %spec.select = tail call i64 @llvm.umin.i64(i64 %35, i64 %2)
   %36 = call fastcc i32 @gcm_mask(ptr noundef nonnull %0, ptr noundef %7, i64 noundef %33, i64 noundef %spec.select, ptr noundef %1, ptr noundef %3)
   %.not89 = icmp eq i32 %36, 0
-  br i1 %.not89, label %37, label %.loopexit
+  br i1 %.not89, label %37, label %.critedge
 
 37:                                               ; preds = %34
   %38 = add nuw nsw i64 %spec.select, %33
   %39 = icmp eq i64 %38, 16
-  br i1 %39, label %40, label %.thread
+  br i1 %39, label %40, label %42
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 400
   call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %41, ptr noundef nonnull %41)
+  br label %42
+
+42:                                               ; preds = %40, %37
+  %43 = load i64, ptr %18, align 8, !tbaa !29
+  %44 = add i64 %43, %spec.select
+  %45 = sub i64 %2, %spec.select
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.select
   br label %.thread
 
-.thread:                                          ; preds = %37, %40
-  %42 = load i64, ptr %18, align 8, !tbaa !29
-  %43 = add i64 %42, %spec.select
-  %44 = sub i64 %2, %spec.select
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.select
-  br label %.thread113
+.thread:                                          ; preds = %25, %42, %31
+  %48 = phi i64 [ %44, %42 ], [ %32, %31 ], [ 0, %25 ]
+  %.076 = phi i64 [ %45, %42 ], [ %2, %31 ], [ %2, %25 ]
+  %.073 = phi ptr [ %46, %42 ], [ %1, %31 ], [ %1, %25 ]
+  %.071 = phi ptr [ %47, %42 ], [ %3, %31 ], [ %3, %25 ]
+  %49 = add i64 %48, %.076
+  store i64 %49, ptr %18, align 8, !tbaa !29
+  %50 = icmp ugt i64 %.076, 15
+  br i1 %50, label %.lr.ph, label %._crit_edge
 
-.thread113:                                       ; preds = %25, %.thread, %31
-  %47 = phi i64 [ %32, %31 ], [ %43, %.thread ], [ 0, %25 ]
-  %.076 = phi i64 [ %2, %31 ], [ %44, %.thread ], [ %2, %25 ]
-  %.073 = phi ptr [ %1, %31 ], [ %45, %.thread ], [ %1, %25 ]
-  %.071 = phi ptr [ %3, %31 ], [ %46, %.thread ], [ %3, %25 ]
-  %48 = add i64 %47, %.076
-  store i64 %48, ptr %18, align 8, !tbaa !29
-  %49 = icmp ugt i64 %.076, 15
-  br i1 %49, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %.thread
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 396
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  br label %53
 
-.lr.ph:                                           ; preds = %.thread113
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 396
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  br label %52
+53:                                               ; preds = %.lr.ph, %58
+  %.2103 = phi ptr [ %.071, %.lr.ph ], [ %61, %58 ]
+  %.275102 = phi ptr [ %.073, %.lr.ph ], [ %60, %58 ]
+  %.278101 = phi i64 [ %.076, %.lr.ph ], [ %59, %58 ]
+  %.0.copyload.i.i = load i32, ptr %51, align 1
+  %54 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)
+  %55 = add i32 %54, 1
+  %56 = call i32 @llvm.bswap.i32(i32 %55)
+  store i32 %56, ptr %51, align 1
+  %57 = call fastcc i32 @gcm_mask(ptr noundef nonnull %0, ptr noundef %7, i64 noundef 0, i64 noundef 16, ptr noundef %.275102, ptr noundef %.2103)
+  %.not92 = icmp eq i32 %57, 0
+  br i1 %.not92, label %58, label %.critedge
 
-52:                                               ; preds = %.lr.ph, %57
-  %.2106 = phi ptr [ %.071, %.lr.ph ], [ %60, %57 ]
-  %.275105 = phi ptr [ %.073, %.lr.ph ], [ %59, %57 ]
-  %.278104 = phi i64 [ %.076, %.lr.ph ], [ %58, %57 ]
-  %.0.copyload.i.i = load i32, ptr %50, align 1
-  %53 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)
-  %54 = add i32 %53, 1
-  %55 = call i32 @llvm.bswap.i32(i32 %54)
-  store i32 %55, ptr %50, align 1
-  %56 = call fastcc i32 @gcm_mask(ptr noundef nonnull %0, ptr noundef %7, i64 noundef 0, i64 noundef 16, ptr noundef %.275105, ptr noundef %.2106)
-  %.not92 = icmp eq i32 %56, 0
-  br i1 %.not92, label %57, label %.loopexit
+58:                                               ; preds = %53
+  call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %52, ptr noundef nonnull %52)
+  %59 = add i64 %.278101, -16
+  %60 = getelementptr inbounds nuw i8, ptr %.275102, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.2103, i64 16
+  %62 = icmp ugt i64 %59, 15
+  br i1 %62, label %53, label %._crit_edge, !llvm.loop !30
 
-57:                                               ; preds = %52
-  call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %51, ptr noundef nonnull %51)
-  %58 = add i64 %.278104, -16
-  %59 = getelementptr inbounds nuw i8, ptr %.275105, i64 16
-  %60 = getelementptr inbounds nuw i8, ptr %.2106, i64 16
-  %61 = icmp ugt i64 %58, 15
-  br i1 %61, label %52, label %._crit_edge, !llvm.loop !30
-
-._crit_edge:                                      ; preds = %57, %.thread113
-  %.278.lcssa = phi i64 [ %.076, %.thread113 ], [ %58, %57 ]
-  %.275.lcssa = phi ptr [ %.073, %.thread113 ], [ %59, %57 ]
-  %.2.lcssa = phi ptr [ %.071, %.thread113 ], [ %60, %57 ]
+._crit_edge:                                      ; preds = %58, %.thread
+  %.278.lcssa = phi i64 [ %.076, %.thread ], [ %59, %58 ]
+  %.275.lcssa = phi ptr [ %.073, %.thread ], [ %60, %58 ]
+  %.2.lcssa = phi ptr [ %.071, %.thread ], [ %61, %58 ]
   %.not90 = icmp eq i64 %.278.lcssa, 0
-  br i1 %.not90, label %68, label %62
+  br i1 %.not90, label %69, label %63
 
-62:                                               ; preds = %._crit_edge
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 396
-  %.0.copyload.i.i97 = load i32, ptr %63, align 1
-  %64 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i97)
-  %65 = add i32 %64, 1
-  %66 = call i32 @llvm.bswap.i32(i32 %65)
-  store i32 %66, ptr %63, align 1
-  %67 = call fastcc i32 @gcm_mask(ptr noundef nonnull %0, ptr noundef %7, i64 noundef 0, i64 noundef %.278.lcssa, ptr noundef %.275.lcssa, ptr noundef %.2.lcssa)
-  %.not91 = icmp eq i32 %67, 0
-  br i1 %.not91, label %68, label %.loopexit
+63:                                               ; preds = %._crit_edge
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 396
+  %.0.copyload.i.i97 = load i32, ptr %64, align 1
+  %65 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i97)
+  %66 = add i32 %65, 1
+  %67 = call i32 @llvm.bswap.i32(i32 %66)
+  store i32 %67, ptr %64, align 1
+  %68 = call fastcc i32 @gcm_mask(ptr noundef nonnull %0, ptr noundef %7, i64 noundef 0, i64 noundef %.278.lcssa, ptr noundef %.275.lcssa, ptr noundef %.2.lcssa)
+  %.not91 = icmp eq i32 %68, 0
+  br i1 %.not91, label %69, label %.critedge
 
-68:                                               ; preds = %62, %._crit_edge
+69:                                               ; preds = %63, %._crit_edge
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 16) #11
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %52, %34, %62, %17, %11, %9, %6, %68
-  %.070 = phi i32 [ 0, %68 ], [ -22, %6 ], [ 0, %9 ], [ -20, %11 ], [ -20, %17 ], [ %67, %62 ], [ %36, %34 ], [ %56, %52 ]
+.critedge:                                        ; preds = %53, %34, %63, %17, %11, %9, %6, %69
+  %.070 = phi i32 [ 0, %69 ], [ -22, %6 ], [ 0, %9 ], [ -20, %11 ], [ -20, %17 ], [ %68, %63 ], [ %36, %34 ], [ %57, %53 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
   ret i32 %.070
 }

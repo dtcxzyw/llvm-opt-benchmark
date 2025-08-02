@@ -297,81 +297,81 @@ define noundef zeroext i1 @_ZN3g2o9VertexSE34readERSi(ptr noundef nonnull align 
   %3 = alloca %"class.Eigen::Matrix.24", align 8
   %4 = alloca %"class.Eigen::Transform", align 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #23
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 32
   br label %5
 
-5:                                                ; preds = %11, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %11 ]
+5:                                                ; preds = %13, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %13 ]
   %6 = load ptr, ptr %1, align 8, !tbaa !31
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %8
-  %9 = load i32, ptr %gep.i, align 8, !tbaa !56
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %9 = getelementptr inbounds i8, ptr %1, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %11 = load i32, ptr %10, align 8, !tbaa !56
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
-  %13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %12)
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %14)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
   br i1 %exitcond.not.i, label %..critedge_crit_edge.i, label %5, !llvm.loop !65
 
-..critedge_crit_edge.i:                           ; preds = %11
+..critedge_crit_edge.i:                           ; preds = %13
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !31
   %.phi.trans.insert.i = getelementptr i8, ptr %.pre.i, i64 -24
   %.pre11.i = load i64, ptr %.phi.trans.insert.i, align 8
+  %.phi.trans.insert12.i = getelementptr inbounds i8, ptr %1, i64 %.pre11.i
+  %.phi.trans.insert13.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert12.i, i64 32
+  %.pre14.i = load i32, ptr %.phi.trans.insert13.i, align 8, !tbaa !56
   br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !65
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %5, %..critedge_crit_edge.i
-  %14 = phi i64 [ %.pre11.i, %..critedge_crit_edge.i ], [ %8, %5 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %17 = load i32, ptr %16, align 8, !tbaa !56
-  %18 = icmp eq i32 %17, 0
-  %19 = and i32 %17, 2
-  %20 = icmp ne i32 %19, 0
-  %21 = or i1 %18, %20
+  %16 = phi i32 [ %.pre14.i, %..critedge_crit_edge.i ], [ %11, %5 ]
+  %17 = icmp eq i32 %16, 0
+  %18 = and i32 %16, 2
+  %19 = icmp ne i32 %18, 0
+  %20 = or i1 %17, %19
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #23
   call void @_ZN3g2o8internal12fromVectorQTERKN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEE(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Transform") align 16 %4, ptr noundef nonnull align 8 dereferenceable(56) %3)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %23 = load <2 x double>, ptr %4, align 16, !tbaa !55
-  store <2 x double> %23, ptr %22, align 16, !tbaa !55
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %26 = load <2 x double>, ptr %25, align 16, !tbaa !55
-  store <2 x double> %26, ptr %24, align 16, !tbaa !55
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %29 = load <2 x double>, ptr %28, align 16, !tbaa !55
-  store <2 x double> %29, ptr %27, align 16, !tbaa !55
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %32 = load <2 x double>, ptr %31, align 16, !tbaa !55
-  store <2 x double> %32, ptr %30, align 16, !tbaa !55
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %35 = load <2 x double>, ptr %34, align 16, !tbaa !55
-  store <2 x double> %35, ptr %33, align 16, !tbaa !55
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %38 = load <2 x double>, ptr %37, align 16, !tbaa !55
-  store <2 x double> %38, ptr %36, align 16, !tbaa !55
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %41 = load <2 x double>, ptr %40, align 16, !tbaa !55
-  store <2 x double> %41, ptr %39, align 16, !tbaa !55
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %44 = load <2 x double>, ptr %43, align 16, !tbaa !55
-  store <2 x double> %44, ptr %42, align 16, !tbaa !55
-  %45 = load ptr, ptr %0, align 16, !tbaa !31
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 216
-  %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 16 dereferenceable(344) %0)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %22 = load <2 x double>, ptr %4, align 16, !tbaa !55
+  store <2 x double> %22, ptr %21, align 16, !tbaa !55
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %25 = load <2 x double>, ptr %24, align 16, !tbaa !55
+  store <2 x double> %25, ptr %23, align 16, !tbaa !55
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %28 = load <2 x double>, ptr %27, align 16, !tbaa !55
+  store <2 x double> %28, ptr %26, align 16, !tbaa !55
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %31 = load <2 x double>, ptr %30, align 16, !tbaa !55
+  store <2 x double> %31, ptr %29, align 16, !tbaa !55
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %34 = load <2 x double>, ptr %33, align 16, !tbaa !55
+  store <2 x double> %34, ptr %32, align 16, !tbaa !55
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %37 = load <2 x double>, ptr %36, align 16, !tbaa !55
+  store <2 x double> %37, ptr %35, align 16, !tbaa !55
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %40 = load <2 x double>, ptr %39, align 16, !tbaa !55
+  store <2 x double> %40, ptr %38, align 16, !tbaa !55
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %43 = load <2 x double>, ptr %42, align 16, !tbaa !55
+  store <2 x double> %43, ptr %41, align 16, !tbaa !55
+  %44 = load ptr, ptr %0, align 16, !tbaa !31
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 216
+  %46 = load ptr, ptr %45, align 8
+  call void %46(ptr noundef nonnull align 16 dereferenceable(344) %0)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #23
-  ret i1 %21
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

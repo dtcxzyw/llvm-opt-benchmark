@@ -10093,7 +10093,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZN4
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i56, i64 1
   %add.ptr.i18.i = getelementptr i8, ptr %26, i64 %25
   %cmp.not41.i = icmp eq i64 %sub.i, 1
-  br i1 %cmp.not41.i, label %if.then70, label %for.body.i
+  br i1 %cmp.not41.i, label %if.then70.critedge, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %if.end.i
   %frac_digits.143.i = phi i64 [ %inc.i, %if.end.i ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
@@ -10113,7 +10113,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i: ; preds = %if
   %frac_digits.1.lcssa.i = phi i64 [ %frac_digits.143.i, %for.body.i ], [ %sub.i.i, %if.end.i ]
   %30 = add i64 %frac_digits.1.lcssa.i, -10
   %or.cond.i = icmp ult i64 %30, -9
-  br i1 %or.cond.i, label %if.then70, label %lor.lhs.false10.i
+  br i1 %or.cond.i, label %if.then70.critedge, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %frac_digits.1.lcssa.i)
@@ -10124,7 +10124,7 @@ lor.lhs.false10.i:                                ; preds = %_ZNKSt17basic_strin
 call.i.i27.i.noexc:                               ; preds = %lor.lhs.false10.i
   %31 = load i32, ptr %val.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i)
-  br i1 %call.i.i27.i61, label %if.end15.i, label %if.then70
+  br i1 %call.i.i27.i61, label %if.end15.i, label %if.then70.critedge
 
 if.end15.i:                                       ; preds = %call.i.i27.i.noexc
   %add.i = add nuw nsw i64 %frac_digits.1.lcssa.i, 1
@@ -10162,7 +10162,7 @@ for.body21.i:                                     ; preds = %for.body21.i, %for.
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %frac_digits.056.i
   br i1 %exitcond.not.i, label %if.end78, label %for.body21.i, !llvm.loop !202
 
-if.then70:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i, %call.i.i27.i.noexc
+if.then70.critedge:                               ; preds = %call.i.i27.i.noexc, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
   %35 = load i64, ptr %str, align 8
   %cmp.i.i.i.i63 = icmp eq i64 %35, 0
   br i1 %cmp.i.i.i.i63, label %invoke.cont90.invoke, label %if.then.i.i78.invoke
@@ -10202,16 +10202,16 @@ if.then89:                                        ; preds = %if.end85, %_ZNSt11c
   %cmp.i.i.i.i77 = icmp eq i64 %36, 0
   br i1 %cmp.i.i.i.i77, label %invoke.cont90.invoke, label %if.then.i.i78.invoke
 
-if.then.i.i78.invoke:                             ; preds = %if.then89, %if.then70, %if.end57, %if.then49, %if.then38, %if.end26, %if.then19, %_ZN4absl12lts_202308026StatusD2Ev.exit
+if.then.i.i78.invoke:                             ; preds = %if.then89, %if.then70.critedge, %if.end57, %if.then49, %if.then38, %if.end26, %if.then19, %_ZN4absl12lts_202308026StatusD2Ev.exit
   invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(88) %str) #28
           to label %if.then.i.i78.cont unwind label %lpad
 
 if.then.i.i78.cont:                               ; preds = %if.then.i.i78.invoke
   unreachable
 
-invoke.cont90.invoke:                             ; preds = %if.then89, %if.then70, %if.then49, %if.then38, %if.then19
-  %37 = phi i64 [ 35, %if.then19 ], [ 24, %if.then38 ], [ 21, %if.then49 ], [ 28, %if.then70 ], [ 35, %if.then89 ]
-  %38 = phi ptr [ @.str.85, %if.then19 ], [ @.str.86, %if.then38 ], [ @.str.87, %if.then49 ], [ @.str.88, %if.then70 ], [ @.str.90, %if.then89 ]
+invoke.cont90.invoke:                             ; preds = %if.then89, %if.then70.critedge, %if.then49, %if.then38, %if.then19
+  %37 = phi i64 [ 35, %if.then19 ], [ 24, %if.then38 ], [ 21, %if.then49 ], [ 28, %if.then70.critedge ], [ 35, %if.then89 ]
+  %38 = phi ptr [ @.str.85, %if.then19 ], [ @.str.86, %if.then38 ], [ @.str.87, %if.then49 ], [ @.str.88, %if.then70.critedge ], [ @.str.90, %if.then89 ]
   %loc = getelementptr inbounds nuw i8, ptr %str, i64 56
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %loc, i64 %37, ptr nonnull %38)
           to label %cleanup110 unwind label %lpad
@@ -24229,7 +24229,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZN4
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i56, i64 1
   %add.ptr.i18.i = getelementptr i8, ptr %26, i64 %25
   %cmp.not41.i = icmp eq i64 %sub.i, 1
-  br i1 %cmp.not41.i, label %if.then70, label %for.body.i
+  br i1 %cmp.not41.i, label %if.then70.critedge, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %if.end.i
   %frac_digits.143.i = phi i64 [ %inc.i, %if.end.i ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
@@ -24249,7 +24249,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i: ; preds = %if
   %frac_digits.1.lcssa.i = phi i64 [ %frac_digits.143.i, %for.body.i ], [ %sub.i.i, %if.end.i ]
   %30 = add i64 %frac_digits.1.lcssa.i, -10
   %or.cond.i = icmp ult i64 %30, -9
-  br i1 %or.cond.i, label %if.then70, label %lor.lhs.false10.i
+  br i1 %or.cond.i, label %if.then70.critedge, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %frac_digits.1.lcssa.i)
@@ -24260,7 +24260,7 @@ lor.lhs.false10.i:                                ; preds = %_ZNKSt17basic_strin
 call.i.i27.i.noexc:                               ; preds = %lor.lhs.false10.i
   %31 = load i32, ptr %val.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i)
-  br i1 %call.i.i27.i61, label %if.end15.i, label %if.then70
+  br i1 %call.i.i27.i61, label %if.end15.i, label %if.then70.critedge
 
 if.end15.i:                                       ; preds = %call.i.i27.i.noexc
   %add.i = add nuw nsw i64 %frac_digits.1.lcssa.i, 1
@@ -24298,7 +24298,7 @@ for.body21.i:                                     ; preds = %for.body21.i, %for.
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %frac_digits.056.i
   br i1 %exitcond.not.i, label %if.end78, label %for.body21.i, !llvm.loop !202
 
-if.then70:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i, %call.i.i27.i.noexc
+if.then70.critedge:                               ; preds = %call.i.i27.i.noexc, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
   %35 = load i64, ptr %str, align 8
   %cmp.i.i.i.i63 = icmp eq i64 %35, 0
   br i1 %cmp.i.i.i.i63, label %invoke.cont90.invoke, label %if.then.i.i78.invoke
@@ -24338,16 +24338,16 @@ if.then89:                                        ; preds = %if.end85, %_ZNSt11c
   %cmp.i.i.i.i77 = icmp eq i64 %36, 0
   br i1 %cmp.i.i.i.i77, label %invoke.cont90.invoke, label %if.then.i.i78.invoke
 
-if.then.i.i78.invoke:                             ; preds = %if.then89, %if.then70, %if.end57, %if.then49, %if.then38, %if.end26, %if.then19, %_ZN4absl12lts_202308026StatusD2Ev.exit
+if.then.i.i78.invoke:                             ; preds = %if.then89, %if.then70.critedge, %if.end57, %if.then49, %if.then38, %if.end26, %if.then19, %_ZN4absl12lts_202308026StatusD2Ev.exit
   invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(88) %str) #28
           to label %if.then.i.i78.cont unwind label %lpad
 
 if.then.i.i78.cont:                               ; preds = %if.then.i.i78.invoke
   unreachable
 
-invoke.cont90.invoke:                             ; preds = %if.then89, %if.then70, %if.then49, %if.then38, %if.then19
-  %37 = phi i64 [ 35, %if.then19 ], [ 24, %if.then38 ], [ 21, %if.then49 ], [ 28, %if.then70 ], [ 35, %if.then89 ]
-  %38 = phi ptr [ @.str.85, %if.then19 ], [ @.str.86, %if.then38 ], [ @.str.87, %if.then49 ], [ @.str.88, %if.then70 ], [ @.str.90, %if.then89 ]
+invoke.cont90.invoke:                             ; preds = %if.then89, %if.then70.critedge, %if.then49, %if.then38, %if.then19
+  %37 = phi i64 [ 35, %if.then19 ], [ 24, %if.then38 ], [ 21, %if.then49 ], [ 28, %if.then70.critedge ], [ 35, %if.then89 ]
+  %38 = phi ptr [ @.str.85, %if.then19 ], [ @.str.86, %if.then38 ], [ @.str.87, %if.then49 ], [ @.str.88, %if.then70.critedge ], [ @.str.90, %if.then89 ]
   %loc = getelementptr inbounds nuw i8, ptr %str, i64 56
   invoke void @_ZNK6google8protobuf13json_internal12JsonLocation7InvalidESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %loc, i64 %37, ptr nonnull %38)
           to label %cleanup110 unwind label %lpad

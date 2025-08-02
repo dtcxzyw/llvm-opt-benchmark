@@ -304,11 +304,11 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %35, %11, %pm_utf_8_
   br label %pm_unicode_codepoint_match.exit
 
 .preheader:                                       ; preds = %pm_utf_8_codepoint.exit, %53
-  %.02135.i = phi i64 [ %.2.i, %53 ], [ 1450, %pm_utf_8_codepoint.exit ]
-  %.02234.i = phi i64 [ %.224.i, %53 ], [ 0, %pm_utf_8_codepoint.exit ]
-  %45 = sub nuw i64 %.02135.i, %.02234.i
+  %.02132.i = phi i64 [ %.2.i, %53 ], [ 1450, %pm_utf_8_codepoint.exit ]
+  %.02231.i = phi i64 [ %.224.i, %53 ], [ 0, %pm_utf_8_codepoint.exit ]
+  %45 = sub nuw i64 %.02132.i, %.02231.i
   %46 = lshr i64 %45, 1
-  %47 = add i64 %46, %.02234.i
+  %47 = add i64 %46, %.02231.i
   %spec.select.i = and i64 %47, -2
   %48 = getelementptr i32, ptr @unicode_alpha_codepoints, i64 %spec.select.i
   %49 = load i32, ptr %48, align 8, !tbaa !13
@@ -322,9 +322,9 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %35, %11, %pm_utf_8_
   br i1 %.not30.i, label %53, label %pm_unicode_codepoint_match.exit
 
 53:                                               ; preds = %50, %.preheader
-  %.2.i = phi i64 [ %spec.select.i, %.preheader ], [ %.02135.i, %50 ]
+  %.2.i = phi i64 [ %.02132.i, %50 ], [ %spec.select.i, %.preheader ]
   %54 = add i64 %spec.select.i, 2
-  %.224.i = select i1 %.not29.i, i64 %.02234.i, i64 %54
+  %.224.i = select i1 %.not29.i, i64 %.02231.i, i64 %54
   %55 = icmp ult i64 %.224.i, %.2.i
   br i1 %55, label %.preheader, label %pm_unicode_codepoint_match.exit, !llvm.loop !15
 
@@ -412,11 +412,11 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %35, %11, %pm_utf_8_
   br label %pm_unicode_codepoint_match.exit
 
 .preheader:                                       ; preds = %pm_utf_8_codepoint.exit, %53
-  %.02135.i = phi i64 [ %.2.i, %53 ], [ 1528, %pm_utf_8_codepoint.exit ]
-  %.02234.i = phi i64 [ %.224.i, %53 ], [ 0, %pm_utf_8_codepoint.exit ]
-  %45 = sub nuw i64 %.02135.i, %.02234.i
+  %.02132.i = phi i64 [ %.2.i, %53 ], [ 1528, %pm_utf_8_codepoint.exit ]
+  %.02231.i = phi i64 [ %.224.i, %53 ], [ 0, %pm_utf_8_codepoint.exit ]
+  %45 = sub nuw i64 %.02132.i, %.02231.i
   %46 = lshr i64 %45, 1
-  %47 = add i64 %46, %.02234.i
+  %47 = add i64 %46, %.02231.i
   %spec.select.i = and i64 %47, -2
   %48 = getelementptr i32, ptr @unicode_alnum_codepoints, i64 %spec.select.i
   %49 = load i32, ptr %48, align 8, !tbaa !13
@@ -430,9 +430,9 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %35, %11, %pm_utf_8_
   br i1 %.not30.i, label %53, label %pm_unicode_codepoint_match.exit
 
 53:                                               ; preds = %50, %.preheader
-  %.2.i = phi i64 [ %spec.select.i, %.preheader ], [ %.02135.i, %50 ]
+  %.2.i = phi i64 [ %.02132.i, %50 ], [ %spec.select.i, %.preheader ]
   %54 = add i64 %spec.select.i, 2
-  %.224.i = select i1 %.not29.i, i64 %.02234.i, i64 %54
+  %.224.i = select i1 %.not29.i, i64 %.02231.i, i64 %54
   %55 = icmp ult i64 %.224.i, %.2.i
   br i1 %55, label %.preheader, label %pm_unicode_codepoint_match.exit, !llvm.loop !15
 
@@ -508,11 +508,11 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %31, %7, %pm_utf_8_c
   br label %pm_unicode_codepoint_match.exit.sink.split
 
 .preheader:                                       ; preds = %pm_utf_8_codepoint.exit, %44
-  %.02135.i = phi i64 [ %.2.i, %44 ], [ 1302, %pm_utf_8_codepoint.exit ]
-  %.02234.i = phi i64 [ %.224.i, %44 ], [ 0, %pm_utf_8_codepoint.exit ]
-  %36 = sub nuw i64 %.02135.i, %.02234.i
+  %.02132.i = phi i64 [ %.2.i, %44 ], [ 1302, %pm_utf_8_codepoint.exit ]
+  %.02231.i = phi i64 [ %.224.i, %44 ], [ 0, %pm_utf_8_codepoint.exit ]
+  %36 = sub nuw i64 %.02132.i, %.02231.i
   %37 = lshr i64 %36, 1
-  %38 = add i64 %37, %.02234.i
+  %38 = add i64 %37, %.02231.i
   %spec.select.i = and i64 %38, -2
   %39 = getelementptr i32, ptr @unicode_isupper_codepoints, i64 %spec.select.i
   %40 = load i32, ptr %39, align 8, !tbaa !13
@@ -526,9 +526,9 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %31, %7, %pm_utf_8_c
   br i1 %.not30.i, label %44, label %pm_unicode_codepoint_match.exit
 
 44:                                               ; preds = %41, %.preheader
-  %.2.i = phi i64 [ %spec.select.i, %.preheader ], [ %.02135.i, %41 ]
+  %.2.i = phi i64 [ %.02132.i, %41 ], [ %spec.select.i, %.preheader ]
   %45 = add i64 %spec.select.i, 2
-  %.224.i = select i1 %.not29.i, i64 %.02234.i, i64 %45
+  %.224.i = select i1 %.not29.i, i64 %.02231.i, i64 %45
   %46 = icmp ult i64 %.224.i, %.2.i
   br i1 %46, label %.preheader, label %pm_unicode_codepoint_match.exit, !llvm.loop !15
 
@@ -1047,11 +1047,11 @@ define internal i64 @pm_encoding_cesu_8_alpha_char(ptr noundef readonly captures
   br label %pm_unicode_codepoint_match.exit
 
 .preheader:                                       ; preds = %12, %30
-  %.02135.i = phi i64 [ %.2.i, %30 ], [ 1450, %12 ]
-  %.02234.i = phi i64 [ %.224.i, %30 ], [ 0, %12 ]
-  %22 = sub nuw i64 %.02135.i, %.02234.i
+  %.02132.i = phi i64 [ %.2.i, %30 ], [ 1450, %12 ]
+  %.02231.i = phi i64 [ %.224.i, %30 ], [ 0, %12 ]
+  %22 = sub nuw i64 %.02132.i, %.02231.i
   %23 = lshr i64 %22, 1
-  %24 = add i64 %23, %.02234.i
+  %24 = add i64 %23, %.02231.i
   %spec.select.i = and i64 %24, -2
   %25 = getelementptr i32, ptr @unicode_alpha_codepoints, i64 %spec.select.i
   %26 = load i32, ptr %25, align 8, !tbaa !13
@@ -1065,9 +1065,9 @@ define internal i64 @pm_encoding_cesu_8_alpha_char(ptr noundef readonly captures
   br i1 %.not30.i, label %30, label %33
 
 30:                                               ; preds = %27, %.preheader
-  %.2.i = phi i64 [ %spec.select.i, %.preheader ], [ %.02135.i, %27 ]
+  %.2.i = phi i64 [ %.02132.i, %27 ], [ %spec.select.i, %.preheader ]
   %31 = add i64 %spec.select.i, 2
-  %.224.i = select i1 %.not29.i, i64 %.02234.i, i64 %31
+  %.224.i = select i1 %.not29.i, i64 %.02231.i, i64 %31
   %32 = icmp ult i64 %.224.i, %.2.i
   br i1 %32, label %.preheader, label %pm_unicode_codepoint_match.exit, !llvm.loop !15
 
@@ -1118,11 +1118,11 @@ define internal i64 @pm_encoding_cesu_8_alnum_char(ptr noundef readonly captures
   br label %pm_unicode_codepoint_match.exit
 
 .preheader:                                       ; preds = %12, %30
-  %.02135.i = phi i64 [ %.2.i, %30 ], [ 1528, %12 ]
-  %.02234.i = phi i64 [ %.224.i, %30 ], [ 0, %12 ]
-  %22 = sub nuw i64 %.02135.i, %.02234.i
+  %.02132.i = phi i64 [ %.2.i, %30 ], [ 1528, %12 ]
+  %.02231.i = phi i64 [ %.224.i, %30 ], [ 0, %12 ]
+  %22 = sub nuw i64 %.02132.i, %.02231.i
   %23 = lshr i64 %22, 1
-  %24 = add i64 %23, %.02234.i
+  %24 = add i64 %23, %.02231.i
   %spec.select.i = and i64 %24, -2
   %25 = getelementptr i32, ptr @unicode_alnum_codepoints, i64 %spec.select.i
   %26 = load i32, ptr %25, align 8, !tbaa !13
@@ -1136,9 +1136,9 @@ define internal i64 @pm_encoding_cesu_8_alnum_char(ptr noundef readonly captures
   br i1 %.not30.i, label %30, label %33
 
 30:                                               ; preds = %27, %.preheader
-  %.2.i = phi i64 [ %spec.select.i, %.preheader ], [ %.02135.i, %27 ]
+  %.2.i = phi i64 [ %.02132.i, %27 ], [ %spec.select.i, %.preheader ]
   %31 = add i64 %spec.select.i, 2
-  %.224.i = select i1 %.not29.i, i64 %.02234.i, i64 %31
+  %.224.i = select i1 %.not29.i, i64 %.02231.i, i64 %31
   %32 = icmp ult i64 %.224.i, %.2.i
   br i1 %32, label %.preheader, label %pm_unicode_codepoint_match.exit, !llvm.loop !15
 
@@ -1186,11 +1186,11 @@ define internal zeroext i1 @pm_encoding_cesu_8_isupper_char(ptr noundef readonly
   br label %pm_unicode_codepoint_match.exit
 
 .preheader:                                       ; preds = %12, %29
-  %.02135.i = phi i64 [ %.2.i, %29 ], [ 1302, %12 ]
-  %.02234.i = phi i64 [ %.224.i, %29 ], [ 0, %12 ]
-  %21 = sub nuw i64 %.02135.i, %.02234.i
+  %.02132.i = phi i64 [ %.2.i, %29 ], [ 1302, %12 ]
+  %.02231.i = phi i64 [ %.224.i, %29 ], [ 0, %12 ]
+  %21 = sub nuw i64 %.02132.i, %.02231.i
   %22 = lshr i64 %21, 1
-  %23 = add i64 %22, %.02234.i
+  %23 = add i64 %22, %.02231.i
   %spec.select.i = and i64 %23, -2
   %24 = getelementptr i32, ptr @unicode_isupper_codepoints, i64 %spec.select.i
   %25 = load i32, ptr %24, align 8, !tbaa !13
@@ -1204,9 +1204,9 @@ define internal zeroext i1 @pm_encoding_cesu_8_isupper_char(ptr noundef readonly
   br i1 %.not30.i, label %29, label %pm_unicode_codepoint_match.exit
 
 29:                                               ; preds = %26, %.preheader
-  %.2.i = phi i64 [ %spec.select.i, %.preheader ], [ %.02135.i, %26 ]
+  %.2.i = phi i64 [ %.02132.i, %26 ], [ %spec.select.i, %.preheader ]
   %30 = add i64 %spec.select.i, 2
-  %.224.i = select i1 %.not29.i, i64 %.02234.i, i64 %30
+  %.224.i = select i1 %.not29.i, i64 %.02231.i, i64 %30
   %31 = icmp ult i64 %.224.i, %.2.i
   br i1 %31, label %.preheader, label %pm_unicode_codepoint_match.exit, !llvm.loop !15
 

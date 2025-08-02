@@ -10151,7 +10151,6 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPSt4pairI6symbolP3cmdElS4_N
   %8 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val", align 1
   %9 = add nsw i64 %2, -1
   %10 = sdiv i64 %9, 2
-  %invariant.gep = getelementptr i8, ptr %0, i64 16
   %11 = icmp slt i64 %1, %10
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -10160,90 +10159,91 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPSt4pairI6symbolP3cmdElS4_N
   %12 = shl i64 %.030, 1
   %13 = add i64 %12, 2
   %14 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %13
-  %gep = getelementptr %"struct.std::pair", ptr %invariant.gep, i64 %12
-  %15 = call noundef zeroext i1 @_ZNK8help_cmd12named_cmd_ltclERKSt4pairI6symbolP3cmdES7_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %gep)
-  %16 = or disjoint i64 %12, 1
-  %spec.select = select i1 %15, i64 %16, i64 %13
-  %17 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select
-  %18 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.030
-  %19 = load i64, ptr %17, align 8, !tbaa !34
-  store i64 %19, ptr %18, align 8, !tbaa !34
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !369
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %21, ptr %22, align 8, !tbaa !370
-  %23 = icmp slt i64 %spec.select, %10
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !376
+  %15 = getelementptr %"struct.std::pair", ptr %0, i64 %12
+  %16 = getelementptr i8, ptr %15, i64 16
+  %17 = call noundef zeroext i1 @_ZNK8help_cmd12named_cmd_ltclERKSt4pairI6symbolP3cmdES7_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %16)
+  %18 = or disjoint i64 %12, 1
+  %spec.select = select i1 %17, i64 %18, i64 %13
+  %19 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select
+  %20 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.030
+  %21 = load i64, ptr %19, align 8, !tbaa !34
+  store i64 %21, ptr %20, align 8, !tbaa !34
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !369
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %23, ptr %24, align 8, !tbaa !370
+  %25 = icmp slt i64 %spec.select, %10
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !376
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %.lr.ph ]
-  %24 = and i64 %2, 1
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %39
+  %26 = and i64 %2, 1
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %41
 
-26:                                               ; preds = %._crit_edge
-  %27 = add nsw i64 %2, -2
-  %28 = ashr exact i64 %27, 1
-  %29 = icmp eq i64 %.0.lcssa, %28
-  br i1 %29, label %30, label %39
+28:                                               ; preds = %._crit_edge
+  %29 = add nsw i64 %2, -2
+  %30 = ashr exact i64 %29, 1
+  %31 = icmp eq i64 %.0.lcssa, %30
+  br i1 %31, label %32, label %41
 
-30:                                               ; preds = %26
-  %31 = shl nsw i64 %.0.lcssa, 1
-  %32 = or disjoint i64 %31, 1
-  %33 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %32
-  %34 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa
-  %35 = load i64, ptr %33, align 8, !tbaa !34
-  store i64 %35, ptr %34, align 8, !tbaa !34
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !369
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %37, ptr %38, align 8, !tbaa !370
-  br label %39
+32:                                               ; preds = %28
+  %33 = shl nsw i64 %.0.lcssa, 1
+  %34 = or disjoint i64 %33, 1
+  %35 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %34
+  %36 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa
+  %37 = load i64, ptr %35, align 8, !tbaa !34
+  store i64 %37, ptr %36, align 8, !tbaa !34
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !369
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %39, ptr %40, align 8, !tbaa !370
+  br label %41
 
-39:                                               ; preds = %30, %26, %._crit_edge
-  %.1 = phi i64 [ %32, %30 ], [ %.0.lcssa, %26 ], [ %.0.lcssa, %._crit_edge ]
+41:                                               ; preds = %32, %28, %._crit_edge
+  %.1 = phi i64 [ %34, %32 ], [ %.0.lcssa, %28 ], [ %.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %4, ptr %40, align 8
-  %41 = icmp sgt i64 %.1, %1
-  %42 = ptrtoint ptr %3 to i64
-  br i1 %41, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairI6symbolP3cmdElS4_N9__gnu_cxx5__ops14_Iter_comp_valIN8help_cmd12named_cmd_ltEEEEvT_T0_SD_T1_RT2_.exit
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %4, ptr %42, align 8
+  %43 = icmp sgt i64 %.1, %1
+  %44 = ptrtoint ptr %3 to i64
+  br i1 %43, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairI6symbolP3cmdElS4_N9__gnu_cxx5__ops14_Iter_comp_valIN8help_cmd12named_cmd_ltEEEEvT_T0_SD_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %39, %45
-  %.01316.i = phi i64 [ %.017.i, %45 ], [ %.1, %39 ]
+.lr.ph.i:                                         ; preds = %41, %47
+  %.01316.i = phi i64 [ %.017.i, %47 ], [ %.1, %41 ]
   %.017.in.i = add nsw i64 %.01316.i, -1
   %.017.i = sdiv i64 %.017.in.i, 2
-  %43 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.017.i
-  %44 = call noundef zeroext i1 @_ZNK8help_cmd12named_cmd_ltclERKSt4pairI6symbolP3cmdES7_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  br i1 %44, label %45, label %.critedge.loopexit.i
+  %45 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.017.i
+  %46 = call noundef zeroext i1 @_ZNK8help_cmd12named_cmd_ltclERKSt4pairI6symbolP3cmdES7_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  br i1 %46, label %47, label %.critedge.loopexit.i
 
-45:                                               ; preds = %.lr.ph.i
-  %46 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.01316.i
-  %47 = load i64, ptr %43, align 8, !tbaa !34
-  store i64 %47, ptr %46, align 8, !tbaa !34
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !369
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %49, ptr %50, align 8, !tbaa !370
-  %51 = icmp sgt i64 %.017.i, %1
-  br i1 %51, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !377
+47:                                               ; preds = %.lr.ph.i
+  %48 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.01316.i
+  %49 = load i64, ptr %45, align 8, !tbaa !34
+  store i64 %49, ptr %48, align 8, !tbaa !34
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !369
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store ptr %51, ptr %52, align 8, !tbaa !370
+  %53 = icmp sgt i64 %.017.i, %1
+  br i1 %53, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !377
 
-.critedge.loopexit.i:                             ; preds = %45, %.lr.ph.i
-  %.013.lcssa.ph.i = phi i64 [ %.01316.i, %.lr.ph.i ], [ %.017.i, %45 ]
+.critedge.loopexit.i:                             ; preds = %47, %.lr.ph.i
+  %.013.lcssa.ph.i = phi i64 [ %.01316.i, %.lr.ph.i ], [ %.017.i, %47 ]
   %.pre.i = load i64, ptr %6, align 8, !tbaa !34
-  %.pre20.i = load ptr, ptr %40, align 8, !tbaa !369
+  %.pre20.i = load ptr, ptr %42, align 8, !tbaa !369
   br label %_ZSt11__push_heapIPSt4pairI6symbolP3cmdElS4_N9__gnu_cxx5__ops14_Iter_comp_valIN8help_cmd12named_cmd_ltEEEEvT_T0_SD_T1_RT2_.exit
 
-_ZSt11__push_heapIPSt4pairI6symbolP3cmdElS4_N9__gnu_cxx5__ops14_Iter_comp_valIN8help_cmd12named_cmd_ltEEEEvT_T0_SD_T1_RT2_.exit: ; preds = %39, %.critedge.loopexit.i
-  %52 = phi ptr [ %4, %39 ], [ %.pre20.i, %.critedge.loopexit.i ]
-  %53 = phi i64 [ %42, %39 ], [ %.pre.i, %.critedge.loopexit.i ]
-  %.013.lcssa.i = phi i64 [ %.1, %39 ], [ %.013.lcssa.ph.i, %.critedge.loopexit.i ]
-  %54 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i
-  store i64 %53, ptr %54, align 8, !tbaa !34
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store ptr %52, ptr %55, align 8, !tbaa !370
+_ZSt11__push_heapIPSt4pairI6symbolP3cmdElS4_N9__gnu_cxx5__ops14_Iter_comp_valIN8help_cmd12named_cmd_ltEEEEvT_T0_SD_T1_RT2_.exit: ; preds = %41, %.critedge.loopexit.i
+  %54 = phi ptr [ %4, %41 ], [ %.pre20.i, %.critedge.loopexit.i ]
+  %55 = phi i64 [ %44, %41 ], [ %.pre.i, %.critedge.loopexit.i ]
+  %.013.lcssa.i = phi i64 [ %.1, %41 ], [ %.013.lcssa.ph.i, %.critedge.loopexit.i ]
+  %56 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i
+  store i64 %55, ptr %56, align 8, !tbaa !34
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store ptr %54, ptr %57, align 8, !tbaa !370
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #25
   ret void

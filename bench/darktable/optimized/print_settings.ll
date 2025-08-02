@@ -5739,7 +5739,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef readonly captures(none) %0, p
   br i1 %63, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %64 = getelementptr i8, ptr %5, i64 1400
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 1400
   %wide.trip.count = zext nneg i32 %61 to i64
   br label %77
 
@@ -5765,7 +5765,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef readonly captures(none) %0, p
   %.0158 = getelementptr inbounds nuw i8, ptr %.pn177, i64 4
   %78 = load float, ptr %.0158, align 4, !tbaa !73
   %.idx = mul nuw nsw i64 %indvars.iv, 96
-  %79 = getelementptr i8, ptr %64, i64 %.idx
+  %79 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx
   store float %78, ptr %79, align 8, !tbaa !69
   %80 = getelementptr inbounds nuw i8, ptr %.pn177, i64 8
   %81 = load float, ptr %80, align 4, !tbaa !73
@@ -6174,7 +6174,7 @@ define noalias noundef ptr @get_params(ptr noundef readonly captures(none) %0, p
   br i1 %139, label %.lr.ph191, label %._crit_edge192
 
 .lr.ph191:                                        ; preds = %._crit_edge
-  %140 = getelementptr i8, ptr %4, i64 1400
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 1400
   %wide.trip.count = zext nneg i32 %137 to i64
   br label %157
 
@@ -6227,7 +6227,7 @@ define noalias noundef ptr @get_params(ptr noundef readonly captures(none) %0, p
   %158 = sext i32 %.0164188 to i64
   %159 = getelementptr inbounds i8, ptr %79, i64 %158
   %.idx = mul nuw nsw i64 %indvars.iv, 96
-  %160 = getelementptr i8, ptr %140, i64 %.idx
+  %160 = getelementptr inbounds nuw i8, ptr %140, i64 %.idx
   %161 = load i32, ptr %160, align 8
   store i32 %161, ptr %159, align 1
   %162 = add i32 %.0164188, 4
@@ -6930,7 +6930,7 @@ _export_and_setup_pos.exit.thread:                ; preds = %63, %101
 205:                                              ; preds = %205, %._crit_edge.i
   %indvars.iv49.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next50.i, %205 ]
   %.idx.i = mul nuw nsw i64 %indvars.iv49.i, 96
-  %206 = getelementptr i8, ptr %164, i64 %.idx.i
+  %206 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx.i
   %207 = load ptr, ptr %206, align 8, !tbaa !262
   call void @g_free(ptr noundef %207) #18
   store ptr null, ptr %206, align 8, !tbaa !262

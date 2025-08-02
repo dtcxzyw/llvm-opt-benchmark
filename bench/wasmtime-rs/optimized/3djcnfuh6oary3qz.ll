@@ -470,50 +470,50 @@ define void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$
 9:                                                ; preds = %12
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %24
+  br label %23
 
-11:                                               ; preds = %23, %2
-  %.sroa.01.0 = phi i64 [ 0, %2 ], [ %13, %23 ]
+11:                                               ; preds = %22, %2
+  %.sroa.01.0 = phi i64 [ 0, %2 ], [ %13, %22 ]
   %.not = icmp ult i64 %.sroa.01.0, %7
-  br i1 %.not, label %12, label %14
+  br i1 %.not, label %12, label %.critedge
 
 12:                                               ; preds = %11
   %13 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %.sroa.01.0, i64 1)
-          to label %15 unwind label %9
+          to label %14 unwind label %9
 
-14:                                               ; preds = %11
+.critedge:                                        ; preds = %11
   tail call void @"_ZN4core3ptr697drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$C$alloc..vec..Vec$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$GT$..extend_trusted$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Expr$GT$$C$cranelift_isle..sema..Expr..visit$LT$cranelift_isle..trie_again..RuleSetBuilder$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4749ad58eb7eba22E"(ptr align 8 %1)
   ret void
 
-15:                                               ; preds = %12
-  %16 = load i64, ptr %5, align 8, !noundef !3
-  %17 = add i64 %16, %.sroa.01.0
-  %18 = invoke i16 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17hc3936b109391c03cE"(ptr nonnull align 8 %0, i64 %17)
-          to label %.noexc unwind label %21
+14:                                               ; preds = %12
+  %15 = load i64, ptr %5, align 8, !noundef !3
+  %16 = add i64 %15, %.sroa.01.0
+  %17 = invoke i16 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17hc3936b109391c03cE"(ptr nonnull align 8 %0, i64 %16)
+          to label %.noexc unwind label %20
 
-.noexc:                                           ; preds = %15
-  %19 = invoke i64 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h2f0635ec2b3e0f4dE"(ptr nonnull align 8 %8, i64 %17)
-          to label %23 unwind label %21
+.noexc:                                           ; preds = %14
+  %18 = invoke i64 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h2f0635ec2b3e0f4dE"(ptr nonnull align 8 %8, i64 %16)
+          to label %22 unwind label %20
 
-20:                                               ; preds = %24
+19:                                               ; preds = %23
   resume { ptr, i32 } %.pn
 
-21:                                               ; preds = %.noexc, %15, %23
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %.noexc, %14, %22
+  %21 = landingpad { ptr, i32 }
           cleanup
-  br label %24
+  br label %23
 
-23:                                               ; preds = %.noexc
-  invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hdf8edb8d29840e77E"(ptr align 8 %1, i16 %18, i64 %19)
-          to label %11 unwind label %21
+22:                                               ; preds = %.noexc
+  invoke void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hdf8edb8d29840e77E"(ptr align 8 %1, i16 %17, i64 %18)
+          to label %11 unwind label %20
 
-24:                                               ; preds = %21, %9
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %10, %9 ]
+23:                                               ; preds = %20, %9
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %10, %9 ]
   invoke void @"_ZN4core3ptr697drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$C$alloc..vec..Vec$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$GT$..extend_trusted$LT$core..iter..adapters..zip..Zip$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..Expr$GT$$C$cranelift_isle..sema..Expr..visit$LT$cranelift_isle..trie_again..RuleSetBuilder$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4749ad58eb7eba22E"(ptr align 8 %1) #10
-          to label %20 unwind label %25
+          to label %19 unwind label %24
 
-25:                                               ; preds = %24
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %23
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable

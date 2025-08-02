@@ -1113,11 +1113,14 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %91 = tail call i32 @llvm.umax.i32(i32 %84, i32 %90)
   %92 = load ptr, ptr %85, align 8
   %93 = icmp eq ptr %92, %16
-  br i1 %93, label %.loopexit30, label %83, !llvm.loop !19
+  br i1 %93, label %.loopexit30.loopexit, label %83, !llvm.loop !19
 
-.loopexit30:                                      ; preds = %83, %77
-  %94 = phi i32 [ 0, %77 ], [ %91, %83 ]
-  %95 = tail call i32 @llvm.umin.i32(i32 %94, i32 16384)
+.loopexit30.loopexit:                             ; preds = %83
+  %94 = tail call i32 @llvm.umin.i32(i32 %91, i32 16384)
+  br label %.loopexit30
+
+.loopexit30:                                      ; preds = %.loopexit30.loopexit, %77
+  %95 = phi i32 [ 0, %77 ], [ %94, %.loopexit30.loopexit ]
   %96 = load ptr, ptr %10, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 20
   %98 = load i32, ptr %97, align 4
@@ -1576,7 +1579,7 @@ define internal void @usbhid_stop(ptr noundef captures(none) %0) #0 align 16 {
   tail call void asm sideeffect "443: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 443b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 443) #17, !srcloc !25
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1211, i32 2305, i64 12) #17, !srcloc !26
   tail call void asm sideeffect "444: nop\0A\09.pushsection .discard.instr_end\0A\09.long 444b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 444) #17, !srcloc !27
-  br label %88
+  br label %90
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 7156
@@ -1614,17 +1617,16 @@ define internal void @usbhid_stop(ptr noundef captures(none) %0) #0 align 16 {
 
 28:                                               ; preds = %18
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %invariant.gep = getelementptr i8, ptr %3, i64 80
   br label %30
 
-30:                                               ; preds = %42, %28
-  %31 = phi i8 [ %26, %28 ], [ %43, %42 ]
-  %32 = phi i8 [ %25, %28 ], [ %45, %42 ]
+30:                                               ; preds = %44, %28
+  %31 = phi i8 [ %26, %28 ], [ %45, %44 ]
+  %32 = phi i8 [ %25, %28 ], [ %47, %44 ]
   %33 = zext i8 %32 to i64
   %34 = getelementptr [256 x %struct.hid_control_fifo], ptr %29, i64 0, i64 %33
   %35 = load i8, ptr %34, align 8
   %36 = icmp eq i8 %35, 0
-  br i1 %36, label %37, label %42
+  br i1 %36, label %37, label %44
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -1633,80 +1635,81 @@ define internal void @usbhid_stop(ptr noundef captures(none) %0) #0 align 16 {
   %40 = load i8, ptr %23, align 1
   %41 = zext i8 %40 to i64
   %.idx = mul nuw nsw i64 %41, 24
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  store ptr null, ptr %gep, align 8
+  %42 = getelementptr i8, ptr %29, i64 %.idx
+  %43 = getelementptr i8, ptr %42, i64 16
+  store ptr null, ptr %43, align 8
   %.pre = load i8, ptr %24, align 8
-  br label %42
+  br label %44
 
-42:                                               ; preds = %37, %30
-  %43 = phi i8 [ %.pre, %37 ], [ %31, %30 ]
-  %44 = phi i8 [ %40, %37 ], [ %32, %30 ]
-  %45 = add i8 %44, 1
-  store i8 %45, ptr %23, align 1
-  %46 = icmp eq i8 %45, %43
-  br i1 %46, label %.loopexit, label %30, !llvm.loop !28
+44:                                               ; preds = %37, %30
+  %45 = phi i8 [ %.pre, %37 ], [ %31, %30 ]
+  %46 = phi i8 [ %40, %37 ], [ %32, %30 ]
+  %47 = add i8 %46, 1
+  store i8 %47, ptr %23, align 1
+  %48 = icmp eq i8 %47, %45
+  br i1 %48, label %.loopexit, label %30, !llvm.loop !28
 
-.loopexit:                                        ; preds = %42, %18
+.loopexit:                                        ; preds = %44, %18
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %22) #17
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %48 = load ptr, ptr %47, align 8
-  tail call void @usb_kill_urb(ptr noundef %48) #17
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 6240
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %50 = load ptr, ptr %49, align 8
   tail call void @usb_kill_urb(ptr noundef %50) #17
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 6240
   %52 = load ptr, ptr %51, align 8
   tail call void @usb_kill_urb(ptr noundef %52) #17
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 10424
-  %54 = tail call i32 @timer_delete_sync(ptr noundef nonnull %53) #17
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 10480
-  %56 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %55) #17
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 7152
-  store i32 0, ptr %57, align 8
-  %58 = load ptr, ptr %47, align 8
-  tail call void @usb_free_urb(ptr noundef %58) #17
-  %59 = load ptr, ptr %51, align 8
-  tail call void @usb_free_urb(ptr noundef %59) #17
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %54 = load ptr, ptr %53, align 8
+  tail call void @usb_kill_urb(ptr noundef %54) #17
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 10424
+  %56 = tail call i32 @timer_delete_sync(ptr noundef nonnull %55) #17
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 10480
+  %58 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %57) #17
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 7152
+  store i32 0, ptr %59, align 8
   %60 = load ptr, ptr %49, align 8
   tail call void @usb_free_urb(ptr noundef %60) #17
-  store ptr null, ptr %47, align 8
-  store ptr null, ptr %51, align 8
+  %61 = load ptr, ptr %53, align 8
+  tail call void @usb_free_urb(ptr noundef %61) #17
+  %62 = load ptr, ptr %51, align 8
+  tail call void @usb_free_urb(ptr noundef %62) #17
   store ptr null, ptr %49, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 6416
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
+  store ptr null, ptr %53, align 8
+  store ptr null, ptr %51, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 6416
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr i8, ptr %64, i64 -168
-  %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 20
-  %68 = load i32, ptr %67, align 4
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %73 = load i64, ptr %72, align 8
-  tail call void @usb_free_coherent(ptr noundef %65, i64 noundef %69, ptr noundef %71, i64 noundef %73) #17
-  %74 = load i32, ptr %67, align 4
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %66, i64 10352
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %66, i64 10360
-  %79 = load i64, ptr %78, align 8
-  tail call void @usb_free_coherent(ptr noundef %65, i64 noundef %75, ptr noundef %77, i64 noundef %79) #17
-  %80 = getelementptr inbounds nuw i8, ptr %66, i64 56
-  %81 = load ptr, ptr %80, align 8
-  tail call void @kfree(ptr noundef %81) #17
-  %82 = load i32, ptr %67, align 4
-  %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw i8, ptr %66, i64 6216
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %66, i64 6224
-  %87 = load i64, ptr %86, align 8
-  tail call void @usb_free_coherent(ptr noundef %65, i64 noundef %83, ptr noundef %85, i64 noundef %87) #17
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr i8, ptr %66, i64 -168
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 20
+  %70 = load i32, ptr %69, align 4
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %75 = load i64, ptr %74, align 8
+  tail call void @usb_free_coherent(ptr noundef %67, i64 noundef %71, ptr noundef %73, i64 noundef %75) #17
+  %76 = load i32, ptr %69, align 4
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %68, i64 10352
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %68, i64 10360
+  %81 = load i64, ptr %80, align 8
+  tail call void @usb_free_coherent(ptr noundef %67, i64 noundef %77, ptr noundef %79, i64 noundef %81) #17
+  %82 = getelementptr inbounds nuw i8, ptr %68, i64 56
+  %83 = load ptr, ptr %82, align 8
+  tail call void @kfree(ptr noundef %83) #17
+  %84 = load i32, ptr %69, align 4
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr inbounds nuw i8, ptr %68, i64 6216
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %68, i64 6224
+  %89 = load i64, ptr %88, align 8
+  tail call void @usb_free_coherent(ptr noundef %67, i64 noundef %85, ptr noundef %87, i64 noundef %89) #17
   tail call void @mutex_unlock(ptr noundef nonnull %19) #17
-  br label %88
+  br label %90
 
-88:                                               ; preds = %.loopexit, %5
+90:                                               ; preds = %.loopexit, %5
   ret void
 }
 

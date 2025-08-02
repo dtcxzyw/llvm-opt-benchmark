@@ -6151,8 +6151,8 @@ _ZNK4base9ListValue7GetListEmPPKS0_.exit:         ; preds = %3, %12, %18, %19
   ret i1 %.0.i
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4base9ListValue6RemoveEmPSt10unique_ptrINS_5ValueESt14default_deleteIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZN4base9ListValue6RemoveEmPSt10unique_ptrINS_5ValueESt14default_deleteIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !187
@@ -6356,8 +6356,8 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE5eraseE
   ret i1 %.not1416
 }
 
-; Function Attrs: mustprogress uwtable
-define ptr @_ZN4base9ListValue5EraseEN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrINS_5ValueESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES8_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define ptr @_ZN4base9ListValue5EraseEN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrINS_5ValueESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES8_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EEaSEOS4_.exit, label %4
 

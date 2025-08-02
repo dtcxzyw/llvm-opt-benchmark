@@ -154,7 +154,7 @@ SuiteSparse_malloc.exit:                          ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SuiteSparse_free(ptr noundef %0) local_unnamed_addr #5 {
+define noalias noundef ptr @SuiteSparse_free(ptr noundef %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

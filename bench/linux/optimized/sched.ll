@@ -20635,7 +20635,7 @@ declare dso_local void @mempool_free(ptr noundef, ptr noundef) local_unnamed_add
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @rpc_new_task(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef nonnull ptr @rpc_new_task(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %.thread

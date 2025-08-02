@@ -12938,15 +12938,15 @@ for.body.preheader.i.i.i.i8952:                   ; preds = %for.inc3837
   %_ZN10TestObject12sTODtorCountE.promoted.i.i.i.i8953 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %_ZN10TestObject8sTOCountE.promoted.i.i.i.i8954 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i8955 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2219, i64 16
   br label %for.body.i.i.i.i8956
 
 for.body.i.i.i.i8956:                             ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i8964, %for.body.preheader.i.i.i.i8952
   %first.addr.011.i.i.i.i8957.idx = phi i64 [ %first.addr.011.i.i.i.i8957.add, %_ZN10TestObjectD2Ev.exit.i.i.i.i8964 ], [ 0, %for.body.preheader.i.i.i.i8952 ]
   %inc.i410.i.i.i.i8958 = phi i32 [ %inc.i3.i.i.i.i8965, %_ZN10TestObjectD2Ev.exit.i.i.i.i8964 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i8955, %for.body.preheader.i.i.i.i8952 ]
   %dec.i59.i.i.i.i8959 = phi i64 [ %dec.i.i.i.i.i8966, %_ZN10TestObjectD2Ev.exit.i.i.i.i8964 ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i.i8954, %for.body.preheader.i.i.i.i8952 ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %first.addr.011.i.i.i.i8957.idx
-  %2243 = load i32, ptr %gep, align 8
+  %first.addr.011.i.i.i.i8957.ptr = getelementptr inbounds nuw i8, ptr %2219, i64 %first.addr.011.i.i.i.i8957.idx
+  %mMagicValue.i.i.i.i.i8960 = getelementptr inbounds nuw i8, ptr %first.addr.011.i.i.i.i8957.ptr, i64 16
+  %2243 = load i32, ptr %mMagicValue.i.i.i.i.i8960, align 8
   %cmp.not.i.i.i.i.i8961 = icmp eq i32 %2243, 32623592
   br i1 %cmp.not.i.i.i.i.i8961, label %_ZN10TestObjectD2Ev.exit.i.i.i.i8964, label %if.then.i.i.i.i.i8962
 
@@ -12957,7 +12957,7 @@ if.then.i.i.i.i.i8962:                            ; preds = %for.body.i.i.i.i895
 
 _ZN10TestObjectD2Ev.exit.i.i.i.i8964:             ; preds = %if.then.i.i.i.i.i8962, %for.body.i.i.i.i8956
   %inc.i3.i.i.i.i8965 = phi i32 [ %inc.i410.i.i.i.i8958, %for.body.i.i.i.i8956 ], [ %inc.i.i.i.i.i8963, %if.then.i.i.i.i.i8962 ]
-  store i32 0, ptr %gep, align 8
+  store i32 0, ptr %mMagicValue.i.i.i.i.i8960, align 8
   %dec.i.i.i.i.i8966 = add nsw i64 %dec.i59.i.i.i.i8959, -1
   %first.addr.011.i.i.i.i8957.add = add nuw nsw i64 %first.addr.011.i.i.i.i8957.idx, 24
   %cmp.not.i.i.i.i8968 = icmp eq i64 %first.addr.011.i.i.i.i8957.add, 120
@@ -13114,15 +13114,15 @@ for.body.preheader.i.i.i.i9024:                   ; preds = %for.inc3884
   %_ZN10TestObject12sTODtorCountE.promoted.i.i.i.i9025 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %_ZN10TestObject8sTOCountE.promoted.i.i.i.i9026 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i9027 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %invariant.gep15214 = getelementptr inbounds nuw i8, ptr %2247, i64 16
   br label %for.body.i.i.i.i9028
 
 for.body.i.i.i.i9028:                             ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i9036, %for.body.preheader.i.i.i.i9024
   %first.addr.011.i.i.i.i9029.idx = phi i64 [ %first.addr.011.i.i.i.i9029.add, %_ZN10TestObjectD2Ev.exit.i.i.i.i9036 ], [ 0, %for.body.preheader.i.i.i.i9024 ]
   %inc.i410.i.i.i.i9030 = phi i32 [ %inc.i3.i.i.i.i9037, %_ZN10TestObjectD2Ev.exit.i.i.i.i9036 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i9027, %for.body.preheader.i.i.i.i9024 ]
   %dec.i59.i.i.i.i9031 = phi i64 [ %dec.i.i.i.i.i9038, %_ZN10TestObjectD2Ev.exit.i.i.i.i9036 ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i.i9026, %for.body.preheader.i.i.i.i9024 ]
-  %gep15215 = getelementptr inbounds nuw i8, ptr %invariant.gep15214, i64 %first.addr.011.i.i.i.i9029.idx
-  %2265 = load i32, ptr %gep15215, align 8
+  %first.addr.011.i.i.i.i9029.ptr = getelementptr inbounds nuw i8, ptr %2247, i64 %first.addr.011.i.i.i.i9029.idx
+  %mMagicValue.i.i.i.i.i9032 = getelementptr inbounds nuw i8, ptr %first.addr.011.i.i.i.i9029.ptr, i64 16
+  %2265 = load i32, ptr %mMagicValue.i.i.i.i.i9032, align 8
   %cmp.not.i.i.i.i.i9033 = icmp eq i32 %2265, 32623592
   br i1 %cmp.not.i.i.i.i.i9033, label %_ZN10TestObjectD2Ev.exit.i.i.i.i9036, label %if.then.i.i.i.i.i9034
 
@@ -13133,7 +13133,7 @@ if.then.i.i.i.i.i9034:                            ; preds = %for.body.i.i.i.i902
 
 _ZN10TestObjectD2Ev.exit.i.i.i.i9036:             ; preds = %if.then.i.i.i.i.i9034, %for.body.i.i.i.i9028
   %inc.i3.i.i.i.i9037 = phi i32 [ %inc.i410.i.i.i.i9030, %for.body.i.i.i.i9028 ], [ %inc.i.i.i.i.i9035, %if.then.i.i.i.i.i9034 ]
-  store i32 0, ptr %gep15215, align 8
+  store i32 0, ptr %mMagicValue.i.i.i.i.i9032, align 8
   %dec.i.i.i.i.i9038 = add nsw i64 %dec.i59.i.i.i.i9031, -1
   %first.addr.011.i.i.i.i9029.add = add nuw nsw i64 %first.addr.011.i.i.i.i9029.idx, 24
   %cmp.not.i.i.i.i9040 = icmp eq i64 %first.addr.011.i.i.i.i9029.add, 240
@@ -13321,15 +13321,15 @@ for.body.preheader.i.i.i.i9118:                   ; preds = %for.inc3935
   %_ZN10TestObject12sTODtorCountE.promoted.i.i.i.i9119 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %_ZN10TestObject8sTOCountE.promoted.i.i.i.i9120 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i9121 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %invariant.gep15216 = getelementptr inbounds nuw i8, ptr %2272, i64 16
   br label %for.body.i.i.i.i9122
 
 for.body.i.i.i.i9122:                             ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i9130, %for.body.preheader.i.i.i.i9118
   %first.addr.011.i.i.i.i9123.idx = phi i64 [ %first.addr.011.i.i.i.i9123.add, %_ZN10TestObjectD2Ev.exit.i.i.i.i9130 ], [ 0, %for.body.preheader.i.i.i.i9118 ]
   %inc.i410.i.i.i.i9124 = phi i32 [ %inc.i3.i.i.i.i9131, %_ZN10TestObjectD2Ev.exit.i.i.i.i9130 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i9121, %for.body.preheader.i.i.i.i9118 ]
   %dec.i59.i.i.i.i9125 = phi i64 [ %dec.i.i.i.i.i9132, %_ZN10TestObjectD2Ev.exit.i.i.i.i9130 ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i.i9120, %for.body.preheader.i.i.i.i9118 ]
-  %gep15217 = getelementptr inbounds nuw i8, ptr %invariant.gep15216, i64 %first.addr.011.i.i.i.i9123.idx
-  %2294 = load i32, ptr %gep15217, align 8
+  %first.addr.011.i.i.i.i9123.ptr = getelementptr inbounds nuw i8, ptr %2272, i64 %first.addr.011.i.i.i.i9123.idx
+  %mMagicValue.i.i.i.i.i9126 = getelementptr inbounds nuw i8, ptr %first.addr.011.i.i.i.i9123.ptr, i64 16
+  %2294 = load i32, ptr %mMagicValue.i.i.i.i.i9126, align 8
   %cmp.not.i.i.i.i.i9127 = icmp eq i32 %2294, 32623592
   br i1 %cmp.not.i.i.i.i.i9127, label %_ZN10TestObjectD2Ev.exit.i.i.i.i9130, label %if.then.i.i.i.i.i9128
 
@@ -13340,7 +13340,7 @@ if.then.i.i.i.i.i9128:                            ; preds = %for.body.i.i.i.i912
 
 _ZN10TestObjectD2Ev.exit.i.i.i.i9130:             ; preds = %if.then.i.i.i.i.i9128, %for.body.i.i.i.i9122
   %inc.i3.i.i.i.i9131 = phi i32 [ %inc.i410.i.i.i.i9124, %for.body.i.i.i.i9122 ], [ %inc.i.i.i.i.i9129, %if.then.i.i.i.i.i9128 ]
-  store i32 0, ptr %gep15217, align 8
+  store i32 0, ptr %mMagicValue.i.i.i.i.i9126, align 8
   %dec.i.i.i.i.i9132 = add nsw i64 %dec.i59.i.i.i.i9125, -1
   %first.addr.011.i.i.i.i9123.add = add nuw nsw i64 %first.addr.011.i.i.i.i9123.idx, 24
   %cmp.not.i.i.i.i9134 = icmp eq i64 %first.addr.011.i.i.i.i9123.add, 240
@@ -13522,15 +13522,15 @@ for.body.preheader.i.i.i.i9224:                   ; preds = %for.inc3992
   %_ZN10TestObject12sTODtorCountE.promoted.i.i.i.i9225 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %_ZN10TestObject8sTOCountE.promoted.i.i.i.i9226 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i9227 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %invariant.gep15218 = getelementptr inbounds nuw i8, ptr %2303, i64 16
   br label %for.body.i.i.i.i9228
 
 for.body.i.i.i.i9228:                             ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i9236, %for.body.preheader.i.i.i.i9224
   %first.addr.011.i.i.i.i9229.idx = phi i64 [ %first.addr.011.i.i.i.i9229.add, %_ZN10TestObjectD2Ev.exit.i.i.i.i9236 ], [ 0, %for.body.preheader.i.i.i.i9224 ]
   %inc.i410.i.i.i.i9230 = phi i32 [ %inc.i3.i.i.i.i9237, %_ZN10TestObjectD2Ev.exit.i.i.i.i9236 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i9227, %for.body.preheader.i.i.i.i9224 ]
   %dec.i59.i.i.i.i9231 = phi i64 [ %dec.i.i.i.i.i9238, %_ZN10TestObjectD2Ev.exit.i.i.i.i9236 ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i.i9226, %for.body.preheader.i.i.i.i9224 ]
-  %gep15219 = getelementptr inbounds nuw i8, ptr %invariant.gep15218, i64 %first.addr.011.i.i.i.i9229.idx
-  %2321 = load i32, ptr %gep15219, align 8
+  %first.addr.011.i.i.i.i9229.ptr = getelementptr inbounds nuw i8, ptr %2303, i64 %first.addr.011.i.i.i.i9229.idx
+  %mMagicValue.i.i.i.i.i9232 = getelementptr inbounds nuw i8, ptr %first.addr.011.i.i.i.i9229.ptr, i64 16
+  %2321 = load i32, ptr %mMagicValue.i.i.i.i.i9232, align 8
   %cmp.not.i.i.i.i.i9233 = icmp eq i32 %2321, 32623592
   br i1 %cmp.not.i.i.i.i.i9233, label %_ZN10TestObjectD2Ev.exit.i.i.i.i9236, label %if.then.i.i.i.i.i9234
 
@@ -13541,7 +13541,7 @@ if.then.i.i.i.i.i9234:                            ; preds = %for.body.i.i.i.i922
 
 _ZN10TestObjectD2Ev.exit.i.i.i.i9236:             ; preds = %if.then.i.i.i.i.i9234, %for.body.i.i.i.i9228
   %inc.i3.i.i.i.i9237 = phi i32 [ %inc.i410.i.i.i.i9230, %for.body.i.i.i.i9228 ], [ %inc.i.i.i.i.i9235, %if.then.i.i.i.i.i9234 ]
-  store i32 0, ptr %gep15219, align 8
+  store i32 0, ptr %mMagicValue.i.i.i.i.i9232, align 8
   %dec.i.i.i.i.i9238 = add nsw i64 %dec.i59.i.i.i.i9231, -1
   %first.addr.011.i.i.i.i9229.add = add nuw nsw i64 %first.addr.011.i.i.i.i9229.idx, 24
   %cmp.not.i.i.i.i9240 = icmp eq i64 %first.addr.011.i.i.i.i9229.add, 240
@@ -15840,15 +15840,15 @@ _ZN10TestObjectD2Ev.exit10243:                    ; preds = %invoke.cont4500
 
 for.body.preheader.i.i.i.i10249:                  ; preds = %_ZN10TestObjectD2Ev.exit10235
   %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i10252 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %invariant.gep15220 = getelementptr inbounds nuw i8, ptr %2714, i64 16
   br label %for.body.i.i.i.i10253
 
 for.body.i.i.i.i10253:                            ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i10261, %for.body.preheader.i.i.i.i10249
   %first.addr.011.i.i.i.i10254.idx = phi i64 [ %first.addr.011.i.i.i.i10254.add, %_ZN10TestObjectD2Ev.exit.i.i.i.i10261 ], [ 0, %for.body.preheader.i.i.i.i10249 ]
   %inc.i410.i.i.i.i10255 = phi i32 [ %inc.i3.i.i.i.i10262, %_ZN10TestObjectD2Ev.exit.i.i.i.i10261 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i10252, %for.body.preheader.i.i.i.i10249 ]
   %dec.i59.i.i.i.i10256 = phi i64 [ %dec.i.i.i.i.i10263, %_ZN10TestObjectD2Ev.exit.i.i.i.i10261 ], [ %dec.i10233, %for.body.preheader.i.i.i.i10249 ]
-  %gep15221 = getelementptr inbounds nuw i8, ptr %invariant.gep15220, i64 %first.addr.011.i.i.i.i10254.idx
-  %2798 = load i32, ptr %gep15221, align 8
+  %first.addr.011.i.i.i.i10254.ptr = getelementptr inbounds nuw i8, ptr %2714, i64 %first.addr.011.i.i.i.i10254.idx
+  %mMagicValue.i.i.i.i.i10257 = getelementptr inbounds nuw i8, ptr %first.addr.011.i.i.i.i10254.ptr, i64 16
+  %2798 = load i32, ptr %mMagicValue.i.i.i.i.i10257, align 8
   %cmp.not.i.i.i.i.i10258 = icmp eq i32 %2798, 32623592
   br i1 %cmp.not.i.i.i.i.i10258, label %_ZN10TestObjectD2Ev.exit.i.i.i.i10261, label %if.then.i.i.i.i.i10259
 
@@ -15859,7 +15859,7 @@ if.then.i.i.i.i.i10259:                           ; preds = %for.body.i.i.i.i102
 
 _ZN10TestObjectD2Ev.exit.i.i.i.i10261:            ; preds = %if.then.i.i.i.i.i10259, %for.body.i.i.i.i10253
   %inc.i3.i.i.i.i10262 = phi i32 [ %inc.i410.i.i.i.i10255, %for.body.i.i.i.i10253 ], [ %inc.i.i.i.i.i10260, %if.then.i.i.i.i.i10259 ]
-  store i32 0, ptr %gep15221, align 8
+  store i32 0, ptr %mMagicValue.i.i.i.i.i10257, align 8
   %dec.i.i.i.i.i10263 = add nsw i64 %dec.i59.i.i.i.i10256, -1
   %first.addr.011.i.i.i.i10254.add = add nuw nsw i64 %first.addr.011.i.i.i.i10254.idx, 24
   %cmp.not.i.i.i.i10265 = icmp eq i64 %first.addr.011.i.i.i.i10254.add, 120

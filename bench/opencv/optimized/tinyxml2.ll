@@ -899,13 +899,13 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1, !tbaa !12
   %7 = icmp eq i8 %6, 35
-  br i1 %7, label %8, label %.thread
+  br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i8, ptr %9, align 1, !tbaa !12
   switch i8 %10, label %40 [
-    i8 0, label %.thread
+    i8 0, label %.critedge
     i8 120, label %11
   ]
 
@@ -913,32 +913,32 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %13 = load i8, ptr %12, align 1, !tbaa !12
   %.not78 = icmp eq i8 %13, 0
-  br i1 %.not78, label %.thread, label %14
+  br i1 %.not78, label %.critedge, label %14
 
 14:                                               ; preds = %11
   %15 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 59) #26
   %.not79 = icmp eq ptr %15, null
-  br i1 %.not79, label %.thread, label %16
+  br i1 %.not79, label %.critedge, label %16
 
 16:                                               ; preds = %14
   %17 = load i8, ptr %15, align 1, !tbaa !12
   %.not80 = icmp eq i8 %17, 0
-  br i1 %.not80, label %.thread, label %18
+  br i1 %.not80, label %.critedge, label %18
 
 18:                                               ; preds = %16
   %19 = ptrtoint ptr %15 to i64
   %20 = ptrtoint ptr %0 to i64
   %21 = sub i64 %19, %20
-  %.055103 = getelementptr inbounds i8, ptr %15, i64 -1
-  %22 = load i8, ptr %.055103, align 1, !tbaa !12
-  %.not81104 = icmp eq i8 %22, 120
-  br i1 %.not81104, label %.loopexit, label %.lr.ph
+  %.05597 = getelementptr inbounds i8, ptr %15, i64 -1
+  %22 = load i8, ptr %.05597, align 1, !tbaa !12
+  %.not8198 = icmp eq i8 %22, 120
+  br i1 %.not8198, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %37
   %23 = phi i8 [ %39, %37 ], [ %22, %18 ]
-  %.055107 = phi ptr [ %.055, %37 ], [ %.055103, %18 ]
-  %.057106 = phi i32 [ %38, %37 ], [ 1, %18 ]
-  %.162105 = phi i64 [ %.263, %37 ], [ 0, %18 ]
+  %.055101 = phi ptr [ %.055, %37 ], [ %.05597, %18 ]
+  %.057100 = phi i32 [ %38, %37 ], [ 1, %18 ]
+  %.16299 = phi i64 [ %.263, %37 ], [ 0, %18 ]
   %24 = add i8 %23, -48
   %or.cond = icmp ult i8 %24, 10
   br i1 %or.cond, label %25, label %27
@@ -960,7 +960,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr 
 32:                                               ; preds = %27
   %33 = add i8 %23, -65
   %or.cond89 = icmp ult i8 %33, 6
-  br i1 %or.cond89, label %34, label %.thread
+  br i1 %or.cond89, label %34, label %.critedge
 
 34:                                               ; preds = %32
   %35 = zext nneg i8 %23 to i32
@@ -969,11 +969,11 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr 
 
 37:                                               ; preds = %29, %34, %25
   %.pn86 = phi i32 [ %26, %25 ], [ %31, %29 ], [ %36, %34 ]
-  %.pn85.in = mul i32 %.pn86, %.057106
+  %.pn85.in = mul i32 %.pn86, %.057100
   %.pn85 = zext i32 %.pn85.in to i64
-  %.263 = add i64 %.162105, %.pn85
-  %38 = shl i32 %.057106, 4
-  %.055 = getelementptr inbounds i8, ptr %.055107, i64 -1
+  %.263 = add i64 %.16299, %.pn85
+  %38 = shl i32 %.057100, 4
+  %.055 = getelementptr inbounds i8, ptr %.055101, i64 -1
   %39 = load i8, ptr %.055, align 1, !tbaa !12
   %.not81 = icmp eq i8 %39, 120
   br i1 %.not81, label %.loopexit, label %.lr.ph, !llvm.loop !26
@@ -981,41 +981,41 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr 
 40:                                               ; preds = %8
   %41 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 59) #26
   %.not75 = icmp eq ptr %41, null
-  br i1 %.not75, label %.thread, label %42
+  br i1 %.not75, label %.critedge, label %42
 
 42:                                               ; preds = %40
   %43 = load i8, ptr %41, align 1, !tbaa !12
   %.not76 = icmp eq i8 %43, 0
-  br i1 %.not76, label %.thread, label %44
+  br i1 %.not76, label %.critedge, label %44
 
 44:                                               ; preds = %42
   %45 = ptrtoint ptr %41 to i64
   %46 = ptrtoint ptr %0 to i64
   %47 = sub i64 %45, %46
-  %.0108 = getelementptr inbounds i8, ptr %41, i64 -1
-  %48 = load i8, ptr %.0108, align 1, !tbaa !12
-  %.not77109 = icmp eq i8 %48, 35
-  br i1 %.not77109, label %.loopexit, label %.lr.ph113
+  %.0102 = getelementptr inbounds i8, ptr %41, i64 -1
+  %48 = load i8, ptr %.0102, align 1, !tbaa !12
+  %.not77103 = icmp eq i8 %48, 35
+  br i1 %.not77103, label %.loopexit, label %.lr.ph107
 
-.lr.ph113:                                        ; preds = %44, %51
+.lr.ph107:                                        ; preds = %44, %51
   %49 = phi i8 [ %57, %51 ], [ %48, %44 ]
-  %.0112 = phi ptr [ %.0, %51 ], [ %.0108, %44 ]
-  %.158111 = phi i32 [ %56, %51 ], [ 1, %44 ]
-  %.5110 = phi i64 [ %55, %51 ], [ 0, %44 ]
+  %.0106 = phi ptr [ %.0, %51 ], [ %.0102, %44 ]
+  %.158105 = phi i32 [ %56, %51 ], [ 1, %44 ]
+  %.5104 = phi i64 [ %55, %51 ], [ 0, %44 ]
   %50 = add i8 %49, -48
   %or.cond90 = icmp ult i8 %50, 10
-  br i1 %or.cond90, label %51, label %.thread
+  br i1 %or.cond90, label %51, label %.critedge
 
-51:                                               ; preds = %.lr.ph113
+51:                                               ; preds = %.lr.ph107
   %52 = zext nneg i8 %50 to i32
-  %53 = mul i32 %.158111, %52
+  %53 = mul i32 %.158105, %52
   %54 = zext i32 %53 to i64
-  %55 = add i64 %.5110, %54
-  %56 = mul i32 %.158111, 10
-  %.0 = getelementptr inbounds i8, ptr %.0112, i64 -1
+  %55 = add i64 %.5104, %54
+  %56 = mul i32 %.158105, 10
+  %.0 = getelementptr inbounds i8, ptr %.0106, i64 -1
   %57 = load i8, ptr %.0, align 1, !tbaa !12
   %.not77 = icmp eq i8 %57, 35
-  br i1 %.not77, label %.loopexit, label %.lr.ph113, !llvm.loop !27
+  br i1 %.not77, label %.loopexit, label %.lr.ph107, !llvm.loop !27
 
 .loopexit:                                        ; preds = %37, %51, %18, %44
   %.3 = phi i64 [ 0, %44 ], [ 0, %18 ], [ %55, %51 ], [ %.263, %37 ]
@@ -1109,10 +1109,10 @@ _ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit: ; preds = %70, %91
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
   %97 = getelementptr inbounds i8, ptr %0, i64 %.160
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %32, %.lr.ph113, %40, %42, %14, %16, %3, %8, %_ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit, %11
-  %.367 = phi ptr [ %98, %_ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit ], [ null, %11 ], [ %5, %8 ], [ %5, %3 ], [ null, %16 ], [ null, %14 ], [ null, %42 ], [ null, %40 ], [ null, %.lr.ph113 ], [ null, %32 ]
+.critedge:                                        ; preds = %32, %.lr.ph107, %3, %8, %_ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit, %11, %14, %16, %40, %42
+  %.367 = phi ptr [ %98, %_ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit ], [ null, %11 ], [ null, %14 ], [ null, %16 ], [ null, %40 ], [ null, %42 ], [ %5, %8 ], [ %5, %3 ], [ null, %.lr.ph107 ], [ null, %32 ]
   ret ptr %.367
 }
 
@@ -6118,8 +6118,8 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %.critedge.i.thread
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN2cv8tinyxml210XMLElement15ParseAttributesEPc(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %.not78 = icmp eq ptr %1, null
-  br i1 %.not78, label %.loopexit, label %.lr.ph
+  %.not75 = icmp eq ptr %1, null
+  br i1 %.not75, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6127,15 +6127,15 @@ define hidden noundef ptr @_ZN2cv8tinyxml210XMLElement15ParseAttributesEPc(ptr n
   br label %5
 
 5:                                                ; preds = %.backedge, %.lr.ph
-  %.03580 = phi ptr [ %1, %.lr.ph ], [ %36, %.backedge ]
-  %.03879 = phi ptr [ null, %.lr.ph ], [ %22, %.backedge ]
-  %6 = load i8, ptr %.03580, align 1, !tbaa !12
+  %.03577 = phi ptr [ %1, %.lr.ph ], [ %36, %.backedge ]
+  %.03876 = phi ptr [ null, %.lr.ph ], [ %22, %.backedge ]
+  %6 = load i8, ptr %.03577, align 1, !tbaa !12
   %.not5.i = icmp sgt i8 %6, -1
   br i1 %.not5.i, label %.lr.ph.i, label %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
 
 .lr.ph.i:                                         ; preds = %5, %9
   %.pr = phi i8 [ %11, %9 ], [ %6, %5 ]
-  %.06.i = phi ptr [ %10, %9 ], [ %.03580, %5 ]
+  %.06.i = phi ptr [ %10, %9 ], [ %.03577, %5 ]
   %7 = zext nneg i8 %.pr to i32
   %8 = tail call i32 @isspace(i32 noundef %7) #26
   %.not4.i = icmp eq i32 %8, 0
@@ -6166,11 +6166,11 @@ _ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit:  ; preds = %.lr.ph.i
 _ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit:  ; preds = %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit
   %19 = tail call i32 @isalpha(i32 noundef %7) #26
   %.fr = freeze i32 %19
-  %.not63 = icmp eq i32 %.fr, 0
-  br i1 %.not63, label %switch.early.test, label %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
+  %.not60 = icmp eq i32 %.fr, 0
+  br i1 %.not60, label %switch.early.test, label %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
 
 switch.early.test:                                ; preds = %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit
-  switch i8 %.pr, label %.thread62 [
+  switch i8 %.pr, label %.thread59 [
     i8 95, label %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
     i8 58, label %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
     i8 47, label %73
@@ -6178,7 +6178,7 @@ switch.early.test:                                ; preds = %_ZN2cv8tinyxml27XML
   ]
 
 _ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread: ; preds = %9, %switch.early.test, %switch.early.test, %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit, %5
-  %.0.lcssa.i495156 = phi ptr [ %.06.i, %switch.early.test ], [ %.03580, %5 ], [ %.06.i, %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit ], [ %.06.i, %switch.early.test ], [ %10, %9 ]
+  %.0.lcssa.i495156 = phi ptr [ %.06.i, %switch.early.test ], [ %.03577, %5 ], [ %.06.i, %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit ], [ %.06.i, %switch.early.test ], [ %10, %9 ]
   %20 = load ptr, ptr %3, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 256
   %22 = tail call noundef ptr @_ZN2cv8tinyxml28MemPoolTILi72EE5AllocEv(ptr noundef nonnull align 8 dereferenceable(128) %21)
@@ -6203,7 +6203,7 @@ _ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread: ; preds = %9, %switch.ea
   %35 = trunc nuw i8 %34 to i1
   %36 = tail call noundef ptr @_ZN2cv8tinyxml212XMLAttribute9ParseDeepEPcb(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull %.0.lcssa.i495156, i1 noundef zeroext %35)
   %.not44 = icmp eq ptr %36, null
-  br i1 %.not44, label %.thread59, label %37
+  br i1 %.not44, label %.critedge, label %37
 
 37:                                               ; preds = %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
   %38 = tail call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -6266,9 +6266,9 @@ _ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit: ; preds = %.lr.ph.i.i, %.cri
   %57 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
   %58 = tail call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %57)
   %.not45 = icmp eq ptr %58, null
-  br i1 %.not45, label %_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread, label %.thread59
+  br i1 %.not45, label %_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread, label %.critedge
 
-.thread59:                                        ; preds = %_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit, %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
+.critedge:                                        ; preds = %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread, %_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit
   %59 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %60 = load ptr, ptr %59, align 8, !tbaa !130
   %61 = load ptr, ptr %22, align 8, !tbaa !39
@@ -6288,11 +6288,11 @@ _ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit: ; preds = %.lr.ph.i.i, %.cri
   br label %.loopexit
 
 _ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread: ; preds = %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i.i, %37, %_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit
-  %.not46 = icmp eq ptr %.03879, null
+  %.not46 = icmp eq ptr %.03876, null
   br i1 %.not46, label %72, label %70
 
 70:                                               ; preds = %_ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread
-  %71 = getelementptr inbounds nuw i8, ptr %.03879, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %.03876, i64 56
   store ptr %22, ptr %71, align 8, !tbaa !128
   br label %.backedge
 
@@ -6307,7 +6307,7 @@ _ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread: ; preds = %_ZN2cv8tin
   %74 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
   %75 = load i8, ptr %74, align 1, !tbaa !12
   %76 = icmp eq i8 %75, 62
-  br i1 %76, label %77, label %.thread62
+  br i1 %76, label %77, label %.thread59
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -6319,7 +6319,7 @@ _ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread: ; preds = %_ZN2cv8tin
   %81 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
   br label %.loopexit
 
-.thread62:                                        ; preds = %switch.early.test, %73
+.thread59:                                        ; preds = %switch.early.test, %73
   %82 = load ptr, ptr %3, align 8, !tbaa !33
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 92
   store i32 7, ptr %83, align 4, !tbaa !111
@@ -6329,8 +6329,8 @@ _ZNK2cv8tinyxml210XMLElement9AttributeEPKcS3_.exit.thread: ; preds = %_ZN2cv8tin
   store ptr %.06.i, ptr %85, align 8, !tbaa !122
   br label %.loopexit
 
-.loopexit:                                        ; preds = %2, %.thread59, %80, %.thread62, %77, %12
-  %.1 = phi ptr [ %79, %77 ], [ null, %.thread62 ], [ null, %12 ], [ %81, %80 ], [ null, %.thread59 ], [ null, %2 ]
+.loopexit:                                        ; preds = %2, %80, %.critedge, %.thread59, %77, %12
+  %.1 = phi ptr [ %79, %77 ], [ null, %.thread59 ], [ null, %12 ], [ null, %.critedge ], [ %81, %80 ], [ null, %2 ]
   ret ptr %.1
 }
 

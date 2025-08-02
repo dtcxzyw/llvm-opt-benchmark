@@ -19,11 +19,12 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 0, 256) i32 @VP8FilterStrengthFromDelta(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @llvm.smin.i32(i32 %1, i32 63)
   %4 = sext i32 %0 to i64
-  %5 = sext i32 %3 to i64
-  %6 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %4, i64 %5
-  %7 = load i8, ptr %6, align 1, !tbaa !3
-  %8 = zext i8 %7 to i32
-  ret i32 %8
+  %5 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %4
+  %6 = sext i32 %3 to i64
+  %7 = getelementptr inbounds [64 x i8], ptr %5, i64 0, i64 %6
+  %8 = load i8, ptr %7, align 1, !tbaa !3
+  %9 = zext i8 %8 to i32
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -141,12 +142,12 @@ GetMBSSIM.exit:                                   ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %54
 
-54:                                               ; preds = %.lr.ph, %115
-  %.057 = phi i32 [ %16, %.lr.ph ], [ %116, %115 ]
+54:                                               ; preds = %.lr.ph, %117
+  %.057 = phi i32 [ %16, %.lr.ph ], [ %118, %117 ]
   %55 = add nsw i32 %.057, %13
   %56 = add i32 %55, -64
   %or.cond = icmp ult i32 %56, -63
-  br i1 %or.cond, label %115, label %57
+  br i1 %or.cond, label %117, label %57
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %2, align 8, !tbaa !18
@@ -162,115 +163,116 @@ GetMBSSIM.exit:                                   ; preds = %47
   %.1.i.i = lshr i32 %55, %.1.v.i.i
   %65 = sub nsw i32 9, %61
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %.1.i.i, i32 %65)
+  %66 = tail call i32 @llvm.smax.i32(i32 %spec.select.i.i, i32 1)
   br label %GetILevel.exit.i
 
 GetILevel.exit.i:                                 ; preds = %63, %57
-  %.0.i.i = phi i32 [ %55, %57 ], [ %spec.select.i.i, %63 ]
-  %spec.store.select.i.i = tail call range(i32 1, 64) i32 @llvm.smax.i32(i32 %.0.i.i, i32 1)
-  %66 = shl nuw nsw i32 %55, 1
-  %67 = add nuw nsw i32 %spec.store.select.i.i, %66
-  %68 = load ptr, ptr %53, align 8, !tbaa !48
-  %69 = load ptr, ptr %26, align 8, !tbaa !25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %68, ptr noundef nonnull align 1 dereferenceable(512) %69, i64 512, i1 false)
-  %70 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %71 = load i32, ptr %70, align 8, !tbaa !49
-  %72 = icmp eq i32 %71, 1
-  br i1 %72, label %73, label %76
+  %.0.i.i = phi i32 [ %55, %57 ], [ %66, %63 ]
+  %67 = shl nuw nsw i32 %55, 1
+  %68 = add nuw nsw i32 %.0.i.i, %67
+  %69 = load ptr, ptr %53, align 8, !tbaa !48
+  %70 = load ptr, ptr %26, align 8, !tbaa !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %69, ptr noundef nonnull align 1 dereferenceable(512) %70, i64 512, i1 false)
+  %71 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %72 = load i32, ptr %71, align 8, !tbaa !49
+  %73 = icmp eq i32 %72, 1
+  br i1 %73, label %74, label %77
 
-73:                                               ; preds = %GetILevel.exit.i
-  %74 = load ptr, ptr @VP8SimpleHFilter16i, align 8, !tbaa !26
-  tail call void %74(ptr noundef nonnull %68, i32 noundef 32, i32 noundef %67) #7
-  %75 = load ptr, ptr @VP8SimpleVFilter16i, align 8, !tbaa !26
-  tail call void %75(ptr noundef nonnull %68, i32 noundef 32, i32 noundef %67) #7
+74:                                               ; preds = %GetILevel.exit.i
+  %75 = load ptr, ptr @VP8SimpleHFilter16i, align 8, !tbaa !26
+  tail call void %75(ptr noundef nonnull %69, i32 noundef 32, i32 noundef %68) #7
+  %76 = load ptr, ptr @VP8SimpleVFilter16i, align 8, !tbaa !26
+  tail call void %76(ptr noundef nonnull %69, i32 noundef 32, i32 noundef %68) #7
   br label %DoFilter.exit
 
-76:                                               ; preds = %GetILevel.exit.i
-  %77 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %78 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %79 = icmp samesign ugt i32 %55, 39
-  %80 = icmp samesign ugt i32 %55, 14
-  %81 = zext i1 %80 to i32
-  %82 = select i1 %79, i32 2, i32 %81
-  %83 = load ptr, ptr @VP8HFilter16i, align 8, !tbaa !26
-  tail call void %83(ptr noundef nonnull %68, i32 noundef 32, i32 noundef %67, i32 noundef %spec.store.select.i.i, i32 noundef %82) #7
-  %84 = load ptr, ptr @VP8HFilter8i, align 8, !tbaa !26
-  tail call void %84(ptr noundef nonnull %78, ptr noundef nonnull %77, i32 noundef 32, i32 noundef %67, i32 noundef %spec.store.select.i.i, i32 noundef %82) #7
-  %85 = load ptr, ptr @VP8VFilter16i, align 8, !tbaa !26
-  tail call void %85(ptr noundef nonnull %68, i32 noundef 32, i32 noundef %67, i32 noundef %spec.store.select.i.i, i32 noundef %82) #7
-  %86 = load ptr, ptr @VP8VFilter8i, align 8, !tbaa !26
-  tail call void %86(ptr noundef nonnull %78, ptr noundef nonnull %77, i32 noundef 32, i32 noundef %67, i32 noundef %spec.store.select.i.i, i32 noundef %82) #7
+77:                                               ; preds = %GetILevel.exit.i
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %80 = icmp samesign ugt i32 %55, 39
+  %81 = icmp samesign ugt i32 %55, 14
+  %82 = zext i1 %81 to i32
+  %83 = select i1 %80, i32 2, i32 %82
+  %84 = load ptr, ptr @VP8HFilter16i, align 8, !tbaa !26
+  tail call void %84(ptr noundef nonnull %69, i32 noundef 32, i32 noundef %68, i32 noundef %.0.i.i, i32 noundef %83) #7
+  %85 = load ptr, ptr @VP8HFilter8i, align 8, !tbaa !26
+  tail call void %85(ptr noundef nonnull %79, ptr noundef nonnull %78, i32 noundef 32, i32 noundef %68, i32 noundef %.0.i.i, i32 noundef %83) #7
+  %86 = load ptr, ptr @VP8VFilter16i, align 8, !tbaa !26
+  tail call void %86(ptr noundef nonnull %69, i32 noundef 32, i32 noundef %68, i32 noundef %.0.i.i, i32 noundef %83) #7
+  %87 = load ptr, ptr @VP8VFilter8i, align 8, !tbaa !26
+  tail call void %87(ptr noundef nonnull %79, ptr noundef nonnull %78, i32 noundef 32, i32 noundef %68, i32 noundef %.0.i.i, i32 noundef %83) #7
   br label %DoFilter.exit
 
-DoFilter.exit:                                    ; preds = %73, %76
-  %87 = load ptr, ptr %24, align 8, !tbaa !24
-  %88 = load ptr, ptr %53, align 8, !tbaa !48
+DoFilter.exit:                                    ; preds = %74, %77
+  %88 = load ptr, ptr %24, align 8, !tbaa !24
+  %89 = load ptr, ptr %53, align 8, !tbaa !48
   br label %.preheader28.i36
 
-.preheader28.i36:                                 ; preds = %98, %DoFilter.exit
-  %.032.i37 = phi double [ 0.000000e+00, %DoFilter.exit ], [ %96, %98 ]
-  %.02331.i38 = phi i32 [ 3, %DoFilter.exit ], [ %99, %98 ]
-  br label %93
+.preheader28.i36:                                 ; preds = %99, %DoFilter.exit
+  %.032.i37 = phi double [ 0.000000e+00, %DoFilter.exit ], [ %97, %99 ]
+  %.02331.i38 = phi i32 [ 3, %DoFilter.exit ], [ %100, %99 ]
+  br label %94
 
-.preheader27.i43:                                 ; preds = %98
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
+.preheader27.i43:                                 ; preds = %99
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 24
   br label %.preheader.i44
 
-93:                                               ; preds = %93, %.preheader28.i36
-  %.130.i39 = phi double [ %.032.i37, %.preheader28.i36 ], [ %96, %93 ]
-  %.02529.i40 = phi i32 [ 3, %.preheader28.i36 ], [ %97, %93 ]
-  %94 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !26
-  %95 = tail call double %94(ptr noundef %87, i32 noundef 32, ptr noundef %88, i32 noundef 32, i32 noundef %.02529.i40, i32 noundef %.02331.i38, i32 noundef 16, i32 noundef 16) #7
-  %96 = fadd double %.130.i39, %95
-  %97 = add nuw nsw i32 %.02529.i40, 1
-  %exitcond.not.i41 = icmp eq i32 %97, 13
-  br i1 %exitcond.not.i41, label %98, label %93, !llvm.loop !27
+94:                                               ; preds = %94, %.preheader28.i36
+  %.130.i39 = phi double [ %.032.i37, %.preheader28.i36 ], [ %97, %94 ]
+  %.02529.i40 = phi i32 [ 3, %.preheader28.i36 ], [ %98, %94 ]
+  %95 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !26
+  %96 = tail call double %95(ptr noundef %88, i32 noundef 32, ptr noundef %89, i32 noundef 32, i32 noundef %.02529.i40, i32 noundef %.02331.i38, i32 noundef 16, i32 noundef 16) #7
+  %97 = fadd double %.130.i39, %96
+  %98 = add nuw nsw i32 %.02529.i40, 1
+  %exitcond.not.i41 = icmp eq i32 %98, 13
+  br i1 %exitcond.not.i41, label %99, label %94, !llvm.loop !27
 
-98:                                               ; preds = %93
-  %99 = add nuw nsw i32 %.02331.i38, 1
-  %exitcond38.not.i42 = icmp eq i32 %99, 13
+99:                                               ; preds = %94
+  %100 = add nuw nsw i32 %.02331.i38, 1
+  %exitcond38.not.i42 = icmp eq i32 %100, 13
   br i1 %exitcond38.not.i42, label %.preheader27.i43, label %.preheader28.i36, !llvm.loop !29
 
-.preheader.i44:                                   ; preds = %108, %.preheader27.i43
-  %.236.i45 = phi double [ %96, %.preheader27.i43 ], [ %106, %108 ]
-  %.12635.i46 = phi i32 [ 1, %.preheader27.i43 ], [ %109, %108 ]
-  br label %100
+.preheader.i44:                                   ; preds = %109, %.preheader27.i43
+  %.236.i45 = phi double [ %97, %.preheader27.i43 ], [ %107, %109 ]
+  %.12635.i46 = phi i32 [ 1, %.preheader27.i43 ], [ %110, %109 ]
+  br label %101
 
-100:                                              ; preds = %100, %.preheader.i44
-  %.334.i47 = phi double [ %.236.i45, %.preheader.i44 ], [ %106, %100 ]
-  %.12433.i48 = phi i32 [ 1, %.preheader.i44 ], [ %107, %100 ]
-  %101 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !26
-  %102 = tail call double %101(ptr noundef nonnull %89, i32 noundef 32, ptr noundef nonnull %90, i32 noundef 32, i32 noundef %.12635.i46, i32 noundef %.12433.i48, i32 noundef 8, i32 noundef 8) #7
-  %103 = fadd double %.334.i47, %102
-  %104 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !26
-  %105 = tail call double %104(ptr noundef nonnull %91, i32 noundef 32, ptr noundef nonnull %92, i32 noundef 32, i32 noundef %.12635.i46, i32 noundef %.12433.i48, i32 noundef 8, i32 noundef 8) #7
-  %106 = fadd double %103, %105
-  %107 = add nuw nsw i32 %.12433.i48, 1
-  %exitcond39.not.i49 = icmp eq i32 %107, 7
-  br i1 %exitcond39.not.i49, label %108, label %100, !llvm.loop !30
+101:                                              ; preds = %101, %.preheader.i44
+  %.334.i47 = phi double [ %.236.i45, %.preheader.i44 ], [ %107, %101 ]
+  %.12433.i48 = phi i32 [ 1, %.preheader.i44 ], [ %108, %101 ]
+  %102 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !26
+  %103 = tail call double %102(ptr noundef nonnull %90, i32 noundef 32, ptr noundef nonnull %91, i32 noundef 32, i32 noundef %.12635.i46, i32 noundef %.12433.i48, i32 noundef 8, i32 noundef 8) #7
+  %104 = fadd double %.334.i47, %103
+  %105 = load ptr, ptr @VP8SSIMGetClipped, align 8, !tbaa !26
+  %106 = tail call double %105(ptr noundef nonnull %92, i32 noundef 32, ptr noundef nonnull %93, i32 noundef 32, i32 noundef %.12635.i46, i32 noundef %.12433.i48, i32 noundef 8, i32 noundef 8) #7
+  %107 = fadd double %104, %106
+  %108 = add nuw nsw i32 %.12433.i48, 1
+  %exitcond39.not.i49 = icmp eq i32 %108, 7
+  br i1 %exitcond39.not.i49, label %109, label %101, !llvm.loop !30
 
-108:                                              ; preds = %100
-  %109 = add nuw nsw i32 %.12635.i46, 1
-  %exitcond40.not.i50 = icmp eq i32 %109, 7
+109:                                              ; preds = %101
+  %110 = add nuw nsw i32 %.12635.i46, 1
+  %exitcond40.not.i50 = icmp eq i32 %110, 7
   br i1 %exitcond40.not.i50, label %GetMBSSIM.exit51, label %.preheader.i44, !llvm.loop !31
 
-GetMBSSIM.exit51:                                 ; preds = %108
-  %110 = load ptr, ptr %19, align 8, !tbaa !6
-  %111 = zext nneg i32 %55 to i64
-  %112 = getelementptr inbounds nuw [4 x [64 x double]], ptr %110, i64 0, i64 %10, i64 %111
-  %113 = load double, ptr %112, align 8, !tbaa !16
-  %114 = fadd double %106, %113
-  store double %114, ptr %112, align 8, !tbaa !16
-  br label %115
+GetMBSSIM.exit51:                                 ; preds = %109
+  %111 = load ptr, ptr %19, align 8, !tbaa !6
+  %112 = getelementptr inbounds nuw [4 x [64 x double]], ptr %111, i64 0, i64 %10
+  %113 = zext nneg i32 %55 to i64
+  %114 = getelementptr inbounds nuw [64 x double], ptr %112, i64 0, i64 %113
+  %115 = load double, ptr %114, align 8, !tbaa !16
+  %116 = fadd double %107, %115
+  store double %116, ptr %114, align 8, !tbaa !16
+  br label %117
 
-115:                                              ; preds = %54, %GetMBSSIM.exit51
-  %116 = add nsw i32 %.057, %18
-  %.not34 = icmp sgt i32 %116, %15
+117:                                              ; preds = %54, %GetMBSSIM.exit51
+  %118 = add nsw i32 %.057, %18
+  %.not34 = icmp sgt i32 %118, %15
   br i1 %.not34, label %.loopexit, label %54, !llvm.loop !50
 
-.loopexit:                                        ; preds = %115, %GetMBSSIM.exit, %1
+.loopexit:                                        ; preds = %117, %GetMBSSIM.exit, %1
   ret void
 }
 
@@ -284,7 +286,7 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   br i1 %.not, label %18, label %.preheader45
 
 .preheader45:                                     ; preds = %1
-  %6 = getelementptr i8, ptr %3, i64 1292
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1292
   br label %7
 
 7:                                                ; preds = %.preheader45, %16
@@ -298,7 +300,7 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ 1, %7 ], [ %indvars.iv.next, %11 ]
   %.03647 = phi i32 [ 0, %7 ], [ %.1, %11 ]
   %.04046 = phi double [ %10, %7 ], [ %.141, %11 ]
-  %12 = getelementptr inbounds nuw [4 x [64 x double]], ptr %5, i64 0, i64 %indvars.iv53, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [64 x double], ptr %8, i64 0, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !16
   %14 = fcmp ogt double %13, %.04046
   %.141 = select i1 %14, double %13, double %.04046
@@ -310,7 +312,7 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
 
 16:                                               ; preds = %11
   %.idx = mul nuw nsw i64 %indvars.iv53, 744
-  %17 = getelementptr i8, ptr %6, i64 %.idx
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   store i32 %.1, ptr %17, align 4, !tbaa !20
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 4
@@ -328,46 +330,47 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load i32, ptr %24, align 8, !tbaa !54
   %26 = sext i32 %25 to i64
-  br label %27
+  %27 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %26
+  br label %28
 
-27:                                               ; preds = %.preheader, %45
-  %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %45 ]
-  %.03850 = phi i32 [ 0, %.preheader ], [ %spec.select, %45 ]
-  %28 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %23, i64 0, i64 %indvars.iv57
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 688
-  %30 = load i32, ptr %29, align 8, !tbaa !55
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 226
-  %32 = load i16, ptr %31, align 2, !tbaa !56
-  %33 = zext i16 %32 to i32
-  %34 = mul nsw i32 %30, %33
-  %35 = ashr i32 %34, 3
-  %36 = tail call i32 @llvm.smin.i32(i32 %35, i32 63)
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %26, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !3
-  %40 = zext i8 %39 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %28, i64 684
-  %42 = load i32, ptr %41, align 4, !tbaa !20
-  %43 = icmp slt i32 %42, %40
-  br i1 %43, label %44, label %45
+28:                                               ; preds = %.preheader, %46
+  %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %46 ]
+  %.03850 = phi i32 [ 0, %.preheader ], [ %spec.select, %46 ]
+  %29 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %23, i64 0, i64 %indvars.iv57
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 688
+  %31 = load i32, ptr %30, align 8, !tbaa !55
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 226
+  %33 = load i16, ptr %32, align 2, !tbaa !56
+  %34 = zext i16 %33 to i32
+  %35 = mul nsw i32 %31, %34
+  %36 = ashr i32 %35, 3
+  %37 = tail call i32 @llvm.smin.i32(i32 %36, i32 63)
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds [64 x i8], ptr %27, i64 0, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !3
+  %41 = zext i8 %40 to i32
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 684
+  %43 = load i32, ptr %42, align 4, !tbaa !20
+  %44 = icmp slt i32 %43, %41
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %27
-  store i32 %40, ptr %41, align 4, !tbaa !20
-  br label %45
+45:                                               ; preds = %28
+  store i32 %41, ptr %42, align 4, !tbaa !20
+  br label %46
 
-45:                                               ; preds = %44, %27
-  %46 = phi i32 [ %40, %44 ], [ %42, %27 ]
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.03850, i32 %46)
+46:                                               ; preds = %45, %28
+  %47 = phi i32 [ %41, %45 ], [ %43, %28 ]
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.03850, i32 %47)
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4
-  br i1 %exitcond60.not, label %47, label %27, !llvm.loop !58
+  br i1 %exitcond60.not, label %48, label %28, !llvm.loop !58
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %spec.select, ptr %48, align 4, !tbaa !59
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 %spec.select, ptr %49, align 4, !tbaa !59
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %18, %47
+.loopexit:                                        ; preds = %16, %18, %48
   ret void
 }
 

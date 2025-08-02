@@ -749,9 +749,9 @@ define dso_local void @_ZN5clang6format36BreakableStringLiteralUsingOperatorsC2E
   %46 = icmp ne i8 %45, 0
   %47 = select i1 %43, i1 %46, i1 false
   %.not = icmp eq i8 %42, 10
-  br i1 %.not, label %.thread, label %58
+  br i1 %.not, label %.critedge, label %58
 
-.thread:                                          ; preds = %9
+.critedge:                                        ; preds = %9
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 212
   %49 = load i8, ptr %48, align 4, !tbaa !172, !range !138, !noundef !139
   %50 = trunc nuw i8 %49 to i1
@@ -773,13 +773,13 @@ define dso_local void @_ZN5clang6format36BreakableStringLiteralUsingOperatorsC2E
   %56 = select i1 %36, i32 %55, i32 0
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %56, ptr %57, align 8, !tbaa !173
-  br label %101
+  br label %96
 
 58:                                               ; preds = %9
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 777
   %60 = load i8, ptr %59, align 1, !tbaa !174, !range !138, !noundef !139
   %61 = trunc nuw i8 %60 to i1
-  br i1 %10, label %62, label %74
+  br i1 %10, label %62, label %70
 
 62:                                               ; preds = %58
   %63 = select i1 %61, ptr @.str.11, ptr @.str.12
@@ -799,70 +799,66 @@ define dso_local void @_ZN5clang6format36BreakableStringLiteralUsingOperatorsC2E
   %69 = select i1 %47, i64 3, i64 1
   store ptr %68, ptr %22, align 8, !tbaa !128
   store i64 %69, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !129
-  %70 = trunc nuw nsw i64 %64 to i32
-  %71 = add nsw i32 %70, -1
-  %72 = select i1 %36, i32 %71, i32 0
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %72, ptr %73, align 8, !tbaa !173
-  br i1 %47, label %93, label %101
+  br label %85
 
-74:                                               ; preds = %58
-  %75 = select i1 %61, i64 3, i64 2
-  br i1 %11, label %76, label %80
+70:                                               ; preds = %58
+  %71 = select i1 %61, i64 3, i64 2
+  br i1 %11, label %72, label %76
 
-76:                                               ; preds = %74
-  %77 = select i1 %61, ptr @.str.17, ptr @.str.18
-  %78 = select i1 %47, ptr @.str.19, ptr @.str.4
-  %79 = select i1 %47, i64 4, i64 2
-  br label %84
+72:                                               ; preds = %70
+  %73 = select i1 %61, ptr @.str.17, ptr @.str.18
+  %74 = select i1 %47, ptr @.str.19, ptr @.str.4
+  %75 = select i1 %47, i64 4, i64 2
+  br label %80
 
-80:                                               ; preds = %74
-  %81 = select i1 %61, ptr @.str.20, ptr @.str.21
-  %82 = select i1 %47, ptr @.str.22, ptr @.str.5
-  %83 = select i1 %47, i64 3, i64 1
-  br label %84
+76:                                               ; preds = %70
+  %77 = select i1 %61, ptr @.str.20, ptr @.str.21
+  %78 = select i1 %47, ptr @.str.22, ptr @.str.5
+  %79 = select i1 %47, i64 3, i64 1
+  br label %80
 
-84:                                               ; preds = %76, %80
-  %.sink72 = phi ptr [ %81, %80 ], [ %77, %76 ]
-  %.sink70 = phi ptr [ %82, %80 ], [ %78, %76 ]
-  %.sink = phi i64 [ %83, %80 ], [ %79, %76 ]
+80:                                               ; preds = %76, %72
+  %.sink72 = phi ptr [ %77, %76 ], [ %73, %72 ]
+  %.sink70 = phi ptr [ %78, %76 ], [ %74, %72 ]
+  %.sink = phi i64 [ %79, %76 ], [ %75, %72 ]
   store ptr %.sink72, ptr %39, align 8, !tbaa !128
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %75, ptr %85, align 8, !tbaa !129
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %71, ptr %81, align 8, !tbaa !129
   store ptr %.sink70, ptr %22, align 8, !tbaa !128
   store i64 %.sink, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !129
-  %86 = select i1 %61, ptr @.str.23, ptr @.str.24
-  store ptr %86, ptr %40, align 8, !tbaa !128
+  %82 = select i1 %61, ptr @.str.23, ptr @.str.24
+  store ptr %82, ptr %40, align 8, !tbaa !128
   %.sroa.440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 %75, ptr %.sroa.440.0..sroa_idx, align 8, !tbaa !129
-  %87 = select i1 %47, ptr @.str.5, ptr @.str.25
-  %88 = select i1 %47, i64 1, i64 3
-  store ptr %87, ptr %23, align 8, !tbaa !128
-  store i64 %88, ptr %.sroa.469.0..sroa_idx, align 8, !tbaa !129
-  %89 = trunc nuw nsw i64 %75 to i32
-  %90 = add nsw i32 %89, -1
-  %91 = select i1 %36, i32 %90, i32 0
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %91, ptr %92, align 8, !tbaa !173
-  br i1 %47, label %93, label %101
+  store i64 %71, ptr %.sroa.440.0..sroa_idx, align 8, !tbaa !129
+  %83 = select i1 %47, ptr @.str.5, ptr @.str.25
+  %84 = select i1 %47, i64 1, i64 3
+  store ptr %83, ptr %23, align 8, !tbaa !128
+  store i64 %84, ptr %.sroa.469.0..sroa_idx, align 8, !tbaa !129
+  br label %85
 
-93:                                               ; preds = %62, %84
-  %94 = phi ptr [ %73, %62 ], [ %92, %84 ]
-  %95 = phi i32 [ %72, %62 ], [ %91, %84 ]
+85:                                               ; preds = %62, %80
+  %86 = phi i64 [ %64, %62 ], [ %71, %80 ]
+  %87 = trunc nuw nsw i64 %86 to i32
+  %88 = add nsw i32 %87, -1
+  %89 = select i1 %36, i32 %88, i32 0
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 %89, ptr %90, align 8, !tbaa !173
+  br i1 %47, label %91, label %96
+
+91:                                               ; preds = %85
   %.not2 = xor i1 %36, true
   %or.cond4 = and i1 %3, %.not2
-  %96 = getelementptr inbounds nuw i8, ptr %8, i64 65
-  %97 = load i8, ptr %96, align 1
-  %98 = icmp eq i8 %97, 2
-  %or.cond38 = select i1 %or.cond4, i1 %98, i1 false
-  br i1 %or.cond38, label %99, label %101
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 65
+  %93 = load i8, ptr %92, align 1
+  %94 = icmp eq i8 %93, 2
+  %or.cond38 = select i1 %or.cond4, i1 %94, i1 false
+  br i1 %or.cond38, label %95, label %96
 
-99:                                               ; preds = %93
-  %100 = add nsw i32 %95, -2
-  store i32 %100, ptr %94, align 8, !tbaa !173
-  br label %101
+95:                                               ; preds = %91
+  store i32 -2, ptr %90, align 8, !tbaa !173
+  br label %96
 
-101:                                              ; preds = %62, %.thread, %99, %93, %84
+96:                                               ; preds = %.critedge, %95, %91, %85
   ret void
 }
 
@@ -2040,52 +2036,53 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread44:  ; preds = %_ZNK4llvm9StringRef
   %.pre = load ptr, ptr %4, align 8, !tbaa !175
   %25 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %20, i32 1
   %26 = load i64, ptr %25, align 8, !tbaa !3
-  %. = select i1 %24, i64 %26, i64 %23
-  %27 = add i64 %19, 1
-  %28 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %20
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %28, align 8, !tbaa !10
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %26, i64 %.)
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %32 = load ptr, ptr %31, align 8, !tbaa !175
-  %33 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %32, i64 %6
-  %34 = load ptr, ptr %33, align 8, !tbaa !10
-  %35 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %6
-  %36 = load ptr, ptr %35, align 8, !tbaa !10
-  %37 = ptrtoint ptr %34 to i64
-  %38 = ptrtoint ptr %36 to i64
-  %39 = sub i64 %37, %38
-  %40 = sub i64 %27, %39
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !3
-  %.sroa.speculated4.i = tail call i64 @llvm.umin.i64(i64 %42, i64 %39)
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 %.sroa.speculated4.i
-  %44 = sub i64 %42, %.sroa.speculated4.i
-  %.sroa.speculated.i36 = tail call i64 @llvm.umin.i64(i64 %44, i64 %40)
-  store ptr %43, ptr %33, align 8, !tbaa !128
-  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 %23)
+  %.sroa.speculated.i = select i1 %24, i64 %26, i64 %27
+  %.033 = select i1 %24, i64 %26, i64 %23
+  %28 = add i64 %19, 1
+  %29 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %20
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %29, align 8, !tbaa !10
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %33 = load ptr, ptr %32, align 8, !tbaa !175
+  %34 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %33, i64 %6
+  %35 = load ptr, ptr %34, align 8, !tbaa !10
+  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %6
+  %37 = load ptr, ptr %36, align 8, !tbaa !10
+  %38 = ptrtoint ptr %35 to i64
+  %39 = ptrtoint ptr %37 to i64
+  %40 = sub i64 %38, %39
+  %41 = sub i64 %28, %40
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !3
+  %.sroa.speculated4.i = tail call i64 @llvm.umin.i64(i64 %43, i64 %40)
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %.sroa.speculated4.i
+  %45 = sub i64 %43, %.sroa.speculated4.i
+  %.sroa.speculated.i36 = tail call i64 @llvm.umin.i64(i64 %45, i64 %41)
+  store ptr %44, ptr %34, align 8, !tbaa !128
+  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.speculated.i36, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !129
-  %45 = load i64, ptr %29, align 8, !tbaa !3
-  %.sroa.speculated4.i39 = tail call i64 @llvm.umin.i64(i64 %45, i64 %.)
-  %46 = load ptr, ptr %28, align 8, !tbaa !10
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.sroa.speculated4.i39
-  %48 = sub i64 %45, %.sroa.speculated4.i39
-  %49 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %32, i64 %20
-  store ptr %47, ptr %49, align 8, !tbaa !128
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %48, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !129
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !19
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 860
-  %53 = load i32, ptr %52, align 4, !tbaa !20
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %55 = load i32, ptr %54, align 4, !tbaa !116
-  %56 = tail call noundef i32 @_ZN5clang6format8encoding19columnWidthWithTabsEN4llvm9StringRefEjjNS1_8EncodingE(ptr %30, i64 %.sroa.speculated.i, i32 noundef 0, i32 noundef %53, i32 noundef %55)
-  %57 = add i32 %56, %2
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %59 = load ptr, ptr %58, align 8, !tbaa !175
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %20
-  store i32 %57, ptr %60, align 4, !tbaa !205
+  %46 = load i64, ptr %30, align 8, !tbaa !3
+  %.sroa.speculated4.i39 = tail call i64 @llvm.umin.i64(i64 %46, i64 %.033)
+  %47 = load ptr, ptr %29, align 8, !tbaa !10
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.sroa.speculated4.i39
+  %49 = sub i64 %46, %.sroa.speculated4.i39
+  %50 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %33, i64 %20
+  store ptr %48, ptr %50, align 8, !tbaa !128
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i64 %49, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !129
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %52 = load ptr, ptr %51, align 8, !tbaa !19
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 860
+  %54 = load i32, ptr %53, align 4, !tbaa !20
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %56 = load i32, ptr %55, align 4, !tbaa !116
+  %57 = tail call noundef i32 @_ZN5clang6format8encoding19columnWidthWithTabsEN4llvm9StringRefEjjNS1_8EncodingE(ptr %31, i64 %.sroa.speculated.i, i32 noundef 0, i32 noundef %54, i32 noundef %56)
+  %58 = add i32 %57, %2
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %60 = load ptr, ptr %59, align 8, !tbaa !175
+  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %20
+  store i32 %58, ptr %61, align 4, !tbaa !205
   ret void
 }
 
@@ -3512,8 +3509,8 @@ _ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit121: ; preds = %_ZN4llvm1
   %179 = getelementptr inbounds nuw i8, ptr %.0342, i64 32
   br label %182
 
-._crit_edge:                                      ; preds = %636, %_ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit121
-  %.1.lcssa = phi i32 [ %.068341, %_ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit121 ], [ %.2, %636 ]
+._crit_edge:                                      ; preds = %637, %_ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit121
+  %.1.lcssa = phi i32 [ %.068341, %_ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit121 ], [ %.2, %637 ]
   %180 = getelementptr inbounds nuw i8, ptr %.069343, i64 216
   %181 = load ptr, ptr %180, align 8, !tbaa !238
   %.not81 = icmp eq ptr %181, null
@@ -3523,9 +3520,9 @@ _ZN4llvm15SmallVectorImplINS_9StringRefEE6resizeEm.exit121: ; preds = %_ZN4llvm1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #25
   br label %.critedge
 
-182:                                              ; preds = %.lr.ph, %636
-  %.1338 = phi i32 [ %.068341, %.lr.ph ], [ %.2, %636 ]
-  %.0303337 = phi i64 [ %81, %.lr.ph ], [ %640, %636 ]
+182:                                              ; preds = %.lr.ph, %637
+  %.1338 = phi i32 [ %.068341, %.lr.ph ], [ %.2, %637 ]
+  %.0303337 = phi i64 [ %81, %.lr.ph ], [ %640, %637 ]
   %183 = load ptr, ptr %22, align 8, !tbaa !175
   %184 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %183, i64 %.0303337
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
@@ -4690,21 +4687,20 @@ _ZN5clang6format8encoding19columnWidthWithTabsEN4llvm9StringRefEjjNS1_8EncodingE
   %631 = load ptr, ptr %26, align 8, !tbaa !175
   %632 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %631, i64 %.0303337, i32 1
   %633 = load i64, ptr %632, align 8, !tbaa !3
-  br label %636
+  br label %637
 
 634:                                              ; preds = %_ZN5clang6format8encoding19columnWidthWithTabsEN4llvm9StringRefEjjNS1_8EncodingE.exit
   %635 = add nuw i64 %628, 1
   %.pre373 = load ptr, ptr %26, align 8, !tbaa !175
   %.phi.trans.insert374 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre373, i64 %.0303337, i32 1
   %.pre375 = load i64, ptr %.phi.trans.insert374, align 8, !tbaa !3
-  br label %636
+  %636 = call i64 @llvm.umin.i64(i64 %.pre375, i64 %635)
+  br label %637
 
-636:                                              ; preds = %634, %630
-  %637 = phi i64 [ %633, %630 ], [ %.pre375, %634 ]
+637:                                              ; preds = %634, %630
+  %.sroa.speculated.i229 = phi i64 [ %633, %630 ], [ %636, %634 ]
   %638 = phi ptr [ %631, %630 ], [ %.pre373, %634 ]
-  %.071 = phi i64 [ %633, %630 ], [ %635, %634 ]
   %639 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %638, i64 %.0303337, i32 1
-  %.sroa.speculated.i229 = call i64 @llvm.umin.i64(i64 %637, i64 %.071)
   store i64 %.sroa.speculated.i229, ptr %639, align 8, !tbaa !129
   %640 = add nuw nsw i64 %.0303337, 1
   %exitcond.not = icmp eq i64 %640, %.pre-phi386

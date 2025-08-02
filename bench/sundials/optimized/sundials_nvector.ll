@@ -1517,7 +1517,7 @@ define noalias noundef ptr @N_VNewVectorArray(i32 noundef %0, ptr noundef readno
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @N_VCloneEmptyVectorArray(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define noalias noundef ptr @N_VCloneEmptyVectorArray(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = sext i32 %0 to i64
@@ -1692,7 +1692,7 @@ N_VDestroy.exit:                                  ; preds = %.lr.ph, %13, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @N_VCloneVectorArray(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define noalias noundef ptr @N_VCloneVectorArray(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = sext i32 %0 to i64

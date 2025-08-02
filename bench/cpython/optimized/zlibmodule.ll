@@ -2817,7 +2817,7 @@ define internal ptr @zlib_Compress_flush(ptr noundef %0, ptr noundef %1, ptr nou
 11:                                               ; preds = %5
   %12 = call ptr @_PyArg_UnpackKeywords(ptr noundef %2, i64 noundef %3, ptr noundef null, ptr noundef %4, ptr noundef nonnull @zlib_Compress_flush._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #7
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %120, label %.thread
+  br i1 %.not, label %117, label %.thread
 
 .thread:                                          ; preds = %5, %11
   %13 = phi ptr [ %12, %11 ], [ %2, %5 ]
@@ -2833,7 +2833,7 @@ define internal ptr @zlib_Compress_flush(ptr noundef %0, ptr noundef %1, ptr nou
 19:                                               ; preds = %15
   %20 = call ptr @PyErr_Occurred() #7
   %.not24 = icmp eq ptr %20, null
-  br i1 %.not24, label %21, label %120
+  br i1 %.not24, label %21, label %117
 
 21:                                               ; preds = %15, %19, %.thread
   %.0 = phi i32 [ 4, %.thread ], [ -1, %19 ], [ %17, %15 ]
@@ -2907,168 +2907,163 @@ OutputBuffer_InitAndGrow.exit.i:                  ; preds = %41
   %53 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %53, ptr %37, align 8, !tbaa !37
   store i32 32768, ptr %38, align 4, !tbaa !31
-  br label %54
+  br label %58
 
-54:                                               ; preds = %70, %OutputBuffer_InitAndGrow.exit.i
-  %55 = phi i1 [ false, %OutputBuffer_InitAndGrow.exit.i ], [ true, %70 ]
-  %56 = phi i64 [ 32768, %OutputBuffer_InitAndGrow.exit.i ], [ 0, %70 ]
-  br i1 %55, label %57, label %61
+54:                                               ; preds = %67
+  %55 = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %6, ptr noundef nonnull %37, i64 noundef 0)
+  %56 = trunc i64 %55 to i32
+  store i32 %56, ptr %38, align 4, !tbaa !31
+  %57 = icmp slt i64 %55, 0
+  br i1 %57, label %zlib_error.exit49.i, label %58
 
-57:                                               ; preds = %54
-  %58 = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %6, ptr noundef nonnull %37, i64 noundef %56)
-  %59 = trunc i64 %58 to i32
-  store i32 %59, ptr %38, align 4, !tbaa !31
-  %60 = icmp slt i64 %58, 0
-  br i1 %60, label %zlib_error.exit49.i, label %61
+58:                                               ; preds = %54, %OutputBuffer_InitAndGrow.exit.i
+  %59 = call ptr @PyEval_SaveThread() #7
+  %60 = call i32 @deflate(ptr noundef nonnull %35, i32 noundef %.0) #7
+  call void @PyEval_RestoreThread(ptr noundef %59) #7
+  %61 = icmp eq i32 %60, -2
+  br i1 %61, label %zlib_error.exit.i, label %67
 
-61:                                               ; preds = %57, %54
-  %62 = call ptr @PyEval_SaveThread() #7
-  %63 = call i32 @deflate(ptr noundef nonnull %35, i32 noundef %.0) #7
-  call void @PyEval_RestoreThread(ptr noundef %62) #7
-  %64 = icmp eq i32 %63, -2
-  br i1 %64, label %zlib_error.exit.i, label %70
-
-zlib_error.exit.i:                                ; preds = %61
-  %65 = getelementptr i8, ptr %0, i64 64
-  %.val47.i = load ptr, ptr %65, align 8
-  %66 = icmp eq ptr %.val47.i, null
-  %spec.select.i = select i1 %66, ptr @.str.18, ptr %.val47.i
-  %67 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !12
-  %69 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %68, ptr noundef nonnull @.str.21, i32 noundef -2, ptr noundef nonnull @.str.81, ptr noundef nonnull %spec.select.i) #7
+zlib_error.exit.i:                                ; preds = %58
+  %62 = getelementptr i8, ptr %0, i64 64
+  %.val47.i = load ptr, ptr %62, align 8
+  %63 = icmp eq ptr %.val47.i, null
+  %spec.select.i = select i1 %63, ptr @.str.18, ptr %.val47.i
+  %64 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %65 = load ptr, ptr %64, align 8, !tbaa !12
+  %66 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %65, ptr noundef nonnull @.str.21, i32 noundef -2, ptr noundef nonnull @.str.81, ptr noundef nonnull %spec.select.i) #7
   br label %zlib_error.exit49.i
 
-70:                                               ; preds = %61
-  %71 = load i32, ptr %38, align 8, !tbaa !70
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %54, label %73, !llvm.loop !73
+67:                                               ; preds = %58
+  %68 = load i32, ptr %38, align 8, !tbaa !70
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %54, label %70, !llvm.loop !73
+
+70:                                               ; preds = %67
+  %71 = icmp eq i32 %60, 1
+  %72 = icmp eq i32 %.0, 4
+  %or.cond.i = and i1 %72, %71
+  br i1 %or.cond.i, label %73, label %91
 
 73:                                               ; preds = %70
-  %74 = icmp eq i32 %63, 1
-  %75 = icmp eq i32 %.0, 4
-  %or.cond.i = and i1 %75, %74
-  br i1 %or.cond.i, label %76, label %94
+  %74 = call i32 @deflateEnd(ptr noundef nonnull %35) #7
+  %.not44.i = icmp eq i32 %74, 0
+  br i1 %.not44.i, label %89, label %75
 
-76:                                               ; preds = %73
-  %77 = call i32 @deflateEnd(ptr noundef nonnull %35) #7
-  %.not44.i = icmp eq i32 %77, 0
-  br i1 %.not44.i, label %92, label %78
-
-78:                                               ; preds = %76
-  %79 = getelementptr i8, ptr %0, i64 64
-  %.val46.i = load ptr, ptr %79, align 8
-  %.not.i.i = icmp eq i32 %77, -6
+75:                                               ; preds = %73
+  %76 = getelementptr i8, ptr %0, i64 64
+  %.val46.i = load ptr, ptr %76, align 8
+  %.not.i.i = icmp eq i32 %74, -6
   %.0.i.i = select i1 %.not.i.i, ptr @.str.16, ptr %.val46.i
-  %80 = icmp eq ptr %.0.i.i, null
-  br i1 %80, label %81, label %88
+  %77 = icmp eq ptr %.0.i.i, null
+  br i1 %77, label %78, label %85
+
+78:                                               ; preds = %75
+  switch i32 %74, label %81 [
+    i32 -5, label %85
+    i32 -2, label %79
+    i32 -3, label %80
+  ]
+
+79:                                               ; preds = %78
+  br label %85
+
+80:                                               ; preds = %78
+  br label %85
 
 81:                                               ; preds = %78
-  switch i32 %77, label %84 [
-    i32 -5, label %88
-    i32 -2, label %82
-    i32 -3, label %83
-  ]
-
-82:                                               ; preds = %81
-  br label %88
-
-83:                                               ; preds = %81
-  br label %88
-
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !12
-  %87 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %86, ptr noundef nonnull @.str.20, i32 noundef %77, ptr noundef nonnull @.str.15) #7
+  %82 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %83 = load ptr, ptr %82, align 8, !tbaa !12
+  %84 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %83, ptr noundef nonnull @.str.20, i32 noundef %74, ptr noundef nonnull @.str.15) #7
   br label %zlib_error.exit49.i
 
-88:                                               ; preds = %83, %82, %81, %78
-  %.1.ph.i48.i = phi ptr [ %.0.i.i, %78 ], [ @.str.19, %83 ], [ @.str.18, %82 ], [ @.str.17, %81 ]
-  %89 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %90 = load ptr, ptr %89, align 8, !tbaa !12
-  %91 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %90, ptr noundef nonnull @.str.21, i32 noundef %77, ptr noundef nonnull @.str.15, ptr noundef nonnull %.1.ph.i48.i) #7
+85:                                               ; preds = %80, %79, %78, %75
+  %.1.ph.i48.i = phi ptr [ %.0.i.i, %75 ], [ @.str.19, %80 ], [ @.str.18, %79 ], [ @.str.17, %78 ]
+  %86 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %87 = load ptr, ptr %86, align 8, !tbaa !12
+  %88 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %87, ptr noundef nonnull @.str.21, i32 noundef %74, ptr noundef nonnull @.str.15, ptr noundef nonnull %.1.ph.i48.i) #7
   br label %zlib_error.exit49.i
 
-92:                                               ; preds = %76
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 145
-  store i8 0, ptr %93, align 1, !tbaa !55
+89:                                               ; preds = %73
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 145
+  store i8 0, ptr %90, align 1, !tbaa !55
   %.pre.i = load i32, ptr %38, align 8, !tbaa !70
-  br label %108
+  br label %105
 
-94:                                               ; preds = %73
-  switch i32 %63, label %95 [
-    i32 -5, label %108
-    i32 0, label %108
+91:                                               ; preds = %70
+  switch i32 %60, label %92 [
+    i32 -5, label %105
+    i32 0, label %105
   ]
 
-95:                                               ; preds = %94
-  %96 = getelementptr i8, ptr %0, i64 64
-  %.val.i = load ptr, ptr %96, align 8
-  %.not.i50.i = icmp eq i32 %63, -6
+92:                                               ; preds = %91
+  %93 = getelementptr i8, ptr %0, i64 64
+  %.val.i = load ptr, ptr %93, align 8
+  %.not.i50.i = icmp eq i32 %60, -6
   %.0.i51.i = select i1 %.not.i50.i, ptr @.str.16, ptr %.val.i
-  %97 = icmp eq ptr %.0.i51.i, null
-  br i1 %97, label %98, label %104
+  %94 = icmp eq ptr %.0.i51.i, null
+  br i1 %94, label %95, label %101
 
-98:                                               ; preds = %95
-  switch i32 %63, label %100 [
-    i32 -5, label %104
-    i32 -3, label %99
+95:                                               ; preds = %92
+  switch i32 %60, label %97 [
+    i32 -5, label %101
+    i32 -3, label %96
   ]
 
-99:                                               ; preds = %98
-  br label %104
+96:                                               ; preds = %95
+  br label %101
 
-100:                                              ; preds = %98
-  %101 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %102 = load ptr, ptr %101, align 8, !tbaa !12
-  %103 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %102, ptr noundef nonnull @.str.20, i32 noundef %63, ptr noundef nonnull @.str.81) #7
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %99 = load ptr, ptr %98, align 8, !tbaa !12
+  %100 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %99, ptr noundef nonnull @.str.20, i32 noundef %60, ptr noundef nonnull @.str.81) #7
   br label %zlib_error.exit49.i
 
-104:                                              ; preds = %99, %98, %95
-  %.1.ph.i52.i = phi ptr [ %.0.i51.i, %95 ], [ @.str.19, %99 ], [ @.str.17, %98 ]
-  %105 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %106 = load ptr, ptr %105, align 8, !tbaa !12
-  %107 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %106, ptr noundef nonnull @.str.21, i32 noundef %63, ptr noundef nonnull @.str.81, ptr noundef nonnull %.1.ph.i52.i) #7
+101:                                              ; preds = %96, %95, %92
+  %.1.ph.i52.i = phi ptr [ %.0.i51.i, %92 ], [ @.str.19, %96 ], [ @.str.17, %95 ]
+  %102 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %103 = load ptr, ptr %102, align 8, !tbaa !12
+  %104 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %103, ptr noundef nonnull @.str.21, i32 noundef %60, ptr noundef nonnull @.str.81, ptr noundef nonnull %.1.ph.i52.i) #7
   br label %zlib_error.exit49.i
 
-108:                                              ; preds = %94, %94, %92
-  %109 = phi i32 [ %71, %94 ], [ %71, %94 ], [ %.pre.i, %92 ]
-  %110 = zext i32 %109 to i64
-  %111 = call fastcc ptr @_BlocksOutputBuffer_Finish(ptr noundef nonnull %6, i64 noundef %110)
-  %.not45.i = icmp eq ptr %111, null
+105:                                              ; preds = %91, %91, %89
+  %106 = phi i32 [ %68, %91 ], [ %68, %91 ], [ %.pre.i, %89 ]
+  %107 = zext i32 %106 to i64
+  %108 = call fastcc ptr @_BlocksOutputBuffer_Finish(ptr noundef nonnull %6, i64 noundef %107)
+  %.not45.i = icmp eq ptr %108, null
   br i1 %.not45.i, label %zlib_error.exit49.i, label %OutputBuffer_OnError.exit.i
 
-zlib_error.exit49.i:                              ; preds = %57, %108, %104, %100, %88, %84, %zlib_error.exit.i, %OutputBuffer_InitAndGrow.exit.thread.i
-  %112 = load ptr, ptr %6, align 8, !tbaa !15
-  %.not.i.i.i = icmp eq ptr %112, null
-  br i1 %.not.i.i.i, label %OutputBuffer_OnError.exit.i, label %113
+zlib_error.exit49.i:                              ; preds = %54, %105, %101, %97, %85, %81, %zlib_error.exit.i, %OutputBuffer_InitAndGrow.exit.thread.i
+  %109 = load ptr, ptr %6, align 8, !tbaa !15
+  %.not.i.i.i = icmp eq ptr %109, null
+  br i1 %.not.i.i.i, label %OutputBuffer_OnError.exit.i, label %110
 
-113:                                              ; preds = %zlib_error.exit49.i
-  %114 = load i32, ptr %112, align 8, !tbaa !14
-  %.not.i.i.i54.i = icmp sgt i32 %114, -1
-  br i1 %.not.i.i.i54.i, label %115, label %OutputBuffer_OnError.exit.i
+110:                                              ; preds = %zlib_error.exit49.i
+  %111 = load i32, ptr %109, align 8, !tbaa !14
+  %.not.i.i.i54.i = icmp sgt i32 %111, -1
+  br i1 %.not.i.i.i54.i, label %112, label %OutputBuffer_OnError.exit.i
 
-115:                                              ; preds = %113
-  %116 = add nsw i32 %114, -1
-  store i32 %116, ptr %112, align 8, !tbaa !14
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %OutputBuffer_OnError.exit.i
+112:                                              ; preds = %110
+  %113 = add nsw i32 %111, -1
+  store i32 %113, ptr %109, align 8, !tbaa !14
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %115, label %OutputBuffer_OnError.exit.i
 
-118:                                              ; preds = %115
-  call void @_Py_Dealloc(ptr noundef nonnull %112) #7
+115:                                              ; preds = %112
+  call void @_Py_Dealloc(ptr noundef nonnull %109) #7
   br label %OutputBuffer_OnError.exit.i
 
-OutputBuffer_OnError.exit.i:                      ; preds = %118, %115, %113, %zlib_error.exit49.i, %108
-  %.039.i = phi ptr [ %111, %108 ], [ null, %zlib_error.exit49.i ], [ null, %113 ], [ null, %115 ], [ null, %118 ]
-  %119 = load ptr, ptr %27, align 8, !tbaa !66
-  call void @PyThread_release_lock(ptr noundef %119) #7
+OutputBuffer_OnError.exit.i:                      ; preds = %115, %112, %110, %zlib_error.exit49.i, %105
+  %.039.i = phi ptr [ %108, %105 ], [ null, %zlib_error.exit49.i ], [ null, %110 ], [ null, %112 ], [ null, %115 ]
+  %116 = load ptr, ptr %27, align 8, !tbaa !66
+  call void @PyThread_release_lock(ptr noundef %116) #7
   br label %zlib_Compress_flush_impl.exit
 
 zlib_Compress_flush_impl.exit:                    ; preds = %24, %OutputBuffer_OnError.exit.i
   %.0.i = phi ptr [ %25, %24 ], [ %.039.i, %OutputBuffer_OnError.exit.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
-  br label %120
+  br label %117
 
-120:                                              ; preds = %19, %11, %zlib_Compress_flush_impl.exit
+117:                                              ; preds = %19, %11, %zlib_Compress_flush_impl.exit
   %.020 = phi ptr [ %.0.i, %zlib_Compress_flush_impl.exit ], [ null, %19 ], [ null, %11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   ret ptr %.020

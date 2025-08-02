@@ -3784,7 +3784,7 @@ define internal fastcc void @_ZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11M
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = load ptr, ptr %14, align 8, !tbaa !278
   %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %18, label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread180
+  br i1 %.not.i.i, label %18, label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread181
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -3801,21 +3801,21 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit:           ; preds = %18
   %25 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
   store ptr %25, ptr %14, align 8, !tbaa !278
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.critedge, label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread180
+  br i1 %26, label %.critedge, label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread181
 
-_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread180: ; preds = %12, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit
+_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread181: ; preds = %12, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit
   %27 = load ptr, ptr %16, align 8, !tbaa !278
-  %.not.i.i127 = icmp eq ptr %27, null
-  br i1 %.not.i.i127, label %28, label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit131.thread183
+  %.not.i.i128 = icmp eq ptr %27, null
+  br i1 %.not.i.i128, label %28, label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit132.thread184
 
-28:                                               ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread180
+28:                                               ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread181
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 28800
-  %or.cond.not.i.i129 = icmp eq i64 %31, 8192
-  br i1 %or.cond.not.i.i129, label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit131, label %.critedge
+  %or.cond.not.i.i130 = icmp eq i64 %31, 8192
+  br i1 %or.cond.not.i.i130, label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit132, label %.critedge
 
-_ZNK4llvm8MCSymbol11isUndefinedEb.exit131:        ; preds = %28
+_ZNK4llvm8MCSymbol11isUndefinedEb.exit132:        ; preds = %28
   %32 = or i64 %30, 8
   store i64 %32, ptr %29, align 8
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -3823,9 +3823,9 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit131:        ; preds = %28
   %35 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %34)
   store ptr %35, ptr %16, align 8, !tbaa !278
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.critedge, label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit131.thread183
+  br i1 %36, label %.critedge, label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit132.thread184
 
-_ZNK4llvm8MCSymbol11isUndefinedEb.exit131.thread183: ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread180, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit131
+_ZNK4llvm8MCSymbol11isUndefinedEb.exit132.thread184: ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread181, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit132
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !296
   %39 = load ptr, ptr %3, align 8, !tbaa !282
@@ -3833,7 +3833,7 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit131.thread183: ; preds = %_ZNK4llvm8MCSymb
   %41 = tail call noundef zeroext i1 @_ZNK4llvm14MCObjectWriter34isSymbolRefDifferenceFullyResolvedERKNS_11MCAssemblerEPKNS_15MCSymbolRefExprES6_b(ptr noundef nonnull align 8 dereferenceable(104) %38, ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef %39, ptr noundef %40, i1 noundef zeroext %2) #15
   br i1 %41, label %42, label %.critedge
 
-42:                                               ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit131.thread183
+42:                                               ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit132.thread184
   %43 = load ptr, ptr %14, align 8, !tbaa !278
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %44, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit
@@ -3857,15 +3857,15 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit131.thread183: ; preds = %_ZNK4llvm8MCSymb
 _ZNK4llvm8MCSymbol11getFragmentEb.exit:           ; preds = %42, %44, %48
   %.0.i = phi ptr [ %52, %48 ], [ null, %44 ], [ %43, %42 ]
   %53 = load ptr, ptr %16, align 8, !tbaa !278
-  %.not.i132 = icmp eq ptr %53, null
-  br i1 %.not.i132, label %54, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit136
+  %.not.i133 = icmp eq ptr %53, null
+  br i1 %.not.i133, label %54, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit137
 
 54:                                               ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, 28800
-  %or.cond.not.i134 = icmp eq i64 %57, 8192
-  br i1 %or.cond.not.i134, label %58, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit136
+  %or.cond.not.i135 = icmp eq i64 %57, 8192
+  br i1 %or.cond.not.i135, label %58, label %_ZNK4llvm8MCSymbol11getFragmentEb.exit137
 
 58:                                               ; preds = %54
   %59 = or i64 %56, 8
@@ -3874,20 +3874,20 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit:           ; preds = %42, %44, %48
   %61 = load ptr, ptr %60, align 8, !tbaa !66
   %62 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %61)
   store ptr %62, ptr %16, align 8, !tbaa !278
-  br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit136
+  br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit137
 
-_ZNK4llvm8MCSymbol11getFragmentEb.exit136:        ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit, %54, %58
-  %.0.i133 = phi ptr [ %62, %58 ], [ null, %54 ], [ %53, %_ZNK4llvm8MCSymbol11getFragmentEb.exit ]
+_ZNK4llvm8MCSymbol11getFragmentEb.exit137:        ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit, %54, %58
+  %.0.i134 = phi ptr [ %62, %58 ], [ null, %54 ], [ %53, %_ZNK4llvm8MCSymbol11getFragmentEb.exit ]
   %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !297
-  %65 = getelementptr inbounds nuw i8, ptr %.0.i133, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i134, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !297
   %67 = icmp eq ptr %64, %66
   %68 = icmp ne ptr %1, null
   %or.cond = or i1 %68, %67
   br i1 %or.cond, label %69, label %.critedge
 
-69:                                               ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit136
+69:                                               ; preds = %_ZNK4llvm8MCSymbol11getFragmentEb.exit137
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = load i8, ptr %70, align 8, !tbaa !246, !range !32, !noundef !33
   %72 = trunc nuw i8 %71 to i1
@@ -3900,19 +3900,19 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit136:        ; preds = %_ZNK4llvm8MCSymbol1
   %75 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %76 = load i8, ptr %75, align 8
   %77 = and i8 %76, 2
-  %.not213 = icmp eq i8 %77, 0
-  br i1 %.not213, label %83, label %78
+  %.not206 = icmp eq i8 %77, 0
+  br i1 %.not206, label %83, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !301
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %82 = load i32, ptr %81, align 4, !tbaa !302
-  %.not214 = icmp eq i32 %82, 1320
-  br i1 %.not214, label %83, label %130
+  %.not207 = icmp eq i32 %82, 1320
+  br i1 %.not207, label %83, label %130
 
 83:                                               ; preds = %78, %74, %73
-  %84 = icmp eq ptr %.0.i, %.0.i133
+  %84 = icmp eq ptr %.0.i, %.0.i134
   br i1 %84, label %85, label %107
 
 85:                                               ; preds = %83
@@ -3980,15 +3980,15 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit136:        ; preds = %_ZNK4llvm8MCSymbol1
 
 125:                                              ; preds = %119, %107
   %126 = tail call noundef zeroext i1 @_ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %14) #15
-  br i1 %126, label %127, label %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit137"
+  br i1 %126, label %127, label %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit138"
 
 127:                                              ; preds = %125
   %128 = load i64, ptr %5, align 8, !tbaa !34
   %129 = or i64 %128, 1
   store i64 %129, ptr %5, align 8, !tbaa !34
-  br label %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit137"
+  br label %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit138"
 
-"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit137": ; preds = %125, %127
+"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit138": ; preds = %125, %127
   store ptr null, ptr %4, align 8, !tbaa !282
   store ptr null, ptr %3, align 8, !tbaa !282
   br label %.critedge
@@ -4008,7 +4008,7 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit136:        ; preds = %_ZNK4llvm8MCSymbol1
   br i1 %139, label %.critedge, label %140
 
 140:                                              ; preds = %135
-  %141 = icmp eq ptr %.0.i, %.0.i133
+  %141 = icmp eq ptr %.0.i, %.0.i134
   br i1 %141, label %142, label %149
 
 142:                                              ; preds = %140
@@ -4023,7 +4023,7 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit136:        ; preds = %_ZNK4llvm8MCSymbol1
 149:                                              ; preds = %140
   %150 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %151 = load i32, ptr %150, align 8, !tbaa !305
-  %152 = getelementptr inbounds nuw i8, ptr %.0.i133, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %.0.i134, i64 24
   %153 = load i32, ptr %152, align 8, !tbaa !305
   %154 = icmp ult i32 %151, %153
   %155 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -4041,10 +4041,10 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit136:        ; preds = %_ZNK4llvm8MCSymbol1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %149, %160, %142
-  %.091.in185 = phi i1 [ true, %160 ], [ false, %149 ], [ false, %142 ]
-  %.0168 = phi ptr [ %.0.i133, %160 ], [ %.0.i, %149 ], [ %.0.i, %142 ]
-  %.0167 = phi ptr [ %.0.i, %160 ], [ %.0.i133, %149 ], [ %.0.i133, %142 ]
-  %.0166 = phi i64 [ %162, %160 ], [ %156, %149 ], [ %144, %142 ]
+  %.091.in186 = phi i1 [ true, %160 ], [ false, %149 ], [ false, %142 ]
+  %.0169 = phi ptr [ %.0.i134, %160 ], [ %.0.i, %149 ], [ %.0.i, %142 ]
+  %.0168 = phi ptr [ %.0.i, %160 ], [ %.0.i134, %149 ], [ %.0.i134, %142 ]
+  %.0167 = phi i64 [ %162, %160 ], [ %156, %149 ], [ %144, %142 ]
   %.0 = phi i64 [ %163, %160 ], [ %158, %149 ], [ %146, %142 ]
   %.092 = phi i64 [ %164, %160 ], [ %159, %149 ], [ %148, %142 ]
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4056,33 +4056,33 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit136:        ; preds = %_ZNK4llvm8MCSymbol1
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %209
-  %.193228.us = phi i64 [ %.7.ph.us, %209 ], [ %.092, %.lr.ph.split.us.preheader ]
-  %.097227.us = phi ptr [ %210, %209 ], [ %.0167, %.lr.ph.split.us.preheader ]
-  %.098226.us = phi i1 [ %.199192196.ph.us, %209 ], [ false, %.lr.ph.split.us.preheader ]
-  %.0102225.us = phi i1 [ %.1103190198.ph.us, %209 ], [ false, %.lr.ph.split.us.preheader ]
-  %168 = getelementptr inbounds nuw i8, ptr %.097227.us, i64 28
+  %.193221.us = phi i64 [ %.7.ph.us, %209 ], [ %.092, %.lr.ph.split.us.preheader ]
+  %.097220.us = phi ptr [ %210, %209 ], [ %.0168, %.lr.ph.split.us.preheader ]
+  %.098219.us = phi i1 [ %.199191195.ph.us, %209 ], [ false, %.lr.ph.split.us.preheader ]
+  %.0102218.us = phi i1 [ %.1103190197.ph.us, %209 ], [ false, %.lr.ph.split.us.preheader ]
+  %168 = getelementptr inbounds nuw i8, ptr %.097220.us, i64 28
   %169 = load i8, ptr %168, align 4, !tbaa !306
-  %.not216.us = icmp eq i8 %169, 1
-  br i1 %.not216.us, label %188, label %.thread.us
+  %.not209.us = icmp eq i8 %169, 1
+  br i1 %.not209.us, label %188, label %.thread.us
 
 .thread.us:                                       ; preds = %.lr.ph.split.us
-  %170 = icmp eq ptr %.097227.us, %.0168
-  br i1 %170, label %.split.us, label %.thread193.us
+  %170 = icmp eq ptr %.097220.us, %.0169
+  br i1 %170, label %.split.us, label %.thread192.us
 
-.thread193.us:                                    ; preds = %.thread.us
+.thread192.us:                                    ; preds = %.thread.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
-  %.not219.us = icmp eq i8 %169, 2
-  br i1 %.not219.us, label %171, label %.split231.us
+  %.not212.us = icmp eq i8 %169, 2
+  br i1 %.not212.us, label %171, label %.split224.us
 
-171:                                              ; preds = %.thread193.us
-  %172 = getelementptr inbounds nuw i8, ptr %.097227.us, i64 40
+171:                                              ; preds = %.thread192.us
+  %172 = getelementptr inbounds nuw i8, ptr %.097220.us, i64 40
   %173 = load ptr, ptr %172, align 8, !tbaa !307
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, i8 0, i64 28, i1 false)
   %174 = load i8, ptr %173, align 8, !tbaa !3
-  %.not.i248 = icmp eq i8 %174, 1
-  br i1 %.not.i248, label %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit.thread, label %.critedge.i.i
+  %.not.i241 = icmp eq i8 %174, 1
+  br i1 %.not.i241, label %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit.thread, label %.critedge.i.i
 
 _ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit.thread: ; preds = %171
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 16
@@ -4092,11 +4092,11 @@ _ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit.thread: ; preds = %171
 
 .critedge.i.i:                                    ; preds = %171
   %177 = call noundef zeroext i1 @_ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false)
-  br i1 %177, label %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit, label %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit.thread250
+  br i1 %177, label %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit, label %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit.thread243
 
-_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit.thread250: ; preds = %.critedge.i.i
+_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit.thread243: ; preds = %.critedge.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
-  br label %.split231.us
+  br label %.split224.us
 
 _ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit:     ; preds = %.critedge.i.i
   %178 = load i64, ptr %166, align 8, !tbaa !241
@@ -4106,29 +4106,29 @@ _ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit:     ; preds = %.critedge.i.i
   %.not1.i.i = icmp eq ptr %180, null
   %181 = select i1 %.not.i2.i, i1 %.not1.i.i, i1 false
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
-  br i1 %181, label %182, label %.split231.us
+  br i1 %181, label %182, label %.split224.us
 
 182:                                              ; preds = %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit.thread, %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit
   %183 = phi i64 [ %176, %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit.thread ], [ %178, %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit ]
-  %184 = getelementptr inbounds nuw i8, ptr %.097227.us, i64 30
+  %184 = getelementptr inbounds nuw i8, ptr %.097220.us, i64 30
   %185 = load i8, ptr %184, align 2, !tbaa !309
   %186 = zext i8 %185 to i64
   %187 = mul nsw i64 %183, %186
   br label %209
 
 188:                                              ; preds = %.lr.ph.split.us
-  %189 = getelementptr inbounds nuw i8, ptr %.097227.us, i64 29
+  %189 = getelementptr inbounds nuw i8, ptr %.097220.us, i64 29
   %190 = load i8, ptr %189, align 1
   %191 = and i8 %190, 4
-  %.not217.us = icmp eq i8 %191, 0
-  br i1 %.not217.us, label %204, label %192
+  %.not210.us = icmp eq i8 %191, 0
+  br i1 %.not210.us, label %204, label %192
 
 192:                                              ; preds = %188
-  %.not118.us = icmp eq ptr %.097227.us, %.0167
+  %.not118.us = icmp eq ptr %.097220.us, %.0168
   br i1 %.not118.us, label %193, label %196
 
 193:                                              ; preds = %192
-  %194 = getelementptr inbounds nuw i8, ptr %.097227.us, i64 48
+  %194 = getelementptr inbounds nuw i8, ptr %.097220.us, i64 48
   %195 = load i64, ptr %194, align 8, !tbaa !310
   %.not119.us = icmp eq i64 %.0, %195
   br i1 %.not119.us, label %197, label %196
@@ -4137,71 +4137,71 @@ _ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit:     ; preds = %.critedge.i.i
   br label %197
 
 197:                                              ; preds = %196, %193
-  %.2104.us = phi i1 [ true, %196 ], [ %.0102225.us, %193 ]
-  %.not120.us = icmp eq ptr %.097227.us, %.0168
+  %.2104.us = phi i1 [ true, %196 ], [ %.0102218.us, %193 ]
+  %.not120.us = icmp eq ptr %.097220.us, %.0169
   br i1 %.not120.us, label %198, label %202
 
 198:                                              ; preds = %197
-  %199 = getelementptr inbounds nuw i8, ptr %.097227.us, i64 48
+  %199 = getelementptr inbounds nuw i8, ptr %.097220.us, i64 48
   %200 = load i64, ptr %199, align 8, !tbaa !310
-  %201 = icmp eq i64 %.0166, %200
+  %201 = icmp eq i64 %.0167, %200
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %198, %197
   br label %203
 
 203:                                              ; preds = %202, %198
-  %.2100.us = phi i1 [ true, %202 ], [ %.098226.us, %198 ]
+  %.2100.us = phi i1 [ true, %202 ], [ %.098219.us, %198 ]
   %or.cond7.us = select i1 %.2104.us, i1 %.2100.us, i1 false
   br i1 %or.cond7.us, label %.critedge, label %204
 
 204:                                              ; preds = %203, %188
-  %.1103.us = phi i1 [ %.2104.us, %203 ], [ %.0102225.us, %188 ]
-  %.199.us = phi i1 [ %.2100.us, %203 ], [ %.098226.us, %188 ]
-  %205 = icmp eq ptr %.097227.us, %.0168
+  %.1103.us = phi i1 [ %.2104.us, %203 ], [ %.0102218.us, %188 ]
+  %.199.us = phi i1 [ %.2100.us, %203 ], [ %.098219.us, %188 ]
+  %205 = icmp eq ptr %.097220.us, %.0169
   br i1 %205, label %.split.us, label %206
 
 206:                                              ; preds = %204
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
-  %207 = getelementptr inbounds nuw i8, ptr %.097227.us, i64 48
+  %207 = getelementptr inbounds nuw i8, ptr %.097220.us, i64 48
   %208 = load i64, ptr %207, align 8, !tbaa !310
   br label %209
 
 209:                                              ; preds = %206, %182
-  %.1103190198.ph.us = phi i1 [ %.0102225.us, %182 ], [ %.1103.us, %206 ]
-  %.199192196.ph.us = phi i1 [ %.098226.us, %182 ], [ %.199.us, %206 ]
+  %.1103190197.ph.us = phi i1 [ %.0102218.us, %182 ], [ %.1103.us, %206 ]
+  %.199191195.ph.us = phi i1 [ %.098219.us, %182 ], [ %.199.us, %206 ]
   %.pn.us = phi i64 [ %187, %182 ], [ %208, %206 ]
-  %.7.ph.us = add i64 %.pn.us, %.193228.us
+  %.7.ph.us = add i64 %.pn.us, %.193221.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  %210 = load ptr, ptr %.097227.us, align 8, !tbaa !311
+  %210 = load ptr, ptr %.097220.us, align 8, !tbaa !311
   %.not116.us = icmp eq ptr %210, null
   br i1 %.not116.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !312
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %268
-  %.193228 = phi i64 [ %.7.ph, %268 ], [ %.092, %.lr.ph ]
-  %.097227 = phi ptr [ %269, %268 ], [ %.0167, %.lr.ph ]
-  %.098226 = phi i1 [ %.199192196.ph, %268 ], [ false, %.lr.ph ]
-  %.0102225 = phi i1 [ %.1103190198.ph, %268 ], [ false, %.lr.ph ]
-  %211 = getelementptr inbounds nuw i8, ptr %.097227, i64 28
+  %.193221 = phi i64 [ %.7.ph, %268 ], [ %.092, %.lr.ph ]
+  %.097220 = phi ptr [ %269, %268 ], [ %.0168, %.lr.ph ]
+  %.098219 = phi i1 [ %.199191195.ph, %268 ], [ false, %.lr.ph ]
+  %.0102218 = phi i1 [ %.1103190197.ph, %268 ], [ false, %.lr.ph ]
+  %211 = getelementptr inbounds nuw i8, ptr %.097220, i64 28
   %212 = load i8, ptr %211, align 4, !tbaa !306
-  %.not216 = icmp eq i8 %212, 1
-  br i1 %.not216, label %213, label %.thread
+  %.not209 = icmp eq i8 %212, 1
+  br i1 %.not209, label %213, label %.thread
 
 213:                                              ; preds = %.lr.ph.split
-  %214 = getelementptr inbounds nuw i8, ptr %.097227, i64 29
+  %214 = getelementptr inbounds nuw i8, ptr %.097220, i64 29
   %215 = load i8, ptr %214, align 1
   %216 = and i8 %215, 4
-  %.not217 = icmp eq i8 %216, 0
-  br i1 %.not217, label %229, label %217
+  %.not210 = icmp eq i8 %216, 0
+  br i1 %.not210, label %229, label %217
 
 217:                                              ; preds = %213
-  %.not118 = icmp eq ptr %.097227, %.0167
+  %.not118 = icmp eq ptr %.097220, %.0168
   br i1 %.not118, label %218, label %221
 
 218:                                              ; preds = %217
-  %219 = getelementptr inbounds nuw i8, ptr %.097227, i64 48
+  %219 = getelementptr inbounds nuw i8, ptr %.097220, i64 48
   %220 = load i64, ptr %219, align 8, !tbaa !310
   %.not119 = icmp eq i64 %.0, %220
   br i1 %.not119, label %222, label %221
@@ -4210,57 +4210,57 @@ _ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit:     ; preds = %.critedge.i.i
   br label %222
 
 222:                                              ; preds = %221, %218
-  %.2104 = phi i1 [ true, %221 ], [ %.0102225, %218 ]
-  %.not120 = icmp eq ptr %.097227, %.0168
+  %.2104 = phi i1 [ true, %221 ], [ %.0102218, %218 ]
+  %.not120 = icmp eq ptr %.097220, %.0169
   br i1 %.not120, label %223, label %227
 
 223:                                              ; preds = %222
-  %224 = getelementptr inbounds nuw i8, ptr %.097227, i64 48
+  %224 = getelementptr inbounds nuw i8, ptr %.097220, i64 48
   %225 = load i64, ptr %224, align 8, !tbaa !310
-  %226 = icmp eq i64 %.0166, %225
+  %226 = icmp eq i64 %.0167, %225
   br i1 %226, label %227, label %228
 
 227:                                              ; preds = %223, %222
   br label %228
 
 228:                                              ; preds = %227, %223
-  %.2100 = phi i1 [ true, %227 ], [ %.098226, %223 ]
+  %.2100 = phi i1 [ true, %227 ], [ %.098219, %223 ]
   %or.cond7 = select i1 %.2104, i1 %.2100, i1 false
   br i1 %or.cond7, label %.critedge, label %229
 
 229:                                              ; preds = %228, %213
-  %.1103 = phi i1 [ %.2104, %228 ], [ %.0102225, %213 ]
-  %.199 = phi i1 [ %.2100, %228 ], [ %.098226, %213 ]
-  %230 = icmp eq ptr %.097227, %.0168
+  %.1103 = phi i1 [ %.2104, %228 ], [ %.0102218, %213 ]
+  %.199 = phi i1 [ %.2100, %228 ], [ %.098219, %213 ]
+  %230 = icmp eq ptr %.097220, %.0169
   br i1 %230, label %.split.us, label %241
 
 .thread:                                          ; preds = %.lr.ph.split
-  %231 = icmp eq ptr %.097227, %.0168
-  br i1 %231, label %.split.us, label %.thread193
+  %231 = icmp eq ptr %.097220, %.0169
+  br i1 %231, label %.split.us, label %.thread192
 
-.thread193:                                       ; preds = %.thread
+.thread192:                                       ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
   %232 = icmp eq i8 %212, 0
   br i1 %232, label %244, label %256
 
 .split.us:                                        ; preds = %.thread.us, %204, %229, %.thread
-  %.us-phi = phi i64 [ %.193228, %.thread ], [ %.193228, %229 ], [ %.193228.us, %204 ], [ %.193228.us, %.thread.us ]
+  %.us-phi = phi i64 [ %.193221, %.thread ], [ %.193221, %229 ], [ %.193221.us, %204 ], [ %.193221.us, %.thread.us ]
   %233 = sub nsw i64 0, %.us-phi
-  %234 = select i1 %.091.in185, i64 %233, i64 %.us-phi
+  %234 = select i1 %.091.in186, i64 %233, i64 %.us-phi
   %235 = load i64, ptr %5, align 8, !tbaa !34
   %236 = add nsw i64 %235, %234
   store i64 %236, ptr %5, align 8, !tbaa !34
   %237 = call noundef zeroext i1 @_ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %14) #15
-  br i1 %237, label %238, label %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit138"
+  br i1 %237, label %238, label %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit139"
 
 238:                                              ; preds = %.split.us
   %239 = load i64, ptr %5, align 8, !tbaa !34
   %240 = or i64 %239, 1
   store i64 %240, ptr %5, align 8, !tbaa !34
-  br label %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit138"
+  br label %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit139"
 
-"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit138": ; preds = %.split.us, %238
+"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit139": ; preds = %.split.us, %238
   store ptr null, ptr %4, align 8, !tbaa !282
   store ptr null, ptr %3, align 8, !tbaa !282
   br label %.critedge
@@ -4268,22 +4268,22 @@ _ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit:     ; preds = %.critedge.i.i
 241:                                              ; preds = %229
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
-  %242 = getelementptr inbounds nuw i8, ptr %.097227, i64 48
+  %242 = getelementptr inbounds nuw i8, ptr %.097220, i64 48
   %243 = load i64, ptr %242, align 8, !tbaa !310
   br label %268
 
-244:                                              ; preds = %.thread193
-  %245 = getelementptr inbounds nuw i8, ptr %.097227, i64 31
+244:                                              ; preds = %.thread192
+  %245 = getelementptr inbounds nuw i8, ptr %.097220, i64 31
   %246 = load i8, ptr %245, align 1
   %247 = trunc i8 %246 to i1
-  br i1 %247, label %248, label %.split231.us
+  br i1 %247, label %248, label %.split224.us
 
 248:                                              ; preds = %244
   %249 = load ptr, ptr %165, align 8, !tbaa !301
   %250 = load ptr, ptr %249, align 8, !tbaa !12
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 80
   %252 = load ptr, ptr %251, align 8
-  %253 = call noundef zeroext i1 %252(ptr noundef nonnull align 8 dereferenceable(16) %249, ptr noundef nonnull align 8 dereferenceable(56) %.097227, ptr noundef nonnull align 4 dereferenceable(4) %9) #15
+  %253 = call noundef zeroext i1 %252(ptr noundef nonnull align 8 dereferenceable(16) %249, ptr noundef nonnull align 8 dereferenceable(56) %.097220, ptr noundef nonnull align 4 dereferenceable(4) %9) #15
   br i1 %253, label %._crit_edge, label %254
 
 ._crit_edge:                                      ; preds = %248
@@ -4291,45 +4291,45 @@ _ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit:     ; preds = %.critedge.i.i
   br label %256
 
 254:                                              ; preds = %248
-  %255 = call noundef i64 @_ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull align 8 dereferenceable(30) %.097227) #15
+  %255 = call noundef i64 @_ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull align 8 dereferenceable(30) %.097220) #15
   br label %268
 
-256:                                              ; preds = %._crit_edge, %.thread193
-  %257 = phi i8 [ %.pre, %._crit_edge ], [ %212, %.thread193 ]
-  %.not219 = icmp eq i8 %257, 2
-  br i1 %.not219, label %258, label %.split231.us
+256:                                              ; preds = %._crit_edge, %.thread192
+  %257 = phi i8 [ %.pre, %._crit_edge ], [ %212, %.thread192 ]
+  %.not212 = icmp eq i8 %257, 2
+  br i1 %.not212, label %258, label %.split224.us
 
 258:                                              ; preds = %256
-  %259 = getelementptr inbounds nuw i8, ptr %.097227, i64 40
+  %259 = getelementptr inbounds nuw i8, ptr %.097220, i64 40
   %260 = load ptr, ptr %259, align 8, !tbaa !307
   %261 = call noundef zeroext i1 @_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  br i1 %261, label %262, label %.split231.us
+  br i1 %261, label %262, label %.split224.us
 
 262:                                              ; preds = %258
   %263 = load i64, ptr %8, align 8, !tbaa !34
-  %264 = getelementptr inbounds nuw i8, ptr %.097227, i64 30
+  %264 = getelementptr inbounds nuw i8, ptr %.097220, i64 30
   %265 = load i8, ptr %264, align 2, !tbaa !309
   %266 = zext i8 %265 to i64
   %267 = mul nsw i64 %263, %266
   br label %268
 
-.split231.us:                                     ; preds = %.thread193.us, %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit, %244, %256, %258, %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit.thread250
+.split224.us:                                     ; preds = %.thread192.us, %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit, %244, %258, %256, %_ZNK4llvm6MCExpr18evaluateAsAbsoluteERl.exit.thread243
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
   br label %.critedge
 
 268:                                              ; preds = %241, %254, %262
-  %.1103190198.ph = phi i1 [ %.0102225, %254 ], [ %.0102225, %262 ], [ %.1103, %241 ]
-  %.199192196.ph = phi i1 [ %.098226, %254 ], [ %.098226, %262 ], [ %.199, %241 ]
+  %.1103190197.ph = phi i1 [ %.0102218, %254 ], [ %.0102218, %262 ], [ %.1103, %241 ]
+  %.199191195.ph = phi i1 [ %.098219, %254 ], [ %.098219, %262 ], [ %.199, %241 ]
   %.pn = phi i64 [ %255, %254 ], [ %267, %262 ], [ %243, %241 ]
-  %.7.ph = add i64 %.pn, %.193228
+  %.7.ph = add i64 %.pn, %.193221
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  %269 = load ptr, ptr %.097227, align 8, !tbaa !311
+  %269 = load ptr, ptr %.097220, align 8, !tbaa !311
   %.not116 = icmp eq ptr %269, null
   br i1 %.not116, label %.critedge, label %.lr.ph.split, !llvm.loop !315
 
-.critedge:                                        ; preds = %209, %203, %268, %228, %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit138", %28, %18, %_ZNK4llvm8MCSymbol11getFragmentEb.exit136, %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit137", %130, %135, %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit", %.split231.us, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit131, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit131.thread183, %6
+.critedge:                                        ; preds = %209, %203, %268, %228, %28, %18, %_ZNK4llvm8MCSymbol11getFragmentEb.exit137, %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit138", %130, %135, %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit", %.split224.us, %"_ZZL35AttemptToFoldSymbolOffsetDifferencePKN4llvm11MCAssemblerEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_mEEEEbRPKNS_15MCSymbolRefExprESI_RlENK3$_0clEv.exit139", %_ZNK4llvm8MCSymbol11isUndefinedEb.exit132, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit132.thread184, %6
   ret void
 }
 

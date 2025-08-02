@@ -299,20 +299,20 @@ RANGE_EXCL.exit:                                  ; preds = %7, %14
   %21 = load i64, ptr @rb_cArithSeq, align 8, !tbaa !7
   %22 = tail call i64 @rb_obj_is_kind_of(i64 noundef %0, i64 noundef %21) #13
   %23 = and i64 %22, -5
-  %.not32 = icmp eq i64 %23, 0
-  br i1 %.not32, label %24, label %.thread
+  %.not29 = icmp eq i64 %23, 0
+  br i1 %.not29, label %24, label %.critedge
 
 24:                                               ; preds = %20
   %25 = load i64, ptr @id_beg, align 8, !tbaa !7
   %26 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %25, i32 noundef 0, ptr noundef null) #13
   %27 = icmp eq i64 %26, 36
-  br i1 %27, label %.thread, label %28
+  br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %24
   %29 = load i64, ptr @id_end, align 8, !tbaa !7
   %30 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %29, i32 noundef 0, ptr noundef null) #13
   %31 = icmp eq i64 %30, 36
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %28
   %.pr.i = load i64, ptr @rb_range_values.rbimpl_id, align 8, !tbaa !7
@@ -329,7 +329,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %32
   %.lcssa.i = phi i64 [ %.pr.i, %32 ], [ %33, %.lr.ph.i ]
   %34 = tail call i64 @rb_check_funcall(i64 noundef %0, i64 noundef %.lcssa.i, i32 noundef 0, ptr noundef null) #13
   %35 = icmp eq i64 %34, 36
-  br i1 %35, label %.thread, label %36
+  br i1 %35, label %.critedge, label %36
 
 36:                                               ; preds = %rbimpl_intern_const.exit, %RANGE_EXCL.exit
   %.024 = phi i64 [ %17, %RANGE_EXCL.exit ], [ %30, %rbimpl_intern_const.exit ]
@@ -341,10 +341,10 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %32
   store i64 %.020, ptr %1, align 8, !tbaa !7
   store i64 %.024, ptr %2, align 8, !tbaa !7
   store i32 %.022, ptr %3, align 4, !tbaa !16
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %rbimpl_intern_const.exit, %28, %24, %20, %36
-  %.0 = phi i32 [ 20, %36 ], [ 0, %20 ], [ 0, %24 ], [ 0, %28 ], [ 0, %rbimpl_intern_const.exit ]
+.critedge:                                        ; preds = %24, %28, %rbimpl_intern_const.exit, %20, %36
+  %.0 = phi i32 [ 20, %36 ], [ 0, %20 ], [ 0, %rbimpl_intern_const.exit ], [ 0, %28 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -4926,8 +4926,8 @@ r_less.exit.i:                                    ; preds = %37, %34
   %.0.i.i = phi i32 [ %38, %37 ], [ 2147483647, %34 ]
   %39 = load i64, ptr %16, align 8, !tbaa !11
   %40 = and i64 %39, 1040384
-  %.not.i.i.i41.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i.i41.i, label %41, label %RANGE_EXCL.exit.i
+  %.not.i.i.i43.i = icmp eq i64 %40, 0
+  br i1 %.not.i.i.i43.i, label %41, label %RANGE_EXCL.exit.i
 
 41:                                               ; preds = %r_less.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -4935,8 +4935,8 @@ r_less.exit.i:                                    ; preds = %37, %34
   br label %RANGE_EXCL.exit.i
 
 RANGE_EXCL.exit.i:                                ; preds = %41, %r_less.exit.i
-  %.0.i.i.i42.i = phi ptr [ %43, %41 ], [ %17, %r_less.exit.i ]
-  %44 = getelementptr i8, ptr %.0.i.i.i42.i, i64 16
+  %.0.i.i.i44.i = phi ptr [ %43, %41 ], [ %17, %r_less.exit.i ]
+  %44 = getelementptr i8, ptr %.0.i.i.i44.i, i64 16
   %45 = load i64, ptr %44, align 8, !tbaa !7
   %46 = and i64 %45, -5
   %47 = icmp ne i64 %46, 0
@@ -4995,81 +4995,81 @@ r_less.exit12.i.i:                                ; preds = %62
 71:                                               ; preds = %.critedge.i
   %72 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %12, i64 noundef 135, i32 noundef 1, i64 noundef %25) #13
   %73 = icmp eq i64 %72, 4
-  br i1 %73, label %r_cover_p.exit, label %r_less.exit44.sink.split.i
+  br i1 %73, label %r_cover_p.exit, label %r_less.exit46.sink.split.i
 
 .critedge.thread.i:                               ; preds = %.critedge.i, %RANGE_EXCL.exit.i.i
   %74 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %12, i64 noundef 135, i32 noundef 1, i64 noundef %25) #13
   %75 = icmp eq i64 %74, 4
-  br i1 %75, label %r_less.exit44.i, label %r_less.exit44.sink.split.i
+  br i1 %75, label %r_less.exit46.i, label %r_less.exit46.sink.split.i
 
-r_less.exit44.sink.split.i:                       ; preds = %.critedge.thread.i, %71
+r_less.exit46.sink.split.i:                       ; preds = %.critedge.thread.i, %71
   %.sink.i = phi i64 [ %72, %71 ], [ %74, %.critedge.thread.i ]
   %76 = tail call i32 @rb_cmpint(i64 noundef %.sink.i, i64 noundef %12, i64 noundef %25) #13
   %77 = freeze i32 %76
-  br label %r_less.exit44.i
+  br label %r_less.exit46.i
 
-r_less.exit44.i:                                  ; preds = %r_less.exit44.sink.split.i, %.critedge.thread.i
-  %.140.i = phi i32 [ 2147483647, %.critedge.thread.i ], [ %77, %r_less.exit44.sink.split.i ]
+r_less.exit46.i:                                  ; preds = %r_less.exit46.sink.split.i, %.critedge.thread.i
+  %.140.i = phi i32 [ 2147483647, %.critedge.thread.i ], [ %77, %r_less.exit46.sink.split.i ]
   %78 = load i64, ptr %3, align 8, !tbaa !11
   %79 = and i64 %78, 1040384
-  %.not.i.i.i45.i = icmp eq i64 %79, 0
-  br i1 %.not.i.i.i45.i, label %80, label %RANGE_EXCL.exit47.i
+  %.not.i.i.i47.i = icmp eq i64 %79, 0
+  br i1 %.not.i.i.i47.i, label %80, label %RANGE_EXCL.exit49.i
 
-80:                                               ; preds = %r_less.exit44.i
+80:                                               ; preds = %r_less.exit46.i
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !13
-  br label %RANGE_EXCL.exit47.i
+  br label %RANGE_EXCL.exit49.i
 
-RANGE_EXCL.exit47.i:                              ; preds = %r_less.exit44.i, %80
-  %.0.i.i.i46.i = phi ptr [ %82, %80 ], [ %4, %r_less.exit44.i ]
-  %83 = getelementptr i8, ptr %.0.i.i.i46.i, i64 16
+RANGE_EXCL.exit49.i:                              ; preds = %r_less.exit46.i, %80
+  %.0.i.i.i48.i = phi ptr [ %82, %80 ], [ %4, %r_less.exit46.i ]
+  %83 = getelementptr i8, ptr %.0.i.i.i48.i, i64 16
   %84 = load i64, ptr %83, align 8, !tbaa !7
   %85 = and i64 %84, -5
   %86 = icmp ne i64 %85, 0
   %87 = load i64, ptr %16, align 8, !tbaa !11
   %88 = and i64 %87, 1040384
-  %.not.i.i.i48.i = icmp eq i64 %88, 0
-  br i1 %.not.i.i.i48.i, label %89, label %RANGE_EXCL.exit50.i
+  %.not.i.i.i50.i = icmp eq i64 %88, 0
+  br i1 %.not.i.i.i50.i, label %89, label %RANGE_EXCL.exit52.i
 
-89:                                               ; preds = %RANGE_EXCL.exit47.i
+89:                                               ; preds = %RANGE_EXCL.exit49.i
   %90 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %91 = load ptr, ptr %90, align 8, !tbaa !13
-  br label %RANGE_EXCL.exit50.i
+  br label %RANGE_EXCL.exit52.i
 
-RANGE_EXCL.exit50.i:                              ; preds = %89, %RANGE_EXCL.exit47.i
-  %.0.i.i.i49.i = phi ptr [ %91, %89 ], [ %17, %RANGE_EXCL.exit47.i ]
-  %92 = getelementptr i8, ptr %.0.i.i.i49.i, i64 16
+RANGE_EXCL.exit52.i:                              ; preds = %89, %RANGE_EXCL.exit49.i
+  %.0.i.i.i51.i = phi ptr [ %91, %89 ], [ %17, %RANGE_EXCL.exit49.i ]
+  %92 = getelementptr i8, ptr %.0.i.i.i51.i, i64 16
   %93 = load i64, ptr %92, align 8, !tbaa !7
   %94 = and i64 %93, -5
   %95 = icmp ne i64 %94, 0
   %96 = xor i1 %86, %95
   br i1 %96, label %99, label %97
 
-97:                                               ; preds = %RANGE_EXCL.exit50.i
+97:                                               ; preds = %RANGE_EXCL.exit52.i
   %98 = icmp sgt i32 %.140.i, -1
   br i1 %98, label %r_cover_range_p.exit.thread21, label %r_cover_p.exit
 
-99:                                               ; preds = %RANGE_EXCL.exit50.i
-  br i1 %.not.i.i.i45.i, label %100, label %RANGE_EXCL.exit53.i
+99:                                               ; preds = %RANGE_EXCL.exit52.i
+  br i1 %.not.i.i.i47.i, label %100, label %RANGE_EXCL.exit55.i
 
 100:                                              ; preds = %99
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %102 = load ptr, ptr %101, align 8, !tbaa !13
-  br label %RANGE_EXCL.exit53.i
+  br label %RANGE_EXCL.exit55.i
 
-RANGE_EXCL.exit53.i:                              ; preds = %99, %100
-  %.0.i.i.i52.i = phi ptr [ %102, %100 ], [ %4, %99 ]
-  %103 = getelementptr i8, ptr %.0.i.i.i52.i, i64 16
+RANGE_EXCL.exit55.i:                              ; preds = %99, %100
+  %.0.i.i.i54.i = phi ptr [ %102, %100 ], [ %4, %99 ]
+  %103 = getelementptr i8, ptr %.0.i.i.i54.i, i64 16
   %104 = load i64, ptr %103, align 8, !tbaa !7
   %105 = and i64 %104, -5
   %.not.i = icmp eq i64 %105, 0
   br i1 %.not.i, label %108, label %106
 
-106:                                              ; preds = %RANGE_EXCL.exit53.i
+106:                                              ; preds = %RANGE_EXCL.exit55.i
   %107 = icmp sgt i32 %.140.i, 0
   br i1 %107, label %r_cover_range_p.exit.thread21, label %r_cover_p.exit
 
-108:                                              ; preds = %RANGE_EXCL.exit53.i
+108:                                              ; preds = %RANGE_EXCL.exit55.i
   %109 = icmp sgt i32 %.140.i, -1
   br i1 %109, label %r_cover_range_p.exit.thread21, label %110
 
@@ -5136,8 +5136,8 @@ r_less.exit12.i:                                  ; preds = %130
 .thread.i18:                                      ; preds = %r_less.exit12.i, %RANGE_EXCL.exit.i15
   br label %r_cover_p.exit
 
-r_cover_p.exit:                                   ; preds = %RANGE_END.exit.i, %71, %62, %51, %r_less.exit.i.i, %r_less.exit12.i.i, %110, %RANGE_EXCL.exit.i, %31, %r_cover_range_p.exit.thread21, %r_cover_range_p.exit, %97, %106, %.thread.i18, %r_less.exit12.i, %130, %r_less.exit.i13, %118
-  %.0 = phi i64 [ 20, %.thread.i18 ], [ 0, %r_less.exit12.i ], [ 0, %r_less.exit.i13 ], [ 0, %118 ], [ 0, %130 ], [ 20, %r_cover_range_p.exit.thread21 ], [ 0, %r_cover_range_p.exit ], [ 0, %97 ], [ 0, %106 ], [ 0, %31 ], [ 0, %RANGE_EXCL.exit.i ], [ 0, %110 ], [ 0, %r_less.exit12.i.i ], [ 0, %r_less.exit.i.i ], [ 0, %51 ], [ 0, %62 ], [ 0, %71 ], [ 0, %RANGE_END.exit.i ]
+r_cover_p.exit:                                   ; preds = %RANGE_END.exit.i, %62, %51, %r_less.exit.i.i, %r_less.exit12.i.i, %71, %110, %RANGE_EXCL.exit.i, %31, %r_cover_range_p.exit.thread21, %r_cover_range_p.exit, %97, %106, %.thread.i18, %r_less.exit12.i, %130, %r_less.exit.i13, %118
+  %.0 = phi i64 [ 20, %.thread.i18 ], [ 0, %r_less.exit12.i ], [ 0, %r_less.exit.i13 ], [ 0, %118 ], [ 0, %130 ], [ 20, %r_cover_range_p.exit.thread21 ], [ 0, %r_cover_range_p.exit ], [ 0, %97 ], [ 0, %106 ], [ 0, %31 ], [ 0, %RANGE_EXCL.exit.i ], [ 0, %110 ], [ 0, %71 ], [ 0, %r_less.exit12.i.i ], [ 0, %r_less.exit.i.i ], [ 0, %51 ], [ 0, %62 ], [ 0, %RANGE_END.exit.i ]
   ret i64 %.0
 }
 

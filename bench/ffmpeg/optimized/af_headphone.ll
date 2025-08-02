@@ -406,7 +406,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   br i1 %31, label %.lr.ph126, label %._crit_edge.thread
 
 .lr.ph126:                                        ; preds = %.preheader
-  %32 = getelementptr i8, ptr %11, i64 276
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 276
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %.lr.ph126
@@ -421,7 +421,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.next147
   %37 = load ptr, ptr %36, align 8, !tbaa !48
   %.idx = shl nuw nsw i64 %indvars.iv146, 3
-  %38 = getelementptr i8, ptr %32, i64 %.idx
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx
   %39 = load i32, ptr %38, align 4, !tbaa !56
   %.not71 = icmp eq i32 %39, 0
   br i1 %.not71, label %40, label %66

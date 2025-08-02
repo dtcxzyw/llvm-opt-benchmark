@@ -273,7 +273,7 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread12, label %8
+  br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 18
@@ -285,7 +285,7 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.thread12, label %.thread9
+  br i1 %15, label %.thread, label %.thread9
 
 .thread9:                                         ; preds = %8, %12
   %16 = phi ptr [ %14, %12 ], [ %6, %8 ]
@@ -293,61 +293,61 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 3
-  br i1 %20, label %21, label %.loopexit
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %.thread9
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.thread12, label %25
+  br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %21
   %26 = load i32, ptr %23, align 8
   %27 = and i32 %26, 16
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.thread12, label %29
+  br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, %2
-  br i1 %32, label %36, label %.thread12
+  br i1 %32, label %36, label %.thread
 
-.thread12:                                        ; preds = %25, %29, %21, %3, %12
+.thread:                                          ; preds = %25, %29, %3, %12, %21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %33 = call i32 @security_netlbl_sid_to_secattr(i32 noundef %2, ptr noundef nonnull %4) #9
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.thread17, label %.thread16
+  br i1 %34, label %.thread12, label %.thread11
 
-.thread17:                                        ; preds = %.thread12
+.thread12:                                        ; preds = %.thread
   %35 = call i32 @netlbl_skbuff_setattr(ptr noundef %0, i16 noundef zeroext %1, ptr noundef nonnull %4) #9
-  br label %.thread16
+  br label %.thread11
 
 36:                                               ; preds = %29
   %37 = tail call i32 @netlbl_skbuff_setattr(ptr noundef %0, i16 noundef zeroext %1, ptr noundef nonnull %23) #9
   %38 = icmp eq ptr %23, %4
-  br i1 %38, label %.thread16, label %.loopexit
+  br i1 %38, label %.thread11, label %.critedge
 
-.thread16:                                        ; preds = %.thread12, %.thread17, %36
-  %39 = phi ptr [ %23, %36 ], [ %4, %.thread17 ], [ %4, %.thread12 ]
-  %40 = phi i32 [ %37, %36 ], [ %35, %.thread17 ], [ %33, %.thread12 ]
+.thread11:                                        ; preds = %.thread, %.thread12, %36
+  %39 = phi ptr [ %23, %36 ], [ %4, %.thread12 ], [ %4, %.thread ]
+  %40 = phi i32 [ %37, %36 ], [ %35, %.thread12 ], [ %33, %.thread ]
   %41 = load i32, ptr %39, align 8
   %42 = and i32 %41, 16777216
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %47, label %44
 
-44:                                               ; preds = %.thread16
+44:                                               ; preds = %.thread11
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %46 = load ptr, ptr %45, align 8
   call void @kfree(ptr noundef %46) #9
   %.pre = load i32, ptr %39, align 8
   br label %47
 
-47:                                               ; preds = %44, %.thread16
-  %48 = phi i32 [ %.pre, %44 ], [ %41, %.thread16 ]
+47:                                               ; preds = %44, %.thread11
+  %48 = phi i32 [ %.pre, %44 ], [ %41, %.thread11 ]
   %49 = and i32 %48, 2
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.thread19, label %51
+  br i1 %50, label %.thread14, label %51
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -358,11 +358,11 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
 
 56:                                               ; preds = %51
   %57 = icmp sgt i32 %54, 0
-  br i1 %57, label %.thread19, label %58, !prof !6
+  br i1 %57, label %.thread14, label %58, !prof !6
 
 58:                                               ; preds = %56
   call void @refcount_warn_saturate(ptr noundef %53, i32 noundef 3) #9
-  br label %.thread19
+  br label %.thread14
 
 59:                                               ; preds = %51
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
@@ -379,19 +379,19 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
 
 66:                                               ; preds = %63, %59
   call void @kfree(ptr noundef %53) #9
-  br label %.thread19
+  br label %.thread14
 
-.thread19:                                        ; preds = %56, %58, %66, %47
+.thread14:                                        ; preds = %56, %58, %66, %47
   %67 = load i32, ptr %39, align 8
   %68 = and i32 %67, 8
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %.loopexit, label %70
+  br i1 %69, label %.critedge, label %70
 
-70:                                               ; preds = %.thread19
+70:                                               ; preds = %.thread14
   %71 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.loopexit, label %.preheader
+  br i1 %73, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %70, %.preheader
   %74 = phi ptr [ %76, %.preheader ], [ %72, %70 ]
@@ -399,10 +399,10 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   %76 = load ptr, ptr %75, align 8
   call void @kfree(ptr noundef nonnull %74) #9
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %77, label %.critedge, label %.preheader, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.preheader, %.thread9, %70, %.thread19, %36
-  %78 = phi i32 [ %37, %36 ], [ %40, %.thread19 ], [ %40, %70 ], [ 0, %.thread9 ], [ %40, %.preheader ]
+.critedge:                                        ; preds = %.preheader, %.thread9, %70, %.thread14, %36
+  %78 = phi i32 [ %37, %36 ], [ %40, %.thread14 ], [ %40, %70 ], [ 0, %.thread9 ], [ %40, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #9
   ret i32 %78
 }

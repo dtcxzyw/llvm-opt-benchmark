@@ -777,18 +777,18 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %265
 
 286:                                              ; preds = %275, %286
   %indvars.iv = phi i64 [ 0, %275 ], [ %indvars.iv.next, %286 ]
-  %287 = shl nuw nsw i64 %indvars.iv, 1
-  %288 = getelementptr inbounds nuw i32, ptr %.sroa.0293.0, i64 %287
-  %289 = load i32, ptr %288, align 4, !tbaa !43
-  %290 = sub nsw i32 %289, %220
-  %gep = getelementptr inbounds nuw i32, ptr %221, i64 %287
-  %291 = load i32, ptr %gep, align 4, !tbaa !43
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %287 = getelementptr inbounds nuw i8, ptr %.sroa.0293.0, i64 %.idx
+  %288 = load i32, ptr %287, align 4, !tbaa !43
+  %289 = sub nsw i32 %288, %220
+  %290 = getelementptr inbounds nuw i8, ptr %287, i64 4
+  %291 = load i32, ptr %290, align 4, !tbaa !43
   %292 = sub nsw i32 %291, %231
   %293 = load ptr, ptr %18, align 8, !tbaa !62
   %294 = getelementptr inbounds nuw %"class.cv::Point_", ptr %293, i64 %indvars.iv
   %.sroa.4.0.insert.ext = zext i32 %292 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
-  %.sroa.0279.0.insert.ext = zext i32 %290 to i64
+  %.sroa.0279.0.insert.ext = zext i32 %289 to i64
   %.sroa.0279.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0279.0.insert.ext
   store i64 %.sroa.0279.0.insert.insert, ptr %294, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

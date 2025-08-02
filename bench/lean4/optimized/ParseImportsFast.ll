@@ -7524,7 +7524,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_ParseImports_isIdCont(ptr noundef %0, p
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %5 = tail call i32 @lean_string_utf8_get(ptr noundef %0, ptr noundef %4) #6
   %.not = icmp eq i32 %5, 46
-  br i1 %.not, label %6, label %lean_dec.exit
+  br i1 %.not, label %6, label %.critedge
 
 6:                                                ; preds = %2
   %7 = tail call ptr @lean_string_utf8_next(ptr noundef %0, ptr noundef %4) #6
@@ -7539,7 +7539,7 @@ lean_string_utf8_at_end.exit:                     ; preds = %6
   %.val.i = load i64, ptr %11, align 8, !tbaa !16
   %12 = add i64 %.val.i, -1
   %.not80 = icmp ult i64 %10, %12
-  br i1 %.not80, label %13, label %lean_dec.exit
+  br i1 %.not80, label %13, label %.critedge
 
 13:                                               ; preds = %lean_string_utf8_at_end.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7563,25 +7563,25 @@ lean_dec.exit68:                                  ; preds = %20, %18
 
 23:                                               ; preds = %lean_dec.exit68
   %24 = icmp ugt i32 %.0.i, 90
-  br i1 %24, label %25, label %lean_dec.exit
+  br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %23
   %26 = add i32 %.0.i, -97
   %or.cond = icmp ult i32 %26, 26
   %.not81 = icmp eq i32 %.0.i, 95
   %or.cond82 = or i1 %.not81, %or.cond
-  br i1 %or.cond82, label %lean_dec.exit, label %lean_dec.exit67
+  br i1 %or.cond82, label %.critedge, label %lean_dec.exit67
 
 lean_dec.exit67:                                  ; preds = %lean_dec.exit68, %25
   %27 = tail call zeroext i8 @l_Lean_isLetterLike(i32 noundef %.0.i) #6
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %lean_dec.exit
+  br i1 %28, label %29, label %.critedge
 
 29:                                               ; preds = %lean_dec.exit67
   %30 = load i32, ptr @l_Lean_idBeginEscape, align 4, !tbaa !19
   %31 = icmp eq i32 %.0.i, %30
   %32 = zext i1 %31 to i8
-  br label %lean_dec.exit
+  br label %.critedge
 
 33:                                               ; preds = %6
   %34 = load i32, ptr %7, align 4, !tbaa !4
@@ -7591,17 +7591,17 @@ lean_dec.exit67:                                  ; preds = %lean_dec.exit68, %2
 36:                                               ; preds = %33
   %37 = add nsw i32 %34, -1
   store i32 %37, ptr %7, align 4, !tbaa !4
-  br label %lean_dec.exit
+  br label %.critedge
 
 38:                                               ; preds = %33
   %.not.i71 = icmp eq i32 %34, 0
-  br i1 %.not.i71, label %lean_dec.exit, label %39
+  br i1 %.not.i71, label %.critedge, label %39
 
 39:                                               ; preds = %38
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %7) #6
-  br label %lean_dec.exit
+  br label %.critedge
 
-lean_dec.exit:                                    ; preds = %25, %lean_string_utf8_at_end.exit, %36, %38, %39, %23, %lean_dec.exit67, %29, %2
+.critedge:                                        ; preds = %25, %lean_string_utf8_at_end.exit, %36, %38, %39, %23, %lean_dec.exit67, %29, %2
   %.0 = phi i8 [ 0, %2 ], [ %32, %29 ], [ 1, %lean_dec.exit67 ], [ 1, %23 ], [ 0, %39 ], [ 0, %38 ], [ 0, %36 ], [ 0, %lean_string_utf8_at_end.exit ], [ 1, %25 ]
   ret i8 %.0
 }
@@ -7910,38 +7910,38 @@ define zeroext i8 @l_Lean_ParseImports_isIdRestFast(i32 noundef %0) local_unname
   %5 = add i32 %0, -123
   %or.cond = icmp ult i32 %5, -26
   %or.cond110 = and i1 %4, %or.cond
-  br i1 %or.cond110, label %lean_dec.exit89, label %12
+  br i1 %or.cond110, label %lean_dec.exit89, label %.critedge
 
 lean_dec.exit89:                                  ; preds = %3, %lean_dec.exit
   switch i32 %0, label %6 [
-    i32 46, label %12
-    i32 10, label %12
-    i32 32, label %12
-    i32 95, label %.fold.split
-    i32 39, label %.fold.split
-    i32 33, label %.fold.split
-    i32 63, label %.fold.split
+    i32 46, label %.critedge
+    i32 10, label %.critedge
+    i32 32, label %.critedge
+    i32 95, label %.critedge.fold.split
+    i32 39, label %.critedge.fold.split
+    i32 33, label %.critedge.fold.split
+    i32 63, label %.critedge.fold.split
   ]
 
 6:                                                ; preds = %lean_dec.exit89
   %7 = tail call zeroext i8 @l_Lean_isLetterLike(i32 noundef %0) #6
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %9, label %12
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %6
   %10 = tail call zeroext i8 @l_Lean_isSubScriptAlnum(i32 noundef %0) #6
-  br label %12
+  br label %.critedge
 
 lean_dec.exit:                                    ; preds = %1
   %11 = add nsw i32 %0, -58
   %or.cond108 = icmp ult i32 %11, -10
-  br i1 %or.cond108, label %lean_dec.exit89, label %12
+  br i1 %or.cond108, label %lean_dec.exit89, label %.critedge
 
-.fold.split:                                      ; preds = %lean_dec.exit89, %lean_dec.exit89, %lean_dec.exit89, %lean_dec.exit89
-  br label %12
+.critedge.fold.split:                             ; preds = %lean_dec.exit89, %lean_dec.exit89, %lean_dec.exit89, %lean_dec.exit89
+  br label %.critedge
 
-12:                                               ; preds = %lean_dec.exit, %lean_dec.exit89, %lean_dec.exit89, %lean_dec.exit89, %.fold.split, %3, %6, %9
-  %.2 = phi i8 [ %10, %9 ], [ 1, %6 ], [ 0, %lean_dec.exit89 ], [ 1, %3 ], [ 0, %lean_dec.exit89 ], [ 0, %lean_dec.exit89 ], [ 1, %.fold.split ], [ 1, %lean_dec.exit ]
+.critedge:                                        ; preds = %lean_dec.exit, %lean_dec.exit89, %lean_dec.exit89, %lean_dec.exit89, %.critedge.fold.split, %3, %6, %9
+  %.2 = phi i8 [ %10, %9 ], [ 1, %6 ], [ 0, %lean_dec.exit89 ], [ 1, %3 ], [ 0, %lean_dec.exit89 ], [ 0, %lean_dec.exit89 ], [ 1, %.critedge.fold.split ], [ 1, %lean_dec.exit ]
   ret i8 %.2
 }
 
@@ -7988,10 +7988,10 @@ lean_dec.exit89.i:                                ; preds = %lean_dec.exit.i, %1
     i32 46, label %l_Lean_ParseImports_isIdRestFast.exit
     i32 10, label %l_Lean_ParseImports_isIdRestFast.exit
     i32 32, label %l_Lean_ParseImports_isIdRestFast.exit
-    i32 95, label %.fold.split.i
-    i32 39, label %.fold.split.i
-    i32 33, label %.fold.split.i
-    i32 63, label %.fold.split.i
+    i32 95, label %.critedge.fold.split.i
+    i32 39, label %.critedge.fold.split.i
+    i32 33, label %.critedge.fold.split.i
+    i32 63, label %.critedge.fold.split.i
   ]
 
 17:                                               ; preds = %lean_dec.exit89.i
@@ -8011,11 +8011,11 @@ lean_dec.exit.i:                                  ; preds = %lean_dec.exit
   %or.cond108.i = icmp ult i32 %25, -10
   br i1 %or.cond108.i, label %lean_dec.exit89.i, label %l_Lean_ParseImports_isIdRestFast.exit
 
-.fold.split.i:                                    ; preds = %lean_dec.exit89.i, %lean_dec.exit89.i, %lean_dec.exit89.i, %lean_dec.exit89.i
+.critedge.fold.split.i:                           ; preds = %lean_dec.exit89.i, %lean_dec.exit89.i, %lean_dec.exit89.i, %lean_dec.exit89.i
   br label %l_Lean_ParseImports_isIdRestFast.exit
 
-l_Lean_ParseImports_isIdRestFast.exit:            ; preds = %14, %lean_dec.exit89.i, %lean_dec.exit89.i, %lean_dec.exit89.i, %17, %20, %lean_dec.exit.i, %.fold.split.i
-  %.2.i = phi i64 [ %24, %20 ], [ 3, %17 ], [ 1, %lean_dec.exit89.i ], [ 3, %14 ], [ 1, %lean_dec.exit89.i ], [ 1, %lean_dec.exit89.i ], [ 3, %.fold.split.i ], [ 3, %lean_dec.exit.i ]
+l_Lean_ParseImports_isIdRestFast.exit:            ; preds = %14, %lean_dec.exit89.i, %lean_dec.exit89.i, %lean_dec.exit89.i, %17, %20, %lean_dec.exit.i, %.critedge.fold.split.i
+  %.2.i = phi i64 [ %24, %20 ], [ 3, %17 ], [ 1, %lean_dec.exit89.i ], [ 3, %14 ], [ 1, %lean_dec.exit89.i ], [ 1, %lean_dec.exit89.i ], [ 3, %.critedge.fold.split.i ], [ 3, %lean_dec.exit.i ]
   %26 = inttoptr i64 %.2.i to ptr
   ret ptr %26
 }

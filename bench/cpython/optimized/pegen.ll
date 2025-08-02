@@ -52,9 +52,9 @@ define hidden i64 @_PyPegen_byte_offset_to_character_offset_line(ptr noundef %0,
   br i1 %5, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %20
-  %.01728 = phi i64 [ %22, %20 ], [ 0, %3 ]
-  %.01927 = phi i64 [ %21, %20 ], [ %1, %3 ]
-  %6 = getelementptr i8, ptr %4, i64 %.01927
+  %.01725 = phi i64 [ %22, %20 ], [ 0, %3 ]
+  %.01924 = phi i64 [ %21, %20 ], [ %1, %3 ]
+  %6 = getelementptr i8, ptr %4, i64 %.01924
   %7 = load i8, ptr %6, align 1, !tbaa !18
   %8 = zext i8 %7 to i32
   %9 = icmp sgt i8 %7, -1
@@ -73,22 +73,22 @@ define hidden i64 @_PyPegen_byte_offset_to_character_offset_line(ptr noundef %0,
 16:                                               ; preds = %13
   %17 = and i32 %8, 248
   %18 = icmp eq i32 %17, 240
-  br i1 %18, label %20, label %.thread
+  br i1 %18, label %20, label %.critedge
 
-.thread:                                          ; preds = %16
+.critedge:                                        ; preds = %16
   %19 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !19
   tail call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str) #13
   br label %.loopexit
 
 20:                                               ; preds = %16, %13, %10, %.lr.ph
   %.sink = phi i64 [ 1, %.lr.ph ], [ 2, %10 ], [ 3, %13 ], [ 4, %16 ]
-  %21 = add i64 %.01927, %.sink
-  %22 = add i64 %.01728, 1
+  %21 = add i64 %.01924, %.sink
+  %22 = add i64 %.01725, 1
   %23 = icmp slt i64 %21, %2
   br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
-.loopexit:                                        ; preds = %20, %3, %.thread
-  %.2 = phi i64 [ -1, %.thread ], [ 0, %3 ], [ %22, %20 ]
+.loopexit:                                        ; preds = %20, %3, %.critedge
+  %.2 = phi i64 [ -1, %.critedge ], [ 0, %3 ], [ %22, %20 ]
   ret i64 %.2
 }
 

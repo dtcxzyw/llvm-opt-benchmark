@@ -236,14 +236,14 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
   %4 = alloca %struct.async_com_data, align 8
   %5 = tail call i32 (...) @dt_control_running() #11
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %101, label %6
+  br i1 %.not, label %103, label %6
 
 6:                                                ; preds = %2
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw [47 x %struct.dt_signal_description], ptr @_signal_description, i64 0, i64 %7
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %.not52 = icmp eq ptr %9, null
-  br i1 %.not52, label %101, label %10
+  br i1 %.not52, label %103, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -256,7 +256,7 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 
 16:                                               ; preds = %10
   tail call void @free(ptr noundef nonnull %9) #11
-  br label %101
+  br label %103
 
 17:                                               ; preds = %10
   %18 = load i64, ptr @_signal_type, align 8, !tbaa !20
@@ -271,194 +271,194 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 .lr.ph:                                           ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %22 = load ptr, ptr %21, align 8, !tbaa !29
-  %invariant.gep = getelementptr i8, ptr %22, i64 -8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %25
 
-25:                                               ; preds = %.lr.ph, %76
-  %indvars.iv71 = phi i32 [ 2, %.lr.ph ], [ %indvars.iv.next72, %76 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
-  %26 = load i64, ptr %gep, align 8, !tbaa !20
-  %27 = getelementptr inbounds nuw %struct._GValue, ptr %15, i64 %indvars.iv
-  %28 = call ptr @g_value_init(ptr noundef nonnull %27, i64 noundef %26) #11
-  switch i64 %26, label %71 [
-    i64 28, label %29
-    i64 64, label %43
-    i64 68, label %57
+25:                                               ; preds = %.lr.ph, %78
+  %indvars.iv71 = phi i32 [ 2, %.lr.ph ], [ %indvars.iv.next72, %78 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %78 ]
+  %26 = getelementptr i64, ptr %22, i64 %indvars.iv
+  %27 = getelementptr i8, ptr %26, i64 -8
+  %28 = load i64, ptr %27, align 8, !tbaa !20
+  %29 = getelementptr inbounds nuw %struct._GValue, ptr %15, i64 %indvars.iv
+  %30 = call ptr @g_value_init(ptr noundef nonnull %29, i64 noundef %28) #11
+  switch i64 %28, label %73 [
+    i64 28, label %31
+    i64 64, label %45
+    i64 68, label %59
   ]
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %3, align 16
-  %31 = icmp ult i32 %30, 41
-  br i1 %31, label %32, label %37
+31:                                               ; preds = %25
+  %32 = load i32, ptr %3, align 16
+  %33 = icmp ult i32 %32, 41
+  br i1 %33, label %34, label %39
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %24, align 16
-  %34 = zext nneg i32 %30 to i64
-  %35 = getelementptr i8, ptr %33, i64 %34
-  %36 = add nuw nsw i32 %30, 8
-  store i32 %36, ptr %3, align 16
-  br label %40
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %24, align 16
+  %36 = zext nneg i32 %32 to i64
+  %37 = getelementptr i8, ptr %35, i64 %36
+  %38 = add nuw nsw i32 %32, 8
+  store i32 %38, ptr %3, align 16
+  br label %42
 
-37:                                               ; preds = %29
-  %38 = load ptr, ptr %23, align 8
-  %39 = getelementptr i8, ptr %38, i64 8
-  store ptr %39, ptr %23, align 8
-  br label %40
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %23, align 8
+  %41 = getelementptr i8, ptr %40, i64 8
+  store ptr %41, ptr %23, align 8
+  br label %42
 
-40:                                               ; preds = %37, %32
-  %41 = phi ptr [ %35, %32 ], [ %38, %37 ]
-  %42 = load i32, ptr %41, align 4, !tbaa !39
-  call void @g_value_set_uint(ptr noundef nonnull %27, i32 noundef %42) #11
-  br label %76
+42:                                               ; preds = %39, %34
+  %43 = phi ptr [ %37, %34 ], [ %40, %39 ]
+  %44 = load i32, ptr %43, align 4, !tbaa !39
+  call void @g_value_set_uint(ptr noundef nonnull %29, i32 noundef %44) #11
+  br label %78
 
-43:                                               ; preds = %25
-  %44 = load i32, ptr %3, align 16
-  %45 = icmp ult i32 %44, 41
-  br i1 %45, label %46, label %51
+45:                                               ; preds = %25
+  %46 = load i32, ptr %3, align 16
+  %47 = icmp ult i32 %46, 41
+  br i1 %47, label %48, label %53
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %24, align 16
-  %48 = zext nneg i32 %44 to i64
-  %49 = getelementptr i8, ptr %47, i64 %48
-  %50 = add nuw nsw i32 %44, 8
-  store i32 %50, ptr %3, align 16
-  br label %54
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %24, align 16
+  %50 = zext nneg i32 %46 to i64
+  %51 = getelementptr i8, ptr %49, i64 %50
+  %52 = add nuw nsw i32 %46, 8
+  store i32 %52, ptr %3, align 16
+  br label %56
 
-51:                                               ; preds = %43
-  %52 = load ptr, ptr %23, align 8
-  %53 = getelementptr i8, ptr %52, i64 8
-  store ptr %53, ptr %23, align 8
-  br label %54
+53:                                               ; preds = %45
+  %54 = load ptr, ptr %23, align 8
+  %55 = getelementptr i8, ptr %54, i64 8
+  store ptr %55, ptr %23, align 8
+  br label %56
 
-54:                                               ; preds = %51, %46
-  %55 = phi ptr [ %49, %46 ], [ %52, %51 ]
-  %56 = load ptr, ptr %55, align 8, !tbaa !40
-  call void @g_value_set_string(ptr noundef nonnull %27, ptr noundef %56) #11
-  br label %76
+56:                                               ; preds = %53, %48
+  %57 = phi ptr [ %51, %48 ], [ %54, %53 ]
+  %58 = load ptr, ptr %57, align 8, !tbaa !40
+  call void @g_value_set_string(ptr noundef nonnull %29, ptr noundef %58) #11
+  br label %78
 
-57:                                               ; preds = %25
-  %58 = load i32, ptr %3, align 16
-  %59 = icmp ult i32 %58, 41
-  br i1 %59, label %60, label %65
+59:                                               ; preds = %25
+  %60 = load i32, ptr %3, align 16
+  %61 = icmp ult i32 %60, 41
+  br i1 %61, label %62, label %67
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %24, align 16
-  %62 = zext nneg i32 %58 to i64
-  %63 = getelementptr i8, ptr %61, i64 %62
-  %64 = add nuw nsw i32 %58, 8
-  store i32 %64, ptr %3, align 16
-  br label %68
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %24, align 16
+  %64 = zext nneg i32 %60 to i64
+  %65 = getelementptr i8, ptr %63, i64 %64
+  %66 = add nuw nsw i32 %60, 8
+  store i32 %66, ptr %3, align 16
+  br label %70
 
-65:                                               ; preds = %57
-  %66 = load ptr, ptr %23, align 8
-  %67 = getelementptr i8, ptr %66, i64 8
-  store ptr %67, ptr %23, align 8
-  br label %68
+67:                                               ; preds = %59
+  %68 = load ptr, ptr %23, align 8
+  %69 = getelementptr i8, ptr %68, i64 8
+  store ptr %69, ptr %23, align 8
+  br label %70
 
-68:                                               ; preds = %65, %60
-  %69 = phi ptr [ %63, %60 ], [ %66, %65 ]
-  %70 = load ptr, ptr %69, align 8, !tbaa !41
-  call void @g_value_set_pointer(ptr noundef nonnull %27, ptr noundef %70) #11
-  br label %76
+70:                                               ; preds = %67, %62
+  %71 = phi ptr [ %65, %62 ], [ %68, %67 ]
+  %72 = load ptr, ptr %71, align 8, !tbaa !41
+  call void @g_value_set_pointer(ptr noundef nonnull %29, ptr noundef %72) #11
+  br label %78
 
-71:                                               ; preds = %25
-  %72 = call ptr @g_type_name(i64 noundef %26) #11
-  %73 = load ptr, ptr %8, align 8, !tbaa !24
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.2, ptr noundef %72, ptr noundef %73) #11
+73:                                               ; preds = %25
+  %74 = call ptr @g_type_name(i64 noundef %28) #11
+  %75 = load ptr, ptr %8, align 8, !tbaa !24
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.2, ptr noundef %74, ptr noundef %75) #11
   call void @llvm.va_end.p0(ptr nonnull %3)
   %wide.trip.count74 = zext i32 %indvars.iv71 to i64
-  br label %74
+  br label %76
 
-.critedge:                                        ; preds = %74
+.critedge:                                        ; preds = %76
   call void @free(ptr noundef nonnull %15) #11
   call void @free(ptr noundef %9) #11
-  br label %100
+  br label %102
 
-74:                                               ; preds = %71, %74
-  %indvars.iv68 = phi i64 [ 0, %71 ], [ %indvars.iv.next69, %74 ]
-  %75 = getelementptr inbounds nuw %struct._GValue, ptr %15, i64 %indvars.iv68
-  call void @g_value_unset(ptr noundef nonnull %75) #11
+76:                                               ; preds = %73, %76
+  %indvars.iv68 = phi i64 [ 0, %73 ], [ %indvars.iv.next69, %76 ]
+  %77 = getelementptr inbounds nuw %struct._GValue, ptr %15, i64 %indvars.iv68
+  call void @g_value_unset(ptr noundef nonnull %77) #11
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count74
-  br i1 %exitcond75.not, label %.critedge, label %74
+  br i1 %exitcond75.not, label %.critedge, label %76
 
-76:                                               ; preds = %68, %54, %40
+78:                                               ; preds = %70, %56, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   %indvars.iv.next72 = add nuw i32 %indvars.iv71, 1
   br i1 %exitcond.not, label %.critedge59, label %25
 
-.critedge59:                                      ; preds = %76, %17
+.critedge59:                                      ; preds = %78, %17
   call void @llvm.va_end.p0(ptr nonnull %3)
   store ptr %15, ptr %9, align 8, !tbaa !34
-  %77 = load ptr, ptr %8, align 8, !tbaa !24
-  %78 = load i64, ptr @_signal_type, align 8, !tbaa !20
-  %79 = call i32 @g_signal_lookup(ptr noundef %77, i64 noundef %78) #11
-  %80 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %79, ptr %80, align 8, !tbaa !37
-  %81 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %12, ptr %81, align 4, !tbaa !38
-  %82 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %83 = load i32, ptr %82, align 8, !tbaa !42
-  %.not56 = icmp eq i32 %83, 0
-  br i1 %.not56, label %84, label %85
+  %79 = load ptr, ptr %8, align 8, !tbaa !24
+  %80 = load i64, ptr @_signal_type, align 8, !tbaa !20
+  %81 = call i32 @g_signal_lookup(ptr noundef %79, i64 noundef %80) #11
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %81, ptr %82, align 8, !tbaa !37
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 %12, ptr %83, align 4, !tbaa !38
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %85 = load i32, ptr %84, align 8, !tbaa !42
+  %.not56 = icmp eq i32 %85, 0
+  br i1 %.not56, label %86, label %87
 
-84:                                               ; preds = %.critedge59
+86:                                               ; preds = %.critedge59
   call void @g_main_context_invoke_full(ptr noundef null, i32 noundef 100, ptr noundef nonnull @_signal_raise, ptr noundef nonnull %9, ptr noundef null) #11
-  br label %100
+  br label %102
 
-85:                                               ; preds = %.critedge59
-  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !43
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 888
-  %88 = load i64, ptr %87, align 8, !tbaa !79
-  %89 = tail call i64 @pthread_self() #13
-  %.not60 = icmp eq i64 %88, %89
-  br i1 %.not60, label %90, label %97
+87:                                               ; preds = %.critedge59
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !43
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 888
+  %90 = load i64, ptr %89, align 8, !tbaa !79
+  %91 = tail call i64 @pthread_self() #13
+  %.not60 = icmp eq i64 %90, %91
+  br i1 %.not60, label %92, label %99
 
-90:                                               ; preds = %85
-  call void @g_signal_emitv(ptr noundef nonnull %15, i32 noundef %79, i32 noundef 0, ptr noundef null) #11
-  br label %91
+92:                                               ; preds = %87
+  call void @g_signal_emitv(ptr noundef nonnull %15, i32 noundef %81, i32 noundef 0, ptr noundef null) #11
+  br label %93
 
-91:                                               ; preds = %91, %90
-  %indvars.iv.i = phi i64 [ 0, %90 ], [ %indvars.iv.next.i, %91 ]
-  %92 = load ptr, ptr %9, align 8, !tbaa !34
-  %93 = getelementptr inbounds nuw %struct._GValue, ptr %92, i64 %indvars.iv.i
-  call void @g_value_unset(ptr noundef %93) #11
+93:                                               ; preds = %93, %92
+  %indvars.iv.i = phi i64 [ 0, %92 ], [ %indvars.iv.next.i, %93 ]
+  %94 = load ptr, ptr %9, align 8, !tbaa !34
+  %95 = getelementptr inbounds nuw %struct._GValue, ptr %94, i64 %indvars.iv.i
+  call void @g_value_unset(ptr noundef %95) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %94 = load i32, ptr %81, align 4, !tbaa !38
-  %95 = zext i32 %94 to i64
-  %.not.not.i = icmp samesign ult i64 %indvars.iv.i, %95
-  br i1 %.not.not.i, label %91, label %_signal_raise.exit
+  %96 = load i32, ptr %83, align 4, !tbaa !38
+  %97 = zext i32 %96 to i64
+  %.not.not.i = icmp samesign ult i64 %indvars.iv.i, %97
+  br i1 %.not.not.i, label %93, label %_signal_raise.exit
 
-_signal_raise.exit:                               ; preds = %91
-  %96 = load ptr, ptr %9, align 8, !tbaa !34
-  call void @free(ptr noundef %96) #11
+_signal_raise.exit:                               ; preds = %93
+  %98 = load ptr, ptr %9, align 8, !tbaa !34
+  call void @free(ptr noundef %98) #11
   call void @free(ptr noundef nonnull %9) #11
-  br label %100
+  br label %102
 
-97:                                               ; preds = %85
+99:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
-  %98 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @g_mutex_init(ptr noundef nonnull %98) #11
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  call void @g_mutex_init(ptr noundef nonnull %100) #11
   call void @g_cond_init(ptr noundef nonnull %4) #11
-  call void @g_mutex_lock(ptr noundef nonnull %98) #11
-  %99 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %9, ptr %99, align 8, !tbaa !31
+  call void @g_mutex_lock(ptr noundef nonnull %100) #11
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %9, ptr %101, align 8, !tbaa !31
   call void @g_main_context_invoke_full(ptr noundef null, i32 noundef 100, ptr noundef nonnull @_async_com_callback, ptr noundef nonnull %4, ptr noundef null) #11
-  call void @g_cond_wait(ptr noundef nonnull %4, ptr noundef nonnull %98) #11
-  call void @g_mutex_unlock(ptr noundef nonnull %98) #11
-  call void @g_mutex_clear(ptr noundef nonnull %98) #11
+  call void @g_cond_wait(ptr noundef nonnull %4, ptr noundef nonnull %100) #11
+  call void @g_mutex_unlock(ptr noundef nonnull %100) #11
+  call void @g_mutex_clear(ptr noundef nonnull %100) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
-  br label %100
+  br label %102
 
-100:                                              ; preds = %.critedge, %84, %97, %_signal_raise.exit
+102:                                              ; preds = %.critedge, %86, %99, %_signal_raise.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
-  br label %101
+  br label %103
 
-101:                                              ; preds = %6, %100, %16, %2
+103:                                              ; preds = %6, %102, %16, %2
   ret void
 }
 

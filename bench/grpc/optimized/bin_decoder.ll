@@ -73,95 +73,95 @@ define noundef range(i64 0, -4611686018427387651) i64 @_Z44grpc_chttp2_base64_in
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %13 = select i1 %.not, ptr %12, ptr %11
-  %invariant.gep = getelementptr i8, ptr %13, i64 -1
   %.not2731 = icmp eq i64 %9, 0
   br i1 %.not2731, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %16
-  %.02232 = phi i64 [ %17, %16 ], [ %9, %1 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.02232
-  %14 = load i8, ptr %gep, align 1, !tbaa !9
-  %15 = icmp eq i8 %14, 61
-  br i1 %15, label %16, label %.critedge
+.lr.ph:                                           ; preds = %1, %18
+  %.02232 = phi i64 [ %19, %18 ], [ %9, %1 ]
+  %14 = getelementptr i8, ptr %13, i64 %.02232
+  %15 = getelementptr i8, ptr %14, i64 -1
+  %16 = load i8, ptr %15, align 1, !tbaa !9
+  %17 = icmp eq i8 %16, 61
+  br i1 %17, label %18, label %.critedge
 
-16:                                               ; preds = %.lr.ph
-  %17 = add i64 %.02232, -1
-  %.not27 = icmp eq i64 %17, 0
+18:                                               ; preds = %.lr.ph
+  %19 = add i64 %.02232, -1
+  %.not27 = icmp eq i64 %19, 0
   br i1 %.not27, label %.critedge, label %.lr.ph, !llvm.loop !10
 
-.critedge:                                        ; preds = %.lr.ph, %16, %1
-  %.022.lcssa = phi i64 [ 0, %1 ], [ 0, %16 ], [ %.02232, %.lr.ph ]
-  %18 = sub i64 %9, %.022.lcssa
-  %19 = icmp ugt i64 %18, 2
-  br i1 %19, label %20, label %23, !prof !12
+.critedge:                                        ; preds = %.lr.ph, %18, %1
+  %.022.lcssa = phi i64 [ 0, %1 ], [ 0, %18 ], [ %.02232, %.lr.ph ]
+  %20 = sub i64 %9, %.022.lcssa
+  %21 = icmp ugt i64 %20, 2
+  br i1 %21, label %22, label %25, !prof !12
 
-20:                                               ; preds = %.critedge
+22:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, i32 noundef 89) #13
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 55, ptr nonnull @.str.1)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit unwind label %21
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit unwind label %23
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit: ; preds = %20
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit: ; preds = %22
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
-  br label %38
+  br label %40
 
-21:                                               ; preds = %20
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %22
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
-  br label %39
+  br label %41
 
-23:                                               ; preds = %.critedge
-  %24 = and i64 %.022.lcssa, 3
-  %25 = icmp eq i64 %24, 1
-  br i1 %25, label %26, label %31, !prof !12
+25:                                               ; preds = %.critedge
+  %26 = and i64 %.022.lcssa, 3
+  %27 = icmp eq i64 %26, 1
+  br i1 %27, label %28, label %33, !prof !12
 
-26:                                               ; preds = %23
+28:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 95) #13
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 46, ptr nonnull @.str.2)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit unwind label %29
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit unwind label %31
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit: ; preds = %26
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit: ; preds = %28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %.022.lcssa, ptr %2, align 8, !tbaa !13
-  %27 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %28 unwind label %29
+  %29 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %30 unwind label %31
 
-28:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit
+30:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %27, i64 38, ptr nonnull @.str.3)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit unwind label %29
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %29, i64 38, ptr nonnull @.str.3)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit unwind label %31
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit: ; preds = %28
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit: ; preds = %30
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  br label %38
+  br label %40
 
-29:                                               ; preds = %28, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit, %26
-  %30 = landingpad { ptr, i32 }
+31:                                               ; preds = %30, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit, %28
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  br label %39
+  br label %41
 
-31:                                               ; preds = %23
-  %32 = lshr i64 %.022.lcssa, 2
-  %33 = mul nuw i64 %32, 3
-  %34 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %24
-  %35 = load i8, ptr %34, align 1, !tbaa !9
-  %36 = zext i8 %35 to i64
-  %37 = add nuw i64 %33, %36
-  br label %38
+33:                                               ; preds = %25
+  %34 = lshr i64 %.022.lcssa, 2
+  %35 = mul nuw i64 %34, 3
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %26
+  %37 = load i8, ptr %36, align 1, !tbaa !9
+  %38 = zext i8 %37 to i64
+  %39 = add nuw i64 %35, %38
+  br label %40
 
-38:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit, %31, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit
-  %.0 = phi i64 [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit ], [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit ], [ %37, %31 ]
+40:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit, %33, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit
+  %.0 = phi i64 [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit ], [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit ], [ %39, %33 ]
   ret i64 %.0
 
-39:                                               ; preds = %29, %21
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %30, %29 ]
+41:                                               ; preds = %31, %23
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %32, %31 ]
   resume { ptr, i32 } %.pn
 }
 

@@ -1297,7 +1297,7 @@ define dso_local void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef %1) #0 
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i8 %18, 0
-  br i1 %20, label %21, label %26, !prof !16
+  br i1 %20, label %21, label %.critedge, !prof !16
 
 21:                                               ; preds = %.lr.ph
   %22 = extractvalue { i8, i32 } %17, 1
@@ -1306,56 +1306,56 @@ define dso_local void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef %1) #0 
   %25 = icmp ult i32 %24, %4
   br i1 %25, label %.loopexit, label %.lr.ph, !llvm.loop !43
 
-26:                                               ; preds = %.lr.ph
-  %27 = load volatile i32, ptr %5, align 4
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.loopexit, label %29
+.critedge:                                        ; preds = %.lr.ph
+  %26 = load volatile i32, ptr %5, align 4
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %.loopexit, label %28
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %31 = load volatile i32, ptr %30, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %33
+28:                                               ; preds = %.critedge
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %30 = load volatile i32, ptr %29, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %32
 
-33:                                               ; preds = %50, %29
-  %34 = phi i32 [ %31, %29 ], [ %41, %50 ]
-  %35 = phi i32 [ 0, %29 ], [ %53, %50 ]
-  %36 = phi i32 [ %4, %29 ], [ %51, %50 ]
-  %37 = load ptr, ptr %32, align 8
-  %38 = sext i32 %34 to i64
-  %39 = getelementptr %struct.sbq_wait_state, ptr %37, i64 %38
-  %40 = add i32 %34, 1
-  %41 = and i32 %40, 7
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = load volatile ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, %42
-  br i1 %44, label %50, label %45
+32:                                               ; preds = %49, %28
+  %33 = phi i32 [ %30, %28 ], [ %40, %49 ]
+  %34 = phi i32 [ 0, %28 ], [ %52, %49 ]
+  %35 = phi i32 [ %4, %28 ], [ %50, %49 ]
+  %36 = load ptr, ptr %31, align 8
+  %37 = sext i32 %33 to i64
+  %38 = getelementptr %struct.sbq_wait_state, ptr %36, i64 %37
+  %39 = add i32 %33, 1
+  %40 = and i32 %39, 7
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %42 = load volatile ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, %41
+  br i1 %43, label %49, label %44
 
-45:                                               ; preds = %33
-  %46 = tail call i32 @__wake_up(ptr noundef %39, i32 noundef 3, i32 noundef %36, ptr noundef null) #11
-  %47 = icmp eq i32 %46, %36
-  %48 = select i1 %47, i32 0, i32 %46
-  %49 = sub i32 %36, %48
-  br label %50
+44:                                               ; preds = %32
+  %45 = tail call i32 @__wake_up(ptr noundef %38, i32 noundef 3, i32 noundef %35, ptr noundef null) #11
+  %46 = icmp eq i32 %45, %35
+  %47 = select i1 %46, i32 0, i32 %45
+  %48 = sub i32 %35, %47
+  br label %49
 
-50:                                               ; preds = %45, %33
-  %51 = phi i32 [ %36, %33 ], [ %49, %45 ]
-  %52 = phi i1 [ false, %33 ], [ %47, %45 ]
-  %53 = add nuw nsw i32 %35, 1
-  %54 = icmp eq i32 %53, 8
-  %55 = select i1 %52, i1 true, i1 %54
-  br i1 %55, label %56, label %33, !llvm.loop !44
+49:                                               ; preds = %44, %32
+  %50 = phi i32 [ %35, %32 ], [ %48, %44 ]
+  %51 = phi i1 [ false, %32 ], [ %46, %44 ]
+  %52 = add nuw nsw i32 %34, 1
+  %53 = icmp eq i32 %52, 8
+  %54 = select i1 %51, i1 true, i1 %53
+  br i1 %54, label %55, label %32, !llvm.loop !44
 
-56:                                               ; preds = %50
-  %57 = load volatile i32, ptr %30, align 4
-  %58 = icmp eq i32 %41, %57
-  br i1 %58, label %.loopexit, label %59
+55:                                               ; preds = %49
+  %56 = load volatile i32, ptr %29, align 4
+  %57 = icmp eq i32 %40, %56
+  br i1 %57, label %.loopexit, label %58
 
-59:                                               ; preds = %56
-  store volatile i32 %41, ptr %30, align 4
+58:                                               ; preds = %55
+  store volatile i32 %40, ptr %29, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %21, %8, %59, %56, %26, %2
+.loopexit:                                        ; preds = %21, %8, %58, %55, %.critedge, %2
   ret void
 }
 

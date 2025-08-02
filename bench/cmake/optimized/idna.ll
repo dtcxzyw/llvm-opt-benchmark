@@ -872,16 +872,16 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
   %277 = icmp ult i32 %.1111.ph, 36
   %278 = sub nuw i32 36, %.1111.ph
   %279 = tail call i32 @llvm.umin.i32(i32 %278, i32 26)
-  %spec.store.select224 = select i1 %277, i32 %279, i32 1
-  %280 = icmp ult i32 %.2108, %spec.store.select224
+  %.0114224 = select i1 %277, i32 %279, i32 1
+  %280 = icmp ult i32 %.2108, %.0114224
   br i1 %280, label %._crit_edge229, label %.lr.ph228
 
 .lr.ph228:                                        ; preds = %.preheader, %293
-  %spec.store.select227 = phi i32 [ %spec.store.select, %293 ], [ %spec.store.select224, %.preheader ]
+  %.0114227 = phi i32 [ %.0114, %293 ], [ %.0114224, %.preheader ]
   %.0115226 = phi i32 [ %283, %293 ], [ %.2108, %.preheader ]
   %.0119225 = phi i32 [ %294, %293 ], [ 36, %.preheader ]
-  %281 = sub nuw i32 %.0115226, %spec.store.select227
-  %282 = sub nuw nsw i32 36, %spec.store.select227
+  %281 = sub nuw i32 %.0115226, %.0114227
+  %282 = sub nuw nsw i32 36, %.0114227
   %283 = udiv i32 %281, %282
   %284 = urem i32 %281, %282
   %285 = load ptr, ptr %2, align 8, !tbaa !4
@@ -889,7 +889,7 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
   br i1 %286, label %287, label %293
 
 287:                                              ; preds = %.lr.ph228
-  %288 = add nuw nsw i32 %284, %spec.store.select227
+  %288 = add nuw nsw i32 %284, %.0114227
   %289 = zext nneg i32 %288 to i64
   %290 = getelementptr inbounds nuw [37 x i8], ptr @uv__idna_toascii_label.alphabet, i64 0, i64 %289
   %291 = load i8, ptr %290, align 1, !tbaa !9
@@ -903,8 +903,8 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
   %295 = icmp ugt i32 %294, %.1111.ph
   %296 = sub nuw i32 %294, %.1111.ph
   %297 = tail call i32 @llvm.umin.i32(i32 %296, i32 26)
-  %spec.store.select = select i1 %295, i32 %297, i32 1
-  %298 = icmp samesign ult i32 %283, %spec.store.select
+  %.0114 = select i1 %295, i32 %297, i32 1
+  %298 = icmp samesign ult i32 %283, %.0114
   br i1 %298, label %._crit_edge229, label %.lr.ph228
 
 ._crit_edge229:                                   ; preds = %293, %.preheader

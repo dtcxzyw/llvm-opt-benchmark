@@ -5646,14 +5646,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %68, i64 96, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  %76 = getelementptr i8, ptr %.sroa.019.0, i64 104
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 104
   br label %77
 
 77:                                               ; preds = %87, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h4b7d49093f25fe21E.exit48"
   %.sroa.0.04.i = phi i64 [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h4b7d49093f25fe21E.exit48" ], [ %78, %87 ]
   %78 = add nuw nsw i64 %.sroa.0.04.i, 1
   %.idx.i = mul nuw nsw i64 %.sroa.0.04.i, 104
-  %79 = getelementptr i8, ptr %76, i64 %.idx.i
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i
   %80 = load atomic i64, ptr %79 acquire, align 8
   %81 = and i64 %80, 2
   %82 = icmp eq i64 %81, 0
@@ -5674,14 +5674,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h8
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hba0c28279e8e2aa8E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88
-  %90 = getelementptr i8, ptr %.sroa.019.0, i64 104
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 104
   br label %91
 
 91:                                               ; preds = %101, %.lr.ph.i51
   %.sroa.0.04.i52 = phi i64 [ %41, %.lr.ph.i51 ], [ %92, %101 ]
   %92 = add nuw nsw i64 %.sroa.0.04.i52, 1
   %.idx.i53 = mul nuw nsw i64 %.sroa.0.04.i52, 104
-  %93 = getelementptr i8, ptr %90, i64 %.idx.i53
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i53
   %94 = load atomic i64, ptr %93 acquire, align 8
   %95 = and i64 %94, 2
   %96 = icmp eq i64 %95, 0
@@ -6061,14 +6061,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17hb
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %68, i64 96, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  %76 = getelementptr i8, ptr %.sroa.019.0, i64 104
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 104
   br label %77
 
 77:                                               ; preds = %87, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h0bde18de001c64adE.exit48"
   %.sroa.0.04.i = phi i64 [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h0bde18de001c64adE.exit48" ], [ %78, %87 ]
   %78 = add nuw nsw i64 %.sroa.0.04.i, 1
   %.idx.i = mul nuw nsw i64 %.sroa.0.04.i, 104
-  %79 = getelementptr i8, ptr %76, i64 %.idx.i
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i
   %80 = load atomic i64, ptr %79 acquire, align 8
   %81 = and i64 %80, 2
   %82 = icmp eq i64 %81, 0
@@ -6089,14 +6089,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17hb
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hdfc6b425e23bd770E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88
-  %90 = getelementptr i8, ptr %.sroa.019.0, i64 104
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 104
   br label %91
 
 91:                                               ; preds = %101, %.lr.ph.i51
   %.sroa.0.04.i52 = phi i64 [ %41, %.lr.ph.i51 ], [ %92, %101 ]
   %92 = add nuw nsw i64 %.sroa.0.04.i52, 1
   %.idx.i53 = mul nuw nsw i64 %.sroa.0.04.i52, 104
-  %93 = getelementptr i8, ptr %90, i64 %.idx.i53
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i53
   %94 = load atomic i64, ptr %93 acquire, align 8
   %95 = and i64 %94, 2
   %96 = icmp eq i64 %95, 0
@@ -6283,14 +6283,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17hc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %68, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  %76 = getelementptr i8, ptr %.sroa.019.0, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 72
   br label %77
 
 77:                                               ; preds = %87, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h95aceba6d4c85d47E.exit48"
   %.sroa.0.04.i = phi i64 [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h95aceba6d4c85d47E.exit48" ], [ %78, %87 ]
   %78 = add nuw nsw i64 %.sroa.0.04.i, 1
   %.idx.i = mul nuw nsw i64 %.sroa.0.04.i, 72
-  %79 = getelementptr i8, ptr %76, i64 %.idx.i
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i
   %80 = load atomic i64, ptr %79 acquire, align 8
   %81 = and i64 %80, 2
   %82 = icmp eq i64 %81, 0
@@ -6311,14 +6311,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17hc
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hdf84078e8234c0acE.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88
-  %90 = getelementptr i8, ptr %.sroa.019.0, i64 72
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 72
   br label %91
 
 91:                                               ; preds = %101, %.lr.ph.i51
   %.sroa.0.04.i52 = phi i64 [ %41, %.lr.ph.i51 ], [ %92, %101 ]
   %92 = add nuw nsw i64 %.sroa.0.04.i52, 1
   %.idx.i53 = mul nuw nsw i64 %.sroa.0.04.i52, 72
-  %93 = getelementptr i8, ptr %90, i64 %.idx.i53
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i53
   %94 = load atomic i64, ptr %93 acquire, align 8
   %95 = and i64 %94, 2
   %96 = icmp eq i64 %95, 0
@@ -6505,14 +6505,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17he
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %68, i64 128, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
-  %76 = getelementptr i8, ptr %.sroa.019.0, i64 136
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 136
   br label %77
 
 77:                                               ; preds = %87, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h791aca06e964178dE.exit48"
   %.sroa.0.04.i = phi i64 [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h791aca06e964178dE.exit48" ], [ %78, %87 ]
   %78 = add nuw nsw i64 %.sroa.0.04.i, 1
   %.idx.i = mul nuw nsw i64 %.sroa.0.04.i, 136
-  %79 = getelementptr i8, ptr %76, i64 %.idx.i
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i
   %80 = load atomic i64, ptr %79 acquire, align 8
   %81 = and i64 %80, 2
   %82 = icmp eq i64 %81, 0
@@ -6533,14 +6533,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17he
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h84c435f7f1aec90bE.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88
-  %90 = getelementptr i8, ptr %.sroa.019.0, i64 136
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 136
   br label %91
 
 91:                                               ; preds = %101, %.lr.ph.i51
   %.sroa.0.04.i52 = phi i64 [ %41, %.lr.ph.i51 ], [ %92, %101 ]
   %92 = add nuw nsw i64 %.sroa.0.04.i52, 1
   %.idx.i53 = mul nuw nsw i64 %.sroa.0.04.i52, 136
-  %93 = getelementptr i8, ptr %90, i64 %.idx.i53
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i53
   %94 = load atomic i64, ptr %93 acquire, align 8
   %95 = and i64 %94, 2
   %96 = icmp eq i64 %95, 0
@@ -6723,14 +6723,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17he
   %77 = load ptr, ptr %69, align 8, !nonnull !4, !noundef !4
   %78 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr i8, ptr %.sroa.019.0, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 24
   br label %81
 
 81:                                               ; preds = %91, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit56"
   %.sroa.0.04.i = phi i64 [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit56" ], [ %82, %91 ]
   %82 = add nuw nsw i64 %.sroa.0.04.i, 1
   %.idx.i = mul nuw nsw i64 %.sroa.0.04.i, 24
-  %83 = getelementptr i8, ptr %80, i64 %.idx.i
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx.i
   %84 = load atomic i64, ptr %83 acquire, align 8
   %85 = and i64 %84, 2
   %86 = icmp eq i64 %85, 0
@@ -6751,14 +6751,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17he
   br i1 %93, label %.lr.ph.i59, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split"
 
 .lr.ph.i59:                                       ; preds = %92
-  %94 = getelementptr i8, ptr %.sroa.019.0, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 24
   br label %95
 
 95:                                               ; preds = %105, %.lr.ph.i59
   %.sroa.0.04.i60 = phi i64 [ %39, %.lr.ph.i59 ], [ %96, %105 ]
   %96 = add nuw nsw i64 %.sroa.0.04.i60, 1
   %.idx.i61 = mul nuw nsw i64 %.sroa.0.04.i60, 24
-  %97 = getelementptr i8, ptr %94, i64 %.idx.i61
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx.i61
   %98 = load atomic i64, ptr %97 acquire, align 8
   %99 = and i64 %98, 2
   %100 = icmp eq i64 %99, 0
@@ -6951,14 +6951,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17hf
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %68, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  %76 = getelementptr i8, ptr %.sroa.019.0, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 56
   br label %77
 
 77:                                               ; preds = %87, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h14ddc1971a4a4d94E.exit48"
   %.sroa.0.04.i = phi i64 [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h14ddc1971a4a4d94E.exit48" ], [ %78, %87 ]
   %78 = add nuw nsw i64 %.sroa.0.04.i, 1
   %.idx.i = mul nuw nsw i64 %.sroa.0.04.i, 56
-  %79 = getelementptr i8, ptr %76, i64 %.idx.i
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i
   %80 = load atomic i64, ptr %79 acquire, align 8
   %81 = and i64 %80, 2
   %82 = icmp eq i64 %81, 0
@@ -6979,14 +6979,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17hf
   br i1 %89, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hf7511207098ba6cdE.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %88
-  %90 = getelementptr i8, ptr %.sroa.019.0, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 56
   br label %91
 
 91:                                               ; preds = %101, %.lr.ph.i51
   %.sroa.0.04.i52 = phi i64 [ %41, %.lr.ph.i51 ], [ %92, %101 ]
   %92 = add nuw nsw i64 %.sroa.0.04.i52, 1
   %.idx.i53 = mul nuw nsw i64 %.sroa.0.04.i52, 56
-  %93 = getelementptr i8, ptr %90, i64 %.idx.i53
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i53
   %94 = load atomic i64, ptr %93 acquire, align 8
   %95 = and i64 %94, 2
   %96 = icmp eq i64 %95, 0

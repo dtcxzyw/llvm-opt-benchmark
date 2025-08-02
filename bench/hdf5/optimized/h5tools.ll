@@ -3967,7 +3967,6 @@ define void @init_acc_pos(i32 noundef %0, ptr noundef readonly captures(none) %1
   %16 = getelementptr i8, ptr %2, i64 %15
   %scevgep = getelementptr i8, ptr %16, i64 8
   %load_initial = load i64, ptr %scevgep, align 8
-  %invariant.gep = getelementptr i8, ptr %1, i64 8
   br label %.lr.ph26
 
 .preheader:                                       ; preds = %.lr.ph26, %6
@@ -3977,13 +3976,14 @@ define void @init_acc_pos(i32 noundef %0, ptr noundef readonly captures(none) %1
   br label %.loopexit
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %.lr.ph26
-  %store_forwarded = phi i64 [ %load_initial, %.lr.ph26.preheader ], [ %20, %.lr.ph26 ]
+  %store_forwarded = phi i64 [ %load_initial, %.lr.ph26.preheader ], [ %22, %.lr.ph26 ]
   %indvars.iv = phi i64 [ %14, %.lr.ph26.preheader ], [ %indvars.iv.next, %.lr.ph26 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
-  %19 = load i64, ptr %gep, align 8, !tbaa !7
-  %20 = mul i64 %19, %store_forwarded
-  %21 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
-  store i64 %20, ptr %21, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !7
+  %22 = mul i64 %21, %store_forwarded
+  %23 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  store i64 %22, ptr %23, align 8, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %.preheader, label %.lr.ph26, !llvm.loop !63

@@ -149,7 +149,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb14ThreadLocalPtr10StaticMeta5MutexEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb14ThreadLocalPtr10StaticMeta5MutexEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %_ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit, !prof !4

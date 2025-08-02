@@ -1050,11 +1050,11 @@ define internal fastcc void @connectionInitiated(ptr noundef %0) unnamed_addr #0
 
 5:                                                ; preds = %1
   store ptr %0, ptr @transport, align 8
-  br label %.critedge11
+  br label %18
 
 6:                                                ; preds = %1
   %7 = icmp eq ptr %3, %0
-  br i1 %7, label %.critedge11, label %8
+  br i1 %7, label %18, label %8
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %0, align 8
@@ -1075,20 +1075,20 @@ define internal fastcc void @connectionInitiated(ptr noundef %0) unnamed_addr #0
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.3, i32 noundef 301, ptr noundef nonnull @.str.32) #6
   br label %.critedge
 
-.critedge11:                                      ; preds = %6, %5
-  %18 = load ptr, ptr @listenerLock, align 8
-  tail call void @debugMonitorNotifyAll(ptr noundef %18) #6
+18:                                               ; preds = %5, %6
   %19 = load ptr, ptr @listenerLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %19) #6
-  tail call void @debugLoop_run() #6
-  br label %21
-
-.critedge:                                        ; preds = %17, %14, %8
+  tail call void @debugMonitorNotifyAll(ptr noundef %19) #6
   %20 = load ptr, ptr @listenerLock, align 8
   tail call void @debugMonitorExit(ptr noundef %20) #6
-  br label %21
+  tail call void @debugLoop_run() #6
+  br label %22
 
-21:                                               ; preds = %.critedge, %.critedge11
+.critedge:                                        ; preds = %17, %14, %8
+  %21 = load ptr, ptr @listenerLock, align 8
+  tail call void @debugMonitorExit(ptr noundef %21) #6
+  br label %22
+
+22:                                               ; preds = %.critedge, %18
   ret void
 }
 

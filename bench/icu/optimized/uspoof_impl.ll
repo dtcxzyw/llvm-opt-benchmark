@@ -589,8 +589,8 @@ _ZN6icu_779SpoofData15removeReferenceEv.exit:     ; preds = %7, %4, %1
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_779SpoofData15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6icu_779SpoofData15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = atomicrmw sub ptr %2, i32 1 seq_cst, align 4
   %.not = icmp eq i32 %3, 1
@@ -2915,8 +2915,8 @@ define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_77L21spoofDataIsAccep
 
 declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_77L25uspoof_cleanupDefaultDataEv() #1 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZN6icu_77L25uspoof_cleanupDefaultDataEv() #6 {
   %1 = load ptr, ptr @_ZN6icu_77L17gDefaultSpoofDataE, align 8, !tbaa !24
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2

@@ -815,7 +815,7 @@ define dso_local i64 @pg_xact_status(ptr noundef captures(none) %0) local_unname
   %7 = trunc i64 %3 to i32
   %8 = tail call i64 @ReadNextFullTransactionId() #11
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %TransactionIdInRecentPast.exit.thread9, label %9
+  br i1 %.not.i, label %TransactionIdInRecentPast.exit.thread8, label %9
 
 9:                                                ; preds = %1
   %10 = icmp ugt i32 %7, 2
@@ -865,7 +865,7 @@ define dso_local i64 @pg_xact_status(ptr noundef captures(none) %0) local_unname
 TransactionIdInRecentPast.exit:                   ; preds = %22, %31
   %.sroa.07.0.i.i = phi i64 [ %34, %31 ], [ %23, %22 ]
   %.not = icmp ult i64 %3, %.sroa.07.0.i.i
-  br i1 %.not, label %TransactionIdInRecentPast.exit.thread9, label %TransactionIdInRecentPast.exit.thread
+  br i1 %.not, label %TransactionIdInRecentPast.exit.thread8, label %TransactionIdInRecentPast.exit.thread
 
 TransactionIdInRecentPast.exit.thread:            ; preds = %9, %TransactionIdInRecentPast.exit
   %35 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %7) #11
@@ -876,7 +876,7 @@ TransactionIdInRecentPast.exit.thread:            ; preds = %9, %TransactionIdIn
   %.str.7..str.8 = select i1 %37, ptr @.str.7, ptr @.str.8
   br label %41
 
-TransactionIdInRecentPast.exit.thread9:           ; preds = %1, %TransactionIdInRecentPast.exit
+TransactionIdInRecentPast.exit.thread8:           ; preds = %1, %TransactionIdInRecentPast.exit
   %38 = load ptr, ptr @MainLWLockArray, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 5632
   tail call void @LWLockRelease(ptr noundef nonnull %39) #11
@@ -885,16 +885,16 @@ TransactionIdInRecentPast.exit.thread9:           ; preds = %1, %TransactionIdIn
   br label %46
 
 41:                                               ; preds = %TransactionIdInRecentPast.exit.thread, %36
-  %.04.ph = phi ptr [ %.str.7..str.8, %36 ], [ @.str.6, %TransactionIdInRecentPast.exit.thread ]
+  %.04 = phi ptr [ @.str.6, %TransactionIdInRecentPast.exit.thread ], [ %.str.7..str.8, %36 ]
   %42 = load ptr, ptr @MainLWLockArray, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 5632
   tail call void @LWLockRelease(ptr noundef nonnull %43) #11
-  %44 = tail call ptr @cstring_to_text(ptr noundef nonnull %.04.ph) #11
+  %44 = tail call ptr @cstring_to_text(ptr noundef nonnull %.04) #11
   %45 = ptrtoint ptr %44 to i64
   br label %46
 
-46:                                               ; preds = %41, %TransactionIdInRecentPast.exit.thread9
-  %.0 = phi i64 [ 0, %TransactionIdInRecentPast.exit.thread9 ], [ %45, %41 ]
+46:                                               ; preds = %41, %TransactionIdInRecentPast.exit.thread8
+  %.0 = phi i64 [ 0, %TransactionIdInRecentPast.exit.thread8 ], [ %45, %41 ]
   ret i64 %.0
 }
 

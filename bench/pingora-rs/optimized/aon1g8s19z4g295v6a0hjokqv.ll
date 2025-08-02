@@ -627,7 +627,7 @@ define hidden noundef align 8 ptr @_ZN12pingora_http13RequestHeader13insert_head
           to label %.noexc.i unwind label %.thread.i, !noalias !28
 
 .noexc.i:                                         ; preds = %57
-  %58 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 inttoptr (i64 1 to ptr), ptr nonnull @anon.66fbad7e043687e7bbff216f20cb1390.77)
+  %58 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 inttoptr (i64 1 to ptr), ptr nonnull @anon.66fbad7e043687e7bbff216f20cb1390.77)
           to label %98 unwind label %.thread.i
 
 59:                                               ; preds = %54
@@ -958,7 +958,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17h600c5f145
           to label %.noexc.i unwind label %.thread.i, !noalias !75
 
 .noexc.i:                                         ; preds = %44
-  %45 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 inttoptr (i64 1 to ptr), ptr nonnull @anon.66fbad7e043687e7bbff216f20cb1390.77)
+  %45 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 inttoptr (i64 1 to ptr), ptr nonnull @anon.66fbad7e043687e7bbff216f20cb1390.77)
           to label %77 unwind label %.thread.i
 
 46:                                               ; preds = %41
@@ -1266,7 +1266,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17h9e1e564dd
           to label %.noexc.i unwind label %.thread.i, !noalias !107
 
 .noexc.i:                                         ; preds = %51
-  %52 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 inttoptr (i64 1 to ptr), ptr nonnull @anon.66fbad7e043687e7bbff216f20cb1390.77)
+  %52 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noundef align 1 inttoptr (i64 1 to ptr), ptr nonnull @anon.66fbad7e043687e7bbff216f20cb1390.77)
           to label %86 unwind label %.thread.i
 
 53:                                               ; preds = %48
@@ -1564,7 +1564,7 @@ define hidden noundef align 8 ptr @_ZN12pingora_http14ResponseHeader13insert_hea
           to label %.noexc.i unwind label %.thread.i, !noalias !132
 
 .noexc.i:                                         ; preds = %54
-  %55 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 inttoptr (i64 1 to ptr), ptr nonnull @anon.66fbad7e043687e7bbff216f20cb1390.77)
+  %55 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noundef align 1 inttoptr (i64 1 to ptr), ptr nonnull @anon.66fbad7e043687e7bbff216f20cb1390.77)
           to label %96 unwind label %.thread.i
 
 56:                                               ; preds = %51
@@ -1865,7 +1865,7 @@ define hidden void @"_ZN134_$LT$rmp_serde..encode..UnknownLengthCompound$u20$as$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 1 %2, ptr %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 1 %2, ptr %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [72 x i8], align 8
   %6 = alloca [16 x i8], align 8
   store ptr %2, ptr %6, align 8
@@ -6939,7 +6939,7 @@ define internal fastcc void @"_ZN105_$LT$pingora_cache..eviction..simple_lru..Ma
 71:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hc4f4ff5e126989a4E.exit.i"
   store ptr %62, ptr %64, align 8, !noalias !550
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !550
-  %72 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 %64, ptr nonnull @anon.66fbad7e043687e7bbff216f20cb1390.81)
+  %72 = invoke fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error6create17h955b51aae75e18f9E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, ptr noundef align 1 %64, ptr nonnull @anon.66fbad7e043687e7bbff216f20cb1390.81)
           to label %89 unwind label %56
 
 73:                                               ; preds = %67

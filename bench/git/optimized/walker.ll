@@ -393,8 +393,8 @@ _.exit.i:                                         ; preds = %78, %75
 
 81:                                               ; preds = %_.exit.i, %._crit_edge
   %82 = load ptr, ptr @process_queue, align 8, !tbaa !34
-  %.not1846.i = icmp eq ptr %82, null
-  br i1 %.not1846.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not1844.i = icmp eq ptr %82, null
+  br i1 %.not1844.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %81
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -402,9 +402,9 @@ _.exit.i:                                         ; preds = %78, %75
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 52
   br label %86
 
-86:                                               ; preds = %report_missing.exit.i, %.lr.ph.i
-  %87 = phi ptr [ %82, %.lr.ph.i ], [ %270, %report_missing.exit.i ]
-  %.01547.i = phi i64 [ 0, %.lr.ph.i ], [ %269, %report_missing.exit.i ]
+86:                                               ; preds = %.loopexit.i, %.lr.ph.i
+  %87 = phi ptr [ %82, %.lr.ph.i ], [ %270, %.loopexit.i ]
+  %.01545.i = phi i64 [ 0, %.lr.ph.i ], [ %269, %.loopexit.i ]
   %88 = load ptr, ptr %87, align 8, !tbaa !40
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !43
@@ -429,9 +429,9 @@ _.exit.i:                                         ; preds = %78, %75
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %99 = call i32 %97(ptr noundef %0, ptr noundef nonnull %98) #13
   %.not21.i = icmp eq i32 %99, 0
-  br i1 %.not21.i, label %._crit_edge60.i, label %100
+  br i1 %.not21.i, label %._crit_edge58.i, label %100
 
-._crit_edge60.i:                                  ; preds = %96
+._crit_edge58.i:                                  ; preds = %96
   %.pre.i = load i32, ptr %88, align 4
   br label %118
 
@@ -472,8 +472,8 @@ stop_progress.exit.i:                             ; preds = %102, %100
   %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.11, ptr noundef %116) #14
   br label %loop.exit.thread
 
-118:                                              ; preds = %._crit_edge60.i, %93
-  %119 = phi i32 [ %.pre.i, %._crit_edge60.i ], [ %94, %93 ]
+118:                                              ; preds = %._crit_edge58.i, %93
+  %119 = phi i32 [ %.pre.i, %._crit_edge58.i ], [ %94, %93 ]
   %120 = and i32 %119, 14
   %.not22.i = icmp eq i32 %120, 0
   br i1 %.not22.i, label %121, label %125
@@ -482,17 +482,17 @@ stop_progress.exit.i:                             ; preds = %102, %100
   %122 = load ptr, ptr @the_repository, align 8, !tbaa !25
   %123 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %124 = call ptr @parse_object(ptr noundef %122, ptr noundef nonnull %123) #13
-  %.pre61.i = load i32, ptr %88, align 4
+  %.pre59.i = load i32, ptr %88, align 4
   br label %125
 
 125:                                              ; preds = %121, %118
-  %126 = phi i32 [ %.pre61.i, %121 ], [ %119, %118 ]
+  %126 = phi i32 [ %.pre59.i, %121 ], [ %119, %118 ]
   %127 = lshr i32 %126, 1
   %128 = and i32 %127, 7
   switch i32 %128, label %260 [
     i32 1, label %129
     i32 2, label %195
-    i32 3, label %report_missing.exit.i
+    i32 3, label %.loopexit.i
     i32 4, label %235
   ]
 
@@ -530,7 +530,7 @@ stop_progress.exit.i:                             ; preds = %102, %100
   %143 = load i32, ptr %88, align 8
   %144 = and i32 %143, 16
   %.not17.i.i.i = icmp eq i32 %144, 0
-  br i1 %.not17.i.i.i, label %145, label %report_missing.exit.i
+  br i1 %.not17.i.i.i, label %145, label %.loopexit.i
 
 145:                                              ; preds = %.critedge.i.i.i
   %146 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -585,7 +585,7 @@ process.exit.i.i.i:                               ; preds = %166, %162, %145
   %172 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %.025.i.i.i = load ptr, ptr %172, align 8, !tbaa !45
   %.not1826.i.i.i = icmp eq ptr %.025.i.i.i, null
-  br i1 %.not1826.i.i.i, label %report_missing.exit.i, label %.lr.ph28.i.i.i
+  br i1 %.not1826.i.i.i, label %.loopexit.i, label %.lr.ph28.i.i.i
 
 .lr.ph28.i.i.i:                                   ; preds = %process.exit.i.i.i, %process.exit22.i.i.i
   %.027.i.i.i = phi ptr [ %.0.i.i25.i, %process.exit22.i.i.i ], [ %.025.i.i.i, %process.exit.i.i.i ]
@@ -633,7 +633,7 @@ process.exit22.i.i.i:                             ; preds = %188, %184, %.lr.ph2
   %194 = getelementptr inbounds nuw i8, ptr %.027.i.i.i, i64 8
   %.0.i.i25.i = load ptr, ptr %194, align 8, !tbaa !45
   %.not18.i.i.i = icmp eq ptr %.0.i.i25.i, null
-  br i1 %.not18.i.i.i, label %report_missing.exit.i, label %.lr.ph28.i.i.i, !llvm.loop !55
+  br i1 %.not18.i.i.i, label %.loopexit.i, label %.lr.ph28.i.i.i, !llvm.loop !55
 
 195:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #13
@@ -731,7 +731,7 @@ process_tree.exit.thread.i.i:                     ; preds = %195, %212
   call void @free_tree_buffer(ptr noundef nonnull %88) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #13
-  br label %report_missing.exit.i
+  br label %.loopexit.i
 
 235:                                              ; preds = %125
   %236 = call i32 @parse_tag(ptr noundef nonnull %88) #13
@@ -744,7 +744,7 @@ process_tree.exit.thread.i.i:                     ; preds = %195, %212
   %240 = load i32, ptr %239, align 4
   %241 = and i32 %240, 32
   %.not.i.i27.i.i = icmp eq i32 %241, 0
-  br i1 %.not.i.i27.i.i, label %242, label %report_missing.exit.i
+  br i1 %.not.i.i27.i.i, label %242, label %.loopexit.i
 
 242:                                              ; preds = %237
   %243 = or disjoint i32 %240, 32
@@ -764,7 +764,7 @@ process_tree.exit.thread.i.i:                     ; preds = %195, %212
 250:                                              ; preds = %242
   %251 = and i32 %247, 16
   %.not10.i.i29.i.i = icmp eq i32 %251, 0
-  br i1 %.not10.i.i29.i.i, label %252, label %report_missing.exit.i
+  br i1 %.not10.i.i29.i.i, label %252, label %.loopexit.i
 
 252:                                              ; preds = %250
   %253 = load ptr, ptr %84, align 8, !tbaa !31
@@ -778,7 +778,7 @@ process_tree.exit.thread.i.i:                     ; preds = %195, %212
   %258 = load ptr, ptr %257, align 8, !tbaa !34
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
   store ptr %259, ptr @process_queue_end, align 8, !tbaa !32
-  br label %report_missing.exit.i
+  br label %.loopexit.i
 
 260:                                              ; preds = %125
   %261 = call ptr @type_name(i32 noundef %128) #13
@@ -801,15 +801,15 @@ stop_progress.exit28.i:                           ; preds = %266, %process_objec
   call void @stop_progress_msg(ptr noundef nonnull %8, ptr noundef %.0.i.i27.i) #13
   br label %loop.exit.thread
 
-report_missing.exit.i:                            ; preds = %process.exit22.i.i.i, %254, %250, %237, %.loopexit.i.i, %process.exit.i.i.i, %.critedge.i.i.i, %125
+.loopexit.i:                                      ; preds = %process.exit22.i.i.i, %254, %250, %237, %.loopexit.i.i, %process.exit.i.i.i, %.critedge.i.i.i, %125
   %268 = load ptr, ptr %8, align 8, !tbaa !37
-  %269 = add i64 %.01547.i, 1
+  %269 = add i64 %.01545.i, 1
   call void @display_progress(ptr noundef %268, i64 noundef %269) #13
   %270 = load ptr, ptr @process_queue, align 8, !tbaa !34
   %.not18.i = icmp eq ptr %270, null
   br i1 %.not18.i, label %._crit_edge.i, label %86, !llvm.loop !63
 
-._crit_edge.i:                                    ; preds = %report_missing.exit.i, %81
+._crit_edge.i:                                    ; preds = %.loopexit.i, %81
   %271 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !24
   %.not4.i.i29.i = icmp eq i32 %271, 0
   br i1 %.not4.i.i29.i, label %loop.exit, label %272

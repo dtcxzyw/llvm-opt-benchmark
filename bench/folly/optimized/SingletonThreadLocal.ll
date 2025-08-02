@@ -324,17 +324,17 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4p
   br i1 %52, label %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS6_.exit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !53
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i.i, %49
-  %.016.i40.i.i.i = phi ptr [ %53, %49 ], [ %45, %.preheader.i.i.i.i ]
-  %53 = load ptr, ptr %.016.i40.i.i.i, align 8, !tbaa !23
+  %.016.i35.i.i.i = phi ptr [ %53, %49 ], [ %45, %.preheader.i.i.i.i ]
+  %53 = load ptr, ptr %.016.i35.i.i.i, align 8, !tbaa !23
   %.not14.i.i.i.i = icmp eq ptr %53, null
   br i1 %.not14.i.i.i.i, label %_ZNSt13unordered_mapIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt13unordered_setIPNS2_10LocalCacheESt4hashIS7_ESt8equal_toIS7_ESaIS7_EES8_IS4_ESA_IS4_ESaISt4pairIKS4_SD_EEE5eraseERSH_.exit, label %49, !llvm.loop !53
 
 _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS6_.exit.i.i.i: ; preds = %49, %.preheader.i.i.i.i
   %54 = phi ptr [ %45, %.preheader.i.i.i.i ], [ %53, %49 ]
-  %.01115.i.lcssa.i.i.i = phi ptr [ %44, %.preheader.i.i.i.i ], [ %.016.i40.i.i.i, %49 ]
+  %.01115.i.lcssa.i.i.i = phi ptr [ %44, %.preheader.i.i.i.i ], [ %.016.i35.i.i.i, %49 ]
   %55 = load i64, ptr %6, align 8, !tbaa !22
   %56 = urem i64 %5, %55
-  br label %.loopexit.i.i.i
+  br label %_ZNKSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS6_m.exit.i.i.i
 
 57:                                               ; preds = %._crit_edge
   %58 = load i64, ptr %6, align 8, !tbaa !22
@@ -350,11 +350,11 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4p
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !40
   %67 = icmp eq ptr %0, %66
-  br i1 %67, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %67, label %_ZNKSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS6_m.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 68:                                               ; preds = %71
   %69 = icmp eq ptr %0, %73
-  br i1 %69, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !42
+  br i1 %69, label %_ZNKSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS6_m.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !42
 
 .lr.ph.i.i.i.i:                                   ; preds = %63, %68
   %.020.i.i.i.i = phi ptr [ %70, %68 ], [ %64, %63 ]
@@ -373,7 +373,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4p
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %71
   br label %_ZNSt13unordered_mapIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt13unordered_setIPNS2_10LocalCacheESt4hashIS7_ESt8equal_toIS7_ESaIS7_EES8_IS4_ESA_IS4_ESaISt4pairIKS4_SD_EEE5eraseERSH_.exit, !llvm.loop !42
 
-.loopexit.i.i.i:                                  ; preds = %68, %63, %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS6_.exit.i.i.i
+_ZNKSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS6_m.exit.i.i.i: ; preds = %68, %63, %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS6_.exit.i.i.i
   %.019.i.i.i = phi ptr [ %54, %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS6_.exit.i.i.i ], [ %64, %63 ], [ %70, %68 ]
   %.018.i.i.i = phi i64 [ %56, %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS6_.exit.i.i.i ], [ %59, %63 ], [ %59, %68 ]
   %.016.i.i.i = phi ptr [ %.01115.i.lcssa.i.i.i, %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS6_.exit.i.i.i ], [ %62, %63 ], [ %.020.i.i.i.i, %68 ]
@@ -511,10 +511,10 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheESt4pair
   %.not28 = icmp eq ptr %.sroa.024.0, null
   br i1 %.not28, label %._crit_edge, label %77
 
-_ZNSt13unordered_mapIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt13unordered_setIPNS2_10LocalCacheESt4hashIS7_ESt8equal_toIS7_ESaIS7_EES8_IS4_ESA_IS4_ESaISt4pairIKS4_SD_EEE5eraseERSH_.exit: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %57, %43, %.loopexit.i.i.i
+_ZNSt13unordered_mapIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt13unordered_setIPNS2_10LocalCacheESt4hashIS7_ESt8equal_toIS7_ESaIS7_EES8_IS4_ESA_IS4_ESaISt4pairIKS4_SD_EEE5eraseERSH_.exit: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %57, %43, %_ZNKSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS6_m.exit.i.i.i
   ret void
 
-140:                                              ; preds = %.loopexit.i, %.loopexit.i.i.i
+140:                                              ; preds = %.loopexit.i, %_ZNKSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS6_m.exit.i.i.i
   %141 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body

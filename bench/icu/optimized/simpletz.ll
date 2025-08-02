@@ -2169,7 +2169,7 @@ define void @_ZNK6icu_7714SimpleTimeZone18getOffsetFromLocalEd20UTimeZoneLocalOp
   call void @_ZN6icu_775Grego12timeToFieldsEdRiRaS2_S2_S1_R10UErrorCode(double noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %20 = load i32, ptr %6, align 4, !tbaa !37
   %21 = icmp slt i32 %20, 1
-  br i1 %21, label %22, label %.thread
+  br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %15
   %23 = load i32, ptr %8, align 4, !tbaa !50
@@ -2210,7 +2210,7 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %32, %_ZN6icu_775Gre
   store i32 %46, ptr %5, align 4, !tbaa !50
   %47 = load i32, ptr %6, align 4, !tbaa !37
   %48 = icmp slt i32 %47, 1
-  br i1 %48, label %49, label %.thread
+  br i1 %48, label %49, label %.critedge
 
 49:                                               ; preds = %_ZN6icu_775Grego11monthLengthEii.exit
   %50 = icmp sgt i32 %46, 0
@@ -2220,25 +2220,25 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %32, %_ZN6icu_775Gre
   %52 = and i32 %2, 3
   switch i32 %52, label %53 [
     i32 1, label %60
-    i32 3, label %.thread
+    i32 3, label %.critedge
   ]
 
 53:                                               ; preds = %51
   %54 = and i32 %2, 12
   %.not32 = icmp eq i32 %54, 12
-  br i1 %.not32, label %.thread, label %60
+  br i1 %.not32, label %.critedge, label %60
 
 55:                                               ; preds = %49
   %56 = and i32 %3, 3
   switch i32 %56, label %57 [
     i32 3, label %60
-    i32 1, label %.thread
+    i32 1, label %.critedge
   ]
 
 57:                                               ; preds = %55
   %58 = and i32 %3, 12
   %59 = icmp eq i32 %58, 4
-  br i1 %59, label %60, label %.thread
+  br i1 %59, label %60, label %.critedge
 
 60:                                               ; preds = %57, %55, %53, %51
   %61 = load ptr, ptr %0, align 8, !tbaa !3
@@ -2250,7 +2250,7 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %32, %_ZN6icu_775Gre
   call void @_ZN6icu_775Grego12timeToFieldsEdRiRaS2_S2_S1_R10UErrorCode(double noundef %.025, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %65 = load i32, ptr %6, align 4, !tbaa !37
   %66 = icmp slt i32 %65, 1
-  br i1 %66, label %67, label %.thread
+  br i1 %66, label %67, label %.critedge
 
 67:                                               ; preds = %60
   %68 = load i32, ptr %8, align 4, !tbaa !50
@@ -2289,9 +2289,9 @@ _ZN6icu_775Grego11monthLengthEii.exit39:          ; preds = %77, %_ZN6icu_775Gre
   %90 = load i32, ptr %4, align 4, !tbaa !50
   %91 = sub nsw i32 %89, %90
   store i32 %91, ptr %5, align 4, !tbaa !50
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %55, %51, %57, %53, %60, %_ZN6icu_775Grego11monthLengthEii.exit39, %_ZN6icu_775Grego11monthLengthEii.exit, %15
+.critedge:                                        ; preds = %60, %53, %57, %51, %55, %_ZN6icu_775Grego11monthLengthEii.exit39, %_ZN6icu_775Grego11monthLengthEii.exit, %15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
@@ -2299,7 +2299,7 @@ _ZN6icu_775Grego11monthLengthEii.exit39:          ; preds = %77, %_ZN6icu_775Gre
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   br label %92
 
-92:                                               ; preds = %7, %.thread
+92:                                               ; preds = %7, %.critedge
   ret void
 }
 

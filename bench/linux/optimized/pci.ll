@@ -685,10 +685,10 @@ define dso_local zeroext i8 @pci_find_capability(ptr noundef readonly captures(n
   %13 = load i16, ptr %5, align 2
   %14 = and i16 %13, 16
   %15 = icmp eq i16 %14, 0
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %2
-  switch i8 %11, label %.thread [
+  switch i8 %11, label %.critedge [
     i8 0, label %18
     i8 1, label %18
     i8 2, label %17
@@ -697,11 +697,7 @@ define dso_local zeroext i8 @pci_find_capability(ptr noundef readonly captures(n
 17:                                               ; preds = %16
   br label %18
 
-.thread:                                          ; preds = %2, %16
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #27
-  br label %47
-
-18:                                               ; preds = %16, %16, %17
+18:                                               ; preds = %17, %16, %16
   %19 = phi i8 [ 20, %17 ], [ 52, %16 ], [ 52, %16 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #27
   %20 = load ptr, ptr %6, align 8
@@ -753,8 +749,12 @@ define dso_local zeroext i8 @pci_find_capability(ptr noundef readonly captures(n
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br label %47
 
-47:                                               ; preds = %.thread, %.loopexit
-  %48 = phi i8 [ %46, %.loopexit ], [ 0, %.thread ]
+.critedge:                                        ; preds = %16, %2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #27
+  br label %47
+
+47:                                               ; preds = %.critedge, %.loopexit
+  %48 = phi i8 [ %46, %.loopexit ], [ 0, %.critedge ]
   ret i8 %48
 }
 
@@ -774,11 +774,11 @@ define dso_local zeroext i8 @pci_bus_find_capability(ptr noundef %0, i32 noundef
   %11 = load i16, ptr %6, align 2
   %12 = and i16 %11, 16
   %13 = icmp eq i16 %12, 0
-  br i1 %13, label %.thread, label %14
+  br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %3
   %15 = and i8 %9, 127
-  switch i8 %15, label %.thread [
+  switch i8 %15, label %.critedge [
     i8 0, label %17
     i8 1, label %17
     i8 2, label %16
@@ -787,11 +787,7 @@ define dso_local zeroext i8 @pci_bus_find_capability(ptr noundef %0, i32 noundef
 16:                                               ; preds = %14
   br label %17
 
-.thread:                                          ; preds = %3, %14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #27
-  br label %44
-
-17:                                               ; preds = %14, %14, %16
+17:                                               ; preds = %16, %14, %14
   %18 = phi i8 [ 20, %16 ], [ 52, %14 ], [ 52, %14 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -841,8 +837,12 @@ define dso_local zeroext i8 @pci_bus_find_capability(ptr noundef %0, i32 noundef
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %44
 
-44:                                               ; preds = %.thread, %.loopexit
-  %45 = phi i8 [ %43, %.loopexit ], [ 0, %.thread ]
+.critedge:                                        ; preds = %14, %3
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #27
+  br label %44
+
+44:                                               ; preds = %.critedge, %.loopexit
+  %45 = phi i8 [ %43, %.loopexit ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #27
   ret i8 %45
 }
@@ -1197,10 +1197,10 @@ define dso_local zeroext i8 @pci_find_ht_capability(ptr noundef %0, i32 noundef 
   %11 = load i16, ptr %3, align 2
   %12 = and i16 %11, 16
   %13 = icmp eq i16 %12, 0
-  br i1 %13, label %.thread, label %14
+  br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %2
-  switch i8 %9, label %.thread [
+  switch i8 %9, label %.critedge [
     i8 0, label %16
     i8 1, label %16
     i8 2, label %15
@@ -1209,18 +1209,18 @@ define dso_local zeroext i8 @pci_find_ht_capability(ptr noundef %0, i32 noundef 
 15:                                               ; preds = %14
   br label %16
 
-.thread:                                          ; preds = %2, %14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #27
-  br label %19
-
-16:                                               ; preds = %14, %14, %15
+16:                                               ; preds = %15, %14, %14
   %17 = phi i8 [ 20, %15 ], [ 52, %14 ], [ 52, %14 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #27
   %18 = call fastcc zeroext i8 @__pci_find_next_ht_cap(ptr noundef %0, i8 noundef zeroext %17, i32 noundef %1)
   br label %19
 
-19:                                               ; preds = %.thread, %16
-  %20 = phi i8 [ %18, %16 ], [ 0, %.thread ]
+.critedge:                                        ; preds = %14, %2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #27
+  br label %19
+
+19:                                               ; preds = %.critedge, %16
+  %20 = phi i8 [ %18, %16 ], [ 0, %.critedge ]
   ret i8 %20
 }
 
@@ -3300,7 +3300,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_saved_state(ptr noundef
   %5 = and i40 %4, -2097153
   store i40 %5, ptr %3, align 1
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %.thread7, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1704
@@ -3322,7 +3322,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_saved_state(ptr noundef
   %17 = load i16, ptr %16, align 4
   %18 = load ptr, ptr %9, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.thread7, label %20
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 2
@@ -3345,13 +3345,13 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_saved_state(ptr noundef
 32:                                               ; preds = %28, %23
   %33 = load ptr, ptr %24, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread7, label %23, !llvm.loop !23
+  br i1 %34, label %.critedge, label %23, !llvm.loop !23
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, %14
-  br i1 %38, label %39, label %.thread7
+  br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -3374,9 +3374,9 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_saved_state(ptr noundef
   %49 = phi i40 [ %.pre, %._crit_edge.loopexit ], [ %5, %7 ]
   %50 = or i40 %49, 2097152
   store i40 %50, ptr %3, align 1
-  br label %.thread7
+  br label %.critedge
 
-.thread7:                                         ; preds = %.lr.ph, %35, %32, %._crit_edge, %2
+.critedge:                                        ; preds = %.lr.ph, %35, %32, %._crit_edge, %2
   %51 = phi i32 [ 0, %._crit_edge ], [ 0, %2 ], [ -22, %32 ], [ -22, %35 ], [ -22, %.lr.ph ]
   ret i32 %51
 }
@@ -3389,7 +3389,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_and_free_saved_state(pt
   %6 = and i40 %5, -2097153
   store i40 %6, ptr %4, align 1
   %7 = icmp eq ptr %3, null
-  br i1 %7, label %.thread7, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1704
@@ -3411,7 +3411,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_and_free_saved_state(pt
   %18 = load i16, ptr %17, align 4
   %19 = load ptr, ptr %10, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread7, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 2
@@ -3434,13 +3434,13 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_and_free_saved_state(pt
 33:                                               ; preds = %29, %24
   %34 = load ptr, ptr %25, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread7, label %24, !llvm.loop !23
+  br i1 %35, label %.critedge, label %24, !llvm.loop !23
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, %15
-  br i1 %39, label %40, label %.thread7
+  br i1 %39, label %40, label %.critedge
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -3463,9 +3463,9 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_and_free_saved_state(pt
   %50 = phi i40 [ %.pre, %._crit_edge.loopexit ], [ %6, %8 ]
   %51 = or i40 %50, 2097152
   store i40 %51, ptr %4, align 1
-  br label %.thread7
+  br label %.critedge
 
-.thread7:                                         ; preds = %.lr.ph, %36, %33, %._crit_edge, %2
+.critedge:                                        ; preds = %.lr.ph, %36, %33, %._crit_edge, %2
   %52 = phi i32 [ 0, %._crit_edge ], [ 0, %2 ], [ -22, %33 ], [ -22, %36 ], [ -22, %.lr.ph ]
   %53 = load ptr, ptr %1, align 8
   tail call void @kfree(ptr noundef %53) #27
@@ -3620,7 +3620,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(pt
   %25 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 1, ptr nonnull elementtype(i32) %24) #27, !srcloc !35
   %26 = add i32 %25, 1
   %27 = icmp sgt i32 %26, 1
-  br i1 %27, label %66, label %28
+  br i1 %27, label %71, label %28
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3641,53 +3641,55 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(pt
   br label %.thread
 
 .thread:                                          ; preds = %28, %38, %34
-  %invariant.gep = getelementptr i8, ptr %0, i64 944
-  br label %39
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  br label %40
 
-39:                                               ; preds = %39, %.thread
-  %40 = phi i64 [ 0, %.thread ], [ %49, %39 ]
-  %41 = phi i32 [ 0, %.thread ], [ %48, %39 ]
-  %.idx = shl i64 %40, 6
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %42 = load i64, ptr %gep, align 8
-  %43 = and i64 %42, %1
-  %44 = icmp eq i64 %43, 0
-  %45 = trunc i64 %40 to i32
-  %46 = shl nuw nsw i32 1, %45
-  %47 = select i1 %44, i32 0, i32 %46
-  %48 = or i32 %47, %41
-  %49 = add nuw nsw i64 %40, 1
-  %50 = icmp eq i64 %49, 7
-  br i1 %50, label %.preheader, label %39, !llvm.loop !36
+40:                                               ; preds = %40, %.thread
+  %41 = phi i64 [ 0, %.thread ], [ %52, %40 ]
+  %42 = phi i32 [ 0, %.thread ], [ %51, %40 ]
+  %.idx = shl i64 %41, 6
+  %43 = getelementptr i8, ptr %39, i64 %.idx
+  %44 = getelementptr i8, ptr %43, i64 24
+  %45 = load i64, ptr %44, align 8
+  %46 = and i64 %45, %1
+  %47 = icmp eq i64 %46, 0
+  %48 = trunc i64 %41 to i32
+  %49 = shl nuw nsw i32 1, %48
+  %50 = select i1 %47, i32 0, i32 %49
+  %51 = or i32 %50, %42
+  %52 = add nuw nsw i64 %41, 1
+  %53 = icmp eq i64 %52, 7
+  br i1 %53, label %.preheader, label %40, !llvm.loop !36
 
-.preheader:                                       ; preds = %39, %.preheader
-  %51 = phi i64 [ %60, %.preheader ], [ 7, %39 ]
-  %52 = phi i32 [ %59, %.preheader ], [ %48, %39 ]
-  %.idx3 = shl i64 %51, 6
-  %gep6 = getelementptr i8, ptr %invariant.gep, i64 %.idx3
-  %53 = load i64, ptr %gep6, align 8
-  %54 = and i64 %53, %1
-  %55 = icmp eq i64 %54, 0
-  %56 = trunc i64 %51 to i32
-  %57 = shl nuw nsw i32 1, %56
-  %58 = select i1 %55, i32 0, i32 %57
-  %59 = or i32 %58, %52
-  %60 = add nuw nsw i64 %51, 1
-  %61 = icmp eq i64 %60, 11
-  br i1 %61, label %62, label %.preheader, !llvm.loop !37
+.preheader:                                       ; preds = %40, %.preheader
+  %54 = phi i64 [ %65, %.preheader ], [ 7, %40 ]
+  %55 = phi i32 [ %64, %.preheader ], [ %51, %40 ]
+  %.idx3 = shl i64 %54, 6
+  %56 = getelementptr i8, ptr %39, i64 %.idx3
+  %57 = getelementptr i8, ptr %56, i64 24
+  %58 = load i64, ptr %57, align 8
+  %59 = and i64 %58, %1
+  %60 = icmp eq i64 %59, 0
+  %61 = trunc i64 %54 to i32
+  %62 = shl nuw nsw i32 1, %61
+  %63 = select i1 %60, i32 0, i32 %62
+  %64 = or i32 %63, %55
+  %65 = add nuw nsw i64 %54, 1
+  %66 = icmp eq i64 %65, 11
+  br i1 %66, label %67, label %.preheader, !llvm.loop !37
 
-62:                                               ; preds = %.preheader
-  %63 = call fastcc i32 @do_pci_enable_device(ptr noundef %0, i32 noundef %59), !range !17
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %65, label %66
+67:                                               ; preds = %.preheader
+  %68 = call fastcc i32 @do_pci_enable_device(ptr noundef %0, i32 noundef %64), !range !17
+  %69 = icmp slt i32 %68, 0
+  br i1 %69, label %70, label %71
 
-65:                                               ; preds = %62
+70:                                               ; preds = %67
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, ptr nonnull elementtype(i32) %24) #27, !srcloc !38
-  br label %66
+  br label %71
 
-66:                                               ; preds = %65, %62, %23
-  %67 = phi i32 [ 0, %23 ], [ %63, %65 ], [ 0, %62 ]
-  ret i32 %67
+71:                                               ; preds = %70, %67, %23
+  %72 = phi i32 [ 0, %23 ], [ %68, %70 ], [ 0, %67 ]
+  ret i32 %72
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3752,13 +3754,13 @@ define dso_local void @pcim_pin_device(ptr noundef %0) #5 align 16 {
   %3 = load i40, ptr %2, align 1
   %4 = and i40 %3, 262144
   %5 = icmp eq i40 %4, 0
-  br i1 %5, label %.thread, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = tail call ptr @devres_find(ptr noundef nonnull %7, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %6
   %11 = load i8, ptr %8, align 4
@@ -3766,26 +3768,26 @@ define dso_local void @pcim_pin_device(ptr noundef %0) #5 align 16 {
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %.thread, label %.thread1, !prof !40
 
-.thread:                                          ; preds = %1, %6, %10
-  %14 = phi i1 [ false, %10 ], [ true, %6 ], [ true, %1 ]
-  %15 = phi ptr [ %8, %10 ], [ null, %6 ], [ null, %1 ]
+.thread:                                          ; preds = %10
   tail call void asm sideeffect "405: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 405b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 405) #27, !srcloc !41
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 2281, i32 2305, i64 12) #27, !srcloc !42
   tail call void asm sideeffect "406: nop\0A\09.pushsection .discard.instr_end\0A\09.long 406b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 406) #27, !srcloc !43
-  br i1 %14, label %19, label %.thread..thread1_crit_edge
-
-.thread..thread1_crit_edge:                       ; preds = %.thread
-  %.pre = load i8, ptr %15, align 4
+  %.pre = load i8, ptr %8, align 4
   br label %.thread1
 
-.thread1:                                         ; preds = %.thread..thread1_crit_edge, %10
-  %16 = phi i8 [ %.pre, %.thread..thread1_crit_edge ], [ %11, %10 ]
-  %17 = phi ptr [ %15, %.thread..thread1_crit_edge ], [ %8, %10 ]
-  %18 = or i8 %16, 2
-  store i8 %18, ptr %17, align 4
-  br label %19
+.thread1:                                         ; preds = %.thread, %10
+  %14 = phi i8 [ %.pre, %.thread ], [ %11, %10 ]
+  %15 = or i8 %14, 2
+  store i8 %15, ptr %8, align 4
+  br label %16
 
-19:                                               ; preds = %.thread1, %.thread
+.critedge:                                        ; preds = %1, %6
+  tail call void asm sideeffect "405: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 405b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 405) #27, !srcloc !41
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 2281, i32 2305, i64 12) #27, !srcloc !42
+  tail call void asm sideeffect "406: nop\0A\09.pushsection .discard.instr_end\0A\09.long 406b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 406) #27, !srcloc !43
+  br label %16
+
+16:                                               ; preds = %.critedge, %.thread1
   ret void
 }
 
@@ -5677,26 +5679,26 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   br label %146
 
 74:                                               ; preds = %70
-  switch i8 %50, label %77 [
+  switch i8 %50, label %.critedge [
     i8 0, label %76
     i8 4, label %76
-    i8 1, label %78
-    i8 3, label %78
+    i8 1, label %77
+    i8 3, label %77
     i8 2, label %75
   ]
 
 75:                                               ; preds = %74
-  br label %78
+  br label %77
 
 76:                                               ; preds = %74, %74
-  br label %78
+  br label %77
 
-77:                                               ; preds = %74
+.critedge:                                        ; preds = %74
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %29, ptr noundef nonnull @.str.76, i32 noundef %51) #28
   br label %146
 
-78:                                               ; preds = %74, %74, %75, %76
-  %.ph = phi i64 [ 560, %76 ], [ 304, %75 ], [ 8752, %74 ], [ 8752, %74 ]
+77:                                               ; preds = %74, %74, %75, %76
+  %78 = phi i64 [ 304, %75 ], [ 560, %76 ], [ 8752, %74 ], [ 8752, %74 ]
   %79 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %35, ptr noundef nonnull %3) #27
   %80 = load i32, ptr %3, align 4
   %81 = and i32 %80, -4
@@ -5709,12 +5711,12 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %97, label %89
 
-89:                                               ; preds = %78
+89:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #27
   store i32 0, ptr %5, align 4, !annotation !8
   %90 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %85, ptr noundef nonnull %5) #27
   %91 = add i32 %33, 16
-  %92 = or disjoint i64 %.ph, 1048576
+  %92 = or disjoint i64 %78, 1048576
   %93 = load i32, ptr %5, align 4
   %94 = zext i32 %93 to i64
   %95 = shl nuw i64 %94, 32
@@ -5722,10 +5724,10 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #27
   br label %97
 
-97:                                               ; preds = %89, %78
-  %98 = phi i32 [ %91, %89 ], [ %85, %78 ]
-  %99 = phi i64 [ %96, %89 ], [ %82, %78 ]
-  %100 = phi i64 [ %92, %89 ], [ %.ph, %78 ]
+97:                                               ; preds = %89, %77
+  %98 = phi i32 [ %91, %89 ], [ %85, %77 ]
+  %99 = phi i64 [ %96, %89 ], [ %82, %77 ]
+  %100 = phi i64 [ %92, %89 ], [ %78, %77 ]
   %101 = load i32, ptr %4, align 4
   %102 = or i32 %101, 3
   %103 = zext i32 %102 to i64
@@ -5814,7 +5816,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %29, ptr noundef nonnull @.str.80, i32 noundef %43, ptr noundef nonnull %62, i32 noundef %51) #28
   br label %146
 
-146:                                              ; preds = %145, %144, %139, %136, %124, %120, %77, %73, %41, %31
+146:                                              ; preds = %145, %144, %139, %136, %124, %120, %.critedge, %73, %41, %31
   %147 = add i32 %39, %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27

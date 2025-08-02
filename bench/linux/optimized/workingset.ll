@@ -52,7 +52,7 @@ define dso_local void @workingset_age_nonresident(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @workingset_eviction(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 16 {
+define dso_local nonnull ptr @workingset_eviction(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load i64, ptr %0, align 16
   %4 = lshr i64 %3, 58
   %5 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %4

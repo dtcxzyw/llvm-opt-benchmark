@@ -447,7 +447,7 @@ define hidden ptr @ckAttributeValueToJObject(ptr noundef %0, ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jVersionToCKVersionPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @jVersionToCKVersionPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %36, label %4
 
@@ -509,7 +509,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @p11ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %124, label %4
 
@@ -1151,7 +1151,7 @@ define hidden noundef ptr @jTlsPrfParamsToCKTlsPrfParamPtr(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jTlsMacParamsToCKTlsMacParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @jTlsMacParamsToCKTlsMacParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -1579,7 +1579,7 @@ define hidden noundef ptr @jTls12KeyMatParamToCKTls12KeyMatParamPtr(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jAesCtrParamsToCKAesCtrParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @jAesCtrParamsToCKAesCtrParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   store ptr null, ptr %4, align 8
@@ -2900,7 +2900,7 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jRsaPkcsPssParamToCKRsaPkcsPssParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @jRsaPkcsPssParamToCKRsaPkcsPssParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 

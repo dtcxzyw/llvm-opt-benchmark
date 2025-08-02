@@ -602,32 +602,32 @@ convert_commit_object.exit:                       ; preds = %174, %177, %.crited
 
 206:                                              ; preds = %272, %.lr.ph.i32
   %207 = phi i64 [ %.pre.i, %.lr.ph.i32 ], [ %276, %272 ]
-  %.01948.i = phi ptr [ %3, %.lr.ph.i32 ], [ %277, %272 ]
+  %.01943.i = phi ptr [ %3, %.lr.ph.i32 ], [ %277, %272 ]
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %9) #10
-  %208 = ptrtoint ptr %.01948.i to i64
+  %208 = ptrtoint ptr %.01943.i to i64
   %209 = sub i64 %201, %208
   %210 = add i64 %207, 3
   %211 = and i64 %210, 4294967295
   %212 = icmp ult i64 %209, %211
-  br i1 %212, label %.loopexit44.i, label %213
+  br i1 %212, label %.loopexit39.i, label %213
 
 213:                                              ; preds = %206
   %214 = add i64 %207, 1
   %215 = and i64 %214, 4294967295
   %216 = sub i64 %209, %215
-  %217 = getelementptr inbounds nuw i8, ptr %.01948.i, i64 %216
+  %217 = getelementptr inbounds nuw i8, ptr %.01943.i, i64 %216
   %218 = load i8, ptr %217, align 1, !tbaa !33
   %.not.i.i33 = icmp eq i8 %218, 0
-  br i1 %.not.i.i33, label %219, label %.loopexit44.i
+  br i1 %.not.i.i33, label %219, label %.loopexit39.i
 
 219:                                              ; preds = %213
-  %220 = load i8, ptr %.01948.i, align 1, !tbaa !33
+  %220 = load i8, ptr %.01943.i, align 1, !tbaa !33
   %221 = icmp eq i8 %220, 32
-  br i1 %221, label %.loopexit44.i, label %.preheader.i.i.i
+  br i1 %221, label %.loopexit39.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %219
-  %222 = getelementptr inbounds nuw i8, ptr %.01948.i, i64 1
+  %222 = getelementptr inbounds nuw i8, ptr %.01943.i, i64 1
   br label %223
 
 223:                                              ; preds = %227, %.preheader.i.i.i
@@ -635,7 +635,7 @@ convert_commit_object.exit:                       ; preds = %174, %177, %.crited
   %225 = phi i8 [ %220, %.preheader.i.i.i ], [ %.pr.i.i.i, %227 ]
   %226 = add i8 %225, -56
   %or.cond.i.i.i = icmp ult i8 %226, -8
-  br i1 %or.cond.i.i.i, label %.loopexit44.i, label %227
+  br i1 %or.cond.i.i.i, label %.loopexit39.i, label %227
 
 227:                                              ; preds = %223
   %.pr.i.i.i = load i8, ptr %224, align 1, !tbaa !33
@@ -646,7 +646,7 @@ convert_commit_object.exit:                       ; preds = %174, %177, %.crited
 229:                                              ; preds = %227
   %230 = load i8, ptr %228, align 1, !tbaa !33
   %.not19.i.i = icmp eq i8 %230, 0
-  br i1 %.not19.i.i, label %.loopexit44.i, label %231
+  br i1 %.not19.i.i, label %.loopexit39.i, label %231
 
 231:                                              ; preds = %229
   %232 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %228) #12
@@ -681,19 +681,19 @@ convert_commit_object.exit:                       ; preds = %174, %177, %.crited
   %243 = load ptr, ptr @the_repository, align 8, !tbaa !35
   br label %253
 
-.loopexit44.i:                                    ; preds = %229, %219, %213, %206, %223
+.loopexit39.i:                                    ; preds = %229, %219, %213, %206, %223
   %244 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !34
   %.not4.i.i34 = icmp eq i32 %244, 0
   br i1 %.not4.i.i34, label %_.exit.i35, label %245
 
-245:                                              ; preds = %.loopexit44.i
+245:                                              ; preds = %.loopexit39.i
   %246 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #10
   br label %_.exit.i35
 
-_.exit.i35:                                       ; preds = %245, %.loopexit44.i
-  %.0.i23.i = phi ptr [ %246, %245 ], [ @.str.21, %.loopexit44.i ]
+_.exit.i35:                                       ; preds = %245, %.loopexit39.i
+  %.0.i23.i = phi ptr [ %246, %245 ], [ @.str.21, %.loopexit39.i ]
   %247 = call i32 (ptr, ...) @error(ptr noundef %.0.i23.i) #10
-  br label %.thread.i36
+  br label %.critedge.i36
 
 .loopexit.i:                                      ; preds = %239
   %248 = trunc nuw nsw i64 %.0811.i.i.i.i to i32
@@ -716,14 +716,14 @@ _.exit.i35:                                       ; preds = %245, %.loopexit44.i
 
 257:                                              ; preds = %253, %250
   %258 = phi ptr [ %249, %250 ], [ %254, %253 ]
-  %.2.i.i.i53.i = phi i32 [ %248, %250 ], [ 0, %253 ]
+  %.2.i.i.i48.i = phi i32 [ %248, %250 ], [ 0, %253 ]
   %259 = phi ptr [ %252, %250 ], [ %256, %253 ]
   %260 = icmp eq ptr %259, %2
   br i1 %260, label %261, label %262
 
 261:                                              ; preds = %257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef nonnull readonly align 4 dereferenceable(32) %8, i64 32, i1 false)
-  store i32 %.2.i.i.i53.i, ptr %204, align 4, !tbaa !4
+  store i32 %.2.i.i.i48.i, ptr %204, align 4, !tbaa !4
   br label %272
 
 262:                                              ; preds = %257
@@ -750,17 +750,12 @@ _.exit28.i:                                       ; preds = %268, %repo_oid_to_a
   %.0.i27.i = phi ptr [ %269, %268 ], [ @.str.22, %repo_oid_to_algop.exit.i39 ]
   %270 = call ptr @oid_to_hex(ptr noundef nonnull %8) #10
   %271 = call i32 (ptr, ...) @error(ptr noundef %.0.i27.i, ptr noundef %270) #10
-  br label %.thread.i36
-
-.thread.i36:                                      ; preds = %_.exit28.i, %_.exit.i35
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #10
-  br label %convert_tree_object.exit.thread44
+  br label %.critedge.i36
 
 272:                                              ; preds = %264, %262, %261
   %273 = ptrtoint ptr %228 to i64
   %274 = sub i64 %273, %208
-  call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.01948.i, i64 noundef %274) #10
+  call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.01943.i, i64 noundef %274) #10
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %228, i64 noundef %233) #10
   %275 = load i64, ptr %205, align 8, !tbaa !44
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %9, i64 noundef %275) #10
@@ -771,6 +766,11 @@ _.exit28.i:                                       ; preds = %268, %repo_oid_to_a
   %278 = icmp ult ptr %277, %200
   br i1 %278, label %206, label %convert_tree_object.exit.thread, !llvm.loop !47
 
+.critedge.i36:                                    ; preds = %_.exit28.i, %_.exit.i35
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #10
+  br label %convert_tree_object.exit.thread44
+
 279:                                              ; preds = %18
   %280 = tail call fastcc i32 @convert_tag_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
   br label %convert_tree_object.exit
@@ -780,7 +780,7 @@ convert_tree_object.exit:                         ; preds = %279, %convert_commi
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %convert_tree_object.exit.thread, label %convert_tree_object.exit.thread44
 
-convert_tree_object.exit.thread44:                ; preds = %.thread.i36, %18, %convert_tree_object.exit
+convert_tree_object.exit.thread44:                ; preds = %.critedge.i36, %18, %convert_tree_object.exit
   %.not30 = icmp eq i32 %6, 0
   br i1 %.not30, label %282, label %281
 

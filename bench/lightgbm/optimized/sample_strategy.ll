@@ -3388,7 +3388,7 @@ _ZNSt14_Function_baseD2Ev.exit30:                 ; preds = %119, %122
 127:                                              ; preds = %.lr.ph, %127
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph ], [ %130, %127 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %127 ]
-  %128 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv
+  %128 = getelementptr i32, ptr %104, i64 %indvars.iv
   %129 = load i32, ptr %128, align 4, !tbaa !145
   %130 = add nsw i32 %129, %store_forwarded
   store i32 %130, ptr %128, align 4, !tbaa !145

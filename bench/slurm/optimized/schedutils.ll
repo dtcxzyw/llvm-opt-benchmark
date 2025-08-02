@@ -24,23 +24,23 @@ define dso_local i32 @str_to_cnt(ptr noundef readonly captures(address) %0) loca
 
 8:                                                ; preds = %7, %1
   %.027 = phi ptr [ %0, %1 ], [ %spec.select, %7 ]
-  %.02539 = getelementptr inbounds i8, ptr %5, i64 -1
-  %.not2940 = icmp ult ptr %.02539, %.027
-  br i1 %.not2940, label %.thread, label %.lr.ph
+  %.02537 = getelementptr inbounds i8, ptr %5, i64 -1
+  %.not2938 = icmp ult ptr %.02537, %.027
+  br i1 %.not2938, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %12
-  %.02542 = phi ptr [ %.025, %12 ], [ %.02539, %8 ]
-  %.02241 = phi i32 [ %.5, %12 ], [ 0, %8 ]
-  %9 = load i8, ptr %.02542, align 1
+  %.02540 = phi ptr [ %.025, %12 ], [ %.02537, %8 ]
+  %.02239 = phi i32 [ %.5, %12 ], [ 0, %8 ]
+  %9 = load i8, ptr %.02540, align 1
   %10 = sext i8 %9 to i32
   %11 = tail call i32 @slurm_char_to_hex(i32 noundef %10) #5
   %sext30.mask = and i32 %11, 255
   %.not35 = icmp eq i32 %sext30.mask, 255
-  br i1 %.not35, label %.thread, label %12
+  br i1 %.not35, label %.critedge, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = and i32 %11, 1
-  %spec.select36 = add nsw i32 %13, %.02241
+  %spec.select36 = add nsw i32 %13, %.02239
   %14 = lshr i32 %11, 1
   %15 = and i32 %14, 1
   %.3 = add nsw i32 %spec.select36, %15
@@ -50,11 +50,11 @@ define dso_local i32 @str_to_cnt(ptr noundef readonly captures(address) %0) loca
   %18 = lshr i32 %11, 3
   %19 = and i32 %18, 1
   %.5 = add nsw i32 %.4, %19
-  %.025 = getelementptr inbounds i8, ptr %.02542, i64 -1
+  %.025 = getelementptr inbounds i8, ptr %.02540, i64 -1
   %.not29 = icmp ult ptr %.025, %.027
-  br i1 %.not29, label %.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %.not29, label %.critedge, label %.lr.ph, !llvm.loop !8
 
-.thread:                                          ; preds = %12, %.lr.ph, %8
+.critedge:                                        ; preds = %12, %.lr.ph, %8
   %.2 = phi i32 [ 0, %8 ], [ -1, %.lr.ph ], [ %.5, %12 ]
   ret i32 %.2
 }

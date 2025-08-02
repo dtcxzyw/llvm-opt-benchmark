@@ -209,7 +209,7 @@ define hidden void @Wayland_primary_selection_source_set_callback(ptr noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Wayland_data_source_get_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define hidden noalias ptr @Wayland_data_source_get_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   store i64 0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
@@ -255,7 +255,7 @@ Wayland_clone_data_buffer.exit:                   ; preds = %19, %16, %9, %6, %4
 declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Wayland_primary_selection_source_get_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define hidden noalias ptr @Wayland_primary_selection_source_get_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   store i64 0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
@@ -407,54 +407,54 @@ define hidden void @Wayland_data_offer_notify_from_mimes(ptr noundef %0, i1 noun
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pn55 = load ptr, ptr %6, align 8
-  %.not4657 = icmp eq ptr %.pn55, %5
-  br i1 %.not4657, label %._crit_edge, label %.lr.ph
+  %.pn53 = load ptr, ptr %6, align 8
+  %.not4655 = icmp eq ptr %.pn53, %5
+  br i1 %.not4655, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %.03456 = getelementptr inbounds i8, ptr %.pn55, i64 -24
+  %.03454 = getelementptr inbounds i8, ptr %.pn53, i64 -24
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %10
-  %.03461.us = phi ptr [ %.034.us, %10 ], [ %.03456, %.lr.ph ]
-  %.pn60.us = phi ptr [ %.pn.us, %10 ], [ %.pn55, %.lr.ph ]
-  %.03559.us = phi i64 [ %15, %10 ], [ 0, %.lr.ph ]
-  %.13958.us = phi i32 [ %11, %10 ], [ 0, %.lr.ph ]
-  %7 = load ptr, ptr %.03461.us, align 8
+  %.03459.us = phi ptr [ %.034.us, %10 ], [ %.03454, %.lr.ph ]
+  %.pn58.us = phi ptr [ %.pn.us, %10 ], [ %.pn53, %.lr.ph ]
+  %.03557.us = phi i64 [ %15, %10 ], [ 0, %.lr.ph ]
+  %.13956.us = phi i32 [ %11, %10 ], [ 0, %.lr.ph ]
+  %7 = load ptr, ptr %.03459.us, align 8
   %8 = tail call i32 @SDL_strcmp_REAL(ptr noundef %7, ptr noundef nonnull @.str) #12
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.split.us, label %10
 
 10:                                               ; preds = %.lr.ph.split.us
-  %11 = add nuw nsw i32 %.13958.us, 1
-  %12 = load ptr, ptr %.03461.us, align 8
+  %11 = add nuw nsw i32 %.13956.us, 1
+  %12 = load ptr, ptr %.03459.us, align 8
   %13 = tail call i64 @SDL_strlen_REAL(ptr noundef %12) #12
-  %14 = add i64 %.03559.us, 1
+  %14 = add i64 %.03557.us, 1
   %15 = add i64 %14, %13
-  %16 = getelementptr inbounds nuw i8, ptr %.pn60.us, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.pn58.us, i64 8
   %.pn.us = load ptr, ptr %16, align 8
   %.034.us = getelementptr inbounds i8, ptr %.pn.us, i64 -24
   %.not46.us = icmp eq ptr %.pn.us, %5
   br i1 %.not46.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.03461 = phi ptr [ %.034, %.lr.ph.split ], [ %.03456, %.lr.ph ]
-  %.pn60 = phi ptr [ %.pn, %.lr.ph.split ], [ %.pn55, %.lr.ph ]
-  %.03559 = phi i64 [ %21, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.13958 = phi i32 [ %17, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %17 = add nuw nsw i32 %.13958, 1
-  %18 = load ptr, ptr %.03461, align 8
+  %.03459 = phi ptr [ %.034, %.lr.ph.split ], [ %.03454, %.lr.ph ]
+  %.pn58 = phi ptr [ %.pn, %.lr.ph.split ], [ %.pn53, %.lr.ph ]
+  %.03557 = phi i64 [ %21, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.13956 = phi i32 [ %17, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %17 = add nuw nsw i32 %.13956, 1
+  %18 = load ptr, ptr %.03459, align 8
   %19 = tail call i64 @SDL_strlen_REAL(ptr noundef %18) #12
-  %20 = add i64 %.03559, 1
+  %20 = add i64 %.03557, 1
   %21 = add i64 %20, %19
-  %22 = getelementptr inbounds nuw i8, ptr %.pn60, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.pn58, i64 8
   %.pn = load ptr, ptr %22, align 8
   %.034 = getelementptr inbounds i8, ptr %.pn, i64 -24
   %.not46 = icmp eq ptr %.pn, %5
   br i1 %.not46, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
 
 .split.us:                                        ; preds = %.lr.ph.split.us
-  %23 = load ptr, ptr %.03461.us, align 8
+  %23 = load ptr, ptr %.03459.us, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
@@ -531,7 +531,7 @@ define hidden void @Wayland_data_offer_notify_from_mimes(ptr noundef %0, i1 noun
 
 Wayland_data_offer_check_source.exit:             ; preds = %26, %31, %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  br label %.thread
+  br label %.critedge
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %10, %4
   %.139.lcssa = phi i32 [ 0, %4 ], [ %11, %10 ], [ %17, %.lr.ph.split ]
@@ -546,46 +546,46 @@ Wayland_data_offer_check_source.exit:             ; preds = %26, %31, %44
 
 79:                                               ; preds = %._crit_edge
   tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 7, ptr noundef nonnull @.str.3) #12
-  br label %.thread
+  br label %.critedge
 
 80:                                               ; preds = %._crit_edge
   %81 = zext nneg i32 %.139.lcssa to i64
   %82 = getelementptr inbounds nuw ptr, ptr %78, i64 %81
-  %.pn4865 = load ptr, ptr %6, align 8
-  %.not4966 = icmp eq ptr %.pn4865, %5
-  br i1 %.not4966, label %._crit_edge72, label %.lr.ph71.preheader
+  %.pn4863 = load ptr, ptr %6, align 8
+  %.not4964 = icmp eq ptr %.pn4863, %5
+  br i1 %.not4964, label %._crit_edge70, label %.lr.ph69.preheader
 
-.lr.ph71.preheader:                               ; preds = %80
+.lr.ph69.preheader:                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  br label %.lr.ph71
+  br label %.lr.ph69
 
-.lr.ph71:                                         ; preds = %.lr.ph71.preheader, %.lr.ph71
-  %indvars.iv = phi i64 [ 0, %.lr.ph71.preheader ], [ %indvars.iv.next, %.lr.ph71 ]
-  %.pn4869 = phi ptr [ %.pn4865, %.lr.ph71.preheader ], [ %.pn48, %.lr.ph71 ]
-  %.03267 = phi ptr [ %83, %.lr.ph71.preheader ], [ %87, %.lr.ph71 ]
-  %.1 = getelementptr inbounds i8, ptr %.pn4869, i64 -24
+.lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
+  %indvars.iv = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next, %.lr.ph69 ]
+  %.pn4867 = phi ptr [ %.pn4863, %.lr.ph69.preheader ], [ %.pn48, %.lr.ph69 ]
+  %.03265 = phi ptr [ %83, %.lr.ph69.preheader ], [ %87, %.lr.ph69 ]
+  %.1 = getelementptr inbounds i8, ptr %.pn4867, i64 -24
   %84 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
-  store ptr %.03267, ptr %84, align 8
+  store ptr %.03265, ptr %84, align 8
   %85 = load ptr, ptr %.1, align 8
-  %86 = tail call ptr @stpcpy(ptr noundef nonnull %.03267, ptr noundef %85) #12
+  %86 = tail call ptr @stpcpy(ptr noundef nonnull %.03265, ptr noundef %85) #12
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = getelementptr inbounds nuw i8, ptr %.pn4869, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.pn4867, i64 8
   %.pn48 = load ptr, ptr %88, align 8
   %.not49 = icmp eq ptr %.pn48, %5
-  br i1 %.not49, label %._crit_edge72, label %.lr.ph71, !llvm.loop !8
+  br i1 %.not49, label %._crit_edge70, label %.lr.ph69, !llvm.loop !8
 
-._crit_edge72:                                    ; preds = %.lr.ph71, %80
+._crit_edge70:                                    ; preds = %.lr.ph69, %80
   store ptr null, ptr %82, align 8
   br label %89
 
-89:                                               ; preds = %._crit_edge72, %2
-  %.038 = phi i64 [ %81, %._crit_edge72 ], [ 0, %2 ]
-  %.036 = phi ptr [ %78, %._crit_edge72 ], [ null, %2 ]
+89:                                               ; preds = %._crit_edge70, %2
+  %.038 = phi i64 [ %81, %._crit_edge70 ], [ 0, %2 ]
+  %.036 = phi ptr [ %78, %._crit_edge70 ], [ null, %2 ]
   tail call void @SDL_SendClipboardUpdate(i1 noundef zeroext false, ptr noundef %.036, i64 noundef %.038) #12
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %79, %Wayland_data_offer_check_source.exit, %89
+.critedge:                                        ; preds = %Wayland_data_offer_check_source.exit, %79, %89
   ret void
 }
 

@@ -892,7 +892,7 @@ define dso_local noundef i64 @_ZNK4llvm14MCRegisterInfo31getDwarfRegNumFromDwarf
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %.in.i, align 8, !tbaa !67
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit.thread, label %4
+  br i1 %.not.i, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %.in14.i = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -921,30 +921,30 @@ _ZSt7advanceIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairElEvRT_T0_.exit.i.i.i: ; 
 _ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit.i: ; preds = %_ZSt7advanceIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairElEvRT_T0_.exit.i.i.i, %4
   %.0.lcssa.i.i.i = phi ptr [ %3, %4 ], [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairElEvRT_T0_.exit.i.i.i ]
   %.not15.i = icmp eq ptr %.0.lcssa.i.i.i, %8
-  br i1 %.not15.i, label %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit.thread, label %17
+  br i1 %.not15.i, label %.critedge, label %17
 
 17:                                               ; preds = %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit.i
   %18 = load i32, ptr %.0.lcssa.i.i.i, align 4, !tbaa !69
   %19 = zext i32 %18 to i64
   %20 = icmp eq i64 %1, %19
-  br i1 %20, label %21, label %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit.thread
+  br i1 %20, label %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit, label %.critedge
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !72
-  %24 = load ptr, ptr %0, align 8, !tbaa !73
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 %23, i1 noundef zeroext false) #16
-  %28 = and i64 %27, 4294967295
-  %29 = icmp eq i64 %28, 4294967295
-  %sext = shl i64 %27, 32
-  %30 = ashr exact i64 %sext, 32
-  %.07 = select i1 %29, i64 %1, i64 %30
-  br label %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit.thread
+_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit: ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 4
+  %22 = load i32, ptr %21, align 4, !tbaa !72
+  %23 = load ptr, ptr %0, align 8, !tbaa !73
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 %22, i1 noundef zeroext false) #16
+  %27 = and i64 %26, 4294967295
+  %28 = icmp eq i64 %27, 4294967295
+  %sext = shl i64 %26, 32
+  %29 = ashr exact i64 %sext, 32
+  %.07 = select i1 %28, i64 %1, i64 %29
+  br label %.critedge
 
-_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit.thread: ; preds = %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit.i, %17, %2, %21
-  %spec.select = phi i64 [ %.07, %21 ], [ %1, %2 ], [ %1, %17 ], [ %1, %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit.i ]
+.critedge:                                        ; preds = %2, %17, %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit.i, %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit
+  %spec.select = phi i64 [ %.07, %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit ], [ %1, %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit.i ], [ %1, %17 ], [ %1, %2 ]
   ret i64 %spec.select
 }
 

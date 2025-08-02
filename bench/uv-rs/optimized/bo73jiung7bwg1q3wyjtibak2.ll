@@ -1507,7 +1507,7 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   %102 = insertvalue { ptr, i64 } %101, i64 %.sroa.3.0.i152, 1
   br label %105
 
-103:                                              ; preds = %147, %.loopexit, %90
+103:                                              ; preds = %147, %.critedge, %90
   %104 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he37a5e5a121d0c88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #24
@@ -1522,15 +1522,15 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
 107:                                              ; preds = %105
   %.sroa.755.0 = extractvalue { ptr, i64 } %.pn124, 1
   switch i64 %.sroa.755.0, label %110 [
-    i64 0, label %.loopexit
+    i64 0, label %.critedge
     i64 1, label %108
   ]
 
 108:                                              ; preds = %107
   %109 = load i8, ptr %.sroa.053.0, align 1, !alias.scope !283, !noundef !3
   switch i8 %109, label %.lr.ph.i.i.i.i.preheader [
-    i8 43, label %.loopexit
-    i8 45, label %.loopexit
+    i8 43, label %.critedge
+    i8 45, label %.critedge
   ]
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %115, %111, %108
@@ -1558,8 +1558,8 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   %.sroa.015.0.i.i.i.i = phi i16 [ %132, %128 ], [ 0, %.preheader53.i.i.i.i.preheader ]
   %.sroa.148.0.i.i.i.i = phi i64 [ %119, %128 ], [ %.sroa.148.0.i.i.i.i.ph, %.preheader53.i.i.i.i.preheader ]
   %.sroa.02.0.i.i.i.i = phi ptr [ %118, %128 ], [ %.sroa.02.0.i.i.i.i.ph, %.preheader53.i.i.i.i.preheader ]
-  %.not.i.i.i.i.not = icmp eq i64 %.sroa.148.0.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.not, label %.loopexit.i.i.i.i, label %117
+  %.not.i.i.i.i = icmp eq i64 %.sroa.148.0.i.i.i.i, 0
+  br i1 %.not.i.i.i.i, label %.loopexit.i.i.i.i, label %117
 
 115:                                              ; preds = %110
   %116 = icmp ult i64 %.sroa.755.0, 5
@@ -1574,18 +1574,18 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   %123 = zext i8 %122 to i32
   %124 = add nsw i32 %123, -48
   %125 = icmp ult i32 %124, 10
-  br i1 %125, label %126, label %.loopexit
+  br i1 %125, label %126, label %.critedge
 
 126:                                              ; preds = %117
   %127 = extractvalue { i16, i1 } %120, 1
-  br i1 %127, label %.loopexit, label %128
+  br i1 %127, label %.critedge, label %128
 
 128:                                              ; preds = %126
   %129 = trunc nuw nsw i32 %124 to i16
   %130 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %121, i16 %129)
   %131 = extractvalue { i16, i1 } %130, 1
   %132 = add nuw i16 %121, %129
-  br i1 %131, label %.loopexit, label %.preheader53.i.i.i.i
+  br i1 %131, label %.critedge, label %.preheader53.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %137
   %.sroa.02.161.i.i.i.i = phi ptr [ %140, %137 ], [ %.sroa.02.161.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
@@ -1594,8 +1594,8 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   %133 = load i8, ptr %.sroa.02.161.i.i.i.i, align 1, !alias.scope !283, !noundef !3
   %134 = zext i8 %133 to i32
   %135 = add nsw i32 %134, -48
-  %136 = icmp ugt i32 %135, 9
-  br i1 %136, label %.loopexit, label %137
+  %136 = icmp ult i32 %135, 10
+  br i1 %136, label %137, label %.critedge
 
 137:                                              ; preds = %.lr.ph.i.i.i.i
   %138 = mul i16 %.sroa.015.259.i.i.i.i, 10
@@ -1624,12 +1624,12 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %149
 
-.loopexit:                                        ; preds = %117, %126, %128, %.lr.ph.i.i.i.i, %107, %108, %108
+.critedge:                                        ; preds = %117, %126, %128, %.lr.ph.i.i.i.i, %108, %108, %107
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !292
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17he68bd1692bcae451E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %.sroa.8.0, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
           to label %.noexc160 unwind label %103
 
-.noexc160:                                        ; preds = %.loopexit
+.noexc160:                                        ; preds = %.critedge
   %143 = load i64, ptr %5, align 8, !range !5, !noalias !292, !noundef !3
   %trunc.i.i157 = trunc nuw i64 %143 to i1
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 8

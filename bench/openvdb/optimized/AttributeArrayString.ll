@@ -8373,7 +8373,7 @@ if.end:                                           ; preds = %if.then10
 
 invoke.cont23:                                    ; preds = %if.end
   %size.i.idx.i = mul nuw nsw i64 %idxprom.i.i, 24
-  %size.i.i21 = getelementptr i8, ptr %2, i64 %size.i.idx.i
+  %size.i.i21 = getelementptr inbounds nuw i8, ptr %2, i64 %size.i.idx.i
   %23 = load i64, ptr %size.i.i21, align 8
   %cmp.i.i22 = icmp ugt i64 %23, 499
   br i1 %cmp.i.i22, label %do.cond, label %invoke.cont28
@@ -8690,7 +8690,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %_Z
 
 _ZN3tbb6detail2d112range_vectorINS1_16quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEESt4lessIjEEELh8EE12is_divisibleEh.exit: ; preds = %land.rhs
   %size.i.idx.i = mul nuw nsw i64 %idxprom.i.i, 24
-  %size.i.i = getelementptr i8, ptr %1, i64 %size.i.idx.i
+  %size.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %size.i.idx.i
   %4 = load i64, ptr %size.i.i, align 8
   %cmp.i.i = icmp ugt i64 %4, 499
   br i1 %cmp.i.i, label %while.body, label %while.end

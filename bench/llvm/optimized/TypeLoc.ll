@@ -3071,7 +3071,7 @@ define dso_local void @_ZN5clang11AutoTypeLoc15initializeLocalERNS_10ASTContextE
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 16, !tbaa !88
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %63, label %15
+  br i1 %.not, label %62, label %15
 
 15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -3132,7 +3132,7 @@ define dso_local void @_ZN5clang11AutoTypeLoc15initializeLocalERNS_10ASTContextE
   br label %_ZL29createTrivialConceptReferenceRN5clang10ASTContextENS_14SourceLocationEPKNS_8AutoTypeE.exit
 
 38:                                               ; preds = %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit.i, %.lr.ph.i
-  %39 = phi i32 [ 0, %.lr.ph.i ], [ %60, %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit.i ]
+  %39 = phi i32 [ 0, %.lr.ph.i ], [ %59, %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #16
   %40 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %18, i64 %indvars.iv.i
@@ -3152,31 +3152,31 @@ define dso_local void @_ZN5clang11AutoTypeLoc15initializeLocalERNS_10ASTContextE
   %47 = icmp uge ptr %6, %.pre3.i.i.i
   %48 = icmp ult ptr %6, %46
   %spec.select.i.i.i.i.i.i.i = and i1 %47, %48
-  br i1 %spec.select.i.i.i.i.i.i.i, label %50, label %49, !prof !100
+  br i1 %spec.select.i.i.i.i.i.i.i, label %49, label %.critedge.i.i.i.i.i, !prof !100
 
 49:                                               ; preds = %45
+  %50 = ptrtoint ptr %.pre3.i.i.i to i64
+  %51 = sub i64 %31, %50
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull %25, i64 noundef %43, i64 noundef 32) #16
+  %52 = load ptr, ptr %5, align 8, !tbaa !93
+  %53 = getelementptr inbounds i8, ptr %52, i64 %51
+  br label %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit.i
+
+.critedge.i.i.i.i.i:                              ; preds = %45
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull %25, i64 noundef %43, i64 noundef 32) #16
   %.pre.i.i.i = load ptr, ptr %5, align 8, !tbaa !93
   br label %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit.i
 
-50:                                               ; preds = %45
-  %51 = ptrtoint ptr %.pre3.i.i.i to i64
-  %52 = sub i64 %31, %51
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull %25, i64 noundef %43, i64 noundef 32) #16
-  %53 = load ptr, ptr %5, align 8, !tbaa !93
-  %54 = getelementptr inbounds i8, ptr %53, i64 %52
-  br label %_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit.i
-
-_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit.i: ; preds = %50, %49, %38
-  %55 = phi ptr [ %.pre3.i.i.i, %38 ], [ %53, %50 ], [ %.pre.i.i.i, %49 ]
-  %.016.i.i.i.i.i = phi ptr [ %6, %38 ], [ %54, %50 ], [ %6, %49 ]
-  %56 = load i32, ptr %26, align 8, !tbaa !95
-  %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %55, i64 %57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i.i, i64 32, i1 false)
-  %59 = load i32, ptr %26, align 8, !tbaa !95
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %26, align 8, !tbaa !95
+_ZN5clang24TemplateArgumentListInfo11addArgumentERKNS_19TemplateArgumentLocE.exit.i: ; preds = %.critedge.i.i.i.i.i, %49, %38
+  %54 = phi ptr [ %.pre3.i.i.i, %38 ], [ %52, %49 ], [ %.pre.i.i.i, %.critedge.i.i.i.i.i ]
+  %.016.i.i.i.i.i = phi ptr [ %6, %38 ], [ %53, %49 ], [ %6, %.critedge.i.i.i.i.i ]
+  %55 = load i32, ptr %26, align 8, !tbaa !95
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %54, i64 %56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i.i, i64 32, i1 false)
+  %58 = load i32, ptr %26, align 8, !tbaa !95
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %26, align 8, !tbaa !95
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %21
@@ -3186,12 +3186,12 @@ _ZL29createTrivialConceptReferenceRN5clang10ASTContextENS_14SourceLocationEPKNS_
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %61 = load ptr, ptr %8, align 8, !tbaa !81
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %34, ptr %62, align 8, !tbaa !83
-  br label %63
+  %60 = load ptr, ptr %8, align 8, !tbaa !81
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store ptr %34, ptr %61, align 8, !tbaa !83
+  br label %62
 
-63:                                               ; preds = %_ZL29createTrivialConceptReferenceRN5clang10ASTContextENS_14SourceLocationEPKNS_8AutoTypeE.exit, %3
+62:                                               ; preds = %_ZL29createTrivialConceptReferenceRN5clang10ASTContextENS_14SourceLocationEPKNS_8AutoTypeE.exit, %3
   ret void
 }
 

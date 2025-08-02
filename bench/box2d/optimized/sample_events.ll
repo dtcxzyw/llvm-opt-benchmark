@@ -4118,7 +4118,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10Platformer14PreSolveStati
   br i1 %28, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %29 = getelementptr i8, ptr %2, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %wide.trip.count.i = zext nneg i32 %27 to i64
   br label %34
 
@@ -4134,7 +4134,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10Platformer14PreSolveStati
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
   %.01932.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %38, %34 ]
   %.idx.i = mul nuw nsw i64 %indvars.iv.i, 48
-  %35 = getelementptr i8, ptr %29, i64 %.idx.i
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i
   %36 = load float, ptr %35, align 4, !tbaa !176
   %37 = fcmp olt float %.01932.i, %36
   %38 = select i1 %37, float %.01932.i, float %36

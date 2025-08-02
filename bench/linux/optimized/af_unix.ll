@@ -781,16 +781,16 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   tail call void @mutex_lock(ptr noundef nonnull %39) #19
   %40 = and i32 %10, 2
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %45, label %42, !prof !8
+  br i1 %41, label %46, label %42, !prof !8
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 384
   %44 = load volatile i32, ptr %43, align 8
-  br label %45
+  %45 = tail call i32 @llvm.smax.i32(i32 %44, i32 0)
+  br label %46
 
-45:                                               ; preds = %42, %37
-  %46 = phi i32 [ %44, %42 ], [ 0, %37 ]
-  %47 = tail call i32 @llvm.smax.i32(i32 %46, i32 0)
+46:                                               ; preds = %42, %37
+  %47 = phi i32 [ %45, %42 ], [ 0, %37 ]
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 864
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 216
@@ -815,12 +815,12 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 1000
   br label %.outer
 
-.outer:                                           ; preds = %205, %45
-  %.ph352 = phi i64 [ %115, %205 ], [ %13, %45 ]
-  %.ph353 = phi i32 [ %120, %205 ], [ %47, %45 ]
-  %.ph354 = phi i64 [ %190, %205 ], [ %38, %45 ]
-  %.ph355 = phi i8 [ %116, %205 ], [ 0, %45 ]
-  %.ph356 = phi i32 [ %117, %205 ], [ 0, %45 ]
+.outer:                                           ; preds = %205, %46
+  %.ph352 = phi i64 [ %115, %205 ], [ %13, %46 ]
+  %.ph353 = phi i32 [ %120, %205 ], [ %47, %46 ]
+  %.ph354 = phi i64 [ %190, %205 ], [ %38, %46 ]
+  %.ph355 = phi i8 [ %116, %205 ], [ 0, %46 ]
+  %.ph356 = phi i32 [ %117, %205 ], [ 0, %46 ]
   br label %70
 
 70:                                               ; preds = %.outer, %350

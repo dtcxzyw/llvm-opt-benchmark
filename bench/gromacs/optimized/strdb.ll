@@ -45,59 +45,59 @@ define noundef zeroext i1 @_Z10get_a_lineP8_IO_FILEPci(ptr noundef captures(none
   %4 = add nsw i32 %2, 1
   %5 = sext i32 %4 to i64
   %6 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 57, i64 noundef range(i64 -2147483647, 2147483648) %5, i64 noundef 1)
-  %invariant.gep = getelementptr i8, ptr %6, i64 -1
   %7 = sext i32 %2 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %7
-  br label %8
+  %8 = getelementptr i8, ptr %6, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -1
+  br label %10
 
-8:                                                ; preds = %25, %3
-  %9 = tail call ptr @fgets(ptr noundef %6, i32 noundef %4, ptr noundef %0)
-  %.not.not.not.not.not.not = icmp ne ptr %9, null
-  br i1 %.not.not.not.not.not.not, label %10, label %29
-
-10:                                               ; preds = %8
-  %11 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 10) #12
-  %.not17 = icmp eq ptr %11, null
-  br i1 %.not17, label %13, label %12
+10:                                               ; preds = %27, %3
+  %11 = tail call ptr @fgets(ptr noundef %6, i32 noundef %4, ptr noundef %0)
+  %.not.not.not.not.not.not = icmp ne ptr %11, null
+  br i1 %.not.not.not.not.not.not, label %12, label %31
 
 12:                                               ; preds = %10
-  store i8 0, ptr %11, align 1, !tbaa !4
-  br label %22
+  %13 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 10) #12
+  %.not17 = icmp eq ptr %13, null
+  br i1 %.not17, label %15, label %14
 
-13:                                               ; preds = %10
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #12
-  %15 = trunc i64 %14 to i32
-  %16 = icmp eq i32 %2, %15
-  %17 = load ptr, ptr @stderr, align 8, !tbaa !7
-  br i1 %16, label %18, label %20
+14:                                               ; preds = %12
+  store i8 0, ptr %13, align 1, !tbaa !4
+  br label %24
 
-18:                                               ; preds = %13
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.2, i32 noundef %2) #13
-  store i8 0, ptr %gep, align 1, !tbaa !4
-  br label %22
+15:                                               ; preds = %12
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #12
+  %17 = trunc i64 %16 to i32
+  %18 = icmp eq i32 %2, %17
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !7
+  br i1 %18, label %20, label %22
 
-20:                                               ; preds = %13
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #13
-  br label %22
+20:                                               ; preds = %15
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.2, i32 noundef %2) #13
+  store i8 0, ptr %9, align 1, !tbaa !4
+  br label %24
 
-22:                                               ; preds = %18, %20, %12
-  %23 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 59) #12
-  %.not18 = icmp eq ptr %23, null
-  br i1 %.not18, label %25, label %24
+22:                                               ; preds = %15
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #13
+  br label %24
 
-24:                                               ; preds = %22
-  store i8 0, ptr %23, align 1, !tbaa !4
-  br label %25
+24:                                               ; preds = %20, %22, %14
+  %25 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 59) #12
+  %.not18 = icmp eq ptr %25, null
+  br i1 %.not18, label %27, label %26
 
-25:                                               ; preds = %24, %22
-  %26 = tail call ptr @strncpy(ptr noundef %1, ptr noundef nonnull %6, i64 noundef %7) #14
+26:                                               ; preds = %24
+  store i8 0, ptr %25, align 1, !tbaa !4
+  br label %27
+
+27:                                               ; preds = %26, %24
+  %28 = tail call ptr @strncpy(ptr noundef %1, ptr noundef nonnull %6, i64 noundef %7) #14
   tail call void @_Z5ltrimPc(ptr noundef nonnull %6)
-  %27 = load i8, ptr %6, align 1, !tbaa !4
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %8, label %29, !llvm.loop !10
+  %29 = load i8, ptr %6, align 1, !tbaa !4
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %10, label %31, !llvm.loop !10
 
-29:                                               ; preds = %25, %8
-  %.sink = phi i32 [ 92, %25 ], [ 63, %8 ]
+31:                                               ; preds = %27, %10
+  %.sink = phi i32 [ 92, %27 ], [ 63, %10 ]
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef %6)
   ret i1 %.not.not.not.not.not.not
 }

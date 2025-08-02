@@ -5955,7 +5955,7 @@ define hidden noundef ptr @_glfwGetScancodeNameX11(i32 noundef %0) local_unnamed
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds [349 x [5 x i8]], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137936), i64 0, i64 %22, i64 %24
+  %27 = getelementptr inbounds nuw [5 x i8], ptr %23, i64 0, i64 %24
   store i8 0, ptr %27, align 1, !tbaa !106
   br label %28
 

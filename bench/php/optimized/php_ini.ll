@@ -1121,7 +1121,7 @@ define internal void @php_ini_parser_cb(ptr noundef readonly captures(none) %0, 
   %10 = load ptr, ptr @active_ini_hash, align 8, !tbaa !79
   %.not = icmp eq ptr %10, null
   %. = select i1 %.not, ptr %4, ptr %10
-  switch i32 %3, label %154 [
+  switch i32 %3, label %155 [
     i32 1, label %11
     i32 3, label %57
     i32 2, label %113
@@ -1129,7 +1129,7 @@ define internal void @php_ini_parser_cb(ptr noundef readonly captures(none) %0, 
 
 11:                                               ; preds = %5
   %.not106 = icmp eq ptr %1, null
-  br i1 %.not106, label %154, label %12
+  br i1 %.not106, label %155, label %12
 
 12:                                               ; preds = %11
   %.b97 = load i1, ptr @is_special_section, align 4
@@ -1156,7 +1156,7 @@ define internal void @php_ini_parser_cb(ptr noundef readonly captures(none) %0, 
   %25 = tail call noalias ptr @_estrndup(ptr noundef nonnull %22, i64 noundef %24) #16
   store ptr %25, ptr %7, align 8, !tbaa !78
   call void @zend_llist_add_element(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @extension_lists, i64 56), ptr noundef nonnull %7) #16
-  br label %154
+  br label %155
 
 26:                                               ; preds = %17
   %.b.pr.pre = load i1, ptr @is_special_section, align 4
@@ -1188,7 +1188,7 @@ define internal void @php_ini_parser_cb(ptr noundef readonly captures(none) %0, 
   %38 = tail call noalias ptr @_estrndup(ptr noundef nonnull %35, i64 noundef %37) #16
   store ptr %38, ptr %7, align 8, !tbaa !78
   call void @zend_llist_add_element(ptr noundef nonnull @extension_lists, ptr noundef nonnull %7) #16
-  br label %154
+  br label %155
 
 .thread:                                          ; preds = %..thread_crit_edge, %12, %.thread127, %26
   %39 = phi ptr [ %.pre, %..thread_crit_edge ], [ %.pre124, %12 ], [ %.pre125130, %.thread127 ], [ %.pre125.pre, %26 ]
@@ -1223,7 +1223,7 @@ define internal void @php_ini_parser_cb(ptr noundef readonly captures(none) %0, 
 zend_string_dup.exit:                             ; preds = %.thread, %45
   %.0.i = phi ptr [ %51, %45 ], [ %41, %.thread ]
   store ptr %.0.i, ptr %40, align 8, !tbaa !47
-  br label %154
+  br label %155
 
 57:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
@@ -1346,7 +1346,7 @@ zend_string_dup.exit111:                          ; preds = %95, %100
 
 112:                                              ; preds = %57, %zend_string_dup.exit111
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
-  br label %154
+  br label %155
 
 113:                                              ; preds = %5
   %114 = load ptr, ptr %0, align 8, !tbaa !47
@@ -1386,82 +1386,79 @@ zend_string_dup.exit111:                          ; preds = %95, %100
 
 .thread117:                                       ; preds = %125
   store i1 false, ptr @is_special_section, align 4
-  br label %154
+  br label %155
 
 134:                                              ; preds = %128, %122
   %.084 = phi ptr [ %130, %128 ], [ %123, %122 ]
   %.082 = phi i64 [ %133, %128 ], [ %124, %122 ]
   %.not121 = icmp eq i64 %.082, 0
-  br i1 %.not121, label %154, label %.preheader
+  br i1 %.not121, label %155, label %.preheader
 
-.preheader:                                       ; preds = %134
-  %invariant.gep = getelementptr i8, ptr %.084, i64 -1
-  br label %135
-
-135:                                              ; preds = %.preheader, %.critedge3
-  %.183122 = phi i64 [ %.082, %.preheader ], [ %137, %.critedge3 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.183122
-  %136 = load i8, ptr %gep, align 1, !tbaa !47
-  switch i8 %136, label %.critedge.preheader [
+.preheader:                                       ; preds = %134, %.critedge3
+  %.183122 = phi i64 [ %138, %.critedge3 ], [ %.082, %134 ]
+  %135 = getelementptr i8, ptr %.084, i64 %.183122
+  %136 = getelementptr i8, ptr %135, i64 -1
+  %137 = load i8, ptr %136, align 1, !tbaa !47
+  switch i8 %137, label %.critedge.preheader [
     i8 47, label %.critedge3
     i8 92, label %.critedge3
   ]
 
-.critedge3:                                       ; preds = %135, %135
-  %137 = add i64 %.183122, -1
-  %138 = getelementptr inbounds nuw i8, ptr %.084, i64 %137
-  store i8 0, ptr %138, align 1, !tbaa !47
-  %.not100 = icmp eq i64 %137, 0
-  br i1 %.not100, label %.critedge.preheader, label %135
+.critedge3:                                       ; preds = %.preheader, %.preheader
+  %138 = add i64 %.183122, -1
+  %139 = getelementptr inbounds nuw i8, ptr %.084, i64 %138
+  store i8 0, ptr %139, align 1, !tbaa !47
+  %.not100 = icmp eq i64 %138, 0
+  br i1 %.not100, label %.critedge.preheader, label %.preheader
 
-.critedge.preheader:                              ; preds = %135, %.critedge3
-  %.2.ph = phi i64 [ 0, %.critedge3 ], [ %.183122, %135 ]
+.critedge.preheader:                              ; preds = %.preheader, %.critedge3
+  %.2.ph = phi i64 [ 0, %.critedge3 ], [ %.183122, %.preheader ]
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge7
-  %.185 = phi ptr [ %140, %.critedge7 ], [ %.084, %.critedge.preheader ]
-  %.2 = phi i64 [ %141, %.critedge7 ], [ %.2.ph, %.critedge.preheader ]
-  %139 = load i8, ptr %.185, align 1, !tbaa !47
-  switch i8 %139, label %.critedge5 [
+  %.185 = phi ptr [ %141, %.critedge7 ], [ %.084, %.critedge.preheader ]
+  %.2 = phi i64 [ %142, %.critedge7 ], [ %.2.ph, %.critedge.preheader ]
+  %140 = load i8, ptr %.185, align 1, !tbaa !47
+  switch i8 %140, label %.critedge5 [
     i8 9, label %.critedge7
     i8 61, label %.critedge7
     i8 32, label %.critedge7
   ]
 
 .critedge7:                                       ; preds = %.critedge, %.critedge, %.critedge
-  %140 = getelementptr inbounds nuw i8, ptr %.185, i64 1
-  %141 = add i64 %.2, -1
+  %141 = getelementptr inbounds nuw i8, ptr %.185, i64 1
+  %142 = add i64 %.2, -1
   br label %.critedge
 
 .critedge5:                                       ; preds = %.critedge
-  %142 = tail call ptr @zend_hash_str_find(ptr noundef %4, ptr noundef nonnull %.185, i64 noundef %.2) #16
-  %143 = icmp eq ptr %142, null
-  br i1 %143, label %144, label %148
+  %143 = tail call ptr @zend_hash_str_find(ptr noundef %4, ptr noundef nonnull %.185, i64 noundef %.2) #16
+  %144 = icmp eq ptr %143, null
+  br i1 %144, label %145, label %149
 
-144:                                              ; preds = %.critedge5
+145:                                              ; preds = %.critedge5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #16
-  %145 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #18
-  store ptr %145, ptr %9, align 8, !tbaa !47
-  %146 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 775, ptr %146, align 8, !tbaa !47
-  tail call void @_zend_hash_init(ptr noundef %145, i32 noundef 8, ptr noundef nonnull @config_zval_dtor, i1 noundef zeroext true) #16
-  %147 = call ptr @zend_hash_str_update(ptr noundef %4, ptr noundef nonnull %.185, i64 noundef %.2, ptr noundef nonnull %9) #16
+  %146 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #18
+  store ptr %146, ptr %9, align 8, !tbaa !47
+  %147 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 775, ptr %147, align 8, !tbaa !47
+  tail call void @_zend_hash_init(ptr noundef %146, i32 noundef 8, ptr noundef nonnull @config_zval_dtor, i1 noundef zeroext true) #16
+  %148 = call ptr @zend_hash_str_update(ptr noundef %4, ptr noundef nonnull %.185, i64 noundef %.2, ptr noundef nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
-  br label %148
+  br label %149
 
-148:                                              ; preds = %144, %.critedge5
-  %.1 = phi ptr [ %147, %144 ], [ %142, %.critedge5 ]
-  %149 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %150 = load i8, ptr %149, align 8, !tbaa !47
-  %151 = icmp eq i8 %150, 7
-  br i1 %151, label %152, label %154
+149:                                              ; preds = %145, %.critedge5
+  %.1 = phi ptr [ %148, %145 ], [ %143, %.critedge5 ]
+  %150 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %151 = load i8, ptr %150, align 8, !tbaa !47
+  %152 = icmp eq i8 %151, 7
+  br i1 %152, label %153, label %155
 
-152:                                              ; preds = %148
-  %153 = load ptr, ptr %.1, align 8, !tbaa !47
-  store ptr %153, ptr @active_ini_hash, align 8, !tbaa !79
-  br label %154
+153:                                              ; preds = %149
+  %154 = load ptr, ptr %.1, align 8, !tbaa !47
+  store ptr %154, ptr @active_ini_hash, align 8, !tbaa !79
+  br label %155
 
-154:                                              ; preds = %.thread117, %134, %152, %148, %112, %20, %zend_string_dup.exit, %33, %11, %5
+155:                                              ; preds = %.thread117, %134, %153, %149, %112, %20, %zend_string_dup.exit, %33, %11, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   ret void
 }

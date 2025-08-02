@@ -24,81 +24,80 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @dts2pts_init(ptr noundef %0) #0 {
-.critedge52:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2 = load ptr, ptr %1, align 8, !tbaa !4
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !14
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !15
-  %8 = icmp eq i32 %7, 27
-  br i1 %8, label %9, label %.critedge, !llvm.loop !21
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !14
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %8 = load i32, ptr %7, align 4, !tbaa !15
+  %9 = icmp eq i32 %8, 27
+  br i1 %9, label %10, label %.critedge, !llvm.loop !21
 
-9:                                                ; preds = %.critedge52
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr @h264_init, ptr %10, align 8, !tbaa !23
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr @h264_filter, ptr %11, align 8, !tbaa !32
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr @h264_flush, ptr %12, align 8, !tbaa !33
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i64 64, ptr %13, align 8, !tbaa !34
-  %14 = tail call ptr @av_fifo_alloc2(i64 noundef 64, i64 noundef 24, i32 noundef 0) #9
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !35
-  %.not47 = icmp eq ptr %14, null
-  br i1 %.not47, label %.critedge, label %16
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr @h264_init, ptr %11, align 8, !tbaa !23
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @h264_filter, ptr %12, align 8, !tbaa !32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @h264_flush, ptr %13, align 8, !tbaa !33
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 64, ptr %14, align 8, !tbaa !34
+  %15 = tail call ptr @av_fifo_alloc2(i64 noundef 64, i64 noundef 24, i32 noundef 0) #9
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %15, ptr %16, align 8, !tbaa !35
+  %.not47 = icmp eq ptr %15, null
+  br i1 %.not47, label %.critedge, label %17
 
-16:                                               ; preds = %9
-  %17 = tail call ptr @av_refstruct_pool_alloc(i64 noundef 24, i32 noundef 1) #9
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !36
-  %.not48 = icmp eq ptr %17, null
-  br i1 %.not48, label %.critedge, label %19
+17:                                               ; preds = %10
+  %18 = tail call ptr @av_refstruct_pool_alloc(i64 noundef 24, i32 noundef 1) #9
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %18, ptr %19, align 8, !tbaa !36
+  %.not48 = icmp eq ptr %18, null
+  br i1 %.not48, label %.critedge, label %20
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %21 = load ptr, ptr %4, align 8, !tbaa !14
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !15
-  %24 = tail call i32 @ff_cbs_init(ptr noundef nonnull %20, i32 noundef %23, ptr noundef nonnull %0) #9
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %.critedge, label %26
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %22 = load ptr, ptr %5, align 8, !tbaa !14
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !15
+  %25 = tail call i32 @ff_cbs_init(ptr noundef nonnull %21, i32 noundef %24, ptr noundef nonnull %0) #9
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %.critedge, label %27
 
-26:                                               ; preds = %19
-  %27 = load ptr, ptr %10, align 8, !tbaa !23
-  %.not49 = icmp eq ptr %27, null
-  br i1 %.not49, label %31, label %28
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %11, align 8, !tbaa !23
+  %.not49 = icmp eq ptr %28, null
+  br i1 %.not49, label %32, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call i32 %27(ptr noundef nonnull %0) #9
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %.critedge, label %31
+29:                                               ; preds = %27
+  %30 = tail call i32 %28(ptr noundef nonnull %0) #9
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %.critedge, label %32
 
-31:                                               ; preds = %28, %26
-  %32 = load ptr, ptr %4, align 8, !tbaa !14
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %34 = load i32, ptr %33, align 8, !tbaa !37
-  %.not50 = icmp eq i32 %34, 0
-  br i1 %.not50, label %.critedge, label %35
+32:                                               ; preds = %29, %27
+  %33 = load ptr, ptr %5, align 8, !tbaa !14
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = load i32, ptr %34, align 8, !tbaa !37
+  %.not50 = icmp eq i32 %35, 0
+  br i1 %.not50, label %.critedge, label %36
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %20, align 8, !tbaa !38
-  %37 = tail call i32 @ff_cbs_read_extradata(ptr noundef %36, ptr noundef nonnull %3, ptr noundef nonnull %32) #9
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %39, label %40
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %21, align 8, !tbaa !38
+  %38 = tail call i32 @ff_cbs_read_extradata(ptr noundef %37, ptr noundef nonnull %4, ptr noundef nonnull %33) #9
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.4) #9
-  br label %40
+  br label %41
 
-40:                                               ; preds = %39, %35
-  tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %3) #9
+41:                                               ; preds = %40, %36
+  tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %4) #9
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge52, %31, %28, %19, %16, %9, %40
-  %.039 = phi i32 [ 0, %40 ], [ -12, %9 ], [ -12, %16 ], [ %24, %19 ], [ %29, %28 ], [ 0, %31 ], [ -558323010, %.critedge52 ]
+.critedge:                                        ; preds = %1, %32, %29, %20, %17, %10, %41
+  %.039 = phi i32 [ 0, %41 ], [ -12, %10 ], [ -12, %17 ], [ %25, %20 ], [ %30, %29 ], [ 0, %32 ], [ -558323010, %1 ]
   ret i32 %.039
 }
 
@@ -1053,8 +1052,8 @@ declare void @av_packet_free(ptr noundef) local_unnamed_addr #2
 define internal fastcc range(i32 -12, 1) i32 @alloc_and_insert_node(ptr %.16.val, i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %.not367 = icmp sgt i32 %3, 0
-  br i1 %.not367, label %.lr.ph, label %.loopexit
+  %.not361 = icmp sgt i32 %3, 0
+  br i1 %.not361, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %.16.val, i64 16
@@ -1062,15 +1061,15 @@ define internal fastcc range(i32 -12, 1) i32 @alloc_and_insert_node(ptr %.16.val
   br label %10
 
 10:                                               ; preds = %.lr.ph, %30
-  %.02210 = phi i64 [ %0, %.lr.ph ], [ %.224, %30 ]
-  %.0259 = phi i32 [ %2, %.lr.ph ], [ %24, %30 ]
-  %.0278 = phi i32 [ 0, %.lr.ph ], [ %31, %30 ]
+  %.0224 = phi i64 [ %0, %.lr.ph ], [ %.224, %30 ]
+  %.0253 = phi i32 [ %2, %.lr.ph ], [ %24, %30 ]
+  %.0272 = phi i32 [ 0, %.lr.ph ], [ %31, %30 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   %11 = call ptr @av_tree_node_alloc() #9
   store ptr %11, ptr %6, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.loopexit6, label %12
+  br i1 %.not, label %.critedge, label %12
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %8, align 8, !tbaa !36
@@ -1082,27 +1081,27 @@ define internal fastcc range(i32 -12, 1) i32 @alloc_and_insert_node(ptr %.16.val
 15:                                               ; preds = %12
   %16 = load ptr, ptr %6, align 8, !tbaa !55
   call void @av_free(ptr noundef %16) #9
-  br label %.loopexit6
+  br label %.critedge
 
 17:                                               ; preds = %12
-  %18 = icmp ne i32 %.0278, 0
-  %19 = icmp ne i64 %.02210, -9223372036854775808
+  %18 = icmp ne i32 %.0272, 0
+  %19 = icmp ne i64 %.0224, -9223372036854775808
   %or.cond = select i1 %18, i1 %19, i1 false
   br i1 %or.cond, label %20, label %23
 
 20:                                               ; preds = %17
   %21 = sdiv i64 %1, %9
-  %22 = add nsw i64 %21, %.02210
+  %22 = add nsw i64 %21, %.0224
   br label %23
 
 23:                                               ; preds = %20, %17
-  %.224 = phi i64 [ %22, %20 ], [ %.02210, %17 ]
-  %24 = add nsw i32 %.0259, 1
+  %.224 = phi i64 [ %22, %20 ], [ %.0224, %17 ]
+  %24 = add nsw i32 %.0253, 1
   store i64 %.224, ptr %14, align 8, !tbaa !136
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %1, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !136
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 %.0259, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !78
+  store i32 %.0253, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !78
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 %4, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !78
   %25 = call ptr @av_tree_insert(ptr noundef nonnull %.16.val, ptr noundef nonnull %14, ptr noundef nonnull @cmp_insert, ptr noundef nonnull %6) #9
@@ -1121,20 +1120,20 @@ define internal fastcc range(i32 -12, 1) i32 @alloc_and_insert_node(ptr %.16.val
   call void @av_free(ptr noundef %29) #9
   br label %30
 
-.loopexit6:                                       ; preds = %10, %15
+30:                                               ; preds = %23, %26, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  %31 = add nuw nsw i32 %.0272, 1
+  %exitcond.not = icmp eq i32 %31, %3
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !138
+
+.critedge:                                        ; preds = %10, %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   br label %.loopexit
 
-30:                                               ; preds = %28, %26, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  %31 = add nuw nsw i32 %.0278, 1
-  %exitcond.not = icmp eq i32 %31, %3
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !138
-
-.loopexit:                                        ; preds = %30, %5, %.loopexit6
-  %spec.select = phi i32 [ -12, %.loopexit6 ], [ 0, %5 ], [ 0, %30 ]
+.loopexit:                                        ; preds = %30, %5, %.critedge
+  %spec.select = phi i32 [ -12, %.critedge ], [ 0, %5 ], [ 0, %30 ]
   ret i32 %spec.select
 }
 

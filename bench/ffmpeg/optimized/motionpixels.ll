@@ -303,7 +303,7 @@ define internal i32 @mp_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph.i:                                         ; preds = %135
   %wide.trip.count.i = zext nneg i32 %120 to i64
-  %138 = getelementptr i8, ptr %11, i64 57
+  %138 = getelementptr inbounds nuw i8, ptr %11, i64 57
   br label %139
 
 139:                                              ; preds = %139, %.lr.ph.i
@@ -321,7 +321,7 @@ define internal i32 @mp_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   %150 = tail call i32 @llvm.umin.i32(i32 %86, i32 %149)
   %151 = trunc nuw nsw i32 %148 to i8
   %152 = shl nuw i64 %indvars.iv.i, 1
-  %153 = getelementptr i8, ptr %138, i64 %152
+  %153 = getelementptr inbounds nuw i8, ptr %138, i64 %152
   store i8 %151, ptr %153, align 1, !tbaa !63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

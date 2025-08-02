@@ -47610,8 +47610,8 @@ define nonnull ptr @llama_model_get_vocab(ptr noundef readnone captures(ret: add
   ret ptr %2
 }
 
-; Function Attrs: mustprogress uwtable
-define void @llama_free_model(ptr noundef %0) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @llama_free_model(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %llama_model_free.exit, label %3
 

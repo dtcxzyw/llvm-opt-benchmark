@@ -3602,7 +3602,7 @@ define void @dt_collection_deserialize(ptr noundef readonly captures(none) %0, i
   call void @dt_conf_set_int(ptr noundef nonnull %3, i32 noundef 0) #19
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.125, ptr noundef nonnull %10) #19
   call void @dt_conf_set_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.126) #19
-  br label %75
+  br label %73
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #19
@@ -3634,7 +3634,7 @@ define void @dt_collection_deserialize(ptr noundef readonly captures(none) %0, i
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %9) #19
   %26 = load i32, ptr %4, align 4, !tbaa !81
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph, label %.thread
+  br i1 %27, label %.lr.ph, label %.critedge65
 
 .lr.ph:                                           ; preds = %.critedge
   %28 = icmp eq i8 %23, 58
@@ -3642,9 +3642,9 @@ define void @dt_collection_deserialize(ptr noundef readonly captures(none) %0, i
   %spec.select = getelementptr inbounds nuw i8, ptr %.0, i64 %spec.select.idx
   br i1 %.not, label %.lr.ph.split.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %43
-  %.270.us = phi ptr [ %spec.select63.us, %43 ], [ %spec.select, %.lr.ph ]
-  %.05769.us = phi i32 [ %45, %43 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge9.us
+  %.270.us = phi ptr [ %spec.select63.us, %.critedge9.us ], [ %spec.select, %.lr.ph ]
+  %.05769.us = phi i32 [ %44, %.critedge9.us ], [ 0, %.lr.ph ]
   %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.270.us, ptr noundef nonnull @.str.127, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #19
   %30 = icmp eq i32 %29, 5
   br i1 %30, label %31, label %.split.us
@@ -3666,98 +3666,98 @@ define void @dt_collection_deserialize(ptr noundef readonly captures(none) %0, i
   call void @dt_conf_set_string(ptr noundef nonnull %3, ptr noundef nonnull %9) #19
   br label %41
 
-41:                                               ; preds = %48, %31
-  %.4.us = phi ptr [ %.270.us, %31 ], [ %49, %48 ]
+41:                                               ; preds = %47, %31
+  %.4.us = phi ptr [ %.270.us, %31 ], [ %48, %47 ]
   %42 = load i8, ptr %.4.us, align 1, !tbaa !90
-  switch i8 %42, label %48 [
-    i8 36, label %43
-    i8 0, label %43
+  switch i8 %42, label %47 [
+    i8 36, label %.critedge9.us
+    i8 0, label %.critedge9.us
   ]
 
-43:                                               ; preds = %41, %41
-  %44 = icmp eq i8 %42, 36
-  %spec.select63.idx.us = zext i1 %44 to i64
+.critedge9.us:                                    ; preds = %41, %41
+  %43 = icmp eq i8 %42, 36
+  %spec.select63.idx.us = zext i1 %43 to i64
   %spec.select63.us = getelementptr inbounds nuw i8, ptr %.4.us, i64 %spec.select63.idx.us
-  %45 = add nuw nsw i32 %.05769.us, 1
-  %46 = load i32, ptr %4, align 4, !tbaa !81
-  %47 = icmp slt i32 %45, %46
-  br i1 %47, label %.lr.ph.split.us, label %.thread, !llvm.loop !93
+  %44 = add nuw nsw i32 %.05769.us, 1
+  %45 = load i32, ptr %4, align 4, !tbaa !81
+  %46 = icmp slt i32 %44, %45
+  br i1 %46, label %.lr.ph.split.us, label %.critedge65, !llvm.loop !93
 
-48:                                               ; preds = %41
-  %49 = getelementptr inbounds nuw i8, ptr %.4.us, i64 1
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds nuw i8, ptr %.4.us, i64 1
   br label %41
 
-.lr.ph.split.split:                               ; preds = %.lr.ph, %70
-  %.270 = phi ptr [ %spec.select63, %70 ], [ %spec.select, %.lr.ph ]
-  %.05769 = phi i32 [ %72, %70 ], [ 0, %.lr.ph ]
-  %50 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.270, ptr noundef nonnull @.str.128, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9) #19
-  %51 = icmp eq i32 %50, 3
-  br i1 %51, label %52, label %.split.us
+.lr.ph.split.split:                               ; preds = %.lr.ph, %.critedge9
+  %.270 = phi ptr [ %spec.select63, %.critedge9 ], [ %spec.select, %.lr.ph ]
+  %.05769 = phi i32 [ %70, %.critedge9 ], [ 0, %.lr.ph ]
+  %49 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.270, ptr noundef nonnull @.str.128, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9) #19
+  %50 = icmp eq i32 %49, 3
+  br i1 %50, label %51, label %.split.us
 
-52:                                               ; preds = %.lr.ph.split.split
-  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.116, ptr noundef nonnull %10, i32 noundef %.05769) #19
-  %54 = load i32, ptr %5, align 4, !tbaa !81
-  call void @dt_conf_set_int(ptr noundef nonnull %3, i32 noundef %54) #19
-  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.117, ptr noundef nonnull %10, i32 noundef %.05769) #19
-  %56 = load i32, ptr %6, align 4, !tbaa !81
-  call void @dt_conf_set_int(ptr noundef nonnull %3, i32 noundef %56) #19
-  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.120, ptr noundef nonnull %10, i32 noundef %.05769) #19
+51:                                               ; preds = %.lr.ph.split.split
+  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.116, ptr noundef nonnull %10, i32 noundef %.05769) #19
+  %53 = load i32, ptr %5, align 4, !tbaa !81
+  call void @dt_conf_set_int(ptr noundef nonnull %3, i32 noundef %53) #19
+  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.117, ptr noundef nonnull %10, i32 noundef %.05769) #19
+  %55 = load i32, ptr %6, align 4, !tbaa !81
+  call void @dt_conf_set_int(ptr noundef nonnull %3, i32 noundef %55) #19
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.120, ptr noundef nonnull %10, i32 noundef %.05769) #19
   call void @dt_conf_set_string(ptr noundef nonnull %3, ptr noundef nonnull %9) #19
-  br label %66
+  br label %65
 
 .split.us:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split.split
   %.us-phi71 = phi i32 [ %.05769, %.lr.ph.split.split ], [ %.05769.us, %.lr.ph.split.us ]
-  %58 = load i32, ptr %4, align 4
-  %59 = icmp eq i32 %58, 1
-  %or.cond7 = select i1 %.not, i1 %59, i1 false
-  br i1 %or.cond7, label %60, label %64
+  %57 = load i32, ptr %4, align 4
+  %58 = icmp eq i32 %57, 1
+  %or.cond7 = select i1 %.not, i1 %58, i1 false
+  br i1 %or.cond7, label %59, label %63
 
-60:                                               ; preds = %.split.us
-  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.114, i32 noundef %.us-phi71) #19
+59:                                               ; preds = %.split.us
+  %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.114, i32 noundef %.us-phi71) #19
   call void @dt_conf_set_int(ptr noundef nonnull %3, i32 noundef 0) #19
-  %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.114, i32 noundef %.us-phi71) #19
+  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.114, i32 noundef %.us-phi71) #19
   call void @dt_conf_set_int(ptr noundef nonnull %3, i32 noundef 0) #19
-  %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.114, i32 noundef %.us-phi71) #19
+  %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.114, i32 noundef %.us-phi71) #19
   call void @dt_conf_set_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.126) #19
-  br label %.thread
+  br label %.critedge65
 
-64:                                               ; preds = %.split.us
-  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.115, ptr noundef nonnull %10) #19
+63:                                               ; preds = %.split.us
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.115, ptr noundef nonnull %10) #19
   call void @dt_conf_set_int(ptr noundef nonnull %3, i32 noundef %.us-phi71) #19
-  br label %.thread
+  br label %.critedge65
 
-66:                                               ; preds = %68, %52
-  %.4 = phi ptr [ %.270, %52 ], [ %69, %68 ]
-  %67 = load i8, ptr %.4, align 1, !tbaa !90
-  switch i8 %67, label %68 [
-    i8 36, label %70
-    i8 0, label %70
+65:                                               ; preds = %67, %51
+  %.4 = phi ptr [ %.270, %51 ], [ %68, %67 ]
+  %66 = load i8, ptr %.4, align 1, !tbaa !90
+  switch i8 %66, label %67 [
+    i8 36, label %.critedge9
+    i8 0, label %.critedge9
   ]
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  br label %66
+67:                                               ; preds = %65
+  %68 = getelementptr inbounds nuw i8, ptr %.4, i64 1
+  br label %65
 
-70:                                               ; preds = %66, %66
-  %71 = icmp eq i8 %67, 36
-  %spec.select63.idx = zext i1 %71 to i64
+.critedge9:                                       ; preds = %65, %65
+  %69 = icmp eq i8 %66, 36
+  %spec.select63.idx = zext i1 %69 to i64
   %spec.select63 = getelementptr inbounds nuw i8, ptr %.4, i64 %spec.select63.idx
-  %72 = add nuw nsw i32 %.05769, 1
-  %73 = load i32, ptr %4, align 4, !tbaa !81
-  %74 = icmp slt i32 %72, %73
-  br i1 %74, label %.lr.ph.split.split, label %.thread
+  %70 = add nuw nsw i32 %.05769, 1
+  %71 = load i32, ptr %4, align 4, !tbaa !81
+  %72 = icmp slt i32 %70, %71
+  br i1 %72, label %.lr.ph.split.split, label %.critedge65
 
-.thread:                                          ; preds = %43, %70, %.critedge, %64, %60
+.critedge65:                                      ; preds = %.critedge9.us, %.critedge9, %.critedge, %59, %63
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #19
-  br label %75
+  br label %73
 
-75:                                               ; preds = %.thread, %14
-  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !63
-  call void @dt_collection_update_query(ptr noundef %76, i32 noundef 1, i32 noundef 43, ptr noundef null)
+73:                                               ; preds = %.critedge65, %14
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !63
+  call void @dt_collection_update_query(ptr noundef %74, i32 noundef 1, i32 noundef 43, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #19
   ret void

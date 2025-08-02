@@ -45,7 +45,7 @@ define range(i32 -1094995529, 1) i32 @ff_spatial_idwt_init(ptr noundef writeonly
 
 .lr.ph.i:                                         ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %24 = getelementptr i8, ptr %0, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   switch i32 %2, label %.lr.ph.split.preheader.i [
     i32 2, label %.lr.ph.split.us.i
     i32 3, label %.lr.ph.split.us80.i
@@ -210,7 +210,7 @@ spatial_compose53i_init_8bit.exit.us.i:           ; preds = %57, %avpriv_mirror.
 90:                                               ; preds = %90, %.lr.ph.split.us86.i
   %indvars.iv98.i = phi i64 [ %indvars.iv.next99.i, %90 ], [ %89, %.lr.ph.split.us86.i ]
   %.idx.us.i = mul nuw nsw i64 %indvars.iv98.i, 72
-  %91 = getelementptr i8, ptr %24, i64 %.idx.us.i
+  %91 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.us.i
   store i32 1, ptr %91, align 8, !tbaa !23
   %indvars.iv.next99.i = add nsw i64 %indvars.iv98.i, -1
   %92 = trunc nuw i64 %indvars.iv98.i to i32
@@ -356,7 +356,7 @@ spatial_compose97i_init_8bit.exit.us.i:           ; preds = %136, %avpriv_mirror
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.split.preheader.i
   %indvars.iv110.i = phi i64 [ %25, %.lr.ph.split.preheader.i ], [ %indvars.iv.next111.i, %.lr.ph.split.i ]
   %.idx69.i = mul nuw nsw i64 %indvars.iv110.i, 72
-  %147 = getelementptr i8, ptr %24, i64 %.idx69.i
+  %147 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx69.i
   store i32 0, ptr %147, align 8, !tbaa !23
   %indvars.iv.next111.i = add nsw i64 %indvars.iv110.i, -1
   %.not126.i = icmp eq i64 %indvars.iv110.i, 0
@@ -449,7 +449,7 @@ spatial_compose97i_init_8bit.exit.us.i:           ; preds = %136, %avpriv_mirror
 
 .lr.ph.i32:                                       ; preds = %174
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %178 = getelementptr i8, ptr %0, i64 160
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 160
   switch i32 %2, label %.lr.ph.split.preheader.i62 [
     i32 2, label %.lr.ph.split.us.i61
     i32 3, label %.lr.ph.split.us78.i
@@ -614,7 +614,7 @@ spatial_compose53i_init_10bit.exit.us.i:          ; preds = %211, %avpriv_mirror
 244:                                              ; preds = %244, %.lr.ph.split.us84.i
   %indvars.iv96.i = phi i64 [ %indvars.iv.next97.i, %244 ], [ %243, %.lr.ph.split.us84.i ]
   %.idx.us.i50 = mul nuw nsw i64 %indvars.iv96.i, 72
-  %245 = getelementptr i8, ptr %178, i64 %.idx.us.i50
+  %245 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx.us.i50
   store i32 1, ptr %245, align 8, !tbaa !23
   %indvars.iv.next97.i = add nsw i64 %indvars.iv96.i, -1
   %246 = trunc nuw i64 %indvars.iv96.i to i32
@@ -760,7 +760,7 @@ spatial_compose97i_init_10bit.exit.us.i:          ; preds = %290, %avpriv_mirror
 .lr.ph.split.i63:                                 ; preds = %.lr.ph.split.i63, %.lr.ph.split.preheader.i62
   %indvars.iv108.i = phi i64 [ %179, %.lr.ph.split.preheader.i62 ], [ %indvars.iv.next109.i, %.lr.ph.split.i63 ]
   %.idx69.i64 = mul nuw nsw i64 %indvars.iv108.i, 72
-  %301 = getelementptr i8, ptr %178, i64 %.idx69.i64
+  %301 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx69.i64
   store i32 0, ptr %301, align 8, !tbaa !23
   %indvars.iv.next109.i = add nsw i64 %indvars.iv108.i, -1
   %.not124.i = icmp eq i64 %indvars.iv108.i, 0
@@ -853,7 +853,7 @@ spatial_compose97i_init_10bit.exit.us.i:          ; preds = %290, %avpriv_mirror
 
 .lr.ph.i73:                                       ; preds = %328
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %332 = getelementptr i8, ptr %0, i64 160
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 160
   switch i32 %2, label %.lr.ph.split.preheader.i140 [
     i32 2, label %.lr.ph.split.us.i136
     i32 3, label %.lr.ph.split.us78.i117
@@ -1018,7 +1018,7 @@ spatial_compose53i_init_12bit.exit.us.i:          ; preds = %365, %avpriv_mirror
 398:                                              ; preds = %398, %.lr.ph.split.us84.i107
   %indvars.iv96.i108 = phi i64 [ %indvars.iv.next97.i110, %398 ], [ %397, %.lr.ph.split.us84.i107 ]
   %.idx.us.i109 = mul nuw nsw i64 %indvars.iv96.i108, 72
-  %399 = getelementptr i8, ptr %332, i64 %.idx.us.i109
+  %399 = getelementptr inbounds nuw i8, ptr %332, i64 %.idx.us.i109
   store i32 1, ptr %399, align 8, !tbaa !23
   %indvars.iv.next97.i110 = add nsw i64 %indvars.iv96.i108, -1
   %400 = trunc nuw i64 %indvars.iv96.i108 to i32
@@ -1164,7 +1164,7 @@ spatial_compose97i_init_12bit.exit.us.i:          ; preds = %444, %avpriv_mirror
 .lr.ph.split.i141:                                ; preds = %.lr.ph.split.i141, %.lr.ph.split.preheader.i140
   %indvars.iv108.i142 = phi i64 [ %333, %.lr.ph.split.preheader.i140 ], [ %indvars.iv.next109.i144, %.lr.ph.split.i141 ]
   %.idx69.i143 = mul nuw nsw i64 %indvars.iv108.i142, 72
-  %455 = getelementptr i8, ptr %332, i64 %.idx69.i143
+  %455 = getelementptr inbounds nuw i8, ptr %332, i64 %.idx69.i143
   store i32 0, ptr %455, align 8, !tbaa !23
   %indvars.iv.next109.i144 = add nsw i64 %indvars.iv108.i142, -1
   %.not124.i145 = icmp eq i64 %indvars.iv108.i142, 0
@@ -1282,7 +1282,7 @@ define void @ff_spatial_idwt_slice2(ptr noundef %0, i32 noundef %1) local_unname
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = getelementptr i8, ptr %0, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = zext nneg i32 %6 to i64
   br label %15
@@ -1302,7 +1302,7 @@ define void @ff_spatial_idwt_slice2(ptr noundef %0, i32 noundef %1) local_unname
   %21 = load i32, ptr %10, align 8, !tbaa !18
   %22 = shl i32 %21, %17
   %.idx = mul nuw nsw i64 %indvars.iv.next, 72
-  %23 = getelementptr i8, ptr %11, i64 %.idx
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %24 = ashr i32 %1, %17
   %25 = add nsw i32 %24, %4
   %. = tail call i32 @llvm.smin.i32(i32 %25, i32 %20)

@@ -648,7 +648,6 @@ define void @_ZN14arrow_vendored17double_conversion6Bignum15AssignHexStringENS0_
   br i1 %5, label %9, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader: ; preds = %3
-  %invariant.gep = getelementptr i8, ptr %1, i64 -1
   %6 = icmp eq i32 %2, 0
   br i1 %6, label %.critedge.thread3.i, label %.lr.ph
 
@@ -663,113 +662,114 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader: 
 
 _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit._crit_edge: ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
   %.not = icmp eq i64 %.19, 0
-  br i1 %.not, label %47, label %40
+  br i1 %.not, label %49, label %42
 
 10:                                               ; preds = %.lr.ph, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
   %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit ]
   %.017 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit ]
   %.0816 = phi i64 [ 0, %.lr.ph ], [ %.19, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit ]
-  %11 = phi i16 [ 0, %.lr.ph ], [ %38, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %12 = load i8, ptr %gep, align 1, !tbaa !14
-  %13 = sext i8 %12 to i32
-  %14 = add nsw i32 %13, -48
-  %or.cond.i = icmp ult i32 %14, 10
-  br i1 %or.cond.i, label %15, label %17
-
-15:                                               ; preds = %10
-  %16 = zext nneg i32 %14 to i64
-  br label %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit
+  %11 = phi i16 [ 0, %.lr.ph ], [ %40, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit ]
+  %12 = getelementptr i8, ptr %1, i64 %indvars.iv
+  %13 = getelementptr i8, ptr %12, i64 -1
+  %14 = load i8, ptr %13, align 1, !tbaa !14
+  %15 = sext i8 %14 to i32
+  %16 = add nsw i32 %15, -48
+  %or.cond.i = icmp ult i32 %16, 10
+  br i1 %or.cond.i, label %17, label %19
 
 17:                                               ; preds = %10
-  %18 = add nsw i32 %13, -97
-  %or.cond3.i = icmp ult i32 %18, 6
-  br i1 %or.cond3.i, label %19, label %22
-
-19:                                               ; preds = %17
-  %20 = add nsw i32 %13, -87
-  %21 = zext nneg i32 %20 to i64
+  %18 = zext nneg i32 %16 to i64
   br label %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit
 
-22:                                               ; preds = %17
-  %23 = add nsw i32 %13, -55
-  %24 = sext i32 %23 to i64
+19:                                               ; preds = %10
+  %20 = add nsw i32 %15, -97
+  %or.cond3.i = icmp ult i32 %20, 6
+  br i1 %or.cond3.i, label %21, label %24
+
+21:                                               ; preds = %19
+  %22 = add nsw i32 %15, -87
+  %23 = zext nneg i32 %22 to i64
   br label %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit
 
-_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit: ; preds = %15, %19, %22
-  %.0.i = phi i64 [ %16, %15 ], [ %21, %19 ], [ %24, %22 ]
-  %25 = zext nneg i32 %.017 to i64
-  %26 = shl i64 %.0.i, %25
-  %27 = or i64 %26, %.0816
-  %28 = add nsw i32 %.017, 4
-  %29 = icmp sgt i32 %.017, 23
-  br i1 %29, label %30, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
+24:                                               ; preds = %19
+  %25 = add nsw i32 %15, -55
+  %26 = sext i32 %25 to i64
+  br label %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit
 
-30:                                               ; preds = %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit
-  %31 = trunc i64 %27 to i32
-  %32 = and i32 %31, 268435455
-  %33 = add i16 %11, 1
-  store i16 %33, ptr %0, align 4, !tbaa !3
-  %34 = sext i16 %11 to i64
-  %35 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %34
-  store i32 %32, ptr %35, align 4, !tbaa !9
-  %36 = add nsw i32 %.017, -24
-  %37 = lshr i64 %27, 28
+_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit: ; preds = %17, %21, %24
+  %.0.i = phi i64 [ %18, %17 ], [ %23, %21 ], [ %26, %24 ]
+  %27 = zext nneg i32 %.017 to i64
+  %28 = shl i64 %.0.i, %27
+  %29 = or i64 %28, %.0816
+  %30 = add nsw i32 %.017, 4
+  %31 = icmp sgt i32 %.017, 23
+  br i1 %31, label %32, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
+
+32:                                               ; preds = %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit
+  %33 = trunc i64 %29 to i32
+  %34 = and i32 %33, 268435455
+  %35 = add i16 %11, 1
+  store i16 %35, ptr %0, align 4, !tbaa !3
+  %36 = sext i16 %11 to i64
+  %37 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %36
+  store i32 %34, ptr %37, align 4, !tbaa !9
+  %38 = add nsw i32 %.017, -24
+  %39 = lshr i64 %29, 28
   br label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
 
-_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit, %30
-  %38 = phi i16 [ %33, %30 ], [ %11, %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit ]
-  %.19 = phi i64 [ %37, %30 ], [ %27, %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit ]
-  %.1 = phi i32 [ %36, %30 ], [ %28, %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit ]
+_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit, %32
+  %40 = phi i16 [ %35, %32 ], [ %11, %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit ]
+  %.19 = phi i64 [ %39, %32 ], [ %29, %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit ]
+  %.1 = phi i32 [ %38, %32 ], [ %30, %_ZN14arrow_vendored17double_conversionL12HexCharValueEi.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %39 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %39, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit._crit_edge, label %10, !llvm.loop !25
+  %41 = icmp eq i64 %indvars.iv.next, 0
+  br i1 %41, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit._crit_edge, label %10, !llvm.loop !25
 
-40:                                               ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit._crit_edge
-  %41 = trunc i64 %.19 to i32
-  %42 = and i32 %41, 268435455
-  %43 = add i16 %38, 1
-  store i16 %43, ptr %0, align 4, !tbaa !3
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %45 = sext i16 %38 to i64
-  %46 = getelementptr inbounds [128 x i32], ptr %44, i64 0, i64 %45
-  store i32 %42, ptr %46, align 4, !tbaa !9
-  br label %47
+42:                                               ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit._crit_edge
+  %43 = trunc i64 %.19 to i32
+  %44 = and i32 %43, 268435455
+  %45 = add i16 %40, 1
+  store i16 %45, ptr %0, align 4, !tbaa !3
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %47 = sext i16 %40 to i64
+  %48 = getelementptr inbounds [128 x i32], ptr %46, i64 0, i64 %47
+  store i32 %44, ptr %48, align 4, !tbaa !9
+  br label %49
 
-47:                                               ; preds = %40, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit._crit_edge
-  %.pr.i = phi i16 [ %43, %40 ], [ %38, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit._crit_edge ]
-  %48 = icmp sgt i16 %.pr.i, 0
-  br i1 %48, label %.lr.ph.i, label %.critedge.i
+49:                                               ; preds = %42, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit._crit_edge
+  %.pr.i = phi i16 [ %45, %42 ], [ %40, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit._crit_edge ]
+  %50 = icmp sgt i16 %.pr.i, 0
+  br i1 %50, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %47
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %50
+.lr.ph.i:                                         ; preds = %49
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  br label %52
 
-50:                                               ; preds = %58, %.lr.ph.i
-  %51 = phi i16 [ %.pr.i, %.lr.ph.i ], [ %59, %58 ]
-  %52 = zext nneg i16 %51 to i64
-  %53 = add nuw nsw i64 %52, 4294967295
-  %54 = and i64 %53, 4294967295
-  %55 = getelementptr inbounds nuw [128 x i32], ptr %49, i64 0, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !9
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit
+52:                                               ; preds = %60, %.lr.ph.i
+  %53 = phi i16 [ %.pr.i, %.lr.ph.i ], [ %61, %60 ]
+  %54 = zext nneg i16 %53 to i64
+  %55 = add nuw nsw i64 %54, 4294967295
+  %56 = and i64 %55, 4294967295
+  %57 = getelementptr inbounds nuw [128 x i32], ptr %51, i64 0, i64 %56
+  %58 = load i32, ptr %57, align 4, !tbaa !9
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit
 
-58:                                               ; preds = %50
-  %59 = add nsw i16 %51, -1
-  store i16 %59, ptr %0, align 4, !tbaa !3
-  %60 = icmp sgt i16 %51, 1
-  br i1 %60, label %50, label %.critedge.thread3.i, !llvm.loop !17
+60:                                               ; preds = %52
+  %61 = add nsw i16 %53, -1
+  store i16 %61, ptr %0, align 4, !tbaa !3
+  %62 = icmp sgt i16 %53, 1
+  br i1 %62, label %52, label %.critedge.thread3.i, !llvm.loop !17
 
-.critedge.i:                                      ; preds = %47
-  %61 = icmp eq i16 %.pr.i, 0
-  br i1 %61, label %.critedge.thread3.i, label %_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit
+.critedge.i:                                      ; preds = %49
+  %63 = icmp eq i16 %.pr.i, 0
+  br i1 %63, label %.critedge.thread3.i, label %_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit
 
-.critedge.thread3.i:                              ; preds = %58, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader, %.critedge.i
+.critedge.thread3.i:                              ; preds = %60, %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader, %.critedge.i
   store i16 0, ptr %4, align 2, !tbaa !8
   br label %_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit
 
-_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit: ; preds = %50, %.critedge.i, %.critedge.thread3.i
+_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit: ; preds = %52, %.critedge.i, %.critedge.thread3.i
   ret void
 }
 

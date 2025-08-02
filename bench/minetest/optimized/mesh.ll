@@ -3704,7 +3704,7 @@ return:                                           ; preds = %invoke.cont49, %inv
 declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_Z9cloneMeshPN3irr5scene5IMeshE(ptr noundef %src_mesh) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define dso_local noalias noundef nonnull ptr @_Z9cloneMeshPN3irr5scene5IMeshE(ptr noundef %src_mesh) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 64

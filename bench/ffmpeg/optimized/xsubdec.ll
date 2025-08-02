@@ -94,7 +94,7 @@ define internal range(i32 53, 0) i32 @decode_frame(ptr noundef %0, ptr noundef c
 
 .preheader.i:                                     ; preds = %38, %48
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %48 ], [ 0, %38 ]
-  %.01525.i = phi i64 [ %54, %48 ], [ 0, %38 ]
+  %.01523.i = phi i64 [ %54, %48 ], [ 0, %38 ]
   %41 = getelementptr inbounds nuw [9 x i8], ptr @tc_offsets, i64 0, i64 %indvars.iv.i
   %42 = load i8, ptr %41, align 1, !tbaa !31
   %43 = zext i8 %42 to i64
@@ -106,7 +106,7 @@ define internal range(i32 53, 0) i32 @decode_frame(ptr noundef %0, ptr noundef c
 
 48:                                               ; preds = %.preheader.i
   %49 = zext nneg i8 %46 to i64
-  %50 = add nsw i64 %.01525.i, %49
+  %50 = add nsw i64 %.01523.i, %49
   %51 = getelementptr inbounds nuw [9 x i8], ptr @tc_muls, i64 0, i64 %indvars.iv.i
   %52 = load i8, ptr %51, align 1, !tbaa !31
   %53 = zext i8 %52 to i64
@@ -144,7 +144,7 @@ parse_timecode.exit:                              ; preds = %.preheader.i, %31, 
 
 .preheader.i131:                                  ; preds = %65, %75
   %indvars.iv.i132 = phi i64 [ %indvars.iv.next.i134, %75 ], [ 0, %65 ]
-  %.01525.i133 = phi i64 [ %81, %75 ], [ 0, %65 ]
+  %.01523.i133 = phi i64 [ %81, %75 ], [ 0, %65 ]
   %68 = getelementptr inbounds nuw [9 x i8], ptr @tc_offsets, i64 0, i64 %indvars.iv.i132
   %69 = load i8, ptr %68, align 1, !tbaa !31
   %70 = zext i8 %69 to i64
@@ -156,7 +156,7 @@ parse_timecode.exit:                              ; preds = %.preheader.i, %31, 
 
 75:                                               ; preds = %.preheader.i131
   %76 = zext nneg i8 %73 to i64
-  %77 = add nsw i64 %.01525.i133, %76
+  %77 = add nsw i64 %.01523.i133, %76
   %78 = getelementptr inbounds nuw [9 x i8], ptr @tc_muls, i64 0, i64 %indvars.iv.i132
   %79 = load i8, ptr %78, align 1, !tbaa !31
   %80 = zext i8 %79 to i64

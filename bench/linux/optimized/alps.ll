@@ -67,7 +67,7 @@ define dso_local i32 @alps_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0) #14
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %.thread
+  br i1 %8, label %9, label %112
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -152,7 +152,7 @@ define dso_local i32 @alps_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %55 = load i32, ptr %22, align 8
   %56 = and i32 %55, 2
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %94, label %58
+  br i1 %57, label %93, label %58
 
 58:                                               ; preds = %54
   %59 = tail call ptr @input_allocate_device() #14
@@ -164,7 +164,7 @@ define dso_local i32 @alps_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 344
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %64, ptr noundef nonnull @.str) #15
-  br label %.thread
+  br label %112
 
 65:                                               ; preds = %58
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -210,64 +210,64 @@ define dso_local i32 @alps_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %86, i64 5) #14, !srcloc !8
   %87 = tail call i32 @input_register_device(ptr noundef nonnull %59) #14
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %92, label %89
+  br i1 %88, label %.critedge, label %89
 
 89:                                               ; preds = %85
   %90 = load ptr, ptr %67, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 344
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %91, ptr noundef nonnull @.str.3, i32 noundef %87) #15
   tail call void @input_free_device(ptr noundef nonnull %59) #14
-  br label %.thread
+  br label %112
 
-92:                                               ; preds = %85
-  %93 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %59, ptr %93, align 8
-  br label %94
+.critedge:                                        ; preds = %85
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %59, ptr %92, align 8
+  br label %93
 
-94:                                               ; preds = %92, %54
+93:                                               ; preds = %.critedge, %54
   store ptr %0, ptr %2, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store i64 68719476704, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store volatile ptr %96, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store volatile ptr %96, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store ptr @alps_register_bare_ps2_mouse, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  tail call void @init_timer_key(ptr noundef nonnull %99, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #14
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store ptr @alps_process_byte, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store ptr @alps_poll, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store ptr @alps_disconnect, ptr %102, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store ptr @alps_reconnect, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %2, i64 188
-  %105 = load i16, ptr %104, align 4
-  %106 = icmp eq i16 %105, 1024
-  %107 = select i1 %106, i8 8, i8 6
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 242
-  store i8 %107, ptr %108, align 2
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store i32 0, ptr %109, align 8
-  %110 = shl nuw nsw i8 %107, 1
-  %111 = zext nneg i8 %110 to i32
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  store i32 %111, ptr %112, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store i64 68719476704, ptr %94, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store volatile ptr %95, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  store volatile ptr %95, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store ptr @alps_register_bare_ps2_mouse, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  tail call void @init_timer_key(ptr noundef nonnull %98, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #14
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  store ptr @alps_process_byte, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  store ptr @alps_poll, ptr %100, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  store ptr @alps_disconnect, ptr %101, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  store ptr @alps_reconnect, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 188
+  %104 = load i16, ptr %103, align 4
+  %105 = icmp eq i16 %104, 1024
+  %106 = select i1 %105, i8 8, i8 6
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 242
+  store i8 %106, ptr %107, align 2
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  store i32 0, ptr %108, align 8
+  %109 = shl nuw nsw i8 %106, 1
+  %110 = zext nneg i8 %109 to i32
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 388
+  store i32 %110, ptr %111, align 4
   br label %116
 
-.thread:                                          ; preds = %61, %89, %1
-  %113 = phi i32 [ %7, %1 ], [ -12, %61 ], [ %87, %89 ]
+112:                                              ; preds = %61, %89, %1
+  %113 = phi i32 [ %7, %1 ], [ %87, %89 ], [ -12, %61 ]
   %114 = tail call i32 @psmouse_reset(ptr noundef %0) #14
   %115 = load ptr, ptr %0, align 8
   tail call void @kfree(ptr noundef %115) #14
   store ptr null, ptr %0, align 8
   br label %116
 
-116:                                              ; preds = %.thread, %94
-  %117 = phi i32 [ %113, %.thread ], [ 0, %94 ]
+116:                                              ; preds = %112, %93
+  %117 = phi i32 [ %113, %112 ], [ 0, %93 ]
   ret i32 %117
 }
 

@@ -1373,13 +1373,16 @@ H5T__is_packed.exit:                              ; preds = %22
   %129 = load i32, ptr %115, align 4, !tbaa !28
   %130 = zext i32 %129 to i64
   %131 = icmp samesign ult i64 %indvars.iv.next70, %130
-  br i1 %131, label %122, label %._crit_edge63, !llvm.loop !48
+  br i1 %131, label %122, label %._crit_edge63.loopexit, !llvm.loop !48
 
-._crit_edge63:                                    ; preds = %122, %.preheader
-  %.046.lcssa = phi i64 [ 0, %.preheader ], [ %128, %122 ]
-  %132 = tail call i64 @llvm.umax.i64(i64 %.046.lcssa, i64 1)
+._crit_edge63.loopexit:                           ; preds = %122
+  %132 = tail call i64 @llvm.umax.i64(i64 %128, i64 1)
+  br label %._crit_edge63
+
+._crit_edge63:                                    ; preds = %._crit_edge63.loopexit, %.preheader
+  %.046.lcssa = phi i64 [ 1, %.preheader ], [ %132, %._crit_edge63.loopexit ]
   %133 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  store i64 %132, ptr %133, align 8, !tbaa !34
+  store i64 %.046.lcssa, ptr %133, align 8, !tbaa !34
   %134 = getelementptr inbounds nuw i8, ptr %114, i64 60
   store i8 1, ptr %134, align 4, !tbaa !28
   br label %H5T__is_packed.exit.thread

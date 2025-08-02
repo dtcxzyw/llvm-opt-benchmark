@@ -624,7 +624,7 @@ get_convert_unit_val.exit.i:                      ; preds = %.lr.ph.i.i
   br label %89
 
 85:                                               ; preds = %79, %get_convert_unit_val.exit.i, %.preheader.i.i, %56, %54
-  %.021.i = phi double [ %49, %56 ], [ %49, %54 ], [ %49, %get_convert_unit_val.exit.i ], [ %81, %79 ], [ %49, %.preheader.i.i ]
+  %.021.i = phi double [ %49, %56 ], [ %49, %54 ], [ %81, %79 ], [ %49, %get_convert_unit_val.exit.i ], [ %49, %.preheader.i.i ]
   %86 = sext i32 %39 to i64
   %87 = getelementptr inbounds double, ptr %18, i64 %86
   store double %.021.i, ptr %87, align 8

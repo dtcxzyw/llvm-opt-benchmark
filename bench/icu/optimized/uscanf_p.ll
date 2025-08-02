@@ -1181,9 +1181,9 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   store i32 %13, ptr %4, align 4, !tbaa !3
   %14 = load i32, ptr %7, align 4, !tbaa !36
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.thread73, label %16
+  br i1 %15, label %.thread, label %16
 
-.thread73:                                        ; preds = %6
+.thread:                                          ; preds = %6
   call void @uset_close_77(ptr noundef %10)
   br label %58
 
@@ -1192,9 +1192,9 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   %spec.select = select i1 %17, i32 %12, i32 2147483647
   store i32 0, ptr %8, align 4, !tbaa !3
   %18 = icmp sgt i32 %spec.select, 0
-  br i1 %18, label %.lr.ph, label %.thread68.thread
+  br i1 %18, label %.lr.ph, label %.critedge.thread65.thread
 
-.thread68.thread:                                 ; preds = %16
+.critedge.thread65.thread:                        ; preds = %16
   call void @uset_close_77(ptr noundef %10)
   br label %58
 
@@ -1203,20 +1203,20 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   br label %20
 
 20:                                               ; preds = %.lr.ph, %42
-  %.186 = phi i8 [ 0, %.lr.ph ], [ 1, %42 ]
-  %.14385 = phi ptr [ %9, %.lr.ph ], [ %.3, %42 ]
-  %.24783 = phi i32 [ %spec.select, %.lr.ph ], [ %45, %42 ]
+  %.182 = phi i8 [ 0, %.lr.ph ], [ 1, %42 ]
+  %.14381 = phi ptr [ %9, %.lr.ph ], [ %.3, %42 ]
+  %.24779 = phi i32 [ %spec.select, %.lr.ph ], [ %45, %42 ]
   %21 = call signext i8 @ufile_getch32_77(ptr noundef %0, ptr noundef nonnull %8)
-  switch i8 %21, label %.thread [
+  switch i8 %21, label %.critedge.thread89 [
     i8 1, label %22
-    i8 0, label %.thread68
+    i8 0, label %.critedge.thread65
   ]
 
 22:                                               ; preds = %20
   %23 = load i32, ptr %8, align 4, !tbaa !3
   %24 = call signext i8 @uset_contains_77(ptr noundef %10, i32 noundef %23)
   %.not53 = icmp eq i8 %24, 0
-  br i1 %.not53, label %.thread, label %25
+  br i1 %.not53, label %.critedge.thread89, label %25
 
 25:                                               ; preds = %22
   %26 = load i8, ptr %19, align 4, !tbaa !19
@@ -1230,67 +1230,67 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
 
 29:                                               ; preds = %27
   %30 = trunc nuw i32 %.pre to i16
-  store i16 %30, ptr %.14385, align 2, !tbaa !7
-  br label %.thread66
+  store i16 %30, ptr %.14381, align 2, !tbaa !7
+  br label %.critedge.thread
 
 31:                                               ; preds = %27
   %32 = icmp ugt i32 %.pre, 1114111
-  %.not55 = icmp eq i32 %.24783, 1
+  %.not55 = icmp eq i32 %.24779, 1
   %or.cond60 = or i1 %.not55, %32
-  br i1 %or.cond60, label %.thread, label %33
+  br i1 %or.cond60, label %.critedge.thread89, label %33
 
 33:                                               ; preds = %31
   %34 = lshr i32 %.pre, 10
   %35 = trunc nuw nsw i32 %34 to i16
   %36 = add nuw nsw i16 %35, -10304
-  store i16 %36, ptr %.14385, align 2, !tbaa !7
+  store i16 %36, ptr %.14381, align 2, !tbaa !7
   %37 = trunc i32 %.pre to i16
   %38 = and i16 %37, 1023
   %39 = or disjoint i16 %38, -9216
-  %40 = getelementptr inbounds nuw i8, ptr %.14385, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %.14381, i64 2
   store i16 %39, ptr %40, align 2, !tbaa !7
-  br label %.thread66
+  br label %.critedge.thread
 
-.thread66:                                        ; preds = %33, %29
-  %.038.ph = phi i64 [ 2, %33 ], [ 1, %29 ]
-  %41 = getelementptr inbounds nuw i16, ptr %.14385, i64 %.038.ph
+.critedge.thread:                                 ; preds = %33, %29
+  %.038 = phi i64 [ 1, %29 ], [ 2, %33 ]
+  %41 = getelementptr inbounds nuw i16, ptr %.14381, i64 %.038
   br label %42
 
-42:                                               ; preds = %.thread66, %25
-  %.3 = phi ptr [ %.14385, %25 ], [ %41, %.thread66 ]
+42:                                               ; preds = %.critedge.thread, %25
+  %.3 = phi ptr [ %.14381, %25 ], [ %41, %.critedge.thread ]
   %43 = add nsw i32 %.pre, -65536
   %44 = icmp ult i32 %43, 1048576
   %.neg = select i1 %44, i32 -2, i32 -1
-  %45 = add nsw i32 %.neg, %.24783
+  %45 = add nsw i32 %.neg, %.24779
   %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %20, label %.thread68.thread101, !llvm.loop !60
+  br i1 %46, label %20, label %.critedge.thread65.thread98, !llvm.loop !60
 
-.thread68.thread101:                              ; preds = %42
+.critedge.thread65.thread98:                      ; preds = %42
   call void @uset_close_77(ptr noundef %10)
   br label %49
 
-.thread:                                          ; preds = %22, %31, %20
-  %.296 = phi i8 [ %.186, %20 ], [ %.186, %22 ], [ 1, %31 ]
+.critedge.thread89:                               ; preds = %22, %31, %20
+  %.293 = phi i8 [ %.182, %20 ], [ %.182, %22 ], [ 1, %31 ]
   %47 = load i32, ptr %8, align 4, !tbaa !3
   %48 = call i32 @u_fungetc_77(i32 noundef %47, ptr noundef %0)
-  br label %.thread68
+  br label %.critedge.thread65
 
-.thread68:                                        ; preds = %20, %.thread
-  %.039 = phi i8 [ %.296, %.thread ], [ %.186, %20 ]
+.critedge.thread65:                               ; preds = %20, %.critedge.thread89
+  %.039 = phi i8 [ %.293, %.critedge.thread89 ], [ %.182, %20 ]
   call void @uset_close_77(ptr noundef %10)
   %.not57 = icmp eq i8 %.039, 0
   br i1 %.not57, label %58, label %49
 
-49:                                               ; preds = %.thread68.thread101, %.thread68
-  %.14380107 = phi ptr [ %.3, %.thread68.thread101 ], [ %.14385, %.thread68 ]
-  %.24782106 = phi i32 [ %45, %.thread68.thread101 ], [ %.24783, %.thread68 ]
+49:                                               ; preds = %.critedge.thread65.thread98, %.critedge.thread65
+  %.14376104 = phi ptr [ %.3, %.critedge.thread65.thread98 ], [ %.14381, %.critedge.thread65 ]
+  %.24778103 = phi i32 [ %45, %.critedge.thread65.thread98 ], [ %.24779, %.critedge.thread65 ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load i8, ptr %50, align 4, !tbaa !19
   %.not58 = icmp eq i8 %51, 0
   br i1 %.not58, label %52, label %53
 
 52:                                               ; preds = %49
-  store i16 0, ptr %.14380107, align 2, !tbaa !7
+  store i16 0, ptr %.14376104, align 2, !tbaa !7
   br label %53
 
 53:                                               ; preds = %49, %52
@@ -1299,11 +1299,11 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
   %55 = load i32, ptr %1, align 4, !tbaa !14
   %56 = icmp sgt i32 %55, -1
   %spec.select61 = select i1 %56, i32 %55, i32 2147483647
-  %57 = sub nsw i32 %spec.select61, %.24782106
+  %57 = sub nsw i32 %spec.select61, %.24778103
   br label %58
 
-58:                                               ; preds = %.thread68.thread, %.thread73, %.thread68, %53
-  %.048 = phi i32 [ %57, %53 ], [ -1, %.thread68 ], [ -1, %.thread73 ], [ -1, %.thread68.thread ]
+58:                                               ; preds = %.critedge.thread65.thread, %.thread, %.critedge.thread65, %53
+  %.048 = phi i32 [ %57, %53 ], [ -1, %.critedge.thread65 ], [ -1, %.thread ], [ -1, %.critedge.thread65.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   ret i32 %.048

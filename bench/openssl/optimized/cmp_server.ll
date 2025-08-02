@@ -897,8 +897,8 @@ define internal fastcc ptr @process_non_polling_request(ptr noundef nonnull %0, 
   %switch.maskindex = trunc i32 %23 to i8
   %switch.shifted = lshr i8 -107, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond34 = select i1 %24, i1 %switch.lobit, i1 false
-  br i1 %or.cond34, label %switch.lookup, label %25
+  %or.cond35 = select i1 %24, i1 %switch.lobit, i1 false
+  br i1 %or.cond35, label %switch.lookup, label %25
 
 25:                                               ; preds = %22
   tail call void @ERR_new() #3
@@ -977,11 +977,11 @@ switch.lookup:                                    ; preds = %22
   %55 = tail call ptr @ERR_reason_error_string(i64 noundef %54) #3
   %56 = tail call ptr @OSSL_CMP_STATUSINFO_new(i32 noundef 2, i32 noundef 512, ptr noundef %55) #3
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %process_cert_request.exit, label %..thread86_crit_edge.i
+  br i1 %57, label %process_cert_request.exit, label %..thread_crit_edge.i
 
-..thread86_crit_edge.i:                           ; preds = %53
+..thread_crit_edge.i:                             ; preds = %53
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !3
-  br label %.thread86.i
+  br label %.thread.i
 
 58:                                               ; preds = %48, %46
   %59 = tail call ptr @OSSL_CMP_MSG_get0_header(ptr noundef nonnull %1) #3
@@ -1026,24 +1026,24 @@ switch.lookup:                                    ; preds = %22
 
 81:                                               ; preds = %78
   %82 = icmp eq i32 %44, 1
-  %.pre89.i = load ptr, ptr %0, align 8, !tbaa !3
-  br i1 %82, label %83, label %.thread86.i
+  %.pre84.i = load ptr, ptr %0, align 8, !tbaa !3
+  br i1 %82, label %83, label %.thread.i
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw i8, ptr %.pre89.i, i64 352
+  %84 = getelementptr inbounds nuw i8, ptr %.pre84.i, i64 352
   %85 = load i32, ptr %84, align 8, !tbaa !71
   %.not80.i = icmp eq i32 %85, 0
-  br i1 %.not80.i, label %.thread86.i, label %86
+  br i1 %.not80.i, label %.thread.i, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds nuw i8, ptr %.pre89.i, i64 344
+  %87 = getelementptr inbounds nuw i8, ptr %.pre84.i, i64 344
   %88 = load ptr, ptr %87, align 8, !tbaa !72
-  br label %.thread86.i
+  br label %.thread.i
 
-.thread86.i:                                      ; preds = %86, %83, %81, %..thread86_crit_edge.i
-  %89 = phi ptr [ %.pre.i, %..thread86_crit_edge.i ], [ %.pre89.i, %86 ], [ %.pre89.i, %81 ], [ %.pre89.i, %83 ]
-  %.061.i = phi ptr [ null, %..thread86_crit_edge.i ], [ %88, %86 ], [ null, %81 ], [ null, %83 ]
-  %.053.i = phi ptr [ %56, %..thread86_crit_edge.i ], [ %61, %86 ], [ %61, %81 ], [ %61, %83 ]
+.thread.i:                                        ; preds = %86, %83, %81, %..thread_crit_edge.i
+  %89 = phi ptr [ %.pre.i, %..thread_crit_edge.i ], [ %.pre84.i, %86 ], [ %.pre84.i, %81 ], [ %.pre84.i, %83 ]
+  %.061.i = phi ptr [ null, %..thread_crit_edge.i ], [ %88, %86 ], [ null, %81 ], [ null, %83 ]
+  %.053.i = phi ptr [ %56, %..thread_crit_edge.i ], [ %61, %86 ], [ %61, %81 ], [ %61, %83 ]
   %90 = load ptr, ptr %4, align 8, !tbaa !69
   %91 = load ptr, ptr %5, align 8, !tbaa !70
   %92 = load ptr, ptr %6, align 8, !tbaa !70
@@ -1053,15 +1053,15 @@ switch.lookup:                                    ; preds = %22
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %98
 
-97:                                               ; preds = %.thread86.i
+97:                                               ; preds = %.thread.i
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 305, ptr noundef nonnull @__func__.process_cert_request) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 117, ptr noundef null) #3
   br label %98
 
-98:                                               ; preds = %97, %.thread86.i, %78, %58
-  %.154.i = phi ptr [ %.053.i, %97 ], [ %.053.i, %.thread86.i ], [ %61, %78 ], [ null, %58 ]
-  %.050.i = phi ptr [ null, %97 ], [ %95, %.thread86.i ], [ null, %78 ], [ null, %58 ]
+98:                                               ; preds = %97, %.thread.i, %78, %58
+  %.154.i = phi ptr [ %.053.i, %97 ], [ %.053.i, %.thread.i ], [ %61, %78 ], [ null, %58 ]
+  %.050.i = phi ptr [ null, %97 ], [ %95, %.thread.i ], [ null, %78 ], [ null, %58 ]
   call void @OSSL_CMP_PKISI_free(ptr noundef %.154.i) #3
   %99 = load ptr, ptr %4, align 8, !tbaa !69
   call void @X509_free(ptr noundef %99) #3
@@ -1074,7 +1074,7 @@ switch.lookup:                                    ; preds = %22
   br label %process_cert_request.exit
 
 process_cert_request.exit:                        ; preds = %20, %25, %34, %38, %41, %42, %53, %98
-  %.0.i = phi ptr [ null, %25 ], [ %.050.i, %98 ], [ null, %20 ], [ null, %42 ], [ null, %53 ], [ null, %34 ], [ null, %38 ], [ null, %41 ]
+  %.0.i = phi ptr [ null, %25 ], [ %.050.i, %98 ], [ null, %20 ], [ null, %42 ], [ null, %53 ], [ null, %41 ], [ null, %38 ], [ null, %34 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
@@ -1277,9 +1277,9 @@ process_genm.exit:                                ; preds = %150, %152, %157
 
 199:                                              ; preds = %196
   %200 = icmp eq i32 %193, 0
-  br i1 %200, label %.thread.i, label %202
+  br i1 %200, label %.thread.i34, label %202
 
-.thread.i:                                        ; preds = %199
+.thread.i34:                                      ; preds = %199
   %201 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 3, ptr noundef nonnull %188, ptr noundef nonnull @__func__.process_certConf, ptr noundef nonnull @.str, i32 noundef 420, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.15) #3
   br label %230
 
@@ -1332,7 +1332,7 @@ process_genm.exit:                                ; preds = %150, %152, %157
   %229 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef nonnull %188, ptr noundef nonnull @__func__.process_certConf, ptr noundef nonnull @.str, i32 noundef 446, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull %227, ptr noundef nonnull %228) #3
   br label %230
 
-230:                                              ; preds = %223, %221, %220, %206, %.thread.i
+230:                                              ; preds = %223, %221, %220, %206, %.thread.i34
   %231 = tail call ptr @ossl_cmp_pkiconf_new(ptr noundef nonnull %188) #3
   %232 = icmp eq ptr %231, null
   br i1 %232, label %.critedge.sink.split.i, label %.critedge

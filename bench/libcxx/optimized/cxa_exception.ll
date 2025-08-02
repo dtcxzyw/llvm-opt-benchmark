@@ -180,8 +180,8 @@ declare noundef ptr @_ZSt14get_unexpectedv() local_unnamed_addr #8
 ; Function Attrs: nounwind
 declare noundef ptr @_ZSt13get_terminatev() local_unnamed_addr #8
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN10__cxxabiv1L22exception_cleanup_funcE19_Unwind_Reason_CodeP17_Unwind_Exception(i32 noundef %0, ptr noundef %1) #9 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN10__cxxabiv1L22exception_cleanup_funcE19_Unwind_Reason_CodeP17_Unwind_Exception(i32 noundef %0, ptr noundef %1) #2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i32 %0, 1
   br i1 %.not, label %6, label %3
 

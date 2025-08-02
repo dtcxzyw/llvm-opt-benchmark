@@ -900,55 +900,57 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #8 {
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
   br i1 %exitcond.not, label %.preheader2, label %1, !llvm.loop !21
 
-.preheader2:                                      ; preds = %10, %17
-  %indvars.iv15 = phi i64 [ %indvars.iv.next16, %17 ], [ 0, %10 ]
-  %11 = shl nuw nsw i64 %indvars.iv15, 6
+.preheader2:                                      ; preds = %10, %18
+  %indvars.iv14 = phi i64 [ %indvars.iv.next15, %18 ], [ 0, %10 ]
+  %11 = shl nuw nsw i64 %indvars.iv14, 6
   %12 = or disjoint i64 %11, 32
-  %gep.idx = shl nuw nsw i64 %indvars.iv15, 6
-  %invariant.gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @ff_mpa_synth_window_fixed, i64 2048), i64 %gep.idx
+  %.idx = shl nuw nsw i64 %indvars.iv14, 6
+  %invariant.gep = getelementptr inbounds nuw i8, ptr @ff_mpa_synth_window_fixed, i64 %.idx
   br label %13
 
 13:                                               ; preds = %.preheader2, %13
-  %indvars.iv11 = phi i64 [ 0, %.preheader2 ], [ %indvars.iv.next12, %13 ]
-  %14 = sub nuw nsw i64 %12, %indvars.iv11
+  %indvars.iv10 = phi i64 [ 0, %.preheader2 ], [ %indvars.iv.next11, %13 ]
+  %14 = sub nuw nsw i64 %12, %indvars.iv10
   %15 = getelementptr inbounds nuw i32, ptr @ff_mpa_synth_window_fixed, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !4
-  %gep27 = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv11
-  store i32 %16, ptr %gep27, align 4, !tbaa !4
-  %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
-  %exitcond14.not = icmp eq i64 %indvars.iv.next12, 16
-  br i1 %exitcond14.not, label %17, label %13, !llvm.loop !22
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv10
+  %17 = getelementptr inbounds nuw i8, ptr %gep, i64 2048
+  store i32 %16, ptr %17, align 4, !tbaa !4
+  %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
+  %exitcond13.not = icmp eq i64 %indvars.iv.next11, 16
+  br i1 %exitcond13.not, label %18, label %13, !llvm.loop !22
 
-17:                                               ; preds = %13
-  %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
-  %exitcond18.not = icmp eq i64 %indvars.iv.next16, 8
-  br i1 %exitcond18.not, label %.preheader, label %.preheader2, !llvm.loop !23
+18:                                               ; preds = %13
+  %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
+  %exitcond17.not = icmp eq i64 %indvars.iv.next15, 8
+  br i1 %exitcond17.not, label %.preheader, label %.preheader2, !llvm.loop !23
 
-.preheader:                                       ; preds = %17, %24
-  %indvars.iv23 = phi i64 [ %indvars.iv.next24, %24 ], [ 0, %17 ]
-  %18 = shl nuw nsw i64 %indvars.iv23, 6
-  %19 = or disjoint i64 %18, 48
-  %gep7.idx = shl nuw nsw i64 %indvars.iv23, 6
-  %invariant.gep28 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @ff_mpa_synth_window_fixed, i64 2560), i64 %gep7.idx
-  br label %20
+.preheader:                                       ; preds = %18, %26
+  %indvars.iv22 = phi i64 [ %indvars.iv.next23, %26 ], [ 0, %18 ]
+  %19 = shl nuw nsw i64 %indvars.iv22, 6
+  %20 = or disjoint i64 %19, 48
+  %.idx26 = shl nuw nsw i64 %indvars.iv22, 6
+  %invariant.gep27 = getelementptr inbounds nuw i8, ptr @ff_mpa_synth_window_fixed, i64 %.idx26
+  br label %21
 
-20:                                               ; preds = %.preheader, %20
-  %indvars.iv19 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next20, %20 ]
-  %21 = sub nuw nsw i64 %19, %indvars.iv19
-  %22 = getelementptr inbounds nuw i32, ptr @ff_mpa_synth_window_fixed, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !4
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep28, i64 %indvars.iv19
-  store i32 %23, ptr %gep, align 4, !tbaa !4
-  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %24, label %20, !llvm.loop !24
+21:                                               ; preds = %.preheader, %21
+  %indvars.iv18 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next19, %21 ]
+  %22 = sub nuw nsw i64 %20, %indvars.iv18
+  %23 = getelementptr inbounds nuw i32, ptr @ff_mpa_synth_window_fixed, i64 %22
+  %24 = load i32, ptr %23, align 4, !tbaa !4
+  %gep28 = getelementptr inbounds nuw i32, ptr %invariant.gep27, i64 %indvars.iv18
+  %25 = getelementptr inbounds nuw i8, ptr %gep28, i64 2560
+  store i32 %24, ptr %25, align 4, !tbaa !4
+  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
+  %exitcond21.not = icmp eq i64 %indvars.iv.next19, 16
+  br i1 %exitcond21.not, label %26, label %21, !llvm.loop !24
 
-24:                                               ; preds = %20
-  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %exitcond26.not = icmp eq i64 %indvars.iv.next24, 8
-  br i1 %exitcond26.not, label %25, label %.preheader, !llvm.loop !25
+26:                                               ; preds = %21
+  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
+  %exitcond25.not = icmp eq i64 %indvars.iv.next23, 8
+  br i1 %exitcond25.not, label %27, label %.preheader, !llvm.loop !25
 
-25:                                               ; preds = %24
+27:                                               ; preds = %26
   ret void
 }
 

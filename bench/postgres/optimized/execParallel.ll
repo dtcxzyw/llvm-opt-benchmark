@@ -60,123 +60,123 @@ define dso_local noundef ptr @ExecInitParallelPlan(ptr noundef %0, ptr noundef %
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i32, ptr %23, align 4
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph71.i, label %._crit_edge.i
+  br i1 %26, label %.lr.ph67.i, label %.critedge.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph71.i, %.lr.ph.i, %14
-  %27 = tail call noundef ptr @palloc0(i64 noundef 152) #9
-  store i32 329, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 1, ptr %28, align 4
-  %29 = tail call i64 @pgstat_get_my_query_id() #9
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i8 0, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 17
-  store i8 0, ptr %32, align 1
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 18
-  store i8 1, ptr %33, align 2
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 19
-  store i8 0, ptr %34, align 1
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 20
-  store i8 0, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 21
-  store i8 0, ptr %36, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store ptr %20, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  store ptr %42, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  store ptr %45, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  %51 = getelementptr inbounds nuw i8, ptr %27, i64 88
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 88
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %.not59.i = icmp eq ptr %55, null
-  br i1 %.not59.i, label %ExecSerializePlan.exit, label %.lr.ph74.i
-
-.lr.ph74.i:                                       ; preds = %._crit_edge.i
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %58 = load i32, ptr %56, align 4
-  %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph78.i, label %ExecSerializePlan.exit
-
-.lr.ph71.i:                                       ; preds = %.lr.ph.i, %.lr.ph71.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph71.i ], [ 0, %.lr.ph.i ]
-  %60 = load ptr, ptr %24, align 8
-  %61 = getelementptr inbounds nuw %union.ListCell, ptr %60, i64 %indvars.iv.i
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 42
-  store i8 0, ptr %63, align 2
+.lr.ph67.i:                                       ; preds = %.lr.ph.i, %.lr.ph67.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph67.i ], [ 0, %.lr.ph.i ]
+  %27 = load ptr, ptr %24, align 8
+  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv.i
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 42
+  store i8 0, ptr %30, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %64 = load i32, ptr %23, align 4
-  %65 = sext i32 %64 to i64
-  %66 = icmp slt i64 %indvars.iv.next.i, %65
-  br i1 %66, label %.lr.ph71.i, label %._crit_edge.i
+  %31 = load i32, ptr %23, align 4
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next.i, %32
+  br i1 %33, label %.lr.ph67.i, label %.critedge.i
 
-.lr.ph78.i:                                       ; preds = %.lr.ph74.i, %75
-  %67 = phi ptr [ %76, %75 ], [ null, %.lr.ph74.i ]
-  %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %75 ], [ 0, %.lr.ph74.i ]
-  %68 = load ptr, ptr %57, align 8
-  %69 = getelementptr inbounds nuw %union.ListCell, ptr %68, i64 %indvars.iv80.i
+.critedge.i:                                      ; preds = %.lr.ph67.i, %.lr.ph.i, %14
+  %34 = tail call noundef ptr @palloc0(i64 noundef 152) #9
+  store i32 329, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store i32 1, ptr %35, align 4
+  %36 = tail call i64 @pgstat_get_my_query_id() #9
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i64 %36, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store i8 0, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 17
+  store i8 0, ptr %39, align 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 18
+  store i8 1, ptr %40, align 2
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 19
+  store i8 0, ptr %41, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 20
+  store i8 0, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 21
+  store i8 0, ptr %43, align 1
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  store ptr %20, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  store ptr %46, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  store ptr %49, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 56
+  store ptr %52, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  store ptr %55, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %34, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %34, i64 88
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 88
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %.not59.i = icmp eq ptr %62, null
+  br i1 %.not59.i, label %ExecSerializePlan.exit, label %.lr.ph69.i
+
+.lr.ph69.i:                                       ; preds = %.critedge.i
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %65 = load i32, ptr %63, align 4
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %.lr.ph72.i, label %ExecSerializePlan.exit
+
+.lr.ph72.i:                                       ; preds = %.lr.ph69.i, %75
+  %67 = phi ptr [ %76, %75 ], [ null, %.lr.ph69.i ]
+  %indvars.iv74.i = phi i64 [ %indvars.iv.next75.i, %75 ], [ 0, %.lr.ph69.i ]
+  %68 = load ptr, ptr %64, align 8
+  %69 = getelementptr inbounds nuw %union.ListCell, ptr %68, i64 %indvars.iv74.i
   %70 = load ptr, ptr %69, align 8
   %.not61.i = icmp eq ptr %70, null
   br i1 %.not61.i, label %75, label %71
 
-71:                                               ; preds = %.lr.ph78.i
+71:                                               ; preds = %.lr.ph72.i
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 37
   %73 = load i8, ptr %72, align 1, !range !4, !noundef !5
   %74 = trunc nuw i8 %73 to i1
   %spec.store.select.i = select i1 %74, ptr %70, ptr null
   br label %75
 
-75:                                               ; preds = %71, %.lr.ph78.i
-  %.0.i = phi ptr [ %spec.store.select.i, %71 ], [ null, %.lr.ph78.i ]
+75:                                               ; preds = %71, %.lr.ph72.i
+  %.0.i = phi ptr [ %spec.store.select.i, %71 ], [ null, %.lr.ph72.i ]
   %76 = tail call ptr @lappend(ptr noundef %67, ptr noundef %.0.i) #9
-  store ptr %76, ptr %51, align 8
-  %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
-  %77 = load i32, ptr %56, align 4
+  store ptr %76, ptr %58, align 8
+  %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
+  %77 = load i32, ptr %63, align 4
   %78 = sext i32 %77 to i64
-  %79 = icmp slt i64 %indvars.iv.next81.i, %78
-  br i1 %79, label %.lr.ph78.i, label %ExecSerializePlan.exit
+  %79 = icmp slt i64 %indvars.iv.next75.i, %78
+  br i1 %79, label %.lr.ph72.i, label %ExecSerializePlan.exit
 
-ExecSerializePlan.exit:                           ; preds = %75, %._crit_edge.i, %.lr.ph74.i
-  %80 = getelementptr inbounds nuw i8, ptr %27, i64 96
+ExecSerializePlan.exit:                           ; preds = %75, %.critedge.i, %.lr.ph69.i
+  %80 = getelementptr inbounds nuw i8, ptr %34, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 32, i1 false)
-  %81 = load ptr, ptr %52, align 8
+  %81 = load ptr, ptr %59, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 128
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %27, i64 128
+  %84 = getelementptr inbounds nuw i8, ptr %34, i64 128
   store ptr %83, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %27, i64 136
+  %85 = getelementptr inbounds nuw i8, ptr %34, i64 136
   store ptr null, ptr %85, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %27, i64 144
+  %86 = getelementptr inbounds nuw i8, ptr %34, i64 144
   store i32 -1, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %27, i64 148
+  %87 = getelementptr inbounds nuw i8, ptr %34, i64 148
   store i32 -1, ptr %87, align 4
-  %88 = tail call ptr @nodeToString(ptr noundef nonnull %27) #9
+  %88 = tail call ptr @nodeToString(ptr noundef nonnull %34) #9
   %89 = tail call ptr @CreateParallelContext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %3) #9
   %90 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %89, ptr %90, align 8

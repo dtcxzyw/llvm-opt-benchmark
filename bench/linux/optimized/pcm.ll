@@ -1943,121 +1943,119 @@ define internal noundef i32 @snd_pcm_dev_disconnect(ptr noundef readonly capture
   store volatile ptr %10, ptr %9, align 8
   store volatile ptr %7, ptr %7, align 8
   store volatile ptr %7, ptr %8, align 8
-  %invariant.gep = getelementptr i8, ptr %3, i64 208
-  br label %12
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 184
+  br label %13
 
-12:                                               ; preds = %.loopexit12, %1
-  %13 = phi i1 [ true, %1 ], [ false, %.loopexit12 ]
+13:                                               ; preds = %.loopexit12, %1
+  %14 = phi i1 [ true, %1 ], [ false, %.loopexit12 ]
   %.idx = phi i64 [ 0, %1 ], [ 56, %.loopexit12 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %14 = load ptr, ptr %gep, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit12, label %.preheader11
+  %15 = getelementptr i8, ptr %12, i64 %.idx
+  %16 = getelementptr i8, ptr %15, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %.loopexit12, label %.preheader11
 
-.preheader11:                                     ; preds = %12, %35
-  %16 = phi ptr [ %37, %35 ], [ %14, %12 ]
-  tail call void @snd_pcm_stream_lock_irq(ptr noundef nonnull %16) #13
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 192
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %35, label %20
+.preheader11:                                     ; preds = %13, %38
+  %19 = phi ptr [ %40, %38 ], [ %17, %13 ]
+  tail call void @snd_pcm_stream_lock_irq(ptr noundef nonnull %19) #13
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 192
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %38, label %23
 
-20:                                               ; preds = %.preheader11
-  %21 = load i32, ptr %18, align 8
-  switch i32 %21, label %.critedge8 [
+23:                                               ; preds = %.preheader11
+  %24 = load i32, ptr %21, align 8
+  switch i32 %24, label %.critedge8 [
     i32 3, label %.critedge
-    i32 5, label %22
+    i32 5, label %25
   ]
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %16, i64 60
-  %24 = load i32, ptr %23, align 4
-  %.not = icmp eq i32 %24, 0
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 60
+  %27 = load i32, ptr %26, align 4
+  %.not = icmp eq i32 %27, 0
   br i1 %.not, label %.critedge, label %.critedge8
 
-.critedge:                                        ; preds = %20, %22
-  %25 = tail call i32 @snd_pcm_stop(ptr noundef nonnull %16, i32 noundef 8) #13
-  %.pre = load ptr, ptr %17, align 8
+.critedge:                                        ; preds = %23, %25
+  %28 = tail call i32 @snd_pcm_stop(ptr noundef nonnull %19, i32 noundef 8) #13
+  %.pre = load ptr, ptr %20, align 8
   br label %.critedge8
 
-.critedge8:                                       ; preds = %20, %.critedge, %22
-  %26 = phi ptr [ %18, %20 ], [ %.pre, %.critedge ], [ %18, %22 ]
-  store i32 8, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 264
-  %28 = load ptr, ptr %27, align 8
-  store i32 8, ptr %28, align 8
-  %29 = load ptr, ptr %17, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 288
-  %31 = tail call i32 @__wake_up(ptr noundef nonnull %30, i32 noundef 3, i32 noundef 1, ptr noundef null) #13
-  %32 = load ptr, ptr %17, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 312
+.critedge8:                                       ; preds = %23, %.critedge, %25
+  %29 = phi ptr [ %21, %23 ], [ %.pre, %.critedge ], [ %21, %25 ]
+  store i32 8, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 264
+  %31 = load ptr, ptr %30, align 8
+  store i32 8, ptr %31, align 8
+  %32 = load ptr, ptr %20, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 288
   %34 = tail call i32 @__wake_up(ptr noundef nonnull %33, i32 noundef 3, i32 noundef 1, ptr noundef null) #13
-  br label %35
+  %35 = load ptr, ptr %20, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 312
+  %37 = tail call i32 @__wake_up(ptr noundef nonnull %36, i32 noundef 3, i32 noundef 1, ptr noundef null) #13
+  br label %38
 
-35:                                               ; preds = %.critedge8, %.preheader11
-  tail call void @snd_pcm_stream_unlock_irq(ptr noundef nonnull %16) #13
-  %36 = getelementptr inbounds nuw i8, ptr %16, i64 224
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %.loopexit12, label %.preheader11, !llvm.loop !36
+38:                                               ; preds = %.critedge8, %.preheader11
+  tail call void @snd_pcm_stream_unlock_irq(ptr noundef nonnull %19) #13
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 224
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %.loopexit12, label %.preheader11, !llvm.loop !36
 
-.loopexit12:                                      ; preds = %35, %12
-  br i1 %13, label %12, label %.preheader10, !llvm.loop !37
+.loopexit12:                                      ; preds = %38, %13
+  br i1 %14, label %13, label %.preheader10, !llvm.loop !37
 
 .preheader10:                                     ; preds = %.loopexit12, %.loopexit
-  %39 = phi i1 [ false, %.loopexit ], [ true, %.loopexit12 ]
+  %42 = phi i1 [ false, %.loopexit ], [ true, %.loopexit12 ]
   %.idx6 = phi i64 [ 56, %.loopexit ], [ 0, %.loopexit12 ]
-  %gep14 = getelementptr i8, ptr %invariant.gep, i64 %.idx6
-  %40 = load ptr, ptr %gep14, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %.loopexit, label %.preheader9
+  %43 = getelementptr i8, ptr %12, i64 %.idx6
+  %44 = getelementptr i8, ptr %43, i64 24
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %.loopexit, label %.preheader9
 
 .preheader9:                                      ; preds = %.preheader10, %.preheader9
-  %42 = phi ptr [ %44, %.preheader9 ], [ %40, %.preheader10 ]
-  tail call void @snd_pcm_sync_stop(ptr noundef nonnull %42, i1 noundef zeroext false) #13
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 224
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %.loopexit, label %.preheader9, !llvm.loop !38
+  %47 = phi ptr [ %49, %.preheader9 ], [ %45, %.preheader10 ]
+  tail call void @snd_pcm_sync_stop(ptr noundef nonnull %47, i1 noundef zeroext false) #13
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 224
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %.loopexit, label %.preheader9, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.preheader9, %.preheader10
-  br i1 %39, label %.preheader10, label %.preheader.preheader, !llvm.loop !39
+  br i1 %42, label %.preheader10, label %.preheader, !llvm.loop !39
 
-.preheader.preheader:                             ; preds = %.loopexit
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  br label %.preheader
+.preheader:                                       ; preds = %.loopexit, %68
+  %51 = phi i1 [ false, %68 ], [ true, %.loopexit ]
+  %52 = phi i64 [ 1, %68 ], [ 0, %.loopexit ]
+  %53 = getelementptr [2 x %struct.snd_pcm_str], ptr %12, i64 0, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %59, label %57
 
-.preheader:                                       ; preds = %.preheader.preheader, %64
-  %47 = phi i1 [ false, %64 ], [ true, %.preheader.preheader ]
-  %48 = phi i64 [ 1, %64 ], [ 0, %.preheader.preheader ]
-  %49 = getelementptr [2 x %struct.snd_pcm_str], ptr %46, i64 0, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %55, label %53
+57:                                               ; preds = %.preheader
+  %58 = tail call i32 @snd_unregister_device(ptr noundef nonnull %55) #13
+  br label %59
 
-53:                                               ; preds = %.preheader
-  %54 = tail call i32 @snd_unregister_device(ptr noundef nonnull %51) #13
-  br label %55
-
-55:                                               ; preds = %53, %.preheader
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %64, label %59
-
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %49, i64 8
+59:                                               ; preds = %57, %.preheader
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call i32 @snd_ctl_remove(ptr noundef %62, ptr noundef nonnull %57) #13
-  store ptr null, ptr %56, align 8
-  br label %64
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %68, label %63
 
-64:                                               ; preds = %59, %55
-  br i1 %47, label %.preheader, label %65, !llvm.loop !40
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call i32 @snd_ctl_remove(ptr noundef %66, ptr noundef nonnull %61) #13
+  store ptr null, ptr %60, align 8
+  br label %68
 
-65:                                               ; preds = %64
+68:                                               ; preds = %63, %59
+  br i1 %51, label %.preheader, label %69, !llvm.loop !40
+
+69:                                               ; preds = %68
   tail call void @mutex_unlock(ptr noundef nonnull %4) #13
   tail call void @mutex_unlock(ptr noundef nonnull @register_mutex) #13
   ret i32 0

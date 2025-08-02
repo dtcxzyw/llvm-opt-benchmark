@@ -63,37 +63,37 @@ define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captu
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load i64, ptr %10, align 8, !tbaa !71
   %12 = add i64 %11, 29
-  %.not49 = icmp eq i64 %12, 0
-  br i1 %.not49, label %.thread, label %.lr.ph
+  %.not48 = icmp eq i64 %12, 0
+  br i1 %.not48, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %14
 
 14:                                               ; preds = %.lr.ph, %validate_context.exit
-  %.02440 = phi ptr [ %2, %.lr.ph ], [ %44, %validate_context.exit ]
-  %.02938 = phi i64 [ 0, %.lr.ph ], [ %43, %validate_context.exit ]
-  %15 = getelementptr inbounds nuw i8, ptr %.02440, i64 16
+  %.02439 = phi ptr [ %2, %.lr.ph ], [ %44, %validate_context.exit ]
+  %.02937 = phi i64 [ 0, %.lr.ph ], [ %43, %validate_context.exit ]
+  %15 = getelementptr inbounds nuw i8, ptr %.02439, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !75
   %.not32 = icmp eq i32 %16, 0
   br i1 %.not32, label %validate_context.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = icmp ult i64 %.02938, 29
+  %18 = icmp ult i64 %.02937, 29
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw [29 x %struct.extensions_definition_st], ptr @ext_defs, i64 0, i64 %.02938, i32 1
+  %20 = getelementptr inbounds nuw [29 x %struct.extensions_definition_st], ptr @ext_defs, i64 0, i64 %.02937, i32 1
   br label %29
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %8, align 8, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  %24 = getelementptr inbounds nuw i8, ptr %.02440, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.02439, i64 24
   %25 = load i32, ptr %24, align 8, !tbaa !78
   %26 = call ptr @custom_ext_find(ptr noundef nonnull %23, i32 noundef %.022, i32 noundef %25, ptr noundef nonnull %4) #8
   %.not33.not = icmp eq ptr %26, null
-  br i1 %.not33.not, label %.thread, label %27, !prof !79
+  br i1 %.not33.not, label %.critedge, label %27, !prof !79
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -104,7 +104,7 @@ define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captu
   %.2 = load i32, ptr %.2.in, align 4, !tbaa !80
   %30 = and i32 %.2, %1
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %13, align 8, !tbaa !81
@@ -119,20 +119,20 @@ define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captu
 39:                                               ; preds = %32
   %40 = and i32 %.2, 1
   %.not6.i = icmp eq i32 %40, 0
-  br i1 %.not6.i, label %validate_context.exit, label %.thread
+  br i1 %.not6.i, label %validate_context.exit, label %.critedge
 
 41:                                               ; preds = %32
   %42 = and i32 %.2, 2
   %.not5.i = icmp eq i32 %42, 0
-  br i1 %.not5.i, label %validate_context.exit, label %.thread
+  br i1 %.not5.i, label %validate_context.exit, label %.critedge
 
 validate_context.exit:                            ; preds = %41, %39, %14
-  %43 = add nuw i64 %.02938, 1
-  %44 = getelementptr inbounds nuw i8, ptr %.02440, i64 40
+  %43 = add nuw i64 %.02937, 1
+  %44 = getelementptr inbounds nuw i8, ptr %.02439, i64 40
   %exitcond.not = icmp eq i64 %43, %12
-  br i1 %exitcond.not, label %.thread, label %14, !llvm.loop !87
+  br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !87
 
-.thread:                                          ; preds = %validate_context.exit, %21, %29, %39, %41, %3
+.critedge:                                        ; preds = %validate_context.exit, %21, %29, %39, %41, %3
   %.4 = phi i32 [ 1, %3 ], [ 0, %41 ], [ 0, %39 ], [ 0, %29 ], [ 0, %21 ], [ 1, %validate_context.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   ret i32 %.4
@@ -246,7 +246,6 @@ define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %0, ptr noundef r
   br i1 %19, label %33, label %.preheader154
 
 .preheader154:                                    ; preds = %13
-  %invariant.gep = getelementptr i8, ptr %18, i64 1160
   %20 = lshr i32 %2, 7
   %21 = and i32 %20, 2
   %spec.select.i = xor i32 %21, 2
@@ -268,13 +267,13 @@ define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %0, ptr noundef r
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 631, ptr noundef nonnull @__func__.tls_collect_extensions) #8
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 524303, ptr noundef null) #8
-  br label %177
+  br label %179
 
-34:                                               ; preds = %.outer, %121
-  %.sroa.7.0 = phi i64 [ %59, %121 ], [ %.sroa.7.0.ph, %.outer ]
-  %.sroa.0100.0 = phi ptr [ %58, %121 ], [ %.sroa.0100.0.ph, %.outer ]
+34:                                               ; preds = %.outer, %123
+  %.sroa.7.0 = phi i64 [ %59, %123 ], [ %.sroa.7.0.ph, %.outer ]
+  %.sroa.0100.0 = phi ptr [ %58, %123 ], [ %.sroa.0100.0.ph, %.outer ]
   switch i64 %.sroa.7.0, label %35 [
-    i64 0, label %134
+    i64 0, label %136
     i64 1, label %PACKET_get_net_2.exit.thread
   ]
 
@@ -395,7 +394,7 @@ validate_context.exit.i:                          ; preds = %77, %75
 
 verify_extension.exit.thread127.thread:           ; preds = %83
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  br label %106
+  br label %108
 
 verify_extension.exit.thread133:                  ; preds = %85, %97, %99
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
@@ -403,222 +402,223 @@ verify_extension.exit.thread133:                  ; preds = %85, %97, %99
 
 verify_extension.exit:                            ; preds = %97, %99
   %101 = load i64, ptr %7, align 8, !tbaa !94
-  %gep = getelementptr %struct.raw_extension_st, ptr %invariant.gep, i64 %101
+  %102 = getelementptr %struct.raw_extension_st, ptr %18, i64 %101
+  %103 = getelementptr i8, ptr %102, i64 1160
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   br label %verify_extension.exit.thread127
 
 verify_extension.exit.thread127:                  ; preds = %validate_context.exit.i, %verify_extension.exit
-  %.3106131 = phi ptr [ %gep, %verify_extension.exit ], [ %79, %validate_context.exit.i ]
+  %.3106131 = phi ptr [ %103, %verify_extension.exit ], [ %79, %validate_context.exit.i ]
   %.not77 = icmp eq ptr %.3106131, null
-  br i1 %.not77, label %106, label %102
+  br i1 %.not77, label %108, label %104
 
-102:                                              ; preds = %verify_extension.exit.thread127
-  %103 = getelementptr inbounds nuw i8, ptr %.3106131, i64 16
-  %104 = load i32, ptr %103, align 8, !tbaa !75
-  %105 = icmp eq i32 %104, 1
-  br i1 %105, label %verify_extension.exit.thread, label %106
+104:                                              ; preds = %verify_extension.exit.thread127
+  %105 = getelementptr inbounds nuw i8, ptr %.3106131, i64 16
+  %106 = load i32, ptr %105, align 8, !tbaa !75
+  %107 = icmp eq i32 %106, 1
+  br i1 %107, label %verify_extension.exit.thread, label %108
 
-106:                                              ; preds = %verify_extension.exit.thread127.thread, %102, %verify_extension.exit.thread127
-  %.not77151 = phi i1 [ true, %verify_extension.exit.thread127.thread ], [ false, %102 ], [ true, %verify_extension.exit.thread127 ]
-  %.3106131150 = phi ptr [ null, %verify_extension.exit.thread127.thread ], [ %.3106131, %102 ], [ null, %verify_extension.exit.thread127 ]
-  %107 = icmp ne i32 %42, 41
-  %brmerge = or i1 %.not, %107
+108:                                              ; preds = %verify_extension.exit.thread127.thread, %104, %verify_extension.exit.thread127
+  %.not77151 = phi i1 [ true, %verify_extension.exit.thread127.thread ], [ false, %104 ], [ true, %verify_extension.exit.thread127 ]
+  %.3106131150 = phi ptr [ null, %verify_extension.exit.thread127.thread ], [ %.3106131, %104 ], [ null, %verify_extension.exit.thread127 ]
+  %109 = icmp ne i32 %42, 41
+  %brmerge = or i1 %.not, %109
   %.not78 = icmp eq i64 %59, 0
   %or.cond = select i1 %brmerge, i1 true, i1 %.not78
-  br i1 %or.cond, label %108, label %verify_extension.exit.thread
+  br i1 %or.cond, label %110, label %verify_extension.exit.thread
 
-verify_extension.exit.thread:                     ; preds = %106, %77, %75, %63, %102, %verify_extension.exit.thread133
+verify_extension.exit.thread:                     ; preds = %108, %77, %75, %63, %104, %verify_extension.exit.thread133
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 656, ptr noundef nonnull @__func__.tls_collect_extensions) #8
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 47, i32 noundef 110, ptr noundef null) #8
   br label %.thread
 
-108:                                              ; preds = %106
-  %109 = ptrtoint ptr %.3106131150 to i64
-  %110 = sub i64 %109, %23
-  %111 = sdiv exact i64 %110, 40
-  %112 = and i64 %111, 4294967295
-  %113 = icmp samesign ult i64 %112, 29
-  %or.cond153 = and i1 %25, %113
-  br i1 %or.cond153, label %switch.early.test, label %121
+110:                                              ; preds = %108
+  %111 = ptrtoint ptr %.3106131150 to i64
+  %112 = sub i64 %111, %23
+  %113 = sdiv exact i64 %112, 40
+  %114 = and i64 %113, 4294967295
+  %115 = icmp samesign ult i64 %114, 29
+  %or.cond153 = and i1 %25, %115
+  br i1 %or.cond153, label %switch.early.test, label %123
 
-switch.early.test:                                ; preds = %108
+switch.early.test:                                ; preds = %110
   %trunc = trunc nuw i32 %42 to i16
-  switch i16 %trunc, label %114 [
-    i16 -255, label %121
-    i16 44, label %121
-    i16 18, label %121
+  switch i16 %trunc, label %116 [
+    i16 -255, label %123
+    i16 44, label %123
+    i16 18, label %123
   ]
 
-114:                                              ; preds = %switch.early.test
-  %115 = getelementptr inbounds nuw [29 x i8], ptr %26, i64 0, i64 %112
-  %116 = load i8, ptr %115, align 1, !tbaa !98
-  %117 = and i8 %116, 2
-  %118 = icmp ne i8 %117, 0
-  %119 = icmp eq i32 %42, 65000
-  %or.cond7 = select i1 %28, i1 %119, i1 false
-  %or.cond159 = select i1 %118, i1 true, i1 %or.cond7
-  br i1 %or.cond159, label %121, label %120
+116:                                              ; preds = %switch.early.test
+  %117 = getelementptr inbounds nuw [29 x i8], ptr %26, i64 0, i64 %114
+  %118 = load i8, ptr %117, align 1, !tbaa !98
+  %119 = and i8 %118, 2
+  %120 = icmp ne i8 %119, 0
+  %121 = icmp eq i32 %42, 65000
+  %or.cond7 = select i1 %28, i1 %121, i1 false
+  %or.cond159 = select i1 %120, i1 true, i1 %or.cond7
+  br i1 %or.cond159, label %123, label %122
 
-120:                                              ; preds = %114
+122:                                              ; preds = %116
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 688, ptr noundef nonnull @__func__.tls_collect_extensions) #8
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 110, i32 noundef 217, ptr noundef null) #8
   br label %.thread
 
-121:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %114, %108
-  br i1 %.not77151, label %34, label %122
+123:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %116, %110
+  br i1 %.not77151, label %34, label %124
 
-122:                                              ; preds = %121
+124:                                              ; preds = %123
   store ptr %57, ptr %.3106131150, align 8, !tbaa !93
   %.sroa.4.0..0.92.sroa_idx = getelementptr inbounds nuw i8, ptr %.3106131150, i64 8
   store i64 %53, ptr %.sroa.4.0..0.92.sroa_idx, align 8, !tbaa !94
-  %123 = getelementptr inbounds nuw i8, ptr %.3106131150, i64 16
-  store i32 1, ptr %123, align 8, !tbaa !75
-  %124 = getelementptr inbounds nuw i8, ptr %.3106131150, i64 24
-  store i32 %42, ptr %124, align 8, !tbaa !78
-  %125 = add i64 %.059.ph, 1
-  %126 = getelementptr inbounds nuw i8, ptr %.3106131150, i64 32
-  store i64 %.059.ph, ptr %126, align 8, !tbaa !103
-  %127 = load ptr, ptr %29, align 8, !tbaa !104
-  %.not80 = icmp eq ptr %127, null
-  br i1 %.not80, label %.outer.backedge, label %128
+  %125 = getelementptr inbounds nuw i8, ptr %.3106131150, i64 16
+  store i32 1, ptr %125, align 8, !tbaa !75
+  %126 = getelementptr inbounds nuw i8, ptr %.3106131150, i64 24
+  store i32 %42, ptr %126, align 8, !tbaa !78
+  %127 = add i64 %.059.ph, 1
+  %128 = getelementptr inbounds nuw i8, ptr %.3106131150, i64 32
+  store i64 %.059.ph, ptr %128, align 8, !tbaa !103
+  %129 = load ptr, ptr %29, align 8, !tbaa !104
+  %.not80 = icmp eq ptr %129, null
+  br i1 %.not80, label %.outer.backedge, label %130
 
 .outer:                                           ; preds = %.outer.backedge, %.preheader154
   %.sroa.7.0.ph = phi i64 [ %.sroa.7.0.copyload, %.preheader154 ], [ %59, %.outer.backedge ]
   %.sroa.0100.0.ph = phi ptr [ %.sroa.0100.0.copyload, %.preheader154 ], [ %58, %.outer.backedge ]
-  %.059.ph = phi i64 [ 0, %.preheader154 ], [ %125, %.outer.backedge ]
+  %.059.ph = phi i64 [ 0, %.preheader154 ], [ %127, %.outer.backedge ]
   br label %34
 
-128:                                              ; preds = %122
-  %129 = load ptr, ptr %30, align 8, !tbaa !105
-  %130 = load i32, ptr %31, align 8, !tbaa !91
-  %.not81 = icmp eq i32 %130, 0
-  %131 = zext i1 %.not81 to i32
-  %132 = trunc nuw nsw i64 %53 to i32
-  %133 = load ptr, ptr %32, align 8, !tbaa !106
-  call void %127(ptr noundef %129, i32 noundef %131, i32 noundef %42, ptr noundef nonnull %57, i32 noundef %132, ptr noundef %133) #8
+130:                                              ; preds = %124
+  %131 = load ptr, ptr %30, align 8, !tbaa !105
+  %132 = load i32, ptr %31, align 8, !tbaa !91
+  %.not81 = icmp eq i32 %132, 0
+  %133 = zext i1 %.not81 to i32
+  %134 = trunc nuw nsw i64 %53 to i32
+  %135 = load ptr, ptr %32, align 8, !tbaa !106
+  call void %129(ptr noundef %131, i32 noundef %133, i32 noundef %42, ptr noundef nonnull %57, i32 noundef %134, ptr noundef %135) #8
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %128, %122
+.outer.backedge:                                  ; preds = %130, %124
   br label %.outer
 
-134:                                              ; preds = %34
+136:                                              ; preds = %34
   %.not68 = icmp eq i32 %5, 0
   br i1 %.not68, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %134
-  %135 = and i32 %2, 2048
-  %.not.i = icmp ne i32 %135, 0
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %137 = icmp ne i32 %11, 0
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  br label %139
+.preheader:                                       ; preds = %136
+  %137 = and i32 %2, 2048
+  %.not.i = icmp ne i32 %137, 0
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %139 = icmp ne i32 %11, 0
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 1288
+  br label %141
 
-139:                                              ; preds = %.preheader, %extension_is_relevant.exit.thread
-  %.058158 = phi ptr [ @ext_defs, %.preheader ], [ %175, %extension_is_relevant.exit.thread ]
-  %.3157 = phi i64 [ 0, %.preheader ], [ %174, %extension_is_relevant.exit.thread ]
-  %140 = getelementptr inbounds nuw i8, ptr %.058158, i64 8
-  %141 = load ptr, ptr %140, align 8, !tbaa !107
-  %.not70 = icmp eq ptr %141, null
-  br i1 %.not70, label %extension_is_relevant.exit.thread, label %142
+141:                                              ; preds = %.preheader, %extension_is_relevant.exit.thread
+  %.058158 = phi ptr [ @ext_defs, %.preheader ], [ %177, %extension_is_relevant.exit.thread ]
+  %.3157 = phi i64 [ 0, %.preheader ], [ %176, %extension_is_relevant.exit.thread ]
+  %142 = getelementptr inbounds nuw i8, ptr %.058158, i64 8
+  %143 = load ptr, ptr %142, align 8, !tbaa !107
+  %.not70 = icmp eq ptr %143, null
+  br i1 %.not70, label %extension_is_relevant.exit.thread, label %144
 
-142:                                              ; preds = %139
-  %143 = getelementptr inbounds nuw i8, ptr %.058158, i64 4
-  %144 = load i32, ptr %143, align 4, !tbaa !99
-  %145 = and i32 %144, %2
-  %.not71 = icmp eq i32 %145, 0
-  br i1 %.not71, label %extension_is_relevant.exit.thread, label %146
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds nuw i8, ptr %.058158, i64 4
+  %146 = load i32, ptr %145, align 4, !tbaa !99
+  %147 = and i32 %146, %2
+  %.not71 = icmp eq i32 %147, 0
+  br i1 %.not71, label %extension_is_relevant.exit.thread, label %148
 
-146:                                              ; preds = %142
-  %147 = load ptr, ptr %22, align 8, !tbaa !81
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 216
-  %149 = load ptr, ptr %148, align 8, !tbaa !82
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 80
-  %151 = load i32, ptr %150, align 8, !tbaa !85
-  %152 = and i32 %151, 8
-  %.not21.i = icmp eq i32 %152, 0
+148:                                              ; preds = %144
+  %149 = load ptr, ptr %22, align 8, !tbaa !81
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 216
+  %151 = load ptr, ptr %150, align 8, !tbaa !82
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 80
+  %153 = load i32, ptr %152, align 8, !tbaa !85
+  %154 = and i32 %153, 8
+  %.not21.i = icmp eq i32 %154, 0
   %.not21.not.i = xor i1 %.not21.i, true
   %brmerge.i = select i1 %.not.i, i1 true, i1 %.not21.not.i
   br i1 %brmerge.i, label %._crit_edge.i, label %.thread.i89
 
-.thread.i89:                                      ; preds = %146
-  %153 = load i32, ptr %147, align 8, !tbaa !89
-  %154 = icmp sgt i32 %153, 771
-  %155 = icmp ne i32 %153, 65536
-  %spec.select.i90 = and i1 %154, %155
-  br label %157
+.thread.i89:                                      ; preds = %148
+  %155 = load i32, ptr %149, align 8, !tbaa !89
+  %156 = icmp sgt i32 %155, 771
+  %157 = icmp ne i32 %155, 65536
+  %spec.select.i90 = and i1 %156, %157
+  br label %159
 
-._crit_edge.i:                                    ; preds = %146
+._crit_edge.i:                                    ; preds = %148
   %.not21.mux.i = select i1 %.not.i, i1 %.not21.i, i1 false
-  %156 = and i32 %144, 4
-  %.not23.i = icmp eq i32 %156, 0
+  %158 = and i32 %146, 4
+  %.not23.i = icmp eq i32 %158, 0
   %or.cond29.i = or i1 %.not23.i, %.not21.mux.i
-  br i1 %or.cond29.i, label %157, label %extension_is_relevant.exit.thread
+  br i1 %or.cond29.i, label %159, label %extension_is_relevant.exit.thread
 
-157:                                              ; preds = %._crit_edge.i, %.thread.i89
+159:                                              ; preds = %._crit_edge.i, %.thread.i89
   %.049.i = phi i1 [ %spec.select.i90, %.thread.i89 ], [ %.not.i, %._crit_edge.i ]
-  %158 = load i32, ptr %136, align 8, !tbaa !90
-  %159 = icmp eq i32 %158, 768
-  %160 = and i32 %144, 8
-  %161 = icmp eq i32 %160, 0
-  %or.cond31.i = and i1 %161, %159
-  br i1 %or.cond31.i, label %extension_is_relevant.exit.thread, label %162
+  %160 = load i32, ptr %138, align 8, !tbaa !90
+  %161 = icmp eq i32 %160, 768
+  %162 = and i32 %146, 8
+  %163 = icmp eq i32 %162, 0
+  %or.cond31.i = and i1 %163, %161
+  br i1 %or.cond31.i, label %extension_is_relevant.exit.thread, label %164
 
-162:                                              ; preds = %157
-  %163 = and i32 %144, 16
-  %.not24.i = icmp ne i32 %163, 0
+164:                                              ; preds = %159
+  %165 = and i32 %146, 16
+  %.not24.i = icmp ne i32 %165, 0
   %or.cond32.not.i = and i1 %.not24.i, %.049.i
-  br i1 %or.cond32.not.i, label %extension_is_relevant.exit.thread, label %164
+  br i1 %or.cond32.not.i, label %extension_is_relevant.exit.thread, label %166
 
-164:                                              ; preds = %162
-  %165 = and i32 %144, 32
-  %.not25.i = icmp eq i32 %165, 0
-  %166 = or i1 %137, %.not25.i
-  %or.cond35.not.i = or i1 %166, %.049.i
-  br i1 %or.cond35.not.i, label %167, label %extension_is_relevant.exit.thread
+166:                                              ; preds = %164
+  %167 = and i32 %146, 32
+  %.not25.i = icmp eq i32 %167, 0
+  %168 = or i1 %139, %.not25.i
+  %or.cond35.not.i = or i1 %168, %.049.i
+  br i1 %or.cond35.not.i, label %169, label %extension_is_relevant.exit.thread
 
-167:                                              ; preds = %164
-  %168 = load i32, ptr %31, align 8, !tbaa !91
-  %169 = icmp eq i32 %168, 0
-  %or.cond.i = or i1 %.049.i, %169
+169:                                              ; preds = %166
+  %170 = load i32, ptr %31, align 8, !tbaa !91
+  %171 = icmp eq i32 %170, 0
+  %or.cond.i = or i1 %.049.i, %171
   %or.cond36.i = or i1 %.not25.i, %or.cond.i
   br i1 %or.cond36.i, label %extension_is_relevant.exit, label %extension_is_relevant.exit.thread
 
-extension_is_relevant.exit:                       ; preds = %167
-  %170 = load i32, ptr %138, align 8, !tbaa !92
-  %.not27.i = icmp ne i32 %170, 0
-  %171 = and i32 %144, 64
-  %.not28.i = icmp ne i32 %171, 0
+extension_is_relevant.exit:                       ; preds = %169
+  %172 = load i32, ptr %140, align 8, !tbaa !92
+  %.not27.i = icmp ne i32 %172, 0
+  %173 = and i32 %146, 64
+  %.not28.i = icmp ne i32 %173, 0
   %or.cond37.i.not = and i1 %.not28.i, %.not27.i
-  br i1 %or.cond37.i.not, label %extension_is_relevant.exit.thread, label %172
+  br i1 %or.cond37.i.not, label %extension_is_relevant.exit.thread, label %174
 
-172:                                              ; preds = %extension_is_relevant.exit
-  %173 = call i32 %141(ptr noundef nonnull %0, i32 noundef %2) #8
-  %.not73 = icmp eq i32 %173, 0
+174:                                              ; preds = %extension_is_relevant.exit
+  %175 = call i32 %143(ptr noundef nonnull %0, i32 noundef %2) #8
+  %.not73 = icmp eq i32 %175, 0
   br i1 %.not73, label %.thread, label %extension_is_relevant.exit.thread
 
-extension_is_relevant.exit.thread:                ; preds = %._crit_edge.i, %157, %162, %164, %167, %139, %142, %extension_is_relevant.exit, %172
-  %174 = add nuw nsw i64 %.3157, 1
-  %175 = getelementptr inbounds nuw i8, ptr %.058158, i64 56
-  %exitcond.not = icmp eq i64 %174, 29
-  br i1 %exitcond.not, label %.loopexit, label %139, !llvm.loop !108
+extension_is_relevant.exit.thread:                ; preds = %._crit_edge.i, %159, %164, %166, %169, %141, %144, %extension_is_relevant.exit, %174
+  %176 = add nuw nsw i64 %.3157, 1
+  %177 = getelementptr inbounds nuw i8, ptr %.058158, i64 56
+  %exitcond.not = icmp eq i64 %176, 29
+  br i1 %exitcond.not, label %.loopexit, label %141, !llvm.loop !108
 
-.loopexit:                                        ; preds = %extension_is_relevant.exit.thread, %134
+.loopexit:                                        ; preds = %extension_is_relevant.exit.thread, %136
   store ptr %18, ptr %3, align 8, !tbaa !95
   %.not69 = icmp eq ptr %4, null
-  br i1 %.not69, label %177, label %176
+  br i1 %.not69, label %179, label %178
 
-176:                                              ; preds = %.loopexit
+178:                                              ; preds = %.loopexit
   store i64 %16, ptr %4, align 8, !tbaa !94
-  br label %177
+  br label %179
 
-.thread:                                          ; preds = %172, %PACKET_get_net_2.exit.thread, %120, %verify_extension.exit.thread
+.thread:                                          ; preds = %174, %PACKET_get_net_2.exit.thread, %122, %verify_extension.exit.thread
   call void @CRYPTO_free(ptr noundef nonnull %18, ptr noundef nonnull @.str, i32 noundef 726) #8
-  br label %177
+  br label %179
 
-177:                                              ; preds = %.loopexit, %176, %.thread, %33
-  %.0 = phi i32 [ 0, %33 ], [ 0, %.thread ], [ 1, %176 ], [ 1, %.loopexit ]
+179:                                              ; preds = %.loopexit, %178, %.thread, %33
+  %.0 = phi i32 [ 0, %33 ], [ 0, %.thread ], [ 1, %178 ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 

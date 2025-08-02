@@ -3843,7 +3843,6 @@ define void @Mio_LibGateSimulate(ptr noundef %0, ptr noundef readonly captures(n
   %14 = getelementptr i8, ptr %7, i64 8
   %.val24.i = load ptr, ptr %14, align 8, !tbaa !38
   %15 = shl i32 %.fr, 1
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %.val24.i, i64 4
   %wide.trip.count.i = zext nneg i32 %11 to i64
   %16 = sext i32 %.val25.i to i64
   %17 = getelementptr i32, ptr %.val24.i, i64 %16
@@ -3881,65 +3880,65 @@ define void @Mio_LibGateSimulate(ptr noundef %0, ptr noundef readonly captures(n
 
 33:                                               ; preds = %Exp_Truth6Lit.exit31.i.us, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %Exp_Truth6Lit.exit31.i.us ]
-  %34 = shl nuw nsw i64 %indvars.iv.i.us, 1
-  %35 = getelementptr inbounds nuw i32, ptr %.val24.i, i64 %34
-  %36 = load i32, ptr %35, align 4, !tbaa !36
-  switch i32 %36, label %38 [
+  %.idx.i.us = shl nuw nsw i64 %indvars.iv.i.us, 3
+  %34 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 %.idx.i.us
+  %35 = load i32, ptr %34, align 4, !tbaa !36
+  switch i32 %35, label %37 [
     i32 -1, label %Exp_Truth6Lit.exit.i.us
-    i32 -2, label %37
+    i32 -2, label %36
   ]
 
+36:                                               ; preds = %33
+  br label %Exp_Truth6Lit.exit.i.us
+
 37:                                               ; preds = %33
+  %38 = icmp slt i32 %35, %15
+  %39 = and i32 %35, 1
+  %.not17.i.i.us = icmp eq i32 %39, 0
+  br i1 %38, label %54, label %40
+
+40:                                               ; preds = %37
+  br i1 %.not17.i.i.us, label %48, label %41
+
+41:                                               ; preds = %40
+  %42 = sdiv i32 %35, 2
+  %43 = sub nsw i32 %42, %.fr
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i64, ptr %32, i64 %44
+  %46 = load i64, ptr %45, align 8, !tbaa !106
+  %47 = xor i64 %46, -1
   br label %Exp_Truth6Lit.exit.i.us
 
-38:                                               ; preds = %33
-  %39 = icmp slt i32 %36, %15
-  %40 = and i32 %36, 1
-  %.not17.i.i.us = icmp eq i32 %40, 0
-  br i1 %39, label %55, label %41
-
-41:                                               ; preds = %38
-  br i1 %.not17.i.i.us, label %49, label %42
-
-42:                                               ; preds = %41
-  %43 = sdiv i32 %36, 2
-  %44 = sub nsw i32 %43, %.fr
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i64, ptr %32, i64 %45
-  %47 = load i64, ptr %46, align 8, !tbaa !106
-  %48 = xor i64 %47, -1
+48:                                               ; preds = %40
+  %49 = ashr exact i32 %35, 1
+  %50 = sub nsw i32 %49, %.fr
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i64, ptr %32, i64 %51
+  %53 = load i64, ptr %52, align 8, !tbaa !106
   br label %Exp_Truth6Lit.exit.i.us
 
-49:                                               ; preds = %41
-  %50 = ashr exact i32 %36, 1
-  %51 = sub nsw i32 %50, %.fr
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i64, ptr %32, i64 %52
-  %54 = load i64, ptr %53, align 8, !tbaa !106
+54:                                               ; preds = %37
+  br i1 %.not17.i.i.us, label %61, label %55
+
+55:                                               ; preds = %54
+  %56 = sdiv i32 %35, 2
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i64, ptr %5, i64 %57
+  %59 = load i64, ptr %58, align 8, !tbaa !106
+  %60 = xor i64 %59, -1
   br label %Exp_Truth6Lit.exit.i.us
 
-55:                                               ; preds = %38
-  br i1 %.not17.i.i.us, label %62, label %56
-
-56:                                               ; preds = %55
-  %57 = sdiv i32 %36, 2
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i64, ptr %5, i64 %58
-  %60 = load i64, ptr %59, align 8, !tbaa !106
-  %61 = xor i64 %60, -1
+61:                                               ; preds = %54
+  %62 = ashr exact i32 %35, 1
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds i64, ptr %5, i64 %63
+  %65 = load i64, ptr %64, align 8, !tbaa !106
   br label %Exp_Truth6Lit.exit.i.us
 
-62:                                               ; preds = %55
-  %63 = ashr exact i32 %36, 1
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i64, ptr %5, i64 %64
-  %66 = load i64, ptr %65, align 8, !tbaa !106
-  br label %Exp_Truth6Lit.exit.i.us
-
-Exp_Truth6Lit.exit.i.us:                          ; preds = %62, %56, %49, %42, %37, %33
-  %.0.i.i.us = phi i64 [ -1, %37 ], [ 0, %33 ], [ %61, %56 ], [ %66, %62 ], [ %48, %42 ], [ %54, %49 ]
-  %gep.i.us = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %34
-  %67 = load i32, ptr %gep.i.us, align 4, !tbaa !36
+Exp_Truth6Lit.exit.i.us:                          ; preds = %61, %55, %48, %41, %36, %33
+  %.0.i.i.us = phi i64 [ -1, %36 ], [ 0, %33 ], [ %60, %55 ], [ %65, %61 ], [ %47, %41 ], [ %53, %48 ]
+  %66 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %67 = load i32, ptr %66, align 4, !tbaa !36
   switch i32 %67, label %69 [
     i32 -1, label %Exp_Truth6Lit.exit31.i.us
     i32 -2, label %68

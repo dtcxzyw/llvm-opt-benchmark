@@ -172,7 +172,7 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 %56, ptr %57, align 8
   %.pre = ptrtoint ptr %10 to i64
-  br label %.thread
+  br label %.critedge
 
 .preheader:                                       ; preds = %48, %.preheader
   %58 = phi ptr [ %61, %.preheader ], [ %50, %48 ]
@@ -198,7 +198,7 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %73 = getelementptr inbounds nuw i8, ptr %58, i64 40
   store i64 %72, ptr %73, align 8
   %74 = icmp eq ptr %59, %58
-  br i1 %74, label %.thread, label %.lr.ph
+  br i1 %74, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %63, %99
   %75 = phi ptr [ %102, %99 ], [ %59, %63 ]
@@ -233,7 +233,7 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %96 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %97 = load i64, ptr %96, align 8
   %98 = icmp eq i64 %97, %95
-  br i1 %98, label %.thread, label %99
+  br i1 %98, label %.critedge, label %99
 
 99:                                               ; preds = %94
   store i64 %95, ptr %96, align 8
@@ -241,9 +241,9 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %101 = and i64 %100, -4
   %102 = inttoptr i64 %101 to ptr
   %103 = icmp eq ptr %58, %102
-  br i1 %103, label %.thread, label %.lr.ph
+  br i1 %103, label %.critedge, label %.lr.ph
 
-.thread:                                          ; preds = %99, %94, %63, %52
+.critedge:                                        ; preds = %99, %94, %63, %52
   %.pre-phi = phi i64 [ %69, %63 ], [ %.pre, %52 ], [ %69, %94 ], [ %69, %99 ]
   %104 = phi ptr [ %59, %63 ], [ %10, %52 ], [ %59, %94 ], [ %59, %99 ]
   %105 = phi ptr [ %58, %63 ], [ %10, %52 ], [ %58, %94 ], [ %58, %99 ]
@@ -260,7 +260,7 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %114 = icmp eq i64 %113, 0
   br i1 %114, label %122, label %115
 
-115:                                              ; preds = %.thread
+115:                                              ; preds = %.critedge
   %116 = inttoptr i64 %113 to ptr
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8
@@ -269,8 +269,8 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %121 = select i1 %119, ptr %117, ptr %120
   br label %122
 
-122:                                              ; preds = %115, %.thread
-  %123 = phi ptr [ %1, %.thread ], [ %121, %115 ]
+122:                                              ; preds = %115, %.critedge
+  %123 = phi ptr [ %1, %.critedge ], [ %121, %115 ]
   store volatile ptr %105, ptr %123, align 8
   %124 = icmp eq ptr %106, null
   br i1 %124, label %128, label %125
@@ -297,9 +297,9 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %136 = phi ptr [ %105, %133 ], [ %17, %29 ], [ %17, %28 ], [ %38, %44 ], [ %38, %45 ], [ %38, %47 ]
   %137 = phi ptr [ %134, %133 ], [ %32, %29 ], [ null, %28 ], [ null, %44 ], [ null, %45 ], [ null, %47 ]
   %138 = icmp eq ptr %136, null
-  br i1 %138, label %.thread17, label %.lr.ph20
+  br i1 %138, label %.thread, label %.lr.ph19
 
-.lr.ph20:                                         ; preds = %135, %163
+.lr.ph19:                                         ; preds = %135, %163
   %139 = phi ptr [ %166, %163 ], [ %136, %135 ]
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %141 = load i64, ptr %140, align 8
@@ -308,14 +308,14 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %144 = icmp eq ptr %143, null
   br i1 %144, label %149, label %145
 
-145:                                              ; preds = %.lr.ph20
+145:                                              ; preds = %.lr.ph19
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 40
   %147 = load i64, ptr %146, align 8
   %148 = tail call i64 @llvm.umax.i64(i64 %147, i64 %141)
   br label %149
 
-149:                                              ; preds = %145, %.lr.ph20
-  %150 = phi i64 [ %141, %.lr.ph20 ], [ %148, %145 ]
+149:                                              ; preds = %145, %.lr.ph19
+  %150 = phi i64 [ %141, %.lr.ph19 ], [ %148, %145 ]
   %151 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
@@ -332,7 +332,7 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %160 = getelementptr inbounds nuw i8, ptr %139, i64 40
   %161 = load i64, ptr %160, align 8
   %162 = icmp eq i64 %161, %159
-  br i1 %162, label %.thread17, label %163
+  br i1 %162, label %.thread, label %163
 
 163:                                              ; preds = %158
   store i64 %159, ptr %160, align 8
@@ -340,17 +340,17 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %165 = and i64 %164, -4
   %166 = inttoptr i64 %165 to ptr
   %167 = icmp eq i64 %165, 0
-  br i1 %167, label %.thread17, label %.lr.ph20
+  br i1 %167, label %.thread, label %.lr.ph19
 
-.thread17:                                        ; preds = %163, %158, %135
+.thread:                                          ; preds = %163, %158, %135
   %168 = icmp eq ptr %137, null
   br i1 %168, label %170, label %169
 
-169:                                              ; preds = %.thread17
+169:                                              ; preds = %.thread
   tail call void @__rb_erase_color(ptr noundef nonnull %137, ptr noundef %1, ptr noundef nonnull @interval_tree_augment_rotate) #6
   br label %170
 
-170:                                              ; preds = %169, %.thread17
+170:                                              ; preds = %169, %.thread
   ret void
 }
 

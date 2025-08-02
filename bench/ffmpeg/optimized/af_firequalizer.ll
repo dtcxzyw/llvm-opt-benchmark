@@ -2007,35 +2007,31 @@ dump_fir.exit._crit_edge.thread265:               ; preds = %87
   %.pre104.i = load ptr, ptr %79, align 8, !tbaa !76
   br i1 %287, label %.lr.ph94.i, label %._crit_edge95.i
 
-.lr.ph94.i:                                       ; preds = %._crit_edge91.i
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %.pre104.i, i64 4
-  br label %315
-
-315:                                              ; preds = %315, %.lr.ph94.i
-  %indvars.iv100.i = phi i64 [ 0, %.lr.ph94.i ], [ %indvars.iv.next101.i, %315 ]
-  %316 = getelementptr inbounds nuw float, ptr %.pre104.i, i64 %indvars.iv100.i
-  %317 = load float, ptr %316, align 4, !tbaa !67
-  %318 = fpext nsz float %317 to double
-  %319 = fmul nsz double %264, %318
-  %320 = call nsz double @llvm.exp.f64(double %319)
-  %321 = fmul nsz double %264, %320
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv100.i
-  %322 = load float, ptr %gep.i, align 4, !tbaa !67
+.lr.ph94.i:                                       ; preds = %._crit_edge91.i, %.lr.ph94.i
+  %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %.lr.ph94.i ], [ 0, %._crit_edge91.i ]
+  %315 = getelementptr inbounds nuw float, ptr %.pre104.i, i64 %indvars.iv100.i
+  %316 = load float, ptr %315, align 4, !tbaa !67
+  %317 = fpext nsz float %316 to double
+  %318 = fmul nsz double %264, %317
+  %319 = call nsz double @llvm.exp.f64(double %318)
+  %320 = fmul nsz double %264, %319
+  %321 = getelementptr inbounds nuw i8, ptr %315, i64 4
+  %322 = load float, ptr %321, align 4, !tbaa !67
   %323 = fpext nsz float %322 to double
   %324 = fmul nsz double %264, %323
   %325 = call nsz double @llvm.cos.f64(double %324)
-  %326 = fmul nsz double %321, %325
+  %326 = fmul nsz double %320, %325
   %327 = fptrunc nsz double %326 to float
-  store float %327, ptr %316, align 4, !tbaa !67
+  store float %327, ptr %315, align 4, !tbaa !67
   %328 = call nsz double @llvm.sin.f64(double %324)
-  %329 = fmul nsz double %321, %328
+  %329 = fmul nsz double %320, %328
   %330 = fptrunc nsz double %329 to float
-  store float %330, ptr %gep.i, align 4, !tbaa !67
+  store float %330, ptr %321, align 4, !tbaa !67
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 2
   %331 = icmp slt i64 %indvars.iv100.i, %268
-  br i1 %331, label %315, label %._crit_edge95.i, !llvm.loop !135
+  br i1 %331, label %.lr.ph94.i, label %._crit_edge95.i, !llvm.loop !135
 
-._crit_edge95.i:                                  ; preds = %315, %._crit_edge91.i
+._crit_edge95.i:                                  ; preds = %.lr.ph94.i, %._crit_edge91.i
   %332 = load ptr, ptr %82, align 8, !tbaa !133
   %333 = load ptr, ptr %83, align 8, !tbaa !116
   %334 = load ptr, ptr %78, align 8, !tbaa !75
@@ -2837,25 +2833,25 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %7 = load ptr, ptr %6, align 8, !tbaa !65
   %8 = tail call i32 @ff_request_frame(ptr noundef %7) #14
   %9 = icmp eq i32 %8, -541478725
-  br i1 %9, label %10, label %39
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 244
   %12 = load i32, ptr %11, align 4, !tbaa !70
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %39
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %16 = load i32, ptr %15, align 8, !tbaa !63
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %39
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %14
   %. = tail call i32 @llvm.umin.i32(i32 %12, i32 %16)
   %19 = tail call ptr @ff_get_audio_buffer(ptr noundef nonnull %0, i32 noundef %.) #14
   %.not.not = icmp eq ptr %19, null
-  br i1 %.not.not, label %39, label %20
+  br i1 %.not.not, label %.critedge, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 96
@@ -2878,9 +2874,9 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %36 = load ptr, ptr %5, align 8, !tbaa !117
   %37 = load ptr, ptr %36, align 8, !tbaa !65
   %38 = tail call i32 @filter_frame(ptr noundef %37, ptr noundef nonnull %19)
-  br label %39
+  br label %.critedge
 
-39:                                               ; preds = %20, %18, %1, %10, %14
+.critedge:                                        ; preds = %18, %1, %10, %14, %20
   %.1 = phi i32 [ -541478725, %14 ], [ -541478725, %10 ], [ %8, %1 ], [ %38, %20 ], [ -12, %18 ]
   ret i32 %.1
 }

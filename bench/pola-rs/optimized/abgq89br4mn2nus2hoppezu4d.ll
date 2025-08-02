@@ -19505,8 +19505,8 @@ _ZN12polars_arrow5array5Array10null_count17h922c2e6fe3792cebE.exit.thread: ; pre
   %65 = load i32, ptr %64, align 4, !alias.scope !1773, !noalias !1776, !noundef !3
   %66 = zext i32 %65 to i64
   %.idx.us = mul nuw nsw i64 %62, 24
-  %67 = getelementptr i8, ptr %55, i64 24
-  %68 = getelementptr i8, ptr %67, i64 %.idx.us
+  %67 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.us
   %69 = load ptr, ptr %68, align 8, !alias.scope !1778, !noalias !1773, !noundef !3
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 %66
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h961638a33e8f2e7cE.exit18.us
@@ -19551,8 +19551,8 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h961638a33e8f2e7
   %90 = load i32, ptr %89, align 4, !alias.scope !1782, !noalias !1785, !noundef !3
   %91 = zext i32 %90 to i64
   %.idx38 = mul nuw nsw i64 %87, 24
-  %92 = getelementptr i8, ptr %80, i64 24
-  %93 = getelementptr i8, ptr %92, i64 %.idx38
+  %92 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx38
   %94 = load ptr, ptr %93, align 8, !alias.scope !1787, !noalias !1782, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 %91
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h961638a33e8f2e7cE.exit
@@ -19609,8 +19609,8 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h961638a33e8f2e7
   %118 = load i32, ptr %117, align 4, !alias.scope !1796, !noalias !1801, !noundef !3
   %119 = zext i32 %118 to i64
   %.idx.i.i.i.i = mul nuw nsw i64 %115, 24
-  %120 = getelementptr i8, ptr %108, i64 24
-  %121 = getelementptr i8, ptr %120, i64 %.idx.i.i.i.i
+  %120 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %.idx.i.i.i.i
   %122 = load ptr, ptr %121, align 8, !alias.scope !1802, !noalias !1805, !noundef !3
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 %119
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17h0018049c7385929fE.exit.i.i"

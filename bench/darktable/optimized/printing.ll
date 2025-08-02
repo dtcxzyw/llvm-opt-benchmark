@@ -80,7 +80,7 @@ define i32 @dt_printing_get_image_box(ptr noundef readonly captures(none) %0, i3
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = sitofp i32 %1 to float
   %9 = sitofp i32 %2 to float
   %wide.trip.count = zext nneg i32 %5 to i64
@@ -95,7 +95,7 @@ define i32 @dt_printing_get_image_box(ptr noundef readonly captures(none) %0, i3
   %.048 = phi i32 [ -1, %.lr.ph ], [ %.1, %40 ]
   %.03447 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.135, %40 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 96
-  %11 = getelementptr i8, ptr %7, i64 %.idx
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %12 = load float, ptr %11, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load float, ptr %13, align 8, !tbaa !21

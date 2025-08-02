@@ -1402,7 +1402,7 @@ _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %88
 
 145:                                              ; preds = %.preheader, %149
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %149 ]
-  %146 = getelementptr inbounds nuw [3 x i32], ptr %140, i64 %indvars.iv74, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [3 x i32], ptr %141, i64 0, i64 %indvars.iv
   %147 = load i32, ptr %146, align 4, !tbaa !149
   %.not = icmp eq i32 %147, %142
   br i1 %.not, label %149, label %148
@@ -3170,7 +3170,7 @@ define internal void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEE
 
 217:                                              ; preds = %213, %217
   %indvars.iv = phi i64 [ 0, %213 ], [ %indvars.iv.next, %217 ]
-  %218 = getelementptr inbounds nuw [3 x i32], ptr %194, i64 %195, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw [3 x i32], ptr %196, i64 0, i64 %indvars.iv
   %219 = load i32, ptr %218, align 4, !tbaa !149
   %.not180 = icmp eq i32 %219, 0
   %220 = select i1 %.not180, float %.pre-phi, float 0.000000e+00

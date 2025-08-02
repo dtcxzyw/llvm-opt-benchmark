@@ -24,7 +24,7 @@ define internal range(i32 0, 51) i32 @str_probe(ptr noundef readonly captures(no
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
   %8 = icmp slt i32 %5, 2352
-  br i1 %8, label %.thread, label %9
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %1
   %10 = load i32, ptr %3, align 1, !tbaa !12
@@ -47,84 +47,86 @@ define internal range(i32 0, 51) i32 @str_probe(ptr noundef readonly captures(no
   %20 = icmp sgt i64 %19, 2351
   br i1 %20, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %16, %48
-  %.13154 = phi ptr [ %49, %48 ], [ %.030, %16 ]
-  %.03253 = phi i32 [ %.133, %48 ], [ 0, %16 ]
-  %.03552 = phi i32 [ %.237, %48 ], [ 0, %16 ]
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %.13154, ptr noundef nonnull dereferenceable(12) @sync_header, i64 12)
+.lr.ph:                                           ; preds = %16, %49
+  %.13149 = phi ptr [ %50, %49 ], [ %.030, %16 ]
+  %.03248 = phi i32 [ %.133, %49 ], [ 0, %16 ]
+  %.03547 = phi i32 [ %.237, %49 ], [ 0, %16 ]
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %.13149, ptr noundef nonnull dereferenceable(12) @sync_header, i64 12)
   %.not41 = icmp eq i32 %bcmp, 0
-  br i1 %.not41, label %21, label %.thread
+  br i1 %.not41, label %21, label %.critedge
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %.13154, i64 17
+  %22 = getelementptr inbounds nuw i8, ptr %.13149, i64 17
   %23 = load i8, ptr %22, align 1, !tbaa !12
   %24 = icmp ugt i8 %23, 31
-  br i1 %24, label %.thread, label %25
+  br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %.13154, i64 18
+  %26 = getelementptr inbounds nuw i8, ptr %.13149, i64 18
   %27 = load i8, ptr %26, align 1, !tbaa !12
   %28 = and i8 %27, 14
-  switch i8 %28, label %.thread [
+  switch i8 %28, label %.critedge [
     i8 8, label %29
     i8 2, label %29
-    i8 4, label %42
-    i8 0, label %48
+    i8 4, label %43
+    i8 0, label %49
   ]
 
 29:                                               ; preds = %25, %25
-  %30 = getelementptr inbounds nuw i8, ptr %.13154, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %.13149, i64 36
   %31 = load i32, ptr %30, align 1, !tbaa !12
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %33, label %.thread
+  br i1 %32, label %33, label %.critedge
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %.13154, i64 30
+  %34 = getelementptr inbounds nuw i8, ptr %.13149, i64 30
   %35 = load i16, ptr %34, align 1, !tbaa !12
   %36 = zext i16 %35 to i32
-  %37 = getelementptr inbounds nuw i8, ptr %.13154, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %.13149, i64 28
   %38 = load i16, ptr %37, align 1, !tbaa !12
-  %39 = icmp ult i16 %38, %35
+  %39 = icmp uge i16 %38, %35
   %40 = mul nuw nsw i32 %36, 2016
-  %.not43 = icmp samesign uge i32 %40, %31
-  %or.cond.not = select i1 %39, i1 %.not43, i1 false
-  %41 = zext i1 %or.cond.not to i32
-  %spec.select45 = add nsw i32 %.03552, %41
-  br i1 %or.cond.not, label %48, label %.thread
+  %.not43 = icmp samesign ult i32 %40, %31
+  %or.cond = select i1 %39, i1 true, i1 %.not43
+  br i1 %or.cond, label %.critedge, label %41
 
-42:                                               ; preds = %25
-  %43 = getelementptr inbounds nuw i8, ptr %.13154, i64 19
-  %44 = load i8, ptr %43, align 1, !tbaa !12
-  %45 = and i8 %44, 42
-  %.not42 = icmp eq i8 %45, 0
-  br i1 %.not42, label %46, label %.thread
+41:                                               ; preds = %33
+  %42 = add nsw i32 %.03547, 1
+  br label %49
 
-46:                                               ; preds = %42
-  %47 = add nsw i32 %.03253, 1
-  br label %48
+43:                                               ; preds = %25
+  %44 = getelementptr inbounds nuw i8, ptr %.13149, i64 19
+  %45 = load i8, ptr %44, align 1, !tbaa !12
+  %46 = and i8 %45, 42
+  %.not42 = icmp eq i8 %46, 0
+  br i1 %.not42, label %47, label %.critedge
 
-48:                                               ; preds = %25, %33, %46
-  %.237 = phi i32 [ %spec.select45, %33 ], [ %.03552, %46 ], [ %.03552, %25 ]
-  %.133 = phi i32 [ %.03253, %33 ], [ %47, %46 ], [ %.03253, %25 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.13154, i64 2352
-  %50 = ptrtoint ptr %49 to i64
-  %51 = sub i64 %17, %50
-  %52 = icmp sgt i64 %51, 2351
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+47:                                               ; preds = %43
+  %48 = add nsw i32 %.03248, 1
+  br label %49
 
-._crit_edge:                                      ; preds = %48
-  %53 = add nsw i32 %.133, %.237
-  %54 = icmp sgt i32 %53, 3
-  br i1 %54, label %.thread, label %._crit_edge.thread
+49:                                               ; preds = %25, %41, %47
+  %.237 = phi i32 [ %42, %41 ], [ %.03547, %47 ], [ %.03547, %25 ]
+  %.133 = phi i32 [ %.03248, %41 ], [ %48, %47 ], [ %.03248, %25 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.13149, i64 2352
+  %51 = ptrtoint ptr %50 to i64
+  %52 = sub i64 %17, %51
+  %53 = icmp sgt i64 %52, 2351
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+
+._crit_edge:                                      ; preds = %49
+  %54 = add nsw i32 %.133, %.237
+  %55 = icmp sgt i32 %54, 3
+  br i1 %55, label %.critedge, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %16, %._crit_edge
-  %55 = phi i32 [ %53, %._crit_edge ], [ 0, %16 ]
-  %.not = icmp ne i32 %55, 0
+  %56 = phi i32 [ %54, %._crit_edge ], [ 0, %16 ]
+  %.not = icmp ne i32 %56, 0
   %. = zext i1 %.not to i32
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %29, %25, %42, %21, %.lr.ph, %33, %._crit_edge.thread, %._crit_edge, %1
-  %.0 = phi i32 [ 0, %1 ], [ 50, %._crit_edge ], [ %., %._crit_edge.thread ], [ 0, %33 ], [ 0, %.lr.ph ], [ 0, %21 ], [ 0, %42 ], [ 0, %25 ], [ 0, %29 ]
+.critedge:                                        ; preds = %33, %29, %25, %43, %21, %.lr.ph, %._crit_edge.thread, %._crit_edge, %1
+  %.0 = phi i32 [ 0, %1 ], [ 50, %._crit_edge ], [ %., %._crit_edge.thread ], [ 0, %.lr.ph ], [ 0, %21 ], [ 0, %43 ], [ 0, %25 ], [ 0, %29 ], [ 0, %33 ]
   ret i32 %.0
 }
 

@@ -1111,9 +1111,9 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
   br i1 %76, label %.preheader, label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit, !llvm.loop !90
 
 ._crit_edge.us.thread:                            ; preds = %73, %52, %40
+  %.0139240.lcssa.sink = phi i32 [ %.0139240.us, %40 ], [ %.0139240.us, %52 ], [ %.0139240, %73 ]
   %.us-phi250275 = phi ptr [ %34, %40 ], [ %34, %52 ], [ %67, %73 ]
   %.us-phi249274 = phi i8 [ 1, %52 ], [ 0, %40 ], [ 0, %73 ]
-  %.us-phi273 = phi i32 [ %.0139240.us, %40 ], [ %.0139240.us, %52 ], [ %.0139240, %73 ]
   %77 = getelementptr inbounds nuw i8, ptr %.us-phi250275, i64 8
   %78 = load i32, ptr %77, align 8, !tbaa !85
   %79 = icmp ne i32 %78, 0
@@ -1127,11 +1127,11 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
   br label %83
 
 83:                                               ; preds = %81, %._crit_edge.us.thread
-  %84 = icmp slt i32 %.us-phi273, %19
+  %84 = icmp slt i32 %.0139240.lcssa.sink, %19
   br i1 %84, label %85, label %91
 
 85:                                               ; preds = %83
-  %86 = xor i32 %.us-phi273, -1
+  %86 = xor i32 %.0139240.lcssa.sink, -1
   %87 = add i32 %19, %86
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 %87, ptr %88, align 8, !tbaa !25

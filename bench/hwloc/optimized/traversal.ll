@@ -172,8 +172,8 @@ define i32 @hwloc_get_memory_parents_depth(ptr noundef readonly captures(none) %
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load i32, ptr %5, align 8, !tbaa !41
-  %.not24 = icmp eq i32 %6, 0
-  br i1 %.not24, label %.thread, label %7
+  %.not21 = icmp eq i32 %6, 0
+  br i1 %.not21, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -185,7 +185,7 @@ define i32 @hwloc_get_memory_parents_depth(ptr noundef readonly captures(none) %
   %12 = getelementptr inbounds i8, ptr %11, i64 -12
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %.not21.i.not = icmp eq i32 %13, 0
-  br i1 %.not21.i.not, label %.thread, label %14
+  br i1 %.not21.i.not, label %.critedge, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -197,41 +197,41 @@ hwloc_get_obj_by_depth.exit:                      ; preds = %7, %14
   %.sink22.in.i = phi ptr [ %8, %7 ], [ %17, %14 ]
   %.sink22.i = load ptr, ptr %.sink22.in.i, align 8, !tbaa !33
   %18 = load ptr, ptr %.sink22.i, align 8, !tbaa !35
-  %.not26 = icmp eq ptr %18, null
-  br i1 %.not26, label %.thread, label %.preheader
+  %.not23 = icmp eq ptr %18, null
+  br i1 %.not23, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %hwloc_get_obj_by_depth.exit, %27
-  %.01328 = phi ptr [ %29, %27 ], [ %18, %hwloc_get_obj_by_depth.exit ]
-  %.01427 = phi i32 [ %.115, %27 ], [ -1, %hwloc_get_obj_by_depth.exit ]
+  %.01325 = phi ptr [ %29, %27 ], [ %18, %hwloc_get_obj_by_depth.exit ]
+  %.01424 = phi i32 [ %.115, %27 ], [ -1, %hwloc_get_obj_by_depth.exit ]
   br label %19
 
 19:                                               ; preds = %.preheader, %19
-  %.013.pn = phi ptr [ %.012, %19 ], [ %.01328, %.preheader ]
+  %.013.pn = phi ptr [ %.012, %19 ], [ %.01325, %.preheader ]
   %.012.in = getelementptr inbounds nuw i8, ptr %.013.pn, i64 72
   %.012 = load ptr, ptr %.012.in, align 8, !tbaa !44
   %20 = load i32, ptr %.012, align 8, !tbaa !37
   %21 = and i32 %20, -2
-  %.not25 = icmp eq i32 %21, 14
-  br i1 %.not25, label %19, label %22, !llvm.loop !45
+  %.not22 = icmp eq i32 %21, 14
+  br i1 %.not22, label %19, label %22, !llvm.loop !45
 
 22:                                               ; preds = %19
-  %23 = icmp eq i32 %.01427, -1
+  %23 = icmp eq i32 %.01424, -1
   %24 = getelementptr inbounds nuw i8, ptr %.012, i64 48
   %25 = load i32, ptr %24, align 8, !tbaa !47
   br i1 %23, label %27, label %26
 
 26:                                               ; preds = %22
-  %.not20 = icmp eq i32 %.01427, %25
-  br i1 %.not20, label %27, label %.thread
+  %.not20 = icmp eq i32 %.01424, %25
+  br i1 %.not20, label %27, label %.critedge
 
 27:                                               ; preds = %22, %26
-  %.115 = phi i32 [ %.01427, %26 ], [ %25, %22 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.01328, i64 56
+  %.115 = phi i32 [ %.01424, %26 ], [ %25, %22 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.01325, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !48
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.thread, label %.preheader, !llvm.loop !49
+  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !49
 
-.thread:                                          ; preds = %27, %26, %9, %4, %hwloc_get_obj_by_depth.exit
+.critedge:                                        ; preds = %27, %26, %9, %4, %hwloc_get_obj_by_depth.exit
   %.218 = phi i32 [ -1, %hwloc_get_obj_by_depth.exit ], [ -1, %4 ], [ -1, %9 ], [ -2, %26 ], [ %.115, %27 ]
   ret i32 %.218
 }

@@ -361,20 +361,20 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %7, i8 0, i64 15, i1 false), !annotation !20
   %11 = call i32 @kallsyms_lookup_size_offset(i64 noundef %10, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread13, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %2
   %14 = icmp uge ptr %9, @__entry_text_start
   %15 = icmp ult ptr %9, @__entry_text_end
   %16 = and i1 %14, %15
-  br i1 %16, label %.thread13, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %13
   %18 = load i64, ptr %4, align 8
   %19 = load i64, ptr %5, align 8
   %20 = sub i64 %18, %19
   %21 = icmp ult i64 %20, 5
-  br i1 %21, label %.thread13, label %22
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %17
   %23 = sub i64 %10, %19
@@ -390,22 +390,22 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   %33 = icmp ult i64 %23, %32
   br i1 %33, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %22, %.backedge
-  %34 = phi i64 [ %48, %.backedge ], [ %23, %22 ]
+.lr.ph:                                           ; preds = %22, %.thread
+  %34 = phi i64 [ %48, %.thread ], [ %23, %22 ]
   %35 = call ptr @search_exception_tables(i64 noundef %34) #10
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %.thread13
+  br i1 %36, label %37, label %.critedge
 
 37:                                               ; preds = %.lr.ph
   %38 = call i64 @recover_probed_instruction(ptr noundef nonnull %7, i64 noundef %34) #10
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %.thread13, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %37
   %41 = inttoptr i64 %38 to ptr
   %42 = call i32 @insn_decode(ptr noundef nonnull %6, ptr noundef nonnull %41, i32 noundef 15, i32 noundef 2) #10
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %.thread13, label %44
+  br i1 %43, label %.critedge, label %44
 
 44:                                               ; preds = %40
   %45 = inttoptr i64 %34 to ptr
@@ -417,43 +417,43 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   store ptr %49, ptr %26, align 8
   %50 = load i8, ptr %28, align 8
   switch i8 %50, label %54 [
-    i8 -32, label %62
-    i8 -31, label %62
-    i8 -30, label %62
-    i8 -29, label %62
-    i8 -23, label %62
-    i8 -21, label %62
+    i8 -32, label %57
+    i8 -31, label %57
+    i8 -30, label %57
+    i8 -29, label %57
+    i8 -23, label %57
+    i8 -21, label %57
     i8 15, label %51
   ]
 
 51:                                               ; preds = %44
   %52 = load i8, ptr %29, align 1
   %53 = icmp slt i8 %52, -112
-  br i1 %53, label %62, label %.backedge
+  br i1 %53, label %57, label %.thread
 
 54:                                               ; preds = %44
   %55 = and i8 %50, -16
   %56 = icmp eq i8 %55, 112
-  br i1 %56, label %62, label %.backedge
+  br i1 %56, label %57, label %.thread
 
-.backedge:                                        ; preds = %54, %51, %62
-  %57 = load i64, ptr %5, align 8
-  %58 = sub i64 %10, %57
-  %59 = load i64, ptr %4, align 8
-  %60 = add i64 %58, %59
-  %61 = icmp ult i64 %48, %60
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+57:                                               ; preds = %44, %44, %44, %44, %44, %44, %51, %54
+  %58 = load i32, ptr %30, align 8
+  %59 = sext i32 %58 to i64
+  %60 = add i64 %48, %59
+  %61 = icmp ult i64 %60, %27
+  %62 = icmp ugt i64 %60, %31
+  %.not10 = or i1 %61, %62
+  br i1 %.not10, label %.thread, label %.critedge
 
-62:                                               ; preds = %44, %44, %44, %44, %44, %44, %51, %54
-  %63 = load i32, ptr %30, align 8
-  %64 = sext i32 %63 to i64
-  %65 = add i64 %48, %64
-  %66 = icmp ult i64 %65, %27
-  %67 = icmp ugt i64 %65, %31
-  %.not10 = or i1 %66, %67
-  br i1 %.not10, label %.backedge, label %.thread13
+.thread:                                          ; preds = %57, %54, %51
+  %63 = load i64, ptr %5, align 8
+  %64 = sub i64 %10, %63
+  %65 = load i64, ptr %4, align 8
+  %66 = add i64 %64, %65
+  %67 = icmp ult i64 %48, %66
+  br i1 %67, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.backedge, %22
+._crit_edge:                                      ; preds = %.thread, %22
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
@@ -479,7 +479,7 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   %81 = sub i64 -5, %78
   %82 = select i1 %80, i64 %81, i64 %79
   %83 = icmp sgt i64 %82, 2147483647
-  br i1 %83, label %.thread, label %84
+  br i1 %83, label %.thread15, label %84
 
 84:                                               ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %68, ptr nonnull align 1 @optprobe_template_entry, i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i1 false)
@@ -492,7 +492,7 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
 87:                                               ; preds = %98
   %88 = add i32 %96, %91
   %89 = icmp slt i32 %88, 5
-  br i1 %89, label %90, label %101, !llvm.loop !22
+  br i1 %89, label %90, label %101, !llvm.loop !21
 
 90:                                               ; preds = %87, %84
   %91 = phi i32 [ 0, %84 ], [ %88, %87 ]
@@ -570,8 +570,8 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   %138 = call ptr @text_poke(ptr noundef nonnull %71, ptr noundef nonnull %68, i64 noundef %137) #10
   br label %139
 
-139:                                              ; preds = %.thread, %.loopexit, %123, %70
-  %140 = phi i32 [ 0, %123 ], [ -12, %70 ], [ %.ph, %.loopexit ], [ %142, %.thread ]
+139:                                              ; preds = %.thread15, %.loopexit, %123, %70
+  %140 = phi i32 [ 0, %123 ], [ -12, %70 ], [ %.ph, %.loopexit ], [ %142, %.thread15 ]
   call void @kfree(ptr noundef nonnull %68) #10
   br label %144
 
@@ -580,24 +580,24 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #10
   %.pre = load ptr, ptr %72, align 8
   %141 = icmp eq ptr %.pre, null
-  br i1 %141, label %139, label %.thread
+  br i1 %141, label %139, label %.thread15
 
-.thread:                                          ; preds = %74, %.loopexit
+.thread15:                                        ; preds = %74, %.loopexit
   %142 = phi i32 [ %.ph, %.loopexit ], [ -34, %74 ]
   %143 = phi ptr [ %.pre, %.loopexit ], [ %71, %74 ]
   call void @__free_insn_slot(ptr noundef nonnull @kprobe_optinsn_slots, ptr noundef nonnull %143, i32 noundef 0) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
   br label %139
 
-.thread13:                                        ; preds = %62, %40, %37, %.lr.ph, %17, %13, %2
+.critedge:                                        ; preds = %57, %.lr.ph, %37, %40, %17, %13, %2
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   br label %144
 
-144:                                              ; preds = %.thread13, %139, %._crit_edge
-  %145 = phi i32 [ %140, %139 ], [ -12, %._crit_edge ], [ -84, %.thread13 ]
+144:                                              ; preds = %.critedge, %139, %._crit_edge
+  %145 = phi i32 [ %140, %139 ], [ -12, %._crit_edge ], [ -84, %.critedge ]
   ret i32 %145
 }
 
@@ -649,9 +649,9 @@ define dso_local void @arch_optimize_kprobes(ptr noundef readonly captures(addre
   br i1 %23, label %25, label %24, !prof !17
 
 24:                                               ; preds = %7
-  call void asm sideeffect "393: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 393b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 393) #10, !srcloc !23
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 482, i32 2305, i64 12) #10, !srcloc !24
-  call void asm sideeffect "394: nop\0A\09.pushsection .discard.instr_end\0A\09.long 394b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 394) #10, !srcloc !25
+  call void asm sideeffect "393: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 393b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 393) #10, !srcloc !22
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 482, i32 2305, i64 12) #10, !srcloc !23
+  call void asm sideeffect "394: nop\0A\09.pushsection .discard.instr_end\0A\09.long 394b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 394) #10, !srcloc !24
   %.pre = load ptr, ptr %14, align 8
   br label %25
 
@@ -672,7 +672,7 @@ define dso_local void @arch_optimize_kprobes(ptr noundef readonly captures(addre
   store volatile ptr %8, ptr %8, align 8
   store volatile ptr %8, ptr %29, align 8
   %33 = icmp eq ptr %9, %0
-  br i1 %33, label %.loopexit, label %7, !llvm.loop !26
+  br i1 %33, label %.loopexit, label %7, !llvm.loop !25
 
 .loopexit:                                        ; preds = %25, %1
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %2) #10
@@ -762,7 +762,7 @@ define dso_local void @arch_unoptimize_kprobes(ptr noundef readonly captures(add
   store ptr %1, ptr %20, align 8
   store volatile ptr %10, ptr %1, align 8
   %26 = icmp eq ptr %11, %0
-  br i1 %26, label %.loopexit, label %9, !llvm.loop !27
+  br i1 %26, label %.loopexit, label %9, !llvm.loop !26
 
 .loopexit:                                        ; preds = %9, %2
   ret void
@@ -787,7 +787,7 @@ define dso_local noundef range(i32 0, 2) i32 @setup_detour_execution(ptr noundef
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %8
-  tail call void asm "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @current_kprobe, i64 0, ptr nonnull elementtype(ptr) @current_kprobe) #10, !srcloc !28
+  tail call void asm "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @current_kprobe, i64 0, ptr nonnull elementtype(ptr) @current_kprobe) #10, !srcloc !27
   br label %16
 
 16:                                               ; preds = %15, %8, %3
@@ -885,10 +885,9 @@ attributes #12 = { nounwind allocsize(0) }
 !19 = distinct !{!19, !7, !8}
 !20 = !{!"auto-init"}
 !21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = !{i64 2155667199, i64 2155662947, i64 2155662999, i64 2155663045, i64 2155663073}
-!24 = !{i64 2155667273, i64 2155667302, i64 2155667348, i64 2155667406, i64 2155667460, i64 2155667514, i64 2155667569, i64 2155667600, i64 2155667908, i64 2155667914, i64 2155667961, i64 2155667984, i64 2155668010}
-!25 = !{i64 2155668472, i64 2155668283, i64 2155668333, i64 2155668379, i64 2155668407}
+!22 = !{i64 2155667199, i64 2155662947, i64 2155662999, i64 2155663045, i64 2155663073}
+!23 = !{i64 2155667273, i64 2155667302, i64 2155667348, i64 2155667406, i64 2155667460, i64 2155667514, i64 2155667569, i64 2155667600, i64 2155667908, i64 2155667914, i64 2155667961, i64 2155667984, i64 2155668010}
+!24 = !{i64 2155668472, i64 2155668283, i64 2155668333, i64 2155668379, i64 2155668407}
+!25 = distinct !{!25, !7, !8}
 !26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = !{i64 2154681433}
+!27 = !{i64 2154681433}

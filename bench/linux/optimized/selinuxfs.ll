@@ -2031,29 +2031,29 @@ define internal range(i64 -2147483648, 2147483648) i64 @sel_write_create(ptr rea
   %21 = tail call i32 @avc_has_perm(i32 noundef %20, i32 noundef 2, i16 noundef zeroext 1, i32 noundef 2, ptr noundef null) #14
   %22 = sext i32 %21 to i64
   %23 = icmp eq i32 %21, 0
-  br i1 %23, label %24, label %.thread
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %3
   %25 = add i64 %2, 1
   %26 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %25, i32 noundef 3520) #18
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread, label %28
+  br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %25, i32 noundef 3520) #18
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %28
   %32 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %25, i32 noundef 3520) #18
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread, label %34
+  br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %31
   %35 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.49, ptr noundef nonnull %26, ptr noundef nonnull %29, ptr noundef nonnull %7, ptr noundef nonnull %32)
   %36 = add i32 %35, -5
   %37 = icmp ult i32 %36, -2
-  br i1 %37, label %.thread, label %38
+  br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %34
   %39 = icmp eq i32 %35, 4
@@ -2076,14 +2076,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @sel_write_create(ptr rea
   %49 = load i8, ptr %42, align 1
   %50 = call i32 @hex_to_bin(i8 noundef zeroext %49) #14
   %51 = icmp slt i32 %50, 0
-  br i1 %51, label %.thread, label %52
+  br i1 %51, label %.critedge, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr i8, ptr %40, i64 2
   %54 = load i8, ptr %53, align 1
   %55 = call i32 @hex_to_bin(i8 noundef zeroext %54) #14
   %56 = icmp slt i32 %55, 0
-  br i1 %56, label %.thread, label %57
+  br i1 %56, label %.critedge, label %57
 
 57:                                               ; preds = %52
   %58 = getelementptr i8, ptr %40, i64 3
@@ -2105,13 +2105,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @sel_write_create(ptr rea
   %68 = call i32 @security_context_str_to_sid(ptr noundef nonnull %26, ptr noundef nonnull %4, i32 noundef 3264) #14
   %69 = sext i32 %68 to i64
   %70 = icmp eq i32 %68, 0
-  br i1 %70, label %71, label %.thread
+  br i1 %70, label %71, label %.critedge
 
 71:                                               ; preds = %.loopexit
   %72 = call i32 @security_context_str_to_sid(ptr noundef nonnull %29, ptr noundef nonnull %5, i32 noundef 3264) #14
   %73 = sext i32 %72 to i64
   %74 = icmp eq i32 %72, 0
-  br i1 %74, label %75, label %.thread
+  br i1 %74, label %75, label %.critedge
 
 75:                                               ; preds = %71
   %76 = load i32, ptr %4, align 4
@@ -2120,14 +2120,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @sel_write_create(ptr rea
   %79 = call i32 @security_transition_sid_user(i32 noundef %76, i32 noundef %77, i16 noundef zeroext %78, ptr noundef %67, ptr noundef nonnull %6) #14
   %80 = sext i32 %79 to i64
   %81 = icmp eq i32 %79, 0
-  br i1 %81, label %82, label %.thread
+  br i1 %81, label %82, label %.critedge
 
 82:                                               ; preds = %75
   %83 = load i32, ptr %6, align 4
   %84 = call i32 @security_sid_to_context(i32 noundef %83, ptr noundef nonnull %8, ptr noundef nonnull %9) #14
   %85 = sext i32 %84 to i64
   %86 = icmp eq i32 %84, 0
-  br i1 %86, label %87, label %.thread
+  br i1 %86, label %87, label %.critedge
 
 87:                                               ; preds = %82
   %88 = load i32, ptr %9, align 4
@@ -2136,19 +2136,19 @@ define internal range(i64 -2147483648, 2147483648) i64 @sel_write_create(ptr rea
 
 90:                                               ; preds = %87
   %91 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.45, ptr noundef nonnull @__func__.sel_write_create, i32 noundef %88) #15
-  br label %.thread
+  br label %.critedge
 
 92:                                               ; preds = %87
   %93 = zext nneg i32 %88 to i64
   %94 = load ptr, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %94, i64 %93, i1 false)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %52, %48, %92, %90, %82, %75, %71, %.loopexit, %34, %31, %28, %24, %3
-  %95 = phi ptr [ null, %3 ], [ %26, %34 ], [ %26, %.loopexit ], [ %26, %71 ], [ %26, %75 ], [ %26, %82 ], [ %26, %90 ], [ %26, %92 ], [ %26, %31 ], [ %26, %28 ], [ null, %24 ], [ %26, %48 ], [ %26, %52 ]
-  %96 = phi ptr [ null, %3 ], [ %29, %34 ], [ %29, %.loopexit ], [ %29, %71 ], [ %29, %75 ], [ %29, %82 ], [ %29, %90 ], [ %29, %92 ], [ %29, %31 ], [ null, %28 ], [ null, %24 ], [ %29, %48 ], [ %29, %52 ]
-  %97 = phi ptr [ null, %3 ], [ %32, %34 ], [ %32, %.loopexit ], [ %32, %71 ], [ %32, %75 ], [ %32, %82 ], [ %32, %90 ], [ %32, %92 ], [ null, %31 ], [ null, %28 ], [ null, %24 ], [ %32, %48 ], [ %32, %52 ]
-  %98 = phi i64 [ %22, %3 ], [ -22, %34 ], [ %69, %.loopexit ], [ %73, %71 ], [ %80, %75 ], [ %85, %82 ], [ -34, %90 ], [ %93, %92 ], [ -12, %31 ], [ -12, %28 ], [ -12, %24 ], [ -22, %48 ], [ -22, %52 ]
+.critedge:                                        ; preds = %48, %52, %92, %90, %82, %75, %71, %.loopexit, %34, %31, %28, %24, %3
+  %95 = phi ptr [ null, %3 ], [ %26, %34 ], [ %26, %.loopexit ], [ %26, %71 ], [ %26, %75 ], [ %26, %82 ], [ %26, %90 ], [ %26, %92 ], [ %26, %31 ], [ %26, %28 ], [ null, %24 ], [ %26, %52 ], [ %26, %48 ]
+  %96 = phi ptr [ null, %3 ], [ %29, %34 ], [ %29, %.loopexit ], [ %29, %71 ], [ %29, %75 ], [ %29, %82 ], [ %29, %90 ], [ %29, %92 ], [ %29, %31 ], [ null, %28 ], [ null, %24 ], [ %29, %52 ], [ %29, %48 ]
+  %97 = phi ptr [ null, %3 ], [ %32, %34 ], [ %32, %.loopexit ], [ %32, %71 ], [ %32, %75 ], [ %32, %82 ], [ %32, %90 ], [ %32, %92 ], [ null, %31 ], [ null, %28 ], [ null, %24 ], [ %32, %52 ], [ %32, %48 ]
+  %98 = phi i64 [ %22, %3 ], [ -22, %34 ], [ %69, %.loopexit ], [ %73, %71 ], [ %80, %75 ], [ %85, %82 ], [ -34, %90 ], [ %93, %92 ], [ -12, %31 ], [ -12, %28 ], [ -12, %24 ], [ -22, %52 ], [ -22, %48 ]
   %99 = load ptr, ptr %8, align 8
   call void @kfree(ptr noundef %99) #14
   call void @kfree(ptr noundef %97) #14

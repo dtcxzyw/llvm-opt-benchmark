@@ -10536,892 +10536,898 @@ define internal fastcc range(i32 0, 2) i32 @Ses_ManCreateTruthTableClause(ptr no
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %12 = load i32, ptr %11, align 8, !tbaa !138
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.preheader189.lr.ph, label %.._crit_edge216_crit_edge
+  br i1 %13, label %.preheader189.lr.ph, label %.._crit_edge206_crit_edge
 
-.._crit_edge216_crit_edge:                        ; preds = %2
+.._crit_edge206_crit_edge:                        ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre237 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !101
-  br label %._crit_edge216
+  %.pre227 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !101
+  br label %._crit_edge206
 
 .preheader189.lr.ph:                              ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %invariant.gep198 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %invariant.gep200 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %invariant.gep202 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %invariant.gep204 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %invariant.gep206 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %15 = getelementptr i8, ptr %0, i64 1080
   %16 = getelementptr i8, ptr %0, i64 32
   %17 = getelementptr i8, ptr %0, i64 1068
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %19 = add nsw i32 %1, 1
-  %20 = getelementptr i8, ptr %0, i64 1076
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = getelementptr i8, ptr %0, i64 1072
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = ashr i32 %19, 6
-  %32 = sext i32 %31 to i64
-  %33 = and i32 %19, 63
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %20 = add nsw i32 %1, 1
+  %21 = getelementptr i8, ptr %0, i64 1076
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %35 = getelementptr i8, ptr %0, i64 1072
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = ashr i32 %20, 6
+  %38 = sext i32 %37 to i64
+  %39 = and i32 %20, 63
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %.preheader189
 
 .preheader189:                                    ; preds = %.preheader189.lr.ph, %.loopexit187
-  %.070214 = phi i32 [ 0, %.preheader189.lr.ph ], [ %423, %.loopexit187 ]
-  %37 = load i32, ptr %14, align 4, !tbaa !100
-  %38 = add nsw i32 %37, %.070214
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph211, label %._crit_edge
+  %.070204 = phi i32 [ 0, %.preheader189.lr.ph ], [ %441, %.loopexit187 ]
+  %43 = load i32, ptr %14, align 4, !tbaa !100
+  %44 = add nsw i32 %43, %.070204
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %.lr.ph201, label %._crit_edge
 
-.lr.ph211:                                        ; preds = %.preheader189
-  %.not186 = icmp eq i32 %.070214, 0
-  %40 = mul nuw nsw i32 %.070214, 3
-  %41 = add nuw i32 %40, 1
-  %42 = add nuw i32 %40, 2
-  br label %44
+.lr.ph201:                                        ; preds = %.preheader189
+  %.not186 = icmp eq i32 %.070204, 0
+  %46 = mul nuw nsw i32 %.070204, 3
+  %47 = add nuw i32 %46, 1
+  %48 = add nuw i32 %46, 2
+  br label %50
 
 .loopexit:                                        ; preds = %Ses_ManCreateMainClause.exit185
-  %.pre249 = add nsw i32 %389, %.070214
-  %43 = icmp slt i32 %46, %.pre249
-  br i1 %43, label %44, label %._crit_edge, !llvm.loop !330
+  %.pre239 = add nsw i32 %407, %.070204
+  %49 = icmp slt i32 %52, %.pre239
+  br i1 %49, label %50, label %._crit_edge, !llvm.loop !330
 
-44:                                               ; preds = %.lr.ph211, %.loopexit
-  %45 = phi i32 [ %37, %.lr.ph211 ], [ %389, %.loopexit ]
-  %.069210 = phi i32 [ 0, %.lr.ph211 ], [ %46, %.loopexit ]
-  %46 = add nuw nsw i32 %.069210, 1
-  %47 = add nsw i32 %45, %.070214
-  %48 = icmp slt i32 %46, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge
+50:                                               ; preds = %.lr.ph201, %.loopexit
+  %51 = phi i32 [ %43, %.lr.ph201 ], [ %407, %.loopexit ]
+  %.069200 = phi i32 [ 0, %.lr.ph201 ], [ %52, %.loopexit ]
+  %52 = add nuw nsw i32 %.069200, 1
+  %53 = add nsw i32 %51, %.070204
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %44
-  %.neg18.i.i = xor i32 %.069210, -1
-  %49 = shl nuw i32 1, %.069210
-  %50 = and i32 %49, %19
-  %.not.i = icmp eq i32 %50, 0
-  br label %51
+.lr.ph:                                           ; preds = %50
+  %.neg18.i.i = xor i32 %.069200, -1
+  %55 = shl nuw i32 1, %.069200
+  %56 = and i32 %55, %20
+  %.not.i = icmp eq i32 %56, 0
+  br label %57
 
-51:                                               ; preds = %.lr.ph, %Ses_ManCreateMainClause.exit185
-  %52 = phi i32 [ %45, %.lr.ph ], [ %389, %Ses_ManCreateMainClause.exit185 ]
-  %53 = phi i32 [ %45, %.lr.ph ], [ %390, %Ses_ManCreateMainClause.exit185 ]
-  %54 = phi i32 [ %47, %.lr.ph ], [ %.pre-phi248, %Ses_ManCreateMainClause.exit185 ]
-  %.068208 = phi i32 [ %46, %.lr.ph ], [ %391, %Ses_ManCreateMainClause.exit185 ]
+57:                                               ; preds = %.lr.ph, %Ses_ManCreateMainClause.exit185
+  %58 = phi i32 [ %51, %.lr.ph ], [ %407, %Ses_ManCreateMainClause.exit185 ]
+  %59 = phi i32 [ %51, %.lr.ph ], [ %408, %Ses_ManCreateMainClause.exit185 ]
+  %60 = phi i32 [ %53, %.lr.ph ], [ %.pre-phi238, %Ses_ManCreateMainClause.exit185 ]
+  %.068198 = phi i32 [ %52, %.lr.ph ], [ %409, %Ses_ManCreateMainClause.exit185 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #29
   %.val50.i = load i32, ptr %15, align 8, !tbaa !233
   br i1 %.not186, label %Ses_ManSelectVar.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %51, %.lr.ph.i.i
-  %.02.i.i = phi i32 [ %58, %.lr.ph.i.i ], [ %.val50.i, %51 ]
-  %.0151.i.i = phi i32 [ %59, %.lr.ph.i.i ], [ %53, %51 ]
-  %55 = add nsw i32 %.0151.i.i, -1
-  %56 = mul nsw i32 %55, %.0151.i.i
-  %57 = sdiv i32 %56, 2
-  %58 = add nsw i32 %57, %.02.i.i
-  %59 = add nsw i32 %.0151.i.i, 1
-  %60 = icmp slt i32 %59, %54
-  br i1 %60, label %.lr.ph.i.i, label %Ses_ManSelectVar.exit.i, !llvm.loop !237
+.lr.ph.i.i:                                       ; preds = %57, %.lr.ph.i.i
+  %.02.i.i = phi i32 [ %64, %.lr.ph.i.i ], [ %.val50.i, %57 ]
+  %.0151.i.i = phi i32 [ %65, %.lr.ph.i.i ], [ %59, %57 ]
+  %61 = add nsw i32 %.0151.i.i, -1
+  %62 = mul nsw i32 %61, %.0151.i.i
+  %63 = sdiv i32 %62, 2
+  %64 = add nsw i32 %63, %.02.i.i
+  %65 = add nsw i32 %.0151.i.i, 1
+  %66 = icmp slt i32 %65, %60
+  br i1 %66, label %.lr.ph.i.i, label %Ses_ManSelectVar.exit.i, !llvm.loop !237
 
-Ses_ManSelectVar.exit.i:                          ; preds = %.lr.ph.i.i, %51
-  %.0.lcssa.i.i = phi i32 [ %.val50.i, %51 ], [ %58, %.lr.ph.i.i ]
-  %61 = shl nsw i32 %54, 1
-  %.neg.i.i = add i32 %61, %.neg18.i.i
-  %.neg17.i.i = mul i32 %.neg.i.i, %.069210
-  %62 = sdiv i32 %.neg17.i.i, 2
-  %63 = add nsw i32 %.068208, %.neg18.i.i
-  %64 = add i32 %62, %63
-  %65 = add i32 %64, %.0.lcssa.i.i
-  %66 = shl nsw i32 %65, 1
-  %67 = or disjoint i32 %66, 1
-  store i32 %67, ptr %9, align 16, !tbaa !7
+Ses_ManSelectVar.exit.i:                          ; preds = %.lr.ph.i.i, %57
+  %.0.lcssa.i.i = phi i32 [ %.val50.i, %57 ], [ %64, %.lr.ph.i.i ]
+  %67 = shl nsw i32 %60, 1
+  %.neg.i.i = add i32 %67, %.neg18.i.i
+  %.neg17.i.i = mul i32 %.neg.i.i, %.069200
+  %68 = sdiv i32 %.neg17.i.i, 2
+  %69 = add nsw i32 %.068198, %.neg18.i.i
+  %70 = add i32 %68, %69
+  %71 = add i32 %70, %.0.lcssa.i.i
+  %72 = shl nsw i32 %71, 1
+  %73 = or disjoint i32 %72, 1
+  store i32 %73, ptr %9, align 16, !tbaa !7
   %.val51.i = load i32, ptr %16, align 8, !tbaa !103
   %.val52.i = load i32, ptr %17, align 4, !tbaa !236
-  %68 = mul nsw i32 %.val51.i, %.070214
-  %69 = add i32 %.val52.i, %1
-  %70 = add i32 %69, %68
-  %71 = shl nsw i32 %70, 1
-  store i32 %71, ptr %invariant.gep, align 4, !tbaa !7
-  %72 = icmp slt i32 %.069210, %53
-  br i1 %72, label %73, label %74
+  %74 = mul nsw i32 %.val51.i, %.070204
+  %75 = add i32 %.val52.i, %1
+  %76 = add i32 %75, %74
+  %77 = shl nsw i32 %76, 1
+  store i32 %77, ptr %18, align 4, !tbaa !7
+  %78 = icmp slt i32 %.069200, %59
+  br i1 %78, label %79, label %80
 
-73:                                               ; preds = %Ses_ManSelectVar.exit.i
-  br i1 %.not.i, label %79, label %Ses_ManCreateMainClause.exit
+79:                                               ; preds = %Ses_ManSelectVar.exit.i
+  br i1 %.not.i, label %85, label %Ses_ManCreateMainClause.exit
 
-74:                                               ; preds = %Ses_ManSelectVar.exit.i
-  %75 = sub nsw i32 %.069210, %53
-  %76 = mul nsw i32 %.val51.i, %75
-  %77 = add i32 %69, %76
-  %78 = shl nsw i32 %77, 1
-  store i32 %78, ptr %18, align 8, !tbaa !7
-  br label %79
+80:                                               ; preds = %Ses_ManSelectVar.exit.i
+  %81 = sub nsw i32 %.069200, %59
+  %82 = mul nsw i32 %.val51.i, %81
+  %83 = add i32 %75, %82
+  %84 = shl nsw i32 %83, 1
+  store i32 %84, ptr %19, align 8, !tbaa !7
+  br label %85
 
-79:                                               ; preds = %74, %73
-  %.0.i = phi i32 [ 2, %73 ], [ 3, %74 ]
-  %80 = icmp slt i32 %.068208, %53
-  br i1 %80, label %81, label %84
+85:                                               ; preds = %80, %79
+  %.0.i = phi i32 [ 2, %79 ], [ 3, %80 ]
+  %86 = icmp slt i32 %.068198, %59
+  br i1 %86, label %87, label %90
 
-81:                                               ; preds = %79
-  %82 = shl nuw i32 1, %.068208
-  %83 = and i32 %82, %19
-  %.not49.i.not = icmp eq i32 %83, 0
-  br i1 %.not49.i.not, label %Ses_ManCreateMainClause.exit, label %93
+87:                                               ; preds = %85
+  %88 = shl nuw i32 1, %.068198
+  %89 = and i32 %88, %20
+  %.not49.i.not = icmp eq i32 %89, 0
+  br i1 %.not49.i.not, label %Ses_ManCreateMainClause.exit, label %99
 
-84:                                               ; preds = %79
-  %85 = sub nsw i32 %.068208, %53
-  %86 = mul nsw i32 %.val51.i, %85
-  %87 = add i32 %69, %86
-  %88 = shl nsw i32 %87, 1
-  %89 = or disjoint i32 %88, 1
-  %90 = add nuw nsw i32 %.0.i, 1
-  %91 = zext nneg i32 %.0.i to i64
-  %92 = getelementptr inbounds nuw [5 x i32], ptr %9, i64 0, i64 %91
-  store i32 %89, ptr %92, align 4, !tbaa !7
-  br label %93
-
-93:                                               ; preds = %84, %81
-  %.1.i = phi i32 [ %.0.i, %81 ], [ %90, %84 ]
-  %.val57.i = load i32, ptr %20, align 4, !tbaa !234
-  %94 = add i32 %.val57.i, %40
-  %95 = shl nsw i32 %94, 1
-  %96 = or disjoint i32 %95, 1
-  %97 = zext nneg i32 %.1.i to i64
+90:                                               ; preds = %85
+  %91 = sub nsw i32 %.068198, %59
+  %92 = mul nsw i32 %.val51.i, %91
+  %93 = add i32 %75, %92
+  %94 = shl nsw i32 %93, 1
+  %95 = or disjoint i32 %94, 1
+  %96 = add nuw nsw i32 %.0.i, 1
+  %97 = zext nneg i32 %.0.i to i64
   %98 = getelementptr inbounds nuw [5 x i32], ptr %9, i64 0, i64 %97
-  store i32 %96, ptr %98, align 4, !tbaa !7
-  %99 = load ptr, ptr %0, align 8, !tbaa !95
-  %100 = zext nneg i32 %.1.i to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %100
-  %101 = call i32 @sat_solver_addclause(ptr noundef %99, ptr noundef nonnull %9, ptr noundef nonnull %gep) #29
+  store i32 %95, ptr %98, align 4, !tbaa !7
+  br label %99
+
+99:                                               ; preds = %90, %87
+  %.1.i = phi i32 [ %.0.i, %87 ], [ %96, %90 ]
+  %.val57.i = load i32, ptr %21, align 4, !tbaa !234
+  %100 = add i32 %.val57.i, %46
+  %101 = shl nsw i32 %100, 1
+  %102 = or disjoint i32 %101, 1
+  %103 = zext nneg i32 %.1.i to i64
+  %104 = getelementptr inbounds nuw [5 x i32], ptr %9, i64 0, i64 %103
+  store i32 %102, ptr %104, align 4, !tbaa !7
+  %105 = load ptr, ptr %0, align 8, !tbaa !95
+  %106 = zext nneg i32 %.1.i to i64
+  %107 = getelementptr inbounds nuw i32, ptr %9, i64 %106
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
+  %109 = call i32 @sat_solver_addclause(ptr noundef %105, ptr noundef nonnull %9, ptr noundef nonnull %108) #29
   %.val.i79.pre = load i32, ptr %14, align 4, !tbaa !100
   %.val50.i80.pre = load i32, ptr %15, align 8, !tbaa !233
   br label %Ses_ManCreateMainClause.exit
 
-Ses_ManCreateMainClause.exit:                     ; preds = %73, %81, %93
-  %102 = phi i32 [ %52, %73 ], [ %52, %81 ], [ %.val.i79.pre, %93 ]
-  %103 = phi i32 [ %53, %73 ], [ %53, %81 ], [ %.val.i79.pre, %93 ]
-  %.val50.i80 = phi i32 [ %.val50.i, %73 ], [ %.val50.i, %81 ], [ %.val50.i80.pre, %93 ]
+Ses_ManCreateMainClause.exit:                     ; preds = %79, %87, %99
+  %110 = phi i32 [ %58, %79 ], [ %58, %87 ], [ %.val.i79.pre, %99 ]
+  %111 = phi i32 [ %59, %79 ], [ %59, %87 ], [ %.val.i79.pre, %99 ]
+  %.val50.i80 = phi i32 [ %.val50.i, %79 ], [ %.val50.i, %87 ], [ %.val50.i80.pre, %99 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #29
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #29
-  %104 = add nsw i32 %103, %.070214
+  %112 = add nsw i32 %111, %.070204
   br i1 %.not186, label %Ses_ManSelectVar.exit.i81, label %.lr.ph.i.i93
 
 .lr.ph.i.i93:                                     ; preds = %Ses_ManCreateMainClause.exit, %.lr.ph.i.i93
-  %.02.i.i94 = phi i32 [ %108, %.lr.ph.i.i93 ], [ %.val50.i80, %Ses_ManCreateMainClause.exit ]
-  %.0151.i.i95 = phi i32 [ %109, %.lr.ph.i.i93 ], [ %103, %Ses_ManCreateMainClause.exit ]
-  %105 = add nsw i32 %.0151.i.i95, -1
-  %106 = mul nsw i32 %105, %.0151.i.i95
-  %107 = sdiv i32 %106, 2
-  %108 = add nsw i32 %107, %.02.i.i94
-  %109 = add nsw i32 %.0151.i.i95, 1
-  %110 = icmp slt i32 %109, %104
-  br i1 %110, label %.lr.ph.i.i93, label %Ses_ManSelectVar.exit.i81, !llvm.loop !237
+  %.02.i.i94 = phi i32 [ %116, %.lr.ph.i.i93 ], [ %.val50.i80, %Ses_ManCreateMainClause.exit ]
+  %.0151.i.i95 = phi i32 [ %117, %.lr.ph.i.i93 ], [ %111, %Ses_ManCreateMainClause.exit ]
+  %113 = add nsw i32 %.0151.i.i95, -1
+  %114 = mul nsw i32 %113, %.0151.i.i95
+  %115 = sdiv i32 %114, 2
+  %116 = add nsw i32 %115, %.02.i.i94
+  %117 = add nsw i32 %.0151.i.i95, 1
+  %118 = icmp slt i32 %117, %112
+  br i1 %118, label %.lr.ph.i.i93, label %Ses_ManSelectVar.exit.i81, !llvm.loop !237
 
 Ses_ManSelectVar.exit.i81:                        ; preds = %.lr.ph.i.i93, %Ses_ManCreateMainClause.exit
-  %.0.lcssa.i.i82 = phi i32 [ %.val50.i80, %Ses_ManCreateMainClause.exit ], [ %108, %.lr.ph.i.i93 ]
-  %111 = shl nsw i32 %104, 1
-  %.neg.i.i84 = add i32 %111, %.neg18.i.i
-  %.neg17.i.i85 = mul i32 %.neg.i.i84, %.069210
-  %112 = sdiv i32 %.neg17.i.i85, 2
-  %113 = add i32 %112, %63
-  %114 = add i32 %113, %.0.lcssa.i.i82
-  %115 = shl nsw i32 %114, 1
-  %116 = or disjoint i32 %115, 1
-  store i32 %116, ptr %8, align 16, !tbaa !7
+  %.0.lcssa.i.i82 = phi i32 [ %.val50.i80, %Ses_ManCreateMainClause.exit ], [ %116, %.lr.ph.i.i93 ]
+  %119 = shl nsw i32 %112, 1
+  %.neg.i.i84 = add i32 %119, %.neg18.i.i
+  %.neg17.i.i85 = mul i32 %.neg.i.i84, %.069200
+  %120 = sdiv i32 %.neg17.i.i85, 2
+  %121 = add i32 %120, %69
+  %122 = add i32 %121, %.0.lcssa.i.i82
+  %123 = shl nsw i32 %122, 1
+  %124 = or disjoint i32 %123, 1
+  store i32 %124, ptr %8, align 16, !tbaa !7
   %.val51.i86 = load i32, ptr %16, align 8, !tbaa !103
   %.val52.i87 = load i32, ptr %17, align 4, !tbaa !236
-  %117 = mul nsw i32 %.val51.i86, %.070214
-  %118 = add i32 %.val52.i87, %1
-  %119 = add i32 %118, %117
-  %120 = shl nsw i32 %119, 1
-  store i32 %120, ptr %invariant.gep198, align 4, !tbaa !7
-  %121 = icmp slt i32 %.069210, %103
-  br i1 %121, label %122, label %123
+  %125 = mul nsw i32 %.val51.i86, %.070204
+  %126 = add i32 %.val52.i87, %1
+  %127 = add i32 %126, %125
+  %128 = shl nsw i32 %127, 1
+  store i32 %128, ptr %22, align 4, !tbaa !7
+  %129 = icmp slt i32 %.069200, %111
+  br i1 %129, label %130, label %131
 
-122:                                              ; preds = %Ses_ManSelectVar.exit.i81
-  br i1 %.not.i, label %Ses_ManCreateMainClause.exit96, label %129
+130:                                              ; preds = %Ses_ManSelectVar.exit.i81
+  br i1 %.not.i, label %Ses_ManCreateMainClause.exit96, label %137
 
-123:                                              ; preds = %Ses_ManSelectVar.exit.i81
-  %124 = sub nsw i32 %.069210, %103
-  %125 = mul nsw i32 %.val51.i86, %124
-  %126 = add i32 %118, %125
-  %127 = shl nsw i32 %126, 1
-  %128 = or disjoint i32 %127, 1
-  store i32 %128, ptr %21, align 8, !tbaa !7
-  br label %129
+131:                                              ; preds = %Ses_ManSelectVar.exit.i81
+  %132 = sub nsw i32 %.069200, %111
+  %133 = mul nsw i32 %.val51.i86, %132
+  %134 = add i32 %126, %133
+  %135 = shl nsw i32 %134, 1
+  %136 = or disjoint i32 %135, 1
+  store i32 %136, ptr %23, align 8, !tbaa !7
+  br label %137
 
-129:                                              ; preds = %123, %122
-  %.0.i88 = phi i32 [ 2, %122 ], [ 3, %123 ]
-  %130 = icmp slt i32 %.068208, %103
-  br i1 %130, label %131, label %134
+137:                                              ; preds = %131, %130
+  %.0.i88 = phi i32 [ 2, %130 ], [ 3, %131 ]
+  %138 = icmp slt i32 %.068198, %111
+  br i1 %138, label %139, label %142
 
-131:                                              ; preds = %129
-  %132 = shl nuw i32 1, %.068208
-  %133 = and i32 %132, %19
-  %.not49.i91 = icmp eq i32 %133, 0
-  br i1 %.not49.i91, label %142, label %Ses_ManCreateMainClause.exit96
+139:                                              ; preds = %137
+  %140 = shl nuw i32 1, %.068198
+  %141 = and i32 %140, %20
+  %.not49.i91 = icmp eq i32 %141, 0
+  br i1 %.not49.i91, label %150, label %Ses_ManCreateMainClause.exit96
 
-134:                                              ; preds = %129
-  %135 = sub nsw i32 %.068208, %103
-  %136 = mul nsw i32 %.val51.i86, %135
-  %137 = add i32 %118, %136
-  %138 = shl nsw i32 %137, 1
-  %139 = add nuw nsw i32 %.0.i88, 1
-  %140 = zext nneg i32 %.0.i88 to i64
-  %141 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %140
-  store i32 %138, ptr %141, align 4, !tbaa !7
-  br label %142
+142:                                              ; preds = %137
+  %143 = sub nsw i32 %.068198, %111
+  %144 = mul nsw i32 %.val51.i86, %143
+  %145 = add i32 %126, %144
+  %146 = shl nsw i32 %145, 1
+  %147 = add nuw nsw i32 %.0.i88, 1
+  %148 = zext nneg i32 %.0.i88 to i64
+  %149 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %148
+  store i32 %146, ptr %149, align 4, !tbaa !7
+  br label %150
 
-142:                                              ; preds = %134, %131
-  %.1.i89 = phi i32 [ %.0.i88, %131 ], [ %139, %134 ]
-  %.val57.i90 = load i32, ptr %20, align 4, !tbaa !234
-  %143 = add i32 %41, %.val57.i90
-  %144 = shl nsw i32 %143, 1
-  %145 = or disjoint i32 %144, 1
-  %146 = zext nneg i32 %.1.i89 to i64
-  %147 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %146
-  store i32 %145, ptr %147, align 4, !tbaa !7
-  %148 = load ptr, ptr %0, align 8, !tbaa !95
-  %149 = zext nneg i32 %.1.i89 to i64
-  %gep199 = getelementptr i32, ptr %invariant.gep198, i64 %149
-  %150 = call i32 @sat_solver_addclause(ptr noundef %148, ptr noundef nonnull %8, ptr noundef nonnull %gep199) #29
+150:                                              ; preds = %142, %139
+  %.1.i89 = phi i32 [ %.0.i88, %139 ], [ %147, %142 ]
+  %.val57.i90 = load i32, ptr %21, align 4, !tbaa !234
+  %151 = add i32 %47, %.val57.i90
+  %152 = shl nsw i32 %151, 1
+  %153 = or disjoint i32 %152, 1
+  %154 = zext nneg i32 %.1.i89 to i64
+  %155 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %154
+  store i32 %153, ptr %155, align 4, !tbaa !7
+  %156 = load ptr, ptr %0, align 8, !tbaa !95
+  %157 = zext nneg i32 %.1.i89 to i64
+  %158 = getelementptr inbounds nuw i32, ptr %8, i64 %157
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
+  %160 = call i32 @sat_solver_addclause(ptr noundef %156, ptr noundef nonnull %8, ptr noundef nonnull %159) #29
   %.val.i97.pre = load i32, ptr %14, align 4, !tbaa !100
   %.val50.i98.pre = load i32, ptr %15, align 8, !tbaa !233
-  %.pre238 = add nsw i32 %.val.i97.pre, %.070214
+  %.pre228 = add nsw i32 %.val.i97.pre, %.070204
   br label %Ses_ManCreateMainClause.exit96
 
-Ses_ManCreateMainClause.exit96:                   ; preds = %122, %131, %142
-  %.pre-phi = phi i32 [ %104, %122 ], [ %104, %131 ], [ %.pre238, %142 ]
-  %151 = phi i32 [ %102, %122 ], [ %102, %131 ], [ %.val.i97.pre, %142 ]
-  %152 = phi i32 [ %103, %122 ], [ %103, %131 ], [ %.val.i97.pre, %142 ]
-  %.val50.i98 = phi i32 [ %.val50.i80, %122 ], [ %.val50.i80, %131 ], [ %.val50.i98.pre, %142 ]
+Ses_ManCreateMainClause.exit96:                   ; preds = %130, %139, %150
+  %.pre-phi = phi i32 [ %112, %130 ], [ %112, %139 ], [ %.pre228, %150 ]
+  %161 = phi i32 [ %110, %130 ], [ %110, %139 ], [ %.val.i97.pre, %150 ]
+  %162 = phi i32 [ %111, %130 ], [ %111, %139 ], [ %.val.i97.pre, %150 ]
+  %.val50.i98 = phi i32 [ %.val50.i80, %130 ], [ %.val50.i80, %139 ], [ %.val50.i98.pre, %150 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #29
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #29
   br i1 %.not186, label %Ses_ManSelectVar.exit.i99, label %.lr.ph.i.i111
 
 .lr.ph.i.i111:                                    ; preds = %Ses_ManCreateMainClause.exit96, %.lr.ph.i.i111
-  %.02.i.i112 = phi i32 [ %156, %.lr.ph.i.i111 ], [ %.val50.i98, %Ses_ManCreateMainClause.exit96 ]
-  %.0151.i.i113 = phi i32 [ %157, %.lr.ph.i.i111 ], [ %152, %Ses_ManCreateMainClause.exit96 ]
-  %153 = add nsw i32 %.0151.i.i113, -1
-  %154 = mul nsw i32 %153, %.0151.i.i113
-  %155 = sdiv i32 %154, 2
-  %156 = add nsw i32 %155, %.02.i.i112
-  %157 = add nsw i32 %.0151.i.i113, 1
-  %158 = icmp slt i32 %157, %.pre-phi
-  br i1 %158, label %.lr.ph.i.i111, label %Ses_ManSelectVar.exit.i99, !llvm.loop !237
+  %.02.i.i112 = phi i32 [ %166, %.lr.ph.i.i111 ], [ %.val50.i98, %Ses_ManCreateMainClause.exit96 ]
+  %.0151.i.i113 = phi i32 [ %167, %.lr.ph.i.i111 ], [ %162, %Ses_ManCreateMainClause.exit96 ]
+  %163 = add nsw i32 %.0151.i.i113, -1
+  %164 = mul nsw i32 %163, %.0151.i.i113
+  %165 = sdiv i32 %164, 2
+  %166 = add nsw i32 %165, %.02.i.i112
+  %167 = add nsw i32 %.0151.i.i113, 1
+  %168 = icmp slt i32 %167, %.pre-phi
+  br i1 %168, label %.lr.ph.i.i111, label %Ses_ManSelectVar.exit.i99, !llvm.loop !237
 
 Ses_ManSelectVar.exit.i99:                        ; preds = %.lr.ph.i.i111, %Ses_ManCreateMainClause.exit96
-  %.0.lcssa.i.i100 = phi i32 [ %.val50.i98, %Ses_ManCreateMainClause.exit96 ], [ %156, %.lr.ph.i.i111 ]
-  %159 = shl nsw i32 %.pre-phi, 1
-  %.neg.i.i102 = add i32 %159, %.neg18.i.i
-  %.neg17.i.i103 = mul i32 %.neg.i.i102, %.069210
-  %160 = sdiv i32 %.neg17.i.i103, 2
-  %161 = add i32 %160, %63
-  %162 = add i32 %161, %.0.lcssa.i.i100
-  %163 = shl nsw i32 %162, 1
-  %164 = or disjoint i32 %163, 1
-  store i32 %164, ptr %7, align 16, !tbaa !7
+  %.0.lcssa.i.i100 = phi i32 [ %.val50.i98, %Ses_ManCreateMainClause.exit96 ], [ %166, %.lr.ph.i.i111 ]
+  %169 = shl nsw i32 %.pre-phi, 1
+  %.neg.i.i102 = add i32 %169, %.neg18.i.i
+  %.neg17.i.i103 = mul i32 %.neg.i.i102, %.069200
+  %170 = sdiv i32 %.neg17.i.i103, 2
+  %171 = add i32 %170, %69
+  %172 = add i32 %171, %.0.lcssa.i.i100
+  %173 = shl nsw i32 %172, 1
+  %174 = or disjoint i32 %173, 1
+  store i32 %174, ptr %7, align 16, !tbaa !7
   %.val51.i104 = load i32, ptr %16, align 8, !tbaa !103
   %.val52.i105 = load i32, ptr %17, align 4, !tbaa !236
-  %165 = mul nsw i32 %.val51.i104, %.070214
-  %166 = add i32 %.val52.i105, %1
-  %167 = add i32 %166, %165
-  %168 = shl nsw i32 %167, 1
-  store i32 %168, ptr %invariant.gep200, align 4, !tbaa !7
-  %169 = icmp slt i32 %.069210, %152
-  br i1 %169, label %170, label %171
+  %175 = mul nsw i32 %.val51.i104, %.070204
+  %176 = add i32 %.val52.i105, %1
+  %177 = add i32 %176, %175
+  %178 = shl nsw i32 %177, 1
+  store i32 %178, ptr %24, align 4, !tbaa !7
+  %179 = icmp slt i32 %.069200, %162
+  br i1 %179, label %180, label %181
 
-170:                                              ; preds = %Ses_ManSelectVar.exit.i99
-  br i1 %.not.i, label %Ses_ManCreateMainClause.exit114, label %177
+180:                                              ; preds = %Ses_ManSelectVar.exit.i99
+  br i1 %.not.i, label %Ses_ManCreateMainClause.exit114, label %187
 
-171:                                              ; preds = %Ses_ManSelectVar.exit.i99
-  %172 = sub nsw i32 %.069210, %152
-  %173 = mul nsw i32 %.val51.i104, %172
-  %174 = add i32 %166, %173
-  %175 = shl nsw i32 %174, 1
-  %176 = or disjoint i32 %175, 1
-  store i32 %176, ptr %22, align 8, !tbaa !7
-  br label %177
+181:                                              ; preds = %Ses_ManSelectVar.exit.i99
+  %182 = sub nsw i32 %.069200, %162
+  %183 = mul nsw i32 %.val51.i104, %182
+  %184 = add i32 %176, %183
+  %185 = shl nsw i32 %184, 1
+  %186 = or disjoint i32 %185, 1
+  store i32 %186, ptr %25, align 8, !tbaa !7
+  br label %187
 
-177:                                              ; preds = %171, %170
-  %.0.i106 = phi i32 [ 2, %170 ], [ 3, %171 ]
-  %178 = icmp slt i32 %.068208, %152
-  br i1 %178, label %179, label %182
+187:                                              ; preds = %181, %180
+  %.0.i106 = phi i32 [ 2, %180 ], [ 3, %181 ]
+  %188 = icmp slt i32 %.068198, %162
+  br i1 %188, label %189, label %192
 
-179:                                              ; preds = %177
-  %180 = shl nuw i32 1, %.068208
-  %181 = and i32 %180, %19
-  %.not49.i109.not = icmp eq i32 %181, 0
-  br i1 %.not49.i109.not, label %Ses_ManCreateMainClause.exit114, label %191
+189:                                              ; preds = %187
+  %190 = shl nuw i32 1, %.068198
+  %191 = and i32 %190, %20
+  %.not49.i109.not = icmp eq i32 %191, 0
+  br i1 %.not49.i109.not, label %Ses_ManCreateMainClause.exit114, label %201
 
-182:                                              ; preds = %177
-  %183 = sub nsw i32 %.068208, %152
-  %184 = mul nsw i32 %.val51.i104, %183
-  %185 = add i32 %166, %184
-  %186 = shl nsw i32 %185, 1
-  %187 = or disjoint i32 %186, 1
-  %188 = add nuw nsw i32 %.0.i106, 1
-  %189 = zext nneg i32 %.0.i106 to i64
-  %190 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %189
-  store i32 %187, ptr %190, align 4, !tbaa !7
-  br label %191
+192:                                              ; preds = %187
+  %193 = sub nsw i32 %.068198, %162
+  %194 = mul nsw i32 %.val51.i104, %193
+  %195 = add i32 %176, %194
+  %196 = shl nsw i32 %195, 1
+  %197 = or disjoint i32 %196, 1
+  %198 = add nuw nsw i32 %.0.i106, 1
+  %199 = zext nneg i32 %.0.i106 to i64
+  %200 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %199
+  store i32 %197, ptr %200, align 4, !tbaa !7
+  br label %201
 
-191:                                              ; preds = %182, %179
-  %.1.i107 = phi i32 [ %.0.i106, %179 ], [ %188, %182 ]
-  %.val57.i108 = load i32, ptr %20, align 4, !tbaa !234
-  %192 = add i32 %42, %.val57.i108
-  %193 = shl nsw i32 %192, 1
-  %194 = or disjoint i32 %193, 1
-  %195 = zext nneg i32 %.1.i107 to i64
-  %196 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %195
-  store i32 %194, ptr %196, align 4, !tbaa !7
-  %197 = load ptr, ptr %0, align 8, !tbaa !95
-  %198 = zext nneg i32 %.1.i107 to i64
-  %gep201 = getelementptr i32, ptr %invariant.gep200, i64 %198
-  %199 = call i32 @sat_solver_addclause(ptr noundef %197, ptr noundef nonnull %7, ptr noundef nonnull %gep201) #29
+201:                                              ; preds = %192, %189
+  %.1.i107 = phi i32 [ %.0.i106, %189 ], [ %198, %192 ]
+  %.val57.i108 = load i32, ptr %21, align 4, !tbaa !234
+  %202 = add i32 %48, %.val57.i108
+  %203 = shl nsw i32 %202, 1
+  %204 = or disjoint i32 %203, 1
+  %205 = zext nneg i32 %.1.i107 to i64
+  %206 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %205
+  store i32 %204, ptr %206, align 4, !tbaa !7
+  %207 = load ptr, ptr %0, align 8, !tbaa !95
+  %208 = zext nneg i32 %.1.i107 to i64
+  %209 = getelementptr inbounds nuw i32, ptr %7, i64 %208
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 4
+  %211 = call i32 @sat_solver_addclause(ptr noundef %207, ptr noundef nonnull %7, ptr noundef nonnull %210) #29
   %.val.i115.pre = load i32, ptr %14, align 4, !tbaa !100
   %.val50.i116.pre = load i32, ptr %15, align 8, !tbaa !233
-  %.pre239 = add nsw i32 %.val.i115.pre, %.070214
+  %.pre229 = add nsw i32 %.val.i115.pre, %.070204
   br label %Ses_ManCreateMainClause.exit114
 
-Ses_ManCreateMainClause.exit114:                  ; preds = %170, %179, %191
-  %.pre-phi240 = phi i32 [ %.pre-phi, %170 ], [ %.pre-phi, %179 ], [ %.pre239, %191 ]
-  %200 = phi i32 [ %151, %170 ], [ %151, %179 ], [ %.val.i115.pre, %191 ]
-  %201 = phi i32 [ %152, %170 ], [ %152, %179 ], [ %.val.i115.pre, %191 ]
-  %.val50.i116 = phi i32 [ %.val50.i98, %170 ], [ %.val50.i98, %179 ], [ %.val50.i116.pre, %191 ]
+Ses_ManCreateMainClause.exit114:                  ; preds = %180, %189, %201
+  %.pre-phi230 = phi i32 [ %.pre-phi, %180 ], [ %.pre-phi, %189 ], [ %.pre229, %201 ]
+  %212 = phi i32 [ %161, %180 ], [ %161, %189 ], [ %.val.i115.pre, %201 ]
+  %213 = phi i32 [ %162, %180 ], [ %162, %189 ], [ %.val.i115.pre, %201 ]
+  %.val50.i116 = phi i32 [ %.val50.i98, %180 ], [ %.val50.i98, %189 ], [ %.val50.i116.pre, %201 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #29
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #29
   br i1 %.not186, label %Ses_ManSelectVar.exit.i117, label %.lr.ph.i.i128
 
 .lr.ph.i.i128:                                    ; preds = %Ses_ManCreateMainClause.exit114, %.lr.ph.i.i128
-  %.02.i.i129 = phi i32 [ %205, %.lr.ph.i.i128 ], [ %.val50.i116, %Ses_ManCreateMainClause.exit114 ]
-  %.0151.i.i130 = phi i32 [ %206, %.lr.ph.i.i128 ], [ %201, %Ses_ManCreateMainClause.exit114 ]
-  %202 = add nsw i32 %.0151.i.i130, -1
-  %203 = mul nsw i32 %202, %.0151.i.i130
-  %204 = sdiv i32 %203, 2
-  %205 = add nsw i32 %204, %.02.i.i129
-  %206 = add nsw i32 %.0151.i.i130, 1
-  %207 = icmp slt i32 %206, %.pre-phi240
-  br i1 %207, label %.lr.ph.i.i128, label %Ses_ManSelectVar.exit.i117, !llvm.loop !237
+  %.02.i.i129 = phi i32 [ %217, %.lr.ph.i.i128 ], [ %.val50.i116, %Ses_ManCreateMainClause.exit114 ]
+  %.0151.i.i130 = phi i32 [ %218, %.lr.ph.i.i128 ], [ %213, %Ses_ManCreateMainClause.exit114 ]
+  %214 = add nsw i32 %.0151.i.i130, -1
+  %215 = mul nsw i32 %214, %.0151.i.i130
+  %216 = sdiv i32 %215, 2
+  %217 = add nsw i32 %216, %.02.i.i129
+  %218 = add nsw i32 %.0151.i.i130, 1
+  %219 = icmp slt i32 %218, %.pre-phi230
+  br i1 %219, label %.lr.ph.i.i128, label %Ses_ManSelectVar.exit.i117, !llvm.loop !237
 
 Ses_ManSelectVar.exit.i117:                       ; preds = %.lr.ph.i.i128, %Ses_ManCreateMainClause.exit114
-  %.0.lcssa.i.i118 = phi i32 [ %.val50.i116, %Ses_ManCreateMainClause.exit114 ], [ %205, %.lr.ph.i.i128 ]
-  %208 = shl nsw i32 %.pre-phi240, 1
-  %.neg.i.i120 = add i32 %208, %.neg18.i.i
-  %.neg17.i.i121 = mul i32 %.neg.i.i120, %.069210
-  %209 = sdiv i32 %.neg17.i.i121, 2
-  %210 = add i32 %209, %63
-  %211 = add i32 %210, %.0.lcssa.i.i118
-  %212 = shl nsw i32 %211, 1
-  %213 = or disjoint i32 %212, 1
-  store i32 %213, ptr %6, align 16, !tbaa !7
+  %.0.lcssa.i.i118 = phi i32 [ %.val50.i116, %Ses_ManCreateMainClause.exit114 ], [ %217, %.lr.ph.i.i128 ]
+  %220 = shl nsw i32 %.pre-phi230, 1
+  %.neg.i.i120 = add i32 %220, %.neg18.i.i
+  %.neg17.i.i121 = mul i32 %.neg.i.i120, %.069200
+  %221 = sdiv i32 %.neg17.i.i121, 2
+  %222 = add i32 %221, %69
+  %223 = add i32 %222, %.0.lcssa.i.i118
+  %224 = shl nsw i32 %223, 1
+  %225 = or disjoint i32 %224, 1
+  store i32 %225, ptr %6, align 16, !tbaa !7
   %.val51.i122 = load i32, ptr %16, align 8, !tbaa !103
   %.val52.i123 = load i32, ptr %17, align 4, !tbaa !236
-  %214 = mul nsw i32 %.val51.i122, %.070214
-  %215 = add i32 %.val52.i123, %1
-  %216 = add i32 %215, %214
-  %217 = shl nsw i32 %216, 1
-  %218 = or disjoint i32 %217, 1
-  store i32 %218, ptr %23, align 4, !tbaa !7
-  %219 = icmp slt i32 %.069210, %201
-  br i1 %219, label %220, label %221
+  %226 = mul nsw i32 %.val51.i122, %.070204
+  %227 = add i32 %.val52.i123, %1
+  %228 = add i32 %227, %226
+  %229 = shl nsw i32 %228, 1
+  %230 = or disjoint i32 %229, 1
+  store i32 %230, ptr %26, align 4, !tbaa !7
+  %231 = icmp slt i32 %.069200, %213
+  br i1 %231, label %232, label %233
 
-220:                                              ; preds = %Ses_ManSelectVar.exit.i117
-  br i1 %.not.i, label %226, label %Ses_ManCreateMainClause.exit131
+232:                                              ; preds = %Ses_ManSelectVar.exit.i117
+  br i1 %.not.i, label %238, label %Ses_ManCreateMainClause.exit131
 
-221:                                              ; preds = %Ses_ManSelectVar.exit.i117
-  %222 = sub nsw i32 %.069210, %201
-  %223 = mul nsw i32 %.val51.i122, %222
-  %224 = add i32 %215, %223
-  %225 = shl nsw i32 %224, 1
-  store i32 %225, ptr %24, align 8, !tbaa !7
-  br label %226
+233:                                              ; preds = %Ses_ManSelectVar.exit.i117
+  %234 = sub nsw i32 %.069200, %213
+  %235 = mul nsw i32 %.val51.i122, %234
+  %236 = add i32 %227, %235
+  %237 = shl nsw i32 %236, 1
+  store i32 %237, ptr %27, align 8, !tbaa !7
+  br label %238
 
-226:                                              ; preds = %221, %220
-  %.0.i124 = phi i32 [ 2, %220 ], [ 3, %221 ]
-  %227 = icmp slt i32 %.068208, %201
-  br i1 %227, label %228, label %231
+238:                                              ; preds = %233, %232
+  %.0.i124 = phi i32 [ 2, %232 ], [ 3, %233 ]
+  %239 = icmp slt i32 %.068198, %213
+  br i1 %239, label %240, label %243
 
-228:                                              ; preds = %226
-  %229 = shl nuw i32 1, %.068208
-  %230 = and i32 %229, %19
-  %.not49.i126 = icmp eq i32 %230, 0
-  br i1 %.not49.i126, label %239, label %Ses_ManCreateMainClause.exit131
+240:                                              ; preds = %238
+  %241 = shl nuw i32 1, %.068198
+  %242 = and i32 %241, %20
+  %.not49.i126 = icmp eq i32 %242, 0
+  br i1 %.not49.i126, label %251, label %Ses_ManCreateMainClause.exit131
 
-231:                                              ; preds = %226
-  %232 = sub nsw i32 %.068208, %201
-  %233 = mul nsw i32 %.val51.i122, %232
-  %234 = add i32 %215, %233
-  %235 = shl nsw i32 %234, 1
-  %236 = add nuw nsw i32 %.0.i124, 1
-  %237 = zext nneg i32 %.0.i124 to i64
-  %238 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %237
-  store i32 %235, ptr %238, align 4, !tbaa !7
-  br label %239
+243:                                              ; preds = %238
+  %244 = sub nsw i32 %.068198, %213
+  %245 = mul nsw i32 %.val51.i122, %244
+  %246 = add i32 %227, %245
+  %247 = shl nsw i32 %246, 1
+  %248 = add nuw nsw i32 %.0.i124, 1
+  %249 = zext nneg i32 %.0.i124 to i64
+  %250 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %249
+  store i32 %247, ptr %250, align 4, !tbaa !7
+  br label %251
 
-239:                                              ; preds = %231, %228
-  %.1.i125 = phi i32 [ %.0.i124, %228 ], [ %236, %231 ]
-  %240 = load ptr, ptr %0, align 8, !tbaa !95
-  %241 = zext nneg i32 %.1.i125 to i64
-  %242 = getelementptr inbounds nuw i32, ptr %6, i64 %241
-  %243 = call i32 @sat_solver_addclause(ptr noundef %240, ptr noundef nonnull %6, ptr noundef nonnull %242) #29
+251:                                              ; preds = %243, %240
+  %.1.i125 = phi i32 [ %.0.i124, %240 ], [ %248, %243 ]
+  %252 = load ptr, ptr %0, align 8, !tbaa !95
+  %253 = zext nneg i32 %.1.i125 to i64
+  %254 = getelementptr inbounds nuw i32, ptr %6, i64 %253
+  %255 = call i32 @sat_solver_addclause(ptr noundef %252, ptr noundef nonnull %6, ptr noundef nonnull %254) #29
   %.val.i132.pre = load i32, ptr %14, align 4, !tbaa !100
   %.val50.i133.pre = load i32, ptr %15, align 8, !tbaa !233
-  %.pre241 = add nsw i32 %.val.i132.pre, %.070214
+  %.pre231 = add nsw i32 %.val.i132.pre, %.070204
   br label %Ses_ManCreateMainClause.exit131
 
-Ses_ManCreateMainClause.exit131:                  ; preds = %220, %228, %239
-  %.pre-phi242 = phi i32 [ %.pre-phi240, %220 ], [ %.pre-phi240, %228 ], [ %.pre241, %239 ]
-  %244 = phi i32 [ %200, %220 ], [ %200, %228 ], [ %.val.i132.pre, %239 ]
-  %245 = phi i32 [ %201, %220 ], [ %201, %228 ], [ %.val.i132.pre, %239 ]
-  %.val50.i133 = phi i32 [ %.val50.i116, %220 ], [ %.val50.i116, %228 ], [ %.val50.i133.pre, %239 ]
+Ses_ManCreateMainClause.exit131:                  ; preds = %232, %240, %251
+  %.pre-phi232 = phi i32 [ %.pre-phi230, %232 ], [ %.pre-phi230, %240 ], [ %.pre231, %251 ]
+  %256 = phi i32 [ %212, %232 ], [ %212, %240 ], [ %.val.i132.pre, %251 ]
+  %257 = phi i32 [ %213, %232 ], [ %213, %240 ], [ %.val.i132.pre, %251 ]
+  %.val50.i133 = phi i32 [ %.val50.i116, %232 ], [ %.val50.i116, %240 ], [ %.val50.i133.pre, %251 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #29
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #29
   br i1 %.not186, label %Ses_ManSelectVar.exit.i134, label %.lr.ph.i.i146
 
 .lr.ph.i.i146:                                    ; preds = %Ses_ManCreateMainClause.exit131, %.lr.ph.i.i146
-  %.02.i.i147 = phi i32 [ %249, %.lr.ph.i.i146 ], [ %.val50.i133, %Ses_ManCreateMainClause.exit131 ]
-  %.0151.i.i148 = phi i32 [ %250, %.lr.ph.i.i146 ], [ %245, %Ses_ManCreateMainClause.exit131 ]
-  %246 = add nsw i32 %.0151.i.i148, -1
-  %247 = mul nsw i32 %246, %.0151.i.i148
-  %248 = sdiv i32 %247, 2
-  %249 = add nsw i32 %248, %.02.i.i147
-  %250 = add nsw i32 %.0151.i.i148, 1
-  %251 = icmp slt i32 %250, %.pre-phi242
-  br i1 %251, label %.lr.ph.i.i146, label %Ses_ManSelectVar.exit.i134, !llvm.loop !237
+  %.02.i.i147 = phi i32 [ %261, %.lr.ph.i.i146 ], [ %.val50.i133, %Ses_ManCreateMainClause.exit131 ]
+  %.0151.i.i148 = phi i32 [ %262, %.lr.ph.i.i146 ], [ %257, %Ses_ManCreateMainClause.exit131 ]
+  %258 = add nsw i32 %.0151.i.i148, -1
+  %259 = mul nsw i32 %258, %.0151.i.i148
+  %260 = sdiv i32 %259, 2
+  %261 = add nsw i32 %260, %.02.i.i147
+  %262 = add nsw i32 %.0151.i.i148, 1
+  %263 = icmp slt i32 %262, %.pre-phi232
+  br i1 %263, label %.lr.ph.i.i146, label %Ses_ManSelectVar.exit.i134, !llvm.loop !237
 
 Ses_ManSelectVar.exit.i134:                       ; preds = %.lr.ph.i.i146, %Ses_ManCreateMainClause.exit131
-  %.0.lcssa.i.i135 = phi i32 [ %.val50.i133, %Ses_ManCreateMainClause.exit131 ], [ %249, %.lr.ph.i.i146 ]
-  %252 = shl nsw i32 %.pre-phi242, 1
-  %.neg.i.i137 = add i32 %252, %.neg18.i.i
-  %.neg17.i.i138 = mul i32 %.neg.i.i137, %.069210
-  %253 = sdiv i32 %.neg17.i.i138, 2
-  %254 = add i32 %253, %63
-  %255 = add i32 %254, %.0.lcssa.i.i135
-  %256 = shl nsw i32 %255, 1
-  %257 = or disjoint i32 %256, 1
-  store i32 %257, ptr %5, align 16, !tbaa !7
+  %.0.lcssa.i.i135 = phi i32 [ %.val50.i133, %Ses_ManCreateMainClause.exit131 ], [ %261, %.lr.ph.i.i146 ]
+  %264 = shl nsw i32 %.pre-phi232, 1
+  %.neg.i.i137 = add i32 %264, %.neg18.i.i
+  %.neg17.i.i138 = mul i32 %.neg.i.i137, %.069200
+  %265 = sdiv i32 %.neg17.i.i138, 2
+  %266 = add i32 %265, %69
+  %267 = add i32 %266, %.0.lcssa.i.i135
+  %268 = shl nsw i32 %267, 1
+  %269 = or disjoint i32 %268, 1
+  store i32 %269, ptr %5, align 16, !tbaa !7
   %.val51.i139 = load i32, ptr %16, align 8, !tbaa !103
   %.val52.i140 = load i32, ptr %17, align 4, !tbaa !236
-  %258 = mul nsw i32 %.val51.i139, %.070214
-  %259 = add i32 %.val52.i140, %1
-  %260 = add i32 %259, %258
-  %261 = shl nsw i32 %260, 1
-  %262 = or disjoint i32 %261, 1
-  store i32 %262, ptr %invariant.gep202, align 4, !tbaa !7
-  %263 = icmp slt i32 %.069210, %245
-  br i1 %263, label %264, label %265
+  %270 = mul nsw i32 %.val51.i139, %.070204
+  %271 = add i32 %.val52.i140, %1
+  %272 = add i32 %271, %270
+  %273 = shl nsw i32 %272, 1
+  %274 = or disjoint i32 %273, 1
+  store i32 %274, ptr %28, align 4, !tbaa !7
+  %275 = icmp slt i32 %.069200, %257
+  br i1 %275, label %276, label %277
 
-264:                                              ; preds = %Ses_ManSelectVar.exit.i134
-  br i1 %.not.i, label %270, label %Ses_ManCreateMainClause.exit149
+276:                                              ; preds = %Ses_ManSelectVar.exit.i134
+  br i1 %.not.i, label %282, label %Ses_ManCreateMainClause.exit149
 
-265:                                              ; preds = %Ses_ManSelectVar.exit.i134
-  %266 = sub nsw i32 %.069210, %245
-  %267 = mul nsw i32 %.val51.i139, %266
-  %268 = add i32 %259, %267
-  %269 = shl nsw i32 %268, 1
-  store i32 %269, ptr %25, align 8, !tbaa !7
-  br label %270
+277:                                              ; preds = %Ses_ManSelectVar.exit.i134
+  %278 = sub nsw i32 %.069200, %257
+  %279 = mul nsw i32 %.val51.i139, %278
+  %280 = add i32 %271, %279
+  %281 = shl nsw i32 %280, 1
+  store i32 %281, ptr %29, align 8, !tbaa !7
+  br label %282
 
-270:                                              ; preds = %265, %264
-  %.0.i141 = phi i32 [ 2, %264 ], [ 3, %265 ]
-  %271 = icmp slt i32 %.068208, %245
-  br i1 %271, label %272, label %275
+282:                                              ; preds = %277, %276
+  %.0.i141 = phi i32 [ 2, %276 ], [ 3, %277 ]
+  %283 = icmp slt i32 %.068198, %257
+  br i1 %283, label %284, label %287
 
-272:                                              ; preds = %270
-  %273 = shl nuw i32 1, %.068208
-  %274 = and i32 %273, %19
-  %.not49.i144.not = icmp eq i32 %274, 0
-  br i1 %.not49.i144.not, label %Ses_ManCreateMainClause.exit149, label %284
+284:                                              ; preds = %282
+  %285 = shl nuw i32 1, %.068198
+  %286 = and i32 %285, %20
+  %.not49.i144.not = icmp eq i32 %286, 0
+  br i1 %.not49.i144.not, label %Ses_ManCreateMainClause.exit149, label %296
 
-275:                                              ; preds = %270
-  %276 = sub nsw i32 %.068208, %245
-  %277 = mul nsw i32 %.val51.i139, %276
-  %278 = add i32 %259, %277
-  %279 = shl nsw i32 %278, 1
-  %280 = or disjoint i32 %279, 1
-  %281 = add nuw nsw i32 %.0.i141, 1
-  %282 = zext nneg i32 %.0.i141 to i64
-  %283 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %282
-  store i32 %280, ptr %283, align 4, !tbaa !7
-  br label %284
+287:                                              ; preds = %282
+  %288 = sub nsw i32 %.068198, %257
+  %289 = mul nsw i32 %.val51.i139, %288
+  %290 = add i32 %271, %289
+  %291 = shl nsw i32 %290, 1
+  %292 = or disjoint i32 %291, 1
+  %293 = add nuw nsw i32 %.0.i141, 1
+  %294 = zext nneg i32 %.0.i141 to i64
+  %295 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %294
+  store i32 %292, ptr %295, align 4, !tbaa !7
+  br label %296
 
-284:                                              ; preds = %275, %272
-  %.1.i142 = phi i32 [ %.0.i141, %272 ], [ %281, %275 ]
-  %.val57.i143 = load i32, ptr %20, align 4, !tbaa !234
-  %285 = add i32 %.val57.i143, %40
-  %286 = shl nsw i32 %285, 1
-  %287 = zext nneg i32 %.1.i142 to i64
-  %288 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %287
-  store i32 %286, ptr %288, align 4, !tbaa !7
-  %289 = load ptr, ptr %0, align 8, !tbaa !95
-  %290 = zext nneg i32 %.1.i142 to i64
-  %gep203 = getelementptr i32, ptr %invariant.gep202, i64 %290
-  %291 = call i32 @sat_solver_addclause(ptr noundef %289, ptr noundef nonnull %5, ptr noundef nonnull %gep203) #29
+296:                                              ; preds = %287, %284
+  %.1.i142 = phi i32 [ %.0.i141, %284 ], [ %293, %287 ]
+  %.val57.i143 = load i32, ptr %21, align 4, !tbaa !234
+  %297 = add i32 %.val57.i143, %46
+  %298 = shl nsw i32 %297, 1
+  %299 = zext nneg i32 %.1.i142 to i64
+  %300 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %299
+  store i32 %298, ptr %300, align 4, !tbaa !7
+  %301 = load ptr, ptr %0, align 8, !tbaa !95
+  %302 = zext nneg i32 %.1.i142 to i64
+  %303 = getelementptr inbounds nuw i32, ptr %5, i64 %302
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 4
+  %305 = call i32 @sat_solver_addclause(ptr noundef %301, ptr noundef nonnull %5, ptr noundef nonnull %304) #29
   %.val.i150.pre = load i32, ptr %14, align 4, !tbaa !100
   %.val50.i151.pre = load i32, ptr %15, align 8, !tbaa !233
-  %.pre243 = add nsw i32 %.val.i150.pre, %.070214
+  %.pre233 = add nsw i32 %.val.i150.pre, %.070204
   br label %Ses_ManCreateMainClause.exit149
 
-Ses_ManCreateMainClause.exit149:                  ; preds = %264, %272, %284
-  %.pre-phi244 = phi i32 [ %.pre-phi242, %264 ], [ %.pre-phi242, %272 ], [ %.pre243, %284 ]
-  %292 = phi i32 [ %244, %264 ], [ %244, %272 ], [ %.val.i150.pre, %284 ]
-  %293 = phi i32 [ %245, %264 ], [ %245, %272 ], [ %.val.i150.pre, %284 ]
-  %.val50.i151 = phi i32 [ %.val50.i133, %264 ], [ %.val50.i133, %272 ], [ %.val50.i151.pre, %284 ]
+Ses_ManCreateMainClause.exit149:                  ; preds = %276, %284, %296
+  %.pre-phi234 = phi i32 [ %.pre-phi232, %276 ], [ %.pre-phi232, %284 ], [ %.pre233, %296 ]
+  %306 = phi i32 [ %256, %276 ], [ %256, %284 ], [ %.val.i150.pre, %296 ]
+  %307 = phi i32 [ %257, %276 ], [ %257, %284 ], [ %.val.i150.pre, %296 ]
+  %.val50.i151 = phi i32 [ %.val50.i133, %276 ], [ %.val50.i133, %284 ], [ %.val50.i151.pre, %296 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #29
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #29
   br i1 %.not186, label %Ses_ManSelectVar.exit.i152, label %.lr.ph.i.i164
 
 .lr.ph.i.i164:                                    ; preds = %Ses_ManCreateMainClause.exit149, %.lr.ph.i.i164
-  %.02.i.i165 = phi i32 [ %297, %.lr.ph.i.i164 ], [ %.val50.i151, %Ses_ManCreateMainClause.exit149 ]
-  %.0151.i.i166 = phi i32 [ %298, %.lr.ph.i.i164 ], [ %293, %Ses_ManCreateMainClause.exit149 ]
-  %294 = add nsw i32 %.0151.i.i166, -1
-  %295 = mul nsw i32 %294, %.0151.i.i166
-  %296 = sdiv i32 %295, 2
-  %297 = add nsw i32 %296, %.02.i.i165
-  %298 = add nsw i32 %.0151.i.i166, 1
-  %299 = icmp slt i32 %298, %.pre-phi244
-  br i1 %299, label %.lr.ph.i.i164, label %Ses_ManSelectVar.exit.i152, !llvm.loop !237
+  %.02.i.i165 = phi i32 [ %311, %.lr.ph.i.i164 ], [ %.val50.i151, %Ses_ManCreateMainClause.exit149 ]
+  %.0151.i.i166 = phi i32 [ %312, %.lr.ph.i.i164 ], [ %307, %Ses_ManCreateMainClause.exit149 ]
+  %308 = add nsw i32 %.0151.i.i166, -1
+  %309 = mul nsw i32 %308, %.0151.i.i166
+  %310 = sdiv i32 %309, 2
+  %311 = add nsw i32 %310, %.02.i.i165
+  %312 = add nsw i32 %.0151.i.i166, 1
+  %313 = icmp slt i32 %312, %.pre-phi234
+  br i1 %313, label %.lr.ph.i.i164, label %Ses_ManSelectVar.exit.i152, !llvm.loop !237
 
 Ses_ManSelectVar.exit.i152:                       ; preds = %.lr.ph.i.i164, %Ses_ManCreateMainClause.exit149
-  %.0.lcssa.i.i153 = phi i32 [ %.val50.i151, %Ses_ManCreateMainClause.exit149 ], [ %297, %.lr.ph.i.i164 ]
-  %300 = shl nsw i32 %.pre-phi244, 1
-  %.neg.i.i155 = add i32 %300, %.neg18.i.i
-  %.neg17.i.i156 = mul i32 %.neg.i.i155, %.069210
-  %301 = sdiv i32 %.neg17.i.i156, 2
-  %302 = add i32 %301, %63
-  %303 = add i32 %302, %.0.lcssa.i.i153
-  %304 = shl nsw i32 %303, 1
-  %305 = or disjoint i32 %304, 1
-  store i32 %305, ptr %4, align 16, !tbaa !7
+  %.0.lcssa.i.i153 = phi i32 [ %.val50.i151, %Ses_ManCreateMainClause.exit149 ], [ %311, %.lr.ph.i.i164 ]
+  %314 = shl nsw i32 %.pre-phi234, 1
+  %.neg.i.i155 = add i32 %314, %.neg18.i.i
+  %.neg17.i.i156 = mul i32 %.neg.i.i155, %.069200
+  %315 = sdiv i32 %.neg17.i.i156, 2
+  %316 = add i32 %315, %69
+  %317 = add i32 %316, %.0.lcssa.i.i153
+  %318 = shl nsw i32 %317, 1
+  %319 = or disjoint i32 %318, 1
+  store i32 %319, ptr %4, align 16, !tbaa !7
   %.val51.i157 = load i32, ptr %16, align 8, !tbaa !103
   %.val52.i158 = load i32, ptr %17, align 4, !tbaa !236
-  %306 = mul nsw i32 %.val51.i157, %.070214
-  %307 = add i32 %.val52.i158, %1
-  %308 = add i32 %307, %306
-  %309 = shl nsw i32 %308, 1
-  %310 = or disjoint i32 %309, 1
-  store i32 %310, ptr %invariant.gep204, align 4, !tbaa !7
-  %311 = icmp slt i32 %.069210, %293
-  br i1 %311, label %312, label %313
+  %320 = mul nsw i32 %.val51.i157, %.070204
+  %321 = add i32 %.val52.i158, %1
+  %322 = add i32 %321, %320
+  %323 = shl nsw i32 %322, 1
+  %324 = or disjoint i32 %323, 1
+  store i32 %324, ptr %30, align 4, !tbaa !7
+  %325 = icmp slt i32 %.069200, %307
+  br i1 %325, label %326, label %327
 
-312:                                              ; preds = %Ses_ManSelectVar.exit.i152
-  br i1 %.not.i, label %Ses_ManCreateMainClause.exit167, label %319
+326:                                              ; preds = %Ses_ManSelectVar.exit.i152
+  br i1 %.not.i, label %Ses_ManCreateMainClause.exit167, label %333
 
-313:                                              ; preds = %Ses_ManSelectVar.exit.i152
-  %314 = sub nsw i32 %.069210, %293
-  %315 = mul nsw i32 %.val51.i157, %314
-  %316 = add i32 %307, %315
-  %317 = shl nsw i32 %316, 1
-  %318 = or disjoint i32 %317, 1
-  store i32 %318, ptr %26, align 8, !tbaa !7
-  br label %319
+327:                                              ; preds = %Ses_ManSelectVar.exit.i152
+  %328 = sub nsw i32 %.069200, %307
+  %329 = mul nsw i32 %.val51.i157, %328
+  %330 = add i32 %321, %329
+  %331 = shl nsw i32 %330, 1
+  %332 = or disjoint i32 %331, 1
+  store i32 %332, ptr %31, align 8, !tbaa !7
+  br label %333
 
-319:                                              ; preds = %313, %312
-  %.0.i159 = phi i32 [ 2, %312 ], [ 3, %313 ]
-  %320 = icmp slt i32 %.068208, %293
-  br i1 %320, label %321, label %324
+333:                                              ; preds = %327, %326
+  %.0.i159 = phi i32 [ 2, %326 ], [ 3, %327 ]
+  %334 = icmp slt i32 %.068198, %307
+  br i1 %334, label %335, label %338
 
-321:                                              ; preds = %319
-  %322 = shl nuw i32 1, %.068208
-  %323 = and i32 %322, %19
-  %.not49.i162 = icmp eq i32 %323, 0
-  br i1 %.not49.i162, label %332, label %Ses_ManCreateMainClause.exit167
+335:                                              ; preds = %333
+  %336 = shl nuw i32 1, %.068198
+  %337 = and i32 %336, %20
+  %.not49.i162 = icmp eq i32 %337, 0
+  br i1 %.not49.i162, label %346, label %Ses_ManCreateMainClause.exit167
 
-324:                                              ; preds = %319
-  %325 = sub nsw i32 %.068208, %293
-  %326 = mul nsw i32 %.val51.i157, %325
-  %327 = add i32 %307, %326
-  %328 = shl nsw i32 %327, 1
-  %329 = add nuw nsw i32 %.0.i159, 1
-  %330 = zext nneg i32 %.0.i159 to i64
-  %331 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %330
-  store i32 %328, ptr %331, align 4, !tbaa !7
-  br label %332
+338:                                              ; preds = %333
+  %339 = sub nsw i32 %.068198, %307
+  %340 = mul nsw i32 %.val51.i157, %339
+  %341 = add i32 %321, %340
+  %342 = shl nsw i32 %341, 1
+  %343 = add nuw nsw i32 %.0.i159, 1
+  %344 = zext nneg i32 %.0.i159 to i64
+  %345 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %344
+  store i32 %342, ptr %345, align 4, !tbaa !7
+  br label %346
 
-332:                                              ; preds = %324, %321
-  %.1.i160 = phi i32 [ %.0.i159, %321 ], [ %329, %324 ]
-  %.val57.i161 = load i32, ptr %20, align 4, !tbaa !234
-  %333 = add i32 %41, %.val57.i161
-  %334 = shl nsw i32 %333, 1
-  %335 = zext nneg i32 %.1.i160 to i64
-  %336 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %335
-  store i32 %334, ptr %336, align 4, !tbaa !7
-  %337 = load ptr, ptr %0, align 8, !tbaa !95
-  %338 = zext nneg i32 %.1.i160 to i64
-  %gep205 = getelementptr i32, ptr %invariant.gep204, i64 %338
-  %339 = call i32 @sat_solver_addclause(ptr noundef %337, ptr noundef nonnull %4, ptr noundef nonnull %gep205) #29
+346:                                              ; preds = %338, %335
+  %.1.i160 = phi i32 [ %.0.i159, %335 ], [ %343, %338 ]
+  %.val57.i161 = load i32, ptr %21, align 4, !tbaa !234
+  %347 = add i32 %47, %.val57.i161
+  %348 = shl nsw i32 %347, 1
+  %349 = zext nneg i32 %.1.i160 to i64
+  %350 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %349
+  store i32 %348, ptr %350, align 4, !tbaa !7
+  %351 = load ptr, ptr %0, align 8, !tbaa !95
+  %352 = zext nneg i32 %.1.i160 to i64
+  %353 = getelementptr inbounds nuw i32, ptr %4, i64 %352
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 4
+  %355 = call i32 @sat_solver_addclause(ptr noundef %351, ptr noundef nonnull %4, ptr noundef nonnull %354) #29
   %.val.i168.pre = load i32, ptr %14, align 4, !tbaa !100
   %.val50.i169.pre = load i32, ptr %15, align 8, !tbaa !233
-  %.pre245 = add nsw i32 %.val.i168.pre, %.070214
+  %.pre235 = add nsw i32 %.val.i168.pre, %.070204
   br label %Ses_ManCreateMainClause.exit167
 
-Ses_ManCreateMainClause.exit167:                  ; preds = %312, %321, %332
-  %.pre-phi246 = phi i32 [ %.pre-phi244, %312 ], [ %.pre-phi244, %321 ], [ %.pre245, %332 ]
-  %340 = phi i32 [ %292, %312 ], [ %292, %321 ], [ %.val.i168.pre, %332 ]
-  %341 = phi i32 [ %293, %312 ], [ %293, %321 ], [ %.val.i168.pre, %332 ]
-  %.val50.i169 = phi i32 [ %.val50.i151, %312 ], [ %.val50.i151, %321 ], [ %.val50.i169.pre, %332 ]
+Ses_ManCreateMainClause.exit167:                  ; preds = %326, %335, %346
+  %.pre-phi236 = phi i32 [ %.pre-phi234, %326 ], [ %.pre-phi234, %335 ], [ %.pre235, %346 ]
+  %356 = phi i32 [ %306, %326 ], [ %306, %335 ], [ %.val.i168.pre, %346 ]
+  %357 = phi i32 [ %307, %326 ], [ %307, %335 ], [ %.val.i168.pre, %346 ]
+  %.val50.i169 = phi i32 [ %.val50.i151, %326 ], [ %.val50.i151, %335 ], [ %.val50.i169.pre, %346 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #29
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #29
   br i1 %.not186, label %Ses_ManSelectVar.exit.i170, label %.lr.ph.i.i182
 
 .lr.ph.i.i182:                                    ; preds = %Ses_ManCreateMainClause.exit167, %.lr.ph.i.i182
-  %.02.i.i183 = phi i32 [ %345, %.lr.ph.i.i182 ], [ %.val50.i169, %Ses_ManCreateMainClause.exit167 ]
-  %.0151.i.i184 = phi i32 [ %346, %.lr.ph.i.i182 ], [ %341, %Ses_ManCreateMainClause.exit167 ]
-  %342 = add nsw i32 %.0151.i.i184, -1
-  %343 = mul nsw i32 %342, %.0151.i.i184
-  %344 = sdiv i32 %343, 2
-  %345 = add nsw i32 %344, %.02.i.i183
-  %346 = add nsw i32 %.0151.i.i184, 1
-  %347 = icmp slt i32 %346, %.pre-phi246
-  br i1 %347, label %.lr.ph.i.i182, label %Ses_ManSelectVar.exit.i170, !llvm.loop !237
+  %.02.i.i183 = phi i32 [ %361, %.lr.ph.i.i182 ], [ %.val50.i169, %Ses_ManCreateMainClause.exit167 ]
+  %.0151.i.i184 = phi i32 [ %362, %.lr.ph.i.i182 ], [ %357, %Ses_ManCreateMainClause.exit167 ]
+  %358 = add nsw i32 %.0151.i.i184, -1
+  %359 = mul nsw i32 %358, %.0151.i.i184
+  %360 = sdiv i32 %359, 2
+  %361 = add nsw i32 %360, %.02.i.i183
+  %362 = add nsw i32 %.0151.i.i184, 1
+  %363 = icmp slt i32 %362, %.pre-phi236
+  br i1 %363, label %.lr.ph.i.i182, label %Ses_ManSelectVar.exit.i170, !llvm.loop !237
 
 Ses_ManSelectVar.exit.i170:                       ; preds = %.lr.ph.i.i182, %Ses_ManCreateMainClause.exit167
-  %.0.lcssa.i.i171 = phi i32 [ %.val50.i169, %Ses_ManCreateMainClause.exit167 ], [ %345, %.lr.ph.i.i182 ]
-  %348 = shl nsw i32 %.pre-phi246, 1
-  %.neg.i.i173 = add i32 %348, %.neg18.i.i
-  %.neg17.i.i174 = mul i32 %.neg.i.i173, %.069210
-  %349 = sdiv i32 %.neg17.i.i174, 2
-  %350 = add i32 %349, %63
-  %351 = add i32 %350, %.0.lcssa.i.i171
-  %352 = shl nsw i32 %351, 1
-  %353 = or disjoint i32 %352, 1
-  store i32 %353, ptr %3, align 16, !tbaa !7
+  %.0.lcssa.i.i171 = phi i32 [ %.val50.i169, %Ses_ManCreateMainClause.exit167 ], [ %361, %.lr.ph.i.i182 ]
+  %364 = shl nsw i32 %.pre-phi236, 1
+  %.neg.i.i173 = add i32 %364, %.neg18.i.i
+  %.neg17.i.i174 = mul i32 %.neg.i.i173, %.069200
+  %365 = sdiv i32 %.neg17.i.i174, 2
+  %366 = add i32 %365, %69
+  %367 = add i32 %366, %.0.lcssa.i.i171
+  %368 = shl nsw i32 %367, 1
+  %369 = or disjoint i32 %368, 1
+  store i32 %369, ptr %3, align 16, !tbaa !7
   %.val51.i175 = load i32, ptr %16, align 8, !tbaa !103
   %.val52.i176 = load i32, ptr %17, align 4, !tbaa !236
-  %354 = mul nsw i32 %.val51.i175, %.070214
-  %355 = add i32 %.val52.i176, %1
-  %356 = add i32 %355, %354
-  %357 = shl nsw i32 %356, 1
-  %358 = or disjoint i32 %357, 1
-  store i32 %358, ptr %invariant.gep206, align 4, !tbaa !7
-  %359 = icmp slt i32 %.069210, %341
-  br i1 %359, label %360, label %361
+  %370 = mul nsw i32 %.val51.i175, %.070204
+  %371 = add i32 %.val52.i176, %1
+  %372 = add i32 %371, %370
+  %373 = shl nsw i32 %372, 1
+  %374 = or disjoint i32 %373, 1
+  store i32 %374, ptr %32, align 4, !tbaa !7
+  %375 = icmp slt i32 %.069200, %357
+  br i1 %375, label %376, label %377
 
-360:                                              ; preds = %Ses_ManSelectVar.exit.i170
-  br i1 %.not.i, label %Ses_ManCreateMainClause.exit185, label %367
+376:                                              ; preds = %Ses_ManSelectVar.exit.i170
+  br i1 %.not.i, label %Ses_ManCreateMainClause.exit185, label %383
 
-361:                                              ; preds = %Ses_ManSelectVar.exit.i170
-  %362 = sub nsw i32 %.069210, %341
-  %363 = mul nsw i32 %.val51.i175, %362
-  %364 = add i32 %355, %363
-  %365 = shl nsw i32 %364, 1
-  %366 = or disjoint i32 %365, 1
-  store i32 %366, ptr %27, align 8, !tbaa !7
-  br label %367
+377:                                              ; preds = %Ses_ManSelectVar.exit.i170
+  %378 = sub nsw i32 %.069200, %357
+  %379 = mul nsw i32 %.val51.i175, %378
+  %380 = add i32 %371, %379
+  %381 = shl nsw i32 %380, 1
+  %382 = or disjoint i32 %381, 1
+  store i32 %382, ptr %33, align 8, !tbaa !7
+  br label %383
 
-367:                                              ; preds = %361, %360
-  %.0.i177 = phi i32 [ 2, %360 ], [ 3, %361 ]
-  %368 = icmp slt i32 %.068208, %341
-  br i1 %368, label %369, label %372
+383:                                              ; preds = %377, %376
+  %.0.i177 = phi i32 [ 2, %376 ], [ 3, %377 ]
+  %384 = icmp slt i32 %.068198, %357
+  br i1 %384, label %385, label %388
 
-369:                                              ; preds = %367
-  %370 = shl nuw i32 1, %.068208
-  %371 = and i32 %370, %19
-  %.not49.i180.not = icmp eq i32 %371, 0
-  br i1 %.not49.i180.not, label %Ses_ManCreateMainClause.exit185, label %381
+385:                                              ; preds = %383
+  %386 = shl nuw i32 1, %.068198
+  %387 = and i32 %386, %20
+  %.not49.i180.not = icmp eq i32 %387, 0
+  br i1 %.not49.i180.not, label %Ses_ManCreateMainClause.exit185, label %397
 
-372:                                              ; preds = %367
-  %373 = sub nsw i32 %.068208, %341
-  %374 = mul nsw i32 %.val51.i175, %373
-  %375 = add i32 %355, %374
-  %376 = shl nsw i32 %375, 1
-  %377 = or disjoint i32 %376, 1
-  %378 = add nuw nsw i32 %.0.i177, 1
-  %379 = zext nneg i32 %.0.i177 to i64
-  %380 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %379
-  store i32 %377, ptr %380, align 4, !tbaa !7
-  br label %381
+388:                                              ; preds = %383
+  %389 = sub nsw i32 %.068198, %357
+  %390 = mul nsw i32 %.val51.i175, %389
+  %391 = add i32 %371, %390
+  %392 = shl nsw i32 %391, 1
+  %393 = or disjoint i32 %392, 1
+  %394 = add nuw nsw i32 %.0.i177, 1
+  %395 = zext nneg i32 %.0.i177 to i64
+  %396 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %395
+  store i32 %393, ptr %396, align 4, !tbaa !7
+  br label %397
 
-381:                                              ; preds = %372, %369
-  %.1.i178 = phi i32 [ %.0.i177, %369 ], [ %378, %372 ]
-  %.val57.i179 = load i32, ptr %20, align 4, !tbaa !234
-  %382 = add i32 %42, %.val57.i179
-  %383 = shl nsw i32 %382, 1
-  %384 = zext nneg i32 %.1.i178 to i64
-  %385 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %384
-  store i32 %383, ptr %385, align 4, !tbaa !7
-  %386 = load ptr, ptr %0, align 8, !tbaa !95
-  %387 = zext nneg i32 %.1.i178 to i64
-  %gep207 = getelementptr i32, ptr %invariant.gep206, i64 %387
-  %388 = call i32 @sat_solver_addclause(ptr noundef %386, ptr noundef nonnull %3, ptr noundef nonnull %gep207) #29
+397:                                              ; preds = %388, %385
+  %.1.i178 = phi i32 [ %.0.i177, %385 ], [ %394, %388 ]
+  %.val57.i179 = load i32, ptr %21, align 4, !tbaa !234
+  %398 = add i32 %48, %.val57.i179
+  %399 = shl nsw i32 %398, 1
+  %400 = zext nneg i32 %.1.i178 to i64
+  %401 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %400
+  store i32 %399, ptr %401, align 4, !tbaa !7
+  %402 = load ptr, ptr %0, align 8, !tbaa !95
+  %403 = zext nneg i32 %.1.i178 to i64
+  %404 = getelementptr inbounds nuw i32, ptr %3, i64 %403
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 4
+  %406 = call i32 @sat_solver_addclause(ptr noundef %402, ptr noundef nonnull %3, ptr noundef nonnull %405) #29
   %.pre = load i32, ptr %14, align 4, !tbaa !100
-  %.pre247 = add nsw i32 %.pre, %.070214
+  %.pre237 = add nsw i32 %.pre, %.070204
   br label %Ses_ManCreateMainClause.exit185
 
-Ses_ManCreateMainClause.exit185:                  ; preds = %360, %369, %381
-  %.pre-phi248 = phi i32 [ %.pre-phi246, %360 ], [ %.pre-phi246, %369 ], [ %.pre247, %381 ]
-  %389 = phi i32 [ %340, %360 ], [ %340, %369 ], [ %.pre, %381 ]
-  %390 = phi i32 [ %341, %360 ], [ %341, %369 ], [ %.pre, %381 ]
+Ses_ManCreateMainClause.exit185:                  ; preds = %376, %385, %397
+  %.pre-phi238 = phi i32 [ %.pre-phi236, %376 ], [ %.pre-phi236, %385 ], [ %.pre237, %397 ]
+  %407 = phi i32 [ %356, %376 ], [ %356, %385 ], [ %.pre, %397 ]
+  %408 = phi i32 [ %357, %376 ], [ %357, %385 ], [ %.pre, %397 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #29
-  %391 = add nuw nsw i32 %.068208, 1
-  %392 = icmp slt i32 %391, %.pre-phi248
-  br i1 %392, label %51, label %.loopexit, !llvm.loop !331
+  %409 = add nuw nsw i32 %.068198, 1
+  %410 = icmp slt i32 %409, %.pre-phi238
+  br i1 %410, label %57, label %.loopexit, !llvm.loop !331
 
-._crit_edge:                                      ; preds = %.loopexit, %44, %.preheader189
-  %393 = load i32, ptr %28, align 8, !tbaa !101
-  %.not = icmp eq i32 %393, 1
+._crit_edge:                                      ; preds = %.loopexit, %50, %.preheader189
+  %411 = load i32, ptr %34, align 8, !tbaa !101
+  %.not = icmp eq i32 %411, 1
   br i1 %.not, label %.loopexit187, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %394 = icmp sgt i32 %393, 0
-  br i1 %394, label %.lr.ph213, label %.loopexit187
+  %412 = icmp sgt i32 %411, 0
+  br i1 %412, label %.lr.ph203, label %.loopexit187
 
-395:                                              ; preds = %.lr.ph213
+413:                                              ; preds = %.lr.ph203
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %396 = load i32, ptr %28, align 8, !tbaa !101
-  %397 = sext i32 %396 to i64
-  %398 = icmp slt i64 %indvars.iv.next, %397
-  br i1 %398, label %.lr.ph213, label %.loopexit187, !llvm.loop !332
+  %414 = load i32, ptr %34, align 8, !tbaa !101
+  %415 = sext i32 %414 to i64
+  %416 = icmp slt i64 %indvars.iv.next, %415
+  br i1 %416, label %.lr.ph203, label %.loopexit187, !llvm.loop !332
 
-.lr.ph213:                                        ; preds = %.preheader, %395
-  %indvars.iv = phi i64 [ %indvars.iv.next, %395 ], [ 0, %.preheader ]
+.lr.ph203:                                        ; preds = %.preheader, %413
+  %indvars.iv = phi i64 [ %indvars.iv.next, %413 ], [ 0, %.preheader ]
   %.val = load i32, ptr %11, align 8, !tbaa !138
-  %.val74 = load i32, ptr %29, align 8, !tbaa !235
-  %399 = trunc nuw nsw i64 %indvars.iv to i32
-  %400 = mul nsw i32 %.val, %399
-  %401 = add i32 %.val74, %.070214
-  %402 = add i32 %401, %400
-  %403 = shl nsw i32 %402, 1
-  %404 = or disjoint i32 %403, 1
-  store i32 %404, ptr %10, align 4, !tbaa !7
+  %.val74 = load i32, ptr %35, align 8, !tbaa !235
+  %417 = trunc nuw nsw i64 %indvars.iv to i32
+  %418 = mul nsw i32 %.val, %417
+  %419 = add i32 %.val74, %.070204
+  %420 = add i32 %419, %418
+  %421 = shl nsw i32 %420, 1
+  %422 = or disjoint i32 %421, 1
+  store i32 %422, ptr %10, align 4, !tbaa !7
   %.val75 = load i32, ptr %16, align 8, !tbaa !103
   %.val76 = load i32, ptr %17, align 4, !tbaa !236
-  %405 = mul nsw i32 %.val75, %.070214
-  %406 = add i32 %.val76, %1
-  %407 = add i32 %406, %405
-  %408 = load ptr, ptr %30, align 8, !tbaa !99
-  %409 = shl i32 %399, 2
-  %410 = sext i32 %409 to i64
-  %411 = getelementptr inbounds i64, ptr %408, i64 %410
-  %412 = getelementptr inbounds i64, ptr %411, i64 %32
-  %413 = load i64, ptr %412, align 8, !tbaa !3
-  %414 = lshr i64 %413, %34
-  %415 = trunc i64 %414 to i32
-  %416 = and i32 %415, 1
-  %417 = shl nsw i32 %407, 1
-  %418 = or disjoint i32 %416, %417
-  %419 = xor i32 %418, 1
-  store i32 %419, ptr %35, align 4, !tbaa !7
-  %420 = load ptr, ptr %0, align 8, !tbaa !95
-  %421 = call i32 @sat_solver_addclause(ptr noundef %420, ptr noundef nonnull %10, ptr noundef nonnull %36) #29
-  %.not73 = icmp eq i32 %421, 0
-  br i1 %.not73, label %.loopexit188, label %395
+  %423 = mul nsw i32 %.val75, %.070204
+  %424 = add i32 %.val76, %1
+  %425 = add i32 %424, %423
+  %426 = load ptr, ptr %36, align 8, !tbaa !99
+  %427 = shl i32 %417, 2
+  %428 = sext i32 %427 to i64
+  %429 = getelementptr inbounds i64, ptr %426, i64 %428
+  %430 = getelementptr inbounds i64, ptr %429, i64 %38
+  %431 = load i64, ptr %430, align 8, !tbaa !3
+  %432 = lshr i64 %431, %40
+  %433 = trunc i64 %432 to i32
+  %434 = and i32 %433, 1
+  %435 = shl nsw i32 %425, 1
+  %436 = or disjoint i32 %434, %435
+  %437 = xor i32 %436, 1
+  store i32 %437, ptr %41, align 4, !tbaa !7
+  %438 = load ptr, ptr %0, align 8, !tbaa !95
+  %439 = call i32 @sat_solver_addclause(ptr noundef %438, ptr noundef nonnull %10, ptr noundef nonnull %42) #29
+  %.not73 = icmp eq i32 %439, 0
+  br i1 %.not73, label %.loopexit188, label %413
 
-.loopexit187:                                     ; preds = %395, %.preheader, %._crit_edge
-  %422 = phi i32 [ %393, %.preheader ], [ 1, %._crit_edge ], [ %396, %395 ]
-  %423 = add nuw nsw i32 %.070214, 1
-  %424 = load i32, ptr %11, align 8, !tbaa !138
-  %425 = icmp slt i32 %423, %424
-  br i1 %425, label %.preheader189, label %._crit_edge216, !llvm.loop !333
+.loopexit187:                                     ; preds = %413, %.preheader, %._crit_edge
+  %440 = phi i32 [ %411, %.preheader ], [ 1, %._crit_edge ], [ %414, %413 ]
+  %441 = add nuw nsw i32 %.070204, 1
+  %442 = load i32, ptr %11, align 8, !tbaa !138
+  %443 = icmp slt i32 %441, %442
+  br i1 %443, label %.preheader189, label %._crit_edge206, !llvm.loop !333
 
-._crit_edge216:                                   ; preds = %.loopexit187, %.._crit_edge216_crit_edge
-  %426 = phi i32 [ %.pre237, %.._crit_edge216_crit_edge ], [ %422, %.loopexit187 ]
-  %.lcssa196 = phi i32 [ %12, %.._crit_edge216_crit_edge ], [ %424, %.loopexit187 ]
-  %427 = icmp eq i32 %426, 1
-  br i1 %427, label %428, label %.loopexit188
+._crit_edge206:                                   ; preds = %.loopexit187, %.._crit_edge206_crit_edge
+  %444 = phi i32 [ %.pre227, %.._crit_edge206_crit_edge ], [ %440, %.loopexit187 ]
+  %.lcssa196 = phi i32 [ %12, %.._crit_edge206_crit_edge ], [ %442, %.loopexit187 ]
+  %445 = icmp eq i32 %444, 1
+  br i1 %445, label %446, label %.loopexit188
 
-428:                                              ; preds = %._crit_edge216
-  %429 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %430 = load ptr, ptr %429, align 8, !tbaa !113
-  %431 = add nsw i32 %.lcssa196, -1
-  %432 = getelementptr i8, ptr %0, i64 32
-  %.val77 = load i32, ptr %432, align 8, !tbaa !103
-  %433 = getelementptr i8, ptr %0, i64 1068
-  %.val78 = load i32, ptr %433, align 4, !tbaa !236
-  %434 = mul nsw i32 %.val77, %431
-  %435 = add i32 %.val78, %1
-  %436 = add i32 %435, %434
-  %437 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %438 = load ptr, ptr %437, align 8, !tbaa !99
-  %439 = add nsw i32 %1, 1
-  %440 = ashr i32 %439, 6
-  %441 = sext i32 %440 to i64
-  %442 = getelementptr inbounds i64, ptr %438, i64 %441
-  %443 = load i64, ptr %442, align 8, !tbaa !3
-  %444 = and i32 %439, 63
-  %445 = zext nneg i32 %444 to i64
-  %446 = lshr i64 %443, %445
-  %447 = trunc i64 %446 to i32
-  %448 = and i32 %447, 1
-  %449 = shl nsw i32 %436, 1
-  %450 = or disjoint i32 %448, %449
-  %451 = xor i32 %450, 1
-  %452 = getelementptr inbounds nuw i8, ptr %430, i64 4
-  %453 = load i32, ptr %452, align 4, !tbaa !42
-  %454 = load i32, ptr %430, align 8, !tbaa !45
-  %455 = icmp eq i32 %453, %454
-  br i1 %455, label %456, label %.Vec_IntGrow.exit10_crit_edge.i
+446:                                              ; preds = %._crit_edge206
+  %447 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %448 = load ptr, ptr %447, align 8, !tbaa !113
+  %449 = add nsw i32 %.lcssa196, -1
+  %450 = getelementptr i8, ptr %0, i64 32
+  %.val77 = load i32, ptr %450, align 8, !tbaa !103
+  %451 = getelementptr i8, ptr %0, i64 1068
+  %.val78 = load i32, ptr %451, align 4, !tbaa !236
+  %452 = mul nsw i32 %.val77, %449
+  %453 = add i32 %.val78, %1
+  %454 = add i32 %453, %452
+  %455 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %456 = load ptr, ptr %455, align 8, !tbaa !99
+  %457 = add nsw i32 %1, 1
+  %458 = ashr i32 %457, 6
+  %459 = sext i32 %458 to i64
+  %460 = getelementptr inbounds i64, ptr %456, i64 %459
+  %461 = load i64, ptr %460, align 8, !tbaa !3
+  %462 = and i32 %457, 63
+  %463 = zext nneg i32 %462 to i64
+  %464 = lshr i64 %461, %463
+  %465 = trunc i64 %464 to i32
+  %466 = and i32 %465, 1
+  %467 = shl nsw i32 %454, 1
+  %468 = or disjoint i32 %466, %467
+  %469 = xor i32 %468, 1
+  %470 = getelementptr inbounds nuw i8, ptr %448, i64 4
+  %471 = load i32, ptr %470, align 4, !tbaa !42
+  %472 = load i32, ptr %448, align 8, !tbaa !45
+  %473 = icmp eq i32 %471, %472
+  br i1 %473, label %474, label %.Vec_IntGrow.exit10_crit_edge.i
 
-.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %428
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %430, i64 8
+.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %446
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %448, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !46
   br label %Vec_IntPush.exit
 
-456:                                              ; preds = %428
-  %457 = icmp slt i32 %453, 16
-  br i1 %457, label %458, label %466
+474:                                              ; preds = %446
+  %475 = icmp slt i32 %471, 16
+  br i1 %475, label %476, label %484
 
-458:                                              ; preds = %456
-  %459 = getelementptr inbounds nuw i8, ptr %430, i64 8
-  %460 = load ptr, ptr %459, align 8, !tbaa !46
-  %.not9.i.i = icmp eq ptr %460, null
-  br i1 %.not9.i.i, label %463, label %461
+476:                                              ; preds = %474
+  %477 = getelementptr inbounds nuw i8, ptr %448, i64 8
+  %478 = load ptr, ptr %477, align 8, !tbaa !46
+  %.not9.i.i = icmp eq ptr %478, null
+  br i1 %.not9.i.i, label %481, label %479
 
-461:                                              ; preds = %458
-  %462 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %460, i64 noundef 64) #28
+479:                                              ; preds = %476
+  %480 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %478, i64 noundef 64) #28
   br label %Vec_IntGrow.exit.i
 
-463:                                              ; preds = %458
-  %464 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #27
+481:                                              ; preds = %476
+  %482 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #27
   br label %Vec_IntGrow.exit.i
 
-Vec_IntGrow.exit.i:                               ; preds = %463, %461
-  %465 = phi ptr [ %462, %461 ], [ %464, %463 ]
-  store ptr %465, ptr %459, align 8, !tbaa !46
-  store i32 16, ptr %430, align 8, !tbaa !45
+Vec_IntGrow.exit.i:                               ; preds = %481, %479
+  %483 = phi ptr [ %480, %479 ], [ %482, %481 ]
+  store ptr %483, ptr %477, align 8, !tbaa !46
+  store i32 16, ptr %448, align 8, !tbaa !45
   br label %Vec_IntPush.exit
 
-466:                                              ; preds = %456
-  %467 = shl nuw nsw i32 %453, 1
-  %468 = getelementptr inbounds nuw i8, ptr %430, i64 8
-  %469 = load ptr, ptr %468, align 8, !tbaa !46
-  %.not9.i9.i = icmp eq ptr %469, null
-  %470 = zext nneg i32 %467 to i64
-  %471 = shl nuw nsw i64 %470, 2
-  br i1 %.not9.i9.i, label %474, label %472
+484:                                              ; preds = %474
+  %485 = shl nuw nsw i32 %471, 1
+  %486 = getelementptr inbounds nuw i8, ptr %448, i64 8
+  %487 = load ptr, ptr %486, align 8, !tbaa !46
+  %.not9.i9.i = icmp eq ptr %487, null
+  %488 = zext nneg i32 %485 to i64
+  %489 = shl nuw nsw i64 %488, 2
+  br i1 %.not9.i9.i, label %492, label %490
 
-472:                                              ; preds = %466
-  %473 = call ptr @realloc(ptr noundef nonnull %469, i64 noundef %471) #28
-  br label %476
+490:                                              ; preds = %484
+  %491 = call ptr @realloc(ptr noundef nonnull %487, i64 noundef %489) #28
+  br label %494
 
-474:                                              ; preds = %466
-  %475 = call noalias ptr @malloc(i64 noundef %471) #27
-  br label %476
+492:                                              ; preds = %484
+  %493 = call noalias ptr @malloc(i64 noundef %489) #27
+  br label %494
 
-476:                                              ; preds = %474, %472
-  %477 = phi ptr [ %473, %472 ], [ %475, %474 ]
-  store ptr %477, ptr %468, align 8, !tbaa !46
-  store i32 %467, ptr %430, align 8, !tbaa !45
+494:                                              ; preds = %492, %490
+  %495 = phi ptr [ %491, %490 ], [ %493, %492 ]
+  store ptr %495, ptr %486, align 8, !tbaa !46
+  store i32 %485, ptr %448, align 8, !tbaa !45
   br label %Vec_IntPush.exit
 
-Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %476
-  %478 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %477, %476 ], [ %465, %Vec_IntGrow.exit.i ]
-  %479 = load i32, ptr %452, align 4, !tbaa !42
-  %480 = add nsw i32 %479, 1
-  store i32 %480, ptr %452, align 4, !tbaa !42
-  %481 = sext i32 %479 to i64
-  %482 = getelementptr inbounds i32, ptr %478, i64 %481
-  store i32 %451, ptr %482, align 4, !tbaa !7
+Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %494
+  %496 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %495, %494 ], [ %483, %Vec_IntGrow.exit.i ]
+  %497 = load i32, ptr %470, align 4, !tbaa !42
+  %498 = add nsw i32 %497, 1
+  store i32 %498, ptr %470, align 4, !tbaa !42
+  %499 = sext i32 %497 to i64
+  %500 = getelementptr inbounds i32, ptr %496, i64 %499
+  store i32 %469, ptr %500, align 4, !tbaa !7
   br label %.loopexit188
 
-.loopexit188:                                     ; preds = %.lr.ph213, %._crit_edge216, %Vec_IntPush.exit
-  %.071 = phi i32 [ 1, %Vec_IntPush.exit ], [ 1, %._crit_edge216 ], [ 0, %.lr.ph213 ]
+.loopexit188:                                     ; preds = %.lr.ph203, %._crit_edge206, %Vec_IntPush.exit
+  %.071 = phi i32 [ 1, %Vec_IntPush.exit ], [ 1, %._crit_edge206 ], [ 0, %.lr.ph203 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #29
   ret i32 %.071
 }

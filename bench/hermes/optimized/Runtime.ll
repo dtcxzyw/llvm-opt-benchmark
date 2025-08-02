@@ -1534,9 +1534,9 @@ if.then.i.i:                                      ; preds = %if.end
   %call.i.i.i = tail call { i8, ptr } @_ZN6hermes2vm15DictPropertyMap14lookupEntryForEPS1_NS0_8SymbolIDE(ptr noundef %15, i32 336) #26
   %16 = extractvalue { i8, ptr } %call.i.i.i, 0
   %tobool.i.i.i = trunc i8 %16 to i1
-  br i1 %tobool.i.i.i, label %land.lhs.true, label %if.end46
+  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %if.end46
 
-land.lhs.true:                                    ; preds = %if.then.i.i
+if.end.i.i.i:                                     ; preds = %if.then.i.i
   %17 = extractvalue { i8, ptr } %call.i.i.i, 1
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 28
   %descriptorCapacity_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -1572,7 +1572,7 @@ land.lhs.true:                                    ; preds = %if.then.i.i
   %25 = icmp eq i64 %24, 4
   br i1 %25, label %if.then27, label %if.end46
 
-if.then27:                                        ; preds = %land.lhs.true
+if.then27:                                        ; preds = %if.end.i.i.i
   %flags_.i = getelementptr inbounds nuw i8, ptr %13, i64 10
   %bf.load.i = load i8, ptr %flags_.i, align 2
   %bf.clear.i = and i8 %bf.load.i, 1
@@ -1639,7 +1639,7 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_
   store i32 %shv.coerce, ptr %arrayidx.i.i29, align 4
   br label %return
 
-if.end46:                                         ; preds = %if.end, %if.then.i.i, %land.lhs.true
+if.end46:                                         ; preds = %if.end, %if.then.i.i, %if.end.i.i.i
   %34 = trunc i32 %shv.coerce to i8
   %conv.i.i45 = and i8 %34, 15
   switch i8 %conv.i.i45, label %default.unreachable [

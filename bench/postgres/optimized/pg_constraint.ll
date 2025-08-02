@@ -710,34 +710,34 @@ define dso_local ptr @ChooseConstraintName(ptr noundef %0, ptr noundef %1, ptr n
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %13 = zext i32 %3 to i64
-  br i1 %.not, label %.split.us, label %.lr.ph
+  br i1 %.not, label %.critedge.us, label %.lr.ph
 
-.split.us:                                        ; preds = %5, %.thread29.us
-  %.0.us = phi i32 [ %18, %.thread29.us ], [ 0, %5 ]
+.critedge.us:                                     ; preds = %5, %.critedge.thread26.us
+  %.0.us = phi i32 [ %18, %.critedge.thread26.us ], [ 0, %5 ]
   %14 = call ptr @makeObjectName(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6) #11
   %15 = ptrtoint ptr %14 to i64
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %15) #11
   call void @ScanKeyInit(ptr noundef nonnull %12, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %13) #11
   %16 = call ptr @systable_beginscan(ptr noundef %8, i32 noundef 2664, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %7) #11
   %17 = call ptr @systable_getnext(ptr noundef %16) #11
-  %.not31.us = icmp eq ptr %17, null
+  %.not28.us = icmp eq ptr %17, null
   call void @systable_endscan(ptr noundef %16) #11
-  br i1 %.not31.us, label %.split37.us, label %.thread29.us
+  br i1 %.not28.us, label %.split34.us, label %.critedge.thread26.us
 
-.thread29.us:                                     ; preds = %.split.us
+.critedge.thread26.us:                            ; preds = %.critedge.us
   call void @pfree(ptr noundef %14) #11
   %18 = add i32 %.0.us, 1
   %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %2, i32 noundef %18) #11
-  br label %.split.us, !llvm.loop !15
+  br label %.critedge.us, !llvm.loop !15
 
-.lr.ph:                                           ; preds = %5, %.thread29
-  %.0 = phi i32 [ %33, %.thread29 ], [ 0, %5 ]
+.lr.ph:                                           ; preds = %5, %.critedge.thread26
+  %.0 = phi i32 [ %33, %.critedge.thread26 ], [ 0, %5 ]
   %20 = call ptr @makeObjectName(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6) #11
   %21 = load i32, ptr %10, align 4
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph35, label %._crit_edge.split
+  br i1 %22, label %.lr.ph32, label %..critedge_crit_edge.split
 
-.lr.ph35:                                         ; preds = %.lr.ph
+.lr.ph32:                                         ; preds = %.lr.ph
   %23 = load ptr, ptr %11, align 8
   %wide.trip.count = zext nneg i32 %21 to i64
   br label %25
@@ -745,34 +745,34 @@ define dso_local ptr @ChooseConstraintName(ptr noundef %0, ptr noundef %1, ptr n
 24:                                               ; preds = %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %25
+  br i1 %exitcond.not, label %..critedge_crit_edge.split, label %25
 
-25:                                               ; preds = %.lr.ph35, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next, %24 ]
+25:                                               ; preds = %.lr.ph32, %24
+  %indvars.iv = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next, %24 ]
   %26 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %20) #12
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.thread29, label %24
+  br i1 %29, label %.critedge.thread26, label %24
 
-._crit_edge.split:                                ; preds = %24, %.lr.ph
+..critedge_crit_edge.split:                       ; preds = %24, %.lr.ph
   %30 = ptrtoint ptr %20 to i64
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %30) #11
   call void @ScanKeyInit(ptr noundef nonnull %12, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %13) #11
   %31 = call ptr @systable_beginscan(ptr noundef %8, i32 noundef 2664, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %7) #11
   %32 = call ptr @systable_getnext(ptr noundef %31) #11
-  %.not31 = icmp eq ptr %32, null
+  %.not28 = icmp eq ptr %32, null
   call void @systable_endscan(ptr noundef %31) #11
-  br i1 %.not31, label %.split37.us, label %.thread29
+  br i1 %.not28, label %.split34.us, label %.critedge.thread26
 
-.thread29:                                        ; preds = %25, %._crit_edge.split
+.critedge.thread26:                               ; preds = %25, %..critedge_crit_edge.split
   call void @pfree(ptr noundef %20) #11
   %33 = add i32 %.0, 1
   %34 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %2, i32 noundef %33) #11
   br label %.lr.ph
 
-.split37.us:                                      ; preds = %._crit_edge.split, %.split.us
-  %.us-phi = phi ptr [ %14, %.split.us ], [ %20, %._crit_edge.split ]
+.split34.us:                                      ; preds = %..critedge_crit_edge.split, %.critedge.us
+  %.us-phi = phi ptr [ %14, %.critedge.us ], [ %20, %..critedge_crit_edge.split ]
   call void @table_close(ptr noundef %8, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11
@@ -2667,68 +2667,68 @@ define dso_local noundef zeroext i1 @check_functional_grouping(i32 noundef %0, i
 .preheader:                                       ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i32, ptr %9, align 4
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph33, label %._crit_edge
+  br i1 %12, label %.lr.ph31, label %.critedge
 
-._crit_edge:                                      ; preds = %34, %.lr.ph, %.preheader
-  %.019.lcssa = phi ptr [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %34 ]
-  %13 = tail call zeroext i1 @bms_is_subset(ptr noundef nonnull %7, ptr noundef %.019.lcssa) #11
-  br i1 %13, label %38, label %42
-
-.lr.ph33:                                         ; preds = %.lr.ph, %34
-  %14 = phi i32 [ %35, %34 ], [ %11, %.lr.ph ]
+.lr.ph31:                                         ; preds = %.lr.ph, %34
+  %13 = phi i32 [ %35, %34 ], [ %11, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.lr.ph ]
-  %.0192731 = phi ptr [ %.1, %34 ], [ null, %.lr.ph ]
-  %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %18, 6
-  br i1 %19, label %20, label %34
+  %.0192529 = phi ptr [ %.1, %34 ], [ null, %.lr.ph ]
+  %14 = load ptr, ptr %10, align 8
+  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp eq i32 %17, 6
+  br i1 %18, label %20, label %34
 
-20:                                               ; preds = %.lr.ph33
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
+.critedge:                                        ; preds = %34, %.lr.ph, %.preheader
+  %.019.lcssa = phi ptr [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %34 ]
+  %19 = tail call zeroext i1 @bms_is_subset(ptr noundef nonnull %7, ptr noundef %.019.lcssa) #11
+  br i1 %19, label %38, label %42
+
+20:                                               ; preds = %.lr.ph31
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, %2
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %30 = load i16, ptr %29, align 8
   %31 = sext i16 %30 to i32
   %32 = add nsw i32 %31, 7
-  %33 = tail call ptr @bms_add_member(ptr noundef %.0192731, i32 noundef %32) #11
+  %33 = tail call ptr @bms_add_member(ptr noundef %.0192529, i32 noundef %32) #11
   %.pre = load i32, ptr %9, align 4
   br label %34
 
-34:                                               ; preds = %28, %24, %20, %.lr.ph33
-  %35 = phi i32 [ %.pre, %28 ], [ %14, %24 ], [ %14, %20 ], [ %14, %.lr.ph33 ]
-  %.1 = phi ptr [ %33, %28 ], [ %.0192731, %24 ], [ %.0192731, %20 ], [ %.0192731, %.lr.ph33 ]
+34:                                               ; preds = %28, %24, %20, %.lr.ph31
+  %35 = phi i32 [ %.pre, %28 ], [ %13, %24 ], [ %13, %20 ], [ %13, %.lr.ph31 ]
+  %.1 = phi ptr [ %33, %28 ], [ %.0192529, %24 ], [ %.0192529, %20 ], [ %.0192529, %.lr.ph31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph33, label %._crit_edge
+  br i1 %37, label %.lr.ph31, label %.critedge
 
-38:                                               ; preds = %._crit_edge
+38:                                               ; preds = %.critedge
   %39 = load ptr, ptr %4, align 8
   %40 = load i32, ptr %6, align 4
   %41 = tail call ptr @lappend_oid(ptr noundef %39, i32 noundef %40) #11
   store ptr %41, ptr %4, align 8
   br label %42
 
-42:                                               ; preds = %._crit_edge, %5, %38
-  %.0 = phi i1 [ true, %38 ], [ false, %5 ], [ false, %._crit_edge ]
+42:                                               ; preds = %.critedge, %5, %38
+  %.0 = phi i1 [ true, %38 ], [ false, %5 ], [ false, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   ret i1 %.0
 }

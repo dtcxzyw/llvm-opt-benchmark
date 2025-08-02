@@ -1385,7 +1385,6 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_Z12rcOffsetPolyPKfifPfi
 .lr.ph:                                           ; preds = %5
   %7 = add nsw i32 %1, -1
   %8 = zext nneg i32 %1 to i64
-  %invariant.gep = getelementptr i8, ptr %3, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %121
@@ -1545,8 +1544,9 @@ _ZL16rcVsafeNormalizePf.exit93:                   ; preds = %_ZL16rcVsafeNormali
   %122 = phi i64 [ %100, %77 ], [ %114, %108 ]
   %.sink = phi float [ %106, %77 ], [ %120, %108 ]
   %.1 = phi i32 [ %75, %77 ], [ %109, %108 ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %122
-  store float %.sink, ptr %gep, align 4
+  %123 = getelementptr inbounds float, ptr %3, i64 %122
+  %124 = getelementptr i8, ptr %123, i64 8
+  store float %.sink, ptr %124, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !31
 

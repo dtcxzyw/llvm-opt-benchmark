@@ -1062,8 +1062,8 @@ _ZN9grpc_core13RefCountedPtrIN3tsi18SslSessionLRUCacheEED2Ev.exit:
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_Z27tsi_ssl_session_cache_unrefP21tsi_ssl_session_cache(ptr noundef %0) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_Z27tsi_ssl_session_cache_unrefP21tsi_ssl_session_cache(ptr noundef %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
   %4 = icmp eq i64 %3, 1
@@ -1998,7 +1998,7 @@ _ZL32tsi_ssl_handshaker_factory_unrefP26tsi_ssl_handshaker_factory.exit: ; preds
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN33tsi_ssl_client_handshaker_optionsD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN33tsi_ssl_client_handshaker_optionsD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !127
   %.not.i.i = icmp eq ptr %3, null
@@ -2396,7 +2396,7 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZL20populate_ssl_contextP1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !134
   %.not32 = icmp eq ptr %13, null
-  br i1 %.not32, label %39, label %14
+  br i1 %.not32, label %38, label %14
 
 14:                                               ; preds = %11
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #31
@@ -2421,193 +2421,192 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZL20populate_ssl_contextP1
 24:                                               ; preds = %16
   %25 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread47, label %28
+  br i1 %26, label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread.sink.split, label %27
 
-_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread47: ; preds = %24
-  %27 = tail call i32 @BIO_free(ptr noundef nonnull %17)
-  br label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread
-
-28:                                               ; preds = %24
-  %29 = tail call i32 @SSL_CTX_use_certificate(ptr noundef %0, ptr noundef nonnull %25)
-  %.not27.i = icmp eq i32 %29, 0
+27:                                               ; preds = %24
+  %28 = tail call i32 @SSL_CTX_use_certificate(ptr noundef %0, ptr noundef nonnull %25)
+  %.not27.i = icmp eq i32 %28, 0
   br i1 %.not27.i, label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %28, %33
-  %30 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %33
+.preheader.i:                                     ; preds = %27, %32
+  %29 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %.critedge, label %32
+
+.critedge:                                        ; preds = %.preheader.i
+  tail call void @ERR_clear_error()
+  tail call void @X509_free(ptr noundef nonnull %25)
+  %31 = tail call i32 @BIO_free(ptr noundef nonnull %17)
+  br label %38
 
 32:                                               ; preds = %.preheader.i
-  tail call void @ERR_clear_error()
+  %33 = tail call i32 @SSL_CTX_add_extra_chain_cert(ptr noundef %0, ptr noundef nonnull %29)
+  %.not28.i = icmp eq i32 %33, 0
+  br i1 %.not28.i, label %34, label %.preheader.i
+
+34:                                               ; preds = %32
+  tail call void @X509_free(ptr noundef nonnull %29)
   br label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit
 
-33:                                               ; preds = %.preheader.i
-  %34 = tail call i32 @SSL_CTX_add_extra_chain_cert(ptr noundef %0, ptr noundef nonnull %30)
-  %.not28.i = icmp eq i32 %34, 0
-  br i1 %.not28.i, label %35, label %.preheader.i
-
-35:                                               ; preds = %33
-  tail call void @X509_free(ptr noundef nonnull %30)
-  br label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit
-
-_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit: ; preds = %28, %32, %35
-  %.not33 = phi i1 [ false, %28 ], [ false, %35 ], [ true, %32 ]
-  %.02140.i = phi i32 [ 2, %28 ], [ 2, %35 ], [ 0, %32 ]
+_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit: ; preds = %27, %34
   tail call void @X509_free(ptr noundef nonnull %25)
-  %36 = tail call i32 @BIO_free(ptr noundef nonnull %17)
-  br i1 %.not33, label %39, label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread
+  br label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread.sink.split
 
-_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread: ; preds = %16, %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread47, %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit
-  %.0.i46 = phi i32 [ %.02140.i, %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit ], [ 2, %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread47 ], [ 12, %16 ]
+_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread.sink.split: ; preds = %24, %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit
+  %35 = tail call i32 @BIO_free(ptr noundef nonnull %17)
+  br label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread
+
+_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread: ; preds = %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread.sink.split, %16
+  %.0.i46 = phi i32 [ 12, %16 ], [ 2, %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread.sink.split ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #32
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.1, i32 noundef 799) #33
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 24, ptr nonnull @.str.77)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit unwind label %37
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit unwind label %36
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit: ; preds = %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
-  br label %77
+  br label %76
 
-37:                                               ; preds = %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
-  br label %78
+  br label %77
 
-39:                                               ; preds = %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit, %11
-  %40 = load ptr, ptr %1, align 8, !tbaa !136
-  %.not34 = icmp eq ptr %40, null
-  br i1 %.not34, label %thread-pre-split, label %41
+38:                                               ; preds = %.critedge, %11
+  %39 = load ptr, ptr %1, align 8, !tbaa !136
+  %.not34 = icmp eq ptr %39, null
+  br i1 %.not34, label %thread-pre-split, label %40
 
-41:                                               ; preds = %39
-  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #31
-  %.not.i.i.i = icmp ugt i64 %42, 2147483647
-  br i1 %.not.i.i.i, label %46, label %43, !prof !28
+40:                                               ; preds = %38
+  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #31
+  %.not.i.i.i = icmp ugt i64 %41, 2147483647
+  br i1 %.not.i.i.i, label %45, label %42, !prof !28
 
-43:                                               ; preds = %41
-  %44 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull %40, i64 noundef %42)
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread, label %51
+42:                                               ; preds = %40
+  %43 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull %39, i64 noundef %41)
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread, label %50
 
-46:                                               ; preds = %41
-  %47 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %42, i64 noundef 2147483647, ptr noundef nonnull @.str.82)
+45:                                               ; preds = %40
+  %46 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %41, i64 noundef 2147483647, ptr noundef nonnull @.str.82)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
-  %48 = load ptr, ptr %47, align 8, !tbaa !4
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !12
-  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.1, i32 noundef 671, i64 %50, ptr %48) #33
+  %47 = load ptr, ptr %46, align 8, !tbaa !4
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !12
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.1, i32 noundef 671, i64 %49, ptr %47) #33
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #35
   unreachable
 
-51:                                               ; preds = %43
-  %52 = tail call ptr @PEM_read_bio_PrivateKey(ptr noundef nonnull %44, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, label %54
+50:                                               ; preds = %42
+  %51 = tail call ptr @PEM_read_bio_PrivateKey(ptr noundef nonnull %43, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, label %53
 
-54:                                               ; preds = %51
-  %55 = tail call i32 @SSL_CTX_use_PrivateKey(ptr noundef %0, ptr noundef nonnull %52)
-  %.not18.i.i = icmp eq i32 %55, 0
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %52)
-  br i1 %.not18.i.i, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, label %57
+53:                                               ; preds = %50
+  %54 = tail call i32 @SSL_CTX_use_PrivateKey(ptr noundef %0, ptr noundef nonnull %51)
+  %.not18.i.i = icmp eq i32 %54, 0
+  tail call void @EVP_PKEY_free(ptr noundef nonnull %51)
+  br i1 %.not18.i.i, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, label %56
 
-_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54: ; preds = %51, %54
-  %56 = tail call i32 @BIO_free(ptr noundef nonnull %44)
+_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54: ; preds = %50, %53
+  %55 = tail call i32 @BIO_free(ptr noundef nonnull %43)
   br label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread
 
-57:                                               ; preds = %54
-  %58 = tail call i32 @BIO_free(ptr noundef nonnull %44)
-  %59 = tail call i32 @SSL_CTX_check_private_key(ptr noundef %0)
-  %.not36 = icmp eq i32 %59, 0
+56:                                               ; preds = %53
+  %57 = tail call i32 @BIO_free(ptr noundef nonnull %43)
+  %58 = tail call i32 @SSL_CTX_check_private_key(ptr noundef %0)
+  %.not36 = icmp eq i32 %58, 0
   br i1 %.not36, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread, label %thread-pre-split
 
-_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread: ; preds = %43, %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, %57
-  %.not3553 = phi i32 [ 2, %57 ], [ 2, %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54 ], [ 12, %43 ]
+_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread: ; preds = %42, %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, %56
+  %.not3553 = phi i32 [ 2, %56 ], [ 2, %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54 ], [ 12, %42 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #32
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.1, i32 noundef 807) #33
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 20, ptr nonnull @.str.78)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit unwind label %60
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit unwind label %59
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit: ; preds = %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
-  br label %77
+  br label %76
 
-60:                                               ; preds = %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
-  br label %78
+  br label %77
 
-thread-pre-split:                                 ; preds = %39, %57, %3
+thread-pre-split:                                 ; preds = %38, %56, %3
   %.not37 = icmp eq ptr %2, null
-  br i1 %.not37, label %69, label %62
+  br i1 %.not37, label %68, label %61
 
-62:                                               ; preds = %thread-pre-split
-  %63 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %0, ptr noundef nonnull %2)
-  %.not38 = icmp eq i32 %63, 0
-  br i1 %.not38, label %64, label %69
+61:                                               ; preds = %thread-pre-split
+  %62 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %0, ptr noundef nonnull %2)
+  %.not38 = icmp eq i32 %62, 0
+  br i1 %.not38, label %63, label %68
 
-64:                                               ; preds = %62
+63:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #32
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.1, i32 noundef 814) #33
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 21, ptr nonnull @.str.79)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit unwind label %67
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit unwind label %66
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit: ; preds = %64
-  %65 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %66 unwind label %67
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit: ; preds = %63
+  %64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %65 unwind label %66
 
-66:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit
+65:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #34
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
+  br label %76
+
+66:                                               ; preds = %63, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit
+  %67 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
   br label %77
 
-67:                                               ; preds = %64, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
-  br label %78
+68:                                               ; preds = %61, %thread-pre-split
+  %69 = tail call ptr @EC_KEY_new_by_curve_name(i32 noundef 415)
+  %70 = tail call i32 @SSL_CTX_set_tmp_ecdh(ptr noundef %0, ptr noundef %69)
+  %.not39.not = icmp eq i32 %70, 0
+  br i1 %.not39.not, label %71, label %74
 
-69:                                               ; preds = %62, %thread-pre-split
-  %70 = tail call ptr @EC_KEY_new_by_curve_name(i32 noundef 415)
-  %71 = tail call i32 @SSL_CTX_set_tmp_ecdh(ptr noundef %0, ptr noundef %70)
-  %.not39.not = icmp eq i32 %71, 0
-  br i1 %.not39.not, label %72, label %75
-
-72:                                               ; preds = %69
+71:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #32
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str.1, i32 noundef 821) #33
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 33, ptr nonnull @.str.80)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit unwind label %73
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit unwind label %72
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; preds = %72
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; preds = %71
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #32
-  call void @EC_KEY_free(ptr noundef %70)
-  br label %77
+  call void @EC_KEY_free(ptr noundef %69)
+  br label %76
 
-73:                                               ; preds = %72
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %71
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #32
-  br label %78
-
-75:                                               ; preds = %69
-  %76 = tail call i32 @SSL_CTX_set_options(ptr noundef %0, i32 noundef 0)
-  tail call void @EC_KEY_free(ptr noundef %70)
   br label %77
 
-77:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit, %75, %66, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit
-  %.0 = phi i32 [ %.0.i46, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit ], [ %.not3553, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit ], [ 2, %66 ], [ 0, %75 ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit ]
+74:                                               ; preds = %68
+  %75 = tail call i32 @SSL_CTX_set_options(ptr noundef %0, i32 noundef 0)
+  tail call void @EC_KEY_free(ptr noundef %69)
+  br label %76
+
+76:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit, %74, %65, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit
+  %.0 = phi i32 [ %.0.i46, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit ], [ %.not3553, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit ], [ 2, %65 ], [ 0, %74 ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit ]
   ret i32 %.0
 
-78:                                               ; preds = %73, %67, %60, %37
-  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %61, %60 ], [ %74, %73 ], [ %68, %67 ]
+77:                                               ; preds = %72, %66, %59, %36
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %60, %59 ], [ %73, %72 ], [ %67, %66 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2728,7 +2727,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2764,14 +2763,14 @@ declare noundef ptr @_Z20tsi_result_to_string10tsi_result(i32 noundef) local_unn
 declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i64, ptr) unnamed_addr #6
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
+declare void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #12
 
 declare i32 @SSL_CTX_set_alpn_protos(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 declare void @SSL_CTX_set_next_proto_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL38client_handshaker_factory_npn_callbackP6ssl_stPPhS1_PKhjPv(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #12 {
+define internal noundef range(i32 0, 4) i32 @_ZL38client_handshaker_factory_npn_callbackP6ssl_stPPhS1_PKhjPv(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #13 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !124
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -2779,31 +2778,31 @@ define internal noundef range(i32 0, 4) i32 @_ZL38client_handshaker_factory_npn_
   %11 = zext i32 %4 to i64
   %12 = ptrtoint ptr %8 to i64
   %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph48.i
+  br i1 %.not.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph45.i
 
-.lr.ph48.i:                                       ; preds = %6
+.lr.ph45.i:                                       ; preds = %6
   %13 = ptrtoint ptr %3 to i64
-  %.not50.i = icmp eq i32 %4, 0
-  br i1 %.not50.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph.us.i
+  %.not47.i = icmp eq i32 %4, 0
+  br i1 %.not47.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %.lr.ph48.i, %._crit_edge.us.i
-  %.03246.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %8, %.lr.ph48.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %.03246.us.i, i64 1
-  %15 = load i8, ptr %.03246.us.i, align 1, !tbaa !59
+.lr.ph.us.i:                                      ; preds = %.lr.ph45.i, %..critedge_crit_edge.us.i
+  %.03244.us.i = phi ptr [ %28, %..critedge_crit_edge.us.i ], [ %8, %.lr.ph45.i ]
+  %14 = getelementptr inbounds nuw i8, ptr %.03244.us.i, i64 1
+  %15 = load i8, ptr %.03244.us.i, align 1, !tbaa !59
   %16 = zext i8 %15 to i64
   br label %17
 
 17:                                               ; preds = %22, %.lr.ph.us.i
-  %.03045.us.i = phi ptr [ %3, %.lr.ph.us.i ], [ %24, %22 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.03045.us.i, i64 1
-  %19 = load i8, ptr %.03045.us.i, align 1, !tbaa !59
+  %.03043.us.i = phi ptr [ %3, %.lr.ph.us.i ], [ %24, %22 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.03043.us.i, i64 1
+  %19 = load i8, ptr %.03043.us.i, align 1, !tbaa !59
   %20 = icmp eq i8 %15, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
   %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %14, ptr nonnull %18, i64 %16)
   %.not35.us.i = icmp eq i32 %bcmp.us.i, 0
-  br i1 %.not35.us.i, label %.thread41.i, label %22
+  br i1 %.not35.us.i, label %.critedge40.critedge.i, label %22
 
 22:                                               ; preds = %21, %17
   %23 = zext i8 %19 to i64
@@ -2813,9 +2812,9 @@ define internal noundef range(i32 0, 4) i32 @_ZL38client_handshaker_factory_npn_
   %26 = sub i64 %25, %13
   %27 = icmp ult i64 %26, %11
   %or.cond.us.i = and i1 %.not.us.i, %27
-  br i1 %or.cond.us.i, label %17, label %._crit_edge.us.i, !llvm.loop !141
+  br i1 %or.cond.us.i, label %17, label %..critedge_crit_edge.us.i, !llvm.loop !141
 
-._crit_edge.us.i:                                 ; preds = %22
+..critedge_crit_edge.us.i:                        ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 %16
   %29 = ptrtoint ptr %28 to i64
   %30 = sub i64 %29, %12
@@ -2823,13 +2822,13 @@ define internal noundef range(i32 0, 4) i32 @_ZL38client_handshaker_factory_npn_
   %32 = icmp ult i64 %31, %10
   br i1 %32, label %.lr.ph.us.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, !llvm.loop !142
 
-.thread41.i:                                      ; preds = %21
+.critedge40.critedge.i:                           ; preds = %21
   store ptr %18, ptr %1, align 8, !tbaa !23
   store i8 %15, ptr %2, align 1, !tbaa !59
   br label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit
 
-_ZL20select_protocol_listPPKhPhS0_mS0_m.exit:     ; preds = %._crit_edge.us.i, %6, %.lr.ph48.i, %.thread41.i
-  %.4.i = phi i32 [ 0, %.thread41.i ], [ 3, %6 ], [ 3, %.lr.ph48.i ], [ 3, %._crit_edge.us.i ]
+_ZL20select_protocol_listPPKhPhS0_mS0_m.exit:     ; preds = %..critedge_crit_edge.us.i, %6, %.lr.ph45.i, %.critedge40.critedge.i
+  %.4.i = phi i32 [ 0, %.critedge40.critedge.i ], [ 3, %6 ], [ 3, %.lr.ph45.i ], [ 3, %..critedge_crit_edge.us.i ]
   ret i32 %.4.i
 }
 
@@ -2838,7 +2837,7 @@ declare void @SSL_CTX_set_verify(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @SSL_CTX_set_cert_verify_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL18NullVerifyCallbackP17x509_store_ctx_stPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #13 {
+define internal noundef i32 @_ZL18NullVerifyCallbackP17x509_store_ctx_stPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #14 {
   ret i32 1
 }
 
@@ -4702,7 +4701,7 @@ _ZL32tsi_ssl_handshaker_factory_unrefP26tsi_ssl_handshaker_factory.exit: ; preds
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN33tsi_ssl_server_handshaker_optionsD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN33tsi_ssl_server_handshaker_optionsD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !127
   %.not.i.i = icmp eq ptr %3, null
@@ -4846,7 +4845,7 @@ declare i32 @SSL_CTX_set_tlsext_servername_arg(ptr noundef, ptr noundef) local_u
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 0, 4) i32 @_ZL39server_handshaker_factory_alpn_callbackP6ssl_stPPKhPhS2_jPv(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #12 {
+define internal noundef range(i32 0, 4) i32 @_ZL39server_handshaker_factory_alpn_callbackP6ssl_stPPKhPhS2_jPv(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #13 {
   %7 = zext i32 %4 to i64
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !187
@@ -4854,31 +4853,31 @@ define internal noundef range(i32 0, 4) i32 @_ZL39server_handshaker_factory_alpn
   %11 = load i64, ptr %10, align 8, !tbaa !188
   %12 = ptrtoint ptr %3 to i64
   %.not.i = icmp eq i32 %4, 0
-  br i1 %.not.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph48.i
+  br i1 %.not.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph45.i
 
-.lr.ph48.i:                                       ; preds = %6
+.lr.ph45.i:                                       ; preds = %6
   %13 = ptrtoint ptr %9 to i64
-  %.not50.i = icmp eq i64 %11, 0
-  br i1 %.not50.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph.us.i
+  %.not47.i = icmp eq i64 %11, 0
+  br i1 %.not47.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %.lr.ph48.i, %._crit_edge.us.i
-  %.03246.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %3, %.lr.ph48.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %.03246.us.i, i64 1
-  %15 = load i8, ptr %.03246.us.i, align 1, !tbaa !59
+.lr.ph.us.i:                                      ; preds = %.lr.ph45.i, %..critedge_crit_edge.us.i
+  %.03244.us.i = phi ptr [ %28, %..critedge_crit_edge.us.i ], [ %3, %.lr.ph45.i ]
+  %14 = getelementptr inbounds nuw i8, ptr %.03244.us.i, i64 1
+  %15 = load i8, ptr %.03244.us.i, align 1, !tbaa !59
   %16 = zext i8 %15 to i64
   br label %17
 
 17:                                               ; preds = %22, %.lr.ph.us.i
-  %.03045.us.i = phi ptr [ %9, %.lr.ph.us.i ], [ %24, %22 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.03045.us.i, i64 1
-  %19 = load i8, ptr %.03045.us.i, align 1, !tbaa !59
+  %.03043.us.i = phi ptr [ %9, %.lr.ph.us.i ], [ %24, %22 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.03043.us.i, i64 1
+  %19 = load i8, ptr %.03043.us.i, align 1, !tbaa !59
   %20 = icmp eq i8 %15, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
   %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %14, ptr nonnull %18, i64 %16)
   %.not35.us.i = icmp eq i32 %bcmp.us.i, 0
-  br i1 %.not35.us.i, label %.thread41.i, label %22
+  br i1 %.not35.us.i, label %.critedge40.critedge.i, label %22
 
 22:                                               ; preds = %21, %17
   %23 = zext i8 %19 to i64
@@ -4888,9 +4887,9 @@ define internal noundef range(i32 0, 4) i32 @_ZL39server_handshaker_factory_alpn
   %26 = sub i64 %25, %13
   %27 = icmp ult i64 %26, %11
   %or.cond.us.i = and i1 %.not.us.i, %27
-  br i1 %or.cond.us.i, label %17, label %._crit_edge.us.i, !llvm.loop !141
+  br i1 %or.cond.us.i, label %17, label %..critedge_crit_edge.us.i, !llvm.loop !141
 
-._crit_edge.us.i:                                 ; preds = %22
+..critedge_crit_edge.us.i:                        ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 %16
   %29 = ptrtoint ptr %28 to i64
   %30 = sub i64 %29, %12
@@ -4898,13 +4897,13 @@ define internal noundef range(i32 0, 4) i32 @_ZL39server_handshaker_factory_alpn
   %32 = icmp samesign ult i64 %31, %7
   br i1 %32, label %.lr.ph.us.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, !llvm.loop !142
 
-.thread41.i:                                      ; preds = %21
+.critedge40.critedge.i:                           ; preds = %21
   store ptr %18, ptr %1, align 8, !tbaa !23
   store i8 %15, ptr %2, align 1, !tbaa !59
   br label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit
 
-_ZL20select_protocol_listPPKhPhS0_mS0_m.exit:     ; preds = %._crit_edge.us.i, %6, %.lr.ph48.i, %.thread41.i
-  %.4.i = phi i32 [ 0, %.thread41.i ], [ 3, %6 ], [ 3, %.lr.ph48.i ], [ 3, %._crit_edge.us.i ]
+_ZL20select_protocol_listPPKhPhS0_mS0_m.exit:     ; preds = %..critedge_crit_edge.us.i, %6, %.lr.ph45.i, %.critedge40.critedge.i
+  %.4.i = phi i32 [ 0, %.critedge40.critedge.i ], [ 3, %6 ], [ 3, %.lr.ph45.i ], [ 3, %..critedge_crit_edge.us.i ]
   ret i32 %.4.i
 }
 
@@ -5252,7 +5251,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread: ; preds
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef range(i32 0, 2) i32 @_ZL21does_entry_match_nameSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %0, ptr %1, i64 %2, ptr %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -5860,7 +5859,7 @@ declare void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTa
 declare i32 @X509_NAME_print_ex(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #15 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #32
   tail call void @_ZSt9terminatev() #35
   unreachable
@@ -5869,7 +5868,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #16
+declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 declare void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) local_unnamed_addr #0
 
@@ -5896,12 +5895,12 @@ declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #17
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #18
 
 declare void @OPENSSL_sk_pop_free_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @sk_GENERAL_NAME_call_free_func(ptr noundef %0, ptr noundef %1) #18 comdat {
+define linkonce_odr void @sk_GENERAL_NAME_call_free_func(ptr noundef %0, ptr noundef %1) #19 comdat {
   tail call void %0(ptr noundef %1)
   ret void
 }
@@ -5925,13 +5924,13 @@ declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #0
 declare i64 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @sk_X509_NAME_call_free_func(ptr noundef %0, ptr noundef %1) #18 comdat {
+define linkonce_odr void @sk_X509_NAME_call_free_func(ptr noundef %0, ptr noundef %1) #19 comdat {
   tail call void %0(ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #20
 
 declare void @_ZN3tsi18SslSessionLRUCacheC1Em(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) unnamed_addr #0
 
@@ -6122,7 +6121,7 @@ declare void @_ZN3tsi18SslSessionLRUCache3GetEPKc(ptr dead_on_unwind writable sr
 declare i32 @SSL_set_session(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !62
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN3tsi17SslSessionDeleterclEP14ssl_session_st.exit, label %3
@@ -7067,10 +7066,10 @@ declare ptr @X509_verify_cert_error_string(i64 noundef) local_unnamed_addr #0
 declare void @_ZN4absl12lts_202407226StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #20 align 2
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsILi256EEERS2_RAT__c(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(256) %1) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsILi256EEERS2_RAT__c(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(256) %1) local_unnamed_addr #11 comdat align 2 {
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #32
   tail call void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE1EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 %3, ptr nonnull %1)
   ret ptr %0
@@ -7417,7 +7416,7 @@ declare noundef ptr @_Z28tsi_security_level_to_string18tsi_security_level(i32 no
 declare i32 @SSL_session_reused(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsI10tsi_resultTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsI10tsi_resultTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7590,7 +7589,7 @@ define internal void @_ZL23verified_root_cert_freePvS_P17crypto_ex_data_stilS_(p
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZL12init_opensslvEN3$_08__invokeEv"() #18 align 2 {
+define internal void @"_ZZL12init_opensslvEN3$_08__invokeEv"() #19 align 2 {
   %1 = tail call noundef zeroext i1 @_Z35grpc_wait_for_shutdown_with_timeoutN4absl12lts_202407228DurationE(i64 2, i32 0)
   ret void
 }
@@ -7723,7 +7722,7 @@ declare void @X509_CRL_free(ptr noundef) local_unnamed_addr #0
 declare i32 @X509_CRL_get0_by_cert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIP11X509_crl_stED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIP11X509_crl_stED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !146
   %3 = and i64 %2, 1
   %.not.i.i = icmp eq i64 %3, 0
@@ -7748,7 +7747,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %1, %4
 declare void @_ZN4absl12lts_2024072220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::Status") align 8, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !146
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
@@ -7913,7 +7912,7 @@ declare void @_ZN4absl12lts_2024072213NotFoundErrorESt17basic_string_viewIcSt11c
 declare ptr @X509_CRL_dup(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN9grpc_core12experimental3CrlELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN9grpc_core12experimental3CrlELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !127
   %.not.i = icmp eq ptr %3, null
@@ -7968,7 +7967,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core12experimental19CertificateInfoImplD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN9grpc_core12experimental19CertificateInfoImplD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core12experimental19CertificateInfoImplE, i64 16), ptr %0, align 8, !tbaa !42
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !4
@@ -8014,7 +8013,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !146
   %3 = icmp eq i64 %2, 1
   br i1 %3, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %13
@@ -8070,7 +8069,7 @@ declare void @_ZN4absl12lts_2024072217internal_statusor6Helper5CrashERKNS0_6Stat
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9grpc_core12experimental19CertificateInfoImplD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN9grpc_core12experimental19CertificateInfoImplD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core12experimental19CertificateInfoImplE, i64 16), ptr %0, align 8, !tbaa !42
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !4
@@ -8117,7 +8116,7 @@ _ZN9grpc_core12experimental19CertificateInfoImplD2Ev.exit: ; preds = %_ZNKSt7__c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr { i64, ptr } @_ZNK9grpc_core12experimental19CertificateInfoImpl6IssuerEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #20 comdat align 2 {
+define linkonce_odr { i64, ptr } @_ZNK9grpc_core12experimental19CertificateInfoImpl6IssuerEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8128,7 +8127,7 @@ define linkonce_odr { i64, ptr } @_ZNK9grpc_core12experimental19CertificateInfoI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr { i64, ptr } @_ZNK9grpc_core12experimental19CertificateInfoImpl22AuthorityKeyIdentifierEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #20 comdat align 2 {
+define linkonce_odr { i64, ptr } @_ZNK9grpc_core12experimental19CertificateInfoImpl22AuthorityKeyIdentifierEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8301,18 +8300,18 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { cold nofree noreturn }
-attributes #17 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold nofree noreturn }
+attributes #18 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

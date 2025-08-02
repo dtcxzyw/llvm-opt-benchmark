@@ -5626,21 +5626,21 @@ invoke.cont:
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 96
-  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 112
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont
-  %i.07.i.i.i.i = phi i64 [ 0, %invoke.cont ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
+  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %invoke.cont ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
-  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !41
@@ -5649,8 +5649,8 @@ for.body6.i.i.i.i:                                ; preds = %for.body6.i.i.i.i, 
   %segment_index.08.i.i.i.i = phi i64 [ 0, %for.cond4.preheader.i.i.i.i ], [ %inc14.i.i.i.i, %for.body6.i.i.i.i ]
   %cmp7.i.i.i.i = icmp eq i64 %segment_index.08.i.i.i.i, 0
   %arrayidx12.i.i.i.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.69"], ptr %my_table11.i.i.i.i, i64 0, i64 %segment_index.08.i.i.i.i
-  %4 = select i1 %cmp7.i.i.i.i, i64 %3, i64 0
-  store atomic i64 %4, ptr %arrayidx12.i.i.i.i monotonic, align 8
+  %5 = select i1 %cmp7.i.i.i.i, i64 %3, i64 0
+  store atomic i64 %5, ptr %arrayidx12.i.i.i.i monotonic, align 8
   %inc14.i.i.i.i = add nuw nsw i64 %segment_index.08.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc14.i.i.i.i, 64
   br i1 %exitcond.not.i.i.i.i, label %invoke.cont3.i, label %for.body6.i.i.i.i, !llvm.loop !43
@@ -5661,38 +5661,38 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i3.i = getelementptr inbounds nuw i8, ptr %call, i64 664
   store i64 1, ptr %my_mask.i.i.i3.i, align 8
   %my_size.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 672
-  %invariant.gep.i.i.i5.i = getelementptr inbounds nuw i8, ptr %call, i64 688
+  %my_embedded_segment.ptr.i.i.i5.i = getelementptr inbounds nuw i8, ptr %call, i64 680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i4.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i6.i
 
 for.cond4.preheader.i.i.i12.i:                    ; preds = %for.body.i.i.i6.i
-  %my_embedded_segment.ptr.i.i.i13.i = getelementptr inbounds nuw i8, ptr %call, i64 680
-  %my_table11.i.i.i14.i = getelementptr inbounds nuw i8, ptr %call, i64 712
-  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i13.i to i64
-  br label %for.body6.i.i.i15.i
+  %my_table11.i.i.i13.i = getelementptr inbounds nuw i8, ptr %call, i64 712
+  %6 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
+  br label %for.body6.i.i.i14.i
 
 for.body.i.i.i6.i:                                ; preds = %for.body.i.i.i6.i, %invoke.cont3.i
-  %i.07.i.i.i7.i = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i10.i, %for.body.i.i.i6.i ]
+  %i.07.i.i.i7.i = phi i64 [ %inc.i.i.i10.i, %for.body.i.i.i6.i ], [ 0, %invoke.cont3.i ]
   %node_list.idx.i.i.i8.i = shl nuw nsw i64 %i.07.i.i.i7.i, 4
-  %gep.i.i.i9.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i5.i, i64 %node_list.idx.i.i.i8.i
-  store atomic i64 0, ptr %gep.i.i.i9.i monotonic, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i5.i, i64 %node_list.idx.i.i.i8.i
+  %node_list.i.i.i9.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store atomic i64 0, ptr %node_list.i.i.i9.i monotonic, align 8
   %inc.i.i.i10.i = add nuw nsw i64 %i.07.i.i.i7.i, 1
   %cmp.not.i.i.i11.i = icmp eq i64 %inc.i.i.i10.i, 2
   br i1 %cmp.not.i.i.i11.i, label %for.cond4.preheader.i.i.i12.i, label %for.body.i.i.i6.i, !llvm.loop !44
 
-for.body6.i.i.i15.i:                              ; preds = %for.body6.i.i.i15.i, %for.cond4.preheader.i.i.i12.i
-  %segment_index.08.i.i.i16.i = phi i64 [ 0, %for.cond4.preheader.i.i.i12.i ], [ %inc14.i.i.i19.i, %for.body6.i.i.i15.i ]
-  %cmp7.i.i.i17.i = icmp eq i64 %segment_index.08.i.i.i16.i, 0
-  %arrayidx12.i.i.i18.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.76"], ptr %my_table11.i.i.i14.i, i64 0, i64 %segment_index.08.i.i.i16.i
-  %6 = select i1 %cmp7.i.i.i17.i, i64 %5, i64 0
-  store atomic i64 %6, ptr %arrayidx12.i.i.i18.i monotonic, align 8
-  %inc14.i.i.i19.i = add nuw nsw i64 %segment_index.08.i.i.i16.i, 1
-  %exitcond.not.i.i.i20.i = icmp eq i64 %inc14.i.i.i19.i, 64
-  br i1 %exitcond.not.i.i.i20.i, label %invoke.cont3, label %for.body6.i.i.i15.i, !llvm.loop !45
+for.body6.i.i.i14.i:                              ; preds = %for.body6.i.i.i14.i, %for.cond4.preheader.i.i.i12.i
+  %segment_index.08.i.i.i15.i = phi i64 [ 0, %for.cond4.preheader.i.i.i12.i ], [ %inc14.i.i.i18.i, %for.body6.i.i.i14.i ]
+  %cmp7.i.i.i16.i = icmp eq i64 %segment_index.08.i.i.i15.i, 0
+  %arrayidx12.i.i.i17.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.76"], ptr %my_table11.i.i.i13.i, i64 0, i64 %segment_index.08.i.i.i15.i
+  %8 = select i1 %cmp7.i.i.i16.i, i64 %6, i64 0
+  store atomic i64 %8, ptr %arrayidx12.i.i.i17.i monotonic, align 8
+  %inc14.i.i.i18.i = add nuw nsw i64 %segment_index.08.i.i.i15.i, 1
+  %exitcond.not.i.i.i19.i = icmp eq i64 %inc14.i.i.i18.i, 64
+  br i1 %exitcond.not.i.i.i19.i, label %invoke.cont3, label %for.body6.i.i.i14.i, !llvm.loop !45
 
-invoke.cont3:                                     ; preds = %for.body6.i.i.i15.i
-  %my_hash_compare.i.i21.i = getelementptr inbounds nuw i8, ptr %call, i64 1224
-  store i16 0, ptr %my_hash_compare.i.i21.i, align 8
+invoke.cont3:                                     ; preds = %for.body6.i.i.i14.i
+  %my_hash_compare.i.i20.i = getelementptr inbounds nuw i8, ptr %call, i64 1224
+  store i16 0, ptr %my_hash_compare.i.i20.i, align 8
   tail call void @_ZNSt12__shared_ptrIN7openvdb5v11_04tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS2_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELN9__gnu_cxx12_Lock_policyE2EE5resetISB_EENSt9enable_ifIXsr21__sp_is_constructibleISB_T_EE5valueEvE4typeEPSH_(ptr noundef nonnull align 8 dereferenceable(16) %mTree.i, ptr noundef nonnull %call)
   ret void
 }
@@ -9996,21 +9996,21 @@ invoke.cont.i:                                    ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 96
-  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 112
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   %2 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont.i
-  %i.07.i.i.i.i = phi i64 [ 0, %invoke.cont.i ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
+  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %invoke.cont.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
-  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !41
@@ -10019,8 +10019,8 @@ for.body6.i.i.i.i:                                ; preds = %for.body6.i.i.i.i, 
   %segment_index.08.i.i.i.i = phi i64 [ 0, %for.cond4.preheader.i.i.i.i ], [ %inc14.i.i.i.i, %for.body6.i.i.i.i ]
   %cmp7.i.i.i.i = icmp eq i64 %segment_index.08.i.i.i.i, 0
   %arrayidx12.i.i.i.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.69"], ptr %my_table11.i.i.i.i, i64 0, i64 %segment_index.08.i.i.i.i
-  %3 = select i1 %cmp7.i.i.i.i, i64 %2, i64 0
-  store atomic i64 %3, ptr %arrayidx12.i.i.i.i monotonic, align 8
+  %4 = select i1 %cmp7.i.i.i.i, i64 %2, i64 0
+  store atomic i64 %4, ptr %arrayidx12.i.i.i.i monotonic, align 8
   %inc14.i.i.i.i = add nuw nsw i64 %segment_index.08.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc14.i.i.i.i, 64
   br i1 %exitcond.not.i.i.i.i, label %invoke.cont4.i, label %for.body6.i.i.i.i, !llvm.loop !43
@@ -10031,38 +10031,38 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %call, i64 672
-  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %call, i64 688
+  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %call, i64 680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
 for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
-  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %call, i64 680
-  %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %call, i64 712
-  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
-  br label %for.body6.i.i.i16.i
+  %my_table11.i.i.i14.i = getelementptr inbounds nuw i8, ptr %call, i64 712
+  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  br label %for.body6.i.i.i15.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont4.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
+  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i11.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
-  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  %node_list.i.i.i10.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store atomic i64 0, ptr %node_list.i.i.i10.i monotonic, align 8
   %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
   %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
   br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !44
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
-  %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
-  %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.76"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
-  %5 = select i1 %cmp7.i.i.i18.i, i64 %4, i64 0
-  store atomic i64 %5, ptr %arrayidx12.i.i.i19.i monotonic, align 8
-  %inc14.i.i.i20.i = add nuw nsw i64 %segment_index.08.i.i.i17.i, 1
-  %exitcond.not.i.i.i21.i = icmp eq i64 %inc14.i.i.i20.i, 64
-  br i1 %exitcond.not.i.i.i21.i, label %invoke.cont, label %for.body6.i.i.i16.i, !llvm.loop !45
+for.body6.i.i.i15.i:                              ; preds = %for.body6.i.i.i15.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i16.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i19.i, %for.body6.i.i.i15.i ]
+  %cmp7.i.i.i17.i = icmp eq i64 %segment_index.08.i.i.i16.i, 0
+  %arrayidx12.i.i.i18.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.76"], ptr %my_table11.i.i.i14.i, i64 0, i64 %segment_index.08.i.i.i16.i
+  %7 = select i1 %cmp7.i.i.i17.i, i64 %5, i64 0
+  store atomic i64 %7, ptr %arrayidx12.i.i.i18.i monotonic, align 8
+  %inc14.i.i.i19.i = add nuw nsw i64 %segment_index.08.i.i.i16.i, 1
+  %exitcond.not.i.i.i20.i = icmp eq i64 %inc14.i.i.i19.i, 64
+  br i1 %exitcond.not.i.i.i20.i, label %invoke.cont, label %for.body6.i.i.i15.i, !llvm.loop !45
 
-invoke.cont:                                      ; preds = %for.body6.i.i.i16.i
-  %my_hash_compare.i.i22.i = getelementptr inbounds nuw i8, ptr %call, i64 1224
-  store i16 0, ptr %my_hash_compare.i.i22.i, align 8
+invoke.cont:                                      ; preds = %for.body6.i.i.i15.i
+  %my_hash_compare.i.i21.i = getelementptr inbounds nuw i8, ptr %call, i64 1224
+  store i16 0, ptr %my_hash_compare.i.i21.i, align 8
   store ptr %call, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %_M_refcount.i.i, align 8
@@ -10070,32 +10070,32 @@ invoke.cont:                                      ; preds = %for.body6.i.i.i16.i
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04tree8TreeBaseEEC2INS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS8_INS2_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #17
+  %9 = extractvalue { ptr, i32 } %8, 0
+  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #17
   %vtable.i.i.i.i = load ptr, ptr %call, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
-  %9 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(1232) %call) #17
+  %11 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(1232) %call) #17
   invoke void @__cxa_rethrow() #27
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad3.i.i.i.i, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i.i ], [ %10, %lpad3.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i.i ], [ %12, %lpad3.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #24
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #24
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -73094,21 +73094,21 @@ invoke.cont:                                      ; preds = %_ZN7openvdb5v11_08G
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 96
-  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 112
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont
-  %i.07.i.i.i.i = phi i64 [ 0, %invoke.cont ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
+  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %invoke.cont ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
-  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !41
@@ -73117,8 +73117,8 @@ for.body6.i.i.i.i:                                ; preds = %for.body6.i.i.i.i, 
   %segment_index.08.i.i.i.i = phi i64 [ 0, %for.cond4.preheader.i.i.i.i ], [ %inc14.i.i.i.i, %for.body6.i.i.i.i ]
   %cmp7.i.i.i.i = icmp eq i64 %segment_index.08.i.i.i.i, 0
   %arrayidx12.i.i.i.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.69"], ptr %my_table11.i.i.i.i, i64 0, i64 %segment_index.08.i.i.i.i
-  %5 = select i1 %cmp7.i.i.i.i, i64 %4, i64 0
-  store atomic i64 %5, ptr %arrayidx12.i.i.i.i monotonic, align 8
+  %6 = select i1 %cmp7.i.i.i.i, i64 %4, i64 0
+  store atomic i64 %6, ptr %arrayidx12.i.i.i.i monotonic, align 8
   %inc14.i.i.i.i = add nuw nsw i64 %segment_index.08.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc14.i.i.i.i, 64
   br i1 %exitcond.not.i.i.i.i, label %invoke.cont3.i, label %for.body6.i.i.i.i, !llvm.loop !43
@@ -73129,38 +73129,38 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i3.i = getelementptr inbounds nuw i8, ptr %call, i64 664
   store i64 1, ptr %my_mask.i.i.i3.i, align 8
   %my_size.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 672
-  %invariant.gep.i.i.i5.i = getelementptr inbounds nuw i8, ptr %call, i64 688
+  %my_embedded_segment.ptr.i.i.i5.i = getelementptr inbounds nuw i8, ptr %call, i64 680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i4.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i6.i
 
 for.cond4.preheader.i.i.i12.i:                    ; preds = %for.body.i.i.i6.i
-  %my_embedded_segment.ptr.i.i.i13.i = getelementptr inbounds nuw i8, ptr %call, i64 680
-  %my_table11.i.i.i14.i = getelementptr inbounds nuw i8, ptr %call, i64 712
-  %6 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i13.i to i64
-  br label %for.body6.i.i.i15.i
+  %my_table11.i.i.i13.i = getelementptr inbounds nuw i8, ptr %call, i64 712
+  %7 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
+  br label %for.body6.i.i.i14.i
 
 for.body.i.i.i6.i:                                ; preds = %for.body.i.i.i6.i, %invoke.cont3.i
-  %i.07.i.i.i7.i = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i10.i, %for.body.i.i.i6.i ]
+  %i.07.i.i.i7.i = phi i64 [ %inc.i.i.i10.i, %for.body.i.i.i6.i ], [ 0, %invoke.cont3.i ]
   %node_list.idx.i.i.i8.i = shl nuw nsw i64 %i.07.i.i.i7.i, 4
-  %gep.i.i.i9.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i5.i, i64 %node_list.idx.i.i.i8.i
-  store atomic i64 0, ptr %gep.i.i.i9.i monotonic, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i5.i, i64 %node_list.idx.i.i.i8.i
+  %node_list.i.i.i9.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store atomic i64 0, ptr %node_list.i.i.i9.i monotonic, align 8
   %inc.i.i.i10.i = add nuw nsw i64 %i.07.i.i.i7.i, 1
   %cmp.not.i.i.i11.i = icmp eq i64 %inc.i.i.i10.i, 2
   br i1 %cmp.not.i.i.i11.i, label %for.cond4.preheader.i.i.i12.i, label %for.body.i.i.i6.i, !llvm.loop !44
 
-for.body6.i.i.i15.i:                              ; preds = %for.body6.i.i.i15.i, %for.cond4.preheader.i.i.i12.i
-  %segment_index.08.i.i.i16.i = phi i64 [ 0, %for.cond4.preheader.i.i.i12.i ], [ %inc14.i.i.i19.i, %for.body6.i.i.i15.i ]
-  %cmp7.i.i.i17.i = icmp eq i64 %segment_index.08.i.i.i16.i, 0
-  %arrayidx12.i.i.i18.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.76"], ptr %my_table11.i.i.i14.i, i64 0, i64 %segment_index.08.i.i.i16.i
-  %7 = select i1 %cmp7.i.i.i17.i, i64 %6, i64 0
-  store atomic i64 %7, ptr %arrayidx12.i.i.i18.i monotonic, align 8
-  %inc14.i.i.i19.i = add nuw nsw i64 %segment_index.08.i.i.i16.i, 1
-  %exitcond.not.i.i.i20.i = icmp eq i64 %inc14.i.i.i19.i, 64
-  br i1 %exitcond.not.i.i.i20.i, label %invoke.cont3, label %for.body6.i.i.i15.i, !llvm.loop !45
+for.body6.i.i.i14.i:                              ; preds = %for.body6.i.i.i14.i, %for.cond4.preheader.i.i.i12.i
+  %segment_index.08.i.i.i15.i = phi i64 [ 0, %for.cond4.preheader.i.i.i12.i ], [ %inc14.i.i.i18.i, %for.body6.i.i.i14.i ]
+  %cmp7.i.i.i16.i = icmp eq i64 %segment_index.08.i.i.i15.i, 0
+  %arrayidx12.i.i.i17.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.76"], ptr %my_table11.i.i.i13.i, i64 0, i64 %segment_index.08.i.i.i15.i
+  %9 = select i1 %cmp7.i.i.i16.i, i64 %7, i64 0
+  store atomic i64 %9, ptr %arrayidx12.i.i.i17.i monotonic, align 8
+  %inc14.i.i.i18.i = add nuw nsw i64 %segment_index.08.i.i.i15.i, 1
+  %exitcond.not.i.i.i19.i = icmp eq i64 %inc14.i.i.i18.i, 64
+  br i1 %exitcond.not.i.i.i19.i, label %invoke.cont3, label %for.body6.i.i.i14.i, !llvm.loop !45
 
-invoke.cont3:                                     ; preds = %for.body6.i.i.i15.i
-  %my_hash_compare.i.i21.i = getelementptr inbounds nuw i8, ptr %call, i64 1224
-  store i16 0, ptr %my_hash_compare.i.i21.i, align 8
+invoke.cont3:                                     ; preds = %for.body6.i.i.i14.i
+  %my_hash_compare.i.i20.i = getelementptr inbounds nuw i8, ptr %call, i64 1224
+  store i16 0, ptr %my_hash_compare.i.i20.i, align 8
   store ptr %call, ptr %mTree, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr null, ptr %_M_refcount.i.i, align 8
@@ -73168,28 +73168,28 @@ invoke.cont3:                                     ; preds = %for.body6.i.i.i15.i
           to label %invoke.cont4 unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont3
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #17
+  %11 = extractvalue { ptr, i32 } %10, 0
+  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #17
   %vtable.i.i.i.i = load ptr, ptr %call, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
-  %11 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(1232) %call) #17
+  %13 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(1232) %call) #17
   invoke void @__cxa_rethrow() #27
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %ehcleanup unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #24
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #24
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -73207,12 +73207,12 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %_ZN7openvdb5v11_08GridBaseC2Ev.exit
-  %15 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %lpad3.i.i.i.i
-  %.pn = phi { ptr, i32 } [ %15, %lpad ], [ %12, %lpad3.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad ], [ %14, %lpad3.i.i.i.i ]
   tail call void @_ZN7openvdb5v11_08GridBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #17
   br label %common.resume
 }

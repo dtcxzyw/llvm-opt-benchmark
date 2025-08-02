@@ -107,22 +107,22 @@ define internal range(i32 -12, 1) i32 @decode_init(ptr noundef captures(none) in
   %.240.i = phi i32 [ %52, %54 ], [ %.341.i, %.loopexit.i.i ]
   %.1.i = phi i32 [ -1, %54 ], [ %.2.i, %.loopexit.i.i ]
   %57 = phi i1 [ true, %54 ], [ false, %.loopexit.i.i ]
-  %.03147.i.i = phi i32 [ 0, %54 ], [ 1, %.loopexit.i.i ]
-  %.03246.i.i = phi i32 [ %56, %54 ], [ %.133.ph.i.i, %.loopexit.i.i ]
-  %.03445.i.i = phi i32 [ %43, %54 ], [ %.135.ph.i.i, %.loopexit.i.i ]
+  %.03142.i.i = phi i32 [ 0, %54 ], [ 1, %.loopexit.i.i ]
+  %.03241.i.i = phi i32 [ %56, %54 ], [ %.133.i.i, %.loopexit.i.i ]
+  %.03440.i.i = phi i32 [ %43, %54 ], [ %.135.i.i, %.loopexit.i.i ]
   br label %58
 
 58:                                               ; preds = %90, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %90 ]
   %59 = icmp samesign ugt i64 %indvars.iv.i.i, 10
   %60 = select i1 %59, i32 8, i32 4
-  %.not.i.i = icmp ult i32 %.03445.i.i, %60
+  %.not.i.i = icmp ult i32 %.03440.i.i, %60
   br i1 %.not.i.i, label %90, label %61
 
 61:                                               ; preds = %58
   %62 = sub nuw nsw i32 12, %60
   %63 = shl nsw i32 -1048576, %62
-  %64 = and i32 %63, %.03246.i.i
+  %64 = and i32 %63, %.03241.i.i
   %65 = lshr exact i32 %64, 20
   %66 = shl nuw nsw i64 %indvars.iv.i.i, 1
   %67 = or disjoint i64 %66, 1
@@ -141,9 +141,9 @@ define internal range(i32 -12, 1) i32 @decode_init(ptr noundef captures(none) in
 
 77:                                               ; preds = %72
   %78 = and i32 %.240.i, 16777215
-  %reass.sub = sub i32 %60, %.03445.i.i
+  %reass.sub = sub i32 %60, %.03440.i.i
   %79 = add i32 %reass.sub, 12
-  %80 = shl nuw nsw i32 64, %.03147.i.i
+  %80 = shl nuw nsw i32 64, %.03142.i.i
   %81 = or i32 %79, %80
   %82 = shl i32 %81, 22
   %83 = or i32 %82, %78
@@ -151,8 +151,8 @@ define internal range(i32 -12, 1) i32 @decode_init(ptr noundef captures(none) in
   br i1 %57, label %85, label %.loopexit.thread.i.i
 
 85:                                               ; preds = %77
-  %86 = sub i32 %.03445.i.i, %60
-  %87 = shl i32 %.03246.i.i, %60
+  %86 = sub i32 %.03440.i.i, %60
+  %87 = shl i32 %.03241.i.i, %60
   br label %.loopexit.i.i
 
 .loopexit.thread.i.i:                             ; preds = %77
@@ -168,8 +168,8 @@ define internal range(i32 -12, 1) i32 @decode_init(ptr noundef captures(none) in
 .loopexit.i.i:                                    ; preds = %90, %85
   %.341.i = phi i32 [ %83, %85 ], [ %.240.i, %90 ]
   %.2.i = phi i32 [ %84, %85 ], [ %.1.i, %90 ]
-  %.135.ph.i.i = phi i32 [ %86, %85 ], [ %.03445.i.i, %90 ]
-  %.133.ph.i.i = phi i32 [ %87, %85 ], [ %.03246.i.i, %90 ]
+  %.135.i.i = phi i32 [ %86, %85 ], [ %.03440.i.i, %90 ]
+  %.133.i.i = phi i32 [ %87, %85 ], [ %.03241.i.i, %90 ]
   br i1 %57, label %.preheader.i.i, label %fill_elements.exit.i, !llvm.loop !42
 
 fill_elements.exit.i:                             ; preds = %.loopexit.i.i, %72, %.loopexit.thread.i.i, %51

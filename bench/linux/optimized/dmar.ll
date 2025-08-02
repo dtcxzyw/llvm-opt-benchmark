@@ -320,7 +320,7 @@ define dso_local void @dmar_free_dev_scope(ptr noundef captures(none) %0, ptr no
 
 .preheader:                                       ; preds = %5
   %8 = icmp sgt i32 %6, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  br i1 %8, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %9 = phi i32 [ %17, %16 ], [ %6, %.preheader ]
@@ -341,18 +341,18 @@ define dso_local void @dmar_free_dev_scope(ptr noundef captures(none) %0, ptr no
   %18 = add nuw nsw i64 %10, 1
   %19 = sext i32 %17 to i64
   %20 = icmp slt i64 %18, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
+  br i1 %20, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !10
 
-._crit_edge.loopexit:                             ; preds = %16
+.critedge.loopexit:                               ; preds = %16
   %.pre2 = load ptr, ptr %0, align 8
-  br label %._crit_edge
+  br label %.critedge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %21 = phi ptr [ %.pre2, %._crit_edge.loopexit ], [ %3, %.preheader ]
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader
+  %21 = phi ptr [ %.pre2, %.critedge.loopexit ], [ %3, %.preheader ]
   tail call void @kfree(ptr noundef %21) #20
   br label %22
 
-22:                                               ; preds = %._crit_edge, %5, %2
+22:                                               ; preds = %.critedge, %5, %2
   store ptr null, ptr %0, align 8
   store i32 0, ptr %1, align 4
   ret void
@@ -2771,147 +2771,146 @@ define dso_local noundef i32 @dmar_fault(i32 %0, ptr noundef %1) #0 align 16 {
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %17, %107
-  %33 = phi i32 [ %123, %107 ], [ %31, %17 ]
-  %34 = phi i64 [ %120, %107 ], [ %28, %17 ]
-  %.in = phi i32 [ %116, %107 ], [ %24, %17 ]
-  %35 = phi i32 [ %114, %107 ], [ %19, %17 ]
-  %36 = phi i64 [ %115, %107 ], [ %4, %17 ]
-  %37 = icmp eq i32 %.in, 0
-  br i1 %37, label %57, label %38
+.lr.ph:                                           ; preds = %17, %105
+  %33 = phi i32 [ %121, %105 ], [ %31, %17 ]
+  %34 = phi i64 [ %118, %105 ], [ %28, %17 ]
+  %35 = phi i32 [ %114, %105 ], [ %24, %17 ]
+  %36 = phi i32 [ %112, %105 ], [ %19, %17 ]
+  %37 = phi i64 [ %113, %105 ], [ %4, %17 ]
+  %38 = icmp eq i32 %35, 0
+  br i1 %38, label %.critedge, label %39
 
-38:                                               ; preds = %.lr.ph
-  %39 = trunc i32 %33 to i8
-  %40 = lshr i32 %33, 8
-  %41 = and i32 %40, 1048575
-  %42 = load ptr, ptr %1, align 8
-  %43 = getelementptr i8, ptr %42, i64 %23
-  %44 = getelementptr i8, ptr %43, i64 %34
-  %45 = getelementptr i8, ptr %44, i64 8
-  %46 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45) #20, !srcloc !46
-  %47 = icmp slt i32 %46, 0
-  %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr i8, ptr %48, i64 %23
-  %50 = getelementptr i8, ptr %49, i64 %34
-  %51 = tail call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %50) #20, !srcloc !33
-  %52 = and i64 %51, -4096
-  %53 = and i32 %33, 1073741824
-  %54 = icmp eq i32 %53, 0
-  %55 = select i1 %54, ptr @.str.70, ptr @.str.69
-  %56 = and i32 %46, 65535
-  br label %57
+39:                                               ; preds = %.lr.ph
+  %40 = trunc i32 %33 to i8
+  %41 = lshr i32 %33, 8
+  %42 = and i32 %41, 1048575
+  %43 = load ptr, ptr %1, align 8
+  %44 = getelementptr i8, ptr %43, i64 %23
+  %45 = getelementptr i8, ptr %44, i64 %34
+  %46 = getelementptr i8, ptr %45, i64 8
+  %47 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %46) #20, !srcloc !46
+  %48 = icmp slt i32 %47, 0
+  %49 = load ptr, ptr %1, align 8
+  %50 = getelementptr i8, ptr %49, i64 %23
+  %51 = getelementptr i8, ptr %50, i64 %34
+  %52 = tail call i64 asm sideeffect "movq $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %51) #20, !srcloc !33
+  %53 = and i64 %52, -4096
+  %54 = load ptr, ptr %1, align 8
+  %55 = getelementptr i8, ptr %54, i64 %23
+  %56 = getelementptr i8, ptr %55, i64 %34
+  %57 = getelementptr i8, ptr %56, i64 12
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648, ptr elementtype(i32) %57) #20, !srcloc !45
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %3, i64 noundef %37) #20
+  %58 = and i32 %33, 255
+  %59 = icmp ugt i8 %40, 31
+  br i1 %59, label %60, label %71
 
-57:                                               ; preds = %38, %.lr.ph
-  %58 = phi i8 [ 0, %.lr.ph ], [ %39, %38 ]
-  %59 = phi i32 [ 0, %.lr.ph ], [ %56, %38 ]
-  %60 = phi i64 [ 0, %.lr.ph ], [ %52, %38 ]
-  %61 = phi i32 [ 0, %.lr.ph ], [ %41, %38 ]
-  %62 = phi ptr [ @.str.70, %.lr.ph ], [ %55, %38 ]
-  %63 = phi i1 [ false, %.lr.ph ], [ %47, %38 ]
-  %64 = load ptr, ptr %1, align 8
-  %65 = getelementptr i8, ptr %64, i64 %23
-  %66 = getelementptr i8, ptr %65, i64 %34
-  %67 = getelementptr i8, ptr %66, i64 12
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648, ptr elementtype(i32) %67) #20, !srcloc !45
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %3, i64 noundef %36) #20
-  br i1 %37, label %107, label %68
+60:                                               ; preds = %39
+  %61 = add nsw i32 %58, -32
+  %62 = icmp ult i32 %61, 7
+  br i1 %62, label %77, label %63
 
-68:                                               ; preds = %57
-  %69 = zext i8 %58 to i32
-  %70 = icmp ugt i8 %58, 31
-  br i1 %70, label %71, label %82
+63:                                               ; preds = %60
+  %64 = icmp ugt i8 %40, 47
+  br i1 %64, label %65, label %.thread8
 
-71:                                               ; preds = %68
-  %72 = add nsw i32 %69, -32
-  %73 = icmp ult i32 %72, 7
-  br i1 %73, label %88, label %74
+65:                                               ; preds = %63
+  %66 = add nsw i32 %58, -48
+  %67 = icmp ult i32 %66, 97
+  br i1 %67, label %68, label %.thread8
 
-74:                                               ; preds = %71
-  %75 = icmp ugt i8 %58, 47
-  br i1 %75, label %76, label %.thread8
-
-76:                                               ; preds = %74
-  %77 = add nsw i32 %69, -48
-  %78 = icmp ult i32 %77, 97
-  br i1 %78, label %79, label %.thread8
-
-79:                                               ; preds = %76
-  %80 = zext nneg i32 %77 to i64
-  %81 = getelementptr [97 x ptr], ptr @dma_remap_sm_fault_reasons, i64 0, i64 %80
+68:                                               ; preds = %65
+  %69 = zext nneg i32 %66 to i64
+  %70 = getelementptr [97 x ptr], ptr @dma_remap_sm_fault_reasons, i64 0, i64 %69
   br label %.thread10
 
-82:                                               ; preds = %68
-  %83 = icmp samesign ult i8 %58, 14
-  br i1 %83, label %84, label %.thread8
+71:                                               ; preds = %39
+  %72 = icmp samesign ult i8 %40, 14
+  br i1 %72, label %73, label %.thread8
 
-84:                                               ; preds = %82
-  %85 = zext nneg i8 %58 to i64
-  %86 = getelementptr [14 x ptr], ptr @dma_remap_fault_reasons, i64 0, i64 %85
+73:                                               ; preds = %71
+  %.mask = and i32 %33, 15
+  %74 = zext nneg i32 %.mask to i64
+  %75 = getelementptr [14 x ptr], ptr @dma_remap_fault_reasons, i64 0, i64 %74
   br label %.thread10
 
-.thread10:                                        ; preds = %84, %79
-  %.ph = phi ptr [ %81, %79 ], [ %86, %84 ]
-  %87 = load ptr, ptr %.ph, align 8
+.thread10:                                        ; preds = %73, %68
+  %.ph = phi ptr [ %70, %68 ], [ %75, %73 ]
+  %76 = load ptr, ptr %.ph, align 8
   br label %.thread8
 
-88:                                               ; preds = %71
-  %89 = zext nneg i32 %72 to i64
-  %90 = getelementptr [7 x ptr], ptr @irq_remap_fault_reasons, i64 0, i64 %89
-  %91 = load ptr, ptr %90, align 8
-  %92 = lshr i32 %59, 8
-  %93 = lshr i32 %59, 3
-  %94 = and i32 %93, 31
-  %95 = and i32 %59, 7
-  %96 = lshr i64 %60, 48
-  %97 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.67, i32 noundef %92, i32 noundef %94, i32 noundef %95, i64 noundef %96, i32 noundef %69, ptr noundef %91) #18
-  br label %107
+77:                                               ; preds = %60
+  %78 = zext nneg i32 %61 to i64
+  %79 = getelementptr [7 x ptr], ptr @irq_remap_fault_reasons, i64 0, i64 %78
+  %80 = load ptr, ptr %79, align 8
+  %81 = lshr i32 %47, 8
+  %82 = and i32 %81, 255
+  %83 = lshr i32 %47, 3
+  %84 = and i32 %83, 31
+  %85 = and i32 %47, 7
+  %86 = lshr i64 %52, 48
+  %87 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.67, i32 noundef %82, i32 noundef %84, i32 noundef %85, i64 noundef %86, i32 noundef %58, ptr noundef %80) #18
+  br label %105
 
-.thread8:                                         ; preds = %74, %76, %82, %.thread10
-  %98 = phi ptr [ %87, %.thread10 ], [ @.str.72, %82 ], [ @.str.72, %76 ], [ @.str.72, %74 ]
-  %99 = lshr i32 %59, 8
-  %100 = lshr i32 %59, 3
-  %101 = and i32 %100, 31
-  %102 = and i32 %59, 7
-  br i1 %63, label %105, label %103
+.thread8:                                         ; preds = %63, %65, %71, %.thread10
+  %88 = phi ptr [ %76, %.thread10 ], [ @.str.72, %71 ], [ @.str.72, %65 ], [ @.str.72, %63 ]
+  %89 = and i32 %33, 1073741824
+  %90 = icmp eq i32 %89, 0
+  %91 = select i1 %90, ptr @.str.70, ptr @.str.69
+  %92 = lshr i32 %47, 8
+  %93 = and i32 %92, 255
+  %94 = lshr i32 %47, 3
+  %95 = and i32 %94, 31
+  %96 = and i32 %47, 7
+  br i1 %48, label %99, label %97
 
-103:                                              ; preds = %.thread8
-  %104 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.68, ptr noundef nonnull %62, i32 noundef %99, i32 noundef %101, i32 noundef %102, i64 noundef %60, i32 noundef %69, ptr noundef %98) #18
-  br label %107
+97:                                               ; preds = %.thread8
+  %98 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.68, ptr noundef nonnull %91, i32 noundef %93, i32 noundef %95, i32 noundef %96, i64 noundef %53, i32 noundef %58, ptr noundef %88) #18
+  br label %105
 
-105:                                              ; preds = %.thread8
-  %106 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.71, ptr noundef nonnull %62, i32 noundef %61, i32 noundef %99, i32 noundef %101, i32 noundef %102, i64 noundef %60, i32 noundef %69, ptr noundef %98) #18
-  br label %107
+99:                                               ; preds = %.thread8
+  %100 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.71, ptr noundef nonnull %91, i32 noundef %42, i32 noundef %93, i32 noundef %95, i32 noundef %96, i64 noundef %53, i32 noundef %58, ptr noundef %88) #18
+  br label %105
 
-107:                                              ; preds = %57, %88, %103, %105
-  %108 = add i32 %35, 1
-  %109 = sext i32 %108 to i64
-  %110 = load i64, ptr %20, align 8
-  %111 = lshr i64 %110, 40
-  %112 = and i64 %111, 255
-  %113 = icmp ult i64 %112, %109
-  %114 = select i1 %113, i32 0, i32 %108
-  %115 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %3) #20
-  %116 = tail call i32 @___ratelimit(ptr noundef nonnull @dmar_fault.rs, ptr noundef nonnull @__func__.dmar_fault) #20
-  %117 = load ptr, ptr %1, align 8
-  %118 = getelementptr i8, ptr %117, i64 %23
-  %119 = shl i32 %114, 4
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr i8, ptr %118, i64 %120
-  %122 = getelementptr i8, ptr %121, i64 12
-  %123 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %122) #20, !srcloc !46
-  %124 = icmp slt i32 %123, 0
-  br i1 %124, label %.lr.ph, label %._crit_edge
+.critedge:                                        ; preds = %.lr.ph
+  %101 = load ptr, ptr %1, align 8
+  %102 = getelementptr i8, ptr %101, i64 %23
+  %103 = getelementptr i8, ptr %102, i64 %34
+  %104 = getelementptr i8, ptr %103, i64 12
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648, ptr elementtype(i32) %104) #20, !srcloc !45
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %3, i64 noundef %37) #20
+  br label %105
 
-._crit_edge:                                      ; preds = %107, %17
-  %.lcssa = phi i64 [ %4, %17 ], [ %115, %107 ]
-  %125 = load ptr, ptr %1, align 8
-  %126 = getelementptr i8, ptr %125, i64 52
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 131, ptr elementtype(i32) %126) #20, !srcloc !45
+105:                                              ; preds = %77, %97, %99, %.critedge
+  %106 = add i32 %36, 1
+  %107 = sext i32 %106 to i64
+  %108 = load i64, ptr %20, align 8
+  %109 = lshr i64 %108, 40
+  %110 = and i64 %109, 255
+  %111 = icmp ult i64 %110, %107
+  %112 = select i1 %111, i32 0, i32 %106
+  %113 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %3) #20
+  %114 = tail call i32 @___ratelimit(ptr noundef nonnull @dmar_fault.rs, ptr noundef nonnull @__func__.dmar_fault) #20
+  %115 = load ptr, ptr %1, align 8
+  %116 = getelementptr i8, ptr %115, i64 %23
+  %117 = shl i32 %112, 4
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr i8, ptr %116, i64 %118
+  %120 = getelementptr i8, ptr %119, i64 12
+  %121 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %120) #20, !srcloc !46
+  %122 = icmp slt i32 %121, 0
+  br i1 %122, label %.lr.ph, label %._crit_edge
+
+._crit_edge:                                      ; preds = %105, %17
+  %.lcssa = phi i64 [ %4, %17 ], [ %113, %105 ]
+  %123 = load ptr, ptr %1, align 8
+  %124 = getelementptr i8, ptr %123, i64 52
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 131, ptr elementtype(i32) %124) #20, !srcloc !45
   br label %.thread
 
 .thread:                                          ; preds = %2, %._crit_edge, %14
-  %127 = phi i64 [ %.lcssa, %._crit_edge ], [ %4, %14 ], [ %4, %2 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %3, i64 noundef %127) #20
+  %125 = phi i64 [ %.lcssa, %._crit_edge ], [ %4, %14 ], [ %4, %2 ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %3, i64 noundef %125) #20
   ret i32 1
 }
 
@@ -4002,14 +4001,14 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
   %56 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i32 0, ptr %56, align 8
   %57 = icmp ult ptr %54, %55
-  br i1 %57, label %.preheader25, label %.thread19.thread
+  br i1 %57, label %.preheader23, label %.thread18.thread
 
-.thread19.thread:                                 ; preds = %30
+.thread18.thread:                                 ; preds = %30
   %58 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store ptr null, ptr %58, align 8
   br label %85
 
-.preheader25:                                     ; preds = %30, %66
+.preheader23:                                     ; preds = %30, %66
   %59 = phi ptr [ %70, %66 ], [ %54, %30 ]
   %60 = load i8, ptr %59, align 1
   switch i8 %60, label %64 [
@@ -4020,37 +4019,37 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
     i8 4, label %66
   ]
 
-61:                                               ; preds = %.preheader25, %.preheader25, %.preheader25
+61:                                               ; preds = %.preheader23, %.preheader23, %.preheader23
   %62 = load i32, ptr %56, align 8
   %63 = add i32 %62, 1
   store i32 %63, ptr %56, align 8
   br label %66
 
-64:                                               ; preds = %.preheader25
+64:                                               ; preds = %.preheader23
   %65 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #18
   br label %66
 
-66:                                               ; preds = %64, %61, %.preheader25, %.preheader25
+66:                                               ; preds = %64, %61, %.preheader23, %.preheader23
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
   %70 = getelementptr i8, ptr %59, i64 %69
   %71 = icmp ult ptr %70, %55
-  br i1 %71, label %.preheader25, label %72, !llvm.loop !6
+  br i1 %71, label %.preheader23, label %72, !llvm.loop !6
 
 72:                                               ; preds = %66
   %.pr = load i32, ptr %56, align 8
   %73 = icmp slt i32 %.pr, 1
-  br i1 %73, label %.thread19, label %74, !prof !85
+  br i1 %73, label %.thread18, label %74, !prof !85
 
 74:                                               ; preds = %72
   %75 = zext nneg i32 %.pr to i64
   %76 = shl nuw nsw i64 %75, 4
   %77 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %76, i32 noundef 3520) #19
   %.pre = load i32, ptr %56, align 8
-  br label %.thread19
+  br label %.thread18
 
-.thread19:                                        ; preds = %74, %72
+.thread18:                                        ; preds = %74, %72
   %78 = phi i32 [ %.pr, %72 ], [ %.pre, %74 ]
   %79 = phi ptr [ null, %72 ], [ %77, %74 ]
   %80 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -4060,12 +4059,12 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
   %83 = select i1 %81, i1 %82, i1 false
   br i1 %83, label %84, label %85
 
-84:                                               ; preds = %.thread19
+84:                                               ; preds = %.thread18
   tail call void @kfree(ptr noundef nonnull %28) #20
   br label %270
 
-85:                                               ; preds = %.thread19.thread, %.thread19
-  %86 = phi ptr [ %58, %.thread19.thread ], [ %80, %.thread19 ]
+85:                                               ; preds = %.thread18.thread, %.thread18
+  %86 = phi ptr [ %58, %.thread18.thread ], [ %80, %.thread18 ]
   %87 = load i64, ptr %37, align 8
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %89, label %97
@@ -4084,13 +4083,13 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
 
 96:                                               ; preds = %91, %89
   tail call void @add_taint(i32 noundef 11, i32 noundef 0) #20
-  br label %.thread21
+  br label %.thread20
 
 97:                                               ; preds = %85
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %99 = tail call noalias align 8 dereferenceable_or_null(312) ptr @kmalloc_trace(ptr noundef %98, i32 noundef 3520, i64 noundef 312) #24
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %.thread21, label %101
+  br i1 %100, label %.thread20, label %101
 
 101:                                              ; preds = %97
   %102 = tail call i32 @ida_alloc_range(ptr noundef nonnull @dmar_seq_ids, i32 noundef 0, i32 noundef 1023, i32 noundef 3264) #20
@@ -4108,7 +4107,7 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
 
 110:                                              ; preds = %105
   %111 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, ptr noundef nonnull %106) #18
-  br label %.thread23
+  br label %.thread22
 
 112:                                              ; preds = %105
   %113 = getelementptr inbounds nuw i8, ptr %99, i64 24
@@ -4140,10 +4139,10 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
 130:                                              ; preds = %126
   %131 = tail call i32 @iommu_calculate_agaw(ptr noundef nonnull %99) #20
   %132 = icmp slt i32 %131, 0
-  br i1 %132, label %133, label %._crit_edge28
+  br i1 %132, label %133, label %._crit_edge
 
-._crit_edge28:                                    ; preds = %130
-  %.pre29 = load i8, ptr %48, align 2
+._crit_edge:                                      ; preds = %130
+  %.pre26 = load i8, ptr %48, align 2
   br label %138
 
 133:                                              ; preds = %130
@@ -4154,9 +4153,9 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
   store i8 %137, ptr %48, align 2
   br label %138
 
-138:                                              ; preds = %._crit_edge28, %133, %126
-  %139 = phi i8 [ %127, %126 ], [ %137, %133 ], [ %.pre29, %._crit_edge28 ]
-  %140 = phi i32 [ -1, %126 ], [ %131, %133 ], [ %131, %._crit_edge28 ]
+138:                                              ; preds = %._crit_edge, %133, %126
+  %139 = phi i8 [ %127, %126 ], [ %137, %133 ], [ %.pre26, %._crit_edge ]
+  %140 = phi i32 [ -1, %126 ], [ %131, %133 ], [ %131, %._crit_edge ]
   %141 = and i8 %139, 1
   %142 = icmp eq i8 %141, 0
   br i1 %142, label %143, label %151
@@ -4259,13 +4258,13 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
 206:                                              ; preds = %200, %196, %191
   %207 = load i32, ptr @intel_iommu_enabled, align 4
   %208 = icmp eq i32 %207, 0
-  br i1 %208, label %.thread22, label %209
+  br i1 %208, label %.thread21, label %209
 
 209:                                              ; preds = %206
   %210 = load i8, ptr %48, align 2
   %211 = and i8 %210, 1
   %212 = icmp eq i8 %211, 0
-  br i1 %212, label %213, label %.thread22
+  br i1 %212, label %213, label %.thread21
 
 213:                                              ; preds = %209
   %214 = getelementptr inbounds nuw i8, ptr %99, i64 224
@@ -4280,9 +4279,9 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
 
 220:                                              ; preds = %217
   tail call void @iommu_pmu_register(ptr noundef nonnull %99) #20
-  br label %.thread22
+  br label %.thread21
 
-.thread22:                                        ; preds = %206, %209, %220
+.thread21:                                        ; preds = %206, %209, %220
   %221 = getelementptr inbounds nuw i8, ptr %28, i64 56
   store ptr %99, ptr %221, align 8
   %222 = getelementptr inbounds nuw i8, ptr %99, i64 288
@@ -4297,36 +4296,36 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
   %225 = phi i32 [ %215, %213 ], [ %218, %223 ]
   tail call void @free_iommu_pmu(ptr noundef nonnull %99) #20
   tail call fastcc void @unmap_iommu(ptr noundef nonnull %99)
-  br label %.thread23
+  br label %.thread22
 
-.thread23:                                        ; preds = %110, %224
+.thread22:                                        ; preds = %110, %224
   %226 = phi i32 [ %108, %110 ], [ %225, %224 ]
   %227 = load i32, ptr %103, align 8
   tail call void @ida_free(ptr noundef nonnull @dmar_seq_ids, i32 noundef %227) #20
   tail call void @kfree(ptr noundef nonnull %99) #20
-  br label %.thread21
+  br label %.thread20
 
 228:                                              ; preds = %101
   %229 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22) #18
   %230 = load i32, ptr %103, align 8
   tail call void @kfree(ptr noundef nonnull %99) #20
   %231 = icmp eq i32 %230, 0
-  br i1 %231, label %253, label %.thread21
+  br i1 %231, label %253, label %.thread20
 
-.thread21:                                        ; preds = %97, %96, %.thread23, %228
-  %232 = phi i32 [ %230, %228 ], [ %226, %.thread23 ], [ -12, %97 ], [ -22, %96 ]
+.thread20:                                        ; preds = %97, %96, %.thread22, %228
+  %232 = phi i32 [ %230, %228 ], [ %226, %.thread22 ], [ -12, %97 ], [ -22, %96 ]
   %233 = load ptr, ptr %86, align 8
   %234 = icmp eq ptr %233, null
   br i1 %234, label %252, label %235
 
-235:                                              ; preds = %.thread21
+235:                                              ; preds = %.thread20
   %236 = load i32, ptr %56, align 8
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %252, label %.preheader
 
 .preheader:                                       ; preds = %235
   %238 = icmp sgt i32 %236, 0
-  br i1 %238, label %.lr.ph, label %._crit_edge
+  br i1 %238, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %246
   %239 = phi i32 [ %247, %246 ], [ %236, %.preheader ]
@@ -4339,32 +4338,32 @@ define internal i32 @dmar_parse_one_drhd(ptr noundef readonly captures(address) 
 
 245:                                              ; preds = %.lr.ph
   tail call void @put_device(ptr noundef nonnull %243) #20
-  %.pre30 = load i32, ptr %56, align 8
+  %.pre27 = load i32, ptr %56, align 8
   br label %246
 
 246:                                              ; preds = %245, %.lr.ph
-  %247 = phi i32 [ %.pre30, %245 ], [ %239, %.lr.ph ]
+  %247 = phi i32 [ %.pre27, %245 ], [ %239, %.lr.ph ]
   %248 = add nuw nsw i64 %240, 1
   %249 = sext i32 %247 to i64
   %250 = icmp slt i64 %248, %249
-  br i1 %250, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
+  br i1 %250, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !10
 
-._crit_edge.loopexit:                             ; preds = %246
-  %.pre31 = load ptr, ptr %86, align 8
-  br label %._crit_edge
+.critedge.loopexit:                               ; preds = %246
+  %.pre28 = load ptr, ptr %86, align 8
+  br label %.critedge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %251 = phi ptr [ %.pre31, %._crit_edge.loopexit ], [ %233, %.preheader ]
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader
+  %251 = phi ptr [ %.pre28, %.critedge.loopexit ], [ %233, %.preheader ]
   tail call void @kfree(ptr noundef %251) #20
   br label %252
 
-252:                                              ; preds = %._crit_edge, %235, %.thread21
+252:                                              ; preds = %.critedge, %235, %.thread20
   store ptr null, ptr %86, align 8
   store i32 0, ptr %56, align 8
   tail call void @kfree(ptr noundef nonnull %28) #20
   br label %270
 
-253:                                              ; preds = %.thread22, %228
+253:                                              ; preds = %.thread21, %228
   %254 = load i8, ptr %48, align 2
   %255 = and i8 %254, 2
   %256 = icmp eq i8 %255, 0
@@ -4897,7 +4896,7 @@ define internal fastcc void @dmar_free_drhd(ptr noundef %0) unnamed_addr #0 alig
 
 .preheader:                                       ; preds = %5
   %9 = icmp sgt i32 %7, 0
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  br i1 %9, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %17
   %10 = phi i32 [ %18, %17 ], [ %7, %.preheader ]
@@ -4918,20 +4917,20 @@ define internal fastcc void @dmar_free_drhd(ptr noundef %0) unnamed_addr #0 alig
   %19 = add nuw nsw i64 %11, 1
   %20 = sext i32 %18 to i64
   %21 = icmp slt i64 %19, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
+  br i1 %21, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !10
 
-._crit_edge.loopexit:                             ; preds = %17
+.critedge.loopexit:                               ; preds = %17
   %.pre6 = load ptr, ptr %2, align 8
-  br label %._crit_edge
+  br label %.critedge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %22 = phi ptr [ %.pre6, %._crit_edge.loopexit ], [ %3, %.preheader ]
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader
+  %22 = phi ptr [ %.pre6, %.critedge.loopexit ], [ %3, %.preheader ]
   tail call void @kfree(ptr noundef %22) #20
   store ptr null, ptr %2, align 8
   store i32 0, ptr %6, align 4
   br label %23
 
-23:                                               ; preds = %._crit_edge, %5, %1
+23:                                               ; preds = %.critedge, %5, %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null

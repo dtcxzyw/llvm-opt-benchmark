@@ -3622,7 +3622,7 @@ define dso_local void @fib_table_flush_external(ptr noundef readonly captures(no
   %17 = getelementptr inbounds nuw i8, ptr %.ph19, i64 4
   %18 = load i8, ptr %17, align 4
   %19 = icmp ugt i8 %18, 31
-  br i1 %19, label %158, label %20
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %.ph19, i64 6
@@ -3851,7 +3851,7 @@ define dso_local void @fib_table_flush_external(ptr noundef readonly captures(no
 .backedge:                                        ; preds = %155, %.loopexit14, %71
   br label %11, !llvm.loop !67
 
-158:                                              ; preds = %15
+.critedge:                                        ; preds = %15
   ret void
 }
 

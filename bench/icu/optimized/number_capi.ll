@@ -760,8 +760,8 @@ _ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImp
   ret ptr %spec.select
 }
 
-; Function Attrs: mustprogress uwtable
-define void @unumf_closeResult_77(ptr noundef %0) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @unumf_closeResult_77(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread, label %3
 

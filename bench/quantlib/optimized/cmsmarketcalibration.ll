@@ -46861,7 +46861,6 @@ invoke.cont24.us.us:                              ; preds = %for.cond5.preheader
   %10 = load double, ptr %add.ptr.i38.us.us, align 8, !tbaa !46
   %arrayidx26.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i37.us.us, i64 8
   store double %10, ptr %arrayidx26.us.us, align 8, !tbaa !46
-  %invariant.gep.us.us = getelementptr i8, ptr %add.ptr.i.i37.us.us, i64 16
   br label %invoke.cont40.us.us
 
 invoke.cont40.us.us:                              ; preds = %invoke.cont40.us.us, %invoke.cont24.us.us
@@ -46874,8 +46873,9 @@ invoke.cont40.us.us:                              ; preds = %invoke.cont40.us.us
   %add.ptr.i.i50.us.us = getelementptr inbounds nuw double, ptr %11, i64 %mul.i.i49.us.us
   %arrayidx34.us.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i50.us.us, i64 %i.064.us
   %13 = load double, ptr %arrayidx34.us.us, align 8, !tbaa !46
-  %gep.us.us = getelementptr double, ptr %invariant.gep.us.us, i64 %k.060.us.us
-  store double %13, ptr %gep.us.us, align 8, !tbaa !46
+  %14 = getelementptr double, ptr %add.ptr.i.i37.us.us, i64 %k.060.us.us
+  %arrayidx43.us.us = getelementptr i8, ptr %14, i64 16
+  store double %13, ptr %arrayidx43.us.us, align 8, !tbaa !46
   %inc.us.us = add nuw i64 %k.060.us.us, 1
   %exitcond.not = icmp eq i64 %inc.us.us, %4
   br i1 %exitcond.not, label %for.cond27.for.cond.cleanup30_crit_edge.us.us, label %invoke.cont40.us.us, !llvm.loop !590

@@ -8991,7 +8991,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %46, %60, %58
 
 72:                                               ; preds = %SDL_GetPrimaryDisplay_REAL.exit
   %73 = call zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef %.144, ptr noundef nonnull %4)
-  br i1 %73, label %74, label %89
+  br i1 %73, label %74, label %.critedge
 
 74:                                               ; preds = %SDL_GetPrimaryDisplay_REAL.exit, %72
   br i1 %32, label %75, label %81
@@ -9006,7 +9006,7 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %46, %60, %58
 
 81:                                               ; preds = %75, %74
   %.3 = phi i32 [ %80, %75 ], [ %.045, %74 ]
-  br i1 %34, label %82, label %.thread74
+  br i1 %34, label %82, label %89
 
 82:                                               ; preds = %81
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -9015,20 +9015,16 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %46, %60, %58
   %86 = sub nsw i32 %85, %17
   %87 = sdiv i32 %86, 2
   %88 = add nsw i32 %87, %84
-  br label %.thread74
+  br label %89
 
-.thread74:                                        ; preds = %82, %81
-  %.250.ph = phi i32 [ %.048, %81 ], [ %88, %82 ]
+89:                                               ; preds = %81, %82
+  %.250 = phi i32 [ %88, %82 ], [ %.048, %81 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
   br label %90
 
-89:                                               ; preds = %72
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
-  br label %SDL_SyncIfRequired.exit
-
-90:                                               ; preds = %.thread74, %30
-  %.149 = phi i32 [ %.048, %30 ], [ %.250.ph, %.thread74 ]
-  %.146 = phi i32 [ %.045, %30 ], [ %.3, %.thread74 ]
+90:                                               ; preds = %89, %30
+  %.149 = phi i32 [ %.250, %89 ], [ %.048, %30 ]
+  %.146 = phi i32 [ %.3, %89 ], [ %.045, %30 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %.146, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -9086,8 +9082,12 @@ SDL_GetPrimaryDisplay_REAL.exit:                  ; preds = %46, %60, %58
   %119 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.24) #19
   br label %SDL_SyncIfRequired.exit
 
-SDL_SyncIfRequired.exit:                          ; preds = %116, %112, %110, %106, %101, %89, %118, %99, %10, %6
-  %.0 = phi i1 [ false, %10 ], [ false, %6 ], [ %119, %118 ], [ false, %89 ], [ false, %99 ], [ true, %101 ], [ true, %106 ], [ true, %110 ], [ true, %112 ], [ true, %116 ]
+.critedge:                                        ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  br label %SDL_SyncIfRequired.exit
+
+SDL_SyncIfRequired.exit:                          ; preds = %116, %112, %110, %106, %101, %118, %.critedge, %99, %10, %6
+  %.0 = phi i1 [ false, %10 ], [ false, %6 ], [ %119, %118 ], [ false, %.critedge ], [ false, %99 ], [ true, %101 ], [ true, %106 ], [ true, %110 ], [ true, %112 ], [ true, %116 ]
   ret i1 %.0
 }
 

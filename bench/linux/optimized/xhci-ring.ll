@@ -5367,7 +5367,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_ctrl_tx(ptr noundef %
   %104 = phi i32 [ 3136, %99 ], [ %72, %96 ]
   %105 = load i16, ptr %45, align 2
   %106 = icmp ult i16 %105, 256
-  br i1 %106, label %107, label %114
+  br i1 %106, label %107, label %116
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 2488
@@ -5375,15 +5375,15 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_ctrl_tx(ptr noundef %
   %110 = and i64 %109, 2097152
   %111 = icmp eq i64 %110, 0
   %112 = lshr i32 %73, 10
-  %113 = select i1 %111, i32 %112, i32 0
-  br label %114
+  %113 = tail call i32 @llvm.umin.i32(i32 %112, i32 31)
+  %114 = shl nuw nsw i32 %113, 17
+  %115 = select i1 %111, i32 %114, i32 0
+  br label %116
 
-114:                                              ; preds = %107, %103
-  %115 = phi i32 [ 0, %103 ], [ %113, %107 ]
-  %116 = and i32 %73, 131071
-  %117 = tail call i32 @llvm.umin.i32(i32 %115, i32 31)
-  %118 = shl nuw nsw i32 %117, 17
-  %119 = or disjoint i32 %118, %116
+116:                                              ; preds = %107, %103
+  %117 = phi i32 [ 0, %103 ], [ %115, %107 ]
+  %118 = and i32 %73, 131071
+  %119 = or disjoint i32 %117, %118
   %120 = load i8, ptr %42, align 1
   %121 = or disjoint i32 %104, 65536
   %122 = icmp slt i8 %120, 0
@@ -5398,7 +5398,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_ctrl_tx(ptr noundef %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %129
 
-129:                                              ; preds = %114, %63
+129:                                              ; preds = %116, %63
   %130 = load ptr, ptr %38, align 8
   %131 = getelementptr inbounds nuw i8, ptr %36, i64 72
   store ptr %130, ptr %131, align 8

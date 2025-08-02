@@ -3904,7 +3904,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #3
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNKSt3__16chrono4tzdb14__current_zoneB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZNKSt3__16chrono4tzdb14__current_zoneB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__1::locale", align 8
   %3 = alloca %"class.std::__1::__fs::filesystem::file_status", align 8
   %4 = alloca %"class.std::__1::__fs::filesystem::path", align 8

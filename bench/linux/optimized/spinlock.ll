@@ -159,14 +159,14 @@ define dso_local void @_raw_spin_lock(ptr noundef %0) #0 section ".spinlock.text
   %4 = icmp ult i8 %3, 2
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq i8 %3, 0
-  br i1 %5, label %6, label %8, !prof !16
+  br i1 %5, label %6, label %.critedge, !prof !16
 
 6:                                                ; preds = %1
   %7 = extractvalue { i8, i32 } %2, 1
   tail call void @queued_spin_lock_slowpath(ptr noundef %0, i32 noundef %7) #8
-  br label %8
+  br label %.critedge
 
-8:                                                ; preds = %1, %6
+.critedge:                                        ; preds = %1, %6
   ret void
 }
 
@@ -186,14 +186,14 @@ define dso_local i64 @_raw_spin_lock_irqsave(ptr noundef %0) #0 section ".spinlo
   %6 = icmp ult i8 %5, 2
   call void @llvm.assume(i1 %6)
   %7 = icmp eq i8 %5, 0
-  br i1 %7, label %8, label %10, !prof !16
+  br i1 %7, label %8, label %.critedge, !prof !16
 
 8:                                                ; preds = %1
   %9 = extractvalue { i8, i32 } %4, 1
   call void @queued_spin_lock_slowpath(ptr noundef %0, i32 noundef %9) #8
-  br label %10
+  br label %.critedge
 
-10:                                               ; preds = %1, %8
+.critedge:                                        ; preds = %1, %8
   ret i64 %3
 }
 
@@ -207,14 +207,14 @@ define dso_local void @_raw_spin_lock_irq(ptr noundef %0) #0 section ".spinlock.
   %4 = icmp ult i8 %3, 2
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq i8 %3, 0
-  br i1 %5, label %6, label %8, !prof !16
+  br i1 %5, label %6, label %.critedge, !prof !16
 
 6:                                                ; preds = %1
   %7 = extractvalue { i8, i32 } %2, 1
   tail call void @queued_spin_lock_slowpath(ptr noundef %0, i32 noundef %7) #8
-  br label %8
+  br label %.critedge
 
-8:                                                ; preds = %1, %6
+.critedge:                                        ; preds = %1, %6
   ret void
 }
 
@@ -227,14 +227,14 @@ define dso_local void @_raw_spin_lock_bh(ptr noundef %0) #0 section ".spinlock.t
   %4 = icmp ult i8 %3, 2
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq i8 %3, 0
-  br i1 %5, label %6, label %8, !prof !16
+  br i1 %5, label %6, label %.critedge, !prof !16
 
 6:                                                ; preds = %1
   %7 = extractvalue { i8, i32 } %2, 1
   tail call void @queued_spin_lock_slowpath(ptr noundef %0, i32 noundef %7) #8
-  br label %8
+  br label %.critedge
 
-8:                                                ; preds = %1, %6
+.critedge:                                        ; preds = %1, %6
   ret void
 }
 

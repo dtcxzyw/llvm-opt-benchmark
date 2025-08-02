@@ -313,7 +313,7 @@ define internal fastcc range(i32 0, 2) i32 @addr_strings(ptr noundef %0, i32 nou
   %6 = alloca [32 x i8], align 16
   %7 = tail call i32 @BIO_sock_init() #15
   %.not = icmp eq i32 %7, 1
-  br i1 %.not, label %8, label %45
+  br i1 %.not, label %8, label %46
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %5) #15
@@ -352,19 +352,19 @@ BIO_ADDR_sockaddr_size.exit:                      ; preds = %8, %10, %11, %12
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %16, ptr noundef nonnull @.str.6) #15
-  br label %34
+  br label %35
 
 17:                                               ; preds = %BIO_ADDR_sockaddr_size.exit
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 254, ptr noundef nonnull @__func__.addr_strings) #15
   %18 = call ptr @gai_strerror(i32 noundef %13) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524290, ptr noundef %18) #15
-  br label %34
+  br label %35
 
 19:                                               ; preds = %BIO_ADDR_sockaddr_size.exit
   %20 = load i8, ptr %6, align 16, !tbaa !3
   %21 = icmp eq i8 %20, 0
-  br i1 %21, label %22, label %28
+  br i1 %21, label %22, label %29
 
 22:                                               ; preds = %19
   %23 = load i16, ptr %0, align 4, !tbaa !3
@@ -376,82 +376,82 @@ BIO_ADDR_sockaddr_size.exit:                      ; preds = %8, %10, %11, %12
 .sink.split.i:                                    ; preds = %22, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %25 = load i16, ptr %24, align 2, !tbaa !3
+  %26 = call i16 @llvm.bswap.i16(i16 %25)
+  %27 = zext i16 %26 to i32
   br label %BIO_ADDR_rawport.exit
 
 BIO_ADDR_rawport.exit:                            ; preds = %22, %.sink.split.i
-  %.0.i37 = phi i16 [ 0, %22 ], [ %25, %.sink.split.i ]
-  %rev.i = call noundef i16 @llvm.bswap.i16(i16 %.0.i37)
-  %26 = zext i16 %rev.i to i32
-  %27 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.7, i32 noundef %26) #15
-  br label %28
+  %.0.i37 = phi i32 [ 0, %22 ], [ %27, %.sink.split.i ]
+  %28 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.7, i32 noundef %.0.i37) #15
+  br label %29
 
-28:                                               ; preds = %BIO_ADDR_rawport.exit, %19
+29:                                               ; preds = %BIO_ADDR_rawport.exit, %19
   %.not32 = icmp eq ptr %2, null
-  br i1 %.not32, label %31, label %29
+  br i1 %.not32, label %32, label %30
 
-29:                                               ; preds = %28
-  %30 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef 271) #15
-  store ptr %30, ptr %2, align 8, !tbaa !14
-  br label %31
+30:                                               ; preds = %29
+  %31 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef 271) #15
+  store ptr %31, ptr %2, align 8, !tbaa !14
+  br label %32
 
-31:                                               ; preds = %29, %28
+32:                                               ; preds = %30, %29
   %.not33 = icmp eq ptr %3, null
-  br i1 %.not33, label %35, label %32
+  br i1 %.not33, label %36, label %33
 
-32:                                               ; preds = %31
-  %33 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %6, ptr noundef nonnull @.str, i32 noundef 273) #15
-  store ptr %33, ptr %3, align 8, !tbaa !14
-  br label %35
+33:                                               ; preds = %32
+  %34 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %6, ptr noundef nonnull @.str, i32 noundef 273) #15
+  store ptr %34, ptr %3, align 8, !tbaa !14
+  br label %36
 
-34:                                               ; preds = %14, %17
+35:                                               ; preds = %14, %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %5) #15
-  br label %45
+  br label %46
 
-35:                                               ; preds = %31, %32
+36:                                               ; preds = %32, %33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %5) #15
-  br i1 %.not32, label %39, label %36
+  br i1 %.not32, label %40, label %37
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %2, align 8, !tbaa !14
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread39, label %39
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %2, align 8, !tbaa !14
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.thread39, label %40
 
-39:                                               ; preds = %36, %35
-  br i1 %.not33, label %45, label %40
+40:                                               ; preds = %37, %36
+  br i1 %.not33, label %46, label %41
 
-40:                                               ; preds = %39
-  %41 = load ptr, ptr %3, align 8, !tbaa !14
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %45
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %3, align 8, !tbaa !14
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %40
+44:                                               ; preds = %41
   br i1 %.not32, label %.thread40, label %.thread39.thread
 
-.thread39.thread:                                 ; preds = %43
+.thread39.thread:                                 ; preds = %44
   %.pre = load ptr, ptr %2, align 8, !tbaa !14
   call void @CRYPTO_free(ptr noundef %.pre, ptr noundef nonnull @.str, i32 noundef 288) #15
   store ptr null, ptr %2, align 8, !tbaa !14
   br label %.thread39..thread40_crit_edge
 
-.thread39:                                        ; preds = %36
+.thread39:                                        ; preds = %37
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 288) #15
   store ptr null, ptr %2, align 8, !tbaa !14
-  br i1 %.not33, label %45, label %.thread39..thread40_crit_edge
+  br i1 %.not33, label %46, label %.thread39..thread40_crit_edge
 
 .thread39..thread40_crit_edge:                    ; preds = %.thread39.thread, %.thread39
   %.pre42 = load ptr, ptr %3, align 8, !tbaa !14
   br label %.thread40
 
-.thread40:                                        ; preds = %.thread39..thread40_crit_edge, %43
-  %44 = phi ptr [ %.pre42, %.thread39..thread40_crit_edge ], [ null, %43 ]
-  call void @CRYPTO_free(ptr noundef %44, ptr noundef nonnull @.str, i32 noundef 292) #15
+.thread40:                                        ; preds = %.thread39..thread40_crit_edge, %44
+  %45 = phi ptr [ %.pre42, %.thread39..thread40_crit_edge ], [ null, %44 ]
+  call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str, i32 noundef 292) #15
   store ptr null, ptr %3, align 8, !tbaa !14
-  br label %45
+  br label %46
 
-45:                                               ; preds = %34, %39, %40, %.thread39, %.thread40, %4
-  %.024 = phi i32 [ 0, %34 ], [ 0, %4 ], [ 0, %.thread40 ], [ 0, %.thread39 ], [ 1, %40 ], [ 1, %39 ]
+46:                                               ; preds = %35, %40, %41, %.thread39, %.thread40, %4
+  %.024 = phi i32 [ 0, %35 ], [ 0, %4 ], [ 0, %.thread40 ], [ 0, %.thread39 ], [ 1, %41 ], [ 1, %40 ]
   ret i32 %.024
 }
 

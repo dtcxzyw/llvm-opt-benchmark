@@ -22,7 +22,6 @@ define dso_local noundef i32 @_ZN5clang19parseXRayInstrValueEN4llvm9StringRefE(p
     i64 14, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23
     i64 13, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31
     i64 5, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39
-    i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i47
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %2
@@ -53,23 +52,15 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i31:          ; preds = %2
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i39:          ; preds = %2
   %bcmp.i.i.i40 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @.str.5, i64 5)
   %8 = icmp eq i32 %bcmp.i.i.i40, 0
-  %spec.select = select i1 %8, i64 4294967304, i64 0
+  %9 = select i1 %8, i32 8, i32 0
   br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit50
 
 _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit42.thread151.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31
   br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit50
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i47:          ; preds = %2
-  %bcmp.i.i.i48 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
-  %9 = icmp eq i32 %bcmp.i.i.i48, 0
-  %spec.select162 = select i1 %9, i64 4294967296, i64 0
-  br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit50
-
-_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit50: ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i47, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit42.thread151.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31
-  %.sroa.18.6 = phi i64 [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31 ], [ 0, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit42.thread151.thread ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39 ], [ %spec.select162, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i47 ], [ 4294967311, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ], [ 0, %2 ]
-  %spec.select.i168 = tail call i64 @llvm.umax.i64(i64 %.sroa.18.6, i64 4294967296)
-  %spec.select.i = trunc i64 %spec.select.i168 to i32
-  ret i32 %spec.select.i
+_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit50: ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit42.thread151.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31
+  %.sroa.18.6 = phi i32 [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31 ], [ 0, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit42.thread151.thread ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23 ], [ %9, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39 ], [ 15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ], [ 0, %2 ]
+  ret i32 %.sroa.18.6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -91,7 +82,7 @@ define dso_local void @_ZN5clang23serializeXRayInstrValueENS_12XRayInstrSetERN4l
   %9 = zext i32 %5 to i64
   %10 = add nuw nsw i64 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #5
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %11, i64 noundef %10, i64 noundef 16) #4
   %.pre.i = load i32, ptr %4, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit
 
@@ -120,7 +111,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %24 = zext i32 %20 to i64
   %25 = add nuw nsw i64 %24, 1
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %26, i64 noundef %25, i64 noundef 16) #5
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %26, i64 noundef %25, i64 noundef 16) #4
   %.pre.i8 = load i32, ptr %19, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit10
 
@@ -154,7 +145,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit10: ; pr
   %41 = zext i32 %37 to i64
   %42 = add nuw nsw i64 %41, 1
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %43, i64 noundef %42, i64 noundef 16) #5
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %43, i64 noundef %42, i64 noundef 16) #4
   %.pre.i12 = load i32, ptr %36, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit14
 
@@ -188,7 +179,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit14: ; pr
   %58 = zext i32 %54 to i64
   %59 = add nuw nsw i64 %58, 1
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %60, i64 noundef %59, i64 noundef 16) #5
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %60, i64 noundef %59, i64 noundef 16) #4
   %.pre.i16 = load i32, ptr %53, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit18
 
@@ -227,7 +218,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit18: ; pr
   %77 = zext i32 %72 to i64
   %78 = add nuw nsw i64 %77, 1
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %79, i64 noundef %78, i64 noundef 16) #5
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %79, i64 noundef %78, i64 noundef 16) #4
   %.pre.i20 = load i32, ptr %71, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit22
 
@@ -251,7 +242,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit22: ; pr
   %88 = zext i32 %72 to i64
   %89 = add nuw nsw i64 %88, 1
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %90, i64 noundef %89, i64 noundef 16) #5
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %90, i64 noundef %89, i64 noundef 16) #4
   %.pre.i24 = load i32, ptr %71, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit26
 
@@ -283,7 +274,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit26: ; pr
   %104 = zext i32 %100 to i64
   %105 = add nuw nsw i64 %104, 1
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %106, i64 noundef %105, i64 noundef 16) #5
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %106, i64 noundef %105, i64 noundef 16) #4
   %.pre.i28 = load i32, ptr %99, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit30
 
@@ -309,15 +300,11 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull ali
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #4
-
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

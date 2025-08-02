@@ -1272,8 +1272,8 @@ _ZN4llvm15SmallVectorImplINS_13LiveRangeCalc11LiveInBlockEE7reserveEm.exit: ; pr
   %371 = ptrtoint ptr %6 to i64
   br label %372
 
-372:                                              ; preds = %.lr.ph259, %426
-  %.088258 = phi ptr [ %362, %.lr.ph259 ], [ %427, %426 ]
+372:                                              ; preds = %.lr.ph259, %425
+  %.088258 = phi ptr [ %362, %.lr.ph259 ], [ %426, %425 ]
   %373 = load i32, ptr %.088258, align 4, !tbaa !258
   %374 = load ptr, ptr %0, align 8, !tbaa !3
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 96
@@ -1285,7 +1285,7 @@ _ZN4llvm15SmallVectorImplINS_13LiveRangeCalc11LiveInBlockEE7reserveEm.exit: ; pr
 
 380:                                              ; preds = %372
   %381 = call noundef zeroext i1 @_ZN4llvm13LiveRangeCalc12isDefOnEntryERNS_9LiveRangeENS_8ArrayRefINS_9SlotIndexEEERNS_17MachineBasicBlockERNS_9BitVectorES9_(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr %.sroa.0.0.copyload, i64 %365, ptr noundef nonnull align 8 dereferenceable(288) %379, ptr noundef nonnull align 8 dereferenceable(68) %352, ptr noundef nonnull align 8 dereferenceable(68) %353)
-  br i1 %381, label %.thread222, label %426
+  br i1 %381, label %.thread222, label %425
 
 .thread222:                                       ; preds = %380
   %382 = load ptr, ptr %367, align 8, !tbaa !172
@@ -1338,58 +1338,58 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit: ; 
   %406 = icmp uge ptr %6, %.pre3.i.i
   %407 = icmp ult ptr %6, %405
   %spec.select.i.i.i.i.i.i = and i1 %406, %407
-  br i1 %spec.select.i.i.i.i.i.i, label %409, label %408, !prof !44
+  br i1 %spec.select.i.i.i.i.i.i, label %408, label %.critedge.i.i.i.i, !prof !44
 
 408:                                              ; preds = %404
+  %409 = ptrtoint ptr %.pre3.i.i to i64
+  %410 = sub i64 %371, %409
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %370, i64 noundef %402, i64 noundef 32) #13
+  %411 = load ptr, ptr %21, align 8, !tbaa !45
+  %412 = getelementptr inbounds i8, ptr %411, i64 %410
+  br label %_ZN4llvm13LiveRangeCalc14addLiveInBlockERNS_9LiveRangeEPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEENS_9SlotIndexE.exit
+
+.critedge.i.i.i.i:                                ; preds = %404
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %370, i64 noundef %402, i64 noundef 32) #13
   %.pre.i.i139 = load ptr, ptr %21, align 8, !tbaa !45
   br label %_ZN4llvm13LiveRangeCalc14addLiveInBlockERNS_9LiveRangeEPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEENS_9SlotIndexE.exit
 
-409:                                              ; preds = %404
-  %410 = ptrtoint ptr %.pre3.i.i to i64
-  %411 = sub i64 %371, %410
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %370, i64 noundef %402, i64 noundef 32) #13
-  %412 = load ptr, ptr %21, align 8, !tbaa !45
-  %413 = getelementptr inbounds i8, ptr %412, i64 %411
-  br label %_ZN4llvm13LiveRangeCalc14addLiveInBlockERNS_9LiveRangeEPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEENS_9SlotIndexE.exit
-
-_ZN4llvm13LiveRangeCalc14addLiveInBlockERNS_9LiveRangeEPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEENS_9SlotIndexE.exit: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit, %408, %409
-  %414 = phi ptr [ %.pre3.i.i, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit ], [ %412, %409 ], [ %.pre.i.i139, %408 ]
-  %.016.i.i.i.i = phi ptr [ %6, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit ], [ %413, %409 ], [ %6, %408 ]
-  %415 = load i32, ptr %22, align 8, !tbaa !41
-  %416 = zext i32 %415 to i64
-  %417 = getelementptr inbounds nuw %"struct.llvm::LiveRangeCalc::LiveInBlock", ptr %414, i64 %416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %417, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i, i64 32, i1 false)
-  %418 = load i32, ptr %22, align 8, !tbaa !41
-  %419 = add i32 %418, 1
-  store i32 %419, ptr %22, align 8, !tbaa !41
+_ZN4llvm13LiveRangeCalc14addLiveInBlockERNS_9LiveRangeEPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEENS_9SlotIndexE.exit: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit, %408, %.critedge.i.i.i.i
+  %413 = phi ptr [ %.pre3.i.i, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit ], [ %411, %408 ], [ %.pre.i.i139, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %6, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit ], [ %412, %408 ], [ %6, %.critedge.i.i.i.i ]
+  %414 = load i32, ptr %22, align 8, !tbaa !41
+  %415 = zext i32 %414 to i64
+  %416 = getelementptr inbounds nuw %"struct.llvm::LiveRangeCalc::LiveInBlock", ptr %413, i64 %415
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %416, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i, i64 32, i1 false)
+  %417 = load i32, ptr %22, align 8, !tbaa !41
+  %418 = add i32 %417, 1
+  store i32 %418, ptr %22, align 8, !tbaa !41
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
-  %420 = icmp eq ptr %379, %2
-  br i1 %420, label %421, label %426
+  %419 = icmp eq ptr %379, %2
+  br i1 %419, label %420, label %425
 
-421:                                              ; preds = %_ZN4llvm13LiveRangeCalc14addLiveInBlockERNS_9LiveRangeEPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEENS_9SlotIndexE.exit
-  %422 = load ptr, ptr %21, align 8, !tbaa !45
-  %423 = zext i32 %419 to i64
-  %424 = getelementptr inbounds nuw %"struct.llvm::LiveRangeCalc::LiveInBlock", ptr %422, i64 %423
-  %425 = getelementptr inbounds i8, ptr %424, i64 -16
-  store i64 %.sroa.0205.1.lcssa, ptr %425, align 8, !tbaa !231
-  br label %426
+420:                                              ; preds = %_ZN4llvm13LiveRangeCalc14addLiveInBlockERNS_9LiveRangeEPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEENS_9SlotIndexE.exit
+  %421 = load ptr, ptr %21, align 8, !tbaa !45
+  %422 = zext i32 %418 to i64
+  %423 = getelementptr inbounds nuw %"struct.llvm::LiveRangeCalc::LiveInBlock", ptr %421, i64 %422
+  %424 = getelementptr inbounds i8, ptr %423, i64 -16
+  store i64 %.sroa.0205.1.lcssa, ptr %424, align 8, !tbaa !231
+  br label %425
 
-426:                                              ; preds = %_ZN4llvm13LiveRangeCalc14addLiveInBlockERNS_9LiveRangeEPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEENS_9SlotIndexE.exit, %421, %380
-  %427 = getelementptr inbounds nuw i8, ptr %.088258, i64 4
-  %.not = icmp eq ptr %427, %364
+425:                                              ; preds = %_ZN4llvm13LiveRangeCalc14addLiveInBlockERNS_9LiveRangeEPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEENS_9SlotIndexE.exit, %420, %380
+  %426 = getelementptr inbounds nuw i8, ptr %.088258, i64 4
+  %.not = icmp eq ptr %426, %364
   br i1 %.not, label %.loopexit, label %372
 
-.loopexit:                                        ; preds = %426, %_ZN4llvm15SmallVectorImplINS_13LiveRangeCalc11LiveInBlockEE7reserveEm.exit, %_ZN4llvm16LiveRangeUpdaterD2Ev.exit
-  %428 = load ptr, ptr %8, align 8, !tbaa !45
-  %429 = icmp eq ptr %428, %.ptr225
-  br i1 %429, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %430
+.loopexit:                                        ; preds = %425, %_ZN4llvm15SmallVectorImplINS_13LiveRangeCalc11LiveInBlockEE7reserveEm.exit, %_ZN4llvm16LiveRangeUpdaterD2Ev.exit
+  %427 = load ptr, ptr %8, align 8, !tbaa !45
+  %428 = icmp eq ptr %427, %.ptr225
+  br i1 %428, label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit, label %429
 
-430:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %428) #13
+429:                                              ; preds = %.loopexit
+  call void @free(ptr noundef %427) #13
   br label %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %.loopexit, %430
+_ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %.loopexit, %429
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
   ret i1 %119
 }

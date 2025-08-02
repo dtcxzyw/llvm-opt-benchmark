@@ -1430,89 +1430,13 @@ define noundef signext i8 @ucal_inDaylightTime_77(ptr noundef %0, ptr noundef %1
 define void @ucal_setGregorianChange_77(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %2, align 4, !tbaa !13
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %6, label %32
+  br i1 %5, label %6, label %31
 
 6:                                                ; preds = %3
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %8, label %9
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %6
-  store i32 1, ptr %2, align 4, !tbaa !13
-  br label %32
-
-9:                                                ; preds = %6
-  %10 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_778CalendarE, ptr nonnull @_ZTIN6icu_7717GregorianCalendarE, i64 0) #14
-  %11 = load ptr, ptr %0, align 8, !tbaa !15
-  %12 = getelementptr inbounds i8, ptr %11, i64 -8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !29
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7717GregorianCalendarE, i64 8), align 8, !tbaa !29
-  %17 = icmp eq ptr %15, %16
-  br i1 %17, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %18
-
-18:                                               ; preds = %9
-  %19 = load i8, ptr %15, align 1, !tbaa !17
-  %.not.i.i = icmp eq i8 %19, 42
-  br i1 %.not.i.i, label %_ZNKSt9type_infoneERKS_.exit.thread, label %_ZNKSt9type_infoneERKS_.exit
-
-_ZNKSt9type_infoneERKS_.exit:                     ; preds = %18
-  %20 = load i8, ptr %16, align 1, !tbaa !17
-  %21 = icmp eq i8 %20, 42
-  %.idx.i.i.i = zext i1 %21 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %22) #14
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %_ZNKSt9type_infoneERKS_.exit.thread.thread
-
-_ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %18
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !29
-  %25 = icmp eq ptr %15, %24
-  br i1 %25, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %_ZNKSt9type_infoneERKS_.exit14.thread
-
-_ZNKSt9type_infoneERKS_.exit.thread.thread:       ; preds = %_ZNKSt9type_infoneERKS_.exit
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !29
-  %27 = icmp eq ptr %15, %26
-  br i1 %27, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %_ZNKSt9type_infoneERKS_.exit14
-
-_ZNKSt9type_infoneERKS_.exit14:                   ; preds = %_ZNKSt9type_infoneERKS_.exit.thread.thread
-  %28 = load i8, ptr %26, align 1, !tbaa !17
-  %29 = icmp eq i8 %28, 42
-  %.idx.i.i.i12 = zext i1 %29 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i12
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %30) #14
-  %.not21 = icmp eq i32 %31, 0
-  br i1 %.not21, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %_ZNKSt9type_infoneERKS_.exit14.thread
-
-_ZNKSt9type_infoneERKS_.exit14.thread:            ; preds = %_ZNKSt9type_infoneERKS_.exit.thread, %_ZNKSt9type_infoneERKS_.exit14
-  store i32 16, ptr %2, align 4, !tbaa !13
-  br label %32
-
-_ZNKSt9type_infoneERKS_.exit.thread16:            ; preds = %_ZNKSt9type_infoneERKS_.exit.thread.thread, %_ZNKSt9type_infoneERKS_.exit.thread, %9, %_ZNKSt9type_infoneERKS_.exit14, %_ZNKSt9type_infoneERKS_.exit
-  tail call void @_ZN6icu_7717GregorianCalendar18setGregorianChangeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(222) %10, double noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  br label %32
-
-32:                                               ; preds = %8, %_ZNKSt9type_infoneERKS_.exit14.thread, %_ZNKSt9type_infoneERKS_.exit.thread16, %3
-  ret void
-}
-
-declare void @_ZN6icu_7717GregorianCalendar18setGregorianChangeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(222), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
-
-; Function Attrs: mustprogress uwtable
-define noundef double @ucal_getGregorianChange_77(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
-  %3 = load i32, ptr %1, align 4, !tbaa !13
-  %4 = icmp slt i32 %3, 1
-  br i1 %4, label %5, label %32
-
-5:                                                ; preds = %2
-  %6 = icmp eq ptr %0, null
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %5
-  store i32 1, ptr %1, align 4, !tbaa !13
-  br label %32
-
-8:                                                ; preds = %5
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_778CalendarE, ptr nonnull @_ZTIN6icu_7717GregorianCalendarE, i64 0) #14
   %10 = load ptr, ptr %0, align 8, !tbaa !15
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
@@ -1521,7 +1445,7 @@ define noundef double @ucal_getGregorianChange_77(ptr noundef %0, ptr noundef ca
   %14 = load ptr, ptr %13, align 8, !tbaa !29
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7717GregorianCalendarE, i64 8), align 8, !tbaa !29
   %16 = icmp eq ptr %14, %15
-  br i1 %16, label %_ZNKSt9type_infoneERKS_.exit.thread17, label %17
+  br i1 %16, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %17
 
 17:                                               ; preds = %8
   %18 = load i8, ptr %14, align 1, !tbaa !17
@@ -1535,37 +1459,113 @@ _ZNKSt9type_infoneERKS_.exit:                     ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %21) #14
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %_ZNKSt9type_infoneERKS_.exit.thread17, label %_ZNKSt9type_infoneERKS_.exit.thread.thread
+  br i1 %.not, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %_ZNKSt9type_infoneERKS_.exit.thread.thread
+
+.critedge:                                        ; preds = %6
+  store i32 1, ptr %2, align 4, !tbaa !13
+  br label %31
 
 _ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %17
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !29
   %24 = icmp eq ptr %14, %23
-  br i1 %24, label %_ZNKSt9type_infoneERKS_.exit.thread17, label %_ZNKSt9type_infoneERKS_.exit15.thread
+  br i1 %24, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %_ZNKSt9type_infoneERKS_.exit14.thread
 
 _ZNKSt9type_infoneERKS_.exit.thread.thread:       ; preds = %_ZNKSt9type_infoneERKS_.exit
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !29
   %26 = icmp eq ptr %14, %25
-  br i1 %26, label %_ZNKSt9type_infoneERKS_.exit.thread17, label %_ZNKSt9type_infoneERKS_.exit15
+  br i1 %26, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %_ZNKSt9type_infoneERKS_.exit14
 
-_ZNKSt9type_infoneERKS_.exit15:                   ; preds = %_ZNKSt9type_infoneERKS_.exit.thread.thread
+_ZNKSt9type_infoneERKS_.exit14:                   ; preds = %_ZNKSt9type_infoneERKS_.exit.thread.thread
   %27 = load i8, ptr %25, align 1, !tbaa !17
   %28 = icmp eq i8 %27, 42
-  %.idx.i.i.i13 = zext i1 %28 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i.i13
+  %.idx.i.i.i12 = zext i1 %28 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i.i12
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %29) #14
-  %.not22 = icmp eq i32 %30, 0
+  %.not21 = icmp eq i32 %30, 0
+  br i1 %.not21, label %_ZNKSt9type_infoneERKS_.exit.thread16, label %_ZNKSt9type_infoneERKS_.exit14.thread
+
+_ZNKSt9type_infoneERKS_.exit14.thread:            ; preds = %_ZNKSt9type_infoneERKS_.exit.thread, %_ZNKSt9type_infoneERKS_.exit14
+  store i32 16, ptr %2, align 4, !tbaa !13
+  br label %31
+
+_ZNKSt9type_infoneERKS_.exit.thread16:            ; preds = %_ZNKSt9type_infoneERKS_.exit.thread.thread, %_ZNKSt9type_infoneERKS_.exit.thread, %8, %_ZNKSt9type_infoneERKS_.exit14, %_ZNKSt9type_infoneERKS_.exit
+  tail call void @_ZN6icu_7717GregorianCalendar18setGregorianChangeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(222) %9, double noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  br label %31
+
+31:                                               ; preds = %.critedge, %_ZNKSt9type_infoneERKS_.exit14.thread, %_ZNKSt9type_infoneERKS_.exit.thread16, %3
+  ret void
+}
+
+declare void @_ZN6icu_7717GregorianCalendar18setGregorianChangeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(222), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
+
+; Function Attrs: mustprogress uwtable
+define noundef double @ucal_getGregorianChange_77(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
+  %3 = load i32, ptr %1, align 4, !tbaa !13
+  %4 = icmp slt i32 %3, 1
+  br i1 %4, label %5, label %31
+
+5:                                                ; preds = %2
+  %6 = icmp eq ptr %0, null
+  br i1 %6, label %.critedge, label %7
+
+7:                                                ; preds = %5
+  %8 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_778CalendarE, ptr nonnull @_ZTIN6icu_7717GregorianCalendarE, i64 0) #14
+  %9 = load ptr, ptr %0, align 8, !tbaa !15
+  %10 = getelementptr inbounds i8, ptr %9, i64 -8
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7717GregorianCalendarE, i64 8), align 8, !tbaa !29
+  %15 = icmp eq ptr %13, %14
+  br i1 %15, label %_ZNKSt9type_infoneERKS_.exit.thread17, label %16
+
+16:                                               ; preds = %7
+  %17 = load i8, ptr %13, align 1, !tbaa !17
+  %.not.i.i = icmp eq i8 %17, 42
+  br i1 %.not.i.i, label %_ZNKSt9type_infoneERKS_.exit.thread, label %_ZNKSt9type_infoneERKS_.exit
+
+_ZNKSt9type_infoneERKS_.exit:                     ; preds = %16
+  %18 = load i8, ptr %14, align 1, !tbaa !17
+  %19 = icmp eq i8 %18, 42
+  %.idx.i.i.i = zext i1 %19 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %20) #14
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %_ZNKSt9type_infoneERKS_.exit.thread17, label %_ZNKSt9type_infoneERKS_.exit.thread.thread
+
+.critedge:                                        ; preds = %5
+  store i32 1, ptr %1, align 4, !tbaa !13
+  br label %31
+
+_ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %16
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !29
+  %23 = icmp eq ptr %13, %22
+  br i1 %23, label %_ZNKSt9type_infoneERKS_.exit.thread17, label %_ZNKSt9type_infoneERKS_.exit15.thread
+
+_ZNKSt9type_infoneERKS_.exit.thread.thread:       ; preds = %_ZNKSt9type_infoneERKS_.exit
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ISO8601CalendarE, i64 8), align 8, !tbaa !29
+  %25 = icmp eq ptr %13, %24
+  br i1 %25, label %_ZNKSt9type_infoneERKS_.exit.thread17, label %_ZNKSt9type_infoneERKS_.exit15
+
+_ZNKSt9type_infoneERKS_.exit15:                   ; preds = %_ZNKSt9type_infoneERKS_.exit.thread.thread
+  %26 = load i8, ptr %24, align 1, !tbaa !17
+  %27 = icmp eq i8 %26, 42
+  %.idx.i.i.i13 = zext i1 %27 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.i13
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %28) #14
+  %.not22 = icmp eq i32 %29, 0
   br i1 %.not22, label %_ZNKSt9type_infoneERKS_.exit.thread17, label %_ZNKSt9type_infoneERKS_.exit15.thread
 
 _ZNKSt9type_infoneERKS_.exit15.thread:            ; preds = %_ZNKSt9type_infoneERKS_.exit.thread, %_ZNKSt9type_infoneERKS_.exit15
   store i32 16, ptr %1, align 4, !tbaa !13
-  br label %32
+  br label %31
 
-_ZNKSt9type_infoneERKS_.exit.thread17:            ; preds = %_ZNKSt9type_infoneERKS_.exit.thread.thread, %_ZNKSt9type_infoneERKS_.exit.thread, %8, %_ZNKSt9type_infoneERKS_.exit15, %_ZNKSt9type_infoneERKS_.exit
-  %31 = tail call noundef double @_ZNK6icu_7717GregorianCalendar18getGregorianChangeEv(ptr noundef nonnull align 8 dereferenceable(222) %9)
-  br label %32
+_ZNKSt9type_infoneERKS_.exit.thread17:            ; preds = %_ZNKSt9type_infoneERKS_.exit.thread.thread, %_ZNKSt9type_infoneERKS_.exit.thread, %7, %_ZNKSt9type_infoneERKS_.exit15, %_ZNKSt9type_infoneERKS_.exit
+  %30 = tail call noundef double @_ZNK6icu_7717GregorianCalendar18getGregorianChangeEv(ptr noundef nonnull align 8 dereferenceable(222) %8)
+  br label %31
 
-32:                                               ; preds = %7, %_ZNKSt9type_infoneERKS_.exit15.thread, %_ZNKSt9type_infoneERKS_.exit.thread17, %2
-  %.0 = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %_ZNKSt9type_infoneERKS_.exit15.thread ], [ %31, %_ZNKSt9type_infoneERKS_.exit.thread17 ]
+31:                                               ; preds = %.critedge, %_ZNKSt9type_infoneERKS_.exit15.thread, %_ZNKSt9type_infoneERKS_.exit.thread17, %2
+  %.0 = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %_ZNKSt9type_infoneERKS_.exit15.thread ], [ %30, %_ZNKSt9type_infoneERKS_.exit.thread17 ]
   ret double %.0
 }
 
@@ -2263,7 +2263,7 @@ define noundef i32 @ucal_getFieldDifference_77(ptr noundef %0, double noundef %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucal_getKeywordValuesForLocale_77(ptr noundef readnone captures(none) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef nonnull %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @ucal_getKeywordValuesForLocale_77(ptr noundef readnone captures(none) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef nonnull %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_77::CharString", align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #14

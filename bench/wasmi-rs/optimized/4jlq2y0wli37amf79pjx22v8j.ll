@@ -6,23 +6,24 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN10wasmi_core4simd13i8x16_shuffle17h827f2409da1ce2f7E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [16 x i8], align 1
-  %invariant.gep.i.i = getelementptr i8, ptr %2, i64 -16
   br label %6
 
 6:                                                ; preds = %6, %4
-  %.sroa.6.04.i.i = phi i64 [ 0, %4 ], [ %13, %6 ]
+  %.sroa.6.04.i.i = phi i64 [ 0, %4 ], [ %16, %6 ]
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.6.04.i.i
   %8 = load i8, ptr %7, align 1, !noalias !3, !noundef !14
   %9 = and i8 %8, 31
   %10 = zext nneg i8 %9 to i64
   %11 = icmp samesign ult i8 %9, 16
-  %.sroa.0.0.in.i.i.v.i.i = select i1 %11, ptr %1, ptr %invariant.gep.i.i
-  %.sroa.0.0.in.i.i.i.i = getelementptr i8, ptr %.sroa.0.0.in.i.i.v.i.i, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %10
+  %13 = getelementptr i8, ptr %2, i64 %10
+  %14 = getelementptr i8, ptr %13, i64 -16
+  %.sroa.0.0.in.i.i.i.i = select i1 %11, ptr %12, ptr %14
   %.sroa.0.0.i.i.i.i = load i8, ptr %.sroa.0.0.in.i.i.i.i, align 1, !noalias !3, !noundef !14
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.6.04.i.i
-  store i8 %.sroa.0.0.i.i.i.i, ptr %12, align 1
-  %13 = add nuw nsw i64 %.sroa.6.04.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %13, 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.6.04.i.i
+  store i8 %.sroa.0.0.i.i.i.i, ptr %15, align 1
+  %16 = add nuw nsw i64 %.sroa.6.04.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %16, 16
   br i1 %exitcond.not.i.i, label %_ZN4core5array11try_from_fn17hd67220605d54bd86E.exit, label %6
 
 _ZN4core5array11try_from_fn17hd67220605d54bd86E.exit: ; preds = %6

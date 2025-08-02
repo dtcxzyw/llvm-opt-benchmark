@@ -51329,7 +51329,7 @@ define hidden void @"_ZN146_$LT$vim.._..$LT$impl$u20$serde..de..Deserialize$u20$
   %83 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17hc56ab30596e0a4c3E(i64 noundef 4, ptr noundef nonnull align 1 @anon.f9e4bb7cc30c3dc8a3cbbf27bd17b87c.103, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f9e4bb7cc30c3dc8a3cbbf27bd17b87c.9.llvm.9953974763854637536)
   br label %85
 
-84:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h9555fd267340a26eE.exit.thread18.i.i.i", %72
+84:                                               ; preds = %72, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h9555fd267340a26eE.exit.thread18.i.i.i"
   %.sroa.6.117.i.i.i = phi ptr [ %77, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h9555fd267340a26eE.exit.thread18.i.i.i" ], [ null, %72 ]
   store ptr %.sroa.6.117.i.i.i, ptr %0, align 8
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -51348,9 +51348,9 @@ define hidden void @"_ZN146_$LT$vim.._..$LT$impl$u20$serde..de..Deserialize$u20$
   br label %86
 
 86:                                               ; preds = %65, %68, %50, %53, %35, %38, %20, %23, %85, %84
-  %.sink148 = phi i8 [ 3, %65 ], [ 3, %68 ], [ 3, %50 ], [ 3, %53 ], [ 3, %35 ], [ 3, %38 ], [ 3, %20 ], [ 3, %23 ], [ 3, %85 ], [ %.sroa.596.0.ph.ph, %84 ]
+  %.sink147 = phi i8 [ 3, %65 ], [ 3, %68 ], [ 3, %50 ], [ 3, %53 ], [ 3, %35 ], [ 3, %38 ], [ 3, %20 ], [ 3, %23 ], [ 3, %85 ], [ %.sroa.596.0.ph.ph, %84 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  store i8 %.sink148, ptr %87, align 1
+  store i8 %.sink147, ptr %87, align 1
   ret void
 }
 

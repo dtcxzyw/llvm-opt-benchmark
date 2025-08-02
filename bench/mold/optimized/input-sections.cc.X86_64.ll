@@ -2647,9 +2647,10 @@ _ZN4moldL12get_sym_typeINS_6X86_64EEElRNS_6SymbolIT_EE.exit: ; preds = %10, %_ZN
   %31 = trunc nuw i8 %.val to i1
   %..i = select i1 %31, i64 1, i64 2
   %.0.i = select i1 %30, i64 0, i64 %..i
-  %32 = getelementptr inbounds nuw [3 x [4 x i8]], ptr @_ZZN4mold12InputSectionINS_6X86_64EE10scan_pcrelERNS_7ContextIS1_EERNS_6SymbolIS1_EERKNS_6ElfRelIS1_EEE5table, i64 0, i64 %.0.i, i64 %.0.i7
-  %33 = load i8, ptr %32, align 1, !tbaa !436
-  tail call fastcc void @_ZN4moldL9do_actionINS_6X86_64EEEvRNS_7ContextIT_EENS_6ActionERNS_12InputSectionIS3_EERNS_6SymbolIS3_EERKNS_6ElfRelIS3_EE(ptr noundef nonnull align 8 dereferenceable(4520) %1, i8 noundef zeroext %33, ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef nonnull align 8 dereferenceable(51) %2, ptr noundef nonnull align 1 dereferenceable(24) %3)
+  %32 = getelementptr inbounds nuw [3 x [4 x i8]], ptr @_ZZN4mold12InputSectionINS_6X86_64EE10scan_pcrelERNS_7ContextIS1_EERNS_6SymbolIS1_EERKNS_6ElfRelIS1_EEE5table, i64 0, i64 %.0.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 0, i64 %.0.i7
+  %34 = load i8, ptr %33, align 1, !tbaa !436
+  tail call fastcc void @_ZN4moldL9do_actionINS_6X86_64EEEvRNS_7ContextIT_EENS_6ActionERNS_12InputSectionIS3_EERNS_6SymbolIS3_EERKNS_6ElfRelIS3_EE(ptr noundef nonnull align 8 dereferenceable(4520) %1, i8 noundef zeroext %34, ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef nonnull align 8 dereferenceable(51) %2, ptr noundef nonnull align 1 dereferenceable(24) %3)
   ret void
 }
 
@@ -2907,9 +2908,10 @@ _ZN4moldL12get_sym_typeINS_6X86_64EEElRNS_6SymbolIT_EE.exit: ; preds = %10, %_ZN
   %31 = trunc nuw i8 %.val to i1
   %..i = select i1 %31, i64 1, i64 2
   %.0.i = select i1 %30, i64 0, i64 %..i
-  %32 = getelementptr inbounds nuw [3 x [4 x i8]], ptr @_ZZN4mold12InputSectionINS_6X86_64EE11scan_absrelERNS_7ContextIS1_EERNS_6SymbolIS1_EERKNS_6ElfRelIS1_EEE5table, i64 0, i64 %.0.i, i64 %.0.i7
-  %33 = load i8, ptr %32, align 1, !tbaa !436
-  tail call fastcc void @_ZN4moldL9do_actionINS_6X86_64EEEvRNS_7ContextIT_EENS_6ActionERNS_12InputSectionIS3_EERNS_6SymbolIS3_EERKNS_6ElfRelIS3_EE(ptr noundef nonnull align 8 dereferenceable(4520) %1, i8 noundef zeroext %33, ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef nonnull align 8 dereferenceable(51) %2, ptr noundef nonnull align 1 dereferenceable(24) %3)
+  %32 = getelementptr inbounds nuw [3 x [4 x i8]], ptr @_ZZN4mold12InputSectionINS_6X86_64EE11scan_absrelERNS_7ContextIS1_EERNS_6SymbolIS1_EERKNS_6ElfRelIS1_EEE5table, i64 0, i64 %.0.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 0, i64 %.0.i7
+  %34 = load i8, ptr %33, align 1, !tbaa !436
+  tail call fastcc void @_ZN4moldL9do_actionINS_6X86_64EEEvRNS_7ContextIT_EENS_6ActionERNS_12InputSectionIS3_EERNS_6SymbolIS3_EERKNS_6ElfRelIS3_EE(ptr noundef nonnull align 8 dereferenceable(4520) %1, i8 noundef zeroext %34, ptr noundef nonnull align 8 dereferenceable(94) %0, ptr noundef nonnull align 8 dereferenceable(51) %2, ptr noundef nonnull align 1 dereferenceable(24) %3)
   ret void
 }
 

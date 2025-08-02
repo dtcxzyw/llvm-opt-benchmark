@@ -746,12 +746,12 @@ ansi_to_unicode.exit.i:                           ; preds = %.lr.ph.i.i, %44
   %53 = getelementptr i8, ptr %15, i64 %52
   store i8 0, ptr %53, align 2
   %54 = shl nuw nsw i64 %42, 1
-  %.not5.i = icmp eq i64 %42, 0
-  br i1 %.not5.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not3.i = icmp eq i64 %42, 0
+  br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %ansi_to_unicode.exit.i, %61
   %55 = phi i64 [ %63, %61 ], [ 0, %ansi_to_unicode.exit.i ]
-  %.0724.i = phi i32 [ %62, %61 ], [ 0, %ansi_to_unicode.exit.i ]
+  %.0722.i = phi i32 [ %62, %61 ], [ 0, %ansi_to_unicode.exit.i ]
   %56 = getelementptr [768 x i8], ptr %15, i64 0, i64 %55
   %57 = load i8, ptr %56, align 1
   %.not86.i = icmp eq i8 %57, 0
@@ -764,7 +764,7 @@ ansi_to_unicode.exit.i:                           ; preds = %.lr.ph.i.i, %44
   br label %61
 
 61:                                               ; preds = %58, %.lr.ph.i
-  %62 = add i32 %.0724.i, 1
+  %62 = add i32 %.0722.i, 1
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ugt i64 %54, %63
   br i1 %64, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
@@ -1331,20 +1331,20 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %9
 39:                                               ; preds = %ansi_to_unicode.exit
   %spec.store.select = call i64 @llvm.umin.i64(i64 %27, i64 16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 noundef 0, i64 noundef 16, i1 noundef false) #17
-  br i1 %.not15.i, label %.thread, label %.lr.ph13
+  br i1 %.not15.i, label %.critedge, label %.lr.ph11
 
-.lr.ph13:                                         ; preds = %39, %.lr.ph13
-  %indvars.iv16 = phi i64 [ %indvars.iv.next17, %.lr.ph13 ], [ 0, %39 ]
-  %40 = getelementptr i8, ptr %26, i64 %indvars.iv16
+.lr.ph11:                                         ; preds = %39, %.lr.ph11
+  %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.lr.ph11 ], [ 0, %39 ]
+  %40 = getelementptr i8, ptr %26, i64 %indvars.iv14
   %41 = load i8, ptr %40, align 1
   %42 = call signext i8 @g_ascii_toupper(i8 noundef signext %41) #20
-  %43 = getelementptr [16 x i8], ptr %12, i64 0, i64 %indvars.iv16
+  %43 = getelementptr [16 x i8], ptr %12, i64 0, i64 %indvars.iv14
   store i8 %42, ptr %43, align 1
-  %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
-  %exitcond19.not = icmp eq i64 %indvars.iv.next17, %spec.store.select
-  br i1 %exitcond19.not, label %.thread, label %.lr.ph13, !llvm.loop !36
+  %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
+  %exitcond17.not = icmp eq i64 %indvars.iv.next15, %spec.store.select
+  br i1 %exitcond17.not, label %.critedge, label %.lr.ph11, !llvm.loop !36
 
-.thread:                                          ; preds = %.lr.ph13, %39
+.critedge:                                        ; preds = %.lr.ph11, %39
   call void @crypt_des_ecb(ptr noundef nonnull %13, ptr noundef nonnull @create_ntlmssp_v1_key.lmhash_key, ptr noundef nonnull %12)
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 7
@@ -1618,7 +1618,7 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %9
   %215 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %7, ptr noundef %167, ptr noundef nonnull @ei_ntlmssp_sessionkey, ptr noundef nonnull @.str.254, i32 noundef %169, i32 noundef %172, i32 noundef %175, i32 noundef %178, i32 noundef %181, i32 noundef %184, i32 noundef %187, i32 noundef %190, i32 noundef %193, i32 noundef %196, i32 noundef %199, i32 noundef %202, i32 noundef %205, i32 noundef %208, i32 noundef %211, i32 noundef %214)
   br label %216
 
-216:                                              ; preds = %81, %.thread, %101, %98, %166
+216:                                              ; preds = %81, %101, %98, %.critedge, %166
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #17
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %24) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #17

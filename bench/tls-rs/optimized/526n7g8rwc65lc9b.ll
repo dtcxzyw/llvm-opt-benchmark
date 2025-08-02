@@ -6658,12 +6658,12 @@ define void @"_ZN90_$LT$rustls..crypto..aws_lc_rs..tls13..RingHkdf$u20$as$u20$ru
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   invoke void @"_ZN65_$LT$aws_lc_rs..hmac..LcHmacCtx$u20$as$u20$core..clone..Clone$GT$5clone17h2b1e24ecb1944d84E"(ptr noalias noundef nonnull sret({ { ptr, ptr, { [27 x i64] }, { [27 x i64] }, { [27 x i64] }, i8, [7 x i8] } }) align 8 captures(none) dereferenceable(672) %.sroa.4.0..sroa_idx.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(672) %25)
-          to label %.noexc unwind label %42
+          to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb996785ab5838db4E.exit"
   store ptr %24, ptr %11, align 8, !noalias !1375
   %26 = invoke noundef i32 @"\01aws_lc_0_13_2_HMAC_Update"(ptr noundef nonnull %.sroa.4.0..sroa_idx.i, ptr noundef nonnull readonly align 1 %3, i64 noundef %4)
-          to label %.noexc.i unwind label %39, !noalias !1370
+          to label %.noexc.i unwind label %38, !noalias !1370
 
 .noexc.i:                                         ; preds = %.noexc
   %.not.i.i = icmp eq i32 %26, 1
@@ -6672,7 +6672,7 @@ define void @"_ZN90_$LT$rustls..crypto..aws_lc_rs..tls13..RingHkdf$u20$as$u20$ru
 
 27:                                               ; preds = %.noexc.i
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.8a3f58b3f357eb979b8c01c644d44d42.71, i64 noundef 18, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.72) #37
-          to label %.noexc3.i unwind label %39, !noalias !1370
+          to label %.noexc3.i unwind label %38, !noalias !1370
 
 .noexc3.i:                                        ; preds = %27
   unreachable
@@ -6693,88 +6693,88 @@ define void @"_ZN90_$LT$rustls..crypto..aws_lc_rs..tls13..RingHkdf$u20$as$u20$ru
   %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$aws_lc_rs..hmac..LcHmacCtx$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd27808045cdafbE"(ptr noalias noundef nonnull align 8 dereferenceable(672) %29)
-          to label %.body unwind label %34, !noalias !1386
+          to label %.body unwind label %36, !noalias !1386
 
 33:                                               ; preds = %28
   %.not.i = icmp eq i32 %30, 1
-  br i1 %.not.i, label %36, label %.noexc5.i
+  br i1 %.not.i, label %_ZN9aws_lc_rs4hmac7Context8try_sign17h72a18b5f58764cf2E.exit.i, label %.noexc5.critedge.i
 
-34:                                               ; preds = %31
-  %35 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #40, !noalias !1386
-  unreachable
-
-.noexc5.i:                                        ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !1382
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !1382
-  invoke void @"_ZN68_$LT$aws_lc_rs..hmac..LcHmacCtx$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd27808045cdafbE"(ptr noalias noundef nonnull align 8 dereferenceable(672) %29)
-          to label %.noexc3 unwind label %42
-
-.noexc3:                                          ; preds = %.noexc5.i
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6), !noalias !1375
-  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.8a3f58b3f357eb979b8c01c644d44d42.68, i64 noundef 17, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.70) #37
-          to label %.noexc4 unwind label %42
-
-.noexc4:                                          ; preds = %.noexc3
-  unreachable
-
-36:                                               ; preds = %33
-  %37 = load i32, ptr %8, align 4, !noalias !1382
-  %38 = zext i32 %37 to i64
+_ZN9aws_lc_rs4hmac7Context8try_sign17h72a18b5f58764cf2E.exit.i: ; preds = %33
+  %34 = load i32, ptr %8, align 4, !noalias !1382
+  %35 = zext i32 %34 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.47.i, ptr noundef nonnull align 1 dereferenceable(64) %9, i64 64, i1 false), !noalias !1387
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !1382
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !1382
   invoke void @"_ZN68_$LT$aws_lc_rs..hmac..LcHmacCtx$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd27808045cdafbE"(ptr noalias noundef nonnull align 8 dereferenceable(672) %29)
-          to label %44 unwind label %42
+          to label %43 unwind label %41
 
-39:                                               ; preds = %27, %.noexc
+36:                                               ; preds = %31
+  %37 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #40, !noalias !1386
+  unreachable
+
+.noexc5.critedge.i:                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !1382
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !1382
+  invoke void @"_ZN68_$LT$aws_lc_rs..hmac..LcHmacCtx$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd27808045cdafbE"(ptr noalias noundef nonnull align 8 dereferenceable(672) %29)
+          to label %.noexc4 unwind label %41
+
+.noexc4:                                          ; preds = %.noexc5.critedge.i
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6), !noalias !1375
+  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.8a3f58b3f357eb979b8c01c644d44d42.68, i64 noundef 17, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.70) #37
+          to label %.noexc5 unwind label %41
+
+.noexc5:                                          ; preds = %.noexc4
+  unreachable
+
+38:                                               ; preds = %27, %.noexc
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$aws_lc_rs..hmac..LcHmacCtx$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd27808045cdafbE"(ptr noalias noundef nonnull align 8 dereferenceable(672) %.sroa.4.0..sroa_idx.i)
-          to label %.body unwind label %40, !noalias !1370
+          to label %.body unwind label %39, !noalias !1370
 
-40:                                               ; preds = %39
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %38
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #40, !noalias !1370
   unreachable
 
-42:                                               ; preds = %46, %36, %.noexc3, %.noexc5.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb996785ab5838db4E.exit"
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %45, %.noexc4, %.noexc5.critedge.i, %_ZN9aws_lc_rs4hmac7Context8try_sign17h72a18b5f58764cf2E.exit.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb996785ab5838db4E.exit"
+  %42 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %42, %31, %39
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm.i, %39 ], [ %43, %42 ]
+.body:                                            ; preds = %41, %31, %38
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm.i, %38 ], [ %42, %41 ]
   invoke void @"_ZN68_$LT$aws_lc_rs..hmac..LcHmacCtx$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd27808045cdafbE"(ptr noalias noundef nonnull align 8 dereferenceable(672) %25)
-          to label %"_ZN4core3ptr41drop_in_place$LT$aws_lc_rs..hmac..Key$GT$17h51eeca8ba40a27f7E.exit" unwind label %48
+          to label %"_ZN4core3ptr41drop_in_place$LT$aws_lc_rs..hmac..Key$GT$17h51eeca8ba40a27f7E.exit" unwind label %47
 
-44:                                               ; preds = %36
+43:                                               ; preds = %_ZN9aws_lc_rs4hmac7Context8try_sign17h72a18b5f58764cf2E.exit.i
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6), !noalias !1375
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.47.i, i64 64, i1 false), !alias.scope !1388, !noalias !1392
   %.64..64..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store i64 %38, ptr %.64..64..sroa_idx, align 8, !alias.scope !1393, !noalias !1392
+  store i64 %35, ptr %.64..64..sroa_idx, align 8, !alias.scope !1393, !noalias !1392
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !1375
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.47.i)
   call void @llvm.lifetime.end.p0(i64 680, ptr nonnull %10), !noalias !1375
   call void @llvm.lifetime.end.p0(i64 680, ptr nonnull %11), !noalias !1375
-  %45 = icmp ugt i32 %37, 64
-  br i1 %45, label %46, label %47
+  %44 = icmp ugt i32 %34, 64
+  br i1 %44, label %45, label %46
 
-46:                                               ; preds = %44
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %38, i64 noundef 64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.131) #37
-          to label %.noexc7 unwind label %42
+45:                                               ; preds = %43
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %35, i64 noundef 64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a3f58b3f357eb979b8c01c644d44d42.131) #37
+          to label %.noexc7 unwind label %41
 
-.noexc7:                                          ; preds = %46
+.noexc7:                                          ; preds = %45
   unreachable
 
-47:                                               ; preds = %44
+46:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false), !noalias !1394
   %.64..64..sroa_idx12 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i64 %38, ptr %.64..64..sroa_idx12, align 8, !noalias !1394
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr nonnull readonly align 8 %14, i64 %38, i1 false), !alias.scope !1398, !noalias !1402
+  store i64 %35, ptr %.64..64..sroa_idx12, align 8, !noalias !1394
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr nonnull readonly align 8 %14, i64 %35, i1 false), !alias.scope !1398, !noalias !1402
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %7, i64 72, i1 false), !noalias !1404
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
   call void @"_ZN68_$LT$aws_lc_rs..hmac..LcHmacCtx$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bd27808045cdafbE"(ptr noalias noundef nonnull align 8 dereferenceable(672) %25)
@@ -6782,8 +6782,8 @@ define void @"_ZN90_$LT$rustls..crypto..aws_lc_rs..tls13..RingHkdf$u20$as$u20$ru
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14)
   ret void
 
-48:                                               ; preds = %.body
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %.body
+  %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #40
   unreachable

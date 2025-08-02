@@ -36032,8 +36032,8 @@ entry:
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function14FunctionTraitsIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS3_27HTTPSessionObserverAccessorEEE9callSmallIZNS3_11HTTPSession17onHeadersCompleteEmSt10unique_ptrINS3_11HTTPMessageESt14default_deleteISD_EEE3$_0EEvS5_S7_RNS1_4DataE"(ptr noundef %args, ptr noundef %args1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %p) #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function14FunctionTraitsIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS3_27HTTPSessionObserverAccessorEEE9callSmallIZNS3_11HTTPSession17onHeadersCompleteEmSt10unique_ptrINS3_11HTTPMessageESt14default_deleteISD_EEE3$_0EEvS5_S7_RNS1_4DataE"(ptr noundef %args, ptr noundef %args1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %p) #4 align 2 {
 entry:
   %p.val = load ptr, ptr %p, align 16
   %vtable.i = load ptr, ptr %args, align 8
@@ -36198,8 +36198,8 @@ declare void @_ZN8proxygen15HTTPTransaction8onGoawayENS_9ErrorCodeE(ptr noundef 
 
 declare void @_ZN5folly5IOBuf21coalesceAndReallocateEmmPS0_m(ptr noundef nonnull align 8 dereferenceable(56), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function14FunctionTraitsIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS3_27HTTPSessionObserverAccessorEEE9callSmallIZNS3_11HTTPSession11onPingReplyEmE3$_0EEvS5_S7_RNS1_4DataE"(ptr noundef %args, ptr noundef %args1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %p) #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function14FunctionTraitsIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS3_27HTTPSessionObserverAccessorEEE9callSmallIZNS3_11HTTPSession11onPingReplyEmE3$_0EEvS5_S7_RNS1_4DataE"(ptr noundef %args, ptr noundef %args1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %p) #4 align 2 {
 entry:
   %p.val = load ptr, ptr %p, align 16
   %vtable.i = load ptr, ptr %args, align 8
@@ -36261,8 +36261,8 @@ declare void @_ZN8proxygen15HTTPTransaction22onIngressSetSendWindowEj(ptr nounde
 ; Function Attrs: nounwind
 declare void @_ZN8proxygen11HTTPHeadersD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function14FunctionTraitsIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS3_27HTTPSessionObserverAccessorEEE9callSmallIZNS3_11HTTPSession11sendHeadersEPNS3_15HTTPTransactionERKNS3_11HTTPMessageEPNS3_14HTTPHeaderSizeEbE3$_0EEvS5_S7_RNS1_4DataE"(ptr noundef %args, ptr noundef %args1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %p) #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function14FunctionTraitsIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS3_27HTTPSessionObserverAccessorEEE9callSmallIZNS3_11HTTPSession11sendHeadersEPNS3_15HTTPTransactionERKNS3_11HTTPMessageEPNS3_14HTTPHeaderSizeEbE3$_0EEvS5_S7_RNS1_4DataE"(ptr noundef %args, ptr noundef %args1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %p) #4 align 2 {
 entry:
   %p.val = load ptr, ptr %p, align 16
   %vtable.i = load ptr, ptr %args, align 8
@@ -36708,8 +36708,8 @@ declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenc
 
 declare void @_ZN5folly10IOBufQueue5splitEmb(ptr sret(%"class.std::unique_ptr.56") align 8, ptr noundef nonnull align 8 dereferenceable(72), i64 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail8function14FunctionTraitsIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS3_27HTTPSessionObserverAccessorEEE9callSmallIZNS3_11HTTPSession15runLoopCallbackEvE3$_1EEvS5_S7_RNS1_4DataE"(ptr noundef %args, ptr noundef %args1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %p) #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN5folly6detail8function14FunctionTraitsIFvPN8proxygen28HTTPSessionObserverInterfaceEPNS3_27HTTPSessionObserverAccessorEEE9callSmallIZNS3_11HTTPSession15runLoopCallbackEvE3$_1EEvS5_S7_RNS1_4DataE"(ptr noundef %args, ptr noundef %args1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %p) #4 align 2 {
 entry:
   %p.val = load ptr, ptr %p, align 16
   %vtable.i = load ptr, ptr %args, align 8

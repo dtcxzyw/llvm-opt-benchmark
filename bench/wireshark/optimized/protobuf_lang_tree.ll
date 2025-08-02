@@ -398,17 +398,16 @@ define internal fastcc ptr @pbl_canonicalize_absolute_filepath(ptr noundef reado
   %2 = tail call i64 @strlen(ptr noundef %0) #15
   %3 = add i64 %2, 1
   %4 = tail call noalias ptr @g_malloc(i64 noundef %3) #13
-  %invariant.gep = getelementptr i8, ptr %4, i64 -1
   br label %5
 
-5:                                                ; preds = %18, %1
-  %.038 = phi i32 [ 0, %1 ], [ %.1, %18 ]
-  %.037 = phi i32 [ 0, %1 ], [ %19, %18 ]
+5:                                                ; preds = %20, %1
+  %.038 = phi i32 [ 0, %1 ], [ %.1, %20 ]
+  %.037 = phi i32 [ 0, %1 ], [ %21, %20 ]
   %6 = sext i32 %.037 to i64
   %7 = getelementptr i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %.sink.split [
-    i8 0, label %20
+    i8 0, label %22
     i8 92, label %9
     i8 47, label %9
   ]
@@ -419,48 +418,49 @@ define internal fastcc ptr @pbl_canonicalize_absolute_filepath(ptr noundef reado
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %.038 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %12
-  %13 = load i8, ptr %gep, align 1
-  %14 = icmp eq i8 %13, 47
-  br i1 %14, label %18, label %.sink.split
+  %13 = getelementptr i8, ptr %4, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 -1
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 47
+  br i1 %16, label %20, label %.sink.split
 
 .sink.split:                                      ; preds = %5, %9, %11
   %.sink = phi i8 [ 47, %11 ], [ 47, %9 ], [ %8, %5 ]
-  %15 = add i32 %.038, 1
-  %16 = sext i32 %.038 to i64
-  %17 = getelementptr i8, ptr %4, i64 %16
-  store i8 %.sink, ptr %17, align 1
-  br label %18
+  %17 = add i32 %.038, 1
+  %18 = sext i32 %.038 to i64
+  %19 = getelementptr i8, ptr %4, i64 %18
+  store i8 %.sink, ptr %19, align 1
+  br label %20
 
-18:                                               ; preds = %.sink.split, %11
-  %.1 = phi i32 [ %.038, %11 ], [ %15, %.sink.split ]
-  %19 = add i32 %.037, 1
+20:                                               ; preds = %.sink.split, %11
+  %.1 = phi i32 [ %.038, %11 ], [ %17, %.sink.split ]
+  %21 = add i32 %.037, 1
   br label %5, !llvm.loop !12
 
-20:                                               ; preds = %5
-  %21 = sext i32 %.038 to i64
-  %22 = getelementptr i8, ptr %4, i64 %21
-  store i8 0, ptr %22, align 1
-  %23 = tail call i32 @g_path_is_absolute(ptr noundef %4)
-  %.not40 = icmp eq i32 %23, 0
-  br i1 %.not40, label %29, label %24
+22:                                               ; preds = %5
+  %23 = sext i32 %.038 to i64
+  %24 = getelementptr i8, ptr %4, i64 %23
+  store i8 0, ptr %24, align 1
+  %25 = tail call i32 @g_path_is_absolute(ptr noundef %4)
+  %.not40 = icmp eq i32 %25, 0
+  br i1 %.not40, label %31, label %26
 
-24:                                               ; preds = %20
-  %25 = tail call i32 @g_file_test(ptr noundef %4, i32 noundef 1)
-  %.not41 = icmp eq i32 %25, 0
-  br i1 %.not41, label %29, label %26
+26:                                               ; preds = %22
+  %27 = tail call i32 @g_file_test(ptr noundef %4, i32 noundef 1)
+  %.not41 = icmp eq i32 %27, 0
+  br i1 %.not41, label %31, label %28
 
-26:                                               ; preds = %24
-  %27 = tail call ptr @strstr(ptr noundef %4, ptr noundef nonnull dereferenceable(1) @.str.16) #15
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %30, label %29
+28:                                               ; preds = %26
+  %29 = tail call ptr @strstr(ptr noundef %4, ptr noundef nonnull dereferenceable(1) @.str.16) #15
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %32, label %31
 
-29:                                               ; preds = %26, %24, %20
+31:                                               ; preds = %28, %26, %22
   tail call void @g_free(ptr noundef %4)
-  br label %30
+  br label %32
 
-30:                                               ; preds = %26, %29
-  %.0 = phi ptr [ null, %29 ], [ %4, %26 ]
+32:                                               ; preds = %28, %31
+  %.0 = phi ptr [ null, %31 ], [ %4, %28 ]
   ret ptr %.0
 }
 

@@ -1265,7 +1265,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit76:        ; preds = %_ZNSt6vectorIxSaIxE
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %.lr.ph142
   %store_forwarded = phi i64 [ %load_initial, %.lr.ph142.preheader ], [ %232, %.lr.ph142 ]
   %.0141 = phi i64 [ 1, %.lr.ph142.preheader ], [ %233, %.lr.ph142 ]
-  %230 = getelementptr inbounds nuw i64, ptr %125, i64 %.0141
+  %230 = getelementptr i64, ptr %125, i64 %.0141
   %231 = load i64, ptr %230, align 8, !tbaa !30
   %232 = add nsw i64 %231, %store_forwarded
   store i64 %232, ptr %230, align 8, !tbaa !30
@@ -3915,7 +3915,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit116:       ; preds = %_ZNSt6vectorIxSaIxE
 .lr.ph252:                                        ; preds = %.lr.ph252.preheader, %.lr.ph252
   %store_forwarded = phi i64 [ %load_initial, %.lr.ph252.preheader ], [ %395, %.lr.ph252 ]
   %.0251 = phi i64 [ 1, %.lr.ph252.preheader ], [ %396, %.lr.ph252 ]
-  %393 = getelementptr inbounds nuw i64, ptr %301, i64 %.0251
+  %393 = getelementptr i64, ptr %301, i64 %.0251
   %394 = load i64, ptr %393, align 8, !tbaa !30
   %395 = add nsw i64 %394, %store_forwarded
   store i64 %395, ptr %393, align 8, !tbaa !30

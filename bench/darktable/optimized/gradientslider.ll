@@ -2966,7 +2966,7 @@ DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %9, %11
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_key_press_event, ptr noundef nonnull @.str.9) #14
-  br label %40
+  br label %.critedge
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread26:           ; preds = %11, %DTGTK_IS_GRADIENT_SLIDER.exit
   %15 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
@@ -2989,25 +2989,25 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 264
   %23 = load double, ptr %22, align 8, !tbaa !38
   %24 = fptrunc reassoc nsz arcp contract afn double %23 to float
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %26 = load i32, ptr %25, align 4, !tbaa !177
-  switch i32 %26, label %40 [
-    i32 65362, label %29
-    i32 65431, label %29
-    i32 65363, label %29
-    i32 65432, label %29
-    i32 65364, label %27
-    i32 65433, label %27
-    i32 65361, label %27
-    i32 65430, label %27
+  %25 = fneg reassoc nsz arcp contract afn float %24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %27 = load i32, ptr %26, align 4, !tbaa !177
+  switch i32 %27, label %.critedge [
+    i32 65362, label %28
+    i32 65431, label %28
+    i32 65363, label %28
+    i32 65432, label %28
+    i32 65364, label %29
+    i32 65433, label %29
+    i32 65361, label %29
+    i32 65430, label %29
   ]
 
-27:                                               ; preds = %DTGTK_GRADIENT_SLIDER.exit, %DTGTK_GRADIENT_SLIDER.exit, %DTGTK_GRADIENT_SLIDER.exit, %DTGTK_GRADIENT_SLIDER.exit
-  %28 = fneg reassoc nsz arcp contract afn float %24
+28:                                               ; preds = %DTGTK_GRADIENT_SLIDER.exit, %DTGTK_GRADIENT_SLIDER.exit, %DTGTK_GRADIENT_SLIDER.exit, %DTGTK_GRADIENT_SLIDER.exit
   br label %29
 
-29:                                               ; preds = %DTGTK_GRADIENT_SLIDER.exit, %DTGTK_GRADIENT_SLIDER.exit, %DTGTK_GRADIENT_SLIDER.exit, %DTGTK_GRADIENT_SLIDER.exit, %27
-  %.014.ph = phi float [ %28, %27 ], [ %24, %DTGTK_GRADIENT_SLIDER.exit ], [ %24, %DTGTK_GRADIENT_SLIDER.exit ], [ %24, %DTGTK_GRADIENT_SLIDER.exit ], [ %24, %DTGTK_GRADIENT_SLIDER.exit ]
+29:                                               ; preds = %DTGTK_GRADIENT_SLIDER.exit, %DTGTK_GRADIENT_SLIDER.exit, %DTGTK_GRADIENT_SLIDER.exit, %DTGTK_GRADIENT_SLIDER.exit, %28
+  %.014 = phi nsz float [ %24, %28 ], [ %25, %DTGTK_GRADIENT_SLIDER.exit ], [ %25, %DTGTK_GRADIENT_SLIDER.exit ], [ %25, %DTGTK_GRADIENT_SLIDER.exit ], [ %25, %DTGTK_GRADIENT_SLIDER.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %31 = load i32, ptr %30, align 8, !tbaa !32
   %32 = icmp sgt i32 %31, -1
@@ -3017,17 +3017,17 @@ _get_active_marker.exit:                          ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 52
   %34 = load i32, ptr %33, align 4, !tbaa !33
   %35 = icmp eq i32 %34, -1
-  br i1 %35, label %40, label %_get_active_marker.exit.thread
+  br i1 %35, label %.critedge, label %_get_active_marker.exit.thread
 
 _get_active_marker.exit.thread:                   ; preds = %29, %_get_active_marker.exit
   %36 = phi i32 [ %34, %_get_active_marker.exit ], [ %31, %29 ]
-  %37 = fpext reassoc nsz arcp contract afn float %.014.ph to double
+  %37 = fpext reassoc nsz arcp contract afn float %.014 to double
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load i32, ptr %38, align 8, !tbaa !179
   tail call fastcc void @_gradient_slider_add_delta_internal(ptr noundef nonnull %0, double noundef %37, i32 noundef %39, i32 noundef %36)
-  br label %40
+  br label %.critedge
 
-40:                                               ; preds = %DTGTK_GRADIENT_SLIDER.exit, %_get_active_marker.exit, %_get_active_marker.exit.thread, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
+.critedge:                                        ; preds = %DTGTK_GRADIENT_SLIDER.exit, %_get_active_marker.exit, %_get_active_marker.exit.thread, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
   %.0 = phi i32 [ 1, %DTGTK_IS_GRADIENT_SLIDER.exit.thread ], [ 1, %_get_active_marker.exit ], [ 1, %_get_active_marker.exit.thread ], [ 0, %DTGTK_GRADIENT_SLIDER.exit ]
   ret i32 %.0
 }

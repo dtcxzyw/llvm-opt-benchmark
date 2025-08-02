@@ -128,7 +128,6 @@ define dso_local zeroext i1 @pg_is_ascii(ptr noundef readonly captures(none) %0)
 define dso_local i32 @pg_strip_crlf(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %3 = trunc i64 %2 to i32
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %.critedge
 
@@ -138,26 +137,27 @@ define dso_local i32 @pg_strip_crlf(ptr noundef captures(none) %0) local_unnamed
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge2 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %6 = load i8, ptr %gep, align 1
-  switch i8 %6, label %.critedge.loopexit.split.loop.exit [
+  %6 = getelementptr i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr i8, ptr %6, i64 -1
+  %8 = load i8, ptr %7, align 1
+  switch i8 %8, label %.critedge.loopexit.split.loop.exit [
     i8 10, label %.critedge2
     i8 13, label %.critedge2
   ]
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
-  store i8 0, ptr %7, align 1
-  %8 = icmp sgt i64 %indvars.iv, 1
-  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
+  store i8 0, ptr %9, align 1
+  %10 = icmp sgt i64 %indvars.iv, 1
+  br i1 %10, label %.lr.ph, label %.critedge, !llvm.loop !7
 
 .critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph
-  %9 = trunc nuw nsw i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %.critedge.loopexit.split.loop.exit, %1
-  %.0.lcssa = phi i32 [ %3, %1 ], [ %9, %.critedge.loopexit.split.loop.exit ], [ 0, %.critedge2 ]
+  %.0.lcssa = phi i32 [ %3, %1 ], [ %11, %.critedge.loopexit.split.loop.exit ], [ 0, %.critedge2 ]
   ret i32 %.0.lcssa
 }
 

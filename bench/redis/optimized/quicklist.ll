@@ -203,7 +203,7 @@ define dso_local void @quicklistRelease(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not3.i, label %quicklistBookmarksClear.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %25 = getelementptr i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.i
@@ -216,7 +216,7 @@ define dso_local void @quicklistRelease(ptr noundef %0) local_unnamed_addr #1 {
   %33 = or i64 %31, %32
   store i64 %33, ptr %20, align 8
   %.idx.i = shl nuw nsw i64 %30, 4
-  %34 = getelementptr i8, ptr %25, i64 %.idx.i
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i
   %35 = load ptr, ptr %34, align 8, !tbaa !20
   tail call void @zfree(ptr noundef %35) #23
   %36 = load i64, ptr %20, align 8
@@ -244,7 +244,7 @@ define dso_local void @quicklistBookmarksClear(ptr noundef captures(none) %0) lo
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %7 = getelementptr i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
@@ -257,7 +257,7 @@ define dso_local void @quicklistBookmarksClear(ptr noundef captures(none) %0) lo
   %15 = or i64 %13, %14
   store i64 %15, ptr %2, align 8
   %.idx = shl nuw nsw i64 %12, 4
-  %16 = getelementptr i8, ptr %7, i64 %.idx
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   tail call void @zfree(ptr noundef %17) #23
   %18 = load i64, ptr %2, align 8
@@ -1699,7 +1699,7 @@ define dso_local void @quicklistReplaceEntry(ptr noundef captures(none) %0, ptr 
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 786432
   %12 = icmp eq i32 %11, 262144
-  br i1 %12, label %.thread, label %13, !prof !24
+  br i1 %12, label %.critedge, label %13, !prof !24
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1712,8 +1712,8 @@ define dso_local void @quicklistReplaceEntry(ptr noundef captures(none) %0, ptr 
   br i1 %.not.i, label %21, label %20, !prof !26
 
 20:                                               ; preds = %13
-  %.not133 = icmp ult i64 %3, %19
-  br i1 %.not133, label %29, label %.thread, !prof !26
+  %.not132 = icmp ult i64 %3, %19
+  br i1 %.not132, label %29, label %.critedge, !prof !26
 
 21:                                               ; preds = %13
   %22 = icmp sgt i64 %17, -1
@@ -1721,7 +1721,7 @@ define dso_local void @quicklistReplaceEntry(ptr noundef captures(none) %0, ptr 
 
 23:                                               ; preds = %21
   %24 = icmp ugt i64 %3, 8192
-  br i1 %24, label %.thread, label %29, !prof !24
+  br i1 %24, label %.critedge, label %29, !prof !24
 
 isLargeElement.exit:                              ; preds = %21
   %25 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %18, i32 -5)
@@ -1730,7 +1730,7 @@ isLargeElement.exit:                              ; preds = %21
   %26 = getelementptr inbounds nuw [5 x i64], ptr @optimization_level, i64 0, i64 %.0.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !5
   %28 = icmp ugt i64 %3, %27
-  br i1 %28, label %.thread, label %29, !prof !24
+  br i1 %28, label %.critedge, label %29, !prof !24
 
 29:                                               ; preds = %23, %20, %isLargeElement.exit
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1740,12 +1740,12 @@ isLargeElement.exit:                              ; preds = %21
   %34 = tail call ptr @lpReplace(ptr noundef %31, ptr noundef nonnull %32, ptr noundef %2, i32 noundef %33) #23
   %.not = icmp eq ptr %34, null
   %.pre = load ptr, ptr %7, align 8, !tbaa !33
-  br i1 %.not, label %..thread_crit_edge, label %35, !prof !29
+  br i1 %.not, label %..critedge_crit_edge, label %35, !prof !24
 
-..thread_crit_edge:                               ; preds = %29
+..critedge_crit_edge:                             ; preds = %29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.pre132 = load i32, ptr %.phi.trans.insert, align 8
-  br label %.thread
+  %.pre131 = load i32, ptr %.phi.trans.insert, align 8
+  br label %.critedge
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -1773,14 +1773,14 @@ isLargeElement.exit:                              ; preds = %21
   tail call void @__quicklistCompress(ptr noundef nonnull %6, ptr noundef nonnull %38)
   br label %172
 
-.thread:                                          ; preds = %23, %20, %..thread_crit_edge, %isLargeElement.exit, %4
-  %49 = phi i32 [ %10, %isLargeElement.exit ], [ %10, %4 ], [ %.pre132, %..thread_crit_edge ], [ %10, %20 ], [ %10, %23 ]
-  %50 = phi ptr [ %8, %isLargeElement.exit ], [ %8, %4 ], [ %.pre, %..thread_crit_edge ], [ %8, %20 ], [ %8, %23 ]
+.critedge:                                        ; preds = %23, %20, %..critedge_crit_edge, %4, %isLargeElement.exit
+  %49 = phi i32 [ %10, %4 ], [ %10, %isLargeElement.exit ], [ %.pre131, %..critedge_crit_edge ], [ %10, %20 ], [ %10, %23 ]
+  %50 = phi ptr [ %8, %4 ], [ %8, %isLargeElement.exit ], [ %.pre, %..critedge_crit_edge ], [ %8, %20 ], [ %8, %23 ]
   %51 = and i32 %49, 786432
   %52 = icmp eq i32 %51, 262144
   br i1 %52, label %53, label %87
 
-53:                                               ; preds = %.thread
+53:                                               ; preds = %.critedge
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %55 = load i64, ptr %54, align 8
   %56 = shl i64 %55, 48
@@ -1791,8 +1791,8 @@ isLargeElement.exit:                              ; preds = %21
   br i1 %.not.i119, label %61, label %60, !prof !26
 
 60:                                               ; preds = %53
-  %.not134 = icmp ult i64 %3, %59
-  br i1 %.not134, label %85, label %69
+  %.not133 = icmp ult i64 %3, %59
+  br i1 %.not133, label %85, label %69
 
 61:                                               ; preds = %53
   %62 = icmp sgt i64 %57, -1
@@ -1847,7 +1847,7 @@ isLargeElement.exit124:                           ; preds = %61
   tail call void @__quicklistDelNode(ptr noundef nonnull %6, ptr noundef %86)
   br label %172
 
-87:                                               ; preds = %.thread
+87:                                               ; preds = %.critedge
   %88 = load i32, ptr %9, align 8
   %89 = or i32 %88, 4194304
   store i32 %89, ptr %9, align 8

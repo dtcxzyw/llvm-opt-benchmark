@@ -98,7 +98,7 @@ define internal range(i32 0, 2) i32 @sanity_test() #0 {
 
 21:                                               ; preds = %.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread ]
-  %.059102 = phi i32 [ 0, %.preheader ], [ %106, %.thread ]
+  %.059100 = phi i32 [ 0, %.preheader ], [ %106, %.thread ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %1) #5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
@@ -123,16 +123,7 @@ define internal range(i32 0, 2) i32 @sanity_test() #0 {
   %24 = zext i1 %23 to i32
   %25 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 137, ptr noundef nonnull @.str.10, i32 noundef %24) #5
   %.not70.not = icmp eq i32 %25, 0
-  br i1 %.not70.not, label %.thread97, label %26
-
-.thread97:                                        ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %1) #5
-  br label %110
+  br i1 %.not70.not, label %.critedge, label %26
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw [3 x i32], ptr @sanity_test.alg, i64 0, i64 %indvars.iv
@@ -274,13 +265,13 @@ define internal range(i32 0, 2) i32 @sanity_test() #0 {
   %105 = call i32 @test_int_le(ptr noundef nonnull @.str, i32 noundef 244, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.12, i32 noundef %104, i32 noundef 0) #5
   %.fr = freeze i32 %105
   %.not86.not = icmp eq i32 %.fr, 0
-  %spec.select99 = select i1 %.not86.not, i32 -9, i32 %.059102
+  %spec.select97 = select i1 %.not86.not, i32 -9, i32 %.059100
   br label %.thread
 
 .thread:                                          ; preds = %103, %45, %48, %51, %57, %60, %65, %68, %74, %77, %80, %83, %85, %92, %94, %101, %36, %33, %26
   %.05696 = phi ptr [ %42, %45 ], [ %42, %48 ], [ %42, %51 ], [ %42, %57 ], [ %42, %60 ], [ %42, %65 ], [ %42, %68 ], [ %42, %74 ], [ %42, %77 ], [ %42, %80 ], [ %42, %83 ], [ %42, %85 ], [ %42, %92 ], [ %42, %94 ], [ %42, %101 ], [ %42, %36 ], [ null, %33 ], [ null, %26 ], [ %42, %103 ]
   %.05795 = phi ptr [ %39, %45 ], [ %39, %48 ], [ %39, %51 ], [ %39, %57 ], [ %39, %60 ], [ %39, %65 ], [ %39, %68 ], [ %39, %74 ], [ %39, %77 ], [ %39, %80 ], [ %39, %83 ], [ %39, %85 ], [ %39, %92 ], [ %39, %94 ], [ %39, %101 ], [ %39, %36 ], [ null, %33 ], [ null, %26 ], [ %39, %103 ]
-  %106 = phi i32 [ -2, %45 ], [ -2, %48 ], [ -3, %51 ], [ -4, %57 ], [ -4, %60 ], [ -5, %65 ], [ -6, %68 ], [ -6, %74 ], [ -6, %77 ], [ -7, %80 ], [ -7, %83 ], [ -8, %85 ], [ -8, %92 ], [ -9, %94 ], [ -9, %101 ], [ -1, %36 ], [ -1, %33 ], [ -1, %26 ], [ %spec.select99, %103 ]
+  %106 = phi i32 [ -2, %45 ], [ -2, %48 ], [ -3, %51 ], [ -4, %57 ], [ -4, %60 ], [ -5, %65 ], [ -6, %68 ], [ -6, %74 ], [ -6, %77 ], [ -7, %80 ], [ -7, %83 ], [ -8, %85 ], [ -8, %92 ], [ -9, %94 ], [ -9, %101 ], [ -1, %36 ], [ -1, %33 ], [ -1, %26 ], [ %spec.select97, %103 ]
   call void @ossl_ml_kem_key_free(ptr noundef %30) #5
   call void @ossl_ml_kem_key_free(ptr noundef %29) #5
   call void @CRYPTO_free(ptr noundef %.05795, ptr noundef nonnull @.str, i32 noundef 254) #5
@@ -301,8 +292,17 @@ define internal range(i32 0, 2) i32 @sanity_test() #0 {
   %109 = zext i1 %108 to i32
   br label %110
 
-110:                                              ; preds = %.thread97, %13, %16, %0, %107
-  %.0 = phi i32 [ %109, %107 ], [ 0, %0 ], [ 0, %16 ], [ 0, %13 ], [ 0, %.thread97 ]
+.critedge:                                        ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %1) #5
+  br label %110
+
+110:                                              ; preds = %.critedge, %13, %16, %0, %107
+  %.0 = phi i32 [ %109, %107 ], [ 0, %0 ], [ 0, %16 ], [ 0, %13 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 

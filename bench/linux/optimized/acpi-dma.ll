@@ -467,8 +467,8 @@ define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr noundef readonly 
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %30
 
-30:                                               ; preds = %.thread, %28
-  %31 = phi ptr [ %26, %28 ], [ %59, %.thread ]
+30:                                               ; preds = %.critedge, %28
+  %31 = phi ptr [ %26, %28 ], [ %59, %.critedge ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %29, align 8
@@ -487,14 +487,14 @@ define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr noundef readonly 
   %42 = load i32, ptr %12, align 4
   %43 = zext i16 %35 to i32
   %44 = icmp slt i32 %42, %43
-  br i1 %44, label %.thread, label %45
+  br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 42
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i32
   %49 = icmp samesign ugt i32 %42, %48
-  br i1 %49, label %.thread, label %50
+  br i1 %49, label %.critedge, label %50
 
 50:                                               ; preds = %45
   %51 = sub nsw i32 %42, %43
@@ -508,15 +508,15 @@ define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr noundef readonly 
   %56 = call ptr %55(ptr noundef nonnull %3, ptr noundef %31) #7
   %57 = icmp ne ptr %56, null
   %58 = select i1 %53, i1 true, i1 %57
-  br i1 %58, label %.loopexit, label %.thread
+  br i1 %58, label %.loopexit, label %.critedge
 
-.thread:                                          ; preds = %41, %45, %52
+.critedge:                                        ; preds = %45, %41, %52
   %59 = load ptr, ptr %31, align 8
   %60 = icmp eq ptr %59, @acpi_dma_list
   br i1 %60, label %.loopexit, label %30, !llvm.loop !16
 
-.loopexit:                                        ; preds = %.thread, %52, %25
-  %61 = phi ptr [ null, %25 ], [ %56, %52 ], [ null, %.thread ]
+.loopexit:                                        ; preds = %.critedge, %52, %25
+  %61 = phi ptr [ null, %25 ], [ %56, %52 ], [ null, %.critedge ]
   call void @mutex_unlock(ptr noundef nonnull @acpi_dma_lock) #7
   %62 = icmp eq ptr %61, null
   %63 = select i1 %62, ptr inttoptr (i64 -517 to ptr), ptr %61

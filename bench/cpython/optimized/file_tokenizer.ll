@@ -1008,7 +1008,7 @@ define internal range(i32 0, 2) i32 @tok_underflow_interactive(ptr noundef %0) #
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 28, ptr %6, align 8, !tbaa !23
-  br label %Py_DECREF.exit114
+  br label %.critedge
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1027,18 +1027,18 @@ define internal range(i32 0, 2) i32 @tok_underflow_interactive(ptr noundef %0) #
   %17 = tail call ptr @_PyTokenizer_translate_newlines(ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %0) #11
   tail call void @PyMem_Free(ptr noundef nonnull %15) #11
   %.not103 = icmp eq ptr %17, null
-  br i1 %.not103, label %Py_DECREF.exit114, label %18
+  br i1 %.not103, label %.critedge, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2752
   %20 = load ptr, ptr %19, align 8, !tbaa !20
-  %.not133 = icmp eq ptr %20, null
-  br i1 %.not133, label %Py_DECREF.exit114.thread, label %21
+  %.not130 = icmp eq ptr %20, null
+  br i1 %.not130, label %Py_DECREF.exit114, label %21
 
 21:                                               ; preds = %18
   %22 = load i8, ptr %17, align 1, !tbaa !25
   %.not104 = icmp eq i8 %22, 0
-  br i1 %.not104, label %Py_DECREF.exit114.thread, label %23
+  br i1 %.not104, label %Py_DECREF.exit114, label %23
 
 23:                                               ; preds = %21
   %24 = tail call ptr @_PyTokenizer_translate_into_utf8(ptr noundef nonnull %17, ptr noundef nonnull %20) #11
@@ -1049,7 +1049,7 @@ define internal range(i32 0, 2) i32 @tok_underflow_interactive(ptr noundef %0) #
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 22, ptr %27, align 8, !tbaa !23
-  br label %Py_DECREF.exit114
+  br label %.critedge
 
 28:                                               ; preds = %23
   %29 = getelementptr i8, ptr %24, i64 16
@@ -1077,33 +1077,33 @@ define internal range(i32 0, 2) i32 @tok_underflow_interactive(ptr noundef %0) #
 Py_DECREF.exit:                                   ; preds = %33, %35, %38
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 15, ptr %39, align 8, !tbaa !23
-  br label %Py_DECREF.exit114
+  br label %.critedge
 
 40:                                               ; preds = %28
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %42 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %41) #11
   %43 = load i32, ptr %24, align 8, !tbaa !25
   %.not.i113 = icmp sgt i32 %43, -1
-  br i1 %.not.i113, label %44, label %Py_DECREF.exit114.thread
+  br i1 %.not.i113, label %44, label %Py_DECREF.exit114
 
 44:                                               ; preds = %40
   %45 = add nsw i32 %43, -1
   store i32 %45, ptr %24, align 8, !tbaa !25
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %Py_DECREF.exit114.thread
+  br i1 %46, label %47, label %Py_DECREF.exit114
 
 47:                                               ; preds = %44
   tail call void @_Py_Dealloc(ptr noundef nonnull %24) #11
-  br label %Py_DECREF.exit114.thread
+  br label %Py_DECREF.exit114
 
-Py_DECREF.exit114.thread:                         ; preds = %47, %44, %40, %21, %18
+Py_DECREF.exit114:                                ; preds = %47, %44, %40, %21, %18
   %.289 = phi ptr [ %17, %21 ], [ %17, %18 ], [ %31, %40 ], [ %31, %44 ], [ %31, %47 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !31
   %.not105 = icmp eq i32 %49, 0
   br i1 %.not105, label %tok_concatenate_interactive_new_line.exit.thread, label %50
 
-50:                                               ; preds = %Py_DECREF.exit114.thread
+50:                                               ; preds = %Py_DECREF.exit114
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load ptr, ptr %51, align 8, !tbaa !32
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1161,10 +1161,10 @@ Py_DECREF.exit114.thread:                         ; preds = %47, %44, %40, %21, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   store i32 15, ptr %81, align 8, !tbaa !23
   tail call void @PyMem_Free(ptr noundef nonnull %.289) #11
-  br label %Py_DECREF.exit114
+  br label %.critedge
 
-tok_concatenate_interactive_new_line.exit.thread: ; preds = %7, %78, %Py_DECREF.exit114.thread
-  %.289125 = phi ptr [ %.289, %Py_DECREF.exit114.thread ], [ %.289, %78 ], [ null, %7 ]
+tok_concatenate_interactive_new_line.exit.thread: ; preds = %7, %78, %Py_DECREF.exit114
+  %.289122 = phi ptr [ %.289, %Py_DECREF.exit114 ], [ %.289, %78 ], [ null, %7 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %83 = load ptr, ptr %82, align 8, !tbaa !18
   %.not106 = icmp eq ptr %83, null
@@ -1175,7 +1175,7 @@ tok_concatenate_interactive_new_line.exit.thread: ; preds = %7, %78, %Py_DECREF.
   br label %85
 
 85:                                               ; preds = %84, %tok_concatenate_interactive_new_line.exit.thread
-  %86 = icmp eq ptr %.289125, null
+  %86 = icmp eq ptr %.289122, null
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %85
@@ -1184,12 +1184,12 @@ tok_concatenate_interactive_new_line.exit.thread: ; preds = %7, %78, %Py_DECREF.
   br label %131
 
 89:                                               ; preds = %85
-  %90 = load i8, ptr %.289125, align 1, !tbaa !25
+  %90 = load i8, ptr %.289122, align 1, !tbaa !25
   %91 = icmp eq i8 %90, 0
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %89
-  tail call void @PyMem_Free(ptr noundef nonnull %.289125) #11
+  tail call void @PyMem_Free(ptr noundef nonnull %.289122) #11
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 11, ptr %93, align 8, !tbaa !23
   br label %131
@@ -1205,7 +1205,7 @@ tok_concatenate_interactive_new_line.exit.thread: ; preds = %7, %78, %Py_DECREF.
   %99 = load ptr, ptr %98, align 8, !tbaa !36
   %100 = load ptr, ptr %0, align 8, !tbaa !4
   tail call void @_PyLexer_remember_fstring_buffers(ptr noundef nonnull %0) #11
-  %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.289125) #12
+  %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.289122) #12
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %103 = load i32, ptr %102, align 8, !tbaa !37
   %104 = add i32 %103, 1
@@ -1215,14 +1215,14 @@ tok_concatenate_interactive_new_line.exit.thread: ; preds = %7, %78, %Py_DECREF.
   %106 = add i64 %101, 1
   %107 = tail call i32 @_PyLexer_tok_reserve_buf(ptr noundef nonnull %0, i64 noundef %106) #11
   %.not108.not = icmp eq i32 %107, 0
-  br i1 %.not108.not, label %.thread132, label %109
+  br i1 %.not108.not, label %.thread129, label %109
 
-.thread132:                                       ; preds = %97
+.thread129:                                       ; preds = %97
   %108 = load ptr, ptr %0, align 8, !tbaa !4
   tail call void @PyMem_Free(ptr noundef %108) #11
   store ptr null, ptr %0, align 8, !tbaa !4
-  tail call void @PyMem_Free(ptr noundef nonnull %.289125) #11
-  br label %Py_DECREF.exit114
+  tail call void @PyMem_Free(ptr noundef nonnull %.289122) #11
+  br label %.critedge
 
 109:                                              ; preds = %97
   %110 = ptrtoint ptr %99 to i64
@@ -1230,8 +1230,8 @@ tok_concatenate_interactive_new_line.exit.thread: ; preds = %7, %78, %Py_DECREF.
   %112 = sub i64 %110, %111
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr nonnull align 1 %.289125, i64 %106, i1 false)
-  tail call void @PyMem_Free(ptr noundef nonnull %.289125) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr nonnull align 1 %.289122, i64 %106, i1 false)
+  tail call void @PyMem_Free(ptr noundef nonnull %.289122) #11
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %116 = load ptr, ptr %115, align 8, !tbaa !13
   %117 = getelementptr i8, ptr %116, i64 %101
@@ -1252,13 +1252,13 @@ tok_concatenate_interactive_new_line.exit.thread: ; preds = %7, %78, %Py_DECREF.
   store i32 0, ptr %124, align 4, !tbaa !38
   %125 = load ptr, ptr %0, align 8, !tbaa !4
   tail call void @PyMem_Free(ptr noundef %125) #11
-  store ptr %.289125, ptr %0, align 8, !tbaa !4
+  store ptr %.289122, ptr %0, align 8, !tbaa !4
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.289125, ptr %126, align 8, !tbaa !14
+  store ptr %.289122, ptr %126, align 8, !tbaa !14
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 2768
-  store ptr %.289125, ptr %127, align 8, !tbaa !39
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.289125)
-  %strchr = getelementptr inbounds i8, ptr %.289125, i64 %strlen
+  store ptr %.289122, ptr %127, align 8, !tbaa !39
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.289122)
+  %strchr = getelementptr inbounds i8, ptr %.289122, i64 %strlen
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %strchr, ptr %128, align 8, !tbaa !13
   %129 = getelementptr i8, ptr %strchr, i64 1
@@ -1276,11 +1276,11 @@ tok_concatenate_interactive_new_line.exit.thread: ; preds = %7, %78, %Py_DECREF.
 134:                                              ; preds = %131
   %135 = load ptr, ptr %13, align 8, !tbaa !17
   %.not112 = icmp eq ptr %135, null
-  br i1 %.not112, label %Py_DECREF.exit114, label %136
+  br i1 %.not112, label %.critedge, label %136
 
 136:                                              ; preds = %134
   tail call void (ptr, ...) @PySys_WriteStderr(ptr noundef nonnull @.str.1) #11
-  br label %Py_DECREF.exit114
+  br label %.critedge
 
 137:                                              ; preds = %131
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 17256
@@ -1291,13 +1291,13 @@ tok_concatenate_interactive_new_line.exit.thread: ; preds = %7, %78, %Py_DECREF.
 140:                                              ; preds = %137
   %141 = tail call i32 @_PyLexer_update_fstring_expr(ptr noundef nonnull %0, i8 noundef signext 0) #11
   %.not111 = icmp eq i32 %141, 0
-  br i1 %.not111, label %Py_DECREF.exit114, label %142
+  br i1 %.not111, label %.critedge, label %142
 
 142:                                              ; preds = %140, %137
-  br label %Py_DECREF.exit114
+  br label %.critedge
 
-Py_DECREF.exit114:                                ; preds = %.thread132, %26, %Py_DECREF.exit, %80, %142, %16, %136, %134, %140, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %80 ], [ 1, %142 ], [ 0, %16 ], [ 0, %136 ], [ 0, %134 ], [ 0, %140 ], [ 0, %Py_DECREF.exit ], [ 0, %26 ], [ 0, %.thread132 ]
+.critedge:                                        ; preds = %.thread129, %80, %142, %16, %136, %134, %140, %Py_DECREF.exit, %26, %5
+  %.0 = phi i32 [ 1, %5 ], [ 0, %80 ], [ 1, %142 ], [ 0, %16 ], [ 0, %136 ], [ 0, %134 ], [ 0, %140 ], [ 0, %Py_DECREF.exit ], [ 0, %26 ], [ 0, %.thread129 ]
   ret i32 %.0
 }
 

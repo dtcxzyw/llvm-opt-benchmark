@@ -40,8 +40,8 @@ define float @Map_TimeComputeArrivalMax(ptr noundef readonly captures(none) %0) 
   %18 = and i64 %15, -2
   %19 = inttoptr i64 %18 to ptr
   %.idx = mul nuw nsw i64 %17, 12
-  %20 = getelementptr i8, ptr %19, i64 104
-  %21 = getelementptr i8, ptr %20, i64 %.idx
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %22 = load float, ptr %21, align 4, !tbaa !24
   %23 = fcmp ogt float %.017, %22
   %24 = select i1 %23, float %.017, float %22
@@ -717,8 +717,8 @@ Scl_ConHasOutReqs.exit:                           ; preds = %10, %3
   %35 = and i64 %32, -2
   %36 = inttoptr i64 %35 to ptr
   %.idx.i = mul nuw nsw i64 %34, 12
-  %37 = getelementptr i8, ptr %36, i64 104
-  %38 = getelementptr i8, ptr %37, i64 %.idx.i
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
   %39 = load float, ptr %38, align 4, !tbaa !24
   %40 = fcmp ogt float %.017.i, %39
   %41 = select i1 %40, float %.017.i, float %39
@@ -834,8 +834,8 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
 
 105:                                              ; preds = %.lr.ph104.split.us
   %.idx = mul nuw nsw i64 %93, 12
-  %106 = getelementptr i8, ptr %95, i64 104
-  %107 = getelementptr i8, ptr %106, i64 %.idx
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx
   %108 = load float, ptr %107, align 4, !tbaa !24
   %109 = fcmp ugt float %108, %103
   br i1 %109, label %110, label %113

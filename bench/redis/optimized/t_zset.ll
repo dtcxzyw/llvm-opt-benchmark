@@ -385,8 +385,8 @@ zslRandomLevel.exit:                              ; preds = %.preheader94
   store ptr %86, ptr %87, align 8, !tbaa !20
   store ptr %73, ptr %85, align 8, !tbaa !20
   %.idx87 = shl nuw nsw i64 %indvars.iv114, 4
-  %88 = getelementptr i8, ptr %83, i64 32
-  %89 = getelementptr i8, ptr %88, i64 %.idx87
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx87
   %90 = load i64, ptr %89, align 8, !tbaa !27
   %91 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv114
   %92 = load i64, ptr %91, align 8, !tbaa !26
@@ -1199,8 +1199,8 @@ zslIsInRange.exit:                                ; preds = %27
   br i1 %.in.i111, label %74, label %.critedge2
 
 74:                                               ; preds = %68
-  %75 = getelementptr i8, ptr %.287184, i64 32
-  %76 = getelementptr i8, ptr %75, i64 %.idx203
+  %75 = getelementptr inbounds nuw i8, ptr %.287184, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx203
   %77 = load i64, ptr %76, align 8, !tbaa !27
   %78 = add i64 %77, %.2185
   %79 = getelementptr inbounds nuw i8, ptr %69, i64 24
@@ -15230,8 +15230,8 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
   %.037 = phi i32 [ 0, %21 ], [ 1, %28 ]
   br label %33
 
-33:                                               ; preds = %51, %32
-  %.0.in = phi i64 [ %14, %32 ], [ %.0, %51 ]
+33:                                               ; preds = %50, %32
+  %.0.in = phi i64 [ %14, %32 ], [ %.0, %50 ]
   %.0 = add nsw i64 %.0.in, 2
   %34 = load i32, ptr %16, align 8, !tbaa !147
   %35 = sext i32 %34 to i64
@@ -15241,7 +15241,7 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %36, label %39, label %55
 
 39:                                               ; preds = %33
-  br i1 %38, label %40, label %.thread
+  br i1 %38, label %40, label %.critedge
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %6, align 8, !tbaa !136
@@ -15255,19 +15255,19 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
   %48 = icmp eq i32 %47, 0
   %49 = icmp ne i32 %34, %.neg
   %or.cond = and i1 %49, %48
-  br i1 %or.cond, label %51, label %.thread
+  br i1 %or.cond, label %50, label %.critedge
 
-.thread:                                          ; preds = %39, %40
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %50) #18
-  br label %.loopexit
-
-51:                                               ; preds = %40
-  %52 = getelementptr i8, ptr %43, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !146
-  %54 = call i32 @getRangeLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %53, i64 noundef 1, i64 noundef 9223372036854775807, ptr noundef nonnull %5, ptr noundef nonnull @.str.78) #18
-  %.not44 = icmp eq i32 %54, 0
+50:                                               ; preds = %40
+  %51 = getelementptr i8, ptr %43, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !146
+  %53 = call i32 @getRangeLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %52, i64 noundef 1, i64 noundef 9223372036854775807, ptr noundef nonnull %5, ptr noundef nonnull @.str.78) #18
+  %.not44 = icmp eq i32 %53, 0
   br i1 %.not44, label %33, label %.loopexit, !llvm.loop !238
+
+.critedge:                                        ; preds = %40, %39
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
+  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %54) #18
+  br label %.loopexit
 
 55:                                               ; preds = %33
   br i1 %38, label %56, label %57
@@ -15294,7 +15294,7 @@ define dso_local void @zmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 n
   call void @genericZpopCommand(ptr noundef nonnull %0, ptr noundef nonnull %61, i32 noundef %63, i32 noundef %.037, i32 noundef 1, i64 noundef %58, i32 noundef 1, i32 noundef 1, ptr noundef null)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %51, %.thread, %19, %30, %65, %64, %3
+.loopexit:                                        ; preds = %50, %19, %30, %.critedge, %65, %64, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   ret void

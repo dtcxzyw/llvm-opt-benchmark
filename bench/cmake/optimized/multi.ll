@@ -325,19 +325,19 @@ mstate.exit:                                      ; preds = %38, %42
 define dso_local range(i32 0, 9) i32 @curl_multi_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.Curl_hash_iterator, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %3
+  br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 8, !tbaa !8
   %5 = icmp eq i32 %4, 764702
-  br i1 %5, label %6, label %.thread
+  br i1 %5, label %6, label %.critedge
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 625
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 4
   %.not37 = icmp eq i8 %9, 0
-  br i1 %.not37, label %10, label %.thread
+  br i1 %.not37, label %10, label %.critedge
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -370,22 +370,22 @@ unlink_all_msgsent_handles.exit:                  ; preds = %18, %10
   tail call fastcc void @process_pending_handles(ptr noundef nonnull %0)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = tail call ptr @Curl_llist_head(ptr noundef nonnull %20) #20
-  %.not3846 = icmp eq ptr %21, null
-  br i1 %.not3846, label %._crit_edge, label %.lr.ph
+  %.not3844 = icmp eq ptr %21, null
+  br i1 %.not3844, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %unlink_all_msgsent_handles.exit, %43
-  %.03447 = phi ptr [ %27, %43 ], [ %21, %unlink_all_msgsent_handles.exit ]
-  %22 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.03447) #20
+  %.03445 = phi ptr [ %27, %43 ], [ %21, %unlink_all_msgsent_handles.exit ]
+  %22 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.03445) #20
   %.not39 = icmp eq ptr %22, null
-  br i1 %.not39, label %.thread, label %23
+  br i1 %.not39, label %.critedge, label %23
 
 23:                                               ; preds = %.lr.ph
   %24 = load i32, ptr %22, align 8, !tbaa !31
   %25 = icmp eq i32 %24, -1059136595
-  br i1 %25, label %26, label %.thread
+  br i1 %25, label %26, label %.critedge
 
 26:                                               ; preds = %23
-  %27 = tail call ptr @Curl_node_next(ptr noundef nonnull %.03447) #20
+  %27 = tail call ptr @Curl_node_next(ptr noundef nonnull %.03445) #20
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 4876
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 4096
@@ -416,7 +416,7 @@ unlink_all_msgsent_handles.exit:                  ; preds = %18, %10
   store i32 0, ptr %37, align 8, !tbaa !97
   br label %43
 
-43:                                               ; preds = %36, %40
+43:                                               ; preds = %40, %36
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 208
   store ptr null, ptr %44, align 8, !tbaa !89
   %.not38 = icmp eq ptr %27, null
@@ -478,9 +478,9 @@ sockhash_destroy.exit:                            ; preds = %.lr.ph.i42, %._crit
   store i8 %70, ptr %7, align 1
   %71 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   call void %71(ptr noundef nonnull %0) #20
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph, %23, %1, %3, %sockhash_destroy.exit, %6
+.critedge:                                        ; preds = %.lr.ph, %23, %1, %3, %sockhash_destroy.exit, %6
   %.3 = phi i32 [ 0, %sockhash_destroy.exit ], [ 8, %6 ], [ 1, %3 ], [ 1, %1 ], [ 1, %23 ], [ 1, %.lr.ph ]
   ret i32 %.3
 }

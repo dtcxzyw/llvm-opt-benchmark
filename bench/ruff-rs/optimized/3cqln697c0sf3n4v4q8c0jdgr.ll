@@ -79,9 +79,13 @@ define internal fastcc noundef nonnull align 1 dereferenceable(1) ptr @"_ZN4core
   %.sroa.0.0.i.i = phi i8 [ %27, %26 ], [ %spec.select.i.i.i, %22 ], [ 1, %19 ], [ 1, %14 ], [ 0, %18 ]
   %28 = load i8, ptr %0, align 1, !range !3, !noundef !4
   %.not.not = icmp eq i8 %28, 3
-  br i1 %.not.not, label %34, label %29
+  br i1 %.not.not, label %29, label %.critedge
 
 29:                                               ; preds = %"_ZN4core4cell4once17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hb19017cbb160c3f6E.exit"
+  store i8 %.sroa.0.0.i.i, ptr %0, align 1, !alias.scope !20
+  ret ptr %0
+
+.critedge:                                        ; preds = %"_ZN4core4cell4once17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hb19017cbb160c3f6E.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @anon.baedaa1fd6b5851fb744993775c64ab5.6, ptr %4, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -94,10 +98,6 @@ define internal fastcc noundef nonnull align 1 dereferenceable(1) ptr @"_ZN4core
   store i64 0, ptr %33, align 8
   call void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.baedaa1fd6b5851fb744993775c64ab5.9) #7
   unreachable
-
-34:                                               ; preds = %"_ZN4core4cell4once17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hb19017cbb160c3f6E.exit"
-  store i8 %.sroa.0.0.i.i, ptr %0, align 1, !alias.scope !20
-  ret ptr %0
 }
 
 ; Function Attrs: cold minsize noreturn nonlazybind optsize uwtable

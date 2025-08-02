@@ -738,7 +738,7 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
   %11 = select i1 %.not.i.i, i32 3, i32 1
   %12 = tail call ptr @aom_get_worker_interface() #7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 23608
-  %14 = getelementptr i8, ptr %6, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %wide.trip.count.i = zext nneg i32 %11 to i64
   br label %15
 
@@ -752,7 +752,7 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %15
   %.idx.i = mul nuw nsw i64 %indvars.iv.i, 72
-  %20 = getelementptr i8, ptr %14, i64 %.idx.i
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %.sroa.225.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 12

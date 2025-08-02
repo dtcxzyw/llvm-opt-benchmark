@@ -534,25 +534,25 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 912
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %27
-  br i1 %29, label %.thread25, label %.preheader38
+  br i1 %29, label %.thread25, label %.preheader36
 
-.preheader38:                                     ; preds = %23, %38
+.preheader36:                                     ; preds = %23, %38
   %30 = phi ptr [ %39, %38 ], [ %28, %23 ]
   %31 = getelementptr i8, ptr %30, i64 -32
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, %16
   br i1 %33, label %34, label %38
 
-34:                                               ; preds = %.preheader38
+34:                                               ; preds = %.preheader36
   %35 = getelementptr i8, ptr %30, i64 -24
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %26
   br i1 %37, label %41, label %38
 
-38:                                               ; preds = %34, %.preheader38
+38:                                               ; preds = %34, %.preheader36
   %39 = load ptr, ptr %30, align 8
   %40 = icmp eq ptr %39, %27
-  br i1 %40, label %.thread25, label %.preheader38, !llvm.loop !29
+  br i1 %40, label %.thread25, label %.preheader36, !llvm.loop !29
 
 .thread25:                                        ; preds = %38, %23
   store ptr null, ptr %20, align 8
@@ -562,7 +562,7 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
   %42 = getelementptr i8, ptr %30, i64 -32
   store ptr %42, ptr %20, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.thread, label %154
+  br i1 %43, label %.thread, label %153
 
 .thread:                                          ; preds = %2, %.thread25, %41
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #18
@@ -584,7 +584,7 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
   %53 = icmp eq ptr %52, null
   %54 = icmp eq i32 %44, 0
   %55 = or i1 %54, %53
-  br i1 %55, label %.loopexit37, label %56, !prof !30
+  br i1 %55, label %.loopexit35, label %56, !prof !30
 
 56:                                               ; preds = %51
   %57 = icmp eq i32 %16, 0
@@ -611,27 +611,27 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
   %71 = icmp eq ptr %70, null
   %72 = icmp eq i32 %69, %44
   %73 = select i1 %71, i1 true, i1 %72
-  br i1 %73, label %.loopexit37, label %59, !prof !31, !llvm.loop !32
+  br i1 %73, label %.loopexit35, label %59, !prof !31, !llvm.loop !32
 
-.loopexit37:                                      ; preds = %68, %51
+.loopexit35:                                      ; preds = %68, %51
   %74 = phi i32 [ 0, %51 ], [ %69, %68 ]
   call void @css_task_iter_end(ptr noundef nonnull %3) #18
   %75 = sext i32 %74 to i64
   call void @sort(ptr noundef nonnull %49, i64 noundef %75, i64 noundef 4, ptr noundef nonnull @cmppid, ptr noundef null) #18
   %76 = icmp ult i32 %74, 2
-  br i1 %76, label %.loopexit34, label %77
+  br i1 %76, label %.loopexit32, label %77
 
-77:                                               ; preds = %.loopexit37
+77:                                               ; preds = %.loopexit35
   %78 = icmp sgt i32 %74, 1
-  br i1 %78, label %.preheader35, label %.loopexit34
+  br i1 %78, label %.preheader33, label %.loopexit32
 
-.preheader35:                                     ; preds = %77, %94
+.preheader33:                                     ; preds = %77, %94
   %79 = phi i32 [ %97, %94 ], [ 1, %77 ]
   %80 = phi i32 [ %98, %94 ], [ 1, %77 ]
   br label %81
 
-81:                                               ; preds = %91, %.preheader35
-  %82 = phi i32 [ %92, %91 ], [ %80, %.preheader35 ]
+81:                                               ; preds = %91, %.preheader33
+  %82 = phi i32 [ %92, %91 ], [ %80, %.preheader33 ]
   %83 = sext i32 %82 to i64
   %84 = getelementptr i32, ptr %49, i64 %83
   %85 = load i32, ptr %84, align 4
@@ -645,7 +645,7 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
 91:                                               ; preds = %81
   %92 = add i32 %82, 1
   %93 = icmp eq i32 %92, %74
-  br i1 %93, label %.loopexit34, label %81, !llvm.loop !33
+  br i1 %93, label %.loopexit32, label %81, !llvm.loop !33
 
 94:                                               ; preds = %81
   %95 = sext i32 %79 to i64
@@ -654,10 +654,10 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
   %97 = add i32 %79, 1
   %98 = add i32 %82, 1
   %99 = icmp slt i32 %98, %74
-  br i1 %99, label %.preheader35, label %.loopexit34, !llvm.loop !34
+  br i1 %99, label %.preheader33, label %.loopexit32, !llvm.loop !34
 
-.loopexit34:                                      ; preds = %94, %91, %77, %.loopexit37
-  %100 = phi i32 [ %74, %.loopexit37 ], [ 1, %77 ], [ %79, %91 ], [ %97, %94 ]
+.loopexit32:                                      ; preds = %94, %91, %77, %.loopexit35
+  %100 = phi i32 [ %74, %.loopexit35 ], [ 1, %77 ], [ %79, %91 ], [ %97, %94 ]
   %101 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !28
   %102 = inttoptr i64 %101 to ptr
   %103 = call ptr @task_active_pid_ns(ptr noundef %102) #18
@@ -666,8 +666,8 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
   %106 = icmp eq ptr %105, %104
   br i1 %106, label %.thread28, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit34, %115
-  %107 = phi ptr [ %116, %115 ], [ %105, %.loopexit34 ]
+.preheader:                                       ; preds = %.loopexit32, %115
+  %107 = phi ptr [ %116, %115 ], [ %105, %.loopexit32 ]
   %108 = getelementptr i8, ptr %107, i64 -32
   %109 = load i32, ptr %108, align 8
   %110 = icmp eq i32 %109, %16
@@ -687,9 +687,9 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
 118:                                              ; preds = %111
   %119 = getelementptr i8, ptr %107, i64 -32
   %120 = icmp eq ptr %119, null
-  br i1 %120, label %.thread28, label %150
+  br i1 %120, label %.thread28, label %.critedge
 
-.thread28:                                        ; preds = %115, %.loopexit34, %118
+.thread28:                                        ; preds = %115, %.loopexit32, %118
   %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %122 = call noalias align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %121, i32 noundef 3520, i64 noundef 144) #21
   %123 = icmp eq ptr %122, null
@@ -741,78 +741,78 @@ define internal noundef ptr @cgroup_pidlist_start(ptr noundef readonly captures(
   %148 = getelementptr inbounds nuw i8, ptr %122, i64 40
   store ptr %104, ptr %148, align 8
   store volatile ptr %145, ptr %104, align 8
-  br label %150
+  br label %.critedge
 
 149:                                              ; preds = %.thread28
   call void @kvfree(ptr noundef nonnull %49) #18
   br label %.thread26
 
-150:                                              ; preds = %118, %142
+.critedge:                                        ; preds = %142, %118
   %.ph = phi ptr [ %119, %118 ], [ %122, %142 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.ph, i64 16
-  %152 = load ptr, ptr %151, align 8
-  call void @kvfree(ptr noundef %152) #18
-  store ptr %49, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %.ph, i64 24
-  store i32 %100, ptr %153, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %.ph, i64 16
+  %151 = load ptr, ptr %150, align 8
+  call void @kvfree(ptr noundef %151) #18
+  store ptr %49, ptr %150, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %.ph, i64 24
+  store i32 %100, ptr %152, align 8
   store ptr %.ph, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #18
-  br label %154
+  br label %153
 
 .thread26:                                        ; preds = %.thread, %149, %46
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #18
-  br label %185
+  br label %184
 
-154:                                              ; preds = %150, %41
-  %155 = phi ptr [ %.ph, %150 ], [ %42, %41 ]
-  %156 = icmp eq i32 %18, 0
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %155, i64 24
+153:                                              ; preds = %.critedge, %41
+  %154 = phi ptr [ %.ph, %.critedge ], [ %42, %41 ]
+  %155 = icmp eq i32 %18, 0
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %154, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br i1 %156, label %.loopexit, label %157
+  br i1 %155, label %.loopexit, label %156
 
-157:                                              ; preds = %154
-  %158 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  br label %159
+156:                                              ; preds = %153
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  br label %158
 
-159:                                              ; preds = %163, %157
-  %160 = phi i32 [ 0, %157 ], [ %173, %163 ]
-  %161 = phi i32 [ %.pre, %157 ], [ %175, %163 ]
-  %162 = icmp slt i32 %160, %161
-  br i1 %162, label %163, label %.loopexit
+158:                                              ; preds = %162, %156
+  %159 = phi i32 [ 0, %156 ], [ %172, %162 ]
+  %160 = phi i32 [ %.pre, %156 ], [ %174, %162 ]
+  %161 = icmp slt i32 %159, %160
+  br i1 %161, label %162, label %.loopexit
 
-163:                                              ; preds = %159
-  %164 = add i32 %161, %160
-  %165 = sdiv i32 %164, 2
-  %166 = load ptr, ptr %158, align 8
-  %167 = sext i32 %165 to i64
-  %168 = getelementptr i32, ptr %166, i64 %167
-  %169 = load i32, ptr %168, align 4
-  %170 = icmp eq i32 %169, %18
-  %171 = icmp slt i32 %169, %18
-  %172 = add nsw i32 %165, 1
-  %173 = select i1 %171, i32 %172, i32 %160
-  %174 = icmp sgt i32 %169, %18
-  %175 = select i1 %174, i32 %165, i32 %161
-  br i1 %170, label %.loopexit, label %159
+162:                                              ; preds = %158
+  %163 = add i32 %160, %159
+  %164 = sdiv i32 %163, 2
+  %165 = load ptr, ptr %157, align 8
+  %166 = sext i32 %164 to i64
+  %167 = getelementptr i32, ptr %165, i64 %166
+  %168 = load i32, ptr %167, align 4
+  %169 = icmp eq i32 %168, %18
+  %170 = icmp slt i32 %168, %18
+  %171 = add nsw i32 %164, 1
+  %172 = select i1 %170, i32 %171, i32 %159
+  %173 = icmp sgt i32 %168, %18
+  %174 = select i1 %173, i32 %164, i32 %160
+  br i1 %169, label %.loopexit, label %158
 
-.loopexit:                                        ; preds = %163, %159, %154
-  %176 = phi i32 [ 0, %154 ], [ %160, %159 ], [ %165, %163 ]
-  %177 = icmp slt i32 %176, %.pre
-  br i1 %177, label %178, label %185
+.loopexit:                                        ; preds = %162, %158, %153
+  %175 = phi i32 [ 0, %153 ], [ %159, %158 ], [ %164, %162 ]
+  %176 = icmp slt i32 %175, %.pre
+  br i1 %176, label %177, label %184
 
-178:                                              ; preds = %.loopexit
-  %179 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %180 = load ptr, ptr %179, align 8
-  %181 = sext i32 %176 to i64
-  %182 = getelementptr i32, ptr %180, i64 %181
-  %183 = load i32, ptr %182, align 4
-  %184 = sext i32 %183 to i64
-  store i64 %184, ptr %1, align 8
-  br label %185
+177:                                              ; preds = %.loopexit
+  %178 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %179 = load ptr, ptr %178, align 8
+  %180 = sext i32 %175 to i64
+  %181 = getelementptr i32, ptr %179, i64 %180
+  %182 = load i32, ptr %181, align 4
+  %183 = sext i32 %182 to i64
+  store i64 %183, ptr %1, align 8
+  br label %184
 
-185:                                              ; preds = %178, %.loopexit, %.thread26
-  %186 = phi ptr [ %182, %178 ], [ inttoptr (i64 -12 to ptr), %.thread26 ], [ null, %.loopexit ]
-  ret ptr %186
+184:                                              ; preds = %177, %.loopexit, %.thread26
+  %185 = phi ptr [ %181, %177 ], [ inttoptr (i64 -12 to ptr), %.thread26 ], [ null, %.loopexit ]
+  ret ptr %185
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)

@@ -267,7 +267,7 @@ define internal range(i32 0, 2) i32 @aead_ssl3_open(ptr noundef readonly capture
   %34 = trunc nuw nsw i64 %7 to i32
   %35 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %14, ptr noundef %1, ptr noundef nonnull %11, ptr noundef %6, i32 noundef %34) #7
   %.not52 = icmp eq i32 %35, 0
-  br i1 %.not52, label %.thread, label %36
+  br i1 %.not52, label %.critedge, label %36
 
 36:                                               ; preds = %33
   %37 = load i32, ptr %11, align 4, !tbaa !22
@@ -275,7 +275,7 @@ define internal range(i32 0, 2) i32 @aead_ssl3_open(ptr noundef readonly capture
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %38
   %40 = call i32 @EVP_DecryptFinal_ex(ptr noundef nonnull %14, ptr noundef %39, ptr noundef nonnull %11) #7
   %.not53 = icmp eq i32 %40, 0
-  br i1 %.not53, label %.thread, label %41
+  br i1 %.not53, label %.critedge, label %41
 
 41:                                               ; preds = %36
   %42 = load i32, ptr %11, align 4, !tbaa !22
@@ -298,7 +298,7 @@ define internal range(i32 0, 2) i32 @aead_ssl3_open(ptr noundef readonly capture
 
 56:                                               ; preds = %47
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 101, ptr noundef nonnull @.str, i32 noundef 273) #7
-  br label %.thread
+  br label %.critedge
 
 57:                                               ; preds = %47
   %58 = call i32 @EVP_CIPHER_CTX_block_size(ptr noundef nonnull %14) #7
@@ -307,7 +307,7 @@ define internal range(i32 0, 2) i32 @aead_ssl3_open(ptr noundef readonly capture
 
 59:                                               ; preds = %57
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 101, ptr noundef nonnull @.str, i32 noundef 278) #7
-  br label %.thread
+  br label %.critedge
 
 60:                                               ; preds = %57
   %61 = zext i8 %50 to i64
@@ -341,15 +341,15 @@ define internal range(i32 0, 2) i32 @aead_ssl3_open(ptr noundef readonly capture
 72:                                               ; preds = %64, %71, %70
   %.5 = phi i32 [ 0, %70 ], [ 1, %71 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #7
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %59, %56, %72, %36, %33
-  %.2 = phi i32 [ 0, %33 ], [ 0, %36 ], [ %.5, %72 ], [ 0, %56 ], [ 0, %59 ]
+.critedge:                                        ; preds = %72, %59, %56, %36, %33
+  %.2 = phi i32 [ 0, %33 ], [ 0, %36 ], [ %.5, %72 ], [ 0, %59 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
   br label %73
 
-73:                                               ; preds = %22, %25, %27, %29, %32, %.thread, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %22 ], [ 0, %25 ], [ 0, %27 ], [ 0, %29 ], [ 0, %32 ], [ %.2, %.thread ]
+73:                                               ; preds = %22, %25, %27, %29, %32, %.critedge, %17
+  %.0 = phi i32 [ 0, %17 ], [ 0, %22 ], [ 0, %25 ], [ 0, %27 ], [ 0, %29 ], [ 0, %32 ], [ %.2, %.critedge ]
   ret i32 %.0
 }
 

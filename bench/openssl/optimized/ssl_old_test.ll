@@ -3260,96 +3260,93 @@ declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) 
 define internal range(i32 0, 4) i32 @cb_server_alpn(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #7 {
   %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #25
   %8 = icmp ugt i64 %7, 65534
-  br i1 %8, label %28, label %9
+  br i1 %8, label %29, label %9
 
 9:                                                ; preds = %6
   %10 = add nuw nsw i64 %7, 1
   %11 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %10, ptr noundef nonnull @.str.104, i32 noundef 267) #23
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %28, label %.preheader.i
+  br i1 %.not.i, label %29, label %.preheader.i
 
-.preheader.i:                                     ; preds = %9
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 1
-  br label %12
+.preheader.i:                                     ; preds = %9, %28
+  %.033.i = phi i64 [ %.1.i, %28 ], [ 0, %9 ]
+  %.02632.i = phi i64 [ %.pre-phi.i, %28 ], [ 0, %9 ]
+  %12 = icmp eq i64 %.02632.i, %7
+  br i1 %12, label %17, label %13
 
-12:                                               ; preds = %27, %.preheader.i
-  %.033.i = phi i64 [ 0, %.preheader.i ], [ %.1.i, %27 ]
-  %.02632.i = phi i64 [ 0, %.preheader.i ], [ %.pre-phi.i, %27 ]
-  %13 = icmp eq i64 %.02632.i, %7
-  br i1 %13, label %18, label %14
+13:                                               ; preds = %.preheader.i
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %.02632.i
+  %15 = load i8, ptr %14, align 1, !tbaa !23
+  %16 = icmp eq i8 %15, 44
+  br i1 %16, label %17, label %25
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 %.02632.i
-  %16 = load i8, ptr %15, align 1, !tbaa !23
-  %17 = icmp eq i8 %16, 44
-  br i1 %17, label %18, label %26
+17:                                               ; preds = %13, %.preheader.i
+  %18 = sub i64 %.02632.i, %.033.i
+  %19 = icmp ugt i64 %18, 255
+  br i1 %19, label %20, label %21
 
-18:                                               ; preds = %14, %12
-  %19 = sub i64 %.02632.i, %.033.i
-  %20 = icmp ugt i64 %19, 255
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %18
+20:                                               ; preds = %17
   tail call void @CRYPTO_free(ptr noundef nonnull %11, ptr noundef nonnull @.str.104, i32 noundef 274) #23
+  br label %29
+
+21:                                               ; preds = %17
+  %22 = trunc nuw i64 %18 to i8
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 %.033.i
+  store i8 %22, ptr %23, align 1, !tbaa !23
+  %24 = add nuw nsw i64 %.02632.i, 1
   br label %28
 
-22:                                               ; preds = %18
-  %23 = trunc nuw i64 %19 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 %.033.i
-  store i8 %23, ptr %24, align 1, !tbaa !23
-  %25 = add nuw nsw i64 %.02632.i, 1
-  br label %27
-
-26:                                               ; preds = %14
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.02632.i
-  store i8 %16, ptr %gep.i, align 1, !tbaa !23
+25:                                               ; preds = %13
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 %.02632.i
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  store i8 %15, ptr %27, align 1, !tbaa !23
   %.pre.i = add nuw nsw i64 %.02632.i, 1
-  br label %27
+  br label %28
 
-27:                                               ; preds = %26, %22
-  %.pre-phi.i = phi i64 [ %25, %22 ], [ %.pre.i, %26 ]
-  %.1.i = phi i64 [ %25, %22 ], [ %.033.i, %26 ]
+28:                                               ; preds = %25, %21
+  %.pre-phi.i = phi i64 [ %24, %21 ], [ %.pre.i, %25 ]
+  %.1.i = phi i64 [ %24, %21 ], [ %.033.i, %25 ]
   %exitcond.not.i = icmp eq i64 %.pre-phi.i, %10
-  br i1 %exitcond.not.i, label %next_protos_parse.exit, label %12, !llvm.loop !36
+  br i1 %exitcond.not.i, label %next_protos_parse.exit, label %.preheader.i, !llvm.loop !36
 
-28:                                               ; preds = %21, %6, %9
-  %29 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.217, ptr noundef nonnull %5) #26
+29:                                               ; preds = %20, %6, %9
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.217, ptr noundef nonnull %5) #26
   tail call void @abort() #27
   unreachable
 
-next_protos_parse.exit:                           ; preds = %27
-  %31 = trunc nuw i64 %10 to i32
-  %32 = tail call i32 @SSL_select_next_proto(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11, i32 noundef %31, ptr noundef %3, i32 noundef %4) #23
-  %.not = icmp eq i32 %32, 1
-  br i1 %.not, label %33, label %45
+next_protos_parse.exit:                           ; preds = %28
+  %32 = trunc nuw i64 %10 to i32
+  %33 = tail call i32 @SSL_select_next_proto(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11, i32 noundef %32, ptr noundef %3, i32 noundef %4) #23
+  %.not = icmp eq i32 %33, 1
+  br i1 %.not, label %34, label %46
 
-33:                                               ; preds = %next_protos_parse.exit
-  %34 = load i8, ptr %2, align 1, !tbaa !23
-  %35 = zext i8 %34 to i64
-  %36 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %35, ptr noundef nonnull @.str.104, i32 noundef 313) #23
-  store ptr %36, ptr @alpn_selected, align 8, !tbaa !21
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %41
+34:                                               ; preds = %next_protos_parse.exit
+  %35 = load i8, ptr %2, align 1, !tbaa !23
+  %36 = zext i8 %35 to i64
+  %37 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %36, ptr noundef nonnull @.str.104, i32 noundef 313) #23
+  store ptr %37, ptr @alpn_selected, align 8, !tbaa !21
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %40 = tail call i64 @fwrite(ptr nonnull @.str.218, i64 26, i64 1, ptr %39) #24
+39:                                               ; preds = %34
+  %40 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %41 = tail call i64 @fwrite(ptr nonnull @.str.218, i64 26, i64 1, ptr %40) #24
   tail call void @CRYPTO_free(ptr noundef nonnull %11, ptr noundef nonnull @.str.104, i32 noundef 316) #23
   tail call void @abort() #27
   unreachable
 
-41:                                               ; preds = %33
-  %42 = load ptr, ptr %1, align 8, !tbaa !21
-  %43 = load i8, ptr %2, align 1, !tbaa !23
-  %44 = zext i8 %43 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %42, i64 %44, i1 false)
-  store ptr %36, ptr %1, align 8, !tbaa !21
-  br label %45
+42:                                               ; preds = %34
+  %43 = load ptr, ptr %1, align 8, !tbaa !21
+  %44 = load i8, ptr %2, align 1, !tbaa !23
+  %45 = zext i8 %44 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %43, i64 %45, i1 false)
+  store ptr %37, ptr %1, align 8, !tbaa !21
+  br label %46
 
-45:                                               ; preds = %next_protos_parse.exit, %41
-  %.sink = phi i32 [ 322, %41 ], [ 305, %next_protos_parse.exit ]
-  %.0 = phi i32 [ 0, %41 ], [ 3, %next_protos_parse.exit ]
+46:                                               ; preds = %next_protos_parse.exit, %42
+  %.sink = phi i32 [ 322, %42 ], [ 305, %next_protos_parse.exit ]
+  %.0 = phi i32 [ 0, %42 ], [ 3, %next_protos_parse.exit ]
   tail call void @CRYPTO_free(ptr noundef nonnull %11, ptr noundef nonnull @.str.104, i32 noundef %.sink) #23
   ret i32 %.0
 }
@@ -3358,64 +3355,61 @@ next_protos_parse.exit:                           ; preds = %27
 define internal fastcc ptr @next_protos_parse(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = icmp ugt i64 %3, 65534
-  br i1 %4, label %25, label %5
+  br i1 %4, label %26, label %5
 
 5:                                                ; preds = %2
   %6 = add nuw nsw i64 %3, 1
   %7 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %6, ptr noundef nonnull @.str.104, i32 noundef 267) #23
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %25, label %.preheader
+  br i1 %.not, label %26, label %.preheader
 
-.preheader:                                       ; preds = %5
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 1
-  br label %8
+.preheader:                                       ; preds = %5, %24
+  %.033 = phi i64 [ %.1, %24 ], [ 0, %5 ]
+  %.02632 = phi i64 [ %.pre-phi, %24 ], [ 0, %5 ]
+  %8 = icmp eq i64 %.02632, %3
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %.preheader, %23
-  %.033 = phi i64 [ 0, %.preheader ], [ %.1, %23 ]
-  %.02632 = phi i64 [ 0, %.preheader ], [ %.pre-phi, %23 ]
-  %9 = icmp eq i64 %.02632, %3
-  br i1 %9, label %14, label %10
+9:                                                ; preds = %.preheader
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.02632
+  %11 = load i8, ptr %10, align 1, !tbaa !23
+  %12 = icmp eq i8 %11, 44
+  br i1 %12, label %13, label %21
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.02632
-  %12 = load i8, ptr %11, align 1, !tbaa !23
-  %13 = icmp eq i8 %12, 44
-  br i1 %13, label %14, label %22
+13:                                               ; preds = %9, %.preheader
+  %14 = sub i64 %.02632, %.033
+  %15 = icmp ugt i64 %14, 255
+  br i1 %15, label %16, label %17
 
-14:                                               ; preds = %10, %8
-  %15 = sub i64 %.02632, %.033
-  %16 = icmp ugt i64 %15, 255
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %14
+16:                                               ; preds = %13
   tail call void @CRYPTO_free(ptr noundef nonnull %7, ptr noundef nonnull @.str.104, i32 noundef 274) #23
-  br label %25
+  br label %26
 
-18:                                               ; preds = %14
-  %19 = trunc nuw i64 %15 to i8
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 %.033
-  store i8 %19, ptr %20, align 1, !tbaa !23
-  %21 = add nuw i64 %.02632, 1
-  br label %23
+17:                                               ; preds = %13
+  %18 = trunc nuw i64 %14 to i8
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 %.033
+  store i8 %18, ptr %19, align 1, !tbaa !23
+  %20 = add nuw i64 %.02632, 1
+  br label %24
 
-22:                                               ; preds = %10
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.02632
-  store i8 %12, ptr %gep, align 1, !tbaa !23
+21:                                               ; preds = %9
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %.02632
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  store i8 %11, ptr %23, align 1, !tbaa !23
   %.pre = add nuw i64 %.02632, 1
-  br label %23
+  br label %24
 
-23:                                               ; preds = %18, %22
-  %.pre-phi = phi i64 [ %21, %18 ], [ %.pre, %22 ]
-  %.1 = phi i64 [ %21, %18 ], [ %.033, %22 ]
+24:                                               ; preds = %17, %21
+  %.pre-phi = phi i64 [ %20, %17 ], [ %.pre, %21 ]
+  %.1 = phi i64 [ %20, %17 ], [ %.033, %21 ]
   %exitcond.not = icmp eq i64 %.pre-phi, %6
-  br i1 %exitcond.not, label %24, label %8, !llvm.loop !36
+  br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !36
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   store i64 %6, ptr %0, align 8, !tbaa !11
-  br label %25
+  br label %26
 
-25:                                               ; preds = %5, %2, %24, %17
-  %.027 = phi ptr [ null, %17 ], [ %7, %24 ], [ null, %2 ], [ null, %5 ]
+26:                                               ; preds = %5, %2, %25, %16
+  %.027 = phi ptr [ null, %16 ], [ %7, %25 ], [ null, %2 ], [ null, %5 ]
   ret ptr %.027
 }
 

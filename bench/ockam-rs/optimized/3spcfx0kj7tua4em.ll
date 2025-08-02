@@ -774,7 +774,7 @@ define hidden void @"_ZN109_$LT$ockam_identity..models..versioned_data..Versione
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %139, %138, %136, %135, %133, %125, %.thread268.thread, %116, %3
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %139, %138, %136, %135, %133, %125, %.critedge380, %116, %3
   %lpad.loopexit.split-lp300 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -794,8 +794,8 @@ define hidden void @"_ZN109_$LT$ockam_identity..models..versioned_data..Versione
   br i1 %.not297, label %.preheader, label %.preheader298
 
 .preheader298:                                    ; preds = %37
-  %.not380 = icmp eq i64 %36, 0
-  br i1 %.not380, label %.thread268.thread, label %.lr.ph
+  %.not381 = icmp eq i64 %36, 0
+  br i1 %.not381, label %.critedge380, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader298
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -847,7 +847,7 @@ define hidden void @"_ZN109_$LT$ockam_identity..models..versioned_data..Versione
   ]
 
 .thread268:                                       ; preds = %66
-  br i1 %.sroa.063.4, label %122, label %.thread268.thread
+  br i1 %.sroa.063.4, label %122, label %.critedge380
 
 54:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24)
@@ -1086,7 +1086,7 @@ define hidden void @"_ZN109_$LT$ockam_identity..models..versioned_data..Versione
 
 120:                                              ; preds = %117
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
-  br i1 %.sroa.063.1, label %122, label %.thread268.thread
+  br i1 %.sroa.063.1, label %122, label %.critedge380
 
 121:                                              ; preds = %117
   %.sroa.4167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -1098,12 +1098,12 @@ define hidden void @"_ZN109_$LT$ockam_identity..models..versioned_data..Versione
   br label %141
 
 122:                                              ; preds = %120, %.thread268
-  %.sroa.474.2436 = phi i8 [ %.sroa.474.1, %120 ], [ %.sroa.474.3, %.thread268 ]
-  %.sroa.073.2435 = phi i1 [ %.sroa.073.1, %120 ], [ %.sroa.073.3, %.thread268 ]
-  %.sroa.464.2434 = phi i8 [ %.sroa.464.1, %120 ], [ %.sroa.464.4, %.thread268 ]
-  br i1 %.sroa.073.2435, label %123, label %125
+  %.sroa.474.2433 = phi i8 [ %.sroa.474.1, %120 ], [ %.sroa.474.3, %.thread268 ]
+  %.sroa.073.2432 = phi i1 [ %.sroa.073.1, %120 ], [ %.sroa.073.3, %.thread268 ]
+  %.sroa.464.2431 = phi i8 [ %.sroa.464.1, %120 ], [ %.sroa.464.4, %.thread268 ]
+  br i1 %.sroa.073.2432, label %123, label %125
 
-.thread268.thread:                                ; preds = %.preheader298, %120, %.thread268
+.critedge380:                                     ; preds = %.preheader298, %120, %.thread268
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
@@ -1126,9 +1126,9 @@ define hidden void @"_ZN109_$LT$ockam_identity..models..versioned_data..Versione
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   %.sroa.596.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sroa.464.2434, ptr %.sroa.596.0..sroa_idx, align 8
+  store i8 %.sroa.464.2431, ptr %.sroa.596.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 %.sroa.474.2436, ptr %.sroa.6.0..sroa_idx, align 1
+  store i8 %.sroa.474.2433, ptr %.sroa.6.0..sroa_idx, align 1
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit199"
 
@@ -1186,7 +1186,7 @@ define hidden void @"_ZN109_$LT$ockam_identity..models..versioned_data..Versione
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
   br label %141
 
-138:                                              ; preds = %.thread268.thread
+138:                                              ; preds = %.critedge380
   invoke void @_ZN8minicbor6decode5error5Error12with_message17h9e0ac8a7a31de3bbE(ptr noalias noundef nonnull sret({ { i64, i64 }, { i8, [23 x i8] }, { { { ptr, i64 }, i64 } } }) align 8 captures(none) dereferenceable(64) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %16, ptr noalias noundef nonnull readonly align 1 @anon.83730b5ea31bccde5040e79d43e60e34.6, i64 noundef 22)
           to label %139 unwind label %.loopexit.split-lp.loopexit.split-lp
 

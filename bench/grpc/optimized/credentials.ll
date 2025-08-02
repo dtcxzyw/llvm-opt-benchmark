@@ -1385,8 +1385,8 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit:
   ret ptr %0
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL31credentials_pointer_arg_destroyPv(ptr noundef %0) #9 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL31credentials_pointer_arg_destroyPv(ptr noundef %0) #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
   %4 = icmp eq i64 %3, 1
@@ -1467,8 +1467,8 @@ _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit:
   ret ptr %0
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL38server_credentials_pointer_arg_destroyPv(ptr noundef %0) #9 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL38server_credentials_pointer_arg_destroyPv(ptr noundef %0) #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
   %4 = icmp eq i64 %3, 1

@@ -28,13 +28,12 @@ _ZL7polyvaldPKdi.exit:                            ; preds = %.lr.ph.i
   %9 = fadd double %0, 1.000000e+00
   %10 = fdiv double %7, %9
   store double %10, ptr %3, align 8, !tbaa !3
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %11
 
 11:                                               ; preds = %_ZL7polyvaldPKdi.exit, %_ZL7polyvaldPKdi.exit42
   %indvars.iv = phi i64 [ 0, %_ZL7polyvaldPKdi.exit ], [ %indvars.iv.next.pre-phi, %_ZL7polyvaldPKdi.exit42 ]
-  %.02748 = phi i32 [ 0, %_ZL7polyvaldPKdi.exit ], [ %43, %_ZL7polyvaldPKdi.exit42 ]
-  %.02946 = phi double [ %0, %_ZL7polyvaldPKdi.exit ], [ %41, %_ZL7polyvaldPKdi.exit42 ]
+  %.02748 = phi i32 [ 0, %_ZL7polyvaldPKdi.exit ], [ %45, %_ZL7polyvaldPKdi.exit42 ]
+  %.02946 = phi double [ %0, %_ZL7polyvaldPKdi.exit ], [ %43, %_ZL7polyvaldPKdi.exit42 ]
   %12 = trunc i64 %indvars.iv to i32
   %13 = sub i32 5, %12
   %14 = lshr i32 %13, 1
@@ -90,11 +89,12 @@ _ZL7polyvaldPKdi.exit42:                          ; preds = %.lr.ph.i37, %_ZL7po
   %indvars.iv.next.pre-phi = phi i64 [ %21, %_ZL7polyvaldPKdi.exit35.thread ], [ %31, %.lr.ph.i37 ]
   %.0.lcssa.i41 = phi double [ %25, %_ZL7polyvaldPKdi.exit35.thread ], [ %38, %.lr.ph.i37 ]
   %40 = fmul double %.02946, %.0.lcssa.i41
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
-  store double %40, ptr %gep, align 8, !tbaa !3
-  %41 = fmul double %0, %.02946
-  %42 = add nuw nsw i32 %.02748, 1
-  %43 = add nuw nsw i32 %42, %14
+  %41 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
+  store double %40, ptr %42, align 8, !tbaa !3
+  %43 = fmul double %0, %.02946
+  %44 = add nuw nsw i32 %.02748, 1
+  %45 = add nuw nsw i32 %44, %14
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 6
   br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !9
 

@@ -1551,10 +1551,10 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %61 = getelementptr i8, ptr %7, i64 160
-  %62 = getelementptr i8, ptr %7, i64 152
-  %63 = getelementptr i8, ptr %7, i64 144
-  %64 = getelementptr i8, ptr %7, i64 136
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 136
   br i1 %.not140, label %.lr.ph135.split, label %.lr.ph135.split.us
 
 .lr.ph135.split.us:                               ; preds = %.lr.ph135, %115
@@ -1638,25 +1638,25 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
 
 ._crit_edge.us137:                                ; preds = %79
   %.idx.us = mul nuw nsw i64 %73, 40
-  %117 = getelementptr i8, ptr %61, i64 %.idx.us
+  %117 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.us
   %118 = load double, ptr %117, align 8, !tbaa !29
   %119 = tail call nsz double @llvm.fabs.f64(double %118)
   %120 = fcmp nsz olt double %119, 0x10000000000000
   %121 = select nsz i1 %120, double 0.000000e+00, double %118
   store double %121, ptr %117, align 8, !tbaa !29
-  %122 = getelementptr i8, ptr %62, i64 %.idx.us
+  %122 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx.us
   %123 = load double, ptr %122, align 8, !tbaa !29
   %124 = tail call nsz double @llvm.fabs.f64(double %123)
   %125 = fcmp nsz olt double %124, 0x10000000000000
   %126 = select nsz i1 %125, double 0.000000e+00, double %123
   store double %126, ptr %122, align 8, !tbaa !29
-  %127 = getelementptr i8, ptr %63, i64 %.idx.us
+  %127 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.us
   %128 = load double, ptr %127, align 8, !tbaa !29
   %129 = tail call nsz double @llvm.fabs.f64(double %128)
   %130 = fcmp nsz olt double %129, 0x10000000000000
   %131 = select nsz i1 %130, double 0.000000e+00, double %128
   store double %131, ptr %127, align 8, !tbaa !29
-  %132 = getelementptr i8, ptr %64, i64 %.idx.us
+  %132 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.us
   %133 = load double, ptr %132, align 8, !tbaa !29
   %134 = tail call nsz double @llvm.fabs.f64(double %133)
   %135 = fcmp nsz olt double %134, 0x10000000000000
@@ -1677,25 +1677,25 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   %spec.store.select = select i1 %142, i32 0, i32 %141
   %143 = zext nneg i32 %spec.store.select to i64
   %.idx = mul nuw nsw i64 %143, 40
-  %144 = getelementptr i8, ptr %61, i64 %.idx
+  %144 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx
   %145 = load double, ptr %144, align 8, !tbaa !29
   %146 = tail call nsz double @llvm.fabs.f64(double %145)
   %147 = fcmp nsz olt double %146, 0x10000000000000
   %148 = select nsz i1 %147, double 0.000000e+00, double %145
   store double %148, ptr %144, align 8, !tbaa !29
-  %149 = getelementptr i8, ptr %62, i64 %.idx
+  %149 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
   %150 = load double, ptr %149, align 8, !tbaa !29
   %151 = tail call nsz double @llvm.fabs.f64(double %150)
   %152 = fcmp nsz olt double %151, 0x10000000000000
   %153 = select nsz i1 %152, double 0.000000e+00, double %150
   store double %153, ptr %149, align 8, !tbaa !29
-  %154 = getelementptr i8, ptr %63, i64 %.idx
+  %154 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx
   %155 = load double, ptr %154, align 8, !tbaa !29
   %156 = tail call nsz double @llvm.fabs.f64(double %155)
   %157 = fcmp nsz olt double %156, 0x10000000000000
   %158 = select nsz i1 %157, double 0.000000e+00, double %155
   store double %158, ptr %154, align 8, !tbaa !29
-  %159 = getelementptr i8, ptr %64, i64 %.idx
+  %159 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx
   %160 = load double, ptr %159, align 8, !tbaa !29
   %161 = tail call nsz double @llvm.fabs.f64(double %160)
   %162 = fcmp nsz olt double %161, 0x10000000000000

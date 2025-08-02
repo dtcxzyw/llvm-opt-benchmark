@@ -741,9 +741,9 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr noundef readon
   %11 = zext i32 %1 to i64
   br label %12
 
-12:                                               ; preds = %204, %8
-  %13 = phi i64 [ 0, %8 ], [ %207, %204 ]
-  %14 = phi i32 [ %1, %8 ], [ %208, %204 ]
+12:                                               ; preds = %205, %8
+  %13 = phi i64 [ 0, %8 ], [ %208, %205 ]
+  %14 = phi i32 [ %1, %8 ], [ %209, %205 ]
   %15 = getelementptr [64 x ptr], ptr %9, i64 0, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 360
@@ -775,9 +775,9 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr noundef readon
   %.pre = load i64, ptr %17, align 8
   br label %35
 
-35:                                               ; preds = %106, %32
-  %36 = phi i64 [ %.pre, %32 ], [ %108, %106 ]
-  %37 = phi i32 [ 0, %32 ], [ %109, %106 ]
+35:                                               ; preds = %.critedge, %32
+  %36 = phi i64 [ %.pre, %32 ], [ %109, %.critedge ]
+  %37 = phi i32 [ 0, %32 ], [ %110, %.critedge ]
   %38 = lshr i64 %36, 57
   %39 = and i64 %38, 63
   %40 = icmp samesign ult i64 %39, 46
@@ -849,15 +849,16 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr noundef readon
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %76
-  br i1 %10, label %204, label %201
+  br i1 %10, label %205, label %202
 
 82:                                               ; preds = %76, %58
   %83 = getelementptr inbounds nuw i8, ptr %42, i64 20
+  %.split = getelementptr [2 x [3 x i8]], ptr %83, i64 0, i64 %33
   br label %84
 
 84:                                               ; preds = %94, %82
   %85 = phi i64 [ 0, %82 ], [ %95, %94 ]
-  %86 = getelementptr [2 x [3 x i8]], ptr %83, i64 0, i64 %33, i64 %85
+  %86 = getelementptr [3 x i8], ptr %.split, i64 0, i64 %85
   %87 = load i8, ptr %86, align 1
   %88 = icmp eq i8 %87, -1
   br i1 %88, label %94, label %89
@@ -873,203 +874,203 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr noundef readon
 94:                                               ; preds = %89, %84
   %95 = add nuw nsw i64 %85, 1
   %96 = icmp eq i64 %95, 3
-  br i1 %96, label %.thread16.loopexit, label %84, !llvm.loop !46
+  br i1 %96, label %.thread17.loopexit, label %84, !llvm.loop !46
 
 97:                                               ; preds = %89
   %98 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %49) #13, !srcloc !14
   %99 = icmp ult i8 %98, 2
   call void @llvm.assume(i1 %99)
   %100 = icmp eq i8 %98, 0
-  %.pre55 = load i64, ptr %17, align 8
-  br i1 %100, label %111, label %.thread16
+  %.pre52 = load i64, ptr %17, align 8
+  br i1 %100, label %112, label %.thread17
 
-.thread16.loopexit:                               ; preds = %94
-  %.pre54 = load i64, ptr %17, align 8
-  br label %.thread16
+.thread17.loopexit:                               ; preds = %94
+  %.pre51 = load i64, ptr %17, align 8
+  br label %.thread17
 
-.thread16:                                        ; preds = %.thread16.loopexit, %97
-  %101 = phi i64 [ %.pre54, %.thread16.loopexit ], [ %.pre55, %97 ]
+.thread17:                                        ; preds = %.thread17.loopexit, %97
+  %101 = phi i64 [ %.pre51, %.thread17.loopexit ], [ %.pre52, %97 ]
   %102 = and i64 %101, 512
   %103 = icmp eq i64 %102, 0
-  br i1 %103, label %.thread, label %.critedge
+  br i1 %103, label %.thread, label %104
 
-.critedge:                                        ; preds = %.thread16
-  %104 = and i64 %101, 9223371968168591360
-  switch i64 %104, label %.thread [
-    i64 3458766712843796480, label %106
-    i64 5188707521677492224, label %105
+104:                                              ; preds = %.thread17
+  %105 = and i64 %101, 9223371968168591360
+  switch i64 %105, label %.thread [
+    i64 3458766712843796480, label %.critedge
+    i64 5188707521677492224, label %106
   ], !llvm.loop !47
 
-105:                                              ; preds = %.critedge
-  br label %106
+106:                                              ; preds = %104
+  br label %.critedge
 
-106:                                              ; preds = %.critedge, %105
-  %.ph = phi i64 [ 3458766712843796480, %105 ], [ 5188707521677492224, %.critedge ]
-  %107 = and i64 %101, -9223371968973962752
-  %108 = or disjoint i64 %.ph, %107
-  store i64 %108, ptr %17, align 8
-  %109 = add nuw nsw i32 %37, 1
-  %110 = icmp eq i32 %109, 3
-  br i1 %110, label %.thread, label %35
+.critedge:                                        ; preds = %106, %104
+  %107 = phi i64 [ 5188707521677492224, %104 ], [ 3458766712843796480, %106 ]
+  %108 = and i64 %101, -9223371968973962752
+  %109 = or disjoint i64 %107, %108
+  store i64 %109, ptr %17, align 8
+  %110 = add nuw nsw i32 %37, 1
+  %111 = icmp eq i32 %110, 3
+  br i1 %111, label %.thread, label %35
 
-111:                                              ; preds = %97
-  %112 = sext i8 %87 to i32
-  %113 = load i32, ptr @smp_num_siblings, align 4
-  %114 = icmp eq i32 %113, 2
-  br i1 %114, label %115, label %127
+112:                                              ; preds = %97
+  %113 = sext i8 %87 to i32
+  %114 = load i32, ptr @smp_num_siblings, align 4
+  %115 = icmp eq i32 %114, 2
+  br i1 %115, label %116, label %128
 
-115:                                              ; preds = %111
-  %116 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_sibling_map) #15, !srcloc !34
-  %117 = inttoptr i64 %116 to ptr
-  %118 = load i64, ptr %117, align 8
-  %119 = icmp eq i64 %118, 0
-  br i1 %119, label %123, label %120
+116:                                              ; preds = %112
+  %117 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_sibling_map) #15, !srcloc !34
+  %118 = inttoptr i64 %117 to ptr
+  %119 = load i64, ptr %118, align 8
+  %120 = icmp eq i64 %119, 0
+  br i1 %120, label %124, label %121
 
-120:                                              ; preds = %115
-  %121 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %118) #15, !srcloc !35
-  %122 = trunc i64 %121 to i32
-  br label %123
+121:                                              ; preds = %116
+  %122 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %119) #15, !srcloc !35
+  %123 = trunc i64 %122 to i32
+  br label %124
 
-123:                                              ; preds = %120, %115
-  %124 = phi i32 [ %122, %120 ], [ 64, %115 ]
-  %125 = icmp ne i32 %6, %124
-  %126 = zext i1 %125 to i32
-  br label %127
+124:                                              ; preds = %121, %116
+  %125 = phi i32 [ %123, %121 ], [ 64, %116 ]
+  %126 = icmp ne i32 %6, %125
+  %127 = zext i1 %126 to i32
+  br label %128
 
-127:                                              ; preds = %123, %111
-  %128 = phi i32 [ %126, %123 ], [ 0, %111 ]
-  %129 = lshr i64 %.pre55, 63
-  %130 = trunc nuw nsw i64 %129 to i32
-  %131 = icmp eq i32 %128, %130
-  br i1 %131, label %133, label %132
+128:                                              ; preds = %124, %112
+  %129 = phi i32 [ %127, %124 ], [ 0, %112 ]
+  %130 = lshr i64 %.pre52, 63
+  %131 = trunc nuw nsw i64 %130 to i32
+  %132 = icmp eq i32 %129, %131
+  br i1 %132, label %134, label %133
 
-132:                                              ; preds = %127
+133:                                              ; preds = %128
   store i32 -1, ptr %34, align 4
-  br label %133
+  br label %134
 
-133:                                              ; preds = %132, %127
-  br i1 %114, label %134, label %.thread21
+134:                                              ; preds = %133, %128
+  br i1 %115, label %135, label %.thread18
 
-134:                                              ; preds = %133
-  %135 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_sibling_map) #15, !srcloc !34
-  %136 = inttoptr i64 %135 to ptr
-  %137 = load i64, ptr %136, align 8
-  %138 = icmp eq i64 %137, 0
-  br i1 %138, label %142, label %139
+135:                                              ; preds = %134
+  %136 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_sibling_map) #15, !srcloc !34
+  %137 = inttoptr i64 %136 to ptr
+  %138 = load i64, ptr %137, align 8
+  %139 = icmp eq i64 %138, 0
+  br i1 %139, label %143, label %140
 
-139:                                              ; preds = %134
-  %140 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %137) #15, !srcloc !35
-  %141 = trunc i64 %140 to i32
-  br label %142
+140:                                              ; preds = %135
+  %141 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %138) #15, !srcloc !35
+  %142 = trunc i64 %141 to i32
+  br label %143
 
-142:                                              ; preds = %134, %139
-  %143 = phi i32 [ %141, %139 ], [ 64, %134 ]
-  %144 = icmp slt i64 %.pre55, 0
-  %145 = icmp eq i32 %6, %143
-  %146 = xor i1 %144, %145
-  br i1 %146, label %200, label %150
+143:                                              ; preds = %135, %140
+  %144 = phi i32 [ %142, %140 ], [ 64, %135 ]
+  %145 = icmp slt i64 %.pre52, 0
+  %146 = icmp eq i32 %6, %144
+  %147 = xor i1 %145, %146
+  br i1 %147, label %201, label %151
 
-.thread21:                                        ; preds = %133
-  %147 = icmp sgt i64 %.pre55, -1
-  br i1 %147, label %200, label %.thread22
+.thread18:                                        ; preds = %134
+  %148 = icmp sgt i64 %.pre52, -1
+  br i1 %148, label %201, label %.thread19
 
-.thread22:                                        ; preds = %.thread21
-  %148 = lshr i64 %.pre55, 32
-  %149 = trunc nuw i64 %148 to i32
-  br label %180
+.thread19:                                        ; preds = %.thread18
+  %149 = lshr i64 %.pre52, 32
+  %150 = trunc nuw i64 %149 to i32
+  br label %181
 
-150:                                              ; preds = %142
-  %151 = lshr i64 %.pre55, 32
-  %152 = trunc nuw i64 %151 to i32
-  %153 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_sibling_map) #15, !srcloc !34
-  %154 = inttoptr i64 %153 to ptr
-  %155 = load i64, ptr %154, align 8
-  %156 = icmp eq i64 %155, 0
-  br i1 %156, label %160, label %157
+151:                                              ; preds = %143
+  %152 = lshr i64 %.pre52, 32
+  %153 = trunc nuw i64 %152 to i32
+  %154 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_sibling_map) #15, !srcloc !34
+  %155 = inttoptr i64 %154 to ptr
+  %156 = load i64, ptr %155, align 8
+  %157 = icmp eq i64 %156, 0
+  br i1 %157, label %161, label %158
 
-157:                                              ; preds = %150
-  %158 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %155) #15, !srcloc !35
-  %159 = trunc i64 %158 to i32
-  br label %160
+158:                                              ; preds = %151
+  %159 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %156) #15, !srcloc !35
+  %160 = trunc i64 %159 to i32
+  br label %161
 
-160:                                              ; preds = %157, %150
-  %161 = phi i32 [ %159, %157 ], [ 64, %150 ]
-  %162 = icmp eq i32 %6, %161
-  br i1 %162, label %180, label %163
+161:                                              ; preds = %158, %151
+  %162 = phi i32 [ %160, %158 ], [ 64, %151 ]
+  %163 = icmp eq i32 %6, %162
+  br i1 %163, label %181, label %164
 
-163:                                              ; preds = %160
-  %164 = and i64 %.pre55, 4093640703
-  %165 = or disjoint i64 %164, 134217728
-  %166 = and i64 %.pre55, 34359738368
-  %167 = icmp eq i64 %166, 0
-  %168 = and i32 %152, -11
-  %169 = or disjoint i32 %168, 2
-  %170 = select i1 %167, i32 %152, i32 %169
-  %171 = and i32 %170, 4
-  %172 = icmp eq i32 %171, 0
-  %173 = and i32 %170, -6
-  %174 = or disjoint i32 %173, 1
-  %175 = select i1 %172, i32 %170, i32 %174
-  %176 = zext i32 %175 to i64
-  %177 = shl nuw i64 %176, 32
-  %178 = or disjoint i64 %177, %165
-  %179 = or i64 %178, -9223372036854775808
-  br label %198
+164:                                              ; preds = %161
+  %165 = and i64 %.pre52, 4093640703
+  %166 = or disjoint i64 %165, 134217728
+  %167 = and i64 %.pre52, 34359738368
+  %168 = icmp eq i64 %167, 0
+  %169 = and i32 %153, -11
+  %170 = or disjoint i32 %169, 2
+  %171 = select i1 %168, i32 %153, i32 %170
+  %172 = and i32 %171, 4
+  %173 = icmp eq i32 %172, 0
+  %174 = and i32 %171, -6
+  %175 = or disjoint i32 %174, 1
+  %176 = select i1 %173, i32 %171, i32 %175
+  %177 = zext i32 %176 to i64
+  %178 = shl nuw i64 %177, 32
+  %179 = or disjoint i64 %178, %166
+  %180 = or i64 %179, -9223372036854775808
+  br label %199
 
-180:                                              ; preds = %.thread22, %160
-  %181 = phi i32 [ %149, %.thread22 ], [ %152, %160 ]
-  %182 = and i64 %.pre55, 4093640703
-  %183 = and i64 %.pre55, 8589934592
-  %184 = icmp eq i64 %183, 0
-  %185 = and i32 %181, -11
-  %186 = or disjoint i32 %185, 8
-  %187 = select i1 %184, i32 %181, i32 %186
-  %188 = and i32 %187, 1
-  %189 = icmp eq i32 %188, 0
-  %190 = and i32 %187, 2147483642
-  %191 = or disjoint i32 %190, 4
-  %192 = select i1 %189, i32 %187, i32 %191
-  %193 = zext i32 %192 to i64
-  %194 = shl nuw i64 %193, 32
-  %195 = and i64 %194, 9223372032559808512
-  %196 = or disjoint i64 %182, %195
-  %197 = or disjoint i64 %196, 67108864
-  br label %198
+181:                                              ; preds = %.thread19, %161
+  %182 = phi i32 [ %150, %.thread19 ], [ %153, %161 ]
+  %183 = and i64 %.pre52, 4093640703
+  %184 = and i64 %.pre52, 8589934592
+  %185 = icmp eq i64 %184, 0
+  %186 = and i32 %182, -11
+  %187 = or disjoint i32 %186, 8
+  %188 = select i1 %185, i32 %182, i32 %187
+  %189 = and i32 %188, 1
+  %190 = icmp eq i32 %189, 0
+  %191 = and i32 %188, 2147483642
+  %192 = or disjoint i32 %191, 4
+  %193 = select i1 %190, i32 %188, i32 %192
+  %194 = zext i32 %193 to i64
+  %195 = shl nuw i64 %194, 32
+  %196 = and i64 %195, 9223372032559808512
+  %197 = or disjoint i64 %183, %196
+  %198 = or disjoint i64 %197, 67108864
+  br label %199
 
-198:                                              ; preds = %180, %163
-  %199 = phi i64 [ %197, %180 ], [ %179, %163 ]
-  store i64 %199, ptr %17, align 8
-  br label %200
+199:                                              ; preds = %181, %164
+  %200 = phi i64 [ %198, %181 ], [ %180, %164 ]
+  store i64 %200, ptr %17, align 8
+  br label %201
 
-200:                                              ; preds = %.thread21, %198, %142
-  br i1 %10, label %204, label %201
+201:                                              ; preds = %.thread18, %199, %143
+  br i1 %10, label %205, label %202
 
-201:                                              ; preds = %200, %81
-  %202 = phi i32 [ %59, %81 ], [ %112, %200 ]
-  %203 = getelementptr i32, ptr %2, i64 %13
-  store i32 %202, ptr %203, align 4
-  br label %204
+202:                                              ; preds = %201, %81
+  %203 = phi i32 [ %59, %81 ], [ %113, %201 ]
+  %204 = getelementptr i32, ptr %2, i64 %13
+  store i32 %203, ptr %204, align 4
+  br label %205
 
-204:                                              ; preds = %201, %200, %81
-  %205 = phi i32 [ %112, %200 ], [ %59, %81 ], [ %202, %201 ]
-  %206 = sext i32 %205 to i64
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %206) #13, !srcloc !48
+205:                                              ; preds = %202, %201, %81
+  %206 = phi i32 [ %113, %201 ], [ %59, %81 ], [ %203, %202 ]
+  %207 = sext i32 %206 to i64
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %207) #13, !srcloc !48
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %49) #13, !srcloc !48
-  %207 = add nuw nsw i64 %13, 1
-  %208 = add i32 %14, -1
-  %209 = icmp eq i64 %207, %11
-  br i1 %209, label %.loopexit, label %12, !llvm.loop !49
+  %208 = add nuw nsw i64 %13, 1
+  %209 = add i32 %14, -1
+  %210 = icmp eq i64 %208, %11
+  br i1 %210, label %.loopexit, label %12, !llvm.loop !49
 
-.thread:                                          ; preds = %.critedge, %.thread16, %106, %57, %55
-  %210 = icmp eq i32 %14, 0
-  %211 = select i1 %210, i32 0, i32 -22
+.thread:                                          ; preds = %104, %.thread17, %.critedge, %57, %55
+  %211 = icmp eq i32 %14, 0
+  %212 = select i1 %211, i32 0, i32 -22
   br label %.loopexit
 
-.loopexit:                                        ; preds = %204, %.thread, %3
-  %212 = phi i32 [ 0, %3 ], [ %211, %.thread ], [ 0, %204 ]
+.loopexit:                                        ; preds = %205, %.thread, %3
+  %213 = phi i32 [ 0, %3 ], [ %212, %.thread ], [ 0, %205 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  ret i32 %212
+  ret i32 %213
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)

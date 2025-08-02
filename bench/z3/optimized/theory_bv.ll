@@ -4857,10 +4857,10 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %3
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 2
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %19
-  %.not36 = icmp eq i32 %17, 0
-  br i1 %.not36, label %.critedge, label %.lr.ph40
+  %.not34 = icmp eq i32 %17, 0
+  br i1 %.not34, label %.critedge, label %.lr.ph38
 
-.lr.ph40:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
+.lr.ph38:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -4870,10 +4870,10 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %3
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %28
 
-28:                                               ; preds = %.lr.ph40, %96
-  %.02238 = phi i32 [ 0, %.lr.ph40 ], [ %97, %96 ]
-  %.02537 = phi ptr [ %14, %.lr.ph40 ], [ %98, %96 ]
-  %.sroa.05.0.copyload = load i32, ptr %.02537, align 4, !tbaa !10
+28:                                               ; preds = %.lr.ph38, %96
+  %.02236 = phi i32 [ 0, %.lr.ph38 ], [ %97, %96 ]
+  %.02535 = phi ptr [ %14, %.lr.ph38 ], [ %98, %96 ]
+  %.sroa.05.0.copyload = load i32, ptr %.02535, align 4, !tbaa !10
   %29 = load ptr, ptr %21, align 8, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8848
   %31 = load ptr, ptr %30, align 8, !tbaa !695
@@ -4893,11 +4893,11 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %3
 _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %35
   %38 = getelementptr inbounds i8, ptr %36, i64 -4
   %39 = load i32, ptr %38, align 4, !tbaa !10
-  %.not2834 = icmp ugt i32 %39, %.02238
-  br i1 %.not2834, label %._crit_edge, label %.lr.ph.preheader
+  %.not2832 = icmp ugt i32 %39, %.02236
+  br i1 %.not2832, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %35, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
-  %.02435.ph = phi i32 [ 0, %35 ], [ %39, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ]
+  %.02433.ph = phi i32 [ 0, %35 ], [ %39, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ]
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZN8rationalD2Ev.exit
@@ -4906,16 +4906,16 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %35
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
   %40 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %36, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ]
-  %41 = zext i32 %.02238 to i64
+  %41 = zext i32 %.02236 to i64
   %42 = getelementptr inbounds nuw %class.rational, ptr %40, i64 %41
   %43 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !117
   call void @_ZN11mpq_managerILb1EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %43, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br label %96
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN8rationalD2Ev.exit
-  %.02435 = phi i32 [ %93, %_ZN8rationalD2Ev.exit ], [ %.02435.ph, %.lr.ph.preheader ]
+  %.02433 = phi i32 [ %93, %_ZN8rationalD2Ev.exit ], [ %.02433.ph, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
-  call void @_ZN8rational12power_of_twoEj(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %4, i32 noundef %.02435)
+  call void @_ZN8rational12power_of_twoEj(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %4, i32 noundef %.02433)
   %44 = load ptr, ptr %22, align 8, !tbaa !709
   %45 = icmp eq ptr %44, null
   br i1 %45, label %52, label %46
@@ -5004,8 +5004,8 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %35
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
-  %93 = add i32 %.02435, 1
-  %.not28 = icmp ugt i32 %93, %.02238
+  %93 = add i32 %.02433, 1
+  %.not28 = icmp ugt i32 %93, %.02236
   br i1 %.not28, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !711
 
 94:                                               ; preds = %52
@@ -5015,14 +5015,14 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
   resume { ptr, i32 } %95
 
-96:                                               ; preds = %28, %._crit_edge
-  %97 = add i32 %.02238, 1
-  %98 = getelementptr inbounds nuw i8, ptr %.02537, i64 4
+96:                                               ; preds = %._crit_edge, %28
+  %97 = add i32 %.02236, 1
+  %98 = getelementptr inbounds nuw i8, ptr %.02535, i64 4
   %.not = icmp eq ptr %98, %20
   br i1 %.not, label %.critedge, label %28
 
-.critedge:                                        ; preds = %96, %28, %3, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
-  %.not.lcssa = phi i1 [ true, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ true, %3 ], [ false, %28 ], [ true, %96 ]
+.critedge:                                        ; preds = %28, %96, %3, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
+  %.not.lcssa = phi i1 [ true, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ true, %3 ], [ true, %96 ], [ false, %28 ]
   ret i1 %.not.lcssa
 }
 

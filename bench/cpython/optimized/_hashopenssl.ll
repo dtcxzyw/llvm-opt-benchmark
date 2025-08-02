@@ -1845,12 +1845,12 @@ _PyUnicode_DATA.exit38.i:                         ; preds = %34, %33
   %51 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !58
   %53 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %47, ptr noundef nonnull @.str.114, ptr noundef %49, ptr noundef %52) #9
-  br label %.thread.i
+  br label %.critedge.i
 
 54:                                               ; preds = %43, %40
   %55 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %9, ptr noundef nonnull %4, i32 noundef 0) #9
   %56 = icmp eq i32 %55, -1
-  br i1 %56, label %.thread.i, label %57
+  br i1 %56, label %.critedge.i, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -1862,7 +1862,7 @@ _PyUnicode_DATA.exit38.i:                         ; preds = %34, %33
   %62 = load ptr, ptr @PyExc_BufferError, align 8, !tbaa !23
   call void @PyErr_SetString(ptr noundef %62, ptr noundef nonnull @.str.47) #9
   call void @PyBuffer_Release(ptr noundef nonnull %4) #9
-  br label %.thread.i
+  br label %.critedge.i
 
 63:                                               ; preds = %57
   %64 = call i32 @PyObject_GetBuffer(ptr noundef %11, ptr noundef nonnull %5, i32 noundef 0) #9
@@ -1871,7 +1871,7 @@ _PyUnicode_DATA.exit38.i:                         ; preds = %34, %33
 
 66:                                               ; preds = %63
   call void @PyBuffer_Release(ptr noundef nonnull %4) #9
-  br label %.thread.i
+  br label %.critedge.i
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -1884,12 +1884,7 @@ _PyUnicode_DATA.exit38.i:                         ; preds = %34, %33
   call void @PyErr_SetString(ptr noundef %72, ptr noundef nonnull @.str.47) #9
   call void @PyBuffer_Release(ptr noundef nonnull %4) #9
   call void @PyBuffer_Release(ptr noundef nonnull %5) #9
-  br label %.thread.i
-
-.thread.i:                                        ; preds = %71, %66, %61, %54, %46
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #9
-  br label %_hashlib_compare_digest_impl.exit
+  br label %.critedge.i
 
 73:                                               ; preds = %67
   %74 = load ptr, ptr %4, align 8, !tbaa !39
@@ -1916,8 +1911,13 @@ _PyUnicode_DATA.exit38.i:                         ; preds = %34, %33
   %84 = call ptr @PyBool_FromLong(i64 noundef %83) #9
   br label %_hashlib_compare_digest_impl.exit
 
-_hashlib_compare_digest_impl.exit:                ; preds = %82, %.thread.i, %25, %6
-  %.0 = phi ptr [ null, %6 ], [ %84, %82 ], [ null, %25 ], [ null, %.thread.i ]
+.critedge.i:                                      ; preds = %71, %66, %61, %54, %46
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #9
+  br label %_hashlib_compare_digest_impl.exit
+
+_hashlib_compare_digest_impl.exit:                ; preds = %.critedge.i, %82, %25, %6
+  %.0 = phi ptr [ null, %6 ], [ %84, %82 ], [ null, %25 ], [ null, %.critedge.i ]
   ret ptr %.0
 }
 

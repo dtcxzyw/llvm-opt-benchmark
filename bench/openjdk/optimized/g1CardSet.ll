@@ -2190,7 +2190,7 @@ _ZN18G1CardSetInlinePtr3addEjjj.exit:             ; preds = %_ZN18G1CardSetInlin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9G1CardSet31create_coarsened_array_of_cardsEjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN9G1CardSet31create_coarsened_array_of_cardsEjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   br i1 %2, label %4, label %31
 
 4:                                                ; preds = %3

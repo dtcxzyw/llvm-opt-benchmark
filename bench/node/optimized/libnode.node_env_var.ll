@@ -1454,17 +1454,17 @@ entry:
   %0 = load ptr, ptr %vfn, align 8
   %call = call ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %isolate) #21
   %call11 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #21
-  %cmp12.not = icmp eq i32 %call11, 0
-  br i1 %cmp12.not, label %cleanup, label %for.body
+  %cmp11.not = icmp eq i32 %call11, 0
+  br i1 %cmp11.not, label %cleanup, label %for.body
 
 for.cond:                                         ; preds = %land.rhs47
-  %inc = add nuw i32 %i.013, 1
+  %inc = add nuw i32 %i.012, 1
   %exitcond.not = icmp eq i32 %inc, %call11
   br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !48
 
 for.body:                                         ; preds = %entry, %for.cond
-  %i.013 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
-  %call16 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call, ptr %context.coerce, i32 noundef %i.013) #21
+  %i.012 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
+  %call16 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call, ptr %context.coerce, i32 noundef %i.012) #21
   %cmp.i.i.not = icmp eq ptr %call16, null
   br i1 %cmp.i.i.not, label %cleanup, label %land.rhs
 
@@ -1482,9 +1482,9 @@ if.end.i:                                         ; preds = %land.rhs
   %4 = inttoptr i64 %sub.i to ptr
   %5 = load i16, ptr %4, align 2
   %cmp.i119 = icmp ult i16 %5, 128
-  br i1 %cmp.i119, label %land.end44, label %cleanup
+  br i1 %cmp.i119, label %land.rhs26, label %cleanup
 
-land.end44:                                       ; preds = %if.end.i
+land.rhs26:                                       ; preds = %if.end.i
   %vtable36 = load ptr, ptr %this, align 8
   %vfn37 = getelementptr inbounds nuw i8, ptr %vtable36, i64 16
   %6 = load ptr, ptr %vfn37, align 8
@@ -1492,13 +1492,13 @@ land.end44:                                       ; preds = %if.end.i
   %cmp.i.not = icmp eq ptr %call38, null
   br i1 %cmp.i.not, label %cleanup, label %land.rhs47
 
-land.rhs47:                                       ; preds = %land.end44
+land.rhs47:                                       ; preds = %land.rhs26
   %call66 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %object.coerce, ptr %context.coerce, ptr nonnull %call16, ptr nonnull %call38) #21
   %tobool.i113 = trunc i16 %call66 to i1
   br i1 %tobool.i113, label %for.cond, label %cleanup
 
-cleanup:                                          ; preds = %land.end44, %land.rhs47, %for.cond, %if.end.i, %land.rhs, %for.body, %entry
-  %retval.sroa.0.0 = phi i16 [ 257, %entry ], [ 0, %for.body ], [ 0, %land.rhs ], [ 0, %if.end.i ], [ 257, %for.cond ], [ 0, %land.rhs47 ], [ 0, %land.end44 ]
+cleanup:                                          ; preds = %land.rhs26, %for.body, %land.rhs, %if.end.i, %land.rhs47, %for.cond, %entry
+  %retval.sroa.0.0 = phi i16 [ 257, %entry ], [ 257, %for.cond ], [ 0, %land.rhs47 ], [ 0, %if.end.i ], [ 0, %land.rhs ], [ 0, %for.body ], [ 0, %land.rhs26 ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #21
   ret i16 %retval.sroa.0.0
 }

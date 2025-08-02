@@ -3055,13 +3055,13 @@ entry:
 for.body.i.i:                                     ; preds = %entry, %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit.i.i
   %__node.04.i.i = phi ptr [ %__node.0.i.i, %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit.i.i ], [ %__node.02.i.i, %entry ]
   %6 = load ptr, ptr %__node.04.i.i, align 8
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i.i.i, %for.body.i.i
   %__first.addr.04.i.i.i.idx.i.i = phi i64 [ %__first.addr.04.i.i.i.add.i.i, %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i.i.i ], [ 0, %for.body.i.i ]
-  %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %__first.addr.04.i.i.i.idx.i.i
-  %7 = load ptr, ptr %gep.i.i, align 8
+  %__first.addr.04.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %__first.addr.04.i.i.i.idx.i.i
+  %message_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.ptr.i.i, i64 8
+  %7 = load ptr, ptr %message_.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i.i.i.i.i.i.i.i
 
@@ -3073,7 +3073,7 @@ _ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i.i.i.i.i.i.i
   br label %_ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN4node9inspector12_GLOBAL__N_115RequestToServerEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  store ptr null, ptr %gep.i.i, align 8
+  store ptr null, ptr %message_.i.i.i.i.i.i.i, align 8
   %__first.addr.04.i.i.i.add.i.i = add nuw nsw i64 %__first.addr.04.i.i.i.idx.i.i, 16
   %cmp.not.i.i.i.i.i = icmp eq i64 %__first.addr.04.i.i.i.add.i.i, 512
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_115RequestToServerES3_EvT_S5_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !42

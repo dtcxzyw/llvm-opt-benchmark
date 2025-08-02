@@ -355,7 +355,7 @@ define ptr @frame_data_sequence_find(ptr noundef readonly captures(address_is_nu
 define void @free_frame_data_sequence(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %12, label %3
+  br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %1
   %4 = icmp ult i32 %2, 1025
@@ -370,14 +370,14 @@ define void @free_frame_data_sequence(ptr noundef %0) local_unnamed_addr #0 {
   %. = select i1 %8, i32 3, i32 4
   br label %9
 
-9:                                                ; preds = %7, %5, %3
-  %.0.ph = phi i32 [ %., %7 ], [ 2, %5 ], [ 1, %3 ]
+9:                                                ; preds = %3, %5, %7
+  %.0 = phi i32 [ 1, %3 ], [ 2, %5 ], [ %., %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call fastcc void @free_frame_data_array(ptr noundef %11, i32 noundef %2, i32 noundef %.0.ph, i1 noundef zeroext true)
-  br label %12
+  tail call fastcc void @free_frame_data_array(ptr noundef %11, i32 noundef %2, i32 noundef %.0, i1 noundef zeroext true)
+  br label %.critedge
 
-12:                                               ; preds = %1, %9
+.critedge:                                        ; preds = %1, %9
   tail call void @g_free(ptr noundef %0)
   ret void
 }

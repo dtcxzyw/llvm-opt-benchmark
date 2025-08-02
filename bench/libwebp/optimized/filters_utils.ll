@@ -95,35 +95,36 @@ define hidden i32 @WebPEstimateBestFilter(ptr noundef readonly captures(none) %0
 .preheader.preheader:                             ; preds = %._crit_edge.us, %.lr.ph68, %4
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %71
-  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %71 ], [ 0, %.preheader.preheader ]
-  %.05273 = phi i32 [ %spec.select62, %71 ], [ 2147483647, %.preheader.preheader ]
-  %.05472 = phi i32 [ %spec.select61, %71 ], [ 0, %.preheader.preheader ]
-  br label %65
+.preheader:                                       ; preds = %.preheader.preheader, %72
+  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %72 ], [ 0, %.preheader.preheader ]
+  %.05273 = phi i32 [ %spec.select62, %72 ], [ 2147483647, %.preheader.preheader ]
+  %.05472 = phi i32 [ %spec.select61, %72 ], [ 0, %.preheader.preheader ]
+  %65 = getelementptr inbounds nuw [4 x [16 x i32]], ptr %5, i64 0, i64 %indvars.iv82
+  br label %66
 
-65:                                               ; preds = %.preheader, %65
-  %indvars.iv79 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next80, %65 ]
-  %.070 = phi i32 [ 0, %.preheader ], [ %spec.select, %65 ]
-  %66 = getelementptr inbounds nuw [4 x [16 x i32]], ptr %5, i64 0, i64 %indvars.iv82, i64 %indvars.iv79
-  %67 = load i32, ptr %66, align 4, !tbaa !6
-  %68 = icmp sgt i32 %67, 0
-  %69 = trunc nuw nsw i64 %indvars.iv79 to i32
-  %70 = select i1 %68, i32 %69, i32 0
-  %spec.select = add nuw nsw i32 %70, %.070
+66:                                               ; preds = %.preheader, %66
+  %indvars.iv79 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next80, %66 ]
+  %.070 = phi i32 [ 0, %.preheader ], [ %spec.select, %66 ]
+  %67 = getelementptr inbounds nuw [16 x i32], ptr %65, i64 0, i64 %indvars.iv79
+  %68 = load i32, ptr %67, align 4, !tbaa !6
+  %69 = icmp sgt i32 %68, 0
+  %70 = trunc nuw nsw i64 %indvars.iv79 to i32
+  %71 = select i1 %69, i32 %70, i32 0
+  %spec.select = add nuw nsw i32 %71, %.070
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next80, 16
-  br i1 %exitcond.not, label %71, label %65, !llvm.loop !12
+  br i1 %exitcond.not, label %72, label %66, !llvm.loop !12
 
-71:                                               ; preds = %65
-  %72 = icmp slt i32 %spec.select, %.05273
-  %73 = trunc nuw nsw i64 %indvars.iv82 to i32
-  %spec.select61 = select i1 %72, i32 %73, i32 %.05472
+72:                                               ; preds = %66
+  %73 = icmp slt i32 %spec.select, %.05273
+  %74 = trunc nuw nsw i64 %indvars.iv82 to i32
+  %spec.select61 = select i1 %73, i32 %74, i32 %.05472
   %spec.select62 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %.05273)
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 4
-  br i1 %exitcond85.not, label %74, label %.preheader, !llvm.loop !13
+  br i1 %exitcond85.not, label %75, label %.preheader, !llvm.loop !13
 
-74:                                               ; preds = %71
+75:                                               ; preds = %72
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #5
   ret i32 %spec.select61
 }

@@ -441,7 +441,7 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %181 = getelementptr i8, ptr %116, i64 92
+  %181 = getelementptr inbounds nuw i8, ptr %116, i64 92
   %182 = getelementptr inbounds nuw i8, ptr %116, i64 76
   %183 = load i64, ptr %182, align 4
   %wide.trip.count = zext i8 %180 to i64
@@ -483,7 +483,7 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
   %.sroa.12.2159 = phi i32 [ %.sroa.12.1, %.lr.ph ], [ %.sroa.12.3, %av_cmp_q.exit153 ]
   %.sroa.019.2157 = phi i32 [ %.sroa.019.1, %.lr.ph ], [ %.sroa.019.3, %av_cmp_q.exit153 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 12
-  %206 = getelementptr i8, ptr %181, i64 %.idx
+  %206 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx
   %.sroa.03.0.copyload = load i64, ptr %206, align 4
   %.sroa.011.0.extract.trunc.i144 = trunc i64 %.sroa.03.0.copyload to i32
   %sext.i146 = shl i64 %.sroa.03.0.copyload, 32

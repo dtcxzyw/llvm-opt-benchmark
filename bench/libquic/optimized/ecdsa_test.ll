@@ -995,11 +995,16 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc, %17
 
 56:                                               ; preds = %52
   %.not.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.thread.i, label %57
+  br i1 %.not.i.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.i, label %57
 
 57:                                               ; preds = %56
   call void @free(ptr noundef nonnull %53) #15
-  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.thread.i
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.i
+
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.i:  ; preds = %57, %56
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  br label %_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit
 
 58:                                               ; preds = %52
   %59 = landingpad { ptr, i32 }
@@ -1016,22 +1021,17 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit18.i: ; preds = %60, %58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   br label %.body.thread
 
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.thread.i: ; preds = %57, %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  br label %_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit
+61:                                               ; preds = %49
+  %62 = invoke i32 @ECDSA_do_verify(ptr noundef nonnull %1, i64 noundef 20, ptr noundef nonnull %2, ptr noundef %3)
+          to label %_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit unwind label %64
 
 _ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit.thread: ; preds = %.noexc50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   br label %.thread
 
-61:                                               ; preds = %49
-  %62 = invoke i32 @ECDSA_do_verify(ptr noundef nonnull %1, i64 noundef 20, ptr noundef nonnull %2, ptr noundef %3)
-          to label %_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit unwind label %64
-
-_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit: ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.thread.i, %61
-  %.115.i = phi i32 [ %55, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.thread.i ], [ %62, %61 ]
+_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit: ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.i, %61
+  %.115.i = phi i32 [ %55, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.i ], [ %62, %61 ]
   %63 = icmp eq i32 %.115.i, 0
   br i1 %63, label %66, label %.thread
 
@@ -1227,7 +1227,7 @@ define internal fastcc noundef zeroext i1 @_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   %9 = call i32 @ECDSA_SIG_to_bytes(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %2)
   %.not.not = icmp eq i32 %9, 0
-  br i1 %.not.not, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %10
+  br i1 %.not.not, label %.critedge, label %10
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr %6, align 8, !tbaa !30
@@ -1237,11 +1237,16 @@ define internal fastcc noundef zeroext i1 @_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_
 
 14:                                               ; preds = %10
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.thread, label %15
+  br i1 %.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %15
 
 15:                                               ; preds = %14
   call void @free(ptr noundef nonnull %11) #15
-  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.thread
+  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
+
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %14, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  br label %21
 
 16:                                               ; preds = %10
   %17 = landingpad { ptr, i32 }
@@ -1258,27 +1263,22 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit18:  ; preds = %16, %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   resume { ptr, i32 } %17
 
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.thread: ; preds = %15, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  br label %21
-
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  br label %23
-
 19:                                               ; preds = %5
   %20 = tail call i32 @ECDSA_do_verify(ptr noundef nonnull %1, i64 noundef 20, ptr noundef %2, ptr noundef %3)
   br label %21
 
-21:                                               ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.thread, %19
-  %.115 = phi i32 [ %20, %19 ], [ %13, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.thread ]
+21:                                               ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, %19
+  %.115 = phi i32 [ %13, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ], [ %20, %19 ]
   %22 = icmp eq i32 %4, %.115
   br label %23
 
-23:                                               ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, %21
-  %.1 = phi i1 [ %22, %21 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ]
+.critedge:                                        ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  br label %23
+
+23:                                               ; preds = %.critedge, %21
+  %.1 = phi i1 [ %22, %21 ], [ false, %.critedge ]
   ret i1 %.1
 }
 

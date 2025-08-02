@@ -116,292 +116,293 @@ define void @_ZN18SimulationParticleC2EPN3gmx11ISerializerERK11StringTable(ptr n
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 0, ptr %9, align 4, !tbaa !13
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %10
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %11
 
-10:                                               ; preds = %10, %3
-  %.idx.i = phi i64 [ 0, %3 ], [ %.add.i, %10 ]
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
-  store i8 0, ptr %gep.i, align 8, !tbaa !16
+11:                                               ; preds = %11, %3
+  %.idx.i = phi i64 [ 0, %3 ], [ %.add.i, %11 ]
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
+  %12 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 16
+  store i8 0, ptr %12, align 8, !tbaa !16
   %.add.i = add nuw nsw i64 %.idx.i, 24
-  %11 = icmp eq i64 %.add.i, 48
-  br i1 %11, label %_ZN13FEPStateValueISt8optionalI16StringTableEntryEEC2Ev.exit, label %10
+  %13 = icmp eq i64 %.add.i, 48
+  br i1 %13, label %_ZN13FEPStateValueISt8optionalI16StringTableEntryEEC2Ev.exit, label %11
 
-_ZN13FEPStateValueISt8optionalI16StringTableEntryEEC2Ev.exit: ; preds = %10
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 0, ptr %13, align 8, !tbaa !18
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 0, ptr %15, align 8, !tbaa !16
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %17, ptr %16, align 8, !tbaa !21
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i64 0, ptr %18, align 8, !tbaa !23
-  store i8 0, ptr %17, align 8, !tbaa !26
-  %19 = load ptr, ptr %1, align 8, !tbaa !27
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = load ptr, ptr %20, align 8
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5)
-          to label %.noexc unwind label %133
+_ZN13FEPStateValueISt8optionalI16StringTableEntryEEC2Ev.exit: ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i8 0, ptr %14, align 8, !tbaa !18
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i8 0, ptr %16, align 8, !tbaa !16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr %18, ptr %17, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i64 0, ptr %19, align 8, !tbaa !23
+  store i8 0, ptr %18, align 8, !tbaa !26
+  %20 = load ptr, ptr %1, align 8, !tbaa !27
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %22 = load ptr, ptr %21, align 8
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5)
+          to label %.noexc unwind label %135
 
 .noexc:                                           ; preds = %_ZN13FEPStateValueISt8optionalI16StringTableEntryEEC2Ev.exit
-  %22 = load ptr, ptr %1, align 8, !tbaa !27
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
-  %24 = load ptr, ptr %23, align 8
-  invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0)
-          to label %.noexc24 unwind label %133
+  %23 = load ptr, ptr %1, align 8, !tbaa !27
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
+  %25 = load ptr, ptr %24, align 8
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0)
+          to label %.noexc24 unwind label %135
 
 .noexc24:                                         ; preds = %.noexc
-  %25 = load i8, ptr %5, align 8, !tbaa !9, !range !29, !noundef !30
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %27, label %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit
+  %26 = load i8, ptr %5, align 8, !tbaa !9, !range !29, !noundef !30
+  %27 = trunc nuw i8 %26 to i1
+  br i1 %27, label %28, label %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit
 
-27:                                               ; preds = %.noexc24
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %29 = load ptr, ptr %1, align 8, !tbaa !27
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
-  %31 = load ptr, ptr %30, align 8
-  invoke void %31(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %28)
-          to label %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit unwind label %133
+28:                                               ; preds = %.noexc24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %30 = load ptr, ptr %1, align 8, !tbaa !27
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
+  %32 = load ptr, ptr %31, align 8
+  invoke void %32(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %29)
+          to label %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit unwind label %135
 
-_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit: ; preds = %.noexc24, %27
-  %32 = load ptr, ptr %1, align 8, !tbaa !27
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %34 = load ptr, ptr %33, align 8
-  invoke void %34(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7)
-          to label %.noexc26 unwind label %133
+_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit: ; preds = %.noexc24, %28
+  %33 = load ptr, ptr %1, align 8, !tbaa !27
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = load ptr, ptr %34, align 8
+  invoke void %35(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7)
+          to label %.noexc26 unwind label %135
 
 .noexc26:                                         ; preds = %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit
-  %35 = load ptr, ptr %1, align 8, !tbaa !27
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
-  %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %6)
-          to label %.noexc27 unwind label %133
+  %36 = load ptr, ptr %1, align 8, !tbaa !27
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
+  %38 = load ptr, ptr %37, align 8
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %6)
+          to label %.noexc27 unwind label %135
 
 .noexc27:                                         ; preds = %.noexc26
-  %38 = load i8, ptr %7, align 4, !tbaa !9, !range !29, !noundef !30
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit29
+  %39 = load i8, ptr %7, align 4, !tbaa !9, !range !29, !noundef !30
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit29
 
-40:                                               ; preds = %.noexc27
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load ptr, ptr %1, align 8, !tbaa !27
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
-  %44 = load ptr, ptr %43, align 8
-  invoke void %44(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %41)
-          to label %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit29 unwind label %133
+41:                                               ; preds = %.noexc27
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load ptr, ptr %1, align 8, !tbaa !27
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
+  %45 = load ptr, ptr %44, align 8
+  invoke void %45(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %42)
+          to label %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit29 unwind label %135
 
-_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit29: ; preds = %.noexc27, %40
-  %45 = load ptr, ptr %1, align 8, !tbaa !27
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = load ptr, ptr %46, align 8
-  invoke void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %9)
-          to label %.noexc30 unwind label %133
+_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit29: ; preds = %.noexc27, %41
+  %46 = load ptr, ptr %1, align 8, !tbaa !27
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %48 = load ptr, ptr %47, align 8
+  invoke void %48(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %9)
+          to label %.noexc30 unwind label %135
 
 .noexc30:                                         ; preds = %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit29
-  %48 = load ptr, ptr %1, align 8, !tbaa !27
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %50 = load ptr, ptr %49, align 8
-  invoke void %50(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %8)
-          to label %.noexc31 unwind label %133
+  %49 = load ptr, ptr %1, align 8, !tbaa !27
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
+  %51 = load ptr, ptr %50, align 8
+  invoke void %51(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %8)
+          to label %.noexc31 unwind label %135
 
 .noexc31:                                         ; preds = %.noexc30
-  %51 = load i8, ptr %9, align 4, !tbaa !13, !range !29, !noundef !30
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %53, label %_ZN12_GLOBAL__N_124deserializeFEPStateValueItEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit
+  %52 = load i8, ptr %9, align 4, !tbaa !13, !range !29, !noundef !30
+  %53 = trunc nuw i8 %52 to i1
+  br i1 %53, label %54, label %_ZN12_GLOBAL__N_124deserializeFEPStateValueItEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit
 
-53:                                               ; preds = %.noexc31
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %55 = load ptr, ptr %1, align 8, !tbaa !27
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  %57 = load ptr, ptr %56, align 8
-  invoke void %57(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %54)
-          to label %_ZN12_GLOBAL__N_124deserializeFEPStateValueItEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit unwind label %133
+54:                                               ; preds = %.noexc31
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %56 = load ptr, ptr %1, align 8, !tbaa !27
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  %58 = load ptr, ptr %57, align 8
+  invoke void %58(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %55)
+          to label %_ZN12_GLOBAL__N_124deserializeFEPStateValueItEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit unwind label %135
 
-_ZN12_GLOBAL__N_124deserializeFEPStateValueItEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit: ; preds = %.noexc31, %53
-  %58 = load ptr, ptr %1, align 8, !tbaa !27
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %60 = load ptr, ptr %59, align 8
-  invoke void %60(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %13)
-          to label %.noexc33 unwind label %133
+_ZN12_GLOBAL__N_124deserializeFEPStateValueItEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit: ; preds = %.noexc31, %54
+  %59 = load ptr, ptr %1, align 8, !tbaa !27
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %61 = load ptr, ptr %60, align 8
+  invoke void %61(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %14)
+          to label %.noexc33 unwind label %135
 
 .noexc33:                                         ; preds = %_ZN12_GLOBAL__N_124deserializeFEPStateValueItEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit
-  %61 = invoke { ptr, i32 } @_Z20readStringTableEntryPN3gmx11ISerializerERK11StringTable(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc34 unwind label %133
+  %62 = invoke { ptr, i32 } @_Z20readStringTableEntryPN3gmx11ISerializerERK11StringTable(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %.noexc34 unwind label %135
 
 .noexc34:                                         ; preds = %.noexc33
-  %62 = load i8, ptr %invariant.gep.i, align 8, !tbaa !16, !range !29, !noundef !30
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit.i, label %64
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %64 = load i8, ptr %63, align 8, !tbaa !16, !range !29, !noundef !30
+  %65 = trunc nuw i8 %64 to i1
+  br i1 %65, label %_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit.i, label %66
 
-64:                                               ; preds = %.noexc34
-  store i8 1, ptr %invariant.gep.i, align 8, !tbaa !16
+66:                                               ; preds = %.noexc34
+  store i8 1, ptr %63, align 8, !tbaa !16
   br label %_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit.i
 
-_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit.i: ; preds = %64, %.noexc34
-  %.fca.1.extract.i.i = extractvalue { ptr, i32 } %61, 1
-  %.fca.0.extract.i.i = extractvalue { ptr, i32 } %61, 0
-  store ptr %.fca.0.extract.i.i, ptr %12, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.fca.1.extract.i.i, ptr %65, align 8
-  %66 = load i8, ptr %13, align 8, !tbaa !18, !range !29, !noundef !30
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %68, label %_ZN12_GLOBAL__N_124deserializeFEPStateValueEPN3gmx11ISerializerEP13FEPStateValueISt8optionalI16StringTableEntryEERK11StringTable.exit
+_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit.i: ; preds = %66, %.noexc34
+  %.fca.1.extract.i.i = extractvalue { ptr, i32 } %62, 1
+  %.fca.0.extract.i.i = extractvalue { ptr, i32 } %62, 0
+  store ptr %.fca.0.extract.i.i, ptr %10, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %.fca.1.extract.i.i, ptr %67, align 8
+  %68 = load i8, ptr %14, align 8, !tbaa !18, !range !29, !noundef !30
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %70, label %_ZN12_GLOBAL__N_124deserializeFEPStateValueEPN3gmx11ISerializerEP13FEPStateValueISt8optionalI16StringTableEntryEERK11StringTable.exit
 
-68:                                               ; preds = %_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit.i
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %70 = invoke { ptr, i32 } @_Z20readStringTableEntryPN3gmx11ISerializerERK11StringTable(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc35 unwind label %133
+70:                                               ; preds = %_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit.i
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %72 = invoke { ptr, i32 } @_Z20readStringTableEntryPN3gmx11ISerializerERK11StringTable(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %.noexc35 unwind label %135
 
-.noexc35:                                         ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %72 = load i8, ptr %71, align 8, !tbaa !16, !range !29, !noundef !30
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit11.i, label %74
+.noexc35:                                         ; preds = %70
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %74 = load i8, ptr %73, align 8, !tbaa !16, !range !29, !noundef !30
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit11.i, label %76
 
-74:                                               ; preds = %.noexc35
-  store i8 1, ptr %71, align 8, !tbaa !16
+76:                                               ; preds = %.noexc35
+  store i8 1, ptr %73, align 8, !tbaa !16
   br label %_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit11.i
 
-_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit11.i: ; preds = %74, %.noexc35
-  %.fca.1.extract.i9.i = extractvalue { ptr, i32 } %70, 1
-  %.fca.0.extract.i10.i = extractvalue { ptr, i32 } %70, 0
-  store ptr %.fca.0.extract.i10.i, ptr %69, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %.fca.1.extract.i9.i, ptr %75, align 8
+_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit11.i: ; preds = %76, %.noexc35
+  %.fca.1.extract.i9.i = extractvalue { ptr, i32 } %72, 1
+  %.fca.0.extract.i10.i = extractvalue { ptr, i32 } %72, 0
+  store ptr %.fca.0.extract.i10.i, ptr %71, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %.fca.1.extract.i9.i, ptr %77, align 8
   br label %_ZN12_GLOBAL__N_124deserializeFEPStateValueEPN3gmx11ISerializerEP13FEPStateValueISt8optionalI16StringTableEntryEERK11StringTable.exit
 
 _ZN12_GLOBAL__N_124deserializeFEPStateValueEPN3gmx11ISerializerEP13FEPStateValueISt8optionalI16StringTableEntryEERK11StringTable.exit: ; preds = %_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit11.i, %_ZN12_GLOBAL__N_114serializeValueEPN3gmx11ISerializerEPSt8optionalI16StringTableEntryERK11StringTable.exit.i
-  %76 = invoke { ptr, i32 } @_Z20readStringTableEntryPN3gmx11ISerializerERK11StringTable(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %77 unwind label %135
+  %78 = invoke { ptr, i32 } @_Z20readStringTableEntryPN3gmx11ISerializerERK11StringTable(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %79 unwind label %137
 
-77:                                               ; preds = %_ZN12_GLOBAL__N_124deserializeFEPStateValueEPN3gmx11ISerializerEP13FEPStateValueISt8optionalI16StringTableEntryEERK11StringTable.exit
-  %.fca.0.extract = extractvalue { ptr, i32 } %76, 0
-  %.fca.1.extract = extractvalue { ptr, i32 } %76, 1
-  %78 = load i8, ptr %15, align 8, !tbaa !16, !range !29, !noundef !30
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %_ZNSt8optionalI16StringTableEntryEaSIS0_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS1_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIS0_ES5_IS0_NSt5decayIS8_E4typeEEEEESt16is_constructibleIS0_JS8_EESt13is_assignableIRS0_S8_EEERS1_E4typeEOS8_.exit, label %80
+79:                                               ; preds = %_ZN12_GLOBAL__N_124deserializeFEPStateValueEPN3gmx11ISerializerEP13FEPStateValueISt8optionalI16StringTableEntryEERK11StringTable.exit
+  %.fca.0.extract = extractvalue { ptr, i32 } %78, 0
+  %.fca.1.extract = extractvalue { ptr, i32 } %78, 1
+  %80 = load i8, ptr %16, align 8, !tbaa !16, !range !29, !noundef !30
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %_ZNSt8optionalI16StringTableEntryEaSIS0_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS1_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIS0_ES5_IS0_NSt5decayIS8_E4typeEEEEESt16is_constructibleIS0_JS8_EESt13is_assignableIRS0_S8_EEERS1_E4typeEOS8_.exit, label %82
 
-80:                                               ; preds = %77
-  store i8 1, ptr %15, align 8, !tbaa !16
+82:                                               ; preds = %79
+  store i8 1, ptr %16, align 8, !tbaa !16
   br label %_ZNSt8optionalI16StringTableEntryEaSIS0_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS1_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIS0_ES5_IS0_NSt5decayIS8_E4typeEEEEESt16is_constructibleIS0_JS8_EESt13is_assignableIRS0_S8_EEERS1_E4typeEOS8_.exit
 
-_ZNSt8optionalI16StringTableEntryEaSIS0_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS1_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIS0_ES5_IS0_NSt5decayIS8_E4typeEEEEESt16is_constructibleIS0_JS8_EESt13is_assignableIRS0_S8_EEERS1_E4typeEOS8_.exit: ; preds = %77, %80
-  store ptr %.fca.0.extract, ptr %14, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %.fca.1.extract, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 112
+_ZNSt8optionalI16StringTableEntryEaSIS0_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS1_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIS0_ES5_IS0_NSt5decayIS8_E4typeEEEEESt16is_constructibleIS0_JS8_EESt13is_assignableIRS0_S8_EEERS1_E4typeEOS8_.exit: ; preds = %79, %82
+  store ptr %.fca.0.extract, ptr %15, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 %.fca.1.extract, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 112
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
-  %83 = load i32, ptr %82, align 8, !tbaa !31
-  store i32 %83, ptr %4, align 4, !tbaa !33
-  %84 = load ptr, ptr %1, align 8, !tbaa !27
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 56
-  %86 = load ptr, ptr %85, align 8
-  invoke void %86(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4)
-          to label %87 unwind label %133
+  %85 = load i32, ptr %84, align 8, !tbaa !31
+  store i32 %85, ptr %4, align 4, !tbaa !33
+  %86 = load ptr, ptr %1, align 8, !tbaa !27
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 56
+  %88 = load ptr, ptr %87, align 8
+  invoke void %88(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4)
+          to label %89 unwind label %135
 
-87:                                               ; preds = %_ZNSt8optionalI16StringTableEntryEaSIS0_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS1_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIS0_ES5_IS0_NSt5decayIS8_E4typeEEEEESt16is_constructibleIS0_JS8_EESt13is_assignableIRS0_S8_EEERS1_E4typeEOS8_.exit
-  %88 = load i32, ptr %4, align 4, !tbaa !33
-  store i32 %88, ptr %82, align 8, !tbaa !31
+89:                                               ; preds = %_ZNSt8optionalI16StringTableEntryEaSIS0_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS1_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIS0_ES5_IS0_NSt5decayIS8_E4typeEEEEESt16is_constructibleIS0_JS8_EESt13is_assignableIRS0_S8_EEERS1_E4typeEOS8_.exit
+  %90 = load i32, ptr %4, align 4, !tbaa !33
+  store i32 %90, ptr %84, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %90 = load ptr, ptr %1, align 8, !tbaa !27
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 72
-  %92 = load ptr, ptr %91, align 8
-  invoke void %92(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %89)
-          to label %93 unwind label %133
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %92 = load ptr, ptr %1, align 8, !tbaa !27
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 72
+  %94 = load ptr, ptr %93, align 8
+  invoke void %94(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %91)
+          to label %95 unwind label %135
 
-93:                                               ; preds = %87
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %95 = load ptr, ptr %1, align 8, !tbaa !27
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 56
-  %97 = load ptr, ptr %96, align 8
-  invoke void %97(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %94)
-          to label %98 unwind label %133
+95:                                               ; preds = %89
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %97 = load ptr, ptr %1, align 8, !tbaa !27
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
+  %99 = load ptr, ptr %98, align 8
+  invoke void %99(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %96)
+          to label %100 unwind label %135
 
-98:                                               ; preds = %93
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %100 = load ptr, ptr %1, align 8, !tbaa !27
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %102 = load ptr, ptr %101, align 8
-  invoke void %102(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %99)
-          to label %103 unwind label %133
+100:                                              ; preds = %95
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %102 = load ptr, ptr %1, align 8, !tbaa !27
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %104 = load ptr, ptr %103, align 8
+  invoke void %104(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %101)
+          to label %105 unwind label %135
 
-103:                                              ; preds = %98
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 169
-  %105 = load ptr, ptr %1, align 8, !tbaa !27
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  %107 = load ptr, ptr %106, align 8
-  invoke void %107(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %104)
-          to label %108 unwind label %133
+105:                                              ; preds = %100
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 169
+  %107 = load ptr, ptr %1, align 8, !tbaa !27
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
+  %109 = load ptr, ptr %108, align 8
+  invoke void %109(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %106)
+          to label %110 unwind label %135
 
-108:                                              ; preds = %103
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 170
-  %110 = load ptr, ptr %1, align 8, !tbaa !27
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  %112 = load ptr, ptr %111, align 8
-  invoke void %112(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %109)
-          to label %113 unwind label %133
+110:                                              ; preds = %105
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 170
+  %112 = load ptr, ptr %1, align 8, !tbaa !27
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %114 = load ptr, ptr %113, align 8
+  invoke void %114(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %111)
+          to label %115 unwind label %135
 
-113:                                              ; preds = %108
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 171
-  %115 = load ptr, ptr %1, align 8, !tbaa !27
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  %117 = load ptr, ptr %116, align 8
-  invoke void %117(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %114)
-          to label %118 unwind label %133
+115:                                              ; preds = %110
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 171
+  %117 = load ptr, ptr %1, align 8, !tbaa !27
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  %119 = load ptr, ptr %118, align 8
+  invoke void %119(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %116)
+          to label %120 unwind label %135
 
-118:                                              ; preds = %113
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %120 = load ptr, ptr %1, align 8, !tbaa !27
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  %122 = load ptr, ptr %121, align 8
-  invoke void %122(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %119)
-          to label %123 unwind label %133
+120:                                              ; preds = %115
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %122 = load ptr, ptr %1, align 8, !tbaa !27
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %124 = load ptr, ptr %123, align 8
+  invoke void %124(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %121)
+          to label %125 unwind label %135
 
-123:                                              ; preds = %118
-  %124 = load i8, ptr %5, align 8, !tbaa !35, !range !29, !noundef !30
-  %125 = trunc nuw i8 %124 to i1
-  %126 = load i8, ptr %7, align 4, !range !29
+125:                                              ; preds = %120
+  %126 = load i8, ptr %5, align 8, !tbaa !35, !range !29, !noundef !30
   %127 = trunc nuw i8 %126 to i1
-  %or.cond = select i1 %125, i1 %127, i1 false
-  %128 = load i8, ptr %9, align 4, !range !29
+  %128 = load i8, ptr %7, align 4, !range !29
   %129 = trunc nuw i8 %128 to i1
-  %or.cond23 = select i1 %or.cond, i1 %129, i1 false
-  %130 = load i8, ptr %13, align 8, !range !29
-  %131 = select i1 %or.cond23, i8 %130, i8 0
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 173
-  store i8 %131, ptr %132, align 1, !tbaa !40
+  %or.cond = select i1 %127, i1 %129, i1 false
+  %130 = load i8, ptr %9, align 4, !range !29
+  %131 = trunc nuw i8 %130 to i1
+  %or.cond23 = select i1 %or.cond, i1 %131, i1 false
+  %132 = load i8, ptr %14, align 8, !range !29
+  %133 = select i1 %or.cond23, i8 %132, i8 0
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 173
+  store i8 %133, ptr %134, align 1, !tbaa !40
   ret void
 
-133:                                              ; preds = %_ZNSt8optionalI16StringTableEntryEaSIS0_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS1_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIS0_ES5_IS0_NSt5decayIS8_E4typeEEEEESt16is_constructibleIS0_JS8_EESt13is_assignableIRS0_S8_EEERS1_E4typeEOS8_.exit, %68, %.noexc33, %_ZN12_GLOBAL__N_124deserializeFEPStateValueItEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit, %53, %.noexc30, %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit29, %40, %.noexc26, %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit, %27, %.noexc, %_ZN13FEPStateValueISt8optionalI16StringTableEntryEEC2Ev.exit, %118, %113, %108, %103, %98, %93, %87
-  %134 = landingpad { ptr, i32 }
-          cleanup
-  br label %137
-
-135:                                              ; preds = %_ZN12_GLOBAL__N_124deserializeFEPStateValueEPN3gmx11ISerializerEP13FEPStateValueISt8optionalI16StringTableEntryEERK11StringTable.exit
+135:                                              ; preds = %_ZNSt8optionalI16StringTableEntryEaSIS0_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS1_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIS0_ES5_IS0_NSt5decayIS8_E4typeEEEEESt16is_constructibleIS0_JS8_EESt13is_assignableIRS0_S8_EEERS1_E4typeEOS8_.exit, %70, %.noexc33, %_ZN12_GLOBAL__N_124deserializeFEPStateValueItEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit, %54, %.noexc30, %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit29, %41, %.noexc26, %_ZN12_GLOBAL__N_124deserializeFEPStateValueIfEEvPN3gmx11ISerializerEP13FEPStateValueIT_E.exit, %28, %.noexc, %_ZN13FEPStateValueISt8optionalI16StringTableEntryEEC2Ev.exit, %120, %115, %110, %105, %100, %95, %89
   %136 = landingpad { ptr, i32 }
           cleanup
-  br label %137
+  br label %139
 
-137:                                              ; preds = %135, %133
-  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %136, %135 ]
-  %138 = load ptr, ptr %16, align 8, !tbaa !41
-  %139 = icmp eq ptr %138, %17
-  br i1 %139, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+137:                                              ; preds = %_ZN12_GLOBAL__N_124deserializeFEPStateValueEPN3gmx11ISerializerEP13FEPStateValueISt8optionalI16StringTableEntryEERK11StringTable.exit
+  %138 = landingpad { ptr, i32 }
+          cleanup
+  br label %139
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %137
-  %140 = load i64, ptr %18, align 8, !tbaa !23
-  %141 = icmp ult i64 %140, 16
-  call void @llvm.assume(i1 %141)
+139:                                              ; preds = %137, %135
+  %.pn = phi { ptr, i32 } [ %136, %135 ], [ %138, %137 ]
+  %140 = load ptr, ptr %17, align 8, !tbaa !41
+  %141 = icmp eq ptr %140, %18
+  br i1 %141, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %139
+  %142 = load i64, ptr %19, align 8, !tbaa !23
+  %143 = icmp ult i64 %142, 16
+  call void @llvm.assume(i1 %143)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %137
-  %142 = load i64, ptr %17, align 8, !tbaa !26
-  %143 = add i64 %142, 1
-  call void @_ZdlPvm(ptr noundef %138, i64 noundef %143) #16
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %139
+  %144 = load i64, ptr %18, align 8, !tbaa !26
+  %145 = add i64 %144, 1
+  call void @_ZdlPvm(ptr noundef %140, i64 noundef %145) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

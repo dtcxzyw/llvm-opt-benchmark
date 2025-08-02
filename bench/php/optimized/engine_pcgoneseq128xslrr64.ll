@@ -302,9 +302,9 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !11
   %10 = icmp ugt i32 %9, 1
-  br i1 %10, label %.thread124, label %11, !prof !22
+  br i1 %10, label %.thread117, label %11, !prof !22
 
-.thread124:                                       ; preds = %2
+.thread117:                                       ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #8
   br label %20
 
@@ -318,26 +318,26 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   %16 = load i8, ptr %15, align 8, !tbaa !11
   switch i8 %16, label %zend_parse_arg_str_or_long.exit [
     i8 6, label %17
-    i8 4, label %.critedge.thread136.thread
+    i8 4, label %.critedge.thread129.thread
     i8 1, label %.critedge.thread
   ], !prof !23
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %14, align 8, !tbaa !11
   store ptr %18, ptr %3, align 8, !tbaa !20
-  br label %.critedge.thread136
+  br label %.critedge.thread129
 
 zend_parse_arg_str_or_long.exit:                  ; preds = %13
   %19 = call zeroext i1 @zend_parse_arg_str_or_long_slow(ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1) #8
   %cond.fr = freeze i1 %19
-  br i1 %cond.fr, label %.critedge.thread136thread-pre-split, label %20, !prof !24
+  br i1 %cond.fr, label %.critedge.thread129thread-pre-split, label %20, !prof !24
 
-20:                                               ; preds = %zend_parse_arg_str_or_long.exit, %.thread124
-  %.0134 = phi i32 [ 0, %.thread124 ], [ 1, %zend_parse_arg_str_or_long.exit ]
-  %.055133 = phi ptr [ null, %.thread124 ], [ %14, %zend_parse_arg_str_or_long.exit ]
-  %.056132 = phi i32 [ 0, %.thread124 ], [ 29, %zend_parse_arg_str_or_long.exit ]
-  %.057131 = phi i32 [ 1, %.thread124 ], [ 9, %zend_parse_arg_str_or_long.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.057131, i32 noundef %.0134, ptr noundef null, i32 noundef %.056132, ptr noundef %.055133) #8
+20:                                               ; preds = %zend_parse_arg_str_or_long.exit, %.thread117
+  %.0127 = phi i32 [ 0, %.thread117 ], [ 1, %zend_parse_arg_str_or_long.exit ]
+  %.055126 = phi ptr [ null, %.thread117 ], [ %14, %zend_parse_arg_str_or_long.exit ]
+  %.056125 = phi i32 [ 0, %.thread117 ], [ 29, %zend_parse_arg_str_or_long.exit ]
+  %.057124 = phi i32 [ 1, %.thread117 ], [ 9, %zend_parse_arg_str_or_long.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.057124, i32 noundef %.0127, ptr noundef null, i32 noundef %.056125, ptr noundef %.055126) #8
   br label %62
 
 .critedge.thread:                                 ; preds = %13, %11
@@ -383,16 +383,16 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   br label %62
 
-.critedge.thread136thread-pre-split:              ; preds = %zend_parse_arg_str_or_long.exit
+.critedge.thread129thread-pre-split:              ; preds = %zend_parse_arg_str_or_long.exit
   %.pr = load ptr, ptr %3, align 8, !tbaa !20
-  br label %.critedge.thread136
+  br label %.critedge.thread129
 
-.critedge.thread136:                              ; preds = %.critedge.thread136thread-pre-split, %17
-  %33 = phi ptr [ %.pr, %.critedge.thread136thread-pre-split ], [ %18, %17 ]
+.critedge.thread129:                              ; preds = %.critedge.thread129thread-pre-split, %17
+  %33 = phi ptr [ %.pr, %.critedge.thread129thread-pre-split ], [ %18, %17 ]
   %.not63 = icmp eq ptr %33, null
-  br i1 %.not63, label %.critedge.thread136.thread, label %34
+  br i1 %.not63, label %.critedge.thread129.thread, label %34
 
-34:                                               ; preds = %.critedge.thread136
+34:                                               ; preds = %.critedge.thread129
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !17
   %37 = icmp eq i64 %36, 16
@@ -407,43 +407,43 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %13
 40:                                               ; preds = %46
   %.sroa.0.0..sroa.0.0. = load i64, ptr %.sroa.0, align 16, !tbaa !9
   %.sroa.4.0..sroa.4.8. = load i64, ptr %.sroa.4, align 8, !tbaa !9
-  %.sroa.0.0.insert.ext.i13.i67 = zext i64 %.sroa.4.0..sroa.4.8. to i128
-  %.sroa.02.0.insert.insert.i.i68 = add nuw nsw i128 %.sroa.0.0.insert.ext.i13.i67, 117397592171526113268558934119004209487
-  %41 = lshr i128 %.sroa.02.0.insert.insert.i.i68, 64
-  %.tr.i.i69 = trunc nuw nsw i128 %41 to i64
-  %.narrow.i.i70 = add i64 %.sroa.0.0..sroa.0.0., %.tr.i.i69
-  %.sroa.2.0.insert.ext.i71 = zext i64 %.narrow.i.i70 to i128
-  %.sroa.2.0.insert.shift.i72 = shl nuw i128 %.sroa.2.0.insert.ext.i71, 64
-  %.sroa.0.0.insert.ext.i73 = and i128 %.sroa.02.0.insert.insert.i.i68, 18446744073709551615
-  %.sroa.0.0.insert.insert.i74 = or disjoint i128 %.sroa.2.0.insert.shift.i72, %.sroa.0.0.insert.ext.i73
-  %42 = mul i128 %.sroa.0.0.insert.insert.i74, 47026247687942121848144207491837523525
-  %.sroa.02.0.insert.insert.i21.i15.i75 = add i128 %42, 1442695040888963407
-  %43 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i75, 64
-  %.tr.i.i16.i76 = trunc nuw i128 %43 to i64
-  %.narrow.i.i17.i77 = add i64 %.tr.i.i16.i76, 6364136223846793005
-  %.sroa.2.0.insert.ext.i18.i78 = zext i64 %.narrow.i.i17.i77 to i128
-  %.sroa.2.0.insert.shift.i19.i79 = shl nuw i128 %.sroa.2.0.insert.ext.i18.i78, 64
-  %.sroa.0.0.insert.ext.i20.i80 = and i128 %.sroa.02.0.insert.insert.i21.i15.i75, 18446744073709551615
-  %.sroa.0.0.insert.insert.i21.i81 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i79, %.sroa.0.0.insert.ext.i20.i80
-  store i128 %.sroa.0.0.insert.insert.i21.i81, ptr %.sroa.3.0.copyload, align 16, !tbaa !4
+  %.sroa.0.0.insert.ext.i13.i68 = zext i64 %.sroa.4.0..sroa.4.8. to i128
+  %.sroa.02.0.insert.insert.i.i69 = add nuw nsw i128 %.sroa.0.0.insert.ext.i13.i68, 117397592171526113268558934119004209487
+  %41 = lshr i128 %.sroa.02.0.insert.insert.i.i69, 64
+  %.tr.i.i70 = trunc nuw nsw i128 %41 to i64
+  %.narrow.i.i71 = add i64 %.sroa.0.0..sroa.0.0., %.tr.i.i70
+  %.sroa.2.0.insert.ext.i72 = zext i64 %.narrow.i.i71 to i128
+  %.sroa.2.0.insert.shift.i73 = shl nuw i128 %.sroa.2.0.insert.ext.i72, 64
+  %.sroa.0.0.insert.ext.i74 = and i128 %.sroa.02.0.insert.insert.i.i69, 18446744073709551615
+  %.sroa.0.0.insert.insert.i75 = or disjoint i128 %.sroa.2.0.insert.shift.i73, %.sroa.0.0.insert.ext.i74
+  %42 = mul i128 %.sroa.0.0.insert.insert.i75, 47026247687942121848144207491837523525
+  %.sroa.02.0.insert.insert.i21.i15.i76 = add i128 %42, 1442695040888963407
+  %43 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i76, 64
+  %.tr.i.i16.i77 = trunc nuw i128 %43 to i64
+  %.narrow.i.i17.i78 = add i64 %.tr.i.i16.i77, 6364136223846793005
+  %.sroa.2.0.insert.ext.i18.i79 = zext i64 %.narrow.i.i17.i78 to i128
+  %.sroa.2.0.insert.shift.i19.i80 = shl nuw i128 %.sroa.2.0.insert.ext.i18.i79, 64
+  %.sroa.0.0.insert.ext.i20.i81 = and i128 %.sroa.02.0.insert.insert.i21.i15.i76, 18446744073709551615
+  %.sroa.0.0.insert.insert.i21.i82 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i80, %.sroa.0.0.insert.ext.i20.i81
+  store i128 %.sroa.0.0.insert.insert.i21.i82, ptr %.sroa.3.0.copyload, align 16, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
   br label %62
 
 44:                                               ; preds = %38, %46
   %45 = phi i1 [ true, %38 ], [ false, %46 ]
-  %indvars.iv148.sroa.phi = phi ptr [ %.sroa.0, %38 ], [ %.sroa.4, %46 ]
-  %indvars.iv148 = phi i64 [ 0, %38 ], [ 8, %46 ]
+  %indvars.iv141.sroa.phi = phi ptr [ %.sroa.0, %38 ], [ %.sroa.4, %46 ]
+  %indvars.iv141 = phi i64 [ 0, %38 ], [ 8, %46 ]
   br label %47
 
 46:                                               ; preds = %47
-  store i64 %55, ptr %indvars.iv148.sroa.phi, align 8, !tbaa !9
+  store i64 %55, ptr %indvars.iv141.sroa.phi, align 8, !tbaa !9
   br i1 %45, label %44, label %40
 
 47:                                               ; preds = %44, %47
   %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %47 ]
   %48 = phi i64 [ 0, %44 ], [ %55, %47 ]
-  %49 = add nuw nsw i64 %indvars.iv, %indvars.iv148
+  %49 = add nuw nsw i64 %indvars.iv, %indvars.iv141
   %50 = getelementptr inbounds nuw [1 x i8], ptr %39, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !11
   %52 = zext i8 %51 to i64
@@ -461,23 +461,23 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %13
   call void @llvm.assume(i1 %58)
   br label %62
 
-.critedge.thread136.thread:                       ; preds = %.critedge.thread136, %13
-  %.in = phi ptr [ %14, %13 ], [ %4, %.critedge.thread136 ]
+.critedge.thread129.thread:                       ; preds = %.critedge.thread129, %13
+  %.in = phi ptr [ %14, %13 ], [ %4, %.critedge.thread129 ]
   %59 = load i64, ptr %.in, align 8, !tbaa !11
-  %.sroa.0.0.insert.ext.i13.i84 = zext i64 %59 to i128
-  %60 = mul i128 %.sroa.0.0.insert.ext.i13.i84, 47026247687942121848144207491837523525
-  %.sroa.02.0.insert.insert.i21.i15.i92 = add i128 %60, -21102577299880832445404573290446240358
-  %61 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i92, 64
-  %.tr.i.i16.i93 = trunc nuw i128 %61 to i64
-  %.narrow.i.i17.i94 = add i64 %.tr.i.i16.i93, 6364136223846793005
-  %.sroa.2.0.insert.ext.i18.i95 = zext i64 %.narrow.i.i17.i94 to i128
-  %.sroa.2.0.insert.shift.i19.i96 = shl nuw i128 %.sroa.2.0.insert.ext.i18.i95, 64
-  %.sroa.0.0.insert.ext.i20.i97 = and i128 %.sroa.02.0.insert.insert.i21.i15.i92, 18446744073709551615
-  %.sroa.0.0.insert.insert.i21.i98 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i96, %.sroa.0.0.insert.ext.i20.i97
-  store i128 %.sroa.0.0.insert.insert.i21.i98, ptr %.sroa.3.0.copyload, align 16, !tbaa !4
+  %.sroa.0.0.insert.ext.i13.i85 = zext i64 %59 to i128
+  %60 = mul i128 %.sroa.0.0.insert.ext.i13.i85, 47026247687942121848144207491837523525
+  %.sroa.02.0.insert.insert.i21.i15.i93 = add i128 %60, -21102577299880832445404573290446240358
+  %61 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i93, 64
+  %.tr.i.i16.i94 = trunc nuw i128 %61 to i64
+  %.narrow.i.i17.i95 = add i64 %.tr.i.i16.i94, 6364136223846793005
+  %.sroa.2.0.insert.ext.i18.i96 = zext i64 %.narrow.i.i17.i95 to i128
+  %.sroa.2.0.insert.shift.i19.i97 = shl nuw i128 %.sroa.2.0.insert.ext.i18.i96, 64
+  %.sroa.0.0.insert.ext.i20.i98 = and i128 %.sroa.02.0.insert.insert.i21.i15.i93, 18446744073709551615
+  %.sroa.0.0.insert.insert.i21.i99 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i97, %.sroa.0.0.insert.ext.i20.i98
+  store i128 %.sroa.0.0.insert.insert.i21.i99, ptr %.sroa.3.0.copyload, align 16, !tbaa !4
   br label %62
 
-62:                                               ; preds = %32, %20, %.critedge.thread136.thread, %40, %56
+62:                                               ; preds = %32, %20, %.critedge.thread129.thread, %40, %56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret void

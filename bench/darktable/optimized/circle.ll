@@ -1061,7 +1061,6 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %16
   br i1 %111, label %417, label %.preheader444
 
 .preheader444:                                    ; preds = %97
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %110, i64 4
   %.not = icmp ult i32 %107, 8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1093,46 +1092,46 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %16
   %128 = fmul reassoc nsz arcp contract afn float %127, %51
   %129 = tail call reassoc nsz arcp contract afn float @llvm.sin.f32(float %126)
   %130 = fmul reassoc nsz arcp contract afn float %129, %51
-  %131 = shl nsw i64 %indvars.iv, 4
-  %132 = fadd reassoc nsz arcp contract afn float %128, %37
-  %133 = getelementptr inbounds nuw float, ptr %110, i64 %131
-  store float %132, ptr %133, align 64, !tbaa !20
-  %134 = fadd reassoc nsz arcp contract afn float %130, %41
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %131
-  store float %134, ptr %gep, align 4, !tbaa !20
-  %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  store float %132, ptr %135, align 8, !tbaa !20
+  %131 = fadd reassoc nsz arcp contract afn float %128, %37
+  %.idx = shl nsw i64 %indvars.iv, 6
+  %132 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx
+  store float %131, ptr %132, align 64, !tbaa !20
+  %133 = fadd reassoc nsz arcp contract afn float %130, %41
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 4
+  store float %133, ptr %134, align 4, !tbaa !20
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  store float %131, ptr %135, align 8, !tbaa !20
   %136 = fsub reassoc nsz arcp contract afn float %41, %130
-  %137 = getelementptr inbounds nuw i8, ptr %133, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %132, i64 12
   store float %136, ptr %137, align 4, !tbaa !20
   %138 = fsub reassoc nsz arcp contract afn float %37, %128
-  %139 = getelementptr inbounds nuw i8, ptr %133, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store float %138, ptr %139, align 16, !tbaa !20
-  %140 = getelementptr inbounds nuw i8, ptr %133, i64 20
-  store float %134, ptr %140, align 4, !tbaa !20
-  %141 = getelementptr inbounds nuw i8, ptr %133, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %132, i64 20
+  store float %133, ptr %140, align 4, !tbaa !20
+  %141 = getelementptr inbounds nuw i8, ptr %132, i64 24
   store float %138, ptr %141, align 8, !tbaa !20
-  %142 = getelementptr inbounds nuw i8, ptr %133, i64 28
+  %142 = getelementptr inbounds nuw i8, ptr %132, i64 28
   store float %136, ptr %142, align 4, !tbaa !20
   %143 = fadd reassoc nsz arcp contract afn float %130, %37
-  %144 = getelementptr inbounds nuw i8, ptr %133, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %132, i64 32
   store float %143, ptr %144, align 32, !tbaa !20
   %145 = fadd reassoc nsz arcp contract afn float %128, %41
-  %146 = getelementptr inbounds nuw i8, ptr %133, i64 36
+  %146 = getelementptr inbounds nuw i8, ptr %132, i64 36
   store float %145, ptr %146, align 4, !tbaa !20
-  %147 = getelementptr inbounds nuw i8, ptr %133, i64 40
+  %147 = getelementptr inbounds nuw i8, ptr %132, i64 40
   store float %143, ptr %147, align 8, !tbaa !20
   %148 = fsub reassoc nsz arcp contract afn float %41, %128
-  %149 = getelementptr inbounds nuw i8, ptr %133, i64 44
+  %149 = getelementptr inbounds nuw i8, ptr %132, i64 44
   store float %148, ptr %149, align 4, !tbaa !20
   %150 = fsub reassoc nsz arcp contract afn float %37, %130
-  %151 = getelementptr inbounds nuw i8, ptr %133, i64 48
+  %151 = getelementptr inbounds nuw i8, ptr %132, i64 48
   store float %150, ptr %151, align 16, !tbaa !20
-  %152 = getelementptr inbounds nuw i8, ptr %133, i64 52
+  %152 = getelementptr inbounds nuw i8, ptr %132, i64 52
   store float %145, ptr %152, align 4, !tbaa !20
-  %153 = getelementptr inbounds nuw i8, ptr %133, i64 56
+  %153 = getelementptr inbounds nuw i8, ptr %132, i64 56
   store float %150, ptr %153, align 8, !tbaa !20
-  %154 = getelementptr inbounds nuw i8, ptr %133, i64 60
+  %154 = getelementptr inbounds nuw i8, ptr %132, i64 60
   store float %148, ptr %154, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
@@ -1237,8 +1236,8 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %16
   %.0357449 = phi float [ 0x47EFFFFFE0000000, %.lr.ph452.preheader ], [ %.1358, %229 ]
   %.0360448 = phi float [ 0x3810000000000000, %.lr.ph452.preheader ], [ %.1361, %229 ]
   %.0362447 = phi float [ 0x3810000000000000, %.lr.ph452.preheader ], [ %.1363, %229 ]
-  %.idx = shl nuw nsw i64 %indvars.iv485, 3
-  %214 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx
+  %.idx519 = shl nuw nsw i64 %indvars.iv485, 3
+  %214 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx519
   %215 = load float, ptr %214, align 8, !tbaa !20
   %216 = tail call i1 @llvm.is.fpclass.f32(float %215, i32 759)
   br i1 %216, label %229, label %217

@@ -8655,7 +8655,7 @@ JsValueToJsObject.exit:                           ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %103 = load i8, ptr %102, align 4, !range !4, !noundef !5
   %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %117, label %.thread
+  br i1 %104, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %99, %JsValueToJsObject.exit
   %105 = load ptr, ptr %10, align 8
@@ -8668,28 +8668,23 @@ JsValueToJsObject.exit:                           ; preds = %99
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %111 = load i8, ptr %110, align 4, !range !4, !noundef !5
   %112 = trunc nuw i8 %111 to i1
-  br i1 %112, label %117, label %113
+  br i1 %112, label %.critedge, label %113
 
 113:                                              ; preds = %.thread1, %109, %.thread
   %114 = phi ptr [ %106, %109 ], [ %106, %.thread ], [ %98, %.thread1 ]
   %115 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %114) #15
-  br i1 %40, label %116, label %.thread2
+  br i1 %40, label %116, label %117
 
 116:                                              ; preds = %113
   call void @hash_destroy(ptr noundef %96) #15
-  br label %.thread2
+  br label %117
 
-.thread2:                                         ; preds = %116, %113
+117:                                              ; preds = %113, %116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
   br label %118
 
-117:                                              ; preds = %109, %JsValueToJsObject.exit
-  store i8 1, ptr %5, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
-  br label %129
-
-118:                                              ; preds = %.thread2, %update_cached_tupdesc.exit
-  %.030 = phi i64 [ 0, %update_cached_tupdesc.exit ], [ %115, %.thread2 ]
+118:                                              ; preds = %117, %update_cached_tupdesc.exit
+  %.030 = phi i64 [ %115, %117 ], [ 0, %update_cached_tupdesc.exit ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %120 = load i32, ptr %119, align 8
   %121 = icmp ne i32 %1, %120
@@ -8708,8 +8703,13 @@ JsValueToJsObject.exit:                           ; preds = %99
   store i8 1, ptr %5, align 1
   br label %129
 
-129:                                              ; preds = %117, %118, %123, %128
-  %.1 = phi i64 [ 0, %128 ], [ 0, %117 ], [ %.030, %123 ], [ %.030, %118 ]
+.critedge:                                        ; preds = %109, %JsValueToJsObject.exit
+  store i8 1, ptr %5, align 1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  br label %129
+
+129:                                              ; preds = %118, %123, %.critedge, %128
+  %.1 = phi i64 [ 0, %128 ], [ 0, %.critedge ], [ %.030, %123 ], [ %.030, %118 ]
   ret i64 %.1
 }
 
@@ -9426,17 +9426,17 @@ define internal fastcc ptr @populate_record(ptr noundef %0, ptr noundef captures
 16:                                               ; preds = %11
   %17 = tail call i64 @hash_get_num_entries(ptr noundef %15) #15
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %155, label %25
+  br i1 %18, label %157, label %25
 
 19:                                               ; preds = %11
   %20 = icmp eq ptr %15, null
-  br i1 %20, label %155, label %21
+  br i1 %20, label %157, label %21
 
 21:                                               ; preds = %19
   %22 = load i32, ptr %15, align 4
   %23 = and i32 %22, 268435455
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %155, label %25
+  br i1 %24, label %157, label %25
 
 25:                                               ; preds = %21, %16, %6
   %26 = icmp eq ptr %9, null
@@ -9598,7 +9598,6 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   br i1 %93, label %.lr.ph110, label %._crit_edge
 
 .lr.ph110:                                        ; preds = %.lr.ph108, %.loopexit
-  %invariant.gep120 = getelementptr i8, ptr %0, i64 24
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -9607,122 +9606,123 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   %wide.trip.count116 = zext nneg i32 %10 to i64
   br label %99
 
-99:                                               ; preds = %.lr.ph110, %151
-  %indvars.iv113 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next114, %151 ]
+99:                                               ; preds = %.lr.ph110, %153
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next114, %153 ]
   %100 = load i32, ptr %0, align 8
   %101 = sext i32 %100 to i64
   %102 = shl nsw i64 %101, 4
-  %gep = getelementptr i8, ptr %invariant.gep120, i64 %102
-  %103 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv113
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
+  %103 = getelementptr i8, ptr %0, i64 %102
+  %104 = getelementptr i8, ptr %103, i64 24
+  %105 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %104, i64 %indvars.iv113
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 91
-  %106 = load i8, ptr %105, align 1, !range !4, !noundef !5
-  %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %108, label %110
-
-108:                                              ; preds = %99
-  %109 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv113
-  store i8 1, ptr %109, align 1
-  br label %151
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 91
+  %108 = load i8, ptr %107, align 1, !range !4, !noundef !5
+  %109 = trunc nuw i8 %108 to i1
+  br i1 %109, label %110, label %112
 
 110:                                              ; preds = %99
-  %111 = load i8, ptr %4, align 8, !range !4, !noundef !5
-  %112 = trunc nuw i8 %111 to i1
-  store i8 %111, ptr %8, align 8
-  %113 = load ptr, ptr %94, align 8
-  br i1 %112, label %114, label %127
+  %111 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv113
+  store i8 1, ptr %111, align 1
+  br label %153
 
-114:                                              ; preds = %110
-  %115 = call ptr @hash_search(ptr noundef %113, ptr noundef nonnull %104, i32 noundef 0, ptr noundef null) #15
-  %116 = icmp ne ptr %115, null
-  br i1 %116, label %117, label %.thread.i
+112:                                              ; preds = %99
+  %113 = load i8, ptr %4, align 8, !range !4, !noundef !5
+  %114 = trunc nuw i8 %113 to i1
+  store i8 %113, ptr %8, align 8
+  %115 = load ptr, ptr %94, align 8
+  br i1 %114, label %116, label %129
 
-.thread.i:                                        ; preds = %114
+116:                                              ; preds = %112
+  %117 = call ptr @hash_search(ptr noundef %115, ptr noundef nonnull %106, i32 noundef 0, ptr noundef null) #15
+  %118 = icmp ne ptr %117, null
+  br i1 %118, label %119, label %.thread.i
+
+.thread.i:                                        ; preds = %116
   store i32 11, ptr %96, align 4
-  br label %124
+  br label %126
 
-117:                                              ; preds = %114
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 72
-  %119 = load i32, ptr %118, align 8
-  store i32 %119, ptr %96, align 4
-  %120 = icmp eq i32 %119, 11
-  br i1 %120, label %124, label %121
+119:                                              ; preds = %116
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 72
+  %121 = load i32, ptr %120, align 8
+  store i32 %121, ptr %96, align 4
+  %122 = icmp eq i32 %121, 11
+  br i1 %122, label %126, label %123
 
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i8, ptr %115, i64 64
-  %123 = load ptr, ptr %122, align 8
-  br label %124
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds nuw i8, ptr %117, i64 64
+  %125 = load ptr, ptr %124, align 8
+  br label %126
 
-124:                                              ; preds = %121, %117, %.thread.i
-  %125 = phi ptr [ %123, %121 ], [ null, %117 ], [ null, %.thread.i ]
-  store ptr %125, ptr %95, align 8
-  %.not23.i = icmp ne ptr %125, null
-  %126 = sext i1 %.not23.i to i32
-  store i32 %126, ptr %97, align 8
+126:                                              ; preds = %123, %119, %.thread.i
+  %127 = phi ptr [ %125, %123 ], [ null, %119 ], [ null, %.thread.i ]
+  store ptr %127, ptr %95, align 8
+  %.not23.i = icmp ne ptr %127, null
+  %128 = sext i1 %.not23.i to i32
+  store i32 %128, ptr %97, align 8
   br label %JsObjectGetField.exit
 
-127:                                              ; preds = %110
-  %.not.i104 = icmp eq ptr %113, null
-  br i1 %.not.i104, label %132, label %128
+129:                                              ; preds = %112
+  %.not.i104 = icmp eq ptr %115, null
+  br i1 %.not.i104, label %134, label %130
 
-128:                                              ; preds = %127
-  %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #18
-  %130 = trunc i64 %129 to i32
-  %131 = call ptr @getKeyJsonValueFromContainer(ptr noundef nonnull %113, ptr noundef nonnull %104, i32 noundef %130, ptr noundef null) #15
-  br label %132
+130:                                              ; preds = %129
+  %131 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #18
+  %132 = trunc i64 %131 to i32
+  %133 = call ptr @getKeyJsonValueFromContainer(ptr noundef nonnull %115, ptr noundef nonnull %106, i32 noundef %132, ptr noundef null) #15
+  br label %134
 
-132:                                              ; preds = %128, %127
-  %133 = phi ptr [ %131, %128 ], [ null, %127 ]
-  store ptr %133, ptr %95, align 8
-  %134 = icmp ne ptr %133, null
+134:                                              ; preds = %130, %129
+  %135 = phi ptr [ %133, %130 ], [ null, %129 ]
+  store ptr %135, ptr %95, align 8
+  %136 = icmp ne ptr %135, null
   br label %JsObjectGetField.exit
 
-JsObjectGetField.exit:                            ; preds = %124, %132
-  %.0.i = phi i1 [ %116, %124 ], [ %134, %132 ]
+JsObjectGetField.exit:                            ; preds = %126, %134
+  %.0.i = phi i1 [ %118, %126 ], [ %136, %134 ]
   %or.cond5 = select i1 %.not, i1 true, i1 %.0.i
-  br i1 %or.cond5, label %135, label %151
+  br i1 %or.cond5, label %137, label %153
 
-135:                                              ; preds = %JsObjectGetField.exit
-  %136 = getelementptr inbounds nuw [0 x %struct.ColumnIOData], ptr %98, i64 0, i64 %indvars.iv113
-  %137 = getelementptr inbounds nuw i8, ptr %103, i64 68
-  %138 = load i32, ptr %137, align 4
-  %139 = getelementptr inbounds nuw i8, ptr %103, i64 76
+137:                                              ; preds = %JsObjectGetField.exit
+  %138 = getelementptr inbounds nuw [0 x %struct.ColumnIOData], ptr %98, i64 0, i64 %indvars.iv113
+  %139 = getelementptr inbounds nuw i8, ptr %105, i64 68
   %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv113
-  %142 = load i8, ptr %141, align 1, !range !4, !noundef !5
-  %143 = trunc nuw i8 %142 to i1
-  br i1 %143, label %147, label %144
+  %141 = getelementptr inbounds nuw i8, ptr %105, i64 76
+  %142 = load i32, ptr %141, align 4
+  %143 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv113
+  %144 = load i8, ptr %143, align 1, !range !4, !noundef !5
+  %145 = trunc nuw i8 %144 to i1
+  br i1 %145, label %149, label %146
 
-144:                                              ; preds = %135
-  %145 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv113
-  %146 = load i64, ptr %145, align 8
-  br label %147
+146:                                              ; preds = %137
+  %147 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv113
+  %148 = load i64, ptr %147, align 8
+  br label %149
 
-147:                                              ; preds = %135, %144
-  %148 = phi i64 [ %146, %144 ], [ 0, %135 ]
-  %149 = call fastcc i64 @populate_record_field(ptr noundef nonnull %136, i32 noundef %138, i32 noundef %140, ptr noundef nonnull %104, ptr noundef %3, i64 noundef %148, ptr noundef %8, ptr noundef nonnull %141, ptr noundef %5, i1 noundef zeroext false)
-  %150 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv113
-  store i64 %149, ptr %150, align 8
-  br label %151
+149:                                              ; preds = %137, %146
+  %150 = phi i64 [ %148, %146 ], [ 0, %137 ]
+  %151 = call fastcc i64 @populate_record_field(ptr noundef nonnull %138, i32 noundef %140, i32 noundef %142, ptr noundef nonnull %106, ptr noundef %3, i64 noundef %150, ptr noundef %8, ptr noundef nonnull %143, ptr noundef %5, i1 noundef zeroext false)
+  %152 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv113
+  store i64 %151, ptr %152, align 8
+  br label %153
 
-151:                                              ; preds = %JsObjectGetField.exit, %147, %108
+153:                                              ; preds = %JsObjectGetField.exit, %149, %110
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
   br i1 %exitcond117.not, label %._crit_edge, label %99, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %151, %.preheader, %.loopexit
-  %152 = call ptr @heap_form_tuple(ptr noundef nonnull %0, ptr noundef %82, ptr noundef %83) #15
+._crit_edge:                                      ; preds = %153, %.preheader, %.loopexit
+  %154 = call ptr @heap_form_tuple(ptr noundef nonnull %0, ptr noundef %82, ptr noundef %83) #15
   call void @pfree(ptr noundef %82) #15
   call void @pfree(ptr noundef %83) #15
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %154 = load ptr, ptr %153, align 8
-  br label %155
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %156 = load ptr, ptr %155, align 8
+  br label %157
 
-155:                                              ; preds = %16, %19, %21, %._crit_edge
-  %.0 = phi ptr [ %154, %._crit_edge ], [ %2, %21 ], [ %2, %19 ], [ %2, %16 ]
+157:                                              ; preds = %16, %19, %21, %._crit_edge
+  %.0 = phi ptr [ %156, %._crit_edge ], [ %2, %21 ], [ %2, %19 ], [ %2, %16 ]
   ret ptr %.0
 }
 

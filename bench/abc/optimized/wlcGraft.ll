@@ -1904,11 +1904,10 @@ define void @Sbc_SimMult(ptr noundef captures(none) %0, ptr noundef captures(non
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 -1, %12
   %14 = tail call i32 @Gia_ManRandom(i32 noundef 1) #18
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 512
   br label %15
 
-15:                                               ; preds = %10, %69
-  %indvars.iv51 = phi i64 [ 0, %10 ], [ %indvars.iv.next52, %69 ]
+15:                                               ; preds = %10, %71
+  %indvars.iv51 = phi i64 [ 0, %10 ], [ %indvars.iv.next52, %71 ]
   %.not = icmp eq i64 %indvars.iv51, 0
   br i1 %.not, label %.thread, label %16
 
@@ -1945,8 +1944,8 @@ define void @Sbc_SimMult(ptr noundef captures(none) %0, ptr noundef captures(non
   %43 = shl nuw i64 1, %indvars.iv51
   br label %44
 
-44:                                               ; preds = %.thread, %68
-  %indvars.iv47 = phi i64 [ 0, %.thread ], [ %indvars.iv.next48, %68 ]
+44:                                               ; preds = %.thread, %70
+  %indvars.iv47 = phi i64 [ 0, %.thread ], [ %indvars.iv.next48, %70 ]
   %45 = shl nuw i64 1, %indvars.iv47
   %46 = and i64 %45, %21
   %.not39 = icmp eq i64 %46, 0
@@ -1986,26 +1985,27 @@ define void @Sbc_SimMult(ptr noundef captures(none) %0, ptr noundef captures(non
 63:                                               ; preds = %59, %57
   %64 = and i64 %45, %42
   %.not42 = icmp eq i64 %64, 0
-  br i1 %.not42, label %68, label %65
+  br i1 %.not42, label %70, label %65
 
 65:                                               ; preds = %63
-  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv47
-  %66 = load i64, ptr %gep, align 8, !tbaa !52
-  %67 = or i64 %66, %43
-  store i64 %67, ptr %gep, align 8, !tbaa !52
-  br label %68
+  %66 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv47
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 512
+  %68 = load i64, ptr %67, align 8, !tbaa !52
+  %69 = or i64 %68, %43
+  store i64 %69, ptr %67, align 8, !tbaa !52
+  br label %70
 
-68:                                               ; preds = %63, %65
+70:                                               ; preds = %63, %65
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 64
-  br i1 %exitcond50.not, label %69, label %44, !llvm.loop !93
+  br i1 %exitcond50.not, label %71, label %44, !llvm.loop !93
 
-69:                                               ; preds = %68
+71:                                               ; preds = %70
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 64
-  br i1 %exitcond54.not, label %70, label %15, !llvm.loop !94
+  br i1 %exitcond54.not, label %72, label %15, !llvm.loop !94
 
-70:                                               ; preds = %69
+72:                                               ; preds = %71
   ret void
 }
 

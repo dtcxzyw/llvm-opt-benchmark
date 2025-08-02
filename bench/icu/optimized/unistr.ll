@@ -776,7 +776,7 @@ define void @_ZN6icu_7713UnicodeStringC2Ei(ptr noundef nonnull writeonly align 8
 
 7:                                                ; preds = %2
   %8 = icmp ult i32 %1, 1114112
-  br i1 %8, label %9, label %19
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 10
@@ -790,15 +790,15 @@ define void @_ZN6icu_7713UnicodeStringC2Ei(ptr noundef nonnull writeonly align 8
   br label %17
 
 17:                                               ; preds = %5, %9
-  %.sink17 = phi i64 [ 10, %5 ], [ 12, %9 ]
+  %.sink14 = phi i64 [ 10, %5 ], [ 12, %9 ]
   %.sink = phi i16 [ %6, %5 ], [ %16, %9 ]
-  %.011.ph = phi i16 [ 34, %5 ], [ 66, %9 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %.011 = phi i16 [ 34, %5 ], [ 66, %9 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink14
   store i16 %.sink, ptr %18, align 2, !tbaa !3
-  store i16 %.011.ph, ptr %3, align 8, !tbaa !3
-  br label %19
+  store i16 %.011, ptr %3, align 8, !tbaa !3
+  br label %.critedge
 
-19:                                               ; preds = %7, %17
+.critedge:                                        ; preds = %7, %17
   ret void
 }
 
@@ -3454,8 +3454,8 @@ _ZNK6icu_7713UnicodeString10unescapeAtERi.exit:   ; preds = %_ZN6icu_7713Unicode
   br label %69
 
 69:                                               ; preds = %62, %58
-  %.011.ph.i = phi i32 [ 2, %62 ], [ 1, %58 ]
-  %70 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011.ph.i)
+  %.011.i = phi i32 [ 1, %58 ], [ 2, %62 ]
+  %70 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011.i)
           to label %.thread unwind label %54
 
 .thread:                                          ; preds = %69, %60
@@ -3520,7 +3520,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
 
 7:                                                ; preds = %2
   %8 = icmp ult i32 %1, 1114112
-  br i1 %8, label %9, label %19
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 10
@@ -3535,14 +3535,14 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
   br label %17
 
 17:                                               ; preds = %5, %9
-  %.011.ph = phi i32 [ 2, %9 ], [ 1, %5 ]
-  %18 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011.ph)
-  br label %19
+  %.011 = phi i32 [ 1, %5 ], [ 2, %9 ]
+  %18 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011)
+  br label %.critedge
 
-19:                                               ; preds = %7, %17
-  %20 = phi ptr [ %18, %17 ], [ %0, %7 ]
+.critedge:                                        ; preds = %7, %17
+  %19 = phi ptr [ %18, %17 ], [ %0, %7 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
-  ret ptr %20
+  ret ptr %19
 }
 
 declare i32 @u_unescapeAt_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
@@ -4255,7 +4255,6 @@ define noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnu
   br i1 %50, label %.preheader.split, label %.critedge, !llvm.loop !30
 
 51:                                               ; preds = %3
-  %invariant.gep = getelementptr i8, ptr %17, i64 -4
   %52 = icmp ne i32 %2, 0
   %53 = icmp sgt i32 %.035, 0
   %54 = and i1 %52, %53
@@ -4265,9 +4264,9 @@ define noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnu
   %55 = sub nsw i32 0, %2
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %69
-  %.050 = phi i32 [ %70, %69 ], [ %55, %.lr.ph.preheader ]
-  %.449 = phi i32 [ %.5, %69 ], [ %spec.select, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %71
+  %.050 = phi i32 [ %72, %71 ], [ %55, %.lr.ph.preheader ]
+  %.449 = phi i32 [ %.5, %71 ], [ %spec.select, %.lr.ph.preheader ]
   %56 = add nsw i32 %.449, -1
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw i16, ptr %17, i64 %57
@@ -4276,28 +4275,29 @@ define noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnu
   %61 = icmp eq i16 %60, -9216
   %62 = icmp samesign ugt i32 %.449, 1
   %or.cond = select i1 %61, i1 %62, i1 false
-  br i1 %or.cond, label %63, label %69
+  br i1 %or.cond, label %63, label %71
 
 63:                                               ; preds = %.lr.ph
   %64 = zext nneg i32 %.449 to i64
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %64
-  %65 = load i16, ptr %gep, align 2, !tbaa !10
-  %66 = and i16 %65, -1024
-  %67 = icmp eq i16 %66, -10240
-  %68 = add nsw i32 %.449, -2
-  %spec.select47 = select i1 %67, i32 %68, i32 %56
-  br label %69
+  %65 = getelementptr i16, ptr %17, i64 %64
+  %66 = getelementptr i8, ptr %65, i64 -4
+  %67 = load i16, ptr %66, align 2, !tbaa !10
+  %68 = and i16 %67, -1024
+  %69 = icmp eq i16 %68, -10240
+  %70 = add nsw i32 %.449, -2
+  %spec.select47 = select i1 %69, i32 %70, i32 %56
+  br label %71
 
-69:                                               ; preds = %63, %.lr.ph
+71:                                               ; preds = %63, %.lr.ph
   %.5 = phi i32 [ %56, %.lr.ph ], [ %spec.select47, %63 ]
-  %70 = add nsw i32 %.050, -1
-  %71 = icmp sgt i32 %.050, 1
-  %72 = icmp sgt i32 %.5, 0
-  %73 = select i1 %71, i1 %72, i1 false
-  br i1 %73, label %.lr.ph, label %.critedge, !llvm.loop !31
+  %72 = add nsw i32 %.050, -1
+  %73 = icmp sgt i32 %.050, 1
+  %74 = icmp sgt i32 %.5, 0
+  %75 = select i1 %73, i1 %74, i1 false
+  br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !31
 
-.critedge:                                        ; preds = %69, %48, %.preheader.split, %31, %.preheader.split.us, %51
-  %.3 = phi i32 [ %.035, %51 ], [ %.2.us, %31 ], [ %.151.us, %.preheader.split.us ], [ %.151, %.preheader.split ], [ %.2, %48 ], [ %.5, %69 ]
+.critedge:                                        ; preds = %71, %48, %.preheader.split, %31, %.preheader.split.us, %51
+  %.3 = phi i32 [ %.035, %51 ], [ %.2.us, %31 ], [ %.151.us, %.preheader.split.us ], [ %.151, %.preheader.split ], [ %.2, %48 ], [ %.5, %71 ]
   ret i32 %.3
 }
 
@@ -6698,7 +6698,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7723UnicodeStringAppendable15a
 
 7:                                                ; preds = %2
   %8 = icmp ult i32 %1, 1114112
-  br i1 %8, label %9, label %25
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 10
@@ -6713,21 +6713,21 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7723UnicodeStringAppendable15a
   br label %17
 
 17:                                               ; preds = %5, %9
-  %.011.ph = phi i32 [ 2, %9 ], [ 1, %5 ]
+  %.011 = phi i32 [ 1, %5 ], [ 2, %9 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !39
-  %20 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011.ph)
+  %20 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i16, ptr %21, align 8, !tbaa !3
   %23 = and i16 %22, 17
   %.not.i = icmp eq i16 %23, 0
   %24 = zext i1 %.not.i to i8
-  br label %25
+  br label %.critedge
 
-25:                                               ; preds = %7, %17
-  %26 = phi i8 [ %24, %17 ], [ 0, %7 ]
+.critedge:                                        ; preds = %7, %17
+  %25 = phi i8 [ %24, %17 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
-  ret i8 %26
+  ret i8 %25
 }
 
 ; Function Attrs: mustprogress uwtable

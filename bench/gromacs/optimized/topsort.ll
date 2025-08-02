@@ -64,10 +64,10 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
   %14 = load ptr, ptr %13, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %16 = load ptr, ptr %15, align 8, !tbaa !11
-  %.not3244 = icmp eq ptr %14, %16
-  br i1 %.not3244, label %._crit_edge49, label %.lr.ph48
+  %.not3242 = icmp eq ptr %14, %16
+  br i1 %.not3242, label %._crit_edge47, label %.lr.ph46
 
-.lr.ph48:                                         ; preds = %._crit_edge
+.lr.ph46:                                         ; preds = %._crit_edge
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = load ptr, ptr %17, align 8, !tbaa !13
   br label %40
@@ -92,11 +92,11 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
   %31 = tail call fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef %23, ptr noundef nonnull %30)
   %spec.select = select i1 %31, i1 true, i1 %.02534
   %.pre = load ptr, ptr %3, align 8, !tbaa !4
-  %.pre53 = load ptr, ptr %2, align 8, !tbaa !10
+  %.pre51 = load ptr, ptr %2, align 8, !tbaa !10
   br label %32
 
 32:                                               ; preds = %28, %19
-  %33 = phi ptr [ %20, %19 ], [ %.pre53, %28 ]
+  %33 = phi ptr [ %20, %19 ], [ %.pre51, %28 ]
   %34 = phi ptr [ %21, %19 ], [ %.pre, %28 ]
   %.1 = phi i1 [ %.02534, %19 ], [ %spec.select, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -108,14 +108,14 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
   %39 = icmp slt i64 %indvars.iv.next, %38
   br i1 %39, label %19, label %._crit_edge, !llvm.loop !24
 
-._crit_edge49:                                    ; preds = %._crit_edge42, %._crit_edge
-  %.2.lcssa = phi i1 [ %.025.lcssa, %._crit_edge ], [ %.3.lcssa, %._crit_edge42 ]
+._crit_edge47:                                    ; preds = %._crit_edge40, %._crit_edge
+  %.2.lcssa = phi i1 [ %.025.lcssa, %._crit_edge ], [ %.3.lcssa, %._crit_edge40 ]
   ret i1 %.2.lcssa
 
-40:                                               ; preds = %.lr.ph48, %._crit_edge42
-  %.246 = phi i1 [ %.025.lcssa, %.lr.ph48 ], [ %.3.lcssa, %._crit_edge42 ]
-  %.sroa.029.045 = phi ptr [ %14, %.lr.ph48 ], [ %57, %._crit_edge42 ]
-  %41 = load i32, ptr %.sroa.029.045, align 8, !tbaa !26
+40:                                               ; preds = %.lr.ph46, %._crit_edge40
+  %.244 = phi i1 [ %.025.lcssa, %.lr.ph46 ], [ %.3.lcssa, %._crit_edge40 ]
+  %.sroa.029.043 = phi ptr [ %14, %.lr.ph46 ], [ %57, %._crit_edge40 ]
+  %41 = load i32, ptr %.sroa.029.043, align 8, !tbaa !26
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %18, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -129,55 +129,54 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
   %52 = sub i64 %50, %51
   %53 = lshr exact i64 %52, 2
   %54 = trunc i64 %53 to i32
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %invariant.gep35 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph41.preheader, label %._crit_edge42
+  br i1 %55, label %.lr.ph39.preheader, label %._crit_edge40
 
-.lr.ph41.preheader:                               ; preds = %40
+.lr.ph39.preheader:                               ; preds = %40
   %56 = and i64 %53, 2147483647
-  br label %.lr.ph41
+  br label %.lr.ph39
 
-._crit_edge42:                                    ; preds = %76, %40
-  %.3.lcssa = phi i1 [ %.246, %40 ], [ %.4, %76 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.029.045, i64 56
+._crit_edge40:                                    ; preds = %79, %40
+  %.3.lcssa = phi i1 [ %.244, %40 ], [ %.4, %79 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.029.043, i64 56
   %.not32 = icmp eq ptr %57, %16
-  br i1 %.not32, label %._crit_edge49, label %40
+  br i1 %.not32, label %._crit_edge47, label %40
 
-.lr.ph41:                                         ; preds = %.lr.ph41.preheader, %76
-  %indvars.iv51 = phi i64 [ 0, %.lr.ph41.preheader ], [ %indvars.iv.next52, %76 ]
-  %.337 = phi i1 [ %.246, %.lr.ph41.preheader ], [ %.4, %76 ]
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv51
-  %58 = load i32, ptr %gep, align 4, !tbaa !16
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct.t_atom, ptr %45, i64 %59
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  %62 = load float, ptr %61, align 4, !tbaa !49
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %64 = load float, ptr %63, align 4, !tbaa !54
-  %65 = fcmp une float %62, %64
-  br i1 %65, label %75, label %66
+.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %79
+  %indvars.iv49 = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next50, %79 ]
+  %.335 = phi i1 [ %.244, %.lr.ph39.preheader ], [ %.4, %79 ]
+  %58 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv49
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %60 = load i32, ptr %59, align 4, !tbaa !16
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds %struct.t_atom, ptr %45, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
+  %64 = load float, ptr %63, align 4, !tbaa !49
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %66 = load float, ptr %65, align 4, !tbaa !54
+  %67 = fcmp une float %64, %66
+  br i1 %67, label %78, label %68
 
-66:                                               ; preds = %.lr.ph41
-  %gep36 = getelementptr inbounds nuw i32, ptr %invariant.gep35, i64 %indvars.iv51
-  %67 = load i32, ptr %gep36, align 4, !tbaa !16
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.t_atom, ptr %45, i64 %68
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
-  %71 = load float, ptr %70, align 4, !tbaa !49
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %73 = load float, ptr %72, align 4, !tbaa !54
-  %74 = fcmp une float %71, %73
-  br i1 %74, label %75, label %76
+68:                                               ; preds = %.lr.ph39
+  %69 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %70 = load i32, ptr %69, align 4, !tbaa !16
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds %struct.t_atom, ptr %45, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
+  %74 = load float, ptr %73, align 4, !tbaa !49
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %76 = load float, ptr %75, align 4, !tbaa !54
+  %77 = fcmp une float %74, %76
+  br i1 %77, label %78, label %79
 
-75:                                               ; preds = %66, %.lr.ph41
-  br label %76
+78:                                               ; preds = %68, %.lr.ph39
+  br label %79
 
-76:                                               ; preds = %66, %75
-  %.4 = phi i1 [ true, %75 ], [ %.337, %66 ]
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 3
-  %77 = icmp samesign ult i64 %indvars.iv.next52, %56
-  br i1 %77, label %.lr.ph41, label %._crit_edge42, !llvm.loop !55
+79:                                               ; preds = %68, %78
+  %.4 = phi i1 [ true, %78 ], [ %.335, %68 ]
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 3
+  %80 = icmp samesign ult i64 %indvars.iv.next50, %56
+  br i1 %80, label %.lr.ph39, label %._crit_edge40, !llvm.loop !55
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

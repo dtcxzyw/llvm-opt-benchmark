@@ -78,19 +78,19 @@ define internal range(i32 0, 2) i32 @Reset(ptr noundef initializes((40, 44)) %0)
   %4 = load i32, ptr %3, align 8, !tbaa !18
   switch i32 %4, label %25 [
     i32 0, label %5
-    i32 1, label %.thread
+    i32 1, label %.critedge32
   ]
 
 5:                                                ; preds = %1
   %6 = tail call ptr @WebPSafeCalloc(i64 noundef 1, i64 noundef 96) #8
   store ptr %6, ptr %0, align 8, !tbaa !19
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %.critedge32, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %6, ptr noundef null) #8
   %.not28 = icmp eq i32 %9, 0
-  br i1 %.not28, label %10, label %22
+  br i1 %.not28, label %10, label %24
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -100,35 +100,35 @@ define internal range(i32 0, 2) i32 @Reset(ptr noundef initializes((40, 44)) %0)
 
 13:                                               ; preds = %10
   %14 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %6) #8
-  br label %22
+  br label %24
 
 15:                                               ; preds = %10
   %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %18 = tail call i32 @pthread_create(ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull @ThreadLoop, ptr noundef nonnull %0) #8
   %.not30 = icmp eq i32 %18, 0
-  br i1 %.not30, label %23, label %.critedge
+  br i1 %.not30, label %19, label %.critedge
+
+19:                                               ; preds = %15
+  store i32 1, ptr %3, align 8, !tbaa !18
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #8
+  br label %.critedge32
 
 .critedge:                                        ; preds = %15
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #8
-  %20 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %6) #8
-  %21 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %11) #8
-  br label %22
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #8
+  %22 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %6) #8
+  %23 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %11) #8
+  br label %24
 
-22:                                               ; preds = %8, %.critedge, %13
+24:                                               ; preds = %8, %.critedge, %13
   tail call void @WebPSafeFree(ptr noundef nonnull %6) #8
   store ptr null, ptr %0, align 8, !tbaa !19
-  br label %.thread
-
-23:                                               ; preds = %15
-  store i32 1, ptr %3, align 8, !tbaa !18
-  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #8
-  br label %.thread
+  br label %.critedge32
 
 25:                                               ; preds = %1
   %26 = load ptr, ptr %0, align 8, !tbaa !19
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread, label %28
+  br i1 %27, label %.critedge32, label %28
 
 28:                                               ; preds = %25
   %29 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #8
@@ -151,10 +151,10 @@ define internal range(i32 0, 2) i32 @Reset(ptr noundef initializes((40, 44)) %0)
   %.pre = load i32, ptr %2, align 8, !tbaa !15
   %35 = icmp eq i32 %.pre, 0
   %36 = zext i1 %35 to i32
-  br label %.thread
+  br label %.critedge32
 
-.thread:                                          ; preds = %._crit_edge.i.i, %25, %5, %22, %23, %1
-  %.1 = phi i32 [ %4, %1 ], [ 1, %23 ], [ 0, %22 ], [ 0, %5 ], [ 1, %25 ], [ %36, %._crit_edge.i.i ]
+.critedge32:                                      ; preds = %._crit_edge.i.i, %25, %19, %24, %5, %1
+  %.1 = phi i32 [ 1, %19 ], [ %4, %1 ], [ 0, %5 ], [ 0, %24 ], [ 1, %25 ], [ %36, %._crit_edge.i.i ]
   ret i32 %.1
 }
 
@@ -330,7 +330,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #7
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ThreadLoop(ptr noundef %0) #4 {
+define internal noalias noundef ptr @ThreadLoop(ptr noundef %0) #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40

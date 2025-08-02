@@ -24,20 +24,20 @@ define dso_local noundef zeroext i1 @_ZN4absl15random_internal29ReadSeedMaterial
 
 6:                                                ; preds = %4
   %7 = shl i64 %1, 2
-  %.not17.i.i = icmp eq i64 %7, 0
-  br i1 %.not17.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_133ReadSeedMaterialFromOSEntropyImplENS_4SpanIjEE.exit, label %.lr.ph.i.i
+  %.not15.i.i = icmp eq i64 %7, 0
+  br i1 %.not15.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_133ReadSeedMaterialFromOSEntropyImplENS_4SpanIjEE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %6, %10
-  %.0819.i.i = phi ptr [ %11, %10 ], [ %0, %6 ]
-  %.018.i.i = phi i64 [ %12, %10 ], [ %7, %6 ]
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.018.i.i, i64 256)
-  %8 = tail call i32 @getentropy(ptr noundef nonnull %.0819.i.i, i64 noundef %.sroa.speculated.i.i)
+  %.0817.i.i = phi ptr [ %11, %10 ], [ %0, %6 ]
+  %.016.i.i = phi i64 [ %12, %10 ], [ %7, %6 ]
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.016.i.i, i64 256)
+  %8 = tail call i32 @getentropy(ptr noundef nonnull %.0817.i.i, i64 noundef %.sroa.speculated.i.i)
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %_ZN4absl15random_internal12_GLOBAL__N_130ReadSeedMaterialFromGetEntropyENS_4SpanIjEE.exit.i
 
 10:                                               ; preds = %.lr.ph.i.i
-  %11 = getelementptr inbounds nuw i8, ptr %.0819.i.i, i64 %.sroa.speculated.i.i
-  %12 = sub i64 %.018.i.i, %.sroa.speculated.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %.0817.i.i, i64 %.sroa.speculated.i.i
+  %12 = sub i64 %.016.i.i, %.sroa.speculated.i.i
   %.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_133ReadSeedMaterialFromOSEntropyImplENS_4SpanIjEE.exit, label %.lr.ph.i.i, !llvm.loop !4
 

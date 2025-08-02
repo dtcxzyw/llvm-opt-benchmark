@@ -1761,8 +1761,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6det
   %.sroa.0.1.i.i.i = phi ptr [ %534, %.loopexit.i.i.i ], [ %521, %513 ], [ %530, %526 ]
   %535 = zext i32 %511 to i64
   %536 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %510, i64 %535
-  %.not165.i.i = icmp eq ptr %.sroa.0.1.i.i.i, %536
-  br i1 %.not165.i.i, label %540, label %537
+  %.not162.i.i = icmp eq ptr %.sroa.0.1.i.i.i, %536
+  br i1 %.not162.i.i, label %540, label %537
 
 537:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i
   %538 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
@@ -1829,8 +1829,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %547, %540
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit99.i.i: ; preds = %568, %555
   %.sroa.0.1.i94.i.i = phi ptr [ %563, %555 ], [ %572, %568 ]
-  %.not166.i.i = icmp eq ptr %.sroa.0.1.i94.i.i, %536
-  br i1 %.not166.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit99.thread.i.i, label %575
+  %.not163.i.i = icmp eq ptr %.sroa.0.1.i94.i.i, %536
+  br i1 %.not163.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit99.thread.i.i, label %575
 
 575:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit99.i.i
   %576 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i94.i.i, i64 8
@@ -1881,14 +1881,14 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit105.i.i: ; preds = %584, %_ZN4llvm1
 
 600:                                              ; preds = %599
   %601 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122InferAddressSpacesImpl26isSafeToCastConstAddrSpaceEPN4llvm8ConstantEj(i32 %.val82.i.pre.i, ptr noundef nonnull %507, i32 noundef %591)
-  br i1 %601, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.thread.i.i, label %602
+  br i1 %601, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i, label %602
 
 602:                                              ; preds = %600, %599
   br i1 %595, label %603, label %._crit_edge.i.i
 
 603:                                              ; preds = %602
   %604 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122InferAddressSpacesImpl26isSafeToCastConstAddrSpaceEPN4llvm8ConstantEj(i32 %.val82.i.pre.i, ptr noundef nonnull %509, i32 noundef %554)
-  br i1 %604, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.thread.i.i, label %._crit_edge.i.i
+  br i1 %604, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %603, %602
   %605 = icmp eq i32 %554, %.val82.i.pre.i
@@ -1896,20 +1896,20 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit105.i.i: ; preds = %584, %_ZN4llvm1
   %or.cond.i.i.i = or i1 %605, %606
   %brmerge.i.i = or i1 %596, %or.cond.i.i.i
   %.val83.mux.i.i = select i1 %605, i32 %.val82.i.pre.i, i32 %591
-  %brmerge162.i.i = select i1 %brmerge.i.i, i1 true, i1 %598
+  %brmerge159.i.i = select i1 %brmerge.i.i, i1 true, i1 %598
   %.val83.mux.mux.i.i = select i1 %brmerge.i.i, i32 %.val83.mux.i.i, i32 %554
-  br i1 %brmerge162.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.thread.i.i, label %607
+  br i1 %brmerge159.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i, label %607
 
 607:                                              ; preds = %._crit_edge.i.i
   %608 = icmp eq i32 %554, %591
   %..i.i.i = select i1 %608, i32 %554, i32 %.val82.i.pre.i
-  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.thread.i.i
+  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i
 
 609:                                              ; preds = %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE12pop_back_valEv.exit.i
   %610 = load ptr, ptr %439, align 8, !tbaa !100
   %611 = call noundef i32 @_ZNK4llvm19TargetTransformInfo19getAssumedAddrSpaceEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(8) %610, ptr noundef nonnull align 8 dereferenceable(24) %457) #20
   %.not.i.i9 = icmp eq i32 %611, -1
-  br i1 %.not.i.i9, label %612, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.thread.i.i
+  br i1 %.not.i.i9, label %612, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i
 
 612:                                              ; preds = %609
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41) #20
@@ -1919,18 +1919,18 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit105.i.i: ; preds = %584, %_ZN4llvm1
   %615 = zext i32 %614 to i64
   %.idx.i.i13 = shl nuw nsw i64 %615, 3
   %616 = getelementptr inbounds nuw i8, ptr %613, i64 %.idx.i.i13
-  %.not79173.i.i = icmp eq i32 %614, 0
-  br i1 %.not79173.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit133.thread.i.i, label %.lr.ph.i.i14
+  %.not79170.i.i = icmp eq i32 %614, 0
+  br i1 %.not79170.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit133.thread.i.i, label %.lr.ph.i.i14
 
 617:                                              ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit133.i.i
-  %618 = getelementptr inbounds nuw i8, ptr %.073174.i.i, i64 8
+  %618 = getelementptr inbounds nuw i8, ptr %.073171.i.i, i64 8
   %.not79.i.i = icmp eq ptr %618, %616
   br i1 %.not79.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit133.thread.loopexit.i.i, label %.lr.ph.i.i14
 
 .lr.ph.i.i14:                                     ; preds = %612, %617
-  %.4175.i.i = phi i32 [ %.0.i132.i.i, %617 ], [ -1, %612 ]
-  %.073174.i.i = phi ptr [ %618, %617 ], [ %613, %612 ]
-  %619 = load ptr, ptr %.073174.i.i, align 8, !tbaa !179
+  %.4172.i.i = phi i32 [ %.0.i132.i.i, %617 ], [ -1, %612 ]
+  %.073171.i.i = phi ptr [ %618, %617 ], [ %613, %612 ]
+  %619 = load ptr, ptr %.073171.i.i, align 8, !tbaa !179
   %620 = load ptr, ptr %56, align 8, !tbaa !192
   %621 = load i32, ptr %441, align 8, !tbaa !195
   %622 = icmp eq i32 %621, 0
@@ -2004,8 +2004,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit125.i.i: ; preds = %655, %648
   %662 = icmp ne i32 %660, %661
   %663 = load i8, ptr %457, align 8
   %664 = icmp ult i8 %663, 29
-  %or.cond164.i.i = select i1 %662, i1 true, i1 %664
-  br i1 %or.cond164.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl22getPredicatedAddrSpaceERKN4llvm5ValueEPS3_.exit.thread.i.i, label %665
+  %or.cond161.i.i = select i1 %662, i1 true, i1 %664
+  br i1 %or.cond161.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl22getPredicatedAddrSpaceERKN4llvm5ValueEPS3_.exit.thread.i.i, label %665
 
 665:                                              ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit125.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40) #20
@@ -2138,13 +2138,13 @@ _ZNK12_GLOBAL__N_122InferAddressSpacesImpl22getPredicatedAddrSpaceERKN4llvm5Valu
 _ZNK12_GLOBAL__N_122InferAddressSpacesImpl22getPredicatedAddrSpaceERKN4llvm5ValueEPS3_.exit.thread.i.i: ; preds = %select.unfold.i.i.i, %730, %728, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl22getPredicatedAddrSpaceERKN4llvm5ValueEPS3_.exit.i.i, %_ZN4llvm15AssumptionCache14assumptionsForEPKNS_5ValueE.exit.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_15AssumptionCache23AffectedValueCallbackVHENS_11SmallVectorINS2_10ResultElemELj1EEENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_SA_SD_E7find_asIS9_EENS_16DenseMapIteratorIS3_S6_SA_SD_Lb0EEERKT_.exit.i.i.i.i, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit125.i.i
   %.170.i.i = phi i32 [ %660, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit125.i.i ], [ %732, %730 ], [ %.fca.1.extract.le.i.i.i, %728 ], [ %660, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl22getPredicatedAddrSpaceERKN4llvm5ValueEPS3_.exit.i.i ], [ %660, %_ZN4llvm15AssumptionCache14assumptionsForEPKNS_5ValueE.exit.i.i.i ], [ %660, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_15AssumptionCache23AffectedValueCallbackVHENS_11SmallVectorINS2_10ResultElemELj1EEENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_SA_SD_E7find_asIS9_EENS_16DenseMapIteratorIS3_S6_SA_SD_Lb0EEERKT_.exit.i.i.i.i ], [ %660, %select.unfold.i.i.i ]
   %.val84.i.i = load i32, ptr %74, align 8, !tbaa !102
-  %733 = icmp eq i32 %.4175.i.i, %.val84.i.i
+  %733 = icmp eq i32 %.4172.i.i, %.val84.i.i
   %734 = icmp eq i32 %.170.i.i, %.val84.i.i
   %or.cond.i130.i.i = or i1 %733, %734
   br i1 %or.cond.i130.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit133.thread.loopexit.i.i, label %735
 
 735:                                              ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl22getPredicatedAddrSpaceERKN4llvm5ValueEPS3_.exit.thread.i.i
-  %736 = icmp eq i32 %.4175.i.i, -1
+  %736 = icmp eq i32 %.4172.i.i, -1
   br i1 %736, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit133.i.i, label %737
 
 737:                                              ; preds = %735
@@ -2152,12 +2152,12 @@ _ZNK12_GLOBAL__N_122InferAddressSpacesImpl22getPredicatedAddrSpaceERKN4llvm5Valu
   br i1 %738, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit133.i.i, label %739
 
 739:                                              ; preds = %737
-  %740 = icmp eq i32 %.4175.i.i, %.170.i.i
-  %..i131.i.i = select i1 %740, i32 %.4175.i.i, i32 %.val84.i.i
+  %740 = icmp eq i32 %.4172.i.i, %.170.i.i
+  %..i131.i.i = select i1 %740, i32 %.4172.i.i, i32 %.val84.i.i
   br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit133.i.i
 
 _ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit133.i.i: ; preds = %739, %737, %735
-  %.0.i132.i.i = phi i32 [ %..i131.i.i, %739 ], [ %.170.i.i, %735 ], [ %.4175.i.i, %737 ]
+  %.0.i132.i.i = phi i32 [ %..i131.i.i, %739 ], [ %.170.i.i, %735 ], [ %.4172.i.i, %737 ]
   %.not81.i.i = icmp eq i32 %.0.i132.i.i, %.val84.i.i
   br i1 %.not81.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit133.thread.loopexit.i.i, label %617
 
@@ -2178,16 +2178,16 @@ _ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit133.thread.
 
 _ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i: ; preds = %743, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit133.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41) #20
-  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.thread.i.i
+  br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i
 
-_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.thread.i.i: ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i, %609, %607, %._crit_edge.i.i, %603, %600
-  %.268.i.i = phi i32 [ %.5.i.i, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i ], [ %611, %609 ], [ %.val83.mux.mux.i.i, %._crit_edge.i.i ], [ %..i.i.i, %607 ], [ %554, %603 ], [ %591, %600 ]
+_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i: ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i, %609, %607, %._crit_edge.i.i, %603, %600
+  %.268.i.i = phi i32 [ %.5.i.i, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i ], [ %611, %609 ], [ %591, %600 ], [ %554, %603 ], [ %..i.i.i, %607 ], [ %.val83.mux.mux.i.i, %._crit_edge.i.i ]
   %744 = load ptr, ptr %56, align 8, !tbaa !192
   %745 = load i32, ptr %441, align 8, !tbaa !195
   %746 = icmp eq i32 %745, 0
   br i1 %746, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i, label %747
 
-747:                                              ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.thread.i.i
+747:                                              ; preds = %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i
   %748 = ptrtoint ptr %457 to i64
   %749 = trunc i64 %748 to i32
   %750 = lshr i32 %749, 4
@@ -2224,10 +2224,10 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6de
   %769 = load i32, ptr %768, align 4, !tbaa !167
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i10, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i.i, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.thread.i.i
-  %770 = phi i32 [ %769, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i.i ], [ 0, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.thread.i.i ], [ 0, %.lr.ph.i.i.i.i.i10 ]
-  %.not167.i.i = icmp eq i32 %770, %.268.i.i
-  br i1 %.not167.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl18updateAddressSpaceERKN4llvm5ValueERNS1_8DenseMapIPS3_jNS1_12DenseMapInfoIS6_vEENS1_6detail12DenseMapPairIS6_jEEEERNS5_ISt4pairIS6_S6_EjNS7_ISF_vEENSA_ISF_jEEEE.exit.thread.i, label %771
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i10, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i.i, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i
+  %770 = phi i32 [ %769, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i.i ], [ 0, %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i ], [ 0, %.lr.ph.i.i.i.i.i10 ]
+  %.not164.i.i = icmp eq i32 %770, %.268.i.i
+  br i1 %.not164.i.i, label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl18updateAddressSpaceERKN4llvm5ValueERNS1_8DenseMapIPS3_jNS1_12DenseMapInfoIS6_vEENS1_6detail12DenseMapPairIS6_jEEEERNS5_ISt4pairIS6_S6_EjNS7_ISF_vEENSA_ISF_jEEEE.exit.thread.i, label %771
 
 771:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6lookupES4_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #20

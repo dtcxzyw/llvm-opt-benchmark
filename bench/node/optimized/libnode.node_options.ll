@@ -12752,29 +12752,29 @@ entry:
   %ref.tmp7 = alloca %"class.std::allocator", align 1
   %add.ptr = getelementptr inbounds i8, ptr %port.coerce1, i64 %port.coerce0
   %cmp.not18.i.i = icmp eq i64 %port.coerce0, 0
-  br i1 %cmp.not18.i.i, label %if.end, label %for.body.i61.i
+  br i1 %cmp.not18.i.i, label %if.end, label %for.body.i57.i
 
-for.body.i61.i:                                   ; preds = %entry, %for.inc.i.i
+for.body.i57.i:                                   ; preds = %entry, %for.inc.i.i
   %__first.addr.3.i = phi ptr [ %incdec.ptr14.i.i, %for.inc.i.i ], [ %port.coerce1, %entry ]
   %__val.9.i = phi i32 [ %__val.10.i, %for.inc.i.i ], [ 0, %entry ]
-  %__unused_bits_lower_bound.019.i.i = phi i32 [ %sub.i64.i, %for.inc.i.i ], [ 32, %entry ]
+  %__unused_bits_lower_bound.019.i.i = phi i32 [ %sub.i60.i, %for.inc.i.i ], [ 32, %entry ]
   %0 = load i8, ptr %__first.addr.3.i, align 1
   %sub.i15.i.i = add i8 %0, -48
   %conv.i.i = zext i8 %sub.i15.i.i to i32
   %cmp2.not.i.i = icmp ult i8 %sub.i15.i.i, 10
-  br i1 %cmp2.not.i.i, label %if.end.i63.i, label %if.end14.i
+  br i1 %cmp2.not.i.i, label %if.end.i59.i, label %if.end14.i
 
-if.end.i63.i:                                     ; preds = %for.body.i61.i
-  %sub.i64.i = add i32 %__unused_bits_lower_bound.019.i.i, -4
-  %cmp3.i.i = icmp sgt i32 %sub.i64.i, -1
-  br i1 %cmp3.i.i, label %if.then4.i67.i, label %if.else.i.i
+if.end.i59.i:                                     ; preds = %for.body.i57.i
+  %sub.i60.i = add i32 %__unused_bits_lower_bound.019.i.i, -4
+  %cmp3.i.i = icmp sgt i32 %sub.i60.i, -1
+  br i1 %cmp3.i.i, label %if.then4.i63.i, label %if.else.i.i
 
-if.then4.i67.i:                                   ; preds = %if.end.i63.i
-  %mul.i68.i = mul i32 %__val.9.i, 10
-  %add.i.i = add i32 %mul.i68.i, %conv.i.i
+if.then4.i63.i:                                   ; preds = %if.end.i59.i
+  %mul.i64.i = mul i32 %__val.9.i, 10
+  %add.i.i = add i32 %mul.i64.i, %conv.i.i
   br label %for.inc.i.i
 
-if.else.i.i:                                      ; preds = %if.end.i63.i
+if.else.i.i:                                      ; preds = %if.end.i59.i
   %1 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %__val.9.i, i32 10)
   %2 = extractvalue { i32, i1 } %1, 1
   br i1 %2, label %while.cond.i.i.preheader, label %lor.lhs.false.i.i.i
@@ -12789,32 +12789,32 @@ lor.lhs.false.i.i.i:                              ; preds = %if.else.i.i
 while.cond.i.i.preheader:                         ; preds = %lor.lhs.false.i.i.i, %if.else.i.i
   br label %while.cond.i.i
 
-while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %land.rhs.i66.i
-  %incdec.ptr20.i.i = phi ptr [ %incdec.ptr.i.i, %land.rhs.i66.i ], [ %__first.addr.3.i, %while.cond.i.i.preheader ]
+while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %land.rhs.i62.i
+  %incdec.ptr20.i.i = phi ptr [ %incdec.ptr.i.i, %land.rhs.i62.i ], [ %__first.addr.3.i, %while.cond.i.i.preheader ]
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr20.i.i, i64 1
-  %cmp8.not.i65.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr
-  br i1 %cmp8.not.i65.i, label %if.end14.thread.i, label %land.rhs.i66.i
+  %cmp8.not.i61.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr
+  br i1 %cmp8.not.i61.i, label %if.end14.thread.i, label %land.rhs.i62.i
 
-land.rhs.i66.i:                                   ; preds = %while.cond.i.i
+land.rhs.i62.i:                                   ; preds = %while.cond.i.i
   %7 = load i8, ptr %incdec.ptr.i.i, align 1
   %sub.i16.i.i = add i8 %7, -48
   %cmp11.i.i = icmp ult i8 %sub.i16.i.i, 10
   br i1 %cmp11.i.i, label %while.cond.i.i, label %if.end14.thread.i, !llvm.loop !109
 
-for.inc.i.i:                                      ; preds = %lor.lhs.false.i.i.i, %if.then4.i67.i
-  %__val.10.i = phi i32 [ %add.i.i, %if.then4.i67.i ], [ %6, %lor.lhs.false.i.i.i ]
+for.inc.i.i:                                      ; preds = %lor.lhs.false.i.i.i, %if.then4.i63.i
+  %__val.10.i = phi i32 [ %add.i.i, %if.then4.i63.i ], [ %6, %lor.lhs.false.i.i.i ]
   %incdec.ptr14.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.3.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr14.i.i, %add.ptr
-  br i1 %cmp.not.i.i, label %if.end14.i, label %for.body.i61.i, !llvm.loop !110
+  br i1 %cmp.not.i.i, label %if.end14.i, label %for.body.i57.i, !llvm.loop !110
 
-if.end14.thread.i:                                ; preds = %land.rhs.i66.i, %while.cond.i.i
-  %__first.addr.0.ph.i = phi ptr [ %add.ptr, %while.cond.i.i ], [ %incdec.ptr.i.i, %land.rhs.i66.i ]
-  %cmp15115.i = icmp eq ptr %__first.addr.0.ph.i, %port.coerce1
-  br i1 %cmp15115.i, label %if.end, label %if.then
+if.end14.thread.i:                                ; preds = %land.rhs.i62.i, %while.cond.i.i
+  %__first.addr.0.ph.i = phi ptr [ %add.ptr, %while.cond.i.i ], [ %incdec.ptr.i.i, %land.rhs.i62.i ]
+  %cmp15111.i = icmp eq ptr %__first.addr.0.ph.i, %port.coerce1
+  br i1 %cmp15111.i, label %if.end, label %if.then
 
-if.end14.i:                                       ; preds = %for.inc.i.i, %for.body.i61.i
-  %__first.addr.0.i = phi ptr [ %__first.addr.3.i, %for.body.i61.i ], [ %add.ptr, %for.inc.i.i ]
-  %__val.0.i = phi i32 [ %__val.9.i, %for.body.i61.i ], [ %__val.10.i, %for.inc.i.i ]
+if.end14.i:                                       ; preds = %for.inc.i.i, %for.body.i57.i
+  %__first.addr.0.i = phi ptr [ %__first.addr.3.i, %for.body.i57.i ], [ %add.ptr, %for.inc.i.i ]
+  %__val.0.i = phi i32 [ %__val.9.i, %for.body.i57.i ], [ %__val.10.i, %for.inc.i.i ]
   %cmp15.i.not = icmp eq ptr %__first.addr.0.i, %port.coerce1
   br i1 %cmp15.i.not, label %if.end, label %if.else22.i
 

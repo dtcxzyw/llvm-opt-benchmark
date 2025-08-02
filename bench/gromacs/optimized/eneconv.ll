@@ -2525,10 +2525,9 @@ define internal fastcc noundef ptr @_ZL9select_itiP11gmx_enxnm_tPi(i32 noundef %
 .loopexit:                                        ; preds = %24, %..loopexit_crit_edge
   %.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %12, %24 ]
   %27 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.38, i32 noundef 105, i64 noundef range(i64 -2147483648, 2147483648) %.pre-phi, i64 noundef 1)
-  %invariant.gep = getelementptr i8, ptr %27, i64 -1
   br label %28
 
-28:                                               ; preds = %39, %.loopexit
+28:                                               ; preds = %41, %.loopexit
   %29 = call i32 (ptr, ...) @__isoc99_scanf(ptr noundef nonnull @.str.84, ptr noundef nonnull %4)
   %.not26 = icmp eq i32 %29, 1
   br i1 %.not26, label %34, label %30
@@ -2555,53 +2554,54 @@ define internal fastcc noundef ptr @_ZL9select_itiP11gmx_enxnm_tPi(i32 noundef %
   %36 = icmp slt i32 %35, 1
   %.not27 = icmp sgt i32 %35, %0
   %or.cond = or i1 %36, %.not27
-  br i1 %or.cond, label %39, label %37
+  br i1 %or.cond, label %41, label %37
 
 37:                                               ; preds = %34
   %38 = zext nneg i32 %35 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %38
-  store i8 1, ptr %gep, align 1, !tbaa !22
-  br label %39
+  %39 = getelementptr i8, ptr %27, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 -1
+  store i8 1, ptr %40, align 1, !tbaa !22
+  br label %41
 
-39:                                               ; preds = %34, %37
+41:                                               ; preds = %34, %37
   %.not28 = icmp eq i32 %35, 0
-  br i1 %.not28, label %40, label %28, !llvm.loop !107
+  br i1 %.not28, label %42, label %28, !llvm.loop !107
 
-40:                                               ; preds = %39
-  %41 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.38, i32 noundef 118, i64 noundef %.pre-phi, i64 noundef 4)
+42:                                               ; preds = %41
+  %43 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.38, i32 noundef 118, i64 noundef %.pre-phi, i64 noundef 4)
   store i32 0, ptr %2, align 4, !tbaa !4
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %40
+.lr.ph.preheader:                                 ; preds = %42
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %51
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next41, %51 ]
-  %42 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv40
-  %43 = load i8, ptr %42, align 1, !tbaa !22, !range !55, !noundef !56
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %45, label %51
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %53
+  %indvars.iv40 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next41, %53 ]
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv40
+  %45 = load i8, ptr %44, align 1, !tbaa !22, !range !55, !noundef !56
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %47, label %53
 
-45:                                               ; preds = %.lr.ph
-  %46 = load i32, ptr %2, align 4, !tbaa !4
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %2, align 4, !tbaa !4
-  %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds i32, ptr %41, i64 %48
-  %50 = trunc nuw nsw i64 %indvars.iv40 to i32
-  store i32 %50, ptr %49, align 4, !tbaa !4
-  br label %51
+47:                                               ; preds = %.lr.ph
+  %48 = load i32, ptr %2, align 4, !tbaa !4
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %2, align 4, !tbaa !4
+  %50 = sext i32 %48 to i64
+  %51 = getelementptr inbounds i32, ptr %43, i64 %50
+  %52 = trunc nuw nsw i64 %indvars.iv40 to i32
+  store i32 %52, ptr %51, align 4, !tbaa !4
+  br label %53
 
-51:                                               ; preds = %.lr.ph, %45
+53:                                               ; preds = %.lr.ph, %47
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
 
-._crit_edge:                                      ; preds = %51, %40
+._crit_edge:                                      ; preds = %53, %42
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.38, i32 noundef 127, ptr noundef %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
-  ret ptr %41
+  ret ptr %43
 }
 
 declare noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4

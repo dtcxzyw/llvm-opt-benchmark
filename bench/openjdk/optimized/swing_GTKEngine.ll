@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [27 x i8] c"Could not get image buffer\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @getStrFor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @getStrFor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1312
   %5 = load ptr, ptr %4, align 8

@@ -797,7 +797,7 @@ define hidden ptr @sk_set_cmp_func(ptr noundef captures(none) %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @sk_deep_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
+define hidden noalias noundef ptr @sk_deep_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %4 = tail call ptr @sk_dup(ptr noundef %0)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader29

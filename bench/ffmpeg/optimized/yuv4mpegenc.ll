@@ -297,7 +297,7 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
   %35 = sub nsw i32 0, %26
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 10
   %37 = sub nsw i32 0, %28
-  %38 = getelementptr i8, ptr %31, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 64
   br label %40
 
@@ -328,7 +328,7 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
   %.049 = phi i32 [ %28, %40 ], [ %55, %47 ]
   %.048 = phi i32 [ %26, %40 ], [ %51, %47 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %57 = getelementptr i8, ptr %38, i64 %.idx
+  %57 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
   %58 = load i32, ptr %57, align 4, !tbaa !56
   %59 = mul nsw i32 %58, %.048
   %60 = icmp sgt i32 %.049, 0

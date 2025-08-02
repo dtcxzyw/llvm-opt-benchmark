@@ -4079,7 +4079,7 @@ define internal void @_ZN12_GLOBAL__N_115X86DAGToDAGISel18PostprocessISelDAGEv(p
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 648
   %16 = load i32, ptr %15, align 8, !tbaa !64
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %._crit_edge.thread, label %18
+  br i1 %17, label %.critedge193, label %18
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4088,7 +4088,7 @@ define internal void @_ZN12_GLOBAL__N_115X86DAGToDAGISel18PostprocessISelDAGEv(p
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 400
   %23 = load ptr, ptr %22, align 8, !tbaa !470
   %.not187 = icmp eq ptr %21, %23
-  br i1 %.not187, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not187, label %.critedge193, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4596,12 +4596,12 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit112: ; pre
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit116
 
 _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit116: ; preds = %231, %.critedge, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit112
-  %.sink214 = phi i32 [ %227, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit112 ], [ %183, %.critedge ], [ %.pre.i114, %231 ]
-  %.sink212 = phi ptr [ %228, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit112 ], [ %.pre.i, %.critedge ], [ %.pre195, %231 ]
+  %.sink212 = phi i32 [ %227, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit112 ], [ %183, %.critedge ], [ %.pre.i114, %231 ]
+  %.sink210 = phi ptr [ %228, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit112 ], [ %.pre.i, %.critedge ], [ %.pre195, %231 ]
   %.sroa.023.0.copyload.c.sink = phi ptr [ %.sroa.020.0.copyload, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit112 ], [ %.sroa.023.0.copyload.c, %.critedge ], [ %.sroa.023.0.copyload.c, %231 ]
   %.sroa.224.0.copyload.c.sink = phi i32 [ %.sroa.221.0.copyload, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit112 ], [ %.sroa.224.0.copyload.c, %.critedge ], [ %.sroa.224.0.copyload.c, %231 ]
-  %234 = zext i32 %.sink214 to i64
-  %235 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %.sink212, i64 %234
+  %234 = zext i32 %.sink212 to i64
+  %235 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %.sink210, i64 %234
   store ptr %.sroa.023.0.copyload.c.sink, ptr %235, align 1
   %.sroa.2.0..sroa_idx.i115 = getelementptr inbounds nuw i8, ptr %235, i64 8
   store i32 %.sroa.224.0.copyload.c.sink, ptr %.sroa.2.0..sroa_idx.i115, align 1
@@ -4982,13 +4982,13 @@ _ZNK12_GLOBAL__N_115X86DAGToDAGISel16onlyUsesZeroFlagEN4llvm7SDValueE.exit.threa
   br i1 %.not, label %._crit_edge, label %43
 
 ._crit_edge:                                      ; preds = %_ZNK12_GLOBAL__N_115X86DAGToDAGISel16onlyUsesZeroFlagEN4llvm7SDValueE.exit.thread
-  br i1 %.1, label %392, label %._crit_edge.thread
+  br i1 %.1, label %392, label %.critedge193
 
 392:                                              ; preds = %._crit_edge
   call void @_ZN4llvm12SelectionDAG15RemoveDeadNodesEv(ptr noundef nonnull align 8 dereferenceable(952) %389) #25
-  br label %._crit_edge.thread
+  br label %.critedge193
 
-._crit_edge.thread:                               ; preds = %18, %._crit_edge, %392, %1
+.critedge193:                                     ; preds = %18, %._crit_edge, %392, %1
   ret void
 }
 

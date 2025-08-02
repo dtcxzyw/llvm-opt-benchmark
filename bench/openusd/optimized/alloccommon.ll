@@ -191,7 +191,7 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 25260
   %45 = load i8, ptr %44, align 4
   %46 = zext nneg i8 %45 to i32
-  %47 = getelementptr i8, ptr %0, i64 23640
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 23640
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 25280
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %50
@@ -216,7 +216,7 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
   %61 = mul i32 %.059.lcssa, %60
   %62 = shl i32 %61, %46
   %.idx = shl nuw nsw i64 %indvars.iv73, 6
-  %63 = getelementptr i8, ptr %47, i64 %.idx
+  %63 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 20
   %65 = load i32, ptr %64, align 4
   %.not65 = icmp ne i32 %62, %65

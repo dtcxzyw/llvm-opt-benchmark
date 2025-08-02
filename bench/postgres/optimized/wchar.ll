@@ -2425,40 +2425,32 @@ define internal range(i32 -1, 3) i32 @pg_big5_dsplen(ptr noundef readonly captur
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 -1, 3) i32 @pg_big5_verifychar(ptr noundef readonly captures(none) %0, i32 noundef %1) #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal range(i32 -1, 3) i32 @pg_big5_verifychar(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = load i8, ptr %0, align 1
   %.not.i = icmp slt i8 %3, 0
   %..i = select i1 %.not.i, i32 2, i32 1
   %4 = icmp slt i32 %1, %..i
-  br i1 %4, label %.loopexit, label %5
+  br i1 %4, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = icmp eq i8 %3, -115
-  br i1 %6, label %7, label %.preheader
+  br i1 %.not.i, label %6, label %.critedge
 
-7:                                                ; preds = %5
+6:                                                ; preds = %5
+  %7 = icmp eq i8 %3, -115
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 32
-  br i1 %10, label %.loopexit, label %.preheader
+  %or.cond = select i1 %7, i1 %10, i1 false
+  %11 = icmp eq i8 %9, 0
+  %or.cond13 = select i1 %or.cond, i1 true, i1 %11
+  br i1 %or.cond13, label %12, label %.critedge, !llvm.loop !22
 
-.preheader:                                       ; preds = %7, %5
-  br label %11
+.critedge:                                        ; preds = %6, %5
+  br label %12
 
-11:                                               ; preds = %.preheader, %12
-  %.010 = phi ptr [ %13, %12 ], [ %0, %.preheader ]
-  %.09 = phi i1 [ false, %12 ], [ %.not.i, %.preheader ]
-  br i1 %.09, label %12, label %.loopexit
-
-12:                                               ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %.010, i64 1
-  %14 = load i8, ptr %13, align 1
-  %15 = icmp eq i8 %14, 0
-  br i1 %15, label %.loopexit, label %11, !llvm.loop !22
-
-.loopexit:                                        ; preds = %11, %12, %7, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %7 ], [ %..i, %11 ], [ -1, %12 ]
+12:                                               ; preds = %6, %2, %.critedge
+  %.0 = phi i32 [ %..i, %.critedge ], [ -1, %2 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -2467,60 +2459,49 @@ define internal i32 @pg_big5_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %2, %.loopexit
-  %.01427 = phi ptr [ %21, %.loopexit ], [ %0, %2 ]
-  %.01526 = phi i32 [ %22, %.loopexit ], [ %1, %2 ]
-  %4 = load i8, ptr %.01427, align 1
+.lr.ph:                                           ; preds = %2, %15
+  %.01424 = phi ptr [ %17, %15 ], [ %0, %2 ]
+  %.01523 = phi i32 [ %18, %15 ], [ %1, %2 ]
+  %4 = load i8, ptr %.01424, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %.lr.ph
   %6 = icmp eq i8 %4, 0
-  br i1 %6, label %.thread, label %.loopexit
+  br i1 %6, label %.thread, label %15
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp eq i32 %.01526, 1
+  %8 = icmp eq i32 %.01523, 1
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %7
   %10 = icmp eq i8 %4, -115
-  br i1 %10, label %11, label %.preheader
+  %11 = getelementptr inbounds nuw i8, ptr %.01424, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 32
+  %or.cond.i = select i1 %10, i1 %13, i1 false
+  %14 = icmp eq i8 %12, 0
+  %or.cond13.i = select i1 %or.cond.i, i1 true, i1 %14
+  br i1 %or.cond13.i, label %..thread_crit_edge, label %15, !llvm.loop !22
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
-  %13 = load i8, ptr %12, align 1
-  %14 = icmp eq i8 %13, 32
-  br i1 %14, label %.thread, label %.preheader
+15:                                               ; preds = %5, %9
+  %.013 = phi i32 [ 1, %5 ], [ 2, %9 ]
+  %16 = zext nneg i32 %.013 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %.01424, i64 %16
+  %18 = sub nsw i32 %.01523, %.013
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %.lr.ph, label %.thread
 
-.preheader:                                       ; preds = %11, %9
-  br label %15
+..thread_crit_edge:                               ; preds = %9
+  br label %.thread, !llvm.loop !22
 
-15:                                               ; preds = %.preheader, %16
-  %.010.i = phi ptr [ %17, %16 ], [ %.01427, %.preheader ]
-  %.09.i = phi i1 [ false, %16 ], [ true, %.preheader ]
-  br i1 %.09.i, label %16, label %.loopexit
-
-16:                                               ; preds = %15
-  %17 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %.thread, label %15, !llvm.loop !22
-
-.loopexit:                                        ; preds = %15, %5
-  %.013 = phi i32 [ 1, %5 ], [ 2, %15 ]
-  %20 = zext nneg i32 %.013 to i64
-  %21 = getelementptr inbounds nuw i8, ptr %.01427, i64 %20
-  %22 = sub nsw i32 %.01526, %.013
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph, label %.thread
-
-.thread:                                          ; preds = %.loopexit, %5, %7, %11, %16, %2
-  %.01425 = phi ptr [ %0, %2 ], [ %.01427, %16 ], [ %21, %.loopexit ], [ %.01427, %5 ], [ %.01427, %7 ], [ %.01427, %11 ]
-  %24 = ptrtoint ptr %.01425 to i64
-  %25 = ptrtoint ptr %0 to i64
-  %26 = sub i64 %24, %25
-  %27 = trunc i64 %26 to i32
-  ret i32 %27
+.thread:                                          ; preds = %15, %5, %7, %..thread_crit_edge, %2
+  %.014.lcssa = phi ptr [ %.01424, %..thread_crit_edge ], [ %0, %2 ], [ %.01424, %7 ], [ %.01424, %5 ], [ %17, %15 ]
+  %20 = ptrtoint ptr %.014.lcssa to i64
+  %21 = ptrtoint ptr %0 to i64
+  %22 = sub i64 %20, %21
+  %23 = trunc i64 %22 to i32
+  ret i32 %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -2551,40 +2532,32 @@ define internal range(i32 -1, 3) i32 @pg_gbk_dsplen(ptr noundef readonly capture
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 -1, 3) i32 @pg_gbk_verifychar(ptr noundef readonly captures(none) %0, i32 noundef %1) #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal range(i32 -1, 3) i32 @pg_gbk_verifychar(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = load i8, ptr %0, align 1
   %.not.i = icmp slt i8 %3, 0
   %..i = select i1 %.not.i, i32 2, i32 1
   %4 = icmp slt i32 %1, %..i
-  br i1 %4, label %.loopexit, label %5
+  br i1 %4, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = icmp eq i8 %3, -115
-  br i1 %6, label %7, label %.preheader
+  br i1 %.not.i, label %6, label %.critedge
 
-7:                                                ; preds = %5
+6:                                                ; preds = %5
+  %7 = icmp eq i8 %3, -115
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 32
-  br i1 %10, label %.loopexit, label %.preheader
+  %or.cond = select i1 %7, i1 %10, i1 false
+  %11 = icmp eq i8 %9, 0
+  %or.cond13 = select i1 %or.cond, i1 true, i1 %11
+  br i1 %or.cond13, label %12, label %.critedge, !llvm.loop !23
 
-.preheader:                                       ; preds = %7, %5
-  br label %11
+.critedge:                                        ; preds = %6, %5
+  br label %12
 
-11:                                               ; preds = %.preheader, %12
-  %.010 = phi ptr [ %13, %12 ], [ %0, %.preheader ]
-  %.09 = phi i1 [ false, %12 ], [ %.not.i, %.preheader ]
-  br i1 %.09, label %12, label %.loopexit
-
-12:                                               ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %.010, i64 1
-  %14 = load i8, ptr %13, align 1
-  %15 = icmp eq i8 %14, 0
-  br i1 %15, label %.loopexit, label %11, !llvm.loop !23
-
-.loopexit:                                        ; preds = %11, %12, %7, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %7 ], [ %..i, %11 ], [ -1, %12 ]
+12:                                               ; preds = %6, %2, %.critedge
+  %.0 = phi i32 [ %..i, %.critedge ], [ -1, %2 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -2593,60 +2566,49 @@ define internal i32 @pg_gbk_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %2, %.loopexit
-  %.01427 = phi ptr [ %21, %.loopexit ], [ %0, %2 ]
-  %.01526 = phi i32 [ %22, %.loopexit ], [ %1, %2 ]
-  %4 = load i8, ptr %.01427, align 1
+.lr.ph:                                           ; preds = %2, %15
+  %.01424 = phi ptr [ %17, %15 ], [ %0, %2 ]
+  %.01523 = phi i32 [ %18, %15 ], [ %1, %2 ]
+  %4 = load i8, ptr %.01424, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %.lr.ph
   %6 = icmp eq i8 %4, 0
-  br i1 %6, label %.thread, label %.loopexit
+  br i1 %6, label %.thread, label %15
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp eq i32 %.01526, 1
+  %8 = icmp eq i32 %.01523, 1
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %7
   %10 = icmp eq i8 %4, -115
-  br i1 %10, label %11, label %.preheader
+  %11 = getelementptr inbounds nuw i8, ptr %.01424, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 32
+  %or.cond.i = select i1 %10, i1 %13, i1 false
+  %14 = icmp eq i8 %12, 0
+  %or.cond13.i = select i1 %or.cond.i, i1 true, i1 %14
+  br i1 %or.cond13.i, label %..thread_crit_edge, label %15, !llvm.loop !23
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
-  %13 = load i8, ptr %12, align 1
-  %14 = icmp eq i8 %13, 32
-  br i1 %14, label %.thread, label %.preheader
+15:                                               ; preds = %5, %9
+  %.013 = phi i32 [ 1, %5 ], [ 2, %9 ]
+  %16 = zext nneg i32 %.013 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %.01424, i64 %16
+  %18 = sub nsw i32 %.01523, %.013
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %.lr.ph, label %.thread
 
-.preheader:                                       ; preds = %11, %9
-  br label %15
+..thread_crit_edge:                               ; preds = %9
+  br label %.thread, !llvm.loop !23
 
-15:                                               ; preds = %.preheader, %16
-  %.010.i = phi ptr [ %17, %16 ], [ %.01427, %.preheader ]
-  %.09.i = phi i1 [ false, %16 ], [ true, %.preheader ]
-  br i1 %.09.i, label %16, label %.loopexit
-
-16:                                               ; preds = %15
-  %17 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %.thread, label %15, !llvm.loop !23
-
-.loopexit:                                        ; preds = %15, %5
-  %.013 = phi i32 [ 1, %5 ], [ 2, %15 ]
-  %20 = zext nneg i32 %.013 to i64
-  %21 = getelementptr inbounds nuw i8, ptr %.01427, i64 %20
-  %22 = sub nsw i32 %.01526, %.013
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph, label %.thread
-
-.thread:                                          ; preds = %.loopexit, %5, %7, %11, %16, %2
-  %.01425 = phi ptr [ %0, %2 ], [ %.01427, %16 ], [ %21, %.loopexit ], [ %.01427, %5 ], [ %.01427, %7 ], [ %.01427, %11 ]
-  %24 = ptrtoint ptr %.01425 to i64
-  %25 = ptrtoint ptr %0 to i64
-  %26 = sub i64 %24, %25
-  %27 = trunc i64 %26 to i32
-  ret i32 %27
+.thread:                                          ; preds = %15, %5, %7, %..thread_crit_edge, %2
+  %.014.lcssa = phi ptr [ %.01424, %..thread_crit_edge ], [ %0, %2 ], [ %.01424, %7 ], [ %.01424, %5 ], [ %17, %15 ]
+  %20 = ptrtoint ptr %.014.lcssa to i64
+  %21 = ptrtoint ptr %0 to i64
+  %22 = sub i64 %20, %21
+  %23 = trunc i64 %22 to i32
+  ret i32 %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -2677,40 +2639,32 @@ define internal range(i32 -1, 3) i32 @pg_uhc_dsplen(ptr noundef readonly capture
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 -1, 3) i32 @pg_uhc_verifychar(ptr noundef readonly captures(none) %0, i32 noundef %1) #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal range(i32 -1, 3) i32 @pg_uhc_verifychar(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = load i8, ptr %0, align 1
   %.not.i = icmp slt i8 %3, 0
   %..i = select i1 %.not.i, i32 2, i32 1
   %4 = icmp slt i32 %1, %..i
-  br i1 %4, label %.loopexit, label %5
+  br i1 %4, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = icmp eq i8 %3, -115
-  br i1 %6, label %7, label %.preheader
+  br i1 %.not.i, label %6, label %.critedge
 
-7:                                                ; preds = %5
+6:                                                ; preds = %5
+  %7 = icmp eq i8 %3, -115
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 32
-  br i1 %10, label %.loopexit, label %.preheader
+  %or.cond = select i1 %7, i1 %10, i1 false
+  %11 = icmp eq i8 %9, 0
+  %or.cond13 = select i1 %or.cond, i1 true, i1 %11
+  br i1 %or.cond13, label %12, label %.critedge, !llvm.loop !24
 
-.preheader:                                       ; preds = %7, %5
-  br label %11
+.critedge:                                        ; preds = %6, %5
+  br label %12
 
-11:                                               ; preds = %.preheader, %12
-  %.010 = phi ptr [ %13, %12 ], [ %0, %.preheader ]
-  %.09 = phi i1 [ false, %12 ], [ %.not.i, %.preheader ]
-  br i1 %.09, label %12, label %.loopexit
-
-12:                                               ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %.010, i64 1
-  %14 = load i8, ptr %13, align 1
-  %15 = icmp eq i8 %14, 0
-  br i1 %15, label %.loopexit, label %11, !llvm.loop !24
-
-.loopexit:                                        ; preds = %11, %12, %7, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %7 ], [ %..i, %11 ], [ -1, %12 ]
+12:                                               ; preds = %6, %2, %.critedge
+  %.0 = phi i32 [ %..i, %.critedge ], [ -1, %2 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -2719,60 +2673,49 @@ define internal i32 @pg_uhc_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %2, %.loopexit
-  %.01427 = phi ptr [ %21, %.loopexit ], [ %0, %2 ]
-  %.01526 = phi i32 [ %22, %.loopexit ], [ %1, %2 ]
-  %4 = load i8, ptr %.01427, align 1
+.lr.ph:                                           ; preds = %2, %15
+  %.01424 = phi ptr [ %17, %15 ], [ %0, %2 ]
+  %.01523 = phi i32 [ %18, %15 ], [ %1, %2 ]
+  %4 = load i8, ptr %.01424, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %.lr.ph
   %6 = icmp eq i8 %4, 0
-  br i1 %6, label %.thread, label %.loopexit
+  br i1 %6, label %.thread, label %15
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp eq i32 %.01526, 1
+  %8 = icmp eq i32 %.01523, 1
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %7
   %10 = icmp eq i8 %4, -115
-  br i1 %10, label %11, label %.preheader
+  %11 = getelementptr inbounds nuw i8, ptr %.01424, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 32
+  %or.cond.i = select i1 %10, i1 %13, i1 false
+  %14 = icmp eq i8 %12, 0
+  %or.cond13.i = select i1 %or.cond.i, i1 true, i1 %14
+  br i1 %or.cond13.i, label %..thread_crit_edge, label %15, !llvm.loop !24
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %.01427, i64 1
-  %13 = load i8, ptr %12, align 1
-  %14 = icmp eq i8 %13, 32
-  br i1 %14, label %.thread, label %.preheader
+15:                                               ; preds = %5, %9
+  %.013 = phi i32 [ 1, %5 ], [ 2, %9 ]
+  %16 = zext nneg i32 %.013 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %.01424, i64 %16
+  %18 = sub nsw i32 %.01523, %.013
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %.lr.ph, label %.thread
 
-.preheader:                                       ; preds = %11, %9
-  br label %15
+..thread_crit_edge:                               ; preds = %9
+  br label %.thread, !llvm.loop !24
 
-15:                                               ; preds = %.preheader, %16
-  %.010.i = phi ptr [ %17, %16 ], [ %.01427, %.preheader ]
-  %.09.i = phi i1 [ false, %16 ], [ true, %.preheader ]
-  br i1 %.09.i, label %16, label %.loopexit
-
-16:                                               ; preds = %15
-  %17 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %.thread, label %15, !llvm.loop !24
-
-.loopexit:                                        ; preds = %15, %5
-  %.013 = phi i32 [ 1, %5 ], [ 2, %15 ]
-  %20 = zext nneg i32 %.013 to i64
-  %21 = getelementptr inbounds nuw i8, ptr %.01427, i64 %20
-  %22 = sub nsw i32 %.01526, %.013
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph, label %.thread
-
-.thread:                                          ; preds = %.loopexit, %5, %7, %11, %16, %2
-  %.01425 = phi ptr [ %0, %2 ], [ %.01427, %16 ], [ %21, %.loopexit ], [ %.01427, %5 ], [ %.01427, %7 ], [ %.01427, %11 ]
-  %24 = ptrtoint ptr %.01425 to i64
-  %25 = ptrtoint ptr %0 to i64
-  %26 = sub i64 %24, %25
-  %27 = trunc i64 %26 to i32
-  ret i32 %27
+.thread:                                          ; preds = %15, %5, %7, %..thread_crit_edge, %2
+  %.014.lcssa = phi ptr [ %.01424, %..thread_crit_edge ], [ %0, %2 ], [ %.01424, %7 ], [ %.01424, %5 ], [ %17, %15 ]
+  %20 = ptrtoint ptr %.014.lcssa to i64
+  %21 = ptrtoint ptr %0 to i64
+  %22 = sub i64 %20, %21
+  %23 = trunc i64 %22 to i32
+  ret i32 %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

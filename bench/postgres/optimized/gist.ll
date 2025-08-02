@@ -284,16 +284,16 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 1576
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 3112
-  %33 = getelementptr i8, ptr %15, i64 3120
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 3120
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 4648
-  %35 = getelementptr i8, ptr %15, i64 4656
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 4656
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 6184
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 7720
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 9256
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 10792
-  %40 = getelementptr i8, ptr %15, i64 10800
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 10800
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 12328
-  %42 = getelementptr i8, ptr %15, i64 12336
+  %42 = getelementptr inbounds nuw i8, ptr %15, i64 12336
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 13864
   br label %60
@@ -345,7 +345,7 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
 
 70:                                               ; preds = %60
   %.idx117 = mul nuw nsw i64 %indvars.iv, 48
-  %71 = getelementptr i8, ptr %33, i64 %.idx117
+  %71 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx117
   store i32 0, ptr %71, align 8
   br label %72
 
@@ -362,7 +362,7 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
 
 77:                                               ; preds = %72
   %.idx119 = mul nuw nsw i64 %indvars.iv, 48
-  %78 = getelementptr i8, ptr %35, i64 %.idx119
+  %78 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx119
   store i32 0, ptr %78, align 8
   br label %79
 
@@ -388,7 +388,7 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
 
 90:                                               ; preds = %79
   %.idx121 = mul nuw nsw i64 %indvars.iv, 48
-  %91 = getelementptr i8, ptr %40, i64 %.idx121
+  %91 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx121
   store i32 0, ptr %91, align 8
   br label %92
 
@@ -405,7 +405,7 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
 
 97:                                               ; preds = %92
   %.idx123 = mul nuw nsw i64 %indvars.iv, 48
-  %98 = getelementptr i8, ptr %42, i64 %.idx123
+  %98 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx123
   store i32 0, ptr %98, align 8
   br label %99
 
@@ -2223,7 +2223,6 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %29 = call ptr @palloc(i64 noundef %28) #8
   %30 = call ptr @palloc(i64 noundef %28) #8
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %invariant.gep = getelementptr i8, ptr %2, i64 -8
   %32 = load i32, ptr %31, align 8
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph, label %.preheader
@@ -2232,11 +2231,11 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph76, label %._crit_edge
+  br i1 %36, label %.lr.ph74, label %._crit_edge
 
-.lr.ph76:                                         ; preds = %.preheader
+.lr.ph74:                                         ; preds = %.preheader
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  br label %47
+  br label %49
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %19 ]
@@ -2244,107 +2243,109 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %39 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i64
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %41
-  %42 = load ptr, ptr %gep, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
-  store ptr %42, ptr %43, align 8
+  %42 = getelementptr ptr, ptr %2, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 -8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  store ptr %44, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = load i32, ptr %31, align 8
-  %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph, label %.preheader, !llvm.loop !27
+  %46 = load i32, ptr %31, align 8
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %indvars.iv.next, %47
+  br i1 %48, label %.lr.ph, label %.preheader, !llvm.loop !27
 
-47:                                               ; preds = %.lr.ph76, %47
-  %indvars.iv78 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next79, %47 ]
-  %48 = load ptr, ptr %37, align 8
-  %49 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv78
-  %50 = load i16, ptr %49, align 2
-  %51 = zext i16 %50 to i64
-  %gep74 = getelementptr ptr, ptr %invariant.gep, i64 %51
-  %52 = load ptr, ptr %gep74, align 8
-  %53 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv78
-  store ptr %52, ptr %53, align 8
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %54 = load i32, ptr %34, align 8
-  %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %indvars.iv.next79, %55
-  br i1 %56, label %47, label %._crit_edge, !llvm.loop !28
+49:                                               ; preds = %.lr.ph74, %49
+  %indvars.iv76 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next77, %49 ]
+  %50 = load ptr, ptr %37, align 8
+  %51 = getelementptr inbounds nuw i16, ptr %50, i64 %indvars.iv76
+  %52 = load i16, ptr %51, align 2
+  %53 = zext i16 %52 to i64
+  %54 = getelementptr ptr, ptr %2, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 -8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv76
+  store ptr %56, ptr %57, align 8
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %58 = load i32, ptr %34, align 8
+  %59 = sext i32 %58 to i64
+  %60 = icmp slt i64 %indvars.iv.next77, %59
+  br i1 %60, label %49, label %._crit_edge, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %47, %.preheader
-  %.lcssa69 = phi i32 [ %35, %.preheader ], [ %54, %47 ]
-  %57 = call zeroext i1 @gistfitpage(ptr noundef %30, i32 noundef %.lcssa69) #8
-  br i1 %57, label %61, label %58
+._crit_edge:                                      ; preds = %49, %.preheader
+  %.lcssa69 = phi i32 [ %35, %.preheader ], [ %58, %49 ]
+  %61 = call zeroext i1 @gistfitpage(ptr noundef %30, i32 noundef %.lcssa69) #8
+  br i1 %61, label %65, label %62
 
-58:                                               ; preds = %._crit_edge
-  %59 = load i32, ptr %34, align 8
-  %60 = call ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %30, i32 noundef %59, ptr noundef nonnull %4)
-  br label %73
+62:                                               ; preds = %._crit_edge
+  %63 = load i32, ptr %34, align 8
+  %64 = call ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %30, i32 noundef %63, ptr noundef nonnull %4)
+  br label %77
 
-61:                                               ; preds = %._crit_edge
-  %62 = call ptr @palloc0(i64 noundef 56) #8
-  store i32 -1, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  store i32 0, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  store ptr null, ptr %64, align 8
-  %65 = load i32, ptr %34, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  store i32 %65, ptr %66, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %68 = call ptr @gistfillitupvec(ptr noundef %30, i32 noundef %65, ptr noundef nonnull %67) #8
-  %69 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %68, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 352
-  %71 = call ptr @gistFormTuple(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %70, ptr noundef nonnull %25, i1 noundef zeroext false) #8
-  %72 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store ptr %71, ptr %72, align 8
-  br label %73
+65:                                               ; preds = %._crit_edge
+  %66 = call ptr @palloc0(i64 noundef 56) #8
+  store i32 -1, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  store i32 0, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 48
+  store ptr null, ptr %68, align 8
+  %69 = load i32, ptr %34, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  store i32 %69, ptr %70, align 4
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %72 = call ptr @gistfillitupvec(ptr noundef %30, i32 noundef %69, ptr noundef nonnull %71) #8
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store ptr %72, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 352
+  %75 = call ptr @gistFormTuple(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %74, ptr noundef nonnull %25, i1 noundef zeroext false) #8
+  %76 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  store ptr %75, ptr %76, align 8
+  br label %77
 
-73:                                               ; preds = %61, %58
-  %.063 = phi ptr [ %62, %61 ], [ %60, %58 ]
-  %74 = load i32, ptr %31, align 8
-  %75 = call zeroext i1 @gistfitpage(ptr noundef %29, i32 noundef %74) #8
-  br i1 %75, label %84, label %76
+77:                                               ; preds = %65, %62
+  %.063 = phi ptr [ %66, %65 ], [ %64, %62 ]
+  %78 = load i32, ptr %31, align 8
+  %79 = call zeroext i1 @gistfitpage(ptr noundef %29, i32 noundef %78) #8
+  br i1 %79, label %88, label %80
 
-76:                                               ; preds = %73
-  %77 = load i32, ptr %31, align 8
-  %78 = call ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %29, i32 noundef %77, ptr noundef nonnull %4)
-  br label %79
+80:                                               ; preds = %77
+  %81 = load i32, ptr %31, align 8
+  %82 = call ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %29, i32 noundef %81, ptr noundef nonnull %4)
+  br label %83
 
-79:                                               ; preds = %79, %76
-  %.065 = phi ptr [ %78, %76 ], [ %81, %79 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.065, i64 48
-  %81 = load ptr, ptr %80, align 8
-  %.not = icmp eq ptr %81, null
-  br i1 %.not, label %82, label %79, !llvm.loop !29
+83:                                               ; preds = %83, %80
+  %.065 = phi ptr [ %82, %80 ], [ %85, %83 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.065, i64 48
+  %85 = load ptr, ptr %84, align 8
+  %.not = icmp eq ptr %85, null
+  br i1 %.not, label %86, label %83, !llvm.loop !29
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %.065, i64 48
-  store ptr %.063, ptr %83, align 8
-  br label %96
-
-84:                                               ; preds = %73
-  %85 = call ptr @palloc0(i64 noundef 56) #8
-  store i32 -1, ptr %85, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
-  store i32 0, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 48
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %.065, i64 48
   store ptr %.063, ptr %87, align 8
-  %88 = load i32, ptr %31, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  store i32 %88, ptr %89, align 4
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %91 = call ptr @gistfillitupvec(ptr noundef %29, i32 noundef %88, ptr noundef nonnull %90) #8
-  %92 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr %91, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %94 = call ptr @gistFormTuple(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %93, ptr noundef nonnull %20, i1 noundef zeroext false) #8
-  %95 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  store ptr %94, ptr %95, align 8
-  br label %96
+  br label %100
 
-96:                                               ; preds = %84, %82
-  %.164 = phi ptr [ %85, %84 ], [ %78, %82 ]
+88:                                               ; preds = %77
+  %89 = call ptr @palloc0(i64 noundef 56) #8
+  store i32 -1, ptr %89, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
+  store i32 0, ptr %90, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 48
+  store ptr %.063, ptr %91, align 8
+  %92 = load i32, ptr %31, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 4
+  store i32 %92, ptr %93, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %95 = call ptr @gistfillitupvec(ptr noundef %29, i32 noundef %92, ptr noundef nonnull %94) #8
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  store ptr %95, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %98 = call ptr @gistFormTuple(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %97, ptr noundef nonnull %20, i1 noundef zeroext false) #8
+  %99 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  store ptr %98, ptr %99, align 8
+  br label %100
+
+100:                                              ; preds = %88, %86
+  %.164 = phi ptr [ %89, %88 ], [ %82, %86 ]
   call void @llvm.lifetime.end.p0(i64 648, ptr nonnull %6) #8
   ret ptr %.164
 }

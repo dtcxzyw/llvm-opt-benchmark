@@ -140,9 +140,9 @@ define internal range(i32 0, 2) i32 @provider_conf_init(ptr noundef %0, ptr noun
   %.0.i.i = select i1 %.not.i.i, ptr %22, ptr %27
   %28 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %26) #5
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph.i, label %.thread95.i
+  br i1 %29, label %.lr.ph.i, label %.thread.i
 
-.thread95.i:                                      ; preds = %.preheader.i
+.thread.i:                                        ; preds = %.preheader.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   br label %131
@@ -154,10 +154,10 @@ define internal range(i32 0, 2) i32 @provider_conf_init(ptr noundef %0, ptr noun
   br label %provider_conf_load.exit.thread
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %53
-  %.04488.i = phi ptr [ %.145.i, %53 ], [ %.0.i.i, %.preheader.i ]
-  %.04787.i = phi i32 [ %54, %53 ], [ 0, %.preheader.i ]
-  %.05386.i = phi ptr [ %.154.i, %53 ], [ null, %.preheader.i ]
-  %31 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %26, i32 noundef %.04787.i) #5
+  %.04483.i = phi ptr [ %.145.i, %53 ], [ %.0.i.i, %.preheader.i ]
+  %.04782.i = phi i32 [ %54, %53 ], [ 0, %.preheader.i ]
+  %.05381.i = phi ptr [ %.154.i, %53 ], [ null, %.preheader.i ]
+  %31 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %26, i32 noundef %.04782.i) #5
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   %34 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 46) #6
@@ -196,9 +196,9 @@ define internal range(i32 0, 2) i32 @provider_conf_init(ptr noundef %0, ptr noun
   br i1 %.not60.i, label %provider_conf_load.exit.thread, label %53
 
 53:                                               ; preds = %51, %48, %45, %43, %.lr.ph.i
-  %.154.i = phi ptr [ %.05386.i, %43 ], [ %.05386.i, %51 ], [ %.05386.i, %48 ], [ %.05386.i, %.lr.ph.i ], [ %37, %45 ]
-  %.145.i = phi ptr [ %.04488.i, %43 ], [ %.04488.i, %51 ], [ %.04488.i, %48 ], [ %37, %.lr.ph.i ], [ %.04488.i, %45 ]
-  %54 = add nuw nsw i32 %.04787.i, 1
+  %.154.i = phi ptr [ %.05381.i, %43 ], [ %.05381.i, %51 ], [ %.05381.i, %48 ], [ %.05381.i, %.lr.ph.i ], [ %37, %45 ]
+  %.145.i = phi ptr [ %.04483.i, %43 ], [ %.04483.i, %51 ], [ %.04483.i, %48 ], [ %37, %.lr.ph.i ], [ %.04483.i, %45 ]
+  %54 = add nuw nsw i32 %.04782.i, 1
   %55 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %26) #5
   %56 = icmp slt i32 %54, %55
   br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
@@ -387,38 +387,38 @@ provider_conf_activate.exit.i:                    ; preds = %prov_already_activa
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   %.not58.i = icmp eq ptr %.145.i, null
-  br i1 %.not58.i, label %.thread102.i, label %131
+  br i1 %.not58.i, label %.thread96.i, label %131
 
-131:                                              ; preds = %130, %.thread95.i
-  %.053.lcssa93100.i = phi ptr [ null, %.thread95.i ], [ %.154.i, %130 ]
-  %.044.lcssa9499.i = phi ptr [ %.0.i.i, %.thread95.i ], [ %.145.i, %130 ]
-  %132 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.044.lcssa9499.i, ptr noundef nonnull @.str, i32 noundef 369) #5
+131:                                              ; preds = %130, %.thread.i
+  %.053.lcssa8894.i = phi ptr [ null, %.thread.i ], [ %.154.i, %130 ]
+  %.044.lcssa8993.i = phi ptr [ %.0.i.i, %.thread.i ], [ %.145.i, %130 ]
+  %132 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.044.lcssa8993.i, ptr noundef nonnull @.str, i32 noundef 369) #5
   store ptr %132, ptr %6, align 8, !tbaa !22
   %133 = icmp ne ptr %132, null
-  %134 = icmp ne ptr %.053.lcssa93100.i, null
+  %134 = icmp ne ptr %.053.lcssa8894.i, null
   %or.cond.i = select i1 %133, i1 %134, i1 false
   br i1 %or.cond.i, label %135, label %138
 
-.thread102.i:                                     ; preds = %130
-  %.not110.i = icmp eq ptr %.154.i, null
-  br i1 %.not110.i, label %.thread75.i, label %135
+.thread96.i:                                      ; preds = %130
+  %.not104.i = icmp eq ptr %.154.i, null
+  br i1 %.not104.i, label %.thread71.i, label %135
 
-135:                                              ; preds = %.thread102.i, %131
-  %.053.lcssa93101106.i = phi ptr [ %.154.i, %.thread102.i ], [ %.053.lcssa93100.i, %131 ]
-  %136 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.053.lcssa93101106.i, ptr noundef nonnull @.str, i32 noundef 374) #5
+135:                                              ; preds = %.thread96.i, %131
+  %.053.lcssa8895100.i = phi ptr [ %.154.i, %.thread96.i ], [ %.053.lcssa8894.i, %131 ]
+  %136 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.053.lcssa8895100.i, ptr noundef nonnull @.str, i32 noundef 374) #5
   store ptr %136, ptr %11, align 8, !tbaa !25
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %provider_conf_params.exit.thread.i, label %.thread75.i
+  br i1 %137, label %provider_conf_params.exit.thread.i, label %.thread71.i
 
 138:                                              ; preds = %131
-  br i1 %133, label %.thread75.i, label %provider_conf_params.exit.thread.i
+  br i1 %133, label %.thread71.i, label %provider_conf_params.exit.thread.i
 
-.thread75.i:                                      ; preds = %138, %135, %.thread102.i
+.thread71.i:                                      ; preds = %138, %135, %.thread96.i
   %139 = call ptr @OPENSSL_sk_new_null() #5
   %140 = icmp eq ptr %139, null
   br i1 %140, label %provider_conf_params.exit.thread.i, label %provider_conf_params.exit.i
 
-provider_conf_params.exit.i:                      ; preds = %.thread75.i
+provider_conf_params.exit.i:                      ; preds = %.thread71.i
   %141 = call fastcc i32 @provider_conf_params_internal(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef %24, ptr noundef %1, ptr noundef %139)
   call void @OPENSSL_sk_free(ptr noundef nonnull %139) #5
   %142 = icmp sgt i32 %141, 0
@@ -436,23 +436,23 @@ provider_conf_params.exit.i:                      ; preds = %.thread75.i
   %149 = call i32 @ossl_provider_info_add_to_store(ptr noundef %20, ptr noundef nonnull %6) #5
   br label %150
 
-provider_conf_params.exit.thread.i:               ; preds = %143, %provider_conf_params.exit.i, %.thread75.i, %138, %135
-  %.4.ph.i = phi i32 [ %141, %provider_conf_params.exit.i ], [ %141, %143 ], [ -1, %.thread75.i ], [ 0, %138 ], [ 0, %135 ]
+provider_conf_params.exit.thread.i:               ; preds = %143, %provider_conf_params.exit.i, %.thread71.i, %138, %135
+  %.4.ph.i = phi i32 [ %141, %provider_conf_params.exit.i ], [ %141, %143 ], [ -1, %.thread71.i ], [ 0, %138 ], [ 0, %135 ]
   call void @ossl_provider_info_clear(ptr noundef nonnull %6) #5
   br label %150
 
 150:                                              ; preds = %provider_conf_params.exit.thread.i, %148
-  %.482.i = phi i32 [ %.4.ph.i, %provider_conf_params.exit.thread.i ], [ %149, %148 ]
+  %.477.i = phi i32 [ %.4.ph.i, %provider_conf_params.exit.thread.i ], [ %149, %148 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #5
   br label %provider_conf_load.exit
 
-provider_conf_load.exit.thread:                   ; preds = %43, %51, %30
+provider_conf_load.exit.thread:                   ; preds = %51, %43, %30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
   br label %.loopexit
 
 provider_conf_load.exit:                          ; preds = %provider_conf_activate.exit.i, %150
-  %.050.i = phi i32 [ %.036.i.i, %provider_conf_activate.exit.i ], [ %.482.i, %150 ]
+  %.050.i = phi i32 [ %.036.i.i, %provider_conf_activate.exit.i ], [ %.477.i, %150 ]
   %151 = icmp slt i32 %.050.i, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5

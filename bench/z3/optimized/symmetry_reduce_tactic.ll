@@ -17728,24 +17728,24 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__op
   br i1 %8, label %.lr.ph, label %_ZSt14__partial_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEET_S8_S8_T0_.exit
-  %11 = phi i64 [ %7, %.lr.ph ], [ %102, %_ZSt27__unguarded_partition_pivotIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEET_S8_S8_T0_.exit ]
+  %11 = phi i64 [ %7, %.lr.ph ], [ %104, %_ZSt27__unguarded_partition_pivotIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEET_S8_S8_T0_.exit ]
   %.025 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEET_S8_S8_T0_.exit ]
-  %.01724 = phi i64 [ %2, %.lr.ph ], [ %59, %_ZSt27__unguarded_partition_pivotIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEET_S8_S8_T0_.exit ]
+  %.01724 = phi i64 [ %2, %.lr.ph ], [ %61, %_ZSt27__unguarded_partition_pivotIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEET_S8_S8_T0_.exit ]
   %12 = icmp eq i64 %.01724, 0
-  br i1 %12, label %.lr.ph.i.i, label %58
+  br i1 %12, label %13, label %60
 
-.lr.ph.i.i:                                       ; preds = %10
+13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZSt11__make_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_RT0_(ptr noundef %0, ptr noundef %.025, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %13
+  br label %.lr.ph.i.i
 
-13:                                               ; preds = %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i, %.lr.ph.i.i
-  %.07.i.i = phi ptr [ %.025, %.lr.ph.i.i ], [ %14, %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i ]
+.lr.ph.i.i:                                       ; preds = %13, %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i
+  %.07.i.i = phi ptr [ %14, %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i ], [ %.025, %13 ]
   %14 = getelementptr inbounds i8, ptr %.07.i.i, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = load ptr, ptr %0, align 8, !tbaa !12
@@ -17758,184 +17758,185 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__op
   %22 = icmp sgt i64 %19, 2
   br i1 %22, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %13, %.lr.ph.i.i.i.i
-  %.029.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %13 ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i
+  %.029.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %23 = shl i64 %.029.i.i.i.i, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds ptr, ptr %0, i64 %24
-  %gep.i.i.i.i = getelementptr ptr, ptr %9, i64 %23
-  %26 = load ptr, ptr %25, align 8, !tbaa !12
-  %27 = load ptr, ptr %gep.i.i.i.i, align 8, !tbaa !12
-  %28 = load i32, ptr %26, align 4, !tbaa !288
-  %29 = load i32, ptr %27, align 4, !tbaa !288
-  %30 = icmp ult i32 %28, %29
-  %31 = or disjoint i64 %23, 1
-  %spec.select.i.i.i.i = select i1 %30, i64 %31, i64 %24
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
-  %33 = load ptr, ptr %32, align 8, !tbaa !12
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.i.i.i
-  store ptr %33, ptr %34, align 8, !tbaa !12
-  %35 = icmp slt i64 %spec.select.i.i.i.i, %21
-  br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !400
+  %26 = getelementptr ptr, ptr %0, i64 %23
+  %27 = getelementptr i8, ptr %26, i64 8
+  %28 = load ptr, ptr %25, align 8, !tbaa !12
+  %29 = load ptr, ptr %27, align 8, !tbaa !12
+  %30 = load i32, ptr %28, align 4, !tbaa !288
+  %31 = load i32, ptr %29, align 4, !tbaa !288
+  %32 = icmp ult i32 %30, %31
+  %33 = or disjoint i64 %23, 1
+  %spec.select.i.i.i.i = select i1 %32, i64 %33, i64 %24
+  %34 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %35 = load ptr, ptr %34, align 8, !tbaa !12
+  %36 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.i.i.i
+  store ptr %35, ptr %36, align 8, !tbaa !12
+  %37 = icmp slt i64 %spec.select.i.i.i.i, %21
+  br i1 %37, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !400
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %13
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %13 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %36 = and i64 %18, 8
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %47
+._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %38 = and i64 %18, 8
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %40, label %49
 
-38:                                               ; preds = %._crit_edge.i.i.i.i
-  %39 = add nsw i64 %19, -2
-  %40 = ashr exact i64 %39, 1
-  %41 = icmp eq i64 %.0.lcssa.i.i.i.i, %40
-  br i1 %41, label %.thread.i.i.i, label %47
+40:                                               ; preds = %._crit_edge.i.i.i.i
+  %41 = add nsw i64 %19, -2
+  %42 = ashr exact i64 %41, 1
+  %43 = icmp eq i64 %.0.lcssa.i.i.i.i, %42
+  br i1 %43, label %.thread.i.i.i, label %49
 
-.thread.i.i.i:                                    ; preds = %38
-  %42 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %43 = or disjoint i64 %42, 1
-  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !12
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
-  store ptr %45, ptr %46, align 8, !tbaa !12
+.thread.i.i.i:                                    ; preds = %40
+  %44 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %45 = or disjoint i64 %44, 1
+  %46 = getelementptr inbounds nuw ptr, ptr %0, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !12
+  %48 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  store ptr %47, ptr %48, align 8, !tbaa !12
   br label %.lr.ph.i.i.i.i.i
 
-47:                                               ; preds = %38, %._crit_edge.i.i.i.i
+49:                                               ; preds = %40, %._crit_edge.i.i.i.i
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %47, %.thread.i.i.i
-  %.128.i9.i.i.i = phi i64 [ %43, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %47 ]
-  %48 = load i32, ptr %15, align 4, !tbaa !288
-  br label %49
+.lr.ph.i.i.i.i.i:                                 ; preds = %49, %.thread.i.i.i
+  %.128.i9.i.i.i = phi i64 [ %45, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %49 ]
+  %50 = load i32, ptr %15, align 4, !tbaa !288
+  br label %51
 
-49:                                               ; preds = %54, %.lr.ph.i.i.i.i.i
-  %.01317.i.i.i.i.i = phi i64 [ %.128.i9.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.018.i.i1011.i.i.i, %54 ]
+51:                                               ; preds = %56, %.lr.ph.i.i.i.i.i
+  %.01317.i.i.i.i.i = phi i64 [ %.128.i9.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.018.i.i1011.i.i.i, %56 ]
   %.018.in.i.i.i.i.i = add nsw i64 %.01317.i.i.i.i.i, -1
   %.018.i.i1011.i.i.i = lshr i64 %.018.in.i.i.i.i.i, 1
-  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.018.i.i1011.i.i.i
-  %51 = load ptr, ptr %50, align 8, !tbaa !12
-  %52 = load i32, ptr %51, align 4, !tbaa !288
-  %53 = icmp ult i32 %52, %48
-  br i1 %53, label %54, label %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i
+  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %.018.i.i1011.i.i.i
+  %53 = load ptr, ptr %52, align 8, !tbaa !12
+  %54 = load i32, ptr %53, align 4, !tbaa !288
+  %55 = icmp ult i32 %54, %50
+  br i1 %55, label %56, label %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i
 
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
-  store ptr %51, ptr %55, align 8, !tbaa !12
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
+  store ptr %53, ptr %57, align 8, !tbaa !12
   %.not12.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
-  br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i, label %49, !llvm.loop !401
+  br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i, label %51, !llvm.loop !401
 
-_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i: ; preds = %54, %49, %47
-  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %47 ], [ %.01317.i.i.i.i.i, %49 ], [ 0, %54 ]
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store ptr %15, ptr %56, align 8, !tbaa !12
-  %57 = icmp sgt i64 %18, 8
-  br i1 %57, label %13, label %_ZSt14__partial_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_T0_.exit, !llvm.loop !402
+_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i: ; preds = %56, %51, %49
+  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %49 ], [ %.01317.i.i.i.i.i, %51 ], [ 0, %56 ]
+  %58 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store ptr %15, ptr %58, align 8, !tbaa !12
+  %59 = icmp sgt i64 %18, 8
+  br i1 %59, label %.lr.ph.i.i, label %_ZSt14__partial_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_T0_.exit, !llvm.loop !402
 
-58:                                               ; preds = %10
-  %59 = add nsw i64 %.01724, -1
-  %60 = lshr i64 %11, 4
-  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %60
-  %62 = getelementptr inbounds i8, ptr %.025, i64 -8
-  %63 = load ptr, ptr %9, align 8, !tbaa !12
-  %64 = load ptr, ptr %61, align 8, !tbaa !12
-  %65 = load i32, ptr %63, align 4, !tbaa !288
-  %66 = load i32, ptr %64, align 4, !tbaa !288
-  %67 = icmp ult i32 %65, %66
-  %68 = load ptr, ptr %62, align 8, !tbaa !12
-  %69 = load i32, ptr %68, align 4, !tbaa !288
-  br i1 %67, label %70, label %79
+60:                                               ; preds = %10
+  %61 = add nsw i64 %.01724, -1
+  %62 = lshr i64 %11, 4
+  %63 = getelementptr inbounds nuw ptr, ptr %0, i64 %62
+  %64 = getelementptr inbounds i8, ptr %.025, i64 -8
+  %65 = load ptr, ptr %9, align 8, !tbaa !12
+  %66 = load ptr, ptr %63, align 8, !tbaa !12
+  %67 = load i32, ptr %65, align 4, !tbaa !288
+  %68 = load i32, ptr %66, align 4, !tbaa !288
+  %69 = icmp ult i32 %67, %68
+  %70 = load ptr, ptr %64, align 8, !tbaa !12
+  %71 = load i32, ptr %70, align 4, !tbaa !288
+  br i1 %69, label %72, label %81
 
-70:                                               ; preds = %58
-  %71 = icmp ult i32 %66, %69
-  br i1 %71, label %72, label %74
+72:                                               ; preds = %60
+  %73 = icmp ult i32 %68, %71
+  br i1 %73, label %74, label %76
 
-72:                                               ; preds = %70
-  %73 = load ptr, ptr %0, align 8, !tbaa !12
-  store ptr %64, ptr %0, align 8, !tbaa !12
-  store ptr %73, ptr %61, align 8, !tbaa !12
+74:                                               ; preds = %72
+  %75 = load ptr, ptr %0, align 8, !tbaa !12
+  store ptr %66, ptr %0, align 8, !tbaa !12
+  store ptr %75, ptr %63, align 8, !tbaa !12
   br label %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-74:                                               ; preds = %70
-  %75 = icmp ult i32 %65, %69
-  %76 = load ptr, ptr %0, align 8, !tbaa !12
-  br i1 %75, label %77, label %78
+76:                                               ; preds = %72
+  %77 = icmp ult i32 %67, %71
+  %78 = load ptr, ptr %0, align 8, !tbaa !12
+  br i1 %77, label %79, label %80
 
-77:                                               ; preds = %74
-  store ptr %68, ptr %0, align 8, !tbaa !12
-  store ptr %76, ptr %62, align 8, !tbaa !12
+79:                                               ; preds = %76
+  store ptr %70, ptr %0, align 8, !tbaa !12
+  store ptr %78, ptr %64, align 8, !tbaa !12
   br label %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-78:                                               ; preds = %74
-  store ptr %63, ptr %0, align 8, !tbaa !12
-  store ptr %76, ptr %9, align 8, !tbaa !12
+80:                                               ; preds = %76
+  store ptr %65, ptr %0, align 8, !tbaa !12
+  store ptr %78, ptr %9, align 8, !tbaa !12
   br label %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-79:                                               ; preds = %58
-  %80 = icmp ult i32 %65, %69
-  br i1 %80, label %81, label %83
+81:                                               ; preds = %60
+  %82 = icmp ult i32 %67, %71
+  br i1 %82, label %83, label %85
 
-81:                                               ; preds = %79
-  %82 = load ptr, ptr %0, align 8, !tbaa !12
-  store ptr %63, ptr %0, align 8, !tbaa !12
-  store ptr %82, ptr %9, align 8, !tbaa !12
+83:                                               ; preds = %81
+  %84 = load ptr, ptr %0, align 8, !tbaa !12
+  store ptr %65, ptr %0, align 8, !tbaa !12
+  store ptr %84, ptr %9, align 8, !tbaa !12
   br label %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-83:                                               ; preds = %79
-  %84 = icmp ult i32 %66, %69
-  %85 = load ptr, ptr %0, align 8, !tbaa !12
-  br i1 %84, label %86, label %87
+85:                                               ; preds = %81
+  %86 = icmp ult i32 %68, %71
+  %87 = load ptr, ptr %0, align 8, !tbaa !12
+  br i1 %86, label %88, label %89
 
-86:                                               ; preds = %83
-  store ptr %68, ptr %0, align 8, !tbaa !12
-  store ptr %85, ptr %62, align 8, !tbaa !12
+88:                                               ; preds = %85
+  store ptr %70, ptr %0, align 8, !tbaa !12
+  store ptr %87, ptr %64, align 8, !tbaa !12
   br label %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-87:                                               ; preds = %83
-  store ptr %64, ptr %0, align 8, !tbaa !12
-  store ptr %85, ptr %61, align 8, !tbaa !12
+89:                                               ; preds = %85
+  store ptr %66, ptr %0, align 8, !tbaa !12
+  store ptr %87, ptr %63, align 8, !tbaa !12
   br label %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader: ; preds = %87, %86, %81, %78, %77, %72
+_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader: ; preds = %89, %88, %83, %80, %79, %74
   br label %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader, %100
-  %.013.i.i = phi ptr [ %.114.i.i, %100 ], [ %.025, %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %94, %100 ], [ %9, %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
-  %88 = load ptr, ptr %0, align 8, !tbaa !12
-  %89 = load i32, ptr %88, align 4, !tbaa !288
-  br label %90
+_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader, %102
+  %.013.i.i = phi ptr [ %.114.i.i, %102 ], [ %.025, %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %96, %102 ], [ %9, %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
+  %90 = load ptr, ptr %0, align 8, !tbaa !12
+  %91 = load i32, ptr %90, align 4, !tbaa !288
+  br label %92
 
-90:                                               ; preds = %90, %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i ], [ %94, %90 ]
-  %91 = load ptr, ptr %.1.i.i, align 8, !tbaa !12
-  %92 = load i32, ptr %91, align 4, !tbaa !288
-  %93 = icmp ult i32 %92, %89
-  %94 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %93, label %90, label %.preheader.i.i, !llvm.loop !403
+92:                                               ; preds = %92, %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i ], [ %96, %92 ]
+  %93 = load ptr, ptr %.1.i.i, align 8, !tbaa !12
+  %94 = load i32, ptr %93, align 4, !tbaa !288
+  %95 = icmp ult i32 %94, %91
+  %96 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  br i1 %95, label %92, label %.preheader.i.i, !llvm.loop !403
 
-.preheader.i.i:                                   ; preds = %90, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %90 ]
+.preheader.i.i:                                   ; preds = %92, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %92 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
-  %95 = load ptr, ptr %.114.i.i, align 8, !tbaa !12
-  %96 = load i32, ptr %95, align 4, !tbaa !288
-  %97 = icmp ult i32 %89, %96
-  br i1 %97, label %.preheader.i.i, label %98, !llvm.loop !404
+  %97 = load ptr, ptr %.114.i.i, align 8, !tbaa !12
+  %98 = load i32, ptr %97, align 4, !tbaa !288
+  %99 = icmp ult i32 %91, %98
+  br i1 %99, label %.preheader.i.i, label %100, !llvm.loop !404
 
-98:                                               ; preds = %.preheader.i.i
-  %99 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %99, label %100, label %_ZSt27__unguarded_partition_pivotIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEET_S8_S8_T0_.exit
+100:                                              ; preds = %.preheader.i.i
+  %101 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %101, label %102, label %_ZSt27__unguarded_partition_pivotIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEET_S8_S8_T0_.exit
 
-100:                                              ; preds = %98
-  store ptr %95, ptr %.1.i.i, align 8, !tbaa !12
-  store ptr %91, ptr %.114.i.i, align 8, !tbaa !12
+102:                                              ; preds = %100
+  store ptr %97, ptr %.1.i.i, align 8, !tbaa !12
+  store ptr %93, ptr %.114.i.i, align 8, !tbaa !12
   br label %_ZSt22__move_median_to_firstIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_S8_T0_.exit.i, !llvm.loop !405
 
-_ZSt27__unguarded_partition_pivotIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEET_S8_S8_T0_.exit: ; preds = %98
-  tail call void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %59)
-  %101 = ptrtoint ptr %.1.i.i to i64
-  %102 = sub i64 %101, %5
-  %103 = icmp sgt i64 %102, 128
-  br i1 %103, label %10, label %_ZSt14__partial_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_T0_.exit, !llvm.loop !406
+_ZSt27__unguarded_partition_pivotIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEET_S8_S8_T0_.exit: ; preds = %100
+  tail call void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %61)
+  %103 = ptrtoint ptr %.1.i.i to i64
+  %104 = sub i64 %103, %5
+  %105 = icmp sgt i64 %104, 128
+  br i1 %105, label %10, label %_ZSt14__partial_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_T0_.exit, !llvm.loop !406
 
 _ZSt14__partial_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEET_S8_S8_T0_.exit, %_ZSt10__pop_heapIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_S8_RT0_.exit.i.i, %3
   ret void
@@ -18094,7 +18095,6 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPP4exprN9__gnu_cxx5__ops15_It
   %11 = lshr i64 %10, 1
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %invariant.gep.i = getelementptr i8, ptr %0, i64 8
   %14 = and i64 %6, 8
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
@@ -18107,7 +18107,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPP4exprN9__gnu_cxx5__ops15_It
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit.us
-  %.014.us = phi i64 [ %47, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit.us ], [ %11, %9 ]
+  %.014.us = phi i64 [ %49, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit.us ], [ %11, %9 ]
   %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.us
   %21 = load ptr, ptr %20, align 8, !tbaa !12
   %22 = icmp slt i64 %.014.us, %13
@@ -18118,121 +18118,123 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPP4exprN9__gnu_cxx5__ops15_It
   %23 = shl i64 %.029.i.us, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds ptr, ptr %0, i64 %24
-  %gep.i.us = getelementptr ptr, ptr %invariant.gep.i, i64 %23
-  %26 = load ptr, ptr %25, align 8, !tbaa !12
-  %27 = load ptr, ptr %gep.i.us, align 8, !tbaa !12
-  %28 = load i32, ptr %26, align 4, !tbaa !288
-  %29 = load i32, ptr %27, align 4, !tbaa !288
-  %30 = icmp ult i32 %28, %29
-  %31 = or disjoint i64 %23, 1
-  %spec.select.i.us = select i1 %30, i64 %31, i64 %24
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.us
-  %33 = load ptr, ptr %32, align 8, !tbaa !12
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.us
-  store ptr %33, ptr %34, align 8, !tbaa !12
-  %35 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %35, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !400
+  %26 = getelementptr ptr, ptr %0, i64 %23
+  %27 = getelementptr i8, ptr %26, i64 8
+  %28 = load ptr, ptr %25, align 8, !tbaa !12
+  %29 = load ptr, ptr %27, align 8, !tbaa !12
+  %30 = load i32, ptr %28, align 4, !tbaa !288
+  %31 = load i32, ptr %29, align 4, !tbaa !288
+  %32 = icmp ult i32 %30, %31
+  %33 = or disjoint i64 %23, 1
+  %spec.select.i.us = select i1 %32, i64 %33, i64 %24
+  %34 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.us
+  %35 = load ptr, ptr %34, align 8, !tbaa !12
+  %36 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.us
+  store ptr %35, ptr %36, align 8, !tbaa !12
+  %37 = icmp slt i64 %spec.select.i.us, %13
+  br i1 %37, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !400
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
-  %36 = icmp sgt i64 %spec.select.i.us, %.014.us
-  br i1 %36, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit.us
+  %38 = icmp sgt i64 %spec.select.i.us, %.014.us
+  br i1 %38, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit.us
 
 .lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us
-  %37 = load i32, ptr %21, align 4, !tbaa !288
-  br label %38
+  %39 = load i32, ptr %21, align 4, !tbaa !288
+  br label %40
 
-38:                                               ; preds = %43, %.lr.ph.i.i.us
-  %.01317.i.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %43 ]
+40:                                               ; preds = %45, %.lr.ph.i.i.us
+  %.01317.i.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %45 ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i.us
-  %40 = load ptr, ptr %39, align 8, !tbaa !12
-  %41 = load i32, ptr %40, align 4, !tbaa !288
-  %42 = icmp ult i32 %41, %37
-  br i1 %42, label %43, label %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit.us
+  %41 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i.us
+  %42 = load ptr, ptr %41, align 8, !tbaa !12
+  %43 = load i32, ptr %42, align 4, !tbaa !288
+  %44 = icmp ult i32 %43, %39
+  br i1 %44, label %45, label %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit.us
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.us
-  store ptr %40, ptr %44, align 8, !tbaa !12
-  %45 = icmp sgt i64 %.018.i.i.us, %.014.us
-  br i1 %45, label %38, label %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit.us, !llvm.loop !401
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.us
+  store ptr %42, ptr %46, align 8, !tbaa !12
+  %47 = icmp sgt i64 %.018.i.i.us, %.014.us
+  br i1 %47, label %40, label %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit.us, !llvm.loop !401
 
-_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit.us: ; preds = %38, %43, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.018.i.i.us, %43 ], [ %.01317.i.i.us, %38 ]
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us
-  store ptr %21, ptr %46, align 8, !tbaa !12
+_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit.us: ; preds = %40, %45, %.split.us, %._crit_edge.i.us
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.018.i.i.us, %45 ], [ %.01317.i.i.us, %40 ]
+  %48 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us
+  store ptr %21, ptr %48, align 8, !tbaa !12
   %.not.us = icmp eq i64 %.014.us, 0
-  %47 = add nsw i64 %.014.us, -1
+  %49 = add nsw i64 %.014.us, -1
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !410
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit
-  %.014 = phi i64 [ %79, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014
-  %49 = load ptr, ptr %48, align 8, !tbaa !12
-  %50 = icmp slt i64 %.014, %13
-  br i1 %50, label %.lr.ph.i, label %._crit_edge.i
+  %.014 = phi i64 [ %83, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit ], [ %11, %.split.preheader ]
+  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014
+  %51 = load ptr, ptr %50, align 8, !tbaa !12
+  %52 = icmp slt i64 %.014, %13
+  br i1 %52, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
   %.029.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.014, %.split ]
-  %51 = shl i64 %.029.i, 1
-  %52 = add i64 %51, 2
-  %53 = getelementptr inbounds ptr, ptr %0, i64 %52
-  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %51
-  %54 = load ptr, ptr %53, align 8, !tbaa !12
-  %55 = load ptr, ptr %gep.i, align 8, !tbaa !12
-  %56 = load i32, ptr %54, align 4, !tbaa !288
-  %57 = load i32, ptr %55, align 4, !tbaa !288
-  %58 = icmp ult i32 %56, %57
-  %59 = or disjoint i64 %51, 1
-  %spec.select.i = select i1 %58, i64 %59, i64 %52
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i
-  %61 = load ptr, ptr %60, align 8, !tbaa !12
-  %62 = getelementptr inbounds ptr, ptr %0, i64 %.029.i
-  store ptr %61, ptr %62, align 8, !tbaa !12
-  %63 = icmp slt i64 %spec.select.i, %13
-  br i1 %63, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !400
+  %53 = shl i64 %.029.i, 1
+  %54 = add i64 %53, 2
+  %55 = getelementptr inbounds ptr, ptr %0, i64 %54
+  %56 = getelementptr ptr, ptr %0, i64 %53
+  %57 = getelementptr i8, ptr %56, i64 8
+  %58 = load ptr, ptr %55, align 8, !tbaa !12
+  %59 = load ptr, ptr %57, align 8, !tbaa !12
+  %60 = load i32, ptr %58, align 4, !tbaa !288
+  %61 = load i32, ptr %59, align 4, !tbaa !288
+  %62 = icmp ult i32 %60, %61
+  %63 = or disjoint i64 %53, 1
+  %spec.select.i = select i1 %62, i64 %63, i64 %54
+  %64 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i
+  %65 = load ptr, ptr %64, align 8, !tbaa !12
+  %66 = getelementptr inbounds ptr, ptr %0, i64 %.029.i
+  store ptr %65, ptr %66, align 8, !tbaa !12
+  %67 = icmp slt i64 %spec.select.i, %13
+  br i1 %67, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !400
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.014, %.split ], [ %spec.select.i, %.lr.ph.i ]
-  %64 = icmp eq i64 %.0.lcssa.i, %16
-  br i1 %64, label %65, label %67
+  %68 = icmp eq i64 %.0.lcssa.i, %16
+  br i1 %68, label %69, label %71
 
-65:                                               ; preds = %._crit_edge.i
-  %66 = load ptr, ptr %18, align 8, !tbaa !12
-  store ptr %66, ptr %19, align 8, !tbaa !12
-  br label %67
+69:                                               ; preds = %._crit_edge.i
+  %70 = load ptr, ptr %18, align 8, !tbaa !12
+  store ptr %70, ptr %19, align 8, !tbaa !12
+  br label %71
 
-67:                                               ; preds = %65, %._crit_edge.i
-  %.128.i = phi i64 [ %17, %65 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %68 = icmp sgt i64 %.128.i, %.014
-  br i1 %68, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit
+71:                                               ; preds = %69, %._crit_edge.i
+  %.128.i = phi i64 [ %17, %69 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %72 = icmp sgt i64 %.128.i, %.014
+  br i1 %72, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %67
-  %69 = load i32, ptr %49, align 4, !tbaa !288
-  br label %70
+.lr.ph.i.i:                                       ; preds = %71
+  %73 = load i32, ptr %51, align 4, !tbaa !288
+  br label %74
 
-70:                                               ; preds = %75, %.lr.ph.i.i
-  %.01317.i.i = phi i64 [ %.128.i, %.lr.ph.i.i ], [ %.018.i.i, %75 ]
+74:                                               ; preds = %79, %.lr.ph.i.i
+  %.01317.i.i = phi i64 [ %.128.i, %.lr.ph.i.i ], [ %.018.i.i, %79 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %71 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i
-  %72 = load ptr, ptr %71, align 8, !tbaa !12
-  %73 = load i32, ptr %72, align 4, !tbaa !288
-  %74 = icmp ult i32 %73, %69
-  br i1 %74, label %75, label %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit
+  %75 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i
+  %76 = load ptr, ptr %75, align 8, !tbaa !12
+  %77 = load i32, ptr %76, align 4, !tbaa !288
+  %78 = icmp ult i32 %77, %73
+  br i1 %78, label %79, label %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit
 
-75:                                               ; preds = %70
-  %76 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i
-  store ptr %72, ptr %76, align 8, !tbaa !12
-  %77 = icmp sgt i64 %.018.i.i, %.014
-  br i1 %77, label %70, label %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit, !llvm.loop !401
+79:                                               ; preds = %74
+  %80 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i
+  store ptr %76, ptr %80, align 8, !tbaa !12
+  %81 = icmp sgt i64 %.018.i.i, %.014
+  br i1 %81, label %74, label %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit, !llvm.loop !401
 
-_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit: ; preds = %70, %75, %67
-  %.013.lcssa.i.i = phi i64 [ %.128.i, %67 ], [ %.018.i.i, %75 ], [ %.01317.i.i, %70 ]
-  %78 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i
-  store ptr %49, ptr %78, align 8, !tbaa !12
+_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit: ; preds = %74, %79, %71
+  %.013.lcssa.i.i = phi i64 [ %.128.i, %71 ], [ %.018.i.i, %79 ], [ %.01317.i.i, %74 ]
+  %82 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i
+  store ptr %51, ptr %82, align 8, !tbaa !12
   %.not = icmp eq i64 %.014, 0
-  %79 = add nsw i64 %.014, -1
+  %83 = add nsw i64 %.014, -1
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !412
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit.us, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_T0_S9_T1_T2_.exit, %3

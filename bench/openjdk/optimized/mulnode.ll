@@ -3275,7 +3275,7 @@ define hidden noundef ptr @_ZN7MulNode24AndIL_add_shift_and_maskEP8PhaseGVN9Basi
   %10 = icmp eq ptr %7, null
   %11 = icmp eq ptr %9, null
   %or.cond = or i1 %10, %11
-  br i1 %or.cond, label %40, label %12
+  br i1 %or.cond, label %.critedge, label %12
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %7, align 8
@@ -3291,7 +3291,7 @@ define hidden noundef ptr @_ZN7MulNode24AndIL_add_shift_and_maskEP8PhaseGVN9Basi
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(52) %9) #10
   %22 = icmp eq i32 %21, %..i
-  br i1 %22, label %23, label %40
+  br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %4, align 8
@@ -3300,10 +3300,10 @@ define hidden noundef ptr @_ZN7MulNode24AndIL_add_shift_and_maskEP8PhaseGVN9Basi
   br label %27
 
 27:                                               ; preds = %23, %12
-  %.033.ph = phi ptr [ %9, %12 ], [ %7, %23 ]
-  %.032.ph = phi i32 [ 1, %12 ], [ 2, %23 ]
-  %.031.ph = phi ptr [ %7, %12 ], [ %26, %23 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.031.ph, i64 8
+  %.033 = phi ptr [ %7, %23 ], [ %9, %12 ]
+  %.032 = phi i32 [ 2, %23 ], [ 1, %12 ]
+  %.031 = phi ptr [ %26, %23 ], [ %7, %12 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -3312,23 +3312,23 @@ define hidden noundef ptr @_ZN7MulNode24AndIL_add_shift_and_maskEP8PhaseGVN9Basi
   %34 = icmp ne ptr %31, null
   %35 = icmp ne ptr %33, null
   %or.cond3 = and i1 %34, %35
-  br i1 %or.cond3, label %36, label %40
+  br i1 %or.cond3, label %36, label %.critedge
 
 36:                                               ; preds = %27
-  %37 = tail call noundef zeroext i1 @_ZN7MulNode35AndIL_shift_and_mask_is_always_zeroEP8PhaseGVNP4NodeS3_9BasicTypeb(ptr noundef %1, ptr noundef nonnull %31, ptr noundef nonnull %.033.ph, i8 noundef zeroext %2, i1 noundef zeroext false)
-  br i1 %37, label %.sink.split, label %38
+  %37 = tail call noundef zeroext i1 @_ZN7MulNode35AndIL_shift_and_mask_is_always_zeroEP8PhaseGVNP4NodeS3_9BasicTypeb(ptr noundef %1, ptr noundef nonnull %31, ptr noundef nonnull %.033, i8 noundef zeroext %2, i1 noundef zeroext false)
+  br i1 %37, label %.critedge.sink.split, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call noundef zeroext i1 @_ZN7MulNode35AndIL_shift_and_mask_is_always_zeroEP8PhaseGVNP4NodeS3_9BasicTypeb(ptr noundef %1, ptr noundef nonnull %33, ptr noundef nonnull %.033.ph, i8 noundef zeroext %2, i1 noundef zeroext false)
-  br i1 %39, label %.sink.split, label %40
+  %39 = tail call noundef zeroext i1 @_ZN7MulNode35AndIL_shift_and_mask_is_always_zeroEP8PhaseGVNP4NodeS3_9BasicTypeb(ptr noundef %1, ptr noundef nonnull %33, ptr noundef nonnull %.033, i8 noundef zeroext %2, i1 noundef zeroext false)
+  br i1 %39, label %.critedge.sink.split, label %.critedge
 
-.sink.split:                                      ; preds = %38, %36
+.critedge.sink.split:                             ; preds = %38, %36
   %.sink = phi ptr [ %33, %36 ], [ %31, %38 ]
-  tail call void @_ZN4Node9set_req_XEjPS_P8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %.032.ph, ptr noundef nonnull %.sink, ptr noundef %1) #10
-  br label %40
+  tail call void @_ZN4Node9set_req_XEjPS_P8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %.032, ptr noundef nonnull %.sink, ptr noundef %1) #10
+  br label %.critedge
 
-40:                                               ; preds = %.sink.split, %18, %38, %27, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %27 ], [ null, %38 ], [ null, %18 ], [ %0, %.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %38, %27, %18, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %18 ], [ null, %27 ], [ null, %38 ], [ %0, %.critedge.sink.split ]
   ret ptr %.0
 }
 

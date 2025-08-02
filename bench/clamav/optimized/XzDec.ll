@@ -821,7 +821,7 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr noundef writeonly captures(none) 
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %9 = load i32, ptr %8, align 1, !tbaa !7
   %.not = icmp eq i32 %7, %9
-  br i1 %.not, label %10, label %Xz_ReadVarInt.exit.thread
+  br i1 %.not, label %10, label %.critedge
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -844,7 +844,7 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr noundef writeonly captures(none) 
   %21 = phi i64 [ %29, %22 ], [ 0, %15 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %15 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %19
-  br i1 %exitcond.not.i, label %Xz_ReadVarInt.exit.thread, label %22
+  br i1 %exitcond.not.i, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i
@@ -863,7 +863,7 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr noundef writeonly captures(none) 
   %31 = icmp eq i8 %24, 0
   %32 = icmp ne i64 %indvars.iv.i, 0
   %or.cond.le.i = and i1 %32, %31
-  br i1 %or.cond.le.i, label %Xz_ReadVarInt.exit.thread, label %33
+  br i1 %or.cond.le.i, label %.critedge, label %33
 
 33:                                               ; preds = %.split.loop.exit18.i
   %34 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -872,7 +872,7 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr noundef writeonly captures(none) 
   %37 = add i64 %29, %6
   %38 = icmp slt i64 %37, 0
   %or.cond102 = or i1 %36, %38
-  br i1 %or.cond102, label %Xz_ReadVarInt.exit.thread, label %39
+  br i1 %or.cond102, label %.critedge, label %39
 
 39:                                               ; preds = %33, %10
   %.073 = phi i32 [ 2, %10 ], [ %35, %33 ]
@@ -893,7 +893,7 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr noundef writeonly captures(none) 
   %48 = phi i64 [ %56, %49 ], [ 0, %40 ]
   %indvars.iv.i103 = phi i64 [ %indvars.iv.next.i105, %49 ], [ 0, %40 ]
   %exitcond.not.i104 = icmp eq i64 %indvars.iv.i103, %46
-  br i1 %exitcond.not.i104, label %Xz_ReadVarInt.exit.thread, label %49
+  br i1 %exitcond.not.i104, label %.critedge, label %49
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.i103
@@ -912,7 +912,7 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr noundef writeonly captures(none) 
   %58 = icmp eq i8 %51, 0
   %59 = icmp ne i64 %indvars.iv.i103, 0
   %or.cond.le.i107 = and i1 %59, %58
-  br i1 %or.cond.le.i107, label %Xz_ReadVarInt.exit.thread, label %Xz_ReadVarInt.exit109
+  br i1 %or.cond.le.i107, label %.critedge, label %Xz_ReadVarInt.exit109
 
 Xz_ReadVarInt.exit109:                            ; preds = %.split.loop.exit18.i106
   %60 = trunc nuw nsw i64 %indvars.iv.next.i105 to i32
@@ -929,23 +929,23 @@ Xz_ReadVarInt.exit109:                            ; preds = %.split.loop.exit18.
 
 65:                                               ; preds = %62, %114
   %indvars.iv = phi i64 [ 0, %62 ], [ %indvars.iv.next, %114 ]
-  %.477157 = phi i32 [ %.275, %62 ], [ %120, %114 ]
+  %.477155 = phi i32 [ %.275, %62 ], [ %120, %114 ]
   %66 = getelementptr inbounds nuw %struct.CXzFilter, ptr %64, i64 %indvars.iv
-  %67 = zext i32 %.477157 to i64
+  %67 = zext i32 %.477155 to i64
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 %67
-  %69 = sub i32 %5, %.477157
+  %69 = sub i32 %5, %.477155
   store i64 0, ptr %66, align 8, !tbaa !3
   %70 = tail call i32 @llvm.umin.i32(i32 %69, i32 9)
   %71 = zext nneg i32 %70 to i64
-  %72 = add i32 %.477157, 2
+  %72 = add i32 %.477155, 2
   br label %73
 
 73:                                               ; preds = %75, %65
-  %indvars.iv173 = phi i32 [ %indvars.iv.next174, %75 ], [ %72, %65 ]
+  %indvars.iv171 = phi i32 [ %indvars.iv.next172, %75 ], [ %72, %65 ]
   %74 = phi i64 [ %82, %75 ], [ 0, %65 ]
   %indvars.iv.i110 = phi i64 [ %indvars.iv.next.i112, %75 ], [ 0, %65 ]
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.i110, %71
-  br i1 %exitcond.not.i111, label %Xz_ReadVarInt.exit.thread, label %75
+  br i1 %exitcond.not.i111, label %.critedge, label %75
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv.i110
@@ -958,18 +958,18 @@ Xz_ReadVarInt.exit109:                            ; preds = %.split.loop.exit18.
   %82 = or i64 %81, %74
   store i64 %82, ptr %66, align 8, !tbaa !3
   %83 = icmp slt i8 %77, 0
-  %indvars.iv.next174 = add i32 %indvars.iv173, 1
+  %indvars.iv.next172 = add i32 %indvars.iv171, 1
   br i1 %83, label %73, label %.split.loop.exit18.i113
 
 .split.loop.exit18.i113:                          ; preds = %75
   %84 = icmp eq i8 %77, 0
   %85 = icmp ne i64 %indvars.iv.i110, 0
   %or.cond.le.i114 = and i1 %85, %84
-  br i1 %or.cond.le.i114, label %Xz_ReadVarInt.exit.thread, label %86
+  br i1 %or.cond.le.i114, label %.critedge, label %86
 
 86:                                               ; preds = %.split.loop.exit18.i113
   %87 = trunc nuw nsw i64 %indvars.iv.next.i112 to i32
-  %88 = add i32 %.477157, %87
+  %88 = add i32 %.477155, %87
   %89 = zext i32 %88 to i64
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 %89
   %91 = sub i32 %5, %88
@@ -978,11 +978,11 @@ Xz_ReadVarInt.exit109:                            ; preds = %.split.loop.exit18.
   br label %94
 
 94:                                               ; preds = %96, %86
-  %indvars.iv176 = phi i32 [ %indvars.iv.next177, %96 ], [ %indvars.iv173, %86 ]
+  %indvars.iv174 = phi i32 [ %indvars.iv.next175, %96 ], [ %indvars.iv171, %86 ]
   %95 = phi i64 [ %103, %96 ], [ 0, %86 ]
   %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i119, %96 ], [ 0, %86 ]
   %exitcond.not.i118 = icmp eq i64 %indvars.iv.i117, %93
-  br i1 %exitcond.not.i118, label %Xz_ReadVarInt.exit.thread, label %96
+  br i1 %exitcond.not.i118, label %.critedge, label %96
 
 96:                                               ; preds = %94
   %97 = getelementptr inbounds nuw i8, ptr %90, i64 %indvars.iv.i117
@@ -994,14 +994,14 @@ Xz_ReadVarInt.exit109:                            ; preds = %.split.loop.exit18.
   %102 = shl i64 %100, %101
   %103 = or i64 %102, %95
   %104 = icmp slt i8 %98, 0
-  %indvars.iv.next177 = add i32 %indvars.iv176, 1
+  %indvars.iv.next175 = add i32 %indvars.iv174, 1
   br i1 %104, label %94, label %.split.loop.exit18.i120
 
 .split.loop.exit18.i120:                          ; preds = %96
   %105 = icmp eq i8 %98, 0
   %106 = icmp ne i64 %indvars.iv.i117, 0
   %or.cond.le.i121 = and i1 %106, %105
-  br i1 %or.cond.le.i121, label %Xz_ReadVarInt.exit.thread, label %107
+  br i1 %or.cond.le.i121, label %.critedge, label %107
 
 107:                                              ; preds = %.split.loop.exit18.i120
   %108 = trunc nuw nsw i64 %indvars.iv.next.i119 to i32
@@ -1011,7 +1011,7 @@ Xz_ReadVarInt.exit109:                            ; preds = %.split.loop.exit18.
   %112 = icmp ugt i64 %103, %111
   %113 = icmp ugt i64 %103, 20
   %or.cond = or i1 %112, %113
-  br i1 %or.cond, label %Xz_ReadVarInt.exit.thread, label %114
+  br i1 %or.cond, label %.critedge, label %114
 
 114:                                              ; preds = %107
   %115 = trunc nuw nsw i64 %103 to i32
@@ -1027,23 +1027,23 @@ Xz_ReadVarInt.exit109:                            ; preds = %.split.loop.exit18.
   br i1 %exitcond.not, label %.preheader.preheader, label %65
 
 .preheader.preheader:                             ; preds = %114
-  %121 = add i32 %indvars.iv176, %115
+  %121 = add i32 %indvars.iv174, %115
   %122 = zext i32 %121 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %124
-  %indvars.iv180 = phi i64 [ %122, %.preheader.preheader ], [ %indvars.iv.next181, %124 ]
-  %123 = icmp samesign ult i64 %indvars.iv180, %6
-  br i1 %123, label %124, label %Xz_ReadVarInt.exit.thread
+  %indvars.iv178 = phi i64 [ %122, %.preheader.preheader ], [ %indvars.iv.next179, %124 ]
+  %123 = icmp samesign ult i64 %indvars.iv178, %6
+  br i1 %123, label %124, label %.critedge
 
 124:                                              ; preds = %.preheader
-  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv180
+  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv178
   %126 = load i8, ptr %125, align 1, !tbaa !7
   %.not98 = icmp eq i8 %126, 0
-  br i1 %.not98, label %.preheader, label %Xz_ReadVarInt.exit.thread
+  br i1 %.not98, label %.preheader, label %.critedge
 
-Xz_ReadVarInt.exit.thread:                        ; preds = %20, %47, %.split.loop.exit18.i120, %.split.loop.exit18.i113, %107, %73, %94, %.preheader, %124, %.split.loop.exit18.i106, %.split.loop.exit18.i, %33, %2
+.critedge:                                        ; preds = %20, %47, %.split.loop.exit18.i120, %.split.loop.exit18.i113, %107, %73, %94, %.preheader, %124, %.split.loop.exit18.i106, %.split.loop.exit18.i, %33, %2
   %.0 = phi i32 [ 16, %2 ], [ 16, %33 ], [ 16, %.split.loop.exit18.i ], [ 16, %.split.loop.exit18.i106 ], [ 0, %.preheader ], [ 16, %124 ], [ 16, %94 ], [ 16, %73 ], [ 16, %107 ], [ 16, %.split.loop.exit18.i113 ], [ 16, %.split.loop.exit18.i120 ], [ 16, %47 ], [ 16, %20 ]
   ret i32 %.0
 }

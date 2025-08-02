@@ -3320,40 +3320,40 @@ define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm
   %16 = icmp uge ptr %2, %.val.pre4.i
   %17 = icmp ult ptr %2, %15
   %spec.select.i.i.i.i.i = and i1 %16, %17
-  br i1 %spec.select.i.i.i.i.i, label %20, label %18, !prof !445
+  br i1 %spec.select.i.i.i.i.i, label %18, label %.critedge.i.i.i, !prof !445
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %19, i64 noundef %11, i64 noundef 48) #20
+  %19 = ptrtoint ptr %2 to i64
+  %20 = ptrtoint ptr %.val.pre4.i to i64
+  %21 = sub i64 %19, %20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %22, i64 noundef %11, i64 noundef 48) #20
+  %.val20.i.i.i = load ptr, ptr %0, align 8, !tbaa !25
+  %23 = getelementptr inbounds i8, ptr %.val20.i.i.i, i64 %21
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE9push_backERKS3_.exit
+
+.critedge.i.i.i:                                  ; preds = %14
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %24, i64 noundef %11, i64 noundef 48) #20
   %.val.pre.i = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE9push_backERKS3_.exit
 
-20:                                               ; preds = %14
-  %21 = ptrtoint ptr %2 to i64
-  %22 = ptrtoint ptr %.val.pre4.i to i64
-  %23 = sub i64 %21, %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %24, i64 noundef %11, i64 noundef 48) #20
-  %.val20.i.i.i = load ptr, ptr %0, align 8, !tbaa !25
-  %25 = getelementptr inbounds i8, ptr %.val20.i.i.i, i64 %23
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE9push_backERKS3_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE9push_backERKS3_.exit: ; preds = %1, %18, %20
-  %.val.i = phi ptr [ %.val.pre4.i, %1 ], [ %.val20.i.i.i, %20 ], [ %.val.pre.i, %18 ]
-  %.016.i.i.i = phi ptr [ %2, %1 ], [ %25, %20 ], [ %2, %18 ]
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE9push_backERKS3_.exit: ; preds = %1, %18, %.critedge.i.i.i
+  %.val.i = phi ptr [ %.val.pre4.i, %1 ], [ %.val20.i.i.i, %18 ], [ %.val.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %2, %1 ], [ %23, %18 ], [ %2, %.critedge.i.i.i ]
   %.val3.i = load i32, ptr %8, align 8, !tbaa !26
-  %26 = zext i32 %.val3.i to i64
-  %27 = getelementptr inbounds nuw %"class.(anonymous namespace)::ImplicitNullChecks::NullCheck", ptr %.val.i, i64 %26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i, i64 48, i1 false)
-  %28 = load i32, ptr %8, align 8, !tbaa !26
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %8, align 8, !tbaa !26
+  %25 = zext i32 %.val3.i to i64
+  %26 = getelementptr inbounds nuw %"class.(anonymous namespace)::ImplicitNullChecks::NullCheck", ptr %.val.i, i64 %25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i, i64 48, i1 false)
+  %27 = load i32, ptr %8, align 8, !tbaa !26
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #20
   %.val = load ptr, ptr %0, align 8, !tbaa !25
-  %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"class.(anonymous namespace)::ImplicitNullChecks::NullCheck", ptr %.val, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 -48
-  ret ptr %32
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds nuw %"class.(anonymous namespace)::ImplicitNullChecks::NullCheck", ptr %.val, i64 %29
+  %31 = getelementptr inbounds i8, ptr %30, i64 -48
+  ret ptr %31
 }
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7

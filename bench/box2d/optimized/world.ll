@@ -1072,7 +1072,7 @@ define internal noundef float @b2DefaultRestitutionCallback(float noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @b2DefaultAddTaskFcn(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
+define internal noalias noundef ptr @b2DefaultAddTaskFcn(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   tail call void %0(i32 noundef 0, i32 noundef %1, i32 noundef 0, ptr noundef %3) #22
   ret ptr null
 }
@@ -1359,7 +1359,7 @@ define void @b2World_Step(i32 %0, float noundef %1, i32 noundef %2) local_unname
   %9 = getelementptr i8, ptr %7, i64 -9
   %10 = load i8, ptr %9, align 1, !tbaa !35, !range !77, !noundef !78
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %368, label %12
+  br i1 %11, label %372, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr i8, ptr %7, i64 -448
@@ -1388,7 +1388,7 @@ define void @b2World_Step(i32 %0, float noundef %1, i32 noundef %2) local_unname
   %26 = getelementptr i8, ptr %7, i64 -368
   %27 = getelementptr i8, ptr %26, i64 %.idx83
   store i32 0, ptr %27, align 16, !tbaa !188
-  br label %368
+  br label %372
 
 28:                                               ; preds = %12
   store i8 1, ptr %9, align 1, !tbaa !35
@@ -1544,522 +1544,522 @@ b2MakeSoft.exit81:                                ; preds = %b2MakeSoft.exit74, 
   %121 = load i32, ptr %120, align 4, !tbaa !110
   %122 = add nsw i32 %121, %119
   store i32 %122, ptr %120, align 4, !tbaa !110
-  %invariant.gep.i = getelementptr i8, ptr %7, i64 -1432
+  %123 = getelementptr i8, ptr %7, i64 -1456
   br label %131
 
-123:                                              ; preds = %131
-  %124 = getelementptr i8, ptr %7, i64 -1456
+124:                                              ; preds = %131
   %125 = getelementptr i8, ptr %7, i64 -720
   %126 = load ptr, ptr %125, align 16, !tbaa !169
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 232
   %128 = load i32, ptr %127, align 8, !tbaa !210
-  %129 = add nsw i32 %128, %134
+  %129 = add nsw i32 %128, %136
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %b2Collide.exit, label %135
+  br i1 %130, label %b2Collide.exit, label %137
 
 131:                                              ; preds = %131, %b2MakeSoft.exit81
   %indvars.iv.i = phi i64 [ 0, %b2MakeSoft.exit81 ], [ %indvars.iv.next.i, %131 ]
-  %.0198.i = phi i32 [ 0, %b2MakeSoft.exit81 ], [ %134, %131 ]
+  %.0198.i = phi i32 [ 0, %b2MakeSoft.exit81 ], [ %136, %131 ]
   %132 = mul nuw nsw i64 %indvars.iv.i, 56
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %132
-  %133 = load i32, ptr %gep.i, align 8, !tbaa !211
-  %134 = add nsw i32 %133, %.0198.i
+  %133 = getelementptr inbounds nuw i8, ptr %123, i64 %132
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
+  %135 = load i32, ptr %134, align 8, !tbaa !211
+  %136 = add nsw i32 %135, %.0198.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %123, label %131, !llvm.loop !213
+  br i1 %exitcond.not.i, label %124, label %131, !llvm.loop !213
 
-135:                                              ; preds = %123
-  %136 = shl i32 %129, 3
-  %137 = tail call ptr @b2AllocateArenaItem(ptr noundef nonnull %8, i32 noundef %136, ptr noundef nonnull @.str.39) #22
-  br label %144
+137:                                              ; preds = %124
+  %138 = shl i32 %129, 3
+  %139 = tail call ptr @b2AllocateArenaItem(ptr noundef nonnull %8, i32 noundef %138, ptr noundef nonnull @.str.39) #22
+  br label %146
 
-138:                                              ; preds = %._crit_edge.i
-  %139 = load ptr, ptr %125, align 16, !tbaa !169
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 224
-  %141 = load ptr, ptr %140, align 8, !tbaa !214
-  %142 = icmp sgt i32 %128, 0
-  br i1 %142, label %.lr.ph206.preheader.i, label %._crit_edge207.i
+140:                                              ; preds = %._crit_edge.i
+  %141 = load ptr, ptr %125, align 16, !tbaa !169
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 224
+  %143 = load ptr, ptr %142, align 8, !tbaa !214
+  %144 = icmp sgt i32 %128, 0
+  br i1 %144, label %.lr.ph206.preheader.i, label %._crit_edge207.i
 
-.lr.ph206.preheader.i:                            ; preds = %138
-  %143 = sext i32 %.1.lcssa.i to i64
-  %wide.trip.count251.i = zext nneg i32 %128 to i64
+.lr.ph206.preheader.i:                            ; preds = %140
+  %145 = sext i32 %.1.lcssa.i to i64
+  %wide.trip.count249.i = zext nneg i32 %128 to i64
   br label %.lr.ph206.i
 
-144:                                              ; preds = %._crit_edge.i, %135
-  %indvars.iv238.i = phi i64 [ 0, %135 ], [ %indvars.iv.next239.i, %._crit_edge.i ]
-  %.0152202.i = phi i32 [ 0, %135 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %145 = mul nuw nsw i64 %indvars.iv238.i, 56
-  %146 = getelementptr inbounds nuw i8, ptr %124, i64 %145
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  %148 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  %149 = load i32, ptr %148, align 8, !tbaa !211
-  %150 = load ptr, ptr %147, align 8, !tbaa !215
-  %151 = icmp sgt i32 %149, 0
-  br i1 %151, label %.lr.ph.preheader.i, label %._crit_edge.i
+146:                                              ; preds = %._crit_edge.i, %137
+  %indvars.iv236.i = phi i64 [ 0, %137 ], [ %indvars.iv.next237.i, %._crit_edge.i ]
+  %.0152202.i = phi i32 [ 0, %137 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %147 = mul nuw nsw i64 %indvars.iv236.i, 56
+  %148 = getelementptr inbounds nuw i8, ptr %123, i64 %147
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 24
+  %151 = load i32, ptr %150, align 8, !tbaa !211
+  %152 = load ptr, ptr %149, align 8, !tbaa !215
+  %153 = icmp sgt i32 %151, 0
+  br i1 %153, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %144
-  %152 = sext i32 %.0152202.i to i64
-  %wide.trip.count.i = zext nneg i32 %149 to i64
+.lr.ph.preheader.i:                               ; preds = %146
+  %154 = sext i32 %.0152202.i to i64
+  %wide.trip.count.i = zext nneg i32 %151 to i64
   br label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %153 = trunc nsw i64 %indvars.iv.next231.i to i32
+  %155 = trunc nsw i64 %indvars.iv.next229.i to i32
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %144
-  %.1.lcssa.i = phi i32 [ %.0152202.i, %144 ], [ %153, %._crit_edge.loopexit.i ]
-  %indvars.iv.next239.i = add nuw nsw i64 %indvars.iv238.i, 1
-  %exitcond242.not.i = icmp eq i64 %indvars.iv.next239.i, 12
-  br i1 %exitcond242.not.i, label %138, label %144, !llvm.loop !216
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %146
+  %.1.lcssa.i = phi i32 [ %.0152202.i, %146 ], [ %155, %._crit_edge.loopexit.i ]
+  %indvars.iv.next237.i = add nuw nsw i64 %indvars.iv236.i, 1
+  %exitcond240.not.i = icmp eq i64 %indvars.iv.next237.i, 12
+  br i1 %exitcond240.not.i, label %140, label %146, !llvm.loop !216
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv232.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next233.i, %.lr.ph.i ]
-  %indvars.iv230.i = phi i64 [ %152, %.lr.ph.preheader.i ], [ %indvars.iv.next231.i, %.lr.ph.i ]
-  %154 = getelementptr inbounds nuw %struct.b2ContactSim, ptr %150, i64 %indvars.iv232.i
-  %155 = getelementptr inbounds ptr, ptr %137, i64 %indvars.iv230.i
-  store ptr %154, ptr %155, align 8, !tbaa !217
-  %indvars.iv.next231.i = add nsw i64 %indvars.iv230.i, 1
-  %indvars.iv.next233.i = add nuw nsw i64 %indvars.iv232.i, 1
-  %exitcond237.not.i = icmp eq i64 %indvars.iv.next233.i, %wide.trip.count.i
-  br i1 %exitcond237.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !218
+  %indvars.iv230.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next231.i, %.lr.ph.i ]
+  %indvars.iv228.i = phi i64 [ %154, %.lr.ph.preheader.i ], [ %indvars.iv.next229.i, %.lr.ph.i ]
+  %156 = getelementptr inbounds nuw %struct.b2ContactSim, ptr %152, i64 %indvars.iv230.i
+  %157 = getelementptr inbounds ptr, ptr %139, i64 %indvars.iv228.i
+  store ptr %156, ptr %157, align 8, !tbaa !217
+  %indvars.iv.next229.i = add nsw i64 %indvars.iv228.i, 1
+  %indvars.iv.next231.i = add nuw nsw i64 %indvars.iv230.i, 1
+  %exitcond235.not.i = icmp eq i64 %indvars.iv.next231.i, %wide.trip.count.i
+  br i1 %exitcond235.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !218
 
-._crit_edge207.i:                                 ; preds = %.lr.ph206.i, %138
-  %156 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store ptr %137, ptr %156, align 8, !tbaa !219
-  %157 = getelementptr i8, ptr %7, i64 -648
-  %.val.i = load i32, ptr %157, align 8, !tbaa !220
-  %158 = getelementptr i8, ptr %7, i64 -72
-  %159 = load i32, ptr %158, align 8, !tbaa !145
-  %160 = icmp sgt i32 %159, 0
-  br i1 %160, label %.lr.ph210.i, label %._crit_edge211.i
+._crit_edge207.i:                                 ; preds = %.lr.ph206.i, %140
+  %158 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  store ptr %139, ptr %158, align 8, !tbaa !219
+  %159 = getelementptr i8, ptr %7, i64 -648
+  %.val.i = load i32, ptr %159, align 8, !tbaa !220
+  %160 = getelementptr i8, ptr %7, i64 -72
+  %161 = load i32, ptr %160, align 8, !tbaa !145
+  %162 = icmp sgt i32 %161, 0
+  br i1 %162, label %.lr.ph210.i, label %._crit_edge211.i
 
 .lr.ph210.i:                                      ; preds = %._crit_edge207.i
-  %161 = getelementptr i8, ptr %7, i64 -488
-  br label %169
+  %163 = getelementptr i8, ptr %7, i64 -488
+  br label %171
 
 .lr.ph206.i:                                      ; preds = %.lr.ph206.i, %.lr.ph206.preheader.i
-  %indvars.iv246.i = phi i64 [ 0, %.lr.ph206.preheader.i ], [ %indvars.iv.next247.i, %.lr.ph206.i ]
-  %indvars.iv244.i = phi i64 [ %143, %.lr.ph206.preheader.i ], [ %indvars.iv.next245.i, %.lr.ph206.i ]
-  %162 = getelementptr inbounds nuw %struct.b2ContactSim, ptr %141, i64 %indvars.iv246.i
-  %163 = getelementptr inbounds ptr, ptr %137, i64 %indvars.iv244.i
-  store ptr %162, ptr %163, align 8, !tbaa !217
-  %indvars.iv.next245.i = add nsw i64 %indvars.iv244.i, 1
-  %indvars.iv.next247.i = add nuw nsw i64 %indvars.iv246.i, 1
-  %exitcond252.not.i = icmp eq i64 %indvars.iv.next247.i, %wide.trip.count251.i
-  br i1 %exitcond252.not.i, label %._crit_edge207.i, label %.lr.ph206.i, !llvm.loop !221
+  %indvars.iv244.i = phi i64 [ 0, %.lr.ph206.preheader.i ], [ %indvars.iv.next245.i, %.lr.ph206.i ]
+  %indvars.iv242.i = phi i64 [ %145, %.lr.ph206.preheader.i ], [ %indvars.iv.next243.i, %.lr.ph206.i ]
+  %164 = getelementptr inbounds nuw %struct.b2ContactSim, ptr %143, i64 %indvars.iv244.i
+  %165 = getelementptr inbounds ptr, ptr %139, i64 %indvars.iv242.i
+  store ptr %164, ptr %165, align 8, !tbaa !217
+  %indvars.iv.next243.i = add nsw i64 %indvars.iv242.i, 1
+  %indvars.iv.next245.i = add nuw nsw i64 %indvars.iv244.i, 1
+  %exitcond250.not.i = icmp eq i64 %indvars.iv.next245.i, %wide.trip.count249.i
+  br i1 %exitcond250.not.i, label %._crit_edge207.i, label %.lr.ph206.i, !llvm.loop !221
 
-._crit_edge211.i:                                 ; preds = %169, %._crit_edge207.i
-  %164 = load ptr, ptr %109, align 16, !tbaa !146
-  %165 = load ptr, ptr %111, align 16, !tbaa !149
-  %166 = call ptr %164(ptr noundef nonnull @b2CollideTask, i32 noundef %129, i32 noundef 64, ptr noundef nonnull %4, ptr noundef %165) #22
-  %167 = load i32, ptr %115, align 16, !tbaa !111
-  %168 = add nsw i32 %167, 1
-  store i32 %168, ptr %115, align 16, !tbaa !111
-  %.not.i = icmp eq ptr %166, null
-  br i1 %.not.i, label %179, label %175
+._crit_edge211.i:                                 ; preds = %171, %._crit_edge207.i
+  %166 = load ptr, ptr %109, align 16, !tbaa !146
+  %167 = load ptr, ptr %111, align 16, !tbaa !149
+  %168 = call ptr %166(ptr noundef nonnull @b2CollideTask, i32 noundef %129, i32 noundef 64, ptr noundef nonnull %4, ptr noundef %167) #22
+  %169 = load i32, ptr %115, align 16, !tbaa !111
+  %170 = add nsw i32 %169, 1
+  store i32 %170, ptr %115, align 16, !tbaa !111
+  %.not.i = icmp eq ptr %168, null
+  br i1 %.not.i, label %181, label %177
 
-169:                                              ; preds = %169, %.lr.ph210.i
-  %indvars.iv253.i = phi i64 [ 0, %.lr.ph210.i ], [ %indvars.iv.next254.i, %169 ]
-  %170 = load ptr, ptr %161, align 8, !tbaa !155
-  %171 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %170, i64 %indvars.iv253.i
-  tail call void @b2SetBitCountAndClear(ptr noundef %171, i32 noundef %.val.i) #22
-  %indvars.iv.next254.i = add nuw nsw i64 %indvars.iv253.i, 1
-  %172 = load i32, ptr %158, align 8, !tbaa !145
-  %173 = sext i32 %172 to i64
-  %174 = icmp slt i64 %indvars.iv.next254.i, %173
-  br i1 %174, label %169, label %._crit_edge211.i, !llvm.loop !222
+171:                                              ; preds = %171, %.lr.ph210.i
+  %indvars.iv251.i = phi i64 [ 0, %.lr.ph210.i ], [ %indvars.iv.next252.i, %171 ]
+  %172 = load ptr, ptr %163, align 8, !tbaa !155
+  %173 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %172, i64 %indvars.iv251.i
+  tail call void @b2SetBitCountAndClear(ptr noundef %173, i32 noundef %.val.i) #22
+  %indvars.iv.next252.i = add nuw nsw i64 %indvars.iv251.i, 1
+  %174 = load i32, ptr %160, align 8, !tbaa !145
+  %175 = sext i32 %174 to i64
+  %176 = icmp slt i64 %indvars.iv.next252.i, %175
+  br i1 %176, label %171, label %._crit_edge211.i, !llvm.loop !222
 
-175:                                              ; preds = %._crit_edge211.i
-  %176 = getelementptr i8, ptr %7, i64 -56
-  %177 = load ptr, ptr %176, align 8, !tbaa !147
-  %178 = load ptr, ptr %111, align 16, !tbaa !149
-  call void %177(ptr noundef nonnull %166, ptr noundef %178) #22
-  br label %179
+177:                                              ; preds = %._crit_edge211.i
+  %178 = getelementptr i8, ptr %7, i64 -56
+  %179 = load ptr, ptr %178, align 8, !tbaa !147
+  %180 = load ptr, ptr %111, align 16, !tbaa !149
+  call void %179(ptr noundef nonnull %168, ptr noundef %180) #22
+  br label %181
 
-179:                                              ; preds = %175, %._crit_edge211.i
-  call void @b2FreeArenaItem(ptr noundef nonnull %8, ptr noundef %137) #22
-  store ptr null, ptr %156, align 8, !tbaa !219
-  %180 = getelementptr i8, ptr %7, i64 -488
-  %181 = load ptr, ptr %180, align 8, !tbaa !155
-  %182 = load i32, ptr %158, align 8, !tbaa !145
-  %183 = icmp sgt i32 %182, 1
-  br i1 %183, label %.lr.ph214.i, label %._crit_edge215.i
+181:                                              ; preds = %177, %._crit_edge211.i
+  call void @b2FreeArenaItem(ptr noundef nonnull %8, ptr noundef %139) #22
+  store ptr null, ptr %158, align 8, !tbaa !219
+  %182 = getelementptr i8, ptr %7, i64 -488
+  %183 = load ptr, ptr %182, align 8, !tbaa !155
+  %184 = load i32, ptr %160, align 8, !tbaa !145
+  %185 = icmp sgt i32 %184, 1
+  br i1 %185, label %.lr.ph214.i, label %._crit_edge215.i
 
-._crit_edge215.i:                                 ; preds = %.lr.ph214.i, %179
-  %184 = getelementptr i8, ptr %7, i64 -536
-  %185 = load ptr, ptr %184, align 8, !tbaa !223
-  %186 = getelementptr i8, ptr %7, i64 -12
-  %187 = load i16, ptr %186, align 4, !tbaa !83
-  %188 = getelementptr inbounds nuw i8, ptr %181, i64 12
-  %189 = load i32, ptr %188, align 4, !tbaa !224
-  %.not226.i = icmp eq i32 %189, 0
-  br i1 %.not226.i, label %b2Collide.exit, label %.lr.ph225.i
+._crit_edge215.i:                                 ; preds = %.lr.ph214.i, %181
+  %186 = getelementptr i8, ptr %7, i64 -536
+  %187 = load ptr, ptr %186, align 8, !tbaa !223
+  %188 = getelementptr i8, ptr %7, i64 -12
+  %189 = load i16, ptr %188, align 4, !tbaa !83
+  %190 = getelementptr inbounds nuw i8, ptr %183, i64 12
+  %191 = load i32, ptr %190, align 4, !tbaa !224
+  %.not224.i = icmp eq i32 %191, 0
+  br i1 %.not224.i, label %b2Collide.exit, label %.lr.ph223.i
 
-.lr.ph225.i:                                      ; preds = %._crit_edge215.i
-  %190 = getelementptr i8, ptr %7, i64 -344
-  %191 = load i32, ptr %190, align 8, !tbaa !107
+.lr.ph223.i:                                      ; preds = %._crit_edge215.i
+  %192 = getelementptr i8, ptr %7, i64 -344
+  %193 = load i32, ptr %192, align 8, !tbaa !107
   %.val176.i = load ptr, ptr %125, align 16, !tbaa !94
-  %invariant.gep216.i = getelementptr i8, ptr %7, i64 -1440
-  %192 = getelementptr i8, ptr %7, i64 -640
-  %193 = getelementptr inbounds nuw i8, ptr %.val176.i, i64 224
-  %194 = getelementptr i8, ptr %7, i64 -424
-  %195 = getelementptr i8, ptr %7, i64 -416
-  %196 = getelementptr i8, ptr %7, i64 -412
-  %.sroa.58.0.insert.ext.i = zext i16 %187 to i64
+  %194 = getelementptr i8, ptr %7, i64 -640
+  %195 = getelementptr inbounds nuw i8, ptr %.val176.i, i64 224
+  %196 = getelementptr i8, ptr %7, i64 -424
+  %197 = getelementptr i8, ptr %7, i64 -416
+  %198 = getelementptr i8, ptr %7, i64 -412
+  %.sroa.58.0.insert.ext.i = zext i16 %189 to i64
   %.sroa.58.0.insert.shift.i = shl nuw nsw i64 %.sroa.58.0.insert.ext.i, 32
-  %197 = getelementptr i8, ptr %7, i64 -376
-  %198 = sext i32 %191 to i64
-  %199 = getelementptr inbounds %struct.b2ContactEndTouchEventArray, ptr %197, i64 %198
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %201 = getelementptr inbounds nuw i8, ptr %199, i64 12
-  br label %207
+  %199 = getelementptr i8, ptr %7, i64 -376
+  %200 = sext i32 %193 to i64
+  %201 = getelementptr inbounds %struct.b2ContactEndTouchEventArray, ptr %199, i64 %200
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %201, i64 12
+  br label %209
 
-.lr.ph214.i:                                      ; preds = %179, %.lr.ph214.i
-  %indvars.iv256.i = phi i64 [ %indvars.iv.next257.i, %.lr.ph214.i ], [ 1, %179 ]
-  %202 = load ptr, ptr %180, align 8, !tbaa !155
-  %203 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %202, i64 %indvars.iv256.i
-  call void @b2InPlaceUnion(ptr noundef %181, ptr noundef nonnull %203) #22
-  %indvars.iv.next257.i = add nuw nsw i64 %indvars.iv256.i, 1
-  %204 = load i32, ptr %158, align 8, !tbaa !145
-  %205 = sext i32 %204 to i64
-  %206 = icmp slt i64 %indvars.iv.next257.i, %205
-  br i1 %206, label %.lr.ph214.i, label %._crit_edge215.i, !llvm.loop !225
+.lr.ph214.i:                                      ; preds = %181, %.lr.ph214.i
+  %indvars.iv254.i = phi i64 [ %indvars.iv.next255.i, %.lr.ph214.i ], [ 1, %181 ]
+  %204 = load ptr, ptr %182, align 8, !tbaa !155
+  %205 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %204, i64 %indvars.iv254.i
+  call void @b2InPlaceUnion(ptr noundef %183, ptr noundef nonnull %205) #22
+  %indvars.iv.next255.i = add nuw nsw i64 %indvars.iv254.i, 1
+  %206 = load i32, ptr %160, align 8, !tbaa !145
+  %207 = sext i32 %206 to i64
+  %208 = icmp slt i64 %indvars.iv.next255.i, %207
+  br i1 %208, label %.lr.ph214.i, label %._crit_edge215.i, !llvm.loop !225
 
-207:                                              ; preds = %._crit_edge222.i, %.lr.ph225.i
-  %208 = phi i32 [ %189, %.lr.ph225.i ], [ %344, %._crit_edge222.i ]
-  %indvars.iv259.i = phi i64 [ 0, %.lr.ph225.i ], [ %indvars.iv.next260.i, %._crit_edge222.i ]
-  %209 = load ptr, ptr %181, align 8, !tbaa !226
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %indvars.iv259.i
-  %211 = load i64, ptr %210, align 8, !tbaa !227
-  %.not164218.i = icmp eq i64 %211, 0
-  br i1 %.not164218.i, label %._crit_edge222.i, label %.lr.ph221.i
+209:                                              ; preds = %._crit_edge220.i, %.lr.ph223.i
+  %210 = phi i32 [ %191, %.lr.ph223.i ], [ %348, %._crit_edge220.i ]
+  %indvars.iv257.i = phi i64 [ 0, %.lr.ph223.i ], [ %indvars.iv.next258.i, %._crit_edge220.i ]
+  %211 = load ptr, ptr %183, align 8, !tbaa !226
+  %212 = getelementptr inbounds nuw i64, ptr %211, i64 %indvars.iv257.i
+  %213 = load i64, ptr %212, align 8, !tbaa !227
+  %.not164216.i = icmp eq i64 %213, 0
+  br i1 %.not164216.i, label %._crit_edge220.i, label %.lr.ph219.i
 
-.lr.ph221.i:                                      ; preds = %207
-  %212 = trunc nuw i64 %indvars.iv259.i to i32
-  %213 = shl i32 %212, 6
-  br label %214
+.lr.ph219.i:                                      ; preds = %209
+  %214 = trunc nuw i64 %indvars.iv257.i to i32
+  %215 = shl i32 %214, 6
+  br label %216
 
-214:                                              ; preds = %b2RemoveNonTouchingContact.exit.i, %.lr.ph221.i
-  %.0159219.i = phi i64 [ %211, %.lr.ph221.i ], [ %343, %b2RemoveNonTouchingContact.exit.i ]
-  %215 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0159219.i, i1 true)
-  %216 = trunc nuw nsw i64 %215 to i32
-  %217 = or disjoint i32 %213, %216
-  %.val177.i = load ptr, ptr %192, align 16, !tbaa !228
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds %struct.b2Contact, ptr %.val177.i, i64 %218
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 4
-  %221 = load i32, ptr %220, align 4, !tbaa !229
-  %222 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %223 = load i32, ptr %222, align 4, !tbaa !231
-  %.not165.i = icmp eq i32 %221, -1
-  %224 = sext i32 %221 to i64
-  %.idx.i = mul nsw i64 %224, 56
-  %gep217.i = getelementptr i8, ptr %invariant.gep216.i, i64 %.idx.i
-  %.val179.sink.in.i = select i1 %.not165.i, ptr %193, ptr %gep217.i
+216:                                              ; preds = %b2RemoveNonTouchingContact.exit.i, %.lr.ph219.i
+  %.0159217.i = phi i64 [ %213, %.lr.ph219.i ], [ %347, %b2RemoveNonTouchingContact.exit.i ]
+  %217 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0159217.i, i1 true)
+  %218 = trunc nuw nsw i64 %217 to i32
+  %219 = or disjoint i32 %215, %218
+  %.val177.i = load ptr, ptr %194, align 16, !tbaa !228
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds %struct.b2Contact, ptr %.val177.i, i64 %220
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 4
+  %223 = load i32, ptr %222, align 4, !tbaa !229
+  %224 = getelementptr inbounds nuw i8, ptr %221, i64 8
+  %225 = load i32, ptr %224, align 4, !tbaa !231
+  %.not165.i = icmp eq i32 %223, -1
+  %226 = sext i32 %223 to i64
+  %.idx.i = mul nsw i64 %226, 56
+  %227 = getelementptr i8, ptr %123, i64 %.idx.i
+  %228 = getelementptr i8, ptr %227, i64 16
+  %.val179.sink.in.i = select i1 %.not165.i, ptr %195, ptr %228
   %.val179.sink.i = load ptr, ptr %.val179.sink.in.i, align 8, !tbaa !232
-  %225 = sext i32 %223 to i64
-  %226 = getelementptr inbounds %struct.b2ContactSim, ptr %.val179.sink.i, i64 %225
-  %227 = getelementptr inbounds nuw i8, ptr %219, i64 36
-  %228 = load i32, ptr %227, align 4, !tbaa !233
-  %229 = sext i32 %228 to i64
-  %230 = getelementptr inbounds %struct.b2Shape, ptr %185, i64 %229
-  %231 = getelementptr inbounds nuw i8, ptr %219, i64 40
-  %232 = load i32, ptr %231, align 4, !tbaa !234
+  %229 = sext i32 %225 to i64
+  %230 = getelementptr inbounds %struct.b2ContactSim, ptr %.val179.sink.i, i64 %229
+  %231 = getelementptr inbounds nuw i8, ptr %221, i64 36
+  %232 = load i32, ptr %231, align 4, !tbaa !233
   %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds %struct.b2Shape, ptr %185, i64 %233
-  %235 = load i32, ptr %230, align 8, !tbaa !235
-  %236 = add nsw i32 %235, 1
-  %237 = getelementptr inbounds nuw i8, ptr %230, i64 276
-  %238 = load i16, ptr %237, align 4, !tbaa !239
+  %234 = getelementptr inbounds %struct.b2Shape, ptr %187, i64 %233
+  %235 = getelementptr inbounds nuw i8, ptr %221, i64 40
+  %236 = load i32, ptr %235, align 4, !tbaa !234
+  %237 = sext i32 %236 to i64
+  %238 = getelementptr inbounds %struct.b2Shape, ptr %187, i64 %237
   %239 = load i32, ptr %234, align 8, !tbaa !235
   %240 = add nsw i32 %239, 1
   %241 = getelementptr inbounds nuw i8, ptr %234, i64 276
   %242 = load i16, ptr %241, align 4, !tbaa !239
-  %243 = getelementptr inbounds nuw i8, ptr %219, i64 60
-  %244 = load i32, ptr %243, align 4, !tbaa !240
-  %245 = getelementptr inbounds nuw i8, ptr %226, i64 164
-  %246 = load i32, ptr %245, align 4, !tbaa !241
-  %247 = and i32 %246, 131072
-  %.not166.i = icmp eq i32 %247, 0
-  br i1 %.not166.i, label %249, label %248
+  %243 = load i32, ptr %238, align 8, !tbaa !235
+  %244 = add nsw i32 %243, 1
+  %245 = getelementptr inbounds nuw i8, ptr %238, i64 276
+  %246 = load i16, ptr %245, align 4, !tbaa !239
+  %247 = getelementptr inbounds nuw i8, ptr %221, i64 60
+  %248 = load i32, ptr %247, align 4, !tbaa !240
+  %249 = getelementptr inbounds nuw i8, ptr %230, i64 164
+  %250 = load i32, ptr %249, align 4, !tbaa !241
+  %251 = and i32 %250, 131072
+  %.not166.i = icmp eq i32 %251, 0
+  br i1 %.not166.i, label %253, label %252
 
-248:                                              ; preds = %214
-  call void @b2DestroyContact(ptr noundef nonnull %8, ptr noundef nonnull %219, i1 noundef zeroext false) #22
+252:                                              ; preds = %216
+  call void @b2DestroyContact(ptr noundef nonnull %8, ptr noundef nonnull %221, i1 noundef zeroext false) #22
   br label %b2RemoveNonTouchingContact.exit.i
 
-249:                                              ; preds = %214
-  %250 = and i32 %246, 262144
-  %.not167.i = icmp eq i32 %250, 0
-  br i1 %.not167.i, label %294, label %251
+253:                                              ; preds = %216
+  %254 = and i32 %250, 262144
+  %.not167.i = icmp eq i32 %254, 0
+  br i1 %.not167.i, label %298, label %255
 
-251:                                              ; preds = %249
-  %252 = and i32 %244, 4
-  %.not170.i = icmp eq i32 %252, 0
-  br i1 %.not170.i, label %273, label %253
+255:                                              ; preds = %253
+  %256 = and i32 %248, 4
+  %.not170.i = icmp eq i32 %256, 0
+  br i1 %.not170.i, label %277, label %257
 
-253:                                              ; preds = %251
-  %254 = getelementptr inbounds nuw i8, ptr %226, i64 36
+257:                                              ; preds = %255
+  %258 = getelementptr inbounds nuw i8, ptr %230, i64 36
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %.sroa.9196.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.9196.i, ptr noundef nonnull align 4 dereferenceable(112) %254, i64 112, i1 false)
-  %255 = load i32, ptr %195, align 16, !tbaa !185
-  %256 = load i32, ptr %196, align 4, !tbaa !11
-  %257 = icmp eq i32 %255, %256
-  br i1 %257, label %258, label %.b2ContactBeginTouchEventArray_Reserve.exit_crit_edge.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.9196.i, ptr noundef nonnull align 4 dereferenceable(112) %258, i64 112, i1 false)
+  %259 = load i32, ptr %197, align 16, !tbaa !185
+  %260 = load i32, ptr %198, align 4, !tbaa !11
+  %261 = icmp eq i32 %259, %260
+  br i1 %261, label %262, label %.b2ContactBeginTouchEventArray_Reserve.exit_crit_edge.i.i
 
-.b2ContactBeginTouchEventArray_Reserve.exit_crit_edge.i.i: ; preds = %253
-  %.pre.i.i = load ptr, ptr %194, align 8, !tbaa !14
+.b2ContactBeginTouchEventArray_Reserve.exit_crit_edge.i.i: ; preds = %257
+  %.pre.i.i = load ptr, ptr %196, align 8, !tbaa !14
   br label %b2ContactBeginTouchEventArray_Push.exit.i
 
-258:                                              ; preds = %253
-  %259 = icmp slt i32 %255, 2
-  %260 = lshr i32 %255, 1
-  %261 = add nuw nsw i32 %260, %255
-  %262 = select i1 %259, i32 2, i32 %261
-  %.not.i.i.i = icmp sgt i32 %262, %255
-  %.pre9.i.i = load ptr, ptr %194, align 8, !tbaa !14
-  br i1 %.not.i.i.i, label %263, label %b2ContactBeginTouchEventArray_Push.exit.i
+262:                                              ; preds = %257
+  %263 = icmp slt i32 %259, 2
+  %264 = lshr i32 %259, 1
+  %265 = add nuw nsw i32 %264, %259
+  %266 = select i1 %263, i32 2, i32 %265
+  %.not.i.i.i = icmp sgt i32 %266, %259
+  %.pre9.i.i = load ptr, ptr %196, align 8, !tbaa !14
+  br i1 %.not.i.i.i, label %267, label %b2ContactBeginTouchEventArray_Push.exit.i
 
-263:                                              ; preds = %258
-  %264 = shl i32 %255, 7
-  %265 = shl i32 %262, 7
-  %266 = call ptr @b2GrowAlloc(ptr noundef %.pre9.i.i, i32 noundef %264, i32 noundef %265) #22
-  store ptr %266, ptr %194, align 8, !tbaa !14
-  store i32 %262, ptr %196, align 4, !tbaa !11
-  %.pre10.i.i = load i32, ptr %195, align 16, !tbaa !185
+267:                                              ; preds = %262
+  %268 = shl i32 %259, 7
+  %269 = shl i32 %266, 7
+  %270 = call ptr @b2GrowAlloc(ptr noundef %.pre9.i.i, i32 noundef %268, i32 noundef %269) #22
+  store ptr %270, ptr %196, align 8, !tbaa !14
+  store i32 %266, ptr %198, align 4, !tbaa !11
+  %.pre10.i.i = load i32, ptr %197, align 16, !tbaa !185
   br label %b2ContactBeginTouchEventArray_Push.exit.i
 
-b2ContactBeginTouchEventArray_Push.exit.i:        ; preds = %263, %258, %.b2ContactBeginTouchEventArray_Reserve.exit_crit_edge.i.i
-  %267 = phi i32 [ %255, %.b2ContactBeginTouchEventArray_Reserve.exit_crit_edge.i.i ], [ %.pre10.i.i, %263 ], [ %255, %258 ]
-  %268 = phi ptr [ %.pre.i.i, %.b2ContactBeginTouchEventArray_Reserve.exit_crit_edge.i.i ], [ %266, %263 ], [ %.pre9.i.i, %258 ]
-  %269 = sext i32 %267 to i64
-  %270 = getelementptr inbounds %struct.b2ContactBeginTouchEvent, ptr %268, i64 %269
-  store i32 %236, ptr %270, align 4, !tbaa !86
-  %.sroa.4191.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %270, i64 4
-  store i16 %187, ptr %.sroa.4191.0..sroa_idx.i, align 4, !tbaa !245
-  %.sroa.5192.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %270, i64 6
-  store i16 %238, ptr %.sroa.5192.0..sroa_idx.i, align 2, !tbaa !245
-  %.sroa.6193.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %270, i64 8
-  store i32 %240, ptr %.sroa.6193.0..sroa_idx.i, align 4, !tbaa !86
-  %.sroa.7194.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %270, i64 12
-  store i16 %187, ptr %.sroa.7194.0..sroa_idx.i, align 4, !tbaa !245
-  %.sroa.8195.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %270, i64 14
-  store i16 %242, ptr %.sroa.8195.0..sroa_idx.i, align 2, !tbaa !245
-  %.sroa.9196.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %270, i64 16
+b2ContactBeginTouchEventArray_Push.exit.i:        ; preds = %267, %262, %.b2ContactBeginTouchEventArray_Reserve.exit_crit_edge.i.i
+  %271 = phi i32 [ %259, %.b2ContactBeginTouchEventArray_Reserve.exit_crit_edge.i.i ], [ %.pre10.i.i, %267 ], [ %259, %262 ]
+  %272 = phi ptr [ %.pre.i.i, %.b2ContactBeginTouchEventArray_Reserve.exit_crit_edge.i.i ], [ %270, %267 ], [ %.pre9.i.i, %262 ]
+  %273 = sext i32 %271 to i64
+  %274 = getelementptr inbounds %struct.b2ContactBeginTouchEvent, ptr %272, i64 %273
+  store i32 %240, ptr %274, align 4, !tbaa !86
+  %.sroa.4191.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 4
+  store i16 %189, ptr %.sroa.4191.0..sroa_idx.i, align 4, !tbaa !245
+  %.sroa.5192.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 6
+  store i16 %242, ptr %.sroa.5192.0..sroa_idx.i, align 2, !tbaa !245
+  %.sroa.6193.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 8
+  store i32 %244, ptr %.sroa.6193.0..sroa_idx.i, align 4, !tbaa !86
+  %.sroa.7194.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 12
+  store i16 %189, ptr %.sroa.7194.0..sroa_idx.i, align 4, !tbaa !245
+  %.sroa.8195.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 14
+  store i16 %246, ptr %.sroa.8195.0..sroa_idx.i, align 2, !tbaa !245
+  %.sroa.9196.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %.sroa.9196.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.9196.i, i64 112, i1 false), !tbaa.struct !246
-  %271 = load i32, ptr %195, align 16, !tbaa !185
-  %272 = add nsw i32 %271, 1
-  store i32 %272, ptr %195, align 16, !tbaa !185
+  %275 = load i32, ptr %197, align 16, !tbaa !185
+  %276 = add nsw i32 %275, 1
+  store i32 %276, ptr %197, align 16, !tbaa !185
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %.sroa.9196.i)
-  %.pre.i = load i32, ptr %243, align 4, !tbaa !240
-  br label %273
+  %.pre.i = load i32, ptr %247, align 4, !tbaa !240
+  br label %277
 
-273:                                              ; preds = %b2ContactBeginTouchEventArray_Push.exit.i, %251
-  %274 = phi i32 [ %.pre.i, %b2ContactBeginTouchEventArray_Push.exit.i ], [ %244, %251 ]
-  %275 = or i32 %274, 1
-  store i32 %275, ptr %243, align 4, !tbaa !240
-  call void @b2LinkContact(ptr noundef nonnull %8, ptr noundef nonnull %219) #22
-  %.val180.i = load ptr, ptr %193, align 8, !tbaa !232
-  %276 = getelementptr inbounds %struct.b2ContactSim, ptr %.val180.i, i64 %225
-  %277 = getelementptr inbounds nuw i8, ptr %276, i64 164
-  %278 = load i32, ptr %277, align 4, !tbaa !241
-  %279 = and i32 %278, -262145
-  store i32 %279, ptr %277, align 4, !tbaa !241
-  call void @b2AddContactToGraph(ptr noundef nonnull %8, ptr noundef %276, ptr noundef nonnull %219) #22
+277:                                              ; preds = %b2ContactBeginTouchEventArray_Push.exit.i, %255
+  %278 = phi i32 [ %.pre.i, %b2ContactBeginTouchEventArray_Push.exit.i ], [ %248, %255 ]
+  %279 = or i32 %278, 1
+  store i32 %279, ptr %247, align 4, !tbaa !240
+  call void @b2LinkContact(ptr noundef nonnull %8, ptr noundef nonnull %221) #22
+  %.val180.i = load ptr, ptr %195, align 8, !tbaa !232
+  %280 = getelementptr inbounds %struct.b2ContactSim, ptr %.val180.i, i64 %229
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 164
+  %282 = load i32, ptr %281, align 4, !tbaa !241
+  %283 = and i32 %282, -262145
+  store i32 %283, ptr %281, align 4, !tbaa !241
+  call void @b2AddContactToGraph(ptr noundef nonnull %8, ptr noundef %280, ptr noundef nonnull %221) #22
   %.val.i.i = load ptr, ptr %125, align 16, !tbaa !94
-  %280 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 224
-  %281 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 232
-  %282 = load i32, ptr %281, align 8, !tbaa !248
-  %283 = add nsw i32 %282, -1
-  %.not.i.i182.i = icmp eq i32 %223, %283
+  %284 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 224
+  %285 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 232
+  %286 = load i32, ptr %285, align 8, !tbaa !248
+  %287 = add nsw i32 %286, -1
+  %.not.i.i182.i = icmp eq i32 %225, %287
   br i1 %.not.i.i182.i, label %b2ContactSimArray_RemoveSwap.exit.thread.i.i, label %b2ContactSimArray_RemoveSwap.exit.i.i
 
-b2ContactSimArray_RemoveSwap.exit.thread.i.i:     ; preds = %273
-  store i32 %223, ptr %281, align 8, !tbaa !248
+b2ContactSimArray_RemoveSwap.exit.thread.i.i:     ; preds = %277
+  store i32 %225, ptr %285, align 8, !tbaa !248
   br label %b2RemoveNonTouchingContact.exit.i
 
-b2ContactSimArray_RemoveSwap.exit.i.i:            ; preds = %273
-  %284 = load ptr, ptr %280, align 8, !tbaa !232
-  %285 = getelementptr inbounds %struct.b2ContactSim, ptr %284, i64 %225
-  %286 = sext i32 %283 to i64
-  %287 = getelementptr inbounds %struct.b2ContactSim, ptr %284, i64 %286
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %285, ptr noundef nonnull align 4 dereferenceable(176) %287, i64 176, i1 false), !tbaa.struct !249
-  %.pre.i.i.i = load i32, ptr %281, align 8, !tbaa !248
+b2ContactSimArray_RemoveSwap.exit.i.i:            ; preds = %277
+  %288 = load ptr, ptr %284, align 8, !tbaa !232
+  %289 = getelementptr inbounds %struct.b2ContactSim, ptr %288, i64 %229
+  %290 = sext i32 %287 to i64
+  %291 = getelementptr inbounds %struct.b2ContactSim, ptr %288, i64 %290
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %289, ptr noundef nonnull align 4 dereferenceable(176) %291, i64 176, i1 false), !tbaa.struct !249
+  %.pre.i.i.i = load i32, ptr %285, align 8, !tbaa !248
   %.pre10.i.i.i = add nsw i32 %.pre.i.i.i, -1
-  store i32 %.pre10.i.i.i, ptr %281, align 8, !tbaa !248
-  %.not.i.i = icmp eq i32 %282, 0
-  br i1 %.not.i.i, label %b2RemoveNonTouchingContact.exit.i, label %288
+  store i32 %.pre10.i.i.i, ptr %285, align 8, !tbaa !248
+  %.not.i.i = icmp eq i32 %286, 0
+  br i1 %.not.i.i, label %b2RemoveNonTouchingContact.exit.i, label %292
 
-288:                                              ; preds = %b2ContactSimArray_RemoveSwap.exit.i.i
-  %289 = load ptr, ptr %280, align 8, !tbaa !214
-  %290 = getelementptr inbounds %struct.b2ContactSim, ptr %289, i64 %225
-  %291 = load i32, ptr %290, align 4, !tbaa !250
-  %.val10.i.i = load ptr, ptr %192, align 16, !tbaa !228
-  %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds %struct.b2Contact, ptr %.val10.i.i, i64 %292, i32 2
-  store i32 %223, ptr %293, align 4, !tbaa !231
+292:                                              ; preds = %b2ContactSimArray_RemoveSwap.exit.i.i
+  %293 = load ptr, ptr %284, align 8, !tbaa !214
+  %294 = getelementptr inbounds %struct.b2ContactSim, ptr %293, i64 %229
+  %295 = load i32, ptr %294, align 4, !tbaa !250
+  %.val10.i.i = load ptr, ptr %194, align 16, !tbaa !228
+  %296 = sext i32 %295 to i64
+  %297 = getelementptr inbounds %struct.b2Contact, ptr %.val10.i.i, i64 %296, i32 2
+  store i32 %225, ptr %297, align 4, !tbaa !231
   br label %b2RemoveNonTouchingContact.exit.i
 
-294:                                              ; preds = %249
-  %295 = and i32 %246, 524288
-  %.not168.i = icmp eq i32 %295, 0
-  br i1 %.not168.i, label %b2RemoveNonTouchingContact.exit.i, label %296
+298:                                              ; preds = %253
+  %299 = and i32 %250, 524288
+  %.not168.i = icmp eq i32 %299, 0
+  br i1 %.not168.i, label %b2RemoveNonTouchingContact.exit.i, label %300
 
-296:                                              ; preds = %294
-  %297 = and i32 %246, -917505
-  store i32 %297, ptr %245, align 4, !tbaa !241
-  %298 = and i32 %244, -2
-  store i32 %298, ptr %243, align 4, !tbaa !240
-  %299 = and i32 %244, 4
-  %.not169.i = icmp eq i32 %299, 0
-  br i1 %.not169.i, label %321, label %300
+300:                                              ; preds = %298
+  %301 = and i32 %250, -917505
+  store i32 %301, ptr %249, align 4, !tbaa !241
+  %302 = and i32 %248, -2
+  store i32 %302, ptr %247, align 4, !tbaa !240
+  %303 = and i32 %248, 4
+  %.not169.i = icmp eq i32 %303, 0
+  br i1 %.not169.i, label %325, label %304
 
-300:                                              ; preds = %296
-  %.sroa.69.0.insert.ext.i = zext i16 %238 to i64
+304:                                              ; preds = %300
+  %.sroa.69.0.insert.ext.i = zext i16 %242 to i64
   %.sroa.69.0.insert.shift.i = shl nuw i64 %.sroa.69.0.insert.ext.i, 48
-  %.sroa.07.0.insert.ext.i = zext i32 %236 to i64
-  %301 = or disjoint i64 %.sroa.69.0.insert.shift.i, %.sroa.07.0.insert.ext.i
-  %.sroa.07.0.insert.insert.i = or disjoint i64 %301, %.sroa.58.0.insert.shift.i
-  %.sroa.6.0.insert.ext.i = zext i16 %242 to i64
+  %.sroa.07.0.insert.ext.i = zext i32 %240 to i64
+  %305 = or disjoint i64 %.sroa.69.0.insert.shift.i, %.sroa.07.0.insert.ext.i
+  %.sroa.07.0.insert.insert.i = or disjoint i64 %305, %.sroa.58.0.insert.shift.i
+  %.sroa.6.0.insert.ext.i = zext i16 %246 to i64
   %.sroa.6.0.insert.shift.i = shl nuw i64 %.sroa.6.0.insert.ext.i, 48
-  %.sroa.06.0.insert.ext.i = zext i32 %240 to i64
-  %302 = or disjoint i64 %.sroa.6.0.insert.shift.i, %.sroa.06.0.insert.ext.i
-  %.sroa.06.0.insert.insert.i = or disjoint i64 %302, %.sroa.58.0.insert.shift.i
-  %303 = load i32, ptr %200, align 16, !tbaa !188
-  %304 = load i32, ptr %201, align 4, !tbaa !15
-  %305 = icmp eq i32 %303, %304
-  br i1 %305, label %306, label %.b2ContactEndTouchEventArray_Reserve.exit_crit_edge.i.i
+  %.sroa.06.0.insert.ext.i = zext i32 %244 to i64
+  %306 = or disjoint i64 %.sroa.6.0.insert.shift.i, %.sroa.06.0.insert.ext.i
+  %.sroa.06.0.insert.insert.i = or disjoint i64 %306, %.sroa.58.0.insert.shift.i
+  %307 = load i32, ptr %202, align 16, !tbaa !188
+  %308 = load i32, ptr %203, align 4, !tbaa !15
+  %309 = icmp eq i32 %307, %308
+  br i1 %309, label %310, label %.b2ContactEndTouchEventArray_Reserve.exit_crit_edge.i.i
 
-.b2ContactEndTouchEventArray_Reserve.exit_crit_edge.i.i: ; preds = %300
-  %.pre.i183.i = load ptr, ptr %199, align 8, !tbaa !18
+.b2ContactEndTouchEventArray_Reserve.exit_crit_edge.i.i: ; preds = %304
+  %.pre.i183.i = load ptr, ptr %201, align 8, !tbaa !18
   br label %b2ContactEndTouchEventArray_Push.exit.i
 
-306:                                              ; preds = %300
-  %307 = icmp slt i32 %303, 2
-  %308 = lshr i32 %303, 1
-  %309 = add nuw nsw i32 %308, %303
-  %310 = select i1 %307, i32 2, i32 %309
-  %.not.i.i184.i = icmp sgt i32 %310, %303
-  %.pre9.i185.i = load ptr, ptr %199, align 8, !tbaa !18
-  br i1 %.not.i.i184.i, label %311, label %b2ContactEndTouchEventArray_Push.exit.i
+310:                                              ; preds = %304
+  %311 = icmp slt i32 %307, 2
+  %312 = lshr i32 %307, 1
+  %313 = add nuw nsw i32 %312, %307
+  %314 = select i1 %311, i32 2, i32 %313
+  %.not.i.i184.i = icmp sgt i32 %314, %307
+  %.pre9.i185.i = load ptr, ptr %201, align 8, !tbaa !18
+  br i1 %.not.i.i184.i, label %315, label %b2ContactEndTouchEventArray_Push.exit.i
 
-311:                                              ; preds = %306
-  %312 = shl i32 %303, 4
-  %313 = shl i32 %310, 4
-  %314 = call ptr @b2GrowAlloc(ptr noundef %.pre9.i185.i, i32 noundef %312, i32 noundef %313) #22
-  store ptr %314, ptr %199, align 8, !tbaa !18
-  store i32 %310, ptr %201, align 4, !tbaa !15
-  %.pre10.i186.i = load i32, ptr %200, align 16, !tbaa !188
+315:                                              ; preds = %310
+  %316 = shl i32 %307, 4
+  %317 = shl i32 %314, 4
+  %318 = call ptr @b2GrowAlloc(ptr noundef %.pre9.i185.i, i32 noundef %316, i32 noundef %317) #22
+  store ptr %318, ptr %201, align 8, !tbaa !18
+  store i32 %314, ptr %203, align 4, !tbaa !15
+  %.pre10.i186.i = load i32, ptr %202, align 16, !tbaa !188
   br label %b2ContactEndTouchEventArray_Push.exit.i
 
-b2ContactEndTouchEventArray_Push.exit.i:          ; preds = %311, %306, %.b2ContactEndTouchEventArray_Reserve.exit_crit_edge.i.i
-  %315 = phi i32 [ %303, %.b2ContactEndTouchEventArray_Reserve.exit_crit_edge.i.i ], [ %.pre10.i186.i, %311 ], [ %303, %306 ]
-  %316 = phi ptr [ %.pre.i183.i, %.b2ContactEndTouchEventArray_Reserve.exit_crit_edge.i.i ], [ %314, %311 ], [ %.pre9.i185.i, %306 ]
-  %317 = sext i32 %315 to i64
-  %318 = getelementptr inbounds %struct.b2ContactEndTouchEvent, ptr %316, i64 %317
-  store i64 %.sroa.07.0.insert.insert.i, ptr %318, align 4
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %318, i64 8
+b2ContactEndTouchEventArray_Push.exit.i:          ; preds = %315, %310, %.b2ContactEndTouchEventArray_Reserve.exit_crit_edge.i.i
+  %319 = phi i32 [ %307, %.b2ContactEndTouchEventArray_Reserve.exit_crit_edge.i.i ], [ %.pre10.i186.i, %315 ], [ %307, %310 ]
+  %320 = phi ptr [ %.pre.i183.i, %.b2ContactEndTouchEventArray_Reserve.exit_crit_edge.i.i ], [ %318, %315 ], [ %.pre9.i185.i, %310 ]
+  %321 = sext i32 %319 to i64
+  %322 = getelementptr inbounds %struct.b2ContactEndTouchEvent, ptr %320, i64 %321
+  store i64 %.sroa.07.0.insert.insert.i, ptr %322, align 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %322, i64 8
   store i64 %.sroa.06.0.insert.insert.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4
-  %319 = load i32, ptr %200, align 16, !tbaa !188
-  %320 = add nsw i32 %319, 1
-  store i32 %320, ptr %200, align 16, !tbaa !188
-  br label %321
+  %323 = load i32, ptr %202, align 16, !tbaa !188
+  %324 = add nsw i32 %323, 1
+  store i32 %324, ptr %202, align 16, !tbaa !188
+  br label %325
 
-321:                                              ; preds = %b2ContactEndTouchEventArray_Push.exit.i, %296
-  call void @b2UnlinkContact(ptr noundef nonnull %8, ptr noundef nonnull %219) #22
-  %322 = getelementptr inbounds nuw i8, ptr %219, i64 12
-  %323 = load i32, ptr %322, align 4, !tbaa !251
-  %324 = getelementptr inbounds nuw i8, ptr %219, i64 24
-  %325 = load i32, ptr %324, align 4, !tbaa !251
+325:                                              ; preds = %b2ContactEndTouchEventArray_Push.exit.i, %300
+  call void @b2UnlinkContact(ptr noundef nonnull %8, ptr noundef nonnull %221) #22
+  %326 = getelementptr inbounds nuw i8, ptr %221, i64 12
+  %327 = load i32, ptr %326, align 4, !tbaa !251
+  %328 = getelementptr inbounds nuw i8, ptr %221, i64 24
+  %329 = load i32, ptr %328, align 4, !tbaa !251
   %.val181.i = load ptr, ptr %125, align 16, !tbaa !94
-  store i32 -1, ptr %220, align 4, !tbaa !229
-  %326 = getelementptr inbounds nuw i8, ptr %.val181.i, i64 224
-  %327 = getelementptr inbounds nuw i8, ptr %.val181.i, i64 232
-  %328 = load i32, ptr %327, align 8, !tbaa !210
-  store i32 %328, ptr %222, align 4, !tbaa !231
-  %329 = getelementptr inbounds nuw i8, ptr %.val181.i, i64 236
-  %330 = load i32, ptr %329, align 4, !tbaa !253
-  %331 = icmp eq i32 %328, %330
-  br i1 %331, label %332, label %b2AddNonTouchingContact.exit.i
+  store i32 -1, ptr %222, align 4, !tbaa !229
+  %330 = getelementptr inbounds nuw i8, ptr %.val181.i, i64 224
+  %331 = getelementptr inbounds nuw i8, ptr %.val181.i, i64 232
+  %332 = load i32, ptr %331, align 8, !tbaa !210
+  store i32 %332, ptr %224, align 4, !tbaa !231
+  %333 = getelementptr inbounds nuw i8, ptr %.val181.i, i64 236
+  %334 = load i32, ptr %333, align 4, !tbaa !253
+  %335 = icmp eq i32 %332, %334
+  br i1 %335, label %336, label %b2AddNonTouchingContact.exit.i
 
-332:                                              ; preds = %321
-  %333 = icmp slt i32 %328, 2
-  %334 = lshr i32 %328, 1
-  %335 = add nuw nsw i32 %334, %328
-  %336 = select i1 %333, i32 2, i32 %335
-  call void @b2ContactSimArray_Reserve(ptr noundef nonnull %326, i32 noundef %336) #22
-  %.pre.i.i187.i = load i32, ptr %327, align 8, !tbaa !248
+336:                                              ; preds = %325
+  %337 = icmp slt i32 %332, 2
+  %338 = lshr i32 %332, 1
+  %339 = add nuw nsw i32 %338, %332
+  %340 = select i1 %337, i32 2, i32 %339
+  call void @b2ContactSimArray_Reserve(ptr noundef nonnull %330, i32 noundef %340) #22
+  %.pre.i.i187.i = load i32, ptr %331, align 8, !tbaa !248
   br label %b2AddNonTouchingContact.exit.i
 
-b2AddNonTouchingContact.exit.i:                   ; preds = %332, %321
-  %337 = phi i32 [ %.pre.i.i187.i, %332 ], [ %328, %321 ]
-  %338 = add nsw i32 %337, 1
-  store i32 %338, ptr %327, align 8, !tbaa !248
-  %339 = load ptr, ptr %326, align 8, !tbaa !232
-  %340 = sext i32 %337 to i64
-  %341 = getelementptr inbounds %struct.b2ContactSim, ptr %339, i64 %340
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %341, ptr noundef nonnull readonly align 4 dereferenceable(176) %226, i64 176, i1 false)
-  call void @b2RemoveContactFromGraph(ptr noundef nonnull %8, i32 noundef %323, i32 noundef %325, i32 noundef %221, i32 noundef %223) #22
+b2AddNonTouchingContact.exit.i:                   ; preds = %336, %325
+  %341 = phi i32 [ %.pre.i.i187.i, %336 ], [ %332, %325 ]
+  %342 = add nsw i32 %341, 1
+  store i32 %342, ptr %331, align 8, !tbaa !248
+  %343 = load ptr, ptr %330, align 8, !tbaa !232
+  %344 = sext i32 %341 to i64
+  %345 = getelementptr inbounds %struct.b2ContactSim, ptr %343, i64 %344
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %345, ptr noundef nonnull readonly align 4 dereferenceable(176) %230, i64 176, i1 false)
+  call void @b2RemoveContactFromGraph(ptr noundef nonnull %8, i32 noundef %327, i32 noundef %329, i32 noundef %223, i32 noundef %225) #22
   br label %b2RemoveNonTouchingContact.exit.i
 
-b2RemoveNonTouchingContact.exit.i:                ; preds = %b2AddNonTouchingContact.exit.i, %294, %288, %b2ContactSimArray_RemoveSwap.exit.i.i, %b2ContactSimArray_RemoveSwap.exit.thread.i.i, %248
-  %342 = add i64 %.0159219.i, -1
-  %343 = and i64 %342, %.0159219.i
-  %.not164.i = icmp eq i64 %343, 0
-  br i1 %.not164.i, label %._crit_edge222.loopexit.i, label %214, !llvm.loop !254
+b2RemoveNonTouchingContact.exit.i:                ; preds = %b2AddNonTouchingContact.exit.i, %298, %292, %b2ContactSimArray_RemoveSwap.exit.i.i, %b2ContactSimArray_RemoveSwap.exit.thread.i.i, %252
+  %346 = add i64 %.0159217.i, -1
+  %347 = and i64 %346, %.0159217.i
+  %.not164.i = icmp eq i64 %347, 0
+  br i1 %.not164.i, label %._crit_edge220.loopexit.i, label %216, !llvm.loop !254
 
-._crit_edge222.loopexit.i:                        ; preds = %b2RemoveNonTouchingContact.exit.i
-  %.pre262.i = load i32, ptr %188, align 4, !tbaa !224
-  br label %._crit_edge222.i
+._crit_edge220.loopexit.i:                        ; preds = %b2RemoveNonTouchingContact.exit.i
+  %.pre260.i = load i32, ptr %190, align 4, !tbaa !224
+  br label %._crit_edge220.i
 
-._crit_edge222.i:                                 ; preds = %._crit_edge222.loopexit.i, %207
-  %344 = phi i32 [ %.pre262.i, %._crit_edge222.loopexit.i ], [ %208, %207 ]
-  %indvars.iv.next260.i = add nuw nsw i64 %indvars.iv259.i, 1
-  %345 = zext i32 %344 to i64
-  %346 = icmp samesign ult i64 %indvars.iv.next260.i, %345
-  br i1 %346, label %207, label %b2Collide.exit, !llvm.loop !255
+._crit_edge220.i:                                 ; preds = %._crit_edge220.loopexit.i, %209
+  %348 = phi i32 [ %.pre260.i, %._crit_edge220.loopexit.i ], [ %210, %209 ]
+  %indvars.iv.next258.i = add nuw nsw i64 %indvars.iv257.i, 1
+  %349 = zext i32 %348 to i64
+  %350 = icmp samesign ult i64 %indvars.iv.next258.i, %349
+  br i1 %350, label %209, label %b2Collide.exit, !llvm.loop !255
 
-b2Collide.exit:                                   ; preds = %._crit_edge222.i, %123, %._crit_edge215.i
-  %347 = call float @b2GetMilliseconds(i64 noundef %108) #22
-  %348 = getelementptr i8, ptr %7, i64 -188
-  store float %347, ptr %348, align 4, !tbaa !256
-  %349 = load float, ptr %4, align 8, !tbaa !200
-  %350 = fcmp ogt float %349, 0.000000e+00
-  br i1 %350, label %351, label %355
+b2Collide.exit:                                   ; preds = %._crit_edge220.i, %124, %._crit_edge215.i
+  %351 = call float @b2GetMilliseconds(i64 noundef %108) #22
+  %352 = getelementptr i8, ptr %7, i64 -188
+  store float %351, ptr %352, align 4, !tbaa !256
+  %353 = load float, ptr %4, align 8, !tbaa !200
+  %354 = fcmp ogt float %353, 0.000000e+00
+  br i1 %354, label %355, label %359
 
-351:                                              ; preds = %b2Collide.exit
-  %352 = call i64 @b2GetTicks() #22
-  call void @b2Solve(ptr noundef %8, ptr noundef nonnull %4) #22
-  %353 = call float @b2GetMilliseconds(i64 noundef %352) #22
-  %354 = getelementptr i8, ptr %7, i64 -184
-  store float %353, ptr %354, align 8, !tbaa !257
-  br label %355
-
-355:                                              ; preds = %351, %b2Collide.exit
+355:                                              ; preds = %b2Collide.exit
   %356 = call i64 @b2GetTicks() #22
-  call void @b2OverlapSensors(ptr noundef %8) #22
+  call void @b2Solve(ptr noundef %8, ptr noundef nonnull %4) #22
   %357 = call float @b2GetMilliseconds(i64 noundef %356) #22
-  %358 = getelementptr i8, ptr %7, i64 -112
-  store float %357, ptr %358, align 16, !tbaa !258
-  %359 = call float @b2GetMilliseconds(i64 noundef %31) #22
-  store float %359, ptr %17, align 4, !tbaa !259
+  %358 = getelementptr i8, ptr %7, i64 -184
+  store float %357, ptr %358, align 8, !tbaa !257
+  br label %359
+
+359:                                              ; preds = %355, %b2Collide.exit
+  %360 = call i64 @b2GetTicks() #22
+  call void @b2OverlapSensors(ptr noundef %8) #22
+  %361 = call float @b2GetMilliseconds(i64 noundef %360) #22
+  %362 = getelementptr i8, ptr %7, i64 -112
+  store float %361, ptr %362, align 16, !tbaa !258
+  %363 = call float @b2GetMilliseconds(i64 noundef %31) #22
+  store float %363, ptr %17, align 4, !tbaa !259
   call void @b2GrowArena(ptr noundef %8) #22
-  %360 = getelementptr i8, ptr %7, i64 -344
-  %361 = load i32, ptr %360, align 8, !tbaa !107
-  %362 = sub nsw i32 1, %361
-  store i32 %362, ptr %360, align 8, !tbaa !107
-  %363 = sext i32 %362 to i64
-  %.idx = shl nsw i64 %363, 4
-  %364 = getelementptr i8, ptr %7, i64 -400
-  %365 = getelementptr i8, ptr %364, i64 %.idx
-  store i32 0, ptr %365, align 16, !tbaa !187
-  %366 = getelementptr i8, ptr %7, i64 -368
-  %367 = getelementptr i8, ptr %366, i64 %.idx
-  store i32 0, ptr %367, align 16, !tbaa !188
+  %364 = getelementptr i8, ptr %7, i64 -344
+  %365 = load i32, ptr %364, align 8, !tbaa !107
+  %366 = sub nsw i32 1, %365
+  store i32 %366, ptr %364, align 8, !tbaa !107
+  %367 = sext i32 %366 to i64
+  %.idx = shl nsw i64 %367, 4
+  %368 = getelementptr i8, ptr %7, i64 -400
+  %369 = getelementptr i8, ptr %368, i64 %.idx
+  store i32 0, ptr %369, align 16, !tbaa !187
+  %370 = getelementptr i8, ptr %7, i64 -368
+  %371 = getelementptr i8, ptr %370, i64 %.idx
+  store i32 0, ptr %371, align 16, !tbaa !188
   store i8 0, ptr %9, align 1, !tbaa !35
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %4) #22
-  br label %368
+  br label %372
 
-368:                                              ; preds = %3, %355, %19
+372:                                              ; preds = %3, %359, %19
   ret void
 }
 
@@ -3191,7 +3191,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %374, %3
 605:                                              ; preds = %593, %._crit_edge312
   %indvars.iv360 = phi i64 [ 0, %593 ], [ %indvars.iv.next361, %._crit_edge312 ]
   %.idx = mul nuw nsw i64 %indvars.iv360, 56
-  %606 = getelementptr i8, ptr %596, i64 %.idx
+  %606 = getelementptr inbounds nuw i8, ptr %596, i64 %.idx
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 8
   %608 = load i32, ptr %607, align 8, !tbaa !211
   %609 = icmp sgt i32 %608, 0

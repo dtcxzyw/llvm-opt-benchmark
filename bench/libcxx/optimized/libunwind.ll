@@ -2594,7 +2594,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17Lo
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %34 = getelementptr i8, ptr %5, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -3995,7 +3995,7 @@ logDWARF.exit408:                                 ; preds = %690
 696:                                              ; preds = %._crit_edge.i406, %logDWARF.exit408
   %697 = load ptr, ptr @stderr, align 8, !tbaa !11
   %.idx249 = shl nuw nsw i64 %646, 4
-  %698 = getelementptr i8, ptr %34, i64 %.idx249
+  %698 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx249
   %699 = load i64, ptr %698, align 8, !tbaa !121
   %700 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %697, ptr noundef nonnull @.str.66, i64 noundef %646, i64 noundef %699, i64 noundef %685) #16
   br label %1299
@@ -4764,7 +4764,7 @@ logDWARF.exit507:                                 ; preds = %1078
 1084:                                             ; preds = %._crit_edge.i505, %logDWARF.exit507
   %1085 = load ptr, ptr @stderr, align 8, !tbaa !11
   %.idx = shl nuw nsw i64 %1034, 4
-  %1086 = getelementptr i8, ptr %34, i64 %.idx
+  %1086 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   %1087 = load i64, ptr %1086, align 8, !tbaa !121
   %1088 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1085, ptr noundef nonnull @.str.77, i64 noundef %1034, i64 noundef %1087, i64 noundef %1073) #16
   br label %1299

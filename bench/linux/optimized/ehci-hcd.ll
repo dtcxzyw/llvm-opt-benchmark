@@ -862,7 +862,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
 239:                                              ; preds = %235
   %240 = and i32 %237, 64
   %241 = icmp eq i32 %240, 0
-  br i1 %241, label %247, label %242
+  br i1 %241, label %.critedge, label %242
 
 242:                                              ; preds = %239
   tail call void @__const_udelay(i64 noundef 4295) #19
@@ -871,12 +871,12 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   br i1 %244, label %245, label %235, !llvm.loop !6
 
 245:                                              ; preds = %235, %242
-  %.ph = phi i32 [ -110, %242 ], [ -19, %235 ]
-  %246 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %246, ptr noundef nonnull @.str.2, i32 noundef %11, i32 noundef %.ph) #20
+  %246 = phi i32 [ -19, %235 ], [ -110, %242 ]
+  %247 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %247, ptr noundef nonnull @.str.2, i32 noundef %11, i32 noundef %246) #20
   br label %479
 
-247:                                              ; preds = %239
+.critedge:                                        ; preds = %239
   %248 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #19, !srcloc !5
   br label %279
 
@@ -904,7 +904,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
 259:                                              ; preds = %255
   %260 = and i32 %257, 256
   %261 = icmp eq i32 %260, 0
-  br i1 %261, label %267, label %262
+  br i1 %261, label %.critedge2, label %262
 
 262:                                              ; preds = %259
   tail call void @__const_udelay(i64 noundef 4295) #19
@@ -913,19 +913,19 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   br i1 %264, label %265, label %255, !llvm.loop !6
 
 265:                                              ; preds = %255, %262
-  %.ph12 = phi i32 [ -110, %262 ], [ -19, %255 ]
-  %266 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %266, ptr noundef nonnull @.str.3, i32 noundef %11, i32 noundef %.ph12) #20
+  %266 = phi i32 [ -19, %255 ], [ -110, %262 ]
+  %267 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %267, ptr noundef nonnull @.str.3, i32 noundef %11, i32 noundef %266) #20
   br label %479
 
-267:                                              ; preds = %259
+.critedge2:                                       ; preds = %259
   %268 = or i32 %198, 1048576
   %269 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #19, !srcloc !5
   %270 = and i32 %269, 5
   %271 = icmp eq i32 %270, 1
   br i1 %271, label %272, label %279
 
-272:                                              ; preds = %267
+272:                                              ; preds = %.critedge2
   %273 = and i32 %269, -8239
   %274 = or disjoint i32 %273, 8192
   %275 = load i32, ptr %157, align 4
@@ -937,9 +937,9 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %274, ptr elementtype(i32) %20) #19, !srcloc !9
   br label %279
 
-279:                                              ; preds = %278, %272, %267, %247, %216, %208, %205
-  %280 = phi i32 [ %198, %247 ], [ %198, %216 ], [ %198, %208 ], [ %198, %205 ], [ %268, %267 ], [ %268, %272 ], [ %268, %278 ]
-  %281 = phi i32 [ %248, %247 ], [ %199, %216 ], [ %199, %208 ], [ %199, %205 ], [ %269, %267 ], [ %274, %272 ], [ %274, %278 ]
+279:                                              ; preds = %278, %272, %.critedge2, %.critedge, %216, %208, %205
+  %280 = phi i32 [ %198, %.critedge ], [ %198, %216 ], [ %198, %208 ], [ %198, %205 ], [ %268, %.critedge2 ], [ %268, %272 ], [ %268, %278 ]
+  %281 = phi i32 [ %248, %.critedge ], [ %199, %216 ], [ %199, %208 ], [ %199, %205 ], [ %269, %.critedge2 ], [ %274, %272 ], [ %274, %278 ]
   %282 = and i32 %281, 1
   %283 = icmp eq i32 %282, 0
   br i1 %283, label %.thread, label %284
@@ -950,7 +950,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %287 = icmp ult i8 %286, 2
   tail call void @llvm.assume(i1 %287)
   %288 = icmp eq i8 %286, 0
-  br i1 %288, label %.thread18, label %289
+  br i1 %288, label %.thread17, label %289
 
 289:                                              ; preds = %284
   %290 = load i32, ptr %157, align 4
@@ -966,11 +966,11 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
 
 296:                                              ; preds = %289, %293
   %297 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #19, !srcloc !5
-  %.pre14 = and i32 %297, 1
-  %298 = icmp eq i32 %.pre14, 0
-  br i1 %298, label %.thread, label %.thread18
+  %.pre13 = and i32 %297, 1
+  %298 = icmp eq i32 %.pre13, 0
+  br i1 %298, label %.thread, label %.thread17
 
-.thread18:                                        ; preds = %284, %296
+.thread17:                                        ; preds = %284, %296
   %299 = phi i32 [ %297, %296 ], [ %281, %284 ]
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %301 = load i8, ptr %300, align 8
@@ -978,12 +978,12 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %303 = icmp eq i8 %302, 0
   br i1 %303, label %307, label %304
 
-304:                                              ; preds = %.thread18
+304:                                              ; preds = %.thread17
   %305 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22) #19, !srcloc !5
   %306 = or i32 %280, 1025
   br label %.thread
 
-307:                                              ; preds = %.thread18
+307:                                              ; preds = %.thread17
   %308 = or i32 %280, 1025
   br label %.thread
 
@@ -1054,14 +1054,14 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %349 = load ptr, ptr %348, align 8
   %350 = icmp eq ptr %349, null
-  %.pre15 = zext nneg i16 %347 to i32
+  %.pre14 = zext nneg i16 %347 to i32
   br i1 %350, label %._crit_edge, label %351, !prof !20
 
 351:                                              ; preds = %346
   %352 = load i32, ptr %8, align 8
   %353 = lshr i32 %352, 20
   %354 = and i32 %353, 15
-  %355 = icmp eq i32 %354, %.pre15
+  %355 = icmp eq i32 %354, %.pre14
   br i1 %355, label %356, label %._crit_edge
 
 356:                                              ; preds = %351
@@ -1072,7 +1072,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
 
 ._crit_edge:                                      ; preds = %346, %356, %351
   %360 = icmp eq i16 %347, 0
-  %361 = icmp samesign ult i32 %10, %.pre15
+  %361 = icmp samesign ult i32 %10, %.pre14
   %362 = select i1 %360, i1 true, i1 %361
   br i1 %362, label %479, label %363
 
@@ -10498,7 +10498,7 @@ define internal void @ehci_relinquish_port(ptr noundef %0, i32 noundef %1) #0 al
 
 .thread:                                          ; preds = %27, %2
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %9) #19
-  br label %.loopexit
+  br label %.critedge
 
 .lr.ph:                                           ; preds = %2, %27
   %17 = phi i32 [ %29, %27 ], [ %11, %2 ]
@@ -10517,7 +10517,7 @@ define internal void @ehci_relinquish_port(ptr noundef %0, i32 noundef %1) #0 al
 25:                                               ; preds = %22, %.lr.ph
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %9) #19
   %26 = icmp samesign ugt i32 %18, 1
-  br i1 %26, label %27, label %.loopexit
+  br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %25
   tail call void @msleep(i32 noundef 5) #19
@@ -10531,7 +10531,7 @@ define internal void @ehci_relinquish_port(ptr noundef %0, i32 noundef %1) #0 al
   %34 = or i1 %31, %33
   br i1 %34, label %.thread, label %.lr.ph, !llvm.loop !132
 
-.loopexit:                                        ; preds = %25, %.thread
+.critedge:                                        ; preds = %25, %.thread
   ret void
 }
 
@@ -10759,22 +10759,22 @@ define internal noundef i64 @companion_store(ptr noundef readonly captures(none)
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %2, ptr noundef nonnull @.str.26, ptr noundef nonnull %5)
   %9 = icmp eq i32 %8, 1
-  br i1 %9, label %10, label %.thread3
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %5, align 4
   %12 = icmp slt i32 %11, 0
   %spec.select = call i32 @llvm.abs.i32(i32 %11, i1 false)
-  %spec.select4 = select i1 %12, i32 0, i32 8192
+  %spec.select3 = select i1 %12, i32 0, i32 8192
   %13 = icmp slt i32 %spec.select, 1
-  br i1 %13, label %.thread3, label %14
+  br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 816
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 15
   %18 = icmp samesign ugt i32 %spec.select, %17
-  br i1 %18, label %.thread3, label %19
+  br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %14
   %20 = add nsw i32 %spec.select, -1
@@ -10803,7 +10803,7 @@ define internal noundef i64 @companion_store(ptr noundef readonly captures(none)
   call void @_raw_spin_lock_irq(ptr noundef nonnull %32) #19
   %34 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31) #19, !srcloc !5
   %35 = and i32 %34, 8192
-  %36 = icmp eq i32 %35, %spec.select4
+  %36 = icmp eq i32 %35, %spec.select3
   %37 = and i32 %34, 8193
   %38 = icmp eq i32 %37, 0
   %39 = or i1 %36, %38
@@ -10811,7 +10811,7 @@ define internal noundef i64 @companion_store(ptr noundef readonly captures(none)
 
 .thread:                                          ; preds = %50, %25
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %32) #19
-  br label %.thread3
+  br label %.critedge
 
 .lr.ph:                                           ; preds = %25, %50
   %40 = phi i32 [ %52, %50 ], [ %34, %25 ]
@@ -10830,7 +10830,7 @@ define internal noundef i64 @companion_store(ptr noundef readonly captures(none)
 48:                                               ; preds = %45, %.lr.ph
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %32) #19
   %49 = icmp samesign ugt i32 %41, 1
-  br i1 %49, label %50, label %.thread3
+  br i1 %49, label %50, label %.critedge
 
 50:                                               ; preds = %48
   call void @msleep(i32 noundef 5) #19
@@ -10838,13 +10838,13 @@ define internal noundef i64 @companion_store(ptr noundef readonly captures(none)
   call void @_raw_spin_lock_irq(ptr noundef nonnull %32) #19
   %52 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31) #19, !srcloc !5
   %53 = and i32 %52, 8192
-  %54 = icmp eq i32 %53, %spec.select4
+  %54 = icmp eq i32 %53, %spec.select3
   %55 = and i32 %52, 8193
   %56 = icmp eq i32 %55, 0
   %57 = or i1 %54, %56
   br i1 %57, label %.thread, label %.lr.ph, !llvm.loop !132
 
-.thread3:                                         ; preds = %48, %.thread, %14, %10, %4
+.critedge:                                        ; preds = %48, %.thread, %14, %10, %4
   %58 = phi i64 [ -22, %4 ], [ -2, %14 ], [ -2, %10 ], [ %3, %.thread ], [ %3, %48 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #19
   ret i64 %58
@@ -11068,7 +11068,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @dma_pool_alloc(ptr noundef %10, i32 noundef %3, ptr noundef nonnull %8) #19
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %267, label %13
+  br i1 %12, label %266, label %13
 
 13:                                               ; preds = %4
   %14 = load i64, ptr %8, align 8
@@ -11140,7 +11140,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
   %51 = load ptr, ptr %9, align 8
   %52 = call ptr @dma_pool_alloc(ptr noundef %51, i32 noundef %3, ptr noundef nonnull %7) #19
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %253, label %54
+  br i1 %53, label %252, label %54
 
 54:                                               ; preds = %49
   %55 = load i64, ptr %7, align 8
@@ -11235,7 +11235,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
 116:                                              ; preds = %99
   %117 = zext nneg i32 %114 to i64
   %118 = icmp ult i32 %114, %103
-  br i1 %118, label %119, label %.loopexit21
+  br i1 %118, label %119, label %.loopexit18
 
 119:                                              ; preds = %116
   %120 = and i64 %105, -4096
@@ -11262,21 +11262,21 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
   %137 = icmp ult i64 %136, %107
   %138 = icmp samesign ult i64 %122, 4
   %139 = and i1 %138, %137
-  br i1 %139, label %121, label %.loopexit21, !llvm.loop !137
+  br i1 %139, label %121, label %.loopexit18, !llvm.loop !137
 
-.loopexit21:                                      ; preds = %121, %116
+.loopexit18:                                      ; preds = %121, %116
   %140 = phi i32 [ %114, %116 ], [ %134, %121 ]
   %141 = phi i64 [ %117, %116 ], [ %136, %121 ]
   %142 = icmp eq i64 %141, %107
   br i1 %142, label %146, label %143
 
-143:                                              ; preds = %.loopexit21
+143:                                              ; preds = %.loopexit18
   %144 = urem i32 %140, %96
   %145 = sub i32 %140, %144
   br label %146
 
-146:                                              ; preds = %143, %.loopexit21, %99
-  %147 = phi i32 [ %145, %143 ], [ %140, %.loopexit21 ], [ %103, %99 ]
+146:                                              ; preds = %143, %.loopexit18, %99
+  %147 = phi i32 [ %145, %143 ], [ %140, %.loopexit18 ], [ %103, %99 ]
   %148 = shl i32 %147, 16
   %149 = or i32 %148, %100
   %150 = getelementptr inbounds nuw i8, ptr %106, i64 8
@@ -11337,7 +11337,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
 
 .thread16:                                        ; preds = %181
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
-  br label %254
+  br label %253
 
 189:                                              ; preds = %181
   %190 = load i64, ptr %6, align 8
@@ -11385,14 +11385,14 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
 209:                                              ; preds = %207, %204
   %210 = load i32, ptr %23, align 8
   %211 = icmp eq i32 %210, 0
-  br i1 %211, label %.thread20, label %212, !prof !44
+  br i1 %211, label %.critedge.thread, label %212, !prof !44
 
 212:                                              ; preds = %209
   %213 = load i32, ptr %25, align 8
   %214 = icmp slt i32 %213, -1073741824
-  br i1 %214, label %.thread18, label %217
+  br i1 %214, label %.thread17, label %217
 
-.thread18:                                        ; preds = %212
+.thread17:                                        ; preds = %212
   %215 = and i32 %167, 2147483647
   %216 = xor i32 %215, -2147483392
   br label %226
@@ -11400,27 +11400,27 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
 217:                                              ; preds = %212
   %218 = and i32 %213, 128
   %219 = icmp eq i32 %218, 0
-  br i1 %219, label %220, label %.thread20
+  br i1 %219, label %220, label %.critedge.thread
 
 220:                                              ; preds = %217
   %221 = load i32, ptr %200, align 4
   %222 = and i32 %221, 64
   %223 = icmp eq i32 %222, 0
-  br i1 %223, label %.thread20, label %224
+  br i1 %223, label %.critedge.thread, label %224
 
 224:                                              ; preds = %220
   %225 = urem i32 %210, %96
   %.not = icmp eq i32 %225, 0
-  br i1 %.not, label %226, label %.thread20
+  br i1 %.not, label %226, label %.critedge.thread
 
-226:                                              ; preds = %.thread18, %224
-  %227 = phi i32 [ %216, %.thread18 ], [ %167, %224 ]
+226:                                              ; preds = %.thread17, %224
+  %227 = phi i32 [ %216, %.thread17 ], [ %167, %224 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   store i64 0, ptr %5, align 8, !annotation !78
   %228 = load ptr, ptr %9, align 8
   %229 = call ptr @dma_pool_alloc(ptr noundef %228, i32 noundef %3, ptr noundef nonnull %5) #19
   %230 = icmp eq ptr %229, null
-  br i1 %230, label %244, label %231
+  br i1 %230, label %.critedge, label %231
 
 231:                                              ; preds = %226
   %232 = load i64, ptr %5, align 8
@@ -11453,60 +11453,60 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr noundef readonly capt
   store i32 %227, ptr %234, align 8
   %243 = getelementptr inbounds nuw i8, ptr %229, i64 88
   store i64 0, ptr %243, align 8
-  br label %.thread20
+  br label %.critedge.thread
 
-244:                                              ; preds = %226
+.critedge:                                        ; preds = %226
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  br label %254
+  br label %253
 
-.thread20:                                        ; preds = %220, %217, %224, %231, %209
-  %245 = phi i32 [ %149, %209 ], [ %149, %224 ], [ %227, %231 ], [ %149, %217 ], [ %149, %220 ]
-  %246 = phi ptr [ %106, %209 ], [ %106, %224 ], [ %229, %231 ], [ %106, %217 ], [ %106, %220 ]
-  %247 = load i32, ptr %200, align 4
-  %248 = and i32 %247, 128
-  %249 = icmp eq i32 %248, 0
-  br i1 %249, label %250, label %.loopexit, !prof !20
+.critedge.thread:                                 ; preds = %217, %220, %224, %231, %209
+  %244 = phi i32 [ %149, %209 ], [ %149, %217 ], [ %149, %220 ], [ %149, %224 ], [ %227, %231 ]
+  %245 = phi ptr [ %106, %209 ], [ %106, %217 ], [ %106, %220 ], [ %106, %224 ], [ %229, %231 ]
+  %246 = load i32, ptr %200, align 4
+  %247 = and i32 %246, 128
+  %248 = icmp eq i32 %247, 0
+  br i1 %248, label %249, label %.loopexit, !prof !20
 
-250:                                              ; preds = %.thread20
-  %251 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  %252 = or i32 %245, 32768
-  store i32 %252, ptr %251, align 8
+249:                                              ; preds = %.critedge.thread
+  %250 = getelementptr inbounds nuw i8, ptr %245, i64 8
+  %251 = or i32 %244, 32768
+  store i32 %251, ptr %250, align 8
   br label %.loopexit
 
-253:                                              ; preds = %49
+252:                                              ; preds = %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  br label %254
+  br label %253
 
-254:                                              ; preds = %244, %.thread16, %253
-  %255 = load ptr, ptr %2, align 8
-  %256 = icmp eq ptr %255, %2
-  br i1 %256, label %.loopexit, label %.preheader
+253:                                              ; preds = %.critedge, %.thread16, %252
+  %254 = load ptr, ptr %2, align 8
+  %255 = icmp eq ptr %254, %2
+  br i1 %255, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %254, %.preheader
-  %257 = phi ptr [ %258, %.preheader ], [ %255, %254 ]
-  %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr i8, ptr %257, i64 -64
-  %260 = getelementptr inbounds nuw i8, ptr %257, i64 8
-  %261 = load ptr, ptr %260, align 8
-  %262 = getelementptr inbounds nuw i8, ptr %258, i64 8
-  store ptr %261, ptr %262, align 8
-  store volatile ptr %258, ptr %261, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %257, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %260, align 8
-  %263 = load ptr, ptr %9, align 8
-  %264 = getelementptr i8, ptr %257, i64 -8
-  %265 = load i64, ptr %264, align 8
-  call void @dma_pool_free(ptr noundef %263, ptr noundef %259, i64 noundef %265) #19
-  %266 = icmp eq ptr %258, %2
-  br i1 %266, label %.loopexit, label %.preheader, !llvm.loop !97
+.preheader:                                       ; preds = %253, %.preheader
+  %256 = phi ptr [ %257, %.preheader ], [ %254, %253 ]
+  %257 = load ptr, ptr %256, align 8
+  %258 = getelementptr i8, ptr %256, i64 -64
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 8
+  %260 = load ptr, ptr %259, align 8
+  %261 = getelementptr inbounds nuw i8, ptr %257, i64 8
+  store ptr %260, ptr %261, align 8
+  store volatile ptr %257, ptr %260, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %256, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %259, align 8
+  %262 = load ptr, ptr %9, align 8
+  %263 = getelementptr i8, ptr %256, i64 -8
+  %264 = load i64, ptr %263, align 8
+  call void @dma_pool_free(ptr noundef %262, ptr noundef %258, i64 noundef %264) #19
+  %265 = icmp eq ptr %257, %2
+  br i1 %265, label %.loopexit, label %.preheader, !llvm.loop !97
 
-267:                                              ; preds = %4
+266:                                              ; preds = %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %267, %254, %250, %.thread20
-  %268 = phi ptr [ %2, %250 ], [ %2, %.thread20 ], [ null, %267 ], [ null, %254 ], [ null, %.preheader ]
-  ret ptr %268
+.loopexit:                                        ; preds = %.preheader, %266, %253, %249, %.critedge.thread
+  %267 = phi ptr [ %2, %249 ], [ %2, %.critedge.thread ], [ null, %266 ], [ null, %253 ], [ null, %.preheader ]
+  ret ptr %267
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -12656,7 +12656,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @sitd_slot_ok(ptr noundef rea
   %12 = shl nuw nsw i32 %7, %8
   %13 = icmp samesign ult i32 %12, 65536
   %14 = select i1 %11, i1 %13, i1 false
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 92
@@ -12672,7 +12672,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @sitd_slot_ok(ptr noundef rea
   %.val3 = load i8, ptr %24, align 1
   %25 = tail call fastcc i32 @tt_available(ptr noundef %0, i16 %.val, i8 %.val3, ptr noundef %3, i32 noundef %21, i32 noundef %22)
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.thread, label %27
+  br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 412
@@ -12726,7 +12726,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @sitd_slot_ok(ptr noundef rea
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = icmp ult i32 %42, %64
-  br i1 %65, label %.thread, label %66
+  br i1 %65, label %.critedge, label %66
 
 66:                                               ; preds = %58, %53
   %67 = add nuw nsw i64 %54, 1
@@ -12751,7 +12751,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @sitd_slot_ok(ptr noundef rea
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = icmp ult i32 %33, %79
-  br i1 %80, label %.thread, label %81
+  br i1 %80, label %.critedge, label %81
 
 81:                                               ; preds = %73
   %82 = lshr i32 %75, 1
@@ -12793,7 +12793,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @sitd_slot_ok(ptr noundef rea
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i32
   %109 = icmp ult i32 %89, %108
-  br i1 %109, label %.thread, label %110
+  br i1 %109, label %.critedge, label %110
 
 110:                                              ; preds = %102, %97
   %111 = add nuw nsw i64 %98, 1
@@ -12815,9 +12815,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @sitd_slot_ok(ptr noundef rea
   %119 = and i32 %117, 65535
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store i32 %119, ptr %120, align 4
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %73, %102, %58, %.split7.us, %15, %4
+.critedge:                                        ; preds = %73, %102, %58, %.split7.us, %15, %4
   %121 = phi i32 [ 1, %.split7.us ], [ 0, %4 ], [ 0, %15 ], [ 0, %58 ], [ 0, %102 ], [ 0, %73 ]
   ret i32 %121
 }

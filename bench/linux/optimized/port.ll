@@ -202,7 +202,7 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
 
 76:                                               ; preds = %68
   %77 = tail call i32 @usb_for_each_dev(ptr noundef %71, ptr noundef nonnull @match_location) #10
-  br label %.thread
+  br label %.critedge
 
 78:                                               ; preds = %68
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 72
@@ -216,7 +216,7 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 544
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %.thread, label %88
+  br i1 %87, label %.critedge, label %88
 
 88:                                               ; preds = %82
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 96
@@ -225,7 +225,7 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
 90:                                               ; preds = %78
   %91 = tail call ptr @usb_hub_to_struct_hub(ptr noundef nonnull %80) #10
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %.thread, label %93
+  br i1 %92, label %.critedge, label %93
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 528
@@ -237,26 +237,26 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   %100 = getelementptr i8, ptr %99, i64 -8
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %.thread, label %103
+  br i1 %102, label %.critedge, label %103
 
 103:                                              ; preds = %93
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 744
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %.thread, label %107
+  br i1 %106, label %.critedge, label %107
 
 107:                                              ; preds = %103, %88
   %.in = phi ptr [ %89, %88 ], [ %105, %103 ]
   %108 = load ptr, ptr %.in, align 8
   %109 = tail call ptr @usb_hub_to_struct_hub(ptr noundef %108) #10
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %.thread, label %111
+  br i1 %110, label %.critedge, label %111
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 1264
   %113 = load i32, ptr %112, align 8
   %114 = icmp slt i32 %113, %1
-  br i1 %114, label %.thread, label %115
+  br i1 %114, label %.critedge, label %115
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 528
@@ -264,19 +264,19 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   %118 = getelementptr ptr, ptr %117, i64 %18
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
-  br i1 %120, label %.thread, label %121
+  br i1 %120, label %.critedge, label %121
 
 121:                                              ; preds = %115
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 784
   %123 = load i32, ptr %122, align 8
   %124 = icmp eq i32 %123, 0
-  br i1 %124, label %125, label %.thread
+  br i1 %124, label %125, label %.critedge
 
 125:                                              ; preds = %121
   tail call fastcc void @link_peers_report(ptr noundef %71, ptr noundef nonnull %119)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %93, %103, %90, %82, %125, %121, %115, %111, %107, %76
+.critedge:                                        ; preds = %90, %103, %93, %82, %125, %121, %115, %111, %107, %76
   %126 = tail call i32 @__pm_runtime_set_status(ptr noundef nonnull %25, i32 noundef 0) #10
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 440
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %127, ptr nonnull elementtype(i32) %127) #10, !srcloc !6
@@ -287,12 +287,12 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   %131 = icmp eq i16 %130, 0
   br i1 %131, label %132, label %134
 
-132:                                              ; preds = %.thread
+132:                                              ; preds = %.critedge
   %133 = or i16 %129, 2
   store i16 %133, ptr %128, align 4
   br label %134
 
-134:                                              ; preds = %132, %.thread
+134:                                              ; preds = %132, %.critedge
   %135 = icmp eq ptr %0, null
   br i1 %135, label %158, label %136
 

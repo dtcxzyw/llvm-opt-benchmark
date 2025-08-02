@@ -1071,12 +1071,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3) unnamed_addr #0 {
   store i32 0, ptr %3, align 4, !tbaa !11
-  %invariant.gep = getelementptr i8, ptr %2, i64 2
   br label %5
 
-5:                                                ; preds = %4, %61
-  %.06177 = phi i8 [ %0, %4 ], [ %.4, %61 ]
-  %.06476 = phi i32 [ 0, %4 ], [ %.367, %61 ]
+5:                                                ; preds = %4, %63
+  %.06177 = phi i8 [ %0, %4 ], [ %.4, %63 ]
+  %.06476 = phi i32 [ 0, %4 ], [ %.367, %63 ]
   %6 = sext i32 %.06476 to i64
   %7 = getelementptr inbounds i8, ptr %2, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !10
@@ -1084,9 +1083,9 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   switch i8 %8, label %.thread [
     i8 -21, label %10
     i8 10, label %12
-    i8 -112, label %61
-    i8 -8, label %61
-    i8 -7, label %61
+    i8 -112, label %63
+    i8 -8, label %63
+    i8 -7, label %63
     i8 2, label %14
     i8 42, label %17
     i8 4, label %20
@@ -1104,17 +1103,17 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
 12:                                               ; preds = %10, %5
   %.165 = phi i32 [ %11, %10 ], [ %9, %5 ]
   %13 = add nsw i32 %.165, 1
-  br label %61
+  br label %63
 
 14:                                               ; preds = %5
   %15 = add i8 %.06177, %1
   %16 = add nsw i32 %.06476, 2
-  br label %61
+  br label %63
 
 17:                                               ; preds = %5
   %18 = sub i8 %.06177, %1
   %19 = add nsw i32 %.06476, 2
-  br label %61
+  br label %63
 
 20:                                               ; preds = %5
   %21 = sext i32 %9 to i64
@@ -1122,7 +1121,7 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   %23 = load i8, ptr %22, align 1, !tbaa !10
   %24 = add i8 %23, %.06177
   %25 = add nsw i32 %.06476, 2
-  br label %61
+  br label %63
 
 26:                                               ; preds = %5
   %27 = sext i32 %9 to i64
@@ -1130,12 +1129,12 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   %29 = load i8, ptr %28, align 1, !tbaa !10
   %30 = sub i8 %.06177, %29
   %31 = add nsw i32 %.06476, 2
-  br label %61
+  br label %63
 
 32:                                               ; preds = %5
   %33 = xor i8 %.06177, %1
   %34 = add nsw i32 %.06476, 2
-  br label %61
+  br label %63
 
 35:                                               ; preds = %5
   %36 = sext i32 %9 to i64
@@ -1143,7 +1142,7 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   %38 = load i8, ptr %37, align 1, !tbaa !10
   %39 = xor i8 %38, %.06177
   %40 = add nsw i32 %.06476, 2
-  br label %61
+  br label %63
 
 41:                                               ; preds = %5
   %42 = sext i32 %9 to i64
@@ -1153,7 +1152,7 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   %.263.v = select i1 %45, i8 1, i8 -1
   %.263 = add i8 %.263.v, %.06177
   %46 = add nsw i32 %.06476, 2
-  br label %61
+  br label %63
 
 47:                                               ; preds = %5
   %48 = sext i32 %9 to i64
@@ -1161,55 +1160,56 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   %50 = load i8, ptr %49, align 1, !tbaa !10
   %51 = icmp eq i8 %50, -64
   %52 = sext i32 %.06476 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %52
-  %53 = load i8, ptr %gep, align 1, !tbaa !10
-  br i1 %51, label %54, label %56
-
-54:                                               ; preds = %47
-  %55 = tail call i8 @llvm.fshl.i8(i8 %.06177, i8 %.06177, i8 %53)
-  br label %58
+  %53 = getelementptr i8, ptr %2, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 2
+  %55 = load i8, ptr %54, align 1, !tbaa !10
+  br i1 %51, label %56, label %58
 
 56:                                               ; preds = %47
-  %57 = tail call i8 @llvm.fshr.i8(i8 %.06177, i8 %.06177, i8 %53)
-  br label %58
+  %57 = tail call i8 @llvm.fshl.i8(i8 %.06177, i8 %.06177, i8 %55)
+  br label %60
 
-58:                                               ; preds = %56, %54
-  %.3 = phi i8 [ %55, %54 ], [ %57, %56 ]
-  %59 = add nsw i32 %.06476, 3
-  br label %61
+58:                                               ; preds = %47
+  %59 = tail call i8 @llvm.fshr.i8(i8 %.06177, i8 %.06177, i8 %55)
+  br label %60
+
+60:                                               ; preds = %58, %56
+  %.3 = phi i8 [ %57, %56 ], [ %59, %58 ]
+  %61 = add nsw i32 %.06476, 3
+  br label %63
 
 .thread:                                          ; preds = %5
-  %60 = zext i8 %8 to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, i32 noundef %60) #8
+  %62 = zext i8 %8 to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, i32 noundef %62) #8
   br label %.sink.split
 
-61:                                               ; preds = %14, %17, %20, %26, %32, %35, %41, %58, %12, %5, %5, %5
-  %.367 = phi i32 [ %13, %12 ], [ %9, %5 ], [ %9, %5 ], [ %9, %5 ], [ %16, %14 ], [ %19, %17 ], [ %25, %20 ], [ %31, %26 ], [ %34, %32 ], [ %40, %35 ], [ %46, %41 ], [ %59, %58 ]
-  %.4 = phi i8 [ %.06177, %12 ], [ %.06177, %5 ], [ %.06177, %5 ], [ %.06177, %5 ], [ %15, %14 ], [ %18, %17 ], [ %24, %20 ], [ %30, %26 ], [ %33, %32 ], [ %39, %35 ], [ %.263, %41 ], [ %.3, %58 ]
-  %62 = icmp slt i32 %.367, 36
-  br i1 %62, label %5, label %63
+63:                                               ; preds = %14, %17, %20, %26, %32, %35, %41, %60, %12, %5, %5, %5
+  %.367 = phi i32 [ %13, %12 ], [ %9, %5 ], [ %9, %5 ], [ %9, %5 ], [ %16, %14 ], [ %19, %17 ], [ %25, %20 ], [ %31, %26 ], [ %34, %32 ], [ %40, %35 ], [ %46, %41 ], [ %61, %60 ]
+  %.4 = phi i8 [ %.06177, %12 ], [ %.06177, %5 ], [ %.06177, %5 ], [ %.06177, %5 ], [ %15, %14 ], [ %18, %17 ], [ %24, %20 ], [ %30, %26 ], [ %33, %32 ], [ %39, %35 ], [ %.263, %41 ], [ %.3, %60 ]
+  %64 = icmp slt i32 %.367, 36
+  br i1 %64, label %5, label %65
 
-63:                                               ; preds = %61
+65:                                               ; preds = %63
   %.not = icmp eq i32 %.367, 36
-  br i1 %.not, label %64, label %67
+  br i1 %.not, label %66, label %69
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %66 = load i8, ptr %65, align 1, !tbaa !10
-  %.not68 = icmp eq i8 %66, -86
-  br i1 %.not68, label %68, label %67
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %68 = load i8, ptr %67, align 1, !tbaa !10
+  %.not68 = icmp eq i8 %68, -86
+  br i1 %.not68, label %70, label %69
 
-67:                                               ; preds = %64, %63
+69:                                               ; preds = %66, %65
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35) #8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %67, %.thread
-  %.06174.ph = phi i8 [ %.4, %67 ], [ %.06177, %.thread ]
+.sink.split:                                      ; preds = %69, %.thread
+  %.06174.ph = phi i8 [ %.4, %69 ], [ %.06177, %.thread ]
   store i32 1, ptr %3, align 4, !tbaa !11
-  br label %68
+  br label %70
 
-68:                                               ; preds = %.sink.split, %64
-  %.06174 = phi i8 [ %.4, %64 ], [ %.06174.ph, %.sink.split ]
+70:                                               ; preds = %.sink.split, %66
+  %.06174 = phi i8 [ %.4, %66 ], [ %.06174.ph, %.sink.split ]
   ret i8 %.06174
 }
 

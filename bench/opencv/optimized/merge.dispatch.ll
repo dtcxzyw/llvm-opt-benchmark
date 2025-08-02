@@ -1416,7 +1416,6 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %112, %115
 
 _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %126, %.noexc160
   %134 = phi ptr [ %129, %126 ], [ %133, %.noexc160 ]
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %134, i64 4
   br label %135
 
 135:                                              ; preds = %_ZN2cv10AutoBufferIiLm264EEC2Em.exit, %154
@@ -1434,12 +1433,12 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %126, %.noexc160
 142:                                              ; preds = %135, %142
   %indvars.iv = phi i64 [ 0, %135 ], [ %indvars.iv.next, %142 ]
   %143 = add nuw nsw i64 %indvars.iv, %140
-  %144 = shl nuw nsw i64 %143, 1
-  %145 = getelementptr inbounds nuw i32, ptr %134, i64 %144
-  %146 = trunc nuw i64 %143 to i32
-  store i32 %146, ptr %145, align 4, !tbaa !33
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %144
-  store i32 %146, ptr %gep, align 4, !tbaa !33
+  %.idx = shl nuw nsw i64 %143, 3
+  %144 = getelementptr inbounds nuw i8, ptr %134, i64 %.idx
+  %145 = trunc nuw i64 %143 to i32
+  store i32 %145, ptr %144, align 4, !tbaa !33
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 4
+  store i32 %145, ptr %146, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond212.not, label %154, label %142, !llvm.loop !73

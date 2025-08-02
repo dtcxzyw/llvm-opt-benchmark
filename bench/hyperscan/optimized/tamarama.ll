@@ -1142,13 +1142,13 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
   br i1 %10, label %.lr.ph, label %.critedge.thread31
 
 .lr.ph:                                           ; preds = %3
-  %11 = getelementptr i8, ptr %1, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = zext i32 %8 to i64
   %.idx.i41 = mul nuw nsw i64 %15, 24
-  %16 = getelementptr i8, ptr %11, i64 %.idx.i41
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i41
   %17 = load i64, ptr %16, align 8
   %.not42 = icmp sgt i64 %17, %2
   br i1 %.not42, label %.critedge, label %.lr.ph43
@@ -1162,7 +1162,7 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
 22:                                               ; preds = %18
   %23 = zext i32 %19 to i64
   %.idx.i = mul nuw nsw i64 %23, 24
-  %24 = getelementptr i8, ptr %11, i64 %.idx.i
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %25 = load i64, ptr %24, align 8
   %.not = icmp sgt i64 %25, %2
   br i1 %.not, label %.critedge, label %.lr.ph43
@@ -1396,13 +1396,13 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
   br i1 %10, label %.lr.ph, label %.critedge.thread33
 
 .lr.ph:                                           ; preds = %3
-  %11 = getelementptr i8, ptr %1, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = zext i32 %8 to i64
   %.idx.i43 = mul nuw nsw i64 %15, 24
-  %16 = getelementptr i8, ptr %11, i64 %.idx.i43
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i43
   %17 = load i64, ptr %16, align 8
   %.not46 = icmp sgt i64 %17, %2
   br i1 %.not46, label %.critedge, label %.lr.ph44
@@ -1416,7 +1416,7 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
 22:                                               ; preds = %18
   %23 = zext i32 %19 to i64
   %.idx.i = mul nuw nsw i64 %23, 24
-  %24 = getelementptr i8, ptr %11, i64 %.idx.i
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %25 = load i64, ptr %24, align 8
   %26 = icmp sle i64 %25, %2
   %27 = icmp ne i8 %29, 2

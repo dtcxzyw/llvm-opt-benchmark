@@ -263,14 +263,14 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   %85 = getelementptr inbounds nuw i8, ptr %63, i64 112
   store i32 %84, ptr %85, align 8, !tbaa !66
   %86 = call i32 @ff_filter_frame(ptr noundef %58, ptr noundef nonnull %63) #10
+  %87 = call i32 @llvm.smin.i32(i32 %86, i32 0)
   br label %filter_frame.exit
 
 filter_frame.exit:                                ; preds = %32, %64
-  %.0.i = phi i32 [ %86, %64 ], [ -12, %32 ]
+  %.0.i = phi i32 [ %87, %64 ], [ -12, %32 ]
   call void @av_frame_free(ptr noundef nonnull %2) #10
-  %87 = getelementptr inbounds nuw i8, ptr %60, i64 104
-  store ptr null, ptr %87, align 8, !tbaa !59
-  %88 = call range(i32 -2147483648, 1) i32 @llvm.smin.i32(i32 %.0.i, i32 0)
+  %88 = getelementptr inbounds nuw i8, ptr %60, i64 104
+  store ptr null, ptr %88, align 8, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %101
 
@@ -305,7 +305,7 @@ filter_frame.exit:                                ; preds = %32, %64
   br label %101
 
 101:                                              ; preds = %26, %97, %100, %98, %.critedge, %1, %91, %filter_frame.exit
-  %.0 = phi i32 [ %88, %filter_frame.exit ], [ 0, %91 ], [ 0, %26 ], [ %16, %1 ], [ %29, %.critedge ], [ 0, %98 ], [ 0, %100 ], [ 0, %97 ]
+  %.0 = phi i32 [ %.0.i, %filter_frame.exit ], [ 0, %91 ], [ 0, %26 ], [ %16, %1 ], [ %29, %.critedge ], [ 0, %98 ], [ 0, %100 ], [ 0, %97 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10

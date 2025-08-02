@@ -616,7 +616,7 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
   br i1 %299, label %.lr.ph230, label %._crit_edge236
 
 .lr.ph230:                                        ; preds = %.loopexit
-  %300 = getelementptr i8, ptr %8, i64 128
+  %300 = getelementptr inbounds nuw i8, ptr %8, i64 128
   br label %304
 
 ._crit_edge231:                                   ; preds = %312
@@ -626,14 +626,14 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
 
 .lr.ph235:                                        ; preds = %._crit_edge231
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %303 = getelementptr i8, ptr %8, i64 128
+  %303 = getelementptr inbounds nuw i8, ptr %8, i64 128
   br label %320
 
 304:                                              ; preds = %.lr.ph230, %312
   %indvars.iv261 = phi i64 [ 0, %.lr.ph230 ], [ %indvars.iv.next262, %312 ]
   %.0153227 = phi i32 [ %297, %.lr.ph230 ], [ %313, %312 ]
   %.idx173 = mul nuw nsw i64 %indvars.iv261, 96
-  %305 = getelementptr i8, ptr %300, i64 %.idx173
+  %305 = getelementptr inbounds nuw i8, ptr %300, i64 %.idx173
   %306 = load ptr, ptr %305, align 8, !tbaa !37
   %307 = call i32 @av_audio_fifo_size(ptr noundef %306) #7
   %308 = icmp sgt i32 %307, %.0153227
@@ -669,7 +669,7 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
   %323 = load ptr, ptr %322, align 8, !tbaa !74
   store ptr %323, ptr %6, align 8, !tbaa !60
   %.idx = mul nuw nsw i64 %indvars.iv264, 96
-  %324 = getelementptr i8, ptr %303, i64 %.idx
+  %324 = getelementptr inbounds nuw i8, ptr %303, i64 %.idx
   %325 = load ptr, ptr %324, align 8, !tbaa !37
   %326 = call i32 @av_audio_fifo_read(ptr noundef %325, ptr noundef nonnull %6, i32 noundef %313) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
@@ -715,12 +715,12 @@ define internal noundef i32 @apac_close(ptr noundef readonly captures(none) %0) 
   tail call void @av_freep(ptr noundef nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 248
   store i32 0, ptr %4, align 8, !tbaa !44
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %5 = load ptr, ptr %invariant.gep, align 8, !tbaa !37
-  tail call void @av_audio_fifo_free(ptr noundef %5) #7
-  %gep.c = getelementptr inbounds nuw i8, ptr %2, i64 224
-  %6 = load ptr, ptr %gep.c, align 8, !tbaa !37
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   tail call void @av_audio_fifo_free(ptr noundef %6) #7
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 224
+  %8 = load ptr, ptr %7, align 8, !tbaa !37
+  tail call void @av_audio_fifo_free(ptr noundef %8) #7
   ret i32 0
 }
 

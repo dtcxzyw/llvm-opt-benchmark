@@ -1960,16 +1960,16 @@ define internal fastcc range(i32 -29440, 773) i32 @ssl_tls13_parse_supported_ver
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %8
-  %.not4148.not = icmp eq i8 %7, 0
-  br i1 %.not4148.not, label %._crit_edge, label %.lr.ph
+  %.not4146.not = icmp eq i8 %7, 0
+  br i1 %.not4146.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %15 = ptrtoint ptr %14 to i64
   br label %16
 
 16:                                               ; preds = %.lr.ph, %mbedtls_ssl_conf_is_tls12_enabled.exit.thread
-  %.03449 = phi ptr [ %9, %.lr.ph ], [ %27, %mbedtls_ssl_conf_is_tls12_enabled.exit.thread ]
-  %17 = ptrtoint ptr %.03449 to i64
+  %.03447 = phi ptr [ %9, %.lr.ph ], [ %27, %mbedtls_ssl_conf_is_tls12_enabled.exit.thread ]
+  %17 = ptrtoint ptr %.03447 to i64
   %18 = sub i64 %15, %17
   %19 = icmp ugt i64 %18, 1
   br i1 %19, label %21, label %20
@@ -1984,8 +1984,8 @@ define internal fastcc range(i32 -29440, 773) i32 @ssl_tls13_parse_supported_ver
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 9
   %24 = load i8, ptr %23, align 1, !tbaa !41
   %25 = zext i8 %24 to i32
-  %26 = tail call zeroext i16 @mbedtls_ssl_read_version(ptr noundef nonnull %.03449, i32 noundef %25) #9
-  %27 = getelementptr inbounds nuw i8, ptr %.03449, i64 2
+  %26 = tail call zeroext i16 @mbedtls_ssl_read_version(ptr noundef nonnull %.03447, i32 noundef %25) #9
+  %27 = getelementptr inbounds nuw i8, ptr %.03447, i64 2
   switch i16 %26, label %mbedtls_ssl_conf_is_tls12_enabled.exit.thread [
     i16 772, label %35
     i16 771, label %28
@@ -2005,20 +2005,20 @@ mbedtls_ssl_conf_is_tls12_enabled.exit:           ; preds = %28
 
 mbedtls_ssl_conf_is_tls12_enabled.exit.thread:    ; preds = %28, %21, %mbedtls_ssl_conf_is_tls12_enabled.exit
   %.not41 = icmp ult ptr %27, %14
-  br i1 %.not41, label %16, label %._crit_edge, !llvm.loop !107
+  br i1 %.not41, label %16, label %.critedge, !llvm.loop !107
 
-._crit_edge:                                      ; preds = %mbedtls_ssl_conf_is_tls12_enabled.exit.thread, %13
+.critedge:                                        ; preds = %mbedtls_ssl_conf_is_tls12_enabled.exit.thread, %13
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 814, ptr noundef nonnull @.str.46) #9
   tail call void @mbedtls_ssl_pend_fatal_alert(ptr noundef %0, i8 noundef zeroext 70, i32 noundef -28288) #9
   br label %37
 
-35:                                               ; preds = %mbedtls_ssl_conf_is_tls12_enabled.exit, %21
+35:                                               ; preds = %21, %mbedtls_ssl_conf_is_tls12_enabled.exit
   %36 = zext nneg i16 %26 to i32
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 822, ptr noundef nonnull @.str.47, i32 noundef %36) #9
   br label %37
 
-37:                                               ; preds = %35, %._crit_edge, %20, %12, %4
-  %.033 = phi i32 [ -29440, %4 ], [ -29440, %12 ], [ -29440, %20 ], [ %36, %35 ], [ -28288, %._crit_edge ]
+37:                                               ; preds = %35, %.critedge, %20, %12, %4
+  %.033 = phi i32 [ -29440, %4 ], [ -29440, %12 ], [ -29440, %20 ], [ %36, %35 ], [ -28288, %.critedge ]
   ret i32 %.033
 }
 

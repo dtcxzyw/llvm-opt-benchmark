@@ -23075,7 +23075,6 @@ _ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiTh
   %115 = load ptr, ptr %23, align 8, !tbaa !386
   %116 = load i64, ptr %25, align 8, !tbaa !105
   %117 = load i32, ptr %27, align 8, !tbaa !111
-  %invariant.gep.i = getelementptr i8, ptr %115, i64 20
   %118 = icmp sgt i32 %117, 0
   br i1 %118, label %.lr.ph.preheader.i, label %_ZN5Annoy10DotProduct11postprocessIfiNS0_4NodeIifEEEEvPvmT0_i.exit
 
@@ -23086,8 +23085,9 @@ _ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiTh
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %119 = mul i64 %indvars.iv.i, %116
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %119
-  store i8 1, ptr %gep.i, align 4, !tbaa !390
+  %120 = getelementptr inbounds nuw i8, ptr %115, i64 %119
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 20
+  store i8 1, ptr %121, align 4, !tbaa !390
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN5Annoy10DotProduct11postprocessIfiNS0_4NodeIifEEEEvPvmT0_i.exit, label %.lr.ph.i, !llvm.loop !395
@@ -23989,7 +23989,6 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.loopexit.us60: ; preds = %.lr.ph
   br i1 %exitcond79.not, label %.lr.ph64.preheader, label %.lr.ph.i.preheader.us59, !llvm.loop !398
 
 .lr.ph64.preheader:                               ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.loopexit.us60, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.us
-  %invariant.gep96 = getelementptr i8, ptr %0, i64 12
   %wide.trip.count88 = zext nneg i32 %2 to i64
   br label %.lr.ph64
 
@@ -24008,40 +24007,41 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit:  ; preds = %.lr.ph.split, %_ZN5
 .lr.ph66:                                         ; preds = %.lr.ph64
   %square = fmul nnan ninf nsz arcp contract afn float %.1, %.1
   %wide.trip.count93 = zext nneg i32 %2 to i64
-  br label %61
+  br label %63
 
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
   %indvars.iv85 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next86, %.lr.ph64 ]
   %.03763 = phi float [ 0.000000e+00, %.lr.ph64.preheader ], [ %.1, %.lr.ph64 ]
   %58 = mul i64 %1, %indvars.iv85
-  %gep = getelementptr i8, ptr %invariant.gep96, i64 %58
-  %59 = load float, ptr %gep, align 4, !tbaa !387
-  %60 = fcmp nnan ninf nsz arcp contract afn ogt float %59, %.03763
-  %.1 = select nsz i1 %60, float %59, float %.03763
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
+  %61 = load float, ptr %60, align 4, !tbaa !387
+  %62 = fcmp nnan ninf nsz arcp contract afn ogt float %61, %.03763
+  %.1 = select nsz i1 %62, float %61, float %.03763
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %.lr.ph66, label %.lr.ph64, !llvm.loop !400
 
-._crit_edge:                                      ; preds = %61, %4
+._crit_edge:                                      ; preds = %63, %4
   ret void
 
-61:                                               ; preds = %.lr.ph66, %61
-  %indvars.iv90 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next91, %61 ]
-  %62 = mul i64 %1, %indvars.iv90
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  %65 = load float, ptr %64, align 4, !tbaa !387
-  %square44 = fmul nnan ninf nsz arcp contract afn float %65, %65
-  %66 = fsub nnan ninf nsz arcp contract afn float %square, %square44
-  %67 = fcmp nnan ninf nsz arcp contract afn olt float %66, 0.000000e+00
-  %68 = tail call nnan ninf nsz arcp contract afn float @llvm.sqrt.f32(float nofpclass(nan inf) %66)
-  %69 = select nnan ninf nsz arcp contract afn i1 %67, float 0.000000e+00, float %68
-  %70 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store float %square, ptr %70, align 4, !tbaa !391
-  store float %69, ptr %64, align 4, !tbaa !387
+63:                                               ; preds = %.lr.ph66, %63
+  %indvars.iv90 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next91, %63 ]
+  %64 = mul i64 %1, %indvars.iv90
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
+  %67 = load float, ptr %66, align 4, !tbaa !387
+  %square44 = fmul nnan ninf nsz arcp contract afn float %67, %67
+  %68 = fsub nnan ninf nsz arcp contract afn float %square, %square44
+  %69 = fcmp nnan ninf nsz arcp contract afn olt float %68, 0.000000e+00
+  %70 = tail call nnan ninf nsz arcp contract afn float @llvm.sqrt.f32(float nofpclass(nan inf) %68)
+  %71 = select nnan ninf nsz arcp contract afn i1 %69, float 0.000000e+00, float %70
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store float %square, ptr %72, align 4, !tbaa !391
+  store float %71, ptr %66, align 4, !tbaa !387
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %._crit_edge, label %61, !llvm.loop !401
+  br i1 %exitcond94.not, label %._crit_edge, label %63, !llvm.loop !401
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable

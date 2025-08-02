@@ -2288,28 +2288,28 @@ define internal fastcc i32 @quota_getxquota(ptr noundef %0, i32 noundef range(i3
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %77 = trunc i64 %29 to i32
   store i32 %77, ptr %76, align 8
-  br i1 %45, label %.thread, label %80
+  br i1 %45, label %.critedge, label %78
 
-.thread:                                          ; preds = %44
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %79 = load i64, ptr %78, align 8
+78:                                               ; preds = %44
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 68
+  %80 = lshr i64 %29, 32
+  %81 = trunc i64 %80 to i8
+  store i8 %81, ptr %79, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %83 = load i64, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 69
+  %85 = lshr i64 %83, 32
+  %86 = trunc i64 %85 to i8
+  store i8 %86, ptr %84, align 1
   br label %89
 
-80:                                               ; preds = %44
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  %82 = lshr i64 %29, 32
-  %83 = trunc i64 %82 to i8
-  store i8 %83, ptr %81, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %5, i64 69
-  %87 = lshr i64 %85, 32
-  %88 = trunc i64 %87 to i8
-  store i8 %88, ptr %86, align 1
+.critedge:                                        ; preds = %44
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %88 = load i64, ptr %87, align 8
   br label %89
 
-89:                                               ; preds = %.thread, %80
-  %.sink.in = phi i64 [ %79, %.thread ], [ %85, %80 ]
+89:                                               ; preds = %.critedge, %78
+  %.sink.in = phi i64 [ %88, %.critedge ], [ %83, %78 ]
   %.sink = trunc i64 %.sink.in to i32
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 %.sink, ptr %90, align 4
@@ -2482,28 +2482,28 @@ define internal fastcc i32 @quota_getnextxquota(ptr noundef %0, i32 noundef rang
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %80 = trunc i64 %32 to i32
   store i32 %80, ptr %79, align 8
-  br i1 %48, label %.thread, label %83
+  br i1 %48, label %.critedge, label %81
 
-.thread:                                          ; preds = %47
-  %81 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %82 = load i64, ptr %81, align 8
+81:                                               ; preds = %47
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 68
+  %83 = lshr i64 %32, 32
+  %84 = trunc i64 %83 to i8
+  store i8 %84, ptr %82, align 4
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %86 = load i64, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 69
+  %88 = lshr i64 %86, 32
+  %89 = trunc i64 %88 to i8
+  store i8 %89, ptr %87, align 1
   br label %92
 
-83:                                               ; preds = %47
-  %84 = getelementptr inbounds nuw i8, ptr %5, i64 68
-  %85 = lshr i64 %32, 32
-  %86 = trunc i64 %85 to i8
-  store i8 %86, ptr %84, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %5, i64 69
-  %90 = lshr i64 %88, 32
-  %91 = trunc i64 %90 to i8
-  store i8 %91, ptr %89, align 1
+.critedge:                                        ; preds = %47
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %91 = load i64, ptr %90, align 8
   br label %92
 
-92:                                               ; preds = %.thread, %83
-  %.sink.in = phi i64 [ %82, %.thread ], [ %88, %83 ]
+92:                                               ; preds = %.critedge, %81
+  %.sink.in = phi i64 [ %91, %.critedge ], [ %86, %81 ]
   %.sink = trunc i64 %.sink.in to i32
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 %.sink, ptr %93, align 4

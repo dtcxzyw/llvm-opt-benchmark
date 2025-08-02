@@ -732,32 +732,32 @@ define internal void @compute_sat8(ptr noundef readonly captures(none) %0, i32 n
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.02633.us.pn = phi ptr [ %.02633.us, %._crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %.02532.us = phi i32 [ %21, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.02731.us = phi ptr [ %20, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
+  %.02532.us = phi i32 [ %23, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.02731.us = phi ptr [ %22, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
   %.02633.us = getelementptr inbounds i32, ptr %.02633.us.pn, i64 %8
-  %invariant.gep.us = getelementptr i8, ptr %.02731.us, i64 -1
   br label %12
 
 12:                                               ; preds = %.preheader.us, %12
   %indvars.iv = phi i64 [ 1, %.preheader.us ], [ %indvars.iv.next, %12 ]
-  %.02428.us = phi i32 [ 0, %.preheader.us ], [ %15, %12 ]
-  %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %indvars.iv
-  %13 = load i8, ptr %gep.us, align 1, !tbaa !59
-  %14 = zext i8 %13 to i32
-  %15 = add i32 %.02428.us, %14
-  %16 = getelementptr inbounds nuw i32, ptr %.02633.us.pn, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 4, !tbaa !51
-  %18 = add i32 %15, %17
-  %19 = getelementptr inbounds nuw i32, ptr %.02633.us, i64 %indvars.iv
-  store i32 %18, ptr %19, align 4, !tbaa !51
+  %.02428.us = phi i32 [ 0, %.preheader.us ], [ %17, %12 ]
+  %13 = getelementptr i8, ptr %.02731.us, i64 %indvars.iv
+  %14 = getelementptr i8, ptr %13, i64 -1
+  %15 = load i8, ptr %14, align 1, !tbaa !59
+  %16 = zext i8 %15 to i32
+  %17 = add i32 %.02428.us, %16
+  %18 = getelementptr inbounds nuw i32, ptr %.02633.us.pn, i64 %indvars.iv
+  %19 = load i32, ptr %18, align 4, !tbaa !51
+  %20 = add i32 %17, %19
+  %21 = getelementptr inbounds nuw i32, ptr %.02633.us, i64 %indvars.iv
+  store i32 %20, ptr %21, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !74
 
 ._crit_edge.us:                                   ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %.02731.us, i64 %11
-  %21 = add nuw nsw i32 %.02532.us, 1
-  %exitcond37.not = icmp eq i32 %21, %3
+  %22 = getelementptr inbounds i8, ptr %.02731.us, i64 %11
+  %23 = add nuw nsw i32 %.02532.us, 1
+  %exitcond37.not = icmp eq i32 %23, %3
   br i1 %exitcond37.not, label %._crit_edge34, label %.preheader.us, !llvm.loop !75
 
 ._crit_edge34:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
@@ -783,32 +783,32 @@ define internal void @compute_sat16(ptr noundef readonly captures(none) %0, i32 
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.02633.us.pn = phi ptr [ %.02633.us, %._crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %.02532.us = phi i32 [ %22, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.02731.us = phi ptr [ %21, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
+  %.02532.us = phi i32 [ %24, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.02731.us = phi ptr [ %23, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
   %.02633.us = getelementptr inbounds i64, ptr %.02633.us.pn, i64 %8
-  %invariant.gep.us = getelementptr i8, ptr %.02731.us, i64 -2
   br label %13
 
 13:                                               ; preds = %.preheader.us, %13
   %indvars.iv = phi i64 [ 1, %.preheader.us ], [ %indvars.iv.next, %13 ]
-  %.02428.us = phi i64 [ 0, %.preheader.us ], [ %16, %13 ]
-  %gep.us = getelementptr i16, ptr %invariant.gep.us, i64 %indvars.iv
-  %14 = load i16, ptr %gep.us, align 2, !tbaa !63
-  %15 = zext i16 %14 to i64
-  %16 = add i64 %.02428.us, %15
-  %17 = getelementptr inbounds nuw i64, ptr %.02633.us.pn, i64 %indvars.iv
-  %18 = load i64, ptr %17, align 8, !tbaa !65
-  %19 = add i64 %16, %18
-  %20 = getelementptr inbounds nuw i64, ptr %.02633.us, i64 %indvars.iv
-  store i64 %19, ptr %20, align 8, !tbaa !65
+  %.02428.us = phi i64 [ 0, %.preheader.us ], [ %18, %13 ]
+  %14 = getelementptr i16, ptr %.02731.us, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %14, i64 -2
+  %16 = load i16, ptr %15, align 2, !tbaa !63
+  %17 = zext i16 %16 to i64
+  %18 = add i64 %.02428.us, %17
+  %19 = getelementptr inbounds nuw i64, ptr %.02633.us.pn, i64 %indvars.iv
+  %20 = load i64, ptr %19, align 8, !tbaa !65
+  %21 = add i64 %18, %20
+  %22 = getelementptr inbounds nuw i64, ptr %.02633.us, i64 %indvars.iv
+  store i64 %21, ptr %22, align 8, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !76
 
 ._crit_edge.us:                                   ; preds = %13
-  %21 = getelementptr inbounds i16, ptr %.02731.us, i64 %12
-  %22 = add nuw nsw i32 %.02532.us, 1
-  %exitcond37.not = icmp eq i32 %22, %3
+  %23 = getelementptr inbounds i16, ptr %.02731.us, i64 %12
+  %24 = add nuw nsw i32 %.02532.us, 1
+  %exitcond37.not = icmp eq i32 %24, %3
   br i1 %exitcond37.not, label %._crit_edge34, label %.preheader.us, !llvm.loop !77
 
 ._crit_edge34:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
@@ -834,32 +834,32 @@ define internal void @compute_sat32(ptr noundef readonly captures(none) %0, i32 
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.02633.us.pn = phi ptr [ %.02633.us, %._crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %.02532.us = phi i32 [ %22, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.02731.us = phi ptr [ %21, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
+  %.02532.us = phi i32 [ %24, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.02731.us = phi ptr [ %23, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
   %.02633.us = getelementptr inbounds double, ptr %.02633.us.pn, i64 %8
-  %invariant.gep.us = getelementptr i8, ptr %.02731.us, i64 -4
   br label %13
 
 13:                                               ; preds = %.preheader.us, %13
   %indvars.iv = phi i64 [ 1, %.preheader.us ], [ %indvars.iv.next, %13 ]
-  %.02428.us = phi double [ 0.000000e+00, %.preheader.us ], [ %16, %13 ]
-  %gep.us = getelementptr float, ptr %invariant.gep.us, i64 %indvars.iv
-  %14 = load float, ptr %gep.us, align 4, !tbaa !68
-  %15 = fpext nsz float %14 to double
-  %16 = fadd nsz double %.02428.us, %15
-  %17 = getelementptr inbounds nuw double, ptr %.02633.us.pn, i64 %indvars.iv
-  %18 = load double, ptr %17, align 8, !tbaa !70
-  %19 = fadd nsz double %18, %16
-  %20 = getelementptr inbounds nuw double, ptr %.02633.us, i64 %indvars.iv
-  store double %19, ptr %20, align 8, !tbaa !70
+  %.02428.us = phi double [ 0.000000e+00, %.preheader.us ], [ %18, %13 ]
+  %14 = getelementptr float, ptr %.02731.us, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %14, i64 -4
+  %16 = load float, ptr %15, align 4, !tbaa !68
+  %17 = fpext nsz float %16 to double
+  %18 = fadd nsz double %.02428.us, %17
+  %19 = getelementptr inbounds nuw double, ptr %.02633.us.pn, i64 %indvars.iv
+  %20 = load double, ptr %19, align 8, !tbaa !70
+  %21 = fadd nsz double %20, %18
+  %22 = getelementptr inbounds nuw double, ptr %.02633.us, i64 %indvars.iv
+  store double %21, ptr %22, align 8, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !78
 
 ._crit_edge.us:                                   ; preds = %13
-  %21 = getelementptr inbounds float, ptr %.02731.us, i64 %12
-  %22 = add nuw nsw i32 %.02532.us, 1
-  %exitcond37.not = icmp eq i32 %22, %3
+  %23 = getelementptr inbounds float, ptr %.02731.us, i64 %12
+  %24 = add nuw nsw i32 %.02532.us, 1
+  %exitcond37.not = icmp eq i32 %24, %3
   br i1 %exitcond37.not, label %._crit_edge34, label %.preheader.us, !llvm.loop !79
 
 ._crit_edge34:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6

@@ -498,7 +498,7 @@ define hidden void @_ZN7Imf_3_421CompositeDeepScanLine4Data11check_validERKNS_6H
   %7 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_46Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %1)
   %8 = tail call ptr @_ZNK7Imf_3_411ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
   %.not19 = icmp eq ptr %6, %8
-  br i1 %.not19, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not19, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -507,7 +507,7 @@ define hidden void @_ZN7Imf_3_421CompositeDeepScanLine4Data11check_validERKNS_6H
   br label %12
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  br i1 %.1, label %49, label %._crit_edge.thread
+  br i1 %.1, label %49, label %.critedge
 
 12:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.022 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
@@ -598,16 +598,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.not = icmp eq ptr %42, %44
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !92
 
-._crit_edge.thread:                               ; preds = %2, %._crit_edge
+.critedge:                                        ; preds = %2, %._crit_edge
   %45 = call ptr @__cxa_allocate_exception(i64 72) #29
   invoke void @_ZN7Iex_3_46ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %45, ptr noundef nonnull @.str.3)
           to label %46 unwind label %47
 
-46:                                               ; preds = %._crit_edge.thread
+46:                                               ; preds = %.critedge
   call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIN7Iex_3_46ArgExcE, ptr nonnull @_ZN7Iex_3_46ArgExcD1Ev) #32
   unreachable
 
-47:                                               ; preds = %._crit_edge.thread
+47:                                               ; preds = %.critedge
   %48 = landingpad { ptr, i32 }
           cleanup
   br label %133

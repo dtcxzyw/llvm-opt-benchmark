@@ -2294,9 +2294,9 @@ define internal fastcc noundef i32 @"_ZN14cranelift_wasm15code_translator13bound
   %34 = load ptr, ptr %0, align 8, !nonnull !4, !align !367, !noundef !4
   %35 = load i8, ptr %34, align 1, !range !407, !noundef !4
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %.thread55
+  br i1 %36, label %37, label %.critedge
 
-.thread55:                                        ; preds = %.thread, %132, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h5825c83ada582f3dE.exit", %7
+.critedge:                                        ; preds = %132, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h5825c83ada582f3dE.exit", %.thread, %7
   ret i32 %33
 
 37:                                               ; preds = %7
@@ -2373,10 +2373,10 @@ define internal fastcc noundef i32 @"_ZN14cranelift_wasm15code_translator13bound
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 224
   %76 = load i64, ptr %75, align 8, !alias.scope !509, !noundef !4
   %77 = zext i32 %5 to i64
-  %.not58 = icmp ugt i64 %76, %77
+  %.not55 = icmp ugt i64 %76, %77
   %78 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %74, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 232
-  %.0.i39 = select i1 %.not58, ptr %78, ptr %79
+  %.0.i39 = select i1 %.not55, ptr %78, ptr %79
   %80 = load i8, ptr %.0.i39, align 8, !range !512, !noundef !4
   %81 = icmp eq i8 %80, 7
   br i1 %81, label %.thread, label %99
@@ -2436,13 +2436,13 @@ define internal fastcc noundef i32 @"_ZN14cranelift_wasm15code_translator13bound
   %107 = load ptr, ptr %106, align 8, !alias.scope !518, !nonnull !4, !noundef !4
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 224
   %109 = load i64, ptr %108, align 8, !alias.scope !518, !noundef !4
-  %.not59 = icmp ugt i64 %109, %77
+  %.not56 = icmp ugt i64 %109, %77
   %110 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %107, i64 %77
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 232
-  %.0.i = select i1 %.not59, ptr %110, ptr %111
+  %.0.i = select i1 %.not56, ptr %110, ptr %111
   %112 = load i8, ptr %.0.i, align 8, !range !512, !noundef !4
   %113 = icmp eq i8 %112, 7
-  br i1 %113, label %.thread55, label %132
+  br i1 %113, label %.critedge, label %132
 
 114:                                              ; preds = %101
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.01b6a15726ed4c970b35a914a585cc1d.24) #23
@@ -2504,7 +2504,7 @@ define internal fastcc noundef i32 @"_ZN14cranelift_wasm15code_translator13bound
   %134 = extractvalue { i64, i64 } %133, 0
   %135 = extractvalue { i64, i64 } %133, 1
   %136 = icmp eq i64 %134, 1
-  br i1 %136, label %137, label %.thread55
+  br i1 %136, label %137, label %.critedge
 
 137:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.631)
@@ -2568,7 +2568,7 @@ define internal fastcc noundef i32 @"_ZN14cranelift_wasm15code_translator13bound
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.631.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.631, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.631)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  br label %.thread55
+  br label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -39,13 +39,13 @@ define internal i32 @by_store_subject_ex(ptr noundef %0, i32 noundef %1, ptr nou
   %8 = tail call ptr @X509_LOOKUP_get_method_data(ptr noundef %0) #3
   %9 = tail call i32 @OPENSSL_sk_num(ptr noundef %8) #3
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph.i, label %by_store.exit
+  br i1 %10, label %.lr.ph.i, label %.thread.critedge
 
 11:                                               ; preds = %.lr.ph.i
   %12 = add nuw nsw i32 %.0111.i, 1
   %13 = tail call i32 @OPENSSL_sk_num(ptr noundef %8) #3
   %14 = icmp slt i32 %12, %13
-  br i1 %14, label %.lr.ph.i, label %by_store.exit, !llvm.loop !3
+  br i1 %14, label %.lr.ph.i, label %.thread.critedge, !llvm.loop !3
 
 .lr.ph.i:                                         ; preds = %6, %11
   %.0111.i = phi i32 [ %12, %11 ], [ 0, %6 ]
@@ -54,50 +54,52 @@ define internal i32 @by_store_subject_ex(ptr noundef %0, i32 noundef %1, ptr nou
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %11, label %by_store.exit
 
-by_store.exit:                                    ; preds = %11, %.lr.ph.i, %6
-  %.1.i = phi i1 [ true, %6 ], [ %.not.i, %.lr.ph.i ], [ %.not.i, %11 ]
+by_store.exit:                                    ; preds = %.lr.ph.i
   %17 = tail call ptr @X509_LOOKUP_get_store(ptr noundef %0) #3
   %18 = tail call ptr @X509_STORE_get0_objects(ptr noundef %17) #3
   tail call void @OSSL_STORE_SEARCH_free(ptr noundef %7) #3
-  br i1 %.1.i, label %.thread, label %19
+  %19 = tail call ptr @X509_OBJECT_retrieve_by_subject(ptr noundef %18, i32 noundef %1, ptr noundef %2) #3
+  %.not27 = icmp eq ptr %19, null
+  br i1 %.not27, label %.thread, label %20
 
-19:                                               ; preds = %by_store.exit
-  %20 = tail call ptr @X509_OBJECT_retrieve_by_subject(ptr noundef %18, i32 noundef %1, ptr noundef %2) #3
-  %.not27 = icmp eq ptr %20, null
-  br i1 %.not27, label %.thread, label %21
-
-21:                                               ; preds = %19
+20:                                               ; preds = %by_store.exit
   switch i32 %1, label %.thread [
-    i32 1, label %22
-    i32 2, label %28
+    i32 1, label %21
+    i32 2, label %27
   ]
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !5
-  %25 = tail call i32 @X509_OBJECT_set1_X509(ptr noundef %3, ptr noundef %24) #3
-  %.not29 = icmp eq i32 %25, 0
-  br i1 %.not29, label %.thread, label %26
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !5
+  %24 = tail call i32 @X509_OBJECT_set1_X509(ptr noundef %3, ptr noundef %23) #3
+  %.not29 = icmp eq i32 %24, 0
+  br i1 %.not29, label %.thread, label %25
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %23, align 8, !tbaa !5
-  tail call void @X509_free(ptr noundef %27) #3
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %22, align 8, !tbaa !5
+  tail call void @X509_free(ptr noundef %26) #3
   br label %.thread
 
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !5
-  %31 = tail call i32 @X509_OBJECT_set1_X509_CRL(ptr noundef %3, ptr noundef %30) #3
-  %.not28 = icmp eq i32 %31, 0
-  br i1 %.not28, label %.thread, label %32
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !5
+  %30 = tail call i32 @X509_OBJECT_set1_X509_CRL(ptr noundef %3, ptr noundef %29) #3
+  %.not28 = icmp eq i32 %30, 0
+  br i1 %.not28, label %.thread, label %31
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %29, align 8, !tbaa !5
-  tail call void @X509_CRL_free(ptr noundef %33) #3
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %28, align 8, !tbaa !5
+  tail call void @X509_CRL_free(ptr noundef %32) #3
   br label %.thread
 
-.thread:                                          ; preds = %by_store.exit, %21, %26, %22, %32, %28, %19
-  %.023 = phi i32 [ 0, %21 ], [ %25, %26 ], [ 0, %22 ], [ %31, %32 ], [ 0, %28 ], [ 0, %19 ], [ 0, %by_store.exit ]
+.thread.critedge:                                 ; preds = %11, %6
+  %33 = tail call ptr @X509_LOOKUP_get_store(ptr noundef %0) #3
+  %34 = tail call ptr @X509_STORE_get0_objects(ptr noundef %33) #3
+  tail call void @OSSL_STORE_SEARCH_free(ptr noundef %7) #3
+  br label %.thread
+
+.thread:                                          ; preds = %.thread.critedge, %20, %25, %21, %31, %27, %by_store.exit
+  %.023 = phi i32 [ 0, %20 ], [ %24, %25 ], [ 0, %21 ], [ %30, %31 ], [ 0, %27 ], [ 0, %by_store.exit ], [ 0, %.thread.critedge ]
   ret i32 %.023
 }
 

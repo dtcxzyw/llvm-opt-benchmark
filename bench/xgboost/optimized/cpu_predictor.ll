@@ -8981,7 +8981,6 @@ _ZNSt6vectorImSaImEE6resizeEm.exit24:             ; preds = %27, %29, %31, %33
 
 .lr.ph33:                                         ; preds = %._crit_edge
   %42 = load ptr, ptr %9, align 8, !tbaa !151
-  %invariant.gep = getelementptr i8, ptr %42, i64 -8
   br label %97
 
 43:                                               ; preds = %27, %18, %._crit_edge34
@@ -9079,21 +9078,22 @@ _ZNSt6vectorImSaImEED2Ev.exit29:                  ; preds = %_ZNSt6vectorImSaImE
   %95 = load i32, ptr %0, align 8, !tbaa !330
   %96 = shl i32 %95, 6
   invoke fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_114InitThreadTempEiPSt6vectorINS_7RegTree4FVecESaIS4_EE(i32 noundef %96, ptr noundef %12)
-          to label %102 unwind label %43
+          to label %104 unwind label %43
 
 97:                                               ; preds = %.lr.ph33, %97
-  %98 = phi i64 [ 0, %.lr.ph33 ], [ %100, %97 ]
+  %98 = phi i64 [ 0, %.lr.ph33 ], [ %102, %97 ]
   %indvars.iv36 = phi i64 [ 1, %.lr.ph33 ], [ %indvars.iv.next37, %97 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv36
-  %99 = load i64, ptr %gep, align 8, !tbaa !44
-  %100 = add i64 %99, %98
-  %101 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv36
-  store i64 %100, ptr %101, align 8, !tbaa !44
+  %99 = getelementptr i64, ptr %42, i64 %indvars.iv36
+  %100 = getelementptr i8, ptr %99, i64 -8
+  %101 = load i64, ptr %100, align 8, !tbaa !44
+  %102 = add i64 %101, %98
+  %103 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv36
+  store i64 %102, ptr %103, align 8, !tbaa !44
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %16
   br i1 %exitcond40.not, label %._crit_edge34, label %97, !llvm.loop !355
 
-102:                                              ; preds = %._crit_edge34
+104:                                              ; preds = %._crit_edge34
   ret void
 }
 

@@ -2345,22 +2345,22 @@ define internal fastcc ptr @set_keygen_ctx(ptr noundef %0, ptr noundef nonnull c
   %5 = alloca [2 x %struct.ossl_param_st], align 16
   %6 = alloca i64, align 8
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %.thread174.thread, label %9
+  br i1 %7, label %.thread159.thread, label %9
 
-.thread174.thread:                                ; preds = %4
+.thread159.thread:                                ; preds = %4
   %8 = load i64, ptr %2, align 8, !tbaa !11
-  br label %64
+  br label %66
 
 9:                                                ; preds = %4
   %10 = load i8, ptr %0, align 1, !tbaa !19
   %11 = add i8 %10, -48
   %or.cond = icmp ult i8 %11, 10
-  br i1 %or.cond, label %.thread163.thread, label %12
+  br i1 %or.cond, label %.thread147.thread, label %12
 
 12:                                               ; preds = %9
   %13 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 58) #14
-  %.not = icmp ne ptr %13, null
-  br i1 %.not, label %14, label %18
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %12
   %15 = ptrtoint ptr %13 to i64
@@ -2377,262 +2377,265 @@ define internal fastcc ptr @set_keygen_ctx(ptr noundef %0, ptr noundef nonnull c
   %sext = shl i64 %.091.in, 32
   %21 = ashr exact i64 %sext, 32
   %22 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.242, i64 noundef %21) #14
-  %23 = icmp ne i32 %22, 0
-  %brmerge = or i1 %.not, %23
-  br i1 %brmerge, label %27, label %24
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %27
 
 24:                                               ; preds = %20
+  br i1 %.not, label %.critedge, label %28
+
+.critedge:                                        ; preds = %24
   %25 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.243, ptr noundef nonnull %0) #12
-  br label %.thread189
-
-27:                                               ; preds = %20
-  %.mux207 = select i1 %23, i64 %21, i64 0
-  %.mux = select i1 %23, ptr %0, ptr null
-  br i1 %.not, label %28, label %.thread174
-
-28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 %21
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  br i1 %23, label %.thread163, label %33
-
-.thread163:                                       ; preds = %28
-  %.pre = load i8, ptr %30, align 1, !tbaa !19
-  %.pre209 = add i8 %.pre, -48
-  %31 = icmp ult i8 %.pre209, 10
-  br i1 %31, label %.thread163.thread, label %33
-
-.thread163.thread:                                ; preds = %9, %.thread163
-  %.086162170216 = phi ptr [ %30, %.thread163 ], [ %0, %9 ]
-  %.099160171215 = phi i64 [ %21, %.thread163 ], [ 0, %9 ]
-  %.0102159172214 = phi ptr [ %0, %.thread163 ], [ @.str.155, %9 ]
-  %32 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.086162170216, ptr noundef null, i32 noundef 10) #12
   br label %.thread174
 
-33:                                               ; preds = %.thread163, %28
-  %.099150 = phi i64 [ %21, %.thread163 ], [ 0, %28 ]
-  %.0102149 = phi ptr [ %0, %.thread163 ], [ null, %28 ]
-  %34 = tail call ptr @BIO_new_file(ptr noundef nonnull %30, ptr noundef nonnull @.str.138) #12
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %39
+27:                                               ; preds = %20
+  br i1 %.not, label %.thread159, label %.thread147
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.244, ptr noundef nonnull %30) #12
-  br label %.thread189
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %0, i64 %21
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  br label %35
 
-39:                                               ; preds = %33
-  %40 = tail call ptr @PEM_read_bio_Parameters(ptr noundef nonnull %34, ptr noundef null) #12
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %43, label %.thread184
+.thread147:                                       ; preds = %27
+  %31 = getelementptr inbounds i8, ptr %0, i64 %21
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  %.pre = load i8, ptr %32, align 1, !tbaa !19
+  %.pre202 = add i8 %.pre, -48
+  %33 = icmp ult i8 %.pre202, 10
+  br i1 %33, label %.thread147.thread, label %35
 
-.thread184:                                       ; preds = %39
-  %42 = tail call i32 @BIO_free(ptr noundef nonnull %34) #12
-  br label %54
+.thread147.thread:                                ; preds = %9, %.thread147
+  %.0102155209 = phi ptr [ %0, %.thread147 ], [ @.str.155, %9 ]
+  %.099156208 = phi i64 [ %21, %.thread147 ], [ 0, %9 ]
+  %.086157207 = phi ptr [ %32, %.thread147 ], [ %0, %9 ]
+  %34 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.086157207, ptr noundef null, i32 noundef 10) #12
+  br label %.thread159
 
-43:                                               ; preds = %39
-  %44 = tail call i64 @BIO_ctrl(ptr noundef nonnull %34, i32 noundef 1, i64 noundef 0, ptr noundef null) #12
-  %45 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %34, ptr noundef null, ptr noundef null, ptr noundef null) #12
-  %.not126 = icmp eq ptr %45, null
-  br i1 %.not126, label %.thread182, label %47
+35:                                               ; preds = %28, %.thread147
+  %.099146 = phi i64 [ %21, %.thread147 ], [ 0, %28 ]
+  %.0102145 = phi ptr [ %0, %.thread147 ], [ null, %28 ]
+  %.095 = phi ptr [ %32, %.thread147 ], [ %30, %28 ]
+  %36 = tail call ptr @BIO_new_file(ptr noundef nonnull %.095, ptr noundef nonnull @.str.138) #12
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %41
 
-.thread182:                                       ; preds = %43
-  %46 = tail call i32 @BIO_free(ptr noundef nonnull %34) #12
-  br label %51
+38:                                               ; preds = %35
+  %39 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %40 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %39, ptr noundef nonnull @.str.244, ptr noundef nonnull %.095) #12
+  br label %.thread174
 
-47:                                               ; preds = %43
-  %48 = tail call ptr @X509_get_pubkey(ptr noundef nonnull %45) #12
-  tail call void @X509_free(ptr noundef nonnull %45) #12
-  %49 = tail call i32 @BIO_free(ptr noundef nonnull %34) #12
-  %50 = icmp eq ptr %48, null
-  br i1 %50, label %51, label %54
+41:                                               ; preds = %35
+  %42 = tail call ptr @PEM_read_bio_Parameters(ptr noundef nonnull %36, ptr noundef null) #12
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %45, label %.thread169
 
-51:                                               ; preds = %.thread182, %47
-  %52 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %53 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %52, ptr noundef nonnull @.str.245, ptr noundef nonnull %30) #12
-  br label %.thread189
+.thread169:                                       ; preds = %41
+  %44 = tail call i32 @BIO_free(ptr noundef nonnull %36) #12
+  br label %56
 
-54:                                               ; preds = %.thread184, %47
-  %.1110186 = phi ptr [ %40, %.thread184 ], [ %48, %47 ]
-  %55 = icmp eq ptr %.0102149, null
-  br i1 %55, label %56, label %.thread174
+45:                                               ; preds = %41
+  %46 = tail call i64 @BIO_ctrl(ptr noundef nonnull %36, i32 noundef 1, i64 noundef 0, ptr noundef null) #12
+  %47 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %36, ptr noundef null, ptr noundef null, ptr noundef null) #12
+  %.not126 = icmp eq ptr %47, null
+  br i1 %.not126, label %.thread167, label %49
 
-56:                                               ; preds = %54
-  %57 = tail call ptr @EVP_PKEY_get0_type_name(ptr noundef nonnull %.1110186) #12
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %.thread174
+.thread167:                                       ; preds = %45
+  %48 = tail call i32 @BIO_free(ptr noundef nonnull %36) #12
+  br label %53
 
-59:                                               ; preds = %56
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %.1110186) #12
-  %60 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %61 = tail call i32 @BIO_puts(ptr noundef %60, ptr noundef nonnull @.str.246) #12
-  br label %.thread189
+49:                                               ; preds = %45
+  %50 = tail call ptr @X509_get_pubkey(ptr noundef nonnull %47) #12
+  tail call void @X509_free(ptr noundef nonnull %47) #12
+  %51 = tail call i32 @BIO_free(ptr noundef nonnull %36) #12
+  %52 = icmp eq ptr %50, null
+  br i1 %52, label %53, label %56
 
-.thread174:                                       ; preds = %27, %.thread163.thread, %54, %56
-  %.1107181 = phi i64 [ -1, %56 ], [ -1, %54 ], [ -1, %27 ], [ %32, %.thread163.thread ]
-  %.099150180 = phi i64 [ %.099150, %56 ], [ %.099150, %54 ], [ %.mux207, %27 ], [ %.099160171215, %.thread163.thread ]
-  %.0109 = phi ptr [ %.1110186, %56 ], [ %.1110186, %54 ], [ null, %27 ], [ null, %.thread163.thread ]
-  %.3105 = phi ptr [ %57, %56 ], [ %.0102149, %54 ], [ %.mux, %27 ], [ %.0102159172214, %.thread163.thread ]
-  %.not127 = icmp eq i64 %.099150180, 0
-  br i1 %.not127, label %64, label %62
+53:                                               ; preds = %.thread167, %49
+  %54 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %55 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %54, ptr noundef nonnull @.str.245, ptr noundef nonnull %.095) #12
+  br label %.thread174
 
-62:                                               ; preds = %.thread174
-  %63 = tail call noalias ptr @CRYPTO_strndup(ptr noundef %.3105, i64 noundef %.099150180, ptr noundef nonnull @.str.208, i32 noundef 1583) #12
-  br label %66
+56:                                               ; preds = %.thread169, %49
+  %.1110171 = phi ptr [ %42, %.thread169 ], [ %50, %49 ]
+  %57 = icmp eq ptr %.0102145, null
+  br i1 %57, label %58, label %.thread159
 
-64:                                               ; preds = %.thread174.thread, %.thread174
-  %.3105205 = phi ptr [ @.str.155, %.thread174.thread ], [ %.3105, %.thread174 ]
-  %.0109204 = phi ptr [ null, %.thread174.thread ], [ %.0109, %.thread174 ]
-  %.1107181202 = phi i64 [ %8, %.thread174.thread ], [ %.1107181, %.thread174 ]
-  %65 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %.3105205, ptr noundef nonnull @.str.208, i32 noundef 1585) #12
-  br label %66
+58:                                               ; preds = %56
+  %59 = tail call ptr @EVP_PKEY_get0_type_name(ptr noundef nonnull %.1110171) #12
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %.thread159
 
-66:                                               ; preds = %64, %62
-  %.0109203 = phi ptr [ %.0109204, %64 ], [ %.0109, %62 ]
-  %.1107181201 = phi i64 [ %.1107181202, %64 ], [ %.1107181, %62 ]
-  %storemerge = phi ptr [ %65, %64 ], [ %63, %62 ]
+61:                                               ; preds = %58
+  tail call void @EVP_PKEY_free(ptr noundef nonnull %.1110171) #12
+  %62 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %63 = tail call i32 @BIO_puts(ptr noundef %62, ptr noundef nonnull @.str.246) #12
+  br label %.thread174
+
+.thread159:                                       ; preds = %27, %.thread147.thread, %56, %58
+  %.1107166 = phi i64 [ -1, %58 ], [ -1, %56 ], [ %34, %.thread147.thread ], [ -1, %27 ]
+  %.099146165 = phi i64 [ %.099146, %58 ], [ %.099146, %56 ], [ %.099156208, %.thread147.thread ], [ %21, %27 ]
+  %.0109 = phi ptr [ %.1110171, %58 ], [ %.1110171, %56 ], [ null, %.thread147.thread ], [ null, %27 ]
+  %.3105 = phi ptr [ %59, %58 ], [ %.0102145, %56 ], [ %.0102155209, %.thread147.thread ], [ %0, %27 ]
+  %.not127 = icmp eq i64 %.099146165, 0
+  br i1 %.not127, label %66, label %64
+
+64:                                               ; preds = %.thread159
+  %65 = tail call noalias ptr @CRYPTO_strndup(ptr noundef %.3105, i64 noundef %.099146165, ptr noundef nonnull @.str.208, i32 noundef 1583) #12
+  br label %68
+
+66:                                               ; preds = %.thread159.thread, %.thread159
+  %.3105201 = phi ptr [ @.str.155, %.thread159.thread ], [ %.3105, %.thread159 ]
+  %.0109200 = phi ptr [ null, %.thread159.thread ], [ %.0109, %.thread159 ]
+  %.1107166198 = phi i64 [ %8, %.thread159.thread ], [ %.1107166, %.thread159 ]
+  %67 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %.3105201, ptr noundef nonnull @.str.208, i32 noundef 1585) #12
+  br label %68
+
+68:                                               ; preds = %66, %64
+  %.0109199 = phi ptr [ %.0109200, %66 ], [ %.0109, %64 ]
+  %.1107166197 = phi i64 [ %.1107166198, %66 ], [ %.1107166, %64 ]
+  %storemerge = phi ptr [ %67, %66 ], [ %65, %64 ]
   store ptr %storemerge, ptr %1, align 8, !tbaa !8
-  %67 = icmp eq ptr %storemerge, null
-  br i1 %67, label %68, label %71
+  %69 = icmp eq ptr %storemerge, null
+  br i1 %69, label %70, label %73
 
-68:                                               ; preds = %66
-  %69 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %70 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %69, ptr noundef nonnull @.str.247) #12
-  tail call void @EVP_PKEY_free(ptr noundef %.0109203) #12
-  br label %.thread189
+70:                                               ; preds = %68
+  %71 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %72 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %71, ptr noundef nonnull @.str.247) #12
+  tail call void @EVP_PKEY_free(ptr noundef %.0109199) #12
+  br label %.thread174
 
-71:                                               ; preds = %66
-  %72 = icmp sgt i64 %.1107181201, -1
-  br i1 %72, label %73, label %74
+73:                                               ; preds = %68
+  %74 = icmp sgt i64 %.1107166197, -1
+  br i1 %74, label %75, label %76
 
-73:                                               ; preds = %71
-  store i64 %.1107181201, ptr %2, align 8, !tbaa !11
-  br label %74
+75:                                               ; preds = %73
+  store i64 %.1107166197, ptr %2, align 8, !tbaa !11
+  br label %76
 
-74:                                               ; preds = %73, %71
-  %.not128 = icmp eq ptr %.0109203, null
-  br i1 %.not128, label %90, label %75
+76:                                               ; preds = %75, %73
+  %.not128 = icmp eq ptr %.0109199, null
+  br i1 %.not128, label %92, label %77
 
-75:                                               ; preds = %74
-  %76 = tail call i32 @EVP_PKEY_is_a(ptr noundef nonnull %.0109203, ptr noundef nonnull %storemerge) #12
-  %.not131 = icmp eq i32 %76, 0
-  br i1 %.not131, label %77, label %80
+77:                                               ; preds = %76
+  %78 = tail call i32 @EVP_PKEY_is_a(ptr noundef nonnull %.0109199, ptr noundef nonnull %storemerge) #12
+  %.not131 = icmp eq i32 %78, 0
+  br i1 %.not131, label %79, label %82
 
-77:                                               ; preds = %75
-  %78 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %79 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %78, ptr noundef nonnull @.str.248) #12
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %.0109203) #12
-  br label %.thread189
+79:                                               ; preds = %77
+  %80 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %81 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %80, ptr noundef nonnull @.str.248) #12
+  tail call void @EVP_PKEY_free(ptr noundef nonnull %.0109199) #12
+  br label %.thread174
 
-80:                                               ; preds = %75
+82:                                               ; preds = %77
   %.not132 = icmp eq ptr %3, null
-  br i1 %.not132, label %83, label %81
+  br i1 %.not132, label %85, label %83
 
-81:                                               ; preds = %80
-  %82 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %.0109203, ptr noundef nonnull %3) #12
-  br label %87
+83:                                               ; preds = %82
+  %84 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %.0109199, ptr noundef nonnull %3) #12
+  br label %89
 
-83:                                               ; preds = %80
-  %84 = tail call ptr @app_get0_libctx() #12
-  %85 = tail call ptr @app_get0_propq() #12
-  %86 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %84, ptr noundef nonnull %.0109203, ptr noundef %85) #12
-  br label %87
+85:                                               ; preds = %82
+  %86 = tail call ptr @app_get0_libctx() #12
+  %87 = tail call ptr @app_get0_propq() #12
+  %88 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %86, ptr noundef nonnull %.0109199, ptr noundef %87) #12
+  br label %89
 
-87:                                               ; preds = %83, %81
-  %.092 = phi ptr [ %82, %81 ], [ %86, %83 ]
-  %88 = tail call i32 @EVP_PKEY_get_bits(ptr noundef nonnull %.0109203) #12
-  %89 = sext i32 %88 to i64
-  store i64 %89, ptr %2, align 8, !tbaa !11
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %.0109203) #12
-  br label %100
+89:                                               ; preds = %85, %83
+  %.092 = phi ptr [ %84, %83 ], [ %88, %85 ]
+  %90 = tail call i32 @EVP_PKEY_get_bits(ptr noundef nonnull %.0109199) #12
+  %91 = sext i32 %90 to i64
+  store i64 %91, ptr %2, align 8, !tbaa !11
+  tail call void @EVP_PKEY_free(ptr noundef nonnull %.0109199) #12
+  br label %102
 
-90:                                               ; preds = %74
+92:                                               ; preds = %76
   %.not129 = icmp eq ptr %3, null
-  %91 = tail call ptr @app_get0_libctx() #12
-  %92 = load ptr, ptr %1, align 8, !tbaa !8
-  br i1 %.not129, label %97, label %93
+  %93 = tail call ptr @app_get0_libctx() #12
+  %94 = load ptr, ptr %1, align 8, !tbaa !8
+  br i1 %.not129, label %99, label %95
 
-93:                                               ; preds = %90
-  %94 = tail call i32 @get_legacy_pkey_id(ptr noundef %91, ptr noundef %92, ptr noundef nonnull %3) #12
-  %.not130 = icmp eq i32 %94, 0
-  br i1 %.not130, label %.thread187, label %95
+95:                                               ; preds = %92
+  %96 = tail call i32 @get_legacy_pkey_id(ptr noundef %93, ptr noundef %94, ptr noundef nonnull %3) #12
+  %.not130 = icmp eq i32 %96, 0
+  br i1 %.not130, label %.thread172, label %97
 
-95:                                               ; preds = %93
-  %96 = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef %94, ptr noundef nonnull %3) #12
-  br label %100
+97:                                               ; preds = %95
+  %98 = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef %96, ptr noundef nonnull %3) #12
+  br label %102
 
-97:                                               ; preds = %90
-  %98 = tail call ptr @app_get0_propq() #12
-  %99 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %91, ptr noundef %92, ptr noundef %98) #12
-  br label %100
+99:                                               ; preds = %92
+  %100 = tail call ptr @app_get0_propq() #12
+  %101 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %93, ptr noundef %94, ptr noundef %100) #12
+  br label %102
 
-100:                                              ; preds = %95, %97, %87
-  %.193 = phi ptr [ %.092, %87 ], [ %99, %97 ], [ %96, %95 ]
-  %101 = icmp eq ptr %.193, null
-  br i1 %101, label %.thread187, label %104
+102:                                              ; preds = %97, %99, %89
+  %.193 = phi ptr [ %.092, %89 ], [ %101, %99 ], [ %98, %97 ]
+  %103 = icmp eq ptr %.193, null
+  br i1 %103, label %.thread172, label %106
 
-.thread187:                                       ; preds = %93, %100
-  %102 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %103 = tail call i32 @BIO_puts(ptr noundef %102, ptr noundef nonnull @.str.249) #12
-  br label %.thread189
+.thread172:                                       ; preds = %95, %102
+  %104 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %105 = tail call i32 @BIO_puts(ptr noundef %104, ptr noundef nonnull @.str.249) #12
+  br label %.thread174
 
-104:                                              ; preds = %100
-  %105 = tail call i32 @EVP_PKEY_keygen_init(ptr noundef nonnull %.193) #12
-  %106 = icmp slt i32 %105, 1
-  br i1 %106, label %107, label %110
+106:                                              ; preds = %102
+  %107 = tail call i32 @EVP_PKEY_keygen_init(ptr noundef nonnull %.193) #12
+  %108 = icmp slt i32 %107, 1
+  br i1 %108, label %109, label %112
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %109 = tail call i32 @BIO_puts(ptr noundef %108, ptr noundef nonnull @.str.250) #12
+109:                                              ; preds = %106
+  %110 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %111 = tail call i32 @BIO_puts(ptr noundef %110, ptr noundef nonnull @.str.250) #12
   tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.193) #12
-  br label %.thread189
+  br label %.thread174
 
-110:                                              ; preds = %104
-  %111 = icmp eq i64 %.1107181201, -1
-  br i1 %111, label %112, label %.thread192
-
-112:                                              ; preds = %110
-  %113 = tail call i32 @EVP_PKEY_CTX_is_a(ptr noundef nonnull %.193, ptr noundef nonnull @.str.155) #12
-  %.not133 = icmp eq i32 %113, 0
-  br i1 %.not133, label %114, label %116
+112:                                              ; preds = %106
+  %113 = icmp eq i64 %.1107166197, -1
+  br i1 %113, label %114, label %.thread177
 
 114:                                              ; preds = %112
-  %115 = tail call i32 @EVP_PKEY_CTX_is_a(ptr noundef nonnull %.193, ptr noundef nonnull @.str.156) #12
-  %.not134 = icmp eq i32 %115, 0
-  br i1 %.not134, label %.thread189, label %116
+  %115 = tail call i32 @EVP_PKEY_CTX_is_a(ptr noundef nonnull %.193, ptr noundef nonnull @.str.155) #12
+  %.not133 = icmp eq i32 %115, 0
+  br i1 %.not133, label %116, label %118
 
-116:                                              ; preds = %112, %114
-  %117 = load i64, ptr %2, align 8, !tbaa !11
-  %.not135 = icmp eq i64 %117, -1
-  br i1 %.not135, label %.thread189, label %.thread192
+116:                                              ; preds = %114
+  %117 = tail call i32 @EVP_PKEY_CTX_is_a(ptr noundef nonnull %.193, ptr noundef nonnull @.str.156) #12
+  %.not134 = icmp eq i32 %117, 0
+  br i1 %.not134, label %.thread174, label %118
 
-.thread192:                                       ; preds = %110, %116
-  %.2108195 = phi i64 [ %117, %116 ], [ %.1107181201, %110 ]
+118:                                              ; preds = %114, %116
+  %119 = load i64, ptr %2, align 8, !tbaa !11
+  %.not135 = icmp eq i64 %119, -1
+  br i1 %.not135, label %.thread174, label %.thread177
+
+.thread177:                                       ; preds = %112, %118
+  %.2108180 = phi i64 [ %119, %118 ], [ %.1107166197, %112 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  store i64 %.2108195, ptr %6, align 8, !tbaa !11
+  store i64 %.2108180, ptr %6, align 8, !tbaa !11
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.251, ptr noundef nonnull %6) #12
-  %118 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %118, i8 0, i64 40, i1 false)
-  %119 = call i32 @EVP_PKEY_CTX_set_params(ptr noundef nonnull %.193, ptr noundef nonnull %5) #12
-  %120 = icmp sgt i32 %119, 0
-  br i1 %120, label %.critedge, label %121
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %120, i8 0, i64 40, i1 false)
+  %121 = call i32 @EVP_PKEY_CTX_set_params(ptr noundef nonnull %.193, ptr noundef nonnull %5) #12
+  %122 = icmp sgt i32 %121, 0
+  br i1 %122, label %.critedge138, label %123
 
-121:                                              ; preds = %.thread192
-  %122 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %123 = call i32 @BIO_puts(ptr noundef %122, ptr noundef nonnull @.str.252) #12
+123:                                              ; preds = %.thread177
+  %124 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %125 = call i32 @BIO_puts(ptr noundef %124, ptr noundef nonnull @.str.252) #12
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.193) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #12
-  br label %.thread189
+  br label %.thread174
 
-.critedge:                                        ; preds = %.thread192
+.critedge138:                                     ; preds = %.thread177
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #12
-  br label %.thread189
+  br label %.thread174
 
-.thread189:                                       ; preds = %114, %24, %116, %.critedge, %121, %107, %.thread187, %77, %68, %59, %51, %36
-  %.2 = phi ptr [ null, %36 ], [ null, %51 ], [ null, %59 ], [ null, %68 ], [ null, %.thread187 ], [ null, %107 ], [ null, %121 ], [ null, %77 ], [ null, %24 ], [ %.193, %.critedge ], [ %.193, %116 ], [ %.193, %114 ]
+.thread174:                                       ; preds = %116, %118, %.critedge138, %123, %.critedge, %109, %.thread172, %79, %70, %61, %53, %38
+  %.2 = phi ptr [ null, %38 ], [ null, %53 ], [ null, %61 ], [ null, %70 ], [ null, %.thread172 ], [ null, %109 ], [ null, %123 ], [ null, %79 ], [ null, %.critedge ], [ %.193, %.critedge138 ], [ %.193, %118 ], [ %.193, %116 ]
   ret ptr %.2
 }
 
@@ -3135,7 +3138,7 @@ add_DN_object.exit.i:                             ; preds = %193, %186
   %208 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %207, ptr noundef nonnull @.str.230) #12
   br label %.split.i.preheader.preheader
 
-.split.i.preheader.preheader:                     ; preds = %204, %201
+.split.i.preheader.preheader:                     ; preds = %201, %204
   %209 = trunc nuw nsw i64 %4 to i32
   br label %.split.i
 

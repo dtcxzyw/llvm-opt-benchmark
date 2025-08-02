@@ -2390,116 +2390,113 @@ declare void @u_UCharsToChars_77(ptr noundef, ptr noundef, i32 noundef) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @u_versionToString_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #29 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %47, label %4
+  br i1 %3, label %48, label %4
 
 4:                                                ; preds = %2
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.sink.split, label %.preheader
 
-.preheader:                                       ; preds = %4
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
-  br label %6
+.preheader:                                       ; preds = %4, %11
+  %.03648 = phi i16 [ %12, %11 ], [ 4, %4 ]
+  %6 = zext i16 %.03648 to i64
+  %7 = getelementptr i8, ptr %0, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 -1
+  %9 = load i8, ptr %8, align 1, !tbaa !21
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %11, label %.critedge
 
-6:                                                ; preds = %.preheader, %10
-  %.03648 = phi i16 [ 4, %.preheader ], [ %11, %10 ]
-  %7 = zext i16 %.03648 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %7
-  %8 = load i8, ptr %gep, align 1, !tbaa !21
-  %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %.critedge
+11:                                               ; preds = %.preheader
+  %12 = add nsw i16 %.03648, -1
+  %.not = icmp eq i16 %12, 0
+  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !50
 
-10:                                               ; preds = %6
-  %11 = add nsw i16 %.03648, -1
-  %.not = icmp eq i16 %11, 0
-  br i1 %.not, label %.critedge, label %6, !llvm.loop !50
-
-.critedge:                                        ; preds = %10, %6
-  %.036.lcssa = phi i16 [ 0, %10 ], [ %.03648, %6 ]
+.critedge:                                        ; preds = %11, %.preheader
+  %.036.lcssa = phi i16 [ 0, %11 ], [ %.03648, %.preheader ]
   %spec.store.select = tail call i16 @llvm.umax.i16(i16 %.036.lcssa, i16 2)
-  %12 = load i8, ptr %0, align 1, !tbaa !21
-  %13 = icmp ugt i8 %12, 99
-  br i1 %13, label %14, label %19
+  %13 = load i8, ptr %0, align 1, !tbaa !21
+  %14 = icmp ugt i8 %13, 99
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %.critedge
-  %15 = udiv i8 %12, 100
-  %16 = or disjoint i8 %15, 48
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %16, ptr %1, align 1, !tbaa !21
-  %18 = urem i8 %12, 100
-  br label %19
+15:                                               ; preds = %.critedge
+  %16 = udiv i8 %13, 100
+  %17 = or disjoint i8 %16, 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %17, ptr %1, align 1, !tbaa !21
+  %19 = urem i8 %13, 100
+  br label %20
 
-19:                                               ; preds = %14, %.critedge
-  %.037 = phi ptr [ %17, %14 ], [ %1, %.critedge ]
-  %.0 = phi i8 [ %18, %14 ], [ %12, %.critedge ]
-  %20 = icmp samesign ugt i8 %.0, 9
-  br i1 %20, label %21, label %26
+20:                                               ; preds = %15, %.critedge
+  %.037 = phi ptr [ %18, %15 ], [ %1, %.critedge ]
+  %.0 = phi i8 [ %19, %15 ], [ %13, %.critedge ]
+  %21 = icmp samesign ugt i8 %.0, 9
+  br i1 %21, label %22, label %27
 
-21:                                               ; preds = %19
-  %22 = udiv i8 %.0, 10
-  %23 = or disjoint i8 %22, 48
-  %24 = getelementptr inbounds nuw i8, ptr %.037, i64 1
-  store i8 %23, ptr %.037, align 1, !tbaa !21
-  %25 = urem i8 %.0, 10
-  br label %26
+22:                                               ; preds = %20
+  %23 = udiv i8 %.0, 10
+  %24 = or disjoint i8 %23, 48
+  %25 = getelementptr inbounds nuw i8, ptr %.037, i64 1
+  store i8 %24, ptr %.037, align 1, !tbaa !21
+  %26 = urem i8 %.0, 10
+  br label %27
 
-26:                                               ; preds = %21, %19
-  %.138 = phi ptr [ %24, %21 ], [ %.037, %19 ]
-  %.1 = phi i8 [ %25, %21 ], [ %.0, %19 ]
-  %27 = or disjoint i8 %.1, 48
-  store i8 %27, ptr %.138, align 1, !tbaa !21
+27:                                               ; preds = %22, %20
+  %.138 = phi ptr [ %25, %22 ], [ %.037, %20 ]
+  %.1 = phi i8 [ %26, %22 ], [ %.0, %20 ]
+  %28 = or disjoint i8 %.1, 48
+  store i8 %28, ptr %.138, align 1, !tbaa !21
   %.23949 = getelementptr inbounds nuw i8, ptr %.138, i64 1
   %wide.trip.count = zext i16 %spec.store.select to i64
-  br label %28
+  br label %29
 
-28:                                               ; preds = %26, %45
-  %indvars.iv = phi i64 [ 1, %26 ], [ %indvars.iv.next, %45 ]
-  %.23952 = phi ptr [ %.23949, %26 ], [ %.239, %45 ]
-  %.138.pn50 = phi ptr [ %.138, %26 ], [ %.4, %45 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.138.pn50, i64 2
+29:                                               ; preds = %27, %46
+  %indvars.iv = phi i64 [ 1, %27 ], [ %indvars.iv.next, %46 ]
+  %.23952 = phi ptr [ %.23949, %27 ], [ %.239, %46 ]
+  %.138.pn50 = phi ptr [ %.138, %27 ], [ %.4, %46 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.138.pn50, i64 2
   store i8 46, ptr %.23952, align 1, !tbaa !21
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %31 = load i8, ptr %30, align 1, !tbaa !21
-  %32 = icmp ugt i8 %31, 99
-  br i1 %32, label %33, label %38
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %32 = load i8, ptr %31, align 1, !tbaa !21
+  %33 = icmp ugt i8 %32, 99
+  br i1 %33, label %34, label %39
 
-33:                                               ; preds = %28
-  %34 = udiv i8 %31, 100
-  %35 = or disjoint i8 %34, 48
-  %36 = getelementptr inbounds nuw i8, ptr %.138.pn50, i64 3
-  store i8 %35, ptr %29, align 1, !tbaa !21
-  %37 = urem i8 %31, 100
-  br label %38
+34:                                               ; preds = %29
+  %35 = udiv i8 %32, 100
+  %36 = or disjoint i8 %35, 48
+  %37 = getelementptr inbounds nuw i8, ptr %.138.pn50, i64 3
+  store i8 %36, ptr %30, align 1, !tbaa !21
+  %38 = urem i8 %32, 100
+  br label %39
 
-38:                                               ; preds = %33, %28
-  %.340 = phi ptr [ %36, %33 ], [ %29, %28 ]
-  %.2 = phi i8 [ %37, %33 ], [ %31, %28 ]
-  %39 = icmp samesign ugt i8 %.2, 9
-  br i1 %39, label %40, label %45
+39:                                               ; preds = %34, %29
+  %.340 = phi ptr [ %37, %34 ], [ %30, %29 ]
+  %.2 = phi i8 [ %38, %34 ], [ %32, %29 ]
+  %40 = icmp samesign ugt i8 %.2, 9
+  br i1 %40, label %41, label %46
 
-40:                                               ; preds = %38
-  %41 = udiv i8 %.2, 10
-  %42 = or disjoint i8 %41, 48
-  %43 = getelementptr inbounds nuw i8, ptr %.340, i64 1
-  store i8 %42, ptr %.340, align 1, !tbaa !21
-  %44 = urem i8 %.2, 10
-  br label %45
+41:                                               ; preds = %39
+  %42 = udiv i8 %.2, 10
+  %43 = or disjoint i8 %42, 48
+  %44 = getelementptr inbounds nuw i8, ptr %.340, i64 1
+  store i8 %43, ptr %.340, align 1, !tbaa !21
+  %45 = urem i8 %.2, 10
+  br label %46
 
-45:                                               ; preds = %40, %38
-  %.4 = phi ptr [ %43, %40 ], [ %.340, %38 ]
-  %.3 = phi i8 [ %44, %40 ], [ %.2, %38 ]
-  %46 = or disjoint i8 %.3, 48
-  store i8 %46, ptr %.4, align 1, !tbaa !21
+46:                                               ; preds = %41, %39
+  %.4 = phi ptr [ %44, %41 ], [ %.340, %39 ]
+  %.3 = phi i8 [ %45, %41 ], [ %.2, %39 ]
+  %47 = or disjoint i8 %.3, 48
+  store i8 %47, ptr %.4, align 1, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.239 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.sink.split, label %28, !llvm.loop !51
+  br i1 %exitcond.not, label %.sink.split, label %29, !llvm.loop !51
 
-.sink.split:                                      ; preds = %45, %4
-  %.239.lcssa.sink = phi ptr [ %1, %4 ], [ %.239, %45 ]
+.sink.split:                                      ; preds = %46, %4
+  %.239.lcssa.sink = phi ptr [ %1, %4 ], [ %.239, %46 ]
   store i8 0, ptr %.239.lcssa.sink, align 1, !tbaa !21
-  br label %47
+  br label %48
 
-47:                                               ; preds = %.sink.split, %2
+48:                                               ; preds = %.sink.split, %2
   ret void
 }
 

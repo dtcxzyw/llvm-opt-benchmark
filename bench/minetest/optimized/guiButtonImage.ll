@@ -521,8 +521,8 @@ _ZN7irr_ptrIN3irr5video8ITextureEvED2Ev.exit:     ; preds = %delete.notnull.i.i.
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14GUIButtonImage18setForegroundImageE7irr_ptrIN3irr5video8ITextureEvERKNS1_4core4rectIiEE(ptr noundef nonnull align 8 captures(none) dereferenceable(7472) %this, ptr noundef captures(none) %image, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %middle) local_unnamed_addr #3 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN14GUIButtonImage18setForegroundImageE7irr_ptrIN3irr5video8ITextureEvERKNS1_4core4rectIiEE(ptr noundef nonnull align 8 captures(none) dereferenceable(7472) %this, ptr noundef captures(none) %image, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %middle) local_unnamed_addr #6 align 2 {
 entry:
   %m_foreground_image = getelementptr inbounds nuw i8, ptr %this, i64 7456
   %0 = load ptr, ptr %image, align 8, !tbaa !17

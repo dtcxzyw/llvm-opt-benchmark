@@ -5335,12 +5335,12 @@ define internal fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr nou
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %18 = add i32 %3, 1
   %19 = icmp ult i32 %4, 2
-  br i1 %19, label %55, label %20
+  br i1 %19, label %56, label %20
 
 20:                                               ; preds = %6
   %21 = and i8 %17, 112
   %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %22, label %51
+  br i1 %.not, label %22, label %52
 
 22:                                               ; preds = %20
   %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %18)
@@ -5348,11 +5348,11 @@ define internal fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr nou
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %24, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0)
   %26 = add i32 %3, 2
   %27 = icmp eq i32 %4, 2
-  br i1 %27, label %55, label %28
+  br i1 %27, label %56, label %28
 
 28:                                               ; preds = %22
   %29 = icmp eq i8 %23, 80
-  br i1 %29, label %.lr.ph.preheader, label %51
+  br i1 %29, label %.lr.ph.preheader, label %52
 
 .lr.ph.preheader:                                 ; preds = %28
   %30 = add i32 %4, -2
@@ -5385,26 +5385,26 @@ define internal fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.pre = load ptr, ptr %5, align 8
-  tail call void @IA5_7BIT_decode(ptr noundef %.pre, ptr noundef %34, i32 noundef %30)
-  %46 = load i32, ptr @hf_gsm_a_dtap_subaddress, align 4
-  %47 = load ptr, ptr %5, align 8
-  %48 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %46, ptr noundef %0, i32 noundef %26, i32 noundef %30, ptr noundef %47)
-  br i1 %spec.select, label %49, label %55
+  %46 = load ptr, ptr %5, align 8
+  tail call void @IA5_7BIT_decode(ptr noundef %46, ptr noundef %34, i32 noundef %30)
+  %47 = load i32, ptr @hf_gsm_a_dtap_subaddress, align 4
+  %48 = load ptr, ptr %5, align 8
+  %49 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %47, ptr noundef %0, i32 noundef %26, i32 noundef %30, ptr noundef %48)
+  br i1 %spec.select, label %50, label %56
 
-49:                                               ; preds = %._crit_edge
-  %50 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %48, ptr noundef nonnull @ei_gsm_a_dtap_invalid_ia5_character)
-  br label %55
+50:                                               ; preds = %._crit_edge
+  %51 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %49, ptr noundef nonnull @ei_gsm_a_dtap_invalid_ia5_character)
+  br label %56
 
-51:                                               ; preds = %28, %20
+52:                                               ; preds = %28, %20
   %.078 = phi i32 [ %18, %20 ], [ %26, %28 ]
-  %52 = load i32, ptr @hf_gsm_a_dtap_subaddress_information, align 4
+  %53 = load i32, ptr @hf_gsm_a_dtap_subaddress_information, align 4
   %.neg = add i32 %4, %3
-  %53 = sub i32 %.neg, %.078
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %52, ptr noundef %0, i32 noundef %.078, i32 noundef %53, i32 noundef 0)
-  br label %55
+  %54 = sub i32 %.neg, %.078
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %53, ptr noundef %0, i32 noundef %.078, i32 noundef %54, i32 noundef 0)
+  br label %56
 
-55:                                               ; preds = %._crit_edge, %49, %6, %22, %51
+56:                                               ; preds = %._crit_edge, %50, %6, %22, %52
   ret void
 }
 

@@ -705,14 +705,14 @@ while.body:                                       ; preds = %land.rhs
 while.end:                                        ; preds = %land.rhs, %if.end
   %key.sroa.0.0.lcssa = phi i64 [ %.sroa.speculated.i, %if.end ], [ %key.sroa.0.050, %land.rhs ]
   %key.sroa.10.0.lcssa = phi ptr [ %line.coerce1, %if.end ], [ %key.sroa.10.051, %land.rhs ]
-  %invariant.gep = getelementptr i8, ptr %key.sroa.10.0.lcssa, i64 -1
   %cmp.i1055 = icmp eq i64 %key.sroa.0.0.lcssa, 0
   br i1 %cmp.i1055, label %cleanup.cont, label %land.rhs8
 
 land.rhs8:                                        ; preds = %while.end, %while.body14
   %key.sroa.0.156 = phi i64 [ %sub.i13, %while.body14 ], [ %key.sroa.0.0.lcssa, %while.end ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %key.sroa.0.156
-  %1 = load i8, ptr %gep, align 1
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %key.sroa.10.0.lcssa, i64 %key.sroa.0.156
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i12, i64 -1
+  %1 = load i8, ptr %add.ptr2.i, align 1
   %conv10 = sext i8 %1 to i32
   %call11 = tail call i32 @isspace(i32 noundef %conv10) #16
   %tobool12.not = icmp eq i32 %call11, 0

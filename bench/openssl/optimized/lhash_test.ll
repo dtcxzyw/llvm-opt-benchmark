@@ -1377,7 +1377,7 @@ declare i32 @CRYPTO_atomic_add(ptr noundef, i32 noundef, ptr noundef, ptr nounde
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @thread_run(ptr noundef readonly captures(none) %0) #0 {
+define internal noalias noundef ptr @thread_run(ptr noundef readonly captures(none) %0) #0 {
   tail call void %0() #13
   tail call void @OPENSSL_thread_stop() #13
   ret ptr null

@@ -987,8 +987,8 @@ define internal fastcc void @_add_selected_metadata(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
   %19 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %16, ptr noundef nonnull %3) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  %.not162.i = icmp eq i32 %19, 0
-  br i1 %.not162.i, label %_find_metadata_iter_per_text.exit.thread11, label %.lr.ph.i
+  %.not161.i = icmp eq i32 %19, 0
+  br i1 %.not161.i, label %_find_metadata_iter_per_text.exit.thread11, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18, %23
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %16, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %4, i32 noundef -1) #8

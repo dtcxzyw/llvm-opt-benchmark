@@ -14927,7 +14927,7 @@ define void @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..binding
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %18, ptr %19, align 8
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %56
+  br label %54
 
 20:                                               ; preds = %13
   call void @llvm.experimental.noalias.scope.decl(metadata !2441)
@@ -15000,31 +15000,9 @@ define void @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..binding
   store i64 %.sroa.03.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.438.2.copyload = load i48, ptr %.sroa.6, align 8
   %trunc.i14 = trunc nuw i16 %11 to i1
-  br i1 %trunc.i14, label %53, label %51
+  br i1 %trunc.i14, label %51, label %"_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..From$LT$core..net..socket_addr..SocketAddr$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$GT$4from17hc4e6164142b4cd0bE.exit"
 
 51:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h20b924971bf8dfa4E.llvm.10930056130443165094.exit"
-  %.sroa.02.0.extract.trunc.i.i = trunc i48 %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.438.2.copyload to i32
-  %.sroa.4.0.extract.shift.i.i = and i48 %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.438.2.copyload, -4294967296
-  %52 = bitcast i32 %.sroa.02.0.extract.trunc.i.i to <4 x i8>
-  %.sroa.02.0.vec.extract.i.i.i = extractelement <4 x i8> %52, i64 0
-  %.sroa.02.1.vec.extract.i.i.i = extractelement <4 x i8> %52, i64 1
-  %.sroa.02.2.vec.extract.i.i.i = extractelement <4 x i8> %52, i64 2
-  %.sroa.02.3.vec.extract.i.i.i = extractelement <4 x i8> %52, i64 3
-  %.sroa.4.0.insert.ext.i.i.i = zext i8 %.sroa.02.3.vec.extract.i.i.i to i32
-  %.sroa.4.0.insert.shift.i.i.i = shl nuw i32 %.sroa.4.0.insert.ext.i.i.i, 24
-  %.sroa.3.0.insert.ext.i.i.i = zext i8 %.sroa.02.2.vec.extract.i.i.i to i32
-  %.sroa.3.0.insert.shift.i.i.i = shl nuw nsw i32 %.sroa.3.0.insert.ext.i.i.i, 16
-  %.sroa.3.0.insert.insert.i.i.i = or disjoint i32 %.sroa.4.0.insert.shift.i.i.i, %.sroa.3.0.insert.shift.i.i.i
-  %.sroa.2.0.insert.ext.i.i.i = zext i8 %.sroa.02.1.vec.extract.i.i.i to i32
-  %.sroa.2.0.insert.shift.i.i.i = shl nuw nsw i32 %.sroa.2.0.insert.ext.i.i.i, 8
-  %.sroa.2.0.insert.insert.i.i.i = or disjoint i32 %.sroa.3.0.insert.insert.i.i.i, %.sroa.2.0.insert.shift.i.i.i
-  %.sroa.01.0.insert.ext.i.i.i = zext i8 %.sroa.02.0.vec.extract.i.i.i to i32
-  %.sroa.01.0.insert.insert.i.i.i = or disjoint i32 %.sroa.2.0.insert.insert.i.i.i, %.sroa.01.0.insert.ext.i.i.i
-  %.sroa.03.0.insert.ext.i.i = zext i32 %.sroa.01.0.insert.insert.i.i.i to i48
-  %.sroa.03.0.insert.insert.i.i = or disjoint i48 %.sroa.4.0.extract.shift.i.i, %.sroa.03.0.insert.ext.i.i
-  br label %"_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..From$LT$core..net..socket_addr..SocketAddr$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$GT$4from17hc4e6164142b4cd0bE.exit"
-
-53:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h20b924971bf8dfa4E.llvm.10930056130443165094.exit"
   %.sroa.739.2..sroa.6.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2456
   %.sroa.438.2.extract.shift = lshr i48 %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.438.2.copyload, 16
@@ -15034,9 +15012,9 @@ define void @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..binding
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.739.4..sroa_idx, ptr noundef nonnull align 2 dereferenceable(12) %.sroa.739.2..sroa.6.sroa_idx, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i), !noalias !2464
   invoke void @_ZN13wasmtime_wasi7network14from_ipv6_addr17h51670100d7f9563eE(ptr noalias noundef nonnull sret({ i16, i16, i16, i16, i16, i16, i16, i16 }) align 2 captures(none) dereferenceable(16) %.sroa.0.i, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3)
-          to label %.noexc unwind label %54
+          to label %.noexc unwind label %52
 
-.noexc:                                           ; preds = %53
+.noexc:                                           ; preds = %51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2456
   %.sroa.4.2.copyload = load i32, ptr %.sroa.0.i, align 4, !noalias !2465
   %.sroa.4.2.insert.ext = zext i32 %.sroa.4.2.copyload to i48
@@ -15049,20 +15027,20 @@ define void @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..binding
 "_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha446af7d62a54da1E.exit.thread": ; preds = %27, %23, %20, %40
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.6)
-  br label %56
+  br label %54
 
-54:                                               ; preds = %53
-  %55 = landingpad { ptr, i32 }
+52:                                               ; preds = %51
+  %53 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1787ffa5e71ec763E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #25
-          to label %59 unwind label %57
+          to label %57 unwind label %55
 
-"_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..From$LT$core..net..socket_addr..SocketAddr$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$GT$4from17hc4e6164142b4cd0bE.exit": ; preds = %.noexc, %51
-  %.sroa.7.046 = phi i32 [ %.sroa.5.sroa.5.0.copyload, %.noexc ], [ undef, %51 ]
-  %.sroa.620.0 = phi i32 [ %.sroa.5.sroa.4.0.copyload, %.noexc ], [ undef, %51 ]
-  %.sroa.8.0 = phi i16 [ %.sroa.5.sroa.6.0.copyload, %.noexc ], [ undef, %51 ]
-  %.sroa.4.0 = phi i48 [ %.sroa.4.2.insert.shift, %.noexc ], [ %.sroa.03.0.insert.insert.i.i, %51 ]
-  %.sink.i = phi i16 [ 1, %.noexc ], [ 0, %51 ]
+"_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..From$LT$core..net..socket_addr..SocketAddr$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$GT$4from17hc4e6164142b4cd0bE.exit": ; preds = %.noexc, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h20b924971bf8dfa4E.llvm.10930056130443165094.exit"
+  %.sroa.7.046 = phi i32 [ %.sroa.5.sroa.5.0.copyload, %.noexc ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h20b924971bf8dfa4E.llvm.10930056130443165094.exit" ]
+  %.sroa.620.0 = phi i32 [ %.sroa.5.sroa.4.0.copyload, %.noexc ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h20b924971bf8dfa4E.llvm.10930056130443165094.exit" ]
+  %.sroa.8.0 = phi i16 [ %.sroa.5.sroa.6.0.copyload, %.noexc ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h20b924971bf8dfa4E.llvm.10930056130443165094.exit" ]
+  %.sroa.4.0 = phi i48 [ %.sroa.4.2.insert.shift, %.noexc ], [ %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.438.2.copyload, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h20b924971bf8dfa4E.llvm.10930056130443165094.exit" ]
+  %.sink.i = phi i16 [ 1, %.noexc ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h20b924971bf8dfa4E.llvm.10930056130443165094.exit" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.029, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.029, i64 24, i1 false)
@@ -15080,20 +15058,20 @@ define void @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..binding
   store i16 %.sroa.8.0, ptr %.sroa.935.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.029)
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.6)
-  br label %56
+  br label %54
 
-56:                                               ; preds = %15, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha446af7d62a54da1E.exit.thread", %"_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..From$LT$core..net..socket_addr..SocketAddr$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$GT$4from17hc4e6164142b4cd0bE.exit"
+54:                                               ; preds = %15, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha446af7d62a54da1E.exit.thread", %"_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..From$LT$core..net..socket_addr..SocketAddr$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$GT$4from17hc4e6164142b4cd0bE.exit"
   call void @llvm.lifetime.end.p0(i64 65535, ptr nonnull %6)
   ret void
 
-57:                                               ; preds = %54
-  %58 = landingpad { ptr, i32 }
+55:                                               ; preds = %52
+  %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24
   unreachable
 
-59:                                               ; preds = %54
-  resume { ptr, i32 } %55
+57:                                               ; preds = %52
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: nonlazybind uwtable

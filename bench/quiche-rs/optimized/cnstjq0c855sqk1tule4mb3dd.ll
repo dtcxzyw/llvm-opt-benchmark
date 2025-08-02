@@ -276,14 +276,14 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit.i33: ; pred
   br i1 %86, label %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit", label %100
 
 87:                                               ; preds = %"_ZN15crossbeam_queue9seg_queue13Slot$LT$T$GT$10wait_write17he9c363fd17ebb97eE.exit"
-  %88 = getelementptr i8, ptr %.sroa.012.0, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.012.0, i64 40
   br label %89
 
 89:                                               ; preds = %99, %87
   %.sroa.0.04.i = phi i64 [ 0, %87 ], [ %90, %99 ]
   %90 = add nuw nsw i64 %.sroa.0.04.i, 1
   %.idx.i = mul nuw nsw i64 %.sroa.0.04.i, 40
-  %91 = getelementptr i8, ptr %88, i64 %.idx.i
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i
   %92 = load atomic i64, ptr %91 acquire, align 8
   %93 = and i64 %92, 2
   %94 = icmp eq i64 %93, 0
@@ -304,14 +304,14 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit.i33: ; pred
   br i1 %101, label %.lr.ph.i43, label %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$7destroy17h8206de74bf3947bdE.exit.sink.split"
 
 .lr.ph.i43:                                       ; preds = %100
-  %102 = getelementptr i8, ptr %.sroa.012.0, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.012.0, i64 40
   br label %103
 
 103:                                              ; preds = %113, %.lr.ph.i43
   %.sroa.0.04.i44 = phi i64 [ %51, %.lr.ph.i43 ], [ %104, %113 ]
   %104 = add nuw nsw i64 %.sroa.0.04.i44, 1
   %.idx.i45 = mul nuw nsw i64 %.sroa.0.04.i44, 40
-  %105 = getelementptr i8, ptr %102, i64 %.idx.i45
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx.i45
   %106 = load atomic i64, ptr %105 acquire, align 8
   %107 = and i64 %106, 2
   %108 = icmp eq i64 %107, 0

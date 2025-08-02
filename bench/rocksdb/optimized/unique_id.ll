@@ -46,38 +46,39 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 20, i8 noundef signext 0)
   %4 = load ptr, ptr %0, align 8, !tbaa !10
   %5 = tail call i64 @llvm.fshl.i64(i64 %1, i64 %2, i64 2)
-  %invariant.gep = getelementptr i8, ptr %4, i64 -1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
-  %.013.i = phi i64 [ %10, %.lr.ph.i ], [ 8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ]
-  %.01012.i = phi i64 [ %9, %.lr.ph.i ], [ %5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ]
+  %.013.i = phi i64 [ %12, %.lr.ph.i ], [ 8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ]
+  %.01012.i = phi i64 [ %11, %.lr.ph.i ], [ %5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ]
   %6 = urem i64 %.01012.i, 36
   %7 = getelementptr inbounds nuw i8, ptr @.str.15, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !13
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.013.i
-  store i8 %8, ptr %gep, align 1, !tbaa !13
-  %9 = udiv i64 %.01012.i, 36
-  %10 = add nsw i64 %.013.i, -1
-  %.not.i = icmp eq i64 %10, 0
+  %9 = getelementptr i8, ptr %4, i64 %.013.i
+  %10 = getelementptr i8, ptr %9, i64 -1
+  store i8 %8, ptr %10, align 1, !tbaa !13
+  %11 = udiv i64 %.01012.i, 36
+  %12 = add nsw i64 %.013.i, -1
+  %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit:    ; preds = %.lr.ph.i
-  %11 = and i64 %2, 4611686018427387903
-  %invariant.gep15 = getelementptr i8, ptr %4, i64 7
+  %13 = and i64 %2, 4611686018427387903
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %.lr.ph.i7, %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit
-  %.013.i8 = phi i64 [ %16, %.lr.ph.i7 ], [ 12, %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit ]
-  %.01012.i9 = phi i64 [ %15, %.lr.ph.i7 ], [ %11, %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit ]
-  %12 = urem i64 %.01012.i9, 36
-  %13 = getelementptr inbounds nuw i8, ptr @.str.15, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !13
-  %gep16 = getelementptr i8, ptr %invariant.gep15, i64 %.013.i8
-  store i8 %14, ptr %gep16, align 1, !tbaa !13
-  %15 = udiv i64 %.01012.i9, 36
-  %16 = add nsw i64 %.013.i8, -1
-  %.not.i10 = icmp eq i64 %16, 0
+  %.013.i8 = phi i64 [ %21, %.lr.ph.i7 ], [ 12, %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit ]
+  %.01012.i9 = phi i64 [ %20, %.lr.ph.i7 ], [ %13, %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit ]
+  %15 = urem i64 %.01012.i9, 36
+  %16 = getelementptr inbounds nuw i8, ptr @.str.15, i64 %15
+  %17 = load i8, ptr %16, align 1, !tbaa !13
+  %18 = getelementptr i8, ptr %14, i64 %.013.i8
+  %19 = getelementptr i8, ptr %18, i64 -1
+  store i8 %17, ptr %19, align 1, !tbaa !13
+  %20 = udiv i64 %.01012.i9, 36
+  %21 = add nsw i64 %.013.i8, -1
+  %.not.i10 = icmp eq i64 %21, 0
   br i1 %.not.i10, label %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit11, label %.lr.ph.i7, !llvm.loop !14
 
 _ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit11:  ; preds = %.lr.ph.i7

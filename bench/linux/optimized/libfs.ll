@@ -2837,7 +2837,7 @@ define dso_local i64 @simple_attr_read(ptr noundef readonly captures(none) %0, p
 
 23:                                               ; preds = %19
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #15
-  br label %39
+  br label %38
 
 25:                                               ; preds = %19, %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
@@ -2847,63 +2847,63 @@ define dso_local i64 @simple_attr_read(ptr noundef readonly captures(none) %0, p
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 %26(ptr noundef %28, ptr noundef nonnull %5) #15
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.thread, label %37
+  br i1 %30, label %31, label %.critedge
 
-.thread:                                          ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i64, ptr %5, align 8
-  %35 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %31, i64 noundef 24, ptr noundef %33, i64 noundef %34) #15
-  %36 = sext i32 %35 to i64
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i64, ptr %5, align 8
+  %36 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %32, i64 noundef 24, ptr noundef %34, i64 noundef %35) #15
+  %37 = sext i32 %36 to i64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   %.pre = load i64, ptr %3, align 8
-  br label %39
+  br label %38
 
-37:                                               ; preds = %25
-  %38 = sext i32 %29 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  br label %59
+38:                                               ; preds = %31, %23
+  %39 = phi i64 [ %17, %23 ], [ %.pre, %31 ]
+  %40 = phi i64 [ %24, %23 ], [ %37, %31 ]
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %42 = icmp slt i64 %39, 0
+  br i1 %42, label %59, label %43
 
-39:                                               ; preds = %.thread, %23
-  %40 = phi i64 [ %17, %23 ], [ %.pre, %.thread ]
-  %41 = phi i64 [ %24, %23 ], [ %36, %.thread ]
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %43 = icmp slt i64 %40, 0
-  br i1 %43, label %59, label %44
+43:                                               ; preds = %38
+  %44 = icmp ult i64 %39, %40
+  %45 = icmp ne i64 %2, 0
+  %46 = and i1 %45, %44
+  br i1 %46, label %47, label %59
 
-44:                                               ; preds = %39
-  %45 = icmp ult i64 %40, %41
-  %46 = icmp ne i64 %2, 0
-  %47 = and i1 %46, %45
-  br i1 %47, label %48, label %59
+47:                                               ; preds = %43
+  %48 = sub nuw i64 %40, %39
+  %49 = call i64 @llvm.umin.i64(i64 %48, i64 %2)
+  %50 = icmp ugt i64 %49, 2147483647
+  br i1 %50, label %.thread, label %51, !prof !12
 
-48:                                               ; preds = %44
-  %49 = sub nuw i64 %41, %40
-  %50 = call i64 @llvm.umin.i64(i64 %49, i64 %2)
-  %51 = icmp ugt i64 %50, 2147483647
-  br i1 %51, label %.thread6, label %52, !prof !12
-
-.thread6:                                         ; preds = %48
+.thread:                                          ; preds = %47
   call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #15, !srcloc !33
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 249, i32 2307, i64 12) #15, !srcloc !34
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #15, !srcloc !35
   br label %59
 
-52:                                               ; preds = %48
-  %53 = getelementptr i8, ptr %42, i64 %40
-  %54 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef %53, i64 noundef %50) #15
-  %55 = icmp eq i64 %54, %50
-  br i1 %55, label %59, label %56
+51:                                               ; preds = %47
+  %52 = getelementptr i8, ptr %41, i64 %39
+  %53 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef %52, i64 noundef %49) #15
+  %54 = icmp eq i64 %53, %49
+  br i1 %54, label %59, label %55
 
-56:                                               ; preds = %52
-  %57 = sub i64 %50, %54
-  %58 = add i64 %57, %40
-  store i64 %58, ptr %3, align 8
+55:                                               ; preds = %51
+  %56 = sub i64 %49, %53
+  %57 = add i64 %56, %39
+  store i64 %57, ptr %3, align 8
   br label %59
 
-59:                                               ; preds = %.thread6, %37, %56, %52, %44, %39
-  %60 = phi i64 [ %38, %37 ], [ %57, %56 ], [ -22, %39 ], [ 0, %44 ], [ -14, %52 ], [ -14, %.thread6 ]
+.critedge:                                        ; preds = %25
+  %58 = sext i32 %29 to i64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  br label %59
+
+59:                                               ; preds = %.thread, %.critedge, %55, %51, %43, %38
+  %60 = phi i64 [ %56, %55 ], [ -22, %38 ], [ 0, %43 ], [ -14, %51 ], [ %58, %.critedge ], [ -14, %.thread ]
   call void @mutex_unlock(ptr noundef nonnull %11) #15
   br label %61
 
@@ -3399,7 +3399,7 @@ define dso_local noundef zeroext i1 @inode_maybe_inc_iversion(ptr noundef %0, i1
   %5 = and i64 %4, 1
   %6 = icmp ne i64 %5, 0
   %7 = select i1 %1, i1 true, i1 %6
-  br i1 %7, label %.lr.ph, label %.thread
+  br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
   %8 = and i64 %4, -2
@@ -3412,7 +3412,7 @@ define dso_local noundef zeroext i1 @inode_maybe_inc_iversion(ptr noundef %0, i1
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %13, label %.lr.ph5, label %.thread, !prof !40
+  br i1 %13, label %.lr.ph5, label %.critedge, !prof !40
 
 .lr.ph5:                                          ; preds = %.lr.ph.split.us, %.lr.ph5
   %14 = phi { i8, i64 } [ %18, %.lr.ph5 ], [ %10, %.lr.ph.split.us ]
@@ -3424,10 +3424,10 @@ define dso_local noundef zeroext i1 @inode_maybe_inc_iversion(ptr noundef %0, i1
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i8 %19, 0
-  br i1 %21, label %.lr.ph5, label %.thread, !prof !42, !llvm.loop !43
+  br i1 %21, label %.lr.ph5, label %.critedge, !prof !42, !llvm.loop !43
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %13, label %.lr.ph3, label %.thread, !prof !40
+  br i1 %13, label %.lr.ph3, label %.critedge, !prof !40
 
 22:                                               ; preds = %.lr.ph3
   %23 = and i64 %30, -2
@@ -3437,16 +3437,16 @@ define dso_local noundef zeroext i1 @inode_maybe_inc_iversion(ptr noundef %0, i1
   %27 = icmp ult i8 %26, 2
   tail call void @llvm.assume(i1 %27)
   %28 = icmp eq i8 %26, 0
-  br i1 %28, label %.lr.ph3, label %.thread, !prof !42, !llvm.loop !45
+  br i1 %28, label %.lr.ph3, label %.critedge, !prof !42, !llvm.loop !45
 
 .lr.ph3:                                          ; preds = %.lr.ph.split, %22
   %29 = phi { i8, i64 } [ %25, %22 ], [ %10, %.lr.ph.split ]
   %30 = extractvalue { i8, i64 } %29, 1
   %31 = and i64 %30, 1
   %.not.not.not = icmp ne i64 %31, 0
-  br i1 %.not.not.not, label %22, label %.thread, !llvm.loop !45
+  br i1 %.not.not.not, label %22, label %.critedge, !llvm.loop !45
 
-.thread:                                          ; preds = %.lr.ph3, %22, %.lr.ph5, %.lr.ph.split.us, %.lr.ph.split, %2
+.critedge:                                        ; preds = %.lr.ph3, %22, %.lr.ph5, %.lr.ph.split.us, %.lr.ph.split, %2
   %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ true, %.lr.ph5 ], [ %.not.not.not, %22 ], [ %.not.not.not, %.lr.ph3 ]
   ret i1 %.lcssa
 }

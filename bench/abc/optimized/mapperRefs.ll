@@ -678,8 +678,8 @@ tailrecurse:                                      ; preds = %23
   br i1 %.not35, label %._crit_edge, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr i8, ptr %.0, i64 96
-  %56 = getelementptr i8, ptr %55, i64 %.pre62
+  %55 = getelementptr inbounds nuw i8, ptr %.0, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.pre62
   %57 = load ptr, ptr %56, align 8, !tbaa !36
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %59 = load ptr, ptr %58, align 8, !tbaa !48
@@ -687,8 +687,8 @@ tailrecurse:                                      ; preds = %23
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %51, %54
-  %60 = getelementptr i8, ptr %.0, i64 92
-  %61 = getelementptr i8, ptr %60, i64 %.pre62
+  %60 = getelementptr inbounds nuw i8, ptr %.0, i64 92
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.pre62
   %62 = load i32, ptr %61, align 4, !tbaa !40
   %63 = getelementptr inbounds nuw i8, ptr %.0, i64 76
   %64 = load i8, ptr %63, align 4, !tbaa !44

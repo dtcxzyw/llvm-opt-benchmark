@@ -396,14 +396,14 @@ define dso_local void @_ZN23cmCursesLongMessageForm13UpdateContentERKNSt7__cxx11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !12
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %66, label %8
+  br i1 %7, label %67, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8, !tbaa !12
   %12 = icmp ult i64 %11, 60000
-  br i1 %12, label %13, label %66
+  br i1 %12, label %13, label %67
 
 13:                                               ; preds = %8
   %14 = add nuw nsw i64 %11, 1
@@ -459,73 +459,70 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
   %.not12.i = icmp eq i8 %40, 0
   br i1 %.not12.i, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %39, i64 1
-  br label %41
+.lr.ph.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit, %56
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %56 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit ]
+  %41 = phi i8 [ %58, %56 ], [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit ]
+  %42 = icmp eq i8 %41, 10
+  br i1 %42, label %43, label %52
 
-41:                                               ; preds = %55, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %42 = phi i8 [ %40, %.lr.ph.i ], [ %57, %55 ]
-  %43 = icmp eq i8 %42, 10
-  br i1 %43, label %44, label %51
+43:                                               ; preds = %.lr.ph.i
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %46 = load i8, ptr %45, align 1, !tbaa !15
+  %.not.i = icmp eq i8 %46, 0
+  br i1 %.not.i, label %52, label %47
 
-44:                                               ; preds = %41
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %45 = load i8, ptr %gep.i, align 1, !tbaa !15
-  %.not.i = icmp eq i8 %45, 0
-  br i1 %.not.i, label %51, label %46
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %34, align 8, !tbaa !25
+  %49 = tail call i32 @form_driver(ptr noundef %48, i32 noundef 530)
+  %50 = load ptr, ptr %34, align 8, !tbaa !25
+  %51 = tail call i32 @form_driver(ptr noundef %50, i32 noundef 536)
+  br label %56
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %34, align 8, !tbaa !25
-  %48 = tail call i32 @form_driver(ptr noundef %47, i32 noundef 530)
-  %49 = load ptr, ptr %34, align 8, !tbaa !25
-  %50 = tail call i32 @form_driver(ptr noundef %49, i32 noundef 536)
-  br label %55
+52:                                               ; preds = %43, %.lr.ph.i
+  %53 = load ptr, ptr %34, align 8, !tbaa !25
+  %54 = sext i8 %41 to i32
+  %55 = tail call i32 @form_driver(ptr noundef %53, i32 noundef %54)
+  br label %56
 
-51:                                               ; preds = %44, %41
-  %52 = load ptr, ptr %34, align 8, !tbaa !25
-  %53 = sext i8 %42 to i32
-  %54 = tail call i32 @form_driver(ptr noundef %52, i32 noundef %53)
-  br label %55
-
-55:                                               ; preds = %51, %46
+56:                                               ; preds = %52, %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %56 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv.next.i
-  %57 = load i8, ptr %56, align 1, !tbaa !15
-  %58 = icmp ne i8 %57, 0
-  %59 = icmp samesign ult i64 %indvars.iv.i, 59999
-  %60 = select i1 %58, i1 %59, i1 false
-  br i1 %60, label %41, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, !llvm.loop !26
+  %57 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv.next.i
+  %58 = load i8, ptr %57, align 1, !tbaa !15
+  %59 = icmp ne i8 %58, 0
+  %60 = icmp samesign ult i64 %indvars.iv.i, 59999
+  %61 = select i1 %59, i1 %60, i1 false
+  br i1 %61, label %.lr.ph.i, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, !llvm.loop !26
 
-_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit: ; preds = %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %62 = load i32, ptr %61, align 8, !tbaa !16
-  %63 = icmp eq i32 %62, 1
-  %64 = load ptr, ptr %34, align 8, !tbaa !25
-  %..i = select i1 %63, i32 535, i32 534
-  %65 = tail call i32 @form_driver(ptr noundef %64, i32 noundef %..i)
-  br label %66
+_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit: ; preds = %56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %63 = load i32, ptr %62, align 8, !tbaa !16
+  %64 = icmp eq i32 %63, 1
+  %65 = load ptr, ptr %34, align 8, !tbaa !25
+  %..i = select i1 %64, i32 535, i32 534
+  %66 = tail call i32 @form_driver(ptr noundef %65, i32 noundef %..i)
+  br label %67
 
-66:                                               ; preds = %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, %8, %3
-  %67 = load ptr, ptr %0, align 8, !tbaa !4
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %69 = load ptr, ptr %68, align 8
-  tail call void %69(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %70 = load ptr, ptr @stdscr, align 8, !tbaa !28
-  %.not = icmp eq ptr %70, null
-  br i1 %.not, label %76, label %71
+67:                                               ; preds = %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, %8, %3
+  %68 = load ptr, ptr %0, align 8, !tbaa !4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %70 = load ptr, ptr %69, align 8
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(104) %0)
+  %71 = load ptr, ptr @stdscr, align 8, !tbaa !28
+  %.not = icmp eq ptr %71, null
+  br i1 %.not, label %77, label %72
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %73 = load i16, ptr %72, align 4, !tbaa !30
-  %74 = sext i16 %73 to i32
-  %75 = add nsw i32 %74, 1
-  br label %76
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
+  %74 = load i16, ptr %73, align 4, !tbaa !30
+  %75 = sext i16 %74 to i32
+  %76 = add nsw i32 %75, 1
+  br label %77
 
-76:                                               ; preds = %66, %71
-  %77 = phi i32 [ %75, %71 ], [ -1, %66 ]
-  %78 = tail call i32 @wtouchln(ptr noundef %70, i32 noundef 0, i32 noundef %77, i32 noundef 1)
-  %79 = tail call i32 @refresh()
+77:                                               ; preds = %67, %72
+  %78 = phi i32 [ %76, %72 ], [ -1, %67 ]
+  %79 = tail call i32 @wtouchln(ptr noundef %71, i32 noundef 0, i32 noundef %78, i32 noundef 1)
+  %80 = tail call i32 @refresh()
   ret void
 }
 
@@ -539,51 +536,51 @@ define dso_local void @_ZNK23cmCursesLongMessageForm11DrawMessageEPKc(ptr nounde
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %5
 
-5:                                                ; preds = %.lr.ph, %19
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %6 = phi i8 [ %3, %.lr.ph ], [ %21, %19 ]
+5:                                                ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %6 = phi i8 [ %3, %.lr.ph ], [ %23, %21 ]
   %7 = icmp eq i8 %6, 10
-  br i1 %7, label %8, label %15
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %5
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  %9 = load i8, ptr %gep, align 1, !tbaa !15
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %15, label %10
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %11 = load i8, ptr %10, align 1, !tbaa !15
+  %.not = icmp eq i8 %11, 0
+  br i1 %.not, label %17, label %12
 
-10:                                               ; preds = %8
-  %11 = load ptr, ptr %4, align 8, !tbaa !25
-  %12 = tail call i32 @form_driver(ptr noundef %11, i32 noundef 530)
+12:                                               ; preds = %8
   %13 = load ptr, ptr %4, align 8, !tbaa !25
-  %14 = tail call i32 @form_driver(ptr noundef %13, i32 noundef 536)
-  br label %19
+  %14 = tail call i32 @form_driver(ptr noundef %13, i32 noundef 530)
+  %15 = load ptr, ptr %4, align 8, !tbaa !25
+  %16 = tail call i32 @form_driver(ptr noundef %15, i32 noundef 536)
+  br label %21
 
-15:                                               ; preds = %8, %5
-  %16 = load ptr, ptr %4, align 8, !tbaa !25
-  %17 = sext i8 %6 to i32
-  %18 = tail call i32 @form_driver(ptr noundef %16, i32 noundef %17)
-  br label %19
+17:                                               ; preds = %8, %5
+  %18 = load ptr, ptr %4, align 8, !tbaa !25
+  %19 = sext i8 %6 to i32
+  %20 = tail call i32 @form_driver(ptr noundef %18, i32 noundef %19)
+  br label %21
 
-19:                                               ; preds = %15, %10
+21:                                               ; preds = %17, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
-  %21 = load i8, ptr %20, align 1, !tbaa !15
-  %22 = icmp ne i8 %21, 0
-  %23 = icmp samesign ult i64 %indvars.iv, 59999
-  %24 = select i1 %22, i1 %23, i1 false
-  br i1 %24, label %5, label %._crit_edge, !llvm.loop !26
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
+  %23 = load i8, ptr %22, align 1, !tbaa !15
+  %24 = icmp ne i8 %23, 0
+  %25 = icmp samesign ult i64 %indvars.iv, 59999
+  %26 = select i1 %24, i1 %25, i1 false
+  br i1 %26, label %5, label %._crit_edge, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %19, %2
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = load i32, ptr %25, align 8, !tbaa !16
-  %27 = icmp eq i32 %26, 1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !25
-  %. = select i1 %27, i32 535, i32 534
-  %30 = tail call i32 @form_driver(ptr noundef %29, i32 noundef %.)
+._crit_edge:                                      ; preds = %21, %2
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %28 = load i32, ptr %27, align 8, !tbaa !16
+  %29 = icmp eq i32 %28, 1
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !25
+  %. = select i1 %29, i32 535, i32 534
+  %32 = tail call i32 @form_driver(ptr noundef %31, i32 noundef %.)
   ret void
 }
 
@@ -610,59 +607,59 @@ define dso_local void @_ZN23cmCursesLongMessageForm15UpdateStatusBarEv(ptr nound
   %13 = load i16, ptr %12, align 2, !tbaa !38
   %14 = sext i16 %13 to i32
   %15 = add nsw i32 %14, 1
+  %16 = tail call i32 @llvm.umin.i32(i32 %15, i32 511)
+  %17 = zext nneg i32 %16 to i64
   br label %.thread
 
 .thread:                                          ; preds = %1, %7
-  %16 = phi i32 [ %11, %7 ], [ -1, %1 ]
-  %17 = phi i32 [ %15, %7 ], [ -1, %1 ]
+  %18 = phi i32 [ %11, %7 ], [ -1, %1 ]
+  %narrow = phi i64 [ %17, %7 ], [ 511, %1 ]
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #17
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %20 = load i64, ptr %19, align 8, !tbaa !12
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %20, i64 511)
-  %21 = load ptr, ptr %18, align 8, !tbaa !21
-  %22 = call ptr @strncpy(ptr noundef nonnull %2, ptr noundef %21, i64 noundef %spec.store.select) #17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %21 = load i64, ptr %20, align 8, !tbaa !12
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %21, i64 511)
+  %22 = load ptr, ptr %19, align 8, !tbaa !21
+  %23 = call ptr @strncpy(ptr noundef nonnull %2, ptr noundef %22, i64 noundef %spec.store.select) #17
   %scevgep = getelementptr nuw i8, ptr %2, i64 %spec.store.select
-  %23 = sub nuw nsw i64 512, %spec.store.select
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 32, i64 %23, i1 false), !tbaa !15
-  %narrow = call i32 @llvm.umin.i32(i32 %17, i32 511)
-  %.022 = zext nneg i32 %narrow to i64
-  %24 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %.022
-  store i8 0, ptr %24, align 1, !tbaa !15
+  %24 = sub nuw nsw i64 512, %spec.store.select
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 32, i64 %24, i1 false), !tbaa !15
+  %25 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %narrow
+  store i8 0, ptr %25, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3) #17
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #17
-  %25 = call noundef ptr @_ZN9cmVersion15GetCMakeVersionEv()
-  %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %25) #17
-  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
-  %28 = sub i64 %.022, %27
-  %.not30 = icmp eq i64 %27, %.022
+  %26 = call noundef ptr @_ZN9cmVersion15GetCMakeVersionEv()
+  %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %26) #17
+  %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
+  %29 = sub i64 %narrow, %28
+  %.not30 = icmp eq i64 %narrow, %28
   br i1 %.not30, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %3, i8 32, i64 %28, i1 false), !tbaa !15
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %3, i8 32, i64 %29, i1 false), !tbaa !15
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.thread
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %28
-  %30 = sub i64 512, %28
-  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %29, i64 noundef %30, ptr noundef nonnull @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, ptr noundef nonnull %4) #17
-  %32 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %.022
-  store i8 0, ptr %32, align 1, !tbaa !15
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %29
+  %31 = sub i64 512, %29
+  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %31, ptr noundef nonnull @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, ptr noundef nonnull %4) #17
+  %33 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %narrow
+  store i8 0, ptr %33, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, i64 3, i1 false)
-  %33 = add nsw i32 %16, -4
-  %34 = call i32 @move(i32 noundef %33, i32 noundef 0)
-  %35 = load ptr, ptr @stdscr, align 8, !tbaa !28
-  %36 = call i32 @wattr_on(ptr noundef %35, i32 noundef 65536, ptr noundef null)
-  %37 = call i32 (ptr, ...) @printw(ptr noundef nonnull %5, ptr noundef nonnull %2)
-  %38 = load ptr, ptr @stdscr, align 8, !tbaa !28
-  %39 = call i32 @wattr_off(ptr noundef %38, i32 noundef 65536, ptr noundef null)
-  %40 = add nsw i32 %16, -3
-  %41 = call i32 @move(i32 noundef %40, i32 noundef 0)
-  %42 = call i32 (ptr, ...) @printw(ptr noundef nonnull %5, ptr noundef nonnull %3)
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !25
-  %45 = call i32 @pos_form_cursor(ptr noundef %44)
+  %34 = add nsw i32 %18, -4
+  %35 = call i32 @move(i32 noundef %34, i32 noundef 0)
+  %36 = load ptr, ptr @stdscr, align 8, !tbaa !28
+  %37 = call i32 @wattr_on(ptr noundef %36, i32 noundef 65536, ptr noundef null)
+  %38 = call i32 (ptr, ...) @printw(ptr noundef nonnull %5, ptr noundef nonnull %2)
+  %39 = load ptr, ptr @stdscr, align 8, !tbaa !28
+  %40 = call i32 @wattr_off(ptr noundef %39, i32 noundef 65536, ptr noundef null)
+  %41 = add nsw i32 %18, -3
+  %42 = call i32 @move(i32 noundef %41, i32 noundef 0)
+  %43 = call i32 (ptr, ...) @printw(ptr noundef nonnull %5, ptr noundef nonnull %3)
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !25
+  %46 = call i32 @pos_form_cursor(ptr noundef %45)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #17
@@ -788,70 +785,67 @@ define dso_local void @_ZN23cmCursesLongMessageForm6RenderEiiii(ptr noundef nonn
   %.not12.i = icmp eq i8 %38, 0
   br i1 %.not12.i, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %29
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %37, i64 1
-  br label %39
+.lr.ph.i:                                         ; preds = %29, %54
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %54 ], [ 0, %29 ]
+  %39 = phi i8 [ %56, %54 ], [ %38, %29 ]
+  %40 = icmp eq i8 %39, 10
+  br i1 %40, label %41, label %50
 
-39:                                               ; preds = %53, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
-  %40 = phi i8 [ %38, %.lr.ph.i ], [ %55, %53 ]
-  %41 = icmp eq i8 %40, 10
-  br i1 %41, label %42, label %49
+41:                                               ; preds = %.lr.ph.i
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  %44 = load i8, ptr %43, align 1, !tbaa !15
+  %.not.i = icmp eq i8 %44, 0
+  br i1 %.not.i, label %50, label %45
 
-42:                                               ; preds = %39
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %43 = load i8, ptr %gep.i, align 1, !tbaa !15
-  %.not.i = icmp eq i8 %43, 0
-  br i1 %.not.i, label %49, label %44
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %18, align 8, !tbaa !25
+  %47 = tail call i32 @form_driver(ptr noundef %46, i32 noundef 530)
+  %48 = load ptr, ptr %18, align 8, !tbaa !25
+  %49 = tail call i32 @form_driver(ptr noundef %48, i32 noundef 536)
+  br label %54
 
-44:                                               ; preds = %42
-  %45 = load ptr, ptr %18, align 8, !tbaa !25
-  %46 = tail call i32 @form_driver(ptr noundef %45, i32 noundef 530)
-  %47 = load ptr, ptr %18, align 8, !tbaa !25
-  %48 = tail call i32 @form_driver(ptr noundef %47, i32 noundef 536)
-  br label %53
+50:                                               ; preds = %41, %.lr.ph.i
+  %51 = load ptr, ptr %18, align 8, !tbaa !25
+  %52 = sext i8 %39 to i32
+  %53 = tail call i32 @form_driver(ptr noundef %51, i32 noundef %52)
+  br label %54
 
-49:                                               ; preds = %42, %39
-  %50 = load ptr, ptr %18, align 8, !tbaa !25
-  %51 = sext i8 %40 to i32
-  %52 = tail call i32 @form_driver(ptr noundef %50, i32 noundef %51)
-  br label %53
-
-53:                                               ; preds = %49, %44
+54:                                               ; preds = %50, %45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %54 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.next.i
-  %55 = load i8, ptr %54, align 1, !tbaa !15
-  %56 = icmp ne i8 %55, 0
-  %57 = icmp samesign ult i64 %indvars.iv.i, 59999
-  %58 = select i1 %56, i1 %57, i1 false
-  br i1 %58, label %39, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, !llvm.loop !26
+  %55 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.next.i
+  %56 = load i8, ptr %55, align 1, !tbaa !15
+  %57 = icmp ne i8 %56, 0
+  %58 = icmp samesign ult i64 %indvars.iv.i, 59999
+  %59 = select i1 %57, i1 %58, i1 false
+  br i1 %59, label %.lr.ph.i, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, !llvm.loop !26
 
-_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit: ; preds = %53, %29
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %60 = load i32, ptr %59, align 8, !tbaa !16
-  %61 = icmp eq i32 %60, 1
-  %62 = load ptr, ptr %18, align 8, !tbaa !25
-  %..i = select i1 %61, i32 535, i32 534
-  %63 = tail call i32 @form_driver(ptr noundef %62, i32 noundef %..i)
-  %64 = load ptr, ptr %0, align 8, !tbaa !4
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %66 = load ptr, ptr %65, align 8
-  tail call void %66(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %67 = load ptr, ptr @stdscr, align 8, !tbaa !28
-  %.not9 = icmp eq ptr %67, null
-  br i1 %.not9, label %73, label %68
+_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit: ; preds = %54, %29
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %61 = load i32, ptr %60, align 8, !tbaa !16
+  %62 = icmp eq i32 %61, 1
+  %63 = load ptr, ptr %18, align 8, !tbaa !25
+  %..i = select i1 %62, i32 535, i32 534
+  %64 = tail call i32 @form_driver(ptr noundef %63, i32 noundef %..i)
+  %65 = load ptr, ptr %0, align 8, !tbaa !4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %67 = load ptr, ptr %66, align 8
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(104) %0)
+  %68 = load ptr, ptr @stdscr, align 8, !tbaa !28
+  %.not9 = icmp eq ptr %68, null
+  br i1 %.not9, label %74, label %69
 
-68:                                               ; preds = %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %70 = load i16, ptr %69, align 4, !tbaa !30
-  %71 = sext i16 %70 to i32
-  %72 = add nsw i32 %71, 1
-  br label %73
+69:                                               ; preds = %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %71 = load i16, ptr %70, align 4, !tbaa !30
+  %72 = sext i16 %71 to i32
+  %73 = add nsw i32 %72, 1
+  br label %74
 
-73:                                               ; preds = %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, %68
-  %74 = phi i32 [ %72, %68 ], [ -1, %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit ]
-  %75 = tail call i32 @wtouchln(ptr noundef %67, i32 noundef 0, i32 noundef %74, i32 noundef 1)
-  %76 = tail call i32 @refresh()
+74:                                               ; preds = %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, %69
+  %75 = phi i32 [ %73, %69 ], [ -1, %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit ]
+  %76 = tail call i32 @wtouchln(ptr noundef %68, i32 noundef 0, i32 noundef %75, i32 noundef 1)
+  %77 = tail call i32 @refresh()
   ret void
 }
 

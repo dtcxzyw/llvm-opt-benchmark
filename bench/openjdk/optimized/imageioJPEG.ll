@@ -5975,10 +5975,9 @@ define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr nou
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef %8, ptr noundef null) #13
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %51, label %18
+  br i1 %17, label %53, label %18
 
 18:                                               ; preds = %3
-  %invariant.gep = getelementptr i8, ptr %16, i64 -2
   %.not47 = icmp slt i32 %12, 1
   br i1 %.not47, label %._crit_edge, label %.lr.ph.preheader
 
@@ -5990,64 +5989,65 @@ define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
-  %21 = load i16, ptr %gep, align 2
-  %22 = trunc i16 %21 to i8
-  %23 = getelementptr inbounds nuw [17 x i8], ptr %1, i64 0, i64 %indvars.iv
-  store i8 %22, ptr %23, align 1
+  %21 = getelementptr i16, ptr %16, i64 %indvars.iv
+  %22 = getelementptr i8, ptr %21, i64 -2
+  %23 = load i16, ptr %22, align 2
+  %24 = trunc i16 %23 to i8
+  %25 = getelementptr inbounds nuw [17 x i8], ptr %1, i64 0, i64 %indvars.iv
+  store i8 %24, ptr %25, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
-  %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1552
-  %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %16, i32 noundef 2) #13
-  %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 760
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr @JPEGHuffmanTable_valuesID, align 8
-  %31 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %30) #13
-  %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1368
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 %34(ptr noundef nonnull %0, ptr noundef %31) #13
-  %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1488
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr %38(ptr noundef nonnull %0, ptr noundef %31, ptr noundef null) #13
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %51, label %.preheader
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1552
+  %28 = load ptr, ptr %27, align 8
+  tail call void %28(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %16, i32 noundef 2) #13
+  %29 = load ptr, ptr %0, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 760
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr @JPEGHuffmanTable_valuesID, align 8
+  %33 = tail call ptr %31(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %32) #13
+  %34 = load ptr, ptr %0, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1368
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call i32 %36(ptr noundef nonnull %0, ptr noundef %33) #13
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1488
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef %33, ptr noundef null) #13
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %53, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %41 = icmp sgt i32 %35, 0
-  br i1 %41, label %.lr.ph50, label %._crit_edge51
+  %43 = icmp sgt i32 %37, 0
+  br i1 %43, label %.lr.ph50, label %._crit_edge51
 
 .lr.ph50:                                         ; preds = %.preheader
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %wide.trip.count56 = zext nneg i32 %35 to i64
-  br label %43
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %wide.trip.count56 = zext nneg i32 %37 to i64
+  br label %45
 
-43:                                               ; preds = %.lr.ph50, %43
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next54, %43 ]
-  %44 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv53
-  %45 = load i16, ptr %44, align 2
-  %46 = trunc i16 %45 to i8
-  %47 = getelementptr inbounds nuw [256 x i8], ptr %42, i64 0, i64 %indvars.iv53
-  store i8 %46, ptr %47, align 1
+45:                                               ; preds = %.lr.ph50, %45
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next54, %45 ]
+  %46 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv53
+  %47 = load i16, ptr %46, align 2
+  %48 = trunc i16 %47 to i8
+  %49 = getelementptr inbounds nuw [256 x i8], ptr %44, i64 0, i64 %indvars.iv53
+  store i8 %48, ptr %49, align 1
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge51, label %43, !llvm.loop !34
+  br i1 %exitcond57.not, label %._crit_edge51, label %45, !llvm.loop !34
 
-._crit_edge51:                                    ; preds = %43, %.preheader
-  %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1552
-  %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull %39, i32 noundef 2) #13
-  br label %51
+._crit_edge51:                                    ; preds = %45, %.preheader
+  %50 = load ptr, ptr %0, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1552
+  %52 = load ptr, ptr %51, align 8
+  tail call void %52(ptr noundef nonnull %0, ptr noundef %33, ptr noundef nonnull %41, i32 noundef 2) #13
+  br label %53
 
-51:                                               ; preds = %._crit_edge, %3, %._crit_edge51
+53:                                               ; preds = %._crit_edge, %3, %._crit_edge51
   %.044 = phi i32 [ 1, %._crit_edge51 ], [ 0, %3 ], [ 0, %._crit_edge ]
   ret i32 %.044
 }

@@ -817,7 +817,7 @@ define void @lv_roller_set_options(ptr noundef %0, ptr noundef %1, i32 noundef %
 26:                                               ; preds = %20
   store i8 %25, ptr %23, align 8
   tail call void @lv_label_set_text(ptr noundef %6, ptr noundef nonnull %1) #6
-  br label %61
+  br label %63
 
 27:                                               ; preds = %20
   %28 = or disjoint i8 %25, 1
@@ -843,7 +843,6 @@ define void @lv_roller_set_options(ptr noundef %0, ptr noundef %1, i32 noundef %
   %44 = mul i64 %41, %43
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %44, i64 1)
   %45 = tail call ptr @lv_malloc(i64 noundef %spec.store.select) #6
-  %invariant.gep = getelementptr i8, ptr %45, i64 -1
   %46 = load i32, ptr %39, align 4, !tbaa !42
   %.not71 = icmp eq i32 %46, 0
   br i1 %.not71, label %._crit_edge, label %.lr.ph
@@ -855,32 +854,33 @@ define void @lv_roller_set_options(ptr noundef %0, ptr noundef %1, i32 noundef %
   %49 = tail call ptr @lv_strcpy(ptr noundef %48, ptr noundef nonnull %1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = mul i64 %41, %indvars.iv.next
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %50
-  store i8 10, ptr %gep, align 1, !tbaa !18
-  %51 = load i32, ptr %39, align 4, !tbaa !42
-  %52 = zext i32 %51 to i64
-  %53 = icmp samesign ult i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !59
+  %51 = getelementptr i8, ptr %45, i64 %50
+  %52 = getelementptr i8, ptr %51, i64 -1
+  store i8 10, ptr %52, align 1, !tbaa !18
+  %53 = load i32, ptr %39, align 4, !tbaa !42
+  %54 = zext i32 %53 to i64
+  %55 = icmp samesign ult i64 %indvars.iv.next, %54
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
-  %54 = getelementptr i8, ptr %45, i64 %spec.store.select
-  %55 = getelementptr i8, ptr %54, i64 -1
-  store i8 0, ptr %55, align 1, !tbaa !18
+  %56 = getelementptr i8, ptr %45, i64 %spec.store.select
+  %57 = getelementptr i8, ptr %56, i64 -1
+  store i8 0, ptr %57, align 1, !tbaa !18
   tail call void @lv_label_set_text(ptr noundef %6, ptr noundef %45) #6
   tail call void @lv_free(ptr noundef %45) #6
-  %56 = load i32, ptr %39, align 4, !tbaa !42
-  %57 = lshr i32 %56, 1
-  %58 = load i32, ptr %9, align 8, !tbaa !3
-  %59 = mul i32 %57, %58
-  store i32 %59, ptr %7, align 4, !tbaa !16
-  %60 = mul i32 %58, %56
-  store i32 %60, ptr %9, align 8, !tbaa !3
+  %58 = load i32, ptr %39, align 4, !tbaa !42
+  %59 = lshr i32 %58, 1
+  %60 = load i32, ptr %9, align 8, !tbaa !3
+  %61 = mul i32 %59, %60
+  store i32 %61, ptr %7, align 4, !tbaa !16
+  %62 = mul i32 %60, %58
+  store i32 %62, ptr %9, align 8, !tbaa !3
   tail call fastcc void @inf_normalize(ptr noundef nonnull %0)
-  br label %61
+  br label %63
 
-61:                                               ; preds = %._crit_edge, %26
-  %62 = load i32, ptr %7, align 4, !tbaa !16
-  store i32 %62, ptr %8, align 8, !tbaa !17
+63:                                               ; preds = %._crit_edge, %26
+  %64 = load i32, ptr %7, align 4, !tbaa !16
+  store i32 %64, ptr %8, align 8, !tbaa !17
   tail call void @lv_obj_refresh_ext_draw_size(ptr noundef %6) #6
   ret void
 }
@@ -1480,21 +1480,21 @@ define internal fastcc void @transform_vect_recursive(ptr noundef %0, ptr nounde
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %19 = sext i16 %7 to i32
+  %19 = tail call i32 @llvm.umax.i32(i32 %15, i32 1)
+  %20 = tail call i32 @llvm.umax.i32(i32 %17, i32 1)
+  %21 = sext i16 %7 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.021.lcssa = phi i32 [ 256, %2 ], [ %17, %._crit_edge.loopexit ]
-  %.019.lcssa = phi i32 [ 256, %2 ], [ %15, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %19, %._crit_edge.loopexit ]
+  %.021.lcssa = phi i32 [ 256, %2 ], [ %20, %._crit_edge.loopexit ]
+  %.019.lcssa = phi i32 [ 256, %2 ], [ %19, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %21, %._crit_edge.loopexit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   store i64 0, ptr %3, align 8
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.019.lcssa, i32 1)
-  %spec.store.select1 = tail call i32 @llvm.umax.i32(i32 %.021.lcssa, i32 1)
-  %20 = udiv i32 65536, %spec.store.select
-  %21 = udiv i32 65536, %spec.store.select1
-  %22 = sub nsw i32 0, %.0.lcssa
-  call void @lv_point_transform(ptr noundef nonnull %1, i32 noundef %22, i32 noundef %20, i32 noundef %21, ptr noundef nonnull %3, i1 noundef zeroext false) #6
+  %22 = udiv i32 65536, %.019.lcssa
+  %23 = udiv i32 65536, %.021.lcssa
+  %24 = sub nsw i32 0, %.0.lcssa
+  call void @lv_point_transform(ptr noundef nonnull %1, i32 noundef %24, i32 noundef %22, i32 noundef %23, ptr noundef nonnull %3, i1 noundef zeroext false) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   ret void
 }

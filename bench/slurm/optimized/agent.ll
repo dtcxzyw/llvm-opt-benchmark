@@ -2512,8 +2512,8 @@ _comm_err.exit:                                   ; preds = %127, %130, %133
   %.1200 = phi ptr [ %84, %82 ], [ %91, %90 ], [ %96, %94 ]
   %136 = call ptr @list_iterator_create(ptr noundef nonnull %.1200) #14
   %137 = call ptr @list_next(ptr noundef %136) #14
-  %.not238287 = icmp eq ptr %137, null
-  br i1 %.not238287, label %._crit_edge, label %.lr.ph
+  %.not238285 = icmp eq ptr %137, null
+  br i1 %.not238285, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %135
   %138 = icmp eq i32 %12, 4005
@@ -2525,7 +2525,7 @@ _comm_err.exit:                                   ; preds = %127, %130, %133
 
 142:                                              ; preds = %.lr.ph, %.backedge
   %143 = phi ptr [ %137, %.lr.ph ], [ %192, %.backedge ]
-  %.1198288 = phi i32 [ 3, %.lr.ph ], [ %.1198.be, %.backedge ]
+  %.1198286 = phi i32 [ 3, %.lr.ph ], [ %.1198.be, %.backedge ]
   %144 = load i16, ptr %143, align 8
   %145 = zext i16 %144 to i32
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 16
@@ -2618,9 +2618,9 @@ switch.early.test:                                ; preds = %176
   store i32 2, ptr %188, align 4
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._thread_per_group_rpc.job_write_lock) #14
   %189 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
-  %.b292 = load i1, ptr @_wif_status.rc, align 4
-  %190 = select i1 %.b292, i32 256, i32 0
-  br i1 %.b292, label %_wif_status.exit, label %.loopexit.loopexit.i
+  %.b290 = load i1, ptr @_wif_status.rc, align 4
+  %190 = select i1 %.b290, i32 256, i32 0
+  br i1 %.b290, label %_wif_status.exit, label %.loopexit.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %187
   store i1 true, ptr @_wif_status.rc, align 4
@@ -2632,8 +2632,8 @@ _wif_status.exit:                                 ; preds = %187, %.loopexit.loo
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._thread_per_group_rpc.job_write_lock) #14
   br label %.backedge
 
-.backedge:                                        ; preds = %_wif_status.exit264, %210, %208, %_wif_status.exit, %_wif_status.exit258, %.thread272
-  %.1198.be = phi i32 [ 2, %_wif_status.exit ], [ 4, %_wif_status.exit258 ], [ %.3, %.thread272 ], [ 4, %_wif_status.exit264 ], [ %.1198288, %210 ], [ %.1198288, %208 ]
+.backedge:                                        ; preds = %_wif_status.exit264, %210, %208, %_wif_status.exit, %_wif_status.exit258, %.critedge
+  %.1198.be = phi i32 [ 2, %_wif_status.exit ], [ 4, %_wif_status.exit258 ], [ %.3, %.critedge ], [ 4, %_wif_status.exit264 ], [ %.1198286, %210 ], [ %.1198286, %208 ]
   %192 = call ptr @list_next(ptr noundef %136) #14
   %.not238 = icmp eq ptr %192, null
   br i1 %.not238, label %._crit_edge, label %142, !llvm.loop !26
@@ -2659,9 +2659,9 @@ _wif_status.exit:                                 ; preds = %187, %.loopexit.loo
 203:                                              ; preds = %201, %195
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._thread_per_group_rpc.job_write_lock) #14
   %204 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
-  %.b291 = load i1, ptr @_wif_status.rc, align 4
-  %205 = select i1 %.b291, i32 256, i32 0
-  br i1 %.b291, label %_wif_status.exit258, label %.loopexit.loopexit.i257
+  %.b289 = load i1, ptr @_wif_status.rc, align 4
+  %205 = select i1 %.b289, i32 256, i32 0
+  br i1 %.b289, label %_wif_status.exit258, label %.loopexit.loopexit.i257
 
 .loopexit.loopexit.i257:                          ; preds = %203
   store i1 true, ptr @_wif_status.rc, align 4
@@ -2777,7 +2777,7 @@ _wif_status.exit264:                              ; preds = %221, %.loopexit.loo
   %or.cond31 = select i1 %or.cond29, i1 %250, i1 false
   %spec.store.select = select i1 %or.cond31, i32 0, i32 %.0
   switch i32 %spec.store.select, label %270 [
-    i32 0, label %.thread272
+    i32 0, label %.critedge
     i32 1012, label %251
     i32 4023, label %255
     i32 4022, label %259
@@ -2790,39 +2790,39 @@ _wif_status.exit264:                              ; preds = %221, %.loopexit.loo
   %252 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %253 = load ptr, ptr %252, align 8
   %254 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef %253) #14
-  br label %.thread272
+  br label %.critedge
 
 255:                                              ; preds = %.thread269
   %256 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %257 = load ptr, ptr %256, align 8
   %258 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef %257) #14
-  br label %.thread272
+  br label %.critedge
 
 259:                                              ; preds = %.thread269
-  br label %.thread272
+  br label %.critedge
 
 260:                                              ; preds = %.thread269
-  br label %.thread272
+  br label %.critedge
 
 261:                                              ; preds = %.thread269, %.thread269
   %262 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %263 = and i64 %262, 4503599627370496
   %.not245 = icmp eq i64 %263, 0
-  br i1 %.not245, label %.thread272, label %264
+  br i1 %.not245, label %.critedge, label %264
 
 264:                                              ; preds = %261
   %265 = call i32 @get_log_level() #14
   %266 = icmp sgt i32 %265, 3
-  br i1 %266, label %267, label %.thread272
+  br i1 %266, label %267, label %.critedge
 
 267:                                              ; preds = %264
   %268 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %269 = load ptr, ptr %268, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__._thread_per_group_rpc, ptr noundef %269) #14
-  br label %.thread272
+  br label %.critedge
 
 270:                                              ; preds = %.thread269
-  br i1 %or.cond33, label %.thread272, label %271
+  br i1 %or.cond33, label %.critedge, label %271
 
 271:                                              ; preds = %270
   %272 = getelementptr inbounds nuw i8, ptr %143, i64 4
@@ -2840,26 +2840,26 @@ _wif_status.exit264:                              ; preds = %221, %.loopexit.loo
 278:                                              ; preds = %271
   %279 = call i32 @get_log_level() #14
   %280 = icmp sgt i32 %279, 3
-  br i1 %280, label %281, label %.thread275
+  br i1 %280, label %281, label %.thread273
 
 281:                                              ; preds = %278
   %282 = call ptr @rpc_num2string(i16 noundef zeroext %41) #14
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.61, ptr noundef %276, ptr noundef %282) #14
-  br label %.thread275
+  br label %.thread273
 
-.thread275:                                       ; preds = %278, %281
+.thread273:                                       ; preds = %281, %278
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._thread_per_group_rpc.node_read_lock) #14
-  br label %.thread272
+  br label %.critedge
 
 283:                                              ; preds = %271
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._thread_per_group_rpc.node_read_lock) #14
   %284 = load i16, ptr %143, align 8
   %285 = icmp eq i16 %284, 9001
   %spec.select = select i1 %285, i32 3, i32 2
-  br label %.thread272
+  br label %.critedge
 
-.thread272:                                       ; preds = %270, %.thread275, %283, %261, %267, %264, %.thread269, %260, %259, %255, %251
-  %.3 = phi i32 [ 3, %251 ], [ 4, %255 ], [ 4, %259 ], [ 5, %260 ], [ 2, %.thread269 ], [ 2, %264 ], [ 2, %267 ], [ 2, %261 ], [ %spec.select, %283 ], [ 3, %.thread275 ], [ 4, %270 ]
+.critedge:                                        ; preds = %.thread273, %283, %270, %261, %267, %264, %.thread269, %260, %259, %255, %251
+  %.3 = phi i32 [ 3, %251 ], [ 4, %255 ], [ 4, %259 ], [ 5, %260 ], [ 2, %.thread269 ], [ 2, %264 ], [ 2, %267 ], [ 2, %261 ], [ 4, %270 ], [ %spec.select, %283 ], [ 3, %.thread273 ]
   %286 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store i32 %.3, ptr %286, align 4
   br label %.backedge
@@ -2899,8 +2899,8 @@ _send_msg_maybe.exit:                             ; preds = %123, %126, %_comm_e
   br label %_send_msg_maybe.exit.thread
 
 _send_msg_maybe.exit.thread:                      ; preds = %113, %116, %119, %120, %._crit_edge, %288, %298, %_send_msg_maybe.exit
-  %.0197281 = phi i32 [ %.0197, %288 ], [ %.0197, %298 ], [ %.0197, %_send_msg_maybe.exit ], [ 2, %120 ], [ 2, %119 ], [ 2, %116 ], [ 2, %113 ], [ %.1198.lcssa, %._crit_edge ]
-  %.0199280 = phi ptr [ null, %288 ], [ null, %298 ], [ null, %_send_msg_maybe.exit ], [ null, %120 ], [ null, %119 ], [ null, %116 ], [ null, %113 ], [ %.1200, %._crit_edge ]
+  %.0197279 = phi i32 [ %.0197, %288 ], [ %.0197, %298 ], [ %.0197, %_send_msg_maybe.exit ], [ 2, %120 ], [ 2, %119 ], [ 2, %116 ], [ 2, %113 ], [ %.1198.lcssa, %._crit_edge ]
+  %.0199278 = phi ptr [ null, %288 ], [ null, %298 ], [ null, %_send_msg_maybe.exit ], [ null, %120 ], [ null, %119 ], [ null, %116 ], [ null, %113 ], [ %.1200, %._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %1) #14
   %299 = getelementptr inbounds nuw i8, ptr %2, i64 216
   call void @destroy_forward(ptr noundef nonnull %299) #14
@@ -2916,8 +2916,8 @@ _send_msg_maybe.exit.thread:                      ; preds = %113, %116, %119, %1
 
 303:                                              ; preds = %_send_msg_maybe.exit.thread
   %304 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store ptr %.0199280, ptr %304, align 8
-  store i32 %.0197281, ptr %26, align 8
+  store ptr %.0199278, ptr %304, align 8
+  store i32 %.0197279, ptr %26, align 8
   %305 = call i64 @time(ptr noundef null) #14
   %306 = load i64, ptr %21, align 8
   %307 = call double @difftime(i64 noundef %305, i64 noundef %306) #15

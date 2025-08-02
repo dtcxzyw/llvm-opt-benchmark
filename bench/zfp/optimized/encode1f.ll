@@ -313,13 +313,16 @@ select.unfold.i.i.i:                              ; preds = %select.unfold.prehe
   %spec.select.i.i.i = add i32 %167, %.01325.i.i.i
   %spec.select20.i.i.i = select i1 %.not19.i.i.i, i32 %.127.i.i.i, i32 %165
   %.not18.i.i.i = icmp eq i32 %spec.select20.i.i.i, 0
-  br i1 %.not18.i.i.i, label %rev_precision_uint32.exit.i.i, label %select.unfold.i.i.i
+  br i1 %.not18.i.i.i, label %rev_precision_uint32.exit.loopexit.i.i, label %select.unfold.i.i.i
 
-rev_precision_uint32.exit.i.i:                    ; preds = %select.unfold.i.i.i, %select.unfold.preheader.i.i.i
-  %.013.lcssa.i.i.i = phi i32 [ 0, %select.unfold.preheader.i.i.i ], [ %spec.select.i.i.i, %select.unfold.i.i.i ]
-  %168 = tail call i32 @llvm.umin.i32(i32 %.013.lcssa.i.i.i, i32 %134)
+rev_precision_uint32.exit.loopexit.i.i:           ; preds = %select.unfold.i.i.i
+  %168 = tail call i32 @llvm.umin.i32(i32 %spec.select.i.i.i, i32 %134)
   %169 = tail call i32 @llvm.umax.i32(i32 %168, i32 1)
-  %170 = add i32 %169, -1
+  br label %rev_precision_uint32.exit.i.i
+
+rev_precision_uint32.exit.i.i:                    ; preds = %rev_precision_uint32.exit.loopexit.i.i, %select.unfold.preheader.i.i.i
+  %.013.lcssa.i.i.i = phi i32 [ 1, %select.unfold.preheader.i.i.i ], [ %169, %rev_precision_uint32.exit.loopexit.i.i ]
+  %170 = add i32 %.013.lcssa.i.i.i, -1
   %171 = zext i32 %170 to i64
   %172 = shl i64 %171, %128
   %173 = getelementptr inbounds nuw i8, ptr %129, i64 8
@@ -352,7 +355,7 @@ stream_write_bits.exit.i.i:                       ; preds = %177, %rev_precision
   store i64 %189, ptr %173, align 8, !tbaa !20
   %reass.sub = sub i32 %132, %.132.i
   %190 = add i32 %reass.sub, -5
-  %191 = call fastcc i32 @encode_ints_uint32(ptr noundef nonnull %129, i32 noundef %190, i32 noundef %169, ptr noundef %6)
+  %191 = call fastcc i32 @encode_ints_uint32(ptr noundef nonnull %129, i32 noundef %190, i32 noundef %.013.lcssa.i.i.i, ptr noundef %6)
   %192 = add i32 %191, 5
   %193 = icmp ult i32 %192, %158
   br i1 %193, label %194, label %rev_encode_block_int32_1.exit.i

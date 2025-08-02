@@ -33,7 +33,7 @@ define void @rb_Digest_MD5_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %6 = and i32 %5, 63
   %7 = zext nneg i32 %6 to i64
   %8 = icmp eq i64 %2, 0
-  br i1 %8, label %39, label %9
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %3
   %.tr = trunc i64 %2 to i32
@@ -56,7 +56,7 @@ define void @rb_Digest_MD5_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 20:                                               ; preds = %18, %9
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %32, label %21
+  br i1 %.not, label %33, label %21
 
 21:                                               ; preds = %20
   %22 = add i64 %2, %7
@@ -68,41 +68,41 @@ define void @rb_Digest_MD5_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %27, ptr noundef nonnull align 1 %1, i64 noundef range(i64 1, 0) %25, i1 noundef false) #7
   %28 = add i64 %25, %7
   %29 = icmp ugt i64 %28, 63
-  br i1 %29, label %.thread, label %39
+  br i1 %29, label %30, label %.critedge
 
-.thread:                                          ; preds = %21
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %25
-  %31 = sub i64 %2, %25
+30:                                               ; preds = %21
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %25
+  %32 = sub i64 %2, %25
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %26)
-  br label %32
+  br label %33
 
-32:                                               ; preds = %.thread, %20
-  %.039 = phi i64 [ %2, %20 ], [ %31, %.thread ]
-  %.0 = phi ptr [ %1, %20 ], [ %30, %.thread ]
-  %33 = icmp ugt i64 %.039, 63
-  br i1 %33, label %.lr.ph, label %._crit_edge
+33:                                               ; preds = %30, %20
+  %.039 = phi i64 [ %32, %30 ], [ %2, %20 ]
+  %.0 = phi ptr [ %31, %30 ], [ %1, %20 ]
+  %34 = icmp ugt i64 %.039, 63
+  br i1 %34, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %32, %.lr.ph
-  %.248 = phi ptr [ %34, %.lr.ph ], [ %.0, %32 ]
-  %.24147 = phi i64 [ %35, %.lr.ph ], [ %.039, %32 ]
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.248)
-  %34 = getelementptr inbounds nuw i8, ptr %.248, i64 64
-  %35 = add i64 %.24147, -64
-  %36 = icmp ugt i64 %35, 63
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+.lr.ph:                                           ; preds = %33, %.lr.ph
+  %.246 = phi ptr [ %35, %.lr.ph ], [ %.0, %33 ]
+  %.24145 = phi i64 [ %36, %.lr.ph ], [ %.039, %33 ]
+  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.246)
+  %35 = getelementptr inbounds nuw i8, ptr %.246, i64 64
+  %36 = add i64 %.24145, -64
+  %37 = icmp ugt i64 %36, 63
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.lr.ph, %32
-  %.241.lcssa = phi i64 [ %.039, %32 ], [ %35, %.lr.ph ]
-  %.2.lcssa = phi ptr [ %.0, %32 ], [ %34, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %33
+  %.241.lcssa = phi i64 [ %.039, %33 ], [ %36, %.lr.ph ]
+  %.2.lcssa = phi ptr [ %.0, %33 ], [ %35, %.lr.ph ]
   %.not44 = icmp eq i64 %.241.lcssa, 0
-  br i1 %.not44, label %39, label %37
+  br i1 %.not44, label %.critedge, label %38
 
-37:                                               ; preds = %._crit_edge
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %38, ptr noundef nonnull align 1 %.2.lcssa, i64 noundef range(i64 1, 0) %.241.lcssa, i1 noundef false) #7
-  br label %39
+38:                                               ; preds = %._crit_edge
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %39, ptr noundef nonnull align 1 %.2.lcssa, i64 noundef range(i64 1, 0) %.241.lcssa, i1 noundef false) #7
+  br label %.critedge
 
-39:                                               ; preds = %21, %._crit_edge, %37, %3
+.critedge:                                        ; preds = %21, %._crit_edge, %38, %3
   ret void
 }
 

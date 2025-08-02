@@ -120,7 +120,7 @@ define internal i32 @vble_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 40:                                               ; preds = %69, %.lr.ph.i
   %.val27.i47 = phi i32 [ 0, %.lr.ph.i ], [ %.val27.i48, %69 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %69 ]
-  %.02135.i = phi i32 [ 0, %.lr.ph.i ], [ %76, %69 ]
+  %.02132.i = phi i32 [ 0, %.lr.ph.i ], [ %76, %69 ]
   %41 = lshr i32 %.val27.i47, 3
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 %42
@@ -168,7 +168,7 @@ define internal i32 @vble_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv.i
   %74 = load i8, ptr %73, align 1, !tbaa !40
   %75 = zext i8 %74 to i32
-  %76 = add nuw nsw i32 %.02135.i, %75
+  %76 = add nuw nsw i32 %.02132.i, %75
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %77 = load i32, ptr %36, align 8, !tbaa !35
   %78 = sext i32 %77 to i64

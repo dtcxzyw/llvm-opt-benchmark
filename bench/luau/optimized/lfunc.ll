@@ -66,7 +66,7 @@ define hidden noundef ptr @_Z16luaF_newLclosureP9lua_StateiP8LuaTableP5Proto(ptr
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %29 = getelementptr i8, ptr %10, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %30
 
@@ -76,7 +76,7 @@ define hidden noundef ptr @_Z16luaF_newLclosureP9lua_StateiP8LuaTableP5Proto(ptr
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %31 = getelementptr i8, ptr %29, i64 %.idx
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
   store i32 0, ptr %31, align 4, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

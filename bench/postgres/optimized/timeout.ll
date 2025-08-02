@@ -841,19 +841,19 @@ define dso_local void @disable_all_timeouts(i1 noundef zeroext %0) local_unnamed
 
 .split.us:                                        ; preds = %1, %.split.us
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %.split.us ], [ 0, %1 ]
-  %gep = getelementptr inbounds nuw [23 x %struct.timeout_params], ptr getelementptr inbounds nuw (i8, ptr @all_timeouts, i64 4), i64 0, i64 %indvars.iv10
-  store volatile i8 0, ptr %gep, align 4
+  %2 = getelementptr inbounds nuw [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %indvars.iv10, i32 1
+  store volatile i8 0, ptr %2, align 4
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond13.not = icmp eq i64 %indvars.iv.next11, 23
   br i1 %exitcond13.not, label %.split7.us, label %.split.us, !llvm.loop !16
 
 .split:                                           ; preds = %1, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %1 ]
-  %2 = getelementptr inbounds nuw [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %indvars.iv
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store volatile i8 0, ptr %3, align 4
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  store volatile i8 0, ptr %4, align 1
+  %3 = getelementptr inbounds nuw [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store volatile i8 0, ptr %4, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  store volatile i8 0, ptr %5, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
   br i1 %exitcond.not, label %.split7.us, label %.split, !llvm.loop !18

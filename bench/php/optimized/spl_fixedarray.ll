@@ -1854,7 +1854,7 @@ define internal noundef nonnull ptr @spl_fixedarray_new(ptr noundef %0) #0 {
   %14 = load ptr, ptr @spl_ce_SplFixedArray, align 8
   %15 = icmp ne ptr %0, null
   %.not = icmp eq ptr %0, %14
-  br i1 %.not, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.029.i = phi ptr [ %17, %.lr.ph.i ], [ %0, %1 ]
@@ -1863,13 +1863,9 @@ define internal noundef nonnull ptr @spl_fixedarray_new(ptr noundef %0) #0 {
   %18 = icmp ne ptr %17, null
   %19 = icmp ne ptr %17, %14
   %or.cond25.not.i = and i1 %18, %19
-  br i1 %or.cond25.not.i, label %.lr.ph.i, label %zend_hash_find_ptr.exit.i
+  br i1 %or.cond25.not.i, label %.lr.ph.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %1
-  tail call void @llvm.assume(i1 %15)
-  br label %spl_fixedarray_object_new_ex.exit
-
-zend_hash_find_ptr.exit.i:                        ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   tail call void @llvm.assume(i1 %18)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr @zend_known_strings, align 8, !tbaa !83
@@ -1887,7 +1883,11 @@ zend_hash_find_ptr.exit.i:                        ; preds = %.lr.ph.i
   store ptr %spec.store.select.i, ptr %29, align 8, !tbaa !105
   br label %spl_fixedarray_object_new_ex.exit
 
-spl_fixedarray_object_new_ex.exit:                ; preds = %._crit_edge.i, %zend_hash_find_ptr.exit.i
+.critedge.i:                                      ; preds = %1
+  tail call void @llvm.assume(i1 %15)
+  br label %spl_fixedarray_object_new_ex.exit
+
+spl_fixedarray_object_new_ex.exit:                ; preds = %._crit_edge.i, %.critedge.i
   ret ptr %13
 }
 
@@ -2741,7 +2741,7 @@ spl_fixedarray_copy_ctor.exit:                    ; preds = %41, %spl_fixedarray
   %43 = icmp ne ptr %0, null
   %44 = icmp ne ptr %0, %42
   %or.cond25.not28 = select i1 %43, i1 %44, i1 false
-  br i1 %or.cond25.not28, label %.lr.ph, label %._crit_edge
+  br i1 %or.cond25.not28, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %spl_fixedarray_copy_ctor.exit, %.lr.ph
   %.029 = phi ptr [ %46, %.lr.ph ], [ %0, %spl_fixedarray_copy_ctor.exit ]
@@ -2750,13 +2750,9 @@ spl_fixedarray_copy_ctor.exit:                    ; preds = %41, %spl_fixedarray
   %47 = icmp ne ptr %46, null
   %48 = icmp ne ptr %46, %42
   %or.cond25.not = select i1 %47, i1 %48, i1 false
-  br i1 %or.cond25.not, label %.lr.ph, label %zend_hash_find_ptr.exit
+  br i1 %or.cond25.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %spl_fixedarray_copy_ctor.exit
-  tail call void @llvm.assume(i1 %43)
-  br label %59
-
-zend_hash_find_ptr.exit:                          ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   tail call void @llvm.assume(i1 %47)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load ptr, ptr @zend_known_strings, align 8, !tbaa !83
@@ -2774,7 +2770,11 @@ zend_hash_find_ptr.exit:                          ; preds = %.lr.ph
   store ptr %spec.store.select, ptr %58, align 8, !tbaa !105
   br label %59
 
-59:                                               ; preds = %._crit_edge, %zend_hash_find_ptr.exit
+.critedge:                                        ; preds = %spl_fixedarray_copy_ctor.exit
+  tail call void @llvm.assume(i1 %43)
+  br label %59
+
+59:                                               ; preds = %.critedge, %._crit_edge
   ret ptr %15
 }
 

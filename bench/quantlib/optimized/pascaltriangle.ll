@@ -379,7 +379,6 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIS_ImSa
   %div15 = lshr i64 %sub.ptr.div.i, 1
   %add.ptr.i19 = getelementptr i8, ptr %add.ptr.i, i64 -24
   %7 = load ptr, ptr %add.ptr.i19, align 8, !tbaa !9
-  %invariant.gep = getelementptr i8, ptr %7, i64 -8
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %_ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJmEEERS1_DpOT_.exit
@@ -387,11 +386,11 @@ for.cond.cleanup:                                 ; preds = %for.body, %_ZNSt6ve
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.028 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %for.body ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %i.028
-  %8 = load i64, ptr %gep, align 8, !tbaa !18
-  %add.ptr.i22 = getelementptr inbounds nuw i64, ptr %7, i64 %i.028
-  %9 = load i64, ptr %add.ptr.i22, align 8, !tbaa !18
-  %add13 = add i64 %9, %8
+  %8 = getelementptr i64, ptr %7, i64 %i.028
+  %add.ptr.i20 = getelementptr i8, ptr %8, i64 -8
+  %9 = load i64, ptr %add.ptr.i20, align 8, !tbaa !18
+  %10 = load i64, ptr %8, align 8, !tbaa !18
+  %add13 = add i64 %10, %9
   %sub15 = sub nuw i64 %sub.ptr.div.i, %i.028
   %add.ptr.i24 = getelementptr inbounds nuw i64, ptr %6, i64 %sub15
   store i64 %add13, ptr %add.ptr.i24, align 8, !tbaa !18

@@ -631,15 +631,15 @@ define noundef ptr @_ZN6icu_7719TransliteratorAlias6createER11UParseErrorR10UErr
   %7 = alloca %"class.icu_77::UnicodeString", align 8
   %8 = load i32, ptr %2, align 4, !tbaa !13
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %186
+  br i1 %9, label %10, label %185
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %12 = load i32, ptr %11, align 4, !tbaa !29
-  switch i32 %12, label %186 [
+  switch i32 %12, label %185 [
     i32 0, label %13
     i32 1, label %23
-    i32 2, label %185
+    i32 2, label %184
   ]
 
 13:                                               ; preds = %10
@@ -647,18 +647,18 @@ define noundef ptr @_ZN6icu_7719TransliteratorAlias6createER11UParseErrorR10UErr
   %15 = tail call noundef ptr @_ZN6icu_7714Transliterator14createInstanceERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %14, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %16 = load i32, ptr %2, align 4, !tbaa !13
   %17 = icmp slt i32 %16, 1
-  br i1 %17, label %18, label %186
+  br i1 %17, label %18, label %185
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   %.not69 = icmp eq ptr %20, null
-  br i1 %.not69, label %186, label %21
+  br i1 %.not69, label %185, label %21
 
 21:                                               ; preds = %18
   %22 = tail call noundef ptr @_ZNK6icu_7710UnicodeSet5cloneEv(ptr noundef nonnull align 8 dereferenceable(200) %20)
   tail call void @_ZN6icu_7714Transliterator11adoptFilterEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %15, ptr noundef %22)
-  br label %186
+  br label %185
 
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -772,17 +772,17 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit:   ; preds = %78
 84:                                               ; preds = %23
   %85 = landingpad { ptr, i32 }
           cleanup
-  br label %184
+  br label %183
 
 .loopexit90:                                      ; preds = %78
   %lpad.loopexit92 = landingpad { ptr, i32 }
           cleanup
-  br label %184
+  br label %183
 
 .loopexit.split-lp91:                             ; preds = %51
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %184
+  br label %183
 
 ._crit_edge:                                      ; preds = %.sink.split.i.i.i72, %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i74, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit, %.sink.split.i.i.i, %29, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #18
@@ -856,7 +856,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %107, %111
 118:                                              ; preds = %._crit_edge
   %119 = landingpad { ptr, i32 }
           cleanup
-  br label %183
+  br label %182
 
 .loopexit86:                                      ; preds = %145, %147
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -947,7 +947,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %107, %111
 156:                                              ; preds = %150
   %157 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 104) #18
   %158 = icmp eq ptr %157, null
-  br i1 %158, label %167, label %159
+  br i1 %158, label %.critedge, label %159
 
 159:                                              ; preds = %156
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -958,84 +958,90 @@ _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %107, %111
 
 163:                                              ; preds = %159
   %164 = invoke noundef ptr @_ZNK6icu_7710UnicodeSet5cloneEv(ptr noundef nonnull align 8 dereferenceable(200) %162)
-          to label %165 unwind label %168
+          to label %165 unwind label %167
 
 165:                                              ; preds = %159, %163
   %166 = phi ptr [ %164, %163 ], [ null, %159 ]
   invoke void @_ZN6icu_7722CompoundTransliteratorC1ERKNS_13UnicodeStringERNS_7UVectorEPNS_13UnicodeFilterEiR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %157, ptr noundef nonnull align 8 dereferenceable(64) %160, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %166, i32 noundef %27, ptr noundef nonnull align 4 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.loopexit unwind label %168
+          to label %.loopexit unwind label %167
 
-167:                                              ; preds = %156
+.critedge:                                        ; preds = %156
   store i32 7, ptr %2, align 4, !tbaa !13
-  br label %.loopexit
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
+  call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #18
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #18
+  br label %185
 
-168:                                              ; preds = %165, %163
-  %169 = landingpad { ptr, i32 }
+167:                                              ; preds = %165, %163
+  %168 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %157) #18
   br label %.loopexit.split-lp
 
-170:                                              ; preds = %.lr.ph
-  %171 = landingpad { ptr, i32 }
+169:                                              ; preds = %.lr.ph
+  %170 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.lr.ph:                                           ; preds = %.preheader, %179
-  %.095 = phi i32 [ %180, %179 ], [ 0, %.preheader ]
-  %172 = invoke noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %.095)
-          to label %173 unwind label %170
+.lr.ph:                                           ; preds = %.preheader, %178
+  %.095 = phi i32 [ %179, %178 ], [ 0, %.preheader ]
+  %171 = invoke noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %.095)
+          to label %172 unwind label %169
 
-173:                                              ; preds = %.lr.ph
-  %174 = icmp eq ptr %172, null
-  br i1 %174, label %179, label %175
+172:                                              ; preds = %.lr.ph
+  %173 = icmp eq ptr %171, null
+  br i1 %173, label %178, label %174
 
-175:                                              ; preds = %173
-  %176 = load ptr, ptr %172, align 8, !tbaa !15
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %178 = load ptr, ptr %177, align 8
-  call void %178(ptr noundef nonnull align 8 dereferenceable(84) %172) #18
-  br label %179
+174:                                              ; preds = %172
+  %175 = load ptr, ptr %171, align 8, !tbaa !15
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %177 = load ptr, ptr %176, align 8
+  call void %177(ptr noundef nonnull align 8 dereferenceable(84) %171) #18
+  br label %178
 
-179:                                              ; preds = %173, %175
-  %180 = add nuw nsw i32 %.095, 1
-  %181 = load i32, ptr %153, align 8, !tbaa !30
-  %182 = icmp slt i32 %180, %181
-  br i1 %182, label %.lr.ph, label %.loopexit, !llvm.loop !37
+178:                                              ; preds = %172, %174
+  %179 = add nuw nsw i32 %.095, 1
+  %180 = load i32, ptr %153, align 8, !tbaa !30
+  %181 = icmp slt i32 %179, %180
+  br i1 %181, label %.lr.ph, label %.loopexit, !llvm.loop !37
 
-.loopexit:                                        ; preds = %179, %.preheader, %165, %167
-  %cond = phi ptr [ null, %167 ], [ %157, %165 ], [ null, %.preheader ], [ null, %179 ]
+.loopexit:                                        ; preds = %178, %.preheader, %165
+  %.147 = phi ptr [ %157, %165 ], [ null, %.preheader ], [ null, %178 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
   call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #18
-  br label %186
+  br label %185
 
-.loopexit.split-lp:                               ; preds = %.loopexit86, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %168, %170
-  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %171, %170 ], [ %lpad.loopexit, %.loopexit86 ], [ %lpad.loopexit87, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit86, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %167, %169
+  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %170, %169 ], [ %lpad.loopexit, %.loopexit86 ], [ %lpad.loopexit87, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
   call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
-  br label %183
+  br label %182
 
-183:                                              ; preds = %.loopexit.split-lp, %118
+182:                                              ; preds = %.loopexit.split-lp, %118
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp ], [ %119, %118 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
-  br label %184
+  br label %183
 
-184:                                              ; preds = %.loopexit90, %.loopexit.split-lp91, %183, %84
-  %.pn65.pn = phi { ptr, i32 } [ %85, %84 ], [ %.pn.pn.pn, %183 ], [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp91 ]
+183:                                              ; preds = %.loopexit90, %.loopexit.split-lp91, %182, %84
+  %.pn65.pn = phi { ptr, i32 } [ %85, %84 ], [ %.pn.pn.pn, %182 ], [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp91 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #18
   resume { ptr, i32 } %.pn65.pn
 
-185:                                              ; preds = %10
+184:                                              ; preds = %10
   tail call void @abort() #20
   unreachable
 
-186:                                              ; preds = %.loopexit, %13, %18, %21, %10, %3
-  %.035 = phi ptr [ null, %3 ], [ null, %13 ], [ null, %10 ], [ %15, %21 ], [ %15, %18 ], [ %cond, %.loopexit ]
+185:                                              ; preds = %13, %.critedge, %.loopexit, %18, %21, %10, %3
+  %.035 = phi ptr [ null, %3 ], [ null, %13 ], [ null, %.critedge ], [ null, %10 ], [ %15, %21 ], [ %15, %18 ], [ %.147, %.loopexit ]
   ret ptr %.035
 }
 

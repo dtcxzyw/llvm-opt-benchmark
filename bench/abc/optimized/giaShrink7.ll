@@ -384,74 +384,77 @@ define i32 @Unm_ManPrintPairStats(ptr noundef readonly captures(none) %0, i32 no
   %9 = lshr i32 %.val.val, 2
   %10 = getelementptr i8, ptr %.val, i64 8
   %.val.i.i = load ptr, ptr %10, align 8, !tbaa !43
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %.035 = phi i32 [ 0, %.lr.ph ], [ %14, %11 ]
-  %.02934 = phi i32 [ 0, %.lr.ph ], [ %21, %11 ]
-  %gep.idx = shl nsw i64 %indvars.iv, 4
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
-  %12 = load i32, ptr %gep, align 4, !tbaa !58
-  %13 = tail call noundef range(i32 -2147483648, 21) i32 @llvm.smin.i32(i32 %12, i32 20)
-  %14 = add nsw i32 %13, %.035
-  %15 = sext i32 %13 to i64
-  %16 = getelementptr inbounds [21 x i32], ptr %6, i64 0, i64 %15
-  %17 = load i32, ptr %16, align 4, !tbaa !48
-  %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %16, align 4, !tbaa !48
-  %19 = icmp sgt i32 %12, 1
-  %20 = zext i1 %19 to i32
-  %21 = add nuw nsw i32 %.02934, %20
+  %.035 = phi i32 [ 0, %.lr.ph ], [ %16, %11 ]
+  %.02934 = phi i32 [ 0, %.lr.ph ], [ %23, %11 ]
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %12 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.idx
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load i32, ptr %13, align 4, !tbaa !58
+  %15 = tail call noundef range(i32 -2147483648, 21) i32 @llvm.smin.i32(i32 %14, i32 20)
+  %16 = add nsw i32 %15, %.035
+  %17 = sext i32 %15 to i64
+  %18 = getelementptr inbounds [21 x i32], ptr %6, i64 0, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !48
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %18, align 4, !tbaa !48
+  %21 = icmp sgt i32 %14, 1
+  %22 = zext i1 %21 to i32
+  %23 = add nuw nsw i32 %.02934, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !60
 
-._crit_edge:                                      ; preds = %11, %5
-  %.029.lcssa = phi i32 [ 0, %5 ], [ %21, %11 ]
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %14, %11 ]
+._crit_edge.loopexit:                             ; preds = %11
+  %24 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %16, i32 1)
+  %25 = uitofp nneg i32 %24 to double
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
+  %.029.lcssa = phi i32 [ 0, %5 ], [ %23, %._crit_edge.loopexit ]
+  %.0.lcssa = phi double [ 1.000000e+00, %5 ], [ %25, %._crit_edge.loopexit ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %22 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.0.lcssa, i32 1)
-  %23 = uitofp nneg i32 %22 to double
-  br label %24
+  br label %26
 
-24:                                               ; preds = %._crit_edge, %36
-  %indvars.iv40 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next41, %36 ]
-  %25 = getelementptr inbounds nuw [21 x i32], ptr %6, i64 0, i64 %indvars.iv40
-  %26 = load i32, ptr %25, align 4, !tbaa !48
-  %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %28, label %36
+26:                                               ; preds = %._crit_edge, %38
+  %indvars.iv40 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next41, %38 ]
+  %27 = getelementptr inbounds nuw [21 x i32], ptr %6, i64 0, i64 %indvars.iv40
+  %28 = load i32, ptr %27, align 4, !tbaa !48
+  %29 = icmp sgt i32 %28, 0
+  br i1 %29, label %30, label %38
 
-28:                                               ; preds = %24
-  %29 = uitofp nneg i32 %26 to double
-  %30 = fmul double %29, 1.000000e+02
-  %31 = trunc nuw nsw i64 %indvars.iv40 to i32
-  %32 = uitofp nneg i32 %31 to double
-  %33 = fmul double %30, %32
-  %34 = fdiv double %33, %23
-  %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %31, i32 noundef %26, double noundef %34)
-  br label %36
+30:                                               ; preds = %26
+  %31 = uitofp nneg i32 %28 to double
+  %32 = fmul double %31, 1.000000e+02
+  %33 = trunc nuw nsw i64 %indvars.iv40 to i32
+  %34 = uitofp nneg i32 %33 to double
+  %35 = fmul double %32, %34
+  %36 = fdiv double %35, %.0.lcssa
+  %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %33, i32 noundef %28, double noundef %36)
+  br label %38
 
-36:                                               ; preds = %24, %28
+38:                                               ; preds = %26, %30
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 21
-  br i1 %exitcond43.not, label %37, label %24, !llvm.loop !61
+  br i1 %exitcond43.not, label %39, label %26, !llvm.loop !61
 
-37:                                               ; preds = %36
-  %38 = sitofp i32 %2 to double
-  %39 = fmul double %38, 1.000000e+02
-  %40 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %1, i32 1)
-  %41 = uitofp nneg i32 %40 to double
-  %42 = fdiv double %39, %41
-  %43 = uitofp nneg i32 %.029.lcssa to double
-  %44 = fmul double %43, 1.000000e+02
-  %45 = fdiv double %44, %41
-  %46 = sitofp i32 %3 to double
-  %47 = fmul double %46, 1.000000e+02
-  %48 = fdiv double %47, %41
-  %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %1, i32 noundef %2, double noundef %42, i32 noundef %.029.lcssa, double noundef %45, i32 noundef %3, double noundef %48)
+39:                                               ; preds = %38
+  %40 = sitofp i32 %2 to double
+  %41 = fmul double %40, 1.000000e+02
+  %42 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %1, i32 1)
+  %43 = uitofp nneg i32 %42 to double
+  %44 = fdiv double %41, %43
+  %45 = uitofp nneg i32 %.029.lcssa to double
+  %46 = fmul double %45, 1.000000e+02
+  %47 = fdiv double %46, %43
+  %48 = sitofp i32 %3 to double
+  %49 = fmul double %48, 1.000000e+02
+  %50 = fdiv double %49, %43
+  %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %1, i32 noundef %2, double noundef %44, i32 noundef %.029.lcssa, double noundef %47, i32 noundef %3, double noundef %50)
   call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %6) #19
   ret i32 %.029.lcssa
 }

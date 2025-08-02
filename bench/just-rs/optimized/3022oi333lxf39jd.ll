@@ -4475,10 +4475,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %32 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %32)
   store ptr %25, ptr %31, align 8
-  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i64 %27, ptr %.sroa.413.0..sroa_idx, align 8
-  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i64 %.sroa.8.0.copyload7.i.i.i.i, ptr %.sroa.514.0..sroa_idx, align 8
+  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i64 %27, ptr %.sroa.412.0..sroa_idx, align 8
+  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store i64 %.sroa.8.0.copyload7.i.i.i.i, ptr %.sroa.513.0..sroa_idx, align 8
   store i64 %30, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %31, ptr %.sroa.4.0..sroa_idx, align 8
@@ -4601,8 +4601,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 "_ZN4core3ptr384drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$std..collections..hash..map..IntoIter$LT$$RF$$RF$str$C$core..option..Option$LT$usize$GT$$GT$$C$similar..algorithms..utils..unique$LT$$u5b$$RF$str$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$similar..algorithms..utils..unique$LT$$u5b$$RF$str$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8e3772b12b0343b1E.exit": ; preds = %67, %.body
-  %.pn17 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn.ph, %67 ]
-  resume { ptr, i32 } %.pn17
+  %.pn16 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn.ph, %67 ]
+  resume { ptr, i32 } %.pn16
 
 67:                                               ; preds = %20, %14
   %.pn.ph = phi { ptr, i32 } [ %15, %14 ], [ %21, %20 ]

@@ -1602,8 +1602,8 @@ define ptr @ucurr_getName_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   %17 = load i32, ptr %5, align 4, !tbaa !13
   %18 = icmp slt i32 %17, 1
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink.sroa.gep78 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink.sroa.gep79 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink.sroa.gep74 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink.sroa.gep75 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br i1 %18, label %19, label %106
 
 19:                                               ; preds = %6
@@ -1661,7 +1661,7 @@ define ptr @ucurr_getName_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   %or.cond3 = icmp eq i32 %38, 2
   %39 = icmp eq i32 %2, 4
   %or.cond5 = or i1 %39, %or.cond3
-  br i1 %or.cond5, label %40, label %.thread73
+  br i1 %or.cond5, label %40, label %.thread
 
 40:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #20
@@ -1713,12 +1713,15 @@ define ptr @ucurr_getName_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
           to label %.invoke unwind label %51
 
 .invoke:                                          ; preds = %54, %53, %50
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %50 ], [ %.sink.sroa.gep78, %53 ], [ %.sink.sroa.gep79, %54 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %50 ], [ %.sink.sroa.gep74, %53 ], [ %.sink.sroa.gep75, %54 ]
   %.sink = phi ptr [ %12, %50 ], [ %13, %53 ], [ %14, %54 ]
   %55 = load ptr, ptr %.sink, align 8
   %56 = load i32, ptr %.sink.sroa.phi, align 8
   %57 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %11, ptr noundef %55, i32 noundef %56, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit unwind label %51
+
+default.unreachable:                              ; preds = %41
+  unreachable
 
 _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.invoke
   invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull @.str.5)
@@ -1757,35 +1760,32 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit69: ; preds = %
   store i32 0, ptr %7, align 4, !tbaa !13
   br label %75
 
-default.unreachable:                              ; preds = %41
-  unreachable
-
 74:                                               ; preds = %51, %48
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %49, %48 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #20
   br label %102
 
 75:                                               ; preds = %73, %70
-  %.145.ph = phi i32 [ %2, %70 ], [ 0, %73 ]
+  %.145 = phi i32 [ 0, %73 ], [ %2, %70 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #20
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #20
   %76 = icmp eq ptr %69, null
-  br i1 %76, label %.thread73, label %84
+  br i1 %76, label %.thread, label %84
 
-.thread73:                                        ; preds = %37, %75
-  %.04476 = phi i32 [ %.145.ph, %75 ], [ %2, %37 ]
+.thread:                                          ; preds = %37, %75
+  %.04472 = phi i32 [ %.145, %75 ], [ %2, %37 ]
   %77 = invoke ptr @ures_getByKey_77(ptr noundef %36, ptr noundef nonnull @_ZL10CURRENCIES, ptr noundef %36, ptr noundef nonnull %7)
           to label %78 unwind label %82
 
-78:                                               ; preds = %.thread73
+78:                                               ; preds = %.thread
   %79 = invoke ptr @ures_getByKeyWithFallback_77(ptr noundef %36, ptr noundef nonnull %9, ptr noundef %36, ptr noundef nonnull %7)
           to label %80 unwind label %82
 
 80:                                               ; preds = %78
-  %81 = invoke ptr @ures_getStringByIndex_77(ptr noundef %36, i32 noundef %.04476, ptr noundef %4, ptr noundef nonnull %7)
+  %81 = invoke ptr @ures_getStringByIndex_77(ptr noundef %36, i32 noundef %.04472, ptr noundef %4, ptr noundef nonnull %7)
           to label %84 unwind label %82
 
-82:                                               ; preds = %94, %80, %78, %.thread73
+82:                                               ; preds = %94, %80, %78, %.thread
   %83 = landingpad { ptr, i32 }
           cleanup
   br label %102
@@ -4569,7 +4569,7 @@ define double @ucurr_getRoundingIncrement_77(ptr noundef %0, ptr noundef nonnull
   br label %ucurr_getRoundingIncrementForUsage_77.exit
 
 ucurr_getRoundingIncrementForUsage_77.exit:       ; preds = %2, %8, %9, %11
-  %.1.i = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %9 ], [ %17, %11 ], [ 0.000000e+00, %8 ]
+  %.1.i = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %8 ], [ %17, %11 ], [ 0.000000e+00, %9 ]
   ret double %.1.i
 }
 
@@ -4578,10 +4578,10 @@ define double @ucurr_getRoundingIncrementForUsage_77(ptr noundef %0, i32 noundef
   %4 = tail call fastcc noundef ptr @_ZL13_findMetaDataPKDsR10UErrorCode(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %5 = load i32, ptr %2, align 4, !tbaa !13
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %23, label %7
+  br i1 %6, label %22, label %7
 
 7:                                                ; preds = %3
-  switch i32 %1, label %22 [
+  switch i32 %1, label %.critedge [
     i32 0, label %10
     i32 1, label %8
   ]
@@ -4589,6 +4589,10 @@ define double @ucurr_getRoundingIncrementForUsage_77(ptr noundef %0, i32 noundef
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %10
+
+.critedge:                                        ; preds = %7
+  store i32 16, ptr %2, align 4, !tbaa !13
+  br label %22
 
 10:                                               ; preds = %7, %8
   %.sink = phi i64 [ 12, %8 ], [ 4, %7 ]
@@ -4601,11 +4605,11 @@ define double @ucurr_getRoundingIncrementForUsage_77(ptr noundef %0, i32 noundef
 
 12:                                               ; preds = %10
   store i32 3, ptr %2, align 4, !tbaa !13
-  br label %23
+  br label %22
 
 13:                                               ; preds = %10
   %14 = icmp sgt i32 %.019, 1
-  br i1 %14, label %15, label %23
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %13
   %16 = uitofp nneg i32 %.019 to double
@@ -4614,14 +4618,10 @@ define double @ucurr_getRoundingIncrementForUsage_77(ptr noundef %0, i32 noundef
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %20 = sitofp i32 %19 to double
   %21 = fdiv double %16, %20
-  br label %23
+  br label %22
 
-22:                                               ; preds = %7
-  store i32 16, ptr %2, align 4, !tbaa !13
-  br label %23
-
-23:                                               ; preds = %12, %15, %13, %22, %3
-  %.1 = phi double [ 0.000000e+00, %22 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %13 ], [ %21, %15 ], [ 0.000000e+00, %12 ]
+22:                                               ; preds = %3, %12, %15, %13, %.critedge
+  %.1 = phi double [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %12 ], [ %21, %15 ], [ 0.000000e+00, %13 ]
   ret double %.1
 }
 

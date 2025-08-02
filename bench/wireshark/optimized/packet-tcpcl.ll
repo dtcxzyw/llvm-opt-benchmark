@@ -1030,106 +1030,106 @@ define internal i32 @get_message_len(ptr noundef %0, ptr noundef %1, i32 noundef
   %5 = alloca i64, align 8
   %6 = tail call ptr @tcpcl_dissect_ctx_get(ptr noundef %1, ptr noundef %0, i32 noundef %2)
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.loopexit, label %7
+  br i1 %.not, label %.critedge90, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load i8, ptr %8, align 8, !range !8, !noundef !9
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %37
+  br i1 %10, label %11, label %36
 
 11:                                               ; preds = %7
   %12 = tail call i32 @tvb_memeql(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @magic, i64 noundef 4)
   %.not85 = icmp eq i32 %12, 0
-  br i1 %.not85, label %27, label %13
+  br i1 %.not85, label %26, label %13
 
 13:                                               ; preds = %11
   %14 = load i32, ptr @tcpcl_chdr_missing, align 4
   %switch.tableidx = add i32 %14, -1
   %15 = icmp ult i32 %switch.tableidx, 4
-  br i1 %15, label %switch.lookup, label %23
+  br i1 %15, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %13
   %16 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.get_message_len, i64 0, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = load ptr, ptr %switch.load, align 16
-  %.not8796 = icmp eq ptr %17, null
-  br i1 %.not8796, label %.loopexit, label %.lr.ph
+  %.not8793 = icmp eq ptr %17, null
+  br i1 %.not8793, label %.critedge90, label %.lr.ph
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr i8, ptr %.07597, i64 8
+  %19 = getelementptr i8, ptr %.07594, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not87 = icmp eq ptr %20, null
-  br i1 %.not87, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not87, label %.critedge90, label %.lr.ph, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %switch.lookup, %18
   %21 = phi ptr [ %20, %18 ], [ %17, %switch.lookup ]
-  %.07597 = phi ptr [ %19, %18 ], [ %switch.load, %switch.lookup ]
+  %.07594 = phi ptr [ %19, %18 ], [ %switch.load, %switch.lookup ]
   %22 = tail call i32 %21(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6)
   %.not88 = icmp eq i32 %22, 0
-  br i1 %.not88, label %18, label %.loopexit
+  br i1 %.not88, label %18, label %.critedge90
 
-23:                                               ; preds = %13
-  %24 = tail call i32 @tvb_captured_length(ptr noundef %1)
-  %25 = sub i32 %24, %2
-  %26 = icmp ult i32 %25, 5
-  %. = select i1 %26, i32 268435455, i32 0
-  br label %.loopexit
+.critedge:                                        ; preds = %13
+  %23 = tail call i32 @tvb_captured_length(ptr noundef %1)
+  %24 = sub i32 %23, %2
+  %25 = icmp ult i32 %24, 5
+  %. = select i1 %25, i32 268435455, i32 0
+  br label %.critedge90
 
-27:                                               ; preds = %11
-  %28 = add i32 %2, 4
-  %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %28)
-  switch i8 %29, label %.loopexit [
+26:                                               ; preds = %11
+  %27 = add i32 %2, 4
+  %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %27)
+  switch i8 %28, label %.critedge90 [
     i8 3, label %get_clamped_length.exit
-    i8 4, label %35
+    i8 4, label %34
   ]
 
-get_clamped_length.exit:                          ; preds = %27
-  %30 = add i32 %2, 8
+get_clamped_length.exit:                          ; preds = %26
+  %29 = add i32 %2, 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  %31 = call i32 @tvb_get_varint(ptr noundef %1, i32 noundef %30, i32 noundef 10, ptr noundef nonnull %5, i32 noundef 16)
-  %32 = load i64, ptr %5, align 8
-  %spec.select9495 = call i64 @llvm.umin.i64(i64 %32, i64 2147483647)
-  %spec.select94 = trunc nuw nsw i64 %spec.select9495 to i32
-  %33 = add i32 %31, %30
-  %34 = add i32 %33, %spec.select94
+  %30 = call i32 @tvb_get_varint(ptr noundef %1, i32 noundef %29, i32 noundef 10, ptr noundef nonnull %5, i32 noundef 16)
+  %31 = load i64, ptr %5, align 8
+  %spec.select9192 = call i64 @llvm.umin.i64(i64 %31, i64 2147483647)
+  %spec.select91 = trunc nuw nsw i64 %spec.select9192 to i32
+  %32 = add i32 %30, %29
+  %33 = add i32 %32, %spec.select91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  br label %.thread91
+  br label %47
 
-35:                                               ; preds = %27
-  %36 = add i32 %2, 6
-  br label %.thread91
+34:                                               ; preds = %26
+  %35 = add i32 %2, 6
+  br label %47
 
-37:                                               ; preds = %7
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %41 = load i8, ptr %40, align 8
-  switch i8 %41, label %.loopexit [
-    i8 3, label %42
-    i8 4, label %45
+36:                                               ; preds = %7
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %40 = load i8, ptr %39, align 8
+  switch i8 %40, label %.critedge90 [
+    i8 3, label %41
+    i8 4, label %44
   ]
 
-42:                                               ; preds = %37
-  %43 = tail call fastcc i32 @get_v3_msg_len(ptr noundef %1, i32 noundef %2)
-  %.not84 = icmp eq i32 %43, 0
-  %44 = add i32 %43, %2
-  br i1 %.not84, label %.loopexit, label %.thread91
+41:                                               ; preds = %36
+  %42 = tail call fastcc i32 @get_v3_msg_len(ptr noundef %1, i32 noundef %2)
+  %.not84 = icmp eq i32 %42, 0
+  %43 = add i32 %42, %2
+  br i1 %.not84, label %.critedge90, label %47
 
-45:                                               ; preds = %37
-  %46 = tail call fastcc i32 @get_v4_msg_len(ptr noundef %1, i32 noundef %2)
-  %.not83 = icmp eq i32 %46, 0
-  %47 = add i32 %46, %2
-  br i1 %.not83, label %.loopexit, label %.thread91
+44:                                               ; preds = %36
+  %45 = tail call fastcc i32 @get_v4_msg_len(ptr noundef %1, i32 noundef %2)
+  %.not83 = icmp eq i32 %45, 0
+  %46 = add i32 %45, %2
+  br i1 %.not83, label %.critedge90, label %47
 
-.thread91:                                        ; preds = %get_clamped_length.exit, %35, %42, %45
-  %.271 = phi i32 [ %44, %42 ], [ %47, %45 ], [ %36, %35 ], [ %34, %get_clamped_length.exit ]
+47:                                               ; preds = %34, %get_clamped_length.exit, %41, %44
+  %.271 = phi i32 [ %43, %41 ], [ %46, %44 ], [ %33, %get_clamped_length.exit ], [ %35, %34 ]
   %48 = sub i32 %.271, %2
-  br label %.loopexit
+  br label %.critedge90
 
-.loopexit:                                        ; preds = %18, %.lr.ph, %switch.lookup, %27, %.thread91, %45, %42, %23, %37, %4
-  %.0 = phi i32 [ 0, %4 ], [ %48, %.thread91 ], [ 0, %42 ], [ 0, %45 ], [ %., %23 ], [ 0, %37 ], [ 0, %27 ], [ 0, %switch.lookup ], [ 0, %18 ], [ %22, %.lr.ph ]
+.critedge90:                                      ; preds = %18, %.lr.ph, %switch.lookup, %47, %44, %41, %.critedge, %36, %26, %4
+  %.0 = phi i32 [ 0, %4 ], [ %48, %47 ], [ 0, %41 ], [ 0, %44 ], [ %., %.critedge ], [ 0, %36 ], [ 0, %26 ], [ 0, %switch.lookup ], [ 0, %18 ], [ %22, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -2779,21 +2779,21 @@ get_clamped_length.exit:                          ; preds = %9
 define internal fastcc i32 @get_v4_msg_len(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1)
   %4 = add i32 %1, 1
-  switch i8 %3, label %.thread [
+  switch i8 %3, label %.critedge [
     i8 7, label %5
     i8 5, label %18
     i8 1, label %20
-    i8 2, label %40
-    i8 3, label %42
-    i8 4, label %46
-    i8 6, label %44
+    i8 2, label %39
+    i8 3, label %41
+    i8 4, label %45
+    i8 6, label %43
   ]
 
 5:                                                ; preds = %2
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %7 = add i32 %1, 21
   %8 = icmp slt i32 %6, %7
-  br i1 %8, label %.thread, label %9
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %5
   %10 = add i32 %1, 19
@@ -2801,23 +2801,23 @@ define internal fastcc i32 @get_v4_msg_len(ptr noundef %0, i32 noundef %1) unnam
   %12 = zext i16 %11 to i32
   %13 = add i32 %7, %12
   %14 = add i32 %13, 4
-  %.not8 = icmp slt i32 %6, %14
-  br i1 %.not8, label %.thread, label %15
+  %.not2 = icmp slt i32 %6, %14
+  br i1 %.not2, label %.critedge, label %15
 
 15:                                               ; preds = %9
   %16 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %13, i32 noundef 0)
   %17 = add i32 %16, %14
-  br label %46
+  br label %45
 
 18:                                               ; preds = %2
   %19 = add i32 %1, 3
-  br label %46
+  br label %45
 
 20:                                               ; preds = %2
   %21 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %22 = add i32 %1, 2
   %23 = icmp slt i32 %21, %22
-  br i1 %23, label %.thread, label %24
+  br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %20
   %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
@@ -2829,7 +2829,7 @@ define internal fastcc i32 @get_v4_msg_len(ptr noundef %0, i32 noundef %1) unnam
 28:                                               ; preds = %24
   %29 = add i32 %1, 14
   %30 = icmp slt i32 %21, %29
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %28
   %32 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %26, i32 noundef 0)
@@ -2840,34 +2840,34 @@ define internal fastcc i32 @get_v4_msg_len(ptr noundef %0, i32 noundef %1) unnam
   %.457 = phi i32 [ %33, %31 ], [ %26, %24 ]
   %35 = add i32 %.457, 8
   %36 = icmp slt i32 %21, %35
-  br i1 %36, label %.thread, label %37
+  br i1 %36, label %.critedge, label %get_clamped_length.exit
 
-37:                                               ; preds = %34
-  %38 = tail call i64 @tvb_get_uint64(ptr noundef %0, i32 noundef %.457, i32 noundef 0)
-  %spec.select7 = tail call i64 @llvm.umin.i64(i64 %38, i64 2147483647)
-  %spec.select = trunc nuw nsw i64 %spec.select7 to i32
-  %39 = add i32 %35, %spec.select
-  br label %46
+get_clamped_length.exit:                          ; preds = %34
+  %37 = tail call i64 @tvb_get_uint64(ptr noundef %0, i32 noundef %.457, i32 noundef 0)
+  %spec.select1 = tail call i64 @llvm.umin.i64(i64 %37, i64 2147483647)
+  %spec.select = trunc nuw nsw i64 %spec.select1 to i32
+  %38 = add i32 %35, %spec.select
+  br label %45
 
-40:                                               ; preds = %2
-  %41 = add i32 %1, 18
-  br label %46
+39:                                               ; preds = %2
+  %40 = add i32 %1, 18
+  br label %45
 
-42:                                               ; preds = %2
-  %43 = add i32 %1, 10
-  br label %46
+41:                                               ; preds = %2
+  %42 = add i32 %1, 10
+  br label %45
 
-44:                                               ; preds = %2
-  %45 = add i32 %1, 3
-  br label %46
+43:                                               ; preds = %2
+  %44 = add i32 %1, 3
+  br label %45
 
-46:                                               ; preds = %37, %15, %2, %44, %42, %40, %18
-  %.255 = phi i32 [ %17, %15 ], [ %19, %18 ], [ %39, %37 ], [ %41, %40 ], [ %43, %42 ], [ %4, %2 ], [ %45, %44 ]
-  %47 = sub i32 %.255, %1
-  br label %.thread
+45:                                               ; preds = %15, %get_clamped_length.exit, %2, %43, %41, %39, %18
+  %.255 = phi i32 [ %17, %15 ], [ %19, %18 ], [ %38, %get_clamped_length.exit ], [ %40, %39 ], [ %42, %41 ], [ %4, %2 ], [ %44, %43 ]
+  %46 = sub i32 %.255, %1
+  br label %.critedge
 
-.thread:                                          ; preds = %34, %28, %20, %9, %5, %2, %46
-  %.2 = phi i32 [ %47, %46 ], [ 0, %2 ], [ 0, %5 ], [ 0, %9 ], [ 0, %20 ], [ 0, %28 ], [ 0, %34 ]
+.critedge:                                        ; preds = %20, %28, %34, %9, %5, %2, %45
+  %.2 = phi i32 [ %46, %45 ], [ 0, %2 ], [ 0, %5 ], [ 0, %9 ], [ 0, %34 ], [ 0, %28 ], [ 0, %20 ]
   ret i32 %.2
 }
 
@@ -4001,7 +4001,7 @@ define internal range(i32 0, 2) i32 @fragment_key_equal(ptr noundef readonly cap
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @fragment_key_temporary(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
+define internal noalias noundef ptr @fragment_key_temporary(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #15
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @addresses_ports_reassembly_table_functions, i64 16), align 8
   %6 = tail call ptr %5(ptr noundef %0, i32 noundef %1, ptr noundef null)
@@ -4013,7 +4013,7 @@ define internal noundef ptr @fragment_key_temporary(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @fragment_key_persistent(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
+define internal noalias noundef ptr @fragment_key_persistent(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #15
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @addresses_ports_reassembly_table_functions, i64 24), align 8
   %6 = tail call ptr %5(ptr noundef %0, i32 noundef %1, ptr noundef null)

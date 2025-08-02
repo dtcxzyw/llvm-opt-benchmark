@@ -2279,20 +2279,17 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %_ZNSt6vectorIN3gmx1
   %207 = ptrtoint ptr %203 to i64
   %208 = sub i64 %206, %207
   %.not27.i = icmp eq ptr %203, %205
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not27.i, label %_ZL15center_moleculeN3gmx8ArrayRefINS_11BasicVectorIfEEEE.exit, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %202
-  %.sroa.018.0.lcssa.i = phi float [ 0.000000e+00, %202 ], [ %217, %.lr.ph.i ]
-  %.sroa.8.0.lcssa.i = phi float [ 0.000000e+00, %202 ], [ %220, %.lr.ph.i ]
-  %.sroa.13.0.lcssa.i = phi float [ 0.000000e+00, %202 ], [ %223, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %209 = sdiv exact i64 %208, 12
   %210 = uitofp i64 %209 to double
   %211 = fdiv double 1.000000e+00, %210
   %212 = fptrunc double %211 to float
-  %213 = fmul float %.sroa.018.0.lcssa.i, %212
-  %214 = fmul float %.sroa.8.0.lcssa.i, %212
-  %215 = fmul float %.sroa.13.0.lcssa.i, %212
-  br i1 %.not27.i, label %_ZL15center_moleculeN3gmx8ArrayRefINS_11BasicVectorIfEEEE.exit, label %.lr.ph37.i
+  %213 = fmul float %217, %212
+  %214 = fmul float %220, %212
+  %215 = fmul float %223, %212
+  br label %.lr.ph37.i
 
 .lr.ph.i:                                         ; preds = %202, %.lr.ph.i
   %.sroa.016.031.i = phi ptr [ %224, %.lr.ph.i ], [ %203, %202 ]
@@ -2311,7 +2308,7 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %_ZNSt6vectorIN3gmx1
   %.not.i = icmp eq ptr %224, %205
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph37.i:                                       ; preds = %._crit_edge.i, %.lr.ph37.i
+.lr.ph37.i:                                       ; preds = %.lr.ph37.i, %._crit_edge.i
   %.sroa.0.035.i = phi ptr [ %233, %.lr.ph37.i ], [ %203, %._crit_edge.i ]
   %225 = load float, ptr %.sroa.0.035.i, align 4, !tbaa !101
   %226 = fsub float %225, %213
@@ -2328,7 +2325,7 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %_ZNSt6vectorIN3gmx1
   %.not26.i = icmp eq ptr %233, %205
   br i1 %.not26.i, label %_ZL15center_moleculeN3gmx8ArrayRefINS_11BasicVectorIfEEEE.exit, label %.lr.ph37.i
 
-_ZL15center_moleculeN3gmx8ArrayRefINS_11BasicVectorIfEEEE.exit: ; preds = %.lr.ph37.i, %._crit_edge.i, %197
+_ZL15center_moleculeN3gmx8ArrayRefINS_11BasicVectorIfEEEE.exit: ; preds = %.lr.ph37.i, %202, %197
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #28
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #28

@@ -3187,85 +3187,82 @@ define internal fastcc void @_ZL17print_method_nameP12outputStreamP6MethodiN9Byt
   %39 = icmp ult i64 %38, 16
   br i1 %39, label %_ZL42trim_well_known_class_names_from_signaturePc.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %3
-  %invariant.gep.i = getelementptr i8, ptr %37, i64 -2
-  br label %40
-
-40:                                               ; preds = %59, %.preheader.i
-  %.041.i = phi i64 [ 0, %.preheader.i ], [ %61, %59 ]
-  %.03340.i = phi i64 [ 0, %.preheader.i ], [ %60, %59 ]
-  switch i64 %.03340.i, label %47 [
-    i64 0, label %41
+.preheader.i:                                     ; preds = %3, %60
+  %.041.i = phi i64 [ %62, %60 ], [ 0, %3 ]
+  %.03340.i = phi i64 [ %61, %60 ], [ 0, %3 ]
+  switch i64 %.03340.i, label %46 [
+    i64 0, label %40
     i64 1, label %.critedge38.i
   ]
 
-41:                                               ; preds = %40
-  %42 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(17) @.str.49, i64 noundef 16) #13
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %53, label %44
+40:                                               ; preds = %.preheader.i
+  %41 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(17) @.str.49, i64 noundef 16) #13
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %54, label %43
 
-44:                                               ; preds = %41
-  %45 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(17) @.str.51, i64 noundef 16) #13
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %53, label %.critedge38.i
+43:                                               ; preds = %40
+  %44 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(17) @.str.51, i64 noundef 16) #13
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %54, label %.critedge38.i
 
-47:                                               ; preds = %40
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.03340.i
-  %48 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %gep.i, ptr noundef nonnull dereferenceable(19) @.str.55, i64 noundef 18) #13
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %53, label %50
+46:                                               ; preds = %.preheader.i
+  %47 = getelementptr inbounds i8, ptr %37, i64 %.03340.i
+  %48 = getelementptr inbounds i8, ptr %47, i64 -2
+  %49 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(19) @.str.55, i64 noundef 18) #13
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %54, label %51
 
-50:                                               ; preds = %47
-  %51 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %gep.i, ptr noundef nonnull dereferenceable(19) @.str.56, i64 noundef 18) #13
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %.critedge38.i
+51:                                               ; preds = %46
+  %52 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(19) @.str.56, i64 noundef 18) #13
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %.critedge38.i
 
-53:                                               ; preds = %50, %47, %44, %41
-  %54 = add i64 %.03340.i, 10
+54:                                               ; preds = %51, %46, %43, %40
+  %55 = add i64 %.03340.i, 10
   br label %.critedge38.i
 
-.critedge38.i:                                    ; preds = %53, %50, %44, %40
-  %.1.i = phi i64 [ %54, %53 ], [ %.03340.i, %50 ], [ 0, %44 ], [ %.03340.i, %40 ]
+.critedge38.i:                                    ; preds = %54, %51, %43, %.preheader.i
+  %.1.i = phi i64 [ %55, %54 ], [ %.03340.i, %51 ], [ 0, %43 ], [ %.03340.i, %.preheader.i ]
   %.not36.i = icmp eq i64 %.041.i, %.1.i
-  br i1 %.not36.i, label %59, label %55
+  br i1 %.not36.i, label %60, label %56
 
-55:                                               ; preds = %.critedge38.i
-  %56 = getelementptr inbounds i8, ptr %37, i64 %.1.i
-  %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %37, i64 %.041.i
-  store i8 %57, ptr %58, align 1
-  br label %59
+56:                                               ; preds = %.critedge38.i
+  %57 = getelementptr inbounds i8, ptr %37, i64 %.1.i
+  %58 = load i8, ptr %57, align 1
+  %59 = getelementptr inbounds i8, ptr %37, i64 %.041.i
+  store i8 %58, ptr %59, align 1
+  br label %60
 
-59:                                               ; preds = %55, %.critedge38.i
-  %60 = add i64 %.1.i, 1
-  %61 = add i64 %.041.i, 1
-  %.not.i = icmp ugt i64 %60, %38
-  br i1 %.not.i, label %_ZL42trim_well_known_class_names_from_signaturePc.exit, label %40, !llvm.loop !23
+60:                                               ; preds = %56, %.critedge38.i
+  %61 = add i64 %.1.i, 1
+  %62 = add i64 %.041.i, 1
+  %.not.i = icmp ugt i64 %61, %38
+  br i1 %.not.i, label %_ZL42trim_well_known_class_names_from_signaturePc.exit, label %.preheader.i, !llvm.loop !23
 
-_ZL42trim_well_known_class_names_from_signaturePc.exit: ; preds = %59, %3
+_ZL42trim_well_known_class_names_from_signaturePc.exit: ; preds = %60, %3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.54, ptr noundef nonnull %37) #12
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #12
-  %62 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %62, null
-  br i1 %.not.i.i.i.i, label %64, label %63
+  %63 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %63, null
+  br i1 %.not.i.i.i.i, label %65, label %64
 
-63:                                               ; preds = %_ZL42trim_well_known_class_names_from_signaturePc.exit
+64:                                               ; preds = %_ZL42trim_well_known_class_names_from_signaturePc.exit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #12
-  br label %64
+  br label %65
 
-64:                                               ; preds = %63, %_ZL42trim_well_known_class_names_from_signaturePc.exit
-  %65 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %65, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %66
+65:                                               ; preds = %64, %_ZL42trim_well_known_class_names_from_signaturePc.exit
+  %66 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %66, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %67
 
-66:                                               ; preds = %64
+67:                                               ; preds = %65
   store ptr %10, ptr %9, align 8
   store ptr %12, ptr %11, align 8
   store ptr %14, ptr %13, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %64, %66
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %65, %67
   ret void
 }
 

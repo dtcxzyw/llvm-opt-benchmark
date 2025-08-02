@@ -1038,7 +1038,7 @@ define hidden range(i32 -1, 1) i32 @event_changelist_add_(ptr noundef captures(n
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %14, %16
-  %.pre26.i = load ptr, ptr %6, align 8
+  %.pre23.i = load ptr, ptr %6, align 8
   br i1 %17, label %18, label %event_changelist_get_or_construct.exit.thread23
 
 18:                                               ; preds = %12
@@ -1047,7 +1047,7 @@ define hidden range(i32 -1, 1) i32 @event_changelist_add_(ptr noundef captures(n
   %.09.i.i = select i1 %19, i32 64, i32 %20
   %21 = zext nneg i32 %.09.i.i to i64
   %22 = mul nuw nsw i64 %21, 12
-  %23 = tail call ptr @event_mm_realloc_(ptr noundef %.pre26.i, i64 noundef %22) #7
+  %23 = tail call ptr @event_mm_realloc_(ptr noundef %.pre23.i, i64 noundef %22) #7
   %24 = icmp eq ptr %23, null
   br i1 %24, label %event_changelist_get_or_construct.exit.thread, label %event_changelist_grow.exit.i, !prof !6
 
@@ -1058,8 +1058,8 @@ event_changelist_grow.exit.i:                     ; preds = %18
   br label %event_changelist_get_or_construct.exit.thread23
 
 event_changelist_get_or_construct.exit.thread23:  ; preds = %12, %event_changelist_grow.exit.i
-  %25 = phi ptr [ %.pre26.i, %12 ], [ %23, %event_changelist_grow.exit.i ]
-  %26 = phi i32 [ %14, %12 ], [ %.pre.i, %event_changelist_grow.exit.i ]
+  %25 = phi ptr [ %23, %event_changelist_grow.exit.i ], [ %.pre23.i, %12 ]
+  %26 = phi i32 [ %.pre.i, %event_changelist_grow.exit.i ], [ %14, %12 ]
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %13, align 8
   %28 = sext i32 %26 to i64
@@ -1131,7 +1131,7 @@ define hidden range(i32 -1, 1) i32 @event_changelist_del_(ptr noundef captures(n
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %14, %16
-  %.pre26.i = load ptr, ptr %6, align 8
+  %.pre23.i = load ptr, ptr %6, align 8
   br i1 %17, label %18, label %event_changelist_get_or_construct.exit.thread32
 
 18:                                               ; preds = %12
@@ -1140,7 +1140,7 @@ define hidden range(i32 -1, 1) i32 @event_changelist_del_(ptr noundef captures(n
   %.09.i.i = select i1 %19, i32 64, i32 %20
   %21 = zext nneg i32 %.09.i.i to i64
   %22 = mul nuw nsw i64 %21, 12
-  %23 = tail call ptr @event_mm_realloc_(ptr noundef %.pre26.i, i64 noundef %22) #7
+  %23 = tail call ptr @event_mm_realloc_(ptr noundef %.pre23.i, i64 noundef %22) #7
   %24 = icmp eq ptr %23, null
   br i1 %24, label %event_changelist_get_or_construct.exit.thread, label %event_changelist_grow.exit.i, !prof !6
 
@@ -1151,8 +1151,8 @@ event_changelist_grow.exit.i:                     ; preds = %18
   br label %event_changelist_get_or_construct.exit.thread32
 
 event_changelist_get_or_construct.exit.thread32:  ; preds = %12, %event_changelist_grow.exit.i
-  %25 = phi ptr [ %.pre26.i, %12 ], [ %23, %event_changelist_grow.exit.i ]
-  %26 = phi i32 [ %14, %12 ], [ %.pre.i, %event_changelist_grow.exit.i ]
+  %25 = phi ptr [ %23, %event_changelist_grow.exit.i ], [ %.pre23.i, %12 ]
+  %26 = phi i32 [ %.pre.i, %event_changelist_grow.exit.i ], [ %14, %12 ]
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %13, align 8
   %28 = sext i32 %26 to i64

@@ -585,33 +585,34 @@ define internal fastcc void @g726_reset(ptr noundef captures(none) initializes((
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds [4 x %struct.G726Tables], ptr @G726Tables_pool, i64 0, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !67
-  %7 = getelementptr i8, ptr %0, i64 42
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 32, ptr %7, align 1, !tbaa !70
   store i32 1, ptr %8, align 4, !tbaa !42
-  %9 = getelementptr i8, ptr %0, i64 45
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 32, ptr %9, align 1, !tbaa !70
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 1, ptr %10, align 4, !tbaa !42
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %11
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 46
+  br label %12
 
-11:                                               ; preds = %.preheader.critedge, %11
-  %indvars.iv18 = phi i64 [ 0, %.preheader.critedge ], [ %indvars.iv.next19, %11 ]
-  %12 = mul nuw nsw i64 %indvars.iv18, 3
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %12
-  store i8 32, ptr %gep, align 1, !tbaa !70
+12:                                               ; preds = %.preheader.critedge, %12
+  %indvars.iv18 = phi i64 [ 0, %.preheader.critedge ], [ %indvars.iv.next19, %12 ]
+  %13 = mul nuw nsw i64 %indvars.iv18, 3
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  store i8 32, ptr %15, align 1, !tbaa !70
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next19, 6
-  br i1 %exitcond.not, label %13, label %11, !llvm.loop !72
+  br i1 %exitcond.not, label %16, label %12, !llvm.loop !72
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 544, ptr %14, align 4, !tbaa !73
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 34816, ptr %15, align 8, !tbaa !74
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 544, ptr %16, align 8, !tbaa !57
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 544, ptr %17, align 4, !tbaa !73
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 34816, ptr %18, align 8, !tbaa !74
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 544, ptr %19, align 8, !tbaa !57
   ret void
 }
 

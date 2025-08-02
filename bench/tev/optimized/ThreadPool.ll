@@ -1034,7 +1034,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 declare void @_ZNSt3__115__thread_structC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZNSt3__114__thread_proxyB8ne190000INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN3tev10ThreadPool12startThreadsEmE3$_0EEEEEPvSB_"(ptr noundef %0) #1 personality ptr @__gxx_personality_v0 {
+define internal noalias noundef ptr @"_ZNSt3__114__thread_proxyB8ne190000INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN3tev10ThreadPool12startThreadsEmE3$_0EEEEEPvSB_"(ptr noundef %0) #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.tev::ThreadPool::QueuedTask::Comparator", align 1
   %3 = alloca %"class.std::__1::unique_lock", align 8
   %4 = alloca %"class.std::__1::function", align 16

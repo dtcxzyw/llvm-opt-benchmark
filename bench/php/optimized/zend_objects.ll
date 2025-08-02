@@ -1014,13 +1014,13 @@ _zend_hash_append_ex.exit:                        ; preds = %178, %zend_string_a
   br i1 %.not115, label %.loopexit, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %.preheader
-  %216 = getelementptr i8, ptr %0, i64 52
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %217
 
 217:                                              ; preds = %.lr.ph113, %217
   %indvars.iv = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next, %217 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %218 = getelementptr i8, ptr %216, i64 %.idx
+  %218 = getelementptr inbounds nuw i8, ptr %216, i64 %.idx
   %219 = load i32, ptr %218, align 4, !tbaa !9
   %220 = and i32 %219, -3
   store i32 %220, ptr %218, align 4, !tbaa !9

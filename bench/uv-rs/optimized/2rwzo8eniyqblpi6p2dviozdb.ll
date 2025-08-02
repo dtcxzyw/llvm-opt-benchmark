@@ -1119,86 +1119,83 @@ default.unreachable:                              ; preds = %3
   %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h4f87aa795e48a7a1E", i64 60), align 4, !range !309, !noalias !310, !noundef !3
   %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h4f87aa795e48a7a1E", i64 61), align 1, !noalias !310
   %trunc.i.i.i = trunc nuw i8 %9 to i1
-  br i1 %trunc.i.i.i, label %11, label %15
+  br i1 %trunc.i.i.i, label %11, label %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit"
 
 11:                                               ; preds = %8
   %.not.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i.i, label %12, label %13
+  br i1 %.not.i.i.i, label %.critedge, label %13
 
-12:                                               ; preds = %11
+.critedge:                                        ; preds = %11
   tail call void @_ZN5tokio4task4coop14register_waker17hbb1a8c8a17437b8cE(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit"
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
+  store i24 0, ptr %4, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  call void @"_ZN77_$LT$tokio..task..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecb761d6d41f5960E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %12)
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4)
+  store i32 2, ptr %0, align 8
+  br label %25
 
 13:                                               ; preds = %11
   %14 = add i8 %10, -1
-  br label %15
-
-15:                                               ; preds = %13, %8
-  %.sroa.33.0.i.i.i = phi i8 [ %14, %13 ], [ %10, %8 ]
-  store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h4f87aa795e48a7a1E", i64 61), align 1, !noalias !310
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit": ; preds = %15, %12
-  %.sroa.4.0.i.i.i = phi i8 [ %10, %15 ], [ 0, %12 ]
-  %.sroa.0.0.i.i9.i = phi i1 [ false, %15 ], [ true, %12 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit": ; preds = %13, %8
+  %.sroa.33.0.i.i.i = phi i8 [ %14, %13 ], [ %10, %8 ]
+  store i8 %.sroa.33.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h4f87aa795e48a7a1E", i64 61), align 1, !noalias !310
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  call void @"_ZN77_$LT$tokio..task..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecb761d6d41f5960E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %16)
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  call void @"_ZN77_$LT$tokio..task..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecb761d6d41f5960E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %15)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4)
-  br i1 %.sroa.0.0.i.i9.i, label %18, label %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit.thread"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit.thread"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit.thread": ; preds = %3, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit"
+"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit.thread": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit", %3
   %.sroa.03.012.i20.off8 = phi i8 [ %9, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit" ], [ 0, %3 ]
-  %.sroa.03.012.i20.off16 = phi i8 [ %.sroa.4.0.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit" ], [ 0, %3 ]
+  %.sroa.03.012.i20.off16 = phi i8 [ %10, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit" ], [ 0, %3 ]
   store i8 %.sroa.03.012.i20.off8, ptr %5, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i20.off16, ptr %17, align 1
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %.sroa.03.012.i20.off16, ptr %16, align 1
   invoke void @"_ZN75_$LT$tokio..process..imp..Child$u20$as$u20$core..future..future..Future$GT$4poll17h2104b772616baa18E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-          to label %21 unwind label %19
+          to label %19 unwind label %17
 
-18:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit"
-  store i32 2, ptr %0, align 8
-  br label %27
-
-19:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit.thread"
-  %20 = landingpad { ptr, i32 }
+17:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit.thread"
+  %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN77_$LT$tokio..task..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecb761d6d41f5960E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
-          to label %"_ZN4core3ptr56drop_in_place$LT$tokio..task..coop..RestoreOnPending$GT$17h38b9ab0c116486e9E.exit" unwind label %28
+          to label %"_ZN4core3ptr56drop_in_place$LT$tokio..task..coop..RestoreOnPending$GT$17h38b9ab0c116486e9E.exit" unwind label %26
 
-21:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit.thread"
-  %22 = load i32, ptr %0, align 8, !range !315, !noundef !3
-  switch i32 %22, label %25 [
-    i32 0, label %23
-    i32 2, label %26
+19:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h207d1ee8119dcb0eE.exit.thread"
+  %20 = load i32, ptr %0, align 8, !range !315, !noundef !3
+  switch i32 %20, label %23 [
+    i32 0, label %21
+    i32 2, label %24
   ]
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i8 0, ptr %24, align 8
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store i8 0, ptr %22, align 8
+  br label %23
+
+23:                                               ; preds = %19, %21
+  store i8 0, ptr %5, align 1
+  br label %24
+
+24:                                               ; preds = %19, %23
+  call void @"_ZN77_$LT$tokio..task..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecb761d6d41f5960E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
   br label %25
 
-25:                                               ; preds = %21, %23
-  store i8 0, ptr %5, align 1
-  br label %26
-
-26:                                               ; preds = %21, %25
-  call void @"_ZN77_$LT$tokio..task..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hecb761d6d41f5960E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
-  br label %27
-
-27:                                               ; preds = %26, %18
+25:                                               ; preds = %24, %.critedge
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   ret void
 
-28:                                               ; preds = %19
-  %29 = landingpad { ptr, i32 }
+26:                                               ; preds = %17
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #20
   unreachable
 
-"_ZN4core3ptr56drop_in_place$LT$tokio..task..coop..RestoreOnPending$GT$17h38b9ab0c116486e9E.exit": ; preds = %19
-  resume { ptr, i32 } %20
+"_ZN4core3ptr56drop_in_place$LT$tokio..task..coop..RestoreOnPending$GT$17h38b9ab0c116486e9E.exit": ; preds = %17
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

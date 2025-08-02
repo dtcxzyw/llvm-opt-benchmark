@@ -8611,7 +8611,6 @@ _ZL17stbtt__find_tablePhjPKc.exit.thread:         ; preds = %39, %127, %58, %6, 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @stbtt_FindMatchingFont(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #16 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 45
   %4 = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef %0, i32 noundef 0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %_ZL14stbtt__matchesPhjS_i.exit, label %.lr.ph
@@ -8624,8 +8623,8 @@ define dso_local i32 @stbtt_FindMatchingFont(ptr noundef readonly captures(none)
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.loopexit
-  %10 = phi i32 [ %4, %.lr.ph ], [ %157, %.loopexit ]
-  %.01017 = phi i32 [ 0, %.lr.ph ], [ %156, %.loopexit ]
+  %10 = phi i32 [ %4, %.lr.ph ], [ %159, %.loopexit ]
+  %.01017 = phi i32 [ 0, %.lr.ph ], [ %158, %.loopexit ]
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %13 = load i8, ptr %12, align 1
@@ -8785,11 +8784,12 @@ define dso_local i32 @stbtt_FindMatchingFont(ptr noundef readonly captures(none)
 
 _ZL17stbtt__find_tablePhjPKc.exit.i:              ; preds = %102, %83
   %.0.i49.i = phi i64 [ %101, %83 ], [ 0, %102 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0.i49.i
-  %.val48.i = load i8, ptr %gep, align 1
-  %103 = and i8 %.val48.i, 7
-  %104 = zext nneg i8 %103 to i32
-  %.not40.i.not = icmp eq i32 %8, %104
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i49.i
+  %104 = getelementptr i8, ptr %103, i64 45
+  %.val48.i = load i8, ptr %104, align 1
+  %105 = and i8 %.val48.i, 7
+  %106 = zext nneg i8 %105 to i32
+  %.not40.i.not = icmp eq i32 %8, %106
   br i1 %.not40.i.not, label %.lr.ph.i53.i, label %.loopexit
 
 ._crit_edge.i:                                    ; preds = %62
@@ -8797,105 +8797,105 @@ _ZL17stbtt__find_tablePhjPKc.exit.i:              ; preds = %102, %83
 
 .lr.ph.i53.i:                                     ; preds = %_ZL17stbtt__find_tablePhjPKc.exit.i, %._crit_edge.i
   %wide.trip.count.i54.i = zext nneg i32 %.pre78.i to i64
-  br label %105
+  br label %107
 
-105:                                              ; preds = %124, %.lr.ph.i53.i
-  %indvars.iv.i55.i = phi i64 [ 0, %.lr.ph.i53.i ], [ %indvars.iv.next.i57.i, %124 ]
+107:                                              ; preds = %126, %.lr.ph.i53.i
+  %indvars.iv.i55.i = phi i64 [ 0, %.lr.ph.i53.i ], [ %indvars.iv.next.i57.i, %126 ]
   %indvars.iv.tr.i56.i = trunc i64 %indvars.iv.i55.i to i32
-  %106 = shl i32 %indvars.iv.tr.i56.i, 4
-  %107 = add i32 %106, %.pre80.i
-  %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 %108
-  %110 = load i8, ptr %109, align 1
-  %111 = icmp eq i8 %110, 110
-  br i1 %111, label %112, label %124
+  %108 = shl i32 %indvars.iv.tr.i56.i, 4
+  %109 = add i32 %108, %.pre80.i
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %112 = load i8, ptr %111, align 1
+  %113 = icmp eq i8 %112, 110
+  br i1 %113, label %114, label %126
 
-112:                                              ; preds = %105
-  %113 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  %114 = load i8, ptr %113, align 1
-  %115 = icmp eq i8 %114, 97
-  br i1 %115, label %116, label %124
+114:                                              ; preds = %107
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 1
+  %116 = load i8, ptr %115, align 1
+  %117 = icmp eq i8 %116, 97
+  br i1 %117, label %118, label %126
 
-116:                                              ; preds = %112
-  %117 = getelementptr inbounds nuw i8, ptr %109, i64 2
-  %118 = load i8, ptr %117, align 1
-  %119 = icmp eq i8 %118, 109
-  br i1 %119, label %120, label %124
+118:                                              ; preds = %114
+  %119 = getelementptr inbounds nuw i8, ptr %111, i64 2
+  %120 = load i8, ptr %119, align 1
+  %121 = icmp eq i8 %120, 109
+  br i1 %121, label %122, label %126
 
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds nuw i8, ptr %109, i64 3
-  %122 = load i8, ptr %121, align 1
-  %123 = icmp eq i8 %122, 101
-  br i1 %123, label %_ZL17stbtt__find_tablePhjPKc.exit60.i, label %124
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %111, i64 3
+  %124 = load i8, ptr %123, align 1
+  %125 = icmp eq i8 %124, 101
+  br i1 %125, label %_ZL17stbtt__find_tablePhjPKc.exit60.i, label %126
 
-124:                                              ; preds = %120, %116, %112, %105
+126:                                              ; preds = %122, %118, %114, %107
   %indvars.iv.next.i57.i = add nuw nsw i64 %indvars.iv.i55.i, 1
   %exitcond.not.i58.i = icmp eq i64 %indvars.iv.next.i57.i, %wide.trip.count.i54.i
-  br i1 %exitcond.not.i58.i, label %.loopexit, label %105, !llvm.loop !5
+  br i1 %exitcond.not.i58.i, label %.loopexit, label %107, !llvm.loop !5
 
-_ZL17stbtt__find_tablePhjPKc.exit60.i:            ; preds = %120
-  %125 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %126 = load i8, ptr %125, align 1
-  %127 = zext i8 %126 to i32
-  %128 = shl nuw i32 %127, 24
-  %129 = getelementptr inbounds nuw i8, ptr %109, i64 9
-  %130 = load i8, ptr %129, align 1
-  %131 = zext i8 %130 to i32
-  %132 = shl nuw nsw i32 %131, 16
-  %133 = or disjoint i32 %132, %128
-  %134 = getelementptr inbounds nuw i8, ptr %109, i64 10
-  %135 = load i8, ptr %134, align 1
-  %136 = zext i8 %135 to i32
-  %137 = shl nuw nsw i32 %136, 8
-  %138 = or disjoint i32 %133, %137
-  %139 = getelementptr inbounds nuw i8, ptr %109, i64 11
-  %140 = load i8, ptr %139, align 1
-  %141 = zext i8 %140 to i32
-  %142 = or disjoint i32 %138, %141
-  %.not41.i = icmp eq i32 %142, 0
-  br i1 %.not41.i, label %.loopexit, label %143
+_ZL17stbtt__find_tablePhjPKc.exit60.i:            ; preds = %122
+  %127 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %128 = load i8, ptr %127, align 1
+  %129 = zext i8 %128 to i32
+  %130 = shl nuw i32 %129, 24
+  %131 = getelementptr inbounds nuw i8, ptr %111, i64 9
+  %132 = load i8, ptr %131, align 1
+  %133 = zext i8 %132 to i32
+  %134 = shl nuw nsw i32 %133, 16
+  %135 = or disjoint i32 %134, %130
+  %136 = getelementptr inbounds nuw i8, ptr %111, i64 10
+  %137 = load i8, ptr %136, align 1
+  %138 = zext i8 %137 to i32
+  %139 = shl nuw nsw i32 %138, 8
+  %140 = or disjoint i32 %135, %139
+  %141 = getelementptr inbounds nuw i8, ptr %111, i64 11
+  %142 = load i8, ptr %141, align 1
+  %143 = zext i8 %142 to i32
+  %144 = or disjoint i32 %140, %143
+  %.not41.i = icmp eq i32 %144, 0
+  br i1 %.not41.i, label %.loopexit, label %145
 
-143:                                              ; preds = %_ZL17stbtt__find_tablePhjPKc.exit60.i
-  br i1 %.not39.i, label %150, label %144
+145:                                              ; preds = %_ZL17stbtt__find_tablePhjPKc.exit60.i
+  br i1 %.not39.i, label %152, label %146
 
-144:                                              ; preds = %143
-  %145 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 16, i32 noundef -1)
-  %.not45.i = icmp eq i32 %145, 0
-  br i1 %.not45.i, label %146, label %_ZL14stbtt__matchesPhjS_i.exit
-
-146:                                              ; preds = %144
-  %147 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 1, i32 noundef -1)
-  %.not46.i = icmp eq i32 %147, 0
-  br i1 %.not46.i, label %148, label %_ZL14stbtt__matchesPhjS_i.exit
+146:                                              ; preds = %145
+  %147 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull readonly %0, i32 noundef %144, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 16, i32 noundef -1)
+  %.not45.i = icmp eq i32 %147, 0
+  br i1 %.not45.i, label %148, label %_ZL14stbtt__matchesPhjS_i.exit
 
 148:                                              ; preds = %146
-  %149 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
-  %.not47.i = icmp eq i32 %149, 0
+  %149 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull readonly %0, i32 noundef %144, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 1, i32 noundef -1)
+  %.not46.i = icmp eq i32 %149, 0
+  br i1 %.not46.i, label %150, label %_ZL14stbtt__matchesPhjS_i.exit
+
+150:                                              ; preds = %148
+  %151 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull readonly %0, i32 noundef %144, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
+  %.not47.i = icmp eq i32 %151, 0
   br i1 %.not47.i, label %.loopexit, label %_ZL14stbtt__matchesPhjS_i.exit
 
-150:                                              ; preds = %143
-  %151 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 16, i32 noundef 17)
-  %.not42.i = icmp eq i32 %151, 0
-  br i1 %.not42.i, label %152, label %_ZL14stbtt__matchesPhjS_i.exit
-
-152:                                              ; preds = %150
-  %153 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 1, i32 noundef 2)
-  %.not43.i = icmp eq i32 %153, 0
-  br i1 %.not43.i, label %154, label %_ZL14stbtt__matchesPhjS_i.exit
+152:                                              ; preds = %145
+  %153 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull readonly %0, i32 noundef %144, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 16, i32 noundef 17)
+  %.not42.i = icmp eq i32 %153, 0
+  br i1 %.not42.i, label %154, label %_ZL14stbtt__matchesPhjS_i.exit
 
 154:                                              ; preds = %152
-  %155 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull readonly %0, i32 noundef %142, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
-  %.not44.i = icmp eq i32 %155, 0
+  %155 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull readonly %0, i32 noundef %144, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 1, i32 noundef 2)
+  %.not43.i = icmp eq i32 %155, 0
+  br i1 %.not43.i, label %156, label %_ZL14stbtt__matchesPhjS_i.exit
+
+156:                                              ; preds = %154
+  %157 = tail call fastcc noundef i32 @_ZL16stbtt__matchpairPhjS_iii(ptr noundef nonnull readonly %0, i32 noundef %144, ptr noundef nonnull readonly %1, i32 noundef %7, i32 noundef 3, i32 noundef -1)
+  %.not44.i = icmp eq i32 %157, 0
   br i1 %.not44.i, label %.loopexit, label %_ZL14stbtt__matchesPhjS_i.exit
 
-.loopexit:                                        ; preds = %124, %63, %148, %154, %_ZL17stbtt__find_tablePhjPKc.exit.i, %_ZL17stbtt__find_tablePhjPKc.exit60.i, %9, %14, %18, %22, %26, %30, %34, %38, %42, %46, %50, %54, %58, %._crit_edge.i
-  %156 = add nuw nsw i32 %.01017, 1
-  %157 = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef nonnull %0, i32 noundef %156)
-  %158 = icmp slt i32 %157, 0
-  br i1 %158, label %_ZL14stbtt__matchesPhjS_i.exit, label %9, !llvm.loop !63
+.loopexit:                                        ; preds = %126, %63, %150, %156, %_ZL17stbtt__find_tablePhjPKc.exit.i, %_ZL17stbtt__find_tablePhjPKc.exit60.i, %9, %14, %18, %22, %26, %30, %34, %38, %42, %46, %50, %54, %58, %._crit_edge.i
+  %158 = add nuw nsw i32 %.01017, 1
+  %159 = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef nonnull %0, i32 noundef %158)
+  %160 = icmp slt i32 %159, 0
+  br i1 %160, label %_ZL14stbtt__matchesPhjS_i.exit, label %9, !llvm.loop !63
 
-_ZL14stbtt__matchesPhjS_i.exit:                   ; preds = %.loopexit, %144, %146, %148, %150, %152, %154, %3
-  %.lcssa16 = phi i32 [ %4, %3 ], [ %10, %154 ], [ %10, %152 ], [ %10, %150 ], [ %10, %148 ], [ %10, %146 ], [ %10, %144 ], [ %157, %.loopexit ]
+_ZL14stbtt__matchesPhjS_i.exit:                   ; preds = %.loopexit, %146, %148, %150, %152, %154, %156, %3
+  %.lcssa16 = phi i32 [ %4, %3 ], [ %10, %156 ], [ %10, %154 ], [ %10, %152 ], [ %10, %150 ], [ %10, %148 ], [ %10, %146 ], [ %159, %.loopexit ]
   ret i32 %.lcssa16
 }
 
@@ -9827,22 +9827,22 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef nonnull %0, i32 
 
 79:                                               ; preds = %70
   call void @glColor4ubv(ptr noundef nonnull %4)
-  %invariant.gep = getelementptr i8, ptr %0, i64 -8
   br label %80
 
 80:                                               ; preds = %79, %80
   %indvars.iv112 = phi i64 [ 2, %79 ], [ %indvars.iv.next113, %80 ]
   call void @glVertex2fv(ptr noundef nonnull %0)
   %81 = shl nuw i64 %indvars.iv112, 1
-  %gep = getelementptr float, ptr %invariant.gep, i64 %81
-  call void @glVertex2fv(ptr noundef nonnull %gep)
-  %82 = getelementptr inbounds nuw float, ptr %0, i64 %81
-  call void @glVertex2fv(ptr noundef nonnull %82)
+  %82 = getelementptr float, ptr %0, i64 %81
+  %83 = getelementptr i8, ptr %82, i64 -8
+  call void @glVertex2fv(ptr noundef nonnull %83)
+  %84 = getelementptr inbounds nuw float, ptr %0, i64 %81
+  call void @glVertex2fv(ptr noundef nonnull %84)
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count
-  br i1 %exitcond116.not, label %83, label %80, !llvm.loop !77
+  br i1 %exitcond116.not, label %85, label %80, !llvm.loop !77
 
-83:                                               ; preds = %80
+85:                                               ; preds = %80
   call void @glEnd()
   ret void
 }

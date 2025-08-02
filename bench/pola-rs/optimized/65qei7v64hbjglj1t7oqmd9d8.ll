@@ -10210,8 +10210,8 @@ define { ptr, i64 } @"_ZN142_$LT$polars_arrow..array..binview..BinaryViewArrayGe
   %21 = load i32, ptr %20, align 4, !alias.scope !662, !noalias !665, !noundef !28
   %22 = zext i32 %21 to i64
   %.idx = mul nuw nsw i64 %18, 24
-  %23 = getelementptr i8, ptr %10, i64 24
-  %24 = getelementptr i8, ptr %23, i64 %.idx
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %25 = load ptr, ptr %24, align 8, !alias.scope !667, !noalias !662, !noundef !28
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %22
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h9bcbbe711ac0eea0E.exit
@@ -27977,8 +27977,8 @@ define { ptr, i64 } @"_ZN139_$LT$polars_arrow..array..binview..BinaryViewArrayGe
   %21 = load i32, ptr %20, align 4, !alias.scope !1689, !noalias !1692, !noundef !28
   %22 = zext i32 %21 to i64
   %.idx = mul nuw nsw i64 %18, 24
-  %23 = getelementptr i8, ptr %10, i64 24
-  %24 = getelementptr i8, ptr %23, i64 %.idx
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %25 = load ptr, ptr %24, align 8, !alias.scope !1694, !noalias !1689, !noundef !28
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %22
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h9bcbbe711ac0eea0E.exit
@@ -28374,8 +28374,8 @@ define { ptr, i64 } @"_ZN130_$LT$polars_arrow..array..binview..BinaryViewArrayGe
   %21 = load i32, ptr %20, align 4, !alias.scope !1734, !noalias !1737, !noundef !28
   %22 = zext i32 %21 to i64
   %.idx = mul nuw nsw i64 %18, 24
-  %23 = getelementptr i8, ptr %10, i64 24
-  %24 = getelementptr i8, ptr %23, i64 %.idx
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %25 = load ptr, ptr %24, align 8, !alias.scope !1739, !noalias !1734, !noundef !28
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %22
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h9bcbbe711ac0eea0E.exit

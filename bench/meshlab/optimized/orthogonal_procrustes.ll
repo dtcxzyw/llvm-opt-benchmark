@@ -2011,7 +2011,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_13CwiseBinaryOpINS_8internal18scala
   br i1 %156, label %.preheader201, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit203, %.preheader202, %130
-  %157 = phi i64 [ %141, %130 ], [ %155, %.preheader202 ], [ %300, %.loopexit203 ]
+  %157 = phi i64 [ %141, %130 ], [ %300, %.loopexit203 ], [ %155, %.preheader202 ]
   %158 = icmp sgt i64 %157, 0
   br i1 %158, label %.lr.ph, label %._crit_edge
 
@@ -2029,7 +2029,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_13CwiseBinaryOpINS_8internal18scala
   %161 = getelementptr i8, ptr %160, i64 %.idx.i68
   %162 = getelementptr inbounds i8, ptr %0, i64 %.idx.i68
   %163 = getelementptr inbounds i8, ptr %140, i64 %.idx.i68
-  %invariant.gep228 = getelementptr i8, ptr %131, i64 %.idx.i68
+  %invariant.gep226 = getelementptr i8, ptr %131, i64 %.idx.i68
   br label %164
 
 164:                                              ; preds = %.preheader201, %296
@@ -2047,8 +2047,8 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_13CwiseBinaryOpINS_8internal18scala
   br i1 %170, label %._crit_edge221, label %171
 
 ._crit_edge221:                                   ; preds = %164
-  %gep229 = getelementptr double, ptr %invariant.gep228, i64 %.064207
-  %.pre = load double, ptr %gep229, align 8
+  %gep227 = getelementptr double, ptr %invariant.gep226, i64 %.064207
+  %.pre = load double, ptr %gep227, align 8
   br label %175
 
 171:                                              ; preds = %164

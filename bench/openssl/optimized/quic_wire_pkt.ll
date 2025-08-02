@@ -417,20 +417,20 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef captures(n
   br i1 %.not169, label %15, label %13
 
 13:                                               ; preds = %12
-  %.val195 = load ptr, ptr %0, align 8, !tbaa !31
-  store ptr %.val195, ptr %5, align 8, !tbaa !21
+  %.val197 = load ptr, ptr %0, align 8, !tbaa !31
+  store ptr %.val197, ptr %5, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   br label %15
 
 15:                                               ; preds = %13, %12
   %16 = icmp ult i64 %.val, 7
-  br i1 %16, label %PACKET_get_1.exit.thread, label %17
+  br i1 %16, label %.critedge192, label %17
 
 17:                                               ; preds = %15
   %.val.i.i = load i64, ptr %10, align 8, !tbaa !28
   %.not.i.i = icmp eq i64 %.val.i.i, 0
-  br i1 %.not.i.i, label %PACKET_get_1.exit.thread, label %18
+  br i1 %.not.i.i, label %.critedge192, label %18
 
 18:                                               ; preds = %17
   %19 = load ptr, ptr %0, align 8, !tbaa !31
@@ -451,13 +451,13 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef captures(n
 
 30:                                               ; preds = %18
   %31 = icmp ugt i64 %1, 20
-  br i1 %31, label %PACKET_get_1.exit.thread, label %32
+  br i1 %31, label %.critedge192, label %32
 
 32:                                               ; preds = %30
   %33 = icmp samesign ult i8 %20, 64
   %34 = icmp ult i64 %.val, 21
   %or.cond = select i1 %33, i1 true, i1 %34
-  br i1 %or.cond, label %PACKET_get_1.exit.thread, label %35
+  br i1 %or.cond, label %.critedge192, label %35
 
 35:                                               ; preds = %32
   %36 = shl nuw nsw i32 %21, 3
@@ -489,9 +489,9 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef captures(n
 55:                                               ; preds = %43, %41
   %storemerge = phi i32 [ %54, %43 ], [ %42, %41 ]
   store i32 %storemerge, ptr %4, align 8
-  %.val.i.i204 = load i64, ptr %10, align 8, !tbaa !28
-  %56 = icmp ult i64 %.val.i.i204, %1
-  br i1 %56, label %PACKET_get_1.exit.thread, label %57
+  %.val.i.i206 = load i64, ptr %10, align 8, !tbaa !28
+  %56 = icmp ult i64 %.val.i.i206, %1
+  br i1 %56, label %.critedge192, label %57
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -508,39 +508,39 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef captures(n
   store i8 %65, ptr %64, align 8, !tbaa !32
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 50
   store i32 0, ptr %66, align 2
-  %.val196 = load ptr, ptr %0, align 8, !tbaa !31
+  %.val198 = load ptr, ptr %0, align 8, !tbaa !31
   br i1 %.not185, label %71, label %67
 
 67:                                               ; preds = %57
   %.val.i = load i64, ptr %10, align 8, !tbaa !28
   %68 = icmp ult i64 %.val.i, 4
-  br i1 %68, label %PACKET_get_1.exit.thread, label %PACKET_forward.exit
+  br i1 %68, label %.critedge192, label %PACKET_forward.exit
 
 PACKET_forward.exit:                              ; preds = %67
-  %69 = getelementptr inbounds nuw i8, ptr %.val196, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.val198, i64 4
   %70 = add i64 %.val.i, -4
-  br label %PACKET_forward.exit212
+  br label %PACKET_forward.exit214
 
 71:                                               ; preds = %57
   %72 = load i32, ptr %4, align 8
   %73 = lshr i32 %72, 10
   %74 = and i32 %73, 15
   %75 = zext nneg i32 %74 to i64
-  %.val.i.i207 = load i64, ptr %10, align 8, !tbaa !28
-  %76 = icmp ult i64 %.val.i.i207, %75
-  br i1 %76, label %PACKET_get_1.exit.thread, label %PACKET_copy_bytes.exit209
+  %.val.i.i209 = load i64, ptr %10, align 8, !tbaa !28
+  %76 = icmp ult i64 %.val.i.i209, %75
+  br i1 %76, label %.critedge192, label %PACKET_copy_bytes.exit211
 
-PACKET_copy_bytes.exit209:                        ; preds = %71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr align 1 %.val196, i64 range(i64 0, 21) %75, i1 false)
+PACKET_copy_bytes.exit211:                        ; preds = %71
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr align 1 %.val198, i64 range(i64 0, 21) %75, i1 false)
   %77 = load ptr, ptr %0, align 8, !tbaa !31
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %75
   %79 = load i64, ptr %10, align 8, !tbaa !28
   %80 = sub i64 %79, %75
-  br label %PACKET_forward.exit212
+  br label %PACKET_forward.exit214
 
-PACKET_forward.exit212:                           ; preds = %PACKET_copy_bytes.exit209, %PACKET_forward.exit
-  %.val197 = phi ptr [ %69, %PACKET_forward.exit ], [ %78, %PACKET_copy_bytes.exit209 ]
-  %storemerge309 = phi i64 [ %70, %PACKET_forward.exit ], [ %80, %PACKET_copy_bytes.exit209 ]
+PACKET_forward.exit214:                           ; preds = %PACKET_copy_bytes.exit211, %PACKET_forward.exit
+  %.val199 = phi ptr [ %69, %PACKET_forward.exit ], [ %78, %PACKET_copy_bytes.exit211 ]
+  %storemerge307 = phi i64 [ %70, %PACKET_forward.exit ], [ %80, %PACKET_copy_bytes.exit211 ]
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %81, align 4, !tbaa !35
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 29
@@ -548,18 +548,18 @@ PACKET_forward.exit212:                           ; preds = %PACKET_copy_bytes.e
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
-  store i64 %storemerge309, ptr %84, align 8, !tbaa !37
+  store i64 %storemerge307, ptr %84, align 8, !tbaa !37
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %.val197, ptr %85, align 8, !tbaa !38
-  %86 = getelementptr inbounds nuw i8, ptr %.val197, i64 %storemerge309
+  store ptr %.val199, ptr %85, align 8, !tbaa !38
+  %86 = getelementptr inbounds nuw i8, ptr %.val199, i64 %storemerge307
   store ptr %86, ptr %0, align 8, !tbaa !31
   store i64 0, ptr %10, align 8, !tbaa !28
   br label %263
 
 87:                                               ; preds = %18
-  %.val.i.i213 = load i64, ptr %10, align 8, !tbaa !28
-  %88 = icmp ult i64 %.val.i.i213, 4
-  br i1 %88, label %PACKET_get_1.exit.thread, label %89
+  %.val.i.i215 = load i64, ptr %10, align 8, !tbaa !28
+  %88 = icmp ult i64 %.val.i.i215, 4
+  br i1 %88, label %.critedge192, label %89
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %0, align 8, !tbaa !31
@@ -582,30 +582,30 @@ PACKET_forward.exit212:                           ; preds = %PACKET_copy_bytes.e
   %107 = or disjoint i64 %103, %106
   %108 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store ptr %108, ptr %0, align 8, !tbaa !31
-  %109 = add i64 %.val.i.i213, -4
+  %109 = add i64 %.val.i.i215, -4
   store i64 %109, ptr %10, align 8, !tbaa !28
   %.not172 = icmp ne i64 %107, 0
   %110 = and i32 %21, 64
   %111 = icmp eq i32 %110, 0
-  %or.cond307 = and i1 %111, %.not172
-  %.not.i.i216 = icmp eq i64 %109, 0
-  %or.cond308 = or i1 %.not.i.i216, %or.cond307
-  br i1 %or.cond308, label %PACKET_get_1.exit.thread, label %PACKET_get_1.exit218
+  %or.cond305 = and i1 %111, %.not172
+  %.not.i.i218 = icmp eq i64 %109, 0
+  %or.cond306 = or i1 %.not.i.i218, %or.cond305
+  br i1 %or.cond306, label %.critedge192, label %PACKET_get_1.exit220
 
-PACKET_get_1.exit218:                             ; preds = %89
+PACKET_get_1.exit220:                             ; preds = %89
   %112 = load i8, ptr %108, align 1, !tbaa !23
   %113 = getelementptr inbounds nuw i8, ptr %90, i64 5
   store ptr %113, ptr %0, align 8, !tbaa !31
-  %114 = add i64 %.val.i.i213, -5
+  %114 = add i64 %.val.i.i215, -5
   store i64 %114, ptr %10, align 8, !tbaa !28
   %115 = icmp ugt i8 %112, 20
-  br i1 %115, label %PACKET_get_1.exit.thread, label %116
+  br i1 %115, label %.critedge192, label %116
 
-116:                                              ; preds = %PACKET_get_1.exit218
+116:                                              ; preds = %PACKET_get_1.exit220
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %118 = zext nneg i8 %112 to i64
   %119 = icmp ult i64 %114, %118
-  br i1 %119, label %PACKET_get_1.exit.thread, label %120
+  br i1 %119, label %.critedge192, label %120
 
 120:                                              ; preds = %116
   %121 = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -616,22 +616,22 @@ PACKET_get_1.exit218:                             ; preds = %89
   %124 = load i64, ptr %10, align 8, !tbaa !28
   %125 = sub i64 %124, %118
   store i64 %125, ptr %10, align 8, !tbaa !28
-  %.not.i.i223 = icmp eq i64 %124, %118
-  br i1 %.not.i.i223, label %PACKET_get_1.exit.thread, label %PACKET_get_1.exit225
+  %.not.i.i225 = icmp eq i64 %124, %118
+  br i1 %.not.i.i225, label %.critedge192, label %PACKET_get_1.exit227
 
-PACKET_get_1.exit225:                             ; preds = %120
+PACKET_get_1.exit227:                             ; preds = %120
   %126 = load i8, ptr %123, align 1, !tbaa !23
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 1
   store ptr %127, ptr %0, align 8, !tbaa !31
   %128 = add i64 %125, -1
   store i64 %128, ptr %10, align 8, !tbaa !28
   %129 = icmp ugt i8 %126, 20
-  br i1 %129, label %PACKET_get_1.exit.thread, label %130
+  br i1 %129, label %.critedge192, label %130
 
-130:                                              ; preds = %PACKET_get_1.exit225
+130:                                              ; preds = %PACKET_get_1.exit227
   %131 = zext nneg i8 %126 to i64
   %132 = icmp ult i64 %128, %131
-  br i1 %132, label %PACKET_get_1.exit.thread, label %133
+  br i1 %132, label %.critedge192, label %133
 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 30
@@ -661,15 +661,15 @@ PACKET_get_1.exit225:                             ; preds = %120
   %147 = or disjoint i32 %145, %146
   %148 = or disjoint i32 %147, 6
   store i32 %148, ptr %4, align 8
-  %.val198 = load ptr, ptr %0, align 8, !tbaa !31
+  %.val200 = load ptr, ptr %0, align 8, !tbaa !31
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %.val198, ptr %149, align 8, !tbaa !38
-  %.val192 = load i64, ptr %10, align 8, !tbaa !28
+  store ptr %.val200, ptr %149, align 8, !tbaa !38
+  %.val194 = load i64, ptr %10, align 8, !tbaa !28
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i64 %.val192, ptr %150, align 8, !tbaa !37
-  %151 = and i64 %.val192, 3
+  store i64 %.val194, ptr %150, align 8, !tbaa !37
+  %151 = and i64 %.val194, 3
   %.not183 = icmp eq i64 %151, 0
-  br i1 %.not183, label %152, label %PACKET_get_1.exit.thread
+  br i1 %.not183, label %152, label %.critedge192
 
 152:                                              ; preds = %142
   %153 = and i32 %148, -32762
@@ -678,37 +678,37 @@ PACKET_get_1.exit225:                             ; preds = %120
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 50
   store i32 0, ptr %155, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %154, i8 0, i64 16, i1 false)
-  %.val.i229 = load i64, ptr %10, align 8, !tbaa !28
-  %156 = icmp ult i64 %.val.i229, %.val192
-  br i1 %156, label %PACKET_get_1.exit.thread, label %PACKET_forward.exit231
+  %.val.i231 = load i64, ptr %10, align 8, !tbaa !28
+  %156 = icmp ult i64 %.val.i231, %.val194
+  br i1 %156, label %.critedge192, label %PACKET_forward.exit233
 
-PACKET_forward.exit231:                           ; preds = %152
+PACKET_forward.exit233:                           ; preds = %152
   %157 = load ptr, ptr %0, align 8, !tbaa !31
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %.val192
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %.val194
   store ptr %158, ptr %0, align 8, !tbaa !31
-  %159 = sub nuw i64 %.val.i229, %.val192
+  %159 = sub nuw i64 %.val.i231, %.val194
   store i64 %159, ptr %10, align 8, !tbaa !28
   br label %263
 
 160:                                              ; preds = %133
-  br i1 %.not, label %PACKET_get_1.exit.thread, label %161
+  br i1 %.not, label %.critedge192, label %161
 
 161:                                              ; preds = %160
   %162 = load i64, ptr %6, align 8, !tbaa !30
   %163 = or i64 %162, 2
   store i64 %163, ptr %6, align 8, !tbaa !30
-  br label %PACKET_get_1.exit.thread
+  br label %.critedge192
 
 164:                                              ; preds = %133
   %165 = icmp ult i64 %.val, 21
-  br i1 %165, label %PACKET_get_1.exit.thread, label %166
+  br i1 %165, label %.critedge192, label %166
 
 166:                                              ; preds = %164
   %167 = lshr i32 %21, 4
   %168 = and i32 %167, 3
   %169 = load i32, ptr %4, align 8
   %170 = and i32 %169, -49152
-  switch i32 %168, label %default.unreachable317 [
+  switch i32 %168, label %default.unreachable315 [
     i32 0, label %174
     i32 1, label %171
     i32 2, label %172
@@ -724,7 +724,7 @@ PACKET_forward.exit231:                           ; preds = %152
 173:                                              ; preds = %166
   br label %174
 
-default.unreachable317:                           ; preds = %166
+default.unreachable315:                           ; preds = %166
   unreachable
 
 174:                                              ; preds = %166, %173, %172, %171
@@ -744,8 +744,8 @@ default.unreachable317:                           ; preds = %166
 181:                                              ; preds = %178
   %182 = load i64, ptr %8, align 8
   %183 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %.val.i.i232 = load i64, ptr %10, align 8, !tbaa !28
-  %184 = icmp ult i64 %.val.i.i232, %182
+  %.val.i.i234 = load i64, ptr %10, align 8, !tbaa !28
+  %184 = icmp ult i64 %.val.i.i234, %182
   br i1 %184, label %.critedge, label %185
 
 185:                                              ; preds = %181
@@ -753,7 +753,7 @@ default.unreachable317:                           ; preds = %166
   store ptr %186, ptr %183, align 8, !tbaa !39
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 %182
   store ptr %187, ptr %0, align 8, !tbaa !31
-  %188 = sub nuw i64 %.val.i.i232, %182
+  %188 = sub nuw i64 %.val.i.i234, %182
   store i64 %188, ptr %10, align 8, !tbaa !28
   %189 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i64 %182, ptr %189, align 8, !tbaa !40
@@ -781,12 +781,12 @@ default.unreachable317:                           ; preds = %166
   br i1 %198, label %199, label %211
 
 199:                                              ; preds = %195
-  %.val199 = load ptr, ptr %0, align 8, !tbaa !31
+  %.val201 = load ptr, ptr %0, align 8, !tbaa !31
   %200 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %.val199, ptr %200, align 8, !tbaa !38
-  %.val193 = load i64, ptr %10, align 8, !tbaa !28
+  store ptr %.val201, ptr %200, align 8, !tbaa !38
+  %.val195 = load i64, ptr %10, align 8, !tbaa !28
   %201 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i64 %.val193, ptr %201, align 8, !tbaa !37
+  store i64 %.val195, ptr %201, align 8, !tbaa !37
   %202 = shl nuw nsw i32 %21, 16
   %203 = and i32 %202, 983040
   %204 = and i32 %196, -999676
@@ -794,15 +794,15 @@ default.unreachable317:                           ; preds = %166
   store i32 %205, ptr %4, align 8
   %206 = getelementptr inbounds nuw i8, ptr %4, i64 50
   store i32 0, ptr %206, align 2
-  %.val.i234 = load i64, ptr %10, align 8, !tbaa !28
-  %207 = icmp ult i64 %.val.i234, %.val193
-  br i1 %207, label %PACKET_get_1.exit.thread, label %PACKET_forward.exit236
+  %.val.i236 = load i64, ptr %10, align 8, !tbaa !28
+  %207 = icmp ult i64 %.val.i236, %.val195
+  br i1 %207, label %.critedge192, label %PACKET_forward.exit238
 
-PACKET_forward.exit236:                           ; preds = %199
+PACKET_forward.exit238:                           ; preds = %199
   %208 = load ptr, ptr %0, align 8, !tbaa !31
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 %.val193
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 %.val195
   store ptr %209, ptr %0, align 8, !tbaa !31
-  %210 = sub nuw i64 %.val.i234, %.val193
+  %210 = sub nuw i64 %.val.i236, %.val195
   store i64 %210, ptr %10, align 8, !tbaa !28
   br label %263
 
@@ -831,26 +831,26 @@ PACKET_forward.exit236:                           ; preds = %199
   br i1 %.not178, label %226, label %228
 
 226:                                              ; preds = %225
-  %.val194 = load i64, ptr %10, align 8, !tbaa !28
-  %227 = icmp ugt i64 %223, %.val194
+  %.val196 = load i64, ptr %10, align 8, !tbaa !28
+  %227 = icmp ugt i64 %223, %.val196
   br i1 %227, label %.thread, label %228
 
 228:                                              ; preds = %226, %225
-  %.val200 = load ptr, ptr %0, align 8, !tbaa !31
+  %.val202 = load ptr, ptr %0, align 8, !tbaa !31
   %229 = getelementptr inbounds nuw i8, ptr %4, i64 50
   store i32 0, ptr %229, align 2
   br i1 %.not177, label %237, label %230
 
 230:                                              ; preds = %228
-  %.val.i237 = load i64, ptr %10, align 8, !tbaa !28
-  %231 = icmp ult i64 %.val.i237, 4
+  %.val.i239 = load i64, ptr %10, align 8, !tbaa !28
+  %231 = icmp ult i64 %.val.i239, 4
   br i1 %231, label %.thread, label %232
 
 232:                                              ; preds = %230
   %233 = load ptr, ptr %0, align 8, !tbaa !31
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
   store ptr %234, ptr %0, align 8, !tbaa !31
-  %235 = add i64 %.val.i237, -4
+  %235 = add i64 %.val.i239, -4
   store i64 %235, ptr %10, align 8, !tbaa !28
   %236 = add i64 %223, -4
   br label %254
@@ -860,8 +860,8 @@ PACKET_forward.exit236:                           ; preds = %199
   %239 = lshr i32 %238, 10
   %240 = and i32 %239, 15
   %241 = zext nneg i32 %240 to i64
-  %.val.i.i240 = load i64, ptr %10, align 8, !tbaa !28
-  %242 = icmp ult i64 %.val.i.i240, %241
+  %.val.i.i242 = load i64, ptr %10, align 8, !tbaa !28
+  %242 = icmp ult i64 %.val.i.i242, %241
   br i1 %242, label %.thread, label %243
 
 243:                                              ; preds = %237
@@ -881,11 +881,11 @@ PACKET_forward.exit236:                           ; preds = %199
   br label %254
 
 254:                                              ; preds = %243, %232
-  %.sink318 = phi i64 [ %253, %243 ], [ %236, %232 ]
-  %.val.i243 = phi i64 [ %248, %243 ], [ %235, %232 ]
-  %.val201 = phi ptr [ %246, %243 ], [ %234, %232 ]
+  %.sink316 = phi i64 [ %253, %243 ], [ %236, %232 ]
+  %.val.i245 = phi i64 [ %248, %243 ], [ %235, %232 ]
+  %.val203 = phi ptr [ %246, %243 ], [ %234, %232 ]
   %255 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i64 %.sink318, ptr %255, align 8, !tbaa !37
+  store i64 %.sink316, ptr %255, align 8, !tbaa !37
   %256 = getelementptr inbounds nuw i8, ptr %4, i64 80
   br i1 %.not178, label %258, label %257
 
@@ -894,35 +894,35 @@ PACKET_forward.exit236:                           ; preds = %199
   br label %262
 
 258:                                              ; preds = %254
-  store ptr %.val201, ptr %256, align 8, !tbaa !38
-  %259 = icmp ult i64 %.val.i243, %.sink318
-  br i1 %259, label %.thread, label %PACKET_forward.exit245
+  store ptr %.val203, ptr %256, align 8, !tbaa !38
+  %259 = icmp ult i64 %.val.i245, %.sink316
+  br i1 %259, label %.thread, label %PACKET_forward.exit247
 
-PACKET_forward.exit245:                           ; preds = %258
-  %260 = getelementptr inbounds nuw i8, ptr %.val201, i64 %.sink318
+PACKET_forward.exit247:                           ; preds = %258
+  %260 = getelementptr inbounds nuw i8, ptr %.val203, i64 %.sink316
   store ptr %260, ptr %0, align 8, !tbaa !31
-  %261 = sub nuw i64 %.val.i243, %.sink318
+  %261 = sub nuw i64 %.val.i245, %.sink316
   store i64 %261, ptr %10, align 8, !tbaa !28
   br label %262
 
 .thread:                                          ; preds = %211, %226, %230, %237, %258
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  br label %PACKET_get_1.exit.thread
+  br label %.critedge192
 
-262:                                              ; preds = %257, %PACKET_forward.exit245
-  %.val203316 = phi i64 [ %.val.i243, %257 ], [ %261, %PACKET_forward.exit245 ]
-  %.val202314 = phi ptr [ %.val201, %257 ], [ %260, %PACKET_forward.exit245 ]
+262:                                              ; preds = %257, %PACKET_forward.exit247
+  %.val205314 = phi i64 [ %.val.i245, %257 ], [ %261, %PACKET_forward.exit247 ]
+  %.val204312 = phi ptr [ %.val203, %257 ], [ %260, %PACKET_forward.exit247 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
   br label %263
 
 .critedge:                                        ; preds = %181, %178
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  br label %PACKET_get_1.exit.thread
+  br label %.critedge192
 
-263:                                              ; preds = %262, %PACKET_forward.exit236, %PACKET_forward.exit231, %PACKET_forward.exit212
-  %.val203 = phi i64 [ 0, %PACKET_forward.exit212 ], [ %159, %PACKET_forward.exit231 ], [ %210, %PACKET_forward.exit236 ], [ %.val203316, %262 ]
-  %.val202 = phi ptr [ %86, %PACKET_forward.exit212 ], [ %158, %PACKET_forward.exit231 ], [ %209, %PACKET_forward.exit236 ], [ %.val202314, %262 ]
-  %.0156 = phi ptr [ %.val196, %PACKET_forward.exit212 ], [ null, %PACKET_forward.exit231 ], [ null, %PACKET_forward.exit236 ], [ %.val200, %262 ]
+263:                                              ; preds = %PACKET_forward.exit233, %PACKET_forward.exit238, %262, %PACKET_forward.exit214
+  %.val205 = phi i64 [ 0, %PACKET_forward.exit214 ], [ %159, %PACKET_forward.exit233 ], [ %210, %PACKET_forward.exit238 ], [ %.val205314, %262 ]
+  %.val204 = phi ptr [ %86, %PACKET_forward.exit214 ], [ %158, %PACKET_forward.exit233 ], [ %209, %PACKET_forward.exit238 ], [ %.val204312, %262 ]
+  %.0156 = phi ptr [ %.val198, %PACKET_forward.exit214 ], [ null, %PACKET_forward.exit233 ], [ null, %PACKET_forward.exit238 ], [ %.val202, %262 ]
   br i1 %.not169, label %274, label %264
 
 264:                                              ; preds = %263
@@ -935,7 +935,7 @@ PACKET_forward.exit245:                           ; preds = %258
   %267 = getelementptr inbounds nuw i8, ptr %.0156, i64 4
   %268 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %267, ptr %268, align 8, !tbaa !17
-  %269 = getelementptr inbounds nuw i8, ptr %.val202, i64 %.val203
+  %269 = getelementptr inbounds nuw i8, ptr %.val204, i64 %.val205
   %270 = ptrtoint ptr %269 to i64
   %271 = ptrtoint ptr %267 to i64
   %272 = sub i64 %270, %271
@@ -944,16 +944,16 @@ PACKET_forward.exit245:                           ; preds = %258
   br label %274
 
 274:                                              ; preds = %264, %266, %263
-  br i1 %.not, label %PACKET_get_1.exit.thread, label %275
+  br i1 %.not, label %.critedge192, label %275
 
 275:                                              ; preds = %274
   %276 = load i64, ptr %6, align 8, !tbaa !30
   %277 = and i64 %276, -2
   store i64 %277, ptr %6, align 8, !tbaa !30
-  br label %PACKET_get_1.exit.thread
+  br label %.critedge192
 
-PACKET_get_1.exit.thread:                         ; preds = %89, %199, %152, %130, %120, %116, %87, %.thread, %.critedge, %164, %160, %161, %142, %PACKET_get_1.exit218, %PACKET_get_1.exit225, %71, %67, %55, %17, %274, %275, %32, %30, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %30 ], [ 0, %32 ], [ 1, %275 ], [ 1, %274 ], [ 0, %17 ], [ 0, %55 ], [ 0, %67 ], [ 0, %71 ], [ 0, %PACKET_get_1.exit225 ], [ 0, %PACKET_get_1.exit218 ], [ 0, %142 ], [ 0, %161 ], [ 0, %160 ], [ 0, %164 ], [ 0, %.critedge ], [ 0, %.thread ], [ 0, %87 ], [ 0, %116 ], [ 0, %120 ], [ 0, %130 ], [ 0, %152 ], [ 0, %199 ], [ 0, %89 ]
+.critedge192:                                     ; preds = %89, %199, %152, %130, %120, %116, %87, %71, %67, %55, %17, %PACKET_get_1.exit227, %PACKET_get_1.exit220, %142, %161, %160, %164, %.critedge, %.thread, %274, %275, %32, %30, %15
+  %.0 = phi i32 [ 0, %15 ], [ 0, %30 ], [ 0, %32 ], [ 1, %275 ], [ 1, %274 ], [ 0, %.thread ], [ 0, %.critedge ], [ 0, %164 ], [ 0, %160 ], [ 0, %161 ], [ 0, %142 ], [ 0, %PACKET_get_1.exit220 ], [ 0, %PACKET_get_1.exit227 ], [ 0, %17 ], [ 0, %55 ], [ 0, %67 ], [ 0, %71 ], [ 0, %87 ], [ 0, %116 ], [ 0, %120 ], [ 0, %130 ], [ 0, %152 ], [ 0, %199 ], [ 0, %89 ]
   ret i32 %.0
 }
 

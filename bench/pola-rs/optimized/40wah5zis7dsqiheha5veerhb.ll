@@ -2855,7 +2855,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h67894b43d3
           cleanup
   br label %170
 
-.loopexit.split-lp.i.i:                           ; preds = %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h6bced92886b8fe36E.exit.i.i.i.i.i", %177, %176, %171, %167
+.loopexit.split-lp.i.i:                           ; preds = %.critedge.i.i.i.i.i, %177, %176, %171, %167
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %170
@@ -2925,13 +2925,13 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h67894b43d3
 .noexc.i.i:                                       ; preds = %191
   %195 = extractvalue { ptr, i64 } %194, 1
   %.not.i.i.i.i.i = icmp eq i64 %195, 4
-  br i1 %.not.i.i.i.i.i, label %196, label %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h6bced92886b8fe36E.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %196, label %.critedge.i.i.i.i.i
 
-"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h6bced92886b8fe36E.exit.i.i.i.i.i": ; preds = %.noexc.i.i
+.critedge.i.i.i.i.i:                              ; preds = %.noexc.i.i
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.3773a960e7c576f5d6d0fc031afb57db.22, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3773a960e7c576f5d6d0fc031afb57db.23) #25
           to label %.noexc10.i.i unwind label %.loopexit.split-lp.i.i, !noalias !452
 
-.noexc10.i.i:                                     ; preds = %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h6bced92886b8fe36E.exit.i.i.i.i.i"
+.noexc10.i.i:                                     ; preds = %.critedge.i.i.i.i.i
   unreachable
 
 196:                                              ; preds = %.noexc.i.i
@@ -4391,7 +4391,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h999116c3ec
           cleanup
   br label %170
 
-.loopexit.split-lp.i.i:                           ; preds = %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h2971efed08dbfff0E.exit.i.i.i.i.i", %177, %176, %171, %167
+.loopexit.split-lp.i.i:                           ; preds = %.critedge.i.i.i.i.i, %177, %176, %171, %167
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %170
@@ -4461,13 +4461,13 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h999116c3ec
 .noexc.i.i:                                       ; preds = %191
   %195 = extractvalue { ptr, i64 } %194, 1
   %.not.i.i.i.i.i = icmp eq i64 %195, 2
-  br i1 %.not.i.i.i.i.i, label %196, label %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h2971efed08dbfff0E.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %196, label %.critedge.i.i.i.i.i
 
-"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h2971efed08dbfff0E.exit.i.i.i.i.i": ; preds = %.noexc.i.i
+.critedge.i.i.i.i.i:                              ; preds = %.noexc.i.i
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.3773a960e7c576f5d6d0fc031afb57db.22, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3773a960e7c576f5d6d0fc031afb57db.23) #25
           to label %.noexc10.i.i unwind label %.loopexit.split-lp.i.i, !noalias !718
 
-.noexc10.i.i:                                     ; preds = %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h2971efed08dbfff0E.exit.i.i.i.i.i"
+.noexc10.i.i:                                     ; preds = %.critedge.i.i.i.i.i
   unreachable
 
 196:                                              ; preds = %.noexc.i.i
@@ -4476,7 +4476,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h999116c3ec
   %199 = icmp ne ptr %197, null
   call void @llvm.assume(i1 %199)
   %.sroa.03.0.copyload.i.i.i.i.i.i = load i16, ptr %197, align 1, !alias.scope !739, !noalias !742
-  %200 = call noundef i16 @llvm.bswap.i16(i16 %.sroa.03.0.copyload.i.i.i.i.i.i)
+  %200 = call i16 @llvm.bswap.i16(i16 %.sroa.03.0.copyload.i.i.i.i.i.i)
   store i16 %200, ptr %198, align 2, !noalias !742
   %201 = load i64, ptr %185, align 8, !alias.scope !728, !noalias !735, !noundef !3
   %202 = load i64, ptr %186, align 8, !alias.scope !728, !noalias !735, !noundef !3
@@ -5159,7 +5159,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h93aae1a5ea
           cleanup
   br label %170
 
-.loopexit.split-lp.i.i:                           ; preds = %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h2971efed08dbfff0E.exit.i.i.i.i.i", %177, %176, %171, %167
+.loopexit.split-lp.i.i:                           ; preds = %.critedge.i.i.i.i.i, %177, %176, %171, %167
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %170
@@ -5229,13 +5229,13 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h93aae1a5ea
 .noexc.i.i:                                       ; preds = %191
   %195 = extractvalue { ptr, i64 } %194, 1
   %.not.i.i.i.i.i = icmp eq i64 %195, 2
-  br i1 %.not.i.i.i.i.i, label %196, label %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h2971efed08dbfff0E.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %196, label %.critedge.i.i.i.i.i
 
-"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h2971efed08dbfff0E.exit.i.i.i.i.i": ; preds = %.noexc.i.i
+.critedge.i.i.i.i.i:                              ; preds = %.noexc.i.i
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.3773a960e7c576f5d6d0fc031afb57db.22, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3773a960e7c576f5d6d0fc031afb57db.23) #25
           to label %.noexc10.i.i unwind label %.loopexit.split-lp.i.i, !noalias !850
 
-.noexc10.i.i:                                     ; preds = %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h2971efed08dbfff0E.exit.i.i.i.i.i"
+.noexc10.i.i:                                     ; preds = %.critedge.i.i.i.i.i
   unreachable
 
 196:                                              ; preds = %.noexc.i.i
@@ -5244,7 +5244,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h93aae1a5ea
   %199 = icmp ne ptr %197, null
   call void @llvm.assume(i1 %199)
   %.sroa.03.0.copyload.i.i.i.i.i.i = load i16, ptr %197, align 1, !alias.scope !871, !noalias !874
-  %200 = call noundef i16 @llvm.bswap.i16(i16 %.sroa.03.0.copyload.i.i.i.i.i.i)
+  %200 = call i16 @llvm.bswap.i16(i16 %.sroa.03.0.copyload.i.i.i.i.i.i)
   store i16 %200, ptr %198, align 2, !noalias !874
   %201 = load i64, ptr %185, align 8, !alias.scope !860, !noalias !867, !noundef !3
   %202 = load i64, ptr %186, align 8, !alias.scope !860, !noalias !867, !noundef !3
@@ -5927,7 +5927,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h42f02a9c05
           cleanup
   br label %170
 
-.loopexit.split-lp.i.i:                           ; preds = %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h6bced92886b8fe36E.exit.i.i.i.i.i", %177, %176, %171, %167
+.loopexit.split-lp.i.i:                           ; preds = %.critedge.i.i.i.i.i, %177, %176, %171, %167
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %170
@@ -5997,13 +5997,13 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h42f02a9c05
 .noexc.i.i:                                       ; preds = %191
   %195 = extractvalue { ptr, i64 } %194, 1
   %.not.i.i.i.i.i = icmp eq i64 %195, 4
-  br i1 %.not.i.i.i.i.i, label %196, label %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h6bced92886b8fe36E.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %196, label %.critedge.i.i.i.i.i
 
-"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h6bced92886b8fe36E.exit.i.i.i.i.i": ; preds = %.noexc.i.i
+.critedge.i.i.i.i.i:                              ; preds = %.noexc.i.i
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.3773a960e7c576f5d6d0fc031afb57db.22, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3773a960e7c576f5d6d0fc031afb57db.23) #25
           to label %.noexc10.i.i unwind label %.loopexit.split-lp.i.i, !noalias !982
 
-.noexc10.i.i:                                     ; preds = %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h6bced92886b8fe36E.exit.i.i.i.i.i"
+.noexc10.i.i:                                     ; preds = %.critedge.i.i.i.i.i
   unreachable
 
 196:                                              ; preds = %.noexc.i.i
@@ -6012,7 +6012,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h42f02a9c05
   %199 = icmp ne ptr %197, null
   call void @llvm.assume(i1 %199)
   %.sroa.03.0.copyload.i.i.i.i.i.i = load i32, ptr %197, align 1, !alias.scope !1003, !noalias !1006
-  %200 = call noundef i32 @llvm.bswap.i32(i32 %.sroa.03.0.copyload.i.i.i.i.i.i)
+  %200 = call i32 @llvm.bswap.i32(i32 %.sroa.03.0.copyload.i.i.i.i.i.i)
   store i32 %200, ptr %198, align 4, !noalias !1006
   %201 = load i64, ptr %185, align 8, !alias.scope !992, !noalias !999, !noundef !3
   %202 = load i64, ptr %186, align 8, !alias.scope !992, !noalias !999, !noundef !3
@@ -7161,7 +7161,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h1c4b6abaed
           cleanup
   br label %153
 
-.loopexit.split-lp.i.i:                           ; preds = %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h2971efed08dbfff0E.exit.i.i.i.i.i", %160, %159, %154, %148
+.loopexit.split-lp.i.i:                           ; preds = %.critedge.i.i.i.i.i, %160, %159, %154, %148
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %153
@@ -7233,13 +7233,13 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17h1c4b6abaed
 .noexc.i.i:                                       ; preds = %175
   %179 = extractvalue { ptr, i64 } %178, 1
   %.not.i.i.i.i.i = icmp eq i64 %179, 2
-  br i1 %.not.i.i.i.i.i, label %180, label %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h2971efed08dbfff0E.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %180, label %.critedge.i.i.i.i.i
 
-"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h2971efed08dbfff0E.exit.i.i.i.i.i": ; preds = %.noexc.i.i
+.critedge.i.i.i.i.i:                              ; preds = %.noexc.i.i
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.3773a960e7c576f5d6d0fc031afb57db.22, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3773a960e7c576f5d6d0fc031afb57db.23) #25
           to label %.noexc10.i.i unwind label %.loopexit.split-lp.i.i, !noalias !1197
 
-.noexc10.i.i:                                     ; preds = %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h2971efed08dbfff0E.exit.i.i.i.i.i"
+.noexc10.i.i:                                     ; preds = %.critedge.i.i.i.i.i
   unreachable
 
 180:                                              ; preds = %.noexc.i.i
@@ -9459,7 +9459,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17hc6a10b4b32
           cleanup
   br label %170
 
-.loopexit.split-lp.i.i:                           ; preds = %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h6bced92886b8fe36E.exit.i.i.i.i.i", %177, %176, %171, %167
+.loopexit.split-lp.i.i:                           ; preds = %.critedge.i.i.i.i.i, %177, %176, %171, %167
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %170
@@ -9529,13 +9529,13 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17hc6a10b4b32
 .noexc.i.i:                                       ; preds = %191
   %195 = extractvalue { ptr, i64 } %194, 1
   %.not.i.i.i.i.i = icmp eq i64 %195, 4
-  br i1 %.not.i.i.i.i.i, label %196, label %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h6bced92886b8fe36E.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %196, label %.critedge.i.i.i.i.i
 
-"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h6bced92886b8fe36E.exit.i.i.i.i.i": ; preds = %.noexc.i.i
+.critedge.i.i.i.i.i:                              ; preds = %.noexc.i.i
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.3773a960e7c576f5d6d0fc031afb57db.22, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3773a960e7c576f5d6d0fc031afb57db.23) #25
           to label %.noexc10.i.i unwind label %.loopexit.split-lp.i.i, !noalias !1595
 
-.noexc10.i.i:                                     ; preds = %"_ZN4core5array98_$LT$impl$u20$core..convert..TryFrom$LT$$RF$$u5b$T$u5d$$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$8try_from17h6bced92886b8fe36E.exit.i.i.i.i.i"
+.noexc10.i.i:                                     ; preds = %.critedge.i.i.i.i.i
   unreachable
 
 196:                                              ; preds = %.noexc.i.i
@@ -9544,7 +9544,7 @@ _ZN12polars_arrow2io3ipc4read10read_basic24read_uncompressed_buffer17hc6a10b4b32
   %199 = icmp ne ptr %197, null
   call void @llvm.assume(i1 %199)
   %.sroa.03.0.copyload.i.i.i.i.i.i = load i32, ptr %197, align 1, !alias.scope !1616, !noalias !1619
-  %200 = call noundef i32 @llvm.bswap.i32(i32 %.sroa.03.0.copyload.i.i.i.i.i.i)
+  %200 = call i32 @llvm.bswap.i32(i32 %.sroa.03.0.copyload.i.i.i.i.i.i)
   store i32 %200, ptr %198, align 4, !noalias !1619
   %201 = load i64, ptr %185, align 8, !alias.scope !1605, !noalias !1612, !noundef !3
   %202 = load i64, ptr %186, align 8, !alias.scope !1605, !noalias !1612, !noundef !3

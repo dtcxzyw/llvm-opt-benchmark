@@ -14899,16 +14899,16 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hd5c2f7d857e0efc
 
 "_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h98035ac5093e8bf1E.llvm.10185040963944003897.exit.loopexit.i.i": ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !4019, !noalias !4024
+  %13 = call i64 @llvm.fshl.i64(i64 %.pre.i.i, i64 %.pre.i.i, i64 5)
   br label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h5f4f66ffd5dc4b3cE.llvm.10185040963944003897.exit"
 
 "_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h5f4f66ffd5dc4b3cE.llvm.10185040963944003897.exit": ; preds = %2, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h98035ac5093e8bf1E.llvm.10185040963944003897.exit.loopexit.i.i"
-  %13 = phi i64 [ %.pre.i.i, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h98035ac5093e8bf1E.llvm.10185040963944003897.exit.loopexit.i.i" ], [ 0, %2 ]
+  %14 = phi i64 [ %13, %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h98035ac5093e8bf1E.llvm.10185040963944003897.exit.loopexit.i.i" ], [ 0, %2 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4026)
   call void @llvm.experimental.noalias.scope.decl(metadata !4027)
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1040
-  %15 = load i64, ptr %14, align 8, !alias.scope !4028, !noalias !4029, !noundef !4
-  %16 = call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 5)
-  %17 = xor i64 %15, %16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1040
+  %16 = load i64, ptr %15, align 8, !alias.scope !4028, !noalias !4029, !noundef !4
+  %17 = xor i64 %16, %14
   %18 = mul i64 %17, 5871781006564002453
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %18
@@ -35625,8 +35625,8 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h27aeaa
 183:                                              ; preds = %181
   %184 = load i64, ptr %36, align 8, !alias.scope !7087, !noalias !7048, !noundef !4
   %.idx.i.i.i.i.i = mul nuw nsw i64 %176, 152
-  %185 = getelementptr i8, ptr %171, i64 376
-  %186 = getelementptr i8, ptr %185, i64 %.idx.i.i.i.i.i
+  %185 = getelementptr inbounds nuw i8, ptr %171, i64 376
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 %.idx.i.i.i.i.i
   %187 = load i8, ptr %186, align 8, !range !12, !noalias !7048, !noundef !4
   %188 = trunc nuw i8 %187 to i1
   br i1 %188, label %190, label %.noexc27.i
@@ -41262,8 +41262,8 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hcf95ad
 183:                                              ; preds = %181
   %184 = load i64, ptr %36, align 8, !alias.scope !8138, !noalias !8099, !noundef !4
   %.idx.i.i.i.i.i = mul nuw nsw i64 %176, 152
-  %185 = getelementptr i8, ptr %171, i64 376
-  %186 = getelementptr i8, ptr %185, i64 %.idx.i.i.i.i.i
+  %185 = getelementptr inbounds nuw i8, ptr %171, i64 376
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 %.idx.i.i.i.i.i
   %187 = load i8, ptr %186, align 8, !range !12, !noalias !8099, !noundef !4
   %188 = trunc nuw i8 %187 to i1
   br i1 %188, label %191, label %.noexc27.i

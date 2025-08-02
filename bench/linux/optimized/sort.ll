@@ -19,7 +19,7 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %9 = mul i64 %8, %2
   %10 = sub i64 0, %2
   %11 = icmp eq i64 %9, 0
-  br i1 %11, label %.thread19, label %12
+  br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %6
   %magicptr = ptrtoint ptr %4 to i64
@@ -54,39 +54,39 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %28 = icmp eq ptr %3, null
   %29 = and i64 %10, 4294967295
   %30 = and i64 %29, %2
-  br label %.loopexit24
+  br label %.loopexit23
 
-.loopexit24:                                      ; preds = %.loopexit24.backedge, %.thread18
-  %31 = phi i64 [ %7, %.thread18 ], [ %65, %.loopexit24.backedge ]
-  %32 = phi i64 [ %9, %.thread18 ], [ %66, %.loopexit24.backedge ]
+.loopexit23:                                      ; preds = %.loopexit23.backedge, %.thread18
+  %31 = phi i64 [ %7, %.thread18 ], [ %65, %.loopexit23.backedge ]
+  %32 = phi i64 [ %9, %.thread18 ], [ %66, %.loopexit23.backedge ]
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %36, label %34
 
-34:                                               ; preds = %.loopexit24
+34:                                               ; preds = %.loopexit23
   %35 = sub i64 %32, %2
-  br label %.loopexit29
+  br label %.loopexit28
 
-36:                                               ; preds = %.loopexit24
+36:                                               ; preds = %.loopexit23
   %37 = sub i64 %31, %2
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %.thread19, label %39
+  br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr i8, ptr %0, i64 %37
   switch i64 %25, label %64 [
     i64 3, label %41
-    i64 0, label %.preheader28
-    i64 1, label %.preheader30
-    i64 2, label %.preheader32
+    i64 0, label %.preheader27
+    i64 1, label %.preheader29
+    i64 2, label %.preheader31
   ]
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %26, align 8
   tail call void %42(ptr noundef %0, ptr noundef %40, i32 noundef %27) #2
-  br label %.loopexit29
+  br label %.loopexit28
 
-.preheader28:                                     ; preds = %39, %.preheader28
-  %43 = phi i64 [ %44, %.preheader28 ], [ %2, %39 ]
+.preheader27:                                     ; preds = %39, %.preheader27
+  %43 = phi i64 [ %44, %.preheader27 ], [ %2, %39 ]
   %44 = add i64 %43, -8
   %45 = getelementptr i8, ptr %0, i64 %44
   %46 = load i64, ptr %45, align 8
@@ -95,10 +95,10 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   store i64 %48, ptr %45, align 8
   store i64 %46, ptr %47, align 8
   %49 = icmp eq i64 %44, 0
-  br i1 %49, label %.loopexit29, label %.preheader28, !llvm.loop !5
+  br i1 %49, label %.loopexit28, label %.preheader27, !llvm.loop !5
 
-.preheader30:                                     ; preds = %39, %.preheader30
-  %50 = phi i64 [ %51, %.preheader30 ], [ %2, %39 ]
+.preheader29:                                     ; preds = %39, %.preheader29
+  %50 = phi i64 [ %51, %.preheader29 ], [ %2, %39 ]
   %51 = add i64 %50, -4
   %52 = getelementptr i8, ptr %0, i64 %51
   %53 = load i32, ptr %52, align 4
@@ -107,10 +107,10 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   store i32 %55, ptr %52, align 4
   store i32 %53, ptr %54, align 4
   %56 = icmp eq i64 %51, 0
-  br i1 %56, label %.loopexit29, label %.preheader30, !llvm.loop !8
+  br i1 %56, label %.loopexit28, label %.preheader29, !llvm.loop !8
 
-.preheader32:                                     ; preds = %39, %.preheader32
-  %57 = phi i64 [ %58, %.preheader32 ], [ %2, %39 ]
+.preheader31:                                     ; preds = %39, %.preheader31
+  %57 = phi i64 [ %58, %.preheader31 ], [ %2, %39 ]
   %58 = add i64 %57, -1
   %59 = getelementptr i8, ptr %0, i64 %58
   %60 = load i8, ptr %59, align 1
@@ -119,27 +119,27 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   store i8 %62, ptr %59, align 1
   store i8 %60, ptr %61, align 1
   %63 = icmp eq i64 %58, 0
-  br i1 %63, label %.loopexit29, label %.preheader32, !llvm.loop !9
+  br i1 %63, label %.loopexit28, label %.preheader31, !llvm.loop !9
 
 64:                                               ; preds = %39
   tail call void %24(ptr noundef %0, ptr noundef %40, i32 noundef %27, ptr noundef %5) #2
-  br label %.loopexit29
+  br label %.loopexit28
 
-.loopexit29:                                      ; preds = %.preheader32, %.preheader30, %.preheader28, %64, %41, %34
-  %65 = phi i64 [ %31, %34 ], [ %37, %41 ], [ %37, %64 ], [ %37, %.preheader28 ], [ %37, %.preheader30 ], [ %37, %.preheader32 ]
-  %66 = phi i64 [ %35, %34 ], [ 0, %41 ], [ 0, %64 ], [ 0, %.preheader28 ], [ 0, %.preheader30 ], [ 0, %.preheader32 ]
+.loopexit28:                                      ; preds = %.preheader31, %.preheader29, %.preheader27, %64, %41, %34
+  %65 = phi i64 [ %31, %34 ], [ %37, %41 ], [ %37, %64 ], [ %37, %.preheader27 ], [ %37, %.preheader29 ], [ %37, %.preheader31 ]
+  %66 = phi i64 [ %35, %34 ], [ 0, %41 ], [ 0, %64 ], [ 0, %.preheader27 ], [ 0, %.preheader29 ], [ 0, %.preheader31 ]
   %67 = shl i64 %66, 1
   %68 = add i64 %67, %2
   %69 = add i64 %68, %2
   %70 = icmp ult i64 %69, %65
-  br i1 %70, label %.preheader26, label %.loopexit27
+  br i1 %70, label %.preheader25, label %.loopexit26
 
-.preheader26:                                     ; preds = %.loopexit29
-  br i1 %28, label %.preheader26.split.us, label %.preheader26.split
+.preheader25:                                     ; preds = %.loopexit28
+  br i1 %28, label %.preheader25.split.us, label %.preheader25.split
 
-.preheader26.split.us:                            ; preds = %.preheader26, %.preheader26.split.us
-  %71 = phi i64 [ %81, %.preheader26.split.us ], [ %69, %.preheader26 ]
-  %72 = phi i64 [ %80, %.preheader26.split.us ], [ %68, %.preheader26 ]
+.preheader25.split.us:                            ; preds = %.preheader25, %.preheader25.split.us
+  %71 = phi i64 [ %81, %.preheader25.split.us ], [ %69, %.preheader25 ]
+  %72 = phi i64 [ %80, %.preheader25.split.us ], [ %68, %.preheader25 ]
   %73 = getelementptr i8, ptr %0, i64 %72
   %74 = getelementptr i8, ptr %0, i64 %71
   %75 = load ptr, ptr %5, align 8
@@ -150,11 +150,11 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %80 = add i64 %79, %2
   %81 = add i64 %80, %2
   %82 = icmp ult i64 %81, %65
-  br i1 %82, label %.preheader26.split.us, label %.loopexit27, !llvm.loop !10
+  br i1 %82, label %.preheader25.split.us, label %.loopexit26, !llvm.loop !10
 
-.preheader26.split:                               ; preds = %.preheader26, %.preheader26.split
-  %83 = phi i64 [ %92, %.preheader26.split ], [ %69, %.preheader26 ]
-  %84 = phi i64 [ %91, %.preheader26.split ], [ %68, %.preheader26 ]
+.preheader25.split:                               ; preds = %.preheader25, %.preheader25.split
+  %83 = phi i64 [ %92, %.preheader25.split ], [ %69, %.preheader25 ]
+  %84 = phi i64 [ %91, %.preheader25.split ], [ %68, %.preheader25 ]
   %85 = getelementptr i8, ptr %0, i64 %84
   %86 = getelementptr i8, ptr %0, i64 %83
   %87 = tail call i32 %3(ptr noundef %85, ptr noundef %86, ptr noundef %5) #2
@@ -164,21 +164,21 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %91 = add i64 %90, %2
   %92 = add i64 %91, %2
   %93 = icmp ult i64 %92, %65
-  br i1 %93, label %.preheader26.split, label %.loopexit27, !llvm.loop !12
+  br i1 %93, label %.preheader25.split, label %.loopexit26, !llvm.loop !12
 
-.loopexit27:                                      ; preds = %.preheader26.split, %.preheader26.split.us, %.loopexit29
-  %94 = phi i64 [ %66, %.loopexit29 ], [ %78, %.preheader26.split.us ], [ %89, %.preheader26.split ]
-  %95 = phi i64 [ %68, %.loopexit29 ], [ %80, %.preheader26.split.us ], [ %91, %.preheader26.split ]
-  %96 = phi i64 [ %69, %.loopexit29 ], [ %81, %.preheader26.split.us ], [ %92, %.preheader26.split ]
+.loopexit26:                                      ; preds = %.preheader25.split, %.preheader25.split.us, %.loopexit28
+  %94 = phi i64 [ %66, %.loopexit28 ], [ %78, %.preheader25.split.us ], [ %89, %.preheader25.split ]
+  %95 = phi i64 [ %68, %.loopexit28 ], [ %80, %.preheader25.split.us ], [ %91, %.preheader25.split ]
+  %96 = phi i64 [ %69, %.loopexit28 ], [ %81, %.preheader25.split.us ], [ %92, %.preheader25.split ]
   %97 = icmp eq i64 %96, %65
   %98 = select i1 %97, i64 %95, i64 %94
   %99 = icmp eq i64 %98, %66
-  br i1 %99, label %.loopexit24.backedge, label %100
+  br i1 %99, label %.loopexit23.backedge, label %100
 
-.loopexit24.backedge:                             ; preds = %113, %.loopexit, %.loopexit27, %.loopexit25
-  br label %.loopexit24
+.loopexit23.backedge:                             ; preds = %113, %.loopexit, %.loopexit26, %.loopexit24
+  br label %.loopexit23
 
-100:                                              ; preds = %.loopexit27
+100:                                              ; preds = %.loopexit26
   %101 = getelementptr i8, ptr %0, i64 %66
   br label %102
 
@@ -199,7 +199,7 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
 110:                                              ; preds = %108, %105
   %111 = phi i32 [ %107, %105 ], [ %109, %108 ]
   %112 = icmp sgt i32 %111, -1
-  br i1 %112, label %113, label %.loopexit25
+  br i1 %112, label %113, label %.loopexit24
 
 113:                                              ; preds = %110
   %114 = sub i64 %103, %2
@@ -209,13 +209,13 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %118 = sub i64 %114, %117
   %119 = lshr i64 %118, 1
   %120 = icmp eq i64 %119, %66
-  br i1 %120, label %.loopexit24.backedge, label %102, !llvm.loop !13
+  br i1 %120, label %.loopexit23.backedge, label %102, !llvm.loop !13
 
-.loopexit25:                                      ; preds = %110
+.loopexit24:                                      ; preds = %110
   %121 = icmp eq i64 %103, %66
-  br i1 %121, label %.loopexit24.backedge, label %122
+  br i1 %121, label %.loopexit23.backedge, label %122
 
-122:                                              ; preds = %.loopexit25
+122:                                              ; preds = %.loopexit24
   %123 = getelementptr i8, ptr %0, i64 %103
   br label %124
 
@@ -231,8 +231,8 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   switch i64 %25, label %156 [
     i64 3, label %133
     i64 0, label %.preheader
-    i64 1, label %.preheader20
-    i64 2, label %.preheader22
+    i64 1, label %.preheader19
+    i64 2, label %.preheader21
   ]
 
 133:                                              ; preds = %124
@@ -252,8 +252,8 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %141 = icmp eq i64 %136, 0
   br i1 %141, label %.loopexit, label %.preheader, !llvm.loop !5
 
-.preheader20:                                     ; preds = %124, %.preheader20
-  %142 = phi i64 [ %143, %.preheader20 ], [ %2, %124 ]
+.preheader19:                                     ; preds = %124, %.preheader19
+  %142 = phi i64 [ %143, %.preheader19 ], [ %2, %124 ]
   %143 = add i64 %142, -4
   %144 = getelementptr i8, ptr %132, i64 %143
   %145 = load i32, ptr %144, align 4
@@ -262,10 +262,10 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   store i32 %147, ptr %144, align 4
   store i32 %145, ptr %146, align 4
   %148 = icmp eq i64 %143, 0
-  br i1 %148, label %.loopexit, label %.preheader20, !llvm.loop !8
+  br i1 %148, label %.loopexit, label %.preheader19, !llvm.loop !8
 
-.preheader22:                                     ; preds = %124, %.preheader22
-  %149 = phi i64 [ %150, %.preheader22 ], [ %2, %124 ]
+.preheader21:                                     ; preds = %124, %.preheader21
+  %149 = phi i64 [ %150, %.preheader21 ], [ %2, %124 ]
   %150 = add i64 %149, -1
   %151 = getelementptr i8, ptr %132, i64 %150
   %152 = load i8, ptr %151, align 1
@@ -274,17 +274,17 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   store i8 %154, ptr %151, align 1
   store i8 %152, ptr %153, align 1
   %155 = icmp eq i64 %150, 0
-  br i1 %155, label %.loopexit, label %.preheader22, !llvm.loop !9
+  br i1 %155, label %.loopexit, label %.preheader21, !llvm.loop !9
 
 156:                                              ; preds = %124
   tail call void %24(ptr noundef %132, ptr noundef %123, i32 noundef %27, ptr noundef %5) #2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader22, %.preheader20, %.preheader, %156, %133
+.loopexit:                                        ; preds = %.preheader21, %.preheader19, %.preheader, %156, %133
   %157 = icmp eq i64 %131, %66
-  br i1 %157, label %.loopexit24.backedge, label %124, !llvm.loop !14
+  br i1 %157, label %.loopexit23.backedge, label %124, !llvm.loop !14
 
-.thread19:                                        ; preds = %36, %6
+.critedge:                                        ; preds = %36, %6
   ret void
 }
 

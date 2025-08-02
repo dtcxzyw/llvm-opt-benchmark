@@ -876,30 +876,33 @@ declare float @llvm.fmuladd.f32(float, float, float) #17
 define void @_ZN3gmx27setBoxDeformationFlowMatrixEPA3_KfS2_PA3_f(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #18 {
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %5
-  %indvars.iv16 = phi i64 [ 0, %3 ], [ %indvars.iv.next17, %5 ]
-  br label %6
-
-4:                                                ; preds = %5
-  ret void
+.preheader:                                       ; preds = %3, %6
+  %indvars.iv16 = phi i64 [ 0, %3 ], [ %indvars.iv.next17, %6 ]
+  %invariant.gep = getelementptr inbounds nuw [3 x float], ptr %0, i64 0, i64 %indvars.iv16
+  %4 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv16
+  br label %7
 
 5:                                                ; preds = %6
+  ret void
+
+6:                                                ; preds = %7
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 3
-  br i1 %exitcond19.not, label %4, label %.preheader, !llvm.loop !173
+  br i1 %exitcond19.not, label %5, label %.preheader, !llvm.loop !173
 
-6:                                                ; preds = %.preheader, %6
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv, i64 %indvars.iv16
-  %8 = load float, ptr %7, align 4, !tbaa !125
-  %9 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv, i64 %indvars.iv
-  %10 = load float, ptr %9, align 4, !tbaa !125
-  %11 = fdiv float %8, %10
-  %12 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv16, i64 %indvars.iv
-  store float %11, ptr %12, align 4, !tbaa !125
+7:                                                ; preds = %.preheader, %7
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
+  %gep = getelementptr inbounds nuw [3 x float], ptr %invariant.gep, i64 %indvars.iv
+  %8 = load float, ptr %gep, align 4, !tbaa !125
+  %9 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv
+  %11 = load float, ptr %10, align 4, !tbaa !125
+  %12 = fdiv float %8, %11
+  %13 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv
+  store float %12, ptr %13, align 4, !tbaa !125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %5, label %6, !llvm.loop !174
+  br i1 %exitcond.not, label %6, label %7, !llvm.loop !174
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

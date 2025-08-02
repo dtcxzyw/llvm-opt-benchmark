@@ -44,19 +44,16 @@ list_length.exit:                                 ; preds = %3, %7
   %19 = load ptr, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i32, ptr %20, align 4
   %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph33, label %._crit_edge
+  br i1 %23, label %.lr.ph31, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph33, %.lr.ph, %list_length.exit
-  ret ptr %4
-
-.lr.ph33:                                         ; preds = %.lr.ph, %.lr.ph33
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph33 ], [ 0, %.lr.ph ]
+.lr.ph31:                                         ; preds = %.lr.ph, %.lr.ph31
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph31 ], [ 0, %.lr.ph ]
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
@@ -67,7 +64,10 @@ list_length.exit:                                 ; preds = %3, %7
   %29 = load i32, ptr %20, align 4
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph33, label %._crit_edge
+  br i1 %31, label %.lr.ph31, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph31, %.lr.ph, %list_length.exit
+  ret ptr %4
 }
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1

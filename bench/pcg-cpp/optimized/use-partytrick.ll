@@ -512,13 +512,12 @@ _ZN10pcg_detailrsIcSt11char_traitsIcEjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_s
   %53 = load i32, ptr %52, align 8, !tbaa !38
   %54 = and i32 %53, 5
   %.not25 = icmp eq i32 %54, 0
-  br i1 %.not25, label %55, label %69
+  br i1 %.not25, label %55, label %71
 
 55:                                               ; preds = %_ZN10pcg_detailrsIcSt11char_traitsIcEjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEERSt13basic_istreamIT_T0_ESD_RNS_6engineIT1_T2_T3_XT4_ET5_T6_EE.exit
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %57 = load i32, ptr %56, align 8, !tbaa !48
   store i32 4098, ptr %56, align 8, !tbaa !48
-  %invariant.gep = getelementptr i8, ptr %0, i64 32
   br label %59
 
 58:                                               ; preds = %59
@@ -533,10 +532,11 @@ _ZN10pcg_detailrsIcSt11char_traitsIcEjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_s
   %61 = load ptr, ptr %0, align 8, !tbaa !36
   %62 = getelementptr i8, ptr %61, i64 -24
   %63 = load i64, ptr %62, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %63
-  %64 = load i32, ptr %gep, align 8, !tbaa !38
-  %65 = and i32 %64, 5
-  %.not26 = icmp eq i32 %65, 0
+  %64 = getelementptr inbounds i8, ptr %0, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  %66 = load i32, ptr %65, align 8, !tbaa !38
+  %67 = and i32 %66, 5
+  %.not26 = icmp eq i32 %67, 0
   br i1 %.not26, label %58, label %.loopexit
 
 .thread:                                          ; preds = %58
@@ -547,13 +547,13 @@ _ZN10pcg_detailrsIcSt11char_traitsIcEjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_s
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %.thread
-  %66 = phi i64 [ %.pre30, %.thread ], [ %63, %59 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 %66
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store i32 %57, ptr %68, align 8, !tbaa !48
-  br label %69
+  %68 = phi i64 [ %.pre30, %.thread ], [ %63, %59 ]
+  %69 = getelementptr inbounds i8, ptr %0, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  store i32 %57, ptr %70, align 8, !tbaa !48
+  br label %71
 
-69:                                               ; preds = %.loopexit, %_ZN10pcg_detailrsIcSt11char_traitsIcEjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEERSt13basic_istreamIT_T0_ESD_RNS_6engineIT1_T2_T3_XT4_ET5_T6_EE.exit
+71:                                               ; preds = %.loopexit, %_ZN10pcg_detailrsIcSt11char_traitsIcEjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEERSt13basic_istreamIT_T0_ESD_RNS_6engineIT1_T2_T3_XT4_ET5_T6_EE.exit
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %6) #17
   ret ptr %0
 }

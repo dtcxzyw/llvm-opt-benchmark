@@ -43,7 +43,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__12HioGetFormatEjNS_7Hio
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %11, align 8
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %4, i32 noundef 1, ptr noundef nonnull @.str.1)
-  br label %27
+  br label %28
 
 12:                                               ; preds = %3
   %13 = add i32 %0, -5
@@ -61,21 +61,22 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__12HioGetFormatEjNS_7Hio
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %18, align 8
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef 1, ptr noundef nonnull @.str.2)
-  br label %27
+  br label %28
 
 19:                                               ; preds = %12
   %20 = icmp eq i32 %1, 0
   %or.cond3 = and i1 %2, %20
   %21 = zext i32 %1 to i64
   %22 = select i1 %or.cond3, i64 1, i64 %21
-  %23 = add nsw i32 %0, -1
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [10 x [4 x i32]], ptr @_ZN32pxrInternal_v0_24__pxrReserved__L11_hioFormatsE, i64 0, i64 %22, i64 %24
-  %26 = load i32, ptr %25, align 4
-  br label %27
+  %23 = getelementptr inbounds nuw [10 x [4 x i32]], ptr @_ZN32pxrInternal_v0_24__pxrReserved__L11_hioFormatsE, i64 0, i64 %22
+  %24 = add nsw i32 %0, -1
+  %25 = zext nneg i32 %24 to i64
+  %26 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %25
+  %27 = load i32, ptr %26, align 4
+  br label %28
 
-27:                                               ; preds = %19, %14, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %14 ], [ %26, %19 ]
+28:                                               ; preds = %19, %14, %7
+  %.0 = phi i32 [ -1, %7 ], [ -1, %14 ], [ %27, %19 ]
   ret i32 %.0
 }
 

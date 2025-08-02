@@ -133,7 +133,8 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_input_register_afinfo(ptr n
   %8 = zext nneg i8 %7 to i64
   %9 = load i8, ptr %0, align 8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr [2 x [11 x ptr]], ptr @xfrm_input_afinfo, i64 0, i64 %8, i64 %10
+  %.split = getelementptr [2 x [11 x ptr]], ptr @xfrm_input_afinfo, i64 0, i64 %8
+  %11 = getelementptr [11 x ptr], ptr %.split, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %20, !prof !11
@@ -144,7 +145,8 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_input_register_afinfo(ptr n
   %16 = zext nneg i8 %15 to i64
   %17 = load i8, ptr %0, align 8
   %18 = zext i8 %17 to i64
-  %19 = getelementptr [2 x [11 x ptr]], ptr @xfrm_input_afinfo, i64 0, i64 %16, i64 %18
+  %.split1 = getelementptr [2 x [11 x ptr]], ptr @xfrm_input_afinfo, i64 0, i64 %16
+  %19 = getelementptr [11 x ptr], ptr %.split1, i64 0, i64 %18
   store volatile ptr %0, ptr %19, align 8
   br label %20
 
@@ -172,7 +174,8 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_input_unregister_afinfo(ptr
   %4 = zext nneg i8 %3 to i64
   %5 = load i8, ptr %0, align 8
   %6 = zext i8 %5 to i64
-  %7 = getelementptr [2 x [11 x ptr]], ptr @xfrm_input_afinfo, i64 0, i64 %4, i64 %6
+  %.split = getelementptr [2 x [11 x ptr]], ptr @xfrm_input_afinfo, i64 0, i64 %4
+  %7 = getelementptr [11 x ptr], ptr %.split, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10, !prof !5
@@ -456,13 +459,13 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %66 = icmp ne i32 %3, -1
   %67 = icmp eq ptr %6, null
   %68 = or i1 %66, %67
-  br i1 %68, label %.critedge49, label %69
+  br i1 %68, label %.critedge50, label %69
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 1280
   %71 = load ptr, ptr %70, align 8
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %71, ptr elementtype(i32) %71) #10, !srcloc !14
-  br label %.critedge49
+  br label %.critedge50
 
 72:                                               ; preds = %54
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 226
@@ -501,7 +504,7 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 96:                                               ; preds = %89
   %97 = and i32 %93, 60
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %.critedge49, label %99
+  br i1 %98, label %.critedge50, label %99
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %61, i64 696
@@ -513,11 +516,11 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %105 = load i32, ptr %104, align 8
   %106 = add i32 %105, 1
   store i32 %106, ptr %104, align 8
-  br label %.critedge49
+  br label %.critedge50
 
 107:                                              ; preds = %89
   %108 = trunc i32 %1 to i8
-  switch i8 %108, label %.critedge49 [
+  switch i8 %108, label %.critedge50 [
     i8 51, label %123
     i8 50, label %109
     i8 108, label %110
@@ -537,13 +540,13 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 
 117:                                              ; preds = %110
   %118 = icmp ult i32 %112, 4
-  br i1 %118, label %.critedge49, label %119, !prof !5
+  br i1 %118, label %.critedge50, label %119, !prof !5
 
 119:                                              ; preds = %117
   %120 = sub nuw nsw i32 4, %115
   %121 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %120) #10
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %.critedge49, label %xfrm_parse_spi.exit
+  br i1 %122, label %.critedge50, label %xfrm_parse_spi.exit
 
 123:                                              ; preds = %109, %107
   %124 = phi i64 [ 4, %109 ], [ 8, %107 ]
@@ -558,13 +561,13 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 
 132:                                              ; preds = %123
   %133 = icmp ult i32 %127, %125
-  br i1 %133, label %.critedge49, label %134, !prof !5
+  br i1 %133, label %.critedge50, label %134, !prof !5
 
 134:                                              ; preds = %132
   %135 = sub nsw i32 %125, %130
   %136 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %135) #10
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %.critedge49, label %138
+  br i1 %137, label %.critedge50, label %138
 
 138:                                              ; preds = %134, %123
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -629,9 +632,9 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %179 = tail call ptr @skb_ext_add(ptr noundef %0, i32 noundef 0) #10
   %180 = icmp eq ptr %179, null
   %181 = select i1 %180, i1 true, i1 %178
-  br i1 %181, label %185, label %.thread67
+  br i1 %181, label %185, label %.thread68
 
-.thread67:                                        ; preds = %177
+.thread68:                                        ; preds = %177
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %182, i8 0, i64 20, i1 false)
   %183 = getelementptr inbounds nuw i8, ptr %179, i64 4
@@ -642,16 +645,16 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br label %186
 
 185:                                              ; preds = %177
-  br i1 %180, label %.critedge49.thread, label %186
+  br i1 %180, label %.critedge50.thread, label %186
 
-186:                                              ; preds = %.thread67, %185
+186:                                              ; preds = %.thread68, %185
   %187 = icmp eq i32 %2, 0
-  br i1 %187, label %188, label %.xfrm_parse_spi.exit50_crit_edge
+  br i1 %187, label %188, label %.xfrm_parse_spi.exit51_crit_edge
 
-.xfrm_parse_spi.exit50_crit_edge:                 ; preds = %186
+.xfrm_parse_spi.exit51_crit_edge:                 ; preds = %186
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %xfrm_parse_spi.exit50
+  br label %xfrm_parse_spi.exit51
 
 188:                                              ; preds = %186
   %189 = trunc i32 %1 to i8
@@ -695,7 +698,7 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %213 = tail call i16 @llvm.bswap.i16(i16 %212)
   %214 = zext i16 %213 to i32
   %215 = tail call i32 @llvm.bswap.i32(i32 %214)
-  br label %xfrm_parse_spi.exit50
+  br label %xfrm_parse_spi.exit51
 
 216:                                              ; preds = %190, %188
   %217 = phi i64 [ 0, %190 ], [ 4, %188 ]
@@ -730,22 +733,22 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %240 = load i32, ptr %239, align 4
   %241 = getelementptr i8, ptr %238, i64 %218
   %242 = load i32, ptr %241, align 4
-  br label %xfrm_parse_spi.exit50
+  br label %xfrm_parse_spi.exit51
 
 243:                                              ; preds = %200, %188, %228, %198, %226
   %244 = load i8, ptr %11, align 1
   %245 = and i8 %244, 1
   %246 = icmp eq i8 %245, 0
-  br i1 %246, label %.critedge49.thread, label %247
+  br i1 %246, label %.critedge50.thread, label %247
 
 247:                                              ; preds = %243
   tail call void @__skb_ext_del(ptr noundef %0, i32 noundef 0) #10
-  br label %.critedge49.thread
+  br label %.critedge50.thread
 
-xfrm_parse_spi.exit50:                            ; preds = %.xfrm_parse_spi.exit50_crit_edge, %232, %204
-  %248 = phi ptr [ %.pre, %.xfrm_parse_spi.exit50_crit_edge ], [ %234, %232 ], [ %206, %204 ]
-  %.260 = phi i32 [ %2, %.xfrm_parse_spi.exit50_crit_edge ], [ %240, %232 ], [ %215, %204 ]
-  %.2 = phi i32 [ 0, %.xfrm_parse_spi.exit50_crit_edge ], [ %242, %232 ], [ 0, %204 ]
+xfrm_parse_spi.exit51:                            ; preds = %.xfrm_parse_spi.exit51_crit_edge, %232, %204
+  %248 = phi ptr [ %.pre, %.xfrm_parse_spi.exit51_crit_edge ], [ %234, %232 ], [ %206, %204 ]
+  %.261 = phi i32 [ %2, %.xfrm_parse_spi.exit51_crit_edge ], [ %240, %232 ], [ %215, %204 ]
+  %.2 = phi i32 [ 0, %.xfrm_parse_spi.exit51_crit_edge ], [ %242, %232 ], [ 0, %204 ]
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %250 = load i16, ptr %249, align 4
   %251 = zext i16 %250 to i64
@@ -756,27 +759,27 @@ xfrm_parse_spi.exit50:                            ; preds = %.xfrm_parse_spi.exi
   %256 = getelementptr i8, ptr %252, i64 %255
   br label %257
 
-257:                                              ; preds = %xfrm_parse_spi.exit51.thread76, %xfrm_parse_spi.exit50
-  %.361 = phi i32 [ %.260, %xfrm_parse_spi.exit50 ], [ %.9.ph, %xfrm_parse_spi.exit51.thread76 ]
-  %.3 = phi i32 [ %.2, %xfrm_parse_spi.exit50 ], [ %.6.ph, %xfrm_parse_spi.exit51.thread76 ]
-  %258 = phi i32 [ %1, %xfrm_parse_spi.exit50 ], [ %397, %xfrm_parse_spi.exit51.thread76 ]
-  %259 = phi i32 [ %3, %xfrm_parse_spi.exit50 ], [ 0, %xfrm_parse_spi.exit51.thread76 ]
-  %260 = phi ptr [ null, %xfrm_parse_spi.exit50 ], [ %398, %xfrm_parse_spi.exit51.thread76 ]
-  %261 = phi ptr [ %256, %xfrm_parse_spi.exit50 ], [ %1088, %xfrm_parse_spi.exit51.thread76 ]
-  %262 = phi i32 [ %167, %xfrm_parse_spi.exit50 ], [ %399, %xfrm_parse_spi.exit51.thread76 ]
-  %263 = phi i32 [ %149, %xfrm_parse_spi.exit50 ], [ %1036, %xfrm_parse_spi.exit51.thread76 ]
-  %264 = phi i32 [ 0, %xfrm_parse_spi.exit50 ], [ %401, %xfrm_parse_spi.exit51.thread76 ]
+257:                                              ; preds = %xfrm_parse_spi.exit52.thread77, %xfrm_parse_spi.exit51
+  %.362 = phi i32 [ %.261, %xfrm_parse_spi.exit51 ], [ %.9.ph, %xfrm_parse_spi.exit52.thread77 ]
+  %.3 = phi i32 [ %.2, %xfrm_parse_spi.exit51 ], [ %.6.ph, %xfrm_parse_spi.exit52.thread77 ]
+  %258 = phi i32 [ %1, %xfrm_parse_spi.exit51 ], [ %397, %xfrm_parse_spi.exit52.thread77 ]
+  %259 = phi i32 [ %3, %xfrm_parse_spi.exit51 ], [ 0, %xfrm_parse_spi.exit52.thread77 ]
+  %260 = phi ptr [ null, %xfrm_parse_spi.exit51 ], [ %398, %xfrm_parse_spi.exit52.thread77 ]
+  %261 = phi ptr [ %256, %xfrm_parse_spi.exit51 ], [ %1088, %xfrm_parse_spi.exit52.thread77 ]
+  %262 = phi i32 [ %167, %xfrm_parse_spi.exit51 ], [ %399, %xfrm_parse_spi.exit52.thread77 ]
+  %263 = phi i32 [ %149, %xfrm_parse_spi.exit51 ], [ %1036, %xfrm_parse_spi.exit52.thread77 ]
+  %264 = phi i32 [ 0, %xfrm_parse_spi.exit51 ], [ %401, %xfrm_parse_spi.exit52.thread77 ]
   %265 = load i8, ptr %11, align 1
   %266 = and i8 %265, 1
   %267 = icmp eq i8 %266, 0
-  br i1 %267, label %268, label %.thread70
+  br i1 %267, label %268, label %.thread71
 
 268:                                              ; preds = %257
   %269 = load i32, ptr null, align 4294967296
   %270 = icmp eq i32 %269, 6
-  br i1 %270, label %.critedge49, label %281
+  br i1 %270, label %.critedge50, label %281
 
-.thread70:                                        ; preds = %257
+.thread71:                                        ; preds = %257
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %272 = load ptr, ptr %271, align 8
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 4
@@ -788,15 +791,15 @@ xfrm_parse_spi.exit50:                            ; preds = %.xfrm_parse_spi.exi
   %279 = icmp eq i32 %278, 6
   br i1 %279, label %280, label %281
 
-280:                                              ; preds = %.thread70
+280:                                              ; preds = %.thread71
   tail call void @__skb_ext_del(ptr noundef %0, i32 noundef 0) #10
-  br label %.critedge49
+  br label %.critedge50
 
-281:                                              ; preds = %.thread70, %268
-  %282 = phi ptr [ %277, %.thread70 ], [ null, %268 ]
+281:                                              ; preds = %.thread71, %268
+  %282 = phi ptr [ %277, %.thread71 ], [ null, %268 ]
   %283 = trunc i32 %258 to i8
   %284 = trunc i32 %263 to i16
-  %285 = tail call ptr @xfrm_state_lookup(ptr noundef %8, i32 noundef %262, ptr noundef %261, i32 noundef %.361, i8 noundef zeroext %283, i16 noundef zeroext %284) #10
+  %285 = tail call ptr @xfrm_state_lookup(ptr noundef %8, i32 noundef %262, ptr noundef %261, i32 noundef %.362, i8 noundef zeroext %283, i16 noundef zeroext %284) #10
   %286 = icmp eq ptr %285, null
   br i1 %286, label %287, label %293
 
@@ -811,8 +814,8 @@ xfrm_parse_spi.exit50:                            ; preds = %.xfrm_parse_spi.exi
   br label %292
 
 292:                                              ; preds = %291, %287
-  tail call void @xfrm_audit_state_notfound(ptr noundef %0, i16 noundef zeroext %284, i32 noundef %.361, i32 noundef %.3) #10
-  br label %.critedge49.thread
+  tail call void @xfrm_audit_state_notfound(ptr noundef %0, i16 noundef zeroext %284, i32 noundef %.362, i32 noundef %.3) #10
+  br label %.critedge50.thread
 
 293:                                              ; preds = %281
   %294 = load i32, ptr %9, align 4
@@ -874,7 +877,7 @@ xfrm_parse_spi.exit50:                            ; preds = %.xfrm_parse_spi.exi
 336:                                              ; preds = %324, %293
   %337 = phi i64 [ %326, %324 ], [ %309, %293 ]
   %338 = icmp ult i64 %337, 2
-  br i1 %338, label %.critedge49.thread86, label %xfrm_parse_spi.exit
+  br i1 %338, label %.critedge50.thread87, label %xfrm_parse_spi.exit
 
 xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %336, %84, %80
   %.1 = phi i32 [ %.3, %336 ], [ %82, %80 ], [ %82, %84 ], [ %146, %138 ], [ 0, %119 ], [ 0, %110 ]
@@ -936,7 +939,7 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %373 = load i8, ptr %372, align 2
   %374 = and i8 %373, 1
   %375 = icmp eq i8 %374, 0
-  br i1 %375, label %.critedge49, label %376
+  br i1 %375, label %.critedge50, label %376
 
 376:                                              ; preds = %371, %367, %366
   %377 = tail call i32 @xfrm_replay_seqhi(ptr noundef %341, i32 noundef %.1) #10
@@ -967,11 +970,11 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   br i1 %394, label %1256, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %386
-  %.pre90 = load ptr, ptr %5, align 8
+  %.pre91 = load ptr, ptr %5, align 8
   br label %395
 
 395:                                              ; preds = %._crit_edge, %77
-  %396 = phi ptr [ %6, %77 ], [ %.pre90, %._crit_edge ]
+  %396 = phi ptr [ %6, %77 ], [ %.pre91, %._crit_edge ]
   %.0 = phi i32 [ %79, %77 ], [ %.1, %._crit_edge ]
   %397 = phi i32 [ %1, %77 ], [ %393, %._crit_edge ]
   %398 = phi ptr [ %61, %77 ], [ %341, %._crit_edge ]
@@ -1120,7 +1123,7 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   tail call void asm sideeffect "863: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 863b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 863) #10, !srcloc !17
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 374, i32 2307, i64 12) #10, !srcloc !18
   tail call void asm sideeffect "864: nop\0A\09.pushsection .discard.instr_end\0A\09.long 864b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 864) #10, !srcloc !19
-  br label %.critedge49
+  br label %.critedge50
 
 489:                                              ; preds = %467, %441
   %490 = phi ptr [ %469, %467 ], [ %443, %441 ]
@@ -1146,7 +1149,7 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
 
 498:                                              ; preds = %495
   %499 = tail call fastcc zeroext i1 @pskb_may_pull(ptr noundef %0, i32 noundef 4)
-  br i1 %499, label %500, label %.critedge49
+  br i1 %499, label %500, label %.critedge50
 
 500:                                              ; preds = %498
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -1161,20 +1164,20 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %510 = shl nuw nsw i32 %509, 3
   %511 = sub nsw i32 %510, %505
   %512 = icmp slt i32 %511, -4
-  br i1 %512, label %.critedge49, label %513
+  br i1 %512, label %.critedge50, label %513
 
 513:                                              ; preds = %500
   %514 = and i32 %511, 3
   %515 = icmp ne i32 %514, 0
   %516 = icmp sgt i32 %511, 246
   %517 = or i1 %516, %515
-  br i1 %517, label %.critedge49, label %518
+  br i1 %517, label %.critedge50, label %518
 
 518:                                              ; preds = %513
   %519 = load i8, ptr %502, align 1
   store i8 %519, ptr %435, align 1
   %520 = tail call fastcc zeroext i1 @pskb_may_pull(ptr noundef %0, i32 noundef %506)
-  br i1 %520, label %521, label %.critedge49
+  br i1 %520, label %521, label %.critedge50
 
 521:                                              ; preds = %518
   %522 = load i32, ptr %423, align 8
@@ -1229,13 +1232,13 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %556 = getelementptr i8, ptr %540, i64 %555
   %557 = zext i16 %553 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %556, ptr align 1 %551, i64 %557, i1 false)
-  %.pre99 = load ptr, ptr %539, align 8
-  %.pre100 = load i16, ptr %545, align 4
+  %.pre100 = load ptr, ptr %539, align 8
+  %.pre101 = load i16, ptr %545, align 4
   br label %558
 
 558:                                              ; preds = %549, %535
-  %559 = phi i16 [ %.pre100, %549 ], [ %544, %535 ]
-  %560 = phi ptr [ %.pre99, %549 ], [ %540, %535 ]
+  %559 = phi i16 [ %.pre101, %549 ], [ %544, %535 ]
+  %560 = phi ptr [ %.pre100, %549 ], [ %540, %535 ]
   %561 = zext i16 %559 to i64
   %562 = getelementptr i8, ptr %560, i64 %561
   store i8 69, ptr %562, align 4
@@ -1340,18 +1343,18 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %641 = and i32 %640, 262080
   %642 = tail call i32 @pskb_expand_head(ptr noundef %0, i32 noundef %641, i32 noundef 0, i32 noundef 2080) #10
   %643 = icmp eq i32 %642, 0
-  br i1 %643, label %..critedge_crit_edge, label %.critedge49
+  br i1 %643, label %..critedge_crit_edge, label %.critedge50
 
 ..critedge_crit_edge:                             ; preds = %639
-  %.pre95 = load ptr, ptr %629, align 8
-  %.pre96 = load ptr, ptr %631, align 8
-  %.pre101 = ptrtoint ptr %.pre96 to i64
+  %.pre96 = load ptr, ptr %629, align 8
+  %.pre97 = load ptr, ptr %631, align 8
+  %.pre102 = ptrtoint ptr %.pre97 to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %627
-  %.pre-phi = phi i64 [ %.pre101, %..critedge_crit_edge ], [ %633, %627 ]
-  %644 = phi ptr [ %.pre96, %..critedge_crit_edge ], [ %490, %627 ]
-  %645 = phi ptr [ %.pre95, %..critedge_crit_edge ], [ %630, %627 ]
+  %.pre-phi = phi i64 [ %.pre102, %..critedge_crit_edge ], [ %633, %627 ]
+  %644 = phi ptr [ %.pre97, %..critedge_crit_edge ], [ %490, %627 ]
+  %645 = phi ptr [ %.pre96, %..critedge_crit_edge ], [ %630, %627 ]
   %646 = getelementptr i8, ptr %645, i64 -40
   store ptr %646, ptr %629, align 8
   %647 = load i32, ptr %423, align 8
@@ -1377,13 +1380,13 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %662 = getelementptr i8, ptr %644, i64 %661
   %663 = zext i16 %659 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %662, ptr align 1 %658, i64 %663, i1 false)
-  %.pre97 = load ptr, ptr %631, align 8
-  %.pre98 = load i16, ptr %652, align 4
+  %.pre98 = load ptr, ptr %631, align 8
+  %.pre99 = load i16, ptr %652, align 4
   br label %664
 
 664:                                              ; preds = %656, %.critedge
-  %665 = phi i16 [ %.pre98, %656 ], [ %651, %.critedge ]
-  %666 = phi ptr [ %.pre97, %656 ], [ %644, %.critedge ]
+  %665 = phi i16 [ %.pre99, %656 ], [ %651, %.critedge ]
+  %666 = phi ptr [ %.pre98, %656 ], [ %644, %.critedge ]
   %667 = zext i16 %665 to i64
   %668 = getelementptr i8, ptr %666, i64 %667
   %669 = load i8, ptr %668, align 4
@@ -1428,7 +1431,7 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   br label %1028
 
 700:                                              ; preds = %489
-  switch i8 %434, label %.critedge49 [
+  switch i8 %434, label %.critedge50 [
     i8 4, label %701
     i8 41, label %832
   ]
@@ -1445,20 +1448,20 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
 
 708:                                              ; preds = %701
   %709 = icmp ult i32 %703, 20
-  br i1 %709, label %.critedge49, label %710, !prof !5
+  br i1 %709, label %.critedge50, label %710, !prof !5
 
 710:                                              ; preds = %708
   %711 = sub nuw nsw i32 20, %706
   %712 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %711) #10
   %713 = icmp eq ptr %712, null
-  br i1 %713, label %.critedge49, label %714
+  br i1 %713, label %.critedge50, label %714
 
 714:                                              ; preds = %710, %701
   %715 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %716 = load i8, ptr %715, align 2
   %717 = and i8 %716, 1
   %718 = icmp eq i8 %717, 0
-  br i1 %718, label %.critedge45, label %719
+  br i1 %718, label %.critedge46, label %719
 
 719:                                              ; preds = %714
   %720 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1471,21 +1474,21 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %727 = load volatile i32, ptr %726, align 4
   %728 = and i32 %727, 65535
   %729 = icmp eq i32 %728, 1
-  br i1 %729, label %.critedge45, label %730
+  br i1 %729, label %.critedge46, label %730
 
 730:                                              ; preds = %719
   %731 = tail call i32 @pskb_expand_head(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 2080) #10
   %732 = icmp eq i32 %731, 0
-  br i1 %732, label %.critedge45, label %.critedge49
+  br i1 %732, label %.critedge46, label %.critedge50
 
-.critedge45:                                      ; preds = %719, %714, %730
+.critedge46:                                      ; preds = %719, %714, %730
   %733 = getelementptr inbounds nuw i8, ptr %398, i64 225
   %734 = load i8, ptr %733, align 1
   %735 = and i8 %734, 2
   %736 = icmp eq i8 %735, 0
   br i1 %736, label %767, label %737
 
-737:                                              ; preds = %.critedge45
+737:                                              ; preds = %.critedge46
   %738 = getelementptr inbounds nuw i8, ptr %0, i64 77
   %739 = load i8, ptr %738, align 1
   %740 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1517,11 +1520,11 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %766 = tail call i16 @llvm.bswap.i16(i16 %765)
   store i16 %766, ptr %747, align 2
   store i8 %760, ptr %751, align 1
-  %.pre94 = load i8, ptr %733, align 1
+  %.pre95 = load i8, ptr %733, align 1
   br label %767
 
-767:                                              ; preds = %737, %.critedge45
-  %768 = phi i8 [ %.pre94, %737 ], [ %734, %.critedge45 ]
+767:                                              ; preds = %737, %.critedge46
+  %768 = phi i8 [ %.pre95, %737 ], [ %734, %.critedge46 ]
   %769 = and i8 %768, 1
   %770 = icmp eq i8 %769, 0
   br i1 %770, label %771, label %799
@@ -1619,20 +1622,20 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
 
 839:                                              ; preds = %832
   %840 = icmp ult i32 %834, 40
-  br i1 %840, label %.critedge49, label %841, !prof !5
+  br i1 %840, label %.critedge50, label %841, !prof !5
 
 841:                                              ; preds = %839
   %842 = sub nuw nsw i32 40, %837
   %843 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %842) #10
   %844 = icmp eq ptr %843, null
-  br i1 %844, label %.critedge49, label %845
+  br i1 %844, label %.critedge50, label %845
 
 845:                                              ; preds = %841, %832
   %846 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %847 = load i8, ptr %846, align 2
   %848 = and i8 %847, 1
   %849 = icmp eq i8 %848, 0
-  br i1 %849, label %.critedge47, label %850
+  br i1 %849, label %.critedge48, label %850
 
 850:                                              ; preds = %845
   %851 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1645,21 +1648,21 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %858 = load volatile i32, ptr %857, align 4
   %859 = and i32 %858, 65535
   %860 = icmp eq i32 %859, 1
-  br i1 %860, label %.critedge47, label %861
+  br i1 %860, label %.critedge48, label %861
 
 861:                                              ; preds = %850
   %862 = tail call i32 @pskb_expand_head(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 2080) #10
   %863 = icmp eq i32 %862, 0
-  br i1 %863, label %.critedge47, label %.critedge49
+  br i1 %863, label %.critedge48, label %.critedge50
 
-.critedge47:                                      ; preds = %850, %845, %861
+.critedge48:                                      ; preds = %850, %845, %861
   %864 = getelementptr inbounds nuw i8, ptr %398, i64 225
   %865 = load i8, ptr %864, align 1
   %866 = and i8 %865, 2
   %867 = icmp eq i8 %866, 0
   br i1 %867, label %884, label %868
 
-868:                                              ; preds = %.critedge47
+868:                                              ; preds = %.critedge48
   %869 = getelementptr inbounds nuw i8, ptr %0, i64 77
   %870 = load i8, ptr %869, align 1
   %871 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1676,11 +1679,11 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %882 = tail call i16 @llvm.bswap.i16(i16 %881)
   %883 = or disjoint i16 %879, %882
   store i16 %883, ptr %876, align 2
-  %.pre93 = load i8, ptr %864, align 1
+  %.pre94 = load i8, ptr %864, align 1
   br label %884
 
-884:                                              ; preds = %868, %.critedge47
-  %885 = phi i8 [ %.pre93, %868 ], [ %865, %.critedge47 ]
+884:                                              ; preds = %868, %.critedge48
+  %885 = phi i8 [ %.pre94, %868 ], [ %865, %.critedge48 ]
   %886 = and i8 %885, 1
   %887 = icmp eq i8 %886, 0
   br i1 %887, label %888, label %916
@@ -1772,12 +1775,12 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   tail call void asm sideeffect "861: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 861b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 861) #10, !srcloc !24
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 360, i32 2307, i64 12) #10, !srcloc !25
   tail call void asm sideeffect "862: nop\0A\09.pushsection .discard.instr_end\0A\09.long 862b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 862) #10, !srcloc !26
-  br label %.critedge49
+  br label %.critedge50
 
 950:                                              ; preds = %422
   %951 = getelementptr inbounds nuw i8, ptr %398, i64 226
   %952 = load i16, ptr %951, align 2
-  switch i16 %952, label %.critedge49 [
+  switch i16 %952, label %.critedge50 [
     i16 2, label %953
     i16 10, label %989
   ]
@@ -1807,19 +1810,19 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %961, ptr align 1 %970, i64 %972, i1 false)
   %973 = load i16, ptr %958, align 2
   store i16 %973, ptr %965, align 4
-  %.pre92 = load ptr, ptr %956, align 8
-  %.pre102 = zext i16 %973 to i64
+  %.pre93 = load ptr, ptr %956, align 8
+  %.pre103 = zext i16 %973 to i64
   br label %974
 
 974:                                              ; preds = %968, %953
-  %.pre-phi103 = phi i64 [ %.pre102, %968 ], [ %960, %953 ]
-  %975 = phi ptr [ %.pre92, %968 ], [ %957, %953 ]
+  %.pre-phi104 = phi i64 [ %.pre103, %968 ], [ %960, %953 ]
+  %975 = phi ptr [ %.pre93, %968 ], [ %957, %953 ]
   %976 = trunc i64 %964 to i32
   %977 = load i32, ptr %423, align 8
   %978 = add i32 %977, %976
   %979 = trunc i32 %978 to i16
   %980 = tail call i16 @llvm.bswap.i16(i16 %979)
-  %981 = getelementptr i8, ptr %975, i64 %.pre-phi103
+  %981 = getelementptr i8, ptr %975, i64 %.pre-phi104
   %982 = getelementptr inbounds nuw i8, ptr %981, i64 2
   store i16 %980, ptr %982, align 2
   %983 = load ptr, ptr %954, align 8
@@ -1856,20 +1859,20 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %997, ptr align 1 %1006, i64 %1008, i1 false)
   %1009 = load i16, ptr %994, align 2
   store i16 %1009, ptr %1001, align 4
-  %.pre91 = load ptr, ptr %992, align 8
-  %.pre104 = zext i16 %1009 to i64
+  %.pre92 = load ptr, ptr %992, align 8
+  %.pre105 = zext i16 %1009 to i64
   br label %1010
 
 1010:                                             ; preds = %1004, %989
-  %.pre-phi105 = phi i64 [ %.pre104, %1004 ], [ %996, %989 ]
-  %1011 = phi ptr [ %.pre91, %1004 ], [ %993, %989 ]
+  %.pre-phi106 = phi i64 [ %.pre105, %1004 ], [ %996, %989 ]
+  %1011 = phi ptr [ %.pre92, %1004 ], [ %993, %989 ]
   %1012 = trunc i64 %1000 to i32
   %1013 = load i32, ptr %423, align 8
   %1014 = add i32 %1013, %1012
   %1015 = trunc i32 %1014 to i16
   %1016 = add i16 %1015, -40
   %1017 = tail call i16 @llvm.bswap.i16(i16 %1016)
-  %1018 = getelementptr i8, ptr %1011, i64 %.pre-phi105
+  %1018 = getelementptr i8, ptr %1011, i64 %.pre-phi106
   %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 4
   store i16 %1017, ptr %1019, align 4
   %1020 = load ptr, ptr %990, align 8
@@ -1885,26 +1888,26 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   tail call void asm sideeffect "865: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 865b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 865) #10, !srcloc !27
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 437, i32 2307, i64 12) #10, !srcloc !28
   tail call void asm sideeffect "866: nop\0A\09.pushsection .discard.instr_end\0A\09.long 866b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 866) #10, !srcloc !29
-  br label %.critedge49
+  br label %.critedge50
 
 1027:                                             ; preds = %422
   tail call void asm sideeffect "867: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 867b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 867) #10, !srcloc !30
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 440, i32 2307, i64 12) #10, !srcloc !31
   tail call void asm sideeffect "868: nop\0A\09.pushsection .discard.instr_end\0A\09.long 868b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 868) #10, !srcloc !32
-  br label %.critedge49
+  br label %.critedge50
 
 1028:                                             ; preds = %1010, %974, %942, %938, %825, %821, %664, %558
   %1029 = getelementptr inbounds nuw i8, ptr %398, i64 712
   %1030 = load i8, ptr %1029, align 2
   %1031 = and i8 %1030, 1
   %1032 = icmp eq i8 %1031, 0
-  br i1 %1032, label %1033, label %xfrm_parse_spi.exit51
+  br i1 %1032, label %1033, label %xfrm_parse_spi.exit52
 
 1033:                                             ; preds = %1028
   %1034 = getelementptr inbounds nuw i8, ptr %398, i64 226
   %1035 = load i16, ptr %1034, align 2
   %1036 = zext i16 %1035 to i32
-  switch i8 %434, label %xfrm_parse_spi.exit51 [
+  switch i8 %434, label %xfrm_parse_spi.exit52 [
     i8 51, label %1062
     i8 50, label %1037
     i8 108, label %1038
@@ -1923,13 +1926,13 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
 
 1044:                                             ; preds = %1038
   %1045 = icmp ult i32 %1039, 4
-  br i1 %1045, label %.critedge49, label %1046, !prof !5
+  br i1 %1045, label %.critedge50, label %1046, !prof !5
 
 1046:                                             ; preds = %1044
   %1047 = sub nuw nsw i32 4, %1042
   %1048 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %1047) #10
   %1049 = icmp eq ptr %1048, null
-  br i1 %1049, label %.critedge49, label %1050
+  br i1 %1049, label %.critedge50, label %1050
 
 1050:                                             ; preds = %1046, %1038
   %1051 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1943,7 +1946,7 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %1059 = tail call i16 @llvm.bswap.i16(i16 %1058)
   %1060 = zext i16 %1059 to i32
   %1061 = tail call i32 @llvm.bswap.i32(i32 %1060)
-  br label %xfrm_parse_spi.exit51.thread76
+  br label %xfrm_parse_spi.exit52.thread77
 
 1062:                                             ; preds = %1037, %1033
   %1063 = phi i64 [ 0, %1037 ], [ 4, %1033 ]
@@ -1958,13 +1961,13 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
 
 1071:                                             ; preds = %1062
   %1072 = icmp ult i32 %1066, %1065
-  br i1 %1072, label %.critedge49, label %1073, !prof !5
+  br i1 %1072, label %.critedge50, label %1073, !prof !5
 
 1073:                                             ; preds = %1071
   %1074 = sub nsw i32 %1065, %1069
   %1075 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %1074) #10
   %1076 = icmp eq ptr %1075, null
-  br i1 %1076, label %.critedge49, label %1077
+  br i1 %1076, label %.critedge50, label %1077
 
 1077:                                             ; preds = %1073, %1062
   %1078 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1977,15 +1980,15 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %1085 = load i32, ptr %1084, align 4
   %1086 = getelementptr i8, ptr %1083, i64 %1064
   %1087 = load i32, ptr %1086, align 4
-  br label %xfrm_parse_spi.exit51.thread76
+  br label %xfrm_parse_spi.exit52.thread77
 
-xfrm_parse_spi.exit51.thread76:                   ; preds = %1077, %1050
+xfrm_parse_spi.exit52.thread77:                   ; preds = %1077, %1050
   %.9.ph = phi i32 [ %1061, %1050 ], [ %1085, %1077 ]
   %.6.ph = phi i32 [ 0, %1050 ], [ %1087, %1077 ]
   %1088 = getelementptr inbounds nuw i8, ptr %398, i64 80
   br label %257
 
-xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
+xfrm_parse_spi.exit52:                            ; preds = %1033, %1028
   %1089 = phi i32 [ %400, %1028 ], [ %1036, %1033 ]
   %1090 = getelementptr inbounds nuw i8, ptr %398, i64 696
   %1091 = load ptr, ptr %1090, align 8
@@ -1995,13 +1998,13 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
   %1095 = icmp ugt i8 %1094, 10
   br i1 %1095, label %1096, label %1097, !prof !5
 
-1096:                                             ; preds = %xfrm_parse_spi.exit51
+1096:                                             ; preds = %xfrm_parse_spi.exit52
   tail call void asm sideeffect "855: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 855b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 855) #10, !srcloc !36
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 92, i32 2307, i64 12) #10, !srcloc !37
   tail call void asm sideeffect "856: nop\0A\09.pushsection .discard.instr_end\0A\09.long 856b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 856) #10, !srcloc !38
-  br label %.critedge49
+  br label %.critedge50
 
-1097:                                             ; preds = %xfrm_parse_spi.exit51
+1097:                                             ; preds = %xfrm_parse_spi.exit52
   %1098 = icmp eq i8 %1093, 4
   %1099 = icmp eq i8 %1093, 41
   %1100 = or i1 %1098, %1099
@@ -2009,14 +2012,15 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
   %1101 = zext i1 %1100 to i64
   %1102 = and i32 %1089, 15
   %1103 = zext nneg i32 %1102 to i64
-  %1104 = getelementptr [2 x [11 x ptr]], ptr @xfrm_input_afinfo, i64 0, i64 %1101, i64 %1103
+  %.split = getelementptr [2 x [11 x ptr]], ptr @xfrm_input_afinfo, i64 0, i64 %1101
+  %1104 = getelementptr [11 x ptr], ptr %.split, i64 0, i64 %1103
   %1105 = load volatile ptr, ptr %1104, align 8
   %1106 = icmp eq ptr %1105, null
   br i1 %1106, label %1107, label %1108, !prof !5
 
 1107:                                             ; preds = %1097
   tail call void @__rcu_read_unlock() #10
-  br label %.critedge49
+  br label %.critedge50
 
 1108:                                             ; preds = %1097
   %1109 = getelementptr inbounds nuw i8, ptr %1105, i64 8
@@ -2024,7 +2028,7 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
   %1111 = tail call i32 %1110(ptr noundef %0, i8 noundef zeroext %1093, i32 noundef 0) #10
   tail call void @__rcu_read_unlock() #10
   %1112 = icmp eq i32 %1111, 0
-  br i1 %1112, label %1113, label %.critedge49
+  br i1 %1112, label %1113, label %.critedge50
 
 1113:                                             ; preds = %1108
   %1114 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2032,7 +2036,7 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
   %1116 = and i64 %1115, -8
   %1117 = inttoptr i64 %1116 to ptr
   %1118 = icmp eq i64 %1116, 0
-  br i1 %1118, label %.thread82, label %1119
+  br i1 %1118, label %.thread83, label %1119
 
 1119:                                             ; preds = %1113
   %1120 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %1117, i32 -1, ptr nonnull elementtype(i32) %1117) #10, !srcloc !39
@@ -2041,26 +2045,26 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
 
 1122:                                             ; preds = %1119
   %1123 = icmp sgt i32 %1120, 0
-  br i1 %1123, label %.thread82, label %1124, !prof !11
+  br i1 %1123, label %.thread83, label %1124, !prof !11
 
 1124:                                             ; preds = %1122
   tail call void @refcount_warn_saturate(ptr noundef nonnull %1117, i32 noundef 3) #10
-  br label %.thread82
+  br label %.thread83
 
 1125:                                             ; preds = %1119
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !40
   tail call void @nf_conntrack_destroy(ptr noundef nonnull %1117) #10
-  br label %.thread82
+  br label %.thread83
 
-.thread82:                                        ; preds = %1122, %1124, %1125, %1113
+.thread83:                                        ; preds = %1122, %1124, %1125, %1113
   store i64 0, ptr %1114, align 8
   br i1 %1032, label %1158, label %1126
 
-1126:                                             ; preds = %.thread82
+1126:                                             ; preds = %.thread83
   %1127 = load i8, ptr %11, align 1
   %1128 = and i8 %1127, 1
   %1129 = icmp eq i8 %1128, 0
-  br i1 %1129, label %.thread83, label %1130
+  br i1 %1129, label %.thread84, label %1130
 
 1130:                                             ; preds = %1126
   %1131 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -2071,21 +2075,21 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
   %1136 = shl nuw nsw i64 %1135, 3
   %1137 = getelementptr i8, ptr %1132, i64 %1136
   %1138 = icmp eq ptr %1137, null
-  br i1 %1138, label %.thread83, label %1139
+  br i1 %1138, label %.thread84, label %1139
 
 1139:                                             ; preds = %1130
   %1140 = getelementptr inbounds nuw i8, ptr %1137, i64 4
   store i32 0, ptr %1140, align 4
-  br label %.thread83
+  br label %.thread84
 
-.thread83:                                        ; preds = %1126, %1139, %1130
+.thread84:                                        ; preds = %1126, %1139, %1130
   %1141 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1142 = load i64, ptr %1141, align 8
   %1143 = and i64 %1142, -2
   %1144 = icmp eq i64 %1143, 0
   br i1 %1144, label %1156, label %1145
 
-1145:                                             ; preds = %.thread83
+1145:                                             ; preds = %.thread84
   %1146 = inttoptr i64 %1143 to ptr
   %1147 = getelementptr inbounds nuw i8, ptr %1146, i64 56
   %1148 = load i16, ptr %1147, align 8
@@ -2107,11 +2111,11 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
   store i64 0, ptr %1141, align 8
   br label %1156
 
-1156:                                             ; preds = %1155, %1145, %.thread83
+1156:                                             ; preds = %1155, %1145, %.thread84
   %1157 = tail call i32 @gro_cells_receive(ptr noundef nonnull @gro_cells, ptr noundef %0) #10
   br label %1256
 
-1158:                                             ; preds = %.thread82
+1158:                                             ; preds = %.thread83
   %1159 = tail call fastcc ptr @xfrm_offload(ptr noundef %0)
   %1160 = icmp eq ptr %1159, null
   br i1 %1160, label %1166, label %1161
@@ -2151,7 +2155,7 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
   %1183 = load i8, ptr %11, align 1
   %1184 = and i8 %1183, 1
   %1185 = icmp eq i8 %1184, 0
-  br i1 %1185, label %.thread84, label %1186
+  br i1 %1185, label %.thread85, label %1186
 
 1186:                                             ; preds = %1182
   %1187 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -2162,27 +2166,27 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
   %1192 = shl nuw nsw i64 %1191, 3
   %1193 = getelementptr i8, ptr %1188, i64 %1192
   %1194 = icmp eq ptr %1193, null
-  br i1 %1194, label %.thread84, label %1195
+  br i1 %1194, label %.thread85, label %1195
 
 1195:                                             ; preds = %1186
   %1196 = getelementptr inbounds nuw i8, ptr %1193, i64 4
   store i32 0, ptr %1196, align 4
-  br label %.thread84
+  br label %.thread85
 
-.thread84:                                        ; preds = %1182, %1195, %1186
+.thread85:                                        ; preds = %1182, %1195, %1186
   %1197 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1198 = load i64, ptr %1197, align 8
   %1199 = and i64 %1198, -2
   %1200 = icmp eq i64 %1199, 0
   br i1 %1200, label %1212, label %1201
 
-1201:                                             ; preds = %.thread84
+1201:                                             ; preds = %.thread85
   %1202 = inttoptr i64 %1199 to ptr
   %1203 = getelementptr inbounds nuw i8, ptr %1202, i64 56
   %1204 = load i16, ptr %1203, align 8
   %1205 = and i16 %1204, 128
-  %.not89 = icmp eq i16 %1205, 0
-  br i1 %.not89, label %1206, label %1212
+  %.not90 = icmp eq i16 %1205, 0
+  br i1 %.not90, label %1206, label %1212
 
 1206:                                             ; preds = %1201
   %1207 = and i64 %1198, 1
@@ -2198,7 +2202,7 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
   store i64 0, ptr %1197, align 8
   br label %1212
 
-1212:                                             ; preds = %1211, %1201, %.thread84
+1212:                                             ; preds = %1211, %1201, %.thread85
   %1213 = tail call i32 @gro_cells_receive(ptr noundef nonnull @gro_cells, ptr noundef %0) #10
   br label %1256
 
@@ -2208,38 +2212,38 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
   %1217 = phi i32 [ %343, %xfrm_parse_spi.exit ], [ %343, %357 ], [ %343, %360 ], [ %343, %363 ], [ %400, %411 ], [ %400, %409 ], [ %400, %419 ]
   %1218 = getelementptr inbounds nuw i8, ptr %1216, i64 76
   tail call void @_raw_spin_unlock(ptr noundef nonnull %1218) #10
-  br label %.critedge49
+  br label %.critedge50
 
-.critedge49:                                      ; preds = %1107, %1096, %1071, %1044, %1073, %1046, %518, %500, %513, %498, %132, %117, %134, %107, %119, %268, %1214, %1108, %1027, %1026, %950, %949, %861, %841, %839, %730, %710, %708, %700, %639, %488, %371, %280, %99, %96, %69, %65
+.critedge50:                                      ; preds = %1107, %1096, %1071, %1044, %1073, %1046, %518, %500, %513, %498, %132, %117, %134, %107, %119, %268, %1214, %1108, %1027, %1026, %950, %949, %861, %841, %839, %730, %710, %708, %700, %639, %488, %371, %280, %99, %96, %69, %65
   %1219 = phi i32 [ %1, %65 ], [ %1215, %1214 ], [ %397, %1108 ], [ %1, %99 ], [ %1, %96 ], [ %1, %69 ], [ %258, %280 ], [ %339, %371 ], [ %397, %488 ], [ %397, %639 ], [ %397, %700 ], [ %397, %708 ], [ %397, %710 ], [ %397, %730 ], [ %397, %839 ], [ %397, %841 ], [ %397, %861 ], [ %397, %949 ], [ %397, %950 ], [ %397, %1026 ], [ %397, %1027 ], [ %258, %268 ], [ %1, %119 ], [ %1, %107 ], [ %1, %134 ], [ %1, %117 ], [ %1, %132 ], [ %397, %498 ], [ %397, %513 ], [ %397, %500 ], [ %397, %518 ], [ %397, %1046 ], [ %397, %1073 ], [ %397, %1044 ], [ %397, %1071 ], [ %397, %1096 ], [ %397, %1107 ]
   %1220 = phi ptr [ %61, %65 ], [ %1216, %1214 ], [ %398, %1108 ], [ %61, %99 ], [ %61, %96 ], [ %61, %69 ], [ %260, %280 ], [ %341, %371 ], [ %398, %488 ], [ %398, %639 ], [ %398, %700 ], [ %398, %708 ], [ %398, %710 ], [ %398, %730 ], [ %398, %839 ], [ %398, %841 ], [ %398, %861 ], [ %398, %949 ], [ %398, %950 ], [ %398, %1026 ], [ %398, %1027 ], [ %260, %268 ], [ %61, %119 ], [ %61, %107 ], [ %61, %134 ], [ %61, %117 ], [ %61, %132 ], [ %398, %498 ], [ %398, %513 ], [ %398, %500 ], [ %398, %518 ], [ %398, %1046 ], [ %398, %1073 ], [ %398, %1044 ], [ %398, %1071 ], [ %398, %1096 ], [ %398, %1107 ]
   %1221 = phi i32 [ 0, %65 ], [ %1217, %1214 ], [ %1089, %1108 ], [ %91, %99 ], [ %91, %96 ], [ 0, %69 ], [ %263, %280 ], [ %343, %371 ], [ %400, %488 ], [ %400, %639 ], [ %400, %700 ], [ %400, %708 ], [ %400, %710 ], [ %400, %730 ], [ %400, %839 ], [ %400, %841 ], [ %400, %861 ], [ %400, %949 ], [ %400, %950 ], [ %400, %1026 ], [ %400, %1027 ], [ %263, %268 ], [ %91, %119 ], [ %91, %107 ], [ %91, %134 ], [ %91, %117 ], [ %91, %132 ], [ %400, %498 ], [ %400, %513 ], [ %400, %500 ], [ %400, %518 ], [ %1036, %1046 ], [ %1036, %1073 ], [ %1036, %1044 ], [ %1036, %1071 ], [ %1089, %1096 ], [ %1089, %1107 ]
   %1222 = icmp eq ptr %1220, null
-  br i1 %1222, label %.critedge49.thread, label %.critedge49.thread86
+  br i1 %1222, label %.critedge50.thread, label %.critedge50.thread87
 
-.critedge49.thread86:                             ; preds = %336, %.critedge49
-  %1223 = phi i32 [ %1221, %.critedge49 ], [ %263, %336 ]
-  %1224 = phi ptr [ %1220, %.critedge49 ], [ %285, %336 ]
-  %1225 = phi i32 [ %1219, %.critedge49 ], [ %258, %336 ]
+.critedge50.thread87:                             ; preds = %336, %.critedge50
+  %1223 = phi i32 [ %1221, %.critedge50 ], [ %263, %336 ]
+  %1224 = phi ptr [ %1220, %.critedge50 ], [ %285, %336 ]
+  %1225 = phi i32 [ %1219, %.critedge50 ], [ %258, %336 ]
   %1226 = getelementptr inbounds nuw i8, ptr %1224, i64 696
   %1227 = load ptr, ptr %1226, align 8
   %1228 = icmp eq ptr %1227, null
-  br i1 %1228, label %.critedge49.thread, label %1229
+  br i1 %1228, label %.critedge50.thread, label %1229
 
-1229:                                             ; preds = %.critedge49.thread86
+1229:                                             ; preds = %.critedge50.thread87
   %1230 = getelementptr inbounds nuw i8, ptr %1227, i64 8
   %1231 = load i8, ptr %1230, align 8
   br label %1235
 
-.critedge49.thread:                               ; preds = %247, %243, %185, %292, %.critedge49.thread86, %.critedge49
-  %1232 = phi i32 [ %1223, %.critedge49.thread86 ], [ %1221, %.critedge49 ], [ %149, %247 ], [ %149, %243 ], [ %149, %185 ], [ %263, %292 ]
-  %1233 = phi i32 [ %1225, %.critedge49.thread86 ], [ %1219, %.critedge49 ], [ %1, %247 ], [ %1, %243 ], [ %1, %185 ], [ %258, %292 ]
+.critedge50.thread:                               ; preds = %247, %243, %185, %292, %.critedge50.thread87, %.critedge50
+  %1232 = phi i32 [ %1223, %.critedge50.thread87 ], [ %1221, %.critedge50 ], [ %149, %247 ], [ %149, %243 ], [ %149, %185 ], [ %263, %292 ]
+  %1233 = phi i32 [ %1225, %.critedge50.thread87 ], [ %1219, %.critedge50 ], [ %1, %247 ], [ %1, %243 ], [ %1, %185 ], [ %258, %292 ]
   %1234 = trunc i32 %1233 to i8
   br label %1235
 
-1235:                                             ; preds = %.critedge49.thread, %1229
-  %1236 = phi i32 [ %1223, %1229 ], [ %1232, %.critedge49.thread ]
-  %1237 = phi i8 [ %1231, %1229 ], [ %1234, %.critedge49.thread ]
+1235:                                             ; preds = %.critedge50.thread, %1229
+  %1236 = phi i32 [ %1223, %1229 ], [ %1232, %.critedge50.thread ]
+  %1237 = phi i8 [ %1231, %1229 ], [ %1234, %.critedge50.thread ]
   %1238 = trunc i32 %1236 to i8
   %1239 = icmp ugt i8 %1238, 10
   br i1 %1239, label %1240, label %1241, !prof !5
@@ -2248,7 +2252,7 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
   tail call void asm sideeffect "855: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 855b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 855) #10, !srcloc !36
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 92, i32 2307, i64 12) #10, !srcloc !37
   tail call void asm sideeffect "856: nop\0A\09.pushsection .discard.instr_end\0A\09.long 856b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 856) #10, !srcloc !38
-  br label %.thread88
+  br label %.thread89
 
 1241:                                             ; preds = %1235
   %1242 = icmp eq i8 %1237, 4
@@ -2258,28 +2262,29 @@ xfrm_parse_spi.exit51:                            ; preds = %1033, %1028
   %1245 = zext i1 %1244 to i64
   %1246 = and i32 %1236, 15
   %1247 = zext nneg i32 %1246 to i64
-  %1248 = getelementptr [2 x [11 x ptr]], ptr @xfrm_input_afinfo, i64 0, i64 %1245, i64 %1247
+  %.split44 = getelementptr [2 x [11 x ptr]], ptr @xfrm_input_afinfo, i64 0, i64 %1245
+  %1248 = getelementptr [11 x ptr], ptr %.split44, i64 0, i64 %1247
   %1249 = load volatile ptr, ptr %1248, align 8
   %1250 = icmp eq ptr %1249, null
   br i1 %1250, label %1251, label %1252, !prof !5
 
 1251:                                             ; preds = %1241
   tail call void @__rcu_read_unlock() #10
-  br label %.thread88
+  br label %.thread89
 
 1252:                                             ; preds = %1241
   %1253 = getelementptr inbounds nuw i8, ptr %1249, i64 8
   %1254 = load ptr, ptr %1253, align 8
   %1255 = tail call i32 %1254(ptr noundef %0, i8 noundef zeroext %1237, i32 noundef -1) #10
   tail call void @__rcu_read_unlock() #10
-  br label %.thread88
+  br label %.thread89
 
-.thread88:                                        ; preds = %1251, %1240, %1252
+.thread89:                                        ; preds = %1251, %1240, %1252
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #10
   br label %1256
 
-1256:                                             ; preds = %.thread88, %1212, %1180, %1156, %386
-  %1257 = phi i32 [ 0, %.thread88 ], [ 0, %1156 ], [ %1181, %1212 ], [ 0, %386 ], [ %1181, %1180 ]
+1256:                                             ; preds = %.thread89, %1212, %1180, %1156, %386
+  %1257 = phi i32 [ 0, %.thread89 ], [ 0, %1156 ], [ %1181, %1212 ], [ 0, %386 ], [ %1181, %1180 ]
   ret i32 %1257
 }
 

@@ -287,88 +287,88 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
   store ptr @ec_mul2, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @ec_pow2, ptr %93, align 8
-  br label %97
+  br label %94
 
-94:                                               ; preds = %102
-  tail call void @mpi_free(ptr noundef nonnull %100) #9
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %95 = getelementptr [3 x %struct.field_table], ptr @field_table, i64 0, i64 %indvars.iv.next
-  %96 = load ptr, ptr %95, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond, label %.thread, label %97, !llvm.loop !10
+94:                                               ; preds = %145, %.loopexit7
+  %indvars.iv = phi i64 [ %indvars.iv.next, %145 ], [ 0, %.loopexit7 ]
+  %95 = phi ptr [ %147, %145 ], [ @.str.16, %.loopexit7 ]
+  %96 = phi ptr [ %146, %145 ], [ @field_table, %.loopexit7 ]
+  %97 = tail call ptr @mpi_scanval(ptr noundef nonnull %95) #9
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %.critedge, label %99
 
-97:                                               ; preds = %94, %.loopexit7
-  %indvars.iv = phi i64 [ %indvars.iv.next, %94 ], [ 0, %.loopexit7 ]
-  %98 = phi ptr [ %96, %94 ], [ @.str.16, %.loopexit7 ]
-  %99 = phi ptr [ %95, %94 ], [ @field_table, %.loopexit7 ]
-  %100 = tail call ptr @mpi_scanval(ptr noundef nonnull %98) #9
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %.thread, label %102
+99:                                               ; preds = %94
+  %100 = tail call i32 @mpi_cmp(ptr noundef %4, ptr noundef nonnull %97) #9
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %145
 
-102:                                              ; preds = %97
-  %103 = tail call i32 @mpi_cmp(ptr noundef %4, ptr noundef nonnull %100) #9
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %94
-
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %107 = load ptr, ptr %106, align 8
-  store ptr %107, ptr %89, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %109 = load ptr, ptr %108, align 16
-  store ptr %109, ptr %90, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %111 = load ptr, ptr %110, align 8
-  store ptr %111, ptr %91, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %113 = load ptr, ptr %112, align 16
-  store ptr %113, ptr %92, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  %115 = load ptr, ptr %114, align 8
-  store ptr %115, ptr %93, align 8
-  tail call void @mpi_free(ptr noundef nonnull %100) #9
-  %116 = load ptr, ptr %51, align 8
-  %117 = load ptr, ptr %49, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  %119 = load i32, ptr %118, align 4
-  %120 = tail call i32 @mpi_resize(ptr noundef %116, i32 noundef %119) #9
-  %121 = load ptr, ptr %49, align 8
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %104 = load ptr, ptr %103, align 8
+  store ptr %104, ptr %89, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  %106 = load ptr, ptr %105, align 16
+  store ptr %106, ptr %90, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %108 = load ptr, ptr %107, align 8
+  store ptr %108, ptr %91, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %96, i64 32
+  %110 = load ptr, ptr %109, align 16
+  store ptr %110, ptr %92, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %96, i64 40
+  %112 = load ptr, ptr %111, align 8
+  store ptr %112, ptr %93, align 8
+  tail call void @mpi_free(ptr noundef nonnull %97) #9
+  %113 = load ptr, ptr %51, align 8
+  %114 = load ptr, ptr %49, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
+  %116 = load i32, ptr %115, align 4
+  %117 = tail call i32 @mpi_resize(ptr noundef %113, i32 noundef %116) #9
+  %118 = load ptr, ptr %49, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
+  %120 = load i32, ptr %119, align 4
+  %121 = load ptr, ptr %51, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  %123 = load i32, ptr %122, align 4
-  %124 = load ptr, ptr %51, align 8
+  store i32 %120, ptr %122, align 4
+  %123 = load ptr, ptr %53, align 8
+  %124 = load ptr, ptr %49, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  store i32 %123, ptr %125, align 4
-  %126 = load ptr, ptr %53, align 8
-  %127 = load ptr, ptr %49, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
-  %129 = load i32, ptr %128, align 4
-  %130 = tail call i32 @mpi_resize(ptr noundef %126, i32 noundef %129) #9
-  %131 = load ptr, ptr %49, align 8
+  %126 = load i32, ptr %125, align 4
+  %127 = tail call i32 @mpi_resize(ptr noundef %123, i32 noundef %126) #9
+  %128 = load ptr, ptr %49, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
+  %130 = load i32, ptr %129, align 4
+  %131 = load ptr, ptr %53, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
-  %133 = load i32, ptr %132, align 4
-  %134 = load ptr, ptr %53, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
-  store i32 %133, ptr %135, align 4
-  br label %136
+  store i32 %130, ptr %132, align 4
+  br label %133
 
-136:                                              ; preds = %141, %105
-  %137 = phi i64 [ 0, %105 ], [ %146, %141 ]
-  %138 = getelementptr [11 x ptr], ptr %60, i64 0, i64 %137
-  %139 = load ptr, ptr %138, align 8
-  %140 = icmp eq ptr %139, null
-  br i1 %140, label %.thread, label %141
+133:                                              ; preds = %138, %102
+  %134 = phi i64 [ 0, %102 ], [ %143, %138 ]
+  %135 = getelementptr [11 x ptr], ptr %60, i64 0, i64 %134
+  %136 = load ptr, ptr %135, align 8
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %.critedge, label %138
 
-141:                                              ; preds = %136
-  %142 = load ptr, ptr %49, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  %144 = load i32, ptr %143, align 4
-  %145 = getelementptr inbounds nuw i8, ptr %139, i64 4
-  store i32 %144, ptr %145, align 4
-  %146 = add nuw nsw i64 %137, 1
-  %147 = icmp eq i64 %146, 11
-  br i1 %147, label %.thread, label %136, !llvm.loop !11
+138:                                              ; preds = %133
+  %139 = load ptr, ptr %49, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
+  %141 = load i32, ptr %140, align 4
+  %142 = getelementptr inbounds nuw i8, ptr %136, i64 4
+  store i32 %141, ptr %142, align 4
+  %143 = add nuw nsw i64 %134, 1
+  %144 = icmp eq i64 %143, 11
+  br i1 %144, label %.critedge, label %133, !llvm.loop !10
 
-.thread:                                          ; preds = %97, %94, %136, %141
+145:                                              ; preds = %99
+  tail call void @mpi_free(ptr noundef nonnull %97) #9
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %146 = getelementptr [3 x %struct.field_table], ptr @field_table, i64 0, i64 %indvars.iv.next
+  %147 = load ptr, ptr %146, align 16
+  %exitcond = icmp eq i64 %indvars.iv.next, 2
+  br i1 %exitcond, label %.critedge, label %94, !llvm.loop !11
+
+.critedge:                                        ; preds = %94, %145, %133, %138
   ret void
 }
 
@@ -3643,52 +3643,52 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
   %96 = load i64, ptr %62, align 8
   %97 = or i64 %96, %95
   store i64 %97, ptr %62, align 8
-  %invariant.gep = getelementptr i8, ptr %29, i64 32
   br label %98
 
 98:                                               ; preds = %98, %94
-  %99 = phi i64 [ 0, %94 ], [ %102, %98 ]
+  %99 = phi i64 [ 0, %94 ], [ %104, %98 ]
   %100 = getelementptr [4 x i64], ptr %9, i64 0, i64 %99
   %101 = load i64, ptr %100, align 8
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %99
-  store i64 %101, ptr %gep, align 8
-  %102 = add nuw nsw i64 %99, 1
-  %103 = icmp eq i64 %102, 3
-  br i1 %103, label %104, label %98, !llvm.loop !25
+  %102 = getelementptr i64, ptr %29, i64 %99
+  %103 = getelementptr i8, ptr %102, i64 32
+  store i64 %101, ptr %103, align 8
+  %104 = add nuw nsw i64 %99, 1
+  %105 = icmp eq i64 %104, 3
+  br i1 %105, label %106, label %98, !llvm.loop !25
 
-104:                                              ; preds = %98
-  %105 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %106 = load i64, ptr %105, align 8
+106:                                              ; preds = %98
+  %107 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %108 = load i64, ptr %107, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %107 = shl i64 %106, 32
-  store i64 %107, ptr %30, align 8
-  store i64 %106, ptr %5, align 16
-  %108 = call i64 @mpihelp_add_n(ptr noundef %29, ptr noundef %29, ptr noundef nonnull %5, i32 noundef 7) #9
+  %109 = shl i64 %108, 32
+  store i64 %109, ptr %30, align 8
+  store i64 %108, ptr %5, align 16
+  %110 = call i64 @mpihelp_add_n(ptr noundef %29, ptr noundef %29, ptr noundef nonnull %5, i32 noundef 7) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %109 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = call i64 @mpihelp_sub_n(ptr noundef %29, ptr noundef %29, ptr noundef %112, i32 noundef 7) #9
-  %114 = load ptr, ptr %109, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  %116 = load ptr, ptr %115, align 8
-  %.fr3 = freeze i64 %113
-  %117 = icmp eq i64 %.fr3, 0
-  br i1 %117, label %.split2.us, label %.split
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %114 = load ptr, ptr %113, align 8
+  %115 = call i64 @mpihelp_sub_n(ptr noundef %29, ptr noundef %29, ptr noundef %114, i32 noundef 7) #9
+  %116 = load ptr, ptr %111, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %118 = load ptr, ptr %117, align 8
+  %.fr3 = freeze i64 %115
+  %119 = icmp eq i64 %.fr3, 0
+  br i1 %119, label %.split2.us, label %.split
 
-.split:                                           ; preds = %104, %.split
-  %118 = phi i64 [ %122, %.split ], [ 0, %104 ]
-  %119 = getelementptr i64, ptr %5, i64 %118
-  %120 = getelementptr i64, ptr %116, i64 %118
-  %121 = load i64, ptr %120, align 8
-  store i64 %121, ptr %119, align 8
-  %122 = add nuw nsw i64 %118, 1
-  %123 = icmp eq i64 %122, 7
-  br i1 %123, label %.split2.us, label %.split, !llvm.loop !20
+.split:                                           ; preds = %106, %.split
+  %120 = phi i64 [ %124, %.split ], [ 0, %106 ]
+  %121 = getelementptr i64, ptr %5, i64 %120
+  %122 = getelementptr i64, ptr %118, i64 %120
+  %123 = load i64, ptr %122, align 8
+  store i64 %123, ptr %121, align 8
+  %124 = add nuw nsw i64 %120, 1
+  %125 = icmp eq i64 %124, 7
+  br i1 %125, label %.split2.us, label %.split, !llvm.loop !20
 
-.split2.us:                                       ; preds = %.split, %104
-  %124 = call i64 @mpihelp_add_n(ptr noundef %29, ptr noundef %29, ptr noundef nonnull %5, i32 noundef 7) #9
+.split2.us:                                       ; preds = %.split, %106
+  %126 = call i64 @mpihelp_add_n(ptr noundef %29, ptr noundef %29, ptr noundef nonnull %5, i32 noundef 7) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #9

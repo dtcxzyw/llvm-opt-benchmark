@@ -4439,7 +4439,7 @@ define internal fastcc noundef double @_ZN6icu_77L19parseDateTimeStringERKNS_13U
   %14 = select i1 %9, i32 %13, i32 %11
   %15 = add i32 %14, -17
   %or.cond = icmp ult i32 %15, -2
-  br i1 %or.cond, label %.thread, label %_ZNK6icu_7713UnicodeString6charAtEi.exit
+  br i1 %or.cond, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %6
   %16 = and i16 %8, 2
@@ -4451,7 +4451,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i16, ptr %21, align 2, !tbaa !10
   %.not78 = icmp eq i16 %22, 84
-  br i1 %.not78, label %23, label %.thread
+  br i1 %.not78, label %23, label %.critedge
 
 23:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
   %.not = icmp eq i32 %14, 16
@@ -4461,7 +4461,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit85:       ; preds = %23
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 30
   %25 = load i16, ptr %24, align 2, !tbaa !10
   %.not79 = icmp eq i16 %25, 90
-  br i1 %.not79, label %26, label %.thread
+  br i1 %.not79, label %26, label %.critedge
 
 26:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit85, %23
   %27 = load i16, ptr %20, align 2, !tbaa !10
@@ -4490,14 +4490,14 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i: ; preds = %26
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
   %.03669.i = phi i32 [ 0, %.lr.ph.i ], [ %38, %34 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i
+  br i1 %exitcond.not.i, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit51.i:     ; preds = %31
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
   %32 = load i16, ptr %gep.i, align 2, !tbaa !10
   %33 = add i16 %32, -48
   %or.cond.i = icmp ult i16 %33, 10
-  br i1 %or.cond.i, label %34, label %.thread
+  br i1 %or.cond.i, label %34, label %.critedge
 
 34:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i
   %35 = zext nneg i16 %32 to i32
@@ -4511,7 +4511,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit51.i:     ; preds = %31
 39:                                               ; preds = %34
   %40 = mul nsw i32 %38, %.03984.i
   %41 = icmp slt i32 %14, 6
-  br i1 %41, label %.thread, label %42
+  br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -4541,14 +4541,14 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i106: ; preds = %42
   %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.i88 ], [ %indvars.iv.next.i102, %51 ]
   %.03669.i97 = phi i32 [ 0, %.lr.ph.i88 ], [ %55, %51 ]
   %exitcond.not.i98 = icmp eq i64 %indvars.iv.i96, %wide.trip.count.i93
-  br i1 %exitcond.not.i98, label %.thread, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i99
+  br i1 %exitcond.not.i98, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i99
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit51.i99:   ; preds = %48
   %gep.i100 = getelementptr i16, ptr %invariant.gep.i95, i64 %indvars.iv.i96
   %49 = load i16, ptr %gep.i100, align 2, !tbaa !10
   %50 = add i16 %49, -48
   %or.cond.i101 = icmp ult i16 %50, 10
-  br i1 %or.cond.i101, label %51, label %.thread
+  br i1 %or.cond.i101, label %51, label %.critedge
 
 51:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i99
   %52 = zext nneg i16 %49 to i32
@@ -4563,7 +4563,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit51.i99:   ; preds = %48
   %57 = mul nsw i32 %55, %.03984.i89
   %58 = add nsw i32 %57, -1
   %59 = icmp slt i32 %14, 8
-  br i1 %59, label %.thread, label %60
+  br i1 %59, label %.critedge, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %20, i64 12
@@ -4593,14 +4593,14 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i129: ; preds = %60
   %indvars.iv.i119 = phi i64 [ 0, %.lr.ph.i111 ], [ %indvars.iv.next.i125, %69 ]
   %.03669.i120 = phi i32 [ 0, %.lr.ph.i111 ], [ %73, %69 ]
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.i119, %wide.trip.count.i116
-  br i1 %exitcond.not.i121, label %.thread, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i122
+  br i1 %exitcond.not.i121, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i122
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit51.i122:  ; preds = %66
   %gep.i123 = getelementptr i16, ptr %invariant.gep.i118, i64 %indvars.iv.i119
   %67 = load i16, ptr %gep.i123, align 2, !tbaa !10
   %68 = add i16 %67, -48
   %or.cond.i124 = icmp ult i16 %68, 10
-  br i1 %or.cond.i124, label %69, label %.thread
+  br i1 %or.cond.i124, label %69, label %.critedge
 
 69:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i122
   %70 = zext nneg i16 %67 to i32
@@ -4614,7 +4614,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit51.i122:  ; preds = %66
 74:                                               ; preds = %69
   %75 = mul nsw i32 %73, %.03984.i112
   %76 = icmp slt i32 %14, 11
-  br i1 %76, label %.thread, label %77
+  br i1 %76, label %.critedge, label %77
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %20, i64 18
@@ -4644,14 +4644,14 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i152: ; preds = %77
   %indvars.iv.i142 = phi i64 [ 0, %.lr.ph.i134 ], [ %indvars.iv.next.i148, %86 ]
   %.03669.i143 = phi i32 [ 0, %.lr.ph.i134 ], [ %90, %86 ]
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.i142, %wide.trip.count.i139
-  br i1 %exitcond.not.i144, label %.thread, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i145
+  br i1 %exitcond.not.i144, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i145
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit51.i145:  ; preds = %83
   %gep.i146 = getelementptr i16, ptr %invariant.gep.i141, i64 %indvars.iv.i142
   %84 = load i16, ptr %gep.i146, align 2, !tbaa !10
   %85 = add i16 %84, -48
   %or.cond.i147 = icmp ult i16 %85, 10
-  br i1 %or.cond.i147, label %86, label %.thread
+  br i1 %or.cond.i147, label %86, label %.critedge
 
 86:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i145
   %87 = zext nneg i16 %84 to i32
@@ -4665,7 +4665,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit51.i145:  ; preds = %83
 91:                                               ; preds = %86
   %92 = mul nsw i32 %90, %.03984.i135
   %93 = icmp slt i32 %14, 13
-  br i1 %93, label %.thread, label %94
+  br i1 %93, label %.critedge, label %94
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %20, i64 22
@@ -4695,14 +4695,14 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i175: ; preds = %94
   %indvars.iv.i165 = phi i64 [ 0, %.lr.ph.i157 ], [ %indvars.iv.next.i171, %103 ]
   %.03669.i166 = phi i32 [ 0, %.lr.ph.i157 ], [ %107, %103 ]
   %exitcond.not.i167 = icmp eq i64 %indvars.iv.i165, %wide.trip.count.i162
-  br i1 %exitcond.not.i167, label %.thread, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i168
+  br i1 %exitcond.not.i167, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i168
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit51.i168:  ; preds = %100
   %gep.i169 = getelementptr i16, ptr %invariant.gep.i164, i64 %indvars.iv.i165
   %101 = load i16, ptr %gep.i169, align 2, !tbaa !10
   %102 = add i16 %101, -48
   %or.cond.i170 = icmp ult i16 %102, 10
-  br i1 %or.cond.i170, label %103, label %.thread
+  br i1 %or.cond.i170, label %103, label %.critedge
 
 103:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i168
   %104 = zext nneg i16 %101 to i32
@@ -4716,7 +4716,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit51.i168:  ; preds = %100
 108:                                              ; preds = %103
   %109 = mul nsw i32 %107, %.03984.i158
   %110 = icmp slt i32 %14, 15
-  br i1 %110, label %.thread, label %111
+  br i1 %110, label %.critedge, label %111
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %20, i64 26
@@ -4746,14 +4746,14 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i198: ; preds = %111
   %indvars.iv.i188 = phi i64 [ 0, %.lr.ph.i180 ], [ %indvars.iv.next.i194, %120 ]
   %.03669.i189 = phi i32 [ 0, %.lr.ph.i180 ], [ %124, %120 ]
   %exitcond.not.i190 = icmp eq i64 %indvars.iv.i188, %wide.trip.count.i185
-  br i1 %exitcond.not.i190, label %.thread, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i191
+  br i1 %exitcond.not.i190, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i191
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit51.i191:  ; preds = %117
   %gep.i192 = getelementptr i16, ptr %invariant.gep.i187, i64 %indvars.iv.i188
   %118 = load i16, ptr %gep.i192, align 2, !tbaa !10
   %119 = add i16 %118, -48
   %or.cond.i193 = icmp ult i16 %119, 10
-  br i1 %or.cond.i193, label %120, label %.thread
+  br i1 %or.cond.i193, label %120, label %.critedge
 
 120:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i191
   %121 = zext nneg i16 %118 to i32
@@ -4789,7 +4789,7 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %129, %_ZN6icu_775Gr
   %or.cond5 = or i1 %133, %135
   %136 = icmp slt i32 %75, 1
   %or.cond7 = or i1 %136, %or.cond5
-  br i1 %or.cond7, label %.thread, label %137
+  br i1 %or.cond7, label %.critedge, label %137
 
 137:                                              ; preds = %_ZN6icu_775Grego11monthLengthEii.exit
   %138 = add nsw i32 %132, %58
@@ -4804,11 +4804,7 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %129, %_ZN6icu_775Gr
   %or.cond15 = or i1 %145, %or.cond11
   %146 = icmp ugt i32 %126, 59
   %or.cond19 = or i1 %146, %or.cond15
-  br i1 %or.cond19, label %.thread, label %147
-
-.thread:                                          ; preds = %31, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i, %48, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i99, %66, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i122, %83, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i145, %100, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i168, %117, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i191, %108, %91, %74, %56, %39, %_ZN6icu_775Grego11monthLengthEii.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit85, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %6, %137
-  store i32 3, ptr %2, align 4, !tbaa !31
-  br label %160
+  br i1 %or.cond19, label %.critedge, label %147
 
 147:                                              ; preds = %137
   %148 = tail call noundef i64 @_ZN6icu_775Grego11fieldsToDayEiii(i32 noundef %40, i32 noundef %58, i32 noundef %75)
@@ -4826,8 +4822,12 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %129, %_ZN6icu_775Gr
   %.0 = fsub double %157, %159
   br label %160
 
-160:                                              ; preds = %.thread, %147, %3
-  %.066 = phi double [ 0.000000e+00, %3 ], [ %.0, %147 ], [ 0.000000e+00, %.thread ]
+.critedge:                                        ; preds = %31, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i, %48, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i99, %66, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i122, %83, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i145, %100, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i168, %117, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i191, %108, %91, %74, %56, %39, %_ZN6icu_775Grego11monthLengthEii.exit, %137, %_ZNK6icu_7713UnicodeString6charAtEi.exit85, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %6
+  store i32 3, ptr %2, align 4, !tbaa !31
+  br label %160
+
+160:                                              ; preds = %.critedge, %147, %3
+  %.066 = phi double [ 0.000000e+00, %3 ], [ %.0, %147 ], [ 0.000000e+00, %.critedge ]
   ret double %.066
 }
 
@@ -4945,7 +4945,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit13:         ; preds = %28
 define internal fastcc noundef i32 @_ZN6icu_77L17offsetStrToMillisERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) unnamed_addr #10 {
   %3 = load i32, ptr %1, align 4, !tbaa !31
   %4 = icmp slt i32 %3, 1
-  br i1 %4, label %5, label %87
+  br i1 %4, label %5, label %86
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4958,7 +4958,7 @@ define internal fastcc noundef i32 @_ZN6icu_77L17offsetStrToMillisERKNS_13Unicod
   %13 = select i1 %8, i32 %12, i32 %10
   %14 = and i32 %13, -3
   %or.cond.not = icmp eq i32 %14, 5
-  br i1 %or.cond.not, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.thread
+  br i1 %or.cond.not, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.critedge
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %5
   %15 = and i16 %7, 2
@@ -4968,7 +4968,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %5
   %18 = load ptr, ptr %17, align 8
   %19 = select i1 %.not.i.i.i, ptr %18, ptr %16
   %20 = load i16, ptr %19, align 2, !tbaa !10
-  switch i16 %20, label %.thread [
+  switch i16 %20, label %.critedge [
     i16 43, label %22
     i16 45, label %21
   ]
@@ -5005,14 +5005,14 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i: ; preds = %22
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %.03669.i = phi i32 [ 0, %.lr.ph.i ], [ %35, %31 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i
+  br i1 %exitcond.not.i, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit51.i:     ; preds = %28
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
   %29 = load i16, ptr %gep.i, align 2, !tbaa !10
   %30 = add i16 %29, -48
   %or.cond.i = icmp ult i16 %30, 10
-  br i1 %or.cond.i, label %31, label %.thread
+  br i1 %or.cond.i, label %31, label %.critedge
 
 31:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i
   %32 = zext nneg i16 %29 to i32
@@ -5026,60 +5026,60 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit51.i:     ; preds = %28
 36:                                               ; preds = %31
   %37 = mul nsw i32 %35, %.03984.i
   %38 = icmp slt i32 %13, 5
-  br i1 %38, label %.thread, label %39
+  br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 6
   %41 = load i16, ptr %40, align 2, !tbaa !10
-  switch i16 %41, label %.lr.ph.i39 [
-    i16 43, label %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i57
+  switch i16 %41, label %.lr.ph.i41 [
+    i16 43, label %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i59
     i16 45, label %42
   ]
 
 42:                                               ; preds = %39
-  br label %.lr.ph.i39
+  br label %.lr.ph.i41
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i57: ; preds = %39
-  br label %.lr.ph.i39
+_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i59: ; preds = %39
+  br label %.lr.ph.i41
 
-.lr.ph.i39:                                       ; preds = %42, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i57, %39
-  %.03984.i40 = phi i32 [ 1, %39 ], [ -1, %42 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i57 ]
-  %.04082.i41 = phi i32 [ 3, %39 ], [ 4, %42 ], [ 4, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i57 ]
-  %.04181.i42 = phi i64 [ 2, %39 ], [ 1, %42 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i57 ]
-  %43 = zext nneg i32 %.04082.i41 to i64
-  %44 = sub nuw nsw i32 %13, %.04082.i41
-  %wide.trip.count.i44 = zext nneg i32 %44 to i64
-  %invariant.gep.i46 = getelementptr i16, ptr %19, i64 %43
+.lr.ph.i41:                                       ; preds = %42, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i59, %39
+  %.03984.i42 = phi i32 [ 1, %39 ], [ -1, %42 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i59 ]
+  %.04082.i43 = phi i32 [ 3, %39 ], [ 4, %42 ], [ 4, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i59 ]
+  %.04181.i44 = phi i64 [ 2, %39 ], [ 1, %42 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i59 ]
+  %43 = zext nneg i32 %.04082.i43 to i64
+  %44 = sub nuw nsw i32 %13, %.04082.i43
+  %wide.trip.count.i46 = zext nneg i32 %44 to i64
+  %invariant.gep.i48 = getelementptr i16, ptr %19, i64 %43
   br label %45
 
-45:                                               ; preds = %48, %.lr.ph.i39
-  %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.i39 ], [ %indvars.iv.next.i53, %48 ]
-  %.03669.i48 = phi i32 [ 0, %.lr.ph.i39 ], [ %52, %48 ]
-  %exitcond.not.i49 = icmp eq i64 %indvars.iv.i47, %wide.trip.count.i44
-  br i1 %exitcond.not.i49, label %.thread, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i50
+45:                                               ; preds = %48, %.lr.ph.i41
+  %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.i41 ], [ %indvars.iv.next.i55, %48 ]
+  %.03669.i50 = phi i32 [ 0, %.lr.ph.i41 ], [ %52, %48 ]
+  %exitcond.not.i51 = icmp eq i64 %indvars.iv.i49, %wide.trip.count.i46
+  br i1 %exitcond.not.i51, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i52
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit51.i50:   ; preds = %45
-  %gep.i51 = getelementptr i16, ptr %invariant.gep.i46, i64 %indvars.iv.i47
-  %46 = load i16, ptr %gep.i51, align 2, !tbaa !10
+_ZNK6icu_7713UnicodeString6charAtEi.exit51.i52:   ; preds = %45
+  %gep.i53 = getelementptr i16, ptr %invariant.gep.i48, i64 %indvars.iv.i49
+  %46 = load i16, ptr %gep.i53, align 2, !tbaa !10
   %47 = add i16 %46, -48
-  %or.cond.i52 = icmp ult i16 %47, 10
-  br i1 %or.cond.i52, label %48, label %.thread
+  %or.cond.i54 = icmp ult i16 %47, 10
+  br i1 %or.cond.i54, label %48, label %.critedge
 
-48:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i50
+48:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i52
   %49 = zext nneg i16 %46 to i32
-  %50 = mul nsw i32 %.03669.i48, 10
+  %50 = mul nsw i32 %.03669.i50, 10
   %51 = add i32 %50, -48
   %52 = add i32 %51, %49
-  %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i47, 1
-  %exitcond76.not.i54 = icmp eq i64 %indvars.iv.next.i53, %.04181.i42
-  br i1 %exitcond76.not.i54, label %_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit59, label %45, !llvm.loop !64
+  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i49, 1
+  %exitcond76.not.i56 = icmp eq i64 %indvars.iv.next.i55, %.04181.i44
+  br i1 %exitcond76.not.i56, label %_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit61, label %45, !llvm.loop !64
 
-_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit59: ; preds = %48
-  %53 = mul nsw i32 %52, %.03984.i40
+_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit61: ; preds = %48
+  %53 = mul nsw i32 %52, %.03984.i42
   %54 = icmp eq i32 %13, 7
-  br i1 %54, label %55, label %81
+  br i1 %54, label %55, label %_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit84
 
-55:                                               ; preds = %_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit59
+55:                                               ; preds = %_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit61
   %56 = load i16, ptr %6, align 8, !tbaa !9
   %57 = icmp slt i16 %56, 0
   %58 = ashr i16 %56, 5
@@ -5087,77 +5087,77 @@ _ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit59: ; pre
   %60 = load i32, ptr %11, align 4
   %61 = select i1 %57, i32 %60, i32 %59
   %62 = icmp slt i32 %61, 7
-  br i1 %62, label %.thread, label %63
+  br i1 %62, label %.critedge, label %63
 
 63:                                               ; preds = %55
   %64 = and i16 %56, 2
-  %.not.i.i.i.i79 = icmp eq i16 %64, 0
+  %.not.i.i.i.i81 = icmp eq i16 %64, 0
   %65 = load ptr, ptr %17, align 8
-  %66 = select i1 %.not.i.i.i.i79, ptr %65, ptr %16
+  %66 = select i1 %.not.i.i.i.i81, ptr %65, ptr %16
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 10
   %68 = load i16, ptr %67, align 2, !tbaa !10
-  switch i16 %68, label %.lr.ph.i62 [
-    i16 43, label %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i80
+  switch i16 %68, label %.lr.ph.i64 [
+    i16 43, label %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i82
     i16 45, label %69
   ]
 
 69:                                               ; preds = %63
-  br label %.lr.ph.i62
+  br label %.lr.ph.i64
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i80: ; preds = %63
-  br label %.lr.ph.i62
+_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i82: ; preds = %63
+  br label %.lr.ph.i64
 
-.lr.ph.i62:                                       ; preds = %69, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i80, %63
-  %.03984.i63 = phi i32 [ 1, %63 ], [ -1, %69 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i80 ]
-  %.04082.i64 = phi i32 [ 5, %63 ], [ 6, %69 ], [ 6, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i80 ]
-  %.04181.i65 = phi i64 [ 2, %63 ], [ 1, %69 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i80 ]
-  %70 = zext nneg i32 %.04082.i64 to i64
-  %71 = sub nuw nsw i32 %61, %.04082.i64
-  %wide.trip.count.i67 = zext nneg i32 %71 to i64
-  %invariant.gep.i69 = getelementptr i16, ptr %66, i64 %70
+.lr.ph.i64:                                       ; preds = %69, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i82, %63
+  %.03984.i65 = phi i32 [ 1, %63 ], [ -1, %69 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i82 ]
+  %.04082.i66 = phi i32 [ 5, %63 ], [ 6, %69 ], [ 6, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i82 ]
+  %.04181.i67 = phi i64 [ 2, %63 ], [ 1, %69 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread.i82 ]
+  %70 = zext nneg i32 %.04082.i66 to i64
+  %71 = sub nuw nsw i32 %61, %.04082.i66
+  %wide.trip.count.i69 = zext nneg i32 %71 to i64
+  %invariant.gep.i71 = getelementptr i16, ptr %66, i64 %70
   br label %72
 
-72:                                               ; preds = %75, %.lr.ph.i62
-  %indvars.iv.i70 = phi i64 [ 0, %.lr.ph.i62 ], [ %indvars.iv.next.i76, %75 ]
-  %.03669.i71 = phi i32 [ 0, %.lr.ph.i62 ], [ %79, %75 ]
-  %exitcond.not.i72 = icmp eq i64 %indvars.iv.i70, %wide.trip.count.i67
-  br i1 %exitcond.not.i72, label %.thread, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i73
+72:                                               ; preds = %75, %.lr.ph.i64
+  %indvars.iv.i72 = phi i64 [ 0, %.lr.ph.i64 ], [ %indvars.iv.next.i78, %75 ]
+  %.03669.i73 = phi i32 [ 0, %.lr.ph.i64 ], [ %79, %75 ]
+  %exitcond.not.i74 = icmp eq i64 %indvars.iv.i72, %wide.trip.count.i69
+  br i1 %exitcond.not.i74, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i75
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit51.i73:   ; preds = %72
-  %gep.i74 = getelementptr i16, ptr %invariant.gep.i69, i64 %indvars.iv.i70
-  %73 = load i16, ptr %gep.i74, align 2, !tbaa !10
+_ZNK6icu_7713UnicodeString6charAtEi.exit51.i75:   ; preds = %72
+  %gep.i76 = getelementptr i16, ptr %invariant.gep.i71, i64 %indvars.iv.i72
+  %73 = load i16, ptr %gep.i76, align 2, !tbaa !10
   %74 = add i16 %73, -48
-  %or.cond.i75 = icmp ult i16 %74, 10
-  br i1 %or.cond.i75, label %75, label %.thread
+  %or.cond.i77 = icmp ult i16 %74, 10
+  br i1 %or.cond.i77, label %75, label %.critedge
 
-75:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i73
+75:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i75
   %76 = zext nneg i16 %73 to i32
-  %77 = mul nsw i32 %.03669.i71, 10
+  %77 = mul nsw i32 %.03669.i73, 10
   %78 = add i32 %77, -48
   %79 = add i32 %78, %76
-  %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i70, 1
-  %exitcond76.not.i77 = icmp eq i64 %indvars.iv.next.i76, %.04181.i65
-  br i1 %exitcond76.not.i77, label %.loopexit.thread.i78, label %72, !llvm.loop !64
+  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i72, 1
+  %exitcond76.not.i79 = icmp eq i64 %indvars.iv.next.i78, %.04181.i67
+  br i1 %exitcond76.not.i79, label %.loopexit.thread.i80, label %72, !llvm.loop !64
 
-.loopexit.thread.i78:                             ; preds = %75
-  %80 = mul nsw i32 %79, %.03984.i63
-  br label %81
+.loopexit.thread.i80:                             ; preds = %75
+  %80 = mul nsw i32 %79, %.03984.i65
+  br label %_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit84
 
-.thread:                                          ; preds = %28, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i, %45, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i50, %72, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i73, %55, %36, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %5
+.critedge:                                        ; preds = %28, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i, %45, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i52, %72, %_ZNK6icu_7713UnicodeString6charAtEi.exit51.i75, %55, %36, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %5
   store i32 3, ptr %1, align 4, !tbaa !31
-  br label %87
+  br label %86
 
-81:                                               ; preds = %.loopexit.thread.i78, %_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit59
-  %.229 = phi i32 [ 0, %_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit59 ], [ %80, %.loopexit.thread.i78 ]
-  %82 = mul nsw i32 %37, 60
-  %83 = add nsw i32 %82, %53
-  %84 = mul nsw i32 %83, 60
-  %85 = add nsw i32 %.229, %84
-  %86 = mul i32 %.126, %85
-  br label %87
+_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit84: ; preds = %_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit61, %.loopexit.thread.i80
+  %.229 = phi i32 [ 0, %_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit61 ], [ %80, %.loopexit.thread.i80 ]
+  %81 = mul nsw i32 %37, 60
+  %82 = add nsw i32 %81, %53
+  %83 = mul nsw i32 %82, 60
+  %84 = add nsw i32 %.229, %83
+  %85 = mul i32 %.126, %84
+  br label %86
 
-87:                                               ; preds = %.thread, %81, %2
-  %.0 = phi i32 [ 0, %2 ], [ %86, %81 ], [ 0, %.thread ]
+86:                                               ; preds = %.critedge, %_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit84, %2
+  %.0 = phi i32 [ 0, %2 ], [ %85, %_ZN6icu_77L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit84 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -5719,7 +5719,7 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRDATEERKNS_13Unicod
   store double %3, ptr %8, align 8, !tbaa !45
   %9 = load i32, ptr %6, align 4, !tbaa !31
   %10 = icmp slt i32 %9, 1
-  br i1 %10, label %11, label %.thread64
+  br i1 %10, label %11, label %.critedge60
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5730,11 +5730,11 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRDATEERKNS_13Unicod
 15:                                               ; preds = %11
   %16 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 352) #16
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread61, label %18
+  br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %15
   invoke void @_ZN6icu_7721TimeArrayTimeZoneRuleC1ERKNS_13UnicodeStringEiiPKdiNS_12DateTimeRule12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(352) %16, ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 2)
-          to label %.thread64 unwind label %19
+          to label %.critedge60 unwind label %19
 
 19:                                               ; preds = %18
   %20 = landingpad { ptr, i32 }
@@ -5750,8 +5750,8 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRDATEERKNS_13Unicod
   br i1 %25, label %26, label %.preheader
 
 .preheader:                                       ; preds = %21
-  %.not5567 = icmp sgt i32 %13, 0
-  br i1 %.not5567, label %.critedge.preheader, label %.critedge58
+  %.not5566 = icmp sgt i32 %13, 0
+  br i1 %.not5566, label %.critedge.preheader, label %.critedge58
 
 .critedge.preheader:                              ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %13 to i64
@@ -5759,7 +5759,7 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRDATEERKNS_13Unicod
 
 26:                                               ; preds = %21
   store i32 7, ptr %6, align 4, !tbaa !31
-  br label %.thread64
+  br label %.critedge60
 
 27:                                               ; preds = %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5779,16 +5779,16 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRDATEERKNS_13Unicod
 
 34:                                               ; preds = %.critedge
   tail call void @uprv_free_77(ptr noundef nonnull %24)
-  br label %.thread64
+  br label %.critedge60
 
 .critedge58:                                      ; preds = %27, %.preheader
   %35 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 352) #16
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.thread66, label %37
+  br i1 %36, label %.thread65, label %37
 
-.thread66:                                        ; preds = %.critedge58
+.thread65:                                        ; preds = %.critedge58
   tail call void @uprv_free_77(ptr noundef nonnull %24)
-  br label %.thread61
+  br label %.thread
 
 37:                                               ; preds = %.critedge58
   invoke void @_ZN6icu_7721TimeArrayTimeZoneRuleC1ERKNS_13UnicodeStringEiiPKdiNS_12DateTimeRule12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(352) %35, ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %24, i32 noundef %13, i32 noundef 2)
@@ -5802,18 +5802,18 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRDATEERKNS_13Unicod
 
 40:                                               ; preds = %37
   tail call void @uprv_free_77(ptr noundef nonnull %24)
-  br label %.thread64
+  br label %.critedge60
 
-.thread61:                                        ; preds = %15, %.thread66
+.thread:                                          ; preds = %15, %.thread65
   store i32 7, ptr %6, align 4, !tbaa !31
-  br label %.thread64
+  br label %.critedge60
 
 41:                                               ; preds = %19, %38
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %39, %38 ]
   resume { ptr, i32 } %.pn
 
-.thread64:                                        ; preds = %34, %26, %18, %40, %.thread61, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %.thread61 ], [ %35, %40 ], [ %16, %18 ], [ null, %26 ], [ null, %34 ]
+.critedge60:                                      ; preds = %18, %40, %34, %.thread, %26, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %.thread ], [ %35, %40 ], [ null, %34 ], [ null, %26 ], [ %16, %18 ]
   ret ptr %.0
 }
 

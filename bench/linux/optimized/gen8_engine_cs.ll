@@ -64,16 +64,16 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   tail call void asm sideeffect "848: nop\0A\09.pushsection .discard.instr_end\0A\09.long 848b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 848) #5, !srcloc !10
   %.pre = load ptr, ptr %11, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 7200
-  %.pre18 = load i8, ptr %.phi.trans.insert, align 8
+  %.pre17 = load i8, ptr %.phi.trans.insert, align 8
   br label %39
 
 39:                                               ; preds = %37, %20
-  %40 = phi i8 [ %.pre18, %37 ], [ %22, %20 ]
-  %.fr15 = freeze i8 %40
-  %41 = icmp ult i8 %.fr15, 9
-  %.17 = select i1 %15, i32 12, i32 6
+  %40 = phi i8 [ %.pre17, %37 ], [ %22, %20 ]
+  %.fr14 = freeze i8 %40
+  %41 = icmp ult i8 %.fr14, 9
+  %.16 = select i1 %15, i32 12, i32 6
   %. = select i1 %15, i32 24, i32 18
-  %spec.select20 = select i1 %41, i32 %., i32 %.17
+  %spec.select19 = select i1 %41, i32 %., i32 %.16
   br label %.thread7
 
 42:                                               ; preds = %9
@@ -82,7 +82,7 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
 
 .thread7:                                         ; preds = %39, %42
   %43 = phi i1 [ false, %42 ], [ %41, %39 ]
-  %44 = phi i32 [ %spec.select, %42 ], [ %spec.select20, %39 ]
+  %44 = phi i32 [ %spec.select, %42 ], [ %spec.select19, %39 ]
   %45 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef %44) #5
   %46 = icmp ugt ptr %45, inttoptr (i64 -4096 to ptr)
   br i1 %46, label %49, label %53
@@ -90,7 +90,7 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
 .thread7.thread:                                  ; preds = %2
   %47 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 6) #5
   %48 = icmp ugt ptr %47, inttoptr (i64 -4096 to ptr)
-  br i1 %48, label %49, label %.thread14
+  br i1 %48, label %49, label %.critedge
 
 49:                                               ; preds = %.thread7.thread, %.thread7
   %50 = phi ptr [ %47, %.thread7.thread ], [ %45, %.thread7 ]
@@ -110,52 +110,52 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   %57 = getelementptr i8, ptr %45, i64 8
   store i32 0, ptr %57, align 4
   %58 = getelementptr i8, ptr %45, i64 24
-  br i1 %43, label %65, label %.thread14
+  br i1 %43, label %60, label %.critedge
 
 59:                                               ; preds = %53
-  br i1 %43, label %65, label %.thread14
+  br i1 %43, label %60, label %.critedge
 
-.thread14:                                        ; preds = %.thread7.thread, %54, %59
-  %60 = phi i32 [ %10, %59 ], [ %10, %54 ], [ %6, %.thread7.thread ]
-  %61 = phi ptr [ %45, %59 ], [ %58, %54 ], [ %47, %.thread7.thread ]
+60:                                               ; preds = %54, %59
+  %61 = phi ptr [ %58, %54 ], [ %45, %59 ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %62, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %61, align 4
   %63 = getelementptr i8, ptr %61, i64 4
-  store i32 %60, ptr %63, align 4
+  store i32 32, ptr %63, align 4
   %64 = getelementptr i8, ptr %61, i64 8
-  store i32 208, ptr %64, align 4
+  store i32 0, ptr %64, align 4
+  %65 = getelementptr i8, ptr %61, i64 24
+  %66 = getelementptr i8, ptr %61, i64 36
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %66, i8 0, i64 12, i1 false)
+  store i32 2046820356, ptr %65, align 4
+  %67 = getelementptr i8, ptr %61, i64 28
+  store i32 %10, ptr %67, align 4
+  %68 = getelementptr i8, ptr %61, i64 32
+  store i32 208, ptr %68, align 4
+  %69 = getelementptr i8, ptr %61, i64 48
+  %70 = getelementptr i8, ptr %61, i64 60
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %70, i8 0, i64 12, i1 false)
+  store i32 2046820356, ptr %69, align 4
+  %71 = getelementptr i8, ptr %61, i64 52
+  store i32 1048576, ptr %71, align 4
+  %72 = getelementptr i8, ptr %61, i64 56
+  store i32 0, ptr %72, align 4
   br label %78
 
-65:                                               ; preds = %54, %59
-  %66 = phi ptr [ %58, %54 ], [ %45, %59 ]
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, i8 0, i64 12, i1 false)
-  store i32 2046820356, ptr %66, align 4
-  %68 = getelementptr i8, ptr %66, i64 4
-  store i32 32, ptr %68, align 4
-  %69 = getelementptr i8, ptr %66, i64 8
-  store i32 0, ptr %69, align 4
-  %70 = getelementptr i8, ptr %66, i64 24
-  %71 = getelementptr i8, ptr %66, i64 36
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %71, i8 0, i64 12, i1 false)
-  store i32 2046820356, ptr %70, align 4
-  %72 = getelementptr i8, ptr %66, i64 28
-  store i32 %10, ptr %72, align 4
-  %73 = getelementptr i8, ptr %66, i64 32
-  store i32 208, ptr %73, align 4
-  %74 = getelementptr i8, ptr %66, i64 48
-  %75 = getelementptr i8, ptr %66, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %75, i8 0, i64 12, i1 false)
-  store i32 2046820356, ptr %74, align 4
-  %76 = getelementptr i8, ptr %66, i64 52
-  store i32 1048576, ptr %76, align 4
-  %77 = getelementptr i8, ptr %66, i64 56
-  store i32 0, ptr %77, align 4
+.critedge:                                        ; preds = %.thread7.thread, %54, %59
+  %73 = phi ptr [ %45, %59 ], [ %58, %54 ], [ %47, %.thread7.thread ]
+  %74 = phi i32 [ %10, %59 ], [ %10, %54 ], [ %6, %.thread7.thread ]
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %75, i8 0, i64 12, i1 false)
+  store i32 2046820356, ptr %73, align 4
+  %76 = getelementptr i8, ptr %73, i64 4
+  store i32 %74, ptr %76, align 4
+  %77 = getelementptr i8, ptr %73, i64 8
+  store i32 208, ptr %77, align 4
   br label %78
 
-78:                                               ; preds = %.thread14, %65, %49
-  %79 = phi i32 [ %52, %49 ], [ 0, %65 ], [ 0, %.thread14 ]
+78:                                               ; preds = %.critedge, %60, %49
+  %79 = phi i32 [ %52, %49 ], [ 0, %60 ], [ 0, %.critedge ]
   ret i32 %79
 }
 

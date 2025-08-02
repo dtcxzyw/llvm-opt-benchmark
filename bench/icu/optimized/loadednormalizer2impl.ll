@@ -667,7 +667,7 @@ define noundef ptr @_ZN6icu_7711Normalizer211getInstanceEPKcS2_19UNormalization2
   %5 = alloca %"class.icu_77::LocalPointer", align 8
   %6 = load i32, ptr %3, align 4, !tbaa !30
   %7 = icmp slt i32 %6, 1
-  br i1 %7, label %8, label %.thread95
+  br i1 %7, label %8, label %.thread99
 
 8:                                                ; preds = %4
   %9 = icmp eq ptr %1, null
@@ -680,7 +680,7 @@ define noundef ptr @_ZN6icu_7711Normalizer211getInstanceEPKcS2_19UNormalization2
 
 13:                                               ; preds = %10, %8
   store i32 1, ptr %3, align 4, !tbaa !30
-  br label %.thread95
+  br label %.thread99
 
 14:                                               ; preds = %10
   %15 = icmp eq ptr %0, null
@@ -725,12 +725,12 @@ define noundef ptr @_ZN6icu_7711Normalizer211getInstanceEPKcS2_19UNormalization2
 36:                                               ; preds = %19, %29, %34, %24
   %.049 = phi ptr [ %20, %19 ], [ %25, %24 ], [ %30, %29 ], [ %35, %34 ]
   %37 = icmp eq ptr %.049, null
-  br i1 %37, label %.thread, label %.thread99
+  br i1 %37, label %.thread, label %.thread95
 
 .thread:                                          ; preds = %36
   %.pre = load i32, ptr %3, align 4, !tbaa !30
   %38 = icmp sgt i32 %.pre, 0
-  br i1 %38, label %.thread95, label %.thread.thread
+  br i1 %38, label %.thread99, label %.thread.thread
 
 .thread.thread:                                   ; preds = %31, %14, %.thread
   tail call void @umtx_lock_77(ptr noundef null)
@@ -769,7 +769,7 @@ define noundef ptr @_ZN6icu_7711Normalizer211getInstanceEPKcS2_19UNormalization2
 
 _ZN6icu_775MutexD2Ev.exit85:                      ; preds = %47
   %51 = icmp eq ptr %.251, null
-  br i1 %51, label %52, label %.thread99
+  br i1 %51, label %52, label %.thread95
 
 52:                                               ; preds = %_ZN6icu_775MutexD2Ev.exit85
   tail call void @ucln_common_registerCleanup_77(i32 noundef 14, ptr noundef nonnull @_ZN6icu_77L31uprv_loaded_normalizer2_cleanupEv)
@@ -778,12 +778,12 @@ _ZN6icu_775MutexD2Ev.exit85:                      ; preds = %47
   store ptr %53, ptr %5, align 8, !tbaa !38
   %54 = load i32, ptr %3, align 4, !tbaa !30
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %_ZN6icu_775MutexD2Ev.exit86.thread, label %56
+  br i1 %55, label %.thread102, label %56
 
-_ZN6icu_775MutexD2Ev.exit86.thread:               ; preds = %52
+.thread102:                                       ; preds = %52
   call void @_ZN6icu_7712LocalPointerINS_13Norm2AllModesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  br label %.thread95
+  br label %.thread99
 
 56:                                               ; preds = %52
   invoke void @umtx_lock_77(ptr noundef null)
@@ -802,7 +802,7 @@ _ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %56
   store ptr %60, ptr @_ZN6icu_77L5cacheE, align 8, !tbaa !36
   %62 = load i32, ptr %3, align 4, !tbaa !30
   %63 = icmp slt i32 %62, 1
-  br i1 %63, label %68, label %93
+  br i1 %63, label %68, label %.critedge.critedge
 
 64:                                               ; preds = %56
   %65 = landingpad { ptr, i32 }
@@ -824,11 +824,11 @@ _ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %56
           to label %._crit_edge unwind label %66
 
 ._crit_edge:                                      ; preds = %70
-  %.pre103 = load ptr, ptr @_ZN6icu_77L5cacheE, align 8, !tbaa !36
+  %.pre105 = load ptr, ptr @_ZN6icu_77L5cacheE, align 8, !tbaa !36
   br label %73
 
 73:                                               ; preds = %._crit_edge, %_ZN6icu_775MutexC2EPNS_6UMutexE.exit
-  %74 = phi ptr [ %.pre103, %._crit_edge ], [ %57, %_ZN6icu_775MutexC2EPNS_6UMutexE.exit ]
+  %74 = phi ptr [ %.pre105, %._crit_edge ], [ %57, %_ZN6icu_775MutexC2EPNS_6UMutexE.exit ]
   %75 = invoke ptr @uhash_get_77(ptr noundef %74, ptr noundef nonnull %1)
           to label %76 unwind label %85
 
@@ -845,8 +845,8 @@ _ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %56
           to label %83 unwind label %87
 
 83:                                               ; preds = %78
-  %.not81 = icmp eq ptr %82, null
-  br i1 %.not81, label %84, label %89
+  %.not81.not = icmp eq ptr %82, null
+  br i1 %.not81.not, label %84, label %89
 
 84:                                               ; preds = %83
   store i32 7, ptr %3, align 4, !tbaa !30
@@ -870,9 +870,9 @@ _ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %56
   %92 = invoke ptr @uhash_put_77(ptr noundef %91, ptr noundef nonnull %82, ptr noundef %90, ptr noundef nonnull %3)
           to label %93 unwind label %87
 
-93:                                               ; preds = %84, %89, %76, %61
-  %.061 = phi i1 [ true, %61 ], [ false, %76 ], [ false, %89 ], [ true, %84 ]
-  %.453 = phi ptr [ null, %61 ], [ %75, %76 ], [ %90, %89 ], [ null, %84 ]
+93:                                               ; preds = %84, %89, %76
+  %.061 = phi i1 [ true, %76 ], [ true, %89 ], [ false, %84 ]
+  %.453 = phi ptr [ %75, %76 ], [ %90, %89 ], [ null, %84 ]
   invoke void @umtx_unlock_77(ptr noundef null)
           to label %_ZN6icu_775MutexD2Ev.exit86 unwind label %94
 
@@ -882,6 +882,9 @@ _ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %56
   %96 = extractvalue { ptr, i32 } %95, 0
   tail call void @__clang_call_terminate(ptr %96) #14
   unreachable
+
+_ZN6icu_775MutexD2Ev.exit86:                      ; preds = %93
+  br i1 %.061, label %101, label %.critedge
 
 97:                                               ; preds = %85, %87, %66
   %.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %88, %87 ], [ %86, %85 ]
@@ -901,49 +904,64 @@ _ZN6icu_775MutexD2Ev.exit87:                      ; preds = %97, %64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   br label %_ZN6icu_775MutexD2Ev.exit
 
-_ZN6icu_775MutexD2Ev.exit86:                      ; preds = %93
+101:                                              ; preds = %_ZN6icu_775MutexD2Ev.exit86
   call void @_ZN6icu_7712LocalPointerINS_13Norm2AllModesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   %.not82 = icmp eq ptr %.453, null
-  %or.cond = select i1 %.061, i1 true, i1 %.not82
-  br i1 %or.cond, label %.thread95, label %.thread99
+  br i1 %.not82, label %.thread99, label %.thread95
 
-.thread99:                                        ; preds = %_ZN6icu_775MutexD2Ev.exit86, %36, %_ZN6icu_775MutexD2Ev.exit85
-  %.150102 = phi ptr [ %.049, %36 ], [ %.251, %_ZN6icu_775MutexD2Ev.exit85 ], [ %.453, %_ZN6icu_775MutexD2Ev.exit86 ]
-  %101 = load i32, ptr %3, align 4, !tbaa !30
-  %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %.thread95, label %103
+.thread95:                                        ; preds = %36, %_ZN6icu_775MutexD2Ev.exit85, %101
+  %.15098 = phi ptr [ %.453, %101 ], [ %.049, %36 ], [ %.251, %_ZN6icu_775MutexD2Ev.exit85 ]
+  %102 = load i32, ptr %3, align 4, !tbaa !30
+  %103 = icmp sgt i32 %102, 0
+  br i1 %103, label %.thread99, label %104
 
-103:                                              ; preds = %.thread99
-  switch i32 %2, label %.thread95 [
-    i32 0, label %104
-    i32 1, label %106
-    i32 2, label %108
-    i32 3, label %110
+104:                                              ; preds = %.thread95
+  switch i32 %2, label %.thread99 [
+    i32 0, label %105
+    i32 1, label %107
+    i32 2, label %109
+    i32 3, label %111
   ]
 
-104:                                              ; preds = %103
-  %105 = getelementptr inbounds nuw i8, ptr %.150102, i64 8
-  br label %.thread95
+105:                                              ; preds = %104
+  %106 = getelementptr inbounds nuw i8, ptr %.15098, i64 8
+  br label %.thread99
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %.150102, i64 32
-  br label %.thread95
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds nuw i8, ptr %.15098, i64 32
+  br label %.thread99
 
-108:                                              ; preds = %103
-  %109 = getelementptr inbounds nuw i8, ptr %.150102, i64 48
-  br label %.thread95
+109:                                              ; preds = %104
+  %110 = getelementptr inbounds nuw i8, ptr %.15098, i64 48
+  br label %.thread99
 
-110:                                              ; preds = %103
-  %111 = getelementptr inbounds nuw i8, ptr %.150102, i64 64
-  br label %.thread95
+111:                                              ; preds = %104
+  %112 = getelementptr inbounds nuw i8, ptr %.15098, i64 64
+  br label %.thread99
+
+.critedge.critedge:                               ; preds = %61
+  invoke void @umtx_unlock_77(ptr noundef null)
+          to label %.critedge unwind label %113
+
+113:                                              ; preds = %.critedge.critedge
+  %114 = landingpad { ptr, i32 }
+          catch ptr null
+  %115 = extractvalue { ptr, i32 } %114, 0
+  tail call void @__clang_call_terminate(ptr %115) #14
+  unreachable
+
+.critedge:                                        ; preds = %.critedge.critedge, %_ZN6icu_775MutexD2Ev.exit86
+  call void @_ZN6icu_7712LocalPointerINS_13Norm2AllModesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  br label %.thread99
 
 _ZN6icu_775MutexD2Ev.exit:                        ; preds = %42, %_ZN6icu_775MutexD2Ev.exit87
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN6icu_775MutexD2Ev.exit87 ], [ %43, %42 ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 
-.thread95:                                        ; preds = %_ZN6icu_775MutexD2Ev.exit86.thread, %.thread, %104, %106, %108, %110, %_ZN6icu_775MutexD2Ev.exit86, %103, %.thread99, %4, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ null, %_ZN6icu_775MutexD2Ev.exit86 ], [ null, %103 ], [ null, %.thread99 ], [ null, %.thread ], [ null, %_ZN6icu_775MutexD2Ev.exit86.thread ]
+.thread99:                                        ; preds = %.thread, %.thread102, %105, %107, %109, %111, %.critedge, %104, %.thread95, %101, %4, %13
+  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ null, %.critedge ], [ null, %104 ], [ null, %.thread95 ], [ null, %101 ], [ null, %.thread102 ], [ null, %.thread ]
   ret ptr %.0
 }
 

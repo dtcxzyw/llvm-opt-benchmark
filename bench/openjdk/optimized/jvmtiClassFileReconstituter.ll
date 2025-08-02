@@ -829,50 +829,50 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %2, %7, %11
 47:                                               ; preds = %40
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %49 = load i16, ptr %48, align 2
+  %50 = call i16 @llvm.bswap.i16(i16 %49)
   br label %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit
 
 _ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit: ; preds = %44, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, %47
-  %50 = phi i16 [ %49, %47 ], [ 0, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ 0, %44 ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %54 = load ptr, ptr %53, align 8
-  %55 = ptrtoint ptr %52 to i64
-  %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = add i64 %57, 2
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %60 = load i64, ptr %59, align 8
-  %.not.i.i = icmp ult i64 %58, %60
-  br i1 %.not.i.i, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i, label %61
+  %51 = phi i16 [ %50, %47 ], [ 0, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ 0, %44 ]
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %55 = load ptr, ptr %54, align 8
+  %56 = ptrtoint ptr %53 to i64
+  %57 = ptrtoint ptr %55 to i64
+  %58 = sub i64 %56, %57
+  %59 = add i64 %58, 2
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %61 = load i64, ptr %60, align 8
+  %.not.i.i = icmp ult i64 %59, %61
+  br i1 %.not.i.i, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i, label %62
 
-61:                                               ; preds = %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit
-  %62 = shl i64 %60, 1
-  %63 = add i64 %62, 3
-  %64 = and i64 %63, -1024
-  %65 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %54, i64 noundef %60, i64 noundef %64, i32 noundef 0) #12
-  store ptr %65, ptr %53, align 8
-  store i64 %64, ptr %59, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 %57
-  %.pre.i = ptrtoint ptr %66 to i64
+62:                                               ; preds = %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit
+  %63 = shl i64 %61, 1
+  %64 = add i64 %63, 3
+  %65 = and i64 %64, -1024
+  %66 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %55, i64 noundef %61, i64 noundef %65, i32 noundef 0) #12
+  store ptr %66, ptr %54, align 8
+  store i64 %65, ptr %60, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 %58
+  %.pre.i = ptrtoint ptr %67 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i: ; preds = %61, %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit
-  %.pre-phi.i = phi i64 [ %55, %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit ], [ %.pre.i, %61 ]
-  %67 = phi ptr [ %52, %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit ], [ %66, %61 ]
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
-  store ptr %68, ptr %51, align 8
-  %69 = call noundef i16 @llvm.bswap.i16(i16 %50)
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i: ; preds = %62, %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit
+  %.pre-phi.i = phi i64 [ %56, %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit ], [ %.pre.i, %62 ]
+  %68 = phi ptr [ %53, %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit ], [ %67, %62 ]
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 2
+  store ptr %69, ptr %52, align 8
   %70 = and i64 %.pre-phi.i, 1
   %71 = icmp eq i64 %70, 0
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i
-  store i16 %69, ptr %67, align 2
+  store i16 %51, ptr %68, align 2
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
 73:                                               ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i
-  store i16 %69, ptr %67, align 1
+  store i16 %51, ptr %68, align 1
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %72, %73
@@ -1884,8 +1884,8 @@ _ZN5Bytes11put_Java_u2EPht.exit.us:               ; preds = %33, %.lr.ph.split.u
   %74 = load ptr, ptr %73, align 8
   %75 = zext i16 %.0.i.i to i64
   %.idx53 = mul nuw nsw i64 %75, 24
-  %76 = getelementptr i8, ptr %74, i64 22
-  %77 = getelementptr i8, ptr %76, i64 %.idx53
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 22
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx53
   %78 = load i16, ptr %77, align 2
   %79 = call noundef i16 @llvm.bswap.i16(i16 %78)
   %80 = ptrtoint ptr %61 to i64
@@ -1928,8 +1928,8 @@ _ZN5Bytes11put_Java_u2EPht.exit.us:               ; preds = %33, %.lr.ph.split.u
   %102 = load ptr, ptr %101, align 8
   %103 = zext i16 %.0.i.i46 to i64
   %.idx = mul nuw nsw i64 %103, 24
-  %104 = getelementptr i8, ptr %102, i64 24
-  %105 = getelementptr i8, ptr %104, i64 %.idx
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %.idx
   br label %106
 
 106:                                              ; preds = %100, %94
@@ -3464,47 +3464,47 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %22, %23
 62:                                               ; preds = %55
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %64 = load i16, ptr %63, align 2
+  %65 = tail call i16 @llvm.bswap.i16(i16 %64)
   br label %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit
 
 _ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit: ; preds = %59, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit, %62
-  %65 = phi i16 [ %64, %62 ], [ 0, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit ], [ 0, %59 ]
-  %66 = load ptr, ptr %2, align 8
-  %67 = load ptr, ptr %4, align 8
-  %68 = ptrtoint ptr %66 to i64
+  %66 = phi i16 [ %65, %62 ], [ 0, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit ], [ 0, %59 ]
+  %67 = load ptr, ptr %2, align 8
+  %68 = load ptr, ptr %4, align 8
   %69 = ptrtoint ptr %67 to i64
-  %70 = sub i64 %68, %69
-  %71 = add i64 %70, 2
-  %72 = load i64, ptr %10, align 8
-  %.not.i.i1 = icmp ult i64 %71, %72
-  br i1 %.not.i.i1, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i3, label %73
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = add i64 %71, 2
+  %73 = load i64, ptr %10, align 8
+  %.not.i.i1 = icmp ult i64 %72, %73
+  br i1 %.not.i.i1, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i3, label %74
 
-73:                                               ; preds = %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit
-  %74 = shl i64 %72, 1
-  %75 = add i64 %74, 3
-  %76 = and i64 %75, -1024
-  %77 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %67, i64 noundef %72, i64 noundef %76, i32 noundef 0) #12
-  store ptr %77, ptr %4, align 8
-  store i64 %76, ptr %10, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 %70
-  %.pre.i2 = ptrtoint ptr %78 to i64
+74:                                               ; preds = %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit
+  %75 = shl i64 %73, 1
+  %76 = add i64 %75, 3
+  %77 = and i64 %76, -1024
+  %78 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %68, i64 noundef %73, i64 noundef %77, i32 noundef 0) #12
+  store ptr %78, ptr %4, align 8
+  store i64 %77, ptr %10, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 %71
+  %.pre.i2 = ptrtoint ptr %79 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i3
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i3: ; preds = %73, %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit
-  %.pre-phi.i4 = phi i64 [ %68, %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit ], [ %.pre.i2, %73 ]
-  %79 = phi ptr [ %66, %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit ], [ %78, %73 ]
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 2
-  store ptr %80, ptr %2, align 8
-  %81 = tail call noundef i16 @llvm.bswap.i16(i16 %65)
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i3: ; preds = %74, %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit
+  %.pre-phi.i4 = phi i64 [ %69, %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit ], [ %.pre.i2, %74 ]
+  %80 = phi ptr [ %67, %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit ], [ %79, %74 ]
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 2
+  store ptr %81, ptr %2, align 8
   %82 = and i64 %.pre-phi.i4, 1
   %83 = icmp eq i64 %82, 0
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i3
-  store i16 %81, ptr %79, align 2
+  store i16 %66, ptr %80, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
 
 85:                                               ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i3
-  store i16 %81, ptr %79, align 1
+  store i16 %66, ptr %80, align 1
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %84, %85
@@ -3774,63 +3774,66 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit: ; preds = %12
   %32 = add i32 %29, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %.lr.ph, %1, %12, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit
-  %33 = phi i1 [ false, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit ], [ false, %12 ], [ false, %1 ], [ true, %.lr.ph ]
-  %.0.i63 = phi i32 [ %17, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit ], [ 0, %12 ], [ 0, %1 ], [ %17, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 2, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit ], [ 2, %12 ], [ 2, %1 ], [ %32, %.lr.ph ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %37 = load ptr, ptr %36, align 8
-  %38 = ptrtoint ptr %35 to i64
-  %39 = ptrtoint ptr %37 to i64
-  %40 = sub i64 %38, %39
-  %41 = add i64 %40, 4
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %43 = load i64, ptr %42, align 8
-  %.not.i.i = icmp ult i64 %41, %43
-  br i1 %.not.i.i, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i, label %44
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %33 = call i32 @llvm.bswap.i32(i32 %32)
+  br label %._crit_edge
 
-44:                                               ; preds = %._crit_edge
-  %45 = shl i64 %43, 1
-  %46 = add i64 %45, 5
-  %47 = and i64 %46, -1024
-  %48 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %37, i64 noundef %43, i64 noundef %47, i32 noundef 0) #12
-  store ptr %48, ptr %36, align 8
-  store i64 %47, ptr %42, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 %40
-  %.pre.i = ptrtoint ptr %49 to i64
+._crit_edge:                                      ; preds = %1, %12, %._crit_edge.loopexit, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit
+  %34 = phi i1 [ false, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit ], [ true, %._crit_edge.loopexit ], [ false, %12 ], [ false, %1 ]
+  %.0.i63 = phi i32 [ %17, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit ], [ %17, %._crit_edge.loopexit ], [ 0, %12 ], [ 0, %1 ]
+  %.0.lcssa = phi i32 [ 33554432, %_ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit ], [ %33, %._crit_edge.loopexit ], [ 33554432, %12 ], [ 33554432, %1 ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %38 = load ptr, ptr %37, align 8
+  %39 = ptrtoint ptr %36 to i64
+  %40 = ptrtoint ptr %38 to i64
+  %41 = sub i64 %39, %40
+  %42 = add i64 %41, 4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %44 = load i64, ptr %43, align 8
+  %.not.i.i = icmp ult i64 %42, %44
+  br i1 %.not.i.i, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i, label %45
+
+45:                                               ; preds = %._crit_edge
+  %46 = shl i64 %44, 1
+  %47 = add i64 %46, 5
+  %48 = and i64 %47, -1024
+  %49 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %38, i64 noundef %44, i64 noundef %48, i32 noundef 0) #12
+  store ptr %49, ptr %37, align 8
+  store i64 %48, ptr %43, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 %41
+  %.pre.i = ptrtoint ptr %50 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i: ; preds = %44, %._crit_edge
-  %.pre-phi.i = phi i64 [ %38, %._crit_edge ], [ %.pre.i, %44 ]
-  %50 = phi ptr [ %35, %._crit_edge ], [ %49, %44 ]
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store ptr %51, ptr %34, align 8
-  %52 = call noundef i32 @llvm.bswap.i32(i32 %.0.lcssa)
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i: ; preds = %45, %._crit_edge
+  %.pre-phi.i = phi i64 [ %39, %._crit_edge ], [ %.pre.i, %45 ]
+  %51 = phi ptr [ %36, %._crit_edge ], [ %50, %45 ]
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store ptr %52, ptr %35, align 8
   %53 = and i64 %.pre-phi.i, 3
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i
-  store i32 %52, ptr %50, align 4
+  store i32 %.0.lcssa, ptr %51, align 4
   br label %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
 
 56:                                               ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i
-  store i32 %52, ptr %50, align 1
+  store i32 %.0.lcssa, ptr %51, align 1
   br label %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
 
 _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %55, %56
   %57 = trunc i32 %.0.i63 to i16
-  %58 = load ptr, ptr %34, align 8
-  %59 = load ptr, ptr %36, align 8
+  %58 = load ptr, ptr %35, align 8
+  %59 = load ptr, ptr %37, align 8
   %60 = ptrtoint ptr %58 to i64
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
   %63 = add i64 %62, 2
-  %64 = load i64, ptr %42, align 8
+  %64 = load i64, ptr %43, align 8
   %.not.i.i28 = icmp ult i64 %63, %64
   br i1 %.not.i.i28, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i30, label %65
 
@@ -3839,8 +3842,8 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %55, %56
   %67 = add i64 %66, 3
   %68 = and i64 %67, -1024
   %69 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %59, i64 noundef %64, i64 noundef %68, i32 noundef 0) #12
-  store ptr %69, ptr %36, align 8
-  store i64 %68, ptr %42, align 8
+  store ptr %69, ptr %37, align 8
+  store i64 %68, ptr %43, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 %62
   %.pre.i29 = ptrtoint ptr %70 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i30
@@ -3849,7 +3852,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i30: ; preds = %65, %
   %.pre-phi.i31 = phi i64 [ %60, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit ], [ %.pre.i29, %65 ]
   %71 = phi ptr [ %58, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit ], [ %70, %65 ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 2
-  store ptr %72, ptr %34, align 8
+  store ptr %72, ptr %35, align 8
   %73 = call noundef i16 @llvm.bswap.i16(i16 %57)
   %74 = and i64 %.pre-phi.i31, 1
   %75 = icmp eq i64 %74, 0
@@ -3864,7 +3867,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i30: ; preds = %65, %
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %76, %77
-  br i1 %33, label %.lr.ph53.preheader, label %._crit_edge54
+  br i1 %34, label %.lr.ph53.preheader, label %._crit_edge54
 
 .lr.ph53.preheader:                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   %wide.trip.count60 = zext nneg i32 %.0.i63 to i64
@@ -3896,13 +3899,13 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %76, %77
   %96 = getelementptr i8, ptr %95, i64 2
   %97 = load i16, ptr %96, align 2
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
-  %98 = load ptr, ptr %34, align 8
-  %99 = load ptr, ptr %36, align 8
+  %98 = load ptr, ptr %35, align 8
+  %99 = load ptr, ptr %37, align 8
   %100 = ptrtoint ptr %98 to i64
   %101 = ptrtoint ptr %99 to i64
   %102 = sub i64 %100, %101
   %103 = add i64 %102, 2
-  %104 = load i64, ptr %42, align 8
+  %104 = load i64, ptr %43, align 8
   %.not.i.i32 = icmp ult i64 %103, %104
   br i1 %.not.i.i32, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i34, label %105
 
@@ -3911,8 +3914,8 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %76, %77
   %107 = add i64 %106, 3
   %108 = and i64 %107, -1024
   %109 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %99, i64 noundef %104, i64 noundef %108, i32 noundef 0) #12
-  store ptr %109, ptr %36, align 8
-  store i64 %108, ptr %42, align 8
+  store ptr %109, ptr %37, align 8
+  store i64 %108, ptr %43, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 %102
   %.pre.i33 = ptrtoint ptr %110 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i34
@@ -3921,7 +3924,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i34: ; preds = %105, 
   %.pre-phi.i35 = phi i64 [ %100, %.lr.ph53 ], [ %.pre.i33, %105 ]
   %111 = phi ptr [ %98, %.lr.ph53 ], [ %110, %105 ]
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 2
-  store ptr %112, ptr %34, align 8
+  store ptr %112, ptr %35, align 8
   %113 = call noundef i16 @llvm.bswap.i16(i16 %87)
   %114 = and i64 %.pre-phi.i35, 1
   %115 = icmp eq i64 %114, 0
@@ -3936,13 +3939,13 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i34: ; preds = %105, 
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit36
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit36: ; preds = %116, %117
-  %118 = load ptr, ptr %34, align 8
-  %119 = load ptr, ptr %36, align 8
+  %118 = load ptr, ptr %35, align 8
+  %119 = load ptr, ptr %37, align 8
   %120 = ptrtoint ptr %118 to i64
   %121 = ptrtoint ptr %119 to i64
   %122 = sub i64 %120, %121
   %123 = add i64 %122, 2
-  %124 = load i64, ptr %42, align 8
+  %124 = load i64, ptr %43, align 8
   %.not.i.i37 = icmp ult i64 %123, %124
   br i1 %.not.i.i37, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i39, label %125
 
@@ -3951,8 +3954,8 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit36: ; preds = %116, %117
   %127 = add i64 %126, 3
   %128 = and i64 %127, -1024
   %129 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %119, i64 noundef %124, i64 noundef %128, i32 noundef 0) #12
-  store ptr %129, ptr %36, align 8
-  store i64 %128, ptr %42, align 8
+  store ptr %129, ptr %37, align 8
+  store i64 %128, ptr %43, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 %122
   %.pre.i38 = ptrtoint ptr %130 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i39
@@ -3961,7 +3964,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i39: ; preds = %125, 
   %.pre-phi.i40 = phi i64 [ %120, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit36 ], [ %.pre.i38, %125 ]
   %131 = phi ptr [ %118, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit36 ], [ %130, %125 ]
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 2
-  store ptr %132, ptr %34, align 8
+  store ptr %132, ptr %35, align 8
   %133 = call noundef i16 @llvm.bswap.i16(i16 %97)
   %134 = and i64 %.pre-phi.i40, 1
   %135 = icmp eq i64 %134, 0
@@ -3995,13 +3998,13 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit41: ; preds = %136, %137
   %148 = getelementptr inbounds i16, ptr %142, i64 %147
   %149 = load i16, ptr %148, align 2
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
-  %150 = load ptr, ptr %34, align 8
-  %151 = load ptr, ptr %36, align 8
+  %150 = load ptr, ptr %35, align 8
+  %151 = load ptr, ptr %37, align 8
   %152 = ptrtoint ptr %150 to i64
   %153 = ptrtoint ptr %151 to i64
   %154 = sub i64 %152, %153
   %155 = add i64 %154, 2
-  %156 = load i64, ptr %42, align 8
+  %156 = load i64, ptr %43, align 8
   %.not.i.i42 = icmp ult i64 %155, %156
   br i1 %.not.i.i42, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i44, label %157
 
@@ -4010,8 +4013,8 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit41: ; preds = %136, %137
   %159 = add i64 %158, 3
   %160 = and i64 %159, -1024
   %161 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %151, i64 noundef %156, i64 noundef %160, i32 noundef 0) #12
-  store ptr %161, ptr %36, align 8
-  store i64 %160, ptr %42, align 8
+  store ptr %161, ptr %37, align 8
+  store i64 %160, ptr %43, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 %154
   %.pre.i43 = ptrtoint ptr %162 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i44
@@ -4020,7 +4023,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i44: ; preds = %157, 
   %.pre-phi.i45 = phi i64 [ %152, %.lr.ph50 ], [ %.pre.i43, %157 ]
   %163 = phi ptr [ %150, %.lr.ph50 ], [ %162, %157 ]
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 2
-  store ptr %164, ptr %34, align 8
+  store ptr %164, ptr %35, align 8
   %165 = call noundef i16 @llvm.bswap.i16(i16 %149)
   %166 = and i64 %.pre-phi.i45, 1
   %167 = icmp eq i64 %166, 0
@@ -6366,47 +6369,47 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit30: ; preds = %146, %147
 186:                                              ; preds = %179
   %187 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %188 = load i16, ptr %187, align 2
+  %189 = call i16 @llvm.bswap.i16(i16 %188)
   br label %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit
 
 _ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit: ; preds = %183, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit30, %186
-  %189 = phi i16 [ %188, %186 ], [ 0, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit30 ], [ 0, %183 ]
-  %190 = load ptr, ptr %5, align 8
-  %191 = load ptr, ptr %7, align 8
-  %192 = ptrtoint ptr %190 to i64
+  %190 = phi i16 [ %189, %186 ], [ 0, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit30 ], [ 0, %183 ]
+  %191 = load ptr, ptr %5, align 8
+  %192 = load ptr, ptr %7, align 8
   %193 = ptrtoint ptr %191 to i64
-  %194 = sub i64 %192, %193
-  %195 = add i64 %194, 2
-  %196 = load i64, ptr %13, align 8
-  %.not.i.i31 = icmp ult i64 %195, %196
-  br i1 %.not.i.i31, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i33, label %197
+  %194 = ptrtoint ptr %192 to i64
+  %195 = sub i64 %193, %194
+  %196 = add i64 %195, 2
+  %197 = load i64, ptr %13, align 8
+  %.not.i.i31 = icmp ult i64 %196, %197
+  br i1 %.not.i.i31, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i33, label %198
 
-197:                                              ; preds = %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit
-  %198 = shl i64 %196, 1
-  %199 = add i64 %198, 3
-  %200 = and i64 %199, -1024
-  %201 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %191, i64 noundef %196, i64 noundef %200, i32 noundef 0) #12
-  store ptr %201, ptr %7, align 8
-  store i64 %200, ptr %13, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 %194
-  %.pre.i32 = ptrtoint ptr %202 to i64
+198:                                              ; preds = %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit
+  %199 = shl i64 %197, 1
+  %200 = add i64 %199, 3
+  %201 = and i64 %200, -1024
+  %202 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %192, i64 noundef %197, i64 noundef %201, i32 noundef 0) #12
+  store ptr %202, ptr %7, align 8
+  store i64 %201, ptr %13, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 %195
+  %.pre.i32 = ptrtoint ptr %203 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i33
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i33: ; preds = %197, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit
-  %.pre-phi.i34 = phi i64 [ %192, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit ], [ %.pre.i32, %197 ]
-  %203 = phi ptr [ %190, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit ], [ %202, %197 ]
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 2
-  store ptr %204, ptr %5, align 8
-  %205 = call noundef i16 @llvm.bswap.i16(i16 %189)
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i33: ; preds = %198, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit
+  %.pre-phi.i34 = phi i64 [ %193, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit ], [ %.pre.i32, %198 ]
+  %204 = phi ptr [ %191, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit ], [ %203, %198 ]
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 2
+  store ptr %205, ptr %5, align 8
   %206 = and i64 %.pre-phi.i34, 1
   %207 = icmp eq i64 %206, 0
   br i1 %207, label %208, label %209
 
 208:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i33
-  store i16 %205, ptr %203, align 2
+  store i16 %190, ptr %204, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit35
 
 209:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i33
-  store i16 %205, ptr %203, align 1
+  store i16 %190, ptr %204, align 1
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit35
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit35: ; preds = %208, %209
@@ -6467,47 +6470,47 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit35: ; preds = %208, %209
 251:                                              ; preds = %244
   %252 = getelementptr inbounds nuw i8, ptr %241, i64 16
   %253 = load i16, ptr %252, align 2
+  %254 = call i16 @llvm.bswap.i16(i16 %253)
   br label %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39
 
 _ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39: ; preds = %248, %251, %214, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit35
-  %254 = phi i16 [ 0, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit35 ], [ %253, %251 ], [ 0, %214 ], [ 0, %248 ]
-  %255 = load ptr, ptr %5, align 8
-  %256 = load ptr, ptr %7, align 8
-  %257 = ptrtoint ptr %255 to i64
+  %255 = phi i16 [ 0, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit35 ], [ %254, %251 ], [ 0, %214 ], [ 0, %248 ]
+  %256 = load ptr, ptr %5, align 8
+  %257 = load ptr, ptr %7, align 8
   %258 = ptrtoint ptr %256 to i64
-  %259 = sub i64 %257, %258
-  %260 = add i64 %259, 2
-  %261 = load i64, ptr %13, align 8
-  %.not.i.i40 = icmp ult i64 %260, %261
-  br i1 %.not.i.i40, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i42, label %262
+  %259 = ptrtoint ptr %257 to i64
+  %260 = sub i64 %258, %259
+  %261 = add i64 %260, 2
+  %262 = load i64, ptr %13, align 8
+  %.not.i.i40 = icmp ult i64 %261, %262
+  br i1 %.not.i.i40, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i42, label %263
 
-262:                                              ; preds = %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39
-  %263 = shl i64 %261, 1
-  %264 = add i64 %263, 3
-  %265 = and i64 %264, -1024
-  %266 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %256, i64 noundef %261, i64 noundef %265, i32 noundef 0) #12
-  store ptr %266, ptr %7, align 8
-  store i64 %265, ptr %13, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 %259
-  %.pre.i41 = ptrtoint ptr %267 to i64
+263:                                              ; preds = %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39
+  %264 = shl i64 %262, 1
+  %265 = add i64 %264, 3
+  %266 = and i64 %265, -1024
+  %267 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %257, i64 noundef %262, i64 noundef %266, i32 noundef 0) #12
+  store ptr %267, ptr %7, align 8
+  store i64 %266, ptr %13, align 8
+  %268 = getelementptr inbounds i8, ptr %267, i64 %260
+  %.pre.i41 = ptrtoint ptr %268 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i42
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i42: ; preds = %262, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39
-  %.pre-phi.i43 = phi i64 [ %257, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39 ], [ %.pre.i41, %262 ]
-  %268 = phi ptr [ %255, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39 ], [ %267, %262 ]
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 2
-  store ptr %269, ptr %5, align 8
-  %270 = call noundef i16 @llvm.bswap.i16(i16 %254)
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i42: ; preds = %263, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39
+  %.pre-phi.i43 = phi i64 [ %258, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39 ], [ %.pre.i41, %263 ]
+  %269 = phi ptr [ %256, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39 ], [ %268, %263 ]
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 2
+  store ptr %270, ptr %5, align 8
   %271 = and i64 %.pre-phi.i43, 1
   %272 = icmp eq i64 %271, 0
   br i1 %272, label %273, label %274
 
 273:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i42
-  store i16 %270, ptr %268, align 2
+  store i16 %255, ptr %269, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit44
 
 274:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i42
-  store i16 %270, ptr %268, align 1
+  store i16 %255, ptr %269, align 1
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit44
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit44: ; preds = %273, %274
@@ -6621,47 +6624,47 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit49: ; preds = %298, %299
 343:                                              ; preds = %336
   %344 = getelementptr inbounds nuw i8, ptr %333, i64 16
   %345 = load i16, ptr %344, align 2
+  %346 = call i16 @llvm.bswap.i16(i16 %345)
   br label %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53
 
 _ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53: ; preds = %340, %303, %343
-  %346 = phi i16 [ %345, %343 ], [ 0, %303 ], [ 0, %340 ]
-  %347 = load ptr, ptr %5, align 8
-  %348 = load ptr, ptr %7, align 8
-  %349 = ptrtoint ptr %347 to i64
+  %347 = phi i16 [ %346, %343 ], [ 0, %303 ], [ 0, %340 ]
+  %348 = load ptr, ptr %5, align 8
+  %349 = load ptr, ptr %7, align 8
   %350 = ptrtoint ptr %348 to i64
-  %351 = sub i64 %349, %350
-  %352 = add i64 %351, 2
-  %353 = load i64, ptr %13, align 8
-  %.not.i.i54 = icmp ult i64 %352, %353
-  br i1 %.not.i.i54, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i56, label %354
+  %351 = ptrtoint ptr %349 to i64
+  %352 = sub i64 %350, %351
+  %353 = add i64 %352, 2
+  %354 = load i64, ptr %13, align 8
+  %.not.i.i54 = icmp ult i64 %353, %354
+  br i1 %.not.i.i54, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i56, label %355
 
-354:                                              ; preds = %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53
-  %355 = shl i64 %353, 1
-  %356 = add i64 %355, 3
-  %357 = and i64 %356, -1024
-  %358 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %348, i64 noundef %353, i64 noundef %357, i32 noundef 0) #12
-  store ptr %358, ptr %7, align 8
-  store i64 %357, ptr %13, align 8
-  %359 = getelementptr inbounds i8, ptr %358, i64 %351
-  %.pre.i55 = ptrtoint ptr %359 to i64
+355:                                              ; preds = %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53
+  %356 = shl i64 %354, 1
+  %357 = add i64 %356, 3
+  %358 = and i64 %357, -1024
+  %359 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %349, i64 noundef %354, i64 noundef %358, i32 noundef 0) #12
+  store ptr %359, ptr %7, align 8
+  store i64 %358, ptr %13, align 8
+  %360 = getelementptr inbounds i8, ptr %359, i64 %352
+  %.pre.i55 = ptrtoint ptr %360 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i56
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i56: ; preds = %354, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53
-  %.pre-phi.i57 = phi i64 [ %349, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53 ], [ %.pre.i55, %354 ]
-  %360 = phi ptr [ %347, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53 ], [ %359, %354 ]
-  %361 = getelementptr inbounds nuw i8, ptr %360, i64 2
-  store ptr %361, ptr %5, align 8
-  %362 = call noundef i16 @llvm.bswap.i16(i16 %346)
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i56: ; preds = %355, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53
+  %.pre-phi.i57 = phi i64 [ %350, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53 ], [ %.pre.i55, %355 ]
+  %361 = phi ptr [ %348, %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53 ], [ %360, %355 ]
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 2
+  store ptr %362, ptr %5, align 8
   %363 = and i64 %.pre-phi.i57, 1
   %364 = icmp eq i64 %363, 0
   br i1 %364, label %365, label %366
 
 365:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i56
-  store i16 %362, ptr %360, align 2
+  store i16 %347, ptr %361, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit58
 
 366:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i56
-  store i16 %362, ptr %360, align 1
+  store i16 %347, ptr %361, align 1
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit58
 
 _ZN27JvmtiClassFileReconstituter8write_u2Et.exit58: ; preds = %365, %366

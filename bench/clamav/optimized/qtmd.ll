@@ -2861,7 +2861,6 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %.lcssa91 = phi i32 [ %33, %.preheader ], [ 0, %.preheader56 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !37
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %38, i64 6
   %39 = zext nneg i32 %.lcssa91 to i64
   br label %64
 
@@ -2908,12 +2907,13 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
 
 64:                                               ; preds = %.lr.ph69, %64
   %indvars.iv84 = phi i64 [ %39, %.lr.ph69 ], [ %indvars.iv.next85, %64 ]
-  %gep = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %invariant.gep, i64 %indvars.iv84
-  %65 = load i16, ptr %gep, align 2, !tbaa !40
-  %66 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %38, i64 %indvars.iv84, i32 1
+  %65 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %38, i64 %indvars.iv84
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 6
   %67 = load i16, ptr %66, align 2, !tbaa !40
-  %68 = add i16 %67, %65
-  store i16 %68, ptr %66, align 2, !tbaa !40
+  %68 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %38, i64 %indvars.iv84, i32 1
+  %69 = load i16, ptr %68, align 2, !tbaa !40
+  %70 = add i16 %69, %67
+  store i16 %70, ptr %68, align 2, !tbaa !40
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, -1
   %.not97 = icmp eq i64 %indvars.iv84, 0
   br i1 %.not97, label %.loopexit, label %64

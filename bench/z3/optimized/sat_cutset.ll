@@ -74,11 +74,11 @@ define hidden noundef zeroext i1 @_ZN3sat7cut_set6insertERSt8functionIFvjRKNS_3c
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %14
 
-14:                                               ; preds = %.lr.ph, %.loopexit
-  %.01868 = phi i32 [ %9, %.lr.ph ], [ %.119.ph, %.loopexit ]
-  %.02167 = phi i32 [ 0, %.lr.ph ], [ %77, %.loopexit ]
+14:                                               ; preds = %.lr.ph, %_ZNK3sat3cut9subset_ofERKS0_.exit45
+  %.01859 = phi i32 [ %9, %.lr.ph ], [ %.119, %_ZNK3sat3cut9subset_ofERKS0_.exit45 ]
+  %.02158 = phi i32 [ 0, %.lr.ph ], [ %77, %_ZNK3sat3cut9subset_ofERKS0_.exit45 ]
   %15 = load ptr, ptr %11, align 8, !tbaa !11
-  %16 = zext i32 %.02167 to i64
+  %16 = zext i32 %.02158 to i64
   %17 = getelementptr inbounds nuw %"class.sat::cut", ptr %15, i64 %16
   %18 = load i32, ptr %3, align 8, !tbaa !12
   %19 = load i32, ptr %17, align 8, !tbaa !12
@@ -94,68 +94,68 @@ _ZNK3sat3cutixEj.exit.i:                          ; preds = %14
   %25 = zext i32 %24 to i64
   %.idx.i = shl nuw nsw i64 %25, 2
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
-  %.not3244.i = icmp eq i32 %24, 0
-  br i1 %.not3244.i, label %_ZNK3sat3cut9subset_ofERKS0_.exit45, label %.lr.ph48.i
+  %.not3241.i = icmp eq i32 %24, 0
+  br i1 %.not3241.i, label %.critedge, label %.lr.ph45.i
 
-.lr.ph48.i:                                       ; preds = %_ZNK3sat3cutixEj.exit.i
+.lr.ph45.i:                                       ; preds = %_ZNK3sat3cutixEj.exit.i
   %.not.i.not.i = icmp eq i32 %21, 0
   %27 = load i32, ptr %13, align 8
   %28 = select i1 %.not.i.not.i, i32 -1, i32 %27
   br label %29
 
-29:                                               ; preds = %45, %.lr.ph48.i
-  %.02447.i = phi i32 [ 0, %.lr.ph48.i ], [ %40, %45 ]
-  %.02746.i = phi ptr [ %22, %.lr.ph48.i ], [ %46, %45 ]
-  %.02845.i = phi i32 [ %28, %.lr.ph48.i ], [ %.230.ph.i, %45 ]
-  %30 = load i32, ptr %.02746.i, align 4, !tbaa !16
-  %31 = icmp ugt i32 %30, %.02845.i
+29:                                               ; preds = %_ZNK3sat3cutixEj.exit38.i, %.lr.ph45.i
+  %.02444.i = phi i32 [ 0, %.lr.ph45.i ], [ %40, %_ZNK3sat3cutixEj.exit38.i ]
+  %.02743.i = phi ptr [ %22, %.lr.ph45.i ], [ %46, %_ZNK3sat3cutixEj.exit38.i ]
+  %.02842.i = phi i32 [ %28, %.lr.ph45.i ], [ %45, %_ZNK3sat3cutixEj.exit38.i ]
+  %30 = load i32, ptr %.02743.i, align 4, !tbaa !16
+  %31 = icmp ugt i32 %30, %.02842.i
   br i1 %31, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %29
-  %32 = add i32 %.02447.i, 1
+  %32 = add i32 %.02444.i, 1
   %umax = tail call i32 @llvm.umax.i32(i32 %21, i32 %32)
   %33 = add i32 %umax, -1
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNK3sat3cutixEj.exit35.i
-  %.12542.i = phi i32 [ %34, %_ZNK3sat3cutixEj.exit35.i ], [ %.02447.i, %.lr.ph.i.preheader ]
-  %exitcond.not = icmp eq i32 %.12542.i, %33
-  br i1 %exitcond.not, label %._crit_edge.i, label %_ZNK3sat3cutixEj.exit35.i
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNK3sat3cutixEj.exit36.i
+  %.12539.i = phi i32 [ %34, %_ZNK3sat3cutixEj.exit36.i ], [ %.02444.i, %.lr.ph.i.preheader ]
+  %exitcond.not = icmp eq i32 %.12539.i, %33
+  br i1 %exitcond.not, label %._crit_edge.i, label %_ZNK3sat3cutixEj.exit36.i
 
-_ZNK3sat3cutixEj.exit35.i:                        ; preds = %.lr.ph.i
-  %34 = add i32 %.12542.i, 1
+_ZNK3sat3cutixEj.exit36.i:                        ; preds = %.lr.ph.i
+  %34 = add i32 %.12539.i, 1
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw [5 x i32], ptr %13, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !16
   %38 = icmp ugt i32 %30, %37
   br i1 %38, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
-._crit_edge.i:                                    ; preds = %_ZNK3sat3cutixEj.exit35.i, %.lr.ph.i, %29
-  %.129.lcssa.i = phi i32 [ %.02845.i, %29 ], [ %37, %_ZNK3sat3cutixEj.exit35.i ], [ -1, %.lr.ph.i ]
-  %.125.lcssa.i = phi i32 [ %.02447.i, %29 ], [ %34, %_ZNK3sat3cutixEj.exit35.i ], [ %umax, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %_ZNK3sat3cutixEj.exit36.i, %.lr.ph.i, %29
+  %.129.lcssa.i = phi i32 [ %.02842.i, %29 ], [ %37, %_ZNK3sat3cutixEj.exit36.i ], [ -1, %.lr.ph.i ]
+  %.125.lcssa.i = phi i32 [ %.02444.i, %29 ], [ %34, %_ZNK3sat3cutixEj.exit36.i ], [ %umax, %.lr.ph.i ]
   %.not33.i = icmp eq i32 %30, %.129.lcssa.i
   br i1 %.not33.i, label %39, label %_ZNK3sat3cut9subset_ofERKS0_.exit
 
 39:                                               ; preds = %._crit_edge.i
   %40 = add i32 %.125.lcssa.i, 1
-  %.not.i36.i = icmp ult i32 %40, %21
-  br i1 %.not.i36.i, label %41, label %45
+  %.not.i37.i = icmp ult i32 %40, %21
+  br i1 %.not.i37.i, label %41, label %_ZNK3sat3cutixEj.exit38.i
 
 41:                                               ; preds = %39
   %42 = zext i32 %40 to i64
   %43 = getelementptr inbounds nuw [5 x i32], ptr %13, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !16
-  br label %45
+  br label %_ZNK3sat3cutixEj.exit38.i
 
-45:                                               ; preds = %41, %39
-  %.230.ph.i = phi i32 [ -1, %39 ], [ %44, %41 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.02746.i, i64 4
+_ZNK3sat3cutixEj.exit38.i:                        ; preds = %41, %39
+  %45 = phi i32 [ %44, %41 ], [ -1, %39 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.02743.i, i64 4
   %.not32.i = icmp eq ptr %46, %26
-  br i1 %.not32.i, label %_ZNK3sat3cut9subset_ofERKS0_.exit45, label %29
+  br i1 %.not32.i, label %.critedge, label %29
 
 _ZNK3sat3cut9subset_ofERKS0_.exit:                ; preds = %._crit_edge.i, %14
   %.not.i24 = icmp eq i32 %19, %20
-  br i1 %.not.i24, label %_ZNK3sat3cutixEj.exit.i26, label %.loopexit
+  br i1 %.not.i24, label %_ZNK3sat3cutixEj.exit.i26, label %_ZNK3sat3cut9subset_ofERKS0_.exit45
 
 _ZNK3sat3cutixEj.exit.i26:                        ; preds = %_ZNK3sat3cut9subset_ofERKS0_.exit
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -164,69 +164,69 @@ _ZNK3sat3cutixEj.exit.i26:                        ; preds = %_ZNK3sat3cut9subset
   %50 = zext i32 %49 to i64
   %.idx.i27 = shl nuw nsw i64 %50, 2
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i27
-  %.not3244.i28 = icmp eq i32 %49, 0
-  br i1 %.not3244.i28, label %.loopexit59, label %.lr.ph48.i29
+  %.not3241.i28 = icmp eq i32 %49, 0
+  br i1 %.not3241.i28, label %.loopexit, label %.lr.ph45.i29
 
-.lr.ph48.i29:                                     ; preds = %_ZNK3sat3cutixEj.exit.i26
+.lr.ph45.i29:                                     ; preds = %_ZNK3sat3cutixEj.exit.i26
   %.not.i.not.i30 = icmp eq i32 %48, 0
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %53 = load i32, ptr %52, align 4
   %54 = select i1 %.not.i.not.i30, i32 -1, i32 %53
   br label %55
 
-55:                                               ; preds = %71, %.lr.ph48.i29
-  %.02447.i31 = phi i32 [ 0, %.lr.ph48.i29 ], [ %66, %71 ]
-  %.02746.i32 = phi ptr [ %13, %.lr.ph48.i29 ], [ %72, %71 ]
-  %.02845.i33 = phi i32 [ %54, %.lr.ph48.i29 ], [ %.230.ph.i39, %71 ]
-  %56 = load i32, ptr %.02746.i32, align 4, !tbaa !16
-  %57 = icmp ugt i32 %56, %.02845.i33
+55:                                               ; preds = %_ZNK3sat3cutixEj.exit38.i39, %.lr.ph45.i29
+  %.02444.i31 = phi i32 [ 0, %.lr.ph45.i29 ], [ %66, %_ZNK3sat3cutixEj.exit38.i39 ]
+  %.02743.i32 = phi ptr [ %13, %.lr.ph45.i29 ], [ %72, %_ZNK3sat3cutixEj.exit38.i39 ]
+  %.02842.i33 = phi i32 [ %54, %.lr.ph45.i29 ], [ %71, %_ZNK3sat3cutixEj.exit38.i39 ]
+  %56 = load i32, ptr %.02743.i32, align 4, !tbaa !16
+  %57 = icmp ugt i32 %56, %.02842.i33
   br i1 %57, label %.lr.ph.i41.preheader, label %._crit_edge.i34
 
 .lr.ph.i41.preheader:                             ; preds = %55
-  %58 = add i32 %.02447.i31, 1
-  %umax73 = tail call i32 @llvm.umax.i32(i32 %48, i32 %58)
-  %59 = add i32 %umax73, -1
+  %58 = add i32 %.02444.i31, 1
+  %umax64 = tail call i32 @llvm.umax.i32(i32 %48, i32 %58)
+  %59 = add i32 %umax64, -1
   br label %.lr.ph.i41
 
-.lr.ph.i41:                                       ; preds = %.lr.ph.i41.preheader, %_ZNK3sat3cutixEj.exit35.i44
-  %.12542.i42 = phi i32 [ %60, %_ZNK3sat3cutixEj.exit35.i44 ], [ %.02447.i31, %.lr.ph.i41.preheader ]
-  %exitcond74.not = icmp eq i32 %.12542.i42, %59
-  br i1 %exitcond74.not, label %._crit_edge.i34, label %_ZNK3sat3cutixEj.exit35.i44
+.lr.ph.i41:                                       ; preds = %.lr.ph.i41.preheader, %_ZNK3sat3cutixEj.exit36.i44
+  %.12539.i42 = phi i32 [ %60, %_ZNK3sat3cutixEj.exit36.i44 ], [ %.02444.i31, %.lr.ph.i41.preheader ]
+  %exitcond65.not = icmp eq i32 %.12539.i42, %59
+  br i1 %exitcond65.not, label %._crit_edge.i34, label %_ZNK3sat3cutixEj.exit36.i44
 
-_ZNK3sat3cutixEj.exit35.i44:                      ; preds = %.lr.ph.i41
-  %60 = add i32 %.12542.i42, 1
+_ZNK3sat3cutixEj.exit36.i44:                      ; preds = %.lr.ph.i41
+  %60 = add i32 %.12539.i42, 1
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds nuw [5 x i32], ptr %52, i64 0, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !16
   %64 = icmp ugt i32 %56, %63
   br i1 %64, label %.lr.ph.i41, label %._crit_edge.i34, !llvm.loop !17
 
-._crit_edge.i34:                                  ; preds = %_ZNK3sat3cutixEj.exit35.i44, %.lr.ph.i41, %55
-  %.129.lcssa.i35 = phi i32 [ %.02845.i33, %55 ], [ %63, %_ZNK3sat3cutixEj.exit35.i44 ], [ -1, %.lr.ph.i41 ]
-  %.125.lcssa.i36 = phi i32 [ %.02447.i31, %55 ], [ %60, %_ZNK3sat3cutixEj.exit35.i44 ], [ %umax73, %.lr.ph.i41 ]
+._crit_edge.i34:                                  ; preds = %_ZNK3sat3cutixEj.exit36.i44, %.lr.ph.i41, %55
+  %.129.lcssa.i35 = phi i32 [ %.02842.i33, %55 ], [ %63, %_ZNK3sat3cutixEj.exit36.i44 ], [ -1, %.lr.ph.i41 ]
+  %.125.lcssa.i36 = phi i32 [ %.02444.i31, %55 ], [ %60, %_ZNK3sat3cutixEj.exit36.i44 ], [ %umax64, %.lr.ph.i41 ]
   %.not33.i37 = icmp eq i32 %56, %.129.lcssa.i35
-  br i1 %.not33.i37, label %65, label %.loopexit
+  br i1 %.not33.i37, label %65, label %_ZNK3sat3cut9subset_ofERKS0_.exit45
 
 65:                                               ; preds = %._crit_edge.i34
   %66 = add i32 %.125.lcssa.i36, 1
-  %.not.i36.i38 = icmp ult i32 %66, %48
-  br i1 %.not.i36.i38, label %67, label %71
+  %.not.i37.i38 = icmp ult i32 %66, %48
+  br i1 %.not.i37.i38, label %67, label %_ZNK3sat3cutixEj.exit38.i39
 
 67:                                               ; preds = %65
   %68 = zext i32 %66 to i64
   %69 = getelementptr inbounds nuw [5 x i32], ptr %52, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !16
-  br label %71
+  br label %_ZNK3sat3cutixEj.exit38.i39
 
-71:                                               ; preds = %67, %65
-  %.230.ph.i39 = phi i32 [ -1, %65 ], [ %70, %67 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.02746.i32, i64 4
+_ZNK3sat3cutixEj.exit38.i39:                      ; preds = %67, %65
+  %71 = phi i32 [ %70, %67 ], [ -1, %65 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.02743.i32, i64 4
   %.not32.i40 = icmp eq ptr %72, %51
-  br i1 %.not32.i40, label %.loopexit59, label %55
+  br i1 %.not32.i40, label %.loopexit, label %55
 
-.loopexit59:                                      ; preds = %71, %_ZNK3sat3cutixEj.exit.i26
-  %73 = add i32 %.02167, -1
-  %74 = add i32 %.01868, -1
+.loopexit:                                        ; preds = %_ZNK3sat3cutixEj.exit38.i39, %_ZNK3sat3cutixEj.exit.i26
+  %73 = add i32 %.02158, -1
+  %74 = add i32 %.01859, -1
   %75 = zext i32 %74 to i64
   %76 = getelementptr inbounds nuw %"class.sat::cut", ptr %15, i64 %75
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
@@ -234,17 +234,17 @@ _ZNK3sat3cutixEj.exit35.i44:                      ; preds = %.lr.ph.i41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %76, i64 48, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  br label %.loopexit
+  br label %_ZNK3sat3cut9subset_ofERKS0_.exit45
 
-.loopexit:                                        ; preds = %._crit_edge.i34, %.loopexit59, %_ZNK3sat3cut9subset_ofERKS0_.exit
-  %.122.ph = phi i32 [ %.02167, %_ZNK3sat3cut9subset_ofERKS0_.exit ], [ %73, %.loopexit59 ], [ %.02167, %._crit_edge.i34 ]
-  %.119.ph = phi i32 [ %.01868, %_ZNK3sat3cut9subset_ofERKS0_.exit ], [ %74, %.loopexit59 ], [ %.01868, %._crit_edge.i34 ]
-  %77 = add i32 %.122.ph, 1
-  %.not = icmp ult i32 %77, %.119.ph
+_ZNK3sat3cut9subset_ofERKS0_.exit45:              ; preds = %._crit_edge.i34, %.loopexit, %_ZNK3sat3cut9subset_ofERKS0_.exit
+  %.122 = phi i32 [ %73, %.loopexit ], [ %.02158, %_ZNK3sat3cut9subset_ofERKS0_.exit ], [ %.02158, %._crit_edge.i34 ]
+  %.119 = phi i32 [ %74, %.loopexit ], [ %.01859, %_ZNK3sat3cut9subset_ofERKS0_.exit ], [ %.01859, %._crit_edge.i34 ]
+  %77 = add i32 %.122, 1
+  %.not = icmp ult i32 %77, %.119
   br i1 %.not, label %14, label %._crit_edge, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %.loopexit, %4
-  %.021.lcssa = phi i32 [ 0, %4 ], [ %77, %.loopexit ]
+._crit_edge:                                      ; preds = %_ZNK3sat3cut9subset_ofERKS0_.exit45, %4
+  %.021.lcssa = phi i32 [ 0, %4 ], [ %77, %_ZNK3sat3cut9subset_ofERKS0_.exit45 ]
   tail call void @_ZN3sat7cut_set9push_backERSt8functionIFvjRKNS_3cutEEES4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %79 = load ptr, ptr %78, align 8, !tbaa !11
@@ -305,10 +305,10 @@ _ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i:  ; preds = %95
 
 _ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit: ; preds = %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i, %._crit_edge, %88
   store i32 %80, ptr %8, align 8, !tbaa !3
-  br label %_ZNK3sat3cut9subset_ofERKS0_.exit45
+  br label %.critedge
 
-_ZNK3sat3cut9subset_ofERKS0_.exit45:              ; preds = %_ZNK3sat3cutixEj.exit.i, %45, %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit
-  %105 = phi i1 [ true, %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit ], [ false, %45 ], [ false, %_ZNK3sat3cutixEj.exit.i ]
+.critedge:                                        ; preds = %_ZNK3sat3cutixEj.exit.i, %_ZNK3sat3cutixEj.exit38.i, %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit
+  %105 = phi i1 [ true, %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit ], [ false, %_ZNK3sat3cutixEj.exit38.i ], [ false, %_ZNK3sat3cutixEj.exit.i ]
   ret i1 %105
 }
 

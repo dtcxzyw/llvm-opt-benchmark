@@ -39,7 +39,7 @@ define dso_local void @rhash_sha1_update(ptr noundef captures(none) %0, ptr noun
   %.not43 = icmp ult i64 %2, %13
   %14 = tail call i64 @llvm.umin.i64(i64 %2, i64 %13)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %1, i64 %14, i1 false)
-  br i1 %.not43, label %.thread, label %15
+  br i1 %.not43, label %.critedge, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -55,26 +55,26 @@ define dso_local void @rhash_sha1_update(ptr noundef captures(none) %0, ptr noun
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %19
-  %.03551 = ptrtoint ptr %.035 to i64
+  %.03549 = ptrtoint ptr %.035 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %22 = and i64 %.03551, 3
+  %22 = and i64 %.03549, 3
   %23 = icmp eq i64 %22, 0
   br label %24
 
 24:                                               ; preds = %.lr.ph, %26
-  %.248 = phi ptr [ %.035, %.lr.ph ], [ %27, %26 ]
-  %.23847 = phi i64 [ %.036, %.lr.ph ], [ %28, %26 ]
+  %.246 = phi ptr [ %.035, %.lr.ph ], [ %27, %26 ]
+  %.23845 = phi i64 [ %.036, %.lr.ph ], [ %28, %26 ]
   br i1 %23, label %26, label %25
 
 25:                                               ; preds = %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 dereferenceable(64) %.248, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 dereferenceable(64) %.246, i64 64, i1 false)
   br label %26
 
 26:                                               ; preds = %24, %25
-  %.0 = phi ptr [ %0, %25 ], [ %.248, %24 ]
+  %.0 = phi ptr [ %0, %25 ], [ %.246, %24 ]
   tail call fastcc void @rhash_sha1_process_block(ptr noundef nonnull %21, ptr noundef %.0)
-  %27 = getelementptr inbounds nuw i8, ptr %.248, i64 64
-  %28 = add i64 %.23847, -64
+  %27 = getelementptr inbounds nuw i8, ptr %.246, i64 64
+  %28 = add i64 %.23845, -64
   %29 = icmp ugt i64 %28, 63
   br i1 %29, label %24, label %._crit_edge, !llvm.loop !11
 
@@ -82,13 +82,13 @@ define dso_local void @rhash_sha1_update(ptr noundef captures(none) %0, ptr noun
   %.238.lcssa = phi i64 [ %.036, %19 ], [ %28, %26 ]
   %.2.lcssa = phi ptr [ %.035, %19 ], [ %27, %26 ]
   %.not44 = icmp eq i64 %.238.lcssa, 0
-  br i1 %.not44, label %.thread, label %30
+  br i1 %.not44, label %.critedge, label %30
 
 30:                                               ; preds = %._crit_edge
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr align 1 %.2.lcssa, i64 %.238.lcssa, i1 false)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %9, %._crit_edge, %30
+.critedge:                                        ; preds = %9, %._crit_edge, %30
   ret void
 }
 

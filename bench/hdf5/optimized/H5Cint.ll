@@ -591,8 +591,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__insert_new
   %62 = add i32 %61, 1
   store i32 %62, ptr %60, align 8, !tbaa !91
   %.idx = mul nuw nsw i64 %indvars.iv, 248
-  %63 = getelementptr i8, ptr %0, i64 525136
-  %64 = getelementptr i8, ptr %63, i64 %.idx
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 525136
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx
   %65 = load i64, ptr %64, align 8, !tbaa !92
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 524816
   %67 = load i64, ptr %66, align 8, !tbaa !93

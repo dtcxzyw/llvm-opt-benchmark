@@ -837,93 +837,93 @@ memCompare.exit64.thread:                         ; preds = %56, %66, %memCompar
 
 ; Function Attrs: nounwind uwtable
 define void @luckyCanonicizer(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -8
   %8 = shl nuw i32 1, %3
   br label %9
 
 9:                                                ; preds = %7, %minimalInitialFlip.exit
   %10 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
   %11 = sext i32 %10 to i64
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %11
-  %12 = load i64, ptr %gep, align 8, !tbaa !3
-  %.not.i = icmp sgt i64 %12, -1
-  br i1 %.not.i, label %minimalInitialFlip.exit, label %13
+  %12 = getelementptr i64, ptr %0, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -8
+  %14 = load i64, ptr %13, align 8, !tbaa !3
+  %.not.i = icmp sgt i64 %14, -1
+  br i1 %.not.i, label %minimalInitialFlip.exit, label %15
 
-13:                                               ; preds = %9
+15:                                               ; preds = %9
   tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #19
-  %14 = load i32, ptr %6, align 4, !tbaa !29
-  %15 = xor i32 %14, %8
-  store i32 %15, ptr %6, align 4, !tbaa !29
+  %16 = load i32, ptr %6, align 4, !tbaa !29
+  %17 = xor i32 %16, %8
+  store i32 %17, ptr %6, align 4, !tbaa !29
   br label %minimalInitialFlip.exit
 
-minimalInitialFlip.exit:                          ; preds = %9, %13
-  %.0.i = phi i32 [ 1, %13 ], [ 0, %9 ]
-  %16 = tail call i32 @minimalFlip(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %6)
-  %17 = add nuw nsw i32 %16, %.0.i
-  %18 = tail call i32 @minimalSwap(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %19 = or i32 %17, %18
-  %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %20, label %9, !llvm.loop !33
+minimalInitialFlip.exit:                          ; preds = %9, %15
+  %.0.i = phi i32 [ 1, %15 ], [ 0, %9 ]
+  %18 = tail call i32 @minimalFlip(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %6)
+  %19 = add nuw nsw i32 %18, %.0.i
+  %20 = tail call i32 @minimalSwap(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %21 = or i32 %19, %20
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %22, label %9, !llvm.loop !33
 
-20:                                               ; preds = %minimalInitialFlip.exit
+22:                                               ; preds = %minimalInitialFlip.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @luckyCanonicizer1_simple(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readnone captures(none) %4, i32 noundef returned %5) local_unnamed_addr #0 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -8
   br label %7
 
 7:                                                ; preds = %6, %minimalInitialFlip1.exit
   %8 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
   %9 = sext i32 %8 to i64
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %9
-  %10 = load i64, ptr %gep, align 8, !tbaa !3
-  %.not.i = icmp sgt i64 %10, -1
-  br i1 %.not.i, label %minimalInitialFlip1.exit, label %11
+  %10 = getelementptr i64, ptr %0, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 -8
+  %12 = load i64, ptr %11, align 8, !tbaa !3
+  %.not.i = icmp sgt i64 %12, -1
+  br i1 %.not.i, label %minimalInitialFlip1.exit, label %13
 
-11:                                               ; preds = %7
+13:                                               ; preds = %7
   tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #19
   br label %minimalInitialFlip1.exit
 
-minimalInitialFlip1.exit:                         ; preds = %7, %11
-  %.0.i = phi i32 [ 1, %11 ], [ 0, %7 ]
-  %12 = tail call i32 @minimalFlip1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
-  %13 = add nuw nsw i32 %12, %.0.i
-  %14 = tail call i32 @minimalSwap1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
-  %15 = or i32 %13, %14
-  %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %16, label %7, !llvm.loop !34
+minimalInitialFlip1.exit:                         ; preds = %7, %13
+  %.0.i = phi i32 [ 1, %13 ], [ 0, %7 ]
+  %14 = tail call i32 @minimalFlip1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  %15 = add nuw nsw i32 %14, %.0.i
+  %16 = tail call i32 @minimalSwap1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  %17 = or i32 %15, %16
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %18, label %7, !llvm.loop !34
 
-16:                                               ; preds = %minimalInitialFlip1.exit
+18:                                               ; preds = %minimalInitialFlip1.exit
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define void @luckyCanonicizer_final(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call void @Kit_TruthSemiCanonicize_Yasha_simple(ptr noundef %0, i32 noundef %3, ptr noundef null) #19
-  %invariant.gep.i = getelementptr i8, ptr %0, i64 -8
   br label %5
 
 5:                                                ; preds = %minimalInitialFlip1.exit.i, %4
   %6 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #19
   %7 = sext i32 %6 to i64
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %7
-  %8 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %.not.i.i = icmp sgt i64 %8, -1
-  br i1 %.not.i.i, label %minimalInitialFlip1.exit.i, label %9
+  %8 = getelementptr i64, ptr %0, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -8
+  %10 = load i64, ptr %9, align 8, !tbaa !3
+  %.not.i.i = icmp sgt i64 %10, -1
+  br i1 %.not.i.i, label %minimalInitialFlip1.exit.i, label %11
 
-9:                                                ; preds = %5
+11:                                               ; preds = %5
   tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #19
   br label %minimalInitialFlip1.exit.i
 
-minimalInitialFlip1.exit.i:                       ; preds = %9, %5
-  %.0.i.i = phi i32 [ 1, %9 ], [ 0, %5 ]
-  %10 = tail call i32 @minimalFlip1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
-  %11 = add nuw nsw i32 %10, %.0.i.i
-  %12 = tail call i32 @minimalSwap1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
-  %13 = or i32 %11, %12
-  %.not.i = icmp eq i32 %13, 0
+minimalInitialFlip1.exit.i:                       ; preds = %11, %5
+  %.0.i.i = phi i32 [ 1, %11 ], [ 0, %5 ]
+  %12 = tail call i32 @minimalFlip1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  %13 = add nuw nsw i32 %12, %.0.i.i
+  %14 = tail call i32 @minimalSwap1(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+  %15 = or i32 %13, %14
+  %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %luckyCanonicizer1_simple.exit, label %5, !llvm.loop !34
 
 luckyCanonicizer1_simple.exit:                    ; preds = %minimalInitialFlip1.exit.i
@@ -944,41 +944,41 @@ define i32 @Kit_TruthSemiCanonicize_new_internal(ptr noundef %0, i32 noundef %1,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #19
   %8 = tail call i32 @Kit_TruthSemiCanonicize_Yasha(ptr noundef %0, i32 noundef %1, ptr noundef %2) #19
   store i32 %8, ptr %7, align 4, !tbaa !29
-  %invariant.gep.i = getelementptr i8, ptr %0, i64 -8
   %9 = shl nuw i32 1, %1
   br label %10
 
 10:                                               ; preds = %minimalInitialFlip.exit.i, %3
   %11 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #19
   %12 = sext i32 %11 to i64
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %12
-  %13 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %.not.i.i = icmp sgt i64 %13, -1
-  br i1 %.not.i.i, label %minimalInitialFlip.exit.i, label %14
+  %13 = getelementptr i64, ptr %0, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 -8
+  %15 = load i64, ptr %14, align 8, !tbaa !3
+  %.not.i.i = icmp sgt i64 %15, -1
+  br i1 %.not.i.i, label %minimalInitialFlip.exit.i, label %16
 
-14:                                               ; preds = %10
+16:                                               ; preds = %10
   tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #19
-  %15 = load i32, ptr %7, align 4, !tbaa !29
-  %16 = xor i32 %15, %9
-  store i32 %16, ptr %7, align 4, !tbaa !29
+  %17 = load i32, ptr %7, align 4, !tbaa !29
+  %18 = xor i32 %17, %9
+  store i32 %18, ptr %7, align 4, !tbaa !29
   br label %minimalInitialFlip.exit.i
 
-minimalInitialFlip.exit.i:                        ; preds = %14, %10
-  %.0.i.i = phi i32 [ 1, %14 ], [ 0, %10 ]
-  %17 = call i32 @minimalFlip(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %1, ptr noundef nonnull %7)
-  %18 = add nuw nsw i32 %17, %.0.i.i
-  %19 = call i32 @minimalSwap(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %20 = or i32 %18, %19
-  %.not.i = icmp eq i32 %20, 0
+minimalInitialFlip.exit.i:                        ; preds = %16, %10
+  %.0.i.i = phi i32 [ 1, %16 ], [ 0, %10 ]
+  %19 = call i32 @minimalFlip(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %1, ptr noundef nonnull %7)
+  %20 = add nuw nsw i32 %19, %.0.i.i
+  %21 = call i32 @minimalSwap(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %22 = or i32 %20, %21
+  %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %luckyCanonicizer.exit, label %10, !llvm.loop !33
 
 luckyCanonicizer.exit:                            ; preds = %minimalInitialFlip.exit.i
-  %21 = load i32, ptr %7, align 4, !tbaa !29
+  %23 = load i32, ptr %7, align 4, !tbaa !29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4) #19
-  ret i32 %21
+  ret i32 %23
 }
 
 declare i32 @Kit_TruthSemiCanonicize_Yasha(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2

@@ -1484,8 +1484,8 @@ _ZN15BytecodePrinter17get_index_specialEv.exit136: ; preds = %170, %174
   %258 = load ptr, ptr %257, align 8
   %259 = zext i16 %.0.i.i.i145 to i64
   %.idx157 = mul nuw nsw i64 %259, 24
-  %260 = getelementptr i8, ptr %258, i64 22
-  %261 = getelementptr i8, ptr %260, i64 %.idx157
+  %260 = getelementptr inbounds nuw i8, ptr %258, i64 22
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 %.idx157
   %262 = load i16, ptr %261, align 2
   br label %266
 
@@ -1591,8 +1591,8 @@ _ZN15BytecodePrinter17get_index_specialEv.exit136: ; preds = %170, %174
   %328 = load ptr, ptr %327, align 8
   %329 = zext i16 %.0.i.i.i149 to i64
   %.idx154 = mul nuw nsw i64 %329, 24
-  %330 = getelementptr i8, ptr %328, i64 24
-  %331 = getelementptr i8, ptr %330, i64 %.idx154
+  %330 = getelementptr inbounds nuw i8, ptr %328, i64 24
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 %.idx154
   %332 = load i16, ptr %331, align 8
   br label %335
 

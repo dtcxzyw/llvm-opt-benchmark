@@ -406,8 +406,8 @@ define void @_ZN4YAML11NodeBuilderD0Ev(ptr noundef nonnull align 8 dereferenceab
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder4RootEv(ptr dead_on_unwind noalias writable sret(%"class.YAML::Node") align 8 initializes((0, 1)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN4YAML11NodeBuilder4RootEv(ptr dead_on_unwind noalias writable sret(%"class.YAML::Node") align 8 initializes((0, 1)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !47
   %.not = icmp eq ptr %4, null

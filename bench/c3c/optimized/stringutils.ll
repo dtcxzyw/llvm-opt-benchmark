@@ -662,24 +662,24 @@ define dso_local void @slice_trim(ptr noundef captures(none) %0) local_unnamed_a
   store ptr %8, ptr %0, align 8
   %9 = sub i64 %3, %.0.lcssa
   store i64 %9, ptr %2, align 8
-  %invariant.gep = getelementptr i8, ptr %8, i64 -1
   %.not1523 = icmp eq i64 %9, 0
   br i1 %.not1523, label %._crit_edge27, label %.lr.ph26
 
-.lr.ph26:                                         ; preds = %._crit_edge, %11
-  %.124 = phi i64 [ %12, %11 ], [ %9, %._crit_edge ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.124
-  %10 = load i8, ptr %gep, align 1
-  %.not16 = icmp eq i8 %10, 32
-  br i1 %.not16, label %11, label %._crit_edge27
+.lr.ph26:                                         ; preds = %._crit_edge, %13
+  %.124 = phi i64 [ %14, %13 ], [ %9, %._crit_edge ]
+  %10 = getelementptr i8, ptr %8, i64 %.124
+  %11 = getelementptr i8, ptr %10, i64 -1
+  %12 = load i8, ptr %11, align 1
+  %.not16 = icmp eq i8 %12, 32
+  br i1 %.not16, label %13, label %._crit_edge27
 
-11:                                               ; preds = %.lr.ph26
-  %12 = add i64 %.124, -1
-  %.not15 = icmp eq i64 %12, 0
+13:                                               ; preds = %.lr.ph26
+  %14 = add i64 %.124, -1
+  %.not15 = icmp eq i64 %14, 0
   br i1 %.not15, label %._crit_edge27, label %.lr.ph26, !llvm.loop !19
 
-._crit_edge27:                                    ; preds = %11, %.lr.ph26, %._crit_edge
-  %.1.lcssa = phi i64 [ 0, %._crit_edge ], [ %.124, %.lr.ph26 ], [ 0, %11 ]
+._crit_edge27:                                    ; preds = %13, %.lr.ph26, %._crit_edge
+  %.1.lcssa = phi i64 [ 0, %._crit_edge ], [ %.124, %.lr.ph26 ], [ 0, %13 ]
   store i64 %.1.lcssa, ptr %2, align 8
   ret void
 }

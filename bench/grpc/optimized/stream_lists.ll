@@ -144,8 +144,8 @@ define internal fastcc noundef zeroext i1 @_ZL15stream_list_addP21grpc_chttp2_tr
   store ptr %0, ptr %5, align 8, !tbaa !137
   %13 = zext nneg i32 %2 to i64
   %.idx.i = shl nuw nsw i64 %13, 4
-  %14 = getelementptr i8, ptr %0, i64 512
-  %15 = getelementptr i8, ptr %14, i64 %.idx.i
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i
   %16 = load ptr, ptr %15, align 8, !tbaa !138
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = getelementptr inbounds nuw [5 x %struct.grpc_chttp2_stream_link], ptr %17, i64 0, i64 %13
@@ -298,10 +298,10 @@ define internal fastcc noundef zeroext i1 @_ZL15stream_list_popP21grpc_chttp2_tr
   %23 = load ptr, ptr %22, align 8, !tbaa !140
   %.not = icmp eq ptr %23, null
   %.idx = shl nuw nsw i64 %10, 4
-  %24 = getelementptr i8, ptr %23, i64 72
-  %25 = getelementptr i8, ptr %0, i64 512
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %.sink36 = select i1 %.not, ptr %25, ptr %24
-  %26 = getelementptr i8, ptr %.sink36, i64 %.idx
+  %26 = getelementptr inbounds nuw i8, ptr %.sink36, i64 %.idx
   store ptr null, ptr %26, align 8, !tbaa !345
   store ptr %23, ptr %11, align 8, !tbaa !143
   %27 = xor i8 %18, -1
@@ -453,10 +453,10 @@ define internal fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_
   %33 = phi ptr [ %31, %.critedge51.i ], [ %23, %22 ]
   %.not47.i = icmp eq ptr %33, null
   %.idx.i = shl nuw nsw i64 %18, 4
-  %34 = getelementptr i8, ptr %0, i64 512
-  %35 = getelementptr i8, ptr %33, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %.sink62.i = select i1 %.not47.i, ptr %34, ptr %35
-  %36 = getelementptr i8, ptr %.sink62.i, i64 %.idx.i
+  %36 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 %.idx.i
   store ptr %21, ptr %36, align 8, !tbaa !345
   %37 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core24http2_stream_state_traceE, i64 16) monotonic, align 8
   %38 = trunc i8 %37 to i1

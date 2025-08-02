@@ -1963,9 +1963,9 @@ png_gamma_threshold.exit:                         ; preds = %8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %94 = load i16, ptr %93, align 8, !alias.scope !96
   %.not.i447 = icmp eq i16 %94, 0
-  br i1 %.not.i447, label %.loopexit44.thread.i, label %.preheader.i
+  br i1 %.not.i447, label %.loopexit42.thread.i, label %.preheader.i
 
-.loopexit44.thread.i:                             ; preds = %92
+.loopexit42.thread.i:                             ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %96 = load i32, ptr %95, align 8, !alias.scope !96
   %97 = and i32 %96, -8193
@@ -1980,10 +1980,10 @@ png_gamma_threshold.exit:                         ; preds = %8
 
 100:                                              ; preds = %104, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %104 ]
-  %.147.i = phi i32 [ 0, %.preheader.i ], [ %.2.i, %104 ]
+  %.144.i = phi i32 [ 0, %.preheader.i ], [ %.2.i, %104 ]
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 %indvars.iv.i
   %102 = load i8, ptr %101, align 1, !noalias !96
-  switch i8 %102, label %.loopexit45.i [
+  switch i8 %102, label %.critedge.i [
     i8 -1, label %104
     i8 0, label %103
   ]
@@ -1992,12 +1992,12 @@ png_gamma_threshold.exit:                         ; preds = %8
   br label %104
 
 104:                                              ; preds = %103, %100
-  %.2.i = phi i32 [ %.147.i, %100 ], [ 1, %103 ]
+  %.2.i = phi i32 [ %.144.i, %100 ], [ 1, %103 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit44.i, label %100, !llvm.loop !99
+  br i1 %exitcond.not.i, label %.loopexit42.i, label %100, !llvm.loop !99
 
-.loopexit44.i:                                    ; preds = %104
+.loopexit42.i:                                    ; preds = %104
   %105 = icmp eq i32 %.2.i, 0
   %106 = and i32 %60, -8388609
   store i32 %106, ptr %37, align 4, !alias.scope !96
@@ -2005,20 +2005,20 @@ png_gamma_threshold.exit:                         ; preds = %8
   %108 = load i32, ptr %107, align 8, !alias.scope !96
   %109 = and i32 %108, -8193
   store i32 %109, ptr %107, align 8, !alias.scope !96
-  br i1 %105, label %110, label %.loopexit45.i
+  br i1 %105, label %110, label %.critedge.i
 
-110:                                              ; preds = %.loopexit44.i, %.loopexit44.thread.i
+110:                                              ; preds = %.loopexit42.i, %.loopexit42.thread.i
   %111 = and i32 %60, -8388993
   store i32 %111, ptr %37, align 4, !alias.scope !96
-  br label %.loopexit45.i
+  br label %.critedge.i
 
-.loopexit45.i:                                    ; preds = %100, %110, %.loopexit44.i
-  %112 = phi i32 [ %106, %.loopexit44.i ], [ %111, %110 ], [ %60, %100 ]
+.critedge.i:                                      ; preds = %100, %110, %.loopexit42.i
+  %112 = phi i32 [ %106, %.loopexit42.i ], [ %111, %110 ], [ %60, %100 ]
   %113 = and i32 %112, 4352
   %or.cond.not.i = icmp eq i32 %113, 4352
   br i1 %or.cond.not.i, label %114, label %png_init_palette_transformations.exit
 
-114:                                              ; preds = %.loopexit45.i
+114:                                              ; preds = %.critedge.i
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %116 = load ptr, ptr %115, align 8, !alias.scope !96
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -2047,18 +2047,18 @@ png_gamma_threshold.exit:                         ; preds = %8
 .lr.ph.i:                                         ; preds = %114
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %134 = load ptr, ptr %133, align 8, !alias.scope !96
-  %wide.trip.count55.i = zext i16 %94 to i64
+  %wide.trip.count52.i = zext i16 %94 to i64
   br label %135
 
 135:                                              ; preds = %135, %.lr.ph.i
-  %indvars.iv52.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next53.i, %135 ]
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %indvars.iv52.i
+  %indvars.iv49.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next50.i, %135 ]
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %indvars.iv49.i
   %137 = load i8, ptr %136, align 1, !noalias !96
   %138 = xor i8 %137, -1
   store i8 %138, ptr %136, align 1, !noalias !96
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count55.i
-  br i1 %exitcond56.not.i, label %png_init_palette_transformations.exit.loopexit, label %135, !llvm.loop !100
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
+  br i1 %exitcond53.not.i, label %png_init_palette_transformations.exit.loopexit, label %135, !llvm.loop !100
 
 139:                                              ; preds = %88
   %140 = and i8 %90, 4
@@ -2145,8 +2145,8 @@ png_init_palette_transformations.exit.loopexit:   ; preds = %135
   %.pre506 = load i32, ptr %37, align 4
   br label %png_init_palette_transformations.exit
 
-png_init_palette_transformations.exit:            ; preds = %png_init_palette_transformations.exit.loopexit, %177, %171, %._crit_edge.i, %114, %.loopexit45.i
-  %181 = phi i32 [ %.pre506, %png_init_palette_transformations.exit.loopexit ], [ %151, %177 ], [ %151, %171 ], [ %151, %._crit_edge.i ], [ %112, %114 ], [ %112, %.loopexit45.i ]
+png_init_palette_transformations.exit:            ; preds = %png_init_palette_transformations.exit.loopexit, %177, %171, %._crit_edge.i, %114, %.critedge.i
+  %181 = phi i32 [ %.pre506, %png_init_palette_transformations.exit.loopexit ], [ %151, %177 ], [ %151, %171 ], [ %151, %._crit_edge.i ], [ %112, %114 ], [ %112, %.critedge.i ]
   %182 = and i32 %181, 896
   %or.cond439 = icmp eq i32 %182, 640
   br i1 %or.cond439, label %183, label %215

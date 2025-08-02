@@ -1542,7 +1542,7 @@ define internal fastcc void @sk_stream_moderate_sndbuf(ptr noundef %0) unnamed_a
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %22, label %16, !prof !13
+  br i1 %15, label %23, label %16, !prof !13
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -1550,16 +1550,16 @@ define internal fastcc void @sk_stream_moderate_sndbuf(ptr noundef %0) unnamed_a
   %19 = add i32 %10, %18
   %20 = sub i32 %14, %19
   %21 = tail call i32 @llvm.smax.i32(i32 %20, i32 0)
-  br label %22
+  %22 = tail call i32 @llvm.umax.i32(i32 %12, i32 %21)
+  br label %23
 
-22:                                               ; preds = %16, %6
-  %23 = phi i32 [ %21, %16 ], [ 0, %6 ]
-  %24 = tail call i32 @llvm.umax.i32(i32 %12, i32 %23)
+23:                                               ; preds = %16, %6
+  %24 = phi i32 [ %22, %16 ], [ %12, %6 ]
   %25 = tail call i32 @llvm.umax.i32(i32 %24, i32 4608)
   store volatile i32 %25, ptr %7, align 4
   br label %26
 
-26:                                               ; preds = %22, %1
+26:                                               ; preds = %23, %1
   ret void
 }
 

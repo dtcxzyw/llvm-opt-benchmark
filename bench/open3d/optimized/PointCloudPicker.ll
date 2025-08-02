@@ -459,8 +459,8 @@ declare void @_ZN6open3d8geometry19OrientedBoundingBox16CreateFromPointsERKSt6ve
 
 declare void @_ZN6open3d8geometry19OrientedBoundingBox23CreateFromPointsMinimalERKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEb(ptr dead_on_unwind writable sret(%"class.open3d::geometry::OrientedBoundingBox") align 8, ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #5
 
-; Function Attrs: mustprogress ssp uwtable
-define noundef zeroext i1 @_ZN6open3d13visualization16PointCloudPicker13SetPointCloudESt10shared_ptrIKNS_8geometry8GeometryEE(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind ssp uwtable
+define noundef zeroext i1 @_ZN6open3d13visualization16PointCloudPicker13SetPointCloudESt10shared_ptrIKNS_8geometry8GeometryEE(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !30
   %.not2 = icmp eq ptr %3, null
   br i1 %.not2, label %_ZNSt10shared_ptrIKN6open3d8geometry8GeometryEEaSERKS4_.exit, label %4

@@ -35,54 +35,54 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.not92 = icmp eq ptr %10, null
-  br i1 %.not92, label %._crit_edge, label %.lr.ph
+  br i1 %.not92, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load i32, ptr %11, align 4
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph112, label %._crit_edge
+  br i1 %14, label %.lr.ph108, label %.critedge
 
-._crit_edge:                                      ; preds = %36, %.lr.ph, %8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %.not94 = icmp eq ptr %16, null
-  br i1 %.not94, label %._crit_edge116, label %.lr.ph115
-
-.lr.ph115:                                        ; preds = %._crit_edge
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %19 = load i32, ptr %17, align 4
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph119, label %._crit_edge116
-
-.lr.ph112:                                        ; preds = %.lr.ph, %36
+.lr.ph108:                                        ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph ]
-  %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv
+  %15 = load ptr, ptr %12, align 8
+  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
-  %29 = load ptr, ptr %28, align 8
-  %.not101 = icmp eq ptr %29, null
+  %.not101 = icmp eq ptr %23, null
   br i1 %.not101, label %32, label %30
 
-30:                                               ; preds = %.lr.ph112
+.critedge:                                        ; preds = %36, %.lr.ph, %8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %.not94 = icmp eq ptr %25, null
+  br i1 %.not94, label %.critedge104, label %.lr.ph110
+
+.lr.ph110:                                        ; preds = %.critedge
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %28 = load i32, ptr %26, align 4
+  %29 = icmp sgt i32 %28, 0
+  br i1 %29, label %.lr.ph113, label %.critedge104
+
+30:                                               ; preds = %.lr.ph108
   %31 = load ptr, ptr %6, align 8
-  tail call void @UpdateChangedParamSet(ptr noundef nonnull %25, ptr noundef %31) #6
+  tail call void @UpdateChangedParamSet(ptr noundef nonnull %19, ptr noundef %31) #6
   br label %32
 
-32:                                               ; preds = %30, %.lr.ph112
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 104
+32:                                               ; preds = %30, %.lr.ph108
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %34 = load ptr, ptr %33, align 8
   %.not102 = icmp eq ptr %34, null
   br i1 %.not102, label %36, label %35
 
 35:                                               ; preds = %32
-  tail call void @ExecReScanSetParamPlan(ptr noundef nonnull %23, ptr noundef %0) #6
+  tail call void @ExecReScanSetParamPlan(ptr noundef nonnull %17, ptr noundef %0) #6
   br label %36
 
 36:                                               ; preds = %35, %32
@@ -90,48 +90,48 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   %37 = load i32, ptr %11, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph112, label %._crit_edge
+  br i1 %39, label %.lr.ph108, label %.critedge
 
-._crit_edge116:                                   ; preds = %54, %.lr.ph115, %._crit_edge
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %41 = load ptr, ptr %40, align 8
-  %.not96 = icmp eq ptr %41, null
-  br i1 %.not96, label %60, label %58
-
-.lr.ph119:                                        ; preds = %.lr.ph115, %54
-  %42 = phi i32 [ %55, %54 ], [ %19, %.lr.ph115 ]
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %54 ], [ 0, %.lr.ph115 ]
-  %43 = load ptr, ptr %18, align 8
-  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv121
+.lr.ph113:                                        ; preds = %.lr.ph110, %54
+  %40 = phi i32 [ %55, %54 ], [ %28, %.lr.ph110 ]
+  %indvars.iv115 = phi i64 [ %indvars.iv.next116, %54 ], [ 0, %.lr.ph110 ]
+  %41 = load ptr, ptr %27, align 8
+  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv115
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 88
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 88
-  %51 = load ptr, ptr %50, align 8
-  %.not100 = icmp eq ptr %51, null
+  %.not100 = icmp eq ptr %49, null
   br i1 %.not100, label %54, label %52
 
-52:                                               ; preds = %.lr.ph119
+.critedge104:                                     ; preds = %54, %.lr.ph110, %.critedge
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %51 = load ptr, ptr %50, align 8
+  %.not96 = icmp eq ptr %51, null
+  br i1 %.not96, label %60, label %58
+
+52:                                               ; preds = %.lr.ph113
   %53 = load ptr, ptr %6, align 8
-  tail call void @UpdateChangedParamSet(ptr noundef nonnull %47, ptr noundef %53) #6
-  %.pre = load i32, ptr %17, align 4
+  tail call void @UpdateChangedParamSet(ptr noundef nonnull %45, ptr noundef %53) #6
+  %.pre = load i32, ptr %26, align 4
   br label %54
 
-54:                                               ; preds = %52, %.lr.ph119
-  %55 = phi i32 [ %.pre, %52 ], [ %42, %.lr.ph119 ]
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
+54:                                               ; preds = %52, %.lr.ph113
+  %55 = phi i32 [ %.pre, %52 ], [ %40, %.lr.ph113 ]
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next122, %56
-  br i1 %57, label %.lr.ph119, label %._crit_edge116
+  %57 = icmp slt i64 %indvars.iv.next116, %56
+  br i1 %57, label %.lr.ph113, label %.critedge104
 
-58:                                               ; preds = %._crit_edge116
+58:                                               ; preds = %.critedge104
   %59 = load ptr, ptr %6, align 8
-  tail call void @UpdateChangedParamSet(ptr noundef nonnull %41, ptr noundef %59) #6
+  tail call void @UpdateChangedParamSet(ptr noundef nonnull %51, ptr noundef %59) #6
   br label %60
 
-60:                                               ; preds = %58, %._crit_edge116
+60:                                               ; preds = %58, %.critedge104
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %62 = load ptr, ptr %61, align 8
   %.not97 = icmp eq ptr %62, null

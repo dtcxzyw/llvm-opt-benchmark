@@ -134,7 +134,6 @@ define range(i32 0, 2) i32 @ossl_gcm_get_ctx_params(ptr noundef %0, ptr noundef 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 85
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %invariant.gep = getelementptr i8, ptr %0, i64 77
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 213
@@ -143,8 +142,8 @@ define range(i32 0, 2) i32 @ossl_gcm_get_ctx_params(ptr noundef %0, ptr noundef 
   br label %13
 
 13:                                               ; preds = %.lr.ph, %.critedge
-  %14 = phi ptr [ %3, %.lr.ph ], [ %103, %.critedge ]
-  %.05276 = phi ptr [ %1, %.lr.ph ], [ %102, %.critedge ]
+  %14 = phi ptr [ %3, %.lr.ph ], [ %105, %.critedge ]
+  %.05276 = phi ptr [ %1, %.lr.ph ], [ %104, %.critedge ]
   %15 = tail call i32 @ossl_param_find_pidx(ptr noundef nonnull %14) #5
   switch i32 %15, label %.critedge [
     i32 53, label %16
@@ -155,7 +154,7 @@ define range(i32 0, 2) i32 @ossl_gcm_get_ctx_params(ptr noundef %0, ptr noundef 
     i32 40, label %51
     i32 37, label %54
     i32 41, label %66
-    i32 35, label %96
+    i32 35, label %98
   ]
 
 16:                                               ; preds = %13
@@ -293,38 +292,39 @@ define range(i32 0, 2) i32 @ossl_gcm_get_ctx_params(ptr noundef %0, ptr noundef 
   %89 = getelementptr inbounds i8, ptr %87, i64 %88
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr nonnull align 1 %89, i64 %.0.i, i1 false)
   %90 = load i64, ptr %7, align 8, !tbaa !16
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %90
-  br label %91
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 %90
+  %92 = getelementptr inbounds i8, ptr %91, i64 -8
+  br label %93
 
-91:                                               ; preds = %91, %84
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %91 ], [ 8, %84 ]
+93:                                               ; preds = %93, %84
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %93 ], [ 8, %84 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %92 = getelementptr inbounds nuw i8, ptr %gep, i64 %indvars.iv.next.i.i
-  %93 = load i8, ptr %92, align 1, !tbaa !32
-  %94 = add i8 %93, 1
-  store i8 %94, ptr %92, align 1, !tbaa !32
-  %.not.i.i = icmp eq i8 %94, 0
-  %95 = icmp samesign ugt i64 %indvars.iv.i.i, 1
-  %or.cond.i.i = and i1 %95, %.not.i.i
-  br i1 %or.cond.i.i, label %91, label %getivgen.exit, !llvm.loop !33
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv.next.i.i
+  %95 = load i8, ptr %94, align 1, !tbaa !32
+  %96 = add i8 %95, 1
+  store i8 %96, ptr %94, align 1, !tbaa !32
+  %.not.i.i = icmp eq i8 %96, 0
+  %97 = icmp samesign ugt i64 %indvars.iv.i.i, 1
+  %or.cond.i.i = and i1 %97, %.not.i.i
+  br i1 %or.cond.i.i, label %93, label %getivgen.exit, !llvm.loop !33
 
-getivgen.exit:                                    ; preds = %91
+getivgen.exit:                                    ; preds = %93
   store i32 2, ptr %8, align 8, !tbaa !20
   br label %.critedge
 
-96:                                               ; preds = %13
-  %97 = load i8, ptr %4, align 4
-  %98 = lshr i8 %97, 3
-  %99 = and i8 %98, 1
-  %100 = zext nneg i8 %99 to i32
-  %101 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %.05276, i32 noundef %100) #5
-  %.not59 = icmp eq i32 %101, 0
+98:                                               ; preds = %13
+  %99 = load i8, ptr %4, align 4
+  %100 = lshr i8 %99, 3
+  %101 = and i8 %100, 1
+  %102 = zext nneg i8 %101 to i32
+  %103 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %.05276, i32 noundef %102) #5
+  %.not59 = icmp eq i32 %103, 0
   br i1 %.not59, label %getivgen.exit.thread, label %.critedge
 
-.critedge:                                        ; preds = %getivgen.exit, %22, %13, %16, %19, %35, %33, %48, %46, %51, %64, %96
-  %102 = getelementptr inbounds nuw i8, ptr %.05276, i64 40
-  %103 = load ptr, ptr %102, align 8, !tbaa !24
-  %.not = icmp eq ptr %103, null
+.critedge:                                        ; preds = %getivgen.exit, %22, %13, %16, %19, %35, %33, %48, %46, %51, %64, %98
+  %104 = getelementptr inbounds nuw i8, ptr %.05276, i64 40
+  %105 = load ptr, ptr %104, align 8, !tbaa !24
+  %.not = icmp eq ptr %105, null
   br i1 %.not, label %getivgen.exit.thread, label %13, !llvm.loop !35
 
 getivgen.exit.thread.sink.split:                  ; preds = %64, %54, %58, %61, %51, %48, %41, %35, %28, %22, %19, %16
@@ -335,8 +335,8 @@ getivgen.exit.thread.sink.split:                  ; preds = %64, %54, %58, %61, 
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #5
   br label %getivgen.exit.thread
 
-getivgen.exit.thread:                             ; preds = %25, %38, %70, %66, %96, %.critedge, %78, %73, %getivgen.exit.thread.sink.split, %2
-  %.1 = phi i32 [ 1, %2 ], [ 0, %getivgen.exit.thread.sink.split ], [ 0, %25 ], [ 0, %38 ], [ 0, %70 ], [ 0, %66 ], [ 0, %96 ], [ 1, %.critedge ], [ 0, %78 ], [ 0, %73 ]
+getivgen.exit.thread:                             ; preds = %25, %38, %70, %66, %98, %.critedge, %78, %73, %getivgen.exit.thread.sink.split, %2
+  %.1 = phi i32 [ 1, %2 ], [ 0, %getivgen.exit.thread.sink.split ], [ 0, %25 ], [ 0, %38 ], [ 0, %70 ], [ 0, %66 ], [ 0, %98 ], [ 1, %.critedge ], [ 0, %78 ], [ 0, %73 ]
   ret i32 %.1
 }
 

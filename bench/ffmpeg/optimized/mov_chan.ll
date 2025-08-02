@@ -67,7 +67,7 @@ define range(i32 -38, 1) i32 @ff_mov_get_channel_layout_tag(ptr noundef %0, ptr 
 
 17:                                               ; preds = %.lr.ph, %find_layout_map.exit.thread.i
   %indvars.iv98 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next99, %find_layout_map.exit.thread.i ]
-  %18 = phi i32 [ %14, %.lr.ph ], [ %38, %find_layout_map.exit.thread.i ]
+  %18 = phi i32 [ %14, %.lr.ph ], [ %40, %find_layout_map.exit.thread.i ]
   %19 = load i32, ptr %16, align 4, !tbaa !21
   %20 = and i32 %18, 65535
   %.not.i = icmp eq i32 %20, %19
@@ -95,146 +95,147 @@ define range(i32 -38, 1) i32 @ff_mov_get_channel_layout_tag(ptr noundef %0, ptr 
 
 find_layout_map.exit.i:                           ; preds = %.lr.ph.i.i, %21
   %.lcssa.i = phi i64 [ 0, %21 ], [ %27, %.lr.ph.i.i ]
-  %gep = getelementptr %struct.MovChannelLayoutMap, ptr getelementptr inbounds nuw (i8, ptr @mov_ch_layout_map, i64 4), i64 %.lcssa.i
-  %.not20.i = icmp eq ptr %gep, null
+  %31 = getelementptr inbounds %struct.MovChannelLayoutMap, ptr @mov_ch_layout_map, i64 %.lcssa.i
+  %32 = getelementptr i8, ptr %31, i64 4
+  %.not20.i = icmp eq ptr %32, null
   br i1 %.not20.i, label %find_layout_map.exit.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %find_layout_map.exit.i
-  %31 = icmp sgt i32 %19, 0
-  br i1 %31, label %.lr.ph28.preheader.i, label %._crit_edge.i
+  %33 = icmp sgt i32 %19, 0
+  br i1 %33, label %.lr.ph28.preheader.i, label %._crit_edge.i
 
 .lr.ph28.preheader.i:                             ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %19 to i64
   br label %.lr.ph28.i
 
-.lr.ph28.i:                                       ; preds = %36, %.lr.ph28.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph28.preheader.i ], [ %indvars.iv.next.i, %36 ]
-  %32 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %33 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %15, i32 noundef %32) #3
-  %34 = getelementptr inbounds nuw %struct.MovChannelLayoutMap, ptr %gep, i64 %indvars.iv.i
-  %35 = load i32, ptr %34, align 4, !tbaa !23
-  %.not21.i = icmp eq i32 %33, %35
-  br i1 %.not21.i, label %36, label %._crit_edge.i
+.lr.ph28.i:                                       ; preds = %38, %.lr.ph28.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph28.preheader.i ], [ %indvars.iv.next.i, %38 ]
+  %34 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %35 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %15, i32 noundef %34) #3
+  %36 = getelementptr inbounds nuw %struct.MovChannelLayoutMap, ptr %32, i64 %indvars.iv.i
+  %37 = load i32, ptr %36, align 4, !tbaa !23
+  %.not21.i = icmp eq i32 %35, %37
+  br i1 %.not21.i, label %38, label %._crit_edge.i
 
-36:                                               ; preds = %.lr.ph28.i
+38:                                               ; preds = %.lr.ph28.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph28.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %.lr.ph28.i, %.preheader.i
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %32, %.lr.ph28.i ]
+  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %34, %.lr.ph28.i ]
   %.not22.i = icmp eq i32 %.0.lcssa.i, %19
   br i1 %.not22.i, label %.loopexit, label %find_layout_map.exit.thread.i
 
 find_layout_map.exit.thread.i:                    ; preds = %.lr.ph.i, %find_layout_map.exit.i, %._crit_edge.i, %17
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %37 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next99
-  %38 = load i32, ptr %37, align 4, !tbaa !20
-  %.not51 = icmp eq i32 %38, 0
+  %39 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next99
+  %40 = load i32, ptr %39, align 4, !tbaa !20
+  %.not51 = icmp eq i32 %40, 0
   br i1 %.not51, label %.sink.split, label %17, !llvm.loop !25
 
-.loopexit:                                        ; preds = %._crit_edge.i, %36
-  %39 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv98
-  %.pr = load i32, ptr %39, align 4, !tbaa !20
+.loopexit:                                        ; preds = %._crit_edge.i, %38
+  %41 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv98
+  %.pr = load i32, ptr %41, align 4, !tbaa !20
   store i32 %.pr, ptr %1, align 4, !tbaa !20
   store i32 0, ptr %2, align 4, !tbaa !20
   store ptr null, ptr %3, align 8, !tbaa !26
-  %40 = icmp eq i32 %.pr, 0
-  br i1 %40, label %41, label %.thread65
+  %42 = icmp eq i32 %.pr, 0
+  br i1 %42, label %43, label %.thread65
 
 .sink.split:                                      ; preds = %.lr.ph125, %find_layout_map.exit.thread.i, %._crit_edge126, %.preheader68
   store i32 0, ptr %1, align 4, !tbaa !20
   store i32 0, ptr %2, align 4, !tbaa !20
   store ptr null, ptr %3, align 8, !tbaa !26
-  br label %41
+  br label %43
 
-41:                                               ; preds = %.sink.split, %.loopexit
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %43 = load i32, ptr %42, align 8, !tbaa !28
-  switch i32 %43, label %.thread62 [
-    i32 1, label %44
+43:                                               ; preds = %.sink.split, %.loopexit
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %45 = load i32, ptr %44, align 8, !tbaa !28
+  switch i32 %45, label %.thread62 [
+    i32 1, label %46
     i32 0, label %.thread65
   ]
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %46 = load i64, ptr %45, align 8, !tbaa !23
-  %47 = icmp ult i64 %46, 262144
-  br i1 %47, label %48, label %.thread62
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %48 = load i64, ptr %47, align 8, !tbaa !23
+  %49 = icmp ult i64 %48, 262144
+  br i1 %49, label %50, label %.thread62
 
-48:                                               ; preds = %44
+50:                                               ; preds = %46
   store i32 65536, ptr %1, align 4, !tbaa !20
-  %49 = load i64, ptr %45, align 8, !tbaa !23
-  %50 = trunc i64 %49 to i32
-  store i32 %50, ptr %2, align 4, !tbaa !20
+  %51 = load i64, ptr %47, align 8, !tbaa !23
+  %52 = trunc i64 %51 to i32
+  store i32 %52, ptr %2, align 4, !tbaa !20
   br label %.thread65
 
-.thread62:                                        ; preds = %41, %44
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %52 = load i32, ptr %51, align 4, !tbaa !29
-  %53 = sext i32 %52 to i64
-  %54 = tail call ptr @av_malloc_array(i64 noundef %53, i64 noundef 4) #3
-  %.not53 = icmp eq ptr %54, null
+.thread62:                                        ; preds = %43, %46
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %54 = load i32, ptr %53, align 4, !tbaa !29
+  %55 = sext i32 %54 to i64
+  %56 = tail call ptr @av_malloc_array(i64 noundef %55, i64 noundef 4) #3
+  %.not53 = icmp eq ptr %56, null
   br i1 %.not53, label %.thread65, label %.preheader
 
 .preheader:                                       ; preds = %.thread62
-  %55 = load i32, ptr %51, align 4, !tbaa !29
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph87, label %._crit_edge
+  %57 = load i32, ptr %53, align 4, !tbaa !29
+  %58 = icmp sgt i32 %57, 0
+  br i1 %58, label %.lr.ph87, label %._crit_edge
 
-.lr.ph87:                                         ; preds = %.preheader, %70
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %70 ], [ 0, %.preheader ]
-  %57 = trunc nuw nsw i64 %indvars.iv101 to i32
-  %58 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %42, i32 noundef %57) #3
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %66, label %60
+.lr.ph87:                                         ; preds = %.preheader, %72
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %72 ], [ 0, %.preheader ]
+  %59 = trunc nuw nsw i64 %indvars.iv101 to i32
+  %60 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %44, i32 noundef %59) #3
+  %61 = icmp slt i32 %60, 0
+  br i1 %61, label %68, label %62
 
-60:                                               ; preds = %.lr.ph87
-  %61 = icmp samesign ult i32 %58, 18
-  br i1 %61, label %62, label %64
+62:                                               ; preds = %.lr.ph87
+  %63 = icmp samesign ult i32 %60, 18
+  br i1 %63, label %64, label %66
 
-62:                                               ; preds = %60
-  %63 = add nuw nsw i32 %58, 1
-  br label %70
+64:                                               ; preds = %62
+  %65 = add nuw nsw i32 %60, 1
+  br label %72
 
-64:                                               ; preds = %60
-  %switch.tableidx = add nsw i32 %58, -29
-  %65 = icmp ult i32 %switch.tableidx, 7
+66:                                               ; preds = %62
+  %switch.tableidx = add nsw i32 %60, -29
+  %67 = icmp ult i32 %switch.tableidx, 7
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 79, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %65, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %66
+  %or.cond = select i1 %67, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %68
 
-66:                                               ; preds = %64, %.lr.ph87
-  %67 = and i64 %indvars.iv101, 4294967295
-  %68 = getelementptr inbounds nuw i32, ptr %54, i64 %67
-  store i32 0, ptr %68, align 4, !tbaa !20
-  tail call void @av_free(ptr noundef nonnull %54) #3
+68:                                               ; preds = %66, %.lr.ph87
+  %69 = and i64 %indvars.iv101, 4294967295
+  %70 = getelementptr inbounds nuw i32, ptr %56, i64 %69
+  store i32 0, ptr %70, align 4, !tbaa !20
+  tail call void @av_free(ptr noundef nonnull %56) #3
   br label %.thread65
 
-switch.lookup:                                    ; preds = %64
-  %69 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.ff_mov_get_channel_layout_tag, i64 0, i64 %69
+switch.lookup:                                    ; preds = %66
+  %71 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.ff_mov_get_channel_layout_tag, i64 0, i64 %71
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %70
+  br label %72
 
-70:                                               ; preds = %switch.lookup, %62
-  %.0.i.ph = phi i32 [ %63, %62 ], [ %switch.load, %switch.lookup ]
-  %71 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv101
-  store i32 %.0.i.ph, ptr %71, align 4, !tbaa !20
+72:                                               ; preds = %switch.lookup, %64
+  %.0.i.ph = phi i32 [ %65, %64 ], [ %switch.load, %switch.lookup ]
+  %73 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv101
+  store i32 %.0.i.ph, ptr %73, align 4, !tbaa !20
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %72 = load i32, ptr %51, align 4, !tbaa !29
-  %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.next102, %73
-  br i1 %74, label %.lr.ph87, label %._crit_edge, !llvm.loop !30
+  %74 = load i32, ptr %53, align 4, !tbaa !29
+  %75 = sext i32 %74 to i64
+  %76 = icmp slt i64 %indvars.iv.next102, %75
+  br i1 %76, label %.lr.ph87, label %._crit_edge, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %70, %.preheader
-  store ptr %54, ptr %3, align 8, !tbaa !26
+._crit_edge:                                      ; preds = %72, %.preheader
+  store ptr %56, ptr %3, align 8, !tbaa !26
   br label %.thread65
 
-.thread65:                                        ; preds = %41, %.thread62, %66, %48, %.loopexit, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ 0, %.loopexit ], [ -12, %.thread62 ], [ -38, %66 ], [ 0, %48 ], [ -38, %41 ]
+.thread65:                                        ; preds = %43, %.thread62, %68, %50, %.loopexit, %._crit_edge
+  %.1 = phi i32 [ 0, %._crit_edge ], [ 0, %.loopexit ], [ -12, %.thread62 ], [ -38, %68 ], [ 0, %50 ], [ -38, %43 ]
   ret i32 %.1
 }
 
@@ -250,7 +251,7 @@ define range(i32 -2147483648, 1) i32 @ff_mov_read_chan(ptr noundef %0, ptr nound
   %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = icmp slt i64 %3, 12
-  br i1 %8, label %.thread126, label %9
+  br i1 %8, label %.critedge.thread, label %9
 
 9:                                                ; preds = %4
   %10 = tail call i32 @avio_rb32(ptr noundef %1) #3
@@ -261,12 +262,12 @@ define range(i32 -2147483648, 1) i32 @ff_mov_read_chan(ptr noundef %0, ptr nound
   %14 = mul nuw nsw i64 %13, 20
   %15 = add nuw nsw i64 %14, 12
   %16 = icmp samesign ult i64 %3, %15
-  br i1 %16, label %.thread126, label %17
+  br i1 %16, label %.critedge.thread, label %17
 
 17:                                               ; preds = %9
-  switch i32 %10, label %82 [
+  switch i32 %10, label %83 [
     i32 0, label %18
-    i32 65536, label %56
+    i32 65536, label %57
   ]
 
 18:                                               ; preds = %17
@@ -279,11 +280,11 @@ define range(i32 -2147483648, 1) i32 @ff_mov_read_chan(ptr noundef %0, ptr nound
 
 22:                                               ; preds = %18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %12, i32 noundef %20) #3
-  br label %.thread126
+  br label %.critedge.thread
 
 23:                                               ; preds = %18
   %24 = icmp ugt i32 %12, %20
-  br i1 %24, label %25, label %30
+  br i1 %24, label %25, label %31
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -291,160 +292,160 @@ define range(i32 -2147483648, 1) i32 @ff_mov_read_chan(ptr noundef %0, ptr nound
   %28 = icmp slt i32 %27, 1
   %29 = select i1 %28, i32 24, i32 16
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef %29, ptr noundef nonnull @.str.2, i32 noundef %12, i32 noundef %20) #3
-  br i1 %28, label %.thread, label %.thread126
+  br i1 %28, label %30, label %.critedge.thread
 
-.thread:                                          ; preds = %25
+30:                                               ; preds = %25
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.3) #3
-  br label %30
+  br label %31
 
-30:                                               ; preds = %.thread, %23
-  %.092 = phi i32 [ %12, %23 ], [ %20, %.thread ]
+31:                                               ; preds = %30, %23
+  %.092 = phi i32 [ %20, %30 ], [ %12, %23 ]
   tail call void @av_channel_layout_uninit(ptr noundef nonnull %7) #3
-  %31 = tail call i32 @av_channel_layout_custom_init(ptr noundef nonnull %7, i32 noundef %20) #3
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %.thread135, label %.preheader
+  %32 = tail call i32 @av_channel_layout_custom_init(ptr noundef nonnull %7, i32 noundef %20) #3
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %30
-  %.not118139.not = icmp eq i32 %.092, 0
-  br i1 %.not118139.not, label %._crit_edge, label %.lr.ph
+.preheader:                                       ; preds = %31
+  %.not118136.not = icmp eq i32 %.092, 0
+  br i1 %.not118136.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %wide.trip.count = zext i32 %.092 to i64
-  br label %35
+  br label %36
 
-35:                                               ; preds = %.lr.ph, %52
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %.186141 = phi i64 [ %3, %.lr.ph ], [ %43, %52 ]
-  %36 = load i32, ptr %33, align 8, !tbaa !50
-  %.not117 = icmp eq i32 %36, 0
-  br i1 %.not117, label %37, label %.thread123
+36:                                               ; preds = %.lr.ph, %53
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
+  %.186138 = phi i64 [ %3, %.lr.ph ], [ %44, %53 ]
+  %37 = load i32, ptr %34, align 8, !tbaa !50
+  %.not117 = icmp eq i32 %37, 0
+  br i1 %.not117, label %38, label %.thread121
 
-37:                                               ; preds = %35
-  %38 = tail call i32 @avio_rb32(ptr noundef nonnull %1) #3
+38:                                               ; preds = %36
   %39 = tail call i32 @avio_rb32(ptr noundef nonnull %1) #3
-  %40 = tail call i32 @avio_rl32(ptr noundef nonnull %1) #3
+  %40 = tail call i32 @avio_rb32(ptr noundef nonnull %1) #3
   %41 = tail call i32 @avio_rl32(ptr noundef nonnull %1) #3
   %42 = tail call i32 @avio_rl32(ptr noundef nonnull %1) #3
-  %43 = add nsw i64 %.186141, -20
-  %44 = icmp eq i32 %38, 0
-  br i1 %44, label %52, label %45
+  %43 = tail call i32 @avio_rl32(ptr noundef nonnull %1) #3
+  %44 = add nsw i64 %.186138, -20
+  %45 = icmp eq i32 %39, 0
+  br i1 %45, label %53, label %46
 
-45:                                               ; preds = %37
-  %46 = icmp ult i32 %38, 19
-  br i1 %46, label %47, label %49
+46:                                               ; preds = %38
+  %47 = icmp ult i32 %39, 19
+  br i1 %47, label %48, label %50
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %38, -1
-  br label %52
+48:                                               ; preds = %46
+  %49 = add nsw i32 %39, -1
+  br label %53
 
-49:                                               ; preds = %45
-  %switch.tableidx = add i32 %38, -35
-  %50 = icmp ult i32 %switch.tableidx, 5
-  br i1 %50, label %switch.lookup, label %52
+50:                                               ; preds = %46
+  %switch.tableidx = add i32 %39, -35
+  %51 = icmp ult i32 %switch.tableidx, 5
+  br i1 %51, label %switch.lookup, label %53
 
-.thread123:                                       ; preds = %35
+.thread121:                                       ; preds = %36
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.4) #3
-  br label %.thread126
+  br label %.critedge.thread
 
-switch.lookup:                                    ; preds = %49
-  %51 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ff_mov_read_chan, i64 0, i64 %51
+switch.lookup:                                    ; preds = %50
+  %52 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ff_mov_read_chan, i64 0, i64 %52
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %52
+  br label %53
 
-52:                                               ; preds = %49, %switch.lookup, %47, %37
-  %.0.i = phi i32 [ %48, %47 ], [ 512, %37 ], [ %switch.load, %switch.lookup ], [ 768, %49 ]
-  %53 = load ptr, ptr %34, align 8, !tbaa !23
-  %54 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %53, i64 %indvars.iv
-  store i32 %.0.i, ptr %54, align 8, !tbaa !52
+53:                                               ; preds = %50, %switch.lookup, %48, %38
+  %.0.i = phi i32 [ %49, %48 ], [ 512, %38 ], [ %switch.load, %switch.lookup ], [ 768, %50 ]
+  %54 = load ptr, ptr %35, align 8, !tbaa !23
+  %55 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %54, i64 %indvars.iv
+  store i32 %.0.i, ptr %55, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !54
 
-._crit_edge:                                      ; preds = %52, %.preheader
-  %.186.lcssa = phi i64 [ %3, %.preheader ], [ %43, %52 ]
-  %55 = tail call i32 @av_channel_layout_retype(ptr noundef nonnull %7, i32 noundef 0, i32 noundef 2) #3
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %55, i32 0)
-  br label %.thread135
+._crit_edge:                                      ; preds = %53, %.preheader
+  %.186.lcssa = phi i64 [ %3, %.preheader ], [ %44, %53 ]
+  %56 = tail call i32 @av_channel_layout_retype(ptr noundef nonnull %7, i32 noundef 0, i32 noundef 2) #3
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %56, i32 0)
+  br label %.critedge
 
-56:                                               ; preds = %17
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 132
-  %58 = load i32, ptr %57, align 4, !tbaa !21
-  %.not115 = icmp eq i32 %58, 0
-  br i1 %.not115, label %76, label %59
+57:                                               ; preds = %17
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 132
+  %59 = load i32, ptr %58, align 4, !tbaa !21
+  %.not115 = icmp eq i32 %59, 0
+  br i1 %.not115, label %77, label %60
 
-59:                                               ; preds = %56
-  %60 = lshr i32 %11, 1
-  %61 = and i32 %60, 1431655765
-  %62 = sub i32 %11, %61
-  %63 = and i32 %62, 858993459
-  %64 = lshr i32 %62, 2
-  %65 = and i32 %64, 858993459
-  %66 = add nuw nsw i32 %65, %63
-  %67 = lshr i32 %66, 4
-  %68 = add nuw nsw i32 %67, %66
-  %69 = and i32 %68, 252645135
-  %70 = lshr i32 %69, 8
-  %71 = add nuw nsw i32 %70, %69
-  %72 = lshr i32 %71, 16
-  %73 = add nuw nsw i32 %72, %71
-  %74 = and i32 %73, 63
-  %75 = icmp eq i32 %74, %58
-  br i1 %75, label %76, label %81
+60:                                               ; preds = %57
+  %61 = lshr i32 %11, 1
+  %62 = and i32 %61, 1431655765
+  %63 = sub i32 %11, %62
+  %64 = and i32 %63, 858993459
+  %65 = lshr i32 %63, 2
+  %66 = and i32 %65, 858993459
+  %67 = add nuw nsw i32 %66, %64
+  %68 = lshr i32 %67, 4
+  %69 = add nuw nsw i32 %68, %67
+  %70 = and i32 %69, 252645135
+  %71 = lshr i32 %70, 8
+  %72 = add nuw nsw i32 %71, %70
+  %73 = lshr i32 %72, 16
+  %74 = add nuw nsw i32 %73, %72
+  %75 = and i32 %74, 63
+  %76 = icmp eq i32 %75, %59
+  br i1 %76, label %77, label %82
 
-76:                                               ; preds = %59, %56
-  %77 = icmp ult i32 %11, 262144
-  br i1 %77, label %78, label %.thread135
+77:                                               ; preds = %60, %57
+  %78 = icmp ult i32 %11, 262144
+  br i1 %78, label %79, label %.critedge
 
-78:                                               ; preds = %76
+79:                                               ; preds = %77
   tail call void @av_channel_layout_uninit(ptr noundef nonnull %7) #3
-  %79 = zext nneg i32 %11 to i64
-  %80 = tail call i32 @av_channel_layout_from_mask(ptr noundef nonnull %7, i64 noundef %79) #3
-  br label %.thread135
+  %80 = zext nneg i32 %11 to i64
+  %81 = tail call i32 @av_channel_layout_from_mask(ptr noundef nonnull %7, i64 noundef %80) #3
+  br label %.critedge
 
-81:                                               ; preds = %59
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.5, i32 noundef %74, i32 noundef %58) #3
-  br label %.thread135
+82:                                               ; preds = %60
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.5, i32 noundef %75, i32 noundef %59) #3
+  br label %.critedge
 
-82:                                               ; preds = %17
-  %83 = and i32 %10, 65535
-  %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %.thread135, label %84
+83:                                               ; preds = %17
+  %84 = and i32 %10, 65535
+  %.not = icmp eq i32 %84, 0
+  br i1 %.not, label %.critedge, label %85
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 132
-  %86 = load i32, ptr %85, align 4, !tbaa !21
-  %.not114 = icmp eq i32 %86, 0
-  br i1 %.not114, label %.thread143, label %87
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 132
+  %87 = load i32, ptr %86, align 4, !tbaa !21
+  %.not114 = icmp eq i32 %87, 0
+  br i1 %.not114, label %.thread, label %88
 
-.thread143:                                       ; preds = %84
-  store i32 %83, ptr %85, align 4, !tbaa !21
-  br label %89
+.thread:                                          ; preds = %85
+  store i32 %84, ptr %86, align 4, !tbaa !21
+  br label %90
 
-87:                                               ; preds = %84
-  %88 = icmp eq i32 %83, %86
-  br i1 %88, label %89, label %92
+88:                                               ; preds = %85
+  %89 = icmp eq i32 %84, %87
+  br i1 %89, label %90, label %93
 
-89:                                               ; preds = %.thread143, %87
-  %90 = tail call fastcc i32 @mov_get_channel_layout(ptr noundef nonnull %7, i32 noundef %10, i64 noundef 0, ptr noundef nonnull @mov_ch_layout_map)
-  %91 = icmp slt i32 %90, 0
-  br i1 %91, label %.thread126, label %.thread135
+90:                                               ; preds = %.thread, %88
+  %91 = tail call fastcc i32 @mov_get_channel_layout(ptr noundef nonnull %7, i32 noundef %10, i64 noundef 0, ptr noundef nonnull @mov_ch_layout_map)
+  %92 = icmp slt i32 %91, 0
+  br i1 %92, label %.critedge.thread, label %.critedge
 
-92:                                               ; preds = %87
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.6, i32 noundef %83, i32 noundef %86) #3
-  br label %.thread135
+93:                                               ; preds = %88
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.6, i32 noundef %84, i32 noundef %87) #3
+  br label %.critedge
 
-.thread135:                                       ; preds = %._crit_edge, %89, %92, %30, %82, %81, %78, %76
-  %.195 = phi i32 [ 0, %76 ], [ 0, %78 ], [ 0, %81 ], [ 0, %82 ], [ %31, %30 ], [ 0, %92 ], [ 0, %89 ], [ %spec.select, %._crit_edge ]
-  %.489 = phi i64 [ %3, %76 ], [ %3, %78 ], [ %3, %81 ], [ %3, %82 ], [ %3, %30 ], [ %3, %92 ], [ %3, %89 ], [ %.186.lcssa, %._crit_edge ]
-  %93 = add nsw i64 %.489, -12
-  %94 = tail call i64 @avio_skip(ptr noundef %1, i64 noundef %93) #3
-  br label %.thread126
+.critedge:                                        ; preds = %._crit_edge, %90, %93, %31, %83, %82, %79, %77
+  %.195 = phi i32 [ 0, %77 ], [ 0, %79 ], [ 0, %82 ], [ 0, %83 ], [ %32, %31 ], [ 0, %93 ], [ 0, %90 ], [ %spec.select, %._crit_edge ]
+  %.489 = phi i64 [ %3, %77 ], [ %3, %79 ], [ %3, %82 ], [ %3, %83 ], [ %3, %31 ], [ %3, %93 ], [ %3, %90 ], [ %.186.lcssa, %._crit_edge ]
+  %94 = add nsw i64 %.489, -12
+  %95 = tail call i64 @avio_skip(ptr noundef %1, i64 noundef %94) #3
+  br label %.critedge.thread
 
-.thread126:                                       ; preds = %.thread123, %25, %22, %89, %9, %4, %.thread135
-  %.0 = phi i32 [ %.195, %.thread135 ], [ -1094995529, %4 ], [ 0, %9 ], [ %90, %89 ], [ -1094995529, %22 ], [ -1094995529, %25 ], [ -1094995529, %.thread123 ]
+.critedge.thread:                                 ; preds = %.thread121, %25, %22, %90, %9, %4, %.critedge
+  %.0 = phi i32 [ %.195, %.critedge ], [ -1094995529, %4 ], [ 0, %9 ], [ %91, %90 ], [ -1094995529, %22 ], [ -1094995529, %25 ], [ -1094995529, %.thread121 ]
   ret i32 %.0
 }
 

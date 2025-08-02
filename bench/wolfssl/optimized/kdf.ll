@@ -335,13 +335,13 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
 define i32 @wc_PRF_TLS(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = alloca [128 x i8], align 16
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %25, label %14
+  br i1 %.not, label %24, label %14
 
 14:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #6
   %15 = add i32 %7, %5
   %16 = icmp ult i32 %15, 129
-  br i1 %16, label %17, label %24
+  br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %14
   %18 = zext i32 %5 to i64
@@ -353,19 +353,19 @@ define i32 @wc_PRF_TLS(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 nound
   %22 = tail call i32 @llvm.smax.i32(i32 %9, i32 4)
   %spec.store.select = select i1 %21, i32 4, i32 %22
   %23 = call i32 @wc_PRF(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %13, i32 noundef %15, i32 noundef %spec.store.select, ptr noundef %10, i32 noundef %11)
-  br label %24
-
-24:                                               ; preds = %14, %17
-  %spec.select = phi i32 [ %23, %17 ], [ -132, %14 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #6
-  br label %27
+  br label %26
 
-25:                                               ; preds = %12
-  %26 = tail call i32 @wc_PRF_TLSv1(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %10, i32 noundef %11)
-  br label %27
+24:                                               ; preds = %12
+  %25 = tail call i32 @wc_PRF_TLSv1(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %10, i32 noundef %11)
+  br label %26
 
-27:                                               ; preds = %24, %25
-  %.134 = phi i32 [ %26, %25 ], [ %spec.select, %24 ]
+.critedge:                                        ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #6
+  br label %26
+
+26:                                               ; preds = %24, %.critedge, %17
+  %.134 = phi i32 [ -132, %.critedge ], [ %25, %24 ], [ %23, %17 ]
   ret i32 %.134
 }
 

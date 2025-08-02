@@ -322,7 +322,6 @@ define void @Gia_Iso2ManPropagate(ptr noundef readonly captures(none) %0) local_
   %11 = getelementptr i8, ptr %.val53, i64 8
   %.val55.val = load ptr, ptr %11, align 8, !tbaa !32
   %.not38 = icmp eq ptr %.val54, null
-  %invariant.gep = getelementptr i8, ptr %.val54, i64 8
   br i1 %.not38, label %.critedge2, label %.lr.ph64.split
 
 .lr.ph64.split:                                   ; preds = %.lr.ph64
@@ -426,25 +425,26 @@ define void @Gia_Iso2ManPropagate(ptr noundef readonly captures(none) %0) local_
   %73 = load i32, ptr %72, align 4, !tbaa !34
   %74 = sext i32 %73 to i64
   %.idx = mul nsw i64 %74, 12
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %76 = load i32, ptr %75, align 4, !tbaa !37
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %77 = load i32, ptr %gep, align 4, !tbaa !37
-  %78 = add i32 %77, %76
-  store i32 %78, ptr %gep, align 4, !tbaa !37
-  %79 = load i64, ptr %70, align 4
-  %80 = and i64 %79, 536870911
-  %.idx61 = mul nsw i64 %80, -12
-  %81 = add nsw i64 %.idx61, %.idx60
-  %82 = icmp eq i64 %.idx, %81
-  br i1 %82, label %83, label %.critedge
+  %75 = getelementptr inbounds i8, ptr %.val54, i64 %.idx
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %77 = load i32, ptr %76, align 4, !tbaa !37
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %79 = load i32, ptr %78, align 4, !tbaa !37
+  %80 = add i32 %79, %77
+  store i32 %80, ptr %78, align 4, !tbaa !37
+  %81 = load i64, ptr %70, align 4
+  %82 = and i64 %81, 536870911
+  %.idx61 = mul nsw i64 %82, -12
+  %83 = add nsw i64 %.idx61, %.idx60
+  %84 = icmp eq i64 %.idx, %83
+  br i1 %84, label %85, label %.critedge
 
-83:                                               ; preds = %64
-  %84 = add i32 %78, 1673142178
-  store i32 %84, ptr %gep, align 4, !tbaa !37
+85:                                               ; preds = %64
+  %86 = add i32 %80, 1673142178
+  store i32 %86, ptr %78, align 4, !tbaa !37
   br label %.critedge
 
-.critedge:                                        ; preds = %64, %83
+.critedge:                                        ; preds = %64, %85
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
   br i1 %exitcond72.not, label %.critedge2, label %64, !llvm.loop !43

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 @_ZN19OpenColorIO_v2_5dev7CPUInfoC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN19OpenColorIO_v2_5dev7CPUInfoC2Ev
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev7CPUInfoC2Ev(ptr noundef nonnull align 4 captures(none) dereferenceable(90) initializes((0, 90)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -316,33 +316,24 @@ condstore.split:                                  ; preds = %120, %120, %120
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN19OpenColorIO_v2_5dev7CPUInfo8instanceEvE9singleton acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %7, !prof !15
+  br i1 %2, label %3, label %6, !prof !15
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN19OpenColorIO_v2_5dev7CPUInfo8instanceEvE9singleton) #4
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %7, label %5
+  br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
-  invoke void @_ZN19OpenColorIO_v2_5dev7CPUInfoC2Ev(ptr noundef nonnull align 4 dereferenceable(90) @_ZZN19OpenColorIO_v2_5dev7CPUInfo8instanceEvE9singleton)
-          to label %6 unwind label %8
-
-6:                                                ; preds = %5
+  tail call void @_ZN19OpenColorIO_v2_5dev7CPUInfoC2Ev(ptr noundef nonnull align 4 dereferenceable(90) @_ZZN19OpenColorIO_v2_5dev7CPUInfo8instanceEvE9singleton)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN19OpenColorIO_v2_5dev7CPUInfo8instanceEvE9singleton) #4
-  br label %7
+  br label %6
 
-7:                                                ; preds = %6, %3, %0
+6:                                                ; preds = %5, %3, %0
   ret ptr @_ZZN19OpenColorIO_v2_5dev7CPUInfo8instanceEvE9singleton
-
-8:                                                ; preds = %5
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN19OpenColorIO_v2_5dev7CPUInfo8instanceEvE9singleton) #4
-  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: nofree nounwind
@@ -351,15 +342,12 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
-attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nofree nounwind }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: read) }

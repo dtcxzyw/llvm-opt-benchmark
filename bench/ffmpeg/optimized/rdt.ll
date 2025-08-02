@@ -857,12 +857,12 @@ rdt_parse_b64buf.exit:                            ; preds = %13, %26
   br i1 %.not40.i, label %.preheader.i, label %125
 
 .preheader.i:                                     ; preds = %98
-  %.not4144.i = icmp eq i32 %102, 0
-  br i1 %.not4144.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not4142.i = icmp eq i32 %102, 0
+  br i1 %.not4142.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.045.i = phi i32 [ %109, %.lr.ph.i ], [ %102, %.preheader.i ]
-  %109 = add nsw i32 %.045.i, -1
+  %.043.i = phi i32 [ %109, %.lr.ph.i ], [ %102, %.preheader.i ]
+  %109 = add nsw i32 %.043.i, -1
   %110 = call i32 @avio_rb32(ptr noundef nonnull %5) #11
   %111 = zext i32 %110 to i64
   %112 = call i64 @avio_skip(ptr noundef nonnull %5, i64 noundef %111) #11

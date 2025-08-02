@@ -9454,42 +9454,42 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal31match
   br i1 %7, label %.preheader, label %.split.loop.exit11
 
 .preheader:                                       ; preds = %4
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %1, align 8
   %9 = lshr i32 %8, 24
   %10 = zext nneg i32 %9 to i64
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %10
-  %11 = lshr i32 %8, 19
-  %12 = and i32 %11, 1
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %gep, i64 %13
-  %15 = zext i32 %6 to i64
-  br label %16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = lshr i32 %8, 19
+  %14 = and i32 %13, 1
+  %15 = zext nneg i32 %14 to i64
+  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %15
+  %17 = zext i32 %6 to i64
+  br label %18
 
-16:                                               ; preds = %.preheader, %17
-  %indvars.iv = phi i64 [ %15, %.preheader ], [ %18, %17 ]
+18:                                               ; preds = %.preheader, %19
+  %indvars.iv = phi i64 [ %17, %.preheader ], [ %20, %19 ]
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %.split.loop.exit11, label %17
+  br i1 %.not, label %.split.loop.exit11, label %19
 
-17:                                               ; preds = %16
-  %18 = add nsw i64 %indvars.iv, -1
-  %19 = getelementptr inbounds nuw ptr, ptr %14, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !492
-  %21 = load i16, ptr %20, align 8
-  %22 = and i16 %21, 511
-  %23 = icmp eq i16 %22, 114
-  br i1 %23, label %16, label %.split.loop.exit, !llvm.loop !703
+19:                                               ; preds = %18
+  %20 = add nsw i64 %indvars.iv, -1
+  %21 = getelementptr inbounds nuw ptr, ptr %16, i64 %20
+  %22 = load ptr, ptr %21, align 8, !tbaa !492
+  %23 = load i16, ptr %22, align 8
+  %24 = and i16 %23, 511
+  %25 = icmp eq i16 %24, 114
+  br i1 %25, label %18, label %.split.loop.exit, !llvm.loop !703
 
-.split.loop.exit:                                 ; preds = %17
-  %24 = trunc nuw i64 %indvars.iv to i32
+.split.loop.exit:                                 ; preds = %19
+  %26 = trunc nuw i64 %indvars.iv to i32
   br label %.split.loop.exit11
 
-.split.loop.exit11:                               ; preds = %16, %.split.loop.exit, %4
-  %.0.lcssa.sink = phi i32 [ %6, %4 ], [ %24, %.split.loop.exit ], [ 0, %16 ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !691
-  %27 = icmp eq i32 %.0.lcssa.sink, %26
-  ret i1 %27
+.split.loop.exit11:                               ; preds = %18, %.split.loop.exit, %4
+  %.0.lcssa.sink = phi i32 [ %6, %4 ], [ %26, %.split.loop.exit ], [ 0, %18 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %28 = load i32, ptr %27, align 4, !tbaa !691
+  %29 = icmp eq i32 %.0.lcssa.sink, %28
+  ret i1 %29
 }
 
 declare i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2

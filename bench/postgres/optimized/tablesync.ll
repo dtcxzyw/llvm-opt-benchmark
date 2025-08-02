@@ -244,41 +244,41 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %.not.i2 = icmp eq ptr %74, null
   %.promoted.i = load i8, ptr %4, align 1
-  br i1 %.not.i2, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i2, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %77 = load i32, ptr %75, align 4
   %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.lr.ph, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %200, %.lr.ph.i, %73
-  %.lcssa.i = phi i8 [ %.promoted.i, %73 ], [ %.promoted.i, %.lr.ph.i ], [ %201, %200 ]
-  %79 = trunc nuw i8 %.lcssa.i to i1
-  br i1 %79, label %205, label %process_syncing_tables_for_apply.exit
+  br i1 %78, label %.lr.ph, label %.critedge.i
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %200
-  %80 = phi i8 [ %201, %200 ], [ %.promoted.i, %.lr.ph.i ]
+  %79 = phi i8 [ %201, %200 ], [ %.promoted.i, %.lr.ph.i ]
   %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i, %200 ], [ 0, %.lr.ph.i ]
-  %81 = load ptr, ptr %76, align 8
-  %82 = getelementptr inbounds nuw %union.ListCell, ptr %81, i64 %indvars.iv.i3
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %85 = load i8, ptr %84, align 8
-  %86 = icmp eq i8 %85, 115
-  br i1 %86, label %87, label %104
+  %80 = load ptr, ptr %76, align 8
+  %81 = getelementptr inbounds nuw %union.ListCell, ptr %80, i64 %indvars.iv.i3
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %84 = load i8, ptr %83, align 8
+  %85 = icmp eq i8 %84, 115
+  br i1 %85, label %87, label %104
+
+.critedge.i:                                      ; preds = %200, %.lr.ph.i, %73
+  %.lcssa.i = phi i8 [ %.promoted.i, %73 ], [ %.promoted.i, %.lr.ph.i ], [ %201, %200 ]
+  %86 = trunc nuw i8 %.lcssa.i to i1
+  br i1 %86, label %205, label %process_syncing_tables_for_apply.exit
 
 87:                                               ; preds = %.lr.ph
-  %88 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %89 = load i64, ptr %88, align 8
   %.not56.i = icmp ult i64 %0, %89
   br i1 %.not56.i, label %200, label %90
 
 90:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
-  store i8 114, ptr %84, align 8
+  store i8 114, ptr %83, align 8
   store i64 %0, ptr %88, align 8
-  %91 = trunc nuw i8 %80 to i1
+  %91 = trunc nuw i8 %79 to i1
   br i1 %91, label %93, label %92
 
 92:                                               ; preds = %90
@@ -289,14 +289,14 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
   %94 = load ptr, ptr @MyLogicalRepWorker, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %96 = load i32, ptr %95, align 8
-  %97 = load i32, ptr %83, align 8
+  %97 = load i32, ptr %82, align 8
   call void @ReplicationOriginNameForLogicalRep(i32 noundef %96, i32 noundef %97, ptr noundef nonnull %6, i64 noundef 64) #12
   call void @replorigin_drop_by_name(ptr noundef nonnull %6, i1 noundef zeroext true, i1 noundef zeroext false) #12
   %98 = load ptr, ptr @MyLogicalRepWorker, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
   %100 = load i32, ptr %99, align 8
-  %101 = load i32, ptr %83, align 8
-  %102 = load i8, ptr %84, align 8
+  %101 = load i32, ptr %82, align 8
+  %102 = load i8, ptr %83, align 8
   %103 = load i64, ptr %88, align 8
   call void @UpdateSubscriptionRelState(i32 noundef %100, i32 noundef %101, i8 noundef signext %102, i64 noundef %103) #12
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
@@ -309,7 +309,7 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
   %108 = load ptr, ptr @MyLogicalRepWorker, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %110 = load i32, ptr %109, align 8
-  %111 = load i32, ptr %83, align 8
+  %111 = load i32, ptr %82, align 8
   %112 = call ptr @logicalrep_worker_find(i32 noundef %110, i32 noundef %111, i1 noundef zeroext false) #12
   %.not53.i = icmp eq ptr %112, null
   br i1 %.not53.i, label %166, label %113
@@ -327,10 +327,10 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
 118:                                              ; preds = %116, %113
   %119 = getelementptr inbounds nuw i8, ptr %112, i64 48
   %120 = load i8, ptr %119, align 8
-  store i8 %120, ptr %84, align 8
+  store i8 %120, ptr %83, align 8
   %121 = getelementptr inbounds nuw i8, ptr %112, i64 56
   %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 %122, ptr %123, align 8
   %124 = icmp eq i8 %120, 119
   br i1 %124, label %125, label %126
@@ -344,7 +344,7 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
 126:                                              ; preds = %125, %118
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   store i8 0, ptr %114, align 8
-  %127 = load i8, ptr %84, align 8
+  %127 = load i8, ptr %83, align 8
   %128 = icmp eq i8 %127, 119
   br i1 %128, label %129, label %163
 
@@ -362,7 +362,7 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
   %134 = load ptr, ptr @MainLWLockArray, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 5504
   call void @LWLockRelease(ptr noundef nonnull %135) #12
-  %136 = trunc nuw i8 %80 to i1
+  %136 = trunc nuw i8 %79 to i1
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %133
@@ -372,7 +372,7 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
 
 139:                                              ; preds = %137, %133
   call void @StartTransactionCommand() #12
-  %140 = load i32, ptr %83, align 8
+  %140 = load i32, ptr %82, align 8
   br label %141
 
 141:                                              ; preds = %159, %139
@@ -444,7 +444,7 @@ wait_for_relation_state_change.exit.i:            ; preds = %149, %144, %144
   %176 = call i64 @GetCurrentTimestamp() #12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #12
   %177 = load ptr, ptr @process_syncing_tables_for_apply.last_start_times, align 8
-  %178 = call ptr @hash_search(ptr noundef %177, ptr noundef nonnull %83, i32 noundef 1, ptr noundef nonnull %7) #12
+  %178 = call ptr @hash_search(ptr noundef %177, ptr noundef nonnull %82, i32 noundef 1, ptr noundef nonnull %7) #12
   %179 = load i8, ptr %7, align 1, !range !9, !noundef !10
   %180 = trunc nuw i8 %179 to i1
   br i1 %180, label %181, label %186
@@ -466,7 +466,7 @@ wait_for_relation_state_change.exit.i:            ; preds = %149, %144, %144
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %187, i64 36
   %195 = load i32, ptr %194, align 4
-  %196 = load i32, ptr %83, align 8
+  %196 = load i32, ptr %82, align 8
   %197 = call zeroext i1 @logicalrep_worker_launch(i32 noundef 1, i32 noundef %189, i32 noundef %191, ptr noundef %193, i32 noundef %195, i32 noundef %196, i32 noundef 0) #12
   %198 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i64 %176, ptr %198, align 8
@@ -477,19 +477,19 @@ wait_for_relation_state_change.exit.i:            ; preds = %149, %144, %144
   br label %200
 
 200:                                              ; preds = %199, %166, %163, %wait_for_relation_state_change.exit.i, %93, %87
-  %201 = phi i8 [ %80, %163 ], [ 1, %wait_for_relation_state_change.exit.i ], [ %80, %199 ], [ %80, %166 ], [ %80, %87 ], [ 1, %93 ]
+  %201 = phi i8 [ %79, %163 ], [ 1, %wait_for_relation_state_change.exit.i ], [ %79, %199 ], [ %79, %166 ], [ %79, %87 ], [ 1, %93 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i3, 1
   %202 = load i32, ptr %75, align 4
   %203 = sext i32 %202 to i64
   %204 = icmp slt i64 %indvars.iv.next.i, %203
-  br i1 %204, label %.lr.ph, label %._crit_edge.i
+  br i1 %204, label %.lr.ph, label %.critedge.i
 
-205:                                              ; preds = %._crit_edge.i
+205:                                              ; preds = %.critedge.i
   %206 = load ptr, ptr @MySubscription, align 8
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 32
   %208 = load i8, ptr %207, align 8
   %209 = icmp eq i8 %208, 112
-  br i1 %209, label %210, label %.critedge.critedge.i
+  br i1 %209, label %210, label %.critedge58.critedge.i
 
 210:                                              ; preds = %205
   call void @CommandCounterIncrement() #12
@@ -509,7 +509,7 @@ AllTablesyncsReady.exit.i:                        ; preds = %214, %210
   %217 = icmp eq ptr %216, null
   %218 = select i1 %211, i1 %217, i1 false
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
-  br i1 %218, label %219, label %.critedge.critedge.i
+  br i1 %218, label %219, label %.critedge58.critedge.i
 
 219:                                              ; preds = %AllTablesyncsReady.exit.i
   %220 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #12
@@ -532,12 +532,12 @@ AllTablesyncsReady.exit.i:                        ; preds = %214, %210
   call void @proc_exit(i32 noundef 0) #14
   unreachable
 
-.critedge.critedge.i:                             ; preds = %AllTablesyncsReady.exit.i, %205
+.critedge58.critedge.i:                           ; preds = %AllTablesyncsReady.exit.i, %205
   call void @CommitTransactionCommand() #12
   %230 = call i64 @pgstat_report_stat(i1 noundef zeroext true) #12
   br label %process_syncing_tables_for_apply.exit
 
-process_syncing_tables_for_apply.exit:            ; preds = %._crit_edge.i, %.critedge.critedge.i
+process_syncing_tables_for_apply.exit:            ; preds = %.critedge.i, %.critedge58.critedge.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
   br label %234
 
@@ -652,9 +652,9 @@ define internal fastcc zeroext i1 @FetchTableStates(ptr noundef nonnull writeonl
   store i8 0, ptr %0, align 1
   %2 = load i32, ptr @table_states_validity, align 4
   %.not = icmp eq i32 %2, 2
-  br i1 %.not, label %._crit_edge22, label %3
+  br i1 %.not, label %._crit_edge, label %3
 
-._crit_edge22:                                    ; preds = %1
+._crit_edge:                                      ; preds = %1
   %.pre = load i8, ptr @FetchTableStates.has_subrels, align 1, !range !9
   br label %37
 
@@ -680,49 +680,49 @@ define internal fastcc zeroext i1 @FetchTableStates(ptr noundef nonnull writeonl
   store ptr %11, ptr @CurrentMemoryContext, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.not12 = icmp eq ptr %10, null
-  br i1 %.not12, label %._crit_edgethread-pre-split, label %.lr.ph
+  br i1 %.not12, label %.critedgethread-pre-split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load i32, ptr %13, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph20, label %._crit_edgethread-pre-split
+  br i1 %16, label %.lr.ph18, label %.critedgethread-pre-split
 
-._crit_edgethread-pre-split:                      ; preds = %7, %.lr.ph
+.lr.ph18:                                         ; preds = %.lr.ph, %.lr.ph18
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph18 ], [ 0, %.lr.ph ]
+  %17 = load ptr, ptr %14, align 8
+  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv
+  %19 = tail call ptr @palloc(i64 noundef 24) #12
+  %20 = load ptr, ptr %18, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 1 dereferenceable(24) %20, i64 24, i1 false)
+  %21 = load ptr, ptr @table_states_not_ready, align 8
+  %22 = tail call ptr @lappend(ptr noundef %21, ptr noundef nonnull %19) #12
+  store ptr %22, ptr @table_states_not_ready, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %23 = load i32, ptr %13, align 4
+  %24 = sext i32 %23 to i64
+  %25 = icmp slt i64 %indvars.iv.next, %24
+  br i1 %25, label %.lr.ph18, label %.critedge
+
+.critedgethread-pre-split:                        ; preds = %7, %.lr.ph
   %.pr = load ptr, ptr @table_states_not_ready, align 8
-  br label %._crit_edge
+  br label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph20, %._crit_edgethread-pre-split
-  %17 = phi ptr [ %.pr, %._crit_edgethread-pre-split ], [ %23, %.lr.ph20 ]
+.critedge:                                        ; preds = %.lr.ph18, %.critedgethread-pre-split
+  %26 = phi ptr [ %.pr, %.critedgethread-pre-split ], [ %22, %.lr.ph18 ]
   store ptr %12, ptr @CurrentMemoryContext, align 8
-  %.not14 = icmp eq ptr %17, null
+  %.not14 = icmp eq ptr %26, null
   br i1 %.not14, label %27, label %32
 
-.lr.ph20:                                         ; preds = %.lr.ph, %.lr.ph20
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph20 ], [ 0, %.lr.ph ]
-  %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv
-  %20 = tail call ptr @palloc(i64 noundef 24) #12
-  %21 = load ptr, ptr %19, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 1 dereferenceable(24) %21, i64 24, i1 false)
-  %22 = load ptr, ptr @table_states_not_ready, align 8
-  %23 = tail call ptr @lappend(ptr noundef %22, ptr noundef nonnull %20) #12
-  store ptr %23, ptr @table_states_not_ready, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i32, ptr %13, align 4
-  %25 = sext i32 %24 to i64
-  %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph20, label %._crit_edge
-
-27:                                               ; preds = %._crit_edge
+27:                                               ; preds = %.critedge
   %28 = load ptr, ptr @MySubscription, align 8
   %29 = load i32, ptr %28, align 8
   %30 = tail call zeroext i1 @HasSubscriptionRelations(i32 noundef %29) #12
   %31 = zext i1 %30 to i8
   br label %32
 
-32:                                               ; preds = %27, %._crit_edge
-  %33 = phi i8 [ 1, %._crit_edge ], [ %31, %27 ]
+32:                                               ; preds = %27, %.critedge
+  %33 = phi i8 [ 1, %.critedge ], [ %31, %27 ]
   store i8 %33, ptr @FetchTableStates.has_subrels, align 1
   %34 = load i32, ptr @table_states_validity, align 4
   %35 = icmp eq i32 %34, 1
@@ -732,8 +732,8 @@ define internal fastcc zeroext i1 @FetchTableStates(ptr noundef nonnull writeonl
   store i32 2, ptr @table_states_validity, align 4
   br label %37
 
-37:                                               ; preds = %._crit_edge22, %32, %36
-  %38 = phi i8 [ %.pre, %._crit_edge22 ], [ %33, %32 ], [ %33, %36 ]
+37:                                               ; preds = %._crit_edge, %32, %36
+  %38 = phi i8 [ %.pre, %._crit_edge ], [ %33, %32 ], [ %33, %36 ]
   %39 = trunc nuw i8 %38 to i1
   ret i1 %39
 }
@@ -1911,8 +1911,8 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
 
 .lr.ph.i.i:                                       ; preds = %526, %530
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %530 ], [ 0, %526 ]
-  %.not60.i.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %.not60.i.i, label %530, label %529
+  %.not58.i.i = icmp eq i64 %indvars.iv.i.i, 0
+  br i1 %.not58.i.i, label %530, label %529
 
 529:                                              ; preds = %.lr.ph.i.i
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.16) #12
@@ -1934,44 +1934,44 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.18) #12
   %539 = load i32, ptr %450, align 8
   %540 = icmp sgt i32 %539, 0
-  br i1 %540, label %.lr.ph67.i.i, label %._crit_edge68.i.i
+  br i1 %540, label %.lr.ph65.i.i, label %._crit_edge66.i.i
 
-._crit_edge68.i.i:                                ; preds = %552, %538
+._crit_edge66.i.i:                                ; preds = %552, %538
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.19) #12
   %541 = load i8, ptr %258, align 1
   %542 = icmp eq i8 %541, 114
   br i1 %542, label %556, label %557
 
-.lr.ph67.i.i:                                     ; preds = %538, %552
-  %indvars.iv77.i.i = phi i64 [ %indvars.iv.next78.i.i, %552 ], [ 0, %538 ]
+.lr.ph65.i.i:                                     ; preds = %538, %552
+  %indvars.iv74.i.i = phi i64 [ %indvars.iv.next75.i.i, %552 ], [ 0, %538 ]
   %543 = load ptr, ptr %377, align 8
-  %544 = getelementptr inbounds nuw ptr, ptr %543, i64 %indvars.iv77.i.i
+  %544 = getelementptr inbounds nuw ptr, ptr %543, i64 %indvars.iv74.i.i
   %545 = load ptr, ptr %544, align 8
   %546 = call ptr @quote_identifier(ptr noundef %545) #12
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef %546) #12
   %547 = load i32, ptr %450, align 8
   %548 = add i32 %547, -1
   %549 = sext i32 %548 to i64
-  %550 = icmp slt i64 %indvars.iv77.i.i, %549
+  %550 = icmp slt i64 %indvars.iv74.i.i, %549
   br i1 %550, label %551, label %552
 
-551:                                              ; preds = %.lr.ph67.i.i
+551:                                              ; preds = %.lr.ph65.i.i
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.16) #12
-  %.pre83.i.i = load i32, ptr %450, align 8
+  %.pre80.i.i = load i32, ptr %450, align 8
   br label %552
 
-552:                                              ; preds = %551, %.lr.ph67.i.i
-  %553 = phi i32 [ %547, %.lr.ph67.i.i ], [ %.pre83.i.i, %551 ]
-  %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
+552:                                              ; preds = %551, %.lr.ph65.i.i
+  %553 = phi i32 [ %547, %.lr.ph65.i.i ], [ %.pre80.i.i, %551 ]
+  %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %554 = sext i32 %553 to i64
-  %555 = icmp slt i64 %indvars.iv.next78.i.i, %554
-  br i1 %555, label %.lr.ph67.i.i, label %._crit_edge68.i.i, !llvm.loop !17
+  %555 = icmp slt i64 %indvars.iv.next75.i.i, %554
+  br i1 %555, label %.lr.ph65.i.i, label %._crit_edge66.i.i, !llvm.loop !17
 
-556:                                              ; preds = %._crit_edge68.i.i
+556:                                              ; preds = %._crit_edge66.i.i
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.20) #12
   br label %557
 
-557:                                              ; preds = %556, %._crit_edge68.i.i
+557:                                              ; preds = %556, %._crit_edge66.i.i
   %558 = load ptr, ptr %208, align 8
   %559 = load ptr, ptr %209, align 8
   %560 = call ptr @quote_qualified_identifier(ptr noundef %558, ptr noundef %559) #12
@@ -1989,28 +1989,28 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
   %566 = getelementptr inbounds nuw i8, ptr %.257.i.i, i64 4
   %567 = load i32, ptr %566, align 4
   %568 = icmp sgt i32 %567, 1
-  br i1 %568, label %.lr.ph71.i.i, label %._crit_edge72.i.i
+  br i1 %568, label %.lr.ph69.i.i, label %.critedge.i.i
 
-._crit_edge72.i.i:                                ; preds = %.lr.ph71.i.i, %561
-  call void @list_free_deep(ptr noundef nonnull %.257.i.i) #12
-  br label %577
-
-.lr.ph71.i.i:                                     ; preds = %561, %.lr.ph71.i.i
-  %indvars.iv80.i.i = phi i64 [ %indvars.iv.next81.i.i, %.lr.ph71.i.i ], [ 1, %561 ]
+.lr.ph69.i.i:                                     ; preds = %561, %.lr.ph69.i.i
+  %indvars.iv77.i.i = phi i64 [ %indvars.iv.next78.i.i, %.lr.ph69.i.i ], [ 1, %561 ]
   %569 = load ptr, ptr %562, align 8
-  %570 = getelementptr inbounds nuw %union.ListCell, ptr %569, i64 %indvars.iv80.i.i
+  %570 = getelementptr inbounds nuw %union.ListCell, ptr %569, i64 %indvars.iv77.i.i
   %571 = load ptr, ptr %570, align 8
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 8
   %573 = load ptr, ptr %572, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %9, ptr noundef nonnull @.str.22, ptr noundef %573) #12
-  %indvars.iv.next81.i.i = add nuw nsw i64 %indvars.iv80.i.i, 1
+  %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %574 = load i32, ptr %566, align 4
   %575 = sext i32 %574 to i64
-  %576 = icmp slt i64 %indvars.iv.next81.i.i, %575
-  br i1 %576, label %.lr.ph71.i.i, label %._crit_edge72.i.i, !llvm.loop !18
+  %576 = icmp slt i64 %indvars.iv.next78.i.i, %575
+  br i1 %576, label %.lr.ph69.i.i, label %.critedge.i.i, !llvm.loop !18
 
-577:                                              ; preds = %._crit_edge72.i.i, %557, %._crit_edge.i.i, %521
-  %.str.23.sink.i.i = phi ptr [ @.str.17, %._crit_edge.i.i ], [ @.str.17, %521 ], [ @.str.23, %._crit_edge72.i.i ], [ @.str.23, %557 ]
+.critedge.i.i:                                    ; preds = %.lr.ph69.i.i, %561
+  call void @list_free_deep(ptr noundef nonnull %.257.i.i) #12
+  br label %577
+
+577:                                              ; preds = %.critedge.i.i, %557, %._crit_edge.i.i, %521
+  %.str.23.sink.i.i = phi ptr [ @.str.17, %._crit_edge.i.i ], [ @.str.17, %521 ], [ @.str.23, %.critedge.i.i ], [ @.str.23, %557 ]
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull %.str.23.sink.i.i) #12
   %578 = load ptr, ptr @WalReceiverFunctions, align 8
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 48

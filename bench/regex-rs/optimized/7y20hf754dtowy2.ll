@@ -45,7 +45,7 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
   %trunc = trunc nuw i32 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i32, ptr %6, align 4
-  br i1 %trunc, label %8, label %46
+  br i1 %trunc, label %8, label %.critedge
 
 8:                                                ; preds = %3
   %9 = tail call noundef align 8 dereferenceable(8) ptr @_ZN14regex_automata4util8captures8Captures10group_info17hd1eaca0e92345373E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1)
@@ -57,7 +57,7 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
 
 14:                                               ; preds = %8
   %15 = icmp sgt i64 %2, -1
-  br i1 %15, label %37, label %46
+  br i1 %15, label %37, label %.critedge
 
 16:                                               ; preds = %8
   %17 = tail call noundef align 8 dereferenceable(8) ptr @_ZN14regex_automata4util8captures8Captures10group_info17hd1eaca0e92345373E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1)
@@ -65,7 +65,7 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
   %18 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %19 = tail call noundef i64 @_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %18, i32 noundef %7)
   %.not.i.not = icmp ult i64 %2, %19
-  br i1 %.not.i.not, label %20, label %46
+  br i1 %.not.i.not, label %20, label %.critedge
 
 20:                                               ; preds = %16
   %21 = icmp eq i64 %2, 0
@@ -74,7 +74,7 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
 
 23:                                               ; preds = %20
   %24 = shl nuw nsw i64 %22, 1
-  br label %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread
+  br label %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit
 
 25:                                               ; preds = %20
   %26 = getelementptr i8, ptr %.val, i64 32
@@ -95,11 +95,11 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
   %33 = shl i64 %2, 1
   %34 = add i64 %33, -2
   %35 = add i64 %34, %32
-  br label %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread
+  br label %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit
 
-_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread: ; preds = %23, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha33df075c2aa9364E.exit.i"
-  %.sroa.4.0.i.ph = phi i64 [ %35, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha33df075c2aa9364E.exit.i" ], [ %24, %23 ]
-  %36 = add i64 %.sroa.4.0.i.ph, 1
+_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit: ; preds = %23, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha33df075c2aa9364E.exit.i"
+  %.sroa.4.0.i = phi i64 [ %24, %23 ], [ %35, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha33df075c2aa9364E.exit.i" ]
+  %36 = add i64 %.sroa.4.0.i, 1
   br label %40
 
 37:                                               ; preds = %14
@@ -107,43 +107,43 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread
   %39 = or disjoint i64 %38, 1
   br label %40
 
-40:                                               ; preds = %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread, %37
-  %.061 = phi i64 [ %38, %37 ], [ %.sroa.4.0.i.ph, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread ]
-  %.0 = phi i64 [ %39, %37 ], [ %36, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread ]
+40:                                               ; preds = %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit, %37
+  %.061 = phi i64 [ %38, %37 ], [ %.sroa.4.0.i, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit ]
+  %.0 = phi i64 [ %39, %37 ], [ %36, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load i64, ptr %42, align 8, !noundef !5
   %44 = icmp ult i64 %.061, %43
   %45 = load ptr, ptr %41, align 8, !nonnull !5
-  br i1 %44, label %47, label %46
+  br i1 %44, label %46, label %.critedge
 
-46:                                               ; preds = %14, %3, %47, %40, %52, %16, %56
-  %.sink = phi i64 [ 1, %56 ], [ 0, %16 ], [ 0, %52 ], [ 0, %40 ], [ 0, %47 ], [ 0, %3 ], [ 0, %14 ]
+.critedge:                                        ; preds = %14, %3, %46, %40, %51, %16, %55
+  %.sink = phi i64 [ 1, %55 ], [ 0, %16 ], [ 0, %51 ], [ 0, %40 ], [ 0, %46 ], [ 0, %3 ], [ 0, %14 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
-47:                                               ; preds = %40
-  %48 = getelementptr inbounds i64, ptr %45, i64 %.061
-  %49 = load i64, ptr %48, align 8, !noundef !5
-  %50 = icmp ne i64 %49, 0
-  %51 = icmp ult i64 %.0, %43
-  %or.cond = select i1 %50, i1 %51, i1 false
-  br i1 %or.cond, label %52, label %46
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds i64, ptr %45, i64 %.061
+  %48 = load i64, ptr %47, align 8, !noundef !5
+  %49 = icmp ne i64 %48, 0
+  %50 = icmp ult i64 %.0, %43
+  %or.cond = select i1 %49, i1 %50, i1 false
+  br i1 %or.cond, label %51, label %.critedge
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds i64, ptr %45, i64 %.0
-  %54 = load i64, ptr %53, align 8, !noundef !5
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %46, label %56
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds i64, ptr %45, i64 %.0
+  %53 = load i64, ptr %52, align 8, !noundef !5
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %.critedge, label %55
 
-56:                                               ; preds = %52
-  %57 = add i64 %49, -1
-  %58 = add i64 %54, -1
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
+55:                                               ; preds = %51
+  %56 = add i64 %48, -1
+  %57 = add i64 %53, -1
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %56, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %57, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %58, ptr %60, align 8
-  br label %46
+  br label %.critedge
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

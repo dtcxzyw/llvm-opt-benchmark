@@ -592,7 +592,6 @@ define internal fastcc void @json_puts_string(ptr noundef readonly captures(none
   br label %jd_putc.exit
 
 jd_putc.exit:                                     ; preds = %16, %26, %32
-  %invariant.gep = getelementptr i8, ptr %1, i64 -1
   %34 = load i8, ptr %1, align 1
   %.not3457 = icmp eq i8 %34, 0
   br i1 %.not3457, label %._crit_edge, label %.lr.ph
@@ -636,9 +635,9 @@ jd_putc.exit:                                     ; preds = %16, %26, %32
   br label %jd_puts.exit
 
 .lr.ph:                                           ; preds = %jd_putc.exit, %jd_puts.exit44
-  %55 = phi i8 [ %174, %jd_puts.exit44 ], [ %34, %jd_putc.exit ]
-  %56 = phi ptr [ %173, %jd_puts.exit44 ], [ %1, %jd_putc.exit ]
-  %.058 = phi i32 [ %171, %jd_puts.exit44 ], [ 0, %jd_putc.exit ]
+  %55 = phi i8 [ %176, %jd_puts.exit44 ], [ %34, %jd_putc.exit ]
+  %56 = phi ptr [ %175, %jd_puts.exit44 ], [ %1, %jd_putc.exit ]
+  %.058 = phi i32 [ %173, %jd_puts.exit44 ], [ 0, %jd_putc.exit ]
   %57 = icmp ult i8 %55, 32
   br i1 %57, label %58, label %90
 
@@ -704,174 +703,175 @@ jd_putc.exit41:                                   ; preds = %62, %71, %77
 
 90:                                               ; preds = %.lr.ph
   %91 = icmp sgt i32 %.058, 0
-  br i1 %91, label %92, label %105
+  br i1 %91, label %92, label %107
 
 92:                                               ; preds = %90
   %93 = zext nneg i32 %.058 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %93
-  %94 = load i8, ptr %gep, align 1
-  %95 = icmp eq i8 %94, 60
-  %96 = icmp eq i8 %55, 47
-  %or.cond = and i1 %96, %95
-  br i1 %or.cond, label %97, label %105
+  %94 = getelementptr i8, ptr %1, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 -1
+  %96 = load i8, ptr %95, align 1
+  %97 = icmp eq i8 %96, 60
+  %98 = icmp eq i8 %55, 47
+  %or.cond = and i1 %98, %97
+  br i1 %or.cond, label %99, label %107
 
-97:                                               ; preds = %92
-  %98 = load ptr, ptr %0, align 8
-  %.not.i45 = icmp eq ptr %98, null
-  br i1 %.not.i45, label %101, label %99
+99:                                               ; preds = %92
+  %100 = load ptr, ptr %0, align 8
+  %.not.i45 = icmp eq ptr %100, null
+  br i1 %.not.i45, label %103, label %101
 
-99:                                               ; preds = %97
-  %100 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr nonnull %98)
-  br label %101
+101:                                              ; preds = %99
+  %102 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr nonnull %100)
+  br label %103
 
-101:                                              ; preds = %99, %97
-  %102 = load ptr, ptr %17, align 8
-  %.not7.i46 = icmp eq ptr %102, null
-  br i1 %.not7.i46, label %jd_puts.exit44, label %103
+103:                                              ; preds = %101, %99
+  %104 = load ptr, ptr %17, align 8
+  %.not7.i46 = icmp eq ptr %104, null
+  br i1 %.not7.i46, label %jd_puts.exit44, label %105
 
-103:                                              ; preds = %101
-  %104 = tail call ptr @g_string_append(ptr noundef nonnull %102, ptr noundef nonnull @.str.19)
+105:                                              ; preds = %103
+  %106 = tail call ptr @g_string_append(ptr noundef nonnull %104, ptr noundef nonnull @.str.19)
   br label %jd_puts.exit44
 
-105:                                              ; preds = %92, %90
+107:                                              ; preds = %92, %90
   switch i8 %55, label %jd_putc.exit50 [
-    i8 92, label %106
-    i8 34, label %106
+    i8 92, label %108
+    i8 34, label %108
   ]
 
-106:                                              ; preds = %105, %105
-  %107 = load ptr, ptr %0, align 8
-  %.not.i48 = icmp eq ptr %107, null
-  br i1 %.not.i48, label %110, label %108
+108:                                              ; preds = %107, %107
+  %109 = load ptr, ptr %0, align 8
+  %.not.i48 = icmp eq ptr %109, null
+  br i1 %.not.i48, label %112, label %110
 
-108:                                              ; preds = %106
-  %109 = tail call i32 @fputc(i32 noundef 92, ptr noundef nonnull %107)
-  br label %110
+110:                                              ; preds = %108
+  %111 = tail call i32 @fputc(i32 noundef 92, ptr noundef nonnull %109)
+  br label %112
 
-110:                                              ; preds = %108, %106
-  %111 = load ptr, ptr %17, align 8
-  %.not6.i49 = icmp eq ptr %111, null
-  br i1 %.not6.i49, label %jd_putc.exit50, label %112
+112:                                              ; preds = %110, %108
+  %113 = load ptr, ptr %17, align 8
+  %.not6.i49 = icmp eq ptr %113, null
+  br i1 %.not6.i49, label %jd_putc.exit50, label %114
 
-112:                                              ; preds = %110
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %114 = load i64, ptr %113, align 8
-  %115 = add i64 %114, 1
-  %116 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %117 = load i64, ptr %116, align 8
-  %118 = icmp ult i64 %115, %117
-  br i1 %118, label %119, label %125
+114:                                              ; preds = %112
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %116 = load i64, ptr %115, align 8
+  %117 = add i64 %116, 1
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %119 = load i64, ptr %118, align 8
+  %120 = icmp ult i64 %117, %119
+  br i1 %120, label %121, label %127
 
-119:                                              ; preds = %112
-  %120 = load ptr, ptr %111, align 8
-  store i64 %115, ptr %113, align 8
-  %121 = getelementptr i8, ptr %120, i64 %114
-  store i8 92, ptr %121, align 1
-  %122 = load ptr, ptr %111, align 8
-  %123 = load i64, ptr %113, align 8
-  %124 = getelementptr i8, ptr %122, i64 %123
-  store i8 0, ptr %124, align 1
+121:                                              ; preds = %114
+  %122 = load ptr, ptr %113, align 8
+  store i64 %117, ptr %115, align 8
+  %123 = getelementptr i8, ptr %122, i64 %116
+  store i8 92, ptr %123, align 1
+  %124 = load ptr, ptr %113, align 8
+  %125 = load i64, ptr %115, align 8
+  %126 = getelementptr i8, ptr %124, i64 %125
+  store i8 0, ptr %126, align 1
   br label %jd_putc.exit50
 
-125:                                              ; preds = %112
-  %126 = tail call ptr @g_string_insert_c(ptr noundef nonnull %111, i64 noundef -1, i8 noundef signext 92)
+127:                                              ; preds = %114
+  %128 = tail call ptr @g_string_insert_c(ptr noundef nonnull %113, i64 noundef -1, i8 noundef signext 92)
   br label %jd_putc.exit50
 
-jd_putc.exit50:                                   ; preds = %125, %119, %110, %105
+jd_putc.exit50:                                   ; preds = %127, %121, %112, %107
   %.pre = load i8, ptr %56, align 1
-  br i1 %2, label %127, label %jd_putc.exit50._crit_edge
+  br i1 %2, label %129, label %jd_putc.exit50._crit_edge
 
 jd_putc.exit50._crit_edge:                        ; preds = %jd_putc.exit50
   %.pre60 = load ptr, ptr %0, align 8
-  br label %149
+  br label %151
 
-127:                                              ; preds = %jd_putc.exit50
-  %128 = icmp eq i8 %.pre, 46
+129:                                              ; preds = %jd_putc.exit50
+  %130 = icmp eq i8 %.pre, 46
   %.pre61 = load ptr, ptr %0, align 8
-  br i1 %128, label %129, label %149
+  br i1 %130, label %131, label %151
 
-129:                                              ; preds = %127
+131:                                              ; preds = %129
   %.not.i51 = icmp eq ptr %.pre61, null
-  br i1 %.not.i51, label %132, label %130
+  br i1 %.not.i51, label %134, label %132
 
-130:                                              ; preds = %129
-  %131 = tail call i32 @fputc(i32 noundef 95, ptr noundef nonnull %.pre61)
-  br label %132
+132:                                              ; preds = %131
+  %133 = tail call i32 @fputc(i32 noundef 95, ptr noundef nonnull %.pre61)
+  br label %134
 
-132:                                              ; preds = %130, %129
-  %133 = load ptr, ptr %17, align 8
-  %.not6.i52 = icmp eq ptr %133, null
-  br i1 %.not6.i52, label %jd_puts.exit44, label %134
+134:                                              ; preds = %132, %131
+  %135 = load ptr, ptr %17, align 8
+  %.not6.i52 = icmp eq ptr %135, null
+  br i1 %.not6.i52, label %jd_puts.exit44, label %136
 
-134:                                              ; preds = %132
-  %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %136 = load i64, ptr %135, align 8
-  %137 = add i64 %136, 1
-  %138 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %139 = load i64, ptr %138, align 8
-  %140 = icmp ult i64 %137, %139
-  br i1 %140, label %141, label %147
+136:                                              ; preds = %134
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  %138 = load i64, ptr %137, align 8
+  %139 = add i64 %138, 1
+  %140 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  %141 = load i64, ptr %140, align 8
+  %142 = icmp ult i64 %139, %141
+  br i1 %142, label %143, label %149
 
-141:                                              ; preds = %134
-  %142 = load ptr, ptr %133, align 8
-  store i64 %137, ptr %135, align 8
-  %143 = getelementptr i8, ptr %142, i64 %136
-  store i8 95, ptr %143, align 1
-  %144 = load ptr, ptr %133, align 8
-  %145 = load i64, ptr %135, align 8
-  %146 = getelementptr i8, ptr %144, i64 %145
-  store i8 0, ptr %146, align 1
+143:                                              ; preds = %136
+  %144 = load ptr, ptr %135, align 8
+  store i64 %139, ptr %137, align 8
+  %145 = getelementptr i8, ptr %144, i64 %138
+  store i8 95, ptr %145, align 1
+  %146 = load ptr, ptr %135, align 8
+  %147 = load i64, ptr %137, align 8
+  %148 = getelementptr i8, ptr %146, i64 %147
+  store i8 0, ptr %148, align 1
   br label %jd_puts.exit44
 
-147:                                              ; preds = %134
-  %148 = tail call ptr @g_string_insert_c(ptr noundef nonnull %133, i64 noundef -1, i8 noundef signext 95)
+149:                                              ; preds = %136
+  %150 = tail call ptr @g_string_insert_c(ptr noundef nonnull %135, i64 noundef -1, i8 noundef signext 95)
   br label %jd_puts.exit44
 
-149:                                              ; preds = %jd_putc.exit50._crit_edge, %127
-  %150 = phi ptr [ %.pre60, %jd_putc.exit50._crit_edge ], [ %.pre61, %127 ]
-  %.not.i54 = icmp eq ptr %150, null
-  br i1 %.not.i54, label %154, label %151
+151:                                              ; preds = %jd_putc.exit50._crit_edge, %129
+  %152 = phi ptr [ %.pre60, %jd_putc.exit50._crit_edge ], [ %.pre61, %129 ]
+  %.not.i54 = icmp eq ptr %152, null
+  br i1 %.not.i54, label %156, label %153
 
-151:                                              ; preds = %149
-  %152 = sext i8 %.pre to i32
-  %153 = tail call i32 @fputc(i32 noundef %152, ptr noundef nonnull %150)
-  br label %154
+153:                                              ; preds = %151
+  %154 = sext i8 %.pre to i32
+  %155 = tail call i32 @fputc(i32 noundef %154, ptr noundef nonnull %152)
+  br label %156
 
-154:                                              ; preds = %151, %149
-  %155 = load ptr, ptr %17, align 8
-  %.not6.i55 = icmp eq ptr %155, null
-  br i1 %.not6.i55, label %jd_puts.exit44, label %156
+156:                                              ; preds = %153, %151
+  %157 = load ptr, ptr %17, align 8
+  %.not6.i55 = icmp eq ptr %157, null
+  br i1 %.not6.i55, label %jd_puts.exit44, label %158
 
-156:                                              ; preds = %154
-  %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %158 = load i64, ptr %157, align 8
-  %159 = add i64 %158, 1
-  %160 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %161 = load i64, ptr %160, align 8
-  %162 = icmp ult i64 %159, %161
-  br i1 %162, label %163, label %169
+158:                                              ; preds = %156
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %160 = load i64, ptr %159, align 8
+  %161 = add i64 %160, 1
+  %162 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %163 = load i64, ptr %162, align 8
+  %164 = icmp ult i64 %161, %163
+  br i1 %164, label %165, label %171
 
-163:                                              ; preds = %156
-  %164 = load ptr, ptr %155, align 8
-  store i64 %159, ptr %157, align 8
-  %165 = getelementptr i8, ptr %164, i64 %158
-  store i8 %.pre, ptr %165, align 1
-  %166 = load ptr, ptr %155, align 8
-  %167 = load i64, ptr %157, align 8
-  %168 = getelementptr i8, ptr %166, i64 %167
-  store i8 0, ptr %168, align 1
+165:                                              ; preds = %158
+  %166 = load ptr, ptr %157, align 8
+  store i64 %161, ptr %159, align 8
+  %167 = getelementptr i8, ptr %166, i64 %160
+  store i8 %.pre, ptr %167, align 1
+  %168 = load ptr, ptr %157, align 8
+  %169 = load i64, ptr %159, align 8
+  %170 = getelementptr i8, ptr %168, i64 %169
+  store i8 0, ptr %170, align 1
   br label %jd_puts.exit44
 
-169:                                              ; preds = %156
-  %170 = tail call ptr @g_string_insert_c(ptr noundef nonnull %155, i64 noundef -1, i8 noundef signext %.pre)
+171:                                              ; preds = %158
+  %172 = tail call ptr @g_string_insert_c(ptr noundef nonnull %157, i64 noundef -1, i8 noundef signext %.pre)
   br label %jd_puts.exit44
 
-jd_puts.exit44:                                   ; preds = %169, %163, %154, %147, %141, %132, %103, %101, %88, %86
-  %171 = add i32 %.058, 1
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr i8, ptr %1, i64 %172
-  %174 = load i8, ptr %173, align 1
-  %.not34 = icmp eq i8 %174, 0
+jd_puts.exit44:                                   ; preds = %171, %165, %156, %149, %143, %134, %105, %103, %88, %86
+  %173 = add i32 %.058, 1
+  %174 = sext i32 %173 to i64
+  %175 = getelementptr i8, ptr %1, i64 %174
+  %176 = load i8, ptr %175, align 1
+  %.not34 = icmp eq i8 %176, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 jd_puts.exit:                                     ; preds = %53, %47, %38, %11, %8

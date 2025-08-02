@@ -1739,7 +1739,7 @@ _ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit62: ; preds = %181, %205
   br label %212
 
 212:                                              ; preds = %.lr.ph72, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64
-  %.05571 = phi i32 [ 0, %.lr.ph72 ], [ %286, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64 ]
+  %.05571 = phi i32 [ 0, %.lr.ph72 ], [ %287, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64 ]
   %213 = load i8, ptr %5, align 8
   %214 = trunc i8 %213 to i1
   br i1 %214, label %215, label %216
@@ -1858,13 +1858,13 @@ _ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64: ; preds = %252, %276
   %281 = zext i16 %279 to i32
   %282 = mul nsw i32 %211, %281
   %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %283
+  %284 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %283
   tail call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull %284, ptr noundef %246) #11
-  %gep = getelementptr %class.VMRegImpl, ptr getelementptr (i8, ptr @all_VMRegs, i64 618), i64 %283
-  %285 = getelementptr inbounds nuw i8, ptr %246, i64 1
-  tail call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull %gep, ptr noundef nonnull %285) #11
-  %286 = add nuw nsw i32 %.05571, 1
-  %exitcond80.not = icmp eq i32 %286, %210
+  %285 = getelementptr i8, ptr %284, i64 1
+  %286 = getelementptr inbounds nuw i8, ptr %246, i64 1
+  tail call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull %285, ptr noundef nonnull %286) #11
+  %287 = add nuw nsw i32 %.05571, 1
+  %exitcond80.not = icmp eq i32 %287, %210
   br i1 %exitcond80.not, label %.loopexit, label %212, !llvm.loop !11
 
 .loopexit:                                        ; preds = %161, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit61, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit63, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit62, %._crit_edge, %171, %165, %49

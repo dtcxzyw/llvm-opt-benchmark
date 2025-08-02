@@ -773,14 +773,14 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hd265c9dd71c0d840E.exit.i.i17: ; pr
   br i1 %103, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4read17h311b262dc722bfe6E.exit", label %117
 
 104:                                              ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h926dea49504fde5dE.exit.i"
-  %105 = getelementptr i8, ptr %20, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br label %106
 
 106:                                              ; preds = %116, %104
   %.sroa.0.04.i.i = phi i64 [ 0, %104 ], [ %107, %116 ]
   %107 = add nuw nsw i64 %.sroa.0.04.i.i, 1
   %.idx.i.i = mul nuw nsw i64 %.sroa.0.04.i.i, 24
-  %108 = getelementptr i8, ptr %105, i64 %.idx.i.i
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx.i.i
   %109 = load atomic i64, ptr %108 acquire, align 8
   %110 = and i64 %109, 2
   %111 = icmp eq i64 %110, 0
@@ -801,14 +801,14 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hd265c9dd71c0d840E.exit.i.i17: ; pr
   br i1 %118, label %.lr.ph.i5.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h8415523f8d6fd6ceE.exit.sink.split.i"
 
 .lr.ph.i5.i:                                      ; preds = %117
-  %119 = getelementptr i8, ptr %20, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br label %120
 
 120:                                              ; preds = %130, %.lr.ph.i5.i
   %.sroa.0.04.i6.i = phi i64 [ %98, %.lr.ph.i5.i ], [ %121, %130 ]
   %121 = add nuw nsw i64 %.sroa.0.04.i6.i, 1
   %.idx.i7.i = mul nuw nsw i64 %.sroa.0.04.i6.i, 24
-  %122 = getelementptr i8, ptr %119, i64 %.idx.i7.i
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx.i7.i
   %123 = load atomic i64, ptr %122 acquire, align 8
   %124 = and i64 %123, 2
   %125 = icmp eq i64 %124, 0

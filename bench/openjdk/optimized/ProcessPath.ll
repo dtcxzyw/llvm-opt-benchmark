@@ -21,7 +21,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
 
 13:                                               ; preds = %8
   %14 = icmp eq i32 %11, 0
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %13
   %16 = add nsw i32 %1, 512
@@ -37,25 +37,25 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, %19
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %28 = load i32, ptr %27, align 4
   %.not354 = icmp sgt i32 %28, %19
-  br i1 %.not354, label %29, label %.thread
+  br i1 %.not354, label %29, label %.critedge
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, %17
-  br i1 %32, label %.thread, label %33
+  br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %35 = load i32, ptr %34, align 8
   %.not355 = icmp sgt i32 %35, %17
-  br i1 %.not355, label %36, label %.thread
+  br i1 %.not355, label %36, label %.critedge
 
 36:                                               ; preds = %33, %15
   %37 = load i32, ptr %5, align 4
@@ -77,7 +77,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   tail call void %47(ptr noundef %45, i32 noundef %17, i32 noundef %19) #12
-  br label %.thread
+  br label %.critedge
 
 48:                                               ; preds = %36
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -89,7 +89,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %53 = load i32, ptr %52, align 4
   %.not357 = icmp eq i32 %19, %53
-  br i1 %.not357, label %.thread, label %54
+  br i1 %.not357, label %.critedge, label %54
 
 54:                                               ; preds = %51, %48
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -101,7 +101,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load i32, ptr %58, align 4
   %.not359 = icmp eq i32 %19, %59
-  br i1 %.not359, label %.thread, label %60
+  br i1 %.not359, label %.critedge, label %60
 
 60:                                               ; preds = %57, %54
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -112,7 +112,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   store i32 %17, ptr %49, align 4
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %19, ptr %65, align 4
-  br label %.thread
+  br label %.critedge
 
 66:                                               ; preds = %8
   %67 = icmp eq i32 %1, %3
@@ -252,11 +252,11 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
 
 155:                                              ; preds = %153
   %156 = fcmp ogt float %143, %154
-  br i1 %156, label %.thread, label %159
+  br i1 %156, label %.critedge, label %159
 
 157:                                              ; preds = %153
   %158 = fcmp olt float %149, %154
-  br i1 %158, label %.thread, label %159
+  br i1 %158, label %.critedge, label %159
 
 159:                                              ; preds = %157, %155
   %.0300.in = phi float [ %143, %155 ], [ %149, %157 ]
@@ -290,11 +290,11 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
 
 178:                                              ; preds = %176
   %179 = fcmp ogt float %143, %177
-  br i1 %179, label %.thread, label %182
+  br i1 %179, label %.critedge, label %182
 
 180:                                              ; preds = %176
   %181 = fcmp olt float %149, %177
-  br i1 %181, label %.thread, label %182
+  br i1 %181, label %.critedge, label %182
 
 182:                                              ; preds = %180, %178
   %.0299.in = phi float [ %143, %178 ], [ %149, %180 ]
@@ -319,8 +319,8 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %196 = sitofp i32 %.1318 to float
   %197 = fcmp ogt float %140, %196
   %198 = fcmp olt float %146, %196
-  %or.cond366 = select i1 %197, i1 true, i1 %198
-  br i1 %or.cond366, label %199, label %218
+  %or.cond368 = select i1 %197, i1 true, i1 %198
+  br i1 %or.cond368, label %199, label %218
 
 199:                                              ; preds = %195
   %200 = sitofp i32 %.1312 to float
@@ -328,11 +328,11 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
 
 201:                                              ; preds = %199
   %202 = fcmp ogt float %140, %200
-  br i1 %202, label %.thread, label %205
+  br i1 %202, label %.critedge, label %205
 
 203:                                              ; preds = %199
   %204 = fcmp olt float %146, %200
-  br i1 %204, label %.thread, label %205
+  br i1 %204, label %.critedge, label %205
 
 205:                                              ; preds = %203, %201
   %.0298.in = phi float [ %140, %201 ], [ %146, %203 ]
@@ -357,8 +357,8 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %219 = sitofp i32 %.1312 to float
   %220 = fcmp ogt float %140, %219
   %221 = fcmp olt float %146, %219
-  %or.cond367 = select i1 %220, i1 true, i1 %221
-  br i1 %or.cond367, label %222, label %241
+  %or.cond369 = select i1 %220, i1 true, i1 %221
+  br i1 %or.cond369, label %222, label %241
 
 222:                                              ; preds = %218
   %223 = sitofp i32 %.2319 to float
@@ -366,11 +366,11 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
 
 224:                                              ; preds = %222
   %225 = fcmp ogt float %140, %223
-  br i1 %225, label %.thread, label %228
+  br i1 %225, label %.critedge, label %228
 
 226:                                              ; preds = %222
   %227 = fcmp olt float %146, %223
-  br i1 %227, label %.thread, label %228
+  br i1 %227, label %.critedge, label %228
 
 228:                                              ; preds = %226, %224
   %.0.in = phi float [ %140, %224 ], [ %146, %226 ]
@@ -390,10 +390,10 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   br label %241
 
 241:                                              ; preds = %228, %218, %130
-  %.0317 = phi i32 [ %131, %130 ], [ %.2319, %228 ], [ %.2319, %218 ]
-  %.0314 = phi i32 [ %132, %130 ], [ %.2316, %228 ], [ %.2316, %218 ]
-  %.0311 = phi i32 [ %133, %130 ], [ %240, %228 ], [ %.1312, %218 ]
-  %.0308 = phi i32 [ %134, %130 ], [ %239, %228 ], [ %.1309, %218 ]
+  %.0317 = phi i32 [ %131, %130 ], [ %.2319, %218 ], [ %.2319, %228 ]
+  %.0314 = phi i32 [ %132, %130 ], [ %.2316, %218 ], [ %.2316, %228 ]
+  %.0311 = phi i32 [ %133, %130 ], [ %.1312, %218 ], [ %240, %228 ]
+  %.0308 = phi i32 [ %134, %130 ], [ %.1309, %218 ], [ %239, %228 ]
   %242 = icmp eq i32 %.0317, %.0311
   %243 = icmp eq i32 %.0314, %.0308
   %244 = and i1 %242, %243
@@ -419,7 +419,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load ptr, ptr %255, align 8
   tail call void %256(ptr noundef %254, i32 noundef %.0317, i32 noundef %.0314) #12
-  br label %.thread
+  br label %.critedge
 
 257:                                              ; preds = %247
   %258 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -431,7 +431,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %261 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %262 = load i32, ptr %261, align 4
   %.not350 = icmp eq i32 %.0314, %262
-  br i1 %.not350, label %.thread, label %263
+  br i1 %.not350, label %.critedge, label %263
 
 263:                                              ; preds = %260, %257
   %264 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -443,7 +443,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   %267 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %268 = load i32, ptr %267, align 4
   %.not352 = icmp eq i32 %.0314, %268
-  br i1 %.not352, label %.thread, label %269
+  br i1 %.not352, label %.critedge, label %269
 
 269:                                              ; preds = %266, %263
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -454,7 +454,7 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   store i32 %.0317, ptr %258, align 4
   %274 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.0314, ptr %274, align 4
-  br label %.thread
+  br label %.critedge
 
 275:                                              ; preds = %241
   br i1 %246, label %297, label %276
@@ -552,9 +552,9 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   store i32 %.0311, ptr %328, align 4
   %329 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.0308, ptr %329, align 4
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %226, %224, %203, %201, %180, %178, %157, %155, %248, %269, %266, %260, %13, %39, %60, %57, %51, %20, %26, %29, %33, %327
+.critedge:                                        ; preds = %201, %203, %224, %226, %178, %180, %155, %157, %248, %269, %266, %260, %13, %39, %60, %57, %51, %20, %26, %29, %33, %327
   ret void
 }
 
@@ -1823,66 +1823,66 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   %149 = fcmp olt float %.222854, %6
   %150 = fcmp ogt float %.222854, %10
   %or.cond263 = select i1 %149, i1 true, i1 %150
-  br i1 %or.cond263, label %151, label %.fold.split264
+  br i1 %or.cond263, label %151, label %.thread.critedge
 
 151:                                              ; preds = %146
   br i1 %149, label %152, label %154
 
 152:                                              ; preds = %151
   %153 = fcmp olt float %.323552, %6
-  br i1 %153, label %168, label %156
+  br i1 %153, label %174, label %.fold.split264
 
 154:                                              ; preds = %151
   %155 = fcmp ogt float %.323552, %10
-  br i1 %155, label %168, label %156
+  br i1 %155, label %174, label %.fold.split264
 
-156:                                              ; preds = %152, %154
+.fold.split264:                                   ; preds = %152, %154
   %.0.in = phi float [ %6, %152 ], [ %10, %154 ]
   %.0 = fpext float %.0.in to double
-  %157 = fpext float %.0224 to double
-  %158 = fpext float %.222854 to double
-  %159 = fsub double %.0, %158
-  %160 = fsub float %.22313750, %.0224
-  %161 = fpext float %160 to double
-  %162 = fmul double %159, %161
-  %163 = fsub float %.323552, %.222854
-  %164 = fpext float %163 to double
-  %165 = fdiv double %162, %164
-  %166 = fadd double %165, %157
-  %167 = fptrunc double %166 to float
+  %156 = fpext float %.0224 to double
+  %157 = fpext float %.222854 to double
+  %158 = fsub double %.0, %157
+  %159 = fsub float %.22313750, %.0224
+  %160 = fpext float %159 to double
+  %161 = fmul double %158, %160
+  %162 = fsub float %.323552, %.222854
+  %163 = fpext float %162 to double
+  %164 = fdiv double %161, %163
+  %165 = fadd double %164, %156
+  %166 = fptrunc double %165 to float
   %not. = xor i1 %149, true
-  br label %.fold.split264
+  %167 = or i1 %or.cond259, %not.
+  %168 = zext i1 %167 to i8
+  %169 = fmul float %.0.in, 1.024000e+03
+  %170 = fptosi float %169 to i32
+  %171 = fmul float %166, 1.024000e+03
+  %172 = fptosi float %171 to i32
+  %173 = load ptr, ptr %0, align 8
+  tail call void %173(ptr noundef nonnull %0, i32 noundef %148, i32 noundef %147, i32 noundef %170, i32 noundef %172, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %168) #12
+  br i1 %149, label %175, label %.thread
 
-168:                                              ; preds = %154, %152
+174:                                              ; preds = %154, %152
   %.3. = select i1 %150, float %.222854, float %6
-  br label %.fold.split264
+  br label %.thread.critedge
 
-.fold.split264:                                   ; preds = %156, %146, %168
-  %169 = phi i1 [ false, %168 ], [ false, %146 ], [ %149, %156 ]
-  %.270 = phi float [ %.0224, %168 ], [ %.0224, %146 ], [ %167, %156 ]
-  %170 = phi i1 [ false, %168 ], [ false, %146 ], [ %not., %156 ]
-  %.4 = phi float [ %.3., %168 ], [ %.222854, %146 ], [ %.0.in, %156 ]
-  %.1 = phi float [ %.222854, %168 ], [ %.222854, %146 ], [ %.0.in, %156 ]
-  %171 = or i1 %or.cond259, %170
-  %172 = zext i1 %171 to i8
-  %173 = fmul float %.4, 1.024000e+03
-  %174 = fptosi float %173 to i32
-  %175 = fmul float %.270, 1.024000e+03
-  %176 = fptosi float %175 to i32
-  %177 = load ptr, ptr %0, align 8
-  tail call void %177(ptr noundef nonnull %0, i32 noundef %148, i32 noundef %147, i32 noundef %174, i32 noundef %176, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %172) #12
-  br i1 %169, label %178, label %.thread
+175:                                              ; preds = %.fold.split264
+  %176 = fmul float %.0224, 1.024000e+03
+  %177 = fptosi float %176 to i32
+  %178 = load ptr, ptr %0, align 8
+  tail call void %178(ptr noundef nonnull %0, i32 noundef %170, i32 noundef %172, i32 noundef %170, i32 noundef %177, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %168) #12
+  br label %.thread
 
-178:                                              ; preds = %.fold.split264
-  %179 = fmul float %.1, 1.024000e+03
+.thread.critedge:                                 ; preds = %146, %174
+  %.4.ph = phi float [ %.222854, %146 ], [ %.3., %174 ]
+  %179 = fmul float %.4.ph, 1.024000e+03
   %180 = fptosi float %179 to i32
   %181 = fmul float %.0224, 1.024000e+03
   %182 = fptosi float %181 to i32
   %183 = load ptr, ptr %0, align 8
-  tail call void %183(ptr noundef nonnull %0, i32 noundef %174, i32 noundef %176, i32 noundef %180, i32 noundef %182, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %172) #12
+  tail call void %183(ptr noundef nonnull %0, i32 noundef %148, i32 noundef %147, i32 noundef %180, i32 noundef %182, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %53) #12
   br label %.thread
 
-.thread:                                          ; preds = %84, %82, %64, %62, %38, %36, %18, %16, %.fold.split264, %178, %141, %98
+.thread:                                          ; preds = %.thread.critedge, %84, %82, %64, %62, %38, %36, %18, %16, %.fold.split264, %175, %141, %98
   ret void
 }
 
@@ -2458,8 +2458,8 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) #0 {
-  %.not357 = icmp eq i8 %6, 0
-  br i1 %.not357, label %tailrecurse._crit_edge, label %.lr.ph
+  %.not350 = icmp eq i8 %6, 0
+  br i1 %.not350, label %tailrecurse._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2490,11 +2490,11 @@ define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 30:                                               ; preds = %29
   %31 = icmp slt i32 %4, %22
-  br i1 %31, label %.thread, label %34
+  br i1 %31, label %.critedge, label %34
 
 32:                                               ; preds = %29
   %33 = icmp sgt i32 %4, %26
-  br i1 %33, label %.thread, label %34
+  br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %32, %30
   %.0236.in = phi i32 [ %22, %30 ], [ %26, %32 ]
@@ -2525,11 +2525,11 @@ define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 50:                                               ; preds = %49
   %51 = icmp slt i32 %.0223, %22
-  br i1 %51, label %.thread, label %54
+  br i1 %51, label %.critedge, label %54
 
 52:                                               ; preds = %49
   %53 = icmp sgt i32 %.0223, %26
-  br i1 %53, label %.thread, label %54
+  br i1 %53, label %.critedge, label %54
 
 54:                                               ; preds = %52, %50
   %.0235.in = phi i32 [ %22, %50 ], [ %26, %52 ]
@@ -2554,7 +2554,7 @@ define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %
   %68 = icmp slt i32 %.0, %14
   %69 = icmp sgt i32 %.0, %18
   %or.cond278 = select i1 %68, i1 true, i1 %69
-  br i1 %or.cond278, label %70, label %.thread319
+  br i1 %or.cond278, label %70, label %.thread312
 
 70:                                               ; preds = %66
   br i1 %68, label %71, label %73
@@ -2581,45 +2581,45 @@ define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %
   %84 = fdiv double %81, %83
   %85 = fadd double %84, %76
   %86 = fptosi double %85 to i32
-  br i1 %68, label %.fold.split, label %.thread319
+  br i1 %68, label %.fold.split, label %.thread312
 
 .fold.split:                                      ; preds = %75
   tail call void @StoreFixedLine(ptr noundef nonnull %0, i32 noundef %.0234.in, i32 noundef %.0223, i32 noundef %.0234.in, i32 noundef %86, ptr noundef %5, i8 noundef zeroext 0, i8 noundef zeroext %67)
-  br label %.thread319
+  br label %.thread312
 
 87:                                               ; preds = %71, %73
-  br i1 %69, label %.thread, label %.thread319
+  br i1 %69, label %.critedge, label %.thread312
 
-.thread319:                                       ; preds = %75, %66, %.fold.split, %87
-  %.2316 = phi i32 [ %.0234.in, %.fold.split ], [ %14, %87 ], [ %.0, %66 ], [ %.0234.in, %75 ]
-  %.1227314 = phi i32 [ %.0226, %.fold.split ], [ %14, %87 ], [ %.0226, %66 ], [ %.0226, %75 ]
-  %.1224298312 = phi i32 [ %86, %.fold.split ], [ %.0223, %87 ], [ %.0223, %66 ], [ %86, %75 ]
-  %88 = icmp slt i32 %.1227314, %14
-  %89 = icmp sgt i32 %.1227314, %18
+.thread312:                                       ; preds = %75, %66, %.fold.split, %87
+  %.2309 = phi i32 [ %.0234.in, %.fold.split ], [ %14, %87 ], [ %.0, %66 ], [ %.0234.in, %75 ]
+  %.1227307 = phi i32 [ %.0226, %.fold.split ], [ %14, %87 ], [ %.0226, %66 ], [ %.0226, %75 ]
+  %.1224291305 = phi i32 [ %86, %.fold.split ], [ %.0223, %87 ], [ %.0223, %66 ], [ %86, %75 ]
+  %88 = icmp slt i32 %.1227307, %14
+  %89 = icmp sgt i32 %.1227307, %18
   %or.cond279 = select i1 %88, i1 true, i1 %89
   br i1 %or.cond279, label %90, label %.fold.split280.thread
 
-90:                                               ; preds = %.thread319
+90:                                               ; preds = %.thread312
   br i1 %88, label %91, label %93
 
 91:                                               ; preds = %90
-  %92 = icmp slt i32 %.2316, %14
+  %92 = icmp slt i32 %.2309, %14
   br i1 %92, label %107, label %95
 
 93:                                               ; preds = %90
-  %94 = icmp sgt i32 %.2316, %18
+  %94 = icmp sgt i32 %.2309, %18
   br i1 %94, label %107, label %95
 
 95:                                               ; preds = %91, %93
   %.0233.in = phi i32 [ %14, %91 ], [ %18, %93 ]
   %.0233 = sitofp i32 %.0233.in to double
   %96 = sitofp i32 %.0230 to double
-  %97 = sitofp i32 %.1227314 to double
+  %97 = sitofp i32 %.1227307 to double
   %98 = fsub double %.0233, %97
-  %99 = sub nsw i32 %.1224298312, %.0230
+  %99 = sub nsw i32 %.1224291305, %.0230
   %100 = sitofp i32 %99 to double
   %101 = fmul double %98, %100
-  %102 = sub nsw i32 %.2316, %.1227314
+  %102 = sub nsw i32 %.2309, %.1227307
   %103 = sitofp i32 %102 to double
   %104 = fdiv double %101, %103
   %105 = fadd double %104, %96
@@ -2627,29 +2627,29 @@ define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %88, label %110, label %.fold.split280.thread
 
 107:                                              ; preds = %93, %91
-  %.2228. = select i1 %89, i32 %.1227314, i32 %14
-  %.2. = select i1 %89, i32 %.2316, i32 %14
+  %.2228. = select i1 %89, i32 %.1227307, i32 %14
+  %.2. = select i1 %89, i32 %.2309, i32 %14
   br label %.fold.split280.thread
 
-.fold.split280.thread:                            ; preds = %107, %.thread319, %95
-  %.1231331.ph = phi i32 [ %.0230, %.thread319 ], [ %.0230, %107 ], [ %106, %95 ]
-  %.ph340 = phi i1 [ false, %.thread319 ], [ false, %107 ], [ true, %95 ]
-  %.3229.ph = phi i32 [ %.1227314, %.thread319 ], [ %.2228., %107 ], [ %.0233.in, %95 ]
-  %.3.ph = phi i32 [ %.2316, %.thread319 ], [ %.2., %107 ], [ %.2316, %95 ]
-  %108 = or i1 %or.cond277, %.ph340
+.fold.split280.thread:                            ; preds = %107, %.thread312, %95
+  %.1231324.ph = phi i32 [ %.0230, %.thread312 ], [ %.0230, %107 ], [ %106, %95 ]
+  %.ph333 = phi i1 [ false, %.thread312 ], [ false, %107 ], [ true, %95 ]
+  %.3229.ph = phi i32 [ %.1227307, %.thread312 ], [ %.2228., %107 ], [ %.0233.in, %95 ]
+  %.3.ph = phi i32 [ %.2309, %.thread312 ], [ %.2., %107 ], [ %.2309, %95 ]
+  %108 = or i1 %or.cond277, %.ph333
   %109 = zext i1 %108 to i8
   br label %tailrecurse._crit_edge
 
 110:                                              ; preds = %95
-  tail call void @StoreFixedLine(ptr noundef nonnull %0, i32 noundef %.2316, i32 noundef %.1224298312, i32 noundef %.0233.in, i32 noundef %106, ptr noundef %5, i8 noundef zeroext 0, i8 noundef zeroext %67)
+  tail call void @StoreFixedLine(ptr noundef nonnull %0, i32 noundef %.2309, i32 noundef %.1224291305, i32 noundef %.0233.in, i32 noundef %106, ptr noundef %5, i8 noundef zeroext 0, i8 noundef zeroext %67)
   br label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %110, %.fold.split280.thread, %8
-  %.tr345.lcssa = phi i32 [ %1, %8 ], [ %.3.ph, %.fold.split280.thread ], [ %.0233.in, %110 ]
-  %.tr346.lcssa = phi i32 [ %2, %8 ], [ %.1224298312, %.fold.split280.thread ], [ %106, %110 ]
-  %.tr347.lcssa = phi i32 [ %3, %8 ], [ %.3229.ph, %.fold.split280.thread ], [ %.0233.in, %110 ]
-  %.tr348.lcssa = phi i32 [ %4, %8 ], [ %.1231331.ph, %.fold.split280.thread ], [ %.0230, %110 ]
-  %.tr351.lcssa = phi i8 [ %7, %8 ], [ %109, %.fold.split280.thread ], [ %67, %110 ]
+  %.tr338.lcssa = phi i32 [ %1, %8 ], [ %.3.ph, %.fold.split280.thread ], [ %.0233.in, %110 ]
+  %.tr339.lcssa = phi i32 [ %2, %8 ], [ %.1224291305, %.fold.split280.thread ], [ %106, %110 ]
+  %.tr340.lcssa = phi i32 [ %3, %8 ], [ %.3229.ph, %.fold.split280.thread ], [ %.0233.in, %110 ]
+  %.tr341.lcssa = phi i32 [ %4, %8 ], [ %.1231324.ph, %.fold.split280.thread ], [ %.0230, %110 ]
+  %.tr344.lcssa = phi i8 [ %7, %8 ], [ %109, %.fold.split280.thread ], [ %67, %110 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 14344
@@ -2702,9 +2702,9 @@ tailrecurse._crit_edge:                           ; preds = %110, %.fold.split28
   %.0232 = phi ptr [ %136, %135 ], [ %.pre, %120 ]
   %138 = sext i32 %114 to i64
   %139 = getelementptr inbounds %struct._Point, ptr %.0232, i64 %138
-  store i32 %.tr345.lcssa, ptr %139, align 8
+  store i32 %.tr338.lcssa, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
-  store i32 %.tr346.lcssa, ptr %140, align 4
+  store i32 %.tr339.lcssa, ptr %140, align 4
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i8 0, ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %112, i64 14352
@@ -2712,37 +2712,37 @@ tailrecurse._crit_edge:                           ; preds = %110, %.fold.split28
 
 143:                                              ; preds = %137
   %144 = load i32, ptr %142, align 8
-  %145 = icmp sgt i32 %144, %.tr346.lcssa
+  %145 = icmp sgt i32 %144, %.tr339.lcssa
   br i1 %145, label %146, label %147
 
 146:                                              ; preds = %143
-  store i32 %.tr346.lcssa, ptr %142, align 8
+  store i32 %.tr339.lcssa, ptr %142, align 8
   br label %147
 
 147:                                              ; preds = %146, %143
   %148 = getelementptr inbounds nuw i8, ptr %112, i64 14356
   %149 = load i32, ptr %148, align 4
-  %150 = icmp slt i32 %149, %.tr346.lcssa
+  %150 = icmp slt i32 %149, %.tr339.lcssa
   br i1 %150, label %151, label %154
 
 151:                                              ; preds = %147
-  store i32 %.tr346.lcssa, ptr %148, align 4
+  store i32 %.tr339.lcssa, ptr %148, align 4
   br label %154
 
 152:                                              ; preds = %137
-  store i32 %.tr346.lcssa, ptr %142, align 8
+  store i32 %.tr339.lcssa, ptr %142, align 8
   %153 = getelementptr inbounds nuw i8, ptr %112, i64 14356
-  store i32 %.tr346.lcssa, ptr %153, align 4
+  store i32 %.tr339.lcssa, ptr %153, align 4
   br label %154
 
 154:                                              ; preds = %147, %151, %152
   %155 = add nsw i32 %114, 1
   store i32 %155, ptr %113, align 8
-  %.pre367 = load ptr, ptr %112, align 8
+  %.pre360 = load ptr, ptr %112, align 8
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %115, %154
-  %156 = phi ptr [ %.pre367, %154 ], [ %.pre, %115 ]
+  %156 = phi ptr [ %.pre360, %154 ], [ %.pre, %115 ]
   %157 = phi i32 [ %155, %154 ], [ %114, %115 ]
   %158 = getelementptr inbounds nuw i8, ptr %112, i64 14348
   %159 = load i32, ptr %158, align 4
@@ -2779,9 +2779,9 @@ thread-pre-split:                                 ; preds = %115, %154
   %.0225 = phi ptr [ %173, %172 ], [ %156, %thread-pre-split ]
   %175 = sext i32 %157 to i64
   %176 = getelementptr inbounds %struct._Point, ptr %.0225, i64 %175
-  store i32 %.tr347.lcssa, ptr %176, align 8
+  store i32 %.tr340.lcssa, ptr %176, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
-  store i32 %.tr348.lcssa, ptr %177, align 4
+  store i32 %.tr341.lcssa, ptr %177, align 4
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store i8 0, ptr %178, align 8
   %.not275 = icmp eq i32 %157, 0
@@ -2790,42 +2790,42 @@ thread-pre-split:                                 ; preds = %115, %154
 
 180:                                              ; preds = %174
   %181 = load i32, ptr %179, align 8
-  %182 = icmp sgt i32 %181, %.tr348.lcssa
+  %182 = icmp sgt i32 %181, %.tr341.lcssa
   br i1 %182, label %183, label %184
 
 183:                                              ; preds = %180
-  store i32 %.tr348.lcssa, ptr %179, align 8
+  store i32 %.tr341.lcssa, ptr %179, align 8
   br label %184
 
 184:                                              ; preds = %183, %180
   %185 = getelementptr inbounds nuw i8, ptr %112, i64 14356
   %186 = load i32, ptr %185, align 4
-  %187 = icmp slt i32 %186, %.tr348.lcssa
+  %187 = icmp slt i32 %186, %.tr341.lcssa
   br i1 %187, label %188, label %191
 
 188:                                              ; preds = %184
-  store i32 %.tr348.lcssa, ptr %185, align 4
+  store i32 %.tr341.lcssa, ptr %185, align 4
   br label %191
 
 189:                                              ; preds = %174
-  store i32 %.tr348.lcssa, ptr %179, align 8
+  store i32 %.tr341.lcssa, ptr %179, align 8
   %190 = getelementptr inbounds nuw i8, ptr %112, i64 14356
-  store i32 %.tr348.lcssa, ptr %190, align 4
+  store i32 %.tr341.lcssa, ptr %190, align 4
   br label %191
 
 191:                                              ; preds = %184, %188, %189
   %192 = add nsw i32 %157, 1
   store i32 %192, ptr %113, align 8
-  %.not276 = icmp eq i8 %.tr351.lcssa, 0
-  br i1 %.not276, label %.thread, label %193
+  %.not276 = icmp eq i8 %.tr344.lcssa, 0
+  br i1 %.not276, label %.critedge, label %193
 
 193:                                              ; preds = %191
   %194 = load ptr, ptr %112, align 8
   %195 = getelementptr inbounds %struct._Point, ptr %194, i64 %175, i32 2
   store i8 1, ptr %195, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %52, %50, %32, %30, %87, %193, %191
+.critedge:                                        ; preds = %52, %50, %30, %32, %87, %193, %191
   ret void
 }
 

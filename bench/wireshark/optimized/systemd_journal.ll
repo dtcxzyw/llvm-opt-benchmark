@@ -194,13 +194,13 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   br label %12
 
 12:                                               ; preds = %65, %4
-  %.062121 = phi i64 [ 0, %4 ], [ %.365, %65 ]
-  %.066120 = phi i32 [ 0, %4 ], [ %68, %65 ]
-  %.068119 = phi i8 [ 0, %4 ], [ %.270, %65 ]
-  %.071118 = phi i8 [ 0, %4 ], [ %.374, %65 ]
-  %.075117 = phi i8 [ 0, %4 ], [ %.277, %65 ]
-  %13 = getelementptr i8, ptr %8, i64 %.062121
-  %14 = trunc nsw i64 %.062121 to i32
+  %.062118 = phi i64 [ 0, %4 ], [ %.365, %65 ]
+  %.066117 = phi i32 [ 0, %4 ], [ %68, %65 ]
+  %.068116 = phi i8 [ 0, %4 ], [ %.270, %65 ]
+  %.071115 = phi i8 [ 0, %4 ], [ %.374, %65 ]
+  %.075114 = phi i8 [ 0, %4 ], [ %.277, %65 ]
+  %13 = getelementptr i8, ptr %8, i64 %.062118
+  %14 = trunc nsw i64 %.062118 to i32
   %15 = sub nsw i32 262144, %14
   %16 = call ptr @file_gets(ptr noundef %13, i32 noundef %15, ptr noundef %0)
   %.not = icmp eq ptr %16, null
@@ -208,10 +208,10 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
 
 17:                                               ; preds = %12
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #10
-  %19 = add i64 %18, %.062121
+  %19 = add i64 %18, %.062118
   %20 = load i8, ptr %16, align 1
   %21 = icmp eq i8 %20, 10
-  br i1 %21, label %.thread88, label %22
+  br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %17
   %23 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str, i64 noundef 9) #10
@@ -265,7 +265,7 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
 46:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %47 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8, ptr noundef %2, ptr noundef %3)
-  br i1 %47, label %48, label %.thread
+  br i1 %47, label %48, label %.critedge
 
 48:                                               ; preds = %46
   %49 = getelementptr i8, ptr %8, i64 %19
@@ -285,18 +285,14 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   store i32 -13, ptr %2, align 4
   %57 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6)
   store ptr %57, ptr %3, align 8
-  br label %.thread
+  br label %.critedge
 
 58:                                               ; preds = %53
   %59 = getelementptr i8, ptr %49, i64 8
   %60 = trunc nuw nsw i64 %51 to i32
   %61 = add nuw nsw i32 %60, 1
   %62 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef %59, i32 noundef %61, ptr noundef %2, ptr noundef %3)
-  br i1 %62, label %63, label %.thread
-
-.thread:                                          ; preds = %46, %58, %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  br label %83
+  br i1 %62, label %63, label %.critedge
 
 63:                                               ; preds = %58
   %.reass = add nuw nsw i64 %19, 9
@@ -305,22 +301,22 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   br label %65
 
 65:                                               ; preds = %63, %38, %28, %33, %22, %41
-  %.277 = phi i8 [ %.075117, %41 ], [ %.075117, %63 ], [ 1, %22 ], [ %.075117, %33 ], [ %.075117, %28 ], [ %.075117, %38 ]
-  %.374 = phi i8 [ %.071118, %41 ], [ %.071118, %63 ], [ %.071118, %22 ], [ 1, %33 ], [ %.071118, %28 ], [ %.071118, %38 ]
-  %.270 = phi i8 [ %.068119, %41 ], [ %.068119, %63 ], [ %.068119, %22 ], [ %.068119, %33 ], [ %.068119, %28 ], [ 1, %38 ]
+  %.277 = phi i8 [ %.075114, %41 ], [ %.075114, %63 ], [ 1, %22 ], [ %.075114, %33 ], [ %.075114, %28 ], [ %.075114, %38 ]
+  %.374 = phi i8 [ %.071115, %41 ], [ %.071115, %63 ], [ %.071115, %22 ], [ 1, %33 ], [ %.071115, %28 ], [ %.071115, %38 ]
+  %.270 = phi i8 [ %.068116, %41 ], [ %.068116, %63 ], [ %.068116, %22 ], [ %.068116, %33 ], [ %.068116, %28 ], [ 1, %38 ]
   %.365 = phi i64 [ %19, %41 ], [ %64, %63 ], [ %19, %22 ], [ %19, %33 ], [ %19, %28 ], [ %19, %38 ]
   %66 = add i64 %.365, -262143
   %67 = icmp ult i64 %66, -262145
-  %68 = add nuw nsw i32 %.066120, 1
+  %68 = add nuw nsw i32 %.066117, 1
   %exitcond.not = icmp eq i32 %68, 100
-  %or.cond152 = select i1 %67, i1 true, i1 %exitcond.not
-  br i1 %or.cond152, label %69, label %12, !llvm.loop !8
+  %or.cond149 = select i1 %67, i1 true, i1 %exitcond.not
+  br i1 %or.cond149, label %69, label %12, !llvm.loop !8
 
 69:                                               ; preds = %65, %12
-  %.176 = phi i8 [ %.277, %65 ], [ %.075117, %12 ]
-  %.172 = phi i8 [ %.374, %65 ], [ %.071118, %12 ]
-  %.169 = phi i8 [ %.270, %65 ], [ %.068119, %12 ]
-  %.163 = phi i64 [ %.365, %65 ], [ %.062121, %12 ]
+  %.176 = phi i8 [ %.277, %65 ], [ %.075114, %12 ]
+  %.172 = phi i8 [ %.374, %65 ], [ %.071115, %12 ]
+  %.169 = phi i8 [ %.270, %65 ], [ %.068116, %12 ]
+  %.163 = phi i64 [ %.365, %65 ], [ %.062118, %12 ]
   %70 = trunc nuw i8 %.176 to i1
   %71 = trunc nuw i8 %.172 to i1
   %or.cond = select i1 %70, i1 %71, i1 false
@@ -328,34 +324,38 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   %or.cond3 = select i1 %or.cond, i1 %72, i1 false
   br i1 %or.cond3, label %76, label %83
 
-.thread88:                                        ; preds = %17
-  %73 = trunc nuw i8 %.075117 to i1
-  %74 = trunc nuw i8 %.071118 to i1
-  %or.cond94 = select i1 %73, i1 %74, i1 false
-  %75 = trunc nuw i8 %.068119 to i1
-  %or.cond395 = select i1 %or.cond94, i1 %75, i1 false
-  br i1 %or.cond395, label %.thread98, label %83
+.thread:                                          ; preds = %17
+  %73 = trunc nuw i8 %.075114 to i1
+  %74 = trunc nuw i8 %.071115 to i1
+  %or.cond91 = select i1 %73, i1 %74, i1 false
+  %75 = trunc nuw i8 %.068116 to i1
+  %or.cond392 = select i1 %or.cond91, i1 %75, i1 false
+  br i1 %or.cond392, label %.thread95, label %83
 
 76:                                               ; preds = %69
   %77 = call i32 @file_eof(ptr noundef %0)
   %.not84 = icmp eq i32 %77, 0
-  br i1 %.not84, label %83, label %.thread98
+  br i1 %.not84, label %83, label %.thread95
 
-.thread98:                                        ; preds = %.thread88, %76
-  %.16397101 = phi i64 [ %.163, %76 ], [ %19, %.thread88 ]
+.thread95:                                        ; preds = %.thread, %76
+  %.1639498 = phi i64 [ %.163, %76 ], [ %19, %.thread ]
   store i32 4, ptr %1, align 8
   %78 = call ptr @wtap_block_create(i32 noundef 10)
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 3, ptr %80, align 4
-  %81 = trunc i64 %.16397101 to i32
+  %81 = trunc i64 %.1639498 to i32
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %81, ptr %82, align 8
   br label %83
 
-83:                                               ; preds = %.thread88, %.thread, %76, %69, %.thread98, %44
-  %.1 = phi i1 [ true, %.thread98 ], [ false, %44 ], [ false, %69 ], [ false, %76 ], [ false, %.thread ], [ false, %.thread88 ]
+.critedge:                                        ; preds = %58, %46, %56
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  br label %83
+
+83:                                               ; preds = %.thread, %76, %69, %.critedge, %.thread95, %44
+  %.1 = phi i1 [ true, %.thread95 ], [ false, %44 ], [ false, %.critedge ], [ false, %69 ], [ false, %76 ], [ false, %.thread ]
   ret i1 %.1
 }
 

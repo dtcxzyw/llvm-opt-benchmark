@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.69f563bfff8444fed82187323b213eb4.23 = private unnamed_addr constant [23 x i8] c"cannot seek hit handler", align 1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error7because17h811fc9d7afa1fe85E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 23, 25) %2, ptr noalias noundef nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5Error7because17h811fc9d7afa1fe85E(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 23, 25) %2, ptr noalias noundef nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [72 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [8 x i8], align 8
@@ -546,7 +546,7 @@ define void @_ZN13pingora_proxy11proxy_cache14ServeFromCache14next_http_task17h9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 ptr @_ZN13pingora_proxy11proxy_cache14ServeFromCache23maybe_seek_miss_handler17h8af7ff0500e79984E(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
+define noalias noundef align 8 ptr @_ZN13pingora_proxy11proxy_cache14ServeFromCache23maybe_seek_miss_handler17h8af7ff0500e79984E(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %2, align 8, !range !41, !noundef !13
   %6 = icmp eq i64 %5, 1
@@ -617,7 +617,7 @@ define noundef align 8 ptr @_ZN13pingora_proxy11proxy_cache14ServeFromCache23may
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 ptr @_ZN13pingora_proxy11proxy_cache14ServeFromCache22maybe_seek_hit_handler17h5f3bce8b9132eb89E(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
+define noalias noundef align 8 ptr @_ZN13pingora_proxy11proxy_cache14ServeFromCache22maybe_seek_hit_handler17h5f3bce8b9132eb89E(ptr noalias noundef writeonly align 1 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %2, align 8, !range !41, !noundef !13
   %6 = icmp eq i64 %5, 1

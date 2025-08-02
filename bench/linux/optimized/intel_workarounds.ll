@@ -7553,9 +7553,9 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 15
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %13, label %.thread16
+  br i1 %10, label %13, label %.thread15
 
-.thread16:                                        ; preds = %2
+.thread15:                                        ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre.pre = load ptr, ptr %.phi.trans.insert, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7605,10 +7605,10 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread16, %33
-  %36 = phi ptr [ %12, %.thread16 ], [ %35, %33 ]
-  %37 = phi ptr [ %11, %.thread16 ], [ %34, %33 ]
-  %.pre19 = phi ptr [ %.pre.pre, %.thread16 ], [ %17, %33 ]
+.lr.ph:                                           ; preds = %.thread15, %33
+  %36 = phi ptr [ %12, %.thread15 ], [ %35, %33 ]
+  %37 = phi ptr [ %11, %.thread15 ], [ %34, %33 ]
+  %.pre18 = phi ptr [ %.pre.pre, %.thread15 ], [ %17, %33 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %39 = icmp eq ptr %6, null
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -7623,7 +7623,7 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %47 = lshr i32 %46, 1
   %48 = add i32 %47, %45
   %49 = zext i32 %48 to i64
-  %50 = getelementptr %struct.i915_wa, ptr %.pre19, i64 %49
+  %50 = getelementptr %struct.i915_wa, ptr %.pre18, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = icmp ult i32 %51, %4
   br i1 %52, label %53, label %55
@@ -7642,13 +7642,13 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %60 = load i32, ptr %59, align 4
   %61 = or i32 %60, %58
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.thread9, label %63
+  br i1 %62, label %.critedge, label %63
 
 63:                                               ; preds = %57
   %64 = xor i32 %60, -1
   %65 = and i32 %58, %64
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %.thread9
+  br i1 %66, label %67, label %.critedge
 
 67:                                               ; preds = %63
   br i1 %39, label %70, label %68
@@ -7667,9 +7667,9 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %76 = load i32, ptr %72, align 4
   %77 = and i32 %76, %75
   store i32 %77, ptr %72, align 4
-  br label %.thread9
+  br label %.critedge
 
-.thread9:                                         ; preds = %57, %63, %70
+.critedge:                                        ; preds = %70, %63, %57
   %78 = load i32, ptr %36, align 4
   %79 = add i32 %78, 1
   store i32 %79, ptr %36, align 4
@@ -7698,7 +7698,7 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
 ._crit_edge:                                      ; preds = %91, %33
   %95 = phi ptr [ %35, %33 ], [ %36, %91 ]
   %96 = phi ptr [ %34, %33 ], [ %37, %91 ]
-  %.pre20 = phi ptr [ %17, %33 ], [ %.pre19, %91 ]
+  %.pre19 = phi ptr [ %17, %33 ], [ %.pre18, %91 ]
   %97 = load i32, ptr %95, align 4
   %98 = add i32 %97, 1
   store i32 %98, ptr %95, align 4
@@ -7706,7 +7706,7 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %100 = add i32 %99, 1
   store i32 %100, ptr %7, align 8
   %101 = zext i32 %99 to i64
-  %102 = getelementptr %struct.i915_wa, ptr %.pre20, i64 %101
+  %102 = getelementptr %struct.i915_wa, ptr %.pre19, i64 %101
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %102, ptr noundef align 4 dereferenceable(20) %1, i64 20, i1 false)
   %103 = load ptr, ptr %96, align 8
   %104 = icmp ugt ptr %102, %103
@@ -7730,7 +7730,7 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %112 = icmp ugt ptr %106, %111
   br i1 %112, label %.preheader, label %.loopexit, !llvm.loop !211
 
-.loopexit:                                        ; preds = %110, %.preheader, %.thread9, %.thread, %._crit_edge
+.loopexit:                                        ; preds = %110, %.preheader, %.thread, %.critedge, %._crit_edge
   ret void
 }
 

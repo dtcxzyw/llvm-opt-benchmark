@@ -357,7 +357,7 @@ define noundef zeroext i1 @_ZN3net16HpackInputStream16DecodeNextUint32EPj(ptr no
 _ZN3net16HpackInputStream15DecodeNextOctetEPh.exit: ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %8, align 8, !tbaa !12
-  br label %.thread
+  br label %.critedge25
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8, !tbaa !17
@@ -379,58 +379,58 @@ _ZN3net16HpackInputStream15DecodeNextOctetEPh.exit: ; preds = %2
   %22 = and i32 %21, %19
   store i32 %22, ptr %1, align 4, !tbaa !19
   %23 = icmp eq i32 %22, %21
-  br i1 %23, label %.lr.ph, label %.thread
+  br i1 %23, label %.lr.ph, label %.critedge25
 
 .lr.ph:                                           ; preds = %9
-  %.promoted45 = load ptr, ptr %0, align 8
+  %.promoted44 = load ptr, ptr %0, align 8
   %.promoted = load i64, ptr %5, align 8
   br label %24
 
-24:                                               ; preds = %.lr.ph, %40
-  %.01746 = phi i64 [ 0, %.lr.ph ], [ %43, %40 ]
-  %25 = phi i64 [ %.promoted, %.lr.ph ], [ %32, %40 ]
-  %26 = phi ptr [ %.promoted45, %.lr.ph ], [ %31, %40 ]
+24:                                               ; preds = %.lr.ph, %39
+  %.01745 = phi i64 [ 0, %.lr.ph ], [ %42, %39 ]
+  %25 = phi i64 [ %.promoted, %.lr.ph ], [ %31, %39 ]
+  %26 = phi ptr [ %.promoted44, %.lr.ph ], [ %30, %39 ]
   %27 = icmp eq i64 %25, 0
-  br i1 %27, label %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit27, label %29
+  br i1 %27, label %.critedge, label %28
 
-_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit27: ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %28, align 8, !tbaa !12
-  br label %.thread
+28:                                               ; preds = %24
+  %29 = load i8, ptr %26, align 1, !tbaa !18
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  store ptr %30, ptr %0, align 8, !tbaa !17
+  %31 = add i64 %25, -1
+  store i64 %31, ptr %5, align 8, !tbaa !10
+  %32 = load i32, ptr %14, align 4, !tbaa !20
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %14, align 4, !tbaa !20
+  %34 = and i8 %29, 127
+  %35 = zext nneg i8 %34 to i32
+  %36 = trunc nuw nsw i64 %.01745 to i32
+  %37 = shl i32 %35, %36
+  %38 = lshr exact i32 %37, %36
+  %.not = icmp eq i32 %38, %35
+  br i1 %.not, label %39, label %.critedge25
 
-29:                                               ; preds = %24
-  %30 = load i8, ptr %26, align 1, !tbaa !18
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store ptr %31, ptr %0, align 8, !tbaa !17
-  %32 = add i64 %25, -1
-  store i64 %32, ptr %5, align 8, !tbaa !10
-  %33 = load i32, ptr %14, align 4, !tbaa !20
-  %34 = add i32 %33, 1
-  store i32 %34, ptr %14, align 4, !tbaa !20
-  %35 = and i8 %30, 127
-  %36 = zext nneg i8 %35 to i32
-  %37 = trunc nuw nsw i64 %.01746 to i32
-  %38 = shl i32 %36, %37
-  %39 = lshr exact i32 %38, %37
-  %.not = icmp eq i32 %39, %36
-  br i1 %.not, label %40, label %.thread
+39:                                               ; preds = %28
+  %40 = load i32, ptr %1, align 4, !tbaa !19
+  %41 = add i32 %40, %37
+  store i32 %41, ptr %1, align 4, !tbaa !19
+  %42 = add nuw nsw i64 %.01745, 7
+  %43 = icmp slt i8 %29, 0
+  %44 = icmp samesign ult i64 %.01745, 25
+  %45 = select i1 %43, i1 %44, i1 false
+  br i1 %45, label %24, label %._crit_edge.loopexit, !llvm.loop !21
 
-40:                                               ; preds = %29
-  %41 = load i32, ptr %1, align 4, !tbaa !19
-  %42 = add i32 %41, %38
-  store i32 %42, ptr %1, align 4, !tbaa !19
-  %43 = add nuw nsw i64 %.01746, 7
-  %44 = icmp slt i8 %30, 0
-  %45 = icmp samesign ult i64 %.01746, 25
-  %46 = select i1 %44, i1 %45, i1 false
-  br i1 %46, label %24, label %._crit_edge.loopexit, !llvm.loop !21
+._crit_edge.loopexit:                             ; preds = %39
+  %46 = xor i1 %43, true
+  br label %.critedge25
 
-._crit_edge.loopexit:                             ; preds = %40
-  %47 = xor i1 %44, true
-  br label %.thread
+.critedge:                                        ; preds = %24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 1, ptr %47, align 8, !tbaa !12
+  br label %.critedge25
 
-.thread:                                          ; preds = %29, %9, %._crit_edge.loopexit, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit27, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit
-  %.0 = phi i1 [ false, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit ], [ false, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit27 ], [ true, %9 ], [ %47, %._crit_edge.loopexit ], [ false, %29 ]
+.critedge25:                                      ; preds = %28, %9, %._crit_edge.loopexit, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit, %.critedge
+  %.0 = phi i1 [ false, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit ], [ false, %.critedge ], [ true, %9 ], [ %46, %._crit_edge.loopexit ], [ false, %28 ]
   ret i1 %.0
 }
 
@@ -470,52 +470,52 @@ _ZN3net16HpackInputStream15DecodeNextOctetEPh.exit.i: ; preds = %2
   %23 = icmp eq i32 %22, %21
   br i1 %23, label %.lr.ph.i, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread10
 
-.lr.ph.i:                                         ; preds = %9, %39
-  %24 = phi i32 [ %33, %39 ], [ %16, %9 ]
-  %.07 = phi i32 [ %40, %39 ], [ %21, %9 ]
-  %.01746.i = phi i64 [ %41, %39 ], [ 0, %9 ]
-  %25 = phi i64 [ %32, %39 ], [ %13, %9 ]
-  %26 = phi ptr [ %31, %39 ], [ %12, %9 ]
+.lr.ph.i:                                         ; preds = %9, %38
+  %24 = phi i32 [ %32, %38 ], [ %16, %9 ]
+  %.07 = phi i32 [ %39, %38 ], [ %21, %9 ]
+  %.01745.i = phi i64 [ %40, %38 ], [ 0, %9 ]
+  %25 = phi i64 [ %31, %38 ], [ %13, %9 ]
+  %26 = phi ptr [ %30, %38 ], [ %12, %9 ]
   %27 = icmp eq i64 %25, 0
-  br i1 %27, label %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit27.i, label %29
+  br i1 %27, label %.critedge.i, label %28
 
-_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit27.i: ; preds = %.lr.ph.i
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %28, align 8, !tbaa !12
+28:                                               ; preds = %.lr.ph.i
+  %29 = load i8, ptr %26, align 1, !tbaa !18
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  store ptr %30, ptr %0, align 8, !tbaa !17
+  %31 = add i64 %25, -1
+  store i64 %31, ptr %5, align 8, !tbaa !10
+  %32 = add i32 %24, 1
+  store i32 %32, ptr %14, align 4, !tbaa !20
+  %33 = and i8 %29, 127
+  %34 = zext nneg i8 %33 to i32
+  %35 = trunc nuw nsw i64 %.01745.i to i32
+  %36 = shl i32 %34, %35
+  %37 = lshr exact i32 %36, %35
+  %.not.i = icmp eq i32 %37, %34
+  br i1 %.not.i, label %38, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread
+
+38:                                               ; preds = %28
+  %39 = add i32 %36, %.07
+  %40 = add nuw nsw i64 %.01745.i, 7
+  %41 = icmp slt i8 %29, 0
+  %42 = icmp samesign ult i64 %.01745.i, 25
+  %43 = select i1 %41, i1 %42, i1 false
+  br i1 %43, label %.lr.ph.i, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit, !llvm.loop !21
+
+.critedge.i:                                      ; preds = %.lr.ph.i
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 1, ptr %44, align 8, !tbaa !12
   br label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread
 
-29:                                               ; preds = %.lr.ph.i
-  %30 = load i8, ptr %26, align 1, !tbaa !18
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store ptr %31, ptr %0, align 8, !tbaa !17
-  %32 = add i64 %25, -1
-  store i64 %32, ptr %5, align 8, !tbaa !10
-  %33 = add i32 %24, 1
-  store i32 %33, ptr %14, align 4, !tbaa !20
-  %34 = and i8 %30, 127
-  %35 = zext nneg i8 %34 to i32
-  %36 = trunc nuw nsw i64 %.01746.i to i32
-  %37 = shl i32 %35, %36
-  %38 = lshr exact i32 %37, %36
-  %.not.i = icmp eq i32 %38, %35
-  br i1 %.not.i, label %39, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread
-
-39:                                               ; preds = %29
-  %40 = add i32 %37, %.07
-  %41 = add nuw nsw i64 %.01746.i, 7
-  %42 = icmp slt i8 %30, 0
-  %43 = icmp samesign ult i64 %.01746.i, 25
-  %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph.i, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit, !llvm.loop !21
-
-_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit: ; preds = %39
-  br i1 %42, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread10
+_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit: ; preds = %38
+  br i1 %41, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread10
 
 _ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread10: ; preds = %9, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit
-  %45 = phi i32 [ %33, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ %16, %9 ]
-  %46 = phi ptr [ %31, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ %12, %9 ]
-  %47 = phi i64 [ %32, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ %13, %9 ]
-  %.113 = phi i32 [ %40, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ %22, %9 ]
+  %45 = phi i32 [ %32, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ %16, %9 ]
+  %46 = phi ptr [ %30, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ %12, %9 ]
+  %47 = phi i64 [ %31, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ %13, %9 ]
+  %.113 = phi i32 [ %39, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ %22, %9 ]
   %48 = zext i32 %.113 to i64
   %49 = icmp ult i64 %47, %48
   br i1 %49, label %50, label %52
@@ -539,8 +539,8 @@ _ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread10: ; preds = %9, %_ZN
   store i32 %57, ptr %14, align 4, !tbaa !20
   br label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread
 
-_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread: ; preds = %29, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit27.i, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit.i, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit, %52, %50
-  %.0 = phi i1 [ false, %50 ], [ true, %52 ], [ false, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ false, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit.i ], [ false, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit27.i ], [ false, %29 ]
+_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread: ; preds = %28, %.critedge.i, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit.i, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit, %52, %50
+  %.0 = phi i1 [ false, %50 ], [ true, %52 ], [ false, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ false, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit.i ], [ false, %.critedge.i ], [ false, %28 ]
   ret i1 %.0
 }
 
@@ -581,50 +581,50 @@ _ZN3net16HpackInputStream15DecodeNextOctetEPh.exit.i: ; preds = %2
   %24 = icmp eq i32 %23, %22
   br i1 %24, label %.lr.ph.i, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread11
 
-.lr.ph.i:                                         ; preds = %10, %40
-  %25 = phi i32 [ %34, %40 ], [ %17, %10 ]
-  %.08 = phi i32 [ %41, %40 ], [ %22, %10 ]
-  %.01746.i = phi i64 [ %42, %40 ], [ 0, %10 ]
-  %26 = phi i64 [ %33, %40 ], [ %14, %10 ]
-  %27 = phi ptr [ %32, %40 ], [ %13, %10 ]
+.lr.ph.i:                                         ; preds = %10, %39
+  %25 = phi i32 [ %33, %39 ], [ %17, %10 ]
+  %.08 = phi i32 [ %40, %39 ], [ %22, %10 ]
+  %.01745.i = phi i64 [ %41, %39 ], [ 0, %10 ]
+  %26 = phi i64 [ %32, %39 ], [ %14, %10 ]
+  %27 = phi ptr [ %31, %39 ], [ %13, %10 ]
   %28 = icmp eq i64 %26, 0
-  br i1 %28, label %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit27.i, label %30
+  br i1 %28, label %.critedge.i, label %29
 
-_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit27.i: ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %29, align 8, !tbaa !12
+29:                                               ; preds = %.lr.ph.i
+  %30 = load i8, ptr %27, align 1, !tbaa !18
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  store ptr %31, ptr %0, align 8, !tbaa !17
+  %32 = add i64 %26, -1
+  store i64 %32, ptr %6, align 8, !tbaa !10
+  %33 = add i32 %25, 1
+  store i32 %33, ptr %15, align 4, !tbaa !20
+  %34 = and i8 %30, 127
+  %35 = zext nneg i8 %34 to i32
+  %36 = trunc nuw nsw i64 %.01745.i to i32
+  %37 = shl i32 %35, %36
+  %38 = lshr exact i32 %37, %36
+  %.not.i = icmp eq i32 %38, %35
+  br i1 %.not.i, label %39, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread
+
+39:                                               ; preds = %29
+  %40 = add i32 %37, %.08
+  %41 = add nuw nsw i64 %.01745.i, 7
+  %42 = icmp slt i8 %30, 0
+  %43 = icmp samesign ult i64 %.01745.i, 25
+  %44 = select i1 %42, i1 %43, i1 false
+  br i1 %44, label %.lr.ph.i, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit, !llvm.loop !21
+
+.critedge.i:                                      ; preds = %.lr.ph.i
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 1, ptr %45, align 8, !tbaa !12
   br label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread
 
-30:                                               ; preds = %.lr.ph.i
-  %31 = load i8, ptr %27, align 1, !tbaa !18
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store ptr %32, ptr %0, align 8, !tbaa !17
-  %33 = add i64 %26, -1
-  store i64 %33, ptr %6, align 8, !tbaa !10
-  %34 = add i32 %25, 1
-  store i32 %34, ptr %15, align 4, !tbaa !20
-  %35 = and i8 %31, 127
-  %36 = zext nneg i8 %35 to i32
-  %37 = trunc nuw nsw i64 %.01746.i to i32
-  %38 = shl i32 %36, %37
-  %39 = lshr exact i32 %38, %37
-  %.not.i = icmp eq i32 %39, %36
-  br i1 %.not.i, label %40, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread
-
-40:                                               ; preds = %30
-  %41 = add i32 %38, %.08
-  %42 = add nuw nsw i64 %.01746.i, 7
-  %43 = icmp slt i8 %31, 0
-  %44 = icmp samesign ult i64 %.01746.i, 25
-  %45 = select i1 %43, i1 %44, i1 false
-  br i1 %45, label %.lr.ph.i, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit, !llvm.loop !21
-
-_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit: ; preds = %40
-  br i1 %43, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread11
+_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit: ; preds = %39
+  br i1 %42, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread, label %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread11
 
 _ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread11: ; preds = %10, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit
-  %46 = phi i64 [ %33, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ %14, %10 ]
-  %.114 = phi i32 [ %41, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ %23, %10 ]
+  %46 = phi i64 [ %32, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ %14, %10 ]
+  %.114 = phi i32 [ %40, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ %23, %10 ]
   %47 = zext i32 %.114 to i64
   %48 = icmp ult i64 %46, %47
   br i1 %48, label %49, label %51
@@ -664,8 +664,8 @@ _ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread11: ; preds = %10, %_Z
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #18
   resume { ptr, i32 } %64
 
-_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread: ; preds = %30, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit27.i, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit.i, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit, %62, %49
-  %.0 = phi i1 [ false, %49 ], [ %61, %62 ], [ false, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ false, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit.i ], [ false, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit27.i ], [ false, %30 ]
+_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit.thread: ; preds = %29, %.critedge.i, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit.i, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit, %62, %49
+  %.0 = phi i1 [ false, %49 ], [ %61, %62 ], [ false, %_ZN3net16HpackInputStream16DecodeNextUint32EPj.exit ], [ false, %_ZN3net16HpackInputStream15DecodeNextOctetEPh.exit.i ], [ false, %.critedge.i ], [ false, %29 ]
   ret i1 %.0
 }
 

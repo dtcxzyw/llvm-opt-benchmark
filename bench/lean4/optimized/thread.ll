@@ -992,8 +992,8 @@ _ZN4lean25thread_finalizers_managerC2Ev.exit:     ; preds = %.noexc, %0
   resume { ptr, i32 } %12
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4lean15finalize_threadEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN4lean15finalize_threadEv() local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZN4leanL24g_thread_local_reset_fnsE, align 8, !tbaa !3
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZN4leanL31finalize_thread_local_reset_fnsEv.exit, label %3

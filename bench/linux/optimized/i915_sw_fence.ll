@@ -188,7 +188,7 @@ define dso_local noundef zeroext i1 @i915_sw_fence_await(ptr noundef %0) local_u
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph, label %.thread
+  br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1, %10
   %5 = phi i32 [ %11, %10 ], [ %3, %1 ]
@@ -198,14 +198,14 @@ define dso_local noundef zeroext i1 @i915_sw_fence_await(ptr noundef %0) local_u
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %.not.not = icmp ne i8 %8, 0
-  br i1 %.not.not, label %.thread, label %10, !prof !17
+  br i1 %.not.not, label %.critedge, label %10, !prof !17
 
 10:                                               ; preds = %.lr.ph
   %11 = extractvalue { i8, i32 } %7, 1
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph, label %.thread, !llvm.loop !18
+  br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !18
 
-.thread:                                          ; preds = %10, %.lr.ph, %1
+.critedge:                                        ; preds = %10, %.lr.ph, %1
   %.lcssa = phi i1 [ false, %1 ], [ %.not.not, %.lr.ph ], [ %.not.not, %10 ]
   ret i1 %.lcssa
 }
@@ -368,7 +368,7 @@ define internal fastcc noundef range(i32 -12, 2) i32 @__i915_sw_fence_await_sw_f
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load volatile i32, ptr %62, align 4
   %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %.lr.ph, label %.thread
+  br i1 %64, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %55, %71
   %65 = phi i32 [ %72, %71 ], [ %63, %55 ]
@@ -378,20 +378,20 @@ define internal fastcc noundef range(i32 -12, 2) i32 @__i915_sw_fence_await_sw_f
   %69 = icmp ult i8 %68, 2
   tail call void @llvm.assume(i1 %69)
   %70 = icmp eq i8 %68, 0
-  br i1 %70, label %71, label %.thread, !prof !5
+  br i1 %70, label %71, label %.critedge, !prof !5
 
 71:                                               ; preds = %.lr.ph
   %72 = extractvalue { i8, i32 } %67, 1
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph, label %.thread, !llvm.loop !18
+  br i1 %73, label %.lr.ph, label %.critedge, !llvm.loop !18
 
-.thread:                                          ; preds = %71, %.lr.ph, %55
+.critedge:                                        ; preds = %71, %.lr.ph, %55
   %74 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %1) #10
   %75 = load volatile i32, ptr %11, align 4
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %81, label %77, !prof !5
 
-77:                                               ; preds = %.thread
+77:                                               ; preds = %.critedge
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %80 = load ptr, ptr %79, align 8
@@ -401,7 +401,7 @@ define internal fastcc noundef range(i32 -12, 2) i32 @__i915_sw_fence_await_sw_f
   store volatile ptr %58, ptr %80, align 8
   br label %85
 
-81:                                               ; preds = %.thread
+81:                                               ; preds = %.critedge
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %83 = load i32, ptr %82, align 4
   %84 = tail call i32 @i915_sw_fence_wake(ptr noundef nonnull %56, i32 poison, i32 noundef %83, ptr noundef null)
@@ -501,7 +501,7 @@ define dso_local i32 @i915_sw_fence_await_dma_fence(ptr noundef %0, ptr noundef 
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load volatile i32, ptr %51, align 4
   %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %.lr.ph, label %.thread
+  br i1 %53, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %49, %60
   %54 = phi i32 [ %61, %60 ], [ %52, %49 ]
@@ -511,17 +511,17 @@ define dso_local i32 @i915_sw_fence_await_dma_fence(ptr noundef %0, ptr noundef 
   %58 = icmp ult i8 %57, 2
   tail call void @llvm.assume(i1 %58)
   %59 = icmp eq i8 %57, 0
-  br i1 %59, label %60, label %.thread, !prof !5
+  br i1 %59, label %60, label %.critedge, !prof !5
 
 60:                                               ; preds = %.lr.ph
   %61 = extractvalue { i8, i32 } %56, 1
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph, label %.thread, !llvm.loop !18
+  br i1 %62, label %.lr.ph, label %.critedge, !llvm.loop !18
 
-.thread:                                          ; preds = %60, %.lr.ph, %49
+.critedge:                                        ; preds = %60, %.lr.ph, %49
   br i1 %32, label %85, label %63
 
-63:                                               ; preds = %.thread
+63:                                               ; preds = %.critedge
   %64 = icmp eq ptr %1, null
   br i1 %64, label %75, label %65
 
@@ -559,8 +559,8 @@ define dso_local i32 @i915_sw_fence_await_dma_fence(ptr noundef %0, ptr noundef 
   %84 = tail call i32 @mod_timer(ptr noundef nonnull %80, i64 noundef %83) #10
   br label %85
 
-85:                                               ; preds = %75, %.thread
-  %86 = phi ptr [ @dma_i915_sw_fence_wake_timer, %75 ], [ @dma_i915_sw_fence_wake, %.thread ]
+85:                                               ; preds = %75, %.critedge
+  %86 = phi ptr [ @dma_i915_sw_fence_wake_timer, %75 ], [ @dma_i915_sw_fence_wake, %.critedge ]
   %87 = tail call i32 @dma_fence_add_callback(ptr noundef %1, ptr noundef nonnull %34, ptr noundef nonnull %86) #10
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %92, label %89
@@ -795,7 +795,7 @@ define dso_local noundef range(i32 0, 2) i32 @__i915_sw_fence_await_dma_fence(pt
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load volatile i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph, label %.thread
+  br i1 %29, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %25, %36
   %30 = phi i32 [ %37, %36 ], [ %28, %25 ]
@@ -805,19 +805,19 @@ define dso_local noundef range(i32 0, 2) i32 @__i915_sw_fence_await_dma_fence(pt
   %34 = icmp ult i8 %33, 2
   tail call void @llvm.assume(i1 %34)
   %35 = icmp eq i8 %33, 0
-  br i1 %35, label %36, label %.thread, !prof !5
+  br i1 %35, label %36, label %.critedge, !prof !5
 
 36:                                               ; preds = %.lr.ph
   %37 = extractvalue { i8, i32 } %32, 1
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph, label %.thread, !llvm.loop !18
+  br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !18
 
-.thread:                                          ; preds = %36, %.lr.ph, %25
+.critedge:                                        ; preds = %36, %.lr.ph, %25
   %39 = tail call i32 @dma_fence_add_callback(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @__dma_i915_sw_fence_wake) #10
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %56, label %41
 
-41:                                               ; preds = %.thread
+41:                                               ; preds = %.critedge
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 0
@@ -846,8 +846,8 @@ define dso_local noundef range(i32 0, 2) i32 @__i915_sw_fence_await_dma_fence(pt
   tail call fastcc void @__i915_sw_fence_complete(ptr noundef %50, ptr noundef null)
   br label %56
 
-56:                                               ; preds = %55, %54, %.thread, %22, %18
-  %57 = phi i32 [ 1, %.thread ], [ 0, %18 ], [ 0, %22 ], [ 0, %54 ], [ 0, %55 ]
+56:                                               ; preds = %55, %54, %.critedge, %22, %18
+  %57 = phi i32 [ 1, %.critedge ], [ 0, %18 ], [ 0, %22 ], [ 0, %54 ], [ 0, %55 ]
   ret i32 %57
 }
 

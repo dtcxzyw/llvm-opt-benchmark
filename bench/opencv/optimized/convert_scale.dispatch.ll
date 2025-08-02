@@ -431,11 +431,12 @@ _ZN2cv12cpu_baseline10cvtabs_32fIdhEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = 
 define hidden noundef ptr @_ZN2cv12cpu_baseline19getConvertScaleFuncEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 7
   %4 = zext nneg i32 %3 to i64
-  %5 = and i32 %0, 7
-  %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cv12cpu_baseline19getConvertScaleFuncEiiE11cvtScaleTab, i64 0, i64 %4, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !3
-  ret ptr %8
+  %5 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cv12cpu_baseline19getConvertScaleFuncEiiE11cvtScaleTab, i64 0, i64 %4
+  %6 = and i32 %0, 7
+  %7 = zext nneg i32 %6 to i64
+  %8 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %7
+  %9 = load ptr, ptr %8, align 8, !tbaa !3
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -4265,29 +4266,30 @@ define hidden noundef ptr @_ZN2cv19getConvertScaleFuncEii(i32 noundef %0, i32 no
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv19getConvertScaleFuncEiiE24__cv_trace_location_fn24)
   %4 = and i32 %1, 7
   %5 = zext nneg i32 %4 to i64
-  %6 = and i32 %0, 7
-  %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cv12cpu_baseline19getConvertScaleFuncEiiE11cvtScaleTab, i64 0, i64 %5, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !162
-  %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %12
+  %6 = getelementptr inbounds nuw [8 x [8 x ptr]], ptr @_ZZN2cv12cpu_baseline19getConvertScaleFuncEiiE11cvtScaleTab, i64 0, i64 %5
+  %7 = and i32 %0, 7
+  %8 = zext nneg i32 %7 to i64
+  %9 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %8
+  %10 = load ptr, ptr %9, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %12 = load i32, ptr %11, align 8, !tbaa !162
+  %.not.i = icmp eq i32 %12, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %13
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %3)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %13
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %14
 
-13:                                               ; preds = %12
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %13
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #18
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #18
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %2, %12
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %2, %13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  ret ptr %9
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

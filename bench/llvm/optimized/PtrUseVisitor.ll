@@ -121,61 +121,61 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %43, %45
   %52 = icmp uge ptr %3, %.pre3.i
   %53 = icmp ult ptr %3, %51
   %spec.select.i.i.i.i.i = and i1 %52, %53
-  br i1 %spec.select.i.i.i.i.i, label %55, label %54, !prof !43
+  br i1 %spec.select.i.i.i.i.i, label %54, label %.critedge.i.i.i, !prof !43
 
 54:                                               ; preds = %50
+  %55 = ptrtoint ptr %.pre3.i to i64
+  %56 = sub i64 %17, %55
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %48)
+  %57 = load ptr, ptr %14, align 8, !tbaa !41
+  %58 = getelementptr inbounds i8, ptr %57, i64 %56
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE9push_backEOS3_.exit
+
+.critedge.i.i.i:                                  ; preds = %50
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %48)
   %.pre.i7 = load ptr, ptr %14, align 8, !tbaa !41
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE9push_backEOS3_.exit
 
-55:                                               ; preds = %50
-  %56 = ptrtoint ptr %.pre3.i to i64
-  %57 = sub i64 %17, %56
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %48)
-  %58 = load ptr, ptr %14, align 8, !tbaa !41
-  %59 = getelementptr inbounds i8, ptr %58, i64 %57
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE9push_backEOS3_.exit
+_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE9push_backEOS3_.exit: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit, %54, %.critedge.i.i.i
+  %59 = phi ptr [ %.pre3.i, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %57, %54 ], [ %.pre.i7, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %3, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %58, %54 ], [ %3, %.critedge.i.i.i ]
+  %60 = load i32, ptr %15, align 8, !tbaa !39
+  %61 = zext i32 %60 to i64
+  %62 = getelementptr inbounds nuw %"struct.llvm::detail::PtrUseVisitorBase::UseToVisit", ptr %59, i64 %61
+  %63 = load i64, ptr %.016.i.i.i, align 8, !tbaa !38
+  store i64 %63, ptr %62, align 8, !tbaa !38
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
+  %68 = load i32, ptr %67, align 8, !tbaa !37
+  store i32 %68, ptr %66, align 8, !tbaa !37
+  %69 = load i64, ptr %65, align 8
+  store i64 %69, ptr %64, align 8
+  store i32 0, ptr %67, align 8, !tbaa !37
+  %70 = load i32, ptr %15, align 8, !tbaa !39
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %15, align 8, !tbaa !39
+  %72 = load i32, ptr %12, align 8, !tbaa !37
+  %73 = icmp ugt i32 %72, 64
+  br i1 %73, label %74, label %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE9push_backEOS3_.exit: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit, %54, %55
-  %60 = phi ptr [ %.pre3.i, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %58, %55 ], [ %.pre.i7, %54 ]
-  %.016.i.i.i = phi ptr [ %3, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %59, %55 ], [ %3, %54 ]
-  %61 = load i32, ptr %15, align 8, !tbaa !39
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::PtrUseVisitorBase::UseToVisit", ptr %60, i64 %62
-  %64 = load i64, ptr %.016.i.i.i, align 8, !tbaa !38
-  store i64 %64, ptr %63, align 8, !tbaa !38
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %68 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
-  %69 = load i32, ptr %68, align 8, !tbaa !37
-  store i32 %69, ptr %67, align 8, !tbaa !37
-  %70 = load i64, ptr %66, align 8
-  store i64 %70, ptr %65, align 8
-  store i32 0, ptr %68, align 8, !tbaa !37
-  %71 = load i32, ptr %15, align 8, !tbaa !39
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %15, align 8, !tbaa !39
-  %73 = load i32, ptr %12, align 8, !tbaa !37
-  %74 = icmp ugt i32 %73, 64
-  br i1 %74, label %75, label %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit
+74:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE9push_backEOS3_.exit
+  %75 = load ptr, ptr %10, align 8, !tbaa !38
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit, label %77
 
-75:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE9push_backEOS3_.exit
-  %76 = load ptr, ptr %10, align 8, !tbaa !38
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit, label %78
-
-78:                                               ; preds = %75
-  call void @_ZdaPv(ptr noundef nonnull %76) #6
+77:                                               ; preds = %74
+  call void @_ZdaPv(ptr noundef nonnull %75) #6
   br label %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit
 
-_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE9push_backEOS3_.exit, %75, %78
+_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE9push_backEOS3_.exit, %74, %77
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #5
   br label %.critedge20
 
 .critedge20:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.09.017, i64 8
-  %.sroa.09.0 = load ptr, ptr %79, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.09.017, i64 8
+  %.sroa.09.0 = load ptr, ptr %78, align 8, !tbaa !3
   %.not = icmp eq ptr %.sroa.09.0, null
   br i1 %.not, label %._crit_edge, label %18
 }

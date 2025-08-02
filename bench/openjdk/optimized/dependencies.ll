@@ -809,85 +809,85 @@ _ZN12Dependencies13note_dep_seenEiP12ciBaseObject.exit63: ; preds = %_ZN12Depend
 .lr.ph:                                           ; preds = %137
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %141 = load ptr, ptr %140, align 8
-  %invariant.gep = getelementptr i8, ptr %141, i64 -8
   %142 = zext nneg i32 %138 to i64
   br label %143
 
-143:                                              ; preds = %.lr.ph, %150
-  %indvars.iv = phi i64 [ %142, %.lr.ph ], [ %indvars.iv.next, %150 ]
+143:                                              ; preds = %.lr.ph, %152
+  %indvars.iv = phi i64 [ %142, %.lr.ph ], [ %indvars.iv.next, %152 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -2
   %144 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv.next
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %2, %145
-  br i1 %146, label %147, label %150
+  br i1 %146, label %147, label %152
 
 147:                                              ; preds = %143
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
-  %148 = load ptr, ptr %gep, align 8
-  %149 = icmp eq ptr %3, %148
-  br i1 %149, label %_ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit.thread, label %150
+  %148 = getelementptr ptr, ptr %141, i64 %indvars.iv
+  %149 = getelementptr i8, ptr %148, i64 -8
+  %150 = load ptr, ptr %149, align 8
+  %151 = icmp eq ptr %3, %150
+  br i1 %151, label %_ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit.thread, label %152
 
-150:                                              ; preds = %147, %143
-  %151 = icmp samesign ugt i64 %indvars.iv, 3
-  br i1 %151, label %143, label %.loopexit, !llvm.loop !10
+152:                                              ; preds = %147, %143
+  %153 = icmp samesign ugt i64 %indvars.iv, 3
+  br i1 %153, label %143, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %150, %_ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit, %137, %47, %_ZN12Dependencies13note_dep_seenEiP12ciBaseObject.exit63, %_ZN12Dependencies13note_dep_seenEiP12ciBaseObject.exit
-  %152 = load i32, ptr %8, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %154 = load i32, ptr %153, align 4
-  %155 = icmp eq i32 %152, %154
-  br i1 %155, label %156, label %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit
+.loopexit:                                        ; preds = %152, %_ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit, %137, %47, %_ZN12Dependencies13note_dep_seenEiP12ciBaseObject.exit63, %_ZN12Dependencies13note_dep_seenEiP12ciBaseObject.exit
+  %154 = load i32, ptr %8, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %156 = load i32, ptr %155, align 4
+  %157 = icmp eq i32 %154, %156
+  br i1 %157, label %158, label %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit
 
-156:                                              ; preds = %.loopexit
-  %157 = add nsw i32 %152, 1
-  %158 = icmp sgt i32 %152, -1
-  %159 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %157)
-  %160 = icmp samesign ult i32 %159, 2
-  %or.cond.i.i.i.i = select i1 %158, i1 %160, i1 false
-  %161 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %157, i1 true)
-  %162 = sub nuw nsw i32 32, %161
-  %163 = shl nuw i32 1, %162
-  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %157, i32 %163
+158:                                              ; preds = %.loopexit
+  %159 = add nsw i32 %154, 1
+  %160 = icmp sgt i32 %154, -1
+  %161 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %159)
+  %162 = icmp samesign ult i32 %161, 2
+  %or.cond.i.i.i.i = select i1 %160, i1 %162, i1 false
+  %163 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %159, i1 true)
+  %164 = sub nuw nsw i32 32, %163
+  %165 = shl nuw i32 1, %164
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %159, i32 %165
   tail call void @_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef %.0.i.i.i.i)
   %.pre.i64 = load i32, ptr %8, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %.loopexit, %156
-  %164 = phi i32 [ %.pre.i64, %156 ], [ %152, %.loopexit ]
-  %165 = add nsw i32 %164, 1
-  store i32 %165, ptr %8, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %167 = load ptr, ptr %166, align 8
-  %168 = sext i32 %164 to i64
-  %169 = getelementptr inbounds ptr, ptr %167, i64 %168
-  store ptr %2, ptr %169, align 8
-  %170 = load i32, ptr %8, align 8
-  %171 = load i32, ptr %153, align 4
-  %172 = icmp eq i32 %170, %171
-  br i1 %172, label %173, label %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit68
+_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %.loopexit, %158
+  %166 = phi i32 [ %.pre.i64, %158 ], [ %154, %.loopexit ]
+  %167 = add nsw i32 %166, 1
+  store i32 %167, ptr %8, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %169 = load ptr, ptr %168, align 8
+  %170 = sext i32 %166 to i64
+  %171 = getelementptr inbounds ptr, ptr %169, i64 %170
+  store ptr %2, ptr %171, align 8
+  %172 = load i32, ptr %8, align 8
+  %173 = load i32, ptr %155, align 4
+  %174 = icmp eq i32 %172, %173
+  br i1 %174, label %175, label %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit68
 
-173:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit
-  %174 = add nsw i32 %170, 1
-  %175 = icmp sgt i32 %170, -1
-  %176 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %174)
-  %177 = icmp samesign ult i32 %176, 2
-  %or.cond.i.i.i.i65 = select i1 %175, i1 %177, i1 false
-  %178 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %174, i1 true)
-  %179 = sub nuw nsw i32 32, %178
-  %180 = shl nuw i32 1, %179
-  %.0.i.i.i.i66 = select i1 %or.cond.i.i.i.i65, i32 %174, i32 %180
+175:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit
+  %176 = add nsw i32 %172, 1
+  %177 = icmp sgt i32 %172, -1
+  %178 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %176)
+  %179 = icmp samesign ult i32 %178, 2
+  %or.cond.i.i.i.i65 = select i1 %177, i1 %179, i1 false
+  %180 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %176, i1 true)
+  %181 = sub nuw nsw i32 32, %180
+  %182 = shl nuw i32 1, %181
+  %.0.i.i.i.i66 = select i1 %or.cond.i.i.i.i65, i32 %176, i32 %182
   tail call void @_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef %.0.i.i.i.i66)
   %.pre.i67 = load i32, ptr %8, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit68
 
-_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit68: ; preds = %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit, %173
-  %181 = phi i32 [ %.pre.i67, %173 ], [ %170, %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit ]
-  %182 = add nsw i32 %181, 1
-  store i32 %182, ptr %8, align 8
-  %183 = load ptr, ptr %166, align 8
-  %184 = sext i32 %181 to i64
-  %185 = getelementptr inbounds ptr, ptr %183, i64 %184
-  store ptr %3, ptr %185, align 8
+_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit68: ; preds = %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit, %175
+  %183 = phi i32 [ %.pre.i67, %175 ], [ %172, %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit ]
+  %184 = add nsw i32 %183, 1
+  store i32 %184, ptr %8, align 8
+  %185 = load ptr, ptr %168, align 8
+  %186 = sext i32 %183 to i64
+  %187 = getelementptr inbounds ptr, ptr %185, i64 %186
+  store ptr %3, ptr %187, align 8
   br label %_ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit.thread
 
 _ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit.thread: ; preds = %147, %58, %64, %_ZN26GrowableArrayWithAllocatorIP12ciBaseObject13GrowableArrayIS1_EE6appendERKS1_.exit68

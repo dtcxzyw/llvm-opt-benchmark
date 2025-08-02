@@ -38145,9 +38145,14 @@ _ZN15rustfmt_nightly7matches9arm_comma17h727370e7f9dc8a35E.exit: ; preds = %112,
   %167 = icmp eq ptr %.fca.0.extract.i, null
   br i1 %167, label %.invoke103, label %_ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit
 
-.invoke103:                                       ; preds = %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i", %.noexc140
-  %168 = phi ptr [ @anon.c19d07abd726dff19540c3d935d1eef5.165.llvm.17249484671449717553, %.noexc140 ], [ @anon.21b0228450bcd23381d410927297c89c.550, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i" ]
-  %169 = phi ptr [ @anon.c19d07abd726dff19540c3d935d1eef5.169.llvm.17249484671449717553, %.noexc140 ], [ @anon.21b0228450bcd23381d410927297c89c.609, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i" ]
+.invoke103.critedge:                              ; preds = %237, %.thread.i.i.i, %.preheader.i.i
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35), !noalias !5838
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %34), !noalias !5838
+  br label %.invoke103
+
+.invoke103:                                       ; preds = %.invoke103.critedge, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i", %.noexc140
+  %168 = phi ptr [ @anon.c19d07abd726dff19540c3d935d1eef5.165.llvm.17249484671449717553, %.noexc140 ], [ @anon.21b0228450bcd23381d410927297c89c.550, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i" ], [ @anon.21b0228450bcd23381d410927297c89c.550, %.invoke103.critedge ]
+  %169 = phi ptr [ @anon.c19d07abd726dff19540c3d935d1eef5.169.llvm.17249484671449717553, %.noexc140 ], [ @anon.21b0228450bcd23381d410927297c89c.609, %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i" ], [ @anon.21b0228450bcd23381d410927297c89c.609, %.invoke103.critedge ]
   invoke void @_ZN4core9panicking5panic17hbd449742545cb8d5E(ptr noalias noundef nonnull readonly align 1 %168, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) %169) #42
           to label %.cont104 unwind label %137
 
@@ -38178,7 +38183,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   %176 = getelementptr inbounds nuw i8, ptr %34, i64 26
   %177 = load i8, ptr %176, align 2, !range !34, !alias.scope !5847, !noalias !5850, !noundef !10
   %178 = trunc nuw i8 %177 to i1
-  br i1 %178, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i", label %.lr.ph.i.i142
+  br i1 %178, label %.invoke103.critedge, label %.lr.ph.i.i142
 
 .lr.ph.i.i142:                                    ; preds = %.preheader.i.i
   %179 = getelementptr inbounds nuw i8, ptr %34, i64 25
@@ -38287,11 +38292,11 @@ _ZN4core3str11validations23next_code_point_reverse17h6c1ce942d36db8edE.exit.thre
   br i1 %187, label %.thread.i.i.thread.i, label %237
 
 .thread.i.i.i:                                    ; preds = %.lr.ph.i.i142
-  br i1 %185, label %.thread.i.i.thread.i, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i"
+  br i1 %185, label %.thread.i.i.thread.i, label %.invoke103.critedge
 
 237:                                              ; preds = %_ZN4core3str11validations23next_code_point_reverse17h6c1ce942d36db8edE.exit.thread.i.i.i
   %238 = icmp eq i32 %.sroa.4.1.i.ph.i.i.i, 1114112
-  br i1 %238, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i", label %239
+  br i1 %238, label %.invoke103.critedge, label %239
 
 239:                                              ; preds = %237
   %240 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i, 128
@@ -38341,9 +38346,9 @@ thread-pre-split:                                 ; preds = %.invoke
   %261 = icmp eq i64 %.pr, 0
   br label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i"
 
-"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i": ; preds = %237, %.preheader.i.i, %.thread.i.i.i, %.thread.i.i.thread.i, %thread-pre-split
-  %262 = phi i64 [ %.pre, %thread-pre-split ], [ %259, %.thread.i.i.thread.i ], [ undef, %.preheader.i.i ], [ undef, %.thread.i.i.i ], [ undef, %237 ]
-  %switch = phi i1 [ %261, %thread-pre-split ], [ false, %.thread.i.i.thread.i ], [ true, %.preheader.i.i ], [ true, %.thread.i.i.i ], [ true, %237 ]
+"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hb4a8c03155d43c77E.exit.thread7.i.i": ; preds = %.thread.i.i.thread.i, %thread-pre-split
+  %262 = phi i64 [ %.pre, %thread-pre-split ], [ %259, %.thread.i.i.thread.i ]
+  %switch = phi i1 [ %261, %thread-pre-split ], [ false, %.thread.i.i.thread.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35), !noalias !5838
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %34), !noalias !5838
   br i1 %switch, label %.invoke103, label %263

@@ -2303,75 +2303,76 @@ _ZL16get_svml_addressii9BasicTypePci.exit:        ; preds = %6, %6, %6, %6
   %.str.96..str.97.i = select i1 %29, ptr @.str.96, ptr @.str.97
   %_ZN12StubRoutines14_vector_f_mathE._ZN12StubRoutines14_vector_d_mathE.i = select i1 %29, ptr @_ZN12StubRoutines14_vector_f_mathE, ptr @_ZN12StubRoutines14_vector_d_mathE
   %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull %.str.96..str.97.i, ptr noundef %32, i32 noundef %23) #9
-  %37 = getelementptr inbounds [4 x [18 x ptr]], ptr %_ZN12StubRoutines14_vector_f_mathE._ZN12StubRoutines14_vector_d_mathE.i, i64 0, i64 %35, i64 %30
-  %.0.i = load ptr, ptr %37, align 8
-  %38 = icmp eq ptr %.0.i, null
-  br i1 %38, label %79, label %39
+  %37 = getelementptr inbounds nuw [4 x [18 x ptr]], ptr %_ZN12StubRoutines14_vector_f_mathE._ZN12StubRoutines14_vector_d_mathE.i, i64 0, i64 %35
+  %38 = getelementptr inbounds [18 x ptr], ptr %37, i64 0, i64 %30
+  %.0.i = load ptr, ptr %38, align 8
+  %39 = icmp eq ptr %.0.i, null
+  br i1 %39, label %80, label %40
 
-39:                                               ; preds = %_ZL16get_svml_addressii9BasicTypePci.exit
-  %40 = load ptr, ptr @_ZN7TypePtr6BOTTOME, align 8
-  %41 = call noundef ptr @_ZN8GraphKit17make_runtime_callEiPK8TypeFuncPhPKcPK7TypePtrP4NodeSA_SA_SA_SA_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 64, ptr noundef %13, ptr noundef nonnull %.0.i, ptr noundef nonnull %7, ptr noundef %40, ptr noundef %4, ptr noundef %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #9
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %43 = load ptr, ptr %42, align 8
-  %44 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1808
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 128
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 728
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %55 = load ptr, ptr %54, align 8
-  %56 = ptrtoint ptr %53 to i64
-  %57 = ptrtoint ptr %55 to i64
-  %58 = sub i64 %56, %57
-  %.not.i.i.i = icmp ult i64 %58, 64
-  br i1 %.not.i.i.i, label %61, label %59
+40:                                               ; preds = %_ZL16get_svml_addressii9BasicTypePci.exit
+  %41 = load ptr, ptr @_ZN7TypePtr6BOTTOME, align 8
+  %42 = call noundef ptr @_ZN8GraphKit17make_runtime_callEiPK8TypeFuncPhPKcPK7TypePtrP4NodeSA_SA_SA_SA_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 64, ptr noundef %13, ptr noundef nonnull %.0.i, ptr noundef nonnull %7, ptr noundef %41, ptr noundef %4, ptr noundef %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #9
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1808
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 128
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 728
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %56 = load ptr, ptr %55, align 8
+  %57 = ptrtoint ptr %54 to i64
+  %58 = ptrtoint ptr %56 to i64
+  %59 = sub i64 %57, %58
+  %.not.i.i.i = icmp ult i64 %59, 64
+  br i1 %.not.i.i.i, label %62, label %60
 
-59:                                               ; preds = %39
-  %60 = getelementptr inbounds nuw i8, ptr %55, i64 64
-  store ptr %60, ptr %54, align 8
+60:                                               ; preds = %40
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 64
+  store ptr %61, ptr %55, align 8
   br label %_ZN4NodenwEm.exit
 
-61:                                               ; preds = %39
-  %62 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %51, i64 noundef 64, i32 noundef 0) #9
+62:                                               ; preds = %40
+  %63 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %52, i64 noundef 64, i32 noundef 0) #9
   br label %_ZN4NodenwEm.exit
 
-_ZN4NodenwEm.exit:                                ; preds = %59, %61
-  %.0.i.i.i = phi ptr [ %55, %59 ], [ %62, %61 ]
-  %63 = icmp eq ptr %.0.i.i.i, null
-  br i1 %63, label %75, label %64
+_ZN4NodenwEm.exit:                                ; preds = %60, %62
+  %.0.i.i.i = phi ptr [ %56, %60 ], [ %63, %62 ]
+  %64 = icmp eq ptr %.0.i.i.i, null
+  br i1 %64, label %76, label %65
 
-64:                                               ; preds = %_ZN4NodenwEm.exit
-  %65 = load ptr, ptr %42, align 8
-  %66 = load ptr, ptr %65, align 8
+65:                                               ; preds = %_ZN4NodenwEm.exit
+  %66 = load ptr, ptr %43, align 8
   %67 = load ptr, ptr %66, align 8
-  %68 = call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(2400) %65, ptr noundef %41) #9
-  call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(57) %.0.i.i.i, ptr noundef %68) #9
+  %68 = load ptr, ptr %67, align 8
+  %69 = call noundef ptr %68(ptr noundef nonnull align 8 dereferenceable(2400) %66, ptr noundef %42) #9
+  call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(57) %.0.i.i.i, ptr noundef %69) #9
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
-  store i32 5, ptr %69, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  store i8 0, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store i32 8, ptr %71, align 4
-  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
-  %73 = load i32, ptr %72, align 8
-  %74 = or i32 %73, 64
-  store i32 %74, ptr %72, align 8
-  br label %75
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
+  store i32 5, ptr %70, align 4
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
+  store i8 0, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
+  store i32 8, ptr %72, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
+  %74 = load i32, ptr %73, align 8
+  %75 = or i32 %74, 64
+  store i32 %75, ptr %73, align 8
+  br label %76
 
-75:                                               ; preds = %64, %_ZN4NodenwEm.exit
-  %76 = load ptr, ptr %43, align 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = call noundef ptr %77(ptr noundef nonnull align 8 dereferenceable(2400) %43, ptr noundef %.0.i.i.i) #9
-  br label %79
+76:                                               ; preds = %65, %_ZN4NodenwEm.exit
+  %77 = load ptr, ptr %44, align 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(2400) %44, ptr noundef %.0.i.i.i) #9
+  br label %80
 
-79:                                               ; preds = %_ZL16get_svml_addressii9BasicTypePci.exit, %75
-  %.0 = phi ptr [ %78, %75 ], [ null, %_ZL16get_svml_addressii9BasicTypePci.exit ]
+80:                                               ; preds = %_ZL16get_svml_addressii9BasicTypePci.exit, %76
+  %.0 = phi ptr [ %79, %76 ], [ null, %_ZL16get_svml_addressii9BasicTypePci.exit ]
   ret ptr %.0
 }
 

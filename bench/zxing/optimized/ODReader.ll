@@ -1043,10 +1043,10 @@ define void @_ZNK5ZXing4OneD6Reader6decodeERKNS_12BinaryBitmapE(ptr dead_on_unwi
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN5ZXing4OneDL8DoDecodeERKSt6vectorISt10unique_ptrINS0_9RowReaderESt14default_deleteIS3_EESaIS6_EERKNS_12BinaryBitmapEbbbiib(ptr dead_on_unwind noalias writable align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef range(i32 0, 256) %7, i1 noundef zeroext %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %.sroa.060.i = alloca i32, align 4
-  %.sroa.561.i = alloca i32, align 4
-  %.sroa.862.i = alloca i32, align 4
-  %.sroa.1263.i = alloca i32, align 4
+  %.sroa.058.i = alloca i32, align 4
+  %.sroa.559.i = alloca i32, align 4
+  %.sroa.860.i = alloca i32, align 4
+  %.sroa.1261.i = alloca i32, align 4
   %.sroa.0.i = alloca i32, align 4
   %.sroa.5.i = alloca i32, align 4
   %.sroa.8.i = alloca i32, align 4
@@ -2734,40 +2734,40 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEE
 684:                                              ; preds = %.lr.ph634, %763
   %.sroa.0330.0632 = phi ptr [ %671, %.lr.ph634 ], [ %764, %763 ]
   %685 = getelementptr inbounds nuw i8, ptr %.sroa.0330.0632, i64 104
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.060.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.561.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.862.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.1263.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.058.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.559.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.860.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.1261.i)
   %686 = load i32, ptr %673, align 4, !tbaa !124, !noalias !155
-  store i32 %686, ptr %.sroa.060.i, align 4, !tbaa !51, !noalias !155
+  store i32 %686, ptr %.sroa.058.i, align 4, !tbaa !51, !noalias !155
   %687 = load i32, ptr %674, align 4, !tbaa !124, !noalias !155
-  store i32 %687, ptr %.sroa.561.i, align 4, !tbaa !51, !noalias !155
+  store i32 %687, ptr %.sroa.559.i, align 4, !tbaa !51, !noalias !155
   %688 = load i32, ptr %675, align 4, !tbaa !124, !noalias !155
-  store i32 %688, ptr %.sroa.862.i, align 4, !tbaa !51, !noalias !155
+  store i32 %688, ptr %.sroa.860.i, align 4, !tbaa !51, !noalias !155
   %689 = load i32, ptr %676, align 4, !tbaa !124, !noalias !155
-  store i32 %689, ptr %.sroa.1263.i, align 4, !tbaa !51, !noalias !155
+  store i32 %689, ptr %.sroa.1261.i, align 4, !tbaa !51, !noalias !155
   %690 = icmp slt i32 %687, %686
-  %spec.select.i.i.i = select i1 %690, ptr %.sroa.561.i, ptr %.sroa.060.i
-  %spec.select47.i.i.i = select i1 %690, ptr %.sroa.060.i, ptr %.sroa.561.i
+  %spec.select.i.i.i = select i1 %690, ptr %.sroa.559.i, ptr %.sroa.058.i
+  %spec.select47.i.i.i = select i1 %690, ptr %.sroa.058.i, ptr %.sroa.559.i
   %691 = icmp slt i32 %689, %688
   br i1 %691, label %692, label %697
 
 692:                                              ; preds = %684
   %693 = load i32, ptr %spec.select.i.i.i, align 4, !tbaa !51, !noalias !155
   %694 = icmp slt i32 %689, %693
-  %spec.select49.i.i.i = select i1 %694, ptr %.sroa.1263.i, ptr %spec.select.i.i.i
+  %spec.select49.i.i.i = select i1 %694, ptr %.sroa.1261.i, ptr %spec.select.i.i.i
   %695 = load i32, ptr %spec.select47.i.i.i, align 4, !tbaa !51, !noalias !155
   %696 = icmp slt i32 %688, %695
-  %spec.select51.i.i.i = select i1 %696, ptr %spec.select47.i.i.i, ptr %.sroa.862.i
+  %spec.select51.i.i.i = select i1 %696, ptr %spec.select47.i.i.i, ptr %.sroa.860.i
   br label %_ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit.i
 
 697:                                              ; preds = %684
   %698 = call i32 @llvm.smin.i32(i32 %687, i32 %686)
   %699 = call i32 @llvm.smax.i32(i32 %687, i32 %686)
   %700 = icmp slt i32 %688, %698
-  %spec.select50.i.i.i = select i1 %700, ptr %.sroa.862.i, ptr %spec.select.i.i.i
+  %spec.select50.i.i.i = select i1 %700, ptr %.sroa.860.i, ptr %spec.select.i.i.i
   %701 = icmp slt i32 %689, %699
-  %spec.select52.i.i.i = select i1 %701, ptr %spec.select47.i.i.i, ptr %.sroa.1263.i
+  %spec.select52.i.i.i = select i1 %701, ptr %spec.select47.i.i.i, ptr %.sroa.1261.i
   br label %_ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit.i
 
 _ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit.i: ; preds = %697, %692
@@ -2775,10 +2775,10 @@ _ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit.i: ; preds = %697, %6
   %.2.i.i.i = phi ptr [ %spec.select51.i.i.i, %692 ], [ %spec.select52.i.i.i, %697 ]
   %702 = load i32, ptr %.4.i.i.i, align 4, !tbaa !51, !noalias !155
   %703 = load i32, ptr %.2.i.i.i, align 4, !tbaa !51, !noalias !155
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.060.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.561.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.862.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.1263.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.058.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.559.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.860.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.1261.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.8.i)
@@ -4821,51 +4821,51 @@ _ZSt8_DestroyIPN5ZXing6ResultEEvT_S3_.exit:       ; preds = %_ZSt8_DestroyIN5ZXi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5ZXing11BoundingBoxINS_6PointTIiEEEENS_13QuadrilateralIT_EERKS5_(ptr dead_on_unwind noalias writable sret(%"class.ZXing::Quadrilateral") align 4 %0, ptr noundef nonnull align 4 dereferenceable(32) %1) local_unnamed_addr #1 comdat {
 .lr.ph.i.i:
-  %.sroa.060 = alloca i32, align 4
-  %.sroa.561 = alloca i32, align 4
-  %.sroa.862 = alloca i32, align 4
-  %.sroa.1263 = alloca i32, align 4
+  %.sroa.058 = alloca i32, align 4
+  %.sroa.559 = alloca i32, align 4
+  %.sroa.860 = alloca i32, align 4
+  %.sroa.1261 = alloca i32, align 4
   %.sroa.0 = alloca i32, align 4
   %.sroa.5 = alloca i32, align 4
   %.sroa.8 = alloca i32, align 4
   %.sroa.12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.060)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.561)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.862)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.1263)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.058)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.559)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.860)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.1261)
   %2 = load i32, ptr %1, align 4, !tbaa !124
-  store i32 %2, ptr %.sroa.060, align 4, !tbaa !51
+  store i32 %2, ptr %.sroa.058, align 4, !tbaa !51
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 4, !tbaa !124
-  store i32 %4, ptr %.sroa.561, align 4, !tbaa !51
+  store i32 %4, ptr %.sroa.559, align 4, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 4, !tbaa !124
-  store i32 %6, ptr %.sroa.862, align 4, !tbaa !51
+  store i32 %6, ptr %.sroa.860, align 4, !tbaa !51
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 4, !tbaa !124
-  store i32 %8, ptr %.sroa.1263, align 4, !tbaa !51
+  store i32 %8, ptr %.sroa.1261, align 4, !tbaa !51
   %9 = icmp slt i32 %4, %2
-  %spec.select.i.i = select i1 %9, ptr %.sroa.561, ptr %.sroa.060
-  %spec.select47.i.i = select i1 %9, ptr %.sroa.060, ptr %.sroa.561
+  %spec.select.i.i = select i1 %9, ptr %.sroa.559, ptr %.sroa.058
+  %spec.select47.i.i = select i1 %9, ptr %.sroa.058, ptr %.sroa.559
   %10 = icmp slt i32 %8, %6
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %.lr.ph.i.i
   %12 = load i32, ptr %spec.select.i.i, align 4, !tbaa !51
   %13 = icmp slt i32 %8, %12
-  %spec.select49.i.i = select i1 %13, ptr %.sroa.1263, ptr %spec.select.i.i
+  %spec.select49.i.i = select i1 %13, ptr %.sroa.1261, ptr %spec.select.i.i
   %14 = load i32, ptr %spec.select47.i.i, align 4, !tbaa !51
   %15 = icmp slt i32 %6, %14
-  %spec.select51.i.i = select i1 %15, ptr %spec.select47.i.i, ptr %.sroa.862
+  %spec.select51.i.i = select i1 %15, ptr %spec.select47.i.i, ptr %.sroa.860
   br label %_ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit
 
 16:                                               ; preds = %.lr.ph.i.i
   %17 = tail call i32 @llvm.smin.i32(i32 %4, i32 %2)
   %18 = tail call i32 @llvm.smax.i32(i32 %4, i32 %2)
   %19 = icmp slt i32 %6, %17
-  %spec.select50.i.i = select i1 %19, ptr %.sroa.862, ptr %spec.select.i.i
+  %spec.select50.i.i = select i1 %19, ptr %.sroa.860, ptr %spec.select.i.i
   %20 = icmp slt i32 %8, %18
-  %spec.select52.i.i = select i1 %20, ptr %spec.select47.i.i, ptr %.sroa.1263
+  %spec.select52.i.i = select i1 %20, ptr %spec.select47.i.i, ptr %.sroa.1261
   br label %_ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit
 
 _ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit: ; preds = %16, %11
@@ -4873,10 +4873,10 @@ _ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit: ; preds = %16, %11
   %.2.i.i = phi ptr [ %spec.select51.i.i, %11 ], [ %spec.select52.i.i, %16 ]
   %21 = load i32, ptr %.4.i.i, align 4, !tbaa !51
   %22 = load i32, ptr %.2.i.i, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.060)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.561)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.862)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.1263)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.058)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.559)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.860)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.1261)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.8)

@@ -587,12 +587,12 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %107 = getelementptr i32, ptr @__start_orc_unwind_ip, i64 %106
   %108 = getelementptr i8, ptr %107, i64 -4
   %109 = icmp ult ptr %108, @__start_orc_unwind_ip
-  br i1 %109, label %.loopexit74, label %.preheader73
+  br i1 %109, label %.loopexit72, label %.preheader71
 
-.preheader73:                                     ; preds = %104, %.preheader73
-  %110 = phi ptr [ %128, %.preheader73 ], [ @__start_orc_unwind_ip, %104 ]
-  %111 = phi ptr [ %127, %.preheader73 ], [ %108, %104 ]
-  %112 = phi ptr [ %126, %.preheader73 ], [ @__start_orc_unwind_ip, %104 ]
+.preheader71:                                     ; preds = %104, %.preheader71
+  %110 = phi ptr [ %128, %.preheader71 ], [ @__start_orc_unwind_ip, %104 ]
+  %111 = phi ptr [ %127, %.preheader71 ], [ %108, %104 ]
+  %112 = phi ptr [ %126, %.preheader71 ], [ @__start_orc_unwind_ip, %104 ]
   %113 = ptrtoint ptr %111 to i64
   %114 = ptrtoint ptr %112 to i64
   %115 = sub i64 %113, %114
@@ -610,10 +610,10 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %127 = select i1 %123, ptr %125, ptr %111
   %128 = select i1 %123, ptr %110, ptr %118
   %129 = icmp ugt ptr %126, %127
-  br i1 %129, label %.loopexit74, label %.preheader73, !llvm.loop !11
+  br i1 %129, label %.loopexit72, label %.preheader71, !llvm.loop !11
 
-.loopexit74:                                      ; preds = %.preheader73, %104
-  %130 = phi ptr [ @__start_orc_unwind_ip, %104 ], [ %128, %.preheader73 ]
+.loopexit72:                                      ; preds = %.preheader71, %104
+  %130 = phi ptr [ @__start_orc_unwind_ip, %104 ], [ %128, %.preheader71 ]
   %131 = ptrtoint ptr %130 to i64
   %132 = sub i64 %131, ptrtoint (ptr @__start_orc_unwind_ip to i64)
   %133 = ashr exact i64 %132, 2
@@ -648,12 +648,12 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %152 = getelementptr i32, ptr %145, i64 %151
   %153 = getelementptr i8, ptr %152, i64 -4
   %154 = icmp ult ptr %153, %145
-  br i1 %154, label %.loopexit76, label %.preheader75
+  br i1 %154, label %.loopexit74, label %.preheader73
 
-.preheader75:                                     ; preds = %150, %.preheader75
-  %155 = phi ptr [ %173, %.preheader75 ], [ %145, %150 ]
-  %156 = phi ptr [ %172, %.preheader75 ], [ %153, %150 ]
-  %157 = phi ptr [ %171, %.preheader75 ], [ %145, %150 ]
+.preheader73:                                     ; preds = %150, %.preheader73
+  %155 = phi ptr [ %173, %.preheader73 ], [ %145, %150 ]
+  %156 = phi ptr [ %172, %.preheader73 ], [ %153, %150 ]
+  %157 = phi ptr [ %171, %.preheader73 ], [ %145, %150 ]
   %158 = ptrtoint ptr %156 to i64
   %159 = ptrtoint ptr %157 to i64
   %160 = sub i64 %158, %159
@@ -671,10 +671,10 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %172 = select i1 %168, ptr %170, ptr %156
   %173 = select i1 %168, ptr %155, ptr %163
   %174 = icmp ugt ptr %171, %172
-  br i1 %174, label %.loopexit76, label %.preheader75, !llvm.loop !11
+  br i1 %174, label %.loopexit74, label %.preheader73, !llvm.loop !11
 
-.loopexit76:                                      ; preds = %.preheader75, %150
-  %175 = phi ptr [ %145, %150 ], [ %173, %.preheader75 ]
+.loopexit74:                                      ; preds = %.preheader73, %150
+  %175 = phi ptr [ %145, %150 ], [ %173, %.preheader73 ]
   %176 = ptrtoint ptr %175 to i64
   %177 = ptrtoint ptr %145 to i64
   %178 = sub i64 %176, %177
@@ -682,13 +682,13 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %180 = getelementptr %struct.orc_entry, ptr %141, i64 %179
   br label %181
 
-181:                                              ; preds = %.loopexit76, %147, %143, %138, %135
-  %182 = phi ptr [ null, %143 ], [ null, %138 ], [ null, %135 ], [ %180, %.loopexit76 ], [ null, %147 ]
+181:                                              ; preds = %.loopexit74, %147, %143, %138, %135
+  %182 = phi ptr [ null, %143 ], [ null, %138 ], [ null, %135 ], [ %180, %.loopexit74 ], [ null, %147 ]
   store ptr %182, ptr @orc_find.orc, align 8
   br label %183
 
-183:                                              ; preds = %181, %.loopexit74, %.loopexit
-  %184 = phi ptr [ %96, %.loopexit ], [ %134, %.loopexit74 ], [ %182, %181 ]
+183:                                              ; preds = %181, %.loopexit72, %.loopexit
+  %184 = phi ptr [ %96, %.loopexit ], [ %134, %.loopexit72 ], [ %182, %181 ]
   %185 = icmp eq ptr %184, null
   br i1 %185, label %.thread, label %.thread57
 
@@ -1050,13 +1050,13 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   br i1 %399, label %..thread68_crit_edge, label %.thread70
 
 ..thread68_crit_edge:                             ; preds = %395
-  %.pre81 = load i16, ptr %195, align 1
-  %.pre = and i16 %.pre81, 15
+  %.pre79 = load i16, ptr %195, align 1
+  %.pre = and i16 %.pre79, 15
   br label %.thread68
 
 .thread68:                                        ; preds = %..thread68_crit_edge, %375
   %.pre-phi = phi i16 [ %.pre, %..thread68_crit_edge ], [ %200, %375 ]
-  %400 = phi i16 [ %.pre81, %..thread68_crit_edge ], [ %199, %375 ]
+  %400 = phi i16 [ %.pre79, %..thread68_crit_edge ], [ %199, %375 ]
   %401 = load volatile i64, ptr %364, align 8
   %402 = icmp eq i16 %.pre-phi, 9
   br i1 %402, label %406, label %412
@@ -1408,7 +1408,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 625:                                              ; preds = %620
   %626 = icmp eq ptr %621, null
-  br i1 %626, label %.thread72, label %627
+  br i1 %626, label %.critedge, label %627
 
 627:                                              ; preds = %625
   %628 = getelementptr inbounds nuw i8, ptr %0, i64 66
@@ -1420,7 +1420,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %632 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %633 = load ptr, ptr %632, align 8
   %634 = icmp eq ptr %633, null
-  br i1 %634, label %.thread72, label %635
+  br i1 %634, label %.critedge, label %635
 
 635:                                              ; preds = %631, %627
   %636 = phi ptr [ %621, %627 ], [ %633, %631 ]
@@ -1428,7 +1428,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %638 = load volatile i64, ptr %637, align 8
   %639 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %638, ptr %639, align 8
-  br label %.thread72
+  br label %.critedge
 
 640:                                              ; preds = %620
   %641 = getelementptr inbounds nuw i8, ptr %194, i64 2
@@ -1437,7 +1437,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %644 = add i64 %414, %643
   %645 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %646 = tail call fastcc zeroext i1 @deref_stack_reg(ptr noundef %0, i64 noundef %644, ptr noundef nonnull %645)
-  br i1 %646, label %.thread72, label %.thread70
+  br i1 %646, label %.critedge, label %.thread70
 
 647:                                              ; preds = %620
   %648 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1447,7 +1447,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %652 = sext i16 %651 to i64
   %653 = add i64 %649, %652
   %654 = tail call fastcc zeroext i1 @deref_stack_reg(ptr noundef %0, i64 noundef %653, ptr noundef nonnull %648)
-  br i1 %654, label %.thread72, label %.thread70
+  br i1 %654, label %.critedge, label %.thread70
 
 655:                                              ; preds = %620
   %656 = load i1, ptr @unwind_next_frame.__already_done.25, align 1
@@ -1460,12 +1460,12 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %660 = tail call i32 (ptr, ...) @_printk_deferred(ptr noundef nonnull @.str.26, i32 noundef %658, ptr noundef %659) #16
   br label %.thread70
 
-.thread72:                                        ; preds = %631, %625, %647, %640, %635
+.critedge:                                        ; preds = %625, %631, %647, %640, %635
   %661 = load i32, ptr %0, align 8
   %662 = icmp eq i32 %661, %6
   br i1 %662, label %663, label %700
 
-663:                                              ; preds = %.thread72
+663:                                              ; preds = %.critedge
   %664 = load i64, ptr %4, align 8
   %665 = inttoptr i64 %664 to ptr
   %666 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1523,7 +1523,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   tail call fastcc void @unwind_dump(ptr noundef %0)
   br label %.thread70
 
-700:                                              ; preds = %673, %663, %.thread72
+700:                                              ; preds = %673, %663, %.critedge
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
   %701 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !22
   %702 = icmp ult i8 %701, 2

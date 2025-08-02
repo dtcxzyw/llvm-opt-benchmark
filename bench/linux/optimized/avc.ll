@@ -2355,7 +2355,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #18
 declare dso_local void @security_compute_av(i32 noundef, i32 noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @avc_alloc_node() unnamed_addr #1 align 16 {
+define internal fastcc noalias ptr @avc_alloc_node() unnamed_addr #1 align 16 {
   %1 = alloca i64, align 8
   %2 = load ptr, ptr @avc_node_cachep, align 8
   %3 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %2, i32 noundef 10496) #21

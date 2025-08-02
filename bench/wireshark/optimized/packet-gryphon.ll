@@ -3459,100 +3459,101 @@ define internal fastcc i32 @cmd_addresp(ptr noundef %0, i32 noundef range(i32 12
   %29 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %28)
   %30 = zext i16 %29 to i32
   %.not = icmp eq i16 %29, 0
-  br i1 %.not, label %35, label %31
+  br i1 %.not, label %.critedge, label %31
 
 31:                                               ; preds = %4
   %32 = and i8 %23, 16
-  %.not103 = icmp ne i8 %32, 0
+  %.not103.not = icmp eq i8 %32, 0
   %33 = load i32, ptr @hf_gryphon_addresp_action_period, align 4
   %34 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %33, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0)
-  br label %35
+  %35 = load i32, ptr @hf_gryphon_addresp_action_deact_on_event, align 4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %35, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0)
+  %37 = load i32, ptr @hf_gryphon_addresp_action_deact_after_period, align 4
+  %38 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %37, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0)
+  %39 = add nuw nsw i32 %1, 5
+  %40 = load i32, ptr @hf_gryphon_reserved, align 4
+  %41 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0)
+  %42 = load i32, ptr @hf_gryphon_addresp_action_period_type, align 4
+  br i1 %.not103.not, label %45, label %43
 
-35:                                               ; preds = %31, %4
-  %.097 = phi i1 [ %.not103, %31 ], [ false, %4 ]
-  %36 = load i32, ptr @hf_gryphon_addresp_action_deact_on_event, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %36, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0)
-  %38 = load i32, ptr @hf_gryphon_addresp_action_deact_after_period, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %38, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0)
-  %40 = add nuw nsw i32 %1, 5
-  %41 = load i32, ptr @hf_gryphon_reserved, align 4
-  %42 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %41, ptr noundef %0, i32 noundef %40, i32 noundef 1, i32 noundef 0)
-  %43 = load i32, ptr @hf_gryphon_addresp_action_period_type, align 4
-  br i1 %.not, label %51, label %44
+43:                                               ; preds = %31
+  %44 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %42, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef %30, ptr noundef nonnull @.str.1042, i32 noundef %30)
+  br label %58
 
-44:                                               ; preds = %35
-  br i1 %.097, label %45, label %47
+45:                                               ; preds = %31
+  %46 = udiv i16 %29, 100
+  %.zext = zext nneg i16 %46 to i32
+  %47 = urem i16 %29, 100
+  %.zext107 = zext nneg i16 %47 to i32
+  %48 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %42, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef %30, ptr noundef nonnull @.str.1043, i32 noundef %.zext, i32 noundef %.zext107)
+  br label %58
 
-45:                                               ; preds = %44
-  %46 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %43, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef %30, ptr noundef nonnull @.str.1042, i32 noundef %30)
-  br label %53
+.critedge:                                        ; preds = %4
+  %49 = load i32, ptr @hf_gryphon_addresp_action_deact_on_event, align 4
+  %50 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %49, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0)
+  %51 = load i32, ptr @hf_gryphon_addresp_action_deact_after_period, align 4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %51, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0)
+  %53 = add nuw nsw i32 %1, 5
+  %54 = load i32, ptr @hf_gryphon_reserved, align 4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %54, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef 0)
+  %56 = load i32, ptr @hf_gryphon_addresp_action_period_type, align 4
+  %57 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %56, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.1044)
+  br label %58
 
-47:                                               ; preds = %44
-  %48 = udiv i16 %29, 100
-  %.zext = zext nneg i16 %48 to i32
-  %49 = urem i16 %29, 100
-  %.zext107 = zext nneg i16 %49 to i32
-  %50 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %43, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef %30, ptr noundef nonnull @.str.1043, i32 noundef %.zext, i32 noundef %.zext107)
-  br label %53
-
-51:                                               ; preds = %35
-  %52 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %43, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.1044)
-  br label %53
-
-53:                                               ; preds = %45, %47, %51
-  %54 = add nuw nsw i32 %1, 8
-  %55 = load i32, ptr %5, align 4
-  %.not104108 = icmp eq i32 %55, 0
+58:                                               ; preds = %43, %45, %.critedge
+  %59 = add nuw nsw i32 %1, 8
+  %60 = load i32, ptr %5, align 4
+  %.not104108 = icmp eq i32 %60, 0
   br i1 %.not104108, label %.preheader, label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph, %53
-  %.0.lcssa = phi i32 [ %54, %53 ], [ %67, %.lr.ph ]
-  %56 = load i32, ptr %6, align 4
-  %.not105111 = icmp eq i32 %56, 0
+.preheader:                                       ; preds = %.lr.ph, %58
+  %.0.lcssa = phi i32 [ %59, %58 ], [ %72, %.lr.ph ]
+  %61 = load i32, ptr %6, align 4
+  %.not105111 = icmp eq i32 %61, 0
   br i1 %.not105111, label %._crit_edge, label %.lr.ph114
 
-.lr.ph:                                           ; preds = %53, %.lr.ph
-  %.0110 = phi i32 [ %67, %.lr.ph ], [ %54, %53 ]
-  %.099109 = phi i32 [ %68, %.lr.ph ], [ 1, %53 ]
-  %57 = add i32 %.0110, 2
-  %58 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %57)
-  %59 = zext i16 %58 to i32
-  %60 = add nuw nsw i32 %59, 8
-  %61 = add nuw nsw i32 %59, 3
-  %62 = and i32 %61, 3
-  %63 = xor i32 %62, 3
-  %64 = add nuw nsw i32 %60, %63
-  %65 = load i32, ptr @ett_gryphon_cmd_filter_block, align 4
-  %66 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.0110, i32 noundef %64, i32 noundef %65, ptr noundef null, ptr noundef nonnull @.str.1034, i32 noundef %.099109)
-  %67 = call fastcc i32 @filter_block(ptr noundef %0, i32 noundef %.0110, ptr noundef %66)
-  %68 = add i32 %.099109, 1
-  %69 = load i32, ptr %5, align 4
-  %.not104 = icmp ugt i32 %68, %69
+.lr.ph:                                           ; preds = %58, %.lr.ph
+  %.0110 = phi i32 [ %72, %.lr.ph ], [ %59, %58 ]
+  %.099109 = phi i32 [ %73, %.lr.ph ], [ 1, %58 ]
+  %62 = add i32 %.0110, 2
+  %63 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %62)
+  %64 = zext i16 %63 to i32
+  %65 = add nuw nsw i32 %64, 8
+  %66 = add nuw nsw i32 %64, 3
+  %67 = and i32 %66, 3
+  %68 = xor i32 %67, 3
+  %69 = add nuw nsw i32 %65, %68
+  %70 = load i32, ptr @ett_gryphon_cmd_filter_block, align 4
+  %71 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.0110, i32 noundef %69, i32 noundef %70, ptr noundef null, ptr noundef nonnull @.str.1034, i32 noundef %.099109)
+  %72 = call fastcc i32 @filter_block(ptr noundef %0, i32 noundef %.0110, ptr noundef %71)
+  %73 = add i32 %.099109, 1
+  %74 = load i32, ptr %5, align 4
+  %.not104 = icmp ugt i32 %73, %74
   br i1 %.not104, label %.preheader, label %.lr.ph, !llvm.loop !16
 
 .lr.ph114:                                        ; preds = %.preheader, %.lr.ph114
-  %.1113 = phi i32 [ %82, %.lr.ph114 ], [ %.0.lcssa, %.preheader ]
-  %.1100112 = phi i32 [ %83, %.lr.ph114 ], [ 1, %.preheader ]
-  %70 = add i32 %.1113, 4
-  %71 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %70)
-  %72 = zext i16 %71 to i32
-  %73 = add nuw nsw i32 %72, 8
-  %74 = add nuw nsw i32 %72, 3
-  %75 = and i32 %74, 3
-  %76 = xor i32 %75, 3
-  %77 = add nuw nsw i32 %73, %76
-  %78 = load i32, ptr @ett_gryphon_cmd_response_block, align 4
-  %79 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.1113, i32 noundef %77, i32 noundef %78, ptr noundef null, ptr noundef nonnull @.str.1045, i32 noundef %.1100112)
-  %80 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1113, i32 noundef %77)
-  %81 = call fastcc i32 @dissect_gryphon_message(ptr noundef %80, ptr noundef %2, ptr noundef %79, i1 noundef zeroext true)
-  %82 = add i32 %77, %.1113
-  %83 = add i32 %.1100112, 1
-  %84 = load i32, ptr %6, align 4
-  %.not105 = icmp ugt i32 %83, %84
+  %.1113 = phi i32 [ %87, %.lr.ph114 ], [ %.0.lcssa, %.preheader ]
+  %.1100112 = phi i32 [ %88, %.lr.ph114 ], [ 1, %.preheader ]
+  %75 = add i32 %.1113, 4
+  %76 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %75)
+  %77 = zext i16 %76 to i32
+  %78 = add nuw nsw i32 %77, 8
+  %79 = add nuw nsw i32 %77, 3
+  %80 = and i32 %79, 3
+  %81 = xor i32 %80, 3
+  %82 = add nuw nsw i32 %78, %81
+  %83 = load i32, ptr @ett_gryphon_cmd_response_block, align 4
+  %84 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.1113, i32 noundef %82, i32 noundef %83, ptr noundef null, ptr noundef nonnull @.str.1045, i32 noundef %.1100112)
+  %85 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1113, i32 noundef %82)
+  %86 = call fastcc i32 @dissect_gryphon_message(ptr noundef %85, ptr noundef %2, ptr noundef %84, i1 noundef zeroext true)
+  %87 = add i32 %82, %.1113
+  %88 = add i32 %.1100112, 1
+  %89 = load i32, ptr %6, align 4
+  %.not105 = icmp ugt i32 %88, %89
   br i1 %.not105, label %._crit_edge, label %.lr.ph114, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph114, %.preheader
-  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %82, %.lr.ph114 ]
+  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %87, %.lr.ph114 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   ret i32 %.1.lcssa

@@ -5342,7 +5342,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN3gmx14LogEntryWriterD2Ev.exit31:               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #24
-  br label %101
+  br label %103
 
 34:                                               ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit, %6, %3
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -5448,10 +5448,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN3gmx14LogEntryWriterD2Ev.exit38:               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i36
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #24
-  br label %101
+  br label %103
 
 89:                                               ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit35, %62, %47
-  %invariant.gep = getelementptr i8, ptr %53, i64 4
   %90 = icmp sgt i32 %58, 0
   br i1 %90, label %.lr.ph, label %.loopexit
 
@@ -5464,24 +5463,25 @@ _ZN3gmx14LogEntryWriterD2Ev.exit38:               ; preds = %_ZNKSt7__cxx1112bas
 
 95:                                               ; preds = %.lr.ph, %95
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %96 = load i32, ptr %gep, align 4, !tbaa !36
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds %struct.t_atom, ptr %91, i64 %97, i32 6
-  store i32 4, ptr %98, align 4, !tbaa !137
+  %96 = getelementptr i32, ptr %53, i64 %indvars.iv
+  %97 = getelementptr i8, ptr %96, i64 4
+  %98 = load i32, ptr %97, align 4, !tbaa !36
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds %struct.t_atom, ptr %91, i64 %99, i32 6
+  store i32 4, ptr %100, align 4, !tbaa !137
   %indvars.iv.next = add nsw i64 %indvars.iv, %93
-  %99 = icmp slt i64 %indvars.iv.next, %94
-  br i1 %99, label %95, label %.loopexit, !llvm.loop !138
+  %101 = icmp slt i64 %indvars.iv.next, %94
+  br i1 %101, label %95, label %.loopexit, !llvm.loop !138
 
 .loopexit:                                        ; preds = %95, %89, %42
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next48, 95
-  br i1 %exitcond.not, label %100, label %42, !llvm.loop !139
+  br i1 %exitcond.not, label %102, label %42, !llvm.loop !139
 
-100:                                              ; preds = %.loopexit
+102:                                              ; preds = %.loopexit
   ret void
 
-101:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit38, %_ZN3gmx14LogEntryWriterD2Ev.exit31
+103:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit38, %_ZN3gmx14LogEntryWriterD2Ev.exit31
   %.pn = phi { ptr, i32 } [ %82, %_ZN3gmx14LogEntryWriterD2Ev.exit38 ], [ %27, %_ZN3gmx14LogEntryWriterD2Ev.exit31 ]
   resume { ptr, i32 } %.pn
 }

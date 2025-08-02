@@ -964,41 +964,41 @@ define internal void @HFilter8i_C(ptr noalias noundef captures(none) %0, ptr noa
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @DC4_C(ptr noundef captures(none) %0) #3 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -32
-  %invariant.gep13 = getelementptr i8, ptr %0, i64 -1
   br label %2
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %.01215 = phi i32 [ 4, %1 ], [ %9, %2 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %3 = load i8, ptr %gep, align 1, !tbaa !14
-  %4 = zext i8 %3 to i32
-  %5 = shl nuw nsw i64 %indvars.iv, 5
-  %gep14 = getelementptr i8, ptr %invariant.gep13, i64 %5
-  %6 = load i8, ptr %gep14, align 1, !tbaa !14
-  %7 = zext i8 %6 to i32
-  %8 = add i32 %.01215, %4
-  %9 = add i32 %8, %7
+  %.01213 = phi i32 [ 4, %1 ], [ %13, %2 ]
+  %3 = getelementptr i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr i8, ptr %3, i64 -32
+  %5 = load i8, ptr %4, align 1, !tbaa !14
+  %6 = zext i8 %5 to i32
+  %7 = shl nuw nsw i64 %indvars.iv, 5
+  %8 = getelementptr i8, ptr %0, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -1
+  %10 = load i8, ptr %9, align 1, !tbaa !14
+  %11 = zext i8 %10 to i32
+  %12 = add i32 %.01213, %6
+  %13 = add i32 %12, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %10, label %2, !llvm.loop !25
+  br i1 %exitcond.not, label %14, label %2, !llvm.loop !25
 
-10:                                               ; preds = %2
-  %11 = lshr i32 %9, 3
-  %12 = trunc i32 %11 to i8
-  br label %13
+14:                                               ; preds = %2
+  %15 = lshr i32 %13, 3
+  %16 = trunc i32 %15 to i8
+  br label %17
 
-13:                                               ; preds = %10, %13
-  %indvars.iv19 = phi i64 [ 0, %10 ], [ %indvars.iv.next20, %13 ]
-  %14 = shl nuw nsw i64 %indvars.iv19, 5
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %15, i8 %12, i64 4, i1 false)
-  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %exitcond22.not = icmp eq i64 %indvars.iv.next20, 4
-  br i1 %exitcond22.not, label %16, label %13, !llvm.loop !26
+17:                                               ; preds = %14, %17
+  %indvars.iv17 = phi i64 [ 0, %14 ], [ %indvars.iv.next18, %17 ]
+  %18 = shl nuw nsw i64 %indvars.iv17, 5
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %19, i8 %16, i64 4, i1 false)
+  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
+  %exitcond20.not = icmp eq i64 %indvars.iv.next18, 4
+  br i1 %exitcond20.not, label %20, label %17, !llvm.loop !26
 
-16:                                               ; preds = %13
+20:                                               ; preds = %17
   ret void
 }
 
@@ -1765,41 +1765,41 @@ define internal void @HU4_C(ptr noundef captures(none) initializes((0, 4), (32, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @DC16_C(ptr noundef captures(none) %0) #3 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
-  %invariant.gep9 = getelementptr i8, ptr %0, i64 -32
   br label %2
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %.0811 = phi i32 [ 16, %1 ], [ %9, %2 ]
+  %.089 = phi i32 [ 16, %1 ], [ %13, %2 ]
   %3 = shl nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %3
-  %4 = load i8, ptr %gep, align 1, !tbaa !14
-  %5 = zext i8 %4 to i32
-  %gep10 = getelementptr i8, ptr %invariant.gep9, i64 %indvars.iv
-  %6 = load i8, ptr %gep10, align 1, !tbaa !14
+  %4 = getelementptr i8, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 -1
+  %6 = load i8, ptr %5, align 1, !tbaa !14
   %7 = zext i8 %6 to i32
-  %8 = add nuw nsw i32 %.0811, %5
-  %9 = add nuw nsw i32 %8, %7
+  %8 = getelementptr i8, ptr %0, i64 %indvars.iv
+  %9 = getelementptr i8, ptr %8, i64 -32
+  %10 = load i8, ptr %9, align 1, !tbaa !14
+  %11 = zext i8 %10 to i32
+  %12 = add nuw nsw i32 %.089, %7
+  %13 = add nuw nsw i32 %12, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %10, label %2, !llvm.loop !30
+  br i1 %exitcond.not, label %14, label %2, !llvm.loop !30
 
-10:                                               ; preds = %2
-  %11 = lshr i32 %9, 5
-  %12 = trunc i32 %11 to i8
-  br label %13
+14:                                               ; preds = %2
+  %15 = lshr i32 %13, 5
+  %16 = trunc i32 %15 to i8
+  br label %17
 
-13:                                               ; preds = %13, %10
-  %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %13 ]
-  %14 = shl nuw nsw i64 %indvars.iv.i, 5
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %15, i8 %12, i64 16, i1 false)
+17:                                               ; preds = %17, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %17 ]
+  %18 = shl nuw nsw i64 %indvars.iv.i, 5
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %19, i8 %16, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %Put16.exit, label %13, !llvm.loop !31
+  br i1 %exitcond.not.i, label %Put16.exit, label %17, !llvm.loop !31
 
-Put16.exit:                                       ; preds = %13
+Put16.exit:                                       ; preds = %17
   ret void
 }
 
@@ -1885,70 +1885,70 @@ define internal void @HE16_C(ptr noundef captures(none) %0) #3 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @DC16NoTop_C(ptr noundef captures(none) %0) #3 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %2
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %.067 = phi i32 [ 8, %1 ], [ %6, %2 ]
+  %.067 = phi i32 [ 8, %1 ], [ %8, %2 ]
   %3 = shl nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %3
-  %4 = load i8, ptr %gep, align 1, !tbaa !14
-  %5 = zext i8 %4 to i32
-  %6 = add nuw nsw i32 %.067, %5
+  %4 = getelementptr i8, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 -1
+  %6 = load i8, ptr %5, align 1, !tbaa !14
+  %7 = zext i8 %6 to i32
+  %8 = add nuw nsw i32 %.067, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %7, label %2, !llvm.loop !34
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !34
 
-7:                                                ; preds = %2
-  %8 = lshr i32 %6, 4
-  %9 = trunc i32 %8 to i8
-  br label %10
+9:                                                ; preds = %2
+  %10 = lshr i32 %8, 4
+  %11 = trunc i32 %10 to i8
+  br label %12
 
-10:                                               ; preds = %10, %7
-  %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %10 ]
-  %11 = shl nuw nsw i64 %indvars.iv.i, 5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %12, i8 %9, i64 16, i1 false)
+12:                                               ; preds = %12, %9
+  %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %12 ]
+  %13 = shl nuw nsw i64 %indvars.iv.i, 5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %14, i8 %11, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %Put16.exit, label %10, !llvm.loop !31
+  br i1 %exitcond.not.i, label %Put16.exit, label %12, !llvm.loop !31
 
-Put16.exit:                                       ; preds = %10
+Put16.exit:                                       ; preds = %12
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @DC16NoLeft_C(ptr noundef captures(none) %0) #3 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -32
   br label %2
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %.067 = phi i32 [ 8, %1 ], [ %5, %2 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %3 = load i8, ptr %gep, align 1, !tbaa !14
-  %4 = zext i8 %3 to i32
-  %5 = add nuw nsw i32 %.067, %4
+  %.067 = phi i32 [ 8, %1 ], [ %7, %2 ]
+  %3 = getelementptr i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr i8, ptr %3, i64 -32
+  %5 = load i8, ptr %4, align 1, !tbaa !14
+  %6 = zext i8 %5 to i32
+  %7 = add nuw nsw i32 %.067, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !35
+  br i1 %exitcond.not, label %8, label %2, !llvm.loop !35
 
-6:                                                ; preds = %2
-  %7 = lshr i32 %5, 4
-  %8 = trunc i32 %7 to i8
-  br label %9
+8:                                                ; preds = %2
+  %9 = lshr i32 %7, 4
+  %10 = trunc i32 %9 to i8
+  br label %11
 
-9:                                                ; preds = %9, %6
-  %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %9 ]
-  %10 = shl nuw nsw i64 %indvars.iv.i, 5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %11, i8 %8, i64 16, i1 false)
+11:                                               ; preds = %11, %8
+  %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %11 ]
+  %12 = shl nuw nsw i64 %indvars.iv.i, 5
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %13, i8 %10, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %Put16.exit, label %9, !llvm.loop !31
+  br i1 %exitcond.not.i, label %Put16.exit, label %11, !llvm.loop !31
 
-Put16.exit:                                       ; preds = %9
+Put16.exit:                                       ; preds = %11
   ret void
 }
 
@@ -1971,41 +1971,41 @@ Put16.exit:                                       ; preds = %2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @DC8uv_C(ptr noundef captures(none) %0) #3 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -32
-  %invariant.gep9 = getelementptr i8, ptr %0, i64 -1
   br label %2
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %.0811 = phi i32 [ 8, %1 ], [ %9, %2 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %3 = load i8, ptr %gep, align 1, !tbaa !14
-  %4 = zext i8 %3 to i32
-  %5 = shl nuw nsw i64 %indvars.iv, 5
-  %gep10 = getelementptr i8, ptr %invariant.gep9, i64 %5
-  %6 = load i8, ptr %gep10, align 1, !tbaa !14
-  %7 = zext i8 %6 to i32
-  %8 = add nuw nsw i32 %.0811, %4
-  %9 = add nuw nsw i32 %8, %7
+  %.089 = phi i32 [ 8, %1 ], [ %13, %2 ]
+  %3 = getelementptr i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr i8, ptr %3, i64 -32
+  %5 = load i8, ptr %4, align 1, !tbaa !14
+  %6 = zext i8 %5 to i32
+  %7 = shl nuw nsw i64 %indvars.iv, 5
+  %8 = getelementptr i8, ptr %0, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -1
+  %10 = load i8, ptr %9, align 1, !tbaa !14
+  %11 = zext i8 %10 to i32
+  %12 = add nuw nsw i32 %.089, %6
+  %13 = add nuw nsw i32 %12, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %10, label %2, !llvm.loop !36
+  br i1 %exitcond.not, label %14, label %2, !llvm.loop !36
 
-10:                                               ; preds = %2
-  %11 = lshr i32 %9, 4
-  %12 = trunc i32 %11 to i8
-  br label %13
+14:                                               ; preds = %2
+  %15 = lshr i32 %13, 4
+  %16 = trunc i32 %15 to i8
+  br label %17
 
-13:                                               ; preds = %13, %10
-  %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %13 ]
-  %14 = shl nuw nsw i64 %indvars.iv.i, 5
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %15, i8 %12, i64 8, i1 false)
+17:                                               ; preds = %17, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %17 ]
+  %18 = shl nuw nsw i64 %indvars.iv.i, 5
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %19, i8 %16, i64 8, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %Put8x8uv.exit, label %13, !llvm.loop !37
+  br i1 %exitcond.not.i, label %Put8x8uv.exit, label %17, !llvm.loop !37
 
-Put8x8uv.exit:                                    ; preds = %13
+Put8x8uv.exit:                                    ; preds = %17
   ret void
 }
 
@@ -2092,70 +2092,70 @@ define internal void @HE8uv_C(ptr noundef captures(none) %0) #3 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @DC8uvNoTop_C(ptr noundef captures(none) %0) #3 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %2
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %.067 = phi i32 [ 4, %1 ], [ %6, %2 ]
+  %.067 = phi i32 [ 4, %1 ], [ %8, %2 ]
   %3 = shl nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %3
-  %4 = load i8, ptr %gep, align 1, !tbaa !14
-  %5 = zext i8 %4 to i32
-  %6 = add nuw nsw i32 %.067, %5
+  %4 = getelementptr i8, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 -1
+  %6 = load i8, ptr %5, align 1, !tbaa !14
+  %7 = zext i8 %6 to i32
+  %8 = add nuw nsw i32 %.067, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %7, label %2, !llvm.loop !40
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !40
 
-7:                                                ; preds = %2
-  %8 = lshr i32 %6, 3
-  %9 = trunc i32 %8 to i8
-  br label %10
+9:                                                ; preds = %2
+  %10 = lshr i32 %8, 3
+  %11 = trunc i32 %10 to i8
+  br label %12
 
-10:                                               ; preds = %10, %7
-  %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %10 ]
-  %11 = shl nuw nsw i64 %indvars.iv.i, 5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %12, i8 %9, i64 8, i1 false)
+12:                                               ; preds = %12, %9
+  %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %12 ]
+  %13 = shl nuw nsw i64 %indvars.iv.i, 5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %14, i8 %11, i64 8, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %Put8x8uv.exit, label %10, !llvm.loop !37
+  br i1 %exitcond.not.i, label %Put8x8uv.exit, label %12, !llvm.loop !37
 
-Put8x8uv.exit:                                    ; preds = %10
+Put8x8uv.exit:                                    ; preds = %12
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @DC8uvNoLeft_C(ptr noundef captures(none) %0) #3 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -32
   br label %2
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %.067 = phi i32 [ 4, %1 ], [ %5, %2 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %3 = load i8, ptr %gep, align 1, !tbaa !14
-  %4 = zext i8 %3 to i32
-  %5 = add nuw nsw i32 %.067, %4
+  %.067 = phi i32 [ 4, %1 ], [ %7, %2 ]
+  %3 = getelementptr i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr i8, ptr %3, i64 -32
+  %5 = load i8, ptr %4, align 1, !tbaa !14
+  %6 = zext i8 %5 to i32
+  %7 = add nuw nsw i32 %.067, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !41
+  br i1 %exitcond.not, label %8, label %2, !llvm.loop !41
 
-6:                                                ; preds = %2
-  %7 = lshr i32 %5, 3
-  %8 = trunc i32 %7 to i8
-  br label %9
+8:                                                ; preds = %2
+  %9 = lshr i32 %7, 3
+  %10 = trunc i32 %9 to i8
+  br label %11
 
-9:                                                ; preds = %9, %6
-  %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %9 ]
-  %10 = shl nuw nsw i64 %indvars.iv.i, 5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %11, i8 %8, i64 8, i1 false)
+11:                                               ; preds = %11, %8
+  %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %11 ]
+  %12 = shl nuw nsw i64 %indvars.iv.i, 5
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %13, i8 %10, i64 8, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %Put8x8uv.exit, label %9, !llvm.loop !37
+  br i1 %exitcond.not.i, label %Put8x8uv.exit, label %11, !llvm.loop !37
 
-Put8x8uv.exit:                                    ; preds = %9
+Put8x8uv.exit:                                    ; preds = %11
   ret void
 }
 

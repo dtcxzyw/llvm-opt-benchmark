@@ -3470,17 +3470,17 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN8rawspeed18RawIm
 153:                                              ; preds = %80
   %154 = landingpad { ptr, i32 }
           cleanup
-  br label %342
+  br label %344
 
 155:                                              ; preds = %118
   %156 = landingpad { ptr, i32 }
           cleanup
-  br label %341
+  br label %343
 
 157:                                              ; preds = %119, %173
-  %indvars.iv829 = phi i64 [ 0, %119 ], [ %indvars.iv.next830, %173 ]
+  %indvars.iv827 = phi i64 [ 0, %119 ], [ %indvars.iv.next828, %173 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #28
-  %158 = mul nuw nsw i64 %indvars.iv829, %128
+  %158 = mul nuw nsw i64 %indvars.iv827, %128
   %159 = add nuw nsw i64 %158, %128
   %160 = icmp samesign ule i64 %159, %113
   call void @llvm.assume(i1 %160)
@@ -3493,41 +3493,39 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN8rawspeed18RawIm
   %167 = shl nuw nsw i32 %166, 16
   %168 = or disjoint i32 %167, %163
   store i32 %168, ptr %7, align 4, !tbaa !31
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %161, i64 9
-  %invariant.gep820 = getelementptr inbounds nuw i8, ptr %161, i64 10
-  %169 = mul nuw nsw i64 %indvars.iv829, %129
+  %169 = mul nuw nsw i64 %indvars.iv827, %129
   %170 = add nuw nsw i64 %169, %128
   %171 = icmp samesign ule i64 %170, %130
   %172 = getelementptr inbounds nuw i16, ptr %90, i64 %169
   br label %174
 
-173:                                              ; preds = %332
+173:                                              ; preds = %334
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
-  %indvars.iv.next830 = add nuw nsw i64 %indvars.iv829, 1
-  %exitcond832.not = icmp eq i64 %indvars.iv.next830, %wide.trip.count
-  br i1 %exitcond832.not, label %131, label %157, !llvm.loop !207
+  %indvars.iv.next828 = add nuw nsw i64 %indvars.iv827, 1
+  %exitcond830.not = icmp eq i64 %indvars.iv.next828, %wide.trip.count
+  br i1 %exitcond830.not, label %131, label %157, !llvm.loop !207
 
-174:                                              ; preds = %157, %332
-  %indvars.iv826 = phi i64 [ 0, %157 ], [ %indvars.iv.next827, %332 ]
-  %175 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv826
+174:                                              ; preds = %157, %334
+  %indvars.iv824 = phi i64 [ 0, %157 ], [ %indvars.iv.next825, %334 ]
+  %175 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv824
   %176 = load i8, ptr %175, align 1, !tbaa !15
   %177 = zext i8 %176 to i32
-  %178 = or disjoint i64 %indvars.iv826, 1
+  %178 = or disjoint i64 %indvars.iv824, 1
   %179 = getelementptr inbounds nuw i8, ptr %161, i64 %178
   %180 = load i8, ptr %179, align 1, !tbaa !15
   %181 = zext i8 %180 to i32
-  %182 = add nuw nsw i64 %indvars.iv826, 2
+  %182 = add nuw nsw i64 %indvars.iv824, 2
   %183 = getelementptr inbounds nuw i8, ptr %161, i64 %182
   %184 = load i8, ptr %183, align 1, !tbaa !15
   %185 = zext i8 %184 to i32
-  %186 = add nuw nsw i64 %indvars.iv826, 3
+  %186 = add nuw nsw i64 %indvars.iv824, 3
   %187 = getelementptr inbounds nuw i8, ptr %161, i64 %186
   %188 = load i8, ptr %187, align 1, !tbaa !15
   %189 = zext i8 %188 to i32
-  %190 = add nuw nsw i64 %indvars.iv826, 4
+  %190 = add nuw nsw i64 %indvars.iv824, 4
   %191 = getelementptr inbounds nuw i8, ptr %161, i64 %190
   %192 = load i8, ptr %191, align 1, !tbaa !15
-  %193 = add nuw nsw i64 %indvars.iv826, 5
+  %193 = add nuw nsw i64 %indvars.iv824, 5
   %194 = icmp samesign ult i64 %193, %128
   call void @llvm.assume(i1 %194)
   %195 = getelementptr inbounds nuw i8, ptr %161, i64 %193
@@ -3548,205 +3546,205 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN8rawspeed18RawIm
   %210 = shl nuw nsw i32 %198, 4
   %211 = or disjoint i32 %210, %209
   %212 = uitofp nneg i32 %211 to float
-  %indvars.iv.next827 = add nuw nsw i64 %indvars.iv826, 6
-  %213 = icmp samesign ult i64 %indvars.iv.next827, %128
-  br i1 %213, label %214, label %238
+  %indvars.iv.next825 = add nuw nsw i64 %indvars.iv824, 6
+  %213 = icmp samesign ult i64 %indvars.iv.next825, %128
+  br i1 %213, label %214, label %240
 
 214:                                              ; preds = %174
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv826
-  %215 = load i8, ptr %gep, align 1, !tbaa !15
-  %216 = zext i8 %215 to i32
-  %gep821 = getelementptr inbounds nuw i8, ptr %invariant.gep820, i64 %indvars.iv826
-  %217 = load i8, ptr %gep821, align 1, !tbaa !15
-  %218 = add nuw nsw i64 %indvars.iv826, 11
-  %219 = icmp samesign ult i64 %218, %128
-  call void @llvm.assume(i1 %219)
-  %220 = getelementptr inbounds nuw i8, ptr %161, i64 %218
-  %221 = zext i8 %217 to i32
-  %222 = load i8, ptr %220, align 1, !tbaa !15
-  %223 = zext i8 %222 to i32
-  %224 = shl nuw nsw i32 %221, 8
-  %225 = and i32 %224, 3840
-  %226 = add nuw nsw i32 %207, %216
-  %227 = add nuw nsw i32 %226, %225
-  %228 = uitofp nneg i32 %227 to float
-  %229 = fmul float %228, 5.000000e-01
-  %230 = lshr i32 %221, 4
-  %231 = shl nuw nsw i32 %223, 4
-  %232 = add nuw nsw i32 %230, %211
-  %233 = add nuw nsw i32 %232, %231
-  %234 = uitofp nneg i32 %233 to float
-  %235 = fmul float %234, 5.000000e-01
-  br label %238
+  %215 = getelementptr inbounds nuw i8, ptr %175, i64 9
+  %216 = load i8, ptr %215, align 1, !tbaa !15
+  %217 = zext i8 %216 to i32
+  %218 = getelementptr inbounds nuw i8, ptr %175, i64 10
+  %219 = load i8, ptr %218, align 1, !tbaa !15
+  %220 = add nuw nsw i64 %indvars.iv824, 11
+  %221 = icmp samesign ult i64 %220, %128
+  call void @llvm.assume(i1 %221)
+  %222 = getelementptr inbounds nuw i8, ptr %161, i64 %220
+  %223 = zext i8 %219 to i32
+  %224 = load i8, ptr %222, align 1, !tbaa !15
+  %225 = zext i8 %224 to i32
+  %226 = shl nuw nsw i32 %223, 8
+  %227 = and i32 %226, 3840
+  %228 = add nuw nsw i32 %207, %217
+  %229 = add nuw nsw i32 %228, %227
+  %230 = uitofp nneg i32 %229 to float
+  %231 = fmul float %230, 5.000000e-01
+  %232 = lshr i32 %223, 4
+  %233 = shl nuw nsw i32 %225, 4
+  %234 = add nuw nsw i32 %232, %211
+  %235 = add nuw nsw i32 %234, %233
+  %236 = uitofp nneg i32 %235 to float
+  %237 = fmul float %236, 5.000000e-01
+  br label %240
 
-236:                                              ; preds = %323, %303, %284, %275, %253, %238
-  %237 = landingpad { ptr, i32 }
+238:                                              ; preds = %325, %305, %286, %277, %255, %240
+  %239 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
-  br label %341
+  br label %343
 
-238:                                              ; preds = %214, %174
-  %.0106 = phi float [ %229, %214 ], [ %208, %174 ]
-  %.0 = phi float [ %235, %214 ], [ %212, %174 ]
-  %239 = add nsw i32 %211, -2048
-  %240 = sitofp i32 %239 to float
-  %241 = fadd float %.0106, -2.048000e+03
-  %242 = fadd float %.0, -2.048000e+03
-  %243 = load ptr, ptr %8, align 8, !tbaa !25
-  %244 = uitofp nneg i32 %201 to double
-  %245 = fpext float %240 to double
-  %246 = call double @llvm.fmuladd.f64(double %245, double 0x3FF5EE685DB76B3C, double %244)
-  %247 = fptosi double %246 to i32
-  %.sroa.speculate.load.false.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %247, i32 0)
-  %248 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i, i32 4095)
-  %249 = trunc nuw nsw i32 %248 to i16
-  %250 = load ptr, ptr %243, align 8, !tbaa !50
-  %251 = getelementptr inbounds nuw i8, ptr %250, i64 40
-  %252 = load ptr, ptr %251, align 8
-  invoke void %252(ptr noundef nonnull align 8 dereferenceable(616) %243, i16 noundef zeroext %249, ptr noundef nonnull %6, ptr noundef nonnull %7)
-          to label %253 unwind label %236
+240:                                              ; preds = %214, %174
+  %.0106 = phi float [ %231, %214 ], [ %208, %174 ]
+  %.0 = phi float [ %237, %214 ], [ %212, %174 ]
+  %241 = add nsw i32 %211, -2048
+  %242 = sitofp i32 %241 to float
+  %243 = fadd float %.0106, -2.048000e+03
+  %244 = fadd float %.0, -2.048000e+03
+  %245 = load ptr, ptr %8, align 8, !tbaa !25
+  %246 = uitofp nneg i32 %201 to double
+  %247 = fpext float %242 to double
+  %248 = call double @llvm.fmuladd.f64(double %247, double 0x3FF5EE685DB76B3C, double %246)
+  %249 = fptosi double %248 to i32
+  %.sroa.speculate.load.false.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %249, i32 0)
+  %250 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i, i32 4095)
+  %251 = trunc nuw nsw i32 %250 to i16
+  %252 = load ptr, ptr %245, align 8, !tbaa !50
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 40
+  %254 = load ptr, ptr %253, align 8
+  invoke void %254(ptr noundef nonnull align 8 dereferenceable(616) %245, i16 noundef zeroext %251, ptr noundef nonnull %6, ptr noundef nonnull %7)
+          to label %255 unwind label %238
 
-253:                                              ; preds = %238
-  %254 = add nsw i32 %207, -2048
-  %255 = sitofp i32 %254 to float
-  %256 = load i16, ptr %6, align 2, !tbaa !182
+255:                                              ; preds = %240
+  %256 = add nsw i32 %207, -2048
+  %257 = sitofp i32 %256 to float
+  %258 = load i16, ptr %6, align 2, !tbaa !182
   call void @llvm.assume(i1 %171)
-  %257 = getelementptr inbounds nuw i16, ptr %172, i64 %indvars.iv826
-  %258 = zext i16 %256 to i32
-  %259 = mul nsw i32 %258, %82
-  %260 = add nsw i32 %259, 512
-  %261 = ashr i32 %260, 10
-  %.sroa.speculate.load.false.sroa.speculated.i235 = call i32 @llvm.smax.i32(i32 %261, i32 0)
-  %262 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i235, i32 32767)
-  %263 = trunc nuw nsw i32 %262 to i16
-  store i16 %263, ptr %257, align 2, !tbaa !182
-  %264 = load ptr, ptr %8, align 8, !tbaa !25
-  %265 = fpext float %255 to double
-  %266 = getelementptr inbounds nuw i16, ptr %172, i64 %178
-  %267 = call double @llvm.fmuladd.f64(double %265, double -3.376330e-01, double %244)
-  %268 = call double @llvm.fmuladd.f64(double %245, double -6.980010e-01, double %267)
-  %269 = fptosi double %268 to i32
-  %.sroa.speculate.load.false.sroa.speculated.i239 = call i32 @llvm.smax.i32(i32 %269, i32 0)
-  %270 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i239, i32 4095)
-  %271 = trunc nuw nsw i32 %270 to i16
-  %272 = load ptr, ptr %264, align 8, !tbaa !50
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 40
-  %274 = load ptr, ptr %273, align 8
-  invoke void %274(ptr noundef nonnull align 8 dereferenceable(616) %264, i16 noundef zeroext %271, ptr noundef nonnull %266, ptr noundef nonnull %7)
-          to label %275 unwind label %236
+  %259 = getelementptr inbounds nuw i16, ptr %172, i64 %indvars.iv824
+  %260 = zext i16 %258 to i32
+  %261 = mul nsw i32 %260, %82
+  %262 = add nsw i32 %261, 512
+  %263 = ashr i32 %262, 10
+  %.sroa.speculate.load.false.sroa.speculated.i235 = call i32 @llvm.smax.i32(i32 %263, i32 0)
+  %264 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i235, i32 32767)
+  %265 = trunc nuw nsw i32 %264 to i16
+  store i16 %265, ptr %259, align 2, !tbaa !182
+  %266 = load ptr, ptr %8, align 8, !tbaa !25
+  %267 = fpext float %257 to double
+  %268 = getelementptr inbounds nuw i16, ptr %172, i64 %178
+  %269 = call double @llvm.fmuladd.f64(double %267, double -3.376330e-01, double %246)
+  %270 = call double @llvm.fmuladd.f64(double %247, double -6.980010e-01, double %269)
+  %271 = fptosi double %270 to i32
+  %.sroa.speculate.load.false.sroa.speculated.i239 = call i32 @llvm.smax.i32(i32 %271, i32 0)
+  %272 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i239, i32 4095)
+  %273 = trunc nuw nsw i32 %272 to i16
+  %274 = load ptr, ptr %266, align 8, !tbaa !50
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 40
+  %276 = load ptr, ptr %275, align 8
+  invoke void %276(ptr noundef nonnull align 8 dereferenceable(616) %266, i16 noundef zeroext %273, ptr noundef nonnull %268, ptr noundef nonnull %7)
+          to label %277 unwind label %238
 
-275:                                              ; preds = %253
-  %276 = load ptr, ptr %8, align 8, !tbaa !25
-  %277 = call double @llvm.fmuladd.f64(double %265, double 0x3FFBB8194C016052, double %244)
-  %278 = fptosi double %277 to i32
-  %.sroa.speculate.load.false.sroa.speculated.i241 = call i32 @llvm.smax.i32(i32 %278, i32 0)
-  %279 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i241, i32 4095)
-  %280 = trunc nuw nsw i32 %279 to i16
-  %281 = load ptr, ptr %276, align 8, !tbaa !50
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 40
-  %283 = load ptr, ptr %282, align 8
-  invoke void %283(ptr noundef nonnull align 8 dereferenceable(616) %276, i16 noundef zeroext %280, ptr noundef nonnull %6, ptr noundef nonnull %7)
-          to label %284 unwind label %236
+277:                                              ; preds = %255
+  %278 = load ptr, ptr %8, align 8, !tbaa !25
+  %279 = call double @llvm.fmuladd.f64(double %267, double 0x3FFBB8194C016052, double %246)
+  %280 = fptosi double %279 to i32
+  %.sroa.speculate.load.false.sroa.speculated.i241 = call i32 @llvm.smax.i32(i32 %280, i32 0)
+  %281 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i241, i32 4095)
+  %282 = trunc nuw nsw i32 %281 to i16
+  %283 = load ptr, ptr %278, align 8, !tbaa !50
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 40
+  %285 = load ptr, ptr %284, align 8
+  invoke void %285(ptr noundef nonnull align 8 dereferenceable(616) %278, i16 noundef zeroext %282, ptr noundef nonnull %6, ptr noundef nonnull %7)
+          to label %286 unwind label %238
 
-284:                                              ; preds = %275
-  %285 = load i16, ptr %6, align 2, !tbaa !182
-  %286 = getelementptr inbounds nuw i16, ptr %172, i64 %182
-  %287 = zext i16 %285 to i32
-  %288 = mul nsw i32 %287, %84
-  %289 = add nsw i32 %288, 512
-  %290 = ashr i32 %289, 10
-  %.sroa.speculate.load.false.sroa.speculated.i245 = call i32 @llvm.smax.i32(i32 %290, i32 0)
-  %291 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i245, i32 32767)
-  %292 = trunc nuw nsw i32 %291 to i16
-  store i16 %292, ptr %286, align 2, !tbaa !182
-  %293 = load ptr, ptr %8, align 8, !tbaa !25
-  %294 = uitofp nneg i32 %204 to double
-  %295 = fpext float %242 to double
-  %296 = call double @llvm.fmuladd.f64(double %295, double 0x3FF5EE685DB76B3C, double %294)
-  %297 = fptosi double %296 to i32
-  %.sroa.speculate.load.false.sroa.speculated.i247 = call i32 @llvm.smax.i32(i32 %297, i32 0)
-  %298 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i247, i32 4095)
-  %299 = trunc nuw nsw i32 %298 to i16
-  %300 = load ptr, ptr %293, align 8, !tbaa !50
-  %301 = getelementptr inbounds nuw i8, ptr %300, i64 40
-  %302 = load ptr, ptr %301, align 8
-  invoke void %302(ptr noundef nonnull align 8 dereferenceable(616) %293, i16 noundef zeroext %299, ptr noundef nonnull %6, ptr noundef nonnull %7)
-          to label %303 unwind label %236
+286:                                              ; preds = %277
+  %287 = load i16, ptr %6, align 2, !tbaa !182
+  %288 = getelementptr inbounds nuw i16, ptr %172, i64 %182
+  %289 = zext i16 %287 to i32
+  %290 = mul nsw i32 %289, %84
+  %291 = add nsw i32 %290, 512
+  %292 = ashr i32 %291, 10
+  %.sroa.speculate.load.false.sroa.speculated.i245 = call i32 @llvm.smax.i32(i32 %292, i32 0)
+  %293 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i245, i32 32767)
+  %294 = trunc nuw nsw i32 %293 to i16
+  store i16 %294, ptr %288, align 2, !tbaa !182
+  %295 = load ptr, ptr %8, align 8, !tbaa !25
+  %296 = uitofp nneg i32 %204 to double
+  %297 = fpext float %244 to double
+  %298 = call double @llvm.fmuladd.f64(double %297, double 0x3FF5EE685DB76B3C, double %296)
+  %299 = fptosi double %298 to i32
+  %.sroa.speculate.load.false.sroa.speculated.i247 = call i32 @llvm.smax.i32(i32 %299, i32 0)
+  %300 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i247, i32 4095)
+  %301 = trunc nuw nsw i32 %300 to i16
+  %302 = load ptr, ptr %295, align 8, !tbaa !50
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 40
+  %304 = load ptr, ptr %303, align 8
+  invoke void %304(ptr noundef nonnull align 8 dereferenceable(616) %295, i16 noundef zeroext %301, ptr noundef nonnull %6, ptr noundef nonnull %7)
+          to label %305 unwind label %238
 
-303:                                              ; preds = %284
-  %304 = load i16, ptr %6, align 2, !tbaa !182
-  %305 = getelementptr inbounds nuw i16, ptr %172, i64 %186
-  %306 = zext i16 %304 to i32
-  %307 = mul nsw i32 %306, %82
-  %308 = add nsw i32 %307, 512
-  %309 = ashr i32 %308, 10
-  %.sroa.speculate.load.false.sroa.speculated.i251 = call i32 @llvm.smax.i32(i32 %309, i32 0)
-  %310 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i251, i32 32767)
-  %311 = trunc nuw nsw i32 %310 to i16
-  store i16 %311, ptr %305, align 2, !tbaa !182
-  %312 = load ptr, ptr %8, align 8, !tbaa !25
-  %313 = fpext float %241 to double
-  %314 = getelementptr inbounds nuw i16, ptr %172, i64 %190
-  %315 = call double @llvm.fmuladd.f64(double %313, double -3.376330e-01, double %294)
-  %316 = call double @llvm.fmuladd.f64(double %295, double -6.980010e-01, double %315)
-  %317 = fptosi double %316 to i32
-  %.sroa.speculate.load.false.sroa.speculated.i255 = call i32 @llvm.smax.i32(i32 %317, i32 0)
-  %318 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i255, i32 4095)
-  %319 = trunc nuw nsw i32 %318 to i16
-  %320 = load ptr, ptr %312, align 8, !tbaa !50
-  %321 = getelementptr inbounds nuw i8, ptr %320, i64 40
-  %322 = load ptr, ptr %321, align 8
-  invoke void %322(ptr noundef nonnull align 8 dereferenceable(616) %312, i16 noundef zeroext %319, ptr noundef nonnull %314, ptr noundef nonnull %7)
-          to label %323 unwind label %236
+305:                                              ; preds = %286
+  %306 = load i16, ptr %6, align 2, !tbaa !182
+  %307 = getelementptr inbounds nuw i16, ptr %172, i64 %186
+  %308 = zext i16 %306 to i32
+  %309 = mul nsw i32 %308, %82
+  %310 = add nsw i32 %309, 512
+  %311 = ashr i32 %310, 10
+  %.sroa.speculate.load.false.sroa.speculated.i251 = call i32 @llvm.smax.i32(i32 %311, i32 0)
+  %312 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i251, i32 32767)
+  %313 = trunc nuw nsw i32 %312 to i16
+  store i16 %313, ptr %307, align 2, !tbaa !182
+  %314 = load ptr, ptr %8, align 8, !tbaa !25
+  %315 = fpext float %243 to double
+  %316 = getelementptr inbounds nuw i16, ptr %172, i64 %190
+  %317 = call double @llvm.fmuladd.f64(double %315, double -3.376330e-01, double %296)
+  %318 = call double @llvm.fmuladd.f64(double %297, double -6.980010e-01, double %317)
+  %319 = fptosi double %318 to i32
+  %.sroa.speculate.load.false.sroa.speculated.i255 = call i32 @llvm.smax.i32(i32 %319, i32 0)
+  %320 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i255, i32 4095)
+  %321 = trunc nuw nsw i32 %320 to i16
+  %322 = load ptr, ptr %314, align 8, !tbaa !50
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 40
+  %324 = load ptr, ptr %323, align 8
+  invoke void %324(ptr noundef nonnull align 8 dereferenceable(616) %314, i16 noundef zeroext %321, ptr noundef nonnull %316, ptr noundef nonnull %7)
+          to label %325 unwind label %238
 
-323:                                              ; preds = %303
-  %324 = load ptr, ptr %8, align 8, !tbaa !25
-  %325 = call double @llvm.fmuladd.f64(double %313, double 0x3FFBB8194C016052, double %294)
-  %326 = fptosi double %325 to i32
-  %.sroa.speculate.load.false.sroa.speculated.i257 = call i32 @llvm.smax.i32(i32 %326, i32 0)
-  %327 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i257, i32 4095)
-  %328 = trunc nuw nsw i32 %327 to i16
-  %329 = load ptr, ptr %324, align 8, !tbaa !50
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 40
-  %331 = load ptr, ptr %330, align 8
-  invoke void %331(ptr noundef nonnull align 8 dereferenceable(616) %324, i16 noundef zeroext %328, ptr noundef nonnull %6, ptr noundef nonnull %7)
-          to label %332 unwind label %236
+325:                                              ; preds = %305
+  %326 = load ptr, ptr %8, align 8, !tbaa !25
+  %327 = call double @llvm.fmuladd.f64(double %315, double 0x3FFBB8194C016052, double %296)
+  %328 = fptosi double %327 to i32
+  %.sroa.speculate.load.false.sroa.speculated.i257 = call i32 @llvm.smax.i32(i32 %328, i32 0)
+  %329 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i257, i32 4095)
+  %330 = trunc nuw nsw i32 %329 to i16
+  %331 = load ptr, ptr %326, align 8, !tbaa !50
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 40
+  %333 = load ptr, ptr %332, align 8
+  invoke void %333(ptr noundef nonnull align 8 dereferenceable(616) %326, i16 noundef zeroext %330, ptr noundef nonnull %6, ptr noundef nonnull %7)
+          to label %334 unwind label %238
 
-332:                                              ; preds = %323
-  %333 = load i16, ptr %6, align 2, !tbaa !182
-  %334 = getelementptr inbounds nuw i16, ptr %172, i64 %193
-  %335 = zext i16 %333 to i32
-  %336 = mul nsw i32 %335, %84
-  %337 = add nsw i32 %336, 512
-  %338 = ashr i32 %337, 10
-  %.sroa.speculate.load.false.sroa.speculated.i261 = call i32 @llvm.smax.i32(i32 %338, i32 0)
-  %339 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i261, i32 32767)
-  %340 = trunc nuw nsw i32 %339 to i16
-  store i16 %340, ptr %334, align 2, !tbaa !182
+334:                                              ; preds = %325
+  %335 = load i16, ptr %6, align 2, !tbaa !182
+  %336 = getelementptr inbounds nuw i16, ptr %172, i64 %193
+  %337 = zext i16 %335 to i32
+  %338 = mul nsw i32 %337, %84
+  %339 = add nsw i32 %338, 512
+  %340 = ashr i32 %339, 10
+  %.sroa.speculate.load.false.sroa.speculated.i261 = call i32 @llvm.smax.i32(i32 %340, i32 0)
+  %341 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i261, i32 32767)
+  %342 = trunc nuw nsw i32 %341 to i16
+  store i16 %342, ptr %336, align 2, !tbaa !182
   br i1 %213, label %174, label %173, !llvm.loop !208
 
-341:                                              ; preds = %236, %155
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %237, %236 ], [ %156, %155 ]
+343:                                              ; preds = %238, %155
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %239, %238 ], [ %156, %155 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #28
   call void @_ZN8rawspeed18RawImageCurveGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
-  br label %342
+  br label %344
 
-342:                                              ; preds = %153, %341
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %341 ], [ %154, %153 ]
+344:                                              ; preds = %153, %343
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %343 ], [ %154, %153 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #28
-  %343 = load ptr, ptr %4, align 8, !tbaa !66
-  %.not.i.i.i263 = icmp eq ptr %343, null
-  br i1 %.not.i.i.i263, label %_ZNSt6vectorItSaItEED2Ev.exit264, label %344
+  %345 = load ptr, ptr %4, align 8, !tbaa !66
+  %.not.i.i.i263 = icmp eq ptr %345, null
+  br i1 %.not.i.i.i263, label %_ZNSt6vectorItSaItEED2Ev.exit264, label %346
 
-344:                                              ; preds = %342
-  %345 = load ptr, ptr %43, align 8, !tbaa !69
-  %346 = ptrtoint ptr %345 to i64
-  %347 = ptrtoint ptr %343 to i64
-  %348 = sub i64 %346, %347
-  call void @_ZdlPvm(ptr noundef nonnull %343, i64 noundef %348) #29
+346:                                              ; preds = %344
+  %347 = load ptr, ptr %43, align 8, !tbaa !69
+  %348 = ptrtoint ptr %347 to i64
+  %349 = ptrtoint ptr %345 to i64
+  %350 = sub i64 %348, %349
+  call void @_ZdlPvm(ptr noundef nonnull %345, i64 noundef %350) #29
   br label %_ZNSt6vectorItSaItEED2Ev.exit264
 
-_ZNSt6vectorItSaItEED2Ev.exit264:                 ; preds = %342, %344
+_ZNSt6vectorItSaItEED2Ev.exit264:                 ; preds = %344, %346
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }

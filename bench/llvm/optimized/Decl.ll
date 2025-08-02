@@ -9725,7 +9725,7 @@ define dso_local noundef ptr @_ZNK5clang7VarDecl16getEvaluatedStmtEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang7VarDecl14getInitAddressEv(ptr noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull ptr @_ZN5clang7VarDecl14getInitAddressEv(ptr noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %2, align 8
   %3 = and i64 %.sroa.0.0.copyload.i.i.i.i, 4

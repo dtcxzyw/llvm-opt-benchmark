@@ -2128,26 +2128,25 @@ Abc_UtilStrsav.exit96:                            ; preds = %Abc_UtilStrsav.exit
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %.not73 = icmp eq i32 %.0126, 0
-  br i1 %.not73, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.not73, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep = getelementptr i8, ptr %.val83, i64 8
+.lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
   %wide.trip.count136 = zext nneg i32 %.val158 to i64
-  br label %32
+  br label %.lr.ph.split.split.us
 
-32:                                               ; preds = %32, %.lr.ph.split.split.us
-  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %32 ], [ 0, %.lr.ph.split.split.us ]
-  %33 = trunc nuw nsw i64 %indvars.iv133 to i32
-  %.reass.us = add i32 %invariant.op, %33
-  %34 = sext i32 %.reass.us to i64
-  %35 = getelementptr inbounds i32, ptr %.val84.val, i64 %34
-  %36 = load i32, ptr %35, align 4, !tbaa !32
-  %37 = sext i32 %36 to i64
-  %gep = getelementptr %struct.Gia_Obj_t_, ptr %invariant.gep, i64 %37
-  store i32 0, ptr %gep, align 4, !tbaa !83
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %.lr.ph.split.split.us
+  %indvars.iv133 = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next134, %.lr.ph.split.split.us ]
+  %32 = trunc nuw nsw i64 %indvars.iv133 to i32
+  %.reass.us = add i32 %invariant.op, %32
+  %33 = sext i32 %.reass.us to i64
+  %34 = getelementptr inbounds i32, ptr %.val84.val, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !32
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val83, i64 %36, i32 1
+  store i32 0, ptr %37, align 4, !tbaa !83
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
-  br i1 %exitcond137.not, label %.critedge, label %32, !llvm.loop !85
+  br i1 %exitcond137.not, label %.critedge, label %.lr.ph.split.split.us, !llvm.loop !85
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   %.val6.i = load ptr, ptr %26, align 8, !tbaa !40
@@ -2199,7 +2198,7 @@ Abc_UtilStrsav.exit96:                            ; preds = %Abc_UtilStrsav.exit
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %48, !llvm.loop !87
 
-.critedge:                                        ; preds = %48, %32, %.preheader108, %.lr.ph
+.critedge:                                        ; preds = %48, %.lr.ph.split.split.us, %.preheader108, %.lr.ph
   %66 = icmp sgt i32 %.val79.val, %.val158
   br i1 %66, label %.lr.ph116.preheader, label %.critedge2
 

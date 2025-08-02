@@ -116,7 +116,7 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = tail call ptr @sqlite3_value_text16(ptr noundef %9) #3
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.thread, label %11
+  br i1 %.not, label %.critedge, label %11
 
 11:                                               ; preds = %3
   %12 = tail call ptr @sqlite3_get_auxdata(ptr noundef %0, i32 noundef 0) #3
@@ -127,30 +127,30 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   %14 = load ptr, ptr %2, align 8, !tbaa !18
   %15 = tail call ptr @sqlite3_value_text16(ptr noundef %14) #3
   %.not27 = icmp eq ptr %15, null
-  br i1 %.not27, label %.thread, label %16
+  br i1 %.not27, label %.critedge, label %16
 
 16:                                               ; preds = %13
   %17 = call ptr @uregex_open_70(ptr noundef nonnull %15, i32 noundef -1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %7) #3
   %18 = load i32, ptr %7, align 4, !tbaa !17
   %19 = icmp slt i32 %18, 1
-  br i1 %19, label %24, label %20
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #3
-  %21 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %18) #3
-  %22 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %21) #3
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 127
-  store i8 0, ptr %23, align 1, !tbaa !20
-  call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %6, i32 noundef -1) #3
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #3
-  br label %.thread
-
-24:                                               ; preds = %16
   call void @sqlite3_set_auxdata(ptr noundef %0, i32 noundef 0, ptr noundef %17, ptr noundef nonnull @icuRegexpDelete) #3
   br label %25
 
-25:                                               ; preds = %24, %11
-  %.0 = phi ptr [ %12, %11 ], [ %17, %24 ]
+21:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #3
+  %22 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %18) #3
+  %23 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %22) #3
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 127
+  store i8 0, ptr %24, align 1, !tbaa !20
+  call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %6, i32 noundef -1) #3
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #3
+  br label %.critedge
+
+25:                                               ; preds = %20, %11
+  %.0 = phi ptr [ %12, %11 ], [ %17, %20 ]
   call void @uregex_setText_70(ptr noundef %.0, ptr noundef nonnull %10, i32 noundef -1, ptr noundef nonnull %7) #3
   %26 = load i32, ptr %7, align 4, !tbaa !17
   %27 = icmp slt i32 %26, 1
@@ -164,7 +164,7 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   store i8 0, ptr %31, align 1, !tbaa !20
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %5, i32 noundef -1) #3
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #3
-  br label %.thread
+  br label %.critedge
 
 32:                                               ; preds = %25
   %33 = call signext i8 @uregex_matches_70(ptr noundef %.0, i32 noundef 0, ptr noundef nonnull %7) #3
@@ -180,16 +180,16 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   store i8 0, ptr %39, align 1, !tbaa !20
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %4, i32 noundef -1) #3
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #3
-  br label %.thread
+  br label %.critedge
 
 40:                                               ; preds = %32
   call void @uregex_setText_70(ptr noundef %.0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %7) #3
   %.not28 = icmp ne i8 %33, 0
   %41 = zext i1 %.not28 to i32
   call void @sqlite3_result_int(ptr noundef %0, i32 noundef %41) #3
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %13, %20, %3, %40, %36, %28
+.critedge:                                        ; preds = %21, %13, %3, %40, %36, %28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   ret void
 }
@@ -216,7 +216,7 @@ define internal void @icuCaseFunc16(ptr noundef %0, i32 noundef %1, ptr noundef 
   %13 = load ptr, ptr %2, align 8, !tbaa !18
   %14 = tail call ptr @sqlite3_value_text16(ptr noundef %13) #3
   %.not41 = icmp eq ptr %14, null
-  br i1 %.not41, label %.thread, label %15
+  br i1 %.not41, label %.critedge, label %15
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %2, align 8, !tbaa !18
@@ -229,82 +229,82 @@ define internal void @icuCaseFunc16(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %23
-  %.055.us = phi ptr [ %21, %23 ], [ null, %.preheader ]
-  %.03454.us = phi i32 [ %.2.us, %23 ], [ %17, %.preheader ]
+  %.052.us = phi ptr [ %21, %23 ], [ null, %.preheader ]
+  %.03451.us = phi i32 [ %.2.us, %23 ], [ %17, %.preheader ]
   %20 = phi i1 [ false, %23 ], [ true, %.preheader ]
-  %21 = call ptr @sqlite3_realloc(ptr noundef %.055.us, i32 noundef %.03454.us) #3
+  %21 = call ptr @sqlite3_realloc(ptr noundef %.052.us, i32 noundef %.03451.us) #3
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.split.us, label %24
 
 23:                                               ; preds = %29
-  br i1 %20, label %.preheader.split.us, label %.thread, !llvm.loop !21
+  br i1 %20, label %.preheader.split.us, label %.critedge, !llvm.loop !21
 
 24:                                               ; preds = %.preheader.split.us
   store i32 0, ptr %5, align 4, !tbaa !17
-  %25 = sdiv i32 %.03454.us, 2
+  %25 = sdiv i32 %.03451.us, 2
   %26 = call i32 @u_strToLower_70(ptr noundef nonnull %21, i32 noundef %25, ptr noundef nonnull %14, i32 noundef %19, ptr noundef %.033, ptr noundef nonnull %5) #3
   %.2.us = shl nsw i32 %26, 1
   %27 = load i32, ptr %5, align 4, !tbaa !17
   %28 = icmp slt i32 %27, 1
-  br i1 %28, label %.split57.us, label %29
+  br i1 %28, label %.split54.us, label %29
 
 29:                                               ; preds = %24
   %30 = icmp eq i32 %27, 15
-  br i1 %30, label %23, label %.split61.us
+  br i1 %30, label %23, label %.split58.us
 
 31:                                               ; preds = %15
   tail call void @sqlite3_result_text16(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef 0, ptr noundef null) #3
-  br label %.thread
+  br label %.critedge
 
 32:                                               ; preds = %41
-  br i1 %33, label %.preheader.split, label %.thread
+  br i1 %33, label %.preheader.split, label %.critedge
 
 .preheader.split:                                 ; preds = %.preheader, %32
-  %.055 = phi ptr [ %34, %32 ], [ null, %.preheader ]
-  %.03454 = phi i32 [ %.2, %32 ], [ %17, %.preheader ]
+  %.052 = phi ptr [ %34, %32 ], [ null, %.preheader ]
+  %.03451 = phi i32 [ %.2, %32 ], [ %17, %.preheader ]
   %33 = phi i1 [ false, %32 ], [ true, %.preheader ]
-  %34 = call ptr @sqlite3_realloc(ptr noundef %.055, i32 noundef %.03454) #3
+  %34 = call ptr @sqlite3_realloc(ptr noundef %.052, i32 noundef %.03451) #3
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.split.us, label %36
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
-  %.us-phi = phi ptr [ %.055.us, %.preheader.split.us ], [ %.055, %.preheader.split ]
+  %.us-phi = phi ptr [ %.052.us, %.preheader.split.us ], [ %.052, %.preheader.split ]
   call void @sqlite3_free(ptr noundef %.us-phi) #3
   call void @sqlite3_result_error_nomem(ptr noundef %0) #3
-  br label %.thread
+  br label %.critedge
 
 36:                                               ; preds = %.preheader.split
   store i32 0, ptr %5, align 4, !tbaa !17
-  %37 = sdiv i32 %.03454, 2
+  %37 = sdiv i32 %.03451, 2
   %38 = call i32 @u_strToUpper_70(ptr noundef nonnull %34, i32 noundef %37, ptr noundef nonnull %14, i32 noundef %19, ptr noundef %.033, ptr noundef nonnull %5) #3
   %.2 = shl nsw i32 %38, 1
   %39 = load i32, ptr %5, align 4, !tbaa !17
   %40 = icmp slt i32 %39, 1
-  br i1 %40, label %.split57.us, label %41
+  br i1 %40, label %.split54.us, label %41
 
-.split57.us:                                      ; preds = %36, %24
-  %.us-phi58 = phi i32 [ %.2.us, %24 ], [ %.2, %36 ]
-  %.us-phi59 = phi ptr [ %21, %24 ], [ %34, %36 ]
-  call void @sqlite3_result_text16(ptr noundef %0, ptr noundef nonnull %.us-phi59, i32 noundef %.us-phi58, ptr noundef nonnull @xFree) #3
-  br label %.thread
+.split54.us:                                      ; preds = %36, %24
+  %.us-phi55 = phi i32 [ %.2.us, %24 ], [ %.2, %36 ]
+  %.us-phi56 = phi ptr [ %21, %24 ], [ %34, %36 ]
+  call void @sqlite3_result_text16(ptr noundef %0, ptr noundef nonnull %.us-phi56, i32 noundef %.us-phi55, ptr noundef nonnull @xFree) #3
+  br label %.critedge
 
 41:                                               ; preds = %36
   %42 = icmp eq i32 %39, 15
-  br i1 %42, label %32, label %.split61.us
+  br i1 %42, label %32, label %.split58.us
 
-.split61.us:                                      ; preds = %41, %29
+.split58.us:                                      ; preds = %41, %29
   %43 = phi ptr [ @.str.13, %29 ], [ @.str.12, %41 ]
-  %.us-phi62 = phi i32 [ %27, %29 ], [ %39, %41 ]
+  %.us-phi59 = phi i32 [ %27, %29 ], [ %39, %41 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #3
-  %44 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %.us-phi62) #3
+  %44 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %.us-phi59) #3
   %45 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %4, ptr noundef nonnull @.str.7, ptr noundef nonnull %43, ptr noundef %44) #3
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 127
   store i8 0, ptr %46, align 1, !tbaa !20
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %4, i32 noundef -1) #3
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #3
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %32, %23, %.split57.us, %.split61.us, %.split.us, %12, %31
+.critedge:                                        ; preds = %32, %23, %.split.us, %.split58.us, %.split54.us, %12, %31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   ret void
 }
@@ -323,11 +323,11 @@ define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 12:                                               ; preds = %3
   tail call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef -1) #3
-  br label %.thread
+  br label %.critedge
 
 13:                                               ; preds = %3
   %14 = icmp eq i32 %1, 3
-  br i1 %14, label %15, label %.thread74
+  br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -336,7 +336,7 @@ define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef re
   %19 = load ptr, ptr %16, align 8, !tbaa !18
   %20 = tail call ptr @sqlite3_value_text(ptr noundef %19) #3
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread, label %22
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %15
   %23 = load i8, ptr %20, align 1, !tbaa !20
@@ -416,7 +416,7 @@ define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef re
   %70 = zext nneg i8 %.0 to i32
   %71 = or disjoint i32 %69, %70
   %.not70 = icmp eq i32 %.1, %18
-  br i1 %.not70, label %.thread74, label %76
+  br i1 %.not70, label %.thread, label %76
 
 72:                                               ; preds = %27
   %73 = icmp samesign ugt i8 %23, -63
@@ -447,25 +447,25 @@ define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef re
   %.5 = phi i32 [ %24, %22 ], [ %85, %82 ], [ -1, %76 ], [ -1, %72 ], [ -1, %60 ], [ -1, %59 ], [ -1, %48 ], [ -1, %45 ], [ -1, %31 ], [ -1, %26 ]
   %.4 = phi i32 [ 1, %22 ], [ %86, %82 ], [ %.2, %76 ], [ 1, %72 ], [ 2, %60 ], [ 2, %59 ], [ 1, %48 ], [ 1, %45 ], [ 1, %31 ], [ 1, %26 ]
   %.not71 = icmp eq i32 %.4, %18
-  br i1 %.not71, label %.thread74, label %88
+  br i1 %.not71, label %.thread, label %88
 
 88:                                               ; preds = %87
   tail call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef -1) #3
-  br label %.thread
+  br label %.critedge
 
-.thread74:                                        ; preds = %68, %87, %13
+.thread:                                          ; preds = %68, %87, %13
   %.051 = phi i32 [ 0, %13 ], [ %.5, %87 ], [ -1, %68 ]
   %89 = icmp ne ptr %5, null
   %90 = icmp ne ptr %8, null
   %or.cond = select i1 %89, i1 %90, i1 false
-  br i1 %or.cond, label %91, label %.thread
+  br i1 %or.cond, label %91, label %.critedge
 
-91:                                               ; preds = %.thread74
+91:                                               ; preds = %.thread
   %92 = tail call fastcc i32 @icuLikeCompare(ptr noundef %5, ptr noundef %8, i32 noundef %.051)
   tail call void @sqlite3_result_int(ptr noundef %0, i32 noundef %92) #3
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %15, %88, %.thread74, %91, %12
+.critedge:                                        ; preds = %88, %15, %.thread, %91, %12
   ret void
 }
 

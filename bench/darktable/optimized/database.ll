@@ -6986,7 +6986,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.244, ptr noundef %30) #18
   %31 = load ptr, ptr %23, align 8, !tbaa !6
   %32 = tail call i32 @sqlite3_exec(ptr noundef %31, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 33:                                               ; preds = %22
   %34 = tail call i32 @sqlite3_exec(ptr noundef %28, ptr noundef nonnull @.str.245, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -6999,7 +6999,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.246, ptr noundef %37) #18
   %38 = load ptr, ptr %23, align 8, !tbaa !6
   %39 = tail call i32 @sqlite3_exec(ptr noundef %38, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 40:                                               ; preds = %33
   %41 = tail call i32 @sqlite3_exec(ptr noundef %35, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7020,7 +7020,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.248, ptr noundef %50) #18
   %51 = load ptr, ptr %43, align 8, !tbaa !6
   %52 = tail call i32 @sqlite3_exec(ptr noundef %51, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 53:                                               ; preds = %42
   %54 = tail call i32 @sqlite3_exec(ptr noundef %48, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7041,7 +7041,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.250, ptr noundef %63) #18
   %64 = load ptr, ptr %56, align 8, !tbaa !6
   %65 = tail call i32 @sqlite3_exec(ptr noundef %64, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 66:                                               ; preds = %55
   %67 = tail call i32 @sqlite3_exec(ptr noundef %61, ptr noundef nonnull @.str.251, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7054,7 +7054,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.252, ptr noundef %70) #18
   %71 = load ptr, ptr %56, align 8, !tbaa !6
   %72 = tail call i32 @sqlite3_exec(ptr noundef %71, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 73:                                               ; preds = %66
   %74 = tail call i32 @sqlite3_exec(ptr noundef %68, ptr noundef nonnull @.str.253, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7067,7 +7067,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.254, ptr noundef %77) #18
   %78 = load ptr, ptr %56, align 8, !tbaa !6
   %79 = tail call i32 @sqlite3_exec(ptr noundef %78, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 80:                                               ; preds = %73
   %81 = tail call i32 @sqlite3_exec(ptr noundef %75, ptr noundef nonnull @.str.255, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7080,7 +7080,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.256, ptr noundef %84) #18
   %85 = load ptr, ptr %56, align 8, !tbaa !6
   %86 = tail call i32 @sqlite3_exec(ptr noundef %85, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 87:                                               ; preds = %80
   %88 = tail call i32 @sqlite3_exec(ptr noundef %82, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7101,7 +7101,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.258, ptr noundef %97) #18
   %98 = load ptr, ptr %90, align 8, !tbaa !6
   %99 = tail call i32 @sqlite3_exec(ptr noundef %98, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 100:                                              ; preds = %89
   %101 = tail call i32 @sqlite3_exec(ptr noundef %95, ptr noundef nonnull @.str.259, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7114,7 +7114,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.260, ptr noundef %104) #18
   %105 = load ptr, ptr %90, align 8, !tbaa !6
   %106 = tail call i32 @sqlite3_exec(ptr noundef %105, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 107:                                              ; preds = %100
   %108 = tail call i32 @sqlite3_exec(ptr noundef %102, ptr noundef nonnull @.str.261, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7127,7 +7127,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.262, ptr noundef %111) #18
   %112 = load ptr, ptr %90, align 8, !tbaa !6
   %113 = tail call i32 @sqlite3_exec(ptr noundef %112, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 114:                                              ; preds = %107
   %115 = tail call i32 @sqlite3_exec(ptr noundef %109, ptr noundef nonnull @.str.263, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7140,7 +7140,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.264, ptr noundef %118) #18
   %119 = load ptr, ptr %90, align 8, !tbaa !6
   %120 = tail call i32 @sqlite3_exec(ptr noundef %119, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 121:                                              ; preds = %114
   %122 = tail call i32 @sqlite3_exec(ptr noundef %116, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7161,7 +7161,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.266, ptr noundef %131) #18
   %132 = load ptr, ptr %124, align 8, !tbaa !6
   %133 = tail call i32 @sqlite3_exec(ptr noundef %132, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 134:                                              ; preds = %123
   %135 = tail call i32 @sqlite3_exec(ptr noundef %129, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7188,7 +7188,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.269, ptr noundef %148) #18
   %149 = load ptr, ptr %137, align 8, !tbaa !6
   %150 = tail call i32 @sqlite3_exec(ptr noundef %149, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 151:                                              ; preds = %143
   %152 = tail call i32 @sqlite3_exec(ptr noundef %146, ptr noundef nonnull @.str.270, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7201,7 +7201,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.271, ptr noundef %155) #18
   %156 = load ptr, ptr %137, align 8, !tbaa !6
   %157 = tail call i32 @sqlite3_exec(ptr noundef %156, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 158:                                              ; preds = %151
   %159 = tail call i32 @sqlite3_exec(ptr noundef %153, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7214,7 +7214,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.273, ptr noundef %162) #18
   %163 = load ptr, ptr %137, align 8, !tbaa !6
   %164 = tail call i32 @sqlite3_exec(ptr noundef %163, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 165:                                              ; preds = %158
   %166 = tail call i32 @sqlite3_exec(ptr noundef %160, ptr noundef nonnull @.str.274, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7227,7 +7227,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.275, ptr noundef %169) #18
   %170 = load ptr, ptr %137, align 8, !tbaa !6
   %171 = tail call i32 @sqlite3_exec(ptr noundef %170, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 172:                                              ; preds = %165, %136
   %173 = load ptr, ptr %137, align 8, !tbaa !6
@@ -7249,7 +7249,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.277, ptr noundef %183) #18
   %184 = load ptr, ptr %176, align 8, !tbaa !6
   %185 = tail call i32 @sqlite3_exec(ptr noundef %184, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 186:                                              ; preds = %175
   %187 = tail call i32 @sqlite3_exec(ptr noundef %181, ptr noundef nonnull @.str.278, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7262,7 +7262,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.279, ptr noundef %190) #18
   %191 = load ptr, ptr %176, align 8, !tbaa !6
   %192 = tail call i32 @sqlite3_exec(ptr noundef %191, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 193:                                              ; preds = %186
   %194 = tail call i32 @sqlite3_exec(ptr noundef %188, ptr noundef nonnull @.str.280, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7275,7 +7275,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.281, ptr noundef %197) #18
   %198 = load ptr, ptr %176, align 8, !tbaa !6
   %199 = tail call i32 @sqlite3_exec(ptr noundef %198, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 200:                                              ; preds = %193
   %201 = tail call i32 @sqlite3_exec(ptr noundef %195, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7288,7 +7288,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.283, ptr noundef %204) #18
   %205 = load ptr, ptr %176, align 8, !tbaa !6
   %206 = tail call i32 @sqlite3_exec(ptr noundef %205, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 207:                                              ; preds = %200
   %208 = tail call i32 @sqlite3_exec(ptr noundef %202, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7309,7 +7309,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.285, ptr noundef %217) #18
   %218 = load ptr, ptr %210, align 8, !tbaa !6
   %219 = tail call i32 @sqlite3_exec(ptr noundef %218, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 220:                                              ; preds = %209
   %221 = tail call i32 @sqlite3_exec(ptr noundef %215, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7322,7 +7322,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.287, ptr noundef %224) #18
   %225 = load ptr, ptr %210, align 8, !tbaa !6
   %226 = tail call i32 @sqlite3_exec(ptr noundef %225, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 227:                                              ; preds = %220
   %228 = tail call i32 @sqlite3_exec(ptr noundef %222, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7343,7 +7343,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.288, ptr noundef %237) #18
   %238 = load ptr, ptr %230, align 8, !tbaa !6
   %239 = tail call i32 @sqlite3_exec(ptr noundef %238, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 240:                                              ; preds = %229
   %241 = tail call i32 @sqlite3_exec(ptr noundef %235, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7364,7 +7364,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.290, ptr noundef %250) #18
   %251 = load ptr, ptr %243, align 8, !tbaa !6
   %252 = tail call i32 @sqlite3_exec(ptr noundef %251, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 253:                                              ; preds = %242
   %254 = tail call i32 @sqlite3_exec(ptr noundef %248, ptr noundef nonnull @.str.291, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7377,7 +7377,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.292, ptr noundef %257) #18
   %258 = load ptr, ptr %243, align 8, !tbaa !6
   %259 = tail call i32 @sqlite3_exec(ptr noundef %258, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 260:                                              ; preds = %253
   %261 = tail call i32 @sqlite3_exec(ptr noundef %255, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7398,7 +7398,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.294, ptr noundef %270) #18
   %271 = load ptr, ptr %263, align 8, !tbaa !6
   %272 = tail call i32 @sqlite3_exec(ptr noundef %271, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 273:                                              ; preds = %262
   %274 = tail call i32 @sqlite3_exec(ptr noundef %268, ptr noundef nonnull @.str.295, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7411,7 +7411,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.296, ptr noundef %277) #18
   %278 = load ptr, ptr %263, align 8, !tbaa !6
   %279 = tail call i32 @sqlite3_exec(ptr noundef %278, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 280:                                              ; preds = %273
   %281 = tail call i32 @sqlite3_exec(ptr noundef %275, ptr noundef nonnull @.str.297, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7424,7 +7424,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.298, ptr noundef %284) #18
   %285 = load ptr, ptr %263, align 8, !tbaa !6
   %286 = tail call i32 @sqlite3_exec(ptr noundef %285, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 287:                                              ; preds = %280
   %288 = tail call i32 @sqlite3_exec(ptr noundef %282, ptr noundef nonnull @.str.299, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7437,7 +7437,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.300, ptr noundef %291) #18
   %292 = load ptr, ptr %263, align 8, !tbaa !6
   %293 = tail call i32 @sqlite3_exec(ptr noundef %292, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 294:                                              ; preds = %287
   %295 = tail call i32 @sqlite3_exec(ptr noundef %289, ptr noundef nonnull @.str.301, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7450,7 +7450,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.302, ptr noundef %298) #18
   %299 = load ptr, ptr %263, align 8, !tbaa !6
   %300 = tail call i32 @sqlite3_exec(ptr noundef %299, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 301:                                              ; preds = %294
   %302 = tail call i32 @sqlite3_exec(ptr noundef %296, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7488,7 +7488,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %317 = tail call i32 @sqlite3_finalize(ptr noundef null) #18
   %318 = load ptr, ptr %304, align 8, !tbaa !6
   %319 = tail call i32 @sqlite3_exec(ptr noundef %318, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2344
+  br label %.thread2347
 
 320:                                              ; preds = %303
   %321 = call i32 @sqlite3_prepare_v2(ptr noundef %309, ptr noundef nonnull @.str.305, i32 noundef -1, ptr noundef nonnull %6, ptr noundef null) #18
@@ -7513,7 +7513,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %336 = call i32 @sqlite3_finalize(ptr noundef %335) #18
   %337 = load ptr, ptr %304, align 8, !tbaa !6
   %338 = call i32 @sqlite3_exec(ptr noundef %337, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2344
+  br label %.thread2347
 
 339:                                              ; preds = %320
   %340 = call i32 @sqlite3_prepare_v2(ptr noundef %322, ptr noundef nonnull @.str.307, i32 noundef -1, ptr noundef nonnull %7, ptr noundef null) #18
@@ -7538,7 +7538,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %355 = call i32 @sqlite3_finalize(ptr noundef %354) #18
   %356 = load ptr, ptr %304, align 8, !tbaa !6
   %357 = call i32 @sqlite3_exec(ptr noundef %356, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2344
+  br label %.thread2347
 
 358:                                              ; preds = %339
   %359 = call i32 @sqlite3_prepare_v2(ptr noundef %341, ptr noundef nonnull @.str.309, i32 noundef -1, ptr noundef nonnull %8, ptr noundef null) #18
@@ -7563,7 +7563,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %374 = call i32 @sqlite3_finalize(ptr noundef %373) #18
   %375 = load ptr, ptr %304, align 8, !tbaa !6
   %376 = call i32 @sqlite3_exec(ptr noundef %375, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2344
+  br label %.thread2347
 
 377:                                              ; preds = %358
   %378 = call i32 @sqlite3_prepare_v2(ptr noundef %360, ptr noundef nonnull @.str.311, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
@@ -7588,7 +7588,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %393 = call i32 @sqlite3_finalize(ptr noundef %392) #18
   %394 = load ptr, ptr %304, align 8, !tbaa !6
   %395 = call i32 @sqlite3_exec(ptr noundef %394, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2344
+  br label %.thread2347
 
 396:                                              ; preds = %377
   %397 = call i32 @sqlite3_prepare_v2(ptr noundef %379, ptr noundef nonnull @.str.313, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #18
@@ -7613,18 +7613,18 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %412 = call i32 @sqlite3_finalize(ptr noundef %411) #18
   %413 = load ptr, ptr %304, align 8, !tbaa !6
   %414 = call i32 @sqlite3_exec(ptr noundef %413, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2344
+  br label %.thread2347
 
 415:                                              ; preds = %396
   %416 = call i32 @sqlite3_prepare_v2(ptr noundef %398, ptr noundef nonnull @.str.315, i32 noundef -1, ptr noundef nonnull %5, ptr noundef null) #18
   %.not2275 = icmp eq i32 %416, 0
-  br i1 %.not2275, label %.preheader2392, label %420
+  br i1 %.not2275, label %.preheader2386, label %420
 
-.preheader2392:                                   ; preds = %415
+.preheader2386:                                   ; preds = %415
   %417 = load ptr, ptr %6, align 8, !tbaa !21
   %418 = call i32 @sqlite3_step(ptr noundef %417) #18
   %419 = icmp eq i32 %418, 100
-  br i1 %419, label %.lr.ph2434, label %.critedge2337.preheader
+  br i1 %419, label %.lr.ph2428, label %.critedge2337.preheader
 
 420:                                              ; preds = %415
   %421 = load ptr, ptr %304, align 8, !tbaa !6
@@ -7644,17 +7644,17 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %434 = call i32 @sqlite3_finalize(ptr noundef %433) #18
   %435 = load ptr, ptr %304, align 8, !tbaa !6
   %436 = call i32 @sqlite3_exec(ptr noundef %435, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2344
+  br label %.thread2347
 
-.lr.ph2434:                                       ; preds = %.preheader2392, %480
+.lr.ph2428:                                       ; preds = %.preheader2386, %480
   %437 = load ptr, ptr %6, align 8, !tbaa !21
   %438 = call i32 @sqlite3_column_int(ptr noundef %437, i32 noundef 0) #18
   %439 = load ptr, ptr %6, align 8, !tbaa !21
   %440 = call i32 @sqlite3_column_int(ptr noundef %439, i32 noundef 1) #18
   br label %441
 
-441:                                              ; preds = %454, %.lr.ph2434
-  %.01895 = phi i32 [ 0, %.lr.ph2434 ], [ %442, %454 ]
+441:                                              ; preds = %454, %.lr.ph2428
+  %.01895 = phi i32 [ 0, %.lr.ph2428 ], [ %442, %454 ]
   %442 = add nuw nsw i32 %.01895, 1
   %443 = load ptr, ptr %7, align 8, !tbaa !21
   %444 = call i32 @sqlite3_reset(ptr noundef %443) #18
@@ -7703,7 +7703,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %477 = call i32 @sqlite3_finalize(ptr noundef %476) #18
   %478 = load ptr, ptr %304, align 8, !tbaa !6
   %479 = call i32 @sqlite3_exec(ptr noundef %478, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2344
+  br label %.thread2347
 
 480:                                              ; preds = %.critedge
   %481 = load ptr, ptr %8, align 8, !tbaa !21
@@ -7713,9 +7713,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %485 = load ptr, ptr %6, align 8, !tbaa !21
   %486 = call i32 @sqlite3_step(ptr noundef %485) #18
   %487 = icmp eq i32 %486, 100
-  br i1 %487, label %.lr.ph2434, label %.critedge2337.preheader
+  br i1 %487, label %.lr.ph2428, label %.critedge2337.preheader
 
-.critedge2337.preheader:                          ; preds = %480, %.preheader2392
+.critedge2337.preheader:                          ; preds = %480, %.preheader2386
   br label %.critedge2337
 
 .critedge2337:                                    ; preds = %.critedge2337.preheader, %506
@@ -7775,7 +7775,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %529 = call i32 @sqlite3_finalize(ptr noundef %528) #18
   %530 = load ptr, ptr %304, align 8, !tbaa !6
   %531 = call i32 @sqlite3_exec(ptr noundef %530, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2344
+  br label %.thread2347
 
 532:                                              ; preds = %.critedge2337
   %533 = load ptr, ptr %304, align 8, !tbaa !6
@@ -7801,7 +7801,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %549 = call i32 @sqlite3_finalize(ptr noundef %548) #18
   %550 = load ptr, ptr %304, align 8, !tbaa !6
   %551 = call i32 @sqlite3_exec(ptr noundef %550, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2344
+  br label %.thread2347
 
 552:                                              ; preds = %532
   %553 = call i32 @sqlite3_exec(ptr noundef %535, ptr noundef nonnull @.str.321, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7826,7 +7826,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %568 = call i32 @sqlite3_finalize(ptr noundef %567) #18
   %569 = load ptr, ptr %304, align 8, !tbaa !6
   %570 = call i32 @sqlite3_exec(ptr noundef %569, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2344
+  br label %.thread2347
 
 571:                                              ; preds = %552
   %572 = load ptr, ptr %3, align 8, !tbaa !21
@@ -7877,7 +7877,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %602 = call i32 @sqlite3_finalize(ptr noundef %601) #18
   %603 = load ptr, ptr %11, align 8, !tbaa !21
   %604 = call i32 @sqlite3_finalize(ptr noundef %603) #18
-  br label %.thread2348
+  br label %.thread2351
 
 605:                                              ; preds = %571
   %606 = call i32 @sqlite3_prepare_v2(ptr noundef %586, ptr noundef nonnull @.str.324, i32 noundef -1, ptr noundef nonnull %6, ptr noundef null) #18
@@ -7904,7 +7904,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %623 = call i32 @sqlite3_finalize(ptr noundef %622) #18
   %624 = load ptr, ptr %11, align 8, !tbaa !21
   %625 = call i32 @sqlite3_finalize(ptr noundef %624) #18
-  br label %.thread2348
+  br label %.thread2351
 
 626:                                              ; preds = %605
   %627 = call i32 @sqlite3_prepare_v2(ptr noundef %607, ptr noundef nonnull @.str.326, i32 noundef -1, ptr noundef nonnull %8, ptr noundef null) #18
@@ -7931,7 +7931,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %644 = call i32 @sqlite3_finalize(ptr noundef %643) #18
   %645 = load ptr, ptr %11, align 8, !tbaa !21
   %646 = call i32 @sqlite3_finalize(ptr noundef %645) #18
-  br label %.thread2348
+  br label %.thread2351
 
 647:                                              ; preds = %626
   %648 = call i32 @sqlite3_prepare_v2(ptr noundef %628, ptr noundef nonnull @.str.328, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #18
@@ -7958,7 +7958,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %665 = call i32 @sqlite3_finalize(ptr noundef %664) #18
   %666 = load ptr, ptr %11, align 8, !tbaa !21
   %667 = call i32 @sqlite3_finalize(ptr noundef %666) #18
-  br label %.thread2348
+  br label %.thread2351
 
 668:                                              ; preds = %647
   %669 = call i32 @sqlite3_prepare_v2(ptr noundef %649, ptr noundef nonnull @.str.330, i32 noundef -1, ptr noundef nonnull %5, ptr noundef null) #18
@@ -7985,7 +7985,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %686 = call i32 @sqlite3_finalize(ptr noundef %685) #18
   %687 = load ptr, ptr %11, align 8, !tbaa !21
   %688 = call i32 @sqlite3_finalize(ptr noundef %687) #18
-  br label %.thread2348
+  br label %.thread2351
 
 689:                                              ; preds = %668
   %690 = call i32 @sqlite3_prepare_v2(ptr noundef %670, ptr noundef nonnull @.str.332, i32 noundef -1, ptr noundef nonnull %9, ptr noundef null) #18
@@ -8012,7 +8012,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %707 = call i32 @sqlite3_finalize(ptr noundef %706) #18
   %708 = load ptr, ptr %11, align 8, !tbaa !21
   %709 = call i32 @sqlite3_finalize(ptr noundef %708) #18
-  br label %.thread2348
+  br label %.thread2351
 
 710:                                              ; preds = %689
   %711 = call i32 @sqlite3_prepare_v2(ptr noundef %691, ptr noundef nonnull @.str.334, i32 noundef -1, ptr noundef nonnull %10, ptr noundef null) #18
@@ -8039,18 +8039,18 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %728 = call i32 @sqlite3_finalize(ptr noundef %727) #18
   %729 = load ptr, ptr %11, align 8, !tbaa !21
   %730 = call i32 @sqlite3_finalize(ptr noundef %729) #18
-  br label %.thread2348
+  br label %.thread2351
 
 731:                                              ; preds = %710
   %732 = call i32 @sqlite3_prepare_v2(ptr noundef %712, ptr noundef nonnull @.str.336, i32 noundef -1, ptr noundef nonnull %11, ptr noundef null) #18
   %.not2285 = icmp eq i32 %732, 0
-  br i1 %.not2285, label %.preheader2391, label %736
+  br i1 %.not2285, label %.preheader2385, label %736
 
-.preheader2391:                                   ; preds = %731
+.preheader2385:                                   ; preds = %731
   %733 = load ptr, ptr %3, align 8, !tbaa !21
   %734 = call i32 @sqlite3_step(ptr noundef %733) #18
   %735 = icmp eq i32 %734, 100
-  br i1 %735, label %.lr.ph2435, label %._crit_edge2436
+  br i1 %735, label %.lr.ph2429, label %._crit_edge2430
 
 736:                                              ; preds = %731
   %737 = load ptr, ptr %304, align 8, !tbaa !6
@@ -8072,9 +8072,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %752 = call i32 @sqlite3_finalize(ptr noundef %751) #18
   %753 = load ptr, ptr %11, align 8, !tbaa !21
   %754 = call i32 @sqlite3_finalize(ptr noundef %753) #18
-  br label %.thread2348
+  br label %.thread2351
 
-.lr.ph2435:                                       ; preds = %.preheader2391, %931
+.lr.ph2429:                                       ; preds = %.preheader2385, %931
   %755 = load ptr, ptr %3, align 8, !tbaa !21
   %756 = call i32 @sqlite3_column_int(ptr noundef %755, i32 noundef 0) #18
   %757 = load ptr, ptr %3, align 8, !tbaa !21
@@ -8086,9 +8086,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %763 = icmp eq i32 %762, 100
   br i1 %763, label %.preheader, label %805
 
-.preheader:                                       ; preds = %.lr.ph2435, %.preheader
-  %.01899 = phi ptr [ %765, %.preheader ], [ null, %.lr.ph2435 ]
-  %.01898 = phi i32 [ %764, %.preheader ], [ 0, %.lr.ph2435 ]
+.preheader:                                       ; preds = %.lr.ph2429, %.preheader
+  %.01899 = phi ptr [ %765, %.preheader ], [ null, %.lr.ph2429 ]
+  %.01898 = phi i32 [ %764, %.preheader ], [ 0, %.lr.ph2429 ]
   %764 = add nuw nsw i32 %.01898, 1
   call void @g_free(ptr noundef %.01899) #18
   %765 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.338, ptr noundef %758, i32 noundef %764) #18
@@ -8111,9 +8111,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %780 = load ptr, ptr %8, align 8, !tbaa !21
   %781 = call i32 @sqlite3_step(ptr noundef %780) #18
   %.not2297 = icmp eq i32 %781, 101
-  br i1 %.not2297, label %.thread2343, label %786
+  br i1 %.not2297, label %.thread2346, label %786
 
-.thread2343:                                      ; preds = %775
+.thread2346:                                      ; preds = %775
   %782 = load ptr, ptr %8, align 8, !tbaa !21
   %783 = call i32 @sqlite3_reset(ptr noundef %782) #18
   %784 = load ptr, ptr %8, align 8, !tbaa !21
@@ -8141,9 +8141,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %802 = call i32 @sqlite3_finalize(ptr noundef %801) #18
   %803 = load ptr, ptr %11, align 8, !tbaa !21
   %804 = call i32 @sqlite3_finalize(ptr noundef %803) #18
-  br label %.thread2348
+  br label %.thread2351
 
-805:                                              ; preds = %.thread2343, %.lr.ph2435
+805:                                              ; preds = %.thread2346, %.lr.ph2429
   %806 = load ptr, ptr %4, align 8, !tbaa !21
   %807 = call i32 @sqlite3_bind_int(ptr noundef %806, i32 noundef 1, i32 noundef %756) #18
   %808 = load ptr, ptr %4, align 8, !tbaa !21
@@ -8171,7 +8171,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %826 = call i32 @sqlite3_finalize(ptr noundef %825) #18
   %827 = load ptr, ptr %11, align 8, !tbaa !21
   %828 = call i32 @sqlite3_finalize(ptr noundef %827) #18
-  br label %.thread2348
+  br label %.thread2351
 
 829:                                              ; preds = %805
   %830 = call i64 @sqlite3_last_insert_rowid(ptr noundef %810) #18
@@ -8202,7 +8202,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %851 = call i32 @sqlite3_finalize(ptr noundef %850) #18
   %852 = load ptr, ptr %11, align 8, !tbaa !21
   %853 = call i32 @sqlite3_finalize(ptr noundef %852) #18
-  br label %.thread2348
+  br label %.thread2351
 
 854:                                              ; preds = %829
   %855 = load ptr, ptr %9, align 8, !tbaa !21
@@ -8233,7 +8233,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %876 = call i32 @sqlite3_finalize(ptr noundef %875) #18
   %877 = load ptr, ptr %11, align 8, !tbaa !21
   %878 = call i32 @sqlite3_finalize(ptr noundef %877) #18
-  br label %.thread2348
+  br label %.thread2351
 
 879:                                              ; preds = %854
   %880 = load ptr, ptr %9, align 8, !tbaa !21
@@ -8267,7 +8267,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %904 = call i32 @sqlite3_finalize(ptr noundef %903) #18
   %905 = load ptr, ptr %11, align 8, !tbaa !21
   %906 = call i32 @sqlite3_finalize(ptr noundef %905) #18
-  br label %.thread2348
+  br label %.thread2351
 
 907:                                              ; preds = %879
   %908 = load ptr, ptr %11, align 8, !tbaa !21
@@ -8297,7 +8297,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %928 = call i32 @sqlite3_finalize(ptr noundef %927) #18
   %929 = load ptr, ptr %11, align 8, !tbaa !21
   %930 = call i32 @sqlite3_finalize(ptr noundef %929) #18
-  br label %.thread2348
+  br label %.thread2351
 
 931:                                              ; preds = %907
   %932 = load ptr, ptr %4, align 8, !tbaa !21
@@ -8327,9 +8327,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %956 = load ptr, ptr %3, align 8, !tbaa !21
   %957 = call i32 @sqlite3_step(ptr noundef %956) #18
   %958 = icmp eq i32 %957, 100
-  br i1 %958, label %.lr.ph2435, label %._crit_edge2436
+  br i1 %958, label %.lr.ph2429, label %._crit_edge2430
 
-._crit_edge2436:                                  ; preds = %931, %.preheader2391
+._crit_edge2430:                                  ; preds = %931, %.preheader2385
   %959 = load ptr, ptr %3, align 8, !tbaa !21
   %960 = call i32 @sqlite3_finalize(ptr noundef %959) #18
   %961 = load ptr, ptr %4, align 8, !tbaa !21
@@ -8352,12 +8352,12 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %977 = load ptr, ptr %304, align 8, !tbaa !6
   br i1 %.not2286, label %980, label %978
 
-978:                                              ; preds = %._crit_edge2436
+978:                                              ; preds = %._crit_edge2430
   %979 = call ptr @sqlite3_errmsg(ptr noundef %977) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.346, ptr noundef %979) #18
-  br label %.thread2348
+  br label %.thread2351
 
-980:                                              ; preds = %._crit_edge2436
+980:                                              ; preds = %._crit_edge2430
   %981 = call i32 @sqlite3_exec(ptr noundef %977, ptr noundef nonnull @.str.347, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not2287 = icmp eq i32 %981, 0
   %982 = load ptr, ptr %304, align 8, !tbaa !6
@@ -8366,7 +8366,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 983:                                              ; preds = %980
   %984 = call ptr @sqlite3_errmsg(ptr noundef %982) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.348, ptr noundef %984) #18
-  br label %.thread2348
+  br label %.thread2351
 
 985:                                              ; preds = %980
   %986 = call i32 @sqlite3_exec(ptr noundef %982, ptr noundef nonnull @.str.349, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8377,7 +8377,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 988:                                              ; preds = %985
   %989 = call ptr @sqlite3_errmsg(ptr noundef %987) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.350, ptr noundef %989) #18
-  br label %.thread2348
+  br label %.thread2351
 
 990:                                              ; preds = %985
   %991 = call i32 @sqlite3_exec(ptr noundef %987, ptr noundef nonnull @.str.351, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8388,7 +8388,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 993:                                              ; preds = %990
   %994 = call ptr @sqlite3_errmsg(ptr noundef %992) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.352, ptr noundef %994) #18
-  br label %.thread2348
+  br label %.thread2351
 
 995:                                              ; preds = %990
   %996 = call i32 @sqlite3_exec(ptr noundef %992, ptr noundef nonnull @.str.353, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8399,7 +8399,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 998:                                              ; preds = %995
   %999 = call ptr @sqlite3_errmsg(ptr noundef %997) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.354, ptr noundef %999) #18
-  br label %.thread2348
+  br label %.thread2351
 
 1000:                                             ; preds = %995
   %1001 = call i32 @sqlite3_exec(ptr noundef %997, ptr noundef nonnull @.str.355, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8410,7 +8410,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 1003:                                             ; preds = %1000
   %1004 = call ptr @sqlite3_errmsg(ptr noundef %1002) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.356, ptr noundef %1004) #18
-  br label %.thread2348
+  br label %.thread2351
 
 1005:                                             ; preds = %1000
   %1006 = call i32 @sqlite3_exec(ptr noundef %1002, ptr noundef nonnull @.str.357, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8421,7 +8421,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 1008:                                             ; preds = %1005
   %1009 = call ptr @sqlite3_errmsg(ptr noundef %1007) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.358, ptr noundef %1009) #18
-  br label %.thread2348
+  br label %.thread2351
 
 1010:                                             ; preds = %1005
   %1011 = call i32 @sqlite3_exec(ptr noundef %1007, ptr noundef nonnull @.str.359, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8432,7 +8432,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 1013:                                             ; preds = %1010
   %1014 = call ptr @sqlite3_errmsg(ptr noundef %1012) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.360, ptr noundef %1014) #18
-  br label %.thread2348
+  br label %.thread2351
 
 1015:                                             ; preds = %1010
   %1016 = call i32 @sqlite3_exec(ptr noundef %1012, ptr noundef nonnull @.str.361, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8443,7 +8443,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 1018:                                             ; preds = %1015
   %1019 = call ptr @sqlite3_errmsg(ptr noundef %1017) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.362, ptr noundef %1019) #18
-  br label %.thread2348
+  br label %.thread2351
 
 1020:                                             ; preds = %1015
   %1021 = call i32 @sqlite3_exec(ptr noundef %1017, ptr noundef nonnull @.str.363, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8454,7 +8454,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 1023:                                             ; preds = %1020
   %1024 = call ptr @sqlite3_errmsg(ptr noundef %1022) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.364, ptr noundef %1024) #18
-  br label %.thread2348
+  br label %.thread2351
 
 1025:                                             ; preds = %1020
   %1026 = call i32 @sqlite3_exec(ptr noundef %1022, ptr noundef nonnull @.str.365, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8465,17 +8465,17 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 1028:                                             ; preds = %1025
   %1029 = call ptr @sqlite3_errmsg(ptr noundef %1027) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.366, ptr noundef %1029) #18
-  br label %.thread2348
+  br label %.thread2351
 
-.thread2344:                                      ; preds = %310, %323, %342, %361, %380, %399, %420, %515, %536, %554, %.thread
+.thread2347:                                      ; preds = %310, %323, %342, %361, %380, %399, %420, %515, %536, %554, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
-  br label %.thread2352
+  br label %.thread2355
 
-.thread2348:                                      ; preds = %587, %608, %629, %650, %671, %692, %713, %736, %978, %983, %988, %993, %998, %1003, %1008, %1013, %1018, %1023, %1028, %912, %888, %860, %835, %786, %811
+.thread2351:                                      ; preds = %587, %608, %629, %650, %671, %692, %713, %736, %978, %983, %988, %993, %998, %1003, %1008, %1013, %1018, %1023, %1028, %912, %888, %860, %835, %786, %811
   %1030 = load ptr, ptr %304, align 8, !tbaa !6
   %1031 = call i32 @sqlite3_exec(ptr noundef %1030, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #18
@@ -8486,7 +8486,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1032:                                             ; preds = %1025
   %1033 = call i32 @sqlite3_exec(ptr noundef %1027, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8515,7 +8515,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.368, ptr noundef %1042) #18
   %1043 = load ptr, ptr %1035, align 8, !tbaa !6
   %1044 = tail call i32 @sqlite3_exec(ptr noundef %1043, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1045:                                             ; preds = %1034
   %1046 = tail call i32 @sqlite3_exec(ptr noundef %1040, ptr noundef nonnull @.str.369, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8528,7 +8528,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.370, ptr noundef %1049) #18
   %1050 = load ptr, ptr %1035, align 8, !tbaa !6
   %1051 = tail call i32 @sqlite3_exec(ptr noundef %1050, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1052:                                             ; preds = %1045
   %1053 = tail call i32 @sqlite3_exec(ptr noundef %1047, ptr noundef nonnull @.str.371, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8541,7 +8541,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.372, ptr noundef %1056) #18
   %1057 = load ptr, ptr %1035, align 8, !tbaa !6
   %1058 = tail call i32 @sqlite3_exec(ptr noundef %1057, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1059:                                             ; preds = %1052
   %1060 = tail call i32 @sqlite3_exec(ptr noundef %1054, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8562,7 +8562,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.374, ptr noundef %1069) #18
   %1070 = load ptr, ptr %1062, align 8, !tbaa !6
   %1071 = tail call i32 @sqlite3_exec(ptr noundef %1070, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1072:                                             ; preds = %1061
   %1073 = tail call i32 @sqlite3_exec(ptr noundef %1067, ptr noundef nonnull @.str.375, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8575,7 +8575,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.376, ptr noundef %1076) #18
   %1077 = load ptr, ptr %1062, align 8, !tbaa !6
   %1078 = tail call i32 @sqlite3_exec(ptr noundef %1077, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1079:                                             ; preds = %1072
   %1080 = tail call i32 @sqlite3_exec(ptr noundef %1074, ptr noundef nonnull @.str.377, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8588,7 +8588,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.378, ptr noundef %1083) #18
   %1084 = load ptr, ptr %1062, align 8, !tbaa !6
   %1085 = tail call i32 @sqlite3_exec(ptr noundef %1084, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1086:                                             ; preds = %1079
   %1087 = tail call i32 @sqlite3_exec(ptr noundef %1081, ptr noundef nonnull @.str.379, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8601,7 +8601,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.380, ptr noundef %1090) #18
   %1091 = load ptr, ptr %1062, align 8, !tbaa !6
   %1092 = tail call i32 @sqlite3_exec(ptr noundef %1091, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1093:                                             ; preds = %1086
   %1094 = tail call i32 @sqlite3_exec(ptr noundef %1088, ptr noundef nonnull @.str.381, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8614,7 +8614,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.382, ptr noundef %1097) #18
   %1098 = load ptr, ptr %1062, align 8, !tbaa !6
   %1099 = tail call i32 @sqlite3_exec(ptr noundef %1098, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1100:                                             ; preds = %1093
   %1101 = tail call i32 @sqlite3_exec(ptr noundef %1095, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8635,7 +8635,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.384, ptr noundef %1110) #18
   %1111 = load ptr, ptr %1103, align 8, !tbaa !6
   %1112 = tail call i32 @sqlite3_exec(ptr noundef %1111, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1113:                                             ; preds = %1102
   %1114 = tail call i32 @sqlite3_exec(ptr noundef %1108, ptr noundef nonnull @.str.385, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8648,7 +8648,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.386, ptr noundef %1117) #18
   %1118 = load ptr, ptr %1103, align 8, !tbaa !6
   %1119 = tail call i32 @sqlite3_exec(ptr noundef %1118, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1120:                                             ; preds = %1113
   %1121 = tail call i32 @sqlite3_exec(ptr noundef %1115, ptr noundef nonnull @.str.387, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8661,7 +8661,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.388, ptr noundef %1124) #18
   %1125 = load ptr, ptr %1103, align 8, !tbaa !6
   %1126 = tail call i32 @sqlite3_exec(ptr noundef %1125, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1127:                                             ; preds = %1120
   %1128 = tail call i32 @sqlite3_exec(ptr noundef %1122, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8682,7 +8682,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.390, ptr noundef %1137) #18
   %1138 = load ptr, ptr %1130, align 8, !tbaa !6
   %1139 = tail call i32 @sqlite3_exec(ptr noundef %1138, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1140:                                             ; preds = %1129
   %1141 = tail call i32 @sqlite3_exec(ptr noundef %1135, ptr noundef nonnull @.str.391, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8695,7 +8695,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.392, ptr noundef %1144) #18
   %1145 = load ptr, ptr %1130, align 8, !tbaa !6
   %1146 = tail call i32 @sqlite3_exec(ptr noundef %1145, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1147:                                             ; preds = %1140
   %1148 = tail call i32 @sqlite3_exec(ptr noundef %1142, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8716,7 +8716,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.394, ptr noundef %1157) #18
   %1158 = load ptr, ptr %1150, align 8, !tbaa !6
   %1159 = tail call i32 @sqlite3_exec(ptr noundef %1158, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1160:                                             ; preds = %1149
   %1161 = tail call i32 @sqlite3_exec(ptr noundef %1155, ptr noundef nonnull @.str.395, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8729,7 +8729,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.396, ptr noundef %1164) #18
   %1165 = load ptr, ptr %1150, align 8, !tbaa !6
   %1166 = tail call i32 @sqlite3_exec(ptr noundef %1165, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1167:                                             ; preds = %1160
   %1168 = tail call i32 @sqlite3_exec(ptr noundef %1162, ptr noundef nonnull @.str.397, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8742,7 +8742,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.398, ptr noundef %1171) #18
   %1172 = load ptr, ptr %1150, align 8, !tbaa !6
   %1173 = tail call i32 @sqlite3_exec(ptr noundef %1172, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1174:                                             ; preds = %1167
   %1175 = tail call i32 @sqlite3_exec(ptr noundef %1169, ptr noundef nonnull @.str.399, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8755,7 +8755,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.400, ptr noundef %1178) #18
   %1179 = load ptr, ptr %1150, align 8, !tbaa !6
   %1180 = tail call i32 @sqlite3_exec(ptr noundef %1179, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1181:                                             ; preds = %1174
   %1182 = tail call i32 @sqlite3_exec(ptr noundef %1176, ptr noundef nonnull @.str.401, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8768,7 +8768,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.402, ptr noundef %1185) #18
   %1186 = load ptr, ptr %1150, align 8, !tbaa !6
   %1187 = tail call i32 @sqlite3_exec(ptr noundef %1186, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1188:                                             ; preds = %1181
   %1189 = tail call i32 @sqlite3_exec(ptr noundef %1183, ptr noundef nonnull @.str.403, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8781,7 +8781,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.404, ptr noundef %1192) #18
   %1193 = load ptr, ptr %1150, align 8, !tbaa !6
   %1194 = tail call i32 @sqlite3_exec(ptr noundef %1193, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1195:                                             ; preds = %1188
   %1196 = tail call i32 @sqlite3_exec(ptr noundef %1190, ptr noundef nonnull @.str.405, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8794,7 +8794,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.406, ptr noundef %1199) #18
   %1200 = load ptr, ptr %1150, align 8, !tbaa !6
   %1201 = tail call i32 @sqlite3_exec(ptr noundef %1200, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1202:                                             ; preds = %1195
   %1203 = tail call i32 @sqlite3_exec(ptr noundef %1197, ptr noundef nonnull @.str.407, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8807,7 +8807,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.408, ptr noundef %1206) #18
   %1207 = load ptr, ptr %1150, align 8, !tbaa !6
   %1208 = tail call i32 @sqlite3_exec(ptr noundef %1207, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1209:                                             ; preds = %1202
   %1210 = tail call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 1) #18
@@ -8822,7 +8822,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.410, ptr noundef %1215) #18
   %1216 = load ptr, ptr %1150, align 8, !tbaa !6
   %1217 = tail call i32 @sqlite3_exec(ptr noundef %1216, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1218:                                             ; preds = %1209
   %1219 = tail call i32 @sqlite3_exec(ptr noundef %1213, ptr noundef nonnull @.str.411, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8835,7 +8835,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.412, ptr noundef %1222) #18
   %1223 = load ptr, ptr %1150, align 8, !tbaa !6
   %1224 = tail call i32 @sqlite3_exec(ptr noundef %1223, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1225:                                             ; preds = %1218
   %1226 = tail call i32 @sqlite3_exec(ptr noundef %1220, ptr noundef nonnull @.str.413, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8848,7 +8848,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.412, ptr noundef %1229) #18
   %1230 = load ptr, ptr %1150, align 8, !tbaa !6
   %1231 = tail call i32 @sqlite3_exec(ptr noundef %1230, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1232:                                             ; preds = %1225
   %1233 = tail call i32 @sqlite3_exec(ptr noundef %1227, ptr noundef nonnull @.str.414, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8861,16 +8861,16 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.415, ptr noundef %1236) #18
   %1237 = load ptr, ptr %1150, align 8, !tbaa !6
   %1238 = tail call i32 @sqlite3_exec(ptr noundef %1237, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1239:                                             ; preds = %1232
   %1240 = tail call i32 @sqlite3_exec(ptr noundef %1234, ptr noundef nonnull @.str.174, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not2250 = icmp eq i32 %1240, 0
-  br i1 %.not2250, label %.preheader2394, label %1241
+  br i1 %.not2250, label %.preheader2388, label %1241
 
-.preheader2394:                                   ; preds = %1239
-  %.not22512429 = icmp eq ptr %1210, null
-  br i1 %.not22512429, label %.critedge2341, label %.lr.ph2431
+.preheader2388:                                   ; preds = %1239
+  %.not22512423 = icmp eq ptr %1210, null
+  br i1 %.not22512423, label %.critedge2341, label %.lr.ph2425
 
 1241:                                             ; preds = %1239
   %1242 = load ptr, ptr %1150, align 8, !tbaa !6
@@ -8878,11 +8878,11 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.416, ptr noundef %1243) #18
   %1244 = load ptr, ptr %1150, align 8, !tbaa !6
   %1245 = tail call i32 @sqlite3_exec(ptr noundef %1244, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
-.lr.ph2431:                                       ; preds = %.preheader2394, %1257
-  %.019002430 = phi ptr [ %1261, %1257 ], [ %1210, %.preheader2394 ]
-  %1246 = load ptr, ptr %.019002430, align 8, !tbaa !65
+.lr.ph2425:                                       ; preds = %.preheader2388, %1257
+  %.019002424 = phi ptr [ %1261, %1257 ], [ %1210, %.preheader2388 ]
+  %1246 = load ptr, ptr %.019002424, align 8, !tbaa !65
   %1247 = load ptr, ptr %1150, align 8, !tbaa !6
   %1248 = call i32 @sqlite3_prepare_v2(ptr noundef %1247, ptr noundef nonnull @.str.177, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
   %1249 = load ptr, ptr %3, align 8, !tbaa !21
@@ -8896,23 +8896,23 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %.not2252 = icmp eq i32 %1256, 101
   br i1 %.not2252, label %1257, label %1262
 
-1257:                                             ; preds = %.lr.ph2431
+1257:                                             ; preds = %.lr.ph2425
   %1258 = load ptr, ptr %3, align 8, !tbaa !21
   %1259 = call i32 @sqlite3_finalize(ptr noundef %1258) #18
-  %1260 = getelementptr inbounds nuw i8, ptr %.019002430, i64 8
+  %1260 = getelementptr inbounds nuw i8, ptr %.019002424, i64 8
   %1261 = load ptr, ptr %1260, align 8, !tbaa !67
   %.not2251 = icmp eq ptr %1261, null
-  br i1 %.not2251, label %.critedge2341, label %.lr.ph2431
+  br i1 %.not2251, label %.critedge2341, label %.lr.ph2425
 
-1262:                                             ; preds = %.lr.ph2431
+1262:                                             ; preds = %.lr.ph2425
   %1263 = load ptr, ptr %1150, align 8, !tbaa !6
   %1264 = call ptr @sqlite3_errmsg(ptr noundef %1263) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.179, ptr noundef %1264) #18
   %1265 = load ptr, ptr %1150, align 8, !tbaa !6
   %1266 = call i32 @sqlite3_exec(ptr noundef %1265, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
-.critedge2341:                                    ; preds = %1257, %.preheader2394
+.critedge2341:                                    ; preds = %1257, %.preheader2388
   call void @g_list_free_full(ptr noundef %1210, ptr noundef nonnull @free) #18
   %1267 = load ptr, ptr %1150, align 8, !tbaa !6
   %1268 = call i32 @sqlite3_exec(ptr noundef %1267, ptr noundef nonnull @.str.417, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8925,37 +8925,37 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.418, ptr noundef %1271) #18
   %1272 = load ptr, ptr %1150, align 8, !tbaa !6
   %1273 = call i32 @sqlite3_exec(ptr noundef %1272, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1274:                                             ; preds = %.critedge2341
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
   %1275 = load ptr, ptr %1150, align 8, !tbaa !6
   %1276 = call i32 @sqlite3_prepare_v2(ptr noundef %1275, ptr noundef nonnull @.str.419, i32 noundef -1, ptr noundef nonnull %12, ptr noundef null) #18
   %.not2254 = icmp eq i32 %1276, 0
-  br i1 %.not2254, label %.preheader2393, label %1280
+  br i1 %.not2254, label %.preheader2387, label %1280
 
-.preheader2393:                                   ; preds = %1274
+.preheader2387:                                   ; preds = %1274
   %1277 = load ptr, ptr %12, align 8, !tbaa !21
   %1278 = call i32 @sqlite3_step(ptr noundef %1277) #18
   %1279 = icmp eq i32 %1278, 100
-  br i1 %1279, label %.lr.ph2432, label %._crit_edge2433
+  br i1 %1279, label %.lr.ph2426, label %._crit_edge2427
 
 1280:                                             ; preds = %1274
   %1281 = load ptr, ptr %1150, align 8, !tbaa !6
   %1282 = call ptr @sqlite3_errmsg(ptr noundef %1281) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.420, ptr noundef %1282) #18
-  br label %.thread2356
+  br label %.thread2359
 
-.lr.ph2432:                                       ; preds = %.preheader2393, %.lr.ph2432
+.lr.ph2426:                                       ; preds = %.preheader2387, %.lr.ph2426
   %1283 = load ptr, ptr %12, align 8, !tbaa !21
   %1284 = call ptr @sqlite3_column_text(ptr noundef %1283, i32 noundef 0) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.421, ptr noundef %1284) #18
   %1285 = load ptr, ptr %12, align 8, !tbaa !21
   %1286 = call i32 @sqlite3_step(ptr noundef %1285) #18
   %1287 = icmp eq i32 %1286, 100
-  br i1 %1287, label %.lr.ph2432, label %._crit_edge2433
+  br i1 %1287, label %.lr.ph2426, label %._crit_edge2427
 
-._crit_edge2433:                                  ; preds = %.lr.ph2432, %.preheader2393
+._crit_edge2427:                                  ; preds = %.lr.ph2426, %.preheader2387
   %1288 = load ptr, ptr %12, align 8, !tbaa !21
   %1289 = call i32 @sqlite3_finalize(ptr noundef %1288) #18
   %1290 = load ptr, ptr %1150, align 8, !tbaa !6
@@ -8964,18 +8964,18 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1292 = load ptr, ptr %1150, align 8, !tbaa !6
   br i1 %.not2255, label %1297, label %1293
 
-1293:                                             ; preds = %._crit_edge2433
+1293:                                             ; preds = %._crit_edge2427
   %1294 = call ptr @sqlite3_errmsg(ptr noundef %1292) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.187, ptr noundef %1294) #18
-  br label %.thread2356
+  br label %.thread2359
 
-.thread2356:                                      ; preds = %1280, %1293
+.thread2359:                                      ; preds = %1280, %1293
   %1295 = load ptr, ptr %1150, align 8, !tbaa !6
   %1296 = call i32 @sqlite3_exec(ptr noundef %1295, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
-  br label %.thread2352
+  br label %.thread2355
 
-1297:                                             ; preds = %._crit_edge2433
+1297:                                             ; preds = %._crit_edge2427
   %1298 = call i32 @sqlite3_exec(ptr noundef %1292, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
   br label %3736
@@ -8995,7 +8995,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.423, ptr noundef %1307) #18
   %1308 = load ptr, ptr %1300, align 8, !tbaa !6
   %1309 = tail call i32 @sqlite3_exec(ptr noundef %1308, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1310:                                             ; preds = %1299
   %1311 = tail call i32 @sqlite3_exec(ptr noundef %1305, ptr noundef nonnull @.str.424, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9008,7 +9008,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.425, ptr noundef %1314) #18
   %1315 = load ptr, ptr %1300, align 8, !tbaa !6
   %1316 = tail call i32 @sqlite3_exec(ptr noundef %1315, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1317:                                             ; preds = %1310
   %1318 = tail call i32 @sqlite3_exec(ptr noundef %1312, ptr noundef nonnull @.str.426, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9021,7 +9021,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.427, ptr noundef %1321) #18
   %1322 = load ptr, ptr %1300, align 8, !tbaa !6
   %1323 = tail call i32 @sqlite3_exec(ptr noundef %1322, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1324:                                             ; preds = %1317
   %1325 = tail call i32 @sqlite3_exec(ptr noundef %1319, ptr noundef nonnull @.str.428, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9034,7 +9034,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.429, ptr noundef %1328) #18
   %1329 = load ptr, ptr %1300, align 8, !tbaa !6
   %1330 = tail call i32 @sqlite3_exec(ptr noundef %1329, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1331:                                             ; preds = %1324
   %1332 = tail call i32 @sqlite3_exec(ptr noundef %1326, ptr noundef nonnull @.str.430, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9047,7 +9047,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.431, ptr noundef %1335) #18
   %1336 = load ptr, ptr %1300, align 8, !tbaa !6
   %1337 = tail call i32 @sqlite3_exec(ptr noundef %1336, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1338:                                             ; preds = %1331
   %1339 = tail call i32 @sqlite3_exec(ptr noundef %1333, ptr noundef nonnull @.str.432, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9060,7 +9060,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.433, ptr noundef %1342) #18
   %1343 = load ptr, ptr %1300, align 8, !tbaa !6
   %1344 = tail call i32 @sqlite3_exec(ptr noundef %1343, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1345:                                             ; preds = %1338
   %1346 = tail call i32 @sqlite3_exec(ptr noundef %1340, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9081,7 +9081,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.198, ptr noundef %1355) #18
   %1356 = load ptr, ptr %1348, align 8, !tbaa !6
   %1357 = tail call i32 @sqlite3_exec(ptr noundef %1356, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1358:                                             ; preds = %1347
   %1359 = tail call i32 @sqlite3_exec(ptr noundef %1353, ptr noundef nonnull @.str.434, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9094,7 +9094,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.435, ptr noundef %1362) #18
   %1363 = load ptr, ptr %1348, align 8, !tbaa !6
   %1364 = tail call i32 @sqlite3_exec(ptr noundef %1363, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1365:                                             ; preds = %1358
   %1366 = tail call i32 @sqlite3_exec(ptr noundef %1360, ptr noundef nonnull @.str.436, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9107,7 +9107,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.435, ptr noundef %1369) #18
   %1370 = load ptr, ptr %1348, align 8, !tbaa !6
   %1371 = tail call i32 @sqlite3_exec(ptr noundef %1370, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1372:                                             ; preds = %1365
   %1373 = tail call i32 @sqlite3_exec(ptr noundef %1367, ptr noundef nonnull @.str.437, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9120,7 +9120,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.200, ptr noundef %1376) #18
   %1377 = load ptr, ptr %1348, align 8, !tbaa !6
   %1378 = tail call i32 @sqlite3_exec(ptr noundef %1377, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1379:                                             ; preds = %1372
   %1380 = tail call i32 @sqlite3_exec(ptr noundef %1374, ptr noundef nonnull @.str.438, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9133,7 +9133,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.439, ptr noundef %1383) #18
   %1384 = load ptr, ptr %1348, align 8, !tbaa !6
   %1385 = tail call i32 @sqlite3_exec(ptr noundef %1384, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1386:                                             ; preds = %1379
   %1387 = tail call i32 @sqlite3_exec(ptr noundef %1381, ptr noundef nonnull @.str.203, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9146,7 +9146,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.440, ptr noundef %1390) #18
   %1391 = load ptr, ptr %1348, align 8, !tbaa !6
   %1392 = tail call i32 @sqlite3_exec(ptr noundef %1391, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1393:                                             ; preds = %1386
   %1394 = tail call i32 @sqlite3_exec(ptr noundef %1388, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9167,7 +9167,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.376, ptr noundef %1403) #18
   %1404 = load ptr, ptr %1396, align 8, !tbaa !6
   %1405 = tail call i32 @sqlite3_exec(ptr noundef %1404, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1406:                                             ; preds = %1395
   %1407 = tail call i32 @sqlite3_exec(ptr noundef %1401, ptr noundef nonnull @.str.442, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9180,7 +9180,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.443, ptr noundef %1410) #18
   %1411 = load ptr, ptr %1396, align 8, !tbaa !6
   %1412 = tail call i32 @sqlite3_exec(ptr noundef %1411, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1413:                                             ; preds = %1406
   %1414 = tail call i32 @sqlite3_exec(ptr noundef %1408, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9201,7 +9201,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.445, ptr noundef %1423) #18
   %1424 = load ptr, ptr %1416, align 8, !tbaa !6
   %1425 = tail call i32 @sqlite3_exec(ptr noundef %1424, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1426:                                             ; preds = %1415
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #18
@@ -9216,18 +9216,18 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.447, ptr noundef %1431) #18
   %1432 = load ptr, ptr %1416, align 8, !tbaa !6
   %1433 = call i32 @sqlite3_exec(ptr noundef %1432, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2377
+  br label %.thread2371
 
 1434:                                             ; preds = %1426
   %1435 = load ptr, ptr %13, align 8, !tbaa !21
   %1436 = call i32 @sqlite3_step(ptr noundef %1435) #18
   %1437 = icmp eq i32 %1436, 100
-  br i1 %1437, label %.lr.ph2427, label %._crit_edge2428
+  br i1 %1437, label %.lr.ph2421, label %._crit_edge2422
 
-.lr.ph2427:                                       ; preds = %1434, %1524
-  %.019012425 = phi ptr [ %1528, %1524 ], [ null, %1434 ]
-  %.019062424 = phi i32 [ %.11907, %1524 ], [ 0, %1434 ]
-  %.019092423 = phi i32 [ %.11910, %1524 ], [ -1, %1434 ]
+.lr.ph2421:                                       ; preds = %1434, %1520
+  %.019012419 = phi ptr [ %1524, %1520 ], [ null, %1434 ]
+  %.019062418 = phi i32 [ %.11907, %1520 ], [ 0, %1434 ]
+  %.019092417 = phi i32 [ %.11910, %1520 ], [ -1, %1434 ]
   %1438 = load ptr, ptr %13, align 8, !tbaa !21
   %1439 = call i32 @sqlite3_column_int(ptr noundef %1438, i32 noundef 0) #18
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14) #18
@@ -9244,60 +9244,60 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1449 = load ptr, ptr %13, align 8, !tbaa !21
   %1450 = call i32 @sqlite3_step(ptr noundef %1449) #18
   %1451 = icmp eq i32 %1450, 100
-  %1452 = icmp eq i32 %1439, %.019062424
+  %1452 = icmp eq i32 %1439, %.019062418
   %or.cond = select i1 %1452, i1 %1451, i1 false
-  br i1 %or.cond, label %1524, label %1453
+  br i1 %or.cond, label %1520, label %1453
 
-1453:                                             ; preds = %.lr.ph2427
-  %.not2213 = icmp eq ptr %.019012425, null
-  br i1 %.not2213, label %1524, label %1454
+1453:                                             ; preds = %.lr.ph2421
+  %.not2213 = icmp eq ptr %.019012419, null
+  br i1 %.not2213, label %1520, label %1454
 
 1454:                                             ; preds = %1453
-  %1455 = icmp eq i32 %.019092423, 2
+  %1455 = icmp eq i32 %.019092417, 2
   %1456 = select i1 %1455, i32 1, i32 2
   %1457 = call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef %1456) #18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1472, %1454
-  %.019132415 = phi ptr [ %1457, %1454 ], [ %.11914, %1472 ]
-  %.019162414 = phi ptr [ %.019012425, %1454 ], [ %1471, %1472 ]
-  %1458 = load ptr, ptr %.019162414, align 8, !tbaa !65
-  %.not22202410 = icmp eq ptr %.019132415, null
-  br i1 %.not22202410, label %.critedge2342, label %.lr.ph2413
+  %.019132409 = phi ptr [ %1457, %1454 ], [ %.11914, %1472 ]
+  %.019162408 = phi ptr [ %.019012419, %1454 ], [ %1471, %1472 ]
+  %1458 = load ptr, ptr %.019162408, align 8, !tbaa !65
+  %.not22202404 = icmp eq ptr %.019132409, null
+  br i1 %.not22202404, label %.critedge2342, label %.lr.ph2407
 
-.lr.ph2413:                                       ; preds = %.loopexit
+.lr.ph2407:                                       ; preds = %.loopexit
   %1459 = getelementptr inbounds nuw i8, ptr %1458, i64 8
   br label %1460
 
-1460:                                             ; preds = %.lr.ph2413, %1464
-  %.019242411 = phi ptr [ %.019132415, %.lr.ph2413 ], [ %1466, %1464 ]
-  %1461 = load ptr, ptr %.019242411, align 8, !tbaa !65
+1460:                                             ; preds = %.lr.ph2407, %1464
+  %.019242405 = phi ptr [ %.019132409, %.lr.ph2407 ], [ %1466, %1464 ]
+  %1461 = load ptr, ptr %.019242405, align 8, !tbaa !65
   %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 8
   %1463 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1462, ptr noundef nonnull dereferenceable(1) %1459) #19
   %.not2221 = icmp eq i32 %1463, 0
   br i1 %.not2221, label %.critedge19, label %1464
 
 1464:                                             ; preds = %1460
-  %1465 = getelementptr inbounds nuw i8, ptr %.019242411, i64 8
+  %1465 = getelementptr inbounds nuw i8, ptr %.019242405, i64 8
   %1466 = load ptr, ptr %1465, align 8, !tbaa !67
   %.not2220 = icmp eq ptr %1466, null
   br i1 %.not2220, label %.critedge2342, label %1460
 
 .critedge19:                                      ; preds = %1460
-  %1467 = call ptr @g_list_delete_link(ptr noundef nonnull %.019132415, ptr noundef nonnull %.019242411) #18
+  %1467 = call ptr @g_list_delete_link(ptr noundef nonnull %.019132409, ptr noundef nonnull %.019242405) #18
   br label %.critedge2342
 
 .critedge2342:                                    ; preds = %1464, %.loopexit, %.critedge19
-  %.11914 = phi ptr [ %1467, %.critedge19 ], [ null, %.loopexit ], [ %.019132415, %1464 ]
+  %.11914 = phi ptr [ %1467, %.critedge19 ], [ null, %.loopexit ], [ %.019132409, %1464 ]
   %1468 = getelementptr inbounds nuw i8, ptr %1458, i64 8
   br label %1469
 
 1469:                                             ; preds = %1472, %.critedge2342
-  %.01918 = phi ptr [ %.019162414, %.critedge2342 ], [ %1471, %1472 ]
+  %.01918 = phi ptr [ %.019162408, %.critedge2342 ], [ %1471, %1472 ]
   %1470 = getelementptr inbounds nuw i8, ptr %.01918, i64 8
   %1471 = load ptr, ptr %1470, align 8, !tbaa !67
   %.not2222 = icmp eq ptr %1471, null
-  br i1 %.not2222, label %.preheader2395, label %1472
+  br i1 %.not2222, label %.preheader2389, label %1472
 
 1472:                                             ; preds = %1469
   %1473 = load ptr, ptr %1471, align 8, !tbaa !65
@@ -9306,55 +9306,55 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %.not2223 = icmp eq i32 %1475, 0
   br i1 %.not2223, label %1469, label %.loopexit
 
-.preheader2395:                                   ; preds = %1469, %.preheader2395
-  %.219152417 = phi ptr [ %1477, %.preheader2395 ], [ %.11914, %1469 ]
-  %.119172416 = phi ptr [ %1479, %.preheader2395 ], [ %.019012425, %1469 ]
-  %1476 = load ptr, ptr %.119172416, align 8, !tbaa !65
-  %1477 = call ptr @g_list_prepend(ptr noundef %.219152417, ptr noundef %1476) #18
-  %1478 = getelementptr inbounds nuw i8, ptr %.119172416, i64 8
+.preheader2389:                                   ; preds = %1469, %.preheader2389
+  %.219152411 = phi ptr [ %1477, %.preheader2389 ], [ %.11914, %1469 ]
+  %.119172410 = phi ptr [ %1479, %.preheader2389 ], [ %.019012419, %1469 ]
+  %1476 = load ptr, ptr %.119172410, align 8, !tbaa !65
+  %1477 = call ptr @g_list_prepend(ptr noundef %.219152411, ptr noundef %1476) #18
+  %1478 = getelementptr inbounds nuw i8, ptr %.119172410, i64 8
   %1479 = load ptr, ptr %1478, align 8, !tbaa !67
   %.not2215 = icmp eq ptr %1479, null
-  br i1 %.not2215, label %1480, label %.preheader2395
+  br i1 %.not2215, label %1480, label %.preheader2389
 
-1480:                                             ; preds = %.preheader2395
+1480:                                             ; preds = %.preheader2389
   %1481 = call ptr @g_list_sort(ptr noundef %1477, ptr noundef nonnull @dt_sort_iop_list_by_order_f) #18
   %1482 = call i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef %1481) #18
-  %.not22162418 = icmp eq ptr %1481, null
-  br i1 %.not22162418, label %._crit_edge2422, label %.lr.ph2421
+  %.not22162412 = icmp eq ptr %1481, null
+  br i1 %.not22162412, label %._crit_edge2416, label %.lr.ph2415
 
-.lr.ph2421:                                       ; preds = %1480, %1485
-  %.019192419 = phi ptr [ %1484, %1485 ], [ %1481, %1480 ]
-  %1483 = getelementptr inbounds nuw i8, ptr %.019192419, i64 8
+.lr.ph2415:                                       ; preds = %1480, %1485
+  %.019192413 = phi ptr [ %1484, %1485 ], [ %1481, %1480 ]
+  %1483 = getelementptr inbounds nuw i8, ptr %.019192413, i64 8
   %1484 = load ptr, ptr %1483, align 8, !tbaa !67
   %cond = icmp eq ptr %1484, null
-  br i1 %cond, label %._crit_edge2422, label %1485
+  br i1 %cond, label %._crit_edge2416, label %1485
 
-1485:                                             ; preds = %.lr.ph2421
-  %1486 = load ptr, ptr %.019192419, align 8, !tbaa !65
+1485:                                             ; preds = %.lr.ph2415
+  %1486 = load ptr, ptr %.019192413, align 8, !tbaa !65
   %1487 = getelementptr inbounds nuw i8, ptr %1486, i64 8
   %1488 = load ptr, ptr %1484, align 8, !tbaa !65
   %1489 = getelementptr inbounds nuw i8, ptr %1488, i64 8
   %1490 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1487, ptr noundef nonnull dereferenceable(1) %1489) #19
   %1491 = icmp eq i32 %1490, 0
-  br i1 %1491, label %.thread2363, label %.lr.ph2421
+  br i1 %1491, label %.thread2366, label %.lr.ph2415
 
-.thread2363:                                      ; preds = %1485
+.thread2366:                                      ; preds = %1485
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #18
   store ptr null, ptr %15, align 8, !tbaa !21
   br label %1493
 
-._crit_edge2422:                                  ; preds = %.lr.ph2421, %1480
+._crit_edge2416:                                  ; preds = %.lr.ph2415, %1480
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #18
   store ptr null, ptr %15, align 8, !tbaa !21
   %1492 = icmp eq i32 %1482, 0
   br i1 %1492, label %1493, label %1507
 
-1493:                                             ; preds = %.thread2363, %._crit_edge2422
+1493:                                             ; preds = %.thread2366, %._crit_edge2416
   %1494 = call ptr @dt_ioppr_serialize_text_iop_order_list(ptr noundef %1481) #18
   %1495 = load ptr, ptr %1416, align 8, !tbaa !6
   %1496 = call i32 @sqlite3_prepare_v2(ptr noundef %1495, ptr noundef nonnull @.str.448, i32 noundef -1, ptr noundef nonnull %15, ptr noundef null) #18
   %1497 = load ptr, ptr %15, align 8, !tbaa !21
-  %1498 = call i32 @sqlite3_bind_int(ptr noundef %1497, i32 noundef 1, i32 noundef %.019062424) #18
+  %1498 = call i32 @sqlite3_bind_int(ptr noundef %1497, i32 noundef 1, i32 noundef %.019062418) #18
   %1499 = load ptr, ptr %15, align 8, !tbaa !21
   %1500 = call i32 @sqlite3_bind_int(ptr noundef %1499, i32 noundef 2, i32 noundef %1482) #18
   %1501 = load ptr, ptr %15, align 8, !tbaa !21
@@ -9362,214 +9362,214 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1503 = load ptr, ptr %15, align 8, !tbaa !21
   %1504 = call i32 @sqlite3_step(ptr noundef %1503) #18
   %.not2219 = icmp eq i32 %1504, 101
-  br i1 %.not2219, label %.thread2366, label %.thread2371
+  br i1 %.not2219, label %.thread2369, label %.critedge2344.critedge
 
-.thread2366:                                      ; preds = %1493
+.thread2369:                                      ; preds = %1493
   %1505 = load ptr, ptr %15, align 8, !tbaa !21
   %1506 = call i32 @sqlite3_finalize(ptr noundef %1505) #18
   call void @g_free(ptr noundef %1494) #18
-  br label %1523
+  br label %1519
 
-1507:                                             ; preds = %._crit_edge2422
+1507:                                             ; preds = %._crit_edge2416
   %1508 = load ptr, ptr %1416, align 8, !tbaa !6
   %1509 = call i32 @sqlite3_prepare_v2(ptr noundef %1508, ptr noundef nonnull @.str.450, i32 noundef -1, ptr noundef nonnull %15, ptr noundef null) #18
   %1510 = load ptr, ptr %15, align 8, !tbaa !21
-  %1511 = call i32 @sqlite3_bind_int(ptr noundef %1510, i32 noundef 1, i32 noundef %.019062424) #18
+  %1511 = call i32 @sqlite3_bind_int(ptr noundef %1510, i32 noundef 1, i32 noundef %.019062418) #18
   %1512 = load ptr, ptr %15, align 8, !tbaa !21
   %1513 = call i32 @sqlite3_bind_int(ptr noundef %1512, i32 noundef 2, i32 noundef %1482) #18
   %1514 = load ptr, ptr %15, align 8, !tbaa !21
   %1515 = call i32 @sqlite3_step(ptr noundef %1514) #18
   %.not2218 = icmp eq i32 %1515, 101
-  br i1 %.not2218, label %1516, label %.thread2371
+  br i1 %.not2218, label %1516, label %.critedge2344.critedge
 
 1516:                                             ; preds = %1507
   %1517 = load ptr, ptr %15, align 8, !tbaa !21
   %1518 = call i32 @sqlite3_finalize(ptr noundef %1517) #18
-  br label %1523
+  br label %1519
 
-.thread2371:                                      ; preds = %1507, %1493
-  %.str.451.sink = phi ptr [ @.str.449, %1493 ], [ @.str.451, %1507 ]
-  %1519 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1520 = call ptr @sqlite3_errmsg(ptr noundef %1519) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull %.str.451.sink, ptr noundef %1520) #18
-  %1521 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1522 = call i32 @sqlite3_exec(ptr noundef %1521, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #18
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #18
-  br label %.thread2377
-
-1523:                                             ; preds = %1516, %.thread2366
-  call void @g_list_free(ptr noundef nonnull %.019012425) #18
+1519:                                             ; preds = %.thread2369, %1516
+  call void @g_list_free(ptr noundef nonnull %.019012419) #18
   call void @g_list_free_full(ptr noundef %1481, ptr noundef nonnull @free) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #18
-  br label %1524
+  br label %1520
 
-1524:                                             ; preds = %.lr.ph2427, %1453, %1523
-  %.11910 = phi i32 [ %.019092423, %.lr.ph2427 ], [ %1448, %1523 ], [ %1448, %1453 ]
-  %.11907 = phi i32 [ %.019062424, %.lr.ph2427 ], [ %1439, %1523 ], [ %1439, %1453 ]
-  %.11902 = phi ptr [ %.019012425, %.lr.ph2427 ], [ null, %1523 ], [ null, %1453 ]
-  %1525 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
-  %1526 = getelementptr inbounds nuw i8, ptr %1525, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1526, ptr noundef nonnull align 16 dereferenceable(20) %14, i64 20, i1 false)
-  %1527 = getelementptr inbounds nuw i8, ptr %1525, i64 28
-  store i32 %1444, ptr %1527, align 4, !tbaa !75
-  store double %1446, ptr %1525, align 8, !tbaa !16
-  %1528 = call ptr @g_list_append(ptr noundef %.11902, ptr noundef nonnull %1525) #18
+1520:                                             ; preds = %1519, %1453, %.lr.ph2421
+  %.11910 = phi i32 [ %.019092417, %.lr.ph2421 ], [ %1448, %1519 ], [ %1448, %1453 ]
+  %.11907 = phi i32 [ %.019062418, %.lr.ph2421 ], [ %1439, %1519 ], [ %1439, %1453 ]
+  %.11902 = phi ptr [ %.019012419, %.lr.ph2421 ], [ null, %1519 ], [ null, %1453 ]
+  %1521 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
+  %1522 = getelementptr inbounds nuw i8, ptr %1521, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1522, ptr noundef nonnull align 16 dereferenceable(20) %14, i64 20, i1 false)
+  %1523 = getelementptr inbounds nuw i8, ptr %1521, i64 28
+  store i32 %1444, ptr %1523, align 4, !tbaa !75
+  store double %1446, ptr %1521, align 8, !tbaa !16
+  %1524 = call ptr @g_list_append(ptr noundef %.11902, ptr noundef nonnull %1521) #18
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #18
-  br i1 %1451, label %.lr.ph2427, label %._crit_edge2428
+  br i1 %1451, label %.lr.ph2421, label %._crit_edge2422
 
-._crit_edge2428:                                  ; preds = %1524, %1434
-  %1529 = load ptr, ptr %13, align 8, !tbaa !21
-  %1530 = call i32 @sqlite3_finalize(ptr noundef %1529) #18
-  %1531 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1532 = call i32 @sqlite3_exec(ptr noundef %1531, ptr noundef nonnull @.str.452, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2202 = icmp eq i32 %1532, 0
-  %1533 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2202, label %1538, label %1534
+._crit_edge2422:                                  ; preds = %1520, %1434
+  %1525 = load ptr, ptr %13, align 8, !tbaa !21
+  %1526 = call i32 @sqlite3_finalize(ptr noundef %1525) #18
+  %1527 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1528 = call i32 @sqlite3_exec(ptr noundef %1527, ptr noundef nonnull @.str.452, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2202 = icmp eq i32 %1528, 0
+  %1529 = load ptr, ptr %1416, align 8, !tbaa !6
+  br i1 %.not2202, label %1534, label %1530
 
-1534:                                             ; preds = %._crit_edge2428
-  %1535 = call ptr @sqlite3_errmsg(ptr noundef %1533) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.453, ptr noundef %1535) #18
+1530:                                             ; preds = %._crit_edge2422
+  %1531 = call ptr @sqlite3_errmsg(ptr noundef %1529) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.453, ptr noundef %1531) #18
+  %1532 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1533 = call i32 @sqlite3_exec(ptr noundef %1532, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2371
+
+1534:                                             ; preds = %._crit_edge2422
+  %1535 = call i32 @sqlite3_exec(ptr noundef %1529, ptr noundef nonnull @.str.454, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2203 = icmp eq i32 %1535, 0
   %1536 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1537 = call i32 @sqlite3_exec(ptr noundef %1536, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2377
+  br i1 %.not2203, label %1541, label %1537
 
-1538:                                             ; preds = %._crit_edge2428
-  %1539 = call i32 @sqlite3_exec(ptr noundef %1533, ptr noundef nonnull @.str.454, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2203 = icmp eq i32 %1539, 0
-  %1540 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2203, label %1545, label %1541
+1537:                                             ; preds = %1534
+  %1538 = call ptr @sqlite3_errmsg(ptr noundef %1536) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.455, ptr noundef %1538) #18
+  %1539 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1540 = call i32 @sqlite3_exec(ptr noundef %1539, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2371
 
-1541:                                             ; preds = %1538
-  %1542 = call ptr @sqlite3_errmsg(ptr noundef %1540) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.455, ptr noundef %1542) #18
+1541:                                             ; preds = %1534
+  %1542 = call i32 @sqlite3_exec(ptr noundef %1536, ptr noundef nonnull @.str.456, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2204 = icmp eq i32 %1542, 0
   %1543 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1544 = call i32 @sqlite3_exec(ptr noundef %1543, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2377
+  br i1 %.not2204, label %1548, label %1544
 
-1545:                                             ; preds = %1538
-  %1546 = call i32 @sqlite3_exec(ptr noundef %1540, ptr noundef nonnull @.str.456, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2204 = icmp eq i32 %1546, 0
-  %1547 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2204, label %1552, label %1548
+1544:                                             ; preds = %1541
+  %1545 = call ptr @sqlite3_errmsg(ptr noundef %1543) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.453, ptr noundef %1545) #18
+  %1546 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1547 = call i32 @sqlite3_exec(ptr noundef %1546, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2371
 
-1548:                                             ; preds = %1545
-  %1549 = call ptr @sqlite3_errmsg(ptr noundef %1547) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.453, ptr noundef %1549) #18
+1548:                                             ; preds = %1541
+  %1549 = call i32 @sqlite3_exec(ptr noundef %1543, ptr noundef nonnull @.str.457, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2205 = icmp eq i32 %1549, 0
   %1550 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1551 = call i32 @sqlite3_exec(ptr noundef %1550, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2377
+  br i1 %.not2205, label %1555, label %1551
 
-1552:                                             ; preds = %1545
-  %1553 = call i32 @sqlite3_exec(ptr noundef %1547, ptr noundef nonnull @.str.457, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2205 = icmp eq i32 %1553, 0
-  %1554 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2205, label %1559, label %1555
+1551:                                             ; preds = %1548
+  %1552 = call ptr @sqlite3_errmsg(ptr noundef %1550) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.458, ptr noundef %1552) #18
+  %1553 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1554 = call i32 @sqlite3_exec(ptr noundef %1553, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2371
 
-1555:                                             ; preds = %1552
-  %1556 = call ptr @sqlite3_errmsg(ptr noundef %1554) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.458, ptr noundef %1556) #18
+1555:                                             ; preds = %1548
+  %1556 = call i32 @sqlite3_exec(ptr noundef %1550, ptr noundef nonnull @.str.459, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2206 = icmp eq i32 %1556, 0
   %1557 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1558 = call i32 @sqlite3_exec(ptr noundef %1557, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2377
+  br i1 %.not2206, label %1562, label %1558
 
-1559:                                             ; preds = %1552
-  %1560 = call i32 @sqlite3_exec(ptr noundef %1554, ptr noundef nonnull @.str.459, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2206 = icmp eq i32 %1560, 0
-  %1561 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2206, label %1566, label %1562
+1558:                                             ; preds = %1555
+  %1559 = call ptr @sqlite3_errmsg(ptr noundef %1557) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.460, ptr noundef %1559) #18
+  %1560 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1561 = call i32 @sqlite3_exec(ptr noundef %1560, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2371
 
-1562:                                             ; preds = %1559
-  %1563 = call ptr @sqlite3_errmsg(ptr noundef %1561) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.460, ptr noundef %1563) #18
+1562:                                             ; preds = %1555
+  %1563 = call i32 @sqlite3_exec(ptr noundef %1557, ptr noundef nonnull @.str.461, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2207 = icmp eq i32 %1563, 0
   %1564 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1565 = call i32 @sqlite3_exec(ptr noundef %1564, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2377
+  br i1 %.not2207, label %1569, label %1565
 
-1566:                                             ; preds = %1559
-  %1567 = call i32 @sqlite3_exec(ptr noundef %1561, ptr noundef nonnull @.str.461, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2207 = icmp eq i32 %1567, 0
-  %1568 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2207, label %1573, label %1569
+1565:                                             ; preds = %1562
+  %1566 = call ptr @sqlite3_errmsg(ptr noundef %1564) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.462, ptr noundef %1566) #18
+  %1567 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1568 = call i32 @sqlite3_exec(ptr noundef %1567, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2371
 
-1569:                                             ; preds = %1566
-  %1570 = call ptr @sqlite3_errmsg(ptr noundef %1568) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.462, ptr noundef %1570) #18
+1569:                                             ; preds = %1562
+  %1570 = call i32 @sqlite3_exec(ptr noundef %1564, ptr noundef nonnull @.str.463, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2208 = icmp eq i32 %1570, 0
   %1571 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1572 = call i32 @sqlite3_exec(ptr noundef %1571, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2377
+  br i1 %.not2208, label %1576, label %1572
 
-1573:                                             ; preds = %1566
-  %1574 = call i32 @sqlite3_exec(ptr noundef %1568, ptr noundef nonnull @.str.463, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2208 = icmp eq i32 %1574, 0
-  %1575 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2208, label %1580, label %1576
+1572:                                             ; preds = %1569
+  %1573 = call ptr @sqlite3_errmsg(ptr noundef %1571) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.464, ptr noundef %1573) #18
+  %1574 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1575 = call i32 @sqlite3_exec(ptr noundef %1574, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2371
 
-1576:                                             ; preds = %1573
-  %1577 = call ptr @sqlite3_errmsg(ptr noundef %1575) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.464, ptr noundef %1577) #18
+1576:                                             ; preds = %1569
+  %1577 = call i32 @sqlite3_exec(ptr noundef %1571, ptr noundef nonnull @.str.465, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2209 = icmp eq i32 %1577, 0
   %1578 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1579 = call i32 @sqlite3_exec(ptr noundef %1578, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2377
+  br i1 %.not2209, label %1583, label %1579
 
-1580:                                             ; preds = %1573
-  %1581 = call i32 @sqlite3_exec(ptr noundef %1575, ptr noundef nonnull @.str.465, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2209 = icmp eq i32 %1581, 0
-  %1582 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2209, label %1587, label %1583
+1579:                                             ; preds = %1576
+  %1580 = call ptr @sqlite3_errmsg(ptr noundef %1578) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.466, ptr noundef %1580) #18
+  %1581 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1582 = call i32 @sqlite3_exec(ptr noundef %1581, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2371
 
-1583:                                             ; preds = %1580
-  %1584 = call ptr @sqlite3_errmsg(ptr noundef %1582) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.466, ptr noundef %1584) #18
+1583:                                             ; preds = %1576
+  %1584 = call i32 @sqlite3_exec(ptr noundef %1578, ptr noundef nonnull @.str.467, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2210 = icmp eq i32 %1584, 0
   %1585 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1586 = call i32 @sqlite3_exec(ptr noundef %1585, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2377
+  br i1 %.not2210, label %1590, label %1586
 
-1587:                                             ; preds = %1580
-  %1588 = call i32 @sqlite3_exec(ptr noundef %1582, ptr noundef nonnull @.str.467, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2210 = icmp eq i32 %1588, 0
-  %1589 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2210, label %1594, label %1590
+1586:                                             ; preds = %1583
+  %1587 = call ptr @sqlite3_errmsg(ptr noundef %1585) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.468, ptr noundef %1587) #18
+  %1588 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1589 = call i32 @sqlite3_exec(ptr noundef %1588, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2371
 
-1590:                                             ; preds = %1587
-  %1591 = call ptr @sqlite3_errmsg(ptr noundef %1589) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.468, ptr noundef %1591) #18
+1590:                                             ; preds = %1583
+  %1591 = call i32 @sqlite3_exec(ptr noundef %1585, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2211 = icmp eq i32 %1591, 0
   %1592 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1593 = call i32 @sqlite3_exec(ptr noundef %1592, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2377
+  br i1 %.not2211, label %1597, label %1593
 
-1594:                                             ; preds = %1587
-  %1595 = call i32 @sqlite3_exec(ptr noundef %1589, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2211 = icmp eq i32 %1595, 0
-  %1596 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2211, label %1601, label %1597
+1593:                                             ; preds = %1590
+  %1594 = call ptr @sqlite3_errmsg(ptr noundef %1592) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.470, ptr noundef %1594) #18
+  %1595 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1596 = call i32 @sqlite3_exec(ptr noundef %1595, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2371
 
-1597:                                             ; preds = %1594
-  %1598 = call ptr @sqlite3_errmsg(ptr noundef %1596) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.470, ptr noundef %1598) #18
+1597:                                             ; preds = %1590
+  %1598 = call i32 @sqlite3_exec(ptr noundef %1592, ptr noundef nonnull @.str.471, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2212 = icmp eq i32 %1598, 0
   %1599 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1600 = call i32 @sqlite3_exec(ptr noundef %1599, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2377
+  br i1 %.not2212, label %1608, label %1600
 
-1601:                                             ; preds = %1594
-  %1602 = call i32 @sqlite3_exec(ptr noundef %1596, ptr noundef nonnull @.str.471, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2212 = icmp eq i32 %1602, 0
-  %1603 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2212, label %1608, label %1604
+1600:                                             ; preds = %1597
+  %1601 = call ptr @sqlite3_errmsg(ptr noundef %1599) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.472, ptr noundef %1601) #18
+  %1602 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1603 = call i32 @sqlite3_exec(ptr noundef %1602, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2371
 
-1604:                                             ; preds = %1601
-  %1605 = call ptr @sqlite3_errmsg(ptr noundef %1603) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.472, ptr noundef %1605) #18
+.critedge2344.critedge:                           ; preds = %1507, %1493
+  %.str.449.sink = phi ptr [ @.str.449, %1493 ], [ @.str.451, %1507 ]
+  %1604 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1605 = call ptr @sqlite3_errmsg(ptr noundef %1604) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull %.str.449.sink, ptr noundef %1605) #18
   %1606 = load ptr, ptr %1416, align 8, !tbaa !6
   %1607 = call i32 @sqlite3_exec(ptr noundef %1606, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2377
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #18
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #18
+  br label %.thread2371
 
-.thread2377:                                      ; preds = %1429, %1534, %1541, %1548, %1555, %1562, %1569, %1576, %1583, %1590, %1597, %1604, %.thread2371
+.thread2371:                                      ; preds = %1429, %1530, %1537, %1544, %1551, %1558, %1565, %1572, %1579, %1586, %1593, %1600, %.critedge2344.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #18
-  br label %.thread2352
+  br label %.thread2355
 
-1608:                                             ; preds = %1601
-  %1609 = call i32 @sqlite3_exec(ptr noundef %1603, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1608:                                             ; preds = %1597
+  %1609 = call i32 @sqlite3_exec(ptr noundef %1599, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #18
   br label %3736
 
@@ -9588,7 +9588,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.474, ptr noundef %1618) #18
   %1619 = load ptr, ptr %1611, align 8, !tbaa !6
   %1620 = tail call i32 @sqlite3_exec(ptr noundef %1619, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1621:                                             ; preds = %1610
   %1622 = tail call i32 @sqlite3_exec(ptr noundef %1616, ptr noundef nonnull @.str.475, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9601,7 +9601,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.476, ptr noundef %1625) #18
   %1626 = load ptr, ptr %1611, align 8, !tbaa !6
   %1627 = tail call i32 @sqlite3_exec(ptr noundef %1626, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1628:                                             ; preds = %1621
   %1629 = tail call i32 @sqlite3_exec(ptr noundef %1623, ptr noundef nonnull @.str.477, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9614,7 +9614,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.478, ptr noundef %1632) #18
   %1633 = load ptr, ptr %1611, align 8, !tbaa !6
   %1634 = tail call i32 @sqlite3_exec(ptr noundef %1633, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1635:                                             ; preds = %1628
   %1636 = tail call i32 @sqlite3_exec(ptr noundef %1630, ptr noundef nonnull @.str.479, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9627,7 +9627,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.480, ptr noundef %1639) #18
   %1640 = load ptr, ptr %1611, align 8, !tbaa !6
   %1641 = tail call i32 @sqlite3_exec(ptr noundef %1640, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1642:                                             ; preds = %1635
   %1643 = tail call i32 @sqlite3_exec(ptr noundef %1637, ptr noundef nonnull @.str.481, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9640,7 +9640,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.482, ptr noundef %1646) #18
   %1647 = load ptr, ptr %1611, align 8, !tbaa !6
   %1648 = tail call i32 @sqlite3_exec(ptr noundef %1647, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1649:                                             ; preds = %1642
   %1650 = tail call i32 @sqlite3_exec(ptr noundef %1644, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9661,7 +9661,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.484, ptr noundef %1659) #18
   %1660 = load ptr, ptr %1652, align 8, !tbaa !6
   %1661 = tail call i32 @sqlite3_exec(ptr noundef %1660, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1662:                                             ; preds = %1651
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #18
@@ -9672,13 +9672,13 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1666 = load ptr, ptr %1652, align 8, !tbaa !6
   %1667 = call i32 @sqlite3_prepare_v2(ptr noundef %1666, ptr noundef %1665, i32 noundef -1, ptr noundef nonnull %16, ptr noundef null) #18
   %.not2188 = icmp eq i32 %1667, 0
-  br i1 %.not2188, label %.preheader2396, label %1671
+  br i1 %.not2188, label %.preheader2390, label %1671
 
-.preheader2396:                                   ; preds = %1662
+.preheader2390:                                   ; preds = %1662
   %1668 = load ptr, ptr %16, align 8, !tbaa !21
   %1669 = call i32 @sqlite3_step(ptr noundef %1668) #18
   %1670 = icmp eq i32 %1669, 100
-  br i1 %1670, label %.lr.ph2408, label %._crit_edge2409
+  br i1 %1670, label %.lr.ph2402, label %._crit_edge2403
 
 1671:                                             ; preds = %1662
   %1672 = load ptr, ptr %1652, align 8, !tbaa !6
@@ -9686,9 +9686,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.487, ptr noundef %1673) #18
   %1674 = load ptr, ptr %1652, align 8, !tbaa !6
   %1675 = call i32 @sqlite3_exec(ptr noundef %1674, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2382
+  br label %.thread2376
 
-.lr.ph2408:                                       ; preds = %.preheader2396, %1753
+.lr.ph2402:                                       ; preds = %.preheader2390, %1753
   %1676 = load ptr, ptr %16, align 8, !tbaa !21
   %1677 = call i32 @sqlite3_column_int(ptr noundef %1676, i32 noundef 0) #18
   %1678 = load ptr, ptr %16, align 8, !tbaa !21
@@ -9704,19 +9704,19 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1685 = load ptr, ptr %18, align 8, !tbaa !21
   %1686 = call i32 @sqlite3_step(ptr noundef %1685) #18
   %1687 = icmp eq i32 %1686, 100
-  br i1 %1687, label %.lr.ph2406, label %._crit_edge2407
+  br i1 %1687, label %.lr.ph2400, label %._crit_edge2401
 
-.lr.ph2406:                                       ; preds = %.lr.ph2408, %1705
+.lr.ph2400:                                       ; preds = %.lr.ph2402, %1705
   %1688 = load ptr, ptr %18, align 8, !tbaa !21
   %1689 = call ptr @sqlite3_column_text(ptr noundef %1688, i32 noundef 0) #18
   %.not2192 = icmp eq ptr %1689, null
   br i1 %.not2192, label %1691, label %1690
 
-1690:                                             ; preds = %.lr.ph2406
+1690:                                             ; preds = %.lr.ph2400
   call void @g_checksum_update(ptr noundef %1680, ptr noundef nonnull %1689, i64 noundef -1) #18
   br label %1691
 
-1691:                                             ; preds = %1690, %.lr.ph2406
+1691:                                             ; preds = %1690, %.lr.ph2400
   %1692 = load ptr, ptr %18, align 8, !tbaa !21
   %1693 = call ptr @sqlite3_column_blob(ptr noundef %1692, i32 noundef 1) #18
   %1694 = load ptr, ptr %18, align 8, !tbaa !21
@@ -9746,9 +9746,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1706 = load ptr, ptr %18, align 8, !tbaa !21
   %1707 = call i32 @sqlite3_step(ptr noundef %1706) #18
   %1708 = icmp eq i32 %1707, 100
-  br i1 %1708, label %.lr.ph2406, label %._crit_edge2407
+  br i1 %1708, label %.lr.ph2400, label %._crit_edge2401
 
-._crit_edge2407:                                  ; preds = %1705, %.lr.ph2408
+._crit_edge2401:                                  ; preds = %1705, %.lr.ph2402
   %1709 = load ptr, ptr %18, align 8, !tbaa !21
   %1710 = call i32 @sqlite3_finalize(ptr noundef %1709) #18
   store ptr null, ptr %18, align 8, !tbaa !21
@@ -9761,7 +9761,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1717 = icmp eq i32 %1716, 100
   br i1 %1717, label %1718, label %1728
 
-1718:                                             ; preds = %._crit_edge2407
+1718:                                             ; preds = %._crit_edge2401
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #18
   %1719 = load ptr, ptr %18, align 8, !tbaa !21
   %1720 = call i32 @sqlite3_column_int(ptr noundef %1719, i32 noundef 0) #18
@@ -9785,7 +9785,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #18
   br label %1728
 
-1728:                                             ; preds = %1727, %._crit_edge2407
+1728:                                             ; preds = %1727, %._crit_edge2401
   %1729 = load ptr, ptr %18, align 8, !tbaa !21
   %1730 = call i32 @sqlite3_finalize(ptr noundef %1729) #18
   %1731 = call i64 @g_checksum_type_get_length(i32 noundef 0) #18
@@ -9812,9 +9812,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1747 = load ptr, ptr %18, align 8, !tbaa !21
   %1748 = call i32 @sqlite3_step(ptr noundef %1747) #18
   %.not2191 = icmp eq i32 %1748, 101
-  br i1 %.not2191, label %1753, label %.thread2380
+  br i1 %.not2191, label %1753, label %.thread2374
 
-.thread2380:                                      ; preds = %1728
+.thread2374:                                      ; preds = %1728
   %1749 = load ptr, ptr %1652, align 8, !tbaa !6
   %1750 = call ptr @sqlite3_errmsg(ptr noundef %1749) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.491, ptr noundef %1750) #18
@@ -9822,7 +9822,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1752 = call i32 @sqlite3_exec(ptr noundef %1751, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #18
-  br label %.thread2382
+  br label %.thread2376
 
 1753:                                             ; preds = %1728
   %1754 = load ptr, ptr %18, align 8, !tbaa !21
@@ -9833,13 +9833,13 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %1756 = load ptr, ptr %16, align 8, !tbaa !21
   %1757 = call i32 @sqlite3_step(ptr noundef %1756) #18
   %1758 = icmp eq i32 %1757, 100
-  br i1 %1758, label %.lr.ph2408, label %._crit_edge2409
+  br i1 %1758, label %.lr.ph2402, label %._crit_edge2403
 
-.thread2382:                                      ; preds = %1671, %.thread2380
+.thread2376:                                      ; preds = %1671, %.thread2374
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #18
-  br label %.thread2352
+  br label %.thread2355
 
-._crit_edge2409:                                  ; preds = %1753, %.preheader2396
+._crit_edge2403:                                  ; preds = %1753, %.preheader2390
   %1759 = load ptr, ptr %16, align 8, !tbaa !21
   %1760 = call i32 @sqlite3_finalize(ptr noundef %1759) #18
   call void @g_free(ptr noundef %1665) #18
@@ -9861,7 +9861,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.493, ptr noundef %1769) #18
   %1770 = load ptr, ptr %1764, align 8, !tbaa !6
   %1771 = tail call i32 @sqlite3_exec(ptr noundef %1770, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1772:                                             ; preds = %2
   %1773 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9876,7 +9876,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.495, ptr noundef %1778) #18
   %1779 = load ptr, ptr %1773, align 8, !tbaa !6
   %1780 = tail call i32 @sqlite3_exec(ptr noundef %1779, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1781:                                             ; preds = %2
   %1782 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9893,7 +9893,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.497, ptr noundef %1789) #18
   %1790 = load ptr, ptr %1782, align 8, !tbaa !6
   %1791 = tail call i32 @sqlite3_exec(ptr noundef %1790, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1792:                                             ; preds = %1781
   %1793 = tail call i32 @sqlite3_exec(ptr noundef %1787, ptr noundef nonnull @.str.498, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9906,7 +9906,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.499, ptr noundef %1796) #18
   %1797 = load ptr, ptr %1782, align 8, !tbaa !6
   %1798 = tail call i32 @sqlite3_exec(ptr noundef %1797, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1799:                                             ; preds = %1792
   %1800 = tail call i32 @sqlite3_exec(ptr noundef %1794, ptr noundef nonnull @.str.500, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9919,7 +9919,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.501, ptr noundef %1803) #18
   %1804 = load ptr, ptr %1782, align 8, !tbaa !6
   %1805 = tail call i32 @sqlite3_exec(ptr noundef %1804, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1806:                                             ; preds = %1799
   %1807 = tail call i32 @sqlite3_exec(ptr noundef %1801, ptr noundef nonnull @.str.502, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9932,7 +9932,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.503, ptr noundef %1810) #18
   %1811 = load ptr, ptr %1782, align 8, !tbaa !6
   %1812 = tail call i32 @sqlite3_exec(ptr noundef %1811, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1813:                                             ; preds = %1806
   %1814 = tail call i32 @sqlite3_exec(ptr noundef %1808, ptr noundef nonnull @.str.504, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9945,7 +9945,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.505, ptr noundef %1817) #18
   %1818 = load ptr, ptr %1782, align 8, !tbaa !6
   %1819 = tail call i32 @sqlite3_exec(ptr noundef %1818, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1820:                                             ; preds = %1813
   %1821 = tail call i32 @sqlite3_exec(ptr noundef %1815, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9966,7 +9966,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.507, ptr noundef %1830) #18
   %1831 = load ptr, ptr %1823, align 8, !tbaa !6
   %1832 = tail call i32 @sqlite3_exec(ptr noundef %1831, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1833:                                             ; preds = %1822
   %1834 = tail call i32 @sqlite3_exec(ptr noundef %1828, ptr noundef nonnull @.str.508, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9979,7 +9979,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.509, ptr noundef %1837) #18
   %1838 = load ptr, ptr %1823, align 8, !tbaa !6
   %1839 = tail call i32 @sqlite3_exec(ptr noundef %1838, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1840:                                             ; preds = %1833
   %1841 = tail call i32 @sqlite3_exec(ptr noundef %1835, ptr noundef nonnull @.str.510, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -9992,7 +9992,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.511, ptr noundef %1844) #18
   %1845 = load ptr, ptr %1823, align 8, !tbaa !6
   %1846 = tail call i32 @sqlite3_exec(ptr noundef %1845, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1847:                                             ; preds = %1840
   %1848 = tail call i32 @sqlite3_exec(ptr noundef %1842, ptr noundef nonnull @.str.512, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10005,7 +10005,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.513, ptr noundef %1851) #18
   %1852 = load ptr, ptr %1823, align 8, !tbaa !6
   %1853 = tail call i32 @sqlite3_exec(ptr noundef %1852, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1854:                                             ; preds = %1847
   %1855 = tail call i32 @sqlite3_exec(ptr noundef %1849, ptr noundef nonnull @.str.514, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10018,7 +10018,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.515, ptr noundef %1858) #18
   %1859 = load ptr, ptr %1823, align 8, !tbaa !6
   %1860 = tail call i32 @sqlite3_exec(ptr noundef %1859, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1861:                                             ; preds = %1854
   %1862 = tail call i32 @sqlite3_exec(ptr noundef %1856, ptr noundef nonnull @.str.516, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10031,7 +10031,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.517, ptr noundef %1865) #18
   %1866 = load ptr, ptr %1823, align 8, !tbaa !6
   %1867 = tail call i32 @sqlite3_exec(ptr noundef %1866, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1868:                                             ; preds = %1861
   %1869 = tail call i32 @sqlite3_exec(ptr noundef %1863, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10052,7 +10052,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.519, ptr noundef %1878) #18
   %1879 = load ptr, ptr %1871, align 8, !tbaa !6
   %1880 = tail call i32 @sqlite3_exec(ptr noundef %1879, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1881:                                             ; preds = %1870
   %1882 = tail call i32 @sqlite3_exec(ptr noundef %1876, ptr noundef nonnull @.str.520, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10065,7 +10065,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.521, ptr noundef %1885) #18
   %1886 = load ptr, ptr %1871, align 8, !tbaa !6
   %1887 = tail call i32 @sqlite3_exec(ptr noundef %1886, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1888:                                             ; preds = %1881
   %1889 = tail call i32 @sqlite3_exec(ptr noundef %1883, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10086,7 +10086,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.523, ptr noundef %1898) #18
   %1899 = load ptr, ptr %1891, align 8, !tbaa !6
   %1900 = tail call i32 @sqlite3_exec(ptr noundef %1899, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1901:                                             ; preds = %1890
   %1902 = tail call i32 @sqlite3_exec(ptr noundef %1896, ptr noundef nonnull @.str.524, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10099,7 +10099,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.525, ptr noundef %1905) #18
   %1906 = load ptr, ptr %1891, align 8, !tbaa !6
   %1907 = tail call i32 @sqlite3_exec(ptr noundef %1906, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1908:                                             ; preds = %1901
   %1909 = tail call i32 @sqlite3_exec(ptr noundef %1903, ptr noundef nonnull @.str.526, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10112,7 +10112,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.527, ptr noundef %1912) #18
   %1913 = load ptr, ptr %1891, align 8, !tbaa !6
   %1914 = tail call i32 @sqlite3_exec(ptr noundef %1913, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1915:                                             ; preds = %1908
   %1916 = tail call i32 @sqlite3_exec(ptr noundef %1910, ptr noundef nonnull @.str.528, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10125,7 +10125,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.529, ptr noundef %1919) #18
   %1920 = load ptr, ptr %1891, align 8, !tbaa !6
   %1921 = tail call i32 @sqlite3_exec(ptr noundef %1920, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1922:                                             ; preds = %1915
   %1923 = tail call i32 @sqlite3_exec(ptr noundef %1917, ptr noundef nonnull @.str.530, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10138,7 +10138,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.531, ptr noundef %1926) #18
   %1927 = load ptr, ptr %1891, align 8, !tbaa !6
   %1928 = tail call i32 @sqlite3_exec(ptr noundef %1927, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1929:                                             ; preds = %1922
   %1930 = tail call i32 @sqlite3_exec(ptr noundef %1924, ptr noundef nonnull @.str.532, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10151,7 +10151,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.533, ptr noundef %1933) #18
   %1934 = load ptr, ptr %1891, align 8, !tbaa !6
   %1935 = tail call i32 @sqlite3_exec(ptr noundef %1934, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1936:                                             ; preds = %1929
   %1937 = tail call i32 @sqlite3_exec(ptr noundef %1931, ptr noundef nonnull @.str.534, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10164,7 +10164,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.470, ptr noundef %1940) #18
   %1941 = load ptr, ptr %1891, align 8, !tbaa !6
   %1942 = tail call i32 @sqlite3_exec(ptr noundef %1941, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1943:                                             ; preds = %1936
   %1944 = tail call i32 @sqlite3_exec(ptr noundef %1938, ptr noundef nonnull @.str.535, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10177,7 +10177,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.472, ptr noundef %1947) #18
   %1948 = load ptr, ptr %1891, align 8, !tbaa !6
   %1949 = tail call i32 @sqlite3_exec(ptr noundef %1948, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1950:                                             ; preds = %1943
   %1951 = tail call i32 @sqlite3_exec(ptr noundef %1945, ptr noundef nonnull @.str.536, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10190,7 +10190,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.537, ptr noundef %1954) #18
   %1955 = load ptr, ptr %1891, align 8, !tbaa !6
   %1956 = tail call i32 @sqlite3_exec(ptr noundef %1955, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1957:                                             ; preds = %1950
   %1958 = tail call i32 @sqlite3_exec(ptr noundef %1952, ptr noundef nonnull @.str.538, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10203,7 +10203,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.539, ptr noundef %1961) #18
   %1962 = load ptr, ptr %1891, align 8, !tbaa !6
   %1963 = tail call i32 @sqlite3_exec(ptr noundef %1962, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1964:                                             ; preds = %1957
   %1965 = tail call i32 @sqlite3_exec(ptr noundef %1959, ptr noundef nonnull @.str.265, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10216,7 +10216,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.540, ptr noundef %1968) #18
   %1969 = load ptr, ptr %1891, align 8, !tbaa !6
   %1970 = tail call i32 @sqlite3_exec(ptr noundef %1969, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1971:                                             ; preds = %1964
   %1972 = tail call i32 @sqlite3_exec(ptr noundef %1966, ptr noundef nonnull @.str.385, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10229,7 +10229,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.541, ptr noundef %1975) #18
   %1976 = load ptr, ptr %1891, align 8, !tbaa !6
   %1977 = tail call i32 @sqlite3_exec(ptr noundef %1976, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1978:                                             ; preds = %1971
   %1979 = tail call i32 @sqlite3_exec(ptr noundef %1973, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10250,7 +10250,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.543, ptr noundef %1988) #18
   %1989 = load ptr, ptr %1981, align 8, !tbaa !6
   %1990 = tail call i32 @sqlite3_exec(ptr noundef %1989, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1991:                                             ; preds = %1980
   %1992 = tail call i32 @sqlite3_exec(ptr noundef %1986, ptr noundef nonnull @.str.544, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10263,7 +10263,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.545, ptr noundef %1995) #18
   %1996 = load ptr, ptr %1981, align 8, !tbaa !6
   %1997 = tail call i32 @sqlite3_exec(ptr noundef %1996, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 1998:                                             ; preds = %1991
   %1999 = tail call i32 @sqlite3_exec(ptr noundef %1993, ptr noundef nonnull @.str.546, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10276,7 +10276,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.547, ptr noundef %2002) #18
   %2003 = load ptr, ptr %1981, align 8, !tbaa !6
   %2004 = tail call i32 @sqlite3_exec(ptr noundef %2003, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2005:                                             ; preds = %1998
   %2006 = tail call i32 @sqlite3_exec(ptr noundef %2000, ptr noundef nonnull @.str.548, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10289,7 +10289,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %2009) #18
   %2010 = load ptr, ptr %1981, align 8, !tbaa !6
   %2011 = tail call i32 @sqlite3_exec(ptr noundef %2010, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2012:                                             ; preds = %2005
   %2013 = tail call i32 @sqlite3_exec(ptr noundef %2007, ptr noundef nonnull @.str.550, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10302,7 +10302,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.551, ptr noundef %2016) #18
   %2017 = load ptr, ptr %1981, align 8, !tbaa !6
   %2018 = tail call i32 @sqlite3_exec(ptr noundef %2017, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2019:                                             ; preds = %2012
   %2020 = tail call i32 @sqlite3_exec(ptr noundef %2014, ptr noundef nonnull @.str.552, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10315,7 +10315,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %2023) #18
   %2024 = load ptr, ptr %1981, align 8, !tbaa !6
   %2025 = tail call i32 @sqlite3_exec(ptr noundef %2024, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2026:                                             ; preds = %2019
   %2027 = tail call i32 @sqlite3_exec(ptr noundef %2021, ptr noundef nonnull @.str.554, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10328,7 +10328,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.555, ptr noundef %2030) #18
   %2031 = load ptr, ptr %1981, align 8, !tbaa !6
   %2032 = tail call i32 @sqlite3_exec(ptr noundef %2031, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2033:                                             ; preds = %2026
   %2034 = tail call i32 @sqlite3_exec(ptr noundef %2028, ptr noundef nonnull @.str.556, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10341,7 +10341,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %2037) #18
   %2038 = load ptr, ptr %1981, align 8, !tbaa !6
   %2039 = tail call i32 @sqlite3_exec(ptr noundef %2038, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2040:                                             ; preds = %2033
   %2041 = tail call i32 @sqlite3_exec(ptr noundef %2035, ptr noundef nonnull @.str.558, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10354,7 +10354,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.559, ptr noundef %2044) #18
   %2045 = load ptr, ptr %1981, align 8, !tbaa !6
   %2046 = tail call i32 @sqlite3_exec(ptr noundef %2045, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2047:                                             ; preds = %2040
   %2048 = tail call i32 @sqlite3_exec(ptr noundef %2042, ptr noundef nonnull @.str.560, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10367,7 +10367,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.561, ptr noundef %2051) #18
   %2052 = load ptr, ptr %1981, align 8, !tbaa !6
   %2053 = tail call i32 @sqlite3_exec(ptr noundef %2052, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2054:                                             ; preds = %2047
   %2055 = tail call i32 @sqlite3_exec(ptr noundef %2049, ptr noundef nonnull @.str.562, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10380,7 +10380,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.563, ptr noundef %2058) #18
   %2059 = load ptr, ptr %1981, align 8, !tbaa !6
   %2060 = tail call i32 @sqlite3_exec(ptr noundef %2059, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2061:                                             ; preds = %2054
   %2062 = tail call i32 @sqlite3_exec(ptr noundef %2056, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10401,7 +10401,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.565, ptr noundef %2071) #18
   %2072 = load ptr, ptr %2064, align 8, !tbaa !6
   %2073 = tail call i32 @sqlite3_exec(ptr noundef %2072, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2074:                                             ; preds = %2063
   %2075 = tail call i32 @sqlite3_exec(ptr noundef %2069, ptr noundef nonnull @.str.566, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10414,7 +10414,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.567, ptr noundef %2078) #18
   %2079 = load ptr, ptr %2064, align 8, !tbaa !6
   %2080 = tail call i32 @sqlite3_exec(ptr noundef %2079, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2081:                                             ; preds = %2074
   %2082 = tail call i32 @sqlite3_exec(ptr noundef %2076, ptr noundef nonnull @.str.568, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10427,7 +10427,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.569, ptr noundef %2085) #18
   %2086 = load ptr, ptr %2064, align 8, !tbaa !6
   %2087 = tail call i32 @sqlite3_exec(ptr noundef %2086, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2088:                                             ; preds = %2081
   %2089 = tail call i32 @sqlite3_exec(ptr noundef %2083, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10448,7 +10448,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.571, ptr noundef %2098) #18
   %2099 = load ptr, ptr %2091, align 8, !tbaa !6
   %2100 = tail call i32 @sqlite3_exec(ptr noundef %2099, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2101:                                             ; preds = %2090
   %2102 = tail call i32 @sqlite3_exec(ptr noundef %2096, ptr noundef nonnull @.str.572, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10461,7 +10461,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.573, ptr noundef %2105) #18
   %2106 = load ptr, ptr %2091, align 8, !tbaa !6
   %2107 = tail call i32 @sqlite3_exec(ptr noundef %2106, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2108:                                             ; preds = %2101
   %2109 = tail call i32 @sqlite3_exec(ptr noundef %2103, ptr noundef nonnull @.str.574, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10474,7 +10474,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.575, ptr noundef %2112) #18
   %2113 = load ptr, ptr %2091, align 8, !tbaa !6
   %2114 = tail call i32 @sqlite3_exec(ptr noundef %2113, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2115:                                             ; preds = %2108
   %2116 = tail call i32 @sqlite3_exec(ptr noundef %2110, ptr noundef nonnull @.str.576, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10487,7 +10487,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.577, ptr noundef %2119) #18
   %2120 = load ptr, ptr %2091, align 8, !tbaa !6
   %2121 = tail call i32 @sqlite3_exec(ptr noundef %2120, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2122:                                             ; preds = %2115
   %2123 = tail call i32 @sqlite3_exec(ptr noundef %2117, ptr noundef nonnull @.str.578, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10500,7 +10500,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.579, ptr noundef %2126) #18
   %2127 = load ptr, ptr %2091, align 8, !tbaa !6
   %2128 = tail call i32 @sqlite3_exec(ptr noundef %2127, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2129:                                             ; preds = %2122
   %2130 = tail call i32 @sqlite3_exec(ptr noundef %2124, ptr noundef nonnull @.str.580, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10513,7 +10513,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.581, ptr noundef %2133) #18
   %2134 = load ptr, ptr %2091, align 8, !tbaa !6
   %2135 = tail call i32 @sqlite3_exec(ptr noundef %2134, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2136:                                             ; preds = %2129
   %2137 = tail call i32 @sqlite3_exec(ptr noundef %2131, ptr noundef nonnull @.str.582, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10526,7 +10526,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %2140) #18
   %2141 = load ptr, ptr %2091, align 8, !tbaa !6
   %2142 = tail call i32 @sqlite3_exec(ptr noundef %2141, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2143:                                             ; preds = %2136
   %2144 = tail call i32 @sqlite3_exec(ptr noundef %2138, ptr noundef nonnull @.str.546, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10539,7 +10539,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.547, ptr noundef %2147) #18
   %2148 = load ptr, ptr %2091, align 8, !tbaa !6
   %2149 = tail call i32 @sqlite3_exec(ptr noundef %2148, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2150:                                             ; preds = %2143
   %2151 = tail call i32 @sqlite3_exec(ptr noundef %2145, ptr noundef nonnull @.str.548, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10552,7 +10552,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %2154) #18
   %2155 = load ptr, ptr %2091, align 8, !tbaa !6
   %2156 = tail call i32 @sqlite3_exec(ptr noundef %2155, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2157:                                             ; preds = %2150
   %2158 = tail call i32 @sqlite3_exec(ptr noundef %2152, ptr noundef nonnull @.str.550, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10565,7 +10565,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.584, ptr noundef %2161) #18
   %2162 = load ptr, ptr %2091, align 8, !tbaa !6
   %2163 = tail call i32 @sqlite3_exec(ptr noundef %2162, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2164:                                             ; preds = %2157
   %2165 = tail call i32 @sqlite3_exec(ptr noundef %2159, ptr noundef nonnull @.str.552, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10578,7 +10578,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %2168) #18
   %2169 = load ptr, ptr %2091, align 8, !tbaa !6
   %2170 = tail call i32 @sqlite3_exec(ptr noundef %2169, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2171:                                             ; preds = %2164
   %2172 = tail call i32 @sqlite3_exec(ptr noundef %2166, ptr noundef nonnull @.str.554, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10591,7 +10591,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.555, ptr noundef %2175) #18
   %2176 = load ptr, ptr %2091, align 8, !tbaa !6
   %2177 = tail call i32 @sqlite3_exec(ptr noundef %2176, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2178:                                             ; preds = %2171
   %2179 = tail call i32 @sqlite3_exec(ptr noundef %2173, ptr noundef nonnull @.str.556, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10604,7 +10604,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %2182) #18
   %2183 = load ptr, ptr %2091, align 8, !tbaa !6
   %2184 = tail call i32 @sqlite3_exec(ptr noundef %2183, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2185:                                             ; preds = %2178
   %2186 = tail call i32 @sqlite3_exec(ptr noundef %2180, ptr noundef nonnull @.str.585, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10617,7 +10617,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.586, ptr noundef %2189) #18
   %2190 = load ptr, ptr %2091, align 8, !tbaa !6
   %2191 = tail call i32 @sqlite3_exec(ptr noundef %2190, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2192:                                             ; preds = %2185
   %2193 = tail call i32 @sqlite3_exec(ptr noundef %2187, ptr noundef nonnull @.str.587, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10630,7 +10630,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %2196) #18
   %2197 = load ptr, ptr %2091, align 8, !tbaa !6
   %2198 = tail call i32 @sqlite3_exec(ptr noundef %2197, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2199:                                             ; preds = %2192
   %2200 = tail call i32 @sqlite3_exec(ptr noundef %2194, ptr noundef nonnull @.str.589, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10643,7 +10643,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.590, ptr noundef %2203) #18
   %2204 = load ptr, ptr %2091, align 8, !tbaa !6
   %2205 = tail call i32 @sqlite3_exec(ptr noundef %2204, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2206:                                             ; preds = %2199
   %2207 = tail call i32 @sqlite3_exec(ptr noundef %2201, ptr noundef nonnull @.str.591, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10656,7 +10656,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.592, ptr noundef %2210) #18
   %2211 = load ptr, ptr %2091, align 8, !tbaa !6
   %2212 = tail call i32 @sqlite3_exec(ptr noundef %2211, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2213:                                             ; preds = %2206
   %2214 = tail call i32 @sqlite3_exec(ptr noundef %2208, ptr noundef nonnull @.str.593, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10669,7 +10669,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.594, ptr noundef %2217) #18
   %2218 = load ptr, ptr %2091, align 8, !tbaa !6
   %2219 = tail call i32 @sqlite3_exec(ptr noundef %2218, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2220:                                             ; preds = %2213
   %2221 = tail call i32 @sqlite3_exec(ptr noundef %2215, ptr noundef nonnull @.str.595, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10682,7 +10682,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.596, ptr noundef %2224) #18
   %2225 = load ptr, ptr %2091, align 8, !tbaa !6
   %2226 = tail call i32 @sqlite3_exec(ptr noundef %2225, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2227:                                             ; preds = %2220
   %2228 = tail call i32 @sqlite3_exec(ptr noundef %2222, ptr noundef nonnull @.str.597, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10695,7 +10695,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.598, ptr noundef %2231) #18
   %2232 = load ptr, ptr %2091, align 8, !tbaa !6
   %2233 = tail call i32 @sqlite3_exec(ptr noundef %2232, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2234:                                             ; preds = %2227
   %2235 = tail call i32 @sqlite3_exec(ptr noundef %2229, ptr noundef nonnull @.str.542, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10708,7 +10708,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.543, ptr noundef %2238) #18
   %2239 = load ptr, ptr %2091, align 8, !tbaa !6
   %2240 = tail call i32 @sqlite3_exec(ptr noundef %2239, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2241:                                             ; preds = %2234
   %2242 = tail call i32 @sqlite3_exec(ptr noundef %2236, ptr noundef nonnull @.str.599, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10721,7 +10721,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.545, ptr noundef %2245) #18
   %2246 = load ptr, ptr %2091, align 8, !tbaa !6
   %2247 = tail call i32 @sqlite3_exec(ptr noundef %2246, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2248:                                             ; preds = %2241
   %2249 = tail call i32 @sqlite3_exec(ptr noundef %2243, ptr noundef nonnull @.str.600, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10734,7 +10734,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.545, ptr noundef %2252) #18
   %2253 = load ptr, ptr %2091, align 8, !tbaa !6
   %2254 = tail call i32 @sqlite3_exec(ptr noundef %2253, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2255:                                             ; preds = %2248
   %2256 = tail call i32 @sqlite3_exec(ptr noundef %2250, ptr noundef nonnull @.str.601, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10747,7 +10747,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.602, ptr noundef %2259) #18
   %2260 = load ptr, ptr %2091, align 8, !tbaa !6
   %2261 = tail call i32 @sqlite3_exec(ptr noundef %2260, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2262:                                             ; preds = %2255
   %2263 = tail call i32 @sqlite3_exec(ptr noundef %2257, ptr noundef nonnull @.str.603, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10760,7 +10760,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.604, ptr noundef %2266) #18
   %2267 = load ptr, ptr %2091, align 8, !tbaa !6
   %2268 = tail call i32 @sqlite3_exec(ptr noundef %2267, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2269:                                             ; preds = %2262
   %2270 = tail call i32 @sqlite3_exec(ptr noundef %2264, ptr noundef nonnull @.str.605, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10773,7 +10773,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.606, ptr noundef %2273) #18
   %2274 = load ptr, ptr %2091, align 8, !tbaa !6
   %2275 = tail call i32 @sqlite3_exec(ptr noundef %2274, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2276:                                             ; preds = %2269
   %2277 = tail call i32 @sqlite3_exec(ptr noundef %2271, ptr noundef nonnull @.str.607, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10786,7 +10786,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.608, ptr noundef %2280) #18
   %2281 = load ptr, ptr %2091, align 8, !tbaa !6
   %2282 = tail call i32 @sqlite3_exec(ptr noundef %2281, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2283:                                             ; preds = %2276
   %2284 = tail call i32 @sqlite3_exec(ptr noundef %2278, ptr noundef nonnull @.str.609, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10799,7 +10799,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.610, ptr noundef %2287) #18
   %2288 = load ptr, ptr %2091, align 8, !tbaa !6
   %2289 = tail call i32 @sqlite3_exec(ptr noundef %2288, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2290:                                             ; preds = %2283
   %2291 = tail call i32 @sqlite3_exec(ptr noundef %2285, ptr noundef nonnull @.str.611, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10812,7 +10812,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.612, ptr noundef %2294) #18
   %2295 = load ptr, ptr %2091, align 8, !tbaa !6
   %2296 = tail call i32 @sqlite3_exec(ptr noundef %2295, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2297:                                             ; preds = %2290
   %2298 = tail call i32 @sqlite3_exec(ptr noundef %2292, ptr noundef nonnull @.str.613, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10825,7 +10825,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.614, ptr noundef %2301) #18
   %2302 = load ptr, ptr %2091, align 8, !tbaa !6
   %2303 = tail call i32 @sqlite3_exec(ptr noundef %2302, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2304:                                             ; preds = %2297
   %2305 = tail call i32 @sqlite3_exec(ptr noundef %2299, ptr noundef nonnull @.str.615, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10838,7 +10838,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.616, ptr noundef %2308) #18
   %2309 = load ptr, ptr %2091, align 8, !tbaa !6
   %2310 = tail call i32 @sqlite3_exec(ptr noundef %2309, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2311:                                             ; preds = %2304
   %2312 = tail call i32 @sqlite3_exec(ptr noundef %2306, ptr noundef nonnull @.str.617, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10851,7 +10851,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.618, ptr noundef %2315) #18
   %2316 = load ptr, ptr %2091, align 8, !tbaa !6
   %2317 = tail call i32 @sqlite3_exec(ptr noundef %2316, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2318:                                             ; preds = %2311
   %2319 = tail call i32 @sqlite3_exec(ptr noundef %2313, ptr noundef nonnull @.str.619, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10864,7 +10864,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.620, ptr noundef %2322) #18
   %2323 = load ptr, ptr %2091, align 8, !tbaa !6
   %2324 = tail call i32 @sqlite3_exec(ptr noundef %2323, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2325:                                             ; preds = %2318
   %2326 = tail call i32 @sqlite3_exec(ptr noundef %2320, ptr noundef nonnull @.str.621, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10877,7 +10877,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.622, ptr noundef %2329) #18
   %2330 = load ptr, ptr %2091, align 8, !tbaa !6
   %2331 = tail call i32 @sqlite3_exec(ptr noundef %2330, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2332:                                             ; preds = %2325
   %2333 = tail call i32 @sqlite3_exec(ptr noundef %2327, ptr noundef nonnull @.str.623, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10890,7 +10890,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.624, ptr noundef %2336) #18
   %2337 = load ptr, ptr %2091, align 8, !tbaa !6
   %2338 = tail call i32 @sqlite3_exec(ptr noundef %2337, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2339:                                             ; preds = %2332
   %2340 = tail call i32 @sqlite3_exec(ptr noundef %2334, ptr noundef nonnull @.str.625, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10903,7 +10903,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.626, ptr noundef %2343) #18
   %2344 = load ptr, ptr %2091, align 8, !tbaa !6
   %2345 = tail call i32 @sqlite3_exec(ptr noundef %2344, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2346:                                             ; preds = %2339
   %2347 = tail call i32 @sqlite3_exec(ptr noundef %2341, ptr noundef nonnull @.str.627, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10916,7 +10916,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.628, ptr noundef %2350) #18
   %2351 = load ptr, ptr %2091, align 8, !tbaa !6
   %2352 = tail call i32 @sqlite3_exec(ptr noundef %2351, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2353:                                             ; preds = %2346
   %2354 = tail call i32 @sqlite3_exec(ptr noundef %2348, ptr noundef nonnull @.str.629, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10929,7 +10929,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.630, ptr noundef %2357) #18
   %2358 = load ptr, ptr %2091, align 8, !tbaa !6
   %2359 = tail call i32 @sqlite3_exec(ptr noundef %2358, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2360:                                             ; preds = %2353
   %2361 = tail call i32 @sqlite3_exec(ptr noundef %2355, ptr noundef nonnull @.str.631, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10942,7 +10942,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.632, ptr noundef %2364) #18
   %2365 = load ptr, ptr %2091, align 8, !tbaa !6
   %2366 = tail call i32 @sqlite3_exec(ptr noundef %2365, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2367:                                             ; preds = %2360
   %2368 = tail call i32 @sqlite3_exec(ptr noundef %2362, ptr noundef nonnull @.str.633, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10955,7 +10955,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.634, ptr noundef %2371) #18
   %2372 = load ptr, ptr %2091, align 8, !tbaa !6
   %2373 = tail call i32 @sqlite3_exec(ptr noundef %2372, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2374:                                             ; preds = %2367
   %2375 = tail call i32 @sqlite3_exec(ptr noundef %2369, ptr noundef nonnull @.str.635, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10968,7 +10968,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.636, ptr noundef %2378) #18
   %2379 = load ptr, ptr %2091, align 8, !tbaa !6
   %2380 = tail call i32 @sqlite3_exec(ptr noundef %2379, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2381:                                             ; preds = %2374
   %2382 = tail call i32 @sqlite3_exec(ptr noundef %2376, ptr noundef nonnull @.str.637, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10981,7 +10981,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.638, ptr noundef %2385) #18
   %2386 = load ptr, ptr %2091, align 8, !tbaa !6
   %2387 = tail call i32 @sqlite3_exec(ptr noundef %2386, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2388:                                             ; preds = %2381
   %2389 = tail call i32 @sqlite3_exec(ptr noundef %2383, ptr noundef nonnull @.str.639, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -10994,7 +10994,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.640, ptr noundef %2392) #18
   %2393 = load ptr, ptr %2091, align 8, !tbaa !6
   %2394 = tail call i32 @sqlite3_exec(ptr noundef %2393, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2395:                                             ; preds = %2388
   %2396 = tail call i32 @sqlite3_exec(ptr noundef %2390, ptr noundef nonnull @.str.558, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11007,7 +11007,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.559, ptr noundef %2399) #18
   %2400 = load ptr, ptr %2091, align 8, !tbaa !6
   %2401 = tail call i32 @sqlite3_exec(ptr noundef %2400, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2402:                                             ; preds = %2395
   %2403 = tail call i32 @sqlite3_exec(ptr noundef %2397, ptr noundef nonnull @.str.641, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11020,7 +11020,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.561, ptr noundef %2406) #18
   %2407 = load ptr, ptr %2091, align 8, !tbaa !6
   %2408 = tail call i32 @sqlite3_exec(ptr noundef %2407, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2409:                                             ; preds = %2402
   %2410 = tail call i32 @sqlite3_exec(ptr noundef %2404, ptr noundef nonnull @.str.642, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11033,7 +11033,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.643, ptr noundef %2413) #18
   %2414 = load ptr, ptr %2091, align 8, !tbaa !6
   %2415 = tail call i32 @sqlite3_exec(ptr noundef %2414, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2416:                                             ; preds = %2409
   %2417 = tail call i32 @sqlite3_exec(ptr noundef %2411, ptr noundef nonnull @.str.644, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11046,7 +11046,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.645, ptr noundef %2420) #18
   %2421 = load ptr, ptr %2091, align 8, !tbaa !6
   %2422 = tail call i32 @sqlite3_exec(ptr noundef %2421, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2423:                                             ; preds = %2416
   %2424 = tail call i32 @sqlite3_exec(ptr noundef %2418, ptr noundef nonnull @.str.646, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11059,7 +11059,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.647, ptr noundef %2427) #18
   %2428 = load ptr, ptr %2091, align 8, !tbaa !6
   %2429 = tail call i32 @sqlite3_exec(ptr noundef %2428, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2430:                                             ; preds = %2423
   %2431 = tail call i32 @sqlite3_exec(ptr noundef %2425, ptr noundef nonnull @.str.648, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11072,7 +11072,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.649, ptr noundef %2434) #18
   %2435 = load ptr, ptr %2091, align 8, !tbaa !6
   %2436 = tail call i32 @sqlite3_exec(ptr noundef %2435, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2437:                                             ; preds = %2430
   %2438 = tail call i32 @sqlite3_exec(ptr noundef %2432, ptr noundef nonnull @.str.650, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11085,7 +11085,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.651, ptr noundef %2441) #18
   %2442 = load ptr, ptr %2091, align 8, !tbaa !6
   %2443 = tail call i32 @sqlite3_exec(ptr noundef %2442, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2444:                                             ; preds = %2437
   %2445 = tail call i32 @sqlite3_exec(ptr noundef %2439, ptr noundef nonnull @.str.652, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11098,7 +11098,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.653, ptr noundef %2448) #18
   %2449 = load ptr, ptr %2091, align 8, !tbaa !6
   %2450 = tail call i32 @sqlite3_exec(ptr noundef %2449, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2451:                                             ; preds = %2444
   %2452 = tail call i32 @sqlite3_exec(ptr noundef %2446, ptr noundef nonnull @.str.654, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11111,7 +11111,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.655, ptr noundef %2455) #18
   %2456 = load ptr, ptr %2091, align 8, !tbaa !6
   %2457 = tail call i32 @sqlite3_exec(ptr noundef %2456, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2458:                                             ; preds = %2451
   %2459 = tail call i32 @sqlite3_exec(ptr noundef %2453, ptr noundef nonnull @.str.656, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11124,7 +11124,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.657, ptr noundef %2462) #18
   %2463 = load ptr, ptr %2091, align 8, !tbaa !6
   %2464 = tail call i32 @sqlite3_exec(ptr noundef %2463, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2465:                                             ; preds = %2458
   %2466 = tail call i32 @sqlite3_exec(ptr noundef %2460, ptr noundef nonnull @.str.658, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11137,7 +11137,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.659, ptr noundef %2469) #18
   %2470 = load ptr, ptr %2091, align 8, !tbaa !6
   %2471 = tail call i32 @sqlite3_exec(ptr noundef %2470, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2472:                                             ; preds = %2465
   %2473 = tail call i32 @sqlite3_exec(ptr noundef %2467, ptr noundef nonnull @.str.660, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11150,7 +11150,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.661, ptr noundef %2476) #18
   %2477 = load ptr, ptr %2091, align 8, !tbaa !6
   %2478 = tail call i32 @sqlite3_exec(ptr noundef %2477, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2479:                                             ; preds = %2472
   %2480 = tail call i32 @sqlite3_exec(ptr noundef %2474, ptr noundef nonnull @.str.662, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11163,7 +11163,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.663, ptr noundef %2483) #18
   %2484 = load ptr, ptr %2091, align 8, !tbaa !6
   %2485 = tail call i32 @sqlite3_exec(ptr noundef %2484, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2486:                                             ; preds = %2479
   %2487 = tail call i32 @sqlite3_exec(ptr noundef %2481, ptr noundef nonnull @.str.664, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11176,7 +11176,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.665, ptr noundef %2490) #18
   %2491 = load ptr, ptr %2091, align 8, !tbaa !6
   %2492 = tail call i32 @sqlite3_exec(ptr noundef %2491, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2493:                                             ; preds = %2486
   %2494 = tail call i32 @sqlite3_exec(ptr noundef %2488, ptr noundef nonnull @.str.666, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11189,7 +11189,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.667, ptr noundef %2497) #18
   %2498 = load ptr, ptr %2091, align 8, !tbaa !6
   %2499 = tail call i32 @sqlite3_exec(ptr noundef %2498, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2500:                                             ; preds = %2493
   %2501 = tail call i32 @sqlite3_exec(ptr noundef %2495, ptr noundef nonnull @.str.668, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11202,7 +11202,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.669, ptr noundef %2504) #18
   %2505 = load ptr, ptr %2091, align 8, !tbaa !6
   %2506 = tail call i32 @sqlite3_exec(ptr noundef %2505, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2507:                                             ; preds = %2500
   %2508 = tail call i32 @sqlite3_exec(ptr noundef %2502, ptr noundef nonnull @.str.670, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11215,7 +11215,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.671, ptr noundef %2511) #18
   %2512 = load ptr, ptr %2091, align 8, !tbaa !6
   %2513 = tail call i32 @sqlite3_exec(ptr noundef %2512, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2514:                                             ; preds = %2507
   %2515 = tail call i32 @sqlite3_exec(ptr noundef %2509, ptr noundef nonnull @.str.672, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11228,7 +11228,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.673, ptr noundef %2518) #18
   %2519 = load ptr, ptr %2091, align 8, !tbaa !6
   %2520 = tail call i32 @sqlite3_exec(ptr noundef %2519, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2521:                                             ; preds = %2514
   %2522 = tail call i32 @sqlite3_exec(ptr noundef %2516, ptr noundef nonnull @.str.674, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11241,7 +11241,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.675, ptr noundef %2525) #18
   %2526 = load ptr, ptr %2091, align 8, !tbaa !6
   %2527 = tail call i32 @sqlite3_exec(ptr noundef %2526, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2528:                                             ; preds = %2521
   %2529 = tail call i32 @sqlite3_exec(ptr noundef %2523, ptr noundef nonnull @.str.676, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11254,7 +11254,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.677, ptr noundef %2532) #18
   %2533 = load ptr, ptr %2091, align 8, !tbaa !6
   %2534 = tail call i32 @sqlite3_exec(ptr noundef %2533, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2535:                                             ; preds = %2528
   %2536 = tail call i32 @sqlite3_exec(ptr noundef %2530, ptr noundef nonnull @.str.678, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11267,7 +11267,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.679, ptr noundef %2539) #18
   %2540 = load ptr, ptr %2091, align 8, !tbaa !6
   %2541 = tail call i32 @sqlite3_exec(ptr noundef %2540, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2542:                                             ; preds = %2535
   %2543 = tail call i32 @sqlite3_exec(ptr noundef %2537, ptr noundef nonnull @.str.680, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11280,7 +11280,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.681, ptr noundef %2546) #18
   %2547 = load ptr, ptr %2091, align 8, !tbaa !6
   %2548 = tail call i32 @sqlite3_exec(ptr noundef %2547, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2549:                                             ; preds = %2542
   %2550 = tail call i32 @sqlite3_exec(ptr noundef %2544, ptr noundef nonnull @.str.682, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11293,7 +11293,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.683, ptr noundef %2553) #18
   %2554 = load ptr, ptr %2091, align 8, !tbaa !6
   %2555 = tail call i32 @sqlite3_exec(ptr noundef %2554, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2556:                                             ; preds = %2549
   %2557 = tail call i32 @sqlite3_exec(ptr noundef %2551, ptr noundef nonnull @.str.684, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11306,7 +11306,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.685, ptr noundef %2560) #18
   %2561 = load ptr, ptr %2091, align 8, !tbaa !6
   %2562 = tail call i32 @sqlite3_exec(ptr noundef %2561, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2563:                                             ; preds = %2556
   %2564 = tail call i32 @sqlite3_exec(ptr noundef %2558, ptr noundef nonnull @.str.686, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11319,7 +11319,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.687, ptr noundef %2567) #18
   %2568 = load ptr, ptr %2091, align 8, !tbaa !6
   %2569 = tail call i32 @sqlite3_exec(ptr noundef %2568, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2570:                                             ; preds = %2563
   %2571 = tail call i32 @sqlite3_exec(ptr noundef %2565, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11340,7 +11340,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %2580) #18
   %2581 = load ptr, ptr %2573, align 8, !tbaa !6
   %2582 = tail call i32 @sqlite3_exec(ptr noundef %2581, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2583:                                             ; preds = %2572
   %2584 = tail call i32 @sqlite3_exec(ptr noundef %2578, ptr noundef nonnull @.str.690, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11353,7 +11353,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.691, ptr noundef %2587) #18
   %2588 = load ptr, ptr %2573, align 8, !tbaa !6
   %2589 = tail call i32 @sqlite3_exec(ptr noundef %2588, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2590:                                             ; preds = %2583
   %2591 = tail call i32 @sqlite3_exec(ptr noundef %2585, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11376,7 +11376,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.573, ptr noundef %2602) #18
   %2603 = load ptr, ptr %2593, align 8, !tbaa !6
   %2604 = tail call i32 @sqlite3_exec(ptr noundef %2603, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2605:                                             ; preds = %2592
   %2606 = tail call i32 @sqlite3_exec(ptr noundef %2600, ptr noundef nonnull @.str.694, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11389,18 +11389,18 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.695, ptr noundef %2609) #18
   %2610 = load ptr, ptr %2593, align 8, !tbaa !6
   %2611 = tail call i32 @sqlite3_exec(ptr noundef %2610, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2612:                                             ; preds = %2605
   %2613 = call i32 @sqlite3_prepare_v2(ptr noundef %2607, ptr noundef nonnull @.str.696, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
   %.not2061 = icmp eq i32 %2613, 0
-  br i1 %.not2061, label %.preheader2397, label %2617
+  br i1 %.not2061, label %.preheader2391, label %2617
 
-.preheader2397:                                   ; preds = %2612
+.preheader2391:                                   ; preds = %2612
   %2614 = load ptr, ptr %3, align 8, !tbaa !21
   %2615 = call i32 @sqlite3_step(ptr noundef %2614) #18
   %2616 = icmp eq i32 %2615, 100
-  br i1 %2616, label %.lr.ph2403, label %._crit_edge2404
+  br i1 %2616, label %.lr.ph2397, label %._crit_edge2398
 
 2617:                                             ; preds = %2612
   %2618 = load ptr, ptr %2593, align 8, !tbaa !6
@@ -11408,9 +11408,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.697, ptr noundef %2619) #18
   %2620 = load ptr, ptr %2593, align 8, !tbaa !6
   %2621 = call i32 @sqlite3_exec(ptr noundef %2620, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
-.lr.ph2403:                                       ; preds = %.preheader2397, %2662
+.lr.ph2397:                                       ; preds = %.preheader2391, %2662
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #18
   %2622 = load ptr, ptr %2593, align 8, !tbaa !6
   %2623 = call i32 @sqlite3_prepare_v2(ptr noundef %2622, ptr noundef nonnull @.str.698, i32 noundef -1, ptr noundef nonnull %20, ptr noundef null) #18
@@ -11421,36 +11421,36 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2628 = load ptr, ptr %3, align 8, !tbaa !21
   %2629 = call i32 @sqlite3_column_type(ptr noundef %2628, i32 noundef 1) #18
   %.not2070 = icmp eq i32 %2629, 5
-  br i1 %.not2070, label %.preheader2472, label %2630
+  br i1 %.not2070, label %.preheader2466, label %2630
 
-.preheader2472:                                   ; preds = %2630, %2635, %.lr.ph2403
+.preheader2466:                                   ; preds = %2630, %2635, %.lr.ph2397
   br label %2642
 
-2630:                                             ; preds = %.lr.ph2403
+2630:                                             ; preds = %.lr.ph2397
   %2631 = load ptr, ptr %3, align 8, !tbaa !21
   %2632 = call ptr @sqlite3_column_text(ptr noundef %2631, i32 noundef 1) #18
   %2633 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3328), align 8, !tbaa !78
   %2634 = call ptr @dt_datetime_exif_to_gdatetime(ptr noundef %2632, ptr noundef %2633) #18
   %.not2071 = icmp eq ptr %2634, null
-  br i1 %.not2071, label %.preheader2472, label %2635
+  br i1 %.not2071, label %.preheader2466, label %2635
 
 2635:                                             ; preds = %2630
   %2636 = load ptr, ptr %20, align 8, !tbaa !21
   %2637 = call i64 @dt_datetime_gdatetime_to_gtimespan(ptr noundef nonnull %2634) #18
   %2638 = call i32 @sqlite3_bind_int64(ptr noundef %2636, i32 noundef 2, i64 noundef %2637) #18
   call void @g_date_time_unref(ptr noundef nonnull %2634) #18
-  br label %.preheader2472
+  br label %.preheader2466
 
 2639:                                             ; preds = %2656
   %2640 = load ptr, ptr %20, align 8, !tbaa !21
   %2641 = call i32 @sqlite3_step(ptr noundef %2640) #18
   %.not2072 = icmp eq i32 %2641, 101
-  br i1 %.not2072, label %2662, label %.thread2385
+  br i1 %.not2072, label %2662, label %.thread2379
 
-2642:                                             ; preds = %.preheader2472, %2656
-  %.018962402 = phi i32 [ %2657, %2656 ], [ 0, %.preheader2472 ]
+2642:                                             ; preds = %.preheader2466, %2656
+  %.018962396 = phi i32 [ %2657, %2656 ], [ 0, %.preheader2466 ]
   %2643 = load ptr, ptr %3, align 8, !tbaa !21
-  %2644 = add nuw nsw i32 %.018962402, 2
+  %2644 = add nuw nsw i32 %.018962396, 2
   %2645 = call i32 @sqlite3_column_type(ptr noundef %2643, i32 noundef %2644) #18
   %.not2073 = icmp eq i32 %2645, 5
   br i1 %.not2073, label %2656, label %2646
@@ -11465,25 +11465,25 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 2651:                                             ; preds = %2646
   %2652 = load ptr, ptr %20, align 8, !tbaa !21
-  %2653 = add nuw nsw i32 %.018962402, 3
+  %2653 = add nuw nsw i32 %.018962396, 3
   %2654 = call i64 @dt_datetime_gdatetime_to_gtimespan(ptr noundef nonnull %2650) #18
   %2655 = call i32 @sqlite3_bind_int64(ptr noundef %2652, i32 noundef %2653, i64 noundef %2654) #18
   call void @g_date_time_unref(ptr noundef nonnull %2650) #18
   br label %2656
 
 2656:                                             ; preds = %2646, %2651, %2642
-  %2657 = add nuw nsw i32 %.018962402, 1
+  %2657 = add nuw nsw i32 %.018962396, 1
   %exitcond.not = icmp eq i32 %2657, 4
   br i1 %exitcond.not, label %2639, label %2642
 
-.thread2385:                                      ; preds = %2639
+.thread2379:                                      ; preds = %2639
   %2658 = load ptr, ptr %2593, align 8, !tbaa !6
   %2659 = call ptr @sqlite3_errmsg(ptr noundef %2658) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.699, ptr noundef %2659) #18
   %2660 = load ptr, ptr %2593, align 8, !tbaa !6
   %2661 = call i32 @sqlite3_exec(ptr noundef %2660, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2662:                                             ; preds = %2639
   %2663 = load ptr, ptr %20, align 8, !tbaa !21
@@ -11492,9 +11492,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2665 = load ptr, ptr %3, align 8, !tbaa !21
   %2666 = call i32 @sqlite3_step(ptr noundef %2665) #18
   %2667 = icmp eq i32 %2666, 100
-  br i1 %2667, label %.lr.ph2403, label %._crit_edge2404
+  br i1 %2667, label %.lr.ph2397, label %._crit_edge2398
 
-._crit_edge2404:                                  ; preds = %2662, %.preheader2397
+._crit_edge2398:                                  ; preds = %2662, %.preheader2391
   %2668 = load ptr, ptr %3, align 8, !tbaa !21
   %2669 = call i32 @sqlite3_finalize(ptr noundef %2668) #18
   %2670 = load ptr, ptr %2593, align 8, !tbaa !6
@@ -11503,14 +11503,14 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2672 = load ptr, ptr %2593, align 8, !tbaa !6
   br i1 %.not2062, label %2677, label %2673
 
-2673:                                             ; preds = %._crit_edge2404
+2673:                                             ; preds = %._crit_edge2398
   %2674 = call ptr @sqlite3_errmsg(ptr noundef %2672) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.701, ptr noundef %2674) #18
   %2675 = load ptr, ptr %2593, align 8, !tbaa !6
   %2676 = call i32 @sqlite3_exec(ptr noundef %2675, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
-2677:                                             ; preds = %._crit_edge2404
+2677:                                             ; preds = %._crit_edge2398
   %2678 = call i32 @sqlite3_exec(ptr noundef %2672, ptr noundef nonnull @.str.702, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not2063 = icmp eq i32 %2678, 0
   %2679 = load ptr, ptr %2593, align 8, !tbaa !6
@@ -11521,7 +11521,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.703, ptr noundef %2681) #18
   %2682 = load ptr, ptr %2593, align 8, !tbaa !6
   %2683 = call i32 @sqlite3_exec(ptr noundef %2682, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2684:                                             ; preds = %2677
   %2685 = call i32 @sqlite3_exec(ptr noundef %2679, ptr noundef nonnull @.str.582, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11534,7 +11534,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %2688) #18
   %2689 = load ptr, ptr %2593, align 8, !tbaa !6
   %2690 = call i32 @sqlite3_exec(ptr noundef %2689, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2691:                                             ; preds = %2684
   %2692 = call i32 @sqlite3_exec(ptr noundef %2686, ptr noundef nonnull @.str.548, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11547,7 +11547,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %2695) #18
   %2696 = load ptr, ptr %2593, align 8, !tbaa !6
   %2697 = call i32 @sqlite3_exec(ptr noundef %2696, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2698:                                             ; preds = %2691
   %2699 = call i32 @sqlite3_exec(ptr noundef %2693, ptr noundef nonnull @.str.552, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11560,7 +11560,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %2702) #18
   %2703 = load ptr, ptr %2593, align 8, !tbaa !6
   %2704 = call i32 @sqlite3_exec(ptr noundef %2703, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2705:                                             ; preds = %2698
   %2706 = call i32 @sqlite3_exec(ptr noundef %2700, ptr noundef nonnull @.str.556, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11573,7 +11573,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %2709) #18
   %2710 = load ptr, ptr %2593, align 8, !tbaa !6
   %2711 = call i32 @sqlite3_exec(ptr noundef %2710, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2712:                                             ; preds = %2705
   %2713 = call i32 @sqlite3_exec(ptr noundef %2707, ptr noundef nonnull @.str.587, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11586,7 +11586,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %2716) #18
   %2717 = load ptr, ptr %2593, align 8, !tbaa !6
   %2718 = call i32 @sqlite3_exec(ptr noundef %2717, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2719:                                             ; preds = %2712
   %2720 = call i32 @sqlite3_exec(ptr noundef %2714, ptr noundef nonnull @.str.704, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11599,7 +11599,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %2723) #18
   %2724 = load ptr, ptr %2593, align 8, !tbaa !6
   %2725 = call i32 @sqlite3_exec(ptr noundef %2724, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2726:                                             ; preds = %2719
   %2727 = call i32 @sqlite3_exec(ptr noundef %2721, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11620,7 +11620,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.573, ptr noundef %2736) #18
   %2737 = load ptr, ptr %2731, align 8, !tbaa !6
   %2738 = tail call i32 @sqlite3_exec(ptr noundef %2737, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2739:                                             ; preds = %2730
   %2740 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.706, i32 noundef 224) #18
@@ -11635,14 +11635,14 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.695, ptr noundef %2745) #18
   %2746 = load ptr, ptr %2731, align 8, !tbaa !6
   %2747 = tail call i32 @sqlite3_exec(ptr noundef %2746, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2748:                                             ; preds = %2739
   %2749 = call i32 @sqlite3_prepare_v2(ptr noundef %2743, ptr noundef nonnull @.str.707, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
   %.not2056 = icmp eq i32 %2749, 0
-  br i1 %.not2056, label %.preheader2398, label %2753
+  br i1 %.not2056, label %.preheader2392, label %2753
 
-.preheader2398:                                   ; preds = %2748
+.preheader2392:                                   ; preds = %2748
   %2750 = load ptr, ptr %3, align 8, !tbaa !21
   %2751 = call i32 @sqlite3_step(ptr noundef %2750) #18
   %2752 = icmp eq i32 %2751, 100
@@ -11654,9 +11654,9 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.708, ptr noundef %2755) #18
   %2756 = load ptr, ptr %2731, align 8, !tbaa !6
   %2757 = call i32 @sqlite3_exec(ptr noundef %2756, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
-.lr.ph:                                           ; preds = %.preheader2398, %2779
+.lr.ph:                                           ; preds = %.preheader2392, %2779
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #18
   %2758 = load ptr, ptr %2731, align 8, !tbaa !6
   %2759 = call i32 @sqlite3_prepare_v2(ptr noundef %2758, ptr noundef nonnull @.str.709, i32 noundef -1, ptr noundef nonnull %21, ptr noundef null) #18
@@ -11676,16 +11676,16 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2773 = load ptr, ptr %21, align 8, !tbaa !21
   %2774 = call i32 @sqlite3_step(ptr noundef %2773) #18
   %.not2058 = icmp eq i32 %2774, 101
-  br i1 %.not2058, label %2779, label %.thread2386
+  br i1 %.not2058, label %2779, label %.thread2380
 
-.thread2386:                                      ; preds = %.lr.ph
+.thread2380:                                      ; preds = %.lr.ph
   %2775 = load ptr, ptr %2731, align 8, !tbaa !6
   %2776 = call ptr @sqlite3_errmsg(ptr noundef %2775) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.711, ptr noundef %2776) #18
   %2777 = load ptr, ptr %2731, align 8, !tbaa !6
   %2778 = call i32 @sqlite3_exec(ptr noundef %2777, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2779:                                             ; preds = %.lr.ph
   %2780 = load ptr, ptr %21, align 8, !tbaa !21
@@ -11696,7 +11696,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %2784 = icmp eq i32 %2783, 100
   br i1 %2784, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %2779, %.preheader2398
+._crit_edge:                                      ; preds = %2779, %.preheader2392
   %2785 = load ptr, ptr %3, align 8, !tbaa !21
   %2786 = call i32 @sqlite3_finalize(ptr noundef %2785) #18
   %2787 = load ptr, ptr %2731, align 8, !tbaa !6
@@ -11710,7 +11710,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.713, ptr noundef %2791) #18
   %2792 = load ptr, ptr %2731, align 8, !tbaa !6
   %2793 = call i32 @sqlite3_exec(ptr noundef %2792, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2794:                                             ; preds = %2
   %2795 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -11725,7 +11725,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.715, ptr noundef %2800) #18
   %2801 = load ptr, ptr %2795, align 8, !tbaa !6
   %2802 = tail call i32 @sqlite3_exec(ptr noundef %2801, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2803:                                             ; preds = %2
   %2804 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -11740,7 +11740,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.229, ptr noundef %2809) #18
   %2810 = load ptr, ptr %2804, align 8, !tbaa !6
   %2811 = tail call i32 @sqlite3_exec(ptr noundef %2810, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2812:                                             ; preds = %2803
   %2813 = tail call i32 @sqlite3_exec(ptr noundef %2807, ptr noundef nonnull @.str.717, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11753,7 +11753,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.231, ptr noundef %2816) #18
   %2817 = load ptr, ptr %2804, align 8, !tbaa !6
   %2818 = tail call i32 @sqlite3_exec(ptr noundef %2817, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2819:                                             ; preds = %2
   %2820 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -11772,7 +11772,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.719, ptr noundef %2829) #18
   %2830 = load ptr, ptr %2820, align 8, !tbaa !6
   %2831 = tail call i32 @sqlite3_exec(ptr noundef %2830, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2832:                                             ; preds = %2819
   %2833 = tail call i32 @sqlite3_exec(ptr noundef %2827, ptr noundef nonnull @.str.720, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11785,7 +11785,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.721, ptr noundef %2836) #18
   %2837 = load ptr, ptr %2820, align 8, !tbaa !6
   %2838 = tail call i32 @sqlite3_exec(ptr noundef %2837, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2839:                                             ; preds = %2832
   %2840 = tail call i32 @sqlite3_exec(ptr noundef %2834, ptr noundef nonnull @.str.722, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11798,7 +11798,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.723, ptr noundef %2843) #18
   %2844 = load ptr, ptr %2820, align 8, !tbaa !6
   %2845 = tail call i32 @sqlite3_exec(ptr noundef %2844, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2846:                                             ; preds = %2839
   %2847 = tail call i32 @sqlite3_exec(ptr noundef %2841, ptr noundef nonnull @.str.724, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11811,7 +11811,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.725, ptr noundef %2850) #18
   %2851 = load ptr, ptr %2820, align 8, !tbaa !6
   %2852 = tail call i32 @sqlite3_exec(ptr noundef %2851, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2853:                                             ; preds = %2846
   %2854 = tail call i32 @sqlite3_exec(ptr noundef %2848, ptr noundef nonnull @.str.726, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11824,7 +11824,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.727, ptr noundef %2857) #18
   %2858 = load ptr, ptr %2820, align 8, !tbaa !6
   %2859 = tail call i32 @sqlite3_exec(ptr noundef %2858, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2860:                                             ; preds = %2853
   %2861 = tail call i32 @sqlite3_exec(ptr noundef %2855, ptr noundef nonnull @.str.728, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11837,7 +11837,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.729, ptr noundef %2864) #18
   %2865 = load ptr, ptr %2820, align 8, !tbaa !6
   %2866 = tail call i32 @sqlite3_exec(ptr noundef %2865, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2867:                                             ; preds = %2860
   %2868 = tail call i32 @sqlite3_exec(ptr noundef %2862, ptr noundef nonnull @.str.730, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11850,7 +11850,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.731, ptr noundef %2871) #18
   %2872 = load ptr, ptr %2820, align 8, !tbaa !6
   %2873 = tail call i32 @sqlite3_exec(ptr noundef %2872, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2874:                                             ; preds = %2867
   %2875 = tail call i32 @sqlite3_exec(ptr noundef %2869, ptr noundef nonnull @.str.732, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11863,7 +11863,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.733, ptr noundef %2878) #18
   %2879 = load ptr, ptr %2820, align 8, !tbaa !6
   %2880 = tail call i32 @sqlite3_exec(ptr noundef %2879, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2881:                                             ; preds = %2874
   %2882 = tail call i32 @sqlite3_exec(ptr noundef %2876, ptr noundef nonnull @.str.734, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11876,7 +11876,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.735, ptr noundef %2885) #18
   %2886 = load ptr, ptr %2820, align 8, !tbaa !6
   %2887 = tail call i32 @sqlite3_exec(ptr noundef %2886, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2888:                                             ; preds = %2881
   %2889 = tail call i32 @sqlite3_exec(ptr noundef %2883, ptr noundef nonnull @.str.736, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11889,7 +11889,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.737, ptr noundef %2892) #18
   %2893 = load ptr, ptr %2820, align 8, !tbaa !6
   %2894 = tail call i32 @sqlite3_exec(ptr noundef %2893, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2895:                                             ; preds = %2888
   %2896 = tail call i32 @sqlite3_exec(ptr noundef %2890, ptr noundef nonnull @.str.738, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11902,7 +11902,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.739, ptr noundef %2899) #18
   %2900 = load ptr, ptr %2820, align 8, !tbaa !6
   %2901 = tail call i32 @sqlite3_exec(ptr noundef %2900, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2902:                                             ; preds = %2895
   %2903 = tail call i32 @sqlite3_exec(ptr noundef %2897, ptr noundef nonnull @.str.740, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11915,7 +11915,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.741, ptr noundef %2906) #18
   %2907 = load ptr, ptr %2820, align 8, !tbaa !6
   %2908 = tail call i32 @sqlite3_exec(ptr noundef %2907, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2909:                                             ; preds = %2902
   %2910 = tail call i32 @sqlite3_exec(ptr noundef %2904, ptr noundef nonnull @.str.742, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11928,7 +11928,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.743, ptr noundef %2913) #18
   %2914 = load ptr, ptr %2820, align 8, !tbaa !6
   %2915 = tail call i32 @sqlite3_exec(ptr noundef %2914, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2916:                                             ; preds = %2909
   %2917 = tail call i32 @sqlite3_exec(ptr noundef %2911, ptr noundef nonnull @.str.744, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11941,7 +11941,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.745, ptr noundef %2920) #18
   %2921 = load ptr, ptr %2820, align 8, !tbaa !6
   %2922 = tail call i32 @sqlite3_exec(ptr noundef %2921, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2923:                                             ; preds = %2916
   %2924 = tail call i32 @sqlite3_exec(ptr noundef %2918, ptr noundef nonnull @.str.746, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11954,7 +11954,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.747, ptr noundef %2927) #18
   %2928 = load ptr, ptr %2820, align 8, !tbaa !6
   %2929 = tail call i32 @sqlite3_exec(ptr noundef %2928, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2930:                                             ; preds = %2923
   %2931 = tail call i32 @sqlite3_exec(ptr noundef %2925, ptr noundef nonnull @.str.748, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11967,7 +11967,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.749, ptr noundef %2934) #18
   %2935 = load ptr, ptr %2820, align 8, !tbaa !6
   %2936 = tail call i32 @sqlite3_exec(ptr noundef %2935, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2937:                                             ; preds = %2930
   %2938 = tail call i32 @sqlite3_exec(ptr noundef %2932, ptr noundef nonnull @.str.750, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11980,7 +11980,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.751, ptr noundef %2941) #18
   %2942 = load ptr, ptr %2820, align 8, !tbaa !6
   %2943 = tail call i32 @sqlite3_exec(ptr noundef %2942, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2944:                                             ; preds = %2937
   %2945 = tail call i32 @sqlite3_exec(ptr noundef %2939, ptr noundef nonnull @.str.752, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -11993,7 +11993,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.753, ptr noundef %2948) #18
   %2949 = load ptr, ptr %2820, align 8, !tbaa !6
   %2950 = tail call i32 @sqlite3_exec(ptr noundef %2949, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2951:                                             ; preds = %2944
   %2952 = tail call i32 @sqlite3_exec(ptr noundef %2946, ptr noundef nonnull @.str.754, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12006,7 +12006,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.755, ptr noundef %2955) #18
   %2956 = load ptr, ptr %2820, align 8, !tbaa !6
   %2957 = tail call i32 @sqlite3_exec(ptr noundef %2956, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2958:                                             ; preds = %2951
   %2959 = tail call i32 @sqlite3_exec(ptr noundef %2953, ptr noundef nonnull @.str.756, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12019,7 +12019,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.757, ptr noundef %2962) #18
   %2963 = load ptr, ptr %2820, align 8, !tbaa !6
   %2964 = tail call i32 @sqlite3_exec(ptr noundef %2963, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2965:                                             ; preds = %2958
   %2966 = tail call i32 @sqlite3_exec(ptr noundef %2960, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12032,7 +12032,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.590, ptr noundef %2969) #18
   %2970 = load ptr, ptr %2820, align 8, !tbaa !6
   %2971 = tail call i32 @sqlite3_exec(ptr noundef %2970, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2972:                                             ; preds = %2965
   %2973 = tail call i32 @sqlite3_exec(ptr noundef %2967, ptr noundef nonnull @.str.758, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12045,7 +12045,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.571, ptr noundef %2976) #18
   %2977 = load ptr, ptr %2820, align 8, !tbaa !6
   %2978 = tail call i32 @sqlite3_exec(ptr noundef %2977, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2979:                                             ; preds = %2972
   %2980 = tail call i32 @sqlite3_exec(ptr noundef %2974, ptr noundef nonnull @.str.759, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12058,7 +12058,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %2983) #18
   %2984 = load ptr, ptr %2820, align 8, !tbaa !6
   %2985 = tail call i32 @sqlite3_exec(ptr noundef %2984, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2986:                                             ; preds = %2979
   %2987 = tail call i32 @sqlite3_exec(ptr noundef %2981, ptr noundef nonnull @.str.760, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12071,7 +12071,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %2990) #18
   %2991 = load ptr, ptr %2820, align 8, !tbaa !6
   %2992 = tail call i32 @sqlite3_exec(ptr noundef %2991, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 2993:                                             ; preds = %2986
   %2994 = tail call i32 @sqlite3_exec(ptr noundef %2988, ptr noundef nonnull @.str.761, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12084,7 +12084,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %2997) #18
   %2998 = load ptr, ptr %2820, align 8, !tbaa !6
   %2999 = tail call i32 @sqlite3_exec(ptr noundef %2998, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3000:                                             ; preds = %2993
   %3001 = tail call i32 @sqlite3_exec(ptr noundef %2995, ptr noundef nonnull @.str.762, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12097,7 +12097,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %3004) #18
   %3005 = load ptr, ptr %2820, align 8, !tbaa !6
   %3006 = tail call i32 @sqlite3_exec(ptr noundef %3005, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3007:                                             ; preds = %3000
   %3008 = tail call i32 @sqlite3_exec(ptr noundef %3002, ptr noundef nonnull @.str.763, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12110,7 +12110,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %3011) #18
   %3012 = load ptr, ptr %2820, align 8, !tbaa !6
   %3013 = tail call i32 @sqlite3_exec(ptr noundef %3012, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3014:                                             ; preds = %3007
   %3015 = tail call i32 @sqlite3_exec(ptr noundef %3009, ptr noundef nonnull @.str.764, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12123,7 +12123,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %3018) #18
   %3019 = load ptr, ptr %2820, align 8, !tbaa !6
   %3020 = tail call i32 @sqlite3_exec(ptr noundef %3019, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3021:                                             ; preds = %3014
   %3022 = tail call i32 @sqlite3_exec(ptr noundef %3016, ptr noundef nonnull @.str.765, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12136,7 +12136,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.766, ptr noundef %3025) #18
   %3026 = load ptr, ptr %2820, align 8, !tbaa !6
   %3027 = tail call i32 @sqlite3_exec(ptr noundef %3026, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3028:                                             ; preds = %3021
   %3029 = tail call i32 @sqlite3_exec(ptr noundef %3023, ptr noundef nonnull @.str.767, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12149,7 +12149,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.768, ptr noundef %3032) #18
   %3033 = load ptr, ptr %2820, align 8, !tbaa !6
   %3034 = tail call i32 @sqlite3_exec(ptr noundef %3033, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3035:                                             ; preds = %3028
   %3036 = tail call i32 @sqlite3_exec(ptr noundef %3030, ptr noundef nonnull @.str.769, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12162,7 +12162,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.770, ptr noundef %3039) #18
   %3040 = load ptr, ptr %2820, align 8, !tbaa !6
   %3041 = tail call i32 @sqlite3_exec(ptr noundef %3040, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3042:                                             ; preds = %3035
   %3043 = tail call i32 @sqlite3_exec(ptr noundef %3037, ptr noundef nonnull @.str.771, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12175,7 +12175,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.772, ptr noundef %3046) #18
   %3047 = load ptr, ptr %2820, align 8, !tbaa !6
   %3048 = tail call i32 @sqlite3_exec(ptr noundef %3047, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3049:                                             ; preds = %3042
   %3050 = tail call i32 @sqlite3_exec(ptr noundef %3044, ptr noundef nonnull @.str.773, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12188,7 +12188,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3053) #18
   %3054 = load ptr, ptr %2820, align 8, !tbaa !6
   %3055 = tail call i32 @sqlite3_exec(ptr noundef %3054, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3056:                                             ; preds = %3049
   %3057 = tail call i32 @sqlite3_exec(ptr noundef %3051, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12213,7 +12213,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.776, ptr noundef %3070) #18
   %3071 = load ptr, ptr %3061, align 8, !tbaa !6
   %3072 = tail call i32 @sqlite3_exec(ptr noundef %3071, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3073:                                             ; preds = %3060
   %3074 = tail call i32 @sqlite3_exec(ptr noundef %3068, ptr noundef nonnull @.str.777, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12226,7 +12226,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.725, ptr noundef %3077) #18
   %3078 = load ptr, ptr %3061, align 8, !tbaa !6
   %3079 = tail call i32 @sqlite3_exec(ptr noundef %3078, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3080:                                             ; preds = %3073
   %3081 = tail call i32 @sqlite3_exec(ptr noundef %3075, ptr noundef nonnull @.str.778, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12239,7 +12239,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.733, ptr noundef %3084) #18
   %3085 = load ptr, ptr %3061, align 8, !tbaa !6
   %3086 = tail call i32 @sqlite3_exec(ptr noundef %3085, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3087:                                             ; preds = %3080
   %3088 = tail call i32 @sqlite3_exec(ptr noundef %3082, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12252,7 +12252,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3091) #18
   %3092 = load ptr, ptr %3061, align 8, !tbaa !6
   %3093 = tail call i32 @sqlite3_exec(ptr noundef %3092, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3094:                                             ; preds = %3087
   %3095 = tail call i32 @sqlite3_exec(ptr noundef %3089, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12265,7 +12265,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3098) #18
   %3099 = load ptr, ptr %3061, align 8, !tbaa !6
   %3100 = tail call i32 @sqlite3_exec(ptr noundef %3099, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3101:                                             ; preds = %3094
   %3102 = tail call i32 @sqlite3_exec(ptr noundef %3096, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12286,7 +12286,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.783, ptr noundef %3111) #18
   %3112 = load ptr, ptr %3106, align 8, !tbaa !6
   %3113 = tail call i32 @sqlite3_exec(ptr noundef %3112, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3114:                                             ; preds = %2
   %3115 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -12305,7 +12305,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.755, ptr noundef %3124) #18
   %3125 = load ptr, ptr %3115, align 8, !tbaa !6
   %3126 = tail call i32 @sqlite3_exec(ptr noundef %3125, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3127:                                             ; preds = %3114
   %3128 = tail call i32 @sqlite3_exec(ptr noundef %3122, ptr noundef nonnull @.str.785, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12318,7 +12318,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.757, ptr noundef %3131) #18
   %3132 = load ptr, ptr %3115, align 8, !tbaa !6
   %3133 = tail call i32 @sqlite3_exec(ptr noundef %3132, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3134:                                             ; preds = %3127
   %3135 = tail call i32 @sqlite3_exec(ptr noundef %3129, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12331,7 +12331,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3138) #18
   %3139 = load ptr, ptr %3115, align 8, !tbaa !6
   %3140 = tail call i32 @sqlite3_exec(ptr noundef %3139, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3141:                                             ; preds = %3134
   %3142 = tail call i32 @sqlite3_exec(ptr noundef %3136, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12344,7 +12344,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.590, ptr noundef %3145) #18
   %3146 = load ptr, ptr %3115, align 8, !tbaa !6
   %3147 = tail call i32 @sqlite3_exec(ptr noundef %3146, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3148:                                             ; preds = %3141
   %3149 = tail call i32 @sqlite3_exec(ptr noundef %3143, ptr noundef nonnull @.str.758, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12357,7 +12357,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.571, ptr noundef %3152) #18
   %3153 = load ptr, ptr %3115, align 8, !tbaa !6
   %3154 = tail call i32 @sqlite3_exec(ptr noundef %3153, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3155:                                             ; preds = %3148
   %3156 = tail call i32 @sqlite3_exec(ptr noundef %3150, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12370,7 +12370,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3159) #18
   %3160 = load ptr, ptr %3115, align 8, !tbaa !6
   %3161 = tail call i32 @sqlite3_exec(ptr noundef %3160, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3162:                                             ; preds = %3155
   %3163 = tail call i32 @sqlite3_exec(ptr noundef %3157, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12391,7 +12391,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.787, ptr noundef %3172) #18
   %3173 = load ptr, ptr %3167, align 8, !tbaa !6
   %3174 = tail call i32 @sqlite3_exec(ptr noundef %3173, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3175:                                             ; preds = %2
   %3176 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -12406,7 +12406,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %3181) #18
   %3182 = load ptr, ptr %3176, align 8, !tbaa !6
   %3183 = tail call i32 @sqlite3_exec(ptr noundef %3182, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3184:                                             ; preds = %3175
   %3185 = tail call i32 @sqlite3_exec(ptr noundef %3179, ptr noundef nonnull @.str.760, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12419,7 +12419,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %3188) #18
   %3189 = load ptr, ptr %3176, align 8, !tbaa !6
   %3190 = tail call i32 @sqlite3_exec(ptr noundef %3189, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3191:                                             ; preds = %3184
   %3192 = tail call i32 @sqlite3_exec(ptr noundef %3186, ptr noundef nonnull @.str.761, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12432,7 +12432,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %3195) #18
   %3196 = load ptr, ptr %3176, align 8, !tbaa !6
   %3197 = tail call i32 @sqlite3_exec(ptr noundef %3196, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3198:                                             ; preds = %3191
   %3199 = tail call i32 @sqlite3_exec(ptr noundef %3193, ptr noundef nonnull @.str.762, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12445,7 +12445,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %3202) #18
   %3203 = load ptr, ptr %3176, align 8, !tbaa !6
   %3204 = tail call i32 @sqlite3_exec(ptr noundef %3203, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3205:                                             ; preds = %3198
   %3206 = tail call i32 @sqlite3_exec(ptr noundef %3200, ptr noundef nonnull @.str.763, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12458,7 +12458,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %3209) #18
   %3210 = load ptr, ptr %3176, align 8, !tbaa !6
   %3211 = tail call i32 @sqlite3_exec(ptr noundef %3210, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3212:                                             ; preds = %3205
   %3213 = tail call i32 @sqlite3_exec(ptr noundef %3207, ptr noundef nonnull @.str.764, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12471,7 +12471,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %3216) #18
   %3217 = load ptr, ptr %3176, align 8, !tbaa !6
   %3218 = tail call i32 @sqlite3_exec(ptr noundef %3217, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3219:                                             ; preds = %3212
   %3220 = tail call i32 @sqlite3_exec(ptr noundef %3214, ptr noundef nonnull @.str.765, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12484,7 +12484,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.766, ptr noundef %3223) #18
   %3224 = load ptr, ptr %3176, align 8, !tbaa !6
   %3225 = tail call i32 @sqlite3_exec(ptr noundef %3224, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3226:                                             ; preds = %3219
   %3227 = tail call i32 @sqlite3_exec(ptr noundef %3221, ptr noundef nonnull @.str.767, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12497,7 +12497,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.768, ptr noundef %3230) #18
   %3231 = load ptr, ptr %3176, align 8, !tbaa !6
   %3232 = tail call i32 @sqlite3_exec(ptr noundef %3231, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3233:                                             ; preds = %3226
   %3234 = tail call i32 @sqlite3_exec(ptr noundef %3228, ptr noundef nonnull @.str.769, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12510,7 +12510,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.770, ptr noundef %3237) #18
   %3238 = load ptr, ptr %3176, align 8, !tbaa !6
   %3239 = tail call i32 @sqlite3_exec(ptr noundef %3238, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3240:                                             ; preds = %3233
   %3241 = tail call i32 @sqlite3_exec(ptr noundef %3235, ptr noundef nonnull @.str.771, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12523,7 +12523,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.772, ptr noundef %3244) #18
   %3245 = load ptr, ptr %3176, align 8, !tbaa !6
   %3246 = tail call i32 @sqlite3_exec(ptr noundef %3245, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3247:                                             ; preds = %2
   %3248 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -12542,7 +12542,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.789, ptr noundef %3257) #18
   %3258 = load ptr, ptr %3248, align 8, !tbaa !6
   %3259 = tail call i32 @sqlite3_exec(ptr noundef %3258, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3260:                                             ; preds = %3247
   %3261 = tail call i32 @sqlite3_exec(ptr noundef %3255, ptr noundef nonnull @.str.790, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12555,7 +12555,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.791, ptr noundef %3264) #18
   %3265 = load ptr, ptr %3248, align 8, !tbaa !6
   %3266 = tail call i32 @sqlite3_exec(ptr noundef %3265, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3267:                                             ; preds = %3260
   %3268 = tail call i32 @sqlite3_exec(ptr noundef %3262, ptr noundef nonnull @.str.792, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12568,7 +12568,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.793, ptr noundef %3271) #18
   %3272 = load ptr, ptr %3248, align 8, !tbaa !6
   %3273 = tail call i32 @sqlite3_exec(ptr noundef %3272, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3274:                                             ; preds = %3267
   %3275 = tail call i32 @sqlite3_exec(ptr noundef %3269, ptr noundef nonnull @.str.794, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12581,7 +12581,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.795, ptr noundef %3278) #18
   %3279 = load ptr, ptr %3248, align 8, !tbaa !6
   %3280 = tail call i32 @sqlite3_exec(ptr noundef %3279, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3281:                                             ; preds = %3274
   %3282 = tail call i32 @sqlite3_exec(ptr noundef %3276, ptr noundef nonnull @.str.796, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12594,7 +12594,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.797, ptr noundef %3285) #18
   %3286 = load ptr, ptr %3248, align 8, !tbaa !6
   %3287 = tail call i32 @sqlite3_exec(ptr noundef %3286, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3288:                                             ; preds = %3281
   %3289 = tail call i32 @sqlite3_exec(ptr noundef %3283, ptr noundef nonnull @.str.798, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12607,7 +12607,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.799, ptr noundef %3292) #18
   %3293 = load ptr, ptr %3248, align 8, !tbaa !6
   %3294 = tail call i32 @sqlite3_exec(ptr noundef %3293, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3295:                                             ; preds = %3288
   %3296 = tail call i32 @sqlite3_exec(ptr noundef %3290, ptr noundef nonnull @.str.800, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12620,7 +12620,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.783, ptr noundef %3299) #18
   %3300 = load ptr, ptr %3248, align 8, !tbaa !6
   %3301 = tail call i32 @sqlite3_exec(ptr noundef %3300, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3302:                                             ; preds = %3295
   %3303 = tail call i32 @sqlite3_exec(ptr noundef %3297, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12633,7 +12633,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.787, ptr noundef %3306) #18
   %3307 = load ptr, ptr %3248, align 8, !tbaa !6
   %3308 = tail call i32 @sqlite3_exec(ptr noundef %3307, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3309:                                             ; preds = %3302
   %3310 = tail call i32 @sqlite3_exec(ptr noundef %3304, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12654,7 +12654,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.803, ptr noundef %3319) #18
   %3320 = load ptr, ptr %3314, align 8, !tbaa !6
   %3321 = tail call i32 @sqlite3_exec(ptr noundef %3320, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3322:                                             ; preds = %2
   %3323 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -12669,7 +12669,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.805, ptr noundef %3328) #18
   %3329 = load ptr, ptr %3323, align 8, !tbaa !6
   %3330 = tail call i32 @sqlite3_exec(ptr noundef %3329, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3331:                                             ; preds = %2
   %3332 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -12684,7 +12684,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.807, ptr noundef %3337) #18
   %3338 = load ptr, ptr %3332, align 8, !tbaa !6
   %3339 = tail call i32 @sqlite3_exec(ptr noundef %3338, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3340:                                             ; preds = %2
   %3341 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -12701,7 +12701,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.809, ptr noundef %3348) #18
   %3349 = load ptr, ptr %3341, align 8, !tbaa !6
   %3350 = tail call i32 @sqlite3_exec(ptr noundef %3349, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3351:                                             ; preds = %3340
   %3352 = tail call i32 @sqlite3_exec(ptr noundef %3346, ptr noundef nonnull @.str.810, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12714,7 +12714,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.811, ptr noundef %3355) #18
   %3356 = load ptr, ptr %3341, align 8, !tbaa !6
   %3357 = tail call i32 @sqlite3_exec(ptr noundef %3356, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3358:                                             ; preds = %3351
   %3359 = tail call i32 @sqlite3_exec(ptr noundef %3353, ptr noundef nonnull @.str.812, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12727,7 +12727,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.813, ptr noundef %3362) #18
   %3363 = load ptr, ptr %3341, align 8, !tbaa !6
   %3364 = tail call i32 @sqlite3_exec(ptr noundef %3363, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3365:                                             ; preds = %3358
   %3366 = tail call i32 @sqlite3_exec(ptr noundef %3360, ptr noundef nonnull @.str.814, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12740,7 +12740,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.815, ptr noundef %3369) #18
   %3370 = load ptr, ptr %3341, align 8, !tbaa !6
   %3371 = tail call i32 @sqlite3_exec(ptr noundef %3370, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3372:                                             ; preds = %3365
   %3373 = tail call i32 @sqlite3_exec(ptr noundef %3367, ptr noundef nonnull @.str.816, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12753,7 +12753,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.817, ptr noundef %3376) #18
   %3377 = load ptr, ptr %3341, align 8, !tbaa !6
   %3378 = tail call i32 @sqlite3_exec(ptr noundef %3377, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3379:                                             ; preds = %3372
   %3380 = tail call i32 @sqlite3_exec(ptr noundef %3374, ptr noundef nonnull @.str.818, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12766,7 +12766,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.819, ptr noundef %3383) #18
   %3384 = load ptr, ptr %3341, align 8, !tbaa !6
   %3385 = tail call i32 @sqlite3_exec(ptr noundef %3384, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3386:                                             ; preds = %3379
   %3387 = tail call i32 @sqlite3_exec(ptr noundef %3381, ptr noundef nonnull @.str.820, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12779,7 +12779,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.821, ptr noundef %3390) #18
   %3391 = load ptr, ptr %3341, align 8, !tbaa !6
   %3392 = tail call i32 @sqlite3_exec(ptr noundef %3391, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3393:                                             ; preds = %3386
   %3394 = tail call i32 @sqlite3_exec(ptr noundef %3388, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12800,7 +12800,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.823, ptr noundef %3403) #18
   %3404 = load ptr, ptr %3396, align 8, !tbaa !6
   %3405 = tail call i32 @sqlite3_exec(ptr noundef %3404, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3406:                                             ; preds = %3395
   %3407 = tail call i32 @sqlite3_exec(ptr noundef %3401, ptr noundef nonnull @.str.824, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12813,7 +12813,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.817, ptr noundef %3410) #18
   %3411 = load ptr, ptr %3396, align 8, !tbaa !6
   %3412 = tail call i32 @sqlite3_exec(ptr noundef %3411, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3413:                                             ; preds = %3406
   %3414 = tail call i32 @sqlite3_exec(ptr noundef %3408, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12836,7 +12836,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.826, ptr noundef %3425) #18
   %3426 = load ptr, ptr %3416, align 8, !tbaa !6
   %3427 = tail call i32 @sqlite3_exec(ptr noundef %3426, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3428:                                             ; preds = %3415
   %3429 = tail call i32 @sqlite3_exec(ptr noundef %3423, ptr noundef nonnull @.str.827, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12849,7 +12849,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.828, ptr noundef %3432) #18
   %3433 = load ptr, ptr %3416, align 8, !tbaa !6
   %3434 = tail call i32 @sqlite3_exec(ptr noundef %3433, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3435:                                             ; preds = %3428
   %3436 = tail call i32 @sqlite3_exec(ptr noundef %3430, ptr noundef nonnull @.str.829, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12862,7 +12862,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.830, ptr noundef %3439) #18
   %3440 = load ptr, ptr %3416, align 8, !tbaa !6
   %3441 = tail call i32 @sqlite3_exec(ptr noundef %3440, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3442:                                             ; preds = %3435
   %3443 = tail call i32 @sqlite3_exec(ptr noundef %3437, ptr noundef nonnull @.str.831, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12875,7 +12875,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.832, ptr noundef %3446) #18
   %3447 = load ptr, ptr %3416, align 8, !tbaa !6
   %3448 = tail call i32 @sqlite3_exec(ptr noundef %3447, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3449:                                             ; preds = %3442
   %3450 = tail call i32 @sqlite3_exec(ptr noundef %3444, ptr noundef nonnull @.str.833, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12888,7 +12888,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.834, ptr noundef %3453) #18
   %3454 = load ptr, ptr %3416, align 8, !tbaa !6
   %3455 = tail call i32 @sqlite3_exec(ptr noundef %3454, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3456:                                             ; preds = %3449
   %3457 = tail call i32 @sqlite3_exec(ptr noundef %3451, ptr noundef nonnull @.str.835, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12901,7 +12901,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.836, ptr noundef %3460) #18
   %3461 = load ptr, ptr %3416, align 8, !tbaa !6
   %3462 = tail call i32 @sqlite3_exec(ptr noundef %3461, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3463:                                             ; preds = %3456
   %3464 = tail call i32 @sqlite3_exec(ptr noundef %3458, ptr noundef nonnull @.str.837, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12914,7 +12914,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.838, ptr noundef %3467) #18
   %3468 = load ptr, ptr %3416, align 8, !tbaa !6
   %3469 = tail call i32 @sqlite3_exec(ptr noundef %3468, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3470:                                             ; preds = %3463
   %3471 = tail call i32 @sqlite3_exec(ptr noundef %3465, ptr noundef nonnull @.str.839, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12927,7 +12927,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.840, ptr noundef %3474) #18
   %3475 = load ptr, ptr %3416, align 8, !tbaa !6
   %3476 = tail call i32 @sqlite3_exec(ptr noundef %3475, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3477:                                             ; preds = %3470
   %3478 = tail call i32 @sqlite3_exec(ptr noundef %3472, ptr noundef nonnull @.str.841, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12940,7 +12940,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.755, ptr noundef %3481) #18
   %3482 = load ptr, ptr %3416, align 8, !tbaa !6
   %3483 = tail call i32 @sqlite3_exec(ptr noundef %3482, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3484:                                             ; preds = %3477
   %3485 = tail call i32 @sqlite3_exec(ptr noundef %3479, ptr noundef nonnull @.str.842, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12953,7 +12953,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.757, ptr noundef %3488) #18
   %3489 = load ptr, ptr %3416, align 8, !tbaa !6
   %3490 = tail call i32 @sqlite3_exec(ptr noundef %3489, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3491:                                             ; preds = %3484
   %3492 = tail call i32 @sqlite3_exec(ptr noundef %3486, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12966,7 +12966,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3495) #18
   %3496 = load ptr, ptr %3416, align 8, !tbaa !6
   %3497 = tail call i32 @sqlite3_exec(ptr noundef %3496, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3498:                                             ; preds = %3491
   %3499 = tail call i32 @sqlite3_exec(ptr noundef %3493, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12979,7 +12979,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.470, ptr noundef %3502) #18
   %3503 = load ptr, ptr %3416, align 8, !tbaa !6
   %3504 = tail call i32 @sqlite3_exec(ptr noundef %3503, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3505:                                             ; preds = %3498
   %3506 = tail call i32 @sqlite3_exec(ptr noundef %3500, ptr noundef nonnull @.str.758, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -12992,7 +12992,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.571, ptr noundef %3509) #18
   %3510 = load ptr, ptr %3416, align 8, !tbaa !6
   %3511 = tail call i32 @sqlite3_exec(ptr noundef %3510, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3512:                                             ; preds = %3505
   %3513 = tail call i32 @sqlite3_exec(ptr noundef %3507, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13005,7 +13005,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3516) #18
   %3517 = load ptr, ptr %3416, align 8, !tbaa !6
   %3518 = tail call i32 @sqlite3_exec(ptr noundef %3517, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3519:                                             ; preds = %3512
   %3520 = tail call i32 @sqlite3_exec(ptr noundef %3514, ptr noundef nonnull @.str.759, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13018,7 +13018,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %3523) #18
   %3524 = load ptr, ptr %3416, align 8, !tbaa !6
   %3525 = tail call i32 @sqlite3_exec(ptr noundef %3524, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3526:                                             ; preds = %3519
   %3527 = tail call i32 @sqlite3_exec(ptr noundef %3521, ptr noundef nonnull @.str.760, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13031,7 +13031,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %3530) #18
   %3531 = load ptr, ptr %3416, align 8, !tbaa !6
   %3532 = tail call i32 @sqlite3_exec(ptr noundef %3531, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3533:                                             ; preds = %3526
   %3534 = tail call i32 @sqlite3_exec(ptr noundef %3528, ptr noundef nonnull @.str.761, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13044,7 +13044,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %3537) #18
   %3538 = load ptr, ptr %3416, align 8, !tbaa !6
   %3539 = tail call i32 @sqlite3_exec(ptr noundef %3538, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3540:                                             ; preds = %3533
   %3541 = tail call i32 @sqlite3_exec(ptr noundef %3535, ptr noundef nonnull @.str.762, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13057,7 +13057,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %3544) #18
   %3545 = load ptr, ptr %3416, align 8, !tbaa !6
   %3546 = tail call i32 @sqlite3_exec(ptr noundef %3545, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3547:                                             ; preds = %3540
   %3548 = tail call i32 @sqlite3_exec(ptr noundef %3542, ptr noundef nonnull @.str.763, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13070,7 +13070,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %3551) #18
   %3552 = load ptr, ptr %3416, align 8, !tbaa !6
   %3553 = tail call i32 @sqlite3_exec(ptr noundef %3552, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3554:                                             ; preds = %3547
   %3555 = tail call i32 @sqlite3_exec(ptr noundef %3549, ptr noundef nonnull @.str.764, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13083,7 +13083,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %3558) #18
   %3559 = load ptr, ptr %3416, align 8, !tbaa !6
   %3560 = tail call i32 @sqlite3_exec(ptr noundef %3559, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3561:                                             ; preds = %3554
   %3562 = tail call i32 @sqlite3_exec(ptr noundef %3556, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13111,7 +13111,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.813, ptr noundef %3575) #18
   %3576 = load ptr, ptr %3568, align 8, !tbaa !6
   %3577 = tail call i32 @sqlite3_exec(ptr noundef %3576, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3578:                                             ; preds = %3567
   %3579 = tail call i32 @sqlite3_exec(ptr noundef %3573, ptr noundef nonnull @.str.843, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13124,7 +13124,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.844, ptr noundef %3582) #18
   %3583 = load ptr, ptr %3568, align 8, !tbaa !6
   %3584 = tail call i32 @sqlite3_exec(ptr noundef %3583, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3585:                                             ; preds = %3578
   %3586 = tail call i32 @sqlite3_exec(ptr noundef %3580, ptr noundef nonnull @.str.824, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13137,7 +13137,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.817, ptr noundef %3589) #18
   %3590 = load ptr, ptr %3568, align 8, !tbaa !6
   %3591 = tail call i32 @sqlite3_exec(ptr noundef %3590, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3592:                                             ; preds = %3585
   %3593 = tail call i32 @sqlite3_exec(ptr noundef %3587, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13167,7 +13167,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3605) #18
   %3606 = load ptr, ptr %3596, align 8, !tbaa !6
   %3607 = tail call i32 @sqlite3_exec(ptr noundef %3606, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3608:                                             ; preds = %3595
   %3609 = tail call i32 @sqlite3_exec(ptr noundef %3603, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13180,7 +13180,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3612) #18
   %3613 = load ptr, ptr %3596, align 8, !tbaa !6
   %3614 = tail call i32 @sqlite3_exec(ptr noundef %3613, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3615:                                             ; preds = %3608
   %3616 = tail call i32 @sqlite3_exec(ptr noundef %3610, ptr noundef nonnull @.str.656, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13193,7 +13193,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.657, ptr noundef %3619) #18
   %3620 = load ptr, ptr %3596, align 8, !tbaa !6
   %3621 = tail call i32 @sqlite3_exec(ptr noundef %3620, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3622:                                             ; preds = %3615
   %3623 = tail call i32 @sqlite3_exec(ptr noundef %3617, ptr noundef nonnull @.str.658, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13206,7 +13206,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.659, ptr noundef %3626) #18
   %3627 = load ptr, ptr %3596, align 8, !tbaa !6
   %3628 = tail call i32 @sqlite3_exec(ptr noundef %3627, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3629:                                             ; preds = %3622
   %3630 = tail call i32 @sqlite3_exec(ptr noundef %3624, ptr noundef nonnull @.str.660, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13219,7 +13219,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.661, ptr noundef %3633) #18
   %3634 = load ptr, ptr %3596, align 8, !tbaa !6
   %3635 = tail call i32 @sqlite3_exec(ptr noundef %3634, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3636:                                             ; preds = %3629
   %3637 = tail call i32 @sqlite3_exec(ptr noundef %3631, ptr noundef nonnull @.str.662, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13232,7 +13232,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.663, ptr noundef %3640) #18
   %3641 = load ptr, ptr %3596, align 8, !tbaa !6
   %3642 = tail call i32 @sqlite3_exec(ptr noundef %3641, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3643:                                             ; preds = %3636
   %3644 = tail call i32 @sqlite3_exec(ptr noundef %3638, ptr noundef nonnull @.str.664, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13245,7 +13245,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.665, ptr noundef %3647) #18
   %3648 = load ptr, ptr %3596, align 8, !tbaa !6
   %3649 = tail call i32 @sqlite3_exec(ptr noundef %3648, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3650:                                             ; preds = %3643
   %3651 = tail call i32 @sqlite3_exec(ptr noundef %3645, ptr noundef nonnull @.str.666, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13258,7 +13258,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.667, ptr noundef %3654) #18
   %3655 = load ptr, ptr %3596, align 8, !tbaa !6
   %3656 = tail call i32 @sqlite3_exec(ptr noundef %3655, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3657:                                             ; preds = %3650
   %3658 = tail call i32 @sqlite3_exec(ptr noundef %3652, ptr noundef nonnull @.str.845, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13271,7 +13271,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.667, ptr noundef %3661) #18
   %3662 = load ptr, ptr %3596, align 8, !tbaa !6
   %3663 = tail call i32 @sqlite3_exec(ptr noundef %3662, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3664:                                             ; preds = %3657
   %3665 = tail call i32 @sqlite3_exec(ptr noundef %3659, ptr noundef nonnull @.str.846, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13284,7 +13284,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.715, ptr noundef %3668) #18
   %3669 = load ptr, ptr %3596, align 8, !tbaa !6
   %3670 = tail call i32 @sqlite3_exec(ptr noundef %3669, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3671:                                             ; preds = %3664
   %3672 = tail call i32 @sqlite3_exec(ptr noundef %3666, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13305,7 +13305,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3681) #18
   %3682 = load ptr, ptr %3676, align 8, !tbaa !6
   %3683 = tail call i32 @sqlite3_exec(ptr noundef %3682, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3684:                                             ; preds = %3675
   %3685 = tail call i32 @sqlite3_exec(ptr noundef %3679, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13318,7 +13318,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3688) #18
   %3689 = load ptr, ptr %3676, align 8, !tbaa !6
   %3690 = tail call i32 @sqlite3_exec(ptr noundef %3689, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3691:                                             ; preds = %3594
   %3692 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -13337,7 +13337,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.848, ptr noundef %3701) #18
   %3702 = load ptr, ptr %3692, align 8, !tbaa !6
   %3703 = tail call i32 @sqlite3_exec(ptr noundef %3702, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3704:                                             ; preds = %3691
   %3705 = tail call i32 @sqlite3_exec(ptr noundef %3699, ptr noundef nonnull @.str.849, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13350,7 +13350,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.850, ptr noundef %3708) #18
   %3709 = load ptr, ptr %3692, align 8, !tbaa !6
   %3710 = tail call i32 @sqlite3_exec(ptr noundef %3709, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3711:                                             ; preds = %3704
   %3712 = tail call i32 @sqlite3_exec(ptr noundef %3706, ptr noundef nonnull @.str.851, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13363,7 +13363,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.852, ptr noundef %3715) #18
   %3716 = load ptr, ptr %3692, align 8, !tbaa !6
   %3717 = tail call i32 @sqlite3_exec(ptr noundef %3716, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3718:                                             ; preds = %3711
   %3719 = tail call i32 @sqlite3_exec(ptr noundef %3713, ptr noundef nonnull @.str.853, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13376,7 +13376,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.854, ptr noundef %3722) #18
   %3723 = load ptr, ptr %3692, align 8, !tbaa !6
   %3724 = tail call i32 @sqlite3_exec(ptr noundef %3723, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3725:                                             ; preds = %3718
   %3726 = tail call i32 @sqlite3_exec(ptr noundef %3720, ptr noundef nonnull @.str.855, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13389,7 +13389,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.856, ptr noundef %3729) #18
   %3730 = load ptr, ptr %3692, align 8, !tbaa !6
   %3731 = tail call i32 @sqlite3_exec(ptr noundef %3730, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2352
+  br label %.thread2355
 
 3732:                                             ; preds = %3725
   %3733 = tail call i32 @sqlite3_exec(ptr noundef %3727, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -13397,8 +13397,8 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %3735 = tail call i32 @sqlite3_exec(ptr noundef %3734, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %3736
 
-3736:                                             ; preds = %._crit_edge, %._crit_edge2409, %1608, %1297, %1032, %3594, %3684, %2, %3331, %3322, %3313, %3240, %3166, %3105, %2812, %2794, %1772, %1763, %53, %121, %172, %227, %260, %1100, %1147, %1345, %1413, %1649, %1820, %1888, %2061, %2570, %2726, %3056, %3309, %3393, %3561, %3671, %3732, %3592, %3413, %3162, %3101, %2590, %2088, %1978, %1868, %1393, %1127, %1059, %301, %240, %207, %134, %87, %40
-  %.81871 = phi i32 [ 2, %40 ], [ 3, %53 ], [ 4, %87 ], [ 5, %121 ], [ 6, %134 ], [ 7, %172 ], [ 8, %207 ], [ 9, %227 ], [ 10, %240 ], [ 11, %260 ], [ 12, %301 ], [ 13, %1032 ], [ 14, %1059 ], [ 15, %1100 ], [ 16, %1127 ], [ 17, %1147 ], [ 18, %1297 ], [ 19, %1345 ], [ 20, %1393 ], [ 21, %1413 ], [ 22, %1608 ], [ 23, %1649 ], [ 24, %._crit_edge2409 ], [ 27, %1820 ], [ 28, %1868 ], [ 29, %1888 ], [ 30, %1978 ], [ 31, %2061 ], [ 32, %2088 ], [ 33, %2570 ], [ 34, %2590 ], [ 35, %2726 ], [ 39, %3056 ], [ 40, %3101 ], [ 42, %3162 ], [ 45, %3309 ], [ 49, %3393 ], [ 50, %3413 ], [ 51, %3561 ], [ 53, %3592 ], [ 54, %3671 ], [ 56, %3732 ], [ 1, %2 ], [ 25, %1763 ], [ 26, %1772 ], [ 37, %2794 ], [ 38, %2812 ], [ 41, %3105 ], [ 43, %3166 ], [ 44, %3240 ], [ 46, %3313 ], [ 47, %3322 ], [ 48, %3331 ], [ 55, %3684 ], [ %1, %3594 ], [ 36, %._crit_edge ]
+3736:                                             ; preds = %._crit_edge, %._crit_edge2403, %1608, %1297, %1032, %3594, %3684, %2, %3331, %3322, %3313, %3240, %3166, %3105, %2812, %2794, %1772, %1763, %53, %121, %172, %227, %260, %1100, %1147, %1345, %1413, %1649, %1820, %1888, %2061, %2570, %2726, %3056, %3309, %3393, %3561, %3671, %3732, %3592, %3413, %3162, %3101, %2590, %2088, %1978, %1868, %1393, %1127, %1059, %301, %240, %207, %134, %87, %40
+  %.81871 = phi i32 [ 2, %40 ], [ 3, %53 ], [ 4, %87 ], [ 5, %121 ], [ 6, %134 ], [ 7, %172 ], [ 8, %207 ], [ 9, %227 ], [ 10, %240 ], [ 11, %260 ], [ 12, %301 ], [ 13, %1032 ], [ 14, %1059 ], [ 15, %1100 ], [ 16, %1127 ], [ 17, %1147 ], [ 18, %1297 ], [ 19, %1345 ], [ 20, %1393 ], [ 21, %1413 ], [ 22, %1608 ], [ 23, %1649 ], [ 24, %._crit_edge2403 ], [ 27, %1820 ], [ 28, %1868 ], [ 29, %1888 ], [ 30, %1978 ], [ 31, %2061 ], [ 32, %2088 ], [ 33, %2570 ], [ 34, %2590 ], [ 35, %2726 ], [ 39, %3056 ], [ 40, %3101 ], [ 42, %3162 ], [ 45, %3309 ], [ 49, %3393 ], [ 50, %3413 ], [ 51, %3561 ], [ 53, %3592 ], [ 54, %3671 ], [ 56, %3732 ], [ 1, %2 ], [ 25, %1763 ], [ 26, %1772 ], [ 37, %2794 ], [ 38, %2812 ], [ 41, %3105 ], [ 43, %3166 ], [ 44, %3240 ], [ 46, %3313 ], [ 47, %3322 ], [ 48, %3331 ], [ 55, %3684 ], [ %1, %3594 ], [ 36, %._crit_edge ]
   %3737 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3738 = load ptr, ptr %3737, align 8, !tbaa !6
   %3739 = call i32 @sqlite3_prepare_v2(ptr noundef %3738, ptr noundef nonnull @.str.857, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
@@ -13408,10 +13408,10 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %3743 = call i32 @sqlite3_step(ptr noundef %3742) #18
   %3744 = load ptr, ptr %3, align 8, !tbaa !21
   %3745 = call i32 @sqlite3_finalize(ptr noundef %3744) #18
-  br label %.thread2352
+  br label %.thread2355
 
-.thread2352:                                      ; preds = %.thread2386, %2789, %2753, %2744, %1262, %1269, %1241, %1235, %1228, %1221, %1214, %.thread2385, %.thread2382, %.thread2377, %.thread2356, %.thread2348, %.thread2344, %3736, %3728, %3721, %3714, %3707, %3700, %3686, %3680, %3667, %3660, %3653, %3646, %3639, %3632, %3625, %3618, %3611, %3604, %3588, %3581, %3574, %3557, %3550, %3543, %3536, %3529, %3522, %3515, %3508, %3501, %3494, %3487, %3480, %3473, %3466, %3459, %3452, %3445, %3438, %3431, %3424, %3409, %3402, %3389, %3382, %3375, %3368, %3361, %3354, %3347, %3335, %3326, %3317, %3305, %3298, %3291, %3284, %3277, %3270, %3263, %3256, %3242, %3236, %3229, %3222, %3215, %3208, %3201, %3194, %3187, %3180, %3170, %3158, %3151, %3144, %3137, %3130, %3123, %3109, %3097, %3090, %3083, %3076, %3069, %3052, %3045, %3038, %3031, %3024, %3017, %3010, %3003, %2996, %2989, %2982, %2975, %2968, %2961, %2954, %2947, %2940, %2933, %2926, %2919, %2912, %2905, %2898, %2891, %2884, %2877, %2870, %2863, %2856, %2849, %2842, %2835, %2828, %2814, %2808, %2798, %2734, %2722, %2715, %2708, %2701, %2694, %2687, %2680, %2673, %2617, %2608, %2601, %2586, %2579, %2566, %2559, %2552, %2545, %2538, %2531, %2524, %2517, %2510, %2503, %2496, %2489, %2482, %2475, %2468, %2461, %2454, %2447, %2440, %2433, %2426, %2419, %2412, %2405, %2398, %2391, %2384, %2377, %2370, %2363, %2356, %2349, %2342, %2335, %2328, %2321, %2314, %2307, %2300, %2293, %2286, %2279, %2272, %2265, %2258, %2251, %2244, %2237, %2230, %2223, %2216, %2209, %2202, %2195, %2188, %2181, %2174, %2167, %2160, %2153, %2146, %2139, %2132, %2125, %2118, %2111, %2104, %2097, %2084, %2077, %2070, %2057, %2050, %2043, %2036, %2029, %2022, %2015, %2008, %2001, %1994, %1987, %1974, %1967, %1960, %1953, %1946, %1939, %1932, %1925, %1918, %1911, %1904, %1897, %1884, %1877, %1864, %1857, %1850, %1843, %1836, %1829, %1816, %1809, %1802, %1795, %1788, %1776, %1767, %1657, %1645, %1638, %1631, %1624, %1617, %1421, %1409, %1402, %1389, %1382, %1375, %1368, %1361, %1354, %1341, %1334, %1327, %1320, %1313, %1306, %1204, %1198, %1191, %1184, %1177, %1170, %1163, %1156, %1143, %1136, %1123, %1116, %1109, %1096, %1089, %1082, %1075, %1068, %1055, %1048, %1041, %297, %290, %283, %276, %269, %256, %249, %236, %223, %216, %203, %196, %189, %182, %167, %161, %154, %147, %130, %117, %110, %103, %96, %83, %76, %69, %62, %49, %36, %29
-  %.0 = phi i32 [ %.81871, %3736 ], [ 1, %29 ], [ 1, %36 ], [ 2, %49 ], [ 3, %62 ], [ 3, %69 ], [ 3, %76 ], [ 3, %83 ], [ 4, %96 ], [ 4, %103 ], [ 4, %110 ], [ 4, %117 ], [ 5, %130 ], [ 6, %147 ], [ 6, %154 ], [ 6, %161 ], [ 6, %167 ], [ 7, %182 ], [ 7, %189 ], [ 7, %196 ], [ 7, %203 ], [ 8, %216 ], [ 8, %223 ], [ 9, %236 ], [ 10, %249 ], [ 10, %256 ], [ 11, %269 ], [ 11, %276 ], [ 11, %283 ], [ 11, %290 ], [ 11, %297 ], [ 13, %1041 ], [ 13, %1048 ], [ 13, %1055 ], [ 14, %1068 ], [ 14, %1075 ], [ 14, %1082 ], [ 14, %1089 ], [ 14, %1096 ], [ 15, %1109 ], [ 15, %1116 ], [ 15, %1123 ], [ 16, %1136 ], [ 16, %1143 ], [ 17, %1156 ], [ 17, %1163 ], [ 17, %1170 ], [ 17, %1177 ], [ 17, %1184 ], [ 17, %1191 ], [ 17, %1198 ], [ 17, %1204 ], [ 18, %1306 ], [ 18, %1313 ], [ 18, %1320 ], [ 18, %1327 ], [ 18, %1334 ], [ 18, %1341 ], [ 19, %1354 ], [ 19, %1361 ], [ 19, %1368 ], [ 19, %1375 ], [ 19, %1382 ], [ 19, %1389 ], [ 20, %1402 ], [ 20, %1409 ], [ 21, %1421 ], [ 22, %1617 ], [ 22, %1624 ], [ 22, %1631 ], [ 22, %1638 ], [ 22, %1645 ], [ 23, %1657 ], [ 24, %1767 ], [ 25, %1776 ], [ 26, %1788 ], [ 26, %1795 ], [ 26, %1802 ], [ 26, %1809 ], [ 26, %1816 ], [ 27, %1829 ], [ 27, %1836 ], [ 27, %1843 ], [ 27, %1850 ], [ 27, %1857 ], [ 27, %1864 ], [ 28, %1877 ], [ 28, %1884 ], [ 29, %1897 ], [ 29, %1904 ], [ 29, %1911 ], [ 29, %1918 ], [ 29, %1925 ], [ 29, %1932 ], [ 29, %1939 ], [ 29, %1946 ], [ 29, %1953 ], [ 29, %1960 ], [ 29, %1967 ], [ 29, %1974 ], [ 30, %1987 ], [ 30, %1994 ], [ 30, %2001 ], [ 30, %2008 ], [ 30, %2015 ], [ 30, %2022 ], [ 30, %2029 ], [ 30, %2036 ], [ 30, %2043 ], [ 30, %2050 ], [ 30, %2057 ], [ 31, %2070 ], [ 31, %2077 ], [ 31, %2084 ], [ 32, %2097 ], [ 32, %2104 ], [ 32, %2111 ], [ 32, %2118 ], [ 32, %2125 ], [ 32, %2132 ], [ 32, %2139 ], [ 32, %2146 ], [ 32, %2153 ], [ 32, %2160 ], [ 32, %2167 ], [ 32, %2174 ], [ 32, %2181 ], [ 32, %2188 ], [ 32, %2195 ], [ 32, %2202 ], [ 32, %2209 ], [ 32, %2216 ], [ 32, %2223 ], [ 32, %2230 ], [ 32, %2237 ], [ 32, %2244 ], [ 32, %2251 ], [ 32, %2258 ], [ 32, %2265 ], [ 32, %2272 ], [ 32, %2279 ], [ 32, %2286 ], [ 32, %2293 ], [ 32, %2300 ], [ 32, %2307 ], [ 32, %2314 ], [ 32, %2321 ], [ 32, %2328 ], [ 32, %2335 ], [ 32, %2342 ], [ 32, %2349 ], [ 32, %2356 ], [ 32, %2363 ], [ 32, %2370 ], [ 32, %2377 ], [ 32, %2384 ], [ 32, %2391 ], [ 32, %2398 ], [ 32, %2405 ], [ 32, %2412 ], [ 32, %2419 ], [ 32, %2426 ], [ 32, %2433 ], [ 32, %2440 ], [ 32, %2447 ], [ 32, %2454 ], [ 32, %2461 ], [ 32, %2468 ], [ 32, %2475 ], [ 32, %2482 ], [ 32, %2489 ], [ 32, %2496 ], [ 32, %2503 ], [ 32, %2510 ], [ 32, %2517 ], [ 32, %2524 ], [ 32, %2531 ], [ 32, %2538 ], [ 32, %2545 ], [ 32, %2552 ], [ 32, %2559 ], [ 32, %2566 ], [ 33, %2579 ], [ 33, %2586 ], [ 34, %2601 ], [ 34, %2608 ], [ 34, %2617 ], [ 34, %2673 ], [ 34, %2680 ], [ 34, %2687 ], [ 34, %2694 ], [ 34, %2701 ], [ 34, %2708 ], [ 34, %2715 ], [ 34, %2722 ], [ 35, %2734 ], [ 36, %2798 ], [ 37, %2808 ], [ 37, %2814 ], [ 38, %2828 ], [ 38, %2835 ], [ 38, %2842 ], [ 38, %2849 ], [ 38, %2856 ], [ 38, %2863 ], [ 38, %2870 ], [ 38, %2877 ], [ 38, %2884 ], [ 38, %2891 ], [ 38, %2898 ], [ 38, %2905 ], [ 38, %2912 ], [ 38, %2919 ], [ 38, %2926 ], [ 38, %2933 ], [ 38, %2940 ], [ 38, %2947 ], [ 38, %2954 ], [ 38, %2961 ], [ 38, %2968 ], [ 38, %2975 ], [ 38, %2982 ], [ 38, %2989 ], [ 38, %2996 ], [ 38, %3003 ], [ 38, %3010 ], [ 38, %3017 ], [ 38, %3024 ], [ 38, %3031 ], [ 38, %3038 ], [ 38, %3045 ], [ 38, %3052 ], [ 39, %3069 ], [ 39, %3076 ], [ 39, %3083 ], [ 39, %3090 ], [ 39, %3097 ], [ 40, %3109 ], [ 41, %3123 ], [ 41, %3130 ], [ 41, %3137 ], [ 41, %3144 ], [ 41, %3151 ], [ 41, %3158 ], [ 42, %3170 ], [ 43, %3180 ], [ 43, %3187 ], [ 43, %3194 ], [ 43, %3201 ], [ 43, %3208 ], [ 43, %3215 ], [ 43, %3222 ], [ 43, %3229 ], [ 43, %3236 ], [ 43, %3242 ], [ 44, %3256 ], [ 44, %3263 ], [ 44, %3270 ], [ 44, %3277 ], [ 44, %3284 ], [ 44, %3291 ], [ 44, %3298 ], [ 44, %3305 ], [ 45, %3317 ], [ 46, %3326 ], [ 47, %3335 ], [ 48, %3347 ], [ 48, %3354 ], [ 48, %3361 ], [ 48, %3368 ], [ 48, %3375 ], [ 48, %3382 ], [ 48, %3389 ], [ 49, %3402 ], [ 49, %3409 ], [ 50, %3424 ], [ 50, %3431 ], [ 50, %3438 ], [ 50, %3445 ], [ 50, %3452 ], [ 50, %3459 ], [ 50, %3466 ], [ 50, %3473 ], [ 50, %3480 ], [ 50, %3487 ], [ 50, %3494 ], [ 50, %3501 ], [ 50, %3508 ], [ 50, %3515 ], [ 50, %3522 ], [ 50, %3529 ], [ 50, %3536 ], [ 50, %3543 ], [ 50, %3550 ], [ 50, %3557 ], [ %1, %3574 ], [ %1, %3581 ], [ %1, %3588 ], [ 53, %3604 ], [ 53, %3611 ], [ 53, %3618 ], [ 53, %3625 ], [ 53, %3632 ], [ 53, %3639 ], [ 53, %3646 ], [ 53, %3653 ], [ 53, %3660 ], [ 53, %3667 ], [ 54, %3680 ], [ 54, %3686 ], [ 55, %3700 ], [ 55, %3707 ], [ 55, %3714 ], [ 55, %3721 ], [ 55, %3728 ], [ 12, %.thread2344 ], [ 12, %.thread2348 ], [ 17, %.thread2356 ], [ 21, %.thread2377 ], [ 23, %.thread2382 ], [ 34, %.thread2385 ], [ 17, %1214 ], [ 17, %1221 ], [ 17, %1228 ], [ 17, %1235 ], [ 17, %1241 ], [ 17, %1269 ], [ 17, %1262 ], [ 35, %2744 ], [ 35, %2753 ], [ 35, %2789 ], [ 35, %.thread2386 ]
+.thread2355:                                      ; preds = %.thread2380, %2789, %2753, %2744, %1262, %1269, %1241, %1235, %1228, %1221, %1214, %.thread2379, %.thread2376, %.thread2371, %.thread2359, %.thread2351, %.thread2347, %3736, %3728, %3721, %3714, %3707, %3700, %3686, %3680, %3667, %3660, %3653, %3646, %3639, %3632, %3625, %3618, %3611, %3604, %3588, %3581, %3574, %3557, %3550, %3543, %3536, %3529, %3522, %3515, %3508, %3501, %3494, %3487, %3480, %3473, %3466, %3459, %3452, %3445, %3438, %3431, %3424, %3409, %3402, %3389, %3382, %3375, %3368, %3361, %3354, %3347, %3335, %3326, %3317, %3305, %3298, %3291, %3284, %3277, %3270, %3263, %3256, %3242, %3236, %3229, %3222, %3215, %3208, %3201, %3194, %3187, %3180, %3170, %3158, %3151, %3144, %3137, %3130, %3123, %3109, %3097, %3090, %3083, %3076, %3069, %3052, %3045, %3038, %3031, %3024, %3017, %3010, %3003, %2996, %2989, %2982, %2975, %2968, %2961, %2954, %2947, %2940, %2933, %2926, %2919, %2912, %2905, %2898, %2891, %2884, %2877, %2870, %2863, %2856, %2849, %2842, %2835, %2828, %2814, %2808, %2798, %2734, %2722, %2715, %2708, %2701, %2694, %2687, %2680, %2673, %2617, %2608, %2601, %2586, %2579, %2566, %2559, %2552, %2545, %2538, %2531, %2524, %2517, %2510, %2503, %2496, %2489, %2482, %2475, %2468, %2461, %2454, %2447, %2440, %2433, %2426, %2419, %2412, %2405, %2398, %2391, %2384, %2377, %2370, %2363, %2356, %2349, %2342, %2335, %2328, %2321, %2314, %2307, %2300, %2293, %2286, %2279, %2272, %2265, %2258, %2251, %2244, %2237, %2230, %2223, %2216, %2209, %2202, %2195, %2188, %2181, %2174, %2167, %2160, %2153, %2146, %2139, %2132, %2125, %2118, %2111, %2104, %2097, %2084, %2077, %2070, %2057, %2050, %2043, %2036, %2029, %2022, %2015, %2008, %2001, %1994, %1987, %1974, %1967, %1960, %1953, %1946, %1939, %1932, %1925, %1918, %1911, %1904, %1897, %1884, %1877, %1864, %1857, %1850, %1843, %1836, %1829, %1816, %1809, %1802, %1795, %1788, %1776, %1767, %1657, %1645, %1638, %1631, %1624, %1617, %1421, %1409, %1402, %1389, %1382, %1375, %1368, %1361, %1354, %1341, %1334, %1327, %1320, %1313, %1306, %1204, %1198, %1191, %1184, %1177, %1170, %1163, %1156, %1143, %1136, %1123, %1116, %1109, %1096, %1089, %1082, %1075, %1068, %1055, %1048, %1041, %297, %290, %283, %276, %269, %256, %249, %236, %223, %216, %203, %196, %189, %182, %167, %161, %154, %147, %130, %117, %110, %103, %96, %83, %76, %69, %62, %49, %36, %29
+  %.0 = phi i32 [ %.81871, %3736 ], [ 1, %29 ], [ 1, %36 ], [ 2, %49 ], [ 3, %62 ], [ 3, %69 ], [ 3, %76 ], [ 3, %83 ], [ 4, %96 ], [ 4, %103 ], [ 4, %110 ], [ 4, %117 ], [ 5, %130 ], [ 6, %147 ], [ 6, %154 ], [ 6, %161 ], [ 6, %167 ], [ 7, %182 ], [ 7, %189 ], [ 7, %196 ], [ 7, %203 ], [ 8, %216 ], [ 8, %223 ], [ 9, %236 ], [ 10, %249 ], [ 10, %256 ], [ 11, %269 ], [ 11, %276 ], [ 11, %283 ], [ 11, %290 ], [ 11, %297 ], [ 13, %1041 ], [ 13, %1048 ], [ 13, %1055 ], [ 14, %1068 ], [ 14, %1075 ], [ 14, %1082 ], [ 14, %1089 ], [ 14, %1096 ], [ 15, %1109 ], [ 15, %1116 ], [ 15, %1123 ], [ 16, %1136 ], [ 16, %1143 ], [ 17, %1156 ], [ 17, %1163 ], [ 17, %1170 ], [ 17, %1177 ], [ 17, %1184 ], [ 17, %1191 ], [ 17, %1198 ], [ 17, %1204 ], [ 18, %1306 ], [ 18, %1313 ], [ 18, %1320 ], [ 18, %1327 ], [ 18, %1334 ], [ 18, %1341 ], [ 19, %1354 ], [ 19, %1361 ], [ 19, %1368 ], [ 19, %1375 ], [ 19, %1382 ], [ 19, %1389 ], [ 20, %1402 ], [ 20, %1409 ], [ 21, %1421 ], [ 22, %1617 ], [ 22, %1624 ], [ 22, %1631 ], [ 22, %1638 ], [ 22, %1645 ], [ 23, %1657 ], [ 24, %1767 ], [ 25, %1776 ], [ 26, %1788 ], [ 26, %1795 ], [ 26, %1802 ], [ 26, %1809 ], [ 26, %1816 ], [ 27, %1829 ], [ 27, %1836 ], [ 27, %1843 ], [ 27, %1850 ], [ 27, %1857 ], [ 27, %1864 ], [ 28, %1877 ], [ 28, %1884 ], [ 29, %1897 ], [ 29, %1904 ], [ 29, %1911 ], [ 29, %1918 ], [ 29, %1925 ], [ 29, %1932 ], [ 29, %1939 ], [ 29, %1946 ], [ 29, %1953 ], [ 29, %1960 ], [ 29, %1967 ], [ 29, %1974 ], [ 30, %1987 ], [ 30, %1994 ], [ 30, %2001 ], [ 30, %2008 ], [ 30, %2015 ], [ 30, %2022 ], [ 30, %2029 ], [ 30, %2036 ], [ 30, %2043 ], [ 30, %2050 ], [ 30, %2057 ], [ 31, %2070 ], [ 31, %2077 ], [ 31, %2084 ], [ 32, %2097 ], [ 32, %2104 ], [ 32, %2111 ], [ 32, %2118 ], [ 32, %2125 ], [ 32, %2132 ], [ 32, %2139 ], [ 32, %2146 ], [ 32, %2153 ], [ 32, %2160 ], [ 32, %2167 ], [ 32, %2174 ], [ 32, %2181 ], [ 32, %2188 ], [ 32, %2195 ], [ 32, %2202 ], [ 32, %2209 ], [ 32, %2216 ], [ 32, %2223 ], [ 32, %2230 ], [ 32, %2237 ], [ 32, %2244 ], [ 32, %2251 ], [ 32, %2258 ], [ 32, %2265 ], [ 32, %2272 ], [ 32, %2279 ], [ 32, %2286 ], [ 32, %2293 ], [ 32, %2300 ], [ 32, %2307 ], [ 32, %2314 ], [ 32, %2321 ], [ 32, %2328 ], [ 32, %2335 ], [ 32, %2342 ], [ 32, %2349 ], [ 32, %2356 ], [ 32, %2363 ], [ 32, %2370 ], [ 32, %2377 ], [ 32, %2384 ], [ 32, %2391 ], [ 32, %2398 ], [ 32, %2405 ], [ 32, %2412 ], [ 32, %2419 ], [ 32, %2426 ], [ 32, %2433 ], [ 32, %2440 ], [ 32, %2447 ], [ 32, %2454 ], [ 32, %2461 ], [ 32, %2468 ], [ 32, %2475 ], [ 32, %2482 ], [ 32, %2489 ], [ 32, %2496 ], [ 32, %2503 ], [ 32, %2510 ], [ 32, %2517 ], [ 32, %2524 ], [ 32, %2531 ], [ 32, %2538 ], [ 32, %2545 ], [ 32, %2552 ], [ 32, %2559 ], [ 32, %2566 ], [ 33, %2579 ], [ 33, %2586 ], [ 34, %2601 ], [ 34, %2608 ], [ 34, %2617 ], [ 34, %2673 ], [ 34, %2680 ], [ 34, %2687 ], [ 34, %2694 ], [ 34, %2701 ], [ 34, %2708 ], [ 34, %2715 ], [ 34, %2722 ], [ 35, %2734 ], [ 36, %2798 ], [ 37, %2808 ], [ 37, %2814 ], [ 38, %2828 ], [ 38, %2835 ], [ 38, %2842 ], [ 38, %2849 ], [ 38, %2856 ], [ 38, %2863 ], [ 38, %2870 ], [ 38, %2877 ], [ 38, %2884 ], [ 38, %2891 ], [ 38, %2898 ], [ 38, %2905 ], [ 38, %2912 ], [ 38, %2919 ], [ 38, %2926 ], [ 38, %2933 ], [ 38, %2940 ], [ 38, %2947 ], [ 38, %2954 ], [ 38, %2961 ], [ 38, %2968 ], [ 38, %2975 ], [ 38, %2982 ], [ 38, %2989 ], [ 38, %2996 ], [ 38, %3003 ], [ 38, %3010 ], [ 38, %3017 ], [ 38, %3024 ], [ 38, %3031 ], [ 38, %3038 ], [ 38, %3045 ], [ 38, %3052 ], [ 39, %3069 ], [ 39, %3076 ], [ 39, %3083 ], [ 39, %3090 ], [ 39, %3097 ], [ 40, %3109 ], [ 41, %3123 ], [ 41, %3130 ], [ 41, %3137 ], [ 41, %3144 ], [ 41, %3151 ], [ 41, %3158 ], [ 42, %3170 ], [ 43, %3180 ], [ 43, %3187 ], [ 43, %3194 ], [ 43, %3201 ], [ 43, %3208 ], [ 43, %3215 ], [ 43, %3222 ], [ 43, %3229 ], [ 43, %3236 ], [ 43, %3242 ], [ 44, %3256 ], [ 44, %3263 ], [ 44, %3270 ], [ 44, %3277 ], [ 44, %3284 ], [ 44, %3291 ], [ 44, %3298 ], [ 44, %3305 ], [ 45, %3317 ], [ 46, %3326 ], [ 47, %3335 ], [ 48, %3347 ], [ 48, %3354 ], [ 48, %3361 ], [ 48, %3368 ], [ 48, %3375 ], [ 48, %3382 ], [ 48, %3389 ], [ 49, %3402 ], [ 49, %3409 ], [ 50, %3424 ], [ 50, %3431 ], [ 50, %3438 ], [ 50, %3445 ], [ 50, %3452 ], [ 50, %3459 ], [ 50, %3466 ], [ 50, %3473 ], [ 50, %3480 ], [ 50, %3487 ], [ 50, %3494 ], [ 50, %3501 ], [ 50, %3508 ], [ 50, %3515 ], [ 50, %3522 ], [ 50, %3529 ], [ 50, %3536 ], [ 50, %3543 ], [ 50, %3550 ], [ 50, %3557 ], [ %1, %3574 ], [ %1, %3581 ], [ %1, %3588 ], [ 53, %3604 ], [ 53, %3611 ], [ 53, %3618 ], [ 53, %3625 ], [ 53, %3632 ], [ 53, %3639 ], [ 53, %3646 ], [ 53, %3653 ], [ 53, %3660 ], [ 53, %3667 ], [ 54, %3680 ], [ 54, %3686 ], [ 55, %3700 ], [ 55, %3707 ], [ 55, %3714 ], [ 55, %3721 ], [ 55, %3728 ], [ 12, %.thread2347 ], [ 12, %.thread2351 ], [ 17, %.thread2359 ], [ 21, %.thread2371 ], [ 23, %.thread2376 ], [ 34, %.thread2379 ], [ 17, %1214 ], [ 17, %1221 ], [ 17, %1228 ], [ 17, %1235 ], [ 17, %1241 ], [ 17, %1269 ], [ 17, %1262 ], [ 35, %2744 ], [ 35, %2753 ], [ 35, %2789 ], [ 35, %.thread2380 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   ret i32 %.0
 }

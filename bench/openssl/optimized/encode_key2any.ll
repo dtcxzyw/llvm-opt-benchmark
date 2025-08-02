@@ -16675,7 +16675,7 @@ define internal range(i32 0, 2) i32 @prepare_ec_params(ptr noundef %0, i32 %1, i
 8:                                                ; preds = %5
   %9 = tail call i32 @EC_GROUP_get_curve_name(ptr noundef nonnull %6) #5
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %8
   %11 = tail call ptr @OBJ_nid2obj(i32 noundef %9) #5
@@ -16686,7 +16686,7 @@ define internal range(i32 0, 2) i32 @prepare_ec_params(ptr noundef %0, i32 %1, i
   %14 = tail call i32 @EC_GROUP_get_asn1_flag(ptr noundef nonnull %6) #5
   %15 = and i32 %14, 1
   %.not20 = icmp eq i32 %15, 0
-  br i1 %.not20, label %.thread, label %16
+  br i1 %.not20, label %.critedge, label %16
 
 16:                                               ; preds = %13
   %17 = tail call i64 @OBJ_length(ptr noundef nonnull %11) #5
@@ -16705,18 +16705,18 @@ define internal range(i32 0, 2) i32 @prepare_ec_params(ptr noundef %0, i32 %1, i
   store i32 6, ptr %4, align 4, !tbaa !20
   br label %prepare_ec_explicit_params.exit
 
-.thread:                                          ; preds = %8, %13
+.critedge:                                        ; preds = %8, %13
   %21 = tail call ptr @ASN1_STRING_new() #5
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
 
-23:                                               ; preds = %.thread
+23:                                               ; preds = %.critedge
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 672, ptr noundef nonnull @__func__.prepare_ec_explicit_params) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 524301, ptr noundef null) #5
   br label %prepare_ec_explicit_params.exit
 
-24:                                               ; preds = %.thread
+24:                                               ; preds = %.critedge
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %26 = tail call i32 @i2d_ECParameters(ptr noundef %0, ptr noundef nonnull %25) #5
   store i32 %26, ptr %21, align 8, !tbaa !25

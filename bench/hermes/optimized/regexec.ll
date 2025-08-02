@@ -3342,9 +3342,8 @@ return:                                           ; preds = %if.end289, %if.end2
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef ptr @lstep(ptr noundef readonly captures(none) %g, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %start, i64 noundef %stop, ptr noundef readonly captures(none) %bef, i32 noundef range(i32 -128, 135) %ch, ptr noundef returned captures(ret: address, provenance) %aft) unnamed_addr #11 {
 entry:
-  %invariant.gep = getelementptr i8, ptr %aft, i64 1
-  %cmp.not163 = icmp eq i64 %start, %stop
-  br i1 %cmp.not163, label %for.end247, label %for.body.lr.ph
+  %cmp.not151 = icmp eq i64 %start, %stop
+  br i1 %cmp.not151, label %for.end247, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %strip = getelementptr inbounds nuw i8, ptr %g, i64 8
@@ -3361,10 +3360,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc245
-  %here.0165 = phi i64 [ %start, %for.body.lr.ph ], [ %inc246, %for.inc245 ]
-  %pc.0164 = phi i64 [ %start, %for.body.lr.ph ], [ %inc, %for.inc245 ]
+  %here.0153 = phi i64 [ %start, %for.body.lr.ph ], [ %inc246, %for.inc245 ]
+  %pc.0152 = phi i64 [ %start, %for.body.lr.ph ], [ %inc, %for.inc245 ]
   %3 = load ptr, ptr %strip, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %3, i64 %pc.0164
+  %arrayidx = getelementptr inbounds i64, ptr %3, i64 %pc.0152
   %4 = load i64, ptr %arrayidx, align 8
   %and = and i64 %4, 4160749568
   %5 = add nsw i64 %and, -134217728
@@ -3399,253 +3398,260 @@ sw.bb1:                                           ; preds = %for.body
   br i1 %cmp4, label %if.then, label %for.inc245
 
 if.then:                                          ; preds = %sw.bb1
-  %arrayidx6 = getelementptr inbounds i8, ptr %bef, i64 %here.0165
+  %arrayidx6 = getelementptr inbounds i8, ptr %bef, i64 %here.0153
   %7 = load i8, ptr %arrayidx6, align 1
-  %gep162 = getelementptr i8, ptr %invariant.gep, i64 %here.0165
-  %8 = load i8, ptr %gep162, align 1
-  %or144 = or i8 %8, %7
-  store i8 %or144, ptr %gep162, align 1
+  %8 = getelementptr i8, ptr %aft, i64 %here.0153
+  %arrayidx8 = getelementptr i8, ptr %8, i64 1
+  %9 = load i8, ptr %arrayidx8, align 1
+  %or144 = or i8 %9, %7
+  store i8 %or144, ptr %arrayidx8, align 1
   br label %for.inc245
 
 sw.bb11:                                          ; preds = %for.body
   br i1 %or.cond, label %if.then16, label %for.inc245
 
 if.then16:                                        ; preds = %sw.bb11
-  %arrayidx17 = getelementptr inbounds i8, ptr %bef, i64 %here.0165
-  %9 = load i8, ptr %arrayidx17, align 1
-  %gep160 = getelementptr i8, ptr %invariant.gep, i64 %here.0165
-  %10 = load i8, ptr %gep160, align 1
-  %or22143 = or i8 %10, %9
-  store i8 %or22143, ptr %gep160, align 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %bef, i64 %here.0153
+  %10 = load i8, ptr %arrayidx17, align 1
+  %11 = getelementptr i8, ptr %aft, i64 %here.0153
+  %arrayidx20 = getelementptr i8, ptr %11, i64 1
+  %12 = load i8, ptr %arrayidx20, align 1
+  %or22143 = or i8 %12, %10
+  store i8 %or22143, ptr %arrayidx20, align 1
   br label %for.inc245
 
 sw.bb25:                                          ; preds = %for.body
   br i1 %or.cond1, label %if.then31, label %for.inc245
 
 if.then31:                                        ; preds = %sw.bb25
-  %arrayidx32 = getelementptr inbounds i8, ptr %bef, i64 %here.0165
-  %11 = load i8, ptr %arrayidx32, align 1
-  %gep158 = getelementptr i8, ptr %invariant.gep, i64 %here.0165
-  %12 = load i8, ptr %gep158, align 1
-  %or37142 = or i8 %12, %11
-  store i8 %or37142, ptr %gep158, align 1
+  %arrayidx32 = getelementptr inbounds i8, ptr %bef, i64 %here.0153
+  %13 = load i8, ptr %arrayidx32, align 1
+  %14 = getelementptr i8, ptr %aft, i64 %here.0153
+  %arrayidx35 = getelementptr i8, ptr %14, i64 1
+  %15 = load i8, ptr %arrayidx35, align 1
+  %or37142 = or i8 %15, %13
+  store i8 %or37142, ptr %arrayidx35, align 1
   br label %for.inc245
 
 sw.bb40:                                          ; preds = %for.body
   br i1 %cmp41, label %if.then43, label %for.inc245
 
 if.then43:                                        ; preds = %sw.bb40
-  %arrayidx44 = getelementptr inbounds i8, ptr %bef, i64 %here.0165
-  %13 = load i8, ptr %arrayidx44, align 1
-  %gep156 = getelementptr i8, ptr %invariant.gep, i64 %here.0165
-  %14 = load i8, ptr %gep156, align 1
-  %or49141 = or i8 %14, %13
-  store i8 %or49141, ptr %gep156, align 1
+  %arrayidx44 = getelementptr inbounds i8, ptr %bef, i64 %here.0153
+  %16 = load i8, ptr %arrayidx44, align 1
+  %17 = getelementptr i8, ptr %aft, i64 %here.0153
+  %arrayidx47 = getelementptr i8, ptr %17, i64 1
+  %18 = load i8, ptr %arrayidx47, align 1
+  %or49141 = or i8 %18, %16
+  store i8 %or49141, ptr %arrayidx47, align 1
   br label %for.inc245
 
 sw.bb52:                                          ; preds = %for.body
   br i1 %cmp53, label %if.then55, label %for.inc245
 
 if.then55:                                        ; preds = %sw.bb52
-  %arrayidx56 = getelementptr inbounds i8, ptr %bef, i64 %here.0165
-  %15 = load i8, ptr %arrayidx56, align 1
-  %gep154 = getelementptr i8, ptr %invariant.gep, i64 %here.0165
-  %16 = load i8, ptr %gep154, align 1
-  %or61140 = or i8 %16, %15
-  store i8 %or61140, ptr %gep154, align 1
+  %arrayidx56 = getelementptr inbounds i8, ptr %bef, i64 %here.0153
+  %19 = load i8, ptr %arrayidx56, align 1
+  %20 = getelementptr i8, ptr %aft, i64 %here.0153
+  %arrayidx59 = getelementptr i8, ptr %20, i64 1
+  %21 = load i8, ptr %arrayidx59, align 1
+  %or61140 = or i8 %21, %19
+  store i8 %or61140, ptr %arrayidx59, align 1
   br label %for.inc245
 
 sw.bb64:                                          ; preds = %for.body
   br i1 %cmp79, label %for.inc245, label %if.then67
 
 if.then67:                                        ; preds = %sw.bb64
-  %arrayidx68 = getelementptr inbounds i8, ptr %bef, i64 %here.0165
-  %17 = load i8, ptr %arrayidx68, align 1
-  %gep152 = getelementptr i8, ptr %invariant.gep, i64 %here.0165
-  %18 = load i8, ptr %gep152, align 1
-  %or73139 = or i8 %18, %17
-  store i8 %or73139, ptr %gep152, align 1
+  %arrayidx68 = getelementptr inbounds i8, ptr %bef, i64 %here.0153
+  %22 = load i8, ptr %arrayidx68, align 1
+  %23 = getelementptr i8, ptr %aft, i64 %here.0153
+  %arrayidx71 = getelementptr i8, ptr %23, i64 1
+  %24 = load i8, ptr %arrayidx71, align 1
+  %or73139 = or i8 %24, %22
+  store i8 %or73139, ptr %arrayidx71, align 1
   br label %for.inc245
 
 sw.bb76:                                          ; preds = %for.body
   br i1 %cmp79, label %for.inc245, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb76
-  %19 = load ptr, ptr %sets, align 8
+  %25 = load ptr, ptr %sets, align 8
   %and77 = and i64 %4, 134217727
-  %arrayidx78 = getelementptr inbounds nuw %struct.cset, ptr %19, i64 %and77
-  %20 = load ptr, ptr %arrayidx78, align 8
-  %arrayidx82 = getelementptr inbounds nuw i8, ptr %20, i64 %idxprom
-  %21 = load i8, ptr %arrayidx82, align 1
+  %arrayidx78 = getelementptr inbounds nuw %struct.cset, ptr %25, i64 %and77
+  %26 = load ptr, ptr %arrayidx78, align 8
+  %arrayidx82 = getelementptr inbounds nuw i8, ptr %26, i64 %idxprom
+  %27 = load i8, ptr %arrayidx82, align 1
   %mask = getelementptr inbounds nuw i8, ptr %arrayidx78, i64 8
-  %22 = load i8, ptr %mask, align 8
-  %and85137 = and i8 %22, %21
+  %28 = load i8, ptr %mask, align 8
+  %and85137 = and i8 %28, %27
   %tobool.not = icmp eq i8 %and85137, 0
   br i1 %tobool.not, label %for.inc245, label %if.then86
 
 if.then86:                                        ; preds = %land.lhs.true
-  %arrayidx87 = getelementptr inbounds i8, ptr %bef, i64 %here.0165
-  %23 = load i8, ptr %arrayidx87, align 1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %here.0165
-  %24 = load i8, ptr %gep, align 1
-  %or92138 = or i8 %24, %23
-  store i8 %or92138, ptr %gep, align 1
+  %arrayidx87 = getelementptr inbounds i8, ptr %bef, i64 %here.0153
+  %29 = load i8, ptr %arrayidx87, align 1
+  %30 = getelementptr i8, ptr %aft, i64 %here.0153
+  %arrayidx90 = getelementptr i8, ptr %30, i64 1
+  %31 = load i8, ptr %arrayidx90, align 1
+  %or92138 = or i8 %31, %29
+  store i8 %or92138, ptr %arrayidx90, align 1
   br label %for.inc245
 
 sw.bb95:                                          ; preds = %for.body, %for.body
-  %arrayidx96 = getelementptr inbounds i8, ptr %aft, i64 %here.0165
-  %25 = load i8, ptr %arrayidx96, align 1
+  %arrayidx96 = getelementptr inbounds i8, ptr %aft, i64 %here.0153
+  %32 = load i8, ptr %arrayidx96, align 1
   %arrayidx99 = getelementptr i8, ptr %arrayidx96, i64 1
-  %26 = load i8, ptr %arrayidx99, align 1
-  %or101136 = or i8 %26, %25
+  %33 = load i8, ptr %arrayidx99, align 1
+  %or101136 = or i8 %33, %32
   store i8 %or101136, ptr %arrayidx99, align 1
   br label %for.inc245
 
 sw.bb103:                                         ; preds = %for.body
-  %arrayidx104 = getelementptr inbounds i8, ptr %aft, i64 %here.0165
-  %27 = load i8, ptr %arrayidx104, align 1
+  %arrayidx104 = getelementptr inbounds i8, ptr %aft, i64 %here.0153
+  %34 = load i8, ptr %arrayidx104, align 1
   %arrayidx107 = getelementptr i8, ptr %arrayidx104, i64 1
-  %28 = load i8, ptr %arrayidx107, align 1
-  %or109135 = or i8 %28, %27
+  %35 = load i8, ptr %arrayidx107, align 1
+  %or109135 = or i8 %35, %34
   store i8 %or109135, ptr %arrayidx107, align 1
   br label %for.inc245
 
 sw.bb111:                                         ; preds = %for.body
-  %arrayidx112 = getelementptr inbounds i8, ptr %aft, i64 %here.0165
-  %29 = load i8, ptr %arrayidx112, align 1
+  %arrayidx112 = getelementptr inbounds i8, ptr %aft, i64 %here.0153
+  %36 = load i8, ptr %arrayidx112, align 1
   %arrayidx115 = getelementptr i8, ptr %arrayidx112, i64 1
-  %30 = load i8, ptr %arrayidx115, align 1
-  %or117133 = or i8 %30, %29
+  %37 = load i8, ptr %arrayidx115, align 1
+  %or117133 = or i8 %37, %36
   store i8 %or117133, ptr %arrayidx115, align 1
   %and119 = and i64 %4, 134217727
-  %sub = sub i64 %here.0165, %and119
+  %sub = sub i64 %here.0153, %and119
   %arrayidx120 = getelementptr inbounds i8, ptr %aft, i64 %sub
-  %31 = load i8, ptr %arrayidx120, align 1
-  %or128134 = or i8 %31, %29
+  %38 = load i8, ptr %arrayidx120, align 1
+  %or128134 = or i8 %38, %36
   store i8 %or128134, ptr %arrayidx120, align 1
-  %tobool130.not = icmp ne i8 %31, 0
+  %tobool130.not = icmp ne i8 %38, 0
   %tobool136.not = icmp eq i8 %or128134, 0
   %or.cond146 = select i1 %tobool130.not, i1 true, i1 %tobool136.not
   br i1 %or.cond146, label %for.inc245, label %if.then137
 
 if.then137:                                       ; preds = %sw.bb111
   %add139.neg = xor i64 %and119, -1
-  %sub140 = add i64 %pc.0164, %add139.neg
+  %sub140 = add i64 %pc.0152, %add139.neg
   br label %for.inc245
 
 sw.bb142:                                         ; preds = %for.body
-  %arrayidx143 = getelementptr inbounds i8, ptr %aft, i64 %here.0165
-  %32 = load i8, ptr %arrayidx143, align 1
+  %arrayidx143 = getelementptr inbounds i8, ptr %aft, i64 %here.0153
+  %39 = load i8, ptr %arrayidx143, align 1
   %arrayidx146 = getelementptr i8, ptr %arrayidx143, i64 1
-  %33 = load i8, ptr %arrayidx146, align 1
-  %or148131 = or i8 %33, %32
+  %40 = load i8, ptr %arrayidx146, align 1
+  %or148131 = or i8 %40, %39
   store i8 %or148131, ptr %arrayidx146, align 1
   %and152 = and i64 %4, 134217727
   %arrayidx154 = getelementptr i8, ptr %arrayidx143, i64 %and152
-  %34 = load i8, ptr %arrayidx154, align 1
-  %or156132 = or i8 %34, %32
+  %41 = load i8, ptr %arrayidx154, align 1
+  %or156132 = or i8 %41, %39
   store i8 %or156132, ptr %arrayidx154, align 1
   br label %for.inc245
 
 sw.bb158:                                         ; preds = %for.body
-  %arrayidx159 = getelementptr inbounds i8, ptr %aft, i64 %here.0165
-  %35 = load i8, ptr %arrayidx159, align 1
+  %arrayidx159 = getelementptr inbounds i8, ptr %aft, i64 %here.0153
+  %42 = load i8, ptr %arrayidx159, align 1
   %arrayidx162 = getelementptr i8, ptr %arrayidx159, i64 1
-  %36 = load i8, ptr %arrayidx162, align 1
-  %or164130 = or i8 %36, %35
+  %43 = load i8, ptr %arrayidx162, align 1
+  %or164130 = or i8 %43, %42
   store i8 %or164130, ptr %arrayidx162, align 1
   br label %for.inc245
 
 sw.bb166:                                         ; preds = %for.body, %for.body
-  %arrayidx167 = getelementptr inbounds i8, ptr %aft, i64 %here.0165
-  %37 = load i8, ptr %arrayidx167, align 1
+  %arrayidx167 = getelementptr inbounds i8, ptr %aft, i64 %here.0153
+  %44 = load i8, ptr %arrayidx167, align 1
   %arrayidx170 = getelementptr i8, ptr %arrayidx167, i64 1
-  %38 = load i8, ptr %arrayidx170, align 1
-  %or172129 = or i8 %38, %37
+  %45 = load i8, ptr %arrayidx170, align 1
+  %or172129 = or i8 %45, %44
   store i8 %or172129, ptr %arrayidx170, align 1
   br label %for.inc245
 
 sw.bb174:                                         ; preds = %for.body
-  %arrayidx175 = getelementptr inbounds i8, ptr %aft, i64 %here.0165
-  %39 = load i8, ptr %arrayidx175, align 1
+  %arrayidx175 = getelementptr inbounds i8, ptr %aft, i64 %here.0153
+  %46 = load i8, ptr %arrayidx175, align 1
   %arrayidx178 = getelementptr i8, ptr %arrayidx175, i64 1
-  %40 = load i8, ptr %arrayidx178, align 1
-  %or180127 = or i8 %40, %39
+  %47 = load i8, ptr %arrayidx178, align 1
+  %or180127 = or i8 %47, %46
   store i8 %or180127, ptr %arrayidx178, align 1
   %and184 = and i64 %4, 134217727
   %arrayidx186 = getelementptr i8, ptr %arrayidx175, i64 %and184
-  %41 = load i8, ptr %arrayidx186, align 1
-  %or188128 = or i8 %41, %39
+  %48 = load i8, ptr %arrayidx186, align 1
+  %or188128 = or i8 %48, %46
   store i8 %or188128, ptr %arrayidx186, align 1
   br label %for.inc245
 
 sw.bb190:                                         ; preds = %for.body
-  %arrayidx191 = getelementptr inbounds i8, ptr %aft, i64 %here.0165
-  %42 = load i8, ptr %arrayidx191, align 1
-  %tobool192.not = icmp eq i8 %42, 0
+  %arrayidx191 = getelementptr inbounds i8, ptr %aft, i64 %here.0153
+  %49 = load i8, ptr %arrayidx191, align 1
+  %tobool192.not = icmp eq i8 %49, 0
   br i1 %tobool192.not, label %for.inc245, label %for.cond194.preheader
 
 for.cond194.preheader:                            ; preds = %sw.bb190
   %arrayidx197147 = getelementptr i8, ptr %arrayidx, i64 8
-  %43 = load i64, ptr %arrayidx197147, align 8
-  %and198148 = and i64 %43, 4160749568
+  %50 = load i64, ptr %arrayidx197147, align 8
+  %and198148 = and i64 %50, 4160749568
   %cmp199.not149 = icmp eq i64 %and198148, 2415919104
   br i1 %cmp199.not149, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %for.cond194.preheader, %for.inc
-  %44 = phi i64 [ %45, %for.inc ], [ %43, %for.cond194.preheader ]
+  %51 = phi i64 [ %52, %for.inc ], [ %50, %for.cond194.preheader ]
   %look.0150 = phi i64 [ %add203, %for.inc ], [ 1, %for.cond194.preheader ]
-  %and202 = and i64 %44, 134217727
+  %and202 = and i64 %51, 134217727
   %add203 = add i64 %and202, %look.0150
   %arrayidx197 = getelementptr i64, ptr %arrayidx, i64 %add203
-  %45 = load i64, ptr %arrayidx197, align 8
-  %and198 = and i64 %45, 4160749568
+  %52 = load i64, ptr %arrayidx197, align 8
+  %and198 = and i64 %52, 4160749568
   %cmp199.not = icmp eq i64 %and198, 2415919104
   br i1 %cmp199.not, label %for.end, label %for.inc, !llvm.loop !23
 
 for.end:                                          ; preds = %for.inc, %for.cond194.preheader
   %look.0.lcssa = phi i64 [ 1, %for.cond194.preheader ], [ %add203, %for.inc ]
   %arrayidx207 = getelementptr i8, ptr %arrayidx191, i64 %look.0.lcssa
-  %46 = load i8, ptr %arrayidx207, align 1
-  %or209126 = or i8 %46, %42
+  %53 = load i8, ptr %arrayidx207, align 1
+  %or209126 = or i8 %53, %49
   store i8 %or209126, ptr %arrayidx207, align 1
   br label %for.inc245
 
 sw.bb212:                                         ; preds = %for.body
-  %arrayidx213 = getelementptr inbounds i8, ptr %aft, i64 %here.0165
-  %47 = load i8, ptr %arrayidx213, align 1
+  %arrayidx213 = getelementptr inbounds i8, ptr %aft, i64 %here.0153
+  %54 = load i8, ptr %arrayidx213, align 1
   %arrayidx216 = getelementptr i8, ptr %arrayidx213, i64 1
-  %48 = load i8, ptr %arrayidx216, align 1
-  %or218124 = or i8 %48, %47
+  %55 = load i8, ptr %arrayidx216, align 1
+  %or218124 = or i8 %55, %54
   store i8 %or218124, ptr %arrayidx216, align 1
-  %49 = load ptr, ptr %strip, align 8
+  %56 = load ptr, ptr %strip, align 8
   %and221 = and i64 %4, 134217727
-  %50 = getelementptr i64, ptr %49, i64 %pc.0164
-  %arrayidx223 = getelementptr i64, ptr %50, i64 %and221
-  %51 = load i64, ptr %arrayidx223, align 8
-  %and224 = and i64 %51, 4160749568
+  %57 = getelementptr i64, ptr %56, i64 %pc.0152
+  %arrayidx223 = getelementptr i64, ptr %57, i64 %and221
+  %58 = load i64, ptr %arrayidx223, align 8
+  %and224 = and i64 %58, 4160749568
   %cmp225.not = icmp eq i64 %and224, 2415919104
   br i1 %cmp225.not, label %for.inc245, label %if.then227
 
 if.then227:                                       ; preds = %sw.bb212
   %arrayidx232 = getelementptr i8, ptr %arrayidx213, i64 %and221
-  %52 = load i8, ptr %arrayidx232, align 1
-  %or234125 = or i8 %52, %47
+  %59 = load i8, ptr %arrayidx232, align 1
+  %or234125 = or i8 %59, %54
   store i8 %or234125, ptr %arrayidx232, align 1
   br label %for.inc245
 
 sw.bb237:                                         ; preds = %for.body
-  %arrayidx238 = getelementptr inbounds i8, ptr %aft, i64 %here.0165
-  %53 = load i8, ptr %arrayidx238, align 1
+  %arrayidx238 = getelementptr inbounds i8, ptr %aft, i64 %here.0153
+  %60 = load i8, ptr %arrayidx238, align 1
   %arrayidx241 = getelementptr i8, ptr %arrayidx238, i64 1
-  %54 = load i8, ptr %arrayidx241, align 1
-  %or243145 = or i8 %54, %53
+  %61 = load i8, ptr %arrayidx241, align 1
+  %or243145 = or i8 %61, %60
   store i8 %or243145, ptr %arrayidx241, align 1
   br label %for.inc245
 
 for.inc245:                                       ; preds = %sw.bb95, %sw.bb103, %sw.bb142, %sw.bb158, %sw.bb166, %sw.bb174, %sw.bb237, %if.then, %sw.bb1, %sw.bb11, %if.then16, %sw.bb25, %if.then31, %if.then43, %sw.bb40, %if.then55, %sw.bb52, %if.then67, %sw.bb64, %if.then86, %land.lhs.true, %sw.bb76, %if.then137, %sw.bb111, %for.end, %sw.bb190, %if.then227, %sw.bb212, %for.body
-  %pc.1 = phi i64 [ %pc.0164, %for.body ], [ %pc.0164, %sw.bb237 ], [ %pc.0164, %if.then ], [ %pc.0164, %sw.bb1 ], [ %pc.0164, %if.then16 ], [ %pc.0164, %sw.bb11 ], [ %pc.0164, %if.then31 ], [ %pc.0164, %sw.bb25 ], [ %pc.0164, %if.then43 ], [ %pc.0164, %sw.bb40 ], [ %pc.0164, %if.then55 ], [ %pc.0164, %sw.bb52 ], [ %pc.0164, %sw.bb64 ], [ %pc.0164, %if.then67 ], [ %pc.0164, %sw.bb76 ], [ %pc.0164, %if.then86 ], [ %pc.0164, %land.lhs.true ], [ %pc.0164, %sw.bb95 ], [ %pc.0164, %sw.bb103 ], [ %pc.0164, %sw.bb111 ], [ %sub140, %if.then137 ], [ %pc.0164, %sw.bb142 ], [ %pc.0164, %sw.bb158 ], [ %pc.0164, %sw.bb166 ], [ %pc.0164, %sw.bb174 ], [ %pc.0164, %for.end ], [ %pc.0164, %sw.bb190 ], [ %pc.0164, %if.then227 ], [ %pc.0164, %sw.bb212 ]
-  %here.1 = phi i64 [ %here.0165, %for.body ], [ %here.0165, %sw.bb237 ], [ %here.0165, %if.then ], [ %here.0165, %sw.bb1 ], [ %here.0165, %if.then16 ], [ %here.0165, %sw.bb11 ], [ %here.0165, %if.then31 ], [ %here.0165, %sw.bb25 ], [ %here.0165, %if.then43 ], [ %here.0165, %sw.bb40 ], [ %here.0165, %if.then55 ], [ %here.0165, %sw.bb52 ], [ %here.0165, %sw.bb64 ], [ %here.0165, %if.then67 ], [ %here.0165, %sw.bb76 ], [ %here.0165, %if.then86 ], [ %here.0165, %land.lhs.true ], [ %here.0165, %sw.bb95 ], [ %here.0165, %sw.bb103 ], [ %here.0165, %sw.bb111 ], [ %sub140, %if.then137 ], [ %here.0165, %sw.bb142 ], [ %here.0165, %sw.bb158 ], [ %here.0165, %sw.bb166 ], [ %here.0165, %sw.bb174 ], [ %here.0165, %for.end ], [ %here.0165, %sw.bb190 ], [ %here.0165, %if.then227 ], [ %here.0165, %sw.bb212 ]
+  %pc.1 = phi i64 [ %pc.0152, %for.body ], [ %pc.0152, %sw.bb237 ], [ %pc.0152, %if.then ], [ %pc.0152, %sw.bb1 ], [ %pc.0152, %if.then16 ], [ %pc.0152, %sw.bb11 ], [ %pc.0152, %if.then31 ], [ %pc.0152, %sw.bb25 ], [ %pc.0152, %if.then43 ], [ %pc.0152, %sw.bb40 ], [ %pc.0152, %if.then55 ], [ %pc.0152, %sw.bb52 ], [ %pc.0152, %sw.bb64 ], [ %pc.0152, %if.then67 ], [ %pc.0152, %sw.bb76 ], [ %pc.0152, %if.then86 ], [ %pc.0152, %land.lhs.true ], [ %pc.0152, %sw.bb95 ], [ %pc.0152, %sw.bb103 ], [ %pc.0152, %sw.bb111 ], [ %sub140, %if.then137 ], [ %pc.0152, %sw.bb142 ], [ %pc.0152, %sw.bb158 ], [ %pc.0152, %sw.bb166 ], [ %pc.0152, %sw.bb174 ], [ %pc.0152, %for.end ], [ %pc.0152, %sw.bb190 ], [ %pc.0152, %if.then227 ], [ %pc.0152, %sw.bb212 ]
+  %here.1 = phi i64 [ %here.0153, %for.body ], [ %here.0153, %sw.bb237 ], [ %here.0153, %if.then ], [ %here.0153, %sw.bb1 ], [ %here.0153, %if.then16 ], [ %here.0153, %sw.bb11 ], [ %here.0153, %if.then31 ], [ %here.0153, %sw.bb25 ], [ %here.0153, %if.then43 ], [ %here.0153, %sw.bb40 ], [ %here.0153, %if.then55 ], [ %here.0153, %sw.bb52 ], [ %here.0153, %sw.bb64 ], [ %here.0153, %if.then67 ], [ %here.0153, %sw.bb76 ], [ %here.0153, %if.then86 ], [ %here.0153, %land.lhs.true ], [ %here.0153, %sw.bb95 ], [ %here.0153, %sw.bb103 ], [ %here.0153, %sw.bb111 ], [ %sub140, %if.then137 ], [ %here.0153, %sw.bb142 ], [ %here.0153, %sw.bb158 ], [ %here.0153, %sw.bb166 ], [ %here.0153, %sw.bb174 ], [ %here.0153, %for.end ], [ %here.0153, %sw.bb190 ], [ %here.0153, %if.then227 ], [ %here.0153, %sw.bb212 ]
   %inc = add nsw i64 %pc.1, 1
   %inc246 = add nsw i64 %here.1, 1
   %cmp.not = icmp eq i64 %inc, %stop

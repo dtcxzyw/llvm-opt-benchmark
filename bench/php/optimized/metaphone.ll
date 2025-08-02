@@ -44,7 +44,7 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr noundef writeonly captures
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #8
-  br label %.thread81
+  br label %.thread
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -60,7 +60,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %9
 
 zend_parse_arg_str_ex.exit:                       ; preds = %9
   %15 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1) #8
-  br i1 %15, label %16, label %.thread81, !prof !14
+  br i1 %15, label %16, label %.thread, !prof !14
 
 16:                                               ; preds = %zend_parse_arg_str_ex.exit.thread, %zend_parse_arg_str_ex.exit
   %17 = icmp eq i32 %6, 1
@@ -71,31 +71,31 @@ zend_parse_arg_str_ex.exit:                       ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load i8, ptr %20, align 8, !tbaa !8
   %22 = icmp eq i8 %21, 4
-  br i1 %22, label %zend_parse_arg_long_ex.exit.thread, label %zend_parse_arg_long_ex.exit, !prof !10
+  br i1 %22, label %.thread85, label %zend_parse_arg_long_ex.exit, !prof !10
 
-zend_parse_arg_long_ex.exit.thread:               ; preds = %18
+.thread85:                                        ; preds = %18
   %23 = load i64, ptr %19, align 8, !tbaa !8
   store i64 %23, ptr %4, align 8, !tbaa !4
   br label %.critedge
 
 zend_parse_arg_long_ex.exit:                      ; preds = %18
   %24 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %19, ptr noundef nonnull %4, i32 noundef 2) #8
-  br i1 %24, label %.critedgethread-pre-split, label %.thread81, !prof !16
+  br i1 %24, label %.critedgethread-pre-split, label %.thread, !prof !16
 
-.thread81:                                        ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_str_ex.exit, %8
-  %.090 = phi i32 [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %8 ], [ 2, %zend_parse_arg_long_ex.exit ]
-  %.05189 = phi i32 [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %8 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.05288 = phi ptr [ %10, %zend_parse_arg_str_ex.exit ], [ null, %8 ], [ %19, %zend_parse_arg_long_ex.exit ]
-  %.05387 = phi i32 [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %8 ], [ 0, %zend_parse_arg_long_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05189, i32 noundef %.090, ptr noundef null, i32 noundef %.05387, ptr noundef %.05288) #8
-  br label %1598
+.thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_str_ex.exit, %8
+  %.084 = phi i32 [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %8 ], [ 2, %zend_parse_arg_long_ex.exit ]
+  %.05183 = phi i32 [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %8 ], [ 9, %zend_parse_arg_long_ex.exit ]
+  %.05282 = phi ptr [ %10, %zend_parse_arg_str_ex.exit ], [ null, %8 ], [ %19, %zend_parse_arg_long_ex.exit ]
+  %.05381 = phi i32 [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %8 ], [ 0, %zend_parse_arg_long_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05183, i32 noundef %.084, ptr noundef null, i32 noundef %.05381, ptr noundef %.05282) #8
+  br label %1604
 
 .critedgethread-pre-split:                        ; preds = %zend_parse_arg_long_ex.exit, %16
   %.pr = load i64, ptr %4, align 8, !tbaa !4
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedgethread-pre-split, %zend_parse_arg_long_ex.exit.thread
-  %25 = phi i64 [ %.pr, %.critedgethread-pre-split ], [ %23, %zend_parse_arg_long_ex.exit.thread ]
+.critedge:                                        ; preds = %.critedgethread-pre-split, %.thread85
+  %25 = phi i64 [ %.pr, %.critedgethread-pre-split ], [ %23, %.thread85 ]
   %26 = icmp slt i64 %25, 0
   br i1 %26, label %27, label %zend_string_alloc.exit.i
 
@@ -104,7 +104,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %18
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !17
   %29 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %29)
-  br label %1598
+  br label %1604
 
 zend_string_alloc.exit.i:                         ; preds = %.critedge
   %30 = load ptr, ptr %3, align 8, !tbaa !11
@@ -442,2511 +442,2511 @@ zend_string_extend.exit728.i:                     ; preds = %187
   br label %196
 
 196:                                              ; preds = %zend_string_extend.exit728.i, %187
-  %.069 = phi ptr [ %190, %zend_string_extend.exit728.i ], [ %38, %187 ]
+  %.070 = phi ptr [ %190, %zend_string_extend.exit728.i ], [ %38, %187 ]
   %.9620.i = phi i64 [ 2, %zend_string_extend.exit728.i ], [ %., %187 ]
-  %197 = getelementptr inbounds nuw i8, ptr %.069, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %.070, i64 24
   store i8 %75, ptr %197, align 1, !tbaa !8
-  %198 = getelementptr inbounds nuw i8, ptr %.069, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %.070, i64 16
   store i64 1, ptr %198, align 8, !tbaa !50
   %199 = add nuw nsw i32 %.0.lcssa.i, 1
   br label %encode.exit.thread.i
 
 encode.exit.thread.i:                             ; preds = %196, %183, %170, %encode.exit.i, %150, %146, %126, %110, %107, %95, %._crit_edge.i
-  %.1 = phi ptr [ %38, %._crit_edge.i ], [ %.14, %95 ], [ %.13, %107 ], [ %.12, %126 ], [ %38, %110 ], [ %38, %150 ], [ %.10, %170 ], [ %38, %encode.exit.i ], [ %.11, %146 ], [ %.9, %183 ], [ %.069, %196 ]
+  %.1 = phi ptr [ %38, %._crit_edge.i ], [ %.14, %95 ], [ %.13, %107 ], [ %.12, %126 ], [ %38, %110 ], [ %38, %150 ], [ %.10, %170 ], [ %38, %encode.exit.i ], [ %.11, %146 ], [ %.9, %183 ], [ %.070, %196 ]
   %.3614.i = phi i64 [ %., %._crit_edge.i ], [ %.1612.i, %95 ], [ %.2613.i, %107 ], [ %.4615.i, %126 ], [ %., %110 ], [ %., %150 ], [ %.7618.i, %170 ], [ %., %encode.exit.i ], [ %.5616.i, %146 ], [ %.8619.i, %183 ], [ %.9620.i, %196 ]
   %.0605.i = phi i64 [ 0, %._crit_edge.i ], [ 1, %95 ], [ 1, %107 ], [ 1, %126 ], [ 0, %110 ], [ 0, %150 ], [ 1, %170 ], [ 0, %encode.exit.i ], [ 1, %146 ], [ 1, %183 ], [ 1, %196 ]
   %.1.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %98, %95 ], [ %78, %107 ], [ %129, %126 ], [ %.0.lcssa.i, %110 ], [ %.0.lcssa.i, %150 ], [ %173, %170 ], [ %.0.lcssa.i, %encode.exit.i ], [ %149, %146 ], [ %186, %183 ], [ %199, %196 ]
   %200 = add nsw i64 %25, -1
-  %invariant.gep.i = getelementptr i8, ptr %30, i64 23
-  %invariant.gep951.i = getelementptr i8, ptr %30, i64 21
-  %invariant.gep953.i = getelementptr i8, ptr %30, i64 20
   %201 = sext i32 %.1.i to i64
   %202 = getelementptr inbounds i8, ptr %31, i64 %201
   %203 = load i8, ptr %202, align 1, !tbaa !8
-  %.not636955.i = icmp eq i8 %203, 0
-  %.not637956.i = icmp ult i64 %200, %.0605.i
-  %or.cond693957.i = select i1 %.not636955.i, i1 true, i1 %.not637956.i
-  br i1 %or.cond693957.i, label %.critedge.i, label %.lr.ph962.i
+  %.not636951.i = icmp eq i8 %203, 0
+  %.not637952.i = icmp ult i64 %200, %.0605.i
+  %or.cond693953.i = select i1 %.not636951.i, i1 true, i1 %.not637952.i
+  br i1 %or.cond693953.i, label %.critedge.i, label %.lr.ph958.i
 
-.lr.ph962.i:                                      ; preds = %encode.exit.thread.i, %1545
-  %.2 = phi ptr [ %.5, %1545 ], [ %.1, %encode.exit.thread.i ]
-  %204 = phi ptr [ %1546, %1545 ], [ %.1, %encode.exit.thread.i ]
-  %205 = phi i8 [ %1550, %1545 ], [ %203, %encode.exit.thread.i ]
-  %206 = phi ptr [ %1549, %1545 ], [ %202, %encode.exit.thread.i ]
-  %.3960.i = phi i32 [ %1547, %1545 ], [ %.1.i, %encode.exit.thread.i ]
-  %.2607959.i = phi i64 [ %.3608.i, %1545 ], [ %.0605.i, %encode.exit.thread.i ]
-  %.10621958.i = phi i64 [ %.11622.i, %1545 ], [ %.3614.i, %encode.exit.thread.i ]
+.lr.ph958.i:                                      ; preds = %encode.exit.thread.i, %1551
+  %.2 = phi ptr [ %.5, %1551 ], [ %.1, %encode.exit.thread.i ]
+  %204 = phi ptr [ %1552, %1551 ], [ %.1, %encode.exit.thread.i ]
+  %205 = phi i8 [ %1556, %1551 ], [ %203, %encode.exit.thread.i ]
+  %206 = phi ptr [ %1555, %1551 ], [ %202, %encode.exit.thread.i ]
+  %.3956.i = phi i32 [ %1553, %1551 ], [ %.1.i, %encode.exit.thread.i ]
+  %.2607955.i = phi i64 [ %.3608.i, %1551 ], [ %.0605.i, %encode.exit.thread.i ]
+  %.10621954.i = phi i64 [ %.11622.i, %1551 ], [ %.3614.i, %encode.exit.thread.i ]
   %207 = load ptr, ptr %42, align 8, !tbaa !54
   %208 = sext i8 %205 to i64
   %209 = getelementptr inbounds i16, ptr %207, i64 %208
   %210 = load i16, ptr %209, align 2, !tbaa !56
   %211 = and i16 %210, 1024
   %.not638.i = icmp eq i16 %211, 0
-  br i1 %.not638.i, label %1545, label %212
+  br i1 %.not638.i, label %1551, label %212
 
-212:                                              ; preds = %.lr.ph962.i
+212:                                              ; preds = %.lr.ph958.i
   %213 = load ptr, ptr %71, align 8, !tbaa !58
   %214 = getelementptr inbounds i32, ptr %213, i64 %208
   %215 = load i32, ptr %214, align 4, !tbaa !60
   %216 = trunc i32 %215 to i8
-  %217 = icmp sgt i32 %.3960.i, 0
-  br i1 %217, label %218, label %225
+  %217 = icmp sgt i32 %.3956.i, 0
+  br i1 %217, label %218, label %227
 
 218:                                              ; preds = %212
-  %219 = zext nneg i32 %.3960.i to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %219
-  %220 = load i8, ptr %gep.i, align 1, !tbaa !8
-  %221 = zext i8 %220 to i64
-  %222 = getelementptr inbounds nuw i32, ptr %213, i64 %221
-  %223 = load i32, ptr %222, align 4, !tbaa !60
-  %224 = trunc i32 %223 to i8
-  br label %225
+  %219 = zext nneg i32 %.3956.i to i64
+  %220 = getelementptr i8, ptr %31, i64 %219
+  %221 = getelementptr i8, ptr %220, i64 -1
+  %222 = load i8, ptr %221, align 1, !tbaa !8
+  %223 = zext i8 %222 to i64
+  %224 = getelementptr inbounds nuw i32, ptr %213, i64 %223
+  %225 = load i32, ptr %224, align 4, !tbaa !60
+  %226 = trunc i32 %225 to i8
+  br label %227
 
-225:                                              ; preds = %218, %212
-  %226 = phi i8 [ %224, %218 ], [ 0, %212 ]
+227:                                              ; preds = %218, %212
+  %228 = phi i8 [ %226, %218 ], [ 0, %212 ]
   %sext639.i = shl i32 %215, 24
-  %227 = ashr exact i32 %sext639.i, 24
-  %228 = sext i8 %226 to i32
-  %229 = icmp eq i32 %227, %228
-  %230 = icmp ne i32 %sext639.i, 1124073472
-  %or.cond.i = and i1 %230, %229
-  br i1 %or.cond.i, label %1545, label %231
+  %229 = ashr exact i32 %sext639.i, 24
+  %230 = sext i8 %228 to i32
+  %231 = icmp eq i32 %229, %230
+  %232 = icmp ne i32 %sext639.i, 1124073472
+  %or.cond.i = and i1 %232, %231
+  br i1 %or.cond.i, label %1551, label %233
 
-231:                                              ; preds = %225
-  switch i32 %227, label %encode.exit894.thread.i [
-    i32 66, label %232
-    i32 67, label %270
-    i32 68, label %446
-    i32 71, label %547
-    i32 72, label %767
-    i32 75, label %832
-    i32 80, label %870
-    i32 81, label %951
-    i32 83, label %988
-    i32 84, label %1112
-    i32 86, label %1244
-    i32 87, label %1281
-    i32 88, label %1335
-    i32 89, label %1411
-    i32 90, label %1465
-    i32 70, label %1502
-    i32 74, label %1502
-    i32 76, label %1502
-    i32 77, label %1502
-    i32 78, label %1502
-    i32 82, label %1502
+233:                                              ; preds = %227
+  switch i32 %229, label %encode.exit894.thread.i [
+    i32 66, label %234
+    i32 67, label %272
+    i32 68, label %448
+    i32 71, label %549
+    i32 72, label %773
+    i32 75, label %838
+    i32 80, label %876
+    i32 81, label %957
+    i32 83, label %994
+    i32 84, label %1118
+    i32 86, label %1250
+    i32 87, label %1287
+    i32 88, label %1341
+    i32 89, label %1417
+    i32 90, label %1471
+    i32 70, label %1508
+    i32 74, label %1508
+    i32 76, label %1508
+    i32 77, label %1508
+    i32 78, label %1508
+    i32 82, label %1508
   ]
-
-232:                                              ; preds = %231
-  %.not691.i = icmp eq i8 %226, 77
-  br i1 %.not691.i, label %encode.exit894.thread.i, label %233
-
-233:                                              ; preds = %232
-  %.not692.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not692.i, label %encode.exit894.thread.sink.split.i, label %234
 
 234:                                              ; preds = %233
-  %235 = add i64 %.10621958.i, 2
-  %236 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %237 = load i64, ptr %236, align 8, !tbaa !50
-  %238 = icmp uge i64 %235, %237
-  call void @llvm.assume(i1 %238)
-  %239 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %240 = load i32, ptr %239, align 4, !tbaa !8
-  %241 = and i32 %240, 64
-  %.not.i729.i = icmp eq i32 %241, 0
-  br i1 %.not.i729.i, label %242, label %zend_string_alloc.exit.i.i
+  %.not691.i = icmp eq i8 %228, 77
+  br i1 %.not691.i, label %encode.exit894.thread.i, label %235
 
-242:                                              ; preds = %234
-  %243 = load i32, ptr %204, align 4, !tbaa !52
-  %244 = icmp eq i32 %243, 1
-  br i1 %244, label %245, label %zend_string_alloc.exit.i.i, !prof !10
+235:                                              ; preds = %234
+  %.not692.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not692.i, label %encode.exit894.thread.sink.split.i, label %236
 
-245:                                              ; preds = %242
-  %246 = and i64 %235, -8
-  %247 = add i64 %246, 32
-  %248 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %247) #11
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
-  store i64 %235, ptr %249, align 8, !tbaa !50
-  %250 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  store i64 0, ptr %250, align 8, !tbaa !53
-  %251 = getelementptr inbounds nuw i8, ptr %248, i64 4
-  %252 = load i32, ptr %251, align 4, !tbaa !8
-  %253 = and i32 %252, -513
-  store i32 %253, ptr %251, align 4, !tbaa !8
+236:                                              ; preds = %235
+  %237 = add i64 %.10621954.i, 2
+  %238 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %239 = load i64, ptr %238, align 8, !tbaa !50
+  %240 = icmp uge i64 %237, %239
+  call void @llvm.assume(i1 %240)
+  %241 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %242 = load i32, ptr %241, align 4, !tbaa !8
+  %243 = and i32 %242, 64
+  %.not.i729.i = icmp eq i32 %243, 0
+  br i1 %.not.i729.i, label %244, label %zend_string_alloc.exit.i.i
+
+244:                                              ; preds = %236
+  %245 = load i32, ptr %204, align 4, !tbaa !52
+  %246 = icmp eq i32 %245, 1
+  br i1 %246, label %247, label %zend_string_alloc.exit.i.i, !prof !10
+
+247:                                              ; preds = %244
+  %248 = and i64 %237, -8
+  %249 = add i64 %248, 32
+  %250 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %249) #11
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 16
+  store i64 %237, ptr %251, align 8, !tbaa !50
+  %252 = getelementptr inbounds nuw i8, ptr %250, i64 8
+  store i64 0, ptr %252, align 8, !tbaa !53
+  %253 = getelementptr inbounds nuw i8, ptr %250, i64 4
+  %254 = load i32, ptr %253, align 4, !tbaa !8
+  %255 = and i32 %254, -513
+  store i32 %255, ptr %253, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i.i:                       ; preds = %234, %242
-  %254 = and i64 %235, -8
-  %255 = add i64 %254, 32
-  %256 = call noalias ptr @_emalloc(i64 noundef %255) #9
-  store i32 1, ptr %256, align 4, !tbaa !52
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
-  store i32 22, ptr %257, align 4, !tbaa !8
-  %258 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  store i64 0, ptr %258, align 8, !tbaa !53
-  %259 = getelementptr inbounds nuw i8, ptr %256, i64 16
-  store i64 %235, ptr %259, align 8, !tbaa !50
-  %260 = getelementptr inbounds nuw i8, ptr %256, i64 24
-  %261 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %262 = load i64, ptr %236, align 8, !tbaa !50
-  %263 = add i64 %262, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %260, ptr nonnull align 8 %261, i64 %263, i1 false)
-  %264 = load i32, ptr %239, align 4, !tbaa !8
-  %265 = and i32 %264, 64
-  %.not21.i730.i = icmp eq i32 %265, 0
-  br i1 %.not21.i730.i, label %266, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i.i:                       ; preds = %236, %244
+  %256 = and i64 %237, -8
+  %257 = add i64 %256, 32
+  %258 = call noalias ptr @_emalloc(i64 noundef %257) #9
+  store i32 1, ptr %258, align 4, !tbaa !52
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
+  store i32 22, ptr %259, align 4, !tbaa !8
+  %260 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  store i64 0, ptr %260, align 8, !tbaa !53
+  %261 = getelementptr inbounds nuw i8, ptr %258, i64 16
+  store i64 %237, ptr %261, align 8, !tbaa !50
+  %262 = getelementptr inbounds nuw i8, ptr %258, i64 24
+  %263 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %264 = load i64, ptr %238, align 8, !tbaa !50
+  %265 = add i64 %264, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %262, ptr nonnull align 8 %263, i64 %265, i1 false)
+  %266 = load i32, ptr %241, align 4, !tbaa !8
+  %267 = and i32 %266, 64
+  %.not21.i730.i = icmp eq i32 %267, 0
+  br i1 %.not21.i730.i, label %268, label %encode.exit894.thread.sink.split.i
 
-266:                                              ; preds = %zend_string_alloc.exit.i.i
-  %267 = load i32, ptr %204, align 4, !tbaa !52
-  %268 = icmp ne i32 %267, 0
-  call void @llvm.assume(i1 %268)
-  %269 = add i32 %267, -1
-  store i32 %269, ptr %204, align 4, !tbaa !52
+268:                                              ; preds = %zend_string_alloc.exit.i.i
+  %269 = load i32, ptr %204, align 4, !tbaa !52
+  %270 = icmp ne i32 %269, 0
+  call void @llvm.assume(i1 %270)
+  %271 = add i32 %269, -1
+  store i32 %271, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-270:                                              ; preds = %231
-  %271 = getelementptr i8, ptr %206, i64 1
-  %272 = load i8, ptr %271, align 1, !tbaa !8
-  %273 = zext i8 %272 to i64
-  %274 = getelementptr inbounds nuw i32, ptr %213, i64 %273
-  %275 = load i32, ptr %274, align 4, !tbaa !60
-  %276 = trunc i32 %275 to i8
-  %277 = sext i8 %276 to i64
-  %278 = getelementptr inbounds i16, ptr %207, i64 %277
-  %279 = load i16, ptr %278, align 2, !tbaa !56
-  %280 = and i16 %279, 1024
-  %.not.i880.i = icmp eq i16 %280, 0
+272:                                              ; preds = %233
+  %273 = getelementptr i8, ptr %206, i64 1
+  %274 = load i8, ptr %273, align 1, !tbaa !8
+  %275 = zext i8 %274 to i64
+  %276 = getelementptr inbounds nuw i32, ptr %213, i64 %275
+  %277 = load i32, ptr %276, align 4, !tbaa !60
+  %278 = trunc i32 %277 to i8
+  %279 = sext i8 %278 to i64
+  %280 = getelementptr inbounds i16, ptr %207, i64 %279
+  %281 = load i16, ptr %280, align 2, !tbaa !56
+  %282 = and i16 %281, 1024
+  %.not.i880.i = icmp eq i16 %282, 0
   br i1 %.not.i880.i, label %encode.exit882.thread.i, label %encode.exit882.i
 
-encode.exit882.i:                                 ; preds = %270
-  %.mask934.i = and i32 %275, 127
-  %281 = icmp samesign ugt i8 %276, 64
-  call void @llvm.assume(i1 %281)
-  %282 = icmp samesign ult i8 %276, 91
-  call void @llvm.assume(i1 %282)
-  %283 = add nsw i32 %.mask934.i, -65
-  %284 = zext nneg i32 %283 to i64
-  %285 = shl nuw i64 1, %284
-  %286 = and i64 %285, 50331375
-  %.not683.not.i = icmp eq i64 %286, 0
-  br i1 %.not683.not.i, label %287, label %encode.exit882.thread.i
+encode.exit882.i:                                 ; preds = %272
+  %.mask934.i = and i32 %277, 127
+  %283 = icmp samesign ugt i8 %278, 64
+  call void @llvm.assume(i1 %283)
+  %284 = icmp samesign ult i8 %278, 91
+  call void @llvm.assume(i1 %284)
+  %285 = add nsw i32 %.mask934.i, -65
+  %286 = zext nneg i32 %285 to i64
+  %287 = shl nuw i64 1, %286
+  %288 = and i64 %287, 50331375
+  %.not683.not.i = icmp eq i64 %288, 0
+  br i1 %.not683.not.i, label %289, label %encode.exit882.thread.i
 
-287:                                              ; preds = %encode.exit882.i
-  %288 = icmp ne i32 %.mask934.i, 73
-  %.not688.i = icmp eq i8 %272, 0
-  %or.cond926.i = or i1 %.not688.i, %288
-  br i1 %or.cond926.i, label %.critedge695.i, label %289
+289:                                              ; preds = %encode.exit882.i
+  %290 = icmp ne i32 %.mask934.i, 73
+  %.not688.i = icmp eq i8 %274, 0
+  %or.cond926.i = or i1 %.not688.i, %290
+  br i1 %or.cond926.i, label %.critedge695.i, label %291
 
-289:                                              ; preds = %287
-  %290 = getelementptr i8, ptr %206, i64 2
-  %291 = load i8, ptr %290, align 1, !tbaa !8
-  %292 = zext i8 %291 to i64
-  %293 = getelementptr inbounds nuw i32, ptr %213, i64 %292
-  %294 = load i32, ptr %293, align 4, !tbaa !60
-  %295 = icmp eq i32 %294, 65
-  br i1 %295, label %296, label %.critedge695.i
+291:                                              ; preds = %289
+  %292 = getelementptr i8, ptr %206, i64 2
+  %293 = load i8, ptr %292, align 1, !tbaa !8
+  %294 = zext i8 %293 to i64
+  %295 = getelementptr inbounds nuw i32, ptr %213, i64 %294
+  %296 = load i32, ptr %295, align 4, !tbaa !60
+  %297 = icmp eq i32 %296, 65
+  br i1 %297, label %298, label %.critedge695.i
 
-296:                                              ; preds = %289
-  %.not690.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not690.i, label %encode.exit894.thread.sink.split.i, label %297
+298:                                              ; preds = %291
+  %.not690.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not690.i, label %encode.exit894.thread.sink.split.i, label %299
 
-297:                                              ; preds = %296
-  %298 = add i64 %.10621958.i, 2
-  %299 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %300 = load i64, ptr %299, align 8, !tbaa !50
-  %301 = icmp uge i64 %298, %300
-  call void @llvm.assume(i1 %301)
-  %302 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %303 = load i32, ptr %302, align 4, !tbaa !8
-  %304 = and i32 %303, 64
-  %.not.i733.i = icmp eq i32 %304, 0
-  br i1 %.not.i733.i, label %305, label %zend_string_alloc.exit.i734.i
+299:                                              ; preds = %298
+  %300 = add i64 %.10621954.i, 2
+  %301 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %302 = load i64, ptr %301, align 8, !tbaa !50
+  %303 = icmp uge i64 %300, %302
+  call void @llvm.assume(i1 %303)
+  %304 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %305 = load i32, ptr %304, align 4, !tbaa !8
+  %306 = and i32 %305, 64
+  %.not.i733.i = icmp eq i32 %306, 0
+  br i1 %.not.i733.i, label %307, label %zend_string_alloc.exit.i734.i
 
-305:                                              ; preds = %297
-  %306 = load i32, ptr %204, align 4, !tbaa !52
-  %307 = icmp eq i32 %306, 1
-  br i1 %307, label %308, label %zend_string_alloc.exit.i734.i, !prof !10
+307:                                              ; preds = %299
+  %308 = load i32, ptr %204, align 4, !tbaa !52
+  %309 = icmp eq i32 %308, 1
+  br i1 %309, label %310, label %zend_string_alloc.exit.i734.i, !prof !10
 
-308:                                              ; preds = %305
-  %309 = and i64 %298, -8
-  %310 = add i64 %309, 32
-  %311 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %310) #11
-  %312 = getelementptr inbounds nuw i8, ptr %311, i64 16
-  store i64 %298, ptr %312, align 8, !tbaa !50
-  %313 = getelementptr inbounds nuw i8, ptr %311, i64 8
-  store i64 0, ptr %313, align 8, !tbaa !53
-  %314 = getelementptr inbounds nuw i8, ptr %311, i64 4
-  %315 = load i32, ptr %314, align 4, !tbaa !8
-  %316 = and i32 %315, -513
-  store i32 %316, ptr %314, align 4, !tbaa !8
+310:                                              ; preds = %307
+  %311 = and i64 %300, -8
+  %312 = add i64 %311, 32
+  %313 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %312) #11
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 16
+  store i64 %300, ptr %314, align 8, !tbaa !50
+  %315 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  store i64 0, ptr %315, align 8, !tbaa !53
+  %316 = getelementptr inbounds nuw i8, ptr %313, i64 4
+  %317 = load i32, ptr %316, align 4, !tbaa !8
+  %318 = and i32 %317, -513
+  store i32 %318, ptr %316, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i734.i:                    ; preds = %297, %305
-  %317 = and i64 %298, -8
-  %318 = add i64 %317, 32
-  %319 = call noalias ptr @_emalloc(i64 noundef %318) #9
-  store i32 1, ptr %319, align 4, !tbaa !52
-  %320 = getelementptr inbounds nuw i8, ptr %319, i64 4
-  store i32 22, ptr %320, align 4, !tbaa !8
-  %321 = getelementptr inbounds nuw i8, ptr %319, i64 8
-  store i64 0, ptr %321, align 8, !tbaa !53
-  %322 = getelementptr inbounds nuw i8, ptr %319, i64 16
-  store i64 %298, ptr %322, align 8, !tbaa !50
-  %323 = getelementptr inbounds nuw i8, ptr %319, i64 24
-  %324 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %325 = load i64, ptr %299, align 8, !tbaa !50
-  %326 = add i64 %325, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %323, ptr nonnull align 8 %324, i64 %326, i1 false)
-  %327 = load i32, ptr %302, align 4, !tbaa !8
-  %328 = and i32 %327, 64
-  %.not21.i735.i = icmp eq i32 %328, 0
-  br i1 %.not21.i735.i, label %329, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i734.i:                    ; preds = %299, %307
+  %319 = and i64 %300, -8
+  %320 = add i64 %319, 32
+  %321 = call noalias ptr @_emalloc(i64 noundef %320) #9
+  store i32 1, ptr %321, align 4, !tbaa !52
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 4
+  store i32 22, ptr %322, align 4, !tbaa !8
+  %323 = getelementptr inbounds nuw i8, ptr %321, i64 8
+  store i64 0, ptr %323, align 8, !tbaa !53
+  %324 = getelementptr inbounds nuw i8, ptr %321, i64 16
+  store i64 %300, ptr %324, align 8, !tbaa !50
+  %325 = getelementptr inbounds nuw i8, ptr %321, i64 24
+  %326 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %327 = load i64, ptr %301, align 8, !tbaa !50
+  %328 = add i64 %327, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %325, ptr nonnull align 8 %326, i64 %328, i1 false)
+  %329 = load i32, ptr %304, align 4, !tbaa !8
+  %330 = and i32 %329, 64
+  %.not21.i735.i = icmp eq i32 %330, 0
+  br i1 %.not21.i735.i, label %331, label %encode.exit894.thread.sink.split.i
 
-329:                                              ; preds = %zend_string_alloc.exit.i734.i
-  %330 = load i32, ptr %204, align 4, !tbaa !52
-  %331 = icmp ne i32 %330, 0
-  call void @llvm.assume(i1 %331)
-  %332 = add i32 %330, -1
-  store i32 %332, ptr %204, align 4, !tbaa !52
+331:                                              ; preds = %zend_string_alloc.exit.i734.i
+  %332 = load i32, ptr %204, align 4, !tbaa !52
+  %333 = icmp ne i32 %332, 0
+  call void @llvm.assume(i1 %333)
+  %334 = add i32 %332, -1
+  store i32 %334, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-.critedge695.i:                                   ; preds = %289, %287
-  %333 = icmp eq i8 %226, 83
-  br i1 %333, label %encode.exit894.thread.i, label %334
+.critedge695.i:                                   ; preds = %291, %289
+  %335 = icmp eq i8 %228, 83
+  br i1 %335, label %encode.exit894.thread.i, label %336
 
-334:                                              ; preds = %.critedge695.i
-  %.not689.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not689.i, label %encode.exit894.thread.sink.split.i, label %335
+336:                                              ; preds = %.critedge695.i
+  %.not689.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not689.i, label %encode.exit894.thread.sink.split.i, label %337
 
-335:                                              ; preds = %334
-  %336 = add i64 %.10621958.i, 2
-  %337 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %338 = load i64, ptr %337, align 8, !tbaa !50
-  %339 = icmp uge i64 %336, %338
-  call void @llvm.assume(i1 %339)
-  %340 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %341 = load i32, ptr %340, align 4, !tbaa !8
-  %342 = and i32 %341, 64
-  %.not.i738.i = icmp eq i32 %342, 0
-  br i1 %.not.i738.i, label %343, label %zend_string_alloc.exit.i739.i
+337:                                              ; preds = %336
+  %338 = add i64 %.10621954.i, 2
+  %339 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %340 = load i64, ptr %339, align 8, !tbaa !50
+  %341 = icmp uge i64 %338, %340
+  call void @llvm.assume(i1 %341)
+  %342 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %343 = load i32, ptr %342, align 4, !tbaa !8
+  %344 = and i32 %343, 64
+  %.not.i738.i = icmp eq i32 %344, 0
+  br i1 %.not.i738.i, label %345, label %zend_string_alloc.exit.i739.i
 
-343:                                              ; preds = %335
-  %344 = load i32, ptr %204, align 4, !tbaa !52
-  %345 = icmp eq i32 %344, 1
-  br i1 %345, label %346, label %zend_string_alloc.exit.i739.i, !prof !10
+345:                                              ; preds = %337
+  %346 = load i32, ptr %204, align 4, !tbaa !52
+  %347 = icmp eq i32 %346, 1
+  br i1 %347, label %348, label %zend_string_alloc.exit.i739.i, !prof !10
 
-346:                                              ; preds = %343
-  %347 = and i64 %336, -8
-  %348 = add i64 %347, 32
-  %349 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %348) #11
-  %350 = getelementptr inbounds nuw i8, ptr %349, i64 16
-  store i64 %336, ptr %350, align 8, !tbaa !50
-  %351 = getelementptr inbounds nuw i8, ptr %349, i64 8
-  store i64 0, ptr %351, align 8, !tbaa !53
-  %352 = getelementptr inbounds nuw i8, ptr %349, i64 4
-  %353 = load i32, ptr %352, align 4, !tbaa !8
-  %354 = and i32 %353, -513
-  store i32 %354, ptr %352, align 4, !tbaa !8
+348:                                              ; preds = %345
+  %349 = and i64 %338, -8
+  %350 = add i64 %349, 32
+  %351 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %350) #11
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 16
+  store i64 %338, ptr %352, align 8, !tbaa !50
+  %353 = getelementptr inbounds nuw i8, ptr %351, i64 8
+  store i64 0, ptr %353, align 8, !tbaa !53
+  %354 = getelementptr inbounds nuw i8, ptr %351, i64 4
+  %355 = load i32, ptr %354, align 4, !tbaa !8
+  %356 = and i32 %355, -513
+  store i32 %356, ptr %354, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i739.i:                    ; preds = %335, %343
-  %355 = and i64 %336, -8
-  %356 = add i64 %355, 32
-  %357 = call noalias ptr @_emalloc(i64 noundef %356) #9
-  store i32 1, ptr %357, align 4, !tbaa !52
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 4
-  store i32 22, ptr %358, align 4, !tbaa !8
-  %359 = getelementptr inbounds nuw i8, ptr %357, i64 8
-  store i64 0, ptr %359, align 8, !tbaa !53
-  %360 = getelementptr inbounds nuw i8, ptr %357, i64 16
-  store i64 %336, ptr %360, align 8, !tbaa !50
-  %361 = getelementptr inbounds nuw i8, ptr %357, i64 24
-  %362 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %363 = load i64, ptr %337, align 8, !tbaa !50
-  %364 = add i64 %363, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %361, ptr nonnull align 8 %362, i64 %364, i1 false)
-  %365 = load i32, ptr %340, align 4, !tbaa !8
-  %366 = and i32 %365, 64
-  %.not21.i740.i = icmp eq i32 %366, 0
-  br i1 %.not21.i740.i, label %367, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i739.i:                    ; preds = %337, %345
+  %357 = and i64 %338, -8
+  %358 = add i64 %357, 32
+  %359 = call noalias ptr @_emalloc(i64 noundef %358) #9
+  store i32 1, ptr %359, align 4, !tbaa !52
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 4
+  store i32 22, ptr %360, align 4, !tbaa !8
+  %361 = getelementptr inbounds nuw i8, ptr %359, i64 8
+  store i64 0, ptr %361, align 8, !tbaa !53
+  %362 = getelementptr inbounds nuw i8, ptr %359, i64 16
+  store i64 %338, ptr %362, align 8, !tbaa !50
+  %363 = getelementptr inbounds nuw i8, ptr %359, i64 24
+  %364 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %365 = load i64, ptr %339, align 8, !tbaa !50
+  %366 = add i64 %365, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %363, ptr nonnull align 8 %364, i64 %366, i1 false)
+  %367 = load i32, ptr %342, align 4, !tbaa !8
+  %368 = and i32 %367, 64
+  %.not21.i740.i = icmp eq i32 %368, 0
+  br i1 %.not21.i740.i, label %369, label %encode.exit894.thread.sink.split.i
 
-367:                                              ; preds = %zend_string_alloc.exit.i739.i
-  %368 = load i32, ptr %204, align 4, !tbaa !52
-  %369 = icmp ne i32 %368, 0
-  call void @llvm.assume(i1 %369)
-  %370 = add i32 %368, -1
-  store i32 %370, ptr %204, align 4, !tbaa !52
+369:                                              ; preds = %zend_string_alloc.exit.i739.i
+  %370 = load i32, ptr %204, align 4, !tbaa !52
+  %371 = icmp ne i32 %370, 0
+  call void @llvm.assume(i1 %371)
+  %372 = add i32 %370, -1
+  store i32 %372, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-encode.exit882.thread.i:                          ; preds = %encode.exit882.i, %270
-  %sext684.mask.i = and i32 %275, 255
-  %371 = icmp eq i32 %sext684.mask.i, 72
-  %.not686.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %371, label %372, label %409
+encode.exit882.thread.i:                          ; preds = %encode.exit882.i, %272
+  %sext684.mask.i = and i32 %277, 255
+  %373 = icmp eq i32 %sext684.mask.i, 72
+  %.not686.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %373, label %374, label %411
 
-372:                                              ; preds = %encode.exit882.thread.i
-  br i1 %.not686.i, label %encode.exit894.thread.sink.split.i, label %373
+374:                                              ; preds = %encode.exit882.thread.i
+  br i1 %.not686.i, label %encode.exit894.thread.sink.split.i, label %375
 
-373:                                              ; preds = %372
-  %374 = add i64 %.10621958.i, 2
-  %375 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %376 = load i64, ptr %375, align 8, !tbaa !50
-  %377 = icmp uge i64 %374, %376
-  call void @llvm.assume(i1 %377)
-  %378 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %379 = load i32, ptr %378, align 4, !tbaa !8
-  %380 = and i32 %379, 64
-  %.not.i743.i = icmp eq i32 %380, 0
-  br i1 %.not.i743.i, label %381, label %zend_string_alloc.exit.i744.i
+375:                                              ; preds = %374
+  %376 = add i64 %.10621954.i, 2
+  %377 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %378 = load i64, ptr %377, align 8, !tbaa !50
+  %379 = icmp uge i64 %376, %378
+  call void @llvm.assume(i1 %379)
+  %380 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %381 = load i32, ptr %380, align 4, !tbaa !8
+  %382 = and i32 %381, 64
+  %.not.i743.i = icmp eq i32 %382, 0
+  br i1 %.not.i743.i, label %383, label %zend_string_alloc.exit.i744.i
 
-381:                                              ; preds = %373
-  %382 = load i32, ptr %204, align 4, !tbaa !52
-  %383 = icmp eq i32 %382, 1
-  br i1 %383, label %384, label %zend_string_alloc.exit.i744.i, !prof !10
+383:                                              ; preds = %375
+  %384 = load i32, ptr %204, align 4, !tbaa !52
+  %385 = icmp eq i32 %384, 1
+  br i1 %385, label %386, label %zend_string_alloc.exit.i744.i, !prof !10
 
-384:                                              ; preds = %381
-  %385 = and i64 %374, -8
-  %386 = add i64 %385, 32
-  %387 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %386) #11
-  %388 = getelementptr inbounds nuw i8, ptr %387, i64 16
-  store i64 %374, ptr %388, align 8, !tbaa !50
-  %389 = getelementptr inbounds nuw i8, ptr %387, i64 8
-  store i64 0, ptr %389, align 8, !tbaa !53
-  %390 = getelementptr inbounds nuw i8, ptr %387, i64 4
-  %391 = load i32, ptr %390, align 4, !tbaa !8
-  %392 = and i32 %391, -513
-  store i32 %392, ptr %390, align 4, !tbaa !8
+386:                                              ; preds = %383
+  %387 = and i64 %376, -8
+  %388 = add i64 %387, 32
+  %389 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %388) #11
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 16
+  store i64 %376, ptr %390, align 8, !tbaa !50
+  %391 = getelementptr inbounds nuw i8, ptr %389, i64 8
+  store i64 0, ptr %391, align 8, !tbaa !53
+  %392 = getelementptr inbounds nuw i8, ptr %389, i64 4
+  %393 = load i32, ptr %392, align 4, !tbaa !8
+  %394 = and i32 %393, -513
+  store i32 %394, ptr %392, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i744.i:                    ; preds = %373, %381
-  %393 = and i64 %374, -8
-  %394 = add i64 %393, 32
-  %395 = call noalias ptr @_emalloc(i64 noundef %394) #9
-  store i32 1, ptr %395, align 4, !tbaa !52
-  %396 = getelementptr inbounds nuw i8, ptr %395, i64 4
-  store i32 22, ptr %396, align 4, !tbaa !8
-  %397 = getelementptr inbounds nuw i8, ptr %395, i64 8
-  store i64 0, ptr %397, align 8, !tbaa !53
-  %398 = getelementptr inbounds nuw i8, ptr %395, i64 16
-  store i64 %374, ptr %398, align 8, !tbaa !50
-  %399 = getelementptr inbounds nuw i8, ptr %395, i64 24
-  %400 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %401 = load i64, ptr %375, align 8, !tbaa !50
-  %402 = add i64 %401, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %399, ptr nonnull align 8 %400, i64 %402, i1 false)
-  %403 = load i32, ptr %378, align 4, !tbaa !8
-  %404 = and i32 %403, 64
-  %.not21.i745.i = icmp eq i32 %404, 0
-  br i1 %.not21.i745.i, label %405, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i744.i:                    ; preds = %375, %383
+  %395 = and i64 %376, -8
+  %396 = add i64 %395, 32
+  %397 = call noalias ptr @_emalloc(i64 noundef %396) #9
+  store i32 1, ptr %397, align 4, !tbaa !52
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 4
+  store i32 22, ptr %398, align 4, !tbaa !8
+  %399 = getelementptr inbounds nuw i8, ptr %397, i64 8
+  store i64 0, ptr %399, align 8, !tbaa !53
+  %400 = getelementptr inbounds nuw i8, ptr %397, i64 16
+  store i64 %376, ptr %400, align 8, !tbaa !50
+  %401 = getelementptr inbounds nuw i8, ptr %397, i64 24
+  %402 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %403 = load i64, ptr %377, align 8, !tbaa !50
+  %404 = add i64 %403, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %401, ptr nonnull align 8 %402, i64 %404, i1 false)
+  %405 = load i32, ptr %380, align 4, !tbaa !8
+  %406 = and i32 %405, 64
+  %.not21.i745.i = icmp eq i32 %406, 0
+  br i1 %.not21.i745.i, label %407, label %encode.exit894.thread.sink.split.i
 
-405:                                              ; preds = %zend_string_alloc.exit.i744.i
-  %406 = load i32, ptr %204, align 4, !tbaa !52
-  %407 = icmp ne i32 %406, 0
-  call void @llvm.assume(i1 %407)
-  %408 = add i32 %406, -1
-  store i32 %408, ptr %204, align 4, !tbaa !52
+407:                                              ; preds = %zend_string_alloc.exit.i744.i
+  %408 = load i32, ptr %204, align 4, !tbaa !52
+  %409 = icmp ne i32 %408, 0
+  call void @llvm.assume(i1 %409)
+  %410 = add i32 %408, -1
+  store i32 %410, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-409:                                              ; preds = %encode.exit882.thread.i
-  br i1 %.not686.i, label %encode.exit894.thread.sink.split.i, label %410
+411:                                              ; preds = %encode.exit882.thread.i
+  br i1 %.not686.i, label %encode.exit894.thread.sink.split.i, label %412
 
-410:                                              ; preds = %409
-  %411 = add i64 %.10621958.i, 2
-  %412 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %413 = load i64, ptr %412, align 8, !tbaa !50
-  %414 = icmp uge i64 %411, %413
-  call void @llvm.assume(i1 %414)
-  %415 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %416 = load i32, ptr %415, align 4, !tbaa !8
-  %417 = and i32 %416, 64
-  %.not.i748.i = icmp eq i32 %417, 0
-  br i1 %.not.i748.i, label %418, label %zend_string_alloc.exit.i749.i
+412:                                              ; preds = %411
+  %413 = add i64 %.10621954.i, 2
+  %414 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %415 = load i64, ptr %414, align 8, !tbaa !50
+  %416 = icmp uge i64 %413, %415
+  call void @llvm.assume(i1 %416)
+  %417 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %418 = load i32, ptr %417, align 4, !tbaa !8
+  %419 = and i32 %418, 64
+  %.not.i748.i = icmp eq i32 %419, 0
+  br i1 %.not.i748.i, label %420, label %zend_string_alloc.exit.i749.i
 
-418:                                              ; preds = %410
-  %419 = load i32, ptr %204, align 4, !tbaa !52
-  %420 = icmp eq i32 %419, 1
-  br i1 %420, label %421, label %zend_string_alloc.exit.i749.i, !prof !10
+420:                                              ; preds = %412
+  %421 = load i32, ptr %204, align 4, !tbaa !52
+  %422 = icmp eq i32 %421, 1
+  br i1 %422, label %423, label %zend_string_alloc.exit.i749.i, !prof !10
 
-421:                                              ; preds = %418
-  %422 = and i64 %411, -8
-  %423 = add i64 %422, 32
-  %424 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %423) #11
-  %425 = getelementptr inbounds nuw i8, ptr %424, i64 16
-  store i64 %411, ptr %425, align 8, !tbaa !50
-  %426 = getelementptr inbounds nuw i8, ptr %424, i64 8
-  store i64 0, ptr %426, align 8, !tbaa !53
-  %427 = getelementptr inbounds nuw i8, ptr %424, i64 4
-  %428 = load i32, ptr %427, align 4, !tbaa !8
-  %429 = and i32 %428, -513
-  store i32 %429, ptr %427, align 4, !tbaa !8
+423:                                              ; preds = %420
+  %424 = and i64 %413, -8
+  %425 = add i64 %424, 32
+  %426 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %425) #11
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 16
+  store i64 %413, ptr %427, align 8, !tbaa !50
+  %428 = getelementptr inbounds nuw i8, ptr %426, i64 8
+  store i64 0, ptr %428, align 8, !tbaa !53
+  %429 = getelementptr inbounds nuw i8, ptr %426, i64 4
+  %430 = load i32, ptr %429, align 4, !tbaa !8
+  %431 = and i32 %430, -513
+  store i32 %431, ptr %429, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i749.i:                    ; preds = %410, %418
-  %430 = and i64 %411, -8
-  %431 = add i64 %430, 32
-  %432 = call noalias ptr @_emalloc(i64 noundef %431) #9
-  store i32 1, ptr %432, align 4, !tbaa !52
-  %433 = getelementptr inbounds nuw i8, ptr %432, i64 4
-  store i32 22, ptr %433, align 4, !tbaa !8
-  %434 = getelementptr inbounds nuw i8, ptr %432, i64 8
-  store i64 0, ptr %434, align 8, !tbaa !53
-  %435 = getelementptr inbounds nuw i8, ptr %432, i64 16
-  store i64 %411, ptr %435, align 8, !tbaa !50
-  %436 = getelementptr inbounds nuw i8, ptr %432, i64 24
-  %437 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %438 = load i64, ptr %412, align 8, !tbaa !50
-  %439 = add i64 %438, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %436, ptr nonnull align 8 %437, i64 %439, i1 false)
-  %440 = load i32, ptr %415, align 4, !tbaa !8
-  %441 = and i32 %440, 64
-  %.not21.i750.i = icmp eq i32 %441, 0
-  br i1 %.not21.i750.i, label %442, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i749.i:                    ; preds = %412, %420
+  %432 = and i64 %413, -8
+  %433 = add i64 %432, 32
+  %434 = call noalias ptr @_emalloc(i64 noundef %433) #9
+  store i32 1, ptr %434, align 4, !tbaa !52
+  %435 = getelementptr inbounds nuw i8, ptr %434, i64 4
+  store i32 22, ptr %435, align 4, !tbaa !8
+  %436 = getelementptr inbounds nuw i8, ptr %434, i64 8
+  store i64 0, ptr %436, align 8, !tbaa !53
+  %437 = getelementptr inbounds nuw i8, ptr %434, i64 16
+  store i64 %413, ptr %437, align 8, !tbaa !50
+  %438 = getelementptr inbounds nuw i8, ptr %434, i64 24
+  %439 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %440 = load i64, ptr %414, align 8, !tbaa !50
+  %441 = add i64 %440, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %438, ptr nonnull align 8 %439, i64 %441, i1 false)
+  %442 = load i32, ptr %417, align 4, !tbaa !8
+  %443 = and i32 %442, 64
+  %.not21.i750.i = icmp eq i32 %443, 0
+  br i1 %.not21.i750.i, label %444, label %encode.exit894.thread.sink.split.i
 
-442:                                              ; preds = %zend_string_alloc.exit.i749.i
-  %443 = load i32, ptr %204, align 4, !tbaa !52
-  %444 = icmp ne i32 %443, 0
-  call void @llvm.assume(i1 %444)
-  %445 = add i32 %443, -1
-  store i32 %445, ptr %204, align 4, !tbaa !52
+444:                                              ; preds = %zend_string_alloc.exit.i749.i
+  %445 = load i32, ptr %204, align 4, !tbaa !52
+  %446 = icmp ne i32 %445, 0
+  call void @llvm.assume(i1 %446)
+  %447 = add i32 %445, -1
+  store i32 %447, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-446:                                              ; preds = %231
-  %447 = getelementptr i8, ptr %206, i64 1
-  %448 = load i8, ptr %447, align 1, !tbaa !8
-  %449 = zext i8 %448 to i64
-  %450 = getelementptr inbounds nuw i32, ptr %213, i64 %449
-  %451 = load i32, ptr %450, align 4, !tbaa !60
-  %452 = icmp eq i32 %451, 71
-  br i1 %452, label %453, label %encode.exit885.thread.i
+448:                                              ; preds = %233
+  %449 = getelementptr i8, ptr %206, i64 1
+  %450 = load i8, ptr %449, align 1, !tbaa !8
+  %451 = zext i8 %450 to i64
+  %452 = getelementptr inbounds nuw i32, ptr %213, i64 %451
+  %453 = load i32, ptr %452, align 4, !tbaa !60
+  %454 = icmp eq i32 %453, 71
+  br i1 %454, label %455, label %encode.exit885.thread.i
 
-453:                                              ; preds = %446
-  %.not679.i = icmp eq i8 %448, 0
-  br i1 %.not679.i, label %461, label %454
+455:                                              ; preds = %448
+  %.not679.i = icmp eq i8 %450, 0
+  br i1 %.not679.i, label %463, label %456
 
-454:                                              ; preds = %453
-  %455 = getelementptr i8, ptr %206, i64 2
-  %456 = load i8, ptr %455, align 1, !tbaa !8
-  %457 = zext i8 %456 to i64
-  %458 = getelementptr inbounds nuw i32, ptr %213, i64 %457
-  %459 = load i32, ptr %458, align 4, !tbaa !60
-  %460 = trunc i32 %459 to i8
-  br label %461
+456:                                              ; preds = %455
+  %457 = getelementptr i8, ptr %206, i64 2
+  %458 = load i8, ptr %457, align 1, !tbaa !8
+  %459 = zext i8 %458 to i64
+  %460 = getelementptr inbounds nuw i32, ptr %213, i64 %459
+  %461 = load i32, ptr %460, align 4, !tbaa !60
+  %462 = trunc i32 %461 to i8
+  br label %463
 
-461:                                              ; preds = %454, %453
-  %462 = phi i8 [ %460, %454 ], [ 0, %453 ]
-  %463 = sext i8 %462 to i64
-  %464 = getelementptr inbounds i16, ptr %207, i64 %463
-  %465 = load i16, ptr %464, align 2, !tbaa !56
-  %466 = and i16 %465, 1024
-  %.not.i883.i = icmp eq i16 %466, 0
+463:                                              ; preds = %456, %455
+  %464 = phi i8 [ %462, %456 ], [ 0, %455 ]
+  %465 = sext i8 %464 to i64
+  %466 = getelementptr inbounds i16, ptr %207, i64 %465
+  %467 = load i16, ptr %466, align 2, !tbaa !56
+  %468 = and i16 %467, 1024
+  %.not.i883.i = icmp eq i16 %468, 0
   br i1 %.not.i883.i, label %encode.exit885.thread.i, label %encode.exit885.i
 
-encode.exit885.i:                                 ; preds = %461
-  %467 = zext nneg i8 %462 to i64
-  %468 = icmp samesign ugt i8 %462, 64
-  call void @llvm.assume(i1 %468)
-  %469 = icmp samesign ult i8 %462, 91
-  call void @llvm.assume(i1 %469)
-  %470 = add nuw nsw i64 %467, 4294967231
-  %471 = and i64 %470, 4294967295
-  %472 = shl nuw nsw i64 1, %471
-  %473 = and i64 %472, 50331375
-  %.not680.not.i = icmp eq i64 %473, 0
-  br i1 %.not680.not.i, label %474, label %encode.exit885.thread.i
+encode.exit885.i:                                 ; preds = %463
+  %469 = zext nneg i8 %464 to i64
+  %470 = icmp samesign ugt i8 %464, 64
+  call void @llvm.assume(i1 %470)
+  %471 = icmp samesign ult i8 %464, 91
+  call void @llvm.assume(i1 %471)
+  %472 = add nuw nsw i64 %469, 4294967231
+  %473 = and i64 %472, 4294967295
+  %474 = shl nuw nsw i64 1, %473
+  %475 = and i64 %474, 50331375
+  %.not680.not.i = icmp eq i64 %475, 0
+  br i1 %.not680.not.i, label %476, label %encode.exit885.thread.i
 
-474:                                              ; preds = %encode.exit885.i
-  %.not682.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not682.i, label %encode.exit894.thread.sink.split.i, label %475
+476:                                              ; preds = %encode.exit885.i
+  %.not682.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not682.i, label %encode.exit894.thread.sink.split.i, label %477
 
-475:                                              ; preds = %474
-  %476 = add i64 %.10621958.i, 2
-  %477 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %478 = load i64, ptr %477, align 8, !tbaa !50
-  %479 = icmp uge i64 %476, %478
-  call void @llvm.assume(i1 %479)
-  %480 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %481 = load i32, ptr %480, align 4, !tbaa !8
-  %482 = and i32 %481, 64
-  %.not.i753.i = icmp eq i32 %482, 0
-  br i1 %.not.i753.i, label %483, label %zend_string_alloc.exit.i754.i
+477:                                              ; preds = %476
+  %478 = add i64 %.10621954.i, 2
+  %479 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %480 = load i64, ptr %479, align 8, !tbaa !50
+  %481 = icmp uge i64 %478, %480
+  call void @llvm.assume(i1 %481)
+  %482 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %483 = load i32, ptr %482, align 4, !tbaa !8
+  %484 = and i32 %483, 64
+  %.not.i753.i = icmp eq i32 %484, 0
+  br i1 %.not.i753.i, label %485, label %zend_string_alloc.exit.i754.i
 
-483:                                              ; preds = %475
-  %484 = load i32, ptr %204, align 4, !tbaa !52
-  %485 = icmp eq i32 %484, 1
-  br i1 %485, label %486, label %zend_string_alloc.exit.i754.i, !prof !10
+485:                                              ; preds = %477
+  %486 = load i32, ptr %204, align 4, !tbaa !52
+  %487 = icmp eq i32 %486, 1
+  br i1 %487, label %488, label %zend_string_alloc.exit.i754.i, !prof !10
 
-486:                                              ; preds = %483
-  %487 = and i64 %476, -8
-  %488 = add i64 %487, 32
-  %489 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %488) #11
-  %490 = getelementptr inbounds nuw i8, ptr %489, i64 16
-  store i64 %476, ptr %490, align 8, !tbaa !50
-  %491 = getelementptr inbounds nuw i8, ptr %489, i64 8
-  store i64 0, ptr %491, align 8, !tbaa !53
-  %492 = getelementptr inbounds nuw i8, ptr %489, i64 4
-  %493 = load i32, ptr %492, align 4, !tbaa !8
-  %494 = and i32 %493, -513
-  store i32 %494, ptr %492, align 4, !tbaa !8
+488:                                              ; preds = %485
+  %489 = and i64 %478, -8
+  %490 = add i64 %489, 32
+  %491 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %490) #11
+  %492 = getelementptr inbounds nuw i8, ptr %491, i64 16
+  store i64 %478, ptr %492, align 8, !tbaa !50
+  %493 = getelementptr inbounds nuw i8, ptr %491, i64 8
+  store i64 0, ptr %493, align 8, !tbaa !53
+  %494 = getelementptr inbounds nuw i8, ptr %491, i64 4
+  %495 = load i32, ptr %494, align 4, !tbaa !8
+  %496 = and i32 %495, -513
+  store i32 %496, ptr %494, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i754.i:                    ; preds = %475, %483
-  %495 = and i64 %476, -8
-  %496 = add i64 %495, 32
-  %497 = call noalias ptr @_emalloc(i64 noundef %496) #9
-  store i32 1, ptr %497, align 4, !tbaa !52
-  %498 = getelementptr inbounds nuw i8, ptr %497, i64 4
-  store i32 22, ptr %498, align 4, !tbaa !8
-  %499 = getelementptr inbounds nuw i8, ptr %497, i64 8
-  store i64 0, ptr %499, align 8, !tbaa !53
-  %500 = getelementptr inbounds nuw i8, ptr %497, i64 16
-  store i64 %476, ptr %500, align 8, !tbaa !50
-  %501 = getelementptr inbounds nuw i8, ptr %497, i64 24
-  %502 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %503 = load i64, ptr %477, align 8, !tbaa !50
-  %504 = add i64 %503, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %501, ptr nonnull align 8 %502, i64 %504, i1 false)
-  %505 = load i32, ptr %480, align 4, !tbaa !8
-  %506 = and i32 %505, 64
-  %.not21.i755.i = icmp eq i32 %506, 0
-  br i1 %.not21.i755.i, label %507, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i754.i:                    ; preds = %477, %485
+  %497 = and i64 %478, -8
+  %498 = add i64 %497, 32
+  %499 = call noalias ptr @_emalloc(i64 noundef %498) #9
+  store i32 1, ptr %499, align 4, !tbaa !52
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 4
+  store i32 22, ptr %500, align 4, !tbaa !8
+  %501 = getelementptr inbounds nuw i8, ptr %499, i64 8
+  store i64 0, ptr %501, align 8, !tbaa !53
+  %502 = getelementptr inbounds nuw i8, ptr %499, i64 16
+  store i64 %478, ptr %502, align 8, !tbaa !50
+  %503 = getelementptr inbounds nuw i8, ptr %499, i64 24
+  %504 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %505 = load i64, ptr %479, align 8, !tbaa !50
+  %506 = add i64 %505, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %503, ptr nonnull align 8 %504, i64 %506, i1 false)
+  %507 = load i32, ptr %482, align 4, !tbaa !8
+  %508 = and i32 %507, 64
+  %.not21.i755.i = icmp eq i32 %508, 0
+  br i1 %.not21.i755.i, label %509, label %encode.exit894.thread.sink.split.i
 
-507:                                              ; preds = %zend_string_alloc.exit.i754.i
-  %508 = load i32, ptr %204, align 4, !tbaa !52
-  %509 = icmp ne i32 %508, 0
-  call void @llvm.assume(i1 %509)
-  %510 = add i32 %508, -1
-  store i32 %510, ptr %204, align 4, !tbaa !52
+509:                                              ; preds = %zend_string_alloc.exit.i754.i
+  %510 = load i32, ptr %204, align 4, !tbaa !52
+  %511 = icmp ne i32 %510, 0
+  call void @llvm.assume(i1 %511)
+  %512 = add i32 %510, -1
+  store i32 %512, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-encode.exit885.thread.i:                          ; preds = %encode.exit885.i, %461, %446
-  %.not681.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not681.i, label %encode.exit894.thread.sink.split.i, label %511
+encode.exit885.thread.i:                          ; preds = %encode.exit885.i, %463, %448
+  %.not681.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not681.i, label %encode.exit894.thread.sink.split.i, label %513
 
-511:                                              ; preds = %encode.exit885.thread.i
-  %512 = add i64 %.10621958.i, 2
-  %513 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %514 = load i64, ptr %513, align 8, !tbaa !50
-  %515 = icmp uge i64 %512, %514
-  call void @llvm.assume(i1 %515)
-  %516 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %517 = load i32, ptr %516, align 4, !tbaa !8
-  %518 = and i32 %517, 64
-  %.not.i758.i = icmp eq i32 %518, 0
-  br i1 %.not.i758.i, label %519, label %zend_string_alloc.exit.i759.i
+513:                                              ; preds = %encode.exit885.thread.i
+  %514 = add i64 %.10621954.i, 2
+  %515 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %516 = load i64, ptr %515, align 8, !tbaa !50
+  %517 = icmp uge i64 %514, %516
+  call void @llvm.assume(i1 %517)
+  %518 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %519 = load i32, ptr %518, align 4, !tbaa !8
+  %520 = and i32 %519, 64
+  %.not.i758.i = icmp eq i32 %520, 0
+  br i1 %.not.i758.i, label %521, label %zend_string_alloc.exit.i759.i
 
-519:                                              ; preds = %511
-  %520 = load i32, ptr %204, align 4, !tbaa !52
-  %521 = icmp eq i32 %520, 1
-  br i1 %521, label %522, label %zend_string_alloc.exit.i759.i, !prof !10
+521:                                              ; preds = %513
+  %522 = load i32, ptr %204, align 4, !tbaa !52
+  %523 = icmp eq i32 %522, 1
+  br i1 %523, label %524, label %zend_string_alloc.exit.i759.i, !prof !10
 
-522:                                              ; preds = %519
-  %523 = and i64 %512, -8
-  %524 = add i64 %523, 32
-  %525 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %524) #11
-  %526 = getelementptr inbounds nuw i8, ptr %525, i64 16
-  store i64 %512, ptr %526, align 8, !tbaa !50
-  %527 = getelementptr inbounds nuw i8, ptr %525, i64 8
-  store i64 0, ptr %527, align 8, !tbaa !53
-  %528 = getelementptr inbounds nuw i8, ptr %525, i64 4
-  %529 = load i32, ptr %528, align 4, !tbaa !8
-  %530 = and i32 %529, -513
-  store i32 %530, ptr %528, align 4, !tbaa !8
+524:                                              ; preds = %521
+  %525 = and i64 %514, -8
+  %526 = add i64 %525, 32
+  %527 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %526) #11
+  %528 = getelementptr inbounds nuw i8, ptr %527, i64 16
+  store i64 %514, ptr %528, align 8, !tbaa !50
+  %529 = getelementptr inbounds nuw i8, ptr %527, i64 8
+  store i64 0, ptr %529, align 8, !tbaa !53
+  %530 = getelementptr inbounds nuw i8, ptr %527, i64 4
+  %531 = load i32, ptr %530, align 4, !tbaa !8
+  %532 = and i32 %531, -513
+  store i32 %532, ptr %530, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i759.i:                    ; preds = %511, %519
-  %531 = and i64 %512, -8
-  %532 = add i64 %531, 32
-  %533 = call noalias ptr @_emalloc(i64 noundef %532) #9
-  store i32 1, ptr %533, align 4, !tbaa !52
-  %534 = getelementptr inbounds nuw i8, ptr %533, i64 4
-  store i32 22, ptr %534, align 4, !tbaa !8
-  %535 = getelementptr inbounds nuw i8, ptr %533, i64 8
-  store i64 0, ptr %535, align 8, !tbaa !53
-  %536 = getelementptr inbounds nuw i8, ptr %533, i64 16
-  store i64 %512, ptr %536, align 8, !tbaa !50
-  %537 = getelementptr inbounds nuw i8, ptr %533, i64 24
-  %538 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %539 = load i64, ptr %513, align 8, !tbaa !50
-  %540 = add i64 %539, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %537, ptr nonnull align 8 %538, i64 %540, i1 false)
-  %541 = load i32, ptr %516, align 4, !tbaa !8
-  %542 = and i32 %541, 64
-  %.not21.i760.i = icmp eq i32 %542, 0
-  br i1 %.not21.i760.i, label %543, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i759.i:                    ; preds = %513, %521
+  %533 = and i64 %514, -8
+  %534 = add i64 %533, 32
+  %535 = call noalias ptr @_emalloc(i64 noundef %534) #9
+  store i32 1, ptr %535, align 4, !tbaa !52
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 4
+  store i32 22, ptr %536, align 4, !tbaa !8
+  %537 = getelementptr inbounds nuw i8, ptr %535, i64 8
+  store i64 0, ptr %537, align 8, !tbaa !53
+  %538 = getelementptr inbounds nuw i8, ptr %535, i64 16
+  store i64 %514, ptr %538, align 8, !tbaa !50
+  %539 = getelementptr inbounds nuw i8, ptr %535, i64 24
+  %540 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %541 = load i64, ptr %515, align 8, !tbaa !50
+  %542 = add i64 %541, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %539, ptr nonnull align 8 %540, i64 %542, i1 false)
+  %543 = load i32, ptr %518, align 4, !tbaa !8
+  %544 = and i32 %543, 64
+  %.not21.i760.i = icmp eq i32 %544, 0
+  br i1 %.not21.i760.i, label %545, label %encode.exit894.thread.sink.split.i
 
-543:                                              ; preds = %zend_string_alloc.exit.i759.i
-  %544 = load i32, ptr %204, align 4, !tbaa !52
-  %545 = icmp ne i32 %544, 0
-  call void @llvm.assume(i1 %545)
-  %546 = add i32 %544, -1
-  store i32 %546, ptr %204, align 4, !tbaa !52
+545:                                              ; preds = %zend_string_alloc.exit.i759.i
+  %546 = load i32, ptr %204, align 4, !tbaa !52
+  %547 = icmp ne i32 %546, 0
+  call void @llvm.assume(i1 %547)
+  %548 = add i32 %546, -1
+  store i32 %548, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-547:                                              ; preds = %231
-  %548 = getelementptr i8, ptr %206, i64 1
-  %549 = load i8, ptr %548, align 1, !tbaa !8
-  %550 = zext i8 %549 to i64
-  %551 = getelementptr inbounds nuw i32, ptr %213, i64 %550
-  %552 = load i32, ptr %551, align 4, !tbaa !60
-  %553 = trunc i32 %552 to i8
-  switch i8 %553, label %681 [
-    i8 72, label %554
-    i8 78, label %620
+549:                                              ; preds = %233
+  %550 = getelementptr i8, ptr %206, i64 1
+  %551 = load i8, ptr %550, align 1, !tbaa !8
+  %552 = zext i8 %551 to i64
+  %553 = getelementptr inbounds nuw i32, ptr %213, i64 %552
+  %554 = load i32, ptr %553, align 4, !tbaa !60
+  %555 = trunc i32 %554 to i8
+  switch i8 %555, label %687 [
+    i8 72, label %556
+    i8 78, label %626
   ]
 
-554:                                              ; preds = %547
-  %555 = icmp sgt i32 %.3960.i, 2
-  br i1 %555, label %556, label %563
+556:                                              ; preds = %549
+  %557 = icmp sgt i32 %.3956.i, 2
+  br i1 %557, label %558, label %567
 
-556:                                              ; preds = %554
-  %557 = zext nneg i32 %.3960.i to i64
-  %gep952.i = getelementptr i8, ptr %invariant.gep951.i, i64 %557
-  %558 = load i8, ptr %gep952.i, align 1, !tbaa !8
-  %559 = zext i8 %558 to i64
-  %560 = getelementptr inbounds nuw i32, ptr %213, i64 %559
-  %561 = load i32, ptr %560, align 4, !tbaa !60
-  %562 = trunc i32 %561 to i8
-  br label %563
+558:                                              ; preds = %556
+  %559 = zext nneg i32 %.3956.i to i64
+  %560 = getelementptr i8, ptr %31, i64 %559
+  %561 = getelementptr i8, ptr %560, i64 -3
+  %562 = load i8, ptr %561, align 1, !tbaa !8
+  %563 = zext i8 %562 to i64
+  %564 = getelementptr inbounds nuw i32, ptr %213, i64 %563
+  %565 = load i32, ptr %564, align 4, !tbaa !60
+  %566 = trunc i32 %565 to i8
+  br label %567
 
-563:                                              ; preds = %556, %554
-  %564 = phi i8 [ %562, %556 ], [ 0, %554 ]
-  %565 = sext i8 %564 to i64
-  %566 = getelementptr inbounds i16, ptr %207, i64 %565
-  %567 = load i16, ptr %566, align 2, !tbaa !56
-  %568 = and i16 %567, 1024
-  %.not.i886.i = icmp eq i16 %568, 0
+567:                                              ; preds = %558, %556
+  %568 = phi i8 [ %566, %558 ], [ 0, %556 ]
+  %569 = sext i8 %568 to i64
+  %570 = getelementptr inbounds i16, ptr %207, i64 %569
+  %571 = load i16, ptr %570, align 2, !tbaa !56
+  %572 = and i16 %571, 1024
+  %.not.i886.i = icmp eq i16 %572, 0
   br i1 %.not.i886.i, label %encode.exit888.thread.i, label %encode.exit888.i
 
-encode.exit888.i:                                 ; preds = %563
-  %569 = zext nneg i8 %564 to i64
-  %570 = icmp samesign ugt i8 %564, 64
-  call void @llvm.assume(i1 %570)
-  %571 = icmp samesign ult i8 %564, 91
-  call void @llvm.assume(i1 %571)
-  %572 = add nuw nsw i64 %569, 4294967231
-  %573 = and i64 %572, 4294967295
-  %574 = shl nuw nsw i64 1, %573
-  %575 = and i64 %574, 67108725
-  %.not677.not.i = icmp eq i64 %575, 0
+encode.exit888.i:                                 ; preds = %567
+  %573 = zext nneg i8 %568 to i64
+  %574 = icmp samesign ugt i8 %568, 64
+  call void @llvm.assume(i1 %574)
+  %575 = icmp samesign ult i8 %568, 91
+  call void @llvm.assume(i1 %575)
+  %576 = add nuw nsw i64 %573, 4294967231
+  %577 = and i64 %576, 4294967295
+  %578 = shl nuw nsw i64 1, %577
+  %579 = and i64 %578, 67108725
+  %.not677.not.i = icmp eq i64 %579, 0
   br i1 %.not677.not.i, label %encode.exit894.thread.i, label %encode.exit888.thread.i
 
-encode.exit888.thread.i:                          ; preds = %encode.exit888.i, %563
-  %576 = icmp sgt i32 %.3960.i, 3
-  br i1 %576, label %577, label %.critedge697.i
+encode.exit888.thread.i:                          ; preds = %encode.exit888.i, %567
+  %580 = icmp sgt i32 %.3956.i, 3
+  br i1 %580, label %581, label %.critedge697.i
 
-577:                                              ; preds = %encode.exit888.thread.i
-  %578 = zext nneg i32 %.3960.i to i64
-  %gep954.i = getelementptr i8, ptr %invariant.gep953.i, i64 %578
-  %579 = load i8, ptr %gep954.i, align 1, !tbaa !8
-  %580 = zext i8 %579 to i64
-  %581 = getelementptr inbounds nuw i32, ptr %213, i64 %580
-  %582 = load i32, ptr %581, align 4, !tbaa !60
-  %583 = icmp eq i32 %582, 72
-  br i1 %583, label %encode.exit894.thread.i, label %.critedge697.i
+581:                                              ; preds = %encode.exit888.thread.i
+  %582 = zext nneg i32 %.3956.i to i64
+  %583 = getelementptr i8, ptr %31, i64 %582
+  %584 = getelementptr i8, ptr %583, i64 -4
+  %585 = load i8, ptr %584, align 1, !tbaa !8
+  %586 = zext i8 %585 to i64
+  %587 = getelementptr inbounds nuw i32, ptr %213, i64 %586
+  %588 = load i32, ptr %587, align 4, !tbaa !60
+  %589 = icmp eq i32 %588, 72
+  br i1 %589, label %encode.exit894.thread.i, label %.critedge697.i
 
-.critedge697.i:                                   ; preds = %577, %encode.exit888.thread.i
-  %.not678.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not678.i, label %encode.exit894.thread.sink.split.i, label %584
+.critedge697.i:                                   ; preds = %581, %encode.exit888.thread.i
+  %.not678.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not678.i, label %encode.exit894.thread.sink.split.i, label %590
 
-584:                                              ; preds = %.critedge697.i
-  %585 = add i64 %.10621958.i, 2
-  %586 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %587 = load i64, ptr %586, align 8, !tbaa !50
-  %588 = icmp uge i64 %585, %587
-  call void @llvm.assume(i1 %588)
-  %589 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %590 = load i32, ptr %589, align 4, !tbaa !8
-  %591 = and i32 %590, 64
-  %.not.i763.i = icmp eq i32 %591, 0
-  br i1 %.not.i763.i, label %592, label %zend_string_alloc.exit.i764.i
+590:                                              ; preds = %.critedge697.i
+  %591 = add i64 %.10621954.i, 2
+  %592 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %593 = load i64, ptr %592, align 8, !tbaa !50
+  %594 = icmp uge i64 %591, %593
+  call void @llvm.assume(i1 %594)
+  %595 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %596 = load i32, ptr %595, align 4, !tbaa !8
+  %597 = and i32 %596, 64
+  %.not.i763.i = icmp eq i32 %597, 0
+  br i1 %.not.i763.i, label %598, label %zend_string_alloc.exit.i764.i
 
-592:                                              ; preds = %584
-  %593 = load i32, ptr %204, align 4, !tbaa !52
-  %594 = icmp eq i32 %593, 1
-  br i1 %594, label %595, label %zend_string_alloc.exit.i764.i, !prof !10
+598:                                              ; preds = %590
+  %599 = load i32, ptr %204, align 4, !tbaa !52
+  %600 = icmp eq i32 %599, 1
+  br i1 %600, label %601, label %zend_string_alloc.exit.i764.i, !prof !10
 
-595:                                              ; preds = %592
-  %596 = and i64 %585, -8
-  %597 = add i64 %596, 32
-  %598 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %597) #11
-  %599 = getelementptr inbounds nuw i8, ptr %598, i64 16
-  store i64 %585, ptr %599, align 8, !tbaa !50
-  %600 = getelementptr inbounds nuw i8, ptr %598, i64 8
-  store i64 0, ptr %600, align 8, !tbaa !53
-  %601 = getelementptr inbounds nuw i8, ptr %598, i64 4
-  %602 = load i32, ptr %601, align 4, !tbaa !8
-  %603 = and i32 %602, -513
-  store i32 %603, ptr %601, align 4, !tbaa !8
+601:                                              ; preds = %598
+  %602 = and i64 %591, -8
+  %603 = add i64 %602, 32
+  %604 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %603) #11
+  %605 = getelementptr inbounds nuw i8, ptr %604, i64 16
+  store i64 %591, ptr %605, align 8, !tbaa !50
+  %606 = getelementptr inbounds nuw i8, ptr %604, i64 8
+  store i64 0, ptr %606, align 8, !tbaa !53
+  %607 = getelementptr inbounds nuw i8, ptr %604, i64 4
+  %608 = load i32, ptr %607, align 4, !tbaa !8
+  %609 = and i32 %608, -513
+  store i32 %609, ptr %607, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i764.i:                    ; preds = %584, %592
-  %604 = and i64 %585, -8
-  %605 = add i64 %604, 32
-  %606 = call noalias ptr @_emalloc(i64 noundef %605) #9
-  store i32 1, ptr %606, align 4, !tbaa !52
-  %607 = getelementptr inbounds nuw i8, ptr %606, i64 4
-  store i32 22, ptr %607, align 4, !tbaa !8
-  %608 = getelementptr inbounds nuw i8, ptr %606, i64 8
-  store i64 0, ptr %608, align 8, !tbaa !53
-  %609 = getelementptr inbounds nuw i8, ptr %606, i64 16
-  store i64 %585, ptr %609, align 8, !tbaa !50
-  %610 = getelementptr inbounds nuw i8, ptr %606, i64 24
-  %611 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %612 = load i64, ptr %586, align 8, !tbaa !50
-  %613 = add i64 %612, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %610, ptr nonnull align 8 %611, i64 %613, i1 false)
-  %614 = load i32, ptr %589, align 4, !tbaa !8
-  %615 = and i32 %614, 64
-  %.not21.i765.i = icmp eq i32 %615, 0
-  br i1 %.not21.i765.i, label %616, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i764.i:                    ; preds = %590, %598
+  %610 = and i64 %591, -8
+  %611 = add i64 %610, 32
+  %612 = call noalias ptr @_emalloc(i64 noundef %611) #9
+  store i32 1, ptr %612, align 4, !tbaa !52
+  %613 = getelementptr inbounds nuw i8, ptr %612, i64 4
+  store i32 22, ptr %613, align 4, !tbaa !8
+  %614 = getelementptr inbounds nuw i8, ptr %612, i64 8
+  store i64 0, ptr %614, align 8, !tbaa !53
+  %615 = getelementptr inbounds nuw i8, ptr %612, i64 16
+  store i64 %591, ptr %615, align 8, !tbaa !50
+  %616 = getelementptr inbounds nuw i8, ptr %612, i64 24
+  %617 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %618 = load i64, ptr %592, align 8, !tbaa !50
+  %619 = add i64 %618, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %616, ptr nonnull align 8 %617, i64 %619, i1 false)
+  %620 = load i32, ptr %595, align 4, !tbaa !8
+  %621 = and i32 %620, 64
+  %.not21.i765.i = icmp eq i32 %621, 0
+  br i1 %.not21.i765.i, label %622, label %encode.exit894.thread.sink.split.i
 
-616:                                              ; preds = %zend_string_alloc.exit.i764.i
-  %617 = load i32, ptr %204, align 4, !tbaa !52
-  %618 = icmp ne i32 %617, 0
-  call void @llvm.assume(i1 %618)
-  %619 = add i32 %617, -1
-  store i32 %619, ptr %204, align 4, !tbaa !52
+622:                                              ; preds = %zend_string_alloc.exit.i764.i
+  %623 = load i32, ptr %204, align 4, !tbaa !52
+  %624 = icmp ne i32 %623, 0
+  call void @llvm.assume(i1 %624)
+  %625 = add i32 %623, -1
+  store i32 %625, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-620:                                              ; preds = %547
-  %.not673.i = icmp eq i8 %549, 0
-  br i1 %.not673.i, label %.thread.i, label %621
+626:                                              ; preds = %549
+  %.not673.i = icmp eq i8 %551, 0
+  br i1 %.not673.i, label %.thread.i, label %627
 
-621:                                              ; preds = %620
-  %622 = getelementptr i8, ptr %206, i64 2
-  %623 = load i8, ptr %622, align 1, !tbaa !8
-  %624 = zext i8 %623 to i64
-  %625 = getelementptr inbounds nuw i32, ptr %213, i64 %624
-  %626 = load i32, ptr %625, align 4, !tbaa !60
-  %sext674.i = shl i32 %626, 24
-  %627 = ashr exact i32 %sext674.i, 24
-  %628 = sext i32 %627 to i64
-  %629 = getelementptr inbounds i16, ptr %207, i64 %628
-  %630 = load i16, ptr %629, align 2, !tbaa !56
-  %631 = and i16 %630, 1024
-  %.not675.i = icmp eq i16 %631, 0
-  br i1 %.not675.i, label %encode.exit894.thread.i, label %634
+627:                                              ; preds = %626
+  %628 = getelementptr i8, ptr %206, i64 2
+  %629 = load i8, ptr %628, align 1, !tbaa !8
+  %630 = zext i8 %629 to i64
+  %631 = getelementptr inbounds nuw i32, ptr %213, i64 %630
+  %632 = load i32, ptr %631, align 4, !tbaa !60
+  %sext674.i = shl i32 %632, 24
+  %633 = ashr exact i32 %sext674.i, 24
+  %634 = sext i32 %633 to i64
+  %635 = getelementptr inbounds i16, ptr %207, i64 %634
+  %636 = load i16, ptr %635, align 2, !tbaa !56
+  %637 = and i16 %636, 1024
+  %.not675.i = icmp eq i16 %637, 0
+  br i1 %.not675.i, label %encode.exit894.thread.i, label %640
 
-.thread.i:                                        ; preds = %620
-  %632 = load i16, ptr %207, align 2, !tbaa !56
-  %633 = and i16 %632, 1024
-  %.not675912.i = icmp eq i16 %633, 0
+.thread.i:                                        ; preds = %626
+  %638 = load i16, ptr %207, align 2, !tbaa !56
+  %639 = and i16 %638, 1024
+  %.not675912.i = icmp eq i16 %639, 0
   br i1 %.not675912.i, label %encode.exit894.thread.i, label %.thread913.i
 
-634:                                              ; preds = %621
-  %635 = icmp eq i32 %sext674.i, 1157627904
-  br i1 %635, label %.preheader.i, label %.thread913.i
+640:                                              ; preds = %627
+  %641 = icmp eq i32 %sext674.i, 1157627904
+  br i1 %641, label %.preheader.i, label %.thread913.i
 
-.preheader.i:                                     ; preds = %634, %.preheader.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i ], [ 0, %634 ]
-  %636 = getelementptr inbounds nuw i8, ptr %206, i64 %indvars.iv.i.i
-  %637 = load i8, ptr %636, align 1, !tbaa !8
-  %638 = icmp ne i8 %637, 0
-  %639 = icmp samesign ult i64 %indvars.iv.i.i, 3
-  %640 = select i1 %638, i1 %639, i1 false
+.preheader.i:                                     ; preds = %640, %.preheader.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i ], [ 0, %640 ]
+  %642 = getelementptr inbounds nuw i8, ptr %206, i64 %indvars.iv.i.i
+  %643 = load i8, ptr %642, align 1, !tbaa !8
+  %644 = icmp ne i8 %643, 0
+  %645 = icmp samesign ult i64 %indvars.iv.i.i, 3
+  %646 = select i1 %644, i1 %645, i1 false
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  br i1 %640, label %.preheader.i, label %Lookahead.exit.i
+  br i1 %646, label %.preheader.i, label %Lookahead.exit.i
 
 Lookahead.exit.i:                                 ; preds = %.preheader.i
-  %641 = sext i8 %637 to i64
-  %642 = getelementptr inbounds i32, ptr %213, i64 %641
-  %643 = load i32, ptr %642, align 4, !tbaa !60
-  %644 = icmp eq i32 %643, 68
-  br i1 %644, label %encode.exit894.thread.i, label %.thread913.i
+  %647 = sext i8 %643 to i64
+  %648 = getelementptr inbounds i32, ptr %213, i64 %647
+  %649 = load i32, ptr %648, align 4, !tbaa !60
+  %650 = icmp eq i32 %649, 68
+  br i1 %650, label %encode.exit894.thread.i, label %.thread913.i
 
-.thread913.i:                                     ; preds = %Lookahead.exit.i, %634, %.thread.i
-  %.not676.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not676.i, label %encode.exit894.thread.sink.split.i, label %645
+.thread913.i:                                     ; preds = %Lookahead.exit.i, %640, %.thread.i
+  %.not676.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not676.i, label %encode.exit894.thread.sink.split.i, label %651
 
-645:                                              ; preds = %.thread913.i
-  %646 = add i64 %.10621958.i, 2
-  %647 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %648 = load i64, ptr %647, align 8, !tbaa !50
-  %649 = icmp uge i64 %646, %648
-  call void @llvm.assume(i1 %649)
-  %650 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %651 = load i32, ptr %650, align 4, !tbaa !8
-  %652 = and i32 %651, 64
-  %.not.i768.i = icmp eq i32 %652, 0
-  br i1 %.not.i768.i, label %653, label %zend_string_alloc.exit.i769.i
+651:                                              ; preds = %.thread913.i
+  %652 = add i64 %.10621954.i, 2
+  %653 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %654 = load i64, ptr %653, align 8, !tbaa !50
+  %655 = icmp uge i64 %652, %654
+  call void @llvm.assume(i1 %655)
+  %656 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %657 = load i32, ptr %656, align 4, !tbaa !8
+  %658 = and i32 %657, 64
+  %.not.i768.i = icmp eq i32 %658, 0
+  br i1 %.not.i768.i, label %659, label %zend_string_alloc.exit.i769.i
 
-653:                                              ; preds = %645
-  %654 = load i32, ptr %204, align 4, !tbaa !52
-  %655 = icmp eq i32 %654, 1
-  br i1 %655, label %656, label %zend_string_alloc.exit.i769.i, !prof !10
+659:                                              ; preds = %651
+  %660 = load i32, ptr %204, align 4, !tbaa !52
+  %661 = icmp eq i32 %660, 1
+  br i1 %661, label %662, label %zend_string_alloc.exit.i769.i, !prof !10
 
-656:                                              ; preds = %653
-  %657 = and i64 %646, -8
-  %658 = add i64 %657, 32
-  %659 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %658) #11
-  %660 = getelementptr inbounds nuw i8, ptr %659, i64 16
-  store i64 %646, ptr %660, align 8, !tbaa !50
-  %661 = getelementptr inbounds nuw i8, ptr %659, i64 8
-  store i64 0, ptr %661, align 8, !tbaa !53
-  %662 = getelementptr inbounds nuw i8, ptr %659, i64 4
-  %663 = load i32, ptr %662, align 4, !tbaa !8
-  %664 = and i32 %663, -513
-  store i32 %664, ptr %662, align 4, !tbaa !8
+662:                                              ; preds = %659
+  %663 = and i64 %652, -8
+  %664 = add i64 %663, 32
+  %665 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %664) #11
+  %666 = getelementptr inbounds nuw i8, ptr %665, i64 16
+  store i64 %652, ptr %666, align 8, !tbaa !50
+  %667 = getelementptr inbounds nuw i8, ptr %665, i64 8
+  store i64 0, ptr %667, align 8, !tbaa !53
+  %668 = getelementptr inbounds nuw i8, ptr %665, i64 4
+  %669 = load i32, ptr %668, align 4, !tbaa !8
+  %670 = and i32 %669, -513
+  store i32 %670, ptr %668, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i769.i:                    ; preds = %645, %653
-  %665 = and i64 %646, -8
-  %666 = add i64 %665, 32
-  %667 = call noalias ptr @_emalloc(i64 noundef %666) #9
-  store i32 1, ptr %667, align 4, !tbaa !52
-  %668 = getelementptr inbounds nuw i8, ptr %667, i64 4
-  store i32 22, ptr %668, align 4, !tbaa !8
-  %669 = getelementptr inbounds nuw i8, ptr %667, i64 8
-  store i64 0, ptr %669, align 8, !tbaa !53
-  %670 = getelementptr inbounds nuw i8, ptr %667, i64 16
-  store i64 %646, ptr %670, align 8, !tbaa !50
-  %671 = getelementptr inbounds nuw i8, ptr %667, i64 24
-  %672 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %673 = load i64, ptr %647, align 8, !tbaa !50
-  %674 = add i64 %673, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %671, ptr nonnull align 8 %672, i64 %674, i1 false)
-  %675 = load i32, ptr %650, align 4, !tbaa !8
-  %676 = and i32 %675, 64
-  %.not21.i770.i = icmp eq i32 %676, 0
-  br i1 %.not21.i770.i, label %677, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i769.i:                    ; preds = %651, %659
+  %671 = and i64 %652, -8
+  %672 = add i64 %671, 32
+  %673 = call noalias ptr @_emalloc(i64 noundef %672) #9
+  store i32 1, ptr %673, align 4, !tbaa !52
+  %674 = getelementptr inbounds nuw i8, ptr %673, i64 4
+  store i32 22, ptr %674, align 4, !tbaa !8
+  %675 = getelementptr inbounds nuw i8, ptr %673, i64 8
+  store i64 0, ptr %675, align 8, !tbaa !53
+  %676 = getelementptr inbounds nuw i8, ptr %673, i64 16
+  store i64 %652, ptr %676, align 8, !tbaa !50
+  %677 = getelementptr inbounds nuw i8, ptr %673, i64 24
+  %678 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %679 = load i64, ptr %653, align 8, !tbaa !50
+  %680 = add i64 %679, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %677, ptr nonnull align 8 %678, i64 %680, i1 false)
+  %681 = load i32, ptr %656, align 4, !tbaa !8
+  %682 = and i32 %681, 64
+  %.not21.i770.i = icmp eq i32 %682, 0
+  br i1 %.not21.i770.i, label %683, label %encode.exit894.thread.sink.split.i
 
-677:                                              ; preds = %zend_string_alloc.exit.i769.i
-  %678 = load i32, ptr %204, align 4, !tbaa !52
-  %679 = icmp ne i32 %678, 0
-  call void @llvm.assume(i1 %679)
-  %680 = add i32 %678, -1
-  store i32 %680, ptr %204, align 4, !tbaa !52
+683:                                              ; preds = %zend_string_alloc.exit.i769.i
+  %684 = load i32, ptr %204, align 4, !tbaa !52
+  %685 = icmp ne i32 %684, 0
+  call void @llvm.assume(i1 %685)
+  %686 = add i32 %684, -1
+  store i32 %686, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-681:                                              ; preds = %547
-  %682 = sext i8 %553 to i64
-  %683 = getelementptr inbounds i16, ptr %207, i64 %682
-  %684 = load i16, ptr %683, align 2, !tbaa !56
-  %685 = and i16 %684, 1024
-  %.not.i889.i = icmp eq i16 %685, 0
+687:                                              ; preds = %549
+  %688 = sext i8 %555 to i64
+  %689 = getelementptr inbounds i16, ptr %207, i64 %688
+  %690 = load i16, ptr %689, align 2, !tbaa !56
+  %691 = and i16 %690, 1024
+  %.not.i889.i = icmp eq i16 %691, 0
   br i1 %.not.i889.i, label %encode.exit891.thread.i, label %encode.exit891.i
 
-encode.exit891.i:                                 ; preds = %681
-  %.mask933.i = and i32 %552, 127
-  %686 = icmp samesign ugt i8 %553, 64
-  call void @llvm.assume(i1 %686)
-  %687 = icmp samesign ult i8 %553, 91
-  call void @llvm.assume(i1 %687)
-  %688 = add nsw i32 %.mask933.i, -65
-  %689 = zext nneg i32 %688 to i64
-  %690 = shl nuw i64 1, %689
-  %691 = and i64 %690, 16777488
-  %692 = icmp ne i64 %691, 0
-  %693 = icmp ne i8 %226, 71
-  %or.cond5.i = and i1 %693, %692
-  br i1 %or.cond5.i, label %694, label %encode.exit891.thread.i
+encode.exit891.i:                                 ; preds = %687
+  %.mask933.i = and i32 %554, 127
+  %692 = icmp samesign ugt i8 %555, 64
+  call void @llvm.assume(i1 %692)
+  %693 = icmp samesign ult i8 %555, 91
+  call void @llvm.assume(i1 %693)
+  %694 = add nsw i32 %.mask933.i, -65
+  %695 = zext nneg i32 %694 to i64
+  %696 = shl nuw i64 1, %695
+  %697 = and i64 %696, 16777488
+  %698 = icmp ne i64 %697, 0
+  %699 = icmp ne i8 %228, 71
+  %or.cond5.i = and i1 %699, %698
+  br i1 %or.cond5.i, label %700, label %encode.exit891.thread.i
 
-694:                                              ; preds = %encode.exit891.i
-  %.not672.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not672.i, label %encode.exit894.thread.sink.split.i, label %695
+700:                                              ; preds = %encode.exit891.i
+  %.not672.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not672.i, label %encode.exit894.thread.sink.split.i, label %701
 
-695:                                              ; preds = %694
-  %696 = add i64 %.10621958.i, 2
-  %697 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %698 = load i64, ptr %697, align 8, !tbaa !50
-  %699 = icmp uge i64 %696, %698
-  call void @llvm.assume(i1 %699)
-  %700 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %701 = load i32, ptr %700, align 4, !tbaa !8
-  %702 = and i32 %701, 64
-  %.not.i773.i = icmp eq i32 %702, 0
-  br i1 %.not.i773.i, label %703, label %zend_string_alloc.exit.i774.i
+701:                                              ; preds = %700
+  %702 = add i64 %.10621954.i, 2
+  %703 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %704 = load i64, ptr %703, align 8, !tbaa !50
+  %705 = icmp uge i64 %702, %704
+  call void @llvm.assume(i1 %705)
+  %706 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %707 = load i32, ptr %706, align 4, !tbaa !8
+  %708 = and i32 %707, 64
+  %.not.i773.i = icmp eq i32 %708, 0
+  br i1 %.not.i773.i, label %709, label %zend_string_alloc.exit.i774.i
 
-703:                                              ; preds = %695
-  %704 = load i32, ptr %204, align 4, !tbaa !52
-  %705 = icmp eq i32 %704, 1
-  br i1 %705, label %706, label %zend_string_alloc.exit.i774.i, !prof !10
+709:                                              ; preds = %701
+  %710 = load i32, ptr %204, align 4, !tbaa !52
+  %711 = icmp eq i32 %710, 1
+  br i1 %711, label %712, label %zend_string_alloc.exit.i774.i, !prof !10
 
-706:                                              ; preds = %703
-  %707 = and i64 %696, -8
-  %708 = add i64 %707, 32
-  %709 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %708) #11
-  %710 = getelementptr inbounds nuw i8, ptr %709, i64 16
-  store i64 %696, ptr %710, align 8, !tbaa !50
-  %711 = getelementptr inbounds nuw i8, ptr %709, i64 8
-  store i64 0, ptr %711, align 8, !tbaa !53
-  %712 = getelementptr inbounds nuw i8, ptr %709, i64 4
-  %713 = load i32, ptr %712, align 4, !tbaa !8
-  %714 = and i32 %713, -513
-  store i32 %714, ptr %712, align 4, !tbaa !8
+712:                                              ; preds = %709
+  %713 = and i64 %702, -8
+  %714 = add i64 %713, 32
+  %715 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %714) #11
+  %716 = getelementptr inbounds nuw i8, ptr %715, i64 16
+  store i64 %702, ptr %716, align 8, !tbaa !50
+  %717 = getelementptr inbounds nuw i8, ptr %715, i64 8
+  store i64 0, ptr %717, align 8, !tbaa !53
+  %718 = getelementptr inbounds nuw i8, ptr %715, i64 4
+  %719 = load i32, ptr %718, align 4, !tbaa !8
+  %720 = and i32 %719, -513
+  store i32 %720, ptr %718, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i774.i:                    ; preds = %695, %703
-  %715 = and i64 %696, -8
-  %716 = add i64 %715, 32
-  %717 = call noalias ptr @_emalloc(i64 noundef %716) #9
-  store i32 1, ptr %717, align 4, !tbaa !52
-  %718 = getelementptr inbounds nuw i8, ptr %717, i64 4
-  store i32 22, ptr %718, align 4, !tbaa !8
-  %719 = getelementptr inbounds nuw i8, ptr %717, i64 8
-  store i64 0, ptr %719, align 8, !tbaa !53
-  %720 = getelementptr inbounds nuw i8, ptr %717, i64 16
-  store i64 %696, ptr %720, align 8, !tbaa !50
-  %721 = getelementptr inbounds nuw i8, ptr %717, i64 24
-  %722 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %723 = load i64, ptr %697, align 8, !tbaa !50
-  %724 = add i64 %723, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %721, ptr nonnull align 8 %722, i64 %724, i1 false)
-  %725 = load i32, ptr %700, align 4, !tbaa !8
-  %726 = and i32 %725, 64
-  %.not21.i775.i = icmp eq i32 %726, 0
-  br i1 %.not21.i775.i, label %727, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i774.i:                    ; preds = %701, %709
+  %721 = and i64 %702, -8
+  %722 = add i64 %721, 32
+  %723 = call noalias ptr @_emalloc(i64 noundef %722) #9
+  store i32 1, ptr %723, align 4, !tbaa !52
+  %724 = getelementptr inbounds nuw i8, ptr %723, i64 4
+  store i32 22, ptr %724, align 4, !tbaa !8
+  %725 = getelementptr inbounds nuw i8, ptr %723, i64 8
+  store i64 0, ptr %725, align 8, !tbaa !53
+  %726 = getelementptr inbounds nuw i8, ptr %723, i64 16
+  store i64 %702, ptr %726, align 8, !tbaa !50
+  %727 = getelementptr inbounds nuw i8, ptr %723, i64 24
+  %728 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %729 = load i64, ptr %703, align 8, !tbaa !50
+  %730 = add i64 %729, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %727, ptr nonnull align 8 %728, i64 %730, i1 false)
+  %731 = load i32, ptr %706, align 4, !tbaa !8
+  %732 = and i32 %731, 64
+  %.not21.i775.i = icmp eq i32 %732, 0
+  br i1 %.not21.i775.i, label %733, label %encode.exit894.thread.sink.split.i
 
-727:                                              ; preds = %zend_string_alloc.exit.i774.i
-  %728 = load i32, ptr %204, align 4, !tbaa !52
-  %729 = icmp ne i32 %728, 0
-  call void @llvm.assume(i1 %729)
-  %730 = add i32 %728, -1
-  store i32 %730, ptr %204, align 4, !tbaa !52
-  br label %encode.exit894.thread.sink.split.i
-
-encode.exit891.thread.i:                          ; preds = %encode.exit891.i, %681
-  %.not671.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not671.i, label %encode.exit894.thread.sink.split.i, label %731
-
-731:                                              ; preds = %encode.exit891.thread.i
-  %732 = add i64 %.10621958.i, 2
-  %733 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %734 = load i64, ptr %733, align 8, !tbaa !50
-  %735 = icmp uge i64 %732, %734
+733:                                              ; preds = %zend_string_alloc.exit.i774.i
+  %734 = load i32, ptr %204, align 4, !tbaa !52
+  %735 = icmp ne i32 %734, 0
   call void @llvm.assume(i1 %735)
-  %736 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %737 = load i32, ptr %736, align 4, !tbaa !8
-  %738 = and i32 %737, 64
-  %.not.i778.i = icmp eq i32 %738, 0
-  br i1 %.not.i778.i, label %739, label %zend_string_alloc.exit.i779.i
-
-739:                                              ; preds = %731
-  %740 = load i32, ptr %204, align 4, !tbaa !52
-  %741 = icmp eq i32 %740, 1
-  br i1 %741, label %742, label %zend_string_alloc.exit.i779.i, !prof !10
-
-742:                                              ; preds = %739
-  %743 = and i64 %732, -8
-  %744 = add i64 %743, 32
-  %745 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %744) #11
-  %746 = getelementptr inbounds nuw i8, ptr %745, i64 16
-  store i64 %732, ptr %746, align 8, !tbaa !50
-  %747 = getelementptr inbounds nuw i8, ptr %745, i64 8
-  store i64 0, ptr %747, align 8, !tbaa !53
-  %748 = getelementptr inbounds nuw i8, ptr %745, i64 4
-  %749 = load i32, ptr %748, align 4, !tbaa !8
-  %750 = and i32 %749, -513
-  store i32 %750, ptr %748, align 4, !tbaa !8
+  %736 = add i32 %734, -1
+  store i32 %736, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i779.i:                    ; preds = %731, %739
-  %751 = and i64 %732, -8
-  %752 = add i64 %751, 32
-  %753 = call noalias ptr @_emalloc(i64 noundef %752) #9
-  store i32 1, ptr %753, align 4, !tbaa !52
-  %754 = getelementptr inbounds nuw i8, ptr %753, i64 4
-  store i32 22, ptr %754, align 4, !tbaa !8
-  %755 = getelementptr inbounds nuw i8, ptr %753, i64 8
-  store i64 0, ptr %755, align 8, !tbaa !53
-  %756 = getelementptr inbounds nuw i8, ptr %753, i64 16
-  store i64 %732, ptr %756, align 8, !tbaa !50
-  %757 = getelementptr inbounds nuw i8, ptr %753, i64 24
-  %758 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %759 = load i64, ptr %733, align 8, !tbaa !50
-  %760 = add i64 %759, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %757, ptr nonnull align 8 %758, i64 %760, i1 false)
-  %761 = load i32, ptr %736, align 4, !tbaa !8
-  %762 = and i32 %761, 64
-  %.not21.i780.i = icmp eq i32 %762, 0
-  br i1 %.not21.i780.i, label %763, label %encode.exit894.thread.sink.split.i
+encode.exit891.thread.i:                          ; preds = %encode.exit891.i, %687
+  %.not671.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not671.i, label %encode.exit894.thread.sink.split.i, label %737
 
-763:                                              ; preds = %zend_string_alloc.exit.i779.i
-  %764 = load i32, ptr %204, align 4, !tbaa !52
-  %765 = icmp ne i32 %764, 0
-  call void @llvm.assume(i1 %765)
-  %766 = add i32 %764, -1
-  store i32 %766, ptr %204, align 4, !tbaa !52
+737:                                              ; preds = %encode.exit891.thread.i
+  %738 = add i64 %.10621954.i, 2
+  %739 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %740 = load i64, ptr %739, align 8, !tbaa !50
+  %741 = icmp uge i64 %738, %740
+  call void @llvm.assume(i1 %741)
+  %742 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %743 = load i32, ptr %742, align 4, !tbaa !8
+  %744 = and i32 %743, 64
+  %.not.i778.i = icmp eq i32 %744, 0
+  br i1 %.not.i778.i, label %745, label %zend_string_alloc.exit.i779.i
+
+745:                                              ; preds = %737
+  %746 = load i32, ptr %204, align 4, !tbaa !52
+  %747 = icmp eq i32 %746, 1
+  br i1 %747, label %748, label %zend_string_alloc.exit.i779.i, !prof !10
+
+748:                                              ; preds = %745
+  %749 = and i64 %738, -8
+  %750 = add i64 %749, 32
+  %751 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %750) #11
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 16
+  store i64 %738, ptr %752, align 8, !tbaa !50
+  %753 = getelementptr inbounds nuw i8, ptr %751, i64 8
+  store i64 0, ptr %753, align 8, !tbaa !53
+  %754 = getelementptr inbounds nuw i8, ptr %751, i64 4
+  %755 = load i32, ptr %754, align 4, !tbaa !8
+  %756 = and i32 %755, -513
+  store i32 %756, ptr %754, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-767:                                              ; preds = %231
-  %768 = getelementptr i8, ptr %206, i64 1
-  %769 = load i8, ptr %768, align 1, !tbaa !8
-  %770 = zext i8 %769 to i64
-  %771 = getelementptr inbounds nuw i32, ptr %213, i64 %770
-  %772 = load i32, ptr %771, align 4, !tbaa !60
-  %773 = trunc i32 %772 to i8
-  %774 = sext i8 %773 to i64
-  %775 = getelementptr inbounds i16, ptr %207, i64 %774
-  %776 = load i16, ptr %775, align 2, !tbaa !56
-  %777 = and i16 %776, 1024
-  %.not.i892.i = icmp eq i16 %777, 0
+zend_string_alloc.exit.i779.i:                    ; preds = %737, %745
+  %757 = and i64 %738, -8
+  %758 = add i64 %757, 32
+  %759 = call noalias ptr @_emalloc(i64 noundef %758) #9
+  store i32 1, ptr %759, align 4, !tbaa !52
+  %760 = getelementptr inbounds nuw i8, ptr %759, i64 4
+  store i32 22, ptr %760, align 4, !tbaa !8
+  %761 = getelementptr inbounds nuw i8, ptr %759, i64 8
+  store i64 0, ptr %761, align 8, !tbaa !53
+  %762 = getelementptr inbounds nuw i8, ptr %759, i64 16
+  store i64 %738, ptr %762, align 8, !tbaa !50
+  %763 = getelementptr inbounds nuw i8, ptr %759, i64 24
+  %764 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %765 = load i64, ptr %739, align 8, !tbaa !50
+  %766 = add i64 %765, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %763, ptr nonnull align 8 %764, i64 %766, i1 false)
+  %767 = load i32, ptr %742, align 4, !tbaa !8
+  %768 = and i32 %767, 64
+  %.not21.i780.i = icmp eq i32 %768, 0
+  br i1 %.not21.i780.i, label %769, label %encode.exit894.thread.sink.split.i
+
+769:                                              ; preds = %zend_string_alloc.exit.i779.i
+  %770 = load i32, ptr %204, align 4, !tbaa !52
+  %771 = icmp ne i32 %770, 0
+  call void @llvm.assume(i1 %771)
+  %772 = add i32 %770, -1
+  store i32 %772, ptr %204, align 4, !tbaa !52
+  br label %encode.exit894.thread.sink.split.i
+
+773:                                              ; preds = %233
+  %774 = getelementptr i8, ptr %206, i64 1
+  %775 = load i8, ptr %774, align 1, !tbaa !8
+  %776 = zext i8 %775 to i64
+  %777 = getelementptr inbounds nuw i32, ptr %213, i64 %776
+  %778 = load i32, ptr %777, align 4, !tbaa !60
+  %779 = trunc i32 %778 to i8
+  %780 = sext i8 %779 to i64
+  %781 = getelementptr inbounds i16, ptr %207, i64 %780
+  %782 = load i16, ptr %781, align 2, !tbaa !56
+  %783 = and i16 %782, 1024
+  %.not.i892.i = icmp eq i16 %783, 0
   br i1 %.not.i892.i, label %encode.exit894.thread.i, label %encode.exit894.i
 
-encode.exit894.i:                                 ; preds = %767
-  %.mask931.i = and i32 %772, 127
-  %778 = icmp samesign ugt i8 %773, 64
-  call void @llvm.assume(i1 %778)
-  %779 = icmp samesign ult i8 %773, 91
-  call void @llvm.assume(i1 %779)
-  %780 = add nsw i32 %.mask931.i, -65
-  %781 = zext nneg i32 %780 to i64
-  %782 = shl nuw i64 1, %781
-  %783 = and i64 %782, 66043630
-  %.not667.not.i = icmp eq i64 %783, 0
-  br i1 %.not667.not.i, label %784, label %encode.exit894.thread.i
+encode.exit894.i:                                 ; preds = %773
+  %.mask931.i = and i32 %778, 127
+  %784 = icmp samesign ugt i8 %779, 64
+  call void @llvm.assume(i1 %784)
+  %785 = icmp samesign ult i8 %779, 91
+  call void @llvm.assume(i1 %785)
+  %786 = add nsw i32 %.mask931.i, -65
+  %787 = zext nneg i32 %786 to i64
+  %788 = shl nuw i64 1, %787
+  %789 = and i64 %788, 66043630
+  %.not667.not.i = icmp eq i64 %789, 0
+  br i1 %.not667.not.i, label %790, label %encode.exit894.thread.i
 
-784:                                              ; preds = %encode.exit894.i
-  %785 = sext i8 %226 to i64
-  %786 = getelementptr inbounds i16, ptr %207, i64 %785
-  %787 = load i16, ptr %786, align 2, !tbaa !56
-  %788 = and i16 %787, 1024
-  %.not.i895.i = icmp eq i16 %788, 0
+790:                                              ; preds = %encode.exit894.i
+  %791 = sext i8 %228 to i64
+  %792 = getelementptr inbounds i16, ptr %207, i64 %791
+  %793 = load i16, ptr %792, align 2, !tbaa !56
+  %794 = and i16 %793, 1024
+  %.not.i895.i = icmp eq i16 %794, 0
   br i1 %.not.i895.i, label %encode.exit897.thread.i, label %encode.exit897.i
 
-encode.exit897.i:                                 ; preds = %784
-  %789 = zext nneg i8 %226 to i64
-  %790 = icmp samesign ugt i8 %226, 64
-  call void @llvm.assume(i1 %790)
-  %791 = icmp samesign ult i8 %226, 91
-  call void @llvm.assume(i1 %791)
-  %792 = add nuw nsw i64 %789, 4294967231
-  %793 = and i64 %792, 4294967295
-  %794 = shl nuw nsw i64 1, %793
-  %795 = and i64 %794, 66289595
-  %.not668.not.i = icmp eq i64 %795, 0
+encode.exit897.i:                                 ; preds = %790
+  %795 = zext nneg i8 %228 to i64
+  %796 = icmp samesign ugt i8 %228, 64
+  call void @llvm.assume(i1 %796)
+  %797 = icmp samesign ult i8 %228, 91
+  call void @llvm.assume(i1 %797)
+  %798 = add nuw nsw i64 %795, 4294967231
+  %799 = and i64 %798, 4294967295
+  %800 = shl nuw nsw i64 1, %799
+  %801 = and i64 %800, 66289595
+  %.not668.not.i = icmp eq i64 %801, 0
   br i1 %.not668.not.i, label %encode.exit894.thread.i, label %encode.exit897.thread.i
 
-encode.exit897.thread.i:                          ; preds = %encode.exit897.i, %784
-  %.not669.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not669.i, label %encode.exit894.thread.sink.split.i, label %796
+encode.exit897.thread.i:                          ; preds = %encode.exit897.i, %790
+  %.not669.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not669.i, label %encode.exit894.thread.sink.split.i, label %802
 
-796:                                              ; preds = %encode.exit897.thread.i
-  %797 = add i64 %.10621958.i, 2
-  %798 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %799 = load i64, ptr %798, align 8, !tbaa !50
-  %800 = icmp uge i64 %797, %799
-  call void @llvm.assume(i1 %800)
-  %801 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %802 = load i32, ptr %801, align 4, !tbaa !8
-  %803 = and i32 %802, 64
-  %.not.i783.i = icmp eq i32 %803, 0
-  br i1 %.not.i783.i, label %804, label %zend_string_alloc.exit.i784.i
+802:                                              ; preds = %encode.exit897.thread.i
+  %803 = add i64 %.10621954.i, 2
+  %804 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %805 = load i64, ptr %804, align 8, !tbaa !50
+  %806 = icmp uge i64 %803, %805
+  call void @llvm.assume(i1 %806)
+  %807 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %808 = load i32, ptr %807, align 4, !tbaa !8
+  %809 = and i32 %808, 64
+  %.not.i783.i = icmp eq i32 %809, 0
+  br i1 %.not.i783.i, label %810, label %zend_string_alloc.exit.i784.i
 
-804:                                              ; preds = %796
-  %805 = load i32, ptr %204, align 4, !tbaa !52
-  %806 = icmp eq i32 %805, 1
-  br i1 %806, label %807, label %zend_string_alloc.exit.i784.i, !prof !10
+810:                                              ; preds = %802
+  %811 = load i32, ptr %204, align 4, !tbaa !52
+  %812 = icmp eq i32 %811, 1
+  br i1 %812, label %813, label %zend_string_alloc.exit.i784.i, !prof !10
 
-807:                                              ; preds = %804
-  %808 = and i64 %797, -8
-  %809 = add i64 %808, 32
-  %810 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %809) #11
-  %811 = getelementptr inbounds nuw i8, ptr %810, i64 16
-  store i64 %797, ptr %811, align 8, !tbaa !50
-  %812 = getelementptr inbounds nuw i8, ptr %810, i64 8
-  store i64 0, ptr %812, align 8, !tbaa !53
-  %813 = getelementptr inbounds nuw i8, ptr %810, i64 4
-  %814 = load i32, ptr %813, align 4, !tbaa !8
-  %815 = and i32 %814, -513
-  store i32 %815, ptr %813, align 4, !tbaa !8
+813:                                              ; preds = %810
+  %814 = and i64 %803, -8
+  %815 = add i64 %814, 32
+  %816 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %815) #11
+  %817 = getelementptr inbounds nuw i8, ptr %816, i64 16
+  store i64 %803, ptr %817, align 8, !tbaa !50
+  %818 = getelementptr inbounds nuw i8, ptr %816, i64 8
+  store i64 0, ptr %818, align 8, !tbaa !53
+  %819 = getelementptr inbounds nuw i8, ptr %816, i64 4
+  %820 = load i32, ptr %819, align 4, !tbaa !8
+  %821 = and i32 %820, -513
+  store i32 %821, ptr %819, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i784.i:                    ; preds = %796, %804
-  %816 = and i64 %797, -8
-  %817 = add i64 %816, 32
-  %818 = call noalias ptr @_emalloc(i64 noundef %817) #9
-  store i32 1, ptr %818, align 4, !tbaa !52
-  %819 = getelementptr inbounds nuw i8, ptr %818, i64 4
-  store i32 22, ptr %819, align 4, !tbaa !8
-  %820 = getelementptr inbounds nuw i8, ptr %818, i64 8
-  store i64 0, ptr %820, align 8, !tbaa !53
-  %821 = getelementptr inbounds nuw i8, ptr %818, i64 16
-  store i64 %797, ptr %821, align 8, !tbaa !50
-  %822 = getelementptr inbounds nuw i8, ptr %818, i64 24
-  %823 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %824 = load i64, ptr %798, align 8, !tbaa !50
-  %825 = add i64 %824, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %822, ptr nonnull align 8 %823, i64 %825, i1 false)
-  %826 = load i32, ptr %801, align 4, !tbaa !8
-  %827 = and i32 %826, 64
-  %.not21.i785.i = icmp eq i32 %827, 0
-  br i1 %.not21.i785.i, label %828, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i784.i:                    ; preds = %802, %810
+  %822 = and i64 %803, -8
+  %823 = add i64 %822, 32
+  %824 = call noalias ptr @_emalloc(i64 noundef %823) #9
+  store i32 1, ptr %824, align 4, !tbaa !52
+  %825 = getelementptr inbounds nuw i8, ptr %824, i64 4
+  store i32 22, ptr %825, align 4, !tbaa !8
+  %826 = getelementptr inbounds nuw i8, ptr %824, i64 8
+  store i64 0, ptr %826, align 8, !tbaa !53
+  %827 = getelementptr inbounds nuw i8, ptr %824, i64 16
+  store i64 %803, ptr %827, align 8, !tbaa !50
+  %828 = getelementptr inbounds nuw i8, ptr %824, i64 24
+  %829 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %830 = load i64, ptr %804, align 8, !tbaa !50
+  %831 = add i64 %830, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %828, ptr nonnull align 8 %829, i64 %831, i1 false)
+  %832 = load i32, ptr %807, align 4, !tbaa !8
+  %833 = and i32 %832, 64
+  %.not21.i785.i = icmp eq i32 %833, 0
+  br i1 %.not21.i785.i, label %834, label %encode.exit894.thread.sink.split.i
 
-828:                                              ; preds = %zend_string_alloc.exit.i784.i
-  %829 = load i32, ptr %204, align 4, !tbaa !52
-  %830 = icmp ne i32 %829, 0
-  call void @llvm.assume(i1 %830)
-  %831 = add i32 %829, -1
-  store i32 %831, ptr %204, align 4, !tbaa !52
+834:                                              ; preds = %zend_string_alloc.exit.i784.i
+  %835 = load i32, ptr %204, align 4, !tbaa !52
+  %836 = icmp ne i32 %835, 0
+  call void @llvm.assume(i1 %836)
+  %837 = add i32 %835, -1
+  store i32 %837, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-832:                                              ; preds = %231
-  %.not665.i = icmp eq i8 %226, 67
-  br i1 %.not665.i, label %encode.exit894.thread.i, label %833
+838:                                              ; preds = %233
+  %.not665.i = icmp eq i8 %228, 67
+  br i1 %.not665.i, label %encode.exit894.thread.i, label %839
 
-833:                                              ; preds = %832
-  %.not666.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not666.i, label %encode.exit894.thread.sink.split.i, label %834
+839:                                              ; preds = %838
+  %.not666.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not666.i, label %encode.exit894.thread.sink.split.i, label %840
 
-834:                                              ; preds = %833
-  %835 = add i64 %.10621958.i, 2
-  %836 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %837 = load i64, ptr %836, align 8, !tbaa !50
-  %838 = icmp uge i64 %835, %837
-  call void @llvm.assume(i1 %838)
-  %839 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %840 = load i32, ptr %839, align 4, !tbaa !8
-  %841 = and i32 %840, 64
-  %.not.i788.i = icmp eq i32 %841, 0
-  br i1 %.not.i788.i, label %842, label %zend_string_alloc.exit.i789.i
+840:                                              ; preds = %839
+  %841 = add i64 %.10621954.i, 2
+  %842 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %843 = load i64, ptr %842, align 8, !tbaa !50
+  %844 = icmp uge i64 %841, %843
+  call void @llvm.assume(i1 %844)
+  %845 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %846 = load i32, ptr %845, align 4, !tbaa !8
+  %847 = and i32 %846, 64
+  %.not.i788.i = icmp eq i32 %847, 0
+  br i1 %.not.i788.i, label %848, label %zend_string_alloc.exit.i789.i
 
-842:                                              ; preds = %834
-  %843 = load i32, ptr %204, align 4, !tbaa !52
-  %844 = icmp eq i32 %843, 1
-  br i1 %844, label %845, label %zend_string_alloc.exit.i789.i, !prof !10
+848:                                              ; preds = %840
+  %849 = load i32, ptr %204, align 4, !tbaa !52
+  %850 = icmp eq i32 %849, 1
+  br i1 %850, label %851, label %zend_string_alloc.exit.i789.i, !prof !10
 
-845:                                              ; preds = %842
-  %846 = and i64 %835, -8
-  %847 = add i64 %846, 32
-  %848 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %847) #11
-  %849 = getelementptr inbounds nuw i8, ptr %848, i64 16
-  store i64 %835, ptr %849, align 8, !tbaa !50
-  %850 = getelementptr inbounds nuw i8, ptr %848, i64 8
-  store i64 0, ptr %850, align 8, !tbaa !53
-  %851 = getelementptr inbounds nuw i8, ptr %848, i64 4
-  %852 = load i32, ptr %851, align 4, !tbaa !8
-  %853 = and i32 %852, -513
-  store i32 %853, ptr %851, align 4, !tbaa !8
+851:                                              ; preds = %848
+  %852 = and i64 %841, -8
+  %853 = add i64 %852, 32
+  %854 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %853) #11
+  %855 = getelementptr inbounds nuw i8, ptr %854, i64 16
+  store i64 %841, ptr %855, align 8, !tbaa !50
+  %856 = getelementptr inbounds nuw i8, ptr %854, i64 8
+  store i64 0, ptr %856, align 8, !tbaa !53
+  %857 = getelementptr inbounds nuw i8, ptr %854, i64 4
+  %858 = load i32, ptr %857, align 4, !tbaa !8
+  %859 = and i32 %858, -513
+  store i32 %859, ptr %857, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i789.i:                    ; preds = %834, %842
-  %854 = and i64 %835, -8
-  %855 = add i64 %854, 32
-  %856 = call noalias ptr @_emalloc(i64 noundef %855) #9
-  store i32 1, ptr %856, align 4, !tbaa !52
-  %857 = getelementptr inbounds nuw i8, ptr %856, i64 4
-  store i32 22, ptr %857, align 4, !tbaa !8
-  %858 = getelementptr inbounds nuw i8, ptr %856, i64 8
-  store i64 0, ptr %858, align 8, !tbaa !53
-  %859 = getelementptr inbounds nuw i8, ptr %856, i64 16
-  store i64 %835, ptr %859, align 8, !tbaa !50
-  %860 = getelementptr inbounds nuw i8, ptr %856, i64 24
-  %861 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %862 = load i64, ptr %836, align 8, !tbaa !50
-  %863 = add i64 %862, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %860, ptr nonnull align 8 %861, i64 %863, i1 false)
-  %864 = load i32, ptr %839, align 4, !tbaa !8
-  %865 = and i32 %864, 64
-  %.not21.i790.i = icmp eq i32 %865, 0
-  br i1 %.not21.i790.i, label %866, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i789.i:                    ; preds = %840, %848
+  %860 = and i64 %841, -8
+  %861 = add i64 %860, 32
+  %862 = call noalias ptr @_emalloc(i64 noundef %861) #9
+  store i32 1, ptr %862, align 4, !tbaa !52
+  %863 = getelementptr inbounds nuw i8, ptr %862, i64 4
+  store i32 22, ptr %863, align 4, !tbaa !8
+  %864 = getelementptr inbounds nuw i8, ptr %862, i64 8
+  store i64 0, ptr %864, align 8, !tbaa !53
+  %865 = getelementptr inbounds nuw i8, ptr %862, i64 16
+  store i64 %841, ptr %865, align 8, !tbaa !50
+  %866 = getelementptr inbounds nuw i8, ptr %862, i64 24
+  %867 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %868 = load i64, ptr %842, align 8, !tbaa !50
+  %869 = add i64 %868, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %866, ptr nonnull align 8 %867, i64 %869, i1 false)
+  %870 = load i32, ptr %845, align 4, !tbaa !8
+  %871 = and i32 %870, 64
+  %.not21.i790.i = icmp eq i32 %871, 0
+  br i1 %.not21.i790.i, label %872, label %encode.exit894.thread.sink.split.i
 
-866:                                              ; preds = %zend_string_alloc.exit.i789.i
-  %867 = load i32, ptr %204, align 4, !tbaa !52
-  %868 = icmp ne i32 %867, 0
-  call void @llvm.assume(i1 %868)
-  %869 = add i32 %867, -1
-  store i32 %869, ptr %204, align 4, !tbaa !52
+872:                                              ; preds = %zend_string_alloc.exit.i789.i
+  %873 = load i32, ptr %204, align 4, !tbaa !52
+  %874 = icmp ne i32 %873, 0
+  call void @llvm.assume(i1 %874)
+  %875 = add i32 %873, -1
+  store i32 %875, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-870:                                              ; preds = %231
-  %871 = getelementptr i8, ptr %206, i64 1
-  %872 = load i8, ptr %871, align 1, !tbaa !8
-  %873 = zext i8 %872 to i64
-  %874 = getelementptr inbounds nuw i32, ptr %213, i64 %873
-  %875 = load i32, ptr %874, align 4, !tbaa !60
-  %876 = icmp eq i32 %875, 72
-  %.not664.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %876, label %877, label %914
+876:                                              ; preds = %233
+  %877 = getelementptr i8, ptr %206, i64 1
+  %878 = load i8, ptr %877, align 1, !tbaa !8
+  %879 = zext i8 %878 to i64
+  %880 = getelementptr inbounds nuw i32, ptr %213, i64 %879
+  %881 = load i32, ptr %880, align 4, !tbaa !60
+  %882 = icmp eq i32 %881, 72
+  %.not664.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %882, label %883, label %920
 
-877:                                              ; preds = %870
-  br i1 %.not664.i, label %encode.exit894.thread.sink.split.i, label %878
+883:                                              ; preds = %876
+  br i1 %.not664.i, label %encode.exit894.thread.sink.split.i, label %884
 
-878:                                              ; preds = %877
-  %879 = add i64 %.10621958.i, 2
-  %880 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %881 = load i64, ptr %880, align 8, !tbaa !50
-  %882 = icmp uge i64 %879, %881
-  call void @llvm.assume(i1 %882)
-  %883 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %884 = load i32, ptr %883, align 4, !tbaa !8
-  %885 = and i32 %884, 64
-  %.not.i793.i = icmp eq i32 %885, 0
-  br i1 %.not.i793.i, label %886, label %zend_string_alloc.exit.i794.i
+884:                                              ; preds = %883
+  %885 = add i64 %.10621954.i, 2
+  %886 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %887 = load i64, ptr %886, align 8, !tbaa !50
+  %888 = icmp uge i64 %885, %887
+  call void @llvm.assume(i1 %888)
+  %889 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %890 = load i32, ptr %889, align 4, !tbaa !8
+  %891 = and i32 %890, 64
+  %.not.i793.i = icmp eq i32 %891, 0
+  br i1 %.not.i793.i, label %892, label %zend_string_alloc.exit.i794.i
 
-886:                                              ; preds = %878
-  %887 = load i32, ptr %204, align 4, !tbaa !52
-  %888 = icmp eq i32 %887, 1
-  br i1 %888, label %889, label %zend_string_alloc.exit.i794.i, !prof !10
+892:                                              ; preds = %884
+  %893 = load i32, ptr %204, align 4, !tbaa !52
+  %894 = icmp eq i32 %893, 1
+  br i1 %894, label %895, label %zend_string_alloc.exit.i794.i, !prof !10
 
-889:                                              ; preds = %886
-  %890 = and i64 %879, -8
-  %891 = add i64 %890, 32
-  %892 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %891) #11
-  %893 = getelementptr inbounds nuw i8, ptr %892, i64 16
-  store i64 %879, ptr %893, align 8, !tbaa !50
-  %894 = getelementptr inbounds nuw i8, ptr %892, i64 8
-  store i64 0, ptr %894, align 8, !tbaa !53
-  %895 = getelementptr inbounds nuw i8, ptr %892, i64 4
-  %896 = load i32, ptr %895, align 4, !tbaa !8
-  %897 = and i32 %896, -513
-  store i32 %897, ptr %895, align 4, !tbaa !8
+895:                                              ; preds = %892
+  %896 = and i64 %885, -8
+  %897 = add i64 %896, 32
+  %898 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %897) #11
+  %899 = getelementptr inbounds nuw i8, ptr %898, i64 16
+  store i64 %885, ptr %899, align 8, !tbaa !50
+  %900 = getelementptr inbounds nuw i8, ptr %898, i64 8
+  store i64 0, ptr %900, align 8, !tbaa !53
+  %901 = getelementptr inbounds nuw i8, ptr %898, i64 4
+  %902 = load i32, ptr %901, align 4, !tbaa !8
+  %903 = and i32 %902, -513
+  store i32 %903, ptr %901, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i794.i:                    ; preds = %878, %886
-  %898 = and i64 %879, -8
-  %899 = add i64 %898, 32
-  %900 = call noalias ptr @_emalloc(i64 noundef %899) #9
-  store i32 1, ptr %900, align 4, !tbaa !52
-  %901 = getelementptr inbounds nuw i8, ptr %900, i64 4
-  store i32 22, ptr %901, align 4, !tbaa !8
-  %902 = getelementptr inbounds nuw i8, ptr %900, i64 8
-  store i64 0, ptr %902, align 8, !tbaa !53
-  %903 = getelementptr inbounds nuw i8, ptr %900, i64 16
-  store i64 %879, ptr %903, align 8, !tbaa !50
-  %904 = getelementptr inbounds nuw i8, ptr %900, i64 24
-  %905 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %906 = load i64, ptr %880, align 8, !tbaa !50
-  %907 = add i64 %906, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %904, ptr nonnull align 8 %905, i64 %907, i1 false)
-  %908 = load i32, ptr %883, align 4, !tbaa !8
-  %909 = and i32 %908, 64
-  %.not21.i795.i = icmp eq i32 %909, 0
-  br i1 %.not21.i795.i, label %910, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i794.i:                    ; preds = %884, %892
+  %904 = and i64 %885, -8
+  %905 = add i64 %904, 32
+  %906 = call noalias ptr @_emalloc(i64 noundef %905) #9
+  store i32 1, ptr %906, align 4, !tbaa !52
+  %907 = getelementptr inbounds nuw i8, ptr %906, i64 4
+  store i32 22, ptr %907, align 4, !tbaa !8
+  %908 = getelementptr inbounds nuw i8, ptr %906, i64 8
+  store i64 0, ptr %908, align 8, !tbaa !53
+  %909 = getelementptr inbounds nuw i8, ptr %906, i64 16
+  store i64 %885, ptr %909, align 8, !tbaa !50
+  %910 = getelementptr inbounds nuw i8, ptr %906, i64 24
+  %911 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %912 = load i64, ptr %886, align 8, !tbaa !50
+  %913 = add i64 %912, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %910, ptr nonnull align 8 %911, i64 %913, i1 false)
+  %914 = load i32, ptr %889, align 4, !tbaa !8
+  %915 = and i32 %914, 64
+  %.not21.i795.i = icmp eq i32 %915, 0
+  br i1 %.not21.i795.i, label %916, label %encode.exit894.thread.sink.split.i
 
-910:                                              ; preds = %zend_string_alloc.exit.i794.i
-  %911 = load i32, ptr %204, align 4, !tbaa !52
-  %912 = icmp ne i32 %911, 0
-  call void @llvm.assume(i1 %912)
-  %913 = add i32 %911, -1
-  store i32 %913, ptr %204, align 4, !tbaa !52
+916:                                              ; preds = %zend_string_alloc.exit.i794.i
+  %917 = load i32, ptr %204, align 4, !tbaa !52
+  %918 = icmp ne i32 %917, 0
+  call void @llvm.assume(i1 %918)
+  %919 = add i32 %917, -1
+  store i32 %919, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-914:                                              ; preds = %870
-  br i1 %.not664.i, label %encode.exit894.thread.sink.split.i, label %915
+920:                                              ; preds = %876
+  br i1 %.not664.i, label %encode.exit894.thread.sink.split.i, label %921
 
-915:                                              ; preds = %914
-  %916 = add i64 %.10621958.i, 2
-  %917 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %918 = load i64, ptr %917, align 8, !tbaa !50
-  %919 = icmp uge i64 %916, %918
-  call void @llvm.assume(i1 %919)
-  %920 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %921 = load i32, ptr %920, align 4, !tbaa !8
-  %922 = and i32 %921, 64
-  %.not.i798.i = icmp eq i32 %922, 0
-  br i1 %.not.i798.i, label %923, label %zend_string_alloc.exit.i799.i
+921:                                              ; preds = %920
+  %922 = add i64 %.10621954.i, 2
+  %923 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %924 = load i64, ptr %923, align 8, !tbaa !50
+  %925 = icmp uge i64 %922, %924
+  call void @llvm.assume(i1 %925)
+  %926 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %927 = load i32, ptr %926, align 4, !tbaa !8
+  %928 = and i32 %927, 64
+  %.not.i798.i = icmp eq i32 %928, 0
+  br i1 %.not.i798.i, label %929, label %zend_string_alloc.exit.i799.i
 
-923:                                              ; preds = %915
-  %924 = load i32, ptr %204, align 4, !tbaa !52
-  %925 = icmp eq i32 %924, 1
-  br i1 %925, label %926, label %zend_string_alloc.exit.i799.i, !prof !10
+929:                                              ; preds = %921
+  %930 = load i32, ptr %204, align 4, !tbaa !52
+  %931 = icmp eq i32 %930, 1
+  br i1 %931, label %932, label %zend_string_alloc.exit.i799.i, !prof !10
 
-926:                                              ; preds = %923
-  %927 = and i64 %916, -8
-  %928 = add i64 %927, 32
-  %929 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %928) #11
-  %930 = getelementptr inbounds nuw i8, ptr %929, i64 16
-  store i64 %916, ptr %930, align 8, !tbaa !50
-  %931 = getelementptr inbounds nuw i8, ptr %929, i64 8
-  store i64 0, ptr %931, align 8, !tbaa !53
-  %932 = getelementptr inbounds nuw i8, ptr %929, i64 4
-  %933 = load i32, ptr %932, align 4, !tbaa !8
-  %934 = and i32 %933, -513
-  store i32 %934, ptr %932, align 4, !tbaa !8
+932:                                              ; preds = %929
+  %933 = and i64 %922, -8
+  %934 = add i64 %933, 32
+  %935 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %934) #11
+  %936 = getelementptr inbounds nuw i8, ptr %935, i64 16
+  store i64 %922, ptr %936, align 8, !tbaa !50
+  %937 = getelementptr inbounds nuw i8, ptr %935, i64 8
+  store i64 0, ptr %937, align 8, !tbaa !53
+  %938 = getelementptr inbounds nuw i8, ptr %935, i64 4
+  %939 = load i32, ptr %938, align 4, !tbaa !8
+  %940 = and i32 %939, -513
+  store i32 %940, ptr %938, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i799.i:                    ; preds = %915, %923
-  %935 = and i64 %916, -8
-  %936 = add i64 %935, 32
-  %937 = call noalias ptr @_emalloc(i64 noundef %936) #9
-  store i32 1, ptr %937, align 4, !tbaa !52
-  %938 = getelementptr inbounds nuw i8, ptr %937, i64 4
-  store i32 22, ptr %938, align 4, !tbaa !8
-  %939 = getelementptr inbounds nuw i8, ptr %937, i64 8
-  store i64 0, ptr %939, align 8, !tbaa !53
-  %940 = getelementptr inbounds nuw i8, ptr %937, i64 16
-  store i64 %916, ptr %940, align 8, !tbaa !50
-  %941 = getelementptr inbounds nuw i8, ptr %937, i64 24
-  %942 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %943 = load i64, ptr %917, align 8, !tbaa !50
-  %944 = add i64 %943, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %941, ptr nonnull align 8 %942, i64 %944, i1 false)
-  %945 = load i32, ptr %920, align 4, !tbaa !8
-  %946 = and i32 %945, 64
-  %.not21.i800.i = icmp eq i32 %946, 0
-  br i1 %.not21.i800.i, label %947, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i799.i:                    ; preds = %921, %929
+  %941 = and i64 %922, -8
+  %942 = add i64 %941, 32
+  %943 = call noalias ptr @_emalloc(i64 noundef %942) #9
+  store i32 1, ptr %943, align 4, !tbaa !52
+  %944 = getelementptr inbounds nuw i8, ptr %943, i64 4
+  store i32 22, ptr %944, align 4, !tbaa !8
+  %945 = getelementptr inbounds nuw i8, ptr %943, i64 8
+  store i64 0, ptr %945, align 8, !tbaa !53
+  %946 = getelementptr inbounds nuw i8, ptr %943, i64 16
+  store i64 %922, ptr %946, align 8, !tbaa !50
+  %947 = getelementptr inbounds nuw i8, ptr %943, i64 24
+  %948 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %949 = load i64, ptr %923, align 8, !tbaa !50
+  %950 = add i64 %949, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %947, ptr nonnull align 8 %948, i64 %950, i1 false)
+  %951 = load i32, ptr %926, align 4, !tbaa !8
+  %952 = and i32 %951, 64
+  %.not21.i800.i = icmp eq i32 %952, 0
+  br i1 %.not21.i800.i, label %953, label %encode.exit894.thread.sink.split.i
 
-947:                                              ; preds = %zend_string_alloc.exit.i799.i
-  %948 = load i32, ptr %204, align 4, !tbaa !52
-  %949 = icmp ne i32 %948, 0
-  call void @llvm.assume(i1 %949)
-  %950 = add i32 %948, -1
-  store i32 %950, ptr %204, align 4, !tbaa !52
+953:                                              ; preds = %zend_string_alloc.exit.i799.i
+  %954 = load i32, ptr %204, align 4, !tbaa !52
+  %955 = icmp ne i32 %954, 0
+  call void @llvm.assume(i1 %955)
+  %956 = add i32 %954, -1
+  store i32 %956, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-951:                                              ; preds = %231
-  %.not662.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not662.i, label %encode.exit894.thread.sink.split.i, label %952
+957:                                              ; preds = %233
+  %.not662.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not662.i, label %encode.exit894.thread.sink.split.i, label %958
 
-952:                                              ; preds = %951
-  %953 = add i64 %.10621958.i, 2
-  %954 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %955 = load i64, ptr %954, align 8, !tbaa !50
-  %956 = icmp uge i64 %953, %955
-  call void @llvm.assume(i1 %956)
-  %957 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %958 = load i32, ptr %957, align 4, !tbaa !8
-  %959 = and i32 %958, 64
-  %.not.i803.i = icmp eq i32 %959, 0
-  br i1 %.not.i803.i, label %960, label %zend_string_alloc.exit.i804.i
+958:                                              ; preds = %957
+  %959 = add i64 %.10621954.i, 2
+  %960 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %961 = load i64, ptr %960, align 8, !tbaa !50
+  %962 = icmp uge i64 %959, %961
+  call void @llvm.assume(i1 %962)
+  %963 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %964 = load i32, ptr %963, align 4, !tbaa !8
+  %965 = and i32 %964, 64
+  %.not.i803.i = icmp eq i32 %965, 0
+  br i1 %.not.i803.i, label %966, label %zend_string_alloc.exit.i804.i
 
-960:                                              ; preds = %952
-  %961 = load i32, ptr %204, align 4, !tbaa !52
-  %962 = icmp eq i32 %961, 1
-  br i1 %962, label %963, label %zend_string_alloc.exit.i804.i, !prof !10
+966:                                              ; preds = %958
+  %967 = load i32, ptr %204, align 4, !tbaa !52
+  %968 = icmp eq i32 %967, 1
+  br i1 %968, label %969, label %zend_string_alloc.exit.i804.i, !prof !10
 
-963:                                              ; preds = %960
-  %964 = and i64 %953, -8
-  %965 = add i64 %964, 32
-  %966 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %965) #11
-  %967 = getelementptr inbounds nuw i8, ptr %966, i64 16
-  store i64 %953, ptr %967, align 8, !tbaa !50
-  %968 = getelementptr inbounds nuw i8, ptr %966, i64 8
-  store i64 0, ptr %968, align 8, !tbaa !53
-  %969 = getelementptr inbounds nuw i8, ptr %966, i64 4
-  %970 = load i32, ptr %969, align 4, !tbaa !8
-  %971 = and i32 %970, -513
-  store i32 %971, ptr %969, align 4, !tbaa !8
+969:                                              ; preds = %966
+  %970 = and i64 %959, -8
+  %971 = add i64 %970, 32
+  %972 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %971) #11
+  %973 = getelementptr inbounds nuw i8, ptr %972, i64 16
+  store i64 %959, ptr %973, align 8, !tbaa !50
+  %974 = getelementptr inbounds nuw i8, ptr %972, i64 8
+  store i64 0, ptr %974, align 8, !tbaa !53
+  %975 = getelementptr inbounds nuw i8, ptr %972, i64 4
+  %976 = load i32, ptr %975, align 4, !tbaa !8
+  %977 = and i32 %976, -513
+  store i32 %977, ptr %975, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i804.i:                    ; preds = %952, %960
-  %972 = and i64 %953, -8
-  %973 = add i64 %972, 32
-  %974 = call noalias ptr @_emalloc(i64 noundef %973) #9
-  store i32 1, ptr %974, align 4, !tbaa !52
-  %975 = getelementptr inbounds nuw i8, ptr %974, i64 4
-  store i32 22, ptr %975, align 4, !tbaa !8
-  %976 = getelementptr inbounds nuw i8, ptr %974, i64 8
-  store i64 0, ptr %976, align 8, !tbaa !53
-  %977 = getelementptr inbounds nuw i8, ptr %974, i64 16
-  store i64 %953, ptr %977, align 8, !tbaa !50
-  %978 = getelementptr inbounds nuw i8, ptr %974, i64 24
-  %979 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %980 = load i64, ptr %954, align 8, !tbaa !50
-  %981 = add i64 %980, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %978, ptr nonnull align 8 %979, i64 %981, i1 false)
-  %982 = load i32, ptr %957, align 4, !tbaa !8
-  %983 = and i32 %982, 64
-  %.not21.i805.i = icmp eq i32 %983, 0
-  br i1 %.not21.i805.i, label %984, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i804.i:                    ; preds = %958, %966
+  %978 = and i64 %959, -8
+  %979 = add i64 %978, 32
+  %980 = call noalias ptr @_emalloc(i64 noundef %979) #9
+  store i32 1, ptr %980, align 4, !tbaa !52
+  %981 = getelementptr inbounds nuw i8, ptr %980, i64 4
+  store i32 22, ptr %981, align 4, !tbaa !8
+  %982 = getelementptr inbounds nuw i8, ptr %980, i64 8
+  store i64 0, ptr %982, align 8, !tbaa !53
+  %983 = getelementptr inbounds nuw i8, ptr %980, i64 16
+  store i64 %959, ptr %983, align 8, !tbaa !50
+  %984 = getelementptr inbounds nuw i8, ptr %980, i64 24
+  %985 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %986 = load i64, ptr %960, align 8, !tbaa !50
+  %987 = add i64 %986, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %984, ptr nonnull align 8 %985, i64 %987, i1 false)
+  %988 = load i32, ptr %963, align 4, !tbaa !8
+  %989 = and i32 %988, 64
+  %.not21.i805.i = icmp eq i32 %989, 0
+  br i1 %.not21.i805.i, label %990, label %encode.exit894.thread.sink.split.i
 
-984:                                              ; preds = %zend_string_alloc.exit.i804.i
-  %985 = load i32, ptr %204, align 4, !tbaa !52
-  %986 = icmp ne i32 %985, 0
-  call void @llvm.assume(i1 %986)
-  %987 = add i32 %985, -1
-  store i32 %987, ptr %204, align 4, !tbaa !52
+990:                                              ; preds = %zend_string_alloc.exit.i804.i
+  %991 = load i32, ptr %204, align 4, !tbaa !52
+  %992 = icmp ne i32 %991, 0
+  call void @llvm.assume(i1 %992)
+  %993 = add i32 %991, -1
+  store i32 %993, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-988:                                              ; preds = %231
-  %989 = getelementptr i8, ptr %206, i64 1
-  %990 = load i8, ptr %989, align 1, !tbaa !8
-  %991 = zext i8 %990 to i64
-  %992 = getelementptr inbounds nuw i32, ptr %213, i64 %991
-  %993 = load i32, ptr %992, align 4, !tbaa !60
-  %trunc930.i = trunc i32 %993 to i8
+994:                                              ; preds = %233
+  %995 = getelementptr i8, ptr %206, i64 1
+  %996 = load i8, ptr %995, align 1, !tbaa !8
+  %997 = zext i8 %996 to i64
+  %998 = getelementptr inbounds nuw i32, ptr %213, i64 %997
+  %999 = load i32, ptr %998, align 4, !tbaa !60
+  %trunc930.i = trunc i32 %999 to i8
   switch i8 %trunc930.i, label %.thread920.i [
-    i8 73, label %994
-    i8 72, label %1039
+    i8 73, label %1000
+    i8 72, label %1045
   ]
 
-994:                                              ; preds = %988
-  %.not657.i = icmp eq i8 %990, 0
-  br i1 %.not657.i, label %.thread920.i, label %995
+1000:                                             ; preds = %994
+  %.not657.i = icmp eq i8 %996, 0
+  br i1 %.not657.i, label %.thread920.i, label %1001
 
-995:                                              ; preds = %994
-  %996 = getelementptr i8, ptr %206, i64 2
-  %997 = load i8, ptr %996, align 1, !tbaa !8
-  %998 = zext i8 %997 to i64
-  %999 = getelementptr inbounds nuw i32, ptr %213, i64 %998
-  %1000 = load i32, ptr %999, align 4, !tbaa !60
-  %sext658.i = shl i32 %1000, 24
-  %1001 = ashr exact i32 %sext658.i, 24
-  switch i32 %1001, label %.thread920.i [
-    i32 79, label %1002
-    i32 65, label %1002
+1001:                                             ; preds = %1000
+  %1002 = getelementptr i8, ptr %206, i64 2
+  %1003 = load i8, ptr %1002, align 1, !tbaa !8
+  %1004 = zext i8 %1003 to i64
+  %1005 = getelementptr inbounds nuw i32, ptr %213, i64 %1004
+  %1006 = load i32, ptr %1005, align 4, !tbaa !60
+  %sext658.i = shl i32 %1006, 24
+  %1007 = ashr exact i32 %sext658.i, 24
+  switch i32 %1007, label %.thread920.i [
+    i32 79, label %1008
+    i32 65, label %1008
   ]
 
-1002:                                             ; preds = %995, %995
-  %.not661.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not661.i, label %encode.exit894.thread.sink.split.i, label %1003
+1008:                                             ; preds = %1001, %1001
+  %.not661.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not661.i, label %encode.exit894.thread.sink.split.i, label %1009
 
-1003:                                             ; preds = %1002
-  %1004 = add i64 %.10621958.i, 2
-  %1005 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %1006 = load i64, ptr %1005, align 8, !tbaa !50
-  %1007 = icmp uge i64 %1004, %1006
-  call void @llvm.assume(i1 %1007)
-  %1008 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %1009 = load i32, ptr %1008, align 4, !tbaa !8
-  %1010 = and i32 %1009, 64
-  %.not.i808.i = icmp eq i32 %1010, 0
-  br i1 %.not.i808.i, label %1011, label %zend_string_alloc.exit.i809.i
+1009:                                             ; preds = %1008
+  %1010 = add i64 %.10621954.i, 2
+  %1011 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %1012 = load i64, ptr %1011, align 8, !tbaa !50
+  %1013 = icmp uge i64 %1010, %1012
+  call void @llvm.assume(i1 %1013)
+  %1014 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %1015 = load i32, ptr %1014, align 4, !tbaa !8
+  %1016 = and i32 %1015, 64
+  %.not.i808.i = icmp eq i32 %1016, 0
+  br i1 %.not.i808.i, label %1017, label %zend_string_alloc.exit.i809.i
 
-1011:                                             ; preds = %1003
-  %1012 = load i32, ptr %204, align 4, !tbaa !52
-  %1013 = icmp eq i32 %1012, 1
-  br i1 %1013, label %1014, label %zend_string_alloc.exit.i809.i, !prof !10
+1017:                                             ; preds = %1009
+  %1018 = load i32, ptr %204, align 4, !tbaa !52
+  %1019 = icmp eq i32 %1018, 1
+  br i1 %1019, label %1020, label %zend_string_alloc.exit.i809.i, !prof !10
 
-1014:                                             ; preds = %1011
-  %1015 = and i64 %1004, -8
-  %1016 = add i64 %1015, 32
-  %1017 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1016) #11
-  %1018 = getelementptr inbounds nuw i8, ptr %1017, i64 16
-  store i64 %1004, ptr %1018, align 8, !tbaa !50
-  %1019 = getelementptr inbounds nuw i8, ptr %1017, i64 8
-  store i64 0, ptr %1019, align 8, !tbaa !53
-  %1020 = getelementptr inbounds nuw i8, ptr %1017, i64 4
-  %1021 = load i32, ptr %1020, align 4, !tbaa !8
-  %1022 = and i32 %1021, -513
-  store i32 %1022, ptr %1020, align 4, !tbaa !8
+1020:                                             ; preds = %1017
+  %1021 = and i64 %1010, -8
+  %1022 = add i64 %1021, 32
+  %1023 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1022) #11
+  %1024 = getelementptr inbounds nuw i8, ptr %1023, i64 16
+  store i64 %1010, ptr %1024, align 8, !tbaa !50
+  %1025 = getelementptr inbounds nuw i8, ptr %1023, i64 8
+  store i64 0, ptr %1025, align 8, !tbaa !53
+  %1026 = getelementptr inbounds nuw i8, ptr %1023, i64 4
+  %1027 = load i32, ptr %1026, align 4, !tbaa !8
+  %1028 = and i32 %1027, -513
+  store i32 %1028, ptr %1026, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i809.i:                    ; preds = %1003, %1011
-  %1023 = and i64 %1004, -8
-  %1024 = add i64 %1023, 32
-  %1025 = call noalias ptr @_emalloc(i64 noundef %1024) #9
-  store i32 1, ptr %1025, align 4, !tbaa !52
-  %1026 = getelementptr inbounds nuw i8, ptr %1025, i64 4
-  store i32 22, ptr %1026, align 4, !tbaa !8
-  %1027 = getelementptr inbounds nuw i8, ptr %1025, i64 8
-  store i64 0, ptr %1027, align 8, !tbaa !53
-  %1028 = getelementptr inbounds nuw i8, ptr %1025, i64 16
-  store i64 %1004, ptr %1028, align 8, !tbaa !50
-  %1029 = getelementptr inbounds nuw i8, ptr %1025, i64 24
-  %1030 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %1031 = load i64, ptr %1005, align 8, !tbaa !50
-  %1032 = add i64 %1031, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1029, ptr nonnull align 8 %1030, i64 %1032, i1 false)
-  %1033 = load i32, ptr %1008, align 4, !tbaa !8
-  %1034 = and i32 %1033, 64
-  %.not21.i810.i = icmp eq i32 %1034, 0
-  br i1 %.not21.i810.i, label %1035, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i809.i:                    ; preds = %1009, %1017
+  %1029 = and i64 %1010, -8
+  %1030 = add i64 %1029, 32
+  %1031 = call noalias ptr @_emalloc(i64 noundef %1030) #9
+  store i32 1, ptr %1031, align 4, !tbaa !52
+  %1032 = getelementptr inbounds nuw i8, ptr %1031, i64 4
+  store i32 22, ptr %1032, align 4, !tbaa !8
+  %1033 = getelementptr inbounds nuw i8, ptr %1031, i64 8
+  store i64 0, ptr %1033, align 8, !tbaa !53
+  %1034 = getelementptr inbounds nuw i8, ptr %1031, i64 16
+  store i64 %1010, ptr %1034, align 8, !tbaa !50
+  %1035 = getelementptr inbounds nuw i8, ptr %1031, i64 24
+  %1036 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %1037 = load i64, ptr %1011, align 8, !tbaa !50
+  %1038 = add i64 %1037, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1035, ptr nonnull align 8 %1036, i64 %1038, i1 false)
+  %1039 = load i32, ptr %1014, align 4, !tbaa !8
+  %1040 = and i32 %1039, 64
+  %.not21.i810.i = icmp eq i32 %1040, 0
+  br i1 %.not21.i810.i, label %1041, label %encode.exit894.thread.sink.split.i
 
-1035:                                             ; preds = %zend_string_alloc.exit.i809.i
-  %1036 = load i32, ptr %204, align 4, !tbaa !52
-  %1037 = icmp ne i32 %1036, 0
-  call void @llvm.assume(i1 %1037)
-  %1038 = add i32 %1036, -1
-  store i32 %1038, ptr %204, align 4, !tbaa !52
+1041:                                             ; preds = %zend_string_alloc.exit.i809.i
+  %1042 = load i32, ptr %204, align 4, !tbaa !52
+  %1043 = icmp ne i32 %1042, 0
+  call void @llvm.assume(i1 %1043)
+  %1044 = add i32 %1042, -1
+  store i32 %1044, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-1039:                                             ; preds = %988
-  %.not660.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not660.i, label %encode.exit894.thread.sink.split.i, label %1040
+1045:                                             ; preds = %994
+  %.not660.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not660.i, label %encode.exit894.thread.sink.split.i, label %1046
 
-1040:                                             ; preds = %1039
-  %1041 = add i64 %.10621958.i, 2
-  %1042 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %1043 = load i64, ptr %1042, align 8, !tbaa !50
-  %1044 = icmp uge i64 %1041, %1043
-  call void @llvm.assume(i1 %1044)
-  %1045 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %1046 = load i32, ptr %1045, align 4, !tbaa !8
-  %1047 = and i32 %1046, 64
-  %.not.i813.i = icmp eq i32 %1047, 0
-  br i1 %.not.i813.i, label %1048, label %zend_string_alloc.exit.i814.i
+1046:                                             ; preds = %1045
+  %1047 = add i64 %.10621954.i, 2
+  %1048 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %1049 = load i64, ptr %1048, align 8, !tbaa !50
+  %1050 = icmp uge i64 %1047, %1049
+  call void @llvm.assume(i1 %1050)
+  %1051 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %1052 = load i32, ptr %1051, align 4, !tbaa !8
+  %1053 = and i32 %1052, 64
+  %.not.i813.i = icmp eq i32 %1053, 0
+  br i1 %.not.i813.i, label %1054, label %zend_string_alloc.exit.i814.i
 
-1048:                                             ; preds = %1040
-  %1049 = load i32, ptr %204, align 4, !tbaa !52
-  %1050 = icmp eq i32 %1049, 1
-  br i1 %1050, label %1051, label %zend_string_alloc.exit.i814.i, !prof !10
+1054:                                             ; preds = %1046
+  %1055 = load i32, ptr %204, align 4, !tbaa !52
+  %1056 = icmp eq i32 %1055, 1
+  br i1 %1056, label %1057, label %zend_string_alloc.exit.i814.i, !prof !10
 
-1051:                                             ; preds = %1048
-  %1052 = and i64 %1041, -8
-  %1053 = add i64 %1052, 32
-  %1054 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1053) #11
-  %1055 = getelementptr inbounds nuw i8, ptr %1054, i64 16
-  store i64 %1041, ptr %1055, align 8, !tbaa !50
-  %1056 = getelementptr inbounds nuw i8, ptr %1054, i64 8
-  store i64 0, ptr %1056, align 8, !tbaa !53
-  %1057 = getelementptr inbounds nuw i8, ptr %1054, i64 4
-  %1058 = load i32, ptr %1057, align 4, !tbaa !8
-  %1059 = and i32 %1058, -513
-  store i32 %1059, ptr %1057, align 4, !tbaa !8
+1057:                                             ; preds = %1054
+  %1058 = and i64 %1047, -8
+  %1059 = add i64 %1058, 32
+  %1060 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1059) #11
+  %1061 = getelementptr inbounds nuw i8, ptr %1060, i64 16
+  store i64 %1047, ptr %1061, align 8, !tbaa !50
+  %1062 = getelementptr inbounds nuw i8, ptr %1060, i64 8
+  store i64 0, ptr %1062, align 8, !tbaa !53
+  %1063 = getelementptr inbounds nuw i8, ptr %1060, i64 4
+  %1064 = load i32, ptr %1063, align 4, !tbaa !8
+  %1065 = and i32 %1064, -513
+  store i32 %1065, ptr %1063, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i814.i:                    ; preds = %1040, %1048
-  %1060 = and i64 %1041, -8
-  %1061 = add i64 %1060, 32
-  %1062 = call noalias ptr @_emalloc(i64 noundef %1061) #9
-  store i32 1, ptr %1062, align 4, !tbaa !52
-  %1063 = getelementptr inbounds nuw i8, ptr %1062, i64 4
-  store i32 22, ptr %1063, align 4, !tbaa !8
-  %1064 = getelementptr inbounds nuw i8, ptr %1062, i64 8
-  store i64 0, ptr %1064, align 8, !tbaa !53
-  %1065 = getelementptr inbounds nuw i8, ptr %1062, i64 16
-  store i64 %1041, ptr %1065, align 8, !tbaa !50
-  %1066 = getelementptr inbounds nuw i8, ptr %1062, i64 24
-  %1067 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %1068 = load i64, ptr %1042, align 8, !tbaa !50
-  %1069 = add i64 %1068, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1066, ptr nonnull align 8 %1067, i64 %1069, i1 false)
-  %1070 = load i32, ptr %1045, align 4, !tbaa !8
-  %1071 = and i32 %1070, 64
-  %.not21.i815.i = icmp eq i32 %1071, 0
-  br i1 %.not21.i815.i, label %1072, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i814.i:                    ; preds = %1046, %1054
+  %1066 = and i64 %1047, -8
+  %1067 = add i64 %1066, 32
+  %1068 = call noalias ptr @_emalloc(i64 noundef %1067) #9
+  store i32 1, ptr %1068, align 4, !tbaa !52
+  %1069 = getelementptr inbounds nuw i8, ptr %1068, i64 4
+  store i32 22, ptr %1069, align 4, !tbaa !8
+  %1070 = getelementptr inbounds nuw i8, ptr %1068, i64 8
+  store i64 0, ptr %1070, align 8, !tbaa !53
+  %1071 = getelementptr inbounds nuw i8, ptr %1068, i64 16
+  store i64 %1047, ptr %1071, align 8, !tbaa !50
+  %1072 = getelementptr inbounds nuw i8, ptr %1068, i64 24
+  %1073 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %1074 = load i64, ptr %1048, align 8, !tbaa !50
+  %1075 = add i64 %1074, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1072, ptr nonnull align 8 %1073, i64 %1075, i1 false)
+  %1076 = load i32, ptr %1051, align 4, !tbaa !8
+  %1077 = and i32 %1076, 64
+  %.not21.i815.i = icmp eq i32 %1077, 0
+  br i1 %.not21.i815.i, label %1078, label %encode.exit894.thread.sink.split.i
 
-1072:                                             ; preds = %zend_string_alloc.exit.i814.i
-  %1073 = load i32, ptr %204, align 4, !tbaa !52
-  %1074 = icmp ne i32 %1073, 0
-  call void @llvm.assume(i1 %1074)
-  %1075 = add i32 %1073, -1
-  store i32 %1075, ptr %204, align 4, !tbaa !52
-  br label %encode.exit894.thread.sink.split.i
-
-.thread920.i:                                     ; preds = %995, %994, %988
-  %.not659.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not659.i, label %encode.exit894.thread.sink.split.i, label %1076
-
-1076:                                             ; preds = %.thread920.i
-  %1077 = add i64 %.10621958.i, 2
-  %1078 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %1079 = load i64, ptr %1078, align 8, !tbaa !50
-  %1080 = icmp uge i64 %1077, %1079
+1078:                                             ; preds = %zend_string_alloc.exit.i814.i
+  %1079 = load i32, ptr %204, align 4, !tbaa !52
+  %1080 = icmp ne i32 %1079, 0
   call void @llvm.assume(i1 %1080)
-  %1081 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %1082 = load i32, ptr %1081, align 4, !tbaa !8
-  %1083 = and i32 %1082, 64
-  %.not.i818.i = icmp eq i32 %1083, 0
-  br i1 %.not.i818.i, label %1084, label %zend_string_alloc.exit.i819.i
-
-1084:                                             ; preds = %1076
-  %1085 = load i32, ptr %204, align 4, !tbaa !52
-  %1086 = icmp eq i32 %1085, 1
-  br i1 %1086, label %1087, label %zend_string_alloc.exit.i819.i, !prof !10
-
-1087:                                             ; preds = %1084
-  %1088 = and i64 %1077, -8
-  %1089 = add i64 %1088, 32
-  %1090 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1089) #11
-  %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 16
-  store i64 %1077, ptr %1091, align 8, !tbaa !50
-  %1092 = getelementptr inbounds nuw i8, ptr %1090, i64 8
-  store i64 0, ptr %1092, align 8, !tbaa !53
-  %1093 = getelementptr inbounds nuw i8, ptr %1090, i64 4
-  %1094 = load i32, ptr %1093, align 4, !tbaa !8
-  %1095 = and i32 %1094, -513
-  store i32 %1095, ptr %1093, align 4, !tbaa !8
+  %1081 = add i32 %1079, -1
+  store i32 %1081, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i819.i:                    ; preds = %1076, %1084
-  %1096 = and i64 %1077, -8
-  %1097 = add i64 %1096, 32
-  %1098 = call noalias ptr @_emalloc(i64 noundef %1097) #9
-  store i32 1, ptr %1098, align 4, !tbaa !52
-  %1099 = getelementptr inbounds nuw i8, ptr %1098, i64 4
-  store i32 22, ptr %1099, align 4, !tbaa !8
-  %1100 = getelementptr inbounds nuw i8, ptr %1098, i64 8
-  store i64 0, ptr %1100, align 8, !tbaa !53
-  %1101 = getelementptr inbounds nuw i8, ptr %1098, i64 16
-  store i64 %1077, ptr %1101, align 8, !tbaa !50
-  %1102 = getelementptr inbounds nuw i8, ptr %1098, i64 24
-  %1103 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %1104 = load i64, ptr %1078, align 8, !tbaa !50
-  %1105 = add i64 %1104, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1102, ptr nonnull align 8 %1103, i64 %1105, i1 false)
-  %1106 = load i32, ptr %1081, align 4, !tbaa !8
-  %1107 = and i32 %1106, 64
-  %.not21.i820.i = icmp eq i32 %1107, 0
-  br i1 %.not21.i820.i, label %1108, label %encode.exit894.thread.sink.split.i
+.thread920.i:                                     ; preds = %1001, %1000, %994
+  %.not659.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not659.i, label %encode.exit894.thread.sink.split.i, label %1082
 
-1108:                                             ; preds = %zend_string_alloc.exit.i819.i
-  %1109 = load i32, ptr %204, align 4, !tbaa !52
-  %1110 = icmp ne i32 %1109, 0
-  call void @llvm.assume(i1 %1110)
-  %1111 = add i32 %1109, -1
-  store i32 %1111, ptr %204, align 4, !tbaa !52
+1082:                                             ; preds = %.thread920.i
+  %1083 = add i64 %.10621954.i, 2
+  %1084 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %1085 = load i64, ptr %1084, align 8, !tbaa !50
+  %1086 = icmp uge i64 %1083, %1085
+  call void @llvm.assume(i1 %1086)
+  %1087 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %1088 = load i32, ptr %1087, align 4, !tbaa !8
+  %1089 = and i32 %1088, 64
+  %.not.i818.i = icmp eq i32 %1089, 0
+  br i1 %.not.i818.i, label %1090, label %zend_string_alloc.exit.i819.i
+
+1090:                                             ; preds = %1082
+  %1091 = load i32, ptr %204, align 4, !tbaa !52
+  %1092 = icmp eq i32 %1091, 1
+  br i1 %1092, label %1093, label %zend_string_alloc.exit.i819.i, !prof !10
+
+1093:                                             ; preds = %1090
+  %1094 = and i64 %1083, -8
+  %1095 = add i64 %1094, 32
+  %1096 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1095) #11
+  %1097 = getelementptr inbounds nuw i8, ptr %1096, i64 16
+  store i64 %1083, ptr %1097, align 8, !tbaa !50
+  %1098 = getelementptr inbounds nuw i8, ptr %1096, i64 8
+  store i64 0, ptr %1098, align 8, !tbaa !53
+  %1099 = getelementptr inbounds nuw i8, ptr %1096, i64 4
+  %1100 = load i32, ptr %1099, align 4, !tbaa !8
+  %1101 = and i32 %1100, -513
+  store i32 %1101, ptr %1099, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-1112:                                             ; preds = %231
-  %1113 = getelementptr i8, ptr %206, i64 1
-  %1114 = load i8, ptr %1113, align 1, !tbaa !8
-  %1115 = zext i8 %1114 to i64
-  %1116 = getelementptr inbounds nuw i32, ptr %213, i64 %1115
-  %1117 = load i32, ptr %1116, align 4, !tbaa !60
-  %trunc929.i = trunc i32 %1117 to i8
+zend_string_alloc.exit.i819.i:                    ; preds = %1082, %1090
+  %1102 = and i64 %1083, -8
+  %1103 = add i64 %1102, 32
+  %1104 = call noalias ptr @_emalloc(i64 noundef %1103) #9
+  store i32 1, ptr %1104, align 4, !tbaa !52
+  %1105 = getelementptr inbounds nuw i8, ptr %1104, i64 4
+  store i32 22, ptr %1105, align 4, !tbaa !8
+  %1106 = getelementptr inbounds nuw i8, ptr %1104, i64 8
+  store i64 0, ptr %1106, align 8, !tbaa !53
+  %1107 = getelementptr inbounds nuw i8, ptr %1104, i64 16
+  store i64 %1083, ptr %1107, align 8, !tbaa !50
+  %1108 = getelementptr inbounds nuw i8, ptr %1104, i64 24
+  %1109 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %1110 = load i64, ptr %1084, align 8, !tbaa !50
+  %1111 = add i64 %1110, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1108, ptr nonnull align 8 %1109, i64 %1111, i1 false)
+  %1112 = load i32, ptr %1087, align 4, !tbaa !8
+  %1113 = and i32 %1112, 64
+  %.not21.i820.i = icmp eq i32 %1113, 0
+  br i1 %.not21.i820.i, label %1114, label %encode.exit894.thread.sink.split.i
+
+1114:                                             ; preds = %zend_string_alloc.exit.i819.i
+  %1115 = load i32, ptr %204, align 4, !tbaa !52
+  %1116 = icmp ne i32 %1115, 0
+  call void @llvm.assume(i1 %1116)
+  %1117 = add i32 %1115, -1
+  store i32 %1117, ptr %204, align 4, !tbaa !52
+  br label %encode.exit894.thread.sink.split.i
+
+1118:                                             ; preds = %233
+  %1119 = getelementptr i8, ptr %206, i64 1
+  %1120 = load i8, ptr %1119, align 1, !tbaa !8
+  %1121 = zext i8 %1120 to i64
+  %1122 = getelementptr inbounds nuw i32, ptr %213, i64 %1121
+  %1123 = load i32, ptr %1122, align 4, !tbaa !60
+  %trunc929.i = trunc i32 %1123 to i8
   switch i8 %trunc929.i, label %.critedge699.i [
-    i8 73, label %1118
-    i8 72, label %1163
-    i8 67, label %1200
+    i8 73, label %1124
+    i8 72, label %1169
+    i8 67, label %1206
   ]
 
-1118:                                             ; preds = %1112
-  %.not650.i = icmp eq i8 %1114, 0
-  br i1 %.not650.i, label %.critedge699.i, label %1119
+1124:                                             ; preds = %1118
+  %.not650.i = icmp eq i8 %1120, 0
+  br i1 %.not650.i, label %.critedge699.i, label %1125
 
-1119:                                             ; preds = %1118
-  %1120 = getelementptr i8, ptr %206, i64 2
-  %1121 = load i8, ptr %1120, align 1, !tbaa !8
-  %1122 = zext i8 %1121 to i64
-  %1123 = getelementptr inbounds nuw i32, ptr %213, i64 %1122
-  %1124 = load i32, ptr %1123, align 4, !tbaa !60
-  %sext651.i = shl i32 %1124, 24
-  %1125 = ashr exact i32 %sext651.i, 24
-  switch i32 %1125, label %.critedge699.i [
-    i32 79, label %1126
-    i32 65, label %1126
+1125:                                             ; preds = %1124
+  %1126 = getelementptr i8, ptr %206, i64 2
+  %1127 = load i8, ptr %1126, align 1, !tbaa !8
+  %1128 = zext i8 %1127 to i64
+  %1129 = getelementptr inbounds nuw i32, ptr %213, i64 %1128
+  %1130 = load i32, ptr %1129, align 4, !tbaa !60
+  %sext651.i = shl i32 %1130, 24
+  %1131 = ashr exact i32 %sext651.i, 24
+  switch i32 %1131, label %.critedge699.i [
+    i32 79, label %1132
+    i32 65, label %1132
   ]
 
-1126:                                             ; preds = %1119, %1119
-  %.not655.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not655.i, label %encode.exit894.thread.sink.split.i, label %1127
+1132:                                             ; preds = %1125, %1125
+  %.not655.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not655.i, label %encode.exit894.thread.sink.split.i, label %1133
 
-1127:                                             ; preds = %1126
-  %1128 = add i64 %.10621958.i, 2
-  %1129 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %1130 = load i64, ptr %1129, align 8, !tbaa !50
-  %1131 = icmp uge i64 %1128, %1130
-  call void @llvm.assume(i1 %1131)
-  %1132 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %1133 = load i32, ptr %1132, align 4, !tbaa !8
-  %1134 = and i32 %1133, 64
-  %.not.i823.i = icmp eq i32 %1134, 0
-  br i1 %.not.i823.i, label %1135, label %zend_string_alloc.exit.i824.i
+1133:                                             ; preds = %1132
+  %1134 = add i64 %.10621954.i, 2
+  %1135 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %1136 = load i64, ptr %1135, align 8, !tbaa !50
+  %1137 = icmp uge i64 %1134, %1136
+  call void @llvm.assume(i1 %1137)
+  %1138 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %1139 = load i32, ptr %1138, align 4, !tbaa !8
+  %1140 = and i32 %1139, 64
+  %.not.i823.i = icmp eq i32 %1140, 0
+  br i1 %.not.i823.i, label %1141, label %zend_string_alloc.exit.i824.i
 
-1135:                                             ; preds = %1127
-  %1136 = load i32, ptr %204, align 4, !tbaa !52
-  %1137 = icmp eq i32 %1136, 1
-  br i1 %1137, label %1138, label %zend_string_alloc.exit.i824.i, !prof !10
+1141:                                             ; preds = %1133
+  %1142 = load i32, ptr %204, align 4, !tbaa !52
+  %1143 = icmp eq i32 %1142, 1
+  br i1 %1143, label %1144, label %zend_string_alloc.exit.i824.i, !prof !10
 
-1138:                                             ; preds = %1135
-  %1139 = and i64 %1128, -8
-  %1140 = add i64 %1139, 32
-  %1141 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1140) #11
-  %1142 = getelementptr inbounds nuw i8, ptr %1141, i64 16
-  store i64 %1128, ptr %1142, align 8, !tbaa !50
-  %1143 = getelementptr inbounds nuw i8, ptr %1141, i64 8
-  store i64 0, ptr %1143, align 8, !tbaa !53
-  %1144 = getelementptr inbounds nuw i8, ptr %1141, i64 4
-  %1145 = load i32, ptr %1144, align 4, !tbaa !8
-  %1146 = and i32 %1145, -513
-  store i32 %1146, ptr %1144, align 4, !tbaa !8
+1144:                                             ; preds = %1141
+  %1145 = and i64 %1134, -8
+  %1146 = add i64 %1145, 32
+  %1147 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1146) #11
+  %1148 = getelementptr inbounds nuw i8, ptr %1147, i64 16
+  store i64 %1134, ptr %1148, align 8, !tbaa !50
+  %1149 = getelementptr inbounds nuw i8, ptr %1147, i64 8
+  store i64 0, ptr %1149, align 8, !tbaa !53
+  %1150 = getelementptr inbounds nuw i8, ptr %1147, i64 4
+  %1151 = load i32, ptr %1150, align 4, !tbaa !8
+  %1152 = and i32 %1151, -513
+  store i32 %1152, ptr %1150, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i824.i:                    ; preds = %1127, %1135
-  %1147 = and i64 %1128, -8
-  %1148 = add i64 %1147, 32
-  %1149 = call noalias ptr @_emalloc(i64 noundef %1148) #9
-  store i32 1, ptr %1149, align 4, !tbaa !52
-  %1150 = getelementptr inbounds nuw i8, ptr %1149, i64 4
-  store i32 22, ptr %1150, align 4, !tbaa !8
-  %1151 = getelementptr inbounds nuw i8, ptr %1149, i64 8
-  store i64 0, ptr %1151, align 8, !tbaa !53
-  %1152 = getelementptr inbounds nuw i8, ptr %1149, i64 16
-  store i64 %1128, ptr %1152, align 8, !tbaa !50
-  %1153 = getelementptr inbounds nuw i8, ptr %1149, i64 24
-  %1154 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %1155 = load i64, ptr %1129, align 8, !tbaa !50
-  %1156 = add i64 %1155, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1153, ptr nonnull align 8 %1154, i64 %1156, i1 false)
-  %1157 = load i32, ptr %1132, align 4, !tbaa !8
-  %1158 = and i32 %1157, 64
-  %.not21.i825.i = icmp eq i32 %1158, 0
-  br i1 %.not21.i825.i, label %1159, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i824.i:                    ; preds = %1133, %1141
+  %1153 = and i64 %1134, -8
+  %1154 = add i64 %1153, 32
+  %1155 = call noalias ptr @_emalloc(i64 noundef %1154) #9
+  store i32 1, ptr %1155, align 4, !tbaa !52
+  %1156 = getelementptr inbounds nuw i8, ptr %1155, i64 4
+  store i32 22, ptr %1156, align 4, !tbaa !8
+  %1157 = getelementptr inbounds nuw i8, ptr %1155, i64 8
+  store i64 0, ptr %1157, align 8, !tbaa !53
+  %1158 = getelementptr inbounds nuw i8, ptr %1155, i64 16
+  store i64 %1134, ptr %1158, align 8, !tbaa !50
+  %1159 = getelementptr inbounds nuw i8, ptr %1155, i64 24
+  %1160 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %1161 = load i64, ptr %1135, align 8, !tbaa !50
+  %1162 = add i64 %1161, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1159, ptr nonnull align 8 %1160, i64 %1162, i1 false)
+  %1163 = load i32, ptr %1138, align 4, !tbaa !8
+  %1164 = and i32 %1163, 64
+  %.not21.i825.i = icmp eq i32 %1164, 0
+  br i1 %.not21.i825.i, label %1165, label %encode.exit894.thread.sink.split.i
 
-1159:                                             ; preds = %zend_string_alloc.exit.i824.i
-  %1160 = load i32, ptr %204, align 4, !tbaa !52
-  %1161 = icmp ne i32 %1160, 0
-  call void @llvm.assume(i1 %1161)
-  %1162 = add i32 %1160, -1
-  store i32 %1162, ptr %204, align 4, !tbaa !52
+1165:                                             ; preds = %zend_string_alloc.exit.i824.i
+  %1166 = load i32, ptr %204, align 4, !tbaa !52
+  %1167 = icmp ne i32 %1166, 0
+  call void @llvm.assume(i1 %1167)
+  %1168 = add i32 %1166, -1
+  store i32 %1168, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-1163:                                             ; preds = %1112
-  %.not654.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not654.i, label %encode.exit894.thread.sink.split.i, label %1164
+1169:                                             ; preds = %1118
+  %.not654.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not654.i, label %encode.exit894.thread.sink.split.i, label %1170
 
-1164:                                             ; preds = %1163
-  %1165 = add i64 %.10621958.i, 2
-  %1166 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %1167 = load i64, ptr %1166, align 8, !tbaa !50
-  %1168 = icmp uge i64 %1165, %1167
-  call void @llvm.assume(i1 %1168)
-  %1169 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %1170 = load i32, ptr %1169, align 4, !tbaa !8
-  %1171 = and i32 %1170, 64
-  %.not.i828.i = icmp eq i32 %1171, 0
-  br i1 %.not.i828.i, label %1172, label %zend_string_alloc.exit.i829.i
+1170:                                             ; preds = %1169
+  %1171 = add i64 %.10621954.i, 2
+  %1172 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %1173 = load i64, ptr %1172, align 8, !tbaa !50
+  %1174 = icmp uge i64 %1171, %1173
+  call void @llvm.assume(i1 %1174)
+  %1175 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %1176 = load i32, ptr %1175, align 4, !tbaa !8
+  %1177 = and i32 %1176, 64
+  %.not.i828.i = icmp eq i32 %1177, 0
+  br i1 %.not.i828.i, label %1178, label %zend_string_alloc.exit.i829.i
 
-1172:                                             ; preds = %1164
-  %1173 = load i32, ptr %204, align 4, !tbaa !52
-  %1174 = icmp eq i32 %1173, 1
-  br i1 %1174, label %1175, label %zend_string_alloc.exit.i829.i, !prof !10
+1178:                                             ; preds = %1170
+  %1179 = load i32, ptr %204, align 4, !tbaa !52
+  %1180 = icmp eq i32 %1179, 1
+  br i1 %1180, label %1181, label %zend_string_alloc.exit.i829.i, !prof !10
 
-1175:                                             ; preds = %1172
-  %1176 = and i64 %1165, -8
-  %1177 = add i64 %1176, 32
-  %1178 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1177) #11
-  %1179 = getelementptr inbounds nuw i8, ptr %1178, i64 16
-  store i64 %1165, ptr %1179, align 8, !tbaa !50
-  %1180 = getelementptr inbounds nuw i8, ptr %1178, i64 8
-  store i64 0, ptr %1180, align 8, !tbaa !53
-  %1181 = getelementptr inbounds nuw i8, ptr %1178, i64 4
-  %1182 = load i32, ptr %1181, align 4, !tbaa !8
-  %1183 = and i32 %1182, -513
-  store i32 %1183, ptr %1181, align 4, !tbaa !8
+1181:                                             ; preds = %1178
+  %1182 = and i64 %1171, -8
+  %1183 = add i64 %1182, 32
+  %1184 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1183) #11
+  %1185 = getelementptr inbounds nuw i8, ptr %1184, i64 16
+  store i64 %1171, ptr %1185, align 8, !tbaa !50
+  %1186 = getelementptr inbounds nuw i8, ptr %1184, i64 8
+  store i64 0, ptr %1186, align 8, !tbaa !53
+  %1187 = getelementptr inbounds nuw i8, ptr %1184, i64 4
+  %1188 = load i32, ptr %1187, align 4, !tbaa !8
+  %1189 = and i32 %1188, -513
+  store i32 %1189, ptr %1187, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i829.i:                    ; preds = %1164, %1172
-  %1184 = and i64 %1165, -8
-  %1185 = add i64 %1184, 32
-  %1186 = call noalias ptr @_emalloc(i64 noundef %1185) #9
-  store i32 1, ptr %1186, align 4, !tbaa !52
-  %1187 = getelementptr inbounds nuw i8, ptr %1186, i64 4
-  store i32 22, ptr %1187, align 4, !tbaa !8
-  %1188 = getelementptr inbounds nuw i8, ptr %1186, i64 8
-  store i64 0, ptr %1188, align 8, !tbaa !53
-  %1189 = getelementptr inbounds nuw i8, ptr %1186, i64 16
-  store i64 %1165, ptr %1189, align 8, !tbaa !50
-  %1190 = getelementptr inbounds nuw i8, ptr %1186, i64 24
-  %1191 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %1192 = load i64, ptr %1166, align 8, !tbaa !50
-  %1193 = add i64 %1192, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1190, ptr nonnull align 8 %1191, i64 %1193, i1 false)
-  %1194 = load i32, ptr %1169, align 4, !tbaa !8
-  %1195 = and i32 %1194, 64
-  %.not21.i830.i = icmp eq i32 %1195, 0
-  br i1 %.not21.i830.i, label %1196, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i829.i:                    ; preds = %1170, %1178
+  %1190 = and i64 %1171, -8
+  %1191 = add i64 %1190, 32
+  %1192 = call noalias ptr @_emalloc(i64 noundef %1191) #9
+  store i32 1, ptr %1192, align 4, !tbaa !52
+  %1193 = getelementptr inbounds nuw i8, ptr %1192, i64 4
+  store i32 22, ptr %1193, align 4, !tbaa !8
+  %1194 = getelementptr inbounds nuw i8, ptr %1192, i64 8
+  store i64 0, ptr %1194, align 8, !tbaa !53
+  %1195 = getelementptr inbounds nuw i8, ptr %1192, i64 16
+  store i64 %1171, ptr %1195, align 8, !tbaa !50
+  %1196 = getelementptr inbounds nuw i8, ptr %1192, i64 24
+  %1197 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %1198 = load i64, ptr %1172, align 8, !tbaa !50
+  %1199 = add i64 %1198, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1196, ptr nonnull align 8 %1197, i64 %1199, i1 false)
+  %1200 = load i32, ptr %1175, align 4, !tbaa !8
+  %1201 = and i32 %1200, 64
+  %.not21.i830.i = icmp eq i32 %1201, 0
+  br i1 %.not21.i830.i, label %1202, label %encode.exit894.thread.sink.split.i
 
-1196:                                             ; preds = %zend_string_alloc.exit.i829.i
-  %1197 = load i32, ptr %204, align 4, !tbaa !52
-  %1198 = icmp ne i32 %1197, 0
-  call void @llvm.assume(i1 %1198)
-  %1199 = add i32 %1197, -1
-  store i32 %1199, ptr %204, align 4, !tbaa !52
+1202:                                             ; preds = %zend_string_alloc.exit.i829.i
+  %1203 = load i32, ptr %204, align 4, !tbaa !52
+  %1204 = icmp ne i32 %1203, 0
+  call void @llvm.assume(i1 %1204)
+  %1205 = add i32 %1203, -1
+  store i32 %1205, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-1200:                                             ; preds = %1112
-  %.not652.i = icmp eq i8 %1114, 0
-  br i1 %.not652.i, label %.critedge699.i, label %1201
+1206:                                             ; preds = %1118
+  %.not652.i = icmp eq i8 %1120, 0
+  br i1 %.not652.i, label %.critedge699.i, label %1207
 
-1201:                                             ; preds = %1200
-  %1202 = getelementptr i8, ptr %206, i64 2
-  %1203 = load i8, ptr %1202, align 1, !tbaa !8
-  %1204 = zext i8 %1203 to i64
-  %1205 = getelementptr inbounds nuw i32, ptr %213, i64 %1204
-  %1206 = load i32, ptr %1205, align 4, !tbaa !60
-  %1207 = icmp eq i32 %1206, 72
-  br i1 %1207, label %encode.exit894.thread.i, label %.critedge699.i
+1207:                                             ; preds = %1206
+  %1208 = getelementptr i8, ptr %206, i64 2
+  %1209 = load i8, ptr %1208, align 1, !tbaa !8
+  %1210 = zext i8 %1209 to i64
+  %1211 = getelementptr inbounds nuw i32, ptr %213, i64 %1210
+  %1212 = load i32, ptr %1211, align 4, !tbaa !60
+  %1213 = icmp eq i32 %1212, 72
+  br i1 %1213, label %encode.exit894.thread.i, label %.critedge699.i
 
-.critedge699.i:                                   ; preds = %1201, %1200, %1119, %1118, %1112
-  %.not653.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not653.i, label %encode.exit894.thread.sink.split.i, label %1208
+.critedge699.i:                                   ; preds = %1207, %1206, %1125, %1124, %1118
+  %.not653.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not653.i, label %encode.exit894.thread.sink.split.i, label %1214
 
-1208:                                             ; preds = %.critedge699.i
-  %1209 = add i64 %.10621958.i, 2
-  %1210 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %1211 = load i64, ptr %1210, align 8, !tbaa !50
-  %1212 = icmp uge i64 %1209, %1211
-  call void @llvm.assume(i1 %1212)
-  %1213 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %1214 = load i32, ptr %1213, align 4, !tbaa !8
-  %1215 = and i32 %1214, 64
-  %.not.i833.i = icmp eq i32 %1215, 0
-  br i1 %.not.i833.i, label %1216, label %zend_string_alloc.exit.i834.i
+1214:                                             ; preds = %.critedge699.i
+  %1215 = add i64 %.10621954.i, 2
+  %1216 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %1217 = load i64, ptr %1216, align 8, !tbaa !50
+  %1218 = icmp uge i64 %1215, %1217
+  call void @llvm.assume(i1 %1218)
+  %1219 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %1220 = load i32, ptr %1219, align 4, !tbaa !8
+  %1221 = and i32 %1220, 64
+  %.not.i833.i = icmp eq i32 %1221, 0
+  br i1 %.not.i833.i, label %1222, label %zend_string_alloc.exit.i834.i
 
-1216:                                             ; preds = %1208
-  %1217 = load i32, ptr %204, align 4, !tbaa !52
-  %1218 = icmp eq i32 %1217, 1
-  br i1 %1218, label %1219, label %zend_string_alloc.exit.i834.i, !prof !10
+1222:                                             ; preds = %1214
+  %1223 = load i32, ptr %204, align 4, !tbaa !52
+  %1224 = icmp eq i32 %1223, 1
+  br i1 %1224, label %1225, label %zend_string_alloc.exit.i834.i, !prof !10
 
-1219:                                             ; preds = %1216
-  %1220 = and i64 %1209, -8
-  %1221 = add i64 %1220, 32
-  %1222 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1221) #11
-  %1223 = getelementptr inbounds nuw i8, ptr %1222, i64 16
-  store i64 %1209, ptr %1223, align 8, !tbaa !50
-  %1224 = getelementptr inbounds nuw i8, ptr %1222, i64 8
-  store i64 0, ptr %1224, align 8, !tbaa !53
-  %1225 = getelementptr inbounds nuw i8, ptr %1222, i64 4
-  %1226 = load i32, ptr %1225, align 4, !tbaa !8
-  %1227 = and i32 %1226, -513
-  store i32 %1227, ptr %1225, align 4, !tbaa !8
+1225:                                             ; preds = %1222
+  %1226 = and i64 %1215, -8
+  %1227 = add i64 %1226, 32
+  %1228 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1227) #11
+  %1229 = getelementptr inbounds nuw i8, ptr %1228, i64 16
+  store i64 %1215, ptr %1229, align 8, !tbaa !50
+  %1230 = getelementptr inbounds nuw i8, ptr %1228, i64 8
+  store i64 0, ptr %1230, align 8, !tbaa !53
+  %1231 = getelementptr inbounds nuw i8, ptr %1228, i64 4
+  %1232 = load i32, ptr %1231, align 4, !tbaa !8
+  %1233 = and i32 %1232, -513
+  store i32 %1233, ptr %1231, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i834.i:                    ; preds = %1208, %1216
-  %1228 = and i64 %1209, -8
-  %1229 = add i64 %1228, 32
-  %1230 = call noalias ptr @_emalloc(i64 noundef %1229) #9
-  store i32 1, ptr %1230, align 4, !tbaa !52
-  %1231 = getelementptr inbounds nuw i8, ptr %1230, i64 4
-  store i32 22, ptr %1231, align 4, !tbaa !8
-  %1232 = getelementptr inbounds nuw i8, ptr %1230, i64 8
-  store i64 0, ptr %1232, align 8, !tbaa !53
-  %1233 = getelementptr inbounds nuw i8, ptr %1230, i64 16
-  store i64 %1209, ptr %1233, align 8, !tbaa !50
-  %1234 = getelementptr inbounds nuw i8, ptr %1230, i64 24
-  %1235 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %1236 = load i64, ptr %1210, align 8, !tbaa !50
-  %1237 = add i64 %1236, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1234, ptr nonnull align 8 %1235, i64 %1237, i1 false)
-  %1238 = load i32, ptr %1213, align 4, !tbaa !8
-  %1239 = and i32 %1238, 64
-  %.not21.i835.i = icmp eq i32 %1239, 0
-  br i1 %.not21.i835.i, label %1240, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i834.i:                    ; preds = %1214, %1222
+  %1234 = and i64 %1215, -8
+  %1235 = add i64 %1234, 32
+  %1236 = call noalias ptr @_emalloc(i64 noundef %1235) #9
+  store i32 1, ptr %1236, align 4, !tbaa !52
+  %1237 = getelementptr inbounds nuw i8, ptr %1236, i64 4
+  store i32 22, ptr %1237, align 4, !tbaa !8
+  %1238 = getelementptr inbounds nuw i8, ptr %1236, i64 8
+  store i64 0, ptr %1238, align 8, !tbaa !53
+  %1239 = getelementptr inbounds nuw i8, ptr %1236, i64 16
+  store i64 %1215, ptr %1239, align 8, !tbaa !50
+  %1240 = getelementptr inbounds nuw i8, ptr %1236, i64 24
+  %1241 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %1242 = load i64, ptr %1216, align 8, !tbaa !50
+  %1243 = add i64 %1242, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1240, ptr nonnull align 8 %1241, i64 %1243, i1 false)
+  %1244 = load i32, ptr %1219, align 4, !tbaa !8
+  %1245 = and i32 %1244, 64
+  %.not21.i835.i = icmp eq i32 %1245, 0
+  br i1 %.not21.i835.i, label %1246, label %encode.exit894.thread.sink.split.i
 
-1240:                                             ; preds = %zend_string_alloc.exit.i834.i
-  %1241 = load i32, ptr %204, align 4, !tbaa !52
-  %1242 = icmp ne i32 %1241, 0
-  call void @llvm.assume(i1 %1242)
-  %1243 = add i32 %1241, -1
-  store i32 %1243, ptr %204, align 4, !tbaa !52
+1246:                                             ; preds = %zend_string_alloc.exit.i834.i
+  %1247 = load i32, ptr %204, align 4, !tbaa !52
+  %1248 = icmp ne i32 %1247, 0
+  call void @llvm.assume(i1 %1248)
+  %1249 = add i32 %1247, -1
+  store i32 %1249, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-1244:                                             ; preds = %231
-  %.not648.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not648.i, label %encode.exit894.thread.sink.split.i, label %1245
+1250:                                             ; preds = %233
+  %.not648.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not648.i, label %encode.exit894.thread.sink.split.i, label %1251
 
-1245:                                             ; preds = %1244
-  %1246 = add i64 %.10621958.i, 2
-  %1247 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %1248 = load i64, ptr %1247, align 8, !tbaa !50
-  %1249 = icmp uge i64 %1246, %1248
-  call void @llvm.assume(i1 %1249)
-  %1250 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %1251 = load i32, ptr %1250, align 4, !tbaa !8
-  %1252 = and i32 %1251, 64
-  %.not.i838.i = icmp eq i32 %1252, 0
-  br i1 %.not.i838.i, label %1253, label %zend_string_alloc.exit.i839.i
+1251:                                             ; preds = %1250
+  %1252 = add i64 %.10621954.i, 2
+  %1253 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %1254 = load i64, ptr %1253, align 8, !tbaa !50
+  %1255 = icmp uge i64 %1252, %1254
+  call void @llvm.assume(i1 %1255)
+  %1256 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %1257 = load i32, ptr %1256, align 4, !tbaa !8
+  %1258 = and i32 %1257, 64
+  %.not.i838.i = icmp eq i32 %1258, 0
+  br i1 %.not.i838.i, label %1259, label %zend_string_alloc.exit.i839.i
 
-1253:                                             ; preds = %1245
-  %1254 = load i32, ptr %204, align 4, !tbaa !52
-  %1255 = icmp eq i32 %1254, 1
-  br i1 %1255, label %1256, label %zend_string_alloc.exit.i839.i, !prof !10
+1259:                                             ; preds = %1251
+  %1260 = load i32, ptr %204, align 4, !tbaa !52
+  %1261 = icmp eq i32 %1260, 1
+  br i1 %1261, label %1262, label %zend_string_alloc.exit.i839.i, !prof !10
 
-1256:                                             ; preds = %1253
-  %1257 = and i64 %1246, -8
-  %1258 = add i64 %1257, 32
-  %1259 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1258) #11
-  %1260 = getelementptr inbounds nuw i8, ptr %1259, i64 16
-  store i64 %1246, ptr %1260, align 8, !tbaa !50
-  %1261 = getelementptr inbounds nuw i8, ptr %1259, i64 8
-  store i64 0, ptr %1261, align 8, !tbaa !53
-  %1262 = getelementptr inbounds nuw i8, ptr %1259, i64 4
-  %1263 = load i32, ptr %1262, align 4, !tbaa !8
-  %1264 = and i32 %1263, -513
-  store i32 %1264, ptr %1262, align 4, !tbaa !8
+1262:                                             ; preds = %1259
+  %1263 = and i64 %1252, -8
+  %1264 = add i64 %1263, 32
+  %1265 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1264) #11
+  %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 16
+  store i64 %1252, ptr %1266, align 8, !tbaa !50
+  %1267 = getelementptr inbounds nuw i8, ptr %1265, i64 8
+  store i64 0, ptr %1267, align 8, !tbaa !53
+  %1268 = getelementptr inbounds nuw i8, ptr %1265, i64 4
+  %1269 = load i32, ptr %1268, align 4, !tbaa !8
+  %1270 = and i32 %1269, -513
+  store i32 %1270, ptr %1268, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i839.i:                    ; preds = %1245, %1253
-  %1265 = and i64 %1246, -8
-  %1266 = add i64 %1265, 32
-  %1267 = call noalias ptr @_emalloc(i64 noundef %1266) #9
-  store i32 1, ptr %1267, align 4, !tbaa !52
-  %1268 = getelementptr inbounds nuw i8, ptr %1267, i64 4
-  store i32 22, ptr %1268, align 4, !tbaa !8
-  %1269 = getelementptr inbounds nuw i8, ptr %1267, i64 8
-  store i64 0, ptr %1269, align 8, !tbaa !53
-  %1270 = getelementptr inbounds nuw i8, ptr %1267, i64 16
-  store i64 %1246, ptr %1270, align 8, !tbaa !50
-  %1271 = getelementptr inbounds nuw i8, ptr %1267, i64 24
-  %1272 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %1273 = load i64, ptr %1247, align 8, !tbaa !50
-  %1274 = add i64 %1273, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1271, ptr nonnull align 8 %1272, i64 %1274, i1 false)
-  %1275 = load i32, ptr %1250, align 4, !tbaa !8
-  %1276 = and i32 %1275, 64
-  %.not21.i840.i = icmp eq i32 %1276, 0
-  br i1 %.not21.i840.i, label %1277, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i839.i:                    ; preds = %1251, %1259
+  %1271 = and i64 %1252, -8
+  %1272 = add i64 %1271, 32
+  %1273 = call noalias ptr @_emalloc(i64 noundef %1272) #9
+  store i32 1, ptr %1273, align 4, !tbaa !52
+  %1274 = getelementptr inbounds nuw i8, ptr %1273, i64 4
+  store i32 22, ptr %1274, align 4, !tbaa !8
+  %1275 = getelementptr inbounds nuw i8, ptr %1273, i64 8
+  store i64 0, ptr %1275, align 8, !tbaa !53
+  %1276 = getelementptr inbounds nuw i8, ptr %1273, i64 16
+  store i64 %1252, ptr %1276, align 8, !tbaa !50
+  %1277 = getelementptr inbounds nuw i8, ptr %1273, i64 24
+  %1278 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %1279 = load i64, ptr %1253, align 8, !tbaa !50
+  %1280 = add i64 %1279, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1277, ptr nonnull align 8 %1278, i64 %1280, i1 false)
+  %1281 = load i32, ptr %1256, align 4, !tbaa !8
+  %1282 = and i32 %1281, 64
+  %.not21.i840.i = icmp eq i32 %1282, 0
+  br i1 %.not21.i840.i, label %1283, label %encode.exit894.thread.sink.split.i
 
-1277:                                             ; preds = %zend_string_alloc.exit.i839.i
-  %1278 = load i32, ptr %204, align 4, !tbaa !52
-  %1279 = icmp ne i32 %1278, 0
-  call void @llvm.assume(i1 %1279)
-  %1280 = add i32 %1278, -1
-  store i32 %1280, ptr %204, align 4, !tbaa !52
+1283:                                             ; preds = %zend_string_alloc.exit.i839.i
+  %1284 = load i32, ptr %204, align 4, !tbaa !52
+  %1285 = icmp ne i32 %1284, 0
+  call void @llvm.assume(i1 %1285)
+  %1286 = add i32 %1284, -1
+  store i32 %1286, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-1281:                                             ; preds = %231
-  %1282 = getelementptr i8, ptr %206, i64 1
-  %1283 = load i8, ptr %1282, align 1, !tbaa !8
-  %1284 = zext i8 %1283 to i64
-  %1285 = getelementptr inbounds nuw i32, ptr %213, i64 %1284
-  %1286 = load i32, ptr %1285, align 4, !tbaa !60
-  %1287 = trunc i32 %1286 to i8
-  %1288 = sext i8 %1287 to i64
-  %1289 = getelementptr inbounds i16, ptr %207, i64 %1288
-  %1290 = load i16, ptr %1289, align 2, !tbaa !56
-  %1291 = and i16 %1290, 1024
-  %.not.i898.i = icmp eq i16 %1291, 0
+1287:                                             ; preds = %233
+  %1288 = getelementptr i8, ptr %206, i64 1
+  %1289 = load i8, ptr %1288, align 1, !tbaa !8
+  %1290 = zext i8 %1289 to i64
+  %1291 = getelementptr inbounds nuw i32, ptr %213, i64 %1290
+  %1292 = load i32, ptr %1291, align 4, !tbaa !60
+  %1293 = trunc i32 %1292 to i8
+  %1294 = sext i8 %1293 to i64
+  %1295 = getelementptr inbounds i16, ptr %207, i64 %1294
+  %1296 = load i16, ptr %1295, align 2, !tbaa !56
+  %1297 = and i16 %1296, 1024
+  %.not.i898.i = icmp eq i16 %1297, 0
   br i1 %.not.i898.i, label %encode.exit894.thread.i, label %encode.exit900.i
 
-encode.exit900.i:                                 ; preds = %1281
-  %.mask928.i = and i32 %1286, 127
-  %1292 = icmp samesign ugt i8 %1287, 64
-  call void @llvm.assume(i1 %1292)
-  %1293 = icmp samesign ult i8 %1287, 91
-  call void @llvm.assume(i1 %1293)
-  %1294 = add nsw i32 %.mask928.i, -65
-  %1295 = zext nneg i32 %1294 to i64
-  %1296 = shl nuw i64 1, %1295
-  %1297 = and i64 %1296, 66043630
-  %.not646.not.i = icmp eq i64 %1297, 0
-  br i1 %.not646.not.i, label %1298, label %encode.exit894.thread.i
+encode.exit900.i:                                 ; preds = %1287
+  %.mask928.i = and i32 %1292, 127
+  %1298 = icmp samesign ugt i8 %1293, 64
+  call void @llvm.assume(i1 %1298)
+  %1299 = icmp samesign ult i8 %1293, 91
+  call void @llvm.assume(i1 %1299)
+  %1300 = add nsw i32 %.mask928.i, -65
+  %1301 = zext nneg i32 %1300 to i64
+  %1302 = shl nuw i64 1, %1301
+  %1303 = and i64 %1302, 66043630
+  %.not646.not.i = icmp eq i64 %1303, 0
+  br i1 %.not646.not.i, label %1304, label %encode.exit894.thread.i
 
-1298:                                             ; preds = %encode.exit900.i
-  %.not647.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not647.i, label %encode.exit894.thread.sink.split.i, label %1299
+1304:                                             ; preds = %encode.exit900.i
+  %.not647.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not647.i, label %encode.exit894.thread.sink.split.i, label %1305
 
-1299:                                             ; preds = %1298
-  %1300 = add i64 %.10621958.i, 2
-  %1301 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %1302 = load i64, ptr %1301, align 8, !tbaa !50
-  %1303 = icmp uge i64 %1300, %1302
-  call void @llvm.assume(i1 %1303)
-  %1304 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %1305 = load i32, ptr %1304, align 4, !tbaa !8
-  %1306 = and i32 %1305, 64
-  %.not.i843.i = icmp eq i32 %1306, 0
-  br i1 %.not.i843.i, label %1307, label %zend_string_alloc.exit.i844.i
+1305:                                             ; preds = %1304
+  %1306 = add i64 %.10621954.i, 2
+  %1307 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %1308 = load i64, ptr %1307, align 8, !tbaa !50
+  %1309 = icmp uge i64 %1306, %1308
+  call void @llvm.assume(i1 %1309)
+  %1310 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %1311 = load i32, ptr %1310, align 4, !tbaa !8
+  %1312 = and i32 %1311, 64
+  %.not.i843.i = icmp eq i32 %1312, 0
+  br i1 %.not.i843.i, label %1313, label %zend_string_alloc.exit.i844.i
 
-1307:                                             ; preds = %1299
-  %1308 = load i32, ptr %204, align 4, !tbaa !52
-  %1309 = icmp eq i32 %1308, 1
-  br i1 %1309, label %1310, label %zend_string_alloc.exit.i844.i, !prof !10
+1313:                                             ; preds = %1305
+  %1314 = load i32, ptr %204, align 4, !tbaa !52
+  %1315 = icmp eq i32 %1314, 1
+  br i1 %1315, label %1316, label %zend_string_alloc.exit.i844.i, !prof !10
 
-1310:                                             ; preds = %1307
-  %1311 = and i64 %1300, -8
-  %1312 = add i64 %1311, 32
-  %1313 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1312) #11
-  %1314 = getelementptr inbounds nuw i8, ptr %1313, i64 16
-  store i64 %1300, ptr %1314, align 8, !tbaa !50
-  %1315 = getelementptr inbounds nuw i8, ptr %1313, i64 8
-  store i64 0, ptr %1315, align 8, !tbaa !53
-  %1316 = getelementptr inbounds nuw i8, ptr %1313, i64 4
-  %1317 = load i32, ptr %1316, align 4, !tbaa !8
-  %1318 = and i32 %1317, -513
-  store i32 %1318, ptr %1316, align 4, !tbaa !8
+1316:                                             ; preds = %1313
+  %1317 = and i64 %1306, -8
+  %1318 = add i64 %1317, 32
+  %1319 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1318) #11
+  %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 16
+  store i64 %1306, ptr %1320, align 8, !tbaa !50
+  %1321 = getelementptr inbounds nuw i8, ptr %1319, i64 8
+  store i64 0, ptr %1321, align 8, !tbaa !53
+  %1322 = getelementptr inbounds nuw i8, ptr %1319, i64 4
+  %1323 = load i32, ptr %1322, align 4, !tbaa !8
+  %1324 = and i32 %1323, -513
+  store i32 %1324, ptr %1322, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i844.i:                    ; preds = %1299, %1307
-  %1319 = and i64 %1300, -8
-  %1320 = add i64 %1319, 32
-  %1321 = call noalias ptr @_emalloc(i64 noundef %1320) #9
-  store i32 1, ptr %1321, align 4, !tbaa !52
-  %1322 = getelementptr inbounds nuw i8, ptr %1321, i64 4
-  store i32 22, ptr %1322, align 4, !tbaa !8
-  %1323 = getelementptr inbounds nuw i8, ptr %1321, i64 8
-  store i64 0, ptr %1323, align 8, !tbaa !53
-  %1324 = getelementptr inbounds nuw i8, ptr %1321, i64 16
-  store i64 %1300, ptr %1324, align 8, !tbaa !50
-  %1325 = getelementptr inbounds nuw i8, ptr %1321, i64 24
-  %1326 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %1327 = load i64, ptr %1301, align 8, !tbaa !50
-  %1328 = add i64 %1327, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1325, ptr nonnull align 8 %1326, i64 %1328, i1 false)
-  %1329 = load i32, ptr %1304, align 4, !tbaa !8
-  %1330 = and i32 %1329, 64
-  %.not21.i845.i = icmp eq i32 %1330, 0
-  br i1 %.not21.i845.i, label %1331, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i844.i:                    ; preds = %1305, %1313
+  %1325 = and i64 %1306, -8
+  %1326 = add i64 %1325, 32
+  %1327 = call noalias ptr @_emalloc(i64 noundef %1326) #9
+  store i32 1, ptr %1327, align 4, !tbaa !52
+  %1328 = getelementptr inbounds nuw i8, ptr %1327, i64 4
+  store i32 22, ptr %1328, align 4, !tbaa !8
+  %1329 = getelementptr inbounds nuw i8, ptr %1327, i64 8
+  store i64 0, ptr %1329, align 8, !tbaa !53
+  %1330 = getelementptr inbounds nuw i8, ptr %1327, i64 16
+  store i64 %1306, ptr %1330, align 8, !tbaa !50
+  %1331 = getelementptr inbounds nuw i8, ptr %1327, i64 24
+  %1332 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %1333 = load i64, ptr %1307, align 8, !tbaa !50
+  %1334 = add i64 %1333, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1331, ptr nonnull align 8 %1332, i64 %1334, i1 false)
+  %1335 = load i32, ptr %1310, align 4, !tbaa !8
+  %1336 = and i32 %1335, 64
+  %.not21.i845.i = icmp eq i32 %1336, 0
+  br i1 %.not21.i845.i, label %1337, label %encode.exit894.thread.sink.split.i
 
-1331:                                             ; preds = %zend_string_alloc.exit.i844.i
-  %1332 = load i32, ptr %204, align 4, !tbaa !52
-  %1333 = icmp ne i32 %1332, 0
-  call void @llvm.assume(i1 %1333)
-  %1334 = add i32 %1332, -1
-  store i32 %1334, ptr %204, align 4, !tbaa !52
+1337:                                             ; preds = %zend_string_alloc.exit.i844.i
+  %1338 = load i32, ptr %204, align 4, !tbaa !52
+  %1339 = icmp ne i32 %1338, 0
+  call void @llvm.assume(i1 %1339)
+  %1340 = add i32 %1338, -1
+  store i32 %1340, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-1335:                                             ; preds = %231
-  %.not644.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not644.i, label %zend_string_extend.exit852.i, label %1336
+1341:                                             ; preds = %233
+  %.not644.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not644.i, label %zend_string_extend.exit852.i, label %1342
 
-1336:                                             ; preds = %1335
-  %1337 = add i64 %.10621958.i, 2
-  %1338 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %1339 = load i64, ptr %1338, align 8, !tbaa !50
-  %1340 = icmp uge i64 %1337, %1339
-  call void @llvm.assume(i1 %1340)
-  %1341 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %1342 = load i32, ptr %1341, align 4, !tbaa !8
-  %1343 = and i32 %1342, 64
-  %.not.i848.i = icmp eq i32 %1343, 0
-  br i1 %.not.i848.i, label %1344, label %zend_string_alloc.exit.i849.i
+1342:                                             ; preds = %1341
+  %1343 = add i64 %.10621954.i, 2
+  %1344 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %1345 = load i64, ptr %1344, align 8, !tbaa !50
+  %1346 = icmp uge i64 %1343, %1345
+  call void @llvm.assume(i1 %1346)
+  %1347 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %1348 = load i32, ptr %1347, align 4, !tbaa !8
+  %1349 = and i32 %1348, 64
+  %.not.i848.i = icmp eq i32 %1349, 0
+  br i1 %.not.i848.i, label %1350, label %zend_string_alloc.exit.i849.i
 
-1344:                                             ; preds = %1336
-  %1345 = load i32, ptr %204, align 4, !tbaa !52
-  %1346 = icmp eq i32 %1345, 1
-  br i1 %1346, label %1347, label %zend_string_alloc.exit.i849.i, !prof !10
+1350:                                             ; preds = %1342
+  %1351 = load i32, ptr %204, align 4, !tbaa !52
+  %1352 = icmp eq i32 %1351, 1
+  br i1 %1352, label %1353, label %zend_string_alloc.exit.i849.i, !prof !10
 
-1347:                                             ; preds = %1344
-  %1348 = and i64 %1337, -8
-  %1349 = add i64 %1348, 32
-  %1350 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1349) #11
-  %1351 = getelementptr inbounds nuw i8, ptr %1350, i64 16
-  store i64 %1337, ptr %1351, align 8, !tbaa !50
-  %1352 = getelementptr inbounds nuw i8, ptr %1350, i64 8
-  store i64 0, ptr %1352, align 8, !tbaa !53
-  %1353 = getelementptr inbounds nuw i8, ptr %1350, i64 4
-  %1354 = load i32, ptr %1353, align 4, !tbaa !8
-  %1355 = and i32 %1354, -513
-  store i32 %1355, ptr %1353, align 4, !tbaa !8
+1353:                                             ; preds = %1350
+  %1354 = and i64 %1343, -8
+  %1355 = add i64 %1354, 32
+  %1356 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1355) #11
+  %1357 = getelementptr inbounds nuw i8, ptr %1356, i64 16
+  store i64 %1343, ptr %1357, align 8, !tbaa !50
+  %1358 = getelementptr inbounds nuw i8, ptr %1356, i64 8
+  store i64 0, ptr %1358, align 8, !tbaa !53
+  %1359 = getelementptr inbounds nuw i8, ptr %1356, i64 4
+  %1360 = load i32, ptr %1359, align 4, !tbaa !8
+  %1361 = and i32 %1360, -513
+  store i32 %1361, ptr %1359, align 4, !tbaa !8
   br label %zend_string_extend.exit852.i
 
-zend_string_alloc.exit.i849.i:                    ; preds = %1336, %1344
-  %1356 = and i64 %1337, -8
-  %1357 = add i64 %1356, 32
-  %1358 = call noalias ptr @_emalloc(i64 noundef %1357) #9
-  store i32 1, ptr %1358, align 4, !tbaa !52
-  %1359 = getelementptr inbounds nuw i8, ptr %1358, i64 4
-  store i32 22, ptr %1359, align 4, !tbaa !8
-  %1360 = getelementptr inbounds nuw i8, ptr %1358, i64 8
-  store i64 0, ptr %1360, align 8, !tbaa !53
-  %1361 = getelementptr inbounds nuw i8, ptr %1358, i64 16
-  store i64 %1337, ptr %1361, align 8, !tbaa !50
-  %1362 = getelementptr inbounds nuw i8, ptr %1358, i64 24
-  %1363 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %1364 = load i64, ptr %1338, align 8, !tbaa !50
-  %1365 = add i64 %1364, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1362, ptr nonnull align 8 %1363, i64 %1365, i1 false)
-  %1366 = load i32, ptr %1341, align 4, !tbaa !8
-  %1367 = and i32 %1366, 64
-  %.not21.i850.i = icmp eq i32 %1367, 0
-  br i1 %.not21.i850.i, label %1368, label %zend_string_extend.exit852.i
+zend_string_alloc.exit.i849.i:                    ; preds = %1342, %1350
+  %1362 = and i64 %1343, -8
+  %1363 = add i64 %1362, 32
+  %1364 = call noalias ptr @_emalloc(i64 noundef %1363) #9
+  store i32 1, ptr %1364, align 4, !tbaa !52
+  %1365 = getelementptr inbounds nuw i8, ptr %1364, i64 4
+  store i32 22, ptr %1365, align 4, !tbaa !8
+  %1366 = getelementptr inbounds nuw i8, ptr %1364, i64 8
+  store i64 0, ptr %1366, align 8, !tbaa !53
+  %1367 = getelementptr inbounds nuw i8, ptr %1364, i64 16
+  store i64 %1343, ptr %1367, align 8, !tbaa !50
+  %1368 = getelementptr inbounds nuw i8, ptr %1364, i64 24
+  %1369 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %1370 = load i64, ptr %1344, align 8, !tbaa !50
+  %1371 = add i64 %1370, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1368, ptr nonnull align 8 %1369, i64 %1371, i1 false)
+  %1372 = load i32, ptr %1347, align 4, !tbaa !8
+  %1373 = and i32 %1372, 64
+  %.not21.i850.i = icmp eq i32 %1373, 0
+  br i1 %.not21.i850.i, label %1374, label %zend_string_extend.exit852.i
 
-1368:                                             ; preds = %zend_string_alloc.exit.i849.i
-  %1369 = load i32, ptr %204, align 4, !tbaa !52
-  %1370 = icmp ne i32 %1369, 0
-  call void @llvm.assume(i1 %1370)
-  %1371 = add i32 %1369, -1
-  store i32 %1371, ptr %204, align 4, !tbaa !52
+1374:                                             ; preds = %zend_string_alloc.exit.i849.i
+  %1375 = load i32, ptr %204, align 4, !tbaa !52
+  %1376 = icmp ne i32 %1375, 0
+  call void @llvm.assume(i1 %1376)
+  %1377 = add i32 %1375, -1
+  store i32 %1377, ptr %204, align 4, !tbaa !52
   br label %zend_string_extend.exit852.i
 
-zend_string_extend.exit852.i:                     ; preds = %1347, %zend_string_alloc.exit.i849.i, %1368, %1335
-  %.8 = phi ptr [ %.2, %1335 ], [ %1350, %1347 ], [ %1358, %1368 ], [ %1358, %zend_string_alloc.exit.i849.i ]
-  %1372 = phi ptr [ %204, %1335 ], [ %1350, %1347 ], [ %1358, %1368 ], [ %1358, %zend_string_alloc.exit.i849.i ]
-  %.46.i = phi i64 [ %.10621958.i, %1335 ], [ %1337, %1347 ], [ %1337, %1368 ], [ %1337, %zend_string_alloc.exit.i849.i ]
-  %1373 = getelementptr inbounds nuw i8, ptr %1372, i64 24
-  %1374 = add i64 %.2607959.i, 1
-  %1375 = getelementptr inbounds nuw [1 x i8], ptr %1373, i64 0, i64 %.2607959.i
-  store i8 75, ptr %1375, align 1, !tbaa !8
-  %1376 = getelementptr inbounds nuw i8, ptr %.8, i64 16
-  store i64 %1374, ptr %1376, align 8, !tbaa !50
-  %.not645.i = icmp ult i64 %1374, %.46.i
-  br i1 %.not645.i, label %encode.exit894.thread.sink.split.i, label %1377
+zend_string_extend.exit852.i:                     ; preds = %1353, %zend_string_alloc.exit.i849.i, %1374, %1341
+  %.8 = phi ptr [ %.2, %1341 ], [ %1356, %1353 ], [ %1364, %1374 ], [ %1364, %zend_string_alloc.exit.i849.i ]
+  %1378 = phi ptr [ %204, %1341 ], [ %1356, %1353 ], [ %1364, %1374 ], [ %1364, %zend_string_alloc.exit.i849.i ]
+  %.46.i = phi i64 [ %.10621954.i, %1341 ], [ %1343, %1353 ], [ %1343, %1374 ], [ %1343, %zend_string_alloc.exit.i849.i ]
+  %1379 = getelementptr inbounds nuw i8, ptr %1378, i64 24
+  %1380 = add i64 %.2607955.i, 1
+  %1381 = getelementptr inbounds nuw [1 x i8], ptr %1379, i64 0, i64 %.2607955.i
+  store i8 75, ptr %1381, align 1, !tbaa !8
+  %1382 = getelementptr inbounds nuw i8, ptr %.8, i64 16
+  store i64 %1380, ptr %1382, align 8, !tbaa !50
+  %.not645.i = icmp ult i64 %1380, %.46.i
+  br i1 %.not645.i, label %encode.exit894.thread.sink.split.i, label %1383
 
-1377:                                             ; preds = %zend_string_extend.exit852.i
-  %1378 = add i64 %.46.i, 2
-  %1379 = icmp uge i64 %1378, %1374
-  call void @llvm.assume(i1 %1379)
-  %1380 = getelementptr inbounds nuw i8, ptr %.8, i64 4
-  %1381 = load i32, ptr %1380, align 4, !tbaa !8
-  %1382 = and i32 %1381, 64
-  %.not.i853.i = icmp eq i32 %1382, 0
-  br i1 %.not.i853.i, label %1383, label %zend_string_alloc.exit.i854.i
+1383:                                             ; preds = %zend_string_extend.exit852.i
+  %1384 = add i64 %.46.i, 2
+  %1385 = icmp uge i64 %1384, %1380
+  call void @llvm.assume(i1 %1385)
+  %1386 = getelementptr inbounds nuw i8, ptr %.8, i64 4
+  %1387 = load i32, ptr %1386, align 4, !tbaa !8
+  %1388 = and i32 %1387, 64
+  %.not.i853.i = icmp eq i32 %1388, 0
+  br i1 %.not.i853.i, label %1389, label %zend_string_alloc.exit.i854.i
 
-1383:                                             ; preds = %1377
-  %1384 = load i32, ptr %.8, align 4, !tbaa !52
-  %1385 = icmp eq i32 %1384, 1
-  br i1 %1385, label %1386, label %zend_string_alloc.exit.i854.i, !prof !10
+1389:                                             ; preds = %1383
+  %1390 = load i32, ptr %.8, align 4, !tbaa !52
+  %1391 = icmp eq i32 %1390, 1
+  br i1 %1391, label %1392, label %zend_string_alloc.exit.i854.i, !prof !10
 
-1386:                                             ; preds = %1383
-  %1387 = and i64 %1378, -8
-  %1388 = add i64 %1387, 32
-  %1389 = call ptr @_erealloc(ptr noundef nonnull %.8, i64 noundef %1388) #11
-  %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 16
-  store i64 %1378, ptr %1390, align 8, !tbaa !50
-  %1391 = getelementptr inbounds nuw i8, ptr %1389, i64 8
-  store i64 0, ptr %1391, align 8, !tbaa !53
-  %1392 = getelementptr inbounds nuw i8, ptr %1389, i64 4
-  %1393 = load i32, ptr %1392, align 4, !tbaa !8
-  %1394 = and i32 %1393, -513
-  store i32 %1394, ptr %1392, align 4, !tbaa !8
+1392:                                             ; preds = %1389
+  %1393 = and i64 %1384, -8
+  %1394 = add i64 %1393, 32
+  %1395 = call ptr @_erealloc(ptr noundef nonnull %.8, i64 noundef %1394) #11
+  %1396 = getelementptr inbounds nuw i8, ptr %1395, i64 16
+  store i64 %1384, ptr %1396, align 8, !tbaa !50
+  %1397 = getelementptr inbounds nuw i8, ptr %1395, i64 8
+  store i64 0, ptr %1397, align 8, !tbaa !53
+  %1398 = getelementptr inbounds nuw i8, ptr %1395, i64 4
+  %1399 = load i32, ptr %1398, align 4, !tbaa !8
+  %1400 = and i32 %1399, -513
+  store i32 %1400, ptr %1398, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i854.i:                    ; preds = %1377, %1383
-  %1395 = and i64 %1378, -8
-  %1396 = add i64 %1395, 32
-  %1397 = call noalias ptr @_emalloc(i64 noundef %1396) #9
-  store i32 1, ptr %1397, align 4, !tbaa !52
-  %1398 = getelementptr inbounds nuw i8, ptr %1397, i64 4
-  store i32 22, ptr %1398, align 4, !tbaa !8
-  %1399 = getelementptr inbounds nuw i8, ptr %1397, i64 8
-  store i64 0, ptr %1399, align 8, !tbaa !53
-  %1400 = getelementptr inbounds nuw i8, ptr %1397, i64 16
-  store i64 %1378, ptr %1400, align 8, !tbaa !50
-  %1401 = getelementptr inbounds nuw i8, ptr %1397, i64 24
-  %1402 = getelementptr inbounds nuw i8, ptr %.8, i64 24
-  %1403 = load i64, ptr %1376, align 8, !tbaa !50
-  %1404 = add i64 %1403, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1401, ptr nonnull align 8 %1402, i64 %1404, i1 false)
-  %1405 = load i32, ptr %1380, align 4, !tbaa !8
-  %1406 = and i32 %1405, 64
-  %.not21.i855.i = icmp eq i32 %1406, 0
-  br i1 %.not21.i855.i, label %1407, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i854.i:                    ; preds = %1383, %1389
+  %1401 = and i64 %1384, -8
+  %1402 = add i64 %1401, 32
+  %1403 = call noalias ptr @_emalloc(i64 noundef %1402) #9
+  store i32 1, ptr %1403, align 4, !tbaa !52
+  %1404 = getelementptr inbounds nuw i8, ptr %1403, i64 4
+  store i32 22, ptr %1404, align 4, !tbaa !8
+  %1405 = getelementptr inbounds nuw i8, ptr %1403, i64 8
+  store i64 0, ptr %1405, align 8, !tbaa !53
+  %1406 = getelementptr inbounds nuw i8, ptr %1403, i64 16
+  store i64 %1384, ptr %1406, align 8, !tbaa !50
+  %1407 = getelementptr inbounds nuw i8, ptr %1403, i64 24
+  %1408 = getelementptr inbounds nuw i8, ptr %.8, i64 24
+  %1409 = load i64, ptr %1382, align 8, !tbaa !50
+  %1410 = add i64 %1409, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1407, ptr nonnull align 8 %1408, i64 %1410, i1 false)
+  %1411 = load i32, ptr %1386, align 4, !tbaa !8
+  %1412 = and i32 %1411, 64
+  %.not21.i855.i = icmp eq i32 %1412, 0
+  br i1 %.not21.i855.i, label %1413, label %encode.exit894.thread.sink.split.i
 
-1407:                                             ; preds = %zend_string_alloc.exit.i854.i
-  %1408 = load i32, ptr %.8, align 4, !tbaa !52
-  %1409 = icmp ne i32 %1408, 0
-  call void @llvm.assume(i1 %1409)
-  %1410 = add i32 %1408, -1
-  store i32 %1410, ptr %.8, align 4, !tbaa !52
+1413:                                             ; preds = %zend_string_alloc.exit.i854.i
+  %1414 = load i32, ptr %.8, align 4, !tbaa !52
+  %1415 = icmp ne i32 %1414, 0
+  call void @llvm.assume(i1 %1415)
+  %1416 = add i32 %1414, -1
+  store i32 %1416, ptr %.8, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-1411:                                             ; preds = %231
-  %1412 = getelementptr i8, ptr %206, i64 1
-  %1413 = load i8, ptr %1412, align 1, !tbaa !8
-  %1414 = zext i8 %1413 to i64
-  %1415 = getelementptr inbounds nuw i32, ptr %213, i64 %1414
-  %1416 = load i32, ptr %1415, align 4, !tbaa !60
-  %1417 = trunc i32 %1416 to i8
-  %1418 = sext i8 %1417 to i64
-  %1419 = getelementptr inbounds i16, ptr %207, i64 %1418
-  %1420 = load i16, ptr %1419, align 2, !tbaa !56
-  %1421 = and i16 %1420, 1024
-  %.not.i901.i = icmp eq i16 %1421, 0
+1417:                                             ; preds = %233
+  %1418 = getelementptr i8, ptr %206, i64 1
+  %1419 = load i8, ptr %1418, align 1, !tbaa !8
+  %1420 = zext i8 %1419 to i64
+  %1421 = getelementptr inbounds nuw i32, ptr %213, i64 %1420
+  %1422 = load i32, ptr %1421, align 4, !tbaa !60
+  %1423 = trunc i32 %1422 to i8
+  %1424 = sext i8 %1423 to i64
+  %1425 = getelementptr inbounds i16, ptr %207, i64 %1424
+  %1426 = load i16, ptr %1425, align 2, !tbaa !56
+  %1427 = and i16 %1426, 1024
+  %.not.i901.i = icmp eq i16 %1427, 0
   br i1 %.not.i901.i, label %encode.exit894.thread.i, label %encode.exit903.i
 
-encode.exit903.i:                                 ; preds = %1411
-  %.mask927.i = and i32 %1416, 127
-  %1422 = icmp samesign ugt i8 %1417, 64
-  call void @llvm.assume(i1 %1422)
-  %1423 = icmp samesign ult i8 %1417, 91
-  call void @llvm.assume(i1 %1423)
-  %1424 = add nsw i32 %.mask927.i, -65
-  %1425 = zext nneg i32 %1424 to i64
-  %1426 = shl nuw i64 1, %1425
-  %1427 = and i64 %1426, 66043630
-  %.not642.not.i = icmp eq i64 %1427, 0
-  br i1 %.not642.not.i, label %1428, label %encode.exit894.thread.i
+encode.exit903.i:                                 ; preds = %1417
+  %.mask927.i = and i32 %1422, 127
+  %1428 = icmp samesign ugt i8 %1423, 64
+  call void @llvm.assume(i1 %1428)
+  %1429 = icmp samesign ult i8 %1423, 91
+  call void @llvm.assume(i1 %1429)
+  %1430 = add nsw i32 %.mask927.i, -65
+  %1431 = zext nneg i32 %1430 to i64
+  %1432 = shl nuw i64 1, %1431
+  %1433 = and i64 %1432, 66043630
+  %.not642.not.i = icmp eq i64 %1433, 0
+  br i1 %.not642.not.i, label %1434, label %encode.exit894.thread.i
 
-1428:                                             ; preds = %encode.exit903.i
-  %.not643.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not643.i, label %encode.exit894.thread.sink.split.i, label %1429
+1434:                                             ; preds = %encode.exit903.i
+  %.not643.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not643.i, label %encode.exit894.thread.sink.split.i, label %1435
 
-1429:                                             ; preds = %1428
-  %1430 = add i64 %.10621958.i, 2
-  %1431 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %1432 = load i64, ptr %1431, align 8, !tbaa !50
-  %1433 = icmp uge i64 %1430, %1432
-  call void @llvm.assume(i1 %1433)
-  %1434 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %1435 = load i32, ptr %1434, align 4, !tbaa !8
-  %1436 = and i32 %1435, 64
-  %.not.i858.i = icmp eq i32 %1436, 0
-  br i1 %.not.i858.i, label %1437, label %zend_string_alloc.exit.i859.i
+1435:                                             ; preds = %1434
+  %1436 = add i64 %.10621954.i, 2
+  %1437 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %1438 = load i64, ptr %1437, align 8, !tbaa !50
+  %1439 = icmp uge i64 %1436, %1438
+  call void @llvm.assume(i1 %1439)
+  %1440 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %1441 = load i32, ptr %1440, align 4, !tbaa !8
+  %1442 = and i32 %1441, 64
+  %.not.i858.i = icmp eq i32 %1442, 0
+  br i1 %.not.i858.i, label %1443, label %zend_string_alloc.exit.i859.i
 
-1437:                                             ; preds = %1429
-  %1438 = load i32, ptr %204, align 4, !tbaa !52
-  %1439 = icmp eq i32 %1438, 1
-  br i1 %1439, label %1440, label %zend_string_alloc.exit.i859.i, !prof !10
+1443:                                             ; preds = %1435
+  %1444 = load i32, ptr %204, align 4, !tbaa !52
+  %1445 = icmp eq i32 %1444, 1
+  br i1 %1445, label %1446, label %zend_string_alloc.exit.i859.i, !prof !10
 
-1440:                                             ; preds = %1437
-  %1441 = and i64 %1430, -8
-  %1442 = add i64 %1441, 32
-  %1443 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1442) #11
-  %1444 = getelementptr inbounds nuw i8, ptr %1443, i64 16
-  store i64 %1430, ptr %1444, align 8, !tbaa !50
-  %1445 = getelementptr inbounds nuw i8, ptr %1443, i64 8
-  store i64 0, ptr %1445, align 8, !tbaa !53
-  %1446 = getelementptr inbounds nuw i8, ptr %1443, i64 4
-  %1447 = load i32, ptr %1446, align 4, !tbaa !8
-  %1448 = and i32 %1447, -513
-  store i32 %1448, ptr %1446, align 4, !tbaa !8
+1446:                                             ; preds = %1443
+  %1447 = and i64 %1436, -8
+  %1448 = add i64 %1447, 32
+  %1449 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1448) #11
+  %1450 = getelementptr inbounds nuw i8, ptr %1449, i64 16
+  store i64 %1436, ptr %1450, align 8, !tbaa !50
+  %1451 = getelementptr inbounds nuw i8, ptr %1449, i64 8
+  store i64 0, ptr %1451, align 8, !tbaa !53
+  %1452 = getelementptr inbounds nuw i8, ptr %1449, i64 4
+  %1453 = load i32, ptr %1452, align 4, !tbaa !8
+  %1454 = and i32 %1453, -513
+  store i32 %1454, ptr %1452, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i859.i:                    ; preds = %1429, %1437
-  %1449 = and i64 %1430, -8
-  %1450 = add i64 %1449, 32
-  %1451 = call noalias ptr @_emalloc(i64 noundef %1450) #9
-  store i32 1, ptr %1451, align 4, !tbaa !52
-  %1452 = getelementptr inbounds nuw i8, ptr %1451, i64 4
-  store i32 22, ptr %1452, align 4, !tbaa !8
-  %1453 = getelementptr inbounds nuw i8, ptr %1451, i64 8
-  store i64 0, ptr %1453, align 8, !tbaa !53
-  %1454 = getelementptr inbounds nuw i8, ptr %1451, i64 16
-  store i64 %1430, ptr %1454, align 8, !tbaa !50
-  %1455 = getelementptr inbounds nuw i8, ptr %1451, i64 24
-  %1456 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %1457 = load i64, ptr %1431, align 8, !tbaa !50
-  %1458 = add i64 %1457, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1455, ptr nonnull align 8 %1456, i64 %1458, i1 false)
-  %1459 = load i32, ptr %1434, align 4, !tbaa !8
-  %1460 = and i32 %1459, 64
-  %.not21.i860.i = icmp eq i32 %1460, 0
-  br i1 %.not21.i860.i, label %1461, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i859.i:                    ; preds = %1435, %1443
+  %1455 = and i64 %1436, -8
+  %1456 = add i64 %1455, 32
+  %1457 = call noalias ptr @_emalloc(i64 noundef %1456) #9
+  store i32 1, ptr %1457, align 4, !tbaa !52
+  %1458 = getelementptr inbounds nuw i8, ptr %1457, i64 4
+  store i32 22, ptr %1458, align 4, !tbaa !8
+  %1459 = getelementptr inbounds nuw i8, ptr %1457, i64 8
+  store i64 0, ptr %1459, align 8, !tbaa !53
+  %1460 = getelementptr inbounds nuw i8, ptr %1457, i64 16
+  store i64 %1436, ptr %1460, align 8, !tbaa !50
+  %1461 = getelementptr inbounds nuw i8, ptr %1457, i64 24
+  %1462 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %1463 = load i64, ptr %1437, align 8, !tbaa !50
+  %1464 = add i64 %1463, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1461, ptr nonnull align 8 %1462, i64 %1464, i1 false)
+  %1465 = load i32, ptr %1440, align 4, !tbaa !8
+  %1466 = and i32 %1465, 64
+  %.not21.i860.i = icmp eq i32 %1466, 0
+  br i1 %.not21.i860.i, label %1467, label %encode.exit894.thread.sink.split.i
 
-1461:                                             ; preds = %zend_string_alloc.exit.i859.i
-  %1462 = load i32, ptr %204, align 4, !tbaa !52
-  %1463 = icmp ne i32 %1462, 0
-  call void @llvm.assume(i1 %1463)
-  %1464 = add i32 %1462, -1
-  store i32 %1464, ptr %204, align 4, !tbaa !52
+1467:                                             ; preds = %zend_string_alloc.exit.i859.i
+  %1468 = load i32, ptr %204, align 4, !tbaa !52
+  %1469 = icmp ne i32 %1468, 0
+  call void @llvm.assume(i1 %1469)
+  %1470 = add i32 %1468, -1
+  store i32 %1470, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-1465:                                             ; preds = %231
-  %.not641.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not641.i, label %encode.exit894.thread.sink.split.i, label %1466
+1471:                                             ; preds = %233
+  %.not641.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not641.i, label %encode.exit894.thread.sink.split.i, label %1472
 
-1466:                                             ; preds = %1465
-  %1467 = add i64 %.10621958.i, 2
-  %1468 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %1469 = load i64, ptr %1468, align 8, !tbaa !50
-  %1470 = icmp uge i64 %1467, %1469
-  call void @llvm.assume(i1 %1470)
-  %1471 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %1472 = load i32, ptr %1471, align 4, !tbaa !8
-  %1473 = and i32 %1472, 64
-  %.not.i863.i = icmp eq i32 %1473, 0
-  br i1 %.not.i863.i, label %1474, label %zend_string_alloc.exit.i864.i
+1472:                                             ; preds = %1471
+  %1473 = add i64 %.10621954.i, 2
+  %1474 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %1475 = load i64, ptr %1474, align 8, !tbaa !50
+  %1476 = icmp uge i64 %1473, %1475
+  call void @llvm.assume(i1 %1476)
+  %1477 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %1478 = load i32, ptr %1477, align 4, !tbaa !8
+  %1479 = and i32 %1478, 64
+  %.not.i863.i = icmp eq i32 %1479, 0
+  br i1 %.not.i863.i, label %1480, label %zend_string_alloc.exit.i864.i
 
-1474:                                             ; preds = %1466
-  %1475 = load i32, ptr %204, align 4, !tbaa !52
-  %1476 = icmp eq i32 %1475, 1
-  br i1 %1476, label %1477, label %zend_string_alloc.exit.i864.i, !prof !10
+1480:                                             ; preds = %1472
+  %1481 = load i32, ptr %204, align 4, !tbaa !52
+  %1482 = icmp eq i32 %1481, 1
+  br i1 %1482, label %1483, label %zend_string_alloc.exit.i864.i, !prof !10
 
-1477:                                             ; preds = %1474
-  %1478 = and i64 %1467, -8
-  %1479 = add i64 %1478, 32
-  %1480 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1479) #11
-  %1481 = getelementptr inbounds nuw i8, ptr %1480, i64 16
-  store i64 %1467, ptr %1481, align 8, !tbaa !50
-  %1482 = getelementptr inbounds nuw i8, ptr %1480, i64 8
-  store i64 0, ptr %1482, align 8, !tbaa !53
-  %1483 = getelementptr inbounds nuw i8, ptr %1480, i64 4
-  %1484 = load i32, ptr %1483, align 4, !tbaa !8
-  %1485 = and i32 %1484, -513
-  store i32 %1485, ptr %1483, align 4, !tbaa !8
+1483:                                             ; preds = %1480
+  %1484 = and i64 %1473, -8
+  %1485 = add i64 %1484, 32
+  %1486 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1485) #11
+  %1487 = getelementptr inbounds nuw i8, ptr %1486, i64 16
+  store i64 %1473, ptr %1487, align 8, !tbaa !50
+  %1488 = getelementptr inbounds nuw i8, ptr %1486, i64 8
+  store i64 0, ptr %1488, align 8, !tbaa !53
+  %1489 = getelementptr inbounds nuw i8, ptr %1486, i64 4
+  %1490 = load i32, ptr %1489, align 4, !tbaa !8
+  %1491 = and i32 %1490, -513
+  store i32 %1491, ptr %1489, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i864.i:                    ; preds = %1466, %1474
-  %1486 = and i64 %1467, -8
-  %1487 = add i64 %1486, 32
-  %1488 = call noalias ptr @_emalloc(i64 noundef %1487) #9
-  store i32 1, ptr %1488, align 4, !tbaa !52
-  %1489 = getelementptr inbounds nuw i8, ptr %1488, i64 4
-  store i32 22, ptr %1489, align 4, !tbaa !8
-  %1490 = getelementptr inbounds nuw i8, ptr %1488, i64 8
-  store i64 0, ptr %1490, align 8, !tbaa !53
-  %1491 = getelementptr inbounds nuw i8, ptr %1488, i64 16
-  store i64 %1467, ptr %1491, align 8, !tbaa !50
-  %1492 = getelementptr inbounds nuw i8, ptr %1488, i64 24
-  %1493 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %1494 = load i64, ptr %1468, align 8, !tbaa !50
-  %1495 = add i64 %1494, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1492, ptr nonnull align 8 %1493, i64 %1495, i1 false)
-  %1496 = load i32, ptr %1471, align 4, !tbaa !8
-  %1497 = and i32 %1496, 64
-  %.not21.i865.i = icmp eq i32 %1497, 0
-  br i1 %.not21.i865.i, label %1498, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i864.i:                    ; preds = %1472, %1480
+  %1492 = and i64 %1473, -8
+  %1493 = add i64 %1492, 32
+  %1494 = call noalias ptr @_emalloc(i64 noundef %1493) #9
+  store i32 1, ptr %1494, align 4, !tbaa !52
+  %1495 = getelementptr inbounds nuw i8, ptr %1494, i64 4
+  store i32 22, ptr %1495, align 4, !tbaa !8
+  %1496 = getelementptr inbounds nuw i8, ptr %1494, i64 8
+  store i64 0, ptr %1496, align 8, !tbaa !53
+  %1497 = getelementptr inbounds nuw i8, ptr %1494, i64 16
+  store i64 %1473, ptr %1497, align 8, !tbaa !50
+  %1498 = getelementptr inbounds nuw i8, ptr %1494, i64 24
+  %1499 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %1500 = load i64, ptr %1474, align 8, !tbaa !50
+  %1501 = add i64 %1500, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1498, ptr nonnull align 8 %1499, i64 %1501, i1 false)
+  %1502 = load i32, ptr %1477, align 4, !tbaa !8
+  %1503 = and i32 %1502, 64
+  %.not21.i865.i = icmp eq i32 %1503, 0
+  br i1 %.not21.i865.i, label %1504, label %encode.exit894.thread.sink.split.i
 
-1498:                                             ; preds = %zend_string_alloc.exit.i864.i
-  %1499 = load i32, ptr %204, align 4, !tbaa !52
-  %1500 = icmp ne i32 %1499, 0
-  call void @llvm.assume(i1 %1500)
-  %1501 = add i32 %1499, -1
-  store i32 %1501, ptr %204, align 4, !tbaa !52
+1504:                                             ; preds = %zend_string_alloc.exit.i864.i
+  %1505 = load i32, ptr %204, align 4, !tbaa !52
+  %1506 = icmp ne i32 %1505, 0
+  call void @llvm.assume(i1 %1506)
+  %1507 = add i32 %1505, -1
+  store i32 %1507, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-1502:                                             ; preds = %231, %231, %231, %231, %231, %231
-  %.not640.i = icmp ult i64 %.2607959.i, %.10621958.i
-  br i1 %.not640.i, label %encode.exit894.thread.sink.split.i, label %1503
+1508:                                             ; preds = %233, %233, %233, %233, %233, %233
+  %.not640.i = icmp ult i64 %.2607955.i, %.10621954.i
+  br i1 %.not640.i, label %encode.exit894.thread.sink.split.i, label %1509
 
-1503:                                             ; preds = %1502
-  %1504 = add i64 %.10621958.i, 2
-  %1505 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %1506 = load i64, ptr %1505, align 8, !tbaa !50
-  %1507 = icmp uge i64 %1504, %1506
-  call void @llvm.assume(i1 %1507)
-  %1508 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %1509 = load i32, ptr %1508, align 4, !tbaa !8
-  %1510 = and i32 %1509, 64
-  %.not.i868.i = icmp eq i32 %1510, 0
-  br i1 %.not.i868.i, label %1511, label %zend_string_alloc.exit.i869.i
+1509:                                             ; preds = %1508
+  %1510 = add i64 %.10621954.i, 2
+  %1511 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %1512 = load i64, ptr %1511, align 8, !tbaa !50
+  %1513 = icmp uge i64 %1510, %1512
+  call void @llvm.assume(i1 %1513)
+  %1514 = getelementptr inbounds nuw i8, ptr %204, i64 4
+  %1515 = load i32, ptr %1514, align 4, !tbaa !8
+  %1516 = and i32 %1515, 64
+  %.not.i868.i = icmp eq i32 %1516, 0
+  br i1 %.not.i868.i, label %1517, label %zend_string_alloc.exit.i869.i
 
-1511:                                             ; preds = %1503
-  %1512 = load i32, ptr %204, align 4, !tbaa !52
-  %1513 = icmp eq i32 %1512, 1
-  br i1 %1513, label %1514, label %zend_string_alloc.exit.i869.i, !prof !10
+1517:                                             ; preds = %1509
+  %1518 = load i32, ptr %204, align 4, !tbaa !52
+  %1519 = icmp eq i32 %1518, 1
+  br i1 %1519, label %1520, label %zend_string_alloc.exit.i869.i, !prof !10
 
-1514:                                             ; preds = %1511
-  %1515 = and i64 %1504, -8
-  %1516 = add i64 %1515, 32
-  %1517 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1516) #11
-  %1518 = getelementptr inbounds nuw i8, ptr %1517, i64 16
-  store i64 %1504, ptr %1518, align 8, !tbaa !50
-  %1519 = getelementptr inbounds nuw i8, ptr %1517, i64 8
-  store i64 0, ptr %1519, align 8, !tbaa !53
-  %1520 = getelementptr inbounds nuw i8, ptr %1517, i64 4
-  %1521 = load i32, ptr %1520, align 4, !tbaa !8
-  %1522 = and i32 %1521, -513
-  store i32 %1522, ptr %1520, align 4, !tbaa !8
+1520:                                             ; preds = %1517
+  %1521 = and i64 %1510, -8
+  %1522 = add i64 %1521, 32
+  %1523 = call ptr @_erealloc(ptr noundef nonnull %204, i64 noundef %1522) #11
+  %1524 = getelementptr inbounds nuw i8, ptr %1523, i64 16
+  store i64 %1510, ptr %1524, align 8, !tbaa !50
+  %1525 = getelementptr inbounds nuw i8, ptr %1523, i64 8
+  store i64 0, ptr %1525, align 8, !tbaa !53
+  %1526 = getelementptr inbounds nuw i8, ptr %1523, i64 4
+  %1527 = load i32, ptr %1526, align 4, !tbaa !8
+  %1528 = and i32 %1527, -513
+  store i32 %1528, ptr %1526, align 4, !tbaa !8
   br label %encode.exit894.thread.sink.split.i
 
-zend_string_alloc.exit.i869.i:                    ; preds = %1503, %1511
-  %1523 = and i64 %1504, -8
-  %1524 = add i64 %1523, 32
-  %1525 = call noalias ptr @_emalloc(i64 noundef %1524) #9
-  store i32 1, ptr %1525, align 4, !tbaa !52
-  %1526 = getelementptr inbounds nuw i8, ptr %1525, i64 4
-  store i32 22, ptr %1526, align 4, !tbaa !8
-  %1527 = getelementptr inbounds nuw i8, ptr %1525, i64 8
-  store i64 0, ptr %1527, align 8, !tbaa !53
-  %1528 = getelementptr inbounds nuw i8, ptr %1525, i64 16
-  store i64 %1504, ptr %1528, align 8, !tbaa !50
-  %1529 = getelementptr inbounds nuw i8, ptr %1525, i64 24
-  %1530 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %1531 = load i64, ptr %1505, align 8, !tbaa !50
-  %1532 = add i64 %1531, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1529, ptr nonnull align 8 %1530, i64 %1532, i1 false)
-  %1533 = load i32, ptr %1508, align 4, !tbaa !8
-  %1534 = and i32 %1533, 64
-  %.not21.i870.i = icmp eq i32 %1534, 0
-  br i1 %.not21.i870.i, label %1535, label %encode.exit894.thread.sink.split.i
+zend_string_alloc.exit.i869.i:                    ; preds = %1509, %1517
+  %1529 = and i64 %1510, -8
+  %1530 = add i64 %1529, 32
+  %1531 = call noalias ptr @_emalloc(i64 noundef %1530) #9
+  store i32 1, ptr %1531, align 4, !tbaa !52
+  %1532 = getelementptr inbounds nuw i8, ptr %1531, i64 4
+  store i32 22, ptr %1532, align 4, !tbaa !8
+  %1533 = getelementptr inbounds nuw i8, ptr %1531, i64 8
+  store i64 0, ptr %1533, align 8, !tbaa !53
+  %1534 = getelementptr inbounds nuw i8, ptr %1531, i64 16
+  store i64 %1510, ptr %1534, align 8, !tbaa !50
+  %1535 = getelementptr inbounds nuw i8, ptr %1531, i64 24
+  %1536 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %1537 = load i64, ptr %1511, align 8, !tbaa !50
+  %1538 = add i64 %1537, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1535, ptr nonnull align 8 %1536, i64 %1538, i1 false)
+  %1539 = load i32, ptr %1514, align 4, !tbaa !8
+  %1540 = and i32 %1539, 64
+  %.not21.i870.i = icmp eq i32 %1540, 0
+  br i1 %.not21.i870.i, label %1541, label %encode.exit894.thread.sink.split.i
 
-1535:                                             ; preds = %zend_string_alloc.exit.i869.i
-  %1536 = load i32, ptr %204, align 4, !tbaa !52
-  %1537 = icmp ne i32 %1536, 0
-  call void @llvm.assume(i1 %1537)
-  %1538 = add i32 %1536, -1
-  store i32 %1538, ptr %204, align 4, !tbaa !52
+1541:                                             ; preds = %zend_string_alloc.exit.i869.i
+  %1542 = load i32, ptr %204, align 4, !tbaa !52
+  %1543 = icmp ne i32 %1542, 0
+  call void @llvm.assume(i1 %1543)
+  %1544 = add i32 %1542, -1
+  store i32 %1544, ptr %204, align 4, !tbaa !52
   br label %encode.exit894.thread.sink.split.i
 
-encode.exit894.thread.sink.split.i:               ; preds = %245, %zend_string_alloc.exit.i.i, %266, %308, %zend_string_alloc.exit.i734.i, %329, %346, %zend_string_alloc.exit.i739.i, %367, %384, %zend_string_alloc.exit.i744.i, %405, %421, %zend_string_alloc.exit.i749.i, %442, %486, %zend_string_alloc.exit.i754.i, %507, %522, %zend_string_alloc.exit.i759.i, %543, %595, %zend_string_alloc.exit.i764.i, %616, %656, %zend_string_alloc.exit.i769.i, %677, %706, %zend_string_alloc.exit.i774.i, %727, %742, %zend_string_alloc.exit.i779.i, %763, %807, %zend_string_alloc.exit.i784.i, %828, %845, %zend_string_alloc.exit.i789.i, %866, %889, %zend_string_alloc.exit.i794.i, %910, %926, %zend_string_alloc.exit.i799.i, %947, %963, %zend_string_alloc.exit.i804.i, %984, %1014, %zend_string_alloc.exit.i809.i, %1035, %1051, %zend_string_alloc.exit.i814.i, %1072, %1087, %zend_string_alloc.exit.i819.i, %1108, %1138, %zend_string_alloc.exit.i824.i, %1159, %1175, %zend_string_alloc.exit.i829.i, %1196, %1219, %zend_string_alloc.exit.i834.i, %1240, %1256, %zend_string_alloc.exit.i839.i, %1277, %1310, %zend_string_alloc.exit.i844.i, %1331, %1386, %zend_string_alloc.exit.i854.i, %1407, %1440, %zend_string_alloc.exit.i859.i, %1461, %1477, %zend_string_alloc.exit.i864.i, %1498, %1514, %zend_string_alloc.exit.i869.i, %1535, %1502, %1465, %1428, %zend_string_extend.exit852.i, %1298, %1244, %.critedge699.i, %1163, %1126, %.thread920.i, %1039, %1002, %951, %914, %877, %833, %encode.exit897.thread.i, %encode.exit891.thread.i, %694, %.thread913.i, %.critedge697.i, %encode.exit885.thread.i, %474, %409, %372, %334, %296, %233
-  %.3 = phi ptr [ %.2, %233 ], [ %.2, %372 ], [ %.2, %409 ], [ %.2, %334 ], [ %.2, %296 ], [ %.2, %encode.exit885.thread.i ], [ %.2, %474 ], [ %.2, %encode.exit891.thread.i ], [ %.2, %694 ], [ %.2, %.critedge697.i ], [ %.2, %.thread913.i ], [ %.2, %encode.exit897.thread.i ], [ %.2, %833 ], [ %.2, %877 ], [ %.2, %914 ], [ %.2, %951 ], [ %.2, %.thread920.i ], [ %.2, %1002 ], [ %.2, %1039 ], [ %.2, %.critedge699.i ], [ %.2, %1126 ], [ %.2, %1163 ], [ %.2, %1244 ], [ %.2, %1298 ], [ %.8, %zend_string_extend.exit852.i ], [ %.2, %1428 ], [ %.2, %1465 ], [ %.2, %1502 ], [ %248, %245 ], [ %256, %266 ], [ %256, %zend_string_alloc.exit.i.i ], [ %311, %308 ], [ %319, %329 ], [ %319, %zend_string_alloc.exit.i734.i ], [ %349, %346 ], [ %357, %367 ], [ %357, %zend_string_alloc.exit.i739.i ], [ %387, %384 ], [ %395, %405 ], [ %395, %zend_string_alloc.exit.i744.i ], [ %424, %421 ], [ %432, %442 ], [ %432, %zend_string_alloc.exit.i749.i ], [ %489, %486 ], [ %497, %507 ], [ %497, %zend_string_alloc.exit.i754.i ], [ %525, %522 ], [ %533, %543 ], [ %533, %zend_string_alloc.exit.i759.i ], [ %598, %595 ], [ %606, %616 ], [ %606, %zend_string_alloc.exit.i764.i ], [ %659, %656 ], [ %667, %677 ], [ %667, %zend_string_alloc.exit.i769.i ], [ %709, %706 ], [ %717, %727 ], [ %717, %zend_string_alloc.exit.i774.i ], [ %745, %742 ], [ %753, %763 ], [ %753, %zend_string_alloc.exit.i779.i ], [ %810, %807 ], [ %818, %828 ], [ %818, %zend_string_alloc.exit.i784.i ], [ %848, %845 ], [ %856, %866 ], [ %856, %zend_string_alloc.exit.i789.i ], [ %892, %889 ], [ %900, %910 ], [ %900, %zend_string_alloc.exit.i794.i ], [ %929, %926 ], [ %937, %947 ], [ %937, %zend_string_alloc.exit.i799.i ], [ %966, %963 ], [ %974, %984 ], [ %974, %zend_string_alloc.exit.i804.i ], [ %1017, %1014 ], [ %1025, %1035 ], [ %1025, %zend_string_alloc.exit.i809.i ], [ %1054, %1051 ], [ %1062, %1072 ], [ %1062, %zend_string_alloc.exit.i814.i ], [ %1090, %1087 ], [ %1098, %1108 ], [ %1098, %zend_string_alloc.exit.i819.i ], [ %1141, %1138 ], [ %1149, %1159 ], [ %1149, %zend_string_alloc.exit.i824.i ], [ %1178, %1175 ], [ %1186, %1196 ], [ %1186, %zend_string_alloc.exit.i829.i ], [ %1222, %1219 ], [ %1230, %1240 ], [ %1230, %zend_string_alloc.exit.i834.i ], [ %1259, %1256 ], [ %1267, %1277 ], [ %1267, %zend_string_alloc.exit.i839.i ], [ %1313, %1310 ], [ %1321, %1331 ], [ %1321, %zend_string_alloc.exit.i844.i ], [ %1389, %1386 ], [ %1397, %1407 ], [ %1397, %zend_string_alloc.exit.i854.i ], [ %1443, %1440 ], [ %1451, %1461 ], [ %1451, %zend_string_alloc.exit.i859.i ], [ %1480, %1477 ], [ %1488, %1498 ], [ %1488, %zend_string_alloc.exit.i864.i ], [ %1517, %1514 ], [ %1525, %1535 ], [ %1525, %zend_string_alloc.exit.i869.i ]
-  %.sink992.i = phi ptr [ %204, %233 ], [ %204, %372 ], [ %204, %409 ], [ %204, %334 ], [ %204, %296 ], [ %204, %encode.exit885.thread.i ], [ %204, %474 ], [ %204, %encode.exit891.thread.i ], [ %204, %694 ], [ %204, %.critedge697.i ], [ %204, %.thread913.i ], [ %204, %encode.exit897.thread.i ], [ %204, %833 ], [ %204, %877 ], [ %204, %914 ], [ %204, %951 ], [ %204, %.thread920.i ], [ %204, %1002 ], [ %204, %1039 ], [ %204, %.critedge699.i ], [ %204, %1126 ], [ %204, %1163 ], [ %204, %1244 ], [ %204, %1298 ], [ %.8, %zend_string_extend.exit852.i ], [ %204, %1428 ], [ %204, %1465 ], [ %204, %1502 ], [ %248, %245 ], [ %256, %266 ], [ %256, %zend_string_alloc.exit.i.i ], [ %311, %308 ], [ %319, %329 ], [ %319, %zend_string_alloc.exit.i734.i ], [ %349, %346 ], [ %357, %367 ], [ %357, %zend_string_alloc.exit.i739.i ], [ %387, %384 ], [ %395, %405 ], [ %395, %zend_string_alloc.exit.i744.i ], [ %424, %421 ], [ %432, %442 ], [ %432, %zend_string_alloc.exit.i749.i ], [ %489, %486 ], [ %497, %507 ], [ %497, %zend_string_alloc.exit.i754.i ], [ %525, %522 ], [ %533, %543 ], [ %533, %zend_string_alloc.exit.i759.i ], [ %598, %595 ], [ %606, %616 ], [ %606, %zend_string_alloc.exit.i764.i ], [ %659, %656 ], [ %667, %677 ], [ %667, %zend_string_alloc.exit.i769.i ], [ %709, %706 ], [ %717, %727 ], [ %717, %zend_string_alloc.exit.i774.i ], [ %745, %742 ], [ %753, %763 ], [ %753, %zend_string_alloc.exit.i779.i ], [ %810, %807 ], [ %818, %828 ], [ %818, %zend_string_alloc.exit.i784.i ], [ %848, %845 ], [ %856, %866 ], [ %856, %zend_string_alloc.exit.i789.i ], [ %892, %889 ], [ %900, %910 ], [ %900, %zend_string_alloc.exit.i794.i ], [ %929, %926 ], [ %937, %947 ], [ %937, %zend_string_alloc.exit.i799.i ], [ %966, %963 ], [ %974, %984 ], [ %974, %zend_string_alloc.exit.i804.i ], [ %1017, %1014 ], [ %1025, %1035 ], [ %1025, %zend_string_alloc.exit.i809.i ], [ %1054, %1051 ], [ %1062, %1072 ], [ %1062, %zend_string_alloc.exit.i814.i ], [ %1090, %1087 ], [ %1098, %1108 ], [ %1098, %zend_string_alloc.exit.i819.i ], [ %1141, %1138 ], [ %1149, %1159 ], [ %1149, %zend_string_alloc.exit.i824.i ], [ %1178, %1175 ], [ %1186, %1196 ], [ %1186, %zend_string_alloc.exit.i829.i ], [ %1222, %1219 ], [ %1230, %1240 ], [ %1230, %zend_string_alloc.exit.i834.i ], [ %1259, %1256 ], [ %1267, %1277 ], [ %1267, %zend_string_alloc.exit.i839.i ], [ %1313, %1310 ], [ %1321, %1331 ], [ %1321, %zend_string_alloc.exit.i844.i ], [ %1389, %1386 ], [ %1397, %1407 ], [ %1397, %zend_string_alloc.exit.i854.i ], [ %1443, %1440 ], [ %1451, %1461 ], [ %1451, %zend_string_alloc.exit.i859.i ], [ %1480, %1477 ], [ %1488, %1498 ], [ %1488, %zend_string_alloc.exit.i864.i ], [ %1517, %1514 ], [ %1525, %1535 ], [ %1525, %zend_string_alloc.exit.i869.i ]
-  %.sink991.i = phi i64 [ 1, %233 ], [ 1, %372 ], [ 1, %409 ], [ 1, %334 ], [ 1, %296 ], [ 1, %encode.exit885.thread.i ], [ 1, %474 ], [ 1, %encode.exit891.thread.i ], [ 1, %694 ], [ 1, %.critedge697.i ], [ 1, %.thread913.i ], [ 1, %encode.exit897.thread.i ], [ 1, %833 ], [ 1, %877 ], [ 1, %914 ], [ 1, %951 ], [ 1, %.thread920.i ], [ 1, %1002 ], [ 1, %1039 ], [ 1, %.critedge699.i ], [ 1, %1126 ], [ 1, %1163 ], [ 1, %1244 ], [ 1, %1298 ], [ 2, %zend_string_extend.exit852.i ], [ 1, %1428 ], [ 1, %1465 ], [ 1, %1502 ], [ 1, %245 ], [ 1, %266 ], [ 1, %zend_string_alloc.exit.i.i ], [ 1, %308 ], [ 1, %329 ], [ 1, %zend_string_alloc.exit.i734.i ], [ 1, %346 ], [ 1, %367 ], [ 1, %zend_string_alloc.exit.i739.i ], [ 1, %384 ], [ 1, %405 ], [ 1, %zend_string_alloc.exit.i744.i ], [ 1, %421 ], [ 1, %442 ], [ 1, %zend_string_alloc.exit.i749.i ], [ 1, %486 ], [ 1, %507 ], [ 1, %zend_string_alloc.exit.i754.i ], [ 1, %522 ], [ 1, %543 ], [ 1, %zend_string_alloc.exit.i759.i ], [ 1, %595 ], [ 1, %616 ], [ 1, %zend_string_alloc.exit.i764.i ], [ 1, %656 ], [ 1, %677 ], [ 1, %zend_string_alloc.exit.i769.i ], [ 1, %706 ], [ 1, %727 ], [ 1, %zend_string_alloc.exit.i774.i ], [ 1, %742 ], [ 1, %763 ], [ 1, %zend_string_alloc.exit.i779.i ], [ 1, %807 ], [ 1, %828 ], [ 1, %zend_string_alloc.exit.i784.i ], [ 1, %845 ], [ 1, %866 ], [ 1, %zend_string_alloc.exit.i789.i ], [ 1, %889 ], [ 1, %910 ], [ 1, %zend_string_alloc.exit.i794.i ], [ 1, %926 ], [ 1, %947 ], [ 1, %zend_string_alloc.exit.i799.i ], [ 1, %963 ], [ 1, %984 ], [ 1, %zend_string_alloc.exit.i804.i ], [ 1, %1014 ], [ 1, %1035 ], [ 1, %zend_string_alloc.exit.i809.i ], [ 1, %1051 ], [ 1, %1072 ], [ 1, %zend_string_alloc.exit.i814.i ], [ 1, %1087 ], [ 1, %1108 ], [ 1, %zend_string_alloc.exit.i819.i ], [ 1, %1138 ], [ 1, %1159 ], [ 1, %zend_string_alloc.exit.i824.i ], [ 1, %1175 ], [ 1, %1196 ], [ 1, %zend_string_alloc.exit.i829.i ], [ 1, %1219 ], [ 1, %1240 ], [ 1, %zend_string_alloc.exit.i834.i ], [ 1, %1256 ], [ 1, %1277 ], [ 1, %zend_string_alloc.exit.i839.i ], [ 1, %1310 ], [ 1, %1331 ], [ 1, %zend_string_alloc.exit.i844.i ], [ 2, %1386 ], [ 2, %1407 ], [ 2, %zend_string_alloc.exit.i854.i ], [ 1, %1440 ], [ 1, %1461 ], [ 1, %zend_string_alloc.exit.i859.i ], [ 1, %1477 ], [ 1, %1498 ], [ 1, %zend_string_alloc.exit.i864.i ], [ 1, %1514 ], [ 1, %1535 ], [ 1, %zend_string_alloc.exit.i869.i ]
-  %.2607959.sink.i = phi i64 [ %.2607959.i, %233 ], [ %.2607959.i, %372 ], [ %.2607959.i, %409 ], [ %.2607959.i, %334 ], [ %.2607959.i, %296 ], [ %.2607959.i, %encode.exit885.thread.i ], [ %.2607959.i, %474 ], [ %.2607959.i, %encode.exit891.thread.i ], [ %.2607959.i, %694 ], [ %.2607959.i, %.critedge697.i ], [ %.2607959.i, %.thread913.i ], [ %.2607959.i, %encode.exit897.thread.i ], [ %.2607959.i, %833 ], [ %.2607959.i, %877 ], [ %.2607959.i, %914 ], [ %.2607959.i, %951 ], [ %.2607959.i, %.thread920.i ], [ %.2607959.i, %1002 ], [ %.2607959.i, %1039 ], [ %.2607959.i, %.critedge699.i ], [ %.2607959.i, %1126 ], [ %.2607959.i, %1163 ], [ %.2607959.i, %1244 ], [ %.2607959.i, %1298 ], [ %1374, %zend_string_extend.exit852.i ], [ %.2607959.i, %1428 ], [ %.2607959.i, %1465 ], [ %.2607959.i, %1502 ], [ %.2607959.i, %245 ], [ %.2607959.i, %266 ], [ %.2607959.i, %zend_string_alloc.exit.i.i ], [ %.2607959.i, %308 ], [ %.2607959.i, %329 ], [ %.2607959.i, %zend_string_alloc.exit.i734.i ], [ %.2607959.i, %346 ], [ %.2607959.i, %367 ], [ %.2607959.i, %zend_string_alloc.exit.i739.i ], [ %.2607959.i, %384 ], [ %.2607959.i, %405 ], [ %.2607959.i, %zend_string_alloc.exit.i744.i ], [ %.2607959.i, %421 ], [ %.2607959.i, %442 ], [ %.2607959.i, %zend_string_alloc.exit.i749.i ], [ %.2607959.i, %486 ], [ %.2607959.i, %507 ], [ %.2607959.i, %zend_string_alloc.exit.i754.i ], [ %.2607959.i, %522 ], [ %.2607959.i, %543 ], [ %.2607959.i, %zend_string_alloc.exit.i759.i ], [ %.2607959.i, %595 ], [ %.2607959.i, %616 ], [ %.2607959.i, %zend_string_alloc.exit.i764.i ], [ %.2607959.i, %656 ], [ %.2607959.i, %677 ], [ %.2607959.i, %zend_string_alloc.exit.i769.i ], [ %.2607959.i, %706 ], [ %.2607959.i, %727 ], [ %.2607959.i, %zend_string_alloc.exit.i774.i ], [ %.2607959.i, %742 ], [ %.2607959.i, %763 ], [ %.2607959.i, %zend_string_alloc.exit.i779.i ], [ %.2607959.i, %807 ], [ %.2607959.i, %828 ], [ %.2607959.i, %zend_string_alloc.exit.i784.i ], [ %.2607959.i, %845 ], [ %.2607959.i, %866 ], [ %.2607959.i, %zend_string_alloc.exit.i789.i ], [ %.2607959.i, %889 ], [ %.2607959.i, %910 ], [ %.2607959.i, %zend_string_alloc.exit.i794.i ], [ %.2607959.i, %926 ], [ %.2607959.i, %947 ], [ %.2607959.i, %zend_string_alloc.exit.i799.i ], [ %.2607959.i, %963 ], [ %.2607959.i, %984 ], [ %.2607959.i, %zend_string_alloc.exit.i804.i ], [ %.2607959.i, %1014 ], [ %.2607959.i, %1035 ], [ %.2607959.i, %zend_string_alloc.exit.i809.i ], [ %.2607959.i, %1051 ], [ %.2607959.i, %1072 ], [ %.2607959.i, %zend_string_alloc.exit.i814.i ], [ %.2607959.i, %1087 ], [ %.2607959.i, %1108 ], [ %.2607959.i, %zend_string_alloc.exit.i819.i ], [ %.2607959.i, %1138 ], [ %.2607959.i, %1159 ], [ %.2607959.i, %zend_string_alloc.exit.i824.i ], [ %.2607959.i, %1175 ], [ %.2607959.i, %1196 ], [ %.2607959.i, %zend_string_alloc.exit.i829.i ], [ %.2607959.i, %1219 ], [ %.2607959.i, %1240 ], [ %.2607959.i, %zend_string_alloc.exit.i834.i ], [ %.2607959.i, %1256 ], [ %.2607959.i, %1277 ], [ %.2607959.i, %zend_string_alloc.exit.i839.i ], [ %.2607959.i, %1310 ], [ %.2607959.i, %1331 ], [ %.2607959.i, %zend_string_alloc.exit.i844.i ], [ %1374, %1386 ], [ %1374, %1407 ], [ %1374, %zend_string_alloc.exit.i854.i ], [ %.2607959.i, %1440 ], [ %.2607959.i, %1461 ], [ %.2607959.i, %zend_string_alloc.exit.i859.i ], [ %.2607959.i, %1477 ], [ %.2607959.i, %1498 ], [ %.2607959.i, %zend_string_alloc.exit.i864.i ], [ %.2607959.i, %1514 ], [ %.2607959.i, %1535 ], [ %.2607959.i, %zend_string_alloc.exit.i869.i ]
-  %.sink988.i = phi i8 [ 66, %233 ], [ 88, %372 ], [ 75, %409 ], [ 83, %334 ], [ 88, %296 ], [ 84, %encode.exit885.thread.i ], [ 74, %474 ], [ 75, %encode.exit891.thread.i ], [ 74, %694 ], [ 70, %.critedge697.i ], [ 75, %.thread913.i ], [ 72, %encode.exit897.thread.i ], [ 75, %833 ], [ 70, %877 ], [ 80, %914 ], [ 75, %951 ], [ 83, %.thread920.i ], [ 88, %1002 ], [ 88, %1039 ], [ 84, %.critedge699.i ], [ 88, %1126 ], [ 48, %1163 ], [ 70, %1244 ], [ 87, %1298 ], [ 83, %zend_string_extend.exit852.i ], [ 89, %1428 ], [ 83, %1465 ], [ %216, %1502 ], [ 66, %245 ], [ 66, %266 ], [ 66, %zend_string_alloc.exit.i.i ], [ 88, %308 ], [ 88, %329 ], [ 88, %zend_string_alloc.exit.i734.i ], [ 83, %346 ], [ 83, %367 ], [ 83, %zend_string_alloc.exit.i739.i ], [ 88, %384 ], [ 88, %405 ], [ 88, %zend_string_alloc.exit.i744.i ], [ 75, %421 ], [ 75, %442 ], [ 75, %zend_string_alloc.exit.i749.i ], [ 74, %486 ], [ 74, %507 ], [ 74, %zend_string_alloc.exit.i754.i ], [ 84, %522 ], [ 84, %543 ], [ 84, %zend_string_alloc.exit.i759.i ], [ 70, %595 ], [ 70, %616 ], [ 70, %zend_string_alloc.exit.i764.i ], [ 75, %656 ], [ 75, %677 ], [ 75, %zend_string_alloc.exit.i769.i ], [ 74, %706 ], [ 74, %727 ], [ 74, %zend_string_alloc.exit.i774.i ], [ 75, %742 ], [ 75, %763 ], [ 75, %zend_string_alloc.exit.i779.i ], [ 72, %807 ], [ 72, %828 ], [ 72, %zend_string_alloc.exit.i784.i ], [ 75, %845 ], [ 75, %866 ], [ 75, %zend_string_alloc.exit.i789.i ], [ 70, %889 ], [ 70, %910 ], [ 70, %zend_string_alloc.exit.i794.i ], [ 80, %926 ], [ 80, %947 ], [ 80, %zend_string_alloc.exit.i799.i ], [ 75, %963 ], [ 75, %984 ], [ 75, %zend_string_alloc.exit.i804.i ], [ 88, %1014 ], [ 88, %1035 ], [ 88, %zend_string_alloc.exit.i809.i ], [ 88, %1051 ], [ 88, %1072 ], [ 88, %zend_string_alloc.exit.i814.i ], [ 83, %1087 ], [ 83, %1108 ], [ 83, %zend_string_alloc.exit.i819.i ], [ 88, %1138 ], [ 88, %1159 ], [ 88, %zend_string_alloc.exit.i824.i ], [ 48, %1175 ], [ 48, %1196 ], [ 48, %zend_string_alloc.exit.i829.i ], [ 84, %1219 ], [ 84, %1240 ], [ 84, %zend_string_alloc.exit.i834.i ], [ 70, %1256 ], [ 70, %1277 ], [ 70, %zend_string_alloc.exit.i839.i ], [ 87, %1310 ], [ 87, %1331 ], [ 87, %zend_string_alloc.exit.i844.i ], [ 83, %1386 ], [ 83, %1407 ], [ 83, %zend_string_alloc.exit.i854.i ], [ 89, %1440 ], [ 89, %1461 ], [ 89, %zend_string_alloc.exit.i859.i ], [ 83, %1477 ], [ 83, %1498 ], [ 83, %zend_string_alloc.exit.i864.i ], [ %216, %1514 ], [ %216, %1535 ], [ %216, %zend_string_alloc.exit.i869.i ]
-  %.0623.ph.i = phi i32 [ 0, %233 ], [ 1, %372 ], [ 0, %409 ], [ 0, %334 ], [ 0, %296 ], [ 0, %encode.exit885.thread.i ], [ 1, %474 ], [ 0, %encode.exit891.thread.i ], [ 0, %694 ], [ 1, %.critedge697.i ], [ 0, %.thread913.i ], [ 0, %encode.exit897.thread.i ], [ 0, %833 ], [ 0, %877 ], [ 0, %914 ], [ 0, %951 ], [ 0, %.thread920.i ], [ 0, %1002 ], [ 1, %1039 ], [ 0, %.critedge699.i ], [ 0, %1126 ], [ 1, %1163 ], [ 0, %1244 ], [ 0, %1298 ], [ 0, %zend_string_extend.exit852.i ], [ 0, %1428 ], [ 0, %1465 ], [ 0, %1502 ], [ 0, %245 ], [ 0, %266 ], [ 0, %zend_string_alloc.exit.i.i ], [ 0, %308 ], [ 0, %329 ], [ 0, %zend_string_alloc.exit.i734.i ], [ 0, %346 ], [ 0, %367 ], [ 0, %zend_string_alloc.exit.i739.i ], [ 1, %384 ], [ 1, %405 ], [ 1, %zend_string_alloc.exit.i744.i ], [ 0, %421 ], [ 0, %442 ], [ 0, %zend_string_alloc.exit.i749.i ], [ 1, %486 ], [ 1, %507 ], [ 1, %zend_string_alloc.exit.i754.i ], [ 0, %522 ], [ 0, %543 ], [ 0, %zend_string_alloc.exit.i759.i ], [ 1, %595 ], [ 1, %616 ], [ 1, %zend_string_alloc.exit.i764.i ], [ 0, %656 ], [ 0, %677 ], [ 0, %zend_string_alloc.exit.i769.i ], [ 0, %706 ], [ 0, %727 ], [ 0, %zend_string_alloc.exit.i774.i ], [ 0, %742 ], [ 0, %763 ], [ 0, %zend_string_alloc.exit.i779.i ], [ 0, %807 ], [ 0, %828 ], [ 0, %zend_string_alloc.exit.i784.i ], [ 0, %845 ], [ 0, %866 ], [ 0, %zend_string_alloc.exit.i789.i ], [ 0, %889 ], [ 0, %910 ], [ 0, %zend_string_alloc.exit.i794.i ], [ 0, %926 ], [ 0, %947 ], [ 0, %zend_string_alloc.exit.i799.i ], [ 0, %963 ], [ 0, %984 ], [ 0, %zend_string_alloc.exit.i804.i ], [ 0, %1014 ], [ 0, %1035 ], [ 0, %zend_string_alloc.exit.i809.i ], [ 1, %1051 ], [ 1, %1072 ], [ 1, %zend_string_alloc.exit.i814.i ], [ 0, %1087 ], [ 0, %1108 ], [ 0, %zend_string_alloc.exit.i819.i ], [ 0, %1138 ], [ 0, %1159 ], [ 0, %zend_string_alloc.exit.i824.i ], [ 1, %1175 ], [ 1, %1196 ], [ 1, %zend_string_alloc.exit.i829.i ], [ 0, %1219 ], [ 0, %1240 ], [ 0, %zend_string_alloc.exit.i834.i ], [ 0, %1256 ], [ 0, %1277 ], [ 0, %zend_string_alloc.exit.i839.i ], [ 0, %1310 ], [ 0, %1331 ], [ 0, %zend_string_alloc.exit.i844.i ], [ 0, %1386 ], [ 0, %1407 ], [ 0, %zend_string_alloc.exit.i854.i ], [ 0, %1440 ], [ 0, %1461 ], [ 0, %zend_string_alloc.exit.i859.i ], [ 0, %1477 ], [ 0, %1498 ], [ 0, %zend_string_alloc.exit.i864.i ], [ 0, %1514 ], [ 0, %1535 ], [ 0, %zend_string_alloc.exit.i869.i ]
-  %.14.ph.i = phi i64 [ %.10621958.i, %233 ], [ %.10621958.i, %372 ], [ %.10621958.i, %409 ], [ %.10621958.i, %334 ], [ %.10621958.i, %296 ], [ %.10621958.i, %encode.exit885.thread.i ], [ %.10621958.i, %474 ], [ %.10621958.i, %encode.exit891.thread.i ], [ %.10621958.i, %694 ], [ %.10621958.i, %.critedge697.i ], [ %.10621958.i, %.thread913.i ], [ %.10621958.i, %encode.exit897.thread.i ], [ %.10621958.i, %833 ], [ %.10621958.i, %877 ], [ %.10621958.i, %914 ], [ %.10621958.i, %951 ], [ %.10621958.i, %.thread920.i ], [ %.10621958.i, %1002 ], [ %.10621958.i, %1039 ], [ %.10621958.i, %.critedge699.i ], [ %.10621958.i, %1126 ], [ %.10621958.i, %1163 ], [ %.10621958.i, %1244 ], [ %.10621958.i, %1298 ], [ %.46.i, %zend_string_extend.exit852.i ], [ %.10621958.i, %1428 ], [ %.10621958.i, %1465 ], [ %.10621958.i, %1502 ], [ %235, %245 ], [ %235, %266 ], [ %235, %zend_string_alloc.exit.i.i ], [ %298, %308 ], [ %298, %329 ], [ %298, %zend_string_alloc.exit.i734.i ], [ %336, %346 ], [ %336, %367 ], [ %336, %zend_string_alloc.exit.i739.i ], [ %374, %384 ], [ %374, %405 ], [ %374, %zend_string_alloc.exit.i744.i ], [ %411, %421 ], [ %411, %442 ], [ %411, %zend_string_alloc.exit.i749.i ], [ %476, %486 ], [ %476, %507 ], [ %476, %zend_string_alloc.exit.i754.i ], [ %512, %522 ], [ %512, %543 ], [ %512, %zend_string_alloc.exit.i759.i ], [ %585, %595 ], [ %585, %616 ], [ %585, %zend_string_alloc.exit.i764.i ], [ %646, %656 ], [ %646, %677 ], [ %646, %zend_string_alloc.exit.i769.i ], [ %696, %706 ], [ %696, %727 ], [ %696, %zend_string_alloc.exit.i774.i ], [ %732, %742 ], [ %732, %763 ], [ %732, %zend_string_alloc.exit.i779.i ], [ %797, %807 ], [ %797, %828 ], [ %797, %zend_string_alloc.exit.i784.i ], [ %835, %845 ], [ %835, %866 ], [ %835, %zend_string_alloc.exit.i789.i ], [ %879, %889 ], [ %879, %910 ], [ %879, %zend_string_alloc.exit.i794.i ], [ %916, %926 ], [ %916, %947 ], [ %916, %zend_string_alloc.exit.i799.i ], [ %953, %963 ], [ %953, %984 ], [ %953, %zend_string_alloc.exit.i804.i ], [ %1004, %1014 ], [ %1004, %1035 ], [ %1004, %zend_string_alloc.exit.i809.i ], [ %1041, %1051 ], [ %1041, %1072 ], [ %1041, %zend_string_alloc.exit.i814.i ], [ %1077, %1087 ], [ %1077, %1108 ], [ %1077, %zend_string_alloc.exit.i819.i ], [ %1128, %1138 ], [ %1128, %1159 ], [ %1128, %zend_string_alloc.exit.i824.i ], [ %1165, %1175 ], [ %1165, %1196 ], [ %1165, %zend_string_alloc.exit.i829.i ], [ %1209, %1219 ], [ %1209, %1240 ], [ %1209, %zend_string_alloc.exit.i834.i ], [ %1246, %1256 ], [ %1246, %1277 ], [ %1246, %zend_string_alloc.exit.i839.i ], [ %1300, %1310 ], [ %1300, %1331 ], [ %1300, %zend_string_alloc.exit.i844.i ], [ %1378, %1386 ], [ %1378, %1407 ], [ %1378, %zend_string_alloc.exit.i854.i ], [ %1430, %1440 ], [ %1430, %1461 ], [ %1430, %zend_string_alloc.exit.i859.i ], [ %1467, %1477 ], [ %1467, %1498 ], [ %1467, %zend_string_alloc.exit.i864.i ], [ %1504, %1514 ], [ %1504, %1535 ], [ %1504, %zend_string_alloc.exit.i869.i ]
-  %1539 = getelementptr inbounds nuw i8, ptr %.sink992.i, i64 24
-  %1540 = add i64 %.sink991.i, %.2607959.i
-  %1541 = getelementptr inbounds nuw [1 x i8], ptr %1539, i64 0, i64 %.2607959.sink.i
-  store i8 %.sink988.i, ptr %1541, align 1, !tbaa !8
-  %1542 = getelementptr inbounds nuw i8, ptr %.3, i64 16
-  store i64 %1540, ptr %1542, align 8, !tbaa !50
+encode.exit894.thread.sink.split.i:               ; preds = %247, %zend_string_alloc.exit.i.i, %268, %310, %zend_string_alloc.exit.i734.i, %331, %348, %zend_string_alloc.exit.i739.i, %369, %386, %zend_string_alloc.exit.i744.i, %407, %423, %zend_string_alloc.exit.i749.i, %444, %488, %zend_string_alloc.exit.i754.i, %509, %524, %zend_string_alloc.exit.i759.i, %545, %601, %zend_string_alloc.exit.i764.i, %622, %662, %zend_string_alloc.exit.i769.i, %683, %712, %zend_string_alloc.exit.i774.i, %733, %748, %zend_string_alloc.exit.i779.i, %769, %813, %zend_string_alloc.exit.i784.i, %834, %851, %zend_string_alloc.exit.i789.i, %872, %895, %zend_string_alloc.exit.i794.i, %916, %932, %zend_string_alloc.exit.i799.i, %953, %969, %zend_string_alloc.exit.i804.i, %990, %1020, %zend_string_alloc.exit.i809.i, %1041, %1057, %zend_string_alloc.exit.i814.i, %1078, %1093, %zend_string_alloc.exit.i819.i, %1114, %1144, %zend_string_alloc.exit.i824.i, %1165, %1181, %zend_string_alloc.exit.i829.i, %1202, %1225, %zend_string_alloc.exit.i834.i, %1246, %1262, %zend_string_alloc.exit.i839.i, %1283, %1316, %zend_string_alloc.exit.i844.i, %1337, %1392, %zend_string_alloc.exit.i854.i, %1413, %1446, %zend_string_alloc.exit.i859.i, %1467, %1483, %zend_string_alloc.exit.i864.i, %1504, %1520, %zend_string_alloc.exit.i869.i, %1541, %1508, %1471, %1434, %zend_string_extend.exit852.i, %1304, %1250, %.critedge699.i, %1169, %1132, %.thread920.i, %1045, %1008, %957, %920, %883, %839, %encode.exit897.thread.i, %encode.exit891.thread.i, %700, %.thread913.i, %.critedge697.i, %encode.exit885.thread.i, %476, %411, %374, %336, %298, %235
+  %.3 = phi ptr [ %.2, %235 ], [ %.2, %374 ], [ %.2, %411 ], [ %.2, %336 ], [ %.2, %298 ], [ %.2, %encode.exit885.thread.i ], [ %.2, %476 ], [ %.2, %encode.exit891.thread.i ], [ %.2, %700 ], [ %.2, %.critedge697.i ], [ %.2, %.thread913.i ], [ %.2, %encode.exit897.thread.i ], [ %.2, %839 ], [ %.2, %883 ], [ %.2, %920 ], [ %.2, %957 ], [ %.2, %.thread920.i ], [ %.2, %1008 ], [ %.2, %1045 ], [ %.2, %.critedge699.i ], [ %.2, %1132 ], [ %.2, %1169 ], [ %.2, %1250 ], [ %.2, %1304 ], [ %.8, %zend_string_extend.exit852.i ], [ %.2, %1434 ], [ %.2, %1471 ], [ %.2, %1508 ], [ %250, %247 ], [ %258, %268 ], [ %258, %zend_string_alloc.exit.i.i ], [ %313, %310 ], [ %321, %331 ], [ %321, %zend_string_alloc.exit.i734.i ], [ %351, %348 ], [ %359, %369 ], [ %359, %zend_string_alloc.exit.i739.i ], [ %389, %386 ], [ %397, %407 ], [ %397, %zend_string_alloc.exit.i744.i ], [ %426, %423 ], [ %434, %444 ], [ %434, %zend_string_alloc.exit.i749.i ], [ %491, %488 ], [ %499, %509 ], [ %499, %zend_string_alloc.exit.i754.i ], [ %527, %524 ], [ %535, %545 ], [ %535, %zend_string_alloc.exit.i759.i ], [ %604, %601 ], [ %612, %622 ], [ %612, %zend_string_alloc.exit.i764.i ], [ %665, %662 ], [ %673, %683 ], [ %673, %zend_string_alloc.exit.i769.i ], [ %715, %712 ], [ %723, %733 ], [ %723, %zend_string_alloc.exit.i774.i ], [ %751, %748 ], [ %759, %769 ], [ %759, %zend_string_alloc.exit.i779.i ], [ %816, %813 ], [ %824, %834 ], [ %824, %zend_string_alloc.exit.i784.i ], [ %854, %851 ], [ %862, %872 ], [ %862, %zend_string_alloc.exit.i789.i ], [ %898, %895 ], [ %906, %916 ], [ %906, %zend_string_alloc.exit.i794.i ], [ %935, %932 ], [ %943, %953 ], [ %943, %zend_string_alloc.exit.i799.i ], [ %972, %969 ], [ %980, %990 ], [ %980, %zend_string_alloc.exit.i804.i ], [ %1023, %1020 ], [ %1031, %1041 ], [ %1031, %zend_string_alloc.exit.i809.i ], [ %1060, %1057 ], [ %1068, %1078 ], [ %1068, %zend_string_alloc.exit.i814.i ], [ %1096, %1093 ], [ %1104, %1114 ], [ %1104, %zend_string_alloc.exit.i819.i ], [ %1147, %1144 ], [ %1155, %1165 ], [ %1155, %zend_string_alloc.exit.i824.i ], [ %1184, %1181 ], [ %1192, %1202 ], [ %1192, %zend_string_alloc.exit.i829.i ], [ %1228, %1225 ], [ %1236, %1246 ], [ %1236, %zend_string_alloc.exit.i834.i ], [ %1265, %1262 ], [ %1273, %1283 ], [ %1273, %zend_string_alloc.exit.i839.i ], [ %1319, %1316 ], [ %1327, %1337 ], [ %1327, %zend_string_alloc.exit.i844.i ], [ %1395, %1392 ], [ %1403, %1413 ], [ %1403, %zend_string_alloc.exit.i854.i ], [ %1449, %1446 ], [ %1457, %1467 ], [ %1457, %zend_string_alloc.exit.i859.i ], [ %1486, %1483 ], [ %1494, %1504 ], [ %1494, %zend_string_alloc.exit.i864.i ], [ %1523, %1520 ], [ %1531, %1541 ], [ %1531, %zend_string_alloc.exit.i869.i ]
+  %.sink988.i = phi ptr [ %204, %235 ], [ %204, %374 ], [ %204, %411 ], [ %204, %336 ], [ %204, %298 ], [ %204, %encode.exit885.thread.i ], [ %204, %476 ], [ %204, %encode.exit891.thread.i ], [ %204, %700 ], [ %204, %.critedge697.i ], [ %204, %.thread913.i ], [ %204, %encode.exit897.thread.i ], [ %204, %839 ], [ %204, %883 ], [ %204, %920 ], [ %204, %957 ], [ %204, %.thread920.i ], [ %204, %1008 ], [ %204, %1045 ], [ %204, %.critedge699.i ], [ %204, %1132 ], [ %204, %1169 ], [ %204, %1250 ], [ %204, %1304 ], [ %.8, %zend_string_extend.exit852.i ], [ %204, %1434 ], [ %204, %1471 ], [ %204, %1508 ], [ %250, %247 ], [ %258, %268 ], [ %258, %zend_string_alloc.exit.i.i ], [ %313, %310 ], [ %321, %331 ], [ %321, %zend_string_alloc.exit.i734.i ], [ %351, %348 ], [ %359, %369 ], [ %359, %zend_string_alloc.exit.i739.i ], [ %389, %386 ], [ %397, %407 ], [ %397, %zend_string_alloc.exit.i744.i ], [ %426, %423 ], [ %434, %444 ], [ %434, %zend_string_alloc.exit.i749.i ], [ %491, %488 ], [ %499, %509 ], [ %499, %zend_string_alloc.exit.i754.i ], [ %527, %524 ], [ %535, %545 ], [ %535, %zend_string_alloc.exit.i759.i ], [ %604, %601 ], [ %612, %622 ], [ %612, %zend_string_alloc.exit.i764.i ], [ %665, %662 ], [ %673, %683 ], [ %673, %zend_string_alloc.exit.i769.i ], [ %715, %712 ], [ %723, %733 ], [ %723, %zend_string_alloc.exit.i774.i ], [ %751, %748 ], [ %759, %769 ], [ %759, %zend_string_alloc.exit.i779.i ], [ %816, %813 ], [ %824, %834 ], [ %824, %zend_string_alloc.exit.i784.i ], [ %854, %851 ], [ %862, %872 ], [ %862, %zend_string_alloc.exit.i789.i ], [ %898, %895 ], [ %906, %916 ], [ %906, %zend_string_alloc.exit.i794.i ], [ %935, %932 ], [ %943, %953 ], [ %943, %zend_string_alloc.exit.i799.i ], [ %972, %969 ], [ %980, %990 ], [ %980, %zend_string_alloc.exit.i804.i ], [ %1023, %1020 ], [ %1031, %1041 ], [ %1031, %zend_string_alloc.exit.i809.i ], [ %1060, %1057 ], [ %1068, %1078 ], [ %1068, %zend_string_alloc.exit.i814.i ], [ %1096, %1093 ], [ %1104, %1114 ], [ %1104, %zend_string_alloc.exit.i819.i ], [ %1147, %1144 ], [ %1155, %1165 ], [ %1155, %zend_string_alloc.exit.i824.i ], [ %1184, %1181 ], [ %1192, %1202 ], [ %1192, %zend_string_alloc.exit.i829.i ], [ %1228, %1225 ], [ %1236, %1246 ], [ %1236, %zend_string_alloc.exit.i834.i ], [ %1265, %1262 ], [ %1273, %1283 ], [ %1273, %zend_string_alloc.exit.i839.i ], [ %1319, %1316 ], [ %1327, %1337 ], [ %1327, %zend_string_alloc.exit.i844.i ], [ %1395, %1392 ], [ %1403, %1413 ], [ %1403, %zend_string_alloc.exit.i854.i ], [ %1449, %1446 ], [ %1457, %1467 ], [ %1457, %zend_string_alloc.exit.i859.i ], [ %1486, %1483 ], [ %1494, %1504 ], [ %1494, %zend_string_alloc.exit.i864.i ], [ %1523, %1520 ], [ %1531, %1541 ], [ %1531, %zend_string_alloc.exit.i869.i ]
+  %.sink987.i = phi i64 [ 1, %235 ], [ 1, %374 ], [ 1, %411 ], [ 1, %336 ], [ 1, %298 ], [ 1, %encode.exit885.thread.i ], [ 1, %476 ], [ 1, %encode.exit891.thread.i ], [ 1, %700 ], [ 1, %.critedge697.i ], [ 1, %.thread913.i ], [ 1, %encode.exit897.thread.i ], [ 1, %839 ], [ 1, %883 ], [ 1, %920 ], [ 1, %957 ], [ 1, %.thread920.i ], [ 1, %1008 ], [ 1, %1045 ], [ 1, %.critedge699.i ], [ 1, %1132 ], [ 1, %1169 ], [ 1, %1250 ], [ 1, %1304 ], [ 2, %zend_string_extend.exit852.i ], [ 1, %1434 ], [ 1, %1471 ], [ 1, %1508 ], [ 1, %247 ], [ 1, %268 ], [ 1, %zend_string_alloc.exit.i.i ], [ 1, %310 ], [ 1, %331 ], [ 1, %zend_string_alloc.exit.i734.i ], [ 1, %348 ], [ 1, %369 ], [ 1, %zend_string_alloc.exit.i739.i ], [ 1, %386 ], [ 1, %407 ], [ 1, %zend_string_alloc.exit.i744.i ], [ 1, %423 ], [ 1, %444 ], [ 1, %zend_string_alloc.exit.i749.i ], [ 1, %488 ], [ 1, %509 ], [ 1, %zend_string_alloc.exit.i754.i ], [ 1, %524 ], [ 1, %545 ], [ 1, %zend_string_alloc.exit.i759.i ], [ 1, %601 ], [ 1, %622 ], [ 1, %zend_string_alloc.exit.i764.i ], [ 1, %662 ], [ 1, %683 ], [ 1, %zend_string_alloc.exit.i769.i ], [ 1, %712 ], [ 1, %733 ], [ 1, %zend_string_alloc.exit.i774.i ], [ 1, %748 ], [ 1, %769 ], [ 1, %zend_string_alloc.exit.i779.i ], [ 1, %813 ], [ 1, %834 ], [ 1, %zend_string_alloc.exit.i784.i ], [ 1, %851 ], [ 1, %872 ], [ 1, %zend_string_alloc.exit.i789.i ], [ 1, %895 ], [ 1, %916 ], [ 1, %zend_string_alloc.exit.i794.i ], [ 1, %932 ], [ 1, %953 ], [ 1, %zend_string_alloc.exit.i799.i ], [ 1, %969 ], [ 1, %990 ], [ 1, %zend_string_alloc.exit.i804.i ], [ 1, %1020 ], [ 1, %1041 ], [ 1, %zend_string_alloc.exit.i809.i ], [ 1, %1057 ], [ 1, %1078 ], [ 1, %zend_string_alloc.exit.i814.i ], [ 1, %1093 ], [ 1, %1114 ], [ 1, %zend_string_alloc.exit.i819.i ], [ 1, %1144 ], [ 1, %1165 ], [ 1, %zend_string_alloc.exit.i824.i ], [ 1, %1181 ], [ 1, %1202 ], [ 1, %zend_string_alloc.exit.i829.i ], [ 1, %1225 ], [ 1, %1246 ], [ 1, %zend_string_alloc.exit.i834.i ], [ 1, %1262 ], [ 1, %1283 ], [ 1, %zend_string_alloc.exit.i839.i ], [ 1, %1316 ], [ 1, %1337 ], [ 1, %zend_string_alloc.exit.i844.i ], [ 2, %1392 ], [ 2, %1413 ], [ 2, %zend_string_alloc.exit.i854.i ], [ 1, %1446 ], [ 1, %1467 ], [ 1, %zend_string_alloc.exit.i859.i ], [ 1, %1483 ], [ 1, %1504 ], [ 1, %zend_string_alloc.exit.i864.i ], [ 1, %1520 ], [ 1, %1541 ], [ 1, %zend_string_alloc.exit.i869.i ]
+  %.2607955.sink.i = phi i64 [ %.2607955.i, %235 ], [ %.2607955.i, %374 ], [ %.2607955.i, %411 ], [ %.2607955.i, %336 ], [ %.2607955.i, %298 ], [ %.2607955.i, %encode.exit885.thread.i ], [ %.2607955.i, %476 ], [ %.2607955.i, %encode.exit891.thread.i ], [ %.2607955.i, %700 ], [ %.2607955.i, %.critedge697.i ], [ %.2607955.i, %.thread913.i ], [ %.2607955.i, %encode.exit897.thread.i ], [ %.2607955.i, %839 ], [ %.2607955.i, %883 ], [ %.2607955.i, %920 ], [ %.2607955.i, %957 ], [ %.2607955.i, %.thread920.i ], [ %.2607955.i, %1008 ], [ %.2607955.i, %1045 ], [ %.2607955.i, %.critedge699.i ], [ %.2607955.i, %1132 ], [ %.2607955.i, %1169 ], [ %.2607955.i, %1250 ], [ %.2607955.i, %1304 ], [ %1380, %zend_string_extend.exit852.i ], [ %.2607955.i, %1434 ], [ %.2607955.i, %1471 ], [ %.2607955.i, %1508 ], [ %.2607955.i, %247 ], [ %.2607955.i, %268 ], [ %.2607955.i, %zend_string_alloc.exit.i.i ], [ %.2607955.i, %310 ], [ %.2607955.i, %331 ], [ %.2607955.i, %zend_string_alloc.exit.i734.i ], [ %.2607955.i, %348 ], [ %.2607955.i, %369 ], [ %.2607955.i, %zend_string_alloc.exit.i739.i ], [ %.2607955.i, %386 ], [ %.2607955.i, %407 ], [ %.2607955.i, %zend_string_alloc.exit.i744.i ], [ %.2607955.i, %423 ], [ %.2607955.i, %444 ], [ %.2607955.i, %zend_string_alloc.exit.i749.i ], [ %.2607955.i, %488 ], [ %.2607955.i, %509 ], [ %.2607955.i, %zend_string_alloc.exit.i754.i ], [ %.2607955.i, %524 ], [ %.2607955.i, %545 ], [ %.2607955.i, %zend_string_alloc.exit.i759.i ], [ %.2607955.i, %601 ], [ %.2607955.i, %622 ], [ %.2607955.i, %zend_string_alloc.exit.i764.i ], [ %.2607955.i, %662 ], [ %.2607955.i, %683 ], [ %.2607955.i, %zend_string_alloc.exit.i769.i ], [ %.2607955.i, %712 ], [ %.2607955.i, %733 ], [ %.2607955.i, %zend_string_alloc.exit.i774.i ], [ %.2607955.i, %748 ], [ %.2607955.i, %769 ], [ %.2607955.i, %zend_string_alloc.exit.i779.i ], [ %.2607955.i, %813 ], [ %.2607955.i, %834 ], [ %.2607955.i, %zend_string_alloc.exit.i784.i ], [ %.2607955.i, %851 ], [ %.2607955.i, %872 ], [ %.2607955.i, %zend_string_alloc.exit.i789.i ], [ %.2607955.i, %895 ], [ %.2607955.i, %916 ], [ %.2607955.i, %zend_string_alloc.exit.i794.i ], [ %.2607955.i, %932 ], [ %.2607955.i, %953 ], [ %.2607955.i, %zend_string_alloc.exit.i799.i ], [ %.2607955.i, %969 ], [ %.2607955.i, %990 ], [ %.2607955.i, %zend_string_alloc.exit.i804.i ], [ %.2607955.i, %1020 ], [ %.2607955.i, %1041 ], [ %.2607955.i, %zend_string_alloc.exit.i809.i ], [ %.2607955.i, %1057 ], [ %.2607955.i, %1078 ], [ %.2607955.i, %zend_string_alloc.exit.i814.i ], [ %.2607955.i, %1093 ], [ %.2607955.i, %1114 ], [ %.2607955.i, %zend_string_alloc.exit.i819.i ], [ %.2607955.i, %1144 ], [ %.2607955.i, %1165 ], [ %.2607955.i, %zend_string_alloc.exit.i824.i ], [ %.2607955.i, %1181 ], [ %.2607955.i, %1202 ], [ %.2607955.i, %zend_string_alloc.exit.i829.i ], [ %.2607955.i, %1225 ], [ %.2607955.i, %1246 ], [ %.2607955.i, %zend_string_alloc.exit.i834.i ], [ %.2607955.i, %1262 ], [ %.2607955.i, %1283 ], [ %.2607955.i, %zend_string_alloc.exit.i839.i ], [ %.2607955.i, %1316 ], [ %.2607955.i, %1337 ], [ %.2607955.i, %zend_string_alloc.exit.i844.i ], [ %1380, %1392 ], [ %1380, %1413 ], [ %1380, %zend_string_alloc.exit.i854.i ], [ %.2607955.i, %1446 ], [ %.2607955.i, %1467 ], [ %.2607955.i, %zend_string_alloc.exit.i859.i ], [ %.2607955.i, %1483 ], [ %.2607955.i, %1504 ], [ %.2607955.i, %zend_string_alloc.exit.i864.i ], [ %.2607955.i, %1520 ], [ %.2607955.i, %1541 ], [ %.2607955.i, %zend_string_alloc.exit.i869.i ]
+  %.sink984.i = phi i8 [ 66, %235 ], [ 88, %374 ], [ 75, %411 ], [ 83, %336 ], [ 88, %298 ], [ 84, %encode.exit885.thread.i ], [ 74, %476 ], [ 75, %encode.exit891.thread.i ], [ 74, %700 ], [ 70, %.critedge697.i ], [ 75, %.thread913.i ], [ 72, %encode.exit897.thread.i ], [ 75, %839 ], [ 70, %883 ], [ 80, %920 ], [ 75, %957 ], [ 83, %.thread920.i ], [ 88, %1008 ], [ 88, %1045 ], [ 84, %.critedge699.i ], [ 88, %1132 ], [ 48, %1169 ], [ 70, %1250 ], [ 87, %1304 ], [ 83, %zend_string_extend.exit852.i ], [ 89, %1434 ], [ 83, %1471 ], [ %216, %1508 ], [ 66, %247 ], [ 66, %268 ], [ 66, %zend_string_alloc.exit.i.i ], [ 88, %310 ], [ 88, %331 ], [ 88, %zend_string_alloc.exit.i734.i ], [ 83, %348 ], [ 83, %369 ], [ 83, %zend_string_alloc.exit.i739.i ], [ 88, %386 ], [ 88, %407 ], [ 88, %zend_string_alloc.exit.i744.i ], [ 75, %423 ], [ 75, %444 ], [ 75, %zend_string_alloc.exit.i749.i ], [ 74, %488 ], [ 74, %509 ], [ 74, %zend_string_alloc.exit.i754.i ], [ 84, %524 ], [ 84, %545 ], [ 84, %zend_string_alloc.exit.i759.i ], [ 70, %601 ], [ 70, %622 ], [ 70, %zend_string_alloc.exit.i764.i ], [ 75, %662 ], [ 75, %683 ], [ 75, %zend_string_alloc.exit.i769.i ], [ 74, %712 ], [ 74, %733 ], [ 74, %zend_string_alloc.exit.i774.i ], [ 75, %748 ], [ 75, %769 ], [ 75, %zend_string_alloc.exit.i779.i ], [ 72, %813 ], [ 72, %834 ], [ 72, %zend_string_alloc.exit.i784.i ], [ 75, %851 ], [ 75, %872 ], [ 75, %zend_string_alloc.exit.i789.i ], [ 70, %895 ], [ 70, %916 ], [ 70, %zend_string_alloc.exit.i794.i ], [ 80, %932 ], [ 80, %953 ], [ 80, %zend_string_alloc.exit.i799.i ], [ 75, %969 ], [ 75, %990 ], [ 75, %zend_string_alloc.exit.i804.i ], [ 88, %1020 ], [ 88, %1041 ], [ 88, %zend_string_alloc.exit.i809.i ], [ 88, %1057 ], [ 88, %1078 ], [ 88, %zend_string_alloc.exit.i814.i ], [ 83, %1093 ], [ 83, %1114 ], [ 83, %zend_string_alloc.exit.i819.i ], [ 88, %1144 ], [ 88, %1165 ], [ 88, %zend_string_alloc.exit.i824.i ], [ 48, %1181 ], [ 48, %1202 ], [ 48, %zend_string_alloc.exit.i829.i ], [ 84, %1225 ], [ 84, %1246 ], [ 84, %zend_string_alloc.exit.i834.i ], [ 70, %1262 ], [ 70, %1283 ], [ 70, %zend_string_alloc.exit.i839.i ], [ 87, %1316 ], [ 87, %1337 ], [ 87, %zend_string_alloc.exit.i844.i ], [ 83, %1392 ], [ 83, %1413 ], [ 83, %zend_string_alloc.exit.i854.i ], [ 89, %1446 ], [ 89, %1467 ], [ 89, %zend_string_alloc.exit.i859.i ], [ 83, %1483 ], [ 83, %1504 ], [ 83, %zend_string_alloc.exit.i864.i ], [ %216, %1520 ], [ %216, %1541 ], [ %216, %zend_string_alloc.exit.i869.i ]
+  %.0623.ph.i = phi i32 [ 0, %235 ], [ 1, %374 ], [ 0, %411 ], [ 0, %336 ], [ 0, %298 ], [ 0, %encode.exit885.thread.i ], [ 1, %476 ], [ 0, %encode.exit891.thread.i ], [ 0, %700 ], [ 1, %.critedge697.i ], [ 0, %.thread913.i ], [ 0, %encode.exit897.thread.i ], [ 0, %839 ], [ 0, %883 ], [ 0, %920 ], [ 0, %957 ], [ 0, %.thread920.i ], [ 0, %1008 ], [ 1, %1045 ], [ 0, %.critedge699.i ], [ 0, %1132 ], [ 1, %1169 ], [ 0, %1250 ], [ 0, %1304 ], [ 0, %zend_string_extend.exit852.i ], [ 0, %1434 ], [ 0, %1471 ], [ 0, %1508 ], [ 0, %247 ], [ 0, %268 ], [ 0, %zend_string_alloc.exit.i.i ], [ 0, %310 ], [ 0, %331 ], [ 0, %zend_string_alloc.exit.i734.i ], [ 0, %348 ], [ 0, %369 ], [ 0, %zend_string_alloc.exit.i739.i ], [ 1, %386 ], [ 1, %407 ], [ 1, %zend_string_alloc.exit.i744.i ], [ 0, %423 ], [ 0, %444 ], [ 0, %zend_string_alloc.exit.i749.i ], [ 1, %488 ], [ 1, %509 ], [ 1, %zend_string_alloc.exit.i754.i ], [ 0, %524 ], [ 0, %545 ], [ 0, %zend_string_alloc.exit.i759.i ], [ 1, %601 ], [ 1, %622 ], [ 1, %zend_string_alloc.exit.i764.i ], [ 0, %662 ], [ 0, %683 ], [ 0, %zend_string_alloc.exit.i769.i ], [ 0, %712 ], [ 0, %733 ], [ 0, %zend_string_alloc.exit.i774.i ], [ 0, %748 ], [ 0, %769 ], [ 0, %zend_string_alloc.exit.i779.i ], [ 0, %813 ], [ 0, %834 ], [ 0, %zend_string_alloc.exit.i784.i ], [ 0, %851 ], [ 0, %872 ], [ 0, %zend_string_alloc.exit.i789.i ], [ 0, %895 ], [ 0, %916 ], [ 0, %zend_string_alloc.exit.i794.i ], [ 0, %932 ], [ 0, %953 ], [ 0, %zend_string_alloc.exit.i799.i ], [ 0, %969 ], [ 0, %990 ], [ 0, %zend_string_alloc.exit.i804.i ], [ 0, %1020 ], [ 0, %1041 ], [ 0, %zend_string_alloc.exit.i809.i ], [ 1, %1057 ], [ 1, %1078 ], [ 1, %zend_string_alloc.exit.i814.i ], [ 0, %1093 ], [ 0, %1114 ], [ 0, %zend_string_alloc.exit.i819.i ], [ 0, %1144 ], [ 0, %1165 ], [ 0, %zend_string_alloc.exit.i824.i ], [ 1, %1181 ], [ 1, %1202 ], [ 1, %zend_string_alloc.exit.i829.i ], [ 0, %1225 ], [ 0, %1246 ], [ 0, %zend_string_alloc.exit.i834.i ], [ 0, %1262 ], [ 0, %1283 ], [ 0, %zend_string_alloc.exit.i839.i ], [ 0, %1316 ], [ 0, %1337 ], [ 0, %zend_string_alloc.exit.i844.i ], [ 0, %1392 ], [ 0, %1413 ], [ 0, %zend_string_alloc.exit.i854.i ], [ 0, %1446 ], [ 0, %1467 ], [ 0, %zend_string_alloc.exit.i859.i ], [ 0, %1483 ], [ 0, %1504 ], [ 0, %zend_string_alloc.exit.i864.i ], [ 0, %1520 ], [ 0, %1541 ], [ 0, %zend_string_alloc.exit.i869.i ]
+  %.14.ph.i = phi i64 [ %.10621954.i, %235 ], [ %.10621954.i, %374 ], [ %.10621954.i, %411 ], [ %.10621954.i, %336 ], [ %.10621954.i, %298 ], [ %.10621954.i, %encode.exit885.thread.i ], [ %.10621954.i, %476 ], [ %.10621954.i, %encode.exit891.thread.i ], [ %.10621954.i, %700 ], [ %.10621954.i, %.critedge697.i ], [ %.10621954.i, %.thread913.i ], [ %.10621954.i, %encode.exit897.thread.i ], [ %.10621954.i, %839 ], [ %.10621954.i, %883 ], [ %.10621954.i, %920 ], [ %.10621954.i, %957 ], [ %.10621954.i, %.thread920.i ], [ %.10621954.i, %1008 ], [ %.10621954.i, %1045 ], [ %.10621954.i, %.critedge699.i ], [ %.10621954.i, %1132 ], [ %.10621954.i, %1169 ], [ %.10621954.i, %1250 ], [ %.10621954.i, %1304 ], [ %.46.i, %zend_string_extend.exit852.i ], [ %.10621954.i, %1434 ], [ %.10621954.i, %1471 ], [ %.10621954.i, %1508 ], [ %237, %247 ], [ %237, %268 ], [ %237, %zend_string_alloc.exit.i.i ], [ %300, %310 ], [ %300, %331 ], [ %300, %zend_string_alloc.exit.i734.i ], [ %338, %348 ], [ %338, %369 ], [ %338, %zend_string_alloc.exit.i739.i ], [ %376, %386 ], [ %376, %407 ], [ %376, %zend_string_alloc.exit.i744.i ], [ %413, %423 ], [ %413, %444 ], [ %413, %zend_string_alloc.exit.i749.i ], [ %478, %488 ], [ %478, %509 ], [ %478, %zend_string_alloc.exit.i754.i ], [ %514, %524 ], [ %514, %545 ], [ %514, %zend_string_alloc.exit.i759.i ], [ %591, %601 ], [ %591, %622 ], [ %591, %zend_string_alloc.exit.i764.i ], [ %652, %662 ], [ %652, %683 ], [ %652, %zend_string_alloc.exit.i769.i ], [ %702, %712 ], [ %702, %733 ], [ %702, %zend_string_alloc.exit.i774.i ], [ %738, %748 ], [ %738, %769 ], [ %738, %zend_string_alloc.exit.i779.i ], [ %803, %813 ], [ %803, %834 ], [ %803, %zend_string_alloc.exit.i784.i ], [ %841, %851 ], [ %841, %872 ], [ %841, %zend_string_alloc.exit.i789.i ], [ %885, %895 ], [ %885, %916 ], [ %885, %zend_string_alloc.exit.i794.i ], [ %922, %932 ], [ %922, %953 ], [ %922, %zend_string_alloc.exit.i799.i ], [ %959, %969 ], [ %959, %990 ], [ %959, %zend_string_alloc.exit.i804.i ], [ %1010, %1020 ], [ %1010, %1041 ], [ %1010, %zend_string_alloc.exit.i809.i ], [ %1047, %1057 ], [ %1047, %1078 ], [ %1047, %zend_string_alloc.exit.i814.i ], [ %1083, %1093 ], [ %1083, %1114 ], [ %1083, %zend_string_alloc.exit.i819.i ], [ %1134, %1144 ], [ %1134, %1165 ], [ %1134, %zend_string_alloc.exit.i824.i ], [ %1171, %1181 ], [ %1171, %1202 ], [ %1171, %zend_string_alloc.exit.i829.i ], [ %1215, %1225 ], [ %1215, %1246 ], [ %1215, %zend_string_alloc.exit.i834.i ], [ %1252, %1262 ], [ %1252, %1283 ], [ %1252, %zend_string_alloc.exit.i839.i ], [ %1306, %1316 ], [ %1306, %1337 ], [ %1306, %zend_string_alloc.exit.i844.i ], [ %1384, %1392 ], [ %1384, %1413 ], [ %1384, %zend_string_alloc.exit.i854.i ], [ %1436, %1446 ], [ %1436, %1467 ], [ %1436, %zend_string_alloc.exit.i859.i ], [ %1473, %1483 ], [ %1473, %1504 ], [ %1473, %zend_string_alloc.exit.i864.i ], [ %1510, %1520 ], [ %1510, %1541 ], [ %1510, %zend_string_alloc.exit.i869.i ]
+  %1545 = getelementptr inbounds nuw i8, ptr %.sink988.i, i64 24
+  %1546 = add i64 %.sink987.i, %.2607955.i
+  %1547 = getelementptr inbounds nuw [1 x i8], ptr %1545, i64 0, i64 %.2607955.sink.i
+  store i8 %.sink984.i, ptr %1547, align 1, !tbaa !8
+  %1548 = getelementptr inbounds nuw i8, ptr %.3, i64 16
+  store i64 %1546, ptr %1548, align 8, !tbaa !50
   br label %encode.exit894.thread.i
 
-encode.exit894.thread.i:                          ; preds = %encode.exit894.thread.sink.split.i, %encode.exit903.i, %1411, %encode.exit900.i, %1281, %1201, %832, %encode.exit897.i, %encode.exit894.i, %767, %Lookahead.exit.i, %.thread.i, %621, %577, %encode.exit888.i, %.critedge695.i, %232, %231
-  %.4 = phi ptr [ %.2, %231 ], [ %.2, %232 ], [ %.3, %encode.exit894.thread.sink.split.i ], [ %.2, %.critedge695.i ], [ %.2, %577 ], [ %.2, %encode.exit888.i ], [ %.2, %.thread.i ], [ %.2, %621 ], [ %.2, %Lookahead.exit.i ], [ %.2, %767 ], [ %.2, %encode.exit897.i ], [ %.2, %encode.exit894.i ], [ %.2, %832 ], [ %.2, %1201 ], [ %.2, %1281 ], [ %.2, %encode.exit900.i ], [ %.2, %1411 ], [ %.2, %encode.exit903.i ]
-  %1543 = phi ptr [ %204, %231 ], [ %204, %232 ], [ %.3, %encode.exit894.thread.sink.split.i ], [ %204, %.critedge695.i ], [ %204, %577 ], [ %204, %encode.exit888.i ], [ %204, %.thread.i ], [ %204, %621 ], [ %204, %Lookahead.exit.i ], [ %204, %767 ], [ %204, %encode.exit897.i ], [ %204, %encode.exit894.i ], [ %204, %832 ], [ %204, %1201 ], [ %204, %1281 ], [ %204, %encode.exit900.i ], [ %204, %1411 ], [ %204, %encode.exit903.i ]
-  %.0623.i = phi i32 [ 0, %231 ], [ 0, %232 ], [ %.0623.ph.i, %encode.exit894.thread.sink.split.i ], [ 0, %.critedge695.i ], [ 0, %577 ], [ 0, %encode.exit888.i ], [ 0, %.thread.i ], [ 0, %621 ], [ 0, %Lookahead.exit.i ], [ 0, %767 ], [ 0, %encode.exit897.i ], [ 0, %encode.exit894.i ], [ 0, %832 ], [ 0, %1201 ], [ 0, %1281 ], [ 0, %encode.exit900.i ], [ 0, %1411 ], [ 0, %encode.exit903.i ]
-  %.14.i = phi i64 [ %.10621958.i, %231 ], [ %.10621958.i, %232 ], [ %.14.ph.i, %encode.exit894.thread.sink.split.i ], [ %.10621958.i, %.critedge695.i ], [ %.10621958.i, %577 ], [ %.10621958.i, %encode.exit888.i ], [ %.10621958.i, %.thread.i ], [ %.10621958.i, %621 ], [ %.10621958.i, %Lookahead.exit.i ], [ %.10621958.i, %767 ], [ %.10621958.i, %encode.exit897.i ], [ %.10621958.i, %encode.exit894.i ], [ %.10621958.i, %832 ], [ %.10621958.i, %1201 ], [ %.10621958.i, %1281 ], [ %.10621958.i, %encode.exit900.i ], [ %.10621958.i, %1411 ], [ %.10621958.i, %encode.exit903.i ]
-  %.5610.i = phi i64 [ %.2607959.i, %231 ], [ %.2607959.i, %232 ], [ %1540, %encode.exit894.thread.sink.split.i ], [ %.2607959.i, %.critedge695.i ], [ %.2607959.i, %577 ], [ %.2607959.i, %encode.exit888.i ], [ %.2607959.i, %.thread.i ], [ %.2607959.i, %621 ], [ %.2607959.i, %Lookahead.exit.i ], [ %.2607959.i, %767 ], [ %.2607959.i, %encode.exit897.i ], [ %.2607959.i, %encode.exit894.i ], [ %.2607959.i, %832 ], [ %.2607959.i, %1201 ], [ %.2607959.i, %1281 ], [ %.2607959.i, %encode.exit900.i ], [ %.2607959.i, %1411 ], [ %.2607959.i, %encode.exit903.i ]
-  %1544 = add nsw i32 %.0623.i, %.3960.i
-  br label %1545
+encode.exit894.thread.i:                          ; preds = %encode.exit894.thread.sink.split.i, %encode.exit903.i, %1417, %encode.exit900.i, %1287, %1207, %838, %encode.exit897.i, %encode.exit894.i, %773, %Lookahead.exit.i, %.thread.i, %627, %581, %encode.exit888.i, %.critedge695.i, %234, %233
+  %.4 = phi ptr [ %.2, %233 ], [ %.2, %234 ], [ %.3, %encode.exit894.thread.sink.split.i ], [ %.2, %.critedge695.i ], [ %.2, %581 ], [ %.2, %encode.exit888.i ], [ %.2, %.thread.i ], [ %.2, %627 ], [ %.2, %Lookahead.exit.i ], [ %.2, %773 ], [ %.2, %encode.exit897.i ], [ %.2, %encode.exit894.i ], [ %.2, %838 ], [ %.2, %1207 ], [ %.2, %1287 ], [ %.2, %encode.exit900.i ], [ %.2, %1417 ], [ %.2, %encode.exit903.i ]
+  %1549 = phi ptr [ %204, %233 ], [ %204, %234 ], [ %.3, %encode.exit894.thread.sink.split.i ], [ %204, %.critedge695.i ], [ %204, %581 ], [ %204, %encode.exit888.i ], [ %204, %.thread.i ], [ %204, %627 ], [ %204, %Lookahead.exit.i ], [ %204, %773 ], [ %204, %encode.exit897.i ], [ %204, %encode.exit894.i ], [ %204, %838 ], [ %204, %1207 ], [ %204, %1287 ], [ %204, %encode.exit900.i ], [ %204, %1417 ], [ %204, %encode.exit903.i ]
+  %.0623.i = phi i32 [ 0, %233 ], [ 0, %234 ], [ %.0623.ph.i, %encode.exit894.thread.sink.split.i ], [ 0, %.critedge695.i ], [ 0, %581 ], [ 0, %encode.exit888.i ], [ 0, %.thread.i ], [ 0, %627 ], [ 0, %Lookahead.exit.i ], [ 0, %773 ], [ 0, %encode.exit897.i ], [ 0, %encode.exit894.i ], [ 0, %838 ], [ 0, %1207 ], [ 0, %1287 ], [ 0, %encode.exit900.i ], [ 0, %1417 ], [ 0, %encode.exit903.i ]
+  %.14.i = phi i64 [ %.10621954.i, %233 ], [ %.10621954.i, %234 ], [ %.14.ph.i, %encode.exit894.thread.sink.split.i ], [ %.10621954.i, %.critedge695.i ], [ %.10621954.i, %581 ], [ %.10621954.i, %encode.exit888.i ], [ %.10621954.i, %.thread.i ], [ %.10621954.i, %627 ], [ %.10621954.i, %Lookahead.exit.i ], [ %.10621954.i, %773 ], [ %.10621954.i, %encode.exit897.i ], [ %.10621954.i, %encode.exit894.i ], [ %.10621954.i, %838 ], [ %.10621954.i, %1207 ], [ %.10621954.i, %1287 ], [ %.10621954.i, %encode.exit900.i ], [ %.10621954.i, %1417 ], [ %.10621954.i, %encode.exit903.i ]
+  %.5610.i = phi i64 [ %.2607955.i, %233 ], [ %.2607955.i, %234 ], [ %1546, %encode.exit894.thread.sink.split.i ], [ %.2607955.i, %.critedge695.i ], [ %.2607955.i, %581 ], [ %.2607955.i, %encode.exit888.i ], [ %.2607955.i, %.thread.i ], [ %.2607955.i, %627 ], [ %.2607955.i, %Lookahead.exit.i ], [ %.2607955.i, %773 ], [ %.2607955.i, %encode.exit897.i ], [ %.2607955.i, %encode.exit894.i ], [ %.2607955.i, %838 ], [ %.2607955.i, %1207 ], [ %.2607955.i, %1287 ], [ %.2607955.i, %encode.exit900.i ], [ %.2607955.i, %1417 ], [ %.2607955.i, %encode.exit903.i ]
+  %1550 = add nsw i32 %.0623.i, %.3956.i
+  br label %1551
 
-1545:                                             ; preds = %encode.exit894.thread.i, %225, %.lr.ph962.i
-  %.5 = phi ptr [ %.2, %.lr.ph962.i ], [ %.2, %225 ], [ %.4, %encode.exit894.thread.i ]
-  %1546 = phi ptr [ %204, %.lr.ph962.i ], [ %204, %225 ], [ %1543, %encode.exit894.thread.i ]
-  %.11622.i = phi i64 [ %.10621958.i, %.lr.ph962.i ], [ %.10621958.i, %225 ], [ %.14.i, %encode.exit894.thread.i ]
-  %.3608.i = phi i64 [ %.2607959.i, %.lr.ph962.i ], [ %.2607959.i, %225 ], [ %.5610.i, %encode.exit894.thread.i ]
-  %.4.i = phi i32 [ %.3960.i, %.lr.ph962.i ], [ %.3960.i, %225 ], [ %1544, %encode.exit894.thread.i ]
-  %1547 = add nsw i32 %.4.i, 1
-  %1548 = sext i32 %1547 to i64
-  %1549 = getelementptr inbounds i8, ptr %31, i64 %1548
-  %1550 = load i8, ptr %1549, align 1, !tbaa !8
-  %.not636.i = icmp eq i8 %1550, 0
+1551:                                             ; preds = %encode.exit894.thread.i, %227, %.lr.ph958.i
+  %.5 = phi ptr [ %.2, %.lr.ph958.i ], [ %.2, %227 ], [ %.4, %encode.exit894.thread.i ]
+  %1552 = phi ptr [ %204, %.lr.ph958.i ], [ %204, %227 ], [ %1549, %encode.exit894.thread.i ]
+  %.11622.i = phi i64 [ %.10621954.i, %.lr.ph958.i ], [ %.10621954.i, %227 ], [ %.14.i, %encode.exit894.thread.i ]
+  %.3608.i = phi i64 [ %.2607955.i, %.lr.ph958.i ], [ %.2607955.i, %227 ], [ %.5610.i, %encode.exit894.thread.i ]
+  %.4.i = phi i32 [ %.3956.i, %.lr.ph958.i ], [ %.3956.i, %227 ], [ %1550, %encode.exit894.thread.i ]
+  %1553 = add nsw i32 %.4.i, 1
+  %1554 = sext i32 %1553 to i64
+  %1555 = getelementptr inbounds i8, ptr %31, i64 %1554
+  %1556 = load i8, ptr %1555, align 1, !tbaa !8
+  %.not636.i = icmp eq i8 %1556, 0
   %.not637.i = icmp ult i64 %200, %.3608.i
   %or.cond693.i = select i1 %.not636.i, i1 true, i1 %.not637.i
-  br i1 %or.cond693.i, label %.critedge.i, label %.lr.ph962.i
+  br i1 %or.cond693.i, label %.critedge.i, label %.lr.ph958.i
 
-.critedge.i:                                      ; preds = %1545, %encode.exit.thread.i
-  %.6 = phi ptr [ %.1, %encode.exit.thread.i ], [ %.5, %1545 ]
-  %1551 = phi ptr [ %.1, %encode.exit.thread.i ], [ %1546, %1545 ]
-  %.10621.lcssa.i = phi i64 [ %.3614.i, %encode.exit.thread.i ], [ %.11622.i, %1545 ]
-  %.2607.lcssa.i = phi i64 [ %.0605.i, %encode.exit.thread.i ], [ %.3608.i, %1545 ]
-  %1552 = icmp eq i64 %.2607.lcssa.i, %.10621.lcssa.i
-  br i1 %1552, label %1553, label %zend_string_extend.exit877.i
+.critedge.i:                                      ; preds = %1551, %encode.exit.thread.i
+  %.6 = phi ptr [ %.1, %encode.exit.thread.i ], [ %.5, %1551 ]
+  %1557 = phi ptr [ %.1, %encode.exit.thread.i ], [ %1552, %1551 ]
+  %.10621.lcssa.i = phi i64 [ %.3614.i, %encode.exit.thread.i ], [ %.11622.i, %1551 ]
+  %.2607.lcssa.i = phi i64 [ %.0605.i, %encode.exit.thread.i ], [ %.3608.i, %1551 ]
+  %1558 = icmp eq i64 %.2607.lcssa.i, %.10621.lcssa.i
+  br i1 %1558, label %1559, label %zend_string_extend.exit877.i
 
-1553:                                             ; preds = %.critedge.i
-  %1554 = add i64 %.10621.lcssa.i, 1
-  %1555 = getelementptr inbounds nuw i8, ptr %1551, i64 16
-  %1556 = load i64, ptr %1555, align 8, !tbaa !50
-  %1557 = icmp uge i64 %1554, %1556
-  call void @llvm.assume(i1 %1557)
-  %1558 = getelementptr inbounds nuw i8, ptr %1551, i64 4
-  %1559 = load i32, ptr %1558, align 4, !tbaa !8
-  %1560 = and i32 %1559, 64
-  %.not.i873.i = icmp eq i32 %1560, 0
-  br i1 %.not.i873.i, label %1561, label %zend_string_alloc.exit.i874.i
+1559:                                             ; preds = %.critedge.i
+  %1560 = add i64 %.10621.lcssa.i, 1
+  %1561 = getelementptr inbounds nuw i8, ptr %1557, i64 16
+  %1562 = load i64, ptr %1561, align 8, !tbaa !50
+  %1563 = icmp uge i64 %1560, %1562
+  call void @llvm.assume(i1 %1563)
+  %1564 = getelementptr inbounds nuw i8, ptr %1557, i64 4
+  %1565 = load i32, ptr %1564, align 4, !tbaa !8
+  %1566 = and i32 %1565, 64
+  %.not.i873.i = icmp eq i32 %1566, 0
+  br i1 %.not.i873.i, label %1567, label %zend_string_alloc.exit.i874.i
 
-1561:                                             ; preds = %1553
-  %1562 = load i32, ptr %1551, align 4, !tbaa !52
-  %1563 = icmp eq i32 %1562, 1
-  br i1 %1563, label %1564, label %zend_string_alloc.exit.i874.i, !prof !10
+1567:                                             ; preds = %1559
+  %1568 = load i32, ptr %1557, align 4, !tbaa !52
+  %1569 = icmp eq i32 %1568, 1
+  br i1 %1569, label %1570, label %zend_string_alloc.exit.i874.i, !prof !10
 
-1564:                                             ; preds = %1561
-  %1565 = and i64 %1554, -8
-  %1566 = add i64 %1565, 32
-  %1567 = call ptr @_erealloc(ptr noundef nonnull %1551, i64 noundef %1566) #11
-  %1568 = getelementptr inbounds nuw i8, ptr %1567, i64 16
-  store i64 %1554, ptr %1568, align 8, !tbaa !50
-  %1569 = getelementptr inbounds nuw i8, ptr %1567, i64 8
-  store i64 0, ptr %1569, align 8, !tbaa !53
-  %1570 = getelementptr inbounds nuw i8, ptr %1567, i64 4
-  %1571 = load i32, ptr %1570, align 4, !tbaa !8
-  %1572 = and i32 %1571, -513
-  store i32 %1572, ptr %1570, align 4, !tbaa !8
+1570:                                             ; preds = %1567
+  %1571 = and i64 %1560, -8
+  %1572 = add i64 %1571, 32
+  %1573 = call ptr @_erealloc(ptr noundef nonnull %1557, i64 noundef %1572) #11
+  %1574 = getelementptr inbounds nuw i8, ptr %1573, i64 16
+  store i64 %1560, ptr %1574, align 8, !tbaa !50
+  %1575 = getelementptr inbounds nuw i8, ptr %1573, i64 8
+  store i64 0, ptr %1575, align 8, !tbaa !53
+  %1576 = getelementptr inbounds nuw i8, ptr %1573, i64 4
+  %1577 = load i32, ptr %1576, align 4, !tbaa !8
+  %1578 = and i32 %1577, -513
+  store i32 %1578, ptr %1576, align 4, !tbaa !8
   br label %zend_string_extend.exit877.i
 
-zend_string_alloc.exit.i874.i:                    ; preds = %1553, %1561
-  %1573 = and i64 %1554, -8
-  %1574 = add i64 %1573, 32
-  %1575 = call noalias ptr @_emalloc(i64 noundef %1574) #9
-  store i32 1, ptr %1575, align 4, !tbaa !52
-  %1576 = getelementptr inbounds nuw i8, ptr %1575, i64 4
-  store i32 22, ptr %1576, align 4, !tbaa !8
-  %1577 = getelementptr inbounds nuw i8, ptr %1575, i64 8
-  store i64 0, ptr %1577, align 8, !tbaa !53
-  %1578 = getelementptr inbounds nuw i8, ptr %1575, i64 16
-  store i64 %1554, ptr %1578, align 8, !tbaa !50
-  %1579 = getelementptr inbounds nuw i8, ptr %1575, i64 24
-  %1580 = getelementptr inbounds nuw i8, ptr %1551, i64 24
-  %1581 = load i64, ptr %1555, align 8, !tbaa !50
-  %1582 = add i64 %1581, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1579, ptr nonnull align 8 %1580, i64 %1582, i1 false)
-  %1583 = load i32, ptr %1558, align 4, !tbaa !8
-  %1584 = and i32 %1583, 64
-  %.not21.i875.i = icmp eq i32 %1584, 0
-  br i1 %.not21.i875.i, label %1585, label %zend_string_extend.exit877.i
+zend_string_alloc.exit.i874.i:                    ; preds = %1559, %1567
+  %1579 = and i64 %1560, -8
+  %1580 = add i64 %1579, 32
+  %1581 = call noalias ptr @_emalloc(i64 noundef %1580) #9
+  store i32 1, ptr %1581, align 4, !tbaa !52
+  %1582 = getelementptr inbounds nuw i8, ptr %1581, i64 4
+  store i32 22, ptr %1582, align 4, !tbaa !8
+  %1583 = getelementptr inbounds nuw i8, ptr %1581, i64 8
+  store i64 0, ptr %1583, align 8, !tbaa !53
+  %1584 = getelementptr inbounds nuw i8, ptr %1581, i64 16
+  store i64 %1560, ptr %1584, align 8, !tbaa !50
+  %1585 = getelementptr inbounds nuw i8, ptr %1581, i64 24
+  %1586 = getelementptr inbounds nuw i8, ptr %1557, i64 24
+  %1587 = load i64, ptr %1561, align 8, !tbaa !50
+  %1588 = add i64 %1587, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1585, ptr nonnull align 8 %1586, i64 %1588, i1 false)
+  %1589 = load i32, ptr %1564, align 4, !tbaa !8
+  %1590 = and i32 %1589, 64
+  %.not21.i875.i = icmp eq i32 %1590, 0
+  br i1 %.not21.i875.i, label %1591, label %zend_string_extend.exit877.i
 
-1585:                                             ; preds = %zend_string_alloc.exit.i874.i
-  %1586 = load i32, ptr %1551, align 4, !tbaa !52
-  %1587 = icmp ne i32 %1586, 0
-  call void @llvm.assume(i1 %1587)
-  %1588 = add i32 %1586, -1
-  store i32 %1588, ptr %1551, align 4, !tbaa !52
+1591:                                             ; preds = %zend_string_alloc.exit.i874.i
+  %1592 = load i32, ptr %1557, align 4, !tbaa !52
+  %1593 = icmp ne i32 %1592, 0
+  call void @llvm.assume(i1 %1593)
+  %1594 = add i32 %1592, -1
+  store i32 %1594, ptr %1557, align 4, !tbaa !52
   br label %zend_string_extend.exit877.i
 
-zend_string_extend.exit877.i:                     ; preds = %1564, %zend_string_alloc.exit.i874.i, %1585, %.critedge.i
-  %.7 = phi ptr [ %.6, %.critedge.i ], [ %1567, %1564 ], [ %1575, %1585 ], [ %1575, %zend_string_alloc.exit.i874.i ]
-  %1589 = phi ptr [ %1551, %.critedge.i ], [ %1567, %1564 ], [ %1575, %1585 ], [ %1575, %zend_string_alloc.exit.i874.i ]
-  %1590 = getelementptr inbounds nuw i8, ptr %1589, i64 24
-  %1591 = getelementptr inbounds nuw [1 x i8], ptr %1590, i64 0, i64 %.2607.lcssa.i
-  store i8 0, ptr %1591, align 1, !tbaa !8
+zend_string_extend.exit877.i:                     ; preds = %1570, %zend_string_alloc.exit.i874.i, %1591, %.critedge.i
+  %.7 = phi ptr [ %.6, %.critedge.i ], [ %1573, %1570 ], [ %1581, %1591 ], [ %1581, %zend_string_alloc.exit.i874.i ]
+  %1595 = phi ptr [ %1557, %.critedge.i ], [ %1573, %1570 ], [ %1581, %1591 ], [ %1581, %zend_string_alloc.exit.i874.i ]
+  %1596 = getelementptr inbounds nuw i8, ptr %1595, i64 24
+  %1597 = getelementptr inbounds nuw [1 x i8], ptr %1596, i64 0, i64 %.2607.lcssa.i
+  store i8 0, ptr %1597, align 1, !tbaa !8
   br label %metaphone.exit
 
 metaphone.exit:                                   ; preds = %60, %zend_string_extend.exit877.i
   %.16 = phi ptr [ %.15, %60 ], [ %.7, %zend_string_extend.exit877.i ]
   %.2607.lcssa.sink.i = phi i64 [ 0, %60 ], [ %.2607.lcssa.i, %zend_string_extend.exit877.i ]
-  %1592 = getelementptr inbounds nuw i8, ptr %.16, i64 16
-  store i64 %.2607.lcssa.sink.i, ptr %1592, align 8, !tbaa !50
+  %1598 = getelementptr inbounds nuw i8, ptr %.16, i64 16
+  store i64 %.2607.lcssa.sink.i, ptr %1598, align 8, !tbaa !50
   store ptr %.16, ptr %1, align 8, !tbaa !8
-  %1593 = getelementptr inbounds nuw i8, ptr %.16, i64 4
-  %1594 = load i32, ptr %1593, align 4, !tbaa !8
-  %1595 = and i32 %1594, 64
-  %.not56 = icmp eq i32 %1595, 0
-  %1596 = select i1 %.not56, i32 262, i32 6
-  %1597 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %1596, ptr %1597, align 8, !tbaa !8
-  br label %1598
+  %1599 = getelementptr inbounds nuw i8, ptr %.16, i64 4
+  %1600 = load i32, ptr %1599, align 4, !tbaa !8
+  %1601 = and i32 %1600, 64
+  %.not56 = icmp eq i32 %1601, 0
+  %1602 = select i1 %.not56, i32 262, i32 6
+  %1603 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %1602, ptr %1603, align 8, !tbaa !8
+  br label %1604
 
-1598:                                             ; preds = %.thread81, %metaphone.exit, %27
+1604:                                             ; preds = %.thread, %metaphone.exit, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret void

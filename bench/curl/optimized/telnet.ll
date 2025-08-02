@@ -488,7 +488,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
   br i1 %172, label %836, label %173
 
 173:                                              ; preds = %.loopexit98
-  %174 = call i32 @Curl_xfer_recv(ptr noundef %0, ptr noundef nonnull %18, i64 noundef 4096, ptr noundef nonnull %17) #9
+  %174 = call i32 @Curl_xfer_recv(ptr noundef nonnull %0, ptr noundef nonnull %18, i64 noundef 4096, ptr noundef nonnull %17) #9
   switch i32 %174, label %175 [
     i32 81, label %telrcv.exit.thread
     i32 0, label %176
@@ -504,7 +504,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 
 179:                                              ; preds = %176
   %180 = add nuw nsw i64 %177, %.055.ph
-  %181 = call i32 @Curl_pgrsSetDownloadCounter(ptr noundef %0, i64 noundef %180) #9
+  %181 = call i32 @Curl_pgrsSetDownloadCounter(ptr noundef nonnull %0, i64 noundef %180) #9
   %.not76 = icmp eq i32 %181, 0
   br i1 %.not76, label %182, label %telrcv.exit.thread
 
@@ -2196,7 +2196,7 @@ telrcv.exit.thread:                               ; preds = %198, %211, %825, %1
 
 .loopexit:                                        ; preds = %867, %.outer, %169
   %.2 = phi i32 [ %.1.ph, %.outer ], [ %.1.ph, %169 ], [ 42, %867 ]
-  call void @Curl_xfer_setup_nop(ptr noundef %0) #9
+  call void @Curl_xfer_setup_nop(ptr noundef nonnull %0) #9
   br label %init_telnet.exit
 
 init_telnet.exit:                                 ; preds = %._crit_edge.thread118.i, %.thread.i, %2, %.loopexit

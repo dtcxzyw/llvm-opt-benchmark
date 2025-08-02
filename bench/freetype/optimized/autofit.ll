@@ -7174,8 +7174,8 @@ af_cjk_hints_link_segments.exit:                  ; preds = %188, %39
   store i32 0, ptr %200, align 8, !tbaa !93
   %201 = load i64, ptr %.in.i, align 8, !tbaa !63
   %.idx.i14 = mul nuw nsw i64 %5, 896
-  %202 = getelementptr i8, ptr %192, i64 488
-  %203 = getelementptr i8, ptr %202, i64 %.idx.i14
+  %202 = getelementptr inbounds nuw i8, ptr %192, i64 488
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 %.idx.i14
   %204 = load i64, ptr %203, align 8, !tbaa !324
   %sext.i = shl i64 %204, 32
   %205 = ashr exact i64 %sext.i, 32
@@ -9238,7 +9238,7 @@ define internal fastcc i64 @af_cjk_compute_stem_width(i32 %.5148.val, ptr readon
 
 .lr.ph.preheader.i:                               ; preds = %41
   %wide.trip.count.i = zext i32 %43 to i64
-  %46 = getelementptr i8, ptr %5, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -9246,7 +9246,7 @@ define internal fastcc i64 @af_cjk_compute_stem_width(i32 %.5148.val, ptr readon
   %.02534.i = phi i64 [ %spec.select, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %.02633.i = phi i64 [ 98, %.lr.ph.preheader.i ], [ %.127.i, %.lr.ph.i ]
   %.idx = mul nuw nsw i64 %indvars.iv.i, 24
-  %47 = getelementptr i8, ptr %46, i64 %.idx
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %48 = load i64, ptr %47, align 8, !tbaa !441
   %49 = sub nsw i64 %spec.select, %48
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 %49, i1 true)
@@ -9758,8 +9758,8 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   %.0201.i = phi i64 [ %38, %36 ], [ 0, %33 ]
   %40 = tail call i64 @FT_DivFix(i64 noundef 32, i64 noundef %32) #20
   %.idx.i = shl nuw nsw i64 %9, 10
-  %41 = getelementptr i8, ptr %13, i64 488
-  %42 = getelementptr i8, ptr %41, i64 %.idx.i
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 488
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i
   %43 = load i64, ptr %42, align 8, !tbaa !160
   %sext.i = shl i64 %43, 32
   %44 = ashr exact i64 %sext.i, 32
@@ -11031,7 +11031,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr read
 
 .lr.ph.preheader.i:                               ; preds = %69
   %wide.trip.count.i = zext i32 %71 to i64
-  %74 = getelementptr i8, ptr %8, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -11039,7 +11039,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr read
   %.02534.i = phi i64 [ %spec.select, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %.02633.i = phi i64 [ 98, %.lr.ph.preheader.i ], [ %.127.i, %.lr.ph.i ]
   %.idx = mul nuw nsw i64 %indvars.iv.i, 24
-  %75 = getelementptr i8, ptr %74, i64 %.idx
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx
   %76 = load i64, ptr %75, align 8, !tbaa !441
   %77 = sub nsw i64 %spec.select, %76
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 %77, i1 true)

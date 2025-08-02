@@ -264,14 +264,14 @@ bytestream2_get_byte.exit119:                     ; preds = %bytestream2_get_byt
   %132 = getelementptr inbounds nuw i8, ptr %.sroa.0.0200, i64 4
   %133 = load i32, ptr %.sroa.0.0200, align 1, !tbaa !16
   %134 = call i32 @llvm.bswap.i32(i32 %133)
+  %135 = call i32 @llvm.fshl.i32(i32 %134, i32 %134, i32 24)
   br label %bytestream2_get_be32.exit
 
 bytestream2_get_be32.exit:                        ; preds = %127, %131
   %.sroa.0.13 = phi ptr [ %132, %131 ], [ %16, %127 ]
-  %.0.i120 = phi i32 [ %134, %131 ], [ 0, %127 ]
-  %135 = call i32 @llvm.fshl.i32(i32 %.0.i120, i32 %.0.i120, i32 24)
+  %.0.i120 = phi i32 [ %135, %131 ], [ 0, %127 ]
   %136 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv224
-  store i32 %135, ptr %136, align 4, !tbaa !39
+  store i32 %.0.i120, ptr %136, align 4, !tbaa !39
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next225, 256
   br i1 %exitcond227.not, label %137, label %127, !llvm.loop !40

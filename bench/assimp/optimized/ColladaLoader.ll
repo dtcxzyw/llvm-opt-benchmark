@@ -3152,7 +3152,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %22, align 8
   %.not369 = icmp eq ptr %24, %25
-  br i1 %.not369, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPP11aiAnimationSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit, label %.lr.ph360
+  br i1 %.not369, label %_ZNSt6vectorIP11aiAnimationSaIS1_EE5clearEv.exit, label %.lr.ph360
 
 .lr.ph360:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3174,7 +3174,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ._crit_edge361:                                   ; preds = %_ZNSt6vectorImSaImEED2Ev.exit
   %41 = icmp eq ptr %386, %385
-  br i1 %41, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPP11aiAnimationSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit, label %392
+  br i1 %41, label %_ZNSt6vectorIP11aiAnimationSaIS1_EE5clearEv.exit, label %392
 
 42:                                               ; preds = %._crit_edge.i.i
   %43 = landingpad { ptr, i32 }
@@ -4158,25 +4158,17 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
   %403 = load ptr, ptr %22, align 8
   %404 = load ptr, ptr %23, align 8
   %.not.i.i.i.i.i144 = icmp eq ptr %404, %403
-  br i1 %.not.i.i.i.i.i144, label %_ZNSt6vectorIP11aiAnimationSaIS1_EE5clearEv.exit, label %405
+  br i1 %.not.i.i.i.i.i144, label %_ZNSt6vectorIP11aiAnimationSaIS1_EE5clearEv.exit, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPP11aiAnimationSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit
 
-405:                                              ; preds = %392
-  %406 = ptrtoint ptr %404 to i64
-  %407 = ptrtoint ptr %403 to i64
-  %408 = sub i64 %406, %407
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %401, ptr align 8 %403, i64 %408, i1 false)
-  br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPP11aiAnimationSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit
-
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPP11aiAnimationSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %405, %._crit_edge361
-  %.not.i.i145 = phi i1 [ false, %405 ], [ true, %._crit_edge361 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %409 = phi ptr [ %403, %405 ], [ %386, %._crit_edge361 ], [ %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  br i1 %.not.i.i145, label %_ZNSt6vectorIP11aiAnimationSaIS1_EE5clearEv.exit, label %410
-
-410:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPP11aiAnimationSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit
-  store ptr %409, ptr %23, align 8
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPP11aiAnimationSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit: ; preds = %392
+  %405 = ptrtoint ptr %404 to i64
+  %406 = ptrtoint ptr %403 to i64
+  %407 = sub i64 %405, %406
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %401, ptr align 8 %403, i64 %407, i1 false)
+  store ptr %403, ptr %23, align 8
   br label %_ZNSt6vectorIP11aiAnimationSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP11aiAnimationSaIS1_EE5clearEv.exit: ; preds = %392, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPP11aiAnimationSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit, %410
+_ZNSt6vectorIP11aiAnimationSaIS1_EE5clearEv.exit: ; preds = %._crit_edge361, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %392, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPP11aiAnimationSt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit
   ret void
 
 _ZNSt6vectorImSaImEED2Ev.exit140:                 ; preds = %374, %373, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93

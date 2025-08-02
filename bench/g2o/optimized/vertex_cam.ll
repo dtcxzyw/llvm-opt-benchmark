@@ -282,121 +282,122 @@ define noundef zeroext i1 @_ZN3g2o9VertexCam4readERSi(ptr noundef nonnull align 
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #23
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 32
   br label %11
 
-11:                                               ; preds = %17, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %17 ]
+11:                                               ; preds = %19, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %19 ]
   %12 = load ptr, ptr %1, align 8, !tbaa !3
   %13 = getelementptr i8, ptr %12, i64 -24
   %14 = load i64, ptr %13, align 8
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %14
-  %15 = load i32, ptr %gep.i, align 8, !tbaa !33
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %15 = getelementptr inbounds i8, ptr %1, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %17 = load i32, ptr %16, align 8, !tbaa !33
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
-  %19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %18)
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %21 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %..critedge_crit_edge.i, label %11, !llvm.loop !42
 
-..critedge_crit_edge.i:                           ; preds = %17
+..critedge_crit_edge.i:                           ; preds = %19
   br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !42
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %11, %..critedge_crit_edge.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
-  br label %20
+  br label %22
 
-20:                                               ; preds = %26, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
-  %indvars.iv.i8 = phi i64 [ 0, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit ], [ %indvars.iv.next.i10, %26 ]
-  %21 = load ptr, ptr %1, align 8, !tbaa !3
-  %22 = getelementptr i8, ptr %21, i64 -24
-  %23 = load i64, ptr %22, align 8
-  %gep.i9 = getelementptr i8, ptr %invariant.gep.i, i64 %23
-  %24 = load i32, ptr %gep.i9, align 8, !tbaa !33
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+22:                                               ; preds = %30, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %indvars.iv.i7 = phi i64 [ 0, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit ], [ %indvars.iv.next.i8, %30 ]
+  %23 = load ptr, ptr %1, align 8, !tbaa !3
+  %24 = getelementptr i8, ptr %23, i64 -24
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %28 = load i32, ptr %27, align 8, !tbaa !33
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i8
-  %28 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %27)
-  %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
-  %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 4
-  br i1 %exitcond.not.i11, label %..critedge_crit_edge.i12, label %20, !llvm.loop !44
+30:                                               ; preds = %22
+  %31 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i7
+  %32 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %31)
+  %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
+  %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, 4
+  br i1 %exitcond.not.i9, label %..critedge_crit_edge.i10, label %22, !llvm.loop !44
 
-..critedge_crit_edge.i12:                         ; preds = %26
+..critedge_crit_edge.i10:                         ; preds = %30
   br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !44
 
-_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %20, %..critedge_crit_edge.i12
-  %29 = load <2 x double>, ptr %4, align 16, !tbaa !45
-  %30 = fmul <2 x double> %29, %29
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %32 = load <2 x double>, ptr %31, align 16, !tbaa !45
-  %33 = fmul <2 x double> %32, %32
-  %34 = fadd <2 x double> %30, %33
-  %shift = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %35 = fadd <2 x double> %34, %shift
-  %36 = extractelement <2 x double> %35, i64 0
-  %37 = fcmp ogt double %36, 0.000000e+00
-  br i1 %37, label %38, label %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
+_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %22, %..critedge_crit_edge.i10
+  %33 = load <2 x double>, ptr %4, align 16, !tbaa !45
+  %34 = fmul <2 x double> %33, %33
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %36 = load <2 x double>, ptr %35, align 16, !tbaa !45
+  %37 = fmul <2 x double> %36, %36
+  %38 = fadd <2 x double> %34, %37
+  %shift = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %39 = fadd <2 x double> %38, %shift
+  %40 = extractelement <2 x double> %39, i64 0
+  %41 = fcmp ogt double %40, 0.000000e+00
+  br i1 %41, label %42, label %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
 
-38:                                               ; preds = %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
-  %.scalar.i.i = call double @llvm.sqrt.f64(double %36)
-  %39 = insertelement <2 x double> poison, double %.scalar.i.i, i64 0
-  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
-  %41 = fdiv <2 x double> %29, %40
-  store <2 x double> %41, ptr %4, align 16, !tbaa !45
-  %42 = fdiv <2 x double> %32, %40
-  store <2 x double> %42, ptr %31, align 16, !tbaa !45
+42:                                               ; preds = %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %.scalar.i.i = call double @llvm.sqrt.f64(double %40)
+  %43 = insertelement <2 x double> poison, double %.scalar.i.i, i64 0
+  %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
+  %45 = fdiv <2 x double> %33, %44
+  store <2 x double> %45, ptr %4, align 16, !tbaa !45
+  %46 = fdiv <2 x double> %36, %44
+  store <2 x double> %46, ptr %35, align 16, !tbaa !45
   br label %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
 
-_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit: ; preds = %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, %38
+_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit: ; preds = %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, %42
   call void @llvm.lifetime.start.p0(i64 560, ptr nonnull %5) #23
   call void @_ZN3g2o6SBACamC1ERKN5Eigen10QuaternionIdLi0EEERKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 16 dereferenceable(552) %5, ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
-  %43 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %44 = load ptr, ptr %1, align 8, !tbaa !3
-  %45 = getelementptr i8, ptr %44, i64 -24
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %49 = load i32, ptr %48, align 8, !tbaa !33
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %61
+  %47 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %48 = load ptr, ptr %1, align 8, !tbaa !3
+  %49 = getelementptr i8, ptr %48, i64 -24
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %1, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %53 = load i32, ptr %52, align 8, !tbaa !33
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %65
 
-51:                                               ; preds = %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
+55:                                               ; preds = %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
-  %52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %53 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %54 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %55 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %56 = load double, ptr %6, align 8, !tbaa !46
-  %57 = load double, ptr %7, align 8, !tbaa !46
-  %58 = load double, ptr %8, align 8, !tbaa !46
-  %59 = load double, ptr %9, align 8, !tbaa !46
-  %60 = load double, ptr %10, align 8, !tbaa !46
-  call void @_ZN3g2o6SBACam7setKcamEddddd(ptr noundef nonnull align 16 dereferenceable(552) %5, double noundef %56, double noundef %57, double noundef %58, double noundef %59, double noundef %60)
+  %56 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %57 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %58 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %59 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %60 = load double, ptr %6, align 8, !tbaa !46
+  %61 = load double, ptr %7, align 8, !tbaa !46
+  %62 = load double, ptr %8, align 8, !tbaa !46
+  %63 = load double, ptr %9, align 8, !tbaa !46
+  %64 = load double, ptr %10, align 8, !tbaa !46
+  call void @_ZN3g2o6SBACam7setKcamEddddd(ptr noundef nonnull align 16 dereferenceable(552) %5, double noundef %60, double noundef %61, double noundef %62, double noundef %63, double noundef %64)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
-  br label %62
+  br label %66
 
-61:                                               ; preds = %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
-  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %47, i32 noundef 0)
+65:                                               ; preds = %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %51, i32 noundef 0)
   call void @_ZN3g2o6SBACam7setKcamEddddd(ptr noundef nonnull align 16 dereferenceable(552) %5, double noundef 3.000000e+02, double noundef 3.000000e+02, double noundef 3.200000e+02, double noundef 3.200000e+02, double noundef 1.000000e-01)
-  br label %62
+  br label %66
 
-62:                                               ; preds = %61, %51
-  %63 = load ptr, ptr %0, align 16, !tbaa !3
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 256
-  %65 = load ptr, ptr %64, align 8
-  call void %65(ptr noundef nonnull align 16 dereferenceable(776) %0, ptr noundef nonnull align 16 dereferenceable(552) %5)
+66:                                               ; preds = %65, %55
+  %67 = load ptr, ptr %0, align 16, !tbaa !3
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 256
+  %69 = load ptr, ptr %68, align 8
+  call void %69(ptr noundef nonnull align 16 dereferenceable(776) %0, ptr noundef nonnull align 16 dereferenceable(552) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 560, ptr nonnull %5) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23

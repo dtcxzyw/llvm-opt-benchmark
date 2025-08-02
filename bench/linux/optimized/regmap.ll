@@ -3831,21 +3831,17 @@ define dso_local range(i32 1, 0) i32 @regmap_get_val_endian(ptr noundef %0, ptr 
 
 18:                                               ; preds = %16
   %19 = icmp eq ptr %1, null
-  br i1 %19, label %23, label %20
+  br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %22 = load i32, ptr %21, align 8
-  br label %23
-
-23:                                               ; preds = %20, %18
-  %24 = phi i32 [ 0, %18 ], [ %22, %20 ]
-  %25 = tail call i32 @llvm.umax.i32(i32 %24, i32 1)
+  %23 = tail call i32 @llvm.umax.i32(i32 %22, i32 1)
   br label %.thread
 
-.thread:                                          ; preds = %14, %12, %23, %16, %7
-  %26 = phi i32 [ %10, %7 ], [ 3, %16 ], [ %25, %23 ], [ 2, %14 ], [ 1, %12 ]
-  ret i32 %26
+.thread:                                          ; preds = %14, %12, %18, %20, %16, %7
+  %24 = phi i32 [ %10, %7 ], [ 3, %16 ], [ 1, %18 ], [ %23, %20 ], [ 2, %14 ], [ 1, %12 ]
+  ret i32 %24
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -8381,7 +8377,7 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %9 = add i32 %8, -1
   %10 = and i32 %9, %1
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %.thread8
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -8407,12 +8403,12 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 512
   switch i64 %6, label %.thread [
-    i64 1, label %.split9.split.us
-    i64 2, label %.split9.split.us12
-    i64 4, label %.split9.split
+    i64 1, label %.split8.split.us
+    i64 2, label %.split8.split.us11
+    i64 4, label %.split8.split
   ]
 
-.split9.split.us:                                 ; preds = %26, %45
+.split8.split.us:                                 ; preds = %26, %45
   %28 = phi i64 [ %47, %45 ], [ 0, %26 ]
   %29 = phi i32 [ %46, %45 ], [ 0, %26 ]
   %30 = getelementptr i8, ptr %2, i64 %28
@@ -8422,12 +8418,12 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %38, label %35
 
-35:                                               ; preds = %.split9.split.us
+35:                                               ; preds = %.split8.split.us
   %36 = load i32, ptr %7, align 4
   %37 = mul i32 %36, %29
   br label %40
 
-38:                                               ; preds = %.split9.split.us
+38:                                               ; preds = %.split8.split.us
   %39 = shl i32 %29, %33
   br label %40
 
@@ -8442,9 +8438,9 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %46 = add i32 %29, 1
   %47 = sext i32 %46 to i64
   %48 = icmp ugt i64 %3, %47
-  br i1 %48, label %.split9.split.us, label %.thread, !llvm.loop !91
+  br i1 %48, label %.split8.split.us, label %.thread, !llvm.loop !91
 
-.split9.split.us12:                               ; preds = %26, %67
+.split8.split.us11:                               ; preds = %26, %67
   %49 = phi i64 [ %69, %67 ], [ 0, %26 ]
   %50 = phi i32 [ %68, %67 ], [ 0, %26 ]
   %51 = shl nsw i64 %49, 1
@@ -8455,12 +8451,12 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %56 = icmp sgt i32 %55, -1
   br i1 %56, label %60, label %57
 
-57:                                               ; preds = %.split9.split.us12
+57:                                               ; preds = %.split8.split.us11
   %58 = load i32, ptr %7, align 4
   %59 = mul i32 %58, %50
   br label %62
 
-60:                                               ; preds = %.split9.split.us12
+60:                                               ; preds = %.split8.split.us11
   %61 = shl i32 %50, %55
   br label %62
 
@@ -8475,9 +8471,9 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %68 = add i32 %50, 1
   %69 = sext i32 %68 to i64
   %70 = icmp ugt i64 %3, %69
-  br i1 %70, label %.split9.split.us12, label %.thread, !llvm.loop !92
+  br i1 %70, label %.split8.split.us11, label %.thread, !llvm.loop !92
 
-.split9.split:                                    ; preds = %26, %88
+.split8.split:                                    ; preds = %26, %88
   %71 = phi i64 [ %90, %88 ], [ 0, %26 ]
   %72 = phi i32 [ %89, %88 ], [ 0, %26 ]
   %73 = shl nsw i64 %71, 2
@@ -8487,11 +8483,11 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %77 = icmp sgt i32 %76, -1
   br i1 %77, label %78, label %80
 
-78:                                               ; preds = %.split9.split
+78:                                               ; preds = %.split8.split
   %79 = shl i32 %72, %76
   br label %83
 
-80:                                               ; preds = %.split9.split
+80:                                               ; preds = %.split8.split
   %81 = load i32, ptr %7, align 4
   %82 = mul i32 %81, %72
   br label %83
@@ -8507,7 +8503,7 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %89 = add i32 %72, 1
   %90 = sext i32 %89 to i64
   %91 = icmp ugt i64 %3, %90
-  br i1 %91, label %.split9.split, label %.thread, !llvm.loop !93
+  br i1 %91, label %.split8.split, label %.thread, !llvm.loop !93
 
 .thread:                                          ; preds = %88, %83, %67, %62, %40, %45, %26, %20
   %92 = phi i32 [ 0, %20 ], [ -22, %26 ], [ %43, %40 ], [ 0, %45 ], [ %65, %62 ], [ 0, %67 ], [ %86, %83 ], [ 0, %88 ]
@@ -8523,7 +8519,7 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %99 = load i32, ptr %98, align 8
   %100 = tail call ptr @kmemdup(ptr noundef %2, i64 noundef %97, i32 noundef %99) #29
   %101 = icmp eq ptr %100, null
-  br i1 %101, label %.thread8, label %102
+  br i1 %101, label %.critedge, label %102
 
 102:                                              ; preds = %96
   %103 = icmp eq i64 %97, 0
@@ -8552,13 +8548,13 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
 112:                                              ; preds = %.split, %.thread
   %113 = phi i32 [ %111, %.split ], [ %92, %.thread ]
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %.thread8
+  br i1 %114, label %115, label %.critedge
 
 115:                                              ; preds = %112
   %116 = mul i64 %6, %3
   %117 = trunc i64 %116 to i32
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_bulk_write, i64 8), i32 2) #24
-          to label %.thread8 [label %118], !srcloc !49
+          to label %.critedge [label %118], !srcloc !49
 
 118:                                              ; preds = %115
   %119 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #24, !srcloc !95
@@ -8567,7 +8563,7 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %122 = icmp ult i8 %121, 2
   tail call void @llvm.assume(i1 %122)
   %123 = icmp eq i8 %121, 0
-  br i1 %123, label %.thread8, label %124
+  br i1 %123, label %.critedge, label %124
 
 124:                                              ; preds = %118
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #24, !srcloc !52
@@ -8588,15 +8584,15 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %133 = icmp ult i8 %132, 2
   tail call void @llvm.assume(i1 %133)
   %134 = icmp eq i8 %132, 0
-  br i1 %134, label %.thread8, label %135, !prof !25
+  br i1 %134, label %.critedge, label %135, !prof !25
 
 135:                                              ; preds = %131
   %136 = tail call i64 @llvm.read_register.i64(metadata !0)
   %137 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %136) #24, !srcloc !98
   tail call void @llvm.write_register.i64(metadata !0, i64 %137)
-  br label %.thread8
+  br label %.critedge
 
-.thread8:                                         ; preds = %96, %135, %131, %118, %115, %112, %4
+.critedge:                                        ; preds = %96, %135, %131, %118, %115, %112, %4
   %138 = phi i32 [ -22, %4 ], [ %113, %112 ], [ 0, %115 ], [ 0, %118 ], [ 0, %131 ], [ 0, %135 ], [ -12, %96 ]
   ret i32 %138
 }
@@ -8808,23 +8804,19 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   %116 = icmp eq ptr %115, null
   br i1 %116, label %.split.us, label %.lr.ph
 
-.split.us:                                        ; preds = %109
-  %invariant.gep = getelementptr i8, ptr %1, i64 8
-  br label %117
-
-117:                                              ; preds = %122, %.split.us
-  %118 = phi i64 [ 0, %.split.us ], [ %124, %122 ]
-  %119 = phi i32 [ 0, %.split.us ], [ %123, %122 ]
-  %gep = getelementptr %struct.reg_sequence, ptr %invariant.gep, i64 %118
-  %120 = load i32, ptr %gep, align 4
+.split.us:                                        ; preds = %109, %122
+  %117 = phi i64 [ %124, %122 ], [ 0, %109 ]
+  %118 = phi i32 [ %123, %122 ], [ 0, %109 ]
+  %119 = getelementptr %struct.reg_sequence, ptr %1, i64 %117, i32 2
+  %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %.loopexit34
 
-122:                                              ; preds = %117
-  %123 = add i32 %119, 1
+122:                                              ; preds = %.split.us
+  %123 = add i32 %118, 1
   %124 = sext i32 %123 to i64
   %125 = icmp ugt i64 %2, %124
-  br i1 %125, label %117, label %.split1, !llvm.loop !105
+  br i1 %125, label %.split.us, label %.split1, !llvm.loop !105
 
 126:                                              ; preds = %._crit_edge
   %127 = add i32 %132, 1
@@ -8869,7 +8861,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %126, label %.loopexit34
 
-.loopexit34:                                      ; preds = %._crit_edge, %140, %117
+.loopexit34:                                      ; preds = %._crit_edge, %140, %.split.us
   %152 = tail call ptr @kmemdup(ptr noundef %1, i64 noundef %111, i32 noundef 3264) #29
   %153 = icmp eq ptr %152, null
   br i1 %153, label %.thread31, label %.preheader

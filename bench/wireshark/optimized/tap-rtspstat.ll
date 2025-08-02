@@ -133,13 +133,13 @@ define internal range(i32 0, 2) i32 @rtspstat_packet(ptr noundef %0, ptr readnon
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %12)
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %.critedge
+  br i1 %14, label %15, label %.critedge61
 
 15:                                               ; preds = %8
   %16 = load i32, ptr %6, align 8
   %17 = add i32 %16, -600
   %or.cond = icmp ult i32 %17, -500
-  br i1 %or.cond, label %.thread, label %18
+  br i1 %or.cond, label %.critedge, label %18
 
 18:                                               ; preds = %15
   %19 = icmp samesign ult i32 %16, 200
@@ -158,26 +158,26 @@ define internal range(i32 0, 2) i32 @rtspstat_packet(ptr noundef %0, ptr readnon
   %. = select i1 %25, i64 499, i64 599
   br label %26
 
-26:                                               ; preds = %18, %20, %22, %24
+26:                                               ; preds = %24, %22, %20, %18
   %.049 = phi i64 [ 199, %18 ], [ 299, %20 ], [ 399, %22 ], [ %., %24 ]
   %27 = load ptr, ptr %9, align 8
   %28 = inttoptr i64 %.049 to ptr
   %29 = tail call ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef nonnull %28)
-  %.not63 = icmp eq ptr %29, null
-  br i1 %.not63, label %.thread, label %.critedge
+  %.not62 = icmp eq ptr %29, null
+  br i1 %.not62, label %.critedge, label %.critedge61
 
-.critedge:                                        ; preds = %26, %8
+.critedge61:                                      ; preds = %26, %8
   %.047 = phi ptr [ %29, %26 ], [ %13, %8 ]
   %30 = load i32, ptr %.047, align 8
   %31 = add i32 %30, 1
   store i32 %31, ptr %.047, align 8
-  br label %.thread
+  br label %.critedge
 
 32:                                               ; preds = %5
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not58 = icmp eq ptr %34, null
-  br i1 %.not58, label %.thread, label %35
+  br i1 %.not58, label %.critedge, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -197,17 +197,17 @@ define internal range(i32 0, 2) i32 @rtspstat_packet(ptr noundef %0, ptr readnon
   store ptr %0, ptr %45, align 8
   %46 = load ptr, ptr %36, align 8
   %47 = tail call i32 @g_hash_table_insert(ptr noundef %46, ptr noundef %43, ptr noundef %41)
-  br label %.thread
+  br label %.critedge
 
 48:                                               ; preds = %35
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %15, %.critedge, %48, %40, %32, %26
-  %.3 = phi i32 [ 0, %26 ], [ 0, %32 ], [ 1, %40 ], [ 1, %48 ], [ 1, %.critedge ], [ 0, %15 ]
+.critedge:                                        ; preds = %.critedge61, %48, %40, %32, %26, %15
+  %.3 = phi i32 [ 0, %15 ], [ 0, %26 ], [ 0, %32 ], [ 1, %40 ], [ 1, %48 ], [ 1, %.critedge61 ]
   ret i32 %.3
 }
 

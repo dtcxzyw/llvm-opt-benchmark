@@ -26540,13 +26540,13 @@ define hidden void @_ZN8wasmtime7runtime9component6values12load_variant17h1f02fb
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i8, ptr %9, align 4, !range !441, !noundef !4
-  switch i8 %10, label %default.unreachable114 [
+  switch i8 %10, label %default.unreachable115 [
     i8 0, label %11
     i8 1, label %14
     i8 2, label %17
   ]
 
-default.unreachable114:                           ; preds = %7
+default.unreachable115:                           ; preds = %7
   unreachable
 
 11:                                               ; preds = %7
@@ -26635,12 +26635,12 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hda23678a788b4777E.exit.thre
   br label %41
 
 41:                                               ; preds = %39, %32
-  %.sink120 = phi i64 [ 16, %39 ], [ 8, %32 ]
-  %.sink118 = phi ptr [ null, %39 ], [ %34, %32 ]
-  %.sink117 = phi i64 [ 0, %39 ], [ 1, %32 ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink120
-  store ptr %.sink118, ptr %42, align 8
-  store i64 %.sink117, ptr %0, align 8
+  %.sink121 = phi i64 [ 16, %39 ], [ 8, %32 ]
+  %.sink119 = phi ptr [ null, %39 ], [ %34, %32 ]
+  %.sink118 = phi i64 [ 0, %39 ], [ 1, %32 ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink121
+  store ptr %.sink119, ptr %42, align 8
+  store i64 %.sink118, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   ret void
 }
@@ -26658,13 +26658,13 @@ define hidden void @_ZN8wasmtime7runtime9component6values12load_variant17h9c1b71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i8, ptr %14, align 4, !range !441, !noundef !4
-  switch i8 %15, label %default.unreachable112 [
+  switch i8 %15, label %default.unreachable113 [
     i8 0, label %16
     i8 1, label %19
     i8 2, label %22
   ]
 
-default.unreachable112:                           ; preds = %7
+default.unreachable113:                           ; preds = %7
   unreachable
 
 16:                                               ; preds = %7
@@ -26760,13 +26760,13 @@ default.unreachable112:                           ; preds = %7
 59:                                               ; preds = %42
   %60 = sub nuw i64 %6, %47
   %61 = icmp ult i64 %60, %54
-  br i1 %61, label %62, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit87"
+  br i1 %61, label %62, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit88"
 
 62:                                               ; preds = %59
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %54, i64 noundef %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b28def11bbe935747ffab42946fa965e.227) #38, !noalias !5846
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit87": ; preds = %59
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit88": ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 %47
   call void @_ZN8wasmtime7runtime9component6values3Val4load17h582fcdf17faefaa5E(ptr noalias noundef nonnull sret({ i32, [11 x i32] }) align 16 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %37, i32 %44, ptr noalias noundef nonnull readonly align 1 %63, i64 noundef %54)
   %64 = load i32, ptr %9, align 16, !range !5662, !noundef !4
@@ -26777,7 +26777,7 @@ default.unreachable112:                           ; preds = %7
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %47, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b28def11bbe935747ffab42946fa965e.228) #38
   unreachable
 
-67:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit87"
+67:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit88"
   %.sroa.452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.452.0.copyload = load i32, ptr %.sroa.452.0..sroa_idx, align 4
   %.sroa.553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -26823,7 +26823,7 @@ default.unreachable112:                           ; preds = %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %56
 
-77:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit87"
+77:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb6c4947e05d1cb45E.llvm.5281577753466666573.exit88"
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %79 = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
@@ -26847,13 +26847,13 @@ define hidden void @_ZN8wasmtime7runtime9component6values12load_variant17hf5a737
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i8, ptr %11, align 4, !range !441, !noundef !4
-  switch i8 %12, label %default.unreachable121 [
+  switch i8 %12, label %default.unreachable122 [
     i8 0, label %13
     i8 1, label %15
     i8 2, label %17
   ]
 
-default.unreachable121:                           ; preds = %6
+default.unreachable122:                           ; preds = %6
   unreachable
 
 13:                                               ; preds = %6
@@ -26961,9 +26961,9 @@ default.unreachable121:                           ; preds = %6
 60:                                               ; preds = %46
   %61 = sub nuw i64 %5, %51
   %62 = icmp ult i64 %61, %58
-  br i1 %62, label %.noexc93, label %64
+  br i1 %62, label %.noexc94, label %64
 
-.noexc93:                                         ; preds = %60
+.noexc94:                                         ; preds = %60
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %58, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b28def11bbe935747ffab42946fa965e.227) #38
   unreachable
 
@@ -26999,9 +26999,9 @@ default.unreachable121:                           ; preds = %6
 
 72:                                               ; preds = %68
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 16, i64 noundef 48) #38
-          to label %.noexc95 unwind label %73
+          to label %.noexc96 unwind label %73
 
-.noexc95:                                         ; preds = %72
+.noexc96:                                         ; preds = %72
   unreachable
 
 73:                                               ; preds = %72

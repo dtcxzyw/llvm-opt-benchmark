@@ -1682,7 +1682,7 @@ define internal fastcc range(i32 0, 2) i32 @insertkey(ptr noundef readonly captu
   %12 = load i8, ptr %11, align 2, !tbaa !21
   %13 = and i8 %12, 64
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %.thread, label %14
+  br i1 %.not, label %84, label %14
 
 14:                                               ; preds = %10, %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 11
@@ -1699,7 +1699,7 @@ define internal fastcc range(i32 0, 2) i32 @insertkey(ptr noundef readonly captu
   %21 = getelementptr inbounds i8, ptr %20, i64 -8
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = icmp ugt ptr %22, %20
-  br i1 %23, label %24, label %.loopexit
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %22, i64 -24
@@ -1720,7 +1720,7 @@ define internal fastcc range(i32 0, 2) i32 @insertkey(ptr noundef readonly captu
 34:                                               ; preds = %35, %28
   %indvars.iv.i = phi i64 [ %36, %35 ], [ %32, %28 ]
   %.not.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not.not.i, label %.loopexit, label %35
+  br i1 %.not.not.i, label %.critedge, label %35
 
 35:                                               ; preds = %34
   %36 = add nsw i64 %indvars.iv.i, -1
@@ -1786,7 +1786,7 @@ getfreepos.exit:                                  ; preds = %35, %getfreepos.exi
 
 66:                                               ; preds = %58, %49
   store i8 16, ptr %6, align 8, !tbaa !16
-  br label %.thread
+  br label %84
 
 67:                                               ; preds = %getfreepos.exit
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -1817,27 +1817,27 @@ getfreepos.exit:                                  ; preds = %35, %getfreepos.exi
   %82 = sdiv exact i64 %81, 24
   %83 = trunc i64 %82 to i32
   store i32 %83, ptr %68, align 4, !tbaa !16
-  br label %.thread
+  br label %84
 
-.thread:                                          ; preds = %79, %66, %10
-  %.048 = phi ptr [ %5, %10 ], [ %.2.i, %79 ], [ %5, %66 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.048, i64 16
-  %85 = load i64, ptr %1, align 8, !tbaa !16
-  store i64 %85, ptr %84, align 8, !tbaa !16
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %87 = load i8, ptr %86, align 8, !tbaa !14
-  %88 = getelementptr inbounds nuw i8, ptr %.048, i64 9
-  store i8 %87, ptr %88, align 1, !tbaa !16
-  %89 = load i64, ptr %2, align 8, !tbaa !16
-  store i64 %89, ptr %.048, align 8, !tbaa !16
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %91 = load i8, ptr %90, align 8, !tbaa !14
-  %92 = getelementptr inbounds nuw i8, ptr %.048, i64 8
-  store i8 %91, ptr %92, align 8, !tbaa !14
-  br label %.loopexit
+84:                                               ; preds = %79, %66, %10
+  %.048 = phi ptr [ %5, %10 ], [ %5, %66 ], [ %.2.i, %79 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.048, i64 16
+  %86 = load i64, ptr %1, align 8, !tbaa !16
+  store i64 %86, ptr %85, align 8, !tbaa !16
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %88 = load i8, ptr %87, align 8, !tbaa !14
+  %89 = getelementptr inbounds nuw i8, ptr %.048, i64 9
+  store i8 %88, ptr %89, align 1, !tbaa !16
+  %90 = load i64, ptr %2, align 8, !tbaa !16
+  store i64 %90, ptr %.048, align 8, !tbaa !16
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %92 = load i8, ptr %91, align 8, !tbaa !14
+  %93 = getelementptr inbounds nuw i8, ptr %.048, i64 8
+  store i8 %92, ptr %93, align 8, !tbaa !14
+  br label %.critedge
 
-.loopexit:                                        ; preds = %34, %19, %.thread
-  %.1 = phi i32 [ 1, %.thread ], [ 0, %19 ], [ 0, %34 ]
+.critedge:                                        ; preds = %34, %19, %84
+  %.1 = phi i32 [ 1, %84 ], [ 0, %19 ], [ 0, %34 ]
   ret i32 %.1
 }
 
@@ -2608,7 +2608,7 @@ define hidden i64 @luaH_getn(ptr noundef readonly captures(none) %0) local_unnam
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %68, label %4
+  br i1 %.not, label %70, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2642,7 +2642,6 @@ define hidden i64 @luaH_getn(ptr noundef readonly captures(none) %0) local_unnam
   %18 = zext i32 %7 to i64
   %19 = add i32 %spec.store.select, -2
   %umin = tail call i32 @llvm.umin.i32(i32 %19, i32 3)
-  %invariant.gep = getelementptr i8, ptr %6, i64 2
   br label %.lr.ph101
 
 20:                                               ; preds = %.lr.ph101
@@ -2656,343 +2655,344 @@ define hidden i64 @luaH_getn(ptr noundef readonly captures(none) %0) local_unnam
   %.044100 = phi i32 [ 0, %.lr.ph101.preheader ], [ %21, %20 ]
   %.04599 = phi i32 [ %spec.store.select, %.lr.ph101.preheader ], [ %22, %20 ]
   %22 = add i32 %.04599, -1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv116
-  %23 = load i8, ptr %gep, align 1, !tbaa !16
-  %24 = and i8 %23, 15
-  %.not82 = icmp eq i8 %24, 0
-  br i1 %.not82, label %20, label %25
+  %23 = getelementptr i8, ptr %8, i64 %indvars.iv116
+  %24 = getelementptr i8, ptr %23, i64 -2
+  %25 = load i8, ptr %24, align 1, !tbaa !16
+  %26 = and i8 %25, 15
+  %.not82 = icmp eq i8 %26, 0
+  br i1 %.not82, label %20, label %27
 
-25:                                               ; preds = %.lr.ph101
+27:                                               ; preds = %.lr.ph101
   store i32 %22, ptr %6, align 4, !tbaa !23
-  %26 = zext i32 %22 to i64
+  %28 = zext i32 %22 to i64
   br label %hash_search.exit
 
 ._crit_edge102:                                   ; preds = %20
-  %27 = icmp ugt i32 %22, 1
-  br i1 %27, label %.lr.ph.i, label %binsearch.exit
+  %29 = icmp ugt i32 %22, 1
+  br i1 %29, label %.lr.ph.i, label %binsearch.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge102, %.lr.ph.i
   %.011.i = phi i32 [ %..0.i, %.lr.ph.i ], [ 0, %._crit_edge102 ]
   %.0810.i = phi i32 [ %.08..i, %.lr.ph.i ], [ %22, %._crit_edge102 ]
-  %28 = add i32 %.0810.i, %.011.i
-  %29 = lshr i32 %28, 1
-  %30 = add nsw i32 %29, -1
-  %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !16
-  %34 = and i8 %33, 15
-  %.not.i = icmp eq i8 %34, 0
-  %.08..i = select i1 %.not.i, i32 %29, i32 %.0810.i
-  %..0.i = select i1 %.not.i, i32 %.011.i, i32 %29
-  %35 = sub i32 %.08..i, %..0.i
-  %36 = icmp ugt i32 %35, 1
-  br i1 %36, label %.lr.ph.i, label %binsearch.exit
+  %30 = add i32 %.0810.i, %.011.i
+  %31 = lshr i32 %30, 1
+  %32 = add nsw i32 %31, -1
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %36 = and i8 %35, 15
+  %.not.i = icmp eq i8 %36, 0
+  %.08..i = select i1 %.not.i, i32 %31, i32 %.0810.i
+  %..0.i = select i1 %.not.i, i32 %.011.i, i32 %31
+  %37 = sub i32 %.08..i, %..0.i
+  %38 = icmp ugt i32 %37, 1
+  br i1 %38, label %.lr.ph.i, label %binsearch.exit
 
 binsearch.exit:                                   ; preds = %.lr.ph.i, %.preheader, %._crit_edge102
   %.0.lcssa.i = phi i32 [ 0, %._crit_edge102 ], [ 0, %.preheader ], [ %..0.i, %.lr.ph.i ]
   store i32 %.0.lcssa.i, ptr %6, align 4, !tbaa !23
-  %37 = zext nneg i32 %.0.lcssa.i to i64
+  %39 = zext nneg i32 %.0.lcssa.i to i64
   br label %hash_search.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
-  %indvars.iv = phi i64 [ %umax, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
-  %.098 = phi i32 [ 0, %.lr.ph.preheader ], [ %44, %43 ]
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
-  %39 = load i8, ptr %38, align 1, !tbaa !16
-  %40 = and i8 %39, 15
-  %.not84 = icmp eq i8 %40, 0
-  br i1 %.not84, label %41, label %43
-
-41:                                               ; preds = %.lr.ph
-  %42 = trunc nuw i64 %indvars.iv to i32
-  store i32 %42, ptr %6, align 4, !tbaa !23
-  br label %hash_search.exit
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
+  %indvars.iv = phi i64 [ %umax, %.lr.ph.preheader ], [ %indvars.iv.next, %45 ]
+  %.098 = phi i32 [ 0, %.lr.ph.preheader ], [ %46, %45 ]
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
+  %41 = load i8, ptr %40, align 1, !tbaa !16
+  %42 = and i8 %41, 15
+  %.not84 = icmp eq i8 %42, 0
+  br i1 %.not84, label %43, label %45
 
 43:                                               ; preds = %.lr.ph
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = add nuw nsw i32 %.098, 1
-  %45 = icmp samesign ult i32 %.098, 3
-  %46 = icmp samesign ult i64 %indvars.iv.next, %16
-  %47 = and i1 %46, %45
-  br i1 %47, label %.lr.ph, label %._crit_edge.loopexit
+  %44 = trunc nuw i64 %indvars.iv to i32
+  store i32 %44, ptr %6, align 4, !tbaa !23
+  br label %hash_search.exit
 
-._crit_edge.loopexit:                             ; preds = %43
-  %48 = trunc nuw i64 %indvars.iv.next to i32
+45:                                               ; preds = %.lr.ph
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %46 = add nuw nsw i32 %.098, 1
+  %47 = icmp samesign ult i32 %.098, 3
+  %48 = icmp samesign ult i64 %indvars.iv.next, %16
+  %49 = and i1 %48, %47
+  br i1 %49, label %.lr.ph, label %._crit_edge.loopexit
+
+._crit_edge.loopexit:                             ; preds = %45
+  %50 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader87
-  %.146.lcssa = phi i32 [ %spec.store.select, %.preheader87 ], [ %48, %._crit_edge.loopexit ]
-  %49 = add i32 %3, -1
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 %50
-  %52 = load i8, ptr %51, align 1, !tbaa !16
-  %53 = and i8 %52, 15
-  %.not83 = icmp eq i8 %53, 0
-  br i1 %.not83, label %54, label %67
+  %.146.lcssa = phi i32 [ %spec.store.select, %.preheader87 ], [ %50, %._crit_edge.loopexit ]
+  %51 = add i32 %3, -1
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !16
+  %55 = and i8 %54, 15
+  %.not83 = icmp eq i8 %55, 0
+  br i1 %.not83, label %56, label %69
 
-54:                                               ; preds = %._crit_edge
-  %55 = sub i32 %3, %.146.lcssa
-  %56 = icmp ugt i32 %55, 1
-  br i1 %56, label %.lr.ph.i65, label %binsearch.exit72
+56:                                               ; preds = %._crit_edge
+  %57 = sub i32 %3, %.146.lcssa
+  %58 = icmp ugt i32 %57, 1
+  br i1 %58, label %.lr.ph.i65, label %binsearch.exit72
 
-.lr.ph.i65:                                       ; preds = %54, %.lr.ph.i65
-  %.011.i67 = phi i32 [ %..0.i71, %.lr.ph.i65 ], [ %.146.lcssa, %54 ]
-  %.0810.i68 = phi i32 [ %.08..i70, %.lr.ph.i65 ], [ %3, %54 ]
-  %57 = add i32 %.0810.i68, %.011.i67
-  %58 = lshr i32 %57, 1
-  %59 = add nsw i32 %58, -1
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !16
-  %63 = and i8 %62, 15
-  %.not.i69 = icmp eq i8 %63, 0
-  %.08..i70 = select i1 %.not.i69, i32 %58, i32 %.0810.i68
-  %..0.i71 = select i1 %.not.i69, i32 %.011.i67, i32 %58
-  %64 = sub i32 %.08..i70, %..0.i71
-  %65 = icmp ugt i32 %64, 1
-  br i1 %65, label %.lr.ph.i65, label %binsearch.exit72
+.lr.ph.i65:                                       ; preds = %56, %.lr.ph.i65
+  %.011.i67 = phi i32 [ %..0.i71, %.lr.ph.i65 ], [ %.146.lcssa, %56 ]
+  %.0810.i68 = phi i32 [ %.08..i70, %.lr.ph.i65 ], [ %3, %56 ]
+  %59 = add i32 %.0810.i68, %.011.i67
+  %60 = lshr i32 %59, 1
+  %61 = add nsw i32 %60, -1
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 %62
+  %64 = load i8, ptr %63, align 1, !tbaa !16
+  %65 = and i8 %64, 15
+  %.not.i69 = icmp eq i8 %65, 0
+  %.08..i70 = select i1 %.not.i69, i32 %60, i32 %.0810.i68
+  %..0.i71 = select i1 %.not.i69, i32 %.011.i67, i32 %60
+  %66 = sub i32 %.08..i70, %..0.i71
+  %67 = icmp ugt i32 %66, 1
+  br i1 %67, label %.lr.ph.i65, label %binsearch.exit72
 
-binsearch.exit72:                                 ; preds = %.lr.ph.i65, %54
-  %.0.lcssa.i64 = phi i32 [ %.146.lcssa, %54 ], [ %..0.i71, %.lr.ph.i65 ]
+binsearch.exit72:                                 ; preds = %.lr.ph.i65, %56
+  %.0.lcssa.i64 = phi i32 [ %.146.lcssa, %56 ], [ %..0.i71, %.lr.ph.i65 ]
   store i32 %.0.lcssa.i64, ptr %6, align 4, !tbaa !23
-  %66 = zext i32 %.0.lcssa.i64 to i64
+  %68 = zext i32 %.0.lcssa.i64 to i64
   br label %hash_search.exit
 
-67:                                               ; preds = %._crit_edge
+69:                                               ; preds = %._crit_edge
   store i32 %3, ptr %6, align 4, !tbaa !23
-  br label %68
+  br label %70
 
-68:                                               ; preds = %67, %1
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %70 = load i8, ptr %69, align 2, !tbaa !21
-  %71 = and i8 %70, 64
-  %.not55 = icmp eq i8 %71, 0
-  br i1 %.not55, label %hashint.exit.i.i, label %94
+70:                                               ; preds = %69, %1
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %72 = load i8, ptr %71, align 2, !tbaa !21
+  %73 = and i8 %72, 64
+  %.not55 = icmp eq i8 %73, 0
+  br i1 %.not55, label %hashint.exit.i.i, label %96
 
-hashint.exit.i.i:                                 ; preds = %68
-  %72 = add i32 %3, 1
-  %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %75 = load ptr, ptr %74, align 8, !tbaa !18
+hashint.exit.i.i:                                 ; preds = %70
+  %74 = add i32 %3, 1
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %77 = load ptr, ptr %76, align 8, !tbaa !18
   %.pn85.in.in = getelementptr inbounds nuw i8, ptr %0, i64 11
   %.pn85.in = load i8, ptr %.pn85.in.in, align 1, !tbaa !20
   %.pn85 = zext nneg i8 %.pn85.in to i32
   %.pn.in.in = shl nsw i32 -1, %.pn85
   %.pn.in = xor i32 %.pn.in.in, -1
   %.pn = or i32 %.pn.in, 1
-  %.sink.i.i.i.in = urem i32 %72, %.pn
+  %.sink.i.i.i.in = urem i32 %74, %.pn
   %.sink.i.i.i = zext nneg i32 %.sink.i.i.i.in to i64
-  %76 = getelementptr inbounds nuw %union.Node, ptr %75, i64 %.sink.i.i.i
-  br label %77
+  %78 = getelementptr inbounds nuw %union.Node, ptr %77, i64 %.sink.i.i.i
+  br label %79
 
-77:                                               ; preds = %85, %hashint.exit.i.i
-  %.012.i.i = phi ptr [ %76, %hashint.exit.i.i ], [ %90, %85 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 9
-  %79 = load i8, ptr %78, align 1, !tbaa !16
-  %80 = icmp eq i8 %79, 3
-  br i1 %80, label %81, label %85
+79:                                               ; preds = %87, %hashint.exit.i.i
+  %.012.i.i = phi ptr [ %78, %hashint.exit.i.i ], [ %92, %87 ]
+  %80 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 9
+  %81 = load i8, ptr %80, align 1, !tbaa !16
+  %82 = icmp eq i8 %81, 3
+  br i1 %82, label %83, label %87
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
-  %83 = load i64, ptr %82, align 8, !tbaa !16
-  %84 = icmp eq i64 %83, %73
-  br i1 %84, label %hashkeyisempty.exit, label %85
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
+  %85 = load i64, ptr %84, align 8, !tbaa !16
+  %86 = icmp eq i64 %85, %75
+  br i1 %86, label %hashkeyisempty.exit, label %87
 
-85:                                               ; preds = %81, %77
-  %86 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 12
-  %87 = load i32, ptr %86, align 4, !tbaa !16
-  %88 = icmp eq i32 %87, 0
-  %89 = sext i32 %87 to i64
-  %90 = getelementptr inbounds %union.Node, ptr %.012.i.i, i64 %89
-  br i1 %88, label %hashkeyisempty.exit, label %77
+87:                                               ; preds = %83, %79
+  %88 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 12
+  %89 = load i32, ptr %88, align 4, !tbaa !16
+  %90 = icmp eq i32 %89, 0
+  %91 = sext i32 %89 to i64
+  %92 = getelementptr inbounds %union.Node, ptr %.012.i.i, i64 %91
+  br i1 %90, label %hashkeyisempty.exit, label %79
 
-hashkeyisempty.exit:                              ; preds = %81, %85
-  %.0.i.i = phi ptr [ %.012.i.i, %81 ], [ @absentkey, %85 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %92 = load i8, ptr %91, align 8, !tbaa !14
-  %93 = and i8 %92, 15
-  %.not86 = icmp eq i8 %93, 0
-  br i1 %.not86, label %94, label %96
+hashkeyisempty.exit:                              ; preds = %83, %87
+  %.0.i.i = phi ptr [ %.012.i.i, %83 ], [ @absentkey, %87 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %94 = load i8, ptr %93, align 8, !tbaa !14
+  %95 = and i8 %94, 15
+  %.not86 = icmp eq i8 %95, 0
+  br i1 %.not86, label %96, label %98
 
-94:                                               ; preds = %hashkeyisempty.exit, %68
-  %95 = zext i32 %3 to i64
+96:                                               ; preds = %hashkeyisempty.exit, %70
+  %97 = zext i32 %3 to i64
   br label %hash_search.exit
 
-96:                                               ; preds = %hashkeyisempty.exit
-  %97 = tail call i32 @llvm.umax.i32(i32 %3, i32 1)
-  %spec.select.i = zext i32 %97 to i64
-  %98 = zext nneg i8 %.pn85.in to i32
-  %notmask.i.i.i.i = shl nsw i32 -1, %98
-  %99 = xor i32 %notmask.i.i.i.i, -1
-  %100 = or i32 %99, 1
-  %101 = zext nneg i32 %100 to i64
-  br label %102
+98:                                               ; preds = %hashkeyisempty.exit
+  %99 = tail call i32 @llvm.umax.i32(i32 %3, i32 1)
+  %spec.select.i = zext i32 %99 to i64
+  %100 = zext nneg i8 %.pn85.in to i32
+  %notmask.i.i.i.i = shl nsw i32 -1, %100
+  %101 = xor i32 %notmask.i.i.i.i, -1
+  %102 = or i32 %101, 1
+  %103 = zext nneg i32 %102 to i64
+  br label %104
 
-102:                                              ; preds = %hashkeyisempty.exit.i, %96
-  %.121.i = phi i64 [ %spec.select.i, %96 ], [ %105, %hashkeyisempty.exit.i ]
-  %103 = icmp samesign ult i64 %.121.i, 4611686018427387904
-  br i1 %103, label %104, label %131
+104:                                              ; preds = %hashkeyisempty.exit.i, %98
+  %.121.i = phi i64 [ %spec.select.i, %98 ], [ %107, %hashkeyisempty.exit.i ]
+  %105 = icmp samesign ult i64 %.121.i, 4611686018427387904
+  br i1 %105, label %106, label %133
 
-104:                                              ; preds = %102
-  %105 = shl nuw nsw i64 %.121.i, 1
-  %106 = icmp samesign ult i64 %.121.i, 1073741824
-  br i1 %106, label %107, label %111
+106:                                              ; preds = %104
+  %107 = shl nuw nsw i64 %.121.i, 1
+  %108 = icmp samesign ult i64 %.121.i, 1073741824
+  br i1 %108, label %109, label %113
 
-107:                                              ; preds = %104
-  %108 = trunc nuw nsw i64 %105 to i32
-  %109 = urem i32 %108, %.pn
-  %110 = zext nneg i32 %109 to i64
+109:                                              ; preds = %106
+  %110 = trunc nuw nsw i64 %107 to i32
+  %111 = urem i32 %110, %.pn
+  %112 = zext nneg i32 %111 to i64
   br label %hashint.exit.i.i.i
 
-111:                                              ; preds = %104
-  %112 = urem i64 %105, %101
+113:                                              ; preds = %106
+  %114 = urem i64 %107, %103
   br label %hashint.exit.i.i.i
 
-hashint.exit.i.i.i:                               ; preds = %111, %107
-  %.sink.i.i.i.i = phi i64 [ %112, %111 ], [ %110, %107 ]
-  %113 = getelementptr inbounds nuw %union.Node, ptr %75, i64 %.sink.i.i.i.i
-  br label %114
+hashint.exit.i.i.i:                               ; preds = %113, %109
+  %.sink.i.i.i.i = phi i64 [ %114, %113 ], [ %112, %109 ]
+  %115 = getelementptr inbounds nuw %union.Node, ptr %77, i64 %.sink.i.i.i.i
+  br label %116
 
-114:                                              ; preds = %122, %hashint.exit.i.i.i
-  %.012.i.i.i = phi ptr [ %113, %hashint.exit.i.i.i ], [ %127, %122 ]
-  %115 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 9
-  %116 = load i8, ptr %115, align 1, !tbaa !16
-  %117 = icmp eq i8 %116, 3
-  br i1 %117, label %118, label %122
+116:                                              ; preds = %124, %hashint.exit.i.i.i
+  %.012.i.i.i = phi ptr [ %115, %hashint.exit.i.i.i ], [ %129, %124 ]
+  %117 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 9
+  %118 = load i8, ptr %117, align 1, !tbaa !16
+  %119 = icmp eq i8 %118, 3
+  br i1 %119, label %120, label %124
 
-118:                                              ; preds = %114
-  %119 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  %120 = load i64, ptr %119, align 8, !tbaa !16
-  %121 = icmp eq i64 %120, %105
-  br i1 %121, label %hashkeyisempty.exit.i, label %122
+120:                                              ; preds = %116
+  %121 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
+  %122 = load i64, ptr %121, align 8, !tbaa !16
+  %123 = icmp eq i64 %122, %107
+  br i1 %123, label %hashkeyisempty.exit.i, label %124
 
-122:                                              ; preds = %118, %114
-  %123 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 12
-  %124 = load i32, ptr %123, align 4, !tbaa !16
-  %125 = icmp eq i32 %124, 0
-  %126 = sext i32 %124 to i64
-  %127 = getelementptr inbounds %union.Node, ptr %.012.i.i.i, i64 %126
-  br i1 %125, label %hashkeyisempty.exit.i, label %114
+124:                                              ; preds = %120, %116
+  %125 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 12
+  %126 = load i32, ptr %125, align 4, !tbaa !16
+  %127 = icmp eq i32 %126, 0
+  %128 = sext i32 %126 to i64
+  %129 = getelementptr inbounds %union.Node, ptr %.012.i.i.i, i64 %128
+  br i1 %127, label %hashkeyisempty.exit.i, label %116
 
-hashkeyisempty.exit.i:                            ; preds = %122, %118
-  %.0.i.i.i = phi ptr [ %.012.i.i.i, %118 ], [ @absentkey, %122 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %129 = load i8, ptr %128, align 8, !tbaa !14
-  %130 = and i8 %129, 15
-  %.not39.i = icmp eq i8 %130, 0
-  br i1 %.not39.i, label %.loopexit41.i, label %102
+hashkeyisempty.exit.i:                            ; preds = %124, %120
+  %.0.i.i.i = phi ptr [ %.012.i.i.i, %120 ], [ @absentkey, %124 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %131 = load i8, ptr %130, align 8, !tbaa !14
+  %132 = and i8 %131, 15
+  %.not39.i = icmp eq i8 %132, 0
+  br i1 %.not39.i, label %.loopexit41.i, label %104
 
-131:                                              ; preds = %102
-  %132 = zext nneg i8 %.pn85.in to i32
-  %notmask.i.i.i26.i = shl nsw i32 -1, %132
-  %133 = xor i32 %notmask.i.i.i26.i, -1
-  %134 = or i32 %133, 1
-  %135 = zext nneg i32 %134 to i64
-  %136 = urem i64 9223372036854775807, %135
-  %137 = getelementptr inbounds nuw %union.Node, ptr %75, i64 %136
-  br label %138
+133:                                              ; preds = %104
+  %134 = zext nneg i8 %.pn85.in to i32
+  %notmask.i.i.i26.i = shl nsw i32 -1, %134
+  %135 = xor i32 %notmask.i.i.i26.i, -1
+  %136 = or i32 %135, 1
+  %137 = zext nneg i32 %136 to i64
+  %138 = urem i64 9223372036854775807, %137
+  %139 = getelementptr inbounds nuw %union.Node, ptr %77, i64 %138
+  br label %140
 
-138:                                              ; preds = %146, %131
-  %.012.i.i29.i = phi ptr [ %137, %131 ], [ %151, %146 ]
-  %139 = getelementptr inbounds nuw i8, ptr %.012.i.i29.i, i64 9
-  %140 = load i8, ptr %139, align 1, !tbaa !16
-  %141 = icmp eq i8 %140, 3
-  br i1 %141, label %142, label %146
+140:                                              ; preds = %148, %133
+  %.012.i.i29.i = phi ptr [ %139, %133 ], [ %153, %148 ]
+  %141 = getelementptr inbounds nuw i8, ptr %.012.i.i29.i, i64 9
+  %142 = load i8, ptr %141, align 1, !tbaa !16
+  %143 = icmp eq i8 %142, 3
+  br i1 %143, label %144, label %148
 
-142:                                              ; preds = %138
-  %143 = getelementptr inbounds nuw i8, ptr %.012.i.i29.i, i64 16
-  %144 = load i64, ptr %143, align 8, !tbaa !16
-  %145 = icmp eq i64 %144, 9223372036854775807
-  br i1 %145, label %hashkeyisempty.exit31.i, label %146
+144:                                              ; preds = %140
+  %145 = getelementptr inbounds nuw i8, ptr %.012.i.i29.i, i64 16
+  %146 = load i64, ptr %145, align 8, !tbaa !16
+  %147 = icmp eq i64 %146, 9223372036854775807
+  br i1 %147, label %hashkeyisempty.exit31.i, label %148
 
-146:                                              ; preds = %142, %138
-  %147 = getelementptr inbounds nuw i8, ptr %.012.i.i29.i, i64 12
-  %148 = load i32, ptr %147, align 4, !tbaa !16
-  %149 = icmp eq i32 %148, 0
-  %150 = sext i32 %148 to i64
-  %151 = getelementptr inbounds %union.Node, ptr %.012.i.i29.i, i64 %150
-  br i1 %149, label %hashkeyisempty.exit31.i, label %138
+148:                                              ; preds = %144, %140
+  %149 = getelementptr inbounds nuw i8, ptr %.012.i.i29.i, i64 12
+  %150 = load i32, ptr %149, align 4, !tbaa !16
+  %151 = icmp eq i32 %150, 0
+  %152 = sext i32 %150 to i64
+  %153 = getelementptr inbounds %union.Node, ptr %.012.i.i29.i, i64 %152
+  br i1 %151, label %hashkeyisempty.exit31.i, label %140
 
-hashkeyisempty.exit31.i:                          ; preds = %146, %142
-  %.0.i.i30.i = phi ptr [ %.012.i.i29.i, %142 ], [ @absentkey, %146 ]
-  %152 = getelementptr inbounds nuw i8, ptr %.0.i.i30.i, i64 8
-  %153 = load i8, ptr %152, align 8, !tbaa !14
-  %154 = and i8 %153, 15
-  %.not.i73 = icmp eq i8 %154, 0
+hashkeyisempty.exit31.i:                          ; preds = %148, %144
+  %.0.i.i30.i = phi ptr [ %.012.i.i29.i, %144 ], [ @absentkey, %148 ]
+  %154 = getelementptr inbounds nuw i8, ptr %.0.i.i30.i, i64 8
+  %155 = load i8, ptr %154, align 8, !tbaa !14
+  %156 = and i8 %155, 15
+  %.not.i73 = icmp eq i8 %156, 0
   br i1 %.not.i73, label %.loopexit41.i, label %hash_search.exit
 
 .loopexit41.i:                                    ; preds = %hashkeyisempty.exit.i, %hashkeyisempty.exit31.i
-  %.2.i = phi i64 [ 9223372036854775807, %hashkeyisempty.exit31.i ], [ %105, %hashkeyisempty.exit.i ]
-  %155 = sub nsw i64 %.2.i, %.121.i
-  %156 = icmp ugt i64 %155, 1
-  br i1 %156, label %.lr.ph.i74, label %hash_search.exit
+  %.2.i = phi i64 [ 9223372036854775807, %hashkeyisempty.exit31.i ], [ %107, %hashkeyisempty.exit.i ]
+  %157 = sub nsw i64 %.2.i, %.121.i
+  %158 = icmp ugt i64 %157, 1
+  br i1 %158, label %.lr.ph.i74, label %hash_search.exit
 
 .lr.ph.i74:                                       ; preds = %.loopexit41.i
-  %157 = zext nneg i8 %.pn85.in to i32
-  %notmask.i.i.i32.i = shl nsw i32 -1, %157
-  %158 = xor i32 %notmask.i.i.i32.i, -1
-  %159 = or i32 %158, 1
-  %160 = zext nneg i32 %159 to i64
-  br label %161
+  %159 = zext nneg i8 %.pn85.in to i32
+  %notmask.i.i.i32.i = shl nsw i32 -1, %159
+  %160 = xor i32 %notmask.i.i.i32.i, -1
+  %161 = or i32 %160, 1
+  %162 = zext nneg i32 %161 to i64
+  br label %163
 
-161:                                              ; preds = %hashkeyisempty.exit38.i, %.lr.ph.i74
+163:                                              ; preds = %hashkeyisempty.exit38.i, %.lr.ph.i74
   %.01945.i = phi i64 [ %.121.i, %.lr.ph.i74 ], [ %..019.i, %hashkeyisempty.exit38.i ]
   %.344.i = phi i64 [ %.2.i, %.lr.ph.i74 ], [ %.3..i, %hashkeyisempty.exit38.i ]
-  %162 = add i64 %.344.i, %.01945.i
-  %163 = lshr i64 %162, 1
-  %164 = icmp ult i64 %162, 4294967296
-  br i1 %164, label %165, label %169
+  %164 = add i64 %.344.i, %.01945.i
+  %165 = lshr i64 %164, 1
+  %166 = icmp ult i64 %164, 4294967296
+  br i1 %166, label %167, label %171
 
-165:                                              ; preds = %161
-  %166 = trunc nuw nsw i64 %163 to i32
-  %167 = urem i32 %166, %159
-  %168 = zext nneg i32 %167 to i64
+167:                                              ; preds = %163
+  %168 = trunc nuw nsw i64 %165 to i32
+  %169 = urem i32 %168, %161
+  %170 = zext nneg i32 %169 to i64
   br label %hashint.exit.i.i33.i
 
-169:                                              ; preds = %161
-  %170 = urem i64 %163, %160
+171:                                              ; preds = %163
+  %172 = urem i64 %165, %162
   br label %hashint.exit.i.i33.i
 
-hashint.exit.i.i33.i:                             ; preds = %169, %165
-  %.sink.i.i.i34.i = phi i64 [ %170, %169 ], [ %168, %165 ]
-  %171 = getelementptr inbounds nuw %union.Node, ptr %75, i64 %.sink.i.i.i34.i
-  br label %172
+hashint.exit.i.i33.i:                             ; preds = %171, %167
+  %.sink.i.i.i34.i = phi i64 [ %172, %171 ], [ %170, %167 ]
+  %173 = getelementptr inbounds nuw %union.Node, ptr %77, i64 %.sink.i.i.i34.i
+  br label %174
 
-172:                                              ; preds = %180, %hashint.exit.i.i33.i
-  %.012.i.i35.i = phi ptr [ %171, %hashint.exit.i.i33.i ], [ %185, %180 ]
-  %173 = getelementptr inbounds nuw i8, ptr %.012.i.i35.i, i64 9
-  %174 = load i8, ptr %173, align 1, !tbaa !16
-  %175 = icmp eq i8 %174, 3
-  br i1 %175, label %176, label %180
+174:                                              ; preds = %182, %hashint.exit.i.i33.i
+  %.012.i.i35.i = phi ptr [ %173, %hashint.exit.i.i33.i ], [ %187, %182 ]
+  %175 = getelementptr inbounds nuw i8, ptr %.012.i.i35.i, i64 9
+  %176 = load i8, ptr %175, align 1, !tbaa !16
+  %177 = icmp eq i8 %176, 3
+  br i1 %177, label %178, label %182
 
-176:                                              ; preds = %172
-  %177 = getelementptr inbounds nuw i8, ptr %.012.i.i35.i, i64 16
-  %178 = load i64, ptr %177, align 8, !tbaa !16
-  %179 = icmp eq i64 %178, %163
-  br i1 %179, label %hashkeyisempty.exit38.i, label %180
+178:                                              ; preds = %174
+  %179 = getelementptr inbounds nuw i8, ptr %.012.i.i35.i, i64 16
+  %180 = load i64, ptr %179, align 8, !tbaa !16
+  %181 = icmp eq i64 %180, %165
+  br i1 %181, label %hashkeyisempty.exit38.i, label %182
 
-180:                                              ; preds = %176, %172
-  %181 = getelementptr inbounds nuw i8, ptr %.012.i.i35.i, i64 12
-  %182 = load i32, ptr %181, align 4, !tbaa !16
-  %183 = icmp eq i32 %182, 0
-  %184 = sext i32 %182 to i64
-  %185 = getelementptr inbounds %union.Node, ptr %.012.i.i35.i, i64 %184
-  br i1 %183, label %hashkeyisempty.exit38.i, label %172
+182:                                              ; preds = %178, %174
+  %183 = getelementptr inbounds nuw i8, ptr %.012.i.i35.i, i64 12
+  %184 = load i32, ptr %183, align 4, !tbaa !16
+  %185 = icmp eq i32 %184, 0
+  %186 = sext i32 %184 to i64
+  %187 = getelementptr inbounds %union.Node, ptr %.012.i.i35.i, i64 %186
+  br i1 %185, label %hashkeyisempty.exit38.i, label %174
 
-hashkeyisempty.exit38.i:                          ; preds = %180, %176
-  %.0.i.i36.i = phi ptr [ %.012.i.i35.i, %176 ], [ @absentkey, %180 ]
-  %186 = getelementptr inbounds nuw i8, ptr %.0.i.i36.i, i64 8
-  %187 = load i8, ptr %186, align 8, !tbaa !14
-  %188 = and i8 %187, 15
-  %.not40.i = icmp eq i8 %188, 0
-  %.3..i = select i1 %.not40.i, i64 %163, i64 %.344.i
-  %..019.i = select i1 %.not40.i, i64 %.01945.i, i64 %163
-  %189 = sub i64 %.3..i, %..019.i
-  %190 = icmp ugt i64 %189, 1
-  br i1 %190, label %161, label %hash_search.exit
+hashkeyisempty.exit38.i:                          ; preds = %182, %178
+  %.0.i.i36.i = phi ptr [ %.012.i.i35.i, %178 ], [ @absentkey, %182 ]
+  %188 = getelementptr inbounds nuw i8, ptr %.0.i.i36.i, i64 8
+  %189 = load i8, ptr %188, align 8, !tbaa !14
+  %190 = and i8 %189, 15
+  %.not40.i = icmp eq i8 %190, 0
+  %.3..i = select i1 %.not40.i, i64 %165, i64 %.344.i
+  %..019.i = select i1 %.not40.i, i64 %.01945.i, i64 %165
+  %191 = sub i64 %.3..i, %..019.i
+  %192 = icmp ugt i64 %191, 1
+  br i1 %192, label %163, label %hash_search.exit
 
-hash_search.exit:                                 ; preds = %hashkeyisempty.exit38.i, %binsearch.exit72, %41, %25, %binsearch.exit, %.loopexit41.i, %hashkeyisempty.exit31.i, %94
-  %.3 = phi i64 [ %95, %94 ], [ 9223372036854775807, %hashkeyisempty.exit31.i ], [ %.121.i, %.loopexit41.i ], [ %37, %binsearch.exit ], [ %26, %25 ], [ %66, %binsearch.exit72 ], [ %indvars.iv, %41 ], [ %..019.i, %hashkeyisempty.exit38.i ]
+hash_search.exit:                                 ; preds = %hashkeyisempty.exit38.i, %binsearch.exit72, %43, %27, %binsearch.exit, %.loopexit41.i, %hashkeyisempty.exit31.i, %96
+  %.3 = phi i64 [ %97, %96 ], [ 9223372036854775807, %hashkeyisempty.exit31.i ], [ %.121.i, %.loopexit41.i ], [ %39, %binsearch.exit ], [ %28, %27 ], [ %68, %binsearch.exit72 ], [ %indvars.iv, %43 ], [ %..019.i, %hashkeyisempty.exit38.i ]
   ret i64 %.3
 }
 

@@ -145,38 +145,39 @@ define internal void @sbr_qmf_pre_shuffle_c(ptr noundef captures(none) initializ
   %9 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !24
   %11 = xor i32 %10, -2147483648
-  %12 = shl nuw nsw i64 %indvars.iv, 1
-  %gep = getelementptr inbounds nuw %union.av_intfloat32, ptr %3, i64 %12
-  store i32 %11, ptr %gep, align 4, !tbaa !24
-  %gep27 = getelementptr inbounds nuw %union.av_intfloat32, ptr %4, i64 %indvars.iv
-  %13 = load i32, ptr %gep27, align 4, !tbaa !24
-  %14 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %12
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 260
-  store i32 %13, ptr %15, align 4, !tbaa !24
-  %16 = sub nuw nsw i64 63, %indvars.iv
-  %17 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !24
-  %19 = xor i32 %18, -2147483648
-  %20 = getelementptr inbounds nuw i8, ptr %14, i64 264
-  store i32 %19, ptr %20, align 4, !tbaa !24
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
+  store i32 %11, ptr %13, align 4, !tbaa !24
+  %14 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !24
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 260
+  store i32 %16, ptr %17, align 4, !tbaa !24
+  %18 = sub nuw nsw i64 63, %indvars.iv
+  %19 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %18
+  %20 = load i32, ptr %19, align 4, !tbaa !24
+  %21 = xor i32 %20, -2147483648
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 264
+  store i32 %21, ptr %22, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %21 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %indvars.iv.next
-  %22 = load i32, ptr %21, align 4, !tbaa !24
-  %23 = getelementptr inbounds nuw i8, ptr %14, i64 268
-  store i32 %22, ptr %23, align 4, !tbaa !24
-  %24 = icmp samesign ult i64 %indvars.iv, 29
-  br i1 %24, label %7, label %25, !llvm.loop !26
+  %23 = getelementptr inbounds nuw %union.av_intfloat32, ptr %0, i64 %indvars.iv.next
+  %24 = load i32, ptr %23, align 4, !tbaa !24
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 268
+  store i32 %24, ptr %25, align 4, !tbaa !24
+  %26 = icmp samesign ult i64 %indvars.iv, 29
+  br i1 %26, label %7, label %27, !llvm.loop !26
 
-25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %27 = load i32, ptr %26, align 4, !tbaa !24
-  %28 = xor i32 %27, -2147483648
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store i32 %28, ptr %29, align 4, !tbaa !24
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %31 = load i32, ptr %30, align 4, !tbaa !24
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 508
-  store i32 %31, ptr %32, align 4, !tbaa !24
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %29 = load i32, ptr %28, align 4, !tbaa !24
+  %30 = xor i32 %29, -2147483648
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  store i32 %30, ptr %31, align 4, !tbaa !24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %33 = load i32, ptr %32, align 4, !tbaa !24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 508
+  store i32 %33, ptr %34, align 4, !tbaa !24
   ret void
 }
 
@@ -453,6 +454,7 @@ define internal void @sbr_hf_gen_c(ptr noundef writeonly captures(none) %0, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4) #1 {
+  %invariant.gep = getelementptr [40 x [2 x float]], ptr %1, i64 0, i64 %4
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -462,19 +464,19 @@ define internal void @sbr_hf_g_filt_c(ptr noundef writeonly captures(none) %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds [40 x [2 x float]], ptr %1, i64 %indvars.iv, i64 %4
-  %8 = load float, ptr %7, align 4, !tbaa !19
-  %9 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %10 = load float, ptr %9, align 4, !tbaa !19
-  %11 = fmul nsz float %8, %10
-  %12 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv
-  store float %11, ptr %12, align 4, !tbaa !19
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %14 = load float, ptr %13, align 4, !tbaa !19
-  %15 = load float, ptr %9, align 4, !tbaa !19
-  %16 = fmul nsz float %14, %15
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store float %16, ptr %17, align 4, !tbaa !19
+  %gep = getelementptr [40 x [2 x float]], ptr %invariant.gep, i64 %indvars.iv
+  %7 = load float, ptr %gep, align 4, !tbaa !19
+  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %9 = load float, ptr %8, align 4, !tbaa !19
+  %10 = fmul nsz float %7, %9
+  %11 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %indvars.iv
+  store float %10, ptr %11, align 4, !tbaa !19
+  %12 = getelementptr inbounds nuw i8, ptr %gep, i64 4
+  %13 = load float, ptr %12, align 4, !tbaa !19
+  %14 = load float, ptr %8, align 4, !tbaa !19
+  %15 = fmul nsz float %13, %14
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store float %15, ptr %16, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32

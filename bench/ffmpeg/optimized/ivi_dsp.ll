@@ -2076,17 +2076,17 @@ define void @ff_ivi_dc_col_slant(ptr noundef readonly captures(none) %0, ptr nou
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 1
   %wide.trip.count = zext nneg i32 %3 to i64
-  %invariant.gep = getelementptr i8, ptr %1, i64 2
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvar = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvar.next, %.lr.ph.us ]
-  %.017.us = phi ptr [ %1, %.lr.ph.us.preheader ], [ %15, %.lr.ph.us ]
+  %.017.us = phi ptr [ %1, %.lr.ph.us.preheader ], [ %16, %.lr.ph.us ]
   %14 = mul i64 %10, %indvar
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %14
+  %15 = getelementptr i8, ptr %1, i64 %14
+  %scevgep = getelementptr i8, ptr %15, i64 2
   store i16 %8, ptr %.017.us, align 2, !tbaa !27
-  tail call void @llvm.memset.p0.i64(ptr align 2 %gep, i8 0, i64 %13, i1 false), !tbaa !27
-  %15 = getelementptr inbounds i16, ptr %.017.us, i64 %2
+  tail call void @llvm.memset.p0.i64(ptr align 2 %scevgep, i8 0, i64 %13, i1 false), !tbaa !27
+  %16 = getelementptr inbounds i16, ptr %.017.us, i64 %2
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge20, label %.lr.ph.us, !llvm.loop !56

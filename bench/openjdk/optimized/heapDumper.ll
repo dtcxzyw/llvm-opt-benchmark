@@ -915,12 +915,12 @@ define hidden void @_ZN18AbstractDumpWriter13write_classIDEP5Klass(ptr noundef n
   %8 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull %5) #19
   %10 = ptrtoint ptr %9 to i64
+  %11 = tail call i64 @llvm.bswap.i64(i64 %10)
   br label %_ZNK5Klass11java_mirrorEv.exit
 
 _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %2, %7
-  %11 = phi i64 [ %10, %7 ], [ 0, %2 ]
+  %12 = phi i64 [ %11, %7 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %12 = tail call noundef i64 @llvm.bswap.i64(i64 %11)
   store i64 %12, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
@@ -3844,12 +3844,12 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %48, %54
   %62 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %63 = call noundef ptr %62(ptr noundef nonnull %59) #19
   %64 = ptrtoint ptr %63 to i64
+  %65 = call i64 @llvm.bswap.i64(i64 %64)
   br label %_ZNK5Klass11java_mirrorEv.exit.i
 
 _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %61, %_ZN18AbstractDumpWriter8write_u4Ej.exit
-  %65 = phi i64 [ %64, %61 ], [ 0, %_ZN18AbstractDumpWriter8write_u4Ej.exit ]
+  %66 = phi i64 [ %65, %61 ], [ 0, %_ZN18AbstractDumpWriter8write_u4Ej.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %66 = call noundef i64 @llvm.bswap.i64(i64 %65)
   store i64 %66, ptr %5, align 8
   %67 = load i64, ptr %28, align 8
   %68 = load i64, ptr %30, align 8
@@ -4347,12 +4347,12 @@ define hidden void @_ZN13DumperSupport19dump_instance_classEP18AbstractDumpWrite
   %30 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %31 = tail call noundef ptr %30(ptr noundef nonnull %27) #19
   %32 = ptrtoint ptr %31 to i64
+  %33 = tail call i64 @llvm.bswap.i64(i64 %32)
   br label %_ZNK5Klass11java_mirrorEv.exit.i
 
 _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %29, %19
-  %33 = phi i64 [ %32, %29 ], [ 0, %19 ]
+  %34 = phi i64 [ %33, %29 ], [ 0, %19 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  %34 = tail call noundef i64 @llvm.bswap.i64(i64 %33)
   store i64 %34, ptr %15, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load i64, ptr %35, align 8
@@ -4456,12 +4456,12 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %75, %81
   %90 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %91 = call noundef ptr %90(ptr noundef nonnull %87) #19
   %92 = ptrtoint ptr %91 to i64
+  %93 = call i64 @llvm.bswap.i64(i64 %92)
   br label %_ZNK5Klass11java_mirrorEv.exit.i35
 
 _ZNK5Klass11java_mirrorEv.exit.i35:               ; preds = %89, %85
-  %93 = phi i64 [ %92, %89 ], [ 0, %85 ]
+  %94 = phi i64 [ %93, %89 ], [ 0, %85 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %94 = call noundef i64 @llvm.bswap.i64(i64 %93)
   store i64 %94, ptr %12, align 8
   %95 = load i64, ptr %35, align 8
   %96 = load i64, ptr %37, align 8
@@ -4502,12 +4502,12 @@ _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit36: ; preds = %99, %105
   %116 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %117 = call noundef ptr %116(ptr noundef nonnull %113) #19
   %118 = ptrtoint ptr %117 to i64
+  %119 = call i64 @llvm.bswap.i64(i64 %118)
   br label %_ZNK5Klass12class_loaderEv.exit
 
 _ZNK5Klass12class_loaderEv.exit:                  ; preds = %109, %115
-  %119 = phi i64 [ %118, %115 ], [ 0, %109 ]
+  %120 = phi i64 [ %119, %115 ], [ 0, %109 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %120 = call noundef i64 @llvm.bswap.i64(i64 %119)
   store i64 %120, ptr %11, align 8
   %121 = load i64, ptr %35, align 8
   %122 = load i64, ptr %37, align 8
@@ -4819,12 +4819,12 @@ define hidden void @_ZN13DumperSupport16dump_array_classEP18AbstractDumpWriterP5
   %30 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %31 = tail call noundef ptr %30(ptr noundef nonnull %27) #19
   %32 = ptrtoint ptr %31 to i64
+  %33 = tail call i64 @llvm.bswap.i64(i64 %32)
   br label %_ZNK5Klass11java_mirrorEv.exit.i
 
 _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %29, %25
-  %33 = phi i64 [ %32, %29 ], [ 0, %25 ]
+  %34 = phi i64 [ %33, %29 ], [ 0, %25 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  %34 = tail call noundef i64 @llvm.bswap.i64(i64 %33)
   store i64 %34, ptr %15, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load i64, ptr %35, align 8
@@ -4894,12 +4894,12 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %55, %61
   %73 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %74 = call noundef ptr %73(ptr noundef nonnull %70) #19
   %75 = ptrtoint ptr %74 to i64
+  %76 = call i64 @llvm.bswap.i64(i64 %75)
   br label %_ZNK5Klass11java_mirrorEv.exit.i29
 
 _ZNK5Klass11java_mirrorEv.exit.i29:               ; preds = %72, %_ZN18AbstractDumpWriter8write_u4Ej.exit
-  %76 = phi i64 [ %75, %72 ], [ 0, %_ZN18AbstractDumpWriter8write_u4Ej.exit ]
+  %77 = phi i64 [ %76, %72 ], [ 0, %_ZN18AbstractDumpWriter8write_u4Ej.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %77 = call noundef i64 @llvm.bswap.i64(i64 %76)
   store i64 %77, ptr %13, align 8
   %78 = load i64, ptr %35, align 8
   %79 = load i64, ptr %37, align 8
@@ -4941,12 +4941,12 @@ _ZN18AbstractDumpWriter13write_classIDEP5Klass.exit30: ; preds = %82, %88
   %100 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %101 = call noundef ptr %100(ptr noundef nonnull %97) #19
   %102 = ptrtoint ptr %101 to i64
+  %103 = call i64 @llvm.bswap.i64(i64 %102)
   br label %_ZNK5Klass12class_loaderEv.exit
 
 _ZNK5Klass12class_loaderEv.exit:                  ; preds = %93, %99
-  %103 = phi i64 [ %102, %99 ], [ 0, %93 ]
+  %104 = phi i64 [ %103, %99 ], [ 0, %93 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %104 = call noundef i64 @llvm.bswap.i64(i64 %103)
   store i64 %104, ptr %12, align 8
   %105 = load i64, ptr %35, align 8
   %106 = load i64, ptr %37, align 8
@@ -4975,42 +4975,42 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit: ; preds = %109, %115
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %119 = call noundef ptr @_ZNK13InstanceKlass7signersEv(ptr noundef nonnull align 8 dereferenceable(464) %.0) #19
   %120 = ptrtoint ptr %119 to i64
-  br label %135
+  %121 = call i64 @llvm.bswap.i64(i64 %120)
+  br label %136
 
 .critedge:                                        ; preds = %_ZN18AbstractDumpWriter13write_classIDEP5Klass.exit30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 0, ptr %11, align 8
-  %121 = load i64, ptr %35, align 8
-  %122 = load i64, ptr %37, align 8
-  %123 = sub i64 %121, %122
-  %124 = icmp ugt i64 %123, 7
-  br i1 %124, label %125, label %131
+  %122 = load i64, ptr %35, align 8
+  %123 = load i64, ptr %37, align 8
+  %124 = sub i64 %122, %123
+  %125 = icmp ugt i64 %124, 7
+  br i1 %125, label %126, label %132
 
-125:                                              ; preds = %.critedge
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 %122
-  store i64 0, ptr %128, align 1
-  %129 = load i64, ptr %37, align 8
-  %130 = add i64 %129, 8
-  store i64 %130, ptr %37, align 8
+126:                                              ; preds = %.critedge
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 %123
+  store i64 0, ptr %129, align 1
+  %130 = load i64, ptr %37, align 8
+  %131 = add i64 %130, 8
+  store i64 %131, ptr %37, align 8
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31
 
-131:                                              ; preds = %.critedge
-  %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  %134 = load ptr, ptr %133, align 8
-  call void %134(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %11, i64 noundef 8) #19
+132:                                              ; preds = %.critedge
+  %133 = load ptr, ptr %0, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
+  %135 = load ptr, ptr %134, align 8
+  call void %135(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %11, i64 noundef 8) #19
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31
 
-_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31: ; preds = %125, %131
+_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31: ; preds = %126, %132
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %135
+  br label %136
 
-135:                                              ; preds = %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit
-  %136 = phi i64 [ %120, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit ], [ 0, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31 ]
+136:                                              ; preds = %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit
+  %137 = phi i64 [ %121, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit ], [ 0, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %137 = call noundef i64 @llvm.bswap.i64(i64 %136)
   store i64 %137, ptr %10, align 8
   %138 = load i64, ptr %35, align 8
   %139 = load i64, ptr %37, align 8
@@ -5018,7 +5018,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31: ; preds = %125, %131
   %141 = icmp ugt i64 %140, 7
   br i1 %141, label %142, label %148
 
-142:                                              ; preds = %135
+142:                                              ; preds = %136
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 %139
@@ -5028,7 +5028,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31: ; preds = %125, %131
   store i64 %147, ptr %37, align 8
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32
 
-148:                                              ; preds = %135
+148:                                              ; preds = %136
   %149 = load ptr, ptr %0, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load ptr, ptr %150, align 8
@@ -5037,7 +5037,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit31: ; preds = %125, %131
 
 _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32: ; preds = %142, %148
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br i1 %92, label %158, label %152
+  br i1 %92, label %159, label %152
 
 152:                                              ; preds = %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32
   %153 = load ptr, ptr %.0, align 8
@@ -5045,12 +5045,12 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32: ; preds = %142, %148
   %155 = load ptr, ptr %154, align 8
   %156 = call noundef ptr %155(ptr noundef nonnull align 8 dereferenceable(464) %.0) #19
   %157 = ptrtoint ptr %156 to i64
-  br label %158
+  %158 = call i64 @llvm.bswap.i64(i64 %157)
+  br label %159
 
-158:                                              ; preds = %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32, %152
-  %159 = phi i64 [ %157, %152 ], [ 0, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32 ]
+159:                                              ; preds = %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32, %152
+  %160 = phi i64 [ %158, %152 ], [ 0, %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %160 = call noundef i64 @llvm.bswap.i64(i64 %159)
   store i64 %160, ptr %9, align 8
   %161 = load i64, ptr %35, align 8
   %162 = load i64, ptr %37, align 8
@@ -5058,7 +5058,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32: ; preds = %142, %148
   %164 = icmp ugt i64 %163, 7
   br i1 %164, label %165, label %171
 
-165:                                              ; preds = %158
+165:                                              ; preds = %159
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds i8, ptr %167, i64 %162
@@ -5068,7 +5068,7 @@ _ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit32: ; preds = %142, %148
   store i64 %170, ptr %37, align 8
   br label %_ZN18AbstractDumpWriter14write_objectIDEP7oopDesc.exit33
 
-171:                                              ; preds = %158
+171:                                              ; preds = %159
   %172 = load ptr, ptr %0, align 8
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %174 = load ptr, ptr %173, align 8
@@ -5505,12 +5505,12 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %96, %106
   %112 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %113 = call noundef ptr %112(ptr noundef nonnull %109) #19
   %114 = ptrtoint ptr %113 to i64
+  %115 = call i64 @llvm.bswap.i64(i64 %114)
   br label %_ZNK5Klass11java_mirrorEv.exit.i
 
 _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %111, %_ZNK7oopDesc5klassEv.exit
-  %115 = phi i64 [ %114, %111 ], [ 0, %_ZNK7oopDesc5klassEv.exit ]
+  %116 = phi i64 [ %115, %111 ], [ 0, %_ZNK7oopDesc5klassEv.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %116 = call noundef i64 @llvm.bswap.i64(i64 %115)
   store i64 %116, ptr %4, align 8
   %117 = load i64, ptr %49, align 8
   %118 = load i64, ptr %51, align 8
@@ -6314,289 +6314,289 @@ define hidden void @_ZN13DumperSupport16dump_stack_frameEP18AbstractDumpWriterii
   %.sroa.0.0.copyload.i.i = load i32, ptr %15, align 8
   %16 = and i32 %.sroa.0.0.copyload.i.i, 256
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %19
+  br i1 %.not, label %17, label %20
 
 17:                                               ; preds = %5
   %18 = tail call noundef i32 @_ZNK6Method20line_number_from_bciEi(ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef %4) #19
-  br label %19
+  %19 = tail call i32 @llvm.bswap.i32(i32 %18)
+  br label %20
 
-19:                                               ; preds = %5, %17
-  %.0 = phi i32 [ %18, %17 ], [ -3, %5 ]
+20:                                               ; preds = %5, %17
+  %.0 = phi i32 [ %19, %17 ], [ -33554433, %5 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
   store i8 4, ptr %14, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load i64, ptr %22, align 8
-  %.not.i.i = icmp eq i64 %21, %23
-  br i1 %.not.i.i, label %30, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load i64, ptr %23, align 8
+  %.not.i.i = icmp eq i64 %22, %24
+  br i1 %.not.i.i, label %31, label %25
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 %23
-  store i8 4, ptr %27, align 1
-  %28 = load i64, ptr %22, align 8
-  %29 = add i64 %28, 1
-  store i64 %29, ptr %22, align 8
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %24
+  store i8 4, ptr %28, align 1
+  %29 = load i64, ptr %23, align 8
+  %30 = add i64 %29, 1
+  store i64 %30, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter8write_u1Eh.exit.i
 
-30:                                               ; preds = %19
-  %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %14, i64 noundef 1) #19
-  %.pre.i = load i64, ptr %22, align 8
+31:                                               ; preds = %20
+  %32 = load ptr, ptr %0, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  call void %34(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %14, i64 noundef 1) #19
+  %.pre.i = load i64, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter8write_u1Eh.exit.i
 
-_ZN18AbstractDumpWriter8write_u1Eh.exit.i:        ; preds = %30, %24
-  %34 = phi i64 [ %29, %24 ], [ %.pre.i, %30 ]
+_ZN18AbstractDumpWriter8write_u1Eh.exit.i:        ; preds = %31, %25
+  %35 = phi i64 [ %30, %25 ], [ %.pre.i, %31 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 0, ptr %13, align 4
-  %35 = load i64, ptr %20, align 8
-  %36 = sub i64 %35, %34
-  %37 = icmp ugt i64 %36, 3
-  br i1 %37, label %38, label %44
+  %36 = load i64, ptr %21, align 8
+  %37 = sub i64 %36, %35
+  %38 = icmp ugt i64 %37, 3
+  br i1 %38, label %39, label %45
 
-38:                                               ; preds = %_ZN18AbstractDumpWriter8write_u1Eh.exit.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 %34
-  store i32 0, ptr %41, align 1
-  %42 = load i64, ptr %22, align 8
-  %43 = add i64 %42, 4
-  store i64 %43, ptr %22, align 8
+39:                                               ; preds = %_ZN18AbstractDumpWriter8write_u1Eh.exit.i
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 %35
+  store i32 0, ptr %42, align 1
+  %43 = load i64, ptr %23, align 8
+  %44 = add i64 %43, 4
+  store i64 %44, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit.i
 
-44:                                               ; preds = %_ZN18AbstractDumpWriter8write_u1Eh.exit.i
-  %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %13, i64 noundef 4) #19
-  %.pre5.i = load i64, ptr %22, align 8
+45:                                               ; preds = %_ZN18AbstractDumpWriter8write_u1Eh.exit.i
+  %46 = load ptr, ptr %0, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  call void %48(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %13, i64 noundef 4) #19
+  %.pre5.i = load i64, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit.i
 
-_ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %44, %38
-  %48 = phi i64 [ %43, %38 ], [ %.pre5.i, %44 ]
+_ZN18AbstractDumpWriter8write_u4Ej.exit.i:        ; preds = %45, %39
+  %49 = phi i64 [ %44, %39 ], [ %.pre5.i, %45 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 671088640, ptr %12, align 4
-  %49 = load i64, ptr %20, align 8
-  %50 = sub i64 %49, %48
-  %51 = icmp ugt i64 %50, 3
-  br i1 %51, label %52, label %58
+  %50 = load i64, ptr %21, align 8
+  %51 = sub i64 %50, %49
+  %52 = icmp ugt i64 %51, 3
+  br i1 %52, label %53, label %59
 
-52:                                               ; preds = %_ZN18AbstractDumpWriter8write_u4Ej.exit.i
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 %48
-  store i32 671088640, ptr %55, align 1
-  %56 = load i64, ptr %22, align 8
-  %57 = add i64 %56, 4
-  store i64 %57, ptr %22, align 8
+53:                                               ; preds = %_ZN18AbstractDumpWriter8write_u4Ej.exit.i
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 %49
+  store i32 671088640, ptr %56, align 1
+  %57 = load i64, ptr %23, align 8
+  %58 = add i64 %57, 4
+  store i64 %58, ptr %23, align 8
   br label %_ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit
 
-58:                                               ; preds = %_ZN18AbstractDumpWriter8write_u4Ej.exit.i
-  %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %12, i64 noundef 4) #19
-  %.pre = load i64, ptr %22, align 8
+59:                                               ; preds = %_ZN18AbstractDumpWriter8write_u4Ej.exit.i
+  %60 = load ptr, ptr %0, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %62 = load ptr, ptr %61, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %12, i64 noundef 4) #19
+  %.pre = load i64, ptr %23, align 8
   br label %_ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit
 
-_ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit: ; preds = %52, %58
-  %62 = phi i64 [ %57, %52 ], [ %.pre, %58 ]
+_ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit: ; preds = %53, %59
+  %63 = phi i64 [ %58, %53 ], [ %.pre, %59 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  %63 = zext i32 %1 to i64
+  %64 = zext i32 %1 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %64 = call noundef i64 @llvm.bswap.i64(i64 %63)
-  store i64 %64, ptr %11, align 8
-  %65 = load i64, ptr %20, align 8
-  %66 = sub i64 %65, %62
-  %67 = icmp ugt i64 %66, 7
-  br i1 %67, label %68, label %74
+  %65 = call noundef i64 @llvm.bswap.i64(i64 %64)
+  store i64 %65, ptr %11, align 8
+  %66 = load i64, ptr %21, align 8
+  %67 = sub i64 %66, %63
+  %68 = icmp ugt i64 %67, 7
+  br i1 %68, label %69, label %75
 
-68:                                               ; preds = %_ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 %62
-  store i64 %64, ptr %71, align 1
-  %72 = load i64, ptr %22, align 8
-  %73 = add i64 %72, 8
-  store i64 %73, ptr %22, align 8
+69:                                               ; preds = %_ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 %63
+  store i64 %65, ptr %72, align 1
+  %73 = load i64, ptr %23, align 8
+  %74 = add i64 %73, 8
+  store i64 %74, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter8write_idEj.exit
 
-74:                                               ; preds = %_ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit
-  %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %11, i64 noundef 8) #19
-  %.pre18 = load i64, ptr %22, align 8
+75:                                               ; preds = %_ZN13DumperSupport12write_headerEP18AbstractDumpWriter8hprofTagj.exit
+  %76 = load ptr, ptr %0, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %78 = load ptr, ptr %77, align 8
+  call void %78(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %11, i64 noundef 8) #19
+  %.pre18 = load i64, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter8write_idEj.exit
 
-_ZN18AbstractDumpWriter8write_idEj.exit:          ; preds = %68, %74
-  %78 = phi i64 [ %73, %68 ], [ %.pre18, %74 ]
+_ZN18AbstractDumpWriter8write_idEj.exit:          ; preds = %69, %75
+  %79 = phi i64 [ %74, %69 ], [ %.pre18, %75 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 36
-  %84 = load i16, ptr %83, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 72
-  %86 = zext i16 %84 to i64
-  %87 = getelementptr inbounds nuw i64, ptr %85, i64 %86
-  %88 = load ptr, ptr %87, align 8
-  %89 = ptrtoint ptr %88 to i64
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 36
+  %85 = load i16, ptr %84, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 72
+  %87 = zext i16 %85 to i64
+  %88 = getelementptr inbounds nuw i64, ptr %86, i64 %87
+  %89 = load ptr, ptr %88, align 8
+  %90 = ptrtoint ptr %89 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %90 = call noundef i64 @llvm.bswap.i64(i64 %89)
-  store i64 %90, ptr %10, align 8
-  %91 = load i64, ptr %20, align 8
-  %92 = sub i64 %91, %78
-  %93 = icmp ugt i64 %92, 7
-  br i1 %93, label %94, label %100
+  %91 = call noundef i64 @llvm.bswap.i64(i64 %90)
+  store i64 %91, ptr %10, align 8
+  %92 = load i64, ptr %21, align 8
+  %93 = sub i64 %92, %79
+  %94 = icmp ugt i64 %93, 7
+  br i1 %94, label %95, label %101
 
-94:                                               ; preds = %_ZN18AbstractDumpWriter8write_idEj.exit
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 %78
-  store i64 %90, ptr %97, align 1
-  %98 = load i64, ptr %22, align 8
-  %99 = add i64 %98, 8
-  store i64 %99, ptr %22, align 8
+95:                                               ; preds = %_ZN18AbstractDumpWriter8write_idEj.exit
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 %79
+  store i64 %91, ptr %98, align 1
+  %99 = load i64, ptr %23, align 8
+  %100 = add i64 %99, 8
+  store i64 %100, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit
 
-100:                                              ; preds = %_ZN18AbstractDumpWriter8write_idEj.exit
-  %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %103 = load ptr, ptr %102, align 8
-  call void %103(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %10, i64 noundef 8) #19
-  %.pre19 = load i64, ptr %22, align 8
+101:                                              ; preds = %_ZN18AbstractDumpWriter8write_idEj.exit
+  %102 = load ptr, ptr %0, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %104 = load ptr, ptr %103, align 8
+  call void %104(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %10, i64 noundef 8) #19
+  %.pre19 = load i64, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit
 
-_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %94, %100
-  %104 = phi i64 [ %99, %94 ], [ %.pre19, %100 ]
+_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit: ; preds = %95, %101
+  %105 = phi i64 [ %100, %95 ], [ %.pre19, %101 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %105 = load ptr, ptr %79, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 38
-  %109 = load i16, ptr %108, align 2
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 72
-  %111 = zext i16 %109 to i64
-  %112 = getelementptr inbounds nuw i64, ptr %110, i64 %111
-  %113 = load ptr, ptr %112, align 8
-  %114 = ptrtoint ptr %113 to i64
+  %106 = load ptr, ptr %80, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 38
+  %110 = load i16, ptr %109, align 2
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 72
+  %112 = zext i16 %110 to i64
+  %113 = getelementptr inbounds nuw i64, ptr %111, i64 %112
+  %114 = load ptr, ptr %113, align 8
+  %115 = ptrtoint ptr %114 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %115 = call noundef i64 @llvm.bswap.i64(i64 %114)
-  store i64 %115, ptr %9, align 8
-  %116 = load i64, ptr %20, align 8
-  %117 = sub i64 %116, %104
-  %118 = icmp ugt i64 %117, 7
-  br i1 %118, label %119, label %125
+  %116 = call noundef i64 @llvm.bswap.i64(i64 %115)
+  store i64 %116, ptr %9, align 8
+  %117 = load i64, ptr %21, align 8
+  %118 = sub i64 %117, %105
+  %119 = icmp ugt i64 %118, 7
+  br i1 %119, label %120, label %126
 
-119:                                              ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 %104
-  store i64 %115, ptr %122, align 1
-  %123 = load i64, ptr %22, align 8
-  %124 = add i64 %123, 8
-  store i64 %124, ptr %22, align 8
+120:                                              ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 %105
+  store i64 %116, ptr %123, align 1
+  %124 = load i64, ptr %23, align 8
+  %125 = add i64 %124, 8
+  store i64 %125, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit15
 
-125:                                              ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit
-  %126 = load ptr, ptr %0, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  %128 = load ptr, ptr %127, align 8
-  call void %128(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %9, i64 noundef 8) #19
+126:                                              ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit
+  %127 = load ptr, ptr %0, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  %129 = load ptr, ptr %128, align 8
+  call void %129(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %9, i64 noundef 8) #19
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit15
 
-_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit15: ; preds = %119, %125
+_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit15: ; preds = %120, %126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %129 = load ptr, ptr %79, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  %133 = load ptr, ptr %132, align 8
-  %134 = call noundef ptr @_ZNK13InstanceKlass16source_file_nameEv(ptr noundef nonnull align 8 dereferenceable(464) %133) #19
-  %135 = ptrtoint ptr %134 to i64
+  %130 = load ptr, ptr %80, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
+  %134 = load ptr, ptr %133, align 8
+  %135 = call noundef ptr @_ZNK13InstanceKlass16source_file_nameEv(ptr noundef nonnull align 8 dereferenceable(464) %134) #19
+  %136 = ptrtoint ptr %135 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %136 = call noundef i64 @llvm.bswap.i64(i64 %135)
-  store i64 %136, ptr %8, align 8
-  %137 = load i64, ptr %20, align 8
-  %138 = load i64, ptr %22, align 8
-  %139 = sub i64 %137, %138
-  %140 = icmp ugt i64 %139, 7
-  br i1 %140, label %141, label %147
+  %137 = call noundef i64 @llvm.bswap.i64(i64 %136)
+  store i64 %137, ptr %8, align 8
+  %138 = load i64, ptr %21, align 8
+  %139 = load i64, ptr %23, align 8
+  %140 = sub i64 %138, %139
+  %141 = icmp ugt i64 %140, 7
+  br i1 %141, label %142, label %148
 
-141:                                              ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit15
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 %138
-  store i64 %136, ptr %144, align 1
-  %145 = load i64, ptr %22, align 8
-  %146 = add i64 %145, 8
-  store i64 %146, ptr %22, align 8
+142:                                              ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit15
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 %139
+  store i64 %137, ptr %145, align 1
+  %146 = load i64, ptr %23, align 8
+  %147 = add i64 %146, 8
+  store i64 %147, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit16
 
-147:                                              ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit15
-  %148 = load ptr, ptr %0, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %150 = load ptr, ptr %149, align 8
-  call void %150(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %8, i64 noundef 8) #19
-  %.pre20 = load i64, ptr %22, align 8
+148:                                              ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit15
+  %149 = load ptr, ptr %0, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %151 = load ptr, ptr %150, align 8
+  call void %151(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %8, i64 noundef 8) #19
+  %.pre20 = load i64, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit16
 
-_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit16: ; preds = %141, %147
-  %151 = phi i64 [ %146, %141 ], [ %.pre20, %147 ]
+_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit16: ; preds = %142, %148
+  %152 = phi i64 [ %147, %142 ], [ %.pre20, %148 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %152 = call noundef i32 @llvm.bswap.i32(i32 %2)
-  store i32 %152, ptr %7, align 4
-  %153 = load i64, ptr %20, align 8
-  %154 = sub i64 %153, %151
-  %155 = icmp ugt i64 %154, 3
-  br i1 %155, label %156, label %162
+  %153 = call noundef i32 @llvm.bswap.i32(i32 %2)
+  store i32 %153, ptr %7, align 4
+  %154 = load i64, ptr %21, align 8
+  %155 = sub i64 %154, %152
+  %156 = icmp ugt i64 %155, 3
+  br i1 %156, label %157, label %163
 
-156:                                              ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit16
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 %151
-  store i32 %152, ptr %159, align 1
-  %160 = load i64, ptr %22, align 8
-  %161 = add i64 %160, 4
-  store i64 %161, ptr %22, align 8
+157:                                              ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit16
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 %152
+  store i32 %153, ptr %160, align 1
+  %161 = load i64, ptr %23, align 8
+  %162 = add i64 %161, 4
+  store i64 %162, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit
 
-162:                                              ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit16
-  %163 = load ptr, ptr %0, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  %165 = load ptr, ptr %164, align 8
-  call void %165(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %7, i64 noundef 4) #19
-  %.pre21 = load i64, ptr %22, align 8
+163:                                              ; preds = %_ZN18AbstractDumpWriter14write_symbolIDEP6Symbol.exit16
+  %164 = load ptr, ptr %0, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  %166 = load ptr, ptr %165, align 8
+  call void %166(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %7, i64 noundef 4) #19
+  %.pre21 = load i64, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit
 
-_ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %156, %162
-  %166 = phi i64 [ %161, %156 ], [ %.pre21, %162 ]
+_ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %157, %163
+  %167 = phi i64 [ %162, %157 ], [ %.pre21, %163 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %167 = call noundef i32 @llvm.bswap.i32(i32 %.0)
-  store i32 %167, ptr %6, align 4
-  %168 = load i64, ptr %20, align 8
-  %169 = sub i64 %168, %166
+  store i32 %.0, ptr %6, align 4
+  %168 = load i64, ptr %21, align 8
+  %169 = sub i64 %168, %167
   %170 = icmp ugt i64 %169, 3
   br i1 %170, label %171, label %177
 
 171:                                              ; preds = %_ZN18AbstractDumpWriter8write_u4Ej.exit
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 %166
-  store i32 %167, ptr %174, align 1
-  %175 = load i64, ptr %22, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 %167
+  store i32 %.0, ptr %174, align 1
+  %175 = load i64, ptr %23, align 8
   %176 = add i64 %175, 4
-  store i64 %176, ptr %22, align 8
+  store i64 %176, ptr %23, align 8
   br label %_ZN18AbstractDumpWriter8write_u4Ej.exit17
 
 177:                                              ; preds = %_ZN18AbstractDumpWriter8write_u4Ej.exit
@@ -8946,12 +8946,12 @@ _ZN18AbstractDumpWriter8write_u4Ej.exit:          ; preds = %62, %68
   %77 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %78 = call noundef ptr %77(ptr noundef nonnull %74) #19
   %79 = ptrtoint ptr %78 to i64
+  %80 = call i64 @llvm.bswap.i64(i64 %79)
   br label %_ZNK5Klass11java_mirrorEv.exit.i
 
 _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %76, %_ZN18AbstractDumpWriter8write_u4Ej.exit
-  %80 = phi i64 [ %79, %76 ], [ 0, %_ZN18AbstractDumpWriter8write_u4Ej.exit ]
+  %81 = phi i64 [ %80, %76 ], [ 0, %_ZN18AbstractDumpWriter8write_u4Ej.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %81 = call noundef i64 @llvm.bswap.i64(i64 %80)
   store i64 %81, ptr %4, align 8
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %83 = load i64, ptr %82, align 8
@@ -14351,12 +14351,12 @@ define linkonce_odr hidden void @_ZN17StickyClassDumper8do_klassEP5Klass(ptr nou
   %15 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull %12) #19
   %17 = ptrtoint ptr %16 to i64
+  %18 = tail call i64 @llvm.bswap.i64(i64 %17)
   br label %_ZNK5Klass11java_mirrorEv.exit.i
 
 _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %14, %7
-  %18 = phi i64 [ %17, %14 ], [ 0, %7 ]
+  %19 = phi i64 [ %18, %14 ], [ 0, %7 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
   store i64 %19, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %21 = load i64, ptr %20, align 8

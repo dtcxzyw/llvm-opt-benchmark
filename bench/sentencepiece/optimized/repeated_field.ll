@@ -10401,7 +10401,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !134
   %15 = sub nsw i32 %12, %14
-  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %9, ptr noundef nonnull %8, i32 noundef %4, i32 noundef %15)
+  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef %4, i32 noundef %15)
   %16 = load i32, ptr %13, align 8, !tbaa !134
   %17 = add nsw i32 %16, %4
   store i32 %17, ptr %13, align 8, !tbaa !134
@@ -10436,7 +10436,7 @@ define weak_odr void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_s
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !134
   %16 = sub nsw i32 %13, %15
-  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %10, ptr noundef nonnull %9, i32 noundef %4, i32 noundef %16)
+  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef %4, i32 noundef %16)
   %17 = load i32, ptr %14, align 8, !tbaa !134
   %18 = add nsw i32 %17, %4
   store i32 %18, ptr %14, align 8, !tbaa !134
@@ -10577,7 +10577,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %27 = load i32, ptr %26, align 8, !tbaa !136
   %28 = load i32, ptr %4, align 8, !tbaa !134
   %29 = sub nsw i32 %27, %28
-  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %24, ptr noundef nonnull %23, i32 noundef %18, i32 noundef %29)
+  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %24, ptr noundef nonnull %23, i32 noundef %18, i32 noundef %29)
   %30 = load i32, ptr %4, align 8, !tbaa !134
   %31 = add nsw i32 %30, %18
   store i32 %31, ptr %4, align 8, !tbaa !134
@@ -10644,7 +10644,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %28 = load i32, ptr %27, align 8, !tbaa !136
   %29 = load i32, ptr %5, align 8, !tbaa !134
   %30 = sub nsw i32 %28, %29
-  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %25, ptr noundef nonnull %24, i32 noundef %19, i32 noundef %30)
+  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %25, ptr noundef nonnull %24, i32 noundef %19, i32 noundef %30)
   %31 = load i32, ptr %5, align 8, !tbaa !134
   %32 = add nsw i32 %31, %19
   store i32 %32, ptr %5, align 8, !tbaa !134
@@ -10692,7 +10692,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %15 = load i32, ptr %14, align 8, !tbaa !136
   %16 = load i32, ptr %6, align 8, !tbaa !134
   %17 = sub nsw i32 %15, %16
-  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %11, ptr noundef nonnull %12, i32 noundef %.pre, i32 noundef %17)
+  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef %.pre, i32 noundef %17)
           to label %.noexc4 unwind label %27
 
 .noexc4:                                          ; preds = %.noexc
@@ -10801,7 +10801,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %30 = load i32, ptr %29, align 8, !tbaa !136
   %31 = load i32, ptr %6, align 8, !tbaa !134
   %32 = sub nsw i32 %30, %31
-  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %26, ptr noundef nonnull %27, i32 noundef %21, i32 noundef %32)
+  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %26, ptr noundef nonnull %27, i32 noundef %21, i32 noundef %32)
           to label %.noexc7 unwind label %41
 
 .noexc7:                                          ; preds = %.noexc
@@ -12991,7 +12991,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !134
   %5 = add nsw i32 %4, %1
@@ -13382,7 +13382,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase12Sw
   %15 = load i32, ptr %14, align 8, !tbaa !136
   %16 = load i32, ptr %5, align 8, !tbaa !134
   %17 = sub nsw i32 %15, %16
-  call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %12, ptr noundef nonnull %11, i32 noundef %7, i32 noundef %17)
+  call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %12, ptr noundef nonnull %11, i32 noundef %7, i32 noundef %17)
   %18 = load i32, ptr %5, align 8, !tbaa !134
   %19 = add nsw i32 %18, %7
   store i32 %19, ptr %5, align 8, !tbaa !134
@@ -13438,7 +13438,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
   %43 = load i32, ptr %42, align 8, !tbaa !136
   %44 = load i32, ptr %6, align 8, !tbaa !134
   %45 = sub nsw i32 %43, %44
-  call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %40, ptr noundef nonnull %39, i32 noundef %35, i32 noundef %45)
+  call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvPPvSE_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %40, ptr noundef nonnull %39, i32 noundef %35, i32 noundef %45)
   %46 = load i32, ptr %6, align 8, !tbaa !134
   %47 = add nsw i32 %46, %35
   store i32 %47, ptr %6, align 8, !tbaa !134

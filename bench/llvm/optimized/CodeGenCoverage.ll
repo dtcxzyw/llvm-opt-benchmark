@@ -254,112 +254,112 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %27, %2, %21
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm15CodeGenCoverage5parseERNS_12MemoryBufferENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #1 align 2 {
-  %.fr60 = freeze i64 %3
+  %.fr58 = freeze i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !35
-  %.not42 = icmp eq ptr %6, %8
-  br i1 %.not42, label %.thread, label %.preheader.lr.ph
+  %.not40 = icmp eq ptr %6, %8
+  br i1 %.not40, label %.critedge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %4
-  %9 = icmp eq i64 %.fr60, 0
+  %9 = icmp eq i64 %.fr58, 0
   br i1 %9, label %.preheader.us, label %.preheader
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %.split.us52
-  %10 = phi ptr [ %20, %.split.us52 ], [ %8, %.preheader.lr.ph ]
-  %.02243.us = phi ptr [ %.us-phi.us, %.split.us52 ], [ %6, %.preheader.lr.ph ]
-  %strlen75 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.02243.us)
-  %scevgep76 = getelementptr i8, ptr %.02243.us, i64 1
-  %scevgep77 = getelementptr i8, ptr %scevgep76, i64 %strlen75
-  %.not98.not = icmp ne ptr %scevgep77, %10
-  br i1 %.not98.not, label %_ZN4llvm9StringRefC2EPKc.exit.us, label %.thread
+.preheader.us:                                    ; preds = %.preheader.lr.ph, %.split.us50
+  %10 = phi ptr [ %20, %.split.us50 ], [ %8, %.preheader.lr.ph ]
+  %.02241.us = phi ptr [ %.us-phi.us, %.split.us50 ], [ %6, %.preheader.lr.ph ]
+  %strlen73 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.02241.us)
+  %scevgep74 = getelementptr i8, ptr %.02241.us, i64 1
+  %scevgep75 = getelementptr i8, ptr %scevgep74, i64 %strlen73
+  %.not96.not = icmp ne ptr %scevgep75, %10
+  br i1 %.not96.not, label %_ZN4llvm9StringRefC2EPKc.exit.us, label %.critedge
 
 _ZN4llvm9StringRefC2EPKc.exit.us:                 ; preds = %.preheader.us
-  %char0 = load i8, ptr %.02243.us, align 1
+  %char0 = load i8, ptr %.02241.us, align 1
   %11 = icmp eq i8 %char0, 0
-  br i1 %11, label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us54, label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us.us
+  br i1 %11, label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us52, label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us.us
 
-_ZN4llvmeqENS_9StringRefES0_.exit.split.us54:     ; preds = %_ZN4llvm9StringRefC2EPKc.exit.us, %19
-  %.325.us47 = phi ptr [ %18, %19 ], [ %scevgep77, %_ZN4llvm9StringRefC2EPKc.exit.us ]
+_ZN4llvmeqENS_9StringRefES0_.exit.split.us52:     ; preds = %_ZN4llvm9StringRefC2EPKc.exit.us, %19
+  %.325.us45 = phi ptr [ %18, %19 ], [ %scevgep75, %_ZN4llvm9StringRefC2EPKc.exit.us ]
   %12 = load ptr, ptr %7, align 8, !tbaa !35
-  %.not33.us48 = icmp eq ptr %.325.us47, %12
+  %.not33.us46 = icmp eq ptr %.325.us45, %12
   %13 = ptrtoint ptr %12 to i64
-  %14 = ptrtoint ptr %.325.us47 to i64
+  %14 = ptrtoint ptr %.325.us45 to i64
   %15 = sub i64 %13, %14
   %16 = icmp slt i64 %15, 8
-  %or.cond = or i1 %.not33.us48, %16
-  br i1 %or.cond, label %.thread, label %17
+  %or.cond = or i1 %.not33.us46, %16
+  br i1 %or.cond, label %.critedge, label %17
 
-17:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.split.us54
-  call void @llvm.assume(i1 true) [ "align"(ptr %.325.us47, i64 1) ]
-  %.0.copyload.i.i.us49 = load i64, ptr %.325.us47, align 1
-  %18 = getelementptr inbounds nuw i8, ptr %.325.us47, i64 8
-  %.not99 = icmp eq i64 %.0.copyload.i.i.us49, -1
-  br i1 %.not99, label %..split.us52.loopexit_crit_edge, label %19
+17:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.split.us52
+  call void @llvm.assume(i1 true) [ "align"(ptr %.325.us45, i64 1) ]
+  %.0.copyload.i.i.us47 = load i64, ptr %.325.us45, align 1
+  %18 = getelementptr inbounds nuw i8, ptr %.325.us45, i64 8
+  %.not97 = icmp eq i64 %.0.copyload.i.i.us47, -1
+  br i1 %.not97, label %..split.us50.loopexit_crit_edge, label %19
 
 19:                                               ; preds = %17
-  tail call void @_ZN4llvm15CodeGenCoverage10setCoveredEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %.0.copyload.i.i.us49)
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us54
+  tail call void @_ZN4llvm15CodeGenCoverage10setCoveredEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %.0.copyload.i.i.us47)
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us52
 
-..split.us52.loopexit_crit_edge:                  ; preds = %17
-  %.pre78.pre = load ptr, ptr %7, align 8, !tbaa !35
-  br label %.split.us52
+..split.us50.loopexit_crit_edge:                  ; preds = %17
+  %.pre76.pre = load ptr, ptr %7, align 8, !tbaa !35
+  br label %.split.us50
 
-.split.us52:                                      ; preds = %22, %27, %..split.us52.loopexit_crit_edge
-  %20 = phi ptr [ %.pre78.pre, %..split.us52.loopexit_crit_edge ], [ %10, %27 ], [ %10, %22 ]
-  %.us-phi.us = phi ptr [ %18, %..split.us52.loopexit_crit_edge ], [ %.325.us.us, %22 ], [ %28, %27 ]
+.split.us50:                                      ; preds = %22, %27, %..split.us50.loopexit_crit_edge
+  %20 = phi ptr [ %.pre76.pre, %..split.us50.loopexit_crit_edge ], [ %10, %27 ], [ %10, %22 ]
+  %.us-phi.us = phi ptr [ %18, %..split.us50.loopexit_crit_edge ], [ %.325.us.us, %22 ], [ %28, %27 ]
   %.not.us = icmp eq ptr %.us-phi.us, %20
-  br i1 %.not.us, label %.thread, label %.preheader.us, !llvm.loop !36
+  br i1 %.not.us, label %.critedge, label %.preheader.us, !llvm.loop !36
 
 _ZN4llvmeqENS_9StringRefES0_.exit.split.us.us:    ; preds = %_ZN4llvm9StringRefC2EPKc.exit.us
   %21 = ptrtoint ptr %10 to i64
   br label %22
 
 22:                                               ; preds = %27, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us.us
-  %.325.us.us = phi ptr [ %scevgep77, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us.us ], [ %28, %27 ]
+  %.325.us.us = phi ptr [ %scevgep75, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us.us ], [ %28, %27 ]
   %.not33.us.us = icmp eq ptr %.325.us.us, %10
-  br i1 %.not33.us.us, label %.split.us52, label %23
+  br i1 %.not33.us.us, label %.split.us50, label %23
 
 23:                                               ; preds = %22
   %24 = ptrtoint ptr %.325.us.us to i64
   %25 = sub i64 %21, %24
   %26 = icmp slt i64 %25, 8
-  br i1 %26, label %.thread, label %27
+  br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %23
   call void @llvm.assume(i1 true) [ "align"(ptr %.325.us.us, i64 1) ]
   %.0.copyload.i.i.us.us = load i64, ptr %.325.us.us, align 1
   %28 = getelementptr inbounds nuw i8, ptr %.325.us.us, i64 8
-  %.not62 = icmp eq i64 %.0.copyload.i.i.us.us, -1
-  br i1 %.not62, label %.split.us52, label %22, !llvm.loop !38
+  %.not60 = icmp eq i64 %.0.copyload.i.i.us.us, -1
+  br i1 %.not60, label %.split.us50, label %22, !llvm.loop !38
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.split.us
   %29 = phi ptr [ %48, %.split.us ], [ %8, %.preheader.lr.ph ]
-  %.02243 = phi ptr [ %.us-phi, %.split.us ], [ %6, %.preheader.lr.ph ]
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.02243)
-  %scevgep = getelementptr i8, ptr %.02243, i64 1
-  %scevgep74 = getelementptr i8, ptr %scevgep, i64 %strlen
-  %.not95.not = icmp ne ptr %scevgep74, %29
-  br i1 %.not95.not, label %_ZN4llvm9StringRefC2EPKc.exit, label %.thread
+  %.02241 = phi ptr [ %.us-phi, %.split.us ], [ %6, %.preheader.lr.ph ]
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.02241)
+  %scevgep = getelementptr i8, ptr %.02241, i64 1
+  %scevgep72 = getelementptr i8, ptr %scevgep, i64 %strlen
+  %.not93.not = icmp ne ptr %scevgep72, %29
+  br i1 %.not93.not, label %_ZN4llvm9StringRefC2EPKc.exit, label %.critedge
 
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %.preheader
-  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02243) #19
-  %31 = icmp eq i64 %.fr60, %30
+  %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02241) #19
+  %31 = icmp eq i64 %.fr58, %30
   br i1 %31, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRefC2EPKc.exit
-  %bcmp.i = tail call i32 @bcmp(ptr %2, ptr nonnull %.02243, i64 %.fr60)
+  %bcmp.i = tail call i32 @bcmp(ptr %2, ptr nonnull %.02241, i64 %.fr58)
   %bcmp.i.fr = freeze i32 %bcmp.i
-  %.not96 = icmp eq i32 %bcmp.i.fr, 0
-  br i1 %.not96, label %_ZN4llvmeqENS_9StringRefES0_.exit.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us
+  %.not94 = icmp eq i32 %bcmp.i.fr, 0
+  br i1 %.not94, label %_ZN4llvmeqENS_9StringRefES0_.exit.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.split.us:       ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
   %32 = ptrtoint ptr %29 to i64
   br label %33
 
 33:                                               ; preds = %38, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us
-  %.325.us = phi ptr [ %scevgep74, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us ], [ %39, %38 ]
+  %.325.us = phi ptr [ %scevgep72, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us ], [ %39, %38 ]
   %.not33.us = icmp eq ptr %.325.us, %29
   br i1 %.not33.us, label %.split.us, label %34
 
@@ -367,50 +367,50 @@ _ZN4llvmeqENS_9StringRefES0_.exit.split.us:       ; preds = %_ZN4llvm9StringRefC
   %35 = ptrtoint ptr %.325.us to i64
   %36 = sub i64 %32, %35
   %37 = icmp slt i64 %36, 8
-  br i1 %37, label %.thread, label %38
+  br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %34
   call void @llvm.assume(i1 true) [ "align"(ptr %.325.us, i64 1) ]
   %.0.copyload.i.i.us = load i64, ptr %.325.us, align 1
   %39 = getelementptr inbounds nuw i8, ptr %.325.us, i64 8
-  %.not61 = icmp eq i64 %.0.copyload.i.i.us, -1
-  br i1 %.not61, label %.split.us, label %33, !llvm.loop !38
+  %.not59 = icmp eq i64 %.0.copyload.i.i.us, -1
+  br i1 %.not59, label %.split.us, label %33, !llvm.loop !38
 
 _ZN4llvmeqENS_9StringRefES0_.exit.split:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %47
-  %.325 = phi ptr [ %46, %47 ], [ %scevgep74, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.325 = phi ptr [ %46, %47 ], [ %scevgep72, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   %40 = load ptr, ptr %7, align 8, !tbaa !35
   %.not33 = icmp eq ptr %.325, %40
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %.325 to i64
   %43 = sub i64 %41, %42
   %44 = icmp slt i64 %43, 8
-  %or.cond115 = or i1 %.not33, %44
-  br i1 %or.cond115, label %.thread, label %45
+  %or.cond114 = or i1 %.not33, %44
+  br i1 %or.cond114, label %.critedge, label %45
 
 45:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.split
   call void @llvm.assume(i1 true) [ "align"(ptr %.325, i64 1) ]
   %.0.copyload.i.i = load i64, ptr %.325, align 1
   %46 = getelementptr inbounds nuw i8, ptr %.325, i64 8
-  %.not97 = icmp eq i64 %.0.copyload.i.i, -1
-  br i1 %.not97, label %..split.us.loopexit68_crit_edge, label %47
+  %.not95 = icmp eq i64 %.0.copyload.i.i, -1
+  br i1 %.not95, label %..split.us.loopexit66_crit_edge, label %47
 
 47:                                               ; preds = %45
   tail call void @_ZN4llvm15CodeGenCoverage10setCoveredEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %.0.copyload.i.i)
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.split
 
-..split.us.loopexit68_crit_edge:                  ; preds = %45
+..split.us.loopexit66_crit_edge:                  ; preds = %45
   %.pre.pre = load ptr, ptr %7, align 8, !tbaa !35
   br label %.split.us
 
-.split.us:                                        ; preds = %33, %38, %..split.us.loopexit68_crit_edge
-  %48 = phi ptr [ %.pre.pre, %..split.us.loopexit68_crit_edge ], [ %29, %38 ], [ %29, %33 ]
-  %.us-phi = phi ptr [ %46, %..split.us.loopexit68_crit_edge ], [ %.325.us, %33 ], [ %39, %38 ]
+.split.us:                                        ; preds = %33, %38, %..split.us.loopexit66_crit_edge
+  %48 = phi ptr [ %.pre.pre, %..split.us.loopexit66_crit_edge ], [ %29, %38 ], [ %29, %33 ]
+  %.us-phi = phi ptr [ %46, %..split.us.loopexit66_crit_edge ], [ %.325.us, %33 ], [ %39, %38 ]
   %.not = icmp eq ptr %.us-phi, %48
-  br i1 %.not, label %.thread, label %.preheader, !llvm.loop !39
+  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !39
 
-.thread:                                          ; preds = %.split.us, %.preheader, %34, %_ZN4llvmeqENS_9StringRefES0_.exit.split, %.split.us52, %.preheader.us, %23, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us54, %4
-  %.not40 = phi i1 [ true, %4 ], [ %.not33.us48, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us54 ], [ false, %23 ], [ %.not98.not, %.preheader.us ], [ %.not98.not, %.split.us52 ], [ %.not33, %_ZN4llvmeqENS_9StringRefES0_.exit.split ], [ false, %34 ], [ %.not95.not, %.preheader ], [ %.not95.not, %.split.us ]
-  ret i1 %.not40
+.critedge:                                        ; preds = %.split.us, %.preheader, %34, %_ZN4llvmeqENS_9StringRefES0_.exit.split, %.split.us50, %.preheader.us, %23, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us52, %4
+  %.not38 = phi i1 [ true, %4 ], [ %.not33.us46, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us52 ], [ false, %23 ], [ %.not96.not, %.preheader.us ], [ %.not96.not, %.split.us50 ], [ %.not33, %_ZN4llvmeqENS_9StringRefES0_.exit.split ], [ false, %34 ], [ %.not93.not, %.preheader ], [ %.not93.not, %.split.us ]
+  ret i1 %.not38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -2204,7 +2204,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState7_AppendIRKSt6vectorINS_7SdfP
   %101 = lshr i64 %100, 1
   %102 = add i64 %101, %97
   %103 = mul i64 %102, -7046029254386353067
-  %104 = tail call noundef i64 @llvm.bswap.i64(i64 %103)
+  %104 = tail call i64 @llvm.bswap.i64(i64 %103)
   ret i64 %104
 }
 

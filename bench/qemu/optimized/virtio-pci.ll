@@ -3451,8 +3451,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %71 = load i16, ptr %70, align 2
   %72 = zext i16 %71 to i64
   %.idx55 = mul nuw nsw i64 %72, 28
-  %73 = getelementptr i8, ptr %0, i64 5390
-  %74 = getelementptr i8, ptr %73, i64 %.idx55
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 5390
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx55
   %75 = load i8, ptr %74, align 2, !range !7, !noundef !6
   %76 = zext nneg i8 %75 to i32
   br label %.loopexit
@@ -3468,8 +3468,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i64
   %.idx54 = mul nuw nsw i64 %84, 28
-  %85 = getelementptr i8, ptr %0, i64 5392
-  %86 = getelementptr i8, ptr %85, i64 %.idx54
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 5392
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx54
   %87 = load i32, ptr %86, align 4
   br label %.loopexit
 
@@ -3478,8 +3478,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %90 = load i16, ptr %89, align 2
   %91 = zext i16 %90 to i64
   %.idx53 = mul nuw nsw i64 %91, 28
-  %92 = getelementptr i8, ptr %0, i64 5392
-  %93 = getelementptr i8, ptr %92, i64 %.idx53
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 5392
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx53
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4
   br label %.loopexit
@@ -3489,8 +3489,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i64
   %.idx52 = mul nuw nsw i64 %99, 28
-  %100 = getelementptr i8, ptr %0, i64 5400
-  %101 = getelementptr i8, ptr %100, i64 %.idx52
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 5400
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx52
   %102 = load i32, ptr %101, align 4
   br label %.loopexit
 
@@ -3499,8 +3499,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %105 = load i16, ptr %104, align 2
   %106 = zext i16 %105 to i64
   %.idx51 = mul nuw nsw i64 %106, 28
-  %107 = getelementptr i8, ptr %0, i64 5400
-  %108 = getelementptr i8, ptr %107, i64 %.idx51
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 5400
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx51
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   br label %.loopexit
@@ -3510,8 +3510,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %113 = load i16, ptr %112, align 2
   %114 = zext i16 %113 to i64
   %.idx50 = mul nuw nsw i64 %114, 28
-  %115 = getelementptr i8, ptr %0, i64 5408
-  %116 = getelementptr i8, ptr %115, i64 %.idx50
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 5408
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx50
   %117 = load i32, ptr %116, align 4
   br label %.loopexit
 
@@ -3520,8 +3520,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %120 = load i16, ptr %119, align 2
   %121 = zext i16 %120 to i64
   %.idx49 = mul nuw nsw i64 %121, 28
-  %122 = getelementptr i8, ptr %0, i64 5408
-  %123 = getelementptr i8, ptr %122, i64 %.idx49
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 5408
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx49
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load i32, ptr %124, align 4
   br label %.loopexit
@@ -3531,8 +3531,8 @@ virtio_bus_get_device.exit:                       ; preds = %3
   %128 = load i16, ptr %127, align 2
   %129 = zext i16 %128 to i64
   %.idx = mul nuw nsw i64 %129, 28
-  %130 = getelementptr i8, ptr %0, i64 5391
-  %131 = getelementptr i8, ptr %130, i64 %.idx
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 5391
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %.idx
   %132 = load i8, ptr %131, align 1, !range !7, !noundef !6
   %133 = zext nneg i8 %132 to i32
   br label %.loopexit
@@ -3857,8 +3857,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %167 = load i16, ptr %166, align 2
   %168 = zext i16 %167 to i64
   %.idx126 = mul nuw nsw i64 %168, 28
-  %169 = getelementptr i8, ptr %0, i64 5392
-  %170 = getelementptr i8, ptr %169, i64 %.idx126
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 5392
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx126
   store i32 %165, ptr %170, align 4
   br label %virtio_pci_set_vector.exit
 
@@ -3868,8 +3868,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %174 = load i16, ptr %173, align 2
   %175 = zext i16 %174 to i64
   %.idx125 = mul nuw nsw i64 %175, 28
-  %176 = getelementptr i8, ptr %0, i64 5392
-  %177 = getelementptr i8, ptr %176, i64 %.idx125
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 5392
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 %.idx125
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   store i32 %172, ptr %178, align 4
   br label %virtio_pci_set_vector.exit
@@ -3880,8 +3880,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %182 = load i16, ptr %181, align 2
   %183 = zext i16 %182 to i64
   %.idx124 = mul nuw nsw i64 %183, 28
-  %184 = getelementptr i8, ptr %0, i64 5400
-  %185 = getelementptr i8, ptr %184, i64 %.idx124
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 5400
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 %.idx124
   store i32 %180, ptr %185, align 4
   br label %virtio_pci_set_vector.exit
 
@@ -3891,8 +3891,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %189 = load i16, ptr %188, align 2
   %190 = zext i16 %189 to i64
   %.idx123 = mul nuw nsw i64 %190, 28
-  %191 = getelementptr i8, ptr %0, i64 5400
-  %192 = getelementptr i8, ptr %191, i64 %.idx123
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 5400
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %.idx123
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
   store i32 %187, ptr %193, align 4
   br label %virtio_pci_set_vector.exit
@@ -3903,8 +3903,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %197 = load i16, ptr %196, align 2
   %198 = zext i16 %197 to i64
   %.idx122 = mul nuw nsw i64 %198, 28
-  %199 = getelementptr i8, ptr %0, i64 5408
-  %200 = getelementptr i8, ptr %199, i64 %.idx122
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 5408
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 %.idx122
   store i32 %195, ptr %200, align 4
   br label %virtio_pci_set_vector.exit
 
@@ -3914,8 +3914,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %204 = load i16, ptr %203, align 2
   %205 = zext i16 %204 to i64
   %.idx121 = mul nuw nsw i64 %205, 28
-  %206 = getelementptr i8, ptr %0, i64 5408
-  %207 = getelementptr i8, ptr %206, i64 %.idx121
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 5408
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 %.idx121
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
   store i32 %202, ptr %208, align 4
   br label %virtio_pci_set_vector.exit

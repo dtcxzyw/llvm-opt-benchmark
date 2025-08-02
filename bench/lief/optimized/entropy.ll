@@ -394,14 +394,14 @@ entropy_gather_internal.exit:                     ; preds = %._crit_edge.loopexi
   br i1 %67, label %.lr.ph78, label %._crit_edge79
 
 .lr.ph78:                                         ; preds = %.preheader
-  %68 = getelementptr i8, ptr %0, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %wide.trip.count92 = zext nneg i32 %66 to i64
   br label %69
 
 69:                                               ; preds = %.lr.ph78, %69
   %indvars.iv89 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next90, %69 ]
   %.idx = mul nuw nsw i64 %indvars.iv89, 40
-  %70 = getelementptr i8, ptr %68, i64 %.idx
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
   store i64 0, ptr %70, align 8, !tbaa !20
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92

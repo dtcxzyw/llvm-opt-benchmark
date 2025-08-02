@@ -4262,8 +4262,8 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6GameUI14deleteFormspecEv(ptr noundef nonnull align 8 captures(none) dereferenceable(208) initializes((176, 184)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN6GameUI14deleteFormspecEv(ptr noundef nonnull align 8 captures(none) dereferenceable(208) initializes((176, 184)) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_formspec = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_formspec, align 8, !tbaa !36

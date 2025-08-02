@@ -1120,7 +1120,7 @@ ehcleanup479:                                     ; preds = %if.then.i.i913, %_Z
   br label %ehcleanup526
 
 for.body:                                         ; preds = %_Z14decode_light_ff.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit827
-  %130 = phi i8 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit827 ], [ %139, %_Z14decode_light_ff.exit ]
+  %130 = phi i8 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit827 ], [ %140, %_Z14decode_light_ff.exit ]
   %i.0942 = phi i64 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit827 ], [ %inc, %_Z14decode_light_ff.exit ]
   %conv = uitofp nneg i64 %i.0942 to float
   %div = fdiv nsz float %conv, 1.500000e+01
@@ -1149,19 +1149,19 @@ if.end10.i:                                       ; preds = %if.end7.i
   %136 = call nsz float @llvm.pow.f32(float %135, float %div11.i)
   %137 = fmul nsz float %136, 2.550000e+02
   %138 = fptosi float %137 to i32
+  %139 = call i32 @llvm.smin.i32(i32 %138, i32 255)
   br label %_Z14decode_light_ff.exit
 
 _Z14decode_light_ff.exit:                         ; preds = %if.end10.i, %if.end7.i, %if.end.i, %for.body
-  %retval.1.i = phi i32 [ 255, %for.body ], [ %138, %if.end10.i ], [ 0, %if.end.i ], [ 255, %if.end7.i ]
-  %cond506 = call i32 @llvm.smin.i32(i32 %retval.1.i, i32 255)
-  %cond508 = call i32 @llvm.smax.i32(i32 %cond506, i32 0)
+  %retval.1.i = phi i32 [ 255, %for.body ], [ %139, %if.end10.i ], [ 0, %if.end.i ], [ 255, %if.end7.i ]
+  %cond508 = call i32 @llvm.smax.i32(i32 %retval.1.i, i32 0)
   %conv509 = trunc nuw i32 %cond508 to i8
   %arrayidx = getelementptr inbounds nuw [16 x i8], ptr @_ZL9light_LUT, i64 0, i64 %i.0942
   %conv515 = zext i8 %130 to i32
-  %cmp516.not = icmp sgt i32 %cond506, %conv515
+  %cmp516.not = icmp sgt i32 %retval.1.i, %conv515
   %add522 = call i8 @llvm.uadd.sat.i8(i8 %130, i8 1)
-  %139 = select i1 %cmp516.not, i8 %conv509, i8 %add522
-  store i8 %139, ptr %arrayidx, align 1, !tbaa !22
+  %140 = select i1 %cmp516.not, i8 %conv509, i8 %add522
+  store i8 %140, ptr %arrayidx, align 1, !tbaa !22
   %inc = add nuw nsw i64 %i.0942, 1
   %exitcond.not = icmp eq i64 %inc, 15
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !25

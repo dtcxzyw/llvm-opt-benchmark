@@ -1597,17 +1597,17 @@ cms_get_private_data.exit.i:                      ; preds = %13, %4
 
 32:                                               ; preds = %29, %25
   %.sink.i.i = phi i32 [ 2, %25 ], [ 1, %29 ]
-  %.0.ph.i.i = phi i32 [ 20, %25 ], [ 16, %29 ]
+  %.0.i18.i = phi i32 [ 20, %25 ], [ 16, %29 ]
   %33 = call i32 @tvb_captured_length(ptr noundef nonnull %24)
   %34 = call ptr @tvb_get_ptr(ptr noundef nonnull %24, i32 noundef 0, i32 noundef %33)
   %35 = call i32 @tvb_captured_length(ptr noundef nonnull %24)
   %36 = zext i32 %35 to i64
   call void @gcry_md_hash_buffer(i32 noundef %.sink.i.i, ptr noundef nonnull @digest_buf, ptr noundef %34, i64 noundef %36)
-  %37 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %22, i32 noundef %.0.ph.i.i)
+  %37 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %22, i32 noundef %.0.i18.i)
   br i1 %37, label %38, label %cms_verify_msg_digest.exit.i
 
 38:                                               ; preds = %32
-  %39 = zext nneg i32 %.0.ph.i.i to i64
+  %39 = zext nneg i32 %.0.i18.i to i64
   %40 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %22, ptr noundef nonnull @digest_buf, i64 noundef %39)
   %.not24.i.i = icmp eq i32 %40, 0
   br i1 %.not24.i.i, label %cms_verify_msg_digest.exit.i, label %41

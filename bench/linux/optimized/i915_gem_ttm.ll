@@ -1449,7 +1449,7 @@ define internal noundef i32 @i915_ttm_access_memory(ptr noundef %0, i64 noundef 
   %25 = add i64 %24, 4095
   %26 = lshr i64 %25, 12
   %27 = icmp eq i64 %22, %26
-  br i1 %27, label %28, label %.thread
+  br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %20, %16, %5
   %29 = sext i32 %3 to i64
@@ -1459,8 +1459,8 @@ define internal noundef i32 @i915_ttm_access_memory(ptr noundef %0, i64 noundef 
   br i1 %32, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %28, %44
-  %33 = phi i64 [ %45, %44 ], [ %30, %28 ]
-  %34 = phi i64 [ %47, %44 ], [ %29, %28 ]
+  %33 = phi i64 [ %47, %44 ], [ %30, %28 ]
+  %34 = phi i64 [ %45, %44 ], [ %29, %28 ]
   %35 = phi ptr [ %46, %44 ], [ %2, %28 ]
   %36 = phi i64 [ 0, %44 ], [ %31, %28 ]
   %37 = sub nuw nsw i64 4096, %36
@@ -1470,20 +1470,20 @@ define internal noundef i32 @i915_ttm_access_memory(ptr noundef %0, i64 noundef 
   %41 = add i64 %40, %39
   %42 = tail call ptr @ioremap_wc(i64 noundef %41, i64 noundef %38) #11
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.thread, label %44
+  br i1 %43, label %.critedge, label %44
 
 44:                                               ; preds = %.split.us
   tail call void @memcpy_fromio(ptr noundef %35, ptr noundef nonnull %42, i64 noundef %38) #11
   tail call void @iounmap(ptr noundef nonnull %42) #11
-  %45 = add i64 %33, 1
+  %45 = sub i64 %34, %38
   %46 = getelementptr i8, ptr %35, i64 %38
-  %47 = sub i64 %34, %38
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %.thread, label %.split.us, !llvm.loop !25
+  %47 = add i64 %33, 1
+  %48 = icmp eq i64 %45, 0
+  br i1 %48, label %.critedge, label %.split.us, !llvm.loop !25
 
 .split:                                           ; preds = %28, %60
-  %49 = phi i64 [ %61, %60 ], [ %30, %28 ]
-  %50 = phi i64 [ %63, %60 ], [ %29, %28 ]
+  %49 = phi i64 [ %63, %60 ], [ %30, %28 ]
+  %50 = phi i64 [ %61, %60 ], [ %29, %28 ]
   %51 = phi ptr [ %62, %60 ], [ %2, %28 ]
   %52 = phi i64 [ 0, %60 ], [ %31, %28 ]
   %53 = sub nuw nsw i64 4096, %52
@@ -1493,18 +1493,18 @@ define internal noundef i32 @i915_ttm_access_memory(ptr noundef %0, i64 noundef 
   %57 = add i64 %56, %55
   %58 = tail call ptr @ioremap_wc(i64 noundef %57, i64 noundef %54) #11
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %.thread, label %60
+  br i1 %59, label %.critedge, label %60
 
 60:                                               ; preds = %.split
   tail call void @memcpy_toio(ptr noundef nonnull %58, ptr noundef %51, i64 noundef %54) #11
   tail call void @iounmap(ptr noundef nonnull %58) #11
-  %61 = add i64 %49, 1
+  %61 = sub i64 %50, %54
   %62 = getelementptr i8, ptr %51, i64 %54
-  %63 = sub i64 %50, %54
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %.thread, label %.split, !llvm.loop !27
+  %63 = add i64 %49, 1
+  %64 = icmp eq i64 %61, 0
+  br i1 %64, label %.critedge, label %.split, !llvm.loop !27
 
-.thread:                                          ; preds = %60, %.split, %44, %.split.us, %20
+.critedge:                                        ; preds = %60, %.split, %44, %.split.us, %20
   %65 = phi i32 [ -5, %20 ], [ -5, %.split.us ], [ %3, %44 ], [ -5, %.split ], [ %3, %60 ]
   ret i32 %65
 }

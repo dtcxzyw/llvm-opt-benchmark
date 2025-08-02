@@ -3021,7 +3021,7 @@ define range(i32 0, 2) i32 @Gia_FormStrCount(ptr noundef %0, ptr noundef capture
 
 5:                                                ; preds = %3
   %puts81 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %51
+  br label %53
 
 6:                                                ; preds = %3
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
@@ -3033,7 +3033,7 @@ define range(i32 0, 2) i32 @Gia_FormStrCount(ptr noundef %0, ptr noundef capture
 
 11:                                               ; preds = %6
   %puts80 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %51
+  br label %53
 
 .preheader:                                       ; preds = %6, %17
   %12 = phi i8 [ %.pre, %17 ], [ 40, %6 ]
@@ -3066,98 +3066,95 @@ define range(i32 0, 2) i32 @Gia_FormStrCount(ptr noundef %0, ptr noundef capture
 
 19:                                               ; preds = %18
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %51
+  br label %53
 
 20:                                               ; preds = %18
   store i32 0, ptr %1, align 4, !tbaa !34
   store i32 0, ptr %2, align 4, !tbaa !34
   %21 = load i8, ptr %0, align 1, !tbaa !32
   %.not7888 = icmp eq i8 %21, 0
-  br i1 %.not7888, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not7888, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %20
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 1
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %20, %42
+  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %42 ], [ 0, %20 ]
+  %22 = phi i8 [ %44, %42 ], [ %21, %20 ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv94
+  %24 = add i8 %22, -97
+  %or.cond = icmp ult i8 %24, 2
+  br i1 %or.cond, label %.sink.split, label %25
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
-  %indvars.iv94 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next95, %40 ]
-  %22 = phi i8 [ %21, %.lr.ph.preheader ], [ %42, %40 ]
-  %23 = add i8 %22, -97
-  %or.cond = icmp ult i8 %23, 2
-  br i1 %or.cond, label %.sink.split, label %24
+25:                                               ; preds = %.lr.ph
+  %26 = and i8 %22, -4
+  %or.cond82 = icmp eq i8 %26, 112
+  br i1 %or.cond82, label %.sink.split, label %27
 
-24:                                               ; preds = %.lr.ph
-  %25 = and i8 %22, -4
-  %or.cond82 = icmp eq i8 %25, 112
-  br i1 %or.cond82, label %.sink.split, label %26
-
-26:                                               ; preds = %24
-  switch i8 %22, label %33 [
-    i8 40, label %40
-    i8 41, label %40
-    i8 38, label %40
-    i8 124, label %40
-    i8 94, label %40
-    i8 63, label %40
-    i8 58, label %40
-    i8 126, label %27
+27:                                               ; preds = %25
+  switch i8 %22, label %35 [
+    i8 40, label %42
+    i8 41, label %42
+    i8 38, label %42
+    i8 124, label %42
+    i8 94, label %42
+    i8 63, label %42
+    i8 58, label %42
+    i8 126, label %28
   ]
 
-27:                                               ; preds = %26
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv94
-  %28 = load i8, ptr %gep, align 1, !tbaa !32
-  %29 = add i8 %28, -123
-  %or.cond83 = icmp ult i8 %29, -26
-  br i1 %or.cond83, label %30, label %40
+28:                                               ; preds = %27
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  %30 = load i8, ptr %29, align 1, !tbaa !32
+  %31 = add i8 %30, -123
+  %or.cond83 = icmp ult i8 %31, -26
+  br i1 %or.cond83, label %32, label %42
 
-30:                                               ; preds = %27
-  %31 = sext i8 %28 to i32
-  %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %31)
-  br label %51
+32:                                               ; preds = %28
+  %33 = sext i8 %30 to i32
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %33)
+  br label %53
 
-33:                                               ; preds = %26
-  %34 = sext i8 %22 to i32
-  %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %34, ptr noundef nonnull %0)
-  br label %51
+35:                                               ; preds = %27
+  %36 = sext i8 %22 to i32
+  %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %36, ptr noundef nonnull %0)
+  br label %53
 
-.sink.split:                                      ; preds = %24, %.lr.ph
-  %.sink = phi ptr [ %1, %.lr.ph ], [ %2, %24 ]
-  %.sink102 = phi i32 [ -96, %.lr.ph ], [ -111, %24 ]
-  %36 = load i32, ptr %.sink, align 4, !tbaa !34
-  %37 = zext nneg i8 %22 to i32
-  %38 = add nsw i32 %.sink102, %37
-  %39 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %36, i32 range(i32 1, 5) %38)
-  store i32 %39, ptr %.sink, align 4, !tbaa !34
-  br label %40
+.sink.split:                                      ; preds = %25, %.lr.ph
+  %.sink = phi ptr [ %1, %.lr.ph ], [ %2, %25 ]
+  %.sink102 = phi i32 [ -96, %.lr.ph ], [ -111, %25 ]
+  %38 = load i32, ptr %.sink, align 4, !tbaa !34
+  %39 = zext nneg i8 %22 to i32
+  %40 = add nsw i32 %.sink102, %39
+  %41 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %38, i32 range(i32 1, 5) %40)
+  store i32 %41, ptr %.sink, align 4, !tbaa !34
+  br label %42
 
-40:                                               ; preds = %.sink.split, %27, %26, %26, %26, %26, %26, %26, %26
+42:                                               ; preds = %.sink.split, %28, %27, %27, %27, %27, %27, %27, %27
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next95
-  %42 = load i8, ptr %41, align 1, !tbaa !32
-  %.not78 = icmp eq i8 %42, 0
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next95
+  %44 = load i8, ptr %43, align 1, !tbaa !32
+  %.not78 = icmp eq i8 %44, 0
   br i1 %.not78, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
-._crit_edge:                                      ; preds = %40, %20
-  %43 = load i32, ptr %1, align 4, !tbaa !34
-  %.not79 = icmp eq i32 %43, 2
-  br i1 %.not79, label %46, label %44
-
-44:                                               ; preds = %._crit_edge
-  %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %43)
-  br label %51
+._crit_edge:                                      ; preds = %42, %20
+  %45 = load i32, ptr %1, align 4, !tbaa !34
+  %.not79 = icmp eq i32 %45, 2
+  br i1 %.not79, label %48, label %46
 
 46:                                               ; preds = %._crit_edge
-  %47 = load i32, ptr %2, align 4, !tbaa !34
-  %48 = add i32 %47, -9
-  %or.cond84 = icmp ult i32 %48, -8
-  br i1 %or.cond84, label %49, label %51
+  %47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %45)
+  br label %53
 
-49:                                               ; preds = %46
-  %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 8)
-  br label %51
+48:                                               ; preds = %._crit_edge
+  %49 = load i32, ptr %2, align 4, !tbaa !34
+  %50 = add i32 %49, -9
+  %or.cond84 = icmp ult i32 %50, -8
+  br i1 %or.cond84, label %51, label %53
 
-51:                                               ; preds = %46, %49, %44, %33, %30, %19, %11, %5
-  %.065 = phi i32 [ 1, %5 ], [ 1, %11 ], [ 1, %19 ], [ 1, %30 ], [ 1, %33 ], [ 1, %44 ], [ 1, %49 ], [ 0, %46 ]
+51:                                               ; preds = %48
+  %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 8)
+  br label %53
+
+53:                                               ; preds = %48, %51, %46, %35, %32, %19, %11, %5
+  %.065 = phi i32 [ 1, %5 ], [ 1, %11 ], [ 1, %19 ], [ 1, %32 ], [ 1, %35 ], [ 1, %46 ], [ 1, %51 ], [ 0, %48 ]
   ret i32 %.065
 }
 

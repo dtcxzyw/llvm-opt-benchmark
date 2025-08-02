@@ -810,69 +810,69 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @be_lo_export(pt
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
   %17 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #12
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %20, label %18
+  br i1 %.not, label %18, label %.critedge
 
 18:                                               ; preds = %1
-  store ptr %15, ptr @PG_exception_stack, align 8
-  store ptr %16, ptr @error_context_stack, align 8
-  %19 = call i32 @umask(i32 noundef %14) #10
-  call void @pg_re_throw() #13
-  unreachable
-
-20:                                               ; preds = %1
   store ptr %4, ptr @PG_exception_stack, align 8
-  %21 = call i32 @OpenTransientFilePerm(ptr noundef nonnull %3, i32 noundef 577, i32 noundef 420) #10
+  %19 = call i32 @OpenTransientFilePerm(ptr noundef nonnull %3, i32 noundef 577, i32 noundef 420) #10
   store ptr %15, ptr @PG_exception_stack, align 8
   store ptr %16, ptr @error_context_stack, align 8
-  %22 = call i32 @umask(i32 noundef %14) #10
+  %20 = call i32 @umask(i32 noundef %14) #10
   store ptr %15, ptr @PG_exception_stack, align 8
   store ptr %16, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
-  %23 = icmp slt i32 %21, 0
-  br i1 %23, label %24, label %.preheader
+  %21 = icmp slt i32 %19, 0
+  br i1 %21, label %23, label %.preheader
 
-24:                                               ; preds = %20
-  %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %25)
-  %26 = call i32 @errcode_for_file_access() #10
-  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #10
+.critedge:                                        ; preds = %1
+  store ptr %15, ptr @PG_exception_stack, align 8
+  store ptr %16, ptr @error_context_stack, align 8
+  %22 = call i32 @umask(i32 noundef %14) #10
+  call void @pg_re_throw() #13
+  unreachable
+
+23:                                               ; preds = %18
+  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %24)
+  %25 = call i32 @errcode_for_file_access() #10
+  %26 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 527, ptr noundef nonnull @__func__.be_lo_export) #10
   unreachable
 
-.preheader:                                       ; preds = %20, %30
-  %28 = call i32 @inv_read(ptr noundef %13, ptr noundef nonnull %2, i32 noundef 8192) #10
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %30, label %38
+.preheader:                                       ; preds = %18, %29
+  %27 = call i32 @inv_read(ptr noundef %13, ptr noundef nonnull %2, i32 noundef 8192) #10
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %29, label %37
 
-30:                                               ; preds = %.preheader
-  %31 = zext nneg i32 %28 to i64
-  %32 = call i64 @write(i32 noundef %21, ptr noundef nonnull %2, i64 noundef %31) #10
-  %33 = trunc i64 %32 to i32
-  %.not20 = icmp eq i32 %28, %33
-  br i1 %.not20, label %.preheader, label %34, !llvm.loop !10
+29:                                               ; preds = %.preheader
+  %30 = zext nneg i32 %27 to i64
+  %31 = call i64 @write(i32 noundef %19, ptr noundef nonnull %2, i64 noundef %30) #10
+  %32 = trunc i64 %31 to i32
+  %.not20 = icmp eq i32 %27, %32
+  br i1 %.not20, label %.preheader, label %33, !llvm.loop !10
 
-34:                                               ; preds = %30
-  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %35)
-  %36 = call i32 @errcode_for_file_access() #10
-  %37 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %3) #10
+33:                                               ; preds = %29
+  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %34)
+  %35 = call i32 @errcode_for_file_access() #10
+  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %3) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 539, ptr noundef nonnull @__func__.be_lo_export) #10
   unreachable
 
-38:                                               ; preds = %.preheader
-  %39 = call i32 @CloseTransientFile(i32 noundef %21) #10
-  %.not19 = icmp eq i32 %39, 0
-  br i1 %.not19, label %44, label %40
+37:                                               ; preds = %.preheader
+  %38 = call i32 @CloseTransientFile(i32 noundef %19) #10
+  %.not19 = icmp eq i32 %38, 0
+  br i1 %.not19, label %43, label %39
 
-40:                                               ; preds = %38
-  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %41)
-  %42 = call i32 @errcode_for_file_access() #10
-  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %3) #10
+39:                                               ; preds = %37
+  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %40)
+  %41 = call i32 @errcode_for_file_access() #10
+  %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %3) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 546, ptr noundef nonnull @__func__.be_lo_export) #10
   unreachable
 
-44:                                               ; preds = %38
+43:                                               ; preds = %37
   call void @inv_close(ptr noundef %13) #10
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %2) #10

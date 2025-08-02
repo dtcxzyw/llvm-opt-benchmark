@@ -2449,50 +2449,47 @@ define internal void @add_response_header(ptr noundef readonly captures(none) %0
   %or.cond = and i1 %11, %12
   br i1 %or.cond, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %5
-  %invariant.gep = getelementptr i8, ptr %6, i64 -1
-  br label %13
-
-13:                                               ; preds = %.preheader, %.critedge3
-  %.07182 = phi i64 [ %10, %.preheader ], [ %15, %.critedge3 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.07182
-  %14 = load i8, ptr %gep, align 1, !tbaa !4
-  switch i8 %14, label %17 [
+.preheader:                                       ; preds = %5, %.critedge3
+  %.07182 = phi i64 [ %16, %.critedge3 ], [ %10, %5 ]
+  %13 = getelementptr i8, ptr %6, i64 %.07182
+  %14 = getelementptr i8, ptr %13, i64 -1
+  %15 = load i8, ptr %14, align 1, !tbaa !4
+  switch i8 %15, label %18 [
     i8 32, label %.critedge3
     i8 9, label %.critedge3
   ]
 
-.critedge3:                                       ; preds = %13, %13
-  %15 = add nsw i64 %.07182, -1
-  %16 = icmp sgt i64 %.07182, 1
-  br i1 %16, label %13, label %.critedge
+.critedge3:                                       ; preds = %.preheader, %.preheader
+  %16 = add nsw i64 %.07182, -1
+  %17 = icmp sgt i64 %.07182, 1
+  br i1 %17, label %.preheader, label %.critedge
 
-17:                                               ; preds = %13
-  %18 = add nuw nsw i64 %.07182, 1
-  %19 = icmp samesign ugt i64 %.07182, 32767
-  br i1 %19, label %20, label %22, !prof !62
+18:                                               ; preds = %.preheader
+  %19 = add nuw nsw i64 %.07182, 1
+  %20 = icmp samesign ugt i64 %.07182, 32767
+  br i1 %20, label %21, label %23, !prof !62
 
-20:                                               ; preds = %17
-  %21 = tail call noalias ptr @_emalloc(i64 noundef %18) #31
-  br label %24
+21:                                               ; preds = %18
+  %22 = tail call noalias ptr @_emalloc(i64 noundef %19) #31
+  br label %25
 
-22:                                               ; preds = %17
-  %23 = alloca i8, i64 %18, align 16
-  br label %24
+23:                                               ; preds = %18
+  %24 = alloca i8, i64 %19, align 16
+  br label %25
 
-24:                                               ; preds = %20, %22
-  %25 = phi ptr [ %23, %22 ], [ %21, %20 ]
-  %26 = load ptr, ptr %0, align 8, !tbaa !61
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %26, i64 %.07182, i1 false)
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %.07182
-  store i8 0, ptr %27, align 1, !tbaa !4
+25:                                               ; preds = %21, %23
+  %26 = phi ptr [ %24, %23 ], [ %22, %21 ]
+  %27 = load ptr, ptr %0, align 8, !tbaa !61
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %27, i64 %.07182, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %.07182
+  store i8 0, ptr %28, align 1, !tbaa !4
   br label %.critedge5
 
-.critedge5:                                       ; preds = %.critedge5.backedge, %24
-  %.0 = phi ptr [ %7, %24 ], [ %28, %.critedge5.backedge ]
-  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %29 = load i8, ptr %28, align 1, !tbaa !4
-  switch i8 %29, label %30 [
+.critedge5:                                       ; preds = %.critedge5.backedge, %25
+  %.0 = phi ptr [ %7, %25 ], [ %29, %.critedge5.backedge ]
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %30 = load i8, ptr %29, align 1, !tbaa !4
+  switch i8 %30, label %31 [
     i8 32, label %.critedge5.backedge
     i8 9, label %.critedge5.backedge
   ]
@@ -2500,21 +2497,21 @@ define internal void @add_response_header(ptr noundef readonly captures(none) %0
 .critedge5.backedge:                              ; preds = %.critedge5, %.critedge5
   br label %.critedge5
 
-30:                                               ; preds = %.critedge5
-  %31 = and i64 %.07182, 4294967295
-  %32 = load i64, ptr %3, align 8, !tbaa !59
-  %33 = ptrtoint ptr %28 to i64
-  %34 = ptrtoint ptr %26 to i64
-  %.neg = sub i64 %34, %33
-  %35 = add i64 %.neg, %32
-  call void @add_assoc_stringl_ex(ptr noundef %1, ptr noundef nonnull %25, i64 noundef %31, ptr noundef nonnull %28, i64 noundef %35) #29
-  br i1 %19, label %36, label %.critedge, !prof !63
+31:                                               ; preds = %.critedge5
+  %32 = and i64 %.07182, 4294967295
+  %33 = load i64, ptr %3, align 8, !tbaa !59
+  %34 = ptrtoint ptr %29 to i64
+  %35 = ptrtoint ptr %27 to i64
+  %.neg = sub i64 %35, %34
+  %36 = add i64 %.neg, %33
+  call void @add_assoc_stringl_ex(ptr noundef %1, ptr noundef nonnull %26, i64 noundef %32, ptr noundef nonnull %29, i64 noundef %36) #29
+  br i1 %20, label %37, label %.critedge, !prof !63
 
-36:                                               ; preds = %30
-  call void @_efree(ptr noundef nonnull %25) #29
+37:                                               ; preds = %31
+  call void @_efree(ptr noundef nonnull %26) #29
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge3, %5, %30, %36, %2
+.critedge:                                        ; preds = %.critedge3, %5, %31, %37, %2
   ret void
 }
 
@@ -3852,14 +3849,14 @@ define hidden range(i32 0, 2) i32 @do_cli_server(i32 noundef %0, ptr noundef %1)
 
 .outer:                                           ; preds = %17, %2
   %.023.ph = phi ptr [ %18, %17 ], [ null, %2 ]
-  %.021.ph = phi ptr [ %.021.ph112, %17 ], [ null, %2 ]
-  br label %.outer111
+  %.021.ph = phi ptr [ %.021.ph110, %17 ], [ null, %2 ]
+  br label %.outer109
 
-.outer111:                                        ; preds = %.outer, %19
-  %.021.ph112 = phi ptr [ %.021.ph, %.outer ], [ %20, %19 ]
+.outer109:                                        ; preds = %.outer, %19
+  %.021.ph110 = phi ptr [ %.021.ph, %.outer ], [ %20, %19 ]
   br label %15
 
-15:                                               ; preds = %.backedge, %.outer111
+15:                                               ; preds = %.backedge, %.outer109
   %16 = call i32 @php_getopt(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @OPTIONS, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 2) #29
   switch i32 %16, label %.backedge [
     i32 -1, label %26
@@ -3877,7 +3874,7 @@ define hidden range(i32 0, 2) i32 @do_cli_server(i32 noundef %0, ptr noundef %1)
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %11, align 8, !tbaa !115
-  br label %.outer111
+  br label %.outer109
 
 21:                                               ; preds = %15
   %22 = load i32, ptr @php_cli_server_log_level, align 4, !tbaa !74
@@ -3890,766 +3887,766 @@ define hidden range(i32 0, 2) i32 @do_cli_server(i32 noundef %0, ptr noundef %1)
   br label %.backedge
 
 26:                                               ; preds = %15
-  %.not27 = icmp eq ptr %.021.ph112, null
-  br i1 %.not27, label %38, label %27
+  %.not27 = icmp eq ptr %.021.ph110, null
+  br i1 %.not27, label %36, label %27
 
 27:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %14, i8 0, i64 144, i1 false)
-  %28 = call i32 @stat(ptr noundef nonnull %.021.ph112, ptr noundef nonnull %14) #29
+  %28 = call i32 @stat(ptr noundef nonnull %.021.ph110, ptr noundef nonnull %14) #29
   %.not29 = icmp eq i32 %28, 0
-  br i1 %.not29, label %29, label %.thread
+  br i1 %.not29, label %29, label %.critedge
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %31 = load i32, ptr %30, align 8, !tbaa !120
   %32 = and i32 %31, 61440
   %33 = icmp eq i32 %32, 16384
-  br i1 %33, label %36, label %.thread
+  br i1 %33, label %34, label %.critedge
 
-.thread:                                          ; preds = %29, %27
-  %.str.7.sink = phi ptr [ @.str.7, %27 ], [ @.str.8, %29 ]
-  %34 = load ptr, ptr @stderr, align 8, !tbaa !121
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull %.str.7.sink, ptr noundef nonnull %.021.ph112) #33
+34:                                               ; preds = %29
+  %35 = call ptr @tsrm_realpath(ptr noundef nonnull %.021.ph110, ptr noundef nonnull %13) #29
+  %.not30 = icmp eq ptr %35, null
+  %spec.select = select i1 %.not30, ptr %.021.ph110, ptr %13
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14) #29
-  br label %php_cli_server_dtor.exit
+  br label %39
 
-36:                                               ; preds = %29
-  %37 = call ptr @tsrm_realpath(ptr noundef nonnull %.021.ph112, ptr noundef nonnull %13) #29
-  %.not30 = icmp eq ptr %37, null
-  %spec.select = select i1 %.not30, ptr %.021.ph112, ptr %13
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14) #29
-  br label %41
+36:                                               ; preds = %26
+  %37 = call ptr @getcwd(ptr noundef nonnull %13, i64 noundef 4096) #29
+  %.not28 = icmp eq ptr %37, null
+  %38 = select i1 %.not28, ptr @.str.9, ptr %13
+  br label %39
 
-38:                                               ; preds = %26
-  %39 = call ptr @getcwd(ptr noundef nonnull %13, i64 noundef 4096) #29
-  %.not28 = icmp eq ptr %39, null
-  %40 = select i1 %.not28, ptr @.str.9, ptr %13
-  br label %41
+39:                                               ; preds = %34, %36
+  %.4 = phi ptr [ %spec.select, %34 ], [ %38, %36 ]
+  %40 = load i32, ptr %12, align 4, !tbaa !74
+  %41 = icmp sgt i32 %0, %40
+  br i1 %41, label %42, label %46
 
-41:                                               ; preds = %36, %38
-  %.4 = phi ptr [ %spec.select, %36 ], [ %40, %38 ]
-  %42 = load i32, ptr %12, align 4, !tbaa !74
-  %43 = icmp sgt i32 %0, %42
-  br i1 %43, label %44, label %48
+42:                                               ; preds = %39
+  %43 = sext i32 %40 to i64
+  %44 = getelementptr inbounds ptr, ptr %1, i64 %43
+  %45 = load ptr, ptr %44, align 8, !tbaa !115
+  br label %46
 
-44:                                               ; preds = %41
-  %45 = sext i32 %42 to i64
-  %46 = getelementptr inbounds ptr, ptr %1, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !115
-  br label %48
-
-48:                                               ; preds = %44, %41
-  %.020 = phi ptr [ %47, %44 ], [ null, %41 ]
+46:                                               ; preds = %42, %39
+  %.020 = phi ptr [ %45, %42 ], [ null, %39 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #29
   store ptr null, ptr %10, align 8, !tbaa !101
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #29
-  %49 = load i8, ptr %.023.ph, align 1, !tbaa !4
-  %50 = icmp eq i8 %49, 91
-  br i1 %50, label %51, label %64
+  %47 = load i8, ptr %.023.ph, align 1, !tbaa !4
+  %48 = icmp eq i8 %47, 91
+  br i1 %48, label %49, label %62
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %.023.ph, i64 1
-  %53 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %52, i32 noundef 93) #30
-  %.not33.i.i = icmp eq ptr %53, null
-  br i1 %.not33.i.i, label %php_cli_server_parse_addr.exit.thread.i, label %54
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %.023.ph, i64 1
+  %51 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %50, i32 noundef 93) #30
+  %.not33.i.i = icmp eq ptr %51, null
+  br i1 %.not33.i.i, label %php_cli_server_parse_addr.exit.thread.i, label %52
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 1
-  store ptr %55, ptr %9, align 8, !tbaa !115
-  %56 = load i8, ptr %55, align 1, !tbaa !4
-  %.not34.i.i = icmp eq i8 %56, 58
-  br i1 %.not34.i.i, label %57, label %php_cli_server_parse_addr.exit.thread.i
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 1
+  store ptr %53, ptr %9, align 8, !tbaa !115
+  %54 = load i8, ptr %53, align 1, !tbaa !4
+  %.not34.i.i = icmp eq i8 %54, 58
+  br i1 %.not34.i.i, label %55, label %php_cli_server_parse_addr.exit.thread.i
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 2
-  %59 = call i64 @strtol(ptr noundef nonnull %58, ptr noundef nonnull %9, i32 noundef 10) #29
-  %60 = load ptr, ptr %9, align 8, !tbaa !115
-  %.not35.i.i = icmp eq ptr %60, null
-  br i1 %.not35.i.i, label %63, label %61
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  %57 = call i64 @strtol(ptr noundef nonnull %56, ptr noundef nonnull %9, i32 noundef 10) #29
+  %58 = load ptr, ptr %9, align 8, !tbaa !115
+  %.not35.i.i = icmp eq ptr %58, null
+  br i1 %.not35.i.i, label %61, label %59
 
-61:                                               ; preds = %57
-  %62 = load i8, ptr %60, align 1, !tbaa !4
-  %.not36.i.i = icmp ne i8 %62, 0
-  %or.cond.i.i = icmp ugt i64 %59, 65535
+59:                                               ; preds = %55
+  %60 = load i8, ptr %58, align 1, !tbaa !4
+  %.not36.i.i = icmp ne i8 %60, 0
+  %or.cond.i.i = icmp ugt i64 %57, 65535
   %or.cond37.i.i = select i1 %.not36.i.i, i1 true, i1 %or.cond.i.i
   br i1 %or.cond37.i.i, label %php_cli_server_parse_addr.exit.thread.i, label %php_cli_server_parse_addr.exit.i
 
-63:                                               ; preds = %57
-  %or.cond.old.i.i = icmp ugt i64 %59, 65535
+61:                                               ; preds = %55
+  %or.cond.old.i.i = icmp ugt i64 %57, 65535
   br i1 %or.cond.old.i.i, label %php_cli_server_parse_addr.exit.thread.i, label %php_cli_server_parse_addr.exit.i
 
-64:                                               ; preds = %48
-  %65 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.023.ph, i32 noundef 58) #30
-  %.not.i62.i = icmp eq ptr %65, null
-  br i1 %.not.i62.i, label %php_cli_server_parse_addr.exit.thread.i, label %66
+62:                                               ; preds = %46
+  %63 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.023.ph, i32 noundef 58) #30
+  %.not.i62.i = icmp eq ptr %63, null
+  br i1 %.not.i62.i, label %php_cli_server_parse_addr.exit.thread.i, label %64
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 1
-  %68 = call i64 @strtol(ptr noundef nonnull %67, ptr noundef nonnull %9, i32 noundef 10) #29
-  %69 = load ptr, ptr %9, align 8, !tbaa !115
-  %.not31.i.i = icmp eq ptr %69, null
-  br i1 %.not31.i.i, label %72, label %70
+64:                                               ; preds = %62
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 1
+  %66 = call i64 @strtol(ptr noundef nonnull %65, ptr noundef nonnull %9, i32 noundef 10) #29
+  %67 = load ptr, ptr %9, align 8, !tbaa !115
+  %.not31.i.i = icmp eq ptr %67, null
+  br i1 %.not31.i.i, label %70, label %68
 
-70:                                               ; preds = %66
-  %71 = load i8, ptr %69, align 1, !tbaa !4
-  %.not32.i.i = icmp ne i8 %71, 0
-  %or.cond3.i.i = icmp ugt i64 %68, 65535
+68:                                               ; preds = %64
+  %69 = load i8, ptr %67, align 1, !tbaa !4
+  %.not32.i.i = icmp ne i8 %69, 0
+  %or.cond3.i.i = icmp ugt i64 %66, 65535
   %or.cond38.i.i = select i1 %.not32.i.i, i1 true, i1 %or.cond3.i.i
   br i1 %or.cond38.i.i, label %php_cli_server_parse_addr.exit.thread.i, label %php_cli_server_parse_addr.exit.i
 
-72:                                               ; preds = %66
-  %or.cond3.old.i.i = icmp ugt i64 %68, 65535
+70:                                               ; preds = %64
+  %or.cond3.old.i.i = icmp ugt i64 %66, 65535
   br i1 %or.cond3.old.i.i, label %php_cli_server_parse_addr.exit.thread.i, label %php_cli_server_parse_addr.exit.i
 
-php_cli_server_parse_addr.exit.thread.i:          ; preds = %72, %70, %64, %63, %61, %54, %51
+php_cli_server_parse_addr.exit.thread.i:          ; preds = %70, %68, %62, %61, %59, %52, %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #29
   br label %.thread57.i
 
-php_cli_server_parse_addr.exit.i:                 ; preds = %72, %70, %63, %61
-  %.sink45.i.i = phi i64 [ %59, %61 ], [ %59, %63 ], [ %68, %70 ], [ %68, %72 ]
-  %.sink43.i.i = phi ptr [ %53, %61 ], [ %53, %63 ], [ %65, %70 ], [ %65, %72 ]
-  %.sink42.i.i = phi ptr [ %52, %61 ], [ %52, %63 ], [ %.023.ph, %70 ], [ %.023.ph, %72 ]
-  %73 = trunc nuw nsw i64 %.sink45.i.i to i32
-  %74 = ptrtoint ptr %.sink43.i.i to i64
-  %75 = ptrtoint ptr %.sink42.i.i to i64
-  %76 = sub i64 %74, %75
-  %77 = call noalias ptr @zend_strndup(ptr noundef nonnull %.sink42.i.i, i64 noundef %76) #29
+php_cli_server_parse_addr.exit.i:                 ; preds = %70, %68, %61, %59
+  %.sink45.i.i = phi i64 [ %57, %59 ], [ %57, %61 ], [ %66, %68 ], [ %66, %70 ]
+  %.sink43.i.i = phi ptr [ %51, %59 ], [ %51, %61 ], [ %63, %68 ], [ %63, %70 ]
+  %.sink42.i.i = phi ptr [ %50, %59 ], [ %50, %61 ], [ %.023.ph, %68 ], [ %.023.ph, %70 ]
+  %71 = trunc nuw nsw i64 %.sink45.i.i to i32
+  %72 = ptrtoint ptr %.sink43.i.i to i64
+  %73 = ptrtoint ptr %.sink42.i.i to i64
+  %74 = sub i64 %72, %73
+  %75 = call noalias ptr @zend_strndup(ptr noundef nonnull %.sink42.i.i, i64 noundef %74) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #29
-  %.not.i = icmp eq ptr %77, null
-  br i1 %.not.i, label %.thread57.i, label %80
+  %.not.i = icmp eq ptr %75, null
+  br i1 %.not.i, label %.thread57.i, label %78
 
 .thread57.i:                                      ; preds = %php_cli_server_parse_addr.exit.i, %php_cli_server_parse_addr.exit.thread.i
-  %78 = load ptr, ptr @stderr, align 8, !tbaa !121
-  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.109, ptr noundef nonnull %.023.ph) #33
+  %76 = load ptr, ptr @stderr, align 8, !tbaa !121
+  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.109, ptr noundef nonnull %.023.ph) #33
   br label %php_cli_server_ctor.exit.thread
 
-80:                                               ; preds = %php_cli_server_parse_addr.exit.i
+78:                                               ; preds = %php_cli_server_parse_addr.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #29
-  %81 = call i32 @php_network_getaddresses(ptr noundef nonnull %77, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %10) #29
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %php_network_listen_socket.exit.thread.i, label %83
+  %79 = call i32 @php_network_getaddresses(ptr noundef nonnull %75, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %10) #29
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %php_network_listen_socket.exit.thread.i, label %81
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr %7, align 8, !tbaa !123
-  %85 = load ptr, ptr %84, align 8, !tbaa !125
-  %.not27.i.i = icmp eq ptr %85, null
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %7, align 8, !tbaa !123
+  %83 = load ptr, ptr %82, align 8, !tbaa !125
+  %.not27.i.i = icmp eq ptr %83, null
   br i1 %.not27.i.i, label %.thread40.i.thread.i, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %83
-  %86 = trunc nuw i64 %.sink45.i.i to i16
-  %rev.i76.i.i = call i16 @llvm.bswap.i16(i16 %86)
+.lr.ph.i.preheader.i:                             ; preds = %81
+  %84 = trunc nuw i64 %.sink45.i.i to i16
+  %rev.i76.i.i = call i16 @llvm.bswap.i16(i16 %84)
   br label %.lr.ph.i.outer.i
 
-.lr.ph.i.outer.i:                                 ; preds = %126, %.lr.ph.i.preheader.i
-  %.ph.i = phi ptr [ %85, %.lr.ph.i.preheader.i ], [ %129, %126 ]
-  %.05630.i.ph.i = phi i32 [ 0, %.lr.ph.i.preheader.i ], [ %.258.ph.i.i, %126 ]
-  %.06029.i.ph.i = phi ptr [ %84, %.lr.ph.i.preheader.i ], [ %128, %126 ]
-  %.06128.i.ph.i = phi ptr [ null, %.lr.ph.i.preheader.i ], [ %.364.ph.i.i, %126 ]
+.lr.ph.i.outer.i:                                 ; preds = %124, %.lr.ph.i.preheader.i
+  %.ph.i = phi ptr [ %83, %.lr.ph.i.preheader.i ], [ %127, %124 ]
+  %.05630.i.ph.i = phi i32 [ 0, %.lr.ph.i.preheader.i ], [ %.258.ph.i.i, %124 ]
+  %.06029.i.ph.i = phi ptr [ %82, %.lr.ph.i.preheader.i ], [ %126, %124 ]
+  %.06128.i.ph.i = phi ptr [ null, %.lr.ph.i.preheader.i ], [ %.364.ph.i.i, %124 ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread.i, %.lr.ph.i.outer.i
-  %87 = phi ptr [ %131, %.thread.i ], [ %.ph.i, %.lr.ph.i.outer.i ]
-  %.06029.i.i = phi ptr [ %130, %.thread.i ], [ %.06029.i.ph.i, %.lr.ph.i.outer.i ]
+  %85 = phi ptr [ %129, %.thread.i ], [ %.ph.i, %.lr.ph.i.outer.i ]
+  %.06029.i.i = phi ptr [ %128, %.thread.i ], [ %.06029.i.ph.i, %.lr.ph.i.outer.i ]
   %.06128.i.i = phi ptr [ null, %.thread.i ], [ %.06128.i.ph.i, %.lr.ph.i.outer.i ]
   %.not70.i.i = icmp eq ptr %.06128.i.i, null
-  br i1 %.not70.i.i, label %89, label %88
+  br i1 %.not70.i.i, label %87, label %86
 
-88:                                               ; preds = %.lr.ph.i.i
+86:                                               ; preds = %.lr.ph.i.i
   call void @free(ptr noundef nonnull %.06128.i.i) #29
   %.pre.i.i = load ptr, ptr %.06029.i.i, align 8, !tbaa !125
-  br label %89
+  br label %87
 
-89:                                               ; preds = %88, %.lr.ph.i.i
-  %90 = phi ptr [ %.pre.i.i, %88 ], [ %87, %.lr.ph.i.i ]
-  %91 = load i16, ptr %90, align 2, !tbaa !126
-  %92 = zext i16 %91 to i32
-  %93 = call i32 @socket(i32 noundef %92, i32 noundef 1, i32 noundef 0) #29
-  %94 = icmp eq i32 %93, -1
-  br i1 %94, label %.thread.i, label %95
+87:                                               ; preds = %86, %.lr.ph.i.i
+  %88 = phi ptr [ %.pre.i.i, %86 ], [ %85, %.lr.ph.i.i ]
+  %89 = load i16, ptr %88, align 2, !tbaa !126
+  %90 = zext i16 %89 to i32
+  %91 = call i32 @socket(i32 noundef %90, i32 noundef 1, i32 noundef 0) #29
+  %92 = icmp eq i32 %91, -1
+  br i1 %92, label %.thread.i, label %93
 
-95:                                               ; preds = %89
-  %96 = load ptr, ptr %.06029.i.i, align 8, !tbaa !125
-  %97 = load i16, ptr %96, align 2, !tbaa !126
-  switch i16 %97, label %104 [
-    i16 10, label %98
-    i16 2, label %101
+93:                                               ; preds = %87
+  %94 = load ptr, ptr %.06029.i.i, align 8, !tbaa !125
+  %95 = load i16, ptr %94, align 2, !tbaa !126
+  switch i16 %95, label %102 [
+    i16 10, label %96
+    i16 2, label %99
   ]
 
-98:                                               ; preds = %95
-  %99 = call noalias dereferenceable_or_null(28) ptr @__zend_malloc(i64 noundef 28) #31
-  %100 = load ptr, ptr %.06029.i.i, align 8, !tbaa !125
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %99, ptr noundef nonnull align 4 dereferenceable(28) %100, i64 28, i1 false), !tbaa.struct !128
-  br label %105
+96:                                               ; preds = %93
+  %97 = call noalias dereferenceable_or_null(28) ptr @__zend_malloc(i64 noundef 28) #31
+  %98 = load ptr, ptr %.06029.i.i, align 8, !tbaa !125
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %97, ptr noundef nonnull align 4 dereferenceable(28) %98, i64 28, i1 false), !tbaa.struct !128
+  br label %103
 
-101:                                              ; preds = %95
-  %102 = call noalias dereferenceable_or_null(16) ptr @__zend_malloc(i64 noundef 16) #31
-  %103 = load ptr, ptr %.06029.i.i, align 8, !tbaa !125
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %102, ptr noundef nonnull align 4 dereferenceable(16) %103, i64 16, i1 false), !tbaa.struct !130
-  br label %105
+99:                                               ; preds = %93
+  %100 = call noalias dereferenceable_or_null(16) ptr @__zend_malloc(i64 noundef 16) #31
+  %101 = load ptr, ptr %.06029.i.i, align 8, !tbaa !125
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %100, ptr noundef nonnull align 4 dereferenceable(16) %101, i64 16, i1 false), !tbaa.struct !130
+  br label %103
 
-104:                                              ; preds = %95
+102:                                              ; preds = %93
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 584), align 8, !tbaa !74
-  br label %126
+  br label %124
 
-105:                                              ; preds = %101, %98
-  %.sink49.i.i = phi ptr [ %102, %101 ], [ %99, %98 ]
-  %storemerge.i.i = phi i32 [ 16, %101 ], [ 28, %98 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.sink49.i.i, i64 2
-  store i16 %rev.i76.i.i, ptr %106, align 2, !tbaa !129
+103:                                              ; preds = %99, %96
+  %.sink49.i.i = phi ptr [ %100, %99 ], [ %97, %96 ]
+  %storemerge.i.i = phi i32 [ 16, %99 ], [ 28, %96 ]
+  %104 = getelementptr inbounds nuw i8, ptr %.sink49.i.i, i64 2
+  store i16 %rev.i76.i.i, ptr %104, align 2, !tbaa !129
   store i32 %storemerge.i.i, ptr getelementptr inbounds nuw (i8, ptr @server, i64 584), align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #29
   store i32 1, ptr %8, align 4, !tbaa !74
-  %107 = call i32 @setsockopt(i32 noundef %93, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 4) #29
+  %105 = call i32 @setsockopt(i32 noundef %91, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 4) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #29
-  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 584), align 8, !tbaa !74
-  %109 = call i32 @bind(i32 noundef %93, ptr nonnull %.sink49.i.i, i32 noundef %108) #29
-  %110 = icmp eq i32 %109, -1
-  br i1 %110, label %111, label %114
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 584), align 8, !tbaa !74
+  %107 = call i32 @bind(i32 noundef %91, ptr nonnull %.sink49.i.i, i32 noundef %106) #29
+  %108 = icmp eq i32 %107, -1
+  br i1 %108, label %109, label %112
 
-111:                                              ; preds = %105
-  %112 = tail call ptr @__errno_location() #32
-  %113 = load i32, ptr %112, align 4, !tbaa !74
-  switch i32 %113, label %126 [
+109:                                              ; preds = %103
+  %110 = tail call ptr @__errno_location() #32
+  %111 = load i32, ptr %110, align 4, !tbaa !74
+  switch i32 %111, label %124 [
     i32 98, label %.thread8.i.i
     i32 22, label %.thread8.i.i
   ]
 
-114:                                              ; preds = %105
-  %115 = getelementptr inbounds nuw i8, ptr %.sink49.i.i, i64 2
-  %116 = load i16, ptr %.sink49.i.i, align 2, !tbaa !126
-  %117 = zext i16 %116 to i32
-  store i32 %117, ptr getelementptr inbounds nuw (i8, ptr @server, i64 548), align 4, !tbaa !74
-  %118 = icmp eq i64 %.sink45.i.i, 0
-  br i1 %118, label %119, label %.thread.i.i
+112:                                              ; preds = %103
+  %113 = getelementptr inbounds nuw i8, ptr %.sink49.i.i, i64 2
+  %114 = load i16, ptr %.sink49.i.i, align 2, !tbaa !126
+  %115 = zext i16 %114 to i32
+  store i32 %115, ptr getelementptr inbounds nuw (i8, ptr @server, i64 548), align 4, !tbaa !74
+  %116 = icmp eq i64 %.sink45.i.i, 0
+  br i1 %116, label %117, label %.thread.i.i
 
-119:                                              ; preds = %114
-  %120 = call i32 @getsockname(i32 noundef %93, ptr nonnull %.sink49.i.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 584)) #29
-  %.not71.i.i = icmp eq i32 %120, 0
-  br i1 %.not71.i.i, label %124, label %121
+117:                                              ; preds = %112
+  %118 = call i32 @getsockname(i32 noundef %91, ptr nonnull %.sink49.i.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 584)) #29
+  %.not71.i.i = icmp eq i32 %118, 0
+  br i1 %.not71.i.i, label %122, label %119
 
-121:                                              ; preds = %119
-  %122 = tail call ptr @__errno_location() #32
-  %123 = load i32, ptr %122, align 4, !tbaa !74
+119:                                              ; preds = %117
+  %120 = tail call ptr @__errno_location() #32
+  %121 = load i32, ptr %120, align 4, !tbaa !74
   br label %.thread8.i.i
 
-124:                                              ; preds = %119
-  %125 = load i16, ptr %.sink49.i.i, align 2, !tbaa !126
-  switch i16 %125, label %.thread.i.i [
+122:                                              ; preds = %117
+  %123 = load i16, ptr %.sink49.i.i, align 2, !tbaa !126
+  switch i16 %123, label %.thread.i.i [
     i16 10, label %.thread.sink.split.i.i
     i16 2, label %.thread.sink.split.i.i
   ]
 
-126:                                              ; preds = %111, %104
-  %.364.ph.i.i = phi ptr [ null, %104 ], [ %.sink49.i.i, %111 ]
-  %.258.ph.i.i = phi i32 [ %.05630.i.ph.i, %104 ], [ %113, %111 ]
-  %.2.ph.i.i = phi i32 [ %93, %104 ], [ -1, %111 ]
-  %127 = call i32 @close(i32 noundef %93) #29
-  %128 = getelementptr inbounds nuw i8, ptr %.06029.i.i, i64 8
-  %129 = load ptr, ptr %128, align 8, !tbaa !125
-  %.not.i64.i = icmp eq ptr %129, null
+124:                                              ; preds = %109, %102
+  %.364.ph.i.i = phi ptr [ null, %102 ], [ %.sink49.i.i, %109 ]
+  %.258.ph.i.i = phi i32 [ %.05630.i.ph.i, %102 ], [ %111, %109 ]
+  %.2.ph.i.i = phi i32 [ %91, %102 ], [ -1, %109 ]
+  %125 = call i32 @close(i32 noundef %91) #29
+  %126 = getelementptr inbounds nuw i8, ptr %.06029.i.i, i64 8
+  %127 = load ptr, ptr %126, align 8, !tbaa !125
+  %.not.i64.i = icmp eq ptr %127, null
   br i1 %.not.i64.i, label %._crit_edge.i.i, label %.lr.ph.i.outer.i
 
-.thread.i:                                        ; preds = %89
-  %130 = getelementptr inbounds nuw i8, ptr %.06029.i.i, i64 8
-  %131 = load ptr, ptr %130, align 8, !tbaa !125
-  %.not.i6415.i = icmp eq ptr %131, null
+.thread.i:                                        ; preds = %87
+  %128 = getelementptr inbounds nuw i8, ptr %.06029.i.i, i64 8
+  %129 = load ptr, ptr %128, align 8, !tbaa !125
+  %.not.i6415.i = icmp eq ptr %129, null
   br i1 %.not.i6415.i, label %.thread40.i.i, label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %126
-  %132 = icmp eq i32 %.2.ph.i.i, -1
-  br i1 %132, label %139, label %.thread.i.i
+._crit_edge.i.i:                                  ; preds = %124
+  %130 = icmp eq i32 %.2.ph.i.i, -1
+  br i1 %130, label %137, label %.thread.i.i
 
-.thread.sink.split.i.i:                           ; preds = %124, %124
-  %133 = load i16, ptr %115, align 2, !tbaa !129
-  %rev.i78.i.i = call noundef i16 @llvm.bswap.i16(i16 %133)
-  %134 = zext i16 %rev.i78.i.i to i32
+.thread.sink.split.i.i:                           ; preds = %122, %122
+  %131 = load i16, ptr %113, align 2, !tbaa !129
+  %rev.i78.i.i = call noundef i16 @llvm.bswap.i16(i16 %131)
+  %132 = zext i16 %rev.i78.i.i to i32
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.thread.sink.split.i.i, %._crit_edge.i.i, %124, %114
-  %.1.i = phi i32 [ %73, %._crit_edge.i.i ], [ 0, %124 ], [ %134, %.thread.sink.split.i.i ], [ %73, %114 ]
-  %.16.i.i = phi i32 [ %.2.ph.i.i, %._crit_edge.i.i ], [ %93, %124 ], [ %93, %.thread.sink.split.i.i ], [ %93, %114 ]
-  %.1575.i.i = phi i32 [ %.258.ph.i.i, %._crit_edge.i.i ], [ 0, %124 ], [ 0, %.thread.sink.split.i.i ], [ 0, %114 ]
-  %.1624.i.i = phi ptr [ %.364.ph.i.i, %._crit_edge.i.i ], [ %.sink49.i.i, %124 ], [ %.sink49.i.i, %.thread.sink.split.i.i ], [ %.sink49.i.i, %114 ]
-  %135 = call i32 @listen(i32 noundef %.16.i.i, i32 noundef 4096) #29
-  %.not72.i.i = icmp eq i32 %135, 0
-  br i1 %.not72.i.i, label %139, label %136
+.thread.i.i:                                      ; preds = %.thread.sink.split.i.i, %._crit_edge.i.i, %122, %112
+  %.1.i = phi i32 [ %71, %._crit_edge.i.i ], [ 0, %122 ], [ %132, %.thread.sink.split.i.i ], [ %71, %112 ]
+  %.16.i.i = phi i32 [ %.2.ph.i.i, %._crit_edge.i.i ], [ %91, %122 ], [ %91, %.thread.sink.split.i.i ], [ %91, %112 ]
+  %.1575.i.i = phi i32 [ %.258.ph.i.i, %._crit_edge.i.i ], [ 0, %122 ], [ 0, %.thread.sink.split.i.i ], [ 0, %112 ]
+  %.1624.i.i = phi ptr [ %.364.ph.i.i, %._crit_edge.i.i ], [ %.sink49.i.i, %122 ], [ %.sink49.i.i, %.thread.sink.split.i.i ], [ %.sink49.i.i, %112 ]
+  %133 = call i32 @listen(i32 noundef %.16.i.i, i32 noundef 4096) #29
+  %.not72.i.i = icmp eq i32 %133, 0
+  br i1 %.not72.i.i, label %137, label %134
 
-136:                                              ; preds = %.thread.i.i
-  %137 = tail call ptr @__errno_location() #32
-  %138 = load i32, ptr %137, align 4, !tbaa !74
-  br label %139
+134:                                              ; preds = %.thread.i.i
+  %135 = tail call ptr @__errno_location() #32
+  %136 = load i32, ptr %135, align 4, !tbaa !74
+  br label %137
 
-139:                                              ; preds = %136, %.thread.i.i, %._crit_edge.i.i
-  %.2.i = phi i32 [ %73, %._crit_edge.i.i ], [ %.1.i, %.thread.i.i ], [ %.1.i, %136 ]
-  %.5.i.i = phi ptr [ %.364.ph.i.i, %._crit_edge.i.i ], [ %.1624.i.i, %.thread.i.i ], [ %.1624.i.i, %136 ]
-  %.359.i.i = phi i32 [ %.258.ph.i.i, %._crit_edge.i.i ], [ %.1575.i.i, %.thread.i.i ], [ %138, %136 ]
-  %.3.i.i = phi i32 [ -1, %._crit_edge.i.i ], [ %.16.i.i, %.thread.i.i ], [ %.16.i.i, %136 ]
+137:                                              ; preds = %134, %.thread.i.i, %._crit_edge.i.i
+  %.2.i = phi i32 [ %71, %._crit_edge.i.i ], [ %.1.i, %.thread.i.i ], [ %.1.i, %134 ]
+  %.5.i.i = phi ptr [ %.364.ph.i.i, %._crit_edge.i.i ], [ %.1624.i.i, %.thread.i.i ], [ %.1624.i.i, %134 ]
+  %.359.i.i = phi i32 [ %.258.ph.i.i, %._crit_edge.i.i ], [ %.1575.i.i, %.thread.i.i ], [ %136, %134 ]
+  %.3.i.i = phi i32 [ -1, %._crit_edge.i.i ], [ %.16.i.i, %.thread.i.i ], [ %.16.i.i, %134 ]
   %.not73.i.i = icmp eq ptr %.5.i.i, null
   br i1 %.not73.i.i, label %.thread40.i.i, label %.thread8.i.i
 
-.thread8.i.i:                                     ; preds = %111, %111, %139, %121
-  %.3.i = phi i32 [ %.2.i, %139 ], [ 0, %121 ], [ %73, %111 ], [ %73, %111 ]
-  %.316.i.i = phi i32 [ %.3.i.i, %139 ], [ %93, %121 ], [ %93, %111 ], [ %93, %111 ]
-  %.35914.i.i = phi i32 [ %.359.i.i, %139 ], [ %123, %121 ], [ %113, %111 ], [ %113, %111 ]
-  %.513.i.i = phi ptr [ %.5.i.i, %139 ], [ %.sink49.i.i, %121 ], [ %.sink49.i.i, %111 ], [ %.sink49.i.i, %111 ]
+.thread8.i.i:                                     ; preds = %109, %109, %137, %119
+  %.3.i = phi i32 [ %.2.i, %137 ], [ 0, %119 ], [ %71, %109 ], [ %71, %109 ]
+  %.316.i.i = phi i32 [ %.3.i.i, %137 ], [ %91, %119 ], [ %91, %109 ], [ %91, %109 ]
+  %.35914.i.i = phi i32 [ %.359.i.i, %137 ], [ %121, %119 ], [ %111, %109 ], [ %111, %109 ]
+  %.513.i.i = phi ptr [ %.5.i.i, %137 ], [ %.sink49.i.i, %119 ], [ %.sink49.i.i, %109 ], [ %.sink49.i.i, %109 ]
   call void @free(ptr noundef nonnull %.513.i.i) #29
   br label %.thread40.i.i
 
-.thread40.i.i:                                    ; preds = %.thread.i, %.thread8.i.i, %139
-  %.4.i = phi i32 [ %.2.i, %139 ], [ %.3.i, %.thread8.i.i ], [ %73, %.thread.i ]
-  %.317.ph.i.i = phi i32 [ %.3.i.i, %139 ], [ %.316.i.i, %.thread8.i.i ], [ -1, %.thread.i ]
-  %.35915.ph.i.i = phi i32 [ %.359.i.i, %139 ], [ %.35914.i.i, %.thread8.i.i ], [ %.05630.i.ph.i, %.thread.i ]
+.thread40.i.i:                                    ; preds = %.thread.i, %.thread8.i.i, %137
+  %.4.i = phi i32 [ %.2.i, %137 ], [ %.3.i, %.thread8.i.i ], [ %71, %.thread.i ]
+  %.317.ph.i.i = phi i32 [ %.3.i.i, %137 ], [ %.316.i.i, %.thread8.i.i ], [ -1, %.thread.i ]
+  %.35915.ph.i.i = phi i32 [ %.359.i.i, %137 ], [ %.35914.i.i, %.thread8.i.i ], [ %.05630.i.ph.i, %.thread.i ]
   %.pr.i.i = load ptr, ptr %7, align 8, !tbaa !123
   %.not74.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not74.i.i, label %141, label %.thread40.i.thread.i
+  br i1 %.not74.i.i, label %139, label %.thread40.i.thread.i
 
-.thread40.i.thread.i:                             ; preds = %.thread40.i.i, %83
-  %.35915.i36.i = phi i32 [ %.35915.ph.i.i, %.thread40.i.i ], [ 0, %83 ]
-  %.317.i34.i = phi i32 [ %.317.ph.i.i, %.thread40.i.i ], [ -1, %83 ]
-  %140 = phi ptr [ %.pr.i.i, %.thread40.i.i ], [ %84, %83 ]
-  %.532.i = phi i32 [ %.4.i, %.thread40.i.i ], [ %73, %83 ]
-  call void @php_network_freeaddresses(ptr noundef nonnull %140) #29
-  br label %141
+.thread40.i.thread.i:                             ; preds = %.thread40.i.i, %81
+  %.35915.i36.i = phi i32 [ %.35915.ph.i.i, %.thread40.i.i ], [ 0, %81 ]
+  %.317.i34.i = phi i32 [ %.317.ph.i.i, %.thread40.i.i ], [ -1, %81 ]
+  %138 = phi ptr [ %.pr.i.i, %.thread40.i.i ], [ %82, %81 ]
+  %.532.i = phi i32 [ %.4.i, %.thread40.i.i ], [ %71, %81 ]
+  call void @php_network_freeaddresses(ptr noundef nonnull %138) #29
+  br label %139
 
-141:                                              ; preds = %.thread40.i.thread.i, %.thread40.i.i
+139:                                              ; preds = %.thread40.i.thread.i, %.thread40.i.i
   %.35915.i37.i = phi i32 [ %.35915.i36.i, %.thread40.i.thread.i ], [ %.35915.ph.i.i, %.thread40.i.i ]
   %.317.i35.i = phi i32 [ %.317.i34.i, %.thread40.i.thread.i ], [ %.317.ph.i.i, %.thread40.i.i ]
   %.533.i = phi i32 [ %.532.i, %.thread40.i.thread.i ], [ %.4.i, %.thread40.i.i ]
   %.not75.i.i = icmp eq i32 %.35915.i37.i, 0
-  br i1 %.not75.i.i, label %php_network_listen_socket.exit.i, label %142
+  br i1 %.not75.i.i, label %php_network_listen_socket.exit.i, label %140
 
-142:                                              ; preds = %141
-  %143 = icmp sgt i32 %.317.i35.i, -1
-  br i1 %143, label %144, label %146
+140:                                              ; preds = %139
+  %141 = icmp sgt i32 %.317.i35.i, -1
+  br i1 %141, label %142, label %144
 
-144:                                              ; preds = %142
-  %145 = call i32 @close(i32 noundef %.317.i35.i) #29
-  br label %146
+142:                                              ; preds = %140
+  %143 = call i32 @close(i32 noundef %.317.i35.i) #29
+  br label %144
 
-146:                                              ; preds = %144, %142
-  %147 = sext i32 %.35915.i37.i to i64
-  %148 = call ptr @php_socket_error_str(i64 noundef %147) #29
-  store ptr %148, ptr %10, align 8, !tbaa !101
+144:                                              ; preds = %142, %140
+  %145 = sext i32 %.35915.i37.i to i64
+  %146 = call ptr @php_socket_error_str(i64 noundef %145) #29
+  store ptr %146, ptr %10, align 8, !tbaa !101
   br label %php_network_listen_socket.exit.thread.i
 
-php_network_listen_socket.exit.thread.i:          ; preds = %146, %80
-  %.6.ph.i = phi i32 [ %.533.i, %146 ], [ %73, %80 ]
+php_network_listen_socket.exit.thread.i:          ; preds = %144, %78
+  %.6.ph.i = phi i32 [ %.533.i, %144 ], [ %71, %78 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #29
-  br label %150
+  br label %148
 
-php_network_listen_socket.exit.i:                 ; preds = %141
+php_network_listen_socket.exit.i:                 ; preds = %139
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #29
-  %149 = icmp eq i32 %.317.i35.i, -1
-  br i1 %149, label %150, label %165
+  %147 = icmp eq i32 %.317.i35.i, -1
+  br i1 %147, label %148, label %163
 
-150:                                              ; preds = %php_network_listen_socket.exit.i, %php_network_listen_socket.exit.thread.i
+148:                                              ; preds = %php_network_listen_socket.exit.i, %php_network_listen_socket.exit.thread.i
   %.640.i = phi i32 [ %.6.ph.i, %php_network_listen_socket.exit.thread.i ], [ %.533.i, %php_network_listen_socket.exit.i ]
-  %151 = load ptr, ptr %10, align 8, !tbaa !101
-  %.not58.i = icmp eq ptr %151, null
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
-  %153 = select i1 %.not58.i, ptr @.str.111, ptr %152
-  call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 2, ptr noundef nonnull @.str.110, ptr noundef nonnull %77, i32 noundef %.640.i, ptr noundef nonnull %153)
-  %154 = load ptr, ptr %10, align 8, !tbaa !101
-  %.not59.i = icmp eq ptr %154, null
-  br i1 %.not59.i, label %.thread93.i, label %155
+  %149 = load ptr, ptr %10, align 8, !tbaa !101
+  %.not58.i = icmp eq ptr %149, null
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  %151 = select i1 %.not58.i, ptr @.str.111, ptr %150
+  call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 2, ptr noundef nonnull @.str.110, ptr noundef nonnull %75, i32 noundef %.640.i, ptr noundef nonnull %151)
+  %152 = load ptr, ptr %10, align 8, !tbaa !101
+  %.not59.i = icmp eq ptr %152, null
+  br i1 %.not59.i, label %.thread93.i, label %153
 
-155:                                              ; preds = %150
-  %156 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  %157 = load i32, ptr %156, align 4, !tbaa !4
-  %158 = and i32 %157, 64
-  %.not.i.i = icmp eq i32 %158, 0
-  br i1 %.not.i.i, label %159, label %.thread93.i
+153:                                              ; preds = %148
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 4
+  %155 = load i32, ptr %154, align 4, !tbaa !4
+  %156 = and i32 %155, 64
+  %.not.i.i = icmp eq i32 %156, 0
+  br i1 %.not.i.i, label %157, label %.thread93.i
 
-159:                                              ; preds = %155
-  %160 = load i32, ptr %154, align 4, !tbaa !89
-  %161 = icmp ne i32 %160, 0
-  call void @llvm.assume(i1 %161)
-  %162 = add i32 %160, -1
-  store i32 %162, ptr %154, align 4, !tbaa !89
-  %163 = icmp eq i32 %162, 0
-  br i1 %163, label %164, label %.thread93.i
+157:                                              ; preds = %153
+  %158 = load i32, ptr %152, align 4, !tbaa !89
+  %159 = icmp ne i32 %158, 0
+  call void @llvm.assume(i1 %159)
+  %160 = add i32 %158, -1
+  store i32 %160, ptr %152, align 4, !tbaa !89
+  %161 = icmp eq i32 %160, 0
+  br i1 %161, label %162, label %.thread93.i
 
-164:                                              ; preds = %159
-  call void @_efree(ptr noundef nonnull %154) #29
+162:                                              ; preds = %157
+  call void @_efree(ptr noundef nonnull %152) #29
   br label %.thread93.i
 
-165:                                              ; preds = %php_network_listen_socket.exit.i
-  %166 = call i32 @php_set_sock_blocking(i32 noundef %.317.i35.i, i1 noundef zeroext false) #29
-  %.not55.i = icmp eq i32 %166, 0
-  br i1 %.not55.i, label %167, label %220
+163:                                              ; preds = %php_network_listen_socket.exit.i
+  %164 = call i32 @php_set_sock_blocking(i32 noundef %.317.i35.i, i1 noundef zeroext false) #29
+  %.not55.i = icmp eq i32 %164, 0
+  br i1 %.not55.i, label %165, label %218
+
+165:                                              ; preds = %163
+  store i32 %.317.i35.i, ptr @server, align 8, !tbaa !131
+  %166 = call ptr @getenv(ptr noundef nonnull @.str.113) #29
+  %.not.i65.i = icmp eq ptr %166, null
+  br i1 %.not.i65.i, label %php_cli_server_startup_workers.exit.i, label %167
 
 167:                                              ; preds = %165
-  store i32 %.317.i35.i, ptr @server, align 8, !tbaa !131
-  %168 = call ptr @getenv(ptr noundef nonnull @.str.113) #29
-  %.not.i65.i = icmp eq ptr %168, null
-  br i1 %.not.i65.i, label %php_cli_server_startup_workers.exit.i, label %169
+  %168 = call i64 @strtoll(ptr noundef nonnull captures(none) %166, ptr noundef null, i32 noundef 10) #29
+  store i64 %168, ptr @php_cli_server_workers_max, align 8, !tbaa !119
+  %169 = icmp sgt i64 %168, 1
+  br i1 %169, label %170, label %190
 
-169:                                              ; preds = %167
-  %170 = call i64 @strtoll(ptr noundef nonnull captures(none) %168, ptr noundef null, i32 noundef 10) #29
-  store i64 %170, ptr @php_cli_server_workers_max, align 8, !tbaa !119
-  %171 = icmp sgt i64 %170, 1
-  br i1 %171, label %172, label %192
-
-172:                                              ; preds = %169
-  %173 = call noalias ptr @__zend_calloc(i64 noundef %170, i64 noundef 4) #34
-  store ptr %173, ptr @php_cli_server_workers, align 8, !tbaa !132
-  %174 = call i32 @getpid() #29
-  store i32 %174, ptr @php_cli_server_master, align 4, !tbaa !74
-  %175 = load i64, ptr @php_cli_server_workers_max, align 8, !tbaa !119
-  %.not1519.i.i = icmp sgt i64 %175, 0
+170:                                              ; preds = %167
+  %171 = call noalias ptr @__zend_calloc(i64 noundef %168, i64 noundef 4) #34
+  store ptr %171, ptr @php_cli_server_workers, align 8, !tbaa !132
+  %172 = call i32 @getpid() #29
+  store i32 %172, ptr @php_cli_server_master, align 4, !tbaa !74
+  %173 = load i64, ptr @php_cli_server_workers_max, align 8, !tbaa !119
+  %.not1519.i.i = icmp sgt i64 %173, 0
   br i1 %.not1519.i.i, label %.lr.ph.i66.i, label %php_cli_server_startup_workers.exit.i
 
-.lr.ph.i66.i:                                     ; preds = %172, %187
-  %.01120.i.i = phi i64 [ %190, %187 ], [ 0, %172 ]
-  %176 = call i32 @fork() #29
-  %177 = icmp slt i32 %176, 0
-  br i1 %177, label %178, label %180
+.lr.ph.i66.i:                                     ; preds = %170, %185
+  %.01120.i.i = phi i64 [ %188, %185 ], [ 0, %170 ]
+  %174 = call i32 @fork() #29
+  %175 = icmp slt i32 %174, 0
+  br i1 %175, label %176, label %178
 
-178:                                              ; preds = %.lr.ph.i66.i
-  %179 = add nuw nsw i64 %.01120.i.i, 1
-  store i64 %179, ptr @php_cli_server_workers_max, align 8, !tbaa !119
+176:                                              ; preds = %.lr.ph.i66.i
+  %177 = add nuw nsw i64 %.01120.i.i, 1
+  store i64 %177, ptr @php_cli_server_workers_max, align 8, !tbaa !119
   br label %php_cli_server_startup_workers.exit.i
 
-180:                                              ; preds = %.lr.ph.i66.i
-  %181 = icmp eq i32 %176, 0
-  br i1 %181, label %182, label %187
+178:                                              ; preds = %.lr.ph.i66.i
+  %179 = icmp eq i32 %174, 0
+  br i1 %179, label %180, label %185
 
-182:                                              ; preds = %180
-  %183 = call i32 (i32, ...) @prctl(i32 noundef 1, i32 noundef 15) #29
-  %184 = call i32 @getppid() #29
-  %185 = load i32, ptr @php_cli_server_master, align 4, !tbaa !74
-  %.not.i.i.i = icmp eq i32 %184, %185
-  br i1 %.not.i.i.i, label %php_cli_server_startup_workers.exit.i, label %186
+180:                                              ; preds = %178
+  %181 = call i32 (i32, ...) @prctl(i32 noundef 1, i32 noundef 15) #29
+  %182 = call i32 @getppid() #29
+  %183 = load i32, ptr @php_cli_server_master, align 4, !tbaa !74
+  %.not.i.i.i = icmp eq i32 %182, %183
+  br i1 %.not.i.i.i, label %php_cli_server_startup_workers.exit.i, label %184
 
-186:                                              ; preds = %182
+184:                                              ; preds = %180
   call void @exit(i32 noundef 1) #35
   unreachable
 
-187:                                              ; preds = %180
-  %188 = load ptr, ptr @php_cli_server_workers, align 8, !tbaa !132
-  %189 = getelementptr inbounds nuw i32, ptr %188, i64 %.01120.i.i
-  store i32 %176, ptr %189, align 4, !tbaa !74
-  %190 = add nuw nsw i64 %.01120.i.i, 1
-  %191 = load i64, ptr @php_cli_server_workers_max, align 8, !tbaa !119
-  %.not15.i.i = icmp slt i64 %190, %191
+185:                                              ; preds = %178
+  %186 = load ptr, ptr @php_cli_server_workers, align 8, !tbaa !132
+  %187 = getelementptr inbounds nuw i32, ptr %186, i64 %.01120.i.i
+  store i32 %174, ptr %187, align 4, !tbaa !74
+  %188 = add nuw nsw i64 %.01120.i.i, 1
+  %189 = load i64, ptr @php_cli_server_workers_max, align 8, !tbaa !119
+  %.not15.i.i = icmp slt i64 %188, %189
   br i1 %.not15.i.i, label %.lr.ph.i66.i, label %php_cli_server_startup_workers.exit.i
 
-192:                                              ; preds = %169
-  %193 = load ptr, ptr @stderr, align 8, !tbaa !121
-  %194 = call i64 @fwrite(ptr nonnull @.str.114, i64 40, i64 1, ptr %193) #36
+190:                                              ; preds = %167
+  %191 = load ptr, ptr @stderr, align 8, !tbaa !121
+  %192 = call i64 @fwrite(ptr nonnull @.str.114, i64 40, i64 1, ptr %191) #36
   br label %php_cli_server_startup_workers.exit.i
 
-php_cli_server_startup_workers.exit.i:            ; preds = %187, %192, %182, %178, %172, %167
+php_cli_server_startup_workers.exit.i:            ; preds = %185, %190, %180, %176, %170, %165
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) getelementptr inbounds nuw (i8, ptr @server, i64 8), i8 0, i64 256, i1 false)
   store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 520), align 8, !tbaa !134
-  %195 = icmp slt i32 %.317.i35.i, 1024
-  br i1 %195, label %196, label %.thread41.i
+  %193 = icmp slt i32 %.317.i35.i, 1024
+  br i1 %193, label %194, label %.thread41.i
 
-196:                                              ; preds = %php_cli_server_startup_workers.exit.i
-  %197 = srem i32 %.317.i35.i, 64
-  %198 = zext nneg i32 %197 to i64
-  %199 = shl nuw i64 1, %198
-  %200 = sdiv i32 %.317.i35.i, 64
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds [16 x i64], ptr getelementptr inbounds nuw (i8, ptr @server, i64 8), i64 0, i64 %201
-  %203 = load i64, ptr %202, align 8, !tbaa !119
-  %204 = or i64 %203, %199
-  store i64 %204, ptr %202, align 8, !tbaa !119
-  %205 = icmp sgt i32 %.317.i35.i, -1
-  br i1 %205, label %.thread41.i, label %php_cli_server_poller_add.exit.i
+194:                                              ; preds = %php_cli_server_startup_workers.exit.i
+  %195 = srem i32 %.317.i35.i, 64
+  %196 = zext nneg i32 %195 to i64
+  %197 = shl nuw i64 1, %196
+  %198 = sdiv i32 %.317.i35.i, 64
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr inbounds [16 x i64], ptr getelementptr inbounds nuw (i8, ptr @server, i64 8), i64 0, i64 %199
+  %201 = load i64, ptr %200, align 8, !tbaa !119
+  %202 = or i64 %201, %197
+  store i64 %202, ptr %200, align 8, !tbaa !119
+  %203 = icmp sgt i32 %.317.i35.i, -1
+  br i1 %203, label %.thread41.i, label %php_cli_server_poller_add.exit.i
 
-.thread41.i:                                      ; preds = %196, %php_cli_server_startup_workers.exit.i
+.thread41.i:                                      ; preds = %194, %php_cli_server_startup_workers.exit.i
   store i32 %.317.i35.i, ptr getelementptr inbounds nuw (i8, ptr @server, i64 520), align 8, !tbaa !134
   br label %php_cli_server_poller_add.exit.i
 
-php_cli_server_poller_add.exit.i:                 ; preds = %.thread41.i, %196
-  store ptr %77, ptr getelementptr inbounds nuw (i8, ptr @server, i64 536), align 8, !tbaa !103
+php_cli_server_poller_add.exit.i:                 ; preds = %.thread41.i, %194
+  store ptr %75, ptr getelementptr inbounds nuw (i8, ptr @server, i64 536), align 8, !tbaa !103
   store i32 %.533.i, ptr getelementptr inbounds nuw (i8, ptr @server, i64 544), align 8, !tbaa !104
   call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 592), i32 noundef 0, ptr noundef nonnull @php_cli_server_client_dtor_wrapper, i1 noundef zeroext true) #29
-  %206 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #30
-  %207 = call noalias ptr @zend_strndup(ptr noundef nonnull %.4, i64 noundef %206) #29
-  store ptr %207, ptr getelementptr inbounds nuw (i8, ptr @server, i64 552), align 8, !tbaa !94
-  store i64 %206, ptr getelementptr inbounds nuw (i8, ptr @server, i64 560), align 8, !tbaa !99
+  %204 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #30
+  %205 = call noalias ptr @zend_strndup(ptr noundef nonnull %.4, i64 noundef %204) #29
+  store ptr %205, ptr getelementptr inbounds nuw (i8, ptr @server, i64 552), align 8, !tbaa !94
+  store i64 %204, ptr getelementptr inbounds nuw (i8, ptr @server, i64 560), align 8, !tbaa !99
   %.not56.i = icmp eq ptr %.020, null
-  br i1 %.not56.i, label %211, label %208
+  br i1 %.not56.i, label %209, label %206
 
-208:                                              ; preds = %php_cli_server_poller_add.exit.i
-  %209 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.020) #30
-  %210 = call noalias ptr @zend_strndup(ptr noundef nonnull %.020, i64 noundef %209) #29
-  br label %211
+206:                                              ; preds = %php_cli_server_poller_add.exit.i
+  %207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.020) #30
+  %208 = call noalias ptr @zend_strndup(ptr noundef nonnull %.020, i64 noundef %207) #29
+  br label %209
 
-211:                                              ; preds = %208, %php_cli_server_poller_add.exit.i
-  %storemerge57.i = phi ptr [ %210, %208 ], [ null, %php_cli_server_poller_add.exit.i ]
-  %storemerge.i = phi i64 [ %209, %208 ], [ 0, %php_cli_server_poller_add.exit.i ]
+209:                                              ; preds = %206, %php_cli_server_poller_add.exit.i
+  %storemerge57.i = phi ptr [ %208, %206 ], [ null, %php_cli_server_poller_add.exit.i ]
+  %storemerge.i = phi i64 [ %207, %206 ], [ 0, %php_cli_server_poller_add.exit.i ]
   store ptr %storemerge57.i, ptr getelementptr inbounds nuw (i8, ptr @server, i64 568), align 8, !tbaa !110
   store i64 %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @server, i64 576), align 8, !tbaa !111
   call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 648), i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #29
-  %212 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %zend_hash_str_add_ptr.exit.i.i
 
-zend_hash_str_add_ptr.exit.i.i:                   ; preds = %zend_hash_str_add_ptr.exit.i.i, %211
-  %213 = phi ptr [ @.str.115, %211 ], [ %219, %zend_hash_str_add_ptr.exit.i.i ]
-  %.01.i.i = phi ptr [ @mime_type_map, %211 ], [ %218, %zend_hash_str_add_ptr.exit.i.i ]
-  %214 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %213) #30
-  %215 = getelementptr inbounds nuw i8, ptr %.01.i.i, i64 8
-  %216 = load ptr, ptr %215, align 8, !tbaa !135
+zend_hash_str_add_ptr.exit.i.i:                   ; preds = %zend_hash_str_add_ptr.exit.i.i, %209
+  %211 = phi ptr [ @.str.115, %209 ], [ %217, %zend_hash_str_add_ptr.exit.i.i ]
+  %.01.i.i = phi ptr [ @mime_type_map, %209 ], [ %216, %zend_hash_str_add_ptr.exit.i.i ]
+  %212 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %211) #30
+  %213 = getelementptr inbounds nuw i8, ptr %.01.i.i, i64 8
+  %214 = load ptr, ptr %213, align 8, !tbaa !135
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29
-  store ptr %216, ptr %6, align 8, !tbaa !4
-  store i32 13, ptr %212, align 8, !tbaa !4
-  %217 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 648), ptr noundef nonnull %213, i64 noundef %214, ptr noundef nonnull %6) #29
+  store ptr %214, ptr %6, align 8, !tbaa !4
+  store i32 13, ptr %210, align 8, !tbaa !4
+  %215 = call ptr @zend_hash_str_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 648), ptr noundef nonnull %211, i64 noundef %212, ptr noundef nonnull %6) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
-  %218 = getelementptr inbounds nuw i8, ptr %.01.i.i, i64 16
-  %219 = load ptr, ptr %218, align 8, !tbaa !137
-  %.not.i69.i = icmp eq ptr %219, null
-  br i1 %.not.i69.i, label %224, label %zend_hash_str_add_ptr.exit.i.i
+  %216 = getelementptr inbounds nuw i8, ptr %.01.i.i, i64 16
+  %217 = load ptr, ptr %216, align 8, !tbaa !137
+  %.not.i69.i = icmp eq ptr %217, null
+  br i1 %.not.i69.i, label %222, label %zend_hash_str_add_ptr.exit.i.i
 
-.thread93.i:                                      ; preds = %164, %159, %155, %150
-  call void @free(ptr noundef nonnull %77) #29
+.thread93.i:                                      ; preds = %162, %157, %153, %148
+  call void @free(ptr noundef nonnull %75) #29
   br label %php_cli_server_ctor.exit.thread
 
-220:                                              ; preds = %165
+218:                                              ; preds = %163
   call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 2, ptr noundef nonnull @.str.112)
-  call void @free(ptr noundef nonnull %77) #29
-  %221 = icmp sgt i32 %.317.i35.i, -1
-  br i1 %221, label %222, label %php_cli_server_ctor.exit.thread
+  call void @free(ptr noundef nonnull %75) #29
+  %219 = icmp sgt i32 %.317.i35.i, -1
+  br i1 %219, label %220, label %php_cli_server_ctor.exit.thread
 
-222:                                              ; preds = %220
-  %223 = call i32 @close(i32 noundef %.317.i35.i) #29
+220:                                              ; preds = %218
+  %221 = call i32 @close(i32 noundef %.317.i35.i) #29
   br label %php_cli_server_ctor.exit.thread
 
-php_cli_server_ctor.exit.thread:                  ; preds = %220, %222, %.thread57.i, %.thread93.i
+php_cli_server_ctor.exit.thread:                  ; preds = %218, %220, %.thread57.i, %.thread93.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #29
   br label %php_cli_server_dtor.exit
 
-224:                                              ; preds = %zend_hash_str_add_ptr.exit.i.i
+222:                                              ; preds = %zend_hash_str_add_ptr.exit.i.i
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 528), align 8, !tbaa !138
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #29
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8, !tbaa !139
-  %225 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 536), align 8, !tbaa !103
-  %226 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %225, i32 noundef 58) #30
-  %.not31 = icmp eq ptr %226, null
-  %227 = select i1 %.not31, ptr @.str.13, ptr @.str.12
-  %228 = select i1 %.not31, ptr @.str.13, ptr @.str.14
-  %229 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 544), align 8, !tbaa !104
-  call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %227, ptr noundef nonnull %225, ptr noundef nonnull %228, i32 noundef %229)
-  %230 = call ptr @signal(i32 noundef 2, ptr noundef nonnull @php_cli_server_sigint_handler) #29
-  %231 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #29
+  %223 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 536), align 8, !tbaa !103
+  %224 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %223, i32 noundef 58) #30
+  %.not31 = icmp eq ptr %224, null
+  %225 = select i1 %.not31, ptr @.str.13, ptr @.str.12
+  %226 = select i1 %.not31, ptr @.str.13, ptr @.str.14
+  %227 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 544), align 8, !tbaa !104
+  call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %225, ptr noundef nonnull %223, ptr noundef nonnull %226, i32 noundef %227)
+  %228 = call ptr @signal(i32 noundef 2, ptr noundef nonnull @php_cli_server_sigint_handler) #29
+  %229 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #29
   call void @zend_signal_init() #29
-  %232 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 528), align 8, !tbaa !138
-  %.not6.i = icmp eq i32 %232, 0
+  %230 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 528), align 8, !tbaa !138
+  %.not6.i = icmp eq i32 %230, 0
   br i1 %.not6.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %224
-  %233 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %234 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %235
+.lr.ph.i:                                         ; preds = %222
+  %231 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %233
 
-235:                                              ; preds = %select.unfold.i, %.lr.ph.i
+233:                                              ; preds = %select.unfold.i, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) @__const.php_cli_server_do_event_loop.tv, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @server, i64 264), ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @server, i64 8), i64 128, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @server, i64 392), ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @server, i64 136), i64 128, i1 false)
-  %236 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 520), align 8, !tbaa !134
-  %237 = add nsw i32 %236, 1
-  %238 = call i32 @select(i32 noundef %237, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 264), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 392), ptr noundef null, ptr noundef nonnull %5) #29
-  %239 = icmp sgt i32 %238, 0
-  br i1 %239, label %240, label %263
+  %234 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 520), align 8, !tbaa !134
+  %235 = add nsw i32 %234, 1
+  %236 = call i32 @select(i32 noundef %235, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 264), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 392), ptr noundef null, ptr noundef nonnull %5) #29
+  %237 = icmp sgt i32 %236, 0
+  br i1 %237, label %238, label %261
 
-240:                                              ; preds = %235
+238:                                              ; preds = %233
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
   store ptr @server, ptr %4, align 8, !tbaa !140
-  store ptr @php_cli_server_recv_event_read_request, ptr %233, align 8, !tbaa !142
-  store ptr @php_cli_server_send_event, ptr %234, align 8, !tbaa !143
-  %241 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 520), align 8, !tbaa !134
-  %.not3.i.i.i = icmp slt i32 %241, 0
+  store ptr @php_cli_server_recv_event_read_request, ptr %231, align 8, !tbaa !142
+  store ptr @php_cli_server_send_event, ptr %232, align 8, !tbaa !143
+  %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 520), align 8, !tbaa !134
+  %.not3.i.i.i = icmp slt i32 %239, 0
   br i1 %.not3.i.i.i, label %php_cli_server_do_event_for_each_fd.exit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %240, %260
-  %.05.i.i.i = phi i32 [ %.2.i.i.i, %260 ], [ 0, %240 ]
-  %.0184.i.i.i = phi i32 [ %261, %260 ], [ 0, %240 ]
-  %242 = icmp samesign ult i32 %.0184.i.i.i, 1024
-  br i1 %242, label %243, label %260
+.lr.ph.i.i.i:                                     ; preds = %238, %258
+  %.05.i.i.i = phi i32 [ %.2.i.i.i, %258 ], [ 0, %238 ]
+  %.0184.i.i.i = phi i32 [ %259, %258 ], [ 0, %238 ]
+  %240 = icmp samesign ult i32 %.0184.i.i.i, 1024
+  br i1 %240, label %241, label %258
 
-243:                                              ; preds = %.lr.ph.i.i.i
-  %244 = lshr i32 %.0184.i.i.i, 6
-  %245 = zext nneg i32 %244 to i64
-  %246 = getelementptr inbounds nuw [16 x i64], ptr getelementptr inbounds nuw (i8, ptr @server, i64 264), i64 0, i64 %245
-  %247 = load i64, ptr %246, align 8, !tbaa !119
-  %248 = and i32 %.0184.i.i.i, 63
-  %249 = zext nneg i32 %248 to i64
-  %250 = shl nuw i64 1, %249
-  %251 = and i64 %247, %250
-  %.not19.i.i.i = icmp eq i64 %251, 0
-  br i1 %.not19.i.i.i, label %254, label %252
+241:                                              ; preds = %.lr.ph.i.i.i
+  %242 = lshr i32 %.0184.i.i.i, 6
+  %243 = zext nneg i32 %242 to i64
+  %244 = getelementptr inbounds nuw [16 x i64], ptr getelementptr inbounds nuw (i8, ptr @server, i64 264), i64 0, i64 %243
+  %245 = load i64, ptr %244, align 8, !tbaa !119
+  %246 = and i32 %.0184.i.i.i, 63
+  %247 = zext nneg i32 %246 to i64
+  %248 = shl nuw i64 1, %247
+  %249 = and i64 %245, %248
+  %.not19.i.i.i = icmp eq i64 %249, 0
+  br i1 %.not19.i.i.i, label %252, label %250
 
-252:                                              ; preds = %243
-  %253 = call fastcc i32 @php_cli_server_do_event_for_each_fd_callback(ptr noundef nonnull readonly %4, i32 noundef %.0184.i.i.i, i32 noundef 1)
-  %.not20.i.i.i = icmp eq i32 %253, 0
+250:                                              ; preds = %241
+  %251 = call fastcc i32 @php_cli_server_do_event_for_each_fd_callback(ptr noundef nonnull readonly %4, i32 noundef %.0184.i.i.i, i32 noundef 1)
+  %.not20.i.i.i = icmp eq i32 %251, 0
   %spec.select.i.i.i = select i1 %.not20.i.i.i, i32 %.05.i.i.i, i32 -1
-  br label %254
+  br label %252
 
-254:                                              ; preds = %252, %243
-  %.1.ph.i.i.i = phi i32 [ %spec.select.i.i.i, %252 ], [ %.05.i.i.i, %243 ]
-  %255 = getelementptr inbounds nuw [16 x i64], ptr getelementptr inbounds nuw (i8, ptr @server, i64 392), i64 0, i64 %245
-  %256 = load i64, ptr %255, align 8, !tbaa !119
-  %257 = and i64 %256, %250
-  %.not21.i.i.i = icmp eq i64 %257, 0
-  br i1 %.not21.i.i.i, label %260, label %258
+252:                                              ; preds = %250, %241
+  %.1.ph.i.i.i = phi i32 [ %spec.select.i.i.i, %250 ], [ %.05.i.i.i, %241 ]
+  %253 = getelementptr inbounds nuw [16 x i64], ptr getelementptr inbounds nuw (i8, ptr @server, i64 392), i64 0, i64 %243
+  %254 = load i64, ptr %253, align 8, !tbaa !119
+  %255 = and i64 %254, %248
+  %.not21.i.i.i = icmp eq i64 %255, 0
+  br i1 %.not21.i.i.i, label %258, label %256
 
-258:                                              ; preds = %254
-  %259 = call fastcc i32 @php_cli_server_do_event_for_each_fd_callback(ptr noundef nonnull readonly %4, i32 noundef %.0184.i.i.i, i32 noundef 4)
-  %.not22.i.i.i = icmp eq i32 %259, 0
+256:                                              ; preds = %252
+  %257 = call fastcc i32 @php_cli_server_do_event_for_each_fd_callback(ptr noundef nonnull readonly %4, i32 noundef %.0184.i.i.i, i32 noundef 4)
+  %.not22.i.i.i = icmp eq i32 %257, 0
   %spec.select23.i.i.i = select i1 %.not22.i.i.i, i32 %.1.ph.i.i.i, i32 -1
-  br label %260
+  br label %258
 
-260:                                              ; preds = %258, %254, %.lr.ph.i.i.i
-  %.2.i.i.i = phi i32 [ %.1.ph.i.i.i, %254 ], [ %spec.select23.i.i.i, %258 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
-  %261 = add nuw i32 %.0184.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %.0184.i.i.i, %241
+258:                                              ; preds = %256, %252, %.lr.ph.i.i.i
+  %.2.i.i.i = phi i32 [ %.1.ph.i.i.i, %252 ], [ %spec.select23.i.i.i, %256 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
+  %259 = add nuw i32 %.0184.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %.0184.i.i.i, %239
   br i1 %exitcond.not.i.i.i, label %php_cli_server_poller_iter_on_active.exit.i.i, label %.lr.ph.i.i.i
 
-php_cli_server_poller_iter_on_active.exit.i.i:    ; preds = %260
+php_cli_server_poller_iter_on_active.exit.i.i:    ; preds = %258
   %.not.i.i35 = icmp eq i32 %.2.i.i.i, 0
-  br i1 %.not.i.i35, label %php_cli_server_do_event_for_each_fd.exit.i, label %262
+  br i1 %.not.i.i35, label %php_cli_server_do_event_for_each_fd.exit.i, label %260
 
-262:                                              ; preds = %php_cli_server_poller_iter_on_active.exit.i.i
+260:                                              ; preds = %php_cli_server_poller_iter_on_active.exit.i.i
   call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 2, ptr noundef nonnull @.str.2239)
   br label %php_cli_server_do_event_for_each_fd.exit.i
 
-php_cli_server_do_event_for_each_fd.exit.i:       ; preds = %262, %php_cli_server_poller_iter_on_active.exit.i.i, %240
+php_cli_server_do_event_for_each_fd.exit.i:       ; preds = %260, %php_cli_server_poller_iter_on_active.exit.i.i, %238
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
   br label %select.unfold.i
 
-263:                                              ; preds = %235
-  %264 = icmp eq i32 %238, 0
-  br i1 %264, label %select.unfold.i, label %265
+261:                                              ; preds = %233
+  %262 = icmp eq i32 %236, 0
+  br i1 %262, label %select.unfold.i, label %263
 
-265:                                              ; preds = %263
-  %266 = tail call ptr @__errno_location() #32
-  %267 = load i32, ptr %266, align 4, !tbaa !74
-  %.not17.i = icmp eq i32 %267, 4
-  br i1 %.not17.i, label %select.unfold.i, label %268
+263:                                              ; preds = %261
+  %264 = tail call ptr @__errno_location() #32
+  %265 = load i32, ptr %264, align 4, !tbaa !74
+  %.not17.i = icmp eq i32 %265, 4
+  br i1 %.not17.i, label %select.unfold.i, label %266
 
-268:                                              ; preds = %265
-  %269 = load i32, ptr @php_cli_server_log_level, align 4, !tbaa !74
-  %270 = icmp sgt i32 %269, 1
-  br i1 %270, label %271, label %php_cli_server_do_event_loop.exit
+266:                                              ; preds = %263
+  %267 = load i32, ptr @php_cli_server_log_level, align 4, !tbaa !74
+  %268 = icmp sgt i32 %267, 1
+  br i1 %268, label %269, label %php_cli_server_do_event_loop.exit
 
-271:                                              ; preds = %268
-  %272 = sext i32 %267 to i64
-  %273 = call ptr @php_socket_strerror(i64 noundef %272, ptr noundef null, i64 noundef 0) #29
-  call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 2, ptr noundef nonnull @.str.2238, ptr noundef %273)
-  call void @_efree(ptr noundef %273) #29
+269:                                              ; preds = %266
+  %270 = sext i32 %265 to i64
+  %271 = call ptr @php_socket_strerror(i64 noundef %270, ptr noundef null, i64 noundef 0) #29
+  call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 2, ptr noundef nonnull @.str.2238, ptr noundef %271)
+  call void @_efree(ptr noundef %271) #29
   br label %php_cli_server_do_event_loop.exit
 
-select.unfold.i:                                  ; preds = %265, %263, %php_cli_server_do_event_for_each_fd.exit.i
+select.unfold.i:                                  ; preds = %263, %261, %php_cli_server_do_event_for_each_fd.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
-  %274 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 528), align 8, !tbaa !138
-  %.not.i34 = icmp eq i32 %274, 0
-  br i1 %.not.i34, label %.loopexit, label %235
+  %272 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 528), align 8, !tbaa !138
+  %.not.i34 = icmp eq i32 %272, 0
+  br i1 %.not.i34, label %.loopexit, label %233
 
-php_cli_server_do_event_loop.exit:                ; preds = %268, %271
+php_cli_server_do_event_loop.exit:                ; preds = %266, %269
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
   br label %.loopexit
 
-.loopexit:                                        ; preds = %select.unfold.i, %224, %php_cli_server_do_event_loop.exit
-  %275 = phi i32 [ 1, %php_cli_server_do_event_loop.exit ], [ 0, %224 ], [ 0, %select.unfold.i ]
+.loopexit:                                        ; preds = %select.unfold.i, %222, %php_cli_server_do_event_loop.exit
+  %273 = phi i32 [ 1, %php_cli_server_do_event_loop.exit ], [ 0, %222 ], [ 0, %select.unfold.i ]
   call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 592)) #29
   call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server, i64 648)) #29
-  %276 = load i32, ptr @server, align 8, !tbaa !131
-  %277 = icmp sgt i32 %276, -1
-  br i1 %277, label %278, label %280
+  %274 = load i32, ptr @server, align 8, !tbaa !131
+  %275 = icmp sgt i32 %274, -1
+  br i1 %275, label %276, label %278
 
-278:                                              ; preds = %.loopexit
-  %279 = call i32 @close(i32 noundef %276) #29
-  br label %280
+276:                                              ; preds = %.loopexit
+  %277 = call i32 @close(i32 noundef %274) #29
+  br label %278
 
-280:                                              ; preds = %278, %.loopexit
-  %281 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 536), align 8, !tbaa !103
-  %.not.i36 = icmp eq ptr %281, null
-  br i1 %.not.i36, label %283, label %282
+278:                                              ; preds = %276, %.loopexit
+  %279 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 536), align 8, !tbaa !103
+  %.not.i36 = icmp eq ptr %279, null
+  br i1 %.not.i36, label %281, label %280
 
-282:                                              ; preds = %280
-  call void @free(ptr noundef nonnull %281) #29
-  br label %283
+280:                                              ; preds = %278
+  call void @free(ptr noundef nonnull %279) #29
+  br label %281
 
-283:                                              ; preds = %282, %280
-  %284 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 552), align 8, !tbaa !94
-  %.not18.i = icmp eq ptr %284, null
-  br i1 %.not18.i, label %286, label %285
+281:                                              ; preds = %280, %278
+  %282 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 552), align 8, !tbaa !94
+  %.not18.i = icmp eq ptr %282, null
+  br i1 %.not18.i, label %284, label %283
 
-285:                                              ; preds = %283
-  call void @free(ptr noundef nonnull %284) #29
-  br label %286
+283:                                              ; preds = %281
+  call void @free(ptr noundef nonnull %282) #29
+  br label %284
 
-286:                                              ; preds = %285, %283
-  %287 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 568), align 8, !tbaa !110
-  %.not19.i = icmp eq ptr %287, null
-  br i1 %.not19.i, label %289, label %288
+284:                                              ; preds = %283, %281
+  %285 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 568), align 8, !tbaa !110
+  %.not19.i = icmp eq ptr %285, null
+  br i1 %.not19.i, label %287, label %286
 
-288:                                              ; preds = %286
-  call void @free(ptr noundef nonnull %287) #29
-  br label %289
+286:                                              ; preds = %284
+  call void @free(ptr noundef nonnull %285) #29
+  br label %287
 
-289:                                              ; preds = %288, %286
-  %290 = load i64, ptr @php_cli_server_workers_max, align 8, !tbaa !119
-  %291 = icmp sgt i64 %290, 1
-  %292 = load ptr, ptr @php_cli_server_workers, align 8
-  %293 = icmp ne ptr %292, null
-  %or.cond.i = select i1 %291, i1 %293, i1 false
-  br i1 %or.cond.i, label %294, label %php_cli_server_dtor.exit
+287:                                              ; preds = %286, %284
+  %288 = load i64, ptr @php_cli_server_workers_max, align 8, !tbaa !119
+  %289 = icmp sgt i64 %288, 1
+  %290 = load ptr, ptr @php_cli_server_workers, align 8
+  %291 = icmp ne ptr %290, null
+  %or.cond.i = select i1 %289, i1 %291, i1 false
+  br i1 %or.cond.i, label %292, label %php_cli_server_dtor.exit
 
-294:                                              ; preds = %289
-  %295 = call i32 @getpid() #29
-  %296 = load i32, ptr @php_cli_server_master, align 4, !tbaa !74
-  %297 = icmp eq i32 %295, %296
-  br i1 %297, label %.preheader.i, label %php_cli_server_dtor.exit
+292:                                              ; preds = %287
+  %293 = call i32 @getpid() #29
+  %294 = load i32, ptr @php_cli_server_master, align 4, !tbaa !74
+  %295 = icmp eq i32 %293, %294
+  br i1 %295, label %.preheader.i, label %php_cli_server_dtor.exit
 
-.preheader.i:                                     ; preds = %294
-  %298 = load i64, ptr @php_cli_server_workers_max, align 8, !tbaa !119
-  %299 = icmp sgt i64 %298, 0
-  br i1 %299, label %.lr.ph.i37, label %._crit_edge.i
+.preheader.i:                                     ; preds = %292
+  %296 = load i64, ptr @php_cli_server_workers_max, align 8, !tbaa !119
+  %297 = icmp sgt i64 %296, 0
+  br i1 %297, label %.lr.ph.i37, label %._crit_edge.i
 
 .lr.ph.i37:                                       ; preds = %.preheader.i, %.critedge.i
-  %.01.i = phi i64 [ %313, %.critedge.i ], [ 0, %.preheader.i ]
+  %.01.i = phi i64 [ %311, %.critedge.i ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #29
-  br label %300
+  br label %298
 
-300:                                              ; preds = %310, %.lr.ph.i37
-  %301 = load ptr, ptr @php_cli_server_workers, align 8, !tbaa !132
-  %302 = getelementptr inbounds nuw i32, ptr %301, i64 %.01.i
-  %303 = load i32, ptr %302, align 4, !tbaa !74
-  %304 = call i32 @waitpid(i32 noundef %303, ptr noundef nonnull %3, i32 noundef 0) #29
-  %305 = icmp eq i32 %304, -1
-  br i1 %305, label %.critedge.i, label %306
+298:                                              ; preds = %308, %.lr.ph.i37
+  %299 = load ptr, ptr @php_cli_server_workers, align 8, !tbaa !132
+  %300 = getelementptr inbounds nuw i32, ptr %299, i64 %.01.i
+  %301 = load i32, ptr %300, align 4, !tbaa !74
+  %302 = call i32 @waitpid(i32 noundef %301, ptr noundef nonnull %3, i32 noundef 0) #29
+  %303 = icmp eq i32 %302, -1
+  br i1 %303, label %.critedge.i, label %304
 
-306:                                              ; preds = %300
-  %307 = load i32, ptr %3, align 4, !tbaa !74
-  %308 = and i32 %307, 127
-  %309 = icmp eq i32 %308, 0
-  br i1 %309, label %.critedge.i, label %310
+304:                                              ; preds = %298
+  %305 = load i32, ptr %3, align 4, !tbaa !74
+  %306 = and i32 %305, 127
+  %307 = icmp eq i32 %306, 0
+  br i1 %307, label %.critedge.i, label %308
 
-310:                                              ; preds = %306
-  %311 = shl nuw nsw i32 %308, 24
-  %sext.i = add nuw i32 %311, 16777216
-  %312 = icmp slt i32 %sext.i, 33554432
-  br i1 %312, label %300, label %.critedge.i
+308:                                              ; preds = %304
+  %309 = shl nuw nsw i32 %306, 24
+  %sext.i = add nuw i32 %309, 16777216
+  %310 = icmp slt i32 %sext.i, 33554432
+  br i1 %310, label %298, label %.critedge.i
 
-.critedge.i:                                      ; preds = %310, %306, %300
+.critedge.i:                                      ; preds = %308, %304, %298
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #29
-  %313 = add nuw nsw i64 %.01.i, 1
-  %314 = load i64, ptr @php_cli_server_workers_max, align 8, !tbaa !119
-  %315 = icmp slt i64 %313, %314
-  br i1 %315, label %.lr.ph.i37, label %._crit_edge.i
+  %311 = add nuw nsw i64 %.01.i, 1
+  %312 = load i64, ptr @php_cli_server_workers_max, align 8, !tbaa !119
+  %313 = icmp slt i64 %311, %312
+  br i1 %313, label %.lr.ph.i37, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader.i
-  %316 = load ptr, ptr @php_cli_server_workers, align 8, !tbaa !132
-  call void @free(ptr noundef %316) #29
+  %314 = load ptr, ptr @php_cli_server_workers, align 8, !tbaa !132
+  call void @free(ptr noundef %314) #29
   br label %php_cli_server_dtor.exit
 
-php_cli_server_dtor.exit:                         ; preds = %._crit_edge.i, %294, %289, %php_cli_server_ctor.exit.thread, %.thread
-  %.1 = phi i32 [ 1, %.thread ], [ 1, %php_cli_server_ctor.exit.thread ], [ %275, %289 ], [ %275, %294 ], [ %275, %._crit_edge.i ]
+.critedge:                                        ; preds = %29, %27
+  %.str.8.sink = phi ptr [ @.str.7, %27 ], [ @.str.8, %29 ]
+  %315 = load ptr, ptr @stderr, align 8, !tbaa !121
+  %316 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %315, ptr noundef nonnull %.str.8.sink, ptr noundef nonnull %.021.ph110) #33
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14) #29
+  br label %php_cli_server_dtor.exit
+
+php_cli_server_dtor.exit:                         ; preds = %._crit_edge.i, %292, %287, %php_cli_server_ctor.exit.thread, %.critedge
+  %.1 = phi i32 [ 1, %.critedge ], [ 1, %php_cli_server_ctor.exit.thread ], [ %273, %287 ], [ %273, %292 ], [ %273, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %13) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #29

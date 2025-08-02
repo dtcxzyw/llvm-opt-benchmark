@@ -19,12 +19,12 @@ define hidden ptr @convert_filters(ptr noundef readonly captures(address_is_null
 
 13:                                               ; preds = %12
   %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #4
-  br label %.thread
+  br label %.critedge
 
 15:                                               ; preds = %12
   %16 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %3) #4
   %.not60 = icmp eq ptr %16, null
-  br i1 %.not60, label %.thread, label %.preheader
+  br i1 %.not60, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %15
   %17 = icmp sgt i32 %1, 0
@@ -37,7 +37,7 @@ define hidden ptr @convert_filters(ptr noundef readonly captures(address_is_null
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
-  %.05269 = phi ptr [ %16, %.lr.ph.preheader ], [ %34, %36 ]
+  %.05267 = phi ptr [ %16, %.lr.ph.preheader ], [ %34, %36 ]
   %19 = getelementptr inbounds nuw %struct.SDL_DialogFileFilter, ptr %0, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -47,27 +47,27 @@ define hidden ptr @convert_filters(ptr noundef readonly captures(address_is_null
   br i1 %.not62, label %24, label %25
 
 24:                                               ; preds = %.lr.ph
-  tail call void @SDL_free_REAL(ptr noundef nonnull %.05269) #4
-  br label %.thread
+  tail call void @SDL_free_REAL(ptr noundef nonnull %.05267) #4
+  br label %.critedge
 
 25:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = icmp samesign ult i64 %indvars.iv.next, %18
   %27 = select i1 %26, ptr %4, ptr %5
-  %28 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %.05269) #4
+  %28 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %.05267) #4
   %29 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %23) #4
   %30 = tail call i64 @SDL_strlen_REAL(ptr noundef %27) #4
   %31 = add i64 %28, 1
   %32 = add i64 %31, %29
   %33 = add i64 %32, %30
-  %34 = tail call ptr @SDL_realloc_REAL(ptr noundef nonnull %.05269, i64 noundef %33) #5
+  %34 = tail call ptr @SDL_realloc_REAL(ptr noundef nonnull %.05267, i64 noundef %33) #5
   %.not63 = icmp eq ptr %34, null
   br i1 %.not63, label %35, label %36
 
 35:                                               ; preds = %25
   tail call void @SDL_free_REAL(ptr noundef nonnull %23) #4
-  tail call void @SDL_free_REAL(ptr noundef nonnull %.05269) #4
-  br label %.thread
+  tail call void @SDL_free_REAL(ptr noundef nonnull %.05267) #4
+  br label %.critedge
 
 36:                                               ; preds = %25
   %37 = tail call i64 @SDL_strlcat_REAL(ptr noundef nonnull %34, ptr noundef nonnull %23, i64 noundef %33) #4
@@ -88,14 +88,14 @@ define hidden ptr @convert_filters(ptr noundef readonly captures(address_is_null
 
 44:                                               ; preds = %._crit_edge
   tail call void @SDL_free_REAL(ptr noundef nonnull %.052.lcssa) #4
-  br label %.thread
+  br label %.critedge
 
 45:                                               ; preds = %._crit_edge
   %46 = tail call i64 @SDL_strlcat_REAL(ptr noundef nonnull %43, ptr noundef %5, i64 noundef %42) #4
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %24, %35, %15, %45, %44, %13
-  %.0 = phi ptr [ %43, %45 ], [ null, %44 ], [ null, %13 ], [ null, %15 ], [ null, %35 ], [ null, %24 ]
+.critedge:                                        ; preds = %35, %24, %15, %45, %44, %13
+  %.0 = phi ptr [ %43, %45 ], [ null, %44 ], [ null, %13 ], [ null, %15 ], [ null, %24 ], [ null, %35 ]
   ret ptr %.0
 }
 

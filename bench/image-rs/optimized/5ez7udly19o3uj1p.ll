@@ -14786,7 +14786,7 @@ define hidden { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17
   %11 = load i8, ptr %10, align 1, !range !2354, !noundef !19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %13 = load i8, ptr %12, align 8, !range !2355, !noundef !19
-  br label %.thread
+  br label %19
 
 14:                                               ; preds = %"_ZN3png7decoder15Reader$LT$R$GT$4info17haf6332fcfbc4d8b0E.exit"
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -14795,75 +14795,75 @@ define hidden { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17
   %18 = and i32 %3, 1
   %.not = icmp eq i32 %18, 0
   %or.cond = or i1 %.not, %17
-  br i1 %or.cond, label %21, label %23
+  br i1 %or.cond, label %22, label %24
 
-.thread:                                          ; preds = %41, %41, %41, %41, %41, %9
-  %.sroa.3.0 = phi i8 [ %13, %9 ], [ %.0, %41 ], [ %.0, %41 ], [ %.0, %41 ], [ %.0, %41 ], [ %.0, %41 ]
-  %.sroa.0.0 = phi i8 [ %11, %9 ], [ %.021, %41 ], [ %.021, %41 ], [ %.021, %41 ], [ %.021, %41 ], [ %.021, %41 ]
-  %19 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
-  %20 = insertvalue { i8, i8 } %19, i8 %.sroa.3.0, 1
-  ret { i8, i8 } %20
+19:                                               ; preds = %42, %42, %42, %42, %42, %9
+  %.sroa.3.0 = phi i8 [ %13, %9 ], [ %.0, %42 ], [ %.0, %42 ], [ %.0, %42 ], [ %.0, %42 ], [ %.0, %42 ]
+  %.sroa.0.0 = phi i8 [ %11, %9 ], [ %.021, %42 ], [ %.021, %42 ], [ %.021, %42 ], [ %.021, %42 ], [ %.021, %42 ]
+  %20 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
+  %21 = insertvalue { i8, i8 } %20, i8 %.sroa.3.0, 1
+  ret { i8, i8 } %21
 
-21:                                               ; preds = %14
-  %22 = icmp samesign ult i8 %16, 8
-  br i1 %22, label %25, label %23
+22:                                               ; preds = %14
+  %23 = icmp samesign ult i8 %16, 8
+  br i1 %23, label %26, label %24
 
-23:                                               ; preds = %25, %21, %14
-  %.0 = phi i8 [ 8, %14 ], [ %16, %21 ], [ %spec.select, %25 ]
-  %24 = and i32 %3, 65552
-  %or.cond30 = icmp eq i32 %24, 0
-  br i1 %or.cond30, label %34, label %27
+24:                                               ; preds = %26, %22, %14
+  %.0 = phi i8 [ 8, %14 ], [ %16, %22 ], [ %spec.select, %26 ]
+  %25 = and i32 %3, 65552
+  %or.cond30 = icmp eq i32 %25, 0
+  br i1 %or.cond30, label %35, label %28
 
-25:                                               ; preds = %21
-  %26 = and i32 %3, 65552
-  %or.cond29 = icmp eq i32 %26, 0
+26:                                               ; preds = %22
+  %27 = and i32 %3, 65552
+  %or.cond29 = icmp eq i32 %27, 0
   %spec.select = select i1 %or.cond29, i8 %16, i8 8
-  br label %23
+  br label %24
 
-27:                                               ; preds = %23
-  %28 = and i32 %3, 65536
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %30 = load i64, ptr %29, align 8, !range !2356, !noundef !19
-  %.not28 = icmp ne i64 %30, -9223372036854775807
-  %31 = icmp ne i32 %28, 0
-  %.022 = or i1 %31, %.not28
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 407
-  %33 = load i8, ptr %32, align 1, !range !2354, !noundef !19
-  switch i8 %33, label %37 [
-    i8 0, label %38
-    i8 2, label %39
-    i8 3, label %40
+28:                                               ; preds = %24
+  %29 = and i32 %3, 65536
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %31 = load i64, ptr %30, align 8, !range !2356, !noundef !19
+  %.not28 = icmp ne i64 %31, -9223372036854775807
+  %32 = icmp ne i32 %29, 0
+  %.022 = or i1 %32, %.not28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 407
+  %34 = load i8, ptr %33, align 1, !range !2354, !noundef !19
+  switch i8 %34, label %38 [
+    i8 0, label %39
+    i8 2, label %40
+    i8 3, label %41
   ]
 
-34:                                               ; preds = %23
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 407
-  %36 = load i8, ptr %35, align 1, !range !2354, !noundef !19
-  br label %41
+35:                                               ; preds = %24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 407
+  %37 = load i8, ptr %36, align 1, !range !2354, !noundef !19
+  br label %42
 
-37:                                               ; preds = %39, %38, %27
-  br label %41
+38:                                               ; preds = %40, %39, %28
+  br label %42
 
-38:                                               ; preds = %27
-  br i1 %.022, label %41, label %37
+39:                                               ; preds = %28
+  br i1 %.022, label %42, label %38
 
-39:                                               ; preds = %27
-  br i1 %.022, label %41, label %37
+40:                                               ; preds = %28
+  br i1 %.022, label %42, label %38
 
-40:                                               ; preds = %27
+41:                                               ; preds = %28
   %. = select i1 %.022, i8 6, i8 2
-  br label %41
+  br label %42
 
-41:                                               ; preds = %39, %38, %40, %37, %34
-  %.021 = phi i8 [ %33, %37 ], [ %36, %34 ], [ %., %40 ], [ 4, %38 ], [ 6, %39 ]
-  switch i8 %.0, label %42 [
-    i8 1, label %.thread
-    i8 2, label %.thread
-    i8 4, label %.thread
-    i8 8, label %.thread
-    i8 16, label %.thread
+42:                                               ; preds = %40, %39, %41, %38, %35
+  %.021 = phi i8 [ %34, %38 ], [ %37, %35 ], [ %., %41 ], [ 4, %39 ], [ 6, %40 ]
+  switch i8 %.0, label %.critedge [
+    i8 1, label %19
+    i8 2, label %19
+    i8 4, label %19
+    i8 8, label %19
+    i8 16, label %19
   ]
 
-42:                                               ; preds = %41
+.critedge:                                        ; preds = %42
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dbc83011fcb707429349569d3c6bc524.100.llvm.10180119082961779398, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.113) #21
   unreachable
 }
@@ -14891,7 +14891,7 @@ define hidden { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17
   %11 = load i8, ptr %10, align 1, !range !2354, !noundef !19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %13 = load i8, ptr %12, align 8, !range !2355, !noundef !19
-  br label %.thread
+  br label %19
 
 14:                                               ; preds = %"_ZN3png7decoder15Reader$LT$R$GT$4info17h8fec02fd59af926fE.exit"
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -14900,75 +14900,75 @@ define hidden { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17
   %18 = and i32 %3, 1
   %.not = icmp eq i32 %18, 0
   %or.cond = or i1 %.not, %17
-  br i1 %or.cond, label %21, label %23
+  br i1 %or.cond, label %22, label %24
 
-.thread:                                          ; preds = %41, %41, %41, %41, %41, %9
-  %.sroa.3.0 = phi i8 [ %13, %9 ], [ %.0, %41 ], [ %.0, %41 ], [ %.0, %41 ], [ %.0, %41 ], [ %.0, %41 ]
-  %.sroa.0.0 = phi i8 [ %11, %9 ], [ %.021, %41 ], [ %.021, %41 ], [ %.021, %41 ], [ %.021, %41 ], [ %.021, %41 ]
-  %19 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
-  %20 = insertvalue { i8, i8 } %19, i8 %.sroa.3.0, 1
-  ret { i8, i8 } %20
+19:                                               ; preds = %42, %42, %42, %42, %42, %9
+  %.sroa.3.0 = phi i8 [ %13, %9 ], [ %.0, %42 ], [ %.0, %42 ], [ %.0, %42 ], [ %.0, %42 ], [ %.0, %42 ]
+  %.sroa.0.0 = phi i8 [ %11, %9 ], [ %.021, %42 ], [ %.021, %42 ], [ %.021, %42 ], [ %.021, %42 ], [ %.021, %42 ]
+  %20 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
+  %21 = insertvalue { i8, i8 } %20, i8 %.sroa.3.0, 1
+  ret { i8, i8 } %21
 
-21:                                               ; preds = %14
-  %22 = icmp samesign ult i8 %16, 8
-  br i1 %22, label %25, label %23
+22:                                               ; preds = %14
+  %23 = icmp samesign ult i8 %16, 8
+  br i1 %23, label %26, label %24
 
-23:                                               ; preds = %25, %21, %14
-  %.0 = phi i8 [ 8, %14 ], [ %16, %21 ], [ %spec.select, %25 ]
-  %24 = and i32 %3, 65552
-  %or.cond30 = icmp eq i32 %24, 0
-  br i1 %or.cond30, label %34, label %27
+24:                                               ; preds = %26, %22, %14
+  %.0 = phi i8 [ 8, %14 ], [ %16, %22 ], [ %spec.select, %26 ]
+  %25 = and i32 %3, 65552
+  %or.cond30 = icmp eq i32 %25, 0
+  br i1 %or.cond30, label %35, label %28
 
-25:                                               ; preds = %21
-  %26 = and i32 %3, 65552
-  %or.cond29 = icmp eq i32 %26, 0
+26:                                               ; preds = %22
+  %27 = and i32 %3, 65552
+  %or.cond29 = icmp eq i32 %27, 0
   %spec.select = select i1 %or.cond29, i8 %16, i8 8
-  br label %23
+  br label %24
 
-27:                                               ; preds = %23
-  %28 = and i32 %3, 65536
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %30 = load i64, ptr %29, align 8, !range !2356, !noundef !19
-  %.not28 = icmp ne i64 %30, -9223372036854775807
-  %31 = icmp ne i32 %28, 0
-  %.022 = or i1 %31, %.not28
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 407
-  %33 = load i8, ptr %32, align 1, !range !2354, !noundef !19
-  switch i8 %33, label %37 [
-    i8 0, label %38
-    i8 2, label %39
-    i8 3, label %40
+28:                                               ; preds = %24
+  %29 = and i32 %3, 65536
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %31 = load i64, ptr %30, align 8, !range !2356, !noundef !19
+  %.not28 = icmp ne i64 %31, -9223372036854775807
+  %32 = icmp ne i32 %29, 0
+  %.022 = or i1 %32, %.not28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 407
+  %34 = load i8, ptr %33, align 1, !range !2354, !noundef !19
+  switch i8 %34, label %38 [
+    i8 0, label %39
+    i8 2, label %40
+    i8 3, label %41
   ]
 
-34:                                               ; preds = %23
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 407
-  %36 = load i8, ptr %35, align 1, !range !2354, !noundef !19
-  br label %41
+35:                                               ; preds = %24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 407
+  %37 = load i8, ptr %36, align 1, !range !2354, !noundef !19
+  br label %42
 
-37:                                               ; preds = %39, %38, %27
-  br label %41
+38:                                               ; preds = %40, %39, %28
+  br label %42
 
-38:                                               ; preds = %27
-  br i1 %.022, label %41, label %37
+39:                                               ; preds = %28
+  br i1 %.022, label %42, label %38
 
-39:                                               ; preds = %27
-  br i1 %.022, label %41, label %37
+40:                                               ; preds = %28
+  br i1 %.022, label %42, label %38
 
-40:                                               ; preds = %27
+41:                                               ; preds = %28
   %. = select i1 %.022, i8 6, i8 2
-  br label %41
+  br label %42
 
-41:                                               ; preds = %39, %38, %40, %37, %34
-  %.021 = phi i8 [ %33, %37 ], [ %36, %34 ], [ %., %40 ], [ 4, %38 ], [ 6, %39 ]
-  switch i8 %.0, label %42 [
-    i8 1, label %.thread
-    i8 2, label %.thread
-    i8 4, label %.thread
-    i8 8, label %.thread
-    i8 16, label %.thread
+42:                                               ; preds = %40, %39, %41, %38, %35
+  %.021 = phi i8 [ %34, %38 ], [ %37, %35 ], [ %., %41 ], [ 4, %39 ], [ 6, %40 ]
+  switch i8 %.0, label %.critedge [
+    i8 1, label %19
+    i8 2, label %19
+    i8 4, label %19
+    i8 8, label %19
+    i8 16, label %19
   ]
 
-42:                                               ; preds = %41
+.critedge:                                        ; preds = %42
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dbc83011fcb707429349569d3c6bc524.100.llvm.10180119082961779398, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.113) #21
   unreachable
 }

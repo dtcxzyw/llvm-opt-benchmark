@@ -382,7 +382,7 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   %switch = icmp eq i8 %16, 1
   br i1 %switch, label %17, label %.thread13
 
-default.unreachable26:                            ; preds = %60
+default.unreachable23:                            ; preds = %60
   unreachable
 
 17:                                               ; preds = %13
@@ -412,7 +412,7 @@ default.unreachable26:                            ; preds = %60
 
 32:                                               ; preds = %27
   tail call void (ptr, i32, ptr, ...) @acpi_bios_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 513, ptr noundef nonnull @.str, i32 noundef %29, ptr noundef nonnull %1) #8
-  br label %118
+  br label %117
 
 33:                                               ; preds = %27, %24
   %34 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
@@ -436,33 +436,33 @@ default.unreachable26:                            ; preds = %60
   %48 = trunc nuw i64 %47 to i32
   %49 = trunc i64 %46 to i32
   tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 528, i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef nonnull %45, i32 noundef %48, i32 noundef %49) #8
-  br label %118
+  br label %117
 
 50:                                               ; preds = %36
   %51 = icmp eq ptr %2, null
   %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %53 = icmp eq i32 %52, 0
   %or.cond = select i1 %51, i1 true, i1 %53
-  br i1 %or.cond, label %.thread19, label %.preheader
+  br i1 %or.cond, label %.thread16, label %.preheader
 
-.preheader:                                       ; preds = %50, %.thread17
-  %54 = phi i64 [ %100, %.thread17 ], [ 0, %50 ]
+.preheader:                                       ; preds = %50, %.critedge.thread
+  %54 = phi i64 [ %99, %.critedge.thread ], [ 0, %50 ]
   %55 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %56 = getelementptr %struct.acpi_table_desc, ptr %55, i64 %54, i32 5
   %57 = load i8, ptr %56, align 2
   %58 = and i8 %57, 4
   %59 = icmp eq i8 %58, 0
-  br i1 %59, label %.thread17, label %60
+  br i1 %59, label %.critedge.thread, label %60
 
 60:                                               ; preds = %.preheader
   %61 = getelementptr %struct.acpi_table_desc, ptr %55, i64 %54
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 26
   %63 = and i8 %57, 3
-  switch i8 %63, label %default.unreachable26 [
+  switch i8 %63, label %default.unreachable23 [
     i8 1, label %64
     i8 2, label %70
     i8 0, label %70
-    i8 3, label %.thread17
+    i8 3, label %.critedge.thread
   ]
 
 64:                                               ; preds = %60
@@ -481,7 +481,7 @@ default.unreachable26:                            ; preds = %60
 73:                                               ; preds = %70, %64
   %74 = phi ptr [ %72, %70 ], [ %69, %64 ]
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread17, label %76
+  br i1 %75, label %.critedge.thread, label %76
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -502,89 +502,89 @@ default.unreachable26:                            ; preds = %60
 
 89:                                               ; preds = %84, %76
   %90 = phi i1 [ true, %76 ], [ %88, %84 ]
-  br i1 %81, label %91, label %93
+  br i1 %81, label %91, label %.critedge
 
 91:                                               ; preds = %89
   %92 = zext i32 %78 to i64
   tail call void @acpi_os_unmap_memory(ptr noundef nonnull %74, i64 noundef %92) #8
-  br label %93
+  br label %.critedge
 
-93:                                               ; preds = %91, %89
-  br i1 %90, label %.thread17, label %94
+.critedge:                                        ; preds = %91, %89
+  br i1 %90, label %.critedge.thread, label %93
 
-94:                                               ; preds = %93
-  %95 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %96 = getelementptr %struct.acpi_table_desc, ptr %95, i64 %54, i32 5
-  %97 = load i8, ptr %96, align 2
-  %98 = and i8 %97, 8
-  %99 = icmp eq i8 %98, 0
-  br i1 %99, label %104, label %106
+93:                                               ; preds = %.critedge
+  %94 = load ptr, ptr @acpi_gbl_root_table_list, align 8
+  %95 = getelementptr %struct.acpi_table_desc, ptr %94, i64 %54, i32 5
+  %96 = load i8, ptr %95, align 2
+  %97 = and i8 %96, 8
+  %98 = icmp eq i8 %97, 0
+  br i1 %98, label %103, label %105
 
-.thread17:                                        ; preds = %73, %60, %93, %.preheader
-  %100 = add nuw nsw i64 %54, 1
-  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
-  %102 = zext i32 %101 to i64
-  %103 = icmp samesign ult i64 %100, %102
-  br i1 %103, label %.preheader, label %.thread19, !llvm.loop !5
+.critedge.thread:                                 ; preds = %60, %73, %.critedge, %.preheader
+  %99 = add nuw nsw i64 %54, 1
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %101 = zext i32 %100 to i64
+  %102 = icmp samesign ult i64 %99, %101
+  br i1 %102, label %.preheader, label %.thread16, !llvm.loop !5
 
-104:                                              ; preds = %94
-  %105 = trunc nuw i64 %54 to i32
-  store i32 %105, ptr %2, align 4
-  br label %118
+103:                                              ; preds = %93
+  %104 = trunc nuw i64 %54 to i32
+  store i32 %104, ptr %2, align 4
+  br label %117
 
-106:                                              ; preds = %94
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %108 = tail call zeroext i8 @acpi_ut_valid_nameseg(ptr noundef nonnull %107) #8
-  %109 = icmp eq i8 %108, 0
-  %110 = select i1 %109, ptr @.str.2, ptr %107
-  %111 = load i64, ptr %0, align 8
-  %112 = lshr i64 %111, 32
-  %113 = trunc nuw i64 %112 to i32
-  %114 = trunc i64 %111 to i32
-  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 548, i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef nonnull %110, i32 noundef %113, i32 noundef %114) #8
-  br label %118
+105:                                              ; preds = %93
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %107 = tail call zeroext i8 @acpi_ut_valid_nameseg(ptr noundef nonnull %106) #8
+  %108 = icmp eq i8 %107, 0
+  %109 = select i1 %108, ptr @.str.2, ptr %106
+  %110 = load i64, ptr %0, align 8
+  %111 = lshr i64 %110, 32
+  %112 = trunc nuw i64 %111 to i32
+  %113 = trunc i64 %110 to i32
+  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 548, i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef nonnull %109, i32 noundef %112, i32 noundef %113) #8
+  br label %117
 
-.thread19:                                        ; preds = %.thread17, %50
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %116 = load i8, ptr %115, align 2
-  %117 = or i8 %116, 4
-  store i8 %117, ptr %115, align 2
+.thread16:                                        ; preds = %.critedge.thread, %50
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %115 = load i8, ptr %114, align 2
+  %116 = or i8 %115, 4
+  store i8 %116, ptr %114, align 2
   br label %.thread13
 
-118:                                              ; preds = %104, %106, %41, %32
-  %119 = phi i32 [ %39, %41 ], [ 7, %106 ], [ 8193, %32 ], [ 16387, %104 ]
-  %120 = load ptr, ptr %4, align 8
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %.thread13, label %122
+117:                                              ; preds = %103, %105, %41, %32
+  %118 = phi i32 [ %39, %41 ], [ 7, %105 ], [ 8193, %32 ], [ 16387, %103 ]
+  %119 = load ptr, ptr %4, align 8
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %.thread13, label %121
 
-122:                                              ; preds = %118
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %124 = load i8, ptr %123, align 2
-  %125 = and i8 %124, 3
-  %126 = icmp eq i8 %125, 1
-  br i1 %126, label %127, label %131
+121:                                              ; preds = %117
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %123 = load i8, ptr %122, align 2
+  %124 = and i8 %123, 3
+  %125 = icmp eq i8 %124, 1
+  br i1 %125, label %126, label %130
 
-127:                                              ; preds = %122
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %129 = load i32, ptr %128, align 8
-  %130 = zext i32 %129 to i64
-  tail call void @acpi_os_unmap_memory(ptr noundef nonnull %120, i64 noundef %130) #8
-  %.pre = load i8, ptr %123, align 2
-  br label %131
+126:                                              ; preds = %121
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %128 = load i32, ptr %127, align 8
+  %129 = zext i32 %128 to i64
+  tail call void @acpi_os_unmap_memory(ptr noundef nonnull %119, i64 noundef %129) #8
+  %.pre = load i8, ptr %122, align 2
+  br label %130
 
-131:                                              ; preds = %127, %122
-  %132 = phi i8 [ %.pre, %127 ], [ %124, %122 ]
-  %133 = and i8 %132, 3
-  %134 = icmp eq i8 %133, 1
-  br i1 %134, label %135, label %.thread13
+130:                                              ; preds = %126, %121
+  %131 = phi i8 [ %.pre, %126 ], [ %123, %121 ]
+  %132 = and i8 %131, 3
+  %133 = icmp eq i8 %132, 1
+  br i1 %133, label %134, label %.thread13
 
-135:                                              ; preds = %131
+134:                                              ; preds = %130
   store ptr null, ptr %4, align 8
   br label %.thread13
 
-.thread13:                                        ; preds = %13, %17, %135, %131, %118, %.thread19, %33
-  %136 = phi i32 [ 0, %.thread19 ], [ 0, %33 ], [ %119, %118 ], [ %119, %131 ], [ %119, %135 ], [ 4, %17 ], [ 4, %13 ]
-  ret i32 %136
+.thread13:                                        ; preds = %13, %17, %134, %130, %117, %.thread16, %33
+  %135 = phi i32 [ 0, %.thread16 ], [ 0, %33 ], [ %118, %117 ], [ %118, %130 ], [ %118, %134 ], [ 4, %17 ], [ 4, %13 ]
+  ret i32 %135
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -1018,19 +1018,19 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
   br label %11
 
 11:                                               ; preds = %45, %10
-  %spec.select.i105 = phi i32 [ %.promoted, %10 ], [ %spec.select.i106, %45 ]
+  %spec.select.i101 = phi i32 [ %.promoted, %10 ], [ %spec.select.i102, %45 ]
   %.168 = phi i32 [ 0, %10 ], [ %.370, %45 ]
   %.164 = phi i32 [ %.063, %10 ], [ %.366, %45 ]
   %.059 = phi i32 [ 0, %10 ], [ %46, %45 ]
-  %12 = lshr i32 %spec.select.i105, 3
+  %12 = lshr i32 %spec.select.i101, 3
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 %13
   %15 = load i32, ptr %14, align 1, !tbaa !36
   %16 = tail call i32 @llvm.bswap.i32(i32 %15)
-  %17 = and i32 %spec.select.i105, 7
+  %17 = and i32 %spec.select.i101, 7
   %18 = shl i32 %16, %17
   %.not = icmp ult i32 %18, 2097152
-  br i1 %.not, label %.thread.sink.split, label %19
+  br i1 %.not, label %.critedge.sink.split, label %19
 
 19:                                               ; preds = %11
   %.not.i = icmp ult i32 %18, 536870912
@@ -1043,14 +1043,14 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
   %23 = zext i8 %22 to i32
   %24 = add nuw nsw i32 %.1.i, %23
   %.val96 = load i32, ptr %8, align 4, !tbaa !32
-  %25 = sub nsw i32 %.val96, %spec.select.i105
+  %25 = sub nsw i32 %.val96, %spec.select.i101
   %26 = sub nsw i32 11, %24
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %.thread, label %28
+  br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %19
   %29 = load i32, ptr %9, align 8, !tbaa !33
-  %30 = add i32 %26, %spec.select.i105
+  %30 = add i32 %26, %spec.select.i101
   %31 = tail call i32 @llvm.umin.i32(i32 %29, i32 %30)
   store i32 %31, ptr %7, align 8, !tbaa !35
   %32 = icmp samesign ult i32 %24, 5
@@ -1073,7 +1073,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
   br label %45
 
 45:                                               ; preds = %33, %28
-  %spec.select.i106 = phi i32 [ %spec.select.i, %33 ], [ %31, %28 ]
+  %spec.select.i102 = phi i32 [ %spec.select.i, %33 ], [ %31, %28 ]
   %.370 = phi i32 [ 1, %33 ], [ %.168, %28 ]
   %.366 = phi i32 [ %44, %33 ], [ %.164, %28 ]
   %.pn = phi i32 [ 4, %33 ], [ 10, %28 ]
@@ -1083,6 +1083,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
   br i1 %47, label %11, label %48, !llvm.loop !50
 
 48:                                               ; preds = %45
+  %.not82 = icmp eq i32 %.370, 0
   %49 = xor i32 %.370, 1
   br label %50
 
@@ -1090,7 +1091,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
   %51 = phi i1 [ true, %48 ], [ false, %67 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi i32 [ %46, %48 ], [ %49, %67 ]
   %indvars.iv = phi i32 [ 0, %48 ], [ 1, %67 ]
-  %.2107 = phi i32 [ %.062, %48 ], [ %.4, %67 ]
+  %.2103 = phi i32 [ %.062, %48 ], [ %.4, %67 ]
   %.not83 = icmp eq i32 %indvars.iv.sroa.phi.sroa.speculated, 0
   br i1 %.not83, label %67, label %52
 
@@ -1104,17 +1105,17 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
   %57 = load ptr, ptr %3, align 8, !tbaa !41
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store ptr %58, ptr %3, align 8, !tbaa !41
-  store i32 %.2107, ptr %57, align 4, !tbaa !29
+  store i32 %.2103, ptr %57, align 4, !tbaa !29
   %.not85 = icmp ult ptr %58, %4
-  br i1 %.not85, label %59, label %.thread.sink.split
+  br i1 %.not85, label %59, label %.critedge.sink.split
 
 59:                                               ; preds = %56
   %60 = load i32, ptr %2, align 4, !tbaa !29
-  %.not86 = icmp ugt i32 %60, %.2107
-  br i1 %.not86, label %61, label %.thread.sink.split
+  %.not86 = icmp ugt i32 %60, %.2103
+  br i1 %.not86, label %61, label %.critedge.sink.split
 
 61:                                               ; preds = %59
-  %62 = sub nuw i32 %60, %.2107
+  %62 = sub nuw i32 %60, %.2103
   store i32 %62, ptr %2, align 4, !tbaa !29
   %63 = load i32, ptr %5, align 4, !tbaa !29
   %.not87 = icmp eq i32 %63, 0
@@ -1123,22 +1124,16 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
   br label %65
 
 65:                                               ; preds = %61, %52
-  %.3 = phi i32 [ 0, %61 ], [ %.2107, %52 ]
+  %.3 = phi i32 [ 0, %61 ], [ %.2103, %52 ]
   %66 = add nsw i32 %.3, %indvars.iv.sroa.phi.sroa.speculated
   br label %67
 
 67:                                               ; preds = %50, %65
-  %.4 = phi i32 [ %66, %65 ], [ %.2107, %50 ]
+  %.4 = phi i32 [ %66, %65 ], [ %.2103, %50 ]
   br i1 %51, label %50, label %68, !llvm.loop !51
 
-.thread.sink.split:                               ; preds = %11, %59, %56
-  %.str.7.sink = phi ptr [ @.str.7, %56 ], [ @.str.8, %59 ], [ @.str.6, %11 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.7.sink) #7
-  br label %.thread
-
 68:                                               ; preds = %67
-  %.not88 = icmp eq i32 %.370, 0
-  br i1 %.not88, label %10, label %69, !llvm.loop !52
+  br i1 %.not82, label %10, label %69, !llvm.loop !52
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr %3, align 8, !tbaa !41
@@ -1150,7 +1145,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
 
 72:                                               ; preds = %69
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.7) #7
-  br label %.thread
+  br label %.critedge
 
 73:                                               ; preds = %69
   %74 = load i32, ptr %2, align 4, !tbaa !29
@@ -1159,11 +1154,11 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
 
 75:                                               ; preds = %73
   %76 = icmp eq i32 %74, %.4
-  br i1 %76, label %.thread, label %77
+  br i1 %76, label %.critedge, label %77
 
 77:                                               ; preds = %75
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.9) #7
-  br label %.thread
+  br label %.critedge
 
 78:                                               ; preds = %73
   %79 = sub nuw i32 %74, %.4
@@ -1173,7 +1168,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
   %81 = zext i1 %.not91 to i32
   store i32 %81, ptr %5, align 4, !tbaa !29
   %.not92 = icmp eq i32 %.366, %81
-  br i1 %.not92, label %.thread, label %82
+  br i1 %.not92, label %.critedge, label %82
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -1184,14 +1179,19 @@ define internal fastcc range(i32 -1094995529, 2) i32 @decode_uncompressed(ptr no
 
 84:                                               ; preds = %82
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.7) #7
-  br label %.thread
+  br label %.critedge
 
 85:                                               ; preds = %82
   store i32 %.366, ptr %5, align 4, !tbaa !29
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.thread.sink.split, %19, %78, %85, %75, %84, %77, %72
-  %.273 = phi i32 [ -1094995529, %72 ], [ -1094995529, %77 ], [ -1094995529, %84 ], [ 1, %75 ], [ 0, %85 ], [ 0, %78 ], [ -1094995529, %19 ], [ -1094995529, %.thread.sink.split ]
+.critedge.sink.split:                             ; preds = %11, %59, %56
+  %.str.6.sink = phi ptr [ @.str.7, %56 ], [ @.str.8, %59 ], [ @.str.6, %11 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.6.sink) #7
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.sink.split, %19, %78, %85, %75, %84, %77, %72
+  %.273 = phi i32 [ -1094995529, %72 ], [ -1094995529, %77 ], [ -1094995529, %84 ], [ 1, %75 ], [ 0, %85 ], [ 0, %78 ], [ -1094995529, %19 ], [ -1094995529, %.critedge.sink.split ]
   ret i32 %.273
 }
 

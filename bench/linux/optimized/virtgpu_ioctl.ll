@@ -93,6 +93,45 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @virtio_gpu_create_context_locked(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+  %3 = alloca [16 x i8], align 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 129
+  %5 = load i8, ptr %4, align 1, !range !5, !noundef !6
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %14, label %7
+
+7:                                                ; preds = %2
+  %8 = load i32, ptr %1, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %10 = load i32, ptr %9, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #6
+  %13 = trunc i64 %12 to i32
+  tail call void @virtio_gpu_cmd_context_create(ptr noundef %0, i32 noundef %8, i32 noundef %10, i32 noundef %13, ptr noundef nonnull %11) #6
+  br label %23
+
+14:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !7
+  %15 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !8
+  %16 = inttoptr i64 %15 to ptr
+  %17 = call ptr @__get_task_comm(ptr noundef nonnull %3, i64 noundef 16, ptr noundef %16) #6
+  %18 = load i32, ptr %1, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #6
+  %22 = trunc i64 %21 to i32
+  call void @virtio_gpu_cmd_context_create(ptr noundef %0, i32 noundef %18, i32 noundef %20, i32 noundef %22, ptr noundef nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  br label %23
+
+23:                                               ; preds = %14, %7
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 1, ptr %24, align 8
+  ret void
+}
+
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
@@ -1037,282 +1076,253 @@ define internal i32 @virtio_gpu_get_caps_ioctl(ptr noundef readonly captures(non
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @virtio_gpu_resource_create_blob_ioctl(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 align 16 {
-  %4 = alloca [16 x i8], align 16
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca %struct.virtio_gpu_object_params, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 62140
-  %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %.thread11, label %15
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.virtio_gpu_object_params, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  store i32 0, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 152
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 62140
+  %12 = load i8, ptr %11, align 4, !range !5, !noundef !6
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %.critedge, label %14
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %17 = load i32, ptr %16, align 4
-  %18 = icmp ult i32 %17, 8
-  br i1 %18, label %19, label %.thread11
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp ult i32 %16, 8
+  br i1 %17, label %18, label %.critedge
 
-19:                                               ; preds = %15
-  %20 = icmp samesign ult i32 %17, 4
-  br i1 %20, label %25, label %21
+18:                                               ; preds = %14
+  %19 = icmp samesign ult i32 %16, 4
+  br i1 %19, label %24, label %20
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 62139
-  %23 = load i8, ptr %22, align 1, !range !5, !noundef !6
-  %24 = icmp eq i8 %23, 0
-  br i1 %24, label %.thread11, label %25
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 62139
+  %22 = load i8, ptr %21, align 1, !range !5, !noundef !6
+  %23 = icmp eq i8 %22, 0
+  br i1 %23, label %.critedge, label %24
 
-25:                                               ; preds = %21, %19
-  store ptr null, ptr %6, align 8, !annotation !7
-  %26 = load i32, ptr %1, align 8
-  switch i32 %26, label %.thread11 [
-    i32 1, label %48
-    i32 3, label %28
-    i32 2, label %27
+24:                                               ; preds = %20, %18
+  store ptr null, ptr %5, align 8, !annotation !7
+  %25 = load i32, ptr %1, align 8
+  switch i32 %25, label %.critedge [
+    i32 1, label %46
+    i32 3, label %27
+    i32 2, label %26
   ]
 
-27:                                               ; preds = %25
-  br label %28
+26:                                               ; preds = %24
+  br label %27
 
-28:                                               ; preds = %25, %27
-  %29 = phi i1 [ true, %27 ], [ false, %25 ]
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 62136
-  %31 = load i8, ptr %30, align 8, !range !5, !noundef !6
-  %32 = icmp eq i8 %31, 0
-  br i1 %32, label %.thread11, label %33
+27:                                               ; preds = %24, %26
+  %.ph = phi i1 [ true, %26 ], [ false, %24 ]
+  %.ph9 = phi i8 [ 0, %26 ], [ 1, %24 ]
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 62136
+  %29 = load i8, ptr %28, align 8, !range !5, !noundef !6
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %.critedge, label %31
 
-33:                                               ; preds = %28
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %35 = load i32, ptr %34, align 4
-  %36 = and i32 %35, 3
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.thread, label %.thread11
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %33 = load i32, ptr %32, align 4
+  %34 = and i32 %33, 3
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %.thread, label %.critedge
 
-.thread:                                          ; preds = %33
-  %38 = load i32, ptr %11, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 52
-  store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i32 %26, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %45 = load i64, ptr %44, align 8
-  store i64 %45, ptr %7, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  store i8 1, ptr %46, align 2
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  store i32 %17, ptr %47, align 4
-  br label %63
+.thread:                                          ; preds = %31
+  %36 = load i32, ptr %10, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 52
+  store i32 %36, ptr %37, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store i64 %39, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store i32 %25, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %43 = load i64, ptr %42, align 8
+  store i64 %43, ptr %6, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i8 1, ptr %44, align 2
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 60
+  store i32 %16, ptr %45, align 4
+  br label %61
 
-48:                                               ; preds = %25
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %50 = load i64, ptr %49, align 8
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %.thread11
+46:                                               ; preds = %24
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %48 = load i64, ptr %47, align 8
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %50, label %.critedge
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %.thread11
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %.critedge
 
-56:                                               ; preds = %52
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 62136
+54:                                               ; preds = %50
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 62136
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !5
-  %57 = icmp eq i8 %.pre, 0
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i32 %26, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %60 = load i64, ptr %59, align 8
-  store i64 %60, ptr %7, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  store i8 1, ptr %61, align 2
-  %62 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  store i32 %17, ptr %62, align 4
-  br i1 %57, label %.thread18, label %63
+  %55 = icmp eq i8 %.pre, 0
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store i32 %25, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %58 = load i64, ptr %57, align 8
+  store i64 %58, ptr %6, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i8 1, ptr %59, align 2
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 60
+  store i32 %16, ptr %60, align 4
+  br i1 %55, label %.thread16, label %61
 
-63:                                               ; preds = %.thread, %56
-  %64 = phi ptr [ %47, %.thread ], [ %62, %56 ]
-  %65 = phi i1 [ %29, %.thread ], [ false, %56 ]
-  %66 = phi i8 [ 1, %.thread ], [ 0, %56 ]
-  %67 = phi i1 [ false, %.thread ], [ true, %56 ]
-  %68 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  tail call void @mutex_lock(ptr noundef nonnull %68) #6
-  %69 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %70 = load i8, ptr %69, align 8, !range !5, !noundef !6
-  %71 = icmp eq i8 %70, 0
-  br i1 %71, label %72, label %92
+61:                                               ; preds = %.thread, %54
+  %62 = phi ptr [ %45, %.thread ], [ %60, %54 ]
+  %63 = phi i1 [ %.ph, %.thread ], [ false, %54 ]
+  %64 = phi i8 [ %.ph9, %.thread ], [ 1, %54 ]
+  %65 = phi i1 [ false, %.thread ], [ true, %54 ]
+  %66 = phi i8 [ 1, %.thread ], [ 0, %54 ]
+  %67 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  tail call void @mutex_lock(ptr noundef nonnull %67) #6
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %69 = load i8, ptr %68, align 8, !range !5, !noundef !6
+  %70 = icmp eq i8 %69, 0
+  br i1 %70, label %71, label %72
 
-72:                                               ; preds = %63
-  %73 = getelementptr inbounds nuw i8, ptr %11, i64 129
-  %74 = load i8, ptr %73, align 1, !range !5, !noundef !6
-  %75 = icmp eq i8 %74, 0
-  br i1 %75, label %83, label %76
+71:                                               ; preds = %61
+  tail call fastcc void @virtio_gpu_create_context_locked(ptr noundef %8, ptr noundef %10)
+  br label %72
 
-76:                                               ; preds = %72
-  %77 = load i32, ptr %11, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #6
-  %82 = trunc i64 %81 to i32
-  tail call void @virtio_gpu_cmd_context_create(ptr noundef %9, i32 noundef %77, i32 noundef %79, i32 noundef %82, ptr noundef nonnull %80) #6
-  br label %virtio_gpu_create_context_locked.exit
+72:                                               ; preds = %61, %71
+  tail call void @mutex_unlock(ptr noundef nonnull %67) #6
+  %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.pre14 = load i32, ptr %.phi.trans.insert13, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %74 = icmp eq i32 %.pre14, 0
+  br i1 %74, label %87, label %75
 
-83:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
-  %84 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !8
-  %85 = inttoptr i64 %84 to ptr
-  %86 = call ptr @__get_task_comm(ptr noundef nonnull %4, i64 noundef 16, ptr noundef %85) #6
-  %87 = load i32, ptr %11, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %89 = load i32, ptr %88, align 4
-  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
-  %91 = trunc i64 %90 to i32
-  call void @virtio_gpu_cmd_context_create(ptr noundef %9, i32 noundef %87, i32 noundef %89, i32 noundef %91, ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
-  br label %virtio_gpu_create_context_locked.exit
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %77 = load i64, ptr %76, align 8
+  %78 = inttoptr i64 %77 to ptr
+  %79 = zext i32 %.pre14 to i64
+  %80 = tail call ptr @memdup_user(ptr noundef %78, i64 noundef %79) #6
+  %81 = icmp ugt ptr %80, inttoptr (i64 -4096 to ptr)
+  br i1 %81, label %.thread10, label %84
 
-virtio_gpu_create_context_locked.exit:            ; preds = %76, %83
-  store i8 1, ptr %69, align 8
-  br label %92
+.thread10:                                        ; preds = %75
+  %82 = ptrtoint ptr %80 to i64
+  %83 = trunc i64 %82 to i32
+  br label %.critedge
 
-92:                                               ; preds = %63, %virtio_gpu_create_context_locked.exit
-  tail call void @mutex_unlock(ptr noundef nonnull %68) #6
-  %.phi.trans.insert15 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.pre16 = load i32, ptr %.phi.trans.insert15, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %94 = icmp eq i32 %.pre16, 0
-  br i1 %94, label %107, label %95
+84:                                               ; preds = %75
+  %85 = load i32, ptr %73, align 4
+  %86 = load i32, ptr %10, align 8
+  tail call void @virtio_gpu_cmd_submit(ptr noundef %8, ptr noundef %80, i32 noundef %85, i32 noundef %86, ptr noundef null, ptr noundef null) #6
+  br i1 %63, label %92, label %.thread16
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %97 = load i64, ptr %96, align 8
-  %98 = inttoptr i64 %97 to ptr
-  %99 = zext i32 %.pre16 to i64
-  %100 = tail call ptr @memdup_user(ptr noundef %98, i64 noundef %99) #6
-  %101 = icmp ugt ptr %100, inttoptr (i64 -4096 to ptr)
-  br i1 %101, label %.thread12, label %104
+87:                                               ; preds = %72
+  br i1 %63, label %92, label %.thread16
 
-.thread12:                                        ; preds = %95
-  %102 = ptrtoint ptr %100 to i64
-  %103 = trunc i64 %102 to i32
-  br label %.thread11
+.thread16:                                        ; preds = %54, %84, %87
+  %88 = phi ptr [ %62, %87 ], [ %62, %84 ], [ %60, %54 ]
+  %89 = phi i8 [ %64, %87 ], [ %64, %84 ], [ 1, %54 ]
+  %90 = phi i8 [ %66, %87 ], [ %66, %84 ], [ 0, %54 ]
+  %91 = call i32 @virtio_gpu_object_create(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef null) #6
+  br label %95
 
-104:                                              ; preds = %95
-  %105 = load i32, ptr %93, align 4
-  %106 = load i32, ptr %11, align 8
-  tail call void @virtio_gpu_cmd_submit(ptr noundef %9, ptr noundef %100, i32 noundef %105, i32 noundef %106, ptr noundef null, ptr noundef null) #6
-  br label %107
+92:                                               ; preds = %84, %87
+  br i1 %65, label %.critedge, label %93
 
-107:                                              ; preds = %104, %92
-  br i1 %65, label %111, label %.thread18
+93:                                               ; preds = %92
+  %94 = call i32 @virtio_gpu_vram_create(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5) #6
+  br label %95
 
-.thread18:                                        ; preds = %56, %107
-  %108 = phi ptr [ %64, %107 ], [ %62, %56 ]
-  %109 = phi i8 [ %66, %107 ], [ 0, %56 ]
-  %110 = call i32 @virtio_gpu_object_create(ptr noundef %9, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef null) #6
-  br label %114
+95:                                               ; preds = %93, %.thread16
+  %96 = phi ptr [ %88, %.thread16 ], [ %62, %93 ]
+  %97 = phi i8 [ %89, %.thread16 ], [ %64, %93 ]
+  %98 = phi i8 [ %90, %.thread16 ], [ %66, %93 ]
+  %99 = phi i32 [ %91, %.thread16 ], [ %94, %93 ]
+  %100 = icmp slt i32 %99, 0
+  br i1 %100, label %.critedge, label %101
 
-111:                                              ; preds = %107
-  br i1 %67, label %.thread11, label %112
+101:                                              ; preds = %95
+  %102 = load ptr, ptr %5, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 415
+  store i8 %97, ptr %103, align 1
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 414
+  store i8 %98, ptr %104, align 2
+  %105 = load i32, ptr %1, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 416
+  store i32 %105, ptr %106, align 8
+  %107 = load i32, ptr %15, align 4
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 420
+  store i32 %107, ptr %108, align 4
+  %109 = load i32, ptr %96, align 4
+  %110 = and i32 %109, 4
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %116, label %112
 
-112:                                              ; preds = %111
-  %113 = call i32 @virtio_gpu_vram_create(ptr noundef %9, ptr noundef nonnull %7, ptr noundef nonnull %6) #6
-  br label %114
+112:                                              ; preds = %101
+  %113 = call i32 @virtio_gpu_resource_assign_uuid(ptr noundef %8, ptr noundef %102) #6
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %116, label %115
 
-114:                                              ; preds = %112, %.thread18
-  %115 = phi ptr [ %108, %.thread18 ], [ %64, %112 ]
-  %116 = phi i8 [ 1, %.thread18 ], [ 0, %112 ]
-  %117 = phi i8 [ %109, %.thread18 ], [ %66, %112 ]
-  %118 = phi i32 [ %110, %.thread18 ], [ %113, %112 ]
-  %119 = icmp slt i32 %118, 0
-  br i1 %119, label %.thread11, label %120
+115:                                              ; preds = %112
+  call void @drm_gem_object_release(ptr noundef %102) #6
+  br label %.critedge
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr %6, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 415
-  store i8 %116, ptr %122, align 1
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 414
-  store i8 %117, ptr %123, align 2
-  %124 = load i32, ptr %1, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %121, i64 416
-  store i32 %124, ptr %125, align 8
-  %126 = load i32, ptr %16, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %121, i64 420
-  store i32 %126, ptr %127, align 4
-  %128 = load i32, ptr %115, align 4
-  %129 = and i32 %128, 4
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %135, label %131
+116:                                              ; preds = %112, %101
+  %117 = call i32 @drm_gem_handle_create(ptr noundef %2, ptr noundef %102, ptr noundef nonnull %4) #6
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %120, label %119
 
-131:                                              ; preds = %120
-  %132 = call i32 @virtio_gpu_resource_assign_uuid(ptr noundef %9, ptr noundef %121) #6
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %135, label %134
+119:                                              ; preds = %116
+  call void @drm_gem_object_release(ptr noundef %102) #6
+  br label %.critedge
 
-134:                                              ; preds = %131
-  call void @drm_gem_object_release(ptr noundef %121) #6
-  br label %.thread11
+120:                                              ; preds = %116
+  %121 = load ptr, ptr %5, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 408
+  %123 = load i32, ptr %122, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %123, ptr %124, align 4
+  %125 = load i32, ptr %4, align 4
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %125, ptr %126, align 8
+  %127 = icmp eq ptr %102, null
+  br i1 %127, label %.critedge, label %128
 
-135:                                              ; preds = %131, %120
-  %136 = call i32 @drm_gem_handle_create(ptr noundef %2, ptr noundef %121, ptr noundef nonnull %5) #6
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %139, label %138
+128:                                              ; preds = %120
+  %129 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %102, i32 -1, ptr nonnull elementtype(i32) %102) #6, !srcloc !9
+  %130 = icmp eq i32 %129, 1
+  br i1 %130, label %134, label %131
 
-138:                                              ; preds = %135
-  call void @drm_gem_object_release(ptr noundef %121) #6
-  br label %.thread11
+131:                                              ; preds = %128
+  %132 = icmp sgt i32 %129, 0
+  br i1 %132, label %.critedge, label %133, !prof !10
 
-139:                                              ; preds = %135
-  %140 = load ptr, ptr %6, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 408
-  %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %142, ptr %143, align 4
-  %144 = load i32, ptr %5, align 4
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %144, ptr %145, align 8
-  %146 = icmp eq ptr %121, null
-  br i1 %146, label %.thread11, label %147
+133:                                              ; preds = %131
+  call void @refcount_warn_saturate(ptr noundef nonnull %102, i32 noundef 3) #6
+  br label %.critedge
 
-147:                                              ; preds = %139
-  %148 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %121, i32 -1, ptr nonnull elementtype(i32) %121) #6, !srcloc !9
-  %149 = icmp eq i32 %148, 1
-  br i1 %149, label %153, label %150
-
-150:                                              ; preds = %147
-  %151 = icmp sgt i32 %148, 0
-  br i1 %151, label %.thread11, label %152, !prof !10
-
-152:                                              ; preds = %150
-  call void @refcount_warn_saturate(ptr noundef nonnull %121, i32 noundef 3) #6
-  br label %.thread11
-
-153:                                              ; preds = %147
+134:                                              ; preds = %128
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !11
-  call void @drm_gem_object_free(ptr noundef nonnull %121) #6, !callees !12
-  br label %.thread11
+  call void @drm_gem_object_free(ptr noundef nonnull %102) #6, !callees !12
+  br label %.critedge
 
-.thread11:                                        ; preds = %150, %152, %15, %21, %33, %28, %48, %52, %25, %3, %.thread12, %153, %139, %138, %134, %114, %111
-  %154 = phi i32 [ %132, %134 ], [ %136, %138 ], [ -22, %111 ], [ %118, %114 ], [ 0, %139 ], [ 0, %153 ], [ %103, %.thread12 ], [ -22, %3 ], [ -22, %25 ], [ -22, %52 ], [ -22, %48 ], [ -22, %28 ], [ -22, %33 ], [ -22, %21 ], [ -22, %15 ], [ 0, %152 ], [ 0, %150 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  ret i32 %154
+.critedge:                                        ; preds = %131, %133, %.thread10, %3, %24, %50, %46, %27, %31, %20, %14, %134, %120, %119, %115, %95, %92
+  %135 = phi i32 [ %113, %115 ], [ %117, %119 ], [ -22, %92 ], [ %99, %95 ], [ 0, %120 ], [ 0, %134 ], [ -22, %14 ], [ -22, %20 ], [ -22, %31 ], [ -22, %27 ], [ -22, %46 ], [ -22, %50 ], [ -22, %24 ], [ -22, %3 ], [ %83, %.thread10 ], [ 0, %133 ], [ 0, %131 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  ret i32 %135
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

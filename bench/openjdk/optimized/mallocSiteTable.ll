@@ -530,16 +530,19 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   %21 = getelementptr inbounds nuw i8, ptr %.03647, i64 80
   %22 = load volatile ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.142.lcssa = phi i32 [ %.04151, %4 ], [ %spec.select43, %.lr.ph ]
-  %.037.lcssa = phi i32 [ 0, %4 ], [ %11, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %.03554, %4 ], [ %10, %.lr.ph ]
-  %23 = tail call noundef i32 @llvm.smin.i32(i32 %.037.lcssa, i32 65535)
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %23 = tail call i32 @llvm.smin.i32(i32 %11, i32 65535)
   %24 = trunc nuw i32 %23 to i16
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
+  %.142.lcssa = phi i32 [ %.04151, %4 ], [ %spec.select43, %._crit_edge.loopexit ]
+  %.037.lcssa = phi i16 [ 0, %4 ], [ %24, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.03554, %4 ], [ %10, %._crit_edge.loopexit ]
   %25 = getelementptr inbounds nuw [4099 x i16], ptr %3, i64 0, i64 %indvars.iv
-  store i16 %24, ptr %25, align 2
+  store i16 %.037.lcssa, ptr %25, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4099
   br i1 %exitcond.not, label %26, label %4, !llvm.loop !16

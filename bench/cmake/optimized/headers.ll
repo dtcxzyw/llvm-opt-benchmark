@@ -25,33 +25,33 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   %or.cond7.not88 = or i1 %11, %or.cond3.not78.not84.not90
   %12 = icmp slt i32 %4, -1
   %or.cond9 = or i1 %12, %or.cond7.not88
-  br i1 %or.cond9, label %.thread, label %13
+  br i1 %or.cond9, label %.critedge, label %13
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4560
   %15 = tail call i64 @Curl_llist_count(ptr noundef nonnull %14) #5
   %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %.thread, label %16
+  br i1 %.not, label %.critedge, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 3144
   %18 = load i32, ptr %17, align 8, !tbaa !4
   %19 = icmp sgt i32 %4, %18
-  br i1 %19, label %.thread, label %20
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %16
   %21 = icmp eq i32 %4, -1
   %spec.select = select i1 %21, i32 %18, i32 %4
   %22 = tail call ptr @Curl_llist_head(ptr noundef nonnull %14) #5
-  %.not94105 = icmp eq ptr %22, null
-  br i1 %.not94105, label %.thread, label %.lr.ph
+  %.not94103 = icmp eq ptr %22, null
+  br i1 %.not94103, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %38
-  %.0109 = phi ptr [ %.1, %38 ], [ null, %20 ]
-  %.063108 = phi i64 [ %.164, %38 ], [ 0, %20 ]
-  %.068107 = phi ptr [ %.169, %38 ], [ null, %20 ]
-  %.072106 = phi ptr [ %39, %38 ], [ %22, %20 ]
-  %23 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.072106) #5
+  %.0107 = phi ptr [ %.1, %38 ], [ null, %20 ]
+  %.063106 = phi i64 [ %.164, %38 ], [ 0, %20 ]
+  %.068105 = phi ptr [ %.169, %38 ], [ null, %20 ]
+  %.072104 = phi ptr [ %39, %38 ], [ %22, %20 ]
+  %23 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.072104) #5
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !77
   %26 = tail call i32 @curl_strequal(ptr noundef %25, ptr noundef %1) #5
@@ -73,24 +73,24 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %32
-  %37 = add i64 %.063108, 1
+  %37 = add i64 %.063106, 1
   br label %38
 
 38:                                               ; preds = %.lr.ph, %27, %32, %36
-  %.169 = phi ptr [ %.072106, %36 ], [ %.068107, %32 ], [ %.068107, %27 ], [ %.068107, %.lr.ph ]
-  %.164 = phi i64 [ %37, %36 ], [ %.063108, %32 ], [ %.063108, %27 ], [ %.063108, %.lr.ph ]
-  %.1 = phi ptr [ %23, %36 ], [ %.0109, %32 ], [ %.0109, %27 ], [ %.0109, %.lr.ph ]
-  %39 = tail call ptr @Curl_node_next(ptr noundef nonnull %.072106) #5
+  %.169 = phi ptr [ %.072104, %36 ], [ %.068105, %32 ], [ %.068105, %27 ], [ %.068105, %.lr.ph ]
+  %.164 = phi i64 [ %37, %36 ], [ %.063106, %32 ], [ %.063106, %27 ], [ %.063106, %.lr.ph ]
+  %.1 = phi ptr [ %23, %36 ], [ %.0107, %32 ], [ %.0107, %27 ], [ %.0107, %.lr.ph ]
+  %39 = tail call ptr @Curl_node_next(ptr noundef nonnull %.072104) #5
   %.not94 = icmp eq ptr %39, null
   br i1 %.not94, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %38
   %.not95 = icmp eq i64 %.164, 0
-  br i1 %.not95, label %.thread, label %40
+  br i1 %.not95, label %.critedge, label %40
 
 40:                                               ; preds = %._crit_edge
   %.not96 = icmp ult i64 %2, %.164
-  br i1 %.not96, label %41, label %.thread
+  br i1 %.not96, label %41, label %.critedge
 
 41:                                               ; preds = %40
   %42 = add i64 %.164, -1
@@ -100,25 +100,25 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
 ..loopexit_crit_edge:                             ; preds = %41
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1, i64 52
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !tbaa !79
-  %.pre119 = zext i8 %.pre to i32
+  %.pre117 = zext i8 %.pre to i32
   br label %.loopexit
 
 44:                                               ; preds = %41
   %45 = tail call ptr @Curl_llist_head(ptr noundef nonnull %14) #5
-  %.not97112 = icmp eq ptr %45, null
-  br i1 %.not97112, label %.thread, label %.lr.ph116
+  %.not97110 = icmp eq ptr %45, null
+  br i1 %.not97110, label %.critedge, label %.lr.ph114
 
-.lr.ph116:                                        ; preds = %44, %62
-  %.065114 = phi i64 [ %.166, %62 ], [ 0, %44 ]
-  %.173113 = phi ptr [ %63, %62 ], [ %45, %44 ]
-  %46 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.173113) #5
+.lr.ph114:                                        ; preds = %44, %62
+  %.065112 = phi i64 [ %.166, %62 ], [ 0, %44 ]
+  %.173111 = phi ptr [ %63, %62 ], [ %45, %44 ]
+  %46 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.173111) #5
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !77
   %49 = tail call i32 @curl_strequal(ptr noundef %48, ptr noundef %1) #5
   %.not98 = icmp eq i32 %49, 0
   br i1 %.not98, label %62, label %50
 
-50:                                               ; preds = %.lr.ph116
+50:                                               ; preds = %.lr.ph114
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 52
   %52 = load i8, ptr %51, align 4, !tbaa !79
   %53 = zext i8 %52 to i32
@@ -133,19 +133,19 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %55
-  %60 = add i64 %.065114, 1
-  %61 = icmp eq i64 %.065114, %2
+  %60 = add i64 %.065112, 1
+  %61 = icmp eq i64 %.065112, %2
   br i1 %61, label %.loopexit, label %62
 
-62:                                               ; preds = %.lr.ph116, %50, %55, %59
-  %.166 = phi i64 [ %60, %59 ], [ %.065114, %55 ], [ %.065114, %50 ], [ %.065114, %.lr.ph116 ]
-  %63 = tail call ptr @Curl_node_next(ptr noundef nonnull %.173113) #5
+62:                                               ; preds = %.lr.ph114, %50, %55, %59
+  %.166 = phi i64 [ %60, %59 ], [ %.065112, %55 ], [ %.065112, %50 ], [ %.065112, %.lr.ph114 ]
+  %63 = tail call ptr @Curl_node_next(ptr noundef nonnull %.173111) #5
   %.not97 = icmp eq ptr %63, null
-  br i1 %.not97, label %.thread, label %.lr.ph116, !llvm.loop !83
+  br i1 %.not97, label %.critedge, label %.lr.ph114, !llvm.loop !83
 
 .loopexit:                                        ; preds = %59, %..loopexit_crit_edge
-  %.pre-phi = phi i32 [ %.pre119, %..loopexit_crit_edge ], [ %53, %59 ]
-  %.270 = phi ptr [ %.169, %..loopexit_crit_edge ], [ %.173113, %59 ]
+  %.pre-phi = phi i32 [ %.pre117, %..loopexit_crit_edge ], [ %53, %59 ]
+  %.270 = phi ptr [ %.169, %..loopexit_crit_edge ], [ %.173111, %59 ]
   %.162 = phi ptr [ %.1, %..loopexit_crit_edge ], [ %46, %59 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 4592
   %65 = getelementptr inbounds nuw i8, ptr %.162, i64 32
@@ -165,9 +165,9 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 4632
   store ptr %.270, ptr %74, align 8, !tbaa !91
   store ptr %64, ptr %5, align 8, !tbaa !92
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %62, %20, %44, %40, %._crit_edge, %16, %13, %6, %.loopexit
+.critedge:                                        ; preds = %62, %20, %44, %40, %._crit_edge, %16, %13, %6, %.loopexit
   %.067 = phi i32 [ 0, %.loopexit ], [ 6, %6 ], [ 3, %13 ], [ 4, %16 ], [ 2, %._crit_edge ], [ 1, %40 ], [ 2, %44 ], [ 2, %20 ], [ 2, %62 ]
   ret i32 %.067
 }
@@ -355,8 +355,8 @@ define dso_local range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nou
   br i1 %.not57, label %.preheader, label %16
 
 .preheader:                                       ; preds = %13
-  %.not5881 = icmp eq i64 %12, 0
-  br i1 %.not5881, label %.critedge61, label %.lr.ph
+  %.not5883 = icmp eq i64 %12, 0
+  br i1 %.not5883, label %.critedge61, label %.lr.ph
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -366,153 +366,149 @@ define dso_local range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nou
   %21 = ptrtoint ptr %18 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %.not58.i = icmp eq i64 %12, 0
   br i1 %.not58.i, label %.critedge4.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.critedge2.i
-  %.05259.i = phi i64 [ %27, %.critedge2.i ], [ %12, %16 ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.05259.i
-  %24 = load i8, ptr %gep.i, align 1, !tbaa !96
-  switch i8 %24, label %25 [
+  %.05259.i = phi i64 [ %29, %.critedge2.i ], [ %12, %16 ]
+  %24 = getelementptr i8, ptr %1, i64 %.05259.i
+  %25 = getelementptr i8, ptr %24, i64 -1
+  %26 = load i8, ptr %25, align 1, !tbaa !96
+  switch i8 %26, label %27 [
     i8 32, label %.critedge2.i
     i8 9, label %.critedge2.i
   ]
 
-25:                                               ; preds = %.lr.ph.i
-  %26 = add i8 %24, -10
-  %or.cond.i = icmp ult i8 %26, 4
+27:                                               ; preds = %.lr.ph.i
+  %28 = add i8 %26, -10
+  %or.cond.i = icmp ult i8 %28, 4
   br i1 %or.cond.i, label %.critedge2.i, label %.critedge.i
 
-.critedge2.i:                                     ; preds = %25, %.lr.ph.i, %.lr.ph.i
-  %27 = add i64 %.05259.i, -1
-  %.not.i = icmp eq i64 %27, 0
+.critedge2.i:                                     ; preds = %27, %.lr.ph.i, %.lr.ph.i
+  %29 = add i64 %.05259.i, -1
+  %.not.i = icmp eq i64 %29, 0
   br i1 %.not.i, label %.critedge4.i, label %.lr.ph.i, !llvm.loop !98
 
-.critedge.i:                                      ; preds = %25
-  %28 = icmp ugt i64 %.05259.i, 1
-  br i1 %28, label %.lr.ph64.preheader.i, label %.critedge4.i
+.critedge.i:                                      ; preds = %27
+  %30 = getelementptr i8, ptr %24, i64 -1
+  %31 = icmp ugt i64 %.05259.i, 1
+  br i1 %31, label %.lr.ph64.i, label %.critedge4.i
 
-.lr.ph64.preheader.i:                             ; preds = %.critedge.i
-  %29 = getelementptr i8, ptr %1, i64 %.05259.i
-  %scevgep.i = getelementptr i8, ptr %29, i64 -1
-  br label %.lr.ph64.i
-
-.lr.ph64.i:                                       ; preds = %.critedge6.i, %.lr.ph64.preheader.i
-  %30 = phi i8 [ %33, %.critedge6.i ], [ %4, %.lr.ph64.preheader.i ]
-  %.05163.i = phi ptr [ %32, %.critedge6.i ], [ %1, %.lr.ph64.preheader.i ]
-  %.162.i = phi i64 [ %34, %.critedge6.i ], [ %.05259.i, %.lr.ph64.preheader.i ]
-  switch i8 %30, label %.critedge4.i [
-    i8 32, label %31
-    i8 9, label %31
+.lr.ph64.i:                                       ; preds = %.critedge.i, %.critedge6.i
+  %32 = phi i8 [ %35, %.critedge6.i ], [ %4, %.critedge.i ]
+  %.05163.i = phi ptr [ %34, %.critedge6.i ], [ %1, %.critedge.i ]
+  %.162.i = phi i64 [ %36, %.critedge6.i ], [ %.05259.i, %.critedge.i ]
+  switch i8 %32, label %.critedge4.i [
+    i8 32, label %33
+    i8 9, label %33
   ]
 
-31:                                               ; preds = %.lr.ph64.i, %.lr.ph64.i
-  %32 = getelementptr inbounds nuw i8, ptr %.05163.i, i64 1
-  %33 = load i8, ptr %32, align 1, !tbaa !96
-  switch i8 %33, label %.critedge4.i [
+33:                                               ; preds = %.lr.ph64.i, %.lr.ph64.i
+  %34 = getelementptr inbounds nuw i8, ptr %.05163.i, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !96
+  switch i8 %35, label %.critedge4.i [
     i8 32, label %.critedge6.i
     i8 9, label %.critedge6.i
   ]
 
-.critedge6.i:                                     ; preds = %31, %31
-  %34 = add i64 %.162.i, -1
-  %35 = icmp ugt i64 %34, 1
-  br i1 %35, label %.lr.ph64.i, label %.critedge4.i, !llvm.loop !99
+.critedge6.i:                                     ; preds = %33, %33
+  %36 = add i64 %.162.i, -1
+  %37 = icmp ugt i64 %36, 1
+  br i1 %37, label %.lr.ph64.i, label %.critedge4.i, !llvm.loop !99
 
-.critedge4.i:                                     ; preds = %.critedge2.i, %.critedge6.i, %31, %.lr.ph64.i, %.critedge.i, %16
-  %.1.lcssa.i = phi i64 [ 1, %.critedge.i ], [ 0, %16 ], [ 1, %.critedge6.i ], [ %.162.i, %.lr.ph64.i ], [ %.162.i, %31 ], [ 0, %.critedge2.i ]
-  %.051.lcssa.i = phi ptr [ %1, %.critedge.i ], [ %1, %16 ], [ %scevgep.i, %.critedge6.i ], [ %.05163.i, %.lr.ph64.i ], [ %.05163.i, %31 ], [ %1, %.critedge2.i ]
+.critedge4.i:                                     ; preds = %.critedge2.i, %.critedge6.i, %33, %.lr.ph64.i, %.critedge.i, %16
+  %.1.lcssa.i = phi i64 [ 1, %.critedge.i ], [ 0, %16 ], [ 1, %.critedge6.i ], [ %.162.i, %.lr.ph64.i ], [ %.162.i, %33 ], [ 0, %.critedge2.i ]
+  %.051.lcssa.i = phi ptr [ %1, %.critedge.i ], [ %1, %16 ], [ %30, %.critedge6.i ], [ %.05163.i, %.lr.ph64.i ], [ %.05163.i, %33 ], [ %1, %.critedge2.i ]
   tail call void @Curl_node_remove(ptr noundef nonnull %15) #5
-  %36 = add i64 %19, 58
-  %37 = add i64 %36, %23
-  %38 = add i64 %37, %.1.lcssa.i
-  %39 = tail call ptr @Curl_saferealloc(ptr noundef nonnull %15, i64 noundef %38) #5
-  %.not57.i = icmp eq ptr %39, null
-  br i1 %.not57.i, label %.critedge61, label %40
+  %38 = add i64 %19, 58
+  %39 = add i64 %38, %23
+  %40 = add i64 %39, %.1.lcssa.i
+  %41 = tail call ptr @Curl_saferealloc(ptr noundef nonnull %15, i64 noundef %40) #5
+  %.not57.i = icmp eq ptr %41, null
+  br i1 %.not57.i, label %.critedge61, label %42
 
-40:                                               ; preds = %.critedge4.i
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 53
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr %41, ptr %42, align 8, !tbaa !77
-  %43 = getelementptr inbounds nuw [1 x i8], ptr %41, i64 0, i64 %23
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  store ptr %43, ptr %44, align 8, !tbaa !86
-  %45 = getelementptr i8, ptr %43, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr align 1 %.051.lcssa.i, i64 %.1.lcssa.i, i1 false)
-  %46 = getelementptr i8, ptr %45, i64 %.1.lcssa.i
-  store i8 0, ptr %46, align 1, !tbaa !96
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4560
-  tail call void @Curl_llist_append(ptr noundef nonnull %47, ptr noundef nonnull %39, ptr noundef nonnull %39) #5
-  store ptr %39, ptr %14, align 8, !tbaa !97
+42:                                               ; preds = %.critedge4.i
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 53
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  store ptr %43, ptr %44, align 8, !tbaa !77
+  %45 = getelementptr inbounds nuw [1 x i8], ptr %43, i64 0, i64 %23
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  store ptr %45, ptr %46, align 8, !tbaa !86
+  %47 = getelementptr i8, ptr %45, i64 %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %.051.lcssa.i, i64 %.1.lcssa.i, i1 false)
+  %48 = getelementptr i8, ptr %47, i64 %.1.lcssa.i
+  store i8 0, ptr %48, align 1, !tbaa !96
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4560
+  tail call void @Curl_llist_append(ptr noundef nonnull %49, ptr noundef nonnull %41, ptr noundef nonnull %41) #5
+  store ptr %41, ptr %14, align 8, !tbaa !97
   br label %.critedge61
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge2
-  %.183 = phi i64 [ %50, %.critedge2 ], [ %12, %.preheader ]
-  %.14982 = phi ptr [ %49, %.critedge2 ], [ %1, %.preheader ]
-  %48 = load i8, ptr %.14982, align 1, !tbaa !96
-  switch i8 %48, label %.critedge [
+  %.185 = phi i64 [ %52, %.critedge2 ], [ %12, %.preheader ]
+  %.14984 = phi ptr [ %51, %.critedge2 ], [ %1, %.preheader ]
+  %50 = load i8, ptr %.14984, align 1, !tbaa !96
+  switch i8 %50, label %.critedge [
     i8 32, label %.critedge2
     i8 9, label %.critedge2
   ]
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
-  %49 = getelementptr inbounds nuw i8, ptr %.14982, i64 1
-  %50 = add i64 %.183, -1
-  %.not58 = icmp eq i64 %50, 0
+  %51 = getelementptr inbounds nuw i8, ptr %.14984, i64 1
+  %52 = add i64 %.185, -1
+  %.not58 = icmp eq i64 %52, 0
   br i1 %.not58, label %.critedge61, label %.lr.ph, !llvm.loop !100
 
 .critedge:                                        ; preds = %.lr.ph, %9
-  %.048 = phi ptr [ %1, %9 ], [ %.14982, %.lr.ph ]
-  %.046 = phi i64 [ %12, %9 ], [ %.183, %.lr.ph ]
-  %51 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !101
-  %52 = add i64 %.046, 56
-  %53 = tail call ptr %51(i64 noundef 1, i64 noundef %52) #5
-  %.not59 = icmp eq ptr %53, null
-  br i1 %.not59, label %.critedge61, label %54
+  %.048 = phi ptr [ %1, %9 ], [ %.14984, %.lr.ph ]
+  %.046 = phi i64 [ %12, %9 ], [ %.185, %.lr.ph ]
+  %53 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !101
+  %54 = add i64 %.046, 56
+  %55 = tail call ptr %53(i64 noundef 1, i64 noundef %54) #5
+  %.not59 = icmp eq ptr %55, null
+  br i1 %.not59, label %.critedge61, label %56
 
-54:                                               ; preds = %.critedge
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %.048, i64 %.046, i1 false)
-  %56 = getelementptr inbounds nuw [1 x i8], ptr %55, i64 0, i64 %.046
-  store i8 0, ptr %56, align 1, !tbaa !96
-  %57 = icmp eq i8 %2, 16
-  br i1 %57, label %58, label %.preheader99
+56:                                               ; preds = %.critedge
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 53
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull align 1 %.048, i64 %.046, i1 false)
+  %58 = getelementptr inbounds nuw [1 x i8], ptr %57, i64 0, i64 %.046
+  store i8 0, ptr %58, align 1, !tbaa !96
+  %59 = icmp eq i8 %2, 16
+  br i1 %59, label %60, label %.preheader105
 
-58:                                               ; preds = %54
-  %59 = load i8, ptr %55, align 1, !tbaa !96
-  %.not.i68 = icmp eq i8 %59, 58
-  br i1 %.not.i68, label %60, label %namevalue.exit
+60:                                               ; preds = %56
+  %61 = load i8, ptr %57, align 1, !tbaa !96
+  %.not.i68 = icmp eq i8 %61, 58
+  br i1 %.not.i68, label %62, label %namevalue.exit
 
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %53, i64 54
-  br label %.preheader99
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 54
+  br label %.preheader105
 
-.preheader99:                                     ; preds = %60, %54
-  %.1.i.ph = phi ptr [ %55, %54 ], [ %61, %60 ]
-  br label %62
+.preheader105:                                    ; preds = %62, %56
+  %.1.i.ph = phi ptr [ %57, %56 ], [ %63, %62 ]
+  br label %64
 
-62:                                               ; preds = %.preheader99, %64
-  %.1.i = phi ptr [ %65, %64 ], [ %.1.i.ph, %.preheader99 ]
-  %63 = load i8, ptr %.1.i, align 1, !tbaa !96
-  switch i8 %63, label %64 [
+64:                                               ; preds = %.preheader105, %66
+  %.1.i = phi ptr [ %67, %66 ], [ %.1.i.ph, %.preheader105 ]
+  %65 = load i8, ptr %.1.i, align 1, !tbaa !96
+  switch i8 %65, label %66 [
     i8 0, label %namevalue.exit
-    i8 58, label %66
+    i8 58, label %68
   ]
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  br label %62, !llvm.loop !102
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
+  br label %64, !llvm.loop !102
 
-66:                                               ; preds = %62
+68:                                               ; preds = %64
   store i8 0, ptr %.1.i, align 1, !tbaa !96
   br label %.critedge4.i62
 
-.critedge4.i62:                                   ; preds = %.critedge4.i62.backedge, %66
-  %.1.pn.i = phi ptr [ %.1.i, %66 ], [ %.2.i, %.critedge4.i62.backedge ]
+.critedge4.i62:                                   ; preds = %.critedge4.i62.backedge, %68
+  %.1.pn.i = phi ptr [ %.1.i, %68 ], [ %.2.i, %.critedge4.i62.backedge ]
   %.2.i = getelementptr inbounds nuw i8, ptr %.1.pn.i, i64 1
-  %67 = load i8, ptr %.2.i, align 1, !tbaa !96
-  switch i8 %67, label %.critedge2.i63 [
+  %69 = load i8, ptr %.2.i, align 1, !tbaa !96
+  switch i8 %69, label %.critedge2.i63 [
     i8 9, label %.critedge4.i62.backedge
     i8 32, label %.critedge4.i62.backedge
   ]
@@ -521,53 +517,53 @@ define dso_local range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nou
   br label %.critedge4.i62, !llvm.loop !103
 
 .critedge2.i63:                                   ; preds = %.critedge4.i62
-  %.044.i = getelementptr inbounds i8, ptr %56, i64 -1
-  %68 = icmp ugt ptr %.044.i, %.2.i
-  br i1 %68, label %.lr.ph.i65, label %.loopexit
+  %.044.i = getelementptr inbounds i8, ptr %58, i64 -1
+  %70 = icmp ugt ptr %.044.i, %.2.i
+  br i1 %70, label %.lr.ph.i65, label %.loopexit
 
 .lr.ph.i65:                                       ; preds = %.critedge2.i63, %.critedge8.i
   %.045.i = phi ptr [ %.0.i66, %.critedge8.i ], [ %.044.i, %.critedge2.i63 ]
-  %69 = load i8, ptr %.045.i, align 1, !tbaa !96
-  switch i8 %69, label %70 [
+  %71 = load i8, ptr %.045.i, align 1, !tbaa !96
+  switch i8 %71, label %72 [
     i8 32, label %.critedge8.i
     i8 9, label %.critedge8.i
   ]
 
-70:                                               ; preds = %.lr.ph.i65
-  %71 = add i8 %69, -10
-  %or.cond.i67 = icmp ult i8 %71, 4
+72:                                               ; preds = %.lr.ph.i65
+  %73 = add i8 %71, -10
+  %or.cond.i67 = icmp ult i8 %73, 4
   br i1 %or.cond.i67, label %.critedge8.i, label %.loopexit
 
-.critedge8.i:                                     ; preds = %70, %.lr.ph.i65, %.lr.ph.i65
+.critedge8.i:                                     ; preds = %72, %.lr.ph.i65, %.lr.ph.i65
   store i8 0, ptr %.045.i, align 1, !tbaa !96
   %.0.i66 = getelementptr inbounds i8, ptr %.045.i, i64 -1
-  %72 = icmp ugt ptr %.0.i66, %.2.i
-  br i1 %72, label %.lr.ph.i65, label %.loopexit, !llvm.loop !104
+  %74 = icmp ugt ptr %.0.i66, %.2.i
+  br i1 %74, label %.lr.ph.i65, label %.loopexit, !llvm.loop !104
 
-.loopexit:                                        ; preds = %70, %.critedge8.i, %.critedge2.i63
-  %73 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  store ptr %55, ptr %73, align 8, !tbaa !77
-  %74 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store ptr %.2.i, ptr %74, align 8, !tbaa !86
-  %75 = getelementptr inbounds nuw i8, ptr %53, i64 52
-  store i8 %2, ptr %75, align 4, !tbaa !79
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 3144
-  %77 = load i32, ptr %76, align 8, !tbaa !4
-  %78 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  store i32 %77, ptr %78, align 8, !tbaa !80
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 4560
-  tail call void @Curl_llist_append(ptr noundef nonnull %79, ptr noundef nonnull %53, ptr noundef nonnull %53) #5
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 4688
-  store ptr %53, ptr %80, align 8, !tbaa !97
+.loopexit:                                        ; preds = %72, %.critedge8.i, %.critedge2.i63
+  %75 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  store ptr %57, ptr %75, align 8, !tbaa !77
+  %76 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  store ptr %.2.i, ptr %76, align 8, !tbaa !86
+  %77 = getelementptr inbounds nuw i8, ptr %55, i64 52
+  store i8 %2, ptr %77, align 4, !tbaa !79
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 3144
+  %79 = load i32, ptr %78, align 8, !tbaa !4
+  %80 = getelementptr inbounds nuw i8, ptr %55, i64 48
+  store i32 %79, ptr %80, align 8, !tbaa !80
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 4560
+  tail call void @Curl_llist_append(ptr noundef nonnull %81, ptr noundef nonnull %55, ptr noundef nonnull %55) #5
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 4688
+  store ptr %55, ptr %82, align 8, !tbaa !97
   br label %.critedge61
 
-namevalue.exit:                                   ; preds = %62, %58
-  %81 = load ptr, ptr @Curl_cfree, align 8, !tbaa !101
-  tail call void %81(ptr noundef nonnull %53) #5
+namevalue.exit:                                   ; preds = %64, %60
+  %83 = load ptr, ptr @Curl_cfree, align 8, !tbaa !101
+  tail call void %83(ptr noundef nonnull %55) #5
   br label %.critedge61
 
-.critedge61:                                      ; preds = %.critedge2, %.preheader, %40, %.critedge4.i, %.loopexit, %namevalue.exit, %.critedge, %7, %3, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %3 ], [ 8, %7 ], [ 27, %.critedge ], [ 43, %namevalue.exit ], [ 0, %.loopexit ], [ 0, %40 ], [ 27, %.critedge4.i ], [ 8, %.preheader ], [ 8, %.critedge2 ]
+.critedge61:                                      ; preds = %.critedge2, %.preheader, %42, %.critedge4.i, %.loopexit, %namevalue.exit, %.critedge, %7, %3, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %3 ], [ 8, %7 ], [ 27, %.critedge ], [ 43, %namevalue.exit ], [ 0, %.loopexit ], [ 0, %42 ], [ 27, %.critedge4.i ], [ 8, %.preheader ], [ 8, %.critedge2 ]
   ret i32 %.0
 }
 

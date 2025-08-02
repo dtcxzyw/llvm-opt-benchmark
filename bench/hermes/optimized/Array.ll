@@ -1283,7 +1283,6 @@ if.end17:                                         ; preds = %_ZN6hermes2vm15Hand
 for.body.lr.ph:                                   ; preds = %if.end17
   %13 = ptrtoint ptr %runtime to i64
   %14 = load ptr, ptr %args, align 8, !noalias !19
-  %invariant.gep = getelementptr i8, ptr %14, i64 -8
   br label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
 
 _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %for.inc, %for.body.lr.ph
@@ -1291,8 +1290,9 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %for.inc, %for.body.
   %finalSizeEstimate.sroa.11.1370 = phi i32 [ 0, %for.body.lr.ph ], [ %finalSizeEstimate.sroa.11.2, %for.inc ]
   %finalSizeEstimate.sroa.0.1369 = phi i64 [ %finalSizeEstimate.sroa.0.0, %for.body.lr.ph ], [ %add.i92, %for.inc ]
   %idx.neg.i.i.i = sub nsw i64 0, %i.0371
-  %gep = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep, i64 %idx.neg.i.i.i
-  %retval.sroa.0.0.copyload.i = load i64, ptr %gep, align 8
+  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %14, i64 %idx.neg.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -8
+  %retval.sroa.0.0.copyload.i = load i64, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i74 = icmp ugt i64 %retval.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i74, label %cond.true.i75, label %for.inc
 

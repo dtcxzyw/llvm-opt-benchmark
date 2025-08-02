@@ -3752,13 +3752,13 @@ define internal fastcc i32 @cdrom_ioctl_get_subchnl(ptr noundef %0, ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !46
   %4 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 16) #17
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %78
+  br i1 %5, label %6, label %77
 
 6:                                                ; preds = %2
   %7 = load i8, ptr %3, align 4
   %8 = add i8 %7, -3
   %9 = icmp ult i8 %8, -2
-  br i1 %9, label %78, label %10
+  br i1 %9, label %77, label %10
 
 10:                                               ; preds = %6
   store i8 2, ptr %3, align 4
@@ -3767,13 +3767,13 @@ define internal fastcc i32 @cdrom_ioctl_get_subchnl(ptr noundef %0, ptr noundef 
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 %13(ptr noundef %0, i32 noundef 21259, ptr noundef nonnull %3) #17
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %78
+  br i1 %15, label %16, label %77
 
 16:                                               ; preds = %10
   %17 = load i8, ptr %3, align 4
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = icmp eq i8 %17, %7
-  br i1 %19, label %74, label %20
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %16
   %21 = icmp eq i8 %7, 1
@@ -3844,18 +3844,18 @@ define internal fastcc i32 @cdrom_ioctl_get_subchnl(ptr noundef %0, ptr noundef 
 
 73:                                               ; preds = %50, %23
   store i8 %7, ptr %3, align 4
-  br label %74
+  br label %.critedge
 
-74:                                               ; preds = %16, %73
-  %75 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 16) #17
-  %76 = icmp eq i64 %75, 0
-  %77 = select i1 %76, i32 0, i32 -14
-  br label %78
+.critedge:                                        ; preds = %16, %73
+  %74 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 16) #17
+  %75 = icmp eq i64 %74, 0
+  %76 = select i1 %75, i32 0, i32 -14
+  br label %77
 
-78:                                               ; preds = %74, %10, %6, %2
-  %79 = phi i32 [ -14, %2 ], [ -22, %6 ], [ %14, %10 ], [ %77, %74 ]
+77:                                               ; preds = %.critedge, %10, %6, %2
+  %78 = phi i32 [ -14, %2 ], [ -22, %6 ], [ %14, %10 ], [ %76, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  ret i32 %79
+  ret i32 %78
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4772,13 +4772,13 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !46
   %6 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 16) #17
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %164
+  br i1 %7, label %8, label %163
 
 8:                                                ; preds = %2
   %9 = load i8, ptr %5, align 4
   %10 = add i8 %9, -1
   %11 = icmp ult i8 %10, 2
-  br i1 %11, label %12, label %164
+  br i1 %11, label %12, label %163
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
@@ -4910,7 +4910,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
 105:                                              ; preds = %12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #17
-  br label %164
+  br label %163
 
 106:                                              ; preds = %86, %47
   %107 = phi i8 [ %88, %86 ], [ %81, %47 ]
@@ -4923,7 +4923,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #17
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %114 = icmp eq i8 %45, %9
-  br i1 %114, label %160, label %115
+  br i1 %114, label %.critedge, label %115
 
 115:                                              ; preds = %106
   %116 = icmp eq i8 %9, 1
@@ -4985,18 +4985,18 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
 
 159:                                              ; preds = %135, %117
   store i8 %9, ptr %5, align 4
-  br label %160
+  br label %.critedge
 
-160:                                              ; preds = %106, %159
-  %161 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %5, i64 noundef 16) #17
-  %162 = icmp eq i64 %161, 0
-  %163 = select i1 %162, i32 0, i32 -14
-  br label %164
+.critedge:                                        ; preds = %106, %159
+  %160 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %5, i64 noundef 16) #17
+  %161 = icmp eq i64 %160, 0
+  %162 = select i1 %161, i32 0, i32 -14
+  br label %163
 
-164:                                              ; preds = %105, %160, %8, %2
-  %165 = phi i32 [ -14, %2 ], [ -22, %8 ], [ %25, %105 ], [ %163, %160 ]
+163:                                              ; preds = %105, %.critedge, %8, %2
+  %164 = phi i32 [ -14, %2 ], [ -22, %8 ], [ %25, %105 ], [ %162, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  ret i32 %165
+  ret i32 %164
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -6616,22 +6616,22 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
 
 13:                                               ; preds = %8, %5
   store i64 0, ptr %3, align 8
-  br label %614
+  br label %634
 
 14:                                               ; preds = %8
   tail call void @mutex_lock(ptr noundef nonnull @cdrom_mutex) #17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(49) @cdrom_sysctl_settings, ptr noundef nonnull align 1 dereferenceable(49) @.str.30, i64 49, i1 false)
   %15 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cdrom_sysctl_settings, i64 48), i64 noundef 952, ptr noundef nonnull @.str.31) #17
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.loopexit, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %14
   %18 = add i32 %15, 48
   %19 = load ptr, ptr @cdrom_list, align 8
   %20 = icmp eq ptr %19, @cdrom_list
-  br i1 %20, label %.loopexit233, label %.preheader231
+  br i1 %20, label %.loopexit252, label %.preheader250
 
-.preheader231:                                    ; preds = %17, %29
+.preheader250:                                    ; preds = %17, %29
   %21 = phi i32 [ %30, %29 ], [ %18, %17 ]
   %22 = phi ptr [ %31, %29 ], [ %19, %17 ]
   %23 = sext i32 %21 to i64
@@ -6641,836 +6641,836 @@ define internal i32 @cdrom_sysctl_info(ptr noundef %0, i32 noundef %1, ptr nound
   %27 = getelementptr i8, ptr %22, i64 60
   %28 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %24, i64 noundef %26, ptr noundef nonnull @.str.53, ptr noundef %27) #17
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %.loopexit, label %29
+  br i1 %.not, label %.critedge, label %29
 
-29:                                               ; preds = %.preheader231
+29:                                               ; preds = %.preheader250
   %30 = add i32 %28, %21
   %31 = load ptr, ptr %22, align 8
   %32 = icmp eq ptr %31, @cdrom_list
-  br i1 %32, label %.loopexit233, label %.preheader231, !llvm.loop !58
+  br i1 %32, label %.loopexit252, label %.preheader250, !llvm.loop !58
 
-.loopexit233:                                     ; preds = %29, %17
-  %.ph = phi i32 [ %18, %17 ], [ %30, %29 ]
-  %33 = sext i32 %.ph to i64
-  %34 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %33
-  %35 = sub i32 1000, %.ph
-  %36 = sext i32 %35 to i64
-  %37 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %34, i64 noundef %36, ptr noundef nonnull @.str.32) #17
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.loopexit, label %39
+.loopexit252:                                     ; preds = %29, %17
+  %33 = phi i32 [ %18, %17 ], [ %30, %29 ]
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %34
+  %36 = sub i32 1000, %33
+  %37 = sext i32 %36 to i64
+  %38 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %35, i64 noundef %37, ptr noundef nonnull @.str.32) #17
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %.critedge, label %40
 
-39:                                               ; preds = %.loopexit233
-  %40 = add i32 %37, %.ph
-  %41 = load ptr, ptr @cdrom_list, align 8
-  %42 = icmp eq ptr %41, @cdrom_list
-  br i1 %42, label %.loopexit230, label %.preheader228
+40:                                               ; preds = %.loopexit252
+  %41 = add i32 %38, %33
+  %42 = load ptr, ptr @cdrom_list, align 8
+  %43 = icmp eq ptr %42, @cdrom_list
+  br i1 %43, label %.loopexit249, label %.preheader247
 
-.preheader228:                                    ; preds = %39, %52
-  %43 = phi i32 [ %53, %52 ], [ %40, %39 ]
-  %44 = phi ptr [ %54, %52 ], [ %41, %39 ]
-  %45 = sext i32 %43 to i64
-  %46 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %45
-  %47 = sub i32 1000, %43
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr i8, ptr %44, i64 36
-  %50 = load i32, ptr %49, align 4
-  %51 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %46, i64 noundef %48, ptr noundef nonnull @.str.54, i32 noundef %50) #17
-  %.not100 = icmp eq i32 %51, 0
-  br i1 %.not100, label %.loopexit, label %52
+.preheader247:                                    ; preds = %40, %53
+  %44 = phi i32 [ %54, %53 ], [ %41, %40 ]
+  %45 = phi ptr [ %55, %53 ], [ %42, %40 ]
+  %46 = sext i32 %44 to i64
+  %47 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %46
+  %48 = sub i32 1000, %44
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr i8, ptr %45, i64 36
+  %51 = load i32, ptr %50, align 4
+  %52 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %47, i64 noundef %49, ptr noundef nonnull @.str.54, i32 noundef %51) #17
+  %.not138 = icmp eq i32 %52, 0
+  br i1 %.not138, label %.critedge, label %53
 
-52:                                               ; preds = %.preheader228
-  %53 = add i32 %51, %43
-  %54 = load ptr, ptr %44, align 8
-  %55 = icmp eq ptr %54, @cdrom_list
-  br i1 %55, label %.loopexit230, label %.preheader228, !llvm.loop !58
+53:                                               ; preds = %.preheader247
+  %54 = add i32 %52, %44
+  %55 = load ptr, ptr %45, align 8
+  %56 = icmp eq ptr %55, @cdrom_list
+  br i1 %56, label %.loopexit249, label %.preheader247, !llvm.loop !58
 
-.loopexit230:                                     ; preds = %52, %39
-  %.ph120 = phi i32 [ %40, %39 ], [ %53, %52 ]
-  %56 = sext i32 %.ph120 to i64
-  %57 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %56
-  %58 = sub i32 1000, %.ph120
-  %59 = sext i32 %58 to i64
-  %60 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %57, i64 noundef %59, ptr noundef nonnull @.str.33) #17
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.loopexit, label %62
+.loopexit249:                                     ; preds = %53, %40
+  %57 = phi i32 [ %41, %40 ], [ %54, %53 ]
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %58
+  %60 = sub i32 1000, %57
+  %61 = sext i32 %60 to i64
+  %62 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %59, i64 noundef %61, ptr noundef nonnull @.str.33) #17
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %.critedge, label %64
 
-62:                                               ; preds = %.loopexit230
-  %63 = add i32 %60, %.ph120
-  %64 = load ptr, ptr @cdrom_list, align 8
-  %65 = icmp eq ptr %64, @cdrom_list
-  br i1 %65, label %.loopexit227, label %.preheader225
+64:                                               ; preds = %.loopexit249
+  %65 = add i32 %62, %57
+  %66 = load ptr, ptr @cdrom_list, align 8
+  %67 = icmp eq ptr %66, @cdrom_list
+  br i1 %67, label %.loopexit246, label %.preheader244
 
-.preheader225:                                    ; preds = %62, %75
-  %66 = phi i32 [ %76, %75 ], [ %63, %62 ]
-  %67 = phi ptr [ %77, %75 ], [ %64, %62 ]
-  %68 = sext i32 %66 to i64
-  %69 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %68
-  %70 = sub i32 1000, %66
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr i8, ptr %67, i64 40
-  %73 = load i32, ptr %72, align 8
-  %74 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %69, i64 noundef %71, ptr noundef nonnull @.str.54, i32 noundef %73) #17
-  %.not101 = icmp eq i32 %74, 0
-  br i1 %.not101, label %.loopexit, label %75
+.preheader244:                                    ; preds = %64, %77
+  %68 = phi i32 [ %78, %77 ], [ %65, %64 ]
+  %69 = phi ptr [ %79, %77 ], [ %66, %64 ]
+  %70 = sext i32 %68 to i64
+  %71 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %70
+  %72 = sub i32 1000, %68
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr i8, ptr %69, i64 40
+  %75 = load i32, ptr %74, align 8
+  %76 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %71, i64 noundef %73, ptr noundef nonnull @.str.54, i32 noundef %75) #17
+  %.not139 = icmp eq i32 %76, 0
+  br i1 %.not139, label %.critedge, label %77
 
-75:                                               ; preds = %.preheader225
-  %76 = add i32 %74, %66
-  %77 = load ptr, ptr %67, align 8
-  %78 = icmp eq ptr %77, @cdrom_list
-  br i1 %78, label %.loopexit227, label %.preheader225, !llvm.loop !58
+77:                                               ; preds = %.preheader244
+  %78 = add i32 %76, %68
+  %79 = load ptr, ptr %69, align 8
+  %80 = icmp eq ptr %79, @cdrom_list
+  br i1 %80, label %.loopexit246, label %.preheader244, !llvm.loop !58
 
-.loopexit227:                                     ; preds = %75, %62
-  %.ph123 = phi i32 [ %63, %62 ], [ %76, %75 ]
-  %79 = sext i32 %.ph123 to i64
-  %80 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %79
-  %81 = sub i32 1000, %.ph123
+.loopexit246:                                     ; preds = %77, %64
+  %81 = phi i32 [ %65, %64 ], [ %78, %77 ]
   %82 = sext i32 %81 to i64
-  %83 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %80, i64 noundef %82, ptr noundef nonnull @.str.34) #17
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %.loopexit, label %85
+  %83 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %82
+  %84 = sub i32 1000, %81
+  %85 = sext i32 %84 to i64
+  %86 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %83, i64 noundef %85, ptr noundef nonnull @.str.34) #17
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %.critedge, label %88
 
-85:                                               ; preds = %.loopexit227
-  %86 = add i32 %83, %.ph123
-  %87 = load ptr, ptr @cdrom_list, align 8
-  %88 = icmp eq ptr %87, @cdrom_list
-  br i1 %88, label %.loopexit224, label %.preheader222
+88:                                               ; preds = %.loopexit246
+  %89 = add i32 %86, %81
+  %90 = load ptr, ptr @cdrom_list, align 8
+  %91 = icmp eq ptr %90, @cdrom_list
+  br i1 %91, label %.loopexit243, label %.preheader241
 
-.preheader222:                                    ; preds = %85, %105
-  %89 = phi i32 [ %106, %105 ], [ %86, %85 ]
-  %90 = phi ptr [ %107, %105 ], [ %87, %85 ]
-  %91 = getelementptr i8, ptr %90, i64 -8
-  %92 = sext i32 %89 to i64
-  %93 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %92
-  %94 = sub i32 1000, %89
-  %95 = sext i32 %94 to i64
-  %96 = load ptr, ptr %91, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 104
-  %98 = load i32, ptr %97, align 8
-  %99 = getelementptr i8, ptr %90, i64 32
-  %100 = load i32, ptr %99, align 8
-  %101 = xor i32 %100, -1
-  %102 = and i32 %98, 1
-  %103 = and i32 %102, %101
-  %104 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %93, i64 noundef %95, ptr noundef nonnull @.str.54, i32 noundef %103) #17
-  %.not102 = icmp eq i32 %104, 0
-  br i1 %.not102, label %.loopexit, label %105
+.preheader241:                                    ; preds = %88, %108
+  %92 = phi i32 [ %109, %108 ], [ %89, %88 ]
+  %93 = phi ptr [ %110, %108 ], [ %90, %88 ]
+  %94 = getelementptr i8, ptr %93, i64 -8
+  %95 = sext i32 %92 to i64
+  %96 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %95
+  %97 = sub i32 1000, %92
+  %98 = sext i32 %97 to i64
+  %99 = load ptr, ptr %94, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 104
+  %101 = load i32, ptr %100, align 8
+  %102 = getelementptr i8, ptr %93, i64 32
+  %103 = load i32, ptr %102, align 8
+  %104 = xor i32 %103, -1
+  %105 = and i32 %101, 1
+  %106 = and i32 %105, %104
+  %107 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %96, i64 noundef %98, ptr noundef nonnull @.str.54, i32 noundef %106) #17
+  %.not140 = icmp eq i32 %107, 0
+  br i1 %.not140, label %.critedge, label %108
 
-105:                                              ; preds = %.preheader222
-  %106 = add i32 %104, %89
-  %107 = load ptr, ptr %90, align 8
-  %108 = icmp eq ptr %107, @cdrom_list
-  br i1 %108, label %.loopexit224, label %.preheader222, !llvm.loop !58
+108:                                              ; preds = %.preheader241
+  %109 = add i32 %107, %92
+  %110 = load ptr, ptr %93, align 8
+  %111 = icmp eq ptr %110, @cdrom_list
+  br i1 %111, label %.loopexit243, label %.preheader241, !llvm.loop !58
 
-.loopexit224:                                     ; preds = %105, %85
-  %.ph126 = phi i32 [ %86, %85 ], [ %106, %105 ]
-  %109 = sext i32 %.ph126 to i64
-  %110 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %109
-  %111 = sub i32 1000, %.ph126
-  %112 = sext i32 %111 to i64
-  %113 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %110, i64 noundef %112, ptr noundef nonnull @.str.35) #17
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %.loopexit, label %115
+.loopexit243:                                     ; preds = %108, %88
+  %112 = phi i32 [ %89, %88 ], [ %109, %108 ]
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %113
+  %115 = sub i32 1000, %112
+  %116 = sext i32 %115 to i64
+  %117 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %114, i64 noundef %116, ptr noundef nonnull @.str.35) #17
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %.critedge, label %119
 
-115:                                              ; preds = %.loopexit224
-  %116 = add i32 %113, %.ph126
-  %117 = load ptr, ptr @cdrom_list, align 8
-  %118 = icmp eq ptr %117, @cdrom_list
-  br i1 %118, label %.loopexit221, label %.preheader219
+119:                                              ; preds = %.loopexit243
+  %120 = add i32 %117, %112
+  %121 = load ptr, ptr @cdrom_list, align 8
+  %122 = icmp eq ptr %121, @cdrom_list
+  br i1 %122, label %.loopexit240, label %.preheader238
 
-.preheader219:                                    ; preds = %115, %136
-  %119 = phi i32 [ %137, %136 ], [ %116, %115 ]
-  %120 = phi ptr [ %138, %136 ], [ %117, %115 ]
-  %121 = getelementptr i8, ptr %120, i64 -8
-  %122 = sext i32 %119 to i64
-  %123 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %122
-  %124 = sub i32 1000, %119
-  %125 = sext i32 %124 to i64
-  %126 = load ptr, ptr %121, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 104
-  %128 = load i32, ptr %127, align 8
-  %129 = getelementptr i8, ptr %120, i64 32
-  %130 = load i32, ptr %129, align 8
-  %131 = xor i32 %130, -1
-  %132 = and i32 %128, 2
-  %133 = and i32 %132, %131
-  %134 = lshr exact i32 %133, 1
-  %135 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %123, i64 noundef %125, ptr noundef nonnull @.str.54, i32 noundef %134) #17
-  %.not103 = icmp eq i32 %135, 0
-  br i1 %.not103, label %.loopexit, label %136
+.preheader238:                                    ; preds = %119, %140
+  %123 = phi i32 [ %141, %140 ], [ %120, %119 ]
+  %124 = phi ptr [ %142, %140 ], [ %121, %119 ]
+  %125 = getelementptr i8, ptr %124, i64 -8
+  %126 = sext i32 %123 to i64
+  %127 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %126
+  %128 = sub i32 1000, %123
+  %129 = sext i32 %128 to i64
+  %130 = load ptr, ptr %125, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 104
+  %132 = load i32, ptr %131, align 8
+  %133 = getelementptr i8, ptr %124, i64 32
+  %134 = load i32, ptr %133, align 8
+  %135 = xor i32 %134, -1
+  %136 = and i32 %132, 2
+  %137 = and i32 %136, %135
+  %138 = lshr exact i32 %137, 1
+  %139 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %127, i64 noundef %129, ptr noundef nonnull @.str.54, i32 noundef %138) #17
+  %.not141 = icmp eq i32 %139, 0
+  br i1 %.not141, label %.critedge, label %140
 
-136:                                              ; preds = %.preheader219
-  %137 = add i32 %135, %119
-  %138 = load ptr, ptr %120, align 8
-  %139 = icmp eq ptr %138, @cdrom_list
-  br i1 %139, label %.loopexit221, label %.preheader219, !llvm.loop !58
+140:                                              ; preds = %.preheader238
+  %141 = add i32 %139, %123
+  %142 = load ptr, ptr %124, align 8
+  %143 = icmp eq ptr %142, @cdrom_list
+  br i1 %143, label %.loopexit240, label %.preheader238, !llvm.loop !58
 
-.loopexit221:                                     ; preds = %136, %115
-  %.ph129 = phi i32 [ %116, %115 ], [ %137, %136 ]
-  %140 = sext i32 %.ph129 to i64
-  %141 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %140
-  %142 = sub i32 1000, %.ph129
-  %143 = sext i32 %142 to i64
-  %144 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %141, i64 noundef %143, ptr noundef nonnull @.str.36) #17
-  %145 = icmp eq i32 %144, 0
-  br i1 %145, label %.loopexit, label %146
+.loopexit240:                                     ; preds = %140, %119
+  %144 = phi i32 [ %120, %119 ], [ %141, %140 ]
+  %145 = sext i32 %144 to i64
+  %146 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %145
+  %147 = sub i32 1000, %144
+  %148 = sext i32 %147 to i64
+  %149 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %146, i64 noundef %148, ptr noundef nonnull @.str.36) #17
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %.critedge, label %151
 
-146:                                              ; preds = %.loopexit221
-  %147 = add i32 %144, %.ph129
-  %148 = load ptr, ptr @cdrom_list, align 8
-  %149 = icmp eq ptr %148, @cdrom_list
-  br i1 %149, label %.loopexit218, label %.preheader216
+151:                                              ; preds = %.loopexit240
+  %152 = add i32 %149, %144
+  %153 = load ptr, ptr @cdrom_list, align 8
+  %154 = icmp eq ptr %153, @cdrom_list
+  br i1 %154, label %.loopexit237, label %.preheader235
 
-.preheader216:                                    ; preds = %146, %167
-  %150 = phi i32 [ %168, %167 ], [ %147, %146 ]
-  %151 = phi ptr [ %169, %167 ], [ %148, %146 ]
-  %152 = getelementptr i8, ptr %151, i64 -8
-  %153 = sext i32 %150 to i64
-  %154 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %153
-  %155 = sub i32 1000, %150
-  %156 = sext i32 %155 to i64
-  %157 = load ptr, ptr %152, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 104
-  %159 = load i32, ptr %158, align 8
-  %160 = getelementptr i8, ptr %151, i64 32
-  %161 = load i32, ptr %160, align 8
-  %162 = xor i32 %161, -1
-  %163 = and i32 %159, 4
-  %164 = and i32 %163, %162
-  %165 = lshr exact i32 %164, 2
-  %166 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %154, i64 noundef %156, ptr noundef nonnull @.str.54, i32 noundef %165) #17
-  %.not104 = icmp eq i32 %166, 0
-  br i1 %.not104, label %.loopexit, label %167
+.preheader235:                                    ; preds = %151, %172
+  %155 = phi i32 [ %173, %172 ], [ %152, %151 ]
+  %156 = phi ptr [ %174, %172 ], [ %153, %151 ]
+  %157 = getelementptr i8, ptr %156, i64 -8
+  %158 = sext i32 %155 to i64
+  %159 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %158
+  %160 = sub i32 1000, %155
+  %161 = sext i32 %160 to i64
+  %162 = load ptr, ptr %157, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 104
+  %164 = load i32, ptr %163, align 8
+  %165 = getelementptr i8, ptr %156, i64 32
+  %166 = load i32, ptr %165, align 8
+  %167 = xor i32 %166, -1
+  %168 = and i32 %164, 4
+  %169 = and i32 %168, %167
+  %170 = lshr exact i32 %169, 2
+  %171 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %159, i64 noundef %161, ptr noundef nonnull @.str.54, i32 noundef %170) #17
+  %.not142 = icmp eq i32 %171, 0
+  br i1 %.not142, label %.critedge, label %172
 
-167:                                              ; preds = %.preheader216
-  %168 = add i32 %166, %150
-  %169 = load ptr, ptr %151, align 8
-  %170 = icmp eq ptr %169, @cdrom_list
-  br i1 %170, label %.loopexit218, label %.preheader216, !llvm.loop !58
+172:                                              ; preds = %.preheader235
+  %173 = add i32 %171, %155
+  %174 = load ptr, ptr %156, align 8
+  %175 = icmp eq ptr %174, @cdrom_list
+  br i1 %175, label %.loopexit237, label %.preheader235, !llvm.loop !58
 
-.loopexit218:                                     ; preds = %167, %146
-  %.ph132 = phi i32 [ %147, %146 ], [ %168, %167 ]
-  %171 = sext i32 %.ph132 to i64
-  %172 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %171
-  %173 = sub i32 1000, %.ph132
-  %174 = sext i32 %173 to i64
-  %175 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %172, i64 noundef %174, ptr noundef nonnull @.str.37) #17
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %.loopexit, label %177
+.loopexit237:                                     ; preds = %172, %151
+  %176 = phi i32 [ %152, %151 ], [ %173, %172 ]
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %177
+  %179 = sub i32 1000, %176
+  %180 = sext i32 %179 to i64
+  %181 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %178, i64 noundef %180, ptr noundef nonnull @.str.37) #17
+  %182 = icmp eq i32 %181, 0
+  br i1 %182, label %.critedge, label %183
 
-177:                                              ; preds = %.loopexit218
-  %178 = add i32 %175, %.ph132
-  %179 = load ptr, ptr @cdrom_list, align 8
-  %180 = icmp eq ptr %179, @cdrom_list
-  br i1 %180, label %.loopexit215, label %.preheader213
+183:                                              ; preds = %.loopexit237
+  %184 = add i32 %181, %176
+  %185 = load ptr, ptr @cdrom_list, align 8
+  %186 = icmp eq ptr %185, @cdrom_list
+  br i1 %186, label %.loopexit234, label %.preheader232
 
-.preheader213:                                    ; preds = %177, %198
-  %181 = phi i32 [ %199, %198 ], [ %178, %177 ]
-  %182 = phi ptr [ %200, %198 ], [ %179, %177 ]
-  %183 = getelementptr i8, ptr %182, i64 -8
-  %184 = sext i32 %181 to i64
-  %185 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %184
-  %186 = sub i32 1000, %181
-  %187 = sext i32 %186 to i64
-  %188 = load ptr, ptr %183, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 104
-  %190 = load i32, ptr %189, align 8
-  %191 = getelementptr i8, ptr %182, i64 32
-  %192 = load i32, ptr %191, align 8
-  %193 = xor i32 %192, -1
-  %194 = and i32 %190, 8
-  %195 = and i32 %194, %193
-  %196 = lshr exact i32 %195, 3
-  %197 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %185, i64 noundef %187, ptr noundef nonnull @.str.54, i32 noundef %196) #17
-  %.not105 = icmp eq i32 %197, 0
-  br i1 %.not105, label %.loopexit, label %198
+.preheader232:                                    ; preds = %183, %204
+  %187 = phi i32 [ %205, %204 ], [ %184, %183 ]
+  %188 = phi ptr [ %206, %204 ], [ %185, %183 ]
+  %189 = getelementptr i8, ptr %188, i64 -8
+  %190 = sext i32 %187 to i64
+  %191 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %190
+  %192 = sub i32 1000, %187
+  %193 = sext i32 %192 to i64
+  %194 = load ptr, ptr %189, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 104
+  %196 = load i32, ptr %195, align 8
+  %197 = getelementptr i8, ptr %188, i64 32
+  %198 = load i32, ptr %197, align 8
+  %199 = xor i32 %198, -1
+  %200 = and i32 %196, 8
+  %201 = and i32 %200, %199
+  %202 = lshr exact i32 %201, 3
+  %203 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %191, i64 noundef %193, ptr noundef nonnull @.str.54, i32 noundef %202) #17
+  %.not143 = icmp eq i32 %203, 0
+  br i1 %.not143, label %.critedge, label %204
 
-198:                                              ; preds = %.preheader213
-  %199 = add i32 %197, %181
-  %200 = load ptr, ptr %182, align 8
-  %201 = icmp eq ptr %200, @cdrom_list
-  br i1 %201, label %.loopexit215, label %.preheader213, !llvm.loop !58
+204:                                              ; preds = %.preheader232
+  %205 = add i32 %203, %187
+  %206 = load ptr, ptr %188, align 8
+  %207 = icmp eq ptr %206, @cdrom_list
+  br i1 %207, label %.loopexit234, label %.preheader232, !llvm.loop !58
 
-.loopexit215:                                     ; preds = %198, %177
-  %.ph135 = phi i32 [ %178, %177 ], [ %199, %198 ]
-  %202 = sext i32 %.ph135 to i64
-  %203 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %202
-  %204 = sub i32 1000, %.ph135
-  %205 = sext i32 %204 to i64
-  %206 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %203, i64 noundef %205, ptr noundef nonnull @.str.38) #17
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %.loopexit, label %208
+.loopexit234:                                     ; preds = %204, %183
+  %208 = phi i32 [ %184, %183 ], [ %205, %204 ]
+  %209 = sext i32 %208 to i64
+  %210 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %209
+  %211 = sub i32 1000, %208
+  %212 = sext i32 %211 to i64
+  %213 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %210, i64 noundef %212, ptr noundef nonnull @.str.38) #17
+  %214 = icmp eq i32 %213, 0
+  br i1 %214, label %.critedge, label %215
 
-208:                                              ; preds = %.loopexit215
-  %209 = add i32 %206, %.ph135
-  %210 = load ptr, ptr @cdrom_list, align 8
-  %211 = icmp eq ptr %210, @cdrom_list
-  br i1 %211, label %.loopexit212, label %.preheader210
+215:                                              ; preds = %.loopexit234
+  %216 = add i32 %213, %208
+  %217 = load ptr, ptr @cdrom_list, align 8
+  %218 = icmp eq ptr %217, @cdrom_list
+  br i1 %218, label %.loopexit231, label %.preheader229
 
-.preheader210:                                    ; preds = %208, %229
-  %212 = phi i32 [ %230, %229 ], [ %209, %208 ]
-  %213 = phi ptr [ %231, %229 ], [ %210, %208 ]
-  %214 = getelementptr i8, ptr %213, i64 -8
-  %215 = sext i32 %212 to i64
-  %216 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %215
-  %217 = sub i32 1000, %212
-  %218 = sext i32 %217 to i64
-  %219 = load ptr, ptr %214, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 104
-  %221 = load i32, ptr %220, align 8
-  %222 = getelementptr i8, ptr %213, i64 32
-  %223 = load i32, ptr %222, align 8
-  %224 = xor i32 %223, -1
-  %225 = and i32 %221, 16
-  %226 = and i32 %225, %224
-  %227 = lshr exact i32 %226, 4
-  %228 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %216, i64 noundef %218, ptr noundef nonnull @.str.54, i32 noundef %227) #17
-  %.not106 = icmp eq i32 %228, 0
-  br i1 %.not106, label %.loopexit, label %229
+.preheader229:                                    ; preds = %215, %236
+  %219 = phi i32 [ %237, %236 ], [ %216, %215 ]
+  %220 = phi ptr [ %238, %236 ], [ %217, %215 ]
+  %221 = getelementptr i8, ptr %220, i64 -8
+  %222 = sext i32 %219 to i64
+  %223 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %222
+  %224 = sub i32 1000, %219
+  %225 = sext i32 %224 to i64
+  %226 = load ptr, ptr %221, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 104
+  %228 = load i32, ptr %227, align 8
+  %229 = getelementptr i8, ptr %220, i64 32
+  %230 = load i32, ptr %229, align 8
+  %231 = xor i32 %230, -1
+  %232 = and i32 %228, 16
+  %233 = and i32 %232, %231
+  %234 = lshr exact i32 %233, 4
+  %235 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %223, i64 noundef %225, ptr noundef nonnull @.str.54, i32 noundef %234) #17
+  %.not144 = icmp eq i32 %235, 0
+  br i1 %.not144, label %.critedge, label %236
 
-229:                                              ; preds = %.preheader210
-  %230 = add i32 %228, %212
-  %231 = load ptr, ptr %213, align 8
-  %232 = icmp eq ptr %231, @cdrom_list
-  br i1 %232, label %.loopexit212, label %.preheader210, !llvm.loop !58
+236:                                              ; preds = %.preheader229
+  %237 = add i32 %235, %219
+  %238 = load ptr, ptr %220, align 8
+  %239 = icmp eq ptr %238, @cdrom_list
+  br i1 %239, label %.loopexit231, label %.preheader229, !llvm.loop !58
 
-.loopexit212:                                     ; preds = %229, %208
-  %.ph138 = phi i32 [ %209, %208 ], [ %230, %229 ]
-  %233 = sext i32 %.ph138 to i64
-  %234 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %233
-  %235 = sub i32 1000, %.ph138
-  %236 = sext i32 %235 to i64
-  %237 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %234, i64 noundef %236, ptr noundef nonnull @.str.39) #17
-  %238 = icmp eq i32 %237, 0
-  br i1 %238, label %.loopexit, label %239
+.loopexit231:                                     ; preds = %236, %215
+  %240 = phi i32 [ %216, %215 ], [ %237, %236 ]
+  %241 = sext i32 %240 to i64
+  %242 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %241
+  %243 = sub i32 1000, %240
+  %244 = sext i32 %243 to i64
+  %245 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %242, i64 noundef %244, ptr noundef nonnull @.str.39) #17
+  %246 = icmp eq i32 %245, 0
+  br i1 %246, label %.critedge, label %247
 
-239:                                              ; preds = %.loopexit212
-  %240 = add i32 %237, %.ph138
-  %241 = load ptr, ptr @cdrom_list, align 8
-  %242 = icmp eq ptr %241, @cdrom_list
-  br i1 %242, label %.loopexit209, label %.preheader207
+247:                                              ; preds = %.loopexit231
+  %248 = add i32 %245, %240
+  %249 = load ptr, ptr @cdrom_list, align 8
+  %250 = icmp eq ptr %249, @cdrom_list
+  br i1 %250, label %.loopexit228, label %.preheader226
 
-.preheader207:                                    ; preds = %239, %260
-  %243 = phi i32 [ %261, %260 ], [ %240, %239 ]
-  %244 = phi ptr [ %262, %260 ], [ %241, %239 ]
-  %245 = getelementptr i8, ptr %244, i64 -8
-  %246 = sext i32 %243 to i64
-  %247 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %246
-  %248 = sub i32 1000, %243
-  %249 = sext i32 %248 to i64
-  %250 = load ptr, ptr %245, align 8
-  %251 = getelementptr inbounds nuw i8, ptr %250, i64 104
-  %252 = load i32, ptr %251, align 8
-  %253 = getelementptr i8, ptr %244, i64 32
-  %254 = load i32, ptr %253, align 8
-  %255 = xor i32 %254, -1
-  %256 = and i32 %252, 32
-  %257 = and i32 %256, %255
-  %258 = lshr exact i32 %257, 5
-  %259 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %247, i64 noundef %249, ptr noundef nonnull @.str.54, i32 noundef %258) #17
-  %.not107 = icmp eq i32 %259, 0
-  br i1 %.not107, label %.loopexit, label %260
+.preheader226:                                    ; preds = %247, %268
+  %251 = phi i32 [ %269, %268 ], [ %248, %247 ]
+  %252 = phi ptr [ %270, %268 ], [ %249, %247 ]
+  %253 = getelementptr i8, ptr %252, i64 -8
+  %254 = sext i32 %251 to i64
+  %255 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %254
+  %256 = sub i32 1000, %251
+  %257 = sext i32 %256 to i64
+  %258 = load ptr, ptr %253, align 8
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 104
+  %260 = load i32, ptr %259, align 8
+  %261 = getelementptr i8, ptr %252, i64 32
+  %262 = load i32, ptr %261, align 8
+  %263 = xor i32 %262, -1
+  %264 = and i32 %260, 32
+  %265 = and i32 %264, %263
+  %266 = lshr exact i32 %265, 5
+  %267 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %255, i64 noundef %257, ptr noundef nonnull @.str.54, i32 noundef %266) #17
+  %.not145 = icmp eq i32 %267, 0
+  br i1 %.not145, label %.critedge, label %268
 
-260:                                              ; preds = %.preheader207
-  %261 = add i32 %259, %243
-  %262 = load ptr, ptr %244, align 8
-  %263 = icmp eq ptr %262, @cdrom_list
-  br i1 %263, label %.loopexit209, label %.preheader207, !llvm.loop !58
+268:                                              ; preds = %.preheader226
+  %269 = add i32 %267, %251
+  %270 = load ptr, ptr %252, align 8
+  %271 = icmp eq ptr %270, @cdrom_list
+  br i1 %271, label %.loopexit228, label %.preheader226, !llvm.loop !58
 
-.loopexit209:                                     ; preds = %260, %239
-  %.ph141 = phi i32 [ %240, %239 ], [ %261, %260 ]
-  %264 = sext i32 %.ph141 to i64
-  %265 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %264
-  %266 = sub i32 1000, %.ph141
-  %267 = sext i32 %266 to i64
-  %268 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %265, i64 noundef %267, ptr noundef nonnull @.str.40) #17
-  %269 = icmp eq i32 %268, 0
-  br i1 %269, label %.loopexit, label %270
+.loopexit228:                                     ; preds = %268, %247
+  %272 = phi i32 [ %248, %247 ], [ %269, %268 ]
+  %273 = sext i32 %272 to i64
+  %274 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %273
+  %275 = sub i32 1000, %272
+  %276 = sext i32 %275 to i64
+  %277 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %274, i64 noundef %276, ptr noundef nonnull @.str.40) #17
+  %278 = icmp eq i32 %277, 0
+  br i1 %278, label %.critedge, label %279
 
-270:                                              ; preds = %.loopexit209
-  %271 = add i32 %268, %.ph141
-  %272 = load ptr, ptr @cdrom_list, align 8
-  %273 = icmp eq ptr %272, @cdrom_list
-  br i1 %273, label %.loopexit206, label %.preheader204
+279:                                              ; preds = %.loopexit228
+  %280 = add i32 %277, %272
+  %281 = load ptr, ptr @cdrom_list, align 8
+  %282 = icmp eq ptr %281, @cdrom_list
+  br i1 %282, label %.loopexit225, label %.preheader223
 
-.preheader204:                                    ; preds = %270, %291
-  %274 = phi i32 [ %292, %291 ], [ %271, %270 ]
-  %275 = phi ptr [ %293, %291 ], [ %272, %270 ]
-  %276 = getelementptr i8, ptr %275, i64 -8
-  %277 = sext i32 %274 to i64
-  %278 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %277
-  %279 = sub i32 1000, %274
-  %280 = sext i32 %279 to i64
-  %281 = load ptr, ptr %276, align 8
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 104
-  %283 = load i32, ptr %282, align 8
-  %284 = getelementptr i8, ptr %275, i64 32
-  %285 = load i32, ptr %284, align 8
-  %286 = xor i32 %285, -1
-  %287 = and i32 %283, 64
-  %288 = and i32 %287, %286
-  %289 = lshr exact i32 %288, 6
-  %290 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %278, i64 noundef %280, ptr noundef nonnull @.str.54, i32 noundef %289) #17
-  %.not108 = icmp eq i32 %290, 0
-  br i1 %.not108, label %.loopexit, label %291
+.preheader223:                                    ; preds = %279, %300
+  %283 = phi i32 [ %301, %300 ], [ %280, %279 ]
+  %284 = phi ptr [ %302, %300 ], [ %281, %279 ]
+  %285 = getelementptr i8, ptr %284, i64 -8
+  %286 = sext i32 %283 to i64
+  %287 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %286
+  %288 = sub i32 1000, %283
+  %289 = sext i32 %288 to i64
+  %290 = load ptr, ptr %285, align 8
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 104
+  %292 = load i32, ptr %291, align 8
+  %293 = getelementptr i8, ptr %284, i64 32
+  %294 = load i32, ptr %293, align 8
+  %295 = xor i32 %294, -1
+  %296 = and i32 %292, 64
+  %297 = and i32 %296, %295
+  %298 = lshr exact i32 %297, 6
+  %299 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %287, i64 noundef %289, ptr noundef nonnull @.str.54, i32 noundef %298) #17
+  %.not146 = icmp eq i32 %299, 0
+  br i1 %.not146, label %.critedge, label %300
 
-291:                                              ; preds = %.preheader204
-  %292 = add i32 %290, %274
-  %293 = load ptr, ptr %275, align 8
-  %294 = icmp eq ptr %293, @cdrom_list
-  br i1 %294, label %.loopexit206, label %.preheader204, !llvm.loop !58
+300:                                              ; preds = %.preheader223
+  %301 = add i32 %299, %283
+  %302 = load ptr, ptr %284, align 8
+  %303 = icmp eq ptr %302, @cdrom_list
+  br i1 %303, label %.loopexit225, label %.preheader223, !llvm.loop !58
 
-.loopexit206:                                     ; preds = %291, %270
-  %.ph144 = phi i32 [ %271, %270 ], [ %292, %291 ]
-  %295 = sext i32 %.ph144 to i64
-  %296 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %295
-  %297 = sub i32 1000, %.ph144
-  %298 = sext i32 %297 to i64
-  %299 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %296, i64 noundef %298, ptr noundef nonnull @.str.41) #17
-  %300 = icmp eq i32 %299, 0
-  br i1 %300, label %.loopexit, label %301
+.loopexit225:                                     ; preds = %300, %279
+  %304 = phi i32 [ %280, %279 ], [ %301, %300 ]
+  %305 = sext i32 %304 to i64
+  %306 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %305
+  %307 = sub i32 1000, %304
+  %308 = sext i32 %307 to i64
+  %309 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %306, i64 noundef %308, ptr noundef nonnull @.str.41) #17
+  %310 = icmp eq i32 %309, 0
+  br i1 %310, label %.critedge, label %311
 
-301:                                              ; preds = %.loopexit206
-  %302 = add i32 %299, %.ph144
-  %303 = load ptr, ptr @cdrom_list, align 8
-  %304 = icmp eq ptr %303, @cdrom_list
-  br i1 %304, label %.loopexit203, label %.preheader201
+311:                                              ; preds = %.loopexit225
+  %312 = add i32 %309, %304
+  %313 = load ptr, ptr @cdrom_list, align 8
+  %314 = icmp eq ptr %313, @cdrom_list
+  br i1 %314, label %.loopexit222, label %.preheader220
 
-.preheader201:                                    ; preds = %301, %322
-  %305 = phi i32 [ %323, %322 ], [ %302, %301 ]
-  %306 = phi ptr [ %324, %322 ], [ %303, %301 ]
-  %307 = getelementptr i8, ptr %306, i64 -8
-  %308 = sext i32 %305 to i64
-  %309 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %308
-  %310 = sub i32 1000, %305
-  %311 = sext i32 %310 to i64
-  %312 = load ptr, ptr %307, align 8
-  %313 = getelementptr inbounds nuw i8, ptr %312, i64 104
-  %314 = load i32, ptr %313, align 8
-  %315 = getelementptr i8, ptr %306, i64 32
-  %316 = load i32, ptr %315, align 8
-  %317 = xor i32 %316, -1
-  %318 = and i32 %314, 128
-  %319 = and i32 %318, %317
-  %320 = lshr exact i32 %319, 7
-  %321 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %309, i64 noundef %311, ptr noundef nonnull @.str.54, i32 noundef %320) #17
-  %.not109 = icmp eq i32 %321, 0
-  br i1 %.not109, label %.loopexit, label %322
+.preheader220:                                    ; preds = %311, %332
+  %315 = phi i32 [ %333, %332 ], [ %312, %311 ]
+  %316 = phi ptr [ %334, %332 ], [ %313, %311 ]
+  %317 = getelementptr i8, ptr %316, i64 -8
+  %318 = sext i32 %315 to i64
+  %319 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %318
+  %320 = sub i32 1000, %315
+  %321 = sext i32 %320 to i64
+  %322 = load ptr, ptr %317, align 8
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 104
+  %324 = load i32, ptr %323, align 8
+  %325 = getelementptr i8, ptr %316, i64 32
+  %326 = load i32, ptr %325, align 8
+  %327 = xor i32 %326, -1
+  %328 = and i32 %324, 128
+  %329 = and i32 %328, %327
+  %330 = lshr exact i32 %329, 7
+  %331 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %319, i64 noundef %321, ptr noundef nonnull @.str.54, i32 noundef %330) #17
+  %.not147 = icmp eq i32 %331, 0
+  br i1 %.not147, label %.critedge, label %332
 
-322:                                              ; preds = %.preheader201
-  %323 = add i32 %321, %305
-  %324 = load ptr, ptr %306, align 8
-  %325 = icmp eq ptr %324, @cdrom_list
-  br i1 %325, label %.loopexit203, label %.preheader201, !llvm.loop !58
-
-.loopexit203:                                     ; preds = %322, %301
-  %.ph147 = phi i32 [ %302, %301 ], [ %323, %322 ]
-  %326 = sext i32 %.ph147 to i64
-  %327 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %326
-  %328 = sub i32 1000, %.ph147
-  %329 = sext i32 %328 to i64
-  %330 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %327, i64 noundef %329, ptr noundef nonnull @.str.42) #17
-  %331 = icmp eq i32 %330, 0
-  br i1 %331, label %.loopexit, label %332
-
-332:                                              ; preds = %.loopexit203
-  %333 = add i32 %330, %.ph147
-  %334 = load ptr, ptr @cdrom_list, align 8
+332:                                              ; preds = %.preheader220
+  %333 = add i32 %331, %315
+  %334 = load ptr, ptr %316, align 8
   %335 = icmp eq ptr %334, @cdrom_list
-  br i1 %335, label %.loopexit200, label %.preheader198
+  br i1 %335, label %.loopexit222, label %.preheader220, !llvm.loop !58
 
-.preheader198:                                    ; preds = %332, %353
-  %336 = phi i32 [ %354, %353 ], [ %333, %332 ]
-  %337 = phi ptr [ %355, %353 ], [ %334, %332 ]
-  %338 = getelementptr i8, ptr %337, i64 -8
-  %339 = sext i32 %336 to i64
-  %340 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %339
-  %341 = sub i32 1000, %336
-  %342 = sext i32 %341 to i64
-  %343 = load ptr, ptr %338, align 8
-  %344 = getelementptr inbounds nuw i8, ptr %343, i64 104
-  %345 = load i32, ptr %344, align 8
-  %346 = getelementptr i8, ptr %337, i64 32
-  %347 = load i32, ptr %346, align 8
-  %348 = xor i32 %347, -1
-  %349 = and i32 %345, 256
-  %350 = and i32 %349, %348
-  %351 = lshr exact i32 %350, 8
-  %352 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %340, i64 noundef %342, ptr noundef nonnull @.str.54, i32 noundef %351) #17
-  %.not110 = icmp eq i32 %352, 0
-  br i1 %.not110, label %.loopexit, label %353
+.loopexit222:                                     ; preds = %332, %311
+  %336 = phi i32 [ %312, %311 ], [ %333, %332 ]
+  %337 = sext i32 %336 to i64
+  %338 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %337
+  %339 = sub i32 1000, %336
+  %340 = sext i32 %339 to i64
+  %341 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %338, i64 noundef %340, ptr noundef nonnull @.str.42) #17
+  %342 = icmp eq i32 %341, 0
+  br i1 %342, label %.critedge, label %343
 
-353:                                              ; preds = %.preheader198
-  %354 = add i32 %352, %336
-  %355 = load ptr, ptr %337, align 8
-  %356 = icmp eq ptr %355, @cdrom_list
-  br i1 %356, label %.loopexit200, label %.preheader198, !llvm.loop !58
+343:                                              ; preds = %.loopexit222
+  %344 = add i32 %341, %336
+  %345 = load ptr, ptr @cdrom_list, align 8
+  %346 = icmp eq ptr %345, @cdrom_list
+  br i1 %346, label %.loopexit219, label %.preheader217
 
-.loopexit200:                                     ; preds = %353, %332
-  %.ph150 = phi i32 [ %333, %332 ], [ %354, %353 ]
-  %357 = sext i32 %.ph150 to i64
-  %358 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %357
-  %359 = sub i32 1000, %.ph150
-  %360 = sext i32 %359 to i64
-  %361 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %358, i64 noundef %360, ptr noundef nonnull @.str.43) #17
-  %362 = icmp eq i32 %361, 0
-  br i1 %362, label %.loopexit, label %363
+.preheader217:                                    ; preds = %343, %364
+  %347 = phi i32 [ %365, %364 ], [ %344, %343 ]
+  %348 = phi ptr [ %366, %364 ], [ %345, %343 ]
+  %349 = getelementptr i8, ptr %348, i64 -8
+  %350 = sext i32 %347 to i64
+  %351 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %350
+  %352 = sub i32 1000, %347
+  %353 = sext i32 %352 to i64
+  %354 = load ptr, ptr %349, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 104
+  %356 = load i32, ptr %355, align 8
+  %357 = getelementptr i8, ptr %348, i64 32
+  %358 = load i32, ptr %357, align 8
+  %359 = xor i32 %358, -1
+  %360 = and i32 %356, 256
+  %361 = and i32 %360, %359
+  %362 = lshr exact i32 %361, 8
+  %363 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %351, i64 noundef %353, ptr noundef nonnull @.str.54, i32 noundef %362) #17
+  %.not148 = icmp eq i32 %363, 0
+  br i1 %.not148, label %.critedge, label %364
 
-363:                                              ; preds = %.loopexit200
-  %364 = add i32 %361, %.ph150
-  %365 = load ptr, ptr @cdrom_list, align 8
-  %366 = icmp eq ptr %365, @cdrom_list
-  br i1 %366, label %.loopexit197, label %.preheader195
+364:                                              ; preds = %.preheader217
+  %365 = add i32 %363, %347
+  %366 = load ptr, ptr %348, align 8
+  %367 = icmp eq ptr %366, @cdrom_list
+  br i1 %367, label %.loopexit219, label %.preheader217, !llvm.loop !58
 
-.preheader195:                                    ; preds = %363, %384
-  %367 = phi i32 [ %385, %384 ], [ %364, %363 ]
-  %368 = phi ptr [ %386, %384 ], [ %365, %363 ]
-  %369 = getelementptr i8, ptr %368, i64 -8
-  %370 = sext i32 %367 to i64
-  %371 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %370
-  %372 = sub i32 1000, %367
-  %373 = sext i32 %372 to i64
-  %374 = load ptr, ptr %369, align 8
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 104
-  %376 = load i32, ptr %375, align 8
-  %377 = getelementptr i8, ptr %368, i64 32
-  %378 = load i32, ptr %377, align 8
-  %379 = xor i32 %378, -1
-  %380 = and i32 %376, 8192
-  %381 = and i32 %380, %379
-  %382 = lshr exact i32 %381, 13
-  %383 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %371, i64 noundef %373, ptr noundef nonnull @.str.54, i32 noundef %382) #17
-  %.not111 = icmp eq i32 %383, 0
-  br i1 %.not111, label %.loopexit, label %384
+.loopexit219:                                     ; preds = %364, %343
+  %368 = phi i32 [ %344, %343 ], [ %365, %364 ]
+  %369 = sext i32 %368 to i64
+  %370 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %369
+  %371 = sub i32 1000, %368
+  %372 = sext i32 %371 to i64
+  %373 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %370, i64 noundef %372, ptr noundef nonnull @.str.43) #17
+  %374 = icmp eq i32 %373, 0
+  br i1 %374, label %.critedge, label %375
 
-384:                                              ; preds = %.preheader195
-  %385 = add i32 %383, %367
-  %386 = load ptr, ptr %368, align 8
-  %387 = icmp eq ptr %386, @cdrom_list
-  br i1 %387, label %.loopexit197, label %.preheader195, !llvm.loop !58
+375:                                              ; preds = %.loopexit219
+  %376 = add i32 %373, %368
+  %377 = load ptr, ptr @cdrom_list, align 8
+  %378 = icmp eq ptr %377, @cdrom_list
+  br i1 %378, label %.loopexit216, label %.preheader214
 
-.loopexit197:                                     ; preds = %384, %363
-  %.ph153 = phi i32 [ %364, %363 ], [ %385, %384 ]
-  %388 = sext i32 %.ph153 to i64
-  %389 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %388
-  %390 = sub i32 1000, %.ph153
-  %391 = sext i32 %390 to i64
-  %392 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %389, i64 noundef %391, ptr noundef nonnull @.str.44) #17
-  %393 = icmp eq i32 %392, 0
-  br i1 %393, label %.loopexit, label %394
+.preheader214:                                    ; preds = %375, %396
+  %379 = phi i32 [ %397, %396 ], [ %376, %375 ]
+  %380 = phi ptr [ %398, %396 ], [ %377, %375 ]
+  %381 = getelementptr i8, ptr %380, i64 -8
+  %382 = sext i32 %379 to i64
+  %383 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %382
+  %384 = sub i32 1000, %379
+  %385 = sext i32 %384 to i64
+  %386 = load ptr, ptr %381, align 8
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 104
+  %388 = load i32, ptr %387, align 8
+  %389 = getelementptr i8, ptr %380, i64 32
+  %390 = load i32, ptr %389, align 8
+  %391 = xor i32 %390, -1
+  %392 = and i32 %388, 8192
+  %393 = and i32 %392, %391
+  %394 = lshr exact i32 %393, 13
+  %395 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %383, i64 noundef %385, ptr noundef nonnull @.str.54, i32 noundef %394) #17
+  %.not149 = icmp eq i32 %395, 0
+  br i1 %.not149, label %.critedge, label %396
 
-394:                                              ; preds = %.loopexit197
-  %395 = add i32 %392, %.ph153
-  %396 = load ptr, ptr @cdrom_list, align 8
-  %397 = icmp eq ptr %396, @cdrom_list
-  br i1 %397, label %.loopexit194, label %.preheader192
+396:                                              ; preds = %.preheader214
+  %397 = add i32 %395, %379
+  %398 = load ptr, ptr %380, align 8
+  %399 = icmp eq ptr %398, @cdrom_list
+  br i1 %399, label %.loopexit216, label %.preheader214, !llvm.loop !58
 
-.preheader192:                                    ; preds = %394, %415
-  %398 = phi i32 [ %416, %415 ], [ %395, %394 ]
-  %399 = phi ptr [ %417, %415 ], [ %396, %394 ]
-  %400 = getelementptr i8, ptr %399, i64 -8
-  %401 = sext i32 %398 to i64
+.loopexit216:                                     ; preds = %396, %375
+  %400 = phi i32 [ %376, %375 ], [ %397, %396 ]
+  %401 = sext i32 %400 to i64
   %402 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %401
-  %403 = sub i32 1000, %398
+  %403 = sub i32 1000, %400
   %404 = sext i32 %403 to i64
-  %405 = load ptr, ptr %400, align 8
-  %406 = getelementptr inbounds nuw i8, ptr %405, i64 104
-  %407 = load i32, ptr %406, align 8
-  %408 = getelementptr i8, ptr %399, i64 32
-  %409 = load i32, ptr %408, align 8
-  %410 = xor i32 %409, -1
-  %411 = and i32 %407, 16384
-  %412 = and i32 %411, %410
-  %413 = lshr exact i32 %412, 14
-  %414 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %402, i64 noundef %404, ptr noundef nonnull @.str.54, i32 noundef %413) #17
-  %.not112 = icmp eq i32 %414, 0
-  br i1 %.not112, label %.loopexit, label %415
+  %405 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %402, i64 noundef %404, ptr noundef nonnull @.str.44) #17
+  %406 = icmp eq i32 %405, 0
+  br i1 %406, label %.critedge, label %407
 
-415:                                              ; preds = %.preheader192
-  %416 = add i32 %414, %398
-  %417 = load ptr, ptr %399, align 8
-  %418 = icmp eq ptr %417, @cdrom_list
-  br i1 %418, label %.loopexit194, label %.preheader192, !llvm.loop !58
+407:                                              ; preds = %.loopexit216
+  %408 = add i32 %405, %400
+  %409 = load ptr, ptr @cdrom_list, align 8
+  %410 = icmp eq ptr %409, @cdrom_list
+  br i1 %410, label %.loopexit213, label %.preheader211
 
-.loopexit194:                                     ; preds = %415, %394
-  %.ph156 = phi i32 [ %395, %394 ], [ %416, %415 ]
-  %419 = sext i32 %.ph156 to i64
-  %420 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %419
-  %421 = sub i32 1000, %.ph156
-  %422 = sext i32 %421 to i64
-  %423 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %420, i64 noundef %422, ptr noundef nonnull @.str.45) #17
-  %424 = icmp eq i32 %423, 0
-  br i1 %424, label %.loopexit, label %425
+.preheader211:                                    ; preds = %407, %428
+  %411 = phi i32 [ %429, %428 ], [ %408, %407 ]
+  %412 = phi ptr [ %430, %428 ], [ %409, %407 ]
+  %413 = getelementptr i8, ptr %412, i64 -8
+  %414 = sext i32 %411 to i64
+  %415 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %414
+  %416 = sub i32 1000, %411
+  %417 = sext i32 %416 to i64
+  %418 = load ptr, ptr %413, align 8
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 104
+  %420 = load i32, ptr %419, align 8
+  %421 = getelementptr i8, ptr %412, i64 32
+  %422 = load i32, ptr %421, align 8
+  %423 = xor i32 %422, -1
+  %424 = and i32 %420, 16384
+  %425 = and i32 %424, %423
+  %426 = lshr exact i32 %425, 14
+  %427 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %415, i64 noundef %417, ptr noundef nonnull @.str.54, i32 noundef %426) #17
+  %.not150 = icmp eq i32 %427, 0
+  br i1 %.not150, label %.critedge, label %428
 
-425:                                              ; preds = %.loopexit194
-  %426 = add i32 %423, %.ph156
-  %427 = load ptr, ptr @cdrom_list, align 8
-  %428 = icmp eq ptr %427, @cdrom_list
-  br i1 %428, label %.loopexit191, label %.preheader189
+428:                                              ; preds = %.preheader211
+  %429 = add i32 %427, %411
+  %430 = load ptr, ptr %412, align 8
+  %431 = icmp eq ptr %430, @cdrom_list
+  br i1 %431, label %.loopexit213, label %.preheader211, !llvm.loop !58
 
-.preheader189:                                    ; preds = %425, %446
-  %429 = phi i32 [ %447, %446 ], [ %426, %425 ]
-  %430 = phi ptr [ %448, %446 ], [ %427, %425 ]
-  %431 = getelementptr i8, ptr %430, i64 -8
-  %432 = sext i32 %429 to i64
-  %433 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %432
-  %434 = sub i32 1000, %429
-  %435 = sext i32 %434 to i64
-  %436 = load ptr, ptr %431, align 8
-  %437 = getelementptr inbounds nuw i8, ptr %436, i64 104
-  %438 = load i32, ptr %437, align 8
-  %439 = getelementptr i8, ptr %430, i64 32
-  %440 = load i32, ptr %439, align 8
-  %441 = xor i32 %440, -1
-  %442 = and i32 %438, 32768
-  %443 = and i32 %442, %441
-  %444 = lshr exact i32 %443, 15
-  %445 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %433, i64 noundef %435, ptr noundef nonnull @.str.54, i32 noundef %444) #17
-  %.not113 = icmp eq i32 %445, 0
-  br i1 %.not113, label %.loopexit, label %446
+.loopexit213:                                     ; preds = %428, %407
+  %432 = phi i32 [ %408, %407 ], [ %429, %428 ]
+  %433 = sext i32 %432 to i64
+  %434 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %433
+  %435 = sub i32 1000, %432
+  %436 = sext i32 %435 to i64
+  %437 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %434, i64 noundef %436, ptr noundef nonnull @.str.45) #17
+  %438 = icmp eq i32 %437, 0
+  br i1 %438, label %.critedge, label %439
 
-446:                                              ; preds = %.preheader189
-  %447 = add i32 %445, %429
-  %448 = load ptr, ptr %430, align 8
-  %449 = icmp eq ptr %448, @cdrom_list
-  br i1 %449, label %.loopexit191, label %.preheader189, !llvm.loop !58
+439:                                              ; preds = %.loopexit213
+  %440 = add i32 %437, %432
+  %441 = load ptr, ptr @cdrom_list, align 8
+  %442 = icmp eq ptr %441, @cdrom_list
+  br i1 %442, label %.loopexit210, label %.preheader208
 
-.loopexit191:                                     ; preds = %446, %425
-  %.ph159 = phi i32 [ %426, %425 ], [ %447, %446 ]
-  %450 = sext i32 %.ph159 to i64
-  %451 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %450
-  %452 = sub i32 1000, %.ph159
-  %453 = sext i32 %452 to i64
-  %454 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %451, i64 noundef %453, ptr noundef nonnull @.str.46) #17
-  %455 = icmp eq i32 %454, 0
-  br i1 %455, label %.loopexit, label %456
+.preheader208:                                    ; preds = %439, %460
+  %443 = phi i32 [ %461, %460 ], [ %440, %439 ]
+  %444 = phi ptr [ %462, %460 ], [ %441, %439 ]
+  %445 = getelementptr i8, ptr %444, i64 -8
+  %446 = sext i32 %443 to i64
+  %447 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %446
+  %448 = sub i32 1000, %443
+  %449 = sext i32 %448 to i64
+  %450 = load ptr, ptr %445, align 8
+  %451 = getelementptr inbounds nuw i8, ptr %450, i64 104
+  %452 = load i32, ptr %451, align 8
+  %453 = getelementptr i8, ptr %444, i64 32
+  %454 = load i32, ptr %453, align 8
+  %455 = xor i32 %454, -1
+  %456 = and i32 %452, 32768
+  %457 = and i32 %456, %455
+  %458 = lshr exact i32 %457, 15
+  %459 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %447, i64 noundef %449, ptr noundef nonnull @.str.54, i32 noundef %458) #17
+  %.not151 = icmp eq i32 %459, 0
+  br i1 %.not151, label %.critedge, label %460
 
-456:                                              ; preds = %.loopexit191
-  %457 = add i32 %454, %.ph159
-  %458 = load ptr, ptr @cdrom_list, align 8
-  %459 = icmp eq ptr %458, @cdrom_list
-  br i1 %459, label %.loopexit188, label %.preheader186
+460:                                              ; preds = %.preheader208
+  %461 = add i32 %459, %443
+  %462 = load ptr, ptr %444, align 8
+  %463 = icmp eq ptr %462, @cdrom_list
+  br i1 %463, label %.loopexit210, label %.preheader208, !llvm.loop !58
 
-.preheader186:                                    ; preds = %456, %477
-  %460 = phi i32 [ %478, %477 ], [ %457, %456 ]
-  %461 = phi ptr [ %479, %477 ], [ %458, %456 ]
-  %462 = getelementptr i8, ptr %461, i64 -8
-  %463 = sext i32 %460 to i64
-  %464 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %463
-  %465 = sub i32 1000, %460
-  %466 = sext i32 %465 to i64
-  %467 = load ptr, ptr %462, align 8
-  %468 = getelementptr inbounds nuw i8, ptr %467, i64 104
-  %469 = load i32, ptr %468, align 8
-  %470 = getelementptr i8, ptr %461, i64 32
-  %471 = load i32, ptr %470, align 8
-  %472 = xor i32 %471, -1
-  %473 = and i32 %469, 65536
-  %474 = and i32 %473, %472
-  %475 = lshr exact i32 %474, 16
-  %476 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %464, i64 noundef %466, ptr noundef nonnull @.str.54, i32 noundef %475) #17
-  %.not114 = icmp eq i32 %476, 0
-  br i1 %.not114, label %.loopexit, label %477
+.loopexit210:                                     ; preds = %460, %439
+  %464 = phi i32 [ %440, %439 ], [ %461, %460 ]
+  %465 = sext i32 %464 to i64
+  %466 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %465
+  %467 = sub i32 1000, %464
+  %468 = sext i32 %467 to i64
+  %469 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %466, i64 noundef %468, ptr noundef nonnull @.str.46) #17
+  %470 = icmp eq i32 %469, 0
+  br i1 %470, label %.critedge, label %471
 
-477:                                              ; preds = %.preheader186
-  %478 = add i32 %476, %460
-  %479 = load ptr, ptr %461, align 8
-  %480 = icmp eq ptr %479, @cdrom_list
-  br i1 %480, label %.loopexit188, label %.preheader186, !llvm.loop !58
+471:                                              ; preds = %.loopexit210
+  %472 = add i32 %469, %464
+  %473 = load ptr, ptr @cdrom_list, align 8
+  %474 = icmp eq ptr %473, @cdrom_list
+  br i1 %474, label %.loopexit207, label %.preheader205
 
-.loopexit188:                                     ; preds = %477, %456
-  %.ph162 = phi i32 [ %457, %456 ], [ %478, %477 ]
-  %481 = sext i32 %.ph162 to i64
-  %482 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %481
-  %483 = sub i32 1000, %.ph162
-  %484 = sext i32 %483 to i64
-  %485 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %482, i64 noundef %484, ptr noundef nonnull @.str.47) #17
-  %486 = icmp eq i32 %485, 0
-  br i1 %486, label %.loopexit, label %487
+.preheader205:                                    ; preds = %471, %492
+  %475 = phi i32 [ %493, %492 ], [ %472, %471 ]
+  %476 = phi ptr [ %494, %492 ], [ %473, %471 ]
+  %477 = getelementptr i8, ptr %476, i64 -8
+  %478 = sext i32 %475 to i64
+  %479 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %478
+  %480 = sub i32 1000, %475
+  %481 = sext i32 %480 to i64
+  %482 = load ptr, ptr %477, align 8
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 104
+  %484 = load i32, ptr %483, align 8
+  %485 = getelementptr i8, ptr %476, i64 32
+  %486 = load i32, ptr %485, align 8
+  %487 = xor i32 %486, -1
+  %488 = and i32 %484, 65536
+  %489 = and i32 %488, %487
+  %490 = lshr exact i32 %489, 16
+  %491 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %479, i64 noundef %481, ptr noundef nonnull @.str.54, i32 noundef %490) #17
+  %.not152 = icmp eq i32 %491, 0
+  br i1 %.not152, label %.critedge, label %492
 
-487:                                              ; preds = %.loopexit188
-  %488 = add i32 %485, %.ph162
-  %489 = load ptr, ptr @cdrom_list, align 8
-  %490 = icmp eq ptr %489, @cdrom_list
-  br i1 %490, label %.loopexit185, label %.preheader183
+492:                                              ; preds = %.preheader205
+  %493 = add i32 %491, %475
+  %494 = load ptr, ptr %476, align 8
+  %495 = icmp eq ptr %494, @cdrom_list
+  br i1 %495, label %.loopexit207, label %.preheader205, !llvm.loop !58
 
-.preheader183:                                    ; preds = %487, %508
-  %491 = phi i32 [ %509, %508 ], [ %488, %487 ]
-  %492 = phi ptr [ %510, %508 ], [ %489, %487 ]
-  %493 = getelementptr i8, ptr %492, i64 -8
-  %494 = sext i32 %491 to i64
-  %495 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %494
-  %496 = sub i32 1000, %491
+.loopexit207:                                     ; preds = %492, %471
+  %496 = phi i32 [ %472, %471 ], [ %493, %492 ]
   %497 = sext i32 %496 to i64
-  %498 = load ptr, ptr %493, align 8
-  %499 = getelementptr inbounds nuw i8, ptr %498, i64 104
-  %500 = load i32, ptr %499, align 8
-  %501 = getelementptr i8, ptr %492, i64 32
-  %502 = load i32, ptr %501, align 8
-  %503 = xor i32 %502, -1
-  %504 = and i32 %500, 131072
-  %505 = and i32 %504, %503
-  %506 = lshr exact i32 %505, 17
-  %507 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %495, i64 noundef %497, ptr noundef nonnull @.str.54, i32 noundef %506) #17
-  %.not115 = icmp eq i32 %507, 0
-  br i1 %.not115, label %.loopexit, label %508
+  %498 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %497
+  %499 = sub i32 1000, %496
+  %500 = sext i32 %499 to i64
+  %501 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %498, i64 noundef %500, ptr noundef nonnull @.str.47) #17
+  %502 = icmp eq i32 %501, 0
+  br i1 %502, label %.critedge, label %503
 
-508:                                              ; preds = %.preheader183
-  %509 = add i32 %507, %491
-  %510 = load ptr, ptr %492, align 8
-  %511 = icmp eq ptr %510, @cdrom_list
-  br i1 %511, label %.loopexit185, label %.preheader183, !llvm.loop !58
+503:                                              ; preds = %.loopexit207
+  %504 = add i32 %501, %496
+  %505 = load ptr, ptr @cdrom_list, align 8
+  %506 = icmp eq ptr %505, @cdrom_list
+  br i1 %506, label %.loopexit204, label %.preheader202
 
-.loopexit185:                                     ; preds = %508, %487
-  %.ph165 = phi i32 [ %488, %487 ], [ %509, %508 ]
-  %512 = sext i32 %.ph165 to i64
-  %513 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %512
-  %514 = sub i32 1000, %.ph165
-  %515 = sext i32 %514 to i64
-  %516 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %513, i64 noundef %515, ptr noundef nonnull @.str.48) #17
-  %517 = icmp eq i32 %516, 0
-  br i1 %517, label %.loopexit, label %518
+.preheader202:                                    ; preds = %503, %524
+  %507 = phi i32 [ %525, %524 ], [ %504, %503 ]
+  %508 = phi ptr [ %526, %524 ], [ %505, %503 ]
+  %509 = getelementptr i8, ptr %508, i64 -8
+  %510 = sext i32 %507 to i64
+  %511 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %510
+  %512 = sub i32 1000, %507
+  %513 = sext i32 %512 to i64
+  %514 = load ptr, ptr %509, align 8
+  %515 = getelementptr inbounds nuw i8, ptr %514, i64 104
+  %516 = load i32, ptr %515, align 8
+  %517 = getelementptr i8, ptr %508, i64 32
+  %518 = load i32, ptr %517, align 8
+  %519 = xor i32 %518, -1
+  %520 = and i32 %516, 131072
+  %521 = and i32 %520, %519
+  %522 = lshr exact i32 %521, 17
+  %523 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %511, i64 noundef %513, ptr noundef nonnull @.str.54, i32 noundef %522) #17
+  %.not153 = icmp eq i32 %523, 0
+  br i1 %.not153, label %.critedge, label %524
 
-518:                                              ; preds = %.loopexit185
-  %519 = add i32 %516, %.ph165
-  %520 = load ptr, ptr @cdrom_list, align 8
-  %521 = icmp eq ptr %520, @cdrom_list
-  br i1 %521, label %.loopexit182, label %.preheader180
+524:                                              ; preds = %.preheader202
+  %525 = add i32 %523, %507
+  %526 = load ptr, ptr %508, align 8
+  %527 = icmp eq ptr %526, @cdrom_list
+  br i1 %527, label %.loopexit204, label %.preheader202, !llvm.loop !58
 
-.preheader180:                                    ; preds = %518, %539
-  %522 = phi i32 [ %540, %539 ], [ %519, %518 ]
-  %523 = phi ptr [ %541, %539 ], [ %520, %518 ]
-  %524 = getelementptr i8, ptr %523, i64 -8
-  %525 = sext i32 %522 to i64
-  %526 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %525
-  %527 = sub i32 1000, %522
-  %528 = sext i32 %527 to i64
-  %529 = load ptr, ptr %524, align 8
-  %530 = getelementptr inbounds nuw i8, ptr %529, i64 104
-  %531 = load i32, ptr %530, align 8
-  %532 = getelementptr i8, ptr %523, i64 32
-  %533 = load i32, ptr %532, align 8
-  %534 = xor i32 %533, -1
-  %535 = and i32 %531, 524288
-  %536 = and i32 %535, %534
-  %537 = lshr exact i32 %536, 19
-  %538 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %526, i64 noundef %528, ptr noundef nonnull @.str.54, i32 noundef %537) #17
-  %.not116 = icmp eq i32 %538, 0
-  br i1 %.not116, label %.loopexit, label %539
+.loopexit204:                                     ; preds = %524, %503
+  %528 = phi i32 [ %504, %503 ], [ %525, %524 ]
+  %529 = sext i32 %528 to i64
+  %530 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %529
+  %531 = sub i32 1000, %528
+  %532 = sext i32 %531 to i64
+  %533 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %530, i64 noundef %532, ptr noundef nonnull @.str.48) #17
+  %534 = icmp eq i32 %533, 0
+  br i1 %534, label %.critedge, label %535
 
-539:                                              ; preds = %.preheader180
-  %540 = add i32 %538, %522
-  %541 = load ptr, ptr %523, align 8
-  %542 = icmp eq ptr %541, @cdrom_list
-  br i1 %542, label %.loopexit182, label %.preheader180, !llvm.loop !58
+535:                                              ; preds = %.loopexit204
+  %536 = add i32 %533, %528
+  %537 = load ptr, ptr @cdrom_list, align 8
+  %538 = icmp eq ptr %537, @cdrom_list
+  br i1 %538, label %.loopexit201, label %.preheader199
 
-.loopexit182:                                     ; preds = %539, %518
-  %.ph168 = phi i32 [ %519, %518 ], [ %540, %539 ]
-  %543 = sext i32 %.ph168 to i64
-  %544 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %543
-  %545 = sub i32 1000, %.ph168
-  %546 = sext i32 %545 to i64
-  %547 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %544, i64 noundef %546, ptr noundef nonnull @.str.49) #17
-  %548 = icmp eq i32 %547, 0
-  br i1 %548, label %.loopexit, label %549
+.preheader199:                                    ; preds = %535, %556
+  %539 = phi i32 [ %557, %556 ], [ %536, %535 ]
+  %540 = phi ptr [ %558, %556 ], [ %537, %535 ]
+  %541 = getelementptr i8, ptr %540, i64 -8
+  %542 = sext i32 %539 to i64
+  %543 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %542
+  %544 = sub i32 1000, %539
+  %545 = sext i32 %544 to i64
+  %546 = load ptr, ptr %541, align 8
+  %547 = getelementptr inbounds nuw i8, ptr %546, i64 104
+  %548 = load i32, ptr %547, align 8
+  %549 = getelementptr i8, ptr %540, i64 32
+  %550 = load i32, ptr %549, align 8
+  %551 = xor i32 %550, -1
+  %552 = and i32 %548, 524288
+  %553 = and i32 %552, %551
+  %554 = lshr exact i32 %553, 19
+  %555 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %543, i64 noundef %545, ptr noundef nonnull @.str.54, i32 noundef %554) #17
+  %.not154 = icmp eq i32 %555, 0
+  br i1 %.not154, label %.critedge, label %556
 
-549:                                              ; preds = %.loopexit182
-  %550 = add i32 %547, %.ph168
-  %551 = load ptr, ptr @cdrom_list, align 8
-  %552 = icmp eq ptr %551, @cdrom_list
-  br i1 %552, label %.loopexit179, label %.preheader177
+556:                                              ; preds = %.preheader199
+  %557 = add i32 %555, %539
+  %558 = load ptr, ptr %540, align 8
+  %559 = icmp eq ptr %558, @cdrom_list
+  br i1 %559, label %.loopexit201, label %.preheader199, !llvm.loop !58
 
-.preheader177:                                    ; preds = %549, %570
-  %553 = phi i32 [ %571, %570 ], [ %550, %549 ]
-  %554 = phi ptr [ %572, %570 ], [ %551, %549 ]
-  %555 = getelementptr i8, ptr %554, i64 -8
-  %556 = sext i32 %553 to i64
-  %557 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %556
-  %558 = sub i32 1000, %553
-  %559 = sext i32 %558 to i64
-  %560 = load ptr, ptr %555, align 8
-  %561 = getelementptr inbounds nuw i8, ptr %560, i64 104
-  %562 = load i32, ptr %561, align 8
-  %563 = getelementptr i8, ptr %554, i64 32
-  %564 = load i32, ptr %563, align 8
-  %565 = xor i32 %564, -1
-  %566 = and i32 %562, 1048576
-  %567 = and i32 %566, %565
-  %568 = lshr exact i32 %567, 20
-  %569 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %557, i64 noundef %559, ptr noundef nonnull @.str.54, i32 noundef %568) #17
-  %.not117 = icmp eq i32 %569, 0
-  br i1 %.not117, label %.loopexit, label %570
+.loopexit201:                                     ; preds = %556, %535
+  %560 = phi i32 [ %536, %535 ], [ %557, %556 ]
+  %561 = sext i32 %560 to i64
+  %562 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %561
+  %563 = sub i32 1000, %560
+  %564 = sext i32 %563 to i64
+  %565 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %562, i64 noundef %564, ptr noundef nonnull @.str.49) #17
+  %566 = icmp eq i32 %565, 0
+  br i1 %566, label %.critedge, label %567
 
-570:                                              ; preds = %.preheader177
-  %571 = add i32 %569, %553
-  %572 = load ptr, ptr %554, align 8
-  %573 = icmp eq ptr %572, @cdrom_list
-  br i1 %573, label %.loopexit179, label %.preheader177, !llvm.loop !58
+567:                                              ; preds = %.loopexit201
+  %568 = add i32 %565, %560
+  %569 = load ptr, ptr @cdrom_list, align 8
+  %570 = icmp eq ptr %569, @cdrom_list
+  br i1 %570, label %.loopexit198, label %.preheader196
 
-.loopexit179:                                     ; preds = %570, %549
-  %.ph171 = phi i32 [ %550, %549 ], [ %571, %570 ]
-  %574 = sext i32 %.ph171 to i64
+.preheader196:                                    ; preds = %567, %588
+  %571 = phi i32 [ %589, %588 ], [ %568, %567 ]
+  %572 = phi ptr [ %590, %588 ], [ %569, %567 ]
+  %573 = getelementptr i8, ptr %572, i64 -8
+  %574 = sext i32 %571 to i64
   %575 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %574
-  %576 = sub i32 1000, %.ph171
+  %576 = sub i32 1000, %571
   %577 = sext i32 %576 to i64
-  %578 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %575, i64 noundef %577, ptr noundef nonnull @.str.50) #17
-  %579 = icmp eq i32 %578, 0
-  br i1 %579, label %.loopexit, label %580
+  %578 = load ptr, ptr %573, align 8
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 104
+  %580 = load i32, ptr %579, align 8
+  %581 = getelementptr i8, ptr %572, i64 32
+  %582 = load i32, ptr %581, align 8
+  %583 = xor i32 %582, -1
+  %584 = and i32 %580, 1048576
+  %585 = and i32 %584, %583
+  %586 = lshr exact i32 %585, 20
+  %587 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %575, i64 noundef %577, ptr noundef nonnull @.str.54, i32 noundef %586) #17
+  %.not155 = icmp eq i32 %587, 0
+  br i1 %.not155, label %.critedge, label %588
 
-580:                                              ; preds = %.loopexit179
-  %581 = add i32 %578, %.ph171
-  %582 = load ptr, ptr @cdrom_list, align 8
-  %583 = icmp eq ptr %582, @cdrom_list
-  br i1 %583, label %.loopexit176, label %.preheader
+588:                                              ; preds = %.preheader196
+  %589 = add i32 %587, %571
+  %590 = load ptr, ptr %572, align 8
+  %591 = icmp eq ptr %590, @cdrom_list
+  br i1 %591, label %.loopexit198, label %.preheader196, !llvm.loop !58
 
-.preheader:                                       ; preds = %580, %601
-  %584 = phi i32 [ %602, %601 ], [ %581, %580 ]
-  %585 = phi ptr [ %603, %601 ], [ %582, %580 ]
-  %586 = getelementptr i8, ptr %585, i64 -8
-  %587 = sext i32 %584 to i64
-  %588 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %587
-  %589 = sub i32 1000, %584
-  %590 = sext i32 %589 to i64
-  %591 = load ptr, ptr %586, align 8
-  %592 = getelementptr inbounds nuw i8, ptr %591, i64 104
-  %593 = load i32, ptr %592, align 8
-  %594 = getelementptr i8, ptr %585, i64 32
-  %595 = load i32, ptr %594, align 8
-  %596 = xor i32 %595, -1
-  %597 = and i32 %593, 2097152
-  %598 = and i32 %597, %596
-  %599 = lshr exact i32 %598, 21
-  %600 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %588, i64 noundef %590, ptr noundef nonnull @.str.54, i32 noundef %599) #17
-  %.not118 = icmp eq i32 %600, 0
-  br i1 %.not118, label %.loopexit, label %601
+.loopexit198:                                     ; preds = %588, %567
+  %592 = phi i32 [ %568, %567 ], [ %589, %588 ]
+  %593 = sext i32 %592 to i64
+  %594 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %593
+  %595 = sub i32 1000, %592
+  %596 = sext i32 %595 to i64
+  %597 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %594, i64 noundef %596, ptr noundef nonnull @.str.50) #17
+  %598 = icmp eq i32 %597, 0
+  br i1 %598, label %.critedge, label %599
 
-601:                                              ; preds = %.preheader
-  %602 = add i32 %600, %584
-  %603 = load ptr, ptr %585, align 8
-  %604 = icmp eq ptr %603, @cdrom_list
-  br i1 %604, label %.loopexit176, label %.preheader, !llvm.loop !58
+599:                                              ; preds = %.loopexit198
+  %600 = add i32 %597, %592
+  %601 = load ptr, ptr @cdrom_list, align 8
+  %602 = icmp eq ptr %601, @cdrom_list
+  br i1 %602, label %.loopexit, label %.preheader
 
-.loopexit176:                                     ; preds = %601, %580
-  %.ph174 = phi i32 [ %581, %580 ], [ %602, %601 ]
-  %605 = sext i32 %.ph174 to i64
-  %606 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %605
-  %607 = sub i32 1000, %.ph174
-  %608 = sext i32 %607 to i64
-  %609 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %606, i64 noundef %608, ptr noundef nonnull @.str.51) #17
-  %610 = icmp eq i32 %609, 0
-  br i1 %610, label %.loopexit, label %611
+.preheader:                                       ; preds = %599, %620
+  %603 = phi i32 [ %621, %620 ], [ %600, %599 ]
+  %604 = phi ptr [ %622, %620 ], [ %601, %599 ]
+  %605 = getelementptr i8, ptr %604, i64 -8
+  %606 = sext i32 %603 to i64
+  %607 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %606
+  %608 = sub i32 1000, %603
+  %609 = sext i32 %608 to i64
+  %610 = load ptr, ptr %605, align 8
+  %611 = getelementptr inbounds nuw i8, ptr %610, i64 104
+  %612 = load i32, ptr %611, align 8
+  %613 = getelementptr i8, ptr %604, i64 32
+  %614 = load i32, ptr %613, align 8
+  %615 = xor i32 %614, -1
+  %616 = and i32 %612, 2097152
+  %617 = and i32 %616, %615
+  %618 = lshr exact i32 %617, 21
+  %619 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %607, i64 noundef %609, ptr noundef nonnull @.str.54, i32 noundef %618) #17
+  %.not156 = icmp eq i32 %619, 0
+  br i1 %.not156, label %.critedge, label %620
 
-611:                                              ; preds = %.loopexit, %.loopexit176
+620:                                              ; preds = %.preheader
+  %621 = add i32 %619, %603
+  %622 = load ptr, ptr %604, align 8
+  %623 = icmp eq ptr %622, @cdrom_list
+  br i1 %623, label %.loopexit, label %.preheader, !llvm.loop !58
+
+.loopexit:                                        ; preds = %620, %599
+  %624 = phi i32 [ %600, %599 ], [ %621, %620 ]
+  %625 = sext i32 %624 to i64
+  %626 = getelementptr i8, ptr @cdrom_sysctl_settings, i64 %625
+  %627 = sub i32 1000, %624
+  %628 = sext i32 %627 to i64
+  %629 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %626, i64 noundef %628, ptr noundef nonnull @.str.51) #17
+  %630 = icmp eq i32 %629, 0
+  br i1 %630, label %.critedge, label %631
+
+631:                                              ; preds = %.critedge, %.loopexit
   tail call void @mutex_unlock(ptr noundef nonnull @cdrom_mutex) #17
-  %612 = tail call i32 @proc_dostring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #17
-  br label %614
+  %632 = tail call i32 @proc_dostring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #17
+  br label %634
 
-.loopexit:                                        ; preds = %.preheader231, %.preheader228, %.preheader225, %.preheader222, %.preheader219, %.preheader216, %.preheader213, %.preheader210, %.preheader207, %.preheader204, %.preheader201, %.preheader198, %.preheader195, %.preheader192, %.preheader189, %.preheader186, %.preheader183, %.preheader180, %.preheader177, %.preheader, %.loopexit179, %.loopexit182, %.loopexit185, %.loopexit188, %.loopexit191, %.loopexit194, %.loopexit197, %.loopexit200, %.loopexit203, %.loopexit206, %.loopexit209, %.loopexit212, %.loopexit215, %.loopexit218, %.loopexit221, %.loopexit224, %.loopexit227, %.loopexit230, %.loopexit233, %14, %.loopexit176
-  %613 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52) #16
-  br label %611
+.critedge:                                        ; preds = %.preheader250, %.preheader247, %.preheader244, %.preheader241, %.preheader238, %.preheader235, %.preheader232, %.preheader229, %.preheader226, %.preheader223, %.preheader220, %.preheader217, %.preheader214, %.preheader211, %.preheader208, %.preheader205, %.preheader202, %.preheader199, %.preheader196, %.preheader, %.loopexit198, %.loopexit201, %.loopexit204, %.loopexit207, %.loopexit210, %.loopexit213, %.loopexit216, %.loopexit219, %.loopexit222, %.loopexit225, %.loopexit228, %.loopexit231, %.loopexit234, %.loopexit237, %.loopexit240, %.loopexit243, %.loopexit246, %.loopexit249, %.loopexit252, %14, %.loopexit
+  %633 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52) #16
+  br label %631
 
-614:                                              ; preds = %611, %13
-  %615 = phi i32 [ %612, %611 ], [ 0, %13 ]
-  ret i32 %615
+634:                                              ; preds = %631, %13
+  %635 = phi i32 [ %632, %631 ], [ 0, %13 ]
+  ret i32 %635
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

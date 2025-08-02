@@ -2519,7 +2519,6 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN6hermes6parser10JSO
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %invariant.gep = getelementptr i8, ptr %__first, i64 16
   %cmp27 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp27, label %while.body, label %while.end
 
@@ -2528,17 +2527,18 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %add = shl i64 %__holeIndex.addr.028, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %mul
-  %gep = getelementptr %"struct.std::pair", ptr %invariant.gep, i64 %add
+  %0 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %add
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %add.ptr.val = load ptr, ptr %add.ptr, align 8
-  %add.ptr2.val = load ptr, ptr %gep, align 8
-  %0 = getelementptr i8, ptr %add.ptr.val, i64 16
-  %add.ptr.val.val = load ptr, ptr %0, align 8
-  %1 = getelementptr i8, ptr %add.ptr2.val, i64 16
-  %add.ptr2.val.val = load ptr, ptr %1, align 8
-  %2 = getelementptr i8, ptr %add.ptr.val.val, i64 8
-  %add.ptr.val.val.val23 = load i64, ptr %2, align 8
-  %3 = getelementptr i8, ptr %add.ptr2.val.val, i64 8
-  %add.ptr2.val.val.val24 = load i64, ptr %3, align 8
+  %add.ptr2.val = load ptr, ptr %add.ptr2, align 8
+  %1 = getelementptr i8, ptr %add.ptr.val, i64 16
+  %add.ptr.val.val = load ptr, ptr %1, align 8
+  %2 = getelementptr i8, ptr %add.ptr2.val, i64 16
+  %add.ptr2.val.val = load ptr, ptr %2, align 8
+  %3 = getelementptr i8, ptr %add.ptr.val.val, i64 8
+  %add.ptr.val.val.val23 = load i64, ptr %3, align 8
+  %4 = getelementptr i8, ptr %add.ptr2.val.val, i64 8
+  %add.ptr2.val.val.val24 = load i64, ptr %4, align 8
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.ptr2.val.val.val24, i64 %add.ptr.val.val.val23)
   %cmp.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
@@ -2564,12 +2564,12 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4llvh9StringRef1
   %spec.select = select i1 %retval.i.0.i.i.i, i64 %dec, i64 %mul
   %add.ptr3 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %spec.select
   %add.ptr4 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.028
-  %4 = load ptr, ptr %add.ptr3, align 8
-  store ptr %4, ptr %add.ptr4, align 8
+  %5 = load ptr, ptr %add.ptr3, align 8
+  store ptr %5, ptr %add.ptr4, align 8
   %second.i = getelementptr inbounds nuw i8, ptr %add.ptr3, i64 8
-  %5 = load ptr, ptr %second.i, align 8
+  %6 = load ptr, ptr %second.i, align 8
   %second3.i = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 8
-  store ptr %5, ptr %second3.i, align 8
+  store ptr %6, ptr %second3.i, align 8
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !41
 
@@ -2590,12 +2590,12 @@ if.then10:                                        ; preds = %land.lhs.true
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %sub13
   %add.ptr15 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa
-  %6 = load ptr, ptr %add.ptr14, align 8
-  store ptr %6, ptr %add.ptr15, align 8
+  %7 = load ptr, ptr %add.ptr14, align 8
+  store ptr %7, ptr %add.ptr15, align 8
   %second.i25 = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 8
-  %7 = load ptr, ptr %second.i25, align 8
+  %8 = load ptr, ptr %second.i25, align 8
   %second3.i26 = getelementptr inbounds nuw i8, ptr %add.ptr15, i64 8
-  store ptr %7, ptr %second3.i26, align 8
+  store ptr %8, ptr %second3.i26, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then10, %land.lhs.true, %while.end
@@ -2604,7 +2604,7 @@ if.end18:                                         ; preds = %if.then10, %land.lh
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEElS7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end18
-  %8 = getelementptr i8, ptr %__value.coerce0, i64 16
+  %9 = getelementptr i8, ptr %__value.coerce0, i64 16
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
@@ -2613,13 +2613,13 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %__parent.05.i = sdiv i64 %__parent.05.in.i, 2
   %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__parent.05.i
   %add.ptr.val.i = load ptr, ptr %add.ptr.i, align 8
-  %9 = getelementptr i8, ptr %add.ptr.val.i, i64 16
-  %add.ptr.val.val.i = load ptr, ptr %9, align 8
-  %__value.val.val.i = load ptr, ptr %8, align 8
-  %10 = getelementptr i8, ptr %add.ptr.val.val.i, i64 8
-  %add.ptr.val.val.val10.i = load i64, ptr %10, align 8
-  %11 = getelementptr i8, ptr %__value.val.val.i, i64 8
-  %__value.val.val.val11.i = load i64, ptr %11, align 8
+  %10 = getelementptr i8, ptr %add.ptr.val.i, i64 16
+  %add.ptr.val.val.i = load ptr, ptr %10, align 8
+  %__value.val.val.i = load ptr, ptr %9, align 8
+  %11 = getelementptr i8, ptr %add.ptr.val.val.i, i64 8
+  %add.ptr.val.val.val10.i = load i64, ptr %11, align 8
+  %12 = getelementptr i8, ptr %__value.val.val.i, i64 8
+  %__value.val.val.val11.i = load i64, ptr %12, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %__value.val.val.val11.i, i64 %add.ptr.val.val.val10.i)
   %cmp.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SA_EEbT_RT0_.exit.i", label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
@@ -2643,9 +2643,9 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
   %add.ptr2.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.04.i
   store ptr %add.ptr.val.i, ptr %add.ptr2.i, align 8
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
-  %12 = load ptr, ptr %second.i.i, align 8
+  %13 = load ptr, ptr %second.i.i, align 8
   %second3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 8
-  store ptr %12, ptr %second3.i.i, align 8
+  store ptr %13, ptr %second3.i.i, align 8
   %cmp.i = icmp sgt i64 %__parent.05.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEElS7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !42
 

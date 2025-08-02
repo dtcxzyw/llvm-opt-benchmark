@@ -1943,7 +1943,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr noundef
   %27 = load i64, ptr %12, align 8
   %28 = sub i64 %26, %27
   %29 = icmp ult i64 %28, 33554432
-  br i1 %29, label %30, label %42
+  br i1 %29, label %30, label %43
 
 30:                                               ; preds = %24
   %31 = icmp samesign ult i64 %28, 15
@@ -1966,19 +1966,19 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr noundef
 .loopexit:                                        ; preds = %.preheader, %30
   %40 = phi i32 [ 0, %30 ], [ %38, %.preheader ]
   %41 = shl nuw i32 1, %40
-  br label %42
+  %42 = tail call i32 @llvm.umax.i32(i32 %41, i32 %2)
+  br label %43
 
-42:                                               ; preds = %.loopexit, %24
-  %43 = phi i32 [ %41, %.loopexit ], [ 4194304, %24 ]
-  %44 = tail call i32 @llvm.umax.i32(i32 %43, i32 %2)
+43:                                               ; preds = %.loopexit, %24
+  %44 = phi i32 [ %42, %.loopexit ], [ 4194304, %24 ]
   %45 = load i64, ptr @pci_mem_start, align 8
   %46 = and i64 %45, 4294967295
   br label %47
 
-47:                                               ; preds = %42, %21
-  %48 = phi i32 [ %44, %42 ], [ 1024, %21 ]
-  %49 = phi i32 [ %44, %42 ], [ 512, %21 ]
-  %50 = phi i64 [ %46, %42 ], [ 16384, %21 ]
+47:                                               ; preds = %43, %21
+  %48 = phi i32 [ %44, %43 ], [ 1024, %21 ]
+  %49 = phi i32 [ %44, %43 ], [ 512, %21 ]
+  %50 = phi i64 [ %46, %43 ], [ 16384, %21 ]
   br label %51
 
 51:                                               ; preds = %51, %47

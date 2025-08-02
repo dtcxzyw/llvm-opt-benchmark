@@ -620,7 +620,6 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %13 = load i32, ptr %12, align 4, !tbaa !24
   %14 = add i32 %13, 16
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not20 = icmp ugt i32 %8, %5
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -630,28 +629,29 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %3
   %17 = icmp eq ptr %16, null
   br i1 %17, label %._crit_edge, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %23, %3, %.lr.ph, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
+._crit_edge:                                      ; preds = %25, %3, %.lr.ph, %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit
   ret void
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %23
-  %.019 = phi i32 [ %25, %23 ], [ 0, %.lr.ph ]
-  %.01618 = phi i32 [ %24, %23 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %25
+  %.019 = phi i32 [ %27, %25 ], [ 0, %.lr.ph ]
+  %.01618 = phi i32 [ %26, %25 ], [ 0, %.lr.ph ]
   %18 = load ptr, ptr %10, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8, !tbaa !33
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %23, label %21
+  br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %.lr.ph.split
   %22 = zext i32 %.019 to i64
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %22
-  tail call void %20(ptr noundef %0, ptr noundef nonnull %gep, ptr noundef nonnull %18) #21
-  br label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  tail call void %20(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %18) #21
+  br label %25
 
-23:                                               ; preds = %21, %.lr.ph.split
-  %24 = add nuw i32 %.01618, 1
-  %25 = add i32 %14, %.019
-  %exitcond.not = icmp eq i32 %24, %9
+25:                                               ; preds = %21, %.lr.ph.split
+  %26 = add nuw i32 %.01618, 1
+  %27 = add i32 %14, %.019
+  %exitcond.not = icmp eq i32 %26, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !70
 }
 

@@ -177,60 +177,60 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer14allInitia
   %9 = zext i32 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
-  %.not56.i = icmp eq i32 %8, 0
-  br i1 %.not56.i, label %.loopexit.i, label %.lr.ph.i
+  %.not51.i = icmp eq i32 %8, 0
+  br i1 %.not51.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %3, %18
-  %.02259.i = phi i1 [ %.1.ph.i, %18 ], [ false, %3 ]
-  %.02358.i = phi ptr [ %22, %18 ], [ %6, %3 ]
-  %.sroa.035.057.i = phi i64 [ %.sroa.035.3.ph.i, %18 ], [ 0, %3 ]
-  %.sroa.030.0.copyload.i = load i64, ptr %.02358.i, align 8, !tbaa !16
-  %.sroa.7.0..023.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.02358.i, i64 8
-  %.sroa.7.0.copyload.i = load i64, ptr %.sroa.7.0..023.sroa_idx.i, align 8, !tbaa !16
-  br i1 %.02259.i, label %11, label %18
+.lr.ph.i:                                         ; preds = %3, %20
+  %.02254.i = phi i1 [ %.1.i, %20 ], [ false, %3 ]
+  %.02353.i = phi ptr [ %24, %20 ], [ %6, %3 ]
+  %.sroa.035.052.i = phi i64 [ %.sroa.035.3.i, %20 ], [ 0, %3 ]
+  %.sroa.030.0.copyload.i = load i64, ptr %.02353.i, align 8, !tbaa !16
+  %.sroa.8.0..023.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.02353.i, i64 8
+  %.sroa.8.0.copyload.i = load i64, ptr %.sroa.8.0..023.sroa_idx.i, align 8, !tbaa !16
+  br i1 %.02254.i, label %11, label %20
 
 11:                                               ; preds = %.lr.ph.i
   %12 = icmp ule i64 %.sroa.030.0.copyload.i, %4
-  %13 = icmp uge i64 %.sroa.7.0.copyload.i, %4
+  %13 = icmp uge i64 %.sroa.8.0.copyload.i, %4
   %14 = select i1 %12, i1 %13, i1 false
-  br i1 %14, label %23, label %15
+  br i1 %14, label %.critedge.i, label %17
 
-15:                                               ; preds = %11
-  %reass.sub.i.i = add i64 %.sroa.035.057.i, 1
-  %16 = sub i64 %reass.sub.i.i, %.sroa.030.0.copyload.i
-  %17 = add i64 %16, %.sroa.7.0.copyload.i
-  br label %18
-
-18:                                               ; preds = %15, %.lr.ph.i
-  %.sroa.035.2.i = phi i64 [ %17, %15 ], [ %.sroa.035.057.i, %.lr.ph.i ]
-  %19 = icmp eq i64 %.sroa.030.0.copyload.i, 0
-  %20 = add i64 %.sroa.7.0.copyload.i, 1
-  %21 = select i1 %19, i64 %20, i64 0
-  %.sroa.035.3.ph.i = add i64 %.sroa.035.2.i, %21
-  %.1.ph.i = or i1 %.02259.i, %19
-  %22 = getelementptr inbounds nuw i8, ptr %.02358.i, i64 16
-  %.not.i = icmp eq ptr %22, %10
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
-
-23:                                               ; preds = %11
-  %24 = add i64 %.sroa.035.057.i, %.sroa.0.0.copyload
-  %25 = sub i64 %24, %.sroa.030.0.copyload.i
+.critedge.i:                                      ; preds = %11
+  %15 = add i64 %.sroa.035.052.i, %.sroa.0.0.copyload
+  %16 = sub i64 %15, %.sroa.030.0.copyload.i
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %18, %23, %3
-  %.sroa.035.1.i = phi i64 [ %25, %23 ], [ 0, %3 ], [ %.sroa.035.3.ph.i, %18 ]
-  %26 = icmp uge i64 %.sroa.035.1.i, %.sroa.0.0.copyload
+17:                                               ; preds = %11
+  %reass.sub.i.i = add i64 %.sroa.035.052.i, 1
+  %18 = sub i64 %reass.sub.i.i, %.sroa.030.0.copyload.i
+  %19 = add i64 %18, %.sroa.8.0.copyload.i
+  br label %20
+
+20:                                               ; preds = %17, %.lr.ph.i
+  %.sroa.035.2.i = phi i64 [ %19, %17 ], [ %.sroa.035.052.i, %.lr.ph.i ]
+  %21 = icmp eq i64 %.sroa.030.0.copyload.i, 0
+  %22 = add i64 %.sroa.8.0.copyload.i, 1
+  %23 = select i1 %21, i64 %22, i64 0
+  %.sroa.035.3.i = add i64 %.sroa.035.2.i, %23
+  %.1.i = or i1 %.02254.i, %21
+  %24 = getelementptr inbounds nuw i8, ptr %.02353.i, i64 16
+  %.not.i = icmp eq ptr %24, %10
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
+
+.loopexit.i:                                      ; preds = %20, %.critedge.i, %3
+  %.sroa.035.1.i = phi i64 [ %16, %.critedge.i ], [ 0, %3 ], [ %.sroa.035.3.i, %20 ]
+  %25 = icmp uge i64 %.sroa.035.1.i, %.sroa.0.0.copyload
   br label %_ZNK5clang6interp13BitcastBuffer16rangeInitializedENS0_4BitsES2_.exit
 
 _ZNK5clang6interp13BitcastBuffer16rangeInitializedENS0_4BitsES2_.exit: ; preds = %1, %.loopexit.i
-  %.0.i = phi i1 [ %26, %.loopexit.i ], [ true, %1 ]
+  %.0.i = phi i1 [ %25, %.loopexit.i ], [ true, %1 ]
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer16rangeInitializedENS0_4BitsES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, i64 %1, i64 %2) local_unnamed_addr #4 align 2 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %33, label %5
+  br i1 %4, label %32, label %5
 
 5:                                                ; preds = %3
   %6 = add i64 %1, -1
@@ -242,57 +242,57 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer16rangeInit
   %12 = zext i32 %11 to i64
   %.idx = shl nuw nsw i64 %12, 4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
-  %.not56 = icmp eq i32 %11, 0
-  br i1 %.not56, label %.loopexit, label %.lr.ph
+  %.not51 = icmp eq i32 %11, 0
+  br i1 %.not51, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %21
-  %.02259 = phi i1 [ %.1.ph, %21 ], [ false, %5 ]
-  %.02358 = phi ptr [ %27, %21 ], [ %9, %5 ]
-  %.sroa.035.057 = phi i64 [ %.sroa.035.3.ph, %21 ], [ 0, %5 ]
-  %.sroa.030.0.copyload = load i64, ptr %.02358, align 8, !tbaa !16
-  %.sroa.7.0..023.sroa_idx = getelementptr inbounds nuw i8, ptr %.02358, i64 8
-  %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..023.sroa_idx, align 8, !tbaa !16
-  br i1 %.02259, label %14, label %21
+.lr.ph:                                           ; preds = %5, %24
+  %.02254 = phi i1 [ %.1, %24 ], [ false, %5 ]
+  %.02353 = phi ptr [ %30, %24 ], [ %9, %5 ]
+  %.sroa.035.052 = phi i64 [ %.sroa.035.3, %24 ], [ 0, %5 ]
+  %.sroa.030.0.copyload = load i64, ptr %.02353, align 8, !tbaa !16
+  %.sroa.8.0..023.sroa_idx = getelementptr inbounds nuw i8, ptr %.02353, i64 8
+  %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..023.sroa_idx, align 8, !tbaa !16
+  br i1 %.02254, label %14, label %24
 
 14:                                               ; preds = %.lr.ph
   %15 = icmp ule i64 %.sroa.030.0.copyload, %7
-  %16 = icmp uge i64 %.sroa.7.0.copyload, %7
+  %16 = icmp uge i64 %.sroa.8.0.copyload, %7
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %28, label %18
+  br i1 %17, label %.critedge, label %21
 
-18:                                               ; preds = %14
-  %reass.sub.i = add i64 %.sroa.035.057, 1
-  %19 = sub i64 %reass.sub.i, %.sroa.030.0.copyload
-  %20 = add i64 %19, %.sroa.7.0.copyload
-  br label %21
-
-21:                                               ; preds = %18, %.lr.ph
-  %.sroa.035.2 = phi i64 [ %20, %18 ], [ %.sroa.035.057, %.lr.ph ]
-  %22 = icmp ule i64 %.sroa.030.0.copyload, %1
-  %23 = icmp uge i64 %.sroa.7.0.copyload, %1
-  %24 = select i1 %22, i1 %23, i1 false
-  %reass.sub = sub i64 %.sroa.7.0.copyload, %1
-  %25 = add i64 %reass.sub, 1
-  %26 = select i1 %24, i64 %25, i64 0
-  %.sroa.035.3.ph = add i64 %.sroa.035.2, %26
-  %.1.ph = or i1 %24, %.02259
-  %27 = getelementptr inbounds nuw i8, ptr %.02358, i64 16
-  %.not = icmp eq ptr %27, %13
-  br i1 %.not, label %.loopexit, label %.lr.ph
-
-28:                                               ; preds = %14
-  %29 = add i64 %1, %2
-  %30 = add i64 %29, %.sroa.035.057
-  %31 = sub i64 %30, %.sroa.030.0.copyload
+.critedge:                                        ; preds = %14
+  %18 = add i64 %1, %2
+  %19 = add i64 %18, %.sroa.035.052
+  %20 = sub i64 %19, %.sroa.030.0.copyload
   br label %.loopexit
 
-.loopexit:                                        ; preds = %21, %5, %28
-  %.sroa.035.1 = phi i64 [ %31, %28 ], [ 0, %5 ], [ %.sroa.035.3.ph, %21 ]
-  %32 = icmp uge i64 %.sroa.035.1, %2
-  br label %33
+21:                                               ; preds = %14
+  %reass.sub.i = add i64 %.sroa.035.052, 1
+  %22 = sub i64 %reass.sub.i, %.sroa.030.0.copyload
+  %23 = add i64 %22, %.sroa.8.0.copyload
+  br label %24
 
-33:                                               ; preds = %3, %.loopexit
-  %.0 = phi i1 [ %32, %.loopexit ], [ true, %3 ]
+24:                                               ; preds = %21, %.lr.ph
+  %.sroa.035.2 = phi i64 [ %23, %21 ], [ %.sroa.035.052, %.lr.ph ]
+  %25 = icmp ule i64 %.sroa.030.0.copyload, %1
+  %26 = icmp uge i64 %.sroa.8.0.copyload, %1
+  %27 = select i1 %25, i1 %26, i1 false
+  %reass.sub = sub i64 %.sroa.8.0.copyload, %1
+  %28 = add i64 %reass.sub, 1
+  %29 = select i1 %27, i64 %28, i64 0
+  %.sroa.035.3 = add i64 %.sroa.035.2, %29
+  %.1 = or i1 %27, %.02254
+  %30 = getelementptr inbounds nuw i8, ptr %.02353, i64 16
+  %.not = icmp eq ptr %30, %13
+  br i1 %.not, label %.loopexit, label %.lr.ph
+
+.loopexit:                                        ; preds = %24, %5, %.critedge
+  %.sroa.035.1 = phi i64 [ %20, %.critedge ], [ 0, %5 ], [ %.sroa.035.3, %24 ]
+  %31 = icmp uge i64 %.sroa.035.1, %2
+  br label %32
+
+32:                                               ; preds = %3, %.loopexit
+  %.0 = phi i1 [ %31, %.loopexit ], [ true, %3 ]
   ret i1 %.0
 }
 

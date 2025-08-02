@@ -111,7 +111,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
 8:                                                ; preds = %1
   store i32 0, ptr @wb_presets_size, align 4, !tbaa !6
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str) #11
-  br label %241
+  br label %242
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
@@ -146,7 +146,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
 19:                                               ; preds = %18, %15
   %20 = call i32 @g_file_test(ptr noundef nonnull %3, i32 noundef 16) #11
   %.not108 = icmp eq i32 %20, 0
-  br i1 %.not108, label %240, label %21
+  br i1 %.not108, label %241, label %21
 
 21:                                               ; preds = %19
   %22 = call ptr @json_parser_new() #11
@@ -162,7 +162,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %28 = load ptr, ptr %2, align 8, !tbaa !12
   call void @g_error_free(ptr noundef %28) #11
   call void @g_object_unref(ptr noundef %22) #11
-  br label %240
+  br label %241
 
 29:                                               ; preds = %21
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
@@ -268,7 +268,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %72, label %.lr.ph200, label %._crit_edge201
 
 .lr.ph200:                                        ; preds = %71, %._crit_edge197
-  %.098198 = phi i32 [ %230, %._crit_edge197 ], [ 0, %71 ]
+  %.098198 = phi i32 [ %231, %._crit_edge197 ], [ 0, %71 ]
   %73 = call i32 @json_reader_read_element(ptr noundef %40, i32 noundef %.098198) #11
   %.not120 = icmp eq i32 %73, 0
   br i1 %.not120, label %74, label %79
@@ -358,7 +358,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   br label %115
 
 115:                                              ; preds = %.lr.ph196, %._crit_edge
-  %.097194 = phi i32 [ 0, %.lr.ph196 ], [ %229, %._crit_edge ]
+  %.097194 = phi i32 [ 0, %.lr.ph196 ], [ %230, %._crit_edge ]
   %116 = call i32 @json_reader_read_element(ptr noundef %40, i32 noundef %.097194) #11
   %.not128 = icmp eq i32 %116, 0
   br i1 %.not128, label %117, label %122
@@ -447,8 +447,8 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %157 = sext i32 %129 to i64
   br label %158
 
-158:                                              ; preds = %.lr.ph, %227
-  %.087193 = phi i32 [ 0, %.lr.ph ], [ %228, %227 ]
+158:                                              ; preds = %.lr.ph, %228
+  %.087193 = phi i32 [ 0, %.lr.ph ], [ %229, %228 ]
   %159 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %160 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %161 = sext i32 %160 to i64
@@ -522,7 +522,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   store i32 %201, ptr @wb_presets_count, align 4, !tbaa !6
   %202 = load i32, ptr @wb_presets_size, align 4, !tbaa !6
   %203 = icmp eq i32 %201, %202
-  br i1 %203, label %212, label %227
+  br i1 %203, label %213, label %228
 
 204:                                              ; preds = %183, %204
   %indvars.iv = phi i64 [ 0, %183 ], [ %indvars.iv.next, %204 ]
@@ -532,104 +532,105 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %208 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %209 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds %struct.dt_wb_data, ptr %208, i64 %210, i32 4, i64 %indvars.iv
-  store double %207, ptr %211, align 8, !tbaa !59
+  %211 = getelementptr inbounds %struct.dt_wb_data, ptr %208, i64 %210, i32 4
+  %212 = getelementptr inbounds nuw [4 x double], ptr %211, i64 0, i64 %indvars.iv
+  store double %207, ptr %212, align 8, !tbaa !59
   call void @json_reader_end_element(ptr noundef %40) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %199, label %204
 
-212:                                              ; preds = %199
-  %213 = add nsw i32 %200, 2001
-  store i32 %213, ptr @wb_presets_size, align 4, !tbaa !6
-  %214 = load ptr, ptr @wb_presets, align 8, !tbaa !10
-  %215 = sext i32 %213 to i64
-  %216 = shl nsw i64 %215, 6
-  %217 = call ptr @realloc(ptr noundef %214, i64 noundef %216) #12
-  %.not138.not = icmp eq ptr %217, null
-  br i1 %.not138.not, label %218, label %223
+213:                                              ; preds = %199
+  %214 = add nsw i32 %200, 2001
+  store i32 %214, ptr @wb_presets_size, align 4, !tbaa !6
+  %215 = load ptr, ptr @wb_presets, align 8, !tbaa !10
+  %216 = sext i32 %214 to i64
+  %217 = shl nsw i64 %216, 6
+  %218 = call ptr @realloc(ptr noundef %215, i64 noundef %217) #12
+  %.not138.not = icmp eq ptr %218, null
+  br i1 %.not138.not, label %219, label %224
 
-218:                                              ; preds = %212
-  %219 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
-  %220 = and i32 %219, 2
-  %.not139 = icmp eq i32 %220, 0
-  br i1 %.not139, label %.thread168, label %221
+219:                                              ; preds = %213
+  %220 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
+  %221 = and i32 %220, 2
+  %.not139 = icmp eq i32 %221, 0
+  br i1 %.not139, label %.thread168, label %222
 
-221:                                              ; preds = %218
-  %222 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.32, i32 noundef %222) #11
+222:                                              ; preds = %219
+  %223 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.32, i32 noundef %223) #11
   br label %.thread168
 
-223:                                              ; preds = %212
-  store ptr %217, ptr @wb_presets, align 8, !tbaa !10
-  %224 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds %struct.dt_wb_data, ptr %217, i64 %225
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128000) %226, i8 0, i64 128000, i1 false)
-  br label %227
+224:                                              ; preds = %213
+  store ptr %218, ptr @wb_presets, align 8, !tbaa !10
+  %225 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds %struct.dt_wb_data, ptr %218, i64 %226
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128000) %227, i8 0, i64 128000, i1 false)
+  br label %228
 
-227:                                              ; preds = %223, %199
+228:                                              ; preds = %224, %199
   call void @json_reader_end_element(ptr noundef %40) #11
-  %228 = add nuw nsw i32 %.087193, 1
-  %exitcond226.not = icmp eq i32 %228, %151
+  %229 = add nuw nsw i32 %.087193, 1
+  %exitcond226.not = icmp eq i32 %229, %151
   br i1 %exitcond226.not, label %._crit_edge, label %158
 
-._crit_edge:                                      ; preds = %227, %155
+._crit_edge:                                      ; preds = %228, %155
   call void @json_reader_end_member(ptr noundef %40) #11
   call void @json_reader_end_element(ptr noundef %40) #11
-  %229 = add nuw nsw i32 %.097194, 1
-  %exitcond227.not = icmp eq i32 %229, %108
+  %230 = add nuw nsw i32 %.097194, 1
+  %exitcond227.not = icmp eq i32 %230, %108
   br i1 %exitcond227.not, label %._crit_edge197, label %115
 
 ._crit_edge197:                                   ; preds = %._crit_edge, %112
   call void @json_reader_end_member(ptr noundef %40) #11
   call void @json_reader_end_element(ptr noundef %40) #11
-  %230 = add nuw nsw i32 %.098198, 1
-  %exitcond228.not = icmp eq i32 %230, %67
+  %231 = add nuw nsw i32 %.098198, 1
+  %exitcond228.not = icmp eq i32 %231, %67
   br i1 %exitcond228.not, label %._crit_edge201, label %.lr.ph200
 
 ._crit_edge201:                                   ; preds = %._crit_edge197, %71
-  %231 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
-  %232 = and i32 %231, 2
-  %.not140 = icmp eq i32 %232, 0
-  br i1 %.not140, label %.thread168, label %233
+  %232 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
+  %233 = and i32 %232, 2
+  %.not140 = icmp eq i32 %233, 0
+  br i1 %.not140, label %.thread168, label %234
 
-233:                                              ; preds = %._crit_edge201
-  %234 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.33, i32 noundef %234) #11
+234:                                              ; preds = %._crit_edge201
+  %235 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.33, i32 noundef %235) #11
   br label %.thread168
 
-.thread168:                                       ; preds = %221, %218, %178, %181, %146, %149, %124, %127, %117, %120, %103, %106, %81, %84, %74, %77, %62, %65, %56, %59, %50, %53, %42, %45, %35, %38, %._crit_edge201, %233
-  %.not144 = phi i1 [ false, %233 ], [ false, %._crit_edge201 ], [ true, %38 ], [ true, %35 ], [ true, %45 ], [ true, %42 ], [ true, %53 ], [ true, %50 ], [ true, %59 ], [ true, %56 ], [ true, %65 ], [ true, %62 ], [ true, %77 ], [ true, %74 ], [ true, %84 ], [ true, %81 ], [ true, %106 ], [ true, %103 ], [ true, %120 ], [ true, %117 ], [ true, %127 ], [ true, %124 ], [ true, %149 ], [ true, %146 ], [ true, %181 ], [ true, %178 ], [ true, %218 ], [ true, %221 ]
-  %.088 = phi ptr [ %40, %233 ], [ %40, %._crit_edge201 ], [ null, %38 ], [ null, %35 ], [ %40, %45 ], [ %40, %42 ], [ %40, %53 ], [ %40, %50 ], [ %40, %59 ], [ %40, %56 ], [ %40, %65 ], [ %40, %62 ], [ %40, %77 ], [ %40, %74 ], [ %40, %84 ], [ %40, %81 ], [ %40, %106 ], [ %40, %103 ], [ %40, %120 ], [ %40, %117 ], [ %40, %127 ], [ %40, %124 ], [ %40, %149 ], [ %40, %146 ], [ %40, %181 ], [ %40, %178 ], [ %40, %218 ], [ %40, %221 ]
+.thread168:                                       ; preds = %222, %219, %178, %181, %146, %149, %124, %127, %117, %120, %103, %106, %81, %84, %74, %77, %62, %65, %56, %59, %50, %53, %42, %45, %35, %38, %._crit_edge201, %234
+  %.not144 = phi i1 [ false, %234 ], [ false, %._crit_edge201 ], [ true, %38 ], [ true, %35 ], [ true, %45 ], [ true, %42 ], [ true, %53 ], [ true, %50 ], [ true, %59 ], [ true, %56 ], [ true, %65 ], [ true, %62 ], [ true, %77 ], [ true, %74 ], [ true, %84 ], [ true, %81 ], [ true, %106 ], [ true, %103 ], [ true, %120 ], [ true, %117 ], [ true, %127 ], [ true, %124 ], [ true, %149 ], [ true, %146 ], [ true, %181 ], [ true, %178 ], [ true, %219 ], [ true, %222 ]
+  %.088 = phi ptr [ %40, %234 ], [ %40, %._crit_edge201 ], [ null, %38 ], [ null, %35 ], [ %40, %45 ], [ %40, %42 ], [ %40, %53 ], [ %40, %50 ], [ %40, %59 ], [ %40, %56 ], [ %40, %65 ], [ %40, %62 ], [ %40, %77 ], [ %40, %74 ], [ %40, %84 ], [ %40, %81 ], [ %40, %106 ], [ %40, %103 ], [ %40, %120 ], [ %40, %117 ], [ %40, %127 ], [ %40, %124 ], [ %40, %149 ], [ %40, %146 ], [ %40, %181 ], [ %40, %178 ], [ %40, %219 ], [ %40, %222 ]
   %.not142 = icmp eq ptr %22, null
-  br i1 %.not142, label %236, label %235
+  br i1 %.not142, label %237, label %236
 
-235:                                              ; preds = %.thread168
+236:                                              ; preds = %.thread168
   call void @g_object_unref(ptr noundef nonnull %22) #11
-  br label %236
+  br label %237
 
-236:                                              ; preds = %235, %.thread168
+237:                                              ; preds = %236, %.thread168
   %.not143 = icmp eq ptr %.088, null
-  br i1 %.not143, label %238, label %237
+  br i1 %.not143, label %239, label %238
 
-237:                                              ; preds = %236
+238:                                              ; preds = %237
   call void @g_object_unref(ptr noundef nonnull %.088) #11
-  br label %238
+  br label %239
 
-238:                                              ; preds = %237, %236
-  br i1 %.not144, label %239, label %240
+239:                                              ; preds = %238, %237
+  br i1 %.not144, label %240, label %241
 
-239:                                              ; preds = %238
+240:                                              ; preds = %239
   call void @exit(i32 noundef 1) #13
   unreachable
 
-240:                                              ; preds = %24, %238, %19
+241:                                              ; preds = %24, %239, %19
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
-  br label %241
+  br label %242
 
-241:                                              ; preds = %8, %240
+242:                                              ; preds = %8, %241
   ret void
 }
 

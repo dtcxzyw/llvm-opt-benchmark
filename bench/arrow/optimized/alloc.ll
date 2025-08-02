@@ -2156,7 +2156,7 @@ mi_malloc.exit:                                   ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_new_aligned(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden noalias nonnull ptr @mi_new_aligned(i64 noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) #14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.lr.ph, label %.critedge
@@ -2291,7 +2291,7 @@ mi_new.exit:                                      ; preds = %27, %mi_malloc.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mi_new_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden nonnull ptr @mi_new_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %4, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false)

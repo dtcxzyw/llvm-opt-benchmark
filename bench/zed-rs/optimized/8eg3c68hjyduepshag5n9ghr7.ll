@@ -1290,8 +1290,8 @@ define hidden noundef i64 @_ZN4text14BufferSnapshot18summary_for_anchor17h7f3162
 207:                                              ; preds = %204
   %208 = load i64, ptr %167, align 8, !noundef !4
   %.idx = mul nuw nsw i64 %199, 152
-  %209 = getelementptr i8, ptr %194, i64 376
-  %210 = getelementptr i8, ptr %209, i64 %.idx
+  %209 = getelementptr inbounds nuw i8, ptr %194, i64 376
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 %.idx
   %211 = load i8, ptr %210, align 8, !range !188, !noundef !4
   %212 = trunc nuw i8 %211 to i1
   br i1 %212, label %218, label %.noexc60
@@ -1774,8 +1774,8 @@ define hidden { i32, i32 } @_ZN4text14BufferSnapshot18summary_for_anchor17hd775b
 207:                                              ; preds = %204
   %208 = load i64, ptr %167, align 8, !noundef !4
   %.idx = mul nuw nsw i64 %199, 152
-  %209 = getelementptr i8, ptr %194, i64 376
-  %210 = getelementptr i8, ptr %209, i64 %.idx
+  %209 = getelementptr inbounds nuw i8, ptr %194, i64 376
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 %.idx
   %211 = load i8, ptr %210, align 8, !range !188, !noundef !4
   %212 = trunc nuw i8 %211 to i1
   br i1 %212, label %218, label %.noexc63
@@ -2836,8 +2836,8 @@ define hidden noundef i64 @"_ZN4text14BufferSnapshot34summaries_for_anchors_with
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %193 = load i64, ptr %192, align 8, !noundef !4
   %.idx = mul nuw nsw i64 %181, 152
-  %194 = getelementptr i8, ptr %176, i64 376
-  %195 = getelementptr i8, ptr %194, i64 %.idx
+  %194 = getelementptr inbounds nuw i8, ptr %176, i64 376
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx
   %196 = load i8, ptr %195, align 8, !range !188, !noundef !4
   %197 = trunc nuw i8 %196 to i1
   br i1 %197, label %202, label %198
@@ -3237,8 +3237,8 @@ define hidden { i32, i32 } @"_ZN4text14BufferSnapshot34summaries_for_anchors_wit
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %193 = load i64, ptr %192, align 8, !noundef !4
   %.idx = mul nuw nsw i64 %181, 152
-  %194 = getelementptr i8, ptr %176, i64 376
-  %195 = getelementptr i8, ptr %194, i64 %.idx
+  %194 = getelementptr inbounds nuw i8, ptr %176, i64 376
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx
   %196 = load i8, ptr %195, align 8, !range !188, !noundef !4
   %197 = trunc nuw i8 %196 to i1
   br i1 %197, label %207, label %198

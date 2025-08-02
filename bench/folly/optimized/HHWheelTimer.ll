@@ -3025,199 +3025,200 @@ define weak_odr noundef zeroext i1 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durat
   store ptr %5, ptr %6, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = sext i32 %1 to i64
-  %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds [4 x [256 x %"class.boost::intrusive::list"]], ptr %7, i64 0, i64 %8, i64 %9
-  %11 = icmp eq ptr %10, %5
-  br i1 %11, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit, label %12
+  %9 = getelementptr inbounds [4 x [256 x %"class.boost::intrusive::list"]], ptr %7, i64 0, i64 %8
+  %10 = sext i32 %2 to i64
+  %11 = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %9, i64 0, i64 %10
+  %12 = icmp eq ptr %11, %5
+  br i1 %12, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit, label %13
 
-12:                                               ; preds = %4
-  %13 = load ptr, ptr %10, align 8, !tbaa !57
-  %.not.i7.i.i = icmp eq ptr %13, null
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  br i1 %.not.i7.i.i, label %15, label %._crit_edge.i.i
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %11, align 8, !tbaa !57
+  %.not.i7.i.i = icmp eq ptr %14, null
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  br i1 %.not.i7.i.i, label %16, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %12
-  %.pre22.i.i = load ptr, ptr %14, align 8, !tbaa !58
-  %.phi.trans.insert23.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+._crit_edge.i.i:                                  ; preds = %13
+  %.pre22.i.i = load ptr, ptr %15, align 8, !tbaa !58
+  %.phi.trans.insert23.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.pre24.i.i = load ptr, ptr %.phi.trans.insert23.i.i, align 8, !tbaa !58
   %.pre25.i.i = load ptr, ptr %.pre22.i.i, align 8, !tbaa !57
-  br label %16
+  br label %17
 
-15:                                               ; preds = %12
-  store ptr %10, ptr %10, align 8, !tbaa !57
-  store ptr %10, ptr %14, align 8, !tbaa !58
-  br label %16
+16:                                               ; preds = %13
+  store ptr %11, ptr %11, align 8, !tbaa !57
+  store ptr %11, ptr %15, align 8, !tbaa !58
+  br label %17
 
-16:                                               ; preds = %._crit_edge.i.i, %15
-  %17 = phi ptr [ %10, %15 ], [ %.pre25.i.i, %._crit_edge.i.i ]
-  %18 = phi ptr [ %10, %15 ], [ %.pre24.i.i, %._crit_edge.i.i ]
-  %19 = phi ptr [ %10, %15 ], [ %.pre22.i.i, %._crit_edge.i.i ]
-  %20 = phi ptr [ %10, %15 ], [ %13, %._crit_edge.i.i ]
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %18, ptr %6, align 8, !tbaa !58
-  store ptr %5, ptr %21, align 8, !tbaa !58
-  store ptr %17, ptr %5, align 8, !tbaa !57
-  store ptr %5, ptr %19, align 8, !tbaa !57
-  %22 = load ptr, ptr %5, align 8, !tbaa !57
-  %23 = load ptr, ptr %10, align 8, !tbaa !57
-  store ptr %23, ptr %5, align 8, !tbaa !57
-  store ptr %22, ptr %10, align 8, !tbaa !57
-  %24 = load ptr, ptr %6, align 8, !tbaa !58
-  %25 = load ptr, ptr %14, align 8, !tbaa !58
-  store ptr %25, ptr %6, align 8, !tbaa !58
-  store ptr %24, ptr %14, align 8, !tbaa !58
-  br i1 %.not.i7.i.i, label %26, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit
+17:                                               ; preds = %._crit_edge.i.i, %16
+  %18 = phi ptr [ %11, %16 ], [ %.pre25.i.i, %._crit_edge.i.i ]
+  %19 = phi ptr [ %11, %16 ], [ %.pre24.i.i, %._crit_edge.i.i ]
+  %20 = phi ptr [ %11, %16 ], [ %.pre22.i.i, %._crit_edge.i.i ]
+  %21 = phi ptr [ %11, %16 ], [ %14, %._crit_edge.i.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %19, ptr %6, align 8, !tbaa !58
+  store ptr %5, ptr %22, align 8, !tbaa !58
+  store ptr %18, ptr %5, align 8, !tbaa !57
+  store ptr %5, ptr %20, align 8, !tbaa !57
+  %23 = load ptr, ptr %5, align 8, !tbaa !57
+  %24 = load ptr, ptr %11, align 8, !tbaa !57
+  store ptr %24, ptr %5, align 8, !tbaa !57
+  store ptr %23, ptr %11, align 8, !tbaa !57
+  %25 = load ptr, ptr %6, align 8, !tbaa !58
+  %26 = load ptr, ptr %15, align 8, !tbaa !58
+  store ptr %26, ptr %6, align 8, !tbaa !58
+  store ptr %25, ptr %15, align 8, !tbaa !58
+  br i1 %.not.i7.i.i, label %27, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit
 
-26:                                               ; preds = %16
+27:                                               ; preds = %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit
 
-_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit: ; preds = %26, %16, %4
-  %27 = phi ptr [ null, %26 ], [ %23, %16 ], [ %5, %4 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16680
-  %.sroa.0.0.copyload.i2.i.i = load i64, ptr %28, align 8, !tbaa !7
-  %29 = sub nsw i64 %3, %.sroa.0.0.copyload.i2.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %31 = load i64, ptr %30, align 8, !tbaa !11
-  %32 = udiv i64 %29, %31
-  %.not.i.i24 = icmp eq ptr %27, null
-  %33 = icmp eq ptr %27, %5
-  %34 = or i1 %.not.i.i24, %33
-  br i1 %34, label %._crit_edge, label %.lr.ph
+_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit: ; preds = %27, %17, %4
+  %28 = phi ptr [ null, %27 ], [ %24, %17 ], [ %5, %4 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16680
+  %.sroa.0.0.copyload.i2.i.i = load i64, ptr %29, align 8, !tbaa !7
+  %30 = sub nsw i64 %3, %.sroa.0.0.copyload.i2.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %32 = load i64, ptr %31, align 8, !tbaa !11
+  %33 = udiv i64 %30, %32
+  %.not.i.i24 = icmp eq ptr %28, null
+  %34 = icmp eq ptr %28, %5
+  %35 = or i1 %.not.i.i24, %34
+  br i1 %35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16664
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16632
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12536
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8440
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4344
-  %41 = and i64 %32, 255
-  %42 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list"], ptr %7, i64 0, i64 %41
-  %43 = lshr i64 %32, 6
-  %.zext.i = and i64 %43, 3
-  %44 = and i64 %32, 63
-  %45 = getelementptr i64, ptr %37, i64 %.zext.i
-  %46 = shl nuw i64 1, %44
-  %47 = trunc nuw nsw i64 %41 to i32
-  br label %48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16664
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16632
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 12536
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8440
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4344
+  %42 = and i64 %33, 255
+  %43 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list"], ptr %7, i64 0, i64 %42
+  %44 = lshr i64 %33, 6
+  %.zext.i = and i64 %44, 3
+  %45 = and i64 %33, 63
+  %46 = getelementptr i64, ptr %38, i64 %.zext.i
+  %47 = shl nuw i64 1, %45
+  %48 = trunc nuw nsw i64 %42 to i32
+  br label %49
 
-48:                                               ; preds = %.lr.ph, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
-  %49 = phi ptr [ %27, %.lr.ph ], [ %102, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
-  %50 = load ptr, ptr %49, align 8, !tbaa !57
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !58
-  store ptr %50, ptr %52, align 8, !tbaa !57
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %52, ptr %53, align 8, !tbaa !58
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %.sroa.0.0.copyload.i2.i.i.i = load i64, ptr %54, align 8, !tbaa !7
+49:                                               ; preds = %.lr.ph, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
+  %50 = phi ptr [ %28, %.lr.ph ], [ %103, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
+  %51 = load ptr, ptr %50, align 8, !tbaa !57
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !58
+  store ptr %51, ptr %53, align 8, !tbaa !57
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr %53, ptr %54, align 8, !tbaa !58
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %.sroa.0.0.copyload.i2.i.i.i = load i64, ptr %55, align 8, !tbaa !7
   %.not.i = icmp slt i64 %3, %.sroa.0.0.copyload.i2.i.i.i
-  br i1 %.not.i, label %55, label %58
+  br i1 %.not.i, label %56, label %59
 
-55:                                               ; preds = %48
-  %56 = sub nsw i64 %.sroa.0.0.copyload.i2.i.i.i, %3
-  %57 = udiv i64 %56, 1000000
-  br label %58
+56:                                               ; preds = %49
+  %57 = sub nsw i64 %.sroa.0.0.copyload.i2.i.i.i, %3
+  %58 = udiv i64 %57, 1000000
+  br label %59
 
-58:                                               ; preds = %48, %55
-  %.sroa.03.0.i = phi i64 [ %57, %55 ], [ 0, %48 ]
-  %59 = load i64, ptr %35, align 8, !tbaa !11
-  %60 = udiv i64 %.sroa.03.0.i, %59
-  %61 = add nsw i64 %60, %32
-  %62 = load i64, ptr %36, align 8, !tbaa !54
-  %63 = sub nsw i64 %61, %62
-  %64 = icmp slt i64 %63, 0
-  br i1 %64, label %65, label %69
+59:                                               ; preds = %49, %56
+  %.sroa.03.0.i = phi i64 [ %58, %56 ], [ 0, %49 ]
+  %60 = load i64, ptr %36, align 8, !tbaa !11
+  %61 = udiv i64 %.sroa.03.0.i, %60
+  %62 = add nsw i64 %61, %33
+  %63 = load i64, ptr %37, align 8, !tbaa !54
+  %64 = sub nsw i64 %62, %63
+  %65 = icmp slt i64 %64, 0
+  br i1 %65, label %66, label %70
 
-65:                                               ; preds = %58
-  %66 = load i64, ptr %45, align 8, !tbaa !7
-  %67 = or i64 %66, %46
-  store i64 %67, ptr %45, align 8, !tbaa !7
-  %68 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store i32 %47, ptr %68, align 8, !tbaa !83
+66:                                               ; preds = %59
+  %67 = load i64, ptr %46, align 8, !tbaa !7
+  %68 = or i64 %67, %47
+  store i64 %68, ptr %46, align 8, !tbaa !7
+  %69 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  store i32 %48, ptr %69, align 8, !tbaa !83
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
-69:                                               ; preds = %58
-  %70 = icmp samesign ult i64 %63, 256
-  br i1 %70, label %71, label %82
+70:                                               ; preds = %59
+  %71 = icmp samesign ult i64 %64, 256
+  br i1 %71, label %72, label %83
 
-71:                                               ; preds = %69
-  %72 = and i64 %61, 255
-  %73 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list"], ptr %7, i64 0, i64 %72
-  %74 = lshr i64 %61, 6
-  %.zext44.i = and i64 %74, 3
-  %75 = and i64 %61, 63
-  %76 = getelementptr i64, ptr %37, i64 %.zext44.i
-  %77 = shl nuw i64 1, %75
-  %78 = load i64, ptr %76, align 8, !tbaa !7
-  %79 = or i64 %78, %77
-  store i64 %79, ptr %76, align 8, !tbaa !7
-  %80 = trunc nuw nsw i64 %72 to i32
-  %81 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store i32 %80, ptr %81, align 8, !tbaa !83
+72:                                               ; preds = %70
+  %73 = and i64 %62, 255
+  %74 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list"], ptr %7, i64 0, i64 %73
+  %75 = lshr i64 %62, 6
+  %.zext44.i = and i64 %75, 3
+  %76 = and i64 %62, 63
+  %77 = getelementptr i64, ptr %38, i64 %.zext44.i
+  %78 = shl nuw i64 1, %76
+  %79 = load i64, ptr %77, align 8, !tbaa !7
+  %80 = or i64 %79, %78
+  store i64 %80, ptr %77, align 8, !tbaa !7
+  %81 = trunc nuw nsw i64 %73 to i32
+  %82 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  store i32 %81, ptr %82, align 8, !tbaa !83
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
-82:                                               ; preds = %69
-  %83 = icmp samesign ult i64 %63, 65536
-  br i1 %83, label %84, label %88
+83:                                               ; preds = %70
+  %84 = icmp samesign ult i64 %64, 65536
+  br i1 %84, label %85, label %89
 
-84:                                               ; preds = %82
-  %85 = lshr i64 %61, 8
-  %86 = and i64 %85, 255
-  %87 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list"], ptr %40, i64 0, i64 %86
+85:                                               ; preds = %83
+  %86 = lshr i64 %62, 8
+  %87 = and i64 %86, 255
+  %88 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list"], ptr %41, i64 0, i64 %87
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
-88:                                               ; preds = %82
-  %89 = icmp samesign ult i64 %63, 16777216
-  br i1 %89, label %90, label %94
+89:                                               ; preds = %83
+  %90 = icmp samesign ult i64 %64, 16777216
+  br i1 %90, label %91, label %95
 
-90:                                               ; preds = %88
-  %91 = lshr i64 %61, 16
-  %92 = and i64 %91, 255
-  %93 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list"], ptr %39, i64 0, i64 %92
+91:                                               ; preds = %89
+  %92 = lshr i64 %62, 16
+  %93 = and i64 %92, 255
+  %94 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list"], ptr %40, i64 0, i64 %93
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
-94:                                               ; preds = %88
-  %95 = icmp samesign ugt i64 %63, 4294967295
-  %96 = add nsw i64 %62, 4294967295
-  %spec.select.i = select i1 %95, i64 %96, i64 %61
-  %97 = lshr i64 %spec.select.i, 24
-  %98 = and i64 %97, 255
-  %99 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list"], ptr %38, i64 0, i64 %98
+95:                                               ; preds = %89
+  %96 = icmp samesign ugt i64 %64, 4294967295
+  %97 = add nsw i64 %63, 4294967295
+  %spec.select.i = select i1 %96, i64 %97, i64 %62
+  %98 = lshr i64 %spec.select.i, 24
+  %99 = and i64 %98, 255
+  %100 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list"], ptr %39, i64 0, i64 %99
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
-_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit: ; preds = %65, %71, %84, %90, %94
-  %.0.i = phi ptr [ %42, %65 ], [ %73, %71 ], [ %87, %84 ], [ %93, %90 ], [ %99, %94 ]
-  %100 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %101 = load ptr, ptr %100, align 8, !tbaa !58
-  store ptr %101, ptr %51, align 8, !tbaa !58
-  store ptr %.0.i, ptr %49, align 8, !tbaa !57
-  store ptr %49, ptr %100, align 8, !tbaa !58
-  store ptr %49, ptr %101, align 8, !tbaa !57
-  %102 = load ptr, ptr %5, align 8, !tbaa !57
-  %.not.i.i = icmp eq ptr %102, null
-  %103 = icmp eq ptr %102, %5
-  %104 = or i1 %.not.i.i, %103
-  br i1 %104, label %._crit_edge, label %48
+_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit: ; preds = %66, %72, %85, %91, %95
+  %.0.i = phi ptr [ %43, %66 ], [ %74, %72 ], [ %88, %85 ], [ %94, %91 ], [ %100, %95 ]
+  %101 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !58
+  store ptr %102, ptr %52, align 8, !tbaa !58
+  store ptr %.0.i, ptr %50, align 8, !tbaa !57
+  store ptr %50, ptr %101, align 8, !tbaa !58
+  store ptr %50, ptr %102, align 8, !tbaa !57
+  %103 = load ptr, ptr %5, align 8, !tbaa !57
+  %.not.i.i = icmp eq ptr %103, null
+  %104 = icmp eq ptr %103, %5
+  %105 = or i1 %.not.i.i, %104
+  br i1 %105, label %._crit_edge, label %49
 
 ._crit_edge:                                      ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit
-  %.lcssa23 = phi ptr [ %27, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit ], [ %102, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
-  %.lcssa = phi i1 [ %33, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit ], [ %103, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
+  %.lcssa23 = phi ptr [ %28, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit ], [ %103, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
+  %.lcssa = phi i1 [ %34, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit ], [ %104, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
   br i1 %.lcssa, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge, %.lr.ph.i.i.i
-  %.sroa.04.08.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i ], [ %.lcssa23, %._crit_edge ]
-  %105 = load ptr, ptr %.sroa.04.08.i.i.i, align 8, !tbaa !57
+  %.sroa.04.08.i.i.i = phi ptr [ %106, %.lr.ph.i.i.i ], [ %.lcssa23, %._crit_edge ]
+  %106 = load ptr, ptr %.sroa.04.08.i.i.i, align 8, !tbaa !57
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i, i8 0, i64 16, i1 false)
-  %.not.i.i.i17 = icmp eq ptr %105, %5
+  %.not.i.i.i17 = icmp eq ptr %106, %5
   br i1 %.not.i.i.i17, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !105
 
 _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge
-  %106 = icmp eq i32 %2, 0
+  %107 = icmp eq i32 %2, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  ret i1 %106
+  ret i1 %107
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5504,199 +5505,200 @@ define weak_odr noundef zeroext i1 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durat
   store ptr %5, ptr %6, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = sext i32 %1 to i64
-  %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds [4 x [256 x %"class.boost::intrusive::list.12"]], ptr %7, i64 0, i64 %8, i64 %9
-  %11 = icmp eq ptr %10, %5
-  br i1 %11, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit, label %12
+  %9 = getelementptr inbounds [4 x [256 x %"class.boost::intrusive::list.12"]], ptr %7, i64 0, i64 %8
+  %10 = sext i32 %2 to i64
+  %11 = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %9, i64 0, i64 %10
+  %12 = icmp eq ptr %11, %5
+  br i1 %12, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit, label %13
 
-12:                                               ; preds = %4
-  %13 = load ptr, ptr %10, align 8, !tbaa !57
-  %.not.i7.i.i = icmp eq ptr %13, null
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  br i1 %.not.i7.i.i, label %15, label %._crit_edge.i.i
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %11, align 8, !tbaa !57
+  %.not.i7.i.i = icmp eq ptr %14, null
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  br i1 %.not.i7.i.i, label %16, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %12
-  %.pre22.i.i = load ptr, ptr %14, align 8, !tbaa !58
-  %.phi.trans.insert23.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+._crit_edge.i.i:                                  ; preds = %13
+  %.pre22.i.i = load ptr, ptr %15, align 8, !tbaa !58
+  %.phi.trans.insert23.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.pre24.i.i = load ptr, ptr %.phi.trans.insert23.i.i, align 8, !tbaa !58
   %.pre25.i.i = load ptr, ptr %.pre22.i.i, align 8, !tbaa !57
-  br label %16
+  br label %17
 
-15:                                               ; preds = %12
-  store ptr %10, ptr %10, align 8, !tbaa !57
-  store ptr %10, ptr %14, align 8, !tbaa !58
-  br label %16
+16:                                               ; preds = %13
+  store ptr %11, ptr %11, align 8, !tbaa !57
+  store ptr %11, ptr %15, align 8, !tbaa !58
+  br label %17
 
-16:                                               ; preds = %._crit_edge.i.i, %15
-  %17 = phi ptr [ %10, %15 ], [ %.pre25.i.i, %._crit_edge.i.i ]
-  %18 = phi ptr [ %10, %15 ], [ %.pre24.i.i, %._crit_edge.i.i ]
-  %19 = phi ptr [ %10, %15 ], [ %.pre22.i.i, %._crit_edge.i.i ]
-  %20 = phi ptr [ %10, %15 ], [ %13, %._crit_edge.i.i ]
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %18, ptr %6, align 8, !tbaa !58
-  store ptr %5, ptr %21, align 8, !tbaa !58
-  store ptr %17, ptr %5, align 8, !tbaa !57
-  store ptr %5, ptr %19, align 8, !tbaa !57
-  %22 = load ptr, ptr %5, align 8, !tbaa !57
-  %23 = load ptr, ptr %10, align 8, !tbaa !57
-  store ptr %23, ptr %5, align 8, !tbaa !57
-  store ptr %22, ptr %10, align 8, !tbaa !57
-  %24 = load ptr, ptr %6, align 8, !tbaa !58
-  %25 = load ptr, ptr %14, align 8, !tbaa !58
-  store ptr %25, ptr %6, align 8, !tbaa !58
-  store ptr %24, ptr %14, align 8, !tbaa !58
-  br i1 %.not.i7.i.i, label %26, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit
+17:                                               ; preds = %._crit_edge.i.i, %16
+  %18 = phi ptr [ %11, %16 ], [ %.pre25.i.i, %._crit_edge.i.i ]
+  %19 = phi ptr [ %11, %16 ], [ %.pre24.i.i, %._crit_edge.i.i ]
+  %20 = phi ptr [ %11, %16 ], [ %.pre22.i.i, %._crit_edge.i.i ]
+  %21 = phi ptr [ %11, %16 ], [ %14, %._crit_edge.i.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %19, ptr %6, align 8, !tbaa !58
+  store ptr %5, ptr %22, align 8, !tbaa !58
+  store ptr %18, ptr %5, align 8, !tbaa !57
+  store ptr %5, ptr %20, align 8, !tbaa !57
+  %23 = load ptr, ptr %5, align 8, !tbaa !57
+  %24 = load ptr, ptr %11, align 8, !tbaa !57
+  store ptr %24, ptr %5, align 8, !tbaa !57
+  store ptr %23, ptr %11, align 8, !tbaa !57
+  %25 = load ptr, ptr %6, align 8, !tbaa !58
+  %26 = load ptr, ptr %15, align 8, !tbaa !58
+  store ptr %26, ptr %6, align 8, !tbaa !58
+  store ptr %25, ptr %15, align 8, !tbaa !58
+  br i1 %.not.i7.i.i, label %27, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit
 
-26:                                               ; preds = %16
+27:                                               ; preds = %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit
 
-_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit: ; preds = %26, %16, %4
-  %27 = phi ptr [ null, %26 ], [ %23, %16 ], [ %5, %4 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16680
-  %.sroa.0.0.copyload.i2.i.i = load i64, ptr %28, align 8, !tbaa !7
-  %29 = sub nsw i64 %3, %.sroa.0.0.copyload.i2.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %31 = load i64, ptr %30, align 8, !tbaa !69
-  %32 = udiv i64 %29, %31
-  %.not.i.i24 = icmp eq ptr %27, null
-  %33 = icmp eq ptr %27, %5
-  %34 = or i1 %.not.i.i24, %33
-  br i1 %34, label %._crit_edge, label %.lr.ph
+_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit: ; preds = %27, %17, %4
+  %28 = phi ptr [ null, %27 ], [ %24, %17 ], [ %5, %4 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16680
+  %.sroa.0.0.copyload.i2.i.i = load i64, ptr %29, align 8, !tbaa !7
+  %30 = sub nsw i64 %3, %.sroa.0.0.copyload.i2.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %32 = load i64, ptr %31, align 8, !tbaa !69
+  %33 = udiv i64 %30, %32
+  %.not.i.i24 = icmp eq ptr %28, null
+  %34 = icmp eq ptr %28, %5
+  %35 = or i1 %.not.i.i24, %34
+  br i1 %35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16664
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16632
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12536
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8440
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4344
-  %41 = and i64 %32, 255
-  %42 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list.12"], ptr %7, i64 0, i64 %41
-  %43 = lshr i64 %32, 6
-  %.zext.i = and i64 %43, 3
-  %44 = and i64 %32, 63
-  %45 = getelementptr i64, ptr %37, i64 %.zext.i
-  %46 = shl nuw i64 1, %44
-  %47 = trunc nuw nsw i64 %41 to i32
-  br label %48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16664
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16632
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 12536
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8440
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4344
+  %42 = and i64 %33, 255
+  %43 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list.12"], ptr %7, i64 0, i64 %42
+  %44 = lshr i64 %33, 6
+  %.zext.i = and i64 %44, 3
+  %45 = and i64 %33, 63
+  %46 = getelementptr i64, ptr %38, i64 %.zext.i
+  %47 = shl nuw i64 1, %45
+  %48 = trunc nuw nsw i64 %42 to i32
+  br label %49
 
-48:                                               ; preds = %.lr.ph, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
-  %49 = phi ptr [ %27, %.lr.ph ], [ %102, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
-  %50 = load ptr, ptr %49, align 8, !tbaa !57
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !58
-  store ptr %50, ptr %52, align 8, !tbaa !57
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %52, ptr %53, align 8, !tbaa !58
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %.sroa.0.0.copyload.i2.i.i.i = load i64, ptr %54, align 8, !tbaa !7
+49:                                               ; preds = %.lr.ph, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
+  %50 = phi ptr [ %28, %.lr.ph ], [ %103, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
+  %51 = load ptr, ptr %50, align 8, !tbaa !57
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !58
+  store ptr %51, ptr %53, align 8, !tbaa !57
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr %53, ptr %54, align 8, !tbaa !58
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %.sroa.0.0.copyload.i2.i.i.i = load i64, ptr %55, align 8, !tbaa !7
   %.not.i = icmp slt i64 %3, %.sroa.0.0.copyload.i2.i.i.i
-  br i1 %.not.i, label %55, label %58
+  br i1 %.not.i, label %56, label %59
 
-55:                                               ; preds = %48
-  %56 = sub nsw i64 %.sroa.0.0.copyload.i2.i.i.i, %3
-  %57 = udiv i64 %56, 1000
-  br label %58
+56:                                               ; preds = %49
+  %57 = sub nsw i64 %.sroa.0.0.copyload.i2.i.i.i, %3
+  %58 = udiv i64 %57, 1000
+  br label %59
 
-58:                                               ; preds = %48, %55
-  %.sroa.03.0.i = phi i64 [ %57, %55 ], [ 0, %48 ]
-  %59 = load i64, ptr %35, align 8, !tbaa !69
-  %60 = udiv i64 %.sroa.03.0.i, %59
-  %61 = add nsw i64 %60, %32
-  %62 = load i64, ptr %36, align 8, !tbaa !79
-  %63 = sub nsw i64 %61, %62
-  %64 = icmp slt i64 %63, 0
-  br i1 %64, label %65, label %69
+59:                                               ; preds = %49, %56
+  %.sroa.03.0.i = phi i64 [ %58, %56 ], [ 0, %49 ]
+  %60 = load i64, ptr %36, align 8, !tbaa !69
+  %61 = udiv i64 %.sroa.03.0.i, %60
+  %62 = add nsw i64 %61, %33
+  %63 = load i64, ptr %37, align 8, !tbaa !79
+  %64 = sub nsw i64 %62, %63
+  %65 = icmp slt i64 %64, 0
+  br i1 %65, label %66, label %70
 
-65:                                               ; preds = %58
-  %66 = load i64, ptr %45, align 8, !tbaa !7
-  %67 = or i64 %66, %46
-  store i64 %67, ptr %45, align 8, !tbaa !7
-  %68 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store i32 %47, ptr %68, align 8, !tbaa !127
+66:                                               ; preds = %59
+  %67 = load i64, ptr %46, align 8, !tbaa !7
+  %68 = or i64 %67, %47
+  store i64 %68, ptr %46, align 8, !tbaa !7
+  %69 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  store i32 %48, ptr %69, align 8, !tbaa !127
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
-69:                                               ; preds = %58
-  %70 = icmp samesign ult i64 %63, 256
-  br i1 %70, label %71, label %82
+70:                                               ; preds = %59
+  %71 = icmp samesign ult i64 %64, 256
+  br i1 %71, label %72, label %83
 
-71:                                               ; preds = %69
-  %72 = and i64 %61, 255
-  %73 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list.12"], ptr %7, i64 0, i64 %72
-  %74 = lshr i64 %61, 6
-  %.zext44.i = and i64 %74, 3
-  %75 = and i64 %61, 63
-  %76 = getelementptr i64, ptr %37, i64 %.zext44.i
-  %77 = shl nuw i64 1, %75
-  %78 = load i64, ptr %76, align 8, !tbaa !7
-  %79 = or i64 %78, %77
-  store i64 %79, ptr %76, align 8, !tbaa !7
-  %80 = trunc nuw nsw i64 %72 to i32
-  %81 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store i32 %80, ptr %81, align 8, !tbaa !127
+72:                                               ; preds = %70
+  %73 = and i64 %62, 255
+  %74 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list.12"], ptr %7, i64 0, i64 %73
+  %75 = lshr i64 %62, 6
+  %.zext44.i = and i64 %75, 3
+  %76 = and i64 %62, 63
+  %77 = getelementptr i64, ptr %38, i64 %.zext44.i
+  %78 = shl nuw i64 1, %76
+  %79 = load i64, ptr %77, align 8, !tbaa !7
+  %80 = or i64 %79, %78
+  store i64 %80, ptr %77, align 8, !tbaa !7
+  %81 = trunc nuw nsw i64 %73 to i32
+  %82 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  store i32 %81, ptr %82, align 8, !tbaa !127
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
-82:                                               ; preds = %69
-  %83 = icmp samesign ult i64 %63, 65536
-  br i1 %83, label %84, label %88
+83:                                               ; preds = %70
+  %84 = icmp samesign ult i64 %64, 65536
+  br i1 %84, label %85, label %89
 
-84:                                               ; preds = %82
-  %85 = lshr i64 %61, 8
-  %86 = and i64 %85, 255
-  %87 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list.12"], ptr %40, i64 0, i64 %86
+85:                                               ; preds = %83
+  %86 = lshr i64 %62, 8
+  %87 = and i64 %86, 255
+  %88 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list.12"], ptr %41, i64 0, i64 %87
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
-88:                                               ; preds = %82
-  %89 = icmp samesign ult i64 %63, 16777216
-  br i1 %89, label %90, label %94
+89:                                               ; preds = %83
+  %90 = icmp samesign ult i64 %64, 16777216
+  br i1 %90, label %91, label %95
 
-90:                                               ; preds = %88
-  %91 = lshr i64 %61, 16
-  %92 = and i64 %91, 255
-  %93 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list.12"], ptr %39, i64 0, i64 %92
+91:                                               ; preds = %89
+  %92 = lshr i64 %62, 16
+  %93 = and i64 %92, 255
+  %94 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list.12"], ptr %40, i64 0, i64 %93
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
-94:                                               ; preds = %88
-  %95 = icmp samesign ugt i64 %63, 4294967295
-  %96 = add nsw i64 %62, 4294967295
-  %spec.select.i = select i1 %95, i64 %96, i64 %61
-  %97 = lshr i64 %spec.select.i, 24
-  %98 = and i64 %97, 255
-  %99 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list.12"], ptr %38, i64 0, i64 %98
+95:                                               ; preds = %89
+  %96 = icmp samesign ugt i64 %64, 4294967295
+  %97 = add nsw i64 %63, 4294967295
+  %spec.select.i = select i1 %96, i64 %97, i64 %62
+  %98 = lshr i64 %spec.select.i, 24
+  %99 = and i64 %98, 255
+  %100 = getelementptr inbounds nuw [256 x %"class.boost::intrusive::list.12"], ptr %39, i64 0, i64 %99
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
-_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit: ; preds = %65, %71, %84, %90, %94
-  %.0.i = phi ptr [ %42, %65 ], [ %73, %71 ], [ %87, %84 ], [ %93, %90 ], [ %99, %94 ]
-  %100 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %101 = load ptr, ptr %100, align 8, !tbaa !58
-  store ptr %101, ptr %51, align 8, !tbaa !58
-  store ptr %.0.i, ptr %49, align 8, !tbaa !57
-  store ptr %49, ptr %100, align 8, !tbaa !58
-  store ptr %49, ptr %101, align 8, !tbaa !57
-  %102 = load ptr, ptr %5, align 8, !tbaa !57
-  %.not.i.i = icmp eq ptr %102, null
-  %103 = icmp eq ptr %102, %5
-  %104 = or i1 %.not.i.i, %103
-  br i1 %104, label %._crit_edge, label %48
+_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit: ; preds = %66, %72, %85, %91, %95
+  %.0.i = phi ptr [ %43, %66 ], [ %74, %72 ], [ %88, %85 ], [ %94, %91 ], [ %100, %95 ]
+  %101 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !58
+  store ptr %102, ptr %52, align 8, !tbaa !58
+  store ptr %.0.i, ptr %50, align 8, !tbaa !57
+  store ptr %50, ptr %101, align 8, !tbaa !58
+  store ptr %50, ptr %102, align 8, !tbaa !57
+  %103 = load ptr, ptr %5, align 8, !tbaa !57
+  %.not.i.i = icmp eq ptr %103, null
+  %104 = icmp eq ptr %103, %5
+  %105 = or i1 %.not.i.i, %104
+  br i1 %105, label %._crit_edge, label %49
 
 ._crit_edge:                                      ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit
-  %.lcssa23 = phi ptr [ %27, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit ], [ %102, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
-  %.lcssa = phi i1 [ %33, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit ], [ %103, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
+  %.lcssa23 = phi ptr [ %28, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit ], [ %103, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
+  %.lcssa = phi i1 [ %34, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSI_.exit ], [ %104, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
   br i1 %.lcssa, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge, %.lr.ph.i.i.i
-  %.sroa.04.08.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i ], [ %.lcssa23, %._crit_edge ]
-  %105 = load ptr, ptr %.sroa.04.08.i.i.i, align 8, !tbaa !57
+  %.sroa.04.08.i.i.i = phi ptr [ %106, %.lr.ph.i.i.i ], [ %.lcssa23, %._crit_edge ]
+  %106 = load ptr, ptr %.sroa.04.08.i.i.i, align 8, !tbaa !57
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i, i8 0, i64 16, i1 false)
-  %.not.i.i.i17 = icmp eq ptr %105, %5
+  %.not.i.i.i17 = icmp eq ptr %106, %5
   br i1 %.not.i.i.i17, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !139
 
 _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge
-  %106 = icmp eq i32 %2, 0
+  %107 = icmp eq i32 %2, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  ret i1 %106
+  ret i1 %107
 }
 
 ; Function Attrs: mustprogress uwtable

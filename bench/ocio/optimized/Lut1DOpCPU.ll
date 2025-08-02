@@ -7744,9 +7744,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -7757,39 +7754,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -7822,10 +7810,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -7837,39 +7821,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -7877,7 +7852,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !313
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
@@ -7889,8 +7864,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !270
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -7900,45 +7875,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !314
 }
 
@@ -8413,8 +8368,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !291
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -8431,8 +8386,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -8609,8 +8564,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !317
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !317
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -8618,168 +8573,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !318
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !318
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !319
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !319
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !320
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !320
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !288
-  %247 = load i64, ptr %27, align 8, !tbaa !291
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !270
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !288
+  %251 = load i64, ptr %27, align 8, !tbaa !291
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !270
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !321
 }
 
@@ -14032,9 +13972,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -14045,39 +13982,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -14110,10 +14038,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -14125,39 +14049,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -14165,7 +14080,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !359
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
@@ -14177,8 +14092,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !360
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -14188,45 +14103,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !361
 }
 
@@ -14699,8 +14594,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !355
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -14717,8 +14612,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -14895,8 +14790,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !372
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !372
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -14904,168 +14799,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !373
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !373
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !374
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !374
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !375
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !375
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !353
-  %247 = load i64, ptr %27, align 8, !tbaa !355
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !360
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !353
+  %251 = load i64, ptr %27, align 8, !tbaa !355
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !360
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !376
 }
 
@@ -20066,9 +19946,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -20079,39 +19956,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -20144,10 +20012,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -20159,39 +20023,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -20199,7 +20054,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !413
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
@@ -20211,8 +20066,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !414
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -20222,45 +20077,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !415
 }
 
@@ -20733,8 +20568,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !409
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -20751,8 +20586,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -20929,8 +20764,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !426
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !426
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -20938,168 +20773,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !427
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !427
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !428
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !428
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !429
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !429
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !407
-  %247 = load i64, ptr %27, align 8, !tbaa !409
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !414
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !407
+  %251 = load i64, ptr %27, align 8, !tbaa !409
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !414
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !430
 }
 
@@ -26100,9 +25920,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -26113,39 +25930,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -26178,10 +25986,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -26193,39 +25997,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -26233,7 +26028,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !467
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
@@ -26245,8 +26040,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !468
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -26256,45 +26051,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !469
 }
 
@@ -26767,8 +26542,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !463
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -26785,8 +26560,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -26963,8 +26738,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !480
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !480
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -26972,168 +26747,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !481
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !481
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !482
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !482
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !483
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !483
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !461
-  %247 = load i64, ptr %27, align 8, !tbaa !463
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !468
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !461
+  %251 = load i64, ptr %27, align 8, !tbaa !463
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !468
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !484
 }
 
@@ -33168,9 +32928,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -33181,39 +32938,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -33246,10 +32994,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -33261,39 +33005,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -33301,7 +33036,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !521
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
@@ -33313,8 +33048,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !522
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -33324,45 +33059,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !523
 }
 
@@ -34099,8 +33814,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !517
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -34117,8 +33832,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -34295,8 +34010,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !534
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !534
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -34304,168 +34019,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !535
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !535
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !536
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !536
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !537
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !537
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !515
-  %247 = load i64, ptr %27, align 8, !tbaa !517
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !522
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !515
+  %251 = load i64, ptr %27, align 8, !tbaa !517
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !522
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !538
 }
 
@@ -39942,9 +39642,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -39955,39 +39652,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -40020,10 +39708,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -40035,39 +39719,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -40075,7 +39750,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !582
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
@@ -40087,8 +39762,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !568
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -40098,45 +39773,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !583
 }
 
@@ -40563,8 +40218,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !578
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -40581,8 +40236,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -40759,8 +40414,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !591
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !591
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -40768,168 +40423,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !592
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !592
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !593
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !593
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !594
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !594
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !576
-  %247 = load i64, ptr %27, align 8, !tbaa !578
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !568
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !576
+  %251 = load i64, ptr %27, align 8, !tbaa !578
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !568
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !595
 }
 
@@ -47238,9 +46878,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -47251,39 +46888,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -47316,10 +46944,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -47331,39 +46955,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -47371,7 +46986,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !813
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
@@ -47383,8 +46998,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !789
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -47394,45 +47009,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !814
 }
 
@@ -47907,8 +47502,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !809
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -47925,8 +47520,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -48103,8 +47698,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !816
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !816
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -48112,168 +47707,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !817
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !817
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !818
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !818
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !819
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !819
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !807
-  %247 = load i64, ptr %27, align 8, !tbaa !809
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !789
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !807
+  %251 = load i64, ptr %27, align 8, !tbaa !809
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !789
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !820
 }
 
@@ -53280,9 +52860,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -53293,39 +52870,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -53358,10 +52926,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -53373,39 +52937,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -53413,7 +52968,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !857
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
@@ -53425,8 +52980,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !858
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -53436,45 +52991,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !859
 }
 
@@ -53947,8 +53482,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !853
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -53965,8 +53500,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -54143,8 +53678,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !870
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !870
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -54152,168 +53687,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !871
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !871
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !872
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !872
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !873
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !873
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !851
-  %247 = load i64, ptr %27, align 8, !tbaa !853
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !858
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !851
+  %251 = load i64, ptr %27, align 8, !tbaa !853
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !858
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !874
 }
 
@@ -59314,9 +58834,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -59327,39 +58844,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -59392,10 +58900,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -59407,39 +58911,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -59447,7 +58942,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !911
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
@@ -59459,8 +58954,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !912
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -59470,45 +58965,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !913
 }
 
@@ -59981,8 +59456,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !907
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -59999,8 +59474,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -60177,8 +59652,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !924
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !924
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -60186,168 +59661,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !925
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !925
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !926
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !926
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !927
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !927
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !905
-  %247 = load i64, ptr %27, align 8, !tbaa !907
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !912
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !905
+  %251 = load i64, ptr %27, align 8, !tbaa !907
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !912
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !928
 }
 
@@ -65348,9 +64808,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -65361,39 +64818,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -65426,10 +64874,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -65441,39 +64885,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -65481,7 +64916,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !965
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
@@ -65493,8 +64928,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !966
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -65504,45 +64939,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !967
 }
 
@@ -66015,8 +65430,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !961
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -66033,8 +65448,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -66211,8 +65626,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !978
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !978
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -66220,168 +65635,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !979
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !979
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !980
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !980
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !981
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !981
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !959
-  %247 = load i64, ptr %27, align 8, !tbaa !961
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !966
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !959
+  %251 = load i64, ptr %27, align 8, !tbaa !961
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !966
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !982
 }
 
@@ -72416,9 +71816,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -72429,39 +71826,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -72494,10 +71882,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -72509,39 +71893,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -72549,7 +71924,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !1019
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
@@ -72561,8 +71936,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !1020
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -72572,45 +71947,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !1021
 }
 
@@ -73347,8 +72702,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !1015
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -73365,8 +72720,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -73543,8 +72898,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1032
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1032
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -73552,168 +72907,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !1033
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !1033
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1034
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1034
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1035
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1035
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !1013
-  %247 = load i64, ptr %27, align 8, !tbaa !1015
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !1020
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !1013
+  %251 = load i64, ptr %27, align 8, !tbaa !1015
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !1020
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !1036
 }
 
@@ -79190,9 +78530,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -79203,39 +78540,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -79268,10 +78596,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -79283,39 +78607,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -79323,7 +78638,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !1080
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
@@ -79335,8 +78650,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !1066
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -79346,45 +78661,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !1081
 }
 
@@ -79811,8 +79106,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !1076
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -79829,8 +79124,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -80007,8 +79302,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1089
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1089
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -80016,168 +79311,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !1090
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !1090
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1091
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1091
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1092
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1092
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !1074
-  %247 = load i64, ptr %27, align 8, !tbaa !1076
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !1066
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !1074
+  %251 = load i64, ptr %27, align 8, !tbaa !1076
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !1066
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !1093
 }
 
@@ -86486,9 +85766,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -86499,39 +85776,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -86564,10 +85832,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -86579,39 +85843,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -86619,7 +85874,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !1311
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
@@ -86631,8 +85886,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !1287
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -86642,45 +85897,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !1312
 }
 
@@ -87155,8 +86390,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !1307
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -87173,8 +86408,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -87351,8 +86586,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1314
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1314
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -87360,168 +86595,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !1315
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !1315
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1316
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1316
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1317
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1317
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !1305
-  %247 = load i64, ptr %27, align 8, !tbaa !1307
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !1287
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !1305
+  %251 = load i64, ptr %27, align 8, !tbaa !1307
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !1287
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !1318
 }
 
@@ -92528,9 +91748,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -92541,39 +91758,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -92606,10 +91814,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -92621,39 +91825,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -92661,7 +91856,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !1355
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
@@ -92673,8 +91868,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !1356
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -92684,45 +91879,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !1357
 }
 
@@ -93195,8 +92370,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !1351
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -93213,8 +92388,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -93391,8 +92566,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1368
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1368
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -93400,168 +92575,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !1369
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !1369
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1370
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1370
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1371
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1371
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !1349
-  %247 = load i64, ptr %27, align 8, !tbaa !1351
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !1356
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !1349
+  %251 = load i64, ptr %27, align 8, !tbaa !1351
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !1356
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !1372
 }
 
@@ -98562,9 +97722,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -98575,39 +97732,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -98640,10 +97788,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -98655,39 +97799,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -98695,7 +97830,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !1409
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
@@ -98707,8 +97842,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !1410
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -98718,45 +97853,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !1411
 }
 
@@ -99229,8 +98344,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !1405
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -99247,8 +98362,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -99425,8 +98540,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1422
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1422
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -99434,168 +98549,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !1423
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !1423
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1424
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1424
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1425
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1425
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !1403
-  %247 = load i64, ptr %27, align 8, !tbaa !1405
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !1410
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !1403
+  %251 = load i64, ptr %27, align 8, !tbaa !1405
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !1410
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !1426
 }
 
@@ -104596,9 +103696,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -104609,39 +103706,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -104674,10 +103762,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -104689,39 +103773,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -104729,7 +103804,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !1463
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
@@ -104741,8 +103816,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !1464
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -104752,45 +103827,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !1465
 }
 
@@ -105263,8 +104318,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !1459
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -105281,8 +104336,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -105459,8 +104514,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1476
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1476
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -105468,168 +104523,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !1477
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !1477
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1478
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1478
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1479
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1479
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !1457
-  %247 = load i64, ptr %27, align 8, !tbaa !1459
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !1464
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !1457
+  %251 = load i64, ptr %27, align 8, !tbaa !1459
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !1464
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !1480
 }
 
@@ -111664,9 +110704,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -111677,39 +110714,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -111742,10 +110770,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -111757,39 +110781,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -111797,7 +110812,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !1517
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
@@ -111809,8 +110824,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !1518
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -111820,45 +110835,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !1519
 }
 
@@ -112595,8 +111590,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !1513
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -112613,8 +111608,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -112791,8 +111786,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1530
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1530
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -112800,168 +111795,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !1531
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !1531
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1532
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1532
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1533
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1533
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !1511
-  %247 = load i64, ptr %27, align 8, !tbaa !1513
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !1518
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !1511
+  %251 = load i64, ptr %27, align 8, !tbaa !1513
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !1518
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !1534
 }
 
@@ -118438,9 +117418,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -118451,39 +117428,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -118516,10 +117484,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -118531,39 +117495,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -118571,7 +117526,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !1578
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
@@ -118583,8 +117538,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !1564
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -118594,45 +117549,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !1579
 }
 
@@ -119059,8 +117994,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !1574
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -119077,8 +118012,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -119255,8 +118190,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1587
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1587
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -119264,168 +118199,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !1588
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !1588
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1589
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1589
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1590
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1590
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !1572
-  %247 = load i64, ptr %27, align 8, !tbaa !1574
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !1564
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !1572
+  %251 = load i64, ptr %27, align 8, !tbaa !1574
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !1564
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !1591
 }
 
@@ -125734,9 +124654,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -125747,39 +124664,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -125812,10 +124720,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -125827,39 +124731,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -125867,7 +124762,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !1809
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
@@ -125879,8 +124774,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !1785
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -125890,45 +124785,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !1810
 }
 
@@ -126403,8 +125278,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !1805
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -126421,8 +125296,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -126599,8 +125474,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1812
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1812
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -126608,168 +125483,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !1813
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !1813
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1814
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1814
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1815
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1815
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !1803
-  %247 = load i64, ptr %27, align 8, !tbaa !1805
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !1785
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !1803
+  %251 = load i64, ptr %27, align 8, !tbaa !1805
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !1785
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !1816
 }
 
@@ -131776,9 +130636,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -131789,39 +130646,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -131854,10 +130702,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -131869,39 +130713,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -131909,7 +130744,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !1853
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
@@ -131921,8 +130756,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !1854
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -131932,45 +130767,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !1855
 }
 
@@ -132443,8 +131258,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !1849
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -132461,8 +131276,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -132639,8 +131454,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1866
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1866
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -132648,168 +131463,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !1867
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !1867
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1868
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1868
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1869
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1869
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !1847
-  %247 = load i64, ptr %27, align 8, !tbaa !1849
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !1854
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !1847
+  %251 = load i64, ptr %27, align 8, !tbaa !1849
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !1854
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !1870
 }
 
@@ -137810,9 +136610,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -137823,39 +136620,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -137888,10 +136676,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -137903,39 +136687,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -137943,7 +136718,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !1907
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
@@ -137955,8 +136730,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !1908
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -137966,45 +136741,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !1909
 }
 
@@ -138477,8 +137232,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !1903
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -138495,8 +137250,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -138673,8 +137428,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1920
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1920
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -138682,168 +137437,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !1921
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !1921
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1922
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1922
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1923
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1923
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !1901
-  %247 = load i64, ptr %27, align 8, !tbaa !1903
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !1908
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !1901
+  %251 = load i64, ptr %27, align 8, !tbaa !1903
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !1908
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !1924
 }
 
@@ -143844,9 +142584,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -143857,39 +142594,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -143922,10 +142650,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -143937,39 +142661,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -143977,7 +142692,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !1961
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
@@ -143989,8 +142704,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !1962
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -144000,45 +142715,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !1963
 }
 
@@ -144511,8 +143206,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !1957
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -144529,8 +143224,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -144707,8 +143402,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1974
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1974
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -144716,168 +143411,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !1975
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !1975
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1976
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !1976
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1977
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !1977
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !1955
-  %247 = load i64, ptr %27, align 8, !tbaa !1957
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !1962
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !1955
+  %251 = load i64, ptr %27, align 8, !tbaa !1957
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !1962
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !1978
 }
 
@@ -150912,9 +149592,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -150925,39 +149602,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -150990,10 +149658,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -151005,39 +149669,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -151045,7 +149700,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2015
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
@@ -151057,8 +149712,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2016
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -151068,45 +149723,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !2017
 }
 
@@ -151843,8 +150478,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2011
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -151861,8 +150496,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -152039,8 +150674,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2028
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2028
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -152048,168 +150683,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !2029
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2029
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2030
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2030
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2031
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2031
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2009
-  %247 = load i64, ptr %27, align 8, !tbaa !2011
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2016
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2009
+  %251 = load i64, ptr %27, align 8, !tbaa !2011
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2016
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !2032
 }
 
@@ -157686,9 +156306,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -157699,39 +156316,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -157764,10 +156372,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -157779,39 +156383,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -157819,7 +156414,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2076
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
@@ -157831,8 +156426,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2062
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -157842,45 +156437,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !2077
 }
 
@@ -158307,8 +156882,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2072
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -158325,8 +156900,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -158503,8 +157078,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2085
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2085
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -158512,168 +157087,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !2086
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2086
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2087
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2087
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2088
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2088
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2070
-  %247 = load i64, ptr %27, align 8, !tbaa !2072
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2062
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2070
+  %251 = load i64, ptr %27, align 8, !tbaa !2072
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2062
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !2089
 }
 
@@ -165500,9 +164060,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -165513,39 +164070,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -165578,10 +164126,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -165593,39 +164137,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -165633,7 +164168,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2309
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
@@ -165645,8 +164180,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2285
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -165656,45 +164191,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !2310
 }
 
@@ -166317,8 +164832,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2305
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -166335,8 +164850,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -166513,8 +165028,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2312
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2312
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -166522,168 +165037,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !2313
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2313
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2314
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2314
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2315
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2315
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2303
-  %247 = load i64, ptr %27, align 8, !tbaa !2305
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2285
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2303
+  %251 = load i64, ptr %27, align 8, !tbaa !2305
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2285
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !2316
 }
 
@@ -172504,9 +171004,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -172517,39 +171014,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -172582,10 +171070,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -172597,39 +171081,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -172637,7 +171112,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2353
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
@@ -172649,8 +171124,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2354
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -172660,45 +171135,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !2355
 }
 
@@ -173319,8 +171774,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2349
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -173337,8 +171792,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -173515,8 +171970,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2366
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2366
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -173524,168 +171979,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !2367
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2367
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2368
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2368
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2369
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2369
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2347
-  %247 = load i64, ptr %27, align 8, !tbaa !2349
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2354
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2347
+  %251 = load i64, ptr %27, align 8, !tbaa !2349
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2354
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !2370
 }
 
@@ -179500,9 +177940,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -179513,39 +177950,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -179578,10 +178006,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -179593,39 +178017,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -179633,7 +178048,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2407
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
@@ -179645,8 +178060,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2408
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -179656,45 +178071,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !2409
 }
 
@@ -180315,8 +178710,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2403
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -180333,8 +178728,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -180511,8 +178906,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2420
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2420
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -180520,168 +178915,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !2421
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2421
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2422
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2422
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2423
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2423
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2401
-  %247 = load i64, ptr %27, align 8, !tbaa !2403
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2408
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2401
+  %251 = load i64, ptr %27, align 8, !tbaa !2403
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2408
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !2424
 }
 
@@ -186496,9 +184876,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -186509,39 +184886,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -186574,10 +184942,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -186589,39 +184953,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -186629,7 +184984,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2461
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
@@ -186641,8 +184996,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2462
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -186652,45 +185007,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !2463
 }
 
@@ -187311,8 +185646,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2457
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -187329,8 +185664,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -187507,8 +185842,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2474
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2474
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -187516,168 +185851,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !2475
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2475
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2476
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2476
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2477
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2477
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2455
-  %247 = load i64, ptr %27, align 8, !tbaa !2457
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2462
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2455
+  %251 = load i64, ptr %27, align 8, !tbaa !2457
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2462
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !2478
 }
 
@@ -194526,9 +192846,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -194539,39 +192856,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -194604,10 +192912,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -194619,39 +192923,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -194659,7 +192954,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2515
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
@@ -194671,8 +192966,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2516
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -194682,45 +192977,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !2517
 }
 
@@ -195605,8 +193880,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2511
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -195623,8 +193898,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -195801,8 +194076,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2528
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2528
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -195810,168 +194085,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !2529
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2529
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2530
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2530
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2531
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2531
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2509
-  %247 = load i64, ptr %27, align 8, !tbaa !2511
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2516
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2509
+  %251 = load i64, ptr %27, align 8, !tbaa !2511
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2516
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !2532
 }
 
@@ -202262,9 +200522,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -202275,39 +200532,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -202340,10 +200588,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -202355,39 +200599,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -202395,7 +200630,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2576
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
@@ -202407,8 +200642,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2562
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -202418,45 +200653,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !2577
 }
 
@@ -203031,8 +201246,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2572
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -203049,8 +201264,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -203227,8 +201442,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2585
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2585
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -203236,168 +201451,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !2586
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2586
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2587
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2587
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2588
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2588
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2570
-  %247 = load i64, ptr %27, align 8, !tbaa !2572
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2562
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2570
+  %251 = load i64, ptr %27, align 8, !tbaa !2572
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2562
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !2589
 }
 
@@ -208963,9 +207163,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -208976,39 +207173,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -209041,10 +207229,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -209056,39 +207240,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -209096,7 +207271,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2804
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
@@ -209108,8 +207283,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2780
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -209119,45 +207294,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !2805
 }
 
@@ -209628,8 +207783,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2800
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -209646,8 +207801,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -209824,8 +207979,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2807
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2807
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -209833,168 +207988,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !2808
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2808
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2809
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2809
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2810
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2810
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2798
-  %247 = load i64, ptr %27, align 8, !tbaa !2800
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2780
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 1)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2798
+  %251 = load i64, ptr %27, align 8, !tbaa !2800
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2780
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !2811
 }
 
@@ -213680,9 +211820,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -213693,39 +211830,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -213758,10 +211886,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -213773,39 +211897,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -213813,7 +211928,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2845
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
@@ -213825,8 +211940,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2846
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -213836,45 +211951,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !2847
 }
 
@@ -214343,8 +212438,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2841
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -214361,8 +212456,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -214539,8 +212634,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2858
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2858
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -214548,168 +212643,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !2859
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2859
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2860
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2860
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2861
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2861
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2839
-  %247 = load i64, ptr %27, align 8, !tbaa !2841
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2846
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 2)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2839
+  %251 = load i64, ptr %27, align 8, !tbaa !2841
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2846
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !2862
 }
 
@@ -218389,9 +216469,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -218402,39 +216479,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -218467,10 +216535,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -218482,39 +216546,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -218522,7 +216577,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2896
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
@@ -218534,8 +216589,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2897
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -218545,45 +216600,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !2898
 }
 
@@ -219052,8 +217087,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2892
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -219070,8 +217105,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -219248,8 +217283,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2909
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2909
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -219257,168 +217292,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !2910
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2910
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2911
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2911
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2912
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2912
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2890
-  %247 = load i64, ptr %27, align 8, !tbaa !2892
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2897
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 3)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2890
+  %251 = load i64, ptr %27, align 8, !tbaa !2892
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2897
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !2913
 }
 
@@ -223098,9 +221118,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -223111,39 +221128,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -223176,10 +221184,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -223191,39 +221195,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -223231,7 +221226,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2947
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
@@ -223243,8 +221238,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2948
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -223254,45 +221249,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !2949
 }
 
@@ -223761,8 +221736,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2943
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -223779,8 +221754,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -223957,8 +221932,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2960
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2960
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -223966,168 +221941,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !2961
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2961
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2962
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !2962
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2963
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !2963
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2941
-  %247 = load i64, ptr %27, align 8, !tbaa !2943
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2948
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 5)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2941
+  %251 = load i64, ptr %27, align 8, !tbaa !2943
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2948
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !2964
 }
 
@@ -229127,9 +227087,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -229140,39 +227097,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -229205,10 +227153,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -229220,39 +227164,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -229260,7 +227195,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !2998
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
@@ -229272,8 +227207,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !2999
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -229283,45 +227218,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !3000
 }
 
@@ -230054,8 +227969,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !2994
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -230072,8 +227987,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -230250,8 +228165,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !3011
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !3011
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -230259,168 +228174,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !3012
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !3012
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !3013
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !3013
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !3014
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !3014
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !2992
-  %247 = load i64, ptr %27, align 8, !tbaa !2994
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !2999
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 7)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !2992
+  %251 = load i64, ptr %27, align 8, !tbaa !2994
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !2999
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !3015
 }
 
@@ -234394,9 +232294,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %188 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   %190 = load ptr, ptr %83, align 8, !tbaa !244
-  %invariant.gep120 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep122 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %invariant.gep124 = getelementptr inbounds nuw i8, ptr %190, i64 8
   br i1 %175, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %209
@@ -234407,39 +232304,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %193 = fmul float %192, %173
   %194 = getelementptr inbounds nuw float, ptr %176, i64 %.096.us97
   store float %193, ptr %194, align 4, !tbaa !245
-  br i1 %187, label %198, label %195
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  %197 = load float, ptr %196, align 4, !tbaa !245
+  %198 = fneg float %197
+  %.pn74.us = select i1 %187, float %197, float %198
+  %199 = fmul float %.pn74.us, %173
+  %200 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
+  store float %199, ptr %200, align 4, !tbaa !245
+  br i1 %189, label %206, label %201
 
-195:                                              ; preds = %.split.split.us
-  %gep121 = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx91.us98
-  %196 = load float, ptr %gep121, align 4, !tbaa !245
-  %197 = fneg float %196
-  br label %200
-
-198:                                              ; preds = %.split.split.us
-  %gep123 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx91.us98
-  %199 = load float, ptr %gep123, align 4, !tbaa !245
-  br label %200
-
-200:                                              ; preds = %198, %195
-  %.pn74.us = phi float [ %199, %198 ], [ %197, %195 ]
-  %201 = fmul float %.pn74.us, %173
-  %202 = getelementptr inbounds nuw float, ptr %177, i64 %.096.us97
-  store float %201, ptr %202, align 4, !tbaa !245
-  br i1 %189, label %206, label %203
-
-203:                                              ; preds = %200
-  %gep125 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx91.us98
-  %204 = load float, ptr %gep125, align 4, !tbaa !245
+201:                                              ; preds = %.split.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx91.us98
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
   %205 = fneg float %204
   br label %209
 
-206:                                              ; preds = %200
+206:                                              ; preds = %.split.split.us
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %208 = load float, ptr %207, align 4, !tbaa !245
   br label %209
 
-209:                                              ; preds = %206, %203
-  %.pn75.us = phi float [ %208, %206 ], [ %205, %203 ]
+209:                                              ; preds = %206, %201
+  %.pn75.us = phi float [ %208, %206 ], [ %205, %201 ]
   %210 = fmul float %.pn75.us, %173
   %211 = getelementptr inbounds nuw float, ptr %178, i64 %.096.us97
   store float %210, ptr %211, align 4, !tbaa !245
@@ -234472,10 +232360,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %223 = trunc nuw i8 %222 to i1
   %224 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %225 = trunc nuw i8 %224 to i1
-  %invariant.gep126 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep128 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %invariant.gep130 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %213, i64 8
   br label %256
 
 .split.split:                                     ; preds = %.split, %245
@@ -234487,39 +232371,30 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %229 = fmul float %173, %228
   %230 = getelementptr inbounds nuw float, ptr %176, i64 %.096
   store float %229, ptr %230, align 4, !tbaa !245
-  br i1 %187, label %231, label %233
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %233 = load float, ptr %232, align 4, !tbaa !245
+  %234 = fneg float %233
+  %.pn74 = select i1 %187, float %233, float %234
+  %235 = fmul float %.pn74, %173
+  %236 = getelementptr inbounds nuw float, ptr %177, i64 %.096
+  store float %235, ptr %236, align 4, !tbaa !245
+  br i1 %189, label %237, label %240
 
-231:                                              ; preds = %.split.split
-  %gep117 = getelementptr inbounds nuw i8, ptr %invariant.gep122, i64 %.idx90
-  %232 = load float, ptr %gep117, align 4, !tbaa !245
-  br label %236
-
-233:                                              ; preds = %.split.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep120, i64 %.idx90
-  %234 = load float, ptr %gep, align 4, !tbaa !245
-  %235 = fneg float %234
-  br label %236
-
-236:                                              ; preds = %233, %231
-  %.pn74 = phi float [ %232, %231 ], [ %235, %233 ]
-  %237 = fmul float %.pn74, %173
-  %238 = getelementptr inbounds nuw float, ptr %177, i64 %.096
-  store float %237, ptr %238, align 4, !tbaa !245
-  br i1 %189, label %239, label %242
-
-239:                                              ; preds = %236
-  %240 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %241 = load float, ptr %240, align 4, !tbaa !245
+237:                                              ; preds = %.split.split
+  %238 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !245
   br label %245
 
-242:                                              ; preds = %236
-  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep124, i64 %.idx90
-  %243 = load float, ptr %gep119, align 4, !tbaa !245
+240:                                              ; preds = %.split.split
+  %241 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx90
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !245
   %244 = fneg float %243
   br label %245
 
-245:                                              ; preds = %242, %239
-  %.pn75 = phi float [ %241, %239 ], [ %244, %242 ]
+245:                                              ; preds = %240, %237
+  %.pn75 = phi float [ %239, %237 ], [ %244, %240 ]
   %246 = fmul float %.pn75, %173
   %247 = getelementptr inbounds nuw float, ptr %178, i64 %.096
   store float %246, ptr %247, align 4, !tbaa !245
@@ -234527,7 +232402,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %exitcond.not = icmp eq i64 %248, 32768
   br i1 %exitcond.not, label %.preheader, label %.split.split, !llvm.loop !3056
 
-.split103.us:                                     ; preds = %275, %.preheader.split101.us
+.split103.us:                                     ; preds = %256, %.preheader.split101.us
   %249 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
   %250 = fptrunc double %249 to float
   %251 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
@@ -234539,8 +232414,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   store float %250, ptr %255, align 8, !tbaa !3042
   ret void
 
-256:                                              ; preds = %.preheader.split101, %275
-  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %278, %275 ]
+256:                                              ; preds = %.preheader.split101, %256
+  %.070100 = phi i64 [ 32768, %.preheader.split101 ], [ %274, %256 ]
   %.idx85 = mul nuw nsw i64 %.070100, 12
   %257 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx85
   %258 = load float, ptr %257, align 4, !tbaa !245
@@ -234550,45 +232425,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit83:             ; preds = %78, %76, %74, %72, 
   %261 = getelementptr inbounds nuw float, ptr %176, i64 %.070100
   store float %260, ptr %261, align 4, !tbaa !245
   %.idx87 = mul nuw nsw i64 %.070100, 12
-  br i1 %223, label %262, label %265
-
-262:                                              ; preds = %256
-  %gep129 = getelementptr inbounds nuw i8, ptr %invariant.gep128, i64 %.idx87
-  %263 = load float, ptr %gep129, align 4, !tbaa !245
-  %264 = fneg float %263
-  br label %267
-
-265:                                              ; preds = %256
-  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep126, i64 %.idx87
-  %266 = load float, ptr %gep127, align 4, !tbaa !245
-  br label %267
-
-267:                                              ; preds = %265, %262
-  %.pn71 = phi float [ %264, %262 ], [ %266, %265 ]
-  %268 = fmul float %.pn71, %173
-  %269 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
-  store float %268, ptr %269, align 4, !tbaa !245
+  %262 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx87
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %264 = load float, ptr %263, align 4, !tbaa !245
+  %265 = fneg float %264
+  %.pn71 = select i1 %223, float %265, float %264
+  %266 = fmul float %.pn71, %173
+  %267 = getelementptr inbounds nuw float, ptr %214, i64 %.070100
+  store float %266, ptr %267, align 4, !tbaa !245
   %.idx89 = mul nuw nsw i64 %.070100, 12
-  br i1 %225, label %270, label %273
-
-270:                                              ; preds = %267
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %.idx89
-  %271 = load float, ptr %gep133, align 4, !tbaa !245
-  %272 = fneg float %271
-  br label %275
-
-273:                                              ; preds = %267
-  %gep131 = getelementptr inbounds nuw i8, ptr %invariant.gep130, i64 %.idx89
-  %274 = load float, ptr %gep131, align 4, !tbaa !245
-  br label %275
-
-275:                                              ; preds = %273, %270
-  %.pn72 = phi float [ %272, %270 ], [ %274, %273 ]
-  %276 = fmul float %.pn72, %173
-  %277 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
-  store float %276, ptr %277, align 4, !tbaa !245
-  %278 = add nuw nsw i64 %.070100, 1
-  %exitcond109.not = icmp eq i64 %278, 65536
+  %268 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx89
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load float, ptr %269, align 4, !tbaa !245
+  %271 = fneg float %270
+  %.pn72 = select i1 %225, float %271, float %270
+  %272 = fmul float %.pn72, %173
+  %273 = getelementptr inbounds nuw float, ptr %215, i64 %.070100
+  store float %272, ptr %273, align 4, !tbaa !245
+  %274 = add nuw nsw i64 %.070100, 1
+  %exitcond109.not = icmp eq i64 %274, 65536
   br i1 %exitcond109.not, label %.split103.us, label %256, !llvm.loop !3057
 }
 
@@ -235011,8 +232866,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   %58 = sub nuw i64 %52, %55
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %58)
   %.pre = load i64, ptr %27, align 8, !tbaa !3052
-  %.pre86 = load ptr, ptr %14, align 8, !tbaa !259
-  %.pre87 = load ptr, ptr %13, align 8, !tbaa !244
+  %.pre80 = load ptr, ptr %14, align 8, !tbaa !259
+  %.pre81 = load ptr, ptr %13, align 8, !tbaa !244
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 59:                                               ; preds = %51
@@ -235029,8 +232884,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit45:             ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit47
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit47:             ; preds = %57, %59, %61, %63
-  %64 = phi ptr [ %.pre87, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
-  %65 = phi ptr [ %.pre86, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
+  %64 = phi ptr [ %.pre81, %57 ], [ %48, %59 ], [ %48, %61 ], [ %48, %63 ]
+  %65 = phi ptr [ %.pre80, %57 ], [ %50, %59 ], [ %50, %61 ], [ %50, %63 ]
   %66 = phi i64 [ %.pre, %57 ], [ %52, %59 ], [ %52, %61 ], [ %52, %63 ]
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %64 to i64
@@ -235207,8 +233062,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %180 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us
   store float %179, ptr %180, align 4, !tbaa !245
   %181 = add nuw i64 %.056.us, 1
-  %exitcond85.not = icmp eq i64 %181, %169
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !3065
+  %exitcond79.not = icmp eq i64 %181, %169
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !3065
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %182 = load i8, ptr %81, align 8, !tbaa !292, !range !295, !noundef !68
@@ -235216,168 +233071,153 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit49:             ; preds = %78, %76, %74, %72, 
   %184 = load i8, ptr %82, align 8, !tbaa !292, !range !295, !noundef !68
   %185 = trunc nuw i8 %184 to i1
   %186 = load ptr, ptr %168, align 8, !tbaa !244
-  %invariant.gep94 = getelementptr i8, ptr %186, i64 4
   br i1 %171, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %invariant.gep96 = getelementptr i8, ptr %186, i64 4
-  %invariant.gep98 = getelementptr i8, ptr %186, i64 8
-  br label %187
-
-187:                                              ; preds = %206, %.lr.ph.split.split.us
-  %.056.us57 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %209, %206 ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %205
+  %.056.us57 = phi i64 [ %208, %205 ], [ 0, %.lr.ph.split ]
   %.idx51.us58 = mul i64 %.056.us57, 12
-  %188 = getelementptr i8, ptr %186, i64 %.idx51.us58
-  %189 = load float, ptr %188, align 4, !tbaa !245
-  %190 = fmul float %189, %166
-  %191 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
-  store float %190, ptr %191, align 4, !tbaa !245
-  br i1 %183, label %195, label %192
-
-192:                                              ; preds = %187
-  %gep95 = getelementptr i8, ptr %invariant.gep94, i64 %.idx51.us58
-  %193 = load float, ptr %gep95, align 4, !tbaa !245
+  %187 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %188 = load float, ptr %187, align 4, !tbaa !245
+  %189 = fmul float %188, %166
+  %190 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us57
+  store float %189, ptr %190, align 4, !tbaa !245
+  %191 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %192 = getelementptr i8, ptr %191, i64 4
+  %193 = load float, ptr %192, align 4, !tbaa !245
   %194 = fneg float %193
-  br label %197
+  %.pn40.us = select i1 %183, float %193, float %194
+  %195 = fmul float %.pn40.us, %166
+  %196 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
+  store float %195, ptr %196, align 4, !tbaa !245
+  br i1 %185, label %202, label %197
 
-195:                                              ; preds = %187
-  %gep97 = getelementptr i8, ptr %invariant.gep96, i64 %.idx51.us58
-  %196 = load float, ptr %gep97, align 4, !tbaa !245
-  br label %197
+197:                                              ; preds = %.lr.ph.split.split.us
+  %198 = getelementptr i8, ptr %186, i64 %.idx51.us58
+  %199 = getelementptr i8, ptr %198, i64 8
+  %200 = load float, ptr %199, align 4, !tbaa !245
+  %201 = fneg float %200
+  br label %205
 
-197:                                              ; preds = %195, %192
-  %.pn40.us = phi float [ %196, %195 ], [ %194, %192 ]
-  %198 = fmul float %.pn40.us, %166
-  %199 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us57
-  store float %198, ptr %199, align 4, !tbaa !245
-  br i1 %185, label %203, label %200
+202:                                              ; preds = %.lr.ph.split.split.us
+  %203 = getelementptr i8, ptr %187, i64 8
+  %204 = load float, ptr %203, align 4, !tbaa !245
+  br label %205
 
-200:                                              ; preds = %197
-  %gep99 = getelementptr i8, ptr %invariant.gep98, i64 %.idx51.us58
-  %201 = load float, ptr %gep99, align 4, !tbaa !245
-  %202 = fneg float %201
-  br label %206
-
-203:                                              ; preds = %197
-  %204 = getelementptr i8, ptr %188, i64 8
-  %205 = load float, ptr %204, align 4, !tbaa !245
-  br label %206
-
-206:                                              ; preds = %203, %200
-  %.pn41.us = phi float [ %205, %203 ], [ %202, %200 ]
-  %207 = fmul float %.pn41.us, %166
-  %208 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
-  store float %207, ptr %208, align 4, !tbaa !245
-  %209 = add nuw i64 %.056.us57, 1
-  %exitcond84.not = icmp eq i64 %209, %169
-  br i1 %exitcond84.not, label %._crit_edge, label %187, !llvm.loop !3066
+205:                                              ; preds = %202, %197
+  %.pn41.us = phi float [ %204, %202 ], [ %201, %197 ]
+  %206 = fmul float %.pn41.us, %166
+  %207 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us57
+  store float %206, ptr %207, align 4, !tbaa !245
+  %208 = add nuw i64 %.056.us57, 1
+  %exitcond78.not = icmp eq i64 %208, %169
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !3066
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.gep92 = getelementptr i8, ptr %186, i64 8
   br i1 %183, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %224
-  %.056.us60 = phi i64 [ %227, %224 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %226
+  %.056.us60 = phi i64 [ %229, %226 ], [ 0, %.lr.ph.split.split ]
   %.idx.us61 = mul i64 %.056.us60, 12
-  %210 = getelementptr i8, ptr %186, i64 %.idx.us61
-  %211 = load float, ptr %210, align 4, !tbaa !245
-  %212 = fneg float %211
-  %213 = fmul float %166, %212
-  %214 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
-  store float %213, ptr %214, align 4, !tbaa !245
-  %gep77 = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us61
-  %215 = load float, ptr %gep77, align 4, !tbaa !245
+  %209 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %210 = load float, ptr %209, align 4, !tbaa !245
+  %211 = fneg float %210
+  %212 = fmul float %166, %211
+  %213 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us60
+  store float %212, ptr %213, align 4, !tbaa !245
+  %214 = getelementptr i8, ptr %209, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !245
   %216 = fmul float %215, %166
   %217 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us60
   store float %216, ptr %217, align 4, !tbaa !245
-  br i1 %185, label %221, label %218
+  br i1 %185, label %223, label %218
 
 218:                                              ; preds = %.lr.ph.split.split.split.us
-  %gep93 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us61
-  %219 = load float, ptr %gep93, align 4, !tbaa !245
-  %220 = fneg float %219
-  br label %224
+  %219 = getelementptr i8, ptr %186, i64 %.idx.us61
+  %220 = getelementptr i8, ptr %219, i64 8
+  %221 = load float, ptr %220, align 4, !tbaa !245
+  %222 = fneg float %221
+  br label %226
 
-221:                                              ; preds = %.lr.ph.split.split.split.us
-  %222 = getelementptr i8, ptr %210, i64 8
-  %223 = load float, ptr %222, align 4, !tbaa !245
-  br label %224
+223:                                              ; preds = %.lr.ph.split.split.split.us
+  %224 = getelementptr i8, ptr %209, i64 8
+  %225 = load float, ptr %224, align 4, !tbaa !245
+  br label %226
 
-224:                                              ; preds = %221, %218
-  %.pn41.us66 = phi float [ %223, %221 ], [ %220, %218 ]
-  %225 = fmul float %.pn41.us66, %166
-  %226 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
-  store float %225, ptr %226, align 4, !tbaa !245
-  %227 = add nuw i64 %.056.us60, 1
-  %exitcond83.not = icmp eq i64 %227, %169
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !3067
+226:                                              ; preds = %223, %218
+  %.pn41.us66 = phi float [ %225, %223 ], [ %222, %218 ]
+  %227 = fmul float %.pn41.us66, %166
+  %228 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us60
+  store float %227, ptr %228, align 4, !tbaa !245
+  %229 = add nuw i64 %.056.us60, 1
+  %exitcond77.not = icmp eq i64 %229, %169
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !3067
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %185, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split.us
-  %.056.us67 = phi i64 [ %240, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
+  %.056.us67 = phi i64 [ %244, %.lr.ph.split.split.split.split.us ], [ 0, %.lr.ph.split.split.split ]
   %.idx.us68 = mul i64 %.056.us67, 12
-  %228 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.us68
-  %229 = load float, ptr %228, align 4, !tbaa !245
-  %230 = fneg float %229
-  %231 = fmul float %166, %230
-  %232 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
-  store float %231, ptr %232, align 4, !tbaa !245
-  %gep.us = getelementptr i8, ptr %invariant.gep94, i64 %.idx.us68
-  %233 = load float, ptr %gep.us, align 4, !tbaa !245
-  %234 = fneg float %233
-  %235 = fmul float %166, %234
-  %236 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
-  store float %235, ptr %236, align 4, !tbaa !245
-  %gep75 = getelementptr i8, ptr %invariant.gep92, i64 %.idx.us68
-  %237 = load float, ptr %gep75, align 4, !tbaa !245
-  %238 = fmul float %237, %166
-  %239 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  %230 = getelementptr i8, ptr %186, i64 %.idx.us68
+  %231 = load float, ptr %230, align 4, !tbaa !245
+  %232 = fneg float %231
+  %233 = fmul float %166, %232
+  %234 = getelementptr inbounds nuw float, ptr %172, i64 %.056.us67
+  store float %233, ptr %234, align 4, !tbaa !245
+  %235 = getelementptr i8, ptr %230, i64 4
+  %236 = load float, ptr %235, align 4, !tbaa !245
+  %237 = fneg float %236
+  %238 = fmul float %166, %237
+  %239 = getelementptr inbounds nuw float, ptr %173, i64 %.056.us67
   store float %238, ptr %239, align 4, !tbaa !245
-  %240 = add nuw i64 %.056.us67, 1
-  %exitcond82.not = icmp eq i64 %240, %169
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !3068
+  %240 = getelementptr i8, ptr %230, i64 8
+  %241 = load float, ptr %240, align 4, !tbaa !245
+  %242 = fmul float %241, %166
+  %243 = getelementptr inbounds nuw float, ptr %174, i64 %.056.us67
+  store float %242, ptr %243, align 4, !tbaa !245
+  %244 = add nuw i64 %.056.us67, 1
+  %exitcond76.not = icmp eq i64 %244, %169
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !3068
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %224, %206, %.lr.ph.split.us, %164
-  %241 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
-  %242 = fptrunc double %241 to float
-  %243 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
-  %244 = fptrunc double %243 to float
-  %245 = fdiv float %242, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %245, ptr %246, align 8, !tbaa !3050
-  %247 = load i64, ptr %27, align 8, !tbaa !3052
-  %248 = add i64 %247, -1
-  %249 = uitofp i64 %248 to float
-  %250 = fdiv float %242, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %250, ptr %251, align 8, !tbaa !3042
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %226, %205, %.lr.ph.split.us, %164
+  %245 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
+  %246 = fptrunc double %245 to float
+  %247 = tail call noundef double @_ZN19OpenColorIO_v2_5dev19GetBitDepthMaxValueENS_8BitDepthE(i32 noundef 8)
+  %248 = fptrunc double %247 to float
+  %249 = fdiv float %246, %248
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %249, ptr %250, align 8, !tbaa !3050
+  %251 = load i64, ptr %27, align 8, !tbaa !3052
+  %252 = add i64 %251, -1
+  %253 = uitofp i64 %252 to float
+  %254 = fdiv float %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %254, ptr %255, align 8, !tbaa !3042
   ret void
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
-  %.056 = phi i64 [ %265, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
+  %.056 = phi i64 [ %271, %.lr.ph.split.split.split.split ], [ 0, %.lr.ph.split.split.split ]
   %.idx = mul i64 %.056, 12
-  %252 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
-  %253 = load float, ptr %252, align 4, !tbaa !245
-  %254 = fneg float %253
-  %255 = fmul float %166, %254
-  %256 = getelementptr inbounds nuw float, ptr %172, i64 %.056
-  store float %255, ptr %256, align 4, !tbaa !245
-  %gep = getelementptr i8, ptr %invariant.gep94, i64 %.idx
-  %257 = load float, ptr %gep, align 4, !tbaa !245
+  %256 = getelementptr i8, ptr %186, i64 %.idx
+  %257 = load float, ptr %256, align 4, !tbaa !245
   %258 = fneg float %257
   %259 = fmul float %166, %258
-  %260 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  %260 = getelementptr inbounds nuw float, ptr %172, i64 %.056
   store float %259, ptr %260, align 4, !tbaa !245
-  %gep73 = getelementptr i8, ptr %invariant.gep92, i64 %.idx
-  %261 = load float, ptr %gep73, align 4, !tbaa !245
-  %262 = fneg float %261
-  %263 = fmul float %166, %262
-  %264 = getelementptr inbounds nuw float, ptr %174, i64 %.056
-  store float %263, ptr %264, align 4, !tbaa !245
-  %265 = add nuw i64 %.056, 1
-  %exitcond.not = icmp eq i64 %265, %169
+  %261 = getelementptr i8, ptr %256, i64 4
+  %262 = load float, ptr %261, align 4, !tbaa !245
+  %263 = fneg float %262
+  %264 = fmul float %166, %263
+  %265 = getelementptr inbounds nuw float, ptr %173, i64 %.056
+  store float %264, ptr %265, align 4, !tbaa !245
+  %266 = getelementptr i8, ptr %256, i64 8
+  %267 = load float, ptr %266, align 4, !tbaa !245
+  %268 = fneg float %267
+  %269 = fmul float %166, %268
+  %270 = getelementptr inbounds nuw float, ptr %174, i64 %.056
+  store float %269, ptr %270, align 4, !tbaa !245
+  %271 = add nuw i64 %.056, 1
+  %exitcond.not = icmp eq i64 %271, %169
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !3069
 }
 

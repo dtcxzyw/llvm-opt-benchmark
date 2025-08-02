@@ -4562,8 +4562,8 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   %29 = load ptr, ptr %16, align 8
   %30 = tail call ptr @list_iterator_create(ptr noundef %29) #27
   %31 = tail call ptr @list_next(ptr noundef %30) #27
-  %.not3444 = icmp eq ptr %31, null
-  br i1 %.not3444, label %.loopexit57, label %.lr.ph
+  %.not3440 = icmp eq ptr %31, null
+  br i1 %.not3440, label %.loopexit53, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %25 ]
@@ -4575,7 +4575,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   store i32 %34, ptr %35, align 4
   %36 = tail call ptr @list_next(ptr noundef %30) #27
   %.not34 = icmp eq ptr %36, null
-  br i1 %.not34, label %.loopexit57, label %.lr.ph, !llvm.loop !27
+  br i1 %.not34, label %.loopexit53, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %14, %2
   tail call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.kill_job_step.job_read_lock) #27
@@ -4588,48 +4588,48 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.45, ptr noundef nonnull @__func__.kill_job_step, i32 noundef %40) #27
   br label %48
 
-.thread:                                          ; preds = %find_job_record.exit, %18, %22
+.thread:                                          ; preds = %22, %18, %find_job_record.exit
   tail call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.kill_job_step.job_read_lock) #27
   br label %46
 
-.loopexit57:                                      ; preds = %.lr.ph, %25
+.loopexit53:                                      ; preds = %.lr.ph, %25
   tail call void @list_iterator_destroy(ptr noundef %30) #27
   tail call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.kill_job_step.job_read_lock) #27
   %.not35 = icmp eq ptr %28, null
   br i1 %.not35, label %46, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit57
+.preheader:                                       ; preds = %.loopexit53
   %41 = icmp sgt i32 %26, 0
-  br i1 %41, label %.lr.ph48, label %._crit_edge49
+  br i1 %41, label %.lr.ph44, label %._crit_edge45
 
-.lr.ph48:                                         ; preds = %.preheader
+.lr.ph44:                                         ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %26 to i64
   br label %42
 
-42:                                               ; preds = %.lr.ph48, %42
-  %indvars.iv52 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next53, %42 ]
-  %.147 = phi i32 [ 0, %.lr.ph48 ], [ %spec.select, %42 ]
-  %43 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv52
+42:                                               ; preds = %.lr.ph44, %42
+  %indvars.iv48 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next49, %42 ]
+  %.143 = phi i32 [ 0, %.lr.ph44 ], [ %spec.select, %42 ]
+  %43 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv48
   %44 = load i32, ptr %43, align 4
   store i32 %44, ptr %4, align 8
   %45 = tail call fastcc i32 @_kill_job_step(ptr noundef nonnull %0, i32 noundef %1)
   %.not36 = icmp eq i32 %45, 0
-  %spec.select = select i1 %.not36, i32 %.147, i32 %45
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge49, label %42, !llvm.loop !28
+  %spec.select = select i1 %.not36, i32 %.143, i32 %45
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge45, label %42, !llvm.loop !28
 
-._crit_edge49:                                    ; preds = %42, %.preheader
+._crit_edge45:                                    ; preds = %42, %.preheader
   %.1.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %42 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #27
   br label %48
 
-46:                                               ; preds = %.thread, %.loopexit57
+46:                                               ; preds = %.thread, %.loopexit53
   %47 = tail call fastcc i32 @_kill_job_step(ptr noundef %0, i32 noundef %1)
   br label %48
 
-48:                                               ; preds = %.loopexit, %39, %._crit_edge49, %46
-  %.025 = phi i32 [ %.1.lcssa, %._crit_edge49 ], [ %47, %46 ], [ 2017, %39 ], [ 2017, %.loopexit ]
+48:                                               ; preds = %.loopexit, %39, %._crit_edge45, %46
+  %.025 = phi i32 [ %.1.lcssa, %._crit_edge45 ], [ %47, %46 ], [ 2017, %39 ], [ 2017, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   ret i32 %.025
 }

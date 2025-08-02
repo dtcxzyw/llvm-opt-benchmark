@@ -2434,72 +2434,75 @@ define internal fastcc void @dissect_eventdata_cmd(ptr noundef %0, ptr noundef %
   %.not = icmp eq i32 %3, 0
   br label %8
 
-8:                                                ; preds = %.lr.ph, %47
-  %.069 = phi i32 [ 0, %.lr.ph ], [ %.1, %47 ]
-  %.06368 = phi i32 [ 8, %.lr.ph ], [ %.2, %47 ]
+8:                                                ; preds = %.lr.ph, %51
+  %.06368 = phi i32 [ 8, %.lr.ph ], [ %.2, %51 ]
   %9 = add i32 %.06368, 2
   %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %9)
   %11 = zext i16 %10 to i32
   %12 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.754, i32 noundef %11)
-  br i1 %.not, label %18, label %13
+  br i1 %.not, label %.critedge, label %13
 
 13:                                               ; preds = %8
   %14 = load i32, ptr @hf_gvcp_eventcmd_extid_length, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %.06368, i32 noundef 2, i32 noundef 0)
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.06368)
-  %17 = zext i16 %16 to i32
-  br label %18
-
-18:                                               ; preds = %13, %8
-  %.1 = phi i32 [ %17, %13 ], [ %.069, %8 ]
-  %19 = icmp ult i16 %10, -32767
-  %20 = icmp samesign ult i16 %10, -28672
+  %17 = icmp ult i16 %10, -32767
+  %18 = icmp samesign ult i16 %10, -28672
   %hf_gvcp_eventcmd_id.val = load i32, ptr @hf_gvcp_eventcmd_id, align 4
   %hf_gvcp_eventcmd_error_id.val = load i32, ptr @hf_gvcp_eventcmd_error_id, align 4
   %hf_gvcp_eventcmd_device_specific_id.val = load i32, ptr @hf_gvcp_eventcmd_device_specific_id, align 4
-  %hf_gvcp_eventcmd_error_id.hf_gvcp_eventcmd_device_specific_id.val = select i1 %20, i32 %hf_gvcp_eventcmd_error_id.val, i32 %hf_gvcp_eventcmd_device_specific_id.val
-  %21 = select i1 %19, i32 %hf_gvcp_eventcmd_id.val, i32 %hf_gvcp_eventcmd_error_id.hf_gvcp_eventcmd_device_specific_id.val
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef 0)
-  %23 = add i32 %.06368, 4
-  %24 = load i32, ptr @hf_gvcp_eventcmd_stream_channel_index, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %24, ptr noundef %1, i32 noundef %23, i32 noundef 2, i32 noundef 0)
-  br i1 %.not, label %40, label %26
-
-26:                                               ; preds = %18
-  %27 = add i32 %.06368, 8
-  %28 = load i32, ptr @hf_gvcp_eventcmd_block_id_64bit_v2_0, align 4
+  %hf_gvcp_eventcmd_error_id.hf_gvcp_eventcmd_device_specific_id.val = select i1 %18, i32 %hf_gvcp_eventcmd_error_id.val, i32 %hf_gvcp_eventcmd_device_specific_id.val
+  %19 = select i1 %17, i32 %hf_gvcp_eventcmd_id.val, i32 %hf_gvcp_eventcmd_error_id.hf_gvcp_eventcmd_device_specific_id.val
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef 0)
+  %21 = add i32 %.06368, 4
+  %22 = load i32, ptr @hf_gvcp_eventcmd_stream_channel_index, align 4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %22, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef 0)
+  %24 = add i32 %.06368, 8
+  %25 = load i32, ptr @hf_gvcp_eventcmd_block_id_64bit_v2_0, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %25, ptr noundef %1, i32 noundef %24, i32 noundef 8, i32 noundef 0)
+  %27 = add i32 %.06368, 16
+  %28 = load i32, ptr @hf_gvcp_eventcmd_timestamp, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %28, ptr noundef %1, i32 noundef %27, i32 noundef 8, i32 noundef 0)
-  %30 = add i32 %.06368, 16
-  %31 = load i32, ptr @hf_gvcp_eventcmd_timestamp, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %30, i32 noundef 8, i32 noundef 0)
-  %33 = add i32 %.06368, 24
-  %34 = icmp samesign ugt i32 %.1, 24
-  br i1 %34, label %35, label %47
+  %30 = add i32 %.06368, 24
+  %31 = icmp ugt i16 %16, 24
+  br i1 %31, label %32, label %51
 
-35:                                               ; preds = %26
-  %36 = load i32, ptr @hf_gvcp_eventcmd_data, align 4
-  %37 = add nsw i32 %.1, -24
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %36, ptr noundef %1, i32 noundef %33, i32 noundef %37, i32 noundef 0)
-  %39 = add i32 %.1, %.06368
-  br label %47
+32:                                               ; preds = %13
+  %33 = zext i16 %16 to i32
+  %34 = load i32, ptr @hf_gvcp_eventcmd_data, align 4
+  %35 = add nsw i32 %33, -24
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %34, ptr noundef %1, i32 noundef %30, i32 noundef %35, i32 noundef 0)
+  %37 = add i32 %.06368, %33
+  br label %51
 
-40:                                               ; preds = %18
-  %41 = load i32, ptr @hf_gvcp_eventcmd_block_id, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %41, ptr noundef %1, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %43 = load i32, ptr @hf_gvcp_eventcmd_timestamp, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %43, ptr noundef %1, i32 noundef 16, i32 noundef 8, i32 noundef 0)
-  %45 = load i32, ptr @hf_gvcp_eventcmd_data, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef 24, i32 noundef -1, i32 noundef 0)
+.critedge:                                        ; preds = %8
+  %38 = icmp ult i16 %10, -32767
+  %39 = icmp samesign ult i16 %10, -28672
+  %hf_gvcp_eventcmd_id.val71 = load i32, ptr @hf_gvcp_eventcmd_id, align 4
+  %hf_gvcp_eventcmd_error_id.val72 = load i32, ptr @hf_gvcp_eventcmd_error_id, align 4
+  %hf_gvcp_eventcmd_device_specific_id.val73 = load i32, ptr @hf_gvcp_eventcmd_device_specific_id, align 4
+  %hf_gvcp_eventcmd_error_id.hf_gvcp_eventcmd_device_specific_id.c.val = select i1 %39, i32 %hf_gvcp_eventcmd_error_id.val72, i32 %hf_gvcp_eventcmd_device_specific_id.val73
+  %40 = select i1 %38, i32 %hf_gvcp_eventcmd_id.val71, i32 %hf_gvcp_eventcmd_error_id.hf_gvcp_eventcmd_device_specific_id.c.val
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %40, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef 0)
+  %42 = add i32 %.06368, 4
+  %43 = load i32, ptr @hf_gvcp_eventcmd_stream_channel_index, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %43, ptr noundef %1, i32 noundef %42, i32 noundef 2, i32 noundef 0)
+  %45 = load i32, ptr @hf_gvcp_eventcmd_block_id, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %47 = load i32, ptr @hf_gvcp_eventcmd_timestamp, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %47, ptr noundef %1, i32 noundef 16, i32 noundef 8, i32 noundef 0)
+  %49 = load i32, ptr @hf_gvcp_eventcmd_data, align 4
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %49, ptr noundef %1, i32 noundef 24, i32 noundef -1, i32 noundef 0)
   br label %.loopexit
 
-47:                                               ; preds = %26, %35
-  %.2 = phi i32 [ %39, %35 ], [ %33, %26 ]
-  %48 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.2)
-  %49 = icmp sgt i32 %48, 12
-  br i1 %49, label %8, label %.loopexit, !llvm.loop !15
+51:                                               ; preds = %13, %32
+  %.2 = phi i32 [ %37, %32 ], [ %30, %13 ]
+  %52 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.2)
+  %53 = icmp sgt i32 %52, 12
+  br i1 %53, label %8, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %47, %4, %40
+.loopexit:                                        ; preds = %51, %4, %.critedge
   ret void
 }
 

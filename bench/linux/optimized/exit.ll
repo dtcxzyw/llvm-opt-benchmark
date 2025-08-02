@@ -2213,7 +2213,7 @@ define dso_local void @make_task_dead(i32 noundef %0) local_unnamed_addr #4 alig
   %23 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !65
   %24 = and i32 %23, 2147483647
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.thread, label %26, !prof !7
+  br i1 %25, label %.critedge, label %26, !prof !7
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 1800
@@ -2226,7 +2226,7 @@ define dso_local void @make_task_dead(i32 noundef %0) local_unnamed_addr #4 alig
   %34 = icmp ult i8 %33, 2
   call void @llvm.assume(i1 %34)
   %35 = icmp eq i8 %33, 0
-  br i1 %35, label %.lr.ph, label %.thread, !prof !68
+  br i1 %35, label %.lr.ph, label %.critedge, !prof !68
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %36 = phi { i8, i32 } [ %39, %.lr.ph ], [ %32, %26 ]
@@ -2237,9 +2237,9 @@ define dso_local void @make_task_dead(i32 noundef %0) local_unnamed_addr #4 alig
   %41 = icmp ult i8 %40, 2
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i8 %40, 0
-  br i1 %42, label %.lr.ph, label %.thread, !prof !69, !llvm.loop !70
+  br i1 %42, label %.lr.ph, label %.critedge, !prof !69, !llvm.loop !70
 
-.thread:                                          ; preds = %.lr.ph, %26, %22
+.critedge:                                        ; preds = %.lr.ph, %26, %22
   %43 = load volatile i32, ptr @oops_limit, align 4
   %44 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @oops_count, i32 1, ptr nonnull elementtype(i32) @oops_count) #15, !srcloc !71
   %45 = add i32 %44, 1
@@ -2247,11 +2247,11 @@ define dso_local void @make_task_dead(i32 noundef %0) local_unnamed_addr #4 alig
   %47 = icmp ult i32 %46, %45
   br i1 %47, label %48, label %49
 
-48:                                               ; preds = %.thread
+48:                                               ; preds = %.critedge
   call void (ptr, ...) @panic(ptr noundef nonnull @.str.7, i32 noundef %43) #17
   unreachable
 
-49:                                               ; preds = %.thread
+49:                                               ; preds = %.critedge
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %51, 4

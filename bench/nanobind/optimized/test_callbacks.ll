@@ -2702,7 +2702,7 @@ define linkonce_odr hidden noundef i64 @_ZNSt10_HashtableIN8nanobind6objectES1_S
 5:                                                ; preds = %2
   %6 = tail call noundef ptr @_ZNSt10_HashtableIN8nanobind6objectES1_SaIS1_ENSt8__detail9_IdentityEN13callback_data5py_eqENS5_7py_hashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_find_before_nodeERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #18
   %.not24 = icmp eq ptr %6, null
-  br i1 %.not24, label %.thread, label %7
+  br i1 %.not24, label %.critedge, label %7
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr %6, align 8, !tbaa !78
@@ -2720,7 +2720,7 @@ define linkonce_odr hidden noundef i64 @_ZNSt10_HashtableIN8nanobind6objectES1_S
   %18 = urem i64 %15, %17
   %19 = tail call noundef ptr @_ZNKSt10_HashtableIN8nanobind6objectES1_SaIS1_ENSt8__detail9_IdentityEN13callback_data5py_eqENS5_7py_hashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_find_before_nodeEmRKS1_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %15) #18
   %.not23.not = icmp eq ptr %19, null
-  br i1 %.not23.not, label %.thread, label %20
+  br i1 %.not23.not, label %.critedge, label %20
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %19, align 8, !tbaa !78
@@ -2731,9 +2731,9 @@ define linkonce_odr hidden noundef i64 @_ZNSt10_HashtableIN8nanobind6objectES1_S
   %.018 = phi i64 [ %13, %7 ], [ %18, %20 ]
   %.016 = phi ptr [ %6, %7 ], [ %19, %20 ]
   %23 = tail call ptr @_ZNSt10_HashtableIN8nanobind6objectES1_SaIS1_ENSt8__detail9_IdentityEN13callback_data5py_eqENS5_7py_hashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS3_15_Hash_node_baseEPNS3_10_Hash_nodeIS1_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.018, ptr noundef nonnull %.016, ptr noundef %.019) #18
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %14, %5, %22
+.critedge:                                        ; preds = %14, %5, %22
   %.0 = phi i64 [ 1, %22 ], [ 0, %5 ], [ 0, %14 ]
   ret i64 %.0
 }

@@ -4505,16 +4505,16 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN3sat7literalElN9__gnu_
   br i1 %9, label %.lr.ph, label %_ZSt14__partial_sortIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_T0_.exit
 
 .lr.ph:                                           ; preds = %4
-  %10 = getelementptr i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEET_S9_S9_T0_.exit
-  %13 = phi i64 [ %8, %.lr.ph ], [ %114, %_ZSt27__unguarded_partition_pivotIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEET_S9_S9_T0_.exit ]
+  %13 = phi i64 [ %8, %.lr.ph ], [ %116, %_ZSt27__unguarded_partition_pivotIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEET_S9_S9_T0_.exit ]
   %.021 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEET_S9_S9_T0_.exit ]
-  %.01520 = phi i64 [ %2, %.lr.ph ], [ %68, %_ZSt27__unguarded_partition_pivotIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEET_S9_S9_T0_.exit ]
+  %.01520 = phi i64 [ %2, %.lr.ph ], [ %70, %_ZSt27__unguarded_partition_pivotIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEET_S9_S9_T0_.exit ]
   %14 = icmp eq i64 %.01520, 0
-  br i1 %14, label %.lr.ph.i.i, label %67
+  br i1 %14, label %.lr.ph.i.i, label %69
 
 .lr.ph.i.i:                                       ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -4546,201 +4546,202 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN3sat7literalElN9__gnu_
   %26 = shl i64 %.030.i.i.i.i, 1
   %27 = add i64 %26, 2
   %28 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %27
-  %gep.i.i.i.i = getelementptr %"class.sat::literal", ptr %10, i64 %26
+  %29 = getelementptr %"class.sat::literal", ptr %0, i64 %26
+  %30 = getelementptr i8, ptr %29, i64 4
   %.sroa.01.0.copyload.i.i.i.i.i = load i32, ptr %28, align 4, !tbaa !187
-  %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %gep.i.i.i.i, align 4, !tbaa !187
-  %29 = zext i32 %.sroa.01.0.copyload.i.i.i.i.i to i64
-  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !187
-  %32 = zext i32 %.sroa.0.0.copyload.i.i.i.i.i to i64
-  %33 = getelementptr inbounds nuw i32, ptr %24, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !187
-  %35 = icmp slt i32 %31, %34
-  %36 = or disjoint i64 %26, 1
-  %spec.select.i.i.i.i = select i1 %35, i64 %36, i64 %27
-  %37 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %spec.select.i.i.i.i
-  %38 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.030.i.i.i.i
-  %39 = load i32, ptr %37, align 4, !tbaa !187
-  store i32 %39, ptr %38, align 4, !tbaa !187
-  %40 = icmp slt i64 %spec.select.i.i.i.i, %22
-  br i1 %40, label %25, label %._crit_edge.i.i.i.i, !llvm.loop !271
+  %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %30, align 4, !tbaa !187
+  %31 = zext i32 %.sroa.01.0.copyload.i.i.i.i.i to i64
+  %32 = getelementptr inbounds nuw i32, ptr %24, i64 %31
+  %33 = load i32, ptr %32, align 4, !tbaa !187
+  %34 = zext i32 %.sroa.0.0.copyload.i.i.i.i.i to i64
+  %35 = getelementptr inbounds nuw i32, ptr %24, i64 %34
+  %36 = load i32, ptr %35, align 4, !tbaa !187
+  %37 = icmp slt i32 %33, %36
+  %38 = or disjoint i64 %26, 1
+  %spec.select.i.i.i.i = select i1 %37, i64 %38, i64 %27
+  %39 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %spec.select.i.i.i.i
+  %40 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.030.i.i.i.i
+  %41 = load i32, ptr %39, align 4, !tbaa !187
+  store i32 %41, ptr %40, align 4, !tbaa !187
+  %42 = icmp slt i64 %spec.select.i.i.i.i, %22
+  br i1 %42, label %25, label %._crit_edge.i.i.i.i, !llvm.loop !271
 
 ._crit_edge.i.i.i.i:                              ; preds = %25, %15
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %15 ], [ %spec.select.i.i.i.i, %25 ]
-  %41 = and i64 %19, 4
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %52
+  %43 = and i64 %19, 4
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %45, label %54
 
-43:                                               ; preds = %._crit_edge.i.i.i.i
-  %44 = add nsw i64 %20, -2
-  %45 = ashr exact i64 %44, 1
-  %46 = icmp eq i64 %.0.lcssa.i.i.i.i, %45
-  br i1 %46, label %.thread.i.i.i, label %52
+45:                                               ; preds = %._crit_edge.i.i.i.i
+  %46 = add nsw i64 %20, -2
+  %47 = ashr exact i64 %46, 1
+  %48 = icmp eq i64 %.0.lcssa.i.i.i.i, %47
+  br i1 %48, label %.thread.i.i.i, label %54
 
-.thread.i.i.i:                                    ; preds = %43
-  %47 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds nuw %"class.sat::literal", ptr %0, i64 %48
-  %50 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.0.lcssa.i.i.i.i
-  %51 = load i32, ptr %49, align 4, !tbaa !187
-  store i32 %51, ptr %50, align 4, !tbaa !187
+.thread.i.i.i:                                    ; preds = %45
+  %49 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %50 = or disjoint i64 %49, 1
+  %51 = getelementptr inbounds nuw %"class.sat::literal", ptr %0, i64 %50
+  %52 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %53 = load i32, ptr %51, align 4, !tbaa !187
+  store i32 %53, ptr %52, align 4, !tbaa !187
   br label %.lr.ph.i.i.i.i.i
 
-52:                                               ; preds = %43, %._crit_edge.i.i.i.i
+54:                                               ; preds = %45, %._crit_edge.i.i.i.i
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %52, %.thread.i.i.i
-  %.1.i10.i.i.i = phi i64 [ %48, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %52 ]
-  %53 = load ptr, ptr %11, align 8, !tbaa !206
-  %54 = zext i32 %.sroa.02.0.copyload.i.i.i to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
-  br label %56
+.lr.ph.i.i.i.i.i:                                 ; preds = %54, %.thread.i.i.i
+  %.1.i10.i.i.i = phi i64 [ %50, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %54 ]
+  %55 = load ptr, ptr %11, align 8, !tbaa !206
+  %56 = zext i32 %.sroa.02.0.copyload.i.i.i to i64
+  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  br label %58
 
-56:                                               ; preds = %63, %.lr.ph.i.i.i.i.i
-  %.01317.i.i.i.i.i = phi i64 [ %.1.i10.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.018.i.i1112.i.i.i, %63 ]
+58:                                               ; preds = %65, %.lr.ph.i.i.i.i.i
+  %.01317.i.i.i.i.i = phi i64 [ %.1.i10.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.018.i.i1112.i.i.i, %65 ]
   %.018.in.i.i.i.i.i = add nsw i64 %.01317.i.i.i.i.i, -1
   %.018.i.i1112.i.i.i = lshr i64 %.018.in.i.i.i.i.i, 1
-  %57 = getelementptr inbounds nuw %"class.sat::literal", ptr %0, i64 %.018.i.i1112.i.i.i
-  %.sroa.01.0.copyload.i.i.i.i.i.i = load i32, ptr %57, align 4, !tbaa !187
-  %58 = zext i32 %.sroa.01.0.copyload.i.i.i.i.i.i to i64
-  %59 = getelementptr inbounds nuw i32, ptr %53, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !187
-  %61 = load i32, ptr %55, align 4, !tbaa !187
-  %62 = icmp slt i32 %60, %61
-  br i1 %62, label %63, label %_ZSt10__pop_heapIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_RT0_.exit.i.i
+  %59 = getelementptr inbounds nuw %"class.sat::literal", ptr %0, i64 %.018.i.i1112.i.i.i
+  %.sroa.01.0.copyload.i.i.i.i.i.i = load i32, ptr %59, align 4, !tbaa !187
+  %60 = zext i32 %.sroa.01.0.copyload.i.i.i.i.i.i to i64
+  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %60
+  %62 = load i32, ptr %61, align 4, !tbaa !187
+  %63 = load i32, ptr %57, align 4, !tbaa !187
+  %64 = icmp slt i32 %62, %63
+  br i1 %64, label %65, label %_ZSt10__pop_heapIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_RT0_.exit.i.i
 
-63:                                               ; preds = %56
-  %64 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.01317.i.i.i.i.i
-  store i32 %.sroa.01.0.copyload.i.i.i.i.i.i, ptr %64, align 4, !tbaa !187
+65:                                               ; preds = %58
+  %66 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.01317.i.i.i.i.i
+  store i32 %.sroa.01.0.copyload.i.i.i.i.i.i, ptr %66, align 4, !tbaa !187
   %.not13.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
-  br i1 %.not13.i.i.i, label %_ZSt10__pop_heapIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_RT0_.exit.i.i, label %56, !llvm.loop !272
+  br i1 %.not13.i.i.i, label %_ZSt10__pop_heapIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_RT0_.exit.i.i, label %58, !llvm.loop !272
 
-_ZSt10__pop_heapIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_RT0_.exit.i.i: ; preds = %63, %56, %52
-  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %52 ], [ %.01317.i.i.i.i.i, %56 ], [ 0, %63 ]
-  %65 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i32 %.sroa.02.0.copyload.i.i.i, ptr %65, align 4, !tbaa !187
-  %66 = icmp sgt i64 %19, 4
-  br i1 %66, label %15, label %_ZSt14__partial_sortIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_T0_.exit, !llvm.loop !273
+_ZSt10__pop_heapIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_RT0_.exit.i.i: ; preds = %65, %58, %54
+  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %54 ], [ %.01317.i.i.i.i.i, %58 ], [ 0, %65 ]
+  %67 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store i32 %.sroa.02.0.copyload.i.i.i, ptr %67, align 4, !tbaa !187
+  %68 = icmp sgt i64 %19, 4
+  br i1 %68, label %15, label %_ZSt14__partial_sortIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_T0_.exit, !llvm.loop !273
 
-67:                                               ; preds = %12
-  %68 = add nsw i64 %.01520, -1
-  %69 = lshr i64 %13, 3
-  %70 = getelementptr inbounds nuw %"class.sat::literal", ptr %0, i64 %69
-  %71 = getelementptr inbounds i8, ptr %.021, i64 -4
+69:                                               ; preds = %12
+  %70 = add nsw i64 %.01520, -1
+  %71 = lshr i64 %13, 3
+  %72 = getelementptr inbounds nuw %"class.sat::literal", ptr %0, i64 %71
+  %73 = getelementptr inbounds i8, ptr %.021, i64 -4
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %10, align 4, !tbaa !187
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %70, align 4, !tbaa !187
-  %72 = load ptr, ptr %11, align 8, !tbaa !206
-  %73 = zext i32 %.sroa.01.0.copyload.i.i.i to i64
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !187
-  %76 = zext i32 %.sroa.0.0.copyload.i.i.i to i64
-  %77 = getelementptr inbounds nuw i32, ptr %72, i64 %76
-  %78 = load i32, ptr %77, align 4, !tbaa !187
-  %79 = icmp slt i32 %75, %78
-  %.sroa.0.0.copyload.i23.i.i = load i32, ptr %71, align 4, !tbaa !187
-  %80 = zext i32 %.sroa.0.0.copyload.i23.i.i to i64
-  %81 = getelementptr inbounds nuw i32, ptr %72, i64 %80
-  %82 = load i32, ptr %81, align 4, !tbaa !187
-  br i1 %79, label %83, label %90
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %72, align 4, !tbaa !187
+  %74 = load ptr, ptr %11, align 8, !tbaa !206
+  %75 = zext i32 %.sroa.01.0.copyload.i.i.i to i64
+  %76 = getelementptr inbounds nuw i32, ptr %74, i64 %75
+  %77 = load i32, ptr %76, align 4, !tbaa !187
+  %78 = zext i32 %.sroa.0.0.copyload.i.i.i to i64
+  %79 = getelementptr inbounds nuw i32, ptr %74, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !187
+  %81 = icmp slt i32 %77, %80
+  %.sroa.0.0.copyload.i23.i.i = load i32, ptr %73, align 4, !tbaa !187
+  %82 = zext i32 %.sroa.0.0.copyload.i23.i.i to i64
+  %83 = getelementptr inbounds nuw i32, ptr %74, i64 %82
+  %84 = load i32, ptr %83, align 4, !tbaa !187
+  br i1 %81, label %85, label %92
 
-83:                                               ; preds = %67
-  %84 = icmp slt i32 %78, %82
-  br i1 %84, label %85, label %86
+85:                                               ; preds = %69
+  %86 = icmp slt i32 %80, %84
+  br i1 %86, label %87, label %88
 
-85:                                               ; preds = %83
+87:                                               ; preds = %85
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %0, align 4, !tbaa !187
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %0, align 4, !tbaa !187
-  store i32 %.sroa.0.0.copyload.i.i.i.i, ptr %70, align 4, !tbaa !187
+  store i32 %.sroa.0.0.copyload.i.i.i.i, ptr %72, align 4, !tbaa !187
   br label %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader
 
-86:                                               ; preds = %83
-  %87 = icmp slt i32 %75, %82
+88:                                               ; preds = %85
+  %89 = icmp slt i32 %77, %84
   %.sroa.0.0.copyload.i.i26.i.i = load i32, ptr %0, align 4, !tbaa !187
-  br i1 %87, label %88, label %89
+  br i1 %89, label %90, label %91
 
-88:                                               ; preds = %86
+90:                                               ; preds = %88
   store i32 %.sroa.0.0.copyload.i23.i.i, ptr %0, align 4, !tbaa !187
-  store i32 %.sroa.0.0.copyload.i.i26.i.i, ptr %71, align 4, !tbaa !187
+  store i32 %.sroa.0.0.copyload.i.i26.i.i, ptr %73, align 4, !tbaa !187
   br label %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader
 
-89:                                               ; preds = %86
+91:                                               ; preds = %88
   store i32 %.sroa.01.0.copyload.i.i.i, ptr %0, align 4, !tbaa !187
   store i32 %.sroa.0.0.copyload.i.i26.i.i, ptr %10, align 4, !tbaa !187
   br label %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader
 
-90:                                               ; preds = %67
-  %91 = icmp slt i32 %75, %82
-  br i1 %91, label %92, label %93
+92:                                               ; preds = %69
+  %93 = icmp slt i32 %77, %84
+  br i1 %93, label %94, label %95
 
-92:                                               ; preds = %90
+94:                                               ; preds = %92
   %.sroa.0.0.copyload.i.i30.i.i = load i32, ptr %0, align 4, !tbaa !187
   store i32 %.sroa.01.0.copyload.i.i.i, ptr %0, align 4, !tbaa !187
   store i32 %.sroa.0.0.copyload.i.i30.i.i, ptr %10, align 4, !tbaa !187
   br label %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader
 
-93:                                               ; preds = %90
-  %94 = icmp slt i32 %78, %82
+95:                                               ; preds = %92
+  %96 = icmp slt i32 %80, %84
   %.sroa.0.0.copyload.i.i33.i.i = load i32, ptr %0, align 4, !tbaa !187
-  br i1 %94, label %95, label %96
+  br i1 %96, label %97, label %98
 
-95:                                               ; preds = %93
+97:                                               ; preds = %95
   store i32 %.sroa.0.0.copyload.i23.i.i, ptr %0, align 4, !tbaa !187
-  store i32 %.sroa.0.0.copyload.i.i33.i.i, ptr %71, align 4, !tbaa !187
+  store i32 %.sroa.0.0.copyload.i.i33.i.i, ptr %73, align 4, !tbaa !187
   br label %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader
 
-96:                                               ; preds = %93
+98:                                               ; preds = %95
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %0, align 4, !tbaa !187
-  store i32 %.sroa.0.0.copyload.i.i33.i.i, ptr %70, align 4, !tbaa !187
+  store i32 %.sroa.0.0.copyload.i.i33.i.i, ptr %72, align 4, !tbaa !187
   br label %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader: ; preds = %96, %95, %92, %89, %88, %85
+_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader: ; preds = %98, %97, %94, %91, %90, %87
   br label %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader, %112
-  %.013.i.i = phi ptr [ %.114.i.i, %112 ], [ %.021, %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %105, %112 ], [ %10, %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader ]
+_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader, %114
+  %.013.i.i = phi ptr [ %.114.i.i, %114 ], [ %.021, %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %107, %114 ], [ %10, %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i.preheader ]
   %.sroa.0.0.copyload.i.i12.i = load i32, ptr %0, align 4, !tbaa !187
-  %97 = zext i32 %.sroa.0.0.copyload.i.i12.i to i64
-  %98 = getelementptr inbounds nuw i32, ptr %72, i64 %97
-  %99 = load i32, ptr %98, align 4, !tbaa !187
-  br label %100
+  %99 = zext i32 %.sroa.0.0.copyload.i.i12.i to i64
+  %100 = getelementptr inbounds nuw i32, ptr %74, i64 %99
+  %101 = load i32, ptr %100, align 4, !tbaa !187
+  br label %102
 
-100:                                              ; preds = %100, %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i ], [ %105, %100 ]
+102:                                              ; preds = %102, %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i ], [ %107, %102 ]
   %.sroa.01.0.copyload.i.i13.i = load i32, ptr %.1.i.i, align 4, !tbaa !187
-  %101 = zext i32 %.sroa.01.0.copyload.i.i13.i to i64
-  %102 = getelementptr inbounds nuw i32, ptr %72, i64 %101
-  %103 = load i32, ptr %102, align 4, !tbaa !187
-  %104 = icmp slt i32 %103, %99
-  %105 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
-  br i1 %104, label %100, label %.preheader.i.i, !llvm.loop !274
+  %103 = zext i32 %.sroa.01.0.copyload.i.i13.i to i64
+  %104 = getelementptr inbounds nuw i32, ptr %74, i64 %103
+  %105 = load i32, ptr %104, align 4, !tbaa !187
+  %106 = icmp slt i32 %105, %101
+  %107 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
+  br i1 %106, label %102, label %.preheader.i.i, !llvm.loop !274
 
-.preheader.i.i:                                   ; preds = %100, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %100 ]
+.preheader.i.i:                                   ; preds = %102, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %102 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
   %.sroa.0.0.copyload.i16.i.i = load i32, ptr %.114.i.i, align 4, !tbaa !187
-  %106 = zext i32 %.sroa.0.0.copyload.i16.i.i to i64
-  %107 = getelementptr inbounds nuw i32, ptr %72, i64 %106
-  %108 = load i32, ptr %107, align 4, !tbaa !187
-  %109 = icmp slt i32 %99, %108
-  br i1 %109, label %.preheader.i.i, label %110, !llvm.loop !275
+  %108 = zext i32 %.sroa.0.0.copyload.i16.i.i to i64
+  %109 = getelementptr inbounds nuw i32, ptr %74, i64 %108
+  %110 = load i32, ptr %109, align 4, !tbaa !187
+  %111 = icmp slt i32 %101, %110
+  br i1 %111, label %.preheader.i.i, label %112, !llvm.loop !275
 
-110:                                              ; preds = %.preheader.i.i
-  %111 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %111, label %112, label %_ZSt27__unguarded_partition_pivotIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEET_S9_S9_T0_.exit
+112:                                              ; preds = %.preheader.i.i
+  %113 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %113, label %114, label %_ZSt27__unguarded_partition_pivotIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEET_S9_S9_T0_.exit
 
-112:                                              ; preds = %110
+114:                                              ; preds = %112
   store i32 %.sroa.0.0.copyload.i16.i.i, ptr %.1.i.i, align 4, !tbaa !187
   store i32 %.sroa.01.0.copyload.i.i13.i, ptr %.114.i.i, align 4, !tbaa !187
   br label %_ZSt22__move_median_to_firstIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_S9_T0_.exit.i, !llvm.loop !276
 
-_ZSt27__unguarded_partition_pivotIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEET_S9_S9_T0_.exit: ; preds = %110
-  tail call void @_ZSt16__introsort_loopIPN3sat7literalElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.021, i64 noundef %68, ptr %3)
-  %113 = ptrtoint ptr %.1.i.i to i64
-  %114 = sub i64 %113, %6
-  %115 = icmp sgt i64 %114, 64
-  br i1 %115, label %12, label %_ZSt14__partial_sortIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_T0_.exit, !llvm.loop !277
+_ZSt27__unguarded_partition_pivotIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEET_S9_S9_T0_.exit: ; preds = %112
+  tail call void @_ZSt16__introsort_loopIPN3sat7literalElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.021, i64 noundef %70, ptr %3)
+  %115 = ptrtoint ptr %.1.i.i to i64
+  %116 = sub i64 %115, %6
+  %117 = icmp sgt i64 %116, 64
+  br i1 %117, label %12, label %_ZSt14__partial_sortIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_T0_.exit, !llvm.loop !277
 
 _ZSt14__partial_sortIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEET_S9_S9_T0_.exit, %_ZSt10__pop_heapIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_S9_S9_RT0_.exit.i.i, %4
   ret void
@@ -4938,7 +4939,6 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN3sat7literalEN9__gnu_cxx5__
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !281
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
-  %invariant.gep.i = getelementptr i8, ptr %0, i64 4
   %14 = and i64 %6, 4
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
@@ -4952,7 +4952,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN3sat7literalEN9__gnu_cxx5__
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit.us
-  %.015.us = phi i64 [ %55, %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit.us ], [ %11, %9 ]
+  %.015.us = phi i64 [ %57, %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit.us ], [ %11, %9 ]
   %21 = getelementptr inbounds nuw %"class.sat::literal", ptr %0, i64 %.015.us
   %.sroa.02.0.copyload.us = load i32, ptr %21, align 4, !tbaa !187
   %22 = icmp slt i64 %.015.us, %13
@@ -4967,143 +4967,145 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN3sat7literalEN9__gnu_cxx5__
   %25 = shl i64 %.030.i.us, 1
   %26 = add i64 %25, 2
   %27 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %26
-  %gep.i.us = getelementptr %"class.sat::literal", ptr %invariant.gep.i, i64 %25
+  %28 = getelementptr %"class.sat::literal", ptr %0, i64 %25
+  %29 = getelementptr i8, ptr %28, i64 4
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %27, align 4, !tbaa !187
-  %.sroa.0.0.copyload.i.i.us = load i32, ptr %gep.i.us, align 4, !tbaa !187
-  %28 = zext i32 %.sroa.01.0.copyload.i.i.us to i64
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !187
-  %31 = zext i32 %.sroa.0.0.copyload.i.i.us to i64
-  %32 = getelementptr inbounds nuw i32, ptr %23, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !187
-  %34 = icmp slt i32 %30, %33
-  %35 = or disjoint i64 %25, 1
-  %spec.select.i.us = select i1 %34, i64 %35, i64 %26
-  %36 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %spec.select.i.us
-  %37 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.030.i.us
-  %38 = load i32, ptr %36, align 4, !tbaa !187
-  store i32 %38, ptr %37, align 4, !tbaa !187
-  %39 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %39, label %24, label %._crit_edge.i.us, !llvm.loop !271
+  %.sroa.0.0.copyload.i.i.us = load i32, ptr %29, align 4, !tbaa !187
+  %30 = zext i32 %.sroa.01.0.copyload.i.i.us to i64
+  %31 = getelementptr inbounds nuw i32, ptr %23, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !187
+  %33 = zext i32 %.sroa.0.0.copyload.i.i.us to i64
+  %34 = getelementptr inbounds nuw i32, ptr %23, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !187
+  %36 = icmp slt i32 %32, %35
+  %37 = or disjoint i64 %25, 1
+  %spec.select.i.us = select i1 %36, i64 %37, i64 %26
+  %38 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %spec.select.i.us
+  %39 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.030.i.us
+  %40 = load i32, ptr %38, align 4, !tbaa !187
+  store i32 %40, ptr %39, align 4, !tbaa !187
+  %41 = icmp slt i64 %spec.select.i.us, %13
+  br i1 %41, label %24, label %._crit_edge.i.us, !llvm.loop !271
 
 ._crit_edge.i.us:                                 ; preds = %24
-  %40 = icmp sgt i64 %spec.select.i.us, %.015.us
-  br i1 %40, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit.us
+  %42 = icmp sgt i64 %spec.select.i.us, %.015.us
+  br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit.us
 
 .lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us
-  %41 = load ptr, ptr %17, align 8, !tbaa !206
-  %42 = zext i32 %.sroa.02.0.copyload.us to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
-  br label %44
+  %43 = load ptr, ptr %17, align 8, !tbaa !206
+  %44 = zext i32 %.sroa.02.0.copyload.us to i64
+  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  br label %46
 
-44:                                               ; preds = %51, %.lr.ph.i.i.us
-  %.01317.i.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %51 ]
+46:                                               ; preds = %53, %.lr.ph.i.i.us
+  %.01317.i.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %53 ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %45 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.018.i.i.us
-  %.sroa.01.0.copyload.i.i.i.us = load i32, ptr %45, align 4, !tbaa !187
-  %46 = zext i32 %.sroa.01.0.copyload.i.i.i.us to i64
-  %47 = getelementptr inbounds nuw i32, ptr %41, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !187
-  %49 = load i32, ptr %43, align 4, !tbaa !187
-  %50 = icmp slt i32 %48, %49
-  br i1 %50, label %51, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit.us
+  %47 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.018.i.i.us
+  %.sroa.01.0.copyload.i.i.i.us = load i32, ptr %47, align 4, !tbaa !187
+  %48 = zext i32 %.sroa.01.0.copyload.i.i.i.us to i64
+  %49 = getelementptr inbounds nuw i32, ptr %43, i64 %48
+  %50 = load i32, ptr %49, align 4, !tbaa !187
+  %51 = load i32, ptr %45, align 4, !tbaa !187
+  %52 = icmp slt i32 %50, %51
+  br i1 %52, label %53, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit.us
 
-51:                                               ; preds = %44
-  %52 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.01317.i.i.us
-  store i32 %.sroa.01.0.copyload.i.i.i.us, ptr %52, align 4, !tbaa !187
-  %53 = icmp sgt i64 %.018.i.i.us, %.015.us
-  br i1 %53, label %44, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !272
+53:                                               ; preds = %46
+  %54 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.01317.i.i.us
+  store i32 %.sroa.01.0.copyload.i.i.i.us, ptr %54, align 4, !tbaa !187
+  %55 = icmp sgt i64 %.018.i.i.us, %.015.us
+  br i1 %55, label %46, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !272
 
-_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit.us: ; preds = %44, %51, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.015.us, %.split.us ], [ %.018.i.i.us, %51 ], [ %.01317.i.i.us, %44 ]
-  %54 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.013.lcssa.i.i.us
-  store i32 %.sroa.02.0.copyload.us, ptr %54, align 4, !tbaa !187
+_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit.us: ; preds = %46, %53, %.split.us, %._crit_edge.i.us
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.015.us, %.split.us ], [ %.018.i.i.us, %53 ], [ %.01317.i.i.us, %46 ]
+  %56 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.013.lcssa.i.i.us
+  store i32 %.sroa.02.0.copyload.us, ptr %56, align 4, !tbaa !187
   %.not.us = icmp eq i64 %.015.us, 0
-  %55 = add nsw i64 %.015.us, -1
+  %57 = add nsw i64 %.015.us, -1
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !283
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit
-  %.015 = phi i64 [ %94, %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %56 = getelementptr inbounds nuw %"class.sat::literal", ptr %0, i64 %.015
-  %.sroa.02.0.copyload = load i32, ptr %56, align 4, !tbaa !187
-  %57 = icmp slt i64 %.015, %13
-  br i1 %57, label %.lr.ph.i, label %._crit_edge.i
+  %.015 = phi i64 [ %98, %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit ], [ %11, %.split.preheader ]
+  %58 = getelementptr inbounds nuw %"class.sat::literal", ptr %0, i64 %.015
+  %.sroa.02.0.copyload = load i32, ptr %58, align 4, !tbaa !187
+  %59 = icmp slt i64 %.015, %13
+  br i1 %59, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split
-  %58 = load ptr, ptr %17, align 8, !tbaa !206
-  br label %59
+  %60 = load ptr, ptr %17, align 8, !tbaa !206
+  br label %61
 
-59:                                               ; preds = %59, %.lr.ph.i
-  %.030.i = phi i64 [ %.015, %.lr.ph.i ], [ %spec.select.i, %59 ]
-  %60 = shl i64 %.030.i, 1
-  %61 = add i64 %60, 2
-  %62 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %61
-  %gep.i = getelementptr %"class.sat::literal", ptr %invariant.gep.i, i64 %60
-  %.sroa.01.0.copyload.i.i = load i32, ptr %62, align 4, !tbaa !187
-  %.sroa.0.0.copyload.i.i = load i32, ptr %gep.i, align 4, !tbaa !187
-  %63 = zext i32 %.sroa.01.0.copyload.i.i to i64
-  %64 = getelementptr inbounds nuw i32, ptr %58, i64 %63
-  %65 = load i32, ptr %64, align 4, !tbaa !187
-  %66 = zext i32 %.sroa.0.0.copyload.i.i to i64
-  %67 = getelementptr inbounds nuw i32, ptr %58, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !187
-  %69 = icmp slt i32 %65, %68
-  %70 = or disjoint i64 %60, 1
-  %spec.select.i = select i1 %69, i64 %70, i64 %61
-  %71 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %spec.select.i
-  %72 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.030.i
-  %73 = load i32, ptr %71, align 4, !tbaa !187
-  store i32 %73, ptr %72, align 4, !tbaa !187
-  %74 = icmp slt i64 %spec.select.i, %13
-  br i1 %74, label %59, label %._crit_edge.i, !llvm.loop !271
+61:                                               ; preds = %61, %.lr.ph.i
+  %.030.i = phi i64 [ %.015, %.lr.ph.i ], [ %spec.select.i, %61 ]
+  %62 = shl i64 %.030.i, 1
+  %63 = add i64 %62, 2
+  %64 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %63
+  %65 = getelementptr %"class.sat::literal", ptr %0, i64 %62
+  %66 = getelementptr i8, ptr %65, i64 4
+  %.sroa.01.0.copyload.i.i = load i32, ptr %64, align 4, !tbaa !187
+  %.sroa.0.0.copyload.i.i = load i32, ptr %66, align 4, !tbaa !187
+  %67 = zext i32 %.sroa.01.0.copyload.i.i to i64
+  %68 = getelementptr inbounds nuw i32, ptr %60, i64 %67
+  %69 = load i32, ptr %68, align 4, !tbaa !187
+  %70 = zext i32 %.sroa.0.0.copyload.i.i to i64
+  %71 = getelementptr inbounds nuw i32, ptr %60, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !187
+  %73 = icmp slt i32 %69, %72
+  %74 = or disjoint i64 %62, 1
+  %spec.select.i = select i1 %73, i64 %74, i64 %63
+  %75 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %spec.select.i
+  %76 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.030.i
+  %77 = load i32, ptr %75, align 4, !tbaa !187
+  store i32 %77, ptr %76, align 4, !tbaa !187
+  %78 = icmp slt i64 %spec.select.i, %13
+  br i1 %78, label %61, label %._crit_edge.i, !llvm.loop !271
 
-._crit_edge.i:                                    ; preds = %59, %.split
-  %.0.lcssa.i = phi i64 [ %.015, %.split ], [ %spec.select.i, %59 ]
-  %75 = icmp eq i64 %.0.lcssa.i, %16
-  br i1 %75, label %76, label %78
+._crit_edge.i:                                    ; preds = %61, %.split
+  %.0.lcssa.i = phi i64 [ %.015, %.split ], [ %spec.select.i, %61 ]
+  %79 = icmp eq i64 %.0.lcssa.i, %16
+  br i1 %79, label %80, label %82
 
-76:                                               ; preds = %._crit_edge.i
-  %77 = load i32, ptr %19, align 4, !tbaa !187
-  store i32 %77, ptr %20, align 4, !tbaa !187
-  br label %78
+80:                                               ; preds = %._crit_edge.i
+  %81 = load i32, ptr %19, align 4, !tbaa !187
+  store i32 %81, ptr %20, align 4, !tbaa !187
+  br label %82
 
-78:                                               ; preds = %76, %._crit_edge.i
-  %.1.i = phi i64 [ %18, %76 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %79 = icmp sgt i64 %.1.i, %.015
-  br i1 %79, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit
+82:                                               ; preds = %80, %._crit_edge.i
+  %.1.i = phi i64 [ %18, %80 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %83 = icmp sgt i64 %.1.i, %.015
+  br i1 %83, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %78
-  %80 = load ptr, ptr %17, align 8, !tbaa !206
-  %81 = zext i32 %.sroa.02.0.copyload to i64
-  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
-  br label %83
+.lr.ph.i.i:                                       ; preds = %82
+  %84 = load ptr, ptr %17, align 8, !tbaa !206
+  %85 = zext i32 %.sroa.02.0.copyload to i64
+  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %85
+  br label %87
 
-83:                                               ; preds = %90, %.lr.ph.i.i
-  %.01317.i.i = phi i64 [ %.1.i, %.lr.ph.i.i ], [ %.018.i.i, %90 ]
+87:                                               ; preds = %94, %.lr.ph.i.i
+  %.01317.i.i = phi i64 [ %.1.i, %.lr.ph.i.i ], [ %.018.i.i, %94 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %84 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.018.i.i
-  %.sroa.01.0.copyload.i.i.i = load i32, ptr %84, align 4, !tbaa !187
-  %85 = zext i32 %.sroa.01.0.copyload.i.i.i to i64
-  %86 = getelementptr inbounds nuw i32, ptr %80, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !187
-  %88 = load i32, ptr %82, align 4, !tbaa !187
-  %89 = icmp slt i32 %87, %88
-  br i1 %89, label %90, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit
+  %88 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.018.i.i
+  %.sroa.01.0.copyload.i.i.i = load i32, ptr %88, align 4, !tbaa !187
+  %89 = zext i32 %.sroa.01.0.copyload.i.i.i to i64
+  %90 = getelementptr inbounds nuw i32, ptr %84, i64 %89
+  %91 = load i32, ptr %90, align 4, !tbaa !187
+  %92 = load i32, ptr %86, align 4, !tbaa !187
+  %93 = icmp slt i32 %91, %92
+  br i1 %93, label %94, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit
 
-90:                                               ; preds = %83
-  %91 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.01317.i.i
-  store i32 %.sroa.01.0.copyload.i.i.i, ptr %91, align 4, !tbaa !187
-  %92 = icmp sgt i64 %.018.i.i, %.015
-  br i1 %92, label %83, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit, !llvm.loop !272
+94:                                               ; preds = %87
+  %95 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.01317.i.i
+  store i32 %.sroa.01.0.copyload.i.i.i, ptr %95, align 4, !tbaa !187
+  %96 = icmp sgt i64 %.018.i.i, %.015
+  br i1 %96, label %87, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit, !llvm.loop !272
 
-_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit: ; preds = %83, %90, %78
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %78 ], [ %.018.i.i, %90 ], [ %.01317.i.i, %83 ]
-  %93 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.013.lcssa.i.i
-  store i32 %.sroa.02.0.copyload, ptr %93, align 4, !tbaa !187
+_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit: ; preds = %87, %94, %82
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %82 ], [ %.018.i.i, %94 ], [ %.01317.i.i, %87 ]
+  %97 = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %.013.lcssa.i.i
+  store i32 %.sroa.02.0.copyload, ptr %97, align 4, !tbaa !187
   %.not = icmp eq i64 %.015, 0
-  %94 = add nsw i64 %.015, -1
+  %98 = add nsw i64 %.015, -1
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !284
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit, %3

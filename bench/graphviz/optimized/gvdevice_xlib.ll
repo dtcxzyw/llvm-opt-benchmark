@@ -716,10 +716,10 @@ init_window.exit:                                 ; preds = %136, %update_displa
   br label %handle_file_events.exit.thread
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %312
-  %.03352.i = phi i32 [ %319, %312 ], [ %290, %.preheader.i ]
-  %.251.i = phi i32 [ %.3.i, %312 ], [ 0, %.preheader.i ]
-  %.03850.i = phi ptr [ %317, %312 ], [ %284, %.preheader.i ]
-  %296 = getelementptr inbounds nuw i8, ptr %.03850.i, i64 4
+  %.03350.i = phi i32 [ %319, %312 ], [ %290, %.preheader.i ]
+  %.249.i = phi i32 [ %.3.i, %312 ], [ 0, %.preheader.i ]
+  %.03848.i = phi ptr [ %317, %312 ], [ %284, %.preheader.i ]
+  %296 = getelementptr inbounds nuw i8, ptr %.03848.i, i64 4
   %297 = load i32, ptr %296, align 4, !tbaa !104
   %298 = icmp eq i32 %297, 2
   br i1 %298, label %299, label %312
@@ -730,7 +730,7 @@ init_window.exit:                                 ; preds = %136, %update_displa
   %.not47.i = icmp eq ptr %301, null
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 1
   %.037.i = select i1 %.not47.i, ptr %300, ptr %302
-  %303 = getelementptr inbounds nuw i8, ptr %.03850.i, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %.03848.i, i64 16
   %304 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %303, ptr noundef nonnull dereferenceable(1) %.037.i) #25
   %305 = icmp eq i32 %304, 0
   br i1 %305, label %306, label %312
@@ -741,18 +741,18 @@ init_window.exit:                                 ; preds = %136, %update_displa
   %309 = load ptr, ptr %308, align 8, !tbaa !105
   %310 = load ptr, ptr %106, align 8, !tbaa !106
   call void %309(ptr noundef nonnull %0, ptr noundef nonnull %300, ptr noundef %310) #21
-  %311 = add nsw i32 %.251.i, 1
+  %311 = add nsw i32 %.249.i, 1
   br label %312
 
 312:                                              ; preds = %306, %299, %.lr.ph.i
-  %.3.i = phi i32 [ %311, %306 ], [ %.251.i, %299 ], [ %.251.i, %.lr.ph.i ]
-  %313 = getelementptr inbounds nuw i8, ptr %.03850.i, i64 12
+  %.3.i = phi i32 [ %311, %306 ], [ %.249.i, %299 ], [ %.249.i, %.lr.ph.i ]
+  %313 = getelementptr inbounds nuw i8, ptr %.03848.i, i64 12
   %314 = load i32, ptr %313, align 4, !tbaa !104
   %315 = zext i32 %314 to i64
   %316 = add nuw nsw i64 %315, 16
-  %317 = getelementptr inbounds nuw i8, ptr %.03850.i, i64 %316
+  %317 = getelementptr inbounds nuw i8, ptr %.03848.i, i64 %316
   %318 = trunc i64 %316 to i32
-  %319 = sub nsw i32 %.03352.i, %318
+  %319 = sub nsw i32 %.03350.i, %318
   %320 = icmp sgt i32 %319, 0
   br i1 %320, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !107
 
@@ -772,7 +772,7 @@ init_window.exit:                                 ; preds = %136, %update_displa
   %323 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %322, ptr noundef nonnull @.str.19, i32 noundef %.033.lcssa.i187) #22
   br label %handle_file_events.exit.thread
 
-handle_file_events.exit.thread:                   ; preds = %277, %293, %321, %285
+handle_file_events.exit.thread:                   ; preds = %277, %285, %321, %293
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
   br label %.loopexit
 

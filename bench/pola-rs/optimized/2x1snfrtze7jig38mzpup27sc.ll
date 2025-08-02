@@ -6076,29 +6076,20 @@ define noundef range(i64 0, 34) i64 @_ZN10polars_row3row29RowEncodingCategorical
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !noundef !3
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %7, label %5
+  br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
   %6 = icmp ult i32 %3, 3
-  br i1 %6, label %13, label %8
+  %7 = add i32 %3, -2
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %7, i1 true)
+  %9 = sub nuw nsw i32 33, %8
+  %narrow = select i1 %6, i32 1, i32 %9
+  %.sroa.01.0 = zext nneg i32 %narrow to i64
+  br label %10
 
-7:                                                ; preds = %1, %13
-  %.sroa.0.0 = phi i64 [ %16, %13 ], [ 0, %1 ]
+10:                                               ; preds = %1, %5
+  %.sroa.0.0 = phi i64 [ %.sroa.01.0, %5 ], [ 0, %1 ]
   ret i64 %.sroa.0.0
-
-8:                                                ; preds = %5
-  %9 = add i32 %3, -2
-  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
-  %11 = lshr i32 -1, %10
-  %12 = add i32 %11, 1
-  br label %13
-
-13:                                               ; preds = %5, %8
-  %.sroa.01.0 = phi i32 [ %12, %8 ], [ 1, %5 ]
-  %14 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.01.0, i1 false)
-  %15 = add nuw nsw i32 %14, 1
-  %16 = zext nneg i32 %15 to i64
-  br label %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -7554,9 +7545,6 @@ declare hidden void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #15
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef nonnull ptr @"_ZN12polars_arrow7storage22SharedStorage$LT$T$GT$8from_vec17hcbaa99e7fc7e3769E"(ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0

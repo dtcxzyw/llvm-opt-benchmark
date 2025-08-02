@@ -1080,7 +1080,7 @@ buf_to_m2mctx.exit:                               ; preds = %13, %switch.lookup
 
 .lr.ph98:                                         ; preds = %.loopexit.thread, %.loopexit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %44 = getelementptr i8, ptr %3, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -1100,7 +1100,7 @@ buf_to_m2mctx.exit:                               ; preds = %13, %switch.lookup
   %.off85 = add i32 %54, -9
   %switch86 = icmp ult i32 %.off85, 2
   %.idx = mul nuw nsw i64 %indvars.iv102, 20
-  %55 = getelementptr i8, ptr %44, i64 %.idx
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
   %.in = select i1 %switch86, ptr %55, ptr %45
   %56 = load i32, ptr %.in, align 4, !tbaa !85
   %57 = getelementptr inbounds nuw [8 x %struct.V4L2Plane_info], ptr %46, i64 0, i64 %indvars.iv102

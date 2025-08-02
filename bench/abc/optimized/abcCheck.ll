@@ -2033,36 +2033,32 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   %53 = icmp sgt i32 %.val.val36, 1
   br i1 %53, label %.lr.ph39, label %._crit_edge
 
-.lr.ph39:                                         ; preds = %Vec_PtrSort.exit
-  %invariant.gep = getelementptr i8, ptr %.pre.pre51, i64 -8
-  br label %54
-
-54:                                               ; preds = %.lr.ph39, %61
-  %.val46 = phi ptr [ %.val35, %.lr.ph39 ], [ %.val, %61 ]
-  %indvars.iv41 = phi i64 [ 1, %.lr.ph39 ], [ %indvars.iv.next42, %61 ]
-  %.038 = phi i32 [ 1, %.lr.ph39 ], [ %.1, %61 ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv41
-  %55 = load ptr, ptr %gep, align 8, !tbaa !39
-  %56 = getelementptr inbounds nuw ptr, ptr %.pre.pre51, i64 %indvars.iv41
-  %57 = load ptr, ptr %56, align 8, !tbaa !39
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %57) #12
+.lr.ph39:                                         ; preds = %Vec_PtrSort.exit, %61
+  %.val46 = phi ptr [ %.val, %61 ], [ %.val35, %Vec_PtrSort.exit ]
+  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %61 ], [ 1, %Vec_PtrSort.exit ]
+  %.038 = phi i32 [ %.1, %61 ], [ 1, %Vec_PtrSort.exit ]
+  %54 = getelementptr ptr, ptr %.pre.pre51, i64 %indvars.iv41
+  %55 = getelementptr i8, ptr %54, i64 -8
+  %56 = load ptr, ptr %55, align 8, !tbaa !39
+  %57 = load ptr, ptr %54, align 8, !tbaa !39
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %57) #12
   %.not = icmp eq i32 %58, 0
   br i1 %.not, label %59, label %61
 
-59:                                               ; preds = %54
-  %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef nonnull %55, ptr noundef nonnull %57)
+59:                                               ; preds = %.lr.ph39
+  %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef nonnull %56, ptr noundef nonnull %57)
   %.val.pre = load ptr, ptr %2, align 8, !tbaa !33
   br label %61
 
-61:                                               ; preds = %54, %59
-  %.val = phi ptr [ %.val46, %54 ], [ %.val.pre, %59 ]
-  %.1 = phi i32 [ %.038, %54 ], [ 0, %59 ]
+61:                                               ; preds = %.lr.ph39, %59
+  %.val = phi ptr [ %.val46, %.lr.ph39 ], [ %.val.pre, %59 ]
+  %.1 = phi i32 [ %.038, %.lr.ph39 ], [ 0, %59 ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %62 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %62, align 4, !tbaa !30
   %63 = sext i32 %.val.val to i64
   %64 = icmp slt i64 %indvars.iv.next42, %63
-  br i1 %64, label %54, label %._crit_edge.thread, !llvm.loop !86
+  br i1 %64, label %.lr.ph39, label %._crit_edge.thread, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %Vec_PtrSort.exit
   %.not.i30 = icmp eq ptr %.pre.pre51, null
@@ -2205,36 +2201,32 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   %53 = icmp sgt i32 %.val.val36, 1
   br i1 %53, label %.lr.ph39, label %._crit_edge
 
-.lr.ph39:                                         ; preds = %Vec_PtrSort.exit
-  %invariant.gep = getelementptr i8, ptr %.pre.pre51, i64 -8
-  br label %54
-
-54:                                               ; preds = %.lr.ph39, %61
-  %.val46 = phi ptr [ %.val35, %.lr.ph39 ], [ %.val, %61 ]
-  %indvars.iv41 = phi i64 [ 1, %.lr.ph39 ], [ %indvars.iv.next42, %61 ]
-  %.038 = phi i32 [ 1, %.lr.ph39 ], [ %.1, %61 ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv41
-  %55 = load ptr, ptr %gep, align 8, !tbaa !39
-  %56 = getelementptr inbounds nuw ptr, ptr %.pre.pre51, i64 %indvars.iv41
-  %57 = load ptr, ptr %56, align 8, !tbaa !39
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %57) #12
+.lr.ph39:                                         ; preds = %Vec_PtrSort.exit, %61
+  %.val46 = phi ptr [ %.val, %61 ], [ %.val35, %Vec_PtrSort.exit ]
+  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %61 ], [ 1, %Vec_PtrSort.exit ]
+  %.038 = phi i32 [ %.1, %61 ], [ 1, %Vec_PtrSort.exit ]
+  %54 = getelementptr ptr, ptr %.pre.pre51, i64 %indvars.iv41
+  %55 = getelementptr i8, ptr %54, i64 -8
+  %56 = load ptr, ptr %55, align 8, !tbaa !39
+  %57 = load ptr, ptr %54, align 8, !tbaa !39
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %57) #12
   %.not = icmp eq i32 %58, 0
   br i1 %.not, label %59, label %61
 
-59:                                               ; preds = %54
-  %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %55, ptr noundef nonnull %57)
+59:                                               ; preds = %.lr.ph39
+  %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %56, ptr noundef nonnull %57)
   %.val.pre = load ptr, ptr %2, align 8, !tbaa !35
   br label %61
 
-61:                                               ; preds = %54, %59
-  %.val = phi ptr [ %.val46, %54 ], [ %.val.pre, %59 ]
-  %.1 = phi i32 [ %.038, %54 ], [ 0, %59 ]
+61:                                               ; preds = %.lr.ph39, %59
+  %.val = phi ptr [ %.val46, %.lr.ph39 ], [ %.val.pre, %59 ]
+  %.1 = phi i32 [ %.038, %.lr.ph39 ], [ 0, %59 ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %62 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %62, align 4, !tbaa !30
   %63 = sext i32 %.val.val to i64
   %64 = icmp slt i64 %indvars.iv.next42, %63
-  br i1 %64, label %54, label %._crit_edge.thread, !llvm.loop !88
+  br i1 %64, label %.lr.ph39, label %._crit_edge.thread, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %Vec_PtrSort.exit
   %.not.i30 = icmp eq ptr %.pre.pre51, null

@@ -206,12 +206,12 @@ define dso_local ptr @stringToQualifiedNameList(ptr noundef %0, ptr noundef %1) 
 .preheader:                                       ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %15 = load i32, ptr %14, align 4
-  %.not23 = icmp sgt i32 %15, 0
-  br i1 %.not23, label %.lr.ph, label %._crit_edge
+  %.not21 = icmp sgt i32 %15, 0
+  br i1 %.not21, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  br label %23
+  br label %22
 
 17:                                               ; preds = %11
   %18 = call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #9
@@ -223,30 +223,30 @@ define dso_local ptr @stringToQualifiedNameList(ptr noundef %0, ptr noundef %1) 
   call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 1815, ptr noundef nonnull @__func__.stringToQualifiedNameList) #9
   br label %32
 
-._crit_edge:                                      ; preds = %23, %.preheader
-  %.018.lcssa = phi ptr [ null, %.preheader ], [ %29, %23 ]
+22:                                               ; preds = %.lr.ph, %22
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
+  %.01823 = phi ptr [ null, %.lr.ph ], [ %28, %22 ]
+  %23 = load ptr, ptr %16, align 8
+  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
+  %25 = load ptr, ptr %24, align 8
+  %26 = call ptr @pstrdup(ptr noundef %25) #9
+  %27 = call ptr @makeString(ptr noundef %26) #9
+  %28 = call ptr @lappend(ptr noundef %.01823, ptr noundef %27) #9
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %29 = load i32, ptr %14, align 4
+  %30 = sext i32 %29 to i64
+  %.not = icmp slt i64 %indvars.iv.next, %30
+  br i1 %.not, label %22, label %.critedge, !llvm.loop !4
+
+.critedge:                                        ; preds = %22, %.preheader
+  %.018.lcssa = phi ptr [ null, %.preheader ], [ %28, %22 ]
   call void @pfree(ptr noundef %4) #9
-  %22 = load ptr, ptr %3, align 8
-  call void @list_free(ptr noundef %22) #9
+  %31 = load ptr, ptr %3, align 8
+  call void @list_free(ptr noundef %31) #9
   br label %32
 
-23:                                               ; preds = %.lr.ph, %23
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %.01825 = phi ptr [ null, %.lr.ph ], [ %29, %23 ]
-  %24 = load ptr, ptr %16, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
-  %26 = load ptr, ptr %25, align 8
-  %27 = call ptr @pstrdup(ptr noundef %26) #9
-  %28 = call ptr @makeString(ptr noundef %27) #9
-  %29 = call ptr @lappend(ptr noundef %.01825, ptr noundef %28) #9
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i32, ptr %14, align 4
-  %31 = sext i32 %30 to i64
-  %.not = icmp slt i64 %indvars.iv.next, %31
-  br i1 %.not, label %23, label %._crit_edge, !llvm.loop !4
-
-32:                                               ; preds = %17, %19, %6, %8, %._crit_edge
-  %.0 = phi ptr [ %.018.lcssa, %._crit_edge ], [ null, %8 ], [ null, %6 ], [ null, %19 ], [ null, %17 ]
+32:                                               ; preds = %17, %19, %6, %8, %.critedge
+  %.0 = phi ptr [ %.018.lcssa, %.critedge ], [ null, %8 ], [ null, %6 ], [ null, %19 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   ret ptr %.0
 }

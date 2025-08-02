@@ -1516,12 +1516,15 @@ define range(i32 0, -2147483648) i32 @stmm_strhash(ptr noundef readonly captures
   %8 = add nsw i32 %7, %5
   %9 = load i8, ptr %6, align 1, !tbaa !54
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.06.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
-  %10 = tail call i32 @llvm.abs.i32(i32 %.06.lcssa, i1 true)
-  %11 = srem i32 %10, %1
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %10 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
+  %.06.lcssa = phi i32 [ 0, %2 ], [ %10, %._crit_edge.loopexit ]
+  %11 = srem i32 %.06.lcssa, %1
   ret i32 %11
 }
 

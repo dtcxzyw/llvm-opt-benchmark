@@ -23,7 +23,7 @@ define internal i32 @h263_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
 
 12:                                               ; preds = %9
   %13 = tail call i32 @ff_h263_handle_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8) #3
-  br label %.thread178
+  br label %.critedge
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %1, align 8, !tbaa !11
@@ -49,7 +49,7 @@ define internal i32 @h263_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
 
 24:                                               ; preds = %22
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %6) #3
-  br label %.thread178
+  br label %.critedge
 
 25:                                               ; preds = %22
   %26 = load i8, ptr %5, align 1, !tbaa !15
@@ -67,7 +67,7 @@ define internal i32 @h263_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
 
 31:                                               ; preds = %29
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %6, i32 noundef 8) #3
-  br label %.thread178
+  br label %.critedge
 
 32:                                               ; preds = %27
   %33 = icmp samesign ult i32 %6, 12
@@ -75,7 +75,7 @@ define internal i32 @h263_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
 
 34:                                               ; preds = %32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %6, i32 noundef 12) #3
-  br label %.thread178
+  br label %.critedge
 
 .thread:                                          ; preds = %32, %29
   %.0130.ph = phi i32 [ 8, %29 ], [ 12, %32 ]
@@ -111,14 +111,14 @@ define internal i32 @h263_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.2) #3
   store i32 1, ptr %10, align 4, !tbaa !4
   %51 = tail call i32 @ff_h263_handle_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8) #3
-  br label %.thread178
+  br label %.critedge
 
 52:                                               ; preds = %.thread, %40, %35
   %.0130177 = phi i32 [ %.0130.ph, %.thread ], [ 4, %40 ], [ 4, %35 ]
   %.0136176 = phi i32 [ %.0136.ph, %.thread ], [ %39, %40 ], [ %39, %35 ]
   %.in = zext i8 %26 to i32
-  %.in188 = lshr i32 %.in, 3
-  %53 = and i32 %.in188, 7
+  %.in186 = lshr i32 %.in, 3
+  %53 = and i32 %.in186, 7
   %54 = and i32 %.in, 7
   %55 = zext nneg i32 %.0130177 to i64
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 %55
@@ -129,18 +129,18 @@ define internal i32 @h263_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
 
 59:                                               ; preds = %52
   %60 = icmp sgt i32 %57, 4
-  br i1 %60, label %61, label %.thread178
+  br i1 %60, label %61, label %.critedge
 
 61:                                               ; preds = %59
   %62 = load i32, ptr %56, align 1, !tbaa !15
   %63 = and i32 %62, 16580607
   %64 = icmp eq i32 %63, 8388608
-  br i1 %64, label %65, label %.thread178
+  br i1 %64, label %65, label %.critedge
 
 65:                                               ; preds = %61
   %66 = tail call i32 @avio_open_dyn_buf(ptr noundef nonnull %1) #3
   %67 = icmp slt i32 %66, 0
-  br i1 %67, label %.thread178, label %68
+  br i1 %67, label %.critedge, label %68
 
 68:                                               ; preds = %65
   %69 = load i32, ptr %4, align 4, !tbaa !13
@@ -182,7 +182,7 @@ define internal i32 @h263_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
   %or.cond.i = icmp ult i32 %91, 2147483135
   %92 = add nuw nsw i32 %91, 8
   %93 = select i1 %or.cond.i, i32 %92, i32 8
-  br i1 %or.cond.i, label %94, label %.thread178
+  br i1 %or.cond.i, label %94, label %.critedge
 
 94:                                               ; preds = %89
   %.not152 = icmp eq i32 %73, 0
@@ -208,23 +208,23 @@ define internal i32 @h263_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
   br label %109
 
 109:                                              ; preds = %95, %94
-  %.sroa.7.0 = phi i32 [ %53, %94 ], [ %102, %95 ]
-  %110 = sub nsw i32 %91, %.sroa.7.0
+  %.sroa.8.0 = phi i32 [ %53, %94 ], [ %102, %95 ]
+  %110 = sub nsw i32 %91, %.sroa.8.0
   %111 = icmp sgt i32 %110, 7
   br i1 %111, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %109, %.lr.ph
-  %.sroa.7.1189 = phi i32 [ %122, %.lr.ph ], [ %.sroa.7.0, %109 ]
+  %.sroa.8.1187 = phi i32 [ %122, %.lr.ph ], [ %.sroa.8.0, %109 ]
   %112 = load ptr, ptr %1, align 8, !tbaa !11
-  %113 = lshr i32 %.sroa.7.1189, 3
+  %113 = lshr i32 %.sroa.8.1187, 3
   %114 = zext nneg i32 %113 to i64
   %115 = getelementptr inbounds nuw i8, ptr %56, i64 %114
   %116 = load i32, ptr %115, align 1, !tbaa !15
   %117 = tail call i32 @llvm.bswap.i32(i32 %116)
-  %118 = and i32 %.sroa.7.1189, 7
+  %118 = and i32 %.sroa.8.1187, 7
   %119 = shl i32 %117, %118
   %120 = lshr i32 %119, 24
-  %121 = add i32 %.sroa.7.1189, 8
+  %121 = add i32 %.sroa.8.1187, 8
   %122 = tail call i32 @llvm.umin.i32(i32 %93, i32 %121)
   tail call void @avio_w8(ptr noundef %112, i32 noundef %120) #3
   %123 = sub nsw i32 %91, %122
@@ -232,19 +232,19 @@ define internal i32 @h263_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %124, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %109
-  %.sroa.7.1.lcssa = phi i32 [ %.sroa.7.0, %109 ], [ %122, %.lr.ph ]
+  %.sroa.8.1.lcssa = phi i32 [ %.sroa.8.0, %109 ], [ %122, %.lr.ph ]
   %.lcssa = phi i32 [ %110, %109 ], [ %123, %.lr.ph ]
   store i32 %.lcssa, ptr %72, align 4, !tbaa !14
-  %.not153 = icmp eq i32 %91, %.sroa.7.1.lcssa
-  br i1 %.not153, label %.thread181, label %125
+  %.not153 = icmp eq i32 %91, %.sroa.8.1.lcssa
+  br i1 %.not153, label %.thread179, label %125
 
 125:                                              ; preds = %._crit_edge
-  %126 = lshr i32 %.sroa.7.1.lcssa, 3
+  %126 = lshr i32 %.sroa.8.1.lcssa, 3
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr inbounds nuw i8, ptr %56, i64 %127
   %129 = load i32, ptr %128, align 1, !tbaa !15
   %130 = tail call i32 @llvm.bswap.i32(i32 %129)
-  %131 = and i32 %.sroa.7.1.lcssa, 7
+  %131 = and i32 %.sroa.8.1.lcssa, 7
   %132 = shl i32 %130, %131
   %133 = sub nsw i32 32, %.lcssa
   %134 = lshr i32 %132, %133
@@ -253,13 +253,13 @@ define internal i32 @h263_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
   %137 = trunc i32 %136 to i8
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %137, ptr %138, align 8, !tbaa !16
-  br label %.thread181
+  br label %.thread179
 
 139:                                              ; preds = %77, %71
   %.0137 = phi i32 [ %86, %77 ], [ %57, %71 ]
   %.0135 = phi ptr [ %85, %77 ], [ %56, %71 ]
   %.not154 = icmp eq i32 %54, 0
-  br i1 %.not154, label %.thread181, label %140
+  br i1 %.not154, label %.thread179, label %140
 
 140:                                              ; preds = %139
   %141 = icmp sgt i32 %.0137, 0
@@ -285,17 +285,17 @@ define internal i32 @h263_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
   store i8 %153, ptr %154, align 8, !tbaa !16
   br label %156
 
-.thread181:                                       ; preds = %125, %._crit_edge, %139
-  %.0135187 = phi ptr [ %.0135, %139 ], [ %56, %._crit_edge ], [ %56, %125 ]
-  %.0137186 = phi i32 [ %.0137, %139 ], [ 0, %._crit_edge ], [ 0, %125 ]
+.thread179:                                       ; preds = %125, %._crit_edge, %139
+  %.0135185 = phi ptr [ %.0135, %139 ], [ %56, %._crit_edge ], [ %56, %125 ]
+  %.0137184 = phi i32 [ %.0137, %139 ], [ 0, %._crit_edge ], [ 0, %125 ]
   %155 = load ptr, ptr %1, align 8, !tbaa !11
-  tail call void @avio_write(ptr noundef %155, ptr noundef nonnull %.0135187, i32 noundef %.0137186) #3
+  tail call void @avio_write(ptr noundef %155, ptr noundef nonnull %.0135185, i32 noundef %.0137184) #3
   br label %156
 
-156:                                              ; preds = %.thread181, %145
+156:                                              ; preds = %.thread179, %145
   %157 = and i32 %8, 2
   %.not155 = icmp eq i32 %157, 0
-  br i1 %.not155, label %.thread178, label %158
+  br i1 %.not155, label %.critedge, label %158
 
 158:                                              ; preds = %156
   %159 = load i32, ptr %72, align 4, !tbaa !14
@@ -316,20 +316,20 @@ define internal i32 @h263_handle_packet(ptr noundef %0, ptr noundef %1, ptr noun
   %167 = load i32, ptr %166, align 8, !tbaa !19
   %168 = tail call i32 @ff_rtp_finalize_packet(ptr noundef %3, ptr noundef nonnull %1, i32 noundef %167) #3
   %169 = icmp slt i32 %168, 0
-  br i1 %169, label %.thread178, label %170
+  br i1 %169, label %.critedge, label %170
 
 170:                                              ; preds = %165
   %.not157 = icmp eq i32 %.0136176, 0
-  br i1 %.not157, label %171, label %.thread178
+  br i1 %.not157, label %171, label %.critedge
 
 171:                                              ; preds = %170
   %172 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %173 = load i32, ptr %172, align 8, !tbaa !30
   %174 = or i32 %173, 1
   store i32 %174, ptr %172, align 8, !tbaa !30
-  br label %.thread178
+  br label %.critedge
 
-.thread178:                                       ; preds = %89, %170, %171, %165, %156, %59, %61, %65, %50, %34, %31, %24, %12
+.critedge:                                        ; preds = %89, %170, %171, %165, %156, %59, %61, %65, %50, %34, %31, %24, %12
   %.0132 = phi i32 [ %13, %12 ], [ -1094995529, %24 ], [ -1094995529, %34 ], [ %51, %50 ], [ -1094995529, %31 ], [ %66, %65 ], [ -11, %61 ], [ -11, %59 ], [ -11, %156 ], [ %168, %165 ], [ 0, %171 ], [ 0, %170 ], [ -1094995529, %89 ]
   ret i32 %.0132
 }

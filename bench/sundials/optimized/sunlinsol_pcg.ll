@@ -221,7 +221,7 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
   store i32 0, ptr %28, align 4, !tbaa !45
   %36 = icmp slt i32 %34, 0
   %37 = select i1 %36, i32 -805, i32 803
-  br label %105
+  br label %104
 
 38:                                               ; preds = %33
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %3, double noundef -1.000000e+00, ptr noundef %9, ptr noundef %9) #11
@@ -255,7 +255,7 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
 
 50:                                               ; preds = %47
   store i32 0, ptr %28, align 4, !tbaa !45
-  br label %105
+  br label %104
 
 51:                                               ; preds = %47
   %.off = add i32 %27, -1
@@ -271,7 +271,7 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
   store i32 0, ptr %28, align 4, !tbaa !45
   %55 = icmp slt i32 %53, 0
   %56 = select i1 %55, i32 -808, i32 805
-  br label %105
+  br label %104
 
 57:                                               ; preds = %51
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %9, ptr noundef %13) #11
@@ -285,7 +285,7 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
 
 ._crit_edge.thread:                               ; preds = %58
   store i32 0, ptr %28, align 4, !tbaa !45
-  br label %104
+  br label %103
 
 .lr.ph:                                           ; preds = %58
   %61 = add nsw i32 %7, -1
@@ -293,25 +293,25 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %29, align 4, !tbaa !45
   %64 = tail call i32 %23(ptr noundef %19, ptr noundef %11, ptr noundef %15) #11
-  %.not165203 = icmp eq i32 %64, 0
-  br i1 %.not165203, label %.lr.ph206, label %._crit_edge207
+  %.not165201 = icmp eq i32 %64, 0
+  br i1 %.not165201, label %.lr.ph204, label %._crit_edge205
 
-._crit_edge207:                                   ; preds = %95, %.lr.ph
+._crit_edge205:                                   ; preds = %95, %.lr.ph
   %.lcssa = phi i32 [ %64, %.lr.ph ], [ %101, %95 ]
   store i32 0, ptr %28, align 4, !tbaa !45
   %65 = icmp slt i32 %.lcssa, 0
   %66 = select i1 %65, i32 -805, i32 803
-  br label %105
+  br label %104
 
-.lr.ph206:                                        ; preds = %.lr.ph, %95
-  %.0147175205 = phi i32 [ %98, %95 ], [ 0, %.lr.ph ]
-  %.0145176204 = phi double [ %96, %95 ], [ %59, %.lr.ph ]
+.lr.ph204:                                        ; preds = %.lr.ph, %95
+  %.0147173203 = phi i32 [ %98, %95 ], [ 0, %.lr.ph ]
+  %.0145174202 = phi double [ %96, %95 ], [ %59, %.lr.ph ]
   %67 = tail call double @N_VDotProd(ptr noundef %15, ptr noundef %11) #11
-  %68 = fdiv double %.0145176204, %67
-  %69 = icmp eq i32 %.0147175205, 0
+  %68 = fdiv double %.0145174202, %67
+  %69 = icmp eq i32 %.0147173203, 0
   br i1 %69, label %70, label %73
 
-70:                                               ; preds = %.lr.ph206
+70:                                               ; preds = %.lr.ph204
   %71 = load i32, ptr %28, align 4, !tbaa !45
   %.not166 = icmp eq i32 %71, 0
   br i1 %.not166, label %73, label %72
@@ -320,7 +320,7 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
   tail call void @N_VScale(double noundef %68, ptr noundef %11, ptr noundef %2) #11
   br label %74
 
-73:                                               ; preds = %70, %.lr.ph206
+73:                                               ; preds = %70, %.lr.ph204
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %2, double noundef %68, ptr noundef %11, ptr noundef %2) #11
   br label %74
 
@@ -350,10 +350,10 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
   %84 = phi double [ %82, %81 ], [ 0.000000e+00, %78 ]
   store double %84, ptr %30, align 8, !tbaa !46
   %85 = fcmp ugt double %84, %4
-  br i1 %85, label %86, label %102
+  br i1 %85, label %86, label %.critedge
 
 86:                                               ; preds = %83
-  %87 = icmp eq i32 %.0147175205, %61
+  %87 = icmp eq i32 %.0147173203, %61
   br i1 %87, label %._crit_edge, label %88
 
 88:                                               ; preds = %86
@@ -368,7 +368,7 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
   store i32 0, ptr %28, align 4, !tbaa !45
   %92 = icmp slt i32 %90, 0
   %93 = select i1 %92, i32 -808, i32 805
-  br label %105
+  br label %104
 
 94:                                               ; preds = %88
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %9, ptr noundef %13) #11
@@ -376,33 +376,33 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
 
 95:                                               ; preds = %89, %94
   %96 = tail call double @N_VDotProd(ptr noundef %9, ptr noundef %13) #11
-  %97 = fdiv double %96, %.0145176204
+  %97 = fdiv double %96, %.0145174202
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef %97, ptr noundef %11, ptr noundef %11) #11
-  %98 = add nuw nsw i32 %.0147175205, 1
+  %98 = add nuw nsw i32 %.0147173203, 1
   %99 = load i32, ptr %29, align 4, !tbaa !45
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %29, align 4, !tbaa !45
   %101 = tail call i32 %23(ptr noundef %19, ptr noundef %11, ptr noundef %15) #11
   %.not165 = icmp eq i32 %101, 0
-  br i1 %.not165, label %.lr.ph206, label %._crit_edge207
-
-102:                                              ; preds = %83
-  store i32 0, ptr %28, align 4, !tbaa !45
-  br label %105
+  br i1 %.not165, label %.lr.ph204, label %._crit_edge205
 
 ._crit_edge:                                      ; preds = %86
   store i32 0, ptr %28, align 4, !tbaa !45
-  %103 = fcmp olt double %84, %48
-  br i1 %103, label %105, label %104
+  %102 = fcmp olt double %84, %48
+  br i1 %102, label %104, label %103
 
-104:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  br label %105
+.critedge:                                        ; preds = %83
+  store i32 0, ptr %28, align 4, !tbaa !45
+  br label %104
 
-105:                                              ; preds = %._crit_edge, %102, %104, %91, %._crit_edge207, %54, %50, %35
-  %.sink = phi i32 [ 0, %102 ], [ 802, %104 ], [ %93, %91 ], [ %66, %._crit_edge207 ], [ %56, %54 ], [ 0, %50 ], [ %37, %35 ], [ 801, %._crit_edge ]
-  %106 = load ptr, ptr %0, align 8, !tbaa !26
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  store i32 %.sink, ptr %107, align 8, !tbaa !27
+103:                                              ; preds = %._crit_edge.thread, %._crit_edge
+  br label %104
+
+104:                                              ; preds = %._crit_edge, %.critedge, %103, %91, %._crit_edge205, %54, %50, %35
+  %.sink = phi i32 [ 0, %.critedge ], [ 802, %103 ], [ %93, %91 ], [ %66, %._crit_edge205 ], [ %56, %54 ], [ 0, %50 ], [ %37, %35 ], [ 801, %._crit_edge ]
+  %105 = load ptr, ptr %0, align 8, !tbaa !26
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
+  store i32 %.sink, ptr %106, align 8, !tbaa !27
   ret i32 %.sink
 }
 

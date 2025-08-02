@@ -12393,7 +12393,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %18, %24, %30, %36, 
   %65 = lshr i32 %.0.i.i, 3
   %66 = load ptr, ptr %1, align 8, !tbaa !61
   %.not36 = icmp eq ptr %66, null
-  br i1 %.not36, label %91, label %67
+  br i1 %.not36, label %87, label %67
 
 67:                                               ; preds = %H5VM_limit_enc_size.exit
   %68 = add nuw nsw i32 %65, 1
@@ -12406,14 +12406,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %18, %24, %30, %36, 
   br label %73
 
 73:                                               ; preds = %67, %73
-  %.053 = phi ptr [ %71, %67 ], [ %75, %73 ]
-  %.03052 = phi i64 [ 0, %67 ], [ %76, %73 ]
-  %.03151 = phi i64 [ %.03239, %67 ], [ %77, %73 ]
-  %74 = trunc i64 %.03151 to i8
-  %75 = getelementptr inbounds nuw i8, ptr %.053, i64 1
-  store i8 %74, ptr %.053, align 1, !tbaa !21
-  %76 = add nuw nsw i64 %.03052, 1
-  %77 = lshr i64 %.03151, 8
+  %.052 = phi ptr [ %71, %67 ], [ %75, %73 ]
+  %.03051 = phi i64 [ 0, %67 ], [ %76, %73 ]
+  %.03150 = phi i64 [ %.03239, %67 ], [ %77, %73 ]
+  %74 = trunc i64 %.03150 to i8
+  %75 = getelementptr inbounds nuw i8, ptr %.052, i64 1
+  store i8 %74, ptr %.052, align 1, !tbaa !21
+  %76 = add nuw nsw i64 %.03051, 1
+  %77 = lshr i64 %.03150, 8
   %exitcond.not = icmp eq i64 %76, %72
   br i1 %exitcond.not, label %78, label %73, !llvm.loop !123
 
@@ -12421,45 +12421,45 @@ H5VM_limit_enc_size.exit:                         ; preds = %18, %24, %30, %36, 
   %79 = load ptr, ptr %1, align 8, !tbaa !61
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 %72
   store ptr %80, ptr %1, align 8, !tbaa !61
-  br i1 %.not, label %.thread49, label %.thread50
+  br i1 %.not, label %.critedge, label %.thread49
 
 .thread49:                                        ; preds = %78
-  %81 = add nuw nsw i32 %65, 2
-  %82 = zext nneg i32 %81 to i64
-  %83 = load i64, ptr %2, align 8, !tbaa !3
-  %84 = add i64 %83, %82
-  br label %.sink.split
-
-.thread50:                                        ; preds = %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull align 1 %4, i64 %.03239, i1 false)
-  %85 = load ptr, ptr %1, align 8, !tbaa !61
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.03239
-  store ptr %86, ptr %1, align 8, !tbaa !61
-  %87 = add nuw nsw i32 %65, 2
-  %88 = zext nneg i32 %87 to i64
-  %89 = load i64, ptr %2, align 8, !tbaa !3
-  %90 = add i64 %89, %88
-  br label %96
+  %81 = load ptr, ptr %1, align 8, !tbaa !61
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %.03239
+  store ptr %82, ptr %1, align 8, !tbaa !61
+  %83 = add nuw nsw i32 %65, 2
+  %84 = zext nneg i32 %83 to i64
+  %85 = load i64, ptr %2, align 8, !tbaa !3
+  %86 = add i64 %85, %84
+  br label %92
 
-91:                                               ; preds = %H5VM_limit_enc_size.exit
-  %92 = add nuw nsw i32 %65, 2
-  %93 = zext nneg i32 %92 to i64
-  %94 = load i64, ptr %2, align 8, !tbaa !3
-  %95 = add i64 %94, %93
-  store i64 %95, ptr %2, align 8, !tbaa !3
-  br i1 %.not, label %99, label %96
+87:                                               ; preds = %H5VM_limit_enc_size.exit
+  %88 = add nuw nsw i32 %65, 2
+  %89 = zext nneg i32 %88 to i64
+  %90 = load i64, ptr %2, align 8, !tbaa !3
+  %91 = add i64 %90, %89
+  store i64 %91, ptr %2, align 8, !tbaa !3
+  br i1 %.not, label %99, label %92
 
-96:                                               ; preds = %.thread50, %91
-  %97 = phi i64 [ %90, %.thread50 ], [ %95, %91 ]
-  %98 = add i64 %97, %.03239
+92:                                               ; preds = %.thread49, %87
+  %93 = phi i64 [ %86, %.thread49 ], [ %91, %87 ]
+  %94 = add i64 %93, %.03239
   br label %.sink.split
 
-.sink.split:                                      ; preds = %96, %.thread49
-  %.sink = phi i64 [ %84, %.thread49 ], [ %98, %96 ]
+.critedge:                                        ; preds = %78
+  %95 = add nuw nsw i32 %65, 2
+  %96 = zext nneg i32 %95 to i64
+  %97 = load i64, ptr %2, align 8, !tbaa !3
+  %98 = add i64 %97, %96
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %92, %.critedge
+  %.sink = phi i64 [ %98, %.critedge ], [ %94, %92 ]
   store i64 %.sink, ptr %2, align 8, !tbaa !3
   br label %99
 
-99:                                               ; preds = %.sink.split, %91, %3
+99:                                               ; preds = %.sink.split, %87, %3
   ret i32 0
 }
 

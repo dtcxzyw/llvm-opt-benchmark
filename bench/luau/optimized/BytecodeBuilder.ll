@@ -6773,7 +6773,6 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4Luau15BytecodeBuilder17decompo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN4Luau15BytecodeBuilder13getStringHashENS0_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #5 align 2 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %.not10 = icmp eq i64 %1, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
 
@@ -6782,22 +6781,23 @@ define dso_local noundef i32 @_ZN4Luau15BytecodeBuilder13getStringHashENS0_9Stri
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.09.lcssa = phi i32 [ 0, %2 ], [ %10, %.lr.ph ]
+  %.09.lcssa = phi i32 [ 0, %2 ], [ %12, %.lr.ph ]
   ret i32 %.09.lcssa
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.012 = phi i64 [ %11, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.0911 = phi i32 [ %10, %.lr.ph ], [ %3, %.lr.ph.preheader ]
+  %.012 = phi i64 [ %13, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.0911 = phi i32 [ %12, %.lr.ph ], [ %3, %.lr.ph.preheader ]
   %4 = shl i32 %.0911, 5
   %5 = lshr i32 %.0911, 2
   %6 = add i32 %4, %5
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.012
-  %7 = load i8, ptr %gep, align 1, !tbaa !128
-  %8 = zext i8 %7 to i32
-  %9 = add i32 %6, %8
-  %10 = xor i32 %9, %.0911
-  %11 = add i64 %.012, -1
-  %.not = icmp eq i64 %11, 0
+  %7 = getelementptr i8, ptr %0, i64 %.012
+  %8 = getelementptr i8, ptr %7, i64 -1
+  %9 = load i8, ptr %8, align 1, !tbaa !128
+  %10 = zext i8 %9 to i32
+  %11 = add i32 %6, %10
+  %12 = xor i32 %11, %.0911
+  %13 = add i64 %.012, -1
+  %.not = icmp eq i64 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !303
 }
 

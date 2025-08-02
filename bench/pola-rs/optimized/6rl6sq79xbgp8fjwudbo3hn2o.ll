@@ -7369,8 +7369,8 @@ default.unreachable:                              ; preds = %85
   %234 = load i32, ptr %233, align 4, !alias.scope !559, !noalias !564, !noundef !6
   %235 = zext i32 %234 to i64
   %.idx33.i.i = mul nuw nsw i64 %231, 24
-  %236 = getelementptr i8, ptr %223, i64 24
-  %237 = getelementptr i8, ptr %236, i64 %.idx33.i.i
+  %236 = getelementptr inbounds nuw i8, ptr %223, i64 24
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 %.idx33.i.i
   %238 = load ptr, ptr %237, align 8, !alias.scope !565, !noalias !568, !noundef !6
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 %235
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc10E.exit.i.i
@@ -7417,8 +7417,8 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc1
   %263 = load i32, ptr %262, align 4, !alias.scope !569, !noalias !574, !noundef !6
   %264 = zext i32 %263 to i64
   %.idx.i4.i = mul nuw nsw i64 %260, 24
-  %265 = getelementptr i8, ptr %252, i64 24
-  %266 = getelementptr i8, ptr %265, i64 %.idx.i4.i
+  %265 = getelementptr inbounds nuw i8, ptr %252, i64 24
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 %.idx.i4.i
   %267 = load ptr, ptr %266, align 8, !alias.scope !575, !noalias !578, !noundef !6
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 %264
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc10E.exit61.i.i

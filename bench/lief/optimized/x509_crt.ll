@@ -2656,60 +2656,60 @@ x509_crt_verify_chain.exit:                       ; preds = %331, %122
 
 486:                                              ; preds = %486, %.lr.ph.split.us.i
   %indvars.iv23.i = phi i64 [ %488, %486 ], [ %485, %.lr.ph.split.us.i ]
-  %487 = phi i32 [ %490, %486 ], [ %.promoted.i, %.lr.ph.split.us.i ]
+  %487 = phi i32 [ %491, %486 ], [ %.promoted.i, %.lr.ph.split.us.i ]
   %488 = add nsw i64 %indvars.iv23.i, -1
-  %gep.i = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %480, i64 0, i64 %488
-  %489 = load i32, ptr %gep.i, align 8, !tbaa !90
-  %490 = or i32 %489, %487
+  %489 = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %17, i64 0, i64 %488, i32 1
+  %490 = load i32, ptr %489, align 8, !tbaa !90
+  %491 = or i32 %490, %487
   %.not.us.wide.i = icmp eq i64 %488, 0
   br i1 %.not.us.wide.i, label %.loopexit, label %486, !llvm.loop !137
 
-.lr.ph.split.i:                                   ; preds = %497, %.lr.ph.split.preheader.i
-  %indvars.iv.i = phi i64 [ %484, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %497 ]
+.lr.ph.split.i:                                   ; preds = %498, %.lr.ph.split.preheader.i
+  %indvars.iv.i = phi i64 [ %484, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %498 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
-  %491 = and i64 %indvars.iv.next.i, 4294967295
-  %492 = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %17, i64 0, i64 %491
-  %493 = getelementptr inbounds nuw i8, ptr %492, i64 8
-  %494 = load i32, ptr %493, align 8, !tbaa !90
-  store i32 %494, ptr %9, align 4, !tbaa !31
-  %495 = load ptr, ptr %492, align 8, !tbaa !88
-  %496 = call i32 %6(ptr noundef %7, ptr noundef %495, i32 noundef %indvars.i, ptr noundef nonnull %9) #17
-  %.fr = freeze i32 %496
+  %492 = and i64 %indvars.iv.next.i, 4294967295
+  %493 = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %17, i64 0, i64 %492
+  %494 = getelementptr inbounds nuw i8, ptr %493, i64 8
+  %495 = load i32, ptr %494, align 8, !tbaa !90
+  store i32 %495, ptr %9, align 4, !tbaa !31
+  %496 = load ptr, ptr %493, align 8, !tbaa !88
+  %497 = call i32 %6(ptr noundef %7, ptr noundef %496, i32 noundef %indvars.i, ptr noundef nonnull %9) #17
+  %.fr = freeze i32 %497
   %.not17.i46 = icmp eq i32 %.fr, 0
-  br i1 %.not17.i46, label %497, label %501
+  br i1 %.not17.i46, label %498, label %502
 
-497:                                              ; preds = %.lr.ph.split.i
-  %498 = load i32, ptr %9, align 4, !tbaa !31
-  %499 = load i32, ptr %5, align 4, !tbaa !31
-  %500 = or i32 %499, %498
-  store i32 %500, ptr %5, align 4, !tbaa !31
+498:                                              ; preds = %.lr.ph.split.i
+  %499 = load i32, ptr %9, align 4, !tbaa !31
+  %500 = load i32, ptr %5, align 4, !tbaa !31
+  %501 = or i32 %500, %499
+  store i32 %501, ptr %5, align 4, !tbaa !31
   %.not.i48 = icmp eq i32 %indvars.i, 0
   br i1 %.not.i48, label %.loopexit20, label %.lr.ph.split.i, !llvm.loop !139
 
-501:                                              ; preds = %.lr.ph.split.i
+502:                                              ; preds = %.lr.ph.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  %502 = icmp eq i32 %.fr, -9984
-  %spec.select = select i1 %502, i32 -12288, i32 %.fr
+  %503 = icmp eq i32 %.fr, -9984
+  %spec.select = select i1 %503, i32 -12288, i32 %.fr
   br label %.thread
 
-.thread:                                          ; preds = %501, %x509_crt_verify_chain_reset.exit, %x509_crt_verify_chain.exit
-  %.ph = phi i32 [ -10240, %x509_crt_verify_chain_reset.exit ], [ -12288, %x509_crt_verify_chain.exit ], [ %spec.select, %501 ]
+.thread:                                          ; preds = %502, %x509_crt_verify_chain_reset.exit, %x509_crt_verify_chain.exit
+  %.ph = phi i32 [ -10240, %x509_crt_verify_chain_reset.exit ], [ -12288, %x509_crt_verify_chain.exit ], [ %spec.select, %502 ]
   store i32 -1, ptr %5, align 4, !tbaa !31
-  br label %504
+  br label %505
 
 .loopexit:                                        ; preds = %486
-  store i32 %490, ptr %5, align 4, !tbaa !31
+  store i32 %491, ptr %5, align 4, !tbaa !31
   br label %.loopexit20
 
-.loopexit20:                                      ; preds = %497, %.loopexit24..loopexit20_crit_edge, %.loopexit
-  %503 = phi i32 [ %.pre111, %.loopexit24..loopexit20_crit_edge ], [ %490, %.loopexit ], [ %500, %497 ]
+.loopexit20:                                      ; preds = %498, %.loopexit24..loopexit20_crit_edge, %.loopexit
+  %504 = phi i32 [ %.pre111, %.loopexit24..loopexit20_crit_edge ], [ %491, %.loopexit ], [ %501, %498 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  %.not34 = icmp eq i32 %503, 0
+  %.not34 = icmp eq i32 %504, 0
   %. = select i1 %.not34, i32 0, i32 -9984
-  br label %504
+  br label %505
 
-504:                                              ; preds = %.loopexit20, %.thread
+505:                                              ; preds = %.loopexit20, %.thread
   %.0 = phi i32 [ %.ph, %.thread ], [ %., %.loopexit20 ]
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %17) #17
   ret i32 %.0

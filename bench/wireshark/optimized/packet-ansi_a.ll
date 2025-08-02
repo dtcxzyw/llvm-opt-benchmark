@@ -7690,64 +7690,61 @@ my_try_val_to_str_idx.exit.thread:                ; preds = %.lr.ph, %4
   %36 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_unknown_bsmap_msg, ptr noundef %0, i32 noundef 0, i32 noundef %21, ptr noundef nonnull @.str.1749, i32 noundef %23)
   %37 = load i32, ptr @ett_bsmap, align 4
   %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37)
-  br label %49
+  %39 = load i32, ptr @hf_ansi_a_bsmap_msgtype, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %41 = load ptr, ptr @dissect_bsmap_common.tap_p, align 8
+  store i8 0, ptr %41, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
+  store i8 %22, ptr %42, align 1
+  %43 = load i32, ptr @ansi_a_tap, align 4
+  tail call void @tap_queue_packet(i32 noundef %43, ptr noundef %1, ptr noundef %41)
+  br label %70
 
 my_try_val_to_str_idx.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.lcssa59 = phi ptr [ %26, %.lr.ph.i.preheader ], [ %33, %.lr.ph.i ]
   %.lcssa = phi ptr [ %24, %.lr.ph.i.preheader ], [ %31, %.lr.ph.i ]
-  %39 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %40 = load i32, ptr %39, align 8
-  %41 = load i32, ptr @proto_a_bsmap, align 4
-  %42 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef %21, ptr noundef nonnull @.str.1750, ptr noundef nonnull %.lcssa59)
-  %43 = sext i32 %40 to i64
-  %44 = getelementptr [63 x i32], ptr @ett_bsmap_msg, i64 0, i64 %43
-  %45 = load i32, ptr %44, align 4
-  %46 = tail call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %45)
-  %47 = load ptr, ptr %14, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef nonnull @.str.1751, ptr noundef nonnull %.lcssa59)
-  %48 = sext i32 %40 to i64
-  br label %49
+  %44 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
+  %45 = load i32, ptr %44, align 8
+  %46 = load i32, ptr @proto_a_bsmap, align 4
+  %47 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef %21, ptr noundef nonnull @.str.1750, ptr noundef nonnull %.lcssa59)
+  %48 = sext i32 %45 to i64
+  %49 = getelementptr [63 x i32], ptr @ett_bsmap_msg, i64 0, i64 %48
+  %50 = load i32, ptr %49, align 4
+  %51 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %50)
+  %52 = load ptr, ptr %14, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.1751, ptr noundef nonnull %.lcssa59)
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %47, ptr %53, align 8
+  %54 = load i32, ptr @hf_ansi_a_bsmap_msgtype, align 4
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %54, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %56 = load ptr, ptr @dissect_bsmap_common.tap_p, align 8
+  store i8 0, ptr %56, align 1
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  store i8 %22, ptr %57, align 1
+  %58 = load i32, ptr @ansi_a_tap, align 4
+  tail call void @tap_queue_packet(i32 noundef %58, ptr noundef %1, ptr noundef %56)
+  %59 = add i32 %21, -1
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %70, label %61
 
-49:                                               ; preds = %my_try_val_to_str_idx.exit, %my_try_val_to_str_idx.exit.thread
-  %50 = phi i1 [ true, %my_try_val_to_str_idx.exit.thread ], [ false, %my_try_val_to_str_idx.exit ]
-  %.04851 = phi i64 [ -1, %my_try_val_to_str_idx.exit.thread ], [ %48, %my_try_val_to_str_idx.exit ]
-  %.043 = phi ptr [ %36, %my_try_val_to_str_idx.exit.thread ], [ %42, %my_try_val_to_str_idx.exit ]
-  %.0 = phi ptr [ %38, %my_try_val_to_str_idx.exit.thread ], [ %46, %my_try_val_to_str_idx.exit ]
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.043, ptr %51, align 8
-  %52 = load i32, ptr @hf_ansi_a_bsmap_msgtype, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %52, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %54 = load ptr, ptr @dissect_bsmap_common.tap_p, align 8
-  store i8 0, ptr %54, align 1
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
-  store i8 %22, ptr %55, align 1
-  %56 = load i32, ptr @ansi_a_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %56, ptr noundef %1, ptr noundef %54)
-  br i1 %50, label %69, label %57
+61:                                               ; preds = %my_try_val_to_str_idx.exit
+  %62 = and i64 %48, 2305843009213693951
+  %63 = shl nuw i64 1, %62
+  %64 = and i64 %63, 4611897124668312576
+  %.not = icmp eq i64 %64, 0
+  br i1 %.not, label %67, label %65
 
-57:                                               ; preds = %49
-  %58 = add i32 %21, -1
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %69, label %60
+65:                                               ; preds = %61
+  %66 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %51, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_miss_bsmap_msg_diss, ptr noundef %0, i32 noundef 1, i32 noundef %59, ptr noundef nonnull @.str.1752)
+  br label %70
 
-60:                                               ; preds = %57
-  %61 = and i64 %.04851, 2305843009213693951
-  %62 = shl nuw i64 1, %61
-  %63 = and i64 %62, 4611897124668312576
-  %.not = icmp eq i64 %63, 0
-  br i1 %.not, label %66, label %64
+67:                                               ; preds = %61
+  %68 = getelementptr [63 x ptr], ptr @bsmap_msg_fcn, i64 0, i64 %48
+  %69 = load ptr, ptr %68, align 8
+  call void %69(ptr noundef %0, ptr noundef %1, ptr noundef %51, i32 noundef 1, i32 noundef %59, ptr noundef nonnull %5)
+  br label %70
 
-64:                                               ; preds = %60
-  %65 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_miss_bsmap_msg_diss, ptr noundef %0, i32 noundef 1, i32 noundef %58, ptr noundef nonnull @.str.1752)
-  br label %69
-
-66:                                               ; preds = %60
-  %67 = getelementptr [63 x ptr], ptr @bsmap_msg_fcn, i64 0, i64 %.04851
-  %68 = load ptr, ptr %67, align 8
-  call void %68(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef 1, i32 noundef %58, ptr noundef nonnull %5)
-  br label %69
-
-69:                                               ; preds = %64, %66, %57, %49
+70:                                               ; preds = %my_try_val_to_str_idx.exit.thread, %65, %67, %my_try_val_to_str_idx.exit
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #7
   ret void
 }

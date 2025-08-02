@@ -11,29 +11,31 @@ define void @make_uns_ordered_dither_array(ptr noundef captures(none) initialize
 .preheader52:                                     ; preds = %2, %18
   %.055 = phi i32 [ 1, %2 ], [ %19, %18 ]
   %3 = zext nneg i32 %.055 to i64
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %3
   br label %.preheader51
 
 .preheader51:                                     ; preds = %.preheader52, %17
   %indvars.iv59 = phi i64 [ 0, %.preheader52 ], [ %indvars.iv.next60, %17 ]
-  %4 = add nuw nsw i64 %indvars.iv59, %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv59
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv59
   br label %5
 
 5:                                                ; preds = %.preheader51, %5
   %indvars.iv = phi i64 [ 0, %.preheader51 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv59, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %8 = shl i8 %7, 2
   store i8 %8, ptr %6, align 1
   %9 = or disjoint i8 %8, 1
   %10 = add nuw nsw i64 %indvars.iv, %3
-  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %gep, i64 0, i64 %10
   store i8 %9, ptr %11, align 1
   %12 = load i8, ptr %6, align 1
   %13 = add i8 %12, 2
-  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv59, i64 %10
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %10
   store i8 %13, ptr %14, align 1
   %15 = add i8 %12, 3
-  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %gep, i64 0, i64 %indvars.iv
   store i8 %15, ptr %16, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %3
@@ -49,29 +51,30 @@ define void @make_uns_ordered_dither_array(ptr noundef captures(none) initialize
   %20 = icmp samesign ult i32 %.055, 4
   br i1 %20, label %.preheader52, label %.preheader, !llvm.loop !9
 
-.preheader:                                       ; preds = %18, %28
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %28 ], [ 0, %18 ]
-  br label %21
+.preheader:                                       ; preds = %18, %29
+  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %29 ], [ 0, %18 ]
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv68
+  br label %22
 
-21:                                               ; preds = %.preheader, %21
-  %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %21 ]
-  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv68, i64 %indvars.iv64
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = mul nsw i32 %1, %24
-  %26 = sdiv i32 %25, 64
-  %27 = trunc i32 %26 to i8
-  store i8 %27, ptr %22, align 1
+22:                                               ; preds = %.preheader, %22
+  %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %22 ]
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 0, i64 %indvars.iv64
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i32
+  %26 = mul nsw i32 %1, %25
+  %27 = sdiv i32 %26, 64
+  %28 = trunc i32 %27 to i8
+  store i8 %28, ptr %23, align 1
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 8
-  br i1 %exitcond67.not, label %28, label %21, !llvm.loop !10
+  br i1 %exitcond67.not, label %29, label %22, !llvm.loop !10
 
-28:                                               ; preds = %21
+29:                                               ; preds = %22
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, 8
-  br i1 %exitcond71.not, label %29, label %.preheader, !llvm.loop !11
+  br i1 %exitcond71.not, label %30, label %.preheader, !llvm.loop !11
 
-29:                                               ; preds = %28
+30:                                               ; preds = %29
   ret void
 }
 

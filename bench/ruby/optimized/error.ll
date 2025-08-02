@@ -3134,7 +3134,7 @@ rb_class_of.exit:                                 ; preds = %9, %12, %13, %14, %
   %23 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %24 = load ptr, ptr %23, align 8, !tbaa !38
   %25 = icmp eq i64 %0, 4
-  br i1 %25, label %73, label %rb_ec_ractor_hooks.exit
+  br i1 %25, label %.critedge, label %rb_ec_ractor_hooks.exit
 
 rb_ec_ractor_hooks.exit:                          ; preds = %21
   %26 = getelementptr i8, ptr %24, i64 48
@@ -3194,7 +3194,7 @@ exc_backtrace.exit:                               ; preds = %45, %48
   %53 = load i32, ptr %52, align 8, !tbaa !94
   %54 = and i32 %53, 64
   %.not29 = icmp eq i32 %54, 0
-  br i1 %.not29, label %.thread, label %55, !prof !97
+  br i1 %.not29, label %70, label %55, !prof !97
 
 55:                                               ; preds = %exc_backtrace.exit
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -3222,23 +3222,23 @@ exc_backtrace.exit:                               ; preds = %45, %48
   store i32 0, ptr %67, align 8, !tbaa !108
   call void @rb_exec_event_hooks(ptr noundef nonnull %2, ptr noundef nonnull %56, i32 noundef 0) #33
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #33
-  br label %.thread
+  br label %70
 
 68:                                               ; preds = %rb_class_of.exit
   %69 = tail call i64 @rb_funcallv(i64 noundef %0, i64 noundef %4, i32 noundef 0, ptr noundef null) #33
-  br label %.thread
+  br label %70
 
-.thread:                                          ; preds = %55, %exc_backtrace.exit, %68
+70:                                               ; preds = %55, %exc_backtrace.exit, %68
   %.126 = phi i64 [ %69, %68 ], [ %.0.i32, %exc_backtrace.exit ], [ %.0.i32, %55 ]
-  %70 = icmp eq i64 %.126, 4
-  br i1 %70, label %73, label %71
+  %71 = icmp eq i64 %.126, 4
+  br i1 %71, label %.critedge, label %72
 
-71:                                               ; preds = %.thread
-  %72 = call fastcc i64 @rb_check_backtrace(i64 noundef %.126)
-  br label %73
+72:                                               ; preds = %70
+  %73 = call fastcc i64 @rb_check_backtrace(i64 noundef %.126)
+  br label %.critedge
 
-73:                                               ; preds = %21, %.thread, %71
-  %.1 = phi i64 [ %72, %71 ], [ 4, %.thread ], [ 4, %21 ]
+.critedge:                                        ; preds = %21, %70, %72
+  %.1 = phi i64 [ %73, %72 ], [ 4, %70 ], [ 4, %21 ]
   ret i64 %.1
 }
 
@@ -4017,30 +4017,26 @@ define internal i64 @exc_equal(i64 noundef %0, i64 noundef %1) #0 {
 
 12:                                               ; preds = %8
   call void @rb_set_errinfo(i64 noundef 4) #33
-  br label %.thread
+  br label %.critedge
 
 13:                                               ; preds = %8
   %14 = call i64 @rb_obj_class(i64 noundef %0) #33
   %15 = call i64 @rb_obj_class(i64 noundef %9) #33
   %.not28 = icmp eq i64 %14, %15
-  br i1 %.not28, label %16, label %.thread
+  br i1 %.not28, label %16, label %.critedge
 
 16:                                               ; preds = %13
   %17 = load i64, ptr @id_message, align 8, !tbaa !15
   %18 = call i64 @rb_check_funcall(i64 noundef %9, i64 noundef %17, i32 noundef 0, ptr noundef null) #33
   %19 = icmp eq i64 %18, 36
-  br i1 %19, label %.thread, label %20
-
-.thread:                                          ; preds = %12, %13, %16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #33
-  br label %37
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %16
   %21 = load i64, ptr @id_backtrace, align 8, !tbaa !15
   %22 = call i64 @rb_check_funcall(i64 noundef %9, i64 noundef %21, i32 noundef 0, ptr noundef null) #33
-  %.not36 = icmp eq i64 %22, 36
+  %.not33 = icmp eq i64 %22, 36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #33
-  br i1 %.not36, label %37, label %exc_backtrace.exit
+  br i1 %.not33, label %37, label %exc_backtrace.exit
 
 23:                                               ; preds = %5
   %24 = tail call i64 @rb_attr_get(i64 noundef %1, i64 noundef 3473) #33
@@ -4076,8 +4072,12 @@ exc_backtrace.exit32:                             ; preds = %31, %34
   %36 = call i64 @rb_equal(i64 noundef %.0.i31, i64 noundef %.1) #33
   br label %37
 
-37:                                               ; preds = %.thread, %exc_backtrace.exit, %2, %20, %exc_backtrace.exit32
-  %.023 = phi i64 [ %36, %exc_backtrace.exit32 ], [ 0, %20 ], [ 20, %2 ], [ 0, %exc_backtrace.exit ], [ 0, %.thread ]
+.critedge:                                        ; preds = %16, %13, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #33
+  br label %37
+
+37:                                               ; preds = %exc_backtrace.exit, %.critedge, %2, %20, %exc_backtrace.exit32
+  %.023 = phi i64 [ %36, %exc_backtrace.exit32 ], [ 0, %20 ], [ 20, %2 ], [ 0, %.critedge ], [ 0, %exc_backtrace.exit ]
   ret i64 %.023
 }
 

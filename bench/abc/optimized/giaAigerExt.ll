@@ -1158,7 +1158,6 @@ Gia_AigerWriteInt.exit63.preheader:               ; preds = %28
   %35 = getelementptr i8, ptr %.val53, i64 8
   %wide.trip.count103 = zext nneg i32 %.val52 to i64
   %.val53.val.pre = load ptr, ptr %35, align 8, !tbaa !52
-  %invariant.gep = getelementptr i8, ptr %.val53.val.pre, i64 4
   br label %36
 
 36:                                               ; preds = %.lr.ph91, %.critedge
@@ -1228,55 +1227,56 @@ Gia_AigerWriteInt.exit71.preheader:               ; preds = %57
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %Gia_AigerWriteInt.exit75
   %indvars.iv95 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next96, %Gia_AigerWriteInt.exit75 ]
   %indvars.iv93 = phi i64 [ %70, %.lr.ph87.preheader ], [ %indvars.iv.next94, %Gia_AigerWriteInt.exit75 ]
-  %72 = phi i64 [ %66, %.lr.ph87.preheader ], [ %84, %Gia_AigerWriteInt.exit75 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %72
-  %73 = getelementptr inbounds nuw i32, ptr %gep, i64 %indvars.iv95
-  %74 = load i32, ptr %73, align 4, !tbaa !37
-  %75 = shl nsw i64 %indvars.iv93, 2
-  %76 = getelementptr inbounds i8, ptr %20, i64 %75
-  br label %77
+  %72 = phi i64 [ %66, %.lr.ph87.preheader ], [ %86, %Gia_AigerWriteInt.exit75 ]
+  %73 = getelementptr inbounds i32, ptr %.val53.val.pre, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv95
+  %76 = load i32, ptr %75, align 4, !tbaa !37
+  %77 = shl nsw i64 %indvars.iv93, 2
+  %78 = getelementptr inbounds i8, ptr %20, i64 %77
+  br label %79
 
-77:                                               ; preds = %77, %.lr.ph87
-  %.06.i72 = phi i32 [ 3, %.lr.ph87 ], [ %82, %77 ]
-  %.045.i73 = phi ptr [ %76, %.lr.ph87 ], [ %81, %77 ]
-  %78 = shl nsw i32 %.06.i72, 3
-  %79 = ashr i32 %74, %78
-  %80 = trunc i32 %79 to i8
-  %81 = getelementptr inbounds nuw i8, ptr %.045.i73, i64 1
-  store i8 %80, ptr %.045.i73, align 1, !tbaa !8
-  %82 = add nsw i32 %.06.i72, -1
+79:                                               ; preds = %79, %.lr.ph87
+  %.06.i72 = phi i32 [ 3, %.lr.ph87 ], [ %84, %79 ]
+  %.045.i73 = phi ptr [ %78, %.lr.ph87 ], [ %83, %79 ]
+  %80 = shl nsw i32 %.06.i72, 3
+  %81 = ashr i32 %76, %80
+  %82 = trunc i32 %81 to i8
+  %83 = getelementptr inbounds nuw i8, ptr %.045.i73, i64 1
+  store i8 %82, ptr %.045.i73, align 1, !tbaa !8
+  %84 = add nsw i32 %.06.i72, -1
   %.not.i74 = icmp eq i32 %.06.i72, 0
-  br i1 %.not.i74, label %Gia_AigerWriteInt.exit75, label %77, !llvm.loop !44
+  br i1 %.not.i74, label %Gia_AigerWriteInt.exit75, label %79, !llvm.loop !44
 
-Gia_AigerWriteInt.exit75:                         ; preds = %77
+Gia_AigerWriteInt.exit75:                         ; preds = %79
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %83 = load i32, ptr %71, align 4, !tbaa !37
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i32, ptr %.val53.val.pre, i64 %84
-  %86 = load i32, ptr %85, align 4, !tbaa !37
-  %87 = sext i32 %86 to i64
-  %88 = icmp slt i64 %indvars.iv.next96, %87
-  br i1 %88, label %.lr.ph87, label %.critedge.loopexit, !llvm.loop !61
+  %85 = load i32, ptr %71, align 4, !tbaa !37
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds i32, ptr %.val53.val.pre, i64 %86
+  %88 = load i32, ptr %87, align 4, !tbaa !37
+  %89 = sext i32 %88 to i64
+  %90 = icmp slt i64 %indvars.iv.next96, %89
+  br i1 %90, label %.lr.ph87, label %.critedge.loopexit, !llvm.loop !61
 
 .critedge.loopexit:                               ; preds = %Gia_AigerWriteInt.exit75
-  %89 = trunc nsw i64 %indvars.iv.next94 to i32
+  %91 = trunc nsw i64 %indvars.iv.next94 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Gia_AigerWriteInt.exit71.preheader, %36
-  %.2 = phi i32 [ %.090, %36 ], [ %63, %Gia_AigerWriteInt.exit71.preheader ], [ %89, %.critedge.loopexit ]
+  %.2 = phi i32 [ %.090, %36 ], [ %63, %Gia_AigerWriteInt.exit71.preheader ], [ %91, %.critedge.loopexit ]
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
   br i1 %exitcond104.not, label %Gia_AigerWriteInt.exit63._crit_edge, label %36, !llvm.loop !62
 
 Gia_AigerWriteInt.exit63._crit_edge:              ; preds = %.critedge, %Gia_AigerWriteInt.exit63.preheader
-  %90 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  store i32 %.042.lcssa, ptr %91, align 4, !tbaa !45
-  store i32 %.042.lcssa, ptr %90, align 8, !tbaa !47
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store ptr %20, ptr %92, align 8, !tbaa !48
-  ret ptr %90
+  %92 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  store i32 %.042.lcssa, ptr %93, align 4, !tbaa !45
+  store i32 %.042.lcssa, ptr %92, align 8, !tbaa !47
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store ptr %20, ptr %94, align 8, !tbaa !48
+  ret ptr %92
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

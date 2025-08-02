@@ -171,172 +171,175 @@ define hidden range(i32 -2147483647, -2147483648) i32 @av1_get_palette_cache(ptr
   %36 = shl nsw i32 %1, 3
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 102
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 102
-  %invariant.gep = getelementptr i8, ptr %2, i64 -2
   %39 = icmp ne i32 %.049, 0
   %40 = icmp ne i32 %.050, 0
   %41 = select i1 %39, i1 %40, i1 false
   br i1 %41, label %.lr.ph, label %.preheader78
 
-.preheader78:                                     ; preds = %78, %35
-  %.073.lcssa = phi i32 [ 0, %35 ], [ %.174, %78 ]
-  %.057.lcssa = phi i32 [ %36, %35 ], [ %.158, %78 ]
-  %.054.lcssa = phi i32 [ %36, %35 ], [ %.155, %78 ]
-  %.151.lcssa = phi i32 [ %.050, %35 ], [ %.252, %78 ]
-  %.1.lcssa = phi i32 [ %.049, %35 ], [ %.2, %78 ]
+.preheader78:                                     ; preds = %82, %35
+  %.073.lcssa = phi i32 [ 0, %35 ], [ %.174, %82 ]
+  %.057.lcssa = phi i32 [ %36, %35 ], [ %.158, %82 ]
+  %.054.lcssa = phi i32 [ %36, %35 ], [ %.155, %82 ]
+  %.151.lcssa = phi i32 [ %.050, %35 ], [ %.252, %82 ]
+  %.1.lcssa = phi i32 [ %.049, %35 ], [ %.2, %82 ]
   %42 = icmp sgt i32 %.1.lcssa, 0
-  br i1 %42, label %.lr.ph95.preheader, label %.preheader
+  br i1 %42, label %.lr.ph91.preheader, label %.preheader
 
-.lr.ph95.preheader:                               ; preds = %.preheader78
+.lr.ph91.preheader:                               ; preds = %.preheader78
   %43 = sext i32 %.054.lcssa to i64
-  br label %.lr.ph95
+  br label %.lr.ph91
 
-.lr.ph:                                           ; preds = %35, %78
-  %.185 = phi i32 [ %.2, %78 ], [ %.049, %35 ]
-  %.15184 = phi i32 [ %.252, %78 ], [ %.050, %35 ]
-  %.05483 = phi i32 [ %.155, %78 ], [ %36, %35 ]
-  %.05782 = phi i32 [ %.158, %78 ], [ %36, %35 ]
-  %.07381 = phi i32 [ %.174, %78 ], [ 0, %35 ]
-  %44 = sext i32 %.05483 to i64
+.lr.ph:                                           ; preds = %35, %82
+  %.183 = phi i32 [ %.2, %82 ], [ %.049, %35 ]
+  %.15182 = phi i32 [ %.252, %82 ], [ %.050, %35 ]
+  %.05481 = phi i32 [ %.155, %82 ], [ %36, %35 ]
+  %.05780 = phi i32 [ %.158, %82 ], [ %36, %35 ]
+  %.07379 = phi i32 [ %.174, %82 ], [ 0, %35 ]
+  %44 = sext i32 %.05481 to i64
   %45 = getelementptr inbounds i16, ptr %37, i64 %44
   %46 = load i16, ptr %45, align 2
-  %47 = sext i32 %.05782 to i64
+  %47 = sext i32 %.05780 to i64
   %48 = getelementptr inbounds i16, ptr %38, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = icmp ult i16 %49, %46
-  %51 = icmp sgt i32 %.07381, 0
-  br i1 %50, label %52, label %63
+  %51 = icmp sgt i32 %.07379, 0
+  br i1 %50, label %52, label %65
 
 52:                                               ; preds = %.lr.ph
-  br i1 %51, label %53, label %57
+  br i1 %51, label %53, label %59
 
 53:                                               ; preds = %52
-  %54 = zext nneg i32 %.07381 to i64
-  %gep80 = getelementptr i16, ptr %invariant.gep, i64 %54
-  %55 = load i16, ptr %gep80, align 2
-  %56 = icmp eq i16 %49, %55
-  br i1 %56, label %palette_add_to_cache.exit, label %57
+  %54 = zext nneg i32 %.07379 to i64
+  %55 = getelementptr i16, ptr %2, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 -2
+  %57 = load i16, ptr %56, align 2
+  %58 = icmp eq i16 %49, %57
+  br i1 %58, label %palette_add_to_cache.exit, label %59
 
-57:                                               ; preds = %53, %52
-  %58 = add nsw i32 %.07381, 1
-  %59 = sext i32 %.07381 to i64
-  %60 = getelementptr inbounds i16, ptr %2, i64 %59
-  store i16 %49, ptr %60, align 2
+59:                                               ; preds = %53, %52
+  %60 = add nsw i32 %.07379, 1
+  %61 = sext i32 %.07379 to i64
+  %62 = getelementptr inbounds i16, ptr %2, i64 %61
+  store i16 %49, ptr %62, align 2
   br label %palette_add_to_cache.exit
 
-palette_add_to_cache.exit:                        ; preds = %53, %57
-  %.4 = phi i32 [ %.07381, %53 ], [ %58, %57 ]
-  %61 = add nsw i32 %.05782, 1
-  %62 = add nsw i32 %.15184, -1
-  br label %78
+palette_add_to_cache.exit:                        ; preds = %53, %59
+  %.4 = phi i32 [ %.07379, %53 ], [ %60, %59 ]
+  %63 = add nsw i32 %.05780, 1
+  %64 = add nsw i32 %.15182, -1
+  br label %82
 
-63:                                               ; preds = %.lr.ph
-  br i1 %51, label %64, label %68
+65:                                               ; preds = %.lr.ph
+  br i1 %51, label %66, label %72
 
-64:                                               ; preds = %63
-  %65 = zext nneg i32 %.07381 to i64
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %65
-  %66 = load i16, ptr %gep, align 2
-  %67 = icmp eq i16 %46, %66
-  br i1 %67, label %palette_add_to_cache.exit66, label %68
+66:                                               ; preds = %65
+  %67 = zext nneg i32 %.07379 to i64
+  %68 = getelementptr i16, ptr %2, i64 %67
+  %69 = getelementptr i8, ptr %68, i64 -2
+  %70 = load i16, ptr %69, align 2
+  %71 = icmp eq i16 %46, %70
+  br i1 %71, label %palette_add_to_cache.exit66, label %72
 
-68:                                               ; preds = %64, %63
-  %69 = add nsw i32 %.07381, 1
-  %70 = sext i32 %.07381 to i64
-  %71 = getelementptr inbounds i16, ptr %2, i64 %70
-  store i16 %46, ptr %71, align 2
+72:                                               ; preds = %66, %65
+  %73 = add nsw i32 %.07379, 1
+  %74 = sext i32 %.07379 to i64
+  %75 = getelementptr inbounds i16, ptr %2, i64 %74
+  store i16 %46, ptr %75, align 2
   br label %palette_add_to_cache.exit66
 
-palette_add_to_cache.exit66:                      ; preds = %64, %68
-  %.5 = phi i32 [ %.07381, %64 ], [ %69, %68 ]
-  %72 = add nsw i32 %.05483, 1
-  %73 = add nsw i32 %.185, -1
-  %74 = icmp eq i16 %49, %46
-  br i1 %74, label %75, label %78
+palette_add_to_cache.exit66:                      ; preds = %66, %72
+  %.5 = phi i32 [ %.07379, %66 ], [ %73, %72 ]
+  %76 = add nsw i32 %.05481, 1
+  %77 = add nsw i32 %.183, -1
+  %78 = icmp eq i16 %49, %46
+  br i1 %78, label %79, label %82
 
-75:                                               ; preds = %palette_add_to_cache.exit66
-  %76 = add nsw i32 %.05782, 1
-  %77 = add nsw i32 %.15184, -1
-  br label %78
+79:                                               ; preds = %palette_add_to_cache.exit66
+  %80 = add nsw i32 %.05780, 1
+  %81 = add nsw i32 %.15182, -1
+  br label %82
 
-78:                                               ; preds = %palette_add_to_cache.exit66, %75, %palette_add_to_cache.exit
-  %.174 = phi i32 [ %.4, %palette_add_to_cache.exit ], [ %.5, %75 ], [ %.5, %palette_add_to_cache.exit66 ]
-  %.158 = phi i32 [ %61, %palette_add_to_cache.exit ], [ %76, %75 ], [ %.05782, %palette_add_to_cache.exit66 ]
-  %.155 = phi i32 [ %.05483, %palette_add_to_cache.exit ], [ %72, %75 ], [ %72, %palette_add_to_cache.exit66 ]
-  %.252 = phi i32 [ %62, %palette_add_to_cache.exit ], [ %77, %75 ], [ %.15184, %palette_add_to_cache.exit66 ]
-  %.2 = phi i32 [ %.185, %palette_add_to_cache.exit ], [ %73, %75 ], [ %73, %palette_add_to_cache.exit66 ]
-  %79 = icmp ne i32 %.2, 0
-  %80 = icmp ne i32 %.252, 0
-  %81 = select i1 %79, i1 %80, i1 false
-  br i1 %81, label %.lr.ph, label %.preheader78, !llvm.loop !4
+82:                                               ; preds = %palette_add_to_cache.exit66, %79, %palette_add_to_cache.exit
+  %.174 = phi i32 [ %.4, %palette_add_to_cache.exit ], [ %.5, %79 ], [ %.5, %palette_add_to_cache.exit66 ]
+  %.158 = phi i32 [ %63, %palette_add_to_cache.exit ], [ %80, %79 ], [ %.05780, %palette_add_to_cache.exit66 ]
+  %.155 = phi i32 [ %.05481, %palette_add_to_cache.exit ], [ %76, %79 ], [ %76, %palette_add_to_cache.exit66 ]
+  %.252 = phi i32 [ %64, %palette_add_to_cache.exit ], [ %81, %79 ], [ %.15182, %palette_add_to_cache.exit66 ]
+  %.2 = phi i32 [ %.183, %palette_add_to_cache.exit ], [ %77, %79 ], [ %77, %palette_add_to_cache.exit66 ]
+  %83 = icmp ne i32 %.2, 0
+  %84 = icmp ne i32 %.252, 0
+  %85 = select i1 %83, i1 %84, i1 false
+  br i1 %85, label %.lr.ph, label %.preheader78, !llvm.loop !4
 
 .preheader:                                       ; preds = %palette_add_to_cache.exit67, %.preheader78
   %.275.lcssa = phi i32 [ %.073.lcssa, %.preheader78 ], [ %.6, %palette_add_to_cache.exit67 ]
-  %82 = icmp sgt i32 %.151.lcssa, 0
-  br i1 %82, label %.lr.ph102.preheader, label %.loopexit
+  %86 = icmp sgt i32 %.151.lcssa, 0
+  br i1 %86, label %.lr.ph96.preheader, label %.loopexit
 
-.lr.ph102.preheader:                              ; preds = %.preheader
-  %83 = sext i32 %.057.lcssa to i64
-  br label %.lr.ph102
+.lr.ph96.preheader:                               ; preds = %.preheader
+  %87 = sext i32 %.057.lcssa to i64
+  br label %.lr.ph96
 
-.lr.ph95:                                         ; preds = %.lr.ph95.preheader, %palette_add_to_cache.exit67
-  %indvars.iv = phi i64 [ %43, %.lr.ph95.preheader ], [ %indvars.iv.next, %palette_add_to_cache.exit67 ]
-  %.394 = phi i32 [ %.1.lcssa, %.lr.ph95.preheader ], [ %84, %palette_add_to_cache.exit67 ]
-  %.27592 = phi i32 [ %.073.lcssa, %.lr.ph95.preheader ], [ %.6, %palette_add_to_cache.exit67 ]
-  %84 = add nsw i32 %.394, -1
+.lr.ph91:                                         ; preds = %.lr.ph91.preheader, %palette_add_to_cache.exit67
+  %indvars.iv = phi i64 [ %43, %.lr.ph91.preheader ], [ %indvars.iv.next, %palette_add_to_cache.exit67 ]
+  %.390 = phi i32 [ %.1.lcssa, %.lr.ph91.preheader ], [ %88, %palette_add_to_cache.exit67 ]
+  %.27588 = phi i32 [ %.073.lcssa, %.lr.ph91.preheader ], [ %.6, %palette_add_to_cache.exit67 ]
+  %88 = add nsw i32 %.390, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %85 = getelementptr inbounds i16, ptr %37, i64 %indvars.iv
-  %86 = load i16, ptr %85, align 2
-  %87 = icmp sgt i32 %.27592, 0
-  br i1 %87, label %88, label %92
+  %89 = getelementptr inbounds i16, ptr %37, i64 %indvars.iv
+  %90 = load i16, ptr %89, align 2
+  %91 = icmp sgt i32 %.27588, 0
+  br i1 %91, label %92, label %98
 
-88:                                               ; preds = %.lr.ph95
-  %89 = zext nneg i32 %.27592 to i64
-  %gep91 = getelementptr i16, ptr %invariant.gep, i64 %89
-  %90 = load i16, ptr %gep91, align 2
-  %91 = icmp eq i16 %86, %90
-  br i1 %91, label %palette_add_to_cache.exit67, label %92
+92:                                               ; preds = %.lr.ph91
+  %93 = zext nneg i32 %.27588 to i64
+  %94 = getelementptr i16, ptr %2, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 -2
+  %96 = load i16, ptr %95, align 2
+  %97 = icmp eq i16 %90, %96
+  br i1 %97, label %palette_add_to_cache.exit67, label %98
 
-92:                                               ; preds = %88, %.lr.ph95
-  %93 = add nsw i32 %.27592, 1
-  %94 = sext i32 %.27592 to i64
-  %95 = getelementptr inbounds i16, ptr %2, i64 %94
-  store i16 %86, ptr %95, align 2
+98:                                               ; preds = %92, %.lr.ph91
+  %99 = add nsw i32 %.27588, 1
+  %100 = sext i32 %.27588 to i64
+  %101 = getelementptr inbounds i16, ptr %2, i64 %100
+  store i16 %90, ptr %101, align 2
   br label %palette_add_to_cache.exit67
 
-palette_add_to_cache.exit67:                      ; preds = %88, %92
-  %.6 = phi i32 [ %.27592, %88 ], [ %93, %92 ]
-  %96 = icmp samesign ugt i32 %.394, 1
-  br i1 %96, label %.lr.ph95, label %.preheader, !llvm.loop !6
+palette_add_to_cache.exit67:                      ; preds = %92, %98
+  %.6 = phi i32 [ %.27588, %92 ], [ %99, %98 ]
+  %102 = icmp samesign ugt i32 %.390, 1
+  br i1 %102, label %.lr.ph91, label %.preheader, !llvm.loop !6
 
-.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %palette_add_to_cache.exit68
-  %indvars.iv105 = phi i64 [ %83, %.lr.ph102.preheader ], [ %indvars.iv.next106, %palette_add_to_cache.exit68 ]
-  %.353101 = phi i32 [ %.151.lcssa, %.lr.ph102.preheader ], [ %97, %palette_add_to_cache.exit68 ]
-  %.37699 = phi i32 [ %.275.lcssa, %.lr.ph102.preheader ], [ %.7, %palette_add_to_cache.exit68 ]
-  %97 = add nsw i32 %.353101, -1
-  %indvars.iv.next106 = add nsw i64 %indvars.iv105, 1
-  %98 = getelementptr inbounds i16, ptr %38, i64 %indvars.iv105
-  %99 = load i16, ptr %98, align 2
-  %100 = icmp sgt i32 %.37699, 0
-  br i1 %100, label %101, label %105
+.lr.ph96:                                         ; preds = %.lr.ph96.preheader, %palette_add_to_cache.exit68
+  %indvars.iv99 = phi i64 [ %87, %.lr.ph96.preheader ], [ %indvars.iv.next100, %palette_add_to_cache.exit68 ]
+  %.35395 = phi i32 [ %.151.lcssa, %.lr.ph96.preheader ], [ %103, %palette_add_to_cache.exit68 ]
+  %.37693 = phi i32 [ %.275.lcssa, %.lr.ph96.preheader ], [ %.7, %palette_add_to_cache.exit68 ]
+  %103 = add nsw i32 %.35395, -1
+  %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
+  %104 = getelementptr inbounds i16, ptr %38, i64 %indvars.iv99
+  %105 = load i16, ptr %104, align 2
+  %106 = icmp sgt i32 %.37693, 0
+  br i1 %106, label %107, label %113
 
-101:                                              ; preds = %.lr.ph102
-  %102 = zext nneg i32 %.37699 to i64
-  %gep98 = getelementptr i16, ptr %invariant.gep, i64 %102
-  %103 = load i16, ptr %gep98, align 2
-  %104 = icmp eq i16 %99, %103
-  br i1 %104, label %palette_add_to_cache.exit68, label %105
+107:                                              ; preds = %.lr.ph96
+  %108 = zext nneg i32 %.37693 to i64
+  %109 = getelementptr i16, ptr %2, i64 %108
+  %110 = getelementptr i8, ptr %109, i64 -2
+  %111 = load i16, ptr %110, align 2
+  %112 = icmp eq i16 %105, %111
+  br i1 %112, label %palette_add_to_cache.exit68, label %113
 
-105:                                              ; preds = %101, %.lr.ph102
-  %106 = add nsw i32 %.37699, 1
-  %107 = sext i32 %.37699 to i64
-  %108 = getelementptr inbounds i16, ptr %2, i64 %107
-  store i16 %99, ptr %108, align 2
+113:                                              ; preds = %107, %.lr.ph96
+  %114 = add nsw i32 %.37693, 1
+  %115 = sext i32 %.37693 to i64
+  %116 = getelementptr inbounds i16, ptr %2, i64 %115
+  store i16 %105, ptr %116, align 2
   br label %palette_add_to_cache.exit68
 
-palette_add_to_cache.exit68:                      ; preds = %101, %105
-  %.7 = phi i32 [ %.37699, %101 ], [ %106, %105 ]
-  %109 = icmp samesign ugt i32 %.353101, 1
-  br i1 %109, label %.lr.ph102, label %.loopexit, !llvm.loop !7
+palette_add_to_cache.exit68:                      ; preds = %107, %113
+  %.7 = phi i32 [ %.37693, %107 ], [ %114, %113 ]
+  %117 = icmp samesign ugt i32 %.35395, 1
+  br i1 %117, label %.lr.ph96, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %palette_add_to_cache.exit68, %.preheader, %32
   %.0 = phi i32 [ 0, %32 ], [ %.275.lcssa, %.preheader ], [ %.7, %palette_add_to_cache.exit68 ]

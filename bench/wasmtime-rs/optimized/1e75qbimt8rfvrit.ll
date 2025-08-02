@@ -183,12 +183,12 @@ define range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT
 .split.us:                                        ; preds = %4, %15
   %.sroa.0.0.us = phi i64 [ %13, %15 ], [ 0, %4 ]
   %.not.us = icmp ult i64 %.sroa.0.0.us, %5
-  br i1 %.not.us, label %12, label %.split24.us
+  br i1 %.not.us, label %12, label %.critedge
 
 12:                                               ; preds = %.split.us
   %13 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.0.0.us, i64 1)
   %14 = icmp ult i64 %.sroa.0.0.us, %8
-  br i1 %14, label %15, label %.split26.us, !prof !5
+  br i1 %14, label %15, label %.split22.us, !prof !5
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %7, i64 0, i64 %.sroa.0.0.us
@@ -198,34 +198,34 @@ define range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT
   br i1 %19, label %.split.us, label %.loopexit, !llvm.loop !7
 
 .split:                                           ; preds = %4, %27
-  %.sroa.0.0 = phi i64 [ %22, %27 ], [ 0, %4 ]
+  %.sroa.0.0 = phi i64 [ %21, %27 ], [ 0, %4 ]
   %.not = icmp ult i64 %.sroa.0.0, %5
-  br i1 %.not, label %21, label %.split24.us
+  br i1 %.not, label %20, label %.critedge
 
-.split24.us:                                      ; preds = %.split, %.split.us
-  %20 = icmp ult i64 %1, %3
-  br i1 %20, label %.loopexit, label %24
+20:                                               ; preds = %.split
+  %21 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.0.0, i64 1)
+  %22 = icmp ult i64 %.sroa.0.0, %8
+  br i1 %22, label %.check, label %.split22.us, !prof !5
 
-21:                                               ; preds = %.split
-  %22 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.0.0, i64 1)
-  %23 = icmp ult i64 %.sroa.0.0, %8
-  br i1 %23, label %.check, label %.split26.us, !prof !5
+.critedge:                                        ; preds = %.split, %.split.us
+  %23 = icmp ult i64 %1, %3
+  br i1 %23, label %.loopexit, label %24
 
-24:                                               ; preds = %.split24.us
+24:                                               ; preds = %.critedge
   %25 = icmp ne i64 %1, %3
   %. = zext i1 %25 to i8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %15, %.split24.us, %24
-  %.0 = phi i8 [ %., %24 ], [ -1, %.split24.us ], [ %18, %15 ], [ %30, %27 ]
+.loopexit:                                        ; preds = %27, %15, %.critedge, %24
+  %.0 = phi i8 [ %., %24 ], [ -1, %.critedge ], [ %18, %15 ], [ %30, %27 ]
   ret i8 %.0
 
-.check:                                           ; preds = %21
+.check:                                           ; preds = %20
   %26 = icmp ult i64 %.sroa.0.0, %11
   br i1 %26, label %27, label %32
 
-.split26.us:                                      ; preds = %21, %12
-  %.us-phi = phi i64 [ %.sroa.0.0.us, %12 ], [ %.sroa.0.0, %21 ]
+.split22.us:                                      ; preds = %20, %12
+  %.us-phi = phi i64 [ %.sroa.0.0.us, %12 ], [ %.sroa.0.0, %20 ]
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.us-phi, i64 %8, ptr nonnull align 8 @anon.33b25492035a4f28ee4f431f35b667fb.8) #10
   unreachable
 
@@ -321,23 +321,23 @@ define void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c0dd9d75a0ecb90E"(ptr align 8 %0, i64 %1, ptr align 8 %2, i64 %3) unnamed_addr #0 {
   %.not = icmp eq i64 %1, %3
-  br i1 %.not, label %.preheader.split, label %.loopexit
+  br i1 %.not, label %.preheader.split, label %.critedge
 
 .preheader.split:                                 ; preds = %4, %5
   %.sroa.01.0 = phi i64 [ %6, %5 ], [ 0, %4 ]
   %.not6.not.not = icmp uge i64 %.sroa.01.0, %1
-  br i1 %.not6.not.not, label %.loopexit, label %5
-
-.loopexit:                                        ; preds = %.preheader.split, %5, %4
-  %.0 = phi i1 [ false, %4 ], [ %.not6.not.not, %5 ], [ %.not6.not.not, %.preheader.split ]
-  ret i1 %.0
+  br i1 %.not6.not.not, label %.critedge, label %5
 
 5:                                                ; preds = %.preheader.split
   %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.01.0, i64 1)
   %7 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.sroa.01.0
   %8 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %2, i64 0, i64 %.sroa.01.0
   %9 = tail call zeroext i1 @"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb98cf542c1373edE"(ptr align 8 %7, ptr align 8 %8)
-  br i1 %9, label %.preheader.split, label %.loopexit
+  br i1 %9, label %.preheader.split, label %.critedge
+
+.critedge:                                        ; preds = %.preheader.split, %5, %4
+  %.0 = phi i1 [ false, %4 ], [ %.not6.not.not, %5 ], [ %.not6.not.not, %.preheader.split ]
+  ret i1 %.0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -12239,7 +12239,6 @@ _ZSt26__unguarded_insertion_sortIPPKN6google8protobuf7MapPairINSt7__cxx1112basic
 define linkonce_odr hidden void @_ZSt13__adjust_heapIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEElSD_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_SN_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
-  %invariant.gep = getelementptr i8, ptr %0, i64 8
   %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -12248,115 +12247,116 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPPKN6google8protobuf7MapPai
   %8 = shl i64 %.029, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds ptr, ptr %0, i64 %9
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %8
-  %11 = load ptr, ptr %10, align 8, !tbaa !154
-  %12 = load ptr, ptr %gep, align 8, !tbaa !154
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !53
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %11 = getelementptr ptr, ptr %0, i64 %8
+  %12 = getelementptr i8, ptr %11, i64 8
+  %13 = load ptr, ptr %10, align 8, !tbaa !154
+  %14 = load ptr, ptr %12, align 8, !tbaa !154
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !53
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %16, i64 %14)
-  %17 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
-  br i1 %17, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %18 = load i64, ptr %17, align 8, !tbaa !53
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %18, i64 %16)
+  %19 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
+  br i1 %19, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph
-  %18 = load ptr, ptr %12, align 8, !tbaa !123
-  %19 = load ptr, ptr %11, align 8, !tbaa !123
-  %20 = tail call i32 @memcmp(ptr noundef %19, ptr noundef %18, i64 noundef %.sroa.speculated.i.i.i.i) #30
-  %.not.i.i.i.i = icmp eq i32 %20, 0
+  %20 = load ptr, ptr %14, align 8, !tbaa !123
+  %21 = load ptr, ptr %13, align 8, !tbaa !123
+  %22 = tail call i32 @memcmp(ptr noundef %21, ptr noundef %20, i64 noundef %.sroa.speculated.i.i.i.i) #30
+  %.not.i.i.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SL_EEbT_T0_.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %.lr.ph
-  %21 = sub i64 %14, %16
-  %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %21, i64 -2147483648)
+  %23 = sub i64 %16, %18
+  %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %23, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
   %.0.i6.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SL_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SL_EEbT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i
-  %.0.i.i.i.i = phi i32 [ %20, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
-  %22 = icmp slt i32 %.0.i.i.i.i, 0
-  %23 = or disjoint i64 %8, 1
-  %spec.select = select i1 %22, i64 %23, i64 %9
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
-  %25 = load ptr, ptr %24, align 8, !tbaa !154
-  %26 = getelementptr inbounds ptr, ptr %0, i64 %.029
-  store ptr %25, ptr %26, align 8, !tbaa !154
-  %27 = icmp slt i64 %spec.select, %6
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !399
+  %.0.i.i.i.i = phi i32 [ %22, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
+  %24 = icmp slt i32 %.0.i.i.i.i, 0
+  %25 = or disjoint i64 %8, 1
+  %spec.select = select i1 %24, i64 %25, i64 %9
+  %26 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %27 = load ptr, ptr %26, align 8, !tbaa !154
+  %28 = getelementptr inbounds ptr, ptr %0, i64 %.029
+  store ptr %27, ptr %28, align 8, !tbaa !154
+  %29 = icmp slt i64 %spec.select, %6
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !399
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SL_EEbT_T0_.exit, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SL_EEbT_T0_.exit ]
-  %28 = and i64 %2, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %40
+  %30 = and i64 %2, 1
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %42
 
-30:                                               ; preds = %._crit_edge
-  %31 = add nsw i64 %2, -2
-  %32 = ashr exact i64 %31, 1
-  %33 = icmp eq i64 %.0.lcssa, %32
-  br i1 %33, label %34, label %40
+32:                                               ; preds = %._crit_edge
+  %33 = add nsw i64 %2, -2
+  %34 = ashr exact i64 %33, 1
+  %35 = icmp eq i64 %.0.lcssa, %34
+  br i1 %35, label %36, label %42
 
-34:                                               ; preds = %30
-  %35 = shl nsw i64 %.0.lcssa, 1
-  %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds ptr, ptr %0, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !154
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
-  store ptr %38, ptr %39, align 8, !tbaa !154
-  br label %40
+36:                                               ; preds = %32
+  %37 = shl nsw i64 %.0.lcssa, 1
+  %38 = or disjoint i64 %37, 1
+  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
+  %40 = load ptr, ptr %39, align 8, !tbaa !154
+  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  store ptr %40, ptr %41, align 8, !tbaa !154
+  br label %42
 
-40:                                               ; preds = %34, %30, %._crit_edge
-  %.128 = phi i64 [ %36, %34 ], [ %.0.lcssa, %30 ], [ %.0.lcssa, %._crit_edge ]
-  %41 = icmp sgt i64 %.128, %1
-  br i1 %41, label %.lr.ph.i, label %_ZSt11__push_heapIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEElSD_N9__gnu_cxx5__ops14_Iter_comp_valINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_SN_T1_RT2_.exit
+42:                                               ; preds = %36, %32, %._crit_edge
+  %.128 = phi i64 [ %38, %36 ], [ %.0.lcssa, %32 ], [ %.0.lcssa, %._crit_edge ]
+  %43 = icmp sgt i64 %.128, %1
+  br i1 %43, label %.lr.ph.i, label %_ZSt11__push_heapIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEElSD_N9__gnu_cxx5__ops14_Iter_comp_valINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_SN_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !53
-  br label %44
+.lr.ph.i:                                         ; preds = %42
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !53
+  br label %46
 
-44:                                               ; preds = %55, %.lr.ph.i
-  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.018.i, %55 ]
+46:                                               ; preds = %57, %.lr.ph.i
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.018.i, %57 ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %45 = getelementptr inbounds ptr, ptr %0, i64 %.018.i
-  %46 = load ptr, ptr %45, align 8, !tbaa !154
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !53
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %43, i64 %48)
-  %49 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
-  br i1 %49, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
+  %47 = getelementptr inbounds ptr, ptr %0, i64 %.018.i
+  %48 = load ptr, ptr %47, align 8, !tbaa !154
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load i64, ptr %49, align 8, !tbaa !53
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %45, i64 %50)
+  %51 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
+  br i1 %51, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %44
-  %50 = load ptr, ptr %3, align 8, !tbaa !123
-  %51 = load ptr, ptr %46, align 8, !tbaa !123
-  %52 = tail call i32 @memcmp(ptr noundef %51, ptr noundef %50, i64 noundef %.sroa.speculated.i.i.i.i.i) #30
-  %.not.i.i.i.i.i = icmp eq i32 %52, 0
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %46
+  %52 = load ptr, ptr %3, align 8, !tbaa !123
+  %53 = load ptr, ptr %48, align 8, !tbaa !123
+  %54 = tail call i32 @memcmp(ptr noundef %53, ptr noundef %52, i64 noundef %.sroa.speculated.i.i.i.i.i) #30
+  %.not.i.i.i.i.i = icmp eq i32 %54, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SH_EEbT_RT0_.exit.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %44
-  %53 = sub i64 %48, %43
-  %spec.select7.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %53, i64 -2147483648)
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %46
+  %55 = sub i64 %50, %45
+  %spec.select7.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %55, i64 -2147483648)
   %.08.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i, i64 2147483647)
   %.0.i6.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i to i32
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SH_EEbT_RT0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SH_EEbT_RT0_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
-  %.0.i.i.i.i.i = phi i32 [ %52, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i ]
-  %54 = icmp slt i32 %.0.i.i.i.i.i, 0
-  br i1 %54, label %55, label %_ZSt11__push_heapIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEElSD_N9__gnu_cxx5__ops14_Iter_comp_valINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_SN_T1_RT2_.exit
+  %.0.i.i.i.i.i = phi i32 [ %54, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i ]
+  %56 = icmp slt i32 %.0.i.i.i.i.i, 0
+  br i1 %56, label %57, label %_ZSt11__push_heapIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEElSD_N9__gnu_cxx5__ops14_Iter_comp_valINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_SN_T1_RT2_.exit
 
-55:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SH_EEbT_RT0_.exit.i
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i
-  store ptr %46, ptr %56, align 8, !tbaa !154
-  %57 = icmp sgt i64 %.018.i, %1
-  br i1 %57, label %44, label %_ZSt11__push_heapIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEElSD_N9__gnu_cxx5__ops14_Iter_comp_valINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_SN_T1_RT2_.exit, !llvm.loop !400
+57:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SH_EEbT_RT0_.exit.i
+  %58 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i
+  store ptr %48, ptr %58, align 8, !tbaa !154
+  %59 = icmp sgt i64 %.018.i, %1
+  br i1 %59, label %46, label %_ZSt11__push_heapIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEElSD_N9__gnu_cxx5__ops14_Iter_comp_valINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_SN_T1_RT2_.exit, !llvm.loop !400
 
-_ZSt11__push_heapIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEElSD_N9__gnu_cxx5__ops14_Iter_comp_valINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_SN_T1_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SH_EEbT_RT0_.exit.i, %55, %40
-  %.013.lcssa.i = phi i64 [ %.128, %40 ], [ %.01317.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SH_EEbT_RT0_.exit.i ], [ %.018.i, %55 ]
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %58, align 8, !tbaa !154
+_ZSt11__push_heapIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEElSD_N9__gnu_cxx5__ops14_Iter_comp_valINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_SN_T1_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SH_EEbT_RT0_.exit.i, %57, %42
+  %.013.lcssa.i = phi i64 [ %.128, %42 ], [ %.01317.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SH_EEbT_RT0_.exit.i ], [ %.018.i, %57 ]
+  %60 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %60, align 8, !tbaa !154
   ret void
 }
 
@@ -13268,7 +13268,6 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal16SpaceUsedI
   %5 = shl i64 %1, 3
   %6 = mul i64 %3, %2
   %7 = add i64 %6, %5
-  %invariant.gep = getelementptr i8, ptr %0, i64 8
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -13278,30 +13277,30 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal16SpaceUsedI
 
 .lr.ph:                                           ; preds = %4, %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.thread
   %.016 = phi i64 [ %.1, %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.thread ], [ %7, %4 ]
-  %.01415 = phi i64 [ %17, %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.thread ], [ 0, %4 ]
+  %.01415 = phi i64 [ %18, %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.thread ], [ 0, %4 ]
   %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01415
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.thread, label %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit
 
 _ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit: ; preds = %.lr.ph
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %.01415
-  %11 = load ptr, ptr %gep, align 8, !tbaa !25
-  %.not.i = icmp eq ptr %9, %11
-  br i1 %.not.i, label %12, label %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.thread
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %.not.i = icmp eq ptr %9, %12
+  br i1 %.not.i, label %13, label %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.thread
 
-12:                                               ; preds = %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %14 = load i64, ptr %13, align 8, !tbaa !283
-  %15 = mul i64 %14, 48
-  %16 = add i64 %15, %.016
+13:                                               ; preds = %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %15 = load i64, ptr %14, align 8, !tbaa !283
+  %16 = mul i64 %15, 48
+  %17 = add i64 %16, %.016
   br label %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.thread
 
-_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.thread: ; preds = %.lr.ph, %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit, %12
-  %.1 = phi i64 [ %16, %12 ], [ %.016, %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit ], [ %.016, %.lr.ph ]
-  %17 = add nuw i64 %.01415, 2
-  %18 = icmp ult i64 %17, %1
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !431
+_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.thread: ; preds = %.lr.ph, %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit, %13
+  %.1 = phi i64 [ %17, %13 ], [ %.016, %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit ], [ %.016, %.lr.ph ]
+  %18 = add nuw i64 %.01415, 2
+  %19 = icmp ult i64 %18, %1
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !431
 }
 
 declare noundef i64 @_ZN6google8protobuf8internal32StringSpaceUsedExcludingSelfLongERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0

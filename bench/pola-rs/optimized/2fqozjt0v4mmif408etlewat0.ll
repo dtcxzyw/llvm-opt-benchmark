@@ -24817,8 +24817,8 @@ define internal fastcc void @_ZN11polars_core13chunked_array6binary17fill_bytes_
   %60 = load i32, ptr %59, align 4, !alias.scope !2102, !noalias !2107, !noundef !6
   %61 = zext i32 %60 to i64
   %.idx.i.i.i.i = mul nuw nsw i64 %57, 24
-  %62 = getelementptr i8, ptr %50, i64 24
-  %63 = getelementptr i8, ptr %62, i64 %.idx.i.i.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx.i.i.i.i
   %64 = load ptr, ptr %63, align 8, !alias.scope !2108, !noalias !2111, !noundef !6
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 %61
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17h5aa18966bfeb0b4eE.exit.i.i"
@@ -24922,8 +24922,8 @@ define internal fastcc void @_ZN11polars_core13chunked_array6binary17fill_bytes_
   %108 = load i32, ptr %107, align 4, !alias.scope !2119, !noalias !2124, !noundef !6
   %109 = zext i32 %108 to i64
   %.idx.i.i.i = mul nuw nsw i64 %105, 24
-  %110 = getelementptr i8, ptr %94, i64 24
-  %111 = getelementptr i8, ptr %110, i64 %.idx.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx.i.i.i
   %112 = load ptr, ptr %111, align 8, !alias.scope !2125, !noalias !2128, !noundef !6
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 %109
   %.sroa.3.0.i.i.i.i = zext i32 %97 to i64

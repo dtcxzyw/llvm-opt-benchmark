@@ -42,7 +42,7 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   %15 = load i32, ptr %6, align 8
   %16 = and i32 %15, 32
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %.thread117
+  br i1 %.not, label %17, label %.critedge116
 
 17:                                               ; preds = %14
   %18 = and i32 %15, 512
@@ -51,18 +51,18 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
 
 19:                                               ; preds = %17
   call fastcc void @_bind_ldom(i32 noundef %2, ptr noundef nonnull %0)
-  br label %.thread117
+  br label %.critedge116
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %22 = load ptr, ptr %21, align 8
   %.not96 = icmp eq ptr %22, null
-  br i1 %.not96, label %.thread117, label %.preheader
+  br i1 %.not96, label %.critedge116, label %.preheader
 
 .preheader:                                       ; preds = %20
   %23 = load i8, ptr %22, align 1
-  %.not97122 = icmp eq i8 %23, 0
-  br i1 %.not97122, label %.thread117, label %.lr.ph
+  %.not97121 = icmp eq i8 %23, 0
+  br i1 %.not97121, label %.critedge116, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %24 = add i32 %2, 1
@@ -70,50 +70,50 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
 
 25:                                               ; preds = %.lr.ph, %28
   %26 = phi i8 [ %23, %.lr.ph ], [ %32, %28 ]
-  %.075124 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %28 ]
-  %.080123 = phi ptr [ %22, %.lr.ph ], [ %31, %28 ]
-  %27 = icmp eq i32 %.075124, %24
+  %.075123 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %28 ]
+  %.080122 = phi ptr [ %22, %.lr.ph ], [ %31, %28 ]
+  %27 = icmp eq i32 %.075123, %24
   br i1 %27, label %.loopexit.preheader, label %28
 
 28:                                               ; preds = %25
   %29 = icmp eq i8 %26, 44
   %30 = zext i1 %29 to i32
-  %spec.select = add nuw nsw i32 %.075124, %30
-  %31 = getelementptr inbounds nuw i8, ptr %.080123, i64 1
+  %spec.select = add nuw nsw i32 %.075123, %30
+  %31 = getelementptr inbounds nuw i8, ptr %.080122, i64 1
   %32 = load i8, ptr %31, align 1
   %.not97 = icmp eq i8 %32, 0
   br i1 %.not97, label %._crit_edge, label %25, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %28
   %33 = urem i32 %2, %spec.select
-  %.not152 = icmp eq i32 %33, 0
-  br i1 %.not152, label %._crit_edge129, label %.lr.ph128
+  %.not151 = icmp eq i32 %33, 0
+  br i1 %.not151, label %._crit_edge128, label %.lr.ph127
 
-.lr.ph128:                                        ; preds = %._crit_edge, %.lr.ph128
-  %34 = phi i8 [ %38, %.lr.ph128 ], [ %23, %._crit_edge ]
-  %.077126 = phi i32 [ %spec.select114, %.lr.ph128 ], [ %33, %._crit_edge ]
-  %.181125 = phi ptr [ %37, %.lr.ph128 ], [ %22, %._crit_edge ]
+.lr.ph127:                                        ; preds = %._crit_edge, %.lr.ph127
+  %34 = phi i8 [ %38, %.lr.ph127 ], [ %23, %._crit_edge ]
+  %.077125 = phi i32 [ %spec.select114, %.lr.ph127 ], [ %33, %._crit_edge ]
+  %.181124 = phi ptr [ %37, %.lr.ph127 ], [ %22, %._crit_edge ]
   %35 = icmp eq i8 %34, 44
   %36 = sext i1 %35 to i32
-  %spec.select114 = add nsw i32 %.077126, %36
-  %37 = getelementptr inbounds nuw i8, ptr %.181125, i64 1
+  %spec.select114 = add nsw i32 %.077125, %36
+  %37 = getelementptr inbounds nuw i8, ptr %.181124, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = icmp ne i8 %38, 0
   %40 = icmp ne i32 %spec.select114, 0
   %41 = select i1 %39, i1 %40, i1 false
-  br i1 %41, label %.lr.ph128, label %._crit_edge129.loopexit, !llvm.loop !11
+  br i1 %41, label %.lr.ph127, label %._crit_edge128.loopexit, !llvm.loop !11
 
-._crit_edge129.loopexit:                          ; preds = %.lr.ph128
+._crit_edge128.loopexit:                          ; preds = %.lr.ph127
   %42 = icmp eq i8 %38, 0
-  br label %._crit_edge129
+  br label %._crit_edge128
 
-._crit_edge129:                                   ; preds = %._crit_edge129.loopexit, %._crit_edge
-  %.181.lcssa = phi ptr [ %22, %._crit_edge ], [ %37, %._crit_edge129.loopexit ]
-  %.lcssa = phi i1 [ false, %._crit_edge ], [ %42, %._crit_edge129.loopexit ]
-  br i1 %.lcssa, label %.thread117, label %.loopexit.preheader
+._crit_edge128:                                   ; preds = %._crit_edge128.loopexit, %._crit_edge
+  %.181.lcssa = phi ptr [ %22, %._crit_edge ], [ %37, %._crit_edge128.loopexit ]
+  %.lcssa = phi i1 [ false, %._crit_edge ], [ %42, %._crit_edge128.loopexit ]
+  br i1 %.lcssa, label %.critedge116, label %.loopexit.preheader
 
-.loopexit.preheader:                              ; preds = %25, %._crit_edge129
-  %.288.ph = phi ptr [ %.181.lcssa, %._crit_edge129 ], [ %.080123, %25 ]
+.loopexit.preheader:                              ; preds = %25, %._crit_edge128
+  %.288.ph = phi ptr [ %.181.lcssa, %._crit_edge128 ], [ %.080122, %25 ]
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %45
@@ -146,11 +146,11 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
 50:                                               ; preds = %.critedge
   %51 = call i32 @task_str_to_cpuset(ptr noundef nonnull %0, ptr noundef nonnull %4) #7
   %52 = icmp slt i32 %51, 0
-  br i1 %52, label %53, label %.thread117
+  br i1 %52, label %53, label %.critedge116
 
 53:                                               ; preds = %50
   %54 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, ptr noundef nonnull %4) #7
-  br label %.thread117
+  br label %.critedge116
 
 55:                                               ; preds = %.critedge
   %56 = and i32 %15, 128
@@ -175,7 +175,7 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   %.084.in = phi i64 [ %62, %60 ], [ %64, %63 ]
   %66 = and i64 %.084.in, 4294967295
   %67 = icmp samesign ult i64 %66, 1024
-  br i1 %67, label %68, label %.thread117
+  br i1 %67, label %68, label %.critedge116
 
 68:                                               ; preds = %65
   %69 = and i64 %.084.in, 63
@@ -185,7 +185,7 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   %73 = load i64, ptr %72, align 8
   %74 = or i64 %73, %70
   store i64 %74, ptr %72, align 8
-  br label %.thread117
+  br label %.critedge116
 
 75:                                               ; preds = %55
   %76 = and i32 %15, 2048
@@ -204,31 +204,31 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   %.383.idx = select i1 %or.cond, i64 2, i64 0
   %.383.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond, i64 2, i64 0
   %.383.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %.383.idx.sroa.sel.idx.sroa.sel.idx
-  %.not107133.not = icmp sgt i64 %80, %.383.idx
-  br i1 %.not107133.not, label %.lr.ph137.preheader, label %.thread117
+  %.not107132.not = icmp sgt i64 %80, %.383.idx
+  br i1 %.not107132.not, label %.lr.ph136.preheader, label %.critedge116
 
-.lr.ph137.preheader:                              ; preds = %77
+.lr.ph136.preheader:                              ; preds = %77
   %82 = getelementptr i8, ptr %4, i64 %80
-  %.073132 = getelementptr i8, ptr %82, i64 -1
-  br label %.lr.ph137
+  %.073131 = getelementptr i8, ptr %82, i64 -1
+  br label %.lr.ph136
 
-.lr.ph137:                                        ; preds = %.lr.ph137.preheader, %101
-  %.073135 = phi ptr [ %.073, %101 ], [ %.073132, %.lr.ph137.preheader ]
-  %.071134 = phi i32 [ %102, %101 ], [ 0, %.lr.ph137.preheader ]
-  %83 = load i8, ptr %.073135, align 1
+.lr.ph136:                                        ; preds = %.lr.ph136.preheader, %101
+  %.073134 = phi ptr [ %.073, %101 ], [ %.073131, %.lr.ph136.preheader ]
+  %.071133 = phi i32 [ %102, %101 ], [ 0, %.lr.ph136.preheader ]
+  %83 = load i8, ptr %.073134, align 1
   %84 = sext i8 %83 to i32
   %85 = call i32 @slurm_char_to_hex(i32 noundef %84) #7
   %sext108.mask = and i32 %85, 255
   %.not113 = icmp eq i32 %sext108.mask, 255
-  br i1 %.not113, label %.thread117, label %86
+  br i1 %.not113, label %.critedge116, label %86
 
-86:                                               ; preds = %.lr.ph137
+86:                                               ; preds = %.lr.ph136
   %87 = and i32 %85, 1
   %.not109 = icmp eq i32 %87, 0
   br i1 %.not109, label %89, label %88
 
 88:                                               ; preds = %86
-  call fastcc void @_bind_ldom(i32 noundef %.071134, ptr noundef nonnull %0)
+  call fastcc void @_bind_ldom(i32 noundef %.071133, ptr noundef nonnull %0)
   br label %89
 
 89:                                               ; preds = %88, %86
@@ -237,7 +237,7 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   br i1 %.not110, label %93, label %91
 
 91:                                               ; preds = %89
-  %92 = or disjoint i32 %.071134, 1
+  %92 = or disjoint i32 %.071133, 1
   call fastcc void @_bind_ldom(i32 noundef %92, ptr noundef nonnull %0)
   br label %93
 
@@ -247,7 +247,7 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   br i1 %.not111, label %97, label %95
 
 95:                                               ; preds = %93
-  %96 = or disjoint i32 %.071134, 2
+  %96 = or disjoint i32 %.071133, 2
   call fastcc void @_bind_ldom(i32 noundef %96, ptr noundef nonnull %0)
   br label %97
 
@@ -257,20 +257,20 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   br i1 %.not112, label %101, label %99
 
 99:                                               ; preds = %97
-  %100 = or disjoint i32 %.071134, 3
+  %100 = or disjoint i32 %.071133, 3
   call fastcc void @_bind_ldom(i32 noundef %100, ptr noundef nonnull %0)
   br label %101
 
-101:                                              ; preds = %97, %99
-  %102 = add i32 %.071134, 4
-  %.073 = getelementptr inbounds i8, ptr %.073135, i64 -1
+101:                                              ; preds = %99, %97
+  %102 = add i32 %.071133, 4
+  %.073 = getelementptr inbounds i8, ptr %.073134, i64 -1
   %.not107 = icmp ult ptr %.073, %.383.idx.sroa.sel.idx.sroa.sel
-  br i1 %.not107, label %.thread117, label %.lr.ph137, !llvm.loop !13
+  br i1 %.not107, label %.critedge116, label %.lr.ph136, !llvm.loop !13
 
 103:                                              ; preds = %75
   %104 = and i32 %15, 1024
   %.not105 = icmp eq i32 %104, 0
-  br i1 %.not105, label %.thread117, label %105
+  br i1 %.not105, label %.critedge116, label %105
 
 105:                                              ; preds = %103
   %106 = call i32 @slurm_xstrncmp(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i64 noundef 2) #7
@@ -290,10 +290,10 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   %.0.in = phi i64 [ %110, %108 ], [ %112, %111 ]
   %.0 = trunc i64 %.0.in to i32
   call fastcc void @_bind_ldom(i32 noundef %.0, ptr noundef nonnull %0)
-  br label %.thread117
+  br label %.critedge116
 
-.thread117:                                       ; preds = %101, %.lr.ph137, %.preheader, %77, %103, %68, %65, %50, %._crit_edge129, %20, %14, %113, %53, %19
-  %.070 = phi i32 [ 1, %19 ], [ 0, %53 ], [ 1, %113 ], [ 0, %14 ], [ 0, %20 ], [ 0, %._crit_edge129 ], [ 1, %50 ], [ 1, %65 ], [ 1, %68 ], [ 0, %103 ], [ 1, %77 ], [ 0, %.preheader ], [ 1, %101 ], [ 0, %.lr.ph137 ]
+.critedge116:                                     ; preds = %.lr.ph136, %101, %.preheader, %77, %103, %68, %65, %50, %._crit_edge128, %20, %14, %113, %53, %19
+  %.070 = phi i32 [ 1, %19 ], [ 0, %53 ], [ 1, %113 ], [ 0, %14 ], [ 0, %20 ], [ 0, %._crit_edge128 ], [ 1, %50 ], [ 1, %65 ], [ 1, %68 ], [ 0, %103 ], [ 1, %77 ], [ 0, %.preheader ], [ 0, %.lr.ph136 ], [ 1, %101 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %4) #7
   ret i32 %.070

@@ -2374,8 +2374,8 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
 
 810:                                              ; preds = %.loopexit.i, %.lr.ph.i31
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.i31 ], [ %indvars.iv.next.i42, %.loopexit.i ]
-  %.0150299.i = phi i64 [ %798, %.lr.ph.i31 ], [ %.5155.i, %.loopexit.i ]
-  %.0160298.i = phi i32 [ %800, %.lr.ph.i31 ], [ %.5165.i, %.loopexit.i ]
+  %.0150285.i = phi i64 [ %798, %.lr.ph.i31 ], [ %.5155.i, %.loopexit.i ]
+  %.0160284.i = phi i32 [ %800, %.lr.ph.i31 ], [ %.5165.i, %.loopexit.i ]
   br i1 %.not.i32, label %814, label %811
 
 811:                                              ; preds = %810
@@ -2389,11 +2389,11 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   %817 = load ptr, ptr %816, align 8, !tbaa !35
   %818 = getelementptr inbounds nuw [10 x ptr], ptr %804, i64 0, i64 %indvars.iv.i33
   %819 = load ptr, ptr %818, align 8, !tbaa !35
-  %820 = icmp slt i32 %.0160298.i, 8
+  %820 = icmp slt i32 %.0160284.i, 8
   br i1 %820, label %821, label %827
 
 821:                                              ; preds = %814
-  %822 = call i32 @jpeg_fill_bit_buffer(ptr noundef nonnull %3, i64 noundef %.0150299.i, i32 noundef %.0160298.i, i32 noundef 0)
+  %822 = call i32 @jpeg_fill_bit_buffer(ptr noundef nonnull %3, i64 noundef %.0150285.i, i32 noundef %.0160284.i, i32 noundef 0)
   %.not232.i = icmp eq i32 %822, 0
   br i1 %.not232.i, label %decode_mcu_slow.exit.thread, label %823
 
@@ -2404,8 +2404,8 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   br i1 %826, label %840, label %827
 
 827:                                              ; preds = %823, %814
-  %.1161.i = phi i32 [ %825, %823 ], [ %.0160298.i, %814 ]
-  %.1151.i = phi i64 [ %824, %823 ], [ %.0150299.i, %814 ]
+  %.1161.i = phi i32 [ %825, %823 ], [ %.0160284.i, %814 ]
+  %.1151.i = phi i64 [ %824, %823 ], [ %.0150285.i, %814 ]
   %828 = add nsw i32 %.1161.i, -8
   %829 = zext nneg i32 %828 to i64
   %830 = lshr i64 %.1151.i, %829
@@ -2436,18 +2436,18 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   br label %846
 
 846:                                              ; preds = %843, %837
-  %.1194.ph.i = phi i32 [ %839, %837 ], [ %841, %843 ]
-  %.2162.ph.i = phi i32 [ %838, %837 ], [ %845, %843 ]
-  %.2152.ph.i = phi i64 [ %.1151.i, %837 ], [ %844, %843 ]
-  %.not233.i = icmp eq i32 %.1194.ph.i, 0
+  %.1194.i = phi i32 [ %841, %843 ], [ %839, %837 ]
+  %.2162.i = phi i32 [ %845, %843 ], [ %838, %837 ]
+  %.2152.i = phi i64 [ %844, %843 ], [ %.1151.i, %837 ]
+  %.not233.i = icmp eq i32 %.1194.i, 0
   br i1 %.not233.i, label %866, label %847
 
 847:                                              ; preds = %846
-  %848 = icmp slt i32 %.2162.ph.i, %.1194.ph.i
+  %848 = icmp slt i32 %.2162.i, %.1194.i
   br i1 %848, label %849, label %854
 
 849:                                              ; preds = %847
-  %850 = call i32 @jpeg_fill_bit_buffer(ptr noundef nonnull %3, i64 noundef %.2152.ph.i, i32 noundef %.2162.ph.i, i32 noundef %.1194.ph.i)
+  %850 = call i32 @jpeg_fill_bit_buffer(ptr noundef nonnull %3, i64 noundef %.2152.i, i32 noundef %.2162.i, i32 noundef %.1194.i)
   %.not234.i = icmp eq i32 %850, 0
   br i1 %.not234.i, label %decode_mcu_slow.exit.thread, label %851
 
@@ -2457,16 +2457,16 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   br label %854
 
 854:                                              ; preds = %851, %847
-  %.7167.i = phi i32 [ %853, %851 ], [ %.2162.ph.i, %847 ]
-  %.7157.i = phi i64 [ %852, %851 ], [ %.2152.ph.i, %847 ]
-  %855 = sub nsw i32 %.7167.i, %.1194.ph.i
+  %.7167.i = phi i32 [ %853, %851 ], [ %.2162.i, %847 ]
+  %.7157.i = phi i64 [ %852, %851 ], [ %.2152.i, %847 ]
+  %855 = sub nsw i32 %.7167.i, %.1194.i
   %856 = zext nneg i32 %855 to i64
   %857 = lshr i64 %.7157.i, %856
   %858 = trunc i64 %857 to i32
-  %notmask.i34 = shl nsw i32 -1, %.1194.ph.i
+  %notmask.i34 = shl nsw i32 -1, %.1194.i
   %859 = xor i32 %notmask.i34, -1
   %860 = and i32 %858, %859
-  %861 = add nsw i32 %.1194.ph.i, -1
+  %861 = add nsw i32 %.1194.i, -1
   %.neg.i35 = shl nsw i32 -1, %861
   %862 = add nsw i32 %860, %.neg.i35
   %863 = add nuw nsw i32 %notmask.i34, 1
@@ -2477,8 +2477,8 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
 
 866:                                              ; preds = %854, %846
   %.4197.i = phi i32 [ %865, %854 ], [ 0, %846 ]
-  %.6166.i = phi i32 [ %855, %854 ], [ %.2162.ph.i, %846 ]
-  %.6156.i = phi i64 [ %.7157.i, %854 ], [ %.2152.ph.i, %846 ]
+  %.6166.i = phi i32 [ %855, %854 ], [ %.2162.i, %846 ]
+  %.6156.i = phi i64 [ %.7157.i, %854 ], [ %.2152.i, %846 ]
   %867 = getelementptr inbounds nuw [10 x i32], ptr %807, i64 0, i64 %indvars.iv.i33
   %868 = load i32, ptr %867, align 4, !tbaa !43
   %.not235.i = icmp eq i32 %868, 0
@@ -2493,7 +2493,7 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   %875 = add nsw i32 %874, %.4197.i
   store i32 %875, ptr %873, align 4, !tbaa !43
   %.not236.i = icmp eq ptr %815, null
-  br i1 %.not236.i, label %.preheader279.i, label %876
+  br i1 %.not236.i, label %.preheader265.i, label %876
 
 876:                                              ; preds = %869
   %877 = trunc i32 %875 to i16
@@ -2506,9 +2506,9 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   %881 = icmp ne i32 %880, 0
   %882 = icmp ne ptr %815, null
   %or.cond.i37 = select i1 %881, i1 %882, i1 false
-  br i1 %or.cond.i37, label %.preheader.i44, label %.preheader279.i
+  br i1 %or.cond.i37, label %.preheader.i44, label %.preheader265.i
 
-.preheader279.i:                                  ; preds = %878, %869
+.preheader265.i:                                  ; preds = %878, %869
   %883 = getelementptr inbounds nuw i8, ptr %819, i64 296
   br label %946
 
@@ -2517,14 +2517,14 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   br label %885
 
 885:                                              ; preds = %943, %.preheader.i44
-  %.8158296.i = phi i64 [ %.6156.i, %.preheader.i44 ], [ %.14.i48, %943 ]
-  %.8168295.i = phi i32 [ %.6166.i, %.preheader.i44 ], [ %.14174.i, %943 ]
-  %.0189294.i = phi i32 [ 1, %.preheader.i44 ], [ %944, %943 ]
-  %886 = icmp slt i32 %.8168295.i, 8
+  %.8158282.i = phi i64 [ %.6156.i, %.preheader.i44 ], [ %.14.i48, %943 ]
+  %.8168281.i = phi i32 [ %.6166.i, %.preheader.i44 ], [ %.14174.i, %943 ]
+  %.0189280.i = phi i32 [ 1, %.preheader.i44 ], [ %944, %943 ]
+  %886 = icmp slt i32 %.8168281.i, 8
   br i1 %886, label %887, label %893
 
 887:                                              ; preds = %885
-  %888 = call i32 @jpeg_fill_bit_buffer(ptr noundef nonnull %3, i64 noundef %.8158296.i, i32 noundef %.8168295.i, i32 noundef 0)
+  %888 = call i32 @jpeg_fill_bit_buffer(ptr noundef nonnull %3, i64 noundef %.8158282.i, i32 noundef %.8168281.i, i32 noundef 0)
   %.not241.i = icmp eq i32 %888, 0
   br i1 %.not241.i, label %decode_mcu_slow.exit.thread, label %889
 
@@ -2535,8 +2535,8 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   br i1 %892, label %905, label %893
 
 893:                                              ; preds = %889, %885
-  %.9169.i = phi i32 [ %891, %889 ], [ %.8168295.i, %885 ]
-  %.9.i45 = phi i64 [ %890, %889 ], [ %.8158296.i, %885 ]
+  %.9169.i = phi i32 [ %891, %889 ], [ %.8168281.i, %885 ]
+  %.9.i45 = phi i64 [ %890, %889 ], [ %.8158282.i, %885 ]
   %894 = add nsw i32 %.9169.i, -8
   %895 = zext nneg i32 %894 to i64
   %896 = lshr i64 %.9.i45, %895
@@ -2575,7 +2575,7 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   br i1 %.not242.i, label %940, label %914
 
 914:                                              ; preds = %911
-  %915 = add nsw i32 %912, %.0189294.i
+  %915 = add nsw i32 %912, %.0189280.i
   %916 = icmp slt i32 %.10170.ph.i, %913
   br i1 %916, label %917, label %922
 
@@ -2620,7 +2620,7 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   br i1 %.not243.i, label %941, label %.loopexit.i
 
 941:                                              ; preds = %940
-  %942 = add nsw i32 %.0189294.i, 15
+  %942 = add nsw i32 %.0189280.i, 15
   br label %943
 
 943:                                              ; preds = %941, %922
@@ -2631,15 +2631,15 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   %945 = icmp slt i32 %.1190.i, 63
   br i1 %945, label %885, label %.loopexit.i, !llvm.loop !118
 
-946:                                              ; preds = %985, %.preheader279.i
-  %.16293.i = phi i64 [ %.6156.i, %.preheader279.i ], [ %.22.i41, %985 ]
-  %.16176292.i = phi i32 [ %.6166.i, %.preheader279.i ], [ %.22182.i, %985 ]
-  %.2191291.i = phi i32 [ 1, %.preheader279.i ], [ %986, %985 ]
-  %947 = icmp slt i32 %.16176292.i, 8
+946:                                              ; preds = %985, %.preheader265.i
+  %.16279.i = phi i64 [ %.6156.i, %.preheader265.i ], [ %.22.i41, %985 ]
+  %.16176278.i = phi i32 [ %.6166.i, %.preheader265.i ], [ %.22182.i, %985 ]
+  %.2191277.i = phi i32 [ 1, %.preheader265.i ], [ %986, %985 ]
+  %947 = icmp slt i32 %.16176278.i, 8
   br i1 %947, label %948, label %954
 
 948:                                              ; preds = %946
-  %949 = call i32 @jpeg_fill_bit_buffer(ptr noundef nonnull %3, i64 noundef %.16293.i, i32 noundef %.16176292.i, i32 noundef 0)
+  %949 = call i32 @jpeg_fill_bit_buffer(ptr noundef nonnull %3, i64 noundef %.16279.i, i32 noundef %.16176278.i, i32 noundef 0)
   %.not237.i = icmp eq i32 %949, 0
   br i1 %.not237.i, label %decode_mcu_slow.exit.thread, label %950
 
@@ -2650,8 +2650,8 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   br i1 %953, label %966, label %954
 
 954:                                              ; preds = %950, %946
-  %.17177.i = phi i32 [ %952, %950 ], [ %.16176292.i, %946 ]
-  %.17.i38 = phi i64 [ %951, %950 ], [ %.16293.i, %946 ]
+  %.17177.i = phi i32 [ %952, %950 ], [ %.16176278.i, %946 ]
+  %.17.i38 = phi i64 [ %951, %950 ], [ %.16279.i, %946 ]
   %955 = add nsw i32 %.17177.i, -8
   %956 = zext nneg i32 %955 to i64
   %957 = lshr i64 %.17.i38, %956
@@ -2716,7 +2716,7 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
 985:                                              ; preds = %984, %982
   %.22182.i = phi i32 [ %983, %982 ], [ %.18178.ph.i, %984 ]
   %.22.i41 = phi i64 [ %.21.i40, %982 ], [ %.18.ph.i, %984 ]
-  %.3192.i = add nsw i32 %.2191291.i, 1
+  %.3192.i = add nsw i32 %.2191277.i, 1
   %986 = add nsw i32 %.3192.i, %973
   %987 = icmp slt i32 %986, 64
   br i1 %987, label %946, label %.loopexit.i, !llvm.loop !119
@@ -2732,8 +2732,8 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
 
 ._crit_edge.loopexit.i43:                         ; preds = %.loopexit.i
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !57
-  %.pre307.i = load ptr, ptr %41, align 8, !tbaa !63
-  %.pre308.i = load i64, ptr %796, align 8, !tbaa !60
+  %.pre293.i = load ptr, ptr %41, align 8, !tbaa !63
+  %.pre294.i = load i64, ptr %796, align 8, !tbaa !60
   br label %decode_mcu_slow.exit
 
 decode_mcu_slow.exit.thread:                      ; preds = %849, %840, %821, %977, %966, %948, %917, %905, %887
@@ -2742,8 +2742,8 @@ decode_mcu_slow.exit.thread:                      ; preds = %849, %840, %821, %9
   br label %process_restart.exit
 
 decode_mcu_slow.exit:                             ; preds = %.thread54, %._crit_edge.loopexit.i43
-  %991 = phi i64 [ %44, %.thread54 ], [ %.pre308.i, %._crit_edge.loopexit.i43 ]
-  %992 = phi ptr [ %42, %.thread54 ], [ %.pre307.i, %._crit_edge.loopexit.i43 ]
+  %991 = phi i64 [ %44, %.thread54 ], [ %.pre294.i, %._crit_edge.loopexit.i43 ]
+  %992 = phi ptr [ %42, %.thread54 ], [ %.pre293.i, %._crit_edge.loopexit.i43 ]
   %993 = phi ptr [ %793, %.thread54 ], [ %.pre.i, %._crit_edge.loopexit.i43 ]
   %.0160.lcssa.i = phi i32 [ %800, %.thread54 ], [ %.5165.i, %._crit_edge.loopexit.i43 ]
   %.0150.lcssa.i = phi i64 [ %798, %.thread54 ], [ %.5155.i, %._crit_edge.loopexit.i43 ]

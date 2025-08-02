@@ -836,8 +836,8 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %_ZN12methodHandleC2
   %86 = zext i16 %.0.i.i to i64
   %87 = trunc i32 %2 to i16
   %.idx79 = mul nuw nsw i64 %86, 24
-  %88 = getelementptr i8, ptr %85, i64 26
-  %89 = getelementptr i8, ptr %88, i64 %.idx79
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 26
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx79
   store i16 %87, ptr %89, align 2
   br label %90
 

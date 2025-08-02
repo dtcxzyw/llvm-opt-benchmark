@@ -2033,11 +2033,11 @@ switch.lookup:                                    ; preds = %7
 10:                                               ; preds = %7, %switch.lookup
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %.not.i791 = icmp sgt i32 %12, 0
-  br i1 %.not.i791, label %.lr.ph, label %_outList.exit
+  %.not.i789 = icmp sgt i32 %12, 0
+  br i1 %.not.i789, label %.lr.ph, label %_outList.exit
 
 .lr.ph:                                           ; preds = %10
-  %13 = getelementptr i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %14
 
 14:                                               ; preds = %.lr.ph, %34

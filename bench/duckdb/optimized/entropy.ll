@@ -392,14 +392,14 @@ _ZL23entropy_gather_internalP23mbedtls_entropy_context.exit: ; preds = %._crit_e
   br i1 %64, label %.lr.ph73, label %._crit_edge74
 
 .lr.ph73:                                         ; preds = %.preheader
-  %65 = getelementptr i8, ptr %0, i64 136
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %wide.trip.count87 = zext nneg i32 %63 to i64
   br label %66
 
 66:                                               ; preds = %.lr.ph73, %66
   %indvars.iv84 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next85, %66 ]
   %.idx = mul nuw nsw i64 %indvars.iv84, 40
-  %67 = getelementptr i8, ptr %65, i64 %.idx
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx
   store i64 0, ptr %67, align 8, !tbaa !19
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87

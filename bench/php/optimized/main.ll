@@ -3652,20 +3652,20 @@ define dso_local range(i32 -1, 1) i32 @php_handle_auth_data(ptr noundef %0) loca
 
 2:                                                ; preds = %1
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
-  %.not56.not = icmp eq i64 %3, 0
-  br i1 %.not56.not, label %.sink.split, label %4
+  %.not56 = icmp eq i64 %3, 0
+  br i1 %.not56, label %.sink.split, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i32 @zend_binary_strncasecmp(ptr noundef nonnull %0, i64 noundef %3, ptr noundef nonnull @.str.64, i64 noundef 6, i64 noundef 6) #28
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %29
+  br i1 %6, label %7, label %zend_string_free.exit.thread
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %9 = add i64 %3, -6
   %10 = tail call ptr @php_base64_decode_ex(ptr noundef nonnull %8, i64 noundef range(i64 -5, -6) %9, i1 noundef zeroext false) #28
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %29, label %11
+  br i1 %.not, label %zend_string_free.exit.thread, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -3710,26 +3710,26 @@ define dso_local range(i32 -1, 1) i32 @php_handle_auth_data(ptr noundef %0) loca
   br label %zend_string_free.exit
 
 zend_string_free.exit:                            ; preds = %28, %27, %21
-  br i1 %.not37, label %29, label %.thread44
+  br i1 %.not37, label %zend_string_free.exit.thread, label %.thread44
 
-29:                                               ; preds = %7, %4, %zend_string_free.exit
+zend_string_free.exit.thread:                     ; preds = %7, %4, %zend_string_free.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 96), i8 0, i64 16, i1 false)
-  %30 = tail call i32 @zend_binary_strncasecmp(ptr noundef nonnull %0, i64 noundef %3, ptr noundef nonnull @.str.65, i64 noundef 7, i64 noundef 7) #28
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %.thread44
+  %29 = tail call i32 @zend_binary_strncasecmp(ptr noundef nonnull %0, i64 noundef %3, ptr noundef nonnull @.str.65, i64 noundef 7, i64 noundef 7) #28
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %.thread44
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %34 = tail call noalias ptr @_estrdup(ptr noundef nonnull %33) #28
+31:                                               ; preds = %zend_string_free.exit.thread
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %33 = tail call noalias ptr @_estrdup(ptr noundef nonnull %32) #28
   br label %.thread44
 
 .sink.split:                                      ; preds = %2, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 96), i8 0, i64 16, i1 false)
   br label %.thread44
 
-.thread44:                                        ; preds = %29, %.sink.split, %zend_string_free.exit, %32
-  %.sink = phi ptr [ %34, %32 ], [ null, %zend_string_free.exit ], [ null, %.sink.split ], [ null, %29 ]
-  %.350 = phi i32 [ 0, %32 ], [ 0, %zend_string_free.exit ], [ -1, %.sink.split ], [ -1, %29 ]
+.thread44:                                        ; preds = %zend_string_free.exit.thread, %.sink.split, %zend_string_free.exit, %31
+  %.sink = phi ptr [ %33, %31 ], [ null, %zend_string_free.exit ], [ null, %.sink.split ], [ null, %zend_string_free.exit.thread ]
+  %.350 = phi i32 [ 0, %31 ], [ 0, %zend_string_free.exit ], [ -1, %.sink.split ], [ -1, %zend_string_free.exit.thread ]
   store ptr %.sink, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 112), align 8, !tbaa !212
   ret i32 %.350
 }

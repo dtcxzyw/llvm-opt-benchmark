@@ -156,1647 +156,1699 @@ define void @dgsvj0_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %93 = tail call i32 @llvm.smin.i32(i32 %85, i32 5)
   %94 = load i32, ptr %13, align 4, !tbaa !3
   store i32 %94, ptr %18, align 4, !tbaa !3
-  %invariant.gep1709 = getelementptr i8, ptr %33, i64 8
-  %.not13551713 = icmp slt i32 %94, 1
-  br i1 %.not13551713, label %._crit_edge1718, label %.lr.ph1717
+  %.not13551543 = icmp slt i32 %94, 1
+  br i1 %.not13551543, label %._crit_edge1548, label %.lr.ph1547
 
-.lr.ph1717:                                       ; preds = %76
+.lr.ph1547:                                       ; preds = %76
   %95 = add i32 %spec.select, -1
-  %invariant.gep1533 = getelementptr i8, ptr %36, i64 8
   %96 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %97 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %98 = sext i32 %31 to i64
   %99 = sext i32 %34 to i64
-  %.not13561696 = icmp slt i32 %.0, 1
+  %.not13561530 = icmp slt i32 %.0, 1
   br label %100
 
-100:                                              ; preds = %.lr.ph1717, %831
-  %101 = phi i32 [ %85, %.lr.ph1717 ], [ %811, %831 ]
-  %.012891715 = phi i32 [ 0, %.lr.ph1717 ], [ %.11290, %831 ]
-  %.013051714 = phi i32 [ 1, %.lr.ph1717 ], [ %832, %831 ]
+100:                                              ; preds = %.lr.ph1547, %929
+  %101 = phi i32 [ %85, %.lr.ph1547 ], [ %909, %929 ]
+  %.012891545 = phi i32 [ 0, %.lr.ph1547 ], [ %.11290, %929 ]
+  %.013051544 = phi i32 [ 1, %.lr.ph1547 ], [ %930, %929 ]
   store i32 %.0, ptr %19, align 4, !tbaa !3
-  br i1 %.not13561696, label %._crit_edge1704, label %.lr.ph1703
+  br i1 %.not13561530, label %._crit_edge1538, label %.lr.ph1537
 
-.lr.ph1703:                                       ; preds = %100
-  %.not1383 = icmp samesign ule i32 %.013051714, %.012891715
+.lr.ph1537:                                       ; preds = %100
+  %.not1383 = icmp samesign ule i32 %.013051544, %.012891545
   br label %102
 
-..loopexit1426_crit_edge:                         ; preds = %.lr.ph1694
-  store double %789, ptr %21, align 8, !tbaa !7
+..loopexit1426_crit_edge:                         ; preds = %.lr.ph1528
+  store double %883, ptr %21, align 8, !tbaa !7
   br label %.loopexit1426
 
 .loopexit1426:                                    ; preds = %..loopexit1426_crit_edge, %.loopexit1427
   %indvars.iv.next = add i32 %indvars.iv, %spec.select
-  %indvars.iv.next1763 = add i32 %indvars.iv1762, %spec.select
-  br i1 %.not13621679.not, label %102, label %._crit_edge1704, !llvm.loop !9
+  %indvars.iv.next1585 = add i32 %indvars.iv1584, %spec.select
+  br i1 %.not13621513.not, label %102, label %._crit_edge1538, !llvm.loop !9
 
-102:                                              ; preds = %.lr.ph1703, %.loopexit1426
-  %indvars.iv1762 = phi i32 [ %spec.select, %.lr.ph1703 ], [ %indvars.iv.next1763, %.loopexit1426 ]
-  %indvars.iv1760.in = phi i32 [ %.0, %.lr.ph1703 ], [ %indvars.iv1760, %.loopexit1426 ]
-  %indvars.iv = phi i32 [ 1, %.lr.ph1703 ], [ %indvars.iv.next, %.loopexit1426 ]
-  %.012361701 = phi i32 [ 1, %.lr.ph1703 ], [ %450, %.loopexit1426 ]
-  %.012391700 = phi i32 [ 0, %.lr.ph1703 ], [ %.12, %.loopexit1426 ]
-  %.012401699 = phi i32 [ 0, %.lr.ph1703 ], [ %.141254, %.loopexit1426 ]
-  %.012561698 = phi double [ 0.000000e+00, %.lr.ph1703 ], [ %.131269, %.loopexit1426 ]
-  %.012731697 = phi double [ 0.000000e+00, %.lr.ph1703 ], [ %.111284, %.loopexit1426 ]
-  %indvars.iv1760 = add i32 %indvars.iv1760.in, -1
+102:                                              ; preds = %.lr.ph1537, %.loopexit1426
+  %indvars.iv1584 = phi i32 [ %spec.select, %.lr.ph1537 ], [ %indvars.iv.next1585, %.loopexit1426 ]
+  %indvars.iv1582.in = phi i32 [ %.0, %.lr.ph1537 ], [ %indvars.iv1582, %.loopexit1426 ]
+  %indvars.iv = phi i32 [ 1, %.lr.ph1537 ], [ %indvars.iv.next, %.loopexit1426 ]
+  %.012361535 = phi i32 [ 1, %.lr.ph1537 ], [ %502, %.loopexit1426 ]
+  %.012391534 = phi i32 [ 0, %.lr.ph1537 ], [ %.12, %.loopexit1426 ]
+  %.012401533 = phi i32 [ 0, %.lr.ph1537 ], [ %.141254, %.loopexit1426 ]
+  %.012561532 = phi double [ 0.000000e+00, %.lr.ph1537 ], [ %.131269, %.loopexit1426 ]
+  %.012731531 = phi double [ 0.000000e+00, %.lr.ph1537 ], [ %.111284, %.loopexit1426 ]
+  %indvars.iv1582 = add i32 %indvars.iv1582.in, -1
   %103 = sext i32 %indvars.iv to i64
-  %.inv1786 = icmp slt i32 %indvars.iv1760, 1
-  %104 = select i1 %.inv1786, i32 1, i32 2
-  %105 = add nsw i32 %.012361701, -1
+  %.inv1608 = icmp slt i32 %indvars.iv1582, 1
+  %104 = select i1 %.inv1608, i32 1, i32 2
+  %105 = add nsw i32 %.012361535, -1
   %106 = mul nsw i32 %105, %spec.select
-  %107 = sub nsw i32 %.0, %.012361701
+  %107 = sub nsw i32 %.0, %.012361535
   store i32 %107, ptr %20, align 4, !tbaa !3
-  %.not13611552 = icmp slt i32 %107, 0
-  br i1 %.not13611552, label %._crit_edge1561, label %.lr.ph1560.preheader
+  %.not13611466 = icmp slt i32 %107, 0
+  br i1 %.not13611466, label %._crit_edge1475, label %.lr.ph1474.preheader
 
-.lr.ph1560.preheader:                             ; preds = %102
+.lr.ph1474.preheader:                             ; preds = %102
   %108 = add nsw i32 %106, 1
-  br label %.lr.ph1560
+  br label %.lr.ph1474
 
-.lr.ph1560:                                       ; preds = %.lr.ph1560.preheader, %._crit_edge
-  %indvars.iv1752 = phi i32 [ %indvars.iv, %.lr.ph1560.preheader ], [ %indvars.iv.next1753, %._crit_edge ]
-  %indvars.iv1750 = phi i32 [ %spec.select, %.lr.ph1560.preheader ], [ %indvars.iv.next1751, %._crit_edge ]
-  %.012371558 = phi i32 [ %108, %.lr.ph1560.preheader ], [ %110, %._crit_edge ]
-  %.11557 = phi i32 [ %.012391700, %.lr.ph1560.preheader ], [ %.2.lcssa, %._crit_edge ]
-  %.112411556 = phi i32 [ %.012401699, %.lr.ph1560.preheader ], [ %.21242.lcssa, %._crit_edge ]
-  %.012551555 = phi i32 [ 0, %.lr.ph1560.preheader ], [ %449, %._crit_edge ]
-  %.112571554 = phi double [ %.012561698, %.lr.ph1560.preheader ], [ %.21258.lcssa, %._crit_edge ]
-  %.112741553 = phi double [ %.012731697, %.lr.ph1560.preheader ], [ %.21275.lcssa, %._crit_edge ]
-  %109 = mul nuw nsw i32 %.012551555, %spec.select
-  %110 = add nsw i32 %.012371558, %109
+.lr.ph1474:                                       ; preds = %.lr.ph1474.preheader, %._crit_edge
+  %indvars.iv1574 = phi i32 [ %indvars.iv, %.lr.ph1474.preheader ], [ %indvars.iv.next1575, %._crit_edge ]
+  %indvars.iv1572 = phi i32 [ %spec.select, %.lr.ph1474.preheader ], [ %indvars.iv.next1573, %._crit_edge ]
+  %.012371472 = phi i32 [ %108, %.lr.ph1474.preheader ], [ %110, %._crit_edge ]
+  %.11471 = phi i32 [ %.012391534, %.lr.ph1474.preheader ], [ %.2.lcssa, %._crit_edge ]
+  %.112411470 = phi i32 [ %.012401533, %.lr.ph1474.preheader ], [ %.21242.lcssa, %._crit_edge ]
+  %.012551469 = phi i32 [ 0, %.lr.ph1474.preheader ], [ %501, %._crit_edge ]
+  %.112571468 = phi double [ %.012561532, %.lr.ph1474.preheader ], [ %.21258.lcssa, %._crit_edge ]
+  %.112741467 = phi double [ %.012731531, %.lr.ph1474.preheader ], [ %.21275.lcssa, %._crit_edge ]
+  %109 = mul nuw nsw i32 %.012551469, %spec.select
+  %110 = add nsw i32 %.012371472, %109
   %111 = add i32 %95, %110
   store i32 %111, ptr %20, align 4, !tbaa !3
   %112 = load i32, ptr %2, align 4, !tbaa !3
   %113 = add nsw i32 %112, -1
   %114 = call i32 @llvm.smin.i32(i32 %111, i32 %113)
-  %.not13741542 = icmp sgt i32 %110, %114
-  br i1 %.not13741542, label %._crit_edge, label %.lr.ph
+  %.not13741456 = icmp sgt i32 %110, %114
+  br i1 %.not13741456, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph1560
-  %115 = sext i32 %indvars.iv1752 to i64
-  %116 = icmp eq i32 %.012551555, 0
+.lr.ph:                                           ; preds = %.lr.ph1474
+  %115 = sext i32 %indvars.iv1574 to i64
+  %116 = icmp eq i32 %.012551469, 0
   %117 = zext i1 %116 to i32
   %118 = sext i32 %114 to i64
   br label %119
 
-119:                                              ; preds = %.lr.ph, %448
-  %indvars.iv1754 = phi i64 [ %115, %.lr.ph ], [ %indvars.iv.next1755, %448 ]
-  %.21547 = phi i32 [ %.11557, %.lr.ph ], [ %.7, %448 ]
-  %.212421546 = phi i32 [ %.112411556, %.lr.ph ], [ %.91249, %448 ]
-  %.212581545 = phi double [ %.112571554, %.lr.ph ], [ %.71263, %448 ]
-  %.212751544 = phi double [ %.112741553, %.lr.ph ], [ %.61279, %448 ]
+119:                                              ; preds = %.lr.ph, %500
+  %indvars.iv1576 = phi i64 [ %115, %.lr.ph ], [ %indvars.iv.next1577, %500 ]
+  %.21461 = phi i32 [ %.11471, %.lr.ph ], [ %.7, %500 ]
+  %.212421460 = phi i32 [ %.112411470, %.lr.ph ], [ %.91249, %500 ]
+  %.212581459 = phi double [ %.112571468, %.lr.ph ], [ %.71263, %500 ]
+  %.212751458 = phi double [ %.112741467, %.lr.ph ], [ %.61279, %500 ]
   %120 = load i32, ptr %2, align 4, !tbaa !3
-  %121 = trunc nsw i64 %indvars.iv1754 to i32
+  %121 = trunc nsw i64 %indvars.iv1576 to i32
   %reass.sub = sub i32 %120, %121
   %122 = add i32 %reass.sub, 1
   store i32 %122, ptr %20, align 4, !tbaa !3
-  %123 = getelementptr inbounds double, ptr %29, i64 %indvars.iv1754
+  %123 = getelementptr inbounds double, ptr %29, i64 %indvars.iv1576
   %124 = call i32 @idamax_(ptr noundef nonnull %20, ptr noundef nonnull %123, ptr noundef nonnull @c__1) #6
   %125 = add i32 %121, -1
   %126 = add i32 %125, %124
   %.not1375 = icmp eq i32 %126, %121
-  br i1 %.not1375, label %144, label %127
+  br i1 %.not1375, label %152, label %127
 
 127:                                              ; preds = %119
-  %128 = mul nsw i64 %indvars.iv1754, %98
-  %gep1530 = getelementptr double, ptr %invariant.gep1709, i64 %128
-  %129 = mul nsw i32 %126, %31
-  %130 = sext i32 %129 to i64
-  %gep1532 = getelementptr double, ptr %invariant.gep1709, i64 %130
-  call void @dswap_(ptr noundef nonnull %1, ptr noundef %gep1530, ptr noundef nonnull @c__1, ptr noundef %gep1532, ptr noundef nonnull @c__1) #6
-  br i1 %or.cond, label %131, label %135
+  %128 = mul nsw i64 %indvars.iv1576, %98
+  %129 = getelementptr double, ptr %33, i64 %128
+  %130 = getelementptr i8, ptr %129, i64 8
+  %131 = mul nsw i32 %126, %31
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr double, ptr %33, i64 %132
+  %134 = getelementptr i8, ptr %133, i64 8
+  call void @dswap_(ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull @c__1, ptr noundef %134, ptr noundef nonnull @c__1) #6
+  br i1 %or.cond, label %135, label %143
 
-131:                                              ; preds = %127
-  %132 = mul nsw i64 %indvars.iv1754, %99
-  %gep1534 = getelementptr double, ptr %invariant.gep1533, i64 %132
-  %133 = mul nsw i32 %126, %34
-  %134 = sext i32 %133 to i64
-  %gep1536 = getelementptr double, ptr %invariant.gep1533, i64 %134
-  call void @dswap_(ptr noundef nonnull %28, ptr noundef %gep1534, ptr noundef nonnull @c__1, ptr noundef %gep1536, ptr noundef nonnull @c__1) #6
-  br label %135
+135:                                              ; preds = %127
+  %136 = mul nsw i64 %indvars.iv1576, %99
+  %137 = getelementptr double, ptr %36, i64 %136
+  %138 = getelementptr i8, ptr %137, i64 8
+  %139 = mul nsw i32 %126, %34
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr double, ptr %36, i64 %140
+  %142 = getelementptr i8, ptr %141, i64 8
+  call void @dswap_(ptr noundef nonnull %28, ptr noundef %138, ptr noundef nonnull @c__1, ptr noundef %142, ptr noundef nonnull @c__1) #6
+  br label %143
 
-135:                                              ; preds = %131, %127
-  %136 = load double, ptr %123, align 8, !tbaa !7
-  %137 = sext i32 %126 to i64
-  %138 = getelementptr inbounds double, ptr %29, i64 %137
-  %139 = load double, ptr %138, align 8, !tbaa !7
-  store double %139, ptr %123, align 8, !tbaa !7
-  store double %136, ptr %138, align 8, !tbaa !7
-  %140 = getelementptr inbounds double, ptr %30, i64 %indvars.iv1754
-  %141 = load double, ptr %140, align 8, !tbaa !7
-  store double %141, ptr %25, align 8, !tbaa !7
-  %142 = getelementptr inbounds double, ptr %30, i64 %137
-  %143 = load double, ptr %142, align 8, !tbaa !7
-  store double %143, ptr %140, align 8, !tbaa !7
-  store double %141, ptr %142, align 8, !tbaa !7
-  br label %144
+143:                                              ; preds = %135, %127
+  %144 = load double, ptr %123, align 8, !tbaa !7
+  %145 = sext i32 %126 to i64
+  %146 = getelementptr inbounds double, ptr %29, i64 %145
+  %147 = load double, ptr %146, align 8, !tbaa !7
+  store double %147, ptr %123, align 8, !tbaa !7
+  store double %144, ptr %146, align 8, !tbaa !7
+  %148 = getelementptr inbounds double, ptr %30, i64 %indvars.iv1576
+  %149 = load double, ptr %148, align 8, !tbaa !7
+  store double %149, ptr %25, align 8, !tbaa !7
+  %150 = getelementptr inbounds double, ptr %30, i64 %145
+  %151 = load double, ptr %150, align 8, !tbaa !7
+  store double %151, ptr %148, align 8, !tbaa !7
+  store double %149, ptr %150, align 8, !tbaa !7
+  br label %152
 
-144:                                              ; preds = %135, %119
-  %145 = load double, ptr %123, align 8, !tbaa !7
-  br i1 %116, label %146, label %thread-pre-split
+152:                                              ; preds = %143, %119
+  %153 = load double, ptr %123, align 8, !tbaa !7
+  br i1 %116, label %154, label %thread-pre-split
 
-146:                                              ; preds = %144
-  %147 = fcmp olt double %145, %82
-  %148 = fcmp ogt double %145, %79
-  %or.cond1385 = and i1 %147, %148
-  br i1 %or.cond1385, label %149, label %152
+154:                                              ; preds = %152
+  %155 = fcmp olt double %153, %82
+  %156 = fcmp ogt double %153, %79
+  %or.cond1385 = and i1 %155, %156
+  br i1 %or.cond1385, label %157, label %162
 
-149:                                              ; preds = %146
-  %150 = mul nsw i64 %indvars.iv1754, %98
-  %gep1540 = getelementptr double, ptr %invariant.gep1709, i64 %150
-  %151 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %gep1540, ptr noundef nonnull @c__1) #6
-  br label %158
+157:                                              ; preds = %154
+  %158 = mul nsw i64 %indvars.iv1576, %98
+  %159 = getelementptr double, ptr %33, i64 %158
+  %160 = getelementptr i8, ptr %159, i64 8
+  %161 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %160, ptr noundef nonnull @c__1) #6
+  br label %170
 
-152:                                              ; preds = %146
+162:                                              ; preds = %154
   store double 0.000000e+00, ptr %25, align 8, !tbaa !7
   store double 1.000000e+00, ptr %22, align 8, !tbaa !7
-  %153 = mul nsw i64 %indvars.iv1754, %98
-  %gep1538 = getelementptr double, ptr %invariant.gep1709, i64 %153
-  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %gep1538, ptr noundef nonnull @c__1, ptr noundef nonnull %25, ptr noundef nonnull %22) #6
-  %154 = load double, ptr %25, align 8, !tbaa !7
-  %155 = load double, ptr %22, align 8, !tbaa !7
-  %156 = call double @sqrt(double noundef %155) #6, !tbaa !3
-  %157 = fmul double %154, %156
-  br label %158
+  %163 = mul nsw i64 %indvars.iv1576, %98
+  %164 = getelementptr double, ptr %33, i64 %163
+  %165 = getelementptr i8, ptr %164, i64 8
+  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %165, ptr noundef nonnull @c__1, ptr noundef nonnull %25, ptr noundef nonnull %22) #6
+  %166 = load double, ptr %25, align 8, !tbaa !7
+  %167 = load double, ptr %22, align 8, !tbaa !7
+  %168 = call double @sqrt(double noundef %167) #6, !tbaa !3
+  %169 = fmul double %166, %168
+  br label %170
 
-158:                                              ; preds = %152, %149
-  %.sink1807 = phi double [ %157, %152 ], [ %151, %149 ]
-  %159 = getelementptr inbounds double, ptr %30, i64 %indvars.iv1754
-  %160 = load double, ptr %159, align 8, !tbaa !7
-  %161 = fmul double %.sink1807, %160
-  store double %161, ptr %123, align 8, !tbaa !7
+170:                                              ; preds = %162, %157
+  %.sink1629 = phi double [ %169, %162 ], [ %161, %157 ]
+  %171 = getelementptr inbounds double, ptr %30, i64 %indvars.iv1576
+  %172 = load double, ptr %171, align 8, !tbaa !7
+  %173 = fmul double %.sink1629, %172
+  store double %173, ptr %123, align 8, !tbaa !7
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %144, %158
-  %storemerge1376 = phi double [ %161, %158 ], [ %145, %144 ]
+thread-pre-split:                                 ; preds = %152, %170
+  %storemerge1376 = phi double [ %173, %170 ], [ %153, %152 ]
   store double %storemerge1376, ptr %22, align 8, !tbaa !7
-  %162 = fcmp ogt double %storemerge1376, 0.000000e+00
-  br i1 %162, label %163, label %442
+  %174 = fcmp ogt double %storemerge1376, 0.000000e+00
+  br i1 %174, label %175, label %494
 
-163:                                              ; preds = %thread-pre-split
-  %164 = load i32, ptr %2, align 4, !tbaa !3
-  %. = call i32 @llvm.smin.i32(i32 %111, i32 %164)
+175:                                              ; preds = %thread-pre-split
+  %176 = load i32, ptr %2, align 4, !tbaa !3
+  %. = call i32 @llvm.smin.i32(i32 %111, i32 %176)
   store i32 %., ptr %20, align 4, !tbaa !3
-  %165 = mul nsw i64 %indvars.iv1754, %98
-  %gep = getelementptr double, ptr %invariant.gep1709, i64 %165
-  %166 = getelementptr inbounds double, ptr %30, i64 %indvars.iv1754
-  %167 = mul nsw i64 %indvars.iv1754, %99
-  %gep1478 = getelementptr double, ptr %invariant.gep1533, i64 %167
-  br label %168
+  %177 = mul nsw i64 %indvars.iv1576, %98
+  %178 = getelementptr double, ptr %33, i64 %177
+  %179 = getelementptr i8, ptr %178, i64 8
+  %180 = getelementptr inbounds double, ptr %30, i64 %indvars.iv1576
+  %181 = mul nsw i64 %indvars.iv1576, %99
+  %182 = getelementptr double, ptr %36, i64 %181
+  %183 = getelementptr i8, ptr %182, i64 8
+  br label %184
 
-168:                                              ; preds = %436, %163
-  %indvars.iv1756 = phi i64 [ %indvars.iv.next1757, %436 ], [ %indvars.iv1754, %163 ]
-  %.01296 = phi i32 [ %.21298, %436 ], [ 0, %163 ]
-  %.31276 = phi double [ %.41277, %436 ], [ %.212751544, %163 ]
-  %.31259 = phi double [ %.51261, %436 ], [ %.212581545, %163 ]
-  %.31243 = phi i32 [ %.61246, %436 ], [ %.212421546, %163 ]
-  %.3 = phi i32 [ %.5, %436 ], [ %.21547, %163 ]
-  %indvars.iv.next1757 = add nsw i64 %indvars.iv1756, 1
-  %169 = load i32, ptr %20, align 4, !tbaa !3
-  %170 = sext i32 %169 to i64
-  %.not1380.not = icmp slt i64 %indvars.iv1756, %170
-  br i1 %.not1380.not, label %171, label %.loopexit1425.loopexit
+184:                                              ; preds = %488, %175
+  %indvars.iv1578 = phi i64 [ %indvars.iv.next1579, %488 ], [ %indvars.iv1576, %175 ]
+  %.01296 = phi i32 [ %.21298, %488 ], [ 0, %175 ]
+  %.31276 = phi double [ %.41277, %488 ], [ %.212751458, %175 ]
+  %.31259 = phi double [ %.51261, %488 ], [ %.212581459, %175 ]
+  %.31243 = phi i32 [ %.61246, %488 ], [ %.212421460, %175 ]
+  %.3 = phi i32 [ %.5, %488 ], [ %.21461, %175 ]
+  %indvars.iv.next1579 = add nsw i64 %indvars.iv1578, 1
+  %185 = load i32, ptr %20, align 4, !tbaa !3
+  %186 = sext i32 %185 to i64
+  %.not1380.not = icmp slt i64 %indvars.iv1578, %186
+  br i1 %.not1380.not, label %187, label %.loopexit1425.loopexit
 
-171:                                              ; preds = %168
-  %172 = getelementptr double, ptr %6, i64 %indvars.iv1756
-  %173 = load double, ptr %172, align 8, !tbaa !7
-  store double %173, ptr %23, align 8, !tbaa !7
-  %174 = fcmp ogt double %173, 0.000000e+00
-  br i1 %174, label %175, label %434
+187:                                              ; preds = %184
+  %188 = getelementptr double, ptr %6, i64 %indvars.iv1578
+  %189 = load double, ptr %188, align 8, !tbaa !7
+  store double %189, ptr %23, align 8, !tbaa !7
+  %190 = fcmp ogt double %189, 0.000000e+00
+  br i1 %190, label %191, label %486
 
-175:                                              ; preds = %171
-  %176 = load double, ptr %22, align 8, !tbaa !7
-  %177 = fcmp ult double %173, 1.000000e+00
-  br i1 %177, label %198, label %178
+191:                                              ; preds = %187
+  %192 = load double, ptr %22, align 8, !tbaa !7
+  %193 = fcmp ult double %189, 1.000000e+00
+  br i1 %193, label %218, label %194
 
-178:                                              ; preds = %175
-  %179 = fmul double %80, %176
-  %180 = fcmp ole double %179, %173
-  %181 = fdiv double %81, %173
-  %182 = fcmp olt double %176, %181
-  %183 = getelementptr double, ptr %5, i64 %indvars.iv1756
-  br i1 %182, label %184, label %193
+194:                                              ; preds = %191
+  %195 = fmul double %80, %192
+  %196 = fcmp ole double %195, %189
+  %197 = fdiv double %81, %189
+  %198 = fcmp olt double %192, %197
+  %199 = getelementptr double, ptr %5, i64 %indvars.iv1578
+  br i1 %198, label %200, label %211
 
-184:                                              ; preds = %178
-  %185 = mul nsw i64 %indvars.iv.next1757, %98
-  %gep1460 = getelementptr double, ptr %invariant.gep1709, i64 %185
-  %186 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef %gep1460, ptr noundef nonnull @c__1) #6
-  %187 = load double, ptr %166, align 8, !tbaa !7
-  %188 = fmul double %186, %187
-  %189 = load double, ptr %183, align 8, !tbaa !7
-  %190 = fmul double %188, %189
-  %191 = load double, ptr %23, align 8, !tbaa !7
-  %192 = fdiv double %190, %191
-  br label %218
+200:                                              ; preds = %194
+  %201 = mul nsw i64 %indvars.iv.next1579, %98
+  %202 = getelementptr double, ptr %33, i64 %201
+  %203 = getelementptr i8, ptr %202, i64 8
+  %204 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %179, ptr noundef nonnull @c__1, ptr noundef %203, ptr noundef nonnull @c__1) #6
+  %205 = load double, ptr %180, align 8, !tbaa !7
+  %206 = fmul double %204, %205
+  %207 = load double, ptr %199, align 8, !tbaa !7
+  %208 = fmul double %206, %207
+  %209 = load double, ptr %23, align 8, !tbaa !7
+  %210 = fdiv double %208, %209
+  br label %240
 
-193:                                              ; preds = %178
-  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
-  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %22, ptr noundef nonnull %166, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
-  %194 = mul nsw i64 %indvars.iv.next1757, %98
-  %gep1456 = getelementptr double, ptr %invariant.gep1709, i64 %194
-  %195 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %gep1456, ptr noundef nonnull @c__1) #6
-  %196 = load double, ptr %183, align 8, !tbaa !7
-  %197 = fmul double %195, %196
-  br label %218
-
-198:                                              ; preds = %175
-  %199 = fdiv double %173, %80
-  %200 = fcmp ole double %176, %199
-  %201 = fdiv double %80, %173
-  %202 = fcmp ogt double %176, %201
-  %203 = mul nsw i64 %indvars.iv.next1757, %98
-  %gep1468 = getelementptr double, ptr %invariant.gep1709, i64 %203
-  br i1 %202, label %204, label %213
-
-204:                                              ; preds = %198
-  %205 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef %gep1468, ptr noundef nonnull @c__1) #6
-  %206 = load double, ptr %166, align 8, !tbaa !7
-  %207 = fmul double %205, %206
-  %208 = getelementptr double, ptr %5, i64 %indvars.iv1756
-  %209 = load double, ptr %208, align 8, !tbaa !7
-  %210 = fmul double %207, %209
-  %211 = load double, ptr %23, align 8, !tbaa !7
-  %212 = fdiv double %210, %211
-  br label %218
-
-213:                                              ; preds = %198
-  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %gep1468, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
-  %214 = getelementptr double, ptr %5, i64 %indvars.iv1756
-  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull %214, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
-  %215 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %gep, ptr noundef nonnull @c__1) #6
-  %216 = load double, ptr %166, align 8, !tbaa !7
+211:                                              ; preds = %194
+  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %179, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
+  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %22, ptr noundef nonnull %180, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
+  %212 = mul nsw i64 %indvars.iv.next1579, %98
+  %213 = getelementptr double, ptr %33, i64 %212
+  %214 = getelementptr i8, ptr %213, i64 8
+  %215 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %214, ptr noundef nonnull @c__1) #6
+  %216 = load double, ptr %199, align 8, !tbaa !7
   %217 = fmul double %215, %216
-  br label %218
+  br label %240
 
-218:                                              ; preds = %204, %213, %184, %193
-  %.sink1812 = phi ptr [ %22, %204 ], [ %22, %213 ], [ %22, %184 ], [ %23, %193 ]
-  %.sink1810 = phi double [ %212, %204 ], [ %217, %213 ], [ %192, %184 ], [ %197, %193 ]
-  %.01301.in = phi i1 [ %200, %204 ], [ %200, %213 ], [ %180, %184 ], [ %180, %193 ]
-  %219 = load double, ptr %.sink1812, align 8, !tbaa !7
-  %220 = fdiv double %.sink1810, %219
+218:                                              ; preds = %191
+  %219 = fdiv double %189, %80
+  %220 = fcmp ole double %192, %219
+  %221 = fdiv double %80, %189
+  %222 = fcmp ogt double %192, %221
+  %223 = mul nsw i64 %indvars.iv.next1579, %98
+  %224 = getelementptr double, ptr %33, i64 %223
+  %225 = getelementptr i8, ptr %224, i64 8
+  br i1 %222, label %226, label %235
+
+226:                                              ; preds = %218
+  %227 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %179, ptr noundef nonnull @c__1, ptr noundef %225, ptr noundef nonnull @c__1) #6
+  %228 = load double, ptr %180, align 8, !tbaa !7
+  %229 = fmul double %227, %228
+  %230 = getelementptr double, ptr %5, i64 %indvars.iv1578
+  %231 = load double, ptr %230, align 8, !tbaa !7
+  %232 = fmul double %229, %231
+  %233 = load double, ptr %23, align 8, !tbaa !7
+  %234 = fdiv double %232, %233
+  br label %240
+
+235:                                              ; preds = %218
+  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %225, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
+  %236 = getelementptr double, ptr %5, i64 %indvars.iv1578
+  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull %236, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
+  %237 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %179, ptr noundef nonnull @c__1) #6
+  %238 = load double, ptr %180, align 8, !tbaa !7
+  %239 = fmul double %237, %238
+  br label %240
+
+240:                                              ; preds = %226, %235, %200, %211
+  %.sink1634 = phi ptr [ %22, %226 ], [ %22, %235 ], [ %22, %200 ], [ %23, %211 ]
+  %.sink1632 = phi double [ %234, %226 ], [ %239, %235 ], [ %210, %200 ], [ %217, %211 ]
+  %.01301.in = phi i1 [ %220, %226 ], [ %220, %235 ], [ %196, %200 ], [ %196, %211 ]
+  %241 = load double, ptr %.sink1634, align 8, !tbaa !7
+  %242 = fdiv double %.sink1632, %241
   store double %.31276, ptr %21, align 8, !tbaa !7
-  %221 = fcmp oge double %220, 0.000000e+00
-  %222 = fneg double %220
-  %223 = select i1 %221, double %220, double %222
-  %224 = fcmp oge double %.31276, %223
-  %225 = select i1 %224, double %.31276, double %223
-  %226 = load double, ptr %12, align 8, !tbaa !7
-  %227 = fcmp ogt double %223, %226
-  br i1 %227, label %228, label %432
+  %243 = fcmp oge double %242, 0.000000e+00
+  %244 = fneg double %242
+  %245 = select i1 %243, double %242, double %244
+  %246 = fcmp oge double %.31276, %245
+  %247 = select i1 %246, double %.31276, double %245
+  %248 = load double, ptr %12, align 8, !tbaa !7
+  %249 = fcmp ogt double %245, %248
+  br i1 %249, label %250, label %484
 
-228:                                              ; preds = %218
+250:                                              ; preds = %240
   %.11297 = select i1 %116, i32 0, i32 %.01296
   %.41244 = select i1 %116, i32 0, i32 %.31243
   %.4 = add nsw i32 %.3, %117
-  br i1 %.01301.in, label %229, label %381
+  br i1 %.01301.in, label %251, label %427
 
-229:                                              ; preds = %228
-  %230 = load double, ptr %23, align 8, !tbaa !7
-  %231 = load double, ptr %22, align 8, !tbaa !7
-  %232 = fdiv double %230, %231
-  %233 = fdiv double %231, %230
-  %234 = fsub double %232, %233
-  store double %234, ptr %21, align 8, !tbaa !7
-  %235 = fcmp oge double %234, 0.000000e+00
-  %236 = fneg double %234
-  %237 = select i1 %235, double %234, double %236
-  %238 = fmul double %237, -5.000000e-01
-  %239 = fdiv double %238, %220
-  %240 = call double @llvm.fabs.f64(double %239)
-  %241 = fcmp ogt double %240, %83
-  br i1 %241, label %242, label %275
+251:                                              ; preds = %250
+  %252 = load double, ptr %23, align 8, !tbaa !7
+  %253 = load double, ptr %22, align 8, !tbaa !7
+  %254 = fdiv double %252, %253
+  %255 = fdiv double %253, %252
+  %256 = fsub double %254, %255
+  store double %256, ptr %21, align 8, !tbaa !7
+  %257 = fcmp oge double %256, 0.000000e+00
+  %258 = fneg double %256
+  %259 = select i1 %257, double %256, double %258
+  %260 = fmul double %259, -5.000000e-01
+  %261 = fdiv double %260, %242
+  %262 = call double @llvm.fabs.f64(double %261)
+  %263 = fcmp ogt double %262, %83
+  br i1 %263, label %264, label %301
 
-242:                                              ; preds = %229
-  %243 = fdiv double 5.000000e-01, %239
-  store double %243, ptr %26, align 8, !tbaa !7
-  %244 = load double, ptr %166, align 8, !tbaa !7
-  %245 = fmul double %243, %244
-  %246 = getelementptr double, ptr %5, i64 %indvars.iv1756
-  %247 = load double, ptr %246, align 8, !tbaa !7
-  %248 = fdiv double %245, %247
-  store double %248, ptr %96, align 16, !tbaa !7
-  %249 = fneg double %243
-  %250 = fmul double %247, %249
-  %251 = fdiv double %250, %244
-  store double %251, ptr %97, align 8, !tbaa !7
-  %252 = mul nsw i64 %indvars.iv.next1757, %98
-  %gep1516 = getelementptr double, ptr %invariant.gep1709, i64 %252
-  call void @drotm_(ptr noundef nonnull %1, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef %gep1516, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
-  br i1 %or.cond, label %253, label %255
+264:                                              ; preds = %251
+  %265 = fdiv double 5.000000e-01, %261
+  store double %265, ptr %26, align 8, !tbaa !7
+  %266 = load double, ptr %180, align 8, !tbaa !7
+  %267 = fmul double %265, %266
+  %268 = getelementptr double, ptr %5, i64 %indvars.iv1578
+  %269 = load double, ptr %268, align 8, !tbaa !7
+  %270 = fdiv double %267, %269
+  store double %270, ptr %96, align 16, !tbaa !7
+  %271 = fneg double %265
+  %272 = fmul double %269, %271
+  %273 = fdiv double %272, %266
+  store double %273, ptr %97, align 8, !tbaa !7
+  %274 = mul nsw i64 %indvars.iv.next1579, %98
+  %275 = getelementptr double, ptr %33, i64 %274
+  %276 = getelementptr i8, ptr %275, i64 8
+  call void @drotm_(ptr noundef nonnull %1, ptr noundef %179, ptr noundef nonnull @c__1, ptr noundef %276, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
+  br i1 %or.cond, label %277, label %281
 
-253:                                              ; preds = %242
-  %254 = mul nsw i64 %indvars.iv.next1757, %99
-  %gep1520 = getelementptr double, ptr %invariant.gep1533, i64 %254
-  call void @drotm_(ptr noundef nonnull %28, ptr noundef %gep1478, ptr noundef nonnull @c__1, ptr noundef %gep1520, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
-  br label %255
+277:                                              ; preds = %264
+  %278 = mul nsw i64 %indvars.iv.next1579, %99
+  %279 = getelementptr double, ptr %36, i64 %278
+  %280 = getelementptr i8, ptr %279, i64 8
+  call void @drotm_(ptr noundef nonnull %28, ptr noundef %183, ptr noundef nonnull @c__1, ptr noundef %280, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
+  br label %281
 
-255:                                              ; preds = %253, %242
-  %256 = load double, ptr %26, align 8, !tbaa !7
-  %257 = fmul double %233, %256
-  %258 = call double @llvm.fmuladd.f64(double %257, double %220, double 1.000000e+00)
-  %259 = load double, ptr %23, align 8, !tbaa !7
-  %260 = fcmp ole double %258, 0.000000e+00
-  %261 = select i1 %260, double 0.000000e+00, double %258
-  %sqrt1409 = call double @llvm.sqrt.f64(double %261)
-  %262 = fmul double %259, %sqrt1409
-  store double %262, ptr %172, align 8, !tbaa !7
+281:                                              ; preds = %277, %264
+  %282 = load double, ptr %26, align 8, !tbaa !7
+  %283 = fmul double %255, %282
+  %284 = call double @llvm.fmuladd.f64(double %283, double %242, double 1.000000e+00)
+  %285 = load double, ptr %23, align 8, !tbaa !7
+  %286 = fcmp ole double %284, 0.000000e+00
+  %287 = select i1 %286, double 0.000000e+00, double %284
+  %sqrt1409 = call double @llvm.sqrt.f64(double %287)
+  %288 = fmul double %285, %sqrt1409
+  store double %288, ptr %188, align 8, !tbaa !7
   store double 0.000000e+00, ptr %21, align 8, !tbaa !7
-  %263 = fneg double %232
-  %264 = fmul double %256, %263
-  %265 = call double @llvm.fmuladd.f64(double %264, double %220, double 1.000000e+00)
-  %266 = fcmp ole double %265, 0.000000e+00
-  %267 = select i1 %266, double 0.000000e+00, double %265
-  %sqrt = call double @llvm.sqrt.f64(double %267)
-  %268 = load double, ptr %22, align 8, !tbaa !7
-  %269 = fmul double %268, %sqrt
-  store double %269, ptr %22, align 8, !tbaa !7
-  %270 = fcmp oge double %256, 0.000000e+00
-  %271 = fneg double %256
-  %272 = select i1 %270, double %256, double %271
-  %273 = fcmp oge double %.31259, %272
-  %274 = select i1 %273, double %.31259, double %272
-  br label %394
+  %289 = fneg double %254
+  %290 = fmul double %282, %289
+  %291 = call double @llvm.fmuladd.f64(double %290, double %242, double 1.000000e+00)
+  %292 = fcmp ole double %291, 0.000000e+00
+  %293 = select i1 %292, double 0.000000e+00, double %291
+  %sqrt = call double @llvm.sqrt.f64(double %293)
+  %294 = load double, ptr %22, align 8, !tbaa !7
+  %295 = fmul double %294, %sqrt
+  store double %295, ptr %22, align 8, !tbaa !7
+  %296 = fcmp oge double %282, 0.000000e+00
+  %297 = fneg double %282
+  %298 = select i1 %296, double %282, double %297
+  %299 = fcmp oge double %.31259, %298
+  %300 = select i1 %299, double %.31259, double %298
+  br label %442
 
-275:                                              ; preds = %229
-  %276 = load double, ptr @c_b42, align 8, !tbaa !7
-  %277 = fcmp oge double %276, 0.000000e+00
-  %278 = xor i1 %277, %221
-  %.neg = fneg double %276
-  %279 = select i1 %278, double %276, double %.neg
-  %280 = call double @llvm.fmuladd.f64(double %239, double %239, double 1.000000e+00)
-  %sqrt1413 = call double @llvm.sqrt.f64(double %280)
-  %281 = call double @llvm.fmuladd.f64(double %279, double %sqrt1413, double %239)
-  %282 = fdiv double 1.000000e+00, %281
-  store double %282, ptr %26, align 8, !tbaa !7
-  %283 = call double @llvm.fmuladd.f64(double %282, double %282, double 1.000000e+00)
-  %284 = fdiv double 1.000000e+00, %283
-  %sqrt1412 = call double @llvm.sqrt.f64(double %284)
-  %285 = fmul double %282, %sqrt1412
-  %286 = fcmp oge double %285, 0.000000e+00
-  %287 = fneg double %285
-  %288 = select i1 %286, double %285, double %287
-  %289 = fcmp oge double %.31259, %288
-  %290 = select i1 %289, double %.31259, double %288
-  %291 = fmul double %233, %282
-  %292 = call double @llvm.fmuladd.f64(double %291, double %220, double 1.000000e+00)
-  %293 = fcmp ole double %292, 0.000000e+00
-  %294 = select i1 %293, double 0.000000e+00, double %292
-  %sqrt1411 = call double @llvm.sqrt.f64(double %294)
-  %295 = fmul double %230, %sqrt1411
-  store double %295, ptr %172, align 8, !tbaa !7
+301:                                              ; preds = %251
+  %302 = load double, ptr @c_b42, align 8, !tbaa !7
+  %303 = fcmp oge double %302, 0.000000e+00
+  %304 = xor i1 %303, %243
+  %.neg = fneg double %302
+  %305 = select i1 %304, double %302, double %.neg
+  %306 = call double @llvm.fmuladd.f64(double %261, double %261, double 1.000000e+00)
+  %sqrt1413 = call double @llvm.sqrt.f64(double %306)
+  %307 = call double @llvm.fmuladd.f64(double %305, double %sqrt1413, double %261)
+  %308 = fdiv double 1.000000e+00, %307
+  store double %308, ptr %26, align 8, !tbaa !7
+  %309 = call double @llvm.fmuladd.f64(double %308, double %308, double 1.000000e+00)
+  %310 = fdiv double 1.000000e+00, %309
+  %sqrt1412 = call double @llvm.sqrt.f64(double %310)
+  %311 = fmul double %308, %sqrt1412
+  %312 = fcmp oge double %311, 0.000000e+00
+  %313 = fneg double %311
+  %314 = select i1 %312, double %311, double %313
+  %315 = fcmp oge double %.31259, %314
+  %316 = select i1 %315, double %.31259, double %314
+  %317 = fmul double %255, %308
+  %318 = call double @llvm.fmuladd.f64(double %317, double %242, double 1.000000e+00)
+  %319 = fcmp ole double %318, 0.000000e+00
+  %320 = select i1 %319, double 0.000000e+00, double %318
+  %sqrt1411 = call double @llvm.sqrt.f64(double %320)
+  %321 = fmul double %252, %sqrt1411
+  store double %321, ptr %188, align 8, !tbaa !7
   store double 0.000000e+00, ptr %21, align 8, !tbaa !7
-  %296 = fneg double %232
-  %297 = fmul double %282, %296
-  %298 = call double @llvm.fmuladd.f64(double %297, double %220, double 1.000000e+00)
-  %299 = fcmp ole double %298, 0.000000e+00
-  %300 = select i1 %299, double 0.000000e+00, double %298
-  %sqrt1410 = call double @llvm.sqrt.f64(double %300)
-  %301 = fmul double %231, %sqrt1410
-  store double %301, ptr %22, align 8, !tbaa !7
-  %302 = load double, ptr %166, align 8, !tbaa !7
-  %303 = getelementptr double, ptr %5, i64 %indvars.iv1756
-  %304 = load double, ptr %303, align 8, !tbaa !7
-  %305 = fdiv double %302, %304
-  %306 = fdiv double %304, %302
-  %307 = fcmp ult double %302, 1.000000e+00
-  %308 = fcmp ult double %304, 1.000000e+00
-  br i1 %307, label %335, label %309
+  %322 = fneg double %254
+  %323 = fmul double %308, %322
+  %324 = call double @llvm.fmuladd.f64(double %323, double %242, double 1.000000e+00)
+  %325 = fcmp ole double %324, 0.000000e+00
+  %326 = select i1 %325, double 0.000000e+00, double %324
+  %sqrt1410 = call double @llvm.sqrt.f64(double %326)
+  %327 = fmul double %253, %sqrt1410
+  store double %327, ptr %22, align 8, !tbaa !7
+  %328 = load double, ptr %180, align 8, !tbaa !7
+  %329 = getelementptr double, ptr %5, i64 %indvars.iv1578
+  %330 = load double, ptr %329, align 8, !tbaa !7
+  %331 = fdiv double %328, %330
+  %332 = fdiv double %330, %328
+  %333 = fcmp ult double %328, 1.000000e+00
+  %334 = fcmp ult double %330, 1.000000e+00
+  br i1 %333, label %369, label %335
 
-309:                                              ; preds = %275
-  br i1 %308, label %320, label %310
-
-310:                                              ; preds = %309
-  %311 = fmul double %282, %305
-  store double %311, ptr %96, align 16, !tbaa !7
-  %312 = fneg double %282
-  %313 = fmul double %306, %312
-  store double %313, ptr %97, align 8, !tbaa !7
-  %314 = fmul double %sqrt1412, %302
-  store double %314, ptr %166, align 8, !tbaa !7
-  %315 = load double, ptr %303, align 8, !tbaa !7
-  %316 = fmul double %sqrt1412, %315
-  store double %316, ptr %303, align 8, !tbaa !7
-  %317 = mul nsw i64 %indvars.iv.next1757, %98
-  %gep1476 = getelementptr double, ptr %invariant.gep1709, i64 %317
-  call void @drotm_(ptr noundef nonnull %1, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef %gep1476, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
-  br i1 %or.cond, label %318, label %394
-
-318:                                              ; preds = %310
-  %319 = mul nsw i64 %indvars.iv.next1757, %99
-  %gep1480 = getelementptr double, ptr %invariant.gep1533, i64 %319
-  call void @drotm_(ptr noundef nonnull %28, ptr noundef %gep1478, ptr noundef nonnull @c__1, ptr noundef %gep1480, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
-  br label %394
-
-320:                                              ; preds = %309
-  %321 = fneg double %282
-  %322 = fmul double %306, %321
-  store double %322, ptr %21, align 8, !tbaa !7
-  %323 = mul nsw i64 %indvars.iv.next1757, %98
-  %gep1482 = getelementptr double, ptr %invariant.gep1709, i64 %323
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep1482, ptr noundef nonnull @c__1, ptr noundef %gep, ptr noundef nonnull @c__1) #6
-  %324 = fmul double %sqrt1412, %285
-  %325 = fmul double %324, %305
-  store double %325, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef %gep1482, ptr noundef nonnull @c__1) #6
-  %326 = load double, ptr %166, align 8, !tbaa !7
-  %327 = fmul double %sqrt1412, %326
-  store double %327, ptr %166, align 8, !tbaa !7
-  %328 = load double, ptr %303, align 8, !tbaa !7
-  %329 = fdiv double %328, %sqrt1412
-  store double %329, ptr %303, align 8, !tbaa !7
-  br i1 %or.cond, label %330, label %394
-
-330:                                              ; preds = %320
-  %331 = load double, ptr %26, align 8, !tbaa !7
-  %332 = fneg double %331
-  %333 = fmul double %306, %332
-  store double %333, ptr %21, align 8, !tbaa !7
-  %334 = mul nsw i64 %indvars.iv.next1757, %99
-  %gep1486 = getelementptr double, ptr %invariant.gep1533, i64 %334
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1486, ptr noundef nonnull @c__1, ptr noundef %gep1478, ptr noundef nonnull @c__1) #6
-  store double %325, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1478, ptr noundef nonnull @c__1, ptr noundef %gep1486, ptr noundef nonnull @c__1) #6
-  br label %394
-
-335:                                              ; preds = %275
-  br i1 %308, label %350, label %336
+335:                                              ; preds = %301
+  br i1 %334, label %350, label %336
 
 336:                                              ; preds = %335
-  %337 = fmul double %282, %305
-  store double %337, ptr %21, align 8, !tbaa !7
-  %338 = mul nsw i64 %indvars.iv.next1757, %98
-  %gep1492 = getelementptr double, ptr %invariant.gep1709, i64 %338
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef %gep1492, ptr noundef nonnull @c__1) #6
-  %339 = fneg double %sqrt1412
-  %340 = fmul double %285, %339
-  %341 = fmul double %340, %306
-  store double %341, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep1492, ptr noundef nonnull @c__1, ptr noundef %gep, ptr noundef nonnull @c__1) #6
-  %342 = load double, ptr %166, align 8, !tbaa !7
-  %343 = fdiv double %342, %sqrt1412
-  store double %343, ptr %166, align 8, !tbaa !7
-  %344 = load double, ptr %303, align 8, !tbaa !7
-  %345 = fmul double %sqrt1412, %344
-  store double %345, ptr %303, align 8, !tbaa !7
-  br i1 %or.cond, label %346, label %394
+  %337 = fmul double %308, %331
+  store double %337, ptr %96, align 16, !tbaa !7
+  %338 = fneg double %308
+  %339 = fmul double %332, %338
+  store double %339, ptr %97, align 8, !tbaa !7
+  %340 = fmul double %sqrt1412, %328
+  store double %340, ptr %180, align 8, !tbaa !7
+  %341 = load double, ptr %329, align 8, !tbaa !7
+  %342 = fmul double %sqrt1412, %341
+  store double %342, ptr %329, align 8, !tbaa !7
+  %343 = mul nsw i64 %indvars.iv.next1579, %98
+  %344 = getelementptr double, ptr %33, i64 %343
+  %345 = getelementptr i8, ptr %344, i64 8
+  call void @drotm_(ptr noundef nonnull %1, ptr noundef %179, ptr noundef nonnull @c__1, ptr noundef %345, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
+  br i1 %or.cond, label %346, label %442
 
 346:                                              ; preds = %336
-  %347 = load double, ptr %26, align 8, !tbaa !7
-  %348 = fmul double %305, %347
-  store double %348, ptr %21, align 8, !tbaa !7
-  %349 = mul nsw i64 %indvars.iv.next1757, %99
-  %gep1496 = getelementptr double, ptr %invariant.gep1533, i64 %349
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1478, ptr noundef nonnull @c__1, ptr noundef %gep1496, ptr noundef nonnull @c__1) #6
-  store double %341, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1496, ptr noundef nonnull @c__1, ptr noundef %gep1478, ptr noundef nonnull @c__1) #6
-  br label %394
+  %347 = mul nsw i64 %indvars.iv.next1579, %99
+  %348 = getelementptr double, ptr %36, i64 %347
+  %349 = getelementptr i8, ptr %348, i64 8
+  call void @drotm_(ptr noundef nonnull %28, ptr noundef %183, ptr noundef nonnull @c__1, ptr noundef %349, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
+  br label %442
 
 350:                                              ; preds = %335
-  %351 = fcmp ult double %302, %304
-  br i1 %351, label %367, label %352
-
-352:                                              ; preds = %350
-  %353 = fneg double %282
-  %354 = fmul double %306, %353
-  store double %354, ptr %21, align 8, !tbaa !7
-  %355 = mul nsw i64 %indvars.iv.next1757, %98
-  %gep1498 = getelementptr double, ptr %invariant.gep1709, i64 %355
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep1498, ptr noundef nonnull @c__1, ptr noundef %gep, ptr noundef nonnull @c__1) #6
-  %356 = fmul double %sqrt1412, %285
-  %357 = fmul double %356, %305
+  %351 = fneg double %308
+  %352 = fmul double %332, %351
+  store double %352, ptr %21, align 8, !tbaa !7
+  %353 = mul nsw i64 %indvars.iv.next1579, %98
+  %354 = getelementptr double, ptr %33, i64 %353
+  %355 = getelementptr i8, ptr %354, i64 8
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %355, ptr noundef nonnull @c__1, ptr noundef %179, ptr noundef nonnull @c__1) #6
+  %356 = fmul double %sqrt1412, %311
+  %357 = fmul double %356, %331
   store double %357, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef %gep1498, ptr noundef nonnull @c__1) #6
-  %358 = load double, ptr %166, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %179, ptr noundef nonnull @c__1, ptr noundef %355, ptr noundef nonnull @c__1) #6
+  %358 = load double, ptr %180, align 8, !tbaa !7
   %359 = fmul double %sqrt1412, %358
-  store double %359, ptr %166, align 8, !tbaa !7
-  %360 = load double, ptr %303, align 8, !tbaa !7
+  store double %359, ptr %180, align 8, !tbaa !7
+  %360 = load double, ptr %329, align 8, !tbaa !7
   %361 = fdiv double %360, %sqrt1412
-  store double %361, ptr %303, align 8, !tbaa !7
-  br i1 %or.cond, label %362, label %394
+  store double %361, ptr %329, align 8, !tbaa !7
+  br i1 %or.cond, label %362, label %442
 
-362:                                              ; preds = %352
+362:                                              ; preds = %350
   %363 = load double, ptr %26, align 8, !tbaa !7
   %364 = fneg double %363
-  %365 = fmul double %306, %364
+  %365 = fmul double %332, %364
   store double %365, ptr %21, align 8, !tbaa !7
-  %366 = mul nsw i64 %indvars.iv.next1757, %99
-  %gep1502 = getelementptr double, ptr %invariant.gep1533, i64 %366
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1502, ptr noundef nonnull @c__1, ptr noundef %gep1478, ptr noundef nonnull @c__1) #6
+  %366 = mul nsw i64 %indvars.iv.next1579, %99
+  %367 = getelementptr double, ptr %36, i64 %366
+  %368 = getelementptr i8, ptr %367, i64 8
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %368, ptr noundef nonnull @c__1, ptr noundef %183, ptr noundef nonnull @c__1) #6
   store double %357, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1478, ptr noundef nonnull @c__1, ptr noundef %gep1502, ptr noundef nonnull @c__1) #6
-  br label %394
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %183, ptr noundef nonnull @c__1, ptr noundef %368, ptr noundef nonnull @c__1) #6
+  br label %442
 
-367:                                              ; preds = %350
-  %368 = fmul double %282, %305
-  store double %368, ptr %21, align 8, !tbaa !7
-  %369 = mul nsw i64 %indvars.iv.next1757, %98
-  %gep1508 = getelementptr double, ptr %invariant.gep1709, i64 %369
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef %gep1508, ptr noundef nonnull @c__1) #6
-  %370 = fneg double %sqrt1412
-  %371 = fmul double %285, %370
-  %372 = fmul double %371, %306
-  store double %372, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep1508, ptr noundef nonnull @c__1, ptr noundef %gep, ptr noundef nonnull @c__1) #6
-  %373 = load double, ptr %166, align 8, !tbaa !7
-  %374 = fdiv double %373, %sqrt1412
-  store double %374, ptr %166, align 8, !tbaa !7
-  %375 = load double, ptr %303, align 8, !tbaa !7
-  %376 = fmul double %sqrt1412, %375
-  store double %376, ptr %303, align 8, !tbaa !7
-  br i1 %or.cond, label %377, label %394
+369:                                              ; preds = %301
+  br i1 %334, label %388, label %370
 
-377:                                              ; preds = %367
-  %378 = load double, ptr %26, align 8, !tbaa !7
-  %379 = fmul double %305, %378
-  store double %379, ptr %21, align 8, !tbaa !7
-  %380 = mul nsw i64 %indvars.iv.next1757, %99
-  %gep1512 = getelementptr double, ptr %invariant.gep1533, i64 %380
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1478, ptr noundef nonnull @c__1, ptr noundef %gep1512, ptr noundef nonnull @c__1) #6
-  store double %372, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1512, ptr noundef nonnull @c__1, ptr noundef %gep1478, ptr noundef nonnull @c__1) #6
-  br label %394
+370:                                              ; preds = %369
+  %371 = fmul double %308, %331
+  store double %371, ptr %21, align 8, !tbaa !7
+  %372 = mul nsw i64 %indvars.iv.next1579, %98
+  %373 = getelementptr double, ptr %33, i64 %372
+  %374 = getelementptr i8, ptr %373, i64 8
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %179, ptr noundef nonnull @c__1, ptr noundef %374, ptr noundef nonnull @c__1) #6
+  %375 = fneg double %sqrt1412
+  %376 = fmul double %311, %375
+  %377 = fmul double %376, %332
+  store double %377, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %374, ptr noundef nonnull @c__1, ptr noundef %179, ptr noundef nonnull @c__1) #6
+  %378 = load double, ptr %180, align 8, !tbaa !7
+  %379 = fdiv double %378, %sqrt1412
+  store double %379, ptr %180, align 8, !tbaa !7
+  %380 = load double, ptr %329, align 8, !tbaa !7
+  %381 = fmul double %sqrt1412, %380
+  store double %381, ptr %329, align 8, !tbaa !7
+  br i1 %or.cond, label %382, label %442
 
-381:                                              ; preds = %228
-  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
-  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %22, ptr noundef nonnull @c_b42, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
-  %382 = mul nsw i64 %indvars.iv.next1757, %98
-  %gep1472 = getelementptr double, ptr %invariant.gep1709, i64 %382
-  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull @c_b42, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %gep1472, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
-  %383 = load double, ptr %166, align 8, !tbaa !7
-  %384 = fmul double %383, %222
-  %385 = getelementptr double, ptr %5, i64 %indvars.iv1756
-  %386 = load double, ptr %385, align 8, !tbaa !7
-  %387 = fdiv double %384, %386
-  store double %387, ptr %25, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %25, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %gep1472, ptr noundef nonnull @c__1) #6
-  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull @c_b42, ptr noundef nonnull %23, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %gep1472, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
-  store double 0.000000e+00, ptr %21, align 8, !tbaa !7
-  %388 = call double @llvm.fmuladd.f64(double %222, double %220, double 1.000000e+00)
-  %389 = load double, ptr %23, align 8, !tbaa !7
-  %390 = fcmp ole double %388, 0.000000e+00
-  %391 = select i1 %390, double 0.000000e+00, double %388
-  %sqrt1414 = call double @llvm.sqrt.f64(double %391)
-  %392 = fmul double %sqrt1414, %389
-  store double %392, ptr %172, align 8, !tbaa !7
-  %393 = load double, ptr %11, align 8, !tbaa !7
-  %.inv = fcmp oge double %.31259, %393
-  %..31259 = select i1 %.inv, double %.31259, double %393
-  br label %394
+382:                                              ; preds = %370
+  %383 = load double, ptr %26, align 8, !tbaa !7
+  %384 = fmul double %331, %383
+  store double %384, ptr %21, align 8, !tbaa !7
+  %385 = mul nsw i64 %indvars.iv.next1579, %99
+  %386 = getelementptr double, ptr %36, i64 %385
+  %387 = getelementptr i8, ptr %386, i64 8
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %183, ptr noundef nonnull @c__1, ptr noundef %387, ptr noundef nonnull @c__1) #6
+  store double %377, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %387, ptr noundef nonnull @c__1, ptr noundef %183, ptr noundef nonnull @c__1) #6
+  br label %442
 
-394:                                              ; preds = %255, %346, %336, %367, %377, %352, %362, %318, %310, %330, %320, %381
-  %.41260 = phi double [ %274, %255 ], [ %290, %318 ], [ %290, %310 ], [ %290, %330 ], [ %290, %320 ], [ %290, %346 ], [ %290, %336 ], [ %290, %362 ], [ %290, %352 ], [ %290, %377 ], [ %290, %367 ], [ %..31259, %381 ]
-  %395 = load double, ptr %172, align 8, !tbaa !7
-  %396 = load double, ptr %23, align 8, !tbaa !7
-  %397 = fdiv double %395, %396
+388:                                              ; preds = %369
+  %389 = fcmp ult double %328, %330
+  br i1 %389, label %409, label %390
+
+390:                                              ; preds = %388
+  %391 = fneg double %308
+  %392 = fmul double %332, %391
+  store double %392, ptr %21, align 8, !tbaa !7
+  %393 = mul nsw i64 %indvars.iv.next1579, %98
+  %394 = getelementptr double, ptr %33, i64 %393
+  %395 = getelementptr i8, ptr %394, i64 8
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %395, ptr noundef nonnull @c__1, ptr noundef %179, ptr noundef nonnull @c__1) #6
+  %396 = fmul double %sqrt1412, %311
+  %397 = fmul double %396, %331
   store double %397, ptr %21, align 8, !tbaa !7
-  %398 = fmul double %397, %397
-  %399 = fcmp ugt double %398, %77
-  br i1 %399, label %415, label %400
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %179, ptr noundef nonnull @c__1, ptr noundef %395, ptr noundef nonnull @c__1) #6
+  %398 = load double, ptr %180, align 8, !tbaa !7
+  %399 = fmul double %sqrt1412, %398
+  store double %399, ptr %180, align 8, !tbaa !7
+  %400 = load double, ptr %329, align 8, !tbaa !7
+  %401 = fdiv double %400, %sqrt1412
+  store double %401, ptr %329, align 8, !tbaa !7
+  br i1 %or.cond, label %402, label %442
 
-400:                                              ; preds = %394
-  %401 = fcmp olt double %396, %82
-  %402 = fcmp ogt double %396, %79
-  %or.cond1386 = and i1 %401, %402
-  br i1 %or.cond1386, label %403, label %406
+402:                                              ; preds = %390
+  %403 = load double, ptr %26, align 8, !tbaa !7
+  %404 = fneg double %403
+  %405 = fmul double %332, %404
+  store double %405, ptr %21, align 8, !tbaa !7
+  %406 = mul nsw i64 %indvars.iv.next1579, %99
+  %407 = getelementptr double, ptr %36, i64 %406
+  %408 = getelementptr i8, ptr %407, i64 8
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %408, ptr noundef nonnull @c__1, ptr noundef %183, ptr noundef nonnull @c__1) #6
+  store double %397, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %183, ptr noundef nonnull @c__1, ptr noundef %408, ptr noundef nonnull @c__1) #6
+  br label %442
 
-403:                                              ; preds = %400
-  %404 = mul nsw i64 %indvars.iv.next1757, %98
-  %gep1524 = getelementptr double, ptr %invariant.gep1709, i64 %404
-  %405 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %gep1524, ptr noundef nonnull @c__1) #6
-  br label %.sink.split1813
+409:                                              ; preds = %388
+  %410 = fmul double %308, %331
+  store double %410, ptr %21, align 8, !tbaa !7
+  %411 = mul nsw i64 %indvars.iv.next1579, %98
+  %412 = getelementptr double, ptr %33, i64 %411
+  %413 = getelementptr i8, ptr %412, i64 8
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %179, ptr noundef nonnull @c__1, ptr noundef %413, ptr noundef nonnull @c__1) #6
+  %414 = fneg double %sqrt1412
+  %415 = fmul double %311, %414
+  %416 = fmul double %415, %332
+  store double %416, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %413, ptr noundef nonnull @c__1, ptr noundef %179, ptr noundef nonnull @c__1) #6
+  %417 = load double, ptr %180, align 8, !tbaa !7
+  %418 = fdiv double %417, %sqrt1412
+  store double %418, ptr %180, align 8, !tbaa !7
+  %419 = load double, ptr %329, align 8, !tbaa !7
+  %420 = fmul double %sqrt1412, %419
+  store double %420, ptr %329, align 8, !tbaa !7
+  br i1 %or.cond, label %421, label %442
 
-406:                                              ; preds = %400
+421:                                              ; preds = %409
+  %422 = load double, ptr %26, align 8, !tbaa !7
+  %423 = fmul double %331, %422
+  store double %423, ptr %21, align 8, !tbaa !7
+  %424 = mul nsw i64 %indvars.iv.next1579, %99
+  %425 = getelementptr double, ptr %36, i64 %424
+  %426 = getelementptr i8, ptr %425, i64 8
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %183, ptr noundef nonnull @c__1, ptr noundef %426, ptr noundef nonnull @c__1) #6
+  store double %416, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %426, ptr noundef nonnull @c__1, ptr noundef %183, ptr noundef nonnull @c__1) #6
+  br label %442
+
+427:                                              ; preds = %250
+  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %179, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
+  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %22, ptr noundef nonnull @c_b42, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
+  %428 = mul nsw i64 %indvars.iv.next1579, %98
+  %429 = getelementptr double, ptr %33, i64 %428
+  %430 = getelementptr i8, ptr %429, i64 8
+  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull @c_b42, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %430, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
+  %431 = load double, ptr %180, align 8, !tbaa !7
+  %432 = fmul double %431, %244
+  %433 = getelementptr double, ptr %5, i64 %indvars.iv1578
+  %434 = load double, ptr %433, align 8, !tbaa !7
+  %435 = fdiv double %432, %434
+  store double %435, ptr %25, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %25, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %430, ptr noundef nonnull @c__1) #6
+  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull @c_b42, ptr noundef nonnull %23, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %430, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
+  store double 0.000000e+00, ptr %21, align 8, !tbaa !7
+  %436 = call double @llvm.fmuladd.f64(double %244, double %242, double 1.000000e+00)
+  %437 = load double, ptr %23, align 8, !tbaa !7
+  %438 = fcmp ole double %436, 0.000000e+00
+  %439 = select i1 %438, double 0.000000e+00, double %436
+  %sqrt1414 = call double @llvm.sqrt.f64(double %439)
+  %440 = fmul double %sqrt1414, %437
+  store double %440, ptr %188, align 8, !tbaa !7
+  %441 = load double, ptr %11, align 8, !tbaa !7
+  %.inv = fcmp oge double %.31259, %441
+  %..31259 = select i1 %.inv, double %.31259, double %441
+  br label %442
+
+442:                                              ; preds = %281, %382, %370, %409, %421, %390, %402, %346, %336, %362, %350, %427
+  %.41260 = phi double [ %300, %281 ], [ %316, %346 ], [ %316, %336 ], [ %316, %362 ], [ %316, %350 ], [ %316, %382 ], [ %316, %370 ], [ %316, %402 ], [ %316, %390 ], [ %316, %421 ], [ %316, %409 ], [ %..31259, %427 ]
+  %443 = load double, ptr %188, align 8, !tbaa !7
+  %444 = load double, ptr %23, align 8, !tbaa !7
+  %445 = fdiv double %443, %444
+  store double %445, ptr %21, align 8, !tbaa !7
+  %446 = fmul double %445, %445
+  %447 = fcmp ugt double %446, %77
+  br i1 %447, label %467, label %448
+
+448:                                              ; preds = %442
+  %449 = fcmp olt double %444, %82
+  %450 = fcmp ogt double %444, %79
+  %or.cond1386 = and i1 %449, %450
+  br i1 %or.cond1386, label %451, label %456
+
+451:                                              ; preds = %448
+  %452 = mul nsw i64 %indvars.iv.next1579, %98
+  %453 = getelementptr double, ptr %33, i64 %452
+  %454 = getelementptr i8, ptr %453, i64 8
+  %455 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %454, ptr noundef nonnull @c__1) #6
+  br label %.sink.split1635
+
+456:                                              ; preds = %448
   store double 0.000000e+00, ptr %26, align 8, !tbaa !7
   store double 1.000000e+00, ptr %23, align 8, !tbaa !7
-  %407 = mul nsw i64 %indvars.iv.next1757, %98
-  %gep1522 = getelementptr double, ptr %invariant.gep1709, i64 %407
-  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %gep1522, ptr noundef nonnull @c__1, ptr noundef nonnull %26, ptr noundef nonnull %23) #6
-  %408 = load double, ptr %26, align 8, !tbaa !7
-  %409 = load double, ptr %23, align 8, !tbaa !7
-  %410 = call double @sqrt(double noundef %409) #6, !tbaa !3
-  %411 = fmul double %408, %410
-  br label %.sink.split1813
+  %457 = mul nsw i64 %indvars.iv.next1579, %98
+  %458 = getelementptr double, ptr %33, i64 %457
+  %459 = getelementptr i8, ptr %458, i64 8
+  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %459, ptr noundef nonnull @c__1, ptr noundef nonnull %26, ptr noundef nonnull %23) #6
+  %460 = load double, ptr %26, align 8, !tbaa !7
+  %461 = load double, ptr %23, align 8, !tbaa !7
+  %462 = call double @sqrt(double noundef %461) #6, !tbaa !3
+  %463 = fmul double %460, %462
+  br label %.sink.split1635
 
-.sink.split1813:                                  ; preds = %406, %403
-  %.sink1815 = phi double [ %405, %403 ], [ %411, %406 ]
-  %412 = getelementptr double, ptr %5, i64 %indvars.iv1756
-  %413 = load double, ptr %412, align 8, !tbaa !7
-  %414 = fmul double %.sink1815, %413
-  store double %414, ptr %172, align 8, !tbaa !7
-  br label %415
+.sink.split1635:                                  ; preds = %456, %451
+  %.sink1637 = phi double [ %455, %451 ], [ %463, %456 ]
+  %464 = getelementptr double, ptr %5, i64 %indvars.iv1578
+  %465 = load double, ptr %464, align 8, !tbaa !7
+  %466 = fmul double %.sink1637, %465
+  store double %466, ptr %188, align 8, !tbaa !7
+  br label %467
 
-415:                                              ; preds = %.sink.split1813, %394
-  %416 = load double, ptr %22, align 8, !tbaa !7
-  %417 = fdiv double %416, %176
-  %418 = fcmp ugt double %417, %77
-  br i1 %418, label %436, label %419
+467:                                              ; preds = %.sink.split1635, %442
+  %468 = load double, ptr %22, align 8, !tbaa !7
+  %469 = fdiv double %468, %192
+  %470 = fcmp ugt double %469, %77
+  br i1 %470, label %488, label %471
 
-419:                                              ; preds = %415
-  %420 = fcmp olt double %416, %82
-  %421 = fcmp ogt double %416, %79
-  %or.cond1387 = and i1 %420, %421
-  br i1 %or.cond1387, label %422, label %424
+471:                                              ; preds = %467
+  %472 = fcmp olt double %468, %82
+  %473 = fcmp ogt double %468, %79
+  %or.cond1387 = and i1 %472, %473
+  br i1 %or.cond1387, label %474, label %476
 
-422:                                              ; preds = %419
-  %423 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %gep, ptr noundef nonnull @c__1) #6
-  br label %429
+474:                                              ; preds = %471
+  %475 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %179, ptr noundef nonnull @c__1) #6
+  br label %481
 
-424:                                              ; preds = %419
+476:                                              ; preds = %471
   store double 0.000000e+00, ptr %26, align 8, !tbaa !7
   store double 1.000000e+00, ptr %22, align 8, !tbaa !7
-  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %gep, ptr noundef nonnull @c__1, ptr noundef nonnull %26, ptr noundef nonnull %22) #6
-  %425 = load double, ptr %26, align 8, !tbaa !7
-  %426 = load double, ptr %22, align 8, !tbaa !7
-  %427 = call double @sqrt(double noundef %426) #6, !tbaa !3
-  %428 = fmul double %425, %427
-  br label %429
+  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %179, ptr noundef nonnull @c__1, ptr noundef nonnull %26, ptr noundef nonnull %22) #6
+  %477 = load double, ptr %26, align 8, !tbaa !7
+  %478 = load double, ptr %22, align 8, !tbaa !7
+  %479 = call double @sqrt(double noundef %478) #6, !tbaa !3
+  %480 = fmul double %477, %479
+  br label %481
 
-429:                                              ; preds = %424, %422
-  %.sink1818 = phi double [ %428, %424 ], [ %423, %422 ]
-  %430 = load double, ptr %166, align 8, !tbaa !7
-  %431 = fmul double %.sink1818, %430
-  store double %431, ptr %22, align 8, !tbaa !7
-  store double %431, ptr %123, align 8, !tbaa !7
-  br label %436
+481:                                              ; preds = %476, %474
+  %.sink1640 = phi double [ %480, %476 ], [ %475, %474 ]
+  %482 = load double, ptr %180, align 8, !tbaa !7
+  %483 = fmul double %.sink1640, %482
+  store double %483, ptr %22, align 8, !tbaa !7
+  store double %483, ptr %123, align 8, !tbaa !7
+  br label %488
 
-432:                                              ; preds = %218
+484:                                              ; preds = %240
   %spec.select1388 = add nsw i32 %.31243, %117
-  %433 = add nsw i32 %.01296, 1
-  br label %436
+  %485 = add nsw i32 %.01296, 1
+  br label %488
 
-434:                                              ; preds = %171
+486:                                              ; preds = %187
   %spec.select1389 = add nsw i32 %.31243, %117
-  %435 = add nsw i32 %.01296, 1
-  br label %436
+  %487 = add nsw i32 %.01296, 1
+  br label %488
 
-436:                                              ; preds = %432, %429, %415, %434
-  %.21298 = phi i32 [ %.11297, %429 ], [ %.11297, %415 ], [ %433, %432 ], [ %435, %434 ]
-  %.41277 = phi double [ %225, %429 ], [ %225, %415 ], [ %225, %432 ], [ %.31276, %434 ]
-  %.51261 = phi double [ %.41260, %429 ], [ %.41260, %415 ], [ %.31259, %432 ], [ %.31259, %434 ]
-  %.61246 = phi i32 [ %.41244, %429 ], [ %.41244, %415 ], [ %spec.select1388, %432 ], [ %spec.select1389, %434 ]
-  %.5 = phi i32 [ %.4, %429 ], [ %.4, %415 ], [ %.3, %432 ], [ %.3, %434 ]
-  %437 = icmp sgt i32 %.21298, %93
-  %or.cond1390 = select i1 %.not1383, i1 %437, i1 false
-  br i1 %or.cond1390, label %438, label %168, !llvm.loop !11
+488:                                              ; preds = %484, %481, %467, %486
+  %.21298 = phi i32 [ %.11297, %481 ], [ %.11297, %467 ], [ %485, %484 ], [ %487, %486 ]
+  %.41277 = phi double [ %247, %481 ], [ %247, %467 ], [ %247, %484 ], [ %.31276, %486 ]
+  %.51261 = phi double [ %.41260, %481 ], [ %.41260, %467 ], [ %.31259, %484 ], [ %.31259, %486 ]
+  %.61246 = phi i32 [ %.41244, %481 ], [ %.41244, %467 ], [ %spec.select1388, %484 ], [ %spec.select1389, %486 ]
+  %.5 = phi i32 [ %.4, %481 ], [ %.4, %467 ], [ %.3, %484 ], [ %.3, %486 ]
+  %489 = icmp sgt i32 %.21298, %93
+  %or.cond1390 = select i1 %.not1383, i1 %489, i1 false
+  br i1 %or.cond1390, label %490, label %184, !llvm.loop !11
 
-438:                                              ; preds = %436
-  %.pre1782 = load double, ptr %22, align 8, !tbaa !7
-  br i1 %116, label %439, label %.loopexit1425
+490:                                              ; preds = %488
+  %.pre1604 = load double, ptr %22, align 8, !tbaa !7
+  br i1 %116, label %491, label %.loopexit1425
 
-439:                                              ; preds = %438
-  %440 = fneg double %.pre1782
-  store double %440, ptr %22, align 8, !tbaa !7
+491:                                              ; preds = %490
+  %492 = fneg double %.pre1604
+  store double %492, ptr %22, align 8, !tbaa !7
   br label %.loopexit1425
 
-.loopexit1425.loopexit:                           ; preds = %168
+.loopexit1425.loopexit:                           ; preds = %184
   %.pre = load double, ptr %22, align 8, !tbaa !7
   br label %.loopexit1425
 
-.loopexit1425:                                    ; preds = %.loopexit1425.loopexit, %438, %439
-  %441 = phi double [ %440, %439 ], [ %.pre1782, %438 ], [ %.pre, %.loopexit1425.loopexit ]
-  %.51278 = phi double [ %.41277, %439 ], [ %.41277, %438 ], [ %.31276, %.loopexit1425.loopexit ]
-  %.61262 = phi double [ %.51261, %439 ], [ %.51261, %438 ], [ %.31259, %.loopexit1425.loopexit ]
-  %.81248 = phi i32 [ 0, %439 ], [ 0, %438 ], [ %.31243, %.loopexit1425.loopexit ]
-  %.6 = phi i32 [ %.5, %439 ], [ %.5, %438 ], [ %.3, %.loopexit1425.loopexit ]
-  store double %441, ptr %123, align 8, !tbaa !7
-  br label %448
+.loopexit1425:                                    ; preds = %.loopexit1425.loopexit, %490, %491
+  %493 = phi double [ %492, %491 ], [ %.pre1604, %490 ], [ %.pre, %.loopexit1425.loopexit ]
+  %.51278 = phi double [ %.41277, %491 ], [ %.41277, %490 ], [ %.31276, %.loopexit1425.loopexit ]
+  %.61262 = phi double [ %.51261, %491 ], [ %.51261, %490 ], [ %.31259, %.loopexit1425.loopexit ]
+  %.81248 = phi i32 [ 0, %491 ], [ 0, %490 ], [ %.31243, %.loopexit1425.loopexit ]
+  %.6 = phi i32 [ %.5, %491 ], [ %.5, %490 ], [ %.3, %.loopexit1425.loopexit ]
+  store double %493, ptr %123, align 8, !tbaa !7
+  br label %500
 
-442:                                              ; preds = %thread-pre-split
-  %443 = fcmp oeq double %storemerge1376, 0.000000e+00
-  %or.cond5 = and i1 %116, %443
-  br i1 %or.cond5, label %444, label %448
+494:                                              ; preds = %thread-pre-split
+  %495 = fcmp oeq double %storemerge1376, 0.000000e+00
+  %or.cond5 = and i1 %116, %495
+  br i1 %or.cond5, label %496, label %500
 
-444:                                              ; preds = %442
+496:                                              ; preds = %494
   store i32 %111, ptr %20, align 4, !tbaa !3
-  %445 = load i32, ptr %2, align 4, !tbaa !3
-  %.1391 = call i32 @llvm.smin.i32(i32 %111, i32 %445)
-  %446 = sub i32 %.212421546, %121
-  %447 = add i32 %446, %.1391
-  br label %448
+  %497 = load i32, ptr %2, align 4, !tbaa !3
+  %.1391 = call i32 @llvm.smin.i32(i32 %111, i32 %497)
+  %498 = sub i32 %.212421460, %121
+  %499 = add i32 %498, %.1391
+  br label %500
 
-448:                                              ; preds = %.loopexit1425, %444, %442
-  %.61279 = phi double [ %.51278, %.loopexit1425 ], [ %.212751544, %444 ], [ %.212751544, %442 ]
-  %.71263 = phi double [ %.61262, %.loopexit1425 ], [ %.212581545, %444 ], [ %.212581545, %442 ]
-  %.91249 = phi i32 [ %.81248, %.loopexit1425 ], [ %447, %444 ], [ %.212421546, %442 ]
-  %.7 = phi i32 [ %.6, %.loopexit1425 ], [ %.21547, %444 ], [ %.21547, %442 ]
-  %indvars.iv.next1755 = add nsw i64 %indvars.iv1754, 1
-  %.not1374.not = icmp slt i64 %indvars.iv1754, %118
+500:                                              ; preds = %.loopexit1425, %496, %494
+  %.61279 = phi double [ %.51278, %.loopexit1425 ], [ %.212751458, %496 ], [ %.212751458, %494 ]
+  %.71263 = phi double [ %.61262, %.loopexit1425 ], [ %.212581459, %496 ], [ %.212581459, %494 ]
+  %.91249 = phi i32 [ %.81248, %.loopexit1425 ], [ %499, %496 ], [ %.212421460, %494 ]
+  %.7 = phi i32 [ %.6, %.loopexit1425 ], [ %.21461, %496 ], [ %.21461, %494 ]
+  %indvars.iv.next1577 = add nsw i64 %indvars.iv1576, 1
+  %.not1374.not = icmp slt i64 %indvars.iv1576, %118
   br i1 %.not1374.not, label %119, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %448, %.lr.ph1560
-  %.21275.lcssa = phi double [ %.112741553, %.lr.ph1560 ], [ %.61279, %448 ]
-  %.21258.lcssa = phi double [ %.112571554, %.lr.ph1560 ], [ %.71263, %448 ]
-  %.21242.lcssa = phi i32 [ %.112411556, %.lr.ph1560 ], [ %.91249, %448 ]
-  %.2.lcssa = phi i32 [ %.11557, %.lr.ph1560 ], [ %.7, %448 ]
-  %449 = add nuw nsw i32 %.012551555, 1
-  %indvars.iv.next1751 = add i32 %indvars.iv1750, %spec.select
-  %indvars.iv.next1753 = add i32 %indvars.iv1752, %indvars.iv1750
-  %exitcond.not = icmp eq i32 %449, %104
-  br i1 %exitcond.not, label %._crit_edge1561, label %.lr.ph1560, !llvm.loop !13
+._crit_edge:                                      ; preds = %500, %.lr.ph1474
+  %.21275.lcssa = phi double [ %.112741467, %.lr.ph1474 ], [ %.61279, %500 ]
+  %.21258.lcssa = phi double [ %.112571468, %.lr.ph1474 ], [ %.71263, %500 ]
+  %.21242.lcssa = phi i32 [ %.112411470, %.lr.ph1474 ], [ %.91249, %500 ]
+  %.2.lcssa = phi i32 [ %.11471, %.lr.ph1474 ], [ %.7, %500 ]
+  %501 = add nuw nsw i32 %.012551469, 1
+  %indvars.iv.next1573 = add i32 %indvars.iv1572, %spec.select
+  %indvars.iv.next1575 = add i32 %indvars.iv1574, %indvars.iv1572
+  %exitcond.not = icmp eq i32 %501, %104
+  br i1 %exitcond.not, label %._crit_edge1475, label %.lr.ph1474, !llvm.loop !13
 
-._crit_edge1561:                                  ; preds = %._crit_edge, %102
-  %.11274.lcssa = phi double [ %.012731697, %102 ], [ %.21275.lcssa, %._crit_edge ]
-  %.11257.lcssa = phi double [ %.012561698, %102 ], [ %.21258.lcssa, %._crit_edge ]
-  %.11241.lcssa = phi i32 [ %.012401699, %102 ], [ %.21242.lcssa, %._crit_edge ]
-  %.1.lcssa = phi i32 [ %.012391700, %102 ], [ %.2.lcssa, %._crit_edge ]
-  %450 = add nuw nsw i32 %.012361701, 1
-  %.not13621679.not = icmp slt i32 %.012361701, %.0
-  %451 = mul i32 %.012361701, %spec.select
-  br i1 %.not13621679.not, label %.lr.ph1686, label %.loopexit1427
+._crit_edge1475:                                  ; preds = %._crit_edge, %102
+  %.11274.lcssa = phi double [ %.012731531, %102 ], [ %.21275.lcssa, %._crit_edge ]
+  %.11257.lcssa = phi double [ %.012561532, %102 ], [ %.21258.lcssa, %._crit_edge ]
+  %.11241.lcssa = phi i32 [ %.012401533, %102 ], [ %.21242.lcssa, %._crit_edge ]
+  %.1.lcssa = phi i32 [ %.012391534, %102 ], [ %.2.lcssa, %._crit_edge ]
+  %502 = add nuw nsw i32 %.012361535, 1
+  %.not13621513.not = icmp slt i32 %.012361535, %.0
+  %503 = mul i32 %.012361535, %spec.select
+  br i1 %.not13621513.not, label %.lr.ph1520, label %.loopexit1427
 
-.lr.ph1686:                                       ; preds = %._crit_edge1561, %._crit_edge1674
-  %indvars.iv1764 = phi i32 [ %indvars.iv.next1765, %._crit_edge1674 ], [ %indvars.iv1762, %._crit_edge1561 ]
-  %.012381684 = phi i32 [ %785, %._crit_edge1674 ], [ %450, %._crit_edge1561 ]
-  %.81683 = phi i32 [ %.9.lcssa, %._crit_edge1674 ], [ %.1.lcssa, %._crit_edge1561 ]
-  %.1012501682 = phi i32 [ %.111251.lcssa, %._crit_edge1674 ], [ %.11241.lcssa, %._crit_edge1561 ]
-  %.812641681 = phi double [ %.91265.lcssa, %._crit_edge1674 ], [ %.11257.lcssa, %._crit_edge1561 ]
-  %.712801680 = phi double [ %.81281.lcssa, %._crit_edge1674 ], [ %.11274.lcssa, %._crit_edge1561 ]
-  %452 = sext i32 %indvars.iv1764 to i64
-  %453 = add nsw i32 %.012381684, -1
-  %454 = mul nsw i32 %453, %spec.select
-  store i32 %451, ptr %20, align 4, !tbaa !3
-  %455 = load i32, ptr %2, align 4, !tbaa !3
-  %.1392 = call i32 @llvm.smin.i32(i32 %451, i32 %455)
-  %.not13641663.not = icmp slt i32 %106, %.1392
-  br i1 %.not13641663.not, label %.lr.ph1673, label %._crit_edge1674
+.lr.ph1520:                                       ; preds = %._crit_edge1475, %._crit_edge1508
+  %indvars.iv1586 = phi i32 [ %indvars.iv.next1587, %._crit_edge1508 ], [ %indvars.iv1584, %._crit_edge1475 ]
+  %.012381518 = phi i32 [ %879, %._crit_edge1508 ], [ %502, %._crit_edge1475 ]
+  %.81517 = phi i32 [ %.9.lcssa, %._crit_edge1508 ], [ %.1.lcssa, %._crit_edge1475 ]
+  %.1012501516 = phi i32 [ %.111251.lcssa, %._crit_edge1508 ], [ %.11241.lcssa, %._crit_edge1475 ]
+  %.812641515 = phi double [ %.91265.lcssa, %._crit_edge1508 ], [ %.11257.lcssa, %._crit_edge1475 ]
+  %.712801514 = phi double [ %.81281.lcssa, %._crit_edge1508 ], [ %.11274.lcssa, %._crit_edge1475 ]
+  %504 = sext i32 %indvars.iv1586 to i64
+  %505 = add nsw i32 %.012381518, -1
+  %506 = mul nsw i32 %505, %spec.select
+  store i32 %503, ptr %20, align 4, !tbaa !3
+  %507 = load i32, ptr %2, align 4, !tbaa !3
+  %.1392 = call i32 @llvm.smin.i32(i32 %503, i32 %507)
+  %.not13641497.not = icmp slt i32 %106, %.1392
+  br i1 %.not13641497.not, label %.lr.ph1507, label %._crit_edge1508
 
-.lr.ph1673:                                       ; preds = %.lr.ph1686
-  %456 = mul i32 %.012381684, %spec.select
-  %457 = sext i32 %.1392 to i64
-  br label %458
+.lr.ph1507:                                       ; preds = %.lr.ph1520
+  %508 = mul i32 %.012381518, %spec.select
+  %509 = sext i32 %.1392 to i64
+  br label %510
 
-458:                                              ; preds = %.lr.ph1673, %784
-  %indvars.iv1769 = phi i64 [ %103, %.lr.ph1673 ], [ %indvars.iv.next1770, %784 ]
-  %.91671 = phi i32 [ %.81683, %.lr.ph1673 ], [ %.14, %784 ]
-  %.1112511670 = phi i32 [ %.1012501682, %.lr.ph1673 ], [ %.17, %784 ]
-  %.912651669 = phi double [ %.812641681, %.lr.ph1673 ], [ %.151271, %784 ]
-  %.812811668 = phi double [ %.712801680, %.lr.ph1673 ], [ %.131286, %784 ]
-  %.012911667 = phi i32 [ 0, %.lr.ph1673 ], [ %.41295, %784 ]
-  %459 = getelementptr inbounds double, ptr %29, i64 %indvars.iv1769
-  %460 = load double, ptr %459, align 8, !tbaa !7
-  store double %460, ptr %22, align 8, !tbaa !7
-  %461 = fcmp ogt double %460, 0.000000e+00
-  br i1 %461, label %462, label %775
+510:                                              ; preds = %.lr.ph1507, %878
+  %indvars.iv1591 = phi i64 [ %103, %.lr.ph1507 ], [ %indvars.iv.next1592, %878 ]
+  %.91505 = phi i32 [ %.81517, %.lr.ph1507 ], [ %.14, %878 ]
+  %.1112511504 = phi i32 [ %.1012501516, %.lr.ph1507 ], [ %.17, %878 ]
+  %.912651503 = phi double [ %.812641515, %.lr.ph1507 ], [ %.151271, %878 ]
+  %.812811502 = phi double [ %.712801514, %.lr.ph1507 ], [ %.131286, %878 ]
+  %.012911501 = phi i32 [ 0, %.lr.ph1507 ], [ %.41295, %878 ]
+  %511 = getelementptr inbounds double, ptr %29, i64 %indvars.iv1591
+  %512 = load double, ptr %511, align 8, !tbaa !7
+  store double %512, ptr %22, align 8, !tbaa !7
+  %513 = fcmp ogt double %512, 0.000000e+00
+  br i1 %513, label %514, label %869
 
-462:                                              ; preds = %458
-  %463 = load i32, ptr %2, align 4, !tbaa !3
-  %.1393 = call i32 @llvm.smin.i32(i32 %456, i32 %463)
+514:                                              ; preds = %510
+  %515 = load i32, ptr %2, align 4, !tbaa !3
+  %.1393 = call i32 @llvm.smin.i32(i32 %508, i32 %515)
   store i32 %.1393, ptr %20, align 4, !tbaa !3
-  %.not13671646.not = icmp slt i32 %454, %.1393
-  br i1 %.not13671646.not, label %.lr.ph1657, label %.loopexit1424
+  %.not13671480.not = icmp slt i32 %506, %.1393
+  br i1 %.not13671480.not, label %.lr.ph1491, label %.loopexit1424
 
-.lr.ph1657:                                       ; preds = %462
-  %464 = mul nsw i64 %indvars.iv1769, %98
-  %gep1567 = getelementptr double, ptr %invariant.gep1709, i64 %464
-  %465 = getelementptr inbounds double, ptr %30, i64 %indvars.iv1769
-  %466 = mul nsw i64 %indvars.iv1769, %99
-  %gep1595 = getelementptr double, ptr %invariant.gep1533, i64 %466
-  br label %470
+.lr.ph1491:                                       ; preds = %514
+  %516 = mul nsw i64 %indvars.iv1591, %98
+  %517 = getelementptr double, ptr %33, i64 %516
+  %518 = getelementptr i8, ptr %517, i64 8
+  %519 = getelementptr inbounds double, ptr %30, i64 %indvars.iv1591
+  %520 = mul nsw i64 %indvars.iv1591, %99
+  %521 = getelementptr double, ptr %36, i64 %520
+  %522 = getelementptr i8, ptr %521, i64 8
+  br label %526
 
-467:                                              ; preds = %769
-  %468 = load i32, ptr %20, align 4, !tbaa !3
-  %469 = sext i32 %468 to i64
-  %.not1367.not = icmp slt i64 %indvars.iv.next1767, %469
-  br i1 %.not1367.not, label %470, label %.loopexit1424.loopexit, !llvm.loop !14
+523:                                              ; preds = %863
+  %524 = load i32, ptr %20, align 4, !tbaa !3
+  %525 = sext i32 %524 to i64
+  %.not1367.not = icmp slt i64 %indvars.iv.next1589, %525
+  br i1 %.not1367.not, label %526, label %.loopexit1424.loopexit, !llvm.loop !14
 
-470:                                              ; preds = %.lr.ph1657, %467
-  %indvars.iv1766 = phi i64 [ %452, %.lr.ph1657 ], [ %indvars.iv.next1767, %467 ]
-  %.101655 = phi i32 [ %.91671, %.lr.ph1657 ], [ %.11, %467 ]
-  %.1212521654 = phi i32 [ %.1112511670, %.lr.ph1657 ], [ %.131253, %467 ]
-  %.1012661653 = phi double [ %.912651669, %.lr.ph1657 ], [ %.121268, %467 ]
-  %.912821652 = phi double [ %.812811668, %.lr.ph1657 ], [ %.101283, %467 ]
-  %.112921651 = phi i32 [ %.012911667, %.lr.ph1657 ], [ %.21293, %467 ]
-  %.312991650 = phi i32 [ 0, %.lr.ph1657 ], [ %.41300, %467 ]
-  %indvars.iv.next1767 = add nsw i64 %indvars.iv1766, 1
-  %471 = getelementptr double, ptr %6, i64 %indvars.iv1766
-  %472 = load double, ptr %471, align 8, !tbaa !7
-  store double %472, ptr %23, align 8, !tbaa !7
-  %473 = fcmp ogt double %472, 0.000000e+00
-  br i1 %473, label %474, label %762
+526:                                              ; preds = %.lr.ph1491, %523
+  %indvars.iv1588 = phi i64 [ %504, %.lr.ph1491 ], [ %indvars.iv.next1589, %523 ]
+  %.101489 = phi i32 [ %.91505, %.lr.ph1491 ], [ %.11, %523 ]
+  %.1212521488 = phi i32 [ %.1112511504, %.lr.ph1491 ], [ %.131253, %523 ]
+  %.1012661487 = phi double [ %.912651503, %.lr.ph1491 ], [ %.121268, %523 ]
+  %.912821486 = phi double [ %.812811502, %.lr.ph1491 ], [ %.101283, %523 ]
+  %.112921485 = phi i32 [ %.012911501, %.lr.ph1491 ], [ %.21293, %523 ]
+  %.312991484 = phi i32 [ 0, %.lr.ph1491 ], [ %.41300, %523 ]
+  %indvars.iv.next1589 = add nsw i64 %indvars.iv1588, 1
+  %527 = getelementptr double, ptr %6, i64 %indvars.iv1588
+  %528 = load double, ptr %527, align 8, !tbaa !7
+  store double %528, ptr %23, align 8, !tbaa !7
+  %529 = fcmp ogt double %528, 0.000000e+00
+  br i1 %529, label %530, label %856
 
-474:                                              ; preds = %470
-  %475 = load double, ptr %22, align 8, !tbaa !7
-  %476 = fcmp ult double %472, 1.000000e+00
-  %477 = fcmp ult double %475, %472
-  br i1 %476, label %500, label %478
+530:                                              ; preds = %526
+  %531 = load double, ptr %22, align 8, !tbaa !7
+  %532 = fcmp ult double %528, 1.000000e+00
+  %533 = fcmp ult double %531, %528
+  br i1 %532, label %560, label %534
 
-478:                                              ; preds = %474
-  %479 = fmul double %80, %475
-  %480 = fcmp ole double %479, %472
-  %481 = fmul double %80, %472
-  %482 = fcmp ole double %481, %475
-  %.11302.in = select i1 %477, i1 %482, i1 %480
-  %483 = fdiv double %81, %472
-  %484 = fcmp olt double %475, %483
-  %485 = getelementptr double, ptr %5, i64 %indvars.iv1766
-  br i1 %484, label %486, label %495
+534:                                              ; preds = %530
+  %535 = fmul double %80, %531
+  %536 = fcmp ole double %535, %528
+  %537 = fmul double %80, %528
+  %538 = fcmp ole double %537, %531
+  %.11302.in = select i1 %533, i1 %538, i1 %536
+  %539 = fdiv double %81, %528
+  %540 = fcmp olt double %531, %539
+  %541 = getelementptr double, ptr %5, i64 %indvars.iv1588
+  br i1 %540, label %542, label %553
 
-486:                                              ; preds = %478
-  %487 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1573 = getelementptr double, ptr %invariant.gep1709, i64 %487
-  %488 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %gep1567, ptr noundef nonnull @c__1, ptr noundef %gep1573, ptr noundef nonnull @c__1) #6
-  %489 = load double, ptr %465, align 8, !tbaa !7
-  %490 = fmul double %488, %489
-  %491 = load double, ptr %485, align 8, !tbaa !7
-  %492 = fmul double %490, %491
-  %493 = load double, ptr %23, align 8, !tbaa !7
-  %494 = fdiv double %492, %493
-  br label %522
+542:                                              ; preds = %534
+  %543 = mul nsw i64 %indvars.iv.next1589, %98
+  %544 = getelementptr double, ptr %33, i64 %543
+  %545 = getelementptr i8, ptr %544, i64 8
+  %546 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %518, ptr noundef nonnull @c__1, ptr noundef %545, ptr noundef nonnull @c__1) #6
+  %547 = load double, ptr %519, align 8, !tbaa !7
+  %548 = fmul double %546, %547
+  %549 = load double, ptr %541, align 8, !tbaa !7
+  %550 = fmul double %548, %549
+  %551 = load double, ptr %23, align 8, !tbaa !7
+  %552 = fdiv double %550, %551
+  br label %584
 
-495:                                              ; preds = %478
-  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %gep1567, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
-  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %22, ptr noundef nonnull %465, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
-  %496 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1569 = getelementptr double, ptr %invariant.gep1709, i64 %496
-  %497 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %gep1569, ptr noundef nonnull @c__1) #6
-  %498 = load double, ptr %485, align 8, !tbaa !7
-  %499 = fmul double %497, %498
-  br label %522
+553:                                              ; preds = %534
+  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %518, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
+  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %22, ptr noundef nonnull %519, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
+  %554 = mul nsw i64 %indvars.iv.next1589, %98
+  %555 = getelementptr double, ptr %33, i64 %554
+  %556 = getelementptr i8, ptr %555, i64 8
+  %557 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %556, ptr noundef nonnull @c__1) #6
+  %558 = load double, ptr %541, align 8, !tbaa !7
+  %559 = fmul double %557, %558
+  br label %584
 
-500:                                              ; preds = %474
-  %501 = fdiv double %472, %80
-  %502 = fcmp ole double %475, %501
-  %503 = fdiv double %475, %80
-  %504 = fcmp ole double %472, %503
-  %.31304.in = select i1 %477, i1 %504, i1 %502
-  %505 = fdiv double %80, %472
-  %506 = fcmp ogt double %475, %505
-  %507 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1581 = getelementptr double, ptr %invariant.gep1709, i64 %507
-  br i1 %506, label %508, label %517
+560:                                              ; preds = %530
+  %561 = fdiv double %528, %80
+  %562 = fcmp ole double %531, %561
+  %563 = fdiv double %531, %80
+  %564 = fcmp ole double %528, %563
+  %.31304.in = select i1 %533, i1 %564, i1 %562
+  %565 = fdiv double %80, %528
+  %566 = fcmp ogt double %531, %565
+  %567 = mul nsw i64 %indvars.iv.next1589, %98
+  %568 = getelementptr double, ptr %33, i64 %567
+  %569 = getelementptr i8, ptr %568, i64 8
+  br i1 %566, label %570, label %579
 
-508:                                              ; preds = %500
-  %509 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %gep1567, ptr noundef nonnull @c__1, ptr noundef %gep1581, ptr noundef nonnull @c__1) #6
-  %510 = load double, ptr %465, align 8, !tbaa !7
-  %511 = fmul double %509, %510
-  %512 = getelementptr double, ptr %5, i64 %indvars.iv1766
-  %513 = load double, ptr %512, align 8, !tbaa !7
-  %514 = fmul double %511, %513
-  %515 = load double, ptr %23, align 8, !tbaa !7
-  %516 = fdiv double %514, %515
-  br label %522
+570:                                              ; preds = %560
+  %571 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %518, ptr noundef nonnull @c__1, ptr noundef %569, ptr noundef nonnull @c__1) #6
+  %572 = load double, ptr %519, align 8, !tbaa !7
+  %573 = fmul double %571, %572
+  %574 = getelementptr double, ptr %5, i64 %indvars.iv1588
+  %575 = load double, ptr %574, align 8, !tbaa !7
+  %576 = fmul double %573, %575
+  %577 = load double, ptr %23, align 8, !tbaa !7
+  %578 = fdiv double %576, %577
+  br label %584
 
-517:                                              ; preds = %500
-  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %gep1581, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
-  %518 = getelementptr double, ptr %5, i64 %indvars.iv1766
-  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull %518, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
-  %519 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %gep1567, ptr noundef nonnull @c__1) #6
-  %520 = load double, ptr %465, align 8, !tbaa !7
-  %521 = fmul double %519, %520
-  br label %522
+579:                                              ; preds = %560
+  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %569, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
+  %580 = getelementptr double, ptr %5, i64 %indvars.iv1588
+  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull %580, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
+  %581 = call double @ddot_(ptr noundef nonnull %1, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %518, ptr noundef nonnull @c__1) #6
+  %582 = load double, ptr %519, align 8, !tbaa !7
+  %583 = fmul double %581, %582
+  br label %584
 
-522:                                              ; preds = %508, %517, %486, %495
-  %.sink1822 = phi ptr [ %22, %508 ], [ %22, %517 ], [ %22, %486 ], [ %23, %495 ]
-  %.sink1820 = phi double [ %516, %508 ], [ %521, %517 ], [ %494, %486 ], [ %499, %495 ]
-  %.21303.in = phi i1 [ %.31304.in, %508 ], [ %.31304.in, %517 ], [ %.11302.in, %486 ], [ %.11302.in, %495 ]
-  %523 = load double, ptr %.sink1822, align 8, !tbaa !7
-  %524 = fdiv double %.sink1820, %523
-  store double %.912821652, ptr %21, align 8, !tbaa !7
-  %525 = fcmp oge double %524, 0.000000e+00
-  %526 = fneg double %524
-  %527 = select i1 %525, double %524, double %526
-  %528 = fcmp oge double %.912821652, %527
-  %529 = select i1 %528, double %.912821652, double %527
-  %530 = load double, ptr %12, align 8, !tbaa !7
-  %531 = fcmp ogt double %527, %530
-  br i1 %531, label %532, label %758
+584:                                              ; preds = %570, %579, %542, %553
+  %.sink1644 = phi ptr [ %22, %570 ], [ %22, %579 ], [ %22, %542 ], [ %23, %553 ]
+  %.sink1642 = phi double [ %578, %570 ], [ %583, %579 ], [ %552, %542 ], [ %559, %553 ]
+  %.21303.in = phi i1 [ %.31304.in, %570 ], [ %.31304.in, %579 ], [ %.11302.in, %542 ], [ %.11302.in, %553 ]
+  %585 = load double, ptr %.sink1644, align 8, !tbaa !7
+  %586 = fdiv double %.sink1642, %585
+  store double %.912821486, ptr %21, align 8, !tbaa !7
+  %587 = fcmp oge double %586, 0.000000e+00
+  %588 = fneg double %586
+  %589 = select i1 %587, double %586, double %588
+  %590 = fcmp oge double %.912821486, %589
+  %591 = select i1 %590, double %.912821486, double %589
+  %592 = load double, ptr %12, align 8, !tbaa !7
+  %593 = fcmp ogt double %589, %592
+  br i1 %593, label %594, label %852
 
-532:                                              ; preds = %522
-  %533 = add nsw i32 %.101655, 1
-  br i1 %.21303.in, label %534, label %692
+594:                                              ; preds = %584
+  %595 = add nsw i32 %.101489, 1
+  br i1 %.21303.in, label %596, label %778
 
-534:                                              ; preds = %532
-  %535 = load double, ptr %23, align 8, !tbaa !7
-  %536 = load double, ptr %22, align 8, !tbaa !7
-  %537 = fdiv double %535, %536
-  %538 = fdiv double %536, %535
-  %539 = fsub double %537, %538
-  store double %539, ptr %21, align 8, !tbaa !7
-  %540 = fcmp oge double %539, 0.000000e+00
-  %541 = fneg double %539
-  %542 = select i1 %540, double %539, double %541
-  %543 = fmul double %542, -5.000000e-01
-  %544 = fdiv double %543, %524
-  %545 = fcmp ogt double %535, %475
-  %546 = fneg double %544
-  %.01306 = select i1 %545, double %546, double %544
-  %547 = call double @llvm.fabs.f64(double %544)
-  %548 = fcmp ogt double %547, %83
-  br i1 %548, label %549, label %582
+596:                                              ; preds = %594
+  %597 = load double, ptr %23, align 8, !tbaa !7
+  %598 = load double, ptr %22, align 8, !tbaa !7
+  %599 = fdiv double %597, %598
+  %600 = fdiv double %598, %597
+  %601 = fsub double %599, %600
+  store double %601, ptr %21, align 8, !tbaa !7
+  %602 = fcmp oge double %601, 0.000000e+00
+  %603 = fneg double %601
+  %604 = select i1 %602, double %601, double %603
+  %605 = fmul double %604, -5.000000e-01
+  %606 = fdiv double %605, %586
+  %607 = fcmp ogt double %597, %531
+  %608 = fneg double %606
+  %.01306 = select i1 %607, double %608, double %606
+  %609 = call double @llvm.fabs.f64(double %606)
+  %610 = fcmp ogt double %609, %83
+  br i1 %610, label %611, label %648
 
-549:                                              ; preds = %534
-  %550 = fdiv double 5.000000e-01, %.01306
-  store double %550, ptr %26, align 8, !tbaa !7
-  %551 = load double, ptr %465, align 8, !tbaa !7
-  %552 = fmul double %550, %551
-  %553 = getelementptr double, ptr %5, i64 %indvars.iv1766
-  %554 = load double, ptr %553, align 8, !tbaa !7
-  %555 = fdiv double %552, %554
-  store double %555, ptr %96, align 16, !tbaa !7
-  %556 = fneg double %550
-  %557 = fmul double %554, %556
-  %558 = fdiv double %557, %551
-  store double %558, ptr %97, align 8, !tbaa !7
-  %559 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1633 = getelementptr double, ptr %invariant.gep1709, i64 %559
-  call void @drotm_(ptr noundef nonnull %1, ptr noundef %gep1567, ptr noundef nonnull @c__1, ptr noundef %gep1633, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
-  br i1 %or.cond, label %560, label %562
+611:                                              ; preds = %596
+  %612 = fdiv double 5.000000e-01, %.01306
+  store double %612, ptr %26, align 8, !tbaa !7
+  %613 = load double, ptr %519, align 8, !tbaa !7
+  %614 = fmul double %612, %613
+  %615 = getelementptr double, ptr %5, i64 %indvars.iv1588
+  %616 = load double, ptr %615, align 8, !tbaa !7
+  %617 = fdiv double %614, %616
+  store double %617, ptr %96, align 16, !tbaa !7
+  %618 = fneg double %612
+  %619 = fmul double %616, %618
+  %620 = fdiv double %619, %613
+  store double %620, ptr %97, align 8, !tbaa !7
+  %621 = mul nsw i64 %indvars.iv.next1589, %98
+  %622 = getelementptr double, ptr %33, i64 %621
+  %623 = getelementptr i8, ptr %622, i64 8
+  call void @drotm_(ptr noundef nonnull %1, ptr noundef %518, ptr noundef nonnull @c__1, ptr noundef %623, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
+  br i1 %or.cond, label %624, label %628
 
-560:                                              ; preds = %549
-  %561 = mul nsw i64 %indvars.iv.next1767, %99
-  %gep1637 = getelementptr double, ptr %invariant.gep1533, i64 %561
-  call void @drotm_(ptr noundef nonnull %28, ptr noundef %gep1595, ptr noundef nonnull @c__1, ptr noundef %gep1637, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
-  br label %562
+624:                                              ; preds = %611
+  %625 = mul nsw i64 %indvars.iv.next1589, %99
+  %626 = getelementptr double, ptr %36, i64 %625
+  %627 = getelementptr i8, ptr %626, i64 8
+  call void @drotm_(ptr noundef nonnull %28, ptr noundef %522, ptr noundef nonnull @c__1, ptr noundef %627, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
+  br label %628
 
-562:                                              ; preds = %560, %549
-  %563 = load double, ptr %26, align 8, !tbaa !7
-  %564 = fmul double %538, %563
-  %565 = call double @llvm.fmuladd.f64(double %564, double %524, double 1.000000e+00)
-  %566 = load double, ptr %23, align 8, !tbaa !7
-  %567 = fcmp ole double %565, 0.000000e+00
-  %568 = select i1 %567, double 0.000000e+00, double %565
-  %sqrt1416 = call double @llvm.sqrt.f64(double %568)
-  %569 = fmul double %566, %sqrt1416
-  store double %569, ptr %471, align 8, !tbaa !7
+628:                                              ; preds = %624, %611
+  %629 = load double, ptr %26, align 8, !tbaa !7
+  %630 = fmul double %600, %629
+  %631 = call double @llvm.fmuladd.f64(double %630, double %586, double 1.000000e+00)
+  %632 = load double, ptr %23, align 8, !tbaa !7
+  %633 = fcmp ole double %631, 0.000000e+00
+  %634 = select i1 %633, double 0.000000e+00, double %631
+  %sqrt1416 = call double @llvm.sqrt.f64(double %634)
+  %635 = fmul double %632, %sqrt1416
+  store double %635, ptr %527, align 8, !tbaa !7
   store double 0.000000e+00, ptr %21, align 8, !tbaa !7
-  %570 = fneg double %537
-  %571 = fmul double %563, %570
-  %572 = call double @llvm.fmuladd.f64(double %571, double %524, double 1.000000e+00)
-  %573 = fcmp ole double %572, 0.000000e+00
-  %574 = select i1 %573, double 0.000000e+00, double %572
-  %sqrt1415 = call double @llvm.sqrt.f64(double %574)
-  %575 = load double, ptr %22, align 8, !tbaa !7
-  %576 = fmul double %575, %sqrt1415
-  store double %576, ptr %22, align 8, !tbaa !7
-  %577 = fcmp oge double %563, 0.000000e+00
-  %578 = fneg double %563
-  %579 = select i1 %577, double %563, double %578
-  %580 = fcmp oge double %.1012661653, %579
-  %581 = select i1 %580, double %.1012661653, double %579
-  br label %719
+  %636 = fneg double %599
+  %637 = fmul double %629, %636
+  %638 = call double @llvm.fmuladd.f64(double %637, double %586, double 1.000000e+00)
+  %639 = fcmp ole double %638, 0.000000e+00
+  %640 = select i1 %639, double 0.000000e+00, double %638
+  %sqrt1415 = call double @llvm.sqrt.f64(double %640)
+  %641 = load double, ptr %22, align 8, !tbaa !7
+  %642 = fmul double %641, %sqrt1415
+  store double %642, ptr %22, align 8, !tbaa !7
+  %643 = fcmp oge double %629, 0.000000e+00
+  %644 = fneg double %629
+  %645 = select i1 %643, double %629, double %644
+  %646 = fcmp oge double %.1012661487, %645
+  %647 = select i1 %646, double %.1012661487, double %645
+  br label %809
 
-582:                                              ; preds = %534
-  %583 = load double, ptr @c_b42, align 8, !tbaa !7
-  %584 = fcmp oge double %583, 0.000000e+00
-  %585 = fneg double %583
-  %586 = xor i1 %584, %525
-  %587 = select i1 %586, double %585, double %583
-  %588 = fneg double %587
-  %.01272 = select i1 %545, double %587, double %588
-  %589 = call double @llvm.fmuladd.f64(double %.01306, double %.01306, double 1.000000e+00)
-  %sqrt1420 = call double @llvm.sqrt.f64(double %589)
-  %590 = call double @llvm.fmuladd.f64(double %.01272, double %sqrt1420, double %.01306)
-  %591 = fdiv double 1.000000e+00, %590
-  store double %591, ptr %26, align 8, !tbaa !7
-  %592 = call double @llvm.fmuladd.f64(double %591, double %591, double 1.000000e+00)
-  %593 = fdiv double 1.000000e+00, %592
-  %sqrt1419 = call double @llvm.sqrt.f64(double %593)
-  %594 = fmul double %591, %sqrt1419
-  %595 = fcmp oge double %594, 0.000000e+00
-  %596 = fneg double %594
-  %597 = select i1 %595, double %594, double %596
-  %598 = fcmp oge double %.1012661653, %597
-  %599 = select i1 %598, double %.1012661653, double %597
-  %600 = fmul double %538, %591
-  %601 = call double @llvm.fmuladd.f64(double %600, double %524, double 1.000000e+00)
-  %602 = fcmp ole double %601, 0.000000e+00
-  %603 = select i1 %602, double 0.000000e+00, double %601
-  %sqrt1418 = call double @llvm.sqrt.f64(double %603)
-  %604 = fmul double %535, %sqrt1418
-  store double %604, ptr %471, align 8, !tbaa !7
+648:                                              ; preds = %596
+  %649 = load double, ptr @c_b42, align 8, !tbaa !7
+  %650 = fcmp oge double %649, 0.000000e+00
+  %651 = fneg double %649
+  %652 = xor i1 %650, %587
+  %653 = select i1 %652, double %651, double %649
+  %654 = fneg double %653
+  %.01272 = select i1 %607, double %653, double %654
+  %655 = call double @llvm.fmuladd.f64(double %.01306, double %.01306, double 1.000000e+00)
+  %sqrt1420 = call double @llvm.sqrt.f64(double %655)
+  %656 = call double @llvm.fmuladd.f64(double %.01272, double %sqrt1420, double %.01306)
+  %657 = fdiv double 1.000000e+00, %656
+  store double %657, ptr %26, align 8, !tbaa !7
+  %658 = call double @llvm.fmuladd.f64(double %657, double %657, double 1.000000e+00)
+  %659 = fdiv double 1.000000e+00, %658
+  %sqrt1419 = call double @llvm.sqrt.f64(double %659)
+  %660 = fmul double %657, %sqrt1419
+  %661 = fcmp oge double %660, 0.000000e+00
+  %662 = fneg double %660
+  %663 = select i1 %661, double %660, double %662
+  %664 = fcmp oge double %.1012661487, %663
+  %665 = select i1 %664, double %.1012661487, double %663
+  %666 = fmul double %600, %657
+  %667 = call double @llvm.fmuladd.f64(double %666, double %586, double 1.000000e+00)
+  %668 = fcmp ole double %667, 0.000000e+00
+  %669 = select i1 %668, double 0.000000e+00, double %667
+  %sqrt1418 = call double @llvm.sqrt.f64(double %669)
+  %670 = fmul double %597, %sqrt1418
+  store double %670, ptr %527, align 8, !tbaa !7
   store double 0.000000e+00, ptr %21, align 8, !tbaa !7
-  %605 = fneg double %537
-  %606 = fmul double %591, %605
-  %607 = call double @llvm.fmuladd.f64(double %606, double %524, double 1.000000e+00)
-  %608 = fcmp ole double %607, 0.000000e+00
-  %609 = select i1 %608, double 0.000000e+00, double %607
-  %sqrt1417 = call double @llvm.sqrt.f64(double %609)
-  %610 = fmul double %536, %sqrt1417
-  store double %610, ptr %22, align 8, !tbaa !7
-  %611 = load double, ptr %465, align 8, !tbaa !7
-  %612 = getelementptr double, ptr %5, i64 %indvars.iv1766
-  %613 = load double, ptr %612, align 8, !tbaa !7
-  %614 = fdiv double %611, %613
-  %615 = fdiv double %613, %611
-  %616 = fcmp ult double %611, 1.000000e+00
-  %617 = fcmp ult double %613, 1.000000e+00
-  br i1 %616, label %645, label %618
+  %671 = fneg double %599
+  %672 = fmul double %657, %671
+  %673 = call double @llvm.fmuladd.f64(double %672, double %586, double 1.000000e+00)
+  %674 = fcmp ole double %673, 0.000000e+00
+  %675 = select i1 %674, double 0.000000e+00, double %673
+  %sqrt1417 = call double @llvm.sqrt.f64(double %675)
+  %676 = fmul double %598, %sqrt1417
+  store double %676, ptr %22, align 8, !tbaa !7
+  %677 = load double, ptr %519, align 8, !tbaa !7
+  %678 = getelementptr double, ptr %5, i64 %indvars.iv1588
+  %679 = load double, ptr %678, align 8, !tbaa !7
+  %680 = fdiv double %677, %679
+  %681 = fdiv double %679, %677
+  %682 = fcmp ult double %677, 1.000000e+00
+  %683 = fcmp ult double %679, 1.000000e+00
+  br i1 %682, label %719, label %684
 
-618:                                              ; preds = %582
-  br i1 %617, label %629, label %619
+684:                                              ; preds = %648
+  br i1 %683, label %699, label %685
 
-619:                                              ; preds = %618
-  %620 = fmul double %591, %614
-  store double %620, ptr %96, align 16, !tbaa !7
-  %621 = fneg double %591
-  %622 = fmul double %615, %621
-  store double %622, ptr %97, align 8, !tbaa !7
-  %623 = fmul double %611, %sqrt1419
-  store double %623, ptr %465, align 8, !tbaa !7
-  %624 = load double, ptr %612, align 8, !tbaa !7
-  %625 = fmul double %sqrt1419, %624
-  store double %625, ptr %612, align 8, !tbaa !7
-  %626 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1593 = getelementptr double, ptr %invariant.gep1709, i64 %626
-  call void @drotm_(ptr noundef nonnull %1, ptr noundef %gep1567, ptr noundef nonnull @c__1, ptr noundef %gep1593, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
-  br i1 %or.cond, label %627, label %719
+685:                                              ; preds = %684
+  %686 = fmul double %657, %680
+  store double %686, ptr %96, align 16, !tbaa !7
+  %687 = fneg double %657
+  %688 = fmul double %681, %687
+  store double %688, ptr %97, align 8, !tbaa !7
+  %689 = fmul double %677, %sqrt1419
+  store double %689, ptr %519, align 8, !tbaa !7
+  %690 = load double, ptr %678, align 8, !tbaa !7
+  %691 = fmul double %sqrt1419, %690
+  store double %691, ptr %678, align 8, !tbaa !7
+  %692 = mul nsw i64 %indvars.iv.next1589, %98
+  %693 = getelementptr double, ptr %33, i64 %692
+  %694 = getelementptr i8, ptr %693, i64 8
+  call void @drotm_(ptr noundef nonnull %1, ptr noundef %518, ptr noundef nonnull @c__1, ptr noundef %694, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
+  br i1 %or.cond, label %695, label %809
 
-627:                                              ; preds = %619
-  %628 = mul nsw i64 %indvars.iv.next1767, %99
-  %gep1597 = getelementptr double, ptr %invariant.gep1533, i64 %628
-  call void @drotm_(ptr noundef nonnull %28, ptr noundef %gep1595, ptr noundef nonnull @c__1, ptr noundef %gep1597, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
-  br label %719
+695:                                              ; preds = %685
+  %696 = mul nsw i64 %indvars.iv.next1589, %99
+  %697 = getelementptr double, ptr %36, i64 %696
+  %698 = getelementptr i8, ptr %697, i64 8
+  call void @drotm_(ptr noundef nonnull %28, ptr noundef %522, ptr noundef nonnull @c__1, ptr noundef %698, ptr noundef nonnull @c__1, ptr noundef nonnull %27) #6
+  br label %809
 
-629:                                              ; preds = %618
-  %630 = fneg double %591
-  %631 = fmul double %615, %630
-  store double %631, ptr %21, align 8, !tbaa !7
-  %632 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1599 = getelementptr double, ptr %invariant.gep1709, i64 %632
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep1599, ptr noundef nonnull @c__1, ptr noundef %gep1567, ptr noundef nonnull @c__1) #6
-  %633 = fmul double %sqrt1419, %594
-  %634 = fmul double %633, %614
-  store double %634, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep1567, ptr noundef nonnull @c__1, ptr noundef %gep1599, ptr noundef nonnull @c__1) #6
-  br i1 %or.cond, label %635, label %640
+699:                                              ; preds = %684
+  %700 = fneg double %657
+  %701 = fmul double %681, %700
+  store double %701, ptr %21, align 8, !tbaa !7
+  %702 = mul nsw i64 %indvars.iv.next1589, %98
+  %703 = getelementptr double, ptr %33, i64 %702
+  %704 = getelementptr i8, ptr %703, i64 8
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %704, ptr noundef nonnull @c__1, ptr noundef %518, ptr noundef nonnull @c__1) #6
+  %705 = fmul double %sqrt1419, %660
+  %706 = fmul double %705, %680
+  store double %706, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %518, ptr noundef nonnull @c__1, ptr noundef %704, ptr noundef nonnull @c__1) #6
+  br i1 %or.cond, label %707, label %714
 
-635:                                              ; preds = %629
-  %636 = load double, ptr %26, align 8, !tbaa !7
-  %637 = fneg double %636
-  %638 = fmul double %615, %637
-  store double %638, ptr %21, align 8, !tbaa !7
-  %639 = mul nsw i64 %indvars.iv.next1767, %99
-  %gep1603 = getelementptr double, ptr %invariant.gep1533, i64 %639
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1603, ptr noundef nonnull @c__1, ptr noundef %gep1595, ptr noundef nonnull @c__1) #6
-  store double %634, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1595, ptr noundef nonnull @c__1, ptr noundef %gep1603, ptr noundef nonnull @c__1) #6
-  br label %640
+707:                                              ; preds = %699
+  %708 = load double, ptr %26, align 8, !tbaa !7
+  %709 = fneg double %708
+  %710 = fmul double %681, %709
+  store double %710, ptr %21, align 8, !tbaa !7
+  %711 = mul nsw i64 %indvars.iv.next1589, %99
+  %712 = getelementptr double, ptr %36, i64 %711
+  %713 = getelementptr i8, ptr %712, i64 8
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %713, ptr noundef nonnull @c__1, ptr noundef %522, ptr noundef nonnull @c__1) #6
+  store double %706, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %522, ptr noundef nonnull @c__1, ptr noundef %713, ptr noundef nonnull @c__1) #6
+  br label %714
 
-640:                                              ; preds = %635, %629
-  %641 = load double, ptr %465, align 8, !tbaa !7
-  %642 = fmul double %sqrt1419, %641
-  store double %642, ptr %465, align 8, !tbaa !7
-  %643 = load double, ptr %612, align 8, !tbaa !7
-  %644 = fdiv double %643, %sqrt1419
-  store double %644, ptr %612, align 8, !tbaa !7
-  br label %719
+714:                                              ; preds = %707, %699
+  %715 = load double, ptr %519, align 8, !tbaa !7
+  %716 = fmul double %sqrt1419, %715
+  store double %716, ptr %519, align 8, !tbaa !7
+  %717 = load double, ptr %678, align 8, !tbaa !7
+  %718 = fdiv double %717, %sqrt1419
+  store double %718, ptr %678, align 8, !tbaa !7
+  br label %809
 
-645:                                              ; preds = %582
-  br i1 %617, label %661, label %646
+719:                                              ; preds = %648
+  br i1 %683, label %739, label %720
 
-646:                                              ; preds = %645
-  %647 = fmul double %591, %614
-  store double %647, ptr %21, align 8, !tbaa !7
-  %648 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1609 = getelementptr double, ptr %invariant.gep1709, i64 %648
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep1567, ptr noundef nonnull @c__1, ptr noundef %gep1609, ptr noundef nonnull @c__1) #6
-  %649 = fneg double %sqrt1419
-  %650 = fmul double %594, %649
-  %651 = fmul double %650, %615
-  store double %651, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep1609, ptr noundef nonnull @c__1, ptr noundef %gep1567, ptr noundef nonnull @c__1) #6
-  br i1 %or.cond, label %652, label %656
+720:                                              ; preds = %719
+  %721 = fmul double %657, %680
+  store double %721, ptr %21, align 8, !tbaa !7
+  %722 = mul nsw i64 %indvars.iv.next1589, %98
+  %723 = getelementptr double, ptr %33, i64 %722
+  %724 = getelementptr i8, ptr %723, i64 8
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %518, ptr noundef nonnull @c__1, ptr noundef %724, ptr noundef nonnull @c__1) #6
+  %725 = fneg double %sqrt1419
+  %726 = fmul double %660, %725
+  %727 = fmul double %726, %681
+  store double %727, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %724, ptr noundef nonnull @c__1, ptr noundef %518, ptr noundef nonnull @c__1) #6
+  br i1 %or.cond, label %728, label %734
 
-652:                                              ; preds = %646
-  %653 = load double, ptr %26, align 8, !tbaa !7
-  %654 = fmul double %614, %653
-  store double %654, ptr %21, align 8, !tbaa !7
-  %655 = mul nsw i64 %indvars.iv.next1767, %99
-  %gep1613 = getelementptr double, ptr %invariant.gep1533, i64 %655
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1595, ptr noundef nonnull @c__1, ptr noundef %gep1613, ptr noundef nonnull @c__1) #6
-  store double %651, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1613, ptr noundef nonnull @c__1, ptr noundef %gep1595, ptr noundef nonnull @c__1) #6
-  br label %656
+728:                                              ; preds = %720
+  %729 = load double, ptr %26, align 8, !tbaa !7
+  %730 = fmul double %680, %729
+  store double %730, ptr %21, align 8, !tbaa !7
+  %731 = mul nsw i64 %indvars.iv.next1589, %99
+  %732 = getelementptr double, ptr %36, i64 %731
+  %733 = getelementptr i8, ptr %732, i64 8
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %522, ptr noundef nonnull @c__1, ptr noundef %733, ptr noundef nonnull @c__1) #6
+  store double %727, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %733, ptr noundef nonnull @c__1, ptr noundef %522, ptr noundef nonnull @c__1) #6
+  br label %734
 
-656:                                              ; preds = %652, %646
-  %657 = load double, ptr %465, align 8, !tbaa !7
-  %658 = fdiv double %657, %sqrt1419
-  store double %658, ptr %465, align 8, !tbaa !7
-  %659 = load double, ptr %612, align 8, !tbaa !7
-  %660 = fmul double %sqrt1419, %659
-  store double %660, ptr %612, align 8, !tbaa !7
-  br label %719
+734:                                              ; preds = %728, %720
+  %735 = load double, ptr %519, align 8, !tbaa !7
+  %736 = fdiv double %735, %sqrt1419
+  store double %736, ptr %519, align 8, !tbaa !7
+  %737 = load double, ptr %678, align 8, !tbaa !7
+  %738 = fmul double %sqrt1419, %737
+  store double %738, ptr %678, align 8, !tbaa !7
+  br label %809
 
-661:                                              ; preds = %645
-  %662 = fcmp ult double %611, %613
-  br i1 %662, label %678, label %663
+739:                                              ; preds = %719
+  %740 = fcmp ult double %677, %679
+  br i1 %740, label %760, label %741
 
-663:                                              ; preds = %661
-  %664 = fneg double %591
-  %665 = fmul double %615, %664
-  store double %665, ptr %21, align 8, !tbaa !7
-  %666 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1615 = getelementptr double, ptr %invariant.gep1709, i64 %666
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep1615, ptr noundef nonnull @c__1, ptr noundef %gep1567, ptr noundef nonnull @c__1) #6
-  %667 = fmul double %sqrt1419, %594
-  %668 = fmul double %667, %614
-  store double %668, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep1567, ptr noundef nonnull @c__1, ptr noundef %gep1615, ptr noundef nonnull @c__1) #6
-  %669 = load double, ptr %465, align 8, !tbaa !7
-  %670 = fmul double %sqrt1419, %669
-  store double %670, ptr %465, align 8, !tbaa !7
-  %671 = load double, ptr %612, align 8, !tbaa !7
-  %672 = fdiv double %671, %sqrt1419
-  store double %672, ptr %612, align 8, !tbaa !7
-  br i1 %or.cond, label %673, label %719
+741:                                              ; preds = %739
+  %742 = fneg double %657
+  %743 = fmul double %681, %742
+  store double %743, ptr %21, align 8, !tbaa !7
+  %744 = mul nsw i64 %indvars.iv.next1589, %98
+  %745 = getelementptr double, ptr %33, i64 %744
+  %746 = getelementptr i8, ptr %745, i64 8
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %746, ptr noundef nonnull @c__1, ptr noundef %518, ptr noundef nonnull @c__1) #6
+  %747 = fmul double %sqrt1419, %660
+  %748 = fmul double %747, %680
+  store double %748, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %518, ptr noundef nonnull @c__1, ptr noundef %746, ptr noundef nonnull @c__1) #6
+  %749 = load double, ptr %519, align 8, !tbaa !7
+  %750 = fmul double %sqrt1419, %749
+  store double %750, ptr %519, align 8, !tbaa !7
+  %751 = load double, ptr %678, align 8, !tbaa !7
+  %752 = fdiv double %751, %sqrt1419
+  store double %752, ptr %678, align 8, !tbaa !7
+  br i1 %or.cond, label %753, label %809
 
-673:                                              ; preds = %663
-  %674 = load double, ptr %26, align 8, !tbaa !7
-  %675 = fneg double %674
-  %676 = fmul double %615, %675
-  store double %676, ptr %21, align 8, !tbaa !7
-  %677 = mul nsw i64 %indvars.iv.next1767, %99
-  %gep1619 = getelementptr double, ptr %invariant.gep1533, i64 %677
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1619, ptr noundef nonnull @c__1, ptr noundef %gep1595, ptr noundef nonnull @c__1) #6
-  store double %668, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1595, ptr noundef nonnull @c__1, ptr noundef %gep1619, ptr noundef nonnull @c__1) #6
-  br label %719
+753:                                              ; preds = %741
+  %754 = load double, ptr %26, align 8, !tbaa !7
+  %755 = fneg double %754
+  %756 = fmul double %681, %755
+  store double %756, ptr %21, align 8, !tbaa !7
+  %757 = mul nsw i64 %indvars.iv.next1589, %99
+  %758 = getelementptr double, ptr %36, i64 %757
+  %759 = getelementptr i8, ptr %758, i64 8
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %759, ptr noundef nonnull @c__1, ptr noundef %522, ptr noundef nonnull @c__1) #6
+  store double %748, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %522, ptr noundef nonnull @c__1, ptr noundef %759, ptr noundef nonnull @c__1) #6
+  br label %809
 
-678:                                              ; preds = %661
-  %679 = fmul double %591, %614
-  store double %679, ptr %21, align 8, !tbaa !7
-  %680 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1625 = getelementptr double, ptr %invariant.gep1709, i64 %680
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep1567, ptr noundef nonnull @c__1, ptr noundef %gep1625, ptr noundef nonnull @c__1) #6
-  %681 = fneg double %sqrt1419
-  %682 = fmul double %594, %681
-  %683 = fmul double %682, %615
-  store double %683, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %gep1625, ptr noundef nonnull @c__1, ptr noundef %gep1567, ptr noundef nonnull @c__1) #6
-  %684 = load double, ptr %465, align 8, !tbaa !7
-  %685 = fdiv double %684, %sqrt1419
-  store double %685, ptr %465, align 8, !tbaa !7
-  %686 = load double, ptr %612, align 8, !tbaa !7
-  %687 = fmul double %sqrt1419, %686
-  store double %687, ptr %612, align 8, !tbaa !7
-  br i1 %or.cond, label %688, label %719
+760:                                              ; preds = %739
+  %761 = fmul double %657, %680
+  store double %761, ptr %21, align 8, !tbaa !7
+  %762 = mul nsw i64 %indvars.iv.next1589, %98
+  %763 = getelementptr double, ptr %33, i64 %762
+  %764 = getelementptr i8, ptr %763, i64 8
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %518, ptr noundef nonnull @c__1, ptr noundef %764, ptr noundef nonnull @c__1) #6
+  %765 = fneg double %sqrt1419
+  %766 = fmul double %660, %765
+  %767 = fmul double %766, %681
+  store double %767, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %21, ptr noundef %764, ptr noundef nonnull @c__1, ptr noundef %518, ptr noundef nonnull @c__1) #6
+  %768 = load double, ptr %519, align 8, !tbaa !7
+  %769 = fdiv double %768, %sqrt1419
+  store double %769, ptr %519, align 8, !tbaa !7
+  %770 = load double, ptr %678, align 8, !tbaa !7
+  %771 = fmul double %sqrt1419, %770
+  store double %771, ptr %678, align 8, !tbaa !7
+  br i1 %or.cond, label %772, label %809
 
-688:                                              ; preds = %678
-  %689 = load double, ptr %26, align 8, !tbaa !7
-  %690 = fmul double %614, %689
-  store double %690, ptr %21, align 8, !tbaa !7
-  %691 = mul nsw i64 %indvars.iv.next1767, %99
-  %gep1629 = getelementptr double, ptr %invariant.gep1533, i64 %691
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1595, ptr noundef nonnull @c__1, ptr noundef %gep1629, ptr noundef nonnull @c__1) #6
-  store double %683, ptr %21, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %gep1629, ptr noundef nonnull @c__1, ptr noundef %gep1595, ptr noundef nonnull @c__1) #6
-  br label %719
+772:                                              ; preds = %760
+  %773 = load double, ptr %26, align 8, !tbaa !7
+  %774 = fmul double %680, %773
+  store double %774, ptr %21, align 8, !tbaa !7
+  %775 = mul nsw i64 %indvars.iv.next1589, %99
+  %776 = getelementptr double, ptr %36, i64 %775
+  %777 = getelementptr i8, ptr %776, i64 8
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %522, ptr noundef nonnull @c__1, ptr noundef %777, ptr noundef nonnull @c__1) #6
+  store double %767, ptr %21, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef %777, ptr noundef nonnull @c__1, ptr noundef %522, ptr noundef nonnull @c__1) #6
+  br label %809
 
-692:                                              ; preds = %532
-  %693 = load double, ptr %22, align 8, !tbaa !7
-  %694 = load double, ptr %23, align 8, !tbaa !7
-  %695 = fcmp ogt double %693, %694
-  %696 = call double @llvm.fmuladd.f64(double %526, double %524, double 1.000000e+00)
-  %697 = fcmp ole double %696, 0.000000e+00
-  %698 = select i1 %697, double 0.000000e+00, double %696
-  %sqrt1421 = call double @llvm.sqrt.f64(double %698)
-  br i1 %695, label %699, label %709
+778:                                              ; preds = %594
+  %779 = load double, ptr %22, align 8, !tbaa !7
+  %780 = load double, ptr %23, align 8, !tbaa !7
+  %781 = fcmp ogt double %779, %780
+  %782 = call double @llvm.fmuladd.f64(double %588, double %586, double 1.000000e+00)
+  %783 = fcmp ole double %782, 0.000000e+00
+  %784 = select i1 %783, double 0.000000e+00, double %782
+  %sqrt1421 = call double @llvm.sqrt.f64(double %784)
+  br i1 %781, label %785, label %797
 
-699:                                              ; preds = %692
-  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %gep1567, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
+785:                                              ; preds = %778
+  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %518, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %22, ptr noundef nonnull @c_b42, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
-  %700 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1589 = getelementptr double, ptr %invariant.gep1709, i64 %700
-  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull @c_b42, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %gep1589, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
-  %701 = load double, ptr %465, align 8, !tbaa !7
-  %702 = fmul double %701, %526
-  %703 = getelementptr double, ptr %5, i64 %indvars.iv1766
-  %704 = load double, ptr %703, align 8, !tbaa !7
-  %705 = fdiv double %702, %704
-  store double %705, ptr %25, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %25, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %gep1589, ptr noundef nonnull @c__1) #6
-  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull @c_b42, ptr noundef nonnull %23, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %gep1589, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
+  %786 = mul nsw i64 %indvars.iv.next1589, %98
+  %787 = getelementptr double, ptr %33, i64 %786
+  %788 = getelementptr i8, ptr %787, i64 8
+  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull @c_b42, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %788, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
+  %789 = load double, ptr %519, align 8, !tbaa !7
+  %790 = fmul double %789, %588
+  %791 = getelementptr double, ptr %5, i64 %indvars.iv1588
+  %792 = load double, ptr %791, align 8, !tbaa !7
+  %793 = fdiv double %790, %792
+  store double %793, ptr %25, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %25, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %788, ptr noundef nonnull @c__1) #6
+  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull @c_b42, ptr noundef nonnull %23, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %788, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
   store double 0.000000e+00, ptr %21, align 8, !tbaa !7
-  %706 = load double, ptr %23, align 8, !tbaa !7
-  %707 = fmul double %sqrt1421, %706
-  store double %707, ptr %471, align 8, !tbaa !7
-  %708 = load double, ptr %11, align 8, !tbaa !7
-  %.inv1408 = fcmp oge double %.1012661653, %708
-  %..101266 = select i1 %.inv1408, double %.1012661653, double %708
-  br label %719
+  %794 = load double, ptr %23, align 8, !tbaa !7
+  %795 = fmul double %sqrt1421, %794
+  store double %795, ptr %527, align 8, !tbaa !7
+  %796 = load double, ptr %11, align 8, !tbaa !7
+  %.inv1408 = fcmp oge double %.1012661487, %796
+  %..101266 = select i1 %.inv1408, double %.1012661487, double %796
+  br label %809
 
-709:                                              ; preds = %692
-  %710 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1583 = getelementptr double, ptr %invariant.gep1709, i64 %710
-  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %gep1583, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
+797:                                              ; preds = %778
+  %798 = mul nsw i64 %indvars.iv.next1589, %98
+  %799 = getelementptr double, ptr %33, i64 %798
+  %800 = getelementptr i8, ptr %799, i64 8
+  call void @dcopy_(ptr noundef nonnull %1, ptr noundef %800, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull @c__1) #6
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull @c_b42, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
-  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %22, ptr noundef nonnull @c_b42, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %gep1567, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
-  %711 = getelementptr double, ptr %5, i64 %indvars.iv1766
-  %712 = load double, ptr %711, align 8, !tbaa !7
-  %713 = fmul double %712, %526
-  %714 = load double, ptr %465, align 8, !tbaa !7
-  %715 = fdiv double %713, %714
-  store double %715, ptr %25, align 8, !tbaa !7
-  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %25, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %gep1567, ptr noundef nonnull @c__1) #6
-  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull @c_b42, ptr noundef nonnull %22, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %gep1567, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
+  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %22, ptr noundef nonnull @c_b42, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %518, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
+  %801 = getelementptr double, ptr %5, i64 %indvars.iv1588
+  %802 = load double, ptr %801, align 8, !tbaa !7
+  %803 = fmul double %802, %588
+  %804 = load double, ptr %519, align 8, !tbaa !7
+  %805 = fdiv double %803, %804
+  store double %805, ptr %25, align 8, !tbaa !7
+  call void @daxpy_(ptr noundef nonnull %1, ptr noundef nonnull %25, ptr noundef %14, ptr noundef nonnull @c__1, ptr noundef %518, ptr noundef nonnull @c__1) #6
+  call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull @c_b42, ptr noundef nonnull %22, ptr noundef nonnull %1, ptr noundef nonnull @c__1, ptr noundef %518, ptr noundef nonnull %4, ptr noundef nonnull %24) #6
   store double 0.000000e+00, ptr %21, align 8, !tbaa !7
-  %716 = load double, ptr %22, align 8, !tbaa !7
-  %717 = fmul double %sqrt1421, %716
-  store double %717, ptr %459, align 8, !tbaa !7
-  %718 = load double, ptr %11, align 8, !tbaa !7
-  %.inv1407 = fcmp oge double %.1012661653, %718
-  %..1012661394 = select i1 %.inv1407, double %.1012661653, double %718
-  br label %719
+  %806 = load double, ptr %22, align 8, !tbaa !7
+  %807 = fmul double %sqrt1421, %806
+  store double %807, ptr %511, align 8, !tbaa !7
+  %808 = load double, ptr %11, align 8, !tbaa !7
+  %.inv1407 = fcmp oge double %.1012661487, %808
+  %..1012661394 = select i1 %.inv1407, double %.1012661487, double %808
+  br label %809
 
-719:                                              ; preds = %699, %709, %562, %656, %678, %688, %663, %673, %640, %627, %619
-  %.111267 = phi double [ %581, %562 ], [ %599, %627 ], [ %599, %619 ], [ %599, %640 ], [ %599, %656 ], [ %599, %673 ], [ %599, %663 ], [ %599, %688 ], [ %599, %678 ], [ %..101266, %699 ], [ %..1012661394, %709 ]
-  %720 = load double, ptr %471, align 8, !tbaa !7
-  %721 = load double, ptr %23, align 8, !tbaa !7
-  %722 = fdiv double %720, %721
-  store double %722, ptr %21, align 8, !tbaa !7
-  %723 = fmul double %722, %722
-  %724 = fcmp ugt double %723, %77
-  br i1 %724, label %740, label %725
+809:                                              ; preds = %785, %797, %628, %734, %760, %772, %741, %753, %714, %695, %685
+  %.111267 = phi double [ %647, %628 ], [ %665, %695 ], [ %665, %685 ], [ %665, %714 ], [ %665, %734 ], [ %665, %753 ], [ %665, %741 ], [ %665, %772 ], [ %665, %760 ], [ %..101266, %785 ], [ %..1012661394, %797 ]
+  %810 = load double, ptr %527, align 8, !tbaa !7
+  %811 = load double, ptr %23, align 8, !tbaa !7
+  %812 = fdiv double %810, %811
+  store double %812, ptr %21, align 8, !tbaa !7
+  %813 = fmul double %812, %812
+  %814 = fcmp ugt double %813, %77
+  br i1 %814, label %834, label %815
 
-725:                                              ; preds = %719
-  %726 = fcmp olt double %721, %82
-  %727 = fcmp ogt double %721, %79
-  %or.cond1395 = and i1 %726, %727
-  br i1 %or.cond1395, label %728, label %731
+815:                                              ; preds = %809
+  %816 = fcmp olt double %811, %82
+  %817 = fcmp ogt double %811, %79
+  %or.cond1395 = and i1 %816, %817
+  br i1 %or.cond1395, label %818, label %823
 
-728:                                              ; preds = %725
-  %729 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1641 = getelementptr double, ptr %invariant.gep1709, i64 %729
-  %730 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %gep1641, ptr noundef nonnull @c__1) #6
-  br label %.sink.split1823
+818:                                              ; preds = %815
+  %819 = mul nsw i64 %indvars.iv.next1589, %98
+  %820 = getelementptr double, ptr %33, i64 %819
+  %821 = getelementptr i8, ptr %820, i64 8
+  %822 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %821, ptr noundef nonnull @c__1) #6
+  br label %.sink.split1645
 
-731:                                              ; preds = %725
+823:                                              ; preds = %815
   store double 0.000000e+00, ptr %26, align 8, !tbaa !7
   store double 1.000000e+00, ptr %23, align 8, !tbaa !7
-  %732 = mul nsw i64 %indvars.iv.next1767, %98
-  %gep1639 = getelementptr double, ptr %invariant.gep1709, i64 %732
-  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %gep1639, ptr noundef nonnull @c__1, ptr noundef nonnull %26, ptr noundef nonnull %23) #6
-  %733 = load double, ptr %26, align 8, !tbaa !7
-  %734 = load double, ptr %23, align 8, !tbaa !7
-  %735 = call double @sqrt(double noundef %734) #6, !tbaa !3
-  %736 = fmul double %733, %735
-  br label %.sink.split1823
+  %824 = mul nsw i64 %indvars.iv.next1589, %98
+  %825 = getelementptr double, ptr %33, i64 %824
+  %826 = getelementptr i8, ptr %825, i64 8
+  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %826, ptr noundef nonnull @c__1, ptr noundef nonnull %26, ptr noundef nonnull %23) #6
+  %827 = load double, ptr %26, align 8, !tbaa !7
+  %828 = load double, ptr %23, align 8, !tbaa !7
+  %829 = call double @sqrt(double noundef %828) #6, !tbaa !3
+  %830 = fmul double %827, %829
+  br label %.sink.split1645
 
-.sink.split1823:                                  ; preds = %731, %728
-  %.sink1825 = phi double [ %730, %728 ], [ %736, %731 ]
-  %737 = getelementptr double, ptr %5, i64 %indvars.iv1766
-  %738 = load double, ptr %737, align 8, !tbaa !7
-  %739 = fmul double %.sink1825, %738
-  store double %739, ptr %471, align 8, !tbaa !7
-  br label %740
+.sink.split1645:                                  ; preds = %823, %818
+  %.sink1647 = phi double [ %822, %818 ], [ %830, %823 ]
+  %831 = getelementptr double, ptr %5, i64 %indvars.iv1588
+  %832 = load double, ptr %831, align 8, !tbaa !7
+  %833 = fmul double %.sink1647, %832
+  store double %833, ptr %527, align 8, !tbaa !7
+  br label %834
 
-740:                                              ; preds = %.sink.split1823, %719
-  %741 = load double, ptr %22, align 8, !tbaa !7
-  %742 = fdiv double %741, %475
-  store double %742, ptr %21, align 8, !tbaa !7
-  %743 = fmul double %742, %742
-  %744 = fcmp ugt double %743, %77
-  br i1 %744, label %766, label %745
+834:                                              ; preds = %.sink.split1645, %809
+  %835 = load double, ptr %22, align 8, !tbaa !7
+  %836 = fdiv double %835, %531
+  store double %836, ptr %21, align 8, !tbaa !7
+  %837 = fmul double %836, %836
+  %838 = fcmp ugt double %837, %77
+  br i1 %838, label %860, label %839
 
-745:                                              ; preds = %740
-  %746 = fcmp olt double %741, %82
-  %747 = fcmp ogt double %741, %79
-  %or.cond1396 = and i1 %746, %747
-  br i1 %or.cond1396, label %748, label %750
+839:                                              ; preds = %834
+  %840 = fcmp olt double %835, %82
+  %841 = fcmp ogt double %835, %79
+  %or.cond1396 = and i1 %840, %841
+  br i1 %or.cond1396, label %842, label %844
 
-748:                                              ; preds = %745
-  %749 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %gep1567, ptr noundef nonnull @c__1) #6
-  br label %755
+842:                                              ; preds = %839
+  %843 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %518, ptr noundef nonnull @c__1) #6
+  br label %849
 
-750:                                              ; preds = %745
+844:                                              ; preds = %839
   store double 0.000000e+00, ptr %26, align 8, !tbaa !7
   store double 1.000000e+00, ptr %22, align 8, !tbaa !7
-  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %gep1567, ptr noundef nonnull @c__1, ptr noundef nonnull %26, ptr noundef nonnull %22) #6
-  %751 = load double, ptr %26, align 8, !tbaa !7
-  %752 = load double, ptr %22, align 8, !tbaa !7
-  %753 = call double @sqrt(double noundef %752) #6, !tbaa !3
-  %754 = fmul double %751, %753
-  br label %755
+  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %518, ptr noundef nonnull @c__1, ptr noundef nonnull %26, ptr noundef nonnull %22) #6
+  %845 = load double, ptr %26, align 8, !tbaa !7
+  %846 = load double, ptr %22, align 8, !tbaa !7
+  %847 = call double @sqrt(double noundef %846) #6, !tbaa !3
+  %848 = fmul double %845, %847
+  br label %849
 
-755:                                              ; preds = %750, %748
-  %.sink1828 = phi double [ %754, %750 ], [ %749, %748 ]
-  %756 = load double, ptr %465, align 8, !tbaa !7
-  %757 = fmul double %.sink1828, %756
-  store double %757, ptr %22, align 8, !tbaa !7
-  store double %757, ptr %459, align 8, !tbaa !7
-  br label %766
+849:                                              ; preds = %844, %842
+  %.sink1650 = phi double [ %848, %844 ], [ %843, %842 ]
+  %850 = load double, ptr %519, align 8, !tbaa !7
+  %851 = fmul double %.sink1650, %850
+  store double %851, ptr %22, align 8, !tbaa !7
+  store double %851, ptr %511, align 8, !tbaa !7
+  br label %860
 
-758:                                              ; preds = %522
-  %759 = add nsw i32 %.1212521654, 1
-  %760 = add nsw i32 %.312991650, 1
-  %761 = add nsw i32 %.112921651, 1
-  br label %766
+852:                                              ; preds = %584
+  %853 = add nsw i32 %.1212521488, 1
+  %854 = add nsw i32 %.312991484, 1
+  %855 = add nsw i32 %.112921485, 1
+  br label %860
 
-762:                                              ; preds = %470
-  %763 = add nsw i32 %.1212521654, 1
-  %764 = add nsw i32 %.312991650, 1
-  %765 = add nsw i32 %.112921651, 1
-  br label %766
+856:                                              ; preds = %526
+  %857 = add nsw i32 %.1212521488, 1
+  %858 = add nsw i32 %.312991484, 1
+  %859 = add nsw i32 %.112921485, 1
+  br label %860
 
-766:                                              ; preds = %758, %755, %740, %762
-  %.41300 = phi i32 [ 0, %755 ], [ 0, %740 ], [ %760, %758 ], [ %764, %762 ]
-  %.21293 = phi i32 [ %.112921651, %755 ], [ %.112921651, %740 ], [ %761, %758 ], [ %765, %762 ]
-  %.101283 = phi double [ %529, %755 ], [ %529, %740 ], [ %529, %758 ], [ %.912821652, %762 ]
-  %.121268 = phi double [ %.111267, %755 ], [ %.111267, %740 ], [ %.1012661653, %758 ], [ %.1012661653, %762 ]
-  %.131253 = phi i32 [ 0, %755 ], [ 0, %740 ], [ %759, %758 ], [ %763, %762 ]
-  %.11 = phi i32 [ %533, %755 ], [ %533, %740 ], [ %.101655, %758 ], [ %.101655, %762 ]
+860:                                              ; preds = %852, %849, %834, %856
+  %.41300 = phi i32 [ 0, %849 ], [ 0, %834 ], [ %854, %852 ], [ %858, %856 ]
+  %.21293 = phi i32 [ %.112921485, %849 ], [ %.112921485, %834 ], [ %855, %852 ], [ %859, %856 ]
+  %.101283 = phi double [ %591, %849 ], [ %591, %834 ], [ %591, %852 ], [ %.912821486, %856 ]
+  %.121268 = phi double [ %.111267, %849 ], [ %.111267, %834 ], [ %.1012661487, %852 ], [ %.1012661487, %856 ]
+  %.131253 = phi i32 [ 0, %849 ], [ 0, %834 ], [ %853, %852 ], [ %857, %856 ]
+  %.11 = phi i32 [ %595, %849 ], [ %595, %834 ], [ %.101489, %852 ], [ %.101489, %856 ]
   %.not1370.not = icmp sgt i32 %.21293, %92
   %or.cond1397 = select i1 %.not1383, i1 %.not1370.not, i1 false
-  br i1 %or.cond1397, label %767, label %769
+  br i1 %or.cond1397, label %861, label %863
 
-767:                                              ; preds = %766
-  %768 = load double, ptr %22, align 8, !tbaa !7
-  store double %768, ptr %459, align 8, !tbaa !7
+861:                                              ; preds = %860
+  %862 = load double, ptr %22, align 8, !tbaa !7
+  store double %862, ptr %511, align 8, !tbaa !7
   br label %.loopexit1427
 
-769:                                              ; preds = %766
-  %770 = icmp sgt i32 %.41300, %93
-  %or.cond1399 = select i1 %.not1383, i1 %770, i1 false
-  br i1 %or.cond1399, label %771, label %467
+863:                                              ; preds = %860
+  %864 = icmp sgt i32 %.41300, %93
+  %or.cond1399 = select i1 %.not1383, i1 %864, i1 false
+  br i1 %or.cond1399, label %865, label %523
 
-771:                                              ; preds = %769
-  %772 = load double, ptr %22, align 8, !tbaa !7
-  %773 = fneg double %772
-  store double %773, ptr %22, align 8, !tbaa !7
+865:                                              ; preds = %863
+  %866 = load double, ptr %22, align 8, !tbaa !7
+  %867 = fneg double %866
+  store double %867, ptr %22, align 8, !tbaa !7
   br label %.loopexit1424
 
-.loopexit1424.loopexit:                           ; preds = %467
-  %.pre1783 = load double, ptr %22, align 8, !tbaa !7
+.loopexit1424.loopexit:                           ; preds = %523
+  %.pre1605 = load double, ptr %22, align 8, !tbaa !7
   br label %.loopexit1424
 
-.loopexit1424:                                    ; preds = %.loopexit1424.loopexit, %462, %771
-  %774 = phi double [ %773, %771 ], [ %460, %462 ], [ %.pre1783, %.loopexit1424.loopexit ]
-  %.31294 = phi i32 [ %.21293, %771 ], [ %.012911667, %462 ], [ %.21293, %.loopexit1424.loopexit ]
-  %.121285 = phi double [ %.101283, %771 ], [ %.812811668, %462 ], [ %.101283, %.loopexit1424.loopexit ]
-  %.141270 = phi double [ %.121268, %771 ], [ %.912651669, %462 ], [ %.121268, %.loopexit1424.loopexit ]
-  %.15 = phi i32 [ 0, %771 ], [ %.1112511670, %462 ], [ %.131253, %.loopexit1424.loopexit ]
-  %.13 = phi i32 [ %.11, %771 ], [ %.91671, %462 ], [ %.11, %.loopexit1424.loopexit ]
-  store double %774, ptr %459, align 8, !tbaa !7
-  br label %784
+.loopexit1424:                                    ; preds = %.loopexit1424.loopexit, %514, %865
+  %868 = phi double [ %867, %865 ], [ %512, %514 ], [ %.pre1605, %.loopexit1424.loopexit ]
+  %.31294 = phi i32 [ %.21293, %865 ], [ %.012911501, %514 ], [ %.21293, %.loopexit1424.loopexit ]
+  %.121285 = phi double [ %.101283, %865 ], [ %.812811502, %514 ], [ %.101283, %.loopexit1424.loopexit ]
+  %.141270 = phi double [ %.121268, %865 ], [ %.912651503, %514 ], [ %.121268, %.loopexit1424.loopexit ]
+  %.15 = phi i32 [ 0, %865 ], [ %.1112511504, %514 ], [ %.131253, %.loopexit1424.loopexit ]
+  %.13 = phi i32 [ %.11, %865 ], [ %.91505, %514 ], [ %.11, %.loopexit1424.loopexit ]
+  store double %868, ptr %511, align 8, !tbaa !7
+  br label %878
 
-775:                                              ; preds = %458
-  %776 = fcmp oeq double %460, 0.000000e+00
-  br i1 %776, label %777, label %781
+869:                                              ; preds = %510
+  %870 = fcmp oeq double %512, 0.000000e+00
+  br i1 %870, label %871, label %875
 
-777:                                              ; preds = %775
-  store i32 %456, ptr %20, align 4, !tbaa !3
-  %778 = load i32, ptr %2, align 4, !tbaa !3
-  %.1400 = call i32 @llvm.smin.i32(i32 %456, i32 %778)
-  %779 = sub i32 %.1112511670, %454
-  %780 = add i32 %779, %.1400
-  br label %781
+871:                                              ; preds = %869
+  store i32 %508, ptr %20, align 4, !tbaa !3
+  %872 = load i32, ptr %2, align 4, !tbaa !3
+  %.1400 = call i32 @llvm.smin.i32(i32 %508, i32 %872)
+  %873 = sub i32 %.1112511504, %506
+  %874 = add i32 %873, %.1400
+  br label %875
 
-781:                                              ; preds = %777, %775
-  %.16 = phi i32 [ %780, %777 ], [ %.1112511670, %775 ]
-  %782 = fcmp olt double %460, 0.000000e+00
-  br i1 %782, label %783, label %784
+875:                                              ; preds = %871, %869
+  %.16 = phi i32 [ %874, %871 ], [ %.1112511504, %869 ]
+  %876 = fcmp olt double %512, 0.000000e+00
+  br i1 %876, label %877, label %878
 
-783:                                              ; preds = %781
-  br label %784
+877:                                              ; preds = %875
+  br label %878
 
-784:                                              ; preds = %.loopexit1424, %783, %781
-  %.41295 = phi i32 [ %.31294, %.loopexit1424 ], [ %.012911667, %783 ], [ %.012911667, %781 ]
-  %.131286 = phi double [ %.121285, %.loopexit1424 ], [ %.812811668, %783 ], [ %.812811668, %781 ]
-  %.151271 = phi double [ %.141270, %.loopexit1424 ], [ %.912651669, %783 ], [ %.912651669, %781 ]
-  %.17 = phi i32 [ %.15, %.loopexit1424 ], [ 0, %783 ], [ %.16, %781 ]
-  %.14 = phi i32 [ %.13, %.loopexit1424 ], [ %.91671, %783 ], [ %.91671, %781 ]
-  %indvars.iv.next1770 = add nsw i64 %indvars.iv1769, 1
-  %.not1364.not = icmp slt i64 %indvars.iv1769, %457
-  br i1 %.not1364.not, label %458, label %._crit_edge1674, !llvm.loop !15
+878:                                              ; preds = %.loopexit1424, %877, %875
+  %.41295 = phi i32 [ %.31294, %.loopexit1424 ], [ %.012911501, %877 ], [ %.012911501, %875 ]
+  %.131286 = phi double [ %.121285, %.loopexit1424 ], [ %.812811502, %877 ], [ %.812811502, %875 ]
+  %.151271 = phi double [ %.141270, %.loopexit1424 ], [ %.912651503, %877 ], [ %.912651503, %875 ]
+  %.17 = phi i32 [ %.15, %.loopexit1424 ], [ 0, %877 ], [ %.16, %875 ]
+  %.14 = phi i32 [ %.13, %.loopexit1424 ], [ %.91505, %877 ], [ %.91505, %875 ]
+  %indvars.iv.next1592 = add nsw i64 %indvars.iv1591, 1
+  %.not1364.not = icmp slt i64 %indvars.iv1591, %509
+  br i1 %.not1364.not, label %510, label %._crit_edge1508, !llvm.loop !15
 
-._crit_edge1674:                                  ; preds = %784, %.lr.ph1686
-  %.81281.lcssa = phi double [ %.712801680, %.lr.ph1686 ], [ %.131286, %784 ]
-  %.91265.lcssa = phi double [ %.812641681, %.lr.ph1686 ], [ %.151271, %784 ]
-  %.111251.lcssa = phi i32 [ %.1012501682, %.lr.ph1686 ], [ %.17, %784 ]
-  %.9.lcssa = phi i32 [ %.81683, %.lr.ph1686 ], [ %.14, %784 ]
-  %785 = add i32 %.012381684, 1
-  %indvars.iv.next1765 = add i32 %indvars.iv1764, %spec.select
-  %exitcond1772.not = icmp eq i32 %.012381684, %.0
-  br i1 %exitcond1772.not, label %.loopexit1427, label %.lr.ph1686, !llvm.loop !16
+._crit_edge1508:                                  ; preds = %878, %.lr.ph1520
+  %.81281.lcssa = phi double [ %.712801514, %.lr.ph1520 ], [ %.131286, %878 ]
+  %.91265.lcssa = phi double [ %.812641515, %.lr.ph1520 ], [ %.151271, %878 ]
+  %.111251.lcssa = phi i32 [ %.1012501516, %.lr.ph1520 ], [ %.17, %878 ]
+  %.9.lcssa = phi i32 [ %.81517, %.lr.ph1520 ], [ %.14, %878 ]
+  %879 = add i32 %.012381518, 1
+  %indvars.iv.next1587 = add i32 %indvars.iv1586, %spec.select
+  %exitcond1594.not = icmp eq i32 %.012381518, %.0
+  br i1 %exitcond1594.not, label %.loopexit1427, label %.lr.ph1520, !llvm.loop !16
 
-.loopexit1427:                                    ; preds = %._crit_edge1674, %._crit_edge1561, %767
-  %.111284 = phi double [ %.101283, %767 ], [ %.11274.lcssa, %._crit_edge1561 ], [ %.81281.lcssa, %._crit_edge1674 ]
-  %.131269 = phi double [ %.121268, %767 ], [ %.11257.lcssa, %._crit_edge1561 ], [ %.91265.lcssa, %._crit_edge1674 ]
-  %.141254 = phi i32 [ 0, %767 ], [ %.11241.lcssa, %._crit_edge1561 ], [ %.111251.lcssa, %._crit_edge1674 ]
-  %.12 = phi i32 [ %.11, %767 ], [ %.1.lcssa, %._crit_edge1561 ], [ %.9.lcssa, %._crit_edge1674 ]
-  %786 = load i32, ptr %2, align 4, !tbaa !3
-  %.1401 = call i32 @llvm.smin.i32(i32 %451, i32 %786)
-  %.not13721691.not = icmp slt i32 %106, %.1401
-  br i1 %.not13721691.not, label %.lr.ph1694.preheader, label %.loopexit1426
+.loopexit1427:                                    ; preds = %._crit_edge1508, %._crit_edge1475, %861
+  %.111284 = phi double [ %.101283, %861 ], [ %.11274.lcssa, %._crit_edge1475 ], [ %.81281.lcssa, %._crit_edge1508 ]
+  %.131269 = phi double [ %.121268, %861 ], [ %.11257.lcssa, %._crit_edge1475 ], [ %.91265.lcssa, %._crit_edge1508 ]
+  %.141254 = phi i32 [ 0, %861 ], [ %.11241.lcssa, %._crit_edge1475 ], [ %.111251.lcssa, %._crit_edge1508 ]
+  %.12 = phi i32 [ %.11, %861 ], [ %.1.lcssa, %._crit_edge1475 ], [ %.9.lcssa, %._crit_edge1508 ]
+  %880 = load i32, ptr %2, align 4, !tbaa !3
+  %.1401 = call i32 @llvm.smin.i32(i32 %503, i32 %880)
+  %.not13721525.not = icmp slt i32 %106, %.1401
+  br i1 %.not13721525.not, label %.lr.ph1528.preheader, label %.loopexit1426
 
-.lr.ph1694.preheader:                             ; preds = %.loopexit1427
-  %787 = sext i32 %.1401 to i64
-  br label %.lr.ph1694
+.lr.ph1528.preheader:                             ; preds = %.loopexit1427
+  %881 = sext i32 %.1401 to i64
+  br label %.lr.ph1528
 
-.lr.ph1694:                                       ; preds = %.lr.ph1694.preheader, %.lr.ph1694
-  %indvars.iv1773 = phi i64 [ %103, %.lr.ph1694.preheader ], [ %indvars.iv.next1774, %.lr.ph1694 ]
-  %788 = getelementptr inbounds double, ptr %29, i64 %indvars.iv1773
-  %789 = load double, ptr %788, align 8, !tbaa !7
-  %790 = fcmp oge double %789, 0.000000e+00
-  %791 = fneg double %789
-  %792 = select i1 %790, double %789, double %791
-  store double %792, ptr %788, align 8, !tbaa !7
-  %indvars.iv.next1774 = add nsw i64 %indvars.iv1773, 1
-  %.not1372.not = icmp slt i64 %indvars.iv1773, %787
-  br i1 %.not1372.not, label %.lr.ph1694, label %..loopexit1426_crit_edge, !llvm.loop !17
+.lr.ph1528:                                       ; preds = %.lr.ph1528.preheader, %.lr.ph1528
+  %indvars.iv1595 = phi i64 [ %103, %.lr.ph1528.preheader ], [ %indvars.iv.next1596, %.lr.ph1528 ]
+  %882 = getelementptr inbounds double, ptr %29, i64 %indvars.iv1595
+  %883 = load double, ptr %882, align 8, !tbaa !7
+  %884 = fcmp oge double %883, 0.000000e+00
+  %885 = fneg double %883
+  %886 = select i1 %884, double %883, double %885
+  store double %886, ptr %882, align 8, !tbaa !7
+  %indvars.iv.next1596 = add nsw i64 %indvars.iv1595, 1
+  %.not1372.not = icmp slt i64 %indvars.iv1595, %881
+  br i1 %.not1372.not, label %.lr.ph1528, label %..loopexit1426_crit_edge, !llvm.loop !17
 
-._crit_edge1704:                                  ; preds = %.loopexit1426, %100
-  %793 = phi i32 [ %101, %100 ], [ %786, %.loopexit1426 ]
+._crit_edge1538:                                  ; preds = %.loopexit1426, %100
+  %887 = phi i32 [ %101, %100 ], [ %880, %.loopexit1426 ]
   %.01273.lcssa = phi double [ 0.000000e+00, %100 ], [ %.111284, %.loopexit1426 ]
   %.01256.lcssa = phi double [ 0.000000e+00, %100 ], [ %.131269, %.loopexit1426 ]
   %.01240.lcssa = phi i32 [ 0, %100 ], [ %.141254, %.loopexit1426 ]
   %.01239.lcssa = phi i32 [ 0, %100 ], [ %.12, %.loopexit1426 ]
-  %794 = sext i32 %793 to i64
-  %795 = getelementptr inbounds double, ptr %29, i64 %794
-  %796 = load double, ptr %795, align 8, !tbaa !7
-  %797 = fcmp olt double %796, %82
-  %798 = fcmp ogt double %796, %79
-  %or.cond1402 = and i1 %797, %798
-  br i1 %or.cond1402, label %799, label %803
+  %888 = sext i32 %887 to i64
+  %889 = getelementptr inbounds double, ptr %29, i64 %888
+  %890 = load double, ptr %889, align 8, !tbaa !7
+  %891 = fcmp olt double %890, %82
+  %892 = fcmp ogt double %890, %79
+  %or.cond1402 = and i1 %891, %892
+  br i1 %or.cond1402, label %893, label %899
 
-799:                                              ; preds = %._crit_edge1704
-  %800 = mul nsw i32 %793, %31
-  %801 = sext i32 %800 to i64
-  %gep1712 = getelementptr double, ptr %invariant.gep1709, i64 %801
-  %802 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %gep1712, ptr noundef nonnull @c__1) #6
-  br label %810
+893:                                              ; preds = %._crit_edge1538
+  %894 = mul nsw i32 %887, %31
+  %895 = sext i32 %894 to i64
+  %896 = getelementptr double, ptr %33, i64 %895
+  %897 = getelementptr i8, ptr %896, i64 8
+  %898 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %897, ptr noundef nonnull @c__1) #6
+  br label %908
 
-803:                                              ; preds = %._crit_edge1704
+899:                                              ; preds = %._crit_edge1538
   store double 0.000000e+00, ptr %26, align 8, !tbaa !7
   store double 1.000000e+00, ptr %22, align 8, !tbaa !7
-  %804 = mul nsw i32 %793, %31
-  %805 = sext i32 %804 to i64
-  %gep1710 = getelementptr double, ptr %invariant.gep1709, i64 %805
-  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %gep1710, ptr noundef nonnull @c__1, ptr noundef nonnull %26, ptr noundef nonnull %22) #6
-  %806 = load double, ptr %26, align 8, !tbaa !7
-  %807 = load double, ptr %22, align 8, !tbaa !7
-  %808 = call double @sqrt(double noundef %807) #6, !tbaa !3
-  %809 = fmul double %806, %808
-  br label %810
+  %900 = mul nsw i32 %887, %31
+  %901 = sext i32 %900 to i64
+  %902 = getelementptr double, ptr %33, i64 %901
+  %903 = getelementptr i8, ptr %902, i64 8
+  call void @dlassq_(ptr noundef nonnull %1, ptr noundef %903, ptr noundef nonnull @c__1, ptr noundef nonnull %26, ptr noundef nonnull %22) #6
+  %904 = load double, ptr %26, align 8, !tbaa !7
+  %905 = load double, ptr %22, align 8, !tbaa !7
+  %906 = call double @sqrt(double noundef %905) #6, !tbaa !3
+  %907 = fmul double %904, %906
+  br label %908
 
-810:                                              ; preds = %803, %799
-  %.sink1833 = phi double [ %809, %803 ], [ %802, %799 ]
-  %811 = load i32, ptr %2, align 4, !tbaa !3
-  %812 = sext i32 %811 to i64
-  %813 = getelementptr inbounds double, ptr %30, i64 %812
-  %814 = load double, ptr %813, align 8, !tbaa !7
-  %815 = fmul double %.sink1833, %814
-  %816 = getelementptr inbounds double, ptr %29, i64 %812
-  store double %815, ptr %816, align 8, !tbaa !7
-  %817 = icmp samesign ult i32 %.013051714, %.012891715
-  %818 = fcmp ugt double %.01273.lcssa, %84
-  %.not1357 = icmp sgt i32 %.01239.lcssa, %811
-  %or.cond1838 = select i1 %818, i1 %.not1357, i1 false
-  %spec.select1839 = select i1 %or.cond1838, i32 %.012891715, i32 %.013051714
-  %.11290 = select i1 %817, i32 %spec.select1839, i32 %.012891715
-  %819 = add nuw nsw i32 %.11290, 1
-  %820 = icmp samesign ugt i32 %.013051714, %819
-  br i1 %820, label %821, label %830
+908:                                              ; preds = %899, %893
+  %.sink1655 = phi double [ %907, %899 ], [ %898, %893 ]
+  %909 = load i32, ptr %2, align 4, !tbaa !3
+  %910 = sext i32 %909 to i64
+  %911 = getelementptr inbounds double, ptr %30, i64 %910
+  %912 = load double, ptr %911, align 8, !tbaa !7
+  %913 = fmul double %.sink1655, %912
+  %914 = getelementptr inbounds double, ptr %29, i64 %910
+  store double %913, ptr %914, align 8, !tbaa !7
+  %915 = icmp samesign ult i32 %.013051544, %.012891545
+  %916 = fcmp ugt double %.01273.lcssa, %84
+  %.not1357 = icmp sgt i32 %.01239.lcssa, %909
+  %or.cond1660 = select i1 %916, i1 %.not1357, i1 false
+  %spec.select1661 = select i1 %or.cond1660, i32 %.012891545, i32 %.013051544
+  %.11290 = select i1 %915, i32 %spec.select1661, i32 %.012891545
+  %917 = add nuw nsw i32 %.11290, 1
+  %918 = icmp samesign ugt i32 %.013051544, %917
+  br i1 %918, label %919, label %928
 
-821:                                              ; preds = %810
-  %822 = sitofp i32 %811 to double
-  %823 = load double, ptr %12, align 8, !tbaa !7
-  %824 = fmul double %823, %822
-  %825 = fcmp olt double %.01273.lcssa, %824
-  br i1 %825, label %826, label %830
+919:                                              ; preds = %908
+  %920 = sitofp i32 %909 to double
+  %921 = load double, ptr %12, align 8, !tbaa !7
+  %922 = fmul double %921, %920
+  %923 = fcmp olt double %.01273.lcssa, %922
+  br i1 %923, label %924, label %928
 
-826:                                              ; preds = %821
-  %827 = fmul double %.01273.lcssa, %822
-  %828 = fmul double %.01256.lcssa, %827
-  %829 = fcmp uge double %828, %823
+924:                                              ; preds = %919
+  %925 = fmul double %.01273.lcssa, %920
+  %926 = fmul double %.01256.lcssa, %925
+  %927 = fcmp uge double %926, %921
   %.not1358 = icmp slt i32 %.01240.lcssa, %88
-  %or.cond1403 = select i1 %829, i1 %.not1358, i1 false
-  br i1 %or.cond1403, label %831, label %.loopexit1428
+  %or.cond1403 = select i1 %927, i1 %.not1358, i1 false
+  br i1 %or.cond1403, label %929, label %.loopexit1428
 
-830:                                              ; preds = %821, %810
+928:                                              ; preds = %919, %908
   %.not1358.old = icmp slt i32 %.01240.lcssa, %88
-  br i1 %.not1358.old, label %831, label %.loopexit1428
+  br i1 %.not1358.old, label %929, label %.loopexit1428
 
-831:                                              ; preds = %826, %830
-  %832 = add nuw nsw i32 %.013051714, 1
-  %.not1355.not = icmp slt i32 %.013051714, %94
-  br i1 %.not1355.not, label %100, label %._crit_edge1718.loopexit, !llvm.loop !18
+929:                                              ; preds = %924, %928
+  %930 = add nuw nsw i32 %.013051544, 1
+  %.not1355.not = icmp slt i32 %.013051544, %94
+  br i1 %.not1355.not, label %100, label %._crit_edge1548.loopexit, !llvm.loop !18
 
-._crit_edge1718.loopexit:                         ; preds = %831
-  %.pre1784 = load i32, ptr %13, align 4, !tbaa !3
-  br label %._crit_edge1718
+._crit_edge1548.loopexit:                         ; preds = %929
+  %.pre1606 = load i32, ptr %13, align 4, !tbaa !3
+  br label %._crit_edge1548
 
-._crit_edge1718:                                  ; preds = %._crit_edge1718.loopexit, %76
-  %833 = phi i32 [ %.pre1784, %._crit_edge1718.loopexit ], [ %94, %76 ]
-  %834 = add nsw i32 %833, -1
+._crit_edge1548:                                  ; preds = %._crit_edge1548.loopexit, %76
+  %931 = phi i32 [ %.pre1606, %._crit_edge1548.loopexit ], [ %94, %76 ]
+  %932 = add nsw i32 %931, -1
   br label %.loopexit1428
 
-.loopexit1428:                                    ; preds = %826, %830, %._crit_edge1718
-  %storemerge = phi i32 [ %834, %._crit_edge1718 ], [ 0, %830 ], [ 0, %826 ]
+.loopexit1428:                                    ; preds = %924, %928, %._crit_edge1548
+  %storemerge = phi i32 [ %932, %._crit_edge1548 ], [ 0, %928 ], [ 0, %924 ]
   store i32 %storemerge, ptr %16, align 4, !tbaa !3
-  %835 = load i32, ptr %2, align 4, !tbaa !3
-  %836 = add nsw i32 %835, -1
-  %invariant.gep1723 = getelementptr i8, ptr %36, i64 8
-  %.not13591727 = icmp slt i32 %835, 2
-  br i1 %.not13591727, label %.loopexit, label %.lr.ph1730
+  %933 = load i32, ptr %2, align 4, !tbaa !3
+  %934 = add nsw i32 %933, -1
+  %.not13591549 = icmp slt i32 %933, 2
+  br i1 %.not13591549, label %.loopexit, label %.lr.ph1552
 
-.lr.ph1730:                                       ; preds = %.loopexit1428
-  %837 = sext i32 %31 to i64
-  br i1 %or.cond, label %.lr.ph1730.split.us.preheader, label %.lr.ph1730.split.preheader
+.lr.ph1552:                                       ; preds = %.loopexit1428
+  %935 = sext i32 %31 to i64
+  br i1 %or.cond, label %.lr.ph1552.split.us.preheader, label %.lr.ph1552.split.preheader
 
-.lr.ph1730.split.preheader:                       ; preds = %.lr.ph1730
-  %838 = sext i32 %836 to i64
-  br label %.lr.ph1730.split
+.lr.ph1552.split.preheader:                       ; preds = %.lr.ph1552
+  %936 = sext i32 %934 to i64
+  br label %.lr.ph1552.split
 
-.lr.ph1730.split.us.preheader:                    ; preds = %.lr.ph1730
-  %839 = sext i32 %34 to i64
-  %840 = sext i32 %836 to i64
-  br label %.lr.ph1730.split.us
+.lr.ph1552.split.us.preheader:                    ; preds = %.lr.ph1552
+  %937 = sext i32 %34 to i64
+  %938 = sext i32 %934 to i64
+  br label %.lr.ph1552.split.us
 
-.lr.ph1730.split.us:                              ; preds = %.lr.ph1730.split.us.preheader, %865
-  %indvars.iv1779 = phi i64 [ 1, %.lr.ph1730.split.us.preheader ], [ %indvars.iv.next1780, %865 ]
-  %841 = load i32, ptr %2, align 4, !tbaa !3
-  %842 = trunc nuw nsw i64 %indvars.iv1779 to i32
-  %reass.sub1732 = sub i32 %841, %842
-  %843 = add i32 %reass.sub1732, 1
-  store i32 %843, ptr %19, align 4, !tbaa !3
-  %844 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv1779
-  %845 = call i32 @idamax_(ptr noundef nonnull %19, ptr noundef nonnull %844, ptr noundef nonnull @c__1) #6
-  %846 = trunc i64 %indvars.iv1779 to i32
-  %847 = add i32 %846, -1
-  %848 = add i32 %847, %845
-  %849 = zext i32 %848 to i64
-  %.not1360.us = icmp eq i64 %indvars.iv1779, %849
-  br i1 %.not1360.us, label %865, label %850
+.lr.ph1552.split.us:                              ; preds = %.lr.ph1552.split.us.preheader, %971
+  %indvars.iv1601 = phi i64 [ 1, %.lr.ph1552.split.us.preheader ], [ %indvars.iv.next1602, %971 ]
+  %939 = load i32, ptr %2, align 4, !tbaa !3
+  %940 = trunc nuw nsw i64 %indvars.iv1601 to i32
+  %reass.sub1554 = sub i32 %939, %940
+  %941 = add i32 %reass.sub1554, 1
+  store i32 %941, ptr %19, align 4, !tbaa !3
+  %942 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv1601
+  %943 = call i32 @idamax_(ptr noundef nonnull %19, ptr noundef nonnull %942, ptr noundef nonnull @c__1) #6
+  %944 = trunc i64 %indvars.iv1601 to i32
+  %945 = add i32 %944, -1
+  %946 = add i32 %945, %943
+  %947 = zext i32 %946 to i64
+  %.not1360.us = icmp eq i64 %indvars.iv1601, %947
+  br i1 %.not1360.us, label %971, label %948
 
-850:                                              ; preds = %.lr.ph1730.split.us
-  %851 = load double, ptr %844, align 8, !tbaa !7
-  %852 = sext i32 %848 to i64
-  %853 = getelementptr inbounds double, ptr %29, i64 %852
-  %854 = load double, ptr %853, align 8, !tbaa !7
-  store double %854, ptr %844, align 8, !tbaa !7
-  store double %851, ptr %853, align 8, !tbaa !7
-  %855 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv1779
-  %856 = load double, ptr %855, align 8, !tbaa !7
-  store double %856, ptr %25, align 8, !tbaa !7
-  %857 = getelementptr inbounds double, ptr %30, i64 %852
-  %858 = load double, ptr %857, align 8, !tbaa !7
-  store double %858, ptr %855, align 8, !tbaa !7
-  store double %856, ptr %857, align 8, !tbaa !7
-  %859 = mul nsw i64 %indvars.iv1779, %837
-  %gep1720.us = getelementptr double, ptr %invariant.gep1709, i64 %859
-  %860 = mul nsw i32 %848, %31
-  %861 = sext i32 %860 to i64
-  %gep1722.us = getelementptr double, ptr %invariant.gep1709, i64 %861
-  call void @dswap_(ptr noundef nonnull %1, ptr noundef %gep1720.us, ptr noundef nonnull @c__1, ptr noundef %gep1722.us, ptr noundef nonnull @c__1) #6
-  %862 = mul nsw i64 %indvars.iv1779, %839
-  %gep1724.us = getelementptr double, ptr %invariant.gep1723, i64 %862
-  %863 = mul nsw i32 %848, %34
-  %864 = sext i32 %863 to i64
-  %gep1726.us = getelementptr double, ptr %invariant.gep1723, i64 %864
-  call void @dswap_(ptr noundef nonnull %28, ptr noundef %gep1724.us, ptr noundef nonnull @c__1, ptr noundef %gep1726.us, ptr noundef nonnull @c__1) #6
-  br label %865
+948:                                              ; preds = %.lr.ph1552.split.us
+  %949 = load double, ptr %942, align 8, !tbaa !7
+  %950 = sext i32 %946 to i64
+  %951 = getelementptr inbounds double, ptr %29, i64 %950
+  %952 = load double, ptr %951, align 8, !tbaa !7
+  store double %952, ptr %942, align 8, !tbaa !7
+  store double %949, ptr %951, align 8, !tbaa !7
+  %953 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv1601
+  %954 = load double, ptr %953, align 8, !tbaa !7
+  store double %954, ptr %25, align 8, !tbaa !7
+  %955 = getelementptr inbounds double, ptr %30, i64 %950
+  %956 = load double, ptr %955, align 8, !tbaa !7
+  store double %956, ptr %953, align 8, !tbaa !7
+  store double %954, ptr %955, align 8, !tbaa !7
+  %957 = mul nsw i64 %indvars.iv1601, %935
+  %958 = getelementptr double, ptr %33, i64 %957
+  %959 = getelementptr i8, ptr %958, i64 8
+  %960 = mul nsw i32 %946, %31
+  %961 = sext i32 %960 to i64
+  %962 = getelementptr double, ptr %33, i64 %961
+  %963 = getelementptr i8, ptr %962, i64 8
+  call void @dswap_(ptr noundef nonnull %1, ptr noundef %959, ptr noundef nonnull @c__1, ptr noundef %963, ptr noundef nonnull @c__1) #6
+  %964 = mul nsw i64 %indvars.iv1601, %937
+  %965 = getelementptr double, ptr %36, i64 %964
+  %966 = getelementptr i8, ptr %965, i64 8
+  %967 = mul nsw i32 %946, %34
+  %968 = sext i32 %967 to i64
+  %969 = getelementptr double, ptr %36, i64 %968
+  %970 = getelementptr i8, ptr %969, i64 8
+  call void @dswap_(ptr noundef nonnull %28, ptr noundef %966, ptr noundef nonnull @c__1, ptr noundef %970, ptr noundef nonnull @c__1) #6
+  br label %971
 
-865:                                              ; preds = %850, %.lr.ph1730.split.us
-  %indvars.iv.next1780 = add nuw nsw i64 %indvars.iv1779, 1
-  %.not1359.us.not = icmp slt i64 %indvars.iv1779, %840
-  br i1 %.not1359.us.not, label %.lr.ph1730.split.us, label %.loopexit, !llvm.loop !19
+971:                                              ; preds = %948, %.lr.ph1552.split.us
+  %indvars.iv.next1602 = add nuw nsw i64 %indvars.iv1601, 1
+  %.not1359.us.not = icmp slt i64 %indvars.iv1601, %938
+  br i1 %.not1359.us.not, label %.lr.ph1552.split.us, label %.loopexit, !llvm.loop !19
 
-.lr.ph1730.split:                                 ; preds = %.lr.ph1730.split.preheader, %887
-  %indvars.iv1776 = phi i64 [ 1, %.lr.ph1730.split.preheader ], [ %indvars.iv.next1777, %887 ]
-  %866 = load i32, ptr %2, align 4, !tbaa !3
-  %867 = trunc nuw nsw i64 %indvars.iv1776 to i32
-  %reass.sub1731 = sub i32 %866, %867
-  %868 = add i32 %reass.sub1731, 1
-  store i32 %868, ptr %19, align 4, !tbaa !3
-  %869 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv1776
-  %870 = call i32 @idamax_(ptr noundef nonnull %19, ptr noundef nonnull %869, ptr noundef nonnull @c__1) #6
-  %871 = trunc i64 %indvars.iv1776 to i32
-  %872 = add i32 %871, -1
-  %873 = add i32 %872, %870
-  %874 = zext i32 %873 to i64
-  %.not1360 = icmp eq i64 %indvars.iv1776, %874
-  br i1 %.not1360, label %887, label %875
+.lr.ph1552.split:                                 ; preds = %.lr.ph1552.split.preheader, %997
+  %indvars.iv1598 = phi i64 [ 1, %.lr.ph1552.split.preheader ], [ %indvars.iv.next1599, %997 ]
+  %972 = load i32, ptr %2, align 4, !tbaa !3
+  %973 = trunc nuw nsw i64 %indvars.iv1598 to i32
+  %reass.sub1553 = sub i32 %972, %973
+  %974 = add i32 %reass.sub1553, 1
+  store i32 %974, ptr %19, align 4, !tbaa !3
+  %975 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv1598
+  %976 = call i32 @idamax_(ptr noundef nonnull %19, ptr noundef nonnull %975, ptr noundef nonnull @c__1) #6
+  %977 = trunc i64 %indvars.iv1598 to i32
+  %978 = add i32 %977, -1
+  %979 = add i32 %978, %976
+  %980 = zext i32 %979 to i64
+  %.not1360 = icmp eq i64 %indvars.iv1598, %980
+  br i1 %.not1360, label %997, label %981
 
-875:                                              ; preds = %.lr.ph1730.split
-  %876 = load double, ptr %869, align 8, !tbaa !7
-  %877 = sext i32 %873 to i64
-  %878 = getelementptr inbounds double, ptr %29, i64 %877
-  %879 = load double, ptr %878, align 8, !tbaa !7
-  store double %879, ptr %869, align 8, !tbaa !7
-  store double %876, ptr %878, align 8, !tbaa !7
-  %880 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv1776
-  %881 = load double, ptr %880, align 8, !tbaa !7
-  store double %881, ptr %25, align 8, !tbaa !7
-  %882 = getelementptr inbounds double, ptr %30, i64 %877
-  %883 = load double, ptr %882, align 8, !tbaa !7
-  store double %883, ptr %880, align 8, !tbaa !7
-  store double %881, ptr %882, align 8, !tbaa !7
-  %884 = mul nsw i64 %indvars.iv1776, %837
-  %gep1720 = getelementptr double, ptr %invariant.gep1709, i64 %884
-  %885 = mul nsw i32 %873, %31
-  %886 = sext i32 %885 to i64
-  %gep1722 = getelementptr double, ptr %invariant.gep1709, i64 %886
-  call void @dswap_(ptr noundef nonnull %1, ptr noundef %gep1720, ptr noundef nonnull @c__1, ptr noundef %gep1722, ptr noundef nonnull @c__1) #6
-  br label %887
+981:                                              ; preds = %.lr.ph1552.split
+  %982 = load double, ptr %975, align 8, !tbaa !7
+  %983 = sext i32 %979 to i64
+  %984 = getelementptr inbounds double, ptr %29, i64 %983
+  %985 = load double, ptr %984, align 8, !tbaa !7
+  store double %985, ptr %975, align 8, !tbaa !7
+  store double %982, ptr %984, align 8, !tbaa !7
+  %986 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv1598
+  %987 = load double, ptr %986, align 8, !tbaa !7
+  store double %987, ptr %25, align 8, !tbaa !7
+  %988 = getelementptr inbounds double, ptr %30, i64 %983
+  %989 = load double, ptr %988, align 8, !tbaa !7
+  store double %989, ptr %986, align 8, !tbaa !7
+  store double %987, ptr %988, align 8, !tbaa !7
+  %990 = mul nsw i64 %indvars.iv1598, %935
+  %991 = getelementptr double, ptr %33, i64 %990
+  %992 = getelementptr i8, ptr %991, i64 8
+  %993 = mul nsw i32 %979, %31
+  %994 = sext i32 %993 to i64
+  %995 = getelementptr double, ptr %33, i64 %994
+  %996 = getelementptr i8, ptr %995, i64 8
+  call void @dswap_(ptr noundef nonnull %1, ptr noundef %992, ptr noundef nonnull @c__1, ptr noundef %996, ptr noundef nonnull @c__1) #6
+  br label %997
 
-887:                                              ; preds = %875, %.lr.ph1730.split
-  %indvars.iv.next1777 = add nuw nsw i64 %indvars.iv1776, 1
-  %.not1359.not = icmp slt i64 %indvars.iv1776, %838
-  br i1 %.not1359.not, label %.lr.ph1730.split, label %.loopexit, !llvm.loop !21
+997:                                              ; preds = %981, %.lr.ph1552.split
+  %indvars.iv.next1599 = add nuw nsw i64 %indvars.iv1598, 1
+  %.not1359.not = icmp slt i64 %indvars.iv1598, %936
+  br i1 %.not1359.not, label %.lr.ph1552.split, label %.loopexit, !llvm.loop !21
 
-.loopexit:                                        ; preds = %887, %865, %.loopexit1428, %72
+.loopexit:                                        ; preds = %997, %971, %.loopexit1428, %72
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6

@@ -105,20 +105,20 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
 12:                                               ; preds = %6
   %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @.str.3, ptr noundef %10) #4
   %.not67 = icmp eq i32 %13, 0
-  br i1 %.not67, label %.loopexit, label %.preheader80
+  br i1 %.not67, label %.loopexit, label %.preheader78
 
-.preheader80:                                     ; preds = %12
-  %.not93 = icmp eq i64 %3, 0
-  br i1 %.not93, label %._crit_edge, label %.lr.ph
+.preheader78:                                     ; preds = %12
+  %.not91 = icmp eq i64 %3, 0
+  br i1 %.not91, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader80
+.lr.ph:                                           ; preds = %.preheader78
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %15
 
 15:                                               ; preds = %.lr.ph, %23
-  %.05584 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
-  %.06183 = phi i64 [ 0, %.lr.ph ], [ %.162, %23 ]
-  %16 = icmp eq i64 %.05584, 0
+  %.05582 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
+  %.06181 = phi i64 [ 0, %.lr.ph ], [ %.162, %23 ]
+  %16 = icmp eq i64 %.05582, 0
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
@@ -126,19 +126,19 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   br label %23
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.05584, i32 1
+  %20 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.05582, i32 1
   %21 = load i64, ptr %20, align 8, !tbaa !9
-  %22 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %21, i64 noundef %.06183) #4
+  %22 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %21, i64 noundef %.06181) #4
   %.not73 = icmp eq i32 %22, 0
   br i1 %.not73, label %.loopexit, label %23
 
 23:                                               ; preds = %17, %19
-  %.162 = phi i64 [ %18, %17 ], [ %.06183, %19 ]
-  %24 = add nuw i64 %.05584, 1
+  %.162 = phi i64 [ %18, %17 ], [ %.06181, %19 ]
+  %24 = add nuw i64 %.05582, 1
   %exitcond.not = icmp eq i64 %24, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %23, %.preheader80
+._crit_edge:                                      ; preds = %23, %.preheader78
   %25 = tail call i32 @BIO_recvmmsg(ptr noundef %9, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #4
   %.not68 = icmp eq i32 %25, 0
   br i1 %.not68, label %.loopexit, label %26
@@ -146,35 +146,35 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
 26:                                               ; preds = %._crit_edge
   %27 = load i64, ptr %5, align 8, !tbaa !15
   %28 = icmp eq i64 %27, %3
-  br i1 %28, label %.loopexit, label %.preheader78
+  br i1 %28, label %.loopexit, label %.preheader76
 
-.preheader78:                                     ; preds = %26
-  %.not94 = icmp eq i64 %27, 0
-  br i1 %.not94, label %._crit_edge92, label %.lr.ph91
+.preheader76:                                     ; preds = %26
+  %.not92 = icmp eq i64 %27, 0
+  br i1 %.not92, label %._crit_edge90, label %.lr.ph89
 
-.lr.ph91:                                         ; preds = %.preheader78
+.lr.ph89:                                         ; preds = %.preheader76
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %30
 
-30:                                               ; preds = %.lr.ph91, %55
-  %.15690 = phi i64 [ 0, %.lr.ph91 ], [ %56, %55 ]
-  %.05789 = phi ptr [ %1, %.lr.ph91 ], [ %57, %55 ]
-  %.05888 = phi i64 [ %27, %.lr.ph91 ], [ %.159, %55 ]
+30:                                               ; preds = %.lr.ph89, %55
+  %.15688 = phi i64 [ 0, %.lr.ph89 ], [ %56, %55 ]
+  %.05787 = phi ptr [ %1, %.lr.ph89 ], [ %57, %55 ]
+  %.05886 = phi i64 [ %27, %.lr.ph89 ], [ %.159, %55 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #4
-  %31 = getelementptr inbounds nuw i8, ptr %.05789, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.05787, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !9
   %33 = icmp slt i64 %32, 0
-  br i1 %33, label %.thread, label %34
+  br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %30
-  %35 = load ptr, ptr %.05789, align 8, !tbaa !16
+  %35 = load ptr, ptr %.05787, align 8, !tbaa !16
   store ptr %35, ptr %8, align 8, !tbaa !17
   store i64 %32, ptr %29, align 8, !tbaa !20
   %36 = load i64, ptr %10, align 8, !tbaa !21
   %37 = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %8, i64 noundef %36, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null, ptr noundef null) #4
   %.not70 = icmp eq i32 %37, 1
-  br i1 %.not70, label %38, label %.thread
+  br i1 %.not70, label %38, label %.critedge
 
 38:                                               ; preds = %34
   %.val = load i64, ptr %29, align 8, !tbaa !20
@@ -182,27 +182,27 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   br i1 %.not71, label %55, label %.preheader
 
 .preheader:                                       ; preds = %38
-  %39 = icmp ugt i64 %.05888, %.15690
-  br i1 %39, label %.lr.ph86, label %._crit_edge87
+  %39 = icmp ugt i64 %.05886, %.15688
+  br i1 %39, label %.lr.ph84, label %._crit_edge85
 
-40:                                               ; preds = %.lr.ph86
-  %41 = add i64 %.06385, -1
-  %42 = icmp ugt i64 %41, %.15690
-  br i1 %42, label %.lr.ph86, label %._crit_edge87, !llvm.loop !24
+40:                                               ; preds = %.lr.ph84
+  %41 = add i64 %.06383, -1
+  %42 = icmp ugt i64 %41, %.15688
+  br i1 %42, label %.lr.ph84, label %._crit_edge85, !llvm.loop !24
 
-.lr.ph86:                                         ; preds = %.preheader, %40
-  %.06385 = phi i64 [ %41, %40 ], [ %.05888, %.preheader ]
-  %43 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.06385
+.lr.ph84:                                         ; preds = %.preheader, %40
+  %.06383 = phi i64 [ %41, %40 ], [ %.05886, %.preheader ]
+  %43 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.06383
   %44 = getelementptr i8, ptr %43, i64 -40
   %45 = call i32 @bio_msg_copy(ptr noundef nonnull %43, ptr noundef %44) #4
   %.not72 = icmp eq i32 %45, 0
-  br i1 %.not72, label %.thread, label %40
+  br i1 %.not72, label %.critedge, label %40
 
-._crit_edge87:                                    ; preds = %40, %.preheader
+._crit_edge85:                                    ; preds = %40, %.preheader
   %46 = load i64, ptr %31, align 8, !tbaa !9
   %47 = sub i64 %46, %.val
   store i64 %47, ptr %31, align 8, !tbaa !9
-  %48 = getelementptr %struct.bio_msg_st, ptr %1, i64 %.15690
+  %48 = getelementptr %struct.bio_msg_st, ptr %1, i64 %.15688
   %49 = getelementptr i8, ptr %48, i64 40
   %50 = getelementptr i8, ptr %48, i64 48
   store i64 %.val, ptr %50, align 8, !tbaa !9
@@ -210,30 +210,30 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   %52 = load i64, ptr %31, align 8, !tbaa !9
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 %52
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %51, ptr align 1 %53, i64 %.val, i1 false)
-  %54 = add i64 %.05888, 1
+  %54 = add i64 %.05886, 1
   br label %55
 
-.thread:                                          ; preds = %34, %30, %.lr.ph86
+55:                                               ; preds = %38, %._crit_edge85
+  %.159 = phi i64 [ %54, %._crit_edge85 ], [ %.05886, %38 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #4
-  br label %.loopexit
-
-55:                                               ; preds = %._crit_edge87, %38
-  %.159 = phi i64 [ %54, %._crit_edge87 ], [ %.05888, %38 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #4
-  %56 = add nuw i64 %.15690, 1
-  %57 = getelementptr inbounds nuw i8, ptr %.05789, i64 40
+  %56 = add nuw i64 %.15688, 1
+  %57 = getelementptr inbounds nuw i8, ptr %.05787, i64 40
   %58 = icmp ult i64 %56, %.159
-  br i1 %58, label %30, label %._crit_edge92, !llvm.loop !25
+  br i1 %58, label %30, label %._crit_edge90, !llvm.loop !25
 
-._crit_edge92:                                    ; preds = %55, %.preheader78
-  %.058.lcssa = phi i64 [ 0, %.preheader78 ], [ %.159, %55 ]
+._crit_edge90:                                    ; preds = %55, %.preheader76
+  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %.159, %55 ]
   store i64 %.058.lcssa, ptr %5, align 8, !tbaa !15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %19, %.thread, %26, %._crit_edge, %6, %12, %._crit_edge92
-  %.0 = phi i32 [ 1, %._crit_edge92 ], [ 0, %12 ], [ 0, %6 ], [ 0, %._crit_edge ], [ 1, %26 ], [ 0, %.thread ], [ 0, %19 ]
+.critedge:                                        ; preds = %30, %34, %.lr.ph84
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #4
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %19, %.critedge, %26, %._crit_edge, %6, %12, %._crit_edge90
+  %.0 = phi i32 [ 1, %._crit_edge90 ], [ 0, %12 ], [ 0, %6 ], [ 0, %._crit_edge ], [ 1, %26 ], [ 0, %.critedge ], [ 0, %19 ]
   ret i32 %.0
 }
 

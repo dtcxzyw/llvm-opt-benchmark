@@ -144,7 +144,7 @@ define void @ERR_add_error_txt(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %16
 
 16:                                               ; preds = %76, %12
-  %.069 = phi ptr [ %1, %12 ], [ %.170.ph, %76 ]
+  %.069 = phi ptr [ %1, %12 ], [ %.170, %76 ]
   %17 = call i64 @ERR_peek_last_error_all(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %18 = load i32, ptr %7, align 4, !tbaa !7
   %19 = and i32 %18, 2
@@ -186,20 +186,20 @@ define void @ERR_add_error_txt(ptr noundef %0, ptr noundef %1) local_unnamed_add
 .preheader:                                       ; preds = %32
   %35 = ptrtoint ptr %.069 to i64
   %36 = load i8, ptr %.069, align 1, !tbaa !12
-  %.not80114 = icmp eq i8 %36, 0
-  br i1 %.not80114, label %.thread.thread, label %.lr.ph
+  %.not80111 = icmp eq i8 %36, 0
+  br i1 %.not80111, label %.thread.thread, label %.lr.ph
 
 37:                                               ; preds = %32
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.069) #6
   %.not84 = icmp ugt i64 %38, %.072
   %39 = getelementptr inbounds nuw i8, ptr %.069, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %.069, i64 %.072
-  br i1 %.not84, label %.thread98, label %.thread.thread
+  br i1 %.not84, label %.thread100, label %.thread.thread
 
 .lr.ph:                                           ; preds = %.preheader, %51
-  %.1116 = phi i32 [ %.2, %51 ], [ 0, %.preheader ]
-  %.265115 = phi ptr [ %.3, %51 ], [ %.069, %.preheader ]
-  %41 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.265115, ptr noundef nonnull dereferenceable(1) %spec.store.select) #6
+  %.1113 = phi i32 [ %.2, %51 ], [ 0, %.preheader ]
+  %.265112 = phi ptr [ %.3, %51 ], [ %.069, %.preheader ]
+  %41 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.265112, ptr noundef nonnull dereferenceable(1) %spec.store.select) #6
   %.not83 = icmp eq ptr %41, null
   br i1 %.not83, label %48, label %42
 
@@ -212,15 +212,15 @@ define void @ERR_add_error_txt(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %51
 
 48:                                               ; preds = %.lr.ph
-  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.265115) #6
-  %50 = getelementptr inbounds nuw i8, ptr %.265115, i64 %49
-  %.pre121 = load i8, ptr %50, align 1, !tbaa !12
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.265112) #6
+  %50 = getelementptr inbounds nuw i8, ptr %.265112, i64 %49
+  %.pre118 = load i8, ptr %50, align 1, !tbaa !12
   br label %51
 
 51:                                               ; preds = %48, %42
-  %52 = phi i8 [ %45, %42 ], [ %.pre121, %48 ]
+  %52 = phi i8 [ %45, %42 ], [ %.pre118, %48 ]
   %.3 = phi ptr [ %44, %42 ], [ %50, %48 ]
-  %.2 = phi i32 [ %47, %42 ], [ %.1116, %48 ]
+  %.2 = phi i32 [ %47, %42 ], [ %.1113, %48 ]
   %.not80 = icmp eq i8 %52, 0
   %53 = ptrtoint ptr %.3 to i64
   %54 = sub i64 %53, %35
@@ -229,27 +229,27 @@ define void @ERR_add_error_txt(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !13
 
 .critedge:                                        ; preds = %51
-  br i1 %.not81, label %.thread98, label %.thread
+  br i1 %.not81, label %.thread100, label %.thread
 
-.thread98:                                        ; preds = %.critedge, %37
-  %.167103 = phi ptr [ %40, %37 ], [ %.265115, %.critedge ]
-  %.not87 = icmp eq ptr %.167103, %.069
+.thread100:                                       ; preds = %.critedge, %37
+  %.167105 = phi ptr [ %40, %37 ], [ %.265112, %.critedge ]
+  %.not87 = icmp eq ptr %.167105, %.069
   br i1 %.not87, label %62, label %55
 
-55:                                               ; preds = %.thread98
-  %56 = ptrtoint ptr %.167103 to i64
+55:                                               ; preds = %.thread100
+  %56 = ptrtoint ptr %.167105 to i64
   %57 = ptrtoint ptr %.069 to i64
   %58 = sub i64 %56, %57
   %59 = call noalias ptr @CRYPTO_strndup(ptr noundef %.069, i64 noundef %58, ptr noundef nonnull @.str.4, i32 noundef 123) #5
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %78, label %61
+  br i1 %60, label %.critedge92, label %61
 
 61:                                               ; preds = %55
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %59) #5
   call void @CRYPTO_free(ptr noundef nonnull %59, ptr noundef nonnull @.str.4, i32 noundef 127) #5
   br label %62
 
-62:                                               ; preds = %61, %.thread98
+62:                                               ; preds = %61, %.thread100
   %63 = load ptr, ptr %5, align 8, !tbaa !9
   %64 = load ptr, ptr %3, align 8, !tbaa !9
   %65 = load i32, ptr %4, align 4, !tbaa !7
@@ -270,7 +270,7 @@ define void @ERR_add_error_txt(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %72 = sub i64 %71, %35
   %73 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %.069, i64 noundef %72, ptr noundef nonnull @.str.4, i32 noundef 133) #5
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %78, label %75
+  br i1 %74, label %.critedge92, label %75
 
 75:                                               ; preds = %67
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull %.062, ptr noundef nonnull %73) #5
@@ -278,17 +278,17 @@ define void @ERR_add_error_txt(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %76
 
 .thread.thread:                                   ; preds = %.preheader, %37, %.thread
-  %.16496112 = phi ptr [ %.3, %.thread ], [ %39, %37 ], [ %.069, %.preheader ]
+  %.16498109 = phi ptr [ %.3, %.thread ], [ %39, %37 ], [ %.069, %.preheader ]
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull %.062, ptr noundef %.069) #5
   br label %76
 
 76:                                               ; preds = %75, %.thread.thread, %62
-  %.170.ph = phi ptr [ %.3, %75 ], [ %.16496112, %.thread.thread ], [ %.167103, %62 ]
-  %77 = load i8, ptr %.170.ph, align 1, !tbaa !12
+  %.170 = phi ptr [ %.167105, %62 ], [ %.16498109, %.thread.thread ], [ %.3, %75 ]
+  %77 = load i8, ptr %.170, align 1, !tbaa !12
   %.not88 = icmp eq i8 %77, 0
-  br i1 %.not88, label %78, label %16, !llvm.loop !15
+  br i1 %.not88, label %.critedge92, label %16, !llvm.loop !15
 
-78:                                               ; preds = %55, %67, %76
+.critedge92:                                      ; preds = %55, %67, %76
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5

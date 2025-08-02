@@ -174,10 +174,10 @@ bytestream2_init.exit:                            ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
-13:                                               ; preds = %.lr.ph, %75
-  %14 = phi i32 [ %2, %.lr.ph ], [ %78, %75 ]
-  %15 = phi i64 [ %7, %.lr.ph ], [ %77, %75 ]
-  %.sroa.0.071 = phi ptr [ %1, %.lr.ph ], [ %38, %75 ]
+13:                                               ; preds = %.lr.ph, %79
+  %14 = phi i32 [ %2, %.lr.ph ], [ %82, %79 ]
+  %15 = phi i64 [ %7, %.lr.ph ], [ %81, %79 ]
+  %.sroa.0.071 = phi ptr [ %1, %.lr.ph ], [ %38, %79 ]
   %16 = load i32, ptr %11, align 4, !tbaa !23
   %17 = load i32, ptr %9, align 8, !tbaa !20
   %.not = icmp sgt i32 %16, %17
@@ -231,7 +231,6 @@ bytestream2_init.exit:                            ; preds = %4
   ]
 
 .preheader.i:                                     ; preds = %36
-  %invariant.gep.i = getelementptr i8, ptr %40, i64 -1
   %44 = icmp sgt i32 %41, 0
   br i1 %44, label %.lr.ph.i, label %.critedge.i
 
@@ -240,94 +239,97 @@ bytestream2_init.exit:                            ; preds = %4
   %47 = shl nsw i32 %41, 3
   br i1 %46, label %get_obu_bit_length.exit.thread, label %get_obu_bit_length.exit
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %51
-  %.02129.i = phi i32 [ %52, %51 ], [ %41, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %53
+  %.02129.i = phi i32 [ %54, %53 ], [ %41, %.preheader.i ]
   %48 = zext nneg i32 %.02129.i to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %48
-  %49 = load i8, ptr %gep.i, align 1, !tbaa !4
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %51, label %55
+  %49 = getelementptr i8, ptr %40, i64 %48
+  %50 = getelementptr i8, ptr %49, i64 -1
+  %51 = load i8, ptr %50, align 1, !tbaa !4
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %53, label %56
 
-51:                                               ; preds = %.lr.ph.i
-  %52 = add nsw i32 %.02129.i, -1
-  %53 = icmp sgt i32 %.02129.i, 1
-  br i1 %53, label %.lr.ph.i, label %.thread62, !llvm.loop !25
+53:                                               ; preds = %.lr.ph.i
+  %54 = add nsw i32 %.02129.i, -1
+  %55 = icmp sgt i32 %.02129.i, 1
+  br i1 %55, label %.lr.ph.i, label %.thread62, !llvm.loop !25
 
 .critedge.i:                                      ; preds = %.preheader.i
   %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %.thread62, label %.thread.i
+  br i1 %.not.i, label %.thread62, label %59
 
-.thread.i:                                        ; preds = %.critedge.i
-  %54 = sext i32 %41 to i64
-  br label %57
+56:                                               ; preds = %.lr.ph.i
+  %57 = icmp samesign ugt i32 %.02129.i, 268435455
+  br i1 %57, label %get_obu_bit_length.exit.thread, label %.thread33.i
 
-55:                                               ; preds = %.lr.ph.i
-  %56 = icmp samesign ugt i32 %.02129.i, 268435455
-  br i1 %56, label %get_obu_bit_length.exit.thread, label %57
+.thread33.i:                                      ; preds = %56
+  %58 = shl nuw nsw i32 %.02129.i, 3
+  br label %62
 
-57:                                               ; preds = %55, %.thread.i
-  %.02128.i = phi i32 [ %41, %.thread.i ], [ %.02129.i, %55 ]
-  %.pn26.i = phi i64 [ %54, %.thread.i ], [ %48, %55 ]
-  %.pn.i = getelementptr i8, ptr %40, i64 %.pn26.i
-  %.in.i = getelementptr i8, ptr %.pn.i, i64 -1
-  %58 = load i8, ptr %.in.i, align 1, !tbaa !4
-  %59 = shl nsw i32 %.02128.i, 3
-  %.not24.i = icmp eq i8 %58, 0
-  br i1 %.not24.i, label %get_obu_bit_length.exit, label %60
+59:                                               ; preds = %.critedge.i
+  %60 = sext i32 %41 to i64
+  %.pn.phi.trans.insert.i = getelementptr i8, ptr %40, i64 %60
+  %.in.phi.trans.insert.i = getelementptr i8, ptr %.pn.phi.trans.insert.i, i64 -1
+  %.pre.i = load i8, ptr %.in.phi.trans.insert.i, align 1, !tbaa !4
+  %61 = shl nsw i32 %41, 3
+  %.not24.i = icmp eq i8 %.pre.i, 0
+  br i1 %.not24.i, label %get_obu_bit_length.exit.thread, label %62
 
-60:                                               ; preds = %57
-  %61 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %58, i1 true)
-  %62 = xor i8 %61, -1
-  %.neg.i = sext i8 %62 to i32
-  %63 = add i32 %59, %.neg.i
+62:                                               ; preds = %59, %.thread33.i
+  %63 = phi i32 [ %58, %.thread33.i ], [ %61, %59 ]
+  %64 = phi i8 [ %51, %.thread33.i ], [ %.pre.i, %59 ]
+  %65 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %64, i1 true)
+  %66 = xor i8 %65, -1
+  %.neg.i = sext i8 %66 to i32
+  %67 = add i32 %63, %.neg.i
   br label %get_obu_bit_length.exit
 
-get_obu_bit_length.exit.thread:                   ; preds = %55, %45
-  %64 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 -34, ptr %64, align 8, !tbaa !26
-  br label %71
-
-.thread62:                                        ; preds = %51, %.critedge.i
-  %65 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 0, ptr %65, align 8, !tbaa !26
-  br label %70
-
-get_obu_bit_length.exit:                          ; preds = %45, %57, %60
-  %.0.i = phi i32 [ %63, %60 ], [ %59, %57 ], [ %47, %45 ]
-  %66 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 %.0.i, ptr %66, align 8, !tbaa !26
-  %67 = icmp slt i32 %.0.i, 0
-  br i1 %67, label %71, label %68
-
-68:                                               ; preds = %get_obu_bit_length.exit
-  %69 = icmp eq i32 %.0.i, 0
-  br i1 %69, label %70, label %72
-
-70:                                               ; preds = %.thread62, %68
-  switch i32 %43, label %71 [
-    i32 2, label %72
-    i32 15, label %72
-  ]
-
-71:                                               ; preds = %get_obu_bit_length.exit.thread, %70, %get_obu_bit_length.exit
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %43) #6
-  br label %75, !llvm.loop !27
-
-72:                                               ; preds = %70, %70, %68
-  %73 = load i32, ptr %9, align 8, !tbaa !20
-  %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %9, align 8, !tbaa !20
+get_obu_bit_length.exit.thread:                   ; preds = %56, %59, %45
+  %.0.i.ph = phi i32 [ %61, %59 ], [ -34, %56 ], [ -34, %45 ]
+  %68 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i32 %.0.i.ph, ptr %68, align 8, !tbaa !26
   br label %75
 
-75:                                               ; preds = %72, %71
-  %76 = ptrtoint ptr %38 to i64
-  %77 = sub i64 %10, %76
-  %78 = trunc i64 %77 to i32
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %13, label %.thread65
+.thread62:                                        ; preds = %53, %.critedge.i
+  %69 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i32 0, ptr %69, align 8, !tbaa !26
+  br label %74
 
-.thread65:                                        ; preds = %75, %29, %18, %21, %bytestream2_init.exit
-  %.4 = phi i32 [ 0, %bytestream2_init.exit ], [ -12, %21 ], [ -12, %18 ], [ %34, %29 ], [ 0, %75 ]
+get_obu_bit_length.exit:                          ; preds = %45, %62
+  %.0.i = phi i32 [ %67, %62 ], [ %47, %45 ]
+  %70 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i32 %.0.i, ptr %70, align 8, !tbaa !26
+  %71 = icmp slt i32 %.0.i, 0
+  br i1 %71, label %75, label %72
+
+72:                                               ; preds = %get_obu_bit_length.exit
+  %73 = icmp eq i32 %.0.i, 0
+  br i1 %73, label %74, label %76
+
+74:                                               ; preds = %.thread62, %72
+  switch i32 %43, label %75 [
+    i32 2, label %76
+    i32 15, label %76
+  ]
+
+75:                                               ; preds = %get_obu_bit_length.exit.thread, %74, %get_obu_bit_length.exit
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %43) #6
+  br label %79, !llvm.loop !27
+
+76:                                               ; preds = %74, %74, %72
+  %77 = load i32, ptr %9, align 8, !tbaa !20
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %9, align 8, !tbaa !20
+  br label %79
+
+79:                                               ; preds = %76, %75
+  %80 = ptrtoint ptr %38 to i64
+  %81 = sub i64 %10, %80
+  %82 = trunc i64 %81 to i32
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %13, label %.thread65
+
+.thread65:                                        ; preds = %79, %29, %18, %21, %bytestream2_init.exit
+  %.4 = phi i32 [ 0, %bytestream2_init.exit ], [ -12, %21 ], [ -12, %18 ], [ %34, %29 ], [ 0, %79 ]
   ret i32 %.4
 }
 

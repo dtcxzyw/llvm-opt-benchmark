@@ -49,7 +49,7 @@ define dso_local void @rhash_sha512_update(ptr noundef captures(none) %0, ptr no
   %.not43 = icmp ult i64 %2, %9
   %11 = tail call i64 @llvm.umin.i64(i64 %2, i64 %9)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %1, i64 %11, i1 false)
-  br i1 %.not43, label %.thread, label %12
+  br i1 %.not43, label %.critedge, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -65,26 +65,26 @@ define dso_local void @rhash_sha512_update(ptr noundef captures(none) %0, ptr no
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %.03551 = ptrtoint ptr %.035 to i64
+  %.03549 = ptrtoint ptr %.035 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %19 = and i64 %.03551, 7
+  %19 = and i64 %.03549, 7
   %20 = icmp eq i64 %19, 0
   br label %21
 
 21:                                               ; preds = %.lr.ph, %23
-  %.248 = phi ptr [ %.035, %.lr.ph ], [ %24, %23 ]
-  %.23847 = phi i64 [ %.036, %.lr.ph ], [ %25, %23 ]
+  %.246 = phi ptr [ %.035, %.lr.ph ], [ %24, %23 ]
+  %.23845 = phi i64 [ %.036, %.lr.ph ], [ %25, %23 ]
   br i1 %20, label %23, label %22
 
 22:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 1 dereferenceable(128) %.248, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 1 dereferenceable(128) %.246, i64 128, i1 false)
   br label %23
 
 23:                                               ; preds = %21, %22
-  %.0 = phi ptr [ %0, %22 ], [ %.248, %21 ]
+  %.0 = phi ptr [ %0, %22 ], [ %.246, %21 ]
   tail call fastcc void @rhash_sha512_process_block(ptr noundef nonnull %18, ptr noundef %.0)
-  %24 = getelementptr inbounds nuw i8, ptr %.248, i64 128
-  %25 = add i64 %.23847, -128
+  %24 = getelementptr inbounds nuw i8, ptr %.246, i64 128
+  %25 = add i64 %.23845, -128
   %26 = icmp ugt i64 %25, 127
   br i1 %26, label %21, label %._crit_edge, !llvm.loop !11
 
@@ -92,13 +92,13 @@ define dso_local void @rhash_sha512_update(ptr noundef captures(none) %0, ptr no
   %.238.lcssa = phi i64 [ %.036, %16 ], [ %25, %23 ]
   %.2.lcssa = phi ptr [ %.035, %16 ], [ %24, %23 ]
   %.not44 = icmp eq i64 %.238.lcssa, 0
-  br i1 %.not44, label %.thread, label %27
+  br i1 %.not44, label %.critedge, label %27
 
 27:                                               ; preds = %._crit_edge
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr align 1 %.2.lcssa, i64 %.238.lcssa, i1 false)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %8, %._crit_edge, %27
+.critedge:                                        ; preds = %8, %._crit_edge, %27
   ret void
 }
 

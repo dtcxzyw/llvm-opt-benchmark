@@ -163,8 +163,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind
 declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf5Arena16AddBlockInternalEPNS1_5BlockE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN6google8protobuf5Arena16AddBlockInternalEPNS1_5BlockE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8, !tbaa !27
   %5 = inttoptr i64 %4 to ptr
@@ -872,8 +872,8 @@ define noundef ptr @_ZN6google8protobuf5Arena14AllocFromBlockEPNS1_5BlockEm(ptr 
   ret ptr %6
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf5Arena9FindBlockEPv(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef ptr @_ZN6google8protobuf5Arena9FindBlockEPv(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8, !tbaa !27
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48

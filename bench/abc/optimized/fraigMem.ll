@@ -11,17 +11,17 @@ define noalias noundef ptr @Fraig_MemFixedStart(i32 noundef %0) local_unnamed_ad
   %calloc = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   store i32 %0, ptr %calloc, align 8, !tbaa !3
   %2 = icmp slt i32 %0, 64
-  br i1 %2, label %5, label %3
+  br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
   %4 = udiv i32 65536, %0
-  br label %5
+  %5 = tail call i32 @llvm.umax.i32(i32 %4, i32 8)
+  br label %6
 
-5:                                                ; preds = %1, %3
-  %.sink = phi i32 [ %4, %3 ], [ 1024, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  %7 = tail call i32 @llvm.umax.i32(i32 %.sink, i32 8)
-  store i32 %7, ptr %6, align 8
+6:                                                ; preds = %1, %3
+  %.sink = phi i32 [ %5, %3 ], [ 1024, %1 ]
+  %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
+  store i32 %.sink, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 28
   store i32 64, ptr %8, align 4, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %calloc, i64 32

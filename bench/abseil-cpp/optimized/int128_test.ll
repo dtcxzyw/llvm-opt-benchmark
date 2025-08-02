@@ -123512,7 +123512,6 @@ _ZN7testing15AssertionResultD2Ev.exit267:         ; preds = %293, %_ZNKSt14defau
   store i128 90214750700348739664279276215838603645, ptr %310, align 16
   %311 = getelementptr inbounds nuw i8, ptr %43, i64 48
   store i128 151411666421088085535863337116710163126, ptr %311, align 16
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %43, i64 8
   %312 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %313 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %314 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -124162,8 +124161,9 @@ _ZN7testing8internal8EqHelper7CompareIiN4absl6int128ETnPNSt9enable_ifIXoontsr3st
 
 530:                                              ; preds = %308, %533
   %.096.idx701 = phi i64 [ 0, %308 ], [ %.096.add, %533 ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.096.idx701
-  %.sroa.11.0.copyload = load i64, ptr %gep, align 8, !tbaa !519
+  %.096.ptr = getelementptr inbounds nuw i8, ptr %43, i64 %.096.idx701
+  %.sroa.11.0..096.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %.096.ptr, i64 8
+  %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..096.ptr.sroa_idx, align 8, !tbaa !519
   %.sroa.22.0.insert.ext.i.i = zext i64 %.sroa.11.0.copyload to i128
   %.sroa.22.0.insert.shift.i.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i, 64
   %531 = ashr i128 %.sroa.22.0.insert.shift.i.i, 103
@@ -127087,7 +127087,6 @@ _ZN7testing15AssertionResultD2Ev.exit267:         ; preds = %293, %_ZNKSt14defau
   store i128 90214750700348739664279276215838603645, ptr %310, align 16
   %311 = getelementptr inbounds nuw i8, ptr %43, i64 48
   store i128 151411666421088085535863337116710163126, ptr %311, align 16
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %43, i64 8
   %312 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %313 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %314 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -127733,8 +127732,9 @@ _ZN7testing8internal8EqHelper7CompareIiN4absl6int128ETnPNSt9enable_ifIXoontsr3st
 
 526:                                              ; preds = %308, %529
   %.096.idx701 = phi i64 [ 0, %308 ], [ %.096.add, %529 ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.096.idx701
-  %.sroa.11.0.copyload = load i64, ptr %gep, align 8, !tbaa !519
+  %.096.ptr = getelementptr inbounds nuw i8, ptr %43, i64 %.096.idx701
+  %.sroa.11.0..096.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %.096.ptr, i64 8
+  %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..096.ptr.sroa_idx, align 8, !tbaa !519
   %.sroa.22.0.insert.ext.i.i = zext i64 %.sroa.11.0.copyload to i128
   %.sroa.22.0.insert.shift.i.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i, 64
   %527 = ashr i128 %.sroa.22.0.insert.shift.i.i, 74
@@ -130672,7 +130672,6 @@ _ZN7testing15AssertionResultD2Ev.exit268:         ; preds = %293, %_ZNKSt14defau
   %321 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %322 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %323 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %43, i64 8
   br label %530
 
 324:                                              ; preds = %94, %327
@@ -131310,8 +131309,9 @@ _ZN7testing8internal8EqHelper7CompareIiN4absl6int128ETnPNSt9enable_ifIXoontsr3st
 
 530:                                              ; preds = %308, %533
   %.097.idx702 = phi i64 [ 0, %308 ], [ %.097.add, %533 ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.097.idx702
-  %.sroa.11.0.copyload = load i64, ptr %gep, align 8, !tbaa !519
+  %.097.ptr = getelementptr inbounds nuw i8, ptr %43, i64 %.097.idx702
+  %.sroa.11.0..097.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %.097.ptr, i64 8
+  %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..097.ptr.sroa_idx, align 8, !tbaa !519
   %.sroa.22.0.insert.ext.i.i = zext i64 %.sroa.11.0.copyload to i128
   %.sroa.22.0.insert.shift.i.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i, 64
   %531 = ashr exact i128 %.sroa.22.0.insert.shift.i.i, 63

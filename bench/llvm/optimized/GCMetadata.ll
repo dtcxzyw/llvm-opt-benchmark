@@ -1033,7 +1033,7 @@ define dso_local noundef ptr @_ZN4llvm12GCModuleInfo13getGCStrategyENS_9StringRe
   %17 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !27
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !29
-  br label %114
+  br label %113
 
 20:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
@@ -1214,54 +1214,54 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %91 = icmp uge ptr %5, %.pre3.i
   %92 = icmp ult ptr %5, %90
   %spec.select.i.i.i.i.i = and i1 %91, %92
-  br i1 %spec.select.i.i.i.i.i, label %94, label %93, !prof !143
+  br i1 %spec.select.i.i.i.i.i, label %93, label %.critedge.i.i.i, !prof !143
 
 93:                                               ; preds = %89
+  %94 = ptrtoint ptr %5 to i64
+  %95 = ptrtoint ptr %.pre3.i to i64
+  %96 = sub i64 %94, %95
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10GCStrategyESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %82, i64 noundef %86)
+  %97 = load ptr, ptr %82, align 8, !tbaa !116
+  %98 = getelementptr inbounds i8, ptr %97, i64 %96
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10GCStrategyESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit
+
+.critedge.i.i.i:                                  ; preds = %89
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10GCStrategyESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %82, i64 noundef %86)
   %.pre.i6 = load ptr, ptr %82, align 8, !tbaa !116
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10GCStrategyESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit
 
-94:                                               ; preds = %89
-  %95 = ptrtoint ptr %5 to i64
-  %96 = ptrtoint ptr %.pre3.i to i64
-  %97 = sub i64 %95, %96
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10GCStrategyESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %82, i64 noundef %86)
-  %98 = load ptr, ptr %82, align 8, !tbaa !116
-  %99 = getelementptr inbounds i8, ptr %98, i64 %97
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10GCStrategyESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10GCStrategyESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %93, %94
-  %100 = phi ptr [ %.pre3.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %98, %94 ], [ %.pre.i6, %93 ]
-  %.016.i.i.i = phi ptr [ %5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %99, %94 ], [ %5, %93 ]
-  %101 = load i32, ptr %83, align 8, !tbaa !118
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"class.std::unique_ptr.79", ptr %100, i64 %102
-  %104 = load i64, ptr %.016.i.i.i, align 8, !tbaa !29
-  store i64 %104, ptr %103, align 8, !tbaa !29
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10GCStrategyESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %93, %.critedge.i.i.i
+  %99 = phi ptr [ %.pre3.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %97, %93 ], [ %.pre.i6, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %98, %93 ], [ %5, %.critedge.i.i.i ]
+  %100 = load i32, ptr %83, align 8, !tbaa !118
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds nuw %"class.std::unique_ptr.79", ptr %99, i64 %101
+  %103 = load i64, ptr %.016.i.i.i, align 8, !tbaa !29
+  store i64 %103, ptr %102, align 8, !tbaa !29
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !29
-  %105 = add i32 %101, 1
-  store i32 %105, ptr %83, align 8, !tbaa !118
-  %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw %"class.std::unique_ptr.79", ptr %100, i64 %106
-  %108 = getelementptr inbounds i8, ptr %107, i64 -8
-  %109 = load ptr, ptr %108, align 8, !tbaa !29
-  %110 = load ptr, ptr %5, align 8, !tbaa !29
-  %.not.i7 = icmp eq ptr %110, null
+  %104 = add i32 %100, 1
+  store i32 %104, ptr %83, align 8, !tbaa !118
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr inbounds nuw %"class.std::unique_ptr.79", ptr %99, i64 %105
+  %107 = getelementptr inbounds i8, ptr %106, i64 -8
+  %108 = load ptr, ptr %107, align 8, !tbaa !29
+  %109 = load ptr, ptr %5, align 8, !tbaa !29
+  %.not.i7 = icmp eq ptr %109, null
   br i1 %.not.i7, label %_ZNSt10unique_ptrIN4llvm10GCStrategyESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm10GCStrategyEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4llvm10GCStrategyEEclEPS1_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10GCStrategyESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit
-  %111 = load ptr, ptr %110, align 8, !tbaa !31
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  call void %113(ptr noundef nonnull align 8 dereferenceable(44) %110) #16
+  %110 = load ptr, ptr %109, align 8, !tbaa !31
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8
+  call void %112(ptr noundef nonnull align 8 dereferenceable(44) %109) #16
   br label %_ZNSt10unique_ptrIN4llvm10GCStrategyESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm10GCStrategyESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10GCStrategyESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit, %_ZNKSt14default_deleteIN4llvm10GCStrategyEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  br label %114
+  br label %113
 
-114:                                              ; preds = %_ZNSt10unique_ptrIN4llvm10GCStrategyESt14default_deleteIS1_EED2Ev.exit, %15
-  %.0 = phi ptr [ %19, %15 ], [ %109, %_ZNSt10unique_ptrIN4llvm10GCStrategyESt14default_deleteIS1_EED2Ev.exit ]
+113:                                              ; preds = %_ZNSt10unique_ptrIN4llvm10GCStrategyESt14default_deleteIS1_EED2Ev.exit, %15
+  %.0 = phi ptr [ %19, %15 ], [ %108, %_ZNSt10unique_ptrIN4llvm10GCStrategyESt14default_deleteIS1_EED2Ev.exit ]
   ret ptr %.0
 }
 

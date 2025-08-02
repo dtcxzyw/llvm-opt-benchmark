@@ -256,7 +256,7 @@ define dso_local ptr @alloc_iova(ptr noundef %0, i64 noundef %1, i64 noundef %2,
   %6 = load ptr, ptr @iova_cache, align 8
   %7 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %6, i32 noundef 10528) #9
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %152, label %9
+  br i1 %8, label %150, label %9
 
 9:                                                ; preds = %4
   %10 = add i64 %2, 1
@@ -284,7 +284,7 @@ define dso_local ptr @alloc_iova(ptr noundef %0, i64 noundef %1, i64 noundef %2,
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load i64, ptr %26, align 8
   %28 = icmp ugt i64 %27, %1
-  br i1 %28, label %29, label %146
+  br i1 %28, label %29, label %144
 
 29:                                               ; preds = %25, %19
   %30 = phi i64 [ 24, %25 ], [ 16, %19 ]
@@ -292,9 +292,9 @@ define dso_local ptr @alloc_iova(ptr noundef %0, i64 noundef %1, i64 noundef %2,
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8
-  %.fr31 = freeze i64 %34
-  %35 = icmp ult i64 %.fr31, %10
-  %36 = add i64 %.fr31, 1
+  %.fr32 = freeze i64 %34
+  %35 = icmp ult i64 %.fr32, %10
+  %36 = add i64 %.fr32, 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br i1 %35, label %.split, label %.split.us
 
@@ -322,7 +322,7 @@ define dso_local ptr @alloc_iova(ptr noundef %0, i64 noundef %1, i64 noundef %2,
   %54 = icmp ult i64 %42, %1
   %55 = icmp ult i64 %44, %12
   %56 = select i1 %54, i1 true, i1 %55
-  br i1 %56, label %.split30.us, label %.split27.us
+  br i1 %56, label %.split31.us, label %.split28.us
 
 .split:                                           ; preds = %29, %.split.backedge
   %57 = phi i64 [ %36, %.split.backedge ], [ %12, %29 ]
@@ -353,12 +353,12 @@ define dso_local ptr @alloc_iova(ptr noundef %0, i64 noundef %1, i64 noundef %2,
   %76 = icmp ult i64 %64, %1
   %77 = icmp ult i64 %66, %57
   %78 = select i1 %76, i1 true, i1 %77
-  br i1 %78, label %79, label %.split27.us
+  br i1 %78, label %79, label %.split28.us
 
 79:                                               ; preds = %75
   %80 = load i64, ptr %11, align 8
   %81 = icmp eq i64 %57, %80
-  br i1 %81, label %82, label %.split30.us
+  br i1 %81, label %82, label %.split31.us
 
 82:                                               ; preds = %79
   %83 = load i64, ptr %22, align 8
@@ -412,94 +412,94 @@ define dso_local ptr @alloc_iova(ptr noundef %0, i64 noundef %1, i64 noundef %2,
   %110 = icmp ult i64 %109, %10
   br i1 %110, label %.preheader11, label %.loopexit12, !llvm.loop !22
 
-.split30.us:                                      ; preds = %79, %53
+.split31.us:                                      ; preds = %79, %53
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %1, ptr %111, align 8
-  br label %146
+  br label %144
 
-.split27.us:                                      ; preds = %75, %53
+.split28.us:                                      ; preds = %75, %53
   %.us-phi = phi ptr [ %39, %53 ], [ %61, %75 ]
-  %112 = phi i64 [ %44, %53 ], [ %66, %75 ]
-  %113 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i64 %112, ptr %113, align 8
-  %114 = add i64 %1, -1
-  %115 = add i64 %114, %112
-  %116 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 %115, ptr %116, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.us-phi29 = phi i64 [ %44, %53 ], [ %66, %75 ]
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i64 %.us-phi29, ptr %112, align 8
+  %113 = add i64 %1, -1
+  %114 = add i64 %113, %.us-phi29
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 %114, ptr %115, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %.us-phi, ptr %5, align 8
-  %118 = icmp eq ptr %.us-phi, null
-  %119 = select i1 %118, ptr %117, ptr %5
-  %120 = load ptr, ptr %119, align 8
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %136, label %.preheader
+  %117 = icmp eq ptr %.us-phi, null
+  %118 = select i1 %117, ptr %116, ptr %5
+  %119 = load ptr, ptr %118, align 8
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %134, label %.preheader
 
-122:                                              ; preds = %130, %.preheader
-  %.sink = phi i64 [ 16, %.preheader ], [ 8, %130 ]
-  %123 = getelementptr inbounds nuw i8, ptr %126, i64 %.sink
-  %124 = load ptr, ptr %123, align 8
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %133, label %.preheader, !llvm.loop !23
+121:                                              ; preds = %129, %.preheader
+  %.sink = phi i64 [ 16, %.preheader ], [ 8, %129 ]
+  %122 = getelementptr inbounds nuw i8, ptr %125, i64 %.sink
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %131, label %.preheader, !llvm.loop !23
 
-.preheader:                                       ; preds = %.split27.us, %122
-  %126 = phi ptr [ %124, %122 ], [ %120, %.split27.us ]
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 32
-  %128 = load i64, ptr %127, align 8
-  %129 = icmp ult i64 %112, %128
-  br i1 %129, label %122, label %130
+.preheader:                                       ; preds = %.split28.us, %121
+  %125 = phi ptr [ %123, %121 ], [ %119, %.split28.us ]
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
+  %127 = load i64, ptr %126, align 8
+  %128 = icmp ult i64 %.us-phi29, %127
+  br i1 %128, label %121, label %129
 
-130:                                              ; preds = %.preheader
-  %131 = icmp ugt i64 %112, %128
-  br i1 %131, label %122, label %132
+129:                                              ; preds = %.preheader
+  %130 = icmp ugt i64 %.us-phi29, %127
+  br i1 %130, label %121, label %.critedge
 
-132:                                              ; preds = %130
+.critedge:                                        ; preds = %129
   tail call void asm sideeffect "352: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 352b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 352) #9, !srcloc !24
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 170, i32 2305, i64 12) #9, !srcloc !25
   tail call void asm sideeffect "353: nop\0A\09.pushsection .discard.instr_end\0A\09.long 353b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 353) #9, !srcloc !26
-  br label %140, !llvm.loop !23
+  br label %138
 
-133:                                              ; preds = %122
-  %134 = getelementptr inbounds nuw i8, ptr %126, i64 %.sink
-  %135 = ptrtoint ptr %126 to i64
-  br label %136
+131:                                              ; preds = %121
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 %.sink
+  %133 = ptrtoint ptr %125 to i64
+  br label %134
 
-136:                                              ; preds = %133, %.split27.us
-  %137 = phi i64 [ 0, %.split27.us ], [ %135, %133 ]
-  %138 = phi ptr [ %119, %.split27.us ], [ %134, %133 ]
-  store i64 %137, ptr %7, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, i8 0, i64 16, i1 false)
-  store ptr %7, ptr %138, align 8
-  tail call void @rb_insert_color(ptr noundef nonnull %7, ptr noundef nonnull %117) #9
-  br label %140
+134:                                              ; preds = %131, %.split28.us
+  %135 = phi i64 [ 0, %.split28.us ], [ %133, %131 ]
+  %136 = phi ptr [ %118, %.split28.us ], [ %132, %131 ]
+  store i64 %135, ptr %7, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, i8 0, i64 16, i1 false)
+  store ptr %7, ptr %136, align 8
+  tail call void @rb_insert_color(ptr noundef nonnull %7, ptr noundef nonnull %116) #9
+  br label %138
 
-140:                                              ; preds = %132, %136
+138:                                              ; preds = %.critedge, %134
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %141 = load i64, ptr %116, align 8
-  %142 = load i64, ptr %22, align 8
-  %143 = icmp ult i64 %141, %142
-  %144 = select i1 %143, i64 24, i64 16
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %144
-  store ptr %7, ptr %145, align 8
+  %139 = load i64, ptr %115, align 8
+  %140 = load i64, ptr %22, align 8
+  %141 = icmp ult i64 %139, %140
+  %142 = select i1 %141, i64 24, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 %142
+  store ptr %7, ptr %143, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %21) #9
-  br label %152
+  br label %150
 
-146:                                              ; preds = %.split30.us, %25
+144:                                              ; preds = %.split31.us, %25
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %21) #9
-  %147 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %148 = load i64, ptr %147, align 8
-  %149 = icmp eq i64 %148, -1
-  br i1 %149, label %152, label %150
+  %145 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %146 = load i64, ptr %145, align 8
+  %147 = icmp eq i64 %146, -1
+  br i1 %147, label %150, label %148
 
-150:                                              ; preds = %146
-  %151 = load ptr, ptr @iova_cache, align 8
-  tail call void @kmem_cache_free(ptr noundef %151, ptr noundef nonnull %7) #9
-  br label %152
+148:                                              ; preds = %144
+  %149 = load ptr, ptr @iova_cache, align 8
+  tail call void @kmem_cache_free(ptr noundef %149, ptr noundef nonnull %7) #9
+  br label %150
 
-152:                                              ; preds = %150, %146, %140, %4
-  %153 = phi ptr [ null, %4 ], [ %7, %140 ], [ null, %146 ], [ null, %150 ]
-  ret ptr %153
+150:                                              ; preds = %148, %144, %138, %4
+  %151 = phi ptr [ null, %4 ], [ %7, %138 ], [ null, %144 ], [ null, %148 ]
+  ret ptr %151
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -875,7 +875,7 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   store i64 %74, ptr %71, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %32, i64 noundef %33) #9
   %75 = icmp eq i64 %65, 0
-  br i1 %75, label %.thread12, label %.thread14
+  br i1 %75, label %.thread12, label %.critedge
 
 .thread12:                                        ; preds = %14, %.thread13, %70
   %76 = phi i64 [ %22, %70 ], [ %22, %.thread13 ], [ %16, %14 ]
@@ -884,23 +884,23 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.lr.ph, label %._crit_edge
 
-.loopexit15:                                      ; preds = %.loopexit
+.loopexit14:                                      ; preds = %.loopexit
   %80 = tail call ptr @alloc_iova(ptr noundef %0, i64 noundef %76, i64 noundef %2, i1 noundef zeroext true)
   %81 = icmp eq ptr %80, null
-  br i1 %81, label %.thread14, label %._crit_edge, !llvm.loop !34
+  br i1 %81, label %.critedge, label %._crit_edge, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %.thread12
-  br i1 %3, label %.preheader16.preheader, label %.thread14
+  br i1 %3, label %.preheader15.preheader, label %.critedge
 
-.preheader16.preheader:                           ; preds = %.lr.ph, %.preheader16
-  %82 = phi i64 [ %111, %.preheader16 ], [ 0, %.lr.ph ]
+.preheader15.preheader:                           ; preds = %.lr.ph, %.preheader15
+  %82 = phi i64 [ %111, %.preheader15 ], [ 0, %.lr.ph ]
   %83 = load i64, ptr @__cpu_online_mask, align 8
   %84 = shl nsw i64 -1, %82
   %85 = and i64 %83, %84
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %.preheader.preheader, label %87
 
-87:                                               ; preds = %.preheader16.preheader
+87:                                               ; preds = %.preheader15.preheader
   %88 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %85) #10, !srcloc !9
   %89 = and i64 %88, 4294967232
   %90 = icmp eq i64 %89, 0
@@ -930,15 +930,15 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %102, i64 noundef %103) #9
   %108 = add nuw nsw i64 %95, 1
   %109 = icmp eq i64 %108, 6
-  br i1 %109, label %.preheader16, label %94, !llvm.loop !10
+  br i1 %109, label %.preheader15, label %94, !llvm.loop !10
 
-.preheader16:                                     ; preds = %94
+.preheader15:                                     ; preds = %94
   %110 = add nuw nsw i64 %88, 1
   %111 = and i64 %110, 127
   %112 = icmp samesign ugt i64 %111, 63
-  br i1 %112, label %.preheader.preheader, label %.preheader16.preheader, !prof !35, !llvm.loop !36
+  br i1 %112, label %.preheader.preheader, label %.preheader15.preheader, !prof !35, !llvm.loop !36
 
-.preheader.preheader:                             ; preds = %.preheader16.preheader, %.preheader16, %87
+.preheader.preheader:                             ; preds = %.preheader15.preheader, %.preheader15, %87
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
@@ -973,16 +973,16 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %115, i64 noundef %116) #9
   %129 = add nuw nsw i64 %113, 1
   %130 = icmp eq i64 %129, 6
-  br i1 %130, label %.loopexit15, label %.preheader, !llvm.loop !34
+  br i1 %130, label %.loopexit14, label %.preheader, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %.loopexit15, %.thread12
-  %.lcssa = phi ptr [ %78, %.thread12 ], [ %80, %.loopexit15 ]
+._crit_edge:                                      ; preds = %.loopexit14, %.thread12
+  %.lcssa = phi ptr [ %78, %.thread12 ], [ %80, %.loopexit14 ]
   %131 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
   %132 = load i64, ptr %131, align 8
-  br label %.thread14
+  br label %.critedge
 
-.thread14:                                        ; preds = %.lr.ph, %.loopexit15, %._crit_edge, %70
-  %133 = phi i64 [ %132, %._crit_edge ], [ %65, %70 ], [ 0, %.loopexit15 ], [ 0, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %.loopexit14, %._crit_edge, %70
+  %133 = phi i64 [ %132, %._crit_edge ], [ %65, %70 ], [ 0, %.loopexit14 ], [ 0, %.lr.ph ]
   ret i64 %133
 }
 
@@ -1139,7 +1139,7 @@ define dso_local ptr @reserve_iova(ptr noundef %0, i64 noundef %1, i64 noundef %
   tail call void asm sideeffect "369: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 369b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 369) #9, !srcloc !40
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 587, i32 2305, i64 12) #9, !srcloc !41
   tail call void asm sideeffect "370: nop\0A\09.pushsection .discard.instr_end\0A\09.long 370b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 370) #9, !srcloc !42
-  br label %71
+  br label %70
 
 11:                                               ; preds = %3
   %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #9
@@ -1205,14 +1205,14 @@ define dso_local ptr @reserve_iova(ptr noundef %0, i64 noundef %1, i64 noundef %
   store i64 %2, ptr %49, align 8
   %50 = load ptr, ptr %13, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %66, label %.preheader
+  br i1 %51, label %65, label %.preheader
 
 52:                                               ; preds = %60, %.preheader
   %.sink = phi i64 [ 16, %.preheader ], [ 8, %60 ]
   %53 = getelementptr inbounds nuw i8, ptr %56, i64 %.sink
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %63, label %.preheader, !llvm.loop !23
+  br i1 %55, label %62, label %.preheader, !llvm.loop !23
 
 .preheader:                                       ; preds = %47, %52
   %56 = phi ptr [ %54, %52 ], [ %50, %47 ]
@@ -1223,37 +1223,37 @@ define dso_local ptr @reserve_iova(ptr noundef %0, i64 noundef %1, i64 noundef %
 
 60:                                               ; preds = %.preheader
   %61 = icmp ugt i64 %43, %58
-  br i1 %61, label %52, label %62
+  br i1 %61, label %52, label %.critedge
 
-62:                                               ; preds = %60
+.critedge:                                        ; preds = %60
   tail call void asm sideeffect "352: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 352b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 352) #9, !srcloc !24
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 170, i32 2305, i64 12) #9, !srcloc !25
   tail call void asm sideeffect "353: nop\0A\09.pushsection .discard.instr_end\0A\09.long 353b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 353) #9, !srcloc !26
-  br label %.loopexit, !llvm.loop !23
+  br label %.loopexit
 
-63:                                               ; preds = %52
-  %64 = getelementptr inbounds nuw i8, ptr %56, i64 %.sink
-  %65 = ptrtoint ptr %56 to i64
-  br label %66
+62:                                               ; preds = %52
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 %.sink
+  %64 = ptrtoint ptr %56 to i64
+  br label %65
 
-66:                                               ; preds = %63, %47
-  %67 = phi i64 [ 0, %47 ], [ %65, %63 ]
-  %68 = phi ptr [ %13, %47 ], [ %64, %63 ]
-  store i64 %67, ptr %45, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
-  store ptr %45, ptr %68, align 8
+65:                                               ; preds = %62, %47
+  %66 = phi i64 [ 0, %47 ], [ %64, %62 ]
+  %67 = phi ptr [ %13, %47 ], [ %63, %62 ]
+  store i64 %66, ptr %45, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
+  store ptr %45, ptr %67, align 8
   tail call void @rb_insert_color(ptr noundef nonnull %45, ptr noundef nonnull %13) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %31, %62, %66, %.loopexit11
-  %70 = phi ptr [ null, %.loopexit11 ], [ %45, %66 ], [ %45, %62 ], [ %16, %31 ]
+.loopexit:                                        ; preds = %31, %.critedge, %65, %.loopexit11
+  %69 = phi ptr [ null, %.loopexit11 ], [ %45, %65 ], [ %45, %.critedge ], [ %16, %31 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %12) #9
-  br label %71
+  br label %70
 
-71:                                               ; preds = %.loopexit, %10
-  %72 = phi ptr [ %70, %.loopexit ], [ null, %10 ]
-  ret ptr %72
+70:                                               ; preds = %.loopexit, %10
+  %71 = phi ptr [ %69, %.loopexit ], [ null, %10 ]
+  ret ptr %71
 }
 
 ; Function Attrs: null_pointer_is_valid

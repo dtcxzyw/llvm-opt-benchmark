@@ -131,80 +131,82 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   %45 = call i32 @ff_vlc_init_sparse(ptr noundef nonnull %38, i32 noundef %35, i32 noundef 16, ptr noundef nonnull %43, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %44, i32 noundef 1, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1) #9
   br i1 %34, label %.preheader90, label %.preheader88, !llvm.loop !20
 
-.preheader88:                                     ; preds = %.preheader90, %46
-  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %46 ], [ 0, %.preheader90 ]
-  br label %49
+.preheader88:                                     ; preds = %.preheader90, %48
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %48 ], [ 0, %.preheader90 ]
+  %46 = getelementptr inbounds nuw [9 x [23 x i16]], ptr @ff_band_index_long, i64 0, i64 %indvars.iv122
+  %47 = getelementptr inbounds nuw [9 x [22 x i8]], ptr @ff_band_size_long, i64 0, i64 %indvars.iv122
+  br label %51
 
-46:                                               ; preds = %49
-  %47 = trunc i32 %56 to i16
-  %48 = getelementptr inbounds nuw [9 x [23 x i16]], ptr @ff_band_index_long, i64 0, i64 %indvars.iv122, i64 22
-  store i16 %47, ptr %48, align 2, !tbaa !4
+48:                                               ; preds = %51
+  %49 = trunc i32 %58 to i16
+  %50 = getelementptr inbounds nuw [9 x [23 x i16]], ptr @ff_band_index_long, i64 0, i64 %indvars.iv122, i64 22
+  store i16 %49, ptr %50, align 2, !tbaa !4
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 9
   br i1 %exitcond125.not, label %.preheader87, label %.preheader88, !llvm.loop !21
 
-49:                                               ; preds = %.preheader88, %49
-  %indvars.iv118 = phi i64 [ 0, %.preheader88 ], [ %indvars.iv.next119, %49 ]
-  %.08199 = phi i32 [ 0, %.preheader88 ], [ %56, %49 ]
-  %50 = trunc i32 %.08199 to i16
-  %51 = getelementptr inbounds nuw [9 x [23 x i16]], ptr @ff_band_index_long, i64 0, i64 %indvars.iv122, i64 %indvars.iv118
-  store i16 %50, ptr %51, align 2, !tbaa !4
-  %52 = getelementptr inbounds nuw [9 x [22 x i8]], ptr @ff_band_size_long, i64 0, i64 %indvars.iv122, i64 %indvars.iv118
-  %53 = load i8, ptr %52, align 1, !tbaa !10
-  %54 = lshr i8 %53, 1
-  %55 = zext nneg i8 %54 to i32
-  %56 = add nuw nsw i32 %.08199, %55
+51:                                               ; preds = %.preheader88, %51
+  %indvars.iv118 = phi i64 [ 0, %.preheader88 ], [ %indvars.iv.next119, %51 ]
+  %.08199 = phi i32 [ 0, %.preheader88 ], [ %58, %51 ]
+  %52 = trunc i32 %.08199 to i16
+  %53 = getelementptr inbounds nuw [23 x i16], ptr %46, i64 0, i64 %indvars.iv118
+  store i16 %52, ptr %53, align 2, !tbaa !4
+  %54 = getelementptr inbounds nuw [22 x i8], ptr %47, i64 0, i64 %indvars.iv118
+  %55 = load i8, ptr %54, align 1, !tbaa !10
+  %56 = lshr i8 %55, 1
+  %57 = zext nneg i8 %56 to i32
+  %58 = add nuw nsw i32 %.08199, %57
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next119, 22
-  br i1 %exitcond121.not, label %46, label %49, !llvm.loop !22
+  br i1 %exitcond121.not, label %48, label %51, !llvm.loop !22
 
-57:                                               ; preds = %.loopexit
+59:                                               ; preds = %.loopexit
   call fastcc void @mpegaudiodec_common_tableinit() #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
   ret void
 
-.preheader87:                                     ; preds = %46, %.loopexit
-  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.loopexit ], [ 0, %46 ]
-  %58 = getelementptr inbounds nuw [17 x i32], ptr @ff_mpa_quant_bits, i64 0, i64 %indvars.iv131
-  %59 = load i32, ptr %58, align 4, !tbaa !23
-  %60 = icmp sgt i32 %59, -1
-  %.not = icmp eq i32 %59, -30
-  %or.cond = or i1 %60, %.not
+.preheader87:                                     ; preds = %48, %.loopexit
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.loopexit ], [ 0, %48 ]
+  %60 = getelementptr inbounds nuw [17 x i32], ptr @ff_mpa_quant_bits, i64 0, i64 %indvars.iv131
+  %61 = load i32, ptr %60, align 4, !tbaa !23
+  %62 = icmp sgt i32 %61, -1
+  %.not = icmp eq i32 %61, -30
+  %or.cond = or i1 %62, %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader87
-  %61 = sub i32 1, %59
-  %62 = shl nuw i32 1, %61
-  %63 = getelementptr inbounds nuw [17 x i32], ptr @ff_mpa_quant_steps, i64 0, i64 %indvars.iv131
-  %64 = load i32, ptr %63, align 4, !tbaa !23
-  %65 = getelementptr inbounds nuw [4 x ptr], ptr @ff_division_tabs, i64 0, i64 %indvars.iv131
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %smax = call i32 @llvm.smax.i32(i32 %62, i32 1)
+  %63 = sub i32 1, %61
+  %64 = shl nuw i32 1, %63
+  %65 = getelementptr inbounds nuw [17 x i32], ptr @ff_mpa_quant_steps, i64 0, i64 %indvars.iv131
+  %66 = load i32, ptr %65, align 4, !tbaa !23
+  %67 = getelementptr inbounds nuw [4 x ptr], ptr @ff_division_tabs, i64 0, i64 %indvars.iv131
+  %68 = load ptr, ptr %67, align 8, !tbaa !24
+  %smax = call i32 @llvm.smax.i32(i32 %64, i32 1)
   %wide.trip.count129 = zext nneg i32 %smax to i64
-  br label %67
+  br label %69
 
-67:                                               ; preds = %.lr.ph, %67
-  %indvars.iv126 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next127, %67 ]
-  %68 = trunc nuw nsw i64 %indvars.iv126 to i32
-  %69 = srem i32 %68, %64
-  %70 = sdiv i32 %68, %64
-  %71 = srem i32 %70, %64
-  %72 = sdiv i32 %70, %64
-  %73 = shl i32 %71, 4
-  %74 = add nsw i32 %73, %69
-  %75 = shl i32 %72, 8
-  %76 = add nsw i32 %74, %75
-  %77 = trunc i32 %76 to i16
-  %78 = getelementptr inbounds nuw i16, ptr %66, i64 %indvars.iv126
-  store i16 %77, ptr %78, align 2, !tbaa !4
+69:                                               ; preds = %.lr.ph, %69
+  %indvars.iv126 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next127, %69 ]
+  %70 = trunc nuw nsw i64 %indvars.iv126 to i32
+  %71 = srem i32 %70, %66
+  %72 = sdiv i32 %70, %66
+  %73 = srem i32 %72, %66
+  %74 = sdiv i32 %72, %66
+  %75 = shl i32 %73, 4
+  %76 = add nsw i32 %75, %71
+  %77 = shl i32 %74, 8
+  %78 = add nsw i32 %76, %77
+  %79 = trunc i32 %78 to i16
+  %80 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv126
+  store i16 %79, ptr %80, align 2, !tbaa !4
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
-  br i1 %exitcond130.not, label %.loopexit, label %67, !llvm.loop !26
+  br i1 %exitcond130.not, label %.loopexit, label %69, !llvm.loop !26
 
-.loopexit:                                        ; preds = %67, %.preheader87
+.loopexit:                                        ; preds = %69, %.preheader87
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next132, 4
-  br i1 %exitcond134.not, label %57, label %.preheader87, !llvm.loop !27
+  br i1 %exitcond134.not, label %59, label %.preheader87, !llvm.loop !27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

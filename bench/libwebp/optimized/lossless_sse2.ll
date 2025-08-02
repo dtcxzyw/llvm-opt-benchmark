@@ -435,7 +435,6 @@ define internal void @PredictorAdd2_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @PredictorAdd3_SSE2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef %3) #2 {
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not24 = icmp slt i32 %2, 4
   br i1 %.not24, label %._crit_edge, label %.lr.ph.preheader
 
@@ -448,42 +447,42 @@ define internal void @PredictorAdd3_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %indvars.iv = phi i64 [ 4, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv26
   %7 = load <16 x i8>, ptr %6, align 1, !tbaa !9
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv26
-  %8 = load <16 x i8>, ptr %gep, align 1, !tbaa !9
-  %9 = add <16 x i8> %8, %7
-  %10 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv26
-  store <16 x i8> %9, ptr %10, align 1, !tbaa !9
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv26
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %10 = load <16 x i8>, ptr %9, align 1, !tbaa !9
+  %11 = add <16 x i8> %10, %7
+  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv26
+  store <16 x i8> %11, ptr %12, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %11 = trunc nuw nsw i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %11, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %13, %._crit_edge.loopexit ]
   %.not23 = icmp eq i32 %.0.lcssa, %2
-  br i1 %.not23, label %19, label %12
+  br i1 %.not23, label %21, label %14
 
-12:                                               ; preds = %._crit_edge
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 24), align 8, !tbaa !3
-  %14 = zext nneg i32 %.0.lcssa to i64
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %14
-  %17 = sub nsw i32 %2, %.0.lcssa
-  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %14
-  tail call void %13(ptr noundef %15, ptr noundef %16, i32 noundef %17, ptr noundef %18) #7
-  br label %19
+14:                                               ; preds = %._crit_edge
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 24), align 8, !tbaa !3
+  %16 = zext nneg i32 %.0.lcssa to i64
+  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %16
+  %19 = sub nsw i32 %2, %.0.lcssa
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %16
+  tail call void %15(ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef %20) #7
+  br label %21
 
-19:                                               ; preds = %12, %._crit_edge
+21:                                               ; preds = %14, %._crit_edge
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @PredictorAdd4_SSE2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noalias noundef %3) #2 {
-  %invariant.gep = getelementptr i8, ptr %1, i64 -4
   %.not24 = icmp slt i32 %2, 4
   br i1 %.not24, label %._crit_edge, label %.lr.ph.preheader
 
@@ -496,36 +495,37 @@ define internal void @PredictorAdd4_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %indvars.iv = phi i64 [ 4, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv26
   %7 = load <16 x i8>, ptr %6, align 1, !tbaa !9
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv26
-  %8 = load <16 x i8>, ptr %gep, align 1, !tbaa !9
-  %9 = add <16 x i8> %8, %7
-  %10 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv26
-  store <16 x i8> %9, ptr %10, align 1, !tbaa !9
+  %8 = getelementptr i32, ptr %1, i64 %indvars.iv26
+  %9 = getelementptr i8, ptr %8, i64 -4
+  %10 = load <16 x i8>, ptr %9, align 1, !tbaa !9
+  %11 = add <16 x i8> %10, %7
+  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv26
+  store <16 x i8> %11, ptr %12, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %11 = trunc nuw nsw i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %11, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %13, %._crit_edge.loopexit ]
   %.not23 = icmp eq i32 %.0.lcssa, %2
-  br i1 %.not23, label %19, label %12
+  br i1 %.not23, label %21, label %14
 
-12:                                               ; preds = %._crit_edge
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 32), align 16, !tbaa !3
-  %14 = zext nneg i32 %.0.lcssa to i64
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %14
-  %17 = sub nsw i32 %2, %.0.lcssa
-  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %14
-  tail call void %13(ptr noundef %15, ptr noundef %16, i32 noundef %17, ptr noundef %18) #7
-  br label %19
+14:                                               ; preds = %._crit_edge
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 32), align 16, !tbaa !3
+  %16 = zext nneg i32 %.0.lcssa to i64
+  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %16
+  %19 = sub nsw i32 %2, %.0.lcssa
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %16
+  tail call void %15(ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef %20) #7
+  br label %21
 
-19:                                               ; preds = %12, %._crit_edge
+21:                                               ; preds = %14, %._crit_edge
   ret void
 }
 
@@ -589,7 +589,6 @@ define internal void @PredictorAdd5_SSE2(ptr noundef readonly captures(none) %0,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @PredictorAdd6_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noalias noundef captures(none) %3) #3 {
-  %invariant.gep = getelementptr i8, ptr %1, i64 -4
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -600,34 +599,35 @@ define internal void @PredictorAdd6_SSE2(ptr noundef readonly captures(none) %0,
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %7 = load i32, ptr %gep, align 4, !tbaa !7
-  %8 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %store_forwarded, i64 0
-  %9 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %7, i64 0
-  %10 = bitcast <4 x i32> %8 to <16 x i8>
-  %11 = bitcast <4 x i32> %9 to <16 x i8>
-  %12 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %10, <16 x i8> %11)
-  %13 = xor <4 x i32> %9, %8
-  %14 = bitcast <4 x i32> %13 to <16 x i8>
-  %15 = and <16 x i8> %14, <i8 1, i8 1, i8 1, i8 1, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>
-  %16 = sub <16 x i8> %12, %15
-  %17 = bitcast <16 x i8> %16 to <4 x i32>
-  %18 = extractelement <4 x i32> %17, i64 0
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 4, !tbaa !7
-  %21 = and i32 %20, -16711936
-  %22 = and i32 %18, -16711936
-  %23 = add i32 %22, %21
-  %24 = and i32 %20, 16711935
-  %25 = and i32 %18, 16711935
-  %26 = add nuw nsw i32 %25, %24
-  %27 = and i32 %23, -16711936
-  %28 = and i32 %26, 16711935
-  %29 = or disjoint i32 %27, %28
-  store i32 %29, ptr %6, align 4, !tbaa !7
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds i8, ptr %7, i64 -4
+  %9 = load i32, ptr %8, align 4, !tbaa !7
+  %10 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %store_forwarded, i64 0
+  %11 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %9, i64 0
+  %12 = bitcast <4 x i32> %10 to <16 x i8>
+  %13 = bitcast <4 x i32> %11 to <16 x i8>
+  %14 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %12, <16 x i8> %13)
+  %15 = xor <4 x i32> %11, %10
+  %16 = bitcast <4 x i32> %15 to <16 x i8>
+  %17 = and <16 x i8> %16, <i8 1, i8 1, i8 1, i8 1, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>
+  %18 = sub <16 x i8> %14, %17
+  %19 = bitcast <16 x i8> %18 to <4 x i32>
+  %20 = extractelement <4 x i32> %19, i64 0
+  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %22 = load i32, ptr %21, align 4, !tbaa !7
+  %23 = and i32 %22, -16711936
+  %24 = and i32 %20, -16711936
+  %25 = add i32 %24, %23
+  %26 = and i32 %22, 16711935
+  %27 = and i32 %20, 16711935
+  %28 = add nuw nsw i32 %27, %26
+  %29 = and i32 %25, -16711936
+  %30 = and i32 %28, 16711935
+  %31 = or disjoint i32 %29, %30
+  store i32 %31, ptr %6, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17

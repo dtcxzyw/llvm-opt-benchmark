@@ -415,7 +415,7 @@ define internal void @default_release(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %.thread, label %.lr.ph, !prof !11
+  br i1 %4, label %.critedge, label %.lr.ph, !prof !11
 
 .lr.ph:                                           ; preds = %1, %11
   %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
@@ -425,14 +425,14 @@ define internal void @default_release(ptr noundef %0) #0 align 16 {
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
-  br i1 %10, label %11, label %.thread, !prof !13
+  br i1 %10, label %11, label %.critedge, !prof !13
 
 11:                                               ; preds = %.lr.ph
   %12 = extractvalue { i8, i32 } %7, 1
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.thread, label %.lr.ph, !prof !14, !llvm.loop !15
+  br i1 %13, label %.critedge, label %.lr.ph, !prof !14, !llvm.loop !15
 
-.thread:                                          ; preds = %11, %.lr.ph, %1
+.critedge:                                        ; preds = %11, %.lr.ph, %1
   %14 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 2) #9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %16 = load ptr, ptr %15, align 8
@@ -583,7 +583,7 @@ define dso_local void @snd_hdac_device_exit(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %.thread, label %.lr.ph, !prof !11
+  br i1 %4, label %.critedge, label %.lr.ph, !prof !11
 
 .lr.ph:                                           ; preds = %1, %11
   %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
@@ -593,14 +593,14 @@ define dso_local void @snd_hdac_device_exit(ptr noundef %0) #0 align 16 {
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
-  br i1 %10, label %11, label %.thread, !prof !13
+  br i1 %10, label %11, label %.critedge, !prof !13
 
 11:                                               ; preds = %.lr.ph
   %12 = extractvalue { i8, i32 } %7, 1
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.thread, label %.lr.ph, !prof !14, !llvm.loop !15
+  br i1 %13, label %.critedge, label %.lr.ph, !prof !14, !llvm.loop !15
 
-.thread:                                          ; preds = %11, %.lr.ph, %1
+.critedge:                                        ; preds = %11, %.lr.ph, %1
   %14 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 2) #9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %16 = load ptr, ptr %15, align 8
@@ -1205,7 +1205,7 @@ define dso_local i32 @snd_hdac_power_down_pm(ptr noundef %0) #0 align 16 {
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i8 %9, 0
-  br i1 %11, label %12, label %.thread, !prof !13
+  br i1 %11, label %12, label %.critedge, !prof !13
 
 12:                                               ; preds = %.lr.ph
   %13 = extractvalue { i8, i32 } %8, 1
@@ -1218,9 +1218,9 @@ define dso_local i32 @snd_hdac_power_down_pm(ptr noundef %0) #0 align 16 {
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store volatile i64 %16, ptr %17, align 8
   %18 = tail call i32 @__pm_runtime_suspend(ptr noundef %0, i32 noundef 13) #9
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph, %._crit_edge
+.critedge:                                        ; preds = %.lr.ph, %._crit_edge
   %19 = phi i32 [ %18, %._crit_edge ], [ 0, %.lr.ph ]
   ret i32 %19
 }

@@ -470,36 +470,36 @@ satsub64be.exit.thread15.i:                       ; preds = %228, %225
   store i64 %237, ptr %46, align 8, !tbaa !57
   %273 = load ptr, ptr %47, align 8, !tbaa !58
   %.not.i129 = icmp eq ptr %273, null
-  br i1 %.not.i129, label %.thread.i, label %274
+  br i1 %.not.i129, label %282, label %274
 
 274:                                              ; preds = %272
   %275 = call ptr @EVP_MD_CTX_get0_md(ptr noundef nonnull %273) #7
   %.not87.i = icmp eq ptr %275, null
-  br i1 %.not87.i, label %.thread.i, label %276
+  br i1 %.not87.i, label %282, label %276
 
 276:                                              ; preds = %274
   %277 = call i32 @EVP_MD_get_size(ptr noundef nonnull %275) #7
   %278 = add i32 %277, -1
   %279 = icmp ult i32 %278, 64
-  br i1 %279, label %280, label %282, !prof !59
+  br i1 %279, label %280, label %.critedge.i, !prof !59
 
-280:                                              ; preds = %276
-  %281 = zext nneg i32 %277 to i64
-  br label %.thread.i
-
-282:                                              ; preds = %276
+.critedge.i:                                      ; preds = %276
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.dtls_process_record) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 524294, ptr noundef null) #7
   br label %dtls_process_record.exit.thread
 
-.thread.i:                                        ; preds = %280, %274, %272
-  %.078.i = phi i64 [ 0, %272 ], [ 0, %274 ], [ %281, %280 ]
+280:                                              ; preds = %276
+  %281 = zext nneg i32 %277 to i64
+  br label %282
+
+282:                                              ; preds = %280, %274, %272
+  %.078.i = phi i64 [ 0, %272 ], [ %281, %280 ], [ 0, %274 ]
   %283 = load i32, ptr %48, align 8, !tbaa !60
   %.not88.i = icmp eq i32 %283, 0
   br i1 %.not88.i, label %303, label %284
 
-284:                                              ; preds = %.thread.i
+284:                                              ; preds = %282
   %285 = load ptr, ptr %47, align 8, !tbaa !58
   %.not89.i = icmp eq ptr %285, null
   br i1 %.not89.i, label %303, label %286
@@ -539,8 +539,8 @@ satsub64be.exit.thread15.i:                       ; preds = %228, %225
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 20, i32 noundef 281, ptr noundef null) #7
   br label %dtls_process_record.exit.thread
 
-303:                                              ; preds = %299, %284, %.thread.i
-  %.381.i = phi i64 [ %.078.i, %284 ], [ %.078.i, %.thread.i ], [ 0, %299 ]
+303:                                              ; preds = %299, %284, %282
+  %.381.i = phi i64 [ %.078.i, %284 ], [ %.078.i, %282 ], [ 0, %299 ]
   %304 = call i32 @ERR_set_mark() #7
   %305 = load ptr, ptr %18, align 8, !tbaa !36
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
@@ -564,18 +564,18 @@ satsub64be.exit.thread15.i:                       ; preds = %228, %225
   %315 = call i32 @ERR_clear_last_mark() #7
   %316 = load i32, ptr %48, align 8, !tbaa !60
   %.not91.i = icmp eq i32 %316, 0
-  br i1 %.not91.i, label %317, label %.thread106thread-pre-split.i
+  br i1 %.not91.i, label %317, label %.threadthread-pre-split.i
 
 317:                                              ; preds = %314
   %318 = load ptr, ptr %49, align 8, !tbaa !63
   %.not92.i = icmp eq ptr %318, null
-  br i1 %.not92.i, label %.thread106thread-pre-split.i, label %319
+  br i1 %.not92.i, label %.threadthread-pre-split.i, label %319
 
 319:                                              ; preds = %317
   %320 = load ptr, ptr %47, align 8, !tbaa !58
   %321 = call ptr @EVP_MD_CTX_get0_md(ptr noundef %320) #7
   %.not93.i = icmp eq ptr %321, null
-  br i1 %.not93.i, label %.thread106thread-pre-split.i, label %322
+  br i1 %.not93.i, label %.threadthread-pre-split.i, label %322
 
 322:                                              ; preds = %319
   %323 = load ptr, ptr %18, align 8, !tbaa !36
@@ -586,36 +586,36 @@ satsub64be.exit.thread15.i:                       ; preds = %228, %225
   %328 = load ptr, ptr %3, align 8
   %329 = icmp eq ptr %328, null
   %or.cond.i131 = select i1 %327, i1 true, i1 %329
-  br i1 %or.cond.i131, label %.thread108.i, label %330
+  br i1 %or.cond.i131, label %.thread102.i, label %330
 
 330:                                              ; preds = %322
   %331 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %2, ptr noundef nonnull %328, i64 noundef %.381.i) #7
   %.not94.i = icmp eq i32 %331, 0
-  br i1 %.not94.i, label %332, label %.thread108.i
+  br i1 %.not94.i, label %332, label %.thread102.i
 
 332:                                              ; preds = %330
   %333 = load i64, ptr %24, align 8, !tbaa !35
   %334 = add nuw nsw i64 %.381.i, 17408
   %335 = icmp ugt i64 %333, %334
-  br i1 %335, label %.thread108.i, label %.thread106.i
+  br i1 %335, label %.thread102.i, label %.thread.i
 
-.thread108.i:                                     ; preds = %332, %330, %322
+.thread102.i:                                     ; preds = %332, %330, %322
   store i64 0, ptr %24, align 8, !tbaa !35
   store i64 0, ptr %17, align 8, !tbaa !32
   br label %dtls_record_bitmap_update.exit.i
 
-.thread106thread-pre-split.i:                     ; preds = %319, %317, %314
-  %.pre111.pr.i = load i64, ptr %24, align 8, !tbaa !35
-  br label %.thread106.i
+.threadthread-pre-split.i:                        ; preds = %319, %317, %314
+  %.pre105.pr.i = load i64, ptr %24, align 8, !tbaa !35
+  br label %.thread.i
 
-.thread106.i:                                     ; preds = %.thread106thread-pre-split.i, %332
-  %.pre111.i = phi i64 [ %.pre111.pr.i, %.thread106thread-pre-split.i ], [ %333, %332 ]
+.thread.i:                                        ; preds = %.threadthread-pre-split.i, %332
+  %.pre105.i = phi i64 [ %.pre105.pr.i, %.threadthread-pre-split.i ], [ %333, %332 ]
   %336 = load ptr, ptr %50, align 8, !tbaa !64
   %.not95.i = icmp eq ptr %336, null
   br i1 %.not95.i, label %343, label %337
 
-337:                                              ; preds = %.thread106.i
-  %338 = icmp ugt i64 %.pre111.i, 17408
+337:                                              ; preds = %.thread.i
+  %338 = icmp ugt i64 %.pre105.i, 17408
   br i1 %338, label %339, label %340
 
 339:                                              ; preds = %337
@@ -639,8 +639,8 @@ satsub64be.exit.thread15.i:                       ; preds = %228, %225
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 30, i32 noundef 107, ptr noundef null) #7
   br label %dtls_record_bitmap_update.exit.i
 
-343:                                              ; preds = %._crit_edge.i, %.thread106.i
-  %344 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %.pre111.i, %.thread106.i ]
+343:                                              ; preds = %._crit_edge.i, %.thread.i
+  %344 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %.pre105.i, %.thread.i ]
   %345 = load i32, ptr %29, align 4, !tbaa !48
   %346 = zext i32 %345 to i64
   %347 = icmp ugt i64 %344, %346
@@ -767,8 +767,8 @@ satsub64be.exit.thread19.i.i:                     ; preds = %satsub64be.exit.i.i
   store i64 %431, ptr %.0.i124.ph, align 8, !tbaa !51
   br label %dtls_record_bitmap_update.exit.i
 
-dtls_record_bitmap_update.exit.i:                 ; preds = %427, %satsub64be.exit.thread19.i.i, %.thread.i.i, %348, %342, %339, %.thread108.i, %313, %310
-  %.not118 = phi i1 [ true, %310 ], [ true, %313 ], [ true, %.thread108.i ], [ true, %339 ], [ true, %348 ], [ true, %342 ], [ false, %.thread.i.i ], [ false, %satsub64be.exit.thread19.i.i ], [ false, %427 ]
+dtls_record_bitmap_update.exit.i:                 ; preds = %427, %satsub64be.exit.thread19.i.i, %.thread.i.i, %348, %342, %339, %.thread102.i, %313, %310
+  %.not118 = phi i1 [ true, %310 ], [ true, %313 ], [ true, %.thread102.i ], [ true, %339 ], [ true, %348 ], [ true, %342 ], [ false, %.thread.i.i ], [ false, %satsub64be.exit.thread19.i.i ], [ false, %427 ]
   %432 = load i32, ptr %52, align 8, !tbaa !66
   %.not98.i = icmp eq i32 %432, 0
   br i1 %.not98.i, label %dtls_process_record.exit, label %433
@@ -778,7 +778,7 @@ dtls_record_bitmap_update.exit.i:                 ; preds = %427, %satsub64be.ex
   call void @CRYPTO_free(ptr noundef %434, ptr noundef nonnull @.str, i32 noundef 277) #7
   br label %dtls_process_record.exit
 
-dtls_process_record.exit.thread:                  ; preds = %271, %282, %289, %302
+dtls_process_record.exit.thread:                  ; preds = %271, %.critedge.i, %302, %289
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
   br label %435

@@ -62,7 +62,7 @@ define void @_ZN6icu_7713UnicodeString16doCodepageCreateEPKciS2_(ptr noundef non
 16:                                               ; preds = %14
   %17 = tail call ptr @ucnv_getDefaultName_77()
   %18 = load i8, ptr %17, align 1, !tbaa !6
-  switch i8 %18, label %.thread [
+  switch i8 %18, label %51 [
     i8 85, label %19
     i8 117, label %27
   ]
@@ -71,30 +71,30 @@ define void @_ZN6icu_7713UnicodeString16doCodepageCreateEPKciS2_(ptr noundef non
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !6
   %22 = icmp eq i8 %21, 84
-  br i1 %22, label %23, label %.thread
+  br i1 %22, label %23, label %51
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %25 = load i8, ptr %24, align 1, !tbaa !6
   %26 = icmp eq i8 %25, 70
-  br i1 %26, label %35, label %.thread
+  br i1 %26, label %35, label %51
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %29 = load i8, ptr %28, align 1, !tbaa !6
   %30 = icmp eq i8 %29, 116
-  br i1 %30, label %31, label %.thread
+  br i1 %30, label %31, label %51
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %33 = load i8, ptr %32, align 1, !tbaa !6
   %34 = icmp eq i8 %33, 102
-  br i1 %34, label %35, label %.thread
+  br i1 %34, label %35, label %51
 
 35:                                               ; preds = %31, %23
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 3
   %37 = load i8, ptr %36, align 1, !tbaa !6
-  switch i8 %37, label %.thread [
+  switch i8 %37, label %51 [
     i8 45, label %38
     i8 56, label %46
   ]
@@ -103,27 +103,27 @@ define void @_ZN6icu_7713UnicodeString16doCodepageCreateEPKciS2_(ptr noundef non
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %40 = load i8, ptr %39, align 1, !tbaa !6
   %41 = icmp eq i8 %40, 56
-  br i1 %41, label %42, label %.thread
+  br i1 %41, label %42, label %51
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %17, i64 5
   %44 = load i8, ptr %43, align 1, !tbaa !6
   %45 = icmp eq i8 %44, 0
-  br i1 %45, label %51, label %.thread
+  br i1 %45, label %.critedge, label %51
 
 46:                                               ; preds = %35
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %48 = load i8, ptr %47, align 1, !tbaa !6
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %51, label %.thread
+  br i1 %49, label %.critedge, label %51
 
-.thread:                                          ; preds = %19, %23, %27, %31, %38, %42, %46, %16, %35
-  %50 = call ptr @u_getDefaultConverter_77(ptr noundef nonnull %5)
-  br label %78
-
-51:                                               ; preds = %42, %46
-  %52 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9setToUTF8ENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nonnull %1, i32 %.036)
+.critedge:                                        ; preds = %46, %42
+  %50 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9setToUTF8ENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nonnull %1, i32 %.036)
   br label %_ZN6icu_7713UnicodeString9setLengthEi.exit
+
+51:                                               ; preds = %35, %16, %46, %42, %38, %31, %27, %23, %19
+  %52 = call ptr @u_getDefaultConverter_77(ptr noundef nonnull %5)
+  br label %78
 
 53:                                               ; preds = %14
   %54 = load i8, ptr %3, align 1, !tbaa !6
@@ -172,8 +172,8 @@ define void @_ZN6icu_7713UnicodeString16doCodepageCreateEPKciS2_(ptr noundef non
   %77 = call ptr @ucnv_open_77(ptr noundef nonnull %3, ptr noundef nonnull %5)
   br label %78
 
-78:                                               ; preds = %.thread, %76
-  %.1 = phi ptr [ %77, %76 ], [ %50, %.thread ]
+78:                                               ; preds = %51, %76
+  %.1 = phi ptr [ %52, %51 ], [ %77, %76 ]
   %79 = load i32, ptr %5, align 4, !tbaa !8
   %80 = icmp slt i32 %79, 1
   br i1 %80, label %82, label %81
@@ -203,7 +203,7 @@ define void @_ZN6icu_7713UnicodeString16doCodepageCreateEPKciS2_(ptr noundef non
   call void @ucnv_close_77(ptr noundef %.1)
   br label %_ZN6icu_7713UnicodeString9setLengthEi.exit
 
-_ZN6icu_7713UnicodeString9setLengthEi.exit:       ; preds = %72, %68, %51, %87, %88, %75, %81
+_ZN6icu_7713UnicodeString9setLengthEi.exit:       ; preds = %72, %68, %87, %88, %75, %.critedge, %81
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   br label %89
 

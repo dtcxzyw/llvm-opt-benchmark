@@ -25,7 +25,7 @@ define internal range(i32 -2147483648, 1) i32 @yuv4_encode_frame(ptr noundef %0,
   %15 = sext i32 %14 to i64
   %16 = tail call i32 @ff_get_encode_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %15, i32 noundef 0) #2
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %108, label %18
+  br i1 %17, label %110, label %18
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -54,7 +54,6 @@ define internal range(i32 -2147483648, 1) i32 @yuv4_encode_frame(ptr noundef %0,
   %.06978 = phi ptr [ %23, %.preheader73.lr.ph ], [ %45, %._crit_edge ]
   %.07077 = phi ptr [ %21, %.preheader73.lr.ph ], [ %42, %._crit_edge ]
   %.07176 = phi ptr [ %20, %.preheader73.lr.ph ], [ %.1.lcssa, %._crit_edge ]
-  %invariant.gep = getelementptr i8, ptr %.07077, i64 1
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph, label %._crit_edge
 
@@ -79,8 +78,8 @@ define internal range(i32 -2147483648, 1) i32 @yuv4_encode_frame(ptr noundef %0,
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader73
   %37 = phi i32 [ %31, %.preheader73 ], [ %.pre99, %._crit_edge.loopexit ]
-  %38 = phi i32 [ %32, %.preheader73 ], [ %79, %._crit_edge.loopexit ]
-  %.1.lcssa = phi ptr [ %.07176, %.preheader73 ], [ %78, %._crit_edge.loopexit ]
+  %38 = phi i32 [ %32, %.preheader73 ], [ %81, %._crit_edge.loopexit ]
+  %.1.lcssa = phi ptr [ %.07176, %.preheader73 ], [ %80, %._crit_edge.loopexit ]
   %39 = load i32, ptr %28, align 8, !tbaa !31
   %40 = shl nsw i32 %39, 1
   %41 = sext i32 %40 to i64
@@ -98,7 +97,7 @@ define internal range(i32 -2147483648, 1) i32 @yuv4_encode_frame(ptr noundef %0,
 
 .lr.ph:                                           ; preds = %.preheader73, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader73 ]
-  %.174 = phi ptr [ %78, %.lr.ph ], [ %.07176, %.preheader73 ]
+  %.174 = phi ptr [ %80, %.lr.ph ], [ %.07176, %.preheader73 ]
   %52 = getelementptr inbounds nuw i8, ptr %.06978, i64 %indvars.iv
   %53 = load i8, ptr %52, align 1, !tbaa !34
   %54 = xor i8 %53, -128
@@ -129,59 +128,60 @@ define internal range(i32 -2147483648, 1) i32 @yuv4_encode_frame(ptr noundef %0,
   %74 = load i32, ptr %28, align 8, !tbaa !31
   %75 = add nsw i32 %74, %68
   %76 = sext i32 %75 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %76
-  %77 = load i8, ptr %gep, align 1, !tbaa !34
-  %78 = getelementptr inbounds nuw i8, ptr %.174, i64 6
-  store i8 %77, ptr %73, align 1, !tbaa !34
+  %77 = getelementptr i8, ptr %.07077, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 1
+  %79 = load i8, ptr %78, align 1, !tbaa !34
+  %80 = getelementptr inbounds nuw i8, ptr %.174, i64 6
+  store i8 %79, ptr %73, align 1, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = load i32, ptr %5, align 8, !tbaa !4
-  %80 = add nsw i32 %79, 1
-  %81 = sdiv i32 %80, 2
-  %82 = sext i32 %81 to i64
-  %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
+  %81 = load i32, ptr %5, align 8, !tbaa !4
+  %82 = add nsw i32 %81, 1
+  %83 = sdiv i32 %82, 2
+  %84 = sext i32 %83 to i64
+  %85 = icmp slt i64 %indvars.iv.next, %84
+  br i1 %85, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
 
 .lr.ph89:                                         ; preds = %.preheader, %.lr.ph89
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.lr.ph89 ], [ 0, %.preheader ]
-  %.287 = phi ptr [ %102, %.lr.ph89 ], [ %.071.lcssa, %.preheader ]
-  %84 = getelementptr inbounds nuw i8, ptr %.069.lcssa, i64 %indvars.iv96
-  %85 = load i8, ptr %84, align 1, !tbaa !34
-  %86 = xor i8 %85, -128
-  %87 = getelementptr inbounds nuw i8, ptr %.287, i64 1
-  store i8 %86, ptr %.287, align 1, !tbaa !34
-  %88 = getelementptr inbounds nuw i8, ptr %.068.lcssa, i64 %indvars.iv96
-  %89 = load i8, ptr %88, align 1, !tbaa !34
-  %90 = xor i8 %89, -128
-  %91 = getelementptr inbounds nuw i8, ptr %.287, i64 2
-  store i8 %90, ptr %87, align 1, !tbaa !34
-  %92 = shl nuw nsw i64 %indvars.iv96, 1
-  %93 = getelementptr inbounds nuw i8, ptr %.070.lcssa, i64 %92
-  %94 = load i8, ptr %93, align 1, !tbaa !34
-  %95 = getelementptr inbounds nuw i8, ptr %.287, i64 3
-  store i8 %94, ptr %91, align 1, !tbaa !34
-  %96 = getelementptr inbounds nuw i8, ptr %93, i64 1
-  %97 = load i8, ptr %96, align 1, !tbaa !34
-  %98 = getelementptr inbounds nuw i8, ptr %.287, i64 4
-  store i8 %97, ptr %95, align 1, !tbaa !34
-  %99 = load i8, ptr %93, align 1, !tbaa !34
-  %100 = getelementptr inbounds nuw i8, ptr %.287, i64 5
-  store i8 %99, ptr %98, align 1, !tbaa !34
-  %101 = load i8, ptr %96, align 1, !tbaa !34
-  %102 = getelementptr inbounds nuw i8, ptr %.287, i64 6
+  %.287 = phi ptr [ %104, %.lr.ph89 ], [ %.071.lcssa, %.preheader ]
+  %86 = getelementptr inbounds nuw i8, ptr %.069.lcssa, i64 %indvars.iv96
+  %87 = load i8, ptr %86, align 1, !tbaa !34
+  %88 = xor i8 %87, -128
+  %89 = getelementptr inbounds nuw i8, ptr %.287, i64 1
+  store i8 %88, ptr %.287, align 1, !tbaa !34
+  %90 = getelementptr inbounds nuw i8, ptr %.068.lcssa, i64 %indvars.iv96
+  %91 = load i8, ptr %90, align 1, !tbaa !34
+  %92 = xor i8 %91, -128
+  %93 = getelementptr inbounds nuw i8, ptr %.287, i64 2
+  store i8 %92, ptr %89, align 1, !tbaa !34
+  %94 = shl nuw nsw i64 %indvars.iv96, 1
+  %95 = getelementptr inbounds nuw i8, ptr %.070.lcssa, i64 %94
+  %96 = load i8, ptr %95, align 1, !tbaa !34
+  %97 = getelementptr inbounds nuw i8, ptr %.287, i64 3
+  store i8 %96, ptr %93, align 1, !tbaa !34
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 1
+  %99 = load i8, ptr %98, align 1, !tbaa !34
+  %100 = getelementptr inbounds nuw i8, ptr %.287, i64 4
+  store i8 %99, ptr %97, align 1, !tbaa !34
+  %101 = load i8, ptr %95, align 1, !tbaa !34
+  %102 = getelementptr inbounds nuw i8, ptr %.287, i64 5
   store i8 %101, ptr %100, align 1, !tbaa !34
+  %103 = load i8, ptr %98, align 1, !tbaa !34
+  %104 = getelementptr inbounds nuw i8, ptr %.287, i64 6
+  store i8 %103, ptr %102, align 1, !tbaa !34
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %103 = load i32, ptr %5, align 8, !tbaa !4
-  %104 = add nsw i32 %103, 1
-  %105 = sdiv i32 %104, 2
-  %106 = sext i32 %105 to i64
-  %107 = icmp slt i64 %indvars.iv.next97, %106
-  br i1 %107, label %.lr.ph89, label %.loopexit, !llvm.loop !36
+  %105 = load i32, ptr %5, align 8, !tbaa !4
+  %106 = add nsw i32 %105, 1
+  %107 = sdiv i32 %106, 2
+  %108 = sext i32 %107 to i64
+  %109 = icmp slt i64 %indvars.iv.next97, %108
+  br i1 %109, label %.lr.ph89, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph89, %.preheader, %._crit_edge81
   store i32 1, ptr %3, align 4, !tbaa !31
-  br label %108
+  br label %110
 
-108:                                              ; preds = %4, %.loopexit
+110:                                              ; preds = %4, %.loopexit
   %.067 = phi i32 [ 0, %.loopexit ], [ %16, %4 ]
   ret i32 %.067
 }

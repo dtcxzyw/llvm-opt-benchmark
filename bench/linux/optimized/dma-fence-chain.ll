@@ -558,7 +558,7 @@ define internal noundef zeroext i1 @dma_fence_chain_enable_signaling(ptr noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef zeroext i1 @dma_fence_chain_signaled(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %.critedge, label %3
+  br i1 %2, label %.critedge10, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -580,8 +580,8 @@ define internal noundef zeroext i1 @dma_fence_chain_signaled(ptr noundef %0) #0 
 .preheader:                                       ; preds = %11, %7
   br label %13
 
-13:                                               ; preds = %.preheader, %.critedge11
-  %14 = phi ptr [ %45, %.critedge11 ], [ %0, %.preheader ]
+13:                                               ; preds = %.preheader, %.critedge
+  %14 = phi ptr [ %45, %.critedge ], [ %0, %.preheader ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, @dma_fence_chain_ops
@@ -598,7 +598,7 @@ define internal noundef zeroext i1 @dma_fence_chain_signaled(ptr noundef %0) #0 
   %24 = load volatile i64, ptr %23, align 8
   %25 = and i64 %24, 1
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %.critedge11
+  br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -614,7 +614,7 @@ define internal noundef zeroext i1 @dma_fence_chain_signaled(ptr noundef %0) #0 
 
 35:                                               ; preds = %33
   %36 = tail call i32 @dma_fence_signal(ptr noundef %22) #6
-  br label %.critedge11
+  br label %.critedge
 
 37:                                               ; preds = %27, %33
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -624,24 +624,24 @@ define internal noundef zeroext i1 @dma_fence_chain_signaled(ptr noundef %0) #0 
 
 41:                                               ; preds = %37
   %42 = icmp sgt i32 %39, 0
-  br i1 %42, label %.critedge, label %43, !prof !6
+  br i1 %42, label %.critedge10, label %43, !prof !6
 
 43:                                               ; preds = %41
   tail call void @refcount_warn_saturate(ptr noundef nonnull %38, i32 noundef 3) #6
-  br label %.critedge
+  br label %.critedge10
 
 44:                                               ; preds = %37
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
   tail call void @dma_fence_release(ptr noundef nonnull %38) #6
-  br label %.critedge
+  br label %.critedge10
 
-.critedge11:                                      ; preds = %35, %21
+.critedge:                                        ; preds = %35, %21
   %45 = tail call ptr @dma_fence_chain_walk(ptr noundef nonnull %14)
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.critedge, label %13, !llvm.loop !19
+  br i1 %46, label %.critedge10, label %13, !llvm.loop !19
 
-.critedge:                                        ; preds = %.critedge11, %41, %43, %1, %44
-  %47 = phi i1 [ false, %44 ], [ true, %1 ], [ false, %43 ], [ false, %41 ], [ true, %.critedge11 ]
+.critedge10:                                      ; preds = %.critedge, %41, %43, %1, %44
+  %47 = phi i1 [ false, %44 ], [ true, %1 ], [ false, %43 ], [ false, %41 ], [ true, %.critedge ]
   ret i1 %47
 }
 

@@ -64,7 +64,7 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
 
 16:                                               ; preds = %14
   call void @av_frame_free(ptr noundef nonnull %3) #9
-  br label %66
+  br label %67
 
 17:                                               ; preds = %14, %2
   %18 = tail call i32 @av_frame_is_writable(ptr noundef %1) #9
@@ -80,7 +80,7 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
 
 23:                                               ; preds = %19
   call void @av_frame_free(ptr noundef nonnull %3) #9
-  br label %66
+  br label %67
 
 24:                                               ; preds = %19
   %25 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %22, ptr noundef nonnull %1) #9
@@ -125,30 +125,31 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %51 = fcmp nsz oge float %48, 0.000000e+00
   %52 = zext i1 %51 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %54 = load i32, ptr %53, align 4, !tbaa !54
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [2 x [2 x ptr]], ptr %50, i64 0, i64 %52, i64 %55
-  %57 = load ptr, ptr %56, align 8, !tbaa !55
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %59 = load i32, ptr %58, align 4, !tbaa !56
-  %60 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #10
-  %. = tail call i32 @llvm.smin.i32(i32 %59, i32 %60)
-  %61 = call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef %57, ptr noundef nonnull %4, ptr noundef null, i32 noundef %.) #9
-  %62 = load ptr, ptr %3, align 8, !tbaa !20
-  %.not32 = icmp eq ptr %.0, %62
-  br i1 %.not32, label %64, label %63
+  %53 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %50, i64 0, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %55 = load i32, ptr %54, align 4, !tbaa !54
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds [2 x ptr], ptr %53, i64 0, i64 %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !55
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %60 = load i32, ptr %59, align 4, !tbaa !56
+  %61 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #10
+  %. = tail call i32 @llvm.smin.i32(i32 %60, i32 %61)
+  %62 = call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef %58, ptr noundef nonnull %4, ptr noundef null, i32 noundef %.) #9
+  %63 = load ptr, ptr %3, align 8, !tbaa !20
+  %.not32 = icmp eq ptr %.0, %63
+  br i1 %.not32, label %65, label %64
 
-63:                                               ; preds = %47
+64:                                               ; preds = %47
   call void @av_frame_free(ptr noundef nonnull %3) #9
-  br label %64
+  br label %65
 
-64:                                               ; preds = %63, %47
-  %65 = call i32 @ff_filter_frame(ptr noundef %9, ptr noundef nonnull %.0) #9
-  br label %66
+65:                                               ; preds = %64, %47
+  %66 = call i32 @ff_filter_frame(ptr noundef %9, ptr noundef nonnull %.0) #9
+  br label %67
 
-66:                                               ; preds = %64, %23, %16
-  %.024 = phi i32 [ %65, %64 ], [ -12, %23 ], [ -12, %16 ]
+67:                                               ; preds = %65, %23, %16
+  %.024 = phi i32 [ %66, %65 ], [ -12, %23 ], [ -12, %16 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #9
   ret i32 %.024
 }

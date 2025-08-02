@@ -2621,28 +2621,28 @@ define internal fastcc noundef nonnull ptr @build_gnu_sparse_name(ptr noundef no
 
 7:                                                ; preds = %4, %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef nonnull align 1 dereferenceable(20) @.str.67, i64 20, i1 false) #15
-  br label %21
+  br label %22
 
 8:                                                ; preds = %4
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  %invariant.gep = getelementptr i8, ptr %1, i64 -2
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %8, %.backedge
-  %.0.idx26 = phi i64 [ %.0.add23, %.backedge ], [ %9, %8 ]
-  %.0.add23 = add nsw i64 %.0.idx26, -1
+  %.0.idx27 = phi i64 [ %.0.add23, %.backedge ], [ %9, %8 ]
+  %.0.ptr28 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.idx27
+  %.0.add23 = add nsw i64 %.0.idx27, -1
   %.ptr24 = getelementptr inbounds i8, ptr %1, i64 %.0.add23
   %11 = load i8, ptr %.ptr24, align 1, !tbaa !29
   %12 = icmp eq i8 %11, 47
   br i1 %12, label %.backedge, label %14
 
 .backedge:                                        ; preds = %.lr.ph, %17
-  %13 = icmp samesign ugt i64 %.0.idx26, 1
+  %13 = icmp samesign ugt i64 %.0.idx27, 1
   br i1 %13, label %.lr.ph, label %.thread
 
 14:                                               ; preds = %.lr.ph
-  %.not = icmp eq i64 %.0.idx26, 1
+  %.not = icmp eq i64 %.0.idx27, 1
   br i1 %.not, label %.thread, label %15
 
 15:                                               ; preds = %14
@@ -2650,17 +2650,17 @@ define internal fastcc noundef nonnull ptr @build_gnu_sparse_name(ptr noundef no
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0.idx26
-  %18 = load i8, ptr %gep, align 1, !tbaa !29
-  %19 = icmp eq i8 %18, 47
-  br i1 %19, label %.backedge, label %.thread
+  %18 = getelementptr inbounds i8, ptr %.0.ptr28, i64 -2
+  %19 = load i8, ptr %18, align 1, !tbaa !29
+  %20 = icmp eq i8 %19, 47
+  br i1 %20, label %.backedge, label %.thread
 
 .thread:                                          ; preds = %17, %15, %14, %.backedge, %8
-  %.0.idx.lcssa = phi i64 [ %9, %8 ], [ 0, %.backedge ], [ 1, %14 ], [ %.0.idx26, %15 ], [ %.0.idx26, %17 ]
-  %20 = tail call fastcc ptr @build_ustar_entry_name(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0.idx.lcssa, ptr noundef nonnull @.str.68)
-  br label %21
+  %.0.idx.lcssa = phi i64 [ %9, %8 ], [ 0, %.backedge ], [ 1, %14 ], [ %.0.idx27, %15 ], [ %.0.idx27, %17 ]
+  %21 = tail call fastcc ptr @build_ustar_entry_name(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0.idx.lcssa, ptr noundef nonnull @.str.68)
+  br label %22
 
-21:                                               ; preds = %.thread, %7
+22:                                               ; preds = %.thread, %7
   ret ptr %0
 }
 
@@ -3096,63 +3096,63 @@ define internal fastcc noundef nonnull ptr @build_pax_attribute_name(ptr noundef
 
 8:                                                ; preds = %5, %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) @.str.73, i64 16, i1 false) #15
-  br label %26
+  br label %27
 
 9:                                                ; preds = %5
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  %invariant.gep = getelementptr i8, ptr %1, i64 -2
   %11 = icmp sgt i64 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9, %.backedge
-  %.0.idx44 = phi i64 [ %.0.add32, %.backedge ], [ %10, %9 ]
-  %.0.add32 = add nsw i64 %.0.idx44, -1
+  %.0.idx45 = phi i64 [ %.0.add32, %.backedge ], [ %10, %9 ]
+  %.0.ptr46 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.idx45
+  %.0.add32 = add nsw i64 %.0.idx45, -1
   %.ptr33 = getelementptr inbounds i8, ptr %1, i64 %.0.add32
   %12 = load i8, ptr %.ptr33, align 1, !tbaa !29
   %13 = icmp eq i8 %12, 47
   br i1 %13, label %.backedge, label %15
 
 .backedge:                                        ; preds = %.lr.ph, %18
-  %14 = icmp samesign ugt i64 %.0.idx44, 1
+  %14 = icmp samesign ugt i64 %.0.idx45, 1
   br i1 %14, label %.lr.ph, label %._crit_edge.thread
 
 15:                                               ; preds = %.lr.ph
-  %.not = icmp eq i64 %.0.idx44, 1
-  br i1 %.not, label %22, label %16
+  %.not = icmp eq i64 %.0.idx45, 1
+  br i1 %.not, label %23, label %16
 
 16:                                               ; preds = %15
   %17 = icmp eq i8 %12, 46
   br i1 %17, label %18, label %.thread36
 
 18:                                               ; preds = %16
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0.idx44
-  %19 = load i8, ptr %gep, align 1, !tbaa !29
-  %20 = icmp eq i8 %19, 47
-  br i1 %20, label %.backedge, label %.thread36
+  %19 = getelementptr inbounds i8, ptr %.0.ptr46, i64 -2
+  %20 = load i8, ptr %19, align 1, !tbaa !29
+  %21 = icmp eq i8 %20, 47
+  br i1 %21, label %.backedge, label %.thread36
 
 ._crit_edge:                                      ; preds = %9
-  %21 = icmp eq i64 %10, 0
-  br i1 %21, label %._crit_edge.thread, label %.thread36
+  %22 = icmp eq i64 %10, 0
+  br i1 %22, label %._crit_edge.thread, label %.thread36
 
 ._crit_edge.thread:                               ; preds = %.backedge, %._crit_edge
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %0, ptr noundef nonnull align 1 dereferenceable(19) @.str.74, i64 19, i1 false) #15
-  br label %26
+  br label %27
 
-22:                                               ; preds = %15
-  %23 = icmp eq i8 %6, 46
-  br i1 %23, label %24, label %.thread36
+23:                                               ; preds = %15
+  %24 = icmp eq i8 %6, 46
+  br i1 %24, label %25, label %.thread36
 
-24:                                               ; preds = %22
+25:                                               ; preds = %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %0, ptr noundef nonnull align 1 dereferenceable(21) @.str.75, i64 21, i1 false) #15
-  br label %26
+  br label %27
 
-.thread36:                                        ; preds = %18, %16, %._crit_edge, %22
-  %.0.idx43 = phi i64 [ %10, %._crit_edge ], [ 1, %22 ], [ %.0.idx44, %16 ], [ %.0.idx44, %18 ]
+.thread36:                                        ; preds = %18, %16, %._crit_edge, %23
+  %.0.idx43 = phi i64 [ %10, %._crit_edge ], [ 1, %23 ], [ %.0.idx45, %16 ], [ %.0.idx45, %18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.76, i64 10, i1 false) #15
-  %25 = call fastcc ptr @build_ustar_entry_name(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0.idx43, ptr noundef nonnull %3)
-  br label %26
+  %26 = call fastcc ptr @build_ustar_entry_name(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0.idx43, ptr noundef nonnull %3)
+  br label %27
 
-26:                                               ; preds = %.thread36, %24, %._crit_edge.thread, %8
+27:                                               ; preds = %.thread36, %25, %._crit_edge.thread, %8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
   ret ptr %0
 }

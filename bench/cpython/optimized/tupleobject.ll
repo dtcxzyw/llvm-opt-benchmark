@@ -3814,31 +3814,37 @@ define internal ptr @tuple_count(ptr noundef readonly captures(none) %0, ptr nou
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
-6:                                                ; preds = %.lr.ph, %11
-  %.01220 = phi i64 [ 0, %.lr.ph ], [ %14, %11 ]
-  %.01319 = phi i64 [ 0, %.lr.ph ], [ %.215, %11 ]
+6:                                                ; preds = %.lr.ph, %15
+  %.01220 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
+  %.01319 = phi i64 [ 0, %.lr.ph ], [ %.215, %15 ]
   %7 = getelementptr [1 x ptr], ptr %5, i64 0, i64 %.01220
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   %9 = tail call i32 @PyObject_RichCompareBool(ptr noundef %8, ptr noundef %1, i32 noundef 2) #9
-  %10 = icmp sgt i32 %9, -1
-  br i1 %10, label %11, label %.loopexit
+  %10 = icmp sgt i32 %9, 0
+  br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
-  %12 = icmp ne i32 %9, 0
-  %13 = zext i1 %12 to i64
-  %.215 = add i64 %.01319, %13
-  %14 = add nuw nsw i64 %.01220, 1
+  %12 = add i64 %.01319, 1
+  br label %15
+
+13:                                               ; preds = %6
+  %14 = icmp slt i32 %9, 0
+  br i1 %14, label %.critedge, label %15
+
+15:                                               ; preds = %13, %11
+  %.215 = phi i64 [ %12, %11 ], [ %.01319, %13 ]
+  %16 = add nuw nsw i64 %.01220, 1
   %.val = load i64, ptr %3, align 8, !tbaa !107
-  %15 = icmp slt i64 %14, %.val
-  br i1 %15, label %6, label %._crit_edge, !llvm.loop !149
+  %17 = icmp slt i64 %16, %.val
+  br i1 %17, label %6, label %._crit_edge, !llvm.loop !149
 
-._crit_edge:                                      ; preds = %11, %2
-  %.013.lcssa = phi i64 [ 0, %2 ], [ %.215, %11 ]
-  %16 = tail call ptr @PyLong_FromSsize_t(i64 noundef %.013.lcssa) #9
-  br label %.loopexit
+._crit_edge:                                      ; preds = %15, %2
+  %.013.lcssa = phi i64 [ 0, %2 ], [ %.215, %15 ]
+  %18 = tail call ptr @PyLong_FromSsize_t(i64 noundef %.013.lcssa) #9
+  br label %.critedge
 
-.loopexit:                                        ; preds = %6, %._crit_edge
-  %.2 = phi ptr [ %16, %._crit_edge ], [ null, %6 ]
+.critedge:                                        ; preds = %13, %._crit_edge
+  %.2 = phi ptr [ %18, %._crit_edge ], [ null, %13 ]
   ret ptr %.2
 }
 

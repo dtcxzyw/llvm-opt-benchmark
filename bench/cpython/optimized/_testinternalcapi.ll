@@ -4306,12 +4306,7 @@ _init_interp_config_from_object.exit:             ; preds = %22, %25, %28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
   %33 = call ptr @_PyXI_NewInterpreter(ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull %9) #11
   %.not19 = icmp eq ptr %33, null
-  br i1 %.not19, label %.thread, label %34
-
-.thread:                                          ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
-  br label %52
+  br i1 %.not19, label %.critedge, label %34
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4329,9 +4324,9 @@ _init_interp_config_from_object.exit:             ; preds = %22, %25, %28
   call void @Py_NewInterpreterFromConfig(ptr dead_on_unwind nonnull writable sret(%struct.PyStatus) align 8 %12, ptr noundef nonnull %11, ptr noundef nonnull %7) #11
   %40 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %12) #11
   %.not18 = icmp eq i32 %40, 0
-  br i1 %.not18, label %.thread24, label %45
+  br i1 %.not18, label %.thread, label %45
 
-.thread24:                                        ; preds = %38
+.thread:                                          ; preds = %38
   %41 = load ptr, ptr %4, align 8, !tbaa !41
   %42 = call i32 @PyRun_SimpleStringFlags(ptr noundef %41, ptr noundef nonnull %8) #11
   %43 = load ptr, ptr %11, align 8, !tbaa !169
@@ -4352,14 +4347,19 @@ _init_interp_config_from_object.exit:             ; preds = %22, %25, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
   br label %52
 
-49:                                               ; preds = %.thread24, %34
-  %.114 = phi i32 [ %36, %34 ], [ %42, %.thread24 ]
+49:                                               ; preds = %.thread, %34
+  %.114 = phi i32 [ %36, %34 ], [ %42, %.thread ]
   %50 = sext i32 %.114 to i64
   %51 = call ptr @PyLong_FromLong(i64 noundef %50) #11
   br label %52
 
-52:                                               ; preds = %45, %.thread, %49
-  %.3 = phi ptr [ %51, %49 ], [ null, %45 ], [ null, %.thread ]
+.critedge:                                        ; preds = %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
+  br label %52
+
+52:                                               ; preds = %45, %.critedge, %49
+  %.3 = phi ptr [ %51, %49 ], [ null, %45 ], [ null, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
   br label %53
 

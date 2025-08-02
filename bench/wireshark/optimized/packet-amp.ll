@@ -214,9 +214,9 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %37 = call ptr @proto_tree_add_time(ptr noundef %29, i32 noundef %34, ptr noundef %0, i32 noundef %30, i32 noundef %33, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
   %38 = icmp ugt i64 %.sroa.10128.0.copyload, 1
-  br i1 %38, label %.lr.ph357, label %.loopexit328
+  br i1 %38, label %.lr.ph348, label %.critedge
 
-.lr.ph357:                                        ; preds = %4
+.lr.ph348:                                        ; preds = %4
   %39 = add i32 %.sroa.5114.0.copyload116, %30
   %.sroa.5114.0..sroa_idx117 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.sroa.599.0..sroa_idx100 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -245,14 +245,14 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %.sroa.8106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %41
 
-41:                                               ; preds = %.lr.ph357, %.loopexit
-  %.0355 = phi i32 [ %39, %.lr.ph357 ], [ %.1.ph, %.loopexit ]
-  %.0299354 = phi i32 [ 1, %.lr.ph357 ], [ %169, %.loopexit ]
+41:                                               ; preds = %.lr.ph348, %.loopexit
+  %.0346 = phi i32 [ %39, %.lr.ph348 ], [ %.1, %.loopexit ]
+  %.0299345 = phi i32 [ 1, %.lr.ph348 ], [ %169, %.loopexit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #5
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %0, i32 noundef %.0355)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %0, i32 noundef %.0346)
   %.sroa.5114.0.copyload118 = load i32, ptr %.sroa.5114.0..sroa_idx117, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #5
-  %42 = add i32 %.sroa.5114.0.copyload118, %.0355
+  %42 = add i32 %.sroa.5114.0.copyload118, %.0346
   %43 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %42)
   %44 = load i32, ptr @ett_amp_message, align 4
   %45 = call ptr @proto_tree_add_subtree(ptr noundef %29, ptr noundef %0, i32 noundef %42, i32 noundef -1, i32 noundef %44, ptr noundef nonnull %8, ptr noundef nonnull @.str.1)
@@ -282,7 +282,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %57 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %55, ptr noundef %0, i32 noundef %54, i32 noundef %56, i32 noundef 0)
   %58 = add i32 %54, %56
   %59 = icmp slt i32 %58, %54
-  br i1 %59, label %.loopexit328.sink.split, label %.loopexit
+  br i1 %59, label %.critedge.sink.split, label %.loopexit
 
 60:                                               ; preds = %41
   %61 = add i32 %42, -1
@@ -295,34 +295,34 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %.sroa.8106.0.copyload108 = load i64, ptr %.sroa.8106.0..sroa_idx107, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #5
   %.not = icmp eq i32 %.sroa.097.0.copyload98, 4
-  br i1 %.not, label %64, label %.loopexit328
+  br i1 %.not, label %64, label %.critedge
 
 64:                                               ; preds = %60
   %65 = add i32 %.sroa.599.0.copyload101, %49
-  %.not359 = icmp eq i64 %.sroa.8106.0.copyload108, 0
-  br i1 %.not359, label %._crit_edge, label %.lr.ph
+  %.not350 = icmp eq i64 %.sroa.8106.0.copyload108, 0
+  br i1 %.not350, label %._crit_edge, label %.lr.ph
 
 66:                                               ; preds = %.lr.ph
-  %67 = add i32 %.0301340, 1
+  %67 = add i32 %.0301331, 1
   %68 = zext i32 %67 to i64
   %69 = icmp ugt i64 %.sroa.8106.0.copyload108, %68
   br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %64, %66
-  %.3341 = phi i32 [ %74, %66 ], [ %65, %64 ]
-  %.0301340 = phi i32 [ %67, %66 ], [ 0, %64 ]
+  %.3332 = phi i32 [ %74, %66 ], [ %65, %64 ]
+  %.0301331 = phi i32 [ %67, %66 ], [ 0, %64 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #5
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef %0, i32 noundef %.3341)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef %0, i32 noundef %.3332)
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.592.0.copyload = load i64, ptr %.sroa.592.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #5
-  %70 = add i32 %.sroa.4.0.copyload, %.3341
+  %70 = add i32 %.sroa.4.0.copyload, %.3332
   %71 = load i32, ptr @hf_amp_rx_name, align 4
   %72 = trunc i64 %.sroa.592.0.copyload to i32
   %73 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %71, ptr noundef %0, i32 noundef %70, i32 noundef %72, i32 noundef 0)
   %74 = add i32 %70, %72
   %75 = icmp slt i32 %74, %70
-  br i1 %75, label %.loopexit328.sink.split, label %66
+  br i1 %75, label %.critedge.sink.split, label %66
 
 ._crit_edge:                                      ; preds = %66, %64
   %.3.lcssa = phi i32 [ %65, %64 ], [ %74, %66 ]
@@ -331,20 +331,20 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %.sroa.592.0.copyload94 = load i64, ptr %.sroa.592.0..sroa_idx93, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #5
   %76 = add i32 %.3.lcssa, %.sroa.599.0.copyload101
-  %.not360 = icmp eq i64 %.sroa.592.0.copyload94, 0
-  br i1 %.not360, label %.loopexit, label %.lr.ph352
+  %.not351 = icmp eq i64 %.sroa.592.0.copyload94, 0
+  br i1 %.not351, label %.loopexit, label %.lr.ph343
 
-.lr.ph352:                                        ; preds = %._crit_edge, %._crit_edge345
-  %.4350 = phi i32 [ %.7.lcssa, %._crit_edge345 ], [ %76, %._crit_edge ]
-  %.1302349 = phi i32 [ %158, %._crit_edge345 ], [ 0, %._crit_edge ]
+.lr.ph343:                                        ; preds = %._crit_edge, %._crit_edge336
+  %.4341 = phi i32 [ %.7.lcssa, %._crit_edge336 ], [ %76, %._crit_edge ]
+  %.1302340 = phi i32 [ %158, %._crit_edge336 ], [ 0, %._crit_edge ]
   %77 = load i32, ptr @ett_amp_report, align 4
-  %78 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %.4350, i32 noundef -1, i32 noundef %77, ptr noundef nonnull %11, ptr noundef nonnull @.str.4)
+  %78 = call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %.4341, i32 noundef -1, i32 noundef %77, ptr noundef nonnull %11, ptr noundef nonnull @.str.4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #5
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef %0, i32 noundef %.4350)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef %0, i32 noundef %.4341)
   %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #5
-  %79 = add i32 %.sroa.10.0.copyload, %.4350
+  %79 = add i32 %.sroa.10.0.copyload, %.4341
   %.not314 = icmp eq i64 %.sroa.25.0.copyload, 3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #5
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef %0, i32 noundef %79)
@@ -358,13 +358,13 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %84 = icmp eq i32 %83, 3
   br i1 %84, label %.thread, label %87
 
-.thread:                                          ; preds = %.lr.ph352
+.thread:                                          ; preds = %.lr.ph343
   %85 = load i32, ptr @hf_ari_value, align 4
   %86 = call ptr @proto_tree_add_uint(ptr noundef %78, i32 noundef %85, ptr noundef %0, i32 noundef %80, i32 noundef 1, i32 noundef %82)
   %.pre = trunc i64 %.sroa.25.0.copyload67 to i32
   br label %96
 
-87:                                               ; preds = %.lr.ph352
+87:                                               ; preds = %.lr.ph343
   %88 = load i32, ptr @hf_amp_ari_flags, align 4
   %89 = load i32, ptr @ett_amp_ari_flags, align 4
   %90 = call ptr @proto_tree_add_bitmask(ptr noundef %78, ptr noundef %0, i32 noundef %80, i32 noundef %88, i32 noundef %89, ptr noundef nonnull @amp_ari_flags, i32 noundef 0)
@@ -379,7 +379,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %.pre-phi = phi i32 [ %.pre, %.thread ], [ %93, %87 ]
   %97 = add i32 %80, %.pre-phi
   %98 = icmp slt i32 %97, %80
-  br i1 %98, label %.loopexit328.sink.split, label %99
+  br i1 %98, label %.critedge.sink.split, label %99
 
 99:                                               ; preds = %96
   br i1 %.not314, label %100, label %107
@@ -396,8 +396,8 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %103 = load i32, ptr @hf_amp_primary_timestamp, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
   %104 = icmp ult i64 %102, 558230400
-  %spec.store.select.i318 = select i1 %104, i64 0, i64 %102
-  store i64 %spec.store.select.i318, ptr %5, align 8
+  %spec.store.select.i319 = select i1 %104, i64 0, i64 %102
+  store i64 %spec.store.select.i319, ptr %5, align 8
   store i32 0, ptr %40, align 8
   %105 = call ptr @proto_tree_add_time(ptr noundef %78, i32 noundef %103, ptr noundef %0, i32 noundef %101, i32 noundef 4, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
@@ -434,19 +434,19 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %119 = trunc i64 %.sroa.25.0.copyload75 to i32
   %120 = add i32 %118, %119
   %121 = icmp slt i32 %120, %118
-  br i1 %121, label %.loopexit328.sink.split, label %.preheader
+  br i1 %121, label %.critedge.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %107
   %122 = trunc i64 %.sroa.25.0.copyload73 to i32
   %123 = add i32 %122, -2
-  %.not361 = icmp eq i32 %123, 0
-  br i1 %.not361, label %._crit_edge345, label %.lr.ph344
+  %.not352 = icmp eq i32 %123, 0
+  br i1 %.not352, label %._crit_edge336, label %.lr.ph335
 
-.lr.ph344:                                        ; preds = %.preheader, %154
-  %.7343 = phi i32 [ %156, %154 ], [ %120, %.preheader ]
-  %.0300342 = phi i32 [ %157, %154 ], [ 0, %.preheader ]
+.lr.ph335:                                        ; preds = %.preheader, %154
+  %.7334 = phi i32 [ %156, %154 ], [ %120, %.preheader ]
+  %.0300333 = phi i32 [ %157, %154 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #5
-  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef %0, i32 noundef %.7343)
+  call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef %0, i32 noundef %.7334)
   %.sroa.022.0.copyload28 = load i32, ptr %25, align 8
   %.sroa.10.0.copyload40 = load i32, ptr %.sroa.10.0..sroa_idx39, align 4
   %.sroa.22.0.copyload63 = load i64, ptr %.sroa.22.0..sroa_idx62, align 8
@@ -455,8 +455,8 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %cond2 = icmp eq i32 %.sroa.022.0.copyload28, 2
   br i1 %cond2, label %124, label %145
 
-124:                                              ; preds = %.lr.ph344
-  %125 = add i32 %.0300342, %118
+124:                                              ; preds = %.lr.ph335
+  %125 = add i32 %.0300333, %118
   %126 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %125)
   switch i8 %126, label %150 [
     i8 18, label %127
@@ -465,7 +465,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 
 127:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #5
-  %128 = add i32 %.sroa.10.0.copyload40, %.7343
+  %128 = add i32 %.sroa.10.0.copyload40, %.7334
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef %0, i32 noundef %128)
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #5
@@ -478,7 +478,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 
 134:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #5
-  %135 = add i32 %.sroa.10.0.copyload40, %.7343
+  %135 = add i32 %.sroa.10.0.copyload40, %.7334
   call fastcc void @cbor_info(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef %0, i32 noundef %135)
   %.sroa.0.0.copyload15 = load i32, ptr %27, align 8
   %.sroa.5.0.copyload17 = load i32, ptr %.sroa.5.0..sroa_idx16, align 4
@@ -502,16 +502,16 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %144 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %141, ptr noundef %0, i32 noundef %142, i32 noundef %143, i32 noundef 0)
   br label %150
 
-145:                                              ; preds = %.lr.ph344
+145:                                              ; preds = %.lr.ph335
   %146 = load i32, ptr @hf_amp_report_data, align 4
-  %147 = add i32 %.sroa.10.0.copyload40, %.7343
+  %147 = add i32 %.sroa.10.0.copyload40, %.7334
   %148 = trunc i64 %.sroa.25.0.copyload77 to i32
   %149 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %146, ptr noundef %0, i32 noundef %147, i32 noundef %148, i32 noundef 0)
   br label %150
 
 150:                                              ; preds = %127, %134, %140, %137, %124, %145
   %.not317 = icmp eq i64 %.sroa.22.0.copyload63, 0
-  br i1 %.not317, label %._crit_edge345, label %151
+  br i1 %.not317, label %._crit_edge336, label %151
 
 151:                                              ; preds = %150
   %152 = icmp ult i64 %.sroa.22.0.copyload63, 2147483648
@@ -523,17 +523,17 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 
 154:                                              ; preds = %151
   %155 = trunc nuw nsw i64 %.sroa.22.0.copyload63 to i32
-  %156 = add i32 %.7343, %155
-  %157 = add nuw i32 %.0300342, 1
+  %156 = add i32 %.7334, %155
+  %157 = add nuw i32 %.0300333, 1
   %exitcond.not = icmp eq i32 %157, %123
-  br i1 %exitcond.not, label %._crit_edge345, label %.lr.ph344, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge336, label %.lr.ph335, !llvm.loop !8
 
-._crit_edge345:                                   ; preds = %154, %150, %.preheader
-  %.7.lcssa = phi i32 [ %120, %.preheader ], [ %.7343, %150 ], [ %156, %154 ]
-  %158 = add i32 %.1302349, 1
+._crit_edge336:                                   ; preds = %154, %150, %.preheader
+  %.7.lcssa = phi i32 [ %120, %.preheader ], [ %.7334, %150 ], [ %156, %154 ]
+  %158 = add i32 %.1302340, 1
   %159 = zext i32 %158 to i64
   %160 = icmp ugt i64 %.sroa.592.0.copyload94, %159
-  br i1 %160, label %.lr.ph352, label %.loopexit, !llvm.loop !9
+  br i1 %160, label %.lr.ph343, label %.loopexit, !llvm.loop !9
 
 161:                                              ; preds = %41
   %162 = load i32, ptr @ett_amp_message, align 4
@@ -551,19 +551,19 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %168 = call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %167, ptr noundef %0, i32 noundef %49, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge345, %.loopexit.sink.split, %._crit_edge, %41, %51
-  %.1.ph = phi i32 [ %58, %51 ], [ %49, %41 ], [ %76, %._crit_edge ], [ %49, %.loopexit.sink.split ], [ %.7.lcssa, %._crit_edge345 ]
-  %169 = add i32 %.0299354, 1
+.loopexit:                                        ; preds = %._crit_edge336, %.loopexit.sink.split, %._crit_edge, %41, %51
+  %.1 = phi i32 [ %49, %41 ], [ %58, %51 ], [ %76, %._crit_edge ], [ %49, %.loopexit.sink.split ], [ %.7.lcssa, %._crit_edge336 ]
+  %169 = add i32 %.0299345, 1
   %170 = zext i32 %169 to i64
   %171 = icmp ugt i64 %.sroa.10128.0.copyload, %170
-  br i1 %171, label %41, label %.loopexit328, !llvm.loop !10
+  br i1 %171, label %41, label %.critedge, !llvm.loop !10
 
-.loopexit328.sink.split:                          ; preds = %51, %.lr.ph, %107, %96
-  %.lcssa379.sink = phi i32 [ %97, %96 ], [ %120, %107 ], [ %74, %.lr.ph ], [ %58, %51 ]
-  %172 = call ptr @proto_tree_add_expert(ptr noundef %29, ptr noundef %1, ptr noundef nonnull @ei_amp_cbor_malformed, ptr noundef %0, i32 noundef %.lcssa379.sink, i32 noundef -1)
-  br label %.loopexit328
+.critedge.sink.split:                             ; preds = %51, %.lr.ph, %107, %96
+  %.lcssa363.sink = phi i32 [ %97, %96 ], [ %120, %107 ], [ %74, %.lr.ph ], [ %58, %51 ]
+  %172 = call ptr @proto_tree_add_expert(ptr noundef %29, ptr noundef %1, ptr noundef nonnull @ei_amp_cbor_malformed, ptr noundef %0, i32 noundef %.lcssa363.sink, i32 noundef -1)
+  br label %.critedge
 
-.loopexit328:                                     ; preds = %.loopexit, %60, %.loopexit328.sink.split, %4
+.critedge:                                        ; preds = %.loopexit, %60, %.critedge.sink.split, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5

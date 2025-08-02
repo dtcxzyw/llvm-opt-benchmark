@@ -551,7 +551,7 @@ declare ptr @lv_strdup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @lv_image_decoder_post_process(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %53, label %4
+  br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -595,18 +595,18 @@ define ptr @lv_image_decoder_post_process(ptr noundef readonly captures(none) %0
   %32 = and i32 %31, 255
   %33 = tail call ptr @lv_draw_buf_create_ex(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 448), i32 noundef %27, i32 noundef %29, i32 noundef %32, i32 noundef %17) #6
   %.not53 = icmp eq ptr %33, null
-  br i1 %.not53, label %53, label %.thread57
+  br i1 %.not53, label %.critedge, label %.thread56
 
-.thread57:                                        ; preds = %23
+.thread56:                                        ; preds = %23
   tail call void @lv_draw_buf_copy(ptr noundef nonnull %33, ptr noundef null, ptr noundef nonnull %1, ptr noundef null) #6
   br label %.thread
 
-.thread:                                          ; preds = %21, %13, %.thread57, %8, %4
-  %.038 = phi ptr [ %1, %8 ], [ %1, %4 ], [ %33, %.thread57 ], [ %1, %13 ], [ %1, %21 ]
+.thread:                                          ; preds = %21, %.thread56, %13, %8, %4
+  %.038 = phi ptr [ %1, %8 ], [ %1, %4 ], [ %1, %13 ], [ %33, %.thread56 ], [ %1, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %35 = load i8, ptr %34, align 1, !tbaa !75, !range !57, !noundef !58
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %53
+  br i1 %36, label %37, label %.critedge
 
 37:                                               ; preds = %.thread
   %38 = load i64, ptr %.038, align 8
@@ -615,32 +615,32 @@ define ptr @lv_image_decoder_post_process(ptr noundef readonly captures(none) %0
   %41 = and i32 %40, 255
   %42 = add nsw i32 %41, -11
   %or.cond = icmp ult i32 %42, 4
-  br i1 %or.cond, label %53, label %43
+  br i1 %or.cond, label %.critedge, label %43
 
 43:                                               ; preds = %37
   %44 = tail call zeroext i1 @lv_color_format_has_alpha(i32 noundef %41) #6
-  br i1 %44, label %45, label %53
+  br i1 %44, label %45, label %.critedge
 
 45:                                               ; preds = %43
   %46 = tail call zeroext i1 @lv_draw_buf_has_flag(ptr noundef nonnull %.038, i32 noundef 1) #6
-  br i1 %46, label %53, label %47
+  br i1 %46, label %.critedge, label %47
 
 47:                                               ; preds = %45
   %48 = tail call zeroext i1 @lv_draw_buf_has_flag(ptr noundef nonnull %.038, i32 noundef 32) #6
-  br i1 %48, label %.sink.split, label %49
+  br i1 %48, label %.critedge.sink.split, label %49
 
 49:                                               ; preds = %47
   %50 = tail call ptr @lv_draw_buf_dup_ex(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 448), ptr noundef nonnull %.038) #6
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %53, label %.sink.split
+  br i1 %51, label %.critedge, label %.critedge.sink.split
 
-.sink.split:                                      ; preds = %49, %47
+.critedge.sink.split:                             ; preds = %49, %47
   %.038.sink = phi ptr [ %.038, %47 ], [ %50, %49 ]
   %52 = tail call i32 @lv_draw_buf_premultiply(ptr noundef nonnull %.038.sink) #6
-  br label %53
+  br label %.critedge
 
-53:                                               ; preds = %.sink.split, %23, %49, %37, %45, %43, %.thread, %2
-  %.035 = phi ptr [ null, %2 ], [ null, %49 ], [ %.038, %45 ], [ %.038, %43 ], [ %.038, %.thread ], [ %.038, %37 ], [ null, %23 ], [ %.038.sink, %.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %23, %49, %37, %45, %43, %.thread, %2
+  %.035 = phi ptr [ null, %2 ], [ null, %49 ], [ %.038, %45 ], [ %.038, %43 ], [ %.038, %.thread ], [ %.038, %37 ], [ null, %23 ], [ %.038.sink, %.critedge.sink.split ]
   ret ptr %.035
 }
 

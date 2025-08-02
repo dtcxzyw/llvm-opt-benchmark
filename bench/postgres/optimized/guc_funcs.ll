@@ -93,7 +93,7 @@ define dso_local void @ExecSetVariableStmt(ptr noundef readonly captures(none) %
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
-  switch i32 %13, label %.thread [
+  switch i32 %13, label %.critedge [
     i32 0, label %14
     i32 2, label %14
     i32 3, label %31
@@ -136,7 +136,7 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %28 = tail call zeroext i1 @superuser() #7
   %29 = select i1 %28, i32 5, i32 6
   %30 = tail call i32 @set_config_option(ptr noundef %21, ptr noundef %.0.i, i32 noundef %29, i32 noundef 13, i32 noundef %5, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
-  br label %.thread
+  br label %.critedge
 
 31:                                               ; preds = %11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -150,19 +150,19 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not66 = icmp eq ptr %38, null
-  br i1 %.not66, label %.thread, label %.lr.ph82
+  br i1 %.not66, label %.critedge, label %.lr.ph78
 
-.lr.ph82:                                         ; preds = %36
+.lr.ph78:                                         ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = load i32, ptr %39, align 4
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph111, label %.thread
+  br i1 %42, label %.lr.ph107, label %.critedge
 
-.lr.ph111:                                        ; preds = %.lr.ph82, %61
-  %indvars.iv87110 = phi i64 [ %indvars.iv.next88, %61 ], [ 0, %.lr.ph82 ]
+.lr.ph107:                                        ; preds = %.lr.ph78, %61
+  %indvars.iv83106 = phi i64 [ %indvars.iv.next84, %61 ], [ 0, %.lr.ph78 ]
   %43 = load ptr, ptr %40, align 8
-  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv87110
+  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv83106
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
@@ -170,7 +170,7 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %61, label %50
 
-50:                                               ; preds = %.lr.ph111
+50:                                               ; preds = %.lr.ph107
   %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(22) @.str.6) #9
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %61, label %53
@@ -189,22 +189,22 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 98, ptr noundef nonnull @__func__.ExecSetVariableStmt) #7
   unreachable
 
-61:                                               ; preds = %53, %50, %.lr.ph111
-  %.str.6.sink97 = phi ptr [ @.str.5, %.lr.ph111 ], [ @.str.6, %50 ], [ @.str.7, %53 ]
+61:                                               ; preds = %53, %50, %.lr.ph107
+  %.str.6.sink93 = phi ptr [ @.str.5, %.lr.ph107 ], [ @.str.6, %50 ], [ @.str.7, %53 ]
   %62 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %63) #7
   %65 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %66 = zext nneg i8 %65 to i32
-  %67 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.6.sink97, ptr noundef readonly %64)
+  %67 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.6.sink93, ptr noundef readonly %64)
   %68 = tail call zeroext i1 @superuser() #7
   %69 = select i1 %68, i32 5, i32 6
-  %70 = tail call i32 @set_config_option(ptr noundef nonnull %.str.6.sink97, ptr noundef %67, i32 noundef %69, i32 noundef 13, i32 noundef %66, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87110, 1
+  %70 = tail call i32 @set_config_option(ptr noundef nonnull %.str.6.sink93, ptr noundef %67, i32 noundef %69, i32 noundef 13, i32 noundef %66, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83106, 1
   %71 = load i32, ptr %39, align 4
   %72 = sext i32 %71 to i64
-  %73 = icmp slt i64 %indvars.iv.next88, %72
-  br i1 %73, label %.lr.ph111, label %.thread
+  %73 = icmp slt i64 %indvars.iv.next84, %72
+  br i1 %73, label %.lr.ph107, label %.critedge
 
 74:                                               ; preds = %31
   %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(24) @.str.9) #9
@@ -215,19 +215,19 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load ptr, ptr %78, align 8
   %.not = icmp eq ptr %79, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %82 = load i32, ptr %80, align 4
   %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %.lr.ph109, label %.thread
+  br i1 %83, label %.lr.ph105, label %.critedge
 
-.lr.ph109:                                        ; preds = %.lr.ph, %102
-  %indvars.iv108 = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.lr.ph ]
+.lr.ph105:                                        ; preds = %.lr.ph, %102
+  %indvars.iv104 = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.lr.ph ]
   %84 = load ptr, ptr %81, align 8
-  %85 = getelementptr inbounds nuw %union.ListCell, ptr %84, i64 %indvars.iv108
+  %85 = getelementptr inbounds nuw %union.ListCell, ptr %84, i64 %indvars.iv104
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
@@ -235,7 +235,7 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %102, label %91
 
-91:                                               ; preds = %.lr.ph109
+91:                                               ; preds = %.lr.ph105
   %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(22) @.str.6) #9
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %102, label %94
@@ -254,22 +254,22 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__func__.ExecSetVariableStmt) #7
   unreachable
 
-102:                                              ; preds = %94, %91, %.lr.ph109
-  %.str.11.sink103 = phi ptr [ @.str.10, %.lr.ph109 ], [ @.str.11, %91 ], [ @.str.12, %94 ]
+102:                                              ; preds = %94, %91, %.lr.ph105
+  %.str.11.sink99 = phi ptr [ @.str.10, %.lr.ph105 ], [ @.str.11, %91 ], [ @.str.12, %94 ]
   %103 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %104 = load ptr, ptr %103, align 8
   %105 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %104) #7
   %106 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %107 = zext nneg i8 %106 to i32
-  %108 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.11.sink103, ptr noundef readonly %105)
+  %108 = tail call fastcc ptr @flatten_set_variable_args(ptr noundef nonnull %.str.11.sink99, ptr noundef readonly %105)
   %109 = tail call zeroext i1 @superuser() #7
   %110 = select i1 %109, i32 5, i32 6
-  %111 = tail call i32 @set_config_option(ptr noundef nonnull %.str.11.sink103, ptr noundef %108, i32 noundef %110, i32 noundef 13, i32 noundef %107, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv108, 1
+  %111 = tail call i32 @set_config_option(ptr noundef nonnull %.str.11.sink99, ptr noundef %108, i32 noundef %110, i32 noundef 13, i32 noundef %107, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv104, 1
   %112 = load i32, ptr %80, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next, %113
-  br i1 %114, label %.lr.ph109, label %.thread
+  br i1 %114, label %.lr.ph105, label %.critedge
 
 115:                                              ; preds = %74
   %116 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(21) @.str.14) #9
@@ -299,7 +299,7 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8
   tail call void @ImportSnapshot(ptr noundef %131) #7
-  br label %.thread
+  br label %.critedge
 
 132:                                              ; preds = %115
   %133 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -324,25 +324,25 @@ ExtractSetVariableArgs.exit:                      ; preds = %18, %22, %26
   %143 = tail call zeroext i1 @superuser() #7
   %144 = select i1 %143, i32 5, i32 6
   %145 = tail call i32 @set_config_option(ptr noundef %142, ptr noundef null, i32 noundef %144, i32 noundef 13, i32 noundef %5, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #7
-  br label %.thread
+  br label %.critedge
 
 146:                                              ; preds = %11
   tail call void @ResetAllOptions() #7
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %102, %61, %.lr.ph, %.lr.ph82, %77, %36, %11, %ExtractSetVariableArgs.exit, %140, %146, %125
+.critedge:                                        ; preds = %102, %61, %.lr.ph, %.lr.ph78, %77, %36, %11, %ExtractSetVariableArgs.exit, %140, %146, %125
   %147 = load ptr, ptr @object_access_hook_str, align 8
   %.not68 = icmp eq ptr %147, null
   br i1 %.not68, label %152, label %148
 
-148:                                              ; preds = %.thread
+148:                                              ; preds = %.critedge
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %150 = load ptr, ptr %149, align 8
   %151 = load i32, ptr %12, align 4
   tail call void @RunObjectPostAlterHookStr(i32 noundef 6243, ptr noundef %150, i32 noundef 4096, i32 noundef %151, i1 noundef zeroext false) #7
   br label %152
 
-152:                                              ; preds = %148, %.thread
+152:                                              ; preds = %148, %.critedge
   ret void
 }
 
@@ -464,48 +464,48 @@ define internal fastcc ptr @flatten_set_variable_args(ptr noundef %0, ptr nounde
   call void @initStringInfo(ptr noundef nonnull %3) #7
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load i32, ptr %20, align 4
-  %.not4356 = icmp sgt i32 %21, 0
-  br i1 %.not4356, label %.lr.ph, label %._crit_edge
+  %.not4353 = icmp sgt i32 %21, 0
+  br i1 %.not4353, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = and i32 %.03549, 2
   %.not46 = icmp eq i32 %23, 0
-  br label %25
+  br label %24
 
-._crit_edge:                                      ; preds = %73, %19
-  %24 = load ptr, ptr %3, align 8
-  br label %76
-
-25:                                               ; preds = %.lr.ph, %73
+24:                                               ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
-  %26 = load ptr, ptr %22, align 8
+  %25 = load ptr, ptr %22, align 8
   %.idx = shl nuw nsw i64 %indvars.iv, 3
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
-  %28 = load ptr, ptr %27, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
+  %27 = load ptr, ptr %26, align 8
   %.not44 = icmp eq i64 %indvars.iv, 0
   br i1 %.not44, label %30, label %29
 
-29:                                               ; preds = %25
+.critedge:                                        ; preds = %73, %19
+  %28 = load ptr, ptr %3, align 8
+  br label %76
+
+29:                                               ; preds = %24
   call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef nonnull @.str.44) #7
   br label %30
 
-30:                                               ; preds = %29, %25
-  %31 = load i32, ptr %28, align 4
+30:                                               ; preds = %29, %24
+  %31 = load i32, ptr %27, align 4
   %32 = icmp eq i32 %31, 73
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %37 = load ptr, ptr %36, align 8
   %.pr = load i32, ptr %35, align 4
   br label %38
 
 38:                                               ; preds = %33, %30
   %39 = phi i32 [ %.pr, %33 ], [ %31, %30 ]
-  %.038 = phi ptr [ %35, %33 ], [ %28, %30 ]
+  %.038 = phi ptr [ %35, %33 ], [ %27, %30 ]
   %.037 = phi ptr [ %37, %33 ], [ null, %30 ]
   %40 = icmp eq i32 %39, 72
   br i1 %40, label %45, label %41
@@ -586,10 +586,10 @@ define internal fastcc ptr @flatten_set_variable_args(ptr noundef %0, ptr nounde
   %74 = load i32, ptr %20, align 4
   %75 = sext i32 %74 to i64
   %.not43 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %.not43, label %25, label %._crit_edge, !llvm.loop !6
+  br i1 %.not43, label %24, label %.critedge, !llvm.loop !6
 
-76:                                               ; preds = %2, %._crit_edge
-  %.0 = phi ptr [ %24, %._crit_edge ], [ null, %2 ]
+76:                                               ; preds = %2, %.critedge
+  %.0 = phi ptr [ %28, %.critedge ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
   ret ptr %.0
 }

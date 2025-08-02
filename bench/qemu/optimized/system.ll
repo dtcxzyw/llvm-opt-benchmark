@@ -1117,18 +1117,18 @@ define dso_local range(i32 -1, 1) i32 @gdb_continue_partial(ptr noundef readonly
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = tail call zeroext i1 @runstate_needs_reset() #16
-  br i1 %4, label %.thread43, label %5
+  br i1 %4, label %.critedge, label %5
 
 5:                                                ; preds = %1
   %6 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !12
-  %.not48.not = icmp eq i64 %6, 0
-  br i1 %.not48.not, label %._crit_edge, label %.lr.ph
+  %.not45.not = icmp eq i64 %6, 0
+  br i1 %.not45.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %13
-  %.02549.in = phi i64 [ %15, %13 ], [ %6, %5 ]
-  %.02549 = inttoptr i64 %.02549.in to ptr
-  %7 = getelementptr inbounds nuw i8, ptr %.02549, i64 704
+  %.02546.in = phi i64 [ %15, %13 ], [ %6, %5 ]
+  %.02546 = inttoptr i64 %.02546.in to ptr
+  %7 = getelementptr inbounds nuw i8, ptr %.02546, i64 704
   %8 = load i32, ptr %7, align 16
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
@@ -1137,7 +1137,7 @@ define dso_local range(i32 -1, 1) i32 @gdb_continue_partial(ptr noundef readonly
   br i1 %12, label %._crit_edge, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i8, ptr %.02549, i64 560
+  %14 = getelementptr inbounds nuw i8, ptr %.02546, i64 560
   %15 = load atomic i64, ptr %14 monotonic, align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !13
   %.not.not = icmp eq i64 %15, 0
@@ -1147,25 +1147,25 @@ define dso_local range(i32 -1, 1) i32 @gdb_continue_partial(ptr noundef readonly
   %.not.lcssa = phi i1 [ false, %5 ], [ %12, %.lr.ph ], [ %12, %13 ]
   %16 = tail call i32 @vm_prepare_start(i1 noundef zeroext %.not.lcssa) #16
   %.not35 = icmp eq i32 %16, 0
-  br i1 %.not35, label %17, label %.thread43
+  br i1 %.not35, label %17, label %.critedge
 
 17:                                               ; preds = %._crit_edge
   %18 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !15
-  %.not3654 = icmp eq i64 %18, 0
-  br i1 %.not3654, label %.thread43, label %.lr.ph59
+  %.not3651 = icmp eq i64 %18, 0
+  br i1 %.not3651, label %.critedge, label %.lr.ph56
 
-.lr.ph59:                                         ; preds = %17
+.lr.ph56:                                         ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %21
 
-21:                                               ; preds = %.lr.ph59, %61
-  %.12657.in = phi i64 [ %18, %.lr.ph59 ], [ %63, %61 ]
-  %.256 = phi i32 [ 0, %.lr.ph59 ], [ %.3, %61 ]
-  %.23155 = phi i32 [ 0, %.lr.ph59 ], [ %.332, %61 ]
-  %.12657 = inttoptr i64 %.12657.in to ptr
-  %22 = getelementptr inbounds nuw i8, ptr %.12657, i64 704
+21:                                               ; preds = %.lr.ph56, %61
+  %.12654.in = phi i64 [ %18, %.lr.ph56 ], [ %63, %61 ]
+  %.253 = phi i32 [ 0, %.lr.ph56 ], [ %.3, %61 ]
+  %.23152 = phi i32 [ 0, %.lr.ph56 ], [ %.332, %61 ]
+  %.12654 = inttoptr i64 %.12654.in to ptr
+  %22 = getelementptr inbounds nuw i8, ptr %.12654, i64 704
   %23 = load i32, ptr %22, align 16
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
@@ -1215,8 +1215,8 @@ define dso_local range(i32 -1, 1) i32 @gdb_continue_partial(ptr noundef readonly
 
 trace_gdbstub_op_stepping.exit:                   ; preds = %27, %29, %31, %37, %42
   %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4192), align 8
-  tail call void @cpu_single_step(ptr noundef nonnull %.12657, i32 noundef %43) #16
-  tail call void @cpu_resume(ptr noundef nonnull %.12657) #16
+  tail call void @cpu_single_step(ptr noundef nonnull %.12654, i32 noundef %43) #16
+  tail call void @cpu_resume(ptr noundef nonnull %.12654) #16
   br label %61
 
 44:                                               ; preds = %21
@@ -1256,31 +1256,31 @@ trace_gdbstub_op_stepping.exit:                   ; preds = %27, %29, %31, %37, 
   br label %trace_gdbstub_op_continue_cpu.exit
 
 trace_gdbstub_op_continue_cpu.exit:               ; preds = %44, %46, %48, %54, %59
-  tail call void @cpu_resume(ptr noundef nonnull %.12657) #16
+  tail call void @cpu_resume(ptr noundef nonnull %.12654) #16
   br label %61
 
 60:                                               ; preds = %21
   br label %61
 
 61:                                               ; preds = %trace_gdbstub_op_stepping.exit, %trace_gdbstub_op_continue_cpu.exit, %60, %21, %21
-  %.332 = phi i32 [ %.23155, %60 ], [ %.23155, %21 ], [ %.23155, %21 ], [ 1, %trace_gdbstub_op_stepping.exit ], [ 1, %trace_gdbstub_op_continue_cpu.exit ]
-  %.3 = phi i32 [ -1, %60 ], [ %.256, %21 ], [ %.256, %21 ], [ %.256, %trace_gdbstub_op_stepping.exit ], [ %.256, %trace_gdbstub_op_continue_cpu.exit ]
-  %62 = getelementptr inbounds nuw i8, ptr %.12657, i64 560
+  %.332 = phi i32 [ %.23152, %60 ], [ %.23152, %21 ], [ %.23152, %21 ], [ 1, %trace_gdbstub_op_stepping.exit ], [ 1, %trace_gdbstub_op_continue_cpu.exit ]
+  %.3 = phi i32 [ -1, %60 ], [ %.253, %21 ], [ %.253, %21 ], [ %.253, %trace_gdbstub_op_stepping.exit ], [ %.253, %trace_gdbstub_op_continue_cpu.exit ]
+  %62 = getelementptr inbounds nuw i8, ptr %.12654, i64 560
   %63 = load atomic i64, ptr %62 monotonic, align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !16
   %.not36 = icmp eq i64 %63, 0
-  br i1 %.not36, label %._crit_edge60, label %21, !llvm.loop !17
+  br i1 %.not36, label %._crit_edge57, label %21, !llvm.loop !17
 
-._crit_edge60:                                    ; preds = %61
+._crit_edge57:                                    ; preds = %61
   %64 = icmp eq i32 %.332, 0
-  br i1 %64, label %.thread43, label %65
+  br i1 %64, label %.critedge, label %65
 
-65:                                               ; preds = %._crit_edge60
+65:                                               ; preds = %._crit_edge57
   tail call void @qemu_clock_enable(i32 noundef 1, i1 noundef zeroext true) #16
-  br label %.thread43
+  br label %.critedge
 
-.thread43:                                        ; preds = %17, %._crit_edge, %1, %._crit_edge60, %65
-  %.1 = phi i32 [ %.3, %65 ], [ %.3, %._crit_edge60 ], [ 0, %1 ], [ 0, %._crit_edge ], [ 0, %17 ]
+.critedge:                                        ; preds = %17, %1, %._crit_edge, %._crit_edge57, %65
+  %.1 = phi i32 [ %.3, %65 ], [ %.3, %._crit_edge57 ], [ 0, %._crit_edge ], [ 0, %1 ], [ 0, %17 ]
   ret i32 %.1
 }
 

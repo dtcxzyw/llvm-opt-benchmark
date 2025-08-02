@@ -3548,20 +3548,20 @@ define internal noundef i32 @_ZL22jvmti_CreateRawMonitorP9_jvmtiEnvPKcPP14_jrawM
 7:                                                ; preds = %5
   %8 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %12 = load ptr, ptr %11, align 8
   %.not32 = icmp eq ptr %12, null
-  br i1 %.not32, label %.thread, label %13
+  br i1 %.not32, label %.critedge, label %13
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(888) %12) #7
-  br i1 %17, label %.thread, label %18
+  br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %12, align 8
@@ -3653,18 +3653,18 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   store volatile i32 4, ptr %26, align 4
   br label %65
 
-.thread:                                          ; preds = %10, %7, %13
+.critedge:                                        ; preds = %7, %10, %13
   %61 = icmp eq ptr %1, null
   %62 = icmp eq ptr %2, null
   %or.cond33 = or i1 %61, %62
   br i1 %or.cond33, label %65, label %63
 
-63:                                               ; preds = %.thread
+63:                                               ; preds = %.critedge
   %64 = tail call noundef i32 @_ZN8JvmtiEnv16CreateRawMonitorEPKcPP14_jrawMonitorID(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) #7
   br label %65
 
-65:                                               ; preds = %3, %_ZN17HandleMarkCleanerD2Ev.exit, %63, %.thread, %18, %5
-  %.022 = phi i32 [ 116, %5 ], [ 115, %18 ], [ 100, %.thread ], [ %64, %63 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ]
+65:                                               ; preds = %3, %_ZN17HandleMarkCleanerD2Ev.exit, %63, %.critedge, %18, %5
+  %.022 = phi i32 [ 116, %5 ], [ 115, %18 ], [ 100, %.critedge ], [ %64, %63 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ]
   ret i32 %.022
 }
 
@@ -3683,20 +3683,20 @@ define internal noundef i32 @_ZL23jvmti_DestroyRawMonitorP9_jvmtiEnvP14_jrawMoni
 6:                                                ; preds = %4
   %7 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.thread, label %9
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %6
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %11 = load ptr, ptr %10, align 8
   %.not30 = icmp eq ptr %11, null
-  br i1 %.not30, label %.thread, label %12
+  br i1 %.not30, label %.critedge, label %12
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(888) %11) #7
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %11, align 8
@@ -3790,11 +3790,11 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   store volatile i32 4, ptr %25, align 4
   br label %66
 
-.thread:                                          ; preds = %9, %6, %12
+.critedge:                                        ; preds = %6, %9, %12
   %61 = icmp eq ptr %1, null
   br i1 %61, label %66, label %62
 
-62:                                               ; preds = %.thread
+62:                                               ; preds = %.critedge
   %63 = tail call noundef zeroext i1 @_ZN15JvmtiRawMonitor8is_validEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #7
   br i1 %63, label %64, label %66
 
@@ -3802,8 +3802,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   %65 = tail call noundef i32 @_ZN8JvmtiEnv17DestroyRawMonitorEP15JvmtiRawMonitor(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef nonnull %1) #7
   br label %66
 
-66:                                               ; preds = %2, %_ZN17HandleMarkCleanerD2Ev.exit, %64, %62, %.thread, %17, %4
-  %.0 = phi i32 [ 116, %4 ], [ 115, %17 ], [ 50, %.thread ], [ 50, %62 ], [ %65, %64 ], [ %switch, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ]
+66:                                               ; preds = %2, %_ZN17HandleMarkCleanerD2Ev.exit, %64, %62, %.critedge, %17, %4
+  %.0 = phi i32 [ 116, %4 ], [ 115, %17 ], [ 50, %.critedge ], [ 50, %62 ], [ %65, %64 ], [ %switch, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ]
   ret i32 %.0
 }
 
@@ -3815,20 +3815,20 @@ define internal noundef i32 @_ZL21jvmti_RawMonitorEnterP9_jvmtiEnvP14_jrawMonito
 4:                                                ; preds = %2
   %5 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(888) %9) #7
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %9, align 8
@@ -3845,11 +3845,11 @@ define internal noundef i32 @_ZL21jvmti_RawMonitorEnterP9_jvmtiEnvP14_jrawMonito
   %23 = tail call noundef zeroext i1 @_ZN15JvmtiRawMonitor8is_validEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #7
   br i1 %23, label %.sink.split, label %28
 
-.thread:                                          ; preds = %7, %4, %10
+.critedge:                                        ; preds = %4, %7, %10
   %24 = icmp eq ptr %1, null
   br i1 %24, label %28, label %25
 
-25:                                               ; preds = %.thread
+25:                                               ; preds = %.critedge
   %26 = tail call noundef zeroext i1 @_ZN15JvmtiRawMonitor8is_validEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #7
   br i1 %26, label %.sink.split, label %28
 
@@ -3857,8 +3857,8 @@ define internal noundef i32 @_ZL21jvmti_RawMonitorEnterP9_jvmtiEnvP14_jrawMonito
   %27 = tail call noundef i32 @_ZN8JvmtiEnv15RawMonitorEnterEP15JvmtiRawMonitor(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef nonnull %1) #7
   br label %28
 
-28:                                               ; preds = %.sink.split, %25, %.thread, %22, %20, %15, %2
-  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %20 ], [ 50, %22 ], [ 50, %.thread ], [ 50, %25 ], [ %27, %.sink.split ]
+28:                                               ; preds = %.sink.split, %25, %.critedge, %22, %20, %15, %2
+  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %20 ], [ 50, %22 ], [ 50, %.critedge ], [ 50, %25 ], [ %27, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3870,20 +3870,20 @@ define internal noundef i32 @_ZL20jvmti_RawMonitorExitP9_jvmtiEnvP14_jrawMonitor
 4:                                                ; preds = %2
   %5 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(888) %9) #7
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %9, align 8
@@ -3900,11 +3900,11 @@ define internal noundef i32 @_ZL20jvmti_RawMonitorExitP9_jvmtiEnvP14_jrawMonitor
   %23 = tail call noundef zeroext i1 @_ZN15JvmtiRawMonitor8is_validEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #7
   br i1 %23, label %.sink.split, label %28
 
-.thread:                                          ; preds = %7, %4, %10
+.critedge:                                        ; preds = %4, %7, %10
   %24 = icmp eq ptr %1, null
   br i1 %24, label %28, label %25
 
-25:                                               ; preds = %.thread
+25:                                               ; preds = %.critedge
   %26 = tail call noundef zeroext i1 @_ZN15JvmtiRawMonitor8is_validEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #7
   br i1 %26, label %.sink.split, label %28
 
@@ -3912,8 +3912,8 @@ define internal noundef i32 @_ZL20jvmti_RawMonitorExitP9_jvmtiEnvP14_jrawMonitor
   %27 = tail call noundef i32 @_ZN8JvmtiEnv14RawMonitorExitEP15JvmtiRawMonitor(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef nonnull %1) #7
   br label %28
 
-28:                                               ; preds = %.sink.split, %25, %.thread, %22, %20, %15, %2
-  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %20 ], [ 50, %22 ], [ 50, %.thread ], [ 50, %25 ], [ %27, %.sink.split ]
+28:                                               ; preds = %.sink.split, %25, %.critedge, %22, %20, %15, %2
+  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %20 ], [ 50, %22 ], [ 50, %.critedge ], [ 50, %25 ], [ %27, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3925,20 +3925,20 @@ define internal noundef i32 @_ZL20jvmti_RawMonitorWaitP9_jvmtiEnvP14_jrawMonitor
 5:                                                ; preds = %3
   %6 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %5
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.thread, label %11
+  br i1 %.not, label %.critedge, label %11
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(888) %10) #7
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %10, align 8
@@ -3955,11 +3955,11 @@ define internal noundef i32 @_ZL20jvmti_RawMonitorWaitP9_jvmtiEnvP14_jrawMonitor
   %24 = tail call noundef zeroext i1 @_ZN15JvmtiRawMonitor8is_validEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #7
   br i1 %24, label %.sink.split, label %29
 
-.thread:                                          ; preds = %8, %5, %11
+.critedge:                                        ; preds = %5, %8, %11
   %25 = icmp eq ptr %1, null
   br i1 %25, label %29, label %26
 
-26:                                               ; preds = %.thread
+26:                                               ; preds = %.critedge
   %27 = tail call noundef zeroext i1 @_ZN15JvmtiRawMonitor8is_validEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #7
   br i1 %27, label %.sink.split, label %29
 
@@ -3967,8 +3967,8 @@ define internal noundef i32 @_ZL20jvmti_RawMonitorWaitP9_jvmtiEnvP14_jrawMonitor
   %28 = tail call noundef i32 @_ZN8JvmtiEnv14RawMonitorWaitEP15JvmtiRawMonitorl(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef nonnull %1, i64 noundef %2) #7
   br label %29
 
-29:                                               ; preds = %.sink.split, %26, %.thread, %23, %21, %16, %3
-  %.0 = phi i32 [ 116, %3 ], [ 115, %16 ], [ 50, %21 ], [ 50, %23 ], [ 50, %.thread ], [ 50, %26 ], [ %28, %.sink.split ]
+29:                                               ; preds = %.sink.split, %26, %.critedge, %23, %21, %16, %3
+  %.0 = phi i32 [ 116, %3 ], [ 115, %16 ], [ 50, %21 ], [ 50, %23 ], [ 50, %.critedge ], [ 50, %26 ], [ %28, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3980,20 +3980,20 @@ define internal noundef i32 @_ZL22jvmti_RawMonitorNotifyP9_jvmtiEnvP14_jrawMonit
 4:                                                ; preds = %2
   %5 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(888) %9) #7
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %9, align 8
@@ -4087,11 +4087,11 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %39, %45
   store volatile i32 4, ptr %23, align 4
   br label %64
 
-.thread:                                          ; preds = %7, %4, %10
+.critedge:                                        ; preds = %4, %7, %10
   %59 = icmp eq ptr %1, null
   br i1 %59, label %64, label %60
 
-60:                                               ; preds = %.thread
+60:                                               ; preds = %.critedge
   %61 = tail call noundef zeroext i1 @_ZN15JvmtiRawMonitor8is_validEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #7
   br i1 %61, label %62, label %64
 
@@ -4099,8 +4099,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %39, %45
   %63 = tail call noundef i32 @_ZN8JvmtiEnv16RawMonitorNotifyEP15JvmtiRawMonitor(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef nonnull %1) #7
   br label %64
 
-64:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %62, %60, %.thread, %15, %2
-  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %.thread ], [ 50, %60 ], [ %63, %62 ], [ %switch, %_ZN17HandleMarkCleanerD2Ev.exit ]
+64:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %62, %60, %.critedge, %15, %2
+  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %.critedge ], [ 50, %60 ], [ %63, %62 ], [ %switch, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.0
 }
 
@@ -4112,20 +4112,20 @@ define internal noundef i32 @_ZL25jvmti_RawMonitorNotifyAllP9_jvmtiEnvP14_jrawMo
 4:                                                ; preds = %2
   %5 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(888) %9) #7
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %9, align 8
@@ -4219,11 +4219,11 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %39, %45
   store volatile i32 4, ptr %23, align 4
   br label %64
 
-.thread:                                          ; preds = %7, %4, %10
+.critedge:                                        ; preds = %4, %7, %10
   %59 = icmp eq ptr %1, null
   br i1 %59, label %64, label %60
 
-60:                                               ; preds = %.thread
+60:                                               ; preds = %.critedge
   %61 = tail call noundef zeroext i1 @_ZN15JvmtiRawMonitor8is_validEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #7
   br i1 %61, label %62, label %64
 
@@ -4231,8 +4231,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %39, %45
   %63 = tail call noundef i32 @_ZN8JvmtiEnv19RawMonitorNotifyAllEP15JvmtiRawMonitor(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef nonnull %1) #7
   br label %64
 
-64:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %62, %60, %.thread, %15, %2
-  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %.thread ], [ 50, %60 ], [ %63, %62 ], [ %switch, %_ZN17HandleMarkCleanerD2Ev.exit ]
+64:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %62, %60, %.critedge, %15, %2
+  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %.critedge ], [ 50, %60 ], [ %63, %62 ], [ %switch, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.0
 }
 
@@ -5591,20 +5591,20 @@ define internal noundef i32 @_ZL14jvmti_AllocateP9_jvmtiEnvlPPh(ptr noundef nonn
 5:                                                ; preds = %3
   %6 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %5
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.thread, label %11
+  br i1 %.not, label %.critedge, label %11
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(888) %10) #7
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %10, align 8
@@ -5650,8 +5650,8 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %34
   store volatile i32 6, ptr %24, align 4
-  %.not30 = icmp eq ptr %2, null
-  br i1 %.not30, label %37, label %35
+  %.not28 = icmp eq ptr %2, null
+  br i1 %.not28, label %37, label %35
 
 35:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %36 = tail call noundef i32 @_ZN8JvmtiEnv8AllocateElPPh(ptr noundef nonnull align 8 dereferenceable(460) %0, i64 noundef %1, ptr noundef nonnull %2) #7
@@ -5694,16 +5694,16 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   store volatile i32 4, ptr %24, align 4
   br label %60
 
-.thread:                                          ; preds = %8, %5, %11
+.critedge:                                        ; preds = %5, %8, %11
   %57 = icmp eq ptr %2, null
   br i1 %57, label %60, label %58
 
-58:                                               ; preds = %.thread
+58:                                               ; preds = %.critedge
   %59 = tail call noundef i32 @_ZN8JvmtiEnv8AllocateElPPh(ptr noundef nonnull align 8 dereferenceable(460) %0, i64 noundef %1, ptr noundef nonnull %2) #7
   br label %60
 
-60:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %58, %.thread, %16, %3
-  %.020 = phi i32 [ 116, %3 ], [ 115, %16 ], [ 100, %.thread ], [ %59, %58 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
+60:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %58, %.critedge, %16, %3
+  %.020 = phi i32 [ 116, %3 ], [ 115, %16 ], [ 100, %.critedge ], [ %59, %58 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.020
 }
 
@@ -5715,20 +5715,20 @@ define internal noundef i32 @_ZL16jvmti_DeallocateP9_jvmtiEnvPh(ptr noundef nonn
 4:                                                ; preds = %2
   %5 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(888) %9) #7
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %9, align 8
@@ -5810,12 +5810,12 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
   store volatile i32 4, ptr %23, align 4
   br label %55
 
-.thread:                                          ; preds = %7, %4, %10
+.critedge:                                        ; preds = %4, %7, %10
   %54 = tail call noundef i32 @_ZN8JvmtiEnv10DeallocateEPh(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1) #7
   br label %55
 
-55:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %.thread, %15, %2
-  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ %34, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %54, %.thread ]
+55:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %.critedge, %15, %2
+  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ %34, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %54, %.critedge ]
   ret i32 %.0
 }
 
@@ -16794,20 +16794,20 @@ define internal noundef i32 @_ZL18jvmti_GetTimerInfoP9_jvmtiEnvP14jvmtiTimerInfo
 4:                                                ; preds = %2
   %5 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(888) %9) #7
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %9, align 8
@@ -16853,8 +16853,8 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %33
   store volatile i32 6, ptr %23, align 4
-  %.not28 = icmp eq ptr %1, null
-  br i1 %.not28, label %36, label %34
+  %.not26 = icmp eq ptr %1, null
+  br i1 %.not26, label %36, label %34
 
 34:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %35 = tail call noundef i32 @_ZN8JvmtiEnv12GetTimerInfoEP14jvmtiTimerInfo(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef nonnull %1) #7
@@ -16897,16 +16897,16 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %36, %42
   store volatile i32 4, ptr %23, align 4
   br label %59
 
-.thread:                                          ; preds = %7, %4, %10
+.critedge:                                        ; preds = %4, %7, %10
   %56 = icmp eq ptr %1, null
   br i1 %56, label %59, label %57
 
-57:                                               ; preds = %.thread
+57:                                               ; preds = %.critedge
   %58 = tail call noundef i32 @_ZN8JvmtiEnv12GetTimerInfoEP14jvmtiTimerInfo(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef nonnull %1) #7
   br label %59
 
-59:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %57, %.thread, %15, %2
-  %.018 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 100, %.thread ], [ %58, %57 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
+59:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %57, %.critedge, %15, %2
+  %.018 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 100, %.critedge ], [ %58, %57 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.018
 }
 
@@ -16918,20 +16918,20 @@ define internal noundef i32 @_ZL13jvmti_GetTimeP9_jvmtiEnvPl(ptr noundef nonnull
 4:                                                ; preds = %2
   %5 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(888) %9) #7
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %9, align 8
@@ -16977,8 +16977,8 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %33
   store volatile i32 6, ptr %23, align 4
-  %.not28 = icmp eq ptr %1, null
-  br i1 %.not28, label %36, label %34
+  %.not26 = icmp eq ptr %1, null
+  br i1 %.not26, label %36, label %34
 
 34:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %35 = tail call noundef i32 @_ZN8JvmtiEnv7GetTimeEPl(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef nonnull %1) #7
@@ -17021,16 +17021,16 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %36, %42
   store volatile i32 4, ptr %23, align 4
   br label %59
 
-.thread:                                          ; preds = %7, %4, %10
+.critedge:                                        ; preds = %4, %7, %10
   %56 = icmp eq ptr %1, null
   br i1 %56, label %59, label %57
 
-57:                                               ; preds = %.thread
+57:                                               ; preds = %.critedge
   %58 = tail call noundef i32 @_ZN8JvmtiEnv7GetTimeEPl(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef nonnull %1) #7
   br label %59
 
-59:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %57, %.thread, %15, %2
-  %.018 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 100, %.thread ], [ %58, %57 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
+59:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %57, %.critedge, %15, %2
+  %.018 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 100, %.critedge ], [ %58, %57 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.018
 }
 
@@ -17878,20 +17878,20 @@ define internal noundef i32 @_ZL32jvmti_GetEnvironmentLocalStorageP9_jvmtiEnvPPv
 4:                                                ; preds = %2
   %5 = load i32, ptr @_ZN7Threads18_number_of_threadsE, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(888) %9) #7
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %9, align 8
@@ -17904,16 +17904,16 @@ define internal noundef i32 @_ZL32jvmti_GetEnvironmentLocalStorageP9_jvmtiEnvPPv
   %21 = icmp eq ptr %1, null
   br i1 %21, label %24, label %.sink.split
 
-.thread:                                          ; preds = %7, %4, %10
+.critedge:                                        ; preds = %4, %7, %10
   %22 = icmp eq ptr %1, null
   br i1 %22, label %24, label %.sink.split
 
-.sink.split:                                      ; preds = %.thread, %20
+.sink.split:                                      ; preds = %.critedge, %20
   %23 = tail call noundef i32 @_ZN8JvmtiEnv26GetEnvironmentLocalStorageEPPv(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef nonnull %1) #7
   br label %24
 
-24:                                               ; preds = %.sink.split, %.thread, %20, %15, %2
-  %.015 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 100, %20 ], [ 100, %.thread ], [ %23, %.sink.split ]
+24:                                               ; preds = %.sink.split, %.critedge, %20, %15, %2
+  %.015 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 100, %20 ], [ 100, %.critedge ], [ %23, %.sink.split ]
   ret i32 %.015
 }
 
@@ -17947,7 +17947,7 @@ define internal noundef i32 @_ZL32jvmti_SetEnvironmentLocalStorageP9_jvmtiEnvPKv
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(888) %9) #7
   br i1 %19, label %.sink.split, label %21
 
-.sink.split:                                      ; preds = %10, %4, %7, %15
+.sink.split:                                      ; preds = %10, %7, %4, %15
   %20 = tail call noundef i32 @_ZN8JvmtiEnv26SetEnvironmentLocalStorageEPKv(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1) #7
   br label %21
 

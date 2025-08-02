@@ -1055,32 +1055,32 @@ define dso_local noundef range(i32 -1, 1) i32 @netpoll_parse_options(ptr noundef
   %30 = load ptr, ptr %4, align 8
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %41, label %33
+  br i1 %32, label %40, label %33
 
 33:                                               ; preds = %29, %26, %22
   %34 = call i32 @in6_pton(ptr noundef %16, i32 noundef -1, ptr noundef nonnull %23, i32 noundef -1, ptr noundef nonnull %4) #14
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %36, label %40
+  br i1 %35, label %36, label %.critedge
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %4, align 8
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
-  br i1 %39, label %41, label %40
+  br i1 %39, label %40, label %.critedge
 
-40:                                               ; preds = %33, %36
+.critedge:                                        ; preds = %36, %33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   br label %110
 
-41:                                               ; preds = %29, %36
-  %.ph = phi i8 [ 1, %36 ], [ 0, %29 ]
+40:                                               ; preds = %36, %29
+  %41 = phi i8 [ 0, %29 ], [ 1, %36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %.ph, ptr %42, align 8
+  store i8 %41, ptr %42, align 8
   br label %43
 
-43:                                               ; preds = %41, %14
-  %44 = phi ptr [ %20, %41 ], [ %16, %14 ]
+43:                                               ; preds = %40, %14
+  %44 = phi ptr [ %20, %40 ], [ %16, %14 ]
   %45 = getelementptr i8, ptr %44, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 44
@@ -1154,37 +1154,37 @@ define dso_local noundef range(i32 -1, 1) i32 @netpoll_parse_options(ptr noundef
   %85 = load ptr, ptr %3, align 8
   %86 = load i8, ptr %85, align 1
   %87 = icmp eq i8 %86, 0
-  br i1 %87, label %96, label %88
+  br i1 %87, label %95, label %88
 
 88:                                               ; preds = %84, %81, %77
   %89 = call i32 @in6_pton(ptr noundef %74, i32 noundef -1, ptr noundef nonnull %78, i32 noundef -1, ptr noundef nonnull %3) #14
   %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %91, label %95
+  br i1 %90, label %91, label %.critedge2
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %3, align 8
   %93 = load i8, ptr %92, align 1
   %94 = icmp eq i8 %93, 0
-  br i1 %94, label %96, label %95
+  br i1 %94, label %95, label %.critedge2
 
-95:                                               ; preds = %88, %91
+.critedge2:                                       ; preds = %91, %88
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   br label %110
 
-96:                                               ; preds = %84, %91
-  %.ph6 = phi i8 [ 1, %91 ], [ 0, %84 ]
+95:                                               ; preds = %91, %84
+  %96 = phi i8 [ 0, %84 ], [ 1, %91 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   br i1 %18, label %101, label %97
 
-97:                                               ; preds = %96
+97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %99 = load i8, ptr %98, align 8, !range !55, !noundef !56
-  %100 = icmp eq i8 %99, %.ph6
+  %100 = icmp eq i8 %99, %96
   br i1 %100, label %101, label %110
 
-101:                                              ; preds = %97, %96
+101:                                              ; preds = %97, %95
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %.ph6, ptr %102, align 8
+  store i8 %96, ptr %102, align 8
   %103 = getelementptr i8, ptr %75, i64 1
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, 0
@@ -1199,8 +1199,8 @@ define dso_local noundef range(i32 -1, 1) i32 @netpoll_parse_options(ptr noundef
   call void @netpoll_print_options(ptr noundef %0)
   br label %115
 
-110:                                              ; preds = %95, %40, %106, %97, %72, %68, %59, %48, %19, %10, %7
-  %111 = phi ptr [ %1, %7 ], [ %1, %10 ], [ %16, %19 ], [ %16, %40 ], [ %45, %48 ], [ %56, %59 ], [ %56, %68 ], [ %74, %72 ], [ %74, %95 ], [ %74, %97 ], [ %103, %106 ]
+110:                                              ; preds = %.critedge2, %.critedge, %106, %97, %72, %68, %59, %48, %19, %10, %7
+  %111 = phi ptr [ %1, %7 ], [ %1, %10 ], [ %16, %19 ], [ %45, %48 ], [ %56, %59 ], [ %56, %68 ], [ %74, %72 ], [ %74, %97 ], [ %103, %106 ], [ %16, %.critedge ], [ %74, %.critedge2 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %113 = load ptr, ptr %112, align 8
   %114 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef %113, ptr noundef %111) #17

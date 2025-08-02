@@ -2253,13 +2253,13 @@ define internal fastcc range(i32 -1, 1) i32 @Compressor_init_xz(ptr noundef read
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #10
   %11 = call fastcc i32 @parse_filter_chain_spec(ptr noundef %0, ptr noundef %6, ptr noundef %4)
   %.not = icmp eq i32 %11, -1
-  br i1 %.not, label %free_filter_chain.exit, label %12
+  br i1 %.not, label %.critedge, label %12
 
 12:                                               ; preds = %10
   %13 = call i32 @lzma_stream_encoder(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef %2) #10
   %14 = load i64, ptr %6, align 16, !tbaa !16
   %.not4.i = icmp eq i64 %14, -1
-  br i1 %.not4.i, label %free_filter_chain.exit.thread, label %.lr.ph.i
+  br i1 %.not4.i, label %free_filter_chain.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   %15 = phi ptr [ %20, %.lr.ph.i ], [ %6, %12 ]
@@ -2272,24 +2272,24 @@ define internal fastcc range(i32 -1, 1) i32 @Compressor_init_xz(ptr noundef read
   %20 = getelementptr %struct.lzma_filter, ptr %6, i64 %19
   %21 = load i64, ptr %20, align 16, !tbaa !16
   %.not.i = icmp eq i64 %21, -1
-  br i1 %.not.i, label %free_filter_chain.exit.thread, label %.lr.ph.i, !llvm.loop !77
+  br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !77
 
-free_filter_chain.exit.thread:                    ; preds = %.lr.ph.i, %12
+free_filter_chain.exit:                           ; preds = %.lr.ph.i, %12
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #10
   br label %22
 
-free_filter_chain.exit:                           ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #10
-  br label %24
-
-22:                                               ; preds = %free_filter_chain.exit.thread, %8
-  %.011 = phi i32 [ %9, %8 ], [ %13, %free_filter_chain.exit.thread ]
+22:                                               ; preds = %free_filter_chain.exit, %8
+  %.011 = phi i32 [ %9, %8 ], [ %13, %free_filter_chain.exit ]
   %23 = call fastcc i32 @catch_lzma_error(ptr noundef %0, i32 noundef %.011)
   %sext = sub nsw i32 0, %23
   br label %24
 
-24:                                               ; preds = %free_filter_chain.exit, %22
-  %.113 = phi i32 [ -1, %free_filter_chain.exit ], [ %sext, %22 ]
+.critedge:                                        ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #10
+  br label %24
+
+24:                                               ; preds = %22, %.critedge
+  %.113 = phi i32 [ -1, %.critedge ], [ %sext, %22 ]
   ret i32 %.113
 }
 
@@ -2322,7 +2322,7 @@ define internal fastcc range(i32 -1, 1) i32 @Compressor_init_alone(ptr noundef r
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #10
   %16 = call fastcc i32 @parse_filter_chain_spec(ptr noundef %0, ptr noundef %6, ptr noundef %3)
   %.not = icmp eq i32 %16, -1
-  br i1 %.not, label %free_filter_chain.exit, label %17
+  br i1 %.not, label %.critedge, label %17
 
 17:                                               ; preds = %15
   %18 = load i64, ptr %6, align 16, !tbaa !16
@@ -2331,9 +2331,9 @@ define internal fastcc range(i32 -1, 1) i32 @Compressor_init_alone(ptr noundef r
   %21 = load i64, ptr %20, align 16
   %22 = icmp eq i64 %21, -1
   %or.cond = select i1 %19, i1 %22, i1 false
-  br i1 %or.cond, label %.thread27, label %26
+  br i1 %or.cond, label %.thread26, label %26
 
-.thread27:                                        ; preds = %17
+.thread26:                                        ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !21
   %25 = tail call i32 @lzma_alone_encoder(ptr noundef nonnull %1, ptr noundef %24) #10
@@ -2343,10 +2343,10 @@ define internal fastcc range(i32 -1, 1) i32 @Compressor_init_alone(ptr noundef r
   %27 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
   tail call void @PyErr_SetString(ptr noundef %27, ptr noundef nonnull @.str.87) #10
   %.not4.i = icmp eq i64 %18, -1
-  br i1 %.not4.i, label %free_filter_chain.exit.thread, label %.lr.ph.i.preheader
+  br i1 %.not4.i, label %free_filter_chain.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.thread27, %26
-  %.330 = phi i32 [ %25, %.thread27 ], [ 11, %26 ]
+.lr.ph.i.preheader:                               ; preds = %.thread26, %26
+  %.329 = phi i32 [ %25, %.thread26 ], [ 11, %26 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -2360,19 +2360,15 @@ define internal fastcc range(i32 -1, 1) i32 @Compressor_init_alone(ptr noundef r
   %33 = getelementptr %struct.lzma_filter, ptr %6, i64 %32
   %34 = load i64, ptr %33, align 16, !tbaa !16
   %.not.i = icmp eq i64 %34, -1
-  br i1 %.not.i, label %free_filter_chain.exit.thread, label %.lr.ph.i, !llvm.loop !77
+  br i1 %.not.i, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !77
 
-free_filter_chain.exit.thread:                    ; preds = %.lr.ph.i, %26
-  %.331 = phi i32 [ 11, %26 ], [ %.330, %.lr.ph.i ]
+free_filter_chain.exit:                           ; preds = %.lr.ph.i, %26
+  %.330 = phi i32 [ 11, %26 ], [ %.329, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #10
   br label %35
 
-free_filter_chain.exit:                           ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #10
-  br label %39
-
-35:                                               ; preds = %free_filter_chain.exit.thread, %.thread
-  %.117 = phi i32 [ %10, %.thread ], [ %.331, %free_filter_chain.exit.thread ]
+35:                                               ; preds = %free_filter_chain.exit, %.thread
+  %.117 = phi i32 [ %.330, %free_filter_chain.exit ], [ %10, %.thread ]
   %36 = call ptr @PyErr_Occurred() #10
   %.not23 = icmp eq ptr %36, null
   br i1 %.not23, label %37, label %39
@@ -2382,8 +2378,12 @@ free_filter_chain.exit:                           ; preds = %15
   %sext = sub nsw i32 0, %38
   br label %39
 
-39:                                               ; preds = %free_filter_chain.exit, %11, %37, %35
-  %.119 = phi i32 [ -1, %11 ], [ -1, %free_filter_chain.exit ], [ -1, %35 ], [ %sext, %37 ]
+.critedge:                                        ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #10
+  br label %39
+
+39:                                               ; preds = %11, %37, %35, %.critedge
+  %.119 = phi i32 [ -1, %11 ], [ -1, %.critedge ], [ -1, %35 ], [ %sext, %37 ]
   ret i32 %.119
 }
 
@@ -2461,21 +2461,21 @@ define internal fastcc range(i32 -1, 1) i32 @parse_filter_chain_spec(ptr noundef
   br label %free_filter_chain.exit
 
 .lr.ph:                                           ; preds = %.preheader, %Py_XDECREF.exit
-  %.02339 = phi i64 [ %22, %Py_XDECREF.exit ], [ 0, %.preheader ]
-  %12 = tail call ptr @PySequence_GetItem(ptr noundef %2, i64 noundef %.02339) #10
+  %.02338 = phi i64 [ %22, %Py_XDECREF.exit ], [ 0, %.preheader ]
+  %12 = tail call ptr @PySequence_GetItem(ptr noundef %2, i64 noundef %.02338) #10
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %Py_XDECREF.exit33, label %14
+  br i1 %13, label %Py_XDECREF.exit32, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr %struct.lzma_filter, ptr %1, i64 %.02339
+  %15 = getelementptr %struct.lzma_filter, ptr %1, i64 %.02338
   %16 = tail call fastcc i32 @lzma_filter_converter(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %15)
   %.not = icmp eq i32 %16, 0
   %17 = load i32, ptr %12, align 8, !tbaa !14
-  %.not.i.i32 = icmp sgt i32 %17, -1
+  %.not.i.i31 = icmp sgt i32 %17, -1
   br i1 %.not, label %.split25, label %.split
 
 .split:                                           ; preds = %14
-  br i1 %.not.i.i32, label %18, label %Py_XDECREF.exit
+  br i1 %.not.i.i31, label %18, label %Py_XDECREF.exit
 
 18:                                               ; preds = %.split
   %19 = add nsw i32 %17, -1
@@ -2488,33 +2488,33 @@ define internal fastcc range(i32 -1, 1) i32 @parse_filter_chain_spec(ptr noundef
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %.split, %18, %21
-  %22 = add nuw nsw i64 %.02339, 1
+  %22 = add nuw nsw i64 %.02338, 1
   %exitcond.not = icmp eq i64 %22, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 .split25:                                         ; preds = %14
-  br i1 %.not.i.i32, label %23, label %Py_XDECREF.exit33
+  br i1 %.not.i.i31, label %23, label %Py_XDECREF.exit32
 
 23:                                               ; preds = %.split25
   %24 = add nsw i32 %17, -1
   store i32 %24, ptr %12, align 8, !tbaa !14
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %Py_XDECREF.exit33
+  br i1 %25, label %26, label %Py_XDECREF.exit32
 
 26:                                               ; preds = %23
   tail call void @_Py_Dealloc(ptr noundef nonnull %12) #10
-  br label %Py_XDECREF.exit33
+  br label %Py_XDECREF.exit32
 
-Py_XDECREF.exit33:                                ; preds = %.lr.ph, %.split25, %23, %26
-  %27 = getelementptr %struct.lzma_filter, ptr %1, i64 %.02339
+Py_XDECREF.exit32:                                ; preds = %.lr.ph, %.split25, %23, %26
+  %27 = getelementptr %struct.lzma_filter, ptr %1, i64 %.02338
   store i64 -1, ptr %27, align 8, !tbaa !16
   %28 = load i64, ptr %1, align 8, !tbaa !16
   %.not4.i = icmp eq i64 %28, -1
   br i1 %.not4.i, label %free_filter_chain.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %Py_XDECREF.exit33, %.lr.ph.i
-  %29 = phi ptr [ %34, %.lr.ph.i ], [ %1, %Py_XDECREF.exit33 ]
-  %.05.i = phi i32 [ %32, %.lr.ph.i ], [ 0, %Py_XDECREF.exit33 ]
+.lr.ph.i:                                         ; preds = %Py_XDECREF.exit32, %.lr.ph.i
+  %29 = phi ptr [ %34, %.lr.ph.i ], [ %1, %Py_XDECREF.exit32 ]
+  %.05.i = phi i32 [ %32, %.lr.ph.i ], [ 0, %Py_XDECREF.exit32 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !21
   tail call void @PyMem_Free(ptr noundef %31) #10
@@ -2522,16 +2522,16 @@ Py_XDECREF.exit33:                                ; preds = %.lr.ph, %.split25, 
   %33 = sext i32 %32 to i64
   %34 = getelementptr %struct.lzma_filter, ptr %1, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !16
-  %.not.i34 = icmp eq i64 %35, -1
-  br i1 %.not.i34, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !77
+  %.not.i33 = icmp eq i64 %35, -1
+  br i1 %.not.i33, label %free_filter_chain.exit, label %.lr.ph.i, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %Py_XDECREF.exit, %.preheader
   %36 = getelementptr %struct.lzma_filter, ptr %1, i64 %4
   store i64 -1, ptr %36, align 8, !tbaa !16
   br label %free_filter_chain.exit
 
-free_filter_chain.exit:                           ; preds = %.lr.ph.i, %Py_XDECREF.exit33, %3, %._crit_edge, %9
-  %.0 = phi i32 [ -1, %9 ], [ 0, %._crit_edge ], [ -1, %3 ], [ -1, %Py_XDECREF.exit33 ], [ -1, %.lr.ph.i ]
+free_filter_chain.exit:                           ; preds = %.lr.ph.i, %Py_XDECREF.exit32, %3, %._crit_edge, %9
+  %.0 = phi i32 [ -1, %9 ], [ 0, %._crit_edge ], [ -1, %3 ], [ -1, %Py_XDECREF.exit32 ], [ -1, %.lr.ph.i ]
   ret i32 %.0
 }
 

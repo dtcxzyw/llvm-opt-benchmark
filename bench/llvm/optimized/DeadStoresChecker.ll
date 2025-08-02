@@ -6578,68 +6578,68 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixIt
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
-  br i1 %spec.select.i.i.i.i, label %14, label %13, !prof !367
+  br i1 %spec.select.i.i.i.i, label %13, label %.critedge.i.i, !prof !367
 
 13:                                               ; preds = %9
+  %14 = ptrtoint ptr %1 to i64
+  %15 = ptrtoint ptr %.pre3 to i64
+  %16 = sub i64 %14, %15
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
+  %17 = load ptr, ptr %0, align 8, !tbaa !332
+  %18 = getelementptr inbounds i8, ptr %17, i64 %16
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit
+
+.critedge.i.i:                                    ; preds = %9
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
   %.pre = load ptr, ptr %0, align 8, !tbaa !332
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit
 
-14:                                               ; preds = %9
-  %15 = ptrtoint ptr %1 to i64
-  %16 = ptrtoint ptr %.pre3 to i64
-  %17 = sub i64 %15, %16
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
-  %18 = load ptr, ptr %0, align 8, !tbaa !332
-  %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit
+_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit: ; preds = %2, %13, %.critedge.i.i
+  %19 = phi ptr [ %.pre3, %2 ], [ %17, %13 ], [ %.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
+  %20 = load i32, ptr %3, align 8, !tbaa !348
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %19, i64 %21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %22, ptr noundef nonnull align 8 dereferenceable(57) %.016.i.i, i64 21, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  store ptr %25, ptr %23, align 8, !tbaa !803
+  %26 = load ptr, ptr %24, align 8, !tbaa !808
+  %27 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 40
+  %28 = icmp eq ptr %26, %27
+  br i1 %28, label %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit: ; preds = %2, %13, %14
-  %20 = phi ptr [ %.pre3, %2 ], [ %18, %14 ], [ %.pre, %13 ]
-  %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %13 ]
-  %21 = load i32, ptr %3, align 8, !tbaa !348
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %20, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %23, ptr noundef nonnull align 8 dereferenceable(57) %.016.i.i, i64 21, i1 false)
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store ptr %26, ptr %24, align 8, !tbaa !803
-  %27 = load ptr, ptr %25, align 8, !tbaa !808
-  %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 40
-  %29 = icmp eq ptr %27, %28
-  br i1 %29, label %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-30:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit
-  %31 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
-  %32 = load i64, ptr %31, align 8, !tbaa !804
-  %33 = icmp ult i64 %32, 16
-  tail call void @llvm.assume(i1 %33)
-  %34 = add nuw nsw i64 %32, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(1) %28, i64 %34, i1 false)
+29:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit
+  %30 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
+  %31 = load i64, ptr %30, align 8, !tbaa !804
+  %32 = icmp ult i64 %31, 16
+  tail call void @llvm.assume(i1 %32)
+  %33 = add nuw nsw i64 %31, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %25, ptr noundef nonnull align 8 dereferenceable(1) %27, i64 %33, i1 false)
   br label %_ZN5clang9FixItHintC2EOS0_.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERS2_m.exit
-  store ptr %27, ptr %24, align 8, !tbaa !808
-  %35 = load i64, ptr %28, align 8, !tbaa !253
-  store i64 %35, ptr %26, align 8, !tbaa !253
+  store ptr %26, ptr %23, align 8, !tbaa !808
+  %34 = load i64, ptr %27, align 8, !tbaa !253
+  store i64 %34, ptr %25, align 8, !tbaa !253
   br label %_ZN5clang9FixItHintC2EOS0_.exit
 
-_ZN5clang9FixItHintC2EOS0_.exit:                  ; preds = %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
-  %37 = load i64, ptr %36, align 8, !tbaa !804
-  %38 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i64 %37, ptr %38, align 8, !tbaa !804
-  store ptr %28, ptr %25, align 8, !tbaa !808
-  store i64 0, ptr %36, align 8, !tbaa !804
-  store i8 0, ptr %28, align 1, !tbaa !253
-  %39 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %40 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
-  %41 = load i8, ptr %40, align 8, !tbaa !805, !range !260, !noundef !264
-  store i8 %41, ptr %39, align 8, !tbaa !805
-  %42 = load i32, ptr %3, align 8, !tbaa !348
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %3, align 8, !tbaa !348
+_ZN5clang9FixItHintC2EOS0_.exit:                  ; preds = %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
+  %36 = load i64, ptr %35, align 8, !tbaa !804
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store i64 %36, ptr %37, align 8, !tbaa !804
+  store ptr %27, ptr %24, align 8, !tbaa !808
+  store i64 0, ptr %35, align 8, !tbaa !804
+  store i8 0, ptr %27, align 1, !tbaa !253
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
+  %40 = load i8, ptr %39, align 8, !tbaa !805, !range !260, !noundef !264
+  store i8 %40, ptr %38, align 8, !tbaa !805
+  %41 = load i32, ptr %3, align 8, !tbaa !348
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %3, align 8, !tbaa !348
   ret void
 }
 

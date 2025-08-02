@@ -470,7 +470,7 @@ invoke.cont34:                                    ; preds = %invoke.cont29
   br label %cleanup37
 
 cleanup37:                                        ; preds = %cleanup.thread, %if.then.i.i12, %invoke.cont34
-  %cmp.i28 = phi i1 [ false, %if.then.i.i12 ], [ true, %invoke.cont34 ], [ false, %cleanup.thread ]
+  %cmp.i27 = phi i1 [ false, %if.then.i.i12 ], [ true, %invoke.cont34 ], [ false, %cleanup.thread ]
   %24 = load i64, ptr %type, align 8
   %and.i.i.i.i.i22 = and i64 %24, 1
   %cmp.i.i.i.i.i23 = icmp eq i64 %and.i.i.i.i.i22, 0
@@ -488,7 +488,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i24
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit: ; preds = %cleanup37, %if.then.i.i.i.i24
-  br i1 %cmp.i28, label %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit.if.end40_crit_edge, label %return
+  br i1 %cmp.i27, label %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit.if.end40_crit_edge, label %return
 
 _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit.if.end40_crit_edge: ; preds = %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit
   %.pre = load ptr, ptr %type_, align 8

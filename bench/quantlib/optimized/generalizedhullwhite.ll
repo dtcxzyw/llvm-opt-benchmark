@@ -19492,25 +19492,25 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %yBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %yBegin_, align 8, !tbaa !299
-  %invariant.gep = getelementptr i8, ptr %1, i64 -8
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %entry
   ret void
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %4 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %8, %for.body ]
+  %4 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %9, %for.body ]
   %i.010 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %for.body ]
   %arrayidx.i = getelementptr inbounds double, ptr %1, i64 %i.010
   %5 = load double, ptr %arrayidx.i, align 8, !tbaa !64
-  %gep = getelementptr double, ptr %invariant.gep, i64 %i.010
-  %6 = load double, ptr %gep, align 8, !tbaa !64
-  %sub7 = fsub double %5, %6
+  %6 = getelementptr double, ptr %1, i64 %i.010
+  %arrayidx.i7 = getelementptr i8, ptr %6, i64 -8
+  %7 = load double, ptr %arrayidx.i7, align 8, !tbaa !64
+  %sub7 = fsub double %5, %7
   %arrayidx = getelementptr inbounds nuw double, ptr %3, i64 %i.010
-  %7 = load double, ptr %arrayidx, align 8, !tbaa !64
-  %8 = tail call double @llvm.fmuladd.f64(double %sub7, double %7, double %4)
+  %8 = load double, ptr %arrayidx, align 8, !tbaa !64
+  %9 = tail call double @llvm.fmuladd.f64(double %sub7, double %8, double %4)
   %add.ptr.i8 = getelementptr inbounds nuw double, ptr %2, i64 %i.010
-  store double %8, ptr %add.ptr.i8, align 8, !tbaa !64
+  store double %9, ptr %add.ptr.i8, align 8, !tbaa !64
   %inc = add nuw i64 %i.010, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !309

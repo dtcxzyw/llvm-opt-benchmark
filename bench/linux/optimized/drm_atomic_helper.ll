@@ -2678,7 +2678,7 @@ define dso_local i32 @drm_atomic_helper_async_check(ptr noundef readonly capture
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 704
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %.loopexit10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2737,19 +2737,19 @@ define dso_local i32 @drm_atomic_helper_async_check(ptr noundef readonly capture
 
 56:                                               ; preds = %49
   %57 = icmp eq i32 %53, 1
-  br i1 %57, label %64, label %.thread
+  br i1 %57, label %64, label %.critedge
 
-.thread:                                          ; preds = %.loopexit10, %56
+.critedge:                                        ; preds = %.loopexit10, %56
   %58 = icmp eq ptr %0, null
   br i1 %58, label %62, label %59
 
-59:                                               ; preds = %.thread
+59:                                               ; preds = %.critedge
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load ptr, ptr %60, align 8
   br label %62
 
-62:                                               ; preds = %59, %.thread
-  %63 = phi ptr [ %61, %59 ], [ null, %.thread ]
+62:                                               ; preds = %59, %.critedge
+  %63 = phi ptr [ %61, %59 ], [ null, %.critedge ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %63, i32 noundef 4, ptr noundef nonnull @.str.21) #9
   br label %.loopexit
 

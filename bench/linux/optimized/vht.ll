@@ -1132,7 +1132,7 @@ define dso_local void @ieee80211_sta_set_rx_nss(ptr noundef readonly captures(no
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %99 = load i8, ptr %98, align 4, !range !5, !noundef !6
   %100 = icmp eq i8 %99, 0
-  br i1 %100, label %120, label %101
+  br i1 %100, label %121, label %101
 
 101:                                              ; preds = %96
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 76
@@ -1157,11 +1157,11 @@ define dso_local void @ieee80211_sta_set_rx_nss(ptr noundef readonly captures(no
 
 118:                                              ; preds = %105
   %119 = zext i8 %114 to i32
-  br label %120
+  %120 = tail call i32 @llvm.umax.i32(i32 %119, i32 %97)
+  br label %121
 
-120:                                              ; preds = %118, %96
-  %121 = phi i32 [ %119, %118 ], [ 0, %96 ]
-  %122 = tail call i32 @llvm.umax.i32(i32 %121, i32 %97)
+121:                                              ; preds = %118, %96
+  %122 = phi i32 [ %120, %118 ], [ %97, %96 ]
   %123 = tail call i32 @llvm.umax.i32(i32 %72, i32 %122)
   %124 = tail call i32 @llvm.umax.i32(i32 %25, i32 %123)
   %125 = tail call i32 @llvm.umax.i32(i32 %124, i32 1)
@@ -1169,7 +1169,7 @@ define dso_local void @ieee80211_sta_set_rx_nss(ptr noundef readonly captures(no
   store i8 %126, ptr %4, align 2
   br label %127
 
-127:                                              ; preds = %120, %1
+127:                                              ; preds = %121, %1
   ret void
 }
 

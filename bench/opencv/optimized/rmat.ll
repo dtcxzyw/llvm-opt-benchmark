@@ -438,14 +438,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
   resume { ptr, i32 } %59
 
 60:                                               ; preds = %.lr.ph, %60
-  %store_forwarded = phi i64 [ %load_initial, %.lr.ph ], [ %64, %60 ]
+  %store_forwarded = phi i64 [ %load_initial, %.lr.ph ], [ %65, %60 ]
   %indvars.iv = phi i64 [ %56, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds nuw i32, ptr %.sroa.039.052, i64 %indvars.iv
-  %62 = load i32, ptr %61, align 4, !tbaa !52
-  %63 = sext i32 %62 to i64
-  %64 = mul i64 %store_forwarded, %63
-  %65 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
-  store i64 %64, ptr %65, align 8, !tbaa !35
+  %61 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i32, ptr %.sroa.039.052, i64 %indvars.iv
+  %63 = load i32, ptr %62, align 4, !tbaa !52
+  %64 = sext i32 %63 to i64
+  %65 = mul i64 %store_forwarded, %64
+  store i64 %65, ptr %61, align 8, !tbaa !35
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit36, label %60, !llvm.loop !53

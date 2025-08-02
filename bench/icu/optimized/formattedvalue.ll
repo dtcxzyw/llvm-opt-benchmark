@@ -966,8 +966,8 @@ _ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPosit
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @ucfpos_close_77(ptr noundef %0) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nounwind uwtable
+define void @ucfpos_close_77(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPS1_R10UErrorCode.exit.thread, label %3
 

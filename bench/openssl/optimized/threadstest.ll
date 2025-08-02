@@ -1480,7 +1480,7 @@ declare i32 @test_size_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @thread_run(ptr noundef readonly captures(none) %0) #1 {
+define internal noalias noundef ptr @thread_run(ptr noundef readonly captures(none) %0) #1 {
   tail call void %0() #11
   tail call void @OPENSSL_thread_stop() #11
   ret ptr null

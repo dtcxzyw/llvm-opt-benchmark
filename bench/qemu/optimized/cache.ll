@@ -106,17 +106,17 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %145
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %145 ]
-  %.080210 = phi i32 [ 8, %.lr.ph.preheader ], [ %.282.ph, %145 ]
-  %.083209 = phi i32 [ 64, %.lr.ph.preheader ], [ %.285.ph, %145 ]
-  %.087208 = phi i32 [ 16384, %.lr.ph.preheader ], [ %.289.ph, %145 ]
-  %.090207 = phi i32 [ 8, %.lr.ph.preheader ], [ %.292.ph, %145 ]
-  %.093206 = phi i32 [ 64, %.lr.ph.preheader ], [ %.295.ph, %145 ]
-  %.097205 = phi i32 [ 16384, %.lr.ph.preheader ], [ %.299.ph, %145 ]
-  %.0100204 = phi i32 [ 16, %.lr.ph.preheader ], [ %.2102.ph, %145 ]
-  %.0103203 = phi i32 [ 64, %.lr.ph.preheader ], [ %.2105.ph, %145 ]
-  %.0106202 = phi i32 [ 2097152, %.lr.ph.preheader ], [ %.2108.ph, %145 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %glib_auto_cleanup_GStrv.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %glib_auto_cleanup_GStrv.exit ]
+  %.080194 = phi i32 [ 8, %.lr.ph.preheader ], [ %.282, %glib_auto_cleanup_GStrv.exit ]
+  %.083193 = phi i32 [ 64, %.lr.ph.preheader ], [ %.285, %glib_auto_cleanup_GStrv.exit ]
+  %.087192 = phi i32 [ 16384, %.lr.ph.preheader ], [ %.289, %glib_auto_cleanup_GStrv.exit ]
+  %.090191 = phi i32 [ 8, %.lr.ph.preheader ], [ %.292, %glib_auto_cleanup_GStrv.exit ]
+  %.093190 = phi i32 [ 64, %.lr.ph.preheader ], [ %.295, %glib_auto_cleanup_GStrv.exit ]
+  %.097189 = phi i32 [ 16384, %.lr.ph.preheader ], [ %.299, %glib_auto_cleanup_GStrv.exit ]
+  %.0100188 = phi i32 [ 16, %.lr.ph.preheader ], [ %.2102, %glib_auto_cleanup_GStrv.exit ]
+  %.0103187 = phi i32 [ 64, %.lr.ph.preheader ], [ %.2105, %glib_auto_cleanup_GStrv.exit ]
+  %.0106186 = phi i32 [ 2097152, %.lr.ph.preheader ], [ %.2108, %glib_auto_cleanup_GStrv.exit ]
   %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @g_strsplit(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 2) #12
@@ -130,7 +130,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 @g_ascii_strtoll(ptr noundef %22, ptr noundef null, i32 noundef 10) #12
   %24 = trunc i64 %23 to i32
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %16, align 8
@@ -143,7 +143,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i64 @g_ascii_strtoll(ptr noundef %31, ptr noundef null, i32 noundef 10) #12
   %33 = trunc i64 %32 to i32
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 34:                                               ; preds = %25
   %35 = load ptr, ptr %16, align 8
@@ -156,7 +156,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i64 @g_ascii_strtoll(ptr noundef %40, ptr noundef null, i32 noundef 10) #12
   %42 = trunc i64 %41 to i32
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 43:                                               ; preds = %34
   %44 = load ptr, ptr %16, align 8
@@ -169,7 +169,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i64 @g_ascii_strtoll(ptr noundef %49, ptr noundef null, i32 noundef 10) #12
   %51 = trunc i64 %50 to i32
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 52:                                               ; preds = %43
   %53 = load ptr, ptr %16, align 8
@@ -182,7 +182,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i64 @g_ascii_strtoll(ptr noundef %58, ptr noundef null, i32 noundef 10) #12
   %60 = trunc i64 %59 to i32
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 61:                                               ; preds = %52
   %62 = load ptr, ptr %16, align 8
@@ -195,7 +195,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i64 @g_ascii_strtoll(ptr noundef %67, ptr noundef null, i32 noundef 10) #12
   %69 = trunc i64 %68 to i32
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 70:                                               ; preds = %61
   %71 = load ptr, ptr %16, align 8
@@ -209,7 +209,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %77 = tail call i64 @g_ascii_strtoll(ptr noundef %76, ptr noundef null, i32 noundef 10) #12
   %78 = trunc i64 %77 to i32
   store i32 %78, ptr @limit, align 4
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 79:                                               ; preds = %70
   %80 = load ptr, ptr %16, align 8
@@ -223,7 +223,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %86 = tail call i64 @g_ascii_strtoll(ptr noundef %85, ptr noundef null, i32 noundef 10) #12
   %87 = trunc i64 %86 to i32
   store i32 %87, ptr @cores, align 4
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 88:                                               ; preds = %79
   %89 = load ptr, ptr %16, align 8
@@ -237,7 +237,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i64 @g_ascii_strtoll(ptr noundef %94, ptr noundef null, i32 noundef 10) #12
   %96 = trunc i64 %95 to i32
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 97:                                               ; preds = %88
   %98 = load ptr, ptr %16, align 8
@@ -251,7 +251,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %103 = load ptr, ptr %102, align 8
   %104 = tail call i64 @g_ascii_strtoll(ptr noundef %103, ptr noundef null, i32 noundef 10) #12
   %105 = trunc i64 %104 to i32
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 106:                                              ; preds = %97
   %107 = load ptr, ptr %16, align 8
@@ -265,7 +265,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %112 = load ptr, ptr %111, align 8
   %113 = tail call i64 @g_ascii_strtoll(ptr noundef %112, ptr noundef null, i32 noundef 10) #12
   %114 = trunc i64 %113 to i32
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 115:                                              ; preds = %106
   %116 = load ptr, ptr %16, align 8
@@ -278,12 +278,12 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %121 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %122 = load ptr, ptr %121, align 8
   %123 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %119, ptr noundef %122, ptr noundef nonnull @use_l2) #12
-  br i1 %123, label %145, label %glib_auto_cleanup_GStrv.exit
+  br i1 %123, label %glib_auto_cleanup_GStrv.exit, label %glib_auto_cleanup_GStrv.exit127
 
 124:                                              ; preds = %115
   %125 = tail call i32 @g_strcmp0(ptr noundef %119, ptr noundef nonnull @.str.14) #12
   %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %glib_auto_cleanup_GStrv.exit
+  br i1 %126, label %127, label %glib_auto_cleanup_GStrv.exit127
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -294,7 +294,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 132:                                              ; preds = %127
   store i32 2, ptr @policy, align 4
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 133:                                              ; preds = %127
   %134 = load ptr, ptr %128, align 8
@@ -304,208 +304,208 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 137:                                              ; preds = %133
   store i32 0, ptr @policy, align 4
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
 138:                                              ; preds = %133
   %139 = load ptr, ptr %128, align 8
   %140 = tail call i32 @g_strcmp0(ptr noundef %139, ptr noundef nonnull @.str.17) #12
   %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %glib_auto_cleanup_GStrv.exit
+  br i1 %141, label %142, label %glib_auto_cleanup_GStrv.exit127
 
 142:                                              ; preds = %138
   store i32 1, ptr @policy, align 4
-  br label %145
+  br label %glib_auto_cleanup_GStrv.exit
 
-glib_auto_cleanup_GStrv.exit:                     ; preds = %124, %138, %120
-  %.str.19.sink = phi ptr [ @.str.13, %120 ], [ @.str.18, %138 ], [ @.str.19, %124 ]
-  %143 = load ptr, ptr @stderr, align 8
-  %144 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull %.str.19.sink, ptr noundef %15) #13
-  tail call void @g_strfreev(ptr noundef nonnull %16) #12
-  br label %203
-
-145:                                              ; preds = %29, %47, %65, %83, %101, %120, %132, %142, %137, %110, %92, %74, %56, %38, %20
-  %.2108.ph = phi i32 [ %.0106202, %142 ], [ %.0106202, %137 ], [ %.0106202, %132 ], [ %.0106202, %120 ], [ %.0106202, %110 ], [ %.0106202, %101 ], [ %96, %92 ], [ %.0106202, %83 ], [ %.0106202, %74 ], [ %.0106202, %65 ], [ %.0106202, %56 ], [ %.0106202, %47 ], [ %.0106202, %38 ], [ %.0106202, %29 ], [ %.0106202, %20 ]
-  %.2105.ph = phi i32 [ %.0103203, %142 ], [ %.0103203, %137 ], [ %.0103203, %132 ], [ %.0103203, %120 ], [ %.0103203, %110 ], [ %105, %101 ], [ %.0103203, %92 ], [ %.0103203, %83 ], [ %.0103203, %74 ], [ %.0103203, %65 ], [ %.0103203, %56 ], [ %.0103203, %47 ], [ %.0103203, %38 ], [ %.0103203, %29 ], [ %.0103203, %20 ]
-  %.2102.ph = phi i32 [ %.0100204, %142 ], [ %.0100204, %137 ], [ %.0100204, %132 ], [ %.0100204, %120 ], [ %114, %110 ], [ %.0100204, %101 ], [ %.0100204, %92 ], [ %.0100204, %83 ], [ %.0100204, %74 ], [ %.0100204, %65 ], [ %.0100204, %56 ], [ %.0100204, %47 ], [ %.0100204, %38 ], [ %.0100204, %29 ], [ %.0100204, %20 ]
-  %.299.ph = phi i32 [ %.097205, %142 ], [ %.097205, %137 ], [ %.097205, %132 ], [ %.097205, %120 ], [ %.097205, %110 ], [ %.097205, %101 ], [ %.097205, %92 ], [ %.097205, %83 ], [ %.097205, %74 ], [ %69, %65 ], [ %.097205, %56 ], [ %.097205, %47 ], [ %.097205, %38 ], [ %.097205, %29 ], [ %.097205, %20 ]
-  %.295.ph = phi i32 [ %.093206, %142 ], [ %.093206, %137 ], [ %.093206, %132 ], [ %.093206, %120 ], [ %.093206, %110 ], [ %.093206, %101 ], [ %.093206, %92 ], [ %.093206, %83 ], [ %.093206, %74 ], [ %.093206, %65 ], [ %.093206, %56 ], [ %51, %47 ], [ %.093206, %38 ], [ %.093206, %29 ], [ %.093206, %20 ]
-  %.292.ph = phi i32 [ %.090207, %142 ], [ %.090207, %137 ], [ %.090207, %132 ], [ %.090207, %120 ], [ %.090207, %110 ], [ %.090207, %101 ], [ %.090207, %92 ], [ %.090207, %83 ], [ %.090207, %74 ], [ %.090207, %65 ], [ %60, %56 ], [ %.090207, %47 ], [ %.090207, %38 ], [ %.090207, %29 ], [ %.090207, %20 ]
-  %.289.ph = phi i32 [ %.087208, %142 ], [ %.087208, %137 ], [ %.087208, %132 ], [ %.087208, %120 ], [ %.087208, %110 ], [ %.087208, %101 ], [ %.087208, %92 ], [ %.087208, %83 ], [ %.087208, %74 ], [ %.087208, %65 ], [ %.087208, %56 ], [ %.087208, %47 ], [ %42, %38 ], [ %.087208, %29 ], [ %.087208, %20 ]
-  %.285.ph = phi i32 [ %.083209, %142 ], [ %.083209, %137 ], [ %.083209, %132 ], [ %.083209, %120 ], [ %.083209, %110 ], [ %.083209, %101 ], [ %.083209, %92 ], [ %.083209, %83 ], [ %.083209, %74 ], [ %.083209, %65 ], [ %.083209, %56 ], [ %.083209, %47 ], [ %.083209, %38 ], [ %.083209, %29 ], [ %24, %20 ]
-  %.282.ph = phi i32 [ %.080210, %142 ], [ %.080210, %137 ], [ %.080210, %132 ], [ %.080210, %120 ], [ %.080210, %110 ], [ %.080210, %101 ], [ %.080210, %92 ], [ %.080210, %83 ], [ %.080210, %74 ], [ %.080210, %65 ], [ %.080210, %56 ], [ %.080210, %47 ], [ %.080210, %38 ], [ %33, %29 ], [ %.080210, %20 ]
+glib_auto_cleanup_GStrv.exit:                     ; preds = %20, %38, %56, %74, %92, %110, %137, %142, %132, %120, %101, %83, %65, %47, %29
+  %.2108 = phi i32 [ %.0106186, %20 ], [ %.0106186, %29 ], [ %.0106186, %38 ], [ %.0106186, %47 ], [ %.0106186, %56 ], [ %.0106186, %65 ], [ %.0106186, %74 ], [ %.0106186, %83 ], [ %96, %92 ], [ %.0106186, %101 ], [ %.0106186, %110 ], [ %.0106186, %120 ], [ %.0106186, %132 ], [ %.0106186, %137 ], [ %.0106186, %142 ]
+  %.2105 = phi i32 [ %.0103187, %20 ], [ %.0103187, %29 ], [ %.0103187, %38 ], [ %.0103187, %47 ], [ %.0103187, %56 ], [ %.0103187, %65 ], [ %.0103187, %74 ], [ %.0103187, %83 ], [ %.0103187, %92 ], [ %105, %101 ], [ %.0103187, %110 ], [ %.0103187, %120 ], [ %.0103187, %132 ], [ %.0103187, %137 ], [ %.0103187, %142 ]
+  %.2102 = phi i32 [ %.0100188, %20 ], [ %.0100188, %29 ], [ %.0100188, %38 ], [ %.0100188, %47 ], [ %.0100188, %56 ], [ %.0100188, %65 ], [ %.0100188, %74 ], [ %.0100188, %83 ], [ %.0100188, %92 ], [ %.0100188, %101 ], [ %114, %110 ], [ %.0100188, %120 ], [ %.0100188, %132 ], [ %.0100188, %137 ], [ %.0100188, %142 ]
+  %.299 = phi i32 [ %.097189, %20 ], [ %.097189, %29 ], [ %.097189, %38 ], [ %.097189, %47 ], [ %.097189, %56 ], [ %69, %65 ], [ %.097189, %74 ], [ %.097189, %83 ], [ %.097189, %92 ], [ %.097189, %101 ], [ %.097189, %110 ], [ %.097189, %120 ], [ %.097189, %132 ], [ %.097189, %137 ], [ %.097189, %142 ]
+  %.295 = phi i32 [ %.093190, %20 ], [ %.093190, %29 ], [ %.093190, %38 ], [ %51, %47 ], [ %.093190, %56 ], [ %.093190, %65 ], [ %.093190, %74 ], [ %.093190, %83 ], [ %.093190, %92 ], [ %.093190, %101 ], [ %.093190, %110 ], [ %.093190, %120 ], [ %.093190, %132 ], [ %.093190, %137 ], [ %.093190, %142 ]
+  %.292 = phi i32 [ %.090191, %20 ], [ %.090191, %29 ], [ %.090191, %38 ], [ %.090191, %47 ], [ %60, %56 ], [ %.090191, %65 ], [ %.090191, %74 ], [ %.090191, %83 ], [ %.090191, %92 ], [ %.090191, %101 ], [ %.090191, %110 ], [ %.090191, %120 ], [ %.090191, %132 ], [ %.090191, %137 ], [ %.090191, %142 ]
+  %.289 = phi i32 [ %.087192, %20 ], [ %.087192, %29 ], [ %42, %38 ], [ %.087192, %47 ], [ %.087192, %56 ], [ %.087192, %65 ], [ %.087192, %74 ], [ %.087192, %83 ], [ %.087192, %92 ], [ %.087192, %101 ], [ %.087192, %110 ], [ %.087192, %120 ], [ %.087192, %132 ], [ %.087192, %137 ], [ %.087192, %142 ]
+  %.285 = phi i32 [ %24, %20 ], [ %.083193, %29 ], [ %.083193, %38 ], [ %.083193, %47 ], [ %.083193, %56 ], [ %.083193, %65 ], [ %.083193, %74 ], [ %.083193, %83 ], [ %.083193, %92 ], [ %.083193, %101 ], [ %.083193, %110 ], [ %.083193, %120 ], [ %.083193, %132 ], [ %.083193, %137 ], [ %.083193, %142 ]
+  %.282 = phi i32 [ %.080194, %20 ], [ %33, %29 ], [ %.080194, %38 ], [ %.080194, %47 ], [ %.080194, %56 ], [ %.080194, %65 ], [ %.080194, %74 ], [ %.080194, %83 ], [ %.080194, %92 ], [ %.080194, %101 ], [ %.080194, %110 ], [ %.080194, %120 ], [ %.080194, %132 ], [ %.080194, %137 ], [ %.080194, %142 ]
   tail call void @g_strfreev(ptr noundef nonnull %16) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %145
+._crit_edge:                                      ; preds = %glib_auto_cleanup_GStrv.exit
   %.pre = load i32, ptr @policy, align 4
-  switch i32 %.pre, label %149 [
+  switch i32 %.pre, label %146 [
     i32 0, label %._crit_edge.thread
-    i32 1, label %146
-    i32 2, label %147
+    i32 1, label %143
+    i32 2, label %144
   ]
 
 ._crit_edge.thread:                               ; preds = %11, %._crit_edge
-  %.080.lcssa255 = phi i32 [ %.282.ph, %._crit_edge ], [ 8, %11 ]
-  %.083.lcssa253 = phi i32 [ %.285.ph, %._crit_edge ], [ 64, %11 ]
-  %.087.lcssa251 = phi i32 [ %.289.ph, %._crit_edge ], [ 16384, %11 ]
-  %.090.lcssa249 = phi i32 [ %.292.ph, %._crit_edge ], [ 8, %11 ]
-  %.093.lcssa247 = phi i32 [ %.295.ph, %._crit_edge ], [ 64, %11 ]
-  %.097.lcssa245 = phi i32 [ %.299.ph, %._crit_edge ], [ 16384, %11 ]
-  %.0100.lcssa243 = phi i32 [ %.2102.ph, %._crit_edge ], [ 16, %11 ]
-  %.0103.lcssa241 = phi i32 [ %.2105.ph, %._crit_edge ], [ 64, %11 ]
-  %.0106.lcssa239 = phi i32 [ %.2108.ph, %._crit_edge ], [ 2097152, %11 ]
+  %.080.lcssa239 = phi i32 [ %.282, %._crit_edge ], [ 8, %11 ]
+  %.083.lcssa237 = phi i32 [ %.285, %._crit_edge ], [ 64, %11 ]
+  %.087.lcssa235 = phi i32 [ %.289, %._crit_edge ], [ 16384, %11 ]
+  %.090.lcssa233 = phi i32 [ %.292, %._crit_edge ], [ 8, %11 ]
+  %.093.lcssa231 = phi i32 [ %.295, %._crit_edge ], [ 64, %11 ]
+  %.097.lcssa229 = phi i32 [ %.299, %._crit_edge ], [ 16384, %11 ]
+  %.0100.lcssa227 = phi i32 [ %.2102, %._crit_edge ], [ 16, %11 ]
+  %.0103.lcssa225 = phi i32 [ %.2105, %._crit_edge ], [ 64, %11 ]
+  %.0106.lcssa223 = phi i32 [ %.2108, %._crit_edge ], [ 2097152, %11 ]
   store ptr @lru_update_blk, ptr @update_hit, align 8
   store ptr @lru_update_blk, ptr @update_miss, align 8
   store ptr @lru_priorities_init, ptr @metadata_init, align 8
   store ptr @lru_priorities_destroy, ptr @metadata_destroy, align 8
   br label %policy_init.exit
 
-146:                                              ; preds = %._crit_edge
+143:                                              ; preds = %._crit_edge
   store ptr @fifo_update_on_miss, ptr @update_miss, align 8
   store ptr @fifo_init, ptr @metadata_init, align 8
   store ptr @fifo_destroy, ptr @metadata_destroy, align 8
   br label %policy_init.exit
 
-147:                                              ; preds = %._crit_edge
-  %148 = tail call ptr @g_rand_new() #12
-  store ptr %148, ptr @rng, align 8
+144:                                              ; preds = %._crit_edge
+  %145 = tail call ptr @g_rand_new() #12
+  store ptr %145, ptr @rng, align 8
   br label %policy_init.exit
 
-149:                                              ; preds = %._crit_edge
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 734, ptr noundef nonnull @__func__.policy_init, ptr noundef null) #14
+146:                                              ; preds = %._crit_edge
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 734, ptr noundef nonnull @__func__.policy_init, ptr noundef null) #13
   unreachable
 
-policy_init.exit:                                 ; preds = %._crit_edge.thread, %146, %147
-  %.080.lcssa254 = phi i32 [ %.080.lcssa255, %._crit_edge.thread ], [ %.282.ph, %146 ], [ %.282.ph, %147 ]
-  %.083.lcssa252 = phi i32 [ %.083.lcssa253, %._crit_edge.thread ], [ %.285.ph, %146 ], [ %.285.ph, %147 ]
-  %.087.lcssa250 = phi i32 [ %.087.lcssa251, %._crit_edge.thread ], [ %.289.ph, %146 ], [ %.289.ph, %147 ]
-  %.090.lcssa248 = phi i32 [ %.090.lcssa249, %._crit_edge.thread ], [ %.292.ph, %146 ], [ %.292.ph, %147 ]
-  %.093.lcssa246 = phi i32 [ %.093.lcssa247, %._crit_edge.thread ], [ %.295.ph, %146 ], [ %.295.ph, %147 ]
-  %.097.lcssa244 = phi i32 [ %.097.lcssa245, %._crit_edge.thread ], [ %.299.ph, %146 ], [ %.299.ph, %147 ]
-  %.0100.lcssa242 = phi i32 [ %.0100.lcssa243, %._crit_edge.thread ], [ %.2102.ph, %146 ], [ %.2102.ph, %147 ]
-  %.0103.lcssa240 = phi i32 [ %.0103.lcssa241, %._crit_edge.thread ], [ %.2105.ph, %146 ], [ %.2105.ph, %147 ]
-  %.0106.lcssa238 = phi i32 [ %.0106.lcssa239, %._crit_edge.thread ], [ %.2108.ph, %146 ], [ %.2108.ph, %147 ]
-  %150 = tail call fastcc ptr @caches_init(i32 noundef %.093.lcssa246, i32 noundef %.090.lcssa248, i32 noundef %.097.lcssa244)
-  store ptr %150, ptr @l1_dcaches, align 8
-  %.not = icmp eq ptr %150, null
-  br i1 %.not, label %151, label %160
+policy_init.exit:                                 ; preds = %._crit_edge.thread, %143, %144
+  %.080.lcssa238 = phi i32 [ %.080.lcssa239, %._crit_edge.thread ], [ %.282, %143 ], [ %.282, %144 ]
+  %.083.lcssa236 = phi i32 [ %.083.lcssa237, %._crit_edge.thread ], [ %.285, %143 ], [ %.285, %144 ]
+  %.087.lcssa234 = phi i32 [ %.087.lcssa235, %._crit_edge.thread ], [ %.289, %143 ], [ %.289, %144 ]
+  %.090.lcssa232 = phi i32 [ %.090.lcssa233, %._crit_edge.thread ], [ %.292, %143 ], [ %.292, %144 ]
+  %.093.lcssa230 = phi i32 [ %.093.lcssa231, %._crit_edge.thread ], [ %.295, %143 ], [ %.295, %144 ]
+  %.097.lcssa228 = phi i32 [ %.097.lcssa229, %._crit_edge.thread ], [ %.299, %143 ], [ %.299, %144 ]
+  %.0100.lcssa226 = phi i32 [ %.0100.lcssa227, %._crit_edge.thread ], [ %.2102, %143 ], [ %.2102, %144 ]
+  %.0103.lcssa224 = phi i32 [ %.0103.lcssa225, %._crit_edge.thread ], [ %.2105, %143 ], [ %.2105, %144 ]
+  %.0106.lcssa222 = phi i32 [ %.0106.lcssa223, %._crit_edge.thread ], [ %.2108, %143 ], [ %.2108, %144 ]
+  %147 = tail call fastcc ptr @caches_init(i32 noundef %.093.lcssa230, i32 noundef %.090.lcssa232, i32 noundef %.097.lcssa228)
+  store ptr %147, ptr @l1_dcaches, align 8
+  %.not = icmp eq ptr %147, null
+  br i1 %.not, label %148, label %157
 
-151:                                              ; preds = %policy_init.exit
-  %152 = srem i32 %.097.lcssa244, %.093.lcssa246
-  %.not.i114 = icmp eq i32 %152, 0
-  br i1 %.not.i114, label %153, label %cache_config_error.exit
+148:                                              ; preds = %policy_init.exit
+  %149 = srem i32 %.097.lcssa228, %.093.lcssa230
+  %.not.i115 = icmp eq i32 %149, 0
+  br i1 %.not.i115, label %150, label %cache_config_error.exit
 
-153:                                              ; preds = %151
-  %154 = mul i32 %.090.lcssa248, %.093.lcssa246
-  %155 = srem i32 %.097.lcssa244, %154
-  %.not5.i = icmp eq i32 %155, 0
+150:                                              ; preds = %148
+  %151 = mul i32 %.090.lcssa232, %.093.lcssa230
+  %152 = srem i32 %.097.lcssa228, %151
+  %.not5.i = icmp eq i32 %152, 0
   %..str.28.i = select i1 %.not5.i, ptr null, ptr @.str.28
   br label %cache_config_error.exit
 
-cache_config_error.exit:                          ; preds = %151, %153
-  %.0.i = phi ptr [ @.str.27, %151 ], [ %..str.28.i, %153 ]
-  %156 = load ptr, ptr @stderr, align 8
-  %157 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 51, i64 1, ptr %156) #15
-  %158 = load ptr, ptr @stderr, align 8
-  %159 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.21, ptr noundef %.0.i) #13
-  br label %203
+cache_config_error.exit:                          ; preds = %148, %150
+  %.0.i = phi ptr [ @.str.27, %148 ], [ %..str.28.i, %150 ]
+  %153 = load ptr, ptr @stderr, align 8
+  %154 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 51, i64 1, ptr %153) #14
+  %155 = load ptr, ptr @stderr, align 8
+  %156 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.21, ptr noundef %.0.i) #15
+  br label %202
 
-160:                                              ; preds = %policy_init.exit
-  %161 = tail call fastcc ptr @caches_init(i32 noundef %.083.lcssa252, i32 noundef %.080.lcssa254, i32 noundef %.087.lcssa250)
-  store ptr %161, ptr @l1_icaches, align 8
-  %.not110 = icmp eq ptr %161, null
-  br i1 %.not110, label %162, label %171
+157:                                              ; preds = %policy_init.exit
+  %158 = tail call fastcc ptr @caches_init(i32 noundef %.083.lcssa236, i32 noundef %.080.lcssa238, i32 noundef %.087.lcssa234)
+  store ptr %158, ptr @l1_icaches, align 8
+  %.not110 = icmp eq ptr %158, null
+  br i1 %.not110, label %159, label %168
 
-162:                                              ; preds = %160
-  %163 = srem i32 %.087.lcssa250, %.083.lcssa252
-  %.not.i115 = icmp eq i32 %163, 0
-  br i1 %.not.i115, label %164, label %cache_config_error.exit119
+159:                                              ; preds = %157
+  %160 = srem i32 %.087.lcssa234, %.083.lcssa236
+  %.not.i116 = icmp eq i32 %160, 0
+  br i1 %.not.i116, label %161, label %cache_config_error.exit120
 
-164:                                              ; preds = %162
-  %165 = mul i32 %.080.lcssa254, %.083.lcssa252
-  %166 = srem i32 %.087.lcssa250, %165
-  %.not5.i117 = icmp eq i32 %166, 0
-  %..str.28.i118 = select i1 %.not5.i117, ptr null, ptr @.str.28
-  br label %cache_config_error.exit119
+161:                                              ; preds = %159
+  %162 = mul i32 %.080.lcssa238, %.083.lcssa236
+  %163 = srem i32 %.087.lcssa234, %162
+  %.not5.i118 = icmp eq i32 %163, 0
+  %..str.28.i119 = select i1 %.not5.i118, ptr null, ptr @.str.28
+  br label %cache_config_error.exit120
 
-cache_config_error.exit119:                       ; preds = %162, %164
-  %.0.i116 = phi ptr [ @.str.27, %162 ], [ %..str.28.i118, %164 ]
-  %167 = load ptr, ptr @stderr, align 8
-  %168 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 51, i64 1, ptr %167) #15
-  %169 = load ptr, ptr @stderr, align 8
-  %170 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %169, ptr noundef nonnull @.str.21, ptr noundef %.0.i116) #13
-  br label %203
+cache_config_error.exit120:                       ; preds = %159, %161
+  %.0.i117 = phi ptr [ @.str.27, %159 ], [ %..str.28.i119, %161 ]
+  %164 = load ptr, ptr @stderr, align 8
+  %165 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 51, i64 1, ptr %164) #14
+  %166 = load ptr, ptr @stderr, align 8
+  %167 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef nonnull @.str.21, ptr noundef %.0.i117) #15
+  br label %202
 
-171:                                              ; preds = %160
-  %172 = load i8, ptr @use_l2, align 1, !range !3, !noundef !4
-  %173 = trunc nuw i8 %172 to i1
-  br i1 %173, label %174, label %.thread
+168:                                              ; preds = %157
+  %169 = load i8, ptr @use_l2, align 1, !range !3, !noundef !4
+  %170 = trunc nuw i8 %169 to i1
+  br i1 %170, label %171, label %.thread
 
-.thread:                                          ; preds = %171
+.thread:                                          ; preds = %168
   store ptr null, ptr @l2_ucaches, align 8
-  br label %187
+  br label %184
 
-174:                                              ; preds = %171
-  %175 = tail call fastcc ptr @caches_init(i32 noundef %.0103.lcssa240, i32 noundef %.0100.lcssa242, i32 noundef %.0106.lcssa238)
-  %.pre228 = load i8, ptr @use_l2, align 1, !range !3
-  %176 = trunc nuw i8 %.pre228 to i1
-  store ptr %175, ptr @l2_ucaches, align 8
-  %177 = icmp eq ptr %175, null
-  %or.cond = select i1 %177, i1 %176, i1 false
-  br i1 %or.cond, label %178, label %187
+171:                                              ; preds = %168
+  %172 = tail call fastcc ptr @caches_init(i32 noundef %.0103.lcssa224, i32 noundef %.0100.lcssa226, i32 noundef %.0106.lcssa222)
+  %.pre212 = load i8, ptr @use_l2, align 1, !range !3
+  %173 = trunc nuw i8 %.pre212 to i1
+  store ptr %172, ptr @l2_ucaches, align 8
+  %174 = icmp eq ptr %172, null
+  %or.cond = select i1 %174, i1 %173, i1 false
+  br i1 %or.cond, label %175, label %184
 
-178:                                              ; preds = %174
-  %179 = srem i32 %.0106.lcssa238, %.0103.lcssa240
-  %.not.i120 = icmp eq i32 %179, 0
-  br i1 %.not.i120, label %180, label %cache_config_error.exit124
+175:                                              ; preds = %171
+  %176 = srem i32 %.0106.lcssa222, %.0103.lcssa224
+  %.not.i121 = icmp eq i32 %176, 0
+  br i1 %.not.i121, label %177, label %cache_config_error.exit125
 
-180:                                              ; preds = %178
-  %181 = mul i32 %.0100.lcssa242, %.0103.lcssa240
-  %182 = srem i32 %.0106.lcssa238, %181
-  %.not5.i122 = icmp eq i32 %182, 0
-  %..str.28.i123 = select i1 %.not5.i122, ptr null, ptr @.str.28
-  br label %cache_config_error.exit124
+177:                                              ; preds = %175
+  %178 = mul i32 %.0100.lcssa226, %.0103.lcssa224
+  %179 = srem i32 %.0106.lcssa222, %178
+  %.not5.i123 = icmp eq i32 %179, 0
+  %..str.28.i124 = select i1 %.not5.i123, ptr null, ptr @.str.28
+  br label %cache_config_error.exit125
 
-cache_config_error.exit124:                       ; preds = %178, %180
-  %.0.i121 = phi ptr [ @.str.27, %178 ], [ %..str.28.i123, %180 ]
-  %183 = load ptr, ptr @stderr, align 8
-  %184 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 53, i64 1, ptr %183) #15
-  %185 = load ptr, ptr @stderr, align 8
-  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.21, ptr noundef %.0.i121) #13
-  br label %203
+cache_config_error.exit125:                       ; preds = %175, %177
+  %.0.i122 = phi ptr [ @.str.27, %175 ], [ %..str.28.i124, %177 ]
+  %180 = load ptr, ptr @stderr, align 8
+  %181 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 53, i64 1, ptr %180) #14
+  %182 = load ptr, ptr @stderr, align 8
+  %183 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.21, ptr noundef %.0.i122) #15
+  br label %202
 
-187:                                              ; preds = %174, %.thread
+184:                                              ; preds = %171, %.thread
+  %185 = load i32, ptr @cores, align 4
+  %186 = sext i32 %185 to i64
+  %187 = tail call noalias ptr @g_malloc0_n(i64 noundef %186, i64 noundef 8) #16
+  store ptr %187, ptr @l1_dcache_locks, align 8
   %188 = load i32, ptr @cores, align 4
   %189 = sext i32 %188 to i64
   %190 = tail call noalias ptr @g_malloc0_n(i64 noundef %189, i64 noundef 8) #16
-  store ptr %190, ptr @l1_dcache_locks, align 8
-  %191 = load i32, ptr @cores, align 4
-  %192 = sext i32 %191 to i64
-  %193 = tail call noalias ptr @g_malloc0_n(i64 noundef %192, i64 noundef 8) #16
-  store ptr %193, ptr @l1_icache_locks, align 8
-  %194 = load i8, ptr @use_l2, align 1, !range !3, !noundef !4
-  %195 = trunc nuw i8 %194 to i1
-  br i1 %195, label %196, label %200
+  store ptr %190, ptr @l1_icache_locks, align 8
+  %191 = load i8, ptr @use_l2, align 1, !range !3, !noundef !4
+  %192 = trunc nuw i8 %191 to i1
+  br i1 %192, label %193, label %197
 
-196:                                              ; preds = %187
-  %197 = load i32, ptr @cores, align 4
-  %198 = sext i32 %197 to i64
-  %199 = tail call noalias ptr @g_malloc0_n(i64 noundef %198, i64 noundef 8) #16
-  br label %200
+193:                                              ; preds = %184
+  %194 = load i32, ptr @cores, align 4
+  %195 = sext i32 %194 to i64
+  %196 = tail call noalias ptr @g_malloc0_n(i64 noundef %195, i64 noundef 8) #16
+  br label %197
 
-200:                                              ; preds = %196, %187
-  %201 = phi ptr [ null, %187 ], [ %199, %196 ]
-  store ptr %201, ptr @l2_ucache_locks, align 8
+197:                                              ; preds = %193, %184
+  %198 = phi ptr [ null, %184 ], [ %196, %193 ]
+  store ptr %198, ptr @l2_ucache_locks, align 8
   tail call void @qemu_plugin_register_vcpu_tb_trans_cb(i64 noundef %0, ptr noundef nonnull @vcpu_tb_trans) #12
   tail call void @qemu_plugin_register_atexit_cb(i64 noundef %0, ptr noundef nonnull @plugin_exit, ptr noundef null) #12
-  %202 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal, ptr noundef null, ptr noundef nonnull @insn_free) #12
-  store ptr %202, ptr @miss_ht, align 8
-  br label %203
+  %199 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal, ptr noundef null, ptr noundef nonnull @insn_free) #12
+  store ptr %199, ptr @miss_ht, align 8
+  br label %202
 
-203:                                              ; preds = %glib_auto_cleanup_GStrv.exit, %200, %cache_config_error.exit124, %cache_config_error.exit119, %cache_config_error.exit
-  %.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.exit ], [ -1, %cache_config_error.exit124 ], [ 0, %200 ], [ -1, %cache_config_error.exit119 ], [ -1, %cache_config_error.exit ]
+glib_auto_cleanup_GStrv.exit127:                  ; preds = %124, %138, %120
+  %.str.19.sink = phi ptr [ @.str.13, %120 ], [ @.str.18, %138 ], [ @.str.19, %124 ]
+  %200 = load ptr, ptr @stderr, align 8
+  %201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull %.str.19.sink, ptr noundef %15) #15
+  tail call void @g_strfreev(ptr noundef nonnull %16) #12
+  br label %202
+
+202:                                              ; preds = %glib_auto_cleanup_GStrv.exit127, %197, %cache_config_error.exit125, %cache_config_error.exit120, %cache_config_error.exit
+  %.2 = phi i32 [ -1, %cache_config_error.exit125 ], [ 0, %197 ], [ -1, %cache_config_error.exit120 ], [ -1, %cache_config_error.exit ], [ -1, %glib_auto_cleanup_GStrv.exit127 ]
   ret i32 %.2
 }
 
@@ -527,7 +527,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @caches_init(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noalias ptr @caches_init(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = srem i32 %2, %0
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %bad_cache_params.exit, label %bad_cache_params.exit.thread
@@ -573,7 +573,7 @@ bad_cache_params.exit.i:                          ; preds = %bad_cache_params.ex
   br i1 %.not11.i.i, label %pow_of_two.exit.i, label %.lr.ph.i.i
 
 24:                                               ; preds = %bad_cache_params.exit.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 118, ptr noundef nonnull @__func__.pow_of_two, ptr noundef nonnull @.str.26) #14
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 118, ptr noundef nonnull @__func__.pow_of_two, ptr noundef nonnull @.str.26) #13
   unreachable
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
@@ -1760,7 +1760,7 @@ get_invalid_block.exit.thread:                    ; preds = %32, %2
   br label %get_replaced_block.exit
 
 57:                                               ; preds = %get_invalid_block.exit.thread
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 326, ptr noundef nonnull @__func__.get_replaced_block, ptr noundef null) #14
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 326, ptr noundef nonnull @__func__.get_replaced_block, ptr noundef null) #13
   unreachable
 
 get_replaced_block.exit:                          ; preds = %.lr.ph.i.i, %get_invalid_block.exit, %50, %38, %35
@@ -1873,9 +1873,9 @@ attributes #9 = { nofree nounwind }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { cold }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { cold }
+attributes #15 = { cold nounwind }
 attributes #16 = { nounwind allocsize(0,1) }
 attributes #17 = { nounwind allocsize(0) }
 

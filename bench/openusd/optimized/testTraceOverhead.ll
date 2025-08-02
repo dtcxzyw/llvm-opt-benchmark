@@ -129,8 +129,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   ret i32 %.06.lcssa
 }
 
-; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z8TestTicki(i32 noundef %0) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local noundef i32 @_Z8TestTicki(i32 noundef %0) local_unnamed_addr #4 {
   %2 = icmp sgt i32 %0, 0
   br i1 %2, label %.lr.ph, label %._crit_edge
 

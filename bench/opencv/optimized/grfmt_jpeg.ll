@@ -712,7 +712,7 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %.081111 = load ptr, ptr %39, align 8, !tbaa !143
   %.not121 = icmp eq ptr %.081111, null
-  br i1 %.not121, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not121, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
   %.081112 = phi ptr [ %.081, %.lr.ph ], [ %.081111, %38 ]
@@ -725,13 +725,13 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %42, label %._crit_edge.thread, label %45
+  br i1 %42, label %.critedge, label %45
 
 45:                                               ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %.081112, i64 16
   %47 = load i32, ptr %46, align 8, !tbaa !147
   %48 = icmp ugt i32 %47, 6
-  br i1 %48, label %49, label %._crit_edge.thread
+  br i1 %48, label %49, label %.critedge
 
 49:                                               ; preds = %45
   %50 = zext i32 %47 to i64
@@ -741,13 +741,13 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 6
   %55 = add nsw i64 %50, -6
   %56 = call noundef zeroext i1 @_ZN2cv10ExifReader9parseExifEPhm(ptr noundef nonnull align 8 dereferenceable(76) %51, ptr noundef nonnull %54, i64 noundef %55)
-  br label %._crit_edge.thread
+  br label %.critedge
 
-._crit_edge.thread:                               ; preds = %38, %45, %49, %._crit_edge
+.critedge:                                        ; preds = %38, %45, %49, %._crit_edge
   %57 = call i32 @jpeg_start_decompress(ptr noundef nonnull %8)
   br i1 %.071, label %.preheader, label %71
 
-.preheader:                                       ; preds = %._crit_edge.thread
+.preheader:                                       ; preds = %.critedge
   %58 = load i32, ptr %13, align 4, !tbaa !62
   %.not92118 = icmp sgt i32 %58, 0
   br i1 %.not92118, label %.lr.ph120, label %.loopexit
@@ -758,19 +758,19 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   br label %64
 
 61:                                               ; preds = %64
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %62 = load i32, ptr %13, align 4, !tbaa !62
   %63 = sext i32 %62 to i64
-  %.not92 = icmp slt i64 %indvars.iv.next132, %63
+  %.not92 = icmp slt i64 %indvars.iv.next131, %63
   br i1 %.not92, label %64, label %.loopexit, !llvm.loop !149
 
 64:                                               ; preds = %.lr.ph120, %61
-  %indvars.iv131 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next132, %61 ]
+  %indvars.iv130 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next131, %61 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
   %65 = load ptr, ptr %59, align 8, !tbaa !119
   %66 = load ptr, ptr %60, align 8, !tbaa !120
   %67 = load i64, ptr %66, align 8, !tbaa !125
-  %68 = mul i64 %67, %indvars.iv131
+  %68 = mul i64 %67, %indvars.iv130
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 %68
   store ptr %69, ptr %4, align 8, !tbaa !150
   %70 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef 1)
@@ -778,7 +778,7 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   br i1 %.not91, label %61, label %.thread
 
-71:                                               ; preds = %._crit_edge.thread
+71:                                               ; preds = %.critedge
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !151
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
@@ -798,11 +798,11 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   br i1 %.not108, label %.lr.ph117.split.us, label %.lr.ph117.split
 
 .lr.ph117.split.us:                               ; preds = %.lr.ph117, %98
-  %indvars.iv128 = phi i64 [ %indvars.iv.next129, %98 ], [ 0, %.lr.ph117 ]
+  %indvars.iv127 = phi i64 [ %indvars.iv.next128, %98 ], [ 0, %.lr.ph117 ]
   %84 = load ptr, ptr %80, align 8, !tbaa !119
   %85 = load ptr, ptr %81, align 8, !tbaa !120
   %86 = load i64, ptr %85, align 8, !tbaa !125
-  %87 = mul i64 %86, %indvars.iv128
+  %87 = mul i64 %86, %indvars.iv127
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 %87
   %89 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %8, ptr noundef %78, i32 noundef 1)
   %.not89.us = icmp eq i32 %89, 1
@@ -827,10 +827,10 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   br label %98
 
 98:                                               ; preds = %96, %95
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %99 = load i32, ptr %13, align 4, !tbaa !62
   %100 = sext i32 %99 to i64
-  %.not90.us = icmp slt i64 %indvars.iv.next129, %100
+  %.not90.us = icmp slt i64 %indvars.iv.next128, %100
   br i1 %.not90.us, label %.lr.ph117.split.us, label %.loopexit, !llvm.loop !154
 
 .lr.ph117.split:                                  ; preds = %.lr.ph117, %120

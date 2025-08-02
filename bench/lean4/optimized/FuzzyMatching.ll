@@ -3073,25 +3073,25 @@ define zeroext range(i8 0, 3) i8 @l_Lean_FuzzyMatching_charType(i32 noundef %0) 
   %4 = icmp ult i32 %0, 91
   %5 = add i32 %0, -97
   %or.cond = icmp ult i32 %5, 26
-  %or.cond93 = or i1 %4, %or.cond
-  br i1 %or.cond93, label %lean_dec.exit74, label %lean_dec.exit.thread
+  %or.cond92 = or i1 %4, %or.cond
+  br i1 %or.cond92, label %lean_dec.exit76, label %lean_dec.exit.thread
 
-lean_dec.exit74:                                  ; preds = %3
+lean_dec.exit76:                                  ; preds = %3
   %6 = icmp samesign ult i32 %0, 91
   %.73 = zext i1 %6 to i8
-  br label %.thread90
+  br label %.critedge
 
 lean_dec.exit:                                    ; preds = %1
   %7 = icmp samesign ult i32 %0, 48
-  br i1 %7, label %.thread90, label %lean_dec.exit.thread
+  br i1 %7, label %.critedge, label %lean_dec.exit.thread
 
 lean_dec.exit.thread:                             ; preds = %3, %lean_dec.exit
   %8 = icmp ugt i32 %0, 57
   %.mux = select i1 %8, i8 2, i8 0
-  br label %.thread90
+  br label %.critedge
 
-.thread90:                                        ; preds = %lean_dec.exit.thread, %lean_dec.exit, %lean_dec.exit74
-  %.0 = phi i8 [ %.73, %lean_dec.exit74 ], [ 2, %lean_dec.exit ], [ %.mux, %lean_dec.exit.thread ]
+.critedge:                                        ; preds = %lean_dec.exit.thread, %lean_dec.exit, %lean_dec.exit76
+  %.0 = phi i8 [ %.73, %lean_dec.exit76 ], [ 2, %lean_dec.exit ], [ %.mux, %lean_dec.exit.thread ]
   ret i8 %.0
 }
 
@@ -3130,10 +3130,10 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   %15 = icmp ult i32 %4, 91
   %16 = add i32 %4, -97
   %or.cond.i = icmp ult i32 %16, 26
-  %or.cond93.i = or i1 %15, %or.cond.i
-  br i1 %or.cond93.i, label %lean_dec.exit74.i, label %lean_dec.exit.thread.i
+  %or.cond92.i = or i1 %15, %or.cond.i
+  br i1 %or.cond92.i, label %lean_dec.exit76.i, label %lean_dec.exit.thread.i
 
-lean_dec.exit74.i:                                ; preds = %14
+lean_dec.exit76.i:                                ; preds = %14
   %.73.i = zext i1 %15 to i64
   br label %l_Lean_FuzzyMatching_charType.exit
 
@@ -3146,8 +3146,8 @@ lean_dec.exit.thread.i:                           ; preds = %lean_dec.exit.i, %1
   %.mux.i = select i1 %18, i64 2, i64 0
   br label %l_Lean_FuzzyMatching_charType.exit
 
-l_Lean_FuzzyMatching_charType.exit:               ; preds = %lean_dec.exit74.i, %lean_dec.exit.i, %lean_dec.exit.thread.i
-  %.0.i = phi i64 [ %.73.i, %lean_dec.exit74.i ], [ 2, %lean_dec.exit.i ], [ %.mux.i, %lean_dec.exit.thread.i ]
+l_Lean_FuzzyMatching_charType.exit:               ; preds = %lean_dec.exit76.i, %lean_dec.exit.i, %lean_dec.exit.thread.i
+  %.0.i = phi i64 [ %.73.i, %lean_dec.exit76.i ], [ 2, %lean_dec.exit.i ], [ %.mux.i, %lean_dec.exit.thread.i ]
   %19 = shl nuw nsw i64 %.0.i, 1
   %20 = or disjoint i64 %19, 1
   %21 = inttoptr i64 %20 to ptr
@@ -3678,27 +3678,27 @@ lean_dec.exit106:                                 ; preds = %lean_dec.exit106.ba
   %11 = ptrtoint ptr %.078 to i64
   %12 = and i64 %11, 1
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %lean_nat_lt.exit.thread177, label %13, !prof !4
+  br i1 %.not, label %lean_nat_lt.exit.thread180, label %13, !prof !4
 
 13:                                               ; preds = %lean_dec.exit106
   %14 = ptrtoint ptr %10 to i64
   %15 = and i64 %14, 1
-  %.not180 = icmp eq i64 %15, 0
-  br i1 %.not180, label %lean_nat_lt.exit, label %lean_nat_lt.exit.thread, !prof !4
+  %.not183 = icmp eq i64 %15, 0
+  br i1 %.not183, label %lean_nat_lt.exit, label %lean_nat_lt.exit.thread, !prof !4
 
 lean_nat_lt.exit:                                 ; preds = %13
   %16 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.078, ptr noundef %10) #7
-  br i1 %16, label %.thread160, label %.thread
+  br i1 %16, label %.thread163, label %.thread
 
-lean_nat_lt.exit.thread177:                       ; preds = %lean_dec.exit106
+lean_nat_lt.exit.thread180:                       ; preds = %lean_dec.exit106
   %17 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.078, ptr noundef %10) #7
   br i1 %17, label %.critedge.i93, label %18
 
 lean_nat_lt.exit.thread:                          ; preds = %13
-  %.not181 = icmp ult ptr %.078, %10
-  br i1 %.not181, label %.thread160, label %.thread
+  %.not184 = icmp ult ptr %.078, %10
+  br i1 %.not184, label %.thread163, label %.thread
 
-18:                                               ; preds = %lean_nat_lt.exit.thread177
+18:                                               ; preds = %lean_nat_lt.exit.thread180
   %19 = load i32, ptr %.078, align 4, !tbaa !5
   %20 = icmp sgt i32 %19, 1
   br i1 %20, label %21, label %23, !prof !10
@@ -3716,26 +3716,26 @@ lean_nat_lt.exit.thread:                          ; preds = %13
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.078) #7
   br label %.thread
 
-.thread160:                                       ; preds = %lean_nat_lt.exit, %lean_nat_lt.exit.thread
+.thread163:                                       ; preds = %lean_nat_lt.exit, %lean_nat_lt.exit.thread
   %25 = icmp ult ptr %.078, inttoptr (i64 4 to ptr)
   br i1 %25, label %lean_nat_sub.exit95, label %26
 
-26:                                               ; preds = %.thread160
+26:                                               ; preds = %.thread163
   %27 = add i64 %11, -4
   %28 = inttoptr i64 %27 to ptr
   br label %lean_nat_sub.exit95
 
-.critedge.i93:                                    ; preds = %lean_nat_lt.exit.thread177
+.critedge.i93:                                    ; preds = %lean_nat_lt.exit.thread180
   %29 = tail call ptr @lean_nat_big_sub(ptr noundef %.078, ptr noundef nonnull inttoptr (i64 5 to ptr)) #7
   br label %lean_nat_sub.exit95
 
-lean_nat_sub.exit95:                              ; preds = %.thread160, %26, %.critedge.i93
-  %.1.i94 = phi ptr [ %29, %.critedge.i93 ], [ %28, %26 ], [ inttoptr (i64 1 to ptr), %.thread160 ]
+lean_nat_sub.exit95:                              ; preds = %.thread163, %26, %.critedge.i93
+  %.1.i94 = phi ptr [ %29, %.critedge.i93 ], [ %28, %26 ], [ inttoptr (i64 1 to ptr), %.thread163 ]
   %30 = tail call i32 @lean_string_utf8_get(ptr noundef %0, ptr noundef %.1.i94) #7
   %31 = ptrtoint ptr %.1.i94 to i64
   %32 = and i64 %31, 1
-  %.not182 = icmp eq i64 %32, 0
-  br i1 %.not182, label %33, label %lean_dec.exit105
+  %.not185 = icmp eq i64 %32, 0
+  br i1 %.not185, label %33, label %lean_dec.exit105
 
 33:                                               ; preds = %lean_nat_sub.exit95
   %34 = load i32, ptr %.1.i94, align 4, !tbaa !5
@@ -3776,8 +3776,8 @@ lean_nat_sub.exit:                                ; preds = %40, %42, %.critedge
   %46 = tail call i32 @lean_string_utf8_get(ptr noundef %0, ptr noundef %.1.i) #7
   %47 = ptrtoint ptr %.1.i to i64
   %48 = and i64 %47, 1
-  %.not183 = icmp eq i64 %48, 0
-  br i1 %.not183, label %49, label %lean_dec.exit104
+  %.not186 = icmp eq i64 %48, 0
+  br i1 %.not186, label %49, label %lean_dec.exit104
 
 49:                                               ; preds = %lean_nat_sub.exit
   %50 = load i32, ptr %.1.i, align 4, !tbaa !5
@@ -3806,10 +3806,10 @@ lean_dec.exit104:                                 ; preds = %55, %54, %52, %lean
   %59 = icmp ult i32 %46, 91
   %60 = add i32 %46, -97
   %or.cond.i = icmp ult i32 %60, 26
-  %or.cond93.i = or i1 %59, %or.cond.i
-  br i1 %or.cond93.i, label %lean_dec.exit74.i, label %lean_dec.exit.thread.i
+  %or.cond92.i = or i1 %59, %or.cond.i
+  br i1 %or.cond92.i, label %lean_dec.exit76.i, label %lean_dec.exit.thread.i
 
-lean_dec.exit74.i:                                ; preds = %58
+lean_dec.exit76.i:                                ; preds = %58
   %.73.i = zext i1 %59 to i32
   br label %l_Lean_FuzzyMatching_charType.exit
 
@@ -3822,78 +3822,78 @@ lean_dec.exit.thread.i:                           ; preds = %lean_dec.exit.i, %5
   %.mux.i = select i1 %62, i32 2, i32 0
   br label %l_Lean_FuzzyMatching_charType.exit
 
-l_Lean_FuzzyMatching_charType.exit:               ; preds = %lean_dec.exit74.i, %lean_dec.exit.i, %lean_dec.exit.thread.i
-  %.0.i129 = phi i32 [ %.73.i, %lean_dec.exit74.i ], [ 2, %lean_dec.exit.i ], [ %.mux.i, %lean_dec.exit.thread.i ]
+l_Lean_FuzzyMatching_charType.exit:               ; preds = %lean_dec.exit76.i, %lean_dec.exit.i, %lean_dec.exit.thread.i
+  %.0.i130 = phi i32 [ %.73.i, %lean_dec.exit76.i ], [ 2, %lean_dec.exit.i ], [ %.mux.i, %lean_dec.exit.thread.i ]
   %63 = icmp ult i32 %30, 65
-  br i1 %63, label %lean_dec.exit.i137, label %64
+  br i1 %63, label %lean_dec.exit.i139, label %64
 
 64:                                               ; preds = %l_Lean_FuzzyMatching_charType.exit
   %65 = icmp ult i32 %30, 91
   %66 = add i32 %30, -97
-  %or.cond.i130 = icmp ult i32 %66, 26
-  %or.cond93.i131 = or i1 %65, %or.cond.i130
-  br i1 %or.cond93.i131, label %lean_dec.exit74.i135, label %lean_dec.exit.thread.i132
+  %or.cond.i131 = icmp ult i32 %66, 26
+  %or.cond92.i132 = or i1 %65, %or.cond.i131
+  br i1 %or.cond92.i132, label %lean_dec.exit76.i137, label %lean_dec.exit.thread.i133
 
-lean_dec.exit74.i135:                             ; preds = %64
-  %.73.i136 = zext i1 %65 to i32
-  br label %l_Lean_FuzzyMatching_charType.exit138
+lean_dec.exit76.i137:                             ; preds = %64
+  %.73.i138 = zext i1 %65 to i32
+  br label %l_Lean_FuzzyMatching_charType.exit140
 
-lean_dec.exit.i137:                               ; preds = %l_Lean_FuzzyMatching_charType.exit
+lean_dec.exit.i139:                               ; preds = %l_Lean_FuzzyMatching_charType.exit
   %67 = icmp samesign ult i32 %30, 48
-  br i1 %67, label %l_Lean_FuzzyMatching_charType.exit138, label %lean_dec.exit.thread.i132
+  br i1 %67, label %l_Lean_FuzzyMatching_charType.exit140, label %lean_dec.exit.thread.i133
 
-lean_dec.exit.thread.i132:                        ; preds = %lean_dec.exit.i137, %64
+lean_dec.exit.thread.i133:                        ; preds = %lean_dec.exit.i139, %64
   %68 = icmp ugt i32 %30, 57
-  %.mux.i133 = select i1 %68, i32 2, i32 0
-  br label %l_Lean_FuzzyMatching_charType.exit138
+  %.mux.i134 = select i1 %68, i32 2, i32 0
+  br label %l_Lean_FuzzyMatching_charType.exit140
 
-l_Lean_FuzzyMatching_charType.exit138:            ; preds = %lean_dec.exit74.i135, %lean_dec.exit.i137, %lean_dec.exit.thread.i132
-  %.0.i134 = phi i32 [ %.73.i136, %lean_dec.exit74.i135 ], [ 2, %lean_dec.exit.i137 ], [ %.mux.i133, %lean_dec.exit.thread.i132 ]
+l_Lean_FuzzyMatching_charType.exit140:            ; preds = %lean_dec.exit76.i137, %lean_dec.exit.i139, %lean_dec.exit.thread.i133
+  %.0.i136 = phi i32 [ %.73.i138, %lean_dec.exit76.i137 ], [ 2, %lean_dec.exit.i139 ], [ %.mux.i134, %lean_dec.exit.thread.i133 ]
   %69 = icmp ult i32 %56, 65
-  br i1 %69, label %lean_dec.exit.i146, label %70
+  br i1 %69, label %lean_dec.exit.i149, label %70
 
-70:                                               ; preds = %l_Lean_FuzzyMatching_charType.exit138
+70:                                               ; preds = %l_Lean_FuzzyMatching_charType.exit140
   %71 = icmp ult i32 %56, 91
   %72 = add i32 %56, -97
-  %or.cond.i139 = icmp ult i32 %72, 26
-  %or.cond93.i140 = or i1 %71, %or.cond.i139
-  br i1 %or.cond93.i140, label %lean_dec.exit74.i144, label %lean_dec.exit.thread.i141
+  %or.cond.i141 = icmp ult i32 %72, 26
+  %or.cond92.i142 = or i1 %71, %or.cond.i141
+  br i1 %or.cond92.i142, label %lean_dec.exit76.i147, label %lean_dec.exit.thread.i143
 
-lean_dec.exit74.i144:                             ; preds = %70
+lean_dec.exit76.i147:                             ; preds = %70
   %73 = xor i1 %71, true
-  br label %l_Lean_FuzzyMatching_charType.exit147
+  br label %l_Lean_FuzzyMatching_charType.exit150
 
-lean_dec.exit.i146:                               ; preds = %l_Lean_FuzzyMatching_charType.exit138
+lean_dec.exit.i149:                               ; preds = %l_Lean_FuzzyMatching_charType.exit140
   %74 = icmp samesign ult i32 %56, 48
-  br i1 %74, label %l_Lean_FuzzyMatching_charType.exit147, label %lean_dec.exit.thread.i141
+  br i1 %74, label %l_Lean_FuzzyMatching_charType.exit150, label %lean_dec.exit.thread.i143
 
-lean_dec.exit.thread.i141:                        ; preds = %lean_dec.exit.i146, %70
+lean_dec.exit.thread.i143:                        ; preds = %lean_dec.exit.i149, %70
   %75 = icmp ult i32 %56, 58
-  br label %l_Lean_FuzzyMatching_charType.exit147
+  br label %l_Lean_FuzzyMatching_charType.exit150
 
-l_Lean_FuzzyMatching_charType.exit147:            ; preds = %lean_dec.exit74.i144, %lean_dec.exit.i146, %lean_dec.exit.thread.i141
-  %.0.i143 = phi i1 [ %73, %lean_dec.exit74.i144 ], [ false, %lean_dec.exit.i146 ], [ %75, %lean_dec.exit.thread.i141 ]
-  %76 = icmp eq i32 %.0.i129, 2
+l_Lean_FuzzyMatching_charType.exit150:            ; preds = %lean_dec.exit76.i147, %lean_dec.exit.i149, %lean_dec.exit.thread.i143
+  %.0.i146 = phi i1 [ %73, %lean_dec.exit76.i147 ], [ false, %lean_dec.exit.i149 ], [ %75, %lean_dec.exit.thread.i143 ]
+  %76 = icmp eq i32 %.0.i130, 2
   br i1 %76, label %lean_dec.exit97.thread, label %lean_dec.exit99
 
-lean_dec.exit99:                                  ; preds = %l_Lean_FuzzyMatching_charType.exit147
-  %77 = icmp eq i32 %.0.i134, 2
+lean_dec.exit99:                                  ; preds = %l_Lean_FuzzyMatching_charType.exit150
+  %77 = icmp eq i32 %.0.i136, 2
   br i1 %77, label %lean_dec.exit97.thread, label %lean_dec.exit98
 
 lean_dec.exit102:                                 ; preds = %lean_dec.exit98
-  %78 = icmp eq i32 %.0.i134, 1
+  %78 = icmp eq i32 %.0.i136, 1
   br i1 %78, label %79, label %lean_dec.exit97.thread
 
 79:                                               ; preds = %lean_dec.exit102
-  %. = select i1 %.0.i143, ptr inttoptr (i64 1 to ptr), ptr inttoptr (i64 3 to ptr)
+  %. = select i1 %.0.i146, ptr inttoptr (i64 1 to ptr), ptr inttoptr (i64 3 to ptr)
   br label %lean_dec.exit97.thread
 
 lean_dec.exit98:                                  ; preds = %lean_dec.exit99
-  %80 = icmp eq i32 %.0.i129, 0
+  %80 = icmp eq i32 %.0.i130, 0
   br i1 %80, label %lean_dec.exit97.thread, label %lean_dec.exit102
 
-lean_dec.exit97.thread:                           ; preds = %lean_dec.exit98, %lean_dec.exit99, %lean_dec.exit102, %79, %l_Lean_FuzzyMatching_charType.exit147
-  %.sink = phi ptr [ inttoptr (i64 5 to ptr), %l_Lean_FuzzyMatching_charType.exit147 ], [ %., %79 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit102 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit99 ], [ inttoptr (i64 3 to ptr), %lean_dec.exit98 ]
+lean_dec.exit97.thread:                           ; preds = %lean_dec.exit98, %lean_dec.exit99, %lean_dec.exit102, %79, %l_Lean_FuzzyMatching_charType.exit150
+  %.sink = phi ptr [ inttoptr (i64 5 to ptr), %l_Lean_FuzzyMatching_charType.exit150 ], [ %., %79 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit102 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit99 ], [ inttoptr (i64 3 to ptr), %lean_dec.exit98 ]
   %81 = tail call ptr @lean_array_push(ptr noundef %.076, ptr noundef nonnull %.sink) #7
   %82 = load ptr, ptr %9, align 8, !tbaa !11
   br i1 %.not, label %98, label %83, !prof !4
@@ -3901,10 +3901,10 @@ lean_dec.exit97.thread:                           ; preds = %lean_dec.exit98, %l
 83:                                               ; preds = %lean_dec.exit97.thread
   %84 = ptrtoint ptr %82 to i64
   %85 = and i64 %84, 1
-  %.not184 = icmp eq i64 %85, 0
-  br i1 %.not184, label %lean_nat_add.exit.thread167, label %87, !prof !4
+  %.not187 = icmp eq i64 %85, 0
+  br i1 %.not187, label %lean_nat_add.exit.thread170, label %87, !prof !4
 
-lean_nat_add.exit.thread167:                      ; preds = %83
+lean_nat_add.exit.thread170:                      ; preds = %83
   %86 = tail call ptr @lean_nat_big_add(ptr noundef %.078, ptr noundef %82) #7
   br label %lean_dec.exit106.backedge
 
@@ -3921,8 +3921,8 @@ lean_nat_add.exit.thread167:                      ; preds = %83
   %95 = inttoptr i64 %94 to ptr
   br label %lean_dec.exit106.backedge
 
-lean_dec.exit106.backedge:                        ; preds = %92, %96, %lean_nat_add.exit.thread167, %102, %104, %105
-  %.078.be = phi ptr [ %86, %lean_nat_add.exit.thread167 ], [ %99, %102 ], [ %99, %104 ], [ %99, %105 ], [ %97, %96 ], [ %95, %92 ]
+lean_dec.exit106.backedge:                        ; preds = %92, %96, %lean_nat_add.exit.thread170, %102, %104, %105
+  %.078.be = phi ptr [ %86, %lean_nat_add.exit.thread170 ], [ %99, %102 ], [ %99, %104 ], [ %99, %105 ], [ %97, %96 ], [ %95, %92 ]
   br label %lean_dec.exit106
 
 96:                                               ; preds = %87
@@ -3967,8 +3967,8 @@ lean_nat_eq.exit150:                              ; preds = %lean_dec.exit120
   %3 = shl i64 %.val151, 1
   %4 = or disjoint i64 %3, 1
   %5 = inttoptr i64 %4 to ptr
-  %.not206 = icmp eq i64 %3, 2
-  br i1 %.not206, label %lean_dec.exit108, label %6
+  %.not210 = icmp eq i64 %3, 2
+  br i1 %.not210, label %lean_dec.exit108, label %6
 
 6:                                                ; preds = %lean_nat_eq.exit150
   %7 = and i64 %.val151, 9223372036854775807
@@ -3993,8 +3993,8 @@ lean_nat_eq.exit150:                              ; preds = %lean_dec.exit120
   %20 = icmp ult i32 %17, 91
   %21 = add i32 %17, -97
   %or.cond.i = icmp ult i32 %21, 26
-  %or.cond93.i = or i1 %20, %or.cond.i
-  br i1 %or.cond93.i, label %lean_inc.exit, label %lean_dec.exit.thread.i
+  %or.cond92.i = or i1 %20, %or.cond.i
+  br i1 %or.cond92.i, label %lean_inc.exit, label %lean_dec.exit.thread.i
 
 lean_dec.exit.i:                                  ; preds = %6
   %22 = icmp samesign ult i32 %17, 48
@@ -4006,7 +4006,7 @@ lean_dec.exit.thread.i:                           ; preds = %lean_dec.exit.i, %1
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %19, %lean_dec.exit.thread.i, %lean_dec.exit.i
-  %.0.i153 = phi i64 [ 5, %lean_dec.exit.i ], [ %24, %lean_dec.exit.thread.i ], [ 1, %19 ]
+  %.0.i154 = phi i64 [ 5, %lean_dec.exit.i ], [ %24, %lean_dec.exit.thread.i ], [ 1, %19 ]
   tail call void @lean_inc_heartbeat() #7
   %25 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #7
   %26 = icmp eq ptr %25, null
@@ -4037,64 +4037,64 @@ lean_nat_sub.exit107:                             ; preds = %lean_inc.exit
   %.1.i = select i1 %36, ptr inttoptr (i64 1 to ptr), ptr %38
   %39 = tail call i32 @lean_string_utf8_get(ptr noundef nonnull %0, ptr noundef nonnull %.1.i) #7
   %40 = icmp ult i32 %39, 65
-  br i1 %40, label %lean_dec.exit.i162, label %41
+  br i1 %40, label %lean_dec.exit.i164, label %41
 
 41:                                               ; preds = %lean_nat_sub.exit107
   %42 = icmp ult i32 %39, 91
   %43 = add i32 %39, -97
-  %or.cond.i155 = icmp ult i32 %43, 26
-  %or.cond93.i156 = or i1 %42, %or.cond.i155
-  br i1 %or.cond93.i156, label %lean_dec.exit74.i160, label %lean_dec.exit.thread.i157
+  %or.cond.i156 = icmp ult i32 %43, 26
+  %or.cond92.i157 = or i1 %42, %or.cond.i156
+  br i1 %or.cond92.i157, label %lean_dec.exit76.i162, label %lean_dec.exit.thread.i158
 
-lean_dec.exit74.i160:                             ; preds = %41
-  %.73.i161 = zext i1 %42 to i32
-  br label %l_Lean_FuzzyMatching_charType.exit163
+lean_dec.exit76.i162:                             ; preds = %41
+  %.73.i163 = zext i1 %42 to i32
+  br label %l_Lean_FuzzyMatching_charType.exit165
 
-lean_dec.exit.i162:                               ; preds = %lean_nat_sub.exit107
+lean_dec.exit.i164:                               ; preds = %lean_nat_sub.exit107
   %44 = icmp samesign ult i32 %39, 48
-  br i1 %44, label %l_Lean_FuzzyMatching_charType.exit163, label %lean_dec.exit.thread.i157
+  br i1 %44, label %l_Lean_FuzzyMatching_charType.exit165, label %lean_dec.exit.thread.i158
 
-lean_dec.exit.thread.i157:                        ; preds = %lean_dec.exit.i162, %41
+lean_dec.exit.thread.i158:                        ; preds = %lean_dec.exit.i164, %41
   %45 = icmp ugt i32 %39, 57
-  %.mux.i158 = select i1 %45, i32 2, i32 0
-  br label %l_Lean_FuzzyMatching_charType.exit163
+  %.mux.i159 = select i1 %45, i32 2, i32 0
+  br label %l_Lean_FuzzyMatching_charType.exit165
 
-l_Lean_FuzzyMatching_charType.exit163:            ; preds = %lean_dec.exit74.i160, %lean_dec.exit.i162, %lean_dec.exit.thread.i157
-  %.0.i159 = phi i32 [ %.73.i161, %lean_dec.exit74.i160 ], [ 2, %lean_dec.exit.i162 ], [ %.mux.i158, %lean_dec.exit.thread.i157 ]
+l_Lean_FuzzyMatching_charType.exit165:            ; preds = %lean_dec.exit76.i162, %lean_dec.exit.i164, %lean_dec.exit.thread.i158
+  %.0.i161 = phi i32 [ %.73.i163, %lean_dec.exit76.i162 ], [ 2, %lean_dec.exit.i164 ], [ %.mux.i159, %lean_dec.exit.thread.i158 ]
   %46 = icmp ult i32 %35, 65
-  br i1 %46, label %lean_dec.exit.i171, label %47
+  br i1 %46, label %lean_dec.exit.i174, label %47
 
-47:                                               ; preds = %l_Lean_FuzzyMatching_charType.exit163
+47:                                               ; preds = %l_Lean_FuzzyMatching_charType.exit165
   %48 = icmp ult i32 %35, 91
   %49 = add i32 %35, -97
-  %or.cond.i164 = icmp ult i32 %49, 26
-  %or.cond93.i165 = or i1 %48, %or.cond.i164
-  br i1 %or.cond93.i165, label %lean_dec.exit74.i169, label %lean_dec.exit.thread.i166
+  %or.cond.i166 = icmp ult i32 %49, 26
+  %or.cond92.i167 = or i1 %48, %or.cond.i166
+  br i1 %or.cond92.i167, label %lean_dec.exit76.i172, label %lean_dec.exit.thread.i168
 
-lean_dec.exit74.i169:                             ; preds = %47
-  %.73.i170 = zext i1 %48 to i32
-  br label %l_Lean_FuzzyMatching_charType.exit172
+lean_dec.exit76.i172:                             ; preds = %47
+  %.73.i173 = zext i1 %48 to i32
+  br label %l_Lean_FuzzyMatching_charType.exit175
 
-lean_dec.exit.i171:                               ; preds = %l_Lean_FuzzyMatching_charType.exit163
+lean_dec.exit.i174:                               ; preds = %l_Lean_FuzzyMatching_charType.exit165
   %50 = icmp samesign ult i32 %35, 48
-  br i1 %50, label %l_Lean_FuzzyMatching_charType.exit172, label %lean_dec.exit.thread.i166
+  br i1 %50, label %l_Lean_FuzzyMatching_charType.exit175, label %lean_dec.exit.thread.i168
 
-lean_dec.exit.thread.i166:                        ; preds = %lean_dec.exit.i171, %47
+lean_dec.exit.thread.i168:                        ; preds = %lean_dec.exit.i174, %47
   %51 = icmp ugt i32 %35, 57
-  %.mux.i167 = select i1 %51, i32 2, i32 0
-  br label %l_Lean_FuzzyMatching_charType.exit172
+  %.mux.i169 = select i1 %51, i32 2, i32 0
+  br label %l_Lean_FuzzyMatching_charType.exit175
 
-l_Lean_FuzzyMatching_charType.exit172:            ; preds = %lean_dec.exit74.i169, %lean_dec.exit.i171, %lean_dec.exit.thread.i166
-  %.0.i168 = phi i32 [ %.73.i170, %lean_dec.exit74.i169 ], [ 2, %lean_dec.exit.i171 ], [ %.mux.i167, %lean_dec.exit.thread.i166 ]
-  %52 = inttoptr i64 %.0.i153 to ptr
+l_Lean_FuzzyMatching_charType.exit175:            ; preds = %lean_dec.exit76.i172, %lean_dec.exit.i174, %lean_dec.exit.thread.i168
+  %.0.i171 = phi i32 [ %.73.i173, %lean_dec.exit76.i172 ], [ 2, %lean_dec.exit.i174 ], [ %.mux.i169, %lean_dec.exit.thread.i168 ]
+  %52 = inttoptr i64 %.0.i154 to ptr
   %53 = tail call ptr @lean_array_push(ptr noundef nonnull %10, ptr noundef nonnull %52) #7
   %54 = tail call ptr @l_Std_Range_forIn_x27_loop___at___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_stringInfo___spec__2(ptr noundef nonnull %0, ptr nonnull poison, ptr noundef nonnull %25, ptr noundef %53, ptr noundef nonnull inttoptr (i64 5 to ptr), ptr nonnull poison, ptr nonnull poison)
   %55 = ptrtoint ptr %25 to i64
   %56 = and i64 %55, 1
-  %.not207 = icmp eq i64 %56, 0
-  br i1 %.not207, label %57, label %lean_dec.exit115
+  %.not211 = icmp eq i64 %56, 0
+  br i1 %.not211, label %57, label %lean_dec.exit115
 
-57:                                               ; preds = %l_Lean_FuzzyMatching_charType.exit172
+57:                                               ; preds = %l_Lean_FuzzyMatching_charType.exit175
   %58 = load i32, ptr %25, align 4, !tbaa !5
   %59 = icmp sgt i32 %58, 1
   br i1 %59, label %60, label %62, !prof !10
@@ -4112,8 +4112,8 @@ l_Lean_FuzzyMatching_charType.exit172:            ; preds = %lean_dec.exit74.i16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %25) #7
   br label %lean_dec.exit115
 
-lean_dec.exit115:                                 ; preds = %63, %62, %60, %l_Lean_FuzzyMatching_charType.exit172
-  %64 = icmp eq i32 %.0.i159, 2
+lean_dec.exit115:                                 ; preds = %63, %62, %60, %l_Lean_FuzzyMatching_charType.exit175
+  %64 = icmp eq i32 %.0.i161, 2
   br i1 %64, label %65, label %lean_dec.exit111
 
 65:                                               ; preds = %lean_dec.exit115
@@ -4121,11 +4121,11 @@ lean_dec.exit115:                                 ; preds = %63, %62, %60, %l_Le
   br label %84
 
 lean_dec.exit111:                                 ; preds = %lean_dec.exit115
-  %67 = icmp eq i32 %.0.i168, 2
+  %67 = icmp eq i32 %.0.i171, 2
   br i1 %67, label %.thread, label %lean_dec.exit110
 
 lean_dec.exit113:                                 ; preds = %lean_dec.exit110
-  %68 = icmp eq i32 %.0.i168, 1
+  %68 = icmp eq i32 %.0.i171, 1
   br i1 %68, label %69, label %lean_dec.exit112
 
 69:                                               ; preds = %lean_dec.exit113
@@ -4137,8 +4137,8 @@ lean_dec.exit112:                                 ; preds = %lean_dec.exit113
   br label %84
 
 lean_dec.exit110:                                 ; preds = %lean_dec.exit111
-  %.not208 = icmp eq i32 %.0.i159, 0
-  br i1 %.not208, label %lean_dec.exit109, label %lean_dec.exit113
+  %.not212 = icmp eq i32 %.0.i161, 0
+  br i1 %.not212, label %lean_dec.exit109, label %lean_dec.exit113
 
 lean_dec.exit109:                                 ; preds = %lean_dec.exit110
   %72 = tail call ptr @lean_array_push(ptr noundef %54, ptr noundef nonnull inttoptr (i64 3 to ptr)) #7
@@ -4151,26 +4151,26 @@ lean_dec.exit109:                                 ; preds = %lean_dec.exit110
 lean_dec.exit108:                                 ; preds = %lean_nat_eq.exit150
   %74 = tail call i32 @lean_string_utf8_get(ptr noundef nonnull %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   %75 = icmp ult i32 %74, 65
-  br i1 %75, label %lean_dec.exit.i195, label %76
+  br i1 %75, label %lean_dec.exit.i199, label %76
 
 76:                                               ; preds = %lean_dec.exit108
   %77 = icmp ult i32 %74, 91
   %78 = add i32 %74, -97
-  %or.cond.i188 = icmp ult i32 %78, 26
-  %or.cond93.i189 = or i1 %77, %or.cond.i188
-  br i1 %or.cond93.i189, label %l_Lean_FuzzyMatching_charType.exit196.thread, label %lean_dec.exit.thread.i190
+  %or.cond.i191 = icmp ult i32 %78, 26
+  %or.cond92.i192 = or i1 %77, %or.cond.i191
+  br i1 %or.cond92.i192, label %l_Lean_FuzzyMatching_charType.exit200.thread, label %lean_dec.exit.thread.i193
 
-lean_dec.exit.i195:                               ; preds = %lean_dec.exit108
+lean_dec.exit.i199:                               ; preds = %lean_dec.exit108
   %79 = icmp samesign ult i32 %74, 48
-  br i1 %79, label %l_Lean_FuzzyMatching_charType.exit196.thread, label %lean_dec.exit.thread.i190
+  br i1 %79, label %l_Lean_FuzzyMatching_charType.exit200.thread, label %lean_dec.exit.thread.i193
 
-lean_dec.exit.thread.i190:                        ; preds = %lean_dec.exit.i195, %76
+lean_dec.exit.thread.i193:                        ; preds = %lean_dec.exit.i199, %76
   %80 = icmp ugt i32 %74, 57
   %81 = select i1 %80, ptr @l___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_iterateLookaround___at___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_stringInfo___spec__1___closed__4, ptr @l___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_iterateLookaround___at___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_stringInfo___spec__1___closed__2
-  br label %l_Lean_FuzzyMatching_charType.exit196.thread
+  br label %l_Lean_FuzzyMatching_charType.exit200.thread
 
-l_Lean_FuzzyMatching_charType.exit196.thread:     ; preds = %lean_dec.exit.thread.i190, %76, %lean_dec.exit.i195
-  %.6.in = phi ptr [ @l___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_iterateLookaround___at___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_stringInfo___spec__1___closed__4, %lean_dec.exit.i195 ], [ %81, %lean_dec.exit.thread.i190 ], [ @l___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_iterateLookaround___at___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_stringInfo___spec__1___closed__2, %76 ]
+l_Lean_FuzzyMatching_charType.exit200.thread:     ; preds = %lean_dec.exit.thread.i193, %76, %lean_dec.exit.i199
+  %.6.in = phi ptr [ @l___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_iterateLookaround___at___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_stringInfo___spec__1___closed__4, %lean_dec.exit.i199 ], [ %81, %lean_dec.exit.thread.i193 ], [ @l___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_iterateLookaround___at___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_stringInfo___spec__1___closed__2, %76 ]
   %.6 = load ptr, ptr %.6.in, align 8, !tbaa !11
   br label %84
 
@@ -4178,8 +4178,8 @@ l_Lean_FuzzyMatching_charType.exit196.thread:     ; preds = %lean_dec.exit.threa
   %83 = load ptr, ptr @l___private_Lean_Data_FuzzyMatching_0__Lean_FuzzyMatching_iterateLookaround___rarg___closed__1, align 8, !tbaa !11
   br label %84
 
-84:                                               ; preds = %.thread, %lean_dec.exit109, %l_Lean_FuzzyMatching_charType.exit196.thread, %65, %lean_dec.exit112, %69, %82
-  %.7 = phi ptr [ %83, %82 ], [ %.6, %l_Lean_FuzzyMatching_charType.exit196.thread ], [ %66, %65 ], [ %72, %lean_dec.exit109 ], [ %70, %69 ], [ %71, %lean_dec.exit112 ], [ %73, %.thread ]
+84:                                               ; preds = %.thread, %lean_dec.exit109, %l_Lean_FuzzyMatching_charType.exit200.thread, %65, %lean_dec.exit112, %69, %82
+  %.7 = phi ptr [ %83, %82 ], [ %.6, %l_Lean_FuzzyMatching_charType.exit200.thread ], [ %66, %65 ], [ %72, %lean_dec.exit109 ], [ %70, %69 ], [ %71, %lean_dec.exit112 ], [ %73, %.thread ]
   ret ptr %.7
 }
 

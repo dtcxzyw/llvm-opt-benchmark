@@ -28,13 +28,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [36 x i8] c"Duplicate XSETTINGS entry for '%s'\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @xsettings_client_new(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @xsettings_client_new(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @xsettings_client_new_with_grab_funcs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null)
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @xsettings_client_new_with_grab_funcs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @xsettings_client_new_with_grab_funcs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.XWindowAttributes, align 8
   %9 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #14

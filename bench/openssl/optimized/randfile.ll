@@ -206,52 +206,52 @@ define noundef i32 @RAND_write_file(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 191, ptr noundef nonnull @__func__.RAND_write_file) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 122, ptr noundef nonnull @.str.2, ptr noundef %0) #10
-  br label %29
+  br label %28
 
 12:                                               ; preds = %6, %1
   %13 = call i32 @RAND_priv_bytes(ptr noundef nonnull %2, i32 noundef 1024) #10
   %.not = icmp eq i32 %13, 1
-  br i1 %.not, label %14, label %29
+  br i1 %.not, label %14, label %28
 
 14:                                               ; preds = %12
   %15 = call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 65, i32 noundef 384) #10
   %.not22 = icmp eq i32 %15, -1
-  br i1 %.not22, label %21, label %16
+  br i1 %.not22, label %20, label %16
 
 16:                                               ; preds = %14
   %17 = call noalias ptr @fdopen(i32 noundef %15, ptr noundef nonnull @.str.3) #10
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %.thread28
+  br i1 %18, label %.critedge, label %.thread24
 
-19:                                               ; preds = %16
-  %20 = call i32 @close(i32 noundef %15) #10
+.critedge:                                        ; preds = %16
+  %19 = call i32 @close(i32 noundef %15) #10
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 217, ptr noundef nonnull @__func__.RAND_write_file) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 121, ptr noundef nonnull @.str.2, ptr noundef %0) #10
-  br label %29
+  br label %28
 
-21:                                               ; preds = %14
-  %22 = call ptr @openssl_fopen(ptr noundef %0, ptr noundef nonnull @.str.3) #10
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %.thread28
+20:                                               ; preds = %14
+  %21 = call ptr @openssl_fopen(ptr noundef %0, ptr noundef nonnull @.str.3) #10
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %.thread24
 
-24:                                               ; preds = %21
+23:                                               ; preds = %20
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 249, ptr noundef nonnull @__func__.RAND_write_file) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 121, ptr noundef nonnull @.str.2, ptr noundef %0) #10
-  br label %29
+  br label %28
 
-.thread28:                                        ; preds = %16, %21
-  %.230 = phi ptr [ %22, %21 ], [ %17, %16 ]
-  %25 = call i32 @chmod(ptr noundef %0, i32 noundef 384) #10
-  %26 = call i64 @fwrite(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 1024, ptr noundef nonnull %.230)
-  %27 = trunc i64 %26 to i32
-  %28 = call i32 @fclose(ptr noundef nonnull %.230)
+.thread24:                                        ; preds = %16, %20
+  %.226 = phi ptr [ %21, %20 ], [ %17, %16 ]
+  %24 = call i32 @chmod(ptr noundef %0, i32 noundef 384) #10
+  %25 = call i64 @fwrite(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 1024, ptr noundef nonnull %.226)
+  %26 = trunc i64 %25 to i32
+  %27 = call i32 @fclose(ptr noundef nonnull %.226)
   call void @OPENSSL_cleanse(ptr noundef nonnull %2, i64 noundef 1024) #10
-  br label %29
+  br label %28
 
-29:                                               ; preds = %19, %12, %.thread28, %24, %11
-  %.0 = phi i32 [ -1, %24 ], [ %27, %.thread28 ], [ -1, %19 ], [ -1, %11 ], [ -1, %12 ]
+28:                                               ; preds = %.critedge, %12, %.thread24, %23, %11
+  %.0 = phi i32 [ -1, %23 ], [ %26, %.thread24 ], [ -1, %11 ], [ -1, %12 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #10
   ret i32 %.0

@@ -2829,7 +2829,6 @@ define void @Gia_ManCorrPerformRemapping(ptr noundef readonly captures(none) %0,
   %11 = trunc i64 %8 to i32
   %12 = getelementptr i8, ptr %0, i64 8
   %.val20 = load ptr, ptr %12, align 8, !tbaa !29
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.val20, i64 4
   %13 = icmp sgt i32 %11, 0
   br i1 %13, label %.lr.ph.us.preheader, label %.critedge
 
@@ -2841,32 +2840,32 @@ define void @Gia_ManCorrPerformRemapping(ptr noundef readonly captures(none) %0,
   %indvars.iv32 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next33, %._crit_edge.us ]
   %14 = getelementptr inbounds nuw i32, ptr %.val20, i64 %indvars.iv32
   %15 = load i32, ptr %14, align 4, !tbaa !30
-  %gep.us = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv32
-  %16 = load i32, ptr %gep.us, align 4, !tbaa !30
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %.val23, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !60
-  %20 = sext i32 %15 to i64
-  %21 = getelementptr inbounds ptr, ptr %.val23, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !60
-  br label %23
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !30
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds ptr, ptr %.val23, i64 %18
+  %20 = load ptr, ptr %19, align 8, !tbaa !60
+  %21 = sext i32 %15 to i64
+  %22 = getelementptr inbounds ptr, ptr %.val23, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !60
+  br label %24
 
-23:                                               ; preds = %.lr.ph.us, %23
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
-  %25 = load i32, ptr %24, align 4, !tbaa !30
-  %26 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
-  store i32 %25, ptr %26, align 4, !tbaa !30
+24:                                               ; preds = %.lr.ph.us, %24
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %24 ]
+  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %26 = load i32, ptr %25, align 4, !tbaa !30
+  %27 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  store i32 %26, ptr %27, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %23, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !69
 
-._crit_edge.us:                                   ; preds = %23
+._crit_edge.us:                                   ; preds = %24
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 2
   %.val.us = load i32, ptr %9, align 4, !tbaa !31
-  %27 = sext i32 %.val.us to i64
-  %28 = icmp slt i64 %indvars.iv.next33, %27
-  br i1 %28, label %.lr.ph.us, label %.critedge, !llvm.loop !70
+  %28 = sext i32 %.val.us to i64
+  %29 = icmp slt i64 %indvars.iv.next33, %28
+  br i1 %29, label %.lr.ph.us, label %.critedge, !llvm.loop !70
 
 .critedge:                                        ; preds = %._crit_edge.us, %.lr.ph29, %2
   ret void
@@ -3413,7 +3412,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %3
 
 36:                                               ; preds = %.lr.ph, %Gia_ManCorrPerformRemapping.exit
   %.040 = phi i32 [ 0, %.lr.ph ], [ %59, %Gia_ManCorrPerformRemapping.exit ]
-  %.02239 = phi i32 [ 0, %.lr.ph ], [ %84, %Gia_ManCorrPerformRemapping.exit ]
+  %.02239 = phi i32 [ 0, %.lr.ph ], [ %85, %Gia_ManCorrPerformRemapping.exit ]
   %37 = load ptr, ptr %0, align 8, !tbaa !80
   %38 = getelementptr i8, ptr %37, i64 16
   %.val = load i32, ptr %38, align 8, !tbaa !34
@@ -3496,7 +3495,6 @@ Cec_ManStartSimInfo.exit:                         ; preds = %._crit_edge.us38.i,
 .lr.ph29.i:                                       ; preds = %Cec_ManStartSimInfo.exit
   %66 = trunc i64 %64 to i32
   %.val20.i = load ptr, ptr %35, align 8, !tbaa !29
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %.val20.i, i64 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph.us.preheader.i31, label %Gia_ManCorrPerformRemapping.exit
 
@@ -3509,64 +3507,64 @@ Cec_ManStartSimInfo.exit:                         ; preds = %._crit_edge.us38.i,
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph.us.preheader.i31 ], [ %indvars.iv.next33.i, %._crit_edge.us.i ]
   %69 = getelementptr inbounds nuw i32, ptr %.val20.i, i64 %indvars.iv32.i
   %70 = load i32, ptr %69, align 4, !tbaa !30
-  %gep.us.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv32.i
-  %71 = load i32, ptr %gep.us.i, align 4, !tbaa !30
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds ptr, ptr %.val23.i, i64 %72
-  %74 = load ptr, ptr %73, align 8, !tbaa !60
-  %75 = sext i32 %70 to i64
-  %76 = getelementptr inbounds ptr, ptr %.val23.i, i64 %75
-  %77 = load ptr, ptr %76, align 8, !tbaa !60
-  br label %78
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %72 = load i32, ptr %71, align 4, !tbaa !30
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds ptr, ptr %.val23.i, i64 %73
+  %75 = load ptr, ptr %74, align 8, !tbaa !60
+  %76 = sext i32 %70 to i64
+  %77 = getelementptr inbounds ptr, ptr %.val23.i, i64 %76
+  %78 = load ptr, ptr %77, align 8, !tbaa !60
+  br label %79
 
-78:                                               ; preds = %78, %.lr.ph.us.i33
-  %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.us.i33 ], [ %indvars.iv.next.i35, %78 ]
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv.i34
-  %80 = load i32, ptr %79, align 4, !tbaa !30
-  %81 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv.i34
-  store i32 %80, ptr %81, align 4, !tbaa !30
+79:                                               ; preds = %79, %.lr.ph.us.i33
+  %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.us.i33 ], [ %indvars.iv.next.i35, %79 ]
+  %80 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv.i34
+  %81 = load i32, ptr %80, align 4, !tbaa !30
+  %82 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv.i34
+  store i32 %81, ptr %82, align 4, !tbaa !30
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i32
-  br i1 %exitcond.not.i36, label %._crit_edge.us.i, label %78, !llvm.loop !69
+  br i1 %exitcond.not.i36, label %._crit_edge.us.i, label %79, !llvm.loop !69
 
-._crit_edge.us.i:                                 ; preds = %78
+._crit_edge.us.i:                                 ; preds = %79
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 2
-  %82 = icmp samesign ult i64 %indvars.iv.next33.i, %68
-  br i1 %82, label %.lr.ph.us.i33, label %Gia_ManCorrPerformRemapping.exit, !llvm.loop !70
+  %83 = icmp samesign ult i64 %indvars.iv.next33.i, %68
+  br i1 %83, label %.lr.ph.us.i33, label %Gia_ManCorrPerformRemapping.exit, !llvm.loop !70
 
 Gia_ManCorrPerformRemapping.exit:                 ; preds = %._crit_edge.us.i, %Cec_ManStartSimInfo.exit, %.lr.ph29.i
-  %83 = tail call i32 @Cec_ManSeqResimulate(ptr noundef nonnull %0, ptr noundef nonnull %29) #23
-  %84 = or i32 %83, %.02239
+  %84 = tail call i32 @Cec_ManSeqResimulate(ptr noundef nonnull %0, ptr noundef nonnull %29) #23
+  %85 = or i32 %84, %.02239
   %.val24 = load i32, ptr %32, align 4, !tbaa !31
-  %85 = icmp slt i32 %59, %.val24
-  br i1 %85, label %36, label %._crit_edge.loopexit, !llvm.loop !88
+  %86 = icmp slt i32 %59, %.val24
+  br i1 %86, label %36, label %._crit_edge.loopexit, !llvm.loop !88
 
 ._crit_edge.loopexit:                             ; preds = %Gia_ManCorrPerformRemapping.exit
   %.pre = load ptr, ptr %31, align 8, !tbaa !58
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Vec_PtrAllocSimInfo.exit
-  %86 = phi ptr [ %23, %Vec_PtrAllocSimInfo.exit ], [ %.pre, %._crit_edge.loopexit ]
-  %.022.lcssa = phi i32 [ 0, %Vec_PtrAllocSimInfo.exit ], [ %84, %._crit_edge.loopexit ]
-  %.not.i = icmp eq ptr %86, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %87
+  %87 = phi ptr [ %23, %Vec_PtrAllocSimInfo.exit ], [ %.pre, %._crit_edge.loopexit ]
+  %.022.lcssa = phi i32 [ 0, %Vec_PtrAllocSimInfo.exit ], [ %85, %._crit_edge.loopexit ]
+  %.not.i = icmp eq ptr %87, null
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %88
 
-87:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %86) #23
+88:                                               ; preds = %._crit_edge
+  tail call void @free(ptr noundef nonnull %87) #23
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %87
+Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %88
   tail call void @free(ptr noundef nonnull %29) #23
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !29
-  %.not.i37 = icmp eq ptr %89, null
-  br i1 %.not.i37, label %Vec_IntFree.exit, label %90
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !29
+  %.not.i37 = icmp eq ptr %90, null
+  br i1 %.not.i37, label %Vec_IntFree.exit, label %91
 
-90:                                               ; preds = %Vec_PtrFree.exit
-  tail call void @free(ptr noundef nonnull %89) #23
+91:                                               ; preds = %Vec_PtrFree.exit
+  tail call void @free(ptr noundef nonnull %90) #23
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %90
+Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %91
   tail call void @free(ptr noundef nonnull %5) #23
   ret i32 %.022.lcssa
 }

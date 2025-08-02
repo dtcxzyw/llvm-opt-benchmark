@@ -1511,18 +1511,18 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_CB_transport(ptr noundef 
   %87 = getelementptr ptr, ptr %83, i64 %86
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %94, label %90
+  br i1 %89, label %96, label %90
 
 90:                                               ; preds = %75
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %92 = load i16, ptr %91, align 1
   %93 = and i16 %92, 2047
-  br label %94
+  %94 = call i16 @llvm.umin.i16(i16 %93, i16 2)
+  %95 = zext nneg i16 %94 to i32
+  br label %96
 
-94:                                               ; preds = %90, %75
-  %95 = phi i16 [ %93, %90 ], [ 0, %75 ]
-  %96 = call i16 @llvm.umin.i16(i16 %95, i16 2)
-  %97 = zext nneg i16 %96 to i32
+96:                                               ; preds = %90, %75
+  %97 = phi i32 [ %95, %90 ], [ 0, %75 ]
   %98 = load ptr, ptr %29, align 8
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %100 = load i8, ptr %99, align 8
@@ -1546,15 +1546,15 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_CB_transport(ptr noundef 
   %112 = or i1 %110, %111
   br i1 %112, label %113, label %118
 
-113:                                              ; preds = %94
+113:                                              ; preds = %96
   %114 = icmp ugt i8 %100, 15
   %115 = call i32 @llvm.usub.sat.i32(i32 %101, i32 1)
   %116 = shl nuw nsw i32 1, %115
   %117 = select i1 %114, i32 32768, i32 %116
   br label %118
 
-118:                                              ; preds = %113, %94
-  %119 = phi i32 [ %117, %113 ], [ %101, %94 ]
+118:                                              ; preds = %113, %96
+  %119 = phi i32 [ %117, %113 ], [ %101, %96 ]
   %120 = getelementptr inbounds nuw i8, ptr %98, i64 160
   store i32 %119, ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %98, i64 152

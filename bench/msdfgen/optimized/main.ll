@@ -317,23 +317,14 @@ entry:
   store double 1.000000e+00, ptr %y.i602, align 8
   store i8 0, ptr %skipColoring, align 1
   %cmp33214 = icmp sgt i32 %argc, 1
-  %ref.tmp1598.sink5131.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp1598, i64 8
-  %ref.tmp1598.sink5131.sroa.gep8820 = getelementptr inbounds nuw i8, ptr %ref.tmp1607, i64 8
-  br i1 %cmp33214, label %while.body.preheader, label %if.end1012.thread
+  %ref.tmp1598.sink5121.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp1598, i64 8
+  %ref.tmp1598.sink5121.sroa.gep8810 = getelementptr inbounds nuw i8, ptr %ref.tmp1607, i64 8
+  br i1 %cmp33214, label %while.body.outer, label %if.end1012.thread
 
 if.end1012.thread:                                ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %svgViewBox, i8 0, i64 32, i1 false)
   store double 0.000000e+00, ptr %glyphAdvance, align 8
   br label %do.body1017
-
-while.body.preheader:                             ; preds = %entry
-  %invariant.gep = getelementptr i8, ptr %argv, i64 8
-  %invariant.gep5101 = getelementptr i8, ptr %argv, i64 8
-  %invariant.gep5103 = getelementptr i8, ptr %argv, i64 8
-  %invariant.gep5105 = getelementptr i8, ptr %argv, i64 8
-  %invariant.gep5107 = getelementptr i8, ptr %argv, i64 8
-  %invariant.gep5109 = getelementptr i8, ptr %argv, i64 8
-  br label %while.body.outer
 
 for.cond.while.cond.loopexit_crit_edge:           ; preds = %for.inc825
   br label %while.cond.backedge, !llvm.loop !5
@@ -406,45 +397,45 @@ while.cond.backedge:                              ; preds = %if.else785, %if.the
   %cmp3 = icmp slt i32 %argPos.0.be, %argc
   br i1 %cmp3, label %while.body.outer, label %while.end, !llvm.loop !5
 
-while.body.outer:                                 ; preds = %while.body.preheader, %while.cond.backedge
-  %inputType.03252.ph = phi i32 [ 0, %while.body.preheader ], [ %inputType.0.be, %while.cond.backedge ]
-  %mode.03251.ph = phi i32 [ 2, %while.body.preheader ], [ %mode.0.be, %while.cond.backedge ]
-  %geometryPreproc.03250.ph = phi i32 [ 2, %while.body.preheader ], [ %geometryPreproc.0.be, %while.cond.backedge ]
-  %legacyMode.03249.ph = phi i8 [ 0, %while.body.preheader ], [ %legacyMode.0.be, %while.cond.backedge ]
-  %scanlinePass.03248.ph = phi i1 [ false, %while.body.preheader ], [ %scanlinePass.0.be, %while.cond.backedge ]
-  %fillRule.03247.ph = phi i32 [ 0, %while.body.preheader ], [ %fillRule.0.be, %while.cond.backedge ]
-  %input.03246.ph = phi ptr [ null, %while.body.preheader ], [ %input.0.be, %while.cond.backedge ]
-  %output.03245.ph = phi ptr [ @.str, %while.body.preheader ], [ %output.0.be, %while.cond.backedge ]
-  %shapeExport.03244.ph = phi ptr [ null, %while.body.preheader ], [ %shapeExport.0.be, %while.cond.backedge ]
-  %testRender.03243.ph = phi ptr [ null, %while.body.preheader ], [ %testRender.0.be, %while.cond.backedge ]
-  %testRenderMulti.03242.ph = phi ptr [ null, %while.body.preheader ], [ %testRenderMulti.0.be, %while.cond.backedge ]
-  %outputSpecified.03241.ph = phi i8 [ 0, %while.body.preheader ], [ %outputSpecified.0.be, %while.cond.backedge ]
-  %glyphIndexSpecified.03240.ph = phi i1 [ false, %while.body.preheader ], [ %glyphIndexSpecified.0.be, %while.cond.backedge ]
-  %width.03239.ph = phi i32 [ 64, %while.body.preheader ], [ %width.0.be, %while.cond.backedge ]
-  %height.03238.ph = phi i32 [ 64, %while.body.preheader ], [ %height.0.be, %while.cond.backedge ]
-  %testWidth.03237.ph = phi i32 [ 0, %while.body.preheader ], [ %testWidth.0.be, %while.cond.backedge ]
-  %testHeight.03236.ph = phi i32 [ 0, %while.body.preheader ], [ %testHeight.0.be, %while.cond.backedge ]
-  %testWidthM.03235.ph = phi i32 [ 0, %while.body.preheader ], [ %testWidthM.0.be, %while.cond.backedge ]
-  %testHeightM.03234.ph = phi i32 [ 0, %while.body.preheader ], [ %testHeightM.0.be, %while.cond.backedge ]
-  %autoFrame.03233.ph = phi i1 [ false, %while.body.preheader ], [ %autoFrame.0.be, %while.cond.backedge ]
-  %rangeMode.03232.ph = phi i32 [ 1, %while.body.preheader ], [ %rangeMode.0.be, %while.cond.backedge ]
-  %range.03231.ph = phi double [ 1.000000e+00, %while.body.preheader ], [ %range.0.be, %while.cond.backedge ]
-  %pxRange.03230.ph = phi double [ 2.000000e+00, %while.body.preheader ], [ %pxRange.0.be, %while.cond.backedge ]
-  %scaleSpecified.03229.ph = phi i8 [ 0, %while.body.preheader ], [ %scaleSpecified.0.be, %while.cond.backedge ]
-  %angleThreshold.03228.ph = phi double [ 3.000000e+00, %while.body.preheader ], [ %angleThreshold.0.be, %while.cond.backedge ]
-  %outputDistanceShift.03227.ph = phi float [ 0.000000e+00, %while.body.preheader ], [ %outputDistanceShift.0.be, %while.cond.backedge ]
-  %edgeAssignment.03226.ph = phi ptr [ null, %while.body.preheader ], [ %edgeAssignment.0.be, %while.cond.backedge ]
-  %yFlip.03225.ph = phi i1 [ false, %while.body.preheader ], [ %yFlip.0.be, %while.cond.backedge ]
-  %suggestHelp.03224.ph = phi i1 [ false, %while.body.preheader ], [ %suggestHelp.03224, %while.cond.backedge ]
-  %argPos.03223.ph = phi i32 [ 1, %while.body.preheader ], [ %argPos.0.be, %while.cond.backedge ]
-  %explicitErrorCorrectionMode.03222.ph = phi i1 [ false, %while.body.preheader ], [ %explicitErrorCorrectionMode.0.be, %while.cond.backedge ]
-  %edgeColoring.03221.ph = phi ptr [ @_ZN7msdfgen18edgeColoringSimpleERNS_5ShapeEdy, %while.body.preheader ], [ %edgeColoring.0.be, %while.cond.backedge ]
-  %orientation.03220.ph = phi i32 [ 0, %while.body.preheader ], [ %orientation.0.be, %while.cond.backedge ]
-  %estimateError.03219.ph = phi i8 [ 0, %while.body.preheader ], [ %estimateError.0.be, %while.cond.backedge ]
-  %printMetrics.03218.ph = phi i1 [ false, %while.body.preheader ], [ %printMetrics.0.be, %while.cond.backedge ]
-  %format.03217.ph = phi i32 [ 0, %while.body.preheader ], [ %format.0.be, %while.cond.backedge ]
-  %unicode.03216.ph = phi i32 [ 0, %while.body.preheader ], [ %unicode.0.be, %while.cond.backedge ]
-  %coloringSeed.03215.ph = phi i64 [ 0, %while.body.preheader ], [ %coloringSeed.0.be, %while.cond.backedge ]
+while.body.outer:                                 ; preds = %entry, %while.cond.backedge
+  %inputType.03252.ph = phi i32 [ %inputType.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %mode.03251.ph = phi i32 [ %mode.0.be, %while.cond.backedge ], [ 2, %entry ]
+  %geometryPreproc.03250.ph = phi i32 [ %geometryPreproc.0.be, %while.cond.backedge ], [ 2, %entry ]
+  %legacyMode.03249.ph = phi i8 [ %legacyMode.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %scanlinePass.03248.ph = phi i1 [ %scanlinePass.0.be, %while.cond.backedge ], [ false, %entry ]
+  %fillRule.03247.ph = phi i32 [ %fillRule.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %input.03246.ph = phi ptr [ %input.0.be, %while.cond.backedge ], [ null, %entry ]
+  %output.03245.ph = phi ptr [ %output.0.be, %while.cond.backedge ], [ @.str, %entry ]
+  %shapeExport.03244.ph = phi ptr [ %shapeExport.0.be, %while.cond.backedge ], [ null, %entry ]
+  %testRender.03243.ph = phi ptr [ %testRender.0.be, %while.cond.backedge ], [ null, %entry ]
+  %testRenderMulti.03242.ph = phi ptr [ %testRenderMulti.0.be, %while.cond.backedge ], [ null, %entry ]
+  %outputSpecified.03241.ph = phi i8 [ %outputSpecified.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %glyphIndexSpecified.03240.ph = phi i1 [ %glyphIndexSpecified.0.be, %while.cond.backedge ], [ false, %entry ]
+  %width.03239.ph = phi i32 [ %width.0.be, %while.cond.backedge ], [ 64, %entry ]
+  %height.03238.ph = phi i32 [ %height.0.be, %while.cond.backedge ], [ 64, %entry ]
+  %testWidth.03237.ph = phi i32 [ %testWidth.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %testHeight.03236.ph = phi i32 [ %testHeight.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %testWidthM.03235.ph = phi i32 [ %testWidthM.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %testHeightM.03234.ph = phi i32 [ %testHeightM.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %autoFrame.03233.ph = phi i1 [ %autoFrame.0.be, %while.cond.backedge ], [ false, %entry ]
+  %rangeMode.03232.ph = phi i32 [ %rangeMode.0.be, %while.cond.backedge ], [ 1, %entry ]
+  %range.03231.ph = phi double [ %range.0.be, %while.cond.backedge ], [ 1.000000e+00, %entry ]
+  %pxRange.03230.ph = phi double [ %pxRange.0.be, %while.cond.backedge ], [ 2.000000e+00, %entry ]
+  %scaleSpecified.03229.ph = phi i8 [ %scaleSpecified.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %angleThreshold.03228.ph = phi double [ %angleThreshold.0.be, %while.cond.backedge ], [ 3.000000e+00, %entry ]
+  %outputDistanceShift.03227.ph = phi float [ %outputDistanceShift.0.be, %while.cond.backedge ], [ 0.000000e+00, %entry ]
+  %edgeAssignment.03226.ph = phi ptr [ %edgeAssignment.0.be, %while.cond.backedge ], [ null, %entry ]
+  %yFlip.03225.ph = phi i1 [ %yFlip.0.be, %while.cond.backedge ], [ false, %entry ]
+  %suggestHelp.03224.ph = phi i1 [ %suggestHelp.03224, %while.cond.backedge ], [ false, %entry ]
+  %argPos.03223.ph = phi i32 [ %argPos.0.be, %while.cond.backedge ], [ 1, %entry ]
+  %explicitErrorCorrectionMode.03222.ph = phi i1 [ %explicitErrorCorrectionMode.0.be, %while.cond.backedge ], [ false, %entry ]
+  %edgeColoring.03221.ph = phi ptr [ %edgeColoring.0.be, %while.cond.backedge ], [ @_ZN7msdfgen18edgeColoringSimpleERNS_5ShapeEdy, %entry ]
+  %orientation.03220.ph = phi i32 [ %orientation.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %estimateError.03219.ph = phi i8 [ %estimateError.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %printMetrics.03218.ph = phi i1 [ %printMetrics.0.be, %while.cond.backedge ], [ false, %entry ]
+  %format.03217.ph = phi i32 [ %format.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %unicode.03216.ph = phi i32 [ %unicode.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %coloringSeed.03215.ph = phi i64 [ %coloringSeed.0.be, %while.cond.backedge ], [ 0, %entry ]
   br label %while.body
 
 while.cond.backedge.thread:                       ; preds = %if.end996
@@ -503,8 +494,8 @@ if.end30:                                         ; preds = %if.end25
   %tobool32.not = icmp eq i32 %call31, 0
   %add = add nsw i32 %argPos.03223, 1
   %cmp34 = icmp slt i32 %add, %argc
-  %or.cond5111 = select i1 %tobool32.not, i1 %cmp34, i1 false
-  br i1 %or.cond5111, label %if.then35, label %if.end40
+  %or.cond5101 = select i1 %tobool32.not, i1 %cmp34, i1 false
+  br i1 %or.cond5101, label %if.then35, label %if.end40
 
 if.then35:                                        ; preds = %if.end30
   %idxprom37 = sext i32 %add to i64
@@ -530,8 +521,9 @@ lor.lhs.false:                                    ; preds = %land.lhs.true43
 
 if.then50:                                        ; preds = %lor.lhs.false, %land.lhs.true43
   %inputType.1 = phi i32 [ 2, %land.lhs.true43 ], [ 3, %lor.lhs.false ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %idxprom
-  %12 = load ptr, ptr %gep, align 8
+  %arrayidx.le5099 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx53 = getelementptr i8, ptr %arrayidx.le5099, i64 8
+  %12 = load ptr, ptr %arrayidx53, align 8
   %idxprom55 = sext i32 %add41 to i64
   %arrayidx56 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom55
   %13 = load ptr, ptr %arrayidx56, align 8
@@ -676,8 +668,8 @@ if.end66:                                         ; preds = %lor.lhs.false, %if.
   %tobool68.not = icmp eq i32 %call67, 0
   %add70 = add nsw i32 %argPos.03223, 1
   %cmp71 = icmp slt i32 %add70, %argc
-  %or.cond5112 = select i1 %tobool68.not, i1 %cmp71, i1 false
-  br i1 %or.cond5112, label %if.then72, label %if.end77
+  %or.cond5102 = select i1 %tobool68.not, i1 %cmp71, i1 false
+  br i1 %or.cond5102, label %if.then72, label %if.end77
 
 if.then72:                                        ; preds = %if.end66
   %idxprom74 = sext i32 %add70 to i64
@@ -699,8 +691,8 @@ if.end85:                                         ; preds = %if.end77
   %tobool87.not = icmp eq i32 %call86, 0
   %add89 = add nsw i32 %argPos.03223, 1
   %cmp90 = icmp slt i32 %add89, %argc
-  %or.cond5113 = select i1 %tobool87.not, i1 %cmp90, i1 false
-  br i1 %or.cond5113, label %if.then91, label %sub_0
+  %or.cond5103 = select i1 %tobool87.not, i1 %cmp90, i1 false
+  br i1 %or.cond5103, label %if.then91, label %sub_0
 
 if.then91:                                        ; preds = %if.end85
   %idxprom93 = sext i32 %add89 to i64
@@ -723,8 +715,8 @@ if.end96.tail:                                    ; preds = %sub_1
   %34 = icmp eq i8 %33, 0
   %add100 = add nsw i32 %argPos.03223, 1
   %cmp101 = icmp slt i32 %add100, %argc
-  %or.cond5114 = select i1 %34, i1 %cmp101, i1 false
-  br i1 %or.cond5114, label %if.then102, label %if.end107
+  %or.cond5104 = select i1 %34, i1 %cmp101, i1 false
+  br i1 %or.cond5104, label %if.then102, label %if.end107
 
 if.then102:                                       ; preds = %if.end96.tail
   %idxprom104 = sext i32 %add100 to i64
@@ -820,8 +812,8 @@ if.end181:                                        ; preds = %if.end173
   %tobool183.not = icmp eq i32 %call182, 0
   %add185 = add nsw i32 %argPos.03223, 1
   %cmp186 = icmp slt i32 %add185, %argc
-  %or.cond5115 = select i1 %tobool183.not, i1 %cmp186, i1 false
-  br i1 %or.cond5115, label %if.then187, label %if.end227
+  %or.cond5105 = select i1 %tobool183.not, i1 %cmp186, i1 false
+  br i1 %or.cond5105, label %if.then187, label %if.end227
 
 if.then187:                                       ; preds = %if.end181
   %idxprom189 = sext i32 %add185 to i64
@@ -861,8 +853,8 @@ if.end227:                                        ; preds = %if.end181
   %tobool229.not = icmp eq i32 %call228, 0
   %add231 = add nsw i32 %argPos.03223, 1
   %cmp232 = icmp slt i32 %add231, %argc
-  %or.cond5116 = select i1 %tobool229.not, i1 %cmp232, i1 false
-  br i1 %or.cond5116, label %if.then233, label %if.end376
+  %or.cond5106 = select i1 %tobool229.not, i1 %cmp232, i1 false
+  br i1 %or.cond5106, label %if.then233, label %if.end376
 
 if.then233:                                       ; preds = %if.end227
   %idxprom235 = sext i32 %add231 to i64
@@ -989,8 +981,9 @@ if.end376:                                        ; preds = %if.end227
   br i1 %brmerge, label %if.end402, label %if.then382
 
 if.then382:                                       ; preds = %if.end376
-  %gep5102 = getelementptr ptr, ptr %invariant.gep5101, i64 %idxprom
-  %42 = load ptr, ptr %gep5102, align 8
+  %arrayidx.le5097 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx385 = getelementptr i8, ptr %arrayidx.le5097, i64 8
+  %42 = load ptr, ptr %arrayidx385, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i608)
   store ptr null, ptr %end.i608, align 8
   %call.i609 = call i64 @strtoul(ptr noundef %42, ptr noundef nonnull %end.i608, i32 noundef 10) #20
@@ -1058,8 +1051,8 @@ if.end410:                                        ; preds = %if.end402
   %tobool412.not = icmp eq i32 %call411, 0
   %add414 = add nsw i32 %argPos.03223, 1
   %cmp415 = icmp slt i32 %add414, %argc
-  %or.cond5117 = select i1 %tobool412.not, i1 %cmp415, i1 false
-  br i1 %or.cond5117, label %if.then416, label %if.end429
+  %or.cond5107 = select i1 %tobool412.not, i1 %cmp415, i1 false
+  br i1 %or.cond5107, label %if.then416, label %if.end429
 
 if.then416:                                       ; preds = %if.end410
   %idxprom418 = sext i32 %add414 to i64
@@ -1094,8 +1087,8 @@ if.end429:                                        ; preds = %if.end410
   %tobool431.not = icmp eq i32 %call430, 0
   %add433 = add nsw i32 %argPos.03223, 1
   %cmp434 = icmp slt i32 %add433, %argc
-  %or.cond5118 = select i1 %tobool431.not, i1 %cmp434, i1 false
-  br i1 %or.cond5118, label %if.then435, label %if.end449
+  %or.cond5108 = select i1 %tobool431.not, i1 %cmp434, i1 false
+  br i1 %or.cond5108, label %if.then435, label %if.end449
 
 if.then435:                                       ; preds = %if.end429
   %idxprom438 = sext i32 %add433 to i64
@@ -1130,8 +1123,8 @@ if.end449:                                        ; preds = %if.end429
   %tobool451.not = icmp eq i32 %call450, 0
   %add453 = add nsw i32 %argPos.03223, 1
   %cmp454 = icmp slt i32 %add453, %argc
-  %or.cond5119 = select i1 %tobool451.not, i1 %cmp454, i1 false
-  br i1 %or.cond5119, label %if.then455, label %if.end469
+  %or.cond5109 = select i1 %tobool451.not, i1 %cmp454, i1 false
+  br i1 %or.cond5109, label %if.then455, label %if.end469
 
 if.then455:                                       ; preds = %if.end449
   %idxprom457 = sext i32 %add453 to i64
@@ -1173,8 +1166,9 @@ if.end469:                                        ; preds = %if.end449
   br i1 %brmerge597, label %if.end495, label %if.then475
 
 if.then475:                                       ; preds = %if.end469
-  %gep5104 = getelementptr ptr, ptr %invariant.gep5103, i64 %idxprom
-  %65 = load ptr, ptr %gep5104, align 8
+  %arrayidx.le5095 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx478 = getelementptr i8, ptr %arrayidx.le5095, i64 8
+  %65 = load ptr, ptr %arrayidx478, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i638)
   store ptr null, ptr %end.i638, align 8
   %call.i639 = call double @strtod(ptr noundef %65, ptr noundef nonnull %end.i638) #20
@@ -1235,8 +1229,9 @@ if.end495:                                        ; preds = %if.end469
   br i1 %brmerge599, label %if.end517, label %if.then501
 
 if.then501:                                       ; preds = %if.end495
-  %gep5106 = getelementptr ptr, ptr %invariant.gep5105, i64 %idxprom
-  %73 = load ptr, ptr %gep5106, align 8
+  %arrayidx.le5093 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx504 = getelementptr i8, ptr %arrayidx.le5093, i64 8
+  %73 = load ptr, ptr %arrayidx504, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i651)
   store ptr null, ptr %end.i651, align 8
   %call.i652 = call double @strtod(ptr noundef %73, ptr noundef nonnull %end.i651) #20
@@ -1291,8 +1286,8 @@ if.end517:                                        ; preds = %if.end495
   %tobool519.not = icmp eq i32 %call518, 0
   %add521 = add nsw i32 %argPos.03223, 1
   %cmp522 = icmp slt i32 %add521, %argc
-  %or.cond5120 = select i1 %tobool519.not, i1 %cmp522, i1 false
-  br i1 %or.cond5120, label %if.then523, label %if.end534
+  %or.cond5110 = select i1 %tobool519.not, i1 %cmp522, i1 false
+  br i1 %or.cond5110, label %if.then523, label %if.end534
 
 if.then523:                                       ; preds = %if.end517
   %idxprom525 = sext i32 %add521 to i64
@@ -1315,8 +1310,8 @@ if.end534:                                        ; preds = %if.end517
   %tobool536.not = icmp eq i32 %call535, 0
   %add538 = add nsw i32 %argPos.03223, 1
   %cmp539 = icmp slt i32 %add538, %argc
-  %or.cond5121 = select i1 %tobool536.not, i1 %cmp539, i1 false
-  br i1 %or.cond5121, label %if.then540, label %if.end718
+  %or.cond5111 = select i1 %tobool536.not, i1 %cmp539, i1 false
+  br i1 %or.cond5111, label %if.then540, label %if.end718
 
 if.then540:                                       ; preds = %if.end534
   %idxprom542 = sext i32 %add538 to i64
@@ -1486,8 +1481,8 @@ if.end718:                                        ; preds = %if.end534
   %tobool720.not = icmp eq i32 %call719, 0
   %add722 = add nsw i32 %argPos.03223, 1
   %cmp723 = icmp slt i32 %add722, %argc
-  %or.cond5122 = select i1 %tobool720.not, i1 %cmp723, i1 false
-  br i1 %or.cond5122, label %if.then724, label %if.end738
+  %or.cond5112 = select i1 %tobool720.not, i1 %cmp723, i1 false
+  br i1 %or.cond5112, label %if.then724, label %if.end738
 
 if.then724:                                       ; preds = %if.end718
   %idxprom726 = sext i32 %add722 to i64
@@ -1526,8 +1521,8 @@ if.end738:                                        ; preds = %if.end718
   %tobool740.not = icmp eq i32 %call739, 0
   %add742 = add nsw i32 %argPos.03223, 1
   %cmp743 = icmp slt i32 %add742, %argc
-  %or.cond5123 = select i1 %tobool740.not, i1 %cmp743, i1 false
-  br i1 %or.cond5123, label %if.then744, label %if.end758
+  %or.cond5113 = select i1 %tobool740.not, i1 %cmp743, i1 false
+  br i1 %or.cond5113, label %if.then744, label %if.end758
 
 if.then744:                                       ; preds = %if.end738
   %idxprom746 = sext i32 %add742 to i64
@@ -1566,8 +1561,8 @@ if.end758:                                        ; preds = %if.end738
   %tobool760.not = icmp eq i32 %call759, 0
   %add762 = add nsw i32 %argPos.03223, 1
   %cmp763 = icmp slt i32 %add762, %argc
-  %or.cond5124 = select i1 %tobool760.not, i1 %cmp763, i1 false
-  br i1 %or.cond5124, label %if.then764, label %if.end791
+  %or.cond5114 = select i1 %tobool760.not, i1 %cmp763, i1 false
+  br i1 %or.cond5114, label %if.then764, label %if.end791
 
 if.then764:                                       ; preds = %if.end758
   %idxprom766 = sext i32 %add762 to i64
@@ -1597,8 +1592,8 @@ if.end791:                                        ; preds = %if.end758
   %tobool793.not = icmp eq i32 %call792, 0
   %add795 = add nsw i32 %argPos.03223, 1
   %cmp796 = icmp slt i32 %add795, %argc
-  %or.cond5125 = select i1 %tobool793.not, i1 %cmp796, i1 false
-  br i1 %or.cond5125, label %for.cond.preheader, label %if.end832
+  %or.cond5115 = select i1 %tobool793.not, i1 %cmp796, i1 false
+  br i1 %or.cond5115, label %for.cond.preheader, label %if.end832
 
 for.cond.preheader:                               ; preds = %if.end791
   %idxprom799 = sext i32 %add795 to i64
@@ -1646,8 +1641,8 @@ if.end832:                                        ; preds = %if.end791
   %tobool834.not = icmp eq i32 %call833, 0
   %add836 = add nsw i32 %argPos.03223, 1
   %cmp837 = icmp slt i32 %add836, %argc
-  %or.cond5126 = select i1 %tobool834.not, i1 %cmp837, i1 false
-  br i1 %or.cond5126, label %if.then838, label %if.end850
+  %or.cond5116 = select i1 %tobool834.not, i1 %cmp837, i1 false
+  br i1 %or.cond5116, label %if.then838, label %if.end850
 
 if.then838:                                       ; preds = %if.end832
   %idxprom840 = sext i32 %add836 to i64
@@ -1684,8 +1679,8 @@ if.end850:                                        ; preds = %if.end832
   %tobool852.not = icmp eq i32 %call851, 0
   %add854 = add nsw i32 %argPos.03223, 1
   %cmp855 = icmp slt i32 %add854, %argc
-  %or.cond5127 = select i1 %tobool852.not, i1 %cmp855, i1 false
-  br i1 %or.cond5127, label %if.then856, label %if.end861
+  %or.cond5117 = select i1 %tobool852.not, i1 %cmp855, i1 false
+  br i1 %or.cond5117, label %if.then856, label %if.end861
 
 if.then856:                                       ; preds = %if.end850
   %idxprom858 = sext i32 %add854 to i64
@@ -1698,10 +1693,11 @@ if.end861:                                        ; preds = %if.end850
   %tobool863.not = icmp eq i32 %call862, 0
   %add865 = add nsw i32 %argPos.03223, 3
   %cmp866 = icmp slt i32 %add865, %argc
-  %or.cond5128 = select i1 %tobool863.not, i1 %cmp866, i1 false
-  br i1 %or.cond5128, label %if.then867, label %if.end892
+  %or.cond5118 = select i1 %tobool863.not, i1 %cmp866, i1 false
+  br i1 %or.cond5118, label %if.then867, label %if.end892
 
 if.then867:                                       ; preds = %if.end861
+  %arrayidx.le5091 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
   %idxprom871 = sext i32 %add41 to i64
   %arrayidx872 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom871
   %119 = load ptr, ptr %arrayidx872, align 8
@@ -1755,8 +1751,8 @@ do.body884:                                       ; preds = %_ZL13parseUnsignedR
   br label %return
 
 if.end887:                                        ; preds = %_ZL13parseUnsignedRjPKc.exit695
-  %gep5110 = getelementptr ptr, ptr %invariant.gep5109, i64 %idxprom
-  %127 = load ptr, ptr %gep5110, align 8
+  %arrayidx890 = getelementptr i8, ptr %arrayidx.le5091, i64 8
+  %127 = load ptr, ptr %arrayidx890, align 8
   %add891 = add nsw i32 %argPos.03223, 4
   br label %while.cond.backedge
 
@@ -1765,10 +1761,11 @@ if.end892:                                        ; preds = %if.end861
   %tobool894.not = icmp eq i32 %call893, 0
   %add896 = add nsw i32 %argPos.03223, 3
   %cmp897 = icmp slt i32 %add896, %argc
-  %or.cond5129 = select i1 %tobool894.not, i1 %cmp897, i1 false
-  br i1 %or.cond5129, label %if.then898, label %if.end923
+  %or.cond5119 = select i1 %tobool894.not, i1 %cmp897, i1 false
+  br i1 %or.cond5119, label %if.then898, label %if.end923
 
 if.then898:                                       ; preds = %if.end892
+  %arrayidx.le = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
   %idxprom902 = sext i32 %add41 to i64
   %arrayidx903 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom902
   %128 = load ptr, ptr %arrayidx903, align 8
@@ -1822,8 +1819,8 @@ do.body915:                                       ; preds = %_ZL13parseUnsignedR
   br label %return
 
 if.end918:                                        ; preds = %_ZL13parseUnsignedRjPKc.exit709
-  %gep5108 = getelementptr ptr, ptr %invariant.gep5107, i64 %idxprom
-  %136 = load ptr, ptr %gep5108, align 8
+  %arrayidx921 = getelementptr i8, ptr %arrayidx.le, i64 8
+  %136 = load ptr, ptr %arrayidx921, align 8
   %add922 = add nsw i32 %argPos.03223, 4
   br label %while.cond.backedge
 
@@ -1886,8 +1883,8 @@ if.end971:                                        ; preds = %if.end963
   %tobool973.not = icmp eq i32 %call972, 0
   %add975 = add nsw i32 %argPos.03223, 1
   %cmp976 = icmp slt i32 %add975, %argc
-  %or.cond5130 = select i1 %tobool973.not, i1 %cmp976, i1 false
-  br i1 %or.cond5130, label %if.then977, label %if.end988
+  %or.cond5120 = select i1 %tobool973.not, i1 %cmp976, i1 false
+  br i1 %or.cond5120, label %if.then977, label %if.end988
 
 if.then977:                                       ; preds = %if.end971
   %idxprom979 = sext i32 %add975 to i64
@@ -3080,11 +3077,11 @@ invoke.cont1604:                                  ; preds = %if.then1587
           to label %invoke.cont1608.invoke unwind label %lpad1443
 
 invoke.cont1608.invoke:                           ; preds = %invoke.cont1604, %invoke.cont1595
-  %ref.tmp1598.sink5131.sroa.phi = phi ptr [ %ref.tmp1598.sink5131.sroa.gep, %invoke.cont1595 ], [ %ref.tmp1598.sink5131.sroa.gep8820, %invoke.cont1604 ]
-  %ref.tmp1598.sink5131 = phi ptr [ %ref.tmp1598, %invoke.cont1595 ], [ %ref.tmp1607, %invoke.cont1604 ]
-  store ptr %msdf.sroa.0.2, ptr %ref.tmp1598.sink5131, align 8
-  store i64 %msdf.sroa.17.0, ptr %ref.tmp1598.sink5131.sroa.phi, align 8
-  invoke void @_ZN7msdfgen19msdfErrorCorrectionERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1598.sink5131, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range.1, ptr noundef nonnull align 8 dereferenceable(40) %postErrorCorrectionConfig)
+  %ref.tmp1598.sink5121.sroa.phi = phi ptr [ %ref.tmp1598.sink5121.sroa.gep, %invoke.cont1595 ], [ %ref.tmp1598.sink5121.sroa.gep8810, %invoke.cont1604 ]
+  %ref.tmp1598.sink5121 = phi ptr [ %ref.tmp1598, %invoke.cont1595 ], [ %ref.tmp1607, %invoke.cont1604 ]
+  store ptr %msdf.sroa.0.2, ptr %ref.tmp1598.sink5121, align 8
+  store i64 %msdf.sroa.17.0, ptr %ref.tmp1598.sink5121.sroa.phi, align 8
+  invoke void @_ZN7msdfgen19msdfErrorCorrectionERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1598.sink5121, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range.1, ptr noundef nonnull align 8 dereferenceable(40) %postErrorCorrectionConfig)
           to label %if.end1613 unwind label %lpad1443
 
 if.end1613:                                       ; preds = %invoke.cont1608.invoke, %invoke.cont1590, %if.then1587, %if.end1585

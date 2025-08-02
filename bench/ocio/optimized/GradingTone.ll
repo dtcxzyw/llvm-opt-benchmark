@@ -2982,12 +2982,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender26highlightSha
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %21
 
-20:                                               ; preds = %41
+20:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #19
   ret void
 
-21:                                               ; preds = %2, %41
-  %.0.idx126 = phi i64 [ 0, %2 ], [ %.0.add, %41 ]
+21:                                               ; preds = %2, %44
+  %.0.idx126 = phi i64 [ 0, %2 ], [ %.0.add, %44 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx126
   %22 = load i8, ptr %.0.ptr, align 1, !tbaa !56, !range !57, !noundef !58
   %23 = trunc nuw i8 %22 to i1
@@ -2997,201 +2997,204 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender26highlightSha
   store i32 2, ptr %7, align 4, !tbaa !54
   store i32 3, ptr %8, align 4, !tbaa !54
   %24 = zext nneg i8 %22 to i64
-  %25 = load double, ptr %12, align 8
-  %26 = fptrunc double %25 to float
-  %27 = load double, ptr %13, align 8
-  %28 = fptrunc double %27 to float
-  %29 = load double, ptr %14, align 8
-  %30 = fptrunc double %29 to float
-  %31 = load double, ptr %15, align 8
-  %32 = fptrunc double %31 to float
-  %33 = load double, ptr %16, align 8
-  %34 = fptrunc double %33 to float
-  %35 = load double, ptr %17, align 8
-  %36 = fptrunc double %35 to float
-  %37 = load double, ptr %18, align 8
-  %38 = fptrunc double %37 to float
-  %39 = load double, ptr %19, align 8
-  %40 = fptrunc double %39 to float
+  %25 = getelementptr inbounds nuw [2 x [4 x [3 x float]]], ptr %9, i64 0, i64 %24
+  %26 = getelementptr inbounds nuw [2 x [4 x [3 x float]]], ptr %10, i64 0, i64 %24
+  %27 = getelementptr inbounds nuw [2 x [4 x [2 x float]]], ptr %11, i64 0, i64 %24
+  %28 = load double, ptr %12, align 8
+  %29 = fptrunc double %28 to float
+  %30 = load double, ptr %13, align 8
+  %31 = fptrunc double %30 to float
+  %32 = load double, ptr %14, align 8
+  %33 = fptrunc double %32 to float
+  %34 = load double, ptr %15, align 8
+  %35 = fptrunc double %34 to float
+  %36 = load double, ptr %16, align 8
+  %37 = fptrunc double %36 to float
+  %38 = load double, ptr %17, align 8
+  %39 = fptrunc double %38 to float
+  %40 = load double, ptr %18, align 8
+  %41 = fptrunc double %40 to float
+  %42 = load double, ptr %19, align 8
+  %43 = fptrunc double %42 to float
   %.in.idx = select i1 %23, i64 0, i64 16
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.idx
   %.in95.v = select i1 %23, i64 8, i64 24
   %.in95 = getelementptr inbounds nuw i8, ptr %0, i64 %.in95.v
-  br label %42
+  br label %45
 
-41:                                               ; preds = %125
+44:                                               ; preds = %128
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
   %.0.add = add nuw nsw i64 %.0.idx126, 1
   %.not = icmp eq i64 %.0.add, 2
   br i1 %.not, label %20, label %21
 
-42:                                               ; preds = %21, %125
-  %.092.idx125 = phi i64 [ 0, %21 ], [ %.092.add, %125 ]
+45:                                               ; preds = %21, %128
+  %.092.idx125 = phi i64 [ 0, %21 ], [ %.092.add, %128 ]
   %.092.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.092.idx125
-  %43 = load i32, ptr %.092.ptr, align 4, !tbaa !54
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw [2 x [4 x [3 x float]]], ptr %9, i64 0, i64 %24, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = getelementptr inbounds nuw [2 x [4 x [3 x float]]], ptr %10, i64 0, i64 %24, i64 %44
+  %46 = load i32, ptr %.092.ptr, align 4, !tbaa !54
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw [4 x [3 x float]], ptr %25, i64 0, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %51 = getelementptr inbounds nuw [2 x [4 x [2 x float]]], ptr %11, i64 0, i64 %24, i64 %44
+  %51 = getelementptr inbounds nuw [4 x [3 x float]], ptr %26, i64 0, i64 %47
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  br i1 %23, label %53, label %58
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw [4 x [2 x float]], ptr %27, i64 0, i64 %47
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  br i1 %23, label %56, label %61
 
-53:                                               ; preds = %42
-  switch i32 %43, label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit [
-    i32 0, label %54
-    i32 1, label %55
-    i32 2, label %56
-    i32 3, label %57
+56:                                               ; preds = %45
+  switch i32 %46, label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit [
+    i32 0, label %57
+    i32 1, label %58
+    i32 2, label %59
+    i32 3, label %60
   ]
 
-54:                                               ; preds = %53
+57:                                               ; preds = %56
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-55:                                               ; preds = %53
+58:                                               ; preds = %56
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-56:                                               ; preds = %53
+59:                                               ; preds = %56
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-57:                                               ; preds = %53
+60:                                               ; preds = %56
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-58:                                               ; preds = %42
-  switch i32 %43, label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit [
-    i32 0, label %59
-    i32 1, label %60
-    i32 2, label %61
-    i32 3, label %62
+61:                                               ; preds = %45
+  switch i32 %46, label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit [
+    i32 0, label %62
+    i32 1, label %63
+    i32 2, label %64
+    i32 3, label %65
   ]
 
-59:                                               ; preds = %58
+62:                                               ; preds = %61
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-60:                                               ; preds = %58
+63:                                               ; preds = %61
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-61:                                               ; preds = %58
+64:                                               ; preds = %61
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-62:                                               ; preds = %58
+65:                                               ; preds = %61
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit: ; preds = %62, %61, %60, %59, %58, %57, %56, %55, %54, %53
-  %63 = phi float [ %40, %54 ], [ %38, %55 ], [ %36, %56 ], [ %34, %57 ], [ 0.000000e+00, %53 ], [ %32, %59 ], [ %30, %60 ], [ %28, %61 ], [ %26, %62 ], [ 0.000000e+00, %58 ]
-  %64 = fsub float 2.000000e+00, %63
-  %storemerge = select i1 %23, float %63, float %64
-  %65 = fcmp une float %storemerge, 1.000000e+00
-  br i1 %65, label %66, label %125
+_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit: ; preds = %65, %64, %63, %62, %61, %60, %59, %58, %57, %56
+  %66 = phi float [ %43, %57 ], [ %41, %58 ], [ %39, %59 ], [ %37, %60 ], [ 0.000000e+00, %56 ], [ %35, %62 ], [ %33, %63 ], [ %31, %64 ], [ %29, %65 ], [ 0.000000e+00, %61 ]
+  %67 = fsub float 2.000000e+00, %66
+  %storemerge = select i1 %23, float %66, float %67
+  %68 = fcmp une float %storemerge, 1.000000e+00
+  br i1 %68, label %69, label %128
 
-66:                                               ; preds = %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
-  %67 = load double, ptr %.in, align 8, !tbaa !59
-  %68 = fptrunc double %67 to float
-  %69 = load double, ptr %.in95, align 8, !tbaa !59
-  %70 = fptrunc double %69 to float
-  %71 = select i1 %23, float %70, float %68
-  store float %71, ptr %45, align 4, !tbaa !33
-  %72 = select i1 %23, float %68, float %70
-  store float %72, ptr %47, align 4, !tbaa !33
-  store float %71, ptr %48, align 4, !tbaa !33
-  store float %72, ptr %50, align 4, !tbaa !33
-  %73 = fsub float %72, %71
-  %74 = tail call float @llvm.fmuladd.f32(float %73, float 5.000000e-01, float %71)
-  store float %74, ptr %46, align 4, !tbaa !33
-  %75 = fcmp olt float %storemerge, 1.000000e+00
-  br i1 %75, label %76, label %99
+69:                                               ; preds = %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
+  %70 = load double, ptr %.in, align 8, !tbaa !59
+  %71 = fptrunc double %70 to float
+  %72 = load double, ptr %.in95, align 8, !tbaa !59
+  %73 = fptrunc double %72 to float
+  %74 = select i1 %23, float %73, float %71
+  store float %74, ptr %48, align 4, !tbaa !33
+  %75 = select i1 %23, float %71, float %73
+  store float %75, ptr %50, align 4, !tbaa !33
+  store float %74, ptr %51, align 4, !tbaa !33
+  store float %75, ptr %53, align 4, !tbaa !33
+  %76 = fsub float %75, %74
+  %77 = tail call float @llvm.fmuladd.f32(float %76, float 5.000000e-01, float %74)
+  store float %77, ptr %49, align 4, !tbaa !33
+  %78 = fcmp olt float %storemerge, 1.000000e+00
+  br i1 %78, label %79, label %102
 
-76:                                               ; preds = %66
-  br i1 %23, label %77, label %.critedge
+79:                                               ; preds = %69
+  br i1 %23, label %80, label %.critedge
 
-77:                                               ; preds = %76
-  %78 = fcmp ogt float %63, 0x3F847AE140000000
-  %.sroa.speculated113 = select i1 %78, float %63, float 0x3F847AE140000000
-  br label %80
+80:                                               ; preds = %79
+  %81 = fcmp ogt float %66, 0x3F847AE140000000
+  %.sroa.speculated113 = select i1 %81, float %66, float 0x3F847AE140000000
+  br label %83
 
-.critedge:                                        ; preds = %76
-  %79 = fcmp ogt float %64, 0x3F847AE140000000
-  %.sroa.speculated109 = select i1 %79, float %64, float 0x3F847AE140000000
-  br label %80
+.critedge:                                        ; preds = %79
+  %82 = fcmp ogt float %67, 0x3F847AE140000000
+  %.sroa.speculated109 = select i1 %82, float %67, float 0x3F847AE140000000
+  br label %83
 
-80:                                               ; preds = %77, %.critedge
-  %.sink = phi float [ %.sroa.speculated113, %77 ], [ 1.000000e+00, %.critedge ]
-  %81 = phi float [ 1.000000e+00, %77 ], [ %.sroa.speculated109, %.critedge ]
-  store float %.sink, ptr %51, align 8, !tbaa !33
-  store float %81, ptr %52, align 4, !tbaa !33
-  %82 = load float, ptr %47, align 4, !tbaa !33
-  %83 = load float, ptr %45, align 4, !tbaa !33
-  %84 = fsub float %82, %83
-  %85 = fdiv float 5.000000e-01, %84
+83:                                               ; preds = %80, %.critedge
+  %.sink = phi float [ %.sroa.speculated113, %80 ], [ 1.000000e+00, %.critedge ]
+  %84 = phi float [ 1.000000e+00, %80 ], [ %.sroa.speculated109, %.critedge ]
+  store float %.sink, ptr %54, align 8, !tbaa !33
+  store float %84, ptr %55, align 4, !tbaa !33
+  %85 = load float, ptr %50, align 4, !tbaa !33
   %86 = load float, ptr %48, align 4, !tbaa !33
-  %87 = load float, ptr %46, align 4, !tbaa !33
-  %88 = fsub float %87, %83
-  %89 = fmul float %.sink, %88
-  %90 = tail call float @llvm.fmuladd.f32(float %86, float 2.000000e+00, float %89)
-  %91 = fsub float %82, %87
-  %92 = load float, ptr %50, align 4, !tbaa !33
-  %93 = fneg float %91
-  %94 = fmul float %81, %93
-  %95 = tail call float @llvm.fmuladd.f32(float %92, float 2.000000e+00, float %94)
-  %96 = fmul float %88, %95
-  %97 = tail call float @llvm.fmuladd.f32(float %90, float %91, float %96)
-  %98 = fmul float %85, %97
+  %87 = fsub float %85, %86
+  %88 = fdiv float 5.000000e-01, %87
+  %89 = load float, ptr %51, align 4, !tbaa !33
+  %90 = load float, ptr %49, align 4, !tbaa !33
+  %91 = fsub float %90, %86
+  %92 = fmul float %.sink, %91
+  %93 = tail call float @llvm.fmuladd.f32(float %89, float 2.000000e+00, float %92)
+  %94 = fsub float %85, %90
+  %95 = load float, ptr %53, align 4, !tbaa !33
+  %96 = fneg float %94
+  %97 = fmul float %84, %96
+  %98 = tail call float @llvm.fmuladd.f32(float %95, float 2.000000e+00, float %97)
+  %99 = fmul float %91, %98
+  %100 = tail call float @llvm.fmuladd.f32(float %93, float %94, float %99)
+  %101 = fmul float %88, %100
   br label %.sink.split
 
-99:                                               ; preds = %66
-  %100 = fcmp ogt float %storemerge, 1.000000e+00
-  br i1 %100, label %101, label %125
+102:                                              ; preds = %69
+  %103 = fcmp ogt float %storemerge, 1.000000e+00
+  br i1 %103, label %104, label %128
 
-101:                                              ; preds = %99
-  br i1 %23, label %102, label %.critedge97
+104:                                              ; preds = %102
+  br i1 %23, label %105, label %.critedge97
 
-102:                                              ; preds = %101
-  %103 = fcmp ogt float %64, 0x3F847AE140000000
-  %.sroa.speculated104 = select i1 %103, float %64, float 0x3F847AE140000000
-  br label %106
+105:                                              ; preds = %104
+  %106 = fcmp ogt float %67, 0x3F847AE140000000
+  %.sroa.speculated104 = select i1 %106, float %67, float 0x3F847AE140000000
+  br label %109
 
-.critedge97:                                      ; preds = %101
-  %104 = fsub float 2.000000e+00, %64
-  %105 = fcmp ogt float %104, 0x3F847AE140000000
-  %.sroa.speculated = select i1 %105, float %104, float 0x3F847AE140000000
-  br label %106
+.critedge97:                                      ; preds = %104
+  %107 = fsub float 2.000000e+00, %67
+  %108 = fcmp ogt float %107, 0x3F847AE140000000
+  %.sroa.speculated = select i1 %108, float %107, float 0x3F847AE140000000
+  br label %109
 
-106:                                              ; preds = %102, %.critedge97
-  %.sink127 = phi float [ %.sroa.speculated104, %102 ], [ 1.000000e+00, %.critedge97 ]
-  %107 = phi float [ 1.000000e+00, %102 ], [ %.sroa.speculated, %.critedge97 ]
-  store float %.sink127, ptr %51, align 8, !tbaa !33
-  store float %107, ptr %52, align 4, !tbaa !33
-  %108 = load float, ptr %47, align 4, !tbaa !33
-  %109 = load float, ptr %46, align 4, !tbaa !33
-  %110 = fsub float %108, %109
-  %111 = load float, ptr %45, align 4, !tbaa !33
-  %112 = fsub float %109, %111
-  %113 = fadd float %110, %112
-  %114 = fdiv float 5.000000e-01, %113
-  %115 = load float, ptr %48, align 4, !tbaa !33
-  %116 = fmul float %112, %.sink127
-  %117 = tail call float @llvm.fmuladd.f32(float %115, float 2.000000e+00, float %116)
-  %118 = load float, ptr %50, align 4, !tbaa !33
-  %119 = fneg float %110
-  %120 = fmul float %107, %119
-  %121 = tail call float @llvm.fmuladd.f32(float %118, float 2.000000e+00, float %120)
-  %122 = fmul float %112, %121
-  %123 = tail call float @llvm.fmuladd.f32(float %117, float %110, float %122)
-  %124 = fmul float %114, %123
+109:                                              ; preds = %105, %.critedge97
+  %.sink127 = phi float [ %.sroa.speculated104, %105 ], [ 1.000000e+00, %.critedge97 ]
+  %110 = phi float [ 1.000000e+00, %105 ], [ %.sroa.speculated, %.critedge97 ]
+  store float %.sink127, ptr %54, align 8, !tbaa !33
+  store float %110, ptr %55, align 4, !tbaa !33
+  %111 = load float, ptr %50, align 4, !tbaa !33
+  %112 = load float, ptr %49, align 4, !tbaa !33
+  %113 = fsub float %111, %112
+  %114 = load float, ptr %48, align 4, !tbaa !33
+  %115 = fsub float %112, %114
+  %116 = fadd float %113, %115
+  %117 = fdiv float 5.000000e-01, %116
+  %118 = load float, ptr %51, align 4, !tbaa !33
+  %119 = fmul float %115, %.sink127
+  %120 = tail call float @llvm.fmuladd.f32(float %118, float 2.000000e+00, float %119)
+  %121 = load float, ptr %53, align 4, !tbaa !33
+  %122 = fneg float %113
+  %123 = fmul float %110, %122
+  %124 = tail call float @llvm.fmuladd.f32(float %121, float 2.000000e+00, float %123)
+  %125 = fmul float %115, %124
+  %126 = tail call float @llvm.fmuladd.f32(float %120, float %113, float %125)
+  %127 = fmul float %117, %126
   br label %.sink.split
 
-.sink.split:                                      ; preds = %106, %80
-  %.sink128 = phi float [ %98, %80 ], [ %124, %106 ]
-  store float %.sink128, ptr %49, align 4, !tbaa !33
-  br label %125
+.sink.split:                                      ; preds = %109, %83
+  %.sink128 = phi float [ %101, %83 ], [ %127, %109 ]
+  store float %.sink128, ptr %52, align 4, !tbaa !33
+  br label %128
 
-125:                                              ; preds = %.sink.split, %99, %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
+128:                                              ; preds = %.sink.split, %102, %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
   %.092.add = add nuw nsw i64 %.092.idx125, 4
   %.not94 = icmp eq i64 %.092.add, 16
-  br i1 %.not94, label %41, label %42
+  br i1 %.not94, label %44, label %45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -3218,12 +3221,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender21whiteBlack_p
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %21
 
-20:                                               ; preds = %52
+20:                                               ; preds = %56
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #19
   ret void
 
-21:                                               ; preds = %2, %52
-  %.0.idx119 = phi i64 [ 0, %2 ], [ %.0.add, %52 ]
+21:                                               ; preds = %2, %56
+  %.0.idx119 = phi i64 [ 0, %2 ], [ %.0.add, %56 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx119
   %22 = load i8, ptr %.0.ptr, align 1, !tbaa !56, !range !57, !noundef !58
   %23 = trunc nuw i8 %22 to i1
@@ -3233,172 +3236,176 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender21whiteBlack_p
   store i32 2, ptr %7, align 4, !tbaa !54
   store i32 3, ptr %8, align 4, !tbaa !54
   %24 = zext nneg i8 %22 to i64
+  %25 = getelementptr inbounds nuw [2 x [4 x [2 x float]]], ptr %9, i64 0, i64 %24
+  %26 = getelementptr inbounds nuw [2 x [4 x [2 x float]]], ptr %10, i64 0, i64 %24
+  %27 = getelementptr inbounds nuw [2 x [4 x [2 x float]]], ptr %11, i64 0, i64 %24
+  %28 = getelementptr inbounds nuw [2 x [4 x float]], ptr %12, i64 0, i64 %24
   %.in.v = select i1 %23, i64 32, i64 48
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %25 = load double, ptr %.in, align 8, !tbaa !59
-  %26 = fptrunc double %25 to float
+  %29 = load double, ptr %.in, align 8, !tbaa !59
+  %30 = fptrunc double %29 to float
   %.in94.v = select i1 %23, i64 40, i64 56
   %.in94 = getelementptr inbounds nuw i8, ptr %0, i64 %.in94.v
-  %27 = load double, ptr %.in94, align 8, !tbaa !59
-  %28 = fptrunc double %27 to float
-  %29 = fsub float %26, %28
-  %30 = select i1 %23, float %29, float %26
-  %31 = fadd float %30, %28
-  %32 = select i1 %23, float %26, float %31
-  %33 = load double, ptr %13, align 8
-  %34 = fptrunc double %33 to float
-  %35 = load double, ptr %14, align 8
-  %36 = fptrunc double %35 to float
-  %37 = load double, ptr %15, align 8
+  %31 = load double, ptr %.in94, align 8, !tbaa !59
+  %32 = fptrunc double %31 to float
+  %33 = fsub float %30, %32
+  %34 = select i1 %23, float %33, float %30
+  %35 = fadd float %34, %32
+  %36 = select i1 %23, float %30, float %35
+  %37 = load double, ptr %13, align 8
   %38 = fptrunc double %37 to float
-  %39 = load double, ptr %16, align 8
+  %39 = load double, ptr %14, align 8
   %40 = fptrunc double %39 to float
-  %41 = load double, ptr %17, align 8
+  %41 = load double, ptr %15, align 8
   %42 = fptrunc double %41 to float
-  %43 = load double, ptr %18, align 8
+  %43 = load double, ptr %16, align 8
   %44 = fptrunc double %43 to float
-  %45 = load double, ptr %19, align 8
+  %45 = load double, ptr %17, align 8
   %46 = fptrunc double %45 to float
-  %47 = load double, ptr %1, align 8
+  %47 = load double, ptr %18, align 8
   %48 = fptrunc double %47 to float
-  %49 = fsub float %26, %29
-  %50 = fneg float %49
-  %51 = fsub float %31, %26
-  br label %53
+  %49 = load double, ptr %19, align 8
+  %50 = fptrunc double %49 to float
+  %51 = load double, ptr %1, align 8
+  %52 = fptrunc double %51 to float
+  %53 = fsub float %30, %33
+  %54 = fneg float %53
+  %55 = fsub float %35, %30
+  br label %57
 
-52:                                               ; preds = %101
+56:                                               ; preds = %105
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
   %.0.add = add nuw nsw i64 %.0.idx119, 1
   %.not = icmp eq i64 %.0.add, 2
   br i1 %.not, label %20, label %21
 
-53:                                               ; preds = %21, %101
-  %.091.idx118 = phi i64 [ 0, %21 ], [ %.091.add, %101 ]
+57:                                               ; preds = %21, %105
+  %.091.idx118 = phi i64 [ 0, %21 ], [ %.091.add, %105 ]
   %.091.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.091.idx118
-  %54 = load i32, ptr %.091.ptr, align 4, !tbaa !54
-  %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw [2 x [4 x [2 x float]]], ptr %9, i64 0, i64 %24, i64 %55
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %58 = getelementptr inbounds nuw [2 x [4 x [2 x float]]], ptr %10, i64 0, i64 %24, i64 %55
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %60 = getelementptr inbounds nuw [2 x [4 x [2 x float]]], ptr %11, i64 0, i64 %24, i64 %55
+  %58 = load i32, ptr %.091.ptr, align 4, !tbaa !54
+  %59 = zext i32 %58 to i64
+  %60 = getelementptr inbounds nuw [4 x [2 x float]], ptr %25, i64 0, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %62 = getelementptr inbounds nuw [2 x [4 x float]], ptr %12, i64 0, i64 %24, i64 %55
-  br i1 %23, label %63, label %68
+  %62 = getelementptr inbounds nuw [4 x [2 x float]], ptr %26, i64 0, i64 %59
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %64 = getelementptr inbounds nuw [4 x [2 x float]], ptr %27, i64 0, i64 %59
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %66 = getelementptr inbounds nuw [4 x float], ptr %28, i64 0, i64 %59
+  br i1 %23, label %67, label %72
 
-63:                                               ; preds = %53
-  switch i32 %54, label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit [
-    i32 0, label %64
-    i32 1, label %65
-    i32 2, label %66
-    i32 3, label %67
+67:                                               ; preds = %57
+  switch i32 %58, label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit [
+    i32 0, label %68
+    i32 1, label %69
+    i32 2, label %70
+    i32 3, label %71
   ]
 
-64:                                               ; preds = %63
+68:                                               ; preds = %67
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-65:                                               ; preds = %63
+69:                                               ; preds = %67
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-66:                                               ; preds = %63
+70:                                               ; preds = %67
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-67:                                               ; preds = %63
+71:                                               ; preds = %67
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-68:                                               ; preds = %53
-  switch i32 %54, label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit [
-    i32 0, label %69
-    i32 1, label %70
-    i32 2, label %71
-    i32 3, label %72
+72:                                               ; preds = %57
+  switch i32 %58, label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit [
+    i32 0, label %73
+    i32 1, label %74
+    i32 2, label %75
+    i32 3, label %76
   ]
 
-69:                                               ; preds = %68
+73:                                               ; preds = %72
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-70:                                               ; preds = %68
+74:                                               ; preds = %72
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-71:                                               ; preds = %68
+75:                                               ; preds = %72
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-72:                                               ; preds = %68
+76:                                               ; preds = %72
   br label %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
 
-_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit: ; preds = %72, %71, %70, %69, %68, %67, %66, %65, %64, %63
-  %73 = phi float [ %48, %64 ], [ %46, %65 ], [ %44, %66 ], [ %42, %67 ], [ 0.000000e+00, %63 ], [ %40, %69 ], [ %38, %70 ], [ %36, %71 ], [ %34, %72 ], [ 0.000000e+00, %68 ]
-  store float %30, ptr %56, align 8, !tbaa !33
-  store float %32, ptr %57, align 4, !tbaa !33
-  %74 = fsub float 2.000000e+00, %73
-  %75 = select i1 %23, float %74, float %73
-  %76 = fcmp olt float %75, 1.000000e+00
-  br i1 %76, label %77, label %88
+_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit: ; preds = %76, %75, %74, %73, %72, %71, %70, %69, %68, %67
+  %77 = phi float [ %52, %68 ], [ %50, %69 ], [ %48, %70 ], [ %46, %71 ], [ 0.000000e+00, %67 ], [ %44, %73 ], [ %42, %74 ], [ %40, %75 ], [ %38, %76 ], [ 0.000000e+00, %72 ]
+  store float %34, ptr %60, align 8, !tbaa !33
+  store float %36, ptr %61, align 4, !tbaa !33
+  %78 = fsub float 2.000000e+00, %77
+  %79 = select i1 %23, float %78, float %77
+  %80 = fcmp olt float %79, 1.000000e+00
+  br i1 %80, label %81, label %92
 
-77:                                               ; preds = %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
-  br i1 %23, label %83, label %78
+81:                                               ; preds = %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
+  br i1 %23, label %87, label %82
 
-78:                                               ; preds = %77
-  store float 1.000000e+00, ptr %60, align 8, !tbaa !33
-  %79 = fcmp ogt float %73, 0x3F847AE140000000
-  %.sroa.speculated109 = select i1 %79, float %73, float 0x3F847AE140000000
-  store float %.sroa.speculated109, ptr %61, align 4, !tbaa !33
-  store float %26, ptr %58, align 8, !tbaa !33
-  %80 = fadd float %.sroa.speculated109, 1.000000e+00
-  %81 = fmul float %51, %80
-  %82 = tail call float @llvm.fmuladd.f32(float %81, float 5.000000e-01, float %26)
-  store float %82, ptr %59, align 4, !tbaa !33
-  br label %101
+82:                                               ; preds = %81
+  store float 1.000000e+00, ptr %64, align 8, !tbaa !33
+  %83 = fcmp ogt float %77, 0x3F847AE140000000
+  %.sroa.speculated109 = select i1 %83, float %77, float 0x3F847AE140000000
+  store float %.sroa.speculated109, ptr %65, align 4, !tbaa !33
+  store float %30, ptr %62, align 8, !tbaa !33
+  %84 = fadd float %.sroa.speculated109, 1.000000e+00
+  %85 = fmul float %55, %84
+  %86 = tail call float @llvm.fmuladd.f32(float %85, float 5.000000e-01, float %30)
+  store float %86, ptr %63, align 4, !tbaa !33
+  br label %105
 
-83:                                               ; preds = %77
-  %84 = fcmp ogt float %74, 0x3F847AE140000000
-  %.sroa.speculated105 = select i1 %84, float %74, float 0x3F847AE140000000
-  store float %.sroa.speculated105, ptr %60, align 8, !tbaa !33
-  store float 1.000000e+00, ptr %61, align 4, !tbaa !33
-  store float %26, ptr %59, align 4, !tbaa !33
-  %85 = fadd float %.sroa.speculated105, 1.000000e+00
-  %86 = fmul float %85, %50
-  %87 = tail call float @llvm.fmuladd.f32(float %86, float 5.000000e-01, float %26)
-  store float %87, ptr %58, align 8, !tbaa !33
-  br label %101
+87:                                               ; preds = %81
+  %88 = fcmp ogt float %78, 0x3F847AE140000000
+  %.sroa.speculated105 = select i1 %88, float %78, float 0x3F847AE140000000
+  store float %.sroa.speculated105, ptr %64, align 8, !tbaa !33
+  store float 1.000000e+00, ptr %65, align 4, !tbaa !33
+  store float %30, ptr %63, align 4, !tbaa !33
+  %89 = fadd float %.sroa.speculated105, 1.000000e+00
+  %90 = fmul float %89, %54
+  %91 = tail call float @llvm.fmuladd.f32(float %90, float 5.000000e-01, float %30)
+  store float %91, ptr %62, align 8, !tbaa !33
+  br label %105
 
-88:                                               ; preds = %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
-  %89 = fcmp ogt float %75, 1.000000e+00
-  br i1 %89, label %90, label %101
+92:                                               ; preds = %_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit
+  %93 = fcmp ogt float %79, 1.000000e+00
+  br i1 %93, label %94, label %105
 
-90:                                               ; preds = %88
-  br i1 %23, label %93, label %91
+94:                                               ; preds = %92
+  br i1 %23, label %97, label %95
 
-91:                                               ; preds = %90
-  %92 = fcmp ogt float %74, 0x3F847AE140000000
-  %.sroa.speculated101 = select i1 %92, float %74, float 0x3F847AE140000000
-  br label %98
+95:                                               ; preds = %94
+  %96 = fcmp ogt float %78, 0x3F847AE140000000
+  %.sroa.speculated101 = select i1 %96, float %78, float 0x3F847AE140000000
+  br label %102
 
-93:                                               ; preds = %90
-  %94 = fcmp ogt float %73, 0x3F847AE140000000
-  %.sroa.speculated = select i1 %94, float %73, float 0x3F847AE140000000
-  store float %26, ptr %59, align 4, !tbaa !33
-  %95 = fadd float %.sroa.speculated, 1.000000e+00
-  %96 = fmul float %95, %50
-  %97 = tail call float @llvm.fmuladd.f32(float %96, float 5.000000e-01, float %26)
-  br label %98
+97:                                               ; preds = %94
+  %98 = fcmp ogt float %77, 0x3F847AE140000000
+  %.sroa.speculated = select i1 %98, float %77, float 0x3F847AE140000000
+  store float %30, ptr %63, align 4, !tbaa !33
+  %99 = fadd float %.sroa.speculated, 1.000000e+00
+  %100 = fmul float %99, %54
+  %101 = tail call float @llvm.fmuladd.f32(float %100, float 5.000000e-01, float %30)
+  br label %102
 
-98:                                               ; preds = %93, %91
-  %.sink = phi float [ %.sroa.speculated, %93 ], [ 1.000000e+00, %91 ]
-  %.sroa.speculated101.sink = phi float [ 1.000000e+00, %93 ], [ %.sroa.speculated101, %91 ]
-  %storemerge = phi float [ %97, %93 ], [ %26, %91 ]
-  store float %.sink, ptr %60, align 8, !tbaa !33
-  store float %.sroa.speculated101.sink, ptr %61, align 4, !tbaa !33
-  store float %storemerge, ptr %58, align 8, !tbaa !33
-  %99 = fadd float %.sink, %.sroa.speculated101.sink
-  %100 = fmul float %99, 5.000000e-01
-  store float %100, ptr %62, align 4, !tbaa !33
-  br label %101
+102:                                              ; preds = %97, %95
+  %.sink = phi float [ %.sroa.speculated, %97 ], [ 1.000000e+00, %95 ]
+  %.sroa.speculated101.sink = phi float [ 1.000000e+00, %97 ], [ %.sroa.speculated101, %95 ]
+  %storemerge = phi float [ %101, %97 ], [ %30, %95 ]
+  store float %.sink, ptr %64, align 8, !tbaa !33
+  store float %.sroa.speculated101.sink, ptr %65, align 4, !tbaa !33
+  store float %storemerge, ptr %62, align 8, !tbaa !33
+  %103 = fadd float %.sink, %.sroa.speculated101.sink
+  %104 = fmul float %103, 5.000000e-01
+  store float %104, ptr %66, align 4, !tbaa !33
+  br label %105
 
-101:                                              ; preds = %88, %98, %78, %83
+105:                                              ; preds = %92, %102, %82, %87
   %.091.add = add nuw nsw i64 %.091.idx118, 4
   %.not93 = icmp eq i64 %.091.add, 16
-  br i1 %.not93, label %52, label %53
+  br i1 %.not93, label %56, label %57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

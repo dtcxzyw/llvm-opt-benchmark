@@ -2846,14 +2846,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h3
   %79 = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr i8, ptr %.sroa.019.0, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 24
   br label %83
 
 83:                                               ; preds = %93, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17ha489e7d883e2005aE.exit56"
   %.sroa.0.04.i = phi i64 [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17ha489e7d883e2005aE.exit56" ], [ %84, %93 ]
   %84 = add nuw nsw i64 %.sroa.0.04.i, 1
   %.idx.i = mul nuw nsw i64 %.sroa.0.04.i, 24
-  %85 = getelementptr i8, ptr %82, i64 %.idx.i
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx.i
   %86 = load atomic i64, ptr %85 acquire, align 8
   %87 = and i64 %86, 2
   %88 = icmp eq i64 %87, 0
@@ -2874,14 +2874,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h3
   br i1 %95, label %.lr.ph.i59, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h446305095a9bdd76E.exit.sink.split"
 
 .lr.ph.i59:                                       ; preds = %94
-  %96 = getelementptr i8, ptr %.sroa.019.0, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 24
   br label %97
 
 97:                                               ; preds = %107, %.lr.ph.i59
   %.sroa.0.04.i60 = phi i64 [ %40, %.lr.ph.i59 ], [ %98, %107 ]
   %98 = add nuw nsw i64 %.sroa.0.04.i60, 1
   %.idx.i61 = mul nuw nsw i64 %.sroa.0.04.i60, 24
-  %99 = getelementptr i8, ptr %96, i64 %.idx.i61
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx.i61
   %100 = load atomic i64, ptr %99 acquire, align 8
   %101 = and i64 %100, 2
   %102 = icmp eq i64 %101, 0
@@ -3074,14 +3074,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %70, i64 96, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  %78 = getelementptr i8, ptr %.sroa.019.0, i64 104
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 104
   br label %79
 
 79:                                               ; preds = %89, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hac1d506d22f7e986E.exit48"
   %.sroa.0.04.i = phi i64 [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hac1d506d22f7e986E.exit48" ], [ %80, %89 ]
   %80 = add nuw nsw i64 %.sroa.0.04.i, 1
   %.idx.i = mul nuw nsw i64 %.sroa.0.04.i, 104
-  %81 = getelementptr i8, ptr %78, i64 %.idx.i
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx.i
   %82 = load atomic i64, ptr %81 acquire, align 8
   %83 = and i64 %82, 2
   %84 = icmp eq i64 %83, 0
@@ -3102,14 +3102,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h7
   br i1 %91, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h819b9048b66d8e05E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %90
-  %92 = getelementptr i8, ptr %.sroa.019.0, i64 104
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 104
   br label %93
 
 93:                                               ; preds = %103, %.lr.ph.i51
   %.sroa.0.04.i52 = phi i64 [ %42, %.lr.ph.i51 ], [ %94, %103 ]
   %94 = add nuw nsw i64 %.sroa.0.04.i52, 1
   %.idx.i53 = mul nuw nsw i64 %.sroa.0.04.i52, 104
-  %95 = getelementptr i8, ptr %92, i64 %.idx.i53
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i53
   %96 = load atomic i64, ptr %95 acquire, align 8
   %97 = and i64 %96, 2
   %98 = icmp eq i64 %97, 0
@@ -3511,14 +3511,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17ha
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %70, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  %78 = getelementptr i8, ptr %.sroa.019.0, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 56
   br label %79
 
 79:                                               ; preds = %89, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h0a076766e85f6528E.exit48"
   %.sroa.0.04.i = phi i64 [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h0a076766e85f6528E.exit48" ], [ %80, %89 ]
   %80 = add nuw nsw i64 %.sroa.0.04.i, 1
   %.idx.i = mul nuw nsw i64 %.sroa.0.04.i, 56
-  %81 = getelementptr i8, ptr %78, i64 %.idx.i
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx.i
   %82 = load atomic i64, ptr %81 acquire, align 8
   %83 = and i64 %82, 2
   %84 = icmp eq i64 %83, 0
@@ -3539,14 +3539,14 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17ha
   br i1 %91, label %.lr.ph.i51, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h75cebd18613a0ab3E.exit.sink.split"
 
 .lr.ph.i51:                                       ; preds = %90
-  %92 = getelementptr i8, ptr %.sroa.019.0, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 56
   br label %93
 
 93:                                               ; preds = %103, %.lr.ph.i51
   %.sroa.0.04.i52 = phi i64 [ %42, %.lr.ph.i51 ], [ %94, %103 ]
   %94 = add nuw nsw i64 %.sroa.0.04.i52, 1
   %.idx.i53 = mul nuw nsw i64 %.sroa.0.04.i52, 56
-  %95 = getelementptr i8, ptr %92, i64 %.idx.i53
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i53
   %96 = load atomic i64, ptr %95 acquire, align 8
   %97 = and i64 %96, 2
   %98 = icmp eq i64 %97, 0

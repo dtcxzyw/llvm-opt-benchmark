@@ -1801,20 +1801,20 @@ define internal noundef i32 @io_wq_worker(ptr noundef %0) #9 align 16 {
 
 .outer.outer:                                     ; preds = %104, %1
   %.ph = phi i1 [ false, %104 ], [ true, %1 ]
-  %.ph4.ph = phi i8 [ %109, %104 ], [ 0, %1 ]
-  %34 = icmp ne i8 %.ph4.ph, 0
+  %.ph5.ph = phi i8 [ %109, %104 ], [ 0, %1 ]
+  %34 = icmp ne i8 %.ph5.ph, 0
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
   %35 = phi i1 [ %.ph, %.outer.outer ], [ true, %.outer.backedge ]
   br label %36
 
-36:                                               ; preds = %.outer, %.critedge
-  %37 = phi i1 [ true, %.critedge ], [ %35, %.outer ]
+36:                                               ; preds = %.outer, %.critedge3
+  %37 = phi i1 [ true, %.critedge3 ], [ %35, %.outer ]
   %38 = load volatile i64, ptr %5, align 8
   %39 = and i64 %38, 1
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %.loopexit3
+  br i1 %40, label %41, label %.loopexit4
 
 41:                                               ; preds = %36
   %42 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %21, i32 1, ptr nonnull elementtype(i32) %21) #17, !srcloc !50
@@ -1846,14 +1846,14 @@ define internal noundef i32 @io_wq_worker(ptr noundef %0) #9 align 16 {
   %.pre = load i32, ptr %12, align 8
   %53 = icmp ugt i32 %.pre, 1
   %or.cond = select i1 %34, i1 true, i1 %53
-  br i1 %or.cond, label %.thread, label %55
+  br i1 %or.cond, label %.critedge, label %55
 
-.thread:                                          ; preds = %52
+.critedge:                                        ; preds = %52
   %54 = add i32 %.pre, -1
   store i32 %54, ptr %12, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull %25) #17
   store volatile i32 0, ptr %21, align 8
-  br label %.loopexit3
+  br label %.loopexit4
 
 55:                                               ; preds = %52, %._crit_edge
   %56 = load i32, ptr %6, align 4
@@ -1938,20 +1938,20 @@ define internal noundef i32 @io_wq_worker(ptr noundef %0) #9 align 16 {
   %94 = load volatile i64, ptr %20, align 8
   %95 = and i64 %94, 131072
   %96 = icmp eq i64 %95, 0
-  br i1 %96, label %97, label %.critedge, !prof !7
+  br i1 %96, label %97, label %.critedge3, !prof !7
 
 97:                                               ; preds = %92
   %98 = load volatile i64, ptr %20, align 8
   %99 = and i64 %98, 4
   %100 = icmp eq i64 %99, 0
-  br i1 %100, label %102, label %.critedge
+  br i1 %100, label %102, label %.critedge3
 
-.critedge:                                        ; preds = %92, %97
+.critedge3:                                       ; preds = %92, %97
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false), !annotation !18
   %101 = call zeroext i1 @get_signal(ptr noundef nonnull %3) #17
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #17
-  br i1 %101, label %.loopexit3, label %36
+  br i1 %101, label %.loopexit4, label %36
 
 102:                                              ; preds = %97
   %103 = icmp eq i64 %93, 0
@@ -1969,13 +1969,13 @@ define internal noundef i32 @io_wq_worker(ptr noundef %0) #9 align 16 {
   %109 = xor i8 %107, 1
   br label %.outer.outer
 
-.loopexit3:                                       ; preds = %.critedge, %36, %.thread
+.loopexit4:                                       ; preds = %.critedge3, %36, %.critedge
   %110 = load volatile i64, ptr %5, align 8
   %111 = and i64 %110, 1
   %112 = icmp eq i64 %111, 0
   br i1 %112, label %122, label %113
 
-113:                                              ; preds = %.loopexit3
+113:                                              ; preds = %.loopexit4
   call void @_raw_spin_lock(ptr noundef nonnull %22) #17
   %114 = load volatile i64, ptr %23, align 8
   %115 = and i64 %114, 1
@@ -1995,7 +1995,7 @@ define internal noundef i32 @io_wq_worker(ptr noundef %0) #9 align 16 {
   call fastcc void @io_worker_handle_work(ptr noundef %12, ptr noundef %0)
   br label %122
 
-122:                                              ; preds = %121, %120, %.loopexit3
+122:                                              ; preds = %121, %120, %.loopexit4
   %123 = load ptr, ptr %4, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 88
   %125 = load ptr, ptr %124, align 8
@@ -2069,19 +2069,19 @@ io_worker_cancel_cb.exit:                         ; preds = %151, %153, %154
 
 160:                                              ; preds = %.loopexit
   %161 = icmp sgt i32 %158, 0
-  br i1 %161, label %.thread2, label %162, !prof !7
+  br i1 %161, label %.thread, label %162, !prof !7
 
 162:                                              ; preds = %160
   call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 3) #17
-  br label %.thread2
+  br label %.thread
 
 163:                                              ; preds = %.loopexit
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !23
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @complete(ptr noundef nonnull %164) #17
-  br label %.thread2
+  br label %.thread
 
-.thread2:                                         ; preds = %160, %162, %163
+.thread:                                          ; preds = %160, %162, %163
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @wait_for_completion(ptr noundef nonnull %165) #17
   %166 = getelementptr inbounds nuw i8, ptr %123, i64 192
@@ -2091,7 +2091,7 @@ io_worker_cancel_cb.exit:                         ; preds = %151, %153, %154
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %179, label %170
 
-170:                                              ; preds = %.thread2
+170:                                              ; preds = %.thread
   %171 = load ptr, ptr %26, align 8
   %172 = load ptr, ptr %28, align 8
   store volatile ptr %171, ptr %172, align 8
@@ -2109,7 +2109,7 @@ io_worker_cancel_cb.exit:                         ; preds = %151, %153, %154
   store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %28, align 8
   br label %179
 
-179:                                              ; preds = %178, %.thread2
+179:                                              ; preds = %178, %.thread
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %182 = load ptr, ptr %181, align 8

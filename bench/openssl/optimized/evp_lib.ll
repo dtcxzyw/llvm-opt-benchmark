@@ -262,27 +262,26 @@ define range(i32 -1, 17) i32 @EVP_CIPHER_get_asn1_iv(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
   %5 = tail call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 17
-  br i1 %6, label %7, label %.thread, !prof !28
+  br i1 %6, label %7, label %.critedge, !prof !28
 
 7:                                                ; preds = %4
   %8 = call i32 @ASN1_TYPE_get_octetstring(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef %5) #13
   %.not16 = icmp eq i32 %8, %5
-  br i1 %.not16, label %9, label %.thread
-
-.thread:                                          ; preds = %4, %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
-  br label %11
+  br i1 %.not16, label %9, label %.critedge
 
 9:                                                ; preds = %7
   %10 = call i32 @EVP_CipherInit_ex(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, i32 noundef -1) #13
-  %.fr = freeze i32 %10
-  %.not17.not = icmp eq i32 %.fr, 0
+  %.not17.not = icmp eq i32 %10, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
   %spec.select = select i1 %.not17.not, i32 -1, i32 %5
   br label %11
 
-11:                                               ; preds = %9, %.thread, %2
-  %.1 = phi i32 [ 0, %2 ], [ -1, %.thread ], [ %spec.select, %9 ]
+.critedge:                                        ; preds = %7, %4
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
+  br label %11
+
+11:                                               ; preds = %9, %2, %.critedge
+  %.1 = phi i32 [ -1, %.critedge ], [ 0, %2 ], [ %spec.select, %9 ]
   ret i32 %.1
 }
 

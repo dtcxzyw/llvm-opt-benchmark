@@ -3184,18 +3184,17 @@ declare noundef ptr @_ZN13RelocIterator5relocEv(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN10CodeBuffer26figure_expanded_capacitiesEP11CodeSectioniPi(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(448) %0, ptr noundef readnone captures(address) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %invariant.gep = getelementptr i8, ptr %3, i64 -4
   br label %6
 
-6:                                                ; preds = %4, %52
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %52 ]
-  %.03646 = phi i32 [ 0, %4 ], [ %64, %52 ]
+6:                                                ; preds = %4, %54
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %54 ]
+  %.03646 = phi i32 [ 0, %4 ], [ %66, %54 ]
   %7 = getelementptr inbounds nuw %class.CodeSection, ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %8, %10
-  br i1 %11, label %33, label %12
+  br i1 %11, label %35, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -3231,73 +3230,74 @@ _ZNK11CodeSection14align_at_startEi.exit:         ; preds = %12, %15, %20
   %27 = sub i32 0, %.0.i.i
   %28 = and i32 %26, %27
   %.not = icmp eq i32 %28, %.03646
-  br i1 %.not, label %33, label %29
+  br i1 %.not, label %35, label %29
 
 29:                                               ; preds = %_ZNK11CodeSection14align_at_startEi.exit
   %30 = sub i32 %28, %.03646
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %31 = load i32, ptr %gep, align 4
-  %32 = add nsw i32 %30, %31
-  store i32 %32, ptr %gep, align 4
+  %31 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %32 = getelementptr i8, ptr %31, i64 -4
+  %33 = load i32, ptr %32, align 4
+  %34 = add nsw i32 %30, %33
+  store i32 %34, ptr %32, align 4
   %.pre = load ptr, ptr %9, align 8
   %.pre48 = load ptr, ptr %7, align 8
-  br label %33
+  br label %35
 
-33:                                               ; preds = %_ZNK11CodeSection14align_at_startEi.exit, %29, %6
-  %34 = phi ptr [ %8, %6 ], [ %.pre48, %29 ], [ %8, %_ZNK11CodeSection14align_at_startEi.exit ]
-  %35 = phi ptr [ %8, %6 ], [ %.pre, %29 ], [ %10, %_ZNK11CodeSection14align_at_startEi.exit ]
+35:                                               ; preds = %_ZNK11CodeSection14align_at_startEi.exit, %29, %6
+  %36 = phi ptr [ %8, %6 ], [ %.pre48, %29 ], [ %8, %_ZNK11CodeSection14align_at_startEi.exit ]
+  %37 = phi ptr [ %8, %6 ], [ %.pre, %29 ], [ %10, %_ZNK11CodeSection14align_at_startEi.exit ]
   %.1 = phi i32 [ %.03646, %6 ], [ %28, %29 ], [ %.03646, %_ZNK11CodeSection14align_at_startEi.exit ]
-  %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %34 to i64
-  %38 = sub i64 %36, %37
-  %39 = trunc i64 %38 to i32
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %39, i32 4096)
-  %40 = icmp eq ptr %7, %1
-  br i1 %40, label %41, label %42
+  %38 = ptrtoint ptr %37 to i64
+  %39 = ptrtoint ptr %36 to i64
+  %40 = sub i64 %38, %39
+  %41 = trunc i64 %40 to i32
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %41, i32 4096)
+  %42 = icmp eq ptr %7, %1
+  br i1 %42, label %43, label %44
 
-41:                                               ; preds = %33
+43:                                               ; preds = %35
   %spec.select = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 %2)
-  br label %52
+  br label %54
 
-42:                                               ; preds = %33
-  %43 = icmp eq i64 %indvars.iv, 1
-  br i1 %43, label %44, label %50
+44:                                               ; preds = %35
+  %45 = icmp eq i64 %indvars.iv, 1
+  br i1 %45, label %46, label %52
 
-44:                                               ; preds = %42
-  %45 = sext i32 %spec.store.select to i64
-  %46 = add nsw i64 %45, 17179865088
-  %47 = lshr i64 %46, 2
-  %48 = trunc i64 %47 to i32
-  %49 = add nsw i32 %48, 4096
-  br label %52
+46:                                               ; preds = %44
+  %47 = sext i32 %spec.store.select to i64
+  %48 = add nsw i64 %47, 17179865088
+  %49 = lshr i64 %48, 2
+  %50 = trunc i64 %49 to i32
+  %51 = add nsw i32 %50, 4096
+  br label %54
 
-50:                                               ; preds = %42
-  %51 = icmp eq ptr %34, %35
-  %spec.select42 = select i1 %51, i32 0, i32 %spec.store.select
-  br label %52
+52:                                               ; preds = %44
+  %53 = icmp eq ptr %36, %37
+  %spec.select42 = select i1 %53, i32 0, i32 %spec.store.select
+  br label %54
 
-52:                                               ; preds = %50, %41, %44
-  %.035 = phi i32 [ %49, %44 ], [ %spec.select, %41 ], [ %spec.select42, %50 ]
-  %53 = load i64, ptr @CodeEntryAlignment, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = tail call noundef i32 @llvm.smax.i32(i32 %54, i32 8)
-  %56 = add i32 %.035, %39
-  %57 = add i32 %56, %55
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %59 = load ptr, ptr %58, align 8
-  %60 = ptrtoint ptr %59 to i64
-  %61 = sub i64 %60, %37
-  %62 = trunc i64 %61 to i32
-  %spec.select43 = tail call i32 @llvm.smax.i32(i32 %57, i32 %62)
-  %63 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %spec.select43, ptr %63, align 4
-  %64 = add nsw i32 %spec.select43, %.1
+54:                                               ; preds = %52, %43, %46
+  %.035 = phi i32 [ %51, %46 ], [ %spec.select, %43 ], [ %spec.select42, %52 ]
+  %55 = load i64, ptr @CodeEntryAlignment, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = tail call noundef i32 @llvm.smax.i32(i32 %56, i32 8)
+  %58 = add i32 %.035, %41
+  %59 = add i32 %58, %57
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %61 = load ptr, ptr %60, align 8
+  %62 = ptrtoint ptr %61 to i64
+  %63 = sub i64 %62, %39
+  %64 = trunc i64 %63 to i32
+  %spec.select43 = tail call i32 @llvm.smax.i32(i32 %59, i32 %64)
+  %65 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  store i32 %spec.select43, ptr %65, align 4
+  %66 = add nsw i32 %spec.select43, %.1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %65, label %6, !llvm.loop !50
+  br i1 %exitcond.not, label %67, label %6, !llvm.loop !50
 
-65:                                               ; preds = %52
-  ret i32 %64
+67:                                               ; preds = %54
+  ret i32 %66
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

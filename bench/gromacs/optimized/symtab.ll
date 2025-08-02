@@ -2477,123 +2477,123 @@ define noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef captures(none) %0, p
 15:                                               ; preds = %.preheader.i
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #30
   %17 = trunc i64 %16 to i32
-  %invariant.gep.i = getelementptr i8, ptr %.0.i, i64 -1
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph.i, label %_ZL11trim_stringPKcPci.exit
 
-.lr.ph.i:                                         ; preds = %15, %21
-  %.02325.i = phi i32 [ %22, %21 ], [ %17, %15 ]
+.lr.ph.i:                                         ; preds = %15, %23
+  %.02325.i = phi i32 [ %24, %23 ], [ %17, %15 ]
   %19 = zext nneg i32 %.02325.i to i64
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %19
-  %20 = load i8, ptr %gep.i, align 1, !tbaa !23
-  %.not.i = icmp eq i8 %20, 32
-  br i1 %.not.i, label %21, label %.lr.ph31.preheader.i
+  %20 = getelementptr i8, ptr %.0.i, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -1
+  %22 = load i8, ptr %21, align 1, !tbaa !23
+  %.not.i = icmp eq i8 %22, 32
+  br i1 %.not.i, label %23, label %.lr.ph31.preheader.i
 
-21:                                               ; preds = %.lr.ph.i
-  %22 = add nsw i32 %.02325.i, -1
-  %23 = icmp sgt i32 %.02325.i, 1
-  br i1 %23, label %.lr.ph.i, label %_ZL11trim_stringPKcPci.exit, !llvm.loop !101
+23:                                               ; preds = %.lr.ph.i
+  %24 = add nsw i32 %.02325.i, -1
+  %25 = icmp sgt i32 %.02325.i, 1
+  br i1 %25, label %.lr.ph.i, label %_ZL11trim_stringPKcPci.exit, !llvm.loop !101
 
 .lr.ph31.preheader.i:                             ; preds = %.lr.ph.i
-  %24 = tail call i32 @llvm.umin.i32(i32 %.02325.i, i32 1023)
-  %wide.trip.count.i = zext nneg i32 %24 to i64
+  %26 = tail call i32 @llvm.umin.i32(i32 %.02325.i, i32 1023)
+  %wide.trip.count.i = zext nneg i32 %26 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.0.i, i64 %wide.trip.count.i, i1 false), !tbaa !23
   br label %_ZL11trim_stringPKcPci.exit
 
-_ZL11trim_stringPKcPci.exit:                      ; preds = %21, %.lr.ph31.preheader.i, %15
-  %.024.lcssa.i = phi i64 [ 0, %15 ], [ %wide.trip.count.i, %.lr.ph31.preheader.i ], [ 0, %21 ]
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.024.lcssa.i
-  store i8 0, ptr %25, align 1, !tbaa !23
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !102
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %.preheader
+_ZL11trim_stringPKcPci.exit:                      ; preds = %23, %.lr.ph31.preheader.i, %15
+  %.024.lcssa.i = phi i64 [ 0, %15 ], [ %wide.trip.count.i, %.lr.ph31.preheader.i ], [ 0, %23 ]
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %.024.lcssa.i
+  store i8 0, ptr %27, align 1, !tbaa !23
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !102
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %.preheader
 
-29:                                               ; preds = %_ZL11trim_stringPKcPci.exit
-  %30 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 260, i64 noundef 1, i64 noundef 24)
-  store i32 5, ptr %30, align 8, !tbaa !105
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 262, i64 noundef 5, i64 noundef 8)
-  store ptr %32, ptr %31, align 8, !tbaa !108
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr null, ptr %33, align 8, !tbaa !109
-  store ptr %30, ptr %26, align 8, !tbaa !102
+31:                                               ; preds = %_ZL11trim_stringPKcPci.exit
+  %32 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 260, i64 noundef 1, i64 noundef 24)
+  store i32 5, ptr %32, align 8, !tbaa !105
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 262, i64 noundef 5, i64 noundef 8)
+  store ptr %34, ptr %33, align 8, !tbaa !108
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store ptr null, ptr %35, align 8, !tbaa !109
+  store ptr %32, ptr %28, align 8, !tbaa !102
   br label %.preheader
 
-.preheader:                                       ; preds = %29, %_ZL11trim_stringPKcPci.exit
-  %.030.i.ph = phi ptr [ %27, %_ZL11trim_stringPKcPci.exit ], [ %30, %29 ]
-  br label %34
+.preheader:                                       ; preds = %31, %_ZL11trim_stringPKcPci.exit
+  %.030.i.ph = phi ptr [ %29, %_ZL11trim_stringPKcPci.exit ], [ %32, %31 ]
+  br label %36
 
-34:                                               ; preds = %.preheader, %._crit_edge.i
-  %.030.i = phi ptr [ %54, %._crit_edge.i ], [ %.030.i.ph, %.preheader ]
-  %35 = load i32, ptr %.030.i, align 8, !tbaa !105
-  %.not47.i = icmp sgt i32 %35, 0
+36:                                               ; preds = %.preheader, %._crit_edge.i
+  %.030.i = phi ptr [ %56, %._crit_edge.i ], [ %.030.i.ph, %.preheader ]
+  %37 = load i32, ptr %.030.i, align 8, !tbaa !105
+  %.not47.i = icmp sgt i32 %37, 0
   br i1 %.not47.i, label %.lr.ph.i2, label %._crit_edge.i
 
-.lr.ph.i2:                                        ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %.030.i, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !110
-  %wide.trip.count.i3 = zext nneg i32 %35 to i64
-  br label %39
+.lr.ph.i2:                                        ; preds = %36
+  %38 = getelementptr inbounds nuw i8, ptr %.030.i, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !110
+  %wide.trip.count.i3 = zext nneg i32 %37 to i64
+  br label %41
 
-38:                                               ; preds = %50
+40:                                               ; preds = %52
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, %wide.trip.count.i3
-  br i1 %exitcond.not.i6, label %._crit_edge.i, label %39, !llvm.loop !111
+  br i1 %exitcond.not.i6, label %._crit_edge.i, label %41, !llvm.loop !111
 
-39:                                               ; preds = %38, %.lr.ph.i2
-  %indvars.iv.i4 = phi i64 [ 0, %.lr.ph.i2 ], [ %indvars.iv.next.i5, %38 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i4
-  %41 = load ptr, ptr %40, align 8, !tbaa !54
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %50
+41:                                               ; preds = %40, %.lr.ph.i2
+  %indvars.iv.i4 = phi i64 [ 0, %.lr.ph.i2 ], [ %indvars.iv.next.i5, %40 ]
+  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i4
+  %43 = load ptr, ptr %42, align 8, !tbaa !54
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %52
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %.030.i, i64 8
-  %45 = load i32, ptr %0, align 8, !tbaa !112
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %0, align 8, !tbaa !112
-  %47 = call noundef ptr @_Z10gmx_strdupPKc(ptr noundef nonnull %4)
-  %48 = load ptr, ptr %44, align 8, !tbaa !110
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i4
-  store ptr %47, ptr %49, align 8, !tbaa !54
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %.030.i, i64 8
+  %47 = load i32, ptr %0, align 8, !tbaa !112
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %0, align 8, !tbaa !112
+  %49 = call noundef ptr @_Z10gmx_strdupPKc(ptr noundef nonnull %4)
+  %50 = load ptr, ptr %46, align 8, !tbaa !110
+  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i4
+  store ptr %49, ptr %51, align 8, !tbaa !54
   br label %_ZL9enter_bufP8t_symtabPc.exit
 
-50:                                               ; preds = %39
-  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %4) #30
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZL9enter_bufP8t_symtabPc.exit.loopexit, label %38
+52:                                               ; preds = %41
+  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %4) #30
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %_ZL9enter_bufP8t_symtabPc.exit.loopexit, label %40
 
-._crit_edge.i:                                    ; preds = %38, %34
-  %53 = getelementptr inbounds nuw i8, ptr %.030.i, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !109
-  %.not36.not.i = icmp eq ptr %54, null
-  br i1 %.not36.not.i, label %55, label %34, !llvm.loop !113
+._crit_edge.i:                                    ; preds = %40, %36
+  %55 = getelementptr inbounds nuw i8, ptr %.030.i, i64 16
+  %56 = load ptr, ptr %55, align 8, !tbaa !109
+  %.not36.not.i = icmp eq ptr %56, null
+  br i1 %.not36.not.i, label %57, label %36, !llvm.loop !113
 
-55:                                               ; preds = %._crit_edge.i
-  %56 = getelementptr inbounds nuw i8, ptr %.030.i, i64 16
-  %57 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 260, i64 noundef 1, i64 noundef 24)
-  store i32 5, ptr %57, align 8, !tbaa !105
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 262, i64 noundef 5, i64 noundef 8)
-  store ptr %59, ptr %58, align 8, !tbaa !108
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store ptr null, ptr %60, align 8, !tbaa !109
-  store ptr %57, ptr %56, align 8, !tbaa !109
-  %61 = load i32, ptr %0, align 8, !tbaa !112
-  %62 = add nsw i32 %61, 1
-  store i32 %62, ptr %0, align 8, !tbaa !112
-  %63 = call noundef ptr @_Z10gmx_strdupPKc(ptr noundef nonnull %4)
-  %64 = load ptr, ptr %58, align 8, !tbaa !110
-  store ptr %63, ptr %64, align 8, !tbaa !54
+57:                                               ; preds = %._crit_edge.i
+  %58 = getelementptr inbounds nuw i8, ptr %.030.i, i64 16
+  %59 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 260, i64 noundef 1, i64 noundef 24)
+  store i32 5, ptr %59, align 8, !tbaa !105
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 262, i64 noundef 5, i64 noundef 8)
+  store ptr %61, ptr %60, align 8, !tbaa !108
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store ptr null, ptr %62, align 8, !tbaa !109
+  store ptr %59, ptr %58, align 8, !tbaa !109
+  %63 = load i32, ptr %0, align 8, !tbaa !112
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %0, align 8, !tbaa !112
+  %65 = call noundef ptr @_Z10gmx_strdupPKc(ptr noundef nonnull %4)
+  %66 = load ptr, ptr %60, align 8, !tbaa !110
+  store ptr %65, ptr %66, align 8, !tbaa !54
   br label %_ZL9enter_bufP8t_symtabPc.exit
 
-_ZL9enter_bufP8t_symtabPc.exit.loopexit:          ; preds = %50
-  %65 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i4
+_ZL9enter_bufP8t_symtabPc.exit.loopexit:          ; preds = %52
+  %67 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i4
   br label %_ZL9enter_bufP8t_symtabPc.exit
 
-_ZL9enter_bufP8t_symtabPc.exit:                   ; preds = %_ZL9enter_bufP8t_symtabPc.exit.loopexit, %43, %55
-  %.2.i = phi ptr [ %64, %55 ], [ %49, %43 ], [ %65, %_ZL9enter_bufP8t_symtabPc.exit.loopexit ]
+_ZL9enter_bufP8t_symtabPc.exit:                   ; preds = %_ZL9enter_bufP8t_symtabPc.exit.loopexit, %45, %57
+  %.2.i = phi ptr [ %66, %57 ], [ %51, %45 ], [ %67, %_ZL9enter_bufP8t_symtabPc.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #25
   ret ptr %.2.i
 }

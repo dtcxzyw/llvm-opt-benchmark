@@ -129,15 +129,15 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %64 = sub nsw i32 0, %63
   store i32 %64, ptr %15, align 4, !tbaa !3
   %65 = call i32 @xerbla_(ptr noundef nonnull @.str.4, ptr noundef nonnull %15, i32 noundef 6) #3
-  br label %99
+  br label %103
 
 66:                                               ; preds = %.thread
-  br i1 %28, label %99, label %67
+  br i1 %28, label %103, label %67
 
 67:                                               ; preds = %66
   %68 = load i32, ptr %3, align 4, !tbaa !3
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %99, label %70
+  br i1 %69, label %103, label %70
 
 70:                                               ; preds = %67
   tail call void @dpptrf_(ptr noundef %2, ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull %13) #3
@@ -149,7 +149,7 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %73 = load i32, ptr %3, align 4, !tbaa !3
   %74 = add nsw i32 %73, %71
   store i32 %74, ptr %13, align 4, !tbaa !3
-  br label %99
+  br label %103
 
 75:                                               ; preds = %70
   tail call void @dspgst_(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %13) #3
@@ -177,58 +177,58 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   switch i32 %89, label %.loopexit [
     i32 1, label %90
     i32 2, label %90
-    i32 3, label %94
+    i32 3, label %96
   ]
 
 90:                                               ; preds = %84, %84
   %.153 = select i1 %.not140, i8 84, i8 78
   store i8 %.153, ptr %16, align 1, !tbaa !9
-  %invariant.gep172 = getelementptr i8, ptr %19, i64 8
-  %.not150174 = icmp slt i32 %spec.select, 1
-  br i1 %.not150174, label %.loopexit, label %.lr.ph176.preheader
+  %.not150172 = icmp slt i32 %spec.select, 1
+  br i1 %.not150172, label %.loopexit, label %.lr.ph174.preheader
 
-.lr.ph176.preheader:                              ; preds = %90
+.lr.ph174.preheader:                              ; preds = %90
   %91 = sext i32 %17 to i64
   %92 = zext nneg i32 %spec.select to i64
-  br label %.lr.ph176
+  br label %.lr.ph174
 
-.lr.ph176:                                        ; preds = %.lr.ph176.preheader, %.lr.ph176
-  %indvars.iv179 = phi i64 [ 1, %.lr.ph176.preheader ], [ %indvars.iv.next180, %.lr.ph176 ]
-  %93 = mul nsw i64 %indvars.iv179, %91
-  %gep173 = getelementptr double, ptr %invariant.gep172, i64 %93
-  call void @dtpsv_(ptr noundef %2, ptr noundef nonnull %16, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %gep173, ptr noundef nonnull @c__1) #3
-  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %.not150.not = icmp samesign ult i64 %indvars.iv179, %92
-  br i1 %.not150.not, label %.lr.ph176, label %.loopexit, !llvm.loop !10
+.lr.ph174:                                        ; preds = %.lr.ph174.preheader, %.lr.ph174
+  %indvars.iv177 = phi i64 [ 1, %.lr.ph174.preheader ], [ %indvars.iv.next178, %.lr.ph174 ]
+  %93 = mul nsw i64 %indvars.iv177, %91
+  %94 = getelementptr double, ptr %19, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 8
+  call void @dtpsv_(ptr noundef %2, ptr noundef nonnull %16, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %95, ptr noundef nonnull @c__1) #3
+  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
+  %.not150.not = icmp samesign ult i64 %indvars.iv177, %92
+  br i1 %.not150.not, label %.lr.ph174, label %.loopexit, !llvm.loop !10
 
-94:                                               ; preds = %84
+96:                                               ; preds = %84
   %.154 = select i1 %.not140, i8 78, i8 84
   store i8 %.154, ptr %16, align 1, !tbaa !9
-  %invariant.gep = getelementptr i8, ptr %19, i64 8
   %.not147170 = icmp slt i32 %spec.select, 1
   br i1 %.not147170, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %94
-  %95 = sext i32 %17 to i64
-  %96 = zext nneg i32 %spec.select to i64
+.lr.ph.preheader:                                 ; preds = %96
+  %97 = sext i32 %17 to i64
+  %98 = zext nneg i32 %spec.select to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %97 = mul nsw i64 %indvars.iv, %95
-  %gep = getelementptr double, ptr %invariant.gep, i64 %97
-  call void @dtpmv_(ptr noundef %2, ptr noundef nonnull %16, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %gep, ptr noundef nonnull @c__1) #3
+  %99 = mul nsw i64 %indvars.iv, %97
+  %100 = getelementptr double, ptr %19, i64 %99
+  %101 = getelementptr i8, ptr %100, i64 8
+  call void @dtpmv_(ptr noundef %2, ptr noundef nonnull %16, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %101, ptr noundef nonnull @c__1) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not147.not = icmp samesign ult i64 %indvars.iv, %96
+  %.not147.not = icmp samesign ult i64 %indvars.iv, %98
   br i1 %.not147.not, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph176, %94, %90, %84, %75
-  %98 = sitofp i32 %77 to double
-  store double %98, ptr %9, align 8, !tbaa !7
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph174, %96, %90, %84, %75
+  %102 = sitofp i32 %77 to double
+  store double %102, ptr %9, align 8, !tbaa !7
   store i32 %83, ptr %11, align 4, !tbaa !3
-  br label %99
+  br label %103
 
-99:                                               ; preds = %67, %66, %.loopexit, %72, %.thread160
+103:                                              ; preds = %67, %66, %.loopexit, %72, %.thread160
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
   ret void

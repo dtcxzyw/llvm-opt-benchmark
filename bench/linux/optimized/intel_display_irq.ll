@@ -2648,7 +2648,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   %202 = and i32 %158, 2
   %203 = icmp eq i32 %202, 0
   %204 = or i1 %203, %201
-  br i1 %204, label %205, label %.thread31
+  br i1 %204, label %205, label %.thread27
 
 205:                                              ; preds = %197
   %206 = load i16, ptr %3, align 8
@@ -2658,7 +2658,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   %210 = or i1 %209, %207
   br i1 %210, label %285, label %216
 
-.thread31:                                        ; preds = %197
+.thread27:                                        ; preds = %197
   tail call void @intel_gmbus_irq_handler(ptr noundef %0) #8
   %211 = load i16, ptr %3, align 8
   %212 = icmp ult i16 %211, 11
@@ -2667,7 +2667,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   %215 = or i1 %214, %212
   br i1 %215, label %.thread, label %216
 
-216:                                              ; preds = %.thread31, %205
+216:                                              ; preds = %.thread27, %205
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 64
@@ -2807,7 +2807,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %306, ptr noundef nonnull @.str.18) #9
   br label %.thread
 
-.thread:                                          ; preds = %.thread31, %276, %274, %250, %305, %297, %295, %287, %285, %151
+.thread:                                          ; preds = %.thread27, %276, %274, %250, %305, %297, %295, %287, %285, %151
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 7544
@@ -2983,26 +2983,26 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   %414 = load i32, ptr %413, align 8
   switch i32 %414, label %415 [
-    i32 0, label %466
-    i32 -1, label %466
+    i32 0, label %465
+    i32 -1, label %465
   ]
 
 415:                                              ; preds = %412
   %416 = and i32 %1, 8388608
   %417 = icmp eq i32 %416, 0
-  br i1 %417, label %466, label %418
+  br i1 %417, label %465, label %418
 
 418:                                              ; preds = %415
   %419 = load ptr, ptr %308, align 8
   %420 = tail call i32 %419(ptr noundef nonnull %307, i32 802824, i1 noundef zeroext true) #8
   %421 = icmp eq i32 %420, 0
-  br i1 %421, label %461, label %422
+  br i1 %421, label %.critedge, label %422
 
 422:                                              ; preds = %418
   %423 = icmp sgt i32 %420, -1
-  br i1 %423, label %.thread26, label %425
+  br i1 %423, label %.thread23, label %425
 
-.thread26:                                        ; preds = %422
+.thread23:                                        ; preds = %422
   %424 = load ptr, ptr %309, align 8
   tail call void %424(ptr noundef nonnull %307, i32 802824, i32 noundef %420, i1 noundef zeroext true) #8
   br label %453
@@ -3054,7 +3054,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   tail call void %449(ptr noundef nonnull %307, i32 1506908, i32 noundef %441, i1 noundef zeroext true) #8
   br label %450
 
-450:                                              ; preds = %448, %439
+450:                                              ; preds = %439, %448
   %451 = icmp eq i32 %444, 0
   br i1 %451, label %453, label %452
 
@@ -3062,14 +3062,14 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   tail call void @xelpdp_pica_irq_handler(ptr noundef %0, i32 noundef %444) #8
   br label %453
 
-453:                                              ; preds = %.thread26, %452, %450
+453:                                              ; preds = %.thread23, %452, %450
   %454 = load i32, ptr %413, align 8
   %455 = icmp sgt i32 %454, 5
   br i1 %455, label %456, label %457
 
 456:                                              ; preds = %453
   tail call void @icp_irq_handler(ptr noundef %0, i32 noundef %420) #8
-  br label %466
+  br label %465
 
 457:                                              ; preds = %453
   %458 = icmp sgt i32 %454, 3
@@ -3077,25 +3077,25 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
 
 459:                                              ; preds = %457
   tail call void @spt_irq_handler(ptr noundef %0, i32 noundef %420) #8
-  br label %466
+  br label %465
 
 460:                                              ; preds = %457
   tail call fastcc void @cpt_irq_handler(ptr noundef %0, i32 noundef %420)
-  br label %466
+  br label %465
 
-461:                                              ; preds = %418
-  br i1 %313, label %464, label %462
+.critedge:                                        ; preds = %418
+  br i1 %313, label %463, label %461
 
-462:                                              ; preds = %461
-  %463 = load ptr, ptr %314, align 8
-  br label %464
+461:                                              ; preds = %.critedge
+  %462 = load ptr, ptr %314, align 8
+  br label %463
 
-464:                                              ; preds = %462, %461
-  %465 = phi ptr [ %463, %462 ], [ null, %461 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %465, i32 noundef 1, ptr noundef nonnull @.str.23) #8
-  br label %466
+463:                                              ; preds = %461, %.critedge
+  %464 = phi ptr [ %462, %461 ], [ null, %.critedge ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %464, i32 noundef 1, ptr noundef nonnull @.str.23) #8
+  br label %465
 
-466:                                              ; preds = %464, %460, %459, %456, %415, %412, %412
+465:                                              ; preds = %463, %460, %459, %456, %415, %412, %412
   ret void
 }
 

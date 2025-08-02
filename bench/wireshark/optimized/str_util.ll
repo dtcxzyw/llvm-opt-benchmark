@@ -808,9 +808,9 @@ define ptr @format_units(ptr noundef %0, double noundef %1, i32 noundef %2, i16 
   %18 = icmp eq i32 %4, 0
   %19 = select i1 %18, double 1.000000e+01, double 1.000000e+00
   %20 = fcmp olt double %7, 1.000000e+00
-  br i1 %20, label %.preheader, label %.preheader91
+  br i1 %20, label %.preheader, label %.preheader85
 
-.preheader91:                                     ; preds = %17
+.preheader85:                                     ; preds = %17
   %21 = fmul double %19, %.0
   %22 = fdiv double 1.000000e+00, %.0
   %23 = select i1 %.not, i32 7, i32 1
@@ -826,11 +826,11 @@ define ptr @format_units(ptr noundef %0, double noundef %1, i32 noundef %2, i16 
   %26 = fmul double %.0, %.170
   %27 = add nsw i32 %.1, -1
   %28 = icmp slt i32 %.1, -5
-  br i1 %28, label %.thread85, label %.preheader, !llvm.loop !25
+  br i1 %28, label %.thread, label %.preheader, !llvm.loop !25
 
-29:                                               ; preds = %.preheader91, %31
-  %.372 = phi double [ %32, %31 ], [ %7, %.preheader91 ]
-  %.3 = phi i32 [ %33, %31 ], [ 0, %.preheader91 ]
+29:                                               ; preds = %.preheader85, %31
+  %.372 = phi double [ %32, %31 ], [ %7, %.preheader85 ]
+  %.3 = phi i32 [ %33, %31 ], [ 0, %.preheader85 ]
   %30 = fcmp ult double %.372, %21
   br i1 %30, label %.loopexit, label %31
 
@@ -838,18 +838,18 @@ define ptr @format_units(ptr noundef %0, double noundef %1, i32 noundef %2, i16 
   %32 = fmul double %22, %.372
   %33 = add nuw nsw i32 %.3, 1
   %exitcond = icmp eq i32 %33, %23
-  br i1 %exitcond, label %.thread85, label %29, !llvm.loop !26
+  br i1 %exitcond, label %.thread, label %29, !llvm.loop !26
 
-.thread85:                                        ; preds = %31, %25
+.thread:                                          ; preds = %31, %25
   %34 = add i32 %4, 1
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %6, ptr noundef nonnull @.str.21, i32 noundef %34, double noundef %1)
   br label %67
 
 .loopexit:                                        ; preds = %29, %.preheader, %15
-  %.069.ph = phi double [ %7, %15 ], [ %.170, %.preheader ], [ %.372, %29 ]
-  %.068.ph = phi i32 [ 0, %15 ], [ %.1, %.preheader ], [ %.3, %29 ]
-  %35 = icmp eq i32 %.068.ph, 0
-  %36 = tail call double @llvm.copysign.f64(double %.069.ph, double %1)
+  %.069 = phi double [ %7, %15 ], [ %.170, %.preheader ], [ %.372, %29 ]
+  %.068 = phi i32 [ 0, %15 ], [ %.1, %.preheader ], [ %.3, %29 ]
+  %35 = icmp eq i32 %.068, 0
+  %36 = tail call double @llvm.copysign.f64(double %.069, double %1)
   %37 = load ptr, ptr @thousands_grouping_fmt_flt, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %6, ptr noundef %37, i32 noundef %4, double noundef %36)
   %38 = tail call ptr @wmem_strbuf_get_str(ptr noundef %6)
@@ -915,21 +915,21 @@ define ptr @format_units(ptr noundef %0, double noundef %1, i32 noundef %2, i16 
   br label %63
 
 63:                                               ; preds = %59, %44
-  %64 = add i32 %.068.ph, 6
+  %64 = add i32 %.068, 6
   %65 = zext nneg i32 %64 to i64
   %66 = icmp ult i32 %64, 13
   br i1 %66, label %67, label %70
 
-67:                                               ; preds = %.thread85, %63
-  %.490 = phi i64 [ 6, %.thread85 ], [ %65, %63 ]
-  %.07589 = phi i1 [ false, %.thread85 ], [ %35, %63 ]
-  %68 = getelementptr ptr, ptr %.067, i64 %.490
+67:                                               ; preds = %.thread, %63
+  %.484 = phi i64 [ 6, %.thread ], [ %65, %63 ]
+  %.07583 = phi i1 [ false, %.thread ], [ %35, %63 ]
+  %68 = getelementptr ptr, ptr %.067, i64 %.484
   %69 = load ptr, ptr %68, align 8
   tail call void @wmem_strbuf_append(ptr noundef %6, ptr noundef %69)
   br label %70
 
 70:                                               ; preds = %67, %63
-  %.07588 = phi i1 [ %.07589, %67 ], [ %35, %63 ]
+  %.07582 = phi i1 [ %.07583, %67 ], [ %35, %63 ]
   switch i32 %2, label %93 [
     i32 0, label %94
     i32 1, label %71
@@ -946,47 +946,47 @@ define ptr @format_units(ptr noundef %0, double noundef %1, i32 noundef %2, i16 
   ]
 
 71:                                               ; preds = %70
-  %72 = select i1 %.07588, ptr @.str.22, ptr @.str.23
+  %72 = select i1 %.07582, ptr @.str.22, ptr @.str.23
   br label %.sink.split
 
 73:                                               ; preds = %70
-  %74 = select i1 %.07588, ptr @.str.24, ptr @.str.25
+  %74 = select i1 %.07582, ptr @.str.24, ptr @.str.25
   br label %.sink.split
 
 75:                                               ; preds = %70
-  %76 = select i1 %.07588, ptr @.str.26, ptr @.str.27
+  %76 = select i1 %.07582, ptr @.str.26, ptr @.str.27
   br label %.sink.split
 
 77:                                               ; preds = %70
-  %78 = select i1 %.07588, ptr @.str.28, ptr @.str.29
+  %78 = select i1 %.07582, ptr @.str.28, ptr @.str.29
   br label %.sink.split
 
 79:                                               ; preds = %70
-  %80 = select i1 %.07588, ptr @.str.30, ptr @.str.31
+  %80 = select i1 %.07582, ptr @.str.30, ptr @.str.31
   br label %.sink.split
 
 81:                                               ; preds = %70
-  %82 = select i1 %.07588, ptr @.str.32, ptr @.str.33
+  %82 = select i1 %.07582, ptr @.str.32, ptr @.str.33
   br label %.sink.split
 
 83:                                               ; preds = %70
-  %84 = select i1 %.07588, ptr @.str.34, ptr @.str.35
+  %84 = select i1 %.07582, ptr @.str.34, ptr @.str.35
   br label %.sink.split
 
 85:                                               ; preds = %70
-  %86 = select i1 %.07588, ptr @.str.36, ptr @.str.37
+  %86 = select i1 %.07582, ptr @.str.36, ptr @.str.37
   br label %.sink.split
 
 87:                                               ; preds = %70
-  %88 = select i1 %.07588, ptr @.str.38, ptr @.str.39
+  %88 = select i1 %.07582, ptr @.str.38, ptr @.str.39
   br label %.sink.split
 
 89:                                               ; preds = %70
-  %90 = select i1 %.07588, ptr @.str.40, ptr @.str.41
+  %90 = select i1 %.07582, ptr @.str.40, ptr @.str.41
   br label %.sink.split
 
 91:                                               ; preds = %70
-  %92 = select i1 %.07588, ptr @.str.42, ptr @.str.43
+  %92 = select i1 %.07582, ptr @.str.42, ptr @.str.43
   br label %.sink.split
 
 93:                                               ; preds = %70

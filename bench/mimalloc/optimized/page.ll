@@ -55,7 +55,7 @@ mi_bin.exit:                                      ; preds = %5, %9, %11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i64 @_mi_bin_size(i64 noundef %0) local_unnamed_addr #0 {
   %.idx = mul nuw nsw i64 %0, 24
-  %2 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 %.idx
+  %2 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 %.idx
   %3 = load i64, ptr %2, align 8, !tbaa !5
   ret i64 %3
 }
@@ -93,7 +93,7 @@ define hidden i64 @mi_good_size(i64 noundef %0) local_unnamed_addr #1 {
 mi_bin.exit:                                      ; preds = %7, %11
   %.0.i = phi i64 [ %10, %7 ], [ %20, %11 ]
   %.idx.i = mul nuw nsw i64 %.0.i, 24
-  %21 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 %.idx.i
+  %21 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 %.idx.i
   %22 = load i64, ptr %21, align 8, !tbaa !5
   br label %_mi_align_up.exit
 

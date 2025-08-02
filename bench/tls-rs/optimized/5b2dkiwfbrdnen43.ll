@@ -22755,32 +22755,32 @@ default.unreachable:                              ; preds = %2
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %19 = load i16, ptr %18, align 2, !alias.scope !749, !noalias !752
+  %20 = tail call i16 @llvm.bswap.i16(i16 %19)
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit.i"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit.i": ; preds = %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %2
-  %.0.i.i = phi i16 [ 515, %5 ], [ 1025, %6 ], [ 1027, %7 ], [ 1281, %8 ], [ 1283, %9 ], [ 1537, %10 ], [ 1539, %11 ], [ 2052, %12 ], [ 2053, %13 ], [ 2054, %14 ], [ 2055, %15 ], [ 2056, %16 ], [ %19, %17 ], [ 513, %2 ]
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = load i64, ptr %20, align 8, !alias.scope !755, !noalias !764, !noundef !14
-  %22 = load i64, ptr %1, align 8, !alias.scope !755, !noalias !764, !noundef !14
-  %23 = sub i64 %22, %21
-  %24 = icmp ult i64 %23, 2
-  br i1 %24, label %25, label %"_ZN77_$LT$rustls..enums..SignatureScheme$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h4374e59d001ba670E.exit"
+  %.0.i.i = phi i16 [ 770, %5 ], [ 260, %6 ], [ 772, %7 ], [ 261, %8 ], [ 773, %9 ], [ 262, %10 ], [ 774, %11 ], [ 1032, %12 ], [ 1288, %13 ], [ 1544, %14 ], [ 1800, %15 ], [ 2056, %16 ], [ %20, %17 ], [ 258, %2 ]
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load i64, ptr %21, align 8, !alias.scope !755, !noalias !764, !noundef !14
+  %23 = load i64, ptr %1, align 8, !alias.scope !755, !noalias !764, !noundef !14
+  %24 = sub i64 %23, %22
+  %25 = icmp ult i64 %24, 2
+  br i1 %25, label %26, label %"_ZN77_$LT$rustls..enums..SignatureScheme$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h4374e59d001ba670E.exit"
 
-25:                                               ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit.i"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %21, i64 noundef 2), !noalias !764
-  %.pre.i.i.i.i = load i64, ptr %20, align 8, !alias.scope !767, !noalias !764
+26:                                               ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit.i"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %22, i64 noundef 2), !noalias !764
+  %.pre.i.i.i.i = load i64, ptr %21, align 8, !alias.scope !767, !noalias !764
   br label %"_ZN77_$LT$rustls..enums..SignatureScheme$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h4374e59d001ba670E.exit"
 
-"_ZN77_$LT$rustls..enums..SignatureScheme$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h4374e59d001ba670E.exit": ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit.i", %25
-  %26 = phi i64 [ %21, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit.i" ], [ %.pre.i.i.i.i, %25 ]
-  %27 = tail call i16 @llvm.bswap.i16(i16 %.0.i.i)
+"_ZN77_$LT$rustls..enums..SignatureScheme$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h4374e59d001ba670E.exit": ; preds = %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit.i", %26
+  %27 = phi i64 [ %22, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit.i" ], [ %.pre.i.i.i.i, %26 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !alias.scope !767, !noalias !764, !nonnull !14, !noundef !14
-  %30 = getelementptr inbounds i8, ptr %29, i64 %26
-  store i16 %27, ptr %30, align 1, !noalias !768
-  %31 = load i64, ptr %20, align 8, !alias.scope !767, !noalias !764, !noundef !14
+  %30 = getelementptr inbounds i8, ptr %29, i64 %27
+  store i16 %.0.i.i, ptr %30, align 1, !noalias !768
+  %31 = load i64, ptr %21, align 8, !alias.scope !767, !noalias !764, !noundef !14
   %32 = add i64 %31, 2
-  store i64 %32, ptr %20, align 8, !alias.scope !767, !noalias !764
+  store i64 %32, ptr %21, align 8, !alias.scope !767, !noalias !764
   tail call void @llvm.experimental.noalias.scope.decl(metadata !769)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !772)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22795,7 +22795,7 @@ default.unreachable:                              ; preds = %2
 
 41:                                               ; preds = %"_ZN77_$LT$rustls..enums..SignatureScheme$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h4374e59d001ba670E.exit"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %32, i64 noundef 2), !noalias !785
-  %.pre.i.i.i.i.i = load i64, ptr %20, align 8, !alias.scope !789, !noalias !785
+  %.pre.i.i.i.i.i = load i64, ptr %21, align 8, !alias.scope !789, !noalias !785
   br label %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
 
 "_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i": ; preds = %41, %"_ZN77_$LT$rustls..enums..SignatureScheme$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h4374e59d001ba670E.exit"
@@ -22804,9 +22804,9 @@ default.unreachable:                              ; preds = %2
   %44 = load ptr, ptr %28, align 8, !alias.scope !789, !noalias !785, !nonnull !14, !noundef !14
   %45 = getelementptr inbounds i8, ptr %44, i64 %42
   store i16 %43, ptr %45, align 1, !noalias !790
-  %46 = load i64, ptr %20, align 8, !alias.scope !789, !noalias !785, !noundef !14
+  %46 = load i64, ptr %21, align 8, !alias.scope !789, !noalias !785, !noundef !14
   %47 = add i64 %46, 2
-  store i64 %47, ptr %20, align 8, !alias.scope !789, !noalias !785
+  store i64 %47, ptr %21, align 8, !alias.scope !789, !noalias !785
   %48 = load i64, ptr %1, align 8, !alias.scope !791, !noalias !798, !noundef !14
   %49 = sub i64 %48, %47
   %50 = icmp ugt i64 %36, %49
@@ -22814,7 +22814,7 @@ default.unreachable:                              ; preds = %2
 
 51:                                               ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h22b2e9a2ef379034E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %47, i64 noundef %36), !noalias !798
-  %.pre.i.i.i.i1 = load i64, ptr %20, align 8, !alias.scope !800, !noalias !798
+  %.pre.i.i.i.i1 = load i64, ptr %21, align 8, !alias.scope !800, !noalias !798
   br label %"_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit"
 
 "_ZN77_$LT$rustls..msgs..base..PayloadU16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h3697826ab91903c8E.exit": ; preds = %"_ZN50_$LT$u16$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h8a87669ce9138e39E.exit.i.i", %51
@@ -22822,9 +22822,9 @@ default.unreachable:                              ; preds = %2
   %53 = load ptr, ptr %28, align 8, !alias.scope !800, !noalias !798, !nonnull !14, !noundef !14
   %54 = getelementptr inbounds i8, ptr %53, i64 %52
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %34, i64 %36, i1 false), !noalias !769
-  %55 = load i64, ptr %20, align 8, !alias.scope !800, !noalias !798, !noundef !14
+  %55 = load i64, ptr %21, align 8, !alias.scope !800, !noalias !798, !noundef !14
   %56 = add i64 %55, %36
-  store i64 %56, ptr %20, align 8, !alias.scope !800, !noalias !798
+  store i64 %56, ptr %21, align 8, !alias.scope !800, !noalias !798
   ret void
 }
 

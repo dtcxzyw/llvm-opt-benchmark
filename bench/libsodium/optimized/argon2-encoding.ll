@@ -25,7 +25,7 @@ define hidden i32 @_sodium_argon2_decode_string(ptr noundef %0, ptr noundef %1, 
   %16 = zext i32 %15 to i64
   store i32 0, ptr %11, align 8
   store i32 0, ptr %14, align 8
-  switch i32 %2, label %.thread [
+  switch i32 %2, label %.critedge [
     i32 2, label %17
     i32 1, label %20
   ]
@@ -34,45 +34,45 @@ define hidden i32 @_sodium_argon2_decode_string(ptr noundef %0, ptr noundef %1, 
   %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str, i64 noundef 9) #8
   %.not142 = icmp eq i32 %18, 0
   %19 = getelementptr i8, ptr %1, i64 9
-  br i1 %.not142, label %sub_0, label %.thread
+  br i1 %.not142, label %sub_0, label %.critedge
 
 20:                                               ; preds = %3
   %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.1, i64 noundef 8) #8
   %.not = icmp eq i32 %21, 0
   %22 = getelementptr i8, ptr %1, i64 8
-  br i1 %.not, label %sub_0, label %.thread
+  br i1 %.not, label %sub_0, label %.critedge
 
 sub_0:                                            ; preds = %20, %17
   %.2111 = phi ptr [ %19, %17 ], [ %22, %20 ]
   %23 = load i8, ptr %.2111, align 1
-  %.not192 = icmp eq i8 %23, 36
-  br i1 %.not192, label %sub_1, label %.thread
+  %.not194 = icmp eq i8 %23, 36
+  br i1 %.not194, label %sub_1, label %.critedge
 
 sub_1:                                            ; preds = %sub_0
   %24 = getelementptr inbounds nuw i8, ptr %.2111, i64 1
   %25 = load i8, ptr %24, align 1
-  %.not193 = icmp eq i8 %25, 118
-  br i1 %.not193, label %.tail, label %.thread
+  %.not195 = icmp eq i8 %25, 118
+  br i1 %.not195, label %.tail, label %.critedge
 
 .tail:                                            ; preds = %sub_1
   %26 = getelementptr inbounds nuw i8, ptr %.2111, i64 2
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 61
   %29 = getelementptr i8, ptr %.2111, i64 3
-  br i1 %28, label %30, label %.thread
+  br i1 %28, label %30, label %.critedge
 
 30:                                               ; preds = %.tail
   %31 = load i8, ptr %29, align 1
   %32 = add i8 %31, -58
   %or.cond39.i = icmp ult i8 %32, -10
-  br i1 %or.cond39.i, label %.thread, label %.lr.ph.i
+  br i1 %or.cond39.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %40
   %33 = phi i8 [ %43, %40 ], [ %31, %30 ]
   %.02241.i = phi i64 [ %41, %40 ], [ 0, %30 ]
   %.02540.i = phi ptr [ %42, %40 ], [ %29, %30 ]
   %34 = icmp ugt i64 %.02241.i, 1844674407370955161
-  br i1 %34, label %.thread, label %35
+  br i1 %34, label %.critedge, label %35
 
 35:                                               ; preds = %.lr.ph.i
   %narrow.i = add nsw i8 %33, -48
@@ -80,7 +80,7 @@ sub_1:                                            ; preds = %sub_0
   %37 = zext nneg i8 %narrow.i to i64
   %38 = xor i64 %36, -1
   %39 = icmp ugt i64 %37, %38
-  br i1 %39, label %.thread, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %35
   %41 = add i64 %36, %37
@@ -92,149 +92,143 @@ sub_1:                                            ; preds = %sub_0
 
 ._crit_edge.i:                                    ; preds = %40
   %45 = icmp eq ptr %42, %29
-  br i1 %45, label %.thread, label %decode_decimal.exit
+  br i1 %45, label %.critedge, label %46
 
-decode_decimal.exit:                              ; preds = %._crit_edge.i
-  %46 = icmp ne i8 %31, 48
+46:                                               ; preds = %._crit_edge.i
+  %47 = icmp ne i8 %31, 48
   %.not.i = icmp eq ptr %.02540.i, %29
-  %or.cond29.i = or i1 %46, %.not.i
-  %spec.select174 = select i1 %or.cond29.i, ptr %42, ptr null
-  %47 = icmp ult i64 %41, 4294967296
-  %or.cond.not = and i1 %47, %or.cond29.i
-  %48 = icmp eq i64 %41, 19
-  %spec.select = and i1 %48, %or.cond29.i
-  %.mux = select i1 %or.cond.not, i32 -26, i32 -32
-  br i1 %spec.select, label %sub_0176, label %.thread
+  %or.cond29.i = or i1 %47, %.not.i
+  %48 = icmp ult i64 %41, 4294967296
+  %or.cond = and i1 %or.cond29.i, %48
+  br i1 %or.cond, label %49, label %.critedge
 
-sub_0176:                                         ; preds = %decode_decimal.exit
-  %49 = load i8, ptr %42, align 1
-  %.not194 = icmp eq i8 %49, 36
-  br i1 %.not194, label %sub_1177, label %.thread
+49:                                               ; preds = %46
+  %50 = icmp eq i64 %41, 19
+  br i1 %50, label %sub_0178, label %.critedge
 
-sub_1177:                                         ; preds = %sub_0176
-  %50 = getelementptr i8, ptr %.02540.i, i64 2
-  %51 = load i8, ptr %50, align 1
-  %.not195 = icmp eq i8 %51, 109
-  br i1 %.not195, label %.tail175, label %.thread
+sub_0178:                                         ; preds = %49
+  %.not196 = icmp eq i8 %43, 36
+  br i1 %.not196, label %sub_1179, label %.critedge
 
-.tail175:                                         ; preds = %sub_1177
-  %52 = getelementptr i8, ptr %.02540.i, i64 3
-  %53 = load i8, ptr %52, align 1
-  %54 = icmp eq i8 %53, 61
-  br i1 %54, label %55, label %.thread
+sub_1179:                                         ; preds = %sub_0178
+  %51 = getelementptr i8, ptr %.02540.i, i64 2
+  %52 = load i8, ptr %51, align 1
+  %.not197 = icmp eq i8 %52, 109
+  br i1 %.not197, label %.tail177, label %.critedge
 
-55:                                               ; preds = %.tail175
-  %56 = getelementptr i8, ptr %spec.select174, i64 3
+.tail177:                                         ; preds = %sub_1179
+  %53 = getelementptr i8, ptr %.02540.i, i64 3
+  %54 = load i8, ptr %53, align 1
+  %55 = icmp eq i8 %54, 61
+  br i1 %55, label %56, label %.critedge
+
+56:                                               ; preds = %.tail177
+  %57 = getelementptr i8, ptr %.02540.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  %57 = call fastcc ptr @decode_decimal(ptr noundef %56, ptr noundef %4)
-  %58 = icmp ne ptr %57, null
-  %59 = load i64, ptr %4, align 8
-  %60 = icmp ult i64 %59, 4294967296
-  %or.cond16.not = select i1 %58, i1 %60, i1 false
-  br i1 %or.cond16.not, label %sub_0181, label %.critedge
+  %58 = call fastcc ptr @decode_decimal(ptr noundef %57, ptr noundef %4)
+  %59 = icmp ne ptr %58, null
+  %60 = load i64, ptr %4, align 8
+  %61 = icmp ult i64 %60, 4294967296
+  %or.cond16.not = select i1 %59, i1 %61, i1 false
+  br i1 %or.cond16.not, label %sub_0183, label %.critedge165
 
-sub_0181:                                         ; preds = %55
-  %61 = trunc nuw i64 %59 to i32
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %61, ptr %62, align 8
+sub_0183:                                         ; preds = %56
+  %62 = trunc nuw i64 %60 to i32
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %62, ptr %63, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  %63 = load i8, ptr %57, align 1
-  %.not196 = icmp eq i8 %63, 44
-  br i1 %.not196, label %sub_1182, label %.thread
+  %64 = load i8, ptr %58, align 1
+  %.not198 = icmp eq i8 %64, 44
+  br i1 %.not198, label %sub_1184, label %.critedge
 
-sub_1182:                                         ; preds = %sub_0181
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 1
-  %65 = load i8, ptr %64, align 1
-  %.not197 = icmp eq i8 %65, 116
-  br i1 %.not197, label %.tail180, label %.thread
+sub_1184:                                         ; preds = %sub_0183
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 1
+  %66 = load i8, ptr %65, align 1
+  %.not199 = icmp eq i8 %66, 116
+  br i1 %.not199, label %.tail182, label %.critedge
 
-.tail180:                                         ; preds = %sub_1182
-  %66 = getelementptr inbounds nuw i8, ptr %57, i64 2
-  %67 = load i8, ptr %66, align 1
-  %68 = icmp eq i8 %67, 61
-  br i1 %68, label %69, label %.thread
+.tail182:                                         ; preds = %sub_1184
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 2
+  %68 = load i8, ptr %67, align 1
+  %69 = icmp eq i8 %68, 61
+  br i1 %69, label %70, label %.critedge
 
-69:                                               ; preds = %.tail180
-  %70 = getelementptr i8, ptr %57, i64 3
+70:                                               ; preds = %.tail182
+  %71 = getelementptr i8, ptr %58, i64 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  %71 = call fastcc ptr @decode_decimal(ptr noundef %70, ptr noundef %5)
-  %72 = icmp ne ptr %71, null
-  %73 = load i64, ptr %5, align 8
-  %74 = icmp ult i64 %73, 4294967296
-  %or.cond18.not = select i1 %72, i1 %74, i1 false
-  br i1 %or.cond18.not, label %sub_0186, label %.critedge165
+  %72 = call fastcc ptr @decode_decimal(ptr noundef %71, ptr noundef %5)
+  %73 = icmp ne ptr %72, null
+  %74 = load i64, ptr %5, align 8
+  %75 = icmp ult i64 %74, 4294967296
+  %or.cond18.not = select i1 %73, i1 %75, i1 false
+  br i1 %or.cond18.not, label %sub_0188, label %.critedge167
 
-sub_0186:                                         ; preds = %69
-  %75 = trunc nuw i64 %73 to i32
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %75, ptr %76, align 4
+sub_0188:                                         ; preds = %70
+  %76 = trunc nuw i64 %74 to i32
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 %76, ptr %77, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  %77 = load i8, ptr %71, align 1
-  %.not198 = icmp eq i8 %77, 44
-  br i1 %.not198, label %sub_1187, label %.thread
+  %78 = load i8, ptr %72, align 1
+  %.not200 = icmp eq i8 %78, 44
+  br i1 %.not200, label %sub_1189, label %.critedge
 
-sub_1187:                                         ; preds = %sub_0186
-  %78 = getelementptr inbounds nuw i8, ptr %71, i64 1
-  %79 = load i8, ptr %78, align 1
-  %.not199 = icmp eq i8 %79, 112
-  br i1 %.not199, label %.tail185, label %.thread
+sub_1189:                                         ; preds = %sub_0188
+  %79 = getelementptr inbounds nuw i8, ptr %72, i64 1
+  %80 = load i8, ptr %79, align 1
+  %.not201 = icmp eq i8 %80, 112
+  br i1 %.not201, label %.tail187, label %.critedge
 
-.tail185:                                         ; preds = %sub_1187
-  %80 = getelementptr inbounds nuw i8, ptr %71, i64 2
-  %81 = load i8, ptr %80, align 1
-  %82 = icmp eq i8 %81, 61
-  br i1 %82, label %83, label %.thread
+.tail187:                                         ; preds = %sub_1189
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 2
+  %82 = load i8, ptr %81, align 1
+  %83 = icmp eq i8 %82, 61
+  br i1 %83, label %84, label %.critedge
 
-83:                                               ; preds = %.tail185
-  %84 = getelementptr i8, ptr %71, i64 3
+84:                                               ; preds = %.tail187
+  %85 = getelementptr i8, ptr %72, i64 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  %85 = call fastcc ptr @decode_decimal(ptr noundef %84, ptr noundef %6)
-  %86 = icmp ne ptr %85, null
-  %87 = load i64, ptr %6, align 8
-  %88 = icmp ult i64 %87, 4294967296
-  %or.cond20.not = select i1 %86, i1 %88, i1 false
-  br i1 %or.cond20.not, label %89, label %.critedge167
+  %86 = call fastcc ptr @decode_decimal(ptr noundef %85, ptr noundef %6)
+  %87 = icmp ne ptr %86, null
+  %88 = load i64, ptr %6, align 8
+  %89 = icmp ult i64 %88, 4294967296
+  %or.cond20.not = select i1 %87, i1 %89, i1 false
+  br i1 %or.cond20.not, label %90, label %.critedge169
 
-89:                                               ; preds = %83
-  %90 = trunc nuw i64 %87 to i32
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %90, ptr %91, align 4
+90:                                               ; preds = %84
+  %91 = trunc nuw i64 %88 to i32
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %91, ptr %92, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %90, ptr %92, align 8
-  %lhsc = load i8, ptr %85, align 1
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %91, ptr %93, align 8
+  %lhsc = load i8, ptr %86, align 1
   %.not156 = icmp eq i8 %lhsc, 36
-  br i1 %.not156, label %93, label %.thread
+  br i1 %.not156, label %94, label %.critedge
 
-93:                                               ; preds = %89
-  %94 = getelementptr i8, ptr %85, i64 1
+94:                                               ; preds = %90
+  %95 = getelementptr i8, ptr %86, i64 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   store i64 %13, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #8
-  %98 = call i32 @sodium_base642bin(ptr noundef %96, i64 noundef %13, ptr noundef nonnull %94, i64 noundef %97, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 3) #9
-  %99 = icmp eq i32 %98, 0
-  %100 = load i64, ptr %7, align 8
-  %101 = icmp ult i64 %100, 4294967296
-  %or.cond22.not = select i1 %99, i1 %101, i1 false
-  br i1 %or.cond22.not, label %103, label %102
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %97 = load ptr, ptr %96, align 8
+  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #8
+  %99 = call i32 @sodium_base642bin(ptr noundef %97, i64 noundef %13, ptr noundef nonnull %95, i64 noundef %98, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 3) #9
+  %100 = icmp eq i32 %99, 0
+  %101 = load i64, ptr %7, align 8
+  %102 = icmp ult i64 %101, 4294967296
+  %or.cond22.not = select i1 %100, i1 %102, i1 false
+  br i1 %or.cond22.not, label %103, label %.critedge171
 
-102:                                              ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  br label %.thread
-
-103:                                              ; preds = %93
-  %104 = trunc nuw i64 %100 to i32
+103:                                              ; preds = %94
+  %104 = trunc nuw i64 %101 to i32
   store i32 %104, ptr %11, align 8
   %105 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   %lhsc159 = load i8, ptr %105, align 1
   %.not160 = icmp eq i8 %lhsc159, 36
-  br i1 %.not160, label %106, label %.thread
+  br i1 %.not160, label %106, label %.critedge
 
 106:                                              ; preds = %103
   %107 = getelementptr i8, ptr %105, i64 1
@@ -248,43 +242,48 @@ sub_1187:                                         ; preds = %sub_0186
   %112 = load i64, ptr %9, align 8
   %113 = icmp ult i64 %112, 4294967296
   %or.cond24.not = select i1 %111, i1 %113, i1 false
-  br i1 %or.cond24.not, label %115, label %114
+  br i1 %or.cond24.not, label %114, label %.critedge173
 
 114:                                              ; preds = %106
+  %115 = trunc nuw i64 %112 to i32
+  store i32 %115, ptr %14, align 8
+  %116 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  br label %.thread
+  %117 = call i32 @_sodium_argon2_validate_inputs(ptr noundef nonnull %0) #9
+  %.not163 = icmp eq i32 %117, 0
+  br i1 %.not163, label %118, label %.critedge
 
-115:                                              ; preds = %106
-  %116 = trunc nuw i64 %112 to i32
-  store i32 %116, ptr %14, align 8
-  %117 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  %118 = call i32 @_sodium_argon2_validate_inputs(ptr noundef nonnull %0) #9
-  %.not163 = icmp eq i32 %118, 0
-  br i1 %.not163, label %119, label %.thread
+118:                                              ; preds = %114
+  %119 = load i8, ptr %116, align 1
+  %120 = icmp eq i8 %119, 0
+  %. = select i1 %120, i32 0, i32 -32
+  br label %.critedge
 
-119:                                              ; preds = %115
-  %120 = load i8, ptr %117, align 1
-  %121 = icmp eq i8 %120, 0
-  %. = select i1 %121, i32 0, i32 -32
-  br label %.thread
-
-.critedge:                                        ; preds = %55
+.critedge165:                                     ; preds = %56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  br label %.thread
+  br label %.critedge
 
-.critedge165:                                     ; preds = %69
+.critedge167:                                     ; preds = %70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %.thread
+  br label %.critedge
 
-.critedge167:                                     ; preds = %83
+.critedge169:                                     ; preds = %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph.i, %35, %sub_1187, %sub_0186, %sub_1182, %sub_0181, %sub_1177, %sub_0176, %._crit_edge.i, %30, %sub_1, %sub_0, %.tail, %114, %102, %decode_decimal.exit, %119, %115, %.critedge167, %.critedge165, %.critedge, %3, %17, %103, %89, %.tail185, %.tail180, %.tail175, %20
-  %.1 = phi i32 [ -32, %114 ], [ -32, %103 ], [ -32, %102 ], [ -32, %89 ], [ -32, %.tail185 ], [ -32, %.tail180 ], [ -32, %.tail175 ], [ %.mux, %decode_decimal.exit ], [ -32, %17 ], [ -32, %20 ], [ -26, %3 ], [ -32, %.critedge ], [ -32, %.critedge165 ], [ -32, %.critedge167 ], [ %118, %115 ], [ %., %119 ], [ -32, %.tail ], [ -32, %sub_0 ], [ -32, %sub_1 ], [ -32, %30 ], [ -32, %._crit_edge.i ], [ -32, %sub_0176 ], [ -32, %sub_1177 ], [ -32, %sub_0181 ], [ -32, %sub_1182 ], [ -32, %sub_0186 ], [ -32, %sub_1187 ], [ -32, %35 ], [ -32, %.lr.ph.i ]
+.critedge171:                                     ; preds = %94
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  br label %.critedge
+
+.critedge173:                                     ; preds = %106
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  br label %.critedge
+
+.critedge:                                        ; preds = %35, %.lr.ph.i, %sub_1189, %sub_0188, %sub_1184, %sub_0183, %sub_1179, %sub_0178, %sub_1, %sub_0, %.tail, %30, %._crit_edge.i, %46, %118, %114, %.critedge173, %.critedge171, %.critedge169, %.critedge167, %.critedge165, %49, %3, %17, %103, %90, %.tail187, %.tail182, %.tail177, %20
+  %.1 = phi i32 [ -32, %103 ], [ -32, %90 ], [ -32, %.tail187 ], [ -32, %.tail182 ], [ -32, %.tail177 ], [ -32, %17 ], [ -32, %20 ], [ -26, %3 ], [ -26, %49 ], [ -32, %.critedge165 ], [ -32, %.critedge167 ], [ -32, %.critedge169 ], [ -32, %.critedge171 ], [ -32, %.critedge173 ], [ %117, %114 ], [ %., %118 ], [ -32, %46 ], [ -32, %._crit_edge.i ], [ -32, %30 ], [ -32, %.tail ], [ -32, %sub_0 ], [ -32, %sub_1 ], [ -32, %sub_0178 ], [ -32, %sub_1179 ], [ -32, %sub_0183 ], [ -32, %sub_1184 ], [ -32, %sub_0188 ], [ -32, %sub_1189 ], [ -32, %.lr.ph.i ], [ -32, %35 ]
   ret i32 %.1
 }
 
@@ -361,128 +360,120 @@ define hidden i32 @_sodium_argon2_encode_string(ptr noundef %0, i64 noundef %1, 
   %8 = alloca [11 x i8], align 1
   %9 = alloca [11 x i8], align 1
   %10 = alloca [11 x i8], align 1
-  switch i32 %3, label %.thread248 [
+  switch i32 %3, label %.critedge [
     i32 2, label %11
-    i32 1, label %13
+    i32 1, label %14
   ]
 
 11:                                               ; preds = %4
   %12 = icmp ugt i64 %1, 12
-  br i1 %12, label %.thread, label %.thread248
+  br i1 %12, label %13, label %.critedge
 
-.thread:                                          ; preds = %11
+13:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %0, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 noundef 13, i1 noundef false) #9
-  br label %15
+  br label %17
 
-13:                                               ; preds = %4
-  %14 = icmp ugt i64 %1, 11
-  br i1 %14, label %.thread205, label %.thread248
+14:                                               ; preds = %4
+  %15 = icmp ugt i64 %1, 11
+  br i1 %15, label %16, label %.critedge
 
-.thread205:                                       ; preds = %13
+16:                                               ; preds = %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(12) @.str.8, i64 noundef 12, i1 noundef false) #9
-  br label %15
+  br label %17
 
-15:                                               ; preds = %.thread205, %.thread
-  %.sink261 = phi i64 [ 11, %.thread205 ], [ 12, %.thread ]
-  %.sink = phi i64 [ -11, %.thread205 ], [ -12, %.thread ]
-  %16 = getelementptr i8, ptr %0, i64 %.sink261
-  %17 = add i64 %1, %.sink
-  %18 = tail call i32 @_sodium_argon2_validate_inputs(ptr noundef %2) #9
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %.thread248
+17:                                               ; preds = %16, %13
+  %.sink230 = phi i64 [ 11, %16 ], [ 12, %13 ]
+  %.sink = phi i64 [ -11, %16 ], [ -12, %13 ]
+  %18 = getelementptr i8, ptr %0, i64 %.sink230
+  %19 = add i64 %1, %.sink
+  %20 = tail call i32 @_sodium_argon2_validate_inputs(ptr noundef %2) #9
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %21, label %.critedge
 
-19:                                               ; preds = %15
+21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #9
-  br label %20
+  br label %22
 
-20:                                               ; preds = %20, %19
-  %.09.i = phi i32 [ 19, %19 ], [ %26, %20 ]
-  %.0.i = phi i64 [ 10, %19 ], [ %24, %20 ]
-  %21 = urem i32 %.09.i, 10
-  %22 = trunc nuw nsw i32 %21 to i8
-  %23 = or disjoint i8 %22, 48
-  %24 = add nsw i64 %.0.i, -1
-  %25 = getelementptr [10 x i8], ptr %6, i64 0, i64 %24
-  store i8 %23, ptr %25, align 1
-  %26 = udiv i32 %.09.i, 10
-  %27 = icmp samesign ugt i32 %.09.i, 9
-  br i1 %27, label %20, label %u32_to_string.exit, !llvm.loop !4
+22:                                               ; preds = %22, %21
+  %.09.i = phi i32 [ 19, %21 ], [ %28, %22 ]
+  %.0.i = phi i64 [ 10, %21 ], [ %26, %22 ]
+  %23 = urem i32 %.09.i, 10
+  %24 = trunc nuw nsw i32 %23 to i8
+  %25 = or disjoint i8 %24, 48
+  %26 = add nsw i64 %.0.i, -1
+  %27 = getelementptr [10 x i8], ptr %6, i64 0, i64 %26
+  store i8 %25, ptr %27, align 1
+  %28 = udiv i32 %.09.i, 10
+  %29 = icmp samesign ugt i32 %.09.i, 9
+  br i1 %29, label %22, label %u32_to_string.exit, !llvm.loop !4
 
-u32_to_string.exit:                               ; preds = %20
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %29 = load i16, ptr %28, align 1
-  store i16 %29, ptr %7, align 2
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 0, ptr %30, align 2
+u32_to_string.exit:                               ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %31 = load i16, ptr %30, align 1
+  store i16 %31, ptr %7, align 2
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i8 0, ptr %32, align 2
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #9
-  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #8
-  %.not194 = icmp ult i64 %31, %17
-  br i1 %.not194, label %33, label %32
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #8
+  %.not194 = icmp ult i64 %33, %19
+  br i1 %.not194, label %34, label %.critedge203
 
-32:                                               ; preds = %u32_to_string.exit
+34:                                               ; preds = %u32_to_string.exit
+  %35 = add nuw i64 %33, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 2 dereferenceable(1) %7, i64 noundef %35, i1 noundef false) #9
+  %36 = sub nuw i64 %19, %33
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %7) #9
-  br label %.thread248
+  %37 = icmp ugt i64 %36, 3
+  br i1 %37, label %38, label %.critedge
 
-33:                                               ; preds = %u32_to_string.exit
-  %34 = add nuw i64 %31, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 2 dereferenceable(1) %7, i64 noundef %34, i1 noundef false) #9
-  %35 = sub nuw i64 %17, %31
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %7) #9
-  %36 = icmp ugt i64 %35, 3
-  br i1 %36, label %37, label %.thread248
-
-37:                                               ; preds = %33
-  %38 = getelementptr i8, ptr %16, i64 %31
-  store i32 4025636, ptr %38, align 1
+38:                                               ; preds = %34
+  %39 = getelementptr i8, ptr %18, i64 %33
+  store i32 4025636, ptr %39, align 1
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %8) #9
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %40 = load i32, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %41 = load i32, ptr %40, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #9
-  br label %41
+  br label %42
 
-41:                                               ; preds = %41, %37
-  %.09.i200 = phi i32 [ %40, %37 ], [ %47, %41 ]
-  %.0.i201 = phi i64 [ 10, %37 ], [ %45, %41 ]
-  %42 = urem i32 %.09.i200, 10
-  %43 = trunc nuw nsw i32 %42 to i8
-  %44 = or disjoint i8 %43, 48
-  %45 = add nsw i64 %.0.i201, -1
-  %46 = getelementptr [10 x i8], ptr %5, i64 0, i64 %45
-  store i8 %44, ptr %46, align 1
-  %47 = udiv i32 %.09.i200, 10
-  %48 = icmp ugt i32 %.09.i200, 9
-  %49 = icmp ne i64 %45, 0
-  %50 = and i1 %48, %49
-  br i1 %50, label %41, label %u32_to_string.exit202, !llvm.loop !4
+42:                                               ; preds = %42, %38
+  %.09.i222 = phi i32 [ %41, %38 ], [ %48, %42 ]
+  %.0.i223 = phi i64 [ 10, %38 ], [ %46, %42 ]
+  %43 = urem i32 %.09.i222, 10
+  %44 = trunc nuw nsw i32 %43 to i8
+  %45 = or disjoint i8 %44, 48
+  %46 = add nsw i64 %.0.i223, -1
+  %47 = getelementptr [10 x i8], ptr %5, i64 0, i64 %46
+  store i8 %45, ptr %47, align 1
+  %48 = udiv i32 %.09.i222, 10
+  %49 = icmp ugt i32 %.09.i222, 9
+  %50 = icmp ne i64 %46, 0
+  %51 = and i1 %49, %50
+  br i1 %51, label %42, label %u32_to_string.exit224, !llvm.loop !4
 
-u32_to_string.exit202:                            ; preds = %41
-  %51 = getelementptr [10 x i8], ptr %5, i64 0, i64 %45
-  %52 = getelementptr i8, ptr %38, i64 3
-  %53 = add i64 %35, -3
-  %54 = sub i64 11, %.0.i201
-  %55 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef nonnull %51, i64 noundef %54, i64 noundef 11) #9, !alias.scope !6
-  %56 = getelementptr i8, ptr %8, i64 %54
-  store i8 0, ptr %56, align 1
+u32_to_string.exit224:                            ; preds = %42
+  %52 = getelementptr [10 x i8], ptr %5, i64 0, i64 %46
+  %53 = getelementptr i8, ptr %39, i64 3
+  %54 = add i64 %36, -3
+  %55 = sub i64 11, %.0.i223
+  %56 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef nonnull %52, i64 noundef %55, i64 noundef 11) #9, !alias.scope !6
+  %57 = getelementptr i8, ptr %8, i64 %55
+  store i8 0, ptr %57, align 1
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #9
-  %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
-  %.not195 = icmp ult i64 %57, %53
-  br i1 %.not195, label %59, label %58
+  %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
+  %.not195 = icmp ult i64 %58, %54
+  br i1 %.not195, label %59, label %.critedge207
 
-58:                                               ; preds = %u32_to_string.exit202
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %8) #9
-  br label %.thread248
-
-59:                                               ; preds = %u32_to_string.exit202
-  %60 = add nuw i64 %57, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 1 dereferenceable(1) %8, i64 noundef %60, i1 noundef false) #9
-  %61 = sub nuw i64 %53, %57
+59:                                               ; preds = %u32_to_string.exit224
+  %60 = add nuw i64 %58, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef nonnull align 1 dereferenceable(1) %8, i64 noundef %60, i1 noundef false) #9
+  %61 = sub nuw i64 %54, %58
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %8) #9
   %62 = icmp ugt i64 %61, 3
-  br i1 %62, label %63, label %.thread248
+  br i1 %62, label %63, label %.critedge
 
 63:                                               ; preds = %59
-  %64 = getelementptr i8, ptr %52, i64 %57
+  %64 = getelementptr i8, ptr %53, i64 %58
   store i32 4027436, ptr %64, align 1
   %65 = add i64 %61, -3
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %9) #9
@@ -491,82 +482,90 @@ u32_to_string.exit202:                            ; preds = %41
   call fastcc void @u32_to_string(ptr noundef %9, i32 noundef %67)
   %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #8
   %.not196 = icmp ult i64 %68, %65
-  br i1 %.not196, label %70, label %69
+  br i1 %.not196, label %69, label %.critedge211
 
 69:                                               ; preds = %63
+  %70 = getelementptr i8, ptr %64, i64 3
+  %71 = add nuw i64 %68, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %71, i1 noundef false) #9
+  %72 = sub nuw i64 %65, %68
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %9) #9
-  br label %.thread248
+  %73 = icmp ugt i64 %72, 3
+  br i1 %73, label %74, label %.critedge
 
-70:                                               ; preds = %63
-  %71 = getelementptr i8, ptr %64, i64 3
-  %72 = add nuw i64 %68, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %72, i1 noundef false) #9
-  %73 = sub nuw i64 %65, %68
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %9) #9
-  %74 = icmp ugt i64 %73, 3
-  br i1 %74, label %75, label %.thread248
-
-75:                                               ; preds = %70
-  %76 = getelementptr i8, ptr %71, i64 %68
-  store i32 4026412, ptr %76, align 1
-  %77 = add i64 %73, -3
+74:                                               ; preds = %69
+  %75 = getelementptr i8, ptr %70, i64 %68
+  store i32 4026412, ptr %75, align 1
+  %76 = add i64 %72, -3
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %10) #9
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  %79 = load i32, ptr %78, align 4
-  call fastcc void @u32_to_string(ptr noundef %10, i32 noundef %79)
-  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #8
-  %.not197 = icmp ult i64 %80, %77
-  br i1 %.not197, label %82, label %81
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %78 = load i32, ptr %77, align 4
+  call fastcc void @u32_to_string(ptr noundef %10, i32 noundef %78)
+  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #8
+  %.not197 = icmp ult i64 %79, %76
+  br i1 %.not197, label %80, label %.critedge215
 
-81:                                               ; preds = %75
+80:                                               ; preds = %74
+  %81 = getelementptr i8, ptr %75, i64 3
+  %82 = add nuw i64 %79, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull align 1 dereferenceable(1) %10, i64 noundef %82, i1 noundef false) #9
+  %83 = sub nuw i64 %76, %79
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %10) #9
-  br label %.thread248
+  %84 = icmp ugt i64 %83, 1
+  br i1 %84, label %85, label %.critedge
 
-82:                                               ; preds = %75
-  %83 = getelementptr i8, ptr %76, i64 3
-  %84 = add nuw i64 %80, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %83, ptr noundef nonnull align 1 dereferenceable(1) %10, i64 noundef %84, i1 noundef false) #9
-  %85 = sub nuw i64 %77, %80
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %10) #9
-  %86 = icmp ugt i64 %85, 1
-  br i1 %86, label %87, label %.thread248
+85:                                               ; preds = %80
+  %86 = getelementptr i8, ptr %81, i64 %79
+  store i16 36, ptr %86, align 1
+  %87 = getelementptr i8, ptr %86, i64 1
+  %88 = add i64 %83, -1
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %92 = load i32, ptr %91, align 8
+  %93 = zext i32 %92 to i64
+  %94 = call ptr @sodium_bin2base64(ptr noundef %87, i64 noundef %88, ptr noundef %90, i64 noundef %93, i32 noundef 3) #9
+  %.not198 = icmp eq ptr %94, null
+  br i1 %.not198, label %.critedge, label %95
 
-87:                                               ; preds = %82
-  %88 = getelementptr i8, ptr %83, i64 %80
-  store i16 36, ptr %88, align 1
-  %89 = getelementptr i8, ptr %88, i64 1
-  %90 = add i64 %85, -1
-  %91 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %94 = load i32, ptr %93, align 8
-  %95 = zext i32 %94 to i64
-  %96 = call ptr @sodium_bin2base64(ptr noundef %89, i64 noundef %90, ptr noundef %92, i64 noundef %95, i32 noundef 3) #9
-  %.not198 = icmp eq ptr %96, null
-  br i1 %.not198, label %.thread248, label %97
+95:                                               ; preds = %85
+  %96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #8
+  %97 = sub i64 %88, %96
+  %98 = icmp ugt i64 %97, 1
+  br i1 %98, label %99, label %.critedge
 
-97:                                               ; preds = %87
-  %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #8
-  %99 = sub i64 %90, %98
-  %100 = icmp ugt i64 %99, 1
-  br i1 %100, label %101, label %.thread248
-
-101:                                              ; preds = %97
-  %102 = getelementptr i8, ptr %89, i64 %98
-  store i16 36, ptr %102, align 1
-  %103 = getelementptr i8, ptr %102, i64 1
-  %104 = add i64 %99, -1
-  %105 = load ptr, ptr %2, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %107 = load i32, ptr %106, align 8
-  %108 = zext i32 %107 to i64
-  %109 = call ptr @sodium_bin2base64(ptr noundef %103, i64 noundef %104, ptr noundef %105, i64 noundef %108, i32 noundef 3) #9
-  %.not199 = icmp eq ptr %109, null
+99:                                               ; preds = %95
+  %100 = getelementptr i8, ptr %87, i64 %96
+  store i16 36, ptr %100, align 1
+  %101 = getelementptr i8, ptr %100, i64 1
+  %102 = add i64 %97, -1
+  %103 = load ptr, ptr %2, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %105 = load i32, ptr %104, align 8
+  %106 = zext i32 %105 to i64
+  %107 = call ptr @sodium_bin2base64(ptr noundef %101, i64 noundef %102, ptr noundef %103, i64 noundef %106, i32 noundef 3) #9
+  %.not199 = icmp eq ptr %107, null
   %spec.select = select i1 %.not199, i32 -31, i32 0
-  br label %.thread248
+  br label %.critedge
 
-.thread248:                                       ; preds = %87, %97, %82, %81, %70, %69, %59, %58, %33, %32, %13, %11, %101, %15, %4
-  %.1 = phi i32 [ -31, %81 ], [ -31, %69 ], [ -31, %58 ], [ -31, %32 ], [ -31, %4 ], [ %18, %15 ], [ %spec.select, %101 ], [ -31, %11 ], [ -31, %13 ], [ -31, %33 ], [ -31, %59 ], [ -31, %70 ], [ -31, %82 ], [ -31, %97 ], [ -31, %87 ]
+.critedge203:                                     ; preds = %u32_to_string.exit
+  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %7) #9
+  br label %.critedge
+
+.critedge207:                                     ; preds = %u32_to_string.exit224
+  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %8) #9
+  br label %.critedge
+
+.critedge211:                                     ; preds = %63
+  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %9) #9
+  br label %.critedge
+
+.critedge215:                                     ; preds = %74
+  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %10) #9
+  br label %.critedge
+
+.critedge:                                        ; preds = %99, %95, %85, %80, %69, %59, %34, %14, %11, %.critedge215, %.critedge211, %.critedge207, %.critedge203, %17, %4
+  %.1 = phi i32 [ -31, %4 ], [ %20, %17 ], [ -31, %.critedge203 ], [ -31, %.critedge207 ], [ -31, %.critedge211 ], [ -31, %.critedge215 ], [ -31, %11 ], [ -31, %14 ], [ -31, %34 ], [ -31, %59 ], [ -31, %69 ], [ -31, %80 ], [ -31, %85 ], [ -31, %95 ], [ %spec.select, %99 ]
   ret i32 %.1
 }
 

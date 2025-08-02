@@ -8288,7 +8288,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   %42 = getelementptr i8, ptr %5, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.thread48, label %45
+  br i1 %44, label %.thread44, label %45
 
 45:                                               ; preds = %41, %37, %33, %29, %25
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_bridge_getlink_req.__msg.51) #18
@@ -8310,7 +8310,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %.thread, label %.preheader.split.us
 
-.thread48:                                        ; preds = %41
+.thread44:                                        ; preds = %41
   %55 = call fastcc i32 @nlmsg_parse_deprecated_strict(ptr noundef %5, i32 noundef 16, ptr noundef nonnull %3, i32 noundef 65, ptr noundef nonnull @ifla_policy, ptr noundef %19)
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %.thread, label %.preheader.split
@@ -8334,11 +8334,11 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   %67 = phi i32 [ %57, %.preheader.split.us ], [ %65, %63 ]
   %68 = add nuw nsw i64 %58, 1
   %69 = icmp eq i64 %68, 66
-  br i1 %69, label %.split.us, label %.preheader.split.us, !llvm.loop !112
+  br i1 %69, label %.critedge, label %.preheader.split.us, !llvm.loop !112
 
-.preheader.split:                                 ; preds = %.thread48, %82
-  %70 = phi i32 [ %83, %82 ], [ 0, %.thread48 ]
-  %71 = phi i64 [ %84, %82 ], [ 0, %.thread48 ]
+.preheader.split:                                 ; preds = %.thread44, %82
+  %70 = phi i32 [ %83, %82 ], [ 0, %.thread44 ]
+  %71 = phi i64 [ %84, %82 ], [ 0, %.thread44 ]
   %72 = getelementptr [66 x ptr], ptr %3, i64 0, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -8362,9 +8362,9 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   %83 = phi i32 [ %70, %.preheader.split ], [ %79, %77 ]
   %84 = add nuw nsw i64 %71, 1
   %85 = icmp eq i64 %84, 66
-  br i1 %85, label %.split.us, label %.preheader.split, !llvm.loop !113
+  br i1 %85, label %.critedge, label %.preheader.split, !llvm.loop !113
 
-.split.us:                                        ; preds = %82, %66
+.critedge:                                        ; preds = %82, %66
   %.us-phi = phi i32 [ %67, %66 ], [ %83, %82 ]
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %3) #18
   br label %88
@@ -8375,23 +8375,23 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   store ptr %__nlmsg_parse.__msg.sink, ptr %19, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %.thread48, %48, %45, %23, %50, %80
-  %.ph = phi i32 [ %70, %80 ], [ 0, %50 ], [ 0, %23 ], [ 0, %45 ], [ 0, %48 ], [ 0, %.thread48 ], [ %.ph.ph, %.thread.sink.split ]
-  %.ph15 = phi i32 [ -22, %80 ], [ %53, %50 ], [ -22, %23 ], [ -22, %45 ], [ -22, %48 ], [ %55, %.thread48 ], [ -22, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %.thread44, %48, %50, %80, %45, %23
+  %.ph = phi i32 [ 0, %23 ], [ 0, %45 ], [ %70, %80 ], [ 0, %50 ], [ 0, %48 ], [ 0, %.thread44 ], [ %.ph.ph, %.thread.sink.split ]
+  %.ph12 = phi i32 [ -22, %23 ], [ -22, %45 ], [ -22, %80 ], [ %53, %50 ], [ -22, %48 ], [ %55, %.thread44 ], [ -22, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %3) #18
   %86 = load i8, ptr %15, align 8, !range !90, !noundef !96
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %88, label %148
 
-88:                                               ; preds = %.split.us, %.thread
-  %89 = phi i32 [ %.ph, %.thread ], [ %.us-phi, %.split.us ]
+88:                                               ; preds = %.critedge, %.thread
+  %89 = phi i32 [ %.ph, %.thread ], [ %.us-phi, %.critedge ]
   call void @__rcu_read_lock() #18
   %90 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %93 = load volatile ptr, ptr %90, align 8
   %94 = icmp eq ptr %93, %90
-  br i1 %94, label %.thread21, label %.lr.ph
+  br i1 %94, label %.thread17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %88, %141
   %95 = phi ptr [ %143, %141 ], [ %93, %88 ]
@@ -8427,7 +8427,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
 117:                                              ; preds = %112
   %118 = load i32, ptr %92, align 8
   %119 = icmp eq i32 %118, 0
-  br i1 %119, label %.thread25, label %.thread21, !prof !13
+  br i1 %119, label %.thread21, label %.thread17, !prof !13
 
 120:                                              ; preds = %112, %108
   %121 = add i32 %96, 1
@@ -8456,7 +8456,7 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
 136:                                              ; preds = %131
   %137 = load i32, ptr %92, align 8
   %138 = icmp eq i32 %137, 0
-  br i1 %138, label %.thread25, label %.thread21, !prof !13
+  br i1 %138, label %.thread21, label %.thread17, !prof !13
 
 139:                                              ; preds = %131, %127
   %140 = add i32 %123, 1
@@ -8466,23 +8466,23 @@ define internal i32 @rtnl_bridge_getlink(ptr noundef %0, ptr noundef captures(no
   %142 = phi i32 [ %140, %139 ], [ %123, %122 ]
   %143 = load volatile ptr, ptr %95, align 8
   %144 = icmp eq ptr %143, %90
-  br i1 %144, label %.thread21, label %.lr.ph
+  br i1 %144, label %.thread17, label %.lr.ph
 
-.thread21:                                        ; preds = %141, %88, %136, %117
+.thread17:                                        ; preds = %141, %88, %136, %117
   %145 = phi i32 [ %123, %136 ], [ %96, %117 ], [ 0, %88 ], [ %142, %141 ]
   %146 = load i32, ptr %92, align 8
   %.pre = sext i32 %145 to i64
-  br label %.thread25
+  br label %.thread21
 
-.thread25:                                        ; preds = %136, %117, %.thread21
-  %.pre-phi = phi i64 [ %128, %136 ], [ %109, %117 ], [ %.pre, %.thread21 ]
-  %147 = phi i32 [ %132, %136 ], [ %113, %117 ], [ %146, %.thread21 ]
+.thread21:                                        ; preds = %136, %117, %.thread17
+  %.pre-phi = phi i64 [ %128, %136 ], [ %109, %117 ], [ %.pre, %.thread17 ]
+  %147 = phi i32 [ %132, %136 ], [ %113, %117 ], [ %146, %.thread17 ]
   call void @__rcu_read_unlock() #18
   store i64 %.pre-phi, ptr %91, align 8
   br label %148
 
-148:                                              ; preds = %.thread25, %.thread
-  %149 = phi i32 [ %147, %.thread25 ], [ %.ph15, %.thread ]
+148:                                              ; preds = %.thread21, %.thread
+  %149 = phi i32 [ %147, %.thread21 ], [ %.ph12, %.thread ]
   ret i32 %149
 }
 
@@ -13149,7 +13149,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %446 = trunc i32 %445 to i8
   %447 = call i32 %438(ptr noundef %1, i32 noundef %434, i16 noundef zeroext %443, i8 noundef zeroext %446, i16 noundef zeroext 129) #18
   %448 = icmp sgt i32 %447, -1
-  br i1 %448, label %449, label %.thread262
+  br i1 %448, label %449, label %.thread259
 
 449:                                              ; preds = %440, %428
   %450 = phi i32 [ %447, %440 ], [ %429, %428 ]
@@ -13173,11 +13173,11 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %461 = getelementptr i8, ptr %451, i64 4
   %462 = load i16, ptr %461, align 2
   %463 = icmp ult i16 %462, 4
-  %.not118323 = icmp ult i16 %459, %462
-  %or.cond324 = or i1 %463, %.not118323
-  br i1 %or.cond324, label %.critedge, label %.lr.ph325
+  %.not118320 = icmp ult i16 %459, %462
+  %or.cond321 = or i1 %463, %.not118320
+  br i1 %or.cond321, label %.critedge, label %.lr.ph322
 
-.lr.ph325:                                        ; preds = %.lr.ph.preheader
+.lr.ph322:                                        ; preds = %.lr.ph.preheader
   %464 = zext i16 %462 to i32
   %465 = zext i16 %459 to i32
   br label %471
@@ -13192,12 +13192,12 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %or.cond = or i1 %469, %.not118
   br i1 %or.cond, label %.critedge.loopexit, label %471, !llvm.loop !135
 
-471:                                              ; preds = %.lr.ph325, %.lr.ph
-  %472 = phi i32 [ %464, %.lr.ph325 ], [ %470, %.lr.ph ]
-  %473 = phi i16 [ %462, %.lr.ph325 ], [ %468, %.lr.ph ]
-  %474 = phi i32 [ %465, %.lr.ph325 ], [ %488, %.lr.ph ]
-  %475 = phi ptr [ %461, %.lr.ph325 ], [ %467, %.lr.ph ]
-  %476 = phi i1 [ false, %.lr.ph325 ], [ true, %.lr.ph ]
+471:                                              ; preds = %.lr.ph322, %.lr.ph
+  %472 = phi i32 [ %464, %.lr.ph322 ], [ %470, %.lr.ph ]
+  %473 = phi i16 [ %462, %.lr.ph322 ], [ %468, %.lr.ph ]
+  %474 = phi i32 [ %465, %.lr.ph322 ], [ %488, %.lr.ph ]
+  %475 = phi ptr [ %461, %.lr.ph322 ], [ %467, %.lr.ph ]
+  %476 = phi i1 [ false, %.lr.ph322 ], [ true, %.lr.ph ]
   %477 = getelementptr inbounds nuw i8, ptr %475, i64 2
   %478 = load i16, ptr %477, align 2
   %479 = and i16 %478, 16383
@@ -13215,23 +13215,23 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %487 = and i32 %486, 131068
   %488 = sub nsw i32 %474, %487
   %489 = icmp sgt i32 %488, 3
-  br i1 %489, label %.lr.ph, label %.critedge.thread257.loopexit, !llvm.loop !135
+  br i1 %489, label %.lr.ph, label %.critedge.thread.loopexit, !llvm.loop !135
 
 .critedge.loopexit:                               ; preds = %.lr.ph
   %490 = getelementptr i8, ptr %475, i64 4
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader
-  %.lcssa303 = phi ptr [ null, %.lr.ph.preheader ], [ %490, %.critedge.loopexit ]
-  br i1 %or.cond324, label %.thread166, label %.critedge.thread257
+  %.lcssa300 = phi ptr [ null, %.lr.ph.preheader ], [ %490, %.critedge.loopexit ]
+  br i1 %or.cond321, label %.thread166, label %.critedge.thread
 
-.critedge.thread257.loopexit:                     ; preds = %485
+.critedge.thread.loopexit:                        ; preds = %485
   %491 = getelementptr i8, ptr %475, i64 4
-  br label %.critedge.thread257
+  br label %.critedge.thread
 
-.critedge.thread257:                              ; preds = %.critedge.thread257.loopexit, %.critedge
-  %.lcssa203260 = phi ptr [ %.lcssa303, %.critedge ], [ %491, %.critedge.thread257.loopexit ]
-  %492 = load i32, ptr %.lcssa203260, align 4
+.critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %.critedge
+  %.lcssa203257 = phi ptr [ %.lcssa300, %.critedge ], [ %491, %.critedge.thread.loopexit ]
+  %492 = load i32, ptr %.lcssa203257, align 4
   %493 = icmp ugt i32 %492, 2147483646
   br i1 %493, label %.thread166, label %496
 
@@ -13239,18 +13239,18 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %495 = select i1 %483, i32 -22, i32 -95
   br label %.thread166
 
-496:                                              ; preds = %.critedge.thread257
-  %497 = getelementptr inbounds nuw i8, ptr %.lcssa203260, i64 4
+496:                                              ; preds = %.critedge.thread
+  %497 = getelementptr inbounds nuw i8, ptr %.lcssa203257, i64 4
   %498 = load i32, ptr %497, align 4
   %499 = trunc i32 %498 to i16
-  %500 = getelementptr inbounds nuw i8, ptr %.lcssa203260, i64 8
+  %500 = getelementptr inbounds nuw i8, ptr %.lcssa203257, i64 8
   %501 = load i32, ptr %500, align 4
   %502 = trunc i32 %501 to i8
-  %503 = getelementptr inbounds nuw i8, ptr %.lcssa203260, i64 12
+  %503 = getelementptr inbounds nuw i8, ptr %.lcssa203257, i64 12
   %504 = load i16, ptr %503, align 4
   %505 = call i32 %455(ptr noundef %1, i32 noundef %492, i16 noundef zeroext %499, i8 noundef zeroext %502, i16 noundef zeroext %504) #18
   %506 = icmp sgt i32 %505, -1
-  br i1 %506, label %507, label %.thread262
+  br i1 %506, label %507, label %.thread259
 
 507:                                              ; preds = %496, %449
   %508 = phi i32 [ %505, %496 ], [ %450, %449 ]
@@ -13308,7 +13308,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %536 = call i32 %529(ptr noundef %1, i32 noundef %523, i32 noundef %524, i32 noundef %526) #18
   %537 = icmp sgt i32 %536, -1
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #18
-  br i1 %537, label %538, label %.thread262
+  br i1 %537, label %538, label %.thread259
 
 538:                                              ; preds = %535, %507
   %539 = phi i32 [ %536, %535 ], [ %508, %507 ]
@@ -13342,7 +13342,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
 559:                                              ; preds = %555
   %560 = call i32 %553(ptr noundef %1, i32 noundef %544, i32 noundef %548, i32 noundef %550) #18
   %561 = icmp sgt i32 %560, -1
-  br i1 %561, label %562, label %.thread262
+  br i1 %561, label %562, label %.thread259
 
 562:                                              ; preds = %559, %538
   %563 = phi i32 [ %560, %559 ], [ %539, %538 ]
@@ -13368,7 +13368,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %577 = icmp ne i32 %576, 0
   %578 = call i32 %572(ptr noundef %1, i32 noundef %568, i1 noundef zeroext %577) #18
   %579 = icmp sgt i32 %578, -1
-  br i1 %579, label %580, label %.thread262
+  br i1 %579, label %580, label %.thread259
 
 580:                                              ; preds = %574, %562
   %581 = phi i32 [ %578, %574 ], [ %563, %562 ]
@@ -13393,7 +13393,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %594 = load i32, ptr %593, align 4
   %595 = call i32 %590(ptr noundef %1, i32 noundef %586, i32 noundef %594) #18
   %596 = icmp sgt i32 %595, -1
-  br i1 %596, label %597, label %.thread262
+  br i1 %596, label %597, label %.thread259
 
 597:                                              ; preds = %592, %580
   %598 = phi i32 [ %595, %592 ], [ %581, %580 ]
@@ -13419,7 +13419,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %612 = icmp ne i32 %611, 0
   %613 = call i32 %607(ptr noundef %1, i32 noundef %603, i1 noundef zeroext %612) #18
   %614 = icmp sgt i32 %613, -1
-  br i1 %614, label %615, label %.thread262
+  br i1 %614, label %615, label %.thread259
 
 615:                                              ; preds = %609, %597
   %616 = phi i32 [ %613, %609 ], [ %598, %597 ]
@@ -13445,7 +13445,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   %630 = icmp ne i32 %629, 0
   %631 = call i32 %625(ptr noundef %1, i32 noundef %621, i1 noundef zeroext %630) #18
   %632 = icmp sgt i32 %631, -1
-  br i1 %632, label %633, label %.thread262
+  br i1 %632, label %633, label %.thread259
 
 633:                                              ; preds = %627, %615
   %634 = phi i32 [ %631, %627 ], [ %616, %615 ]
@@ -13515,15 +13515,15 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #18
   br label %.thread125
 
-.thread166:                                       ; preds = %457, %637, %641, %658, %662, %645, %666, %.critedge, %.critedge.thread257, %542, %546, %555, %566, %570, %584, %588, %601, %605, %619, %623, %471, %.thread148, %.thread151, %494
-  %.ph165 = phi i32 [ %.ph150, %.thread151 ], [ %.ph146, %.thread148 ], [ %495, %494 ], [ -22, %471 ], [ -22, %457 ], [ -95, %623 ], [ -22, %619 ], [ -95, %605 ], [ -22, %601 ], [ -95, %588 ], [ -22, %584 ], [ -95, %570 ], [ -22, %566 ], [ -95, %546 ], [ -22, %555 ], [ -22, %542 ], [ -22, %.critedge ], [ -22, %.critedge.thread257 ], [ -22, %637 ], [ -95, %641 ], [ -22, %658 ], [ -95, %662 ], [ -95, %645 ], [ -95, %666 ]
+.thread166:                                       ; preds = %637, %641, %658, %662, %645, %666, %.critedge, %.critedge.thread, %542, %546, %555, %566, %570, %584, %588, %601, %605, %619, %623, %457, %471, %.thread148, %.thread151, %494
+  %.ph165 = phi i32 [ %.ph150, %.thread151 ], [ %.ph146, %.thread148 ], [ %495, %494 ], [ -22, %471 ], [ -95, %623 ], [ -22, %619 ], [ -95, %605 ], [ -22, %601 ], [ -95, %588 ], [ -22, %584 ], [ -95, %570 ], [ -22, %566 ], [ -95, %546 ], [ -22, %555 ], [ -22, %542 ], [ -22, %.critedge ], [ -22, %.critedge.thread ], [ -22, %637 ], [ -95, %641 ], [ -22, %658 ], [ -95, %662 ], [ -95, %645 ], [ -95, %666 ], [ -22, %457 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #18
   br label %.thread125
 
 676:                                              ; preds = %669, %655, %648
   %677 = phi i32 [ %634, %655 ], [ %654, %648 ], [ %675, %669 ]
   %678 = icmp slt i32 %677, 0
-  br i1 %678, label %.thread262, label %679
+  br i1 %678, label %.thread259, label %679
 
 679:                                              ; preds = %676
   %680 = load i16, ptr %393, align 2
@@ -13546,7 +13546,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #18
   br label %689
 
-.thread262:                                       ; preds = %440, %496, %535, %559, %574, %592, %609, %627, %676
+.thread259:                                       ; preds = %440, %496, %535, %559, %574, %592, %609, %627, %676
   %688 = phi i32 [ %677, %676 ], [ %447, %440 ], [ %505, %496 ], [ %536, %535 ], [ %560, %559 ], [ %578, %574 ], [ %595, %592 ], [ %613, %609 ], [ %631, %627 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #18
   br label %.thread125
@@ -13884,9 +13884,9 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nound
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #18
   br label %.thread125
 
-.thread125:                                       ; preds = %798, %.thread166, %.thread262, %.thread166.thread, %238, %244, %233, %222, %228, %115, %107, %.thread, %41, %.thread178, %.thread177, %.critedge122.thread, %.thread169, %.thread128, %878, %822, %.split, %758, %267, %254, %205, %165, %155, %132, %78
-  %881 = phi i32 [ %98, %78 ], [ %135, %132 ], [ %156, %155 ], [ %170, %165 ], [ %207, %205 ], [ %258, %254 ], [ %271, %267 ], [ %688, %.thread262 ], [ %.fr, %758 ], [ %820, %.split ], [ %879, %878 ], [ 0, %822 ], [ %.ph127, %.thread128 ], [ %.ph168, %.thread169 ], [ %.ph165, %.thread166 ], [ %.ph173, %.critedge122.thread ], [ %752, %.thread177 ], [ -95, %.thread178 ], [ %53, %.thread ], [ %43, %41 ], [ %123, %115 ], [ -12, %107 ], [ -95, %238 ], [ %245, %244 ], [ -22, %233 ], [ -95, %222 ], [ %229, %228 ], [ %.ph165.ph, %.thread166.thread ], [ %801, %798 ]
-  %882 = phi i32 [ %100, %78 ], [ %128, %132 ], [ %148, %155 ], [ %161, %165 ], [ %173, %205 ], [ %250, %254 ], [ %274, %267 ], [ %394, %.thread262 ], [ %spec.select, %758 ], [ %812, %.split ], [ %880, %878 ], [ %823, %822 ], [ %65, %.thread128 ], [ %394, %.thread169 ], [ %394, %.thread166 ], [ %.ph174, %.critedge122.thread ], [ %743, %.thread177 ], [ %743, %.thread178 ], [ %5, %.thread ], [ %5, %41 ], [ %103, %115 ], [ %103, %107 ], [ %173, %238 ], [ %173, %244 ], [ %173, %233 ], [ %173, %222 ], [ %173, %228 ], [ %394, %.thread166.thread ], [ %774, %798 ]
+.thread125:                                       ; preds = %798, %.thread166, %.thread259, %.thread166.thread, %238, %244, %233, %222, %228, %115, %107, %.thread, %41, %.thread178, %.thread177, %.critedge122.thread, %.thread169, %.thread128, %878, %822, %.split, %758, %267, %254, %205, %165, %155, %132, %78
+  %881 = phi i32 [ %98, %78 ], [ %135, %132 ], [ %156, %155 ], [ %170, %165 ], [ %207, %205 ], [ %258, %254 ], [ %271, %267 ], [ %688, %.thread259 ], [ %.fr, %758 ], [ %820, %.split ], [ %879, %878 ], [ 0, %822 ], [ %.ph127, %.thread128 ], [ %.ph168, %.thread169 ], [ %.ph165, %.thread166 ], [ %.ph173, %.critedge122.thread ], [ %752, %.thread177 ], [ -95, %.thread178 ], [ %53, %.thread ], [ %43, %41 ], [ %123, %115 ], [ -12, %107 ], [ -95, %238 ], [ %245, %244 ], [ -22, %233 ], [ -95, %222 ], [ %229, %228 ], [ %.ph165.ph, %.thread166.thread ], [ %801, %798 ]
+  %882 = phi i32 [ %100, %78 ], [ %128, %132 ], [ %148, %155 ], [ %161, %165 ], [ %173, %205 ], [ %250, %254 ], [ %274, %267 ], [ %394, %.thread259 ], [ %spec.select, %758 ], [ %812, %.split ], [ %880, %878 ], [ %823, %822 ], [ %65, %.thread128 ], [ %394, %.thread169 ], [ %394, %.thread166 ], [ %.ph174, %.critedge122.thread ], [ %743, %.thread177 ], [ %743, %.thread178 ], [ %5, %.thread ], [ %5, %41 ], [ %103, %115 ], [ %103, %107 ], [ %173, %238 ], [ %173, %244 ], [ %173, %233 ], [ %173, %222 ], [ %173, %228 ], [ %394, %.thread166.thread ], [ %774, %798 ]
   %883 = and i32 %882, 1
   %884 = icmp eq i32 %883, 0
   br i1 %884, label %896, label %885

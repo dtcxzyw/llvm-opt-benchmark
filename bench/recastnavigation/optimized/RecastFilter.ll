@@ -267,7 +267,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
 .thread:                                          ; preds = %56
   %63 = load i32, ptr %61, align 8
   %64 = and i32 %63, 8191
-  %65 = tail call noundef i32 @llvm.smin.i32(i32 %44, i32 %64)
+  %65 = tail call i32 @llvm.smin.i32(i32 %44, i32 %64)
   %66 = sub nsw i32 %65, %37
   %.not103.us159 = icmp slt i32 %66, %1
   br i1 %.not103.us159, label %.lr.ph.us, label %.loopexit.us
@@ -305,22 +305,22 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
   %78 = getelementptr inbounds nuw i8, ptr %.080125.us, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not105.us = icmp eq ptr %79, null
-  br i1 %.not105.us, label %83, label %80
+  br i1 %.not105.us, label %84, label %80
 
 80:                                               ; preds = %.lr.ph.us
   %81 = load i32, ptr %79, align 8
   %82 = and i32 %81, 8191
-  br label %83
+  %83 = tail call i32 @llvm.smin.i32(i32 %44, i32 %82)
+  br label %84
 
-83:                                               ; preds = %80, %.lr.ph.us
-  %84 = phi i32 [ %82, %80 ], [ 65535, %.lr.ph.us ]
-  %85 = tail call noundef i32 @llvm.smin.i32(i32 %44, i32 %84)
+84:                                               ; preds = %80, %.lr.ph.us
+  %85 = phi i32 [ %83, %80 ], [ %44, %.lr.ph.us ]
   %86 = tail call noundef i32 @llvm.smax.i32(i32 %37, i32 %77)
   %87 = sub nsw i32 %85, %86
   %88 = icmp slt i32 %87, %1
   br i1 %88, label %98, label %89
 
-89:                                               ; preds = %83
+89:                                               ; preds = %84
   %90 = sub nsw i32 %77, %37
   %91 = tail call noundef i32 @llvm.smin.i32(i32 %.2124.us, i32 %90)
   %92 = tail call noundef i32 @llvm.abs.i32(i32 %90, i1 true)
@@ -336,10 +336,10 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
   %97 = icmp slt i32 %90, %23
   br i1 %97, label %._crit_edge.us, label %98
 
-98:                                               ; preds = %96, %93, %83
-  %.289.us = phi i32 [ %.188122.us, %83 ], [ %94, %93 ], [ %.188122.us, %96 ]
-  %.286.us = phi i32 [ %.185123.us, %83 ], [ %95, %93 ], [ %.185123.us, %96 ]
-  %.3.us = phi i32 [ %.2124.us, %83 ], [ %91, %93 ], [ %91, %96 ]
+98:                                               ; preds = %96, %93, %84
+  %.289.us = phi i32 [ %.188122.us, %84 ], [ %94, %93 ], [ %.188122.us, %96 ]
+  %.286.us = phi i32 [ %.185123.us, %84 ], [ %95, %93 ], [ %.185123.us, %96 ]
+  %.3.us = phi i32 [ %.2124.us, %84 ], [ %91, %93 ], [ %91, %96 ]
   br i1 %.not105.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !9
 
 ._crit_edge.us:                                   ; preds = %96, %98, %62

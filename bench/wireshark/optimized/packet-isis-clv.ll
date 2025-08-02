@@ -201,7 +201,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @isis_dissect_authentication_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp slt i32 %7, 1
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %8
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %6)
@@ -222,11 +222,11 @@ define hidden void @isis_dissect_authentication_clv(ptr noundef %0, ptr noundef 
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @tvb_format_text(ptr noundef %17, ptr noundef %2, i32 noundef %12, i32 noundef %13)
   %19 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %13, ptr noundef %18)
-  br label %.thread
+  br label %.critedge
 
 20:                                               ; preds = %14
   %21 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef %12, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.6)
-  br label %.thread
+  br label %.critedge
 
 22:                                               ; preds = %10
   %23 = icmp eq i32 %13, 16
@@ -237,11 +237,11 @@ define hidden void @isis_dissect_authentication_clv(ptr noundef %0, ptr noundef 
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @tvb_bytes_to_str(ptr noundef %26, ptr noundef %2, i32 noundef %12, i32 noundef 16)
   %28 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef %12, i32 noundef 16, ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 16, ptr noundef %27)
-  br label %.thread
+  br label %.critedge
 
 29:                                               ; preds = %22
   %30 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.8)
-  br label %.thread
+  br label %.critedge
 
 31:                                               ; preds = %10
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %2, i32 noundef %12, i32 noundef 2, i32 noundef 0)
@@ -256,19 +256,19 @@ define hidden void @isis_dissect_authentication_clv(ptr noundef %0, ptr noundef 
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @tvb_bytes_to_str(ptr noundef %38, ptr noundef %2, i32 noundef %33, i32 noundef %34)
   %40 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef %33, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull %35, i32 noundef %34, ptr noundef %39)
-  br label %.thread
+  br label %.critedge
 
 41:                                               ; preds = %31
   %42 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef %33, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.10)
-  br label %.thread
+  br label %.critedge
 
 43:                                               ; preds = %10
   %44 = zext i8 %11 to i32
   %45 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef %44, i32 noundef %13)
   %46 = tail call ptr @proto_tree_add_expert(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %2, i32 noundef %12, i32 noundef -1)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %41, %36, %29, %24, %20, %15, %43, %8
+.critedge:                                        ; preds = %43, %41, %36, %29, %24, %20, %15, %8
   ret void
 }
 

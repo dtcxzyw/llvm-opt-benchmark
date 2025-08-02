@@ -2474,9 +2474,7 @@ do.end:                                           ; preds = %_ZNK5boost10shared_
 
 for.body.lr.ph:                                   ; preds = %do.end
   %28 = load ptr, ptr %u, align 8
-  %invariant.gep = getelementptr i8, ptr %28, i64 -8
   %sub39 = add nsw i64 %4, -1
-  %invariant.gep68 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %lower_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %29 = load ptr, ptr %lower_, align 8, !tbaa !36
   %lower_50 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
@@ -2497,37 +2495,38 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp32.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %for.body
-  %gep = getelementptr double, ptr %invariant.gep, i64 %i.067
-  %35 = load double, ptr %gep, align 8, !tbaa !53
+  %35 = getelementptr double, ptr %28, i64 %i.067
+  %arrayidx.i = getelementptr i8, ptr %35, i64 -8
+  %36 = load double, ptr %arrayidx.i, align 8, !tbaa !53
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi double [ %35, %cond.true ], [ 1.000000e+00, %for.body ]
+  %cond = phi double [ %36, %cond.true ], [ 1.000000e+00, %for.body ]
   %arrayidx.i40 = getelementptr inbounds nuw double, ptr %28, i64 %i.067
-  %36 = load double, ptr %arrayidx.i40, align 8, !tbaa !53
+  %37 = load double, ptr %arrayidx.i40, align 8, !tbaa !53
   %cmp40 = icmp slt i64 %i.067, %sub39
   br i1 %cmp40, label %cond.true41, label %cond.end46
 
 cond.true41:                                      ; preds = %cond.end
-  %gep69 = getelementptr inbounds nuw double, ptr %invariant.gep68, i64 %i.067
-  %37 = load double, ptr %gep69, align 8, !tbaa !53
+  %arrayidx.i41 = getelementptr inbounds nuw i8, ptr %arrayidx.i40, i64 8
+  %38 = load double, ptr %arrayidx.i41, align 8, !tbaa !53
   br label %cond.end46
 
 cond.end46:                                       ; preds = %cond.end, %cond.true41
-  %cond47 = phi double [ %37, %cond.true41 ], [ 1.000000e+00, %cond.end ]
+  %cond47 = phi double [ %38, %cond.true41 ], [ 1.000000e+00, %cond.end ]
   %arrayidx.i42 = getelementptr inbounds nuw double, ptr %29, i64 %i.067
-  %38 = load double, ptr %arrayidx.i42, align 8, !tbaa !53
-  %mul = fmul double %cond, %38
+  %39 = load double, ptr %arrayidx.i42, align 8, !tbaa !53
+  %mul = fmul double %cond, %39
   %arrayidx.i43 = getelementptr inbounds nuw double, ptr %30, i64 %i.067
   store double %mul, ptr %arrayidx.i43, align 8, !tbaa !53
   %arrayidx.i44 = getelementptr inbounds nuw double, ptr %31, i64 %i.067
-  %39 = load double, ptr %arrayidx.i44, align 8, !tbaa !53
-  %mul55 = fmul double %36, %39
+  %40 = load double, ptr %arrayidx.i44, align 8, !tbaa !53
+  %mul55 = fmul double %37, %40
   %arrayidx.i45 = getelementptr inbounds nuw double, ptr %32, i64 %i.067
   store double %mul55, ptr %arrayidx.i45, align 8, !tbaa !53
   %arrayidx.i46 = getelementptr inbounds nuw double, ptr %33, i64 %i.067
-  %40 = load double, ptr %arrayidx.i46, align 8, !tbaa !53
-  %mul61 = fmul double %cond47, %40
+  %41 = load double, ptr %arrayidx.i46, align 8, !tbaa !53
+  %mul61 = fmul double %cond47, %41
   %arrayidx.i47 = getelementptr inbounds nuw double, ptr %34, i64 %i.067
   store double %mul61, ptr %arrayidx.i47, align 8, !tbaa !53
   %inc = add nuw nsw i64 %i.067, 1

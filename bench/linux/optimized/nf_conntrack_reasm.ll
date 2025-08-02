@@ -115,7 +115,7 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i16, ptr %16, align 4
   %18 = icmp eq i16 %17, 0
-  br i1 %18, label %.thread20, label %19
+  br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 6
@@ -148,11 +148,7 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
   %42 = or i1 %41, %40
   %43 = icmp slt i32 %37, 2
   %44 = select i1 %42, i1 true, i1 %43
-  br i1 %44, label %.thread, label %45
-
-.thread:                                          ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #11
-  br label %.thread20
+  br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %.lr.ph
   %46 = call i32 @skb_copy_bits(ptr noundef %1, i32 noundef %38, ptr noundef nonnull %7, i32 noundef 2) #11
@@ -183,19 +179,23 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
   br label %61
 
 61:                                               ; preds = %._crit_edge, %19
-  %.lcssa30 = phi i16 [ %60, %._crit_edge ], [ %29, %19 ]
-  %.lcssa27 = phi i32 [ %58, %._crit_edge ], [ %30, %19 ]
+  %.lcssa29 = phi i16 [ %60, %._crit_edge ], [ %29, %19 ]
+  %.lcssa26 = phi i32 [ %58, %._crit_edge ], [ %30, %19 ]
   %.lcssa = phi i32 [ %57, %._crit_edge ], [ %33, %19 ]
   %62 = icmp slt i32 %.lcssa, 0
-  br i1 %62, label %.thread20, label %63
+  br i1 %62, label %.thread, label %63
+
+.critedge:                                        ; preds = %.lr.ph
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #11
+  br label %.thread
 
 63:                                               ; preds = %61
-  %64 = and i16 %.lcssa30, 255
+  %64 = and i16 %.lcssa29, 255
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
   store i8 44, ptr %5, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #11
   store i16 0, ptr %6, align 2, !annotation !5
-  %65 = call i32 @ipv6_skip_exthdr(ptr noundef %1, i32 noundef %.lcssa27, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  %65 = call i32 @ipv6_skip_exthdr(ptr noundef %1, i32 noundef %.lcssa26, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %80, label %67
 
@@ -226,7 +226,7 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
   %79 = icmp ugt i32 %77, %78
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
-  br i1 %79, label %.thread20, label %81
+  br i1 %79, label %.thread, label %81
 
 80:                                               ; preds = %67, %63
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #11
@@ -236,7 +236,7 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
 
 81:                                               ; preds = %80, %75
   %82 = phi i32 [ %.pre, %80 ], [ %78, %75 ]
-  %83 = add i32 %.lcssa27, 8
+  %83 = add i32 %.lcssa26, 8
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %85 = load i32, ptr %84, align 4
   %86 = sub i32 %82, %85
@@ -245,13 +245,13 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
 
 88:                                               ; preds = %81
   %89 = icmp ult i32 %82, %83
-  br i1 %89, label %.thread20, label %90, !prof !8
+  br i1 %89, label %.thread, label %90, !prof !8
 
 90:                                               ; preds = %88
   %91 = sub i32 %83, %86
   %92 = call ptr @__pskb_pull_tail(ptr noundef %1, i32 noundef %91) #11
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %.thread20, label %94
+  br i1 %93, label %.thread, label %94
 
 94:                                               ; preds = %90, %81
   %95 = load ptr, ptr %22, align 8
@@ -260,7 +260,7 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
   %98 = ptrtoint ptr %96 to i64
   %99 = sub i64 %97, %98
   %100 = trunc i64 %99 to i16
-  %101 = trunc i32 %.lcssa27 to i16
+  %101 = trunc i32 %.lcssa26 to i16
   %102 = add i16 %100, %101
   store i16 %102, ptr %8, align 2
   %103 = load i16, ptr %12, align 4
@@ -332,7 +332,7 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
   %143 = call ptr @inet_frag_find(ptr noundef %142, ptr noundef nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %4) #11
   %144 = icmp eq ptr %143, null
-  br i1 %144, label %.thread20, label %145
+  br i1 %144, label %.thread, label %145
 
 145:                                              ; preds = %127
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 96
@@ -367,7 +367,7 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
   %172 = add i64 %171, %164
   %173 = trunc i64 %172 to i32
   %174 = icmp ugt i32 %173, 65535
-  br i1 %174, label %.thread22, label %175
+  br i1 %174, label %.thread21, label %175
 
 175:                                              ; preds = %151
   %176 = load i16, ptr %155, align 2
@@ -391,11 +391,11 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
   %192 = xor i32 %191, -1
   %193 = call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %187, i32 %192) #12, !srcloc !12
   store i32 %193, ptr %186, align 8
-  %.pre41 = load i16, ptr %159, align 2
+  %.pre40 = load i16, ptr %159, align 2
   br label %194
 
 194:                                              ; preds = %185, %175
-  %195 = phi i16 [ %.pre41, %185 ], [ %160, %175 ]
+  %195 = phi i16 [ %.pre40, %185 ], [ %160, %175 ]
   %196 = and i16 %195, 256
   %197 = icmp eq i16 %196, 0
   br i1 %197, label %198, label %210
@@ -464,16 +464,16 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
   %237 = sub i32 %229, %232
   %238 = call ptr @__pskb_pull_tail(ptr noundef %1, i32 noundef %237) #11
   %239 = icmp eq ptr %238, null
-  br i1 %239, label %322, label %._crit_edge42
+  br i1 %239, label %322, label %._crit_edge41
 
-._crit_edge42:                                    ; preds = %236
-  %.pre43 = load i32, ptr %31, align 8
-  %.pre44 = load ptr, ptr %22, align 8
+._crit_edge41:                                    ; preds = %236
+  %.pre42 = load i32, ptr %31, align 8
+  %.pre43 = load ptr, ptr %22, align 8
   br label %240
 
-240:                                              ; preds = %._crit_edge42, %225
-  %241 = phi ptr [ %.pre44, %._crit_edge42 ], [ %226, %225 ]
-  %242 = phi i32 [ %.pre43, %._crit_edge42 ], [ %230, %225 ]
+240:                                              ; preds = %._crit_edge41, %225
+  %241 = phi ptr [ %.pre43, %._crit_edge41 ], [ %226, %225 ]
+  %242 = phi i32 [ %.pre42, %._crit_edge41 ], [ %230, %225 ]
   %243 = sub i32 %242, %229
   store i32 %243, ptr %31, align 8
   %244 = and i64 %228, 4294967295
@@ -505,7 +505,7 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
 
 258:                                              ; preds = %253
   call void @kfree_skb_reason(ptr noundef %1, i32 noundef 72) #11
-  br label %.thread22
+  br label %.thread21
 
 259:                                              ; preds = %253
   %260 = icmp eq ptr %254, null
@@ -590,13 +590,13 @@ thread-pre-split:                                 ; preds = %285
   store i64 %307, ptr %306, align 8
   %309 = icmp eq i32 %308, 0
   %310 = select i1 %309, i32 0, i32 -115
-  br label %.thread22
+  br label %.thread21
 
 311:                                              ; preds = %300, %297
   %312 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %313 = load i64, ptr %312, align 8
   %314 = icmp eq i64 %313, 0
-  br i1 %314, label %.thread22, label %315
+  br i1 %314, label %.thread21, label %315
 
 315:                                              ; preds = %311
   %316 = and i64 %313, 1
@@ -610,7 +610,7 @@ thread-pre-split:                                 ; preds = %285
 
 320:                                              ; preds = %318, %315
   store i64 0, ptr %312, align 8
-  br label %.thread22
+  br label %.thread21
 
 321:                                              ; preds = %253
   call void @inet_frag_kill(ptr noundef nonnull %143) #11
@@ -620,7 +620,7 @@ thread-pre-split:                                 ; preds = %285
   %323 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %324 = load i64, ptr %323, align 8
   %325 = icmp eq i64 %324, 0
-  br i1 %325, label %.thread22, label %326
+  br i1 %325, label %.thread21, label %326
 
 326:                                              ; preds = %322
   %327 = and i64 %324, 1
@@ -634,14 +634,14 @@ thread-pre-split:                                 ; preds = %285
 
 331:                                              ; preds = %329, %326
   store i64 0, ptr %323, align 8
-  br label %.thread22
+  br label %.thread21
 
 332:                                              ; preds = %210
   call void @inet_frag_kill(ptr noundef nonnull %143) #11
   store i16 %9, ptr %8, align 2
-  br label %.thread22
+  br label %.thread21
 
-.thread22:                                        ; preds = %331, %322, %320, %311, %151, %305, %258, %332
+.thread21:                                        ; preds = %331, %322, %320, %311, %151, %305, %258, %332
   %333 = phi i32 [ 0, %332 ], [ -22, %331 ], [ -22, %322 ], [ -115, %320 ], [ -115, %311 ], [ -22, %151 ], [ %310, %305 ], [ -115, %258 ]
   call void @_raw_spin_unlock_bh(ptr noundef nonnull %146) #11
   %334 = getelementptr inbounds nuw i8, ptr %143, i64 100
@@ -649,21 +649,21 @@ thread-pre-split:                                 ; preds = %285
   %336 = icmp eq i32 %335, 1
   br i1 %336, label %340, label %337
 
-337:                                              ; preds = %.thread22
+337:                                              ; preds = %.thread21
   %338 = icmp sgt i32 %335, 0
-  br i1 %338, label %.thread20, label %339, !prof !9
+  br i1 %338, label %.thread, label %339, !prof !9
 
 339:                                              ; preds = %337
   call void @refcount_warn_saturate(ptr noundef nonnull %334, i32 noundef 3) #11
-  br label %.thread20
+  br label %.thread
 
-340:                                              ; preds = %.thread22
+340:                                              ; preds = %.thread21
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   call void @inet_frag_destroy(ptr noundef nonnull %143) #11
-  br label %.thread20
+  br label %.thread
 
-.thread20:                                        ; preds = %337, %339, %.thread, %61, %340, %127, %90, %88, %75, %3
-  %341 = phi i32 [ 0, %3 ], [ 0, %75 ], [ -12, %90 ], [ -12, %127 ], [ %333, %340 ], [ -12, %88 ], [ 0, %61 ], [ 0, %.thread ], [ %333, %339 ], [ %333, %337 ]
+.thread:                                          ; preds = %337, %339, %.critedge, %61, %340, %127, %90, %88, %75, %3
+  %341 = phi i32 [ 0, %3 ], [ 0, %75 ], [ -12, %90 ], [ -12, %127 ], [ %333, %340 ], [ -12, %88 ], [ 0, %61 ], [ 0, %.critedge ], [ %333, %339 ], [ %333, %337 ]
   ret i32 %341
 }
 

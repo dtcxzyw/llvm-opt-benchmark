@@ -924,8 +924,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm9LoongArch14isValidCPUNameENS_9Stri
 
 .split.us:                                        ; preds = %2, %.split.us
   %.011.idx17.i.us = phi i64 [ %.011.add.i.us, %.split.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL8AllArchs, i64 8), i64 %.011.idx17.i.us
-  %.sroa.4.0.copyload.i.us = load i64, ptr %gep, align 8, !tbaa !8
+  %.011.ptr.i.us = getelementptr inbounds nuw i8, ptr @_ZL8AllArchs, i64 %.011.idx17.i.us
+  %.sroa.4.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.011.ptr.i.us, i64 8
+  %.sroa.4.0.copyload.i.us = load i64, ptr %.sroa.4.0..sroa_idx.i.us, align 8, !tbaa !8
   %.not.i.i.us = icmp eq i64 %.sroa.4.0.copyload.i.us, 0
   %.011.add.i.us = add nuw nsw i64 %.011.idx17.i.us, 24
   %.not.not.i.us = icmp eq i64 %.011.add.i.us, 72

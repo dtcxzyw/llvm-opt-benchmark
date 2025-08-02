@@ -88,7 +88,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %21, align 4
-  br label %.thread
+  br label %.critedge
 
 22:                                               ; preds = %17
   %23 = getelementptr i8, ptr %19, i64 16
@@ -108,7 +108,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   tail call void @ReleaseSysCache(ptr noundef nonnull %19) #3
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %31, align 4
-  br label %.thread
+  br label %.critedge
 
 32:                                               ; preds = %22, %22
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 84
@@ -119,7 +119,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   tail call void @ReleaseSysCache(ptr noundef nonnull %19) #3
   br label %38
 
-38:                                               ; preds = %32, %lookup_prop_name.exit
+38:                                               ; preds = %lookup_prop_name.exit, %32
   %.087 = phi i32 [ %37, %32 ], [ 0, %lookup_prop_name.exit ]
   %.085 = phi i32 [ %34, %32 ], [ %2, %lookup_prop_name.exit ]
   %39 = icmp sgt i32 %4, %.087
@@ -128,7 +128,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %41, align 4
-  br label %.thread
+  br label %.critedge
 
 42:                                               ; preds = %38
   %43 = tail call ptr @GetIndexAmRoutineByAmId(i32 noundef %.085, i1 noundef zeroext true) #3
@@ -138,7 +138,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %46, align 4
-  br label %.thread
+  br label %.critedge
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 112
@@ -158,12 +158,12 @@ lookup_prop_name.exit:                            ; preds = %8, %14
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %56, align 4
-  br label %.thread
+  br label %.critedge
 
 57:                                               ; preds = %52
   %58 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %59 = zext nneg i8 %58 to i64
-  br label %.thread
+  br label %.critedge
 
 60:                                               ; preds = %50, %47
   %.not101 = icmp eq i32 %4, 0
@@ -178,7 +178,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %65, align 4
-  br label %.thread
+  br label %.critedge
 
 66:                                               ; preds = %61
   %67 = getelementptr i8, ptr %63, i64 16
@@ -398,12 +398,12 @@ test_indoption.exit110:                           ; preds = %129, %133
 174:                                              ; preds = %171
   %175 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %176 = zext nneg i8 %175 to i64
-  br label %.thread
+  br label %.critedge
 
 177:                                              ; preds = %171
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %178, align 4
-  br label %.thread
+  br label %.critedge
 
 179:                                              ; preds = %60
   br i1 %.not, label %201, label %180
@@ -420,32 +420,32 @@ test_indoption.exit110:                           ; preds = %129, %133
   %182 = getelementptr inbounds nuw i8, ptr %43, i64 19
   %183 = load i8, ptr %182, align 1, !range !6, !noundef !7
   %184 = zext nneg i8 %183 to i64
-  br label %.thread
+  br label %.critedge
 
 185:                                              ; preds = %180
   %186 = getelementptr inbounds nuw i8, ptr %43, i64 160
   %187 = load ptr, ptr %186, align 8
   %188 = icmp ne ptr %187, null
   %189 = zext i1 %188 to i64
-  br label %.thread
+  br label %.critedge
 
 190:                                              ; preds = %180
   %191 = getelementptr inbounds nuw i8, ptr %43, i64 168
   %192 = load ptr, ptr %191, align 8
   %193 = icmp ne ptr %192, null
   %194 = zext i1 %193 to i64
-  br label %.thread
+  br label %.critedge
 
 195:                                              ; preds = %180
   %196 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %197 = load i8, ptr %196, align 4, !range !6, !noundef !7
   %198 = zext nneg i8 %197 to i64
-  br label %.thread
+  br label %.critedge
 
 199:                                              ; preds = %180
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %200, align 4
-  br label %.thread
+  br label %.critedge
 
 201:                                              ; preds = %179
   switch i32 %.05.i, label %223 [
@@ -460,40 +460,40 @@ test_indoption.exit110:                           ; preds = %129, %133
   %203 = getelementptr inbounds nuw i8, ptr %43, i64 10
   %204 = load i8, ptr %203, align 2, !range !6, !noundef !7
   %205 = zext nneg i8 %204 to i64
-  br label %.thread
+  br label %.critedge
 
 206:                                              ; preds = %201
   %207 = getelementptr inbounds nuw i8, ptr %43, i64 13
   %208 = load i8, ptr %207, align 1, !range !6, !noundef !7
   %209 = zext nneg i8 %208 to i64
-  br label %.thread
+  br label %.critedge
 
 210:                                              ; preds = %201
   %211 = getelementptr inbounds nuw i8, ptr %43, i64 14
   %212 = load i8, ptr %211, align 2, !range !6, !noundef !7
   %213 = zext nneg i8 %212 to i64
-  br label %.thread
+  br label %.critedge
 
 214:                                              ; preds = %201
   %215 = getelementptr inbounds nuw i8, ptr %43, i64 160
   %216 = load ptr, ptr %215, align 8
   %217 = icmp ne ptr %216, null
   %218 = zext i1 %217 to i64
-  br label %.thread
+  br label %.critedge
 
 219:                                              ; preds = %201
   %220 = getelementptr inbounds nuw i8, ptr %43, i64 23
   %221 = load i8, ptr %220, align 1, !range !6, !noundef !7
   %222 = zext nneg i8 %221 to i64
-  br label %.thread
+  br label %.critedge
 
 223:                                              ; preds = %201
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %224, align 4
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %20, %30, %64, %174, %177, %223, %219, %214, %210, %206, %202, %199, %195, %190, %185, %181, %57, %55, %45, %40
-  %.1 = phi i64 [ 0, %40 ], [ 0, %45 ], [ 0, %55 ], [ %59, %57 ], [ 0, %199 ], [ %184, %181 ], [ %189, %185 ], [ %194, %190 ], [ %198, %195 ], [ 0, %223 ], [ %205, %202 ], [ %209, %206 ], [ %213, %210 ], [ %218, %214 ], [ %222, %219 ], [ 0, %177 ], [ %176, %174 ], [ 0, %64 ], [ 0, %30 ], [ 0, %20 ]
+.critedge:                                        ; preds = %30, %20, %64, %174, %177, %223, %219, %214, %210, %206, %202, %199, %195, %190, %185, %181, %57, %55, %45, %40
+  %.1 = phi i64 [ 0, %40 ], [ 0, %45 ], [ 0, %55 ], [ %59, %57 ], [ 0, %199 ], [ %184, %181 ], [ %189, %185 ], [ %194, %190 ], [ %198, %195 ], [ 0, %223 ], [ %205, %202 ], [ %209, %206 ], [ %213, %210 ], [ %218, %214 ], [ %222, %219 ], [ 0, %177 ], [ %176, %174 ], [ 0, %64 ], [ 0, %20 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #3
   ret i64 %.1

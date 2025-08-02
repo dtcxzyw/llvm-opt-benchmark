@@ -468,7 +468,7 @@ define internal fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15Combina
   br label %.backedge.i.i
 
 47:                                               ; preds = %49
-  br i1 %53, label %54, label %.thread447.i.i
+  br i1 %53, label %54, label %.thread445.i.i
 
 .backedge.i.i:                                    ; preds = %.backedge.i.i.backedge, %45
   %indvars.iv.i.i = phi i64 [ 0, %45 ], [ %indvars.iv.i.i.be, %.backedge.i.i.backedge ]
@@ -487,12 +487,12 @@ define internal fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15Combina
   br i1 %exitcond.not.i.i, label %47, label %.backedge.i.i.backedge
 
 .thread.i.i:                                      ; preds = %.backedge.i.i
-  %indvars.iv.next445.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not446.i.i = icmp eq i64 %indvars.iv.next445.i.i, 12
-  br i1 %exitcond.not446.i.i, label %.thread447.i.i, label %.backedge.i.i.backedge
+  %indvars.iv.next443.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not444.i.i = icmp eq i64 %indvars.iv.next443.i.i, 12
+  br i1 %exitcond.not444.i.i, label %.thread445.i.i, label %.backedge.i.i.backedge
 
 .backedge.i.i.backedge:                           ; preds = %.thread.i.i, %49
-  %indvars.iv.i.i.be = phi i64 [ %indvars.iv.next.i.i, %49 ], [ %indvars.iv.next445.i.i, %.thread.i.i ]
+  %indvars.iv.i.i.be = phi i64 [ %indvars.iv.next.i.i, %49 ], [ %indvars.iv.next443.i.i, %.thread.i.i ]
   %.0239424.i.i.be = phi i1 [ %53, %49 ], [ false, %.thread.i.i ]
   br label %.backedge.i.i, !llvm.loop !93
 
@@ -508,7 +508,7 @@ _ZL8IS_ANGLEi.exit.i.i:                           ; preds = %54
   br i1 %.not.i.i, label %_ZL8IS_ANGLEi.exit.thread.i.i, label %_ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit.thread
 
 _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.i.i, %54
-  switch i32 %0, label %.thread447.i.i [
+  switch i32 %0, label %.thread445.i.i [
     i32 59, label %_ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit.thread
     i32 58, label %_ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit.thread
     i32 57, label %_ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit.thread
@@ -526,7 +526,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
     i32 19, label %_ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit.thread
   ]
 
-.thread447.i.i:                                   ; preds = %.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %47
+.thread445.i.i:                                   ; preds = %.thread.i.i, %_ZL8IS_ANGLEi.exit.thread.i.i, %47
   switch i32 %0, label %538 [
     i32 11, label %59
     i32 1, label %75
@@ -590,19 +590,19 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
     i32 30, label %.loopexit.i
   ]
 
-.preheader422.i.i:                                ; preds = %.thread447.i.i
-  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 48
+.preheader422.i.i:                                ; preds = %.thread445.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %10, ptr noundef nonnull readonly align 4 dereferenceable(24) %46, i64 24, i1 false), !tbaa !91
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %30, ptr noundef nonnull readonly align 4 dereferenceable(24) %invariant.gep.i.i, i64 24, i1 false), !tbaa !91
+  %scevgep.i = getelementptr i8, ptr %.sroa.04.015, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %30, ptr noundef nonnull readonly align 4 dereferenceable(24) %scevgep.i, i64 24, i1 false), !tbaa !91
   br label %.loopexit.i
 
-.preheader.i.i:                                   ; preds = %.thread447.i.i
-  %invariant.gep427.i.i = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 48
+.preheader.i.i:                                   ; preds = %.thread445.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %10, ptr noundef nonnull readonly align 4 dereferenceable(24) %46, i64 24, i1 false), !tbaa !91
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %30, ptr noundef nonnull readonly align 4 dereferenceable(24) %invariant.gep427.i.i, i64 24, i1 false), !tbaa !91
+  %scevgep72.i = getelementptr i8, ptr %.sroa.04.015, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %30, ptr noundef nonnull readonly align 4 dereferenceable(24) %scevgep72.i, i64 24, i1 false), !tbaa !91
   br label %.loopexit.i
 
-59:                                               ; preds = %.thread447.i.i
+59:                                               ; preds = %.thread445.i.i
   %60 = load float, ptr %46, align 4, !tbaa !92
   %61 = fpext float %60 to double
   %62 = fmul double %61, 0x3F91DF46A2529D39
@@ -624,7 +624,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %74, ptr %27, align 4, !tbaa !91
   br label %.loopexit.i
 
-75:                                               ; preds = %.thread447.i.i
+75:                                               ; preds = %.thread445.i.i
   %76 = load float, ptr %46, align 4, !tbaa !92
   %77 = fmul float %76, %76
   store float %77, ptr %10, align 4, !tbaa !91
@@ -640,7 +640,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %84, ptr %27, align 4, !tbaa !91
   br label %.loopexit.i
 
-85:                                               ; preds = %.thread447.i.i
+85:                                               ; preds = %.thread445.i.i
   %86 = load float, ptr %46, align 4, !tbaa !92
   store float %86, ptr %10, align 4, !tbaa !91
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -648,7 +648,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %88, ptr %25, align 4, !tbaa !91
   br label %.loopexit.i
 
-89:                                               ; preds = %.thread447.i.i
+89:                                               ; preds = %.thread445.i.i
   %90 = load float, ptr %46, align 4, !tbaa !92
   store float %90, ptr %10, align 4, !tbaa !91
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -674,7 +674,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %104, ptr %31, align 4, !tbaa !91
   br label %.loopexit.i
 
-105:                                              ; preds = %.thread447.i.i, %.thread447.i.i, %.thread447.i.i, %.thread447.i.i
+105:                                              ; preds = %.thread445.i.i, %.thread445.i.i, %.thread445.i.i, %.thread445.i.i
   %106 = load float, ptr %46, align 4, !tbaa !92
   %107 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %106, i32 noundef 0, i32 noundef range(i32 -2147483648, 95) %0, ptr noundef nonnull @.str.4)
   store i32 %107, ptr %10, align 4, !tbaa !91
@@ -686,7 +686,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %111, ptr %26, align 4, !tbaa !91
   br label %.loopexit.i
 
-112:                                              ; preds = %.thread447.i.i
+112:                                              ; preds = %.thread445.i.i
   %113 = load float, ptr %46, align 4, !tbaa !92
   store float %113, ptr %10, align 4, !tbaa !91
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -697,7 +697,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %117, ptr %26, align 4, !tbaa !91
   br label %.loopexit.i
 
-118:                                              ; preds = %.thread447.i.i
+118:                                              ; preds = %.thread445.i.i
   %119 = load float, ptr %46, align 4, !tbaa !92
   store float %119, ptr %10, align 4, !tbaa !91
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -711,7 +711,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %125, ptr %27, align 4, !tbaa !91
   br label %.loopexit.i
 
-126:                                              ; preds = %.thread447.i.i
+126:                                              ; preds = %.thread445.i.i
   %127 = load float, ptr %46, align 4, !tbaa !92
   store float %127, ptr %10, align 4, !tbaa !91
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -737,14 +737,14 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %141, ptr %31, align 4, !tbaa !91
   br label %.loopexit.i
 
-.loopexit.loopexit.i:                             ; preds = %.thread447.i.i
+.loopexit.loopexit.i:                             ; preds = %.thread445.i.i
   %142 = load float, ptr %46, align 4, !tbaa !92
   store float %142, ptr %10, align 4, !tbaa !91
-  %scevgep.i = getelementptr i8, ptr %.sroa.04.015, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %25, ptr noundef nonnull readonly align 4 dereferenceable(20) %scevgep.i, i64 20, i1 false), !tbaa !91
+  %scevgep73.i = getelementptr i8, ptr %.sroa.04.015, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %25, ptr noundef nonnull readonly align 4 dereferenceable(20) %scevgep73.i, i64 20, i1 false), !tbaa !91
   br label %.loopexit.i
 
-143:                                              ; preds = %.thread447.i.i
+143:                                              ; preds = %.thread445.i.i
   %144 = load float, ptr %46, align 4, !tbaa !92
   store float %144, ptr %25, align 4, !tbaa !91
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -758,7 +758,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %150, ptr %26, align 4, !tbaa !91
   br label %.loopexit.i
 
-151:                                              ; preds = %.thread447.i.i, %.thread447.i.i, %.thread447.i.i, %.thread447.i.i, %.thread447.i.i
+151:                                              ; preds = %.thread445.i.i, %.thread445.i.i, %.thread445.i.i, %.thread445.i.i, %.thread445.i.i
   %152 = load float, ptr %46, align 4, !tbaa !92
   store float %152, ptr %10, align 4, !tbaa !91
   %153 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -772,7 +772,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %158, ptr %27, align 4, !tbaa !91
   br label %.loopexit.i
 
-159:                                              ; preds = %.thread447.i.i
+159:                                              ; preds = %.thread445.i.i
   %160 = load float, ptr %46, align 4, !tbaa !92
   store float %160, ptr %10, align 4, !tbaa !91
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -792,7 +792,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %170, ptr %29, align 4, !tbaa !91
   br label %.loopexit.i
 
-171:                                              ; preds = %.thread447.i.i
+171:                                              ; preds = %.thread445.i.i
   %172 = load float, ptr %46, align 4, !tbaa !92
   store float %172, ptr %10, align 4, !tbaa !91
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -803,12 +803,12 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %176, ptr %26, align 4, !tbaa !91
   br label %.loopexit.i
 
-177:                                              ; preds = %.thread447.i.i
+177:                                              ; preds = %.thread445.i.i
   %178 = load float, ptr %46, align 4, !tbaa !92
   store float %178, ptr %10, align 4, !tbaa !91
   br label %.loopexit.i
 
-179:                                              ; preds = %.thread447.i.i
+179:                                              ; preds = %.thread445.i.i
   %180 = load float, ptr %46, align 4, !tbaa !92
   store float %180, ptr %10, align 4, !tbaa !91
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -819,7 +819,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %184, ptr %26, align 4, !tbaa !91
   br label %.loopexit.i
 
-185:                                              ; preds = %.thread447.i.i
+185:                                              ; preds = %.thread445.i.i
   %186 = load float, ptr %46, align 4, !tbaa !92
   store float %186, ptr %10, align 4, !tbaa !91
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -839,7 +839,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %196, ptr %29, align 4, !tbaa !91
   br label %.loopexit.i
 
-197:                                              ; preds = %.thread447.i.i
+197:                                              ; preds = %.thread445.i.i
   %198 = load float, ptr %46, align 4, !tbaa !92
   store float %198, ptr %10, align 4, !tbaa !91
   %199 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -850,7 +850,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %202, ptr %26, align 4, !tbaa !91
   br label %.loopexit.i
 
-203:                                              ; preds = %.thread447.i.i
+203:                                              ; preds = %.thread445.i.i
   %204 = load float, ptr %46, align 4, !tbaa !92
   store float %204, ptr %10, align 4, !tbaa !91
   %205 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -861,7 +861,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   store float %208, ptr %26, align 4, !tbaa !91
   br label %.loopexit.i
 
-209:                                              ; preds = %.thread447.i.i
+209:                                              ; preds = %.thread445.i.i
   %210 = load float, ptr %46, align 4, !tbaa !92
   %211 = fpext float %210 to double
   %212 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -887,9 +887,9 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   br label %226
 
 226:                                              ; preds = %224, %218
-  %.sink75.i = phi double [ %211, %218 ], [ %225, %224 ]
+  %.sink77.i = phi double [ %211, %218 ], [ %225, %224 ]
   %.sink.i = phi float [ %223, %218 ], [ 0.000000e+00, %224 ]
-  %227 = tail call double @pow(double noundef %.sink75.i, double noundef %20) #19, !tbaa !94
+  %227 = tail call double @pow(double noundef %.sink77.i, double noundef %20) #19, !tbaa !94
   %228 = fmul double %217, %227
   store float %.sink.i, ptr %10, align 4, !tbaa !92
   %229 = fptrunc double %228 to float
@@ -940,7 +940,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit50.i: ; preds = %251, %246, %237
   store float %257, ptr %27, align 4, !tbaa !92
   br label %.loopexit.i
 
-258:                                              ; preds = %.thread447.i.i
+258:                                              ; preds = %.thread445.i.i
   %259 = load float, ptr %46, align 4, !tbaa !92
   store float %259, ptr %10, align 4, !tbaa !91
   %260 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -991,7 +991,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit47.i: ; preds = %286, %281, %272
   store float %287, ptr %28, align 4, !tbaa !92
   br label %.loopexit.i
 
-288:                                              ; preds = %.thread447.i.i
+288:                                              ; preds = %.thread445.i.i
   %289 = load float, ptr %46, align 4, !tbaa !92
   store float %289, ptr %10, align 4, !tbaa !91
   %290 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -1039,7 +1039,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit44.i: ; preds = %314, %309, %300
   store float %315, ptr %27, align 4, !tbaa !92
   br label %.loopexit.i
 
-316:                                              ; preds = %.thread447.i.i
+316:                                              ; preds = %.thread445.i.i
   %317 = load float, ptr %46, align 4, !tbaa !92
   %318 = fpext float %317 to double
   %319 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -1081,7 +1081,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store float %339, ptr %25, align 4, !tbaa !92
   br label %.loopexit.i
 
-340:                                              ; preds = %.thread447.i.i, %.thread447.i.i, %.thread447.i.i, %.thread447.i.i
+340:                                              ; preds = %.thread445.i.i, %.thread445.i.i, %.thread445.i.i, %.thread445.i.i
   %341 = load float, ptr %46, align 4, !tbaa !92
   store float %341, ptr %10, align 4, !tbaa !91
   %342 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -1107,7 +1107,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store i32 %355, ptr %26, align 4, !tbaa !91
   br label %.loopexit.i
 
-356:                                              ; preds = %.thread447.i.i
+356:                                              ; preds = %.thread445.i.i
   %357 = load float, ptr %46, align 4, !tbaa !92
   store float %357, ptr %10, align 4, !tbaa !91
   %358 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -1121,7 +1121,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store float %363, ptr %28, align 4, !tbaa !91
   br label %.loopexit.i
 
-364:                                              ; preds = %.thread447.i.i
+364:                                              ; preds = %.thread445.i.i
   %365 = load float, ptr %46, align 4, !tbaa !92
   store float %365, ptr %27, align 4, !tbaa !91
   %366 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -1159,7 +1159,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store float %387, ptr %32, align 4, !tbaa !91
   br label %.loopexit.i
 
-388:                                              ; preds = %.thread447.i.i
+388:                                              ; preds = %.thread445.i.i
   %389 = load float, ptr %46, align 4, !tbaa !92
   %390 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %389, i32 noundef 0, i32 noundef 53, ptr noundef nonnull @.str.6)
   store i32 %390, ptr %29, align 4, !tbaa !91
@@ -1202,7 +1202,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store float %407, ptr %26, align 4, !tbaa !91
   br label %.loopexit.i
 
-408:                                              ; preds = %.thread447.i.i
+408:                                              ; preds = %.thread445.i.i
   %409 = load float, ptr %46, align 4, !tbaa !92
   %410 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %409, i32 noundef 1, i32 noundef 56, ptr noundef nonnull @.str.10)
   %411 = add nsw i32 %410, -1
@@ -1226,7 +1226,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store float %423, ptr %29, align 4, !tbaa !91
   br label %.loopexit.i
 
-424:                                              ; preds = %.thread447.i.i
+424:                                              ; preds = %.thread445.i.i
   %425 = load float, ptr %46, align 4, !tbaa !92
   store float %425, ptr %10, align 4, !tbaa !91
   %426 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -1246,7 +1246,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store float %435, ptr %29, align 4, !tbaa !91
   br label %.loopexit.i
 
-436:                                              ; preds = %.thread447.i.i
+436:                                              ; preds = %.thread445.i.i
   %437 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
   %438 = load float, ptr %437, align 4, !tbaa !92
   %439 = fpext float %438 to double
@@ -1310,7 +1310,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store float 0.000000e+00, ptr %35, align 4, !tbaa !91
   br label %.loopexit.i
 
-486:                                              ; preds = %.thread447.i.i, %.thread447.i.i
+486:                                              ; preds = %.thread445.i.i, %.thread445.i.i
   %487 = load float, ptr %46, align 4, !tbaa !92
   store float %487, ptr %10, align 4, !tbaa !91
   %488 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -1318,7 +1318,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store float %489, ptr %25, align 4, !tbaa !91
   br label %.loopexit.i
 
-490:                                              ; preds = %.thread447.i.i
+490:                                              ; preds = %.thread445.i.i
   %491 = load float, ptr %46, align 4, !tbaa !92
   store float %491, ptr %10, align 4, !tbaa !91
   %492 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -1326,7 +1326,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store float %493, ptr %25, align 4, !tbaa !91
   br label %.loopexit.i
 
-494:                                              ; preds = %.thread447.i.i, %.thread447.i.i, %.thread447.i.i, %.thread447.i.i, %.thread447.i.i, %.thread447.i.i, %.thread447.i.i, %.thread447.i.i
+494:                                              ; preds = %.thread445.i.i, %.thread445.i.i, %.thread445.i.i, %.thread445.i.i, %.thread445.i.i, %.thread445.i.i, %.thread445.i.i, %.thread445.i.i
   %495 = load float, ptr %46, align 4, !tbaa !92
   store float %495, ptr %10, align 4, !tbaa !91
   %496 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
@@ -1346,7 +1346,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store float %505, ptr %29, align 4, !tbaa !91
   br label %.loopexit.i
 
-506:                                              ; preds = %.thread447.i.i
+506:                                              ; preds = %.thread445.i.i
   %507 = getelementptr inbounds nuw i8, ptr %.sroa.04.015, i64 28
   %508 = load float, ptr %507, align 4, !tbaa !92
   %509 = fpext float %508 to double
@@ -1375,7 +1375,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store float %526, ptr %29, align 4, !tbaa !91
   br label %.loopexit.i
 
-527:                                              ; preds = %.thread447.i.i
+527:                                              ; preds = %.thread445.i.i
   %528 = load float, ptr %46, align 4, !tbaa !92
   %529 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %528, i32 noundef 1, i32 noundef 74, ptr noundef nonnull @.str.12)
   store i32 %529, ptr %10, align 4, !tbaa !91
@@ -1384,7 +1384,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store float %531, ptr %25, align 4, !tbaa !91
   br label %.loopexit.i
 
-532:                                              ; preds = %.thread447.i.i
+532:                                              ; preds = %.thread445.i.i
   %533 = load float, ptr %46, align 4, !tbaa !92
   %534 = fptosi float %533 to i32
   store i32 %534, ptr %10, align 4, !tbaa !91
@@ -1394,7 +1394,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   store i32 %537, ptr %25, align 4, !tbaa !91
   br label %.loopexit.i
 
-538:                                              ; preds = %.thread447.i.i
+538:                                              ; preds = %.thread445.i.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #19
   call void @_ZNSt10filesystem7__cxx114pathC2IA132_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(132) @.str, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 453, ptr noundef nonnull @.str.13, i32 noundef range(i32 -2147483648, 95) %0, ptr noundef nonnull @.str, i32 noundef 453) #20
@@ -1414,12 +1414,12 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %338, %333, %324
   %.pn.i.i = phi { ptr, i32 } [ %541, %540 ], [ %396, %395 ]
   resume { ptr, i32 } %.pn.i.i
 
-.loopexit.i:                                      ; preds = %532, %527, %506, %494, %490, %486, %436, %424, %408, %397, %364, %356, %352, %_ZL12set_ljparams15CombinationRuledddPfS0_.exit.i, %_ZL12set_ljparams15CombinationRuledddPfS0_.exit44.i, %_ZL12set_ljparams15CombinationRuledddPfS0_.exit47.i, %_ZL12set_ljparams15CombinationRuledddPfS0_.exit50.i, %203, %197, %185, %179, %177, %171, %159, %151, %143, %.loopexit.loopexit.i, %126, %118, %112, %105, %89, %85, %75, %59, %.preheader.i.i, %.preheader422.i.i, %.thread447.i.i, %.thread447.i.i, %.thread447.i.i, %.thread447.i.i
+.loopexit.i:                                      ; preds = %532, %527, %506, %494, %490, %486, %436, %424, %408, %397, %364, %356, %352, %_ZL12set_ljparams15CombinationRuledddPfS0_.exit.i, %_ZL12set_ljparams15CombinationRuledddPfS0_.exit44.i, %_ZL12set_ljparams15CombinationRuledddPfS0_.exit47.i, %_ZL12set_ljparams15CombinationRuledddPfS0_.exit50.i, %203, %197, %185, %179, %177, %171, %159, %151, %143, %.loopexit.loopexit.i, %126, %118, %112, %105, %89, %85, %75, %59, %.preheader.i.i, %.preheader422.i.i, %.thread445.i.i, %.thread445.i.i, %.thread445.i.i, %.thread445.i.i
   %.pre = load ptr, ptr %12, align 8, !tbaa !32
   %.pre27 = load ptr, ptr %11, align 8, !tbaa !31
   br i1 %6, label %.critedge.i, label %556
 
-.thread.i:                                        ; preds = %.thread447.i.i
+.thread.i:                                        ; preds = %.thread445.i.i
   %543 = load float, ptr %46, align 4, !tbaa !92
   %544 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %543, i32 noundef 0, i32 noundef 54, ptr noundef nonnull @.str.8)
   store i32 %544, ptr %29, align 4, !tbaa !91

@@ -1458,18 +1458,15 @@ define dso_local void @TouchSocketLockFiles() local_unnamed_addr #16 {
   %1 = load ptr, ptr @lock_files, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %2, align 4
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph14, label %._crit_edge
+  br i1 %5, label %.lr.ph12, label %.critedge
 
-._crit_edge:                                      ; preds = %14, %.lr.ph, %0
-  ret void
-
-.lr.ph14:                                         ; preds = %.lr.ph, %14
+.lr.ph12:                                         ; preds = %.lr.ph, %14
   %6 = phi i32 [ %15, %14 ], [ %4, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %3, align 8
@@ -1479,17 +1476,20 @@ define dso_local void @TouchSocketLockFiles() local_unnamed_addr #16 {
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %14, label %12
 
-12:                                               ; preds = %.lr.ph14
+.critedge:                                        ; preds = %14, %.lr.ph, %0
+  ret void
+
+12:                                               ; preds = %.lr.ph12
   %13 = tail call i32 @utime(ptr noundef nonnull %9, ptr noundef null) #22
   %.pre = load i32, ptr %2, align 4
   br label %14
 
-14:                                               ; preds = %.lr.ph14, %12
-  %15 = phi i32 [ %6, %.lr.ph14 ], [ %.pre, %12 ]
+14:                                               ; preds = %.lr.ph12, %12
+  %15 = phi i32 [ %6, %.lr.ph12 ], [ %.pre, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph14, label %._crit_edge
+  br i1 %17, label %.lr.ph12, label %.critedge
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -1855,7 +1855,7 @@ define internal fastcc void @load_libraries(ptr noundef %0, ptr noundef %1, i1 n
 18:                                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1864,24 +1864,24 @@ define internal fastcc void @load_libraries(ptr noundef %0, ptr noundef %1, i1 n
   br i1 %2, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %22, label %.lr.ph41, label %._crit_edge
+  br i1 %22, label %.lr.ph39, label %.critedge
 
-.lr.ph41:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %indvars.iv3540 = phi i64 [ %indvars.iv.next36, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+.lr.ph39:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+  %indvars.iv3338 = phi i64 [ %indvars.iv.next34, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv3540
+  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv3338
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @first_dir_separator(ptr noundef %25) #22
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %30
 
-28:                                               ; preds = %.lr.ph41
+28:                                               ; preds = %.lr.ph39
   %29 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.87, ptr noundef %25) #22
   br label %30
 
-30:                                               ; preds = %28, %.lr.ph41
-  %.020.us = phi ptr [ %29, %28 ], [ %25, %.lr.ph41 ]
-  %.0.us = phi ptr [ %29, %28 ], [ null, %.lr.ph41 ]
+30:                                               ; preds = %28, %.lr.ph39
+  %.020.us = phi ptr [ %29, %28 ], [ %25, %.lr.ph39 ]
+  %.0.us = phi ptr [ %29, %28 ], [ null, %.lr.ph39 ]
   call void @load_file(ptr noundef %.020.us, i1 noundef zeroext true) #22
   %31 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %31, label %32, label %34
@@ -1900,43 +1900,43 @@ define internal fastcc void @load_libraries(ptr noundef %0, ptr noundef %1, i1 n
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %35, %34
-  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv3540, 1
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv3338, 1
   %36 = load i32, ptr %19, align 4
   %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next36, %37
-  br i1 %38, label %.lr.ph41, label %._crit_edge
+  %38 = icmp slt i64 %indvars.iv.next34, %37
+  br i1 %38, label %.lr.ph39, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  br i1 %22, label %.lr.ph32, label %._crit_edge
+  br i1 %22, label %.lr.ph30, label %.critedge
 
-._crit_edge:                                      ; preds = %46, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %18
-  %39 = load ptr, ptr %4, align 8
-  call void @list_free_deep(ptr noundef %39) #22
+.lr.ph30:                                         ; preds = %.lr.ph.split.split, %46
+  %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph.split.split ]
+  %39 = load ptr, ptr %20, align 8
+  %40 = getelementptr inbounds nuw %union.ListCell, ptr %39, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8
+  call void @load_file(ptr noundef %41, i1 noundef zeroext false) #22
+  %42 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
+  br i1 %42, label %44, label %46
+
+.critedge:                                        ; preds = %46, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %18
+  %43 = load ptr, ptr %4, align 8
+  call void @list_free_deep(ptr noundef %43) #22
   call void @pfree(ptr noundef %10) #22
   br label %50
 
-.lr.ph32:                                         ; preds = %.lr.ph.split.split, %46
-  %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph.split.split ]
-  %40 = load ptr, ptr %20, align 8
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8
-  call void @load_file(ptr noundef %42, i1 noundef zeroext false) #22
-  %43 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
-  br i1 %43, label %44, label %46
-
-44:                                               ; preds = %.lr.ph32
-  %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.88, ptr noundef %42) #22
+44:                                               ; preds = %.lr.ph30
+  %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.88, ptr noundef %41) #22
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1886, ptr noundef nonnull @__func__.load_libraries) #22
   br label %46
 
-46:                                               ; preds = %44, %.lr.ph32
+46:                                               ; preds = %44, %.lr.ph30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %19, align 4
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph32, label %._crit_edge
+  br i1 %49, label %.lr.ph30, label %.critedge
 
-50:                                               ; preds = %13, %15, %3, %6, %._crit_edge
+50:                                               ; preds = %13, %15, %3, %6, %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
   ret void
 }
@@ -2001,40 +2001,40 @@ define internal void @UnlinkLockFiles(i32 %0, i64 %1) #0 {
   %3 = load ptr, ptr @lock_files, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph13, label %._crit_edge
+  br i1 %7, label %.lr.ph11, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph13, %.lr.ph, %2
-  store ptr null, ptr @lock_files, align 8
-  %8 = load i8, ptr @IsPostmasterEnvironment, align 1, !range !4, !noundef !5
-  %9 = trunc nuw i8 %8 to i1
-  %10 = select i1 %9, i32 15, i32 18
-  %11 = tail call zeroext i1 @errstart(i32 noundef %10, ptr noundef null) #22
-  br i1 %11, label %19, label %21
-
-.lr.ph13:                                         ; preds = %.lr.ph, %.lr.ph13
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph13 ], [ 0, %.lr.ph ]
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @unlink(ptr noundef %14) #22
+.lr.ph11:                                         ; preds = %.lr.ph, %.lr.ph11
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph11 ], [ 0, %.lr.ph ]
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 @unlink(ptr noundef %10) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr %4, align 4
-  %17 = sext i32 %16 to i64
-  %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph13, label %._crit_edge
+  %12 = load i32, ptr %4, align 4
+  %13 = sext i32 %12 to i64
+  %14 = icmp slt i64 %indvars.iv.next, %13
+  br i1 %14, label %.lr.ph11, label %.critedge
 
-19:                                               ; preds = %._crit_edge
+.critedge:                                        ; preds = %.lr.ph11, %.lr.ph, %2
+  store ptr null, ptr @lock_files, align 8
+  %15 = load i8, ptr @IsPostmasterEnvironment, align 1, !range !4, !noundef !5
+  %16 = trunc nuw i8 %15 to i1
+  %17 = select i1 %16, i32 15, i32 18
+  %18 = tail call zeroext i1 @errstart(i32 noundef %17, ptr noundef null) #22
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %.critedge
   %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85) #22
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1194, ptr noundef nonnull @__func__.UnlinkLockFiles) #22
   br label %21
 
-21:                                               ; preds = %19, %._crit_edge
+21:                                               ; preds = %19, %.critedge
   ret void
 }
 

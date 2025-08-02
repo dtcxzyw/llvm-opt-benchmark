@@ -1944,7 +1944,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   br label %82
 
 82:                                               ; preds = %81, %75
-  br i1 %67, label %.thread, label %83
+  br i1 %67, label %.critedge, label %83
 
 83:                                               ; preds = %82
   %84 = load ptr, ptr %16, align 8
@@ -1954,11 +1954,11 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 12
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.11, ptr noundef %76, ptr noundef nonnull %87, ptr noundef nonnull @.str.20) #19
-  br label %.thread
+  br label %.critedge
 
 88:                                               ; preds = %83
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.11, ptr noundef %76, ptr noundef null, ptr noundef nonnull @.str.20) #19
-  br label %.thread
+  br label %.critedge
 
 89:                                               ; preds = %63, %61, %57
   %90 = zext i1 %60 to i32
@@ -2010,7 +2010,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   br i1 %115, label %129, label %116
 
 116:                                              ; preds = %113
-  br i1 %47, label %117, label %.thread68
+  br i1 %47, label %117, label %.thread
 
 117:                                              ; preds = %116
   %118 = icmp slt i32 %55, 0
@@ -2023,18 +2023,18 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   %123 = trunc i32 %55 to i8
   %124 = and i8 %123, -6
   switch i8 %124, label %125 [
-    i8 16, label %.thread
-    i8 0, label %.thread
+    i8 16, label %.critedge
+    i8 0, label %.critedge
   ]
 
 125:                                              ; preds = %122
   %126 = and i32 %55, 254
   %127 = icmp eq i32 %126, 34
-  br i1 %127, label %.thread, label %128
+  br i1 %127, label %.critedge, label %128
 
 128:                                              ; preds = %125, %117
   call void @sd_print_result(ptr noundef %14, ptr noundef nonnull @.str.21, i32 noundef %55)
-  br label %.thread
+  br label %.critedge
 
 129:                                              ; preds = %113
   %130 = load ptr, ptr %14, align 8
@@ -2120,7 +2120,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   br label %196
 
 185:                                              ; preds = %173
-  br i1 %47, label %186, label %.thread68
+  br i1 %47, label %186, label %.thread
 
 186:                                              ; preds = %185
   %187 = load ptr, ptr %16, align 8
@@ -2134,26 +2134,26 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 12
   %195 = select i1 %193, ptr null, ptr %194
   call void @scsi_print_sense_hdr(ptr noundef %191, ptr noundef %195, ptr noundef nonnull %11) #19
-  br label %.thread
+  br label %.critedge
 
 196:                                              ; preds = %183, %170
   %197 = phi i64 [ %171, %170 ], [ %184, %183 ]
   %198 = load volatile i64, ptr @jiffies, align 64
   %199 = sub i64 %197, %198
   %200 = icmp sgt i64 %199, -1
-  br i1 %200, label %45, label %.thread68, !llvm.loop !28
+  br i1 %200, label %45, label %.thread, !llvm.loop !28
 
 201:                                              ; preds = %140, %129
-  br i1 %47, label %.thread, label %.thread68
+  br i1 %47, label %.critedge, label %.thread
 
-.thread68:                                        ; preds = %196, %201, %185, %116
+.thread:                                          ; preds = %196, %201, %185, %116
   %202 = icmp slt i32 %55, 0
   %203 = and i32 %55, 16711680
   %204 = icmp eq i32 %203, 65536
   %205 = or i1 %202, %204
   br i1 %205, label %214, label %206
 
-206:                                              ; preds = %.thread68
+206:                                              ; preds = %.thread
   %207 = trunc i32 %55 to i8
   %208 = and i8 %207, -6
   switch i8 %208, label %209 [
@@ -2168,13 +2168,13 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
 
 212:                                              ; preds = %209, %206, %206
   %213 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25) #20
-  br label %.thread
+  br label %.critedge
 
-214:                                              ; preds = %209, %.thread68
+214:                                              ; preds = %209, %.thread
   %215 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26) #20
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %82, %88, %86, %214, %212, %201, %186, %128, %125, %122, %122
+.critedge:                                        ; preds = %86, %88, %82, %214, %212, %201, %186, %128, %125, %122, %122
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %10) #19
@@ -2182,33 +2182,33 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   %217 = icmp eq i8 %216, 0
   br i1 %217, label %1268, label %218
 
-218:                                              ; preds = %.thread
+218:                                              ; preds = %.critedge
   %219 = load ptr, ptr %14, align 8
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 444
   %222 = load i16, ptr %221, align 4
   %223 = icmp ult i16 %222, 16
-  br i1 %223, label %.critedge, label %224
+  br i1 %223, label %.critedge64, label %224
 
 224:                                              ; preds = %218
   %225 = getelementptr inbounds nuw i8, ptr %219, i64 332
   %226 = load i64, ptr %225, align 4
   %227 = and i64 %226, 8796093022208
   %228 = icmp eq i64 %227, 0
-  br i1 %228, label %229, label %.critedge
+  br i1 %228, label %229, label %.critedge64
 
 229:                                              ; preds = %224
   %230 = getelementptr inbounds nuw i8, ptr %219, i64 177
   %231 = load i8, ptr %230, align 1
   %232 = icmp ugt i8 %231, 5
-  br i1 %232, label %.critedge64, label %233
+  br i1 %232, label %.critedge66, label %233
 
 233:                                              ; preds = %229
   %234 = and i64 %226, 140737488355328
   %235 = icmp eq i64 %234, 0
   %236 = icmp samesign ugt i8 %231, 3
   %237 = and i1 %235, %236
-  br i1 %237, label %238, label %.critedge
+  br i1 %237, label %238, label %.critedge64
 
 238:                                              ; preds = %233
   %239 = getelementptr inbounds nuw i8, ptr %219, i64 224
@@ -2217,37 +2217,37 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   %242 = load i8, ptr %241, align 1
   %243 = and i8 %242, 1
   %244 = icmp eq i8 %243, 0
-  br i1 %244, label %.critedge, label %.critedge64
+  br i1 %244, label %.critedge64, label %.critedge66
 
-.critedge64:                                      ; preds = %229, %238
+.critedge66:                                      ; preds = %229, %238
   %245 = call fastcc i32 @read_capacity_16(ptr noundef %14, ptr noundef %219, ptr noundef %26)
   switch i32 %245, label %246 [
     i32 -75, label %.thread72
     i32 -19, label %329
   ]
 
-246:                                              ; preds = %.critedge64
+246:                                              ; preds = %.critedge66
   %247 = icmp slt i32 %245, 0
-  br i1 %247, label %248, label %.thread69
+  br i1 %247, label %248, label %.thread70
 
 248:                                              ; preds = %246
   %249 = call fastcc i32 @read_capacity_10(ptr noundef %14, ptr noundef %219, ptr noundef %26)
   %250 = icmp slt i32 %249, 0
-  br i1 %250, label %329, label %.thread69
+  br i1 %250, label %329, label %.thread70
 
-.critedge:                                        ; preds = %218, %224, %233, %238
+.critedge64:                                      ; preds = %218, %224, %233, %238
   %251 = call fastcc i32 @read_capacity_10(ptr noundef %14, ptr noundef %219, ptr noundef %26)
   %252 = icmp eq i32 %251, -75
   br i1 %252, label %.thread72, label %253
 
-253:                                              ; preds = %.critedge
+253:                                              ; preds = %.critedge64
   %254 = icmp slt i32 %251, 0
   br i1 %254, label %329, label %255
 
 255:                                              ; preds = %253
   %256 = load i64, ptr %20, align 8
   %257 = icmp ugt i64 %256, 4294967295
-  br i1 %257, label %258, label %.thread69
+  br i1 %257, label %258, label %.thread70
 
 258:                                              ; preds = %255
   %259 = load ptr, ptr %16, align 8
@@ -2258,14 +2258,14 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.11, ptr noundef %261, ptr noundef %263, ptr noundef nonnull @.str.27) #19
   %264 = call fastcc i32 @read_capacity_16(ptr noundef %14, ptr noundef %219, ptr noundef %26)
   %265 = icmp sgt i32 %264, -1
-  br i1 %265, label %.thread70, label %269
+  br i1 %265, label %.thread71, label %269
 
-.thread70:                                        ; preds = %258
+.thread71:                                        ; preds = %258
   %266 = getelementptr inbounds nuw i8, ptr %219, i64 332
   %267 = load i64, ptr %266, align 4
   %268 = and i64 %267, -8796093022209
   store i64 %268, ptr %266, align 4
-  br label %.thread69
+  br label %.thread70
 
 269:                                              ; preds = %258
   %270 = load ptr, ptr %16, align 8
@@ -2276,19 +2276,19 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.11, ptr noundef %272, ptr noundef %274, ptr noundef nonnull @.str.28) #19
   br label %.sink.split
 
-.thread69:                                        ; preds = %246, %.thread70, %255, %248
-  %275 = phi i32 [ %249, %248 ], [ %251, %255 ], [ %264, %.thread70 ], [ %245, %246 ]
+.thread70:                                        ; preds = %246, %.thread71, %255, %248
+  %275 = phi i32 [ %249, %248 ], [ %251, %255 ], [ %264, %.thread71 ], [ %245, %246 ]
   %276 = getelementptr inbounds nuw i8, ptr %219, i64 332
   %277 = load i64, ptr %276, align 4
   %278 = and i64 %277, 137438953472
   %279 = icmp eq i64 %278, 0
-  br i1 %279, label %280, label %.thread69._crit_edge
+  br i1 %279, label %280, label %.thread70._crit_edge
 
-.thread69._crit_edge:                             ; preds = %.thread69
+.thread70._crit_edge:                             ; preds = %.thread70
   %.pre = load i64, ptr %20, align 8
   br label %287
 
-280:                                              ; preds = %.thread69
+280:                                              ; preds = %.thread70
   %281 = and i64 %277, 274877906944
   %282 = icmp eq i64 %281, 0
   br i1 %282, label %296, label %283
@@ -2299,8 +2299,8 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   %286 = icmp eq i64 %285, 0
   br i1 %286, label %296, label %287
 
-287:                                              ; preds = %.thread69._crit_edge, %283
-  %288 = phi i64 [ %.pre, %.thread69._crit_edge ], [ %284, %283 ]
+287:                                              ; preds = %.thread70._crit_edge, %283
+  %288 = phi i64 [ %.pre, %.thread70._crit_edge ], [ %284, %283 ]
   %289 = load ptr, ptr %16, align 8
   %290 = icmp eq ptr %289, null
   %291 = load ptr, ptr %14, align 8
@@ -2331,8 +2331,8 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.11, ptr noundef %302, ptr noundef %304, ptr noundef nonnull @.str.30) #19
   br label %.thread72
 
-.thread72:                                        ; preds = %.critedge, %.critedge64, %299, %296
-  %305 = phi i32 [ %297, %296 ], [ 512, %299 ], [ %245, %.critedge64 ], [ -75, %.critedge ]
+.thread72:                                        ; preds = %.critedge64, %.critedge66, %299, %296
+  %305 = phi i32 [ %297, %296 ], [ 512, %299 ], [ %245, %.critedge66 ], [ -75, %.critedge64 ]
   %306 = add nsw i32 %305, -512
   %307 = call i32 @llvm.fshl.i32(i32 %306, i32 %306, i32 23)
   switch i32 %307, label %308 [
@@ -2375,7 +2375,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   store i64 %328, ptr %326, align 4
   br label %329
 
-329:                                              ; preds = %325, %314, %253, %248, %.critedge64
+329:                                              ; preds = %325, %314, %253, %248, %.critedge66
   %330 = getelementptr inbounds nuw i8, ptr %15, i64 332
   %331 = load i64, ptr %330, align 4
   %332 = and i64 %331, 4194304
@@ -2415,7 +2415,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   %349 = load i64, ptr %330, align 4
   %350 = and i64 %349, 1073741824
   %351 = icmp eq i64 %350, 0
-  br i1 %351, label %352, label %.critedge66
+  br i1 %351, label %352, label %.critedge68
 
 352:                                              ; preds = %348
   %353 = getelementptr inbounds nuw i8, ptr %15, i64 177
@@ -2424,16 +2424,16 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   %356 = and i64 %349, 536870912
   %357 = icmp ne i64 %356, 0
   %.not62 = or i1 %357, %355
-  br i1 %.not62, label %651, label %.critedge66
+  br i1 %.not62, label %651, label %.critedge68
 
-.critedge66:                                      ; preds = %348, %352
+.critedge68:                                      ; preds = %348, %352
   %358 = getelementptr inbounds nuw i8, ptr %14, i64 823
   %359 = load i32, ptr %358, align 1
   %360 = and i32 %359, 64
   %361 = icmp eq i32 %360, 0
   br i1 %361, label %396, label %362
 
-362:                                              ; preds = %.critedge66
+362:                                              ; preds = %.critedge68
   call void @__rcu_read_lock() #19
   %363 = load ptr, ptr %14, align 8
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 304
@@ -2481,7 +2481,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   call void @__rcu_read_unlock() #19
   br label %396
 
-396:                                              ; preds = %395, %.critedge66
+396:                                              ; preds = %395, %.critedge68
   call void @__rcu_read_lock() #19
   %397 = load ptr, ptr %14, align 8
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 288
@@ -3867,7 +3867,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.11, ptr noundef %1264, ptr noundef %1266, ptr noundef nonnull @.str.71, i32 noundef %1267) #19
   br label %1268
 
-1268:                                             ; preds = %1261, %1256, %1228, %.thread
+1268:                                             ; preds = %1261, %1256, %1228, %.critedge
   %1269 = getelementptr inbounds nuw i8, ptr %14, i64 823
   %1270 = load i32, ptr %1269, align 1
   %1271 = and i32 %1270, 4

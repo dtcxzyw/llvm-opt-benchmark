@@ -554,7 +554,8 @@ define dso_local i32 @ata_internal_cmd_timeout(ptr noundef readonly captures(non
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = and i64 %7, 2147483647
-  %27 = getelementptr [2 x [8 x i32]], ptr %22, i64 0, i64 %25, i64 %26
+  %.split = getelementptr [2 x [8 x i32]], ptr %22, i64 0, i64 %25
+  %27 = getelementptr [8 x i32], ptr %.split, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr [8 x %struct.ata_eh_cmd_timeout_ent], ptr @ata_eh_cmd_timeout_table, i64 0, i64 %26, i32 1
   %30 = load ptr, ptr %29, align 8
@@ -612,7 +613,8 @@ define dso_local void @ata_internal_cmd_timed_out(ptr noundef readonly captures(
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = and i64 %7, 2147483647
-  %27 = getelementptr [2 x [8 x i32]], ptr %22, i64 0, i64 %25, i64 %26
+  %.split = getelementptr [2 x [8 x i32]], ptr %22, i64 0, i64 %25
+  %27 = getelementptr [8 x i32], ptr %.split, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr [8 x %struct.ata_eh_cmd_timeout_ent], ptr @ata_eh_cmd_timeout_table, i64 0, i64 %26, i32 1
   %30 = load ptr, ptr %29, align 8

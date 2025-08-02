@@ -887,24 +887,24 @@ dissect_ice_context.exit.thread74:                ; preds = %113
 
 .preheader.i:                                     ; preds = %113, %139
   %118 = phi i32 [ %134, %139 ], [ %.promoted, %113 ]
-  %.163.i = phi i32 [ %133, %139 ], [ %.0.i, %113 ]
-  %.05362.i = phi i32 [ %140, %139 ], [ 0, %113 ]
+  %.160.i = phi i32 [ %133, %139 ], [ %.0.i, %113 ]
+  %.05359.i = phi i32 [ %140, %139 ], [ 0, %113 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #3
   %119 = load i32, ptr @ett_icep_invocation_context, align 4
-  %120 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %.163.i, i32 noundef -1, i32 noundef %119, ptr noundef nonnull %11, ptr noundef nonnull @.str.43)
+  %120 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %.160.i, i32 noundef -1, i32 noundef %119, ptr noundef nonnull %11, ptr noundef nonnull @.str.43)
   %121 = load ptr, ptr %11, align 8
   %122 = load i32, ptr @hf_icep_invocation_key, align 4
-  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %120, ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef %.163.i, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %120, ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef %.160.i, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %123 = load i32, ptr %7, align 4
   %124 = icmp eq i32 %123, -1
   br i1 %124, label %dissect_ice_context.exit.thread, label %125
 
 125:                                              ; preds = %.preheader.i
-  %126 = add i32 %123, %.163.i
+  %126 = add i32 %123, %.160.i
   %127 = load ptr, ptr %11, align 8
   %128 = load i32, ptr @hf_icep_invocation_value, align 4
   call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %120, ptr noundef %127, i32 noundef %128, ptr noundef %0, i32 noundef %126, ptr noundef nonnull %9, ptr noundef nonnull %10)
@@ -926,6 +926,16 @@ dissect_ice_context.exit.thread74:                ; preds = %113
   call void @proto_item_set_len(ptr noundef nonnull %135, i32 noundef %138)
   br label %139
 
+139:                                              ; preds = %136, %131
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  %140 = add nuw i32 %.05359.i, 1
+  %exitcond.not.i = icmp eq i32 %140, %.054.i
+  br i1 %exitcond.not.i, label %dissect_ice_context.exit, label %.preheader.i, !llvm.loop !10
+
 dissect_ice_context.exit.thread:                  ; preds = %.preheader.i, %125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
@@ -933,16 +943,6 @@ dissect_ice_context.exit.thread:                  ; preds = %.preheader.i, %125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   br label %dissect_ice_facet.exit.thread
-
-139:                                              ; preds = %136, %131
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
-  %140 = add nuw i32 %.05362.i, 1
-  %exitcond.not.i = icmp eq i32 %140, %.054.i
-  br i1 %exitcond.not.i, label %dissect_ice_context.exit, label %.preheader.i, !llvm.loop !10
 
 dissect_ice_context.exit:                         ; preds = %139
   %141 = icmp eq i32 %134, -1

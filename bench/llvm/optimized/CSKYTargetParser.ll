@@ -1747,8 +1747,9 @@ define dso_local { ptr, i64 } @_ZN4llvm4CSKY13getDefaultCPUENS_9StringRefE(ptr %
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.i.us
   %.010.idx27.i.us = phi i64 [ %.010.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.i.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm4CSKYL9ARCHNamesE, i64 8), i64 %.010.idx27.i.us
-  %.sroa.4.0.copyload.i.us = load i64, ptr %gep, align 8, !tbaa !12
+  %.010.ptr.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm4CSKYL9ARCHNamesE, i64 %.010.idx27.i.us
+  %.sroa.4.0..010.ptr.sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.010.ptr.i.us, i64 8
+  %.sroa.4.0.copyload.i.us = load i64, ptr %.sroa.4.0..010.ptr.sroa_idx.i.us, align 8, !tbaa !12
   %.not.i.i.us = icmp eq i64 %.sroa.4.0.copyload.i.us, 0
   br i1 %.not.i.i.us, label %_ZN4llvm4CSKY9parseArchENS_9StringRefE.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.i.us
 
@@ -1842,8 +1843,9 @@ define dso_local noundef i32 @_ZN4llvm4CSKY12parseCPUArchENS_9StringRefE(ptr rea
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.us
   %.010.idx27.us = phi i64 [ %.010.add.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm4CSKYL8CPUNamesE, i64 8), i64 %.010.idx27.us
-  %.sroa.4.0.copyload.us = load i64, ptr %gep, align 8, !tbaa !12
+  %.010.ptr.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm4CSKYL8CPUNamesE, i64 %.010.idx27.us
+  %.sroa.4.0..010.ptr.sroa_idx.us = getelementptr inbounds nuw i8, ptr %.010.ptr.us, i64 8
+  %.sroa.4.0.copyload.us = load i64, ptr %.sroa.4.0..010.ptr.sroa_idx.us, align 8, !tbaa !12
   %.not.i.us = icmp eq i64 %.sroa.4.0.copyload.us, 0
   br i1 %.not.i.us, label %.thread.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.us
 
@@ -1891,9 +1893,10 @@ define dso_local noundef i64 @_ZN4llvm4CSKY12parseArchExtENS_9StringRefE(ptr rea
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us
   %.012.idx24.us = phi i64 [ %.012.add.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm4CSKYL16CSKYARCHExtNamesE, i64 8), i64 %.012.idx24.us
-  %4 = load i64, ptr %gep, align 8, !tbaa !106
-  %.not.i.us = icmp eq i64 %4, 0
+  %.012.ptr25.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm4CSKYL16CSKYARCHExtNamesE, i64 %.012.idx24.us
+  %4 = getelementptr inbounds nuw i8, ptr %.012.ptr25.us, i64 8
+  %5 = load i64, ptr %4, align 8, !tbaa !106
+  %.not.i.us = icmp eq i64 %5, 0
   br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.us:    ; preds = %.split.us
@@ -1904,22 +1907,22 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread18.us:    ; preds = %.split.us
 .split:                                           ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18
   %.012.idx24 = phi i64 [ %.012.add, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18 ], [ 0, %2 ]
   %.012.ptr25 = getelementptr inbounds nuw i8, ptr @_ZN4llvm4CSKYL16CSKYARCHExtNamesE, i64 %.012.idx24
-  %5 = getelementptr inbounds nuw i8, ptr %.012.ptr25, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !106
-  %.not.i = icmp eq i64 %.fr27, %6
+  %6 = getelementptr inbounds nuw i8, ptr %.012.ptr25, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !106
+  %.not.i = icmp eq i64 %.fr27, %7
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.split
-  %7 = load ptr, ptr %.012.ptr25, align 8, !tbaa !109
-  %bcmp.i = tail call i32 @bcmp(ptr %0, ptr %7, i64 %.fr27)
-  %8 = icmp eq i32 %bcmp.i, 0
-  br i1 %8, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18
+  %8 = load ptr, ptr %.012.ptr25, align 8, !tbaa !109
+  %bcmp.i = tail call i32 @bcmp(ptr %0, ptr %8, i64 %.fr27)
+  %9 = icmp eq i32 %bcmp.i, 0
+  br i1 %9, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %.split.us
-  %9 = phi i64 [ %.012.idx24.us, %.split.us ], [ %.012.idx24, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %10 = getelementptr inbounds nuw i8, ptr @_ZN4llvm4CSKYL16CSKYARCHExtNamesE, i64 %9
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !110
+  %10 = phi i64 [ %.012.idx24.us, %.split.us ], [ %.012.idx24, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN4llvm4CSKYL16CSKYARCHExtNamesE, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load i64, ptr %12, align 8, !tbaa !110
   br label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18:       ; preds = %.split, %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -1928,7 +1931,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread18:       ; preds = %.split, %_ZN4llvmeq
   br i1 %.not, label %.loopexit, label %.split
 
 .loopexit:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %spec.select = phi i64 [ %12, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18 ]
+  %spec.select = phi i64 [ %13, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.us ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18 ]
   ret i64 %spec.select
 }
 

@@ -213,7 +213,7 @@ list_length.exit.i:                               ; preds = %14, %6
   %20 = tail call ptr @palloc(i64 noundef %19) #6
   %21 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %list_length.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -221,33 +221,33 @@ list_length.exit.i:                               ; preds = %14, %6
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %25 = load i32, ptr %22, align 4
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph56.i, label %._crit_edge.i
+  br i1 %26, label %.lr.ph54.i, label %.critedge.i
 
-._crit_edge.i:                                    ; preds = %43, %.lr.ph.i, %list_length.exit.i
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %28 = load ptr, ptr %27, align 8
-  %.not46.i = icmp eq ptr %28, null
+.lr.ph54.i:                                       ; preds = %.lr.ph.i, %43
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %.lr.ph.i ]
+  %27 = load ptr, ptr %23, align 8
+  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv.i
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %24, align 8
+  %31 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %30, ptr @CurrentMemoryContext, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %33 = load ptr, ptr %32, align 8
+  %34 = call i64 %33(ptr noundef %29, ptr noundef %10, ptr noundef nonnull %2) #6
+  store ptr %31, ptr @CurrentMemoryContext, align 8
+  %35 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv.i
+  store i64 %34, ptr %35, align 8
+  %36 = load i8, ptr %2, align 1, !range !4, !noundef !5
+  %37 = trunc nuw i8 %36 to i1
+  br i1 %37, label %.split.i, label %43
+
+.critedge.i:                                      ; preds = %43, %.lr.ph.i, %list_length.exit.i
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %39 = load ptr, ptr %38, align 8
+  %.not46.i = icmp eq ptr %39, null
   br i1 %.not46.i, label %63, label %47
 
-.lr.ph56.i:                                       ; preds = %.lr.ph.i, %43
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %.lr.ph.i ]
-  %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv.i
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %24, align 8
-  %33 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %32, ptr @CurrentMemoryContext, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %36 = call i64 %35(ptr noundef %31, ptr noundef %10, ptr noundef nonnull %2) #6
-  store ptr %33, ptr @CurrentMemoryContext, align 8
-  %37 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv.i
-  store i64 %36, ptr %37, align 8
-  %38 = load i8, ptr %2, align 1, !range !4, !noundef !5
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %.split.i, label %43
-
-.split.i:                                         ; preds = %.lr.ph56.i
+.split.i:                                         ; preds = %.lr.ph54.i
   %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %40)
   %41 = call i32 @errcode(i32 noundef 403177602) #6
@@ -255,21 +255,21 @@ list_length.exit.i:                               ; preds = %14, %6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 244, ptr noundef nonnull @__func__.tablesample_init) #6
   unreachable
 
-43:                                               ; preds = %.lr.ph56.i
+43:                                               ; preds = %.lr.ph54.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = load i32, ptr %22, align 4
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next.i, %45
-  br i1 %46, label %.lr.ph56.i, label %._crit_edge.i
+  br i1 %46, label %.lr.ph54.i, label %.critedge.i
 
-47:                                               ; preds = %._crit_edge.i
+47:                                               ; preds = %.critedge.i
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %49, ptr @CurrentMemoryContext, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %52 = load ptr, ptr %51, align 8
-  %53 = call i64 %52(ptr noundef nonnull %28, ptr noundef %10, ptr noundef nonnull %2) #6
+  %53 = call i64 %52(ptr noundef nonnull %39, ptr noundef %10, ptr noundef nonnull %2) #6
   store ptr %50, ptr @CurrentMemoryContext, align 8
   %54 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %55 = trunc nuw i8 %54 to i1
@@ -288,7 +288,7 @@ list_length.exit.i:                               ; preds = %14, %6
   %62 = trunc i64 %61 to i32
   br label %66
 
-63:                                               ; preds = %._crit_edge.i
+63:                                               ; preds = %.critedge.i
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %65 = load i32, ptr %64, align 4
   br label %66
@@ -385,7 +385,7 @@ tablesample_init.exit:                            ; preds = %82, %100
   %123 = trunc nuw i8 %.pre.i to i1
   br i1 %123, label %140, label %124
 
-124:                                              ; preds = %.critedge.i, %.preheader.i
+124:                                              ; preds = %.critedge.i4, %.preheader.i
   %125 = load i32, ptr @CheckXidAlive, align 4
   %126 = icmp eq i32 %125, 0
   %127 = load i8, ptr @bsysscan, align 1, !range !4
@@ -440,9 +440,9 @@ table_scan_sample_next_tuple.exit.i:              ; preds = %140
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 360
   %152 = load ptr, ptr %151, align 8
   %153 = call zeroext i1 %152(ptr noundef nonnull %112, ptr noundef nonnull %0, ptr noundef %114) #6
-  br i1 %153, label %154, label %.critedge.i
+  br i1 %153, label %154, label %.critedge.i4
 
-.critedge.i:                                      ; preds = %table_scan_sample_next_tuple.exit.i
+.critedge.i4:                                     ; preds = %table_scan_sample_next_tuple.exit.i
   store i8 0, ptr %122, align 8
   br label %124
 

@@ -20,10 +20,10 @@ define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredA(ptr noundef readonly c
 
 .split.us.i.i:                                    ; preds = %22, %5
   %6 = phi i32 [ %29, %22 ], [ 0, %5 ]
-  %.063100.us.i.i = phi ptr [ %31, %22 ], [ %0, %5 ]
-  %.06999.us.i.i = phi i32 [ 1, %22 ], [ 0, %5 ]
-  %7 = load ptr, ptr %.063100.us.i.i, align 8, !tbaa !7
-  %8 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 8
+  %.06395.us.i.i = phi ptr [ %31, %22 ], [ %0, %5 ]
+  %.06994.us.i.i = phi i32 [ 1, %22 ], [ 0, %5 ]
+  %7 = load ptr, ptr %.06395.us.i.i, align 8, !tbaa !7
+  %8 = getelementptr inbounds nuw i8, ptr %.06395.us.i.i, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = icmp eq ptr %7, null
   br i1 %10, label %14, label %11
@@ -55,11 +55,11 @@ define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredA(ptr noundef readonly c
   %24 = mul nsw i32 %21, 6
   %25 = or disjoint i32 %24, 1
   %26 = select i1 %16, i32 0, i32 %25
-  %27 = add i32 %.06999.us.i.i, %6
+  %27 = add i32 %.06994.us.i.i, %6
   %28 = add i32 %27, %23
   %29 = add i32 %28, %26
   store i32 %29, ptr %1, align 4, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.06395.us.i.i, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !13
   %.not.us.i.i = icmp eq ptr %31, null
   br i1 %.not.us.i.i, label %uriComposeQueryCharsRequiredExA.exit, label %.split.us.i.i, !llvm.loop !14
@@ -88,10 +88,10 @@ define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExA(ptr noundef readonly
 
 .split.us.i:                                      ; preds = %27, %7
   %11 = phi i32 [ %34, %27 ], [ 0, %7 ]
-  %.063100.us.i = phi ptr [ %36, %27 ], [ %0, %7 ]
-  %.06999.us.i = phi i32 [ 1, %27 ], [ 0, %7 ]
-  %12 = load ptr, ptr %.063100.us.i, align 8, !tbaa !7
-  %13 = getelementptr inbounds nuw i8, ptr %.063100.us.i, i64 8
+  %.06395.us.i = phi ptr [ %36, %27 ], [ %0, %7 ]
+  %.06994.us.i = phi i32 [ 1, %27 ], [ 0, %7 ]
+  %12 = load ptr, ptr %.06395.us.i, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw i8, ptr %.06395.us.i, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = icmp eq ptr %12, null
   br i1 %15, label %19, label %16
@@ -121,13 +121,13 @@ define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExA(ptr noundef readonly
 27:                                               ; preds = %25
   %28 = mul nsw i32 %20, %9
   %29 = mul nsw i32 %26, %9
-  %30 = add nsw i32 %28, %.06999.us.i
+  %30 = add nsw i32 %28, %.06994.us.i
   %31 = add nsw i32 %29, 1
   %32 = select i1 %21, i32 0, i32 %31
   %33 = add nsw i32 %30, %32
   %34 = add nsw i32 %33, %11
   store i32 %34, ptr %1, align 4, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %.063100.us.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.06395.us.i, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !13
   %.not.us.i = icmp eq ptr %36, null
   br i1 %.not.us.i, label %uriComposeQueryEngineA.exit, label %.split.us.i, !llvm.loop !14
@@ -167,12 +167,12 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
   br label %.split.i
 
 .split.i:                                         ; preds = %61, %.split.preheader.i
-  %.063100.i = phi ptr [ %63, %61 ], [ %1, %.split.preheader.i ]
+  %.06395.i = phi ptr [ %63, %61 ], [ %1, %.split.preheader.i ]
   %17 = phi i1 [ false, %61 ], [ true, %.split.preheader.i ]
-  %.06999.i = phi i32 [ %.372.i, %61 ], [ 0, %.split.preheader.i ]
-  %.07398.i = phi ptr [ %.275.i, %61 ], [ %0, %.split.preheader.i ]
-  %18 = load ptr, ptr %.063100.i, align 8, !tbaa !7
-  %19 = getelementptr inbounds nuw i8, ptr %.063100.i, i64 8
+  %.06994.i = phi i32 [ %.372.i, %61 ], [ 0, %.split.preheader.i ]
+  %.07393.i = phi ptr [ %.275.i, %61 ], [ %0, %.split.preheader.i ]
+  %18 = load ptr, ptr %.06395.i, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw i8, ptr %.06395.i, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !12
   %21 = icmp eq ptr %18, null
   br i1 %21, label %25, label %22
@@ -202,8 +202,8 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
 33:                                               ; preds = %31
   %34 = mul nsw i32 %26, %12
   %35 = mul nsw i32 %32, %12
-  %36 = ptrtoint ptr %.07398.i to i64
-  %37 = zext nneg i32 %.06999.i to i64
+  %36 = ptrtoint ptr %.07393.i to i64
+  %37 = zext nneg i32 %.06994.i to i64
   %38 = sext i32 %34 to i64
   %39 = sub i64 %37, %14
   %40 = add i64 %39, %36
@@ -215,13 +215,13 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
   br i1 %17, label %46, label %44
 
 44:                                               ; preds = %43
-  store i8 38, ptr %.07398.i, align 1, !tbaa !17
-  %45 = getelementptr inbounds nuw i8, ptr %.07398.i, i64 1
+  store i8 38, ptr %.07393.i, align 1, !tbaa !17
+  %45 = getelementptr inbounds nuw i8, ptr %.07393.i, i64 1
   br label %46
 
 46:                                               ; preds = %44, %43
-  %.376.i = phi ptr [ %45, %44 ], [ %.07398.i, %43 ]
-  %.372.i = phi i32 [ %.06999.i, %44 ], [ 1, %43 ]
+  %.376.i = phi ptr [ %45, %44 ], [ %.07393.i, %43 ]
+  %.372.i = phi i32 [ %.06994.i, %44 ], [ 1, %43 ]
   %47 = sext i32 %26 to i64
   %48 = getelementptr inbounds i8, ptr %18, i64 %47
   %49 = tail call ptr @uriEscapeExA(ptr noundef %18, ptr noundef %48, ptr noundef %.376.i, i32 noundef %4, i32 noundef %5) #7
@@ -246,17 +246,17 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
 
 61:                                               ; preds = %56, %46
   %.275.i = phi ptr [ %60, %56 ], [ %49, %46 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.063100.i, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.06395.i, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !13
   %.not.i = icmp eq ptr %63, null
-  br i1 %.not.i, label %.split102.us.i, label %.split.i, !llvm.loop !18
+  br i1 %.not.i, label %.split97.us.i, label %.split.i, !llvm.loop !18
 
-.split102.us.i:                                   ; preds = %61
+.split97.us.i:                                    ; preds = %61
   store i8 0, ptr %.275.i, align 1, !tbaa !17
   %.not88.i = icmp eq ptr %3, null
   br i1 %.not88.i, label %uriComposeQueryEngineA.exit, label %64
 
-64:                                               ; preds = %.split102.us.i
+64:                                               ; preds = %.split97.us.i
   %65 = ptrtoint ptr %.275.i to i64
   %66 = sub i64 %65, %14
   %67 = trunc i64 %66 to i32
@@ -264,8 +264,8 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
   store i32 %68, ptr %3, align 4, !tbaa !3
   br label %uriComposeQueryEngineA.exit
 
-uriComposeQueryEngineA.exit:                      ; preds = %50, %33, %31, %64, %.split102.us.i, %9, %6
-  %.0 = phi i32 [ 2, %6 ], [ 4, %9 ], [ 0, %.split102.us.i ], [ 0, %64 ], [ 4, %31 ], [ 4, %33 ], [ 4, %50 ]
+uriComposeQueryEngineA.exit:                      ; preds = %50, %33, %31, %64, %.split97.us.i, %9, %6
+  %.0 = phi i32 [ 2, %6 ], [ 4, %9 ], [ 0, %.split97.us.i ], [ 0, %64 ], [ 4, %31 ], [ 4, %33 ], [ 4, %50 ]
   ret i32 %.0
 }
 
@@ -308,10 +308,10 @@ define range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef writeonly ca
 
 .split.us.i.i:                                    ; preds = %33, %13
   %17 = phi i32 [ %40, %33 ], [ 0, %13 ]
-  %.063100.us.i.i = phi ptr [ %42, %33 ], [ %1, %13 ]
-  %.06999.us.i.i = phi i32 [ 1, %33 ], [ 0, %13 ]
-  %18 = load ptr, ptr %.063100.us.i.i, align 8, !tbaa !7
-  %19 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 8
+  %.06395.us.i.i = phi ptr [ %42, %33 ], [ %1, %13 ]
+  %.06994.us.i.i = phi i32 [ 1, %33 ], [ 0, %13 ]
+  %18 = load ptr, ptr %.06395.us.i.i, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw i8, ptr %.06395.us.i.i, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !12
   %21 = icmp eq ptr %18, null
   br i1 %21, label %25, label %22
@@ -343,10 +343,10 @@ define range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef writeonly ca
   %35 = mul nsw i32 %32, %15
   %36 = add nsw i32 %35, 1
   %37 = select i1 %27, i32 0, i32 %36
-  %38 = add i32 %.06999.us.i.i, %17
+  %38 = add i32 %.06994.us.i.i, %17
   %39 = add i32 %38, %34
   %40 = add i32 %39, %37
-  %41 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.06395.us.i.i, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !13
   %.not.us.i.i = icmp eq ptr %42, null
   br i1 %.not.us.i.i, label %uriComposeQueryCharsRequiredExA.exit, label %.split.us.i.i, !llvm.loop !14
@@ -891,10 +891,10 @@ define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredW(ptr noundef readonly c
 
 .split.us.i.i:                                    ; preds = %22, %5
   %6 = phi i32 [ %29, %22 ], [ 0, %5 ]
-  %.063100.us.i.i = phi ptr [ %31, %22 ], [ %0, %5 ]
-  %.06999.us.i.i = phi i32 [ 1, %22 ], [ 0, %5 ]
-  %7 = load ptr, ptr %.063100.us.i.i, align 8, !tbaa !26
-  %8 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 8
+  %.06395.us.i.i = phi ptr [ %31, %22 ], [ %0, %5 ]
+  %.06994.us.i.i = phi i32 [ 1, %22 ], [ 0, %5 ]
+  %7 = load ptr, ptr %.06395.us.i.i, align 8, !tbaa !26
+  %8 = getelementptr inbounds nuw i8, ptr %.06395.us.i.i, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = icmp eq ptr %7, null
   br i1 %10, label %14, label %11
@@ -926,11 +926,11 @@ define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredW(ptr noundef readonly c
   %24 = mul nsw i32 %21, 6
   %25 = or disjoint i32 %24, 1
   %26 = select i1 %16, i32 0, i32 %25
-  %27 = add i32 %.06999.us.i.i, %6
+  %27 = add i32 %.06994.us.i.i, %6
   %28 = add i32 %27, %23
   %29 = add i32 %28, %26
   store i32 %29, ptr %1, align 4, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.06395.us.i.i, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !31
   %.not.us.i.i = icmp eq ptr %31, null
   br i1 %.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %.split.us.i.i, !llvm.loop !32
@@ -956,10 +956,10 @@ define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExW(ptr noundef readonly
 
 .split.us.i:                                      ; preds = %27, %7
   %11 = phi i32 [ %34, %27 ], [ 0, %7 ]
-  %.063100.us.i = phi ptr [ %36, %27 ], [ %0, %7 ]
-  %.06999.us.i = phi i32 [ 1, %27 ], [ 0, %7 ]
-  %12 = load ptr, ptr %.063100.us.i, align 8, !tbaa !26
-  %13 = getelementptr inbounds nuw i8, ptr %.063100.us.i, i64 8
+  %.06395.us.i = phi ptr [ %36, %27 ], [ %0, %7 ]
+  %.06994.us.i = phi i32 [ 1, %27 ], [ 0, %7 ]
+  %12 = load ptr, ptr %.06395.us.i, align 8, !tbaa !26
+  %13 = getelementptr inbounds nuw i8, ptr %.06395.us.i, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = icmp eq ptr %12, null
   br i1 %15, label %19, label %16
@@ -989,13 +989,13 @@ define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExW(ptr noundef readonly
 27:                                               ; preds = %25
   %28 = mul nsw i32 %20, %9
   %29 = mul nsw i32 %26, %9
-  %30 = add nsw i32 %28, %.06999.us.i
+  %30 = add nsw i32 %28, %.06994.us.i
   %31 = add nsw i32 %29, 1
   %32 = select i1 %21, i32 0, i32 %31
   %33 = add nsw i32 %30, %32
   %34 = add nsw i32 %33, %11
   store i32 %34, ptr %1, align 4, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %.063100.us.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.06395.us.i, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !31
   %.not.us.i = icmp eq ptr %36, null
   br i1 %.not.us.i, label %uriComposeQueryEngineW.exit, label %.split.us.i, !llvm.loop !32
@@ -1032,12 +1032,12 @@ define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef reado
   br label %.split.i
 
 .split.i:                                         ; preds = %64, %.split.preheader.i
-  %.063100.i = phi ptr [ %66, %64 ], [ %1, %.split.preheader.i ]
+  %.06395.i = phi ptr [ %66, %64 ], [ %1, %.split.preheader.i ]
   %17 = phi i1 [ false, %64 ], [ true, %.split.preheader.i ]
-  %.06999.i = phi i32 [ %.372.i, %64 ], [ 0, %.split.preheader.i ]
-  %.07398.i = phi ptr [ %.275.i, %64 ], [ %0, %.split.preheader.i ]
-  %18 = load ptr, ptr %.063100.i, align 8, !tbaa !26
-  %19 = getelementptr inbounds nuw i8, ptr %.063100.i, i64 8
+  %.06994.i = phi i32 [ %.372.i, %64 ], [ 0, %.split.preheader.i ]
+  %.07393.i = phi ptr [ %.275.i, %64 ], [ %0, %.split.preheader.i ]
+  %18 = load ptr, ptr %.06395.i, align 8, !tbaa !26
+  %19 = getelementptr inbounds nuw i8, ptr %.06395.i, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !30
   %21 = icmp eq ptr %18, null
   br i1 %21, label %25, label %22
@@ -1067,10 +1067,10 @@ define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef reado
 33:                                               ; preds = %31
   %34 = mul nsw i32 %26, %12
   %35 = mul nsw i32 %32, %12
-  %36 = ptrtoint ptr %.07398.i to i64
+  %36 = ptrtoint ptr %.07393.i to i64
   %37 = sub i64 %36, %14
   %38 = ashr exact i64 %37, 2
-  %39 = zext nneg i32 %.06999.i to i64
+  %39 = zext nneg i32 %.06994.i to i64
   %40 = add nsw i64 %38, %39
   %41 = sext i32 %34 to i64
   %42 = add nsw i64 %40, %41
@@ -1081,13 +1081,13 @@ define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef reado
   br i1 %17, label %47, label %45
 
 45:                                               ; preds = %44
-  store i32 38, ptr %.07398.i, align 4, !tbaa !3
-  %46 = getelementptr inbounds nuw i8, ptr %.07398.i, i64 4
+  store i32 38, ptr %.07393.i, align 4, !tbaa !3
+  %46 = getelementptr inbounds nuw i8, ptr %.07393.i, i64 4
   br label %47
 
 47:                                               ; preds = %45, %44
-  %.376.i = phi ptr [ %46, %45 ], [ %.07398.i, %44 ]
-  %.372.i = phi i32 [ %.06999.i, %45 ], [ 1, %44 ]
+  %.376.i = phi ptr [ %46, %45 ], [ %.07393.i, %44 ]
+  %.372.i = phi i32 [ %.06994.i, %45 ], [ 1, %44 ]
   %48 = sext i32 %26 to i64
   %49 = getelementptr inbounds i32, ptr %18, i64 %48
   %50 = tail call ptr @uriEscapeExW(ptr noundef %18, ptr noundef %49, ptr noundef %.376.i, i32 noundef %4, i32 noundef %5) #7
@@ -1113,17 +1113,17 @@ define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef reado
 
 64:                                               ; preds = %59, %47
   %.275.i = phi ptr [ %63, %59 ], [ %50, %47 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.063100.i, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.06395.i, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !31
   %.not.i = icmp eq ptr %66, null
-  br i1 %.not.i, label %.split102.us.i, label %.split.i, !llvm.loop !33
+  br i1 %.not.i, label %.split97.us.i, label %.split.i, !llvm.loop !33
 
-.split102.us.i:                                   ; preds = %64
+.split97.us.i:                                    ; preds = %64
   store i32 0, ptr %.275.i, align 4, !tbaa !3
   %.not88.i = icmp eq ptr %3, null
   br i1 %.not88.i, label %uriComposeQueryEngineW.exit, label %67
 
-67:                                               ; preds = %.split102.us.i
+67:                                               ; preds = %.split97.us.i
   %68 = ptrtoint ptr %.275.i to i64
   %69 = sub i64 %68, %14
   %70 = lshr exact i64 %69, 2
@@ -1132,8 +1132,8 @@ define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef reado
   store i32 %72, ptr %3, align 4, !tbaa !3
   br label %uriComposeQueryEngineW.exit
 
-uriComposeQueryEngineW.exit:                      ; preds = %51, %33, %31, %67, %.split102.us.i, %9, %6
-  %.0 = phi i32 [ 2, %6 ], [ 4, %9 ], [ 0, %.split102.us.i ], [ 0, %67 ], [ 4, %31 ], [ 4, %33 ], [ 4, %51 ]
+uriComposeQueryEngineW.exit:                      ; preds = %51, %33, %31, %67, %.split97.us.i, %9, %6
+  %.0 = phi i32 [ 2, %6 ], [ 4, %9 ], [ 0, %.split97.us.i ], [ 0, %67 ], [ 4, %31 ], [ 4, %33 ], [ 4, %51 ]
   ret i32 %.0
 }
 
@@ -1176,10 +1176,10 @@ define range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef writeonly ca
 
 .split.us.i.i:                                    ; preds = %33, %13
   %17 = phi i32 [ %40, %33 ], [ 0, %13 ]
-  %.063100.us.i.i = phi ptr [ %42, %33 ], [ %1, %13 ]
-  %.06999.us.i.i = phi i32 [ 1, %33 ], [ 0, %13 ]
-  %18 = load ptr, ptr %.063100.us.i.i, align 8, !tbaa !26
-  %19 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 8
+  %.06395.us.i.i = phi ptr [ %42, %33 ], [ %1, %13 ]
+  %.06994.us.i.i = phi i32 [ 1, %33 ], [ 0, %13 ]
+  %18 = load ptr, ptr %.06395.us.i.i, align 8, !tbaa !26
+  %19 = getelementptr inbounds nuw i8, ptr %.06395.us.i.i, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !30
   %21 = icmp eq ptr %18, null
   br i1 %21, label %25, label %22
@@ -1211,10 +1211,10 @@ define range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef writeonly ca
   %35 = mul nsw i32 %32, %15
   %36 = add nsw i32 %35, 1
   %37 = select i1 %27, i32 0, i32 %36
-  %38 = add i32 %.06999.us.i.i, %17
+  %38 = add i32 %.06994.us.i.i, %17
   %39 = add i32 %38, %34
   %40 = add i32 %39, %37
-  %41 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.06395.us.i.i, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %.not.us.i.i = icmp eq ptr %42, null
   br i1 %.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %.split.us.i.i, !llvm.loop !32

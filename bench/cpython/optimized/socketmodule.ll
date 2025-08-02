@@ -6745,7 +6745,7 @@ define internal range(i32 -1, 1) i32 @sock_initobj(ptr noundef %0, ptr noundef %
   %63 = icmp ne ptr %.0, null
   %64 = icmp ne ptr %.0, @_Py_NoneStruct
   %or.cond.i = and i1 %63, %64
-  br i1 %or.cond.i, label %65, label %107
+  br i1 %or.cond.i, label %65, label %108
 
 65:                                               ; preds = %62
   %66 = call i64 @PyLong_AsLong(ptr noundef nonnull %.0) #13
@@ -6799,7 +6799,7 @@ define internal range(i32 -1, 1) i32 @sock_initobj(ptr noundef %0, ptr noundef %
 86:                                               ; preds = %83, %83, %82
   %87 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
   %88 = call ptr @PyErr_SetFromErrno(ptr noundef %87) #13
-  br label %.thread79.i
+  br label %.critedge.i
 
 89:                                               ; preds = %83, %79, %78
   %.050.i = phi i32 [ %81, %79 ], [ %.042, %78 ], [ %.042, %83 ]
@@ -6825,12 +6825,12 @@ define internal range(i32 -1, 1) i32 @sock_initobj(ptr noundef %0, ptr noundef %
   %97 = call ptr @PyErr_SetFromErrno(ptr noundef %96) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
-  br label %.thread79.i
+  br label %.critedge.i
 
 98:                                               ; preds = %.thread77.i, %89
   %.157.i = phi i32 [ %.040, %89 ], [ %94, %.thread77.i ]
   %99 = icmp eq i32 %.039, -1
-  br i1 %99, label %100, label %.sink.split95.i
+  br i1 %99, label %100, label %107
 
 100:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
@@ -6838,158 +6838,156 @@ define internal range(i32 -1, 1) i32 @sock_initobj(ptr noundef %0, ptr noundef %
   store i32 4, ptr %10, align 4, !tbaa !35
   %101 = call i32 @getsockopt(i32 noundef %67, i32 noundef 1, i32 noundef 38, ptr noundef nonnull %9, ptr noundef nonnull %10) #13
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %.thread89.i, label %104
+  br i1 %102, label %.thread79.i, label %104
 
-.thread89.i:                                      ; preds = %100
+.thread79.i:                                      ; preds = %100
   %103 = load i32, ptr %9, align 4, !tbaa !35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
-  br label %.sink.split95.i
-
-.thread79.i:                                      ; preds = %95, %86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #13
-  br label %sock_initobj_impl.exit
+  br label %107
 
 104:                                              ; preds = %100
   %105 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
   %106 = call ptr @PyErr_SetFromErrno(ptr noundef %105) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  br label %.critedge.i
+
+107:                                              ; preds = %.thread79.i, %98
+  %.060.i = phi i32 [ %.039, %98 ], [ %103, %.thread79.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #13
-  br label %sock_initobj_impl.exit
+  br label %137
 
-107:                                              ; preds = %62
-  %108 = icmp eq i32 %.042, -1
-  %spec.store.select.i = select i1 %108, i32 2, i32 %.042
-  %109 = icmp eq i32 %.040, -1
-  %spec.store.select5.i = select i1 %109, i32 1, i32 %.040
-  %110 = icmp eq i32 %.039, -1
-  %spec.store.select4.i = select i1 %110, i32 0, i32 %.039
-  %111 = call ptr @PyEval_SaveThread() #13
-  %112 = load atomic i32, ptr @sock_cloexec_works monotonic, align 4
-  %.not.i = icmp eq i32 %112, 0
-  br i1 %.not.i, label %.sink.split.i, label %113
+108:                                              ; preds = %62
+  %109 = icmp eq i32 %.042, -1
+  %spec.store.select.i = select i1 %109, i32 2, i32 %.042
+  %110 = icmp eq i32 %.040, -1
+  %spec.store.select5.i = select i1 %110, i32 1, i32 %.040
+  %111 = icmp eq i32 %.039, -1
+  %spec.store.select4.i = select i1 %111, i32 0, i32 %.039
+  %112 = call ptr @PyEval_SaveThread() #13
+  %113 = load atomic i32, ptr @sock_cloexec_works monotonic, align 4
+  %.not.i = icmp eq i32 %113, 0
+  br i1 %.not.i, label %.sink.split.i, label %114
 
-113:                                              ; preds = %107
-  %114 = or i32 %spec.store.select5.i, 524288
-  %115 = call i32 @socket(i32 noundef %spec.store.select.i, i32 noundef %114, i32 noundef %spec.store.select4.i) #13
-  %116 = load atomic i32, ptr @sock_cloexec_works monotonic, align 4
-  %117 = icmp eq i32 %116, -1
-  br i1 %117, label %118, label %126
+114:                                              ; preds = %108
+  %115 = or i32 %spec.store.select5.i, 524288
+  %116 = call i32 @socket(i32 noundef %spec.store.select.i, i32 noundef %115, i32 noundef %spec.store.select4.i) #13
+  %117 = load atomic i32, ptr @sock_cloexec_works monotonic, align 4
+  %118 = icmp eq i32 %117, -1
+  br i1 %118, label %119, label %127
 
-118:                                              ; preds = %113
-  %119 = icmp sgt i32 %115, -1
-  br i1 %119, label %.thread91.i, label %120
+119:                                              ; preds = %114
+  %120 = icmp sgt i32 %116, -1
+  br i1 %120, label %.thread81.i, label %121
 
-.thread91.i:                                      ; preds = %118
+.thread81.i:                                      ; preds = %119
   store atomic i32 1, ptr @sock_cloexec_works monotonic, align 4
-  call void @PyEval_RestoreThread(ptr noundef %111) #13
-  br label %131
+  call void @PyEval_RestoreThread(ptr noundef %112) #13
+  br label %132
 
-120:                                              ; preds = %118
-  %121 = tail call ptr @__errno_location() #14
-  %122 = load i32, ptr %121, align 4, !tbaa !35
-  %123 = icmp eq i32 %122, 22
-  br i1 %123, label %124, label %126
+121:                                              ; preds = %119
+  %122 = tail call ptr @__errno_location() #14
+  %123 = load i32, ptr %122, align 4, !tbaa !35
+  %124 = icmp eq i32 %123, 22
+  br i1 %124, label %125, label %127
 
-124:                                              ; preds = %120
+125:                                              ; preds = %121
   store atomic i32 0, ptr @sock_cloexec_works monotonic, align 4
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %124, %107
-  %125 = call i32 @socket(i32 noundef %spec.store.select.i, i32 noundef %spec.store.select5.i, i32 noundef %spec.store.select4.i) #13
-  br label %126
+.sink.split.i:                                    ; preds = %125, %108
+  %126 = call i32 @socket(i32 noundef %spec.store.select.i, i32 noundef %spec.store.select5.i, i32 noundef %spec.store.select4.i) #13
+  br label %127
 
-126:                                              ; preds = %.sink.split.i, %120, %113
-  %.165.i = phi i32 [ %115, %120 ], [ %115, %113 ], [ %125, %.sink.split.i ]
-  call void @PyEval_RestoreThread(ptr noundef %111) #13
-  %127 = icmp eq i32 %.165.i, -1
-  br i1 %127, label %128, label %131
+127:                                              ; preds = %.sink.split.i, %121, %114
+  %.165.i = phi i32 [ %116, %121 ], [ %116, %114 ], [ %126, %.sink.split.i ]
+  call void @PyEval_RestoreThread(ptr noundef %112) #13
+  %128 = icmp eq i32 %.165.i, -1
+  br i1 %128, label %129, label %132
 
-128:                                              ; preds = %126
-  %129 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
-  %130 = call ptr @PyErr_SetFromErrno(ptr noundef %129) #13
+129:                                              ; preds = %127
+  %130 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
+  %131 = call ptr @PyErr_SetFromErrno(ptr noundef %130) #13
   br label %sock_initobj_impl.exit
 
-131:                                              ; preds = %126, %.thread91.i
-  %.16593.i = phi i32 [ %115, %.thread91.i ], [ %.165.i, %126 ]
-  %132 = call i32 @_Py_set_inheritable(i32 noundef %.16593.i, i32 noundef 0, ptr noundef nonnull @sock_cloexec_works) #13
-  %133 = icmp slt i32 %132, 0
-  br i1 %133, label %134, label %136
+132:                                              ; preds = %127, %.thread81.i
+  %.16583.i = phi i32 [ %116, %.thread81.i ], [ %.165.i, %127 ]
+  %133 = call i32 @_Py_set_inheritable(i32 noundef %.16583.i, i32 noundef 0, ptr noundef nonnull @sock_cloexec_works) #13
+  %134 = icmp slt i32 %133, 0
+  br i1 %134, label %135, label %137
 
-134:                                              ; preds = %131
-  %135 = call i32 @close(i32 noundef %.16593.i) #13
+135:                                              ; preds = %132
+  %136 = call i32 @close(i32 noundef %.16583.i) #13
   br label %sock_initobj_impl.exit
 
-.sink.split95.i:                                  ; preds = %.thread89.i, %98
-  %.363.ph.i = phi i32 [ %103, %.thread89.i ], [ %.039, %98 ]
+137:                                              ; preds = %132, %107
+  %.064.i = phi i32 [ %67, %107 ], [ %.16583.i, %132 ]
+  %.363.i = phi i32 [ %.060.i, %107 ], [ %spec.store.select4.i, %132 ]
+  %.359.i = phi i32 [ %.157.i, %107 ], [ %spec.store.select5.i, %132 ]
+  %.252.i = phi i32 [ %.050.i, %107 ], [ %spec.store.select.i, %132 ]
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.064.i, ptr %138, align 8, !tbaa !85
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.252.i, ptr %139, align 4, !tbaa !88
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %141 = and i32 %.359.i, -526337
+  store i32 %141, ptr %140, align 8, !tbaa !89
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %.363.i, ptr %142, align 4, !tbaa !90
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr @set_error, ptr %143, align 8, !tbaa !91
+  %144 = and i32 %.359.i, 2048
+  %.not.i.i = icmp eq i32 %144, 0
+  br i1 %.not.i.i, label %147, label %145
+
+145:                                              ; preds = %137
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 0, ptr %146, align 8, !tbaa !92
+  br label %init_sockobject.exit.i
+
+147:                                              ; preds = %137
+  %148 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
+  %149 = load atomic i64, ptr %148 monotonic, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %149, ptr %150, align 8, !tbaa !92
+  %151 = icmp sgt i64 %149, -1
+  br i1 %151, label %152, label %init_sockobject.exit.i
+
+152:                                              ; preds = %147
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  %153 = call ptr @PyEval_SaveThread() #13
+  store i32 1, ptr %4, align 4, !tbaa !35
+  %.val.i.i.i = load i32, ptr %138, align 8, !tbaa !85
+  %154 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.val.i.i.i, i64 noundef 21537, ptr noundef nonnull %4) #13
+  %.not4.i.i.i = icmp eq i32 %154, -1
+  call void @PyEval_RestoreThread(ptr noundef %153) #13
+  br i1 %.not4.i.i.i, label %156, label %internal_setblocking.exit.i.i
+
+internal_setblocking.exit.i.i:                    ; preds = %152
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  br label %init_sockobject.exit.i
+
+init_sockobject.exit.i:                           ; preds = %internal_setblocking.exit.i.i, %147, %145
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %.val.i.i, ptr %155, align 8, !tbaa !93
+  br label %sock_initobj_impl.exit
+
+156:                                              ; preds = %152
+  %157 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
+  %158 = call ptr @PyErr_SetFromErrno(ptr noundef %157) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  %159 = call i32 @close(i32 noundef %.064.i) #13
+  br label %sock_initobj_impl.exit
+
+.critedge.i:                                      ; preds = %104, %95, %86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #13
-  br label %136
-
-136:                                              ; preds = %.sink.split95.i, %131
-  %.064.i = phi i32 [ %.16593.i, %131 ], [ %67, %.sink.split95.i ]
-  %.363.i = phi i32 [ %spec.store.select4.i, %131 ], [ %.363.ph.i, %.sink.split95.i ]
-  %.359.i = phi i32 [ %spec.store.select5.i, %131 ], [ %.157.i, %.sink.split95.i ]
-  %.252.i = phi i32 [ %spec.store.select.i, %131 ], [ %.050.i, %.sink.split95.i ]
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.064.i, ptr %137, align 8, !tbaa !85
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.252.i, ptr %138, align 4, !tbaa !88
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %140 = and i32 %.359.i, -526337
-  store i32 %140, ptr %139, align 8, !tbaa !89
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.363.i, ptr %141, align 4, !tbaa !90
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @set_error, ptr %142, align 8, !tbaa !91
-  %143 = and i32 %.359.i, 2048
-  %.not.i.i = icmp eq i32 %143, 0
-  br i1 %.not.i.i, label %146, label %144
-
-144:                                              ; preds = %136
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 0, ptr %145, align 8, !tbaa !92
-  br label %init_sockobject.exit.i
-
-146:                                              ; preds = %136
-  %147 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
-  %148 = load atomic i64, ptr %147 monotonic, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %148, ptr %149, align 8, !tbaa !92
-  %150 = icmp sgt i64 %148, -1
-  br i1 %150, label %151, label %init_sockobject.exit.i
-
-151:                                              ; preds = %146
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %152 = call ptr @PyEval_SaveThread() #13
-  store i32 1, ptr %4, align 4, !tbaa !35
-  %.val.i.i.i = load i32, ptr %137, align 8, !tbaa !85
-  %153 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.val.i.i.i, i64 noundef 21537, ptr noundef nonnull %4) #13
-  %.not4.i.i.i = icmp eq i32 %153, -1
-  call void @PyEval_RestoreThread(ptr noundef %152) #13
-  br i1 %.not4.i.i.i, label %155, label %internal_setblocking.exit.i.i
-
-internal_setblocking.exit.i.i:                    ; preds = %151
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %init_sockobject.exit.i
-
-init_sockobject.exit.i:                           ; preds = %internal_setblocking.exit.i.i, %146, %144
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.val.i.i, ptr %154, align 8, !tbaa !93
   br label %sock_initobj_impl.exit
 
-155:                                              ; preds = %151
-  %156 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !19
-  %157 = call ptr @PyErr_SetFromErrno(ptr noundef %156) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %158 = call i32 @close(i32 noundef %.064.i) #13
-  br label %sock_initobj_impl.exit
-
-sock_initobj_impl.exit:                           ; preds = %155, %init_sockobject.exit.i, %134, %128, %104, %.thread79.i, %.thread.i, %69, %56, %50, %40, %30, %19
-  %.046 = phi i32 [ -1, %30 ], [ -1, %40 ], [ -1, %50 ], [ -1, %19 ], [ -1, %.thread.i ], [ -1, %155 ], [ -1, %104 ], [ -1, %128 ], [ -1, %134 ], [ -1, %56 ], [ -1, %69 ], [ 0, %init_sockobject.exit.i ], [ -1, %.thread79.i ]
+sock_initobj_impl.exit:                           ; preds = %.critedge.i, %156, %init_sockobject.exit.i, %135, %129, %.thread.i, %69, %56, %50, %40, %30, %19
+  %.046 = phi i32 [ -1, %30 ], [ -1, %40 ], [ -1, %50 ], [ -1, %19 ], [ -1, %.thread.i ], [ -1, %156 ], [ -1, %129 ], [ -1, %135 ], [ -1, %56 ], [ -1, %69 ], [ -1, %.critedge.i ], [ 0, %init_sockobject.exit.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
   ret i32 %.046
 }
@@ -8491,11 +8489,7 @@ define internal ptr @sock_setsockopt(ptr noundef readonly captures(none) %0, ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
   %14 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.624, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %9) #13
   %.not18.not = icmp eq i32 %14, 0
-  br i1 %.not18.not, label %.thread, label %15
-
-.thread:                                          ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  br label %52
+  br i1 %.not18.not, label %.critedge, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr i8, ptr %0, i64 16
@@ -8565,8 +8559,12 @@ define internal ptr @sock_setsockopt(ptr noundef readonly captures(none) %0, ptr
   %51 = call ptr %50() #13
   br label %52
 
-52:                                               ; preds = %.thread, %46, %35, %48
-  %.115 = phi ptr [ %51, %48 ], [ null, %35 ], [ @_Py_NoneStruct, %46 ], [ null, %.thread ]
+.critedge:                                        ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  br label %52
+
+52:                                               ; preds = %46, %35, %.critedge, %48
+  %.115 = phi ptr [ %51, %48 ], [ null, %.critedge ], [ null, %35 ], [ @_Py_NoneStruct, %46 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13

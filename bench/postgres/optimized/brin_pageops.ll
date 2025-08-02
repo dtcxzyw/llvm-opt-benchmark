@@ -1356,7 +1356,6 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %22 = add nuw nsw i32 %21, 262120
   %23 = lshr i32 %22, 2
   %24 = trunc i32 %23 to i16
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 6
   %.not4043 = icmp eq i16 %24, 0
   %.not40 = select i1 %20, i1 true, i1 %.not4043
   br i1 %.not40, label %._crit_edge, label %.lr.ph
@@ -1367,7 +1366,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br label %27
 
 27:                                               ; preds = %.lr.ph, %select.unfold
-  %.03141 = phi i16 [ 1, %.lr.ph ], [ %50, %select.unfold ]
+  %.03141 = phi i16 [ 1, %.lr.ph ], [ %52, %select.unfold ]
   %28 = load volatile i32, ptr @InterruptPending, align 4
   %.not32 = icmp eq i32 %28, 0
   br i1 %.not32, label %30, label %29, !prof !6
@@ -1401,15 +1400,16 @@ BufferGetPage.exit:                               ; preds = %7, %13
   call void @LockBuffer(i32 noundef %3, i32 noundef 1) #5
   %46 = load i16, ptr %26, align 4
   %47 = zext i16 %46 to i64
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %47
-  %48 = load i16, ptr %gep, align 2
-  %49 = icmp eq i16 %48, -3949
-  br i1 %49, label %select.unfold, label %._crit_edge
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 6
+  %50 = load i16, ptr %49, align 2
+  %51 = icmp eq i16 %50, -3949
+  br i1 %51, label %select.unfold, label %._crit_edge
 
 select.unfold:                                    ; preds = %36, %30
   %.3.ph = phi i16 [ %.03141, %30 ], [ %spec.select, %36 ]
-  %50 = add i16 %.3.ph, 1
-  %.not = icmp ugt i16 %50, %24
+  %52 = add i16 %.3.ph, 1
+  %.not = icmp ugt i16 %52, %24
   br i1 %.not, label %._crit_edge, label %27, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %select.unfold, %36, %BufferGetPage.exit

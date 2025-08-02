@@ -2331,17 +2331,17 @@ define range(i32 0, -2147483648) i32 @ECDSA_size(ptr noundef %0) local_unnamed_a
   %2 = alloca i64, align 8
   %3 = alloca %struct.wpacket_st, align 8
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %23, label %5
+  br i1 %4, label %24, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @EC_KEY_get0_group(ptr noundef nonnull %0) #8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %23, label %8
+  br i1 %7, label %24, label %8
 
 8:                                                ; preds = %5
   %9 = tail call ptr @EC_GROUP_get0_order(ptr noundef nonnull %6) #8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %23, label %11
+  br i1 %10, label %24, label %11
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
@@ -2373,17 +2373,17 @@ define range(i32 0, -2147483648) i32 @ECDSA_size(ptr noundef %0) local_unnamed_a
 20:                                               ; preds = %17
   %21 = load i64, ptr %2, align 8, !tbaa !82
   %22 = trunc i64 %21 to i32
+  %23 = call i32 @llvm.smax.i32(i32 %22, i32 0)
   br label %i2d_ECDSA_SIG.exit
 
 i2d_ECDSA_SIG.exit:                               ; preds = %11, %19, %20
-  %.015.i = phi i32 [ %22, %20 ], [ -1, %19 ], [ -1, %11 ]
+  %.015.i = phi i32 [ %23, %20 ], [ 0, %19 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %.015.i, i32 0)
-  br label %23
+  br label %24
 
-23:                                               ; preds = %8, %5, %1, %i2d_ECDSA_SIG.exit
-  %.0 = phi i32 [ %spec.store.select, %i2d_ECDSA_SIG.exit ], [ 0, %1 ], [ 0, %5 ], [ 0, %8 ]
+24:                                               ; preds = %8, %5, %1, %i2d_ECDSA_SIG.exit
+  %.0 = phi i32 [ %.015.i, %i2d_ECDSA_SIG.exit ], [ 0, %1 ], [ 0, %5 ], [ 0, %8 ]
   ret i32 %.0
 }
 

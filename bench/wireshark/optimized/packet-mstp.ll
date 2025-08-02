@@ -403,7 +403,7 @@ cobs_frame_decode.exit:                           ; preds = %calc_data_crc32.exi
   %152 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %149)
   %153 = zext i16 %152 to i32
   %154 = tail call ptr @proto_tree_add_checksum(ptr noundef %3, ptr noundef %0, i32 noundef %149, i32 noundef %150, i32 noundef %151, ptr noundef nonnull @ei_mstp_frame_checksum_bad, ptr noundef %1, i32 noundef %153, i32 noundef 0, i32 noundef 1)
-  br label %209
+  br label %210
 
 cobs_frame_decode.exit.thread:                    ; preds = %111, %.lr.ph38.i34.i, %cobs_decode.exit52.i, %64, %cobs_frame_decode.exit
   %155 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %25, i32 noundef %27)
@@ -412,10 +412,10 @@ cobs_frame_decode.exit.thread:                    ; preds = %111, %.lr.ph38.i34.
   %158 = load i32, ptr @hf_mstp_frame_crc16, align 4
   %159 = load i32, ptr @hf_mstp_frame_checksum_status, align 4
   %160 = tail call ptr @proto_tree_add_checksum(ptr noundef %3, ptr noundef %0, i32 noundef %157, i32 noundef %158, i32 noundef %159, ptr noundef nonnull @ei_mstp_frame_checksum_bad, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  br label %209
+  br label %210
 
 161:                                              ; preds = %57
-  br i1 %28, label %162, label %209
+  br i1 %28, label %162, label %210
 
 162:                                              ; preds = %161
   %163 = trunc i32 %26 to i16
@@ -487,19 +487,19 @@ cobs_frame_decode.exit.thread:                    ; preds = %111, %.lr.ph38.i34.
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %203 = xor i16 %202, -1
+  %204 = tail call i16 @llvm.bswap.i16(i16 %203)
+  %205 = zext i16 %204 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %186
-  %.0131.lcssa = phi i16 [ 0, %186 ], [ %203, %._crit_edge.loopexit ]
-  %rev = tail call i16 @llvm.bswap.i16(i16 %.0131.lcssa)
-  %204 = add i32 %25, %187
-  %205 = load i32, ptr @hf_mstp_frame_crc16, align 4
-  %206 = load i32, ptr @hf_mstp_frame_checksum_status, align 4
-  %207 = zext i16 %rev to i32
-  %208 = tail call ptr @proto_tree_add_checksum(ptr noundef %3, ptr noundef %0, i32 noundef %204, i32 noundef %205, i32 noundef %206, ptr noundef nonnull @ei_mstp_frame_checksum_bad, ptr noundef %1, i32 noundef %207, i32 noundef 0, i32 noundef 1)
-  br label %209
+  %.0131.lcssa = phi i32 [ 0, %186 ], [ %205, %._crit_edge.loopexit ]
+  %206 = add i32 %25, %187
+  %207 = load i32, ptr @hf_mstp_frame_crc16, align 4
+  %208 = load i32, ptr @hf_mstp_frame_checksum_status, align 4
+  %209 = tail call ptr @proto_tree_add_checksum(ptr noundef %3, ptr noundef %0, i32 noundef %206, i32 noundef %207, i32 noundef %208, ptr noundef nonnull @ei_mstp_frame_checksum_bad, ptr noundef %1, i32 noundef %.0131.lcssa, i32 noundef 0, i32 noundef 1)
+  br label %210
 
-209:                                              ; preds = %148, %cobs_frame_decode.exit.thread, %161, %._crit_edge
+210:                                              ; preds = %148, %cobs_frame_decode.exit.thread, %161, %._crit_edge
   ret void
 }
 

@@ -750,7 +750,7 @@ define hidden void @_ZN3fmt3v1113buffered_fileC2ENS0_18basic_cstring_viewIcEES3_
   %4 = alloca %"struct.fmt::v11::detail::format_arg_store", align 16
   br label %5
 
-5:                                                ; preds = %13, %3
+5:                                                ; preds = %.backedge, %3
   %6 = load i32, ptr @_ZN12_GLOBAL__N_111fopen_countE, align 4, !tbaa !10
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZN4test5fopenEPKcS1_.exit, label %7
@@ -765,7 +765,7 @@ _ZN4test5fopenEPKcS1_.exit.thread:                ; preds = %7
   %9 = tail call ptr @__errno_location() #28
   store i32 4, ptr %9, align 4, !tbaa !10
   store ptr null, ptr %0, align 8, !tbaa !4
-  br label %13
+  br label %.backedge
 
 _ZN4test5fopenEPKcS1_.exit:                       ; preds = %5, %7
   %10 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef readonly %2)
@@ -777,30 +777,28 @@ _ZN4test5fopenEPKcS1_.exit._crit_edge:            ; preds = %_ZN4test5fopenEPKcS
   %.pre = tail call ptr @__errno_location() #28
   %.pr = load i32, ptr %.pre, align 4, !tbaa !10
   %12 = icmp eq i32 %.pr, 4
-  br label %13
+  br i1 %12, label %.backedge, label %13
 
-13:                                               ; preds = %_ZN4test5fopenEPKcS1_.exit._crit_edge, %_ZN4test5fopenEPKcS1_.exit.thread
-  %14 = phi i1 [ %12, %_ZN4test5fopenEPKcS1_.exit._crit_edge ], [ true, %_ZN4test5fopenEPKcS1_.exit.thread ]
-  %.pre-phi = phi ptr [ %.pre, %_ZN4test5fopenEPKcS1_.exit._crit_edge ], [ %9, %_ZN4test5fopenEPKcS1_.exit.thread ]
-  br i1 %14, label %5, label %15, !llvm.loop !12
+.backedge:                                        ; preds = %_ZN4test5fopenEPKcS1_.exit._crit_edge, %_ZN4test5fopenEPKcS1_.exit.thread
+  br label %5, !llvm.loop !12
 
-15:                                               ; preds = %13
-  %16 = tail call ptr @__cxa_allocate_exception(i64 32) #29
-  %17 = load i32, ptr %.pre-phi, align 4, !tbaa !10
+13:                                               ; preds = %_ZN4test5fopenEPKcS1_.exit._crit_edge
+  %14 = tail call ptr @__cxa_allocate_exception(i64 32) #29
+  %15 = load i32, ptr %.pre, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29, !noalias !14
   store ptr %1, ptr %4, align 16, !tbaa !17, !noalias !14
-  invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %16, i32 noundef %17, ptr nonnull @.str.109, i64 19, i64 12, ptr nonnull %4)
-          to label %19 unwind label %.thread17
+  invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %14, i32 noundef %15, ptr nonnull @.str.109, i64 19, i64 12, ptr nonnull %4)
+          to label %17 unwind label %.thread17
 
-.thread17:                                        ; preds = %15
-  %18 = landingpad { ptr, i32 }
+.thread17:                                        ; preds = %13
+  %16 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #29
-  resume { ptr, i32 } %18
+  call void @__cxa_free_exception(ptr %14) #29
+  resume { ptr, i32 } %16
 
-19:                                               ; preds = %15
+17:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29, !noalias !14
-  call void @__cxa_throw(ptr %16, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #31
+  call void @__cxa_throw(ptr %14, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #31
   unreachable
 
 .critedge:                                        ; preds = %_ZN4test5fopenEPKcS1_.exit
@@ -1511,7 +1509,7 @@ define hidden void @_ZN3fmt3v114file4dup2Ei(ptr noundef nonnull readonly align 4
   %3 = alloca %"struct.fmt::v11::detail::format_arg_store.101", align 16
   br label %4
 
-4:                                                ; preds = %13, %2
+4:                                                ; preds = %.backedge, %2
   %5 = load i32, ptr %0, align 4, !tbaa !24
   %6 = load i32, ptr @_ZN12_GLOBAL__N_110dup2_countE, align 4, !tbaa !10
   %.not.i = icmp eq i32 %6, 0
@@ -1526,7 +1524,7 @@ define hidden void @_ZN3fmt3v114file4dup2Ei(ptr noundef nonnull readonly align 4
 _ZN4test4dup2Eii.exit.thread:                     ; preds = %7
   %9 = tail call ptr @__errno_location() #28
   store i32 4, ptr %9, align 4, !tbaa !10
-  br label %13
+  br label %.backedge
 
 _ZN4test4dup2Eii.exit:                            ; preds = %4, %7
   %10 = tail call i32 @dup2(i32 noundef %5, i32 noundef %1) #29
@@ -1537,34 +1535,32 @@ _ZN4test4dup2Eii.exit._crit_edge:                 ; preds = %_ZN4test4dup2Eii.ex
   %.pre = tail call ptr @__errno_location() #28
   %.pr = load i32, ptr %.pre, align 4, !tbaa !10
   %12 = icmp eq i32 %.pr, 4
-  br label %13
+  br i1 %12, label %.backedge, label %13
 
-13:                                               ; preds = %_ZN4test4dup2Eii.exit._crit_edge, %_ZN4test4dup2Eii.exit.thread
-  %14 = phi i1 [ %12, %_ZN4test4dup2Eii.exit._crit_edge ], [ true, %_ZN4test4dup2Eii.exit.thread ]
-  %.pre-phi = phi ptr [ %.pre, %_ZN4test4dup2Eii.exit._crit_edge ], [ %9, %_ZN4test4dup2Eii.exit.thread ]
-  br i1 %14, label %4, label %15, !llvm.loop !51
+.backedge:                                        ; preds = %_ZN4test4dup2Eii.exit._crit_edge, %_ZN4test4dup2Eii.exit.thread
+  br label %4, !llvm.loop !51
 
-15:                                               ; preds = %13
-  %16 = tail call ptr @__cxa_allocate_exception(i64 32) #29
-  %17 = load i32, ptr %.pre-phi, align 4, !tbaa !10
+13:                                               ; preds = %_ZN4test4dup2Eii.exit._crit_edge
+  %14 = tail call ptr @__cxa_allocate_exception(i64 32) #29
+  %15 = load i32, ptr %.pre, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #29, !noalias !52
-  %18 = load i32, ptr %0, align 4, !tbaa !10, !noalias !52
-  store i32 %18, ptr %3, align 16, !tbaa !17, !noalias !52
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %1, ptr %19, align 16, !tbaa !17, !noalias !52
-  invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %16, i32 noundef %17, ptr nonnull @.str.113, i64 41, i64 17, ptr nonnull %3)
-          to label %20 unwind label %21
+  %16 = load i32, ptr %0, align 4, !tbaa !10, !noalias !52
+  store i32 %16, ptr %3, align 16, !tbaa !17, !noalias !52
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %1, ptr %17, align 16, !tbaa !17, !noalias !52
+  invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %14, i32 noundef %15, ptr nonnull @.str.113, i64 41, i64 17, ptr nonnull %3)
+          to label %18 unwind label %19
 
-20:                                               ; preds = %15
+18:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #29, !noalias !52
-  call void @__cxa_throw(ptr %16, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #31
+  call void @__cxa_throw(ptr %14, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #31
   unreachable
 
-21:                                               ; preds = %15
-  %22 = landingpad { ptr, i32 }
+19:                                               ; preds = %13
+  %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %16) #29
-  resume { ptr, i32 } %22
+  call void @__cxa_free_exception(ptr %14) #29
+  resume { ptr, i32 } %20
 
 .critedge5:                                       ; preds = %_ZN4test4dup2Eii.exit
   ret void
